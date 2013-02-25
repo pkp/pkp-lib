@@ -205,6 +205,15 @@ class PKPAuthorGridHandler extends GridHandler {
 	}
 
 	/**
+	 * Fetches the application-specific submission id field name, for forms.
+	 * Should be overridden by subclasses.
+	 * @return string
+	 */
+	function getSubmissionFieldIdName() {
+		fatalError('abstract method');
+	}
+
+	/**
 	 * @see GridHandler::loadData
 	 */
 	function loadData($request, $filter = null) {
@@ -244,7 +253,7 @@ class PKPAuthorGridHandler extends GridHandler {
 
 		// Form handling
 		import('lib.pkp.controllers.grid.users.author.form.AuthorForm');
-		$authorForm = new AuthorForm($submission, $author);
+		$authorForm = new AuthorForm($submission, $author, $this->getSubmissionFieldIdName());
 		$authorForm->initData();
 
 		$json = new JSONMessage(true, $authorForm->fetch($request));
@@ -267,7 +276,7 @@ class PKPAuthorGridHandler extends GridHandler {
 
 		// Form handling
 		import('lib.pkp.controllers.grid.users.author.form.AuthorForm');
-		$authorForm = new AuthorForm($submission, $author);
+		$authorForm = new AuthorForm($submission, $author, $this->getSubmissionFieldIdName());
 		$authorForm->readInputData();
 		if ($authorForm->validate()) {
 			$authorId = $authorForm->execute();
@@ -350,7 +359,7 @@ class PKPAuthorGridHandler extends GridHandler {
 			$json = new JSONMessage(false, __('grid.user.cannotAdminister'));
 		} else {
 			// Form handling.
-			import('controllers.grid.settings.user.form.UserDetailsForm');
+			import('lib.pkp.controllers.grid.settings.user.form.UserDetailsForm');
 			$userForm = new UserDetailsForm($request, null, $author);
 			$userForm->initData($args, $request);
 

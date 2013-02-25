@@ -21,13 +21,17 @@ class AuthorForm extends Form {
 	/** Author the author being edited **/
 	var $_author;
 
+	/** The type of submission Id **/
+	var $_submissionIdFieldName;
+
 	/**
 	 * Constructor.
 	 */
-	function AuthorForm($submission, $author) {
+	function AuthorForm($submission, $author, $submissionIdFieldName) {
 		parent::Form('controllers/grid/users/author/form/authorForm.tpl');
 		$this->setSubmission($submission);
 		$this->setAuthor($author);
+		$this->setSubmissionIdFieldName($submissionIdFieldName);
 
 		// Validation checks for this form
 		$this->addCheck(new FormValidator($this, 'firstName', 'required', 'submission.submit.form.authorRequiredFields'));
@@ -71,6 +75,22 @@ class AuthorForm extends Form {
 	 */
 	function setSubmission($submission) {
 		$this->_submission =& $submission;
+	}
+
+	/**
+	 * Get the Submission Id field name
+	 * @return String
+	 */
+	function getSubmissionIdFieldName() {
+		return $this->_submissionIdFieldName;
+	}
+
+	/**
+	 * Set the Submission Id field name
+	 * @param String
+	 */
+	function setSubmissionIdFieldName($submissionIdFieldName) {
+		$this->_submissionIdFieldName =& $submissionIdFieldName;
 	}
 
 
@@ -122,6 +142,7 @@ class AuthorForm extends Form {
 		$templateMgr->assign_by_ref('authorUserGroups', $authorUserGroups);
 
 		$submission =& $this->getSubmission();
+		$templateMgr->assign('submissionIdFieldName', $this->getSubmissionIdFieldName());
 		$templateMgr->assign('submissionId', $submission->getId());
 
 		return parent::fetch($request);

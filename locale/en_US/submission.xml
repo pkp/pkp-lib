@@ -412,6 +412,9 @@
 	<message key="submission.nameRequired">A name is required for this item.</message>
 	<message key="submission.date.mmdd">MM-DD</message>
 	<message key="submission.date.yyyymmdd">YYYY-MM-DD</message>
+	<message key="submission.submit.selectPrincipalContact">Principal contact for editorial correspondence.</message>
+	<message key="submission.submit.contributorRole">Contributor's role</message>
+	<message key="submission.submit.addAuthor">Add Contributor</message>
 
 	<!-- Submission file upload form elements -->
 	<message key="submission.form.name">Give this file a helpful name</message>

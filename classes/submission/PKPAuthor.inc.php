@@ -90,6 +90,17 @@ class PKPAuthor extends PKPIdentity {
 	function setSequence($sequence) {
 		return $this->setData('sequence', $sequence);
 	}
+
+	/**
+	 * Get a localized version of the User Group
+	 * @return string
+	 */
+	function getLocalizedUserGroupName() {
+		//FIXME: should this be queried when fetching Author from DB? - see #5231.
+		$userGroupDao =& DAORegistry::getDAO('UserGroupDAO');
+		$userGroup =& $userGroupDao->getById($this->getUserGroupId());
+		return $userGroup->getLocalizedName();
+	}
 }
 
 ?>

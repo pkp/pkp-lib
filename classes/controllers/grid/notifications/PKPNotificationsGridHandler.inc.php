@@ -48,6 +48,7 @@ class PKPNotificationsGridHandler extends GridHandler {
 	 */
 	function initialize(&$request, $args = null) {
 		parent::initialize($request);
+		AppLocale::requireComponents(LOCALE_COMPONENT_APP_SUBMISSION);
 
 		$cellProvider = $this->_getCellProvider();
 		$this->addColumn(

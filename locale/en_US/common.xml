@@ -428,4 +428,7 @@
 	<message key="context.path">Path</message>
 	<message key="review.ensuringBlindReview">Ensuring a Blind Review</message>
 	<message key="grid.action.showReviewPolicy">Read the current review policy</message>
+
+	<message key="dashboard.tasks">Tasks</message>
+	<message key="dashboard.submissions">Submissions</message>
 </locale>

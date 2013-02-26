@@ -1,12 +1,12 @@
 <?php
 
 /**
- * @file controllers/grid/notifications/NotificationsGridHandler.inc.php
+ * @file classes/controllers/grid/notifications/PKPNotificationsGridHandler.inc.php
  *
  * Copyright (c) 2003-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class NotificationsGridHandler
+ * @class PKPNotificationsGridHandler
  * @ingroup controllers_grid_notifications
  *
  * @brief Handle the display of notifications for a given user
@@ -15,20 +15,12 @@
 // Import UI base classes.
 import('lib.pkp.classes.controllers.grid.GridHandler');
 
-// Grid-specific classes.
-import('lib.pkp.controllers.grid.notifications.NotificationsGridCellProvider');
-
-class NotificationsGridHandler extends GridHandler {
+class PKPNotificationsGridHandler extends GridHandler {
 	/**
 	 * Constructor
 	 */
-	function NotificationsGridHandler() {
+	function PKPNotificationsGridHandler() {
 		parent::GridHandler();
-
-		$this->addRoleAssignment(
-			array(ROLE_ID_MANAGER, ROLE_ID_SERIES_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR, ROLE_ID_REVIEWER),
-			array('fetchGrid')
-		);
 	}
 
 
@@ -57,7 +49,7 @@ class NotificationsGridHandler extends GridHandler {
 	function initialize(&$request, $args = null) {
 		parent::initialize($request);
 
-		$cellProvider = new NotificationsGridCellProvider();
+		$cellProvider = $this->_getCellProvider();
 		$this->addColumn(
 			new GridColumn(
 				'task',
@@ -122,6 +114,17 @@ class NotificationsGridHandler extends GridHandler {
 	 */
 	function _getNotListableTaskTypes() {
 		return array(NOTIFICATION_TYPE_SIGNOFF_COPYEDIT, NOTIFICATION_TYPE_SIGNOFF_PROOF);
+	}
+
+	//
+	// Abstract methods
+	//
+	/**
+	 * Get the implementation of the cell provider for this grid.
+	 */
+	function _getCellProvider() {
+		assert(false);
+		// return new NotificationsGridCellProvider();
 	}
 }
 

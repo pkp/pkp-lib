@@ -49,7 +49,7 @@
 			pageAnchor = pageUrl.split('#')[1];
 			tabAnchors = $tabs.find('li a');
 			for (i = 0; i < tabAnchors.length; i++) {
-				pattern = new RegExp('[/=]' + pageAnchor + '$');
+				pattern = new RegExp('[/=]' + pageAnchor + '([?]|$)');
 				if (tabAnchors[i].getAttribute('href').match(pattern)) {
 					options.selected = i;
 				}

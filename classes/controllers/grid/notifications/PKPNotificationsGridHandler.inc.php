@@ -64,7 +64,7 @@ class PKPNotificationsGridHandler extends GridHandler {
 		$this->addColumn(
 			new GridColumn(
 				'title',
-				'monograph.title',
+				'submission.title',
 				null,
 				'controllers/grid/gridCell.tpl',
 				$cellProvider,

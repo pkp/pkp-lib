@@ -94,7 +94,7 @@ class ManageFooterGridHandler extends CategoryGridHandler {
 	function initialize(&$request) {
 		parent::initialize($request);
 
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER);
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_MANAGER);
 
 		// Basic grid configuration
 		$this->setTitle('grid.content.navigation.footer');

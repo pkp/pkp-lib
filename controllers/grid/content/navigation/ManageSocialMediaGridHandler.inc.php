@@ -90,6 +90,7 @@ class ManageSocialMediaGridHandler extends GridHandler {
 		// Load submission-specific translations
 		AppLocale::requireComponents(
 			LOCALE_COMPONENT_PKP_USER,
+			LOCALE_COMPONENT_PKP_MANAGER,
 			LOCALE_COMPONENT_APP_DEFAULT,
 			LOCALE_COMPONENT_PKP_DEFAULT
 		);

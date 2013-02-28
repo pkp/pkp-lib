@@ -24,7 +24,9 @@
 			<li>{null_link_action id="toggleHelp" key="help.toggleInlineHelpOn"}</li>
 			<li><a href="{url page="login" op="signOut"}">{translate key="user.logOut"}</a></li>
 		{elseif !$notInstalled}
-			<li><a disabled="disabled" href="{url page="user" op="register"}">{translate key="navigation.register"}</a></li>
+			{if !$hideRegisterLink}
+				<li><a disabled="disabled" href="{url page="user" op="register"}">{translate key="navigation.register"}</a></li>
+			{/if}
 			<li><a disabled="disabled" href="{url page="login"}">{translate key="navigation.login"}</a></li>
 		{/if}
 	</ul>

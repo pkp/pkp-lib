@@ -370,4 +370,11 @@
 	<message key="grid.content.navigation.socialMedia.includeInCatalog">Use this for each published item in the catalog?</message>
 	<message key="grid.content.navigation.socialMedia.inCatalog">Used In Catalog</message>
 	<message key="grid.action.addMedia">Add a new Social Media type</message>
+
+	<message key="notification.addedFooterCategory">Category added.</message>
+	<message key="notification.editedFooterCategory">Category edited.</message>
+	<message key="notification.removedFooterCategory">Category removed.</message>
+	<message key="notification.addedSocialMedia">Social Media Network added.</message>
+	<message key="notification.editedSocialMedia">Social Media Network edited.</message>
+	<message key="notification.removedSocialMedia">Social Media Network removed.</message>
 </locale>

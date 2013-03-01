@@ -83,4 +83,9 @@
 	<message key="admin.version.updateAvailable">An updated version is available</message>
 	<message key="admin.version.upToDate">Your system is up-to-date</message>
 	<message key="admin.version">Version</message>
+	
+	<message key="admin.fileLoader.wrongBasePathLocation">Base path {$path} must be inside the public files directory.</message>
+	<message key="admin.fileLoader.pathNotAccessible">Folder {$path} is not a directory or is not readable.</message>
+	<message key="admin.fileLoader.moveFileFailed">File {$filename} could not be moved from {$currentFilePath} to {$destinationPath}</message>
+	<message key="admin.fileLoader.emailSubject">File loader process ID {$processId}</message>
 </locale>

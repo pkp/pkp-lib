@@ -16,11 +16,11 @@
 	{assign var="imageClass" value="sprite"}
 {/if}
 <a href="javascript:$.noop();" id="{$buttonId|escape}"{strip}
-	{if $action->getImage()}
+	{/strip}{if $action->getImage()}{strip}
 		{/strip} class="{$imageClass} {$action->getImage()|escape} pkp_controllers_linkAction"{strip}
 		{/strip} title="{$action->getHoverTitle()|escape}">{if $hoverTitle}&nbsp;{else}{$action->getTitle()|escape}{/if}{strip}
-	{else}
+	{/strip}{else}{strip}
 		{/strip} class="pkp_controllers_linkAction"{strip}
 		{/strip} title="{$action->getHoverTitle()|escape}">{if !$hoverTitle}{$action->getTitle()|escape}{/if}{strip}
-	{/if}
+	{/strip}{/if}{strip}
 {/strip}</a>

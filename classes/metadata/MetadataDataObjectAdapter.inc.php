@@ -22,7 +22,13 @@
 import('lib.pkp.classes.filter.PersistableFilter');
 import('lib.pkp.classes.metadata.MetadataDescription');
 
+define('METADATA_DOA_INJECTION_MODE', 0x01);
+define('METADATA_DOA_EXTRACTION_MODE', 0x02);
+
 class MetadataDataObjectAdapter extends PersistableFilter {
+	/** @var integer */
+	var $_mode;
+
 	/** @var MetadataSchema */
 	var $_metadataSchema;
 
@@ -45,7 +51,7 @@ class MetadataDataObjectAdapter extends PersistableFilter {
 	 * Constructor
 	 * @param $filterGroup FilterGroup
 	 */
-	function MetadataDataObjectAdapter($filterGroup) {
+	function MetadataDataObjectAdapter($filterGroup, $mode = null) {
 		// Initialize the adapter.
 		parent::PersistableFilter($filterGroup);
 
@@ -57,7 +63,16 @@ class MetadataDataObjectAdapter extends PersistableFilter {
 		$dataObjectTypeDescription = null; /* @var $dataObjectTypeDescription ClassTypeDescription */
 		$inputType =& $this->getInputType();
 		$outputType =& $this->getOutputType();
-		if (is_a($inputType, 'MetadataTypeDescription')) {
+		if (is_null($mode)) {
+			if (is_a($inputType, 'MetadataTypeDescription')) {
+				$mode = METADATA_DOA_INJECTION_MODE;
+			} else {
+				$mode = METADATA_DOA_EXTRACTION_MODE;
+			}
+		}
+		$this->_mode = $mode;
+
+		if ($mode == METADATA_DOA_INJECTION_MODE) {
 			// We are in meta-data injection mode (or both input and output are meta-data descriptions).
 			$metadataTypeDescription =& $inputType; /* @var $metadataTypeDescription MetadataTypeDescription */
 			assert(is_a($outputType, 'ClassTypeDescription'));
@@ -76,7 +91,7 @@ class MetadataDataObjectAdapter extends PersistableFilter {
 		$this->_dataObjectName = $dataObjectTypeDescription->getTypeName();
 
 		// Set the display name.
-		if (is_a($inputType, 'MetadataTypeDescription')) {
+		if ($mode == METADATA_DOA_INJECTION_MODE) {
 			$this->setDisplayName('Inject metadata into a(n) '.$this->getDataObjectClass());
 		} else {
 			$this->setDisplayName('Extract metadata from a(n) '.$this->getDataObjectClass());
@@ -86,6 +101,14 @@ class MetadataDataObjectAdapter extends PersistableFilter {
 	//
 	// Getters and setters
 	//
+	/**
+	 * One of the METADATA_DOA_*_MODE constants.
+	 * @return integer
+	 */
+	function getMode() {
+		return $this->_mode;
+	}
+
 	/**
 	 * Get the fully qualified class name of
 	 * the supported meta-data schema.
@@ -224,8 +247,8 @@ class MetadataDataObjectAdapter extends PersistableFilter {
 	 */
 	function &process(&$input) {
 		// Do we inject or extract metadata?
-		switch (true) {
-			case is_a($input, 'MetadataDescription'):
+		switch ($this->getMode()) {
+			case METADATA_DOA_INJECTION_MODE:
 				$targetDataObject =& $this->getTargetDataObject();
 
 				// Instantiate a new data object if none was given.
@@ -238,7 +261,7 @@ class MetadataDataObjectAdapter extends PersistableFilter {
 				$output =& $this->injectMetadataIntoDataObject($input, $targetDataObject);
 				break;
 
-			case is_a($input, $this->getDataObjectClass()):
+			case METADATA_DOA_EXTRACTION_MODE:
 				$output =& $this->extractMetadataFromDataObject($input);
 				break;
 

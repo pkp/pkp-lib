@@ -27,12 +27,12 @@ class PKPDc11Schema extends MetadataSchema {
 	 * Constructor
 	 * @param $appSpecificAssocType integer
 	 */
-	function PKPDc11Schema($appSpecificAssocType) {
+	function PKPDc11Schema($appSpecificAssocType, $classname = 'plugins.metadata.dc11.schema.Dc11Schema') {
 		// Configure the meta-data schema.
 		parent::MetadataSchema(
 			'dc-1.1',
 			'dc',
-			'plugins.metadata.dc11.schema.Dc11Schema',
+			$classname,
 			$appSpecificAssocType
 		);
 

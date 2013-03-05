@@ -22,12 +22,12 @@ class MetadataDescriptionDummyAdapter extends MetadataDataObjectAdapter {
 	 *
 	 * @param $metadataDescription MetadataDescription
 	 */
-	function MetadataDescriptionDummyAdapter(&$metadataDescription) {
+	function MetadataDescriptionDummyAdapter(&$metadataDescription, $mode = null) {
 		$this->setDisplayName('Inject/Extract Metadata into/from a MetadataDescription');
 
 		// Configure the adapter
 		$inputType = $outputType = 'metadata::'.$metadataDescription->getMetadataSchemaName().'(*)';
-		parent::MetadataDataObjectAdapter(PersistableFilter::tempGroup($inputType, $outputType));
+		parent::MetadataDataObjectAdapter(PersistableFilter::tempGroup($inputType, $outputType), $mode);
 		$this->_assocType = $metadataDescription->getAssocType();
 	}
 

@@ -57,7 +57,9 @@ class PKPTemplateManager extends Smarty {
 	function PKPTemplateManager($request = null) {
 		if (!isset($request)) {
 			$request =& Registry::get('request');
-			if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated call without request object.');
+			// Disabled as it makes too much noise as long as
+			// there are so many handlers that don't pass in the request.
+			// if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated call without request object.');
 		}
 		assert(is_a($request, 'PKPRequest'));
 		$this->request = $request;

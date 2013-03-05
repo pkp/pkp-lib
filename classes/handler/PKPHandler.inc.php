@@ -263,7 +263,7 @@ class PKPHandler {
 	 * @return array
 	 */
 	function getLoginExemptions() {
-		return array('user', 'login', 'help');
+		return array('user', 'login', 'help', 'payment');
 	}
 
 	/**

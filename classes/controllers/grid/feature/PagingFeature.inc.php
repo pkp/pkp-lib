@@ -105,7 +105,7 @@ class PagingFeature extends GridFeature{
 	 */
 	function setGridDataElements($args) {
 		$grid = $args['grid'];
-		$data =& $args['data'];
+		$data = $args['data'];
 
 		if (is_array($data)) {
 			import('lib.pkp.classes.core.ArrayItemIterator');

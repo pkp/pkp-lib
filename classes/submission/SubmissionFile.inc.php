@@ -14,6 +14,25 @@
 
 import('lib.pkp.classes.file.PKPFile');
 
+// Define the file stage identifiers.
+define('SUBMISSION_FILE_PUBLIC', 1);
+define('SUBMISSION_FILE_SUBMISSION', 2);
+define('SUBMISSION_FILE_NOTE', 3);
+define('SUBMISSION_FILE_REVIEW_FILE', 4);
+define('SUBMISSION_FILE_REVIEW_ATTACHMENT', 5);
+//	SUBMISSION_FILE_REVIEW_REVISION defined below (FIXME: re-order before release)
+define('SUBMISSION_FILE_FINAL', 6);
+define('SUBMISSION_FILE_FAIR_COPY', 7);
+define('SUBMISSION_FILE_EDITOR', 8);
+define('SUBMISSION_FILE_COPYEDIT', 9);
+define('SUBMISSION_FILE_PROOF', 10);
+define('SUBMISSION_FILE_PRODUCTION_READY', 11);
+define('SUBMISSION_FILE_LAYOUT', 12);
+define('SUBMISSION_FILE_ATTACHMENT', 13);
+define('SUBMISSION_FILE_SIGNOFF', 14);
+define('SUBMISSION_FILE_REVIEW_REVISION', 15);
+define('SUBMISSION_FILE_SUPP', 16);
+
 class SubmissionFile extends PKPFile {
 	/**
 	 * Constructor.
@@ -227,6 +246,34 @@ class SubmissionFile extends PKPFile {
 		return $this->SetData('viewable', $viewable);
 	}
 
+	// Private helper methods.
+	/**
+	 * Return path associated with a file stage code.
+	 * @param $fileStage string
+	 * @return string
+	 */
+	function _fileStageToPath($fileStage) {
+		static $fileStageToPath = array(
+				SUBMISSION_FILE_PUBLIC => 'public',
+				SUBMISSION_FILE_SUBMISSION => 'submission',
+				SUBMISSION_FILE_NOTE => 'note',
+				SUBMISSION_FILE_REVIEW_FILE => 'submission/review',
+				SUBMISSION_FILE_REVIEW_ATTACHMENT => 'submission/review/attachment',
+				SUBMISSION_FILE_REVIEW_REVISION => 'submission/review/revision',
+				SUBMISSION_FILE_FINAL => 'submission/final',
+				SUBMISSION_FILE_FAIR_COPY => 'submission/fairCopy',
+				SUBMISSION_FILE_EDITOR => 'submission/editor',
+				SUBMISSION_FILE_COPYEDIT => 'submission/copyedit',
+				SUBMISSION_FILE_PROOF => 'submission/proof',
+				SUBMISSION_FILE_PRODUCTION_READY => 'submission/productionReady',
+				SUBMISSION_FILE_LAYOUT => 'submission/layout',
+				SUBMISSION_FILE_ATTACHMENT => 'attachment',
+				SUBMISSION_FILE_SIGNOFF => 'submission/signoff',
+		);
+
+		assert(isset($fileStageToPath[$fileStage]));
+		return $fileStageToPath[$fileStage];
+	}
 
 	//
 	// Public methods

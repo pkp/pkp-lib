@@ -182,7 +182,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @param $submissionId int
 	 * @param $stageId int
 	 * @param $round int
-	 * @param $fileStage int (optional) A MONOGRAPH_FILE_* constant
+	 * @param $fileStage int (optional) A SUBMISSION_FILE_* constant
 	 * @return array A list of MonographFiles.
 	 */
 	function &getLatestNewRevisionsByReviewRound($submissionId, $stageId, $round, $fileStage = null) {

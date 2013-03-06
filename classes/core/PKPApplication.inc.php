@@ -544,6 +544,13 @@ class PKPApplication {
 	static function getContextDAO() {
 		assert(false); // Must be implemented by subclasses
 	}
+
+	/**
+	 * Get the submission DAO.
+	 */
+	static function getSubmissionDAO() {
+		assert(false); // Must be implemented by subclasses
+	}
 }
 
 /**

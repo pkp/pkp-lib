@@ -25,6 +25,22 @@ class Submission extends DataObject {
 	}
 
 	/**
+	 * Get the context ID for this submission.
+	 * @return int
+	 */
+	function getContextId() {
+		assert(false); // Must be overridden by subclasses
+	}
+
+	/**
+	 * Set the context ID for this submission.
+	 * @param $contextId int
+	 */
+	function setContextId($contextId) {
+		assert(false); // Must be overridden by subclasses
+	}
+
+	/**
 	 * Returns the association type of this submission
 	 * @return integer one of the ASSOC_TYPE_* constants
 	 */

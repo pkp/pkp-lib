@@ -26,7 +26,7 @@ define('ROLE_PATH_AUTHOR',		'author');
 define('ROLE_ID_REVIEWER',		0x00001000);
 define('ROLE_PATH_REVIEWER',		'reviewer');
 
-define('ROLE_ID_ASSISTANT',	0x00001001);
+define('ROLE_ID_ASSISTANT',		0x00001001);
 
 define('ROLE_ID_READER',		0x00100000);
 define('ROLE_PATH_READER',		'reader');

@@ -27,7 +27,7 @@ class UnassignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 	function UnassignedSubmissionsListGridHandler() {
 		parent::SubmissionsListGridHandler();
 		$this->addRoleAssignment(
-			array(ROLE_ID_MANAGER, ROLE_ID_SERIES_EDITOR),
+			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR),
 			array('fetchGrid', 'fetchRow', 'deleteSubmission')
 		);
 	}
@@ -59,8 +59,8 @@ class UnassignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 	function getSubmissions($request, $userId) {
 		$submissionDao = Application::getSubmissionDAO(); /* @var $submissionDao SubmissionDAO */
 
-		// Determine whether this is a Series Editor or Manager.
-		// Managers can access all submissions, Series Editors
+		// Determine whether this is a Sub Editor or Manager.
+		// Managers can access all submissions, Sub Editors
 		// only assigned submissions.
 		$user = $request->getUser();
 
@@ -73,9 +73,9 @@ class UnassignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 		$accessibleSubmissions = array();
 		while ($context = $contexts->next()) {
 			$isManager = $roleDao->userHasRole($context->getId(), $userId, ROLE_ID_MANAGER);
-			$isSeriesEditor = $roleDao->userHasRole($context->getId(), $userId, ROLE_ID_SERIES_EDITOR);
+			$isSubEditor = $roleDao->userHasRole($context->getId(), $userId, ROLE_ID_SUB_EDITOR);
 
-			if (!$isManager && !$isSeriesEditor) {
+			if (!$isManager && !$isSubEditor) {
 				continue;
 			}
 

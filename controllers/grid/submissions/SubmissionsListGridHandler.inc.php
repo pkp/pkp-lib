@@ -69,15 +69,15 @@ class SubmissionsListGridHandler extends GridHandler {
 		$authorizedRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
 		$this->_isManager = in_array(ROLE_ID_MANAGER, $authorizedRoles);
 
-		// If there is more than one press in the system, add a press column
-		$pressDao = DAORegistry::getDAO('PressDAO');
-		$presses = $pressDao->getAll();
+		// If there is more than one context in the system, add a context column
+		$contextDao = Application::getContextDAO();
+		$contexts = $contextDao->getAll();
 		$cellProvider = new SubmissionsListGridCellProvider($authorizedRoles);
-		if($presses->getCount() > 1) {
+		if($contexts->getCount() > 1) {
 			$this->addColumn(
 				new GridColumn(
 					'context',
-					'press.press',
+					'context.context',
 					null,
 					'controllers/grid/gridCell.tpl',
 					$cellProvider
@@ -88,7 +88,7 @@ class SubmissionsListGridHandler extends GridHandler {
 		$this->addColumn(
 			new GridColumn(
 				'author',
-				'monograph.authors',
+				'submission.authors',
 				null,
 				'controllers/grid/gridCell.tpl',
 				$cellProvider
@@ -162,7 +162,7 @@ class SubmissionsListGridHandler extends GridHandler {
 	 * Return a list of submissions.
 	 * @param $request Request
 	 * @param $userId integer
-	 * @param $pressId integer
+	 * @param $contextId integer
 	 * @return array a list of submission objects
 	 */
 	function getSubmissions(&$request, $userId) {

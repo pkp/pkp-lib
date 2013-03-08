@@ -359,4 +359,11 @@
 	<message key="submission.nameRequired">Le nom est obligatoire pour cet élément.</message>
 	<message key="submission.date.mmdd">MM-JJ</message>
 	<message key="submission.date.yyyymmdd">AAAA-MM-JJ</message>
+
+	<!-- Submission statuses -->
+	<message key="submission.status.editorial">En cours de révision</message>
+	<message key="submission.status.production">Épreuves en cours de correction</message>
+	<message key="submission.status.review">En cours d'évaluation</message>
+	<message key="submission.status.submission">En attente de la décision du rédacteur en chef</message>
+	<message key="submission.status.unassigned">Non assigné</message>
 </locale>

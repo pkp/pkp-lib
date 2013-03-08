@@ -423,4 +423,11 @@
 	<!-- Workflow keys -->
 	<message key="workflow.review.internalReview">Internal Review</message>
 	<message key="workflow.review.externalReview">External Review</message>
+
+	<!-- Submission status -->
+	<message key="submission.status.editorial">In Copyediting</message>
+	<message key="submission.status.production">In Proofreading</message>
+	<message key="submission.status.review">In Review</message>
+	<message key="submission.status.submission">Awaiting Editor Decision</message>
+	<message key="submission.status.unassigned">Unassigned</message>
 </locale>

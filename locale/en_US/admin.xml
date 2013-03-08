@@ -12,6 +12,8 @@
   -->
 
 <locale name="en_US" full_name = "English">
+	<message key="admin.systemInfo.settingName">Setting Name</message>
+	<message key="admin.systemInfo.settingValue">Setting Value</message>
 	<message key="admin.adminFunctions">Administrative Functions</message>
 	<message key="admin.auth.confirmDelete">Are you sure you want to permanently delete this authentication source?</message>
 	<message key="admin.auth.create">Create authentication source</message>

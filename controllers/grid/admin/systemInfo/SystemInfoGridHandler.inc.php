@@ -60,6 +60,7 @@ class SystemInfoGridHandler extends CategoryGridHandler {
 		AppLocale::requireComponents(
 			LOCALE_COMPONENT_PKP_USER,
 			LOCALE_COMPONENT_APP_ADMIN,
+			LOCALE_COMPONENT_PKP_ADMIN,
 			LOCALE_COMPONENT_APP_MANAGER,
 			LOCALE_COMPONENT_APP_COMMON
 		);

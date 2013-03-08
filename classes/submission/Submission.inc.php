@@ -1023,6 +1023,22 @@ class Submission extends DataObject {
 	function setStageId($stageId) {
 		return $this->setData('stageId', $stageId);
 	}
+
+	/**
+	 * Get date published.
+	 * @return date
+	 */
+	function getDatePublished() {
+		return $this->getData('datePublished');
+	}
+
+	/**
+	 * Set date published.
+	 * @param $datePublished date
+	 */
+	function setDatePublished($datePublished) {
+		return $this->SetData('datePublished', $datePublished);
+	}
 }
 
 ?>

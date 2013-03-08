@@ -1007,6 +1007,22 @@ class Submission extends DataObject {
 	function setCommentsStatus($commentsStatus) {
 		return $this->setData('commentsStatus', $commentsStatus);
 	}
+
+	/**
+	 * Get the submission's current publication stage ID
+	 * @return int
+	 */
+	function getStageId() {
+		return $this->getData('stageId');
+	}
+
+	/**
+	 * Set the submission's current publication stage ID
+	 * @param $stageId int
+	 */
+	function setStageId($stageId) {
+		return $this->setData('stageId', $stageId);
+	}
 }
 
 ?>

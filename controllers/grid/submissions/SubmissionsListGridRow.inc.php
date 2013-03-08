@@ -60,7 +60,7 @@ class SubmissionsListGridRow extends GridRow {
 			}
 
 			// 2) Information Centre action
-			import('controllers.informationCenter.linkAction.SubmissionInfoCenterLinkAction');
+			import('lib.pkp.controllers.informationCenter.linkAction.SubmissionInfoCenterLinkAction');
 			$this->addAction(new SubmissionInfoCenterLinkAction($request, $rowId, 'grid.action.moreInformation'));
 		}
 	}

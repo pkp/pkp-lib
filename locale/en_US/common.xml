@@ -319,7 +319,7 @@
 	<message key="icon.view.alt">View</message>
 	<message key="locale.primary">Primary locale</message>
 	<message key="locale.supported">Supported locales</message>
-	<message key="navigation.publicationProcess">Publication</message>
+	<message key="navigation.workflow">Workflow</message>
 	<message key="navigation.distributionProcess">Distribution</message>
 	<message key="navigation.management">Management</message>
 	<message key="navigation.website">Website</message>

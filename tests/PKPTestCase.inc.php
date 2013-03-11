@@ -21,7 +21,10 @@
 import('lib.pkp.tests.PKPTestHelper');
 
 abstract class PKPTestCase extends PHPUnit_Framework_TestCase {
-	private $daoBackup = array(), $registryBackup = array();
+	private
+		$daoBackup = array(),
+		$registryBackup = array(),
+		$mockedRegistryKeys = array();
 
 	/**
 	 * Override this method if you want to backup/restore
@@ -38,7 +41,7 @@ abstract class PKPTestCase extends PHPUnit_Framework_TestCase {
 	 * @return array A list of registry keys to backup and restore.
 	 */
 	protected function getMockedRegistryKeys() {
-		return array();
+		return $this->mockedRegistryKeys;
 	}
 
 	/**
@@ -113,6 +116,55 @@ abstract class PKPTestCase extends PHPUnit_Framework_TestCase {
 			// Switch the configuration file
 			Config::setConfigFileName($configFile);
 		}
+	}
+
+	/**
+	 * Mock a web request.
+	 *
+	 * For correct timing you have to call this method
+	 * in the setUp() method of a test after calling
+	 * parent::setUp() or in a test method. You can also
+	 * call this method as many times as necessary from
+	 * within your test and you're guaranteed to receive
+	 * a fresh request whenever you call it.
+	 *
+	 * And make sure that you merge any additional mocked
+	 * registry keys with the ones returned from this class.
+	 *
+	 * @param $path string
+	 * @param $userId int
+	 *
+	 * @return Request
+	 */
+	protected function mockRequest($path = 'index/test-page/test-op', $userId = null) {
+		// Back up the default request.
+		if (!isset($this->registryBackup['request'])) {
+			$this->mockedRegistryKeys[] = 'request';
+			$this->registryBackup['request'] = Registry::get('request');
+		}
+
+		// Create a test request.
+		Registry::delete('request');
+		$application = PKPApplication::getApplication();
+		$_SERVER['REQUEST_METHOD'] = 'GET';
+		$_SERVER['PATH_INFO'] = $path;
+		$request = $application->getRequest();
+		import('classes.core.PageRouter');
+
+		// Test router.
+		$router = new PageRouter();
+		$router->setApplication($application);
+		import('lib.pkp.classes.core.Dispatcher');
+		$dispatcher = new Dispatcher();
+		$dispatcher->setApplication($application);
+		$router->setDispatcher($dispatcher);
+		$request->setRouter($router);
+
+		// Test user.
+		$session = $request->getSession();
+		$session->setUserId($userId);
+
+		return $request;
 	}
 
 

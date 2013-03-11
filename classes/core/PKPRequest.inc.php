@@ -38,6 +38,10 @@ class PKPRequest {
 	var $_baseUrl;
 	/** @var string request protocol */
 	var $_protocol;
+	/** @var boolean bot flag */
+	var $_isBot;
+	/** @var string user agent */
+	var $_userAgent;
 
 
 	/**
@@ -419,20 +423,19 @@ class PKPRequest {
 	function getUserAgent() {
 		PKPRequest::_checkThis();
 
-		static $userAgent;
-		if (!isset($userAgent)) {
+		if (!isset($this->_userAgent)) {
 			if (isset($_SERVER['HTTP_USER_AGENT'])) {
-				$userAgent = $_SERVER['HTTP_USER_AGENT'];
+				$this->_userAgent = $_SERVER['HTTP_USER_AGENT'];
 			}
-			if (!isset($userAgent) || empty($userAgent)) {
-				$userAgent = getenv('HTTP_USER_AGENT');
+			if (!isset($this->_userAgent) || empty($this->_userAgent)) {
+				$this->_userAgent = getenv('HTTP_USER_AGENT');
 			}
-			if (!isset($userAgent) || $userAgent == false) {
-				$userAgent = '';
+			if (!isset($this->_userAgent) || $this->_userAgent == false) {
+				$this->_userAgent = '';
 			}
-			HookRegistry::call('Request::getUserAgent', array(&$userAgent));
+			HookRegistry::call('Request::getUserAgent', array(&$this->_userAgent));
 		}
-		return $userAgent;
+		return $this->_userAgent;
 	}
 
 	/**
@@ -442,19 +445,18 @@ class PKPRequest {
 	function isBot() {
 		$_this =& PKPRequest::_checkThis();
 
-		static $isBot;
-		if (!isset($isBot)) {
+		if (!isset($this->_isBot)) {
 			$userAgent = $_this->getUserAgent();
-			$isBot = false;
+			$this->_isBot = false;
 			$regexps = array_filter(file(USER_AGENTS_FILE), create_function('&$a', 'return ($a = trim($a)) && !empty($a) && $a[0] != \'#\';'));
 			foreach ($regexps as $regexp) {
 				if (String::regexp_match($regexp, $userAgent)) {
-					$isBot = true;
-					return $isBot;
+					$this->_isBot = true;
+					return $this->_isBot;
 				}
 			}
 		}
-		return $isBot;
+		return $this->_isBot;
 	}
 
 	/**

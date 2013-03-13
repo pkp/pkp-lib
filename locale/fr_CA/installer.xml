@@ -67,4 +67,6 @@
 	<message key="installer.securitySettings">Paramètres de sécurité</message>
 	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Une erreur s'est produite lors de l'analyse du fichier du modèle de courriel <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale.maybeIncomplete">Les langues sélectionnées peuvent être incomplètes.</message>
+	<message key="installer.installParseFilterConfigFileError"><![CDATA[Détection des erreurs dans le fichier filtre de configuration <tt>{$file}</tt> ???]]></message>
+	<message key="installer.oaiSettings">Paramètres OAI</message>
 </locale>

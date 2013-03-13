@@ -342,6 +342,7 @@
 	<message key="submission.citations.editor.export.pleaseSelectXmlFilter">Options de sortie XML :</message>
 	<message key="submission.citations.editor.export.pleaseSelectPlaintextFilter">Style de sortie des références (expérimental seulement!) :</message>
 	<message key="submission.citations.editor.introduction">Introduction</message>
+	<message key="submission.citations.editor.php5Required">L'édition des références nécessite la prise en charge des langages XML et XSL qui sont disponible uniquement dans les versions 5.0.0 ou ultérieures de PHP. Il semble que votre installation s'exécute à l'aide d'une version antérieure de PHP. Vous ne serez donc pas en mesure d'utiliser l'assistant au balisage de références à moins de faire la mise à jour à une version plus récente.</message>
 	<message key="submission.citations.editor.pleaseAddParserFilter"><![CDATA[Veuillez demander à votre directeur de revue d'<a href="{$citationSetupUrl}">ajouter au minimum un service d'extraction de références</a> avant de pouvoir utiliser l'assistant au balisage de références.]]></message>
 	<message key="submission.citations.editor.pleaseConfigureOutputStyle"><![CDATA[Veuillez demander à votre directeur de revue de <a href="{$citationSetupUrl}">configurer au minimum un style d'exportation de références</a> avant de pouvoir utiliser l'assistant au balisage de références.]]></message>
 	<message key="submission.citations.editor.pleaseImportCitationsFirst"><![CDATA[<p>Il n'y a aucune référence pour cet article.</p><p>Veuillez aller à la <a href="{$articleMetadataUrl}">page des métadonnées</a> de l'article pour saisir une liste de références ou ajouter manuellement des références à l'aide du bouton 'Ajouter un élément' de l'éditeur.</p>]]></message>
@@ -359,4 +360,30 @@
 	<message key="submission.nameRequired">Le nom est obligatoire pour cet élément.</message>
 	<message key="submission.date.mmdd">MM-JJ</message>
 	<message key="submission.date.yyyymmdd">AAAA-MM-JJ</message>
+	<message key="metadata.property.displayName.title-type">Type de titre</message>
+	<message key="metadata.property.validationMessage.title-type">Veuillez vous assurer d'entrer un type de titre valide. Les valeurs reconnues sont 'abrégé', 'traduit', 'alternatif' et 'uniforme'.</message>
+	<message key="metadata.property.displayName.nonSort">Partie du titre non prise en compte au tri</message>
+	<message key="metadata.property.validationMessage.nonSort">Entrez uniquement les caractères initiaux du titre qui doivent être ignorés lors de son tri.</message>
+	<message key="metadata.property.displayName.title">Titre</message>
+	<message key="metadata.property.validationMessage.title">Veuillez entrer un titre valide.</message>
+	<message key="metadata.property.displayName.subTitle">Sous-titre</message>
+	<message key="metadata.property.validationMessage.subTitle">Veuillez entrer un sous-titre valide.</message>
+	<message key="metadata.property.displayName.partNumber">Numéro de référence</message>
+	<message key="metadata.property.validationMessage.partNumber">Veuillez entrer un numéro de référence valide.</message>
+	<message key="metadata.property.displayName.partName">Désignation</message>
+	<message key="metadata.property.validationMessage.partName">Veuillez entrer une désignation valide.</message>
+	<message key="metadata.property.displayName.name-type">Type de nom</message>
+	<message key="metadata.property.validationMessage.name-type">Veuillez vous assurer d'entrer un type de titre valide. Les valeurs reconnues sont 'abrégé', 'traduit', 'alternatif' et 'uniforme'.</message>
+	<message key="submission.addFile">Télécharger le fichier</message>
+	<message key="submission.citations.editor.citationlist.approved">Accepté</message>
+	<message key="submission.citations.editor.citationlist.notApproved">Refusé</message>
+	<message key="submission.comments.addReviews">Joindre des évaluations au courriel</message>
+	<message key="submission.copyedited">Révisé/Vu par le rédacteur/l'éditeur</message>
+	<message key="submission.layout.galleyRemoteURL">URL distante</message>
+	<message key="submission.layout.galleyRemoteURLValid">Veuillez entrer une URL distante valide (incluant http://).</message>
+	<message key="submission.reviewed">Évalué</message>
+	<message key="submission.supportingAgencies">Institutions commanditaires</message>
+	<message key="submission.createRemote">Créer à distance</message>
+	<message key="submission.form.name">Donner un nom utilitaire à ce fichier</message>
+	<message key="submission.form.replaceExisting">Remplacer un fichier existant?</message>
 </locale>

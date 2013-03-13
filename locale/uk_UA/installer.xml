@@ -17,7 +17,7 @@
 	<message key="installer.additionalLocales">Додаткові локалізації</message>
 	<message key="installer.administratorAccount">Обліковий запис адміністратора</message>
 	<message key="installer.administratorAccountInstructions">Цей обліковий запис буде використовуватись адміністратором сайту, він надаватиме повний доступ до системи. Ви зможете створити додаткові облікові записи після завершення інсталяції.</message>
-	<message key="installer.checkNo"><![CDATA[<span class="formError">НІ</span>]]></message>
+	<message key="installer.checkNo"><![CDATA[<span class="pkp_form_error formError">НІ</span>]]></message>
 	<message key="installer.checkYes">Так</message>
 	<message key="installer.clientCharset">Таблиця кодування браузера</message>
 	<message key="installer.clientCharsetInstructions">Кодування, в якому буде проводитись обмін даними з браузерами користувачів.</message>

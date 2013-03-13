@@ -306,9 +306,9 @@
 	<message key="search.matchAll">Stabilește corespondențe cu toate categoriile</message>
 	<message key="search.noKeywordError">Trebuie să introduci cel puțin un termen de căutare.</message>
 	<message key="search.noResults">Fără rezultate</message>
-	<message key="search.operator.and">și</message>
-	<message key="search.operator.not">nu</message>
-	<message key="search.operator.or">sau</message>
+	<message key="search.operator.and">and</message>
+	<message key="search.operator.not">not</message>
+	<message key="search.operator.or">or</message>
 	<message key="search.reviseSearch">Regândește căutarea</message>
 	<message key="search.searchAllCategories">Caută în toate categoriile după</message>
 	<message key="search.searchCategories">Caută în categorii</message>

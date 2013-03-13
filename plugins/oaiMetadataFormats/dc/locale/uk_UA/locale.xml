@@ -14,6 +14,6 @@
   -->
  
 <locale name="uk_UA" full_name="Ukrainian">
-       <message key="plugins.oaiMetadata.dc.displayName">Формат метаданих Дублинського ядра (DC)</message>
-       <message key="plugins.oaiMetadata.dc.description">Модуль структурує метадані у формат метаданих Дублинського ядра (Dublin Core).</message>
+     	<message key="plugins.oaiMetadata.dc.displayName">Формат метаданих Дублинського ядра (DC)</message>
+     	<message key="plugins.oaiMetadata.dc.description">Модуль структурує метадані у формат метаданих Дублинського ядра (Dublin Core).</message>
 </locale>

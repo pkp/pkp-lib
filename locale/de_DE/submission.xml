@@ -66,7 +66,7 @@
 	<message key="metadata.property.validationMessage.conf-name">Bitte geben Sie einen gültigen Konferenznamen ein.</message>
 	<message key="metadata.property.displayName.conf-sponsor">Konferenzsponsor</message>
 	<message key="metadata.property.validationMessage.conf-sponsor">Bitte geben Sie einen gültigen Konferenzsponsor ein.</message>
-	<message key="metadata.phttps://github.com/pkp/pkp-lib/commit/afc414965d170084bc890ca09dc56556c3f2c0b2#locale/en_US/submission.xmlroperty.displayName.institution">Institution</message>
+	<message key="metadata.property.displayName.institution">Institution</message>
 	<message key="metadata.property.validationMessage.institution">Bitte geben Sie eine gültige Institution ein.</message>
 	<message key="metadata.property.displayName.fpage">Erste Seite</message>
 	<message key="metadata.property.validationMessage.fpage">Bitte geben Sie eine gültige erste Seite ein (muss ein numerischer Wert sein).</message>
@@ -217,6 +217,7 @@
 		<p>Experimentelle Text-Export-Optionen beinhalten die Stile ABNT, APA, MLA und Vancouver. Diese Optionen liefern eine Textausgabe, die kopiert und in textbasierte Artikelfahnen eingefügt werden kann (zum Beispiel in Microsoft Word oder OpenOffice, Adobe InDesign etc.). Jede Zitationen umfasst einen eingebauten Link zur automatischen Suche nach dieser Zitation in Google Scholar.</p>
 	</li></ul>]]></message>
 	<message key="submission.citations.editor.loadMessage">Bitte warten Sie, bis der Zitationsauszeichnungsassistent geladen worden ist.</message>
+	<message key="submission.citations.editor.php5Required">Zitationsbearbeitung erfordert XML- und XSL-Unterstützung, die nur in PHP-Versionen 5.0.0 und größer enthalten ist. Es scheint, dass Ihre Installation mit einer früheren PHP-Version arbeitet. Sie werden den Zitationsauszeichnungsassistenten nicht benutzen können, bevor Sie auf eine höhere Version aktualisieren.</message>
 	<message key="submission.citations.editor.pleaseAddParserFilter"><![CDATA[Bitten Sie bitte Ihre/n Zeitschriftenverwalter/in, <a href="{$citationSetupUrl}">mindestens einen Zitationsextraktionsdienst hinzuzufügen</a>, bevor Sie den Zitationsauszeichnungsassistenten benutzen können.]]></message>
 	<message key="submission.citations.editor.pleaseConfigureOutputStyle"><![CDATA[Bitten Sie bitte Ihre/n Zeitschriftenverwalter/in, <a href="{$citationSetupUrl}">einen Zitationsexportstil einzurichten</a>, bevor Sie den Zitationsauszeichnungsassistenten benutzen können.]]></message>
 	<message key="submission.citations.editor.pleaseImportCitationsFirst"><![CDATA[<p>Es gibt keine Zitationen für diesen Artikel.</p><p>Bitte gehen Sie zu der <a href="{$articleMetadataUrl}">Metadaten-Seite</a> dieses Artikels und geben Sie eine Literaturliste ein oder fügen Sie Literaturverweise manuell hinzu, in dem Sie den Hinzufügen-Knopf benutzen.]]></message>

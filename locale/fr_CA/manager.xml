@@ -155,6 +155,7 @@
 	<message key="plugins.categories.auth">Plugiciels d'autorisation</message>
 	<message key="plugins.categories.blocks">Plugiciels de bloc</message>
 	<message key="plugins.categories.blocks.description">Les plugiciels de bloc sont composés de modules d'interface enfichables, tels les différents outils des encadrés latéraux.</message>
+	<message key="plugins.categories.citationLookup.description">Les plugiciels [Citation Database Connector] permettent la connexion à des banques de données de citations/références pour consultation, lorsqu'il y a modification des citations/références, par exemple</message>
 	<message key="plugins.categories.citationFormats">Plugiciels de format de citation</message>
 	<message key="plugins.categories.gateways.description">Les plugiciels de passerelle fournissent des données réelles à des systèmes externes.</message>
 	<message key="plugins.categories.gateways">Plugiciels de passerelle</message>
@@ -216,6 +217,27 @@
 	<message key="manager.setup.filter.parser.grid.loadMessage">Veuillez patienter jusqu'à ce que la grille de configuration de l'analyseur syntaxique de références soit chargée...</message>
 	<message key="manager.setup.filter.parser.grid.title">Services d'extraction de références</message>
 	<message key="manager.setup.filter.pleaseSelect">Veuillez sélectionner...</message>
-	<message key="plugins.categories.oaiMetadataFormats">Plugiciels du format de métadonnées OAI</message>
-	<message key="plugins.categories.oaiMetadataFormats.description">Ces plugiciels de format émettent les métadonnées en communications OAI.</message>
+	<message key="manager.announcements.datePublish">Publié/Paru</message>
+	<message key="manager.emails.addEmail">Ajouter un modèle de courriel</message>
+	<message key="manager.emails.data">Modèle message données??</message>
+	<message key="manager.emails.details">Modèle détails/Détails du modèle??</message>
+	<message key="manager.emails.disable.message">Vous êtes sur le point de désactiver ce modèle de courriel. Son utilisation dans d'éventuels processus système ne sera plus possible. Confirmez-vous l'opération?</message>
+	<message key="manager.emails.enable.message">Vous êtes sur le point d'activer ce courriel. Confirmez-vous l'opération?</message>
+	<message key="manager.emails.resetAll.message">Si vous réinitialisez l'ensemble des modèles, vous perdrez toutes les modifications aux modèles de courriels. Confirmez-vous cette opération?</message>
+	<message key="manager.emails.reset.message">Si vous réinitialisez ce modèle, toutes les données du message seront ramenées à leur valeur par défaut et les modifications seront annulées. Confirmez-vous cette opération?</message>
+	<message key="manager.masthead.title">Bloc générique</message>
+	<message key="manager.navigation">Navigation</message>
+	<message key="manager.reviewerSearch.advancedSearch.short">Recherche avancée</message>
+	<message key="manager.reviewerSearch.searchByName.short">Recherche par nom</message>
+	<message key="manager.reviewerSearch.form.instructions">Utilisez le formulaire ci-dessous pour établir les valeurs maximales des termes que vous souhaitez rechercher. Les moyennes calculées dans ces champs sont pré-inscrites sur le formulaire.</message>
+	<message key="manager.reviewerSearch.form.interests.instructions">Entrer les intérêts des évaluateurs en les séparant par des virgules...</message>
+	<message key="manager.setup.layout.blockManagement">Gestion de la barre latérale</message>
+	<message key="plugins.categories.metadata">Plugiciels de métadonnées</message>
+	<message key="plugins.categories.metadata.description">Les plugiciels de métadonnées permettent d'implanter de nouvelles normes de métadonnées.</message>
+	<message key="plugins.categories.citationLookup">Plugiciels…</message>
+	<message key="plugins.categories.citationLookup.description">Les plugiciels [Citation Database Connector] permettent la connexion à des banques de données de citations/références pour consultation, lorsqu'il y a modification des citations/références, par exemple??</message>
+	<message key="plugins.categories.citationOutput">Plugiciels d'extraction de citations/références</message>
+	<message key="plugins.categories.citationOutput.description">Les plugiciels [Citation Output] permettent d'implanter des normes de citation/référence. Ils remplacent les plugiciels de format de citation/référence.</message>
+	<message key="plugins.categories.citationParser">Plugiciels d'extraction de citations/références</message>
+	<message key="plugins.categories.citationParser.description">Les plugiciels d'extraction de citations/références permettent d'extraire des données locales à partir de citations/références brutes (ex. : auteur, titre, etc.).</message>
 </locale>

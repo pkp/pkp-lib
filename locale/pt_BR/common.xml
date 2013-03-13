@@ -255,9 +255,9 @@
 	<message key="search.matchAll">Encontrar em todas as categorias</message>
 	<message key="search.noKeywordError">Informe pelo menos um termo para pesquisa.</message>
 	<message key="search.noResults">Nenhum resultado encontrado</message>
-	<message key="search.operator.and">E</message>
-	<message key="search.operator.not">NÃO</message>
-	<message key="search.operator.or">OU</message>
+	<message key="search.operator.and">and</message>
+	<message key="search.operator.not">not</message>
+	<message key="search.operator.or">or</message>
 	<message key="search.reviseSearch">Alterar parâmetros</message>
 	<message key="search.searchAllCategories">Pesquisar termo em todas as categorias</message>
 	<message key="search.searchCategories">Pesquisar nas categorias</message>

@@ -107,4 +107,22 @@
 	<message key="user.confirmEmail">Confirmar Email</message>
 	<message key="user.repeatPassword">Repetir Senha</message>
 	<message key="user.register.form.emailsDoNotMatch">Os campos e-mail não coincidem.</message>
+	<message key="user.accountInformation">Informação sobre Conta</message>
+	<message key="user.authorization.accessDenied">Acesso negado.</message>
+	<message key="user.authorization.processAuthenticationTokenRequired">O processo de autenticação através de token está em falta ou é inválido.</message>
+	<message key="user.authorization.contextRequired">Não pode activar esta operação sem um contexto (imprensa, jornal, conferência, etc.)</message>
+	<message key="user.authorization.loginRequired">Obrigatório autenticação</message>
+	<message key="user.authorization.privateOperation">A operação que pretende aceder é privada ou não existe.</message>
+	<message key="user.authorization.restrictedSiteAccess">Acesso recusado. O acesso a este site está actualmente restrito.</message>
+	<message key="user.authorization.roleBasedAccessDenied">O actual papel não tem acesso a esta operação.</message>
+	<message key="user.authorization.userGroupRequired">Tem de definir um grupo de utilizadores válido para aceder a esta operação.</message>
+	<message key="user.authorization.pressManagerRequired">Tem de ser atribuído uma tarefa ao papel de Gestor de Imprensa (i.e. Imprensa ou Editor de Produção) antes de prosseguir.</message>
+	<message key="user.interests.description">(Separar interesses pressionando a tecla 'enter' ou vírgula)</message>
+	<message key="user.group">Grupo de Utilizadores</message>
+	<message key="user.hello">Olá,</message>
+	<message key="user.profile.form.countryRequired">É obrigatório o país.</message>
+	<message key="user.profile.form.mailingAddressRequired">É obrigatório um endereço.</message>
+	<message key="user.profile.form.passwordSameAsOld">A sua nova senha é igual à antiga.</message>
+	<message key="user.profile.form.usergroupRequired">É obrigatório um grupo de utilizadores.</message>
+	<message key="user.suffix">Sufixo</message>
 </locale>

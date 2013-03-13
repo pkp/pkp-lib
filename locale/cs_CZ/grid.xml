@@ -42,7 +42,7 @@
 	<message key="grid.reviewForm.title">Recenzní formuláře</message>
 
 	<!-- Book File Types Grid -->
-  <message key="grid.bookFileType.form.sortable">Povolit třídění souborů dle jednotlivých položek (např. dle kapitol)</message>
+	<message key="grid.bookFileType.form.sortable">Povolit třídění souborů dle jednotlivých položek (např. dle kapitol)</message>
 
 	<!-- Artwork Files Grid -->
 	<message key="grid.artworkFile.title">Grafické dílo včetně oprávnění k jeho užití</message>

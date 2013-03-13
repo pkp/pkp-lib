@@ -15,7 +15,7 @@
 	<message key="installer.additionalLocales">Idiomas adicionais</message>
 	<message key="installer.administratorAccount">Conta do administrador</message>
 	<message key="installer.administratorAccountInstructions">Este usuário será o Administrador do Portal e terá acesso completo ao sistema. Contas adicionais podem ser criadas após a instalação.</message>
-	<message key="installer.checkNo"><![CDATA[<span class="formError">NÃO</span>]]></message>
+	<message key="installer.checkNo"><![CDATA[<span class="pkp_form_error formError">NÃO</span>]]></message>
 	<message key="installer.checkYes">Sim</message>
 	<message key="installer.clientCharset">Conjunto de caracteres do Cliente</message>
 	<message key="installer.clientCharsetInstructions">A codificação utilizada para dados enviados e recebidos pelos navegadores.</message>

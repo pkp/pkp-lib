@@ -257,9 +257,9 @@
 	<message key="search.matchAll">Coincidencia en todas as categorías</message>
 	<message key="search.noKeywordError">Debe introducir alomenos un termo de busca.</message>
 	<message key="search.noResults">Non hai resultados</message>
-	<message key="search.operator.and">e</message>
-	<message key="search.operator.not">non</message>
-	<message key="search.operator.or">ou</message>
+	<message key="search.operator.and">and</message>
+	<message key="search.operator.not">not</message>
+	<message key="search.operator.or">or</message>
 	<message key="search.reviseSearch">Revisar busca</message>
 	<message key="search.searchAllCategories">Procurar en todas as categorías</message>
 	<message key="search.searchCategories">Procurar categorías</message>

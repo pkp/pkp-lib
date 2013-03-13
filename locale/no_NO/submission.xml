@@ -267,4 +267,9 @@
 	<message key="metadata.property.validationMessage.source">Vennligs oppgi en gyldig publikasjonstittel</message>
 	<message key="submission.citations.editor.details.saveAndRevokeApproval">Tilbakekall godkjenning</message>
 	<message key="submission.form.replaceExisting">Erstatte eksisterende fil?</message>
+	<message key="metadata.property.displayName.title-type">Titteltype</message>
+	<message key="metadata.property.displayName.series">Serie</message>
+	<message key="metadata.property.validationMessage.series">Vennligst oppgi en relevant serie</message>
+	<message key="metadata.property.displayName.supplement">Tillegg</message>
+	<message key="metadata.property.validationMessage.supplement">Vennligst legg til et relevant tillegg</message>
 </locale>

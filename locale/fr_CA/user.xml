@@ -107,4 +107,22 @@
 	<message key="user.confirmEmail">Confirmer le courriel</message>
 	<message key="user.repeatPassword">Répéter le mot de passe</message>
 	<message key="user.register.form.emailsDoNotMatch">Les champs du courriel ne correspondent pas.</message>
+	<message key="user.accountInformation">Renseignements sur le compte</message>
+	<message key="user.authorization.accessDenied">Accès refusé.</message>
+	<message key="user.authorization.processAuthenticationTokenRequired">Le jeton d'authentification est manquant ou invalide.</message>
+	<message key="user.authorization.contextRequired">Opération impossible sans contexte (presse, revue, conférence, etc.).</message>
+	<message key="user.authorization.loginRequired">Connexion requise/Entrez votre nom d'utilisateur.</message>
+	<message key="user.authorization.privateOperation">Cette opération ne vous est pas permise ou n'existe pas.</message>
+	<message key="user.authorization.restrictedSiteAccess">Accès refusé. L'accès au site est actuellement limité.</message>
+	<message key="user.authorization.roleBasedAccessDenied">Le rôle activé ne peut effectuer cette opération.</message>
+	<message key="user.authorization.userGroupRequired">Vous devez entrer un groupe d'utilisateurs valide pour effectuer cette opération.</message>
+	<message key="user.authorization.pressManagerRequired">Pour poursuivre, vous devez assigner à cette tâche un utilisateur ayant un rôle de directeur (d'édition ou de production).</message>
+	<message key="user.interests.description">(Énumérer les champs d'intérêt en les séparant d'un retour de chariot ou d'une virgule.)</message>
+	<message key="user.group">Groupe d'utilisateurs</message>
+	<message key="user.hello">Bonjour,</message>
+	<message key="user.profile.form.countryRequired">Préciser le pays d'origine.</message>
+	<message key="user.profile.form.mailingAddressRequired">Une adresse postale est requise.</message>
+	<message key="user.profile.form.passwordSameAsOld">Votre nouveau mot de passe est identique à l'ancien.</message>
+	<message key="user.profile.form.usergroupRequired">Groupe d'utilisateurs requis.</message>
+	<message key="user.suffix">Suffixe</message>
 </locale>

@@ -15,7 +15,7 @@
 	<message key="installer.additionalLocales">അഡീഷണല്‍ ലോക്കേല്‍സ്</message>
 	<message key="installer.administratorAccount">അഡ്മിനിസ്ട്രേറ്റര്‍ അക്കൗണ്ട്</message>
 	<message key="installer.administratorAccountInstructions">ഈ യൂസ്സര്‍ അക്കൗണ്ട് സൈറ്റ് അഡ്മിനിസ്ട്രേറ്റീവ് ആവുകയും പൂര്‍ണമായ സിസ്റ്റം അക്സസ്സ് കൈവരിക്കുകയും ചെയും. അഡീഷണന്‍ യൂസ്സര്‍ അക്കൗണ്ട്  ഇന്‍സ്റ്റാളേഷനു ശേഷം നിര്‍മ്മിക്കാം.</message>
-	<message key="installer.checkNo"><![CDATA[<span class="formError">NO</span>]]></message>
+	<message key="installer.checkNo"><![CDATA[<span class="pkp_form_error formError">NO</span>]]></message>
 	<message key="installer.checkYes">അതെ</message>
 	<message key="installer.clientCharset">ക്ലൈന്റ് കാരക്ടര്‍ സെറ്റ്</message>
 	<message key="installer.clientCharsetInstructions">ബ്രൗസറില്‍ നിന്ന് ഡേറ്റ അയക്കാനും സ്വീകരിക്കാനും ഉപയോഗിക്കുന്ന എന്‍കോഡിങ്ങ്.</message>

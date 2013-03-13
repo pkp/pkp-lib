@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
 
+<!--
+  * locale/id_ID/installer.xml
+  *
+  * Copyright (c) 2003-2013 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings.
+  -->
+
 
 
 <locale name="id_ID" full_name = "Indonesia">
 <message key="installer.additionalLocales">Bahasa Tambahan</message>
 <message key="installer.administratorAccount">Akun Administrator</message>
 	<message key="installer.administratorAccountInstructions">Akun pengguna ini akan menjadi administrator situs dan memiliki akses penuh ke sistem. Akun pengguna tambahan dapat dibuat setelah instalasi. </message>
-<message key="installer.checkNo"><![CDATA[<span class="formError">Tidak</span>]]></message>
+<message key="installer.checkNo"><![CDATA[<span class="pkp_form_error formError">Tidak</span>]]></message>
 	<message key="installer.checkYes">Ya</message>
 	<message key="installer.clientCharset">Klien karakter set</message>
 	<message key="installer.clientCharsetInstructions">Kode karakter yang dikirim dan diterima perambah.</message>
@@ -59,4 +68,8 @@
 	<message key="installer.oaiRepositoryId">Repositori identifier OAI</message>
 	<message key="installer.pleaseUpgradeAfterManualInstall">Silahkan jalankan alat upgrade setelah Anda menginstal database Anda. Jalankan 'php tools/upgrade.php upgrade' dari dalam direktori instalasi utama untuk upgrade ini.</message>
 	<message key="installer.publicFilesDirError">Direktori file umum tidak ada atau tidak dapat diisi.</message>
+	<message key="installer.releaseNotes">Catatan Release</message>
+	<message key="installer.securitySettings">Security Setting</message>
+	<message key="installer.skipFilesDir">Jangan membuat sub direktori (hanya berguna untuk instalasi manual). </message>
+	<message key="installer.manualUpgrade">Upgrade Manual</message>
 </locale>

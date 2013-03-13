@@ -121,4 +121,39 @@
 			<UNIQUE/>
 		</index>
 	</table>
+
+	<!--
+	  *
+	  * TABLE review_round_files
+	  *
+	  -->
+	<table name="review_round_files">
+		<field name="submission_id" type="I8">
+			<NOTNULL/>
+		</field>
+		<field name="review_round_id" type="I8">
+			<NOTNULL/>
+		</field>
+		<field name="stage_id" type="I1">
+			<NOTNULL/>
+		</field>
+		<field name="file_id" type="I8">
+			<NOTNULL/>
+		</field>
+		<field name="revision" type="I8">
+			<NOTNULL/>
+			<DEFAULT VALUE="1"/>
+		</field>
+		<descr>Submission Files for each review round</descr>
+		<index name="review_round_files_submission_id">
+			<col>submission_id</col>
+		</index>
+		<index name="review_round_files_pkey">
+			<col>submission_id</col>
+			<col>review_round_id</col>
+			<col>file_id</col>
+			<col>revision</col>
+			<UNIQUE/>
+		</index>
+	</table>
 </schema>

@@ -19,19 +19,24 @@ class ReviewStageForm extends ContextSettingsForm {
 	/**
 	 * Constructor.
 	 */
-	function ReviewStageForm($wizardMode = false) {
-		$settings = array(
-			'reviewGuidelines' => 'string',
-			'competingInterests' => 'string',
-			'numWeeksPerResponse' => 'int',
-			'numWeeksPerReview' => 'int',
-			'numDaysBeforeInviteReminder' => 'int',
-			'numDaysBeforeSubmitReminder' => 'int',
-			'rateReviewerOnQuality' => 'bool',
-			'showEnsuringLink' => 'bool'
+	function ReviewStageForm($wizardMode = false, $settings = array(), $template = 'controllers/tab/settings/reviewStage/form/reviewStageForm.tpl') {
+		parent::ContextSettingsForm(
+			array_merge(
+				$settings,
+				array(
+					'reviewGuidelines' => 'string',
+					'competingInterests' => 'string',
+					'numWeeksPerResponse' => 'int',
+					'numWeeksPerReview' => 'int',
+					'numDaysBeforeInviteReminder' => 'int',
+					'numDaysBeforeSubmitReminder' => 'int',
+					'rateReviewerOnQuality' => 'bool',
+					'showEnsuringLink' => 'bool',
+				)
+			),
+			$template,
+			$wizardMode
 		);
-
-		parent::ContextSettingsForm($settings, 'controllers/tab/settings/reviewStage/form/reviewStageForm.tpl', $wizardMode);
 	}
 
 

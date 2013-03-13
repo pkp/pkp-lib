@@ -162,7 +162,24 @@ class PKPRequest {
 		$_this =& PKPRequest::_checkThis();
 
 		if (!isset($_this->_basePath)) {
-			$_this->_basePath = dirname($_SERVER['SCRIPT_NAME']);
+			$path = parse_url(dirname($_SERVER['SCRIPT_NAME']), PHP_URL_PATH);
+			
+			// Encode charcters which need to be encoded in a URL.
+			// Simply using rawurlencode() doesn't work because it 
+			// also encodes characters which are valid in a URL (i.e. @, $).
+			$parts = explode('/', $path);
+			foreach ($parts as $i => $part) {
+				$pieces = array_map(function($p) {
+					if (!preg_match('/[A-Za-z0-9-._~!$&\'()*+,;=:@]/', $p)) {
+						return rawurlencode($p);
+					}
+					return $p;
+				}, str_split($part));
+
+				$parts[$i] = implode('', $pieces);
+			}
+			$_this->_basePath = implode('/', $parts);
+
 			if ($_this->_basePath == '/' || $_this->_basePath == '\\') {
 				$_this->_basePath = '';
 			}

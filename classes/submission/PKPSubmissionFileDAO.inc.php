@@ -737,7 +737,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 
 			// Construct a combined id from file id and revision
 			// that uniquely identifies the file.
-			$idAndRevision = $row['monograph_file_id'].'-'.$row['monograph_revision'];
+			$idAndRevision = $row['submission_file_id'].'-'.$row['submission_revision'];
 
 			// Check for duplicates.
 			assert(!isset($submissionFiles[$idAndRevision]));

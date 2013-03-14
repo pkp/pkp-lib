@@ -139,7 +139,7 @@ class UserGroupForm extends Form {
 			$userGroup->setPath($role->getPath());
 			$userGroup->setDefault(false);
 			$userGroup = $this->_setUserGroupLocaleFields($userGroup, $request);
-			$userGroupId = $userGroupDao->insertUserGroup($userGroup);
+			$userGroupId = $userGroupDao->insertObject($userGroup);
 		} else {
 			$userGroup = $userGroupDao->getById($userGroupId);
 			$userGroup = $this->_setUserGroupLocaleFields($userGroup, $request);

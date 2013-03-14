@@ -67,7 +67,7 @@ class UserGroupDAO extends DAO {
 	 * Insert a user group.
 	 * @param $userGroup UserGroup
 	 */
-	function insertUserGroup(&$userGroup) {
+	function insertObject($userGroup) {
 		$returner = $this->update(
 			'INSERT INTO user_groups
 				(role_id, path, context_id, is_default)
@@ -697,7 +697,7 @@ class UserGroupDAO extends DAO {
 			$userGroup->setDefault(true);
 
 			// insert the group into the DB
-			$userGroupId = $this->insertUserGroup($userGroup);
+			$userGroupId = $this->insertObject($userGroup);
 
 			// Install default groups for each stage
 			if (is_array($defaultStages)) { // test for groups with no stage assignments

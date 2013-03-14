@@ -268,7 +268,7 @@ class PKPInstall extends Installer {
 			$adminUserGroup->setData('name', $name, $locale);
 			$adminUserGroup->setData('namePlural', $namePlural, $locale);
 		}
-		if (!$userGroupDao->insertUserGroup($adminUserGroup)) {
+		if (!$userGroupDao->insertObject($adminUserGroup)) {
 			$this->setError(INSTALLER_ERROR_DB, $this->dbconn->errorMsg());
 			return false;
 		}

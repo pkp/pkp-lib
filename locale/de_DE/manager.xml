@@ -239,4 +239,6 @@
 	<message key="plugins.categories.reports">Bericht-Plug-Ins</message>
 	<message key="plugins.categories.themes.description">Designvorlagen-Plug-Ins können verwendet werden, um das Aussehen des Systems zu verändern.</message>
 	<message key="plugins.categories.themes">Designvorlagen-Plug-Ins</message>
+	<message key="plugins.categories.oaiMetadataFormats">Plug-In für OAI-Metadaten-Format</message>
+	<message key="plugins.categories.oaiMetadataFormats.description">Diese Format-Plug-Ins beziehen sich auf Metadaten für die OAI-Kommunikation</message>
 </locale>

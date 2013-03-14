@@ -239,4 +239,6 @@
 	<message key="plugins.categories.citationOutput.description">Plugins de saída de citações implementam padrões de saída de citações. Estes substituem os plugins de formatos de citação.</message>
 	<message key="plugins.categories.citationParser">Plugins de extração de citação</message>
 	<message key="plugins.categories.citationParser.description">Plugins de extração de citação extraem dados a nível de campos para citações cruas (ex.: autor, título, entre outros).</message>
+	<message key="plugins.categories.oaiMetadataFormats">Plugins de Formatos de Metadados OAI</message>
+	<message key="plugins.categories.oaiMetadataFormats.description">Os plugins de formato geram metadados para comunicação via protocolo OAI.</message>
 </locale>

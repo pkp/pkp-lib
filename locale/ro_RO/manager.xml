@@ -217,4 +217,6 @@
 	<message key="manager.setup.filter.parser.grid.title">Servicii pentru extragerea referințelor bibliografice</message>
 	<message key="manager.setup.filter.pleaseSelect">Selectează...</message>
 	<message key="manager.setup.metaCitationsDescription">Bifează pentru a activa editarea citărilor și a referințelor bibliografice. Acest lucru va permite autorilor să includă citări bibliografice brute. Redactorilor li se va permite accesul la asistentul pentru markup care poate verifica referințele brute pentru a vedea dacă există în baze de date externe precum WorldCat, ISBNdb, PubMed și altele și pentru acuratețe. Referințele bibliografice aprobate pot fi exportate în fișierele finale de asamblare.</message>
+	<message key="plugins.categories.oaiMetadataFormats">Module pentru formatarea metadatelor conform OAI</message>
+	<message key="plugins.categories.oaiMetadataFormats.description">Aceste module de formatare oferă metadate în cazul comunicarii de date prin OAI.</message>
 </locale>

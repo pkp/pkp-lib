@@ -81,6 +81,7 @@
 	<message key="common.completed">Completed</message>
 	<message key="common.confirm">Confirm</message>
 	<message key="common.content">Content</message>
+	<message key="common.contents">Contents</message>
 	<message key="common.considered">Considered</message>
 	<message key="common.continue">Continue</message>
 	<message key="common.copy">Copy</message>
@@ -92,6 +93,7 @@
 	<message key="common.dateRequested">Date requested</message>
 	<message key="common.dateSubmitted">Date submitted</message>
 	<message key="common.dateUploaded">Date uploaded</message>
+	<message key="common.dateHijri">Hijri Calendar</message>
 	<message key="common.day">Day</message>
 	<message key="common.deactivate">Deactivate</message>
 	<message key="common.default">Default</message>
@@ -148,6 +150,7 @@
 	<message key="common.notAvailable">Not available</message>
 	<message key="common.note">Note</message>
 	<message key="common.notes">Notes</message>
+	<message key="common.notes.tooltip">Notes (yellow: has new notes; blue: has viewed notes; grey: no notes)</message>
 	<message key="common.notified">Notified</message>
 	<message key="common.noMatches">No Matches</message>
 	<message key="common.off">Off</message>
@@ -381,6 +384,7 @@
 	<message key="search.operator.or">or</message>
 	<message key="search.searchAllCategories">Search for</message>
 	<message key="search.searchCategories">Search categories</message>
+	<message key="search.searchResults">Search Results</message>
 	<message key="search.subject">Keyword(s)</message>
 	<message key="search.titleIndex">Browse Title Index</message>
 	<message key="search.title">Title</message>

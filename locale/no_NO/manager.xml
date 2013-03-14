@@ -211,4 +211,6 @@
 	<p>For å benytte dette filteret kan du bruke din system-konto hos CrossRef, eller registrere en gyldig e-postadresse hos CrossRef <a href="http://www.crossref.org/requestaccount/" target="_blank">her</a>.</p>]]></message>
 	<message key="manager.setup.filter.pleaseSelect">Vennligst velg...</message>
 	<message key="plugins.categories.metadata">Programutvidelser for metadata</message>
+	<message key="plugins.categories.oaiMetadataFormats">Programtillegg for OAI metadata-format</message>
+	<message key="plugins.categories.oaiMetadataFormats.description">Disse format-programtilleggene tilgjengeliggjør metadata i OAI-kommunikasjon.</message>
 </locale>

@@ -308,8 +308,10 @@
 	<message key="search.operator.and">i</message>
 	<message key="search.operator.not">no</message>
 	<message key="search.operator.or">o</message>
+	<message key="search.reviseSearch">Revisa la cerca</message>
 	<message key="search.searchAllCategories">Cerca totes les categories per</message>
 	<message key="search.searchCategories">Categories de cerca</message>
+	<message key="search.searchResults">Resultats de la cerca</message>
 	<message key="search.subject">Paraules clau</message>
 	<message key="search.titleIndex">Navega per l’índex de títols</message>
 	<message key="search.title">Títol</message>

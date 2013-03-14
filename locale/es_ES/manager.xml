@@ -241,4 +241,6 @@
 	<message key="plugins.categories.themes">Theme Plugins</message>
 	<message key="plugins.categories.oaiMetadataFormats">OAI Metadata Format Plugins</message>
 	<message key="plugins.categories.oaiMetadataFormats.description">These format plugins express metadata in OAI communications.</message>
+	<message key="plugins.categories.oaiMetadataFormats">Plugins de Formato de Metadatos de OAI</message>
+	<message key="plugins.categories.oaiMetadataFormats.description">Estos plugin de formato expresan metadatos en comunicaciones OAI</message>
 </locale>

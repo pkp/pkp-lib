@@ -239,4 +239,6 @@
 	<message key="plugins.categories.metadata.description">元数据插件采用附加的元数据标准。</message>
 	<message key="plugins.categories.citationLookup.description">引用数据库连接插件，在如引用编辑的过程中，连接到引用数据库中来查询引用。</message>
 	<message key="plugins.categories.citationOutput.description">引用输出插件采用引用标准。这取代了引用格式插件。</message>
+	<message key="plugins.categories.oaiMetadataFormats">OAI源数据插件</message>
+	<message key="plugins.categories.oaiMetadataFormats.description">这些格式插件表达OAI通信的元数据.</message>
 </locale>

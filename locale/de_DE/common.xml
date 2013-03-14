@@ -379,8 +379,10 @@
 	<message key="search.operator.and">UND</message>
 	<message key="search.operator.not">NICHT</message>
 	<message key="search.operator.or">ODER</message>
+	<message key="search.reviseSearch">Suche bearbeiten</message>
 	<message key="search.searchAllCategories">Suchen nach</message>
 	<message key="search.searchCategories">Suchkategorien</message>
+	<message key="search.searchResults">Ergebnis der Suche</message>
 	<message key="search.subject">Thema</message>
 	<message key="search.titleIndex">Titelverzeichnis durchsuchen</message>
 	<message key="search.title">Titel</message>

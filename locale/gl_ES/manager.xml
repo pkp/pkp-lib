@@ -216,4 +216,6 @@
 	<message key="manager.setup.filter.parser.grid.title">Servizos de Extracción de Citas</message>
 	<message key="manager.setup.filter.pleaseSelect">Por favor, selecciona...</message>
 	<message key="manager.setup.metaCitationsDescription">Activa a seguinte caixa de verificación para habilitar a edición de citas e referencias. Isto permitirá aos autores incluir citas en bruto cos envíos. Os editores tamén terán acceso a un asistente de marcado de citas co que poden contrastar as citas orixinais coas bases de dados externas,  como WorldCat, ISBNdb, PubMed e outras, para maior precisión. As citas aprobadas pódense exportar a arquivo final de galeradas.</message>
+	<message key="plugins.categories.oaiMetadataFormats">Plugins de Formato de Metadados de OAI</message>
+	<message key="plugins.categories.oaiMetadataFormats.description">Estes plugin de formato expresan metadados en comunicacións OAI</message>
 </locale>

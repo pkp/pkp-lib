@@ -239,4 +239,6 @@
 	<message key="plugins.categories.citationParser">Plugin per l'estrazione delle citazioni</message>
 	<message key="plugins.categories.citationOutput.description">Il plugin di visualizzazione delle citazioni implementa diversi standard citazionali. Sostituisce il plugin dei formati citazionali.</message>
 	<message key="plugins.categories.citationParser.description">Il plugin di estrazione delle citazioni estrae dati strutturati (p. es. autore, titolo ecc.) dalle citazioni semplici.</message>
+	<message key="plugins.categories.oaiMetadataFormats">OAI Metadata Format Plugins</message>
+	<message key="plugins.categories.oaiMetadataFormats.description">Questi plugin esprimono il formato dei metadati nelle comunicazioni OAI-PMH</message>
 </locale>

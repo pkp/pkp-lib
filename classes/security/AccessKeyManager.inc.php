@@ -66,7 +66,7 @@ class AccessKeyManager {
 		$key = Validation::generatePassword();
 		$accessKey->setKeyHash($this->generateKeyHash($key));
 
-		$this->accessKeyDao->insertAccessKey($accessKey);
+		$this->accessKeyDao->insertObject($accessKey);
 
 		return $key;
 	}

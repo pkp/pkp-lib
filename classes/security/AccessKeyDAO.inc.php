@@ -127,7 +127,7 @@ class AccessKeyDAO extends DAO {
 	 * Insert a new accessKey.
 	 * @param $accessKey AccessKey
 	 */
-	function insertAccessKey(&$accessKey) {
+	function insertObject($accessKey) {
 		$this->update(
 			sprintf('INSERT INTO access_keys
 				(key_hash, expiry_date, context, assoc_id, user_id)

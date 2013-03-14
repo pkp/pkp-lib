@@ -120,7 +120,7 @@ class PKPAnnouncementDAO extends DAO {
 	 * @param $announcement Announcement
 	 * @return int
 	 */
-	function insertAnnouncement(&$announcement) {
+	function insertObject($announcement) {
 		$this->update(
 			sprintf('INSERT INTO announcements
 				(assoc_type, assoc_id, type_id, date_expire, date_posted)

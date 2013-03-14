@@ -173,7 +173,7 @@ class PKPAnnouncementTypeDAO extends DAO {
 	 * @param $announcementType AnnouncementType
 	 * @return int
 	 */
-	function insertAnnouncementType(&$announcementType) {
+	function insertObject($announcementType) {
 		$this->update(
 			sprintf('INSERT INTO announcement_types
 				(assoc_type, assoc_id)

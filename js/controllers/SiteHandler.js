@@ -532,7 +532,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		var $site = this.getHtmlElement(), structureContentWidth, leftSideBarWidth,
 				rightSideBarWidth, $mainDiv = $('.pkp_structure_main', $site),
 				mainExtraWidth, mainMaxWidth, lastTabOffset, tabsContainerOffset,
-				$lastTab, $allTabs = $mainDiv.find('.ui-tabs').tabs();
+				$lastTab; $allTabs = $mainDiv.find('.ui-tabs:not(.fake-tabs)').tabs();
 
 		if (data == 'sidebarContainer') {
 			structureContentWidth = $('.pkp_structure_content', $site).width();

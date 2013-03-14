@@ -65,14 +65,14 @@ class SessionDAO extends DAO {
 	 * Insert a new session.
 	 * @param $session Session
 	 */
-	function insertSession(&$session) {
+	function insertObject($session) {
 		return $this->update(
 			'INSERT INTO sessions
 				(session_id, ip_address, user_agent, created, last_used, remember, data)
 				VALUES
 				(?, ?, ?, ?, ?, ?, ?)',
 			array(
-				$session->getId(),
+				(int) $session->getId(),
 				$session->getIpAddress(),
 				substr($session->getUserAgent(), 0, 255),
 				(int) $session->getSecondsCreated(),

@@ -77,7 +77,7 @@ class SessionManager {
 			$this->userSession->setSecondsLastUsed($now);
 			$this->userSession->setSessionData('');
 
-			$this->sessionDao->insertSession($this->userSession);
+			$this->sessionDao->insertObject($this->userSession);
 
 		} else {
 			if ($this->userSession->getRemember()) {
@@ -218,7 +218,7 @@ class SessionManager {
 				// Delete old session and insert new session
 				$this->sessionDao->deleteById($currentSessionId);
 				$this->userSession->setId(session_id());
-				$this->sessionDao->insertSession($this->userSession);
+				$this->sessionDao->insertObject($this->userSession);
 				$this->updateSessionCookie(); // TODO: this might not be needed on >= 4.3.3
 				$success = true;
 			}
@@ -234,7 +234,7 @@ class SessionManager {
 				// Delete old session and insert new session
 				$this->sessionDao->deleteById($currentSessionId);
 				$this->userSession->setId($newSessionId);
-				$this->sessionDao->insertSession($this->userSession);
+				$this->sessionDao->insertObject($this->userSession);
 				$this->updateSessionCookie($newSessionId);
 				$success = true;
 			}

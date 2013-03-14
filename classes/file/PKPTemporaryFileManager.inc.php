@@ -117,7 +117,7 @@ class PKPTemporaryFileManager extends PrivateFileManager {
 			$temporaryFile->setOriginalFileName($this->truncateFileName($_FILES[$fileName]['name'], 127));
 			$temporaryFile->setDateUploaded(Core::getCurrentDate());
 
-			$temporaryFileDao->insertTemporaryFile($temporaryFile);
+			$temporaryFileDao->insertObject($temporaryFile);
 
 			return $temporaryFile;
 

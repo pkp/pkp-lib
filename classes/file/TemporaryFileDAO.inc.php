@@ -79,7 +79,7 @@ class TemporaryFileDAO extends DAO {
 	 * @param $temporaryFile TemporaryFile
 	 * @return int
 	 */
-	function insertTemporaryFile(&$temporaryFile) {
+	function insertObject($temporaryFile) {
 		$this->update(
 			sprintf('INSERT INTO temporary_files
 				(user_id, file_name, file_type, file_size, original_file_name, date_uploaded)

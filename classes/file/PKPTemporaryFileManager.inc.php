@@ -38,7 +38,7 @@ class PKPTemporaryFileManager extends PrivateFileManager {
 	 * @return TemporaryFile
 	 */
 	function &getFile($fileId, $userId) {
-		$temporaryFileDao =& DAORegistry::getDAO('TemporaryFileDAO');
+		$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO');
 		$temporaryFile =& $temporaryFileDao->getTemporaryFile($fileId, $userId);
 		return $temporaryFile;
 	}
@@ -68,7 +68,7 @@ class PKPTemporaryFileManager extends PrivateFileManager {
 
 		parent::deleteFile($this->getBasePath() . $temporaryFile->getFileName());
 
-		$temporaryFileDao =& DAORegistry::getDAO('TemporaryFileDAO');
+		$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO');
 		$temporaryFileDao->deleteTemporaryFileById($fileId, $userId);
 	}
 
@@ -107,7 +107,7 @@ class PKPTemporaryFileManager extends PrivateFileManager {
 		if (!$newFileName) return false;
 
 		if ($this->uploadFile($fileName, $this->getBasePath() . $newFileName)) {
-			$temporaryFileDao =& DAORegistry::getDAO('TemporaryFileDAO');
+			$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO');
 			$temporaryFile = $temporaryFileDao->newDataObject();
 
 			$temporaryFile->setUserId($userId);
@@ -132,7 +132,7 @@ class PKPTemporaryFileManager extends PrivateFileManager {
 	 */
 	function _performPeriodicCleanup() {
 		if (time() % 100 == 0) {
-			$temporaryFileDao =& DAORegistry::getDAO('TemporaryFileDAO');
+			$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO');
 			$expiredFiles = $temporaryFileDao->getExpiredFiles();
 			foreach ($expiredFiles as $expiredFile) {
 				$this->deleteFile($expiredFile->getId(), $expiredFile->getUserId());

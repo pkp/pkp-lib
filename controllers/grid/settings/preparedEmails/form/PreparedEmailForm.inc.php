@@ -70,7 +70,7 @@ class PreparedEmailForm extends Form {
 	 */
 	function initData(&$request) {
 		$context =& $this->getContext();
-		$emailTemplateDao =& DAORegistry::getDAO('EmailTemplateDAO');
+		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
 		$emailTemplate =& $emailTemplateDao->getLocaleEmailTemplate($this->getEmailKey(), $context->getId());
 
 		if ($emailTemplate) {
@@ -103,7 +103,7 @@ class PreparedEmailForm extends Form {
 		$this->readUserVars(array('subject', 'body', 'description'));
 
 		$context =& $this->getContext();
-		$emailTemplateDao =& DAORegistry::getDAO('EmailTemplateDAO');
+		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
 		$emailTemplate =& $emailTemplateDao->getLocaleEmailTemplate($this->getEmailKey(), $context->getId());
 		if (!$emailTemplate) $this->setData('isNewTemplate', true);
 	}
@@ -121,7 +121,7 @@ class PreparedEmailForm extends Form {
 	function execute() {
 		$context =& $this->getContext();
 
-		$emailTemplateDao =& DAORegistry::getDAO('EmailTemplateDAO');
+		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
 		$emailTemplate =& $emailTemplateDao->getLocaleEmailTemplate($this->getEmailKey(), $context->getId());
 
 		if (!$emailTemplate) {

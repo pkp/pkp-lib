@@ -370,7 +370,7 @@ class PKPSignoffDAO extends DAO {
 
 		$result = $this->retrieve($sql, $params);
 
-		$userDao =& DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO');
 		$returner = new DAOResultFactory($result, $userDao, '_returnUserFromRow');
 		return $returner;
 	}

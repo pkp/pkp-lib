@@ -52,7 +52,7 @@ class PKPProcessAccessPolicy extends PKPPublicAccessPolicy {
 		}
 
 		// Try to authorize the process with the token.
-		$processDao =& DAORegistry::getDAO('ProcessDAO');
+		$processDao = DAORegistry::getDAO('ProcessDAO');
 		if ($processDao->authorizeProcess($this->authToken)) {
 			return AUTHORIZATION_PERMIT;
 		}

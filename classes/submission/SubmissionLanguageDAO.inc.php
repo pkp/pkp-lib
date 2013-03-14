@@ -55,7 +55,7 @@ class SubmissionLanguageDAO extends ControlledVocabDAO {
 		foreach ($locales as $locale) {
 			$returner[$locale] = array();
 			$languages = $this->build($submissionId);
-			$submissionLanguageEntryDao =& DAORegistry::getDAO('SubmissionLanguageEntryDAO');
+			$submissionLanguageEntryDao = DAORegistry::getDAO('SubmissionLanguageEntryDAO');
 			$submissionLanguages = $submissionLanguageEntryDao->getByControlledVocabId($languages->getId());
 
 			while ($language = $submissionLanguages->next()) {
@@ -121,8 +121,8 @@ class SubmissionLanguageDAO extends ControlledVocabDAO {
 	 * @return int
 	 */
 	function insertLanguages($languages, $submissionId, $deleteFirst = true) {
-		$languageDao =& DAORegistry::getDAO('SubmissionLanguageDAO');
-		$submissionLanguageEntryDao =& DAORegistry::getDAO('SubmissionLanguageEntryDAO');
+		$languageDao = DAORegistry::getDAO('SubmissionLanguageDAO');
+		$submissionLanguageEntryDao = DAORegistry::getDAO('SubmissionLanguageEntryDAO');
 		$currentLanguages = $this->build($submissionId);
 
 		if ($deleteFirst) {

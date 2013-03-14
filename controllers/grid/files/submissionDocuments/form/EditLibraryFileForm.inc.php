@@ -31,7 +31,7 @@ class EditLibraryFileForm extends LibraryFileForm {
 		parent::LibraryFileForm('controllers/grid/files/submissionDocuments/form/editFileForm.tpl', $contextId);
 
 		$this->submissionId = $submissionId;
-		$libraryFileDao =& DAORegistry::getDAO('LibraryFileDAO');
+		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO');
 		$this->libraryFile =& $libraryFileDao->getById($fileId);
 
 		if (!$this->libraryFile || $this->libraryFile->getContextId() !== $this->contextId || $this->libraryFile->getSubmissionId() !== $this->getSubmissionId()) {
@@ -57,7 +57,7 @@ class EditLibraryFileForm extends LibraryFileForm {
 		$this->libraryFile->setName($this->getData('libraryFileName'), null); // Localized
 		$this->libraryFile->setType($this->getData('fileType'));
 
-		$libraryFileDao =& DAORegistry::getDAO('LibraryFileDAO');
+		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO');
 		$libraryFileDao->updateObject($this->libraryFile);
 	}
 

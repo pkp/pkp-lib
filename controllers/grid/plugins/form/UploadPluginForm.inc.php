@@ -72,7 +72,7 @@ class UploadPluginForm extends Form {
 		// Retrieve the temporary file.
 		$user =& $request->getUser();
 		$temporaryFileId = $this->getData('temporaryFileId');
-		$temporaryFileDao =& DAORegistry::getDAO('TemporaryFileDAO');
+		$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO');
 		$temporaryFile =& $temporaryFileDao->getTemporaryFile($temporaryFileId, $user->getId());
 
 		// tar archive basename (less potential version number) must equal plugin directory name
@@ -145,7 +145,7 @@ class UploadPluginForm extends Form {
 			assert(false);
 		}
 
-		$versionDao =& DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
+		$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
 		$installedPlugin = $versionDao->getCurrentVersion($pluginVersion->getProductType(), $pluginVersion->getProduct(), true);
 
 		if(!$installedPlugin) {
@@ -214,7 +214,7 @@ class UploadPluginForm extends Form {
 	 * @return boolean
 	 */
 	function _checkIfNewer($productType, $productName, $newVersion) {
-		$versionDao =& DAORegistry::getDAO('VersionDAO');
+		$versionDao = DAORegistry::getDAO('VersionDAO');
 		$installedPlugin = $versionDao->getCurrentVersion($productType, $productName, true);
 
 		if (!$installedPlugin) return false;
@@ -268,7 +268,7 @@ class UploadPluginForm extends Form {
 			return __('manager.plugins.wrongName');
 		}
 
-		$versionDao =& DAORegistry::getDAO('VersionDAO');
+		$versionDao = DAORegistry::getDAO('VersionDAO');
 		$installedPlugin = $versionDao->getCurrentVersion($pluginVersion->getProductType(), $pluginVersion->getProduct(), true);
 		if(!$installedPlugin) {
 			return __('manager.plugins.pleaseInstall');

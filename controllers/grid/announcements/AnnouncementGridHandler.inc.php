@@ -51,7 +51,7 @@ class AnnouncementGridHandler extends GridHandler {
 		$announcementId = $request->getUserVar('announcementId');
 		if ($announcementId) {
 			// Ensure announcement is valid and for this context
-			$announcementDao =& DAORegistry::getDAO('AnnouncementDAO'); /* @var $announcementDao AnnouncementDAO */
+			$announcementDao = DAORegistry::getDAO('AnnouncementDAO'); /* @var $announcementDao AnnouncementDAO */
 			if ($announcementDao->getAnnouncementAssocType($announcementId) != $context->getAssocType() &&
 				$announcementDao->getAnnouncementAssocId($announcementId) != $context->getId()) {
 				return false;
@@ -114,7 +114,7 @@ class AnnouncementGridHandler extends GridHandler {
 	 */
 	function loadData($request, $filter) {
 		$context = $request->getContext();
-		$announcementDao =& DAORegistry::getDAO('AnnouncementDAO');
+		$announcementDao = DAORegistry::getDAO('AnnouncementDAO');
 		$rangeInfo = $this->getGridRangeInfo($request, $this->getId());
 		$announcements = $announcementDao->getAnnouncementsNotExpiredByAssocId($context->getAssocType(), $context->getId(), $rangeInfo);
 

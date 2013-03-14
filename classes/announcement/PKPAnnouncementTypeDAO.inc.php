@@ -230,7 +230,7 @@ class PKPAnnouncementTypeDAO extends DAO {
 		$this->update('DELETE FROM announcement_type_settings WHERE type_id = ?', (int) $typeId);
 		$this->update('DELETE FROM announcement_types WHERE type_id = ?', (int) $typeId);
 
-		$announcementDao =& DAORegistry::getDAO('AnnouncementDAO');
+		$announcementDao = DAORegistry::getDAO('AnnouncementDAO');
 		$announcementDao->deleteByTypeId($typeId);
 	}
 

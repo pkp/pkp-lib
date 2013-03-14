@@ -79,7 +79,7 @@ class PKPAnnouncementForm extends Form {
 	 * @return array
 	 */
 	function getLocaleFieldNames() {
-		$announcementDao =& DAORegistry::getDAO('AnnouncementDAO');
+		$announcementDao = DAORegistry::getDAO('AnnouncementDAO');
 		return $announcementDao->getLocaleFieldNames();
 	}
 
@@ -92,7 +92,7 @@ class PKPAnnouncementForm extends Form {
 		$templateMgr->assign('announcementId', $this->announcementId);
 		$templateMgr->assign('yearOffsetFuture', ANNOUNCEMENT_EXPIRE_YEAR_OFFSET_FUTURE);
 
-		$announcementTypeDao =& DAORegistry::getDAO('AnnouncementTypeDAO');
+		$announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO');
 		list($assocType, $assocId) = $this->_getAnnouncementTypesAssocId();
 		$announcementTypes =& $announcementTypeDao->getByAssoc($assocType, $assocId);
 		$templateMgr->assign('announcementTypes', $announcementTypes);
@@ -105,7 +105,7 @@ class PKPAnnouncementForm extends Form {
 	 */
 	function initData() {
 		if (isset($this->announcementId)) {
-			$announcementDao =& DAORegistry::getDAO('AnnouncementDAO');
+			$announcementDao = DAORegistry::getDAO('AnnouncementDAO');
 			$announcement =& $announcementDao->getById($this->announcementId);
 
 			if ($announcement != null) {
@@ -136,7 +136,7 @@ class PKPAnnouncementForm extends Form {
 	 * Save announcement.
 	 */
 	function execute() {
-		$announcementDao =& DAORegistry::getDAO('AnnouncementDAO');
+		$announcementDao = DAORegistry::getDAO('AnnouncementDAO');
 
 		if (isset($this->announcementId)) {
 			$announcement =& $announcementDao->getById($this->announcementId);

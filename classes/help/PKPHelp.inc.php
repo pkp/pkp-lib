@@ -188,8 +188,8 @@ class PKPHelp {
 	 * @return array
 	 */
 	function buildTopicSection($topicId, $prevTocId = null) {
-		$topicDao =& DAORegistry::getDAO('HelpTopicDAO');
-		$tocDao =& DAORegistry::getDAO('HelpTocDAO');
+		$topicDao = DAORegistry::getDAO('HelpTopicDAO');
+		$tocDao = DAORegistry::getDAO('HelpTocDAO');
 
 		$topic = $topicDao->getTopic($topicId);
 		if ($topicId == 'index/topic/000000') {

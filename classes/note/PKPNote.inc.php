@@ -42,7 +42,7 @@ class PKPNote extends DataObject {
 	 * @return User
 	 */
 	function getUser() {
-		$userDao =& DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO');
 		return $userDao->getById($this->getUserId(), true);
 	}
 

@@ -145,7 +145,7 @@ class Installer {
 
 		if (!isset($this->currentVersion)) {
 			// Retrieve the currently installed version
-			$versionDao =& DAORegistry::getDAO('VersionDAO');
+			$versionDao = DAORegistry::getDAO('VersionDAO');
 			$this->currentVersion =& $versionDao->getCurrentVersion();
 		}
 
@@ -282,7 +282,7 @@ class Installer {
 	 */
 	function updateVersion() {
 		if ($this->newVersion->compare($this->currentVersion) > 0) {
-			$versionDao =& DAORegistry::getDAO('VersionDAO');
+			$versionDao = DAORegistry::getDAO('VersionDAO');
 			if (!$versionDao->insertVersion($this->newVersion)) {
 				return false;
 			}
@@ -615,7 +615,7 @@ class Installer {
 	 * 		'locales' => 'en_US,fr_CA,...'
 	 */
 	function installEmailTemplate($installer, $attr) {
-		$emailTemplateDao =& DAORegistry::getDAO('EmailTemplateDAO');
+		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
 		$emailTemplateDao->installEmailTemplates($emailTemplateDao->getMainEmailTemplatesFilename(), false, $attr['key']);
 		foreach (explode(',', $attr['locales']) as $locale) {
 			$emailTemplateDao->installEmailTemplateData($emailTemplateDao->getMainEmailTemplateDataFilename($locale), false, $attr['key']);
@@ -674,7 +674,7 @@ class Installer {
 	 * @return boolean
 	 */
 	function columnExists($tableName, $columnName) {
-		$siteDao =& DAORegistry::getDAO('SiteDAO');
+		$siteDao = DAORegistry::getDAO('SiteDAO');
 		$dict = NewDataDictionary($siteDao->getDataSource());
 
 		// Make sure the table exists
@@ -697,7 +697,7 @@ class Installer {
 	 * @return boolean
 	 */
 	function tableExists($tableName) {
-		$siteDao =& DAORegistry::getDAO('SiteDAO');
+		$siteDao = DAORegistry::getDAO('SiteDAO');
 		$dict = NewDataDictionary($siteDao->getDataSource());
 
 		// Check whether the table exists.
@@ -711,7 +711,7 @@ class Installer {
 	 * @return boolean
 	 */
 	function addPluginVersions() {
-		$versionDao =& DAORegistry::getDAO('VersionDAO');
+		$versionDao = DAORegistry::getDAO('VersionDAO');
 		import('lib.pkp.classes.site.VersionCheck');
 		$fileManager = new FileManager();
 		$categories = PluginRegistry::getCategories();

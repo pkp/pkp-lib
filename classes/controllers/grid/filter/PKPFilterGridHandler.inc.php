@@ -122,7 +122,7 @@ class PKPFilterGridHandler extends GridHandler {
 		$router =& $request->getRouter();
 		$context =& $router->getContext($request);
 		$contextId = (is_null($context)?CONTEXT_ID_NONE:$context->getId());
-		$filterDao =& DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
+		$filterDao = DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
 		$data =& $filterDao->getObjectsByGroup($this->getFilterGroupSymbolic(), $contextId);
 		$this->setGridDataElements($data);
 
@@ -293,7 +293,7 @@ class PKPFilterGridHandler extends GridHandler {
 			// We need to instantiate a new filter from a
 			// filter template.
 			$filterTemplateId = $args['filterTemplateId'];
-			$filterDao =& DAORegistry::getDAO('FilterDAO');
+			$filterDao = DAORegistry::getDAO('FilterDAO');
 			$filter =& $filterDao->getObjectById($filterTemplateId);
 			if (!is_a($filter, 'Filter')) fatalError('Invalid filter template id!');
 

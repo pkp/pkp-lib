@@ -228,7 +228,7 @@ class PKPRouter {
 				// Get the DAO for the requested context.
 				$contextClass = ucfirst($requestedContextName);
 				$daoName = $contextClass.'DAO';
-				$daoInstance =& DAORegistry::getDAO($daoName);
+				$daoInstance = DAORegistry::getDAO($daoName);
 
 				// Retrieve the context from the DAO (by path)
 				$daoMethod = 'getByPath';

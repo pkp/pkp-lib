@@ -195,7 +195,7 @@ class PKPIdentity extends DataObject {
 	 * @return string
 	 */
 	function getCountryLocalized() {
-		$countryDao =& DAORegistry::getDAO('CountryDAO');
+		$countryDao = DAORegistry::getDAO('CountryDAO');
 		$country = $this->getCountry();
 		if ($country) {
 			return $countryDao->getCountry($country);

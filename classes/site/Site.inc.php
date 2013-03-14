@@ -230,7 +230,7 @@ class Site extends DataObject {
 	 * @return mixed
 	 */
 	function &getSetting($name, $locale = null) {
-		$siteSettingsDao =& DAORegistry::getDAO('SiteSettingsDAO');
+		$siteSettingsDao = DAORegistry::getDAO('SiteSettingsDAO');
 		$setting =& $siteSettingsDao->getSetting($name, $locale);
 		return $setting;
 	}
@@ -251,7 +251,7 @@ class Site extends DataObject {
 	 * @param $isLocalized boolean optional
 	 */
 	function updateSetting($name, $value, $type = null, $isLocalized = false) {
-		$siteSettingsDao =& DAORegistry::getDAO('SiteSettingsDAO');
+		$siteSettingsDao = DAORegistry::getDAO('SiteSettingsDAO');
 		return $siteSettingsDao->updateSetting($name, $value, $type, $isLocalized);
 	}
 }

@@ -20,7 +20,7 @@ class FilterHelper {
 	 */
 	function installFilterGroups($filterGroupsNode) {
 		// Install filter groups.
-		$filterGroupDao =& DAORegistry::getDAO('FilterGroupDAO'); /* @var $filterGroupDao FilterGroupDAO */
+		$filterGroupDao = DAORegistry::getDAO('FilterGroupDAO'); /* @var $filterGroupDao FilterGroupDAO */
 		import('lib.pkp.classes.filter.FilterGroup');
 
 		foreach ($filterGroupsNode->getChildren() as $filterGroupNode) { /* @var $filterGroupNode XMLNode */
@@ -57,7 +57,7 @@ class FilterHelper {
 	 */
 	function &configureFilter($filterNode, $persist = true) {
 		// Install filters.
-		$filterDao =& DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
+		$filterDao = DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
 
 		$filterGroupSymbolic = $filterNode->getAttribute('inGroup');
 		$filterClassName = $filterNode->getAttribute('class');

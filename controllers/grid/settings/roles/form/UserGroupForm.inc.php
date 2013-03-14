@@ -76,7 +76,7 @@ class UserGroupForm extends Form {
 	 * @see Form::initData()
 	 */
 	function initData() {
-		$userGroupDao =& DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$userGroup = $userGroupDao->getById($this->getUserGroupId());
 		$stages = $userGroupDao->getWorkflowStageTranslationKeys();
 		$this->setData('stages', $stages);
@@ -128,7 +128,7 @@ class UserGroupForm extends Form {
 	 */
 	function execute(&$request) {
 		$userGroupId = $this->getUserGroupId();
-		$userGroupDao =& DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 
 		// Check if we are editing an existing user group or creating another one.
 		if ($userGroupId == null) {
@@ -163,7 +163,7 @@ class UserGroupForm extends Form {
 	 */
 	function _assignStagesToUserGroup($userGroupId, $userAssignedStages) {
 		$contextId = $this->getContextId();
-		$userGroupDao =& DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 
 		// Current existing workflow stages.
 		$stages = $userGroupDao->getWorkflowStageTranslationKeys();

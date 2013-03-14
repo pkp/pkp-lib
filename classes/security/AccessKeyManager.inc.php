@@ -22,7 +22,7 @@ class AccessKeyManager {
 	 * Create a manager for access keys.
 	 */
 	function AccessKeyManager() {
-		$this->accessKeyDao =& DAORegistry::getDAO('AccessKeyDAO');
+		$this->accessKeyDao = DAORegistry::getDAO('AccessKeyDAO');
 		$this->_performPeriodicCleanup();
 	}
 
@@ -76,7 +76,7 @@ class AccessKeyManager {
 	 */
 	function _performPeriodicCleanup() {
 		if (time() % 100 == 0) {
-			$accessKeyDao =& DAORegistry::getDAO('AccessKeyDAO');
+			$accessKeyDao = DAORegistry::getDAO('AccessKeyDAO');
 			$accessKeyDao->deleteExpiredKeys();
 		}
 	}

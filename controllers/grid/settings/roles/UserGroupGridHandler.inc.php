@@ -123,7 +123,7 @@ class UserGroupGridHandler extends CategoryGridHandler {
 	 */
 	function &loadData($request, $filter) {
 		$contextId = $this->_getContextId();
-		$userGroupDao =& DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 
 		if (is_array($filter) && isset($filter['selectedRoleId']) && $filter['selectedRoleId'] != 0) {
 			$userGroups =& $userGroupDao->getByRoleId($contextId, $filter['selectedRoleId']);
@@ -170,7 +170,7 @@ class UserGroupGridHandler extends CategoryGridHandler {
 		// $stage is an associative array, with id and name (locale key) elements
 		$stageId = $stage['id'];
 
-		$userGroupDao =& DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 
 		$assignedGroups =& $userGroupDao->getUserGroupsByStage($this->_getContextId(), $stageId);
 		$returner = $assignedGroups->toAssociativeArray(); // array of UserGroup objects
@@ -245,7 +245,7 @@ class UserGroupGridHandler extends CategoryGridHandler {
 	 * @return array Given user group stages assignments.
 	 */
 	function _getAssignedStages($contextId, $userGroupId) {
-		$userGroupDao =& DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$assignedStages =& $userGroupDao->getAssignedStagesByUserGroupId($contextId, $userGroupId);
 
 		$stages = $userGroupDao->getWorkflowStageTranslationKeys();

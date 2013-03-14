@@ -375,7 +375,7 @@ class PKPPlugin {
 		$arguments = $context;
 		$arguments[] = $this->getName();
 		$arguments[] = $name;
-		$pluginSettingsDao =& DAORegistry::getDAO('PluginSettingsDAO');
+		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO');
 		return call_user_func_array(array(&$pluginSettingsDao, 'getSetting'), $arguments);
 	}
 
@@ -398,7 +398,7 @@ class PKPPlugin {
 		$arguments[] = $name;
 		$arguments[] = $value;
 		$arguments[] = $type;
-		$pluginSettingsDao =& DAORegistry::getDAO('PluginSettingsDAO');
+		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO');
 		call_user_func_array(array(&$pluginSettingsDao, 'updateSetting'), $arguments);
 	}
 
@@ -532,7 +532,7 @@ class PKPPlugin {
 		}
 		$arguments[] = $this->getName();
 		$arguments[] = $this->getInstallSitePluginSettingsFile();
-		$pluginSettingsDao =& DAORegistry::getDAO('PluginSettingsDAO');
+		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO');
 		call_user_func_array(array(&$pluginSettingsDao, 'installSettings'), $arguments);
 
 		return false;
@@ -559,7 +559,7 @@ class PKPPlugin {
 			if (!$isNewContext) return false;
 
 			// Install context specific settings
-			$pluginSettingsDao =& DAORegistry::getDAO('PluginSettingsDAO');
+			$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO');
 			switch ($contextDepth) {
 				case 1:
 					$pluginSettingsDao->installSettings($context->getId(), $this->getName(), $this->getContextSpecificPluginSettingsFile());
@@ -588,7 +588,7 @@ class PKPPlugin {
 		$installer =& $args[0]; /* @var $installer Installer */
 		$result =& $args[1];
 
-		$emailTemplateDao =& DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
+		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
 		$sql = $emailTemplateDao->installEmailTemplates($this->getInstallEmailTemplatesFile(), true, null, true);
 
 		if ($sql === false) {
@@ -617,7 +617,7 @@ class PKPPlugin {
 		$installer =& $args[0];
 		$result =& $args[1];
 
-		$emailTemplateDao =& DAORegistry::getDAO('EmailTemplateDAO');
+		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
 		foreach ($installer->installedLocales as $locale) {
 			$filename = str_replace('{$installedLocale}', $locale, $this->getInstallEmailTemplateDataFile());
 			if (!file_exists($filename)) continue;
@@ -642,7 +642,7 @@ class PKPPlugin {
 	function installLocale($hookName, $args) {
 		$locale =& $args[0];
 		$filename = str_replace('{$installedLocale}', $locale, $this->getInstallEmailTemplateDataFile());
-		$emailTemplateDao =& DAORegistry::getDAO('EmailTemplateDAO');
+		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
 		$emailTemplateDao->installEmailTemplateData($filename);
 		return false;
 	}
@@ -728,7 +728,7 @@ class PKPPlugin {
 	 * @return Version
 	 */
 	function getCurrentVersion() {
-		$versionDao =& DAORegistry::getDAO('VersionDAO');
+		$versionDao = DAORegistry::getDAO('VersionDAO');
 		$pluginPath = $this->getPluginPath();
 		$product = basename($pluginPath);
 		$category = basename(dirname($pluginPath));

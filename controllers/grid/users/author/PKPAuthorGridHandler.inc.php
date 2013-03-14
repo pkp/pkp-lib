@@ -218,7 +218,7 @@ class PKPAuthorGridHandler extends GridHandler {
 	 */
 	function loadData($request, $filter = null) {
 		$submission =& $this->getSubmission();
-		$authorDao =& DAORegistry::getDAO('AuthorDAO');
+		$authorDao = DAORegistry::getDAO('AuthorDAO');
 		$data =& $authorDao->getAuthorsBySubmissionId($submission->getId(), true);
 		return $data;
 	}
@@ -248,7 +248,7 @@ class PKPAuthorGridHandler extends GridHandler {
 		$authorId = $request->getUserVar('authorId');
 		$submission =& $this->getSubmission();
 
-		$authorDao =& DAORegistry::getDAO('AuthorDAO');
+		$authorDao = DAORegistry::getDAO('AuthorDAO');
 		$author = $authorDao->getAuthor($authorId, $submission->getId());
 
 		// Form handling
@@ -329,7 +329,7 @@ class PKPAuthorGridHandler extends GridHandler {
 		// Identify the author to be deleted
 		$authorId = $request->getUserVar('authorId');
 
-		$authorDao =& DAORegistry::getDAO('AuthorDAO');
+		$authorDao = DAORegistry::getDAO('AuthorDAO');
 		$result = $authorDao->deleteAuthorById($authorId, $submissionId);
 
 		if ($result) {
@@ -350,8 +350,8 @@ class PKPAuthorGridHandler extends GridHandler {
 		// Identify the author Id.
 		$authorId = $request->getUserVar('authorId');
 
-		$authorDao =& DAORegistry::getDAO('AuthorDAO');
-		$userDao =& DAORegistry::getDAO('UserDAO');
+		$authorDao = DAORegistry::getDAO('AuthorDAO');
+		$userDao = DAORegistry::getDAO('UserDAO');
 		$author =& $authorDao->getAuthor($authorId);
 
 		if ($author !== null && $userDao->userExistsByEmail($author->getEmail())) {

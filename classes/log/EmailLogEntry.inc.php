@@ -130,7 +130,7 @@ class EmailLogEntry extends DataObject {
 		$senderFullName =& $this->getData('senderFullName');
 
 		if(!isset($senderFullName)) {
-			$userDao =& DAORegistry::getDAO('UserDAO');
+			$userDao = DAORegistry::getDAO('UserDAO');
 			$senderFullName = $userDao->getUserFullName($this->getSenderId(), true);
 		}
 
@@ -145,7 +145,7 @@ class EmailLogEntry extends DataObject {
 		$senderEmail =& $this->getData('senderEmail');
 
 		if(!isset($senderEmail)) {
-			$userDao =& DAORegistry::getDAO('UserDAO');
+			$userDao = DAORegistry::getDAO('UserDAO');
 			$senderEmail = $userDao->getUserEmail($this->getSenderId(), true);
 		}
 

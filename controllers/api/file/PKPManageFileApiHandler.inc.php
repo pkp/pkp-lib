@@ -44,14 +44,14 @@ class PKPManageFileApiHandler extends Handler {
 		$stageId =& $request->getUserVar('stageId');
 		if ($stageId) {
 			// validate the stage id.
-			$stageAssignmentDao =& DAORegistry::getDAO('StageAssignmentDAO');
+			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
 			$user =& $request->getUser();
 			$stageAssignments =& $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), $stageId, null, $user->getId());
 		}
 
 		assert($submissionFile && $submission); // Should have been validated already
 
-		$noteDao =& DAORegistry::getDAO('NoteDAO');
+		$noteDao = DAORegistry::getDAO('NoteDAO');
 		$notes =& $noteDao->getByAssoc(ASSOC_TYPE_SUBMISSION_FILE, $submissionFile->getFileId());
 		while ($note =& $notes->next()) {
 			$noteDao->deleteById($note->getId());
@@ -86,7 +86,7 @@ class PKPManageFileApiHandler extends Handler {
 		}
 
 		// Delete the submission file.
-		$submissionFileDao =& DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
+		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 
 
 		// check to see if we need to remove review_round_file associations
@@ -105,7 +105,7 @@ class PKPManageFileApiHandler extends Handler {
 					$submission->getId()
 				);
 
-				$reviewRoundDao =& DAORegistry::getDAO('ReviewRoundDAO');
+				$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
 				$lastReviewRound =& $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
 				$notificationMgr->updateNotification(
 					$request,

@@ -62,7 +62,7 @@ class UserEmailForm extends Form {
 	 * Display the form.
 	 */
 	function display($args, &$request) {
-		$userDao =& DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO');
 		$user =& $userDao->getById($this->userId);
 
 		$templateMgr =& TemplateManager::getManager($request);
@@ -79,7 +79,7 @@ class UserEmailForm extends Form {
 	 * @param $request PKPRequest
 	 */
 	function execute($args, &$request) {
-		$userDao =& DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO');
 		$toUser =& $userDao->getById($this->userId);
 		$fromUser =& $request->getUser();
 

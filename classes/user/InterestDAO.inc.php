@@ -82,7 +82,7 @@ class InterestDAO extends ControlledVocabDAO {
 	 */
 	function getAllInterests($filter = null) {
 		$controlledVocab = $this->build();
-		$interestEntryDao =& DAORegistry::getDAO('InterestEntryDAO');
+		$interestEntryDao = DAORegistry::getDAO('InterestEntryDAO');
 		$iterator = $interestEntryDao->getByControlledVocabId($controlledVocab->getId(), null, $filter);
 
 		// Sort by name.
@@ -113,7 +113,7 @@ class InterestDAO extends ControlledVocabDAO {
 			array((int) $userId)
 		);
 
-		$interestEntryDao =& DAORegistry::getDAO('InterestEntryDAO'); /* @var $interestEntryDao InterestEntryDAO */
+		$interestEntryDao = DAORegistry::getDAO('InterestEntryDAO'); /* @var $interestEntryDao InterestEntryDAO */
 		$controlledVocab = $this->build();
 
 		// Store the new interests.

@@ -83,7 +83,7 @@ class ContextSiteSettingsForm extends Form {
 	function _loadDefaultUserGroups($contextId) {
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_DEFAULT, LOCALE_COMPONENT_PKP_DEFAULT);
 		// Install default user groups
-		$userGroupDao =& DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$userGroupDao->installSettings($contextId, 'registry/userGroups.xml');
 	}
 }

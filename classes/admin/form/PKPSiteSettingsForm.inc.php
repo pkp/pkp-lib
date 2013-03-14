@@ -28,7 +28,7 @@ class PKPSiteSettingsForm extends Form {
 	 */
 	function PKPSiteSettingsForm() {
 		parent::Form('admin/settings.tpl');
-		$this->siteSettingsDao =& DAORegistry::getDAO('SiteSettingsDAO');
+		$this->siteSettingsDao = DAORegistry::getDAO('SiteSettingsDAO');
 
 		// Validation checks for this form
 		$this->addCheck(new FormValidatorLocale($this, 'title', 'required', 'admin.settings.form.titleRequired'));
@@ -63,7 +63,7 @@ class PKPSiteSettingsForm extends Form {
 	 * Initialize form data from current settings.
 	 */
 	function initData() {
-		$siteDao =& DAORegistry::getDAO('SiteDAO');
+		$siteDao = DAORegistry::getDAO('SiteDAO');
 		$site =& $siteDao->getSite();
 
 		$data = array(
@@ -103,7 +103,7 @@ class PKPSiteSettingsForm extends Form {
 	 * Save site settings.
 	 */
 	function execute() {
-		$siteDao =& DAORegistry::getDAO('SiteDAO');
+		$siteDao = DAORegistry::getDAO('SiteDAO');
 		$site =& $siteDao->getSite();
 
 		$site->setRedirect($this->getData('redirect'));
@@ -147,7 +147,7 @@ class PKPSiteSettingsForm extends Form {
 
 			$uploadName = $site->getSiteStyleFilename();
 			if ($publicFileManager->uploadSiteFile('siteStyleSheet', $uploadName)) {
-				$siteDao =& DAORegistry::getDAO('SiteDAO');
+				$siteDao = DAORegistry::getDAO('SiteDAO');
 				$site->setOriginalStyleFilename($publicFileManager->getUploadedFileName('siteStyleSheet'));
 				$siteDao->updateObject($site);
 			}
@@ -170,7 +170,7 @@ class PKPSiteSettingsForm extends Form {
 
 			$uploadName = 'pageHeaderTitleImage_' . $locale . $extension;
 			if ($publicFileManager->uploadSiteFile('pageHeaderTitleImage', $uploadName)) {
-				$siteDao =& DAORegistry::getDAO('SiteDAO');
+				$siteDao = DAORegistry::getDAO('SiteDAO');
 				$setting = $site->getSetting('pageHeaderTitleImage');
 				list($width, $height) = getimagesize($publicFileManager->getSiteFilesPath() . '/' . $uploadName);
 				$setting[$locale] = array(

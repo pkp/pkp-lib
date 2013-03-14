@@ -53,7 +53,7 @@ class MergeUsersGridRow extends GridRow {
 					'newUserId' => $rowId,
 				);
 
-				$userDao =& DAORegistry::getDAO('UserDAO');
+				$userDao = DAORegistry::getDAO('UserDAO');
 				$oldUser =& $userDao->getById($this->getOldUserId());
 				$this->addAction(
 					new LinkAction(

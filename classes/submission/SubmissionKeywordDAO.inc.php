@@ -55,7 +55,7 @@ class SubmissionKeywordDAO extends ControlledVocabDAO {
 		foreach ($locales as $locale) {
 			$returner[$locale] = array();
 			$keywords = $this->build($submissionId);
-			$submissionKeywordEntryDao =& DAORegistry::getDAO('SubmissionKeywordEntryDAO');
+			$submissionKeywordEntryDao = DAORegistry::getDAO('SubmissionKeywordEntryDAO');
 			$submissionKeywords = $submissionKeywordEntryDao->getByControlledVocabId($keywords->getId());
 
 			while ($keyword = $submissionKeywords->next()) {
@@ -121,8 +121,8 @@ class SubmissionKeywordDAO extends ControlledVocabDAO {
 	 * @return int
 	 */
 	function insertKeywords($keywords, $submissionId, $deleteFirst = true) {
-		$keywordDao =& DAORegistry::getDAO('SubmissionKeywordDAO');
-		$submissionKeywordEntryDao =& DAORegistry::getDAO('SubmissionKeywordEntryDAO');
+		$keywordDao = DAORegistry::getDAO('SubmissionKeywordDAO');
+		$submissionKeywordEntryDao = DAORegistry::getDAO('SubmissionKeywordEntryDAO');
 		$currentKeywords = $this->build($submissionId);
 
 		if ($deleteFirst) {

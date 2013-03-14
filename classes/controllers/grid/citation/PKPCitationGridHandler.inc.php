@@ -111,7 +111,7 @@ class PKPCitationGridHandler extends GridHandler {
 
 		// Retrieve the associated citations to be displayed in the grid.
 		// Only citations that have already been parsed will be displayed.
-		$citationDao =& DAORegistry::getDAO('CitationDAO');
+		$citationDao = DAORegistry::getDAO('CitationDAO');
 		$data =& $citationDao->getObjectsByAssocId($this->getAssocType(), $this->getAssocId(), CITATION_PARSED);
 		$this->setGridDataElements($data);
 
@@ -123,7 +123,7 @@ class PKPCitationGridHandler extends GridHandler {
 		// called while all processes are still running.
 		if (isset($args['refresh'])) {
 			$noOfProcesses = (int)Config::getVar('general', 'citation_checking_max_processes');
-			$processDao =& DAORegistry::getDAO('ProcessDAO');
+			$processDao = DAORegistry::getDAO('ProcessDAO');
 			$processDao->spawnProcesses($request, 'api.citation.CitationApiHandler', 'checkAllCitations', PROCESS_TYPE_CITATION_CHECKING, $noOfProcesses);
 		}
 
@@ -218,7 +218,7 @@ class PKPCitationGridHandler extends GridHandler {
 				$templateMgr->assign_by_ref('assocId', $this->getAssocId());
 
 				// Identify export filters.
-				$filterDao =& DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
+				$filterDao = DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
 				$allowedFilterIds = array();
 
 				// Retrieve export filters.
@@ -617,7 +617,7 @@ class PKPCitationGridHandler extends GridHandler {
 		}
 
 		// Do the actual filtering of the citation.
-		$citationDao =& DAORegistry::getDAO('CitationDAO');
+		$citationDao = DAORegistry::getDAO('CitationDAO');
 		$filteredCitation =& $citationDao->checkCitation($request, $originalCitation, $filterIds);
 
 		// Crate a new form for the filtered (but yet unsaved) citation data

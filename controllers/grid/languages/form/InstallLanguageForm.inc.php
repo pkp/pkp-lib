@@ -103,7 +103,7 @@ class InstallLanguageForm extends Form {
 
 			$site->setInstalledLocales($installedLocales);
 			$site->setSupportedLocales($supportedLocales);
-			$siteDao =& DAORegistry::getDAO('SiteDAO');
+			$siteDao = DAORegistry::getDAO('SiteDAO');
 			$siteDao->updateObject($site);
 		}
 	}

@@ -129,7 +129,7 @@ class FilterForm extends Form {
 
 			// Retrieve all compatible filter templates
 			// from the database.
-			$filterDao =& DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
+			$filterDao = DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
 			$filterTemplateObjects =& $filterDao->getObjectsByGroup($this->getFilterGroupSymbolic(), 0, true);
 			$filterTemplates = array();
 
@@ -231,7 +231,7 @@ class FilterForm extends Form {
 		}
 
 		// Persist the filter
-		$filterDao =& DAORegistry::getDAO('FilterDAO');
+		$filterDao = DAORegistry::getDAO('FilterDAO');
 		if (is_numeric($filter->getId())) {
 			$filterDao->updateObject($filter);
 		} else {

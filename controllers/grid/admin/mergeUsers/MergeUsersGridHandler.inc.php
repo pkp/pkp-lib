@@ -128,9 +128,9 @@ class MergeUsersGridHandler extends GridHandler {
 	 * @return array Grid data.
 	 */
 	function loadData(&$request, $filter) {
-		$userGroupDao =& DAORegistry::getDAO('UserGroupDAO');
-		$userDao =& DAORegistry::getDAO('UserDAO');
-		$roleDao =& DAORegistry::getDAO('RoleDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userDao = DAORegistry::getDAO('UserDAO');
+		$roleDao = DAORegistry::getDAO('RoleDAO');
 
 		if ($filter['roleSymbolic'] != 'all' && String::regexp_match_get('/^(\w+)$/', $filter['roleSymbolic'], $matches)) {
 			$roleId = $roleDao->getRoleIdFromPath($matches[1]);

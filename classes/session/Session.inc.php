@@ -81,7 +81,7 @@ class Session extends DataObject {
 			$userId = null;
 
 		} else if ($userId != $this->getData('userId')) {
-			$userDao =& DAORegistry::getDAO('UserDAO');
+			$userDao = DAORegistry::getDAO('UserDAO');
 			$this->user =& $userDao->getById($userId);
 			if (!isset($this->user)) {
 				$userId = null;

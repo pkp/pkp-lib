@@ -91,7 +91,7 @@ class PaymentManager {
 	 * @return QueuedPayment
 	 */
 	function &getQueuedPayment($queuedPaymentId) {
-		$queuedPaymentDao =& DAORegistry::getDAO('QueuedPaymentDAO');
+		$queuedPaymentDao = DAORegistry::getDAO('QueuedPaymentDAO');
 		$queuedPayment =& $queuedPaymentDao->getQueuedPayment($queuedPaymentId);
 		return $queuedPayment;
 	}

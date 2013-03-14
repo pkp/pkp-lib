@@ -33,7 +33,7 @@ class PreparedEmailsGridCellProvider extends DataObjectGridCellProvider {
 		$element =& $row->getData();
 		$columnId = $column->getId();
 		assert(is_a($element, 'DataObject') && !empty($columnId));
-		$roleDao =& DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
+		$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
 		switch ($columnId) {
 			case 'name':
 				$label = $element->getEmailKey();

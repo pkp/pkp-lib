@@ -298,7 +298,7 @@ class DataObject {
 	function &getSupportedExtractionAdapters() {
 		// Load meta-data adapters from the database.
 		if ($this->getHasLoadableAdapters() && !$this->_extractionAdaptersLoaded) {
-			$filterDao =& DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
+			$filterDao = DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
 			$loadedAdapters =& $filterDao->getObjectsByTypeDescription('class::%', 'metadata::%', $this);
 			foreach($loadedAdapters as $loadedAdapter) {
 				$this->addSupportedMetadataAdapter($loadedAdapter);
@@ -319,7 +319,7 @@ class DataObject {
 	function &getSupportedInjectionAdapters() {
 		// Load meta-data adapters from the database.
 		if ($this->getHasLoadableAdapters() && !$this->_injectionAdaptersLoaded) {
-			$filterDao =& DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
+			$filterDao = DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
 			$loadedAdapters =& $filterDao->getObjectsByTypeDescription('metadata::%', 'class::%', $this, false);
 			foreach($loadedAdapters as $loadedAdapter) {
 				$this->addSupportedMetadataAdapter($loadedAdapter);

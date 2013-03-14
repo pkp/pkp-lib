@@ -72,7 +72,7 @@ class FilterDAO extends DAO {
 		$falseVar = false;
 
 		// Retrieve the filter group from the database.
-		$filterGroupDao =& DAORegistry::getDAO('FilterGroupDAO'); /* @var $filterGroupDao FilterGroupDAO */
+		$filterGroupDao = DAORegistry::getDAO('FilterGroupDAO'); /* @var $filterGroupDao FilterGroupDAO */
 		$filterGroup =& $filterGroupDao->getObjectBySymbolic($filterGroupSymbolic);
 		if (!is_a($filterGroup, 'FilterGroup')) return $falseVar;
 
@@ -463,7 +463,7 @@ class FilterDAO extends DAO {
 	 */
 	function &_newDataObject($filterClassName, $filterGroupId) {
 		// Instantiate the filter group.
-		$filterGroupDao =& DAORegistry::getDAO('FilterGroupDAO'); /* @var $filterGroupDao FilterGroupDAO */
+		$filterGroupDao = DAORegistry::getDAO('FilterGroupDAO'); /* @var $filterGroupDao FilterGroupDAO */
 		$filterGroup =& $filterGroupDao->getObjectById($filterGroupId);
 		assert(is_a($filterGroup, 'FilterGroup'));
 

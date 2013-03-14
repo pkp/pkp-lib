@@ -38,7 +38,7 @@ class PKPFileNotesLinkAction extends FileLinkAction {
 	}
 
 	function getNotesState($submissionFile, $user) {
-		$noteDao =& DAORegistry::getDAO('NoteDAO');
+		$noteDao = DAORegistry::getDAO('NoteDAO');
 
 		// If no notes exist, display a dimmed icon.
 		if (!$noteDao->notesExistByAssoc(ASSOC_TYPE_SUBMISSION_FILE, $submissionFile->getFileId())) {

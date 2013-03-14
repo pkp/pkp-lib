@@ -598,7 +598,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 		if (!isset($genreCache[$genreId])) {
 			// We have to instantiate the genre to find out about
 			// its category.
-			$genreDao =& DAORegistry::getDAO('GenreDAO'); /* @var $genreDao GenreDAO */
+			$genreDao = DAORegistry::getDAO('GenreDAO'); /* @var $genreDao GenreDAO */
 			$genre =& $genreDao->getById($genreId);
 
 			// Identify the file implementation.

@@ -206,7 +206,7 @@ class NotificationDAO extends DAO {
 		if ($this->getAffectedRows()) {
 			// If a notification was deleted (possibly validating
 			// $userId in the process) delete associated settings.
-			$notificationSettingsDao =& DAORegistry::getDAO('NotificationSettingsDAO'); /* @var $notificationSettingsDaoDao NotificationSettingsDAO */
+			$notificationSettingsDao = DAORegistry::getDAO('NotificationSettingsDAO'); /* @var $notificationSettingsDaoDao NotificationSettingsDAO */
 			$notificationSettingsDao->deleteSettingsByNotificationId($notificationId);
 			return true;
 		}

@@ -61,7 +61,7 @@ class NewSiteCssFileForm extends SettingsFileUploadForm {
 			$site = $request->getSite();
 			$uploadName = $site->getSiteStyleFilename();
 			if($publicFileManager->copyFile($temporaryFile->getFilePath(), $publicFileManager->getSiteFilesPath() . '/' . $uploadName)) {
-				$siteDao =& DAORegistry::getDAO('SiteDAO');
+				$siteDao = DAORegistry::getDAO('SiteDAO');
 				$site->setOriginalStyleFilename($temporaryFile->getOriginalFileName());
 				$siteDao->updateObject($site);
 

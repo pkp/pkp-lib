@@ -45,14 +45,14 @@ class MetadataPluginTestCase extends PluginTestCase {
 		$this->validateXmlConfig(array('./'.$controlledVocabFile, './lib/pkp/'.$controlledVocabFile));
 
 		// Delete vocab data so that we can re-install it.
-		$controlledVocabDao =& DAORegistry::getDAO('ControlledVocabDAO'); /* @var $controlledVocabDao ControlledVocabDAO */
+		$controlledVocabDao = DAORegistry::getDAO('ControlledVocabDAO'); /* @var $controlledVocabDao ControlledVocabDAO */
 		foreach($controlledVocabs as $controlledVocabSymbolic) {
 			$controlledVocab =& $controlledVocabDao->getBySymbolic($controlledVocabSymbolic, 0, 0);
 			if ($controlledVocab) $controlledVocabDao->deleteObject($controlledVocab);
 		}
 
 		// Reset the plug-in setting indicating that vocabs have already been installed.
-		$pluginSettingsDao =& DAORegistry::getDAO('PluginSettingsDAO'); /* @var $pluginSettingsDao PluginSettingsDAO */
+		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /* @var $pluginSettingsDao PluginSettingsDAO */
 		$pluginSettingsDao->updateSetting(0, $pluginName, METADATA_PLUGIN_VOCAB_INSTALLED_SETTING, false);
 
 		// Unregister the plug-in so that we're sure it will be registered again.

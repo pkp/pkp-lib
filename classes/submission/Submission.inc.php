@@ -137,7 +137,7 @@ class Submission extends DataObject {
 	 * @return array Authors
 	 */
 	function &getAuthors() {
-		$authorDao =& DAORegistry::getDAO('AuthorDAO');
+		$authorDao = DAORegistry::getDAO('AuthorDAO');
 		return $authorDao->getAuthorsBySubmissionId($this->getId());
 	}
 
@@ -146,7 +146,7 @@ class Submission extends DataObject {
 	 * @return Author
 	 */
 	function &getPrimaryAuthor() {
-		$authorDao =& DAORegistry::getDAO('AuthorDAO');
+		$authorDao = DAORegistry::getDAO('AuthorDAO');
 		return $authorDao->getPrimaryContact($this->getId());
 	}
 
@@ -171,7 +171,7 @@ class Submission extends DataObject {
 	 * @return User
 	 */
 	function getUser() {
-		$userDao =& DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO');
 		return $userDao->getById($this->getUserId(), true);
 	}
 

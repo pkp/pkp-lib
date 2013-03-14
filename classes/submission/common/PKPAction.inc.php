@@ -60,9 +60,9 @@ class PKPAction {
 		}
 
 		// 2) At least one citation parser is available.
-		$citationDao =& DAORegistry::getDAO('CitationDAO'); // NB: This also loads the parser/lookup filter category constants.
+		$citationDao = DAORegistry::getDAO('CitationDAO'); // NB: This also loads the parser/lookup filter category constants.
 		if (!$citationEditorConfigurationError) {
-			$filterDao =& DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
+			$filterDao = DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
 			$configuredCitationParsers =& $filterDao->getObjectsByGroup(CITATION_PARSER_FILTER_GROUP, $context->getId());
 			if (!count($configuredCitationParsers)) $citationEditorConfigurationError = 'submission.citations.editor.pleaseAddParserFilter';
 		}

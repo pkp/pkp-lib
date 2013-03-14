@@ -139,7 +139,7 @@ class CitationDAO extends DAO {
 
 		// Check new citations in parallel.
 		$noOfProcesses = (int)Config::getVar('general', 'citation_checking_max_processes');
-		$processDao =& DAORegistry::getDAO('ProcessDAO');
+		$processDao = DAORegistry::getDAO('ProcessDAO');
 		return $processDao->spawnProcesses($request, 'api.citation.CitationApiHandler', 'checkAllCitations', PROCESS_TYPE_CITATION_CHECKING, $noOfProcesses);
 	}
 
@@ -293,7 +293,7 @@ class CitationDAO extends DAO {
 	 * @return array an array of PersistableFilters
 	 */
 	function &getCitationFilterInstances($contextId, $filterGroups, $fromFilterIds = array(), $includeOptionalFilters = false) {
-		$filterDao =& DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
+		$filterDao = DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
 		$filterList = array();
 
 		// Retrieve the requested filter group(s).
@@ -375,7 +375,7 @@ class CitationDAO extends DAO {
 		assert(!empty($citationId));
 
 		// Delete citation sources
-		$metadataDescriptionDao =& DAORegistry::getDAO('MetadataDescriptionDAO');
+		$metadataDescriptionDao = DAORegistry::getDAO('MetadataDescriptionDAO');
 		$metadataDescriptionDao->deleteObjectsByAssocId(ASSOC_TYPE_CITATION, $citationId);
 
 		// Delete citation
@@ -404,7 +404,7 @@ class CitationDAO extends DAO {
 	 * @param $citation Citation
 	 */
 	function updateCitationSourceDescriptions(&$citation) {
-		$metadataDescriptionDao =& DAORegistry::getDAO('MetadataDescriptionDAO');
+		$metadataDescriptionDao = DAORegistry::getDAO('MetadataDescriptionDAO');
 
 		// Clear all existing citation sources first
 		$citationId = $citation->getId();
@@ -435,7 +435,7 @@ class CitationDAO extends DAO {
 			// Retrieve the currently selected citation output
 			// filter from the database.
 			$citationOutputFilterId = $context->getSetting('metaCitationOutputFilterId');
-			$filterDao =& DAORegistry::getDAO('FilterDAO');
+			$filterDao = DAORegistry::getDAO('FilterDAO');
 			$citationOutputFilter =& $filterDao->getObjectById($citationOutputFilterId);
 			assert(is_a($citationOutputFilter, 'PersistableFilter'));
 
@@ -513,7 +513,7 @@ class CitationDAO extends DAO {
 	 * @return array an array of MetadataDescriptions
 	 */
 	function _getCitationSourceDescriptions($citationId) {
-		$metadataDescriptionDao =& DAORegistry::getDAO('MetadataDescriptionDAO');
+		$metadataDescriptionDao = DAORegistry::getDAO('MetadataDescriptionDAO');
 		$sourceDescriptions =& $metadataDescriptionDao->getObjectsByAssocId(ASSOC_TYPE_CITATION, $citationId);
 		return $sourceDescriptions;
 	}

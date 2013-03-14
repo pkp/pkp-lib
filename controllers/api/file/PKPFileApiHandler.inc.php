@@ -85,7 +85,7 @@ class PKPFileApiHandler extends Handler {
 		import('lib.pkp.classes.file.LibraryFileManager');
 		$context =& $request->getContext();
 		$libraryFileManager = new LibraryFileManager($context->getId());
-		$libraryFileDao =& DAORegistry::getDAO('LibraryFileDAO');
+		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO');
 		$libraryFile =& $libraryFileDao->getById($request->getUserVar('libraryFileId'));
 		if ($libraryFile) {
 
@@ -94,7 +94,7 @@ class PKPFileApiHandler extends Handler {
 			if ($libraryFile->getSubmissionId()) {
 				$user =& $request->getUser();
 				$allowedAccess = false;
-				$userStageAssignmentDao =& DAORegistry::getDAO('UserStageAssignmentDAO');
+				$userStageAssignmentDao = DAORegistry::getDAO('UserStageAssignmentDAO');
 				$assignedUsers = $userStageAssignmentDao->getUsersBySubmissionAndStageId($libraryFile->getSubmissionId(), WORKFLOW_STAGE_ID_SUBMISSION);
 				if (!$assignedUsers->wasEmpty()) {
 					while ($assignedUser =& $assignedUsers->next()) {

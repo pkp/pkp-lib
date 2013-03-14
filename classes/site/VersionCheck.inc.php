@@ -38,7 +38,7 @@ class VersionCheck {
 	 * @return Version
 	 */
 	function &getCurrentDBVersion() {
-		$versionDao =& DAORegistry::getDAO('VersionDAO');
+		$versionDao = DAORegistry::getDAO('VersionDAO');
 		$dbVersion =& $versionDao->getCurrentVersion();
 		return $dbVersion;
 	}

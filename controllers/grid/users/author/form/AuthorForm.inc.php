@@ -130,14 +130,14 @@ class AuthorForm extends Form {
 		$author =& $this->getAuthor();
 
 		$templateMgr =& TemplateManager::getManager($request);
-		$countryDao =& DAORegistry::getDAO('CountryDAO');
+		$countryDao = DAORegistry::getDAO('CountryDAO');
 		$countries =& $countryDao->getCountries();
 		$templateMgr->assign_by_ref('countries', $countries);
 
 		$router =& $request->getRouter();
 		$context =& $router->getContext($request);
 
-		$userGroupDao =& DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$authorUserGroups =& $userGroupDao->getByRoleId($context->getId(), ROLE_ID_AUTHOR);
 		$templateMgr->assign_by_ref('authorUserGroups', $authorUserGroups);
 
@@ -175,7 +175,7 @@ class AuthorForm extends Form {
 	 * @see Form::execute()
 	 */
 	function execute() {
-		$authorDao =& DAORegistry::getDAO('AuthorDAO');
+		$authorDao = DAORegistry::getDAO('AuthorDAO');
 		$submission = $this->getSubmission();
 
 		$author =& $this->getAuthor();

@@ -163,7 +163,7 @@ class UserGridHandler extends GridHandler {
 		$contextId = $context->getId();
 
 		// Get all users for this context that match search criteria.
-		$userGroupDao =& DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$rangeInfo = $this->getGridRangeInfo($request, $this->getId());
 		$rowData = array();
 		$contextIds = array();
@@ -207,7 +207,7 @@ class UserGridHandler extends GridHandler {
 	function renderFilter(&$request) {
 		$context =& $request->getContext();
 		$contextId = $context->getId();
-		$userGroupDao =& DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$userGroups =& $userGroupDao->getByContextId($contextId);
 		$userGroupOptions = array('' => __('grid.user.allRoles'));
 		while ($userGroup = $userGroups->next()) {
@@ -488,7 +488,7 @@ class UserGridHandler extends GridHandler {
 			$json = new JSONMessage(false, __('grid.user.cannotAdminister'));
 		} else {
 			// Remove user from all user group assignments for this context.
-			$userGroupDao =& DAORegistry::getDAO('UserGroupDAO');
+			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 
 			// Check if this user has any user group assignments for this context.
 			if (!$userGroupDao->userInAnyGroup($userId, $context->getId())) {

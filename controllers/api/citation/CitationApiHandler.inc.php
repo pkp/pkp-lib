@@ -66,8 +66,8 @@ class CitationApiHandler extends PKPHandler {
 		$processId = $args['authToken'];
 
 		// Run until all citations have been checked.
-		$processDao =& DAORegistry::getDAO('ProcessDAO');
-		$citationDao =& DAORegistry::getDAO('CitationDAO');
+		$processDao = DAORegistry::getDAO('ProcessDAO');
+		$citationDao = DAORegistry::getDAO('CitationDAO');
 		do {
 			// Check that the process lease has not expired.
 			$continue = $processDao->canContinue($processId);

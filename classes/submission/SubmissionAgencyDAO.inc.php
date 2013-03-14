@@ -54,7 +54,7 @@ class SubmissionAgencyDAO extends ControlledVocabDAO {
 		foreach ($locales as $locale) {
 			$returner[$locale] = array();
 			$agencies = $this->build($submissionId);
-			$submissionAgencyEntryDao =& DAORegistry::getDAO('SubmissionAgencyEntryDAO');
+			$submissionAgencyEntryDao = DAORegistry::getDAO('SubmissionAgencyEntryDAO');
 			$submissionAgencies = $submissionAgencyEntryDao->getByControlledVocabId($agencies->getId());
 
 			while ($agency = $submissionAgencies->next()) {
@@ -120,8 +120,8 @@ class SubmissionAgencyDAO extends ControlledVocabDAO {
 	 * @return int
 	 */
 	function insertAgencies($agencies, $submissionId, $deleteFirst = true) {
-		$agencyDao =& DAORegistry::getDAO('SubmissionAgencyDAO');
-		$submissionAgencyEntryDao =& DAORegistry::getDAO('SubmissionAgencyEntryDAO');
+		$agencyDao = DAORegistry::getDAO('SubmissionAgencyDAO');
+		$submissionAgencyEntryDao = DAORegistry::getDAO('SubmissionAgencyEntryDAO');
 		$currentAgencies = $this->build($submissionId);
 
 		if ($deleteFirst) {

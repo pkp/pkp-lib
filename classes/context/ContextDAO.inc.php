@@ -150,7 +150,7 @@ class ContextDAO extends DAO {
 		$userGroupDao->deleteAssignmentsByContextId($contextId);
 		$userGroupDao->deleteByContextId($contextId);
 
-		$genreDao =& DAORegistry::getDAO('GenreDAO');
+		$genreDao = DAORegistry::getDAO('GenreDAO');
 		$genreDao->deleteByContextId($contextId);
 
 		$this->update('DELETE FROM context_defaults WHERE context_id = ?', (int) $contextId);

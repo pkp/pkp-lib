@@ -285,7 +285,7 @@ class SubmissionFile extends PKPFile {
 	 * @return boolean
 	 */
 	function isInlineable() {
-		$submissionFileDao =& DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
+		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 		return $submissionFileDao->isInlineable($this);
 	}
 

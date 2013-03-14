@@ -99,9 +99,9 @@ class UserUserGroupListbuilderHandler extends ListbuilderHandler {
 
 		// Fetch the user groups
 		$context =& $this->getContext();
-		$userGroupDao =& DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$userGroups =& $userGroupDao->getByContextId($context->getId());
-		$roleDao =& DAORegistry::getDAO('RoleDAO');
+		$roleDao = DAORegistry::getDAO('RoleDAO');
 		$roleNames = $roleDao->getRoleNames(true);
 
 		// Assemble the array to return
@@ -128,7 +128,7 @@ class UserUserGroupListbuilderHandler extends ListbuilderHandler {
 	 */
 	function loadData() {
 		$context =& $this->getContext();
-		$userGroupDao =& DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$userGroups =& $userGroupDao->getByUserId($this->getUserId(), $context->getId());
 
 		return $userGroups;
@@ -201,7 +201,7 @@ class UserUserGroupListbuilderHandler extends ListbuilderHandler {
 		// Otherwise return from the $newRowId
 		$newRowId = $this->getNewRowId($request);
 		$userGroupId = $newRowId['name'];
-		$userGroupDao =& DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$context =& $this->getContext();
 		$userGroup =& $userGroupDao->getById($userGroupId, $context->getId());
 		return $userGroup;

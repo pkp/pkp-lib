@@ -123,7 +123,7 @@ class FilterGroupDAO extends DAO {
 	 * @return boolean
 	 */
 	function deleteObject(&$filterGroup) {
-		$filterDao =& DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
+		$filterDao = DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
 
 		// Check whether there are still templates saved for this filter group.
 		$filterTemplates = $filterDao->getObjectsByGroup($filterGroup->getSymbolic(), null, true, false);

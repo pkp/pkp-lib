@@ -277,7 +277,7 @@ class CitationForm extends Form {
 	function execute() {
 		// Persist citation
 		$citation =& $this->getCitation();
-		$citationDao =& DAORegistry::getDAO('CitationDAO');
+		$citationDao = DAORegistry::getDAO('CitationDAO');
 		if (is_numeric($citation->getId())) {
 			$citationDao->updateObject($citation);
 		} else {
@@ -300,7 +300,7 @@ class CitationForm extends Form {
 		$context =& $router->getContext($request);
 		$citation =& $this->getCitation();
 		$assocObject =& $this->getAssocObject();
-		$citationDao =& DAORegistry::getDAO('CitationDAO'); /* @var $citationDao CitationDAO */
+		$citationDao = DAORegistry::getDAO('CitationDAO'); /* @var $citationDao CitationDAO */
 
 		/////////////////////////////////////////////////////
 		// Raw citation editing and citation comparison
@@ -353,7 +353,7 @@ class CitationForm extends Form {
 			$templateMgr->assign_by_ref('availableLookupFilters', $availableLookupFilters);
 
 			// Did the user disable the raw citation editing warning?
-			$userSettingsDao =& DAORegistry::getDAO('UserSettingsDAO');
+			$userSettingsDao = DAORegistry::getDAO('UserSettingsDAO');
 			$rawCitationEditingWarningHide = (boolean)$userSettingsDao->getSetting($user->getId(), 'citation-editor-hide-raw-editing-warning');
 			$templateMgr->assign('rawCitationEditingWarningHide', $rawCitationEditingWarningHide);
 		}
@@ -396,7 +396,7 @@ class CitationForm extends Form {
 
 						// Enumerate the identified vocabulary.
 						if (is_null($controlledVocabDao)) {
-							$controlledVocabDao =& DAORegistry::getDAO('ControlledVocabDAO');
+							$controlledVocabDao = DAORegistry::getDAO('ControlledVocabDAO');
 						}
 						$availableFields[$fieldName]['options'] = $controlledVocabDao->enumerateBySymbolic($symbolic, $assocType, $assocId);
 					}

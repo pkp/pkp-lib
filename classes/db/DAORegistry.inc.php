@@ -37,7 +37,7 @@ class DAORegistry {
 	 *    name, if one was already registered; null otherwise
 	 */
 	static function &registerDAO($name, &$dao) {
-		$daos =& DAORegistry::getDAOs();
+		$daos = DAORegistry::getDAOs();
 		if (isset($daos[$name])) {
 			$returner =& $daos[$name];
 		} else {
@@ -54,7 +54,7 @@ class DAORegistry {
 	 * @return DAO
 	 */
 	static function &getDAO($name, $dbconn = null) {
-		$daos =& DAORegistry::getDAOs();
+		$daos = DAORegistry::getDAOs();
 
 		if (!isset($daos[$name])) {
 			// Import the required DAO class.

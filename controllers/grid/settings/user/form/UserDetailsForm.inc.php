@@ -69,7 +69,7 @@ class UserDetailsForm extends UserForm {
 		$data = array();
 
 		if (isset($this->userId)) {
-			$userDao =& DAORegistry::getDAO('UserDAO');
+			$userDao = DAORegistry::getDAO('UserDAO');
 			$user =& $userDao->getById($this->userId);
 
 			import('lib.pkp.classes.user.InterestManager');
@@ -124,7 +124,7 @@ class UserDetailsForm extends UserForm {
 	function display($args, &$request) {
 		$site =& $request->getSite();
 		$templateMgr =& TemplateManager::getManager($request);
-		$userDao =& DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO');
 
 		$templateMgr->assign('genderOptions', $userDao->getGenderOptions());
 		$templateMgr->assign('minPasswordLength', $site->getMinPasswordLength());
@@ -143,11 +143,11 @@ class UserDetailsForm extends UserForm {
 		$templateMgr->assign('availableLocales', $site->getSupportedLocaleNames());
 		$templateMgr->assign('helpTopicId', $helpTopicId);
 
-		$countryDao =& DAORegistry::getDAO('CountryDAO');
+		$countryDao = DAORegistry::getDAO('CountryDAO');
 		$countries =& $countryDao->getCountries();
 		$templateMgr->assign_by_ref('countries', $countries);
 
-		$authDao =& DAORegistry::getDAO('AuthSourceDAO');
+		$authDao = DAORegistry::getDAO('AuthSourceDAO');
 		$authSources =& $authDao->getSources();
 		$authSourceOptions = array();
 		foreach ($authSources->toArray() as $auth) {
@@ -222,7 +222,7 @@ class UserDetailsForm extends UserForm {
 	 * Get all locale field names
 	 */
 	function getLocaleFieldNames() {
-		$userDao =& DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO');
 		return $userDao->getLocaleFieldNames();
 	}
 
@@ -234,7 +234,7 @@ class UserDetailsForm extends UserForm {
 	function &execute($args, &$request) {
 		parent::execute($request);
 
-		$userDao =& DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO');
 		$context =& $request->getContext();
 
 		if (isset($this->userId)) {
@@ -277,7 +277,7 @@ class UserDetailsForm extends UserForm {
 		$user->setLocales($locales);
 
 		if ($user->getAuthId()) {
-			$authDao =& DAORegistry::getDAO('AuthSourceDAO');
+			$authDao = DAORegistry::getDAO('AuthSourceDAO');
 			$auth =& $authDao->getPlugin($user->getAuthId());
 		}
 

@@ -303,7 +303,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 	 * @return Array
 	 */
 	private function getNotificationSettings($notificationId) {
-		$notificationSettingsDao =& DAORegistry::getDAO('NotificationSettingsDAO'); /* @var $notificationSettingsDao NotificationSettingsDAO */
+		$notificationSettingsDao = DAORegistry::getDAO('NotificationSettingsDAO'); /* @var $notificationSettingsDao NotificationSettingsDAO */
 		$notificationSettings = $notificationSettingsDao->getNotificationSettings($notificationId);
 		if (empty($notificationSettings)) {
 			return null;

@@ -83,8 +83,8 @@ class PKPAuthorGridRow extends GridRow {
 			);
 
 			if ($this->allowedToCreateUser($request)) {
-				$authorDao =& DAORegistry::getDAO('AuthorDAO');
-				$userDao =& DAORegistry::getDAO('UserDAO');
+				$authorDao = DAORegistry::getDAO('AuthorDAO');
+				$userDao = DAORegistry::getDAO('UserDAO');
 				$author =& $authorDao->getAuthor($rowId);
 
 				if ($author && !$userDao->userExistsByEmail($author->getEmail())) {

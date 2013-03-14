@@ -298,7 +298,7 @@ class PluginGridHandler extends CategoryGridHandler {
 		$category = $plugin->getCategory();
 		$productName = basename($plugin->getPluginPath());
 
-		$versionDao =& DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
+		$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
 		$installedPlugin = $versionDao->getCurrentVersion('plugins.'.$category, $productName, true);
 
 		$notificationMgr = new NotificationManager();

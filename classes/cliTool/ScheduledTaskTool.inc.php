@@ -46,7 +46,7 @@ class ScheduledTaskTool extends CommandLineTool {
 			exit(1);
 		}
 
-		$this->taskDao =& DAORegistry::getDAO('ScheduledTaskDAO');
+		$this->taskDao = DAORegistry::getDAO('ScheduledTaskDAO');
 	}
 
 	/**

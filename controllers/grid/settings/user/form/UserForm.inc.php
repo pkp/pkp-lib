@@ -55,7 +55,7 @@ class UserForm extends Form {
 	 */
 	function insertEntry(&$request, $newRowId) {
 		$context =& $request->getContext();
-		$userGroupDao =& DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 
 		$userGroupId = (int) $newRowId['name'];
 		$userId = (int) $this->userId;
@@ -86,7 +86,7 @@ class UserForm extends Form {
 		$userGroupId = (int) $rowId;
 		$userId = (int) $this->userId;
 
-		$userGroupDao =& DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$context =& $request->getContext();
 
 		$userGroupDao->removeUserFromGroup(

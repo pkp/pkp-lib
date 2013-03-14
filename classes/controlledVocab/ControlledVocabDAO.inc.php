@@ -28,7 +28,7 @@ class ControlledVocabDAO extends DAO {
 	 * Can be subclassed to provide extended DAOs.
 	 */
 	function &getEntryDAO() {
-		$entryDao =& DAORegistry::getDAO('ControlledVocabEntryDAO');
+		$entryDao = DAORegistry::getDAO('ControlledVocabEntryDAO');
 		return $entryDao;
 	}
 
@@ -153,7 +153,7 @@ class ControlledVocabDAO extends DAO {
 	 */
 	function deleteObjectById($controlledVocabId) {
 		$params = array((int) $controlledVocabId);
-		$controlledVocabEntryDao =& DAORegistry::getDAO('ControlledVocabEntryDAO');
+		$controlledVocabEntryDao = DAORegistry::getDAO('ControlledVocabEntryDAO');
 		$controlledVocabEntries =& $this->enumerate($controlledVocabId);
 		foreach ($controlledVocabEntries as $controlledVocabEntryId => $controlledVocabEntryName) {
 			$controlledVocabEntryDao->deleteObjectById($controlledVocabEntryId);

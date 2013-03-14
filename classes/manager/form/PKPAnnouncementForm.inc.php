@@ -174,7 +174,7 @@ class PKPAnnouncementForm extends Form {
 			$announcementDao->updateObject($announcement);
 		} else {
 			$announcement->setDatetimePosted(Core::getCurrentDate());
-			$announcementDao->insertAnnouncement($announcement);
+			$announcementDao->insertObject($announcement);
 		}
 
 		return $announcement;

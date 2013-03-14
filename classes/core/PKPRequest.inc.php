@@ -163,19 +163,13 @@ class PKPRequest {
 
 		if (!isset($_this->_basePath)) {
 			$path = parse_url(dirname($_SERVER['SCRIPT_NAME']), PHP_URL_PATH);
-			
+
 			// Encode charcters which need to be encoded in a URL.
-			// Simply using rawurlencode() doesn't work because it 
+			// Simply using rawurlencode() doesn't work because it
 			// also encodes characters which are valid in a URL (i.e. @, $).
 			$parts = explode('/', $path);
 			foreach ($parts as $i => $part) {
-				$pieces = array_map(function($p) {
-					if (!preg_match('/[A-Za-z0-9-._~!$&\'()*+,;=:@]/', $p)) {
-						return rawurlencode($p);
-					}
-					return $p;
-				}, str_split($part));
-
+				$pieces = array_map(array($this, 'encodeBasePathFragment'), str_split($part));
 				$parts[$i] = implode('', $pieces);
 			}
 			$_this->_basePath = implode('/', $parts);
@@ -187,6 +181,19 @@ class PKPRequest {
 		}
 
 		return $_this->_basePath;
+	}
+
+	/**
+	 * Callback function for getBasePath() to correctly encode (or not encode)
+	 * a basepath fragment.
+	 * @param string $fragment
+	 * @return string
+	 */
+	function encodeBasePathFragment($fragment) {
+		if (!preg_match('/[A-Za-z0-9-._~!$&\'()*+,;=:@]/', $fragment)) {
+			return rawurlencode($fragment);
+		}
+		return $fragment;
 	}
 
 	/**

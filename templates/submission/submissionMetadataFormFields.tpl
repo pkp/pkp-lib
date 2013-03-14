@@ -44,7 +44,7 @@
 		{url|assign:languagesSourceUrl router=$smarty.const.ROUTE_PAGE page="submission" op="fetchChoices" codeList="74"}
 		{fbvElement type="keyword" id="languages" subLabelTranslate=true multilingual=true current=$languages source=$languagesSourceUrl disabled=$readOnly}
 	{/fbvFormSection}
-	{if $submissionSettings.all || $submissionSettings.metaSubject}
+	{if $submissionSettings.all}
 		{fbvFormSection label="common.subjects"}
 			{fbvElement type="keyword" id="subjects" subLabelTranslate=true multilingual=true current=$subjects disabled=$readOnly}
 		{/fbvFormSection}

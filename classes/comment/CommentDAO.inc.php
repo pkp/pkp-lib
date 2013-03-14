@@ -51,7 +51,7 @@ class CommentDAO extends DAO {
 		);
 
 		while (!$result->EOF) {
-			$comments[] =& $this->_returnCommentFromRow($result->GetRowAssoc(false), $childLevels);
+			$comments[] = $this->_returnCommentFromRow($result->GetRowAssoc(false), $childLevels);
 			$result->MoveNext();
 		}
 
@@ -70,7 +70,7 @@ class CommentDAO extends DAO {
 		$result = $this->retrieve('SELECT * FROM comments WHERE parent_comment_id = ? ORDER BY date_posted', (int) $parentId);
 
 		while (!$result->EOF) {
-			$comments[] =& $this->_returnCommentFromRow($result->GetRowAssoc(false), $childLevels);
+			$comments[] = $this->_returnCommentFromRow($result->GetRowAssoc(false), $childLevels);
 			$result->MoveNext();
 		}
 
@@ -89,7 +89,7 @@ class CommentDAO extends DAO {
 		$result = $this->retrieve('SELECT * FROM comments WHERE user_id = ?', (int) $userId);
 
 		while (!$result->EOF) {
-			$comments[] =& $this->_returnCommentFromRow($result->GetRowAssoc(false));
+			$comments[] = $this->_returnCommentFromRow($result->GetRowAssoc(false));
 			$result->MoveNext();
 		}
 
@@ -116,7 +116,7 @@ class CommentDAO extends DAO {
 	 * @param $childLevels int optional
 	 * @return Comment object
 	 */
-	function &getById($commentId, $submissionId, $childLevels = 0) {
+	function getById($commentId, $submissionId, $childLevels = 0) {
 		$result = $this->retrieve(
 			'SELECT * FROM comments WHERE comment_id = ? and submission_id = ?',
 			array((int) $commentId, (int) $submissionId)
@@ -124,7 +124,7 @@ class CommentDAO extends DAO {
 
 		$comment = null;
 		if ($result->RecordCount() != 0) {
-			$comment =& $this->_returnCommentFromRow($result->GetRowAssoc(false), $childLevels);
+			$comment = $this->_returnCommentFromRow($result->GetRowAssoc(false), $childLevels);
 		}
 
 		$result->Close();
@@ -144,8 +144,8 @@ class CommentDAO extends DAO {
 	 * @param $row array
 	 * @return Comment object
 	 */
-	function &_returnCommentFromRow($row, $childLevels = 0) {
-		$userDao =& DAORegistry::getDAO('UserDAO');
+	function _returnCommentFromRow($row, $childLevels = 0) {
+		$userDao = DAORegistry::getDAO('UserDAO');
 
 		$comment = $this->newDataObject();
 		$comment->setId($row['comment_id']);
@@ -174,7 +174,7 @@ class CommentDAO extends DAO {
 	 * @param Comment object
 	 * @return int ID of new comment
 	 */
-	function insertComment(&$comment) {
+	function insertObject($comment) {
 		$comment->setDatePosted(Core::getCurrentDate());
 		$comment->setDateModified($comment->getDatePosted());
 		$user = $comment->getUser();
@@ -232,11 +232,11 @@ class CommentDAO extends DAO {
 	 * Removes a submission comment from comments table
 	 * @param Comment object
 	 */
-	function deleteComment(&$comment, $isRecursing = false) {
+	function deleteObject($comment, $isRecursing = false) {
 		$result = $this->update('DELETE FROM comments WHERE comment_id = ?', $comment->getId());
 		if (!$isRecursing) $this->decrementChildCount($comment->getParentCommentId());
 		foreach ($comment->getChildren() as $child) {
-			$this->deleteComment($child, true);
+			$this->deleteObject($child, true);
 		}
 	}
 
@@ -255,7 +255,7 @@ class CommentDAO extends DAO {
 	 * updates a comment
 	 * @param Comment object
 	 */
-	function updateComment(&$comment) {
+	function updateObject($comment) {
 		$comment->setDateModified(Core::getCurrentDate());
 		$user = $comment->getUser();
 		$this->update(
@@ -275,7 +275,7 @@ class CommentDAO extends DAO {
 				WHERE	comment_id = ?',
 				$this->datetimeToDB($comment->getDatePosted()), $this->datetimeToDB($comment->getDateModified())),
 			array(
-				$comment->getSubmissionId(),
+				(int) $comment->getSubmissionId(),
 				$comment->getChildCommentCount(),
 				$comment->getParentCommentId(),
 				(isset($user)?$user->getId():null),
@@ -284,7 +284,7 @@ class CommentDAO extends DAO {
 				$comment->getBody(),
 				String::substr($comment->getPosterName(), 0, 90),
 				String::substr($comment->getPosterEmail(), 0, 90),
-				$comment->getId()
+				(int) $comment->getId()
 			)
 		);
 	}

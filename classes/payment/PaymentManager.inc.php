@@ -32,11 +32,11 @@ class PaymentManager {
 	 * @param $expiryDate date optional
 	 * @return mixed Queued payment ID for new payment, or false if fails
 	 */
-	function queuePayment(&$queuedPayment, $expiryDate = null) {
+	function queuePayment($queuedPayment, $expiryDate = null) {
 		if (!$this->isConfigured()) return false;
 
-		$queuedPaymentDao =& DAORegistry::getDAO('QueuedPaymentDAO');
-		$queuedPaymentId = $queuedPaymentDao->insertQueuedPayment($queuedPayment, $expiryDate);
+		$queuedPaymentDao = DAORegistry::getDAO('QueuedPaymentDAO');
+		$queuedPaymentId = $queuedPaymentDao->insertObject($queuedPayment, $expiryDate);
 
 		// Perform periodic cleanup
 		if (time() % 100 == 0) $queuedPaymentDao->deleteExpiredQueuedPayments();

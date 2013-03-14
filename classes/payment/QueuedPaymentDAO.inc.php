@@ -48,7 +48,7 @@ class QueuedPaymentDAO extends DAO {
 	 * @param $queuedPayment QueuedPayment
 	 * @param $expiryDate date optional
 	 */
-	function insertQueuedPayment(&$queuedPayment, $expiryDate = null) {
+	function insertObject($queuedPayment, $expiryDate = null) {
 		$this->update(
 			sprintf('INSERT INTO queued_payments
 				(date_created, date_modified, expiry_date, payment_data)

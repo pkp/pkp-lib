@@ -319,7 +319,7 @@ class UserDetailsForm extends UserForm {
 			}
 
 			$user->setDateRegistered(Core::getCurrentDate());
-			$userId = $userDao->insertUser($user);
+			$userId = $userDao->insertObject($user);
 
 			if ($sendNotify) {
 				// Send welcome email to user

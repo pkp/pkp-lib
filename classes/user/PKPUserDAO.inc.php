@@ -190,7 +190,7 @@ class PKPUserDAO extends DAO {
 	 * Insert a new user.
 	 * @param $user User
 	 */
-	function insertUser(&$user) {
+	function insertObject($user) {
 		if ($user->getDateRegistered() == null) {
 			$user->setDateRegistered(Core::getCurrentDate());
 		}

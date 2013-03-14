@@ -127,11 +127,11 @@ class UserGroupAssignmentDAO extends DAO {
 	 * @param $userId
 	 * @param $groupId
 	 */
-	function insertAssignment(&$userGroupAssignment) {
-		$returner =& $this->update(
+	function insertObject($userGroupAssignment) {
+		$returner = $this->update(
 			'INSERT INTO user_user_groups (user_id, user_group_id) VALUES(?, ?)',
 			array($userGroupAssignment->getUserId(), $userGroupAssignment->getUserGroupId())
-			);
+		);
 
 		return $returner;
 	}

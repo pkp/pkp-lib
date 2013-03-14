@@ -527,7 +527,7 @@ class UserGroupDAO extends DAO {
 		$assignment = $this->userGroupAssignmentDao->newDataObject();
 		$assignment->setUserId($userId);
 		$assignment->setUserGroupId($groupId);
-		return $this->userGroupAssignmentDao->insertAssignment($assignment);
+		return $this->userGroupAssignmentDao->insertObject($assignment);
 	}
 
 	/**

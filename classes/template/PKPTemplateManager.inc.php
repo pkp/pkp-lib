@@ -126,6 +126,7 @@ class PKPTemplateManager extends Smarty {
 		$this->register_modifier('strip_unsafe_html', array('String', 'stripUnsafeHtml'));
 		$this->register_modifier('String_substr', array('String', 'substr'));
 		$this->register_modifier('to_array', array(&$this, 'smartyToArray'));
+		$this->register_modifier('compare', array(&$this, 'smartyCompare'));
 		$this->register_modifier('concat', array(&$this, 'smartyConcat'));
 		$this->register_modifier('escape', array(&$this, 'smartyEscape'));
 		$this->register_modifier('strtotime', array(&$this, 'smartyStrtotime'));
@@ -897,6 +898,13 @@ class PKPTemplateManager extends Smarty {
 	function smartyConcat() {
 		$args = func_get_args();
 		return implode('', $args);
+	}
+
+	/**
+	 * Concatenate the parameters and return the result.
+	 */
+	function smartyCompare($a, $b, $strict = false) {
+		return $strict?$a===$b:$a==$b;
 	}
 
 	/**

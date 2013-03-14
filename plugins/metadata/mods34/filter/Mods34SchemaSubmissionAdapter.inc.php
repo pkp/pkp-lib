@@ -113,8 +113,8 @@ class Mods34SchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 								}
 
 								// Add the author to the submission.
-								$authorDao =& DAORegistry::getDAO('AuthorDAO'); /* @var $authorDao AuthorDAO */
-								$authorDao->insertAuthor($author);
+								$authorDao = DAORegistry::getDAO('AuthorDAO'); /* @var $authorDao AuthorDAO */
+								$authorDao->insertObject($author);
 								unset($author);
 							}
 							break;

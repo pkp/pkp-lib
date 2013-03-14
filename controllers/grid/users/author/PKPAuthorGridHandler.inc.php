@@ -269,10 +269,10 @@ class PKPAuthorGridHandler extends GridHandler {
 	function updateAuthor($args, &$request) {
 		// Identify the author to be updated
 		$authorId = $request->getUserVar('authorId');
-		$submission =& $this->getSubmission();
+		$submission = $this->getSubmission();
 
-		$authorDao =& DAORegistry::getDAO('AuthorDAO');
-		$author =& $authorDao->getAuthor($authorId, $submission->getId());
+		$authorDao = DAORegistry::getDAO('AuthorDAO');
+		$author = $authorDao->getAuthor($authorId, $submission->getId());
 
 		// Form handling
 		import('lib.pkp.controllers.grid.users.author.form.AuthorForm');

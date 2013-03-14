@@ -202,10 +202,10 @@ class AuthorForm extends Form {
 		$author->setPrimaryContact(($this->getData('primaryContact') ? true : false));
 
 		if ($existingAuthor) {
-			$authorDao->updateAuthor($author);
+			$authorDao->updateObject($author);
 			$authorId = $author->getId();
 		} else {
-			$authorId = $authorDao->insertAuthor($author);
+			$authorId = $authorDao->insertObject($author);
 		}
 
 		return $authorId;

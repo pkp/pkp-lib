@@ -182,7 +182,7 @@ class PKPAuthorDAO extends DAO {
 	 * Insert a new Author.
 	 * @param $author Author
 	 */
-	function insertAuthor(&$author) {
+	function insertObject($author) {
 		// Set author sequence to end of author list
 		if(!$author->getSequence()) {
 			$authorCount = $this->getAuthorCountBySubmissionId($author->getSubmissionId());
@@ -199,7 +199,7 @@ class PKPAuthorDAO extends DAO {
 				VALUES
 				(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
 				array(
-						$author->getSubmissionId(),
+						(int) $author->getSubmissionId(),
 						$author->getFirstName(),
 						$author->getMiddleName() . '', // make non-null
 						$author->getLastName(),
@@ -223,7 +223,7 @@ class PKPAuthorDAO extends DAO {
 	 * Update an existing Author.
 	 * @param $author Author
 	 */
-	function updateAuthor($author) {
+	function updateObject($author) {
 		// Reset primary contact for monograph to this author if applicable
 		if ($author->getPrimaryContact()) {
 			$this->resetPrimaryContact($author->getId(), $author->getSubmissionId());
@@ -231,15 +231,15 @@ class PKPAuthorDAO extends DAO {
 		$returner = $this->update(
 				'UPDATE	authors
 				SET	first_name = ?,
-				middle_name = ?,
-				last_name = ?,
-				suffix = ?,
-				country = ?,
-				email = ?,
-				url = ?,
-				user_group_id = ?,
-				primary_contact = ?,
-				seq = ?
+					middle_name = ?,
+					last_name = ?,
+					suffix = ?,
+					country = ?,
+					email = ?,
+					url = ?,
+					user_group_id = ?,
+					primary_contact = ?,
+					seq = ?
 				WHERE	author_id = ?',
 				array(
 						$author->getFirstName(),

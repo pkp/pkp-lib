@@ -57,12 +57,12 @@ class PKPSubmissionFilesUploadBaseForm extends Form {
 			$this->_reviewRound =& $reviewRound;
 		} else if ($assocType == ASSOC_TYPE_REVIEW_ASSIGNMENT && !$reviewRound) {
 			// Get the review assignment object.
-			$reviewAssignmentDao =& DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
+			$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 			$reviewAssignment =& $reviewAssignmentDao->getById((int) $assocId); /* @var $reviewAssignment ReviewAssignment */
 			if ($reviewAssignment->getDateCompleted()) fatalError('Review already completed!');
 
 			// Get the review round object.
-			$reviewRoundDao =& DAORegistry::getDAO('ReviewRound');
+			$reviewRoundDao = DAORegistry::getDAO('ReviewRound');
 			$this->_reviewRound =& $reviewRoundDao->getReviewRoundById($reviewAssignment->getReviewRoundId());
 		} else if (!$assocType && !$reviewRound) {
 			$reviewRound = null;
@@ -130,7 +130,7 @@ class PKPSubmissionFilesUploadBaseForm extends Form {
 	 */
 	function &getSubmissionFiles() {
 		if (is_null($this->_submissionFiles)) {
-			$submissionFileDao =& DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
+			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 			if ($this->getStageId() == WORKFLOW_STAGE_ID_INTERNAL_REVIEW || $this->getStageId() == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW) {
 				// If we have a review stage id then we also expect a review round.
 				if (!is_a($this->getReviewRound(), 'ReviewRound')) assert(false);

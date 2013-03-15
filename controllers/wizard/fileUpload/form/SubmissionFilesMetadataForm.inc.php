@@ -122,12 +122,12 @@ class SubmissionFilesMetadataForm extends Form {
 		// Update the submission file with data from the form.
 		$submissionFile =& $this->getSubmissionFile();
 		$submissionFile->setName($this->getData('name'), AppLocale::getLocale());
-		$submissionFileDao =& DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
+		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 		$submissionFileDao->updateObject($submissionFile);
 
 		// Save the note if it exists.
 		if ($this->getData('note')) {
-			$noteDao =& DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */
+			$noteDao = DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */
 			$note = $noteDao->newDataObject();
 
 			$user =& $request->getUser();
@@ -141,7 +141,7 @@ class SubmissionFilesMetadataForm extends Form {
 
 			// Mark the note as viewed by this user
 			$user =& $request->getUser();
-			$viewsDao =& DAORegistry::getDAO('ViewsDAO');
+			$viewsDao = DAORegistry::getDAO('ViewsDAO');
 			$viewsDao->recordView(ASSOC_TYPE_NOTE, $noteId, $user->getId());
 		}
 	}

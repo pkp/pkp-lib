@@ -137,7 +137,7 @@ class PKPSubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 
 		// Retrieve the user's user groups.
 		$user =& $request->getUser();
-		$userGroupDao =& DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$assignedUserGroups =& $userGroupDao->getByUserId($user->getId(), $context->getId());
 
 		// Check which of these groups make sense in the context
@@ -177,7 +177,7 @@ class PKPSubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 		if (count($uploaderUserGroups) > 1) {
 			// See whether the current user has been assigned as
 			// a workflow stage participant.
-			$stageAssignmentDao = & DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
+			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
 			$stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId(
 				$this->getData('submissionId'),
 				$this->getStageId(),
@@ -238,7 +238,7 @@ class PKPSubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 		if ($submissionFile && ($fileStage == SUBMISSION_FILE_REVIEW_FILE || $fileStage == SUBMISSION_FILE_REVIEW_ATTACHMENT || $fileStage == SUBMISSION_FILE_REVIEW_REVISION)) {
 			// Add the uploaded review file to the review round.
 			$reviewRound =& $this->getReviewRound();
-			$submissionFileDao =& DAORegistry::getDAO('SubmissionFileDAO');
+			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
 			$submissionFileDao->assignRevisionToReviewRound($submissionFile->getFileId(), $submissionFile->getRevision(), $reviewRound);
 		}
 
@@ -260,7 +260,7 @@ class PKPSubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 	 */
 	function &_retrieveGenreList(&$request) {
 		$context =& $request->getContext();
-		$genreDao =& DAORegistry::getDAO('GenreDAO'); /* @var $genreDao GenreDAO */
+		$genreDao = DAORegistry::getDAO('GenreDAO'); /* @var $genreDao GenreDAO */
 		$genres =& $genreDao->getEnabledByContextId($context->getId());
 
 		// Transform the genres into an array and

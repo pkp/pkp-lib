@@ -64,7 +64,7 @@ class SubmissionFilesUploadConfirmationForm extends SubmissionFilesUploadBaseFor
 		if ($revisedFileId == $uploadedFileId) fatalError('The revised file id and the uploaded file id cannot be the same!');
 
 		// Assign the new file as the latest revision of the old file.
-		$submissionFileDao =& DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
+		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 		$submissionId = $this->getData('submissionId');
 		$fileStage = $this->getData('fileStage');
 		$uploadedFile =& $submissionFileDao->setAsLatestRevision($revisedFileId, $uploadedFileId, $submissionId, $fileStage);

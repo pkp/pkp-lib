@@ -72,7 +72,7 @@ class SessionDAO extends DAO {
 				VALUES
 				(?, ?, ?, ?, ?, ?, ?)',
 			array(
-				(int) $session->getId(),
+				$session->getId(),
 				$session->getIpAddress(),
 				substr($session->getUserAgent(), 0, 255),
 				(int) $session->getSecondsCreated(),

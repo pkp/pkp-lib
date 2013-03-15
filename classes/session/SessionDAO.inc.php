@@ -74,7 +74,7 @@ class SessionDAO extends DAO {
 				VALUES
 				(?, ?, ?, ?, ?, ?, ?)',
 			array(
-				$session->getId(),
+				$session->getId(), // NOT NUMERIC
 				$session->getIpAddress(),
 				substr($session->getUserAgent(), 0, 255),
 				(int) $session->getSecondsCreated(),
@@ -109,7 +109,7 @@ class SessionDAO extends DAO {
 				(int) $session->getSecondsLastUsed(),
 				$session->getRemember() ? 1 : 0,
 				$session->getSessionData(),
-				$session->getId()
+				$session->getId() // NOT NUMERIC
 			)
 		);
 	}

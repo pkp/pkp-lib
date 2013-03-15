@@ -1,0 +1,111 @@
+<?php
+
+/**
+ * @file controllers/grid/files/PKPSubmissionFilesGridDataProvider.inc.php
+ *
+ * Copyright (c) 2000-2013 John Willinsky
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ *
+ * @class PKPSubmissionFilesGridDataProvider
+ * @ingroup controllers_grid_files
+ *
+ * @brief Provide access to submission file data for grids.
+ */
+
+
+import('lib.pkp.controllers.grid.files.FilesGridDataProvider');
+
+class PKPSubmissionFilesGridDataProvider extends FilesGridDataProvider {
+
+	/** @var integer */
+	var $_stageId;
+
+	/** @var integer */
+	var $_fileStage;
+
+
+	/**
+	 * Constructor
+	 * @param $fileStage integer One of the SUBMISSION_FILE_* constants.
+	 */
+	function PKPSubmissionFilesGridDataProvider($fileStage, $viewableOnly = false) {
+		assert(is_numeric($fileStage) && $fileStage > 0);
+		$this->_fileStage = (int)$fileStage;
+		parent::FilesGridDataProvider();
+
+		$this->setViewableOnly($viewableOnly);
+	}
+
+
+	//
+	// Getters and setters.
+	//
+	/**
+	 * Set the workflow stage.
+	 */
+	function setStageId($stageId) {
+		$this->_stageId = $stageId;
+	}
+
+	/**
+	 * Get the workflow stage.
+	 * @return integer
+	 */
+	function getStageId() {
+		return $this->_stageId;
+	}
+
+
+	//
+	// Implement template methods from GridDataProvider
+	//
+	/**
+	 * @see GridDataProvider::getRequestArgs()
+	 */
+	function getRequestArgs() {
+		$submission =& $this->getSubmission();
+		return array(
+			'submissionId' => $submission->getId(),
+			'stageId' => $this->getStageId(),
+			'fileStage' => $this->getFileStage()
+		);
+	}
+
+	/**
+	 * Get the file stage.
+	 * @return integer
+	 */
+	function getFileStage() {
+		return $this->_fileStage;
+	}
+
+	/**
+	 * @see GridDataProvider::loadData()
+	 */
+	function &loadData() {
+		// Retrieve all subission files for the given file stage.
+		$submission =& $this->getSubmission();
+		$submissionFileDao =& DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
+		$submissionFiles =& $submissionFileDao->getLatestRevisions($submission->getId(), $this->getFileStage());
+		return $this->prepareSubmissionFileData($submissionFiles, $this->_viewableOnly);
+	}
+
+
+	//
+	// Overridden public methods from FilesGridDataProvider
+	//
+	/**
+	 * @see FilesGridDataProvider::getAddFileAction()
+	 */
+	function &getAddFileAction($request) {
+		import('lib.pkp.controllers.api.file.linkAction.AddFileLinkAction');
+		$submission =& $this->getSubmission();
+		$addFileAction = new AddFileLinkAction(
+			$request, $submission->getId(), $this->getStageId(),
+			$this->getUploaderRoles(), $this->getFileStage()
+		);
+		return $addFileAction;
+	}
+}
+
+?>

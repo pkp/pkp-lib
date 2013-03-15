@@ -361,7 +361,7 @@
 	<message key="help.toggleInlineHelpOn">Aide activée</message>
 	<message key="help.toggleInlineHelpOff">Aide désactivée</message>
 	<message key="navigation.website">Site Web</message>
-	<message key="navigation.access"><![CDATA[Utilisateurs &amp; rôles??]]></message>
+	<message key="navigation.access"><![CDATA[Utilisateurs &amp; rôles]]></message>
 	<message key="navigation.admin">Administration/Gestion</message>
 	<message key="navigation.browseByAuthor">Par auteur</message>
 	<message key="navigation.data">Données</message>

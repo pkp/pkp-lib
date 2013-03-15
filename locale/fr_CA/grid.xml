@@ -128,9 +128,9 @@
 	<message key="grid.action.disableEmail">Désactiver ce modèle de courriel</message>
 	<message key="grid.action.resetEmail">Rétablir le modèle de courriel par défaut</message>
 	<message key="grid.action.addSignoff">Ajouter une réponse de vérification à ce fichier</message>
-	<message key="grid.action.deleteSignoff">Supprimer cette approbation??</message>
-	<message key="grid.action.fileSignoff">Approbation de ce fichier??</message>
-	<message key="grid.action.readSignoff">Lire cette approbation??</message>
+	<message key="grid.action.deleteSignoff">Supprimer cette approbation</message>
+	<message key="grid.action.fileSignoff">Approbation de ce fichier</message>
+	<message key="grid.action.readSignoff">Lire cette approbation</message>
 	<message key="grid.action.expandAll">Tout développer</message>
 	<message key="grid.action.requestAccount">Ajouter un participant</message>
 	<message key="grid.action.expand">Développer</message>

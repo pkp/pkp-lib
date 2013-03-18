@@ -621,11 +621,7 @@ class PKPReviewAssignmentDAO extends DAO {
 
 		while (!$result->EOF) {
 			$row = $result->GetRowAssoc(false);
-			$reviewId = $row['review_id'];
-
-			$this->update('DELETE FROM review_form_responses WHERE review_id = ?', $reviewId);
-			$this->update('DELETE FROM review_assignments WHERE review_id = ?', $reviewId);
-
+			$this->deleteById($row['review_id']);
 			$result->MoveNext();
 			$returner = true;
 		}

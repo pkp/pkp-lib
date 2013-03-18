@@ -168,7 +168,7 @@ class LibraryFileDAO extends DAO {
 			$params
 		);
 
-		if (!$libraryFile->getId()) $libraryFile->setId($this->getInsertLibraryFileId());
+		if (!$libraryFile->getId()) $libraryFile->setId($this->getInsertId());
 
 		$this->updateLocaleFields($libraryFile);
 		return $libraryFile->getId();
@@ -245,7 +245,7 @@ class LibraryFileDAO extends DAO {
 	 * Get the ID of the last inserted library file.
 	 * @return int
 	 */
-	function getInsertLibraryFileId() {
+	function getInsertId() {
 		return $this->_getInsertId('library_files', 'file_id');
 	}
 }

@@ -95,7 +95,7 @@ class TemporaryFileDAO extends DAO {
 			)
 		);
 
-		$temporaryFile->setId($this->getInsertTemporaryFileId());
+		$temporaryFile->setId($this->getInsertId());
 		return $temporaryFile->getId();
 	}
 
@@ -174,7 +174,7 @@ class TemporaryFileDAO extends DAO {
 	 * Get the ID of the last inserted temporary file.
 	 * @return int
 	 */
-	function getInsertTemporaryFileId() {
+	function getInsertId() {
 		return $this->_getInsertId('temporary_files', 'file_id');
 	}
 }

@@ -141,7 +141,7 @@ class NotificationDAO extends DAO {
 				(int) $notification->getAssocId()
 			)
 		);
-		$notification->setId($this->getInsertNotificationId());
+		$notification->setId($this->getInsertId());
 
 		return $notification->getId();
 	}
@@ -242,7 +242,7 @@ class NotificationDAO extends DAO {
 	 * Get the ID of the last inserted notification
 	 * @return int
 	 */
-	function getInsertNotificationId() {
+	function getInsertId() {
 		return $this->_getInsertId('notifications', 'notification_id');
 	}
 

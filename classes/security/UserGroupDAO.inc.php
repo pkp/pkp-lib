@@ -81,9 +81,9 @@ class UserGroupDAO extends DAO {
 			)
 		);
 
-		$userGroup->setId($this->getInsertUserGroupId());
+		$userGroup->setId($this->getInsertId());
 		$this->updateLocaleFields($userGroup);
-		return $this->getInsertUserGroupId();
+		return $this->getInsertId();
 	}
 
 	/**
@@ -136,7 +136,7 @@ class UserGroupDAO extends DAO {
 	 * Get the ID of the last inserted user group.
 	 * @return int
 	 */
-	function getInsertUserGroupId() {
+	function getInsertId() {
 		return $this->_getInsertId('user_groups', 'user_group_id');
 	}
 

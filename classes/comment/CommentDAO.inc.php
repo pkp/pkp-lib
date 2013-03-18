@@ -197,7 +197,7 @@ class CommentDAO extends DAO {
 			)
 		);
 
-		$comment->setId($this->getInsertCommentId());
+		$comment->setId($this->getInsertId());
 
 		if ($comment->getParentCommentId()) $this->incrementChildCount($comment->getParentCommentId());
 
@@ -208,7 +208,7 @@ class CommentDAO extends DAO {
 	 * Get the ID of the last inserted submission comment.
 	 * @return int
 	 */
-	function getInsertCommentId() {
+	function getInsertId() {
 		return $this->_getInsertId('comments', 'comment_id');
 	}
 

@@ -147,7 +147,7 @@ class PKPNoteDAO extends DAO {
 			)
 		);
 
-		$note->setId($this->getInsertNoteId());
+		$note->setId($this->getInsertId());
 		return $note->getId();
 	}
 
@@ -237,7 +237,7 @@ class PKPNoteDAO extends DAO {
 	 * Get the ID of the last inserted note
 	 * @return int
 	 */
-	function getInsertNoteId() {
+	function getInsertId() {
 		return $this->_getInsertId('notes', 'note_id');
 	}
 }

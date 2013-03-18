@@ -119,7 +119,7 @@ class FooterLinkDAO extends DAO {
 			)
 		);
 
-		$footerLink->setId($this->getInsertFooterLinkId());
+		$footerLink->setId($this->getInsertId());
 		$this->updateLocaleFields($footerLink);
 		return $footerLink->getId();
 	}
@@ -220,7 +220,7 @@ class FooterLinkDAO extends DAO {
 	 * Get the ID of the last inserted link.
 	 * @return int
 	 */
-	function getInsertFooterLinkId() {
+	function getInsertId() {
 		return $this->_getInsertId('footerlinks', 'footerlink_id');
 	}
 

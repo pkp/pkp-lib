@@ -159,7 +159,7 @@ class EmailLogDAO extends DAO {
 			)
 		);
 
-		$entry->setId($this->getInsertLogId());
+		$entry->setId($this->getInsertId());
 		$this->_insertLogUserIds($entry);
 
 		return $entry->getId();
@@ -212,7 +212,7 @@ class EmailLogDAO extends DAO {
 	 * Get the ID of the last inserted log entry.
 	 * @return int
 	 */
-	function getInsertLogId() {
+	function getInsertId() {
 		return $this->_getInsertId('email_log', 'log_id');
 	}
 

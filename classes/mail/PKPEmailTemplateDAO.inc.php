@@ -322,7 +322,7 @@ class PKPEmailTemplateDAO extends DAO {
 				$emailTemplate->getEnabled() == null ? 0 : 1
 			)
 		);
-		$emailTemplate->setEmailId($this->getInsertEmailId());
+		$emailTemplate->setEmailId($this->getInsertId());
 		return $emailTemplate->getEmailId();
 	}
 
@@ -513,7 +513,7 @@ class PKPEmailTemplateDAO extends DAO {
 	 * Get the ID of the last inserted email template.
 	 * @return int
 	 */
-	function getInsertEmailId() {
+	function getInsertId() {
 		return $this->_getInsertId('email_templates', 'emailId');
 	}
 

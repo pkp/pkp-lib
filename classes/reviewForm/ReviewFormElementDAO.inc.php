@@ -109,7 +109,7 @@ class ReviewFormElementDAO extends DAO {
 			)
 		);
 
-		$reviewFormElement->setId($this->getInsertReviewFormElementId());
+		$reviewFormElement->setId($this->getInsertId());
 		$this->updateLocaleFields($reviewFormElement);
 		return $reviewFormElement->getId();
 	}
@@ -300,7 +300,7 @@ class ReviewFormElementDAO extends DAO {
 	 * Get the ID of the last inserted review form element.
 	 * @return int
 	 */
-	function getInsertReviewFormElementId() {
+	function getInsertId() {
 		return $this->_getInsertId('review_form_elements', 'review_form_element_id');
 	}
 }

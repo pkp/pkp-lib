@@ -151,7 +151,7 @@ class DataObjectTombstoneDAO extends DAO {
 			)
 		);
 
-		$dataObjectTombstone->setId($this->getInsertTombstoneId());
+		$dataObjectTombstone->setId($this->getInsertId());
 		$this->insertOAISetObjects($dataObjectTombstone);
 
 		return $dataObjectTombstone->getId();
@@ -191,7 +191,7 @@ class DataObjectTombstoneDAO extends DAO {
 	 * Get the ID of the last inserted data object tombstone.
 	 * @return int
 	 */
-	function getInsertTombstoneId() {
+	function getInsertId() {
 		return $this->_getInsertId('data_object_tombstones', 'tombstone_id');
 	}
 

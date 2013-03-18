@@ -133,7 +133,7 @@ class NotificationMailListDAO extends DAO {
 	 * Get the ID of the last inserted notification
 	 * @return int
 	 */
-	function getInsertNotificationMailListId() {
+	function getInsertId() {
 		return $this->_getInsertId('notification_mail_list', 'notification_mail_list_id');
 	}
 

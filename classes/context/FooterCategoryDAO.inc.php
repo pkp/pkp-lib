@@ -157,7 +157,7 @@ class FooterCategoryDAO extends DAO {
 			)
 		);
 
-		$category->setId($this->getInsertFooterCategoryId());
+		$category->setId($this->getInsertId());
 		$this->updateLocaleFields($category);
 		return $category->getId();
 	}
@@ -288,7 +288,7 @@ class FooterCategoryDAO extends DAO {
 	 * Get the ID of the last inserted category.
 	 * @return int
 	 */
-	function getInsertFooterCategoryId() {
+	function getInsertId() {
 		return $this->_getInsertId('footer_categories', 'footer_category_id');
 	}
 }

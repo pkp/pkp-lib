@@ -119,7 +119,7 @@ class PKPSocialMediaDAO extends DAO {
 			)
 		);
 
-		$socialMedia->setId($this->getInsertSocialMediaId());
+		$socialMedia->setId($this->getInsertId());
 		$this->updateLocaleFields($socialMedia);
 		return $socialMedia->getId();
 	}
@@ -258,7 +258,7 @@ class PKPSocialMediaDAO extends DAO {
 	 * Get the ID of the last inserted link.
 	 * @return int
 	 */
-	function getInsertSocialMediaId() {
+	function getInsertId() {
 		return $this->_getInsertId('social_media', 'social_media_id');
 	}
 }

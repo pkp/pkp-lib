@@ -213,7 +213,7 @@ class PKPAuthorDAO extends DAO {
 				)
 		);
 
-		$author->setId($this->getInsertAuthorId());
+		$author->setId($this->getInsertId());
 		$this->updateLocaleFields($author);
 
 		return $author->getId();
@@ -349,7 +349,7 @@ class PKPAuthorDAO extends DAO {
 	 * Get the ID of the last inserted author.
 	 * @return int
 	 */
-	function getInsertAuthorId() {
+	function getInsertId() {
 		return $this->_getInsertId('authors', 'author_id');
 	}
 

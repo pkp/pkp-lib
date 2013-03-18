@@ -184,7 +184,7 @@ class PKPAnnouncementTypeDAO extends DAO {
 				(int) $announcementType->getAssocId()
 			)
 		);
-		$announcementType->setId($this->getInsertTypeId());
+		$announcementType->setId($this->getInsertId());
 		$this->updateLocaleFields($announcementType);
 		return $announcementType->getId();
 	}
@@ -265,7 +265,7 @@ class PKPAnnouncementTypeDAO extends DAO {
 	 * Get the ID of the last inserted announcement type.
 	 * @return int
 	 */
-	function getInsertTypeId() {
+	function getInsertId() {
 		return $this->_getInsertId('announcement_types', 'type_id');
 	}
 }

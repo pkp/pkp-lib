@@ -129,7 +129,7 @@ class GenreDAO extends DefaultSettingDAO {
 			)
 		);
 
-		$genre->setId($this->getInsertGenreId());
+		$genre->setId($this->getInsertId());
 
 		$this->updateLocaleFields($genre);
 
@@ -177,7 +177,7 @@ class GenreDAO extends DefaultSettingDAO {
 	 * Get the ID of the last inserted genre.
 	 * @return int
 	 */
-	function getInsertGenreId() {
+	function getInsertId() {
 		return $this->_getInsertId('genres', 'genre_id');
 	}
 

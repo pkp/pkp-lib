@@ -142,7 +142,7 @@ class AccessKeyDAO extends DAO {
 			)
 		);
 
-		$accessKey->setId($this->getInsertAccessKeyId());
+		$accessKey->setId($this->getInsertId());
 		return $accessKey->getId();
 	}
 
@@ -218,7 +218,7 @@ class AccessKeyDAO extends DAO {
 	 * Get the ID of the last inserted accessKey.
 	 * @return int
 	 */
-	function getInsertAccessKeyId() {
+	function getInsertId() {
 		return $this->_getInsertId('access_keys', 'access_key_id');
 	}
 }

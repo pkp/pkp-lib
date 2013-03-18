@@ -62,7 +62,7 @@ class QueuedPaymentDAO extends DAO {
 			)
 		);
 
-		return $queuedPayment->setId($this->getInsertQueuedPaymentId());
+		return $queuedPayment->setId($this->getInsertId());
 	}
 
 	/**
@@ -89,7 +89,7 @@ class QueuedPaymentDAO extends DAO {
 	 * Get the ID of the last inserted queued payment.
 	 * @return int
 	 */
-	function getInsertQueuedPaymentId() {
+	function getInsertId() {
 		return $this->_getInsertId('queued_payments', 'queued_payment_id');
 	}
 

@@ -230,7 +230,7 @@ class PKPUserDAO extends DAO {
 			)
 		);
 
-		$user->setId($this->getInsertUserId());
+		$user->setId($this->getInsertId());
 		$this->updateLocaleFields($user);
 		return $user->getId();
 	}
@@ -509,7 +509,7 @@ class PKPUserDAO extends DAO {
 	 * Get the ID of the last inserted user.
 	 * @return int
 	 */
-	function getInsertUserId() {
+	function getInsertId() {
 		return $this->_getInsertId('users', 'user_id');
 	}
 

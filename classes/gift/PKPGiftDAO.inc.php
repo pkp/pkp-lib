@@ -160,7 +160,7 @@ class PKPGiftDAO extends DAO {
 				$gift->getNotes()
 			)
 		);
-		$gift->setId($this->getInsertGiftId());
+		$gift->setId($this->getInsertId());
 		return $gift->getId();
 	}
 
@@ -491,7 +491,7 @@ class PKPGiftDAO extends DAO {
 	 * Get the ID of the last inserted gift.
 	 * @return int
 	 */
-	function getInsertGiftId() {
+	function getInsertId() {
 		return $this->_getInsertId('gifts', 'gift_id');
 	}
 }

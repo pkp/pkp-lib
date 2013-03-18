@@ -136,7 +136,7 @@ class EventLogDAO extends DAO {
 				(int) $entry->getIsTranslated()
 			)
 		);
-		$entry->setId($this->getInsertLogId());
+		$entry->setId($this->getInsertId());
 
 		// Add name => value entries into the settings table
 		$params = $entry->getParams();
@@ -202,7 +202,7 @@ class EventLogDAO extends DAO {
 	 * Get the ID of the last inserted log entry.
 	 * @return int
 	 */
-	function getInsertLogId() {
+	function getInsertId() {
 		return $this->_getInsertId('event_log', 'log_id');
 	}
 }

@@ -125,6 +125,7 @@ class WebService {
 
 		// Set up basic authentication if required.
 		$this->_authenticateRequest($ch);
+		$this->_checkSSL($ch, $url);
 
 		// Relax timeout a little bit for slow servers
 		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
@@ -174,6 +175,7 @@ class WebService {
 
 		// Set up basic authentication if required.
 		$this->_authenticateRequest($ch);
+		$this->_checkSSL($ch, $url);
 
 		// Relax timeout a little bit for slow servers
 		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
@@ -268,6 +270,18 @@ class WebService {
 			$password = $this->_authPassword;
 			curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
 			curl_setopt($ch, CURLOPT_USERPWD, "$username:$password");
+		}
+	}
+
+	/**
+	 * Configures SSL if necessary.
+	 * @param $ch object Reference to a curl handle.
+	 * @param $url string The URL to access.
+	 */
+	function _checkSSL($ch, $url) {
+		if (substr($url, 0, 6) == 'https:') {
+			curl_setopt($ch, CURLOPT_SSLVERSION, 3);
+			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 		}
 	}
 

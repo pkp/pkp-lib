@@ -36,14 +36,14 @@ class DAORegistry {
 	 * @return object A reference to previously-registered DAO of the same
 	 *    name, if one was already registered; null otherwise
 	 */
-	static function &registerDAO($name, &$dao) {
-		$daos = DAORegistry::getDAOs();
+	static function registerDAO($name, $dao) {
+		$daos =& DAORegistry::getDAOs();
 		if (isset($daos[$name])) {
-			$returner =& $daos[$name];
+			$returner = $daos[$name];
 		} else {
 			$returner = null;
 		}
-		$daos[$name] =& $dao;
+		$daos[$name] = $dao;
 		return $returner;
 	}
 

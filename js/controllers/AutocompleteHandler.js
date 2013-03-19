@@ -34,6 +34,8 @@
 		// Get the label passed in
 		this.jLabelText_ = options.jLabelText;
 
+		this.disableSync_ = options.disableSync;
+
 		// Create autocomplete settings.
 		opt = {};
 		opt.source = this.callbackWrapper(this.fetchAutocomplete);
@@ -43,8 +45,9 @@
 
 		// Get the text input inside of this Div.
 		this.textInput = $autocompleteField.find(':text');
-		this.textInput.keyup(this.callbackWrapper(this.synchronizeFields_));
-
+		if (!this.disableSync_) {
+			this.textInput.keyup(this.callbackWrapper(this.synchronizeFields_));
+		}
 		// Create the autocomplete field with the jqueryUI plug-in.
 		this.textInput.autocomplete(autocompleteOptions);
 
@@ -86,6 +89,14 @@
 	 * @type {HTMLElement}
 	 */
 	$.pkp.controllers.AutocompleteHandler.jLabelText_ = null;
+
+
+	/**
+	 * Whether or not to disable syncing the text and hidden field.
+	 * @private
+	 * @type {?string}
+	 */
+	$.pkp.controllers.AutocompleteHandler.disableSync_ = null;
 
 
 	/**

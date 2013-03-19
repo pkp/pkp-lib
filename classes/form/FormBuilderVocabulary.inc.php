@@ -394,6 +394,7 @@ class FormBuilderVocabulary {
 		// We set this now, so that we unset the param for the text input.
 		$smarty->assign('FBV_autocompleteUrl', $params['autocompleteUrl']);
 		$smarty->assign('FBV_autocompleteValue', isset($params['autocompleteValue']) ? $params['autocompleteValue'] : null);
+		$smarty->assign('FBV_disableSync', isset($params['disableSync']) ? true : null);
 
 		unset($params['autocompleteUrl']);
 		unset($params['autocompleteValue']);

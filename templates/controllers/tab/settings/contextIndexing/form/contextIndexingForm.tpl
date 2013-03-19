@@ -1,5 +1,5 @@
 {**
- * controllers/tab/settings/indexing/form/indexingForm.tpl
+ * controllers/tab/settings/contextIndexing/form/contextIndexingForm.tpl
  *
  * Copyright (c) 2003-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -11,12 +11,12 @@
 <script type="text/javascript">
 	$(function() {ldelim}
 		// Attach the form handler.
-		$('#indexingForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler');
+		$('#contextIndexingForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler');
 	{rdelim});
 </script>
 
-<form class="pkp_form" id="indexingForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="tab.settings.DistributionSettingsTabHandler" op="saveFormData" tab="indexing"}">
-	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="indexingFormNotification"}
+<form class="pkp_form" id="contextIndexingForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="tab.settings.DistributionSettingsTabHandler" op="saveFormData" tab="indexing"}">
+	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="contextIndexingFormNotification"}
 	{include file="controllers/tab/settings/wizardMode.tpl" wizardMode=$wizardMode}
 
 	{fbvFormArea id="searchEngineIndexing"}
@@ -36,6 +36,6 @@
 	<p>{translate key="manager.setup.registerForIndexingDescription" oaiUrl=$oaiUrl}</p>
 
 	{if !$wizardMode}
-		{fbvFormButtons id="indexingFormSubmit" submitText="common.save" hideCancel=true}
+		{fbvFormButtons id="contextIndexingFormSubmit" submitText="common.save" hideCancel=true}
 	{/if}
 </form>

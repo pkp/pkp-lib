@@ -28,7 +28,7 @@ class DistributionSettingsTabHandler extends ManagerSettingsTabHandler {
 			array('getPaymentMethods', 'getPaymentFormContents')
 		);
 		$this->setPageTabs(array(
-			'indexing' => 'lib.pkp.controllers.tab.settings.indexing.form.IndexingForm',
+			'indexing' => 'lib.pkp.controllers.tab.settings.contextIndexing.form.ContextIndexingForm',
 			'paymentMethod' => 'lib.pkp.controllers.tab.settings.paymentMethod.form.PaymentMethodForm',
 		));
 	}

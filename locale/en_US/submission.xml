@@ -449,6 +449,7 @@
 	<message key="submission.upload.possibleRevision">Possible Duplication or Revision Detected</message>
 	<message key="submission.upload.possibleRevisionDescription"><![CDATA[<p>The name of the uploaded file resembles the name of the previously uploaded file "{$revisedFileName}." If the file just uploaded is to replace the earlier file, then select the file to be replaced in the pulldown. If the uploaded file is not to replace an earlier file, then set the pulldown at "Select file (to preserve history)."</p>]]></message>
 	<message key="submission.upload.revisingExistingFile">If a revision of a previously uploaded file...</message>
+	<message key="submission.upload.revisingExistingFileMandatory">Identify the file that has been revised...</message>
 	<message key="submission.upload.selectMandatoryFileToRevise">Please select the file you would like to revise.</message>
 	<message key="submission.upload.selectOptionalFileToRevise">If you are uploading a revision of an existing file, please indicate which file.</message>
 	<message key="submission.upload.uploadNewFile">Select file (to preserve history)</message>

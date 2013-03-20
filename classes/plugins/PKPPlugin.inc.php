@@ -365,7 +365,7 @@ class PKPPlugin {
 	 * @param $name the setting name
 	 */
 	function getContextSpecificSetting($context, $name) {
-		if (!Config::getVar('general', 'installed')) return null;
+		if (!defined('RUNNING_UPGRADE') && !Config::getVar('general', 'installed')) return null;
 
 		// Check that the context has the correct depth
 		$application =& PKPApplication::getApplication();

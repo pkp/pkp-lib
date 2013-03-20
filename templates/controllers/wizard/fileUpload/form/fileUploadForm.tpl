@@ -165,9 +165,9 @@
 		{elseif $showFileSelector}
 			{* TODO: This should be a radio button selection, where the select is displayed only if the user chooses to replace a file *}
 			{if $revisionOnly}
-				{assign var=revisionSelectTitle value="submission.upload.revisingExistingFileMandatory"}
+				{assign var=revisionSelectTitle value="submission.upload.selectMandatoryFileToRevise"}
 			{else}
-				{assign var=revisionSelectTitle value="submission.upload.revisingExistingFile"}
+				{assign var=revisionSelectTitle value="submission.upload.selectOptionalFileToRevis"}
 			{/if}
 			{fbvFormSection title=$revisionSelectTitle required=$revisionOnly}
 				{fbvElement type="select" name="revisedFileId" id="revisedFileId" from=$submissionFileOptions selected=$revisedFileId translate=false}

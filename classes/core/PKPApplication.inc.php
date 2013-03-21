@@ -561,6 +561,13 @@ class PKPApplication {
 	static function getSubmissionDAO() {
 		assert(false); // Must be implemented by subclasses
 	}
+
+	/**
+	 * Get the stages used by the application.
+	 */
+	static function getApplicationStages() {
+		assert(false); // Must be implemented by subclasses
+	}
 }
 
 /**

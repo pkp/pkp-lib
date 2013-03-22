@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file controllers/grid/files/PKPSubmissionFilesGridDataProvider.inc.php
+ * @file controllers/grid/files/SubmissionFilesGridDataProvider.inc.php
  *
  * Copyright (c) 2000-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -15,7 +15,7 @@
 
 import('lib.pkp.controllers.grid.files.FilesGridDataProvider');
 
-class PKPSubmissionFilesGridDataProvider extends FilesGridDataProvider {
+class SubmissionFilesGridDataProvider extends FilesGridDataProvider {
 
 	/** @var integer */
 	var $_stageId;
@@ -28,7 +28,7 @@ class PKPSubmissionFilesGridDataProvider extends FilesGridDataProvider {
 	 * Constructor
 	 * @param $fileStage integer One of the SUBMISSION_FILE_* constants.
 	 */
-	function PKPSubmissionFilesGridDataProvider($fileStage, $viewableOnly = false) {
+	function SubmissionFilesGridDataProvider($fileStage, $viewableOnly = false) {
 		assert(is_numeric($fileStage) && $fileStage > 0);
 		$this->_fileStage = (int)$fileStage;
 		parent::FilesGridDataProvider();
@@ -90,6 +90,19 @@ class PKPSubmissionFilesGridDataProvider extends FilesGridDataProvider {
 		return $this->prepareSubmissionFileData($submissionFiles, $this->_viewableOnly);
 	}
 
+	//
+	// Implement template methods from GridDataProvider
+	//
+	/**
+	 * @see GridDataProvider::getAuthorizationPolicy()
+	 */
+	function getAuthorizationPolicy(&$request, $args, $roleAssignments) {
+		$this->setUploaderRoles($roleAssignments);
+
+		import('classes.security.authorization.WorkflowStageAccessPolicy');
+		$policy = new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $this->getStageId());
+		return $policy;
+	}
 
 	//
 	// Overridden public methods from FilesGridDataProvider

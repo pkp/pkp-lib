@@ -21,7 +21,7 @@ class SubmissionWizardFilesGridHandler extends FileListGridHandler {
 	 */
 	function SubmissionWizardFilesGridHandler() {
 		// import app-specific grid data provider for access policies.
-		import('controllers.grid.files.SubmissionFilesGridDataProvider');
+		import('lib.pkp.controllers.grid.files.SubmissionFilesGridDataProvider');
 		parent::FileListGridHandler(new SubmissionFilesGridDataProvider(
 			SUBMISSION_FILE_SUBMISSION),
 			WORKFLOW_STAGE_ID_SUBMISSION,

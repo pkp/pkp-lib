@@ -584,6 +584,32 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	}
 
 
+	/**
+	 * Return all file stages.
+	 * @return array
+	 */
+	function getAllFileStages() {
+		// Bring in the file stages definition.
+		import('classes.submission.SubmissionFile');
+		return array(
+			SUBMISSION_FILE_PUBLIC,
+			SUBMISSION_FILE_SUBMISSION,
+			SUBMISSION_FILE_NOTE,
+			SUBMISSION_FILE_REVIEW_FILE,
+			SUBMISSION_FILE_REVIEW_ATTACHMENT,
+			SUBMISSION_FILE_FINAL,
+			SUBMISSION_FILE_FAIR_COPY,
+			SUBMISSION_FILE_EDITOR,
+			SUBMISSION_FILE_COPYEDIT,
+			SUBMISSION_FILE_PROOF,
+			SUBMISSION_FILE_PRODUCTION_READY,
+			SUBMISSION_FILE_LAYOUT,
+			SUBMISSION_FILE_ATTACHMENT,
+			SUBMISSION_FILE_SIGNOFF,
+			SUBMISSION_FILE_REVIEW_REVISION,
+		);
+	}
+
 	//
 	// Private helper methods
 	//

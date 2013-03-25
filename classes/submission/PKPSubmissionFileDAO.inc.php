@@ -590,7 +590,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 */
 	function getAllFileStages() {
 		// Bring in the file stages definition.
-		import('classes.submission.SubmissionFile');
+		import('lib.pkp.classes.submission.SubmissionFile');
 		return array(
 			SUBMISSION_FILE_PUBLIC,
 			SUBMISSION_FILE_SUBMISSION,

@@ -328,6 +328,7 @@ class PKPApplication {
 			'ONIXCodelistItemDAO' => 'lib.pkp.classes.codelist.ONIXCodelistItemDAO',
 			'ProcessDAO' => 'lib.pkp.classes.process.ProcessDAO',
 			'QualifierDAO' => 'lib.pkp.classes.codelist.QualifierDAO',
+			'ReviewRoundDAO' => 'lib.pkp.classes.submission.reviewRound.ReviewRoundDAO',
 			'ScheduledTaskDAO' => 'lib.pkp.classes.scheduledTask.ScheduledTaskDAO',
 			'SessionDAO' => 'lib.pkp.classes.session.SessionDAO',
 			'SiteDAO' => 'lib.pkp.classes.site.SiteDAO',

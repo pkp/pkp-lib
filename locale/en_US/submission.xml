@@ -468,4 +468,15 @@
 	<message key="submission.upload.productionReady">Upload a Production Ready File</message>
 	<message key="submission.upload.proof">Upload a Proof</message>
 	<message key="submission.upload.noAvailableReviewFiles">There are no files for you to revise at this time.</message>
+
+	<!-- Review Round Status Keys -->
+	<message key="editor.submission.roundStatus.revisionsRequested">Revisions have been requested.</message>
+	<message key="editor.submission.roundStatus.resubmitted">Submission has been resubmitted for review.</message>
+	<message key="editor.submission.roundStatus.sentToExternal">Sent to external review.</message>
+	<message key="editor.submission.roundStatus.accepted">Submission accepted.</message>
+	<message key="editor.submission.roundStatus.declined">Submission declined.</message>
+	<message key="editor.submission.roundStatus.pendingReviewers">Awaiting reviewers.</message>
+	<message key="editor.submission.roundStatus.pendingReviews">Awaiting responses from reviewers.</message>
+	<message key="editor.submission.roundStatus.reviewsReady">New reviews ready.</message>
+	<message key="editor.monograph.roundStatus.reviewsCompleted">Reviews completed.</message>
 </locale>

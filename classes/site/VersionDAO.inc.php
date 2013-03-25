@@ -224,7 +224,7 @@ class VersionDAO extends DAO {
 				'SELECT v.*
 				 FROM versions v LEFT JOIN plugin_settings ps ON
 				     lower(v.product_class_name) = ps.plugin_name
-				     AND ps.setting_name = "enabled" '.$contextWhereClause.'
+				     AND ps.setting_name = \'enabled\' '.$contextWhereClause.'
 				 WHERE current = 1 AND (ps.setting_value OR NOT v.lazy_load)', $context, false);
 
 		$productArray = array();

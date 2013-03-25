@@ -13,7 +13,7 @@
  * @brief Operations for retrieving and modifying ReviewRound objects.
  */
 
-import('classes.submission.reviewRound.ReviewRound');
+import('lib.pkp.classes.submission.reviewRound.ReviewRound');
 
 class ReviewRoundDAO extends DAO {
 	/**
@@ -190,7 +190,7 @@ class ReviewRoundDAO extends DAO {
 	 * @param $stageId int (optional)
 	 * @param $round int (optional)
 	 */
-	function getByMonographId($submissionId, $stageId = null, $round = null) {
+	function getBySubmissionId($submissionId, $stageId = null, $round = null) {
 		$params = array($submissionId);
 		if ($stageId) $params[] = $stageId;
 		if ($round) $params[] = $round;

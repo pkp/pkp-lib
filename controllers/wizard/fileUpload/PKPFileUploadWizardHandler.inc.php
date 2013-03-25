@@ -17,7 +17,7 @@
  */
 
 // Import the base handler.
-import('classes.file.FileManagementHandler');
+import('lib.pkp.classes.file.FileManagementHandler');
 
 // Import JSON class for use with all AJAX requests.
 import('lib.pkp.classes.core.JSONMessage');

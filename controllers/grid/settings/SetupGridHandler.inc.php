@@ -57,7 +57,7 @@ class SetupGridHandler extends GridHandler {
 		$context = $request->getContext();
 		$user = $request->getUser();
 
-		import('classes.file.TemporaryFileManager');
+		import('lib.pkp.classes.file.TemporaryFileManager');
 		$temporaryFileManager = new TemporaryFileManager();
 		$temporaryFile = $temporaryFileManager->handleUpload('uploadedFile', $user->getId());
 		if ($temporaryFile) {

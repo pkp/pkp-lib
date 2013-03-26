@@ -59,7 +59,7 @@ class NewLibraryFileForm extends LibraryFileForm {
 		$fileId = $libraryFileDao->insertObject($libraryFile);
 
 		// Clean up the temporary file
-		import('classes.file.TemporaryFileManager');
+		import('lib.pkp.classes.file.TemporaryFileManager');
 		$temporaryFileManager = new TemporaryFileManager();
 		$temporaryFileManager->deleteFile($this->getData('temporaryFileId'), $userId);
 

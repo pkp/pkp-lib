@@ -104,7 +104,7 @@ class SettingsFileUploadForm extends Form {
 	function removeTemporaryFile($request) {
 		$user = $request->getUser();
 
-		import('classes.file.TemporaryFileManager');
+		import('lib.pkp.classes.file.TemporaryFileManager');
 		$temporaryFileManager = new TemporaryFileManager();
 		$temporaryFileManager->deleteFile($this->getData('temporaryFileId'), $user->getId());
 	}
@@ -116,7 +116,7 @@ class SettingsFileUploadForm extends Form {
 	function uploadFile($request) {
 		$user = $request->getUser();
 
-		import('classes.file.TemporaryFileManager');
+		import('lib.pkp.classes.file.TemporaryFileManager');
 		$temporaryFileManager = new TemporaryFileManager();
 		$temporaryFile = $temporaryFileManager->handleUpload('uploadedFile', $user->getId());
 

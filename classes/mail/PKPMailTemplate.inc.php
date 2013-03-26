@@ -294,7 +294,7 @@ class PKPMailTemplate extends Mail {
 	 * constructor when attachments are enabled.
 	 */
 	function _handleAttachments($userId) {
-		import('classes.file.TemporaryFileManager');
+		import('lib.pkp.classes.file.TemporaryFileManager');
 		$temporaryFileManager = new TemporaryFileManager();
 
 		$this->attachmentsEnabled = true;
@@ -332,7 +332,7 @@ class PKPMailTemplate extends Mail {
 	 * @param $userId int
 	 */
 	function _clearAttachments($userId) {
-		import('classes.file.TemporaryFileManager');
+		import('lib.pkp.classes.file.TemporaryFileManager');
 		$temporaryFileManager = new TemporaryFileManager();
 
 		$persistAttachments = Request::getUserVar('persistAttachments');

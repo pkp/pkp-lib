@@ -247,7 +247,7 @@ class PluginGridHandler extends CategoryGridHandler {
 	function uploadPlugin($args, &$request) {
 		$errorMsg = '';
 
-		import('classes.file.TemporaryFileManager');
+		import('lib.pkp.classes.file.TemporaryFileManager');
 		$temporaryFileManager = new TemporaryFileManager();
 		$user =& $request->getUser();
 

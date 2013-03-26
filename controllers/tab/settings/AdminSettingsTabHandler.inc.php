@@ -35,7 +35,7 @@ class AdminSettingsTabHandler extends SettingsTabHandler {
 
 		parent::SettingsTabHandler($role);
 		$this->setPageTabs(array(
-			'siteSetup' => 'lib.pkp.controllers.tab.settings.siteSetup.form.SiteSetupForm',
+			'siteSetup' => 'controllers.tab.admin.siteSetup.form.AppSiteSetupForm',
 			'languages' => 'controllers/tab/admin/languages/languages.tpl',
 			'plugins' => 'controllers/tab/admin/plugins/sitePlugins.tpl',
 		));

@@ -1,12 +1,12 @@
 <?php
 
 /**
- * @file classes/admin/form/SiteSettingsForm.inc.php
+ * @file classes/admin/form/SiteSetupForm.inc.php
  *
  * Copyright (c) 2003-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class SiteSettingsForm
+ * @class SiteSetupForm
  * @ingroup admin_form
  * @see PKPSiteSettingsForm
  *

@@ -15,11 +15,16 @@
 import('lib.pkp.classes.file.FileManager');
 
 class PrivateFileManager extends FileManager {
+
+	/** var $filesDir */
+	var $filesDir;
+
 	/**
 	 * Constructor
 	 */
 	function PrivateFileManager() {
 		parent::FileManager();
+		$this->filesDir = $this->getBasePath();
 	}
 
 	/**

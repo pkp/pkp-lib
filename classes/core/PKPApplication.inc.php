@@ -569,6 +569,14 @@ class PKPApplication {
 	static function getApplicationStages() {
 		assert(false); // Must be implemented by subclasses
 	}
+
+	/**
+	 * Get the file directory array map used by the application.
+	 * should return array('context' => ..., 'submission' => ...)
+	 */
+	static function getFileDirectories() {
+		assert(false); // Must be implemented by subclasses.
+	}
 }
 
 /**

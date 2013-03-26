@@ -398,7 +398,7 @@ class SubmissionFile extends PKPFile {
 		$submissionDao = Application::getSubmissionDAO();
 		$submission =& $submissionDao->getById($this->getSubmissionId());
 		if (!$submission) return null;
-		$contextId = $submission->getPressId();
+		$contextId = $submission->getContextId();
 		unset($submission);
 
 		// Construct the file path

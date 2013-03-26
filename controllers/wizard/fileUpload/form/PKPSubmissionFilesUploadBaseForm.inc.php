@@ -246,8 +246,8 @@ class PKPSubmissionFilesUploadBaseForm extends Form {
 		$this->setData('submissionFileOptions', $submissionFileOptions);
 
 		// Show ensuring a blind review link.
-		$press =& $request->getPress();
-		if ($press->getSetting('showEnsuringLink')) {
+		$context =& $request->getContext();
+		if ($context->getSetting('showEnsuringLink')) {
 			import('lib.pkp.classes.linkAction.request.ConfirmationModal');
 			$ensuringLink = new LinkAction(
 				'addUser',

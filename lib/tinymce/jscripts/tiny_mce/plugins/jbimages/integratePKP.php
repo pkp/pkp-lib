@@ -18,7 +18,8 @@
 
 		public function __construct() {
 			// Get paths to system base directories
-			$this->baseDir = dirname(dirname(dirname(dirname(dirname(dirname(dirname(dirname(dirname(dirname($_SERVER['SCRIPT_FILENAME']))))))))));
+			$this->baseDir = $_SERVER['SCRIPT_FILENAME'];
+			for ($i = 0; $i < 10; $i++) $this->baseDir = dirname($this->baseDir);
 
 			// Load and execute initialization code
 			chdir($this->baseDir);

@@ -89,7 +89,7 @@ class SubmissionDocumentsFilesGridHandler extends LibraryFileGridHandler {
 	 * @return array
 	 */
 	function getActionArgs() {
-		$submission =& $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$actionArgs = array(
 			'submissionId' => $submission->getId(),
 		);
@@ -101,10 +101,9 @@ class SubmissionDocumentsFilesGridHandler extends LibraryFileGridHandler {
 	 * Get the row handler - override the default row handler
 	 * @return LibraryFileGridRow
 	 */
-	function &getRowInstance() {
-		$submission =& $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-		$row = new LibraryFileGridRow($this->canEdit(), $submission);
-		return $row;
+	function getRowInstance() {
+		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+		return new LibraryFileGridRow($this->canEdit(), $submission);
 	}
 
 	//

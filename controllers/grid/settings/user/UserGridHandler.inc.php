@@ -139,9 +139,8 @@ class UserGridHandler extends GridHandler {
 	 * @see GridHandler::getRowInstance()
 	 * @return UserGridRow
 	 */
-	function &getRowInstance() {
-		$row = new UserGridRow();
-		return $row;
+	function getRowInstance() {
+		return new UserGridRow();
 	}
 
 	/**

@@ -174,9 +174,8 @@ class SubmissionsListGridHandler extends GridHandler {
 	 * @see GridHandler::getRowInstance()
 	 * @return SubmissionsListGridRow
 	 */
-	function &getRowInstance() {
-		$row = new SubmissionsListGridRow($this->_isManager);
-		return $row;
+	function getRowInstance() {
+		return new SubmissionsListGridRow($this->_isManager);
 	}
 }
 

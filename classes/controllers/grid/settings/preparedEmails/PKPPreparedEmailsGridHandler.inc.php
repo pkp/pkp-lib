@@ -123,7 +123,7 @@ class PKPPreparedEmailsGridHandler extends GridHandler {
 	 * Get the row handler - override the default row handler
 	 * @return PreparedEmailsGridRow
 	 */
-	function &getRowInstance() {
+	function getRowInstance() {
 		assert(false); // Should be implemented by subclasses
 	}
 

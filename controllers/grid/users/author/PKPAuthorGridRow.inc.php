@@ -24,8 +24,8 @@ class PKPAuthorGridRow extends GridRow {
 	/**
 	 * Constructor
 	 */
-	function PKPAuthorGridRow(&$submission, $readOnly = false) {
-		$this->_submission =& $submission;
+	function PKPAuthorGridRow($submission, $readOnly = false) {
+		$this->_submission = $submission;
 		$this->_readOnly = $readOnly;
 		parent::GridRow();
 	}

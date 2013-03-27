@@ -171,10 +171,9 @@ class PKPFilterGridHandler extends GridHandler {
 	/**
 	 * @see GridHandler::getRowInstance()
 	 */
-	function &getRowInstance() {
+	function getRowInstance() {
 		// Return a filter row
-		$row = new PKPFilterGridRow();
-		return $row;
+		return new PKPFilterGridRow();
 	}
 
 

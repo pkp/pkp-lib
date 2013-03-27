@@ -92,9 +92,8 @@ class ContributorGridHandler extends SetupGridHandler {
 	 * Get the row handler - override the default row handler
 	 * @return ContributorGridRow
 	 */
-	function &getRowInstance() {
-		$row = new ContributorGridRow();
-		return $row;
+	function getRowInstance() {
+		return new ContributorGridRow();
 	}
 
 	//

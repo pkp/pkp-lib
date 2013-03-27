@@ -145,10 +145,9 @@ class ManageSocialMediaGridHandler extends GridHandler {
 	 * @see GridHandler::getRowInstance()
 	 * @return SocialMediaGridRow
 	 */
-	function &getRowInstance() {
+	function getRowInstance() {
 		$context = $this->getContext();
-		$row = new SocialMediaGridRow($context);
-		return $row;
+		return new SocialMediaGridRow($context);
 	}
 
 	/**

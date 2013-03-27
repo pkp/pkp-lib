@@ -170,10 +170,8 @@ class PKPAuthorGridHandler extends GridHandler {
 	 * @see GridHandler::getRowInstance()
 	 * @return AuthorGridRow
 	 */
-	function &getRowInstance() {
-		$submission =& $this->getSubmission();
-		$row = new AuthorGridRow($submission, $this->getReadOnly());
-		return $row;
+	function getRowInstance() {
+		return new AuthorGridRow($this->getSubmission(), $this->getReadOnly());
 	}
 
 	/**
@@ -297,7 +295,7 @@ class PKPAuthorGridHandler extends GridHandler {
 			$notificationMgr->createTrivialNotification($currentUser->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => $notificationContent));
 
 			// Prepare the grid row data
-			$row =& $this->getRowInstance();
+			$row = $this->getRowInstance();
 			$row->setGridId($this->getId());
 			$row->setId($authorId);
 			$row->setData($author);

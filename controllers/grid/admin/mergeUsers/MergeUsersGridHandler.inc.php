@@ -113,9 +113,8 @@ class MergeUsersGridHandler extends GridHandler {
 	 * @see GridHandler::getRowInstance()
 	 * @return UserGridRow
 	 */
-	function &getRowInstance() {
-		$row = new MergeUsersGridRow($this->_oldUserId);
-		return $row;
+	function getRowInstance() {
+		return new MergeUsersGridRow($this->_oldUserId);
 	}
 
 	/**

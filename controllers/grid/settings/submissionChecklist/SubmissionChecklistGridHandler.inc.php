@@ -84,9 +84,8 @@ class SubmissionChecklistGridHandler extends SetupGridHandler {
 	/**
 	 * @see GridHandler::getRowInstance()
 	 */
-	function &getRowInstance() {
-		$row = new SubmissionChecklistGridRow();
-		return $row;
+	function getRowInstance() {
+		return new SubmissionChecklistGridRow();
 	}
 
 	/**

@@ -729,10 +729,9 @@ class GridHandler extends PKPHandler {
 	 * provide a custom row definition.
 	 * @return GridRow
 	 */
-	protected function &getRowInstance() {
+	protected function getRowInstance() {
 		//provide a sensible default row definition
-		$row = new GridRow();
-		return $row;
+		return new GridRow();
 	}
 
 	/**

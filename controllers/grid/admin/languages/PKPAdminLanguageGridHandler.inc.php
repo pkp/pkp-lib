@@ -129,9 +129,8 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 	/**
 	 * @see GridHandler::getRowInstance()
 	 */
-	function &getRowInstance() {
-		$row = new LanguageGridRow();
-		return $row;
+	function getRowInstance() {
+		return new LanguageGridRow();
 	}
 
 	/**

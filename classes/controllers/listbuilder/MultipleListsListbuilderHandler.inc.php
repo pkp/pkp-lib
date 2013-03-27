@@ -139,8 +139,8 @@ class MultipleListsListbuilderHandler extends ListbuilderHandler {
 	/**
 	 * @see ListbuilderHandler::getRowInstance()
 	 */
-	protected function &getRowInstance() {
-		$row =& parent::getRowInstance();
+	protected function getRowInstance() {
+		$row = parent::getRowInstance();
 
 		// Currently we can't/don't need to delete a row inside multiple
 		// lists listbuilder. If we need, we have to adapt this class

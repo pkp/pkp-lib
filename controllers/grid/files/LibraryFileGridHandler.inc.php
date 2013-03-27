@@ -150,9 +150,8 @@ class LibraryFileGridHandler extends CategoryGridHandler {
 	 * Get the row handler - override the default row handler
 	 * @return LibraryFileGridRow
 	 */
-	function &getRowInstance() {
-		$row = new LibraryFileGridRow($this->canEdit());
-		return $row;
+	function getRowInstance() {
+		return new LibraryFileGridRow($this->canEdit());
 	}
 
 	/**

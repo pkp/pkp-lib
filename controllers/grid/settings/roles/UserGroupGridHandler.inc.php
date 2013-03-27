@@ -148,10 +148,9 @@ class UserGroupGridHandler extends CategoryGridHandler {
 	 * @see GridHandler::getRowInstance()
 	 * @return UserGroupGridRow
 	 */
-	function &getRowInstance() {
+	function getRowInstance() {
 		import('lib.pkp.controllers.grid.settings.roles.UserGroupGridRow');
-		$row = new UserGroupGridRow();
-		return $row;
+		return new UserGroupGridRow();
 	}
 
 	/**

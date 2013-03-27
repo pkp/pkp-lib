@@ -167,10 +167,9 @@ class PKPCitationGridHandler extends GridHandler {
 	/**
 	 * @see GridHandler::getRowInstance()
 	 */
-	function &getRowInstance() {
+	function getRowInstance() {
 		// Return a citation row
-		$row = new PKPCitationGridRow();
-		return $row;
+		return new PKPCitationGridRow();
 	}
 
 	/**
@@ -419,7 +418,7 @@ class PKPCitationGridHandler extends GridHandler {
 			}
 
 			// Update the citation's grid row.
-			$row =& $this->getRowInstance();
+			$row = $this->getRowInstance();
 			$row->setGridId($this->getId());
 			$row->setId($savedCitation->getId());
 			$row->setData($savedCitation);

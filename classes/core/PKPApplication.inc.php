@@ -61,6 +61,9 @@ define('WORKFLOW_STAGE_PATH_PRODUCTION', 'production');
 // To expose LISTBUILDER_SOURCE_TYPE_... constants via JS
 import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
 
+// To expose ORDER_CATEGORY_GRID_... constants via JS
+import('lib.pkp.classes.controllers.grid.feature.OrderCategoryGridItemsFeature');
+
 class PKPApplication {
 	var $enabledProducts;
 	var $allProducts;

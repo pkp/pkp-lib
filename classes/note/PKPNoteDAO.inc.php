@@ -234,6 +234,34 @@ class PKPNoteDAO extends DAO {
 	}
 
 	/**
+	 * Determine whether or not unread notes exist for a given association.
+	 */
+	function unreadNotesExistByAssoc($assocType, $assocId, $userId) {
+		$params = array((int) $assocId, (int) $assocType);
+		if (isset($userId)) $params[] = (int) $userId;
+
+		$result = $this->retrieve(
+			'SELECT	COUNT(*)
+			FROM	notes n
+			LEFT JOIN item_views v ON (v.assoc_type = ? AND v.assoc_id = CAST(n.note_id AS CHAR) AND v.user_id = ?)
+			WHERE	n.assoc_type = ? AND
+			n.assoc_id = ? AND
+			v.assoc_id IS NULL',
+			array(
+				(int) ASSOC_TYPE_NOTE,
+				(int) $userId,
+				(int) $assocType,
+				(int) $assocId
+			)
+		);
+
+		$returner = isset($result->fields[0]) && $result->fields[0] == 0 ? false : true;
+		$result->Close();
+
+		return $returner;
+	}
+
+	/**
 	 * Get the ID of the last inserted note
 	 * @return int
 	 */

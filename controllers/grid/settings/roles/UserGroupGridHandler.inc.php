@@ -158,9 +158,8 @@ class UserGroupGridHandler extends CategoryGridHandler {
 	 * @see CategoryGridHandler::geCategorytRowInstance()
 	 * @return UserGroupGridCategoryRow
 	 */
-	function &getCategoryRowInstance() {
-		$row = new UserGroupGridCategoryRow();
-		return $row;
+	function getCategoryRowInstance() {
+		return new UserGroupGridCategoryRow();
 	}
 
 	/**

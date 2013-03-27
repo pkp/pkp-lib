@@ -304,10 +304,9 @@ class CategoryGridHandler extends GridHandler {
 	 * provide a custom row definition.
 	 * @return CategoryGridRow
 	 */
-	protected function &getCategoryRowInstance() {
+	protected function getCategoryRowInstance() {
 		//provide a sensible default category row definition
-		$row = new GridCategoryRow();
-		return $row;
+		return new GridCategoryRow();
 	}
 
 	/**

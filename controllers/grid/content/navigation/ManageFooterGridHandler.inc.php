@@ -147,9 +147,8 @@ class ManageFooterGridHandler extends CategoryGridHandler {
 	 * @see CategoryGridHandler::getCategoryRowInstance()
 	 * @return FooterGridCategoryRow
 	 */
-	function &getCategoryRowInstance() {
-		$row = new FooterGridCategoryRow();
-		return $row;
+	function getCategoryRowInstance() {
+		return new FooterGridCategoryRow();
 	}
 
 	/**

@@ -125,9 +125,8 @@ class LibraryFileGridHandler extends CategoryGridHandler {
 	/**
 	 * @see CategoryGridHandler::getCategoryRowInstance()
 	 */
-	function &getCategoryRowInstance() {
-		$row = new LibraryFileGridCategoryRow($this->getContext());
-		return $row;
+	function getCategoryRowInstance() {
+		return new LibraryFileGridCategoryRow($this->getContext());
 	}
 
 	/**

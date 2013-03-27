@@ -108,9 +108,8 @@ class SystemInfoGridHandler extends CategoryGridHandler {
 	/**
 	 * @see CategoryGridHandler::getCategoryRowInstance()
 	 */
-	function &getCategoryRowInstance() {
-		$row = new SystemInfoGridCategoryRow();
-		return $row;
+	function getCategoryRowInstance() {
+		return new SystemInfoGridCategoryRow();
 	}
 
 	/**

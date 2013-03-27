@@ -13,6 +13,9 @@
  * @brief Describes an entry in the event log.
  */
 
+// Information Center events
+define('SUBMISSION_LOG_NOTE_POSTED',			0x01000000);
+define('SUBMISSION_LOG_MESSAGE_SENT',			0x01000001);
 
 class EventLogEntry extends DataObject {
 	/**

@@ -76,21 +76,6 @@ class PKPSubmissionFileAccessPolicy extends ContextPolicy {
 
 
 		//
-		// Series editor role
-		//
-		if (isset($roleAssignments[ROLE_ID_SUB_EDITOR])) {
-			// 1) Series editors can access all operations on submissions ...
-			$seriesEditorFileAccessPolicy = new PolicySet(COMBINING_DENY_OVERRIDES);
-			$seriesEditorFileAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_SUB_EDITOR, $roleAssignments[ROLE_ID_SUB_EDITOR]));
-
-			// 2) ... but only if the requested submission is part of their series.
-			import('classes.security.authorization.internal.SeriesAssignmentPolicy');
-			$seriesEditorFileAccessPolicy->addPolicy(new SeriesAssignmentPolicy($request));
-			$fileAccessPolicy->addPolicy($seriesEditorFileAccessPolicy);
-		}
-
-
-		//
 		// Author role
 		//
 		if (isset($roleAssignments[ROLE_ID_AUTHOR])) {

@@ -30,6 +30,16 @@ class PKPManageFileApiHandler extends Handler {
 	}
 
 	//
+	// Implement methods from PKPHandler
+	//
+	function authorize(&$request, &$args, $roleAssignments) {
+		import('classes.security.authorization.SubmissionFileAccessPolicy');
+		$this->addPolicy(new SubmissionFileAccessPolicy($request, $args, $roleAssignments, SUBMISSION_FILE_ACCESS_MODIFY));
+
+		return parent::authorize($request, $args, $roleAssignments);
+	}
+
+	//
 	// Public handler methods
 	//
 	/**
@@ -145,12 +155,13 @@ class PKPManageFileApiHandler extends Handler {
 
 	/**
 	 * indexes the files associated with a submission.
-	 * must be overridden by sub classes.
 	 * @param $contextId int the context id.
 	 * @param $submissionId int the submission id.
+	 * @return SubmissionFileManager
 	 */
 	function getFileManager($contextId, $submissionId) {
-		assert(false);
+		import('lib.pkp.classes.file.SubmissionFileManager');
+		return new SubmissionFileManager($contextId, $submissionId);
 	}
 
 	/**

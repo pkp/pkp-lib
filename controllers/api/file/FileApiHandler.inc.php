@@ -4,7 +4,7 @@
  */
 
 /**
- * @file controllers/api/file/PKPFileApiHandler.inc.php
+ * @file controllers/api/file/FileApiHandler.inc.php
  *
  * Copyright (c) 2000-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -12,19 +12,21 @@
  * @class FileApiHandler
  * @ingroup controllers_api_file
  *
- * @brief Base Class defining an AJAX API for supplying file information.
+ * @brief Class defining an AJAX API for supplying file information.
  */
 
 // Import the base handler.
 import('classes.handler.Handler');
 import('lib.pkp.classes.core.JSONMessage');
+import('lib.pkp.classes.file.SubmissionFileManager');
+import('classes.security.authorization.SubmissionFileAccessPolicy');
 
-class PKPFileApiHandler extends Handler {
+class FileApiHandler extends Handler {
 
 	/**
 	 * Constructor.
 	 */
-	function PKPFileApiHandler() {
+	function FileApiHandler() {
 		parent::Handler();
 		$this->addRoleAssignment(
 			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR),
@@ -32,6 +34,14 @@ class PKPFileApiHandler extends Handler {
 		);
 	}
 
+	/**
+	 * record a file view.
+	 * Must be overridden in subclases.
+	 * @param $submissionFile MonographFile the file to record.
+	 */
+	function recordView($submissionFile) {
+		SubmissionFileManager::recordView($submissionFile);
+	}
 
 	//
 	// Implement methods from PKPHandler
@@ -47,7 +57,7 @@ class PKPFileApiHandler extends Handler {
 		if (!empty($fileIdsArray)) {
 			$multipleSubmissionFileAccessPolicy = new PolicySet(COMBINING_DENY_OVERRIDES);
 			foreach ($fileIdsArray as $fileIdAndRevision) {
-				$multipleSubmissionFileAccessPolicy->addPolicy($this->_getAccessPolicy($request, $args, $roleAssignments, SUBMISSION_FILE_ACCESS_READ, $fileIdAndRevision));
+				$multipleSubmissionFileAccessPolicy->addPolicy($this->_getAccessPolicy($request, $args, $roleAssignments, SUBMISSION_FILE_ACCESS_READ));
 			}
 			$this->addPolicy($multipleSubmissionFileAccessPolicy);
 		}else if (is_numeric($libraryFileId)) {
@@ -205,18 +215,16 @@ class PKPFileApiHandler extends Handler {
 
 	/**
 	 * return the application specific file manager.
-	 * Must be overridden in subclases.
 	 * @param $contextId int the context for this manager.
 	 * @param $submissionId int the submission id.
-	 * @return FileManager
+	 * @return SubmissionFileManager
 	 */
 	function _getFileManager($contextId, $submissionId) {
-		assert(false);
+		return new SubmissionFileManager($contextId, $submissionId);
 	}
 
 	/**
 	 * return the application specific file access policy.
-	 * Must be overridden in subclases.
 	 * @param $request PKPRequest
 	 * @param $args
 	 * @param $roleAssignments array
@@ -224,16 +232,7 @@ class PKPFileApiHandler extends Handler {
 	 * @return SubmissionAccessPolicy
 	 */
 	function _getAccessPolicy($request, $args, $roleAssignments, $fileIdAndRevision = null) {
-		assert(false);
-	}
-
-	/**
-	 * record a file view.
-	 * Must be overridden in subclases.
-	 * @param $submissionFile SubmissionFile the file to record.
-	 */
-	function recordView($submissionFile) {
-		assert(false);
+		return new SubmissionFileAccessPolicy($request, $args, $roleAssignments, SUBMISSION_FILE_ACCESS_READ);
 	}
 }
 

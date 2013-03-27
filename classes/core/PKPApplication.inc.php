@@ -348,6 +348,7 @@ class PKPApplication {
 			'TemporaryFileDAO' => 'lib.pkp.classes.file.TemporaryFileDAO',
 			'UserGroupDAO' => 'lib.pkp.classes.security.UserGroupDAO',
 			'VersionDAO' => 'lib.pkp.classes.site.VersionDAO',
+			'ViewsDAO' => 'lib.pkp.classes.views.ViewsDAO',
 			'XMLDAO' => 'lib.pkp.classes.db.XMLDAO'
 		);
 	}

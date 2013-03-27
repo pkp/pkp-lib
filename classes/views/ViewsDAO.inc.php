@@ -16,8 +16,6 @@ define('RECORD_VIEW_RESULT_FAIL', 0);
 define('RECORD_VIEW_RESULT_EXISTING', 1);
 define('RECORD_VIEW_RESULT_INSERTED', 2);
 
-import('classes.views.ViewsDAO');
-
 class ViewsDAO extends DAO {
 	/**
 	 * Constructor

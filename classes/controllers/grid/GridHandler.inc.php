@@ -82,7 +82,7 @@ class GridHandler extends PKPHandler {
 	 *  implementations.
 	 */
 	function GridHandler($dataProvider = null) {
-		$this->_dataProvider =& $dataProvider;
+		$this->_dataProvider = $dataProvider;
 		parent::PKPHandler();
 	}
 
@@ -94,7 +94,7 @@ class GridHandler extends PKPHandler {
 	 * Get the data provider.
 	 * @return FilesGridDataProvider
 	 */
-	function &getDataProvider() {
+	function getDataProvider() {
 		return $this->_dataProvider;
 	}
 
@@ -116,7 +116,7 @@ class GridHandler extends PKPHandler {
 	 * @return array
 	 */
 	function getRequestArgs() {
-		$dataProvider =& $this->getDataProvider();
+		$dataProvider = $this->getDataProvider();
 		$requestArgs = array();
 		if (is_a($dataProvider, 'GridDataProvider')) {
 			$requestArgs = $dataProvider->getRequestArgs();
@@ -555,7 +555,7 @@ class GridHandler extends PKPHandler {
 	 * @see PKPHandler::authorize()
 	 */
 	function authorize(&$request, &$args, $roleAssignments) {
-		$dataProvider =& $this->getDataProvider();
+		$dataProvider = $this->getDataProvider();
 		$hasDataProvider = is_a($dataProvider, 'GridDataProvider');
 		if ($hasDataProvider) {
 			$this->addPolicy($dataProvider->getAuthorizationPolicy($request, $args, $roleAssignments));

@@ -96,7 +96,7 @@ class SubmissionFilesGridHandler extends GridHandler {
 			$this->_stageId = $stageId;
 		}
 
-		$dataProvider =& $this->getDataProvider();
+		$dataProvider = $this->getDataProvider();
 		$dataProvider->setStageId($this->getStageId());
 
 		return parent::authorize($request, $args, $roleAssignments);
@@ -119,7 +119,7 @@ class SubmissionFilesGridHandler extends GridHandler {
 
 		// Add grid actions
 		$capabilities = $this->getCapabilities();
-		$dataProvider =& $this->getDataProvider();
+		$dataProvider = $this->getDataProvider();
 		if($capabilities->canAdd()) {
 			assert($dataProvider);
 			$this->addAction($dataProvider->getAddFileAction($request));

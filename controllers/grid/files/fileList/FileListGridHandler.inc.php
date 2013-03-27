@@ -44,7 +44,7 @@ class FileListGridHandler extends SubmissionFilesGridHandler {
 		// Add the "manage files" action if required.
 		$capabilities = $this->getCapabilities();
 		if($capabilities->canManage()) {
-			$dataProvider =& $this->getDataProvider();
+			$dataProvider = $this->getDataProvider();
 			$this->addAction($dataProvider->getSelectAction($request));
 		}
 

@@ -39,7 +39,7 @@ class CategoryGridDataProvider extends GridDataProvider {
 	 * Get a grid data provider object.
 	 * @return GridDataProvider
 	 */
-	function &getDataProvider() {
+	function getDataProvider() {
 		return $this->_dataProvider;
 	}
 
@@ -47,13 +47,13 @@ class CategoryGridDataProvider extends GridDataProvider {
 	 * Set a grid data provider object.
 	 * @param $dataProvider GridDataProvider
 	 */
-	function setDataProvider(&$dataProvider) {
+	function setDataProvider($dataProvider) {
 		if (is_a($dataProvider, 'CategoryGridDataProvider')) {
 			assert(false);
 			$dataProvider = null;
 		}
 
-		$this->_dataProvider =& $dataProvider;
+		$this->_dataProvider = $dataProvider;
 	}
 
 
@@ -66,7 +66,7 @@ class CategoryGridDataProvider extends GridDataProvider {
 	function setAuthorizedContext(&$authorizedContext) {
 		// We need to pass the authorized context object to
 		// the grid data provider object, if any.
-		$dataProvider =& $this->getDataProvider();
+		$dataProvider = $this->getDataProvider();
 		if ($dataProvider) {
 			$dataProvider->setAuthorizedContext($authorizedContext);
 		}

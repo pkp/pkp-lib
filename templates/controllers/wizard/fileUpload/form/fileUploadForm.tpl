@@ -167,7 +167,7 @@
 			{if $revisionOnly}
 				{assign var=revisionSelectTitle value="submission.upload.selectMandatoryFileToRevise"}
 			{else}
-				{assign var=revisionSelectTitle value="submission.upload.selectOptionalFileToRevis"}
+				{assign var=revisionSelectTitle value="submission.upload.selectOptionalFileToRevise"}
 			{/if}
 			{fbvFormSection title=$revisionSelectTitle required=$revisionOnly}
 				{fbvElement type="select" name="revisedFileId" id="revisedFileId" from=$submissionFileOptions selected=$revisedFileId translate=false}

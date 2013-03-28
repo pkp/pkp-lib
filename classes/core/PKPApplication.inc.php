@@ -352,6 +352,7 @@ class PKPApplication {
 			'TimeZoneDAO' => 'lib.pkp.classes.i18n.TimeZoneDAO',
 			'TemporaryFileDAO' => 'lib.pkp.classes.file.TemporaryFileDAO',
 			'UserGroupDAO' => 'lib.pkp.classes.security.UserGroupDAO',
+			'UserStageAssignmentDAO' => 'lib.pkp.classes.user.UserStageAssignmentDAO',
 			'VersionDAO' => 'lib.pkp.classes.site.VersionDAO',
 			'ViewsDAO' => 'lib.pkp.classes.views.ViewsDAO',
 			'XMLDAO' => 'lib.pkp.classes.db.XMLDAO'

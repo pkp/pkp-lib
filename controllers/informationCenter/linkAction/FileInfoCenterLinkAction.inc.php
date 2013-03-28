@@ -4,12 +4,12 @@
  */
 
 /**
- * @file controllers/informationCenter/linkAction/PKPFileInfoCenterLinkAction.inc.php
+ * @file controllers/informationCenter/linkAction/FileInfoCenterLinkAction.inc.php
  *
  * Copyright (c) 2003-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPFileInfoCenterLinkAction
+ * @class FileInfoCenterLinkAction
  * @ingroup controllers_informationCenter_linkAction
  *
  * @brief A base action to open up the information center for a file.
@@ -17,7 +17,7 @@
 
 import('lib.pkp.controllers.api.file.linkAction.FileLinkAction');
 
-class PKPFileInfoCenterLinkAction extends FileLinkAction {
+class FileInfoCenterLinkAction extends FileLinkAction {
 
 	/**
 	 * Constructor
@@ -26,7 +26,7 @@ class PKPFileInfoCenterLinkAction extends FileLinkAction {
 	 * to show information about.
 	 * @param $stageId int (optional) The stage id that user is looking at.
 	 */
-	function PKPFileInfoCenterLinkAction(&$request, &$submissionFile, $stageId = null) {
+	function FileInfoCenterLinkAction(&$request, &$submissionFile, $stageId = null) {
 		// Instantiate the information center modal.
 		$ajaxModal = $this->getModal($request, $submissionFile, $stageId);
 
@@ -39,14 +39,28 @@ class PKPFileInfoCenterLinkAction extends FileLinkAction {
 
 	/**
 	 * returns the modal for this link action.
-	 * Must be overridden in subclasses.
 	 * @param $request PKPRequest
 	 * @param $submissionFile SubmissionFile
 	 * @param $stageId int
 	 * @return AjaxModal
 	 */
 	function getModal($request, $submissionFile, $stageId) {
-		assert(false);
+		import('lib.pkp.classes.linkAction.request.AjaxModal');
+		$router =& $request->getRouter();
+
+		$title = (isset($submissionFile)) ? implode(': ', array(__('informationCenter.info'), $submissionFile->getLocalizedName())) : __('informationCenter.info');
+
+		$ajaxModal = new AjaxModal(
+			$router->url(
+				$request, null,
+				'informationCenter.FileInformationCenterHandler', 'viewInformationCenter',
+				null, $this->getActionArgs($submissionFile, $stageId)
+			),
+			$title,
+			'modal_information'
+		);
+
+		return $ajaxModal;
 	}
 }
 

@@ -91,7 +91,7 @@ class SubmissionFilesGridRow extends GridRow {
 
 		// 2) Information center action.
 		if ($this->canViewNotes()) {
-			import('controllers.informationCenter.linkAction.FileInfoCenterLinkAction');
+			import('lib.pkp.controllers.informationCenter.linkAction.FileInfoCenterLinkAction');
 			$this->addAction(new FileInfoCenterLinkAction($request, $submissionFile, $this->getStageId()));
 		}
 	}

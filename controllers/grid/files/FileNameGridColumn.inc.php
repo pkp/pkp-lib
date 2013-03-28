@@ -80,7 +80,7 @@ class FileNameGridColumn extends GridColumn {
 		$cellActions[] = new DownloadFileLinkAction($request, $submissionFile, $this->_getStageId());
 
 		if ($this->_getIncludeNotes()) {
-			import('controllers.informationCenter.linkAction.FileNotesLinkAction');
+			import('lib.pkp.controllers.informationCenter.linkAction.FileNotesLinkAction');
 			$user =& $request->getUser();
 			$cellActions[] = new FileNotesLinkAction($request, $submissionFile, $user, $this->_getStageId(), $this->_removeHistoryTab);
 		}

@@ -1,11 +1,11 @@
 <?php
 /**
- * @file controllers/informationCenter/linkAction/PKPFileNotesLinkAction.inc.php
+ * @file controllers/informationCenter/linkAction/FileNotesLinkAction.inc.php
  *
  * Copyright (c) 2003-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPFileNotesLinkAction
+ * @class FileNotesLinkAction
  * @ingroup controllers_informationCenter_linkAction
  *
  * @brief An action to open up the notes IC for a file.
@@ -13,7 +13,7 @@
 
 import('lib.pkp.controllers.api.file.linkAction.FileLinkAction');
 
-class PKPFileNotesLinkAction extends FileLinkAction {
+class FileNotesLinkAction extends FileLinkAction {
 
 	/**
 	 * Constructor
@@ -25,7 +25,7 @@ class PKPFileNotesLinkAction extends FileLinkAction {
 	 * @param $removeHistoryTab boolean (optional) Open the information center
 	 * without the history tab.
 	 */
-	function PKPFileNotesLinkAction(&$request, &$submissionFile, $user, $stageId = null, $removeHistoryTab = false) {
+	function FileNotesLinkAction(&$request, &$submissionFile, $user, $stageId = null, $removeHistoryTab = false) {
 		// Instantiate the information center modal.
 		$ajaxModal = $this->getModal($request, $submissionFile, $stageId, $removeHistoryTab);
 
@@ -64,7 +64,22 @@ class PKPFileNotesLinkAction extends FileLinkAction {
 	 * @return AjaxModal
 	 */
 	function getModal($request, $submissionFile, $stageId, $removeHistoryTab) {
-		assert(false);
+		import('lib.pkp.classes.linkAction.request.AjaxModal');
+		$router =& $request->getRouter();
+
+		$title = (isset($submissionFile)) ? implode(': ', array(__('informationCenter.info'), $submissionFile->getLocalizedName())) : __('informationCenter.info');
+
+		$ajaxModal = new AjaxModal(
+			$router->url(
+				$request, null,
+				'informationCenter.FileInformationCenterHandler', 'viewInformationCenter',
+				null, array_merge($this->getActionArgs($submissionFile, $stageId), array('removeHistoryTab' => $removeHistoryTab))
+			),
+			$title,
+			'modal_information'
+		);
+
+		return $ajaxModal;
 	}
 }
 

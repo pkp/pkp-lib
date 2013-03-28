@@ -402,6 +402,10 @@
 	<message key="submission.submissionManuscript">Submission Manuscript</message>
 	<message key="submission.submissionReview">Submission Review</message>
 	<message key="submission.submitter">Submitter</message>
+	<message key="submission.submit.selectFile">Select File</message>
+	<message key="submission.submit.fileInformation">File Information</message>
+	<message key="submission.submit.fileAdded">File Added</message>
+	<message key="submission.submit.newFile">Submit a New File</message>
 	<message key="submission.submit.errorDeletingAuthor">There was an error removing the author.</message>
 	<message key="submission.submit.metadataForm">Additional Refinements</message>
 	<message key="submission.submit.metadataForm.tip">Add additional information for your submission.  Press 'enter' after each term.</message>

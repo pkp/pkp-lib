@@ -325,7 +325,7 @@
 
 	<!-- Information Center -->
 	<message key="informationCenter.informationCenter">Information Center</message>
-	<message key="informationCenter.bookInfo">Info</message>
+	<message key="informationCenter.info">Info</message>
 	<message key="informationCenter.composeNote">Compose Note</message>
 	<message key="informationCenter.addFileNote">Add to File</message>
 	<message key="informationCenter.addSubmissionNote">Add to Submission</message>
@@ -402,10 +402,13 @@
 	<message key="notification.mailList.register">You can register with this site to...</message>
 	<message key="notification.mailList.review"><![CDATA[Participate in the <a href="{$reviewUrl}">peer review</a> process]]></message>
 	<message key="notification.noneExist">You have no notifications at this time.</message>
+	<message key="notification.addedNote">Note posted.</message>
+	<message key="notification.removedNote">Note deleted.</message>
 	<message key="notification.notification">Notification</message>
 	<message key="notification.notifications">Notifications</message>
 	<message key="notification.notificationsNew">({$numNew} new)</message>
 	<message key="notification.notificationsDescription">You have {$unreadCount} unread notifications and {$readCount} read notifications.<![CDATA[  <a href="{$settingsUrl}">Click here</a> to change your notification settings.]]></message>
+	<message key="notification.sentNotification">Notification sent.</message>
 	<message key="notification.settings">Notification Settings</message>
 	<message key="notification.settingsDescription">Select the system events that you wish to be notified about.  Unchecking an item will prevent notifications of the event from showing up in your notification feed.</message>
 	<message key="notification.subscribe">Subscribe</message>

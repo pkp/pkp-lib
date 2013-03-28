@@ -322,6 +322,27 @@
 	<message key="icon.mail.alt">Mail</message>
 	<message key="icon.unchecked.alt">Unchecked</message>
 	<message key="icon.view.alt">View</message>
+
+	<!-- Information Center -->
+	<message key="informationCenter.informationCenter">Information Center</message>
+	<message key="informationCenter.bookInfo">Info</message>
+	<message key="informationCenter.composeNote">Compose Note</message>
+	<message key="informationCenter.addFileNote">Add to File</message>
+	<message key="informationCenter.addSubmissionNote">Add to Submission</message>
+	<message key="informationCenter.noNotes">There are no notes to display.</message>
+	<message key="informationCenter.currentNotes">Current Notes</message>
+	<message key="informationCenter.pastNotes">Earlier Notes</message>
+	<message key="informationCenter.lastUpdated">Last Updated</message>
+	<message key="informationCenter.deleteConfirm">Are you sure you wish to delete this note?</message>
+	<message key="informationCenter.currentHistory">Current Revision</message>
+	<message key="informationCenter.pastHistory">Earlier Revisions</message>
+	<message key="informationCenter.history.noItems">There are no events logged.</message>
+	<message key="informationCenter.history.notePosted">Posted new note.</message>
+	<message key="informationCenter.history.messageSent">Notification sent to users.</message>
+	<message key="informationCenter.notify.chooseMessage">Choose a predefined message to use, or fill out the form below.</message>
+	<message key="informationCenter.notify.message">Message</message>
+	<message key="informationCenter.notify.warning">Please ensure that you have filled out the message field and selected at least one recipient.</message>
+
 	<message key="locale.primary">Primary locale</message>
 	<message key="locale.supported">Supported locales</message>
 	<message key="navigation.workflow">Workflow</message>

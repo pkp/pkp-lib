@@ -301,6 +301,14 @@
 	<message key="submission.history.viewLog">View Log</message>
 	<message key="submission.indexing">Indexing</message>
 	<message key="submission.initiated">Initiated</message>
+
+	<!-- Information Center -->
+	<message key="submission.informationCenter.submissionInfo">Submission Info</message>
+	<message key="submission.informationCenter.metadata">Metadata</message>
+	<message key="submission.informationCenter.notes">Notes</message>
+	<message key="submission.informationCenter.notify">Notify</message>
+	<message key="submission.informationCenter.history">History</message>
+
 	<message key="submission.lastModified">Last modified</message>
 	<message key="submission.layout.addGalley">Add a Layout Galley</message>
 	<message key="submission.layout.confirmDeleteGalley">Are you sure you want to permanently delete this galley?</message>

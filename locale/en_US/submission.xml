@@ -405,6 +405,7 @@
 	<message key="submission.submit.errorDeletingAuthor">There was an error removing the author.</message>
 	<message key="submission.submit.metadataForm">Additional Refinements</message>
 	<message key="submission.submit.metadataForm.tip">Add additional information for your submission.  Press 'enter' after each term.</message>
+	<message key="submission.submit.submissionFiles">Submission Files</message>
 	<message key="submission.submit.titleAndSummary">Title and Summary</message>
 	<message key="submission.summary">Summary</message>
 	<message key="submission.supplementaryFiles">Supplementary Files</message>

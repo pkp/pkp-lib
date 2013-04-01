@@ -18,8 +18,16 @@ import('lib.pkp.classes.log.EventLogEntry');
 /**
  * Log entry event types. All types must be defined here.
  */
+define('SUBMISSION_LOG_TYPE_DEFAULT', 			0);
+define('SUBMISSION_LOG_TYPE_AUTHOR', 			0x01);
+define('SUBMISSION_LOG_TYPE_EDITOR', 			0x02);
+define('SUBMISSION_LOG_TYPE_REVIEW', 			0x03);
+define('SUBMISSION_LOG_TYPE_COPYEDIT', 			0x04);
+define('SUBMISSION_LOG_TYPE_LAYOUT', 			0x05);
+define('SUBMISSION_LOG_TYPE_PROOFREAD', 			0x06);
+
 // General events					0x10000000
-define('SUBMISSION_LOG_MONOGRAPH_SUBMIT',		0x10000001);
+define('SUBMISSION_LOG_SUBMISSION_SUBMIT',		0x10000001);
 define('SUBMISSION_LOG_METADATA_UPDATE',			0x10000002);
 define('SUBMISSION_LOG_ADD_PARTICIPANT',			0x10000003);
 define('SUBMISSION_LOG_REMOVE_PARTICIPANT',		0x10000004);

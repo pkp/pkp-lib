@@ -46,7 +46,7 @@ class LibraryFileAdminGridHandler extends LibraryFileGridHandler {
 		$this->setCanEdit((boolean) $request->getUserVar('canEdit'));
 
 		// Set instructions
-		$this->setInstructions('manager.setup.libraryDescription');
+		$this->setInstructions('manager.publication.libraryDescription');
 		parent::initialize($request);
 	}
 

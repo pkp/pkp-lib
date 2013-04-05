@@ -13,6 +13,7 @@
 
 <locale name="en_US" full_name = "English">
 	<message key="common.publicKnowledgeProject">Public Knowledge Project</message>
+	<message key="common.currentStyleSheet">Current Stylesheet</message>
 	<message key="about.description">Description</message>
 	<message key="about.guidelines">Guides</message>
 	<message key="about.aboutSite">About the Site</message>

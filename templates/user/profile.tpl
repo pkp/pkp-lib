@@ -88,7 +88,7 @@
 
 				{fbvFormSection}
 					{capture assign="biographyLabel"}{translate key="user.biography"} {translate key="user.biography.description"}{/capture}
-					{fbvElement type="textarea" label="$biographyLabel" multilingual="true" name="biography" id="biography" value=$biography subLabelTranslate=false inline=true size=$fbvStyles.size.MEDIUM}
+					{fbvElement type="textarea" label="$biographyLabel" multilingual=true name="biography" id="biography" value=$biography subLabelTranslate=false inline=true size=$fbvStyles.size.MEDIUM rich=true}
 					{fbvElement type="textarea" label="common.mailingAddress" name="mailingAddress" id="mailingAddress" value=$mailingAddress inline=true size=$fbvStyles.size.MEDIUM}
 				{/fbvFormSection}
 
@@ -144,7 +144,8 @@
 		{/if}
 	{/fbvFormSection}**}
 
-	<br /><br />
+	{$additionalProfileFormContent}
+
 	{url|assign:cancelUrl page="dashboard"}
 	{fbvFormButtons submitText="common.save" cancelUrl=$cancelUrl}
 </form>

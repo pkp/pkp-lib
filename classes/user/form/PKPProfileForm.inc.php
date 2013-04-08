@@ -24,8 +24,8 @@ class PKPProfileForm extends Form {
 	 * @param $template string
 	 * @param $user PKPUser
 	 */
-	function PKPProfileForm($template, $user) {
-		parent::Form($template);
+	function PKPProfileForm($user) {
+		parent::Form('user/profile.tpl');
 
 		$this->_user = $user;
 		assert($user);
@@ -120,9 +120,27 @@ class PKPProfileForm extends Form {
 
 		$countryDao = DAORegistry::getDAO('CountryDAO');
 		$countries = $countryDao->getCountries();
-		$templateMgr->assign_by_ref('countries', $countries);
+		$templateMgr->assign('countries', $countries);
 
 		$templateMgr->assign('profileImage', $user->getSetting('profileImage'));
+
+		$templateMgr = TemplateManager::getManager($request);
+
+		$context = $request->getContext();
+		if ($context) {
+			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+			$userGroupAssignmentDao = DAORegistry::getDAO('UserGroupAssignmentDAO');
+			$userGroupAssignments = $userGroupAssignmentDao->getByUserId($user->getId(), $context->getId());
+			$userGroupIds = array();
+			while ($assignment = $userGroupAssignments->next()) {
+				$userGroupIds[] = $assignment->getUserGroupId();
+			}
+			$templateMgr->assign('allowRegReviewer', $context->getSetting('allowRegReviewer'));
+			$templateMgr->assign_by_ref('reviewerUserGroups', $userGroupDao->getByRoleId($context->getId(), ROLE_ID_REVIEWER));
+			$templateMgr->assign('allowRegAuthor', $context->getSetting('allowRegAuthor'));
+			$templateMgr->assign_by_ref('authorUserGroups', $userGroupDao->getByRoleId($context->getId(), ROLE_ID_AUTHOR));
+			$templateMgr->assign('userGroupIds', $userGroupIds);
+		}
 
 		parent::display();
 	}
@@ -191,7 +209,8 @@ class PKPProfileForm extends Form {
 			'biography',
 			'keywords',
 			'interestsTextOnly',
-			'userLocales'
+			'userLocales',
+			'authorGroup',
 		));
 
 		if ($this->getData('userLocales') == null || !is_array($this->getData('userLocales'))) {
@@ -210,6 +229,37 @@ class PKPProfileForm extends Form {
 	 */
 	function execute($request) {
 		$user = $request->getUser();
+
+		// User Groups
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$context = $request->getContext();
+		if ($press) {
+			foreach (array(
+				array(
+					'setting' => 'allowRegReviewer',
+					'roleId' => ROLE_ID_REVIEWER,
+					'formElement' => 'reviewerGroup'
+				),
+				array(
+					'setting' => 'allowRegAuthor',
+					'roleId' => ROLE_ID_AUTHOR,
+					'formElement' => 'authorGroup'
+				),
+			) as $groupData) {
+				$groupFormData = (array) $this->getData($groupData['formElement']);
+				if (!$context->getSetting($groupData['setting'])) continue;
+				$userGroups = $userGroupDao->getByRoleId($context->getId(), $groupData['roleId']);
+				while ($userGroup = $userGroups->next()) {
+					$groupId = $userGroup->getId();
+					$inGroup = $userGroupDao->userInGroup($user->getId(), $groupId);
+					if (!$inGroup && array_key_exists($groupId, $groupFormData)) {
+						$userGroupDao->assignUserToGroup($user->getId(), $groupId, $context->getId());
+					} elseif ($inGroup && !array_key_exists($groupId, $groupFormData)) {
+						$userGroupDao->removeUserFromGroup($user->getId(), $groupId, $context->getId());
+					}
+				}
+			}
+		}
 
 		$user->setSalutation($this->getData('salutation'));
 		$user->setFirstName($this->getData('firstName'));

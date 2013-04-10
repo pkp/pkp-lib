@@ -7,7 +7,7 @@
  * Admin/manage language settings.
  *}
 
-{if in_array(ROLE_ID_SITE_ADMIN, $userRoles) && !$multiplePresses}
+{if in_array(ROLE_ID_SITE_ADMIN, $userRoles) && !$multipleContexts}
 	{url|assign:languagesUrl router=$smarty.const.ROUTE_COMPONENT component="grid.admin.languages.AdminLanguageGridHandler" op="fetchGrid"}
 	{load_url_in_div id="languageGridContainer" url=$languagesUrl}
 {else}

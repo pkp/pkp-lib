@@ -34,11 +34,11 @@ class PKPSubmissionFileRequestedRevisionRequiredPolicy extends SubmissionFileBas
 	 * @see AuthorizationPolicy::effect()
 	 */
 	function effect() {
-		$request =& $this->getRequest();
+		$request = $this->getRequest();
 		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
 
 		// Get the monograph file.
-		$monographFile =& $this->getSubmissionFile($request);
+		$monographFile = $this->getSubmissionFile($request);
 		if (!is_a($monographFile, 'MonographFile')) return AUTHORIZATION_DENY;
 
 		// Make sure the file belongs to the monograph in request.

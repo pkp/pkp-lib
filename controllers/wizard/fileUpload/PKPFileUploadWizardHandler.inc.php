@@ -345,15 +345,15 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 	 * @return string a serialized JSON object
 	 */
 	function saveMetadata($args, $request) {
-		$submission =& $this->getSubmission();
-		$metadataForm =& $this->_getMetadataForm($request);
+		$submission = $this->getSubmission();
+		$metadataForm = $this->_getMetadataForm($request);
 		$metadataForm->readInputData();
 		if ($metadataForm->validate()) {
 			$metadataForm->execute($args, $request);
-			$submissionFile =& $metadataForm->getSubmissionFile();
+			$submissionFile = $metadataForm->getSubmissionFile();
 
 			$notificationMgr = new NotificationManager(); /* @var $notificationMgr NotificationManager */
-			$submission =& $this->getSubmission();
+			$submission = $this->getSubmission();
 			$notificationMgr->updateNotification(
 				$request,
 				array(NOTIFICATION_TYPE_PENDING_INTERNAL_REVISIONS, NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS),
@@ -410,10 +410,10 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 	 */
 	function &_getMetadataForm($request) {
 		// Retrieve the authorized submission.
-		$submission =& $this->getSubmission();
+		$submission = $this->getSubmission();
 
 		// Retrieve the submission file.
-		$submissionFile =& $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
+		$submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
 
 		// Import the meta-data form based on the file implementation.
 		if (is_a($submissionFile, 'ArtworkFile')) {

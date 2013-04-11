@@ -753,7 +753,7 @@ class PKPTemplateManager extends Smarty {
 		}
 
 		// Check the router
-		$dispatcher =& PKPApplication::getDispatcher();
+		$dispatcher = PKPApplication::getDispatcher();
 		$routerShortcuts = array_keys($dispatcher->getRouterNames());
 		assert(in_array($router, $routerShortcuts));
 

@@ -56,7 +56,7 @@ class SubmissionFilesArtworkMetadataForm extends SubmissionFilesMetadataForm {
 		//
 
 		// Update the sumbission file by reference.
-		$submissionFile =& $this->getSubmissionFile();
+		$submissionFile = $this->getSubmissionFile();
 		$submissionFile->setCaption($this->getData('artworkCaption'));
 		$submissionFile->setCredit($this->getData('artworkCredit'));
 		$submissionFile->setCopyrightOwner($this->getData('artworkCopyrightOwner'));

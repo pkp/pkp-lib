@@ -164,7 +164,7 @@ class ManageSocialMediaGridHandler extends GridHandler {
 	/**
 	 * @see GridHandler::loadData
 	 */
-	function &loadData($request, $filter = null) {
+	function loadData($request, $filter = null) {
 		$context = $this->getContext();
 		$socialMediaDao = DAORegistry::getDAO('SocialMediaDAO');
 		$data = $socialMediaDao->getByContextId($context->getId());

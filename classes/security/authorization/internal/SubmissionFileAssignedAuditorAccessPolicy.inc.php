@@ -39,7 +39,7 @@ class SubmissionFileAssignedAuditorAccessPolicy extends SubmissionFileBaseAccess
 		if (!is_a($user, 'PKPUser')) return AUTHORIZATION_DENY;
 
 		// Get the submission file
-		$submissionFile =& $this->getSubmissionFile($request);
+		$submissionFile = $this->getSubmissionFile($request);
 		if (!is_a($submissionFile, 'SubmissionFile')) return AUTHORIZATION_DENY;
 
 		$signoffDao = DAORegistry::getDAO('SignoffDAO');

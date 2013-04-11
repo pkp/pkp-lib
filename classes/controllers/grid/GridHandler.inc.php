@@ -517,8 +517,7 @@ class GridHandler extends PKPHandler {
 		}
 
 		// Instantiate a new row
-		$row =& $this->_getInitializedRowInstance($request, $elementId, $dataElement, $isModified);
-		return $row;
+		return $this->_getInitializedRowInstance($request, $elementId, $dataElement, $isModified);
 	}
 
 	/**
@@ -928,7 +927,7 @@ class GridHandler extends PKPHandler {
 		$renderedRows = array();
 		foreach ($elements as $elementId => $element) {
 			// Instantiate a new row.
-			$row =& $this->_getInitializedRowInstance($request, $elementId, $element);
+			$row = $this->_getInitializedRowInstance($request, $elementId, $element);
 
 			// Render the row
 			$renderedRows[] = $this->renderRowInternally($request, $row);
@@ -999,7 +998,7 @@ class GridHandler extends PKPHandler {
 	 * @param $isModified boolean optional
 	 * @return GridRow
 	 */
-	private function &_getInitializedRowInstance($request, $elementId, &$element, $isModified = false) {
+	private function _getInitializedRowInstance($request, $elementId, &$element, $isModified = false) {
 		// Instantiate a new row
 		$row = $this->getRowInstance();
 		$row->setGridId($this->getId());

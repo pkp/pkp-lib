@@ -95,10 +95,10 @@ class AppearanceForm extends ContextSettingsForm {
 		// Get all upload form image link actions.
 		$uploadImageLinkActions = array();
 		foreach ($this->getImagesSettingsName() as $settingName => $altText) {
-			$uploadImageLinkActions[$settingName] =& $this->_getFileUploadLinkAction($settingName, 'image', $request);
+			$uploadImageLinkActions[$settingName] = $this->_getFileUploadLinkAction($settingName, 'image', $request);
 		}
 		// Get the css upload link action.
-		$uploadCssLinkAction =& $this->_getFileUploadLinkAction('styleSheet', 'css', $request);
+		$uploadCssLinkAction = $this->_getFileUploadLinkAction('styleSheet', 'css', $request);
 
 		$imagesViews = $this->_renderAllFormImagesViews($request);
 		$cssView = $this->renderFileView('styleSheet', $request);
@@ -140,7 +140,7 @@ class AppearanceForm extends ContextSettingsForm {
 		// Only render the file view if we have a file.
 		if (is_array($file)) {
 			$templateMgr = TemplateManager::getManager($request);
-			$deleteLinkAction =& $this->_getDeleteFileLinkAction($fileSettingName, $request);
+			$deleteLinkAction = $this->_getDeleteFileLinkAction($fileSettingName, $request);
 
 			// Get the right template to render the view.
 			$imagesSettingsName = $this->getImagesSettingsName();

@@ -46,7 +46,7 @@ class FilterTest extends PKPTestCase {
 		self::assertEquals(array(), $mockFilter->getErrors());
 
 		// Test type validation.
-		$typeDescriptionFactory =& TypeDescriptionFactory::getInstance();
+		$typeDescriptionFactory = TypeDescriptionFactory::getInstance();
 		$inputTypeDescription = 'class::lib.pkp.tests.classes.filter.TestClass1';
 		$outputTypeDescription = 'class::lib.pkp.tests.classes.filter.TestClass2';
 		self::assertEquals($inputTypeDescription, $mockFilter->getInputType()->getTypeDescription());

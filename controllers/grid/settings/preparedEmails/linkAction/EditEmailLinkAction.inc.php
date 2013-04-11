@@ -27,7 +27,7 @@ class EditEmailLinkAction extends LinkAction {
 
 		// Instantiate the file upload modal.
 		$router = $request->getRouter();
-		$dispatcher =& $router->getDispatcher();
+		$dispatcher = $router->getDispatcher();
 		import('lib.pkp.classes.linkAction.request.AjaxModal');
 
 		$title = $emailKey ? 'manager.emails.editEmail' : 'manager.emails.addEmail';

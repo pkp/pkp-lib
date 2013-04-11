@@ -40,7 +40,7 @@ class PKPSubmissionDocumentsFilesGridDataProvider extends CategoryGridDataProvid
 	 * @see GridDataProvider::getRequestArgs()
 	 */
 	function getRequestArgs() {
-		$submission =& $this->getSubmission();
+		$submission = $this->getSubmission();
 		return array(
 			'submissionId' => $submission->getId(),
 		);
@@ -52,7 +52,7 @@ class PKPSubmissionDocumentsFilesGridDataProvider extends CategoryGridDataProvid
 	function getCategoryData(&$fileType, $filter = null) {
 
 		// Retrieve all library files for the given submission document category.
-		$submission =& $this->getSubmission();
+		$submission = $this->getSubmission();
 		import('lib.pkp.classes.context.LibraryFile');
 		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /* @var $libraryFileDao LibraryFileDAO */
 		$libraryFiles =& $libraryFileDao->getBySubmissionId($submission->getId(), $fileType);

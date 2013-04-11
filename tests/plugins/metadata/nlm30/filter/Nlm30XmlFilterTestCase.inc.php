@@ -41,7 +41,7 @@ class Nlm30XmlFilterTestCase extends PKPTestCase {
 		parent::setUp();
 		$application = PKPApplication::getApplication();
 		$_SERVER['REQUEST_METHOD'] = 'GET';
-		$request =& $application->getRequest();
+		$request = $application->getRequest();
 		if (is_null($request->getRouter())) {
 			$router = new PKPRouter();
 			$request->setRouter($router);

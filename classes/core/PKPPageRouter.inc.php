@@ -226,14 +226,14 @@ class PKPPageRouter extends PKPRouter {
 			elseif (file_exists('lib/pkp/'.$sourceFile)) require('./lib/pkp/'.$sourceFile);
 			elseif (empty($page)) require(ROUTER_DEFAULT_PAGE);
 			else {
-				$dispatcher =& $this->getDispatcher();
+				$dispatcher = $this->getDispatcher();
 				$dispatcher->handle404();
 			}
 		}
 
 		if (!defined('SESSION_DISABLE_INIT')) {
 			// Initialize session
-			$sessionManager =& SessionManager::getManager();
+			$sessionManager = SessionManager::getManager();
 		}
 
 		// Call the selected handler's index operation if
@@ -245,7 +245,7 @@ class PKPPageRouter extends PKPRouter {
 		$methods = array();
 		if (defined('HANDLER_CLASS')) $methods = get_class_methods(HANDLER_CLASS);
 		if (!in_array($op, $methods)) {
-			$dispatcher =& $this->getDispatcher();
+			$dispatcher = $this->getDispatcher();
 			$dispatcher->handle404();
 		}
 

@@ -35,7 +35,7 @@ class ViewAnnouncementGridHandler extends AnnouncementGridHandler {
 			$numAnnouncementsHomepage = $context->getSetting('numAnnouncementsHomepage');
 			$gridElements = $this->getGridDataElements($request);
 			if (count($gridElements) > $numAnnouncementsHomepage) {
-				$dispatcher =& $request->getDispatcher();
+				$dispatcher = $request->getDispatcher();
 				import('lib.pkp.classes.linkAction.request.RedirectAction');
 				$actionRequest = new RedirectAction($dispatcher->url($request, ROUTE_PAGE, null, 'announcement'));
 				$moreAnnouncementsAction = new LinkAction('moreAnnouncements', $actionRequest, __('announcement.moreAnnouncements'));

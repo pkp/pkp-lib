@@ -347,10 +347,10 @@ class CitationForm extends Form {
 			// 3) Raw citation editing
 			//
 			// Retrieve all available citation filters
-			$availableParserFilters =& $citationDao->getCitationFilterInstances($context->getId(), CITATION_PARSER_FILTER_GROUP, array(), true);
-			$templateMgr->assign_by_ref('availableParserFilters', $availableParserFilters);
-			$availableLookupFilters =& $citationDao->getCitationFilterInstances($context->getId(), CITATION_LOOKUP_FILTER_GROUP, array(), true);
-			$templateMgr->assign_by_ref('availableLookupFilters', $availableLookupFilters);
+			$availableParserFilters = $citationDao->getCitationFilterInstances($context->getId(), CITATION_PARSER_FILTER_GROUP, array(), true);
+			$templateMgr->assign('availableParserFilters', $availableParserFilters);
+			$availableLookupFilters = $citationDao->getCitationFilterInstances($context->getId(), CITATION_LOOKUP_FILTER_GROUP, array(), true);
+			$templateMgr->assign('availableLookupFilters', $availableLookupFilters);
 
 			// Did the user disable the raw citation editing warning?
 			$userSettingsDao = DAORegistry::getDAO('UserSettingsDAO');

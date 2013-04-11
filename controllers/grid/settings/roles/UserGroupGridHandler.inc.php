@@ -121,14 +121,14 @@ class UserGroupGridHandler extends CategoryGridHandler {
 	/**
 	 * @see GridHandler::loadData
 	 */
-	function &loadData($request, $filter) {
+	function loadData($request, $filter) {
 		$contextId = $this->_getContextId();
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 
 		if (is_array($filter) && isset($filter['selectedRoleId']) && $filter['selectedRoleId'] != 0) {
-			$userGroups =& $userGroupDao->getByRoleId($contextId, $filter['selectedRoleId']);
+			$userGroups = $userGroupDao->getByRoleId($contextId, $filter['selectedRoleId']);
 		} else {
-			$userGroups =& $userGroupDao->getByContextId($contextId);
+			$userGroups = $userGroupDao->getByContextId($contextId);
 		}
 
 		$stages = array();

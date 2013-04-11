@@ -166,20 +166,20 @@ class Filter extends DataObject {
 	 * @see TypeDescriptionFactory::instantiateTypeDescription() for more details
 	 */
 	function setTransformationType(&$inputType, &$outputType) {
-		$typeDescriptionFactory =& TypeDescriptionFactory::getInstance();
+		$typeDescriptionFactory = TypeDescriptionFactory::getInstance();
 
 		// Instantiate the type descriptions if we got string input.
 		if (!is_a($inputType, 'TypeDescription')) {
 			assert(is_string($inputType));
-			$inputType =& $typeDescriptionFactory->instantiateTypeDescription($inputType);
+			$inputType = $typeDescriptionFactory->instantiateTypeDescription($inputType);
 		}
 		if (!is_a($outputType, 'TypeDescription')) {
 			assert(is_string($outputType));
-			$outputType =& $typeDescriptionFactory->instantiateTypeDescription($outputType);
+			$outputType = $typeDescriptionFactory->instantiateTypeDescription($outputType);
 		}
 
-		$this->_inputType =& $inputType;
-		$this->_outputType =& $outputType;
+		$this->_inputType = $inputType;
+		$this->_outputType = $outputType;
 	}
 
 

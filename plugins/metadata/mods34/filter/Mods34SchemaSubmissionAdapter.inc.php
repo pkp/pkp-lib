@@ -216,7 +216,7 @@ class Mods34SchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 
 		// Authors
 		// FIXME: Move this to a dedicated adapter in the Author class.
-		$authors =& $submission->getAuthors();
+		$authors = $submission->getAuthors();
 		foreach($authors as $author) { /* @var $author Author */
 			// Create a new name description.
 			$authorDescription = new MetadataDescription('lib.pkp.plugins.metadata.mods34.schema.Mods34NameSchema', ASSOC_TYPE_AUTHOR);

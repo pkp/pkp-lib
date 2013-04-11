@@ -210,7 +210,7 @@ class DBConnection {
 	 * @param $setInstance DBConnection
 	 * @return DBConnection
 	 */
-	static function &getInstance($setInstance = null) {
+	static function getInstance($setInstance = null) {
 		$instance =& Registry::get('dbInstance', true, null);
 
 		if (isset($setInstance)) {
@@ -227,7 +227,7 @@ class DBConnection {
 	 * @return ADONewConnection
 	 */
 	static function &getConn() {
-		$conn =& DBConnection::getInstance();
+		$conn = DBConnection::getInstance();
 		return $conn->getDBConn();
 	}
 

@@ -602,7 +602,7 @@ class PKPLocale {
 	static function &_getAllLocalesCache() {
 		$cache =& Registry::get('allLocalesCache', true, null);
 		if ($cache === null) {
-			$cacheManager =& CacheManager::getManager();
+			$cacheManager = CacheManager::getManager();
 			$cache = $cacheManager->getFileCache(
 				'locale', 'list',
 				array('AppLocale', '_allLocalesCacheMiss')

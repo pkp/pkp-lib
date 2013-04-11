@@ -194,7 +194,7 @@ class PKPSubmissionFilesUploadBaseForm extends Form {
 		// Go through all files and build a list of files available for review.
 		$revisedFileId = $this->getRevisedFileId();
 		$foundRevisedFile = false;
-		$submissionFiles =& $this->getSubmissionFiles();
+		$submissionFiles = $this->getSubmissionFiles();
 		foreach ($submissionFiles as $submissionFile) {
 			// The uploaded file must be excluded from the list of revisable files.
 			if ($uploadedFile && $uploadedFile->getFileId() == $submissionFile->getFileId()) continue;

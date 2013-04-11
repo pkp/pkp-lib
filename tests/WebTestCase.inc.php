@@ -57,7 +57,7 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 
 		PKPTestHelper::backupTables($this->getAffectedTables(), $this);
 
-		$cacheManager =& CacheManager::getManager();
+		$cacheManager = CacheManager::getManager();
 		$cacheManager->flush(null, CACHE_TYPE_FILE);
 		$cacheManager->flush(null, CACHE_TYPE_OBJECT);
 

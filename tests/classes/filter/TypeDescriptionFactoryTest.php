@@ -23,7 +23,7 @@ class TypeDescriptionFactoryTest extends PKPTestCase {
 	 * @covers TypeDescriptionFactory
 	 */
 	public function testInstantiateTypeDescription() {
-		$typeDescriptionFactory =& TypeDescriptionFactory::getInstance();
+		$typeDescriptionFactory = TypeDescriptionFactory::getInstance();
 
 		// Instantiate a primitive type
 		$typeDescription = $typeDescriptionFactory->instantiateTypeDescription('primitive::string');

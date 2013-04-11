@@ -112,7 +112,7 @@ class PKPApplication {
 
 		if (Config::getVar('general', 'installed')) {
 			// Initialize database connection
-			$conn =& DBConnection::getInstance();
+			$conn = DBConnection::getInstance();
 
 			if (!$conn->isConnected()) {
 				if (Config::getVar('database', 'debug')) {
@@ -181,7 +181,7 @@ class PKPApplication {
 	 */
 	function execute() {
 		// Dispatch the request to the correct handler
-		$dispatcher =& $this->getDispatcher();
+		$dispatcher = $this->getDispatcher();
 		$dispatcher->dispatch($this->getRequest());
 	}
 

@@ -86,7 +86,7 @@ class PKPPluginGridRow extends GridRow {
 								} else {
 									// Legacy plugin behavior. Define a default redirect request.
 									import('lib.pkp.classes.linkAction.request.RedirectAction');
-									$dispatcher =& PKPApplication::getDispatcher();
+									$dispatcher = PKPApplication::getDispatcher();
 									$context = $request->getContext();
 									$actionRequest = new RedirectAction(
 										$dispatcher->url(

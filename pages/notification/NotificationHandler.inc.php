@@ -434,7 +434,7 @@ class NotificationHandler extends Handler {
 	 * @param $resultFactory DAOResultFactory
 	 * @param $notificationArray Array
 	 */
-	function _addNotificationsToArray($resultFactory, &$notificationArray) {
+	function _addNotificationsToArray($resultFactory, $notificationArray) {
 		if (!$resultFactory->wasEmpty()) {
 			$notificationArray = array_merge($notificationArray, $resultFactory->toArray());
 		}

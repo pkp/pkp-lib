@@ -67,7 +67,7 @@ class LinkAction {
 	 * Get the action handler.
 	 * @return LinkActionRequest
 	 */
-	function &getActionRequest() {
+	function getActionRequest() {
 		return $this->_actionRequest;
 	}
 

@@ -63,7 +63,7 @@ class SubmissionFilesGridDataProvider extends FilesGridDataProvider {
 	 * @see GridDataProvider::getRequestArgs()
 	 */
 	function getRequestArgs() {
-		$submission =& $this->getSubmission();
+		$submission = $this->getSubmission();
 		return array(
 			'submissionId' => $submission->getId(),
 			'stageId' => $this->getStageId(),
@@ -82,11 +82,11 @@ class SubmissionFilesGridDataProvider extends FilesGridDataProvider {
 	/**
 	 * @see GridDataProvider::loadData()
 	 */
-	function &loadData() {
+	function loadData() {
 		// Retrieve all subission files for the given file stage.
-		$submission =& $this->getSubmission();
-		$submissionFileDao =& DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-		$submissionFiles =& $submissionFileDao->getLatestRevisions($submission->getId(), $this->getFileStage());
+		$submission = $this->getSubmission();
+		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
+		$submissionFiles = $submissionFileDao->getLatestRevisions($submission->getId(), $this->getFileStage());
 		return $this->prepareSubmissionFileData($submissionFiles, $this->_viewableOnly);
 	}
 
@@ -109,14 +109,13 @@ class SubmissionFilesGridDataProvider extends FilesGridDataProvider {
 	/**
 	 * @see FilesGridDataProvider::getAddFileAction()
 	 */
-	function &getAddFileAction($request) {
+	function getAddFileAction($request) {
 		import('lib.pkp.controllers.api.file.linkAction.AddFileLinkAction');
-		$submission =& $this->getSubmission();
-		$addFileAction = new AddFileLinkAction(
+		$submission = $this->getSubmission();
+		return new AddFileLinkAction(
 			$request, $submission->getId(), $this->getStageId(),
 			$this->getUploaderRoles(), $this->getFileStage()
 		);
-		return $addFileAction;
 	}
 }
 

@@ -74,7 +74,7 @@ class FilesGridDataProvider extends GridDataProvider {
 	 *
 	 * @return AddFileLinkAction
 	 */
-	function &getAddFileAction($request) {
+	function getAddFileAction($request) {
 		assert(false);
 	}
 
@@ -87,7 +87,7 @@ class FilesGridDataProvider extends GridDataProvider {
 	 *
 	 * @return SelectFilesLinkAction
 	 */
-	function &getSelectAction($request) {
+	function getSelectAction($request) {
 		assert(false);
 	}
 

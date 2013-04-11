@@ -134,8 +134,8 @@ class Installer {
 		$this->log('pre-install');
 		if (!isset($this->dbconn)) {
 			// Connect to the database.
-			$conn =& DBConnection::getInstance();
-			$this->dbconn =& $conn->getDBConn();
+			$conn = DBConnection::getInstance();
+			$this->dbconn = $conn->getDBConn();
 
 			if (!$conn->isConnected()) {
 				$this->setError(INSTALLER_ERROR_DB, $this->dbconn->errorMsg());
@@ -593,7 +593,7 @@ class Installer {
 	 * @return boolean
 	 */
 	function clearDataCache() {
-		$cacheManager =& CacheManager::getManager();
+		$cacheManager = CacheManager::getManager();
 		$cacheManager->flush(null, CACHE_TYPE_FILE);
 		$cacheManager->flush(null, CACHE_TYPE_OBJECT);
 		return true;

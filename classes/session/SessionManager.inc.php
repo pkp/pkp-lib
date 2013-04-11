@@ -112,7 +112,7 @@ class SessionManager {
 		if (is_null($instance)) {
 			$application =& Registry::get('application');
 			assert(!is_null($application));
-			$request =& $application->getRequest();
+			$request = $application->getRequest();
 			assert(!is_null($request));
 
 			// Implicitly set session manager by ref in the registry

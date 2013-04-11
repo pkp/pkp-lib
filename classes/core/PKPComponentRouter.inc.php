@@ -235,7 +235,7 @@ class PKPComponentRouter extends PKPRouter {
 		$rpcServiceEndpoint =& $this->getRpcServiceEndpoint($request);
 
 		// Retrieve RPC arguments from the request.
-		$args =& $request->getUserVars();
+		$args = $request->getUserVars();
 		assert(is_array($args));
 
 		// Remove the caller-parameter (if present)

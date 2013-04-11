@@ -290,8 +290,7 @@ class CategoryGridHandler extends GridHandler {
 		}
 
 		// Instantiate a new row
-		$row =& $this->_getInitializedCategoryRowInstance($request, $elementId, $dataElement);
-		return $row;
+		return $this->_getInitializedCategoryRowInstance($request, $elementId, $dataElement);
 	}
 
 
@@ -346,7 +345,7 @@ class CategoryGridHandler extends GridHandler {
 	 * @param $isModified boolean optional
 	 * @return GridRow
 	 */
-	private function &_getInitializedCategoryRowInstance($request, $elementId, $element) {
+	private function _getInitializedCategoryRowInstance($request, $elementId, $element) {
 		// Instantiate a new row
 		$row = $this->getCategoryRowInstance();
 		$row->setGridId($this->getId());
@@ -377,7 +376,7 @@ class CategoryGridHandler extends GridHandler {
 		foreach($elements as $key => $element) {
 
 			// Instantiate a new row
-			$categoryRow =& $this->_getInitializedCategoryRowInstance($request, $key, $element);
+			$categoryRow = $this->_getInitializedCategoryRowInstance($request, $key, $element);
 
 			// Render the row
 			$renderedCategories[] = $this->_renderCategoryInternally($request, $categoryRow);

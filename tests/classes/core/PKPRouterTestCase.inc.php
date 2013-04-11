@@ -308,7 +308,7 @@ class PKPRouterTestCase extends PKPTestCase {
 		$this->router->setApplication($mockApplication);
 
 		// Dispatcher
-		$dispatcher =& $mockApplication->getDispatcher();
+		$dispatcher = $mockApplication->getDispatcher();
 		$this->router->setDispatcher($dispatcher);
 
 		// Mock request

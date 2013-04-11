@@ -42,7 +42,7 @@ class PKPAuthorGridRow extends GridRow {
 		parent::initialize($request);
 
 		// Retrieve the submission from the request
-		$submission =& $this->getSubmission();
+		$submission = $this->getSubmission();
 
 		// Is this a new row or an existing row?
 		$rowId = $this->getId();

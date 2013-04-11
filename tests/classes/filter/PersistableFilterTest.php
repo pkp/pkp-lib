@@ -53,7 +53,7 @@ class PersistableFilterTest extends PKPTestCase {
 		self::assertEquals($testSetting, $testFilter->getSetting('testEmail'));
 
 		// Test type validation.
-		$typeDescriptionFactory =& TypeDescriptionFactory::getInstance();
+		$typeDescriptionFactory = TypeDescriptionFactory::getInstance();
 		$inputTypeDescription = 'class::lib.pkp.tests.classes.filter.TestClass1';
 		$outputTypeDescription = 'class::lib.pkp.tests.classes.filter.TestClass2';
 		self::assertEquals($inputTypeDescription, $testFilter->getInputType()->getTypeDescription());

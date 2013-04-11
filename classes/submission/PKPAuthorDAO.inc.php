@@ -54,7 +54,7 @@ class PKPAuthorDAO extends DAO {
 	 * @param $sortByAuthorId bool Use author Ids as indexes in the array
 	 * @return array Authors ordered by sequence
 	 */
-	function &getAuthorsBySubmissionId($submissionId, $sortByAuthorId = false) {
+	function getAuthorsBySubmissionId($submissionId, $sortByAuthorId = false) {
 		$authors = array();
 
 		$result = $this->retrieve(
@@ -358,7 +358,7 @@ class PKPAuthorDAO extends DAO {
 	 * @param $submissionId int
 	 */
 	function deleteAuthorsBySubmission($submissionId) {
-		$authors =& $this->getAuthorsBySubmissionId($submissionId);
+		$authors = $this->getAuthorsBySubmissionId($submissionId);
 		foreach ($authors as $author) {
 			$this->deleteAuthor($author);
 		}

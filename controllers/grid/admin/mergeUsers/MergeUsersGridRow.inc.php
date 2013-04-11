@@ -46,7 +46,7 @@ class MergeUsersGridRow extends GridRow {
 
 		if (!empty($rowId) && is_numeric($rowId)) {
 			// Only add row actions if this is an existing row
-			$dispatcher =& $request->getDispatcher();
+			$dispatcher = $request->getDispatcher();
 			if ($this->getOldUserId()) {
 				$actionArgs = array(
 					'oldUserId' => $this->getOldUserId(),

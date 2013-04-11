@@ -85,7 +85,7 @@ class PKPNotificationsGridHandler extends GridHandler {
 	 * @see GridHandler::loadData()
 	 * @return array Grid data.
 	 */
-	protected function &loadData($request, $filter) {
+	protected function loadData($request, $filter) {
 		$user = $request->getUser();
 
 		// Get all level task notifications.

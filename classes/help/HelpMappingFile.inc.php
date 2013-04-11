@@ -27,7 +27,7 @@ class HelpMappingFile {
 
 	function &_getCache() {
 		if (!isset($this->cache)) {
-			$cacheManager =& CacheManager::getManager();
+			$cacheManager = CacheManager::getManager();
 			$this->cache = $cacheManager->getFileCache(
 				'helpmap', md5($this->filename),
 				array($this, '_cacheMiss')

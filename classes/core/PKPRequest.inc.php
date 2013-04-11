@@ -511,7 +511,7 @@ class PKPRequest {
 		$session =& Registry::get('session', true, null);
 
 		if ($session === null) {
-			$sessionManager =& SessionManager::getManager();
+			$sessionManager = SessionManager::getManager();
 			$session = $sessionManager->getUserSession();
 		}
 
@@ -540,10 +540,10 @@ class PKPRequest {
 	 * @return mixed
 	 */
 	function getUserVar($key) {
-		$_this =& PKPRequest::_checkThis();
+		$_this = PKPRequest::_checkThis();
 
 		// Get all vars (already cleaned)
-		$vars =& $_this->getUserVars();
+		$vars = $_this->getUserVars();
 
 		if (isset($vars[$key])) {
 			return $vars[$key];
@@ -669,8 +669,8 @@ class PKPRequest {
 	 * @param $anchor string Name of desired anchor on the target page
 	 */
 	function redirect($context = null, $page = null, $op = null, $path = null, $params = null, $anchor = null) {
-		$_this =& PKPRequest::_checkThis();
-		$dispatcher =& $_this->getDispatcher();
+		$_this = PKPRequest::_checkThis();
+		$dispatcher = $_this->getDispatcher();
 		$_this->redirectUrl($dispatcher->url($_this, ROUTE_PAGE, $context, $page, $op, $path, $params, $anchor));
 	}
 

@@ -31,10 +31,10 @@ class SubmissionFileSubmissionStageRequiredPolicy extends SubmissionFileBaseAcce
 	 * @see AuthorizationPolicy::effect()
 	 */
 	function effect() {
-		$request =& $this->getRequest();
+		$request = $this->getRequest();
 
 		// Get the submission file.
-		$submissionFile =& $this->getSubmissionFile($request);
+		$submissionFile = $this->getSubmissionFile($request);
 		if (!is_a($submissionFile, 'MonographFile')) return AUTHORIZATION_DENY;
 
 		// Make sure that it's in the submission stage

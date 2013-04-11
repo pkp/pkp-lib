@@ -25,7 +25,7 @@ class HandlerValidatorRoles extends HandlerValidatorPolicy {
 	 */
 	function HandlerValidatorRoles(&$handler, $redirectLogin = true, $message = null, $additionalArgs = array(), $roles, $all = false) {
 		$application = PKPApplication::getApplication();
-		$request =& $application->getRequest();
+		$request = $application->getRequest();
 		$policy = new RoleBasedHandlerOperationPolicy($request, $roles, array(), $message, $all, true);
 		parent::HandlerValidatorPolicy($policy, $handler, $redirectLogin, $message, $additionalArgs);
 	}

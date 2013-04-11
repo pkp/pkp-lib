@@ -34,8 +34,8 @@ class SubmissionFileMatchesSubmissionPolicy extends SubmissionFileBaseAccessPoli
 	 */
 	function effect() {
 		// Get the submission file
-		$request =& $this->getRequest();
-		$submissionFile =& $this->getSubmissionFile($request);
+		$request = $this->getRequest();
+		$submissionFile = $this->getSubmissionFile($request);
 		if (!is_a($submissionFile, 'SubmissionFile')) return AUTHORIZATION_DENY;
 
 		// Get the submission

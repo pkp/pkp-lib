@@ -38,7 +38,7 @@ class SubmissionFileUploaderAccessPolicy extends SubmissionFileBaseAccessPolicy 
 		if (!is_a($user, 'PKPUser')) return AUTHORIZATION_DENY;
 
 		// Get the submission file
-		$submissionFile =& $this->getSubmissionFile($request);
+		$submissionFile = $this->getSubmissionFile($request);
 		if (!is_a($submissionFile, 'SubmissionFile')) return AUTHORIZATION_DENY;
 
 		// Check if the uploader is the current user.

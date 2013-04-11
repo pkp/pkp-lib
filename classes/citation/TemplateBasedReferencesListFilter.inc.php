@@ -51,13 +51,12 @@ class TemplateBasedReferencesListFilter extends TemplateBasedFilter {
 	 * used to transform citations.
 	 * @return TemplateBasedFilter
 	 */
-	function &getCitationOutputFilterInstance() {
+	function getCitationOutputFilterInstance() {
 		$citationOutputFilterName = $this->getData('citationOutputFilterName');
 		assert(!is_null($citationOutputFilterName));
 		list($inputTypeDescription, $outputTypeDescription) = $this->getCitationOutputFilterTypeDescriptions();
-		$filterGroup =& PersistableFilter::tempGroup($inputTypeDescription, $outputTypeDescription);
-		$citationOutputFilter =& instantiate($citationOutputFilterName, 'TemplateBasedFilter', null, null, $filterGroup);
-		return $citationOutputFilter;
+		$filterGroup = PersistableFilter::tempGroup($inputTypeDescription, $outputTypeDescription);
+		return instantiate($citationOutputFilterName, 'TemplateBasedFilter', null, null, $filterGroup);
 	}
 
 

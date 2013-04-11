@@ -29,6 +29,17 @@ class IntegratePKP {
 		$publicDir = Config::getVar('files', 'public_files_dir');
 		$this->baseUrl = Config::getVar('general', 'base_url');
 
+		// Skip locale detection
+		define('SESSION_DISABLE_INIT', 1);
+
+		// Register locale files in the registry
+		$locale = LOCALE_DEFAULT;
+		$localeFile = new LocaleFile(
+			$locale,
+			$this->baseDir . "/lib/pkp/locale/$locale/installer.xml"
+		);
+		Registry::get('localeFiles', true, array($locale => array($localeFile)));
+
 		// Load user variables
 		$sessionManager =& SessionManager::getManager();
 		$userSession =& $sessionManager->getUserSession();

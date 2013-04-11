@@ -35,11 +35,11 @@ class BlockPlugin extends LazyLoadPlugin {
 	function register($category, $path) {
 		$success = parent::register($category, $path);
 		if ($success && $this->getEnabled()) {
-			$contextMap =& $this->getContextMap();
+			$contextMap = $this->getContextMap();
 			$blockContext = $this->getBlockContext();
 			if (isset($contextMap[$blockContext])) {
 				$hookName = $contextMap[$blockContext];
-				HookRegistry::register($hookName, array(&$this, 'callback'));
+				HookRegistry::register($hookName, array($this, 'callback'));
 			}
 		}
 		return $success;
@@ -117,7 +117,7 @@ class BlockPlugin extends LazyLoadPlugin {
 		$homepageHook = $this->_getContextSpecificHomepageHook();
 		if ($homepageHook) $contextMap[BLOCK_CONTEXT_HOMEPAGE] = $homepageHook;
 
-		HookRegistry::call('BlockPlugin::getContextMap', array(&$this, &$contextMap));
+		HookRegistry::call('BlockPlugin::getContextMap', array($this, &$contextMap));
 		return $contextMap;
 	}
 
@@ -170,7 +170,7 @@ class BlockPlugin extends LazyLoadPlugin {
 	 * @return string
 	 */
 	function _getContextSpecificHomepageHook() {
-		$application =& PKPApplication::getApplication();
+		$application = PKPApplication::getApplication();
 
 		if ($application->getContextDepth() == 0) return null;
 

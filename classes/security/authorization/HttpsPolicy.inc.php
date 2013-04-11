@@ -22,9 +22,9 @@ class HttpsPolicy extends AuthorizationPolicy {
 	 *
 	 * @param $request PKPRequest
 	 */
-	function HttpsPolicy(&$request) {
+	function HttpsPolicy($request) {
 		parent::AuthorizationPolicy();
-		$this->_request =& $request;
+		$this->_request = $request;
 
 		// Add advice
 		$callOnDeny = array($request, 'redirectSSL', array());

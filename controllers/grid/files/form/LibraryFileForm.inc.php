@@ -35,7 +35,7 @@ class LibraryFileForm extends Form {
 
 		$this->addCheck(new FormValidatorLocale($this, 'libraryFileName', 'required', 'settings.libraryFiles.nameRequired'));
 		$this->addCheck(new FormValidatorCustom($this, 'fileType', 'required', 'settings.libraryFiles.typeRequired',
-				create_function('$type, $form, $libraryFileManager', 'return is_numeric($type) && $libraryFileManager->getNameFromType($type);'), array(&$this, $this->libraryFileManager)));
+				create_function('$type, $form, $libraryFileManager', 'return is_numeric($type) && $libraryFileManager->getNameFromType($type);'), array($this, $this->libraryFileManager)));
 
 		$this->addCheck(new FormValidatorPost($this));
 	}
@@ -45,13 +45,12 @@ class LibraryFileForm extends Form {
 	 * @param $request PKPRequest
 	 * @see Form::fetch()
 	 */
-	function fetch(&$request) {
+	function fetch($request) {
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
 
 		// load the file types for the selector on the form.
-		$templateMgr =& TemplateManager::getManager($request);
-		$libraryFileManager =& $this->libraryFileManager;
-		$fileTypeKeys = $libraryFileManager->getTypeTitleKeyMap();
+		$templateMgr = TemplateManager::getManager($request);
+		$fileTypeKeys = $this->libraryFileManager->getTypeTitleKeyMap();
 		$templateMgr->assign('fileTypes', $fileTypeKeys);
 
 		return parent::fetch($request);

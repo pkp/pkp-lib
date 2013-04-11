@@ -125,7 +125,7 @@ class NotificationDAO extends DAO {
 	 * @param $notification object
 	 * @return int Notification Id
 	 */
-	function insertObject(&$notification) {
+	function insertObject($notification) {
 		$this->update(
 			sprintf('INSERT INTO notifications
 					(user_id, level, date_created, context_id, type, assoc_type, assoc_id)

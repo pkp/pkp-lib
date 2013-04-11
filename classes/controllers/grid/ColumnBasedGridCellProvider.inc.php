@@ -35,7 +35,7 @@ class ColumnBasedGridCellProvider extends GridCellProvider {
 	/**
 	 * @see GridCellProvider::getTemplateVarsFromRowColumn()
 	 */
-	function getTemplateVarsFromRowColumn(&$row, $column) {
+	function getTemplateVarsFromRowColumn($row, $column) {
 		// Delegate to the column to provide template variables.
 		return $column->getTemplateVarsFromRow($row);
 	}

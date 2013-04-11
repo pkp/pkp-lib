@@ -51,7 +51,7 @@ class SubmissionsListGridCellProvider extends DataObjectGridCellProvider {
 	 * @param $row GridRow
 	 * @param $column GridColumn
 	 */
-	function getCellState(&$row, &$column) {
+	function getCellState($row, $column) {
 		return '';
 	}
 
@@ -62,7 +62,7 @@ class SubmissionsListGridCellProvider extends DataObjectGridCellProvider {
 	 * @param $column GridColumn
 	 * @return array an array of LinkAction instances
 	 */
-	function getCellActions(&$request, &$row, &$column, $position = GRID_ACTION_POSITION_DEFAULT) {
+	function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
 		if ( $column->getId() == 'title' ) {
 			$submission = $row->getData();
 
@@ -93,7 +93,7 @@ class SubmissionsListGridCellProvider extends DataObjectGridCellProvider {
 	 * @param $column GridColumn
 	 * @return array
 	 */
-	function getTemplateVarsFromRowColumn(&$row, $column) {
+	function getTemplateVarsFromRowColumn($row, $column) {
 		$submission = $row->getData();
 		$columnId = $column->getId();
 		assert(is_a($submission, 'DataObject') && !empty($columnId));

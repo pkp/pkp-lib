@@ -36,7 +36,7 @@ class ContributorGridHandler extends SetupGridHandler {
 	 * Configure the grid
 	 * @param $request PKPRequest
 	 */
-	function initialize(&$request) {
+	function initialize($request) {
 		parent::initialize($request);
 
 		// Elements to be displayed in the grid
@@ -105,7 +105,7 @@ class ContributorGridHandler extends SetupGridHandler {
 	 * @param $request PKPRequest
 	 * @return string Serialized JSON object
 	 */
-	function addContributor($args, &$request) {
+	function addContributor($args, $request) {
 		// Calling editContributor with an empty row id will add
 		// a new contributor.
 		return $this->editContributor($args, $request);
@@ -117,7 +117,7 @@ class ContributorGridHandler extends SetupGridHandler {
 	 * @param $request PKPRequest
 	 * @return string Serialized JSON object
 	 */
-	function editContributor($args, &$request) {
+	function editContributor($args, $request) {
 		$contributorId = isset($args['rowId']) ? $args['rowId'] : null;
 		import('lib.pkp.controllers.grid.settings.contributor.form.ContributorForm');
 		$contributorForm = new ContributorForm($contributorId);
@@ -138,7 +138,7 @@ class ContributorGridHandler extends SetupGridHandler {
 	 * @param $request PKPRequest
 	 * @return string Serialized JSON object
 	 */
-	function updateContributor($args, &$request) {
+	function updateContributor($args, $request) {
 		// -> contributorId must be present and valid
 		// -> htmlId must be present and valid
 		$contributorId = isset($args['rowId']) ? $args['rowId'] : null;
@@ -170,7 +170,7 @@ class ContributorGridHandler extends SetupGridHandler {
 	 * @param $request PKPRequest
 	 * @return string Serialized JSON object
 	 */
-	function deleteContributor($args, &$request) {
+	function deleteContributor($args, $request) {
 		$contributorId = isset($args['rowId']) ? $args['rowId'] : null;
 		$router = $request->getRouter();
 		$context = $router->getContext($request);

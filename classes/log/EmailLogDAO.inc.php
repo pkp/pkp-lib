@@ -234,7 +234,7 @@ class EmailLogDAO extends DAO {
 
 		$userDao = DAORegistry::getDAO('UserDAO');
 		foreach ($matches[0] as $emailAddress) {
-			$user =& $userDao->getUserByEmail($emailAddress);
+			$user = $userDao->getUserByEmail($emailAddress);
 			if (is_a($user, 'User')) {
 				// We use replace here to avoid inserting duplicated entries
 				// in table (sometimes the recipients can have the same email twice).

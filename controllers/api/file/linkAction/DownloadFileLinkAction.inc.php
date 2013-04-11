@@ -22,9 +22,9 @@ class DownloadFileLinkAction extends FileLinkAction {
 	 *  link to.
 	 * @param $stageId int (optional)
 	 */
-	function DownloadFileLinkAction(&$request, &$submissionFile, $stageId = null) {
+	function DownloadFileLinkAction($request, $submissionFile, $stageId = null) {
 		// Instantiate the redirect action request.
-		$router =& $request->getRouter();
+		$router = $request->getRouter();
 		import('lib.pkp.classes.linkAction.request.PostAndRedirectAction');
 		$redirectRequest = new PostAndRedirectAction(
 			$router->url(

@@ -40,7 +40,7 @@ class MergeUsersGridHandler extends GridHandler {
          * @param $args array
          * @param $roleAssignments array
          */
-        function authorize(&$request, &$args, $roleAssignments) {
+        function authorize($request, &$args, $roleAssignments) {
                 import('lib.pkp.classes.security.authorization.PkpContextAccessPolicy');
                 $this->addPolicy(new PkpContextAccessPolicy($request, $roleAssignments));
                 return parent::authorize($request, $args, $roleAssignments);
@@ -49,7 +49,7 @@ class MergeUsersGridHandler extends GridHandler {
 	/**
 	 * @see PKPHandler::initialize()
 	 */
-	function initialize(&$request) {
+	function initialize($request) {
 		parent::initialize($request);
 
 		// Load user-related translations.
@@ -122,7 +122,7 @@ class MergeUsersGridHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 * @return array Grid data.
 	 */
-	function loadData(&$request, $filter) {
+	function loadData($request, $filter) {
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$roleDao = DAORegistry::getDAO('RoleDAO');
@@ -137,9 +137,9 @@ class MergeUsersGridHandler extends GridHandler {
 		}
 
 		if ($roleId) {
-			$users =& $roleDao->getUsersByRoleId($roleId, null, $filter['searchField'], $filter['search'], $filter['searchMatch']);
+			$users = $roleDao->getUsersByRoleId($roleId, null, $filter['searchField'], $filter['search'], $filter['searchMatch']);
 		} else {
-			$users =& $userDao->getUsersByField($filter['searchField'], $filter['searchMatch'], $filter['search'], true);
+			$users = $userDao->getUsersByField($filter['searchField'], $filter['searchMatch'], $filter['search'], true);
 		}
 
 		$userArray = $users->toAssociativeArray();
@@ -165,7 +165,7 @@ class MergeUsersGridHandler extends GridHandler {
 	/**
 	 * @see GridHandler::renderFilter()
 	 */
-	function renderFilter(&$request) {
+	function renderFilter($request) {
 
 		$fieldOptions = array(
 				USER_FIELD_FIRSTNAME => 'user.firstName',
@@ -205,7 +205,7 @@ class MergeUsersGridHandler extends GridHandler {
 	 * @see GridHandler::getFilterSelectionData()
 	 * @return array Filter selection data.
 	 */
-	function getFilterSelectionData(&$request) {
+	function getFilterSelectionData($request) {
 		// Get the search terms.
 		$searchField = $request->getUserVar('searchField');
 		$searchMatch = $request->getUserVar('searchMatch');

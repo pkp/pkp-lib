@@ -35,7 +35,7 @@ class LanguageGridHandler extends GridHandler {
 	/**
 	 * @see PKPHandler::initialize()
 	 */
-	function initialize(&$request) {
+	function initialize($request) {
 		parent::initialize($request);
 
 		// Load user-related translations.
@@ -56,12 +56,12 @@ class LanguageGridHandler extends GridHandler {
 	 * @param $args array
 	 * @param $request Request
 	 */
-	function saveLanguageSetting($args, &$request) {
+	function saveLanguageSetting($args, $request) {
 		$locale = (string) $request->getUserVar('rowId');
 		$settingName = (string) $request->getUserVar('setting');
 		$settingValue = (boolean) $request->getUserVar('value');
 		$availableLocales = $this->getGridDataElements($request);
-		$context =& $request->getContext();
+		$context = $request->getContext();
 
 		$permittedSettings = array('supportedFormLocales', 'supportedSubmissionLocales', 'supportedLocales');
 		if (in_array($settingName, $permittedSettings) && $locale) {
@@ -79,7 +79,7 @@ class LanguageGridHandler extends GridHandler {
 		$context->updateSetting($settingName, $currentSettingValue);
 
 		$notificationManager = new NotificationManager();
-		$user =& $request->getUser();
+		$user = $request->getUser();
 		$notificationManager->createTrivialNotification(
 			$user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.localeSettingsSaved')));
 
@@ -91,9 +91,9 @@ class LanguageGridHandler extends GridHandler {
 	 * @param $args array
 	 * @param $request Request
 	 */
-	function setContextPrimaryLocale($args, &$request) {
+	function setContextPrimaryLocale($args, $request) {
 		$locale = (string) $request->getUserVar('rowId');
-		$context =& $request->getContext();
+		$context = $request->getContext();
 		$availableLocales = $this->getGridDataElements($request);
 
 		if (AppLocale::isLocaleValid($locale) && array_key_exists($locale, $availableLocales)) {
@@ -111,7 +111,7 @@ class LanguageGridHandler extends GridHandler {
 			$contextDao->updateObject($context);
 
 			$notificationManager = new NotificationManager();
-			$user =& $request->getUser();
+			$user = $request->getUser();
 			$notificationManager->createTrivialNotification(
 				$user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.localeSettingsSaved')));
 		}
@@ -210,8 +210,8 @@ class LanguageGridHandler extends GridHandler {
 	 * @return Array Same passed array, but with
 	 * the extra management data inserted.
 	 */
-	function addManagementData(&$request, $data) {
-		$context =& $request->getContext();
+	function addManagementData($request, $data) {
+		$context = $request->getContext();
 
 		if (is_array($data)) {
 			foreach ($data as $locale => $localeData) {

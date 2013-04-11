@@ -33,7 +33,7 @@ class SponsorGridHandler extends SetupGridHandler {
 	 * Configure the grid
 	 * @param $request PKPRequest
 	 */
-	function initialize(&$request) {
+	function initialize($request) {
 		parent::initialize($request);
 
 		// Elements to be displayed in the grid
@@ -100,7 +100,7 @@ class SponsorGridHandler extends SetupGridHandler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function addSponsor($args, &$request) {
+	function addSponsor($args, $request) {
 		// Calling editSponsor with an empty row id will add
 		// a new sponsor.
 		return $this->editSponsor($args, $request);
@@ -112,7 +112,7 @@ class SponsorGridHandler extends SetupGridHandler {
 	 * @param $request PKPRequest
 	 * @return string Serialized JSON object
 	 */
-	function editSponsor($args, &$request) {
+	function editSponsor($args, $request) {
 		$sponsorId = isset($args['rowId'])?$args['rowId']:null;
 
 		import('lib.pkp.controllers.grid.settings.sponsor.form.SponsorForm');
@@ -134,7 +134,7 @@ class SponsorGridHandler extends SetupGridHandler {
 	 * @param $request PKPRequest
 	 * @return string Serialized JSON object
 	 */
-	function updateSponsor($args, &$request) {
+	function updateSponsor($args, $request) {
 		// -> sponsorId must be present and valid
 		// -> htmlId must be present and valid
 		$sponsorId = isset($args['rowId'])?$args['rowId']:null;
@@ -166,7 +166,7 @@ class SponsorGridHandler extends SetupGridHandler {
 	 * @param $request PKPRequest
 	 * @return string Serialized JSON object
 	 */
-	function deleteSponsor($args, &$request) {
+	function deleteSponsor($args, $request) {
 		$sponsorId = isset($args['rowId'])?$args['rowId']:null;
 		$router = $request->getRouter();
 		$context = $router->getContext($request);

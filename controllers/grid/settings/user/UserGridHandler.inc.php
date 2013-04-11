@@ -39,7 +39,7 @@ class UserGridHandler extends GridHandler {
 	/**
 	 * @see PKPHandler::authorize()
 	 */
-	function authorize(&$request, &$args, $roleAssignments) {
+	function authorize($request, &$args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.PkpContextAccessPolicy');
 		$this->addPolicy(new PkpContextAccessPolicy($request, $roleAssignments));
 		return parent::authorize($request, $args, $roleAssignments);
@@ -48,7 +48,7 @@ class UserGridHandler extends GridHandler {
 	/**
 	 * @see PKPHandler::initialize()
 	 */
-	function initialize(&$request) {
+	function initialize($request) {
 		parent::initialize($request);
 
 		// Load user-related translations.
@@ -62,7 +62,7 @@ class UserGridHandler extends GridHandler {
 		$this->setTitle('grid.user.currentUsers');
 
 		// Grid actions.
-		$router =& $request->getRouter();
+		$router = $request->getRouter();
 
 		import('lib.pkp.classes.linkAction.request.AjaxModal');
 		$this->addAction(
@@ -156,9 +156,9 @@ class UserGridHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 * @return array Grid data.
 	 */
-	function loadData(&$request, $filter) {
+	function loadData($request, $filter) {
 		// Get the context.
-		$context =& $request->getContext();
+		$context = $request->getContext();
 		$contextId = $context->getId();
 
 		// Get all users for this context that match search criteria.
@@ -187,7 +187,7 @@ class UserGridHandler extends GridHandler {
 
 
 		foreach ($contextIds as $contextId) {
-			$users =& $userGroupDao->getUsersById(
+			$users = $userGroupDao->getUsersById(
 			$filter['userGroup'],
 			$contextId,
 			$filter['searchField'],
@@ -203,11 +203,11 @@ class UserGridHandler extends GridHandler {
 	/**
 	 * @see GridHandler::renderFilter()
 	 */
-	function renderFilter(&$request) {
-		$context =& $request->getContext();
+	function renderFilter($request) {
+		$context = $request->getContext();
 		$contextId = $context->getId();
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		$userGroups =& $userGroupDao->getByContextId($contextId);
+		$userGroups = $userGroupDao->getByContextId($contextId);
 		$userGroupOptions = array('' => __('grid.user.allRoles'));
 		while ($userGroup = $userGroups->next()) {
 			$userGroupOptions[$userGroup->getId()] = $userGroup->getLocalizedName();
@@ -240,7 +240,7 @@ class UserGridHandler extends GridHandler {
 	 * @see GridHandler::getFilterSelectionData()
 	 * @return array Filter selection data.
 	 */
-	function getFilterSelectionData(&$request) {
+	function getFilterSelectionData($request) {
 		// Get the search terms.
 		$includeNoRole = $request->getUserVar('includeNoRole') ? (int) $request->getUserVar('includeNoRole') : null;
 		$userGroup = $request->getUserVar('userGroup') ? (int)$request->getUserVar('userGroup') : null;
@@ -275,7 +275,7 @@ class UserGridHandler extends GridHandler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function suggestUsername($args, &$request) {
+	function suggestUsername($args, $request) {
 		$suggestion = Validation::suggestUsername(
 			$request->getUserVar('firstName'),
 			$request->getUserVar('lastName')
@@ -290,7 +290,7 @@ class UserGridHandler extends GridHandler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function addUser($args, &$request) {
+	function addUser($args, $request) {
 		// Calling editUser with an empty row id will add a new user.
 		return $this->editUser($args, $request);
 	}
@@ -301,12 +301,12 @@ class UserGridHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 * @return string Serialized JSON object
 	 */
-	function editUser($args, &$request) {
+	function editUser($args, $request) {
 		// Identify the user Id.
 		$userId = $request->getUserVar('rowId');
 		if (!$userId) $userId = $request->getUserVar('userId');
 
-		$user =& $request->getUser();
+		$user = $request->getUser();
 		if ($userId !== null && !Validation::canAdminister($userId, $user->getId())) {
 			// We don't have administrative rights over this user.
 			$json = new JSONMessage(false, __('grid.user.cannotAdminister'));
@@ -326,8 +326,8 @@ class UserGridHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 * @return string Serialized JSON object
 	 */
-	function updateUser($args, &$request) {
-		$user =& $request->getUser();
+	function updateUser($args, $request) {
+		$user = $request->getUser();
 
 		// Identify the user Id.
 		$userId = $request->getUserVar('userId');
@@ -353,7 +353,7 @@ class UserGridHandler extends GridHandler {
 
 					// Successful edit of an existing user.
 					$notificationManager = new NotificationManager();
-					$user =& $request->getUser();
+					$user = $request->getUser();
 					$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.editedUser')));
 
 					// Prepare the grid row data.
@@ -372,8 +372,8 @@ class UserGridHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 * @return string Serialized JSON object
 	 */
-	function updateUserRoles($args, &$request) {
-		$user =& $request->getUser();
+	function updateUserRoles($args, $request) {
+		$user = $request->getUser();
 
 		// Identify the user Id.
 		$userId = $request->getUserVar('userId');
@@ -405,8 +405,8 @@ class UserGridHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 * @return string Serialized JSON object
 	 */
-	function editDisableUser($args, &$request) {
-		$user =& $request->getUser();
+	function editDisableUser($args, $request) {
+		$user = $request->getUser();
 
 		// Identify the user Id.
 		$userId = $request->getUserVar('rowId');
@@ -436,8 +436,8 @@ class UserGridHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 * @return string Serialized JSON object
 	 */
-	function disableUser($args, &$request) {
-		$user =& $request->getUser();
+	function disableUser($args, $request) {
+		$user = $request->getUser();
 
 		// Identify the user Id.
 		$userId = $request->getUserVar('userId');
@@ -475,9 +475,9 @@ class UserGridHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 * @return string Serialized JSON object
 	 */
-	function removeUser($args, &$request) {
-		$context =& $request->getContext();
-		$user =& $request->getUser();
+	function removeUser($args, $request) {
+		$context = $request->getContext();
+		$user = $request->getUser();
 
 		// Identify the user Id.
 		$userId = $request->getUserVar('rowId');
@@ -506,8 +506,8 @@ class UserGridHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 * @return string Serialized JSON object
 	 */
-	function editEmail($args, &$request) {
-		$user =& $request->getUser();
+	function editEmail($args, $request) {
+		$user = $request->getUser();
 
 		// Identify the user Id.
 		$userId = $request->getUserVar('rowId');
@@ -532,8 +532,8 @@ class UserGridHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 * @return string Serialized JSON object
 	 */
-	function sendEmail($args, &$request) {
-		$user =& $request->getUser();
+	function sendEmail($args, $request) {
+		$user = $request->getUser();
 
 		// Identify the user Id.
 		$userId = $request->getUserVar('userId');

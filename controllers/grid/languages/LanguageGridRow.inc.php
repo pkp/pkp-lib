@@ -30,7 +30,7 @@ class LanguageGridRow extends GridRow {
 	/**
 	 * @see GridRow::initialize()
 	 */
-	function initialize(&$request) {
+	function initialize($request) {
 		parent::initialize($request);
 
 		// Is this a new row or an existing row?
@@ -39,7 +39,7 @@ class LanguageGridRow extends GridRow {
 
 		if (!empty($rowId)) {
 			// Only add row actions if this is an existing row
-			$router =& $request->getRouter();
+			$router = $request->getRouter();
 			$actionArgs = array(
 				'gridId' => $this->getGridId(),
 				'rowId' => $rowId

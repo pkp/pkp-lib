@@ -26,12 +26,12 @@ class AnnouncementTypeGridCellProvider extends GridCellProvider {
 	/**
 	 * @see GridCellProvider::getCellActions()
 	 */
-	function getCellActions(&$request, &$row, &$column, $position = GRID_ACTION_POSITION_DEFAULT) {
+	function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
 		if ($column->getId() == 'name') {
 			$announcementType =& $row->getData();
 			$label = $announcementType->getLocalizedTypeName();
 
-			$router =& $request->getRouter();
+			$router = $request->getRouter();
 			$actionArgs = array('announcementTypeId' => $row->getId());
 
 			import('lib.pkp.classes.linkAction.request.AjaxModal');
@@ -57,8 +57,8 @@ class AnnouncementTypeGridCellProvider extends GridCellProvider {
 	 * @param $column GridColumn
 	 * @return array
 	 */
-	function getTemplateVarsFromRowColumn(&$row, &$column) {
-		$announcementType =& $row->getData();
+	function getTemplateVarsFromRowColumn($row, $column) {
+		$announcementType = $row->getData();
 		$columnId = $column->getId();
 		assert(is_a($announcementType, 'AnnouncementType') && !empty($columnId));
 

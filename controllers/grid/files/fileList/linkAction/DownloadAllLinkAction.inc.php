@@ -25,9 +25,9 @@ class DownloadAllLinkAction extends LinkAction {
 	 * @param $actionArgs array
 	 * @param $files array Files to be downloaded.
 	 */
-	function DownloadAllLinkAction(&$request, $actionArgs, $files) {
+	function DownloadAllLinkAction($request, $actionArgs, $files) {
 		// Instantiate the redirect action request.
-		$router =& $request->getRouter();
+		$router = $request->getRouter();
 		$filesIdsAndRevisions = $this->_getFilesIdsAndRevisions($files);
 		$actionArgs['filesIdsAndRevisions'] = $filesIdsAndRevisions;
 		import('lib.pkp.classes.linkAction.request.PostAndRedirectAction');

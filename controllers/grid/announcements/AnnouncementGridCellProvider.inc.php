@@ -26,7 +26,7 @@ class AnnouncementGridCellProvider extends GridCellProvider {
 	/**
 	 * @see GridCellProvider::getCellActions()
 	 */
-	function getCellActions(&$request, &$row, &$column, $position = GRID_ACTION_POSITION_DEFAULT) {
+	function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
 		if ($column->getId() == 'title') {
 			$announcement = $row->getData();
 			$label = $announcement->getLocalizedTitle();
@@ -60,7 +60,7 @@ class AnnouncementGridCellProvider extends GridCellProvider {
 	 * @param $column GridColumn
 	 * @return array
 	 */
-	function getTemplateVarsFromRowColumn(&$row, &$column) {
+	function getTemplateVarsFromRowColumn($row, $column) {
 		$announcement = $row->getData();
 		$columnId = $column->getId();
 		assert(is_a($announcement, 'Announcement') && !empty($columnId));

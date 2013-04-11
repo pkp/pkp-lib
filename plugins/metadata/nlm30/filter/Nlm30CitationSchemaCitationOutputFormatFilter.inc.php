@@ -102,7 +102,7 @@ class Nlm30CitationSchemaCitationOutputFormatFilter extends TemplateBasedFilter 
 	 * @param $request Request
 	 * @param $locale AppLocale
 	 */
-	function addTemplateVars(&$templateMgr, &$input, &$request, &$locale) {
+	function addTemplateVars($templateMgr, &$input, $request, &$locale) {
 		// Loop over the statements in the schema and add them
 		// to the template
 		$propertyNames = $input->getPropertyNames();

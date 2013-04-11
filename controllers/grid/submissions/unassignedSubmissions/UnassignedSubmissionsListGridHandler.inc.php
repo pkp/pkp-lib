@@ -39,7 +39,7 @@ class UnassignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 	/**
 	 * @see PKPHandler::initialize()
 	 */
-	function initialize(&$request) {
+	function initialize($request) {
 		parent::initialize($request);
 
 		// Set title.

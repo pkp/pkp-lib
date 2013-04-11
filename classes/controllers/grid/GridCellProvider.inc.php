@@ -32,7 +32,7 @@ class GridCellProvider {
 	 * @param $column GridColumn
 	 * @return string the rendered representation of the element for the given column
 	 */
-	function render(&$request, &$row, &$column) {
+	function render($request, $row, $column) {
 		$columnId = $column->getId();
 		assert(!empty($columnId));
 
@@ -41,7 +41,7 @@ class GridCellProvider {
 		$cellId = isset($rowId)?$rowId.'-'.$columnId:null;
 
 		// Assign values extracted from the element for the cell.
-		$templateMgr =& TemplateManager::getManager($request);
+		$templateMgr = TemplateManager::getManager($request);
 		$templateVars = $this->getTemplateVarsFromRowColumn($row, $column);
 		foreach ($templateVars as $varName => $varValue) {
 			$templateMgr->assign($varName, $varValue);
@@ -67,7 +67,7 @@ class GridCellProvider {
 	 * @param $column GridColumn
 	 * @return array
 	 */
-	function getTemplateVarsFromRowColumn(&$row, $column) {
+	function getTemplateVarsFromRowColumn($row, $column) {
 		return array();
 	}
 
@@ -85,9 +85,8 @@ class GridCellProvider {
 	 * @param $column GridColumn
 	 * @return array an array of LinkAction instances
 	 */
-	function getCellActions(&$request, &$row, &$column, $position = GRID_ACTION_POSITION_DEFAULT) {
-		$actions = $column->getCellActions($request, $row, $position);
-		return $actions;
+	function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
+		return $column->getCellActions($request, $row, $position);
 	}
 }
 

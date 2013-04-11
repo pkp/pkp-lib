@@ -24,9 +24,9 @@ class ReviewAssignmentAccessPolicy extends AuthorizationPolicy {
 	 * Constructor
 	 * @param $request PKPRequest
 	 */
-	function ReviewAssignmentAccessPolicy(&$request) {
+	function ReviewAssignmentAccessPolicy($request) {
 		parent::AuthorizationPolicy('user.authorization.submissionReviewer');
-		$this->_request =& $request;
+		$this->_request = $request;
 	}
 
 	//
@@ -37,16 +37,16 @@ class ReviewAssignmentAccessPolicy extends AuthorizationPolicy {
 	 */
 	function effect() {
 		// Get the user
-		$user =& $this->_request->getUser();
+		$user = $this->_request->getUser();
 		if (!is_a($user, 'PKPUser')) return AUTHORIZATION_DENY;
 
 		// Get the monograph
-		$submission =& $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		if (!is_a($submission, 'Submission')) return AUTHORIZATION_DENY;
 
 		// Check if a review assignment exists between the submission and the user
 		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
-		$reviewAssignment =& $reviewAssignmentDao->getLastReviewRoundReviewAssignmentByReviewer($submission->getId(), $user->getId());
+		$reviewAssignment = $reviewAssignmentDao->getLastReviewRoundReviewAssignmentByReviewer($submission->getId(), $user->getId());
 
 		if (is_a($reviewAssignment, 'ReviewAssignment')) {
 			// Save the review assignment to the authorization context.

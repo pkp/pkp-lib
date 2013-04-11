@@ -79,11 +79,11 @@ class LibraryFileGridHandler extends CategoryGridHandler {
 	 * Configure the grid
 	 * @param $request PKPRequest
 	 */
-	function initialize(&$request) {
+	function initialize($request) {
 		parent::initialize($request);
 
-		$router =& $request->getRouter();
-		$this->_context =& $router->getContext($request);
+		$router = $request->getRouter();
+		$this->_context = $router->getContext($request);
 
 		// Set name
 		$this->setTitle('manager.publication.submissionDocuments');
@@ -100,7 +100,7 @@ class LibraryFileGridHandler extends CategoryGridHandler {
 		// Basic grid row configuration
 		$this->addColumn($this->getFileNameColumn());
 
-		$router =& $request->getRouter();
+		$router = $request->getRouter();
 
 		// Add grid-level actions
 		if ($this->canEdit()) {
@@ -179,7 +179,7 @@ class LibraryFileGridHandler extends CategoryGridHandler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function addFile($args, &$request) {
+	function addFile($args, $request) {
 		$this->initialize($request);
 		$router = $request->getRouter();
 		$context = $request->getContext();
@@ -197,10 +197,10 @@ class LibraryFileGridHandler extends CategoryGridHandler {
 	 * @param $request PKPRequest
 	 * @return string
 	 */
-	function saveFile($args, &$request) {
-		$router =& $request->getRouter();
+	function saveFile($args, $request) {
+		$router = $request->getRouter();
 		$context = $request->getContext();
-		$user =& $request->getUser();
+		$user = $request->getUser();
 
 		$fileForm = $this->_getNewFileForm($context);
 		$fileForm->readInputData();
@@ -222,7 +222,7 @@ class LibraryFileGridHandler extends CategoryGridHandler {
 	 * @param $request PKPRequest
 	 * @return string Serialized JSON object
 	 */
-	function editFile($args, &$request) {
+	function editFile($args, $request) {
 		$this->initialize($request);
 		assert(isset($args['fileId']));
 		$fileId = (int) $args['fileId'];
@@ -243,11 +243,11 @@ class LibraryFileGridHandler extends CategoryGridHandler {
 	 * @param $request PKPRequest
 	 * @return string
 	 */
-	function updateFile($args, &$request) {
+	function updateFile($args, $request) {
 		assert(isset($args['fileId']));
 		$fileId = (int) $args['fileId'];
 
-		$router =& $request->getRouter();
+		$router = $request->getRouter();
 		$context = $request->getContext();
 
 		$fileForm = $this->_getEditFileForm($context, $fileId);
@@ -270,10 +270,10 @@ class LibraryFileGridHandler extends CategoryGridHandler {
 	 * @param $request PKPRequest
 	 * @return string Serialized JSON object
 	 */
-	function deleteFile($args, &$request) {
+	function deleteFile($args, $request) {
 		$fileId = isset($args['fileId']) ? $args['fileId'] : null;
-		$router =& $request->getRouter();
-		$press =& $router->getContext($request);
+		$router = $request->getRouter();
+		$press = $router->getContext($request);
 
 		if ($fileId) {
 			$libraryFileManager = new LibraryFileManager($press->getId());
@@ -292,10 +292,10 @@ class LibraryFileGridHandler extends CategoryGridHandler {
 	 * @param $request PKPRequest
 	 * @return string
 	 */
-	function uploadFile($args, &$request) {
-		$router =& $request->getRouter();
+	function uploadFile($args, $request) {
+		$router = $request->getRouter();
 		$context = $request->getContext();
-		$user =& $request->getUser();
+		$user = $request->getUser();
 
 		import('lib.pkp.classes.file.TemporaryFileManager');
 		$temporaryFileManager = new TemporaryFileManager();

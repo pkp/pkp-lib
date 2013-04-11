@@ -98,7 +98,7 @@ class Installer {
 
 		// Give the HookRegistry the opportunity to override this
 		// method or alter its parameters.
-		if (!HookRegistry::call('Installer::Installer', array(&$this, &$descriptor, &$params))) {
+		if (!HookRegistry::call('Installer::Installer', array($this, &$descriptor, &$params))) {
 			$this->descriptor = $descriptor;
 			$this->params = $params;
 			$this->actions = array();
@@ -123,7 +123,7 @@ class Installer {
 			$this->dataXMLParser->destroy();
 		}
 
-		HookRegistry::call('Installer::destroy', array(&$this));
+		HookRegistry::call('Installer::destroy', array($this));
 	}
 
 	/**
@@ -163,7 +163,7 @@ class Installer {
 		}
 
 		$result = true;
-		HookRegistry::call('Installer::preInstall', array(&$this, &$result));
+		HookRegistry::call('Installer::preInstall', array($this, &$result));
 
 		return $result;
 	}
@@ -204,7 +204,7 @@ class Installer {
 	function postInstall() {
 		$this->log('post-install');
 		$result = true;
-		HookRegistry::call('Installer::postInstall', array(&$this, &$result));
+		HookRegistry::call('Installer::postInstall', array($this, &$result));
 		return $result;
 	}
 
@@ -254,7 +254,7 @@ class Installer {
 
 		$result = $this->getErrorType() == 0;
 
-		HookRegistry::call('Installer::parseInstaller', array(&$this, &$result));
+		HookRegistry::call('Installer::parseInstaller', array($this, &$result));
 		return $result;
 	}
 
@@ -271,7 +271,7 @@ class Installer {
 		}
 
 		$result = true;
-		HookRegistry::call('Installer::executeInstaller', array(&$this, &$result));
+		HookRegistry::call('Installer::executeInstaller', array($this, &$result));
 
 		return $result;
 	}
@@ -289,7 +289,7 @@ class Installer {
 		}
 
 		$result = true;
-		HookRegistry::call('Installer::updateVersion', array(&$this, &$result));
+		HookRegistry::call('Installer::updateVersion', array($this, &$result));
 
 		return $result;
 	}
@@ -415,7 +415,7 @@ class Installer {
 				if (isset($action['attr']['class'])) {
 					return call_user_func(array($action['attr']['class'], $action['attr']['function']), $this, $action['attr']);
 				} else {
-					return call_user_func(array(&$this, $action['attr']['function']), $this, $action['attr']);
+					return call_user_func(array($this, $action['attr']['function']), $this, $action['attr']);
 				}
 				break;
 			case 'note':

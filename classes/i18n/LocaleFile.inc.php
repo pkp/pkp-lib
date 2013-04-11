@@ -38,10 +38,10 @@ class LocaleFile {
 	 */
 	function &_getCache($locale) {
 		if (!isset($this->cache)) {
-			$cacheManager =& CacheManager::getManager();
+			$cacheManager = CacheManager::getManager();
 			$this->cache = $cacheManager->getFileCache(
 				'locale', md5($this->filename),
-				array(&$this, '_cacheMiss')
+				array($this, '_cacheMiss')
 			);
 
 			// Check to see if the cache is outdated.

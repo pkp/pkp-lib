@@ -34,7 +34,7 @@ class PaymentMethodForm extends ContextSettingsForm {
 	/**
 	 * @see ContextSettingsForm::fetch
 	 */
-	function fetch(&$request) {
+	function fetch($request) {
 		$templateMgr = TemplateManager::getManager($request);
 		$currencyDao = DAORegistry::getDAO('CurrencyDAO');
 		$currencies = array();
@@ -52,7 +52,7 @@ class PaymentMethodForm extends ContextSettingsForm {
 	/**
 	 * @see ContextSettingsForm::readInputData
 	 */
-	function readInputData(&$request) {
+	function readInputData($request) {
 		parent::readInputData($request);
 
 		$paymentPluginName = $this->getData('paymentPluginName');
@@ -65,7 +65,7 @@ class PaymentMethodForm extends ContextSettingsForm {
 	/**
 	 * @see ContextSettingsForm::execute
 	 */
-	function execute(&$request) {
+	function execute($request) {
 		$context = $request->getContext();
 
 		// Get the selected payment plugin

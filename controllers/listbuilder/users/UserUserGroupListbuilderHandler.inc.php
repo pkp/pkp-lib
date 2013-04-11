@@ -98,7 +98,7 @@ class UserUserGroupListbuilderHandler extends ListbuilderHandler {
 		);
 
 		// Fetch the user groups
-		$context =& $this->getContext();
+		$context = $this->getContext();
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$userGroups =& $userGroupDao->getByContextId($context->getId());
 		$roleDao = DAORegistry::getDAO('RoleDAO');
@@ -127,11 +127,9 @@ class UserUserGroupListbuilderHandler extends ListbuilderHandler {
 	 * Initialize the grid with the currently selected set of user groups.
 	 */
 	function loadData() {
-		$context =& $this->getContext();
+		$context = $this->getContext();
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		$userGroups =& $userGroupDao->getByUserId($this->getUserId(), $context->getId());
-
-		return $userGroups;
+		return $userGroupDao->getByUserId($this->getUserId(), $context->getId());
 	}
 
 
@@ -141,7 +139,7 @@ class UserUserGroupListbuilderHandler extends ListbuilderHandler {
 	/**
 	 * @see PKPHandler::authorize()
 	 */
-	function authorize(&$request, &$args, $roleAssignments) {
+	function authorize($request, &$args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.PkpContextAccessPolicy');
 		$this->addPolicy(new PkpContextAccessPolicy($request, $roleAssignments));
 		return parent::authorize($request, $args, $roleAssignments);
@@ -151,7 +149,7 @@ class UserUserGroupListbuilderHandler extends ListbuilderHandler {
 	/**
 	 * @see PKPHandler::initialize()
 	 */
-	function initialize(&$request) {
+	function initialize($request) {
 		// FIXME Validate user ID?
 
 		// Load user-related translations.
@@ -192,7 +190,7 @@ class UserUserGroupListbuilderHandler extends ListbuilderHandler {
 	 * Get the data element that corresponds to the current request
 	 * Allow for a blank $rowId for when creating a not-yet-persisted row
 	 */
-	function getRowDataElement(&$request, $rowId) {
+	function getRowDataElement($request, $rowId) {
 		// fallback on the parent if a rowId is found
 		if ( !empty($rowId) ) {
 			return parent::getRowDataElement($request, $rowId);
@@ -202,9 +200,8 @@ class UserUserGroupListbuilderHandler extends ListbuilderHandler {
 		$newRowId = $this->getNewRowId($request);
 		$userGroupId = $newRowId['name'];
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		$context =& $this->getContext();
-		$userGroup =& $userGroupDao->getById($userGroupId, $context->getId());
-		return $userGroup;
+		$context = $this->getContext();
+		return $userGroupDao->getById($userGroupId, $context->getId());
 	}
 }
 

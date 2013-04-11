@@ -29,7 +29,7 @@ interface INotificationInfoProvider {
 	 * @param $notification Notification
 	 * @return string
 	 */
-	public function getNotificationUrl(&$request, &$notification);
+	public function getNotificationUrl($request, $notification);
 
 	/**
 	 * Get the notification message. Only return translated locale
@@ -38,7 +38,7 @@ interface INotificationInfoProvider {
 	 * @param $notification Notification
 	 * @return string
 	 */
-	public function getNotificationMessage(&$request, &$notification);
+	public function getNotificationMessage($request, $notification);
 
 	/**
 	 * Get the notification contents. Content is anything that's
@@ -48,28 +48,28 @@ interface INotificationInfoProvider {
 	 * @param $notification Notification
 	 * @return string
 	 */
-	public function getNotificationContents(&$request, &$notification);
+	public function getNotificationContents($request, $notification);
 
 	/**
 	 * Get the notification title.
 	 * @param $notification Notification
 	 * @return string
 	 */
-	public function getNotificationTitle(&$notification);
+	public function getNotificationTitle($notification);
 
 	/**
 	 * Get the notification style class.
 	 * @param $notification Notification
 	 * @return string
 	 */
-	public function getStyleClass(&$notification);
+	public function getStyleClass($notification);
 
 	/**
 	 * Get the notification icon class.
 	 * @param $notification Notification
 	 * @return string
 	 */
-	public function getIconClass(&$notification);
+	public function getIconClass($notification);
 
 	/**
 	 * Whether any notification with the passed notification type

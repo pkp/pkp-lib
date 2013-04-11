@@ -96,12 +96,11 @@ class SubmissionFilesGridDataProvider extends FilesGridDataProvider {
 	/**
 	 * @see GridDataProvider::getAuthorizationPolicy()
 	 */
-	function getAuthorizationPolicy(&$request, $args, $roleAssignments) {
+	function getAuthorizationPolicy($request, $args, $roleAssignments) {
 		$this->setUploaderRoles($roleAssignments);
 
 		import('classes.security.authorization.WorkflowStageAccessPolicy');
-		$policy = new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $this->getStageId());
-		return $policy;
+		return new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $this->getStageId());
 	}
 
 	//

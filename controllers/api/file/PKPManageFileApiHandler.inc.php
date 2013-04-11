@@ -32,7 +32,7 @@ class PKPManageFileApiHandler extends Handler {
 	//
 	// Implement methods from PKPHandler
 	//
-	function authorize(&$request, &$args, $roleAssignments) {
+	function authorize($request, &$args, $roleAssignments) {
 		import('classes.security.authorization.SubmissionFileAccessPolicy');
 		$this->addPolicy(new SubmissionFileAccessPolicy($request, $args, $roleAssignments, SUBMISSION_FILE_ACCESS_MODIFY));
 
@@ -48,29 +48,28 @@ class PKPManageFileApiHandler extends Handler {
 	 * @param $request Request
 	 * @return string a serialized JSON object
 	 */
-	function deleteFile($args, &$request) {
-		$submissionFile =& $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
-		$submission =& $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-		$stageId =& $request->getUserVar('stageId');
+	function deleteFile($args, $request) {
+		$submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
+		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+		$stageId = $request->getUserVar('stageId');
 		if ($stageId) {
 			// validate the stage id.
 			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-			$user =& $request->getUser();
-			$stageAssignments =& $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), $stageId, null, $user->getId());
+			$user = $request->getUser();
+			$stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), $stageId, null, $user->getId());
 		}
 
 		assert($submissionFile && $submission); // Should have been validated already
 
 		$noteDao = DAORegistry::getDAO('NoteDAO');
-		$notes =& $noteDao->getByAssoc(ASSOC_TYPE_SUBMISSION_FILE, $submissionFile->getFileId());
-		while ($note =& $notes->next()) {
+		$notes = $noteDao->getByAssoc(ASSOC_TYPE_SUBMISSION_FILE, $submissionFile->getFileId());
+		while ($note = $notes->next()) {
 			$noteDao->deleteById($note->getId());
-			unset($note);
 		}
 
 		// Delete all signoffs related with this file.
 		$signoffDao = DAORegistry::getDAO('SignoffDAO'); /* @var $signoffDao SignoffDAO */
-		$signoffFactory =& $signoffDao->getAllByAssocType(ASSOC_TYPE_SUBMISSION_FILE, $submissionFile->getFileId());
+		$signoffFactory = $signoffDao->getAllByAssocType(ASSOC_TYPE_SUBMISSION_FILE, $submissionFile->getFileId());
 		$signoffs = $signoffFactory->toArray();
 		$notificationMgr = new NotificationManager();
 
@@ -116,7 +115,7 @@ class PKPManageFileApiHandler extends Handler {
 				);
 
 				$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-				$lastReviewRound =& $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
+				$lastReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
 				$notificationMgr->updateNotification(
 					$request,
 					array(NOTIFICATION_TYPE_ALL_REVISIONS_IN),
@@ -131,16 +130,16 @@ class PKPManageFileApiHandler extends Handler {
 			$fileManager->deleteFile($submissionFile->getFileId(), $submissionFile->getRevision());
 
 			$this->setupTemplate($request);
-			$user =& $request->getUser();
+			$user = $request->getUser();
 			NotificationManager::createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.removedFile')));
 
 			$this->logDeletionEvent($request, $submission, $submissionFile, $user);
 
 			return DAO::getDataChangedEvent();
-			} else {
-				$json = new JSONMessage(false);
-				return $json->getString();
-			}
+		} else {
+			$json = new JSONMessage(false);
+			return $json->getString();
+		}
 	}
 
 	/**

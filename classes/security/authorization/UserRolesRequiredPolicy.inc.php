@@ -23,9 +23,9 @@ class UserRolesRequiredPolicy extends AuthorizationPolicy {
 	 *
 	 * @param $request PKPRequest
 	 */
-	function UserRolesRequiredPolicy(&$request) {
+	function UserRolesRequiredPolicy($request) {
 		parent::AuthorizationPolicy();
-		$this->_request =& $request;
+		$this->_request = $request;
 	}
 
 
@@ -36,8 +36,8 @@ class UserRolesRequiredPolicy extends AuthorizationPolicy {
 	 * @see AuthorizationPolicy::effect()
 	 */
 	function effect() {
-		$request =& $this->_request;
-		$user =& $request->getUser();
+		$request = $this->_request;
+		$user = $request->getUser();
 
 		if (!is_a($user, 'User')) {
 			return AUTHORIZATION_DENY;
@@ -48,9 +48,9 @@ class UserRolesRequiredPolicy extends AuthorizationPolicy {
 		$userRoles = $roleDao->getByUserIdGroupedByContext($user->getId());
 
 		// Prepare an array with the context ids of the request.
-		$application =& PKPApplication::getApplication();
+		$application = PKPApplication::getApplication();
 		$contextDepth = $application->getContextDepth();
-		$router =& $request->getRouter();
+		$router = $request->getRouter();
 		$roleContext = array();
 		for ($contextLevel = 1; $contextLevel <= $contextDepth; $contextLevel++) {
 			$context = $router->getContext($request, $contextLevel);

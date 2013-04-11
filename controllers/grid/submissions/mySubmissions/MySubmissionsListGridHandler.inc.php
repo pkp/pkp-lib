@@ -37,7 +37,7 @@ class MySubmissionsListGridHandler extends SubmissionsListGridHandler {
 	/**
 	 * @see PKPHandler::initialize()
 	 */
-	function initialize(&$request) {
+	function initialize($request) {
 		parent::initialize($request);
 
 		$titleColumn = $this->getColumn('title');

@@ -30,7 +30,7 @@ class UserGridRow extends GridRow {
 	/**
 	 * @see GridRow::initialize()
 	 */
-	function initialize(&$request) {
+	function initialize($request) {
 		parent::initialize($request);
 
 		// Is this a new row or an existing row?
@@ -41,7 +41,7 @@ class UserGridRow extends GridRow {
 
 		if (!empty($rowId) && is_numeric($rowId)) {
 			// Only add row actions if this is an existing row
-			$router =& $request->getRouter();
+			$router = $request->getRouter();
 			$actionArgs = array(
 				'gridId' => $this->getGridId(),
 				'rowId' => $rowId

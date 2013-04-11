@@ -37,7 +37,7 @@ class SystemInfoGridHandler extends CategoryGridHandler {
 	/**
 	 * @see PKPHandler::authorize()
 	 */
-	function authorize(&$request, &$args, $roleAssignments) {
+	function authorize($request, &$args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.PolicySet');
 		$rolePolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
 
@@ -53,7 +53,7 @@ class SystemInfoGridHandler extends CategoryGridHandler {
 	/**
 	 * @see PKPHandler::initialize()
 	 */
-	function initialize(&$request) {
+	function initialize($request) {
 		parent::initialize($request);
 
 		// Load user-related translations.
@@ -122,7 +122,7 @@ class SystemInfoGridHandler extends CategoryGridHandler {
 	/**
 	 * @see GridHandler::loadData
 	 */
-	function loadData(&$request, $filter) {
+	function loadData($request, $filter) {
 		return array_keys($this->_configData);
 	}
 }

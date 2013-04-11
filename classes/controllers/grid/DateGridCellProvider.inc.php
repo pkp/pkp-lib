@@ -42,7 +42,7 @@ class DateGridCellProvider extends GridCellProvider {
 	 * @param $column GridColumn
 	 * @return array
 	 */
-	function getTemplateVarsFromRowColumn(&$row, $column) {
+	function getTemplateVarsFromRowColumn($row, $column) {
 		$v = $this->_dataProvider->getTemplateVarsFromRowColumn($row, $column);
 		$v['label'] = strftime($this->_format, strtotime($v['label']));
 		return $v;

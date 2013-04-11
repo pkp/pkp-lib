@@ -36,9 +36,9 @@ class UserRoleForm extends UserForm {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function display($args, &$request) {
+	function display($args, $request) {
 		$helpTopicId = 'context.users.createNewUser';
-		$templateMgr =& TemplateManager::getManager($request);
+		$templateMgr = TemplateManager::getManager($request);
 
 		$templateMgr->assign('userId', $this->userId);
 		$templateMgr->assign('userFullName', $this->_userFullName);
@@ -52,7 +52,7 @@ class UserRoleForm extends UserForm {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function &execute($args, &$request) {
+	function &execute($args, $request) {
 		parent::execute($request);
 
 		// Role management handled by parent form, just return user.

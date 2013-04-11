@@ -41,7 +41,7 @@ abstract class Nlm30CitationSchemaCitationOutputFormatFilterTest extends PKPTest
 	 * @see PKPTestCase::setUp()
 	 */
 	protected function setUp() {
-		$application =& PKPApplication::getApplication();
+		$application = PKPApplication::getApplication();
 		$_SERVER['REQUEST_METHOD'] = 'GET';
 		$request =& $application->getRequest();
 		if (is_null($request->getRouter())) {

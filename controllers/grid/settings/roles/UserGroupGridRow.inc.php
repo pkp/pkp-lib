@@ -29,7 +29,7 @@ class UserGroupGridRow extends GridRow {
 	/**
 	 * @see GridRow::initialize()
 	 */
-	function initialize(&$request) {
+	function initialize($request) {
 		parent::initialize($request);
 
 		$rowData =& $this->getData(); // a UserGroup object
@@ -40,7 +40,7 @@ class UserGroupGridRow extends GridRow {
 		// Only add row actions if this is an existing row.
 		if (!empty($rowId) && is_numeric($rowId)) {
 			$actionArgs = array('userGroupId' => $rowData->getId());
-			$router =& $request->getRouter();
+			$router = $request->getRouter();
 
 			$ajaxModal = new AjaxModal($router->url($request, null, null, 'editUserGroup', null, $actionArgs), __('grid.action.edit'), 'modal_edit');
 			$editUserGroupLinkAction = new LinkAction(

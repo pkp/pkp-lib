@@ -19,7 +19,7 @@ class PkpContextAccessPolicy extends ContextPolicy {
 	 * @param $request PKPRequest
 	 * @param $roleAssignments array
 	 */
-	function PkpContextAccessPolicy(&$request, $roleAssignments) {
+	function PkpContextAccessPolicy($request, $roleAssignments) {
 		parent::ContextPolicy($request);
 
 		// On context level we don't have role-specific conditions

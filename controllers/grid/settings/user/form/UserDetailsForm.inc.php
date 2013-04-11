@@ -34,7 +34,7 @@ class UserDetailsForm extends UserForm {
 			$this->author = null;
 		}
 
-		$site =& $request->getSite();
+		$site = $request->getSite();
 
 		// Validation checks for this form
 		if ($userId == null) {
@@ -45,11 +45,11 @@ class UserDetailsForm extends UserForm {
 			if (!Config::getVar('security', 'implicit_auth')) {
 				$this->addCheck(new FormValidator($this, 'password', 'required', 'user.profile.form.passwordRequired'));
 				$this->addCheck(new FormValidatorLength($this, 'password', 'required', 'user.register.form.passwordLengthTooShort', '>=', $site->getMinPasswordLength()));
-				$this->addCheck(new FormValidatorCustom($this, 'password', 'required', 'user.register.form.passwordsDoNotMatch', create_function('$password,$form', 'return $password == $form->getData(\'password2\');'), array(&$this)));
+				$this->addCheck(new FormValidatorCustom($this, 'password', 'required', 'user.register.form.passwordsDoNotMatch', create_function('$password,$form', 'return $password == $form->getData(\'password2\');'), array($this)));
 			}
 		} else {
 			$this->addCheck(new FormValidatorLength($this, 'password', 'optional', 'user.register.form.passwordLengthTooShort', '>=', $site->getMinPasswordLength()));
-			$this->addCheck(new FormValidatorCustom($this, 'password', 'optional', 'user.register.form.passwordsDoNotMatch', create_function('$password,$form', 'return $password == $form->getData(\'password2\');'), array(&$this)));
+			$this->addCheck(new FormValidatorCustom($this, 'password', 'optional', 'user.register.form.passwordsDoNotMatch', create_function('$password,$form', 'return $password == $form->getData(\'password2\');'), array($this)));
 		}
 		$this->addCheck(new FormValidator($this, 'firstName', 'required', 'user.profile.form.firstNameRequired'));
 		$this->addCheck(new FormValidator($this, 'lastName', 'required', 'user.profile.form.lastNameRequired'));
@@ -64,7 +64,7 @@ class UserDetailsForm extends UserForm {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function initData($args, &$request) {
+	function initData($args, $request) {
 
 		$data = array();
 
@@ -121,9 +121,9 @@ class UserDetailsForm extends UserForm {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function display($args, &$request) {
-		$site =& $request->getSite();
-		$templateMgr =& TemplateManager::getManager($request);
+	function display($args, $request) {
+		$site = $request->getSite();
+		$templateMgr = TemplateManager::getManager($request);
 		$userDao = DAORegistry::getDAO('UserDAO');
 
 		$templateMgr->assign('genderOptions', $userDao->getGenderOptions());
@@ -231,15 +231,15 @@ class UserDetailsForm extends UserForm {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function &execute($args, &$request) {
+	function &execute($args, $request) {
 		parent::execute($request);
 
 		$userDao = DAORegistry::getDAO('UserDAO');
-		$context =& $request->getContext();
+		$context = $request->getContext();
 
 		if (isset($this->userId)) {
 			$userId = $this->userId;
-			$user =& $userDao->getById($userId);
+			$user = $userDao->getById($userId);
 		}
 
 		if (!isset($user)) {
@@ -265,7 +265,7 @@ class UserDetailsForm extends UserForm {
 		$user->setMustChangePassword($this->getData('mustChangePassword') ? 1 : 0);
 		$user->setAuthId((int) $this->getData('authId'));
 
-		$site =& $request->getSite();
+		$site = $request->getSite();
 		$availableLocales = $site->getSupportedLocales();
 
 		$locales = array();

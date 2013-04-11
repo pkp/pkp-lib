@@ -21,7 +21,7 @@ class SubmissionRequiredPolicy extends DataObjectRequiredPolicy {
 	 * @param $submissionParameterName string the request parameter we expect
 	 *  the submission id in.
 	 */
-	function SubmissionRequiredPolicy(&$request, &$args, $submissionParameterName = 'submissionId', $operations = null) {
+	function SubmissionRequiredPolicy($request, &$args, $submissionParameterName = 'submissionId', $operations = null) {
 		parent::DataObjectRequiredPolicy($request, $args, $submissionParameterName, 'user.authorization.invalidSubmission', $operations);
 	}
 
@@ -38,11 +38,11 @@ class SubmissionRequiredPolicy extends DataObjectRequiredPolicy {
 
 		// Validate the submission id.
 		$submissionDao = Application::getSubmissionDAO();
-		$submission =& $submissionDao->getById($submissionId);
+		$submission = $submissionDao->getById($submissionId);
 		if (!is_a($submission, 'Submission')) return AUTHORIZATION_DENY;
 
 		// Validate that this submission belongs to the current context.
-		$context =& $this->_request->getContext();
+		$context = $this->_request->getContext();
 		if ($context->getId() !== $submission->getContextId()) return AUTHORIZATION_DENY;
 
 		// Save the submission to the authorization context.

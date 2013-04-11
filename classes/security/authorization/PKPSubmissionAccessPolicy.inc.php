@@ -28,7 +28,7 @@ class PKPSubmissionAccessPolicy extends ContextPolicy {
 	 * @param $submissionParameterName string the request parameter we
 	 *  expect the submission id in.
 	 */
-	function PKPSubmissionAccessPolicy(&$request, $args, $roleAssignments, $submissionParameterName = 'submissionId') {
+	function PKPSubmissionAccessPolicy($request, $args, $roleAssignments, $submissionParameterName = 'submissionId') {
 		parent::ContextPolicy($request);
 		$this->_baseSubmissionAccessPolicy = $this->buildSubmissionAccessPolicy($request, $args, $roleAssignments, $submissionParameterName);
 	}

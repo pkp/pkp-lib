@@ -49,8 +49,8 @@ class CommandLineTool {
 
 	function CommandLineTool($argv = array()) {
 		// Initialize the request object with a page router
-		$application =& PKPApplication::getApplication();
-		$request =& $application->getRequest();
+		$application = PKPApplication::getApplication();
+		$request = $application->getRequest();
 
 		// FIXME: Write and use a CLIRouter here (see classdoc)
 		import('classes.core.PageRouter');

@@ -70,7 +70,7 @@ class PKPMailTemplate extends Mail {
 			$enableAttachments = Config::getVar('email', 'enable_attachments')?true:false;
 		}
 
-		$user =& Request::getUser();
+		$user = Request::getUser();
 		if ($enableAttachments && $user) {
 			$this->_handleAttachments($user->getId());
 		} else {
@@ -183,7 +183,7 @@ class PKPMailTemplate extends Mail {
 
 		$form->setData('addressFieldsEnabled', $this->getAddressFieldsEnabled());
 
-		$user =& Request::getUser();
+		$user = Request::getUser();
 		if ($user) {
 			$form->setData('senderEmail', $user->getEmail());
 			$form->setData('bccSender', $this->bccSender);
@@ -224,7 +224,7 @@ class PKPMailTemplate extends Mail {
 			}
 		}
 
-		$user =& Request::getUser();
+		$user = Request::getUser();
 
 		if ($user && $this->bccSender) {
 			$this->addBcc($user->getEmail(), $user->getFullName());
@@ -315,7 +315,7 @@ class PKPMailTemplate extends Mail {
 		}
 
 		if (Request::getUserVar('addAttachment') && $temporaryFileManager->uploadedFileExists('newAttachment')) {
-			$user =& Request::getUser();
+			$user = Request::getUser();
 
 			$this->persistAttachments[] = $temporaryFileManager->handleUpload('newAttachment', $user->getId());
 		}

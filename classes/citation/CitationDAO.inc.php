@@ -104,7 +104,7 @@ class CitationDAO extends DAO {
 	 * @param $rawCitationList string
 	 * @return integer the number of spawned citation checking processes
 	 */
-	function importCitations(&$request, $assocType, $assocId, $rawCitationList) {
+	function importCitations($request, $assocType, $assocId, $rawCitationList) {
 		assert(is_numeric($assocType) && is_numeric($assocId));
 		$assocType = (int) $assocType;
 		$assocId = (int) $assocId;
@@ -156,7 +156,7 @@ class CitationDAO extends DAO {
 	 *  was not successful then the original citation
 	 *  will be returned unchanged.
 	 */
-	function &checkCitation(&$request, &$originalCitation, $filterIds = array()) {
+	function &checkCitation($request, &$originalCitation, $filterIds = array()) {
 		assert(is_a($originalCitation, 'Citation'));
 
 		// Only parse the citation if it has not been parsed before.
@@ -164,14 +164,14 @@ class CitationDAO extends DAO {
 		$filteredCitation =& $originalCitation;
 		if ($filteredCitation->getCitationState() < CITATION_PARSED) {
 			// Parse the requested citation
-			$filterCallback = array(&$this, '_instantiateParserFilters');
+			$filterCallback = array($this, '_instantiateParserFilters');
 			$filteredCitation =& $this->_filterCitation($request, $filteredCitation, $filterCallback, CITATION_PARSED, $filterIds);
 		}
 
 		// Always re-lookup the citation even if it's been looked-up
 		// before. The user asked us to re-check so there's probably
 		// additional manual information in the citation fields.
-		$filterCallback = array(&$this, '_instantiateLookupFilters');
+		$filterCallback = array($this, '_instantiateLookupFilters');
 		$filteredCitation =& $this->_filterCitation($request, $filteredCitation, $filterCallback, CITATION_LOOKED_UP, $filterIds);
 
 		// Return the filtered citation.
@@ -189,7 +189,7 @@ class CitationDAO extends DAO {
 	 * @return boolean true if a citation was found and checked, otherwise
 	 *  false.
 	 */
-	function checkNextRawCitation(&$request, $lockId) {
+	function checkNextRawCitation($request, $lockId) {
 		// NB: We implement an atomic locking strategy to make
 		// sure that no two parallel background processes can claim the
 		// same citation.
@@ -580,10 +580,10 @@ class CitationDAO extends DAO {
 	 * @param $fromFilterIds only use filters with the given ids
 	 * @return Citation the filtered citation or null if an error occurred
 	 */
-	function &_filterCitation(&$request, &$citation, &$filterCallback, $citationStateAfterFiltering, $fromFilterIds = array()) {
+	function &_filterCitation($request, &$citation, &$filterCallback, $citationStateAfterFiltering, $fromFilterIds = array()) {
 		// Get the context.
-		$router =& $request->getRouter();
-		$context =& $router->getContext($request);
+		$router = $request->getRouter();
+		$context = $router->getContext($request);
 		assert(is_object($context));
 
 		// Make sure that the citation implements only one

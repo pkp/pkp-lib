@@ -83,7 +83,7 @@ class PKPComponentRouter extends PKPRouter {
 	 * @param $request PKPRequest
 	 * @return boolean true, if the router supports this request, otherwise false
 	 */
-	function supports(&$request) {
+	function supports($request) {
 		// See whether we can resolve the request to
 		// a valid service endpoint.
 		return is_callable($this->getRpcServiceEndpoint($request));
@@ -99,7 +99,7 @@ class PKPComponentRouter extends PKPRouter {
 	 * @return string the requested component or an empty string
 	 *  if none can be found.
 	 */
-	function getRequestedComponent(&$request) {
+	function getRequestedComponent($request) {
 		if (is_null($this->_component)) {
 			$this->_component = '';
 
@@ -138,7 +138,7 @@ class PKPComponentRouter extends PKPRouter {
 	 * @return string the requested operation or an empty string
 	 *  if none can be found.
 	 */
-	function getRequestedOp(&$request) {
+	function getRequestedOp($request) {
 		if (is_null($this->_op)) {
 			$this->_op = '';
 
@@ -163,7 +163,7 @@ class PKPComponentRouter extends PKPRouter {
 	 * @return callable an array with the handler instance
 	 *  and the handler operation to be called by call_user_func().
 	 */
-	function &getRpcServiceEndpoint(&$request) {
+	function &getRpcServiceEndpoint($request) {
 		if ($this->_rpcServiceEndpoint === false) {
 			// We have not yet resolved this request. Mark the
 			// state variable so that we don't try again next
@@ -230,7 +230,7 @@ class PKPComponentRouter extends PKPRouter {
 	/**
 	 * @see PKPRouter::route()
 	 */
-	function route(&$request) {
+	function route($request) {
 		// Determine the requested service endpoint.
 		$rpcServiceEndpoint =& $this->getRpcServiceEndpoint($request);
 
@@ -248,7 +248,7 @@ class PKPComponentRouter extends PKPRouter {
 	/**
 	 * @see PKPRouter::url()
 	 */
-	function url(&$request, $newContext = null, $component = null, $op = null, $path = null,
+	function url($request, $newContext = null, $component = null, $op = null, $path = null,
 			$params = null, $anchor = null, $escape = false) {
 		assert(is_null($path));
 		$pathInfoEnabled = $request->isPathInfoEnabled();
@@ -369,7 +369,7 @@ class PKPComponentRouter extends PKPRouter {
 	 * @return array a string array with the RPC service endpoint
 	 *  parts as values.
 	 */
-	function _getValidatedServiceEndpointParts(&$request) {
+	function _getValidatedServiceEndpointParts($request) {
 		if ($this->_rpcServiceEndpointParts === false) {
 			// Mark the internal state variable so this
 			// will not be called again.
@@ -402,7 +402,7 @@ class PKPComponentRouter extends PKPRouter {
 	 * @return array an array of (non-validated) service endpoint
 	 *  parts or null if the request is not an RPC request.
 	 */
-	function _retrieveServiceEndpointParts(&$request) {
+	function _retrieveServiceEndpointParts($request) {
 		// URL pattern depends on whether the server has path info
 		// enabled or not. See classdoc for details.
 		if ($request->isPathInfoEnabled()) {

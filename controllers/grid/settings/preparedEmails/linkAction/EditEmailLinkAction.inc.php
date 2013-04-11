@@ -20,13 +20,13 @@ class EditEmailLinkAction extends LinkAction {
 	 * @param $request Request
 	 * @param $emailKey string
 	 */
-	function EditEmailLinkAction(&$request, $emailKey = null) {
+	function EditEmailLinkAction($request, $emailKey = null) {
 		// Create the action arguments array.
 		$actionArgs = array();
 		if($emailKey) $actionArgs['emailKey'] = $emailKey;
 
 		// Instantiate the file upload modal.
-		$router =& $request->getRouter();
+		$router = $request->getRouter();
 		$dispatcher =& $router->getDispatcher();
 		import('lib.pkp.classes.linkAction.request.AjaxModal');
 

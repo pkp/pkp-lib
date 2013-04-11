@@ -125,10 +125,10 @@ class CategoryGridHandler extends GridHandler {
 	 * @return string the serialized row JSON message or a flag
 	 *  that indicates that the row has not been found.
 	 */
-	function fetchCategory(&$args, &$request) {
+	function fetchCategory(&$args, $request) {
 		// Instantiate the requested row (includes a
 		// validity check on the row id).
-		$row =& $this->getRequestedCategoryRow($request, $args);
+		$row = $this->getRequestedCategoryRow($request, $args);
 
 		$json = new JSONMessage(true);
 		if (is_null($row)) {
@@ -148,7 +148,7 @@ class CategoryGridHandler extends GridHandler {
 	//
 	// Extended methods from GridHandler
 	//
-	function initialize(&$request) {
+	function initialize($request) {
 		parent::initialize($request);
 
 		if (!is_null($request->getUserVar('rowCategoryId'))) {
@@ -185,8 +185,8 @@ class CategoryGridHandler extends GridHandler {
 	/**
 	 * @see GridHandler::setUrls()
 	 */
-	function setUrls(&$request) {
-		$router =& $request->getRouter();
+	function setUrls($request) {
+		$router = $request->getRouter();
 		$url = array('fetchCategoryUrl' => $router->url($request, null, null, 'fetchCategory', null, $this->getRequestArgs()));
 		parent::setUrls($request, $url);
 	}
@@ -253,7 +253,7 @@ class CategoryGridHandler extends GridHandler {
 	protected function renderRowInternally($request, $row) {
 		if ($this->getCategoryRowIdParameterName()) {
 			$param = $this->getRequestArg($this->getCategoryRowIdParameterName());
-			$templateMgr =& TemplateManager::getManager($request);
+			$templateMgr = TemplateManager::getManager($request);
 			$templateMgr->assign('categoryId', $param);
 		}
 
@@ -346,7 +346,7 @@ class CategoryGridHandler extends GridHandler {
 	 * @param $isModified boolean optional
 	 * @return GridRow
 	 */
-	private function &_getInitializedCategoryRowInstance(&$request, $elementId, &$element) {
+	private function &_getInitializedCategoryRowInstance($request, $elementId, $element) {
 		// Instantiate a new row
 		$row = $this->getCategoryRowInstance();
 		$row->setGridId($this->getId());
@@ -357,10 +357,10 @@ class CategoryGridHandler extends GridHandler {
 		// Initialize the row before we render it
 		$row->initialize($request);
 		$this->callFeaturesHook('getInitializedCategoryRowInstance',
-			array('request' => &$request,
-				'grid' => &$this,
+			array('request' => $request,
+				'grid' => $this,
 				'categoryId' => $this->_currentCategoryId,
-				'row' => &$row));
+				'row' => $row));
 		return $row;
 	}
 
@@ -368,7 +368,7 @@ class CategoryGridHandler extends GridHandler {
 	 * Render all the categories internally
 	 * @param $request PKPRequest
 	 */
-	private function _renderCategoriesInternally(&$request) {
+	private function _renderCategoriesInternally($request) {
 		// Iterate through the rows and render them according
 		// to the row definition.
 		$renderedCategories = array();
@@ -392,33 +392,33 @@ class CategoryGridHandler extends GridHandler {
 	 * @param $categoryRow GridCategoryRow
 	 * @return String HTML for all the rows (including category)
 	 */
-	private function _renderCategoryInternally(&$request, &$categoryRow) {
+	private function _renderCategoryInternally($request, $categoryRow) {
 		// Prepare the template to render the category.
-		$templateMgr =& TemplateManager::getManager($request);
-		$templateMgr->assign_by_ref('grid', $this);
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign('grid', $this);
 		$columns = $this->getColumns();
-		$templateMgr->assign_by_ref('columns', $columns);
+		$templateMgr->assign('columns', $columns);
 
-		$categoryDataElement =& $categoryRow->getData();
+		$categoryDataElement = $categoryRow->getData();
 		$filter = $this->getFilterSelectionData($request);
 		$rowData = $this->getCategoryData($categoryDataElement, $filter);
 
 		// Render the data rows
-		$templateMgr->assign_by_ref('categoryRow', $categoryRow);
+		$templateMgr->assign('categoryRow', $categoryRow);
 
 		// Let grid (and also rows) knowing the current category id.
 		// This value will be published by the getRequestArgs method.
 		$this->_currentCategoryId = $categoryRow->getId();
 
 		$renderedRows = $this->renderRowsInternally($request, $rowData);
-		$templateMgr->assign_by_ref('rows', $renderedRows);
+		$templateMgr->assign('rows', $renderedRows);
 
 		$renderedCategoryRow = $this->renderRowInternally($request, $categoryRow);
 
 		// Finished working with this category, erase the current id value.
 		$this->_currentCategoryId = null;
 
-		$templateMgr->assign_by_ref('renderedCategoryRow', $renderedCategoryRow);
+		$templateMgr->assign('renderedCategoryRow', $renderedCategoryRow);
 		return $templateMgr->fetch('controllers/grid/gridBodyPartWithCategory.tpl');
 	}
 }

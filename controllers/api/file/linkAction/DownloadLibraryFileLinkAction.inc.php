@@ -21,9 +21,9 @@ class DownloadLibraryFileLinkAction extends LinkAction {
 	 * @param $libraryFile LibraryFile the library file to
 	 *  link to.
 	 */
-	function DownloadLibraryFileLinkAction(&$request, &$libraryFile) {
+	function DownloadLibraryFileLinkAction($request, $libraryFile) {
 		// Instantiate the redirect action request.
-		$router =& $request->getRouter();
+		$router = $request->getRouter();
 		import('lib.pkp.classes.linkAction.request.PostAndRedirectAction');
 		$redirectRequest = new PostAndRedirectAction(
 			$router->url(

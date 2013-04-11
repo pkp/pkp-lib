@@ -29,7 +29,7 @@ class ContributorGridRow extends GridRow {
 	 * Configure the grid row
 	 * @param $request PKPRequest
 	 */
-	function initialize(&$request) {
+	function initialize($request) {
 		parent::initialize($request);
 		// add Grid Row Actions
 

@@ -28,7 +28,7 @@ class HandlerOperationPolicy extends AuthorizationPolicy {
 	 *  this policy is targeting.
 	 * @param $message string a message to be displayed if the authorization fails
 	 */
-	function HandlerOperationPolicy(&$request, $operations, $message = null) {
+	function HandlerOperationPolicy($request, $operations, $message = null) {
 		parent::AuthorizationPolicy($message);
 		$this->_request =& $request;
 
@@ -72,7 +72,7 @@ class HandlerOperationPolicy extends AuthorizationPolicy {
 	 */
 	function _checkOperationWhitelist() {
 		// Only permit if the requested operation has been whitelisted.
-		$router =& $this->_request->getRouter();
+		$router = $this->_request->getRouter();
 		$requestedOperation = $router->getRequestedOp($this->_request);
 		assert(!empty($requestedOperation));
 		return in_array($requestedOperation, $this->_operations);

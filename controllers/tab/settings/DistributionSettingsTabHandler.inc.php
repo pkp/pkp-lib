@@ -38,7 +38,7 @@ class DistributionSettingsTabHandler extends ManagerSettingsTabHandler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function getPaymentMethods($args, &$request) {
+	function getPaymentMethods($args, $request) {
 		// Expose names of payment plugins to template.
 		$pluginNames = array(__('manager.paymentMethod.none'));
 		$pluginNames += array_map(
@@ -54,7 +54,7 @@ class DistributionSettingsTabHandler extends ManagerSettingsTabHandler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function getPaymentFormContents($args, &$request) {
+	function getPaymentFormContents($args, $request) {
 		$paymentPluginName = $request->getUserVar('paymentPluginName');
 		$plugins =& PluginRegistry::loadCategory('paymethod');
 		if (!isset($plugins[$paymentPluginName])) {
@@ -64,10 +64,10 @@ class DistributionSettingsTabHandler extends ManagerSettingsTabHandler {
 			// Fetch and return the JSON-encoded form contents
 			$plugin =& $plugins[$paymentPluginName];
 			$params = array(); // Blank -- OJS compatibility. Need to supply by reference.
-			$templateMgr =& TemplateManager::getManager($request);
+			$templateMgr = TemplateManager::getManager($request);
 
 			// Expose current settings to the template
-			$context =& $request->getContext();
+			$context = $request->getContext();
 			foreach ($plugin->getSettingsFormFieldNames() as $fieldName) {
 				$templateMgr->assign($fieldName, $plugin->getSetting($context->getId(), $fieldName));
 			}

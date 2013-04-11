@@ -26,10 +26,10 @@ class RestrictedSiteAccessPolicy extends AuthorizationPolicy {
 	 *
 	 * @param $request PKPRequest
 	 */
-	function RestrictedSiteAccessPolicy(&$request) {
+	function RestrictedSiteAccessPolicy($request) {
 		parent::AuthorizationPolicy('user.authorization.restrictedSiteAccess');
-		$this->_request =& $request;
-		$this->_router =& $request->getRouter();
+		$this->_request = $request;
+		$this->_router = $request->getRouter();
 	}
 
 	//
@@ -39,7 +39,7 @@ class RestrictedSiteAccessPolicy extends AuthorizationPolicy {
 	 * @see AuthorizationPolicy::applies()
 	 */
 	function applies() {
-		$context =& $this->_router->getContext($this->_request);
+		$context = $this->_router->getContext($this->_request);
 		return ( $context && $context->getSetting('restrictSiteAccess'));
 	}
 

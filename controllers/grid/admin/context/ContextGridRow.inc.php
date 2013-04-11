@@ -30,7 +30,7 @@ class ContextGridRow extends GridRow {
 	/**
 	 * @see GridRow::initialize()
 	 */
-	function initialize(&$request) {
+	function initialize($request) {
 		parent::initialize($request);
 
 		// Is this a new row or an existing row?

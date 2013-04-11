@@ -25,7 +25,7 @@ class FileNotesLinkAction extends FileLinkAction {
 	 * @param $removeHistoryTab boolean (optional) Open the information center
 	 * without the history tab.
 	 */
-	function FileNotesLinkAction(&$request, &$submissionFile, $user, $stageId = null, $removeHistoryTab = false) {
+	function FileNotesLinkAction($request, $submissionFile, $user, $stageId = null, $removeHistoryTab = false) {
 		// Instantiate the information center modal.
 		$ajaxModal = $this->getModal($request, $submissionFile, $stageId, $removeHistoryTab);
 
@@ -65,7 +65,7 @@ class FileNotesLinkAction extends FileLinkAction {
 	 */
 	function getModal($request, $submissionFile, $stageId, $removeHistoryTab) {
 		import('lib.pkp.classes.linkAction.request.AjaxModal');
-		$router =& $request->getRouter();
+		$router = $request->getRouter();
 
 		$title = (isset($submissionFile)) ? implode(': ', array(__('informationCenter.info'), $submissionFile->getLocalizedName())) : __('informationCenter.info');
 

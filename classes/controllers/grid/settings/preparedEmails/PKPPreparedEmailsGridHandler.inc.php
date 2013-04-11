@@ -40,7 +40,7 @@ class PKPPreparedEmailsGridHandler extends GridHandler {
 	 * @param $args array
 	 * @param $roleAssignments array
 	 */
-	function authorize(&$request, $args, $roleAssignments) {
+	function authorize($request, $args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.PkpContextAccessPolicy');
 		$this->addPolicy(new PkpContextAccessPolicy($request, $roleAssignments));
 		return parent::authorize($request, $args, $roleAssignments);
@@ -49,7 +49,7 @@ class PKPPreparedEmailsGridHandler extends GridHandler {
 	/**
 	 * @see GridHandler::initialize()
 	 */
-	function initialize(&$request, $args = null) {
+	function initialize($request, $args = null) {
 		parent::initialize($request, $args);
 		// Basic grid configuration
 		$this->setId('preparedEmailsGrid');
@@ -137,7 +137,7 @@ class PKPPreparedEmailsGridHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 * @return string Serialized JSON object
 	 */
-	function addPreparedEmail($args, &$request) {
+	function addPreparedEmail($args, $request) {
 		return $this->editPreparedEmail($args, $request);
 	}
 
@@ -148,7 +148,7 @@ class PKPPreparedEmailsGridHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 * @return string Serialized JSON object
 	 */
-	function editPreparedEmail($args, &$request) {
+	function editPreparedEmail($args, $request) {
 		assert(false); // Should be implemented by subclasses
 	}
 
@@ -158,7 +158,7 @@ class PKPPreparedEmailsGridHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 * @return string Serialized JSON object
 	 */
-	function updatePreparedEmail($args, &$request) {
+	function updatePreparedEmail($args, $request) {
 		assert(false); // Should be implemented by subclasses
 	}
 
@@ -168,7 +168,7 @@ class PKPPreparedEmailsGridHandler extends GridHandler {
 	 * @param $request Request
 	 * @return string a serialized JSON object
 	 */
-	function resetEmail($args, &$request) {
+	function resetEmail($args, $request) {
 		assert(false); // Should be implemented by subclasses
 	}
 
@@ -177,7 +177,7 @@ class PKPPreparedEmailsGridHandler extends GridHandler {
 	 * @param $args array
 	 * @param $request Request
 	 */
-	function resetAllEmails($args, &$request) {
+	function resetAllEmails($args, $request) {
 		assert(false); // Should be implemented by subclasses
 	}
 
@@ -186,7 +186,7 @@ class PKPPreparedEmailsGridHandler extends GridHandler {
 	 * @param $args array
 	 * @param $request Request
 	 */
-	function disableEmail($args, &$request) {
+	function disableEmail($args, $request) {
 		assert(false); // Should be implemented by subclasses
 	}
 
@@ -196,7 +196,7 @@ class PKPPreparedEmailsGridHandler extends GridHandler {
 	 * @param $args array
 	 * @param $request Request
 	 */
-	function enableEmail($args, &$request) {
+	function enableEmail($args, $request) {
 		assert(false); // Should be implemented by subclasses
 	}
 
@@ -205,7 +205,7 @@ class PKPPreparedEmailsGridHandler extends GridHandler {
 	 * @param $args array
 	 * @param $request Request
 	 */
-	function deleteCustomEmail($args, &$request) {
+	function deleteCustomEmail($args, $request) {
 		assert(false); // Should be implemented by subclasses
 	}
 }

@@ -85,29 +85,29 @@ class TemplateBasedReferencesListFilter extends TemplateBasedFilter {
 	 * @param $request Request
 	 * @param $locale AppLocale
 	 */
-	function addTemplateVars(&$templateMgr, &$submission, &$request, &$locale) {
+	function addTemplateVars($templateMgr, $submission, $request, &$locale) {
 		// Retrieve assoc type and id of the submission.
 		$assocId = $submission->getId();
 		$assocType = $submission->getAssocType();
 
 		// Retrieve approved citations for this assoc object.
 		$citationDao = DAORegistry::getDAO('CitationDAO');
-		$citationResults =& $citationDao->getObjectsByAssocId($assocType, $assocId, CITATION_APPROVED);
-		$citations =& $citationResults->toAssociativeArray('seq');
+		$citationResults = $citationDao->getObjectsByAssocId($assocType, $assocId, CITATION_APPROVED);
+		$citations = $citationResults->toAssociativeArray('seq');
 
 		// Create citation output for these citations.
-		$metadataSchema =& $this->getMetadataSchema();
+		$metadataSchema = $this->getMetadataSchema();
 		assert(is_a($metadataSchema, 'MetadataSchema'));
 		$citationOutputFilter = $this->getCitationOutputFilterInstance();
 		$citationsOutput = array();
 		foreach($citations as $seq => $citation) {
-			$citationMetadata =& $citation->extractMetadata($metadataSchema);
+			$citationMetadata = $citation->extractMetadata($metadataSchema);
 			$citationsOutput[$seq] = $citationOutputFilter->execute($citationMetadata);
 		}
 
 		// Add citation mark-up and submission to template.
-		$templateMgr->assign_by_ref('citationsOutput', $citationsOutput);
-		$templateMgr->assign_by_ref('submission', $submission);
+		$templateMgr->assign('citationsOutput', $citationsOutput);
+		$templateMgr->assign('submission', $submission);
 	}
 }
 ?>

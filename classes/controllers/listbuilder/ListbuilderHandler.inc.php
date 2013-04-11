@@ -61,7 +61,7 @@ class ListbuilderHandler extends GridHandler {
 	/**
 	 * @see GridHandler::initialize
 	 */
-	function initialize(&$request, $addItemLink = true) {
+	function initialize($request, $addItemLink = true) {
 		parent::initialize($request);
 
 		if ($addItemLink) {
@@ -159,7 +159,7 @@ class ListbuilderHandler extends GridHandler {
 	 * @param $rowId mixed ID of row to modify
 	 * @return boolean
 	 */
-	function deleteEntry(&$request, $rowId) {
+	function deleteEntry($request, $rowId) {
 		fatalError('ABSTRACT METHOD');
 	}
 
@@ -170,7 +170,7 @@ class ListbuilderHandler extends GridHandler {
 	 * @param $newRowId mixed ID of the new entry
 	 * @return boolean
 	 */
-	function updateEntry(&$request, $rowId, $newRowId) {
+	function updateEntry($request, $rowId, $newRowId) {
 		// This may well be overridden by a subclass to modify
 		// an existing entry, e.g. to maintain referential integrity.
 		// If not, we can simply delete and insert.
@@ -183,7 +183,7 @@ class ListbuilderHandler extends GridHandler {
 	 * @param $request Request object
 	 * @param $newRowId mixed ID of row to modify
 	 */
-	function insertEntry(&$request, $newRowId) {
+	function insertEntry($request, $newRowId) {
 		fatalError('ABSTRACT METHOD');
 	}
 
@@ -197,7 +197,7 @@ class ListbuilderHandler extends GridHandler {
 	 * @param request Request
 	 * @return array
 	 */
-	function getOptions(&$request) {
+	function getOptions($request) {
 		fatalError('ABSTRACT METHOD');
 	}
 
@@ -209,7 +209,7 @@ class ListbuilderHandler extends GridHandler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function fetch($args, &$request) {
+	function fetch($args, $request) {
 		return $this->fetchGrid($args, $request);
 	}
 
@@ -220,17 +220,17 @@ class ListbuilderHandler extends GridHandler {
 	 * @param $insertionCallback array callback to be used for each updated element
 	 * @param $updateCallback array callback to be used for each updated element
 	 */
-	function unpack(&$request, $data, $deletionCallback = null, $insertionCallback = null, $updateCallback = null) {
+	function unpack($request, $data, $deletionCallback = null, $insertionCallback = null, $updateCallback = null) {
 		// Set some defaults
 		// N.B. if this class is called statically, then $this is not set to Listbuilder, but to your calling class.
 		if ( !$deletionCallback ) {
-			$deletionCallback = array(&$this, 'deleteEntry');
+			$deletionCallback = array($this, 'deleteEntry');
 		}
 		if ( !$insertionCallback ) {
-			$insertionCallback = array(&$this, 'insertEntry');
+			$insertionCallback = array($this, 'insertEntry');
 		}
 		if ( !$updateCallback ) {
-			$updateCallback = array(&$this, 'updateEntry');
+			$updateCallback = array($this, 'updateEntry');
 		}
 
 		$data = json_decode($data);
@@ -285,7 +285,7 @@ class ListbuilderHandler extends GridHandler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function save($args, &$request) {
+	function save($args, $request) {
 		// The ListbuilderHandler will post a list of changed
 		// data in the "data" post var. Need to go through it
 		// and reconcile the data against this list, adding/
@@ -293,9 +293,9 @@ class ListbuilderHandler extends GridHandler {
 		$data = $request->getUserVar('data');
 		$this->unpack(
 			$request, $data,
-			array(&$this, 'deleteEntry'),
-			array(&$this, 'insertEntry'),
-			array(&$this, 'updateEntry')
+			array($this, 'deleteEntry'),
+			array($this, 'insertEntry'),
+			array($this, 'updateEntry')
 		);
 	}
 
@@ -305,7 +305,7 @@ class ListbuilderHandler extends GridHandler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function fetchOptions($args, &$request) {
+	function fetchOptions($args, $request) {
 		$options = $this->getOptions($request);
 		$json = new JSONMessage(true, $options);
 		return $json->getString();

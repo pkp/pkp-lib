@@ -34,7 +34,7 @@ class FilterGridCellProvider extends GridCellProvider {
 	 * @param $column GridColumn
 	 * @return array
 	 */
-	function getTemplateVarsFromRowColumn(&$row, $column) {
+	function getTemplateVarsFromRowColumn($row, $column) {
 		$filter =& $row->getData();
 		assert(is_a($filter, 'Filter'));
 		switch($column->getId()) {

@@ -53,7 +53,7 @@ class SiteSettingsDAO extends DAO {
 	}
 
 	function _cacheMiss(&$cache, $id) {
-		$settings =& $this->getSiteSettings();
+		$settings = $this->getSiteSettings();
 		if (!isset($settings[$id])) {
 			$cache->setCache($id, null);
 			return null;
@@ -163,7 +163,7 @@ class SiteSettingsDAO extends DAO {
 	 * @return string
 	 */
 	function _performReplacement($rawInput, $paramArray = array()) {
-		$value = preg_replace_callback('{{translate key="([^"]+)"}}', array(&$this, '_installer_regexp_callback'), $rawInput);
+		$value = preg_replace_callback('{{translate key="([^"]+)"}}', array($this, '_installer_regexp_callback'), $rawInput);
 		foreach ($paramArray as $pKey => $pValue) {
 			$value = str_replace('{$' . $pKey . '}', $pValue, $value);
 		}

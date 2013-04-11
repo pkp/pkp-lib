@@ -69,7 +69,7 @@ class ManageFooterGridHandler extends CategoryGridHandler {
 	 * @param $args array
 	 * @param $roleAssignments array
 	 */
-	function authorize(&$request, &$args, $roleAssignments) {
+	function authorize($request, &$args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.PkpContextAccessPolicy');
 		$this->addPolicy(new PkpContextAccessPolicy($request, $roleAssignments));
 		$returner = parent::authorize($request, $args, $roleAssignments);
@@ -91,7 +91,7 @@ class ManageFooterGridHandler extends CategoryGridHandler {
 	 * Configure the grid
 	 * @param $request PKPRequest
 	 */
-	function initialize(&$request) {
+	function initialize($request) {
 		parent::initialize($request);
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_MANAGER);
@@ -209,7 +209,7 @@ class ManageFooterGridHandler extends CategoryGridHandler {
 	 * @param $request PKPRequest
 	 * @return string Serialized JSON object
 	 */
-	function addFooterCategory($args, &$request) {
+	function addFooterCategory($args, $request) {
 		return $this->editFooterCategory($args, $request);
 	}
 
@@ -219,7 +219,7 @@ class ManageFooterGridHandler extends CategoryGridHandler {
 	 * @param $request PKPRequest
 	 * @return string Serialized JSON object
 	 */
-	function editFooterCategory($args, &$request) {
+	function editFooterCategory($args, $request) {
 		$footerCategoryId = $request->getUserVar('footerCategoryId');
 		$footerCategoryDao = DAORegistry::getDAO('FooterCategoryDAO');
 		$context = $request->getContext();
@@ -238,7 +238,7 @@ class ManageFooterGridHandler extends CategoryGridHandler {
 	 * @param $request PKPRequest
 	 * @return string Serialized JSON object
 	 */
-	function updateFooterCategory($args, &$request) {
+	function updateFooterCategory($args, $request) {
 		// Identify the footerLink entry to be updated
 		$footerCategoryId = $request->getUserVar('footerCategoryId');
 
@@ -288,7 +288,7 @@ class ManageFooterGridHandler extends CategoryGridHandler {
 	 * @param $request PKPRequest
 	 * @return string Serialized JSON object
 	 */
-	function deleteFooterCategory($args, &$request) {
+	function deleteFooterCategory($args, $request) {
 
 		// Identify the entry to be deleted
 		$footerCategoryId = $request->getUserVar('footerCategoryId');

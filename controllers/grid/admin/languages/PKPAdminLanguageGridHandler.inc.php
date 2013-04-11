@@ -42,7 +42,7 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 	/**
 	 * @see GridHandler::authorize()
 	 */
-	function authorize(&$request, &$args, $roleAssignments) {
+	function authorize($request, &$args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.PolicySet');
 		$rolePolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
 
@@ -58,7 +58,7 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 	/**
 	 * @see PKPHandler::initialize()
 	 */
-	function initialize(&$request) {
+	function initialize($request) {
 		parent::initialize($request);
 
 		AppLocale::requireComponents(
@@ -67,7 +67,7 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 		);
 
 		// Grid actions.
-		$router =& $request->getRouter();
+		$router = $request->getRouter();
 
 		import('lib.pkp.classes.linkAction.request.AjaxModal');
 		$this->addAction(
@@ -136,8 +136,8 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 	/**
 	 * @see GridHandler::loadData()
 	 */
-	function loadData(&$request, $filter) {
-		$site =& $request->getSite();
+	function loadData($request, $filter) {
+		$site = $request->getSite();
 		$data = array();
 
 		$allLocales = AppLocale::getAllLocales();
@@ -157,7 +157,7 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 			$data[$localeKey]['supported'] = $supported;
 
 			if ($this->_canManage($request)) {
-				$context =& $request->getContext();
+				$context = $request->getContext();
 				$primaryLocale = $context->getPrimaryLocale();
 			}
 
@@ -185,7 +185,7 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function installLocale($args, &$request) {
+	function installLocale($args, $request) {
 		// Form handling.
 		$installLanguageForm = new InstallLanguageForm();
 		$installLanguageForm->initData($request);
@@ -199,7 +199,7 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function saveInstallLocale($args, &$request) {
+	function saveInstallLocale($args, $request) {
 		$installLanguageForm = new InstallLanguageForm();
 		$installLanguageForm->readInputData($request);
 
@@ -208,7 +208,7 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 			$this->_updateContextLocaleSettings($request);
 
 			$notificationManager = new NotificationManager();
-			$user =& $request->getUser();
+			$user = $request->getUser();
 			$notificationManager->createTrivialNotification(
 				$user->getId(), NOTIFICATION_TYPE_SUCCESS,
 				array('contents' => __('notification.localeInstalled'))
@@ -222,7 +222,7 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 	 * @param $args array
 	 * @param $request object
 	 */
-	function downloadLocale($args, &$request) {
+	function downloadLocale($args, $request) {
 		$this->setupTemplate($request, true);
 		$locale = $request->getUserVar('locale');
 
@@ -234,7 +234,7 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 		}
 
 		$notificationManager = new NotificationManager();
-		$user =& $request->getUser();
+		$user = $request->getUser();
 		$json = new JSONMessage(true);
 
 		$errors = array();
@@ -264,11 +264,10 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 	 * @param $args array
 	 * @param $request Request
 	 */
-	function uninstallLocale($args, &$request) {
-		$site =& $request->getSite();
+	function uninstallLocale($args, $request) {
+		$site = $request->getSite();
 		$locale = $request->getUserVar('rowId');
 		$gridData = $this->getGridDataElements($request);
-		$site =& $request->getSite();
 
 		if (array_key_exists($locale, $gridData)) {
 			$localeData = $gridData[$locale];
@@ -288,7 +287,7 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 					AppLocale::uninstallLocale($locale);
 
 					$notificationManager = new NotificationManager();
-					$user =& $request->getUser();
+					$user = $request->getUser();
 					$notificationManager->createTrivialNotification(
 						$user->getId(), NOTIFICATION_TYPE_SUCCESS,
 						array('contents' => __('notification.localeUninstalled', array('locale' => $localeData['name'])))
@@ -306,7 +305,7 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 	 * @param $args array
 	 * @param $request Request
 	 */
-	function enableLocale($args, &$request) {
+	function enableLocale($args, $request) {
 		$rowId = $request->getUserVar('rowId');
 		$gridData = $this->getGridDataElements($request);
 
@@ -314,7 +313,7 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 			$this->_updateLocaleSupportState($request, $rowId, true);
 
 			$notificationManager = new NotificationManager();
-			$user =& $request->getUser();
+			$user = $request->getUser();
 			$notificationManager->createTrivialNotification(
 				$user->getId(), NOTIFICATION_TYPE_SUCCESS,
 				array('contents' => __('notification.localeEnabled'))
@@ -329,11 +328,11 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 	 * @param $args array
 	 * @param $request Request
 	 */
-	function disableLocale($args, &$request) {
+	function disableLocale($args, $request) {
 		$rowId = $request->getUserVar('rowId');
 		$gridData = $this->getGridDataElements($request);
 		$notificationManager = new NotificationManager();
-		$user =& $request->getUser();
+		$user = $request->getUser();
 
 		if (array_key_exists($rowId, $gridData)) {
 			// Don't disable primary locales.
@@ -361,15 +360,15 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 	 * @param $args array
 	 * @param $request Request
 	 */
-	function reloadLocale($args, &$request) {
-		$site =& $request->getSite();
+	function reloadLocale($args, $request) {
+		$site = $request->getSite();
 		$locale = $request->getUserVar('rowId');
 
 		$gridData = $this->getGridDataElements($request);
 		if (array_key_exists($locale, $gridData)) {
 			AppLocale::reloadLocale($locale);
 			$notificationManager = new NotificationManager();
-			$user =& $request->getUser();
+			$user = $request->getUser();
 			$notificationManager->createTrivialNotification(
 				$user->getId(), NOTIFICATION_TYPE_SUCCESS,
 				array('contents' => __('notification.localeReloaded', array('locale' => $gridData[$locale]['name'])))
@@ -385,13 +384,13 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 	 * @param $args array
 	 * @param $request Request
 	 */
-	function setPrimaryLocale($args, &$request) {
+	function setPrimaryLocale($args, $request) {
 		$rowId = $request->getUserVar('rowId');
 		$gridData = $this->getGridDataElements($request);
 		$localeData = $gridData[$rowId];
 		$notificationManager = new NotificationManager();
-		$user =& $request->getUser();
-		$site =& $request->getSite();
+		$user = $request->getUser();
+		$site = $request->getSite();
 
 		if (array_key_exists($rowId, $gridData)) {
 			if (AppLocale::isLocaleValid($rowId)) {
@@ -421,7 +420,7 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 	 * @param $rowId string The locale row id.
 	 * @param $enable boolean Enable locale flag.
 	 */
-	function _updateLocaleSupportState(&$request, $rowId, $enable) {
+	function _updateLocaleSupportState($request, $rowId, $enable) {
 		$newSupportedLocales = array();
 		$gridData = $this->getGridDataElements($request);
 
@@ -440,7 +439,7 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 			}
 		}
 
-		$site =& $request->getSite();
+		$site = $request->getSite();
 		$site->setSupportedLocales($newSupportedLocales);
 
 		$siteDao = DAORegistry::getDAO('SiteDAO');
@@ -454,7 +453,7 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 	 * installed contexts, based on site locale settings.
 	 * @param $request object
 	 */
-	function _updateContextLocaleSettings(&$request) {
+	function _updateContextLocaleSettings($request) {
 		assert(false); // Must be implemented by subclasses
 	}
 

@@ -36,7 +36,7 @@ class UserApiHandler extends PKPHandler {
 	/**
 	 * @see PKPHandler::authorize()
 	 */
-	function authorize(&$request, &$args, $roleAssignments) {
+	function authorize($request, &$args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.PKPSiteAccessPolicy');
 		$this->addPolicy(new PKPSiteAccessPolicy(
 			$request,
@@ -57,14 +57,14 @@ class UserApiHandler extends PKPHandler {
 	 * @param $request PKPRequest
 	 * @return string a JSON message
 	 */
-	function updateUserMessageState($args, &$request) {
+	function updateUserMessageState($args, $request) {
 		// Exit with a fatal error if request parameters are missing.
 		if (!(isset($args['setting-name'])) && isset($args['setting-value'])) {
 			fatalError('Required request parameter "setting-name" or "setting-value" missing!');
 		}
 
 		// Retrieve the user from the session.
-		$user =& $request->getUser();
+		$user = $request->getUser();
 		assert(is_a($user, 'User'));
 
 		// Validate the setting.

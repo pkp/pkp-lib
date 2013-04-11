@@ -37,7 +37,7 @@ class PKPNotificationsGridHandler extends GridHandler {
 	 * @param $args array
 	 * @param $roleAssignments array
 	 */
-	function authorize(&$request, &$args, $roleAssignments) {
+	function authorize($request, &$args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.PKPSiteAccessPolicy');
 		$this->addPolicy(new PKPSiteAccessPolicy($request, null, $roleAssignments));
 		return parent::authorize($request, $args, $roleAssignments);
@@ -46,7 +46,7 @@ class PKPNotificationsGridHandler extends GridHandler {
 	/**
 	 * @see PKPHandler::initialize()
 	 */
-	function initialize(&$request, $args = null) {
+	function initialize($request, $args = null) {
 		parent::initialize($request);
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_SUBMISSION);
 
@@ -85,7 +85,7 @@ class PKPNotificationsGridHandler extends GridHandler {
 	 * @see GridHandler::loadData()
 	 * @return array Grid data.
 	 */
-	protected function &loadData(&$request, $filter) {
+	protected function &loadData($request, $filter) {
 		$user = $request->getUser();
 
 		// Get all level task notifications.

@@ -29,7 +29,7 @@ class PKPFilterGridRow extends GridRow {
 	 * @see GridRow::initialize()
 	 * @param $request PKPRequest
 	 */
-	function initialize(&$request) {
+	function initialize($request) {
 		// Do the default initialization
 		parent::initialize($request);
 
@@ -37,7 +37,7 @@ class PKPFilterGridRow extends GridRow {
 		$rowId = $this->getId();
 		if (!empty($rowId) && is_numeric($rowId)) {
 			// Only add row actions if this is an existing row
-			$router =& $request->getRouter();
+			$router = $request->getRouter();
 			$actionArgs = array(
 				'filterId' => $rowId
 			);

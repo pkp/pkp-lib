@@ -29,7 +29,7 @@ class FileManagementHandler extends Handler {
 	/**
 	 * @see PKPHandler::authorize()
 	 */
-	function authorize(&$request, &$args, $roleAssignments) {
+	function authorize($request, &$args, $roleAssignments) {
 		// Allow both reviewers (if in review) and press roles.
 		import('classes.security.authorization.ReviewStageAccessPolicy');
 
@@ -41,7 +41,7 @@ class FileManagementHandler extends Handler {
 	/**
 	 * @see PKPHandler::initialize()
 	 */
-	function initialize(&$request, $args) {
+	function initialize($request, $args) {
 		parent::initialize($request, $args);
 	}
 

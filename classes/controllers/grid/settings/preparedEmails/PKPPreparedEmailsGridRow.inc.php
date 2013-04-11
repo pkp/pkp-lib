@@ -30,14 +30,14 @@ class PKPPreparedEmailsGridRow extends GridRow {
 	 * @param $request PKPRequest
 	 * @param $template string Template name (leave as default).
 	 */
-	function initialize(&$request, $template = null) {
+	function initialize($request, $template = null) {
 		parent::initialize($request, $template);
 
 		// add Grid Row Actions
 		$rowId = $this->getId();
 		if (isset($rowId) && is_string($rowId)) {
 			$contextId = $this->getContextId($request);
-			$router =& $request->getRouter();
+			$router = $request->getRouter();
 
 			// Row action to edit the email template
 			import('lib.pkp.controllers.grid.settings.preparedEmails.linkAction.EditEmailLinkAction');
@@ -84,7 +84,7 @@ class PKPPreparedEmailsGridRow extends GridRow {
 	 * @param $request PKPRequest
 	 * @return int Context ID.
 	 */
-	function getContextId(&$request) {
+	function getContextId($request) {
 		assert(false); // Needs to be implemented by subclasses
 	}
 }

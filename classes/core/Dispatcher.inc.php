@@ -84,7 +84,7 @@ class Dispatcher {
 	 * handler method.
 	 * @param $request PKPRequest
 	 */
-	function dispatch(&$request) {
+	function dispatch($request) {
 		// Make sure that we have at least one router configured
 		$routerNames = $this->getRouterNames();
 		assert(count($routerNames) > 0);
@@ -117,7 +117,7 @@ class Dispatcher {
 			$this->_requestCallbackHack =& $request;
 			if (Config::getVar('cache', 'web_cache')) {
 				if ($this->_displayCached($router, $request)) exit(); // Success
-				ob_start(array(&$this, '_cacheContent'));
+				ob_start(array($this, '_cacheContent'));
 			}
 		} else {
 			if (isset($_SERVER['HTTP_X_MOZ']) && $_SERVER['HTTP_X_MOZ'] == 'prefetch') {
@@ -146,7 +146,7 @@ class Dispatcher {
 	 * @param $escape boolean Whether or not to escape ampersands for this URL; default false.
 	 * @return string the URL
 	 */
-	function url(&$request, $shortcut, $newContext = null, $handler = null, $op = null, $path = null,
+	function url($request, $shortcut, $newContext = null, $handler = null, $op = null, $path = null,
 				$params = null, $anchor = null, $escape = false) {
 		// Instantiate the requested router
 		assert(isset($this->_routerNames[$shortcut]));
@@ -193,7 +193,7 @@ class Dispatcher {
 	 * Display the request contents from cache.
 	 * @param $router PKPRouter
 	 */
-	function _displayCached(&$router, &$request) {
+	function _displayCached($router, $request) {
 		$filename = $router->getCacheFilename($request);
 		if (!file_exists($filename)) return false;
 

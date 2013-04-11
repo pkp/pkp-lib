@@ -37,7 +37,7 @@ class RoleBasedHandlerOperationPolicy extends HandlerOperationPolicy {
 	 *  FIXME: remove this parameter once we've removed the HandlerValidatorRole
 	 *  compatibility class, see #5868.
 	 */
-	function RoleBasedHandlerOperationPolicy(&$request, $roles, $operations,
+	function RoleBasedHandlerOperationPolicy($request, $roles, $operations,
 			$message = 'user.authorization.roleBasedAccessDenied',
 			$allRoles = false, $bypassOperationCheck = false) {
 		parent::HandlerOperationPolicy($request, $operations, $message);

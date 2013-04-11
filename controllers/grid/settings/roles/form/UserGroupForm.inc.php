@@ -83,7 +83,7 @@ class UserGroupForm extends Form {
 		$this->setData('assignedStages', array()); // sensible default
 
 		if ($userGroup) {
-			$assignedStages =& $userGroupDao->getAssignedStagesByUserGroupId($this->getContextId(), $userGroup->getId());
+			$assignedStages = $userGroupDao->getAssignedStagesByUserGroupId($this->getContextId(), $userGroup->getId());
 
 			$data = array(
 				'userGroupId' => $userGroup->getId(),
@@ -108,8 +108,8 @@ class UserGroupForm extends Form {
 	/**
 	 * @see Form::fetch()
 	 */
-	function fetch(&$request) {
-		$templateMgr =& TemplateManager::getManager($request);
+	function fetch($request) {
+		$templateMgr = TemplateManager::getManager($request);
 
 		import('classes.security.RoleDAO');
 		$roleOptions = RoleDAO::getRoleNames(true);
@@ -126,7 +126,7 @@ class UserGroupForm extends Form {
 	/**
 	 * @see Form::execute()
 	 */
-	function execute(&$request) {
+	function execute($request) {
 		$userGroupId = $this->getUserGroupId();
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 
@@ -189,7 +189,7 @@ class UserGroupForm extends Form {
 	 * @param Request
 	 * @return UserGroup
 	 */
-	function _setUserGroupLocaleFields($userGroup, &$request) {
+	function _setUserGroupLocaleFields($userGroup, $request) {
 		$router = $request->getRouter();
 		$context = $router->getContext($request);
 		$supportedLocales = $context->getSupportedLocaleNames();

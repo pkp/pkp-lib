@@ -22,9 +22,9 @@ class PKPUserAccessibleWorkflowStageRequiredPolicy extends AuthorizationPolicy {
 	 * Constructor
 	 * @param $request PKPRequest
 	 */
-	function PKPUserAccessibleWorkflowStageRequiredPolicy(&$request) {
+	function PKPUserAccessibleWorkflowStageRequiredPolicy($request) {
 		parent::AuthorizationPolicy();
-		$this->_request =& $request;
+		$this->_request = $request;
 	}
 
 	//
@@ -34,10 +34,10 @@ class PKPUserAccessibleWorkflowStageRequiredPolicy extends AuthorizationPolicy {
 	 * @see AuthorizationPolicy::effect()
 	 */
 	function effect() {
-		$request =& $this->_request;
-		$context =& $request->getContext();
+		$request = $this->_request;
+		$context = $request->getContext();
 		$contextId = $context->getId();
-		$user =& $request->getUser();
+		$user = $request->getUser();
 		if (!is_a($user, 'User')) return AUTHORIZATION_DENY;
 
 		$userId = $user->getId();

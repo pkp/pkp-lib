@@ -41,7 +41,7 @@ class SubmissionDocumentsFilesGridHandler extends LibraryFileGridHandler {
 	 * Configure the grid
 	 * @param $request PKPRequest
 	 */
-	function initialize(&$request) {
+	function initialize($request) {
 		$this->setCanEdit(true); // this grid can always be edited.
 		parent::initialize($request);
 
@@ -50,7 +50,7 @@ class SubmissionDocumentsFilesGridHandler extends LibraryFileGridHandler {
 		// Set instructions
 		$this->setInstructions('editor.submissionLibrary.description');
 
-		$router =& $request->getRouter();
+		$router = $request->getRouter();
 
 		// Add grid-level actions
 
@@ -116,9 +116,9 @@ class SubmissionDocumentsFilesGridHandler extends LibraryFileGridHandler {
 	 * @param $request PKPRequest
 	 * @return string Serialized JSON object
 	 */
-	function viewLibrary($args, &$request) {
+	function viewLibrary($args, $request) {
 
-		$templateMgr =& TemplateManager::getManager($request);
+		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('canEdit', false);
 		return $templateMgr->fetchJson('controllers/tab/settings/library.tpl');
 	}

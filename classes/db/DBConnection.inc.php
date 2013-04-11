@@ -51,7 +51,7 @@ class DBConnection {
 			$this->initDefaultDBConnection();
 		} else {
 			$args = func_get_args();
-			call_user_func_array(array(&$this, 'initCustomDBConnection'), $args);
+			call_user_func_array(array($this, 'initCustomDBConnection'), $args);
 		}
 	}
 

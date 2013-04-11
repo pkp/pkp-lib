@@ -36,7 +36,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	 * @param $notificationTemplate string optional Template to use for constructing an individual notification for display
 	 * @return object DAOResultFactory containing matching Notification objects
 	 */
-	public function getFormattedNotificationsForUser(&$request, $userId, $level = NOTIFICATION_LEVEL_NORMAL, $contextId = null, $rangeInfo = null, $notificationTemplate = 'notification/notification.tpl') {
+	public function getFormattedNotificationsForUser($request, $userId, $level = NOTIFICATION_LEVEL_NORMAL, $contextId = null, $rangeInfo = null, $notificationTemplate = 'notification/notification.tpl') {
 		$notificationDao = DAORegistry::getDAO('NotificationDAO');
 		$notifications = $notificationDao->getByUserId($userId, $level, null, $contextId, $rangeInfo);
 
@@ -92,7 +92,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	 * @param $params array
 	 * @return Notification object
 	 */
-	public function createNotification(&$request, $userId = null, $notificationType, $contextId = null, $assocType = null, $assocId = null, $level = NOTIFICATION_LEVEL_NORMAL, $params = null) {
+	public function createNotification($request, $userId = null, $notificationType, $contextId = null, $assocType = null, $assocId = null, $level = NOTIFICATION_LEVEL_NORMAL, $params = null) {
 		$blockedNotifications = $this->getUserBlockedNotifications($userId, $contextId);
 
 		if(!in_array($notificationType, $blockedNotifications)) {
@@ -175,7 +175,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	 * @param array $notifications
 	 * @return array
 	 */
-	public function formatToGeneralNotification(&$request, &$notifications) {
+	public function formatToGeneralNotification($request, $notifications) {
 		$formattedNotificationsData = array();
 		foreach ($notifications as $notification) { /* @var $notification Notification */
 			$formattedNotificationsData[$notification->getLevel()][$notification->getId()] = array(
@@ -195,11 +195,11 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	 * @param $notifications array
 	 * @return array
 	 */
-	public function formatToInPlaceNotification(&$request, &$notifications) {
+	public function formatToInPlaceNotification($request, $notifications) {
 		$formattedNotificationsData = null;
 
 		if (!empty($notifications)) {
-			$templateMgr =& TemplateManager::getManager($request);
+			$templateMgr = TemplateManager::getManager($request);
 			foreach ((array)$notifications as $notification) {
 				$formattedNotificationsData[$notification->getLevel()][$notification->getId()] = $this->formatNotification($request, $notification, 'controllers/notification/inPlaceNotificationContent.tpl');
 			}
@@ -213,16 +213,16 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	 * @param $request PKPRequest
 	 * @param $notification object Notification
 	 */
-	public function sendToMailingList(&$request, $notification) {
+	public function sendToMailingList($request, $notification) {
 		$notificationMailListDao = DAORegistry::getDAO('NotificationMailListDAO');
 		$mailList = $notificationMailListDao->getMailList($notification->getContextId());
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON);
 
 		foreach ($mailList as $email) {
-			$context =& $request->getContext();
-			$site =& $request->getSite();
-			$router =& $request->getRouter();
-			$dispatcher =& $router->getDispatcher();
+			$context = $request->getContext();
+			$site = $request->getSite();
+			$router = $request->getRouter();
+			$dispatcher = $router->getDispatcher();
 
 			$mail = $this->getMailTemplate('NOTIFICATION_MAILLIST');
 			$mail->setReplyTo($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
@@ -244,10 +244,10 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	 * @param $token string the user's token (for confirming and unsubscribing)
 	 * @param $template string The mail template to use
 	 */
-	public function sendMailingListEmail(&$request, $email, $token, $template) {
+	public function sendMailingListEmail($request, $email, $token, $template) {
 		$site = $request->getSite();
-		$router =& $request->getRouter();
-		$dispatcher =& $router->getDispatcher();
+		$router = $request->getRouter();
+		$dispatcher = $router->getDispatcher();
 
 		$params = array(
 			'siteTitle' => $site->getLocalizedTitle(),
@@ -255,9 +255,6 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 		);
 
 		if ($template == 'NOTIFICATION_MAILLIST_WELCOME') {
-			$router =& $request->getRouter();
-			$dispatcher =& $router->getDispatcher();
-
 			$confirmLink = $dispatcher->url($request, ROUTE_PAGE, null, 'notification', 'confirmMailListSubscription', array($token));
 			$params["confirmLink"] = $confirmLink;
 		}
@@ -306,7 +303,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	 * @return string
 	 */
 	protected function fetchLinkActionNotificationContent($linkAction) {
-		$templateMgr =& TemplateManager::getManager();
+		$templateMgr = TemplateManager::getManager();
 		$templateMgr->assign('linkAction', $linkAction);
 		return $templateMgr->fetch('controllers/notification/linkActionNotificationContent.tpl');
 	}
@@ -322,7 +319,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	 * @param $notificationTemplate string optional Template to use for constructing an individual notification for display
 	 * @return string
 	 */
-	private function formatNotifications(&$request, $notifications, $notificationTemplate = 'notification/notification.tpl') {
+	private function formatNotifications($request, $notifications, $notificationTemplate = 'notification/notification.tpl') {
 		$notificationString = '';
 
 		// Build out the notifications based on their associated objects and format into a string
@@ -339,8 +336,8 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	 * @param $notification object Notification
 	 * @return string
 	 */
-	private function formatNotification(&$request, $notification, $notificationTemplate = 'notification/notification.tpl') {
-		$templateMgr =& TemplateManager::getManager($request);
+	private function formatNotification($request, $notification, $notificationTemplate = 'notification/notification.tpl') {
+		$templateMgr = TemplateManager::getManager($request);
 
 		// Set the date read if it isn't already set
 		if (!$notification->getDateRead()) {
@@ -360,7 +357,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 			$templateMgr->assign('notificationUrl', $this->getNotificationUrl($request, $notification));
 		}
 
-		$user =& $request->getUser();
+		$user = $request->getUser();
 		$templateMgr->assign('isUserLoggedIn', $user);
 
 		return $templateMgr->fetch($notificationTemplate);
@@ -371,7 +368,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	 * @param $request PKPRequest
 	 * @param $notification object Notification
 	 */
-	private function sendNotificationEmail(&$request, $notification) {
+	private function sendNotificationEmail($request, $notification) {
 		$userId = $notification->getUserId();
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$user = $userDao->getById($userId);

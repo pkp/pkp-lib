@@ -35,8 +35,8 @@ class UserEmailForm extends Form {
 	/**
 	 * Initialize form data.
 	 */
-	function initData($args, &$request) {
-		$fromUser =& $request->getUser();
+	function initData($args, $request) {
+		$fromUser = $request->getUser();
 		$fromSignature = "\n\n\n" . $fromUser->getLocalizedSignature();
 
 		$this->_data = array(
@@ -61,11 +61,11 @@ class UserEmailForm extends Form {
 	/**
 	 * Display the form.
 	 */
-	function display($args, &$request) {
+	function display($args, $request) {
 		$userDao = DAORegistry::getDAO('UserDAO');
-		$user =& $userDao->getById($this->userId);
+		$user = $userDao->getById($this->userId);
 
-		$templateMgr =& TemplateManager::getManager($request);
+		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('userId', $this->userId);
 		$templateMgr->assign('userFullName', $user->getFullName());
 		$templateMgr->assign('userEmail', $user->getEmail());
@@ -78,10 +78,10 @@ class UserEmailForm extends Form {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function execute($args, &$request) {
+	function execute($args, $request) {
 		$userDao = DAORegistry::getDAO('UserDAO');
-		$toUser =& $userDao->getById($this->userId);
-		$fromUser =& $request->getUser();
+		$toUser = $userDao->getById($this->userId);
+		$fromUser = $request->getUser();
 
 		import('lib.pkp.classes.mail.Mail');
 		$email = new Mail();

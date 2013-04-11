@@ -29,7 +29,7 @@ class SetupGridHandler extends GridHandler {
 	/**
 	 * @see GridHandler::initialize()
 	 */
-	function initialize(&$request) {
+	function initialize($request) {
 		parent::initialize($request);
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
@@ -41,7 +41,7 @@ class SetupGridHandler extends GridHandler {
 	 * @param $args array
 	 * @param $roleAssignments array
 	 */
-	function authorize(&$request, &$args, $roleAssignments) {
+	function authorize($request, &$args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.PkpContextAccessPolicy');
 		$this->addPolicy(new PkpContextAccessPolicy($request, $roleAssignments));
 		return parent::authorize($request, $args, $roleAssignments);
@@ -52,7 +52,7 @@ class SetupGridHandler extends GridHandler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function uploadImage($args, &$request) {
+	function uploadImage($args, $request) {
 		$router = $request->getRouter();
 		$context = $request->getContext();
 		$user = $request->getUser();

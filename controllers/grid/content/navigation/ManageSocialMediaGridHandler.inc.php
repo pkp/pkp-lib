@@ -71,7 +71,7 @@ class ManageSocialMediaGridHandler extends GridHandler {
 	 * @param $args array
 	 * @param $roleAssignments array
 	 */
-	function authorize(&$request, &$args, $roleAssignments) {
+	function authorize($request, &$args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.PkpContextAccessPolicy');
 		$this->addPolicy(new PkpContextAccessPolicy($request, $roleAssignments));
 		return parent::authorize($request, $args, $roleAssignments);
@@ -81,7 +81,7 @@ class ManageSocialMediaGridHandler extends GridHandler {
 	 * Configure the grid
 	 * @param $request PKPRequest
 	 */
-	function initialize(&$request) {
+	function initialize($request) {
 		parent::initialize($request);
 
 		// Retrieve the authorized context.
@@ -186,7 +186,7 @@ class ManageSocialMediaGridHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 * @return string Serialized JSON object
 	 */
-	function editMedia($args, &$request) {
+	function editMedia($args, $request) {
 		// Identify the object to be updated
 		$socialMediaId = (int) $request->getUserVar('socialMediaId');
 		$context = $this->getContext();
@@ -209,7 +209,7 @@ class ManageSocialMediaGridHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 * @return string Serialized JSON object
 	 */
-	function updateMedia($args, &$request) {
+	function updateMedia($args, $request) {
 		// Identify the object to be updated
 		$socialMediaId = (int) $request->getUserVar('socialMediaId');
 		$context = $this->getContext();
@@ -261,7 +261,7 @@ class ManageSocialMediaGridHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 * @return string Serialized JSON object
 	 */
-	function deleteMedia($args, &$request) {
+	function deleteMedia($args, $request) {
 
 		// Identify the object to be deleted
 		$socialMediaId = (int) $request->getUserVar('socialMediaId');

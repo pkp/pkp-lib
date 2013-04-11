@@ -35,7 +35,7 @@ class BaseAddFileLinkAction extends LinkAction {
 	 *  upload wizard.
 	 * @param $buttonLabel string The link action's button label.
 	 */
-	function BaseAddFileLinkAction(&$request, $submissionId, $stageId,
+	function BaseAddFileLinkAction($request, $submissionId, $stageId,
 			$uploaderRoles, $actionArgs, $wizardTitle, $buttonLabel) {
 
 		// Augment the action arguments array.
@@ -45,7 +45,7 @@ class BaseAddFileLinkAction extends LinkAction {
 		$actionArgs['uploaderRoles'] = implode('-', $uploaderRoles);
 
 		// Instantiate the file upload modal.
-		$dispatcher =& $request->getDispatcher();
+		$dispatcher = $request->getDispatcher();
 		import('lib.pkp.classes.linkAction.request.WizardModal');
 		$modal = new WizardModal(
 			$dispatcher->url(

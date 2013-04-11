@@ -26,7 +26,7 @@ class PKPSiteAccessPolicy extends PolicySet {
 	 * @param $roleAssignments array|int Either an array of role -> operation assignments or the constant SITE_ACCESS_ALL_ROLES
 	 * @param $message string a message to be displayed if the authorization fails
 	 */
-	function PKPSiteAccessPolicy(&$request, $operations, $roleAssignments, $message = 'user.authorization.loginRequired') {
+	function PKPSiteAccessPolicy($request, $operations, $roleAssignments, $message = 'user.authorization.loginRequired') {
 		parent::PolicySet();
 		$siteRolePolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
 		if(is_array($roleAssignments)) {
@@ -51,8 +51,8 @@ class PKPSiteAccessPolicy extends PolicySet {
 	 */
 	function effect() {
 		// Retrieve the user from the session.
-		$request =& $this->getRequest();
-		$user =& $request->getUser();
+		$request = $this->getRequest();
+		$user = $request->getUser();
 
 		if (!is_a($user, 'User')) {
 			return AUTHORIZATION_DENY;

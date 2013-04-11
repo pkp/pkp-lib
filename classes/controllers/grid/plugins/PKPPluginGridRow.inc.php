@@ -41,7 +41,7 @@ class PKPPluginGridRow extends GridRow {
 	/**
 	 * @see GridRow::initialize()
 	 */
-	function initialize(&$request) {
+	function initialize($request) {
 		parent::initialize($request);
 
 		// Is this a new row or an existing row?
@@ -52,7 +52,7 @@ class PKPPluginGridRow extends GridRow {
 
 		// Only add row actions if this is an existing row
 		if (!is_null($rowId)) {
-			$router =& $request->getRouter(); /* @var $router PKPRouter */
+			$router = $request->getRouter(); /* @var $router PKPRouter */
 
 			$actionArgs = array_merge(
 				array('plugin' => $plugin->getName()),

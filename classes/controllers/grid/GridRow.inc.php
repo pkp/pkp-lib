@@ -205,7 +205,7 @@ class GridRow extends GridBodyElement {
 	 * @param $request Request
 	 * @param $template string
 	 */
-	function initialize(&$request, $template = null) {
+	function initialize($request, $template = null) {
 		if ($template === null) $template = 'controllers/grid/gridRow.tpl';
 		// Set the template.
 		$this->setTemplate($template);

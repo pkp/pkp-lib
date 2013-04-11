@@ -35,7 +35,7 @@ class LibraryFileGridCategoryRow extends GridCategoryRow {
 	 * return string
 	 */
 	function getCategoryLabel() {
-		$context =& $this->getContext();
+		$context = $this->getContext();
 		$libraryFileManager = new LibraryFileManager($context->getId());
 		return __($libraryFileManager->getTitleKeyFromType($this->getData()));
 	}

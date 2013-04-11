@@ -32,7 +32,7 @@ class UserGroupListbuilderGridCellProvider extends GridCellProvider {
 	 * @param $column GridColumn
 	 * @return array
 	 */
-	function getTemplateVarsFromRowColumn(&$row, $column) {
+	function getTemplateVarsFromRowColumn($row, $column) {
 		$userGroup =& $row->getData();
 		$columnId = $column->getId();
 		assert(is_a($userGroup, 'UserGroup') && !empty($columnId));

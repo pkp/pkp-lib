@@ -81,23 +81,23 @@ class ContextSettingsForm extends Form {
 	 * @see Form::initData()
 	 * @param $request Request
 	 */
-	function initData(&$request) {
-		$context =& $request->getContext();
+	function initData($request) {
+		$context = $request->getContext();
 		$this->_data = $context->getSettings();
 	}
 
 	/**
 	 * @see Form::readInputData()
 	 */
-	function readInputData(&$request) {
+	function readInputData($request) {
 		$this->readUserVars(array_keys($this->getSettings()));
 	}
 
 	/**
 	 * @see Form::fetch()
 	 */
-	function fetch(&$request, $params = null) {
-		$templateMgr =& TemplateManager::getManager($request);
+	function fetch($request, $params = null) {
+		$templateMgr = TemplateManager::getManager($request);
 
 		// Insert the wizardMode parameter in params array to pass to template.
 		$params = array_merge((array)$params, array('wizardMode' => $this->getWizardMode()));

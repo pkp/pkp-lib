@@ -22,7 +22,6 @@ class PKPAction {
 	 * Constructor.
 	 */
 	function PKPAction() {
-
 	}
 
 	//
@@ -34,10 +33,10 @@ class PKPAction {
 	 * @param $submission Submission
 	 * @return string the rendered response
 	 */
-	function editCitations(&$request, &$submission) {
-		$router =& $request->getRouter();
-		$dispatcher =& $this->getDispatcher();
-		$templateMgr =& TemplateManager::getManager($request);
+	function editCitations($request, $submission) {
+		$router = $request->getRouter();
+		$dispatcher = $this->getDispatcher();
+		$templateMgr = TemplateManager::getManager($request);
 
 		// Add extra style sheets required for ajax components
 		// FIXME: Must be removed after OMP->OJS backporting
@@ -55,7 +54,7 @@ class PKPAction {
 		// Check whether the citation editor requirements are complete.
 		// 1) Citation editing must be enabled for the journal.
 		if (!$citationEditorConfigurationError) {
-			$context =& $router->getContext($request);
+			$context = $router->getContext($request);
 			if (!$context->getSetting('metaCitations')) $citationEditorConfigurationError = 'submission.citations.editor.pleaseSetup';
 		}
 
@@ -76,7 +75,7 @@ class PKPAction {
 
 		// Should we display the "Introduction" tab?
 		if (is_null($citationEditorConfigurationError)) {
-			$user =& $request->getUser();
+			$user = $request->getUser();
 			$introductionHide = (boolean)$user->getSetting('citation-editor-hide-intro');
 		} else {
 			// Always show the introduction tab if we have a configuration error.

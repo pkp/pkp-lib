@@ -121,7 +121,7 @@ class GridColumn extends GridBodyElement {
 	 *  being requested.
 	 * @return array An array of LinkActions for the cell.
 	 */
-	function getCellActions(&$request, &$row, $position = GRID_ACTION_POSITION_DEFAULT) {
+	function getCellActions($request, $row, $position = GRID_ACTION_POSITION_DEFAULT) {
 		// The default implementation returns an empty array
 		$actions = array();
 		return $actions;

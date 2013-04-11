@@ -63,10 +63,10 @@ class OrderItemsFeature extends GridFeature{
 	/**
 	 * @see GridFeature::setOptions()
 	 */
-	function setOptions(&$request, &$grid) {
+	function setOptions($request, $grid) {
 		parent::setOptions($request, $grid);
 
-		$router =& $request->getRouter();
+		$router = $request->getRouter();
 		$this->addOptions(array(
 			'saveItemsSequenceUrl' => $router->url($request, null, null, 'saveSequence', null, $grid->getRequestArgs())
 		));
@@ -124,7 +124,7 @@ class OrderItemsFeature extends GridFeature{
 	 * @param $actionPosition int
 	 * @param $rowTemplate string
 	 */
-	function addRowOrderAction(&$row) {
+	function addRowOrderAction($row) {
 		if ($this->getOverrideRowTemplate($row)) {
 			$row->setTemplate('controllers/grid/gridRow.tpl');
 		}

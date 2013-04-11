@@ -42,10 +42,10 @@ class PKPSiteSettingsForm extends Form {
 	 * Display the form.
 	 */
 	function display() {
-		$site =& Request::getSite();
+		$site = Request::getSite();
 		$publicFileManager = new PublicFileManager();
 		$siteStyleFilename = $publicFileManager->getSiteFilesPath() . '/' . $site->getSiteStyleFilename();
-		$templateMgr =& TemplateManager::getManager();
+		$templateMgr = TemplateManager::getManager();
 		$templateMgr->assign('showThumbnail', $site->getSetting('showThumbnail'));
 		$templateMgr->assign('showTitle', $site->getSetting('showTitle'));
 		$templateMgr->assign('showDescription', $site->getSetting('showDescription'));
@@ -64,7 +64,7 @@ class PKPSiteSettingsForm extends Form {
 	 */
 	function initData() {
 		$siteDao = DAORegistry::getDAO('SiteDAO');
-		$site =& $siteDao->getSite();
+		$site = $siteDao->getSite();
 
 		$data = array(
 			'title' => $site->getSetting('title'), // Localized
@@ -104,7 +104,7 @@ class PKPSiteSettingsForm extends Form {
 	 */
 	function execute() {
 		$siteDao = DAORegistry::getDAO('SiteDAO');
-		$site =& $siteDao->getSite();
+		$site = $siteDao->getSite();
 
 		$site->setRedirect($this->getData('redirect'));
 		$site->setMinPasswordLength($this->getData('minPasswordLength'));
@@ -138,7 +138,7 @@ class PKPSiteSettingsForm extends Form {
 	function uploadSiteStyleSheet() {
 		import('classes.file.PublicFileManager');
 		$publicFileManager = new PublicFileManager();
-		$site =& Request::getSite();
+		$site = Request::getSite();
 		if ($publicFileManager->uploadedFileExists('siteStyleSheet')) {
 			$type = $publicFileManager->getUploadedFileType('siteStyleSheet');
 			if ($type != 'text/plain' && $type != 'text/css') {
@@ -162,7 +162,7 @@ class PKPSiteSettingsForm extends Form {
 	function uploadPageHeaderTitleImage($locale) {
 		import('classes.file.PublicFileManager');
 		$publicFileManager = new PublicFileManager();
-		$site =& Request::getSite();
+		$site = Request::getSite();
 		if ($publicFileManager->uploadedFileExists('pageHeaderTitleImage')) {
 			$type = $publicFileManager->getUploadedFileType('pageHeaderTitleImage');
 			$extension = $publicFileManager->getImageExtension($type);

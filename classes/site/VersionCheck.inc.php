@@ -26,7 +26,7 @@ class VersionCheck {
 	 * @return array
 	 */
 	function &getLatestVersion() {
-		$application =& PKPApplication::getApplication();
+		$application = PKPApplication::getApplication();
 		$returner =& VersionCheck::parseVersionXML(
 			$application->getVersionDescriptorUrl()
 		);
@@ -171,7 +171,7 @@ class VersionCheck {
 			if ($returnErrorMsg) {
 				return $errorMsg;
 			} else {
-				$templateMgr =& TemplateManager::getManager();
+				$templateMgr = TemplateManager::getManager();
 				$templateMgr->assign('message', $errorMsg);
 				return $nullVar;
 			}

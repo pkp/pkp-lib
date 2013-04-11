@@ -29,13 +29,13 @@ class SubmissionChecklistGridRow extends GridRow {
 	 * Configure the grid row
 	 * @param $request PKPRequest
 	 */
-	function initialize(&$request) {
+	function initialize($request) {
 		parent::initialize($request);
 
 		// Is this a new row or an existing row?
 		$rowId = $this->getId();
 		if (isset($rowId) && is_numeric($rowId)) {
-			$router =& $request->getRouter();
+			$router = $request->getRouter();
 			$actionArgs = array(
 				'gridId' => $this->getGridId(),
 				'rowId' => $rowId

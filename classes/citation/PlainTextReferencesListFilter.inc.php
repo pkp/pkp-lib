@@ -75,7 +75,7 @@ class PlainTextReferencesListFilter extends TemplateBasedReferencesListFilter {
 	/**
 	 * @see TemplateBasedFilter::addTemplateVars()
 	 */
-	function addTemplateVars(&$templateMgr, &$submission, &$request, &$locale) {
+	function addTemplateVars($templateMgr, $submission, $request, &$locale) {
 		parent::addTemplateVars($templateMgr, $submission, $request, $locale);
 
 		// Add the ordering type to the template.

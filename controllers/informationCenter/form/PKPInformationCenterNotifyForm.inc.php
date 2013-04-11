@@ -40,18 +40,18 @@ class PKPInformationCenterNotifyForm extends Form {
 	 * Fetch the form.
 	 * @see Form::fetch()
 	 */
-	function fetch(&$request) {
-		$templateMgr =& TemplateManager::getManager($request);
+	function fetch($request) {
+		$templateMgr = TemplateManager::getManager($request);
 		if($this->itemType == ASSOC_TYPE_SUBMISSION) {
 			$submissionId = $this->itemId;
 		} else {
 			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-			$submissionFile =& $submissionFileDao->getLatestRevision($this->itemId);
+			$submissionFile = $submissionFileDao->getLatestRevision($this->itemId);
 			$submissionId = $submissionFile->getSubmissionId();
 		}
 
-		$templateMgr->assign_by_ref('submissionId', $submissionId);
-		$templateMgr->assign_by_ref('itemId', $this->itemId);
+		$templateMgr->assign('submissionId', $submissionId);
+		$templateMgr->assign('itemId', $this->itemId);
 
 		// All stages can choose the default template
 		$templateKeys = array('NOTIFICATION_CENTER_DEFAULT');
@@ -60,7 +60,7 @@ class PKPInformationCenterNotifyForm extends Form {
 		$stageTemplates = $this->_getStageTemplates();
 
 		$submissionDao = Application::getSubmissionDAO();
-		$submission =& $submissionDao->getById($submissionId);
+		$submission = $submissionDao->getById($submissionId);
 		$currentStageId = $submission->getStageId();
 
 		$templateKeys = array_merge($templateKeys, $stageTemplates[$currentStageId]);
@@ -71,8 +71,7 @@ class PKPInformationCenterNotifyForm extends Form {
 			$templates[$templateKey] = $template->getSubject();
 		}
 
-		unset($templateKeys);
-		$templateMgr->assign_by_ref('templates', $templates);
+		$templateMgr->assign('templates', $templates);
 
 		// check to see if we were handed a userId from the stage participants grid.  If so,
 		// pass that in so the list builder can pre-populate. The Listbuilder validates this.
@@ -97,7 +96,7 @@ class PKPInformationCenterNotifyForm extends Form {
 	 * Sends a a notification.
 	 * @see Form::execute()
 	 */
-	function execute(&$request) {
+	function execute($request) {
 		return parent::execute($request);
 	}
 
@@ -105,12 +104,12 @@ class PKPInformationCenterNotifyForm extends Form {
 	 * Prepare an email for each user and send
 	 * @see ListbuilderHandler::insertEntry
 	 */
-	function insertEntry(&$request, $newRowId) {
+	function insertEntry($request, $newRowId) {
 
 		$userDao = DAORegistry::getDAO('UserDAO');
-		$application =& Application::getApplication();
-		$request =& $application->getRequest(); // need to do this because the method version is null.
-		$fromUser =& $request->getUser();
+		$application = Application::getApplication();
+		$request = $application->getRequest(); // need to do this because the method version is null.
+		$fromUser = $request->getUser();
 
 		$submissionDao = Application::getSubmissionDAO();
 
@@ -178,7 +177,7 @@ class PKPInformationCenterNotifyForm extends Form {
 	 * (It was throwing a warning when this was not specified. We just want
 	 * client side delete.)
 	 */
-	function deleteEntry(&$request, $rowId) {
+	function deleteEntry($request, $rowId) {
 		return true;
 	}
 
@@ -189,7 +188,7 @@ class PKPInformationCenterNotifyForm extends Form {
 	 * @param PKPUser $user
 	 * @param string $template
 	 */
-	function _createNotifications(&$request, $submission, $user, $template) {
+	function _createNotifications($request, $submission, $user, $template) {
 
 		$currentStageId = $submission->getStageId();
 		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
@@ -199,16 +198,16 @@ class PKPInformationCenterNotifyForm extends Form {
 
 		switch ($template) {
 			case 'COPYEDIT_REQUEST':
-				while ($stageAssignment =& $stageAssignments->next()) {
-					$userGroup =& $userGroupDao->getById($stageAssignment->getUserGroupId());
+				while ($stageAssignment = $stageAssignments->next()) {
+					$userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId());
 					if (in_array($userGroup->getRoleId(), array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT))) {
 						import('classes.submission.SubmissionFile');
 						$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
 						$submissionFileSignoffDao = DAORegistry::getDAO('SubmissionFileSignoffDAO');
-						$submissionFiles =& $submissionFileDao->getLatestRevisions($submission->getId(), SUBMISSION_FILE_COPYEDIT);
+						$submissionFiles = $submissionFileDao->getLatestRevisions($submission->getId(), SUBMISSION_FILE_COPYEDIT);
 						foreach ($submissionFiles as $submissionFile) {
-							$signoffFactory =& $submissionFileSignoffDao->getAllBySymbolic('SIGNOFF_COPYEDITING', $submissionFile->getFileId());
-							while ($signoff =& $signoffFactory->next()) {
+							$signoffFactory = $submissionFileSignoffDao->getAllBySymbolic('SIGNOFF_COPYEDITING', $submissionFile->getFileId());
+							while ($signoff = $signoffFactory->next()) {
 								$notificationMgr->updateNotification(
 									$request,
 									array(NOTIFICATION_TYPE_COPYEDIT_ASSIGNMENT),
@@ -216,7 +215,6 @@ class PKPInformationCenterNotifyForm extends Form {
 									ASSOC_TYPE_SIGNOFF,
 									$signoff->getId()
 								);
-								unset($signoff);
 							}
 						}
 						return;
@@ -225,8 +223,8 @@ class PKPInformationCenterNotifyForm extends Form {
 				// User not in valid role for this task/notification.
 				break;
 			case 'LAYOUT_REQUEST':
-				while ($stageAssignment =& $stageAssignments->next()) {
-					$userGroup =& $userGroupDao->getById($stageAssignment->getUserGroupId());
+				while ($stageAssignment = $stageAssignments->next()) {
+					$userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId());
 					if (in_array($userGroup->getRoleId(), array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT))) {
 						$this->_addUploadTaskNotification($request, NOTIFICATION_TYPE_LAYOUT_ASSIGNMENT, $user->getId(), $submission->getId());
 						return;
@@ -235,8 +233,8 @@ class PKPInformationCenterNotifyForm extends Form {
 				// User not in valid role for this task/notification.
 				break;
 			case 'INDEX_REQUEST':
-				while ($stageAssignment =& $stageAssignments->next()) {
-					$userGroup =& $userGroupDao->getById($stageAssignment->getUserGroupId());
+				while ($stageAssignment = $stageAssignments->next()) {
+					$userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId());
 					if (in_array($userGroup->getRoleId(), array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT))) {
 						$this->_addUploadTaskNotification($request, NOTIFICATION_TYPE_INDEX_ASSIGNMENT, $user->getId(), $submission->getId());
 						return;
@@ -254,26 +252,26 @@ class PKPInformationCenterNotifyForm extends Form {
 	 * @param $userId int
 	 * @param $submissionId int
 	 */
-	private function _addUploadTaskNotification(&$request, $type, $userId, $submissionId) {
+	private function _addUploadTaskNotification($request, $type, $userId, $submissionId) {
 		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
-		$notificationFactory =& $notificationDao->getByAssoc(
-				ASSOC_TYPE_SUBMISSION,
-				$submissionId,
-				$userId,
-				$type
+		$notificationFactory = $notificationDao->getByAssoc(
+			ASSOC_TYPE_SUBMISSION,
+			$submissionId,
+			$userId,
+			$type
 		);
 
 		if ($notificationFactory->wasEmpty()) {
-			$press =& $request->getPress();
+			$press = $request->getPress();
 			$notificationMgr = new NotificationManager();
 			$notificationMgr->createNotification(
-					$request,
-					$userId,
-					$type,
-					$press->getId(),
-					ASSOC_TYPE_SUBMISSION,
-					$submissionId,
-					NOTIFICATION_LEVEL_TASK
+				$request,
+				$userId,
+				$type,
+				$press->getId(),
+				ASSOC_TYPE_SUBMISSION,
+				$submissionId,
+				NOTIFICATION_LEVEL_TASK
 			);
 		}
 	}
@@ -285,7 +283,7 @@ class PKPInformationCenterNotifyForm extends Form {
 	 * @param int $task
 	 * @param PKRequest $request
 	 */
-	private function _removeUploadTaskNotification(&$submission, $task, &$request) {
+	private function _removeUploadTaskNotification($submission, $task, $request) {
 
 		// if this is a submission by a LAYOUT_EDITOR for a submission in production, check
 		// to see if there is a task notification for that and if so, clear it.
@@ -294,13 +292,13 @@ class PKPInformationCenterNotifyForm extends Form {
 
 		if ($currentStageId == WORKFLOW_STAGE_ID_PRODUCTION) {
 
-			$user =& $request->getUser();
+			$user = $request->getUser();
 			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
 			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-			$stageAssignments =& $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), $submission->getStageId(), null, $user->getId());
+			$stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), $submission->getStageId(), null, $user->getId());
 
-			while ($stageAssignment =& $stageAssignments->next()) {
-				$userGroup =& $userGroupDao->getById($stageAssignment->getUserGroupId());
+			while ($stageAssignment = $stageAssignments->next()) {
+				$userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId());
 				if (in_array($userGroup->getRoleId(), array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT))) {
 					$notificationDao = DAORegistry::getDAO('NotificationDAO');
 					$notificationDao->deleteByAssoc(ASSOC_TYPE_SUBMISSION, $submission->getId(), $user->getId(), $task);

@@ -46,7 +46,7 @@ class FooterCategoryForm extends Form {
 					'$path,$form,$footerCategoryDao,$contextId',
 					'return !$footerCategoryDao->categoryExistsByPath($path,$contextId);'
 				),
-				array(&$this, DAORegistry::getDAO('FooterCategoryDAO'), $contextId)
+				array($this, DAORegistry::getDAO('FooterCategoryDAO'), $contextId)
 			));
 		} else {
 			$this->addCheck(new FormValidatorCustom(
@@ -55,7 +55,7 @@ class FooterCategoryForm extends Form {
 					'$path,$form,$footerCategoryDao,$contextId',
 					'$category = $footerCategoryDao->getByPath($path,$contextId); return (!isset($category) || $category->getId() == $form->getData(\'footerCategoryId\'));'
 				),
-				array(&$this, DAORegistry::getDAO('FooterCategoryDAO'), $contextId)
+				array($this, DAORegistry::getDAO('FooterCategoryDAO'), $contextId)
 			));
 		}
 		$this->addCheck(new FormValidatorPost($this));
@@ -97,7 +97,7 @@ class FooterCategoryForm extends Form {
 	/**
 	 * @see Form::execute()
 	 */
-	function execute(&$request) {
+	function execute($request) {
 
 		$footerCategoryDao = DAORegistry::getDAO('FooterCategoryDAO');
 		$footerCategory = $this->getFooterCategory();
@@ -184,7 +184,7 @@ class FooterCategoryForm extends Form {
 	 * @param $rowData array
 	 * @return FooterLink
 	 */
-	function &getFooterLinkFromRowData(&$request, $rowData) {
+	function &getFooterLinkFromRowData($request, $rowData) {
 		$footerLinkDao = DAORegistry::getDAO('FooterLinkDAO');
 		$footerLink = $footerLinkDao->newDataObject();
 

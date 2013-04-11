@@ -87,15 +87,15 @@ class PKPHandler {
 	 * Set the dispatcher
 	 * @param $dispatcher PKPDispatcher
 	 */
-	function setDispatcher(&$dispatcher) {
-		$this->_dispatcher =& $dispatcher;
+	function setDispatcher($dispatcher) {
+		$this->_dispatcher = $dispatcher;
 	}
 
 	/**
 	 * Fallback method in case request handler does not implement index method.
 	 */
-	function index($args, &$request) {
-		$dispatcher =& $this->getDispatcher();
+	function index($args, $request) {
+		$dispatcher = $this->getDispatcher();
 		if (isset($dispatcher)) $dispatcher->handle404();
 		else Dispatcher::handle404(); // For old-style handlers
 	}
@@ -247,7 +247,7 @@ class PKPHandler {
 	 *  see getRoleAssignment() for more details.
 	 * @return boolean
 	 */
-	function authorize(&$request, &$args, $roleAssignments) {
+	function authorize($request, &$args, $roleAssignments) {
 		// Enforce restricted site access.
 		import('lib.pkp.classes.security.authorization.RestrictedSiteAccessPolicy');
 		$this->addPolicy(new RestrictedSiteAccessPolicy($request), true);
@@ -268,7 +268,7 @@ class PKPHandler {
 		// Make sure that we have a valid decision manager instance.
 		assert(is_a($this->_authorizationDecisionManager, 'AuthorizationDecisionManager'));
 
-		$router =& $request->getRouter();
+		$router = $request->getRouter();
 		if (is_a($router, 'PKPPageRouter')) {
 			// We have to apply a blacklist approach for page
 			// controllers to maintain backwards compatibility:
@@ -343,11 +343,11 @@ class PKPHandler {
 	 * @param $request PKPRequest
 	 * @param $args array
 	 */
-	function initialize(&$request, $args = null) {
+	function initialize($request, $args = null) {
 		// Set the controller id to the requested
 		// page (page routing) or component name
 		// (component routing) by default.
-		$router =& $request->getRouter();
+		$router = $request->getRouter();
 		if (is_a($router, 'PKPComponentRouter')) {
 			$componentId = $router->getRequestedComponent($request);
 			// Create a somewhat compressed but still globally unique
@@ -372,7 +372,7 @@ class PKPHandler {
 	 * @return DBResultRange
 	 */
 	static function getRangeInfo($request, $rangeName, $contextData = null) {
-		$context =& $request->getContext();
+		$context = $request->getContext();
 		$pageNum = $request->getUserVar(self::getPageParamName($rangeName));
 		if (empty($pageNum)) {
 			$session =& $request->getSession();
@@ -436,7 +436,7 @@ class PKPHandler {
 			AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON);
 		}
 
-		$templateMgr =& TemplateManager::getManager($request);
+		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('userRoles', $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES));
 		$accessibleWorkflowStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
 		if ($accessibleWorkflowStages) $templateMgr->assign('accessibleWorkflowStages', $accessibleWorkflowStages);

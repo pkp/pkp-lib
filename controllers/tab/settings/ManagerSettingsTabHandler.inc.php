@@ -56,7 +56,7 @@ class ManagerSettingsTabHandler extends SettingsTabHandler {
 	/**
 	 * @see SettingsTabHandler::initialize()
 	 */
-	function initialize(&$request, $args = null) {
+	function initialize($request, $args = null) {
 		$this->setWizardMode($request->getUserVar('wizardMode'));
 
 		parent::initialize($request, $args);

@@ -33,7 +33,7 @@ class PKPSubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 	 * @param $reviewRound ReviewRound
 	 * @param $revisedFileId integer
 	 */
-	function PKPSubmissionFilesUploadForm(&$request, $submissionId, $stageId, $uploaderRoles, $fileStage,
+	function PKPSubmissionFilesUploadForm($request, $submissionId, $stageId, $uploaderRoles, $fileStage,
 			$revisionOnly = false, $reviewRound = null, $revisedFileId = null, $assocType = null, $assocId = null) {
 
 		// Initialize class.
@@ -76,7 +76,7 @@ class PKPSubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 	/**
 	 * @see Form::validate()
 	 */
-	function validate(&$request) {
+	function validate($request) {
 		// Is this a revision?
 		$revisedFileId = $this->getRevisedFileId();
 		if ($this->getData('revisionOnly')) {
@@ -84,8 +84,8 @@ class PKPSubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 		}
 
 		// Retrieve the request context.
-		$router =& $request->getRouter();
-		$context =& $router->getContext($request);
+		$router = $request->getRouter();
+		$context = $router->getContext($request);
 
 		if (!$revisedFileId) {
 			// Add an additional check for the genre to the form.
@@ -105,7 +105,7 @@ class PKPSubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 		// Validate the uploader's user group.
 		$uploaderUserGroupId = $this->getData('uploaderUserGroupId');
 		if ($uploaderUserGroupId) {
-			$user =& $request->getUser();
+			$user = $request->getUser();
 			$this->addCheck(
 				new FormValidatorCustom(
 					$this, 'uploaderUserGroupId', FORM_VALIDATOR_REQUIRED_VALUE,
@@ -131,12 +131,12 @@ class PKPSubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 		$this->setData('submissionFileGenres', $genreList);
 
 		// Retrieve the current context.
-		$router =& $request->getRouter();
-		$context =& $router->getContext($request);
+		$router = $request->getRouter();
+		$context = $router->getContext($request);
 		assert(is_a($context, 'Press'));
 
 		// Retrieve the user's user groups.
-		$user =& $request->getUser();
+		$user = $request->getUser();
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$assignedUserGroups =& $userGroupDao->getByUserId($user->getId(), $context->getId());
 
@@ -225,7 +225,7 @@ class PKPSubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 		if (!$uploaderUserGroupId) fatalError('Invalid uploader user group!');
 
 		// Identify the uploading user.
-		$user =& $request->getUser();
+		$user = $request->getUser();
 		assert(is_a($user, 'User'));
 
 		$assocType = $this->getData('assocType') ? (int) $this->getData('assocType') : null;
@@ -258,18 +258,17 @@ class PKPSubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 	 * @param $request Request
 	 * @return array
 	 */
-	function &_retrieveGenreList(&$request) {
-		$context =& $request->getContext();
+	function &_retrieveGenreList($request) {
+		$context = $request->getContext();
 		$genreDao = DAORegistry::getDAO('GenreDAO'); /* @var $genreDao GenreDAO */
-		$genres =& $genreDao->getEnabledByContextId($context->getId());
+		$genres = $genreDao->getEnabledByContextId($context->getId());
 
 		// Transform the genres into an array and
 		// assign them to the form.
 		$genreList = array();
-		while($genre =& $genres->next()){
+		while($genre = $genres->next()){
 			$genreId = $genre->getId();
 			$genreList[$genreId] = $genre->getLocalizedName();
-			unset($genre);
 		}
 		return $genreList;
 	}

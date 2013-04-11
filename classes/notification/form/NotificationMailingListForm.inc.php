@@ -38,7 +38,7 @@ class NotificationMailingListForm extends Form {
 		}
 		$this->addCheck(new FormValidatorPost($this));
 		$this->addCheck(new FormValidatorEmail($this, 'email', 'required', 'notification.mailList.emailInvalid'));
-		$this->addCheck(new FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailsDoNotMatch', create_function('$email,$form', 'return $email == $form->getData(\'confirmEmail\');'), array(&$this)));
+		$this->addCheck(new FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailsDoNotMatch', create_function('$email,$form', 'return $email == $form->getData(\'confirmEmail\');'), array($this)));
 	}
 
 	/**
@@ -58,8 +58,8 @@ class NotificationMailingListForm extends Form {
 	/**
 	 * Display the form.
 	 */
-	function display(&$request) {
-		$templateMgr =& TemplateManager::getManager($request);
+	function display($request) {
+		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('new', true);
 		
 		if ($this->captchaEnabled) {
@@ -71,7 +71,7 @@ class NotificationMailingListForm extends Form {
 			$templateMgr->assign('captchaEnabled', true);
 		}
 
-		$context =& $request->getContext();
+		$context = $request->getContext();
 		if ($context) {
 			$templateMgr->assign('allowRegReviewer', $context->getSetting('allowRegReviewer'));
 			$templateMgr->assign('allowRegAuthor', $context->getSetting('allowRegAuthor'));
@@ -83,9 +83,9 @@ class NotificationMailingListForm extends Form {
 	/**
 	 * Save the form
 	 */
-	function execute(&$request) {
+	function execute($request) {
 		$userEmail = $this->getData('email');
-		$context =& $request->getContext();
+		$context = $request->getContext();
 
 		$notificationMailListDao = DAORegistry::getDAO('NotificationMailListDAO');
 		if($password = $notificationMailListDao->subscribeGuest($userEmail, $context->getId())) {

@@ -367,7 +367,7 @@ class ReviewRoundDAO extends DAO {
 	 * @param $row array
 	 * @return Signoff
 	 */
-	function _fromRow(&$row) {
+	function _fromRow($row) {
 		$reviewRound = $this->newDataObject();
 
 		$reviewRound->setId((int)$row['review_round_id']);

@@ -59,7 +59,7 @@ class LibraryFileGridRow extends GridRow {
 	 * Configure the grid row
 	 * @param $request PKPRequest
 	 */
-	function initialize(&$request) {
+	function initialize($request) {
 		parent::initialize($request);
 
 		$this->setFileType($request->getUserVar('fileType'));
@@ -69,7 +69,7 @@ class LibraryFileGridRow extends GridRow {
 
 		if (!empty($fileId) && $this->_canEdit) {
 			// Actions
-			$router =& $request->getRouter();
+			$router = $request->getRouter();
 			$actionArgs = array(
 				'fileId' => $fileId,
 			);

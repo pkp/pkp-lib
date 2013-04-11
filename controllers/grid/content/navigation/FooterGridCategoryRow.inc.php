@@ -30,7 +30,7 @@ class FooterGridCategoryRow extends GridCategoryRow {
 		parent::GridCategoryRow();
 	}
 
-	function initialize(&$request) {
+	function initialize($request) {
 		// Do the default initialization
 		parent::initialize($request);
 

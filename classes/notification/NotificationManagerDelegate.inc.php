@@ -48,42 +48,42 @@ abstract class NotificationManagerDelegate extends PKPNotificationOperationManag
 	/**
 	 * @see INotificationInfoProvider::getNotificationUrl()
 	 */
-	public function getNotificationUrl(&$request, &$notification) {
+	public function getNotificationUrl($request, $notification) {
 		return '';
 	}
 
 	/**
 	 * @see INotificationInfoProvider::getNotificationMessage()
 	 */
-	public function getNotificationMessage(&$request, &$notification) {
+	public function getNotificationMessage($request, $notification) {
 		return '';
 	}
 
 	/**
 	 * @see INotificationInfoProvider::getNotificationContents()
 	 */
-	public function getNotificationContents(&$request, &$notification) {
+	public function getNotificationContents($request, $notification) {
 		return '';
 	}
 
 	/**
 	 * @see INotificationInfoProvider::getNotificationTitle()
 	 */
-	public function getNotificationTitle(&$notification) {
+	public function getNotificationTitle($notification) {
 		return '';
 	}
 
 	/**
 	 * @see INotificationInfoProvider::getStyleClass()
 	 */
-	public function getStyleClass(&$notification) {
+	public function getStyleClass($notification) {
 		return '';
 	}
 
 	/**
 	 * @see INotificationInfoProvider::getIconClass()
 	 */
-	public function getIconClass(&$notification) {
+	public function getIconClass($notification) {
 		return '';
 	}
 
@@ -101,7 +101,7 @@ abstract class NotificationManagerDelegate extends PKPNotificationOperationManag
 	 * @param $assocType int
 	 * @param $assocId int
 	 */
-	public function updateNotification(&$request, $userIds, $assocType, $assocId) {
+	public function updateNotification($request, $userIds, $assocType, $assocId) {
 		return false;
 	}
 }

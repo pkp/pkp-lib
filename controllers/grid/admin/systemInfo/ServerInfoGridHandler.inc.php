@@ -35,7 +35,7 @@ class ServerInfoGridHandler extends GridHandler {
 	/**
 	 * @see PKPHandler::authorize()
 	 */
-	function authorize(&$request, &$args, $roleAssignments) {
+	function authorize($request, &$args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.PolicySet');
 		$rolePolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
 
@@ -51,7 +51,7 @@ class ServerInfoGridHandler extends GridHandler {
 	/**
 	 * @see PKPHandler::initialize()
 	 */
-	function initialize(&$request) {
+	function initialize($request) {
 		parent::initialize($request);
 
 		// Load user-related translations.
@@ -104,7 +104,7 @@ class ServerInfoGridHandler extends GridHandler {
 	/**
 	 * @see GridHandler::loadData
 	 */
-	function loadData(&$request, $filter) {
+	function loadData($request, $filter) {
 
 		$dbconn = DBConnection::getConn();
 		$dbServerInfo = $dbconn->ServerInfo();

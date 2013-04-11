@@ -38,7 +38,7 @@ class PKPSubmissionFilesUploadBaseForm extends Form {
 	 * @param $reviewRound ReviewRound
 	 * @param $revisedFileId integer
 	 */
-	function PKPSubmissionFilesUploadBaseForm(&$request, $template, $submissionId, $stageId, $fileStage,
+	function PKPSubmissionFilesUploadBaseForm($request, $template, $submissionId, $stageId, $fileStage,
 			$revisionOnly = false, $reviewRound = null, $revisedFileId = null, $assocType = null, $assocId = null) {
 
 		// Check the incoming parameters.
@@ -246,7 +246,7 @@ class PKPSubmissionFilesUploadBaseForm extends Form {
 		$this->setData('submissionFileOptions', $submissionFileOptions);
 
 		// Show ensuring a blind review link.
-		$context =& $request->getContext();
+		$context = $request->getContext();
 		if ($context->getSetting('showEnsuringLink')) {
 			import('lib.pkp.classes.linkAction.request.ConfirmationModal');
 			$ensuringLink = new LinkAction(
@@ -256,7 +256,7 @@ class PKPSubmissionFilesUploadBaseForm extends Form {
 					__('review.ensuringBlindReview')),
 				__('review.ensuringBlindReview'));
 
-			$templateMgr =& TemplateManager::getManager($request);
+			$templateMgr = TemplateManager::getManager($request);
 			$templateMgr->assign('ensuringLink', $ensuringLink);
 		}
 

@@ -33,7 +33,7 @@ class UserListbuilderGridCellProvider extends GridCellProvider {
 	 * @param $column GridColumn
 	 * @return array
 	 */
-	function getTemplateVarsFromRowColumn(&$row, $column) {
+	function getTemplateVarsFromRowColumn($row, $column) {
 		$user =& $row->getData();
 		$columnId = $column->getId();
 		// Allow for either Users or Authors (both have a getFullName method).

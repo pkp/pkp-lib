@@ -178,8 +178,8 @@ class FilterForm extends Form {
 	/**
 	 * @see Form::fetch()
 	 */
-	function fetch(&$request) {
-		$templateMgr =& TemplateManager::getManager($request);
+	function fetch($request) {
+		$templateMgr = TemplateManager::getManager($request);
 
 		// The form description depends on the current state
 		// of the selection process: do we select a filter template
@@ -220,8 +220,8 @@ class FilterForm extends Form {
 	 * Save filter
 	 * @param $request PKPRequest
 	 */
-	function execute(&$request) {
-		$filter =& $this->getFilter();
+	function execute($request) {
+		$filter = $this->getFilter();
 		assert(is_a($filter, 'Filter'));
 
 		// Configure the filter
@@ -235,8 +235,8 @@ class FilterForm extends Form {
 		if (is_numeric($filter->getId())) {
 			$filterDao->updateObject($filter);
 		} else {
-			$router =& $request->getRouter();
-			$context =& $router->getContext($request);
+			$router = $request->getRouter();
+			$context = $router->getContext($request);
 			$contextId = (is_null($context)?CONTEXT_ID_NONE:$context->getId());
 			$filterDao->insertObject($filter, $contextId);
 		}

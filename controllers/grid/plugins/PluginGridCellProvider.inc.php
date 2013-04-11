@@ -30,7 +30,7 @@ class PluginGridCellProvider extends GridCellProvider {
 	 * @param $column GridColumn
 	 * @return array
 	 */
-	function getTemplateVarsFromRowColumn(&$row, &$column) {
+	function getTemplateVarsFromRowColumn($row, $column) {
 		$plugin =& $row->getData();
 		$columnId = $column->getId();
 		assert(is_a($plugin, 'Plugin') && !empty($columnId));
@@ -98,11 +98,11 @@ class PluginGridCellProvider extends GridCellProvider {
 	/**
 	 * @see GridCellProvider::getCellActions()
 	 */
-	function getCellActions(&$request, &$row, &$column, $position = GRID_ACTION_POSITION_DEFAULT) {
+	function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
 		if ($column->getId() == 'enabled') {
-			$plugin =& $row->getData(); /* @var $plugin Plugin */
+			$plugin = $row->getData(); /* @var $plugin Plugin */
 
-			$router =& $request->getRouter();
+			$router = $request->getRouter();
 			$managementVerbs = $plugin->getManagementVerbs();
 
 			if (!is_null($managementVerbs)) {

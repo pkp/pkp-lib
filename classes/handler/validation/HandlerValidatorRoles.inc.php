@@ -24,7 +24,7 @@ class HandlerValidatorRoles extends HandlerValidatorPolicy {
 	 * @param $all bool flag for whether all roles must exist or just 1
 	 */
 	function HandlerValidatorRoles(&$handler, $redirectLogin = true, $message = null, $additionalArgs = array(), $roles, $all = false) {
-		$application =& PKPApplication::getApplication();
+		$application = PKPApplication::getApplication();
 		$request =& $application->getRequest();
 		$policy = new RoleBasedHandlerOperationPolicy($request, $roles, array(), $message, $all, true);
 		parent::HandlerValidatorPolicy($policy, $handler, $redirectLogin, $message, $additionalArgs);

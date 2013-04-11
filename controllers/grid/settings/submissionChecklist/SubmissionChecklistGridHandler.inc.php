@@ -32,7 +32,7 @@ class SubmissionChecklistGridHandler extends SetupGridHandler {
 	/**
 	 * @see SetupGridHandler::initialize()
 	 */
-	function initialize(&$request) {
+	function initialize($request) {
 		parent::initialize($request);
 
 		// Basic grid configuration
@@ -109,7 +109,7 @@ class SubmissionChecklistGridHandler extends SetupGridHandler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function addItem($args, &$request) {
+	function addItem($args, $request) {
 		// Calling editSubmissionChecklist with an empty row id will add
 		// a new submissionChecklist.
 		return $this->editItem($args, $request);
@@ -121,7 +121,7 @@ class SubmissionChecklistGridHandler extends SetupGridHandler {
 	 * @param $request PKPRequest
 	 * @return string Serialized JSON object
 	 */
-	function editItem($args, &$request) {
+	function editItem($args, $request) {
 		import('lib.pkp.controllers.grid.settings.submissionChecklist.form.SubmissionChecklistForm');
 		$submissionChecklistId = isset($args['rowId']) ? $args['rowId'] : null;
 		$submissionChecklistForm = new SubmissionChecklistForm($submissionChecklistId);
@@ -138,7 +138,7 @@ class SubmissionChecklistGridHandler extends SetupGridHandler {
 	 * @param $request PKPRequest
 	 * @return string Serialized JSON object
 	 */
-	function updateItem($args, &$request) {
+	function updateItem($args, $request) {
 		// -> submissionChecklistId must be present and valid
 		// -> htmlId must be present and valid
 
@@ -162,7 +162,7 @@ class SubmissionChecklistGridHandler extends SetupGridHandler {
 	 * @param $request PKPRequest
 	 * @return string Serialized JSON object
 	 */
-	function deleteItem($args, &$request) {
+	function deleteItem($args, $request) {
 		$rowId = $request->getUserVar('rowId');
 
 		$router = $request->getRouter();
@@ -199,7 +199,7 @@ class SubmissionChecklistGridHandler extends SetupGridHandler {
 	/**
 	 * @see GridHandler::setDataElementSequence()
 	 */
-	function setDataElementSequence(&$request, $rowId, $gridDataElement, $newSequence) {
+	function setDataElementSequence($request, $rowId, $gridDataElement, $newSequence) {
 		$router = $request->getRouter();
 		$context = $router->getContext($request);
 

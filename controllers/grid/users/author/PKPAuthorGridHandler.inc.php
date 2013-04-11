@@ -80,7 +80,7 @@ class PKPAuthorGridHandler extends GridHandler {
 	 * @param $args array
 	 * @param $roleAssignments array
 	 */
-	function authorize(&$request, &$args, $roleAssignments) {
+	function authorize($request, &$args, $roleAssignments) {
 		return parent::authorize($request, $args, $roleAssignments);
 	}
 
@@ -88,7 +88,7 @@ class PKPAuthorGridHandler extends GridHandler {
 	 * Configure the grid
 	 * @param $request PKPRequest
 	 */
-	function initialize(&$request) {
+	function initialize($request) {
 		parent::initialize($request);
 
 		$this->setTitle('submission.contributors');
@@ -103,7 +103,7 @@ class PKPAuthorGridHandler extends GridHandler {
 		if ($this->hasAddAction()) {
 			$this->setReadOnly(false);
 			// Grid actions
-			$router =& $request->getRouter();
+			$router = $request->getRouter();
 			$actionArgs = $this->getRequestArgs();
 			$this->addAction(
 				new LinkAction(
@@ -198,7 +198,7 @@ class PKPAuthorGridHandler extends GridHandler {
 	 * @param PKPRequest $request
 	 * @return int
 	 */
-	function getRequestedSubmissionId(&$request) {
+	function getRequestedSubmissionId($request) {
 		fatalError('abstract method');
 	}
 
@@ -229,7 +229,7 @@ class PKPAuthorGridHandler extends GridHandler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function addAuthor($args, &$request) {
+	function addAuthor($args, $request) {
 		// Calling editAuthor() with an empty row id will add
 		// a new author.
 		return $this->editAuthor($args, $request);
@@ -241,7 +241,7 @@ class PKPAuthorGridHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 * @return string Serialized JSON object
 	 */
-	function editAuthor($args, &$request) {
+	function editAuthor($args, $request) {
 		// Identify the author to be updated
 		$authorId = $request->getUserVar('authorId');
 		$submission =& $this->getSubmission();
@@ -264,7 +264,7 @@ class PKPAuthorGridHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 * @return string Serialized JSON object
 	 */
-	function updateAuthor($args, &$request) {
+	function updateAuthor($args, $request) {
 		// Identify the author to be updated
 		$authorId = $request->getUserVar('authorId');
 		$submission = $this->getSubmission();
@@ -290,7 +290,7 @@ class PKPAuthorGridHandler extends GridHandler {
 			}
 
 			// Create trivial notification.
-			$currentUser =& $request->getUser();
+			$currentUser = $request->getUser();
 			$notificationMgr = new NotificationManager();
 			$notificationMgr->createTrivialNotification($currentUser->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => $notificationContent));
 
@@ -321,7 +321,7 @@ class PKPAuthorGridHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 * @return string Serialized JSON object
 	 */
-	function deleteAuthor($args, &$request) {
+	function deleteAuthor($args, $request) {
 		// Identify the submission Id
 		$submissionId = $this->getRequestedSubmissionId($request);
 		// Identify the author to be deleted
@@ -344,7 +344,7 @@ class PKPAuthorGridHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 * @return string Serialized JSON object
 	 */
-	function addUser($args, &$request) {
+	function addUser($args, $request) {
 		// Identify the author Id.
 		$authorId = $request->getUserVar('authorId');
 

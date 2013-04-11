@@ -31,7 +31,7 @@ class ViewAnnouncementGridHandler extends AnnouncementGridHandler {
 
 		$displayLimit = (boolean) $request->getUserVar('displayLimit');
 		if ($displayLimit) {
-			$context =& $request->getContext();
+			$context = $request->getContext();
 			$numAnnouncementsHomepage = $context->getSetting('numAnnouncementsHomepage');
 			$gridElements = $this->getGridDataElements($request);
 			if (count($gridElements) > $numAnnouncementsHomepage) {

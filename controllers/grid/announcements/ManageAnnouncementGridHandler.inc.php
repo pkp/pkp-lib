@@ -84,7 +84,7 @@ class ManageAnnouncementGridHandler extends AnnouncementGridHandler {
 	/**
 	 * @see GridHandler::authorize()
 	 */
-	function authorize(&$request, &$args, $roleAssignments) {
+	function authorize($request, &$args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.PkpContextAccessPolicy');
 		$this->addPolicy(new PkpContextAccessPolicy($request, $roleAssignments));
 		return parent::authorize($request, $args, $roleAssignments, false);
@@ -100,7 +100,7 @@ class ManageAnnouncementGridHandler extends AnnouncementGridHandler {
 	 * @param $request PKPRequest
 	 * @return string
 	 */
-	function addAnnouncement($args, &$request) {
+	function addAnnouncement($args, $request) {
 		return $this->editAnnouncement($args, $request);
 	}
 
@@ -110,7 +110,7 @@ class ManageAnnouncementGridHandler extends AnnouncementGridHandler {
 	 * @param $request PKPRequest
 	 * @return string
 	 */
-	function editAnnouncement($args, &$request) {
+	function editAnnouncement($args, $request) {
 		$announcementId = (int)$request->getUserVar('announcementId');
 		$context = $request->getContext();
 		$contextId = $context->getId();
@@ -128,7 +128,7 @@ class ManageAnnouncementGridHandler extends AnnouncementGridHandler {
 	 * @param $request PKPRequest
 	 * @return string
 	 */
-	function updateAnnouncement($args, &$request) {
+	function updateAnnouncement($args, $request) {
 
 		// Identify the announcement Id.
 		$announcementId = (int) $request->getUserVar('announcementId');

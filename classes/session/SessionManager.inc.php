@@ -28,8 +28,8 @@ class SessionManager {
 	 * @param $sessionDao SessionDAO
 	 * @param $request PKPRequest
 	 */
-	function SessionManager(&$sessionDao, &$request) {
-		$this->sessionDao =& $sessionDao;
+	function SessionManager($sessionDao, $request) {
+		$this->sessionDao = $sessionDao;
 
 		// Configure PHP session parameters
 		ini_set('session.use_trans_sid', 0);
@@ -45,12 +45,12 @@ class SessionManager {
 		ini_set('session.cache_limiter', 'none');
 
 		session_set_save_handler(
-			array(&$this, 'open'),
-			array(&$this, 'close'),
-			array(&$this, 'read'),
-			array(&$this, 'write'),
-			array(&$this, 'destroy'),
-			array(&$this, 'gc')
+			array($this, 'open'),
+			array($this, 'close'),
+			array($this, 'read'),
+			array($this, 'write'),
+			array($this, 'destroy'),
+			array($this, 'gc')
 		);
 
 		// Initialize the session. This calls SessionManager::read() and

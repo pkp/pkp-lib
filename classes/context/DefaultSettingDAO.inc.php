@@ -261,8 +261,8 @@ class DefaultSettingDAO extends DAO {
 	 * @param $locale string
 	 */
 	function installLocale($locale) {
-		$contextDao =& Application::getContextDAO();
-		$contexts =& $contextDao->getNames();
+		$contextDao = Application::getContextDAO();
+		$contexts = $contextDao->getNames();
 
 		foreach ($contexts as $id => $name) {
 			$this->installDefaultBaseData($locale, $id, false, true);

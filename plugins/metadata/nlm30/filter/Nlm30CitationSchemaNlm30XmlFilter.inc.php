@@ -45,9 +45,9 @@ class Nlm30CitationSchemaNlm30XmlFilter extends Nlm30CitationSchemaCitationOutpu
 	/**
 	 * @see TemplateBasedFilter::addTemplateVars()
 	 */
-	function addTemplateVars(&$templateMgr, &$input, &$request, &$locale) {
+	function addTemplateVars($templateMgr, &$input, $request, &$locale) {
 		// Assign the full meta-data description.
-		$templateMgr->assign_by_ref('metadataDescription', $input);
+		$templateMgr->assign('metadataDescription', $input);
 
 		parent::addTemplateVars($templateMgr, $input, $request, $locale);
 	}

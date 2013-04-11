@@ -56,16 +56,16 @@ class PKPRequest {
 	 * set the router instance
 	 * @param $router instance PKPRouter
 	 */
-	function setRouter(&$router) {
-		$this->_router =& $router;
+	function setRouter($router) {
+		$this->_router = $router;
 	}
 
 	/**
 	 * Set the dispatcher
 	 * @param $dispatcher Dispatcher
 	 */
-	function setDispatcher(&$dispatcher) {
-		$this->_dispatcher =& $dispatcher;
+	function setDispatcher($dispatcher) {
+		$this->_dispatcher = $dispatcher;
 	}
 
 	/**
@@ -493,7 +493,7 @@ class PKPRequest {
 		$site =& Registry::get('site', true, null);
 		if ($site === null) {
 			$siteDao = DAORegistry::getDAO('SiteDAO');
-			$site =& $siteDao->getSite();
+			$site = $siteDao->getSite();
 			// PHP bug? This is needed for some reason or extra queries results.
 			Registry::set('site', $site);
 		}
@@ -527,9 +527,9 @@ class PKPRequest {
 
 		$user =& Registry::get('user', true, null);
 		if ($user === null) {
-			$sessionManager =& SessionManager::getManager();
-			$session =& $sessionManager->getUserSession();
-			$user =& $session->getUser();
+			$sessionManager = SessionManager::getManager();
+			$session = $sessionManager->getUserSession();
+			$user = $session->getUser();
 		}
 
 		return $user;
@@ -791,8 +791,8 @@ class PKPRequest {
 		// warnings are switched on.
 		// FIXME: Fix enough instances of this error so that
 		// we can put a deprecation warning in here.
-		$_this =& PKPRequest::_checkThis();
-		$router =& $_this->getRouter();
+		$_this = PKPRequest::_checkThis();
+		$router = $_this->getRouter();
 
 		if (is_null($router)) {
 			assert(false);

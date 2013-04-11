@@ -37,7 +37,7 @@ class SponsorForm extends Form {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function initData($args, &$request) {
+	function initData($args, $request) {
 		$context = $request->getContext();
 
 		$sponsors = $context->getSetting('sponsors');
@@ -64,7 +64,7 @@ class SponsorForm extends Form {
 	 * @param $request PKPRequest
 	 * @see Form::fetch()
 	 */
-	function fetch(&$request) {
+	function fetch($request) {
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('institution', $this->_data['institution']);

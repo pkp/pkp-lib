@@ -116,7 +116,7 @@ class FileCacheTest extends PKPTestCase {
 	 * Return a test cache.
 	 */
 	protected function getCache() {
-		return $this->cacheManager->getFileCache('testCache', 0, array(&$this, '_cacheMiss'));
+		return $this->cacheManager->getFileCache('testCache', 0, array($this, '_cacheMiss'));
 	}
 }
 

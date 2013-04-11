@@ -71,7 +71,7 @@ class PKPCitationGridRow extends GridRow {
 	/**
 	 * @see GridRow::initialize()
 	 */
-	function initialize(&$request) {
+	function initialize($request) {
 		// Do the default initialization
 		parent::initialize($request);
 
@@ -84,7 +84,7 @@ class PKPCitationGridRow extends GridRow {
 		$rowId = $this->getId();
 		if (!empty($rowId) && is_numeric($rowId)) {
 			// Only add row actions if this is an existing row
-			$router =& $request->getRouter();
+			$router = $request->getRouter();
 			import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
 			$this->addAction(
 				new LinkAction(
@@ -107,7 +107,7 @@ class PKPCitationGridRow extends GridRow {
 	/**
 	 * @see GridRow::getCellActions()
 	 */
-	function getCellActions(&$request, &$column, $position = GRID_ACTION_POSITION_DEFAULT) {
+	function getCellActions($request, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
 		$cellActions = array();
 		if ($position == GRID_ACTION_POSITION_DEFAULT) {
 			// Is this a new row or an existing row?
@@ -121,7 +121,7 @@ class PKPCitationGridRow extends GridRow {
 				if ($citation->getCitationState() < CITATION_PARSED) fatalError('Invalid citation!');
 
 				// Instantiate the cell action.
-				$router =& $request->getRouter();
+				$router = $request->getRouter();
 				import('lib.pkp.classes.linkAction.request.AjaxAction');
 				$cellActions = array(
 					new LinkAction(

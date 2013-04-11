@@ -51,7 +51,7 @@ class SetupListbuilderHandler extends ListbuilderHandler {
 	 * @param $args array
 	 * @param $roleAssignments array
 	 */
-	function authorize(&$request, &$args, $roleAssignments) {
+	function authorize($request, &$args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.PkpContextAccessPolicy');
 		$this->addPolicy(new PkpContextAccessPolicy($request, $roleAssignments));
 		return parent::authorize($request, $args, $roleAssignments);
@@ -60,7 +60,7 @@ class SetupListbuilderHandler extends ListbuilderHandler {
 	/**
 	 * @see ListbuilderHandler::initialize
 	 */
-	function initialize(&$request) {
+	function initialize($request) {
 		$this->setContext($request->getContext());
 		return parent::initialize($request);
 	}

@@ -29,7 +29,7 @@ class PKPHelp {
 		$instance =& Registry::get('help');
 		if ($instance == null) {
 			unset($instance);
-			$application =& PKPApplication::getApplication();
+			$application = PKPApplication::getApplication();
 			$instance =& $application->instantiateHelp();
 			Registry::set('help', $instance);
 		}

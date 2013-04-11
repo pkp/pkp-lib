@@ -43,13 +43,13 @@ class CitationForm extends Form {
 	 * @param $citation Citation
 	 * @param $assocObject DataObject
 	 */
-	function CitationForm(&$request, &$citation, &$assocObject) {
+	function CitationForm($request, $citation, $assocObject) {
 		parent::Form();
 		assert(is_a($citation, 'Citation'));
 		assert(is_a($assocObject, 'DataObject'));
 
-		$this->_citation =& $citation;
-		$this->_assocObject =& $assocObject;
+		$this->_citation = $citation;
+		$this->_assocObject = $assocObject;
 
 		// Identify all form field names for the citation
 		$this->_citationFormFieldNames = array();
@@ -295,11 +295,11 @@ class CitationForm extends Form {
 	 */
 	function fetch($request, $template = CITATION_FORM_FULL_TEMPLATE) {
 		// Instantiate objects used throughout.
-		$user =& $request->getUser();
-		$router =& $request->getRouter();
-		$context =& $router->getContext($request);
-		$citation =& $this->getCitation();
-		$assocObject =& $this->getAssocObject();
+		$user = $request->getUser();
+		$router = $request->getRouter();
+		$context = $router->getContext($request);
+		$citation = $this->getCitation();
+		$assocObject = $this->getAssocObject();
 		$citationDao = DAORegistry::getDAO('CitationDAO'); /* @var $citationDao CitationDAO */
 
 		/////////////////////////////////////////////////////
@@ -309,7 +309,7 @@ class CitationForm extends Form {
 		// 1) Messages
 		//
 		// Add the citation to the template.
-		$templateMgr =& TemplateManager::getManager($request);
+		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign_by_ref('citation', $citation);
 
 		// Does the form contain unsaved changes?
@@ -423,8 +423,8 @@ class CitationForm extends Form {
 			// 4) Author Query
 			//
 			// Add the author query text to the template.
-			$author =& $assocObject->getUser();
-			$user =& $request->getUser();
+			$author = $assocObject->getUser();
+			$user = $request->getUser();
 			$emailParams = array(
 				'authorFirstName' => strip_tags($author->getFirstName()),
 				'authorLastName' => strip_tags($author->getLastName()),

@@ -40,7 +40,7 @@ class SettingsTabHandler extends Handler {
 	/**
 	 * @see PKPHandler::authorize()
 	 */
-	function authorize(&$request, &$args, $roleAssignments) {
+	function authorize($request, &$args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.PkpContextAccessPolicy');
 		$this->addPolicy(new PkpContextAccessPolicy($request, $roleAssignments));
 		return parent::authorize($request, $args, $roleAssignments);
@@ -87,7 +87,7 @@ class SettingsTabHandler extends Handler {
 	/**
 	 * @see PKPHandler::initialize()
 	 */
-	function initialize(&$request) {
+	function initialize($request) {
 		$this->setCurrentTab($request->getUserVar('tab'));
 	}
 
@@ -97,12 +97,12 @@ class SettingsTabHandler extends Handler {
 	/**
 	 * Show a tab.
 	 */
-	function showTab($args, &$request) {
+	function showTab($args, $request) {
 		$this->setupTemplate($request);
 		if ($this->_isValidTab()) {
 			if ($this->_isTabTemplate()) {
 				$this->setupTemplate($request, true);
-				$templateMgr =& TemplateManager::getManager($request);
+				$templateMgr = TemplateManager::getManager($request);
 				if ($this->_isManagementHandler()) {
 					// Pass to template if we are in wizard mode.
 					$templateMgr->assign('wizardMode', $this->getWizardMode());
@@ -122,7 +122,7 @@ class SettingsTabHandler extends Handler {
 	 * Handle forms data (save or edit).
 	 * @param $request Request
 	 */
-	function saveFormData($args, &$request) {
+	function saveFormData($args, $request) {
 		$json = new JSONMessage();
 
 		if ($this->_isValidTab()) {
@@ -134,7 +134,7 @@ class SettingsTabHandler extends Handler {
 				$result = $tabForm->execute($request);
 				if ($result !== false) {
 					$notificationManager = new NotificationManager();
-					$user =& $request->getUser();
+					$user = $request->getUser();
 					$notificationManager->createTrivialNotification($user->getId());
 				}
 			} else {

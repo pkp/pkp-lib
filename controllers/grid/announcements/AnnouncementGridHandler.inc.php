@@ -43,7 +43,7 @@ class AnnouncementGridHandler extends GridHandler {
 		$returner = parent::authorize($request, $args, $roleAssignments);
 
 		// Ensure announcements are enabled.
-		$context =& $request->getContext();
+		$context = $request->getContext();
 		if ($requireAnnouncementsEnabled && !$context->getSetting('enableAnnouncements')) {
 			return false;
 		}
@@ -64,13 +64,13 @@ class AnnouncementGridHandler extends GridHandler {
 	/**
 	 * @see GridHandler::initialize()
 	 */
-	function initialize(&$request) {
+	function initialize($request) {
 		parent::initialize($request);
 
 		// Set the no items row text
 		$this->setEmptyRowText('announcement.noneExist');
 
-		$context =& $request->getContext();
+		$context = $request->getContext();
 
 		// Columns
 		import('lib.pkp.controllers.grid.announcements.AnnouncementGridCellProvider');
@@ -131,9 +131,9 @@ class AnnouncementGridHandler extends GridHandler {
 	 * @param $request Request
 	 * @return string
 	 */
-	function moreInformation($args, &$request) {
+	function moreInformation($args, $request) {
 		$announcementId = (int)$request->getUserVar('announcementId');
-		$context =& $request->getContext();
+		$context = $request->getContext();
 		$contextId = $context->getId();
 
 		import('controllers.grid.announcements.form.AnnouncementForm');

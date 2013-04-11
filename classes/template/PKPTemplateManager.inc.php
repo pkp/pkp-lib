@@ -65,7 +65,7 @@ class PKPTemplateManager extends Smarty {
 		$this->request = $request;
 
 		// Retrieve the router
-		$router =& $this->request->getRouter();
+		$router = $this->request->getRouter();
 		assert(is_a($router, 'PKPRouter'));
 
 		parent::Smarty();
@@ -117,7 +117,7 @@ class PKPTemplateManager extends Smarty {
 		// If there's a locale-specific stylesheet, add it.
 		if (($localeStyleSheet = AppLocale::getLocaleStyleSheet($locale)) != null) $this->addStyleSheet($this->request->getBaseUrl() . '/' . $localeStyleSheet);
 
-		$application =& PKPApplication::getApplication();
+		$application = PKPApplication::getApplication();
 		$this->assign('pageTitle', $application->getNameKey());
 		$this->assign('applicationName', __($application->getNameKey()));
 		$this->assign('exposedConstants', $application->getExposedConstants());
@@ -125,33 +125,33 @@ class PKPTemplateManager extends Smarty {
 
 		// Register custom functions
 		$this->register_modifier('translate', array('AppLocale', 'translate'));
-		$this->register_modifier('get_value', array(&$this, 'smartyGetValue'));
+		$this->register_modifier('get_value', array($this, 'smartyGetValue'));
 		$this->register_modifier('strip_unsafe_html', array('String', 'stripUnsafeHtml'));
 		$this->register_modifier('String_substr', array('String', 'substr'));
-		$this->register_modifier('to_array', array(&$this, 'smartyToArray'));
-		$this->register_modifier('compare', array(&$this, 'smartyCompare'));
-		$this->register_modifier('concat', array(&$this, 'smartyConcat'));
-		$this->register_modifier('escape', array(&$this, 'smartyEscape'));
-		$this->register_modifier('strtotime', array(&$this, 'smartyStrtotime'));
-		$this->register_modifier('explode', array(&$this, 'smartyExplode'));
-		$this->register_modifier('assign', array(&$this, 'smartyAssign'));
-		$this->register_function('translate', array(&$this, 'smartyTranslate'));
-		$this->register_function('null_link_action', array(&$this, 'smartyNullLinkAction'));
-		$this->register_function('flush', array(&$this, 'smartyFlush'));
-		$this->register_function('call_hook', array(&$this, 'smartyCallHook'));
-		$this->register_function('html_options_translate', array(&$this, 'smartyHtmlOptionsTranslate'));
-		$this->register_block('iterate', array(&$this, 'smartyIterate'));
-		$this->register_function('call_progress_function', array(&$this, 'smartyCallProgressFunction'));
-		$this->register_function('page_links', array(&$this, 'smartyPageLinks'));
-		$this->register_function('page_info', array(&$this, 'smartyPageInfo'));
-		$this->register_function('get_help_id', array(&$this, 'smartyGetHelpId'));
-		$this->register_function('icon', array(&$this, 'smartyIcon'));
-		$this->register_function('help_topic', array(&$this, 'smartyHelpTopic'));
-		$this->register_function('sort_heading', array(&$this, 'smartySortHeading'));
-		$this->register_function('sort_search', array(&$this, 'smartySortSearch'));
-		$this->register_function('assign_mailto', array(&$this, 'smartyAssignMailto'));
-		$this->register_function('display_template', array(&$this, 'smartyDisplayTemplate'));
-		$this->register_modifier('truncate', array(&$this, 'smartyTruncate'));
+		$this->register_modifier('to_array', array($this, 'smartyToArray'));
+		$this->register_modifier('compare', array($this, 'smartyCompare'));
+		$this->register_modifier('concat', array($this, 'smartyConcat'));
+		$this->register_modifier('escape', array($this, 'smartyEscape'));
+		$this->register_modifier('strtotime', array($this, 'smartyStrtotime'));
+		$this->register_modifier('explode', array($this, 'smartyExplode'));
+		$this->register_modifier('assign', array($this, 'smartyAssign'));
+		$this->register_function('translate', array($this, 'smartyTranslate'));
+		$this->register_function('null_link_action', array($this, 'smartyNullLinkAction'));
+		$this->register_function('flush', array($this, 'smartyFlush'));
+		$this->register_function('call_hook', array($this, 'smartyCallHook'));
+		$this->register_function('html_options_translate', array($this, 'smartyHtmlOptionsTranslate'));
+		$this->register_block('iterate', array($this, 'smartyIterate'));
+		$this->register_function('call_progress_function', array($this, 'smartyCallProgressFunction'));
+		$this->register_function('page_links', array($this, 'smartyPageLinks'));
+		$this->register_function('page_info', array($this, 'smartyPageInfo'));
+		$this->register_function('get_help_id', array($this, 'smartyGetHelpId'));
+		$this->register_function('icon', array($this, 'smartyIcon'));
+		$this->register_function('help_topic', array($this, 'smartyHelpTopic'));
+		$this->register_function('sort_heading', array($this, 'smartySortHeading'));
+		$this->register_function('sort_search', array($this, 'smartySortSearch'));
+		$this->register_function('assign_mailto', array($this, 'smartyAssignMailto'));
+		$this->register_function('display_template', array($this, 'smartyDisplayTemplate'));
+		$this->register_modifier('truncate', array($this, 'smartyTruncate'));
 
 		// Modified vocabulary for creating forms
 		$fbv =& $this->getFBV();
@@ -166,15 +166,15 @@ class PKPTemplateManager extends Smarty {
 
 		// register the resource name "core"
 		$this->register_resource('core', array(
-			array(&$this, 'smartyResourceCoreGetTemplate'),
-			array(&$this, 'smartyResourceCoreGetTimestamp'),
-			array(&$this, 'smartyResourceCoreGetSecure'),
-			array(&$this, 'smartyResourceCoreGetTrusted')
+			array($this, 'smartyResourceCoreGetTemplate'),
+			array($this, 'smartyResourceCoreGetTimestamp'),
+			array($this, 'smartyResourceCoreGetSecure'),
+			array($this, 'smartyResourceCoreGetTrusted')
 		));
 
-		$this->register_function('url', array(&$this, 'smartyUrl'));
+		$this->register_function('url', array($this, 'smartyUrl'));
 		// ajax load into a div
-		$this->register_function('load_url_in_div', array(&$this, 'smartyLoadUrlInDiv'));
+		$this->register_function('load_url_in_div', array($this, 'smartyLoadUrlInDiv'));
 
 		if (!defined('SESSION_DISABLE_INIT')) {
 			/**
@@ -184,8 +184,8 @@ class PKPTemplateManager extends Smarty {
 			 */
 			$this->assign('isUserLoggedIn', Validation::isLoggedIn());
 
-			$application =& PKPApplication::getApplication();
-			$currentVersion =& $application->getCurrentVersion();
+			$application = PKPApplication::getApplication();
+			$currentVersion = $application->getCurrentVersion();
 			$this->assign('currentVersionString', $currentVersion->getVersionString(false));
 
 			$this->assign('itemsPerPage', Config::getVar('interface', 'items_per_page'));
@@ -196,7 +196,7 @@ class PKPTemplateManager extends Smarty {
 		$plugins =& PluginRegistry::loadCategory('blocks', true);
 
 		if (!defined('SESSION_DISABLE_INIT')) {
-			$user =& $this->request->getUser();
+			$user = $this->request->getUser();
 			$hasSystemNotifications = false;
 			if ($user) {
 				// Assign the user name to be used in the sitenav
@@ -219,7 +219,7 @@ class PKPTemplateManager extends Smarty {
 	 * called.
 	 */
 	function _smarty_include($params) {
-		if (!HookRegistry::call('TemplateManager::include', array(&$this, &$params))) {
+		if (!HookRegistry::call('TemplateManager::include', array($this, &$params))) {
 			return parent::_smarty_include($params);
 		}
 		return false;
@@ -306,7 +306,7 @@ class PKPTemplateManager extends Smarty {
 		// the template as usual.
 
 		$output = null;
-		if (!HookRegistry::call($hookName, array(&$this, &$template, &$sendContentType, &$charset, &$output))) {
+		if (!HookRegistry::call($hookName, array($this, &$template, &$sendContentType, &$charset, &$output))) {
 			// If this is the main display call, send headers.
 			if ($hookName == 'TemplateManager::display') {
 				// Explicitly set the character encoding
@@ -713,7 +713,7 @@ class PKPTemplateManager extends Smarty {
 			// from the parameters array. Variables remaining in params will be
 			// passed along to Request::url as extra parameters.
 			$context = array();
-			$application =& PKPApplication::getApplication();
+			$application = PKPApplication::getApplication();
 			$contextList = $application->getContextList();
 			foreach ($contextList as $contextName) {
 				if (isset($parameters[$contextName])) {

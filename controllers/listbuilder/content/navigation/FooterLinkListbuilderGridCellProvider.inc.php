@@ -28,7 +28,7 @@ class FooterLinkListbuilderGridCellProvider extends GridCellProvider {
 	/**
 	 * @see GridCellProvider::getTemplateVarsFromRowColumn()
 	 */
-	function getTemplateVarsFromRowColumn(&$row, $column) {
+	function getTemplateVarsFromRowColumn($row, $column) {
 		$footerLink =& $row->getData(); /* @var $footerLink FooterLink */
 		$columnId = $column->getId();
 		assert((is_a($footerLink, 'FooterLink')) && !empty($columnId));

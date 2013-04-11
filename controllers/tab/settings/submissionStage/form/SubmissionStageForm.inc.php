@@ -33,7 +33,7 @@ class SubmissionStageForm extends ContextSettingsForm {
 	/**
 	 * @see Form::fetch()
 	 */
-	function fetch(&$request, $params = null) {
+	function fetch($request, $params = null) {
 		$templateMgr = TemplateManager::getManager($request);
 
 		import('classes.mail.MailTemplate');

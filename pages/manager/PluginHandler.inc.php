@@ -30,7 +30,7 @@ class PluginHandler extends ManagerHandler {
 	 * @param $args array
 	 * @param $request object
 	 */
-	function plugin($args, &$request) {
+	function plugin($args, $request) {
 		$category = array_shift($args);
 		$plugin = array_shift($args);
 		$verb = array_shift($args);
@@ -42,7 +42,7 @@ class PluginHandler extends ManagerHandler {
 		if (!isset($plugins[$plugin]) || !$plugins[$plugin]->manage($verb, $args, $message)) {
 			if ($message) {
 				$notificationManager = new NotificationManager();
-				$user =& $request->getUser();
+				$user = $request->getUser();
 				$notificationManager->createTrivialNotification($user->getId(), $message);
 			}
 			$request->redirect(null, null, 'index', array($category));

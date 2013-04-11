@@ -25,7 +25,7 @@ class SubmissionFilesUploadConfirmationForm extends SubmissionFilesUploadBaseFor
 	 * @param $revisedFileId integer
 	 * @param $uploadedFile integer
 	 */
-	function SubmissionFilesUploadConfirmationForm(&$request, $submissionId, $stageId, $fileStage,
+	function SubmissionFilesUploadConfirmationForm($request, $submissionId, $stageId, $fileStage,
 			&$reviewRound, $revisedFileId = null, $assocType = null, $assocId = null, $uploadedFile = null) {
 
 		// Initialize class.
@@ -56,7 +56,7 @@ class SubmissionFilesUploadConfirmationForm extends SubmissionFilesUploadBaseFor
 	 * @param $request Request
 	 * @return SubmissionFile if successful, otherwise null
 	 */
-	function &execute(&$request) {
+	function execute($request) {
 		// Retrieve the file ids of the revised and the uploaded files.
 		$revisedFileId = $this->getRevisedFileId();
 		$uploadedFileId = (int)$this->getData('uploadedFileId');
@@ -67,9 +67,7 @@ class SubmissionFilesUploadConfirmationForm extends SubmissionFilesUploadBaseFor
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 		$submissionId = $this->getData('submissionId');
 		$fileStage = $this->getData('fileStage');
-		$uploadedFile =& $submissionFileDao->setAsLatestRevision($revisedFileId, $uploadedFileId, $submissionId, $fileStage);
-
-		return $uploadedFile;
+		return $submissionFileDao->setAsLatestRevision($revisedFileId, $uploadedFileId, $submissionId, $fileStage);
 	}
 }
 

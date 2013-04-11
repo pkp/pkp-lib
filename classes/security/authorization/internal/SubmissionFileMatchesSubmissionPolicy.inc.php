@@ -21,7 +21,7 @@ class SubmissionFileMatchesSubmissionPolicy extends SubmissionFileBaseAccessPoli
 	 * Constructor
 	 * @param $request PKPRequest
 	 */
-	function SubmissionFileMatchesSubmissionPolicy(&$request, $fileIdAndRevision = null) {
+	function SubmissionFileMatchesSubmissionPolicy($request, $fileIdAndRevision = null) {
 		parent::SubmissionFileBaseAccessPolicy($request, $fileIdAndRevision);
 	}
 

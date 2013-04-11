@@ -36,8 +36,8 @@ class SubmissionChecklistForm extends Form {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function initData($args, &$request) {
-		$context =& $request->getContext();
+	function initData($args, $request) {
+		$context = $request->getContext();
 
 		$submissionChecklistAll = $context->getSetting('submissionChecklist');
 		$checklistItem = array();
@@ -70,7 +70,7 @@ class SubmissionChecklistForm extends Form {
 	 * @param $request PKPRequest
 	 * @see Form::fetch()
 	 */
-	function fetch(&$request) {
+	function fetch($request) {
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
 		return parent::fetch($request);
 	}
@@ -87,9 +87,9 @@ class SubmissionChecklistForm extends Form {
 	/**
 	 * Save checklist entry.
 	 */
-	function execute($args, &$request) {
-		$router =& $request->getRouter();
-		$context =& $router->getContext($request);
+	function execute($args, $request) {
+		$router = $request->getRouter();
+		$context = $router->getContext($request);
 		$submissionChecklistAll = $context->getSetting('submissionChecklist');
 		$locale = AppLocale::getPrimaryLocale();
 		//FIXME: a bit of kludge to get unique submissionChecklist id's

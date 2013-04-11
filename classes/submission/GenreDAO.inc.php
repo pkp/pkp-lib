@@ -98,7 +98,7 @@ class GenreDAO extends DefaultSettingDAO {
 	 * @param $row array
 	 * @return Genre
 	 */
-	function &_fromRow(&$row) {
+	function &_fromRow($row) {
 		$genre = $this->newDataObject();
 		$genre->setId($row['genre_id']);
 		$genre->setContextId($row['context_id']);

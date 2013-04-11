@@ -38,10 +38,10 @@ class CountryDAO extends DAO {
 		if (!isset($locale)) $locale = AppLocale::getLocale();
 
 		if (!isset($caches[$locale])) {
-			$cacheManager =& CacheManager::getManager();
+			$cacheManager = CacheManager::getManager();
 			$caches[$locale] = $cacheManager->getFileCache(
 				'country', $locale,
-				array(&$this, '_countryCacheMiss')
+				array($this, '_countryCacheMiss')
 			);
 
 			// Check to see if the data is outdated

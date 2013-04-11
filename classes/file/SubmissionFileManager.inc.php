@@ -105,9 +105,9 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 	 */
 	function recordView(&$submissionFile) {
 		// Mark the file as viewed by this user.
-		$sessionManager =& SessionManager::getManager();
-		$session =& $sessionManager->getUserSession();
-		$user =& $session->getUser();
+		$sessionManager = SessionManager::getManager();
+		$session = $sessionManager->getUserSession();
+		$user = $session->getUser();
 		if (is_a($user, 'User')) {
 			$viewsDao = DAORegistry::getDAO('ViewsDAO');
 			$viewsDao->recordView(

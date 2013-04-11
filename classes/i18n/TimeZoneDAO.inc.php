@@ -36,7 +36,7 @@ class TimeZoneDAO extends DAO {
 			$cacheManager =& CacheManager::getManager();
 			$cache = $cacheManager->getFileCache(
 				'timeZone', 'list',
-				array(&$this, '_timeZoneCacheMiss')
+				array($this, '_timeZoneCacheMiss')
 			);
 
 			// Check to see if the data is outdated

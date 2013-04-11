@@ -42,7 +42,7 @@ class SubmissionsListGridHandler extends GridHandler {
 	 * @param $args array
 	 * @param $roleAssignments array
 	 */
-	function authorize(&$request, &$args, $roleAssignments) {
+	function authorize($request, &$args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.PKPSiteAccessPolicy');
 		$this->addPolicy(new PKPSiteAccessPolicy($request, null, $roleAssignments));
 		return parent::authorize($request, $args, $roleAssignments);
@@ -51,7 +51,7 @@ class SubmissionsListGridHandler extends GridHandler {
 	/**
 	 * @see PKPHandler::initialize()
 	 */
-	function initialize(&$request) {
+	function initialize($request) {
 		parent::initialize($request);
 
 		// Load submission-specific translations.
@@ -127,7 +127,7 @@ class SubmissionsListGridHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 * @return string Serialized JSON object
 	 */
-	function deleteSubmission($args, &$request) {
+	function deleteSubmission($args, $request) {
 		$submissionDao = Application::getSubmissionDAO();
 		$submission = $submissionDao->getById(
 			(int) $request->getUserVar('submissionId')
@@ -165,7 +165,7 @@ class SubmissionsListGridHandler extends GridHandler {
 	 * @param $contextId integer
 	 * @return array a list of submission objects
 	 */
-	function getSubmissions(&$request, $userId) {
+	function getSubmissions($request, $userId) {
 		// Must be implemented by sub-classes.
 		assert(false);
 	}

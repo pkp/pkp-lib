@@ -39,7 +39,7 @@ class AssignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 	/**
 	 * @see PKPHandler::initialize()
 	 */
-	function initialize(&$request) {
+	function initialize($request) {
 		parent::initialize($request);
 
 		// Set title.
@@ -53,7 +53,7 @@ class AssignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 	/**
 	 * @see SubmissionListGridHandler::getSubmissions()
 	 */
-	function getSubmissions(&$request, $userId) {
+	function getSubmissions($request, $userId) {
 		$submissionDao = Application::getSubmissionDAO();
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$signoffDao = DAORegistry::getDAO('SignoffDAO');

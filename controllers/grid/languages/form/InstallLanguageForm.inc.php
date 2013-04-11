@@ -30,23 +30,23 @@ class InstallLanguageForm extends Form {
 	/**
 	 * @see Form::initData()
 	 */
-	function initData(&$request) {
+	function initData($request) {
 		parent::initData($request);
 
-		$site =& $request->getSite();
+		$site = $request->getSite();
 		$this->setData('installedLocales', $site->getInstalledLocales());
 	}
 
 	/**
 	 * @see Form::fetch()
 	 */
-	function fetch(&$request) {
-		$site =& $request->getSite();
+	function fetch($request) {
+		$site = $request->getSite();
 		$allLocales = AppLocale::getAllLocales();
 		$installedLocales = $this->getData('installedLocales');
 		$notInstalledLocales = array_diff(array_keys($allLocales), $installedLocales);
 
-		$templateMgr =& TemplateManager::getManager($request);
+		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('allLocales', $allLocales);
 		$templateMgr->assign('notInstalledLocales', $notInstalledLocales);
 
@@ -57,7 +57,7 @@ class InstallLanguageForm extends Form {
 			$downloadableLocaleLinks = array();
 
 			import('lib.pkp.classes.linkAction.request.AjaxAction');
-			$router =& $request->getRouter();
+			$router = $request->getRouter();
 			foreach ($downloadableLocales as $locale => $name) {
 				$downloadableLocaleLinks[$locale] = new LinkAction($locale,
 					new AjaxAction($router->url($request, null, null, 'downloadLocale', array('locale' => $locale))),
@@ -74,7 +74,7 @@ class InstallLanguageForm extends Form {
 	/**
 	 * @see Form::readInputData()
 	 */
-	function readInputData(&$request) {
+	function readInputData($request) {
 		parent::readInputData($request);
 
 		$localesToInstall = $request->getUserVar('localesToInstall');
@@ -84,8 +84,8 @@ class InstallLanguageForm extends Form {
 	/**
 	 * @see Form::execute()
 	 */
-	function execute(&$request) {
-		$site =& $request->getSite();
+	function execute($request) {
+		$site = $request->getSite();
 		$localesToInstall = $this->getData('localesToInstall');
 
 		if (isset($localesToInstall) && is_array($localesToInstall)) {

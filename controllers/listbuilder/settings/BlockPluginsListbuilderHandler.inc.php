@@ -29,7 +29,7 @@ class BlockPluginsListbuilderHandler extends MultipleListsListbuilderHandler {
 	/**
 	 * @see GridHandler::authorize($request, $args, $roleAssignments)
 	 */
-	function authorize(&$request, &$args, $roleAssignments) {
+	function authorize($request, &$args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.PkpContextAccessPolicy');
 		$this->addPolicy(new PkpContextAccessPolicy($request, $roleAssignments));
 		return parent::authorize($request, $args, $roleAssignments);
@@ -38,7 +38,7 @@ class BlockPluginsListbuilderHandler extends MultipleListsListbuilderHandler {
 	/**
 	 * @see ListbuilderHandler::initialize()
 	 */
-	function initialize(&$request) {
+	function initialize($request) {
 		parent::initialize($request);
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER);
 

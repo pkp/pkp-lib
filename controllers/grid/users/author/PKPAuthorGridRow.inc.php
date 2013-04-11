@@ -37,7 +37,7 @@ class PKPAuthorGridRow extends GridRow {
 	 * @see GridRow::initialize()
 	 * @param $request PKPRequest
 	 */
-	function initialize(&$request) {
+	function initialize($request) {
 		// Do the default initialization
 		parent::initialize($request);
 
@@ -48,7 +48,7 @@ class PKPAuthorGridRow extends GridRow {
 		$rowId = $this->getId();
 		if (!empty($rowId) && is_numeric($rowId)) {
 			// Only add row actions if this is an existing row
-			$router =& $request->getRouter();
+			$router = $request->getRouter();
 			$actionArgs = $this->getRequestArgs();
 			$actionArgs['authorId'] = $rowId;
 
@@ -129,7 +129,7 @@ class PKPAuthorGridRow extends GridRow {
 	 * @param PKPRequest $request
 	 * @return boolean
 	 */
-	function allowedToCreateUser(&$request) {
+	function allowedToCreateUser($request) {
 		return false;
 	}
 

@@ -53,8 +53,8 @@ class UserForm extends Form {
 	 * Persist a new entry insert.
 	 * @see Listbuilder::insertentry
 	 */
-	function insertEntry(&$request, $newRowId) {
-		$context =& $request->getContext();
+	function insertEntry($request, $newRowId) {
+		$context = $request->getContext();
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 
 		$userGroupId = (int) $newRowId['name'];
@@ -82,12 +82,12 @@ class UserForm extends Form {
 	 * Delete an entry.
 	 * @see Listbuilder::deleteEntry
 	 */
-	function deleteEntry(&$request, $rowId) {
+	function deleteEntry($request, $rowId) {
 		$userGroupId = (int) $rowId;
 		$userId = (int) $this->userId;
 
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		$context =& $request->getContext();
+		$context = $request->getContext();
 
 		$userGroupDao->removeUserFromGroup(
 			$userId,

@@ -61,7 +61,7 @@ class NotifyUsersListbuilderHandler extends ListbuilderHandler {
 	/**
 	 * @see PKPHandler::initialize()
 	 */
-	function initialize(&$request) {
+	function initialize($request) {
 		parent::initialize($request);
 
 		// Load submission-specific translations
@@ -98,7 +98,7 @@ class NotifyUsersListbuilderHandler extends ListbuilderHandler {
 	 * @param $args array
 	 * @param $roleAssignments array
 	 */
-	function authorize(&$request, &$args, $roleAssignments) {
+	function authorize($request, &$args, $roleAssignments) {
 		import('classes.security.authorization.SubmissionAccessPolicy');
 		$this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments, 'submissionId'));
 		return parent::authorize($request, $args, $roleAssignments);
@@ -112,7 +112,7 @@ class NotifyUsersListbuilderHandler extends ListbuilderHandler {
 	 * Get the data element that corresponds to the current request
 	 * Allow for a blank $rowId for when creating a not-yet-persisted row
 	 */
-	function getRowDataElement(&$request, $rowId) {
+	function getRowDataElement($request, $rowId) {
 		// fallback on the parent if a rowId is found
 		if ( !empty($rowId) ) {
 			return parent::getRowDataElement($request, $rowId);
@@ -138,17 +138,13 @@ class NotifyUsersListbuilderHandler extends ListbuilderHandler {
 		);
 
 		$userStageAssignmentDao = DAORegistry::getDAO('UserStageAssignmentDAO');
-		$submission =& $this->getSubmission();
+		$submission = $this->getSubmission();
 
 		// FIXME: add stage id?
-		$users =& $userStageAssignmentDao->getUsersBySubmissionAndStageId($submission->getId());
-
-		while ($user =& $users->next()) {
+		$users = $userStageAssignmentDao->getUsersBySubmissionAndStageId($submission->getId());
+		while ($user = $users->next()) {
 			$items[0][$user->getId()] = $user->getFullName() . ' <' . $user->getEmail() . '>';
-			unset($user);
 		}
-		unset($users);
-
 		return $items;
 	}
 
@@ -157,17 +153,16 @@ class NotifyUsersListbuilderHandler extends ListbuilderHandler {
 	 * @see GridHandler::loadData($request, $filter)
 	 * @params $request PKPRequest
 	 */
-	function loadData(&$request) {
+	function loadData($request) {
 		$userId = (int) $request->getUserVar('userId');
 		$userStageAssignmentDao = DAORegistry::getDAO('UserStageAssignmentDAO');
-		$submission =& $this->getSubmission();
+		$submission = $this->getSubmission();
 
-		$users =& $userStageAssignmentDao->getUsersBySubmissionAndStageId($submission->getId(), null, null, null, $userId);
-		$user =& $users->next();
+		$users = $userStageAssignmentDao->getUsersBySubmissionAndStageId($submission->getId(), null, null, null, $userId);
+		$user = $users->next();
 
 		if ($user) {
 			$items[0] = $user;
-			unset($user);
 			return $items;
 		}
 	}

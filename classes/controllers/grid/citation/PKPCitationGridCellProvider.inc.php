@@ -28,7 +28,7 @@ class PKPCitationGridCellProvider extends DataObjectGridCellProvider {
 	/**
 	 * @see GridCellProvider::getTemplateVarsFromRowColumn()
 	 */
-	function getTemplateVarsFromRowColumn(&$row, $column) {
+	function getTemplateVarsFromRowColumn($row, $column) {
 		$templateVars = parent::getTemplateVarsFromRowColumn($row, $column);
 		$element =& $row->getData();
 		assert(is_a($element, 'Citation'));
@@ -42,10 +42,9 @@ class PKPCitationGridCellProvider extends DataObjectGridCellProvider {
 	/**
 	 * @see GridCellProvider::getCellActions()
 	 */
-	function getCellActions(&$request, &$row, &$column, $position = GRID_ACTION_POSITION_DEFAULT) {
+	function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
 		// The citation grid retrieves actions from the row.
-		$actions = $row->getCellActions($request, $column, $position);
-		return $actions;
+		return $row->getCellActions($request, $column, $position);
 	}
 }
 

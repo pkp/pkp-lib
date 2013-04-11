@@ -30,7 +30,7 @@ class HelpMappingFile {
 			$cacheManager =& CacheManager::getManager();
 			$this->cache = $cacheManager->getFileCache(
 				'helpmap', md5($this->filename),
-				array(&$this, '_cacheMiss')
+				array($this, '_cacheMiss')
 			);
 
 			// Check to see if the cache info is outdated.

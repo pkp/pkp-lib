@@ -40,7 +40,7 @@ class PluginGridHandler extends CategoryGridHandler {
 	/**
 	 * @see GridHandler::initialize()
 	 */
-	function initialize(&$request) {
+	function initialize($request) {
 		parent::initialize($request);
 
 		// Load language components
@@ -84,7 +84,7 @@ class PluginGridHandler extends CategoryGridHandler {
 			)
 		);
 
-		$router =& $request->getRouter();
+		$router = $request->getRouter();
 
 		// Grid level actions.
 		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
@@ -113,7 +113,7 @@ class PluginGridHandler extends CategoryGridHandler {
 	/**
 	 * @see GridHandler::getFilterSelectionData()
 	 */
-	function getFilterSelectionData(&$request) {
+	function getFilterSelectionData($request) {
 		$category = $request->getUserVar('category');
 		$pluginName = $request->getUserVar('pluginName');
 
@@ -195,18 +195,18 @@ class PluginGridHandler extends CategoryGridHandler {
 	 * @param $args array
 	 * @param $request object
 	 */
-	function plugin($args, &$request) {
+	function plugin($args, $request) {
 		$verb = (string) $request->getUserVar('verb');
 
 		$this->setupTemplate($request, true);
 
-		$plugin =& $this->getAuthorizedContextObject(ASSOC_TYPE_PLUGIN); /* @var $plugin Plugin */
+		$plugin = $this->getAuthorizedContextObject(ASSOC_TYPE_PLUGIN); /* @var $plugin Plugin */
 		$message = null;
 		$pluginModalContent = null;
 		if (!is_a($plugin, 'Plugin') || !$plugin->manage($verb, $args, $message, $messageParams, $pluginModalContent)) {
 			if ($message) {
 				$notificationManager = new NotificationManager();
-				$user =& $request->getUser();
+				$user = $request->getUser();
 				$notificationManager->createTrivialNotification($user->getId(), $message, $messageParams);
 
 				return DAO::getDataChangedEvent($request->getUserVar('plugin'), $request->getUserVar($this->getCategoryRowIdParameterName()));
@@ -225,7 +225,7 @@ class PluginGridHandler extends CategoryGridHandler {
 	 * @param $request PKPRequest
 	 * @return string
 	 */
-	function installPlugin($args, &$request) {
+	function installPlugin($args, $request) {
 		return $this->_showUploadPluginForm('install', $request);
 	}
 
@@ -235,7 +235,7 @@ class PluginGridHandler extends CategoryGridHandler {
 	 * @param $request PKPRequest
 	 * @return string
 	 */
-	function upgradePlugin($args, &$request) {
+	function upgradePlugin($args, $request) {
 		return $this->_showUploadPluginForm('upgrade', $request);
 	}
 
@@ -244,12 +244,12 @@ class PluginGridHandler extends CategoryGridHandler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function uploadPlugin($args, &$request) {
+	function uploadPlugin($args, $request) {
 		$errorMsg = '';
 
 		import('lib.pkp.classes.file.TemporaryFileManager');
 		$temporaryFileManager = new TemporaryFileManager();
-		$user =& $request->getUser();
+		$user = $request->getUser();
 
 		// Return the temporary file id.
 		if ($temporaryFile = $temporaryFileManager->handleUpload('uploadedFile', $user->getId())) {
@@ -270,7 +270,7 @@ class PluginGridHandler extends CategoryGridHandler {
 	 * @param $request PKPRequest
 	 * @return string
 	 */
-	function saveUploadPlugin($args, &$request) {
+	function saveUploadPlugin($args, $request) {
 		$function = $request->getUserVar('function');
 
 		import('lib.pkp.controllers.grid.plugins.form.UploadPluginForm');
@@ -292,7 +292,7 @@ class PluginGridHandler extends CategoryGridHandler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function deletePlugin($args, &$request) {
+	function deletePlugin($args, $request) {
 		$this->setupTemplate($request);
 		$plugin =& $this->getAuthorizedContextObject(ASSOC_TYPE_PLUGIN);
 		$category = $plugin->getCategory();
@@ -302,7 +302,7 @@ class PluginGridHandler extends CategoryGridHandler {
 		$installedPlugin = $versionDao->getCurrentVersion('plugins.'.$category, $productName, true);
 
 		$notificationMgr = new NotificationManager();
-		$user =& $request->getUser();
+		$user = $request->getUser();
 
 		if ($installedPlugin) {
 			$pluginDest = Core::getBaseDir() . DIRECTORY_SEPARATOR . 'plugins' . DIRECTORY_SEPARATOR . $category . DIRECTORY_SEPARATOR . $productName;
@@ -334,7 +334,7 @@ class PluginGridHandler extends CategoryGridHandler {
 	 * @param $function string
 	 * @return string
 	 */
-	function _showUploadPluginForm($function, &$request) {
+	function _showUploadPluginForm($function, $request) {
 		$this->setupTemplate($request, true);
 
 		import('lib.pkp.controllers.grid.plugins.form.UploadPluginForm');

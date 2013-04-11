@@ -43,9 +43,9 @@ class ManageLanguageGridHandler extends LanguageGridHandler {
 	/**
 	 * @see GridHandler::loadData()
 	 */
-	function loadData(&$request, $filter) {
-		$site =& $request->getSite();
-		$context =& $request->getContext();
+	function loadData($request, $filter) {
+		$site = $request->getSite();
+		$context = $request->getContext();
 
 		$allLocales = AppLocale::getAllLocales();
 		$supportedLocales = $site->getSupportedLocales();

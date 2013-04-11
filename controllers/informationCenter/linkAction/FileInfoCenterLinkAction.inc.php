@@ -26,7 +26,7 @@ class FileInfoCenterLinkAction extends FileLinkAction {
 	 * to show information about.
 	 * @param $stageId int (optional) The stage id that user is looking at.
 	 */
-	function FileInfoCenterLinkAction(&$request, &$submissionFile, $stageId = null) {
+	function FileInfoCenterLinkAction($request, $submissionFile, $stageId = null) {
 		// Instantiate the information center modal.
 		$ajaxModal = $this->getModal($request, $submissionFile, $stageId);
 
@@ -46,7 +46,7 @@ class FileInfoCenterLinkAction extends FileLinkAction {
 	 */
 	function getModal($request, $submissionFile, $stageId) {
 		import('lib.pkp.classes.linkAction.request.AjaxModal');
-		$router =& $request->getRouter();
+		$router = $request->getRouter();
 
 		$title = (isset($submissionFile)) ? implode(': ', array(__('informationCenter.info'), $submissionFile->getLocalizedName())) : __('informationCenter.info');
 

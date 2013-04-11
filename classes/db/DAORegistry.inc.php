@@ -58,7 +58,7 @@ class DAORegistry {
 
 		if (!isset($daos[$name])) {
 			// Import the required DAO class.
-			$application =& PKPApplication::getApplication();
+			$application = PKPApplication::getApplication();
 			$className = $application->getQualifiedDAOName($name);
 			if (!$className) {
 				fatalError('Unrecognized DAO ' . $name . '!');

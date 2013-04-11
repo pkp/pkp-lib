@@ -53,9 +53,9 @@ class DataObjectRequiredPolicy extends AuthorizationPolicy {
 	 * @param $message string
 	 * @param $operations array Optional list of operations for which this check takes effect. If specified, operations outside this set will not be checked against this policy.
 	 */
-	function DataObjectRequiredPolicy(&$request, &$args, $parameterName, $message = null, $operations = null) {
+	function DataObjectRequiredPolicy($request, &$args, $parameterName, $message = null, $operations = null) {
 		parent::AuthorizationPolicy($message);
-		$this->_request =& $request;
+		$this->_request = $request;
 		assert(is_array($args));
 		$this->_args =& $args;
 		$this->_parameterName = $parameterName;
@@ -95,7 +95,7 @@ class DataObjectRequiredPolicy extends AuthorizationPolicy {
 	 */
 	function getDataObjectId() {
 		// Identify the data object id.
-		$router =& $this->_request->getRouter();
+		$router = $this->_request->getRouter();
 		switch(true) {
 			case is_a($router, 'PKPPageRouter'):
 				if ( is_numeric($this->_request->getUserVar($this->_parameterName)) ) {

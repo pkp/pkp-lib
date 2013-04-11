@@ -87,7 +87,7 @@ class SubmissionFilesGridHandler extends GridHandler {
 	/**
 	 * @see PKPHandler::authorize()
 	 */
-	function authorize(&$request, &$args, $roleAssignments) {
+	function authorize($request, &$args, $roleAssignments) {
 		// Set the stage id from the request parameter if not set previously.
 		if (!$this->getStageId()) {
 			$stageId = (int) $request->getUserVar('stageId');
@@ -105,7 +105,7 @@ class SubmissionFilesGridHandler extends GridHandler {
 	/**
 	 * @see PKPHandler::initialize()
 	 */
-	function initialize(&$request) {
+	function initialize($request) {
 		parent::initialize($request);
 
 		// Load translations.
@@ -158,7 +158,7 @@ class SubmissionFilesGridHandler extends GridHandler {
 	//
 	// Protected methods.
 	//
-	function getFilesToDownload(&$request) {
+	function getFilesToDownload($request) {
 		return $this->getGridDataElements($request);
 	}
 }

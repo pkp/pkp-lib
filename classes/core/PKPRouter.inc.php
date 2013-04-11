@@ -110,8 +110,8 @@ class PKPRouter {
 	 * set the dispatcher
 	 * @param $dispatcher PKPDispatcher
 	 */
-	function setDispatcher(&$dispatcher) {
-		$this->_dispatcher =& $dispatcher;
+	function setDispatcher($dispatcher) {
+		$this->_dispatcher = $dispatcher;
 	}
 
 	/**
@@ -119,7 +119,7 @@ class PKPRouter {
 	 * @param $request PKPRequest
 	 * @return boolean true, if the router supports this request, otherwise false
 	 */
-	function supports(&$request) {
+	function supports($request) {
 		// Default implementation returns always true
 		return true;
 	}
@@ -129,7 +129,7 @@ class PKPRouter {
 	 * @param $request PKPRequest
 	 * @return boolean
 	 */
-	function isCacheable(&$request) {
+	function isCacheable($request) {
 		// Default implementation returns always false
 		return false;
 	}
@@ -140,7 +140,7 @@ class PKPRouter {
 	 * @param $requestedContextLevel int (optional) the context level to return in the path
 	 * @return array of string (each element the path to one context element)
 	 */
-	function getRequestedContextPaths(&$request) {
+	function getRequestedContextPaths($request) {
 		// Handle context depth 0
 		if (!$this->_contextDepth) return array();
 
@@ -187,7 +187,7 @@ class PKPRouter {
 	 * @param $requestedContextLevel int (optional) the context level to return
 	 * @return string
 	 */
-	function getRequestedContextPath(&$request, $requestedContextLevel = 1) {
+	function getRequestedContextPath($request, $requestedContextLevel = 1) {
 		// Handle context depth 0
 		if (!$this->_contextDepth) return null;
 
@@ -207,7 +207,7 @@ class PKPRouter {
 	 * @param $requestedContextLevel int (optional) the desired context level
 	 * @return object
 	 */
-	function &getContext(&$request, $requestedContextLevel = 1) {
+	function &getContext($request, $requestedContextLevel = 1) {
 		// Handle context depth 0
 		if (!$this->_contextDepth) {
 			$nullVar = null;
@@ -246,7 +246,7 @@ class PKPRouter {
 	 * @param $requestedContextName string page context
 	 * @return object
 	 */
-	function &getContextByName(&$request, $requestedContextName) {
+	function &getContextByName($request, $requestedContextName) {
 		// Handle context depth 0
 		if (!$this->_contextDepth) {
 			$nullVar = null;
@@ -266,7 +266,7 @@ class PKPRouter {
 	 * @param $request PKPRequest the request to be routed
 	 * @return string
 	 */
-	function getIndexUrl(&$request) {
+	function getIndexUrl($request) {
 		if (!isset($this->_indexUrl)) {
 			if ($request->isRestfulUrlsEnabled()) {
 				$this->_indexUrl = $request->getBaseUrl();
@@ -288,7 +288,7 @@ class PKPRouter {
 	 * @param $request PKPRequest
 	 * @return string
 	 */
-	function getCacheFilename(&$request) {
+	function getCacheFilename($request) {
 		// must be implemented by sub-classes
 		assert(false);
 	}
@@ -297,7 +297,7 @@ class PKPRouter {
 	 * Routes a given request to a handler operation
 	 * @param $request PKPRequest
 	 */
-	function route(&$request) {
+	function route($request) {
 		// Must be implemented by sub-classes.
 		assert(false);
 	}
@@ -314,7 +314,7 @@ class PKPRouter {
 	 * @param $escape boolean Whether or not to escape ampersands, square brackets, etc. for this URL; default false.
 	 * @return string the URL
 	 */
-	function url(&$request, $newContext = null, $handler = null, $op = null, $path = null,
+	function url($request, $newContext = null, $handler = null, $op = null, $path = null,
 				$params = null, $anchor = null, $escape = false) {
 		// Must be implemented by sub-classes.
 		assert(false);
@@ -350,7 +350,7 @@ class PKPRouter {
 	 * @param $validate boolean whether or not to execute the
 	 *  validation step.
 	 */
-	function _authorizeInitializeAndCallRequest(&$serviceEndpoint, &$request, &$args, $validate = true) {
+	function _authorizeInitializeAndCallRequest(&$serviceEndpoint, $request, &$args, $validate = true) {
 		assert(is_callable($serviceEndpoint));
 
 		// Pass the dispatcher to the handler.
@@ -435,7 +435,7 @@ class PKPRouter {
 	 * @return array An array consisting of the base url as the first
 	 *  entry and the context as the remaining entries.
 	 */
-	function _urlGetBaseAndContext(&$request, $newContext = array()) {
+	function _urlGetBaseAndContext($request, $newContext = array()) {
 		$pathInfoEnabled = $request->isPathInfoEnabled();
 
 		// Retrieve the context list.
@@ -460,7 +460,7 @@ class PKPRouter {
 			} else {
 				// No new context has been set so determine
 				// the current request's context
-				$contextObject =& $this->getContextByName($request, $contextName);
+				$contextObject = $this->getContextByName($request, $contextName);
 				if ($contextObject) $contextValue = $contextObject->getPath();
 				else $contextValue = 'index';
 			}
@@ -503,7 +503,7 @@ class PKPRouter {
 	 * @return array the encoded parameters or an empty array
 	 *  if no parameters were given.
 	 */
-	function _urlGetAdditionalParameters(&$request, $params = null, $escape = true) {
+	function _urlGetAdditionalParameters($request, $params = null, $escape = true) {
 		$additionalParameters = array();
 		if (!empty($params)) {
 			assert(is_array($params));

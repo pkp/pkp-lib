@@ -43,14 +43,14 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 	/**
 	 * Fetch and store away objects
 	 */
-	function initialize(&$request, $args = null) {
+	function initialize($request, $args = null) {
 		parent::initialize($request, $args);
 
 		// Fetch the submission and file to display information about
-		$this->submission =& $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+		$this->submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-		$this->submissionFile =& $submissionFileDao->getLatestRevision($request->getUserVar('fileId'));
+		$this->submissionFile = $submissionFileDao->getLatestRevision($request->getUserVar('fileId'));
 
 		// Ensure data integrity.
 		if (!$this->submission || !$this->submissionFile || $this->submission->getId() != $this->submissionFile->getSubmissionId()) fatalError('Unknown or invalid submission or submission file!');
@@ -61,15 +61,15 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function viewInformationCenter($args, &$request) {
+	function viewInformationCenter($args, $request) {
 		$this->setupTemplate($request);
 
 		// Assign variables to the template manager and display
-		$templateMgr =& TemplateManager::getManager($request);
+		$templateMgr = TemplateManager::getManager($request);
 		$fileName = (($s = $this->submissionFile->getLocalizedName()) != '') ? $s : __('common.untitled');
 		if (($i = $this->submissionFile->getRevision()) > 1) $fileName .= " ($i)"; // Add revision number to label
-		if (empty($fileName) ) $fileName = __('common.untitled');
-		$templateMgr->assign_by_ref('title', $fileName);
+		if (empty($fileName)) $fileName = __('common.untitled');
+		$templateMgr->assign('title', $fileName);
 		$templateMgr->assign('removeHistoryTab', (int) $request->getUserVar('removeHistoryTab'));
 
 		return parent::viewInformationCenter($request);
@@ -80,7 +80,7 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function viewNotes($args, &$request) {
+	function viewNotes($args, $request) {
 		$this->setupTemplate($request);
 
 		import('lib.pkp.controllers.informationCenter.form.NewFileNoteForm');
@@ -96,10 +96,10 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function listPastNotes($args, &$request) {
+	function listPastNotes($args, $request) {
 		$this->setupTemplate($request);
 
-		$templateMgr =& TemplateManager::getManager($request);
+		$templateMgr = TemplateManager::getManager($request);
 		$noteDao = DAORegistry::getDAO('NoteDAO');
 
 		$submissionFile = $this->submissionFile;
@@ -117,7 +117,7 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 		import('lib.pkp.classes.core.ArrayItemIterator');
 		$templateMgr->assign('notes', new ArrayItemIterator($notes));
 
-		$user =& $request->getUser();
+		$user = $request->getUser();
 		$templateMgr->assign('currentUserId', $user->getId());
 
 		$templateMgr->assign('notesListId', 'pastNotesList');
@@ -129,7 +129,7 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function saveNote($args, &$request) {
+	function saveNote($args, $request) {
 		$this->setupTemplate($request);
 
 		import('lib.pkp.controllers.informationCenter.form.NewFileNoteForm');
@@ -143,7 +143,7 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 			// Save to event log
 			$this->_logEvent($request, SUBMISSION_LOG_NOTE_POSTED);
 
-			$user =& $request->getUser();
+			$user = $request->getUser();
 			NotificationManager::createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.addedNote')));
 		} else {
 			// Return a JSON string indicating failure
@@ -158,7 +158,7 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function viewNotify ($args, &$request) {
+	function viewNotify ($args, $request) {
 		$this->setupTemplate($request);
 
 		import('controllers.informationCenter.form.InformationCenterNotifyForm');
@@ -174,7 +174,7 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function sendNotification ($args, &$request) {
+	function sendNotification ($args, $request) {
 		$this->setupTemplate($request);
 
 		import('controllers.informationCenter.form.InformationCenterNotifyForm');
@@ -185,7 +185,7 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 			$noteId = $notifyForm->execute($request);
 
 			$this->_logEvent($request, SUBMISSION_LOG_MESSAGE_SENT);
-			$user =& $request->getUser();
+			$user = $request->getUser();
 			NotificationManager::createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.sentNotification')));
 
 			// Success--Return a JSON string indicating so (will clear the form on return, and indicate success)
@@ -203,17 +203,17 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function listHistory($args, &$request) {
+	function listHistory($args, $request) {
 		$this->setupTemplate($request);
 
 		// Get all submission file events
 		$submissionFileEventLogDao = DAORegistry::getDAO('SubmissionFileEventLogDAO');
-		$fileEvents =& $submissionFileEventLogDao->getByFileId(
+		$fileEvents = $submissionFileEventLogDao->getByFileId(
 			$this->submissionFile->getFileId()
 		);
 
-		$templateMgr =& TemplateManager::getManager($request);
-		$templateMgr->assign_by_ref('eventLogEntries', $fileEvents);
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign('eventLogEntries', $fileEvents);
 		$templateMgr->assign('historyListId', 'historyList');
 		return $templateMgr->fetchJson('controllers/informationCenter/historyList.tpl');
 	}
@@ -223,10 +223,10 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function listPastHistory($args, &$request) {
+	function listPastHistory($args, $request) {
 		$this->setupTemplate($request);
 
-		$templateMgr =& TemplateManager::getManager($request);
+		$templateMgr = TemplateManager::getManager($request);
 		$submissionFileEventLogDao = DAORegistry::getDAO('SubmissionFileEventLogDAO');
 
 		$submissionFile = $this->submissionFile;
@@ -244,7 +244,7 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 		import('lib.pkp.classes.core.ArrayItemIterator');
 		$templateMgr->assign('eventLogEntries', new ArrayItemIterator($events));
 
-		$user =& $request->getUser();
+		$user = $request->getUser();
 		$templateMgr->assign('currentUserId', $user->getId());
 		$templateMgr->assign('historyListId', 'pastHistoryList');
 		return $templateMgr->fetchJson('controllers/informationCenter/historyList.tpl');
@@ -307,20 +307,20 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 	 */
 	function setupTemplate($request) {
 		// Provide access to notes from past revisions/file IDs
-		$templateMgr =& TemplateManager::getManager($request);
+		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('showEarlierEntries', true);
 
 		// Get the latest history item to display in the header
 		$submissionEventLogDao = DAORegistry::getDAO('SubmissionFileEventLogDAO');
-		$fileEvents =& $submissionEventLogDao->getByFileId($this->submissionFile->getFileId());
-		$lastEvent =& $fileEvents->next();
+		$fileEvents = $submissionEventLogDao->getByFileId($this->submissionFile->getFileId());
+		$lastEvent = $fileEvents->next();
 		if(isset($lastEvent)) {
-			$templateMgr->assign_by_ref('lastEvent', $lastEvent);
+			$templateMgr->assign('lastEvent', $lastEvent);
 
 			// Get the user who created the last event.
 			$userDao = DAORegistry::getDAO('UserDAO');
-			$user =& $userDao->getById($lastEvent->getUserId());
-			$templateMgr->assign_by_ref('lastEventUser', $user);
+			$user = $userDao->getById($lastEvent->getUserId());
+			$templateMgr->assign('lastEventUser', $user);
 		}
 
 		return parent::setupTemplate($request);

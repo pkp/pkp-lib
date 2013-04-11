@@ -126,22 +126,22 @@ class AuthorForm extends Form {
 	 * Fetch the form.
 	 * @see Form::fetch()
 	 */
-	function fetch(&$request) {
-		$author =& $this->getAuthor();
+	function fetch($request) {
+		$author = $this->getAuthor();
 
-		$templateMgr =& TemplateManager::getManager($request);
+		$templateMgr = TemplateManager::getManager($request);
 		$countryDao = DAORegistry::getDAO('CountryDAO');
-		$countries =& $countryDao->getCountries();
-		$templateMgr->assign_by_ref('countries', $countries);
+		$countries = $countryDao->getCountries();
+		$templateMgr->assign('countries', $countries);
 
-		$router =& $request->getRouter();
-		$context =& $router->getContext($request);
+		$router = $request->getRouter();
+		$context = $router->getContext($request);
 
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		$authorUserGroups =& $userGroupDao->getByRoleId($context->getId(), ROLE_ID_AUTHOR);
-		$templateMgr->assign_by_ref('authorUserGroups', $authorUserGroups);
+		$authorUserGroups = $userGroupDao->getByRoleId($context->getId(), ROLE_ID_AUTHOR);
+		$templateMgr->assign('authorUserGroups', $authorUserGroups);
 
-		$submission =& $this->getSubmission();
+		$submission = $this->getSubmission();
 		$templateMgr->assign('submissionIdFieldName', $this->getSubmissionIdFieldName());
 		$templateMgr->assign('submissionId', $submission->getId());
 

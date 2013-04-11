@@ -48,7 +48,7 @@ class PKPAnnouncementTypeForm extends Form {
 	 * Display the form.
 	 */
 	function display() {
-		$templateMgr =& TemplateManager::getManager();
+		$templateMgr = TemplateManager::getManager();
 		$templateMgr->assign('typeId', $this->typeId);
 
 		parent::display();

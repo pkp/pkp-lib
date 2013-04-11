@@ -38,7 +38,7 @@ class FileListGridHandler extends SubmissionFilesGridHandler {
 	/**
 	 * @see SubmissionFilesGridHandler::initialize()
 	 */
-	function initialize(&$request) {
+	function initialize($request) {
 		parent::initialize($request);
 
 		// Add the "manage files" action if required.

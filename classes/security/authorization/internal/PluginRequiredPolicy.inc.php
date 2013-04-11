@@ -23,9 +23,9 @@ class PluginRequiredPolicy extends AuthorizationPolicy {
 	 * Constructor
 	 * @param $request PKPRequest
 	 */
-	function PluginRequiredPolicy(&$request) {
+	function PluginRequiredPolicy($request) {
 		parent::AuthorizationPolicy();
-		$this->_request =& $request;
+		$this->_request = $request;
 	}
 
 	//

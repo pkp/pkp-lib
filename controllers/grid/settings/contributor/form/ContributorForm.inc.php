@@ -37,7 +37,7 @@ class ContributorForm extends Form {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function initData($args, &$request) {
+	function initData($args, $request) {
 		$context = $request->getContext();
 
 		$contributors = $context->getSetting('contributors');
@@ -64,7 +64,7 @@ class ContributorForm extends Form {
 	 * @param $request PKPRequest
 	 * @see Form::fetch()
 	 */
-	function fetch(&$request) {
+	function fetch($request) {
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
 		return parent::fetch($request);
 	}

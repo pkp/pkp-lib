@@ -56,7 +56,7 @@ class TemplateBasedFilter extends PersistableFilter {
 	 * @param $request Request
 	 * @param $locale AppLocale
 	 */
-	function addTemplateVars(&$templateMgr, &$input, &$request, &$locale) {
+	function addTemplateVars($templateMgr, &$input, $request, &$locale) {
 		// Must be implemented by sub-classes.
 		assert(false);
 	}
@@ -71,9 +71,9 @@ class TemplateBasedFilter extends PersistableFilter {
 	function &process(&$input) {
 		// Initialize view
 		$locale = AppLocale::getLocale();
-		$application =& PKPApplication::getApplication();
-		$request =& $application->getRequest();
-		$templateMgr =& TemplateManager::getManager($request);
+		$application = PKPApplication::getApplication();
+		$request = $application->getRequest();
+		$templateMgr = TemplateManager::getManager($request);
 
 		// Add the filter's directory as additional template dir so that
 		// templates can include sub-templates in the same folder.

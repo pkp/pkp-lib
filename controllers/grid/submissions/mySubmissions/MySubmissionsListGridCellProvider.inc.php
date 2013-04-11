@@ -31,7 +31,7 @@ class MySubmissionsListGridCellProvider extends SubmissionsListGridCellProvider 
 	 * @param $column GridColumn
 	 * @return array an array of LinkAction instances
 	 */
-	function getCellActions(&$request, &$row, &$column, $position = GRID_ACTION_POSITION_DEFAULT) {
+	function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
 		if ( $column->getId() == 'title' ) {
 			$submission = $row->getData();
 			$router = $request->getRouter();

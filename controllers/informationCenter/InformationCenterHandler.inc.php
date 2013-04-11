@@ -55,7 +55,7 @@ class InformationCenterHandler extends Handler {
 	 * @param $args array
 	 * @param $roleAssignments array
 	 */
-	function authorize(&$request, &$args, $roleAssignments) {
+	function authorize($request, &$args, $roleAssignments) {
 		import('classes.security.authorization.SubmissionAccessPolicy');
 		$this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments, 'submissionId'));
 		return parent::authorize($request, $args, $roleAssignments);
@@ -69,9 +69,9 @@ class InformationCenterHandler extends Handler {
 	 * Display the main information center modal.
 	 * @param $request PKPRequest
 	 */
-	function viewInformationCenter(&$request) {
+	function viewInformationCenter($request) {
 		$this->setupTemplate($request);
-		$templateMgr =& TemplateManager::getManager($request);
+		$templateMgr = TemplateManager::getManager($request);
 		return $templateMgr->fetchJson('controllers/informationCenter/informationCenter.tpl');
 	}
 
@@ -80,7 +80,7 @@ class InformationCenterHandler extends Handler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function metadata($args, &$request) {
+	function metadata($args, $request) {
 		assert(false);
 	}
 
@@ -89,7 +89,7 @@ class InformationCenterHandler extends Handler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function saveForm($args, &$request) {
+	function saveForm($args, $request) {
 		assert(false);
 	}
 
@@ -97,7 +97,7 @@ class InformationCenterHandler extends Handler {
 	 * View a list of notes posted on the item.
 	 * Subclasses must implement.
 	 */
-	function viewNotes($args, &$request) {
+	function viewNotes($args, $request) {
 		assert(false);
 	}
 
@@ -107,7 +107,7 @@ class InformationCenterHandler extends Handler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function saveNote($args, &$request) {
+	function saveNote($args, $request) {
 		assert(false);
 	}
 
@@ -116,14 +116,14 @@ class InformationCenterHandler extends Handler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function listNotes($args, &$request) {
+	function listNotes($args, $request) {
 		$this->setupTemplate($request);
 
-		$templateMgr =& TemplateManager::getManager($request);
+		$templateMgr = TemplateManager::getManager($request);
 		$noteDao = DAORegistry::getDAO('NoteDAO');
 		$templateMgr->assign('notes', $noteDao->getByAssoc($this->_getAssocType(), $this->_getAssocId()));
 
-		$user =& $request->getUser();
+		$user = $request->getUser();
 		$templateMgr->assign('currentUserId', $user->getId());
 		$templateMgr->assign('notesDeletable', true);
 
@@ -138,7 +138,7 @@ class InformationCenterHandler extends Handler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function deleteNote($args, &$request) {
+	function deleteNote($args, $request) {
 		$this->setupTemplate($request);
 
 		$noteId = (int) $request->getUserVar('noteId');
@@ -147,7 +147,7 @@ class InformationCenterHandler extends Handler {
 		if (!$note || $note->getAssocType() != $this->_getAssocType() || $note->getAssocId() != $this->_getAssocId()) fatalError('Invalid note!');
 		$noteDao->deleteById($noteId);
 
-		$user =& $request->getUser();
+		$user = $request->getUser();
 		NotificationManager::createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.removedNote')));
 
 		$json = new JSONMessage(true);
@@ -160,7 +160,7 @@ class InformationCenterHandler extends Handler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function viewNotify ($args, &$request) {
+	function viewNotify ($args, $request) {
 		assert(false);
 	}
 
@@ -170,7 +170,7 @@ class InformationCenterHandler extends Handler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function sendNotification ($args, &$request) {
+	function sendNotification ($args, $request) {
 		assert(false);
 	}
 
@@ -179,10 +179,10 @@ class InformationCenterHandler extends Handler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function viewHistory($args, &$request) {
+	function viewHistory($args, $request) {
 		$this->setupTemplate($request);
 
-		$templateMgr =& TemplateManager::getManager($request);
+		$templateMgr = TemplateManager::getManager($request);
 		return $templateMgr->fetchJson('controllers/informationCenter/history.tpl');
 	}
 
@@ -192,7 +192,7 @@ class InformationCenterHandler extends Handler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function listHistory($args, &$request) {
+	function listHistory($args, $request) {
 		assert(false);
 	}
 
@@ -219,7 +219,7 @@ class InformationCenterHandler extends Handler {
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_PKP_SUBMISSION);
 
 		$linkParams = $this->_getLinkParams();
-		$templateMgr =& TemplateManager::getManager($request);
+		$templateMgr = TemplateManager::getManager($request);
 
 		// Preselect tab from keywords 'notes', 'notify', 'history'
 		switch ($request->getUserVar('tab')) {

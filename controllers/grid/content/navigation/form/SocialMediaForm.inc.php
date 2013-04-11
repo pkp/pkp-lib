@@ -78,7 +78,7 @@ class SocialMediaForm extends Form {
 	/**
 	 * @see Form::execute()
 	 */
-	function execute(&$request) {
+	function execute($request) {
 
 		$socialMediaDao = DAORegistry::getDAO('SocialMediaDAO');
 		$socialMedia = $this->getSocialMedia();

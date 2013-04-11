@@ -79,7 +79,7 @@ class GridFeature {
 	 * @param $request PKPRequest
 	 * @param $grid GridHandler
 	 */
-	function setOptions(&$request, &$grid) {
+	function setOptions($request, $grid) {
 		$renderedElements = $this->fetchUIElements($request, $grid);
 		if ($renderedElements) {
 			foreach ($renderedElements as $id => $markup) {

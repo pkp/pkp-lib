@@ -26,13 +26,13 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 	 * Construct a URL for the notification based on its type and associated object
 	 * @see INotificationInfoProvider::getNotificationContents()
 	 */
-	public function getNotificationUrl(&$request, &$notification) {
+	public function getNotificationUrl($request, $notification) {
 		return $this->getByDelegate(
 			$notification->getType(),
 			$notification->getAssocType(),
 			$notification->getAssocId(),
 			__FUNCTION__,
-			array(&$request, &$notification)
+			array($request, $notification)
 		);
 	}
 
@@ -41,7 +41,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 	 * and associated object.
 	 * @see INotificationInfoProvider::getNotificationContents()
 	 */
-	public function getNotificationMessage(&$request, &$notification) {
+	public function getNotificationMessage($request, $notification) {
 		$type = $notification->getType();
 		assert(isset($type));
 
@@ -74,7 +74,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 					$notification->getAssocType(),
 					$notification->getAssocId(),
 					__FUNCTION__,
-					array(&$request, &$notification)
+					array($request, $notification)
 				);
 		}
 	}
@@ -89,7 +89,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 	 * just a locale key, use the getNotificationMessage method only.
 	 * @see INotificationInfoProvider::getNotificationContents()
 	 */
-	public function getNotificationContents(&$request, &$notification) {
+	public function getNotificationContents($request, $notification) {
 		$type = $notification->getType();
 		assert(isset($type));
 		$notificationMessage = $this->getNotificationMessage($request, $notification);
@@ -97,7 +97,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 
 		switch ($type) {
 			case NOTIFICATION_TYPE_FORM_ERROR:
-				$templateMgr =& TemplateManager::getManager($request);
+				$templateMgr = TemplateManager::getManager($request);
 				$templateMgr->assign('errors', $notificationMessage);
 				return $templateMgr->fetch('controllers/notification/formErrorNotificationContent.tpl');
 			case NOTIFICATION_TYPE_ERROR:
@@ -113,7 +113,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 					$notification->getAssocType(),
 					$notification->getAssocId(),
 					__FUNCTION__,
-					array(&$request, &$notification)
+					array($request, $notification)
 				);
 				break;
 		}
@@ -128,7 +128,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 	/**
 	 * @see INotificationInfoProvider::getNotificationContents()
 	 */
-	public function getNotificationTitle(&$notification) {
+	public function getNotificationTitle($notification) {
 		$type = $notification->getType();
 		assert(isset($type));
 		$notificationTitle = null;
@@ -142,7 +142,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 					$notification->getAssocType(),
 					$notification->getAssocId(),
 					__FUNCTION__,
-					array(&$notification)
+					array($notification)
 				);
 				break;
 		}
@@ -157,7 +157,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 	/**
 	 * @see INotificationInfoProvider::getNotificationContents()
 	 */
-	public function getStyleClass(&$notification) {
+	public function getStyleClass($notification) {
 		switch ($notification->getType()) {
 			case NOTIFICATION_TYPE_SUCCESS: return NOTIFICATION_STYLE_CLASS_SUCCESS;
 			case NOTIFICATION_TYPE_WARNING: return NOTIFICATION_STYLE_CLASS_WARNING;
@@ -172,7 +172,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 					$notification->getAssocType(),
 					$notification->getAssocId(),
 					__FUNCTION__,
-					array(&$notification)
+					array($notification)
 				);
 				break;
 		}
@@ -187,7 +187,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 	/**
 	 * @see INotificationInfoProvider::getNotificationContents()
 	 */
-	public function getIconClass(&$notification) {
+	public function getIconClass($notification) {
 		switch ($notification->getType()) {
 			case NOTIFICATION_TYPE_SUCCESS: return 'notifyIconSuccess';
 			case NOTIFICATION_TYPE_WARNING: return 'notifyIconWarning';
@@ -201,7 +201,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 					$notification->getAssocType(),
 					$notification->getAssocId(),
 					__FUNCTION__,
-					array(&$notification)
+					array($notification)
 				);
 				break;
 		}
@@ -248,7 +248,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 	 * @return mixed Return false if no operation is executed or the last operation
 	 * returned value.
 	 */
-	final public function updateNotification(&$request, $notificationTypes = array(), $userIds = array(), $assocType, $assocId) {
+	final public function updateNotification($request, $notificationTypes = array(), $userIds = array(), $assocType, $assocId) {
 		$returner = false;
 		foreach ($notificationTypes as $type) {
 			$managerDelegate = $this->getMgrDelegate($type, $assocType, $assocId);

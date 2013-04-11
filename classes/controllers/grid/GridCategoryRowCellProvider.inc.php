@@ -29,7 +29,7 @@ class GridCategoryRowCellProvider extends GridCellProvider {
 	/**
 	 * @see GridCellProvider::getTemplateVarsFromRowColumn()
 	 */
-	function getTemplateVarsFromRowColumn(&$row, &$column) {
+	function getTemplateVarsFromRowColumn($row, $column) {
 		// Default category rows will only have the first column
 		// as label columns.
 		if ($column->hasFlag('firstColumn')) {
@@ -42,7 +42,7 @@ class GridCategoryRowCellProvider extends GridCellProvider {
 	/**
 	 * @see GridCellProvider::getCellActions()
 	 */
-	function getCellActions(&$request, &$row, &$column) {
+	function getCellActions($request, $row, $column) {
 		// Get cell actions from the row, that are
 		// positioned with the GRID_ACTION_POSITION_ROW_CLICK
 		// constant.
@@ -52,7 +52,7 @@ class GridCategoryRowCellProvider extends GridCellProvider {
 	/**
 	 * @see GridCellProvider::render()
 	 */
-	function render(&$request, &$row, &$column) {
+	function render($request, $row, $column) {
 		// Default category rows will only have the first column
 		// as label columns.
 		if ($column->hasFlag('firstColumn')) {

@@ -29,9 +29,9 @@
 			$this->baseUrl = Config::getVar('general', 'base_url');
 
 			// Load user variables
-			$sessionManager =& SessionManager::getManager();
-			$userSession =& $sessionManager->getUserSession();
-			$user =& $userSession->getUser();
+			$sessionManager = SessionManager::getManager();
+			$userSession = $sessionManager->getUserSession();
+			$user = $userSession->getUser();
 
 			if (isset($user)) {
 				// User is logged in

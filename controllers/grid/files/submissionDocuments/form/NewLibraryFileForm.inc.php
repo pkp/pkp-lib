@@ -42,8 +42,8 @@ class NewLibraryFileForm extends LibraryFileForm {
 	/**
 	 * @see LibraryFileForm::fetch()
 	 */
-	function fetch(&$request) {
-		$templateMgr =& TemplateManager::getManager($request);
+	function fetch($request) {
+		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('submissionId', $this->getSubmissionId());
 		return parent::fetch($request);
 	}

@@ -82,25 +82,25 @@ class PKPPlugin {
 		$this->pluginPath = $path;
 		$this->pluginCategory = $category;
 		if ($this->getInstallSchemaFile()) {
-			HookRegistry::register ('Installer::postInstall', array(&$this, 'updateSchema'));
+			HookRegistry::register ('Installer::postInstall', array($this, 'updateSchema'));
 		}
 		if ($this->getInstallSitePluginSettingsFile()) {
-			HookRegistry::register ('Installer::postInstall', array(&$this, 'installSiteSettings'));
+			HookRegistry::register ('Installer::postInstall', array($this, 'installSiteSettings'));
 		}
 		if ($this->getInstallEmailTemplatesFile()) {
-			HookRegistry::register ('Installer::postInstall', array(&$this, 'installEmailTemplates'));
+			HookRegistry::register ('Installer::postInstall', array($this, 'installEmailTemplates'));
 		}
 		if ($this->getInstallEmailTemplateDataFile()) {
-			HookRegistry::register ('Installer::postInstall', array(&$this, 'installEmailTemplateData'));
-			HookRegistry::register ('PKPLocale::installLocale', array(&$this, 'installLocale'));
+			HookRegistry::register ('Installer::postInstall', array($this, 'installEmailTemplateData'));
+			HookRegistry::register ('PKPLocale::installLocale', array($this, 'installLocale'));
 		}
 		if ($this->getInstallDataFile()) {
-			HookRegistry::register ('Installer::postInstall', array(&$this, 'installData'));
+			HookRegistry::register ('Installer::postInstall', array($this, 'installData'));
 		}
 		if ($this->getContextSpecificPluginSettingsFile()) {
-			HookRegistry::register ($this->_getContextSpecificInstallationHook(), array(&$this, 'installContextSpecificSettings'));
+			HookRegistry::register ($this->_getContextSpecificInstallationHook(), array($this, 'installContextSpecificSettings'));
 		}
-		HookRegistry::register ('Installer::postInstall', array(&$this, 'installFilters'));
+		HookRegistry::register ('Installer::postInstall', array($this, 'installFilters'));
 		return true;
 	}
 
@@ -351,7 +351,7 @@ class PKPPlugin {
 	function addHelpData($locale = null) {
 		if ($locale == '') $locale = AppLocale::getLocale();
 		import('classes.help.Help');
-		$help =& Help::getHelp();
+		$help = Help::getHelp();
 		import('lib.pkp.classes.help.PluginHelpMappingFile');
 		$pluginHelpMapping = new PluginHelpMappingFile($this);
 		$help->addMappingFile($pluginHelpMapping);
@@ -368,7 +368,7 @@ class PKPPlugin {
 		if (!defined('RUNNING_UPGRADE') && !Config::getVar('general', 'installed')) return null;
 
 		// Check that the context has the correct depth
-		$application =& PKPApplication::getApplication();
+		$application = PKPApplication::getApplication();
 		assert(is_array($context) && $application->getContextDepth() == count($context));
 
 		// Construct the argument list and call the plug-in settings DAO
@@ -389,7 +389,7 @@ class PKPPlugin {
 	 */
 	function updateContextSpecificSetting($context, $name, $value, $type = null) {
 		// Check that the context has the correct depth
-		$application =& PKPApplication::getApplication();
+		$application = PKPApplication::getApplication();
 		assert(is_array($context) && $application->getContextDepth() == count($context));
 
 		// Construct the argument list and call the plug-in settings DAO
@@ -430,7 +430,7 @@ class PKPPlugin {
 	 * @return array
 	 */
 	function getSettingMainContext() {
-		$application =& PKPApplication::getApplication();
+		$application = PKPApplication::getApplication();
 		$contextDepth = $application->getContextDepth();
 
 		$settingContext = array();
@@ -438,11 +438,11 @@ class PKPPlugin {
 			if ($this->isSitePlugin()) {
 				$mainContext = null;
 			} else {
-				$request =& $application->getRequest();
-				$router =& $request->getRouter();
+				$request = $application->getRequest();
+				$router = $request->getRouter();
 				// Try to identify the main context (e.g. journal, conference, press),
 				// will be null if none found.
-				$mainContext =& $router->getContext($request, 1);
+				$mainContext = $router->getContext($request, 1);
 			}
 
 			// Create the context for the setting if found
@@ -523,7 +523,7 @@ class PKPPlugin {
 		$result =& $args[1];
 
 		// All contexts are set to zero for site-wide plug-in settings
-		$application =& PKPApplication::getApplication();
+		$application = PKPApplication::getApplication();
 		$contextDepth = $application->getContextDepth();
 		if ($contextDepth >0) {
 			$arguments = array_fill(0, $contextDepth, 0);
@@ -549,7 +549,7 @@ class PKPPlugin {
 	function installContextSpecificSettings($hookName, $args) {
 		// Only applications that have at least one context can
 		// install context specific settings.
-		$application =& PKPApplication::getApplication();
+		$application = PKPApplication::getApplication();
 		$contextDepth = $application->getContextDepth();
 		if ($contextDepth > 0) {
 			$context =& $args[1];
@@ -761,7 +761,7 @@ class PKPPlugin {
 	 * @return string
 	 */
 	function _getContextSpecificInstallationHook() {
-		$application =& PKPApplication::getApplication();
+		$application = PKPApplication::getApplication();
 
 		if ($application->getContextDepth() == 0) return null;
 
@@ -777,7 +777,7 @@ class PKPPlugin {
 	 * @param $verb array The verb name and locale key.
 	 * @return LinkAction or null
 	 */
-	function getManagementVerbLinkAction(&$request, $verb) {
+	function getManagementVerbLinkAction($request, $verb) {
 		return null;
 	}
 }

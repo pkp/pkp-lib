@@ -110,7 +110,7 @@ class PKPFilterGridHandler extends GridHandler {
 	 * Configure the grid
 	 * @see PKPHandler::initialize()
 	 */
-	function initialize(&$request) {
+	function initialize($request) {
 		parent::initialize($request);
 
 		// Load manager-specific translations
@@ -119,15 +119,15 @@ class PKPFilterGridHandler extends GridHandler {
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_PKP_SUBMISSION);
 
 		// Retrieve the filters to be displayed in the grid
-		$router =& $request->getRouter();
-		$context =& $router->getContext($request);
+		$router = $request->getRouter();
+		$context = $router->getContext($request);
 		$contextId = (is_null($context)?CONTEXT_ID_NONE:$context->getId());
 		$filterDao = DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
-		$data =& $filterDao->getObjectsByGroup($this->getFilterGroupSymbolic(), $contextId);
+		$data = $filterDao->getObjectsByGroup($this->getFilterGroupSymbolic(), $contextId);
 		$this->setGridDataElements($data);
 
 		// Grid action
-		$router =& $request->getRouter();
+		$router = $request->getRouter();
 		import('lib.pkp.classes.linkAction.request.AjaxModal');
 		$this->addAction(
 			new LinkAction(
@@ -185,7 +185,7 @@ class PKPFilterGridHandler extends GridHandler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function addFilter(&$args, &$request) {
+	function addFilter(&$args, $request) {
 		// Calling editFilter() to edit a new filter.
 		return $this->editFilter($args, $request, true);
 	}
@@ -195,7 +195,7 @@ class PKPFilterGridHandler extends GridHandler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function editFilter(&$args, &$request, $newFilter = false) {
+	function editFilter(&$args, $request, $newFilter = false) {
 		// Identify the filter to be edited
 		if ($newFilter) {
 			$filter = null;
@@ -220,7 +220,7 @@ class PKPFilterGridHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 * @return string
 	 */
-	function updateFilter(&$args, &$request) {
+	function updateFilter(&$args, $request) {
 		if(!$request->isPost()) fatalError('Cannot update filter via GET request!');
 
 		// Identify the citation to be updated
@@ -253,9 +253,9 @@ class PKPFilterGridHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 * @return string
 	 */
-	function deleteFilter(&$args, &$request) {
+	function deleteFilter(&$args, $request) {
 		// Identify the filter to be deleted
-		$filter =& $this->getFilterFromArgs($request, $args);
+		$filter = $this->getFilterFromArgs($request, $args);
 
 		$filterDao = DAORegistry::getDAO('FilterDAO');
 		$result = $filterDao->deleteObject($filter);

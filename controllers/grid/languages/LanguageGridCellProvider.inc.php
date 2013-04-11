@@ -25,7 +25,7 @@ class LanguageGridCellProvider extends GridCellProvider {
 	/**
 	 * @see GridCellProvider::getTemplateVarsFromRowColumn()
 	 */
-	function getTemplateVarsFromRowColumn(&$row, $column) {
+	function getTemplateVarsFromRowColumn($row, $column) {
 		$element = $row->getData();
 		$columnId = $column->getId();
 		switch ($columnId) {
@@ -69,7 +69,7 @@ class LanguageGridCellProvider extends GridCellProvider {
 		import('lib.pkp.classes.linkAction.request.AjaxAction');
 
 		$element = $row->getData();
-		$router =& $request->getRouter();
+		$router = $request->getRouter();
 		$actions = array();
 		$actionArgs = array('rowId' => $row->getId());
 

@@ -58,7 +58,7 @@ class AnnouncementTypeGridHandler extends GridHandler {
 	/**
 	 * @see GridHandler::initialize()
 	 */
-	function initialize(&$request) {
+	function initialize($request) {
 		parent::initialize($request);
 
 		// Basic grid configuration
@@ -132,7 +132,7 @@ class AnnouncementTypeGridHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 * @return string
 	 */
-	function addAnnouncementType($args, &$request) {
+	function addAnnouncementType($args, $request) {
 		return $this->editAnnouncementType($args, $request);
 	}
 
@@ -142,7 +142,7 @@ class AnnouncementTypeGridHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 * @return string
 	 */
-	function editAnnouncementType($args, &$request) {
+	function editAnnouncementType($args, $request) {
 		$announcementTypeId = (int)$request->getUserVar('announcementTypeId');
 		$context = $request->getContext();
 		$contextId = $context->getId();
@@ -160,7 +160,7 @@ class AnnouncementTypeGridHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 * @return string
 	 */
-	function updateAnnouncementType($args, &$request) {
+	function updateAnnouncementType($args, $request) {
 
 		// Identify the announcement type id.
 		$announcementTypeId = $request->getUserVar('announcementTypeId');

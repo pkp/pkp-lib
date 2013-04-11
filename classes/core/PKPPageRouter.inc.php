@@ -59,7 +59,7 @@ class PKPPageRouter extends PKPRouter {
 	 *  bypass session check.
 	 * @return boolean
 	 */
-	function isCacheable(&$request, $testOnly = false) {
+	function isCacheable($request, $testOnly = false) {
 		if (defined('SESSION_DISABLE_INIT') && !$testOnly) return false;
 		if (!Config::getVar('general', 'installed')) return false;
 		if (!empty($_POST) || Validation::isLoggedIn()) return false;
@@ -67,7 +67,7 @@ class PKPPageRouter extends PKPRouter {
 		if ($request->isPathInfoEnabled()) {
 			if (!empty($_GET)) return false;
 		} else {
-			$application =& $this->getApplication();
+			$application = $this->getApplication();
 			$ok = array_merge($application->getContextList(), array('page', 'op', 'path'));
 			if (!empty($_GET) && count(array_diff(array_keys($_GET), $ok)) != 0) {
 				return false;
@@ -84,7 +84,7 @@ class PKPPageRouter extends PKPRouter {
 	 * @param $request PKPRequest the request to be routed
 	 * @return String the page path (under the "pages" directory)
 	 */
-	function getRequestedPage(&$request) {
+	function getRequestedPage($request) {
 		assert(is_a($request->getRouter(), 'PKPPageRouter'));
 		if (!isset($this->_page)) {
 			if ($request->isPathInfoEnabled()) {
@@ -110,7 +110,7 @@ class PKPPageRouter extends PKPRouter {
 	 * @param $request PKPRequest the request to be routed
 	 * @return string
 	 */
-	function getRequestedOp(&$request) {
+	function getRequestedOp($request) {
 		assert(is_a($request->getRouter(), 'PKPPageRouter'));
 		if (!isset($this->_op)) {
 			$this->_op = '';
@@ -137,7 +137,7 @@ class PKPPageRouter extends PKPRouter {
 	 * @param $request PKPRequest the request to be routed
 	 * @return array
 	 */
-	function getRequestedArgs(&$request) {
+	function getRequestedArgs($request) {
 		if ($request->isPathInfoEnabled()) {
 			$args = array();
 			if (isset($_SERVER['PATH_INFO'])) {
@@ -166,14 +166,14 @@ class PKPPageRouter extends PKPRouter {
 	/**
 	 * @see PKPRouter::getCacheFilename()
 	 */
-	function getCacheFilename(&$request) {
+	function getCacheFilename($request) {
 		if (!isset($this->_cacheFilename)) {
 			if ($request->isPathInfoEnabled()) {
 				$id = isset($_SERVER['PATH_INFO'])?$_SERVER['PATH_INFO']:'index';
 				$id .= '-' . AppLocale::getLocale();
 			} else {
 				$id = '';
-				$application =& $this->getApplication();
+				$application = $this->getApplication();
 				foreach($application->getContextList() as $contextName) {
 					$id .= $request->getUserVar($contextName) . '-';
 				}
@@ -188,7 +188,7 @@ class PKPPageRouter extends PKPRouter {
 	/**
 	 * @see PKPRouter::route()
 	 */
-	function route(&$request) {
+	function route($request) {
 		// Determine the requested page and operation
 		$page = $this->getRequestedPage($request);
 		$op = $this->getRequestedOp($request);
@@ -205,7 +205,7 @@ class PKPPageRouter extends PKPRouter {
 
 				// The correct redirection for the installer page
 				// depends on the context depth of this application.
-				$application =& $this->getApplication();
+				$application = $this->getApplication();
 				$contextDepth = $application->getContextDepth();
 				// The context will be filled with all nulls
 				$redirectArguments = array_pad(array('install'), - $contextDepth - 1, null);
@@ -269,7 +269,7 @@ class PKPPageRouter extends PKPRouter {
 	/**
 	 * @see PKPRouter::url()
 	 */
-	function url(&$request, $newContext = null, $page = null, $op = null, $path = null,
+	function url($request, $newContext = null, $page = null, $op = null, $path = null,
 				$params = null, $anchor = null, $escape = false) {
 		$pathInfoEnabled = $request->isPathInfoEnabled();
 

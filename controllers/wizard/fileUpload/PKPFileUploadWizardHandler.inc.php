@@ -73,7 +73,7 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 	/**
 	 * @see PKPHandler::initialize()
 	 */
-	function initialize(&$request, $args) {
+	function initialize($request, $args) {
 		parent::initialize($request, $args);
 		// Configure the wizard with the authorized submission and file stage.
 		// Validated in authorize.
@@ -186,11 +186,11 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 	 * @param $request Request
 	 * @return string a serialized JSON object
 	 */
-	function startWizard($args, &$request) {
-		$templateMgr =& TemplateManager::getManager($request);
+	function startWizard($args, $request) {
+		$templateMgr = TemplateManager::getManager($request);
 
 		// Assign the submission.
-		$submission =& $this->getSubmission();
+		$submission = $this->getSubmission();
 		$templateMgr->assign('submissionId', $submission->getId());
 
 		// Assign the workflow stage.
@@ -225,10 +225,10 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 	 * @param $request Request
 	 * @return string a serialized JSON object
 	 */
-	function displayFileUploadForm($args, &$request) {
+	function displayFileUploadForm($args, $request) {
 		// Instantiate, configure and initialize the form.
 		import('controllers.wizard.fileUpload.form.SubmissionFilesUploadForm'); // app-specific
-		$submission =& $this->getSubmission();
+		$submission = $this->getSubmission();
 		$fileForm = new SubmissionFilesUploadForm(
 			$request, $submission->getId(), $this->getStageId(), $this->getUploaderRoles(), $this->getFileStage(),
 			$this->getRevisionOnly(), $this->getReviewRound(), $this->getRevisedFileId(),
@@ -247,9 +247,9 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 	 * @param $request Request
 	 * @return string a serialized JSON object
 	 */
-	function uploadFile($args, &$request, $fileModifyCallback = null) {
+	function uploadFile($args, $request, $fileModifyCallback = null) {
 		// Instantiate the file upload form.
-		$submission =& $this->getSubmission();
+		$submission = $this->getSubmission();
 		import('controllers.wizard.fileUpload.form.SubmissionFilesUploadForm'); // app-specific
 		$uploadForm = new SubmissionFilesUploadForm(
 			$request, $submission->getId(), $this->getStageId(), null, $this->getFileStage(),
@@ -298,12 +298,12 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 	 * @param $request Request
 	 * @return string a serialized JSON object
 	 */
-	function confirmRevision($args, &$request) {
+	function confirmRevision($args, $request) {
 		// Instantiate the revision confirmation form.
-		$submission =& $this->getSubmission();
+		$submission = $this->getSubmission();
 		import('lib.pkp.controllers.wizard.fileUpload.form.SubmissionFilesUploadConfirmationForm');
 		// FIXME?: need assocType and assocId? Not sure if they would be used, so not adding now.
-		$reviewRound =& $this->getReviewRound();
+		$reviewRound = $this->getReviewRound();
 		$confirmationForm = new SubmissionFilesUploadConfirmationForm(
 			$request, $submission->getId(), $this->getStageId(), $this->getFileStage(), $reviewRound
 		);
@@ -330,8 +330,8 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 	 * @param $request Request
 	 * @return string a serialized JSON object
 	 */
-	function editMetadata($args, &$request) {
-		$metadataForm =& $this->_getMetadataForm($request);
+	function editMetadata($args, $request) {
+		$metadataForm = $this->_getMetadataForm($request);
 		$metadataForm->initData($args, $request);
 		$json = new JSONMessage(true, $metadataForm->fetch($request));
 		return $json->getString();
@@ -344,7 +344,7 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 	 * @param $request Request
 	 * @return string a serialized JSON object
 	 */
-	function saveMetadata($args, &$request) {
+	function saveMetadata($args, $request) {
 		$submission =& $this->getSubmission();
 		$metadataForm =& $this->_getMetadataForm($request);
 		$metadataForm->readInputData();
@@ -386,13 +386,13 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 	 * @param $request Request
 	 * @return string a serialized JSON object
 	 */
-	function finishFileSubmission($args, &$request) {
-		$submission =& $this->getSubmission();
+	function finishFileSubmission($args, $request) {
+		$submission = $this->getSubmission();
 
 		// Validation not req'd -- just generating a JSON update message.
 		$fileId = (int)$request->getUserVar('fileId');
 
-		$templateMgr =& TemplateManager::getManager($request);
+		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('submissionId', $submission->getId());
 		$templateMgr->assign('fileId', $fileId);
 
@@ -408,7 +408,7 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 	 * @param $request Request
 	 * @return SubmissionFilesMetadataForm
 	 */
-	function &_getMetadataForm(&$request) {
+	function &_getMetadataForm($request) {
 		// Retrieve the authorized submission.
 		$submission =& $this->getSubmission();
 

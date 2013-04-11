@@ -67,7 +67,7 @@ class FileNameGridColumn extends GridColumn {
 	/**
 	 * @see GridColumn::getCellActions()
 	 */
-	function getCellActions(&$request, &$row, $position = GRID_ACTION_POSITION_DEFAULT) {
+	function getCellActions($request, $row, $position = GRID_ACTION_POSITION_DEFAULT) {
 		$cellActions = parent::getCellActions($request, $row, $position);
 
 		// Retrieve the submission file.
@@ -81,7 +81,7 @@ class FileNameGridColumn extends GridColumn {
 
 		if ($this->_getIncludeNotes()) {
 			import('lib.pkp.controllers.informationCenter.linkAction.FileNotesLinkAction');
-			$user =& $request->getUser();
+			$user = $request->getUser();
 			$cellActions[] = new FileNotesLinkAction($request, $submissionFile, $user, $this->_getStageId(), $this->_removeHistoryTab);
 		}
 		return $cellActions;

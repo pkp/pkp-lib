@@ -48,7 +48,7 @@ class AdminSettingsTabHandler extends SettingsTabHandler {
 	/**
 	 * @see PKPHandler::initialize()
 	 */
-	function initialize(&$request, $args = null) {
+	function initialize($request, $args = null) {
 		parent::initialize($request, $args);
 
 		// Load grid-specific translations
@@ -70,8 +70,8 @@ class AdminSettingsTabHandler extends SettingsTabHandler {
 	 * @param $args array
 	 * @return string JSON message
 	 */
-	function showFileUploadForm($args, &$request) {
-		$fileUploadForm =& $this->_getFileUploadForm($request);
+	function showFileUploadForm($args, $request) {
+		$fileUploadForm = $this->_getFileUploadForm($request);
 		$fileUploadForm->initData($request);
 
 		$json = new JSONMessage(true, $fileUploadForm->fetch($request));
@@ -84,7 +84,7 @@ class AdminSettingsTabHandler extends SettingsTabHandler {
 	 * @param $request PKPRequest
 	 * @return string
 	 */
-	function uploadFile($args, &$request) {
+	function uploadFile($args, $request) {
 		$fileUploadForm =& $this->_getFileUploadForm($request);
 		$json = new JSONMessage();
 
@@ -108,8 +108,8 @@ class AdminSettingsTabHandler extends SettingsTabHandler {
 	 * @param $request PKPRequest
 	 * @return string
 	 */
-	function saveFile($args, &$request) {
-		$fileUploadForm =& $this->_getFileUploadForm($request);
+	function saveFile($args, $request) {
+		$fileUploadForm = $this->_getFileUploadForm($request);
 		$fileUploadForm->readInputData();
 
 		if ($fileUploadForm->validate()) {
@@ -129,7 +129,7 @@ class AdminSettingsTabHandler extends SettingsTabHandler {
 	 * @param $request PKPRequest
 	 * @return string
 	 */
-	function deleteFile($args, &$request) {
+	function deleteFile($args, $request) {
 		$settingName = $request->getUserVar('fileSettingName');
 
 		$tabForm = $this->getTabForm();
@@ -149,7 +149,7 @@ class AdminSettingsTabHandler extends SettingsTabHandler {
 	 * @param $request Request
 	 * @return string
 	 */
-	function fetchFile($args, &$request) {
+	function fetchFile($args, $request) {
 		// Get the setting name.
 		$settingName = $args['settingName'];
 

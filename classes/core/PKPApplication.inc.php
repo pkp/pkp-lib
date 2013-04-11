@@ -251,13 +251,13 @@ class PKPApplication {
 
 			$settingContext = array();
 			if ($contextDepth > 0) {
-				$request =& $this->getRequest();
-				$router =& $request->getRouter();
+				$request = $this->getRequest();
+				$router = $request->getRouter();
 
 				if (is_null($mainContextId)) {
 					// Try to identify the main context (e.g. journal, conference, press),
 					// will be null if none found.
-					$mainContext =& $router->getContext($request, 1);
+					$mainContext = $router->getContext($request, 1);
 					if ($mainContext) $mainContextId = $mainContext->getId();
 				}
 

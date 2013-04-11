@@ -22,9 +22,9 @@ class ContextRequiredPolicy extends AuthorizationPolicy {
 	 *
 	 * @param $request PKPRequest
 	 */
-	function ContextRequiredPolicy(&$request, $message = 'user.authorization.contextRequired') {
+	function ContextRequiredPolicy($request, $message = 'user.authorization.contextRequired') {
 		parent::AuthorizationPolicy($message);
-		$this->_request =& $request;
+		$this->_request = $request;
 	}
 
 
@@ -35,7 +35,7 @@ class ContextRequiredPolicy extends AuthorizationPolicy {
 	 * @see AuthorizationPolicy::effect()
 	 */
 	function effect() {
-		$router =& $this->_request->getRouter();
+		$router = $this->_request->getRouter();
 		if (is_object($router->getContext($this->_request))) {
 			return AUTHORIZATION_PERMIT;
 		} else {

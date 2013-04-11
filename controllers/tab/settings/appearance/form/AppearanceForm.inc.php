@@ -91,7 +91,7 @@ class AppearanceForm extends ContextSettingsForm {
 	/**
 	 * @see ContextSettingsForm::fetch()
 	 */
-	function fetch(&$request) {
+	function fetch($request) {
 		// Get all upload form image link actions.
 		$uploadImageLinkActions = array();
 		foreach ($this->getImagesSettingsName() as $settingName => $altText) {
@@ -103,9 +103,9 @@ class AppearanceForm extends ContextSettingsForm {
 		$imagesViews = $this->_renderAllFormImagesViews($request);
 		$cssView = $this->renderFileView('styleSheet', $request);
 
-		$templateMgr =& TemplateManager::getManager($request);
-		$templateMgr->assign_by_ref('uploadImageLinkActions', $uploadImageLinkActions);
-		$templateMgr->assign_by_ref('uploadCssLinkAction', $uploadCssLinkAction);
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign('uploadImageLinkActions', $uploadImageLinkActions);
+		$templateMgr->assign('uploadCssLinkAction', $uploadCssLinkAction);
 
 		$params = array(
 			'imagesViews' => $imagesViews,
@@ -127,7 +127,7 @@ class AppearanceForm extends ContextSettingsForm {
 	 * @param $request Request
 	 * @return string
 	 */
-	function renderFileView($fileSettingName, &$request) {
+	function renderFileView($fileSettingName, $request) {
 		$file = $this->getData($fileSettingName);
 		$locale = AppLocale::getLocale();
 
@@ -170,8 +170,8 @@ class AppearanceForm extends ContextSettingsForm {
 	 * @param $fileSettingName string
 	 * @return boolean
 	 */
-	function deleteFile($fileSettingName, &$request) {
-		$context =& $request->getContext();
+	function deleteFile($fileSettingName, $request) {
+		$context = $request->getContext();
 		$locale = AppLocale::getLocale();
 
 		// Get the file.
@@ -214,7 +214,7 @@ class AppearanceForm extends ContextSettingsForm {
 	 * @param $rowId mixed
 	 * @param $newRowId array
 	 */
-	function updateEntry(&$request, $rowId, $newRowId) {
+	function updateEntry($request, $rowId, $newRowId) {
 		$plugins =& PluginRegistry::loadCategory('blocks');
 		$plugin =& $plugins[$rowId]; // Ref hack
 		switch ($newRowId['listId']) {
@@ -259,7 +259,7 @@ class AppearanceForm extends ContextSettingsForm {
 	 * @param $request Request
 	 * @return array
 	 */
-	function _renderAllFormImagesViews(&$request) {
+	function _renderAllFormImagesViews($request) {
 		$imagesViews = array();
 		foreach ($this->getImagesSettingsName() as $imageSettingName => $altText) {
 			$imagesViews[$imageSettingName] = $this->renderFileView($imageSettingName, $request);
@@ -275,8 +275,8 @@ class AppearanceForm extends ContextSettingsForm {
 	 * @param $request Request
 	 * @return LinkAction
 	 */
-	function &_getFileUploadLinkAction($settingName, $fileType, &$request) {
-		$router =& $request->getRouter();
+	function &_getFileUploadLinkAction($settingName, $fileType, $request) {
+		$router = $request->getRouter();
 		import('lib.pkp.classes.linkAction.request.AjaxModal');
 
 		$ajaxModal = new AjaxModal(
@@ -306,8 +306,8 @@ class AppearanceForm extends ContextSettingsForm {
 	 * @param $request Request
 	 * @return LinkAction
 	 */
-	function &_getDeleteFileLinkAction($settingName, &$request) {
-		$router =& $request->getRouter();
+	function &_getDeleteFileLinkAction($settingName, $request) {
+		$router = $request->getRouter();
 		import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
 
 		$confirmationModal = new RemoteActionConfirmationModal(

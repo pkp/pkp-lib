@@ -20,7 +20,7 @@ class ContextPolicy extends PolicySet {
 	 * Constructor
 	 * @param $request PKPRequest
 	 */
-	function ContextPolicy(&$request) {
+	function ContextPolicy($request) {
 		parent::PolicySet();
 
 		// Ensure we're in a context

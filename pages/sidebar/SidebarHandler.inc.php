@@ -32,7 +32,7 @@ class SidebarHandler extends Handler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function index($args, &$request) {
+	function index($args, $request) {
 		$this->setupTemplate($request);
 		$templateMgr = TemplateManager::getManager($request);
 		return $templateMgr->fetchJson('sidebar/sidebar.tpl');

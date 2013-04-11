@@ -96,18 +96,18 @@ class SubmissionFilesMetadataForm extends Form {
 	/**
 	 * @see Form::fetch()
 	 */
-	function fetch(&$request) {
-		$templateMgr =& TemplateManager::getManager($request);
+	function fetch($request) {
+		$templateMgr = TemplateManager::getManager($request);
 
 		// Submission file.
-		$submissionFile =& $this->getSubmissionFile();
+		$submissionFile = $this->getSubmissionFile();
 		$templateMgr->assign('submissionFile', $submissionFile);
 
 		// Workflow stage.
 		$templateMgr->assign('stageId', $this->getStageId());
 
 		// Review round if we are in review stage.
-		$reviewRound =& $this->getReviewRound();
+		$reviewRound = $this->getReviewRound();
 		if (is_a($reviewRound, 'ReviewRound')) {
 			$templateMgr->assign('reviewRoundId', $reviewRound->getId());
 		}
@@ -118,7 +118,7 @@ class SubmissionFilesMetadataForm extends Form {
 	/**
 	 * @see Form::execute()
 	 */
-	function execute($args, &$request) {
+	function execute($args, $request) {
 		// Update the submission file with data from the form.
 		$submissionFile =& $this->getSubmissionFile();
 		$submissionFile->setName($this->getData('name'), AppLocale::getLocale());
@@ -130,7 +130,7 @@ class SubmissionFilesMetadataForm extends Form {
 			$noteDao = DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */
 			$note = $noteDao->newDataObject();
 
-			$user =& $request->getUser();
+			$user = $request->getUser();
 			$note->setUserId($user->getId());
 
 			$note->setContents($this->getData('note'));
@@ -140,7 +140,7 @@ class SubmissionFilesMetadataForm extends Form {
 			$noteId = $noteDao->insertObject($note);
 
 			// Mark the note as viewed by this user
-			$user =& $request->getUser();
+			$user = $request->getUser();
 			$viewsDao = DAORegistry::getDAO('ViewsDAO');
 			$viewsDao->recordView(ASSOC_TYPE_NOTE, $noteId, $user->getId());
 		}

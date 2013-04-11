@@ -19,7 +19,7 @@ class SubmissionFileUploaderAccessPolicy extends SubmissionFileBaseAccessPolicy 
 	 * Constructor
 	 * @param $request PKPRequest
 	 */
-	function SubmissionFileUploaderAccessPolicy(&$request, $fileIdAndRevision = null) {
+	function SubmissionFileUploaderAccessPolicy($request, $fileIdAndRevision = null) {
 		parent::SubmissionFileBaseAccessPolicy($request, $fileIdAndRevision);
 	}
 
@@ -31,10 +31,10 @@ class SubmissionFileUploaderAccessPolicy extends SubmissionFileBaseAccessPolicy 
 	 * @see AuthorizationPolicy::effect()
 	 */
 	function effect() {
-		$request =& $this->getRequest();
+		$request = $this->getRequest();
 
 		// Get the user
-		$user =& $request->getUser();
+		$user = $request->getUser();
 		if (!is_a($user, 'PKPUser')) return AUTHORIZATION_DENY;
 
 		// Get the submission file

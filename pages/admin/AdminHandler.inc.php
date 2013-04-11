@@ -73,7 +73,7 @@ class AdminHandler extends Handler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function index($args, &$request) {
+	function index($args, $request) {
 		$templateMgr = TemplateManager::getManager($request);
 		$workingContexts = $this->getWorkingContexts($request);
 		$templateMgr->assign('multipleContexts', $workingContexts->getCount() > 0);
@@ -85,7 +85,7 @@ class AdminHandler extends Handler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function settings($args, &$request) {
+	function settings($args, $request) {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->display('admin/settings.tpl');
 	}
@@ -93,7 +93,7 @@ class AdminHandler extends Handler {
 	/**
 	 * Initialize the handler.
 	 */
-	function initialize(&$request, $args = null) {
+	function initialize($request, $args = null) {
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_ADMIN, LOCALE_COMPONENT_APP_MANAGER, LOCALE_COMPONENT_APP_ADMIN, LOCALE_COMPONENT_APP_COMMON);
 		return parent::initialize($request, $args);
 	}

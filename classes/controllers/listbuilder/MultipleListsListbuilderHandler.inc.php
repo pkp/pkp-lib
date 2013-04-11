@@ -115,9 +115,9 @@ class MultipleListsListbuilderHandler extends ListbuilderHandler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function fetch($args, &$request) {
-		$templateMgr =& TemplateManager::getManager($request);
-		$templateMgr->assign_by_ref('lists', $this->getLists());
+	function fetch($args, $request) {
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign('lists', $this->getLists());
 
 		return parent::fetch($args, $request);
 	}
@@ -152,7 +152,7 @@ class MultipleListsListbuilderHandler extends ListbuilderHandler {
 	/**
 	 * @see GridHandler::renderGridBodyPartsInternally()
 	 */
-	protected function renderGridBodyPartsInternally(&$request) {
+	protected function renderGridBodyPartsInternally($request) {
 		// Render the rows.
 		$listsRows = array();
 		$gridData = $this->getGridDataElements($request);
@@ -160,9 +160,9 @@ class MultipleListsListbuilderHandler extends ListbuilderHandler {
 			$listsRows[$listId] = $this->renderRowsInternally($request, $elements);
 		}
 
-		$templateMgr =& TemplateManager::getManager($request);
-		$templateMgr->assign_by_ref('grid', $this);
-		$templateMgr->assign_by_ref('listsRows', $listsRows);
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign('grid', $this);
+		$templateMgr->assign('listsRows', $listsRows);
 
 		// In listbuilders we don't use the grid body.
 		return false;
@@ -179,7 +179,7 @@ class MultipleListsListbuilderHandler extends ListbuilderHandler {
 	 * @param $request Request
 	 * @param $filter string
 	 */
-	protected function setListsData(&$request, $filter) {
+	protected function setListsData($request, $filter) {
 		assert(false);
 	}
 

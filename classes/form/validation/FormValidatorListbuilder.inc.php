@@ -51,7 +51,7 @@ class FormValidatorListbuilder extends FormValidator {
 		}
 	}
 
-	function deleteEntry(&$request, $rowId, $numberOfRows) {
+	function deleteEntry($request, $rowId, $numberOfRows) {
 		if ($numberOfRows > 0) {
 			$this->_valid = true;
 		} else {
@@ -61,7 +61,7 @@ class FormValidatorListbuilder extends FormValidator {
 		return true;
 	}
 
-	function insertEntry(&$request, $rowId) {
+	function insertEntry($request, $rowId) {
 		return true;
 	}
 }

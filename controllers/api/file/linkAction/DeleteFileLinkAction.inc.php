@@ -23,9 +23,9 @@ class DeleteFileLinkAction extends FileLinkAction {
 	 * @param $localeKey string (optional) Locale key to use for delete link
 	 *  be deleted.
 	 */
-	function DeleteFileLinkAction(&$request, &$submissionFile, $stageId, $localeKey = 'grid.action.delete') {
+	function DeleteFileLinkAction($request, $submissionFile, $stageId, $localeKey = 'grid.action.delete') {
 		// Instantiate the confirmation modal.
-		$router =& $request->getRouter();
+		$router = $request->getRouter();
 		import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
 		$confirmationModal = new RemoteActionConfirmationModal(
 			__('common.confirmDelete'), __('common.delete'),

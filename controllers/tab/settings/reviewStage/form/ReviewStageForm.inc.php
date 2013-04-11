@@ -53,7 +53,7 @@ class ReviewStageForm extends ContextSettingsForm {
 	/**
 	 * @see ContextSettingsForm::fetch()
 	 */
-	function fetch(&$request) {
+	function fetch($request) {
 		$params = array();
 
 		// Ensuring blind review link.
@@ -69,7 +69,7 @@ class ReviewStageForm extends ContextSettingsForm {
 
 		$params['scheduledTasksDisabled'] = (Config::getVar('general', 'scheduled_tasks')) ? false : true;
 
-		$templateMgr =& TemplateManager::getManager($request);
+		$templateMgr = TemplateManager::getManager($request);
 
 		$templateMgr->assign('numDaysBeforeInviteReminderValues', range(3, 10));
 		$templateMgr->assign('numDaysBeforeSubmitReminderValues', range(0, 10));

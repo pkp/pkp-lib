@@ -32,7 +32,7 @@ class ProfileHandler extends UserHandler {
 	 * @param $args array
 	 * @param $roleAssignments array
 	 */
-	function authorize(&$request, &$args, $roleAssignments) {
+	function authorize($request, &$args, $roleAssignments) {
 		$operations = array('profile', 'saveProfile', 'changePassword', 'savePassword');
 
 		// Site access policy

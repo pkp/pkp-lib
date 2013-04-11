@@ -19,7 +19,7 @@ class SubmissionFileSubmissionStageRequiredPolicy extends SubmissionFileBaseAcce
 	 * Constructor
 	 * @param $request PKPRequest
 	 */
-	function SubmissionFileSubmissionStageRequiredPolicy(&$request, $fileIdAndRevision = null) {
+	function SubmissionFileSubmissionStageRequiredPolicy($request, $fileIdAndRevision = null) {
 		parent::SubmissionFileBaseAccessPolicy($request, $fileIdAndRevision);
 	}
 

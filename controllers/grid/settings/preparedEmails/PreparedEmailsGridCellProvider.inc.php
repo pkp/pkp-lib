@@ -29,7 +29,7 @@ class PreparedEmailsGridCellProvider extends DataObjectGridCellProvider {
 	 * @param $columnId string
 	 * @return array
 	 */
-	function getTemplateVarsFromRowColumn(&$row, $column) {
+	function getTemplateVarsFromRowColumn($row, $column) {
 		$element =& $row->getData();
 		$columnId = $column->getId();
 		assert(is_a($element, 'DataObject') && !empty($columnId));
@@ -59,11 +59,11 @@ class PreparedEmailsGridCellProvider extends DataObjectGridCellProvider {
 	/**
 	 * @see GridCellProvider::getCellActions()
 	 */
-	function getCellActions(&$request, &$row, &$column, $position = GRID_ACTION_POSITION_DEFAULT) {
+	function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
 		if ($column->getId() == 'enabled') {
-			$element =& $row->getData(); /* @var $element DataObject */
+			$element = $row->getData(); /* @var $element DataObject */
 
-			$router =& $request->getRouter();
+			$router = $request->getRouter();
 			import('lib.pkp.classes.linkAction.LinkAction');
 
 			if($element->getCanDisable()) {

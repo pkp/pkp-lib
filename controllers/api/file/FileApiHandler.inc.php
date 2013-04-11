@@ -46,7 +46,7 @@ class FileApiHandler extends Handler {
 	//
 	// Implement methods from PKPHandler
 	//
-	function authorize(&$request, &$args, $roleAssignments) {
+	function authorize($request, &$args, $roleAssignments) {
 		$fileIds = $request->getUserVar('filesIdsAndRevisions');
 		$libraryFileId = $request->getUserVar('libraryFileId');
 
@@ -78,10 +78,10 @@ class FileApiHandler extends Handler {
 	 * @param $args array
 	 * @param $request Request
 	 */
-	function downloadFile($args, &$request) {
-		$submissionFile =& $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
+	function downloadFile($args, $request) {
+		$submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
 		assert($submissionFile); // Should have been validated already
-		$context =& $request->getContext();
+		$context = $request->getContext();
 		$fileManager = $this->_getFileManager($context->getId(), $submissionFile->getSubmissionId());
 		$fileManager->downloadFile($submissionFile->getFileId(), $submissionFile->getRevision());
 	}
@@ -91,18 +91,18 @@ class FileApiHandler extends Handler {
 	 * @param $args array
 	 * @param $request Request
 	 */
-	function downloadLibraryFile($args, &$request) {
+	function downloadLibraryFile($args, $request) {
 		import('lib.pkp.classes.file.LibraryFileManager');
-		$context =& $request->getContext();
+		$context = $request->getContext();
 		$libraryFileManager = new LibraryFileManager($context->getId());
 		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO');
-		$libraryFile =& $libraryFileDao->getById($request->getUserVar('libraryFileId'));
+		$libraryFile = $libraryFileDao->getById($request->getUserVar('libraryFileId'));
 		if ($libraryFile) {
 
 			// If this file has a submission ID, ensure that the current
 			// user is assigned to that submission.
 			if ($libraryFile->getSubmissionId()) {
-				$user =& $request->getUser();
+				$user = $request->getUser();
 				$allowedAccess = false;
 				$userStageAssignmentDao = DAORegistry::getDAO('UserStageAssignmentDAO');
 				$assignedUsers = $userStageAssignmentDao->getUsersBySubmissionAndStageId($libraryFile->getSubmissionId(), WORKFLOW_STAGE_ID_SUBMISSION);
@@ -132,10 +132,10 @@ class FileApiHandler extends Handler {
 	 * @param $args array
 	 * @param $request Request
 	 */
-	function viewFile($args, &$request) {
-		$submissionFile =& $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
+	function viewFile($args, $request) {
+		$submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
 		assert($submissionFile); // Should have been validated already
-		$context =& $request->getContext();
+		$context = $request->getContext();
 		$fileManager = $this->_getFileManager($context->getId(), $submissionFile->getSubmissionId());
 		$fileManager->downloadFile($submissionFile->getFileId(), $submissionFile->getRevision(), true);
 	}
@@ -145,7 +145,7 @@ class FileApiHandler extends Handler {
 	 * @param $args array
 	 * @param $request Request
 	 */
-	function downloadAllFiles($args, &$request) {
+	function downloadAllFiles($args, $request) {
 		// Retrieve the authorized objects.
 		$submissionFiles = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILES);
 		$submission =& $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
@@ -184,7 +184,7 @@ class FileApiHandler extends Handler {
 	 * @param $request Request
 	 * @return string
 	 */
-	function recordDownload($args, &$request) {
+	function recordDownload($args, $request) {
 		$submissionFiles = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILES);
 		$fileId = null;
 
@@ -209,7 +209,7 @@ class FileApiHandler extends Handler {
 	 * @param $request Request
 	 * @return string
 	 */
-	function enableLinkAction($args, &$request) {
+	function enableLinkAction($args, $request) {
 		return DAO::getDataChangedEvent();
 	}
 

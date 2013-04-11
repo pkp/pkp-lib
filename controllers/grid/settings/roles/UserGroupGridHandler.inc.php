@@ -53,7 +53,7 @@ class UserGroupGridHandler extends CategoryGridHandler {
 	 * @param $args array
 	 * @param $roleAssignments array
 	 */
-	function authorize(&$request, &$args, $roleAssignments) {
+	function authorize($request, &$args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.PkpContextAccessPolicy');
 		$this->addPolicy(new PkpContextAccessPolicy($request, $roleAssignments));
 		return parent::authorize($request, $args, $roleAssignments);
@@ -64,11 +64,11 @@ class UserGroupGridHandler extends CategoryGridHandler {
 	 * Configure the grid
 	 * @param $request PKPRequest
 	 */
-	function initialize(&$request) {
+	function initialize($request) {
 		parent::initialize($request);
 
-		$context =& $request->getContext();
-		$this->_contextId =& $context->getId();
+		$context = $request->getContext();
+		$this->_contextId = $context->getId();
 
 		// Load user-related translations.
 		AppLocale::requireComponents(
@@ -82,7 +82,7 @@ class UserGroupGridHandler extends CategoryGridHandler {
 		$this->setInstructions('settings.roles.gridDescription');
 
 		// Add grid-level actions.
-		$router =& $request->getRouter();
+		$router = $request->getRouter();
 		$this->addAction(
 			new LinkAction(
 				'addUserGroup',
@@ -170,10 +170,8 @@ class UserGroupGridHandler extends CategoryGridHandler {
 
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 
-		$assignedGroups =& $userGroupDao->getUserGroupsByStage($this->_getContextId(), $stageId);
-		$returner = $assignedGroups->toAssociativeArray(); // array of UserGroup objects
-
-		return $returner;
+		$assignedGroups = $userGroupDao->getUserGroupsByStage($this->_getContextId(), $stageId);
+		return $assignedGroups->toAssociativeArray(); // array of UserGroup objects
 	}
 
 	/**
@@ -181,7 +179,7 @@ class UserGroupGridHandler extends CategoryGridHandler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function addUserGroup($args, &$request) {
+	function addUserGroup($args, $request) {
 		return $this->editUserGroup($args, $request);
 	}
 
@@ -190,7 +188,7 @@ class UserGroupGridHandler extends CategoryGridHandler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function editUserGroup($args, &$request) {
+	function editUserGroup($args, $request) {
 		$userGroupForm = $this->_getUserGroupForm($request);
 
 		$userGroupForm->initData();
@@ -204,7 +202,7 @@ class UserGroupGridHandler extends CategoryGridHandler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function updateUserGroup($args, &$request) {
+	function updateUserGroup($args, $request) {
 		$userGroupForm = $this->_getUserGroupForm($request);
 
 		$userGroupForm->readInputData();
@@ -226,7 +224,7 @@ class UserGroupGridHandler extends CategoryGridHandler {
 	 * @param $request Request
 	 * @return UserGroupForm
 	 */
-	function _getUserGroupForm(&$request) {
+	function _getUserGroupForm($request) {
 		// Get the user group Id.
 		$userGroupId = (int) $request->getUserVar('userGroupId');
 

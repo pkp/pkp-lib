@@ -56,8 +56,8 @@ class UploadPluginForm extends Form {
 	/**
 	 * @see Form::fetch()
 	 */
-	function fetch(&$request) {
-		$templateMgr =& TemplateManager::getManager($request);
+	function fetch($request) {
+		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('function', $this->_function);
 
 		return parent::fetch($request);
@@ -66,14 +66,14 @@ class UploadPluginForm extends Form {
 	/**
 	 * @see Form::execute()
 	 */
-	function execute(&$request) {
+	function execute($request) {
 		parent::execute($request);
 
 		// Retrieve the temporary file.
-		$user =& $request->getUser();
+		$user = $request->getUser();
 		$temporaryFileId = $this->getData('temporaryFileId');
 		$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO');
-		$temporaryFile =& $temporaryFileDao->getTemporaryFile($temporaryFileId, $user->getId());
+		$temporaryFile = $temporaryFileDao->getTemporaryFile($temporaryFileId, $user->getId());
 
 		// tar archive basename (less potential version number) must equal plugin directory name
 		// and plugin files must be in a directory named after the plug-in.
@@ -188,7 +188,7 @@ class UploadPluginForm extends Form {
 			}
 
 			$notificationMgr = new NotificationManager();
-			$user =& $request->getUser();
+			$user = $request->getUser();
 			$notificationMgr->createTrivialNotification(
 				$user->getId(),
 				NOTIFICATION_TYPE_SUCCESS,

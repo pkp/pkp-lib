@@ -37,7 +37,7 @@ class AddFileLinkAction extends BaseAddFileLinkAction {
 	 *  associated with.
 	 * @param $reviewRound ReviewRound The current review round (if any).
 	 */
-	function AddFileLinkAction(&$request, $submissionId, $stageId, $uploaderRoles,
+	function AddFileLinkAction($request, $submissionId, $stageId, $uploaderRoles,
 			$fileStage, $assocType = null, $assocId = null, $reviewRoundId = null) {
 
 		// Create the action arguments array.

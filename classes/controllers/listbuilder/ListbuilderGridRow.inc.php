@@ -45,7 +45,7 @@ class ListbuilderGridRow extends GridRow {
 	 * @see GridRow::initialize()
 	 * @param PKPRequest $request
 	 */
-	function initialize(&$request, $template = 'controllers/listbuilder/listbuilderGridRow.tpl') {
+	function initialize($request, $template = 'controllers/listbuilder/listbuilderGridRow.tpl') {
 		parent::initialize($request);
 
 		// Set listbuilder row template

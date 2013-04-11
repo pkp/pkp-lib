@@ -72,7 +72,7 @@ class GridDataProvider {
 	 * @param $roleAssignments array
 	 * @return PolicySet
 	 */
-	function getAuthorizationPolicy(&$request, $args, $roleAssignments) {
+	function getAuthorizationPolicy($request, $args, $roleAssignments) {
 		assert(false);
 	}
 

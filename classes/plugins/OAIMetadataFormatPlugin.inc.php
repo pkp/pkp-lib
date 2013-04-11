@@ -29,7 +29,7 @@ class OAIMetadataFormatPlugin extends Plugin {
 	function register($category, $path) {
 		if (parent::register($category, $path)) {
 			$this->addLocaleData();
-			HookRegistry::register('OAI::metadataFormats', array(&$this, 'callback_formatRequest'));
+			HookRegistry::register('OAI::metadataFormats', array($this, 'callback_formatRequest'));
 			return true;
 		}
 		return false;

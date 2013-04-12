@@ -96,11 +96,10 @@ class IntegratePKP {
 	public function getPKPImageUploadPath() {
 		if (isset($this->baseDir) && isset($this->imageDir)) {
 			return $this->baseDir . '/' . $this->imageDir;
-		} else {
-			return '/dev/null';
 		}
-	}
 
+		die(__('installer.installFilesDirError'));
+	}
 
 	/**
 	 * Get the URL (minus domain name) for the user's image upload directory
@@ -112,7 +111,8 @@ class IntegratePKP {
 			$urlParts = parse_url($url);
 			return $urlParts['path'];
 		}
-		else return '';
+
+		die(__('installer.installFilesDirError'));
 	}
 }
 ?>

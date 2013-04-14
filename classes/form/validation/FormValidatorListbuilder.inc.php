@@ -43,6 +43,7 @@ class FormValidatorListbuilder extends FormValidator {
 	function isValid() {
 		$value = $this->getFieldValue();
 		import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
+		$request =& Application::getRequest();
 		ListbuilderHandler::unpack($request, $value);
 		if ($this->_valid) {
 			return true;

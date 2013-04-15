@@ -53,7 +53,7 @@ class CountryDAO extends DAO {
 		return $caches[$locale];
 	}
 
-	function _countryCacheMiss(&$cache, $id) {
+	function _countryCacheMiss($cache, $id) {
 		$countries =& Registry::get('allCountriesData', true, array());
 
 		if (!isset($countries[$id])) {

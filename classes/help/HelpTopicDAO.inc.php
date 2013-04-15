@@ -62,7 +62,7 @@ class HelpTopicDAO extends XMLDAO {
 		return $mappingFile?$mappingFile->getTopicFilename($topicId):null;
 	}
 
-	function _cacheMiss(&$cache, $id) {
+	function _cacheMiss($cache, $id) {
 		$data =& Registry::get('helpTopicData', true, null);
 		if ($data === null) {
 			$helpFile = $this->getFilename($cache->getCacheId());

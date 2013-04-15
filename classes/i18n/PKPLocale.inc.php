@@ -622,7 +622,7 @@ class PKPLocale {
 	 * @param $cache CacheManager
 	 * @param $id the cache id (not used here, required by the cache manager)
 	 */
-	static function _allLocalesCacheMiss(&$cache, $id) {
+	static function _allLocalesCacheMiss($cache, $id) {
 		$allLocales =& Registry::get('allLocales', true, null);
 		if ($allLocales === null) {
 			// Add a locale load to the debug notes.

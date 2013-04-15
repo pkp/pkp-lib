@@ -43,7 +43,7 @@ class HelpTocDAO extends XMLDAO {
 		return $cache[$locale][$tocId];
 	}
 
-	function _cacheMiss(&$cache, $id) {
+	function _cacheMiss($cache, $id) {
 		$data =& Registry::get('helpTocData', true, null);
 
 		if ($data === null) {

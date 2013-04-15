@@ -43,7 +43,7 @@ class CurrencyDAO extends DAO {
 		return $cache;
 	}
 
-	function _cacheMiss(&$cache, $id) {
+	function _cacheMiss($cache, $id) {
 		$allCurrencies =& Registry::get('allCurrencies', true, null);
 		if ($allCurrencies === null) {
 			// Add a locale load to the debug notes.

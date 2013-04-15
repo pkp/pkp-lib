@@ -43,7 +43,7 @@ class HelpMappingFile {
 		return $this->cache;
 	}
 
-	function _cacheMiss(&$cache, $id) {
+	function _cacheMiss($cache, $id) {
 		$mappings = array();
 
 		// Add a debug note indicating an XML load.

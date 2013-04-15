@@ -87,7 +87,7 @@ class FileCacheTest extends PKPTestCase {
 	//
 	// Helper functions
 	//
-	public function _cacheMiss(&$cache, $id) {
+	public function _cacheMiss($cache, $id) {
 		$this->cacheMisses++;
 		$cache->setEntireCache($this->testCacheContents);
 		if (!isset($this->testCacheContents[$id])) {

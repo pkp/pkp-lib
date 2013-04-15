@@ -52,7 +52,7 @@ class SiteSettingsDAO extends DAO {
 		return $returner;
 	}
 
-	function _cacheMiss(&$cache, $id) {
+	function _cacheMiss($cache, $id) {
 		$settings = $this->getSiteSettings();
 		if (!isset($settings[$id])) {
 			$cache->setCache($id, null);

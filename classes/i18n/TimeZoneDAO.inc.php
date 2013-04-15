@@ -48,7 +48,7 @@ class TimeZoneDAO extends DAO {
 		return $cache;
 	}
 
-	function _timeZoneCacheMiss(&$cache, $id) {
+	function _timeZoneCacheMiss($cache, $id) {
 		$timeZones =& Registry::get('allTimeZonesData', true, null);
 		if ($timeZones === null) {
 			// Reload time zone registry file

@@ -49,7 +49,7 @@ class LanguageDAO extends DAO {
 		return $cache;
 	}
 
-	function _cacheMiss(&$cache, $id) {
+	function _cacheMiss($cache, $id) {
 		$allLanguages =& Registry::get('allLanguages-'.$cache->cacheId, true, null);
 		if ($allLanguages === null) {
 			// Add a locale load to the debug notes.

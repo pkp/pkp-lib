@@ -109,7 +109,7 @@ class PKPHelp {
 		return $cache;
 	}
 
-	function _mappingCacheMiss(&$cache, $id) {
+	function _mappingCacheMiss($cache, $id) {
 		// Keep a secondary cache of the mappings so that a few
 		// cache misses won't destroy the server
 		$mappings =& Registry::get('pkpHelpMappings', true, null);
@@ -124,7 +124,7 @@ class PKPHelp {
 		return isset($mappings[$id])?$mappings[$id]:null;
 	}
 
-	function _tocCacheMiss(&$cache, $id) {
+	function _tocCacheMiss($cache, $id) {
 		// Keep a secondary cache of the TOC so that a few
 		// cache misses won't destroy the server
 		$toc =& Registry::get('pkpHelpTocData', true, null);

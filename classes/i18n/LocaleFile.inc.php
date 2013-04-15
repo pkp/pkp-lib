@@ -60,7 +60,7 @@ class LocaleFile {
 	/**
 	 * Register a cache miss.
 	 */
-	function _cacheMiss(&$cache, $id) {
+	function _cacheMiss($cache, $id) {
 		return null; // It's not in this locale file.
 	}
 

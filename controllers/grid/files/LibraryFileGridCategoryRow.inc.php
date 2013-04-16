@@ -13,7 +13,7 @@
  */
 
 import('lib.pkp.classes.controllers.grid.GridCategoryRow');
-import('lib.pkp.classes.file.LibraryFileManager');
+import('classes.file.LibraryFileManager');
 
 class LibraryFileGridCategoryRow extends GridCategoryRow {
 	/** the context for our Library file manager */

@@ -13,7 +13,7 @@
  */
 
 import('lib.pkp.classes.form.Form');
-import('lib.pkp.classes.file.LibraryFileManager');
+import('classes.file.LibraryFileManager');
 
 class LibraryFileForm extends Form {
 	/** the id of the context this library file is attached to */

@@ -15,7 +15,7 @@
 import('lib.pkp.classes.controllers.grid.CategoryGridHandler');
 import('lib.pkp.controllers.grid.files.LibraryFileGridRow');
 import('lib.pkp.controllers.grid.files.LibraryFileGridCategoryRow');
-import('lib.pkp.classes.file.LibraryFileManager');
+import('classes.file.LibraryFileManager');
 
 
 import('lib.pkp.classes.context.LibraryFile');
@@ -86,7 +86,7 @@ class LibraryFileGridHandler extends CategoryGridHandler {
 		$this->_context = $router->getContext($request);
 
 		// Set name
-		$this->setTitle('manager.publication.submissionDocuments');
+		$this->setTitle('manager.publication.pressLibrary');
 
 		AppLocale::requireComponents(
 			LOCALE_COMPONENT_PKP_COMMON,

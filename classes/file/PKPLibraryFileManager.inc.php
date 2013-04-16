@@ -1,12 +1,12 @@
 <?php
 
 /**
- * @file classes/file/LibraryFileManager.inc.php
+ * @file classes/file/PKPLibraryFileManager.inc.php
  *
  * Copyright (c) 2003-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class LibraryFileManager
+ * @class PKPLibraryFileManager
  * @ingroup file
  *
  * @brief Wrapper class for uploading files to a site/context' library directory.
@@ -16,7 +16,7 @@
 import('lib.pkp.classes.context.LibraryFile');
 import('lib.pkp.classes.file.PrivateFileManager');
 
-class LibraryFileManager extends PrivateFileManager {
+class PKPLibraryFileManager extends PrivateFileManager {
 	/* @var $contextId Context id for the current context */
 	var $contextId;
 
@@ -24,7 +24,7 @@ class LibraryFileManager extends PrivateFileManager {
 	 * Constructor
 	 * @param $contextId int
 	 */
-	function LibraryFileManager($contextId) {
+	function PKPLibraryFileManager($contextId) {
 		parent::FileManager();
 		$this->contextId = $contextId;
 	}
@@ -120,7 +120,6 @@ class LibraryFileManager extends PrivateFileManager {
 	 */
 	function &getTypeSuffixMap() {
 		static $map = array(
-			LIBRARY_FILE_TYPE_CONTRACT => 'CON',
 			LIBRARY_FILE_TYPE_MARKETING => 'MAR',
 			LIBRARY_FILE_TYPE_PERMISSION => 'PER',
 			LIBRARY_FILE_TYPE_REPORT => 'REP',
@@ -148,7 +147,6 @@ class LibraryFileManager extends PrivateFileManager {
 	 */
 	function &getTypeTitleKeyMap() {
 		static $map = array(
-			LIBRARY_FILE_TYPE_CONTRACT => 'settings.libraryFiles.category.contracts',
 			LIBRARY_FILE_TYPE_MARKETING => 'settings.libraryFiles.category.marketing',
 			LIBRARY_FILE_TYPE_PERMISSION => 'settings.libraryFiles.category.permissions',
 			LIBRARY_FILE_TYPE_REPORT => 'settings.libraryFiles.category.reports',
@@ -172,7 +170,6 @@ class LibraryFileManager extends PrivateFileManager {
 	 */
 	function &getTypeNameMap() {
 		static $typeNameMap = array(
-			LIBRARY_FILE_TYPE_CONTRACT => 'contacts',
 			LIBRARY_FILE_TYPE_MARKETING => 'marketing',
 			LIBRARY_FILE_TYPE_PERMISSION => 'permissions',
 			LIBRARY_FILE_TYPE_REPORT => 'reports',

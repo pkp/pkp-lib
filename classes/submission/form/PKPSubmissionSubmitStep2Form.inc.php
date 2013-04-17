@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/submission/form/SubmissionSubmitStep2Form.inc.php
+ * @file classes/submission/form/PKPSubmissionSubmitStep2Form.inc.php
  *
  * Copyright (c) 2003-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -9,7 +9,7 @@
  * @class PKPSubmissionSubmitStep2Form
  * @ingroup submission_form
  *
- * @brief Form for Step 2 of author submission.
+ * @brief Form for Step 2 of author submission: file upload
  */
 
 import('lib.pkp.classes.submission.form.SubmissionSubmitForm');

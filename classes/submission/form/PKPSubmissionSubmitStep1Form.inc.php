@@ -6,7 +6,7 @@
  * Copyright (c) 2003-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class SubmissionSubmitStep1Form
+ * @class PKPSubmissionSubmitStep1Form
  * @ingroup submission_form
  *
  * @brief Form for Step 1 of author submission.

@@ -39,7 +39,7 @@ class UserGroupAssignmentDAO extends DAO {
 	 * @param $row array
 	 * @return Role
 	 */
-	function &_returnFromRow($row) {
+	function _fromRow($row) {
 		$userGroupAssignment = $this->newDataObject();
 		$userGroupAssignment->setUserGroupId($row['user_group_id']);
 		$userGroupAssignment->setUserId($row['user_id']);
@@ -56,7 +56,7 @@ class UserGroupAssignmentDAO extends DAO {
 		$params = array((int) $userId);
 		if ($userGroupId) $params[] = (int) $userGroupId;
 
-		return $this->update(
+		$this->update(
 			'DELETE FROM user_user_groups
 			WHERE	user_id = ?
 			' . ($userGroupId?' AND user_group_id = ?':''),
@@ -80,8 +80,8 @@ class UserGroupAssignmentDAO extends DAO {
 	 * @param int $userId
 	 */
 	function deleteAssignmentsByContextId($contextId, $userId = null) {
-		$params = array($contextId);
-		if ($userId) $params[] = $userId;
+		$params = array((int) $contextId);
+		if ($userId) $params[] = (int) $userId;
 		$result = $this->retrieve(
 			'SELECT	uug.user_group_id, uug.user_id
 			FROM	user_groups ug
@@ -91,7 +91,7 @@ class UserGroupAssignmentDAO extends DAO {
 			$params
 		);
 
-		$assignments = new DAOResultFactory($result, $this, '_returnFromRow');
+		$assignments = new DAOResultFactory($result, $this, '_fromRow');
 		while ($assignment = $assignments->next()) {
 			$this->deleteByUserId($assignment->getUserId(), $assignment->getUserGroupId());
 		}
@@ -105,20 +105,21 @@ class UserGroupAssignmentDAO extends DAO {
 	 * @param $roleId int
 	 * @return Iterator UserGroup
 	 */
-	function &getByUserId($userId, $contextId = null, $roleId = null) {
-		$params = array($userId);
-		if ($contextId) $params[] = $contextId;
-		if ($roleId) $params[] = $roleId;
+	function getByUserId($userId, $contextId = null, $roleId = null) {
+		$params = array((int) $userId);
+		if ($contextId) $params[] = (int) $contextId;
+		if ($roleId) $params[] = (int) $roleId;
 
 		$result = $this->retrieve(
 			'SELECT uug.user_group_id, uug.user_id
-				FROM user_groups ug JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
-				WHERE uug.user_id = ?' . ($contextId?' AND ug.context_id = ?':'') . ($roleId?' AND ug.role_id = ?':''),
-			$params);
-
-		$returner = new DAOResultFactory($result, $this, '_returnFromRow');
-
-		return $returner;
+			FROM	user_groups ug
+				JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
+				WHERE uug.user_id = ?' .
+				($contextId?' AND ug.context_id = ?':'') .
+				($roleId?' AND ug.role_id = ?':''),
+			$params
+		);
+		return new DAOResultFactory($result, $this, '_fromRow');
 	}
 
 
@@ -128,12 +129,10 @@ class UserGroupAssignmentDAO extends DAO {
 	 * @param $groupId
 	 */
 	function insertObject($userGroupAssignment) {
-		$returner = $this->update(
+		$this->update(
 			'INSERT INTO user_user_groups (user_id, user_group_id) VALUES(?, ?)',
-			array($userGroupAssignment->getUserId(), $userGroupAssignment->getUserGroupId())
+			array((int) $userGroupAssignment->getUserId(), (int) $userGroupAssignment->getUserGroupId())
 		);
-
-		return $returner;
 	}
 
 	/**
@@ -141,13 +140,11 @@ class UserGroupAssignmentDAO extends DAO {
 	 * @param $userGroupAssignment
 	 */
 	function deleteAssignment(&$userGroupAssignment) {
-		$returner =& $this->update(
+		$this->update(
 			'DELETE FROM user_user_groups WHERE user_id = ? AND user_group_id = ?',
-			array($userGroupAssignment->getUserId(), $userGroupAssignment->getUserGroupId()));
-
-		return $returner;
+			array((int) $userGroupAssignment->getUserId(), (int) $userGroupAssignment->getUserGroupId())
+		);
 	}
-
 }
 
 ?>

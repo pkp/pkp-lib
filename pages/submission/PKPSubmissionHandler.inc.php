@@ -104,7 +104,7 @@ class PKPSubmissionHandler extends Handler {
 		} else {
 			$templateMgr->assign('submissionProgress', 1);
 		}
-		$templateMgr->display('submission/form/submitStepHeader.tpl');
+		$templateMgr->display('submission/form/index.tpl');
 	}
 
 	/**

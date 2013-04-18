@@ -107,7 +107,7 @@
 		}
 	</div>
 
-	{if $currentPress && ($allowRegAuthor || $allowRegReviewer)}
+	{if $currentContext && ($allowRegAuthor || $allowRegReviewer)}
 		{fbvFormSection label="user.register.registerAs" list="true"}
 			{if $allowRegAuthor}
 				{iterate from=authorUserGroups item=userGroup}

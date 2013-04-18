@@ -589,6 +589,24 @@ class Submission extends DataObject {
 	}
 
 	/**
+	 * Get the copyright notice for a given locale
+	 * @param string $locale
+	 * @return string
+	 */
+	function getCopyrightNotice($locale) {
+		return $this->getData('copyrightNotice', $locale);
+	}
+
+	/**
+	 * Set the copyright notice for a locale
+	 * @param string $copyrightNotice
+	 * @param string $locale
+	 */
+	function setCopyrightNotice($copyrightNotice, $locale) {
+		return $this->setData('copyrightNotice', $copyrightNotice, $locale);
+	}
+
+	/**
 	 * Get citations.
 	 * @return string
 	 */

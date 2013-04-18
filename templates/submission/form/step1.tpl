@@ -51,12 +51,12 @@
 		{/fbvFormSection}
 	{/if}{* count($supportedSubmissionLocaleNames) == 1 *}
 
-	{$additionalFormContent1}
+	{$additionalFormContent2}
 
 	<!-- Submission checklist -->
-	{if $currentPress->getLocalizedSetting('submissionChecklist')}
+	{if $currentContext->getLocalizedSetting('submissionChecklist')}
 		{fbvFormSection list="true" label="submission.submit.submissionChecklist" description="submission.submit.submissionChecklistDescription" id="pkp_submissionChecklist"}
-			{foreach name=checklist from=$currentPress->getLocalizedSetting('submissionChecklist') key=checklistId item=checklistItem}
+			{foreach name=checklist from=$currentContext->getLocalizedSetting('submissionChecklist') key=checklistId item=checklistItem}
 				{if $checklistItem.content}
 					{fbvElement type="checkbox" id="checklist-$checklistId" required=true value=1 label=$checklistItem.content translate=false checked=$submissionId}
 				{/if}
@@ -71,7 +71,7 @@
 
 	<!-- Privacy Statement -->
 	{fbvFormSection for="privacyStatement" title="submission.submit.privacyStatement"}
-		{fbvElement type="textarea" name="privacyStatement" id="privacyStatement" disabled=true value=$currentPress->getLocalizedSetting('privacyStatement') rich=true}
+		{fbvElement type="textarea" name="privacyStatement" id="privacyStatement" disabled=true value=$currentContext->getLocalizedSetting('privacyStatement') rich=true}
 	{/fbvFormSection}
 
 	{if $submissionProgress > 1}

@@ -467,7 +467,6 @@
 	<message key="submission.upload.fileContents">File Contents</message>
 	<message key="submission.upload.userGroup">Upload this file in my role as...</message>
 	<message key="submission.upload.userGroupDescription">If you are submitting an Edited Volume, you should upload all volume chapters individually, under your role as volume editor.</message>
-	<message key="submission.upload.selectBookElement">Select book element</message>
 	<message key="submission.upload.uploadLibraryFile">Upload a Library File</message>
 	<message key="submission.upload.libraryCategory">Submission Document Category</message>
 

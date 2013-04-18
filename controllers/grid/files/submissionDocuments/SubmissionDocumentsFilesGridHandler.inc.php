@@ -111,7 +111,7 @@ class SubmissionDocumentsFilesGridHandler extends LibraryFileGridHandler {
 	//
 
 	/**
-	 * Load the (read only) press file library.
+	 * Load the (read only) context file library.
 	 * @param $args array
 	 * @param $request PKPRequest
 	 * @return string Serialized JSON object

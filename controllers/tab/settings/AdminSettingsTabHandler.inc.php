@@ -124,7 +124,7 @@ class AdminSettingsTabHandler extends SettingsTabHandler {
 	}
 
 	/**
-	 * Deletes a press image.
+	 * Deletes a context image.
 	 * @param $args array
 	 * @param $request PKPRequest
 	 * @return string

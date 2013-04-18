@@ -53,7 +53,7 @@ class LibraryFileAdminGridDataProvider extends CategoryGridDataProvider {
 	}
 
 	/**
-	 * get the current press context
+	 * get the current context
 	 * @return $context Press
 	 */
 	function &getContext() {

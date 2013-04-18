@@ -262,13 +262,13 @@ class PKPInformationCenterNotifyForm extends Form {
 		);
 
 		if ($notificationFactory->wasEmpty()) {
-			$press = $request->getPress();
+			$context = $request->getContext();
 			$notificationMgr = new NotificationManager();
 			$notificationMgr->createNotification(
 				$request,
 				$userId,
 				$type,
-				$press->getId(),
+				$context->getId(),
 				ASSOC_TYPE_SUBMISSION,
 				$submissionId,
 				NOTIFICATION_LEVEL_TASK

@@ -273,10 +273,10 @@ class LibraryFileGridHandler extends CategoryGridHandler {
 	function deleteFile($args, $request) {
 		$fileId = isset($args['fileId']) ? $args['fileId'] : null;
 		$router = $request->getRouter();
-		$press = $router->getContext($request);
+		$context = $router->getContext($request);
 
 		if ($fileId) {
-			$libraryFileManager = new LibraryFileManager($press->getId());
+			$libraryFileManager = new LibraryFileManager($context->getId());
 			$libraryFileManager->deleteFile($fileId);
 
 			return DAO::getDataChangedEvent();

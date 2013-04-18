@@ -233,7 +233,7 @@ class PKPProfileForm extends Form {
 		// User Groups
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$context = $request->getContext();
-		if ($press) {
+		if ($context) {
 			foreach (array(
 				array(
 					'setting' => 'allowRegReviewer',

@@ -28,7 +28,7 @@ class PKPAnnouncementDAO extends DAO {
 	 * @param $announcementId int
 	 * @return Announcement
 	 */
-	function &getById($announcementId) {
+	function getById($announcementId) {
 		$result = $this->retrieve(
 			'SELECT * FROM announcements WHERE announcement_id = ?',
 			(int) $announcementId
@@ -213,7 +213,7 @@ class PKPAnnouncementDAO extends DAO {
 	 * @param $assocType int
 	 * @return object DAOResultFactory containing matching Announcements
 	 */
-	function &getByAssocId($assocType, $assocId, $rangeInfo = null) {
+	function getByAssocId($assocType, $assocId, $rangeInfo = null) {
 		$result = $this->retrieveRange(
 			'SELECT *
 			FROM announcements
@@ -223,8 +223,7 @@ class PKPAnnouncementDAO extends DAO {
 			$rangeInfo
 		);
 
-		$returner = new DAOResultFactory($result, $this, '_returnAnnouncementFromRow');
-		return $returner;
+		return new DAOResultFactory($result, $this, '_returnAnnouncementFromRow');
 	}
 
 	/**
@@ -232,15 +231,14 @@ class PKPAnnouncementDAO extends DAO {
 	 * @param $typeId int
 	 * @return object DAOResultFactory containing matching Announcements
 	 */
-	function &getByTypeId($typeId, $rangeInfo = null) {
+	function getByTypeId($typeId, $rangeInfo = null) {
 		$result = $this->retrieveRange(
 			'SELECT * FROM announcements WHERE type_id = ? ORDER BY announcement_id DESC',
 			(int) $typeId,
 			$rangeInfo
 		);
 
-		$returner = new DAOResultFactory($result, $this, '_returnAnnouncementFromRow');
-		return $returner;
+		return new DAOResultFactory($result, $this, '_returnAnnouncementFromRow');
 	}
 
 	/**
@@ -248,7 +246,7 @@ class PKPAnnouncementDAO extends DAO {
 	 * @param $assocType int
 	 * @return object DAOResultFactory containing matching Announcements
 	 */
-	function &getNumAnnouncementsByAssocId($assocType, $assocId, $numAnnouncements, $rangeInfo = null) {
+	function getNumAnnouncementsByAssocId($assocType, $assocId, $numAnnouncements, $rangeInfo = null) {
 		$result = $this->retrieveRange(
 			'SELECT *
 			FROM announcements
@@ -259,8 +257,7 @@ class PKPAnnouncementDAO extends DAO {
 			$rangeInfo
 		);
 
-		$returner = new DAOResultFactory($result, $this, '_returnAnnouncementFromRow');
-		return $returner;
+		return new DAOResultFactory($result, $this, '_returnAnnouncementFromRow');
 	}
 
 	/**
@@ -270,7 +267,7 @@ class PKPAnnouncementDAO extends DAO {
 	 * @param $rangeInfo DBResultRange
 	 * @return object DAOResultFactory containing matching Announcements
 	 */
-	function &getAnnouncementsNotExpiredByAssocId($assocType, $assocId, $rangeInfo = null) {
+	function getAnnouncementsNotExpiredByAssocId($assocType, $assocId, $rangeInfo = null) {
 		$result = $this->retrieveRange(
 			'SELECT *
 			FROM announcements
@@ -282,8 +279,7 @@ class PKPAnnouncementDAO extends DAO {
 			$rangeInfo
 		);
 
-		$returner = new DAOResultFactory($result, $this, '_returnAnnouncementFromRow');
-		return $returner;
+		return new DAOResultFactory($result, $this, '_returnAnnouncementFromRow');
 	}
 
 	/**
@@ -291,7 +287,7 @@ class PKPAnnouncementDAO extends DAO {
 	 * @param $assocType int
 	 * @return object DAOResultFactory containing matching Announcements
 	 */
-	function &getNumAnnouncementsNotExpiredByAssocId($assocType, $assocId, $numAnnouncements, $rangeInfo = null) {
+	function getNumAnnouncementsNotExpiredByAssocId($assocType, $assocId, $numAnnouncements, $rangeInfo = null) {
 		$result = $this->retrieveRange(
 			'SELECT *
 			FROM announcements
@@ -303,8 +299,7 @@ class PKPAnnouncementDAO extends DAO {
 			$rangeInfo
 		);
 
-		$returner = new DAOResultFactory($result, $this, '_returnAnnouncementFromRow');
-		return $returner;
+		return new DAOResultFactory($result, $this, '_returnAnnouncementFromRow');
 	}
 
 	/**
@@ -312,7 +307,7 @@ class PKPAnnouncementDAO extends DAO {
 	 * @param $assocType int
 	 * @return Announcement
 	 */
-	function &getMostRecentAnnouncementByAssocId($assocType, $assocId) {
+	function getMostRecentAnnouncementByAssocId($assocType, $assocId) {
 		$result = $this->retrieve(
 			'SELECT *
 			FROM announcements
@@ -324,7 +319,7 @@ class PKPAnnouncementDAO extends DAO {
 
 		$returner = null;
 		if ($result->RecordCount() != 0) {
-			$returner =& $this->_returnAnnouncementFromRow($result->GetRowAssoc(false));
+			$returner = $this->_returnAnnouncementFromRow($result->GetRowAssoc(false));
 		}
 		$result->Close();
 		return $returner;

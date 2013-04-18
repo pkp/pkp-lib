@@ -29,14 +29,14 @@ class ReviewFormElementDAO extends DAO {
 	 * @param $reviewFormElementId int
 	 * @return ReviewFormElement
 	 */
-	function &getReviewFormElement($reviewFormElementId) {
+	function getReviewFormElement($reviewFormElementId) {
 		$result = $this->retrieve(
 			'SELECT * FROM review_form_elements WHERE review_form_element_id = ?', $reviewFormElementId
 		);
 
 		$returner = null;
 		if ($result->RecordCount() != 0) {
-			$returner =& $this->_returnReviewFormElementFromRow($result->GetRowAssoc(false));
+			$returner = $this->_returnReviewFormElementFromRow($result->GetRowAssoc(false));
 		}
 
 		$result->Close();
@@ -84,9 +84,9 @@ class ReviewFormElementDAO extends DAO {
 	 * Update the localized fields for this table
 	 * @param $reviewFormElement object
 	 */
-	function updateLocaleFields(&$reviewFormElement) {
+	function updateLocaleFields($reviewFormElement) {
 		$this->updateDataObjectSettings('review_form_element_settings', $reviewFormElement, array(
-			'review_form_element_id' => $reviewFormElement->getId()
+			'review_form_element_id' => (int) $reviewFormElement->getId()
 		));
 	}
 
@@ -94,18 +94,18 @@ class ReviewFormElementDAO extends DAO {
 	 * Insert a new review form element.
 	 * @param $reviewFormElement ReviewFormElement
 	 */
-	function insertObject(&$reviewFormElement) {
+	function insertObject($reviewFormElement) {
 		$this->update(
 			'INSERT INTO review_form_elements
 				(review_form_id, seq, element_type, required, included)
 				VALUES
 				(?, ?, ?, ?, ?)',
 			array(
-				$reviewFormElement->getReviewFormId(),
+				(int) $reviewFormElement->getReviewFormId(),
 				$reviewFormElement->getSequence() == null ? 0 : $reviewFormElement->getSequence(),
 				$reviewFormElement->getElementType(),
-				$reviewFormElement->getRequired() ? 1 : 0,
-				$reviewFormElement->getIncluded() ? 1 : 0
+				(int) $reviewFormElement->getRequired(),
+				(int) $reviewFormElement->getIncluded(),
 			)
 		);
 
@@ -118,7 +118,7 @@ class ReviewFormElementDAO extends DAO {
 	 * Update an existing review form element.
 	 * @param $reviewFormElement ReviewFormElement
 	 */
-	function updateObject(&$reviewFormElement) {
+	function updateObject($reviewFormElement) {
 		$returner = $this->update(
 			'UPDATE review_form_elements
 				SET
@@ -129,12 +129,12 @@ class ReviewFormElementDAO extends DAO {
 					included = ?
 				WHERE	review_form_element_id = ?',
 			array(
-				$reviewFormElement->getReviewFormId(),
+				(int) $reviewFormElement->getReviewFormId(),
 				$reviewFormElement->getSequence(),
 				$reviewFormElement->getElementType(),
-				$reviewFormElement->getRequired(),
-				$reviewFormElement->getIncluded(),
-				$reviewFormElement->getId()
+				(int) $reviewFormElement->getRequired(),
+				(int) $reviewFormElement->getIncluded(),
+				(int) $reviewFormElement->getId()
 			)
 		);
 		$this->updateLocaleFields($reviewFormElement);
@@ -145,7 +145,7 @@ class ReviewFormElementDAO extends DAO {
 	 * Delete a review form element.
 	 * @param $reviewFormElement reviewFormElement
 	 */
-	function deleteObject(&$reviewFormElement) {
+	function deleteObject($reviewFormElement) {
 		return $this->deleteById($reviewFormElement->getId());
 	}
 
@@ -157,8 +157,8 @@ class ReviewFormElementDAO extends DAO {
 		$reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO');
 		$reviewFormResponseDao->deleteByReviewFormElementId($reviewFormElementId);
 
-		$this->update('DELETE FROM review_form_element_settings WHERE review_form_element_id = ?', array($reviewFormElementId));
-		return $this->update('DELETE FROM review_form_elements WHERE review_form_element_id = ?', array($reviewFormElementId));
+		$this->update('DELETE FROM review_form_element_settings WHERE review_form_element_id = ?', (int) $reviewFormElementId);
+		return $this->update('DELETE FROM review_form_elements WHERE review_form_element_id = ?', (int) $reviewFormElementId);
 	}
 
 	/**
@@ -219,14 +219,13 @@ class ReviewFormElementDAO extends DAO {
 	 * @param $rangeInfo object RangeInfo object (optional)
 	 * @return DAOResultFactory containing ReviewFormElements ordered by sequence
 	 */
-	function &getReviewFormElementsByReviewForm($reviewFormId, $rangeInfo = null) {
+	function getReviewFormElementsByReviewForm($reviewFormId, $rangeInfo = null) {
 		$result = $this->retrieveRange(
 			'SELECT * FROM review_form_elements WHERE review_form_id = ? ORDER BY seq',
-			$reviewFormId, $rangeInfo
+			(int) $reviewFormId, $rangeInfo
 		);
 
-		$returner = new DAOResultFactory($result, $this, '_returnReviewFormElementFromRow');
-		return $returner;
+		return new DAOResultFactory($result, $this, '_returnReviewFormElementFromRow');
 	}
 
 	/**

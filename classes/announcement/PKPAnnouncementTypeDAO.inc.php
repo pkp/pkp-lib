@@ -250,15 +250,14 @@ class PKPAnnouncementTypeDAO extends DAO {
 	 * @param $assocType int
 	 * @return object DAOResultFactory containing matching AnnouncementTypes
 	 */
-	function &getByAssoc($assocType, $assocId, $rangeInfo = null) {
+	function getByAssoc($assocType, $assocId, $rangeInfo = null) {
 		$result = $this->retrieveRange(
 			'SELECT * FROM announcement_types WHERE assoc_type = ? AND assoc_id = ? ORDER BY type_id',
 			array((int) $assocType, (int) $assocId),
 			$rangeInfo
 		);
 
-		$returner = new DAOResultFactory($result, $this, '_returnAnnouncementTypeFromRow');
-		return $returner;
+		return new DAOResultFactory($result, $this, '_returnAnnouncementTypeFromRow');
 	}
 
 	/**

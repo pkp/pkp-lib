@@ -100,10 +100,9 @@ class LanguageDAO extends DAO {
 	 * @param $locale string
 	 * @return Language
 	 */
-	function &getLanguageByCode($code, $locale = null) {
-		$cache =& $this->_getCache($locale);
-		$returner =& $this->_returnLanguageFromRow($code, $cache->get($code));
-		return $returner;
+	function getLanguageByCode($code, $locale = null) {
+		$cache = $this->_getCache($locale);
+		return $this->_returnLanguageFromRow($code, $cache->get($code));
 	}
 
 	/**
@@ -111,11 +110,11 @@ class LanguageDAO extends DAO {
 	 * @param $locale string an optional locale to use
 	 * @return array of Languages
 	 */
-	function &getLanguages($locale = null) {
-		$cache =& $this->_getCache($locale);
+	function getLanguages($locale = null) {
+		$cache = $this->_getCache($locale);
 		$returner = array();
 		foreach ($cache->getContents() as $code => $entry) {
-			$returner[] =& $this->_returnLanguageFromRow($code, $entry);
+			$returner[] = $this->_returnLanguageFromRow($code, $entry);
 		}
 		return $returner;
 	}
@@ -125,13 +124,13 @@ class LanguageDAO extends DAO {
 	 * @param $locale an optional locale to use
 	 * @return array of Languages names
 	 */
-	function &getLanguageNames($locale = null) {
-		$cache =& $this->_getCache($locale);
+	function getLanguageNames($locale = null) {
+		$cache = $this->_getCache($locale);
 		$returner = array();
-		$cacheContents =& $cache->getContents();
+		$cacheContents = $cache->getContents();
 		if (is_array($cacheContents)) {
 			foreach ($cache->getContents() as $code => $entry) {
-				$returner[] =& $entry[0];
+				$returner[] = $entry[0];
 			}
 		}
 		return $returner;

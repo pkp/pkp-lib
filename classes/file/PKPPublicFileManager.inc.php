@@ -51,7 +51,7 @@ class PKPPublicFileManager extends FileManager {
 	 * @return boolean
 	 */
 	function uploadContextFile($assocType, $contextId, $fileName, $destFileName) {
-		return $this->uploadFile($fileName, $this->getContextFilesPath($assocType, $pressId) . '/' . $destFileName);
+		return $this->uploadFile($fileName, $this->getContextFilesPath($assocType, $contextId) . '/' . $destFileName);
 	}
 
 	/**
@@ -95,8 +95,8 @@ class PKPPublicFileManager extends FileManager {
 	 * @param $fileName string the target file name
 	 * @return boolean
 	 */
-	function removeContextFile($assocType, $pressId, $fileName) {
-		return $this->deleteFile($this->getContextFilesPath($assocType, $pressId) . '/' . $fileName);
+	function removeContextFile($assocType, $contextId, $fileName) {
+		return $this->deleteFile($this->getContextFilesPath($assocType, $contextId) . '/' . $fileName);
 	}
 
 	/**

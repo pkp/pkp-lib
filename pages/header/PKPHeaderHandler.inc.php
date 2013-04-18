@@ -46,7 +46,7 @@ class PKPHeaderHandler extends Handler {
 			if (!$workingContexts) {
 				$templateMgr->assign('noContextsConfigured', true);
 				$templateMgr->assign('notInstalled', true);
-			} elseif ($workingContexts->getCount() == 0) { // no presses configured or installing
+			} elseif ($workingContexts->getCount() == 0) { // no contexts configured or installing
 				$templateMgr->assign('noContextsConfigured', true);
 			}
 		}

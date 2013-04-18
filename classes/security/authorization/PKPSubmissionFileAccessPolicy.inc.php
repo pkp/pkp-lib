@@ -60,7 +60,7 @@ class PKPSubmissionFileAccessPolicy extends ContextPolicy {
 		import('lib.pkp.classes.security.authorization.internal.SubmissionFileMatchesSubmissionPolicy');
 		$this->addPolicy(new SubmissionFileMatchesSubmissionPolicy($request, $fileIdAndRevision));
 
-		// Authors, press managers and series editors potentially have
+		// Authors, managers and series editors potentially have
 		// access to submission files. We'll have to define
 		// differentiated policies for those roles in a policy set.
 		$fileAccessPolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
@@ -70,7 +70,7 @@ class PKPSubmissionFileAccessPolicy extends ContextPolicy {
 		// Managerial role
 		//
 		if (isset($roleAssignments[ROLE_ID_MANAGER])) {
-			// Press managers have all access to all submissions.
+			// Managers have all access to all submissions.
 			$fileAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_MANAGER, $roleAssignments[ROLE_ID_MANAGER]));
 		}
 
@@ -153,18 +153,18 @@ class PKPSubmissionFileAccessPolicy extends ContextPolicy {
 
 
 		//
-		// Press assistant role.
+		// Assistant role.
 		//
 		if (isset($roleAssignments[ROLE_ID_ASSISTANT])) {
-			// 1) Press assistants can access whitelisted operations...
-			$pressAssistantFileAccessPolicy = new PolicySet(COMBINING_DENY_OVERRIDES);
-			$pressAssistantFileAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_ASSISTANT, $roleAssignments[ROLE_ID_ASSISTANT]));
+			// 1) Assistants can access whitelisted operations...
+			$contextAssistantFileAccessPolicy = new PolicySet(COMBINING_DENY_OVERRIDES);
+			$contextAssistantFileAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_ASSISTANT, $roleAssignments[ROLE_ID_ASSISTANT]));
 
 			// 2) ... but only if they have been assigned to the submission workflow.
 			// Note: This loads the application-specific policy class
 			import('classes.security.authorization.WorkflowStageAccessPolicy');
-			$pressAssistantFileAccessPolicy->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $request->getUserVar('stageId')));
-			$fileAccessPolicy->addPolicy($pressAssistantFileAccessPolicy);
+			$contextAssistantFileAccessPolicy->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $request->getUserVar('stageId')));
+			$fileAccessPolicy->addPolicy($contextAssistantFileAccessPolicy);
 		}
 
 		return $fileAccessPolicy;

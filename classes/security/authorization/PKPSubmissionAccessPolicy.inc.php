@@ -45,7 +45,7 @@ class PKPSubmissionAccessPolicy extends ContextPolicy {
 		import('lib.pkp.classes.security.authorization.internal.SubmissionRequiredPolicy');
 		$this->addPolicy(new SubmissionRequiredPolicy($request, $args, $submissionParameterName));
 
-		// Authors, press managers and series editors potentially have
+		// Authors, managers and series editors potentially have
 		// access to submissions. We'll have to define differentiated
 		// policies for those roles in a policy set.
 		$submissionAccessPolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
@@ -54,7 +54,7 @@ class PKPSubmissionAccessPolicy extends ContextPolicy {
 		// Managerial role
 		//
 		if (isset($roleAssignments[ROLE_ID_MANAGER])) {
-			// Press managers have access to all submissions.
+			// Managers have access to all submissions.
 			$submissionAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_MANAGER, $roleAssignments[ROLE_ID_MANAGER]));
 		}
 
@@ -100,14 +100,14 @@ class PKPSubmissionAccessPolicy extends ContextPolicy {
 		// Assistant role
 		//
 		if (isset($roleAssignments[ROLE_ID_ASSISTANT])) {
-			// 1) Press assistants can access whitelisted operations ...
-			$pressSubmissionAccessPolicy = new PolicySet(COMBINING_DENY_OVERRIDES);
-			$pressSubmissionAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_ASSISTANT, $roleAssignments[ROLE_ID_ASSISTANT]));
+			// 1) Assistants can access whitelisted operations ...
+			$contextSubmissionAccessPolicy = new PolicySet(COMBINING_DENY_OVERRIDES);
+			$contextSubmissionAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_ASSISTANT, $roleAssignments[ROLE_ID_ASSISTANT]));
 
 			// 2) ... but only if they have been assigned to the submission workflow.
 			import('classes.security.authorization.internal.UserAccessibleWorkflowStageRequiredPolicy');
-			$pressSubmissionAccessPolicy->addPolicy(new UserAccessibleWorkflowStageRequiredPolicy($request));
-			$submissionAccessPolicy->addPolicy($pressSubmissionAccessPolicy);
+			$contextSubmissionAccessPolicy->addPolicy(new UserAccessibleWorkflowStageRequiredPolicy($request));
+			$submissionAccessPolicy->addPolicy($contextSubmissionAccessPolicy);
 		}
 
 		return $submissionAccessPolicy;

@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file classes/press/FooterLink.inc.php
+ * @file classes/context/FooterLink.inc.php
  *
  * Copyright (c) 2003-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class FooterLink
- * @ingroup press
+ * @ingroup context
  * @see FooterLinkDAO
  *
  * @brief Describes basic FooterLink properties.
@@ -22,7 +22,7 @@ class FooterLink extends DataObject {
 	}
 
 	/**
-	 * Get ID of press.
+	 * Get ID of context.
 	 * @return int
 	 */
 	function getContextId() {
@@ -30,7 +30,7 @@ class FooterLink extends DataObject {
 	}
 
 	/**
-	 * Set ID of press.
+	 * Set ID of context.
 	 * @param $contextId int
 	 */
 	function setContextId($contextId) {

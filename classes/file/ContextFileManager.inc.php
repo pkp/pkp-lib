@@ -9,7 +9,7 @@
  * @class ContextFileManager
  * @ingroup file
  *
- * @brief Class defining operations for private press file management.
+ * @brief Class defining operations for private context file management.
  */
 
 

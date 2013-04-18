@@ -42,7 +42,7 @@ class PKPSignoffDAO extends DAO {
 
 		$returner = null;
 		if ($result->RecordCount() != 0) {
-			$returner =& $this->_fromRow($result->GetRowAssoc(false));
+			$returner = $this->_fromRow($result->GetRowAssoc(false));
 		}
 		$result->Close();
 		return $returner;
@@ -60,7 +60,7 @@ class PKPSignoffDAO extends DAO {
 	 * @param $fileRevision int
 	 * @return Signoff
 	 */
-	function &build($symbolic, $assocType, $assocId, $userId = null,
+	function build($symbolic, $assocType, $assocId, $userId = null,
 			$userGroupId = null, $fileId = null, $fileRevision = null) {
 
 		// If one exists, fetch and return.
@@ -127,7 +127,7 @@ class PKPSignoffDAO extends DAO {
 	 * @param $row array
 	 * @return Signoff
 	 */
-	function &_fromRow($row) {
+	function _fromRow($row) {
 		$signoff = $this->newDataObject();
 
 		$signoff->setId($row['signoff_id']);
@@ -151,7 +151,7 @@ class PKPSignoffDAO extends DAO {
 	 * @param $signoff Signoff
 	 * @return int
 	 */
-	function insertObject(&$signoff) {
+	function insertObject($signoff) {
 		$this->update(
 			sprintf(
 				'INSERT INTO signoffs
@@ -182,7 +182,7 @@ class PKPSignoffDAO extends DAO {
 	 * @param $signoff Signoff
 	 * @return boolean
 	 */
-	function updateObject(&$signoff) {
+	function updateObject($signoff) {
 		$returner = $this->update(
 			sprintf(
 				'UPDATE	signoffs
@@ -223,6 +223,7 @@ class PKPSignoffDAO extends DAO {
 	 * @return boolean
 	 */
 	function deleteObject($signoff) {
+		assert(is_a($signoff, 'Signoff'));
 		return $this->deleteObjectById($signoff->getId());
 	}
 
@@ -247,7 +248,7 @@ class PKPSignoffDAO extends DAO {
 	 * @param $fileRevision int
 	 * @return Signoff
 	 */
-	function &getBySymbolic($symbolic, $assocType, $assocId, $userId = null,
+	function getBySymbolic($symbolic, $assocType, $assocId, $userId = null,
 			$userGroupId = null, $fileId = null, $fileRevision = null) {
 
 		$sql = 'SELECT * FROM signoffs WHERE symbolic = ? AND assoc_type = ? AND assoc_id = ?';
@@ -293,9 +294,8 @@ class PKPSignoffDAO extends DAO {
 	 * @param $userGroupId int
 	 * @return DAOResultFactory
 	 */
-	function &getAllBySymbolic($symbolic, $assocType = null, $assocId = null, $userId = null, $userGroupId = null) {
-		$returner =& $this->_getAllInternally($symbolic, $assocType, $assocId, $userId, $userGroupId);
-		return $returner;
+	function getAllBySymbolic($symbolic, $assocType = null, $assocId = null, $userId = null, $userGroupId = null) {
+		return $this->_getAllInternally($symbolic, $assocType, $assocId, $userId, $userGroupId);
 	}
 
 	/**
@@ -308,9 +308,8 @@ class PKPSignoffDAO extends DAO {
 	 * @param $userGroupId int
 	 * @return DAOResultFactory
 	 */
-	function &getAllByAssocType($assocType, $assocId, $symbolic = null, $userId = null, $userGroupId = null) {
-		$returner =& $this->_getAllInternally($symbolic, $assocType, $assocId, $userId, $userGroupId);
-		return $returner;
+	function getAllByAssocType($assocType, $assocId, $symbolic = null, $userId = null, $userGroupId = null) {
+		return $this->_getAllInternally($symbolic, $assocType, $assocId, $userId, $userGroupId);
 	}
 
 	/**
@@ -318,14 +317,13 @@ class PKPSignoffDAO extends DAO {
 	 * @param $userId int
 	 * @return DAOResultFactory
 	 */
-	function &getByUserId($userId) {
+	function getByUserId($userId) {
 		$sql = 'SELECT * FROM signoffs WHERE user_id = ?';
 		$params = array((int) $userId);
 
 		$result = $this->retrieve($sql, $params);
 
-		$returner = new DAOResultFactory($result, $this, '_fromRow', array('id'));
-		return $returner;
+		return new DAOResultFactory($result, $this, '_fromRow', array('id'));
 	}
 
 	/**
@@ -334,7 +332,7 @@ class PKPSignoffDAO extends DAO {
 	 * @param $revision integer
 	 * @return DAOResultFactory
 	 */
-	function &getByFileRevision($fileId, $revision = null) {
+	function getByFileRevision($fileId, $revision = null) {
 		$sql = 'SELECT * FROM signoffs WHERE file_id = ?';
 		$params = array((int)$fileId);
 		if ($revision) {
@@ -342,8 +340,7 @@ class PKPSignoffDAO extends DAO {
 			$params[] = (int)$revision;
 		}
 		$result = $this->retrieve($sql, $params);
-		$returner = new DAOResultFactory($result, $this, '_fromRow', array('id'));
-		return $returner;
+		return new DAOResultFactory($result, $this, '_fromRow', array('id'));
 	}
 
 	/**
@@ -356,7 +353,7 @@ class PKPSignoffDAO extends DAO {
 	 * @param $unique boolean
 	 * @return object
 	 */
-	function &getUsersBySymbolic($symbolic, $assocType, $assocId, $userGroupId = null, $unique = true) {
+	function getUsersBySymbolic($symbolic, $assocType, $assocId, $userGroupId = null, $unique = true) {
 		$selectDistinct = $unique ? 'SELECT DISTINCT' : 'SELECT';
 
 		$sql = $selectDistinct . ' u.* FROM users u, signoffs s
@@ -371,8 +368,7 @@ class PKPSignoffDAO extends DAO {
 		$result = $this->retrieve($sql, $params);
 
 		$userDao = DAORegistry::getDAO('UserDAO');
-		$returner = new DAOResultFactory($result, $userDao, '_returnUserFromRow');
-		return $returner;
+		return new DAOResultFactory($result, $userDao, '_returnUserFromRow');
 	}
 
 	/**
@@ -428,7 +424,7 @@ class PKPSignoffDAO extends DAO {
 	 * @param $userGroupId int
 	 * @return DAOResultFactory
 	 */
-	function &_getAllInternally($symbolic = null, $assocType = null, $assocId = null, $userId = null, $userGroupId = null) {
+	function _getAllInternally($symbolic = null, $assocType = null, $assocId = null, $userId = null, $userGroupId = null) {
 		$sql = 'SELECT * FROM signoffs';
 
 		if ($symbolic) {
@@ -464,8 +460,7 @@ class PKPSignoffDAO extends DAO {
 
 		$result = $this->retrieve($sql, $params);
 
-		$returner = new DAOResultFactory($result, $this, '_fromRow', array('id'));
-		return $returner;
+		return new DAOResultFactory($result, $this, '_fromRow', array('id'));
 	}
 }
 

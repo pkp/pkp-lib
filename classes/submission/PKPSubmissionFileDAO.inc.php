@@ -165,7 +165,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @param $uploaderUserId integer
 	 * @param $uploaderUserGroupId integer
 	 * @param $fileStage integer (optional) One of the MONOGRAPH_FILE constants
-	 * @return array A list of MonographFiles.
+	 * @return array A list of SubmissionFiles.
 	 */
 	function &getRevisionsByReviewRound($submissionId, $stageId, $round, $fileStage = null,
 			$uploaderUserId = null, $uploaderUserGroupId = null) {
@@ -183,7 +183,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @param $stageId int
 	 * @param $round int
 	 * @param $fileStage int (optional) A SUBMISSION_FILE_* constant
-	 * @return array A list of MonographFiles.
+	 * @return array A list of SubmissionFiles.
 	 */
 	function &getLatestNewRevisionsByReviewRound($submissionId, $stageId, $round, $fileStage = null) {
 		if (!($stageId && $round)) {
@@ -276,7 +276,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 
 		// Retrieve the previous file.
 		$previousFile =& $this->getRevision($previousFileId, $previousRevision);
-		assert(is_a($previousFile, 'MonographFile'));
+		assert(is_a($previousFile, 'SubmissionFile'));
 
 		// Canonicalized the implementation of the previous file.
 		$previousImplementation = strtolower_codesafe(get_class($previousFile));

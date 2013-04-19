@@ -37,7 +37,7 @@ class FileApiHandler extends Handler {
 	/**
 	 * record a file view.
 	 * Must be overridden in subclases.
-	 * @param $submissionFile MonographFile the file to record.
+	 * @param $submissionFile SubmissionFile the file to record.
 	 */
 	function recordView($submissionFile) {
 		SubmissionFileManager::recordView($submissionFile);

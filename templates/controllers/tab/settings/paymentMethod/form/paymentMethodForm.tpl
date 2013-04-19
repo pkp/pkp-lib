@@ -17,7 +17,7 @@
 				paymentMethodFormUrlTemplate: '{url|escape:"javascript" router=$smarty.const.ROUTE_COMPONENT op="getPaymentFormContents" paymentPluginName=PAYMENT_PLUGIN_NAME escape=false}'
 			{rdelim}
 		);
-		// Attach the container handler. (Triggers selectMonograph event.)
+		// Attach the container handler. (Triggers e.g. selectMonograph event.)
 		$('#paymentMethodSelector').pkpHandler(
 			'$.pkp.controllers.form.DropdownHandler',
 			{ldelim}

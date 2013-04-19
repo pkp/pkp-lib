@@ -39,11 +39,11 @@ class PKPSubmissionFileRequestedRevisionRequiredPolicy extends SubmissionFileBas
 
 		// Get the monograph file.
 		$monographFile = $this->getSubmissionFile($request);
-		if (!is_a($monographFile, 'MonographFile')) return AUTHORIZATION_DENY;
+		if (!is_a($monographFile, 'SubmissionFile')) return AUTHORIZATION_DENY;
 
 		// Make sure the file belongs to the monograph in request.
 		$monograph =& $this->getAuthorizedContextObject(ASSOC_TYPE_MONOGRAPH);
-		if (!is_a($monograph, 'Monograph')) return AUTHORIZATION_DENY;
+		if (!is_a($monograph, 'Submission')) return AUTHORIZATION_DENY;
 		if ($monograph->getId() != $monographFile->getSubmissionId()) return AUTHORIZATION_DENY;
 
 		// Make sure the file is part of a review round

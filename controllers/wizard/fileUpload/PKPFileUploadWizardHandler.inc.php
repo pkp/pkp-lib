@@ -430,7 +430,7 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 	/**
 	 * Check if the uploaded file has a similar name to an existing
 	 * file which would then be a candidate for a revised file.
-	 * @param $uploadedFile MonographFile
+	 * @param $uploadedFile SubmissionFile
 	 * @param $submissionFiles array a list of submission files to
 	 *  check the uploaded file against.
 	 * @return integer the if of the possibly revised file or null
@@ -512,17 +512,16 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 	/**
 	 * Create an array that describes an uploaded file which can
 	 * be used in a JSON response.
-	 * @param MonographFile $uploadedFile
+	 * @param SubmissionFile $uploadedFile
 	 * @return array
 	 */
-	function &_getUploadedFileInfo(&$uploadedFile) {
-		$uploadedFileInfo = array(
+	function _getUploadedFileInfo($uploadedFile) {
+		return array(
 			'uploadedFile' => array(
 				'fileId' => $uploadedFile->getFileId(),
 				'revision' => $uploadedFile->getRevision()
 			)
 		);
-		return $uploadedFileInfo;
 	}
 }
 

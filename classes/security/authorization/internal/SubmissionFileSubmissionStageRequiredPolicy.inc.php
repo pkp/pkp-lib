@@ -35,7 +35,7 @@ class SubmissionFileSubmissionStageRequiredPolicy extends SubmissionFileBaseAcce
 
 		// Get the submission file.
 		$submissionFile = $this->getSubmissionFile($request);
-		if (!is_a($submissionFile, 'MonographFile')) return AUTHORIZATION_DENY;
+		if (!is_a($submissionFile, 'SubmissionFile')) return AUTHORIZATION_DENY;
 
 		// Make sure that it's in the submission stage
 		if ($submissionFile->getFileStage() != SUBMISSION_FILE_SUBMISSION) return AUTHORIZATION_DENY;

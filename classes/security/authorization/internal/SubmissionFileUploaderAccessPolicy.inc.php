@@ -5,10 +5,10 @@
  * Copyright (c) 2000-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class MonographFileUploaderAccessPolicy
+ * @class SubmissionFileUploaderAccessPolicy
  * @ingroup security_authorization_internal
  *
- * @brief Monograph file policy to check if the current user is the uploader.
+ * @brief Submission file policy to check if the current user is the uploader.
  *
  */
 

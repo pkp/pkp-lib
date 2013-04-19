@@ -98,7 +98,6 @@ class PKPSocialMedia extends DataObject {
 	/**
 	 * Replace various variables in the code template with data
 	 * relevant to the assigned monograph.
-	 * @param PublishedMonograph $publishedMonograph
 	 */
 	function replaceCodeVars() {
 		// Subclasses should override as needed.

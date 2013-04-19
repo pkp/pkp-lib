@@ -44,7 +44,7 @@ class DownloadFileLinkAction extends FileLinkAction {
 
 	/**
 	 * Get the label for the file download action.
-	 * @param $submissionFile MonographFile
+	 * @param $submissionFile SubmissionFile
 	 * @return string
 	 */
 	function getLabel(&$submissionFile) {

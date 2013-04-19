@@ -117,7 +117,6 @@ class SubmissionDocumentsFilesGridHandler extends LibraryFileGridHandler {
 	 * @return string Serialized JSON object
 	 */
 	function viewLibrary($args, $request) {
-
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('canEdit', false);
 		return $templateMgr->fetchJson('controllers/tab/settings/library.tpl');
@@ -125,14 +124,13 @@ class SubmissionDocumentsFilesGridHandler extends LibraryFileGridHandler {
 
 	/**
 	 * Returns a specific instance of the new form for this grid.
-	 * @param $context Press
+	 * @param $context Context
 	 * @return NewLibraryFileForm
 	 */
-	function &_getNewFileForm($context) {
-		$submission =& $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+	function _getNewFileForm($context) {
+		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		import('lib.pkp.controllers.grid.files.submissionDocuments.form.NewLibraryFileForm');
-		$fileForm = new NewLibraryFileForm($context->getId(), $submission->getId());
-		return $fileForm;
+		return new NewLibraryFileForm($context->getId(), $submission->getId());
 	}
 
 	/**
@@ -141,11 +139,10 @@ class SubmissionDocumentsFilesGridHandler extends LibraryFileGridHandler {
 	 * @param $fileId int
 	 * @return EditLibraryFileForm
 	 */
-	function &_getEditFileForm($context, $fileId) {
-		$submission =& $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+	function _getEditFileForm($context, $fileId) {
+		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		import('lib.pkp.controllers.grid.files.submissionDocuments.form.EditLibraryFileForm');
-		$fileForm = new EditLibraryFileForm($context->getId(), $fileId, $submission->getId());
-		return $fileForm;
+		return new EditLibraryFileForm($context->getId(), $fileId, $submission->getId());
 	}
 }
 

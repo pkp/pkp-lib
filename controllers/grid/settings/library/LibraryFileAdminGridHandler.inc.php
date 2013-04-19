@@ -55,22 +55,20 @@ class LibraryFileAdminGridHandler extends LibraryFileGridHandler {
 	 * @param $context Context
 	 * @return NewLibraryFileForm
 	 */
-	function &_getNewFileForm($context) {
+	function _getNewFileForm($context) {
 		import('lib.pkp.controllers.grid.settings.library.form.NewLibraryFileForm');
-		$fileForm = new NewLibraryFileForm($context->getId());
-		return $fileForm;
+		return new NewLibraryFileForm($context->getId());
 	}
 
 	/**
 	 * Returns a specific instance of the edit form for this grid.
-	 * @param $context Press
+	 * @param $context Context
 	 * @param $fileId int
 	 * @return EditLibraryFileForm
 	 */
-	function &_getEditFileForm($context, $fileId) {
+	function _getEditFileForm($context, $fileId) {
 		import('lib.pkp.controllers.grid.settings.library.form.EditLibraryFileForm');
-		$fileForm = new EditLibraryFileForm($context->getId(), $fileId);
-		return $fileForm;
+		return new EditLibraryFileForm($context->getId(), $fileId);
 	}
 }
 

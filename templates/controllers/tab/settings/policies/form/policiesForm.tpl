@@ -34,7 +34,7 @@
 		{/fbvFormSection}
 
 		<div {if $wizardMode}class="pkp_form_hidden"{/if}>
-			{fbvFormSection label="manager.setup.focusAndScopeOfPress" description="manager.setup.focusAndScope.description"}
+			{fbvFormSection label="manager.setup.focusAndScope" description="manager.setup.focusAndScope.description"}
 				{fbvElement type="textarea" multilingual=true name="focusScopeDesc" id="focusScopeDesc" value=$focusScopeDesc rich=true}
 			{/fbvFormSection}
 			{fbvFormSection label="manager.setup.openAccessPolicy" description="manager.setup.openAccessPolicy.description"}

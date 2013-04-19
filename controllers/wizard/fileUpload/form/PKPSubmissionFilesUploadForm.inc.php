@@ -133,7 +133,7 @@ class PKPSubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 		// Retrieve the current context.
 		$router = $request->getRouter();
 		$context = $router->getContext($request);
-		assert(is_a($context, 'Press'));
+		assert(is_a($context, 'Context'));
 
 		// Retrieve the user's user groups.
 		$user = $request->getUser();

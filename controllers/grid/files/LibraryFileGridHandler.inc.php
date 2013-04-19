@@ -315,9 +315,9 @@ class LibraryFileGridHandler extends CategoryGridHandler {
 	/**
 	 * Returns a specific instance of the new form for this grid.
 	 *  Must be implemented by subclasses.
-	 * @param $context Press
+	 * @param $context Context
 	 */
-	function &_getNewFileForm($context){
+	function _getNewFileForm($context){
 		assert(false);
 	}
 
@@ -327,7 +327,7 @@ class LibraryFileGridHandler extends CategoryGridHandler {
 	 * @param $context Press
 	 * @param $fileId int
 	 */
-	function &_getEditFileForm($context, $fileId){
+	function _getEditFileForm($context, $fileId){
 		assert(false);
 	}
 

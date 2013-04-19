@@ -454,6 +454,8 @@
 	<message key="submission.submit.metadataStep">2. Metadata</message>
 	<message key="submission.submit.finishingUpStep">3. Finishing Up</message>
 	<message key="submission.submit.fileNameRequired">You must enter a file name for this file</message>
+	<message key="submission.submit.howToSubmit"><![CDATA[Encountering difficulties? Contact <a href="mailto:{$supportEmail}">{$supportName}</a> for assistance ({$supportPhone}).]]></message>
+	<message key="submission.submit.howToSubmitNoPhone"><![CDATA[Encountering difficulties? Contact <a href="mailto:{$supportEmail}">{$supportName}</a> for assistance.]]></message>
 
 	<!-- File upload wizard -->
 	<message key="submission.upload.noteToAccompanyFile">Note to accompany file</message>

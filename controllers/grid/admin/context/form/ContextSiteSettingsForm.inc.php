@@ -86,6 +86,22 @@ class ContextSiteSettingsForm extends Form {
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$userGroupDao->installSettings($contextId, 'registry/userGroups.xml');
 	}
+
+	/**
+	 * Make the site administrator the manager of the newly created context.
+	 * @param $contextId int
+	 */
+	function _assignManagerGroup($contextId) {
+		// Make the site administrator the manager of newly created presses
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$sessionManager = SessionManager::getManager();
+		$userSession = $sessionManager->getUserSession();
+		if ($userSession->getUserId() != null && $userSession->getUserId() != 0 && !empty($contextId)) {
+			// get the default site admin user group
+			$managerUserGroup = $userGroupDao->getDefaultByRoleId($contextId, ROLE_ID_MANAGER);
+			$userGroupDao->assignUserToGroup($userSession->getUserId(), $managerUserGroup->getId());
+		}
+	}
 }
 
 ?>

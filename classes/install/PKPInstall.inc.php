@@ -274,10 +274,8 @@ class PKPInstall extends Installer {
 		}
 
 		// Put the installer into this user group
-		if (!$userGroupDao->assignUserToGroup($user->getId(), $adminUserGroup->getId())) {
-			$this->setError(INSTALLER_ERROR_DB, $this->dbconn->errorMsg());
-			return false;
-		}
+		$userGroupDao->assignUserToGroup($user->getId(), $adminUserGroup->getId());
+
 		return true;
 	}
 }

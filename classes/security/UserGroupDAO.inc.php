@@ -68,7 +68,7 @@ class UserGroupDAO extends DAO {
 	 * @param $userGroup UserGroup
 	 */
 	function insertObject($userGroup) {
-		$returner = $this->update(
+		$this->update(
 			'INSERT INTO user_groups
 				(role_id, path, context_id, is_default)
 				VALUES

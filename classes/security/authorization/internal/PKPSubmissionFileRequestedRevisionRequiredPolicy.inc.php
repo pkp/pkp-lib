@@ -37,18 +37,18 @@ class PKPSubmissionFileRequestedRevisionRequiredPolicy extends SubmissionFileBas
 		$request = $this->getRequest();
 		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
 
-		// Get the monograph file.
-		$monographFile = $this->getSubmissionFile($request);
-		if (!is_a($monographFile, 'SubmissionFile')) return AUTHORIZATION_DENY;
+		// Get the submission file.
+		$submissionFile = $this->getSubmissionFile($request);
+		if (!is_a($submissionFile, 'SubmissionFile')) return AUTHORIZATION_DENY;
 
-		// Make sure the file belongs to the monograph in request.
-		$monograph =& $this->getAuthorizedContextObject(ASSOC_TYPE_MONOGRAPH);
-		if (!is_a($monograph, 'Submission')) return AUTHORIZATION_DENY;
-		if ($monograph->getId() != $monographFile->getSubmissionId()) return AUTHORIZATION_DENY;
+		// Make sure the file belongs to the submission in request.
+		$submission =& $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+		if (!is_a($submission, 'Submission')) return AUTHORIZATION_DENY;
+		if ($submission->getId() != $submissionFile->getSubmissionId()) return AUTHORIZATION_DENY;
 
 		// Make sure the file is part of a review round
 		// with a requested revision decision.
-		$reviewRound =& $reviewRoundDao->getBySubmissionFileId($monographFile->getFileId());
+		$reviewRound =& $reviewRoundDao->getBySubmissionFileId($submissionFile->getFileId());
 		if (!is_a($reviewRound, 'ReviewRound')) return AUTHORIZATION_DENY;
 		import('classes.workflow.EditorDecisionActionsManager');
 		if (!EditorDecisionActionsManager::getEditorTakenActionInReviewRound($reviewRound, array(SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS))) {
@@ -56,7 +56,7 @@ class PKPSubmissionFileRequestedRevisionRequiredPolicy extends SubmissionFileBas
 		}
 
 		// Make sure that it's in the review stage.
-		$reviewRound =& $reviewRoundDao->getBySubmissionFileId($monographFile->getFileId());
+		$reviewRound =& $reviewRoundDao->getBySubmissionFileId($submissionFile->getFileId());
 		if (!is_a($reviewRound, 'ReviewRound')) return AUTHORIZATION_DENY;
 
 		// Make sure review round stage is the same of the current stage in request.

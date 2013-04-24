@@ -116,7 +116,7 @@ class NotificationMailListDAO extends DAO {
 	 */
 	function getMailList($contextId) {
 		$result =& $this->retrieve(
-			'SELECT email FROM notification_mail_list WHERE context = ?',
+			'SELECT email FROM notification_mail_list WHERE context = ? AND confirmed = 1',
 			(int) $contextId
 		);
 

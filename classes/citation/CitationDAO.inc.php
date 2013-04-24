@@ -88,7 +88,7 @@ class CitationDAO extends DAO {
 
 		$citation = null;
 		if ($result->RecordCount() != 0) {
-			$citation =& $this->_fromRow($result->GetRowAssoc(false));
+			$citation = $this->_fromRow($result->GetRowAssoc(false));
 		}
 		$result->Close();
 
@@ -235,7 +235,7 @@ class CitationDAO extends DAO {
 				$lockId
 			);
 			if ($result->RecordCount() > 0) {
-				$rawCitation =& $this->_fromRow($result->GetRowAssoc(false));
+				$rawCitation = $this->_fromRow($result->GetRowAssoc(false));
 				break;
 			}
 		}
@@ -476,7 +476,7 @@ class CitationDAO extends DAO {
 	 * @param $row array
 	 * @return Citation
 	 */
-	function &_fromRow($row) {
+	function _fromRow($row) {
 		$citation = $this->_newDataObject();
 		$citation->setId((integer)$row['citation_id']);
 		$citation->setAssocType((integer)$row['assoc_type']);

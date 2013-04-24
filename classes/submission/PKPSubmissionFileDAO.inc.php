@@ -574,7 +574,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @param $fileImplementation string
 	 * @return SubmissionFile
 	 */
-	function &fromRow($row, $fileImplementation) {
+	function fromRow($row, $fileImplementation) {
 		// Identify the delegate.
 		$daoDelegate =& $this->_getDaoDelegate($fileImplementation); /* @var $daoDelegate SubmissionFileDAODelegate */
 
@@ -772,7 +772,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 			// result array with a unique key.
 			// N.B. The subclass implementation of fromRow receives just the $row
 			// but calls PKPSubmissionFileDAO::fromRow($row, $fileImplementation) as defined here.
-			$submissionFiles[$idAndRevision] =& $this->fromRow($row);
+			$submissionFiles[$idAndRevision] = $this->fromRow($row);
 
 			// Move the query cursor to the next record.
 			$result->MoveNext();

@@ -49,7 +49,7 @@ class DataObjectTombstoneDAO extends DAO {
 
 		$returner = null;
 		if ($result->RecordCount() != 0) {
-			$returner =& $this->_fromRow($result->GetRowAssoc(false));
+			$returner = $this->_fromRow($result->GetRowAssoc(false));
 		}
 
 		$result->Close();
@@ -66,7 +66,7 @@ class DataObjectTombstoneDAO extends DAO {
 			'SELECT * FROM data_object_tombstones WHERE data_object_id = ?', (int) $dataObjectId
 		);
 
-		$dataObjectTombstone =& $this->_fromRow($result->GetRowAssoc(false));
+		$dataObjectTombstone = $this->_fromRow($result->GetRowAssoc(false));
 
 		$result->Close();
 		return $dataObjectTombstone;
@@ -77,7 +77,7 @@ class DataObjectTombstoneDAO extends DAO {
 	 * @param $row array
 	 * @return DataObjectTombstone object
 	 */
-	function &_fromRow($row) {
+	function _fromRow($row) {
 		$dataObjectTombstone = $this->newDataObject();
 		$dataObjectTombstone->setId($row['tombstone_id']);
 		$dataObjectTombstone->setDataObjectId($row['data_object_id']);

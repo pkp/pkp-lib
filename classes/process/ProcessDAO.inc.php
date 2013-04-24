@@ -134,7 +134,7 @@ class ProcessDAO extends DAO {
 
 		$process = null;
 		if ($result->RecordCount() != 0) {
-			$process =& $this->_fromRow($result->GetRowAssoc(false));
+			$process = $this->_fromRow($result->GetRowAssoc(false));
 		}
 		$result->Close();
 
@@ -369,7 +369,7 @@ class ProcessDAO extends DAO {
 	 * @param $row array
 	 * @return Process
 	 */
-	function &_fromRow($row) {
+	function _fromRow($row) {
 		$process = $this->newDataObject();
 		$process->setId($row['process_id']);
 		$process->setProcessType((integer)$row['process_type']);

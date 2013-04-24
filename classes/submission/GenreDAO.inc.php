@@ -45,7 +45,7 @@ class GenreDAO extends DefaultSettingDAO {
 		$result =& $this->retrieve('SELECT * FROM genres WHERE genre_id = ?'. ($contextId ? ' AND context_id = ?' : ''), $sqlParams);
 		$returner = null;
 		if ($result->RecordCount() != 0) {
-			$returner =& $this->_fromRow($result->GetRowAssoc(false));
+			$returner = $this->_fromRow($result->GetRowAssoc(false));
 		}
 		$result->Close();
 		return $returner;
@@ -98,7 +98,7 @@ class GenreDAO extends DefaultSettingDAO {
 	 * @param $row array
 	 * @return Genre
 	 */
-	function &_fromRow($row) {
+	function _fromRow($row) {
 		$genre = $this->newDataObject();
 		$genre->setId($row['genre_id']);
 		$genre->setContextId($row['context_id']);

@@ -170,7 +170,7 @@ class FilterDAO extends DAO {
 
 		$filter = null;
 		if ($result->RecordCount() != 0) {
-			$filter =& $this->_fromRow($result->GetRowAssoc(false));
+			$filter = $this->_fromRow($result->GetRowAssoc(false));
 		}
 
 		$result->Close();
@@ -321,7 +321,7 @@ class FilterDAO extends DAO {
 		//    environment.
 		$matchingFilters = array();
 		foreach($result->GetAssoc() as $filterRow) {
-			$filterInstance =& $this->_fromRow($filterRow);
+			$filterInstance = $this->_fromRow($filterRow);
 			if (!$checkRuntimeEnvironment || $filterInstance->isCompatibleWithRuntimeEnvironment()) {
 				$matchingFilters[$filterInstance->getId()] =& $filterInstance;
 			}
@@ -481,7 +481,7 @@ class FilterDAO extends DAO {
 	 * @param $row array
 	 * @return PersistableFilter
 	 */
-	function &_fromRow($row) {
+	function _fromRow($row) {
 		static $lockedFilters = array();
 		$filterId = $row['filter_id'];
 

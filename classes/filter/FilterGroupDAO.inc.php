@@ -67,7 +67,7 @@ class FilterGroupDAO extends DAO {
 
 		$filterGroup = null;
 		if ($result->RecordCount() != 0) {
-			$filterGroup =& $this->_fromRow($result->GetRowAssoc(false));
+			$filterGroup = $this->_fromRow($result->GetRowAssoc(false));
 		}
 
 		$result->Close();
@@ -86,7 +86,7 @@ class FilterGroupDAO extends DAO {
 
 		$filterGroup = null;
 		if ($result->RecordCount() != 0) {
-			$filterGroup =& $this->_fromRow($result->GetRowAssoc(false));
+			$filterGroup = $this->_fromRow($result->GetRowAssoc(false));
 		}
 
 		$result->Close();
@@ -193,7 +193,7 @@ class FilterGroupDAO extends DAO {
 	 * @param $row array
 	 * @return FilterGroup
 	 */
-	function &_fromRow($row) {
+	function _fromRow($row) {
 		// Instantiate the filter group.
 		$filterGroup = $this->newDataObject();
 

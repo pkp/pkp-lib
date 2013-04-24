@@ -62,7 +62,7 @@ class MetadataDescriptionDAO extends DAO {
 
 		$metadataDescription = null;
 		if ($result->RecordCount() != 0) {
-			$metadataDescription =& $this->_fromRow($result->GetRowAssoc(false));
+			$metadataDescription = $this->_fromRow($result->GetRowAssoc(false));
 		}
 
 		$result->Close();
@@ -212,7 +212,7 @@ class MetadataDescriptionDAO extends DAO {
 	 * @param $row array
 	 * @return MetadataDescription
 	 */
-	function &_fromRow($row) {
+	function _fromRow($row) {
 		$metadataDescription = $this->_newDataObject($row['schema_namespace'], $row['schema_name'], (int)$row['assoc_type']);
 		$metadataDescription->setId((int)$row['metadata_description_id']);
 		$metadataDescription->setAssocId((int)$row['assoc_id']);

@@ -314,6 +314,7 @@ class PKPApplication {
 			'CurrencyDAO' => 'lib.pkp.classes.currency.CurrencyDAO',
 			'DataObjectTombstoneDAO' => 'lib.pkp.classes.tombstone.DataObjectTombstoneDAO',
 			'DataObjectTombstoneSettingsDAO' => 'lib.pkp.classes.tombstone.DataObjectTombstoneSettingsDAO',
+			'EditDecisionDAO' => 'lib.pkp.classes.submission.EditDecisionDAO',
 			'FilterDAO' => 'lib.pkp.classes.filter.FilterDAO',
 			'FilterGroupDAO' => 'lib.pkp.classes.filter.FilterGroupDAO',
 			'GenreDAO' => 'lib.pkp.classes.submission.GenreDAO',

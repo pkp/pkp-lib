@@ -47,8 +47,8 @@ abstract class RevisionsNotificationManager extends NotificationManagerDelegate 
 	 * @return mixed array or null
 	 */
 	protected function findValidPendingRevisionsDecision($submissionId, $expectedStageId) {
-		$seriesEditorSubmissionDao = DAORegistry::getDAO('SeriesEditorSubmissionDAO');
-		$editorDecisions = $seriesEditorSubmissionDao->getEditorDecisions($submissionId);
+		$editDecisionDao = DAORegistry::getDAO('EditDecisionSubmissionDAO');
+		$editorDecisions = $editDecisionDao->getEditorDecisions($submissionId);
 		$workingDecisions = array_reverse($editorDecisions);
 		$postReviewDecisions = array(SUBMISSION_EDITOR_DECISION_SEND_TO_PRODUCTION);
 		$pendingRevisionDecision = null;

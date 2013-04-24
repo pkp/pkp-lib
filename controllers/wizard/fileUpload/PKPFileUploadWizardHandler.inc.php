@@ -356,13 +356,13 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 			$submission = $this->getSubmission();
 			$notificationMgr->updateNotification(
 				$request,
-				array(NOTIFICATION_TYPE_PENDING_INTERNAL_REVISIONS, NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS),
+				$this->_getUpdateNotifications(),
 				array($submission->getUserId()),
 				ASSOC_TYPE_SUBMISSION,
 				$submission->getId()
 			);
 
-			$reviewRound =& $this->getReviewRound();
+			$reviewRound = $this->getReviewRound();
 			if ($reviewRound) {
 				$notificationMgr->updateNotification(
 					$request,
@@ -522,6 +522,14 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 				'revision' => $uploadedFile->getRevision()
 			)
 		);
+	}
+
+	/**
+	 * Get the list of notifications to be updated on metadata form submission.
+	 * @return array
+	 */
+	protected function _getUpdateNotifications() {
+		return array(NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS);
 	}
 }
 

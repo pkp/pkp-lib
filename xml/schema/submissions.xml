@@ -83,5 +83,43 @@
 			<col>setting_name</col>
 			<UNIQUE/>
 		</index>
-	</table>	
+	</table>
+
+	<!--
+	  *
+	  * TABLE edit_decisions
+	  *
+	  -->
+	<table name="edit_decisions">
+		<field name="edit_decision_id" type="I8">
+			<KEY />
+			<AUTOINCREMENT/>
+		</field>
+		<field name="submission_id" type="I8">
+			<NOTNULL/>
+		</field>
+		<field name="review_round_id" type="I8">
+			<NOTNULL/>
+		</field>
+		<field name="stage_id" type="I8" />
+		<field name="round" type="I1">
+			<NOTNULL/>
+		</field>
+		<field name="editor_id" type="I8">
+			<NOTNULL/>
+		</field>
+		<field name="decision" type="I1">
+			<NOTNULL/>
+		</field>
+		<field name="date_decided" type="T">
+			<NOTNULL/>
+		</field>
+		<descr>Editor decisions.</descr>
+		<index name="edit_decisions_submission_id">
+			<col>submission_id</col>
+		</index>
+		<index name="edit_decisions_editor_id">
+			<col>editor_id</col>
+		</index>
+	</table>
 </schema>

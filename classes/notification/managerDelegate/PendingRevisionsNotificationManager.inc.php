@@ -12,7 +12,7 @@
  * @brief Pending revision notification types manager delegate.
  */
 
-import('classes.notification.managerDelegate.RevisionsNotificationManager');
+import('lib.pkp.classes.notification.managerDelegate.RevisionsNotificationManager');
 
 class PendingRevisionsNotificationManager extends RevisionsNotificationManager {
 

@@ -12,7 +12,7 @@
  * @brief All revisions in notification types manager delegate.
  */
 
-import('classes.notification.managerDelegate.RevisionsNotificationManager');
+import('lib.pkp.classes.notification.managerDelegate.RevisionsNotificationManager');
 
 class AllRevisionsInNotificationManager extends RevisionsNotificationManager {
 

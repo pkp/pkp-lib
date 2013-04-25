@@ -87,7 +87,7 @@ class PKPSubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 		$router = $request->getRouter();
 		$context = $router->getContext($request);
 
-		if (!$revisedFileId) {
+		if (!$revisedFileId && $this->_appHasFileGenres()) {
 			// Add an additional check for the genre to the form.
 			$this->addCheck(
 				new FormValidatorCustom(
@@ -201,6 +201,9 @@ class PKPSubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 		// Include a status message for this installation's max file upload size.
 		$this->setData('maxFileUploadSize', get_cfg_var('upload_max_filesize'));
 
+		// Allow file genres by default.
+		$this->setData('appHasFileGenres', $this->_appHasFileGenres());
+
 		return parent::fetch($request);
 	}
 
@@ -301,6 +304,14 @@ class PKPSubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 	 */
 	function _logEvent($request, $user, $submissionFile, $assocType, $revisedFileId, $fileStage) {
 		assert(false);
+	}
+
+	/**
+	 * Indicates whether or not submission files have genres.
+	 * @return boolean
+	 */
+	function _appHasFileGenres() {
+		return true; // the default for PKP-lib
 	}
 }
 

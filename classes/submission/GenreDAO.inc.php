@@ -168,6 +168,7 @@ class GenreDAO extends DefaultSettingDAO {
 	 * @param $contextId int
 	 */
 	function deleteByContextId($contextId) {
+		$this->update('DELETE FROM genre_settings WHERE context_id = ?', array((int) $contextId));
 		return $this->update(
 			'DELETE FROM genres WHERE context_id = ?', array((int) $contextId)
 		);

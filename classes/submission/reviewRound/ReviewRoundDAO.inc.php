@@ -359,6 +359,17 @@ class ReviewRoundDAO extends DAO {
 	}
 
 
+	/**
+	 * Delete review rounds by submission ID.
+	 * @param $submissionId int
+	 */
+	function deleteBySubmissionId($submissionId) {
+		return $this->update(
+			'DELETE FROM review_rounds WHERE submission_id = ?',
+			(int) $submissionId
+		);
+	}
+
 	//
 	// Private methods
 	//

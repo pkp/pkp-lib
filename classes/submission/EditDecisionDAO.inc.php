@@ -52,10 +52,10 @@ class EditDecisionDAO extends DAO {
 	}
 
 	/**
-	 * Delete editing decisions by submission.
+	 * Delete editing decisions by submission ID.
 	 * @param $monographId int
 	 */
-	function deleteDecisionsBySubmission($submissionId) {
+	function deleteDecisionsBySubmissionId($submissionId) {
 		return $this->update(
 			'DELETE FROM edit_decisions WHERE submission_id = ?',
 			(int) $submissionId

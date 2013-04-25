@@ -34,6 +34,7 @@
 	<message key="common.preview">Previsualizar</message>
 	<message key="common.activate">Activar</message>
 	<message key="common.deactivate">Desactivar</message>
+	<message key="common.designation">Designation</message>
 	<message key="common.action">Acción</message>
 	<message key="common.active">Activo</message>
 	<message key="common.add">Añadir</message>

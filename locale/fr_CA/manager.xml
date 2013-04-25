@@ -138,6 +138,7 @@
 	<message key="manager.plugins">Plugiciels du système</message>
 	<message key="manager.readingTools">Outils de lecture</message>
 	<message key="manager.roles">Rôles</message>
+	<message key="manager.setup.groupType">Groupement par type de fichier</message>
 	<message key="manager.setup.homeHeaderImageInvalid">Format d'image du logo de l'en-tête de la page d'accueil invalide. Les formats acceptés sont .gif, .jpg, ou .png.</message>
 	<message key="manager.setup.homepageImageInvalid">Format d'image de la page d'accueil invalide. Les formats acceptés sont .gif, .jpg, ou .png.</message>
 	<message key="manager.setup.homeTitleImageInvalid">Format d'image de l'en-tête de la page d'accueil invalide. Les formats acceptés sont .gif, .jpg, ou .png.</message>
@@ -148,6 +149,7 @@
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Format d'image du logo de l'en-tête de la page invalide. Les formats acceptés sont .gif, .jpg, ou .png.</message>
 	<message key="manager.setup.pageHeaderTitleImageInvalid">Format d'image de l'en-tête de la page invalide. Les formats acceptés sont .gif, .jpg, ou .png.</message>
 	<message key="manager.setup.selectOne">En sélectionner un</message>
+	<message key="manager.setup.sortableByComponent">Peut être trié par composante</message>
 	<message key="manager.statistics"><![CDATA[Statistiques & rapports]]></message>
 	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>
 	<message key="manager.statistics.statistics.totalNewValue">{$numTotal} ({$numNew} nouveau(x))</message>
@@ -218,4 +220,10 @@
 	<message key="manager.setup.filter.pleaseSelect">Veuillez sélectionner...</message>
 	<message key="plugins.categories.oaiMetadataFormats">Plugiciels du format de métadonnées OAI</message>
 	<message key="plugins.categories.oaiMetadataFormats.description">Ces plugiciels de format émettent les métadonnées en communications OAI.</message>
+
+	<!--  Genre grid settings -->
+	<message key="grid.action.addGenre">Ajouter un genre</message>
+	<message key="grid.action.editGenre">Modifier ce genre</message>
+	<message key="grid.action.deleteGenre">Supprimer ce genre</message>
+	<message key="grid.action.restoreGenres">Restaurer les paramètres par défaut des genres.</message>
 </locale>

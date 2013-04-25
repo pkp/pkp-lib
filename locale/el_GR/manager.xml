@@ -218,4 +218,5 @@
 	<message key="manager.setup.metaCitationsDescription">Ενεργοποιήστε τις παρακάτω επιλογές για να ενεργοποιήσετε την δυνατότητα επεξεργασίας των αναφορών/παραπομπών. Αυτό θα επιτρέψει στους συγγραφές να συμπεριλαμβάνουν ακατέργαστες αναφορές με τις υποβολές τους. Οι επιμελητές θα έχουν επίσης πρόσβαση στον Βοηθό Σήμανσης Παραπομπής με την βοήθεια του οποίου θα μπορούν να ελέγξουν την ορθότητα ακατέργαστων αναφορών μέσω εξωτερικών βάσεων δεδομένων όπως WorldCat, ISBNdb, PubMed  κλπ. Οι εγκεκριμένες αναφορές/παραπομπές μπορούν να εξαχθούν στα τελικά αρχεία του άρθρου.</message>
 	<message key="plugins.categories.oaiMetadataFormats">OAI Metadata Format Plugins</message>
 	<message key="plugins.categories.oaiMetadataFormats.description">Αυτοί οι τύποι Plugins μεταφέρους τα μεταδεδομένα στις ΟΑΙ επικοινωνίας.</message>
+	<message key="grid.action.addGenre">Προσθήκη Μέρος Βιβλίου</message>
 </locale>

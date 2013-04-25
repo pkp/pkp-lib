@@ -218,4 +218,5 @@
 	<message key="manager.setup.metaCitationsDescription">Active la siguiente casilla de verificación para habilitar la edición de citas y referencias. Esto permitirá a los autores incluir citas en bruto con los envíos. Los editores también tendrán acceso a un asistente de marcado de citas con el que pueden comprobar las citas originales respecto a las bases de datos externas, tales como WorldCat, ISBNdb, PubMed y otros, para mayor exactitud. Las citas aprobadas se pueden exportar a archivos de galerada final.</message>
 	<message key="plugins.categories.oaiMetadataFormats">Plugins de Formato de Metadatos de OAI</message>
 	<message key="plugins.categories.oaiMetadataFormats.description">Estos plugin de formato expresan metadatos en comunicaciones OAI</message>
+	<message key="grid.action.addGenre">Add Genre</message>
 </locale>

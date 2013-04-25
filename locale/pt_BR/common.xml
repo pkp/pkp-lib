@@ -75,6 +75,7 @@
 	<message key="common.delete">Excluir</message>
 	<message key="common.deleteSelection">Eliminar seleção</message>
 	<message key="common.description">Descrição</message>
+	<message key="common.designation">Designação</message>
 	<message key="common.disabled">Desabilitado</message>
 	<message key="common.discipline">Área e subárea do conhecimento</message>
 	<message key="common.done">Concluído</message>

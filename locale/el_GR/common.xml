@@ -34,6 +34,7 @@
 	<message key="common.preview">Επισκόπηση</message>
 	<message key="common.activate">Ενεργοποίηση</message>
 	<message key="common.deactivate">Απενεργοποίηση</message>
+	<message key="common.designation">Designation</message>
 	<message key="common.action">Ενέργεια</message>
 	<message key="common.active">Ενεργό</message>
 	<message key="common.add">Προσθήκη</message>

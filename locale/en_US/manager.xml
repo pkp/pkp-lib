@@ -396,4 +396,5 @@
 	<message key="grid.action.editGenre">Edit this Genre</message>
 	<message key="grid.action.deleteGenre">Delete this Genre</message>
 	<message key="grid.action.restoreGenres">Restore the Genres to the default settings</message>
+	<message key="manager.setup.genres.sortable">Allow files of this type to be sorted by component (e.g. by chapter)</message>
 </locale>

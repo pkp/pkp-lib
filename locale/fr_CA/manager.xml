@@ -226,4 +226,5 @@
 	<message key="grid.action.editGenre">Modifier ce genre</message>
 	<message key="grid.action.deleteGenre">Supprimer ce genre</message>
 	<message key="grid.action.restoreGenres">Restaurer les paramètres par défaut des genres.</message>
+	<message key="manager.setup.genres.sortable">Permettre aux fichiers de ce type d'être classés par composante (ex.: chapitre)</message>
 </locale>

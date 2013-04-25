@@ -53,12 +53,12 @@ class GenreForm extends Form {
 	 * @param $request PKPRequest
 	 */
 	function initData($args, $request) {
-		$press = $request->getPress();
+		$context = $request->getContext();
 
 		$genreDao = DAORegistry::getDAO('GenreDAO');
 
 		if($this->getGenreId()) {
-			$genre =& $genreDao->getById($this->getGenreId(), $press->getId());
+			$genre =& $genreDao->getById($this->getGenreId(), $context->getId());
 		}
 
 		if (isset($genre) ) {
@@ -111,14 +111,14 @@ class GenreForm extends Form {
 	 */
 	function execute($args, $request) {
 		$genreDao = DAORegistry::getDAO('GenreDAO');
-		$press = $request->getPress();
+		$context = $request->getContext();
 
 		// Update or insert genre
 		if (!$this->getGenreId()) {
 			$genre = $genreDao->newDataObject();
-			$genre->setContextId($press->getId());
+			$genre->setContextId($context->getId());
 		} else {
-			$genre =& $genreDao->getById($this->getGenreId(), $press->getId());
+			$genre =& $genreDao->getById($this->getGenreId(), $context->getId());
 		}
 
 		$genre->setData('name', $this->getData('name'), null); // Localized

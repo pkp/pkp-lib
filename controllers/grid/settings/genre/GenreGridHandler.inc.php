@@ -46,7 +46,8 @@ class GenreGridHandler extends SetupGridHandler {
 			LOCALE_COMPONENT_PKP_USER,
 			LOCALE_COMPONENT_APP_COMMON,
 			LOCALE_COMPONENT_PKP_GRID,
-			LOCALE_COMPONENT_APP_SUBMISSION
+			LOCALE_COMPONENT_APP_SUBMISSION,
+			LOCALE_COMPONENT_PKP_MANAGER
 		);
 
 		// Set the grid title.
@@ -111,9 +112,9 @@ class GenreGridHandler extends SetupGridHandler {
 	 */
 	function loadData($request, $filter) {
 		// Elements to be displayed in the grid
-		$press = $request->getPress();
+		$context = $request->getContext();
 		$genreDao = DAORegistry::getDAO('GenreDAO');
-		return $genreDao->getEnabledByContextId($press->getId(), self::getRangeInfo($request, $this->getId()));
+		return $genreDao->getEnabledByContextId($context->getId(), self::getRangeInfo($request, $this->getId()));
 	}
 
 	//
@@ -168,7 +169,7 @@ class GenreGridHandler extends SetupGridHandler {
 	 */
 	function updateGenre($args, $request) {
 		$genreId = isset($args['genreId']) ? (int) $args['genreId'] : null;
-		$press = $request->getPress();
+		$context = $request->getContext();
 
 		import('lib.pkp.controllers.grid.settings.genre.form.GenreForm');
 		$genreForm = new GenreForm($genreId);
@@ -207,18 +208,18 @@ class GenreGridHandler extends SetupGridHandler {
 	}
 
 	/**
-	 * Restore the default Genre settings for the press.
-	 * All default settings that were available when the press instance was created will be restored.
+	 * Restore the default Genre settings for the context.
+	 * All default settings that were available when the context instance was created will be restored.
 	 * @param $args array
 	 * @param $request PKPRequest
 	 * @return string
 	 */
 	function restoreGenres($args, $request) {
-		$press = $request->getPress();
+		$context = $request->getContext();
 
-		// Restore all the genres in this press form the registry XML file
+		// Restore all the genres in this context form the registry XML file
 		$genreDao = DAORegistry::getDAO('GenreDAO');
-		$genreDao->restoreByContextId($press->getId());
+		$genreDao->restoreByContextId($context->getId());
 		return DAO::getDataChangedEvent();
 	}
 

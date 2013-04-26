@@ -91,13 +91,17 @@ class PKPAuthorGridHandler extends GridHandler {
 	function initialize($request) {
 		parent::initialize($request);
 
+		// Retrieve the authorized submission.
+		$this->setSubmission($this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION));
+
 		$this->setTitle('submission.contributors');
 		$this->setInstructions('submission.contributorsDescription');
 
 		// Load pkp-lib translations
 		AppLocale::requireComponents(
 			LOCALE_COMPONENT_PKP_SUBMISSION,
-			LOCALE_COMPONENT_PKP_USER
+			LOCALE_COMPONENT_PKP_USER,
+			LOCALE_COMPONENT_PKP_DEFAULT
 		);
 
 		if ($this->hasAddAction()) {
@@ -180,7 +184,10 @@ class PKPAuthorGridHandler extends GridHandler {
 	 * @return array
 	 */
 	function getRequestArgs() {
-		return array();
+		$submission = $this->getSubmission();
+		return array(
+			'submissionId' => $submission->getId()
+		);
 	}
 
 	/**
@@ -199,16 +206,7 @@ class PKPAuthorGridHandler extends GridHandler {
 	 * @return int
 	 */
 	function getRequestedSubmissionId($request) {
-		fatalError('abstract method');
-	}
-
-	/**
-	 * Fetches the application-specific submission id field name, for forms.
-	 * Should be overridden by subclasses.
-	 * @return string
-	 */
-	function getSubmissionFieldIdName() {
-		fatalError('abstract method');
+		return $request->getUserVar('submissionId');
 	}
 
 	/**
@@ -250,7 +248,7 @@ class PKPAuthorGridHandler extends GridHandler {
 
 		// Form handling
 		import('lib.pkp.controllers.grid.users.author.form.AuthorForm');
-		$authorForm = new AuthorForm($submission, $author, $this->getSubmissionFieldIdName());
+		$authorForm = new AuthorForm($submission, $author, 'submissionId');
 		$authorForm->initData();
 
 		$json = new JSONMessage(true, $authorForm->fetch($request));
@@ -273,7 +271,7 @@ class PKPAuthorGridHandler extends GridHandler {
 
 		// Form handling
 		import('lib.pkp.controllers.grid.users.author.form.AuthorForm');
-		$authorForm = new AuthorForm($submission, $author, $this->getSubmissionFieldIdName());
+		$authorForm = new AuthorForm($submission, $author, 'submissionId');
 		$authorForm->readInputData();
 		if ($authorForm->validate()) {
 			$authorId = $authorForm->execute();

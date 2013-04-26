@@ -68,6 +68,21 @@ class GenreDAO extends DefaultSettingDAO {
 	}
 
 	/**
+	 * Retrieve all genres
+	 * @param $contextId int
+	 * @param $rangeInfo object optional
+	 * @return DAOResultFactory containing matching genres
+	 */
+	function &getByContextId($contextId, $rangeInfo = null) {
+		$result =& $this->retrieveRange(
+				'SELECT * FROM genres WHERE context_id = ?', array($contextId), $rangeInfo
+		);
+
+		$returner = new DAOResultFactory($result, $this, '_fromRow', array('id'));
+		return $returner;
+	}
+
+	/**
 	 * Get a list of field names for which data is localized.
 	 * @return array
 	 */
@@ -168,7 +183,11 @@ class GenreDAO extends DefaultSettingDAO {
 	 * @param $contextId int
 	 */
 	function deleteByContextId($contextId) {
-		$this->update('DELETE FROM genre_settings WHERE context_id = ?', array((int) $contextId));
+
+		$result =& $this->getByContextId($contextId);
+		while ($genre = $result->next()) {
+			$this->update('DELETE FROM genre_settings WHERE genre_id = ?', array((int) $genre->getId()));
+		}
 		return $this->update(
 			'DELETE FROM genres WHERE context_id = ?', array((int) $contextId)
 		);

@@ -272,6 +272,27 @@ class PKPReviewAssignmentDAO extends DAO {
 	}
 
 	/**
+	 * Check if a reviewer is assigned to a specified submisssion.
+	 * @param $reviewRoundId int
+	 * @param $reviewerId int
+	 * @return boolean
+	 */
+	function reviewerExists($reviewRoundId, $reviewerId) {
+		$result = $this->retrieve(
+				'SELECT COUNT(*)
+				FROM	review_assignments
+				WHERE	review_round_id = ? AND
+				reviewer_id = ? AND
+				cancelled = 0',
+				array((int) $reviewRoundId, (int) $reviewerId)
+		);
+		$returner = isset($result->fields[0]) && $result->fields[0] == 1 ? true : false;
+
+		$result->Close();
+		return $returner;
+	}
+
+	/**
 	 * Get all review assignments for a review form.
 	 * @param $reviewFormId int
 	 * @return array ReviewAssignments
@@ -665,6 +686,96 @@ class PKPReviewAssignmentDAO extends DAO {
 
 		$result->Close();
 		return $returner;
+	}
+
+	/**
+	 * Get the number of reviews done, avg. number of days per review, days since last review, and num. of
+	 * active reviews for all reviewers of the given context.
+	 * @return array
+	 */
+	function getAnonymousReviewerStatistics() {
+		// Setup default array -- Minimum values Will always be set to 0 (to accomodate reviewers that have never reviewed, and thus aren't in review_assignment)
+		$reviewerValues =  array(
+				'doneMin' => 0, // Will always be set to 0
+				'doneMax' => 0,
+				'avgMin' => 0, // Will always be set to 0
+				'avgMax' => 0,
+				'lastMin' => 0, // Will always be set to 0
+				'lastMax' => 0,
+				'activeMin' => 0, // Will always be set to 0
+				'activeMax' => 0
+		);
+
+		// Get number of reviews completed
+		$result = $this->retrieve(
+				'SELECT	r.reviewer_id, COUNT(*) as completed_count
+				FROM	review_assignments r
+				WHERE	r.date_completed IS NOT NULL
+				GROUP BY r.reviewer_id'
+		);
+		while (!$result->EOF) {
+			$row = $result->GetRowAssoc(false);
+			if ($reviewerValues['doneMax'] < $row['completed_count']) $reviewerValues['doneMax'] = $row['completed_count'];
+			$result->MoveNext();
+		}
+		$result->Close();
+
+		// Get average number of days per review and days since last review
+		$result = $this->retrieve(
+				'SELECT	r.reviewer_id, r.date_completed, r.date_notified
+				FROM	review_assignments r
+				WHERE	r.date_notified IS NOT NULL AND
+				r.date_completed IS NOT NULL AND
+				r.declined = 0'
+		);
+		$averageTimeStats = array();
+		while (!$result->EOF) {
+			$row = $result->GetRowAssoc(false);
+			if (!isset($averageTimeStats[$row['reviewer_id']])) $statistics[$row['reviewer_id']] = array();
+
+			$completed = strtotime($this->datetimeFromDB($row['date_completed']));
+			$notified = strtotime($this->datetimeFromDB($row['date_notified']));
+			$timeSinceNotified = time() - $notified;
+			if (isset($averageTimeStats[$row['reviewer_id']]['totalSpan'])) {
+				$averageTimeStats[$row['reviewer_id']]['totalSpan'] += $completed - $notified;
+				$averageTimeStats[$row['reviewer_id']]['completedReviewCount'] += 1;
+			} else {
+				$averageTimeStats[$row['reviewer_id']]['totalSpan'] = $completed - $notified;
+				$averageTimeStats[$row['reviewer_id']]['completedReviewCount'] = 1;
+			}
+
+			// Calculate the average length of review in days.
+			$averageTimeStats[$row['reviewer_id']]['averageSpan'] = (($averageTimeStats[$row['reviewer_id']]['totalSpan'] / $averageTimeStats[$row['reviewer_id']]['completedReviewCount']) / 86400);
+
+			// This reviewer has the highest average; put in global statistics array
+			if ($reviewerValues['avgMax'] < $averageTimeStats[$row['reviewer_id']]['averageSpan']) $reviewerValues['avgMax'] = round($averageTimeStats[$row['reviewer_id']]['averageSpan']);
+			if ($timeSinceNotified > $reviewerValues['lastMax']) $reviewerValues['lastMax'] = $timeSinceNotified;
+
+			$result->MoveNext();
+		}
+		$reviewerValues['lastMax'] = round($reviewerValues['lastMax'] / 86400); // Round to nearest day
+		$result->Close();
+		unset($result);
+
+		// Get number of currently active reviews
+		$result = $this->retrieve(
+				'SELECT	r.reviewer_id, COUNT(*) AS incomplete
+				FROM	review_assignments r
+				WHERE	r.date_notified IS NOT NULL AND
+				r.date_completed IS NULL AND
+				r.cancelled = 0
+				GROUP BY r.reviewer_id'
+		);
+		while (!$result->EOF) {
+			$row = $result->GetRowAssoc(false);
+
+			if ($row['incomplete'] > $reviewerValues['activeMax']) $reviewerValues['activeMax'] = $row['incomplete'];
+			$result->MoveNext();
+		}
+		$result->Close();
+		unset($result);
+
+		return $reviewerValues;
 	}
 
 	/**

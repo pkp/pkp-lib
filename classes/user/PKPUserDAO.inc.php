@@ -135,10 +135,171 @@ class PKPUserDAO extends DAO {
 		return $returner;
 	}
 
+	/**
+	 * Retrieve a list of all reviewers assigned to a submission.
+	 * @param $contextId int
+	 * @param $submissionId int
+	 * @param $round int
+	 * @return DAOResultFactory containing matching Users
+	 */
+	function getReviewersForSubmission($contextId, $submissionId, $round) {
+		$result = $this->retrieve(
+				'SELECT	u.*
+				FROM	users u
+				LEFT JOIN user_user_groups uug ON (uug.user_id = u.user_id)
+				LEFT JOIN user_groups ug ON (ug.user_group_id = uug.user_group_id)
+				LEFT JOIN review_assignments r ON (r.reviewer_id = u.user_id)
+				WHERE	ug.context_id = ? AND
+				ug.role_id = ? AND
+				r.submission_id = ? AND
+				r.round = ?
+				ORDER BY last_name, first_name',
+				array(
+						(int) $contextId,
+						ROLE_ID_REVIEWER,
+						(int) $submissionId,
+						(int) $round
+				)
+		);
+
+		return new DAOResultFactory($result, $this, '_returnUserFromRowWithData');
+	}
+
+	/**
+	 * Retrieve a list of all reviewers not assigned to the specified submission.
+	 * @param $contextId int
+	 * @param $submissionId int
+	 * @param $reviewRound ReviewRound
+	 * @param $name string
+	 * @return array matching Users
+	 */
+	function getReviewersNotAssignedToSubmission($contextId, $submissionId, &$reviewRound, $name = '') {
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+
+		$params = array((int) $contextId, ROLE_ID_REVIEWER, (int) $reviewRound->getStageId(), (int) $submissionId, (int) $reviewRound->getId());
+		if (!empty($name)) $params[] = $params[] = $params[] = $params[] = "%$name%";
+
+		$result = $this->retrieve(
+				'SELECT	DISTINCT u.*
+				FROM	users u
+				JOIN user_user_groups uug ON (uug.user_id = u.user_id)
+				JOIN user_groups ug ON (ug.user_group_id = uug.user_group_id AND ug.context_id = ? AND ug.role_id = ?)
+				JOIN user_group_stage ugs ON (ugs.user_group_id = ug.user_group_id AND ugs.stage_id = ?)
+				WHERE 0=(SELECT COUNT(r.reviewer_id)
+				FROM review_assignments r
+				WHERE r.submission_id = ? AND r.reviewer_id = u.user_id AND (r.review_round_id = ? OR' .
+				$reviewAssignmentDao->getIncompleteReviewAssignmentsWhereString() . '))' .
+				(!empty($name)?' AND (first_name LIKE ? OR last_name LIKE ? OR username LIKE ? OR email LIKE ?)':'') .
+				' ORDER BY last_name, first_name',
+				$params
+		);
+
+		return new DAOResultFactory($result, $this, '_returnUserFromRowWithData');
+	}
+
+	/**
+	 * Retrieve a list of all reviewers in a context.
+	 * @param $contextId int
+	 * @return array matching Users
+	 */
+	function getAllReviewers($contextId) {
+		$result = $this->retrieve(
+				'SELECT	u.*
+				FROM	users u
+				LEFT JOIN user_user_groups uug ON (uug.user_id = u.user_id)
+				LEFT JOIN user_groups ug ON (ug.user_group_id = uug.user_group_id)
+				WHERE	ug.context_id = ? AND
+				ug.role_id = ?
+				ORDER BY last_name, first_name',
+				array((int) $contextId, ROLE_ID_REVIEWER)
+		);
+
+		return new DAOResultFactory($result, $this, '_returnUserFromRowWithData');
+	}
+
+	/**
+	 * Given the ranges selected by the editor, produce a filtered list of reviewers
+	 * @param $contextId int
+	 * @param $doneMin int # of reviews completed int
+	 * @param $doneMax int
+	 * @param $avgMin int Average period of time in days to complete a review int
+	 * @param $avgMax int
+	 * @param $lastMin int Days since most recently completed review int
+	 * @param $lastMax int
+	 * @param $activeMin int How many reviews are currently being considered or underway int
+	 * @param $activeMax int
+	 * @param $interests array
+	 * @param $submissionId int Filter out reviewers assigned to this submission
+	 * @param $reviewRoundId int Also filter users assigned to this round of the given submission
+	 * @return array Users
+	 */
+	function getFilteredReviewers($contextId, $doneMin, $doneMax, $avgMin, $avgMax, $lastMin, $lastMax, $activeMin, $activeMax, $interests, $submissionId = null, $reviewRoundId = null) {
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
+		$interestDao = DAORegistry::getDAO('InterestDAO'); /* @var $interestDao InterestDAO */
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
+		$reviewerStats = $reviewAssignmentDao->getReviewerStatistics($contextId);
+
+		// Get the IDs of the interests searched for
+		$allInterestIds = array();
+		if(isset($interests)) {
+			$key = 0;
+			foreach ($interests as $interest) {
+				$interestIds = $interestDao->getUserIdsByInterest($interest);
+				if (!$interestIds) {
+					// The interest searched for does not exist -- go to next interest
+					continue;
+				}
+				if ($key == 0) $allInterestIds = $interestIds; // First interest, nothing to intersect with
+				else $allInterestIds = array_intersect($allInterestIds, $interestIds);
+				unset($interest);
+				$key++;
+			}
+		}
+
+		// If submissionId is set, get the list of available reviewers to the submission
+		if($submissionId) {
+			$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
+			$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+			$reviewRound = $reviewRoundDao->getReviewRoundById($reviewRoundId);
+			$userDao = DAORegistry::getDAO('UserDAO');
+			$availableReviewerFactory = $userDao->getReviewersNotAssignedToSubmission($contextId, $submissionId, $reviewRound);
+			$availableReviewers = $availableReviewerFactory->toAssociativeArray();
+		}
+
+		$filteredReviewers = array();
+		foreach ($reviewerStats as $userId => $reviewerStat) {
+			// Get the days since the user was last notified for a review
+			if(!isset($reviewerStat['last_notified'])) {
+				$lastNotifiedInDays = 0;
+			} else {
+				$lastNotifiedInDays = round((time() - strtotime($reviewerStat['last_notified'])) / 86400);
+			}
+
+			// If there are interests to check, make sure user is in allInterestIds array
+			if(!empty($allInterestIds)) {
+				$interestCheck = in_array($userId, $allInterestIds);
+			} else $interestCheck = true;
+
+			if ($interestCheck && $reviewerStat['completed_review_count'] <= $doneMax && $reviewerStat['completed_review_count'] >= $doneMin &&
+					$reviewerStat['average_span'] <= $avgMax && $reviewerStat['average_span'] >= $avgMin && $lastNotifiedInDays <= $lastMax  &&
+					$lastNotifiedInDays >= $lastMin && $reviewerStat['incomplete'] <= $activeMax && $reviewerStat['incomplete'] >= $activeMin
+			) {
+				if($submissionId && !array_key_exists($userId, $availableReviewers)) {
+					continue;
+				} else {
+					$filteredReviewers[] = $userDao->getById($userId);
+				}
+			}
+		}
+
+		return $filteredReviewers;
+	}
+
 	function &_returnUserFromRowWithData($row) {
 		$user =& $this->_returnUserFromRow($row, false);
 		$this->getDataObjectSettings('user_settings', 'user_id', $row['user_id'], $user);
 
+		if (isset($row['review_id'])) $user->review_id = $row['review_id'];
 		HookRegistry::call('UserDAO::_returnUserFromRowWithData', array(&$user, &$row));
 
 		return $user;

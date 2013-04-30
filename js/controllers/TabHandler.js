@@ -147,7 +147,7 @@
 	 * @param {HTMLElement} tabsElement The tab element that triggered
 	 *  the event.
 	 * @param {Event} event The triggered event.
-	 * @param {Object} ui The tabs ui data.
+	 * @param {{panel: jQueryObject}} ui The tabs ui data.
 	 * @return {boolean} Should return true to continue tab loading.
 	 */
 	$.pkp.controllers.TabHandler.prototype.tabsShow =

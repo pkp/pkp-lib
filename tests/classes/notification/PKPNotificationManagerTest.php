@@ -238,9 +238,9 @@ class PKPNotificationManagerTest extends PKPTestCase {
 		// notification manager interaction with it. Avoid
 		// calling the mail template original constructor.
 		$mailTemplateMock = $this->getMock('PKPMailTemplate',
-			array('setFrom', 'addRecipient', 'assignParams', 'send'), array(), '', false);
+			array('setReplyTo', 'addRecipient', 'assignParams', 'send'), array(), '', false);
 		$mailTemplateMock->expects($this->any())
-		                 ->method('setFrom')
+		                 ->method('setReplyTo')
 		                 ->with($this->equalTo($siteEmail), $this->equalTo($siteContactName));
 		$mailTemplateMock->expects($this->any())
 		                 ->method('addRecipient')

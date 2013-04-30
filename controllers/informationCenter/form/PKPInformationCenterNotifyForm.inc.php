@@ -125,7 +125,7 @@ class PKPInformationCenterNotifyForm extends Form {
 		$template = $this->getData('template');
 
 		$email = $this->_getMailTemplate($submission, $template, false);
-		$email->setFrom($fromUser->getEmail(), $fromUser->getFullName());
+		$email->setReplyTo($fromUser->getEmail(), $fromUser->getFullName());
 
 		import('lib.pkp.controllers.grid.submissions.SubmissionsListGridCellProvider');
 		$dispatcher = $request->getDispatcher();

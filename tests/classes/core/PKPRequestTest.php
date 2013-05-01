@@ -25,6 +25,7 @@ class PKPRequestTest extends PKPTestCase {
 
 	public function setUp() {
 		parent::setUp();
+		HookRegistry::rememberCalledHooks();
 		$this->request = new PKPRequest();
 	}
 

@@ -32,7 +32,13 @@ class PKPRouterTestCase extends PKPTestCase {
 
 	protected function setUp() {
 		parent::setUp();
+		HookRegistry::rememberCalledHooks();
 		$this->router = new PKPRouter();
+	}
+
+	protected function tearDown() {
+		parent::tearDown();
+		HookRegistry::resetCalledHooks(true);
 	}
 
 	/**
@@ -106,7 +112,7 @@ class PKPRouterTestCase extends PKPTestCase {
 	 */
 	public function testGetRequestedContextPathWithFullPathInfo() {
 		$this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
-		HookRegistry::resetCalledHooks();
+		HookRegistry::resetCalledHooks(true);
 		$_SERVER['PATH_INFO'] = '/context1/context2/other/path/vars';
 		self::assertEquals(array('context1', 'context2'),
 				$this->router->getRequestedContextPaths($this->request));
@@ -157,7 +163,7 @@ class PKPRouterTestCase extends PKPTestCase {
 	 */
 	public function testGetRequestedContextPathWithFullContextParameters() {
 		$this->_setUpMockEnvironment(self::PATHINFO_DISABLED);
-		HookRegistry::resetCalledHooks();
+		HookRegistry::resetCalledHooks(true);
 		$_GET['firstContext'] = 'context1';
 		$_GET['secondContext'] = 'context2';
 		self::assertEquals(array('context1', 'context2'),
@@ -240,7 +246,7 @@ class PKPRouterTestCase extends PKPTestCase {
 			'HOSTNAME' => 'mydomain.org',
 			'SCRIPT_NAME' => '/base/index.php'
 		);
-		HookRegistry::resetCalledHooks();
+		HookRegistry::resetCalledHooks(true);
 
 		self::assertEquals('http://mydomain.org/base/index.php', $this->router->getIndexUrl($this->request));
 
@@ -258,7 +264,7 @@ class PKPRouterTestCase extends PKPTestCase {
 
 		// Calling getIndexUrl() twice should return the same
 		// result without triggering the hooks again.
-		HookRegistry::resetCalledHooks();
+		HookRegistry::resetCalledHooks(true);
 		self::assertEquals('http://mydomain.org/base/index.php', $this->router->getIndexUrl($this->request));
 		self::assertEquals(
 			array(),

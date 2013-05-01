@@ -462,7 +462,7 @@ class GridHandler extends PKPHandler {
 	 * @param $gridDataElement mixed
 	 * @return boolean
 	 */
-	function isDataElementSelected(&$gridDataElement) {
+	function isDataElementSelected($gridDataElement) {
 		assert(false);
 	}
 

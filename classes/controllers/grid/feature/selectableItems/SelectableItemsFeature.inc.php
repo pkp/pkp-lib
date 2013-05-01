@@ -15,7 +15,7 @@
 
 import('lib.pkp.classes.controllers.grid.feature.GridFeature');
 
-class SelectableItemsFeature extends GridFeature{
+class SelectableItemsFeature extends GridFeature {
 
 
 	/**
@@ -33,7 +33,7 @@ class SelectableItemsFeature extends GridFeature{
 	 * @see GridFeature::gridInitialize()
 	 */
 	function gridInitialize($args) {
-		$grid =& $args['grid'];
+		$grid = $args['grid'];
 
 		// Add checkbox column to the grid.
 		import('lib.pkp.classes.controllers.grid.feature.selectableItems.ItemSelectionGridColumn');
@@ -44,8 +44,8 @@ class SelectableItemsFeature extends GridFeature{
 	 * @see GridFeature::getInitializedRowInstance()
 	 */
 	function getInitializedRowInstance($args) {
-		$grid =& $args['grid'];
-		$row =& $args['row'];
+		$grid = $args['grid'];
+		$row = $args['row'];
 
 		if (is_a($grid, 'CategoryGridHandler')) {
 			$categoryId = $grid->getCurrentCategoryId();

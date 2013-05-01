@@ -68,7 +68,7 @@ class HookRegistry {
 	 * @return mixed
 	 */
 	static function call($hookName, $args = null) {
-		// For testing only.
+		// Called only by Unit Test
 		// The implementation is a bit quirky as this has to work when
 		// executed statically.
 		if (self::rememberCalledHooks(true)) {

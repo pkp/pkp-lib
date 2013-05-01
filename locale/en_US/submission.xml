@@ -496,4 +496,7 @@
 	<message key="editor.submission.roundStatus.pendingReviews">Awaiting responses from reviewers.</message>
 	<message key="editor.submission.roundStatus.reviewsReady">New reviews ready.</message>
 	<message key="editor.submission.roundStatus.reviewsCompleted">Reviews completed.</message>
+
+	<!-- Participants -->
+	<message key="editor.submission.stageParticipants">Participants</message>
 </locale>

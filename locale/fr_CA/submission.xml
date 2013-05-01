@@ -374,4 +374,7 @@
 	<message key="submission.status.submission">En attente de la décision du rédacteur en chef</message>
 	<message key="submission.status.unassigned">Non assigné</message>
 	<message key="editor.submission.roundStatus.reviewsCompleted">Les révisions sont terminées.</message>
+
+	<!-- Participants -->
+	<message key="editor.submission.stageParticipants">Participants</message>
 </locale>

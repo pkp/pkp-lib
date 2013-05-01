@@ -68,11 +68,16 @@ class HookRegistry {
 	 * @return mixed
 	 */
 	static function call($hookName, $args = null) {
-		// Remember the called hooks for testing.
-		$calledHooks =& HookRegistry::getCalledHooks();
-		$calledHooks[] = array(
-			$hookName, $args
-		);
+		// For testing only.
+		// The implementation is a bit quirky as this has to work when
+		// executed statically.
+		if (self::rememberCalledHooks(true)) {
+			// Remember the called hooks for testing.
+			$calledHooks =& HookRegistry::getCalledHooks();
+			$calledHooks[] = array(
+				$hookName, $args
+			);
+		}
 
 		$hooks =& HookRegistry::getHooks();
 		if (!isset($hooks[$hookName])) {
@@ -92,13 +97,42 @@ class HookRegistry {
 	//
 	// Methods required for testing only.
 	//
-	static function resetCalledHooks() {
+	/**
+	 * Set/query the flag that triggers storing of
+	 * called hooks.
+	 * @param $askOnly boolean When set to true, the flag will not
+	 *   be changed but only returned.
+	 * @param $updateTo boolean When $askOnly is set to 'true' then
+	 *   this parameter defines the value of the flag.
+	 * @return boolean The current value of the flag.
+	 */
+	static function rememberCalledHooks($askOnly = false, $updateTo = true) {
+		static $rememberCalledHooks = false;
+		if (!$askOnly) {
+			$rememberCalledHooks = $updateTo;
+		}
+		return $rememberCalledHooks;
+	}
+
+	/**
+	 * Switch off the function to store hooks and delete all stored hooks.
+	 * Always call this after using otherwise we get a severe memory.
+	 * @param $leaveAlive boolean Set this to true if you only want to
+	 *   delete hooks stored so far but if you want to record future
+	 *   hook calls, too.
+	 */
+	static function resetCalledHooks($leaveAlive = false) {
+		if (!$leaveAlive) HookRegistry::rememberCalledHooks(false, false);
 		$calledHooks =& HookRegistry::getCalledHooks();
 		$calledHooks = array();
 	}
 
+	/**
+	 * Return a reference to the stored hooks.
+	 * @return array
+	 */
 	static function &getCalledHooks() {
-		static $calledHooks;
+		static $calledHooks = array();
 		return $calledHooks;
 	}
 }

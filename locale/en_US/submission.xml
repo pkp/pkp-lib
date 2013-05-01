@@ -495,5 +495,5 @@
 	<message key="editor.submission.roundStatus.pendingReviewers">Awaiting reviewers.</message>
 	<message key="editor.submission.roundStatus.pendingReviews">Awaiting responses from reviewers.</message>
 	<message key="editor.submission.roundStatus.reviewsReady">New reviews ready.</message>
-	<message key="editor.monograph.roundStatus.reviewsCompleted">Reviews completed.</message>
+	<message key="editor.submission.roundStatus.reviewsCompleted">Reviews completed.</message>
 </locale>

@@ -13,7 +13,7 @@
  */
 
 import('lib.pkp.controllers.grid.files.LibraryFileGridHandler');
-import('controllers.grid.files.submissionDocuments.SubmissionDocumentsFilesGridDataProvider');
+import('lib.pkp.controllers.grid.files.submissionDocuments.SubmissionDocumentsFilesGridDataProvider');
 
 class SubmissionDocumentsFilesGridHandler extends LibraryFileGridHandler {
 	/**

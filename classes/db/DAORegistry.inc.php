@@ -54,8 +54,7 @@ class DAORegistry {
 	 * @return DAO
 	 */
 	static function &getDAO($name, $dbconn = null) {
-		$daos = DAORegistry::getDAOs();
-
+		$daos =& DAORegistry::getDAOs();
 		if (!isset($daos[$name])) {
 			// Import the required DAO class.
 			$application = PKPApplication::getApplication();

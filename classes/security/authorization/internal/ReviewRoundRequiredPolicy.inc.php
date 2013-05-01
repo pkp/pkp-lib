@@ -38,7 +38,7 @@ class ReviewRoundRequiredPolicy extends DataObjectRequiredPolicy {
 
 		// Validate the review round id.
 		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-		$reviewRound =& $reviewRoundDao->getReviewRoundById($reviewRoundId);
+		$reviewRound = $reviewRoundDao->getById($reviewRoundId);
 		if (!is_a($reviewRound, 'ReviewRound')) return AUTHORIZATION_DENY;
 
 		// Ensure that the review round actually belongs to the

@@ -30,7 +30,7 @@ class AllRevisionsInNotificationManager extends RevisionsNotificationManager {
 	 */
 	public function updateNotification($request, $userIds, $assocType, $assocId) {
 		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-		$reviewRound = $reviewRoundDao->getReviewRoundById($assocId);
+		$reviewRound = $reviewRoundDao->getById($assocId);
 		$submissionId = $reviewRound->getSubmissionId();
 
 		$pendingRevisionDecision = $this->findValidPendingRevisionsDecision($submissionId, $reviewRound->getStageId());

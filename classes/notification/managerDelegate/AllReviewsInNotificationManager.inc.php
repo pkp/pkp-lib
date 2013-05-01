@@ -37,7 +37,7 @@ class AllReviewsInNotificationManager extends NotificationManagerDelegate {
 	 */
 	public function updateNotification($request, $userIds, $assocType, $assocId) {
 		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-		$reviewRound = $reviewRoundDao->getReviewRoundById($assocId);
+		$reviewRound = $reviewRoundDao->getById($assocId);
 
 		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
 		$stageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($reviewRound->getSubmissionId(), $reviewRound->getStageId());

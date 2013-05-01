@@ -118,8 +118,9 @@ class ReviewRoundDAO extends DAO {
 	 */
 	function getReviewRound($submissionId, $stageId, $round) {
 		$result = $this->retrieve(
-				'SELECT * FROM review_rounds WHERE submission_id = ? AND stage_id = ? AND round = ?',
-				array((int)$submissionId, (int)$stageId, (int)$round));
+			'SELECT * FROM review_rounds WHERE submission_id = ? AND stage_id = ? AND round = ?',
+			array((int) $submissionId, (int) $stageId, (int) $round)
+		);
 
 		$returner = null;
 		if ($result->RecordCount() != 0) {
@@ -134,10 +135,11 @@ class ReviewRoundDAO extends DAO {
 	 * @param int $reviewRoundId
 	 * @return ReviewRound
 	 */
-	function getReviewRoundById($reviewRoundId) {
+	function getById($reviewRoundId) {
 		$result = $this->retrieve(
-				'SELECT * FROM review_rounds WHERE review_round_id = ?',
-				array((int)$reviewRoundId));
+			'SELECT * FROM review_rounds WHERE review_round_id = ?',
+			(int) $reviewRoundId
+		);
 
 		$returner = null;
 		if ($result->RecordCount() != 0) {

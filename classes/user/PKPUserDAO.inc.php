@@ -260,7 +260,7 @@ class PKPUserDAO extends DAO {
 		if($submissionId) {
 			$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 			$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-			$reviewRound = $reviewRoundDao->getReviewRoundById($reviewRoundId);
+			$reviewRound = $reviewRoundDao->getById($reviewRoundId);
 			$userDao = DAORegistry::getDAO('UserDAO');
 			$availableReviewerFactory = $userDao->getReviewersNotAssignedToSubmission($contextId, $submissionId, $reviewRound);
 			$availableReviewers = $availableReviewerFactory->toAssociativeArray();

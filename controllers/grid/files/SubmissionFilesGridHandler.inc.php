@@ -57,7 +57,7 @@ class SubmissionFilesGridHandler extends GridHandler {
 	 * Get grid capabilities object.
 	 * @return FilesGridCapabilities
 	 */
-	function &getCapabilities() {
+	function getCapabilities() {
 		return $this->_capabilities;
 	}
 

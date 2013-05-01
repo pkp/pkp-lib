@@ -71,7 +71,7 @@ class SubmissionFilesMetadataForm extends Form {
 	 * Get review round.
 	 * @return ReviewRound
 	 */
-	function &getReviewRound() {
+	function getReviewRound() {
 		return $this->_reviewRound;
 	}
 

@@ -58,12 +58,12 @@ class PKPSubmissionFilesUploadBaseForm extends Form {
 		} else if ($assocType == ASSOC_TYPE_REVIEW_ASSIGNMENT && !$reviewRound) {
 			// Get the review assignment object.
 			$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
-			$reviewAssignment =& $reviewAssignmentDao->getById((int) $assocId); /* @var $reviewAssignment ReviewAssignment */
+			$reviewAssignment = $reviewAssignmentDao->getById((int) $assocId); /* @var $reviewAssignment ReviewAssignment */
 			if ($reviewAssignment->getDateCompleted()) fatalError('Review already completed!');
 
 			// Get the review round object.
 			$reviewRoundDao = DAORegistry::getDAO('ReviewRound');
-			$this->_reviewRound =& $reviewRoundDao->getReviewRoundById($reviewAssignment->getReviewRoundId());
+			$this->_reviewRound = $reviewRoundDao->getById($reviewAssignment->getReviewRoundId());
 		} else if (!$assocType && !$reviewRound) {
 			$reviewRound = null;
 		}
@@ -95,7 +95,7 @@ class PKPSubmissionFilesUploadBaseForm extends Form {
 	 * Get the review round object (if any).
 	 * @return ReviewRound
 	 */
-	function &getReviewRound() {
+	function getReviewRound() {
 		return $this->_reviewRound;
 	}
 
@@ -144,7 +144,7 @@ class PKPSubmissionFilesUploadBaseForm extends Form {
 					$this->_submissionFiles = array();
 				} else {
 					// Retrieve the submission files for the given review round.
-					$reviewRound =& $this->getReviewRound();
+					$reviewRound = $this->getReviewRound();
 					$this->_submissionFiles =& $submissionFileDao->getRevisionsByReviewRound($reviewRound);
 				}
 			} else {
@@ -179,13 +179,13 @@ class PKPSubmissionFilesUploadBaseForm extends Form {
 		$this->setData('stageId', $this->getStageId());
 
 		// Set the review round id, if any.
-		$reviewRound =& $this->getReviewRound();
+		$reviewRound = $this->getReviewRound();
 		if (is_a($reviewRound, 'ReviewRound')) {
 			$this->setData('reviewRoundId', $reviewRound->getId());
 		}
 
 		// Retrieve the uploaded file (if any).
-		$uploadedFile =& $this->getData('uploadedFile');
+		$uploadedFile = $this->getData('uploadedFile');
 
 		// Initialize the list with files available for review.
 		$submissionFileOptions = array();

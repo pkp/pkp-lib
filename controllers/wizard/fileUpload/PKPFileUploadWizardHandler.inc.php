@@ -92,7 +92,7 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 
 		// Do we allow revisions only?
 		$this->_revisionOnly = (boolean)$request->getUserVar('revisionOnly');
-		$reviewRound =& $this->getReviewRound();
+		$reviewRound = $this->getReviewRound();
 		$this->_assocType = $request->getUserVar('assocType') ? (int)$request->getUserVar('assocType') : null;
 		$this->_assocId = $request->getUserVar('assocId') ? (int)$request->getUserVar('assocId') : null;
 
@@ -149,7 +149,7 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 	 * Get review round object.
 	 * @return ReviewRound
 	 */
-	function &getReviewRound() {
+	function getReviewRound() {
 		return $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND);
 	}
 
@@ -207,7 +207,7 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 
 		// Configure the "revision only" feature.
 		$templateMgr->assign('revisionOnly', $this->getRevisionOnly());
-		$reviewRound =& $this->getReviewRound();
+		$reviewRound = $this->getReviewRound();
 		if (is_a($reviewRound, 'ReviewRound')) {
 			$templateMgr->assign('reviewRoundId', $reviewRound->getId());
 		}
@@ -259,10 +259,10 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 
 		// Validate the form and upload the file.
 		if ($uploadForm->validate($request)) {
-			if (is_a($uploadedFile =& $uploadForm->execute($request), 'SubmissionFile')) { /* @var $uploadedFile SubmissionFile */
+			if (is_a($uploadedFile = $uploadForm->execute($request), 'SubmissionFile')) { /* @var $uploadedFile SubmissionFile */
 				// Retrieve file info to be used in a JSON response.
 				$uploadedFileInfo = $this->_getUploadedFileInfo($uploadedFile);
-				$reviewRound =& $this->getReviewRound();
+				$reviewRound = $this->getReviewRound();
 
 				// If no revised file id was given then try out whether
 				// the user maybe accidentally didn't identify this file as a revision.

@@ -237,7 +237,7 @@ class PKPSubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 		$fileStage = $this->getData('fileStage');
 		if ($submissionFile && ($fileStage == SUBMISSION_FILE_REVIEW_FILE || $fileStage == SUBMISSION_FILE_REVIEW_ATTACHMENT || $fileStage == SUBMISSION_FILE_REVIEW_REVISION)) {
 			// Add the uploaded review file to the review round.
-			$reviewRound =& $this->getReviewRound();
+			$reviewRound = $this->getReviewRound();
 			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
 			$submissionFileDao->assignRevisionToReviewRound($submissionFile->getFileId(), $submissionFile->getRevision(), $reviewRound);
 		}

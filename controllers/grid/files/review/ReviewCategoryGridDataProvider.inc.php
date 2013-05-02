@@ -57,7 +57,7 @@ class ReviewCategoryGridDataProvider extends SubmissionFilesCategoryGridDataProv
 	function &initGridDataProvider($fileStage, $initParams) {
 		// This category grid data provider will use almost all the
 		// same implementation of the ReviewGridDataProvider.
-		import('controllers.grid.files.review.ReviewGridDataProvider');
+		import('lib.pkp.controllers.grid.files.review.ReviewGridDataProvider');
 		$reviewFilesGridDataProvider = new ReviewGridDataProvider($fileStage);
 		$reviewFilesGridDataProvider->setViewableOnly($initParams['viewableOnly']);
 

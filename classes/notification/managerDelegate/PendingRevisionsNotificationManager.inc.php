@@ -68,7 +68,7 @@ class PendingRevisionsNotificationManager extends RevisionsNotificationManager {
 		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
 		$lastReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
 
-		import('controllers.api.file.linkAction.AddRevisionLinkAction');
+		import('lib.pkp.controllers.api.file.linkAction.AddRevisionLinkAction');
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_EDITOR); // editor.review.uploadRevision
 
 		$uploadFileAction = new AddRevisionLinkAction(

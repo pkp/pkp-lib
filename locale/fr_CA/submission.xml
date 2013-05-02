@@ -377,4 +377,15 @@
 
 	<!-- Participants -->
 	<message key="editor.submission.stageParticipants">Participants</message>
+
+	<!-- Stage Participants grid -->
+	<message key="editor.submission.noneAssigned">Aucun n'a été attribué</message>
+	<message key="editor.submission.participant">Participant</message>
+	<message key="editor.submission.addStageParticipant">Ajouter un participant</message>
+	<message key="editor.submission.addStageParticipant.description"><![CDATA[Pour ajouter un participant à cette étape du processus de soumission, sélectionner un groupe d'utilisateurs à partir du menu déroulant, puis ajouter un utilisateur.<br /><br />Note: L'utilisateur sera ajouté à toutes les étapes attribuées à ce groupe d'utilisateurs.]]></message>
+	<message key="editor.submission.removeStageParticipant">Supprimer un participant</message>
+	<message key="editor.submission.removeStageParticipant.description"><![CDATA[Vous souhaitez que ce participant ne fasse plus partie de <strong>toutes</strong> les étapes? Si cet utilisateur a des tâches de vérification en cours, elles seront également supprimées.]]></message>
+	<message key="editor.submission.addStageParticipant.form.userGroupRequired">Vous devez choisir un groupe d'utilisateurs.</message>
+	<message key="editor.submission.addStageParticipant.form.userRequired">Vous devez choisir un utilisateur pour le groupe d'utilisateurs choisi.</message>
+
 </locale>

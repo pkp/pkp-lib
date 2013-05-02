@@ -23,7 +23,10 @@ import('lib.pkp.controllers.grid.files.SelectableSubmissionFileListCategoryGridR
 // Import the class that defines file grids capabilities.
 import('lib.pkp.classes.controllers.grid.files.FilesGridCapabilities');
 
-class PKPSelectableSubmissionFileListCategoryGridHandler extends CategoryGridHandler {
+// Import file constants.
+import('lib.pkp.classes.submission.SubmissionFile');
+
+class SelectableSubmissionFileListCategoryGridHandler extends CategoryGridHandler {
 
 	/** @var FilesGridCapabilities */
 	var $_capabilities;
@@ -38,7 +41,7 @@ class PKPSelectableSubmissionFileListCategoryGridHandler extends CategoryGridHan
 	 * @param $capabilities integer A bit map with zero or more
 	 *  FILE_GRID_* capabilities set.
 	 */
-	function PKPSelectableSubmissionFileListCategoryGridHandler($dataProvider, $stageId, $capabilities) {
+	function SelectableSubmissionFileListCategoryGridHandler($dataProvider, $stageId, $capabilities) {
 		// the StageId can be set later if necessary.
 		if ($stageId) {
 			$this->_stageId = (int)$stageId;
@@ -176,9 +179,9 @@ class PKPSelectableSubmissionFileListCategoryGridHandler extends CategoryGridHan
 
 		// Test whether the tar binary is available for the export to work, if so, add 'download all' grid action
 		if ($capabilities->canDownloadAll() && $this->hasGridDataElements($request)) {
-			$monograph = $this->getSubmission();
+			$submission = $this->getSubmission();
 			$stageId = $this->getStageId();
-			$linkParams = array('submissionId' => $monograph->getId(), 'stageId' => $stageId);
+			$linkParams = array('submissionId' => $submission->getId(), 'stageId' => $stageId);
 			$files = $this->getFilesToDownload($request);
 
 			$this->addAction($capabilities->getDownloadAllAction($request, $files, $linkParams), GRID_ACTION_POSITION_BELOW);
@@ -228,12 +231,33 @@ class PKPSelectableSubmissionFileListCategoryGridHandler extends CategoryGridHan
 		$dataProvider = $this->getDataProvider();
 		$workflowStages = $this->getGridDataElements($request);
 
-		// Get the monograph files to be downloaded.
+		// Get the submission files to be downloaded.
 		$submissionFiles = array();
 		foreach ($workflowStages as $stageId) {
 			$submissionFiles = array_merge($submissionFiles, $dataProvider->getCategoryData($stageId));
 		}
 		return $submissionFiles;
+	}
+
+	/**
+	 * @see GridHandler::isDataElementInCategorySelected()
+	 */
+	function isDataElementInCategorySelected($categoryDataId, &$gridDataElement) {
+		$currentStageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+		$submissionFile = $gridDataElement['submissionFile'];
+
+		// Check for special cases when the file needs to be unselected.
+		$dataProvider = $this->getDataProvider();
+		if ($dataProvider->getFileStage() != $submissionFile->getFileStage()) {
+			return false;
+		} elseif ($currentStageId == WORKFLOW_STAGE_ID_INTERNAL_REVIEW || $currentStageId == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW) {
+			if ($currentStageId != $categoryDataId) {
+				return false;
+			}
+		}
+
+		// Passed the checks above. If viewable then select it.
+		return $submissionFile->getViewable();
 	}
 
 	/**

@@ -18,15 +18,15 @@ class NotifyLinkAction extends LinkAction {
 	/**
 	 * Constructor
 	 * @param $request Request
-	 * @param $monograph Monograph The monograph
+	 * @param $submission Submission The submission
 	 * @param $stageId int
 	 * @param $userId optional
 	 *  to show information about.
 	 */
-	function NotifyLinkAction($request, &$monograph, $stageId, $userId = null) {
+	function NotifyLinkAction($request, &$submission, $stageId, $userId = null) {
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_SUBMISSION);
 		// Prepare request arguments
-		$requestArgs['submissionId'] = $monograph->getId();
+		$requestArgs['submissionId'] = $submission->getId();
 		$requestArgs['stageId'] = $stageId;
 		if ($userId) $requestArgs['userId'] = $userId;
 		$requestArgs['tab'] = 'notify';

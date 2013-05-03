@@ -20,11 +20,11 @@ import('lib.pkp.controllers.grid.users.stageParticipant.StageParticipantGridRow'
 import('lib.pkp.controllers.grid.users.stageParticipant.StageParticipantGridCategoryRow');
 import('classes.log.SubmissionEventLogEntry'); // App-specific.
 
-class StageParticipantGridHandler extends CategoryGridHandler {
+class PKPStageParticipantGridHandler extends CategoryGridHandler {
 	/**
 	 * Constructor
 	 */
-	function StageParticipantGridHandler() {
+	function PKPStageParticipantGridHandler() {
 		parent::CategoryGridHandler();
 		//Assistants get read-only access
 		$this->addRoleAssignment(

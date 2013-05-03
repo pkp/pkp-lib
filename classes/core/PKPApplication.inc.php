@@ -570,6 +570,13 @@ class PKPApplication {
 	}
 
 	/**
+	 * Get the DAO for ROLE_ID_SUB_EDITOR roles.
+	 */
+	static function getSubEditorDAO() {
+		assert(false); // Must be implemented by subclasses
+	}
+
+	/**
 	 * Get the stages used by the application.
 	 */
 	static function getApplicationStages() {

@@ -43,26 +43,23 @@ class SubmissionFileAssignedReviewerAccessPolicy extends SubmissionFileBaseAcces
 		if (!is_a($submissionFile, 'SubmissionFile')) return AUTHORIZATION_DENY;
 
 		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
-		$reviewAssignments =& $reviewAssignmentDao->getByUserId($user->getId());
-		$foundValid = false;
+		$reviewAssignments = $reviewAssignmentDao->getByUserId($user->getId());
+		$reviewFilesDao = DAORegistry::getDAO('ReviewFilesDAO');
 		foreach ($reviewAssignments as $reviewAssignment) {
 			if (!$reviewAssignment->getDateConfirmed()) continue;
 
 			if (
 				$submissionFile->getSubmissionId() == $reviewAssignment->getSubmissionId() &&
 				$submissionFile->getFileStage() == SUBMISSION_FILE_REVIEW_FILE &&
-				$submissionFile->getViewable()
+				$submissionFile->getViewable() &&
+				$reviewFilesDao->check($reviewAssignment->getId(), $submissionFile->getFileId(), $submissionFile->getRevision())
 			) {
-				$foundValid = true;
+				return AUTHORIZATION_PERMIT;
 			}
 		}
 
-		// Check if the uploader is the current user.
-		if ($foundValid) {
-			return AUTHORIZATION_PERMIT;
-		} else {
-			return AUTHORIZATION_DENY;
-		}
+		// If a pass condition wasn't found above, deny access.
+		return AUTHORIZATION_DENY;
 	}
 }
 

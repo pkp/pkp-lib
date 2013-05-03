@@ -10,6 +10,13 @@
 <script type="text/javascript">
 	$("input[id^='responseDueDate']").datepicker({ldelim} dateFormat: 'yy-mm-dd' {rdelim});
 	$("input[id^='reviewDueDate']").datepicker({ldelim} dateFormat: 'yy-mm-dd' {rdelim});
+	$("#filesAccordion").accordion({ldelim}
+			collapsible: true,
+			active: false,
+			// WARNING: The following two options are deprecated in JQueryUI.
+			autoHeight: false,
+			clearStyle: true
+			{rdelim});
 </script>
 
 <div class="reviewerFormFooterContainer">
@@ -28,6 +35,15 @@
 		{fbvElement type="text" id="responseDueDate" name="responseDueDate" label="submission.task.responseDueDate" value=$responseDueDate inline=true size=$fbvStyles.size.MEDIUM}
 		{fbvElement type="text" id="reviewDueDate" name="reviewDueDate" label="editor.review.reviewDueDate" value=$reviewDueDate inline=true size=$fbvStyles.size.MEDIUM}
 	{/fbvFormSection}
+
+	<div id="filesAccordion">
+		<h3>{translate key="editor.submissionReview.restrictFiles"}</h3>
+		<div>
+			<!-- Available review files -->
+			{url|assign:limitReviewFilesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.review.LimitReviewFilesGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId reviewRoundId=$reviewRoundId escape=false}
+			{load_url_in_div id="limitReviewFilesGrid" url=$limitReviewFilesGridUrl}
+		</div>
+	</div>
 
 	{fbvFormSection list=true title="editor.submissionReview.reviewType"}
 		{foreach from=$reviewMethods key=methodId item=methodTranslationKey}

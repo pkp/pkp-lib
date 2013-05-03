@@ -330,6 +330,7 @@ class PKPApplication {
 			'NotificationSettingsDAO' => 'lib.pkp.classes.notification.NotificationSettingsDAO',
 			'NotificationSubscriptionSettingsDAO' => 'lib.pkp.classes.notification.NotificationSubscriptionSettingsDAO',
 			'ProcessDAO' => 'lib.pkp.classes.process.ProcessDAO',
+			'ReviewFilesDAO' => 'lib.pkp.classes.submission.ReviewFilesDAO',
 			'ReviewRoundDAO' => 'lib.pkp.classes.submission.reviewRound.ReviewRoundDAO',
 			'ScheduledTaskDAO' => 'lib.pkp.classes.scheduledTask.ScheduledTaskDAO',
 			'SessionDAO' => 'lib.pkp.classes.session.SessionDAO',

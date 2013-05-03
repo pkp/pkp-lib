@@ -385,19 +385,19 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 		$userGroup =& $userGroupDao->getById($userGroupId);
 		$roleId = $userGroup->getRoleId();
 
-		$seriesId = $submission->getSeriesId();
+		$subEditorFilterId = $this->_getIdForSubEditorFilter($submission);
 		$contextId = $submission->getContextId();
 
-		$filterSeriesEditors = false;
-		if ($roleId == ROLE_ID_SUB_EDITOR && $seriesId) {
-			$seriesEditorsDao = DAORegistry::getDAO('SeriesEditorsDAO'); /* @var $seriesEditorsDao SeriesEditorsDAO */
-			// Flag to filter series editors only.
-			$filterSeriesEditors = true;
+		$filterSubEditors = false;
+		if ($roleId == ROLE_ID_SUB_EDITOR && $subEditorFilterId) {
+			$seriesEditorsDao = Application::getSubEditorDAO();
+			// Flag to filter sub editors only.
+			$filterSubEditors = true;
 		}
 
 		$userList = array();
 		while($user =& $users->next()) {
-			if ($filterSeriesEditors && !$seriesEditorsDao->editorExists($contextId, $seriesId, $user->getId())) {
+			if ($filterSubEditors && !$seriesEditorsDao->editorExists($contextId, $subEditorFilterId, $user->getId())) {
 				unset($user);
 				continue;
 			}
@@ -413,7 +413,7 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 		return $json->getString();
 	}
 
-	function _getIdForSubEditorFilter() {
+	function _getIdForSubEditorFilter($submission) {
 		assert(false); // implemented by sub classes.
 	}
 }

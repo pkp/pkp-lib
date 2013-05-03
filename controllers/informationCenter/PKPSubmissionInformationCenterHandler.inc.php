@@ -224,7 +224,7 @@ class PKPSubmissionInformationCenterHandler extends InformationCenterHandler {
 
 		// Get all submission events
 		$submissionEventLogDao = DAORegistry::getDAO('SubmissionEventLogDAO');
-		$submissionEvents =& $submissionEventLogDao->getByMonographId($this->_submission->getId());
+		$submissionEvents =& $submissionEventLogDao->getBySubmissionId($this->_submission->getId());
 		$templateMgr->assign_by_ref('eventLogEntries', $submissionEvents);
 		$templateMgr->assign('historyListId', 'historyList');
 		return $templateMgr->fetchJson('controllers/informationCenter/historyList.tpl');

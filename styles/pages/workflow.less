@@ -1,0 +1,146 @@
+/**
+ * @file styles/pages/workflow.less
+ *
+ * Copyright (c) 2003-2013 John Willinsky
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ *
+ * @brief Styles for the workflow pages
+ *
+ */
+
+.pkp_page_header {
+	position: relative;
+
+	ul.submission_actions {
+		position: relative;
+		z-index: 20;
+	}
+
+	ul.submission_actions li {
+		line-height: 24px;
+		margin-left: 20px;
+		padding: 5px 1px 4px 1px;
+	}
+
+	li.participants {
+		margin-right: 10px;
+	}
+
+	li.participants:hover, li.expandedIndicator {
+		background: #fff;
+		border: 1px solid #999;
+		border-bottom: 1px solid #fff;
+		padding: 4px 10px 3px 10px !important;
+		margin: 0px 0px 0px 10px !important;
+	}
+
+	.participant_popover {
+		border: 1px solid #999;
+		width: 300px;
+		right: 0px;
+		top: 34px;
+		margin-top: -2px;
+		position:absolute;
+		background-color: #fff;
+		z-index: 10;
+	}
+
+	ul.submission_actions a {
+		text-decoration: underline;
+	}
+
+	.submission_progress_wrapper {
+		clear: both;
+		padding-top: 28px;
+	}
+
+	.submission_progress {
+		overflow: hidden;
+		display: table;
+		width: 100%;
+		position: relative;
+	}
+
+	.submission_progress li {
+		height:37px;
+		line-height:12px;
+		width: 19.5%;
+		background-image:url('../lib/pkp/templates/images/structure/workflow_inactive.png');
+		text-align: center;
+		color: #ffffff;
+		float: none;
+		vertical-align: middle;
+		display: table-cell;
+	}
+
+	.submission_progress li a {
+		text-decoration:none;
+		font-family: "Courier New",Courier,mono;
+		font-size: 12px;
+		text-transform: uppercase;
+		color:#ffffff;
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+ 
+	.submission_progress li.actionNeeded {
+		background-image:url('../lib/pkp/templates/images/structure/workflow_actionNeeded.png');
+	}
+
+	.submission_progress li.stageDisabled {
+		background-image:none;
+		background-color:#E5E1DD;
+	}
+
+	.submission_progress li.stageDisabled a {
+		color:#999999;
+	}
+
+	.submission_progress li.productionReady {
+		background-image:url('../lib/pkp/templates/images/structure/workflow_productionReady.png');
+	}
+	
+	.submission_progress li.current {
+ 		background-image:url('../lib/pkp/templates/images/structure/workflow_current.png');
+ 		
+ 		a {
+ 			font-size: 13px;
+ 		}
+
+		&.productionReady {
+			background-image:url('../lib/pkp/templates/images/structure/workflow_productionReadyCurrent.png') !important;
+		}
+ 	}
+
+	.submission_progress li.complete a:after {
+		background-color: #e5f4e5;
+	}
+
+	.submission_progress li.current a:after {
+ 		background-color: #EAF3F8;
+ 	}
+
+	.submission_progress li:before {
+		margin-left: 2px;
+		left: 100%;
+		z-index: 1;
+	}
+	
+	.submission_progress li a:after {
+		background-color: white;
+		content: " ";
+		display: block;
+		width: 1px;
+		top: 0;
+		height: 37px;
+		position: absolute;		
+	}
+}
+
+#reviewTabs {
+	.ui-tabs-nav {
+		a.pkp_controllers_linkAction {
+			line-height:0px;
+		}
+	}
+}

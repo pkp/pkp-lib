@@ -80,6 +80,7 @@
 	<message key="grid.action.enrolExisting">Enrol an existing user as a reviewer</message>
 	<message key="grid.action.selectCreate">Create a new reviewer</message>
 	<message key="grid.action.advancedSearch">Advanced Search</message>
+	<message key="grid.action.viewLibrary">View Document Library</message>
 	<message key="grid.action.viewMetadata">View the metadata for this submission</message>
 	<message key="grid.action.sendReminder">Send a task reminder to this user</message>
 	<message key="grid.action.newRound">Create a new round</message>

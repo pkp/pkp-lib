@@ -65,6 +65,7 @@
 	<message key="grid.libraryFiles.review.title">Bibliothèque d'évaluation</message>
 	<message key="grid.libraryFiles.production.title">Bibliothèque de production</message>
 	<message key="grid.libraryFiles.productionTemplate.title">Bibliothèque de modèle de production</message>
+	<message key="grid.action.viewLibrary">Visionner la bibliothèque de documents</message>
 
 	<!-- SubmissionChecklist -->
 	<message key="grid.submissionChecklist.title">Liste de vérification de la soumission</message>

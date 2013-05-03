@@ -412,6 +412,10 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 		$json = new JSONMessage(true, $userList);
 		return $json->getString();
 	}
+
+	function _getIdForSubEditorFilter() {
+		assert(false); // implemented by sub classes.
+	}
 }
 
 ?>

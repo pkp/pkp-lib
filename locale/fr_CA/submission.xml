@@ -388,4 +388,17 @@
 	<message key="editor.submission.addStageParticipant.form.userGroupRequired">Vous devez choisir un groupe d'utilisateurs.</message>
 	<message key="editor.submission.addStageParticipant.form.userRequired">Vous devez choisir un utilisateur pour le groupe d'utilisateurs choisi.</message>
 
+	<!-- editor decisions -->
+	<message key="editor.submission.decision">Décision</message>
+	<message key="editor.submission.decision.accept">Accepter la soumission</message>
+	<message key="editor.submission.decision.requestRevisions">Demande de révision</message>
+	<message key="editor.submission.decision.resubmit">Resoumettre pour révision</message>
+	<message key="editor.submission.decision.decline">Refus de la soumission</message>
+	<message key="editor.submission.decision.sendToProduction">Envoyer pour publication</message>
+	<message key="editor.submission.decision.sendInternalReview">Envoyer à l'évaluateur interne</message>
+	<message key="editor.submission.decision.sendExternalReview">Envoyer à l'évaluateur externe</message>
+	<message key="editor.submission.decision.approveProofs">Approuver les épreuves</message>
+	<message key="editor.submission.decision.approveProofsDescription">Il faut indiquer que le fichier d'épreuve en page a été approuvé pour qu'il soit disponible. Souhaitez-vous l'approuver?</message>
+	<message key="editor.submission.decision.disapproveProofsDescription">Ce fichier d'épreuve ne pourra plus être téléchargé ou acheté par le public. Souhaitez-vous le désapprouver?</message>
+
 </locale>

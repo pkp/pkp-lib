@@ -886,6 +886,8 @@ class UserGroupDAO extends DAO {
 	 * @return array
 	 */
 	static function getWorkflowStageTranslationKeys() {
+		$applicationStages = Application::getApplicationStages();
+
 		static $stageMapping = array(
 			WORKFLOW_STAGE_ID_SUBMISSION => 'submission.submission',
 			WORKFLOW_STAGE_ID_INTERNAL_REVIEW => 'workflow.review.internalReview',
@@ -894,7 +896,7 @@ class UserGroupDAO extends DAO {
 			WORKFLOW_STAGE_ID_PRODUCTION => 'submission.production'
 		);
 
-		return $stageMapping;
+		return array_intersect_key($stageMapping, array_flip($applicationStages));
 	}
 
 	/**

@@ -52,7 +52,7 @@ class SubmissionFileAssignedReviewerAccessPolicy extends SubmissionFileBaseAcces
 				$submissionFile->getSubmissionId() == $reviewAssignment->getSubmissionId() &&
 				$submissionFile->getFileStage() == SUBMISSION_FILE_REVIEW_FILE &&
 				$submissionFile->getViewable() &&
-				$reviewFilesDao->check($reviewAssignment->getId(), $submissionFile->getFileId(), $submissionFile->getRevision())
+				$reviewFilesDao->check($reviewAssignment->getId(), $submissionFile->getFileId())
 			) {
 				return AUTHORIZATION_PERMIT;
 			}

@@ -169,10 +169,6 @@
 		<field name="file_id" type="I8">
 			<NOTNULL/>
 		</field>
-		<field name="revision" type="I8">
-			<NOTNULL/>
-			<DEFAULT VALUE="1"/>
-		</field>
 		<descr>Associates reviewable submission files with reviews</descr>
 		<index name="review_files_review_id">
 			<col>review_id</col>
@@ -180,7 +176,6 @@
 		<index name="review_files_pkey">
 			<col>review_id</col>
 			<col>file_id</col>
-			<col>revision</col>
 			<UNIQUE/>
 		</index>
 	</table>

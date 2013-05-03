@@ -30,26 +30,24 @@ class ReviewFilesDAO extends DAO {
 	function grant($reviewId, $fileId, $revision) {
 		$this->update(
 			'INSERT INTO review_files
-			(review_id, file_id, revision)
+			(review_id, file_id)
 			VALUES
 			(?, ?, ?)',
 			array(
 				(int) $reviewId,
-				(int) $fileId,
-				(int) $revision
+				(int) $fileId
 			)
 		);
 	}
 
 	/**
 	 * Revoke a review's association with a review file.
-	 * @param $reviewId int Review assignemnt ID.
+	 * @param $reviewId int Review assignment ID.
 	 * @param $fileId int Review file ID.
-	 * @param $revision int Review file revision.
 	 */
-	function revoke($reviewId, $fileId, $revision) {
+	function revoke($reviewId, $fileId) {
 		$this->update(
-			'DELETE FROM review_files WHERE review_id = ? AND file_id = ? AND revision = ?',
+			'DELETE FROM review_files WHERE review_id = ? AND file_id = ?',
 			array(
 				(int) $reviewId,
 				(int) $fileId,
@@ -60,9 +58,7 @@ class ReviewFilesDAO extends DAO {
 
 	/**
 	 * Revoke a review's association with all submission files.
-	 * @param $reviewId int Review assignemnt ID.
-	 * @param $fileId int Review file ID.
-	 * @param $revision int Review file revision.
+	 * @param $reviewId int Review assignment ID.
 	 */
 	function revokeByReviewId($reviewId) {
 		$this->update(
@@ -77,10 +73,10 @@ class ReviewFilesDAO extends DAO {
 	 * @param $stageId int One of the Stage_id_* constants.
 	 * @param $round int The review round to be retrieved.
 	 */
-	function check($reviewId, $fileId, $revision) {
+	function check($reviewId, $fileId) {
 		$result = $this->retrieve(
-			'SELECT * FROM review_files WHERE review_id = ? AND file_id = ? AND revision = ?',
-			array((int) $reviewId, (int) $fileId, (int) $revision)
+			'SELECT * FROM review_files WHERE review_id = ? AND file_id = ?',
+			array((int) $reviewId, (int) $fileId)
 		);
 
 		$returner = $result->RecordCount();

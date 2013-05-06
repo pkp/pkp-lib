@@ -32,7 +32,7 @@ class ReviewFilesDAO extends DAO {
 			'INSERT INTO review_files
 			(review_id, file_id)
 			VALUES
-			(?, ?, ?)',
+			(?, ?)',
 			array(
 				(int) $reviewId,
 				(int) $fileId

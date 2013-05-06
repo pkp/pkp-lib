@@ -40,10 +40,41 @@ class LimitReviewFilesGridHandler extends SelectableFileListGridHandler {
 	}
 
 	/**
+	 * @see PKPHandler::authorize()
+	 */
+	function authorize($request, &$args, $roleAssignments) {
+		if ($reviewAssignmentId = $request->getUserVar('reviewAssignmentId')) {
+			// If a review assignment ID is specified, preload the
+			// checkboxes with the currently selected files. To do
+			// this, we'll need the review assignment in the context.
+			// Add the required policies:
+
+			// 1) Review stage access policy (fetches monograph in context)
+			import('classes.security.authorization.ReviewStageAccessPolicy');
+			$this->addPolicy(new ReviewStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $request->getUserVar('stageId')));
+
+			// 2) Review assignment
+			import('classes.security.authorization.internal.ReviewAssignmentRequiredPolicy');
+			$this->addPolicy(new ReviewAssignmentRequiredPolicy($request, $args, 'reviewAssignmentId', array('fetchGrid', 'fetchRow')));
+		}
+		return parent::authorize($request, $args, $roleAssignments);
+	}
+
+	/**
 	 * @see GridHandler::isDataElementSelected()
 	 */
 	function isDataElementSelected($gridDataElement) {
-		return true;
+		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
+		if ($reviewAssignment) {
+			$submissionFile = $gridDataElement['submissionFile'];
+			// A review assignment was specified in the request; preset the
+			// checkboxes to the currently available set of files.
+			$reviewFilesDao = DAORegistry::getDAO('ReviewFilesDAO');
+			return $reviewFilesDao->check($reviewAssignment->getId(), $submissionFile->getFileId());
+		} else {
+			// No review assignment specified; default to all files available.
+			return true;
+		}
 	}
 }
 

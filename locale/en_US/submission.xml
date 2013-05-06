@@ -523,4 +523,8 @@
 	<message key="editor.submission.decision.approveProofsDescription">The page proof file must be checked as approved to be made Available. Do you want to approve it?</message>
 	<message key="editor.submission.decision.disapproveProofsDescription">This file proof will no longer be publicly available for download or purchase. Do you want to disapprove it?</message>
 
+	<!-- workflow navigation keys -->
+	<message key="submission.currentStage">Current stage</message>
+	<message key="submission.noActionRequired">No action required</message>
+	<message key="submission.actionNeeded">Needs action</message>
 </locale>

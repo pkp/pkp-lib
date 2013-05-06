@@ -21,6 +21,7 @@
 	<message key="grid.action.delete">Supprimer</message>
 	<message key="grid.action.edit">Modifier</message>
 	<message key="grid.action.restoreDefaults">Réinitialiser aux valeurs par défaut</message>
+	<message key="grid.action.bookInfo">Renseignements sur la soumission</message>
 
 	<!-- Common Grid Column Titles -->
 	<message key="grid.columns.actions">Actions</message>

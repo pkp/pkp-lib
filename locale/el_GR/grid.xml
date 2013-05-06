@@ -13,4 +13,5 @@
 
 <locale name="el_GR" full_name = "Greek">
 	<message key="grid.action.viewLibrary">Προβολή Βιβλιοθήκης Εγγράφων</message>
+	<message key="grid.action.bookInfo">Πληροφορίες Υποβολής</message>
 </locale>

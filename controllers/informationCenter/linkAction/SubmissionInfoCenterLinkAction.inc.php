@@ -55,7 +55,7 @@ class SubmissionInfoCenterLinkAction extends LinkAction {
 
 		// Configure the link action.
 		parent::LinkAction(
-			'bookInfo', $ajaxModal,
+			'submissionInfo', $ajaxModal,
 			__($linkKey), 'more_info'
 		);
 	}

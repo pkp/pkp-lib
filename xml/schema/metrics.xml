@@ -36,6 +36,7 @@
 		<field name="month" type="C" size="6">
 			<NOTNULL />
 		</field>
+		<field name="file_type" type="I1" />
 		<field name="country_id" type="C2" size="2" />
 		<field name="region" type="C2" size="255" />
     	<field name="city" type="C2" size="255" />

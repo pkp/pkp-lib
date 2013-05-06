@@ -87,7 +87,7 @@ class ProfileHandler extends UserHandler {
 
 		if (!$dataModified && $profileForm->validate()) {
 			$profileForm->execute($request);
-			$request->redirect(null, $request->getRequestedPage());
+			$request->redirect(null, 'dashboard');
 		} else {
 			$profileForm->display($request);
 		}

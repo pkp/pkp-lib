@@ -212,6 +212,64 @@ class PKPWorkflowHandler extends Handler {
 		return $templateMgr->fetchJson('workflow/editorialLinkActions.tpl');
 	}
 
+	/**
+	 * Setup variables for the template
+	 * @param $request Request
+	 */
+	function setupTemplate($request) {
+		parent::setupTemplate($request);
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_APP_EDITOR, LOCALE_COMPONENT_PKP_GRID);
+
+		$router = $request->getRouter();
+
+		$submission =& $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+
+		// Construct array with workflow stages data.
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$workflowStages = $userGroupDao->getWorkflowStageKeysAndPaths();
+
+		$templateMgr = TemplateManager::getManager($request);
+
+		// Assign the authorized submission.
+		$templateMgr->assign_by_ref('submission', $submission);
+
+		// Assign workflow stages related data.
+		$templateMgr->assign('stageId', $stageId);
+		$templateMgr->assign('submissionStageId', $submission->getStageId());
+		$templateMgr->assign('workflowStages', $workflowStages);
+
+		// Get the right notifications type based on current stage id.
+		$notificationMgr = new NotificationManager();
+		$editorAssignmentNotificationType = $this->_getEditorAssignmentNotificationTypeByStageId($stageId);
+
+		// Define the workflow notification options.
+		$notificationRequestOptions = array(
+				NOTIFICATION_LEVEL_TASK => array(
+						$editorAssignmentNotificationType => array(ASSOC_TYPE_SUBMISSION, $submission->getId())
+				),
+				NOTIFICATION_LEVEL_TRIVIAL => array()
+		);
+
+		$signoffNotificationType = $this->_getSignoffNotificationTypeByStageId($stageId);
+		if (!is_null($signoffNotificationType)) {
+			$notificationRequestOptions[NOTIFICATION_LEVEL_TASK][$signoffNotificationType] = array(ASSOC_TYPE_SUBMISSION, $submission->getId());
+		}
+
+		$templateMgr->assign('workflowNotificationRequestOptions', $notificationRequestOptions);
+
+		import('controllers.modals.submissionMetadata.linkAction.SubmissionEntryLinkAction');
+		$templateMgr->assign(
+				'submissionEntryAction',
+				new SubmissionEntryLinkAction($request, $submission->getId(), $stageId)
+		);
+
+		import('lib.pkp.controllers.informationCenter.linkAction.SubmissionInfoCenterLinkAction');
+		$templateMgr->assign(
+				'submissionInformationCenterAction',
+				new SubmissionInfoCenterLinkAction($request, $submission->getId())
+		);
+	}
 
 	//
 	// Protected helper methods

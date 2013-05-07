@@ -22,10 +22,11 @@ class Context extends DataObject {
 
 	/**
 	 * Get the localized name of the context
+	 * @param $preferredLocale string
 	 * @return string
 	 */
-	function getLocalizedName() {
-		return $this->getLocalizedSetting('name');
+	function getLocalizedName($preferredLocale = null) {
+		return $this->getLocalizedSetting('name', $preferredLocale);
 	}
 
 	/**

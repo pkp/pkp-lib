@@ -124,5 +124,5 @@
 	<message key="user.interests.description">(scheid interesses met de enter- of comma-toets)</message>
 	<message key="user.group">Gebruikersgroep</message>
 	<message key="user.profile.form.usergroupRequired">Een gebruikersgroep is verplicht.</message>
-	<message key="user.authorization.pressManagerRequired">Een gebruiker met de rol Perscontact  (zoals Pers of Productieredacteur) moet aan dit stadium toegekend zijn voor u verder kunt gaan.</message>
+	<message key="user.authorization.managerRequired">Een gebruiker met de rol Perscontact  (zoals Pers of Productieredacteur) moet aan dit stadium toegekend zijn voor u verder kunt gaan.</message>
 </locale>

@@ -115,7 +115,7 @@
 	<message key="user.authorization.restrictedSiteAccess">您被拒绝访问。目前禁止访问该网站。</message>
 	<message key="user.authorization.roleBasedAccessDenied">当前的身份无法访问该操作。</message>
 	<message key="user.authorization.userGroupRequired">您必须设立有效的用户群来访问该操作。</message>
-	<message key="user.authorization.pressManagerRequired">在您能够进行下一步前您必须指派一个出版管理身份的用户 （如出版或制作编辑）。</message>
+	<message key="user.authorization.managerRequired">在您能够进行下一步前您必须指派一个出版管理身份的用户 （如出版或制作编辑）。</message>
 	<message key="user.interests.description">（按输入或逗号键来分隔兴趣）</message>
 	<message key="user.gossip">个人提醒</message>
 	<message key="user.group">用户群</message>

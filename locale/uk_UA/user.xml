@@ -125,5 +125,5 @@
 	<message key="user.profile.form.passwordSameAsOld">Новий і старий паролі однакові.</message>
 	<message key="user.profile.form.usergroupRequired">Необхідно вказати групу користувачів.</message>
 	<message key="user.suffix">Суфікс</message>
-	<message key="user.authorization.pressManagerRequired">Перед тим, як продовжити, Вам необхідно вказати користувача, який виконуватиме роль менеджера видавництва (тобто видавця або шеф-редактора).</message>
+	<message key="user.authorization.managerRequired">Перед тим, як продовжити, Вам необхідно вказати користувача, який виконуватиме роль менеджера видавництва (тобто видавця або шеф-редактора).</message>
 </locale>

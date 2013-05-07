@@ -115,7 +115,7 @@
 	<message key="user.workingLanguages">Working languages</message>
 	<message key="user.register.completeForm">Fill in this form to register with this journal.</message>
 	<message key="user.accountInformation">Informacije o nalogu</message>
-	<message key="user.authorization.pressManagerRequired">Korisnik sa ulogom Menadžera časopisa (npr. urednik časopisa ili produkcije) mora biti dodeljen u ovom momentu kako biste nastavili.</message>
+	<message key="user.authorization.managerRequired">Korisnik sa ulogom Menadžera časopisa (npr. urednik časopisa ili produkcije) mora biti dodeljen u ovom momentu kako biste nastavili.</message>
 	<message key="user.group">Grupa korisnika</message>
 	<message key="user.hello">Pozdrav,</message>
 	<message key="user.profile.form.countryRequired">Zemlja je neophodna.</message>

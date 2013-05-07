@@ -116,7 +116,7 @@
 	<message key="user.profile.form.affiliationRequired">Kræver et tilhørsforhold.</message>
 	<message key="user.register.form.emailsDoNotMatch">Felterne for e-mail-adresse stemmer ikke overens.</message>
 	<message key="user.accountInformation">Kontoinformation</message>
-	<message key="user.authorization.pressManagerRequired">En bruger med rollen som pressechef (f.eks. presse- eller produktionsredaktør) skal indskrives, før du kan gå videre.</message>
+	<message key="user.authorization.managerRequired">En bruger med rollen som pressechef (f.eks. presse- eller produktionsredaktør) skal indskrives, før du kan gå videre.</message>
 	<message key="user.interests.description">(Adskil interesser ved at trykke på Enter- eller komma-tasten)</message>
 	<message key="user.group">Brugergruppe</message>
 	<message key="user.hello">Hej</message>

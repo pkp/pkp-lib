@@ -119,7 +119,7 @@
 	<message key="user.suffix">Suffisso</message>
 	<message key="user.authorization.accessDenied">Accesso negato.</message>
 	<message key="user.accountInformation">Informazioni account</message>
-	<message key="user.authorization.pressManagerRequired">Prima di procedere è necessario assegnare un utente con ruolo di Manager di stampa (ad es. Editor di stampa o di produzione).</message>
+	<message key="user.authorization.managerRequired">Prima di procedere è necessario assegnare un utente con ruolo di Manager di stampa (ad es. Editor di stampa o di produzione).</message>
 	<message key="user.interests.description">(Separare i campi di interesse premendo ENTER o usando la virgola)</message>
 	<message key="user.group">Gruppo utenti</message>
 	<message key="user.profile.form.mailingAddressRequired">E' obbligatorio un indirizzo di posta elettronica.</message>

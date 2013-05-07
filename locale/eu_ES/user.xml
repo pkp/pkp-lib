@@ -122,7 +122,7 @@
 	<message key="user.profile.form.passwordSameAsOld">Zure pasahitz berria aurreko pasahitz berbera da.</message>
 	<message key="user.profile.form.usergroupRequired">Beharrezkoa da erabiltzaile talde bat.</message>
 	<message key="user.accountInformation">Kontuaren informazioa</message>
-	<message key="user.authorization.pressManagerRequired">Mailari Prentsa Arduradun eginkizuna (adib., Prentsa edo Produkzio Editorea) duen erabiltzaile bat esleitu behar zaio, aurrera jarraitu aurretik.</message>
+	<message key="user.authorization.managerRequired">Mailari Prentsa Arduradun eginkizuna (adib., Prentsa edo Produkzio Editorea) duen erabiltzaile bat esleitu behar zaio, aurrera jarraitu aurretik.</message>
 	<message key="user.interests.description">(Interesak banandu enter edo koma tekla sakatuz)</message>
 	<message key="user.suffix">Atzizkia</message>
 </locale>

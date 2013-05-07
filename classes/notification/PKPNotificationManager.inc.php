@@ -321,7 +321,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 				import('lib.pkp.classes.notification.managerDelegate.ApproveSubmissionNotificationManager');
 				return new ApproveSubmissionNotificationManager($notificationType);
 		}
-		assert(false); // Should not fall through
+		return null; // No delegate required, let calling context handle null.
 	}
 
 	/**

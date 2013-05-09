@@ -12,4 +12,5 @@
 
 <locale name="en_US" full_name = "English">
 	<message key="editor.review.notInitiated">The review process has not yet been initiated.</message>
+	<message key="editor.submission.externalReviewDescription">You are about to initiate an external review for this submission.  Files that are part of the submission are listed below and can be selected for review.</message>
 </locale>

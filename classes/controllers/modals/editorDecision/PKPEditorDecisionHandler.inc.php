@@ -276,10 +276,11 @@ class PKPEditorDecisionHandler extends Handler {
 			// Update editor decision and pending revisions notifications.
 			$notificationMgr = new NotificationManager();
 			$editorDecisionNotificationType = $this->_getNotificationTypeByEditorDecision($decision);
+			$notificationTypes = $this->_getReviewNotificationTypes();
+			$notificationTypes[] = $editorDecisionNotificationType;
 			$notificationMgr->updateNotification(
 				$request,
-				array($editorDecisionNotificationType,
-					NOTIFICATION_TYPE_PENDING_INTERNAL_REVISIONS, NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS),
+				$notificationTypes,
 				array($submission->getUserId()),
 				ASSOC_TYPE_SUBMISSION,
 				$submission->getId()
@@ -324,6 +325,14 @@ class PKPEditorDecisionHandler extends Handler {
 	 */
 	protected function _getReviewStages() {
 		assert(false);
+	}
+
+	/**
+	 * Get review-related decision notifications.
+	 * @return array
+	 */
+	protected function _getReviewNotificationTypes() {
+		assert(false); // Subclasses to override
 	}
 }
 

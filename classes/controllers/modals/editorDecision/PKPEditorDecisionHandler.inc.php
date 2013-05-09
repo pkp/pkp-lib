@@ -219,7 +219,42 @@ class PKPEditorDecisionHandler extends Handler {
 	 * @return array
 	 */
 	protected function _getReviewRoundOps() {
-		assert(false); // Subclasses to override
+		return array('promoteInReview', 'savePromoteInReview', 'newReviewRound', 'saveNewReviewRound', 'sendReviewsInReview', 'saveSendReviewsInReview', 'importPeerReviews');
+	}
+
+	/**
+	 * Get an instance of an editor decision form.
+	 * @param $formName string
+	 * @param $decision int
+	 * @return EditorDecisionForm
+	 */
+	protected function _getEditorDecisionForm($formName, $decision) {
+		// Retrieve the authorized submission.
+		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+		// Retrieve the stage id
+		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+
+		import("controllers.modals.editorDecision.form.$formName");
+		if (in_array($stageId, $this->_getReviewStages())) {
+			$reviewRound = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND);
+			$editorDecisionForm = new $formName($submission, $decision, $stageId, $reviewRound);
+			// We need a different save operation in review stages to authorize
+			// the review round object.
+			if (is_a($editorDecisionForm, 'PromoteForm')) {
+				$editorDecisionForm->setSaveFormOperation('savePromoteInReview');
+			} else if (is_a($editorDecisionForm, 'SendReviewsForm')) {
+				$editorDecisionForm->setSaveFormOperation('saveSendReviewsInReview');
+			}
+		} else {
+			$editorDecisionForm = new $formName($submission, $decision, $stageId);
+		}
+
+		if (is_a($editorDecisionForm, $formName)) {
+			return $editorDecisionForm;
+		} else {
+			assert(false);
+			return null;
+		}
 	}
 
 	/**
@@ -306,6 +341,14 @@ class PKPEditorDecisionHandler extends Handler {
 			$json = new JSONMessage(false);
 		}
 		return $json->getString();
+	}
+
+	/**
+	 * Get review-related stage IDs.
+	 * @return array
+	 */
+	protected function _getReviewStages() {
+		assert(false);
 	}
 }
 

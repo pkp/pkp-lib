@@ -192,7 +192,7 @@ class PKPEditorDecisionHandler extends Handler {
 	 */
 	function importPeerReviews($args, $request) {
 		// Retrieve the authorized submission.
-		$seriesEditorSubmission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 
 		// Retrieve the current review round.
 		$reviewRound = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND);
@@ -200,7 +200,7 @@ class PKPEditorDecisionHandler extends Handler {
 		// Retrieve peer reviews.
 		import('classes.submission.seriesEditor.SeriesEditorAction');
 		$seriesEditorAction = new SeriesEditorAction();
-		$peerReviews = $seriesEditorAction->getPeerReviews($seriesEditorSubmission, $reviewRound->getId());
+		$peerReviews = $seriesEditorAction->getPeerReviews($submission, $reviewRound->getId());
 
 		if(empty($peerReviews)) {
 			$json = new JSONMessage(false, __('editor.review.noReviews'));

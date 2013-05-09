@@ -185,32 +185,6 @@ class PKPEditorDecisionHandler extends Handler {
 		return $this->_saveGeneralPromote($args, $request);
 	}
 
-	/**
-	 * Import all free-text/review form reviews to paste into message
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
-	 */
-	function importPeerReviews($args, $request) {
-		// Retrieve the authorized submission.
-		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-
-		// Retrieve the current review round.
-		$reviewRound = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND);
-
-		// Retrieve peer reviews.
-		import('classes.submission.seriesEditor.SeriesEditorAction');
-		$seriesEditorAction = new SeriesEditorAction();
-		$peerReviews = $seriesEditorAction->getPeerReviews($submission, $reviewRound->getId());
-
-		if(empty($peerReviews)) {
-			$json = new JSONMessage(false, __('editor.review.noReviews'));
-		} else {
-			$json = new JSONMessage(true, $peerReviews);
-		}
-		return $json->getString();
-	}
-
 
 	//
 	// Protected helper methods

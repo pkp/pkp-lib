@@ -55,6 +55,7 @@ class PKPEditorDecisionHandler extends Handler {
 		AppLocale::requireComponents(
 			LOCALE_COMPONENT_APP_COMMON,
 			LOCALE_COMPONENT_APP_EDITOR,
+			LOCALE_COMPONENT_PKP_EDITOR,
 			LOCALE_COMPONENT_PKP_SUBMISSION
 		);
 	}

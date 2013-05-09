@@ -373,4 +373,5 @@
 	<message key="submission.nameRequired">Απαιτείται όνομα για αυτό το κομμάτι.</message>
 	<message key="submission.date.mmdd">MM-HH</message>
 	<message key="submission.date.yyyymmdd">EEEE-MM-HH</message>
+	<message key="reviewer.submission.reviewFiles">Αρχεία Αξιολόγησης</message>
 </locale>

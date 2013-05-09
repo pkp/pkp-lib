@@ -405,4 +405,5 @@
 	<message key="submission.currentStage">Étape actuelle</message>
 	<message key="submission.noActionRequired">Aucune action requise</message>
 	<message key="submission.actionNeeded">Action requise</message>
+	<message key="reviewer.submission.reviewFiles">Fichiers d'évaluation</message>
 </locale>

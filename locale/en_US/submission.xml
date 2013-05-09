@@ -534,4 +534,6 @@
 	<message key="submission.currentStage">Current stage</message>
 	<message key="submission.noActionRequired">No action required</message>
 	<message key="submission.actionNeeded">Needs action</message>
+
+	<message key="reviewer.submission.reviewFiles">Review Files</message>
 </locale>

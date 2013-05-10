@@ -138,7 +138,7 @@ class SignoffNotificationManager extends NotificationManagerDelegate {
 		$signoffDao = DAORegistry::getDAO('SignoffDAO');
 		$stageId = $signoffDao->getStageIdBySymbolic($symbolic);
 
-		import('controllers.api.signoff.linkAction.AddSignoffFileLinkAction');
+		import('lib.pkp.controllers.api.signoff.linkAction.AddSignoffFileLinkAction');
 		$signoffFileLinkAction = new AddSignoffFileLinkAction(
 			$request, $submissionId,
 			$stageId, $symbolic, null,

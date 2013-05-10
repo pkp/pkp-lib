@@ -422,6 +422,7 @@
 	<message key="notification.unsubscribe">Unsubscribe</message>
 	<message key="notification.unsubscribeError">There was an error unsubscribing you.  Please ensure that you are using the correct URL as included in your notification email.</message>
 	<message key="notification.unsubscribeSuccess">You were successfully unsubscribed.</message>
+	<message key="notification.savedSubmissionMetadata">Submission metadata saved.</message>
 	<message key="search.abstract">Abstract</message>
 	<message key="search.activeFilters">Advanced filters</message>
 	<message key="search.advancedSearchMore">Additional Search Options (click to show)</message>

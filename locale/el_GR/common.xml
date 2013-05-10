@@ -311,6 +311,7 @@
 	<message key="notification.unsubscribe">Διαγραφή από τη λίστα</message>
 	<message key="notification.unsubscribeError">Παρουσιάστηκε ένα σφάλμα κατά την διαγραφή σας από τη λίστα. Παρακαλούμε επιβεβαιωθείτε ότι η διεύθυση και ο κωδικός που εισάγατε είναι σωστά.</message>
 	<message key="notification.unsubscribeSuccess">Διαγραφήκατε με επιτυχία.</message>
+	<message key="notification.savedSubmissionMetadata">Τα μεταδεδομένα της υποβολής έχουν αποθηκευτεί.</message>
 	<message key="common.re">Re:</message>
 	<message key="common.disable">Απενεργοποίηση</message>
 	<message key="common.enable">Ενεργοποίηση</message>

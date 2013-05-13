@@ -16,7 +16,7 @@
 import('classes.handler.Handler');
 
 // Import classes for logging.
-import('lib.pkp.classes.log.PkpLog');
+import('lib.pkp.classes.log.SubmissionLog');
 import('classes.log.SubmissionEventLogEntry'); // app-specific.
 
 class PublicationEntryTabHandler extends Handler {

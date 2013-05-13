@@ -12,9 +12,9 @@
  * @brief Static class for adding / accessing submission file log entries.
  */
 
-import('lib.pkp.classes.log.PkpLog');
+import('lib.pkp.classes.log.SubmissionLog');
 
-class SubmissionFileLog extends PkpLog {
+class SubmissionFileLog extends SubmissionLog {
 	/**
 	 * Add a new file event log entry with the specified parameters
 	 * @param $request object
@@ -24,7 +24,7 @@ class SubmissionFileLog extends PkpLog {
 	 * @param $params array optional
 	 * @return object SubmissionLogEntry iff the event was logged
 	 */
-	function logEvent($request, &$submissionFile, $eventType, $messageKey, $params = array()) {
+	static function logEvent($request, &$submissionFile, $eventType, $messageKey, $params = array()) {
 		// Create a new entry object
 		$submissionFileEventLogDao = DAORegistry::getDAO('SubmissionFileEventLogDAO');
 		$entry = $submissionFileEventLogDao->newDataObject();

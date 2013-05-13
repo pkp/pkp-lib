@@ -5,18 +5,18 @@
  */
 
 /**
- * @file classes/log/PkpLog.inc.php
+ * @file classes/log/SubmissionLog.inc.php
  *
  * Copyright (c) 2003-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PkpLog
+ * @class SubmissionLog
  * @ingroup log
  *
  * @brief Static class for adding / accessing PKP log entries.
  */
 
-class PkpLog {
+class SubmissionLog {
 
 	/**
 	 * Add a new event log entry with the specified parameters
@@ -27,7 +27,7 @@ class PkpLog {
 	 * @param $params array optional
 	 * @return object SubmissionLogEntry iff the event was logged
 	 */
-	function logEvent($request, $submission, $eventType, $messageKey, $params = array()) {
+	static function logEvent($request, $submission, $eventType, $messageKey, $params = array()) {
 		// Create a new entry object
 		$submissionEventLogDao = DAORegistry::getDAO('SubmissionEventLogDAO');
 		$entry = $submissionEventLogDao->newDataObject();

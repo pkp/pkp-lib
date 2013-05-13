@@ -15,4 +15,6 @@
 	<message key="editor.submission.externalReviewDescription">You are about to initiate an external review for this submission.  Files that are part of the submission are listed below and can be selected for review.</message>
 	<message key="editor.submission.review.reviewFilesDescription"><![CDATA[These are the files that can be selected for review, when adding reviewers in <span class="pkp_help_title">Reviewers</span>]]>.</message>
 	<message key="editor.submission.uploadSelectFiles">Upload/Select Files</message>
+	<message key="editor.submission.revisions">Revisions</message>
+	<message key="editor.submission.revisionsDescription">Revised submission files appear here, with the open folder icon indicating who uploaded the file.</message>
 </locale>

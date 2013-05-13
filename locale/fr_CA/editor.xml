@@ -15,4 +15,6 @@
 	<message key="editor.submission.externalReviewDescription">Vous entamez le processus d'évaluation externe de cette soumission. La liste des fichiers faisant partie de cette soumission est affichée ci-dessous. Ils peuvent être sélectionnés pour être révisés.</message>
 	<message key="editor.submission.review.reviewFilesDescription"><![CDATA[Voici les fichiers qui peuvent être sélectionnés pour l'évaluation, lorsque vous ajoutez des évaluateurs dans la section <span class="pkp_help_title">Évaluateurs</span>]]>.</message>
 	<message key="editor.submission.uploadSelectFiles">Télécharger/Sélectionner les fichiers</message>
+	<message key="editor.submission.revisions">Révisions</message>
+	<message key="editor.submission.revisionsDescription">Les fichiers révisés de la soumission sont affichés ici. L'icône Ouvrir le dossier indique qui a téléchargé le fichier.</message>
 </locale>

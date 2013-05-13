@@ -112,6 +112,68 @@ class PKPAction {
 		// Add the submission.
 		$templateMgr->assign_by_ref('submission', $submission);
 	}
+
+	/**
+	 * Records an editor's submission decision.
+	 * @param $request PKPRequest
+	 * @param $submission Submission
+	 * @param $decision integer
+	 * @param $decisionLabels array(DECISION_CONSTANT => decision.locale.key, ...)
+	 * @param $reviewRound ReviewRound Current review round that user is taking the decision, if any.
+	 * @param $stageId int
+	 */
+	function recordDecision($request, $submission, $decision, $decisionLabels, $reviewRound = null, $stageId = null) {
+		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+
+		// Define the stage and round data.
+		if (!is_null($reviewRound)) {
+			$stageId = $reviewRound->getStageId();
+			$round = $reviewRound->getRound();
+		} else {
+			$round = REVIEW_ROUND_NONE;
+			if ($stageId == null) {
+				// We consider that the decision is being made for the current
+				// submission stage.
+				$stageId = $submission->getStageId();
+			}
+		}
+
+		$editorAssigned = $stageAssignmentDao->editorAssignedToStage(
+			$submission->getId(),
+			$stageId
+		);
+
+		// Sanity checks
+		if (!$editorAssigned || !isset($decisionLabels[$decision])) return false;
+
+		$user = $request->getUser();
+		$editorDecision = array(
+			'editDecisionId' => null,
+			'editorId' => $user->getId(),
+			'decision' => $decision,
+			'dateDecided' => date(Core::getCurrentDate())
+		);
+
+		$result = $editorDecision;
+		if (!HookRegistry::call('PKPAction::recordDecision', array(&$submission, &$editorDecision, &$result))) {
+			// Record the new decision
+			$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO');
+			$editDecisionDao->updateEditorDecision($submission->getId(), $editorDecision, $stageId, $round);
+
+			// Stamp the submission modified
+			$submission->setStatus(STATUS_QUEUED);
+			$submission->stampStatusModified();
+			$submissionDao = Application::getSubmissionDAO();
+			$submissionDao->updateObject($submission);
+
+			// Add log entry
+			import('lib.pkp.classes.log.SubmissionLog');
+			import('classes.log.SubmissionEventLogEntry');
+			AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_APP_EDITOR);
+			SubmissionLog::logEvent($request, $submission, SUBMISSION_LOG_EDITOR_DECISION, 'log.editor.decision', array('editorName' => $user->getFullName(), 'submissionId' => $submission->getId(), 'decision' => __($decisionLabels[$decision])));
+		}
+		return $result;
+	}
 }
 
 ?>

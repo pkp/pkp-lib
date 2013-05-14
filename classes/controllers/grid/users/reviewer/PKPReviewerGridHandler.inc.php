@@ -682,7 +682,7 @@ class PKPReviewerGridHandler extends GridHandler {
 		// Define operations that need a review round policy.
 		return array(
 			'fetchGrid', 'fetchRow', 'showReviewerForm', 'reloadReviewerForm',
-			 'createReviewer', 'enrollReviewer', 'updateReviewer',
+			'createReviewer', 'enrollReviewer', 'updateReviewer',
 			'getReviewersNotAssignedToSubmission', 'getUsersNotAssignedAsReviewers'
 		);
 	}

@@ -21,4 +21,5 @@
 	<message key="editor.submission.addReviewer">Add Reviewer</message>
 	<message key="editor.submission.fileList.includeAllStages">Include all files from all accessible workflow stages.</message>
 	<message key="editor.submission.review.currentFiles">Current Review Files For Round {$round}</message>
+	<message key="editor.review.uploadRevisionToRound">Upload Revised File</message>
 </locale>

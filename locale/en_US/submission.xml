@@ -536,4 +536,5 @@
 	<message key="submission.actionNeeded">Needs action</message>
 
 	<message key="reviewer.submission.reviewFiles">Review Files</message>
+	<message key="submission.submit.currentFile">Current file</message>
 </locale>

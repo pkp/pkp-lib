@@ -174,6 +174,66 @@ class PKPAction {
 		}
 		return $result;
 	}
+
+	/**
+	 * Clears a review assignment from a submission.
+	 * @param $request PKPRequest
+	 * @param $submission object
+	 * @param $reviewId int
+	 */
+	function clearReview($request, $submissionId, $reviewId) {
+		$submissionDao = Application::getSubmissionDAO();
+		$submission = $submissionDao->getById($submissionId);
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+		$userDao = DAORegistry::getDAO('UserDAO');
+
+		$reviewAssignment = $reviewAssignmentDao->getById($reviewId);
+
+		if (isset($reviewAssignment) && $reviewAssignment->getSubmissionId() == $submission->getId() && !HookRegistry::call('PKPAction::clearReview', array(&$submission, $reviewAssignment))) {
+			$reviewer = $userDao->getById($reviewAssignment->getReviewerId());
+			if (!isset($reviewer)) return false;
+			$reviewAssignmentDao->deleteById($reviewId);
+
+			// Stamp the modification date
+			$submission->stampModified();
+			$submissionDao->updateObject($submission);
+
+			$notificationDao = DAORegistry::getDAO('NotificationDAO');
+			$notificationDao->deleteByAssoc(
+				ASSOC_TYPE_REVIEW_ASSIGNMENT,
+				$reviewAssignment->getId(),
+				$reviewAssignment->getReviewerId(),
+				NOTIFICATION_TYPE_REVIEW_ASSIGNMENT
+			);
+
+			// Insert a trivial notification to indicate the reviewer was removed successfully.
+			$currentUser = $request->getUser();
+			$notificationMgr = new NotificationManager();
+			$notificationMgr->createTrivialNotification($currentUser->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.removedReviewer')));
+
+			// Update the review round status, if needed.
+			$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+			$reviewRound = $reviewRoundDao->getById($reviewAssignment->getReviewRoundId());
+			$reviewAssignments = $reviewAssignmentDao->getBySubmissionId($reviewRound->getSubmissionId(), $reviewRound->getRound(), $reviewRound->getStageId());
+			$reviewRoundDao->updateStatus($reviewRound, $reviewAssignments);
+
+			$notificationMgr->updateNotification(
+				$request,
+				array(NOTIFICATION_TYPE_ALL_REVIEWS_IN),
+				null,
+				ASSOC_TYPE_REVIEW_ROUND,
+				$reviewRound->getId()
+			);
+
+			// Add log
+			import('lib.pkp.classes.log.SubmissionLog');
+			import('classes.log.SubmissionEventLogEntry');
+			SubmissionLog::logEvent($request, $submission, SUBMISSION_LOG_REVIEW_CLEAR, 'log.review.reviewCleared', array('reviewerName' => $reviewer->getFullName(), 'submissionId' => $submission->getId(), 'stageId' => $reviewAssignment->getStageId(), 'round' => $reviewAssignment->getRound()));
+
+			return true;
+		} else return false;
+	}
+
 }
 
 ?>

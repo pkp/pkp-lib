@@ -250,12 +250,12 @@ class PKPAction {
 		$reviewer =& $userDao->getById($reviewerId);
 
 		// Check to see if the requested reviewer is not already
-		// assigned to review this monograph.
+		// assigned to review this submission.
 
 		$assigned = $reviewAssignmentDao->reviewerExists($reviewRound->getId(), $reviewerId);
 
 		// Only add the reviewer if he has not already
-		// been assigned to review this monograph.
+		// been assigned to review this submission.
 		$stageId = $reviewRound->getStageId();
 		$round = $reviewRound->getRound();
 		if (!$assigned && isset($reviewer) && !HookRegistry::call('PKPAction::addReviewer', array(&$submission, $reviewerId))) {
@@ -312,6 +312,62 @@ class PKPAction {
 			import('lib.pkp.classes.log.SubmissionLog');
 			import('lib.pkp.classes.log.PKPSubmissionEventLogEntry');
 			SubmissionLog::logEvent($request, $submission, SUBMISSION_LOG_REVIEW_ASSIGN, 'log.review.reviewerAssigned', array('reviewerName' => $reviewer->getFullName(), 'submissionId' => $submission->getId(), 'stageId' => $stageId, 'round' => $round));
+		}
+	}
+
+	/**
+	 * Sets the due date for a review assignment.
+	 * @param $request PKPRequest
+	 * @param $submission Submission
+	 * @param $reviewId int
+	 * @param $dueDate string
+	 * @param $numWeeks int
+	 * @param $logEntry boolean
+	 */
+	function setDueDates($request, $submission, $reviewAssignment, $reviewDueDate = null, $responseDueDate = null, $logEntry = false) {
+		$userDao = DAORegistry::getDAO('UserDAO');
+		$context = $request->getContext();
+
+		$reviewer = $userDao->getById($reviewAssignment->getReviewerId());
+		if (!isset($reviewer)) return false;
+
+		if ($reviewAssignment->getSubmissionId() == $submission->getId() && !HookRegistry::call('PKPAction::setDueDates', array(&$reviewAssignment, &$reviewer, &$reviewDueDate, &$responseDueDate))) {
+
+			// Set the review due date
+			$defaultNumWeeks = $context->getSetting('numWeeksPerReview');
+			$reviewAssignment->setDateDue(DAO::formatDateToDB($reviewDueDate, $defaultNumWeeks, false));
+
+			// Set the response due date
+			$defaultNumWeeks = $context->getSetting('numWeeksPerReponse');
+			$reviewAssignment->setDateResponseDue(DAO::formatDateToDB($responseDueDate, $defaultNumWeeks, false));
+
+			// update the assignment (with both the new dates)
+			$reviewAssignment->stampModified();
+			$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
+			$reviewAssignmentDao->updateObject($reviewAssignment);
+
+			// N.B. Only logging Date Due
+			if ($logEntry) {
+				// Add log
+				import('lib.pkp.classes.log.SubmissionLog');
+				import('classes.log.SubmissionEventLogEntry');
+				SubmissionLog::logEvent(
+					$request,
+					$submission,
+					SUBMISSION_LOG_REVIEW_SET_DUE_DATE,
+					'log.review.reviewDueDateSet',
+					array(
+						'reviewerName' => $reviewer->getFullName(),
+						'dueDate' => strftime(
+							Config::getVar('general', 'date_format_short'),
+							strtotime($reviewAssignment->getDateDue())
+						),
+						'submissionId' => $submission->getId(),
+						'stageId' => $reviewAssignment->getStageId(),
+						'round' => $reviewAssignment->getRound()
+					)
+				);
+			}
 		}
 	}
 }

@@ -168,7 +168,7 @@ class PKPAction {
 
 			// Add log entry
 			import('lib.pkp.classes.log.SubmissionLog');
-			import('classes.log.SubmissionEventLogEntry');
+			import('lib.pkp.classes.log.PKPSubmissionEventLogEntry');
 			AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_APP_EDITOR);
 			SubmissionLog::logEvent($request, $submission, SUBMISSION_LOG_EDITOR_DECISION, 'log.editor.decision', array('editorName' => $user->getFullName(), 'submissionId' => $submission->getId(), 'decision' => __($decisionLabels[$decision])));
 		}
@@ -234,6 +234,86 @@ class PKPAction {
 		} else return false;
 	}
 
+	/**
+	 * Assigns a reviewer to a submission.
+	 * @param $request PKPRequest
+	 * @param $submission object
+	 * @param $reviewerId int
+	 * @param $reviewRound ReviewRound
+	 * @param $reviewDueDate datetime optional
+	 * @param $responseDueDate datetime optional
+	 */
+	function addReviewer($request, $submission, $reviewerId, &$reviewRound, $reviewDueDate = null, $responseDueDate = null, $reviewMethod = null) {
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+		$userDao = DAORegistry::getDAO('UserDAO');
+
+		$reviewer =& $userDao->getById($reviewerId);
+
+		// Check to see if the requested reviewer is not already
+		// assigned to review this monograph.
+
+		$assigned = $reviewAssignmentDao->reviewerExists($reviewRound->getId(), $reviewerId);
+
+		// Only add the reviewer if he has not already
+		// been assigned to review this monograph.
+		$stageId = $reviewRound->getStageId();
+		$round = $reviewRound->getRound();
+		if (!$assigned && isset($reviewer) && !HookRegistry::call('PKPAction::addReviewer', array(&$submission, $reviewerId))) {
+			$reviewAssignment = new ReviewAssignment();
+			$reviewAssignment->setSubmissionId($submission->getId());
+			$reviewAssignment->setReviewerId($reviewerId);
+			$reviewAssignment->setDateAssigned(Core::getCurrentDate());
+			$reviewAssignment->setStageId($stageId);
+			$reviewAssignment->setRound($round);
+			$reviewAssignment->setReviewRoundId($reviewRound->getId());
+			if (isset($reviewMethod)) {
+				$reviewAssignment->setReviewMethod($reviewMethod);
+			}
+			$reviewAssignmentDao->insertObject($reviewAssignment);
+
+			// Stamp modification date
+			$submission->stampStatusModified();
+			$submissionDao = Application::getSubmissionDAO();
+			$submissionDao->updateObject($submission);
+
+			$this->setDueDates($request, $submission, $reviewAssignment, $reviewDueDate, $responseDueDate);
+
+			// Add notification
+			$notificationMgr = new NotificationManager();
+			$notificationMgr->createNotification(
+				$request,
+				$reviewerId,
+				NOTIFICATION_TYPE_REVIEW_ASSIGNMENT,
+				$submission->getContextId(),
+				ASSOC_TYPE_REVIEW_ASSIGNMENT,
+				$reviewAssignment->getId(),
+				NOTIFICATION_LEVEL_TASK
+			);
+
+			// Insert a trivial notification to indicate the reviewer was added successfully.
+			$currentUser = $request->getUser();
+			$notificationMgr = new NotificationManager();
+			$notificationMgr->createTrivialNotification($currentUser->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.addedReviewer')));
+
+			// Update the review round status.
+			$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
+			$reviewAssignments = $reviewAssignmentDao->getBySubmissionId($submission->getId(), $round, $stageId);
+			$reviewRoundDao->updateStatus($reviewRound, $reviewAssignments);
+
+			$notificationMgr->updateNotification(
+				$request,
+				array(NOTIFICATION_TYPE_ALL_REVIEWS_IN),
+				null,
+				ASSOC_TYPE_REVIEW_ROUND,
+				$reviewRound->getId()
+			);
+
+			// Add log
+			import('lib.pkp.classes.log.SubmissionLog');
+			import('lib.pkp.classes.log.PKPSubmissionEventLogEntry');
+			SubmissionLog::logEvent($request, $submission, SUBMISSION_LOG_REVIEW_ASSIGN, 'log.review.reviewerAssigned', array('reviewerName' => $reviewer->getFullName(), 'submissionId' => $submission->getId(), 'stageId' => $stageId, 'round' => $round));
+		}
+	}
 }
 
 ?>

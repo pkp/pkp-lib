@@ -18,6 +18,11 @@ import('lib.pkp.classes.mail.Mail');
 define('MAIL_ERROR_INVALID_EMAIL', 0x000001);
 
 class PKPMailTemplate extends Mail {
+	/** @var $context object The context this message relates to */
+	var $context;
+
+	/** @var $includeSignature boolean whether to include the context's signature */
+	var $includeSignature;
 
 	/** @var $emailKey string Key of the email template we are using */
 	var $emailKey;
@@ -54,10 +59,16 @@ class PKPMailTemplate extends Mail {
 	 * @param $enableAttachments boolean optional Whether or not to enable article attachments in the template
 	 * @param $includeSignature boolean optional
 	 */
-	function PKPMailTemplate($emailKey = null, $locale = null, $enableAttachments = null, $includeSignature = true) {
+	function PKPMailTemplate($emailKey = null, $locale = null, $enableAttachments = null, $context = null, $includeSignature = true) {
 		parent::Mail();
 		$this->emailKey = isset($emailKey) ? $emailKey : null;
 
+		// If a context wasn't specified, use the current request.
+		$application = PKPApplication::getApplication();
+		$request = $application->getRequest();
+		if ($context === null) $context = $request->getContext();
+
+		$this->includeSignature = $includeSignature;
 		// Use current user's locale if none specified
 		$this->locale = isset($locale) ? $locale : AppLocale::getLocale();
 
@@ -78,6 +89,74 @@ class PKPMailTemplate extends Mail {
 		}
 
 		$this->addressFieldsEnabled = true;
+
+		if (isset($this->emailKey)) {
+			$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
+			$emailTemplate = $emailTemplateDao->getEmailTemplate($this->emailKey, $this->locale, $context == null ? 0 : $context->getId());
+		}
+
+		$userSig = '';
+		$user = Request::getUser();
+		if ($user) {
+			$userSig = $user->getLocalizedSignature();
+			if (!empty($userSig)) $userSig = "\n" . $userSig;
+		}
+
+		if (isset($emailTemplate) && Request::getUserVar('subject')==null && Request::getUserVar('body')==null) {
+			$this->setSubject($emailTemplate->getSubject());
+			$this->setBody($emailTemplate->getBody() . $userSig);
+			$this->enabled = $emailTemplate->getEnabled();
+
+			if (Request::getUserVar('usePostedAddresses')) {
+				$to = Request::getUserVar('to');
+				if (is_array($to)) {
+					$this->setRecipients($this->processAddresses ($this->getRecipients(), $to));
+				}
+				$cc = Request::getUserVar('cc');
+				if (is_array($cc)) {
+					$this->setCcs($this->processAddresses ($this->getCcs(), $cc));
+				}
+				$bcc = Request::getUserVar('bcc');
+				if (is_array($bcc)) {
+					$this->setBccs($this->processAddresses ($this->getBccs(), $bcc));
+				}
+			}
+		} else {
+			$this->setSubject(Request::getUserVar('subject'));
+			$body = Request::getUserVar('body');
+			if (empty($body)) $this->setBody($userSig);
+			else $this->setBody($body);
+			$this->skip = (($tmp = Request::getUserVar('send')) && is_array($tmp) && isset($tmp['skip']));
+			$this->enabled = true;
+
+			if (is_array($toEmails = Request::getUserVar('to'))) {
+				$this->setRecipients($this->processAddresses ($this->getRecipients(), $toEmails));
+			}
+			if (is_array($ccEmails = Request::getUserVar('cc'))) {
+				$this->setCcs($this->processAddresses ($this->getCcs(), $ccEmails));
+			}
+			if (is_array($bccEmails = Request::getUserVar('bcc'))) {
+				$this->setBccs($this->processAddresses ($this->getBccs(), $bccEmails));
+			}
+		}
+
+		// Default "From" to user if available, otherwise site/context principal contact
+		$user = Request::getUser();
+		if ($user) {
+			$this->setReplyTo($user->getEmail(), $user->getFullName());
+		}
+		if (!$context) {
+			$site = Request::getSite();
+			$this->setFrom($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
+		} else {
+			$this->setFrom($context->getSetting('contactEmail'), $context->getSetting('contactName'));
+		}
+
+		if ($context && !Request::getUserVar('continued')) {
+			$this->setSubject('[' . $context->getLocalizedSetting('initials') . '] ' . $this->getSubject());
+		}
+
+		$this->context = $context;
 	}
 
 	/**
@@ -115,6 +194,13 @@ class PKPMailTemplate extends Mail {
 	function assignParams($paramArray = array()) {
 		$subject = $this->getSubject();
 		$body = $this->getBody();
+
+		if (isset($this->context)) {
+			$paramArray['principalContactSignature'] = $this->context->getSetting('contactName');
+		} else {
+			$site = Request::getSite();
+			$paramArray['principalContactSignature'] = $site->getLocalizedContactName();
+		}
 
 		// Replace variables in message with values
 		foreach ($paramArray as $key => $value) {
@@ -214,6 +300,30 @@ class PKPMailTemplate extends Mail {
 	 * @param $clearAttachments boolean Whether to delete attachments after
 	 */
 	function send($clearAttachments = true) {
+		if (isset($this->context)) {
+			//If {$templateSignature} and/or {$templateHeader}
+			// exist in the body of the message, replace them with
+			// the signature; otherwise just pre/append
+			// them. This is here to accomodate MIME-encoded
+			// messages or other cases where the signature cannot
+			// just be appended.
+			$header = $this->context->getSetting('emailHeader');
+			if (strstr($this->getBody(), '{$templateHeader}') === false) {
+				$this->setBody($header . "\n" . $this->getBody());
+			} else {
+				$this->setBody(str_replace('{$templateHeader}', $header, $this->getBody()));
+			}
+
+			$signature = $this->context->getSetting('emailSignature');
+			if (strstr($this->getBody(), '{$templateSignature}') === false) {
+				$this->setBody($this->getBody() . "\n" . $signature);
+			} else {
+				$this->setBody(str_replace('{$templateSignature}', $signature, $this->getBody()));
+			}
+
+			$envelopeSender = $this->context->getSetting('envelopeSender');
+			if (!empty($envelopeSender) && Config::getVar('email', 'allow_envelope_sender')) $this->setEnvelopeSender($envelopeSender);
+		}
 		if ($this->attachmentsEnabled) {
 			foreach ($this->persistAttachments as $persistentAttachment) {
 				$this->addAttachment(

@@ -232,7 +232,7 @@ class FileManager {
 	function downloadFile($filePath, $mediaType = null, $inline = false, $fileName = null) {
 		$result = null;
 		if (HookRegistry::call('FileManager::downloadFile', array(&$filePath, &$mediaType, &$inline, &$result, &$fileName))) return $result;
-		$postDownloadHook = 'FileManager::downloadFileFinished';
+		$postDownloadHookList = array('FileManager::downloadFileFinished', 'UsageEventPlugin::getUsageEvent');
 		if (is_readable($filePath)) {
 			if ($mediaType === null) {
 				// If the media type wasn't specified, try to detect.
@@ -247,8 +247,10 @@ class FileManager {
 			// Free some memory
 			$postDownloadHooks = null;
 			$hooks = HookRegistry::getHooks();
-			if (isset($hooks[$postDownloadHook])) {
-				$postDownloadHooks = $hooks[$postDownloadHook];
+			foreach ($postDownloadHookList as $hookName) {
+				if (isset($hooks[$hookName])) {
+					$postDownloadHooks[$hookName] = $hooks[$hookName];
+				}
 			}
 			unset($hooks);
 			Registry::clear();
@@ -265,13 +267,16 @@ class FileManager {
 			FileManager::readFile($filePath, true);
 
 			if ($postDownloadHooks) {
-				HookRegistry::setHooks($postDownloadHook, $postDownloadHooks);
+				foreach ($postDownloadHooks as $hookName => $hooks) {
+					HookRegistry::setHooks($hookName, $hooks);
+				}
 			}
 			$returner = true;
 		} else {
 			$returner = false;
 		}
-		HookRegistry::call($postDownloadHook, array(&$returner));
+		HookRegistry::call('FileManager::downloadFileFinished', array(&$returner));
+
 		return $returner;
 	}
 

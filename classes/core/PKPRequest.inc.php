@@ -12,7 +12,6 @@
  * @brief Class providing operations associated with HTTP requests.
  */
 
-define('USER_AGENTS_FILE', Core::getBaseDir() . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'pkp' . DIRECTORY_SEPARATOR . 'registry' . DIRECTORY_SEPARATOR . 'botAgents.txt');
 
 class PKPRequest {
 	//
@@ -439,22 +438,15 @@ class PKPRequest {
 	}
 
 	/**
-	 * Determine whether a user agent is a bot or not using an external
-	 * list of regular expressions.
+	 * Determine whether the user agent is a bot or not.
+	 * @return boolean
 	 */
 	function isBot() {
 		$_this =& PKPRequest::_checkThis();
 
 		if (!isset($this->_isBot)) {
 			$userAgent = $_this->getUserAgent();
-			$this->_isBot = false;
-			$regexps = array_filter(file(USER_AGENTS_FILE), create_function('&$a', 'return ($a = trim($a)) && !empty($a) && $a[0] != \'#\';'));
-			foreach ($regexps as $regexp) {
-				if (String::regexp_match($regexp, $userAgent)) {
-					$this->_isBot = true;
-					return $this->_isBot;
-				}
-			}
+			$this->_isBot = Core::isUserAgentBot($userAgent);
 		}
 		return $this->_isBot;
 	}

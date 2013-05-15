@@ -17,7 +17,13 @@
  */
 
 
+define('USER_AGENTS_FILE', Core::getBaseDir() . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'pkp' . DIRECTORY_SEPARATOR . 'registry' . DIRECTORY_SEPARATOR . 'botAgents.txt');
+
 class Core {
+
+	/** @var array The regular expressions that will find a bot user agent */
+	static $botRegexps = array();
+
 	/**
 	 * Get the path to the base installation directory.
 	 * @return string
@@ -119,6 +125,64 @@ class Core {
 	 */
 	function isWindows() {
 		return strtolower_codesafe(substr(Core::serverPHPOS(), 0, 3)) == 'win';
+	}
+
+	/**
+	 * Check the passed user agent for a bot.
+	 * @param $userAgent string
+	 * @param $botRegexpsFile string An alternative file with regular
+	 * expressions to find bots inside user agent strings.
+	 * @return boolean
+	 */
+	function isUserAgentBot($userAgent, $botRegexpsFile = USER_AGENTS_FILE) {
+		static $botRegexps;
+
+		if (!isset($botRegexps[$botRegexpsFile])) {
+			$cacheManager =& CacheManager::getManager();
+			$cache =& $cacheManager->getCache('core', $botRegexpsFile, array('Core', '_botFileListCacheMiss'), CACHE_TYPE_FILE);
+			$botRegexps[$botRegexpsFile] = $cache->getContents($botRegexpsFile);
+		}
+
+		foreach ($botRegexps[$botRegexpsFile] as $regexp) {
+			if (String::regexp_match($regexp, $userAgent)) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	/**
+	 * Bot list file cache miss fallback.
+	 * @param $cache FileCache
+	 * @return array:
+	 */
+	function _botFileListCacheMiss(&$cache) {
+		$id = $cache->getCacheId();
+		$botRegexps = array_filter(file($id),
+			array('Core', '_filterBotRegexps'));
+
+		$cache->setEntireCache($botRegexps);
+		return $botRegexps;
+	}
+
+	/**
+	 * Filter the regular expressions to find bots, adding
+	 * delimiters if necessary.
+	 * @param $regexp string
+	 */
+	function _filterBotRegexps(&$regexp) {
+		$delimiter = '/';
+		$regexp = trim($regexp);
+		if (!empty($regexp) && $regexp[0] != '#') {
+			if(strpos($regexp, $delimiter) !== 0) {
+				// Make sure delimiters are in place.
+				$regexp = $delimiter . $regexp . $delimiter;
+			}
+			return true;
+		} else {
+			return false;
+		}
 	}
 }
 

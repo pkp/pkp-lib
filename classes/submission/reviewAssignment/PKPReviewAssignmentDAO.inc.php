@@ -692,6 +692,18 @@ class PKPReviewAssignmentDAO extends DAO {
 	}
 
 	/**
+	 * Return the review methods translation keys.
+	 * @return array
+	 */
+	function getReviewMethodsTranslationKeys() {
+		return array(
+			SUBMISSION_REVIEW_METHOD_DOUBLEBLIND => 'editor.submissionReview.doubleBlind',
+			SUBMISSION_REVIEW_METHOD_BLIND => 'editor.submissionReview.blind',
+			SUBMISSION_REVIEW_METHOD_OPEN => 'editor.submissionReview.open',
+		);
+	}
+
+	/**
 	 * Get the number of reviews done, avg. number of days per review, days since last review, and num. of
 	 * active reviews for all reviewers of the given context.
 	 * @return array

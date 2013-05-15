@@ -232,6 +232,7 @@ class FileManager {
 	function downloadFile($filePath, $mediaType = null, $inline = false, $fileName = null) {
 		$result = null;
 		if (HookRegistry::call('FileManager::downloadFile', array(&$filePath, &$mediaType, &$inline, &$result, &$fileName))) return $result;
+		$postDownloadHookList = array('FileManager::downloadFileFinished', 'UsageEventPlugin::getUsageEvent');
 		if (is_readable($filePath)) {
 			if ($mediaType === null) {
 				// If the media type wasn't specified, try to detect.
@@ -243,8 +244,17 @@ class FileManager {
 				$fileName = basename($filePath);
 			}
 
-			Registry::clear(); // Free some memory
+			$postDownloadHooks = null;
+			$hooks = HookRegistry::getHooks();
+			foreach ($postDownloadHookList as $hookName) {
+				if (isset($hooks[$hookName])) {
+					$postDownloadHooks[$hookName] = $hooks[$hookName];
+				}
+			}
+			unset($hooks);
+			Registry::clear();
 
+			// Stream the file to the end user.
 			header("Content-Type: $mediaType");
 			header('Content-Length: ' . filesize($filePath));
 			header('Content-Disposition: ' . ($inline ? 'inline' : 'attachment') . "; filename=\"$fileName\"");
@@ -255,11 +265,18 @@ class FileManager {
 			// https://github.com/pkp/pkp-lib/commit/82f4a36db406ecac3eb88875541a74123e455713#commitcomment-1459396
 			FileManager::readFile($filePath, true);
 
-			return true;
-
+			if ($postDownloadHooks) {
+				foreach ($postDownloadHooks as $hookName => $hooks) {
+					HookRegistry::setHooks($hookName, $hooks);
+				}
+			}
+			$returner = true;
 		} else {
-			return false;
+			$returner = false;
 		}
+		HookRegistry::call('FileManager::downloadFileFinished', array(&$returner));
+
+		return $returner;
 	}
 
 	/**

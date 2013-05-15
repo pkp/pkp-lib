@@ -255,7 +255,7 @@ class PKPReviewerGridHandler extends GridHandler {
 		$formClassName = $this->_getReviewerFormClassName($selectionType);
 
 		// Form handling
-		import('controllers.grid.users.reviewer.form.' . $formClassName );
+		import('lib.pkp.controllers.grid.users.reviewer.form.' . $formClassName );
 		$reviewerForm = new $formClassName($this->getSubmission(), $this->getReviewRound());
 		$reviewerForm->readInputData();
 		if ($reviewerForm->validate()) {

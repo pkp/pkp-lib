@@ -310,7 +310,7 @@ class PKPReviewerGridHandler extends GridHandler {
 	 * @return string Serialized JSON object
 	 */
 	function getReviewersNotAssignedToSubmission($args, $request) {
-		$press = $request->getPress();
+		$context = $request->getContext();
 		$submission = $this->getSubmission();
 		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
 		$reviewRound = $this->getReviewRound();
@@ -318,7 +318,7 @@ class PKPReviewerGridHandler extends GridHandler {
 		$term = $request->getUserVar('term');
 
 		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
-		$reviewers = $userDao->getReviewersNotAssignedToSubmission($press->getId(), $submission->getId(), $reviewRound, $term);
+		$reviewers = $userDao->getReviewersNotAssignedToSubmission($context->getId(), $submission->getId(), $reviewRound, $term);
 
 		$reviewerList = array();
 		while($reviewer = $reviewers->next()) {
@@ -340,13 +340,13 @@ class PKPReviewerGridHandler extends GridHandler {
 	 * @return string Serialized JSON object
 	 */
 	function getUsersNotAssignedAsReviewers($args, $request) {
-		$press = $request->getPress();
+		$context = $request->getContext();
 		$term = $request->getUserVar('term');
 
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$submission = $this->getSubmission();
 
-		$users = $userGroupDao->getUsersNotInRole(ROLE_ID_REVIEWER, $press->getId(), $term);
+		$users = $userGroupDao->getUsersNotInRole(ROLE_ID_REVIEWER, $context->getId(), $term);
 
 		$userList = array();
 		while ($user = $users->next()) {

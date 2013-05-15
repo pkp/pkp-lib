@@ -327,4 +327,8 @@
 	<message key="common.refresh">Rafraîchir</message>
 	<message key="common.loading">Chargement ...</message>
 	<message key="common.accepted">Accepté</message>
+	<message key="reviewer.submission.reviewSchedule">Examiner le calendrier</message>
+	<message key="reviewer.submission.reviewRequestDate">Requête du rédacteur en chef</message>
+	<message key="reviewer.submission.responseDueDate">Date limite de la réponse</message>
+	<message key="reviewer.submission.reviewDueDate">Date limite de l'évaluation</message>
 </locale>

@@ -476,4 +476,8 @@
 			<li>With PDFs, the authors' names should also be removed from Document Properties found under File on Adobe Acrobat's main menu.</li>
 		</ul>]]>
 	</message>
+	<message key="reviewer.submission.reviewSchedule">Review Schedule</message>
+	<message key="reviewer.submission.reviewRequestDate">Editor's Request</message>
+	<message key="reviewer.submission.responseDueDate">Response Due Date</message>
+	<message key="reviewer.submission.reviewDueDate">Review Due Date</message>
 </locale>

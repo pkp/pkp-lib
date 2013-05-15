@@ -326,4 +326,8 @@
 	<message key="common.uploadFailed">Το αρχείο δεν ανέβηκε. Σας παρακαλούμε προσπαθήστε ξανά ή επικοινωνήστε με τον διαχειριστή αν το πρόβλημα επιμείνει.</message>
 	<message key="common.loading">Φόρτωση...</message>
 	<message key="navigation.dashboard">Ταμπλό</message>
+	<message key="reviewer.submission.reviewSchedule">Πρόγραμμα Αξιολόγησης</message>
+	<message key="reviewer.submission.reviewRequestDate">Αίτημα υπεύθυνου έκδοσης</message>
+	<message key="reviewer.submission.responseDueDate">Ημερομηνία Προθεσμίας Απάντησης</message>
+	<message key="reviewer.submission.reviewDueDate">Ημερομηνία Προθεσμίας Αξιολόγησης</message>
 </locale>

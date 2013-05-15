@@ -368,4 +368,8 @@
 	<message key="navigation.submissions">Submissões</message>
 	<message key="navigation.system">Sistema</message>
 	<message key="navigation.userManagement">Gerenciamento de usuários</message>
+	<message key="reviewer.submission.reviewSchedule">Cronograma da avaliação</message>
+	<message key="reviewer.submission.reviewRequestDate">Solicitação do editor</message>
+	<message key="reviewer.submission.responseDueDate">Data de entrega da resposta</message>
+	<message key="reviewer.submission.reviewDueDate">Data de entrega da avaliação</message>
 </locale>

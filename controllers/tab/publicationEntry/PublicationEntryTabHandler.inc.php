@@ -21,7 +21,6 @@ import('classes.log.SubmissionEventLogEntry'); // app-specific.
 
 class PublicationEntryTabHandler extends Handler {
 
-
 	/** @var string */
 	var $_currentTab;
 
@@ -153,8 +152,7 @@ class PublicationEntryTabHandler extends Handler {
 		$this->_getFormFromCurrentTab($form, $notificationKey, $request);
 
 		if ($form) { // null if we didn't have a valid tab
-
-			$form->readInputData($request);
+			$form->readInputData();
 			if($form->validate()) {
 				$form->execute($request);
 				// Create trivial notification in place on the form
@@ -196,7 +194,6 @@ class PublicationEntryTabHandler extends Handler {
 
 	/**
 	 * Returns an instance of the form used for reviewing a submission's 'submission' metadata.
-	 * @see PublicationEntryTabHandler::_getPublicationEntrySubmissionReviewForm()
 	 * @return PKPForm
 	 */
 	function _getPublicationEntrySubmissionReviewForm() {

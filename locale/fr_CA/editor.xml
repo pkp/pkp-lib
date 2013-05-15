@@ -38,4 +38,5 @@
 	<message key="editor.review.reviewCompleted">Évaluation terminée</message>
 	<message key="editor.review.personalMessageToReviewer">Envoyer un courriel à l'évaluateur</message>
 	<message key="editor.review.importantDates">Dates importantes</message>
+	<message key="editor.submission.selectReviewer">Choisir un évaluateur</message>
 </locale>

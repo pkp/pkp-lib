@@ -145,7 +145,7 @@ class ReviewerForm extends Form {
 
 		// Get review assignment related data;
 		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
-		$reviewAssignment = $reviewAssignmentDao->getReviewAssignment($reviewRound->getId(), $reviewerId);
+		$reviewAssignment = $reviewAssignmentDao->getReviewAssignment($reviewRound->getId(), $reviewerId, $reviewRound->getRound());
 
 		// Get the review method (open, blind, or double-blind)
 		if (isset($reviewAssignment) && $reviewAssignment->getReviewMethod() != false) {

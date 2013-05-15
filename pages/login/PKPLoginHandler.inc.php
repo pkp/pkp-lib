@@ -203,7 +203,7 @@ class PKPLoginHandler extends Handler {
 			$site = $request->getSite();
 
 			// Send email confirming password reset
-			import('classes.mail.MailTemplate');
+			import('lib.pkp.classes.mail.MailTemplate');
 			$mail = new MailTemplate('PASSWORD_RESET_CONFIRM');
 			$this->_setMailFrom($request, $mail, $site);
 			$mail->assignParams(array(

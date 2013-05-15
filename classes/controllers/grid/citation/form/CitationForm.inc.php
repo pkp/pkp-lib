@@ -433,7 +433,7 @@ class CitationForm extends Form {
 				'articleTitle' => strip_tags($assocObject->getLocalizedTitle()),
 				'rawCitation' => strip_tags($citation->getRawCitation())
 			);
-			import('classes.mail.MailTemplate');
+			import('lib.pkp.classes.mail.MailTemplate');
 			$mail = new MailTemplate('CITATION_EDITOR_AUTHOR_QUERY', null, false, null, true, true);
 			$mail->assignParams($emailParams);
 			$templateMgr->assign('authorQuerySubject', $mail->getSubject());

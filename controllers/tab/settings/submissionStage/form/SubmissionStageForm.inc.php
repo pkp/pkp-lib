@@ -36,7 +36,7 @@ class SubmissionStageForm extends ContextSettingsForm {
 	function fetch($request, $params = null) {
 		$templateMgr = TemplateManager::getManager($request);
 
-		import('classes.mail.MailTemplate');
+		import('lib.pkp.classes.mail.MailTemplate');
 		$mail = new MailTemplate('SUBMISSION_ACK');
 		$templateMgr->assign('submissionAckDisabled', !$mail->isEnabled());
 

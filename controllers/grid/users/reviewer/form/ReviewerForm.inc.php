@@ -179,14 +179,14 @@ class ReviewerForm extends Form {
 		$this->setData('reviewRoundId', $reviewRound->getId());
 		$this->setData('reviewerId', $reviewerId);
 
-		import('classes.mail.MonographMailTemplate');
-		$template = new MonographMailTemplate($submission, 'REVIEW_REQUEST');
+		import('lib.pkp.classes.mail.SubmissionMailTemplate');
+		$template = new SubmissionMailTemplate($submission, 'REVIEW_REQUEST');
 		if ($template) {
 			$user = $request->getUser();
 			$dispatcher = $request->getDispatcher();
 			$context = $request->getContext();
 			$template->assignParams(array(
-				'pressUrl' => $dispatcher->url($request, ROUTE_PAGE, $context->getPath()),
+				'contextUrl' => $dispatcher->url($request, ROUTE_PAGE, $context->getPath()),
 				'editorialContactSignature' => $user->getContactSignature(),
 				'signatureFullName' => $user->getFullname(),
 				'messageToReviewer' => __('reviewer.step1.requestBoilerplate'),
@@ -302,8 +302,8 @@ class ReviewerForm extends Form {
 		}
 
 		// Notify the reviewer via email.
-		import('classes.mail.MonographMailTemplate');
-		$mail = new MonographMailTemplate($submission, 'REVIEW_REQUEST', null, null, null, false);
+		import('lib.pkp.classes.mail.SubmissionMailTemplate');
+		$mail = new SubmissionMailTemplate($submission, 'REVIEW_REQUEST', null, null, null, false);
 
 		if ($mail->isEnabled() && !$this->getData('skipEmail')) {
 			$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
@@ -348,7 +348,7 @@ class ReviewerForm extends Form {
 		return new LinkAction(
 			'addReviewer',
 			new AjaxAction($request->url(null, null, 'reloadReviewerForm', null, $actionArgs)),
-			__('editor.monograph.returnToSimpleSearch'),
+			__('editor.submission.returnToSimpleSearch'),
 			'return'
 		);
 	}

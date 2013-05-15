@@ -13,7 +13,7 @@
  */
 
 
-import ('classes.mail.MailTemplate');
+import ('lib.pkp.classes.mail.MailTemplate');
 
 class MassMail extends MailTemplate {
 	var $callback;

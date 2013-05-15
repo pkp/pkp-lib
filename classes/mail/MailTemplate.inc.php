@@ -1,12 +1,12 @@
 <?php
 
 /**
- * @file classes/mail/PKPMailTemplate.inc.php
+ * @file classes/mail/MailTemplate.inc.php
  *
  * Copyright (c) 2000-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPMailTemplate
+ * @class MailTemplate
  * @ingroup mail
  *
  * @brief Subclass of Mail for mailing a template email.
@@ -17,7 +17,7 @@ import('lib.pkp.classes.mail.Mail');
 
 define('MAIL_ERROR_INVALID_EMAIL', 0x000001);
 
-class PKPMailTemplate extends Mail {
+class MailTemplate extends Mail {
 	/** @var $context object The context this message relates to */
 	var $context;
 
@@ -59,7 +59,7 @@ class PKPMailTemplate extends Mail {
 	 * @param $enableAttachments boolean optional Whether or not to enable article attachments in the template
 	 * @param $includeSignature boolean optional
 	 */
-	function PKPMailTemplate($emailKey = null, $locale = null, $enableAttachments = null, $context = null, $includeSignature = true) {
+	function MailTemplate($emailKey = null, $locale = null, $enableAttachments = null, $context = null, $includeSignature = true) {
 		parent::Mail();
 		$this->emailKey = isset($emailKey) ? $emailKey : null;
 
@@ -73,7 +73,7 @@ class PKPMailTemplate extends Mail {
 		$this->locale = isset($locale) ? $locale : AppLocale::getLocale();
 
 		// Record whether or not to BCC the sender when sending message
-		$this->bccSender = Request::getUserVar('bccSender');
+		$this->bccSender = $request->getUserVar('bccSender');
 
 		// If enableAttachments is null, use the default value from the
 		// configuration file
@@ -81,7 +81,7 @@ class PKPMailTemplate extends Mail {
 			$enableAttachments = Config::getVar('email', 'enable_attachments')?true:false;
 		}
 
-		$user = Request::getUser();
+		$user = $request->getUser();
 		if ($enableAttachments && $user) {
 			$this->_handleAttachments($user->getId());
 		} else {
@@ -96,63 +96,61 @@ class PKPMailTemplate extends Mail {
 		}
 
 		$userSig = '';
-		$user = Request::getUser();
 		if ($user) {
 			$userSig = $user->getLocalizedSignature();
 			if (!empty($userSig)) $userSig = "\n" . $userSig;
 		}
 
-		if (isset($emailTemplate) && Request::getUserVar('subject')==null && Request::getUserVar('body')==null) {
+		if (isset($emailTemplate) && $request->getUserVar('subject')==null && $request->getUserVar('body')==null) {
 			$this->setSubject($emailTemplate->getSubject());
 			$this->setBody($emailTemplate->getBody() . $userSig);
 			$this->enabled = $emailTemplate->getEnabled();
 
-			if (Request::getUserVar('usePostedAddresses')) {
-				$to = Request::getUserVar('to');
+			if ($request->getUserVar('usePostedAddresses')) {
+				$to = $request->getUserVar('to');
 				if (is_array($to)) {
 					$this->setRecipients($this->processAddresses ($this->getRecipients(), $to));
 				}
-				$cc = Request::getUserVar('cc');
+				$cc = $request->getUserVar('cc');
 				if (is_array($cc)) {
 					$this->setCcs($this->processAddresses ($this->getCcs(), $cc));
 				}
-				$bcc = Request::getUserVar('bcc');
+				$bcc = $request->getUserVar('bcc');
 				if (is_array($bcc)) {
 					$this->setBccs($this->processAddresses ($this->getBccs(), $bcc));
 				}
 			}
 		} else {
-			$this->setSubject(Request::getUserVar('subject'));
-			$body = Request::getUserVar('body');
+			$this->setSubject($request->getUserVar('subject'));
+			$body = $request->getUserVar('body');
 			if (empty($body)) $this->setBody($userSig);
 			else $this->setBody($body);
-			$this->skip = (($tmp = Request::getUserVar('send')) && is_array($tmp) && isset($tmp['skip']));
+			$this->skip = (($tmp = $request->getUserVar('send')) && is_array($tmp) && isset($tmp['skip']));
 			$this->enabled = true;
 
-			if (is_array($toEmails = Request::getUserVar('to'))) {
+			if (is_array($toEmails = $request->getUserVar('to'))) {
 				$this->setRecipients($this->processAddresses ($this->getRecipients(), $toEmails));
 			}
-			if (is_array($ccEmails = Request::getUserVar('cc'))) {
+			if (is_array($ccEmails = $request->getUserVar('cc'))) {
 				$this->setCcs($this->processAddresses ($this->getCcs(), $ccEmails));
 			}
-			if (is_array($bccEmails = Request::getUserVar('bcc'))) {
+			if (is_array($bccEmails = $request->getUserVar('bcc'))) {
 				$this->setBccs($this->processAddresses ($this->getBccs(), $bccEmails));
 			}
 		}
 
 		// Default "From" to user if available, otherwise site/context principal contact
-		$user = Request::getUser();
 		if ($user) {
 			$this->setReplyTo($user->getEmail(), $user->getFullName());
 		}
 		if (!$context) {
-			$site = Request::getSite();
+			$site = $request->getSite();
 			$this->setFrom($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
 		} else {
 			$this->setFrom($context->getSetting('contactEmail'), $context->getSetting('contactName'));
 		}
 
-		if ($context && !Request::getUserVar('continued')) {
+		if ($context && !$request->getUserVar('continued')) {
 			$this->setSubject('[' . $context->getLocalizedSetting('initials') . '] ' . $this->getSubject());
 		}
 
@@ -197,6 +195,12 @@ class PKPMailTemplate extends Mail {
 
 		if (isset($this->context)) {
 			$paramArray['principalContactSignature'] = $this->context->getSetting('contactName');
+			$paramArray['contextName'] = $this->context->getLocalizedName();
+			$application = PKPApplication::getApplication();
+			$request = $application->getRequest();
+			$router = $request->getRouter();
+			$dispatcher = $request->getDispatcher();
+			if (!isset($paramArray['contextUrl'])) $paramArray['contextUrl'] = $dispatcher->url($request, ROUTE_PAGE, $router->getRequestedContextPath());
 		} else {
 			$site = Request::getSite();
 			$paramArray['principalContactSignature'] = $site->getLocalizedContactName();

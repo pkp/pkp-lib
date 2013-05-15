@@ -474,7 +474,7 @@ class PKPReviewerGridHandler extends GridHandler {
 		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
 
 		// Initialize form.
-		import('controllers.grid.users.reviewer.form.ThankReviewerForm');
+		import('lib.pkp.controllers.grid.users.reviewer.form.ThankReviewerForm');
 		$thankReviewerForm = new ThankReviewerForm($reviewAssignment);
 		$thankReviewerForm->initData($args, $request);
 
@@ -520,7 +520,7 @@ class PKPReviewerGridHandler extends GridHandler {
 		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
 
 		// Form handling
-		import('controllers.grid.users.reviewer.form.ThankReviewerForm');
+		import('lib.pkp.controllers.grid.users.reviewer.form.ThankReviewerForm');
 		$thankReviewerForm = new ThankReviewerForm($reviewAssignment);
 		$thankReviewerForm->readInputData();
 		if ($thankReviewerForm->validate()) {
@@ -550,7 +550,7 @@ class PKPReviewerGridHandler extends GridHandler {
 		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
 
 		// Initialize form.
-		import('controllers.grid.users.reviewer.form.ReviewReminderForm');
+		import('lib.pkp.controllers.grid.users.reviewer.form.ReviewReminderForm');
 		$reviewReminderForm = new ReviewReminderForm($reviewAssignment);
 		$reviewReminderForm->initData($args, $request);
 
@@ -569,7 +569,7 @@ class PKPReviewerGridHandler extends GridHandler {
 		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
 
 		// Form handling
-		import('controllers.grid.users.reviewer.form.ReviewReminderForm');
+		import('lib.pkp.controllers.grid.users.reviewer.form.ReviewReminderForm');
 		$reviewReminderForm = new ReviewReminderForm($reviewAssignment);
 		$reviewReminderForm->readInputData();
 		if ($reviewReminderForm->validate()) {
@@ -638,7 +638,7 @@ class PKPReviewerGridHandler extends GridHandler {
 		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
 
 		// Form handling.
-		import('controllers.grid.users.reviewer.form.' . $formClassName );
+		import('lib.pkp.controllers.grid.users.reviewer.form.' . $formClassName );
 		$reviewerForm = new $formClassName($this->getSubmission(), $this->getReviewRound());
 		$reviewerForm->initData($args, $request);
 		$reviewerForm->setUserRoles($userRoles);

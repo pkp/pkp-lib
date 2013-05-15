@@ -266,7 +266,7 @@ class PKPLoginHandler extends Handler {
 
 			// Send email with new password
 			$site = $request->getSite();
-			import('classes.mail.MailTemplate');
+			import('lib.pkp.classes.mail.MailTemplate');
 			$mail = new MailTemplate('PASSWORD_RESET');
 			$this->_setMailFrom($request, $mail, $site);
 			$mail->assignParams(array(

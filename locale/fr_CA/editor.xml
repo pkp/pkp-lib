@@ -39,4 +39,5 @@
 	<message key="editor.review.personalMessageToReviewer">Envoyer un courriel à l'évaluateur</message>
 	<message key="editor.review.importantDates">Dates importantes</message>
 	<message key="editor.submission.selectReviewer">Choisir un évaluateur</message>
+	<message key="editor.review.enrollReviewer">Enregistrer un utilisateur actuel à titre d'évaluateur</message>
 </locale>

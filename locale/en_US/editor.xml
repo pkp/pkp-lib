@@ -23,4 +23,16 @@
 	<message key="editor.submission.review.currentFiles">Current Review Files For Round {$round}</message>
 	<message key="editor.review.uploadRevisionToRound">Upload Revised File</message>
 	<message key="editor.submission.returnToSimpleSearch">Return to Simple Search</message>
+	<message key="editor.review.createReviewer">Create New Reviewer</message>
+	<message key="editor.review.enrollReviewer.short">Enroll Existing User</message>
+	<message key="editor.submissionReview.reviewType">Review Type</message>
+	<message key="editor.submissionReview.skipEmail">Do not send author email</message>
+	<message key="editor.submissionReview.open">Open</message>
+	<message key="editor.submissionReview.blind">Blind</message>
+	<message key="editor.submissionReview.doubleBlind">Double-blind</message>
+	<message key="editor.submissionReview.restrictFiles">Restrict Available Files</message>
+	<message key="editor.submissionReview.restrictFiles.gridTitle">Available Review Files</message>
+	<message key="editor.submissionReview.limitFiles">Manage Available Files</message>
+	<message key="editor.submissionReview.limitFiles.link">Files</message>
+	<message key="editor.submissionReview.restrictFiles.gridDescription">If this reviewer should not be granted access to all of the review files listed, ensure that only the relevant files are checked.</message>
 </locale>

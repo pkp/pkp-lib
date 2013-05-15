@@ -38,8 +38,8 @@
 		</field>
 		<field name="file_type" type="I1" />
 		<field name="country_id" type="C2" size="2" />
-		<field name="region" type="C2" size="255" />
-    	<field name="city" type="C2" size="255" />
+	    <field name="region" type="I2" />
+	    <field name="city" type="C2" size="255" />
 		<field name="metric_type" type="C2" size="255">
 			<NOTNULL />
 		</field>

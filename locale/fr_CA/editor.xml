@@ -40,4 +40,5 @@
 	<message key="editor.review.importantDates">Dates importantes</message>
 	<message key="editor.submission.selectReviewer">Choisir un évaluateur</message>
 	<message key="editor.review.enrollReviewer">Enregistrer un utilisateur actuel à titre d'évaluateur</message>
+	<message key="editor.submission.editorial.introduction"><![CDATA[Dans la section Rédaction, le réviseur de textes examine les épreuves finales avant de les télécharger dans la rubrique <span class="pkp_help_title">Révision</span>. L'auteur et d'autres personnes ont accès aux fichiers dans <span class="pkp_help_title">Révision</span> afin que l'on puisse éventuellement préparer et télécharger les copies au net de la soumission. Elles seront ensuite <em>Approuvées</em> par un rédacteur en chef, et passeront à l'étape de publication.]]></message>
 </locale>

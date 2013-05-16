@@ -41,4 +41,10 @@
 	<message key="editor.submission.selectReviewer">Choisir un évaluateur</message>
 	<message key="editor.review.enrollReviewer">Enregistrer un utilisateur actuel à titre d'évaluateur</message>
 	<message key="editor.submission.editorial.introduction"><![CDATA[Dans la section Rédaction, le réviseur de textes examine les épreuves finales avant de les télécharger dans la rubrique <span class="pkp_help_title">Révision</span>. L'auteur et d'autres personnes ont accès aux fichiers dans <span class="pkp_help_title">Révision</span> afin que l'on puisse éventuellement préparer et télécharger les copies au net de la soumission. Elles seront ensuite <em>Approuvées</em> par un rédacteur en chef, et passeront à l'étape de publication.]]></message>
+	<message key="editor.submission.noAuditRequested">Aucune demande de vérification n'a été faite pour ce fichier.</message>
+	<message key="editor.submission.proof.reminder">Rappel d'épreuve</message>
+	<message key="editor.submission.editorial.approveCopyeditDescription">Le fichier révisé doit être approuvé avant de passer à l'étape de publication. Souhaitez-vous approuver ce fichier?</message>
+	<message key="editor.submission.editorial.disapproveCopyeditDescription">Si ce fichier n'est pas approuvé, il ne pourra pas passer à l'étape de publication. Souhaitez-vous désapprouver ce fichier?</message>
+	<message key="editor.submission.editorial.approveCopyeditFile">Approuver le fichier révisé</message>
+	<message key="editor.submission.addAuditor">Ajout d'un auditeur</message>
 </locale>

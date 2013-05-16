@@ -68,4 +68,10 @@
 	<message key="editor.submission.selectReviewer">Select Reviewer</message>
 	<message key="editor.review.enrollReviewer">Enroll an Existing User as Reviewer</message>
 	<message key="editor.submission.editorial.introduction"><![CDATA[In Editorial, the copyeditor works on final draft files before uploading files to <span class="pkp_help_title">Copyediting</span>, where the author and others  review them, leading to the preparation and uploading to <span class="pkp_help_title">Copyediting</span> of a copyedited fair copy of the submission, where it is <em>Approved</em> by an editor and sent to the Production stage.]]></message>
+	<message key="editor.submission.noAuditRequested">No audit requested for this file</message>
+	<message key="editor.submission.proof.reminder">Proof reminder</message>
+	<message key="editor.submission.editorial.approveCopyeditDescription">The copyedited file needs to be approved before it can be sent to the Production stage. Do you want to approve this file?</message>
+	<message key="editor.submission.editorial.disapproveCopyeditDescription">Disapproving this copyedited file will make it unavailable to send to production stage. Do you want to disapprove this file?</message>
+	<message key="editor.submission.editorial.approveCopyeditFile">Approve copyedited file</message>
+	<message key="editor.submission.addAuditor">Assign</message>
 </locale>

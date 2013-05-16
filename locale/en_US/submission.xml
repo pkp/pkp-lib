@@ -537,4 +537,5 @@
 
 	<message key="reviewer.submission.reviewFiles">Review Files</message>
 	<message key="submission.submit.currentFile">Current file</message>
+	<message key="submission.finalDraft">Final Draft Files</message>
 </locale>

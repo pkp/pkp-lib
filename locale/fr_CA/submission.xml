@@ -407,4 +407,5 @@
 	<message key="submission.actionNeeded">Action requise</message>
 	<message key="reviewer.submission.reviewFiles">Fichiers d'évaluation</message>
 	<message key="submission.submit.currentFile">Fichier en cours</message>
+	<message key="submission.finalDraft">Fichiers des ébauches finales</message>
 </locale>

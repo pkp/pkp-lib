@@ -486,7 +486,7 @@ class GridHandler extends PKPHandler {
 	 *  configured with id and data or null if the row
 	 *  could not been found.
 	 */
-	function &getRequestedRow($request, $args) {
+	function getRequestedRow($request, $args) {
 		$isModified = isset($args['modify']);
 		if (isset($args['rowId']) && !$isModified) {
 			// A row ID was specified. Fetch it

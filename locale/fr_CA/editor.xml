@@ -47,4 +47,5 @@
 	<message key="editor.submission.editorial.disapproveCopyeditDescription">Si ce fichier n'est pas approuvé, il ne pourra pas passer à l'étape de publication. Souhaitez-vous désapprouver ce fichier?</message>
 	<message key="editor.submission.editorial.approveCopyeditFile">Approuver le fichier révisé</message>
 	<message key="editor.submission.addAuditor">Ajout d'un auditeur</message>
+	<message key="editor.submission.editorial.copyeditingDescription"><![CDATA[Assigner les fichiers révisés à leurs auteurs (et à d'autres personnes, le cas échéant) afin qu'ils examinent les modifications et répondent aux questions. Leurs réponses et fichiers téléchargés s'afficheront dans l'icône Carnet. Ils seront identifiés <em>Considéré</em> par le réviseur, qui préparera ensuite une copie au net finale qui pourra être téléchargée dans <span class="pkp_help_title">Révision</span>. Le rédacteur en chef vérifiera cette copie et l'approuvera, puis elle passera à l'étape de publication.]]></message>
 </locale>

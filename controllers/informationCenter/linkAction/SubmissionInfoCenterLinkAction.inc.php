@@ -23,7 +23,7 @@ class SubmissionInfoCenterLinkAction extends LinkAction {
 	 * to show information about.
 	 * @param $linkKey string optional locale key to display for link
 	 */
-	function SubmissionInfoCenterLinkAction($request, $submissionId, $linkKey = 'informationCenter.info') {
+	function SubmissionInfoCenterLinkAction($request, $submissionId, $linkKey = 'informationCenter.editorialHistory') {
 		// Instantiate the information center modal.
 
 		$submissionDao = Application::getSubmissionDAO();
@@ -55,7 +55,7 @@ class SubmissionInfoCenterLinkAction extends LinkAction {
 
 		// Configure the link action.
 		parent::LinkAction(
-			'submissionInfo', $ajaxModal,
+			'editorialHistory', $ajaxModal,
 			__($linkKey), 'more_info'
 		);
 	}

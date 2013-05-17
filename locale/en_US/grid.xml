@@ -24,6 +24,7 @@
 	<message key="grid.action.deleteFile">Delete File</message>
 	<message key="grid.action.deleteMedia">Delete Media</message>
 	<message key="grid.action.editMedia">Edit Media</message>
+	<message key="grid.action.editorialHistory">Editorial History</message>
 	<message key="grid.action.remove">Remove</message>
 	<message key="grid.action.edit">Edit</message>
 	<message key="grid.action.approve">Approve</message>

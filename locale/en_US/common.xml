@@ -327,7 +327,7 @@
 
 	<!-- Information Center -->
 	<message key="informationCenter.informationCenter">Information Center</message>
-	<message key="informationCenter.info">Info</message>
+	<message key="informationCenter.editorialHistory">Editorial History</message>
 	<message key="informationCenter.composeNote">Compose Note</message>
 	<message key="informationCenter.addFileNote">Add to File</message>
 	<message key="informationCenter.addSubmissionNote">Add to Submission</message>

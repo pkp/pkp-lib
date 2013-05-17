@@ -331,4 +331,23 @@
 	<message key="reviewer.submission.reviewRequestDate">Requête du rédacteur en chef</message>
 	<message key="reviewer.submission.responseDueDate">Date limite de la réponse</message>
 	<message key="reviewer.submission.reviewDueDate">Date limite de l'évaluation</message>
+
+	<!-- Information Center -->
+	<message key="informationCenter.informationCenter">Centre de renseignements</message>
+	<message key="informationCenter.composeNote">Écrire une note</message>
+	<message key="informationCenter.addFileNote">Ajouter au fichier</message>
+	<message key="informationCenter.addSubmissionNote">Ajouter à la soumission</message>
+	<message key="informationCenter.noNotes">Il n'y a aucune note à afficher.</message>
+	<message key="informationCenter.currentNotes">Notes en cours</message>
+	<message key="informationCenter.pastNotes">Notes antérieures</message>
+	<message key="informationCenter.lastUpdated">Dernière mise à jour</message>
+	<message key="informationCenter.deleteConfirm">Vous êtes certain de vouloir supprimer cette note?</message>
+	<message key="informationCenter.currentHistory">Révision en cours</message>
+	<message key="informationCenter.pastHistory">Révisions antérieures</message>
+	<message key="informationCenter.history.noItems">Aucune activité n'a été enregistrée.</message>
+	<message key="informationCenter.history.notePosted">Nouvelle note publiée.</message>
+	<message key="informationCenter.history.messageSent">Avis envoyé aux utilisateurs.</message>
+	<message key="informationCenter.notify.chooseMessage">Choisir un message prédéfini à utiliser, ou remplir le formulaire ci-dessous.</message>
+	<message key="informationCenter.notify.message">Message</message>
+	<message key="informationCenter.notify.warning">Assurez-vous d'avoir rempli le champ Message et d'avoir choisi au moins un destinataire.</message>
 </locale>

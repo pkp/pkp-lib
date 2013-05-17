@@ -372,4 +372,23 @@
 	<message key="reviewer.submission.reviewRequestDate">Solicitação do editor</message>
 	<message key="reviewer.submission.responseDueDate">Data de entrega da resposta</message>
 	<message key="reviewer.submission.reviewDueDate">Data de entrega da avaliação</message>
+
+	<!-- Information Center -->
+	<message key="informationCenter.informationCenter">Central de informações</message>
+	<message key="informationCenter.composeNote">Compor nota</message>
+	<message key="informationCenter.addFileNote">Incluir no arquivo</message>
+	<message key="informationCenter.addSubmissionNote">Incluir na submissão</message>
+	<message key="informationCenter.noNotes">Nenhuma nota a ser exibida.</message>
+	<message key="informationCenter.currentNotes">Revisão atual</message>
+	<message key="informationCenter.pastNotes">Revisões anteriores</message>
+	<message key="informationCenter.lastUpdated">Última atualização</message>
+	<message key="informationCenter.deleteConfirm">Deseja realmente excluir esta nota?</message>
+	<message key="informationCenter.currentHistory">Último evento</message>
+	<message key="informationCenter.pastHistory">Eventos anteriores</message>
+	<message key="informationCenter.history.noItems">Nenhum evento registrado.</message>
+	<message key="informationCenter.history.notePosted">Nova nota publicada.</message>
+	<message key="informationCenter.history.messageSent">Notificação enviada aos usuários.</message>
+	<message key="informationCenter.notify.chooseMessage">Escolha a mensagem padrão a ser usada, o preencha o formulário abaixo.</message>
+	<message key="informationCenter.notify.message">Mensagem</message>
+	<message key="informationCenter.notify.warning">Assegure-se de preencher o campo mensagem e escolher pelo menos um destinatário.</message>
 </locale>

@@ -330,4 +330,23 @@
 	<message key="reviewer.submission.reviewRequestDate">Αίτημα υπεύθυνου έκδοσης</message>
 	<message key="reviewer.submission.responseDueDate">Ημερομηνία Προθεσμίας Απάντησης</message>
 	<message key="reviewer.submission.reviewDueDate">Ημερομηνία Προθεσμίας Αξιολόγησης</message>
+
+	<!-- Information Center -->
+	<message key="informationCenter.informationCenter">Κέντρο Πληροφόρησης</message>
+	<message key="informationCenter.composeNote">Σύνταξη Σημειώματος</message>
+	<message key="informationCenter.addFileNote">Προσθήκη στο Αρχείο</message>
+	<message key="informationCenter.addSubmissionNote">Προσθήκη σημειώματος στην Υποβολή</message>
+	<message key="informationCenter.noNotes">Δεν υπάρχουν σημειώσεις για εμφάνιση.</message>
+	<message key="informationCenter.currentNotes">Τρέχουσα Αναθεώρηση</message>
+	<message key="informationCenter.pastNotes">Προηγούμενες Αναθεωρήσεις</message>
+	<message key="informationCenter.lastUpdated">Τελευταία Ενημέρωση</message>
+	<message key="informationCenter.deleteConfirm">Είστε σίγουροι ότι επιθυμείτε να διαγράψετε αυτό το σημείωμα;</message>
+	<message key="informationCenter.currentHistory">Τρέχουσα Αναθεώρηση</message>
+	<message key="informationCenter.pastHistory">Προηγούμενες Αναθεωρήσεις</message>
+	<message key="informationCenter.history.noItems">Δεν υπάρχουν καταχωρίσεις στο Ιστορικό.</message>
+	<message key="informationCenter.history.notePosted">Αναστήστε νέες σημειώσεις.</message>
+	<message key="informationCenter.history.messageSent">Ειδοποίηση να αποστέλλεται στους χρήστες.</message>
+	<message key="informationCenter.notify.chooseMessage">Επιλέξτε ένα προκαθορισμένο μήνυμα ή συμπληρώστε την παρακάτω φόρμα.</message>
+	<message key="informationCenter.notify.message">Μήνυμα</message>
+	<message key="informationCenter.notify.warning">Παρακαλούμε σιγουρευτείτε ότι έχετε συμπληρώσει το πεδίο μηνύματος και επιλέξτε τουλάχιστον έναν παραλήπτη του μηνύματος.</message>
 </locale>

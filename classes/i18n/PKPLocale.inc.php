@@ -54,6 +54,7 @@ define('LOCALE_COMPONENT_PKP_USER',		0x00000007);
 define('LOCALE_COMPONENT_PKP_GRID',		0x00000008);
 define('LOCALE_COMPONENT_PKP_DEFAULT',		0x00000009);
 define('LOCALE_COMPONENT_PKP_EDITOR',		0x0000000A);
+define('LOCALE_COMPONENT_PKP_REVIEWER',		0x0000000B);
 
 // Application-specific locale components
 define('LOCALE_COMPONENT_APP_COMMON',		0x00000100);
@@ -147,6 +148,7 @@ class PKPLocale {
 			LOCALE_COMPONENT_PKP_READER => $baseDir . 'reader.xml',
 			LOCALE_COMPONENT_PKP_SUBMISSION => $baseDir . 'submission.xml',
 			LOCALE_COMPONENT_PKP_EDITOR => $baseDir . 'editor.xml',
+			LOCALE_COMPONENT_PKP_REVIEWER => $baseDir . 'reviewer.xml',
 			LOCALE_COMPONENT_PKP_USER => $baseDir . 'user.xml',
 			LOCALE_COMPONENT_PKP_GRID => $baseDir . 'grid.xml',
 			LOCALE_COMPONENT_PKP_DEFAULT => $baseDir . 'default.xml',

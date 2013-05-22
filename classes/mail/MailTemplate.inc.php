@@ -200,7 +200,7 @@ class MailTemplate extends Mail {
 			$request = $application->getRequest();
 			$router = $request->getRouter();
 			$dispatcher = $request->getDispatcher();
-			if (!isset($paramArray['contextUrl'])) $paramArray['contextUrl'] = $dispatcher->url($request, ROUTE_PAGE, $router->getRequestedContextPath());
+			if (!isset($paramArray['contextUrl'])) $paramArray['contextUrl'] = $dispatcher->url($request, ROUTE_PAGE, $router->getRequestedContextPath($request));
 		} else {
 			$site = Request::getSite();
 			$paramArray['principalContactSignature'] = $site->getLocalizedContactName();

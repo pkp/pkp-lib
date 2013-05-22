@@ -13,9 +13,8 @@
  */
 
 import('classes.handler.Handler');
-import('classes.submission.reviewer.ReviewerAction');
-
 import('lib.pkp.classes.core.JSONMessage');
+import('lib.pkp.classes.submission.reviewer.ReviewerAction');
 
 class PKPReviewerHandler extends Handler {
 	/**
@@ -136,6 +135,11 @@ class PKPReviewerHandler extends Handler {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('submissionId', $reviewerSubmission->getId());
 
+		// Provide the email body to the template
+		$reviewerAction = new ReviewerAction();
+		$email = $reviewerAction->getResponseEmail($reviewerSubmission, $reviewAssignment, $request, 1);
+		$templateMgr->assign('declineMessageBody', $email->getBody());
+
 		return $templateMgr->fetchJson('reviewer/review/modal/regretMessage.tpl');
 	}
 
@@ -151,19 +155,11 @@ class PKPReviewerHandler extends Handler {
 		$reviewId = (int) $reviewAssignment->getId();
 		$declineReviewMessage = $request->getUserVar('declineReviewMessage');
 
-		$reviewerSubmissionDao = DAORegistry::getDAO('ReviewerSubmissionDAO');
-		$reviewerSubmission = $reviewerSubmissionDao->getReviewerSubmission($reviewId);
-		assert(is_a($reviewerSubmission, 'ReviewerSubmission'));
-
-		// Save regret message
-		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
-		$reviewAssignment = $reviewAssignmentDao->getById($reviewId);
-		assert(is_a($reviewAssignment, 'ReviewAssignment'));
-		$reviewAssignment->setRegretMessage($declineReviewMessage);
-		$reviewAssignmentDao->updateObject($reviewAssignment);
-
+		// Decline the review
 		$reviewerAction = new ReviewerAction();
-		$reviewerAction->confirmReview($request, $reviewerSubmission, true, true);
+		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+		$reviewerAction->confirmReview($request, $reviewAssignment, $submission, 1, $declineReviewMessage);
+
 		$dispatcher = $request->getDispatcher();
 		return $request->redirectUrlJson($dispatcher->url($request, ROUTE_PAGE, null, 'index'));
 	}

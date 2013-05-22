@@ -126,7 +126,8 @@ class ReviewerReviewStep1Form extends ReviewerReviewForm {
 		// if the reviewer has not previously confirmed the review, then
 		// Set that the reviewer has accepted the review.
 		if (!$reviewAssignment->getDateConfirmed()) {
-			ReviewerAction::confirmReview($this->request, $reviewerSubmission, false, true);
+			$reviewerAction = new ReviewerAction();
+			$reviewerAction->confirmReview($this->request, $reviewAssignment, $reviewerSubmission, false);
 		}
 	}
 }

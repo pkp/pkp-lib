@@ -453,7 +453,6 @@ class PKPReviewAssignmentDAO extends DAO {
 				reviewer_id,
 				stage_id,
 				review_method,
-				regret_message,
 				round,
 				competing_interests,
 				recommendation,
@@ -468,7 +467,7 @@ class PKPReviewAssignmentDAO extends DAO {
 				review_round_id,
 				unconsidered
 				) VALUES (
-				?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, %s, %s, %s, %s, %s, %s, %s, ?, ?, %s, %s, %s, ?, ?, ?, ?
+				?, ?, ?, ?, ?, ?, ?, ?, ?, ?, %s, %s, %s, %s, %s, %s, %s, ?, ?, %s, %s, %s, ?, ?, ?, ?
 				)',
 				$this->datetimeToDB($reviewAssignment->getDateAssigned()),
 				$this->datetimeToDB($reviewAssignment->getDateNotified()),
@@ -485,7 +484,6 @@ class PKPReviewAssignmentDAO extends DAO {
 				(int) $reviewAssignment->getReviewerId(),
 				(int) $reviewAssignment->getStageId(),
 				(int) $reviewAssignment->getReviewMethod(),
-				$reviewAssignment->getRegretMessage(),
 				max((int) $reviewAssignment->getRound(), 1),
 				$reviewAssignment->getCompetingInterests(),
 				$reviewAssignment->getRecommendation(),
@@ -516,7 +514,6 @@ class PKPReviewAssignmentDAO extends DAO {
 					reviewer_id = ?,
 					stage_id = ?,
 					review_method = ?,
-					regret_message = ?,
 					round = ?,
 					competing_interests = ?,
 					recommendation = ?,
@@ -546,7 +543,6 @@ class PKPReviewAssignmentDAO extends DAO {
 				(int) $reviewAssignment->getReviewerId(),
 				(int) $reviewAssignment->getStageId(),
 				(int) $reviewAssignment->getReviewMethod(),
-				$reviewAssignment->getRegretMessage(),
 				(int) $reviewAssignment->getRound(),
 				$reviewAssignment->getCompetingInterests(),
 				$reviewAssignment->getRecommendation(),
@@ -577,7 +573,6 @@ class PKPReviewAssignmentDAO extends DAO {
 		$reviewAssignment->setReviewerId($row['reviewer_id']);
 		$reviewAssignment->setReviewerFullName($row['first_name'].' '.$row['last_name']);
 		$reviewAssignment->setCompetingInterests($row['competing_interests']);
-		$reviewAssignment->setRegretMessage($row['regret_message']);
 		$reviewAssignment->setRecommendation($row['recommendation']);
 		$reviewAssignment->setDateAssigned($this->datetimeFromDB($row['date_assigned']));
 		$reviewAssignment->setDateNotified($this->datetimeFromDB($row['date_notified']));

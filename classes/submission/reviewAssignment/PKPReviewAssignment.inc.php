@@ -178,22 +178,6 @@ class PKPReviewAssignment extends DataObject {
 	}
 
 	/**
-	 * Get regret message.
-	 * @return string
-	 */
-	function getRegretMessage() {
-		return $this->getData('regretMessage');
-	}
-
-	/**
-	 * Set regret message.
-	 * @param $regretMessage string
-	 */
-	function setRegretMessage($regretMessage) {
-		return $this->setData('regretMessage', $regretMessage);
-	}
-
-	/**
 	 * Get reviewer recommendation.
 	 * @return string
 	 */

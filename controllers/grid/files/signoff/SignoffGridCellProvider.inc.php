@@ -59,7 +59,7 @@ class SignoffGridCellProvider extends GridCellProvider {
 				import('controllers.informationCenter.linkAction.SignoffNotesLinkAction');
 				$actions[] = new SignoffNotesLinkAction($request, $signoff, $this->getSubmissionId(), $this->getStageId());
 			} else if (time() > strtotime($signoff->getDateUnderway())) {
-				import('controllers.api.task.SendReminderLinkAction');
+				import('lib.pkp.controllers.api.task.SendReminderLinkAction');
 				$actions[] = new SendReminderLinkAction($request, 'editor.submission.proof.reminder', $actionArgs);
 			}
 

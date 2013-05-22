@@ -147,16 +147,16 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider {
 				$user = $request->getUser();
 				$submissionDao = Application::getSubmissionDAO();
 				$submission = $submissionDao->getById($reviewAssignment->getSubmissionId());
-				import('controllers.review.linkAction.ReviewNotesLinkAction');
+				import('lib.pkp.controllers.review.linkAction.ReviewNotesLinkAction');
 				return array(new ReviewNotesLinkAction($request, $reviewAssignment, $submission, $user));
 			case 'overdue':
-				import('controllers.api.task.SendReminderLinkAction');
+				import('lib.pkp.controllers.api.task.SendReminderLinkAction');
 				return array(new SendReminderLinkAction($request, 'editor.review.reminder', $actionArgs));
 			case 'read':
-				import('controllers.api.task.SendThankYouLinkAction');
+				import('lib.pkp.controllers.api.task.SendThankYouLinkAction');
 				return array(new SendThankYouLinkAction($request, 'editor.review.thankReviewer', $actionArgs));
 			case 'completed':
-				import('controllers.review.linkAction.UnconsiderReviewLinkAction');
+				import('lib.pkp.controllers.review.linkAction.UnconsiderReviewLinkAction');
 				return array(new UnconsiderReviewLinkAction($request, $reviewAssignment, $submission));
 			case '':
 			case 'declined':

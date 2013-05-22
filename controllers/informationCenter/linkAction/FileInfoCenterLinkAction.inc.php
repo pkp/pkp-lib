@@ -48,7 +48,7 @@ class FileInfoCenterLinkAction extends FileLinkAction {
 		import('lib.pkp.classes.linkAction.request.AjaxModal');
 		$router = $request->getRouter();
 
-		$title = (isset($submissionFile)) ? implode(': ', array(__('informationCenter.info'), $submissionFile->getLocalizedName())) : __('informationCenter.info');
+		$title = (isset($submissionFile)) ? implode(': ', array(__('informationCenter.informationCenter'), $submissionFile->getLocalizedName())) : __('informationCenter.informationCenter');
 
 		$ajaxModal = new AjaxModal(
 			$router->url(

@@ -325,4 +325,5 @@
 	<message key="common.pluginDisabled">El plugin "{$pluginName}" ha sido desactivado.</message>
 	<message key="common.refresh">Recargar</message>
 	<message key="common.loading">Cargando ...</message>
+	<message key="navigation.goBack">Volver</message>
 </locale>

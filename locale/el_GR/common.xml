@@ -349,4 +349,5 @@
 	<message key="informationCenter.notify.chooseMessage">Επιλέξτε ένα προκαθορισμένο μήνυμα ή συμπληρώστε την παρακάτω φόρμα.</message>
 	<message key="informationCenter.notify.message">Μήνυμα</message>
 	<message key="informationCenter.notify.warning">Παρακαλούμε σιγουρευτείτε ότι έχετε συμπληρώσει το πεδίο μηνύματος και επιλέξτε τουλάχιστον έναν παραλήπτη του μηνύματος.</message>
+	<message key="navigation.goBack">Επιστροφή</message>
 </locale>

@@ -391,4 +391,5 @@
 	<message key="informationCenter.notify.chooseMessage">Escolha a mensagem padrão a ser usada, o preencha o formulário abaixo.</message>
 	<message key="informationCenter.notify.message">Mensagem</message>
 	<message key="informationCenter.notify.warning">Assegure-se de preencher o campo mensagem e escolher pelo menos um destinatário.</message>
+	<message key="navigation.goBack">Voltar</message>
 </locale>

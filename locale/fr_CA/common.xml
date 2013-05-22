@@ -350,4 +350,5 @@
 	<message key="informationCenter.notify.chooseMessage">Choisir un message prédéfini à utiliser, ou remplir le formulaire ci-dessous.</message>
 	<message key="informationCenter.notify.message">Message</message>
 	<message key="informationCenter.notify.warning">Assurez-vous d'avoir rempli le champ Message et d'avoir choisi au moins un destinataire.</message>
+	<message key="navigation.goBack">Retour</message>
 </locale>

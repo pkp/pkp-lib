@@ -481,4 +481,5 @@
 	<message key="reviewer.submission.responseDueDate">Response Due Date</message>
 	<message key="reviewer.submission.reviewDueDate">Review Due Date</message>
 	<message key="submission.task.responseDueDate">Response Due Date</message>
+	<message key="navigation.goBack">Go Back</message>
 </locale>

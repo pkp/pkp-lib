@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/pt_BR/reviewer.xml
+  *
+  * Copyright (c) 2000-2013 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the pt_BR (Português (Brasil)) locale.
+  *
+  -->
+
+<locale name="pt_BR" full_name = "Português (Brasil)">
+	<message key="reviewer.submission.reviewerFiles">Arquivos do avaliador</message>
+</locale>
+

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/el_GR/reviewer.xml
+  *
+  * Copyright (c) 2000-2013 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the el_GR (Greek) locale.
+  *
+  -->
+
+<locale name="el_GR" full_name="Greek">
+	<message key="reviewer.submission.reviewerFiles">Αρχεία Αξιολογητών</message>
+</locale>
+

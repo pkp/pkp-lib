@@ -47,7 +47,6 @@ class ReviewerAction extends PKPAction {
 		// Only confirm the review for the reviewer if
 		// he has not previously done so.
 		if ($reviewAssignment->getDateConfirmed() == null) {
-			import('classes.mail.MonographMailTemplate');
 			$email = $this->getResponseEmail($submission, $reviewAssignment, $request, $decline);
 			// Must explicitly set sender because we may be here on an access
 			// key, in which case the user is not technically logged in

@@ -277,9 +277,9 @@ class ReviewerForm extends Form {
 
 		$reviewMethod = (int) $this->getData('reviewMethod');
 
-		import('lib.pkp.classes.submission.action.PKPAction');
-		$pkpAction = new PKPAction();
-		$pkpAction->addReviewer($request, $submission, $reviewerId, $currentReviewRound, $reviewDueDate, $responseDueDate, $reviewMethod);
+		import('lib.pkp.classes.submission.action.EditorAction');
+		$editorAction = new EditorAction();
+		$editorAction->addReviewer($request, $submission, $reviewerId, $currentReviewRound, $reviewDueDate, $responseDueDate, $reviewMethod);
 
 		// Get the reviewAssignment object now that it has been added.
 		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */

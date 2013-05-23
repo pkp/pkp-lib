@@ -369,14 +369,14 @@ class PKPReviewerGridHandler extends GridHandler {
 	 */
 	function deleteReviewer($args, $request) {
 		// Delete the review assignment.
-		// NB: PKPAction::clearReview() will check that this review
+		// NB: EditorAction::clearReview() will check that this review
 		// id is actually attached to the submission so no need for further
 		// validation here.
 		$submission = $this->getSubmission();
 		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
-		import('lib.pkp.classes.submission.action.PKPAction');
-		$pkpAction = new PKPAction();
-		$result = $pkpAction->clearReview($request, $submission->getId(), $reviewAssignment->getId());
+		import('lib.pkp.classes.submission.action.EditorAction');
+		$editorAction = new EditorAction();
+		$result = $editorAction->clearReview($request, $submission->getId(), $reviewAssignment->getId());
 
 		// Render the result.
 		if ($result) {

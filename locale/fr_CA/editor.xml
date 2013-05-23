@@ -11,6 +11,7 @@
   -->
 
 <locale name="fr_CA" full_name = "Français">
+	<message key="editor.submissionLibrary.description"><![CDATA[Télécharger les documents qui concernent la révision et la publication de cette soumission. Des modèles ont été créés pour plusieurs de ces documents. Il suffit de cliquer sur <em>Visionner la bibliothèque de documents</em>.]]></message>
 	<message key="editor.review.notInitiated">Le processus de révision n'a pas encore débuté.</message>
 	<message key="editor.submission.externalReviewDescription">Vous entamez le processus d'évaluation externe de cette soumission. La liste des fichiers faisant partie de cette soumission est affichée ci-dessous. Ils peuvent être sélectionnés pour être révisés.</message>
 	<message key="editor.submission.review.reviewFilesDescription"><![CDATA[Voici les fichiers qui peuvent être sélectionnés pour l'évaluation, lorsque vous ajoutez des évaluateurs dans la section <span class="pkp_help_title">Évaluateurs</span>]]>.</message>

@@ -11,6 +11,7 @@
   -->
 
 <locale name="en_US" full_name = "English">
+	<message key="editor.submissionLibrary.description"><![CDATA[Upload documents that pertain to the review and publication of this submission. Templates for many of these documents are found by clicking on <em>View Document Library</em>.]]></message>
 	<message key="editor.review.notInitiated">The review process has not yet been initiated.</message>
 	<message key="editor.submission.externalReviewDescription">You are about to initiate an external review for this submission.  Files that are part of the submission are listed below and can be selected for review.</message>
 	<message key="editor.submission.review.reviewFilesDescription"><![CDATA[These are the files that can be selected for review, when adding reviewers in <span class="pkp_help_title">Reviewers</span>]]>.</message>

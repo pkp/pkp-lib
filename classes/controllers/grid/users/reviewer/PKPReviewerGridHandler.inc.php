@@ -374,7 +374,7 @@ class PKPReviewerGridHandler extends GridHandler {
 		// validation here.
 		$submission = $this->getSubmission();
 		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
-		import('lib.pkp.classes.submission.common.PKPAction');
+		import('lib.pkp.classes.submission.action.PKPAction');
 		$pkpAction = new PKPAction();
 		$result = $pkpAction->clearReview($request, $submission->getId(), $reviewAssignment->getId());
 

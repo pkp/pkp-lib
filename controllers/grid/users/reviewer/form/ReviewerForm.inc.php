@@ -277,7 +277,7 @@ class ReviewerForm extends Form {
 
 		$reviewMethod = (int) $this->getData('reviewMethod');
 
-		import('lib.pkp.classes.submission.common.PKPAction');
+		import('lib.pkp.classes.submission.action.PKPAction');
 		$pkpAction = new PKPAction();
 		$pkpAction->addReviewer($request, $submission, $reviewerId, $currentReviewRound, $reviewDueDate, $responseDueDate, $reviewMethod);
 

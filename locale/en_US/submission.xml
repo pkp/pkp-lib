@@ -538,4 +538,16 @@
 	<message key="reviewer.submission.reviewFiles">Review Files</message>
 	<message key="submission.submit.currentFile">Current file</message>
 	<message key="submission.finalDraft">Final Draft Files</message>
+
+	<!-- Submission event log -->
+	<message key="submission.event.fileUploaded">A file "{$originalFileName}" was uploaded for submission {$submissionId} by {$username}.</message>
+	<message key="submission.event.fileDeleted">A file "{$originalFileName}" was deleted for submission {$submissionId} by {$username}.</message>
+	<message key="submission.event.revisionUploaded">A file revision "{$originalFileName}" was uploaded for submission {$submissionId} by {$username}.</message>
+	<message key="submission.event.revisionDeleted">A file revision "{$originalFileName}" was deleted for submission {$submissionId} by {$username}.</message>
+	<message key="submission.event.lastRevisionDeleted">A file "{$title}" had its last revision removed by {$username}.</message>
+	<message key="submission.event.fileAuditorAdded">"{$name}" ({$username}) was added as an auditor for the file "{$file}".</message>
+	<message key="submission.event.fileAuditorCleared">"{$name}" ({$username}) was removed as an auditor for the file "{$file}".</message>
+	<message key="submission.event.fileAuditUploaded">"{$name}" ({$username}) has completed an audit and uploaded "{$file}".</message>
+	<message key="submission.event.signoffSignoff">"{$name}" ({$username}) has signed off on the signoff for "{$file}".</message>
+	<message key="submission.event.proofsApproved">"{$name}" ({$username}) has approved the proofs for "{$formatName}".</message>
 </locale>

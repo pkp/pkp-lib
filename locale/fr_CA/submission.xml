@@ -408,4 +408,16 @@
 	<message key="reviewer.submission.reviewFiles">Fichiers d'évaluation</message>
 	<message key="submission.submit.currentFile">Fichier en cours</message>
 	<message key="submission.finalDraft">Fichiers des ébauches finales</message>
+
+	<!-- Submission event log -->
+	<message key="submission.event.fileUploaded">Le fichier "{$originalFileName}" pour la soumission {$submissionId} par {$username} a été téléchargé .</message>
+	<message key="submission.event.fileDeleted">Le fichier "{$originalFileName}" pour la soumission {$submissionId} par {$username} a été supprimé.</message>
+	<message key="submission.event.revisionUploaded">Le fichier d'évaluation "{$originalFileName}" pour la soumission {$submissionId} par {$username} a été téléchargé .</message>
+	<message key="submission.event.revisionDeleted">Le fichier d'évaluation "{$originalFileName}" pour la soumission {$submissionId} par {$username} a été supprimé .</message>
+	<message key="submission.event.lastRevisionDeleted">La dernière évaluation du fichier  "{$title}" a été supprimée par {$username}.</message>
+	<message key="submission.event.fileAuditorAdded">"{$name}" ({$username}) a été ajouté à titre de vérificateur du fichier "{$file}".</message>
+	<message key="submission.event.fileAuditorCleared">"{$name}" ({$username}) n'est plus vérificateur du fichier "{$file}".</message>
+	<message key="submission.event.fileAuditUploaded">"{$name}" ({$username}) a terminé la vérification et téléchargé "{$file}".</message>
+	<message key="submission.event.signoffSignoff">"{$name}" ({$username}) a fermé la session pour "{$file}".</message>
+	<message key="submission.event.proofsApproved">"{$name}" ({$username}) a approuvé les épreuves pour "{$formatName}".</message>
 </locale>

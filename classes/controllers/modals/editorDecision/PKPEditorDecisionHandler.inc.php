@@ -198,6 +198,23 @@ class PKPEditorDecisionHandler extends Handler {
 	}
 
 	/**
+	 * Get the fully-qualified import name for the given form name.
+	 * @param $formName Class name for the desired form.
+	 * @return string
+	 */
+	protected function _resolveEditorDecisionForm($formName) {
+		switch($formName) {
+			case 'EditorDecisionWithEmailForm':
+			case 'NewReviewRoundForm':
+			case 'PromoteForm':
+			case 'SendReviewsForm':
+				return "lib.pkp.controllers.modals.editorDecision.form.$formName";
+			default:
+				assert(false);
+		}
+	}
+
+	/**
 	 * Get an instance of an editor decision form.
 	 * @param $formName string
 	 * @param $decision int
@@ -209,7 +226,7 @@ class PKPEditorDecisionHandler extends Handler {
 		// Retrieve the stage id
 		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
 
-		import("controllers.modals.editorDecision.form.$formName");
+		import($this->_resolveEditorDecisionForm($formName));
 		if (in_array($stageId, $this->_getReviewStages())) {
 			$reviewRound = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND);
 			$editorDecisionForm = new $formName($submission, $decision, $stageId, $reviewRound);

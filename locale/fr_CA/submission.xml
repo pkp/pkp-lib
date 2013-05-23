@@ -420,4 +420,6 @@
 	<message key="submission.event.fileAuditUploaded">"{$name}" ({$username}) a terminé la vérification et téléchargé "{$file}".</message>
 	<message key="submission.event.signoffSignoff">"{$name}" ({$username}) a fermé la session pour "{$file}".</message>
 	<message key="submission.event.proofsApproved">"{$name}" ({$username}) a approuvé les épreuves pour "{$formatName}".</message>
+	<message key="submission.overview">Aperçu de la soumission</message>
+	<message key="submission.description">Description</message>
 </locale>

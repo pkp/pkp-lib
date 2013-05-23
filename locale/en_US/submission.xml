@@ -550,4 +550,6 @@
 	<message key="submission.event.fileAuditUploaded">"{$name}" ({$username}) has completed an audit and uploaded "{$file}".</message>
 	<message key="submission.event.signoffSignoff">"{$name}" ({$username}) has signed off on the signoff for "{$file}".</message>
 	<message key="submission.event.proofsApproved">"{$name}" ({$username}) has approved the proofs for "{$formatName}".</message>
+	<message key="submission.overview">Submission Overview</message>
+	<message key="submission.description">Description</message>
 </locale>

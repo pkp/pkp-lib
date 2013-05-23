@@ -45,7 +45,7 @@ class SubmissionDocumentsFilesGridHandler extends LibraryFileGridHandler {
 		$this->setCanEdit(true); // this grid can always be edited.
 		parent::initialize($request);
 
-		AppLocale::requireComponents(LOCALE_COMPONENT_APP_EDITOR);
+		AppLocale::requireComponents(LOCALE_COMPONENT_APP_EDITOR, LOCALE_COMPONENT_PKP_EDITOR);
 
 		// Set instructions
 		$this->setInstructions('editor.submissionLibrary.description');

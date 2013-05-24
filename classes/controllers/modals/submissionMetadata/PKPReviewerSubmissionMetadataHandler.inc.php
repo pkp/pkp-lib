@@ -45,8 +45,6 @@ class PKPReviewerSubmissionMetadataHandler extends SubmissionMetadataHandler {
 	 * @see classes/controllers/modals/submissionMetadata/SubmissionMetadataHandler::fetch()
 	 */
 	function fetch($args, $request) {
-		$press = $request->getPress();
-
 		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
 		$reviewMethod = $reviewAssignment->getReviewMethod();
 

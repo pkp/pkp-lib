@@ -113,7 +113,7 @@ class PKPLoginHandler extends Handler {
 		$this->validate();
 		$this->setupTemplate($request);
 		if (Validation::isLoggedIn()) {
-			$request->redirect(null, 'user');
+			$request->redirect(null, 'dashboard');
 		}
 
 		if (Config::getVar('security', 'force_login_ssl') && $request->getProtocol() != 'https') {

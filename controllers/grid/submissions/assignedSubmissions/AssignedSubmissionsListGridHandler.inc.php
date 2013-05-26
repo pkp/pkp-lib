@@ -106,6 +106,13 @@ class AssignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 			}
 		}
 
+		// Filter archived submissions
+		foreach ($data as $submissionId => $submission) {
+			if ($submission->getStatus() == STATUS_DECLINED) {
+				unset($data[$submissionId]);
+			}
+		}
+
 		return $data;
 	}
 }

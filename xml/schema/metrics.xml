@@ -24,7 +24,7 @@
 		<field name="assoc_type" type="I8">
 			<NOTNULL />
 		</field>
-		<field name="journal_id" type="I8">
+		<field name="context_id" type="I8">
 			<NOTNULL />
 		</field>
 		<field name="issue_id" type="I8" />
@@ -34,7 +34,6 @@
 		</field>
 		<field name="day" type="C" size="8" />
 		<field name="month" type="C" size="6">
-			<NOTNULL />
 		</field>
 		<field name="file_type" type="I1" />
 		<field name="country_id" type="C2" size="2" />
@@ -43,7 +42,7 @@
 		<field name="metric_type" type="C2" size="255">
 			<NOTNULL />
 		</field>
-		<field name="metric" type="I8" size="2">
+		<field name="metric" type="I2">
 			<NOTNULL />
 		</field>
 

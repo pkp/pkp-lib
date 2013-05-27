@@ -64,7 +64,6 @@
 	<message key="manager.publication.editorialStage">Editorial</message>
 	<message key="manager.publication.productionStage">Production</message>
 	<message key="manager.publication.emails">Emails</message>
-	<message key="manager.publication.pressLibrary">Press Library</message>
 	<message key="manager.publication.libraryDescription"><![CDATA[These files have been prepared as templates and guides for use as part of the <span class="pkp_help_title">Submission Documents</span>.]]></message> 
 	<message key="manager.emails.confirmDelete">Are you sure you want to delete this email template?</message>
 	<message key="manager.emails.confirmReset">Are you sure you want to reset this email template to its default values?</message>

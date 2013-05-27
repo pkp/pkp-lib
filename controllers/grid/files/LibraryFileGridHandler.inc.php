@@ -86,7 +86,7 @@ class LibraryFileGridHandler extends CategoryGridHandler {
 		$this->_context = $router->getContext($request);
 
 		// Set name
-		$this->setTitle('manager.publication.pressLibrary');
+		$this->setTitle('manager.publication.library');
 
 		AppLocale::requireComponents(
 			LOCALE_COMPONENT_PKP_COMMON,

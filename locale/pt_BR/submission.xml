@@ -384,4 +384,5 @@
 	<message key="submission.form.name">Informe um nome útil para o arquivo</message>
 	<message key="submission.form.replaceExisting">Substituindo um arquivo existente?</message>
 	<message key="reviewer.submission.reviewFiles">Arquivos da avaliação</message>
+	<message key="submission.stageNotInitiated">Estágio não iniciado.</message>
 </locale>

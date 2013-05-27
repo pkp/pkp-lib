@@ -552,4 +552,6 @@
 	<message key="submission.event.proofsApproved">"{$name}" ({$username}) has approved the proofs for "{$formatName}".</message>
 	<message key="submission.overview">Submission Overview</message>
 	<message key="submission.description">Description</message>
+	<message key="submission.stageNotInitiated">Stage not initiated.</message>
+	<message key="submission.documents">Submission Documents</message>
 </locale>

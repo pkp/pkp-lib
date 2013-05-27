@@ -142,11 +142,11 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider {
 
 		$router = $request->getRouter();
 		$action = false;
+		$submissionDao = Application::getSubmissionDAO();
+		$submission = $submissionDao->getById($reviewAssignment->getSubmissionId());
 		switch($this->getCellState($row, $column)) {
 			case 'linkReview':
 				$user = $request->getUser();
-				$submissionDao = Application::getSubmissionDAO();
-				$submission = $submissionDao->getById($reviewAssignment->getSubmissionId());
 				import('lib.pkp.controllers.review.linkAction.ReviewNotesLinkAction');
 				return array(new ReviewNotesLinkAction($request, $reviewAssignment, $submission, $user));
 			case 'overdue':

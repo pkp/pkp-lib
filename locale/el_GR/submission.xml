@@ -375,4 +375,11 @@
 	<message key="submission.date.yyyymmdd">EEEE-MM-HH</message>
 	<message key="reviewer.submission.reviewFiles">Αρχεία Αξιολόγησης</message>
 	<message key="submission.stageNotInitiated">Το στάδιο δεν ξεκίνησε.</message>
+	<message key="notification.type.editorDecisionTitle">Πρόσφατη απόφαση επιμελητή</message>
+	<message key="notification.type.editorDecisionAccept">Η υποβολή έχει γίνει αποδεκτή.</message>
+	<message key="notification.type.editorDecisionExternalReview">Η διαδικασία εξωτερικής αξιολόγησης έχει ξεκινήσει.</message>
+	<message key="notification.type.editorDecisionPendingRevisions">Η αναθεώρηση έχει απαιτηθεί.</message>
+	<message key="notification.type.editorDecisionResubmit">Εκ νέου υποβολή για αξιολόγηση.</message>
+	<message key="notification.type.editorDecisionDecline">Η υποβολή έχει απορριφθεί.</message>
+	<message key="notification.type.editorDecisionSendToProduction">Η διαδικασία παραγωγής έχει ξεκινήσει.</message>
 </locale>

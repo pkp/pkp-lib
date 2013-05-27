@@ -424,4 +424,11 @@
 	<message key="submission.description">Description</message>
 	<message key="submission.stageNotInitiated">Étape non initiée.</message>
 	<message key="submission.documents">Documents de soumission</message>
+	<message key="notification.type.editorDecisionTitle">Dernière décision du rédacteur en chef.</message>
+	<message key="notification.type.editorDecisionAccept">Soumission acceptée.</message>
+	<message key="notification.type.editorDecisionExternalReview">Le processus d'évaluation externe a débuté.</message>
+	<message key="notification.type.editorDecisionPendingRevisions">Demande d'évaluation.</message>
+	<message key="notification.type.editorDecisionResubmit">Soumettre à nouveau pour l'évaluation.</message>
+	<message key="notification.type.editorDecisionDecline">Soumission refusée.</message>
+	<message key="notification.type.editorDecisionSendToProduction">Le processus de production a débuté.</message>
 </locale>

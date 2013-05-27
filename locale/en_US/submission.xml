@@ -554,4 +554,10 @@
 	<message key="submission.description">Description</message>
 	<message key="submission.stageNotInitiated">Stage not initiated.</message>
 	<message key="submission.documents">Submission Documents</message>
+	<message key="notification.type.editorDecisionTitle">Latest editor decision.</message>
+	<message key="notification.type.editorDecisionAccept">Submission accepted.</message>
+	<message key="notification.type.editorDecisionExternalReview">External review process started.</message>
+	<message key="notification.type.editorDecisionPendingRevisions">Revision requested.</message>
+	<message key="notification.type.editorDecisionResubmit">Resubmit for review.</message>
+	<message key="notification.type.editorDecisionDecline">Submission declined.</message>
 </locale>

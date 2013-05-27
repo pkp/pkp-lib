@@ -385,4 +385,11 @@
 	<message key="submission.form.replaceExisting">Substituindo um arquivo existente?</message>
 	<message key="reviewer.submission.reviewFiles">Arquivos da avaliação</message>
 	<message key="submission.stageNotInitiated">Estágio não iniciado.</message>
+	<message key="notification.type.editorDecisionTitle">Última decisão editorial.</message>
+	<message key="notification.type.editorDecisionAccept">Submissão aceita.</message>
+	<message key="notification.type.editorDecisionExternalReview">Avaliação externa iniciada.</message>
+	<message key="notification.type.editorDecisionPendingRevisions">Revisão requerida.</message>
+	<message key="notification.type.editorDecisionResubmit">Enviar novamente para avaliação.</message>
+	<message key="notification.type.editorDecisionDecline">Submissão rejeitada.</message>
+	<message key="notification.type.editorDecisionSendToProduction">Processo de produção iniciado.</message>
 </locale>

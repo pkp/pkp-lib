@@ -56,7 +56,7 @@ class PKPReviewerSubmissionMetadataHandler extends SubmissionMetadataHandler {
 
 		$params = array('readOnly' => true, 'anonymous' => $anonymous, 'hideSubmit' => true);
 
-		return parent::fetch($request, $args, $params);
+		return parent::fetch($args, $request, $params);
 	}
 }
 

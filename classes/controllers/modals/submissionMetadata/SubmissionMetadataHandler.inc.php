@@ -46,7 +46,7 @@ class SubmissionMetadataHandler extends Handler {
 	 * @param $request PKPRequest
 	 * @return string Serialized JSON object
 	 */
-	function fetch($request, $args, $params = null) {
+	function fetch($args, $request, $params = null) {
 		// Identify the submission
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_SUBMISSION);

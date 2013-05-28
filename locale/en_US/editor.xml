@@ -13,6 +13,7 @@
 <locale name="en_US" full_name = "English">
 	<message key="editor.submissionLibrary.description"><![CDATA[Upload documents that pertain to the review and publication of this submission. Templates for many of these documents are found by clicking on <em>View Document Library</em>.]]></message>
 	<message key="editor.review.notInitiated">The review process has not yet been initiated.</message>
+	<message key="editor.submission.copyediting.personalMessageToUser">Message to user</message>
 	<message key="editor.submission.externalReviewDescription">You are about to initiate an external review for this submission.  Files that are part of the submission are listed below and can be selected for review.</message>
 	<message key="editor.submission.review.reviewFilesDescription"><![CDATA[These are the files that can be selected for review, when adding reviewers in <span class="pkp_help_title">Reviewers</span>]]>.</message>
 	<!-- Add file or auditor to editor/audit grids -->
@@ -72,9 +73,12 @@
 	<message key="editor.review.errorUnconsideringReview">There was an error marking this review as unconsidered.  Please try again.</message>
 	<message key="editor.review.readConfirmation">Once this review has been read, press "Confirm" to flag that the review process may proceed.</message>
 	<message key="editor.submission.selectReviewer">Select Reviewer</message>
+	<message key="editor.submission.taskDueDate">Task Due Date</message>
+	<message key="editor.submission.taskSchedule">Task schedule</message>
 	<message key="editor.review.enrollReviewer">Enroll an Existing User as Reviewer</message>
 	<message key="editor.submission.editorial.introduction"><![CDATA[In Editorial, the copyeditor works on final draft files before uploading files to <span class="pkp_help_title">Copyediting</span>, where the author and others  review them, leading to the preparation and uploading to <span class="pkp_help_title">Copyediting</span> of a copyedited fair copy of the submission, where it is <em>Approved</em> by an editor and sent to the Production stage.]]></message>
 	<message key="editor.submission.noAuditRequested">No audit requested for this file</message>
+	<message key="editor.submission.personalMessageToUser">Email to be sent to user</message>
 	<message key="editor.submission.proof.reminder">Proof reminder</message>
 	<message key="editor.submission.editorial.approveCopyeditDescription">The copyedited file needs to be approved before it can be sent to the Production stage. Do you want to approve this file?</message>
 	<message key="editor.submission.editorial.disapproveCopyeditDescription">Disapproving this copyedited file will make it unavailable to send to production stage. Do you want to disapprove this file?</message>

@@ -18,6 +18,7 @@
 
 	<message key="grid.action.sort">Trier</message>
 	<message key="grid.action.addItem">Ajouter un élément</message>
+	<message key="grid.action.approveCopyedit">Approuver ce fichier révisé afin qu'il soit envoyé à l'étape suivante.</message>
 	<message key="grid.action.delete">Supprimer</message>
 	<message key="grid.action.edit">Modifier</message>
 	<message key="grid.action.restoreDefaults">Réinitialiser aux valeurs par défaut</message>

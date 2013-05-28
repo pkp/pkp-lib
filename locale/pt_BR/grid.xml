@@ -18,6 +18,7 @@
 
 	<message key="grid.action.sort">Ordenar</message>
 	<message key="grid.action.addItem">Incluir</message>
+	<message key="grid.action.approveCopyedit">Aprovar este arquivo editado para envio ao próximo estágio</message>
 	<message key="grid.action.delete">Excluir</message>
 	<message key="grid.action.edit">Editar</message>
 	<message key="grid.action.restoreDefaults">Restaurar padrões</message>

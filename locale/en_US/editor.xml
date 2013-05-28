@@ -15,6 +15,11 @@
 	<message key="editor.review.notInitiated">The review process has not yet been initiated.</message>
 	<message key="editor.submission.externalReviewDescription">You are about to initiate an external review for this submission.  Files that are part of the submission are listed below and can be selected for review.</message>
 	<message key="editor.submission.review.reviewFilesDescription"><![CDATA[These are the files that can be selected for review, when adding reviewers in <span class="pkp_help_title">Reviewers</span>]]>.</message>
+	<!-- Add file or auditor to editor/audit grids -->
+	<message key="editor.submission.fileAuditor.form.fileRequired">You must select at least one file to assign the user to.</message>
+	<message key="editor.submission.fileAuditor.form.messageRequired">You must include a personal message.</message>
+	<message key="editor.submission.fileAuditor.skipEmail">Do not send email to the Auditor</message>
+	<message key="editor.submission.fileAuditor.form.userRequired">You must select a user to assign.</message>
 	<message key="editor.submission.uploadSelectFiles">Upload/Select Files</message>
 	<message key="editor.submission.revisions">Revisions</message>
 	<message key="editor.submission.revisionsDescription">Revised submission files appear here, with the open folder icon indicating who uploaded the file.</message>
@@ -78,4 +83,5 @@
 	<message key="editor.submission.editorial.copyeditingDescription"><![CDATA[Assign the copyedited files to authors (and others as needed) to review changes and answer queries, with their responses and uploaded files appearing in the notebook icon. These are marked <em>Considered</em> by the copyeditor, who then prepares a final copyedited fair copy to upload to <span class="pkp_help_title">Copyediting</span>, which the editor checks Approved, before sending to the Production stage.]]></message>
 	<message key="editor.submission.final.manageFinalDraftFilesDescription">Any files that have already been uploaded to any submission stage can be added to the Final Draft Files listing by checking the Include checkbox below and clicking Search: all available files will be listed and can be chosen for inclusion. Additional files not already uploaded to a stage can be added to the listing by clicking the Upload A Final Draft link.</message>
 	<message key="editor.review">Review</message>
+	<message key="editor.signoff.approved">Approved</message>
 </locale>

@@ -169,6 +169,7 @@
 	<message key="submission.titleAndAbstract">Titre et résumé</message>
 	<message key="submission.underway">En cours</message>
 	<message key="submission.uploadFileTo">Télécharger le fichier vers</message>
+	<message key="submission.upload.signoff">Télécharger une réponse</message>
 	<message key="submission.viewMetadata">Voir les métadonnées</message>
 	<message key="submission.views">Vues</message>
 	
@@ -408,6 +409,9 @@
 	<message key="reviewer.submission.reviewFiles">Fichiers d'évaluation</message>
 	<message key="submission.submit.currentFile">Fichier en cours</message>
 	<message key="submission.finalDraft">Fichiers des ébauches finales</message>
+
+	<!-- Auditor keys -->
+	<message key="editor.submission.addAuditorError">Erreur: l'auditeur n'a pas pu être assigné. Essayez encore.</message>
 
 	<!-- Submission event log -->
 	<message key="submission.event.fileUploaded">Le fichier "{$originalFileName}" pour la soumission {$submissionId} par {$username} a été téléchargé .</message>

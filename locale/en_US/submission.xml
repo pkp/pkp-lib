@@ -539,6 +539,9 @@
 	<message key="submission.submit.currentFile">Current file</message>
 	<message key="submission.finalDraft">Final Draft Files</message>
 
+	<!-- Auditor keys -->
+	<message key="editor.submission.addAuditorError">There was an error trying to assign the auditor. Please Try again.</message>
+
 	<!-- Submission event log -->
 	<message key="submission.event.fileUploaded">A file "{$originalFileName}" was uploaded for submission {$submissionId} by {$username}.</message>
 	<message key="submission.event.fileDeleted">A file "{$originalFileName}" was deleted for submission {$submissionId} by {$username}.</message>

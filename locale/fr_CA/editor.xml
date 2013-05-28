@@ -16,6 +16,12 @@
 	<message key="editor.submission.externalReviewDescription">Vous entamez le processus d'évaluation externe de cette soumission. La liste des fichiers faisant partie de cette soumission est affichée ci-dessous. Ils peuvent être sélectionnés pour être révisés.</message>
 	<message key="editor.submission.review.reviewFilesDescription"><![CDATA[Voici les fichiers qui peuvent être sélectionnés pour l'évaluation, lorsque vous ajoutez des évaluateurs dans la section <span class="pkp_help_title">Évaluateurs</span>]]>.</message>
 	<message key="editor.submission.uploadSelectFiles">Télécharger/Sélectionner les fichiers</message>
+
+	<!-- Add file or auditor to editor/audit grids -->
+	<message key="editor.submission.fileAuditor.form.fileRequired">Vous devez choisir au moins un fichier qui sera assigné à l'utilisateur.</message>
+	<message key="editor.submission.fileAuditor.form.messageRequired">Vous devez ajouter un message personnalisé.</message>
+	<message key="editor.submission.fileAuditor.skipEmail">N'envoyez pas de courriels au vérificateur.</message>
+	<message key="editor.submission.fileAuditor.form.userRequired">Vous devez choisir un utilisateur à qui l'ouvrage sera attribué.</message>
 	<message key="editor.submission.revisions">Révisions</message>
 	<message key="editor.submission.revisionsDescription">Les fichiers révisés de la soumission sont affichés ici. L'icône Ouvrir le dossier indique qui a téléchargé le fichier.</message>
 	<message key="editor.submission.review.reviewersDescription"><![CDATA[Utilisez <em>Ajouter un évaluateur</em> pour inviter des lecteurs à examiner les fichiers soumis. L'icône en forme de carnet indique qu'on a soumis un fichier pour l'évaluation. Celui-ci indiquera <em>Considéré</em> lorsqu'il aura été consulté. Si les évaluations sont en retard, l'icône d'une enveloppe rouge s'affichera à titre de rappel pour les évaluateurs.]]></message>	
@@ -43,6 +49,7 @@
 	<message key="editor.review.enrollReviewer">Enregistrer un utilisateur actuel à titre d'évaluateur</message>
 	<message key="editor.submission.editorial.introduction"><![CDATA[Dans la section Rédaction, le réviseur de textes examine les épreuves finales avant de les télécharger dans la rubrique <span class="pkp_help_title">Révision</span>. L'auteur et d'autres personnes ont accès aux fichiers dans <span class="pkp_help_title">Révision</span> afin que l'on puisse éventuellement préparer et télécharger les copies au net de la soumission. Elles seront ensuite <em>Approuvées</em> par un rédacteur en chef, et passeront à l'étape de publication.]]></message>
 	<message key="editor.submission.noAuditRequested">Aucune demande de vérification n'a été faite pour ce fichier.</message>
+	<message key="editor.review.reminderError">Erreur d'envoi du rappel d'évaluation</message>
 	<message key="editor.submission.proof.reminder">Rappel d'épreuve</message>
 	<message key="editor.submission.editorial.approveCopyeditDescription">Le fichier révisé doit être approuvé avant de passer à l'étape de publication. Souhaitez-vous approuver ce fichier?</message>
 	<message key="editor.submission.editorial.disapproveCopyeditDescription">Si ce fichier n'est pas approuvé, il ne pourra pas passer à l'étape de publication. Souhaitez-vous désapprouver ce fichier?</message>
@@ -51,4 +58,5 @@
 	<message key="editor.submission.editorial.copyeditingDescription"><![CDATA[Assigner les fichiers révisés à leurs auteurs (et à d'autres personnes, le cas échéant) afin qu'ils examinent les modifications et répondent aux questions. Leurs réponses et fichiers téléchargés s'afficheront dans l'icône Carnet. Ils seront identifiés <em>Considéré</em> par le réviseur, qui préparera ensuite une copie au net finale qui pourra être téléchargée dans <span class="pkp_help_title">Révision</span>. Le rédacteur en chef vérifiera cette copie et l'approuvera, puis elle passera à l'étape de publication.]]></message>
 	<message key="editor.submission.final.manageFinalDraftFilesDescription">Un fichier qui a été téléchargé à une étape du processus de soumission, peu importe laquelle, peut être ajouté à la liste des fichiers d'épreuves finales. Il suffit de cocher la case Ajouter ci-dessous, puis de cliquer Recherche: tous les fichiers disponibles seront affichés et peuvent être choisis pour être ajoutés. Les autres fichiers qui n'ont pas déjà été téléchargés à une certaine étape du processus peuvent être ajoutés à cette liste en cliquant sur le lien Télécharger une épreuve finale.</message>
 	<message key="editor.review">Évaluation</message>
+	<message key="editor.signoff.approved">Approuvé</message>
 </locale>

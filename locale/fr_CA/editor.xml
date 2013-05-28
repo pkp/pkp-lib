@@ -46,6 +46,7 @@
 	<message key="editor.review.reviewCompleted">Évaluation terminée</message>
 	<message key="editor.review.personalMessageToReviewer">Envoyer un courriel à l'évaluateur</message>
 	<message key="editor.review.importantDates">Dates importantes</message>
+	<message key="editor.submission.selectCopyedingFiles">Fichiers de travail éditorial</message>
 	<message key="editor.submission.selectReviewer">Choisir un évaluateur</message>
 	<message key="editor.submission.taskDueDate">Date d'échéance de la tâche</message>
 	<message key="editor.submission.taskSchedule">Calendrier de la tâche</message>

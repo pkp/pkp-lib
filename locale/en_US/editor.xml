@@ -72,6 +72,7 @@
 	<message key="editor.review.unconsiderReview">Unconsider this Review</message>
 	<message key="editor.review.errorUnconsideringReview">There was an error marking this review as unconsidered.  Please try again.</message>
 	<message key="editor.review.readConfirmation">Once this review has been read, press "Confirm" to flag that the review process may proceed.</message>
+	<message key="editor.submission.selectCopyedingFiles">Copyediting Files</message>
 	<message key="editor.submission.selectReviewer">Select Reviewer</message>
 	<message key="editor.submission.taskDueDate">Task Due Date</message>
 	<message key="editor.submission.taskSchedule">Task schedule</message>

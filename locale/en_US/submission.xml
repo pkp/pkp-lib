@@ -259,6 +259,7 @@
 	<message key="submission.contributors">List of Contributors</message>
 	<message key="submission.contributorsDescription">The list of contributors associated with this submission may include other authors; individual chapter authors of an edited volume; volume editors; and/or translators. One contributor from the list may be assigned as the primary contact for editorial correspondence; this does not necessarily have to be the submitting author.</message>
 	<message key="submission.copyedited">Copyedited</message>
+	<message key="submission.copyediting">Copyediting</message>
 	<message key="submission.coverage">Coverage Information</message>
 	<message key="submission.coverage.tip">The following fields provide information about your submission's coverage.  Coverage may include chronologcal periods (1920-1940, 17th century), and geographical locations ('Boston, MA', or 'Northern England').  If you wish, you may use the sample coverage field to include a relevant example from your own work.</message>
 	<message key="submission.coverage.chron">Chronological or historical coverage</message>

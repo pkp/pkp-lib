@@ -38,6 +38,7 @@
 	<message key="submission.comments.sendDecisionToReviewers">Envoyer la décision éditoriale aux évaluateurs</message>
 	<message key="submission.comments.subject">Objet</message>
 	<message key="submission.complete">Terminé</message>
+	<message key="submission.copyediting">Révision</message>
 	<message key="submission.done">Terminer</message>
 	<message key="submission.dueDate">Date d'échéance</message>
 	<message key="submission.due">Échéance</message>

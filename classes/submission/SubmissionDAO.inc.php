@@ -27,6 +27,30 @@ class SubmissionDAO extends DAO {
 	}
 
 	/**
+	 * Callback for a cache miss.
+	 * @param $cache Cache
+	 * @param $id string
+	 * @return Monograph
+	 */
+	function _cacheMiss($cache, $id) {
+		$submission = $this->getById($id, null, false);
+		$cache->setCache($id, $submission);
+		return $submission;
+	}
+
+	/**
+	 * Get the submission cache.
+	 * @return Cache
+	 */
+	function _getCache() {
+		if (!isset($this->cache)) {
+			$cacheManager = CacheManager::getManager();
+			$this->cache = $cacheManager->getObjectCache('submissions', 0, array(&$this, '_cacheMiss'));
+		}
+		return $this->cache;
+	}
+
+	/**
 	 * Get a list of fields for which localized data is supported
 	 * @return array
 	 */
@@ -66,6 +90,8 @@ class SubmissionDAO extends DAO {
 	 */
 	function _fromRow($row) {
 		$submission = $this->newDataObject();
+
+		$submission->setId($row['submission_id']);
 		$submission->setLocale($row['locale']);
 		$submission->setUserId($row['user_id']);
 		$submission->setStageId($row['stage_id']);
@@ -77,6 +103,9 @@ class SubmissionDAO extends DAO {
 		$submission->setLastModified($this->datetimeFromDB($row['last_modified']));
 		$submission->setLanguage($row['language']);
 		$submission->setCommentsToEditor($row['comments_to_ed']);
+
+		$this->getDataObjectSettings('submission_settings', 'submission_id', $submission->getId(), $submission);
+
 		return $submission;
 	}
 
@@ -182,6 +211,8 @@ class SubmissionDAO extends DAO {
 			$submissionSubjectDao->deleteObject($submissionSubjectVocab);
 		}
 
+		$this->update('DELETE FROM submission_settings WHERE submission_id = ?', (int) $submissionId);
+		$this->update('DELETE FROM submissions WHERE submission_id = ?', (int) $submissionId);
 	}
 
 	/**
@@ -194,6 +225,34 @@ class SubmissionDAO extends DAO {
 	 */
 	function changePubId($submissionId, $pubIdType, $pubId) {
 		$this->updateSetting($submissionId, 'pub-id::'.$pubIdType, $pubId, 'string');
+	}
+
+	/**
+	 * Update the settings for this object
+	 * @param $submission object
+	 */
+	function updateLocaleFields($submission) {
+		$this->updateDataObjectSettings('submission_settings', $submission, array(
+			'submission_id' => $submission->getId()
+		));
+	}
+
+	/**
+	 * Get the ID of the last inserted submission.
+	 * @return int
+	 */
+	function getInsertId() {
+		return $this->_getInsertId('submissions', 'submission_id');
+	}
+
+	/**
+	 * Flush the submission cache.
+	 */
+	function flushCache() {
+		// Because both published_submissions and submissions are
+		// cached by submission ID, flush both caches on update.
+		$cache = $this->_getCache();
+		$cache->flush();
 	}
 
 }

@@ -28,7 +28,7 @@
 			<NOTNULL />
 		</field>
 		<field name="issue_id" type="I8" />
-		<field name="article_id" type="I8" />
+		<field name="submission_id" type="I8" />
 		<field name="assoc_id" type="I8">
 			<NOTNULL />
 		</field>

@@ -75,7 +75,7 @@ class PKPAuditorReminderForm extends Form {
 	function initData($args, $request) {
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$user = $request->getUser();
-		$press = $request->getPress();
+		$context = $request->getContext();
 
 		$signoff = $this->getSignoff();
 		$auditorId = $signoff->getUserId();
@@ -113,7 +113,7 @@ class PKPAuditorReminderForm extends Form {
 		$this->setData('signoffId', $signoff->getId());
 		$this->setData('signoff', $signoff);
 		$this->setData('auditorName', $auditor->getFullName());
-		$this->setData('message', $email->getBody() . "\n" . $press->getSetting('emailSignature'));
+		$this->setData('message', $email->getBody() . "\n" . $context->getSetting('emailSignature'));
 	}
 
 	/**

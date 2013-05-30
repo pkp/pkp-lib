@@ -64,4 +64,5 @@
 	<message key="editor.submission.final.manageFinalDraftFilesDescription">Un fichier qui a été téléchargé à une étape du processus de soumission, peu importe laquelle, peut être ajouté à la liste des fichiers d'épreuves finales. Il suffit de cocher la case Ajouter ci-dessous, puis de cliquer Recherche: tous les fichiers disponibles seront affichés et peuvent être choisis pour être ajoutés. Les autres fichiers qui n'ont pas déjà été téléchargés à une certaine étape du processus peuvent être ajoutés à cette liste en cliquant sur le lien Télécharger une épreuve finale.</message>
 	<message key="editor.review">Évaluation</message>
 	<message key="editor.signoff.approved">Approuvé</message>
+	<message key="editor.submission.production.productionReadyFiles">Fichiers publiables</message>
 </locale>

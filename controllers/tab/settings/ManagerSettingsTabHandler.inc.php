@@ -9,7 +9,7 @@
  * @class ManagerSettingsTabHandler
  * @ingroup controllers_tab_settings
  *
- * @brief Handle AJAX operations for tabs on press manangement settings pages.
+ * @brief Handle AJAX operations for tabs on manangement settings pages.
  * Implements the wizard mode, to let tabs show basic or advanced settings.
  */
 

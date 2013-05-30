@@ -52,7 +52,7 @@ class ReviewerReviewAttachmentGridDataProvider extends SubmissionFilesGridDataPr
 			$authorizationPolicy = new ReviewStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $request->getUserVar('stageId'));
 			$paramName = 'assocId';
 		} else {
-			// Viewing from a press role perspective.
+			// Viewing from a context role perspective.
 			$authorizationPolicy = parent::getAuthorizationPolicy($request, $args, $roleAssignments);
 			$paramName = 'reviewId';
 		}

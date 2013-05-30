@@ -10,7 +10,7 @@
  * @ingroup controllers_grid_files_submission
  *
  * @brief Handle submission file grid requests at the author submission wizard.
- * The submission author and all press/editor roles have access to this grid.
+ * The submission author and all context/editor roles have access to this grid.
  */
 
 import('lib.pkp.controllers.grid.files.fileList.FileListGridHandler');

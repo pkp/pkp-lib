@@ -92,7 +92,6 @@ class ContextSiteSettingsForm extends Form {
 	 * @param $contextId int
 	 */
 	function _assignManagerGroup($contextId) {
-		// Make the site administrator the manager of newly created presses
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$sessionManager = SessionManager::getManager();
 		$userSession = $sessionManager->getUserSession();

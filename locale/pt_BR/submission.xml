@@ -18,6 +18,7 @@
 	<message key="submission.acknowledge">Acusar recebimento</message>
 	<message key="submission.addSuppFile">Incluir documento suplementar</message>
 	<message key="submission.ask">Solicitada em</message>
+	<message key="submission.attachedFile">Arquivo anexado</message>
 	<message key="submission.backToSubmissionEditing">Retornar à edição da submissão</message>
 	<message key="submission.changeComments">Mudar para</message>
 	<message key="submission.citations">Referências</message>
@@ -392,5 +393,6 @@
 	<message key="notification.type.editorDecisionResubmit">Enviar novamente para avaliação.</message>
 	<message key="notification.type.editorDecisionDecline">Submissão rejeitada.</message>
 	<message key="notification.type.editorDecisionSendToProduction">Processo de produção iniciado.</message>
+	<message key="notification.type.signoff">Auditoria pendente.</message>
 	<message key="notification.uploadedResponse">Resposta enviada.</message>
 </locale>

@@ -22,6 +22,7 @@
 	<message key="submission.acknowledge">Envoyer un accusé de réception</message>
 	<message key="submission.addSuppFile">Ajouter un fichier supplémentaire</message>
 	<message key="submission.ask">Demander</message>
+	<message key="submission.attachedFile">Fichier joint</message>
 	<message key="submission.backToSubmissionEditing">Retour à la révision de la soumission</message>
 	<message key="submission.changeComments">Modifier pour</message>
 	<message key="submission.citations">Références</message>	
@@ -436,6 +437,7 @@
 	<message key="notification.type.editorDecisionResubmit">Soumettre à nouveau pour l'évaluation.</message>
 	<message key="notification.type.editorDecisionDecline">Soumission refusée.</message>
 	<message key="notification.type.editorDecisionSendToProduction">Le processus de production a débuté.</message>
+	<message key="notification.type.signoff">Vous avez une vérification en attente.</message>
 	<message key="notification.uploadedResponse">La réponse a été téléchargée.</message>
 	<message key="submission.authorDashboard.description">Pour chaque étape du flux des travaux ci-dessous, vous trouverez des renseignements sur l'état des travaux de cette étape ainsi que sur tous les fichiers de soumission et de correspondance associés à cette étape. On pourrait vous demander de télécharger un fichier révisé à une étape particulière, ou de vérifier un fichier qui a déjà été téléchargé. Ces deux actions peuvent être complétées pendant l'étape spécifiée. </message>
 

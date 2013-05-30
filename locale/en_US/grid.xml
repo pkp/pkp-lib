@@ -213,5 +213,8 @@
 	<!-- Plugins -->
 	<message key="grid.plugin.allCategories">All Categories</message>
 	<message key="grid.plugin.disable">Are you sure you want to disable this plugin?</message>
-	
+
+	<!-- signoffs -->
+	<message key="grid.action.viewSignoffNotes">View signoff notes</message>
+	<message key="grid.action.fileUnconsider">Proofing corrections made. You may unconsider this task</message>
 </locale>

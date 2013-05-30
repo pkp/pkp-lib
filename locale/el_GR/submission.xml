@@ -18,6 +18,7 @@
 	<message key="submission.acknowledge">Ελήφθη</message>
 	<message key="submission.addSuppFile">Πρόσθεση Συμπληρωματικού Αρχείου</message>
 	<message key="submission.ask">Ερώτημα</message>
+	<message key="submission.attachedFile">Επισυναπτόμενο Αρχείο</message>
 	<message key="submission.backToSubmissionEditing">Πίσω στην επιμέλεια υποβολής</message>
 	<message key="submission.changeComments">Αλλαγή σε</message>
 	<message key="submission.citations">Αναφορές</message>	
@@ -382,5 +383,6 @@
 	<message key="notification.type.editorDecisionResubmit">Εκ νέου υποβολή για αξιολόγηση.</message>
 	<message key="notification.type.editorDecisionDecline">Η υποβολή έχει απορριφθεί.</message>
 	<message key="notification.type.editorDecisionSendToProduction">Η διαδικασία παραγωγής έχει ξεκινήσει.</message>
+	<message key="notification.type.signoff">Έχετε έναν έλεγχο σε εκκρεμότητα.</message>
 	<message key="notification.uploadedResponse">Η απάντηση έχει μεταφορτωθεί (uploaded).</message>
 </locale>

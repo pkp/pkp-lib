@@ -15,4 +15,6 @@
 	<message key="grid.action.viewLibrary">Προβολή Βιβλιοθήκης Εγγράφων</message>
 	<message key="grid.action.bookInfo">Πληροφορίες Υποβολής</message>
 	<message key="grid.action.approveCopyedit">Εγκρίνετε αυτό το αρχείο με το επιμελημένο κείμενο για να αποσταλεί στο επόμενο στάδιο</message>
+	<message key="grid.action.viewSignoffNotes">Προβολή σημειώσεων υπογραφής(email)</message>
+	<message key="grid.action.fileUnconsider">Οι διορθώσεις τυπογραφικού δοκιμίου έγιναν. Μπορείτε να μην θεωρήσετε αυτή την εργασία.</message>
 </locale>

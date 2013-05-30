@@ -188,4 +188,8 @@
 	<message key="grid.preparedEmails.currentList">Lista atual</message>
 	<message key="grid.plugin.allCategories">Todas as categorias</message>
 	<message key="grid.plugin.disable">Deseja realmente desabilitar este plugin?</message>
+
+	<!-- signoffs -->
+	<message key="grid.action.viewSignoffNotes">Ver notas de homologação</message>
+	<message key="grid.action.fileUnconsider">Correções realizadas na prova. Esta tarefa pode ser desconsiderada.</message>
 </locale>

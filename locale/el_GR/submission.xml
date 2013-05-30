@@ -382,4 +382,5 @@
 	<message key="notification.type.editorDecisionResubmit">Εκ νέου υποβολή για αξιολόγηση.</message>
 	<message key="notification.type.editorDecisionDecline">Η υποβολή έχει απορριφθεί.</message>
 	<message key="notification.type.editorDecisionSendToProduction">Η διαδικασία παραγωγής έχει ξεκινήσει.</message>
+	<message key="notification.uploadedResponse">Η απάντηση έχει μεταφορτωθεί (uploaded).</message>
 </locale>

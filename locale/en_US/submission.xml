@@ -564,6 +564,7 @@
 	<message key="notification.type.editorDecisionPendingRevisions">Revision requested.</message>
 	<message key="notification.type.editorDecisionResubmit">Resubmit for review.</message>
 	<message key="notification.type.editorDecisionDecline">Submission declined.</message>
+	<message key="notification.uploadedResponse">Response uploaded.</message>
 	<message key="submission.authorDashboard.description">In each initiated workflow stage listed below you will find information on the stage's status, as well as any associated submission files and correspondence associated with that stage. You may be asked to upload a revised file to a particular stage, or audit a file that has been previously uploaded, both actions which can be completed within the stage section specified.</message>
 
  	<!-- Read/Upload/Perform Signoff -->

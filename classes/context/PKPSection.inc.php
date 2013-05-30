@@ -8,7 +8,6 @@
  *
  * @class PKPSection
  * @ingroup context
- * @see PKPSectionDAO
  *
  * @brief Describes basic section properties.
  */

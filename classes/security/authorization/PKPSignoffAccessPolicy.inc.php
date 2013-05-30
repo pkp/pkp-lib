@@ -19,8 +19,8 @@ define('SIGNOFF_ACCESS_MODIFY', 2);
 
 class PKPSignoffAccessPolicy extends ContextPolicy {
 
-	/** var $_baseSectionAccessPolicy the base policy for the signoff before _SUB_EDITOR is considered */
-	var $_baseSectionAccessPolicy;
+	/** var $_baseSignoffAccessPolicy the base policy for the signoff before _SUB_EDITOR is considered */
+	var $_baseSignoffAccessPolicy;
 
 	/**
 	 * Constructor
@@ -32,7 +32,7 @@ class PKPSignoffAccessPolicy extends ContextPolicy {
 	 */
 	function PKPSignoffAccessPolicy($request, $args, $roleAssignments, $mode, $stageId) {
 		parent::ContextPolicy($request);
-		$this->_baseSectionAccessPolicy = $this->buildSignoffAccessPolicy($request, $args, $roleAssignments,$mode, $stageId);
+		$this->_baseSignoffAccessPolicy = $this->buildSignoffAccessPolicy($request, $args, $roleAssignments,$mode, $stageId);
 	}
 
 	/**

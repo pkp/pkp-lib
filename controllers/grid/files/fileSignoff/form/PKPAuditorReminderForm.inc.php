@@ -99,12 +99,14 @@ class PKPAuditorReminderForm extends Form {
 		$auditUrl = $dispatcher->url($request, ROUTE_PAGE, null, $page, $operation, array('submissionId' => $submission->getId()));
 
 		$paramArray = array(
-			'auditorName' => $auditor->getFullName(),
-			'signoffDueDate' => $signoffDueDate,
+			'reviewerName' => $auditor->getFullName(),
+			'reviewDueDate' => $signoffDueDate,
 			'editorialContactSignature' => $user->getContactSignature(),
 			'auditorUserName' => $auditor->getUsername(),
 			'passwordResetUrl' => $dispatcher->url($request, ROUTE_PAGE, null, 'login', 'resetPassword', $auditor->getUsername(), array('confirm' => Validation::generatePasswordResetHash($auditor->getId()))),
-			'submissionAuditUrl' => $auditUrl
+			'submissionReviewUrl' => $auditUrl,
+			'contextName' => $context->getLocalizedName(),
+			'submissionTitle' => $submission->getLocalizedTitle(),
 		);
 		$email->assignParams($paramArray);
 

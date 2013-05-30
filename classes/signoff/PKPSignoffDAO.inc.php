@@ -372,6 +372,23 @@ class PKPSignoffDAO extends DAO {
 	}
 
 	/**
+	 * Get the related stage id by symbolic.
+	 * @return int
+	 */
+	function getStageIdBySymbolic($symbolic) {
+		switch ($symbolic) {
+			case 'SIGNOFF_COPYEDITING':
+				return WORKFLOW_STAGE_ID_EDITING;
+				break;
+			case 'SIGNOFF_PROOFING':
+				return WORKFLOW_STAGE_ID_PRODUCTION;
+				break;
+			default:
+				assert(false);
+		}
+	}
+
+	/**
 	 * Transfer all existing signoffs to another user.
 	 * @param $oldUserId int
 	 * @param $newUserId int

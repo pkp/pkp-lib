@@ -18,9 +18,11 @@ class PoliciesForm extends ContextSettingsForm {
 
 	/**
 	 * Constructor.
+	 * @param $wizardMode boolean Whether the form should operate in wizard mode
+	 * @param $additionalSettings array Optional name => type mappings for additional settings (e.g. implemented by subclasses)
 	 */
-	function PoliciesForm($wizardMode = false) {
-		$settings = array(
+	function PoliciesForm($wizardMode = false, $additionalSettings = array()) {
+		$settings = array_merge($additionalSettings, array(
 			'focusScopeDesc' => 'string',
 			'openAccessPolicy' => 'string',
 			'reviewPolicy' => 'string',
@@ -28,7 +30,7 @@ class PoliciesForm extends ContextSettingsForm {
 			'copyrightNoticeAgree' => 'bool',
 			'competingInterestsPolicy' => 'string',
 			'privacyStatement' => 'string'
-		);
+		));
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON);
 

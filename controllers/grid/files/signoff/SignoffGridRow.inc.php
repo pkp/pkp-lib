@@ -60,7 +60,7 @@ class SignoffGridRow extends GridRow {
 				array('signoffId' => $rowId));
 
 			// Add the history action.
-			import('controllers.informationCenter.linkAction.ReadSignoffHistoryLinkAction');
+			import('lib.pkp.controllers.informationCenter.linkAction.ReadSignoffHistoryLinkAction');
 			$this->addAction(new ReadSignoffHistoryLinkAction($request, $rowId, $submissionId, $this->getStageId()));
 
 			// Add the delete signoff if it isn't completed yet.

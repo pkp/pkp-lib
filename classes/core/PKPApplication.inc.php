@@ -485,7 +485,7 @@ class PKPApplication {
 							$args .= 'Object('.get_class($a).')';
 							break;
 						case 'resource':
-							$args .= 'Resource('.strstr($a, '#').')';
+							$args .= 'Resource('.$a.')';
 							break;
 						case 'boolean':
 							$args .= $a ? 'True' : 'False';

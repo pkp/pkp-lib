@@ -16,6 +16,7 @@
 import('lib.pkp.classes.submission.Submission');
 
 class SubmissionDAO extends DAO {
+	var $cache;
 	var $authorDao;
 
 	/**
@@ -255,6 +256,23 @@ class SubmissionDAO extends DAO {
 		$cache->flush();
 	}
 
+	/**
+	 * Retrieve a submission by ID.
+	 * @param $submissionId int
+	 * @param $contextId int optional
+	 * @param $useCache boolean optional
+	 * @return Submission
+	 */
+	function getById($articleId, $journalId = null, $useCache = false) {
+		if ($useCache) {
+			$cache = $this->_getCache();
+			$returner = $cache->get($submissionId);
+			if ($returner && $contextId != null && $contextId != $returner->getContextId()) $returner = null;
+			return $returner;
+		}
+
+		return null;
+	}
 }
 
 ?>

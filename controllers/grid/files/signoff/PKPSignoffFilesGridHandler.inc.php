@@ -627,13 +627,7 @@ class PKPSignoffFilesGridHandler extends CategoryGridHandler {
 		$submission = $this->getSubmission();
 
 		// Initialize form.
-		import('controllers.grid.files.fileSignoff.form.AuditorReminderForm');
-		$publicationFormat = $this->getPublicationFormat();
-		$publicationFormatId = null;
-		if (is_a($publicationFormat, 'PublicationFormat')) {
-			$publicationFormatId = $publicationFormat->getId();
-		}
-		$auditorReminderForm = new AuditorReminderForm($signoff, $submission->getId(), $this->getStageId(), $publicationFormatId);
+		$auditorReminderForm = $this->_getAuditorReminderForm();
 		$auditorReminderForm->initData($args, $request);
 
 		// Render form.
@@ -652,13 +646,7 @@ class PKPSignoffFilesGridHandler extends CategoryGridHandler {
 		$submission = $this->getSubmission();
 
 		// Form handling
-		import('controllers.grid.files.fileSignoff.form.AuditorReminderForm');
-		$publicationFormat = $this->getPublicationFormat();
-		$publicationFormatId = null;
-		if (is_a($publicationFormat, 'PublicationFormat')) {
-			$publicationFormatId = $publicationFormat->getId();
-		}
-		$auditorReminderForm = new AuditorReminderForm($signoff, $submission->getId(), $this->getStageId(), $publicationFormatId);
+		$auditorReminderForm = $this->_getAuditorReminderForm();
 		$auditorReminderForm->readInputData();
 		if ($auditorReminderForm->validate()) {
 			$auditorReminderForm->execute($args, $request);
@@ -720,7 +708,7 @@ class PKPSignoffFilesGridHandler extends CategoryGridHandler {
 	 * return a context-specific instance of the auditor reminder form for this grid.
 	 * @return Form
 	 */
-	function _getAuditorForm() {
+	function _getAuditorReminderForm() {
 		assert(false); // overridden in subclasses.
 	}
 

@@ -437,4 +437,11 @@
 	<message key="notification.type.editorDecisionDecline">Soumission refusée.</message>
 	<message key="notification.type.editorDecisionSendToProduction">Le processus de production a débuté.</message>
 	<message key="submission.authorDashboard.description">Pour chaque étape du flux des travaux ci-dessous, vous trouverez des renseignements sur l'état des travaux de cette étape ainsi que sur tous les fichiers de soumission et de correspondance associés à cette étape. On pourrait vous demander de télécharger un fichier révisé à une étape particulière, ou de vérifier un fichier qui a déjà été téléchargé. Ces deux actions peuvent être complétées pendant l'étape spécifiée. </message>
+
+	<!-- Read/Upload/Perform Signoff -->
+	<message key="submission.signoff.selectFile">Sélectionnez le fichier que vous souhaitez utiliser pour fermer la session.</message>
+	<message key="submission.signoff.signoffOnFile">Session fermée avec ce fichier</message>
+	<message key="submission.signoff.signedOffOnFile">Session fermée sur ce fichier</message>
+	<message key="submission.signoff.noAvailableSignoffs">Aucun fichier n'est en attente de votre réponse pour le moment.</message>
+	<message key="submission.signoff.fileResponse">Réponse concernant le fichier</message>
 </locale>

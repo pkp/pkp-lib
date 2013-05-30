@@ -18,6 +18,10 @@ define('SIGNOFF_ACCESS_READ', 1);
 define('SIGNOFF_ACCESS_MODIFY', 2);
 
 class PKPSignoffAccessPolicy extends ContextPolicy {
+
+	/** var $_baseSectionAccessPolicy the base policy for the signoff before _SUB_EDITOR is considered */
+	var $_baseSectionAccessPolicy;
+
 	/**
 	 * Constructor
 	 * @param $request PKPRequest
@@ -28,7 +32,18 @@ class PKPSignoffAccessPolicy extends ContextPolicy {
 	 */
 	function PKPSignoffAccessPolicy($request, $args, $roleAssignments, $mode, $stageId) {
 		parent::ContextPolicy($request);
+		$this->_baseSectionAccessPolicy = $this->buildSignoffAccessPolicy($request, $args, $roleAssignments,$mode, $stageId);
+	}
 
+	/**
+	 *
+	 * @param PKPRequest $request
+	 * @param array $args
+	 * @param array $roleAssignments
+	 * @param $mode int bitfield SIGNOFF_ACCESS_...
+	 * @param $stageId int
+	 */
+	function buildSignoffAccessPolicy($request, $args, $roleAssignments, $mode, $stageId) {
 		// We need a submission matching the file in the request.
 		import('lib.pkp.classes.security.authorization.internal.SignoffExistsAccessPolicy');
 		$this->addPolicy(new SignoffExistsAccessPolicy($request, $args));
@@ -88,6 +103,8 @@ class PKPSignoffAccessPolicy extends ContextPolicy {
 		$userOwnsSignoffPolicy = new SignoffAssignedToUserAccessPolicy($request);
 		$signoffAccessPolicy->addPolicy($userOwnsSignoffPolicy);
 		$this->addPolicy($signoffAccessPolicy);
+
+		return $signoffAccessPolicy;
 	}
 }
 

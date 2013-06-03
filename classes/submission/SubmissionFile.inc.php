@@ -543,6 +543,7 @@ class SubmissionFile extends PKPFile {
 				SUBMISSION_FILE_LAYOUT => 'submission/layout',
 				SUBMISSION_FILE_ATTACHMENT => 'attachment',
 				SUBMISSION_FILE_SIGNOFF => 'submission/signoff',
+				SUBMISSION_FILE_SUPP => 'submission/supp',
 		);
 
 		assert(isset($fileStageToPath[$fileStage]));

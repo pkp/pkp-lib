@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/citation/WebService.inc.php
+ * @file classes/webservice/WebService.inc.php
  *
  * Copyright (c) 2000-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.

@@ -56,7 +56,8 @@ class CopyeditAssignmentNotificationManager extends NotificationManagerDelegate 
 		}
 
 		// Check for an existing notification.
-		$userId = current($userIds);
+		$userId = !is_null($userIds) ? current($userIds) : null;
+
 		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
 		$notificationFactory = $notificationDao->getByAssoc(
 				ASSOC_TYPE_SIGNOFF,

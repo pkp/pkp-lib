@@ -51,7 +51,7 @@ class AuditorRequestNotificationManager extends NotificationManagerDelegate {
 	 * Create one notification for each user auditor signoff.
 	 */
 	public function updateNotification($request, $userIds, $assocType, $assocId) {
-		$userId = current($userIds);
+		$userId = !is_null($userIds) ? current($userIds) : null;
 
 		// Check for an existing notification.
 		$notificationDao = DAORegistry::getDAO('NotificationDAO');

@@ -330,12 +330,18 @@ class PKPSignoffFilesGridHandler extends CategoryGridHandler {
 	/**
 	 * Get all the signoffs for this category.
 	 * @see CategoryGridHandler::getCategoryData()
-	 * @param $submissionFile SubmissionFile
+	 * @param $submissionFile SubmissionFile or string
 	 * @return array Signoffs
 	 */
 	function getCategoryData($submissionFile) {
 		$submissionFileSignoffDao = DAORegistry::getDAO('SubmissionFileSignoffDAO');
-		$signoffFactory = $submissionFileSignoffDao->getAllBySymbolic($this->getSymbolic(), $submissionFile->getFileId()); /* @var $signoffs DAOResultFactory */
+		if (is_a($submissionFile, 'SubmissionFile')) {
+			$signoffFactory = $submissionFileSignoffDao->getAllBySymbolic($this->getSymbolic(), $submissionFile->getFileId()); /* @var $signoffs DAOResultFactory */
+		} else if (is_numeric($submissionFile)) { // $submissionFile is already the file id.
+			$signoffFactory = $submissionFileSignoffDao->getAllBySymbolic($this->getSymbolic(), $submissionFile); /* @var $signoffs DAOResultFactory */
+		} else {
+			assert(false);
+		}
 		$signoffs = $signoffFactory->toAssociativeArray();
 		return $signoffs;
 	}

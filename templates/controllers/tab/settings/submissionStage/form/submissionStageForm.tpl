@@ -18,7 +18,7 @@
 <form class="pkp_form" id="submissionStageForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="tab.settings.PublicationSettingsTabHandler" op="saveFormData" tab="submissionStage"}">
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="submissionStageFormNotification"}
 
-	{url|assign:submissionChecklistGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.settings.submissionChecklist.SubmissionChecklistGridHandler" op="fetchGrid"}
+	{url|assign:submissionChecklistGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.settings.submissionChecklist.SubmissionChecklistGridHandler" op="fetchGrid" escape=false}
 	{load_url_in_div id="submissionChecklistGridDiv" url=$submissionChecklistGridUrl}
 
 	<h4>{translate key="manager.setup.notifications"}</h4>

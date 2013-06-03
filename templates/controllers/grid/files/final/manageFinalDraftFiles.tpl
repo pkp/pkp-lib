@@ -23,7 +23,7 @@
 			{fbvFormSection}
 				<input type="hidden" name="submissionId" value="{$submissionId|escape}" />
 				<input type="hidden" name="stageId" value="{$smarty.const.WORKFLOW_STAGE_ID_EDITING}" />
-				{url|assign:availableReviewFilesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.final.ManageFinalDraftFilesGridHandler" op="fetchGrid" submissionId=$submissionId}
+				{url|assign:availableReviewFilesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.final.ManageFinalDraftFilesGridHandler" op="fetchGrid" submissionId=$submissionId escape=false}
 				{load_url_in_div id="availableReviewFilesGrid" url=$availableReviewFilesGridUrl}
 			{/fbvFormSection}
 

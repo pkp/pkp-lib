@@ -6,7 +6,5 @@
  *
  * List available plugins.
  *}
-
- <!-- Plugin grid -->
-{url|assign:pluginGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.admin.plugins.AdminPluginGridHandler" op="fetchGrid"}
+{url|assign:pluginGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.admin.plugins.AdminPluginGridHandler" op="fetchGrid" escape=false}
 {load_url_in_div id="pluginGridContainer" url="$pluginGridUrl"}

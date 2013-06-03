@@ -33,7 +33,7 @@
 		{/if}
 	{/fbvFormSection}
 
-	{url|assign:preparedEmailsGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.settings.preparedEmails.preparedEmailsGridHandler" op="fetchGrid"}
+	{url|assign:preparedEmailsGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.settings.preparedEmails.preparedEmailsGridHandler" op="fetchGrid" escape=false}
 	{load_url_in_div id="preparedEmailsGridDiv" url=$preparedEmailsGridUrl}
 	
 	{fbvFormButtons id="emailTemplatesFormSubmit" submitText="common.save" hideCancel=true}

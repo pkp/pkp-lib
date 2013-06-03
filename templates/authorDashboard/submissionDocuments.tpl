@@ -10,7 +10,7 @@
 	<div class="pkp_authorDashboard_stageContainer" id="documents">
 		<h3><a href="#">{translate key='submission.documents'}</a></h3>
 		<div id="documentsContent">
-			{url|assign:documentsGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.submissionDocuments.SubmissionDocumentsFilesGridHandler" op="fetchGrid" submissionId=$submission->getId()}
+			{url|assign:documentsGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.submissionDocuments.SubmissionDocumentsFilesGridHandler" op="fetchGrid" submissionId=$submission->getId() escape=false}
 			{load_url_in_div id="documentsGridDiv" url=$documentsGridUrl}
 		</div>
 	</div>

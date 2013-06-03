@@ -18,7 +18,7 @@
 	<li class="current"><a href="{url op="announcementTypes"}">{translate key="manager.announcementTypes"}</a></li>
 </ul>
 
-{url|assign:announcementTypeGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.announcements.AnnouncementTypeGridHandler" op="fetchGrid"}
+{url|assign:announcementTypeGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.announcements.AnnouncementTypeGridHandler" op="fetchGrid" escape=false}
 {load_url_in_div id="announcementTypeGridContainer" url="$announcementTypeGridUrl"}
 
 {include file="common/footer.tpl"}

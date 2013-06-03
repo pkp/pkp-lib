@@ -33,9 +33,9 @@
 		{/fbvFormSection}
 
 		{if $footerCategory}
-			{url|assign:footerLinkListbuilderUrl router=$smarty.const.ROUTE_COMPONENT component="listbuilder.content.navigation.FooterLinkListbuilderHandler" op="fetch" footerCategoryId=$footerCategory->getId()}
+			{url|assign:footerLinkListbuilderUrl router=$smarty.const.ROUTE_COMPONENT component="listbuilder.content.navigation.FooterLinkListbuilderHandler" op="fetch" footerCategoryId=$footerCategory->getId() escape=false}
 		{else}
-			{url|assign:footerLinkListbuilderUrl router=$smarty.const.ROUTE_COMPONENT component="listbuilder.content.navigation.FooterLinkListbuilderHandler" op="fetch"}
+			{url|assign:footerLinkListbuilderUrl router=$smarty.const.ROUTE_COMPONENT component="listbuilder.content.navigation.FooterLinkListbuilderHandler" op="fetch" escape=false}
 		{/if}
 
 		{load_url_in_div id="footerLinkListbuilderContainer" url=$footerLinkListbuilderUrl}

@@ -8,9 +8,9 @@
  *}
 
 {if in_array(ROLE_ID_SITE_ADMIN, $userRoles) && !$multipleContexts}
-	{url|assign:languagesUrl router=$smarty.const.ROUTE_COMPONENT component="grid.admin.languages.AdminLanguageGridHandler" op="fetchGrid"}
+	{url|assign:languagesUrl router=$smarty.const.ROUTE_COMPONENT component="grid.admin.languages.AdminLanguageGridHandler" op="fetchGrid" escape=false}
 	{load_url_in_div id="languageGridContainer" url=$languagesUrl}
 {else}
-	{url|assign:languagesUrl router=$smarty.const.ROUTE_COMPONENT component="grid.settings.languages.ManageLanguageGridHandler" op="fetchGrid"}
+	{url|assign:languagesUrl router=$smarty.const.ROUTE_COMPONENT component="grid.settings.languages.ManageLanguageGridHandler" op="fetchGrid" escape=false}
 	{load_url_in_div id="languageGridContainer" url=$languagesUrl}
 {/if}

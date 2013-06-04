@@ -107,7 +107,7 @@ class SubmissionSearch {
 	 * See implementation of retrieveResults for a description of this
 	 * function.
 	 */
-	function &_getMergedArray($context, &$keywords, $publishedFrom, $publishedTo) {
+	function _getMergedArray($context, &$keywords, $publishedFrom, $publishedTo) {
 		$resultsPerKeyword = Config::getVar('search', 'results_per_keyword');
 		$resultCacheHours = Config::getVar('search', 'result_cache_hours');
 		if (!is_numeric($resultsPerKeyword)) $resultsPerKeyword = 100;
@@ -138,15 +138,15 @@ class SubmissionSearch {
 		}
 
 		foreach ($keyword['+'] as $phrase) {
-			$results =& $this->_getMergedPhraseResults($context, $phrase, $type, $publishedFrom, $publishedTo, $resultsPerKeyword, $resultCacheHours);
+			$results = $this->_getMergedPhraseResults($context, $phrase, $type, $publishedFrom, $publishedTo, $resultsPerKeyword, $resultCacheHours);
 			if ($mergedResults === null) {
 				$mergedResults = $results;
 			} else {
-				foreach ($mergedResults as $articleId => $count) {
-					if (isset($results[$articleId])) {
-						$mergedResults[$articleId] += $results[$articleId];
+				foreach ($mergedResults as $submissionId => $count) {
+					if (isset($results[$submissionId])) {
+						$mergedResults[$submissionId] += $results[$submissionId];
 					} else {
-						unset($mergedResults[$articleId]);
+						unset($mergedResults[$submissionId]);
 					}
 				}
 			}
@@ -158,21 +158,21 @@ class SubmissionSearch {
 
 		if (!empty($mergedResults) || empty($keyword['+'])) {
 			foreach ($keyword[''] as $phrase) {
-				$results =& $this->_getMergedPhraseResults($context, $phrase, $type, $publishedFrom, $publishedTo, $resultsPerKeyword, $resultCacheHours);
-				foreach ($results as $articleId => $count) {
-					if (isset($mergedResults[$articleId])) {
-						$mergedResults[$articleId] += $count;
+				$results = $this->_getMergedPhraseResults($context, $phrase, $type, $publishedFrom, $publishedTo, $resultsPerKeyword, $resultCacheHours);
+				foreach ($results as $submissionId => $count) {
+					if (isset($mergedResults[$submissionId])) {
+						$mergedResults[$submissionId] += $count;
 					} else if (empty($keyword['+'])) {
-						$mergedResults[$articleId] = $count;
+						$mergedResults[$submissionId] = $count;
 					}
 				}
 			}
 
 			foreach ($keyword['-'] as $phrase) {
-				$results =& $this->_getMergedPhraseResults($context, $phrase, $type, $publishedFrom, $publishedTo, $resultsPerKeyword, $resultCacheHours);
-				foreach ($results as $articleId => $count) {
-					if (isset($mergedResults[$articleId])) {
-						unset($mergedResults[$articleId]);
+				$results = $this->_getMergedPhraseResults($context, $phrase, $type, $publishedFrom, $publishedTo, $resultsPerKeyword, $resultCacheHours);
+				foreach ($results as $submissionId => $count) {
+					if (isset($mergedResults[$submissionId])) {
+						unset($mergedResults[$submissionId]);
 					}
 				}
 			}
@@ -184,14 +184,14 @@ class SubmissionSearch {
 	/**
 	 * Recursive helper for _getMergedArray.
 	 */
-	function &_getMergedPhraseResults($context, &$phrase, $type, $publishedFrom, $publishedTo, $resultsPerKeyword, $resultCacheHours) {
+	function _getMergedPhraseResults($context, &$phrase, $type, $publishedFrom, $publishedTo, $resultsPerKeyword, $resultCacheHours) {
 		if (isset($phrase['+'])) {
-			$mergedResults =& $this->_getMergedKeywordResults($context, $phrase, $type, $publishedFrom, $publishedTo, $resultsPerKeyword, $resultCacheHours);
-			return $mergedResults;
+			return $this->_getMergedKeywordResults($context, $phrase, $type, $publishedFrom, $publishedTo, $resultsPerKeyword, $resultCacheHours);
 		}
 
 		$mergedResults = array();
 		$searchDao = $this->getSearchDao();
+
 		$results = $searchDao->getPhraseResults(
 			$context,
 			$phrase,
@@ -201,12 +201,12 @@ class SubmissionSearch {
 			$resultsPerKeyword,
 			$resultCacheHours
 		);
-		while ($resuult = $results->next()) {
-			$articleId = $result['submission_id'];
-			if (!isset($mergedResults[$articleId])) {
-				$mergedResults[$articleId] = $result['count'];
+		while ($result = $results->next()) {
+			$submissionId = $result['submission_id'];
+			if (!isset($mergedResults[$submissionId])) {
+				$mergedResults[$submissionId] = $result['count'];
 			} else {
-				$mergedResults[$articleId] += $result['count'];
+				$mergedResults[$submissionId] += $result['count'];
 			}
 		}
 		return $mergedResults;
@@ -220,9 +220,9 @@ class SubmissionSearch {
 		$resultCount = count($mergedResults);
 		$results = array();
 		$i = 0;
-		foreach ($mergedResults as $articleId => $count) {
+		foreach ($mergedResults as $submissionId => $count) {
 				$frequencyIndicator = ($resultCount * $count) + $i++;
-				$results[$frequencyIndicator] = $articleId;
+				$results[$frequencyIndicator] = $submissionId;
 		}
 		krsort($results);
 		return $results;
@@ -296,15 +296,15 @@ class SubmissionSearch {
 			// (mergedResults), where mergedResults[submission_id]
 			// = sum of all the occurences for all keywords associated with
 			// that article ID.
-			$mergedResults =& $this->_getMergedArray($context, $keywords, $publishedFrom, $publishedTo);
+			$mergedResults = $this->_getMergedArray($context, $keywords, $publishedFrom, $publishedTo);
 
 			// Convert mergedResults into an array (frequencyIndicator =>
-			// $articleId).
+			// $submissionId).
 			// The frequencyIndicator is a synthetically-generated number,
 			// where higher is better, indicating the quality of the match.
 			// It is generated here in such a manner that matches with
 			// identical frequency do not collide.
-			$results =& $this->_getSparseArray($mergedResults);
+			$results = $this->_getSparseArray($mergedResults);
 			$totalResults = count($results);
 
 			// Use only the results for the specified page.

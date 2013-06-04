@@ -16,13 +16,63 @@
  * @brief Submission class.
  */
 
+// Submission status constants
+define('STATUS_ARCHIVED', 0);
+define('STATUS_QUEUED', 1);
+define('STATUS_PUBLISHED', 3);
+define('STATUS_DECLINED', 4);
+
+// getSubmissionStatus will return one of these in place of QUEUED:
+define ('STATUS_QUEUED_UNASSIGNED', 5);
+define ('STATUS_QUEUED_REVIEW', 6);
+define ('STATUS_QUEUED_EDITING', 7);
+define ('STATUS_INCOMPLETE', 8);
+
 class Submission extends DataObject {
 	/**
 	 * Constructor.
 	 */
 	function Submission() {
+		// Switch on meta-data adapter support.
+		$this->setHasLoadableAdapters(true);
+
 		parent::DataObject();
 	}
+
+	/**
+	 * Get a public ID for this submission.
+	 * @param $pubIdType string One of the NLM pub-id-type values or
+	 * 'other::something' if not part of the official NLM list
+	 * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
+	 * @var $preview boolean If true, generate a non-persisted preview only.
+	 */
+	function getPubId($pubIdType, $preview = false) {
+		// FIXME: Move publisher-id to PID plug-in.
+		if ($pubIdType === 'publisher-id') {
+			$pubId = $this->getStoredPubId($pubIdType);
+			return ($pubId ? $pubId : null);
+		}
+
+		$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $this->getJournalId());
+
+		if (is_array($pubIdPlugins)) {
+			foreach ($pubIdPlugins as $pubIdPlugin) {
+				if ($pubIdPlugin->getPubIdType() == $pubIdType) {
+					// If we already have an assigned ID, use it.
+					$storedId = $this->getStoredPubId($pubIdType);
+					if (!empty($storedId)) return $storedId;
+
+					return $pubIdPlugin->getPubId($this, $preview);
+				}
+			}
+		}
+		return null;
+	}
+
+
+	//
+	// Getters / setters
+	//
 
 	/**
 	 * Get the context ID for this submission.
@@ -70,9 +120,59 @@ class Submission extends DataObject {
 		return $data;
 	}
 
-	//
-	// Get/set methods
-	//
+	/**
+	 * Get stored public ID of the submission.
+	 * @param $pubIdType string One of the NLM pub-id-type values or
+	 * 'other::something' if not part of the official NLM list
+	 * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
+	 * @return int
+	 */
+	function getStoredPubId($pubIdType) {
+		return $this->getData('pub-id::'.$pubIdType);
+	}
+
+	/**
+	 * Set the stored public ID of the submission.
+	 * @param $pubIdType string One of the NLM pub-id-type values or
+	 * 'other::something' if not part of the official NLM list
+	 * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
+	 * @param $pubId string
+	 */
+	function setStoredPubId($pubIdType, $pubId) {
+		return $this->setData('pub-id::'.$pubIdType, $pubId);
+	}
+
+	/**
+	 * Get comments to editor.
+	 * @return string
+	 */
+	function getCommentsToEditor() {
+		return $this->getData('commentsToEditor');
+	}
+
+	/**
+	 * Return option selection indicating if author should be hidden in issue ToC.
+	 * @return int AUTHOR_TOC_...
+	 */
+	function getHideAuthor() {
+		return $this->getData('hideAuthor');
+	}
+
+	/**
+	 * Set option selection indicating if author should be hidden in issue ToC.
+	 * @param $hideAuthor int AUTHOR_TOC_...
+	 */
+	function setHideAuthor($hideAuthor) {
+		return $this->setData('hideAuthor', $hideAuthor);
+	}
+
+	/**
+	 * Set comments to editor.
+	 * @param $commentsToEditor string
+	 */
+	function setCommentsToEditor($commentsToEditor) {
+		return $this->setData('commentsToEditor', $commentsToEditor);
+	}
 
 	/**
 	 * Return first author
@@ -136,7 +236,7 @@ class Submission extends DataObject {
 	 * Get the primary author of this submission.
 	 * @return Author
 	 */
-	function &getPrimaryAuthor() {
+	function getPrimaryAuthor() {
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
 		return $authorDao->getPrimaryContact($this->getId());
 	}

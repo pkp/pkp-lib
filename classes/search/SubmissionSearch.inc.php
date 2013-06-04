@@ -58,6 +58,8 @@ class SubmissionSearch {
 		$return = array('+' => array(), '' => array(), '-' => array());
 		$postBool = $preBool = '';
 
+		$submissionSearchIndex = new SubmissionSearchIndex();
+
 		$notOperator = String::strtolower(__('search.operator.not'));
 		$andOperator = String::strtolower(__('search.operator.and'));
 		$orOperator = String::strtolower(__('search.operator.or'));
@@ -91,7 +93,6 @@ class SubmissionSearch {
 					if (is_array($token)) {
 						$k = $token;
 					} else {
-						$submissionSearchIndex = new SubmissionSearchIndex();
 						$k = $submissionSearchIndex->filterKeywords($token, true);
 					}
 					if (!empty($k)) $return[$sign][] = $k;
@@ -190,8 +191,8 @@ class SubmissionSearch {
 		}
 
 		$mergedResults = array();
-		$articleSearchDao = DAORegistry::getDAO('ArticleSearchDAO'); /* @var $articleSearchDao ArticleSearchDAO */
-		$results = $articleSearchDao->getPhraseResults(
+		$searchDao = $this->getSearchDao();
+		$results = $searchDao->getPhraseResults(
 			$context,
 			$phrase,
 			$publishedFrom,
@@ -342,6 +343,14 @@ class SubmissionSearch {
 			SUBMISSION_SEARCH_TYPE => 'type',
 			SUBMISSION_SEARCH_COVERAGE => 'coverage'
 		);
+	}
+
+	/**
+	 * Return the search DAO
+	 * @return DAO
+	 */
+	protected function getSearchDao() {
+		assert(false); // To be implemented by subclasses
 	}
 }
 

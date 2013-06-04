@@ -113,7 +113,7 @@ class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm {
 				$userId,
 				NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED,
 				$submission->getContextId(),
-				$submission->getAssocType(),
+				ASSOC_TYPE_SUBMISSION,
 				$submission->getId(),
 				NOTIFICATION_LEVEL_TASK
 			);
@@ -123,7 +123,7 @@ class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm {
 			$request,
 			array(NOTIFICATION_TYPE_APPROVE_SUBMISSION),
 			null,
-			$submission->getAssocType(),
+			ASSOC_TYPE_SUBMISSION,
 			$submission->getId()
 		);
 

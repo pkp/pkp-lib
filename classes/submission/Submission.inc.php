@@ -41,15 +41,6 @@ class Submission extends DataObject {
 	}
 
 	/**
-	 * Returns the association type of this submission
-	 * @return integer one of the ASSOC_TYPE_* constants
-	 */
-	function getAssocType() {
-		// Must be implemented by sub-classes.
-		assert(false);
-	}
-
-	/**
 	 * Get a piece of data for this object, localized to the current
 	 * locale if possible.
 	 * @param $key string

@@ -132,7 +132,7 @@ class WebService {
 
 		// POST to the web service
 		for ($retries = 0; $retries < WEBSERVICE_RETRIES; $retries++) {
-			if ($result = @curl_exec($ch)) break;
+			if (($result = @curl_exec($ch)) !== false) break;
 
 			// Wait for a short interval before trying again
 			usleep(WEBSERVICE_MICROSECONDS_BEFORE_RETRY);
@@ -182,7 +182,7 @@ class WebService {
 
 		// GET from the web service
 		for ($retries = 0; $retries < WEBSERVICE_RETRIES; $retries++) {
-			if ($result = @curl_exec($ch)) break;
+			if (($result = @curl_exec($ch)) !== false) break;
 
 			// Wait for a short interval before trying again
 			usleep(WEBSERVICE_MICROSECONDS_BEFORE_RETRY);

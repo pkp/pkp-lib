@@ -93,6 +93,7 @@ class SubmissionDAO extends DAO {
 		$submission = $this->newDataObject();
 
 		$submission->setId($row['submission_id']);
+		$submission->setContextId($row['context_id']);
 		$submission->setLocale($row['locale']);
 		$submission->setUserId($row['user_id']);
 		$submission->setStageId($row['stage_id']);
@@ -263,15 +264,115 @@ class SubmissionDAO extends DAO {
 	 * @param $useCache boolean optional
 	 * @return Submission
 	 */
-	function getById($articleId, $journalId = null, $useCache = false) {
+	function getById($submissionId, $contextId = null, $useCache = false) {
 		if ($useCache) {
 			$cache = $this->_getCache();
-			$returner = $cache->get($submissionId);
-			if ($returner && $contextId != null && $contextId != $returner->getContextId()) $returner = null;
-			return $returner;
+			$submission = $cache->get($submissionId);
+			if ($submission && (!$contextId || $contextId == $submission->getContextId())) {
+				return $submission;
+			}
+			unset($submission);
 		}
 
-		return null;
+		$params = $this->_getFetchParameters();
+		$params[] = (int) $submissionId;
+		if ($contextId) $params[] = (int) $contextId;
+
+		$result = $this->retrieve(
+			'SELECT	s.*, ps.date_published,
+				' . $this->_getFetchColumns() . '
+			FROM	submissions s
+				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id)
+				' . $this->_getFetchJoins() . '
+			WHERE	s.submission_id = ?
+				' . ($contextId?' AND s.context_id = ?':''),
+			$params
+		);
+
+		$returner = null;
+		if ($result->RecordCount() != 0) {
+			$returner = $this->_fromRow($result->GetRowAssoc(false));
+		}
+
+		$result->Close();
+		return $returner;
+	}
+
+	/**
+	 * Get all submissions for a context.
+	 * @param $contextId int
+	 * @return DAOResultFactory containing matching Submissions
+	 */
+	function getByContextId($contextId) {
+		$params = $this->_getFetchParameters();
+		$params[] = (int) $contextId;
+
+		$result = $this->retrieve(
+			'SELECT	s.*, ps.date_published,
+				' . $this->getFetchColumns() . '
+			FROM	submissions s
+				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id)
+				' . $this->getFetchJoins() . '
+			WHERE	s.context_id = ?',
+			$params
+		);
+
+		return new DAOResultFactory($result, $this, '_fromRow');
+	}
+
+	/**
+	 * Get all submissions for a user.
+	 * @param $userId int
+	 * @param $contextId int optional
+	 * @return array Submissions
+	 */
+	function getByUserId($userId, $contextId = null) {
+		$primaryLocale = AppLocale::getPrimaryLocale();
+		$locale = AppLocale::getLocale();
+		$params = $this->_getFetchParameters();
+		$params[] = (int) $userId;
+		if ($pressId) $params[] = (int) $contextId;
+
+		$result = $this->retrieve(
+			'SELECT	s.*, ps.date_published,
+				' . $this->_getFetchColumns() . '
+			FROM	submissions s
+				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id)
+				' . $this->_getFetchJoins() . '
+			WHERE	s.user_id = ?' .
+				($contextId?' AND s.context_id = ?':''),
+			$params
+		);
+
+		return new DAOResultFactory($result, $this, '_fromRow');
+	}
+
+
+	//
+	// Protected functions
+	//
+	/**
+	 * Return a list of extra parameters to bind to the submission fetch queries.
+	 * @return array
+	 */
+	protected function _getFetchParameters() {
+		assert(false); // To be overridden by subclasses
+	}
+
+	/**
+	 * Return a SQL snippet of extra columns to fetch during submission fetch queries.
+	 * @return string
+	 */
+	protected function _getFetchColumns() {
+		assert(false); // To be overridden by subclasses
+	}
+
+	/**
+	 * Return a SQL snippet of extra joins to include during fetch queries.
+	 * @return string
+	 */
+	protected function _getFetchJoins() {
+		assert(false); // To be overridden by subclasses
 	}
 }
 

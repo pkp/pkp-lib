@@ -79,7 +79,7 @@ class Submission extends DataObject {
 	 * @return int
 	 */
 	function getContextId() {
-		assert(false); // Must be overridden by subclasses
+		return $this->getData('contextId');
 	}
 
 	/**
@@ -87,7 +87,7 @@ class Submission extends DataObject {
 	 * @param $contextId int
 	 */
 	function setContextId($contextId) {
-		assert(false); // Must be overridden by subclasses
+		return $this->setData('contextId', $contextId);
 	}
 
 	/**
@@ -316,8 +316,8 @@ class Submission extends DataObject {
 	 * @param $locale
 	 */
 	function setCleanTitle($cleanTitle, $locale) {
-		$punctuation = array ("\"", "\'", ",", ".", "!", "?", "-", "$", "(", ")");
-		$cleanTitle = str_replace($punctuation, "", $cleanTitle);
+		$punctuation = array ('"', '\'', ',', '.', '!', '?', '-', '$', '(', ')');
+		$cleanTitle = str_replace($punctuation, '', $cleanTitle);
 		return $this->setData('cleanTitle', $cleanTitle, $locale);
 	}
 

@@ -28,7 +28,6 @@ class PKPLoginHandler extends Handler {
 	 * Redirect to user index page if user is already validated.
 	 */
 	function index($args, $request) {
-		$this->validate();
 		$this->setupTemplate($request);
 		if (Validation::isLoggedIn()) {
 			$request->redirect(null, 'user');
@@ -85,8 +84,6 @@ class PKPLoginHandler extends Handler {
 	 * This is the function that Shibboleth redirects to - after the user has authenticated.
 	 */
 	function implicitAuthReturn($args, $request) {
-		$this->validate();
-
 		if (Validation::isLoggedIn()) {
 			$request->redirect(null, 'user');
 		}
@@ -110,7 +107,6 @@ class PKPLoginHandler extends Handler {
 	 * Validate a user's credentials and log the user in.
 	 */
 	function signIn($args, $request) {
-		$this->validate();
 		$this->setupTemplate($request);
 		if (Validation::isLoggedIn()) {
 			$request->redirect(null, 'dashboard');
@@ -159,7 +155,6 @@ class PKPLoginHandler extends Handler {
 	 * Log a user out.
 	 */
 	function signOut($args, $request) {
-		$this->validate();
 		$this->setupTemplate($request);
 		if (Validation::isLoggedIn()) {
 			Validation::logout();
@@ -177,7 +172,6 @@ class PKPLoginHandler extends Handler {
 	 * Display form to reset a user's password.
 	 */
 	function lostPassword($args, $request) {
-		$this->validate();
 		$this->setupTemplate($request);
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->display('user/lostPassword.tpl');
@@ -187,7 +181,6 @@ class PKPLoginHandler extends Handler {
 	 * Send a request to reset a user's password
 	 */
 	function requestResetPassword($args, $request) {
-		$this->validate();
 		$this->setupTemplate($request);
 		$templateMgr = TemplateManager::getManager($request);
 
@@ -225,7 +218,6 @@ class PKPLoginHandler extends Handler {
 	 * @param $args array first param contains the username of the user whose password is to be reset
 	 */
 	function resetPassword($args, $request) {
-		$this->validate();
 		$this->setupTemplate($request);
 
 		$username = isset($args[0]) ? $args[0] : null;
@@ -289,7 +281,6 @@ class PKPLoginHandler extends Handler {
 	 * @param $args array first argument may contain user's username
 	 */
 	function changePassword($args, $request) {
-		$this->validate();
 		$this->setupTemplate($request);
 
 		import('lib.pkp.classes.user.form.LoginChangePasswordForm');
@@ -306,7 +297,6 @@ class PKPLoginHandler extends Handler {
 	 * Save user's new password.
 	 */
 	function savePassword($args, $request) {
-		$this->validate();
 		$this->setupTemplate($request);
 
 		import('lib.pkp.classes.user.form.LoginChangePasswordForm');

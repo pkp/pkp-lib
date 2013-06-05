@@ -14,16 +14,8 @@
 
 
 import('lib.pkp.classes.webservice.WebService');
-import('lib.pkp.classes.core.JSONMessage');
 
 class JSONWebService extends WebService {
-
-	/**
-	 * Constructor
-	 */
-	function JSONWebService() {
-		parent::WebService();
-	}
 
 	/**
 	 * @see WebService::call()

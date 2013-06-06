@@ -58,7 +58,7 @@
 		<field name="date_reminded" type="T"/>
 		<field name="quality" type="I1"/>
 		<field name="review_round_id" type="I8">
-			<NOTNULL/>
+			<!-- NOTNULL constraint not included b/c of bug #8247 -->
 		</field>
 		<field name="stage_id" type="I1">
 			<NOTNULL/>

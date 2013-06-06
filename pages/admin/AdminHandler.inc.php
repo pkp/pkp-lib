@@ -55,7 +55,7 @@ class AdminHandler extends Handler {
 		}
 
 		if ($requestedOp == 'settings') {
-			$contextDao =& $context->getDAO();
+			$contextDao = $context->getDAO();
 			$contextFactory = $contextDao->getAll();
 			if ($contextFactory->getCount() == 1) {
 				// Don't let users access site settings in a single context installation.
@@ -76,7 +76,7 @@ class AdminHandler extends Handler {
 	function index($args, $request) {
 		$templateMgr = TemplateManager::getManager($request);
 		$workingContexts = $this->getWorkingContexts($request);
-		$templateMgr->assign('multipleContexts', $workingContexts->getCount() > 0);
+		$templateMgr->assign('multipleContexts', $workingContexts->getCount() > 1);
 		$templateMgr->display('admin/index.tpl');
 	}
 

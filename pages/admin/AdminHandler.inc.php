@@ -45,7 +45,7 @@ class AdminHandler extends Handler {
 		if (!$context && $requestedOp != 'contexts') {
 
 			// Try to find a context that user has access to.
-			$targetContext = $this->getTargetContext($request);
+			$targetContext = $this->getTargetContext($request, true);
 			if ($targetContext) {
 				$url = $router->url($request, $targetContext->getPath(), 'admin', $requestedOp);
 			} else {

@@ -60,6 +60,7 @@
 	<message key="common.applyAction">Apply Action</message>
 	<message key="common.assign">Assign</message>
 	<message key="common.assigned">Assigned</message>
+	<message key="common.available">Available</message>
 	<message key="common.back">Back</message>
 	<message key="common.between">between</message>
 	<message key="common.cancel">Cancel</message>

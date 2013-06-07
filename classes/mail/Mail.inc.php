@@ -212,7 +212,7 @@ class Mail extends DataObject {
 		}
 
 		foreach ($headers as $key => $value) {
-			if ($headers[$key]['name'] == $name) {
+			if ($value['name'] == $name) {
 				$headers[$key]['content'] = $content;
 				$updated = true;
 			}

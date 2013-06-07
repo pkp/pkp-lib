@@ -27,7 +27,7 @@ class FTPFileWrapper extends FileWrapper {
 		$port = isset($this->info['port']) ? (int)$this->info['port'] : 21;
 		$path = isset($this->info['path']) ? $this->info['path'] : '/';
 
-		if (!($this->ctrl = fsockopen($host, $port, $errno, $errstr)))
+		if (!($this->ctrl = fsockopen($host, $port)))
 			return false;
 
 		if ($this->_open($user, $pass, $path))
@@ -82,7 +82,7 @@ class FTPFileWrapper extends FileWrapper {
 		$host = "$h1.$h2.$h3.$h4";
 		$port = ($p1 << 8) + $p2;
 
-		if (!($this->fp = fsockopen($host, $port, $errno, $errstr)))
+		if (!($this->fp = fsockopen($host, $port)))
 			return false;
 
 		// Retrieve file

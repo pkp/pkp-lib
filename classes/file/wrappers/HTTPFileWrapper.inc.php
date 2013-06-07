@@ -73,7 +73,7 @@ class HTTPFileWrapper extends FileWrapper {
 			}
 		}
 
-		if (!($this->fp = fsockopen($host, $port, $errno, $errstr)))
+		if (!($this->fp = fsockopen($host, $port)))
 			return false;
 
 		$additionalHeadersString = '';

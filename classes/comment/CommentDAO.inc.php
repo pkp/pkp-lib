@@ -233,7 +233,7 @@ class CommentDAO extends DAO {
 	 * @param Comment object
 	 */
 	function deleteObject($comment, $isRecursing = false) {
-		$result = $this->update('DELETE FROM comments WHERE comment_id = ?', $comment->getId());
+		$this->update('DELETE FROM comments WHERE comment_id = ?', $comment->getId());
 		if (!$isRecursing) $this->decrementChildCount($comment->getParentCommentId());
 		foreach ($comment->getChildren() as $child) {
 			$this->deleteObject($child, true);

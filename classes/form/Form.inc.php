@@ -179,7 +179,6 @@ class Form {
 		$templateMgr->assign('formLocales', $this->supportedLocales);
 
 		// Determine the current locale to display fields with
-		$formLocale = $this->getFormLocale();
 		$templateMgr->assign('formLocale', $this->getFormLocale());
 
 		// N.B: We have to call $templateMgr->display instead of ->fetch($display)
@@ -331,7 +330,7 @@ class Form {
 	 * @return string
 	 */
 	function getDefaultFormLocale() {
-		if (empty($formLocale)) $formLocale = AppLocale::getLocale();
+		$formLocale = AppLocale::getLocale();
 		if (!isset($this->supportedLocales[$formLocale])) $formLocale = $this->requiredLocale;
 		return $formLocale;
 	}

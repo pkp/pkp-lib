@@ -109,7 +109,7 @@ class PKPSiteSettingsForm extends Form {
 		$site->setRedirect($this->getData('redirect'));
 		$site->setMinPasswordLength($this->getData('minPasswordLength'));
 
-		$siteSettingsDao =& $this->siteSettingsDao;
+		$siteSettingsDao = $this->siteSettingsDao;
 		foreach ($this->getLocaleFieldNames() as $setting) {
 			$siteSettingsDao->updateSetting($setting, $this->getData($setting), null, true);
 		}

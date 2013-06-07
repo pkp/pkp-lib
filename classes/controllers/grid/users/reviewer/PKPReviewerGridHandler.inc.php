@@ -312,9 +312,7 @@ class PKPReviewerGridHandler extends GridHandler {
 	function getReviewersNotAssignedToSubmission($args, $request) {
 		$context = $request->getContext();
 		$submission = $this->getSubmission();
-		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
 		$reviewRound = $this->getReviewRound();
-		$round = $reviewRound->getRound();
 		$term = $request->getUserVar('term');
 
 		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
@@ -344,8 +342,6 @@ class PKPReviewerGridHandler extends GridHandler {
 		$term = $request->getUserVar('term');
 
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
-		$submission = $this->getSubmission();
-
 		$users = $userGroupDao->getUsersNotInRole(ROLE_ID_REVIEWER, $context->getId(), $term);
 
 		$userList = array();
@@ -592,7 +588,6 @@ class PKPReviewerGridHandler extends GridHandler {
 	 * @return string Serialized JSON object
 	 */
 	function sendEmail($args, $request) {
-		$user = $request->getUser();
 		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
 
 		// Form handling.
@@ -612,8 +607,6 @@ class PKPReviewerGridHandler extends GridHandler {
 	 * @return string Serialized JSON object
 	 */
 	function reviewHistory($args, $request) {
-		$user = $request->getUser();
-
 		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
 
 		$templateMgr = TemplateManager::getManager($request);

@@ -280,14 +280,14 @@ class DataObjectTombstoneDAO extends DAO {
 	 */
 	function updateOAISetObjects($dataObjectTombstone) {
 		foreach ($dataObjectTombstone->getOAISetObjectsIds() as $assocType => $assocId) {
-			$returner = $this->update('UPDATE data_object_tombstone_oai_set_objects SET
+			$this->update('UPDATE data_object_tombstone_oai_set_objects SET
 					assoc_type = ?,
 					assoc_id = ?
 					WHERE	tombstone_id = ?',
 				array(
 					(int) $assocType,
 					(int) $assocId,
-					(int) $publicationFormatTombstone->getId()
+					(int) $dataObjectTombstone->getId()
 				)
 			);
 		}

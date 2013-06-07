@@ -144,8 +144,8 @@ class SubmissionLanguageDAO extends ControlledVocabDAO {
 						$languageEntry->setControlledVocabId($currentLanguages->getID());
 						$languageEntry->setLanguage(urldecode($language), $locale);
 						$languageEntry->setSequence($i);
-						$i ++;
-						$languageEntryId = $submissionLanguageEntryDao->insertObject($languageEntry);
+						$i++;
+						$submissionLanguageEntryDao->insertObject($languageEntry);
 					}
 				}
 			}

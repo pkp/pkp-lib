@@ -195,7 +195,7 @@ class ControlledVocabEntryDAO extends DAO {
 	 * @param $controlledVocabEntry ControlledVocabEntry
 	 */
 	function updateObject(&$controlledVocabEntry) {
-		$returner = $this->update(
+		$this->update(
 			'UPDATE	controlled_vocab_entries
 			SET	controlled_vocab_id = ?,
 				seq = ?

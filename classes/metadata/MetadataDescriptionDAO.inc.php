@@ -96,7 +96,7 @@ class MetadataDescriptionDAO extends DAO {
 	 */
 	function updateObject(&$metadataDescription) {
 		$metadataSchema =& $metadataDescription->getMetadataSchema();
-		$returner = $this->update(
+		$this->update(
 			'UPDATE	metadata_descriptions
 			SET	assoc_type = ?,
 				assoc_id = ?,

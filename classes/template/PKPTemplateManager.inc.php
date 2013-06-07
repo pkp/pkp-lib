@@ -193,7 +193,7 @@ class PKPTemplateManager extends Smarty {
 		}
 
 		// Load enabled block plugins.
-		$plugins =& PluginRegistry::loadCategory('blocks', true);
+		PluginRegistry::loadCategory('blocks', true);
 
 		if (!defined('SESSION_DISABLE_INIT')) {
 			$user = $this->request->getUser();
@@ -486,7 +486,6 @@ class PKPTemplateManager extends Smarty {
 		import('lib.pkp.classes.linkAction.request.NullAction');
 		import('lib.pkp.classes.linkAction.LinkAction');
 		$key = $translate ? __($key) : $key;
-		$linkAction = new LinkAction($id, new NullAction(), $key, $image);
 		$this->assign('action', new LinkAction(
 			$id, new NullAction(), $key, $image
 		));
@@ -848,7 +847,6 @@ class PKPTemplateManager extends Smarty {
 
 		$page = $iterator->getPage();
 		$pageCount = $iterator->getPageCount();
-		$itemTotal = $iterator->getCount();
 
 		$pageBase = max($page - floor($numPageLinks / 2), 1);
 		$paramName = $name . 'Page';
@@ -860,7 +858,7 @@ class PKPTemplateManager extends Smarty {
 		$router = $this->request->getRouter();
 		$requestedArgs = null;
 		if (is_a($router, 'PageRouter')) {
-			$requestedArgs = $router->getRequestedArgs($request);
+			$requestedArgs = $router->getRequestedArgs($this->request);
 		}
 
 		if ($page>1) {
@@ -952,7 +950,6 @@ class PKPTemplateManager extends Smarty {
 		if ($length == 0) return '';
 
 		if (String::strlen($string) > $length) {
-			$originalLength = String::strlen($string);
 			if ($skip_tags) {
 				if ($middle) {
 					$tagsReverse = array();

@@ -167,7 +167,7 @@ class ReviewFormElementDAO extends DAO {
 	 * @param $reviewFormId int
 	 */
 	function deleteByReviewFormId($reviewFormId) {
-		$reviewFormElements =& $this->getReviewFormElements($reviewFormId);
+		$reviewFormElements = $this->getReviewFormElements($reviewFormId);
 		foreach ($reviewFormElements as $reviewFormElementId => $reviewFormElement) {
 			$this->deleteById($reviewFormElementId);
 		}

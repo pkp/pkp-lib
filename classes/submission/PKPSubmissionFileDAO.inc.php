@@ -807,9 +807,6 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 				$assocType, $assocId, $stageId, $uploaderUserId, $uploaderUserGroupId, $round, null, $latestOnly);
 		if (empty($deletedFiles)) return 0;
 
-		$filterClause = '';
-		$conjunction = '';
-		$params = array();
 		foreach($deletedFiles as $deletedFile) { /* @var $deletedFile SubmissionFile */
 			// Delete file in the database.
 			// NB: We cannot safely bulk-delete because MySQL 3.23

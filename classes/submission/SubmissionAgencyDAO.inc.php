@@ -143,8 +143,8 @@ class SubmissionAgencyDAO extends ControlledVocabDAO {
 						$agencyEntry->setControlledVocabId($currentAgencies->getID());
 						$agencyEntry->setAgency(urldecode($agency), $locale);
 						$agencyEntry->setSequence($i);
-						$i ++;
-						$agencyEntryId = $submissionAgencyEntryDao->insertObject($agencyEntry);
+						$i++;
+						$submissionAgencyEntryDao->insertObject($agencyEntry);
 					}
 				}
 			}

@@ -129,7 +129,7 @@ class LanguageDAO extends DAO {
 		$returner = array();
 		$cacheContents = $cache->getContents();
 		if (is_array($cacheContents)) {
-			foreach ($cache->getContents() as $code => $entry) {
+			foreach ($cache->getContents() as $entry) {
 				$returner[] = $entry[0];
 			}
 		}

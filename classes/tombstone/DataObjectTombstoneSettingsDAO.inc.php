@@ -70,7 +70,7 @@ class DataObjectTombstoneSettingsDAO extends DAO {
 			$returner = true;
 		} else {
 			if (is_array($value)) foreach ($value as $locale => $localeValue) {
-				$this->update('DELETE FROM data_object_tombstone_settings WHERE tombstone_id = ? AND setting_name = ? AND locale = ?', array((int) $tombstone_id, $name, $locale));
+				$this->update('DELETE FROM data_object_tombstone_settings WHERE tombstone_id = ? AND setting_name = ? AND locale = ?', array((int) $tombstoneId, $name, $locale));
 				if (empty($localeValue)) continue;
 				$type = null;
 				$returner = $this->update('INSERT INTO data_object_tombstone_settings

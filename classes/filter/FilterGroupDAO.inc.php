@@ -98,7 +98,7 @@ class FilterGroupDAO extends DAO {
 	 * @param $filterGroup FilterGroup
 	 */
 	function updateObject(&$filterGroup) {
-		$returner = $this->update(
+		$this->update(
 			'UPDATE	filter_groups
 			SET	symbolic = ?,
 				display_name = ?,

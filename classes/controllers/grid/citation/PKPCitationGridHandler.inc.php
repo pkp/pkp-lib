@@ -192,7 +192,6 @@ class PKPCitationGridHandler extends GridHandler {
 	 */
 	function exportCitations(&$args, $request, $noCitationsFoundMessage) {
 		$router = $request->getRouter();
-		$context = $router->getContext($request);
 		$templateMgr = TemplateManager::getManager($request);
 
 		$errorMessage = null;

@@ -146,8 +146,8 @@ class SubmissionDisciplineDAO extends ControlledVocabDAO {
 						$disciplineEntry->setControlledVocabId($currentDisciplines->getID());
 						$disciplineEntry->setDiscipline(urldecode($discipline), $locale);
 						$disciplineEntry->setSequence($i);
-						$i ++;
-						$disciplineEntryId = $submissionDisciplineEntryDao->insertObject($disciplineEntry);
+						$i++;
+						$submissionDisciplineEntryDao->insertObject($disciplineEntry);
 					}
 				}
 			}

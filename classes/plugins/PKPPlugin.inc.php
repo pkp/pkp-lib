@@ -519,9 +519,6 @@ class PKPPlugin {
 	 * @return boolean
 	 */
 	function installSiteSettings($hookName, $args) {
-		$installer =& $args[0];
-		$result =& $args[1];
-
 		// All contexts are set to zero for site-wide plug-in settings
 		$application = PKPApplication::getApplication();
 		$contextDepth = $application->getContextDepth();

@@ -780,7 +780,7 @@ class PKPReviewAssignmentDAO extends DAO {
 		$averageTimeStats = array();
 		while (!$result->EOF) {
 			$row = $result->GetRowAssoc(false);
-			if (!isset($averageTimeStats[$row['reviewer_id']])) $statistics[$row['reviewer_id']] = array();
+			if (!isset($averageTimeStats[$row['reviewer_id']])) $averageTimeStats[$row['reviewer_id']] = array();
 
 			$completed = strtotime($this->datetimeFromDB($row['date_completed']));
 			$notified = strtotime($this->datetimeFromDB($row['date_notified']));

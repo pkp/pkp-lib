@@ -43,13 +43,6 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 		$user = $request->getUser();
 		$templateMgr = TemplateManager::getManager($request);
 
-		// FIXME: If this user is a series editor, they are allowed
-		// to submit to series flagged as "editor-only" for
-		// submissions. Otherwise, display only series they are allowed
-		// to submit to.
-		$roleDao = DAORegistry::getDAO('RoleDAO');
-		$isEditor = $roleDao->userHasRole($this->context->getId(), $user->getId(), ROLE_ID_SUB_EDITOR);
-
 		$templateMgr->assign(
 			'supportedSubmissionLocaleNames',
 			$this->context->getSupportedSubmissionLocaleNames()

@@ -48,8 +48,6 @@ class PKPRoleDAO extends DAO {
 	 * @return array matching Users
 	 */
 	function &getUsersByRoleId($roleId = null, $contextId = null, $searchType = null, $search = null, $searchMatch = null, $dbResultRange = null) {
-		$users = array();
-
 		$paramArray = array(ASSOC_TYPE_USER, 'interest');
 		if (isset($roleId)) $paramArray[] = (int) $roleId;
 		if (isset($contextId)) $paramArray[] = (int) $contextId;

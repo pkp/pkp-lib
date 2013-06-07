@@ -339,7 +339,7 @@ class FilterDAO extends DAO {
 		$filterGroup =& $filter->getFilterGroup();
 		assert($filterGroup->getSymbolic() != FILTER_GROUP_TEMPORARY_ONLY);
 
-		$returner = $this->update(
+		$this->update(
 			'UPDATE	filters
 			SET	filter_group_id = ?,
 				display_name = ?,

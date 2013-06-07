@@ -50,8 +50,7 @@ class ReviewFilesDAO extends DAO {
 			'DELETE FROM review_files WHERE review_id = ? AND file_id = ?',
 			array(
 				(int) $reviewId,
-				(int) $fileId,
-				(int) $revision
+				(int) $fileId
 			)
 		);
 	}

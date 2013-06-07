@@ -105,8 +105,8 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 		$reviewAssignment =& $this->getReviewAssignment();
 		$notificationMgr = new NotificationManager();
 		if($reviewAssignment->getReviewFormId()) {
-			$reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO');
 			/* FIXME #5123: Include when review form infrastructure is in place
+			$reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO');
 			$reviewFormResponses = $this->getData('reviewFormResponses');
 			if (is_array($reviewFormResponses)) foreach ($reviewFormResponses as $reviewFormElementId => $reviewFormResponseValue) {
 				$reviewFormResponse =& $reviewFormResponseDao->getReviewFormResponse($reviewAssignment->getReviewId(), $reviewFormElementId);

@@ -143,8 +143,8 @@ class SubmissionSubjectDAO extends ControlledVocabDAO {
 						$subjectEntry->setControlledVocabId($currentSubjects->getID());
 						$subjectEntry->setSubject(urldecode($subject), $locale);
 						$subjectEntry->setSequence($i);
-						$i ++;
-						$subjectEntryId = $submissionSubjectEntryDao->insertObject($subjectEntry);
+						$i++;
+						$submissionSubjectEntryDao->insertObject($subjectEntry);
 					}
 				}
 			}

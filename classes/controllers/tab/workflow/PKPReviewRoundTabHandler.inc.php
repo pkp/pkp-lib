@@ -83,8 +83,6 @@ class PKPReviewRoundTabHandler extends Handler {
 
 		// Assign editor decision actions to the template, only if
 		// user is accessing the last review round for this stage.
-		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-
 		$notificationRequestOptions = array(
 			NOTIFICATION_LEVEL_NORMAL => array(
 				NOTIFICATION_TYPE_REVIEW_ROUND_STATUS => array(ASSOC_TYPE_REVIEW_ROUND, $reviewRound->getId())),

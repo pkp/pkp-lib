@@ -131,9 +131,6 @@ class SignoffNotificationManager extends NotificationManagerDelegate {
 	private function _getSignoffNotificationContents($request, $notification, $symbolic, $message) {
 		$submissionId = $notification->getAssocId();
 
-		$submissionDao = Application::getSubmissionDAO();
-		$submission = $submissionDao->getById($submissionId);
-
 		// Get the stage id, based on symbolic.
 		$signoffDao = DAORegistry::getDAO('SignoffDAO');
 		$stageId = $signoffDao->getStageIdBySymbolic($symbolic);

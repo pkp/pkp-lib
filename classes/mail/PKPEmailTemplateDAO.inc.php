@@ -48,7 +48,7 @@ class PKPEmailTemplateDAO extends DAO {
 
 		$returner = null;
 		if ($result->RecordCount() != 0) {
-			$returner =& $this->_returnBaseEmailTemplateFromRow($result->GetRowAssoc(false));
+			$returner = $this->_returnBaseEmailTemplateFromRow($result->GetRowAssoc(false));
 		}
 
 		$result->Close();
@@ -81,7 +81,7 @@ class PKPEmailTemplateDAO extends DAO {
 
 		$returner = null;
 		if ($result->RecordCount() != 0) {
-			$returner =& $this->_returnLocaleEmailTemplateFromRow($result->GetRowAssoc(false));
+			$returner = $this->_returnLocaleEmailTemplateFromRow($result->GetRowAssoc(false));
 		} else {
 			$result->Close();
 
@@ -106,7 +106,7 @@ class PKPEmailTemplateDAO extends DAO {
 				array($assocType, $assocId, $emailKey)
 			);
 			if ($result->RecordCount() != 0) {
-				$returner =& $this->_returnLocaleEmailTemplateFromRow($result->GetRowAssoc(false));
+				$returner = $this->_returnLocaleEmailTemplateFromRow($result->GetRowAssoc(false));
 			}
 		}
 
@@ -145,7 +145,7 @@ class PKPEmailTemplateDAO extends DAO {
 
 		$returner = null;
 		if ($result->RecordCount() != 0) {
-			$returner =& $this->_returnEmailTemplateFromRow($result->GetRowAssoc(false));
+			$returner = $this->_returnEmailTemplateFromRow($result->GetRowAssoc(false));
 			$returner->setCustomTemplate(false);
 		} else {
 			$result->Close();
@@ -176,7 +176,7 @@ class PKPEmailTemplateDAO extends DAO {
 				array($assocType, $assocId, $emailKey, $locale)
 			);
 			if ($result->RecordCount() != 0) {
-				$returner =& $this->_returnEmailTemplateFromRow($result->GetRowAssoc(false));
+				$returner = $this->_returnEmailTemplateFromRow($result->GetRowAssoc(false));
 				$returner->setCustomTemplate(true);
 			}
 		}
@@ -466,7 +466,7 @@ class PKPEmailTemplateDAO extends DAO {
 		);
 
 		while (!$result->EOF) {
-			$emailTemplates[] =& $this->_returnEmailTemplateFromRow($result->GetRowAssoc(false), false);
+			$emailTemplates[] = $this->_returnEmailTemplateFromRow($result->GetRowAssoc(false), false);
 			$result->MoveNext();
 		}
 		$result->Close();
@@ -496,7 +496,6 @@ class PKPEmailTemplateDAO extends DAO {
 		);
 
 		while (!$result->EOF) {
-			$row = $result->getRowAssoc(false);
 			$emailTemplates[] = $this->_returnEmailTemplateFromRow($result->GetRowAssoc(false), true);
 			$result->MoveNext();
 		}

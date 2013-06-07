@@ -327,11 +327,9 @@ class SubmissionDAO extends DAO {
 	 * @return array Submissions
 	 */
 	function getByUserId($userId, $contextId = null) {
-		$primaryLocale = AppLocale::getPrimaryLocale();
-		$locale = AppLocale::getLocale();
 		$params = $this->_getFetchParameters();
 		$params[] = (int) $userId;
-		if ($pressId) $params[] = (int) $contextId;
+		if ($contextId) $params[] = (int) $contextId;
 
 		$result = $this->retrieve(
 			'SELECT	s.*, ps.date_published,

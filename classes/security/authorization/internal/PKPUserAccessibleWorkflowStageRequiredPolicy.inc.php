@@ -75,9 +75,7 @@ class PKPUserAccessibleWorkflowStageRequiredPolicy extends AuthorizationPolicy {
 	 * @return array
 	 */
 	function _getAccessibleStageRoles($userId, $contextId, &$submission, $stageId) {
-		$stageAssignmentDao = & DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-
+		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
 		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
 
 		$accessibleStageRoles = array();

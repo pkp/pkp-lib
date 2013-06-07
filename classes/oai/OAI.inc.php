@@ -447,7 +447,7 @@ class OAI {
 		$response = "\t<ListMetadataFormats>\n";
 
 		// output metadata formats
-		foreach ($formats as $prefix => $format) {
+		foreach ($formats as $format) {
 			$response .= "\t\t<metadataFormat>\n" .
 				"\t\t\t<metadataPrefix>" . $format->prefix . "</metadataPrefix>\n" .
 				"\t\t\t<schema>" . $format->schema . "</schema>\n" .

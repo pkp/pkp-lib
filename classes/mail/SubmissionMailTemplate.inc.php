@@ -47,7 +47,6 @@ class SubmissionMailTemplate extends MailTemplate {
 
 		$application = PKPApplication::getApplication();
 		$request = $application->getRequest();
-		$context = isset($this->context)?$this->context:$request->getContext();
 
 		$paramArray['submissionTitle'] = strip_tags($submission->getLocalizedTitle());
 		$paramArray['submissionId'] = $submission->getId();

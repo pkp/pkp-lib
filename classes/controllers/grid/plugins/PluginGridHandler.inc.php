@@ -179,7 +179,7 @@ class PluginGridHandler extends CategoryGridHandler {
 	 */
 	function loadData($request, $filter) {
 		$categories = PluginRegistry::getCategories();
-		if (is_array($filter) && isset($filter['category']) && ($i = array_search($filter['category'], $categories)) !== false) {
+		if (is_array($filter) && isset($filter['category']) && array_search($filter['category'], $categories) !== false) {
 			return array($filter['category'] => $filter['category']);
 		} else {
 			return array_combine($categories, $categories);
@@ -245,8 +245,6 @@ class PluginGridHandler extends CategoryGridHandler {
 	 * @param $request PKPRequest
 	 */
 	function uploadPlugin($args, $request) {
-		$errorMsg = '';
-
 		import('lib.pkp.classes.file.TemporaryFileManager');
 		$temporaryFileManager = new TemporaryFileManager();
 		$user = $request->getUser();

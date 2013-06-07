@@ -575,4 +575,5 @@
 	<message key="submission.signoff.signedOffOnFile">Signed off on this file</message>
 	<message key="submission.signoff.noAvailableSignoffs">There are no files for you respond to at this time.</message>
 	<message key="submission.signoff.fileResponse">File Response</message>
+	<message key="grid.copyediting.deleteSignoff">Unassign User</message>
 </locale>

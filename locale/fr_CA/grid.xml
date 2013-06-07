@@ -15,6 +15,7 @@
 	<!-- Common -->
 	<message key="grid.noItems">Aucun élément</message>
 	<message key="grid.settings">Paramètres</message>
+	<message key="grid.noAuditors">Aucun vérificateur</message>
 
 	<message key="grid.action.sort">Trier</message>
 	<message key="grid.action.addItem">Ajouter un élément</message>

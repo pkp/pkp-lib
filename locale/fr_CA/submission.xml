@@ -447,4 +447,5 @@
 	<message key="submission.signoff.signedOffOnFile">Session fermée sur ce fichier</message>
 	<message key="submission.signoff.noAvailableSignoffs">Aucun fichier n'est en attente de votre réponse pour le moment.</message>
 	<message key="submission.signoff.fileResponse">Réponse concernant le fichier</message>
+	<message key="grid.copyediting.deleteSignoff">Rappeler un utilisateur</message>
 </locale>

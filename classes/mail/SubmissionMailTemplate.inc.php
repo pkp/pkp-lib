@@ -167,7 +167,7 @@ class SubmissionMailTemplate extends MailTemplate {
 	 *  CC this email to all assigned sub editors in the given stage
 	 * @param $submissionId int
 	 * @param $stageId int
-	 * @return array of Users (note, this differs from OxS which returns EditAssignment objects)
+	 * @return array of Users
 	 */
 	function ccAssignedSubEditors($submissionId, $stageId) {
 		return $this->_addUsers($submissionId, ROLE_ID_SUB_EDITOR, $stageId, 'addCc');
@@ -188,7 +188,7 @@ class SubmissionMailTemplate extends MailTemplate {
 	 * @param $roleId int
 	 * @param $stageId int
 	 * @param $method string one of addRecipient, addCC, or addBCC
-	 * @return array of Users (note, this differs from OxS which returns EditAssignment objects)
+	 * @return array of Users
 	 */
 	protected function _addUsers($submissionId, $roleId, $stageId, $method) {
 		assert(in_array($method, array('addRecipient', 'addCc', 'addBcc')));

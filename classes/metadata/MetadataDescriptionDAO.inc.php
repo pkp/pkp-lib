@@ -56,7 +56,7 @@ class MetadataDescriptionDAO extends DAO {
 	 * @return MetadataDescription
 	 */
 	function &getObjectById($metadataDescriptionId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT * FROM metadata_descriptions WHERE metadata_description_id = ?', $metadataDescriptionId
 		);
 
@@ -77,7 +77,7 @@ class MetadataDescriptionDAO extends DAO {
 	 * @return DAOResultFactory containing matching source descriptions (MetadataDescription objects)
 	 */
 	function &getObjectsByAssocId($assocType, $assocId, $rangeInfo = null) {
-		$result =& $this->retrieveRange(
+		$result = $this->retrieveRange(
 			'SELECT *
 			FROM metadata_descriptions
 			WHERE assoc_type = ? AND assoc_id = ?

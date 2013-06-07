@@ -47,8 +47,6 @@ class PKPSocialMediaDAO extends DAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $returner;
 	}
 

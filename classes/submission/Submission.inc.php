@@ -22,12 +22,6 @@ define('STATUS_QUEUED', 1);
 define('STATUS_PUBLISHED', 3);
 define('STATUS_DECLINED', 4);
 
-// getSubmissionStatus will return one of these in place of QUEUED:
-define ('STATUS_QUEUED_UNASSIGNED', 5);
-define ('STATUS_QUEUED_REVIEW', 6);
-define ('STATUS_QUEUED_EDITING', 7);
-define ('STATUS_INCOMPLETE', 8);
-
 class Submission extends DataObject {
 	/**
 	 * Constructor.

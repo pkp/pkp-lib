@@ -42,7 +42,7 @@ class GenreDAO extends DefaultSettingDAO {
 			$sqlParams[] = (int)$contextId;
 		}
 
-		$result =& $this->retrieve('SELECT * FROM genres WHERE genre_id = ?'. ($contextId ? ' AND context_id = ?' : ''), $sqlParams);
+		$result = $this->retrieve('SELECT * FROM genres WHERE genre_id = ?'. ($contextId ? ' AND context_id = ?' : ''), $sqlParams);
 		$returner = null;
 		if ($result->RecordCount() != 0) {
 			$returner = $this->_fromRow($result->GetRowAssoc(false));
@@ -59,7 +59,7 @@ class GenreDAO extends DefaultSettingDAO {
 	 * @return DAOResultFactory containing matching genres
 	 */
 	function &getEnabledByContextId($contextId, $rangeInfo = null) {
-		$result =& $this->retrieveRange(
+		$result = $this->retrieveRange(
 			'SELECT * FROM genres WHERE enabled = ? AND context_id = ?', array(1, $contextId), $rangeInfo
 		);
 
@@ -74,7 +74,7 @@ class GenreDAO extends DefaultSettingDAO {
 	 * @return DAOResultFactory containing matching genres
 	 */
 	function &getByContextId($contextId, $rangeInfo = null) {
-		$result =& $this->retrieveRange(
+		$result = $this->retrieveRange(
 				'SELECT * FROM genres WHERE context_id = ?', array($contextId), $rangeInfo
 		);
 
@@ -184,7 +184,7 @@ class GenreDAO extends DefaultSettingDAO {
 	 */
 	function deleteByContextId($contextId) {
 
-		$result =& $this->getByContextId($contextId);
+		$result = $this->getByContextId($contextId);
 		while ($genre = $result->next()) {
 			$this->update('DELETE FROM genre_settings WHERE genre_id = ?', array((int) $genre->getId()));
 		}

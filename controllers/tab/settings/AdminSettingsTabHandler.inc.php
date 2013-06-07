@@ -19,8 +19,9 @@ class AdminSettingsTabHandler extends SettingsTabHandler {
 
 	/**
 	 * Constructor
+	 * @param $additionalTabs array Optional additional ('tabname' => 'class/template name') mappings
 	 */
-	function AdminSettingsTabHandler() {
+	function AdminSettingsTabHandler($additionalTabs = array()) {
 		$role = array(ROLE_ID_SITE_ADMIN);
 
 		$this->addRoleAssignment(ROLE_ID_MANAGER,
@@ -34,7 +35,7 @@ class AdminSettingsTabHandler extends SettingsTabHandler {
 		);
 
 		parent::SettingsTabHandler($role);
-		$this->setPageTabs(array(
+		$this->setPageTabs($additionalTabs + array(
 			'siteSetup' => 'controllers.tab.admin.siteSetup.form.AppSiteSetupForm',
 			'languages' => 'controllers/tab/admin/languages/languages.tpl',
 			'plugins' => 'controllers/tab/admin/plugins/sitePlugins.tpl',

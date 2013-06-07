@@ -47,8 +47,6 @@ class FooterLinkDAO extends DAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $returner;
 	}
 
@@ -243,8 +241,6 @@ class FooterLinkDAO extends DAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $returner;
 
 	}

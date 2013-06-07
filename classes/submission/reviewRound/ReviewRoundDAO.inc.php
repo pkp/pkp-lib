@@ -41,8 +41,9 @@ class ReviewRoundDAO extends DAO {
 
 		// Otherwise, check the args to build one.
 		if ($stageId == WORKFLOW_STAGE_ID_INTERNAL_REVIEW ||
-		$stageId == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW &&
-		$round > 0) {
+			$stageId == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW &&
+			$round > 0
+		) {
 			unset($reviewRound);
 			$reviewRound = $this->newDataObject();
 			$reviewRound->setSubmissionId($submissionId);

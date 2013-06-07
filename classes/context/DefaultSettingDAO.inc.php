@@ -177,7 +177,7 @@ class DefaultSettingDAO extends DAO {
 	 * @param $contextId int
 	 */
 	function &getDefaultSettingIds($contextId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT '. $this->getPrimaryKeyColumnName() .', '. $this->getDefaultKey() .' FROM '. $this->getTableName() .'
 			WHERE context_id = ? AND '. $this->getDefaultKey() .' IS NOT NULL', $contextId
 		);
@@ -188,8 +188,6 @@ class DefaultSettingDAO extends DAO {
 			$result->MoveNext();
 		}
 		$result->Close();
-		unset($result);
-
 		return $returner;
 	}
 
@@ -224,7 +222,7 @@ class DefaultSettingDAO extends DAO {
 			$sqlParams[] = $locale;
 		}
 
-		$result =& $this->retrieve($sql, $sqlParams);
+		$result = $this->retrieve($sql, $sqlParams);
 
 		$returner = null;
 		while (!$result->EOF) {
@@ -236,11 +234,9 @@ class DefaultSettingDAO extends DAO {
 				(?, ?, ?, ?, ?)',
 				array($defaultIds[$row['entry_key']], $row['locale'], $row['setting_name'], $row['setting_value'], $row['setting_type'])
 			);
-			unset($row);
 			$result->MoveNext();
 		}
 		$result->Close();
-		unset($result);
 	}
 
 	/**

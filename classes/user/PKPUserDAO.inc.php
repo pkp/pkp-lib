@@ -251,7 +251,6 @@ class PKPUserDAO extends DAO {
 				}
 				if ($key == 0) $allInterestIds = $interestIds; // First interest, nothing to intersect with
 				else $allInterestIds = array_intersect($allInterestIds, $interestIds);
-				unset($interest);
 				$key++;
 			}
 		}

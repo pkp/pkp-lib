@@ -804,7 +804,6 @@ class PKPReviewAssignmentDAO extends DAO {
 		}
 		$reviewerValues['lastMax'] = round($reviewerValues['lastMax'] / 86400); // Round to nearest day
 		$result->Close();
-		unset($result);
 
 		// Get number of currently active reviews
 		$result = $this->retrieve(
@@ -822,8 +821,6 @@ class PKPReviewAssignmentDAO extends DAO {
 			$result->MoveNext();
 		}
 		$result->Close();
-		unset($result);
-
 		return $reviewerValues;
 	}
 

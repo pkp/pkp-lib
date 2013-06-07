@@ -122,7 +122,6 @@ class StageAssignmentDAO extends DAO {
 		if (!$stageAssignment->wasEmpty()) return $stageAssignment;
 
 		// Otherwise, build one.
-		unset($stageAssignment);
 		$stageAssignment = $this->newDataObject();
 		$stageAssignment->setSubmissionId($submissionId);
 		$stageAssignment->setUserGroupId($userGroupId);

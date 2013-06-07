@@ -162,7 +162,7 @@ class EditorAction extends PKPAction {
 		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
 		$userDao = DAORegistry::getDAO('UserDAO');
 
-		$reviewer =& $userDao->getById($reviewerId);
+		$reviewer = $userDao->getById($reviewerId);
 
 		// Check to see if the requested reviewer is not already
 		// assigned to review this submission.

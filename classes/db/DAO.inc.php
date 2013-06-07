@@ -125,7 +125,7 @@ class DAO {
 
 		$start = Core::microtime();
 		$dataSource = $this->getDataSource();
-		$result =& $dataSource->CacheExecute($secsToCache, $sql, $params !== false && !is_array($params) ? array($params) : $params);
+		$result = $dataSource->CacheExecute($secsToCache, $sql, $params !== false && !is_array($params) ? array($params) : $params);
 		if ($dataSource->errorNo()) {
 			// FIXME Handle errors more elegantly.
 			fatalError('DB Error: ' . $dataSource->errorMsg());

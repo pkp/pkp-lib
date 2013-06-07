@@ -164,7 +164,7 @@ class String {
 			require_once './lib/pkp/lib/phputf8/utils/unicode.php';
 			require_once './lib/pkp/lib/phputf8/native/core.php';
 		}
-		return utf8_strrpos($haystack, $needle, $offset);
+		return utf8_strrpos($haystack, $needle);
 	}
 
 	/**

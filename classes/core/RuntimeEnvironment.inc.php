@@ -91,7 +91,7 @@ class RuntimeEnvironment {
 			$externalProgram = Config::getVar('cli', $requiredProgram);
 			if (!file_exists($externalProgram)) return false;
 			if (function_exists('is_executable')) {
-				if (!is_executable($filename)) return false;
+				if (!is_executable($externalProgram)) return false;
 			}
 		}
 

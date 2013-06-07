@@ -36,7 +36,7 @@ class DataObject {
 	/**
 	 * Constructor.
 	 */
-	function DataObject($callHooks = true) {
+	function DataObject() {
 	}
 
 
@@ -354,13 +354,12 @@ class DataObject {
 		// Create a list of all possible meta-data field names
 		$metadataFieldNames = array();
 		$extractionAdapters =& $this->getSupportedExtractionAdapters();
-		foreach($extractionAdapters as $metadataSchemaName => $metadataAdapter) {
+		foreach($extractionAdapters as $metadataAdapter) {
 			// Add the field names from the current adapter
 			$metadataFieldNames = array_merge($metadataFieldNames,
 					$metadataAdapter->getDataObjectMetadataFieldNames($translated));
 		}
-		$metadataFieldNames = array_unique($metadataFieldNames);
-		return $metadataFieldNames;
+		return array_unique($metadataFieldNames);
 	}
 
 	/**

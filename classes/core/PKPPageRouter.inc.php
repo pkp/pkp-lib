@@ -233,7 +233,7 @@ class PKPPageRouter extends PKPRouter {
 
 		if (!defined('SESSION_DISABLE_INIT')) {
 			// Initialize session
-			$sessionManager = SessionManager::getManager();
+			SessionManager::getManager();
 		}
 
 		// Call the selected handler's index operation if

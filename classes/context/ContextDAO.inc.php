@@ -126,6 +126,30 @@ class ContextDAO extends DAO {
 	}
 
 	/**
+	 * Get journals by setting.
+	 * @param $settingName string
+	 * @param $settingValue mixed
+	 * @param $contextId int
+	 * @return DAOResultFactory
+	 */
+	function getBySetting($settingName, $settingValue, $contextId = null) {
+		$params = array($settingName, $settingValue);
+		if ($contextId) $params[] = $contextId;
+
+		$result = $this->retrieve(
+			'SELECT * FROM ' . $this->_getTableName() . 'AS c
+			LEFT JOIN ' . $this->_getSettingsTableName() . 'AS cs
+			ON c.' . $this->_getPrimaryKeyColumn() . ' = cs.' . $this->_getPrimaryKeyColumn() .
+			'WHERE cs.setting_name = ? AND cs.setting_value = ?' .
+			($contextId?' AND c.' . $this->_getPrimaryKeyColumn() . ' = ?':''),
+			$params
+		);
+
+		return new DAOResultFactory($result, $this, '_fromRow');
+	}
+
+
+	/**
 	 * Get the ID of the last inserted context.
 	 * @return int
 	 */

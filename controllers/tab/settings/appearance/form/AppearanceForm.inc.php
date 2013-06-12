@@ -275,59 +275,52 @@ class AppearanceForm extends ContextSettingsForm {
 	 * @param $request Request
 	 * @return LinkAction
 	 */
-	function &_getFileUploadLinkAction($settingName, $fileType, $request) {
+	function _getFileUploadLinkAction($settingName, $fileType, $request) {
 		$router = $request->getRouter();
 		import('lib.pkp.classes.linkAction.request.AjaxModal');
-
-		$ajaxModal = new AjaxModal(
-			$router->url(
-				$request, null, null, 'showFileUploadForm', null, array(
-					'fileSettingName' => $settingName,
-					'fileType' => $fileType
-				)
-			),
-			__('common.upload'),
-			'modal_add_file'
-		);
 		import('lib.pkp.classes.linkAction.LinkAction');
-		$linkAction = new LinkAction(
+		return new LinkAction(
 			'uploadFile-' . $settingName,
-			$ajaxModal,
+			new AjaxModal(
+				$router->url(
+					$request, null, null, 'showFileUploadForm', null, array(
+						'fileSettingName' => $settingName,
+						'fileType' => $fileType
+					)
+				),
+				__('common.upload'),
+				'modal_add_file'
+			),
 			__('common.upload'),
 			'add'
 		);
-
-		return $linkAction;
 	}
 
 	/**
 	 * Get the delete file link action.
-	 * @param $setttingName string File setting name.
+	 * @param $settingName string File setting name.
 	 * @param $request Request
 	 * @return LinkAction
 	 */
-	function &_getDeleteFileLinkAction($settingName, $request) {
+	function _getDeleteFileLinkAction($settingName, $request) {
 		$router = $request->getRouter();
 		import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
 
-		$confirmationModal = new RemoteActionConfirmationModal(
-			__('common.confirmDelete'), null,
-			$router->url(
-				$request, null, null, 'deleteFile', null, array(
-					'fileSettingName' => $settingName,
-					'tab' => 'appearance'
-				)
-			),
-			'modal_delete'
-		);
-		$linkAction = new LinkAction(
+		return new LinkAction(
 			'deleteFile-' . $settingName,
-			$confirmationModal,
+			new RemoteActionConfirmationModal(
+				__('common.confirmDelete'), null,
+				$router->url(
+					$request, null, null, 'deleteFile', null, array(
+						'fileSettingName' => $settingName,
+						'tab' => 'appearance'
+					)
+				),
+				'modal_delete'
+			),
 			__('common.delete'),
 			null
 		);
-
-		return $linkAction;
 	}
 }
 

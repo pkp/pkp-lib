@@ -21,17 +21,12 @@ class AppearanceForm extends ContextSettingsForm {
 
 	/**
 	 * Constructor.
+	 * @param $wizardMode bool True IFF this form is to be opened in wizard mode
+	 * @param $additionalSettings array Additional settings to add, if any
 	 */
-	function AppearanceForm($wizardMode = false) {
-		// Define an array with the image setting name as key and its
-		// common alternate text locale key as value.
-		$this->setImagesSettingsName(array(
-			'homepageImage' => 'common.homepageImage.altText',
-			'pageHeaderTitleImage' => 'common.pageHeader.altText',
-			'pageHeaderLogoImage' => 'common.pageHeaderLogo.altText'
-		));
+	function AppearanceForm($wizardMode = false, $additionalSettings = array()) {
 
-		$settings = array(
+		$settings = array_merge($additionalSettings, array(
 			'pageHeaderTitleType' => 'int',
 			'pageHeaderTitle' => 'string',
 			'additionalHomeContent' => 'string',
@@ -39,8 +34,8 @@ class AppearanceForm extends ContextSettingsForm {
 			'pageFooter' => 'string',
 			'navItems' => 'object',
 			'itemsPerPage' => 'int',
-			'numPageLinks' => 'int'
-		);
+			'numPageLinks' => 'int',
+		));
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON);
 
@@ -52,20 +47,15 @@ class AppearanceForm extends ContextSettingsForm {
 	// Getters and Setters
 	//
 	/**
-	 * Get the images settings name.
+	 * Get the images settings name (setting name => alt text locale key).
 	 * @return array
 	 */
 	function getImagesSettingsName() {
-		return $this->_imagesSettingsName;
-	}
-
-	/**
-	 * Set the image settings name.
-	 * @param array $imagesSettingsName
-	 * @return array
-	 */
-	function setImagesSettingsName($imagesSettingsName) {
-		$this->_imagesSettingsName = $imagesSettingsName;
+		return array(
+			'homepageImage' => 'common.homepageImage.altText',
+			'pageHeaderTitleImage' => 'common.pageHeader.altText',
+			'pageHeaderLogoImage' => 'common.pageHeaderLogo.altText',
+		);
 	}
 
 	//
@@ -80,7 +70,7 @@ class AppearanceForm extends ContextSettingsForm {
 			'pageHeaderTitle',
 			'additionalHomeContent',
 			'pageHeader',
-			'pageFooter'
+			'pageFooter',
 		);
 	}
 

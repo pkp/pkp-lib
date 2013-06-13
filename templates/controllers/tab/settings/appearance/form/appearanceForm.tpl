@@ -46,6 +46,8 @@
 	</div>
 	{* end Homepage Content *}
 
+	{$additionalHomepageContent}
+
 	{* Page Header *}
 	{fbvFormArea id="pageHeader" title="manager.setup.pageHeader" class="border"}
 		{fbvFormSection list=true description="manager.setup.pageHeaderDescription" title="manager.setup.contextName"}
@@ -71,7 +73,7 @@
 			<div id="pageHeaderLogoImage">
 				{$imagesViews.pageHeaderLogoImage}
 			</div>
-		{/fbvFormSection}
+			{/fbvFormSection}
 			{fbvFormSection label="manager.setup.alternateHeader" description="manager.setup.alternateHeaderDescription"}
 				{fbvElement type="textarea" multilingual=true name="pageHeader" id="pageHeader" value=$pageHeader rich=true}
 			{/fbvFormSection}
@@ -97,7 +99,7 @@
 				{$styleSheetView}
 			</div>
 		{/fbvFormSection}
-		{url|assign:blockPluginsUrl router=$smarty.const.ROUTE_COMPONENT  component="listbuilder.settings.BlockPluginsListbuilderHandler" op="fetch" monographId=$monographId escape=false}
+		{url|assign:blockPluginsUrl router=$smarty.const.ROUTE_COMPONENT component="listbuilder.settings.BlockPluginsListbuilderHandler" op="fetch" monographId=$monographId escape=false}
 		{load_url_in_div id="blockPluginsContainer" url=$blockPluginsUrl}
 	{/fbvFormArea}
 	{* end Layout *}

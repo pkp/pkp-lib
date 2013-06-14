@@ -997,9 +997,6 @@ class Submission extends DataObject {
 				STATUS_QUEUED => 'submissions.queued',
 				STATUS_PUBLISHED => 'submissions.published',
 				STATUS_DECLINED => 'submissions.declined',
-				STATUS_QUEUED_UNASSIGNED => 'submissions.queuedUnassigned',
-				STATUS_QUEUED_REVIEW => 'submissions.queuedReview',
-				STATUS_QUEUED_EDITING => 'submissions.queuedEditing',
 				STATUS_INCOMPLETE => 'submissions.incomplete'
 			);
 		}

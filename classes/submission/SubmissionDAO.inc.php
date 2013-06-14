@@ -345,6 +345,17 @@ class SubmissionDAO extends DAO {
 		return new DAOResultFactory($result, $this, '_fromRow');
 	}
 
+	/**
+	 * Delete all submissions by context ID.
+	 * @param $contextId int
+	 */
+	function deleteByContextId($contextId) {
+		$submissions = $this->getByContextId($contextId);
+		while ($submission = $submissions->next()) {
+			$this->deleteById($submission->getId());
+		}
+	}
+
 
 	//
 	// Protected functions

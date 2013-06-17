@@ -63,7 +63,7 @@ class SubmissionDocumentsFilesGridDataProvider extends CategoryGridDataProvider 
 		$submission = $this->getSubmission();
 		import('lib.pkp.classes.context.LibraryFile');
 		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /* @var $libraryFileDao LibraryFileDAO */
-		$libraryFiles =& $libraryFileDao->getBySubmissionId($submission->getId(), $fileType);
+		$libraryFiles = $libraryFileDao->getBySubmissionId($submission->getId(), $fileType);
 
 		return $libraryFiles->toAssociativeArray();
 	}

@@ -109,10 +109,8 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 			$submissionFile = $submissionFileDao->getRevision($submissionFile->getSourceFileId(), $submissionFile->getSourceRevision());
 			if (!$submissionFile) break;
 
-			$iterator =& $noteDao->getByAssoc($this->_getAssocType(), $submissionFile->getFileId());
+			$iterator = $noteDao->getByAssoc($this->_getAssocType(), $submissionFile->getFileId());
 			$notes += $iterator->toArray();
-
-			unset($iterator);
 		}
 		import('lib.pkp.classes.core.ArrayItemIterator');
 		$templateMgr->assign('notes', new ArrayItemIterator($notes));
@@ -236,10 +234,8 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 			$submissionFile = $submissionFileDao->getRevision($submissionFile->getSourceFileId(), $submissionFile->getSourceRevision());
 			if (!$submissionFile) break;
 
-			$iterator =& $submissionFileEventLogDao->getByFileId($submissionFile->getFileId());
+			$iterator = $submissionFileEventLogDao->getByFileId($submissionFile->getFileId());
 			$events += $iterator->toArray();
-
-			unset($iterator);
 		}
 		import('lib.pkp.classes.core.ArrayItemIterator');
 		$templateMgr->assign('eventLogEntries', new ArrayItemIterator($events));

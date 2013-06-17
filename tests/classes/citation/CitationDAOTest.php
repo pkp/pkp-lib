@@ -82,7 +82,7 @@ class CitationDAOTest extends DatabaseTestCase {
 		self::assertEquals($citation, $citationById);
 
 		$citationsByAssocIdDaoFactory = $citationDao->getObjectsByAssocId(ASSOC_TYPE_ARTICLE, 999999);
-		$citationsByAssocId =& $citationsByAssocIdDaoFactory->toArray();
+		$citationsByAssocId = $citationsByAssocIdDaoFactory->toArray();
 		self::assertEquals(1, count($citationsByAssocId));
 		// Fix state differences for comparison.
 		$citationsByAssocId[0]->_extractionAdaptersLoaded = true;

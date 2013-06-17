@@ -246,7 +246,7 @@ class ReviewFormDAO extends DAO {
 	 * @param $rangeInfo RangeInfo (optional)
 	 * @return DAOResultFactory containing matching ReviewForms
 	 */
-	function &getByAssocId($assocType, $assocId, $rangeInfo = null) {
+	function getByAssocId($assocType, $assocId, $rangeInfo = null) {
 		$result = $this->retrieveRange(
 			'SELECT	*
 			FROM	review_forms
@@ -255,8 +255,7 @@ class ReviewFormDAO extends DAO {
 			array((int) $assocType, (int) $assocId), $rangeInfo
 		);
 
-		$returner = new DAOResultFactory($result, $this, '_returnReviewFormFromRow');
-		return $returner;
+		return new DAOResultFactory($result, $this, '_returnReviewFormFromRow');
 	}
 
 	/**
@@ -266,7 +265,7 @@ class ReviewFormDAO extends DAO {
 	 * @param $rangeInfo object RangeInfo object (optional)
 	 * @return DAOResultFactory containing matching ReviewForms
 	 */
-	function &getActiveByAssocId($assocType, $assocId, $rangeInfo = null) {
+	function getActiveByAssocId($assocType, $assocId, $rangeInfo = null) {
 		$result = $this->retrieveRange(
 			'SELECT	rf.*
 			FROM	review_forms rf
@@ -285,8 +284,7 @@ class ReviewFormDAO extends DAO {
 			array((int) $assocType, (int) $assocId), $rangeInfo
 		);
 
-		$returner = new DAOResultFactory($result, $this, '_returnReviewFormFromRow');
-		return $returner;
+		return new DAOResultFactory($result, $this, '_returnReviewFormFromRow');
 	}
 
 	/**
@@ -296,7 +294,7 @@ class ReviewFormDAO extends DAO {
 	 * @param $rangeInfo object RangeInfo object (optional)
 	 * @return DAOResultFactory containing matching ReviewForms
 	 */
-	function &getUsedByAssocId($assocType, $assocId, $rangeInfo = null) {
+	function getUsedByAssocId($assocType, $assocId, $rangeInfo = null) {
 		$result = $this->retrieveRange(
 			'SELECT	rf.*
 			FROM	review_forms rf
@@ -316,8 +314,7 @@ class ReviewFormDAO extends DAO {
 			array((int) $assocType, (int) $assocId), $rangeInfo
 		);
 
-		$returner = new DAOResultFactory($result, $this, '_returnReviewFormFromRow');
-		return $returner;
+		return new DAOResultFactory($result, $this, '_returnReviewFormFromRow');
 	}
 
 	/**
@@ -327,7 +324,7 @@ class ReviewFormDAO extends DAO {
 	 * @param $rangeInfo object RangeInfo object (optional)
 	 * @return DAOResultFactory containing matching ReviewForms
 	 */
-	function &getUnusedByAssocId($assocType, $assocId, $rangeInfo = null) {
+	function getUnusedByAssocId($assocType, $assocId, $rangeInfo = null) {
 		$result = $this->retrieveRange(
 			'SELECT	rf.*
 			FROM	review_forms rf
@@ -347,8 +344,7 @@ class ReviewFormDAO extends DAO {
 			array((int) $assocType, (int) $assocId), $rangeInfo
 		);
 
-		$returner = new DAOResultFactory($result, $this, '_returnReviewFormFromRow');
-		return $returner;
+		return new DAOResultFactory($result, $this, '_returnReviewFormFromRow');
 	}
 
 	/**
@@ -358,7 +354,7 @@ class ReviewFormDAO extends DAO {
 	 * @param $used int
 	 * @return array
 	 */
-	function &getTitlesByAssocId($assocType, $assocId, $used) {
+	function getTitlesByAssocId($assocType, $assocId, $used) {
 		$reviewFormTitles = array();
 
 		if ($used) {

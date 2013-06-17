@@ -47,7 +47,7 @@ class PKPRoleDAO extends DAO {
 	 * @param $dbResultRange object DBRangeInfo object describing range of results to return
 	 * @return array matching Users
 	 */
-	function &getUsersByRoleId($roleId = null, $contextId = null, $searchType = null, $search = null, $searchMatch = null, $dbResultRange = null) {
+	function getUsersByRoleId($roleId = null, $contextId = null, $searchType = null, $search = null, $searchMatch = null, $dbResultRange = null) {
 		$paramArray = array(ASSOC_TYPE_USER, 'interest');
 		if (isset($roleId)) $paramArray[] = (int) $roleId;
 		if (isset($contextId)) $paramArray[] = (int) $contextId;
@@ -104,8 +104,7 @@ class PKPRoleDAO extends DAO {
 			$dbResultRange
 		);
 
-		$returner = new DAOResultFactory($result, $this->userDao, '_returnUserFromRowWithData');
-		return $returner;
+		return new DAOResultFactory($result, $this->userDao, '_returnUserFromRowWithData');
 	}
 
 	/**

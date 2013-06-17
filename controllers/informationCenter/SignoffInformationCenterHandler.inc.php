@@ -223,7 +223,7 @@ class SignoffInformationCenterHandler extends Handler {
 
 		$templateMgr = TemplateManager::getManager($request);
 		$noteDao = DAORegistry::getDAO('NoteDAO');
-		$notesFactory =& $noteDao->getByAssoc(ASSOC_TYPE_SIGNOFF, $signoff->getId());
+		$notesFactory = $noteDao->getByAssoc(ASSOC_TYPE_SIGNOFF, $signoff->getId());
 		$notes = $notesFactory->toAssociativeArray();
 		// Get any note files.
 		$noteFilesDownloadLink = array();

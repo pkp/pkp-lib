@@ -262,7 +262,7 @@ class CitationDAO extends DAO {
 	 * @param $dbResultRange DBResultRange the desired range
 	 * @return DAOResultFactory containing matching Citations
 	 */
-	function &getObjectsByAssocId($assocType, $assocId, $minCitationState = 0, $maxCitationState = CITATION_APPROVED, $rangeInfo = null) {
+	function getObjectsByAssocId($assocType, $assocId, $minCitationState = 0, $maxCitationState = CITATION_APPROVED, $rangeInfo = null) {
 		$result = $this->retrieveRange(
 			'SELECT *
 			FROM citations
@@ -272,8 +272,7 @@ class CitationDAO extends DAO {
 			$rangeInfo
 		);
 
-		$returner = new DAOResultFactory($result, $this, '_fromRow', array('id'));
-		return $returner;
+		return new DAOResultFactory($result, $this, '_fromRow', array('id'));
 	}
 
 	/**
@@ -514,8 +513,7 @@ class CitationDAO extends DAO {
 	 */
 	function _getCitationSourceDescriptions($citationId) {
 		$metadataDescriptionDao = DAORegistry::getDAO('MetadataDescriptionDAO');
-		$sourceDescriptions =& $metadataDescriptionDao->getObjectsByAssocId(ASSOC_TYPE_CITATION, $citationId);
-		return $sourceDescriptions;
+		return $metadataDescriptionDao->getObjectsByAssocId(ASSOC_TYPE_CITATION, $citationId);
 	}
 
 	/**

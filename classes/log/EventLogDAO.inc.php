@@ -60,7 +60,7 @@ class EventLogDAO extends DAO {
 	 * @param $rangeInfo object optional
 	 * @return DAOResultFactory containing matching EventLogEntry ordered by sequence
 	 */
-	function &getByAssoc($assocType, $assocId, $rangeInfo = null) {
+	function getByAssoc($assocType, $assocId, $rangeInfo = null) {
 		$params = array((int) $assocType, (int) $assocId);
 
 		$result = $this->retrieveRange(
@@ -68,8 +68,7 @@ class EventLogDAO extends DAO {
 			$params, $rangeInfo
 		);
 
-		$returner = new DAOResultFactory($result, $this, 'build');
-		return $returner;
+		return new DAOResultFactory($result, $this, 'build');
 	}
 
 	/**

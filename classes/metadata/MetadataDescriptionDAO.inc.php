@@ -76,7 +76,7 @@ class MetadataDescriptionDAO extends DAO {
 	 * @param $dbResultRange DBResultRange the desired range
 	 * @return DAOResultFactory containing matching source descriptions (MetadataDescription objects)
 	 */
-	function &getObjectsByAssocId($assocType, $assocId, $rangeInfo = null) {
+	function getObjectsByAssocId($assocType, $assocId, $rangeInfo = null) {
 		$result = $this->retrieveRange(
 			'SELECT *
 			FROM metadata_descriptions
@@ -86,8 +86,7 @@ class MetadataDescriptionDAO extends DAO {
 			$rangeInfo
 		);
 
-		$returner = new DAOResultFactory($result, $this, '_fromRow', array('id'));
-		return $returner;
+	 	return new DAOResultFactory($result, $this, '_fromRow', array('id'));
 	}
 
 	/**

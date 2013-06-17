@@ -84,7 +84,7 @@ class PKPAction {
 		$templateMgr->assign('introductionHide', $introductionHide);
 
 		// Display an initial help message.
-		$citations =& $citationDao->getObjectsByAssocId(ASSOC_TYPE_ARTICLE, $submission->getId());
+		$citations = $citationDao->getObjectsByAssocId(ASSOC_TYPE_ARTICLE, $submission->getId());
 		if ($citations->getCount() > 0) {
 			$initialHelpMessage = __('submission.citations.editor.details.pleaseClickOnCitationToStartEditing');
 		} else {
@@ -94,7 +94,7 @@ class PKPAction {
 		$templateMgr->assign('initialHelpMessage', $initialHelpMessage);
 
 		// Find out whether all citations have been processed or not.
-		$unprocessedCitations =& $citationDao->getObjectsByAssocId(ASSOC_TYPE_ARTICLE, $submission->getId(), 0, CITATION_CHECKED);
+		$unprocessedCitations = $citationDao->getObjectsByAssocId(ASSOC_TYPE_ARTICLE, $submission->getId(), 0, CITATION_CHECKED);
 		if ($unprocessedCitations->getCount() > 0) {
 			$templateMgr->assign('unprocessedCitations', $unprocessedCitations->toArray());
 		} else {

@@ -94,7 +94,7 @@ class PKPAnnouncementForm extends Form {
 
 		$announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO');
 		list($assocType, $assocId) = $this->_getAnnouncementTypesAssocId();
-		$announcementTypes =& $announcementTypeDao->getByAssoc($assocType, $assocId);
+		$announcementTypes = $announcementTypeDao->getByAssoc($assocType, $assocId);
 		$templateMgr->assign('announcementTypes', $announcementTypes);
 
 		parent::display();

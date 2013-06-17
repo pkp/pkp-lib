@@ -48,7 +48,7 @@ class PKPSubmissionFileRequestedRevisionRequiredPolicy extends SubmissionFileBas
 
 		// Make sure the file is part of a review round
 		// with a requested revision decision.
-		$reviewRound =& $reviewRoundDao->getBySubmissionFileId($submissionFile->getFileId());
+		$reviewRound = $reviewRoundDao->getBySubmissionFileId($submissionFile->getFileId());
 		if (!is_a($reviewRound, 'ReviewRound')) return AUTHORIZATION_DENY;
 		import('classes.workflow.EditorDecisionActionsManager');
 		if (!EditorDecisionActionsManager::getEditorTakenActionInReviewRound($reviewRound, array(SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS))) {
@@ -56,7 +56,7 @@ class PKPSubmissionFileRequestedRevisionRequiredPolicy extends SubmissionFileBas
 		}
 
 		// Make sure that it's in the review stage.
-		$reviewRound =& $reviewRoundDao->getBySubmissionFileId($submissionFile->getFileId());
+		$reviewRound = $reviewRoundDao->getBySubmissionFileId($submissionFile->getFileId());
 		if (!is_a($reviewRound, 'ReviewRound')) return AUTHORIZATION_DENY;
 
 		// Make sure review round stage is the same of the current stage in request.

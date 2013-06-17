@@ -193,7 +193,7 @@ class PKPInformationCenterNotifyForm extends Form {
 		$currentStageId = $submission->getStageId();
 		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		$stageAssignments =& $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), $submission->getStageId(), null, $user->getId());
+		$stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), $submission->getStageId(), null, $user->getId());
 		$notificationMgr = new NotificationManager();
 
 		switch ($template) {

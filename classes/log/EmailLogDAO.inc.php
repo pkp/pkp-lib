@@ -62,7 +62,7 @@ class EmailLogDAO extends DAO {
 	 * @param $rangeInfo object optional
 	 * @return EmailLogEntry
 	 */
-	function &getByEventType($assocType, $assocId, $eventType, $userId = null, $rangeInfo = null) {
+	function getByEventType($assocType, $assocId, $eventType, $userId = null, $rangeInfo = null) {
 		$params = array(
 				(int) $assocType,
 				(int) $assocId,
@@ -81,8 +81,7 @@ class EmailLogDAO extends DAO {
 			$rangeInfo
 		);
 
-		$returner = new DAOResultFactory($result, $this, 'build');
-		return $returner;
+		return new DAOResultFactory($result, $this, 'build');
 	}
 
 	/**
@@ -92,7 +91,7 @@ class EmailLogDAO extends DAO {
 	 * @param $rangeInfo object optional
 	 * @return DAOResultFactory containing matching EventLogEntry ordered by sequence
 	 */
-	function &getByAssoc($assocType = null, $assocId = null, $rangeInfo = null) {
+	function getByAssoc($assocType = null, $assocId = null, $rangeInfo = null) {
 		$result = $this->retrieveRange(
 			'SELECT	*
 			FROM	email_log
@@ -103,8 +102,7 @@ class EmailLogDAO extends DAO {
 			$rangeInfo
 		);
 
-		$returner = new DAOResultFactory($result, $this, 'build');
-		return $returner;
+		return new DAOResultFactory($result, $this, 'build');
 	}
 
 	/**

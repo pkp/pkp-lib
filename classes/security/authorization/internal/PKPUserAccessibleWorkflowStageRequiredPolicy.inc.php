@@ -90,7 +90,7 @@ class PKPUserAccessibleWorkflowStageRequiredPolicy extends AuthorizationPolicy {
 				case ROLE_ID_AUTHOR:
 					// The requested workflow stage has been assigned to them
 					// in the requested submission.
-					$stageAssignments =& $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), $roleId, $stageId, $userId);
+					$stageAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), $roleId, $stageId, $userId);
 					if(!$stageAssignments->wasEmpty()) {
 						$accessibleStageRoles[] = $roleId;
 					}

@@ -112,7 +112,7 @@ class PKPCitationGridHandler extends GridHandler {
 		// Retrieve the associated citations to be displayed in the grid.
 		// Only citations that have already been parsed will be displayed.
 		$citationDao = DAORegistry::getDAO('CitationDAO');
-		$data =& $citationDao->getObjectsByAssocId($this->getAssocType(), $this->getAssocId(), CITATION_PARSED);
+		$data = $citationDao->getObjectsByAssocId($this->getAssocType(), $this->getAssocId(), CITATION_PARSED);
 		$this->setGridDataElements($data);
 
 		// If the refresh flag is set in the request then trigger

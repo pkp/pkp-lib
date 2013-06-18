@@ -74,6 +74,11 @@ class PKPRouter {
 	/** @var integer contexts */
 	var $_contexts = array();
 
+	/**
+	 * Constructor
+	 */
+	function PKPRouter() {
+	}
 
 	/**
 	 * get the application

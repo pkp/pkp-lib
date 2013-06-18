@@ -77,6 +77,12 @@ class PKPComponentRouter extends PKPRouter {
 	/** @var callable the rpc service endpoint the request was routed to */
 	var $_rpcServiceEndpoint = false;
 
+	/**
+	 * Constructor
+	 */
+	function PKPComponentRouter() {
+		parent::PKPRouter();
+	}
 
 	/**
 	 * Determines whether this router can route the given request.

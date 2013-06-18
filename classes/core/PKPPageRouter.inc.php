@@ -422,6 +422,38 @@ class PKPPageRouter extends PKPRouter {
 		$request->redirect(null, 'user', 'authorizationDenied', null, array('message' => $authorizationMessage));
 	}
 
+	/**
+	 * Redirect to user home page (or the user group home page if the user has one user group).
+	 * @param $request PKPRequest the request to be routed
+	 */
+	function redirectHome($request) {
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$user = $request->getUser();
+		$userId = $user->getId();
+
+		if ($context = $this->getContext($request, 1)) {
+			// The user is in the context, see if they have zero or one roles only
+			$userGroups = $userGroupDao->getByUserId($userId, $context->getId());
+			if($userGroups->getCount() <= 1) {
+				$userGroup = $userGroups->next();
+				if (!$userGroup || $userGroup->getRoleId() == ROLE_ID_READER) $request->redirect(null, 'index');
+			}
+			$request->redirect(null, 'dashboard');
+		} else {
+			// The user is at the site context, check to see if they are
+			// only registered in one place w/ one role
+			$userGroups = $userGroupDao->getByUserId($userId, CONTEXT_ID_NONE);
+
+			if($userGroups->getCount() == 1) {
+				$contextDao = Application::getContextDAO();
+				$userGroup = $userGroups->next();
+				$context = $contextDao->getById($userGroup->getContextId());
+				if (!isset($context)) $request->redirect('index', 'index');
+				if ($userGroup->getRoleId() == ROLE_ID_READER) $request->redirect(null, 'index');
+			}
+			$request->redirect('index', 'index');
+		}
+	}
 }
 
 ?>

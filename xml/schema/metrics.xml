@@ -24,7 +24,7 @@
 		<field name="assoc_type" type="I8">
 			<NOTNULL />
 		</field>
-		<field name="journal_id" type="I8">
+		<field name="context_id" type="I8">
 			<NOTNULL />
 		</field>
 		<field name="issue_id" type="I8" />

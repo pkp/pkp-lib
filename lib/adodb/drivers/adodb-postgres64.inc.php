@@ -142,41 +142,48 @@ WHERE relkind in ('r','v') AND (c.relname='%s' or c.relname = lower('%s'))
 	// get the last id - never tested
 	function pg_insert_id($tablename,$fieldname)
 	{
-		$result=pg_exec($this->_connectionID, "SELECT last_value FROM ${tablename}_${fieldname}_seq");
-		if ($result) {
-			$arr = @pg_fetch_row($result,0);
-			pg_freeresult($result);
-			if (isset($arr[0])) return $arr[0];
+		// Use implementation in PO_Insert_ID instead.
+		// This function is deprecated.
+		return $this->PO_Insert_ID($tablename, $fieldname);
+	}
+	
+	/**
+	 * Get the last inserted ID for the specified table and column.
+	 * @param $table string Optional table name
+	 * @param $id string Optional column name
+	 */
+	function _insertid($table,$column) {
+		// If no table is specified, we can use LASTVAL()
+		if ($table === '') {
+			$result = pg_exec('SELECT LASTVAL()');
+			$row = pg_fetch_row($result, 0);
+			return $row[0];
 		}
-		return false;
-	}
 
-/* Warning from http://www.php.net/manual/function.pg-getlastoid.php:
-Using a OID as a unique identifier is not generally wise.
-Unless you are very careful, you might end up with a tuple having
-a different OID if a database must be reloaded. */
-	function _insertid($table,$column)
-	{
-		if (!is_resource($this->_resultid) || get_resource_type($this->_resultid) !== 'pgsql result') return false;
-		$oid = pg_getlastoid($this->_resultid);
-		// to really return the id, we need the table and column-name, else we can only return the oid != id
-		return empty($table) || empty($column) ? $oid : $this->GetOne("SELECT $column FROM $table WHERE oid=".(int)$oid);
-	}
+		// If this is PostgreSQL >= 8.0 and a column is specified, use pg_get_serial_sequence
+		$info = $this->ServerInfo();
+		if ($column !== '' && $info['version'] >= 8.0) {
+			$result = pg_exec("SELECT CURRVAL(pg_get_serial_sequence('$table', '$column'))");
+			$row = pg_fetch_row($result, 0);
+			return $row[0];
+		}
 
-	// Added 2004-06-27 by Kevin Jamieson (http://pkp.sfu.ca/)
-	// Insert_ID function that returns the actual field value instead of the OID
-	function PO_Insert_ID($table="", $id="") {
-		if (!empty($table) && !empty($id)) {
-			$result = @pg_exec("SELECT CURRVAL('{$table}_{$id}_seq')");
-			if ($result) {
-				$row = @pg_fetch_row($result, 0);
-				if (isset($row[0])) {
-					return $row[0];
-				}
+		// Try to identify the sequence name from the column descriptions
+		foreach($this->MetaColumns($table) as $fld) {
+			if (
+				isset($fld->primary_key) && $fld->primary_key && $fld->has_default &&
+				preg_match("/nextval\('(?:[^']+\.)*([^']+)'::(text|regclass)\)/",$fld->default_value,$matches) &&
+				($fld->name == $column || $column == '') // Field matches specified value or none given
+			) {
+				$result = pg_exec('SELECT CURRVAL(\'' . $matches[1] . '\')');
+				$row = pg_fetch_row($result, 0);
+assert($row[0] != 0);
+				return $row[0];
 			}
 		}
 
-		return $this->_insertid($table, $id);
+		// Unable to identify sequence to use.
+		assert(false);
 	}
 
 // I get this error with PHP before 4.0.6 - jlim

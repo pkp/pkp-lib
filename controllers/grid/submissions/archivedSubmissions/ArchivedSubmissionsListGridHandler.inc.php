@@ -1,15 +1,15 @@
 <?php
 
 /**
- * @file controllers/grid/submissions/unassignedSubmissions/UnassignedSubmissionsListGridHandler.inc.php
+ * @file controllers/grid/submissions/archivedSubmissions/ArchivedSubmissionsListGridHandler.inc.php
  *
  * Copyright (c) 2000-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class UnassignedSubmissionsListGridHandler
- * @ingroup controllers_grid_submissions_unassignedSubmissions
+ * @class ArchivedSubmissionsListGridHandler
+ * @ingroup controllers_grid_submissions_archivedSubmissions
  *
- * @brief Handle unassigned submissions list grid requests.
+ * @brief Handle archived submissions list grid requests.
  */
 
 // Import grid base classes.
@@ -20,11 +20,11 @@ import('lib.pkp.controllers.grid.submissions.SubmissionsListGridRow');
 define('FILTER_EDITOR_ALL', 0);
 define('FILTER_EDITOR_ME', 1);
 
-class UnassignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
+class ArchivedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 	/**
 	 * Constructor
 	 */
-	function UnassignedSubmissionsListGridHandler() {
+	function ArchivedSubmissionsListGridHandler() {
 		parent::SubmissionsListGridHandler();
 		$this->addRoleAssignment(
 			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR),
@@ -43,7 +43,7 @@ class UnassignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 		parent::initialize($request);
 
 		// Set title.
-		$this->setTitle('common.queue.long.submissionsUnassigned');
+		$this->setTitle('common.queue.long.submissionsArchived');
 
 		// Add editor specific locale component.
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_EDITOR);
@@ -60,8 +60,6 @@ class UnassignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 		$submissionDao = Application::getSubmissionDAO(); /* @var $submissionDao SubmissionDAO */
 
 		// Determine whether this is a Sub Editor or Manager.
-		// Managers can access all submissions, Sub Editors
-		// only assigned submissions.
 		$user = $request->getUser();
 
 		// Get all submissions for all contexts that user is
@@ -70,7 +68,7 @@ class UnassignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 		$contextDao = Application::getContextDAO();
 		$contexts = $contextDao->getAll();
 
-		$accessibleSubmissions = array();
+		$archivedSubmissions = array();
 		while ($context = $contexts->next()) {
 			$isManager = $roleDao->userHasRole($context->getId(), $userId, ROLE_ID_MANAGER);
 			$isSubEditor = $roleDao->userHasRole($context->getId(), $userId, ROLE_ID_SUB_EDITOR);
@@ -79,24 +77,19 @@ class UnassignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 				continue;
 			}
 
-			$submissionFactory = $submissionDao->getBySubEditorId(
-				$context->getId(),
-				$isManager?null:$userId
+			$submissionFactory = $submissionDao->getByStatus(
+				STATUS_DECLINED,
+				$context->getId()
 			);
 
 			if (!$submissionFactory->wasEmpty()) {
-				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
 				while ($submission = $submissionFactory->next()) {
-					if ($submission->getStatus() == STATUS_DECLINED) continue;
-
-					if ($submission->getDatePublished() == null && !$stageAssignmentDao->editorAssignedToStage($submission->getId())) {
-						$accessibleSubmissions[$submission->getId()] = $submission;
-					}
+					$archivedSubmissions[$submission->getId()] = $submission;
 				}
 			}
 		}
 
-		return $accessibleSubmissions;
+		return $archivedSubmissions;
 	}
 }
 

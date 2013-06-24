@@ -346,6 +346,30 @@ class SubmissionDAO extends DAO {
 	}
 
 	/**
+	 * Get all submissions for a status.
+	 * @param $status int
+	 * @param $contextId int optional
+	 * @return array Submissions
+	 */
+	function getByStatus($status, $contextId = null) {
+		$params = $this->_getFetchParameters();
+		$params[] = (int) $status;
+		if ($contextId) $params[] = (int) $contextId;
+
+		$result = $this->retrieve(
+			'SELECT	s.*,
+				' . $this->_getFetchColumns() . '
+			FROM	submissions s
+				' . $this->_getFetchJoins() . '
+			WHERE	s.status = ?' .
+				($contextId?' AND s.context_id = ?':''),
+			$params
+		);
+
+		return new DAOResultFactory($result, $this, '_fromRow');
+	}
+
+	/**
 	 * Delete all submissions by context ID.
 	 * @param $contextId int
 	 */

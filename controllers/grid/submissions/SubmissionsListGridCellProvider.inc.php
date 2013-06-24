@@ -125,6 +125,7 @@ class SubmissionsListGridCellProvider extends DataObjectGridCellProvider {
 				break;
 			case 'status':
 				$stageId = $submission->getStageId();
+
 				switch ($stageId) {
 					case WORKFLOW_STAGE_ID_SUBMISSION: default:
 						$returner = array('label' => __('submission.status.submission'));
@@ -151,6 +152,11 @@ class SubmissionsListGridCellProvider extends DataObjectGridCellProvider {
 				} elseif (!$stageAssignmentDao->editorAssignedToStage($submission->getId())) {
 					// No editor assigned to any submission stages.
 					$returner = array('label' => __('submission.status.unassigned'));
+				}
+
+				// Handle declined submissions
+				if ($submission->getStatus() == STATUS_DECLINED) {
+					$returner = array('label' => __('submission.status.declined'));
 				}
 
 				return $returner;

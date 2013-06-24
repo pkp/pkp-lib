@@ -17,10 +17,6 @@
 import('lib.pkp.classes.xml.XMLParser');
 
 class DBDataXMLParser {
-
-	/** @var XMLParser the parser to use */
-	var $parser;
-
 	/** @var ADOConnection the underlying database connection */
 	var $dbconn;
 
@@ -31,7 +27,6 @@ class DBDataXMLParser {
 	 * Constructor.
 	 */
 	function DBDataXMLParser() {
-		$this->parser = new XMLParser();
 		$this->sql = array();
 	}
 
@@ -51,7 +46,9 @@ class DBDataXMLParser {
 	 */
 	function parseData($file) {
 		$this->sql = array();
-		$tree = $this->parser->parse($file);
+		$parser = new XMLParser();
+		$tree = $parser->parse($file);
+
 		$allTables =& $this->dbconn->MetaTables();
 		if ($tree !== false) {
 			foreach ($tree->getChildren() as $table) {
@@ -152,6 +149,7 @@ class DBDataXMLParser {
 										if ($col->has_default) $fld['DEFAULT'] = $col->default_value;
 										$flds = array($colId => $fld);
 									} else assert(false);
+
 									$this->sql[] = $dbdict->RenameColumnSQL($table, $column, $to, $flds);
 								}
 							} else {
@@ -206,13 +204,6 @@ class DBDataXMLParser {
 	 */
 	function quoteString($str) {
 		return $this->dbconn->qstr($str);
-	}
-
-	/**
-	 * Perform required clean up for this object.
-	 */
-	function destroy() {
-		$this->parser->destroy();
 	}
 
 

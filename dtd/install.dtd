@@ -40,6 +40,7 @@
 		condition CDATA #IMPLIED>
 <!ELEMENT code EMPTY>
 	<!ATTLIST code
+		message CDATA #IMPLIED
 		file CDATA #IMPLIED
 		class CDATA #IMPLIED
 		function CDATA #REQUIRED

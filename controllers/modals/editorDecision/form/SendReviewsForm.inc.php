@@ -91,6 +91,13 @@ class SendReviewsForm extends EditorDecisionWithEmailForm {
 				fatalError('Unsupported decision!');
 		}
 
+		// Update the submission status
+		if ($decision == SUBMISSION_EDITOR_DECISION_DECLINE) {
+			$submission->setStatus(STATUS_DECLINED);
+			$submissionDao = Application::getSubmissionDAO();
+			$submissionDao->updateObject($submission);
+		}
+
 		$this->_updateReviewRoundStatus($submission, $status, $reviewRound);
 
 		// Send email to the author.

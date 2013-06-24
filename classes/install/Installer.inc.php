@@ -146,7 +146,7 @@ class Installer {
 		if (!isset($this->currentVersion)) {
 			// Retrieve the currently installed version
 			$versionDao = DAORegistry::getDAO('VersionDAO');
-			$this->currentVersion =& $versionDao->getCurrentVersion();
+			$this->currentVersion = $versionDao->getCurrentVersion();
 		}
 
 		if (!isset($this->locale)) {
@@ -243,7 +243,7 @@ class Installer {
 
 		$versionString = $installTree->getAttribute('version');
 		if (isset($versionString)) {
-			$this->newVersion =& Version::fromString($versionString);
+			$this->newVersion = Version::fromString($versionString);
 		} else {
 			$this->newVersion = $this->currentVersion;
 		}
@@ -303,7 +303,7 @@ class Installer {
 	 * Parse children nodes in the install descriptor.
 	 * @param $installTree XMLNode
 	 */
-	function parseInstallNodes(&$installTree) {
+	function parseInstallNodes($installTree) {
 		foreach ($installTree->getChildren() as $node) {
 			switch ($node->getName()) {
 				case 'schema':
@@ -327,7 +327,7 @@ class Installer {
 	 * Add an installer action from the descriptor.
 	 * @param $node XMLNode
 	 */
-	function addInstallAction(&$node) {
+	function addInstallAction($node) {
 		$fileName = $node->getAttribute('file');
 
 		if (!isset($fileName)) {
@@ -369,7 +369,7 @@ class Installer {
 
 				require_once './lib/pkp/lib/adodb/adodb-xmlschema.inc.php';
 				$schemaXMLParser = new adoSchema($this->dbconn);
-				$dict =& $schemaXMLParser->dict;
+				$dict = $schemaXMLParser->dict;
 				$dict->SetCharSet($this->dbconn->charSet);
 				$sql = $schemaXMLParser->parseSchema($fileName);
 				$schemaXMLParser->destroy();
@@ -490,7 +490,7 @@ class Installer {
 	 * Return currently installed version.
 	 * @return Version
 	 */
-	function &getCurrentVersion() {
+	function getCurrentVersion() {
 		return $this->currentVersion;
 	}
 
@@ -498,7 +498,7 @@ class Installer {
 	 * Return new version after installation.
 	 * @return Version
 	 */
-	function &getNewVersion() {
+	function getNewVersion() {
 		return $this->newVersion;
 	}
 
@@ -572,7 +572,7 @@ class Installer {
 	/**
 	 * Set the error type and messgae.
 	 * @param $type int
-	 * @param $msg string
+	 * @param $msg string Text message (INSTALLER_ERROR_DB) or locale key (otherwise)
 	 */
 	function setError($type, $msg) {
 		$this->errorType = $type;
@@ -583,7 +583,7 @@ class Installer {
 	 * Set the logger for this installer.
 	 * @var $logger Logger
 	 */
-	function setLogger(&$logger) {
+	function setLogger($logger) {
 		$this->logger = $logger;
 	}
 
@@ -603,7 +603,7 @@ class Installer {
 	 * Set the current version for this installer.
 	 * @var $version Version
 	 */
-	function setCurrentVersion(&$version) {
+	function setCurrentVersion($version) {
 		$this->currentVersion = $version;
 	}
 
@@ -633,7 +633,7 @@ class Installer {
 
 		// Parse the filter configuration.
 		$xmlParser = new XMLParser();
-		$tree =& $xmlParser->parse($filterConfigFile);
+		$tree = $xmlParser->parse($filterConfigFile);
 
 		// Validate the filter configuration.
 		if (!$tree) {
@@ -648,13 +648,13 @@ class Installer {
 		}
 
 		// Are there any filter groups to be installed?
-		$filterGroupsNode =& $tree->getChildByName('filterGroups');
+		$filterGroupsNode = $tree->getChildByName('filterGroups');
 		if (is_a($filterGroupsNode, 'XMLNode')) {
 			$filterHelper->installFilterGroups($filterGroupsNode);
 		}
 
 		// Are there any filters to be installed?
-		$filtersNode =& $tree->getChildByName('filters');
+		$filtersNode = $tree->getChildByName('filters');
 		if (is_a($filtersNode, 'XMLNode')) {
 			foreach ($filtersNode->getChildren() as $filterNode) { /* @var $filterNode XMLNode */
 				$filterHelper->configureFilter($filterNode);
@@ -723,7 +723,7 @@ class Installer {
 					$versionFile = $plugin->getPluginPath() . '/version.xml';
 
 					if ($fileManager->fileExists($versionFile)) {
-						$versionInfo =& VersionCheck::parseVersionXML($versionFile);
+						$versionInfo = VersionCheck::parseVersionXML($versionFile);
 						$pluginVersion = $versionInfo['version'];
 					} else {
 						$pluginVersion = new Version(
@@ -743,6 +743,17 @@ class Installer {
 		}
 
 		return true;
+	}
+
+	/**
+	 * Fail the upgrade.
+	 * @param $installer Installer
+	 * @param $attr array Attributes
+	 * @return boolean
+	 */
+	function abort($installer, $attr) {
+		$installer->setError(INSTALLER_ERROR_GENERAL, $attr['message']);
+		return false;
 	}
 }
 

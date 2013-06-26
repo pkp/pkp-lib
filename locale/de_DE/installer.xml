@@ -35,7 +35,6 @@
 	<message key="installer.databasePassword">Passwort</message>
 	<message key="installer.databaseSettings">Datenbank-Einstellungen</message>
 	<message key="installer.databaseUsername">Benutzer/innen-Name</message>
-	<message key="installer.encryptionInstructions">SHA1 ist empfohlen, wenn Ihr System dies unterstützt (erfordert PHP >= 4.3.0).</message>
 	<message key="installer.encryption">Verschlüsselungsalgorithmus für Passwörter</message>
 	<message key="installer.filesDir">Verzeichnis für hochgeladene Dateien</message>
 	<message key="installer.fileSettings">Dateieinstellungen</message>

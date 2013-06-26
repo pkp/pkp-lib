@@ -21,12 +21,10 @@
 	<message key="installer.clientCharsetInstructions">A codificación a usar ao enviar e recebir información dos navegadores.</message>
 	<message key="installer.configFileError"><![CDATA[O ficheiro de configuración <tt>config.inc.php</tt> non existe ou non eé lexibel.]]></message>
 	<message key="installer.connectionCharset">Conxunto de caracteres da conexión</message>
-	<message key="installer.connectionCharsetInstructions"><![CDATA[Codificación a usar nos dados enviados a e dende a base de dados. Debe ser a mesma que o xogo de caracteres do cliente. Esta característica só está suportada en MySQL >= 4.1.1 o PostgreSQL >= 7.1. Escolle "Non aplicar" se o teu servidor de base de dados non cumpre estas condicións.]]></message>
 	<message key="installer.contentsOfConfigFile">Contidos do ficheiro de configuración</message>
 	<message key="installer.createDatabase">Crear nova base de dados</message>
 	<message key="installer.createDatabaseInstructions">Para usar esta opción, o teu sistema de bases de dados debe suportar creación de bases de dados remota e  a túa conta de usuario debe ter os permisos axeitados para crear bases de dados novas. Se a instalación falla con esta opción seleccionada, crea manualmente a base de dados no teu servidor e volve vincular o  instalador  con esta opción desactivada.</message>
 	<message key="installer.databaseCharset">Conxunto de caracteres da base de dados</message>
-	<message key="installer.databaseCharsetInstructions"><![CDATA[A codificación a usar nos dados almacenados na base de dados. Esta característica só está suportada en MySQL >= 4.1.1 ou PostgreSQL >= 7.1. Escolle "Non aplicar" se o teu servidor de base de dados non cumpre estas condicións.]]></message>
 	<message key="installer.databaseDriver">Driver da base de dados</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Os controladores de bases de dados rexistrados entre chaves non contan coa extensión PHP necesaria, en consecuencia é probabel que a instalación falle se se seleccionan.</strong><br />Calquera driver de base de dados non suportado amostrado máis abaixo é  por motivos académicos e é probabel que non funcione.]]></message>
 	<message key="installer.databaseHost">Servidor</message>
@@ -35,7 +33,6 @@
 	<message key="installer.databasePassword">Contrasinal</message>
 	<message key="installer.databaseSettings">Configuración da base de dados</message>
 	<message key="installer.databaseUsername">Usuario/a</message>
-	<message key="installer.encryptionInstructions">Recoméndase SHA1 se o teu sistema o suporta (necesitas PHP >= 4.3.0).</message>
 	<message key="installer.encryption">Algoritmo de encriptación de contrasinais</message>
 	<message key="installer.filesDir">Directorio para subir</message>
 	<message key="installer.fileSettings">Configuración de ficheiros</message>

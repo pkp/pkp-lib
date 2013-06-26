@@ -35,7 +35,6 @@
 	<message key="installer.databasePassword">Lozinka</message>
 	<message key="installer.databaseSettings">Podešavanje baze podataka</message>
 	<message key="installer.databaseUsername">Korisničko ime</message>
-	<message key="installer.encryptionInstructions"><![CDATA[SHA1 je preporučljiv ako ga vaš sistem podržava (zahteva PHP >= 4.3.0).]]></message>
 	<message key="installer.encryption">Algoritam enkripcije lozinke</message>
 	<message key="installer.filesDir">Folder za dodate fajlove</message>
 	<message key="installer.fileSettings">Podešavanje fajlova</message>

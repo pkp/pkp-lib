@@ -21,12 +21,10 @@
 	<message key="installer.clientCharsetInstructions">سیستم کد گذاری مورد استفاده برای برای ارسال به و دریافت داده ها از مرورگر</message>
 	<message key="installer.configFileError"><![CDATA[فایل تنظیمات  <tt>config.inc.php</tt> موجود نیست ویا قابل خواندن نیست.]]></message>
 	<message key="installer.connectionCharset">مجموعه کاراکتر اتصال</message>
-	<message key="installer.connectionCharsetInstructions">سیستم کد گذاری مورد استفاده برای ارسال و دریافت داده ها از بانک اطلاعاتی. این سیستم کد گذاری باید مانند سیستم کد گذاری مشتری باشد. توجه کنید که این قابلیت فقط با  MySQL >= 4.1.1 یا PostgreSQL >= 7.1 برآورده میشود. اگر سرور بانک اطلاعاتی شما آنرا حمایت نمی کند گزینه &quot;موجود نیست&quot; را انتخاب کنید.</message>
 	<message key="installer.contentsOfConfigFile">محتوای فایل تنظیمات</message>
 	<message key="installer.createDatabase">ایجاد بانک اطلاعاتی جدید</message>
 	<message key="installer.createDatabaseInstructions">برای استفاده از این گزینه سیستم بانک اطلاعاتی شما میبایست از  ایجاد بانک اطلاعاتی از راه دور پشتیبانی کند و حساب کاربری شما میبایست مجوزهای لازم برای ایجاد یک بانک اطلاعاتی جدید را داشته باشد. چنانچه با انتخاب این گزینه ، نصب نرم افزار شکست خورد لازم است بصورت دستی بانک اطلاعاتی را بر روی سیستم خود ایجاد کنید و برنامه نصب نرم افزار را از نو اجرا کنید ولی این بار این گزینه را غیر فعال کنید.</message>
 	<message key="installer.databaseCharset">مجموعه کاراکتری بانک اطلاعاتی</message>
-	<message key="installer.databaseCharsetInstructions">سیستم کد گذاری مورد استفاده برای ذخیره داده ها در بانک اطلاعاتی. این قابلیت فقط با  MySQL >= 4.1.1 یا PostgreSQL >= 7.1 میسر است. اگر سرور بانک اطلاعاتی شما آنرا حمایت نمیکند &quot;موجودنیست&quot; را انتخاب کنید.</message>
 	<message key="installer.databaseDriver">درایور بانک اطلاعاتی</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>درایورهای بانک های اطلاعاتی که در کروشه آمده است به نظر می رسد که در این سیستم از حمایت PHP لازم برخوردار نیستند.</strong><br />تمام درایورهای بدون حمایت فقط به منظور آکادمیک در اینجا لیست شده اند و بعید است که در حال حاضر کارکرد داشته باشند.]]></message>
 	<message key="installer.databaseHost">میزبان</message>
@@ -35,7 +33,6 @@
 	<message key="installer.databasePassword">رمز عبور</message>
 	<message key="installer.databaseSettings">تنظیمات بانک اطلاعاتی</message>
 	<message key="installer.databaseUsername">نام کاربری</message>
-	<message key="installer.encryptionInstructions">چنانچه سیستم شما حمایت کند بهتر است از SHA1 استفاده کنید. نیاز به  PHP >= 4.3.0 دارد.</message>
 	<message key="installer.encryption">الگوریتم رمزنگاری رمز عبور</message>
 	<message key="installer.filesDir">پوشه آپلود</message>
 	<message key="installer.fileSettings">تنضیمات فایل</message>

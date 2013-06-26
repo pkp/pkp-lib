@@ -21,12 +21,10 @@
 	<message key="installer.clientCharsetInstructions">Codificació que s’utilitzarà per a les dades que s’enviïn als navegadors i es rebin des d’aquests.</message>
 	<message key="installer.configFileError"><![CDATA[El fitxer de configuració <tt>config.inc.php</tt> no existeix o no té permís de lectura.]]></message>
 	<message key="installer.connectionCharset">Joc de caràcters de la connexió</message>
-	<message key="installer.connectionCharsetInstructions"><![CDATA[Codificació que s’utilitzarà per a les dades que s’enviïn a la base de dades i que es rebin d’aquesta. Ha de ser la mateixa que la del joc de caràcters del client. Noteu que només MySQL >= 4.1.1 i PostgreSQL >= 7.1 admeten aquesta característica. Seleccioneu &#171;No aplicable&#187; si el vostre servidor de bases de dades no compleix aquests requisits.]]></message>
 	<message key="installer.contentsOfConfigFile">Continguts del fitxer de configuració</message>
 	<message key="installer.createDatabase">Crea una base de dades nova</message>
 	<message key="installer.createDatabaseInstructions">Per a utilitzar aquesta opció el vostre sistema de bases de dades ha d’admetre la creació remota de bases de dades i el vostre compte d’usuari ha de tenir els permisos adequats per a crear noves bases de dades. Si heu seleccionat aquesta opció i la instal·lació falla, creeu la base de dades manualment al servidor i torneu a executar l’instal·lador amb l’opció desactivada.</message>
 	<message key="installer.databaseCharset">Joc de caràcters de la base de dades</message>
-	<message key="installer.databaseCharsetInstructions"><![CDATA[Codificació per a les dades emmagatzemades a la base de dades. Noteu que només MySQL >= 4.1.1 i PostgreSQL >= 7.1 admeten aquesta característica Seleccioneu &#171;No aplicable&#187; si el vostre servidor de bases de dades no compleix aquests requisits.]]></message>
 	<message key="installer.databaseDriver">Controlador de la base de dades</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Els connectors de bases de dades llistats entre parèntesis no sembla que tinguin carregada l’extensió PHP requerida, per la qual cosa si els seleccioneu és probable que la instal·lació falli. </strong><br /> Els connectors de bases de dades no admesos només es llisten per a finalitats acadèmiques, i és poc probable que funcionin.]]></message>
 	<message key="installer.databaseHost">Amfitrió</message>
@@ -35,7 +33,6 @@
 	<message key="installer.databasePassword">Contrasenya</message>
 	<message key="installer.databaseSettings">Configuració de la base de dades</message>
 	<message key="installer.databaseUsername">Nom d’usuari</message>
-	<message key="installer.encryptionInstructions"><![CDATA[Es recomana utilitzar SHA1 si el sistema l’admet (requereix PHP >= 4.3.0).]]></message>
 	<message key="installer.encryption">Algorisme de xifratge de contrasenyes</message>
 	<message key="installer.filesDir">Directori per a penjar fitxers</message>
 	<message key="installer.fileSettings">Configuració dels fitxers</message>

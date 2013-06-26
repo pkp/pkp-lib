@@ -21,12 +21,10 @@
 	<message key="installer.clientCharsetInstructions">Κωδικοποίηση για τα δεδομένα που αποστέλλονται και λαμβάνονται από προγράμματα φυλλομέτρησης.</message>
 	<message key="installer.configFileError"><![CDATA[Το αρχείο ρυθμίσεων <tt>config.inc.php</tt> δεν υπάρχει ή δεν είναι αναγνώσιμο.]]></message>
 	<message key="installer.connectionCharset"> Connection character set</message>
-	<message key="installer.connectionCharsetInstructions">Κωδικοποίηση για τα δεδομένα που αποστέλλονται και λαμβάνονται από τη βάση δεδομένων. Πρέπει να είναι ίδια με το Client character set. Η συγκεκριμένη δυνατότητα υποστηρίζεται μόνο με MySQL >= 4.1.1 ή PostgreSQL >= 7.1. Επιλέξτε "Μη διαθέσιμα" σε περίπτωση όπου ο εξυπηρετητής της βάσης δεδομένων δεν ανταποκρίνεται με τις συγκεκριμένες απαιτήσεις.</message>
 	<message key="installer.contentsOfConfigFile">Περιεχόμενα αρχείου ρυθμίσεων</message>
 	<message key="installer.createDatabase">Δημιουργία βάσης δεδομένων</message>
 	<message key="installer.createDatabaseInstructions">Για να χρησιμοποιήσετε αυτή την επιλογή, το σύστημά σας πρέπει να υποστηρίζει την απομακρυσμένη δημιουργία βάσης δεδομένων και ο λογαριασμός χρήστης σας πρέπει να διαθέτει τις απαραίτητες άδειες για τη δημιουργία νέας βάσης δεδομένων. Εάν η εγκατάσταση δεν ολοκληρωθεί επιτυχώς με την συγκεκριμένη επιλογή ενεργοποιημένη, δημιουργήστε βάση δεδομένων στον διακομιστή σας μη αυτόματα και εκτελέστε το πρόγραμμα εγκατάστασης ξανά έχοντας την συγκεκριμένη επιλογή απενεργοποιημένη.</message>
 	<message key="installer.databaseCharset"> Database character set</message>
-	<message key="installer.databaseCharsetInstructions"> Κωδικοποίηση για τα δεδομένα που αποθηκεύονται στη βάση δεδομένων. Η συγκεκριμένη δυνατότητα υποστηρίζεται μόνο με MySQL >= 4.1.1 ή PostgreSQL >= 7.1. Επιλέξτε "Μη διαθέσιμα" σε περίπτωση όπου ο εξυπηρετητής της βάσης δεδομένων δεν ανταποκρίνεται με τις συγκεκριμένες απαιτήσεις.</message>
 	<message key="installer.databaseDriver">Οδηγός βάσης δεδομένων (Database driver)</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Οι οδηγοί (drivers) της βάσης δεδομένων που παρουσιάζονται εντός αγκυλών δεν φαίνεται να έχουν φορτώσει την απαραίτητη επέκταση PHP, και, εάν επιλεχθεί η εγκατάσταση, πιθανώς να μην ολοκληρωθεί επιτυχώς.</strong><br /> Όλοι οι οδηγοί που δεν υποστηρίζονται από τους παραπάνων, παρουσιάζονται αποκλειστικά για ακαδημαϊκή χρήση και δεν είναι πιθανό να λειτουργήσουν.]]></message>
 	<message key="installer.databaseHost">Host</message>
@@ -35,7 +33,6 @@
 	<message key="installer.databasePassword">Κωδικός πρόσβασης</message>
 	<message key="installer.databaseSettings">Ρυθμίσεις βάσης δεδομένων</message>
 	<message key="installer.databaseUsername">Όνομα χρήστη</message>
-	<message key="installer.encryptionInstructions">Εάν το σύστημα σας υποστηρίζει SHA1, συστήνεται η χρήση του (απαιτείται PHP >= 4.3.0).</message>
 	<message key="installer.encryption">Αλγόριθμος κωδικοποίησης (encryption) κωδικού πρόσβασης</message>
 	<message key="installer.filesDir">Κατάλογος για φόρτωση αρχείων</message>
 	<message key="installer.fileSettings">Ρυθμίσεις αρχείου</message>

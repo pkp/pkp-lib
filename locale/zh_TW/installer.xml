@@ -21,12 +21,10 @@
 	<message key="installer.clientCharsetInstructions">資料送出給瀏覽器與收回的編碼方式</message>
 	<message key="installer.configFileError"><![CDATA[設定檔案<tt>config.inc.php</tt>並不存在或無法寫入。]]></message>
 	<message key="installer.connectionCharset">連接字符集</message>
-	<message key="installer.connectionCharsetInstructions">資料送出給資料庫與收回的編碼方式。這應該和客戶端字符集相同。注意，這個功能只有MySQL >= 4.1.1或PostgreSQL >= 7.1支援。如果您的資料庫伺服器不符合這個條件的話，請選擇「不可用」。</message>
 	<message key="installer.contentsOfConfigFile">設定檔的內容</message>
 	<message key="installer.createDatabase">建立新的資料庫</message>
 	<message key="installer.createDatabaseInstructions">要使用這個選項，您的資料庫系統必須支援遠單資料庫建置，而您的使用者帳號一定要有恰當的權限才能建立新的資料庫。如果選了這個選項而且安裝失敗，請在您的伺服器上面手動建立資料庫，並且停用此選項後再此安裝系統。</message>
 	<message key="installer.databaseCharset">資料庫字符集</message>
-	<message key="installer.databaseCharsetInstructions">資料儲存在資料庫中的編碼方式。注意，這個功能只有MySQL >= 4.1.1或PostgreSQL >= 7.1支援。如果您的資料庫伺服器不符合這個條件的話，請選擇「不可用」。</message>
 	<message key="installer.databaseDriver">資料庫驅動程式</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>如果選擇括弧中所列的資料庫驅動程式，但沒有安裝與啟用所需的PHP函數的話，可能無法執行。</strong><br />上面個別列出由於學術目的而不支援的資料庫驅動程式，而且不太可能運作。]]></message>
 	<message key="installer.databaseHost">主機</message>
@@ -35,7 +33,6 @@
 	<message key="installer.databasePassword">密碼</message>
 	<message key="installer.databaseSettings">資料庫設定</message>
 	<message key="installer.databaseUsername">使用者名稱</message>
-	<message key="installer.encryptionInstructions">如果您的系統支援的話，我們建議使用SHA1(需要 PHP >= 4.3.0).</message>
 	<message key="installer.encryption">密碼加密演算法</message>
 	<message key="installer.filesDir">上傳目錄</message>
 	<message key="installer.fileSettings">檔案設定</message>

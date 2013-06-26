@@ -21,12 +21,10 @@
 	<message key="installer.clientCharsetInstructions">Den kode, som skal bruge til data, der sendes til og modtages fra browsere.</message>
 	<message key="installer.configFileError"><![CDATA[Konfigurationsfilen <tt>config.inc.php</tt> findes ikke eller kan ikke læses.]]></message>
 	<message key="installer.connectionCharset">Forbindelsestegnsæt</message>
-	<message key="installer.connectionCharsetInstructions"><![CDATA[Den kode, som skal bruge til data, der sendes til og modtages fra databasen. Koden skal være den samme som klienttegnsættet. Vær opmærksom på, at denne funktion kun understøttes med MySQL >= 4.1.1 eller PostgreSQL >= 7.1. Vælg "Ikke anvendelig", hvis databaseserveren ikke opfylder disse krav.]]></message>
 	<message key="installer.contentsOfConfigFile">Konfigurationsfilens indhold</message>
 	<message key="installer.createDatabase">Opret ny database</message>
 	<message key="installer.createDatabaseInstructions">Hvis du vil benytte denne indstilling, skal databasesystemet understøtte oprettelse af fjerndatabaser, og din brugerkonto skal have de korrekte tilladelser til at oprette nye databaser. Hvis installationen mislykkes, når denne indstilling er valgt, skal du manuelt oprette databasen på serveren og køre installationsprogrammet igen, hvor denne indstilling er deaktiveret.</message>
 	<message key="installer.databaseCharset">Databasetegnsæt</message>
-	<message key="installer.databaseCharsetInstructions"><![CDATA[Den kode, som skal bruges til data, der er gemt i databasen. Vær opmærksom på, at denne funktion kun understøttes med MySQL >= 4.1.1 eller PostgreSQL >= 7.1. Vælg "Ikke anvendelig", hvis databaseserveren ikke opfylder disse krav.]]></message>
 	<message key="installer.databaseDriver">Databasedriver</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong> I de databasedrivere, der er angivet i kantede parenteser, er den påkrævede PHP-udvidelse tilsyneladende ikke indlæst, og installationen vil sandsynligvis mislykkes, hvis den vælges.</strong><br />Eventuelle ikke-understøttede databasedrivere, der er angivet ovenfor, er udelukkende angivet til akademiske formål og vil sandsynligvis ikke fungere.]]></message>
 	<message key="installer.databaseHost">Vært</message>
@@ -35,7 +33,6 @@
 	<message key="installer.databasePassword">Adgangskode</message>
 	<message key="installer.databaseSettings">Databaseindstillinger</message>
 	<message key="installer.databaseUsername">Brugernavn</message>
-	<message key="installer.encryptionInstructions"><![CDATA[Det anbefales at bruge SHA1, hvis systemet understøtter den (kræver PHP >= 4.3.0).]]></message>
 	<message key="installer.encryption">Algoritme til kryptering af adgangskode</message>
 	<message key="installer.filesDir">Mappe til overførsler</message>
 	<message key="installer.fileSettings">Filindstillinger</message>

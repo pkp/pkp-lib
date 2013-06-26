@@ -19,12 +19,10 @@
 	<message key="installer.clientCharset">クライアント文字セット</message>
 	<message key="installer.clientCharsetInstructions">ブラウザとデータを送受信する際に使用するエンコーディング。</message>
 	<message key="installer.connectionCharset">通信文字セット</message>
-	<message key="installer.connectionCharsetInstructions"><![CDATA[データベースとのデータの送受信に使用するエンコーディングです。これはクライアントの文字セットと同じにするべきです。この機能は、MySQL >=4.1.1またはPostgreSQL >= 7.1でしかサポートされていないことに注意してください。ご使用のデータベースサーバがこの要件を満たしていない場合は、[非適用]を選択してください。]]></message>
 	<message key="installer.contentsOfConfigFile">設定ファイルの内容</message>
 	<message key="installer.createDatabase">新規データベースの作成</message>
 	<message key="installer.createDatabaseInstructions">このオプションを使用するためには、使用するデータベースシステムがリモートデータベース作成機能をサポートしており、かつ、指定したユーザアカウントが新規データベースを作成する権限を持っている必要があります。このオプションを指定してインストールが失敗した場合は、マニュアルでサーバにデータベースを作成し、このオプションを無効にした上で、再度インストールを行ってください。</message>
 	<message key="installer.databaseCharset">データベース文字セット</message>
-	<message key="installer.databaseCharsetInstructions"><![CDATA[データベースにデータを格納する際に使用するエンコーディングです。これはクライアントの文字セットと同じにするべきです。この機能は、MySQL >=4.1.1またはPostgreSQL >= 7.1でしかサポートされていないことに注意してください。ご使用のデータベースサーバがこの要件を満たしていない場合は、[非適用]を選択してください。]]></message>
 	<message key="installer.databaseDriver">データベースドライバ</message>
 	<message key="installer.databaseHost">ホスト</message>
 	<message key="installer.databaseHostInstructions">TCP/IP経由ではなくドメインソケットを使用する場合は、ホスト名を空欄のままにしてください。これはMySQLでは必要ありません。MySQLでは、&quot;localhost&quot; が指定されると、自動的にソケットが使用されるからです。しかし、PostgreSQLなどのほかのデータベースではこのように設定する必要があります。</message>

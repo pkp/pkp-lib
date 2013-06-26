@@ -23,12 +23,10 @@
 	<message key="installer.clientCharsetInstructions">Кодування, в якому буде проводитись обмін даними з браузерами користувачів.</message>
 	<message key="installer.configFileError"><![CDATA[Файл конфігурації <tt>config.inc.php</tt> не існує або недоступний для читання.]]></message>
 	<message key="installer.connectionCharset">Таблиця кодування для зв'язку з БД</message>
-	<message key="installer.connectionCharsetInstructions">Таблиця кодування, яка буде використовуватись для обміну даними з СУБД. Таблиця кодування для зв'язку з базою даних та таблиця кодування браузера повинні бути однаковими. Зауважте, що ця функціональність підтримується лише MySQL >= 4.1.1 або PostgreSQL >= 7.1. Якщо ваша СУБД не відповідає цим вимогам оберіть пункт "Неприпустимо".</message>
 	<message key="installer.contentsOfConfigFile">Зміст файлу конфігурації</message>
 	<message key="installer.createDatabase">Створити нову базу даних</message>
 	<message key="installer.createDatabaseInstructions">Для використання цієї опції необхідно, щоб ваша СУБД мала підтримку віддаленого створення баз даних та ваш обліковий запис мав права на створення нових баз даних. Якщо ця опція включена і вам не вдається продовжити інсталяцію, вручну створіть базу даних на сервері, запустіть інсталяцію знову та відключіть цю опцію.</message>
 	<message key="installer.databaseCharset">Таблиця кодування БД</message>
-	<message key="installer.databaseCharsetInstructions">Таблиця кодування, яка буде використовуватись для збереження даних у БД. ауважте, що ця функціональність підтримується лише MySQL >= 4.1.1 або PostgreSQL >= 7.1. Якщо ваша СУБД не відповідає цим вимогам оберіть пункт "Неприпустимо".</message>
 	<message key="installer.databaseDriver">Драйвер бази даних</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Драйвери баз даних, наведені у квадратних дужках, не підтримуються жодним з завантажених розширень PHP і, скоріше всього, якщо буде вибраний один з них, інсталяція завершиться невдало.</strong><br />Всі вказані вище драйвери баз даних, що не підтримуються системою, вказані лише з академічною метою, скоріше всього, вони не будуть працювати належним чином.]]></message>
 	<message key="installer.databaseHost">Хост</message>
@@ -37,7 +35,6 @@
 	<message key="installer.databasePassword">Пароль</message>
 	<message key="installer.databaseSettings">Налаштування бази даних</message>
 	<message key="installer.databaseUsername">Ім'я користувача</message>
-	<message key="installer.encryptionInstructions">Якщо ваша система підтримує SHA1, рекомендується використовувати його (вимагає PHP >= 4.3.0).</message>
 	<message key="installer.encryption">Алгоритм шифрування паролів</message>
 	<message key="installer.filesDir">Тека для вивантаження файлів</message>
 	<message key="installer.fileSettings">Параметри файлів</message>

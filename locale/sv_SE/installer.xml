@@ -21,12 +21,10 @@
 	<message key="installer.clientCharsetInstructions">Encoding för data som skickas till och mottas av webbläsaren.</message>
 	<message key="installer.configFileError"><![CDATA[Konfigurationsfilen <tt>config.inc.php</tt> existerar inte eller går inte att läsa.]]></message>
 	<message key="installer.connectionCharset">Connection teckeninställning</message>
-	<message key="installer.connectionCharsetInstructions">Encoding för data som skickas till, och mottas av databasen. Denna bör vara samma som klientens teckeninställning. Observera att denna möjlighet endast stöds av MySQL >= 4.1.1 or PostgreSQL >= 7.1. Välj "Ej tillgänglig " om din databas inte uppfyller kraven.</message>
 	<message key="installer.contentsOfConfigFile">Contents of configuration file</message>
 	<message key="installer.createDatabase">Skapa ny databas</message>
 	<message key="installer.createDatabaseInstructions">För att göra det här valet så måste din databas stödja remote database creation och ditt användarkonto måste ha befogenhet att skapa nya databaser. Om installationen skulle misslyckas, skapa databasen manuellt på din server och kör installationen igen, med det här valet inaktiverat.</message>
 	<message key="installer.databaseCharset">Database teckeninställning</message>
-	<message key="installer.databaseCharsetInstructions">Encoding för data lagrad i databasen. Observera att denna möjlighet endast stöds av MySQL >= 4.1.1 or PostgreSQL >= 7.1. Välj "Ej tillgänglig " om din databas inte uppfyller kraven.</message>
 	<message key="installer.databaseDriver">Databasdriver</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Databasdrivers listade inom hakparanteser verkar inte ha nödvändig PHP extension och installationen kommer troligtvis misslyckas om dessa väljs.</strong><br />Databasdrivers som inte stöds och listas ovan, listas endast för pedagogisk upplysning och fungerar inte med nödvändighet.]]></message>
 	<message key="installer.databaseHost">Värd</message>
@@ -35,7 +33,6 @@
 	<message key="installer.databasePassword">Lösenord</message>
 	<message key="installer.databaseSettings">Databasinställningar</message>
 	<message key="installer.databaseUsername">Användarnamn</message>
-	<message key="installer.encryptionInstructions">SHA1 rekommenderas, om ditt system stöder det (kräver PHP >= 4.3.0).</message>
 	<message key="installer.encryption">Krypteringsalgoritm för lösenord</message>
 	<message key="installer.filesDir">Mapp för uppladdade filer</message>
 	<message key="installer.fileSettings">Filinställningar</message>

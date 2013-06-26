@@ -21,12 +21,10 @@
 	<message key="installer.clientCharsetInstructions">从浏览器发送和接受数据的使用的编码.</message>
 	<message key="installer.configFileError"><![CDATA[配置文件 <tt>config.inc.php</tt> 不存在或者不可读.]]></message>
 	<message key="installer.connectionCharset">连接字符集</message>
-	<message key="installer.connectionCharsetInstructions">从数据库发送和接受数据使用的编码.这个将与客户端字符集相同. 注意，这个功能需要 MySQL版本 >= 4.1.1 或者 PostgreSQL >= 7.1. 如果您的数据库服务没有这些要求，可以选择 "不适用".</message>
 	<message key="installer.contentsOfConfigFile">配置文件内容</message>
 	<message key="installer.createDatabase">创建新数据库</message>
 	<message key="installer.createDatabaseInstructions">若要使用此选项，您的数据库系统必须支持远程数据库的建立和您的用户帐户必须具有适当的权限来创建新的数据库.如果选择此选项的时候安装失败，请在服务器上手动创建数据库，并禁用此项后重新执行安装.</message>
 	<message key="installer.databaseCharset">数据库字符设置</message>
-	<message key="installer.databaseCharsetInstructions">资料保存在数据库中的编码方式。注意，这个功能只有MySQL >= 4.1.1或PostgreSQL >= 7.1支持。如果您的数据库服务器不符合这个条件的话，请选择「不可用」。.</message>
 	<message key="installer.databaseDriver">数据库驱动</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>如果选择括弧中所列的数据库驱动程序，但没有安装与启用所需的PHP函数的话，可能无法执行。</strong><br />上面个别列出由于学术目的而不支持的数据库驱动程序，而且不太可能运作。]]></message>
 	<message key="installer.databaseHost">主机</message>
@@ -35,7 +33,6 @@
 	<message key="installer.databasePassword">密码</message>
 	<message key="installer.databaseSettings">数据库设置</message>
 	<message key="installer.databaseUsername">用户名</message>
-	<message key="installer.encryptionInstructions">如果您的系统支持SHA1，推荐使用SHA1 (要求 PHP >= 4.3.0).</message>
 	<message key="installer.encryption">密码加密算法</message>
 	<message key="installer.filesDir">上传路径</message>
 	<message key="installer.fileSettings">文件设置</message>

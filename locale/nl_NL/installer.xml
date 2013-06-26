@@ -21,12 +21,10 @@
 	<message key="installer.clientCharsetInstructions">De codering die gebruikt moet worden voor de gegevens die verzonden worden naar en ontvangen worden van browsers.</message>
 	<message key="installer.configFileError"><![CDATA[Het configuratiebestand <tt>config.inc.php</tt> bestaat niet of kan niet gelezen worden.]]></message>
 	<message key="installer.connectionCharset">Connectie karakterset</message>
-	<message key="installer.connectionCharsetInstructions"><![CDATA[De codering voor de gegevens die verstuurd worden naar en ontvangen worden van de de database. Dit zou hetzelfde moeten zijn als de browser karakterset. Merk op dat dat deze mogelijk bestaat vanaf MySQL >= 4.1.1 of PostgreSQL >= 7.1. Kies "Niet van toepassing" als uw database niet aan deze eisen voldoet.]]></message>
 	<message key="installer.contentsOfConfigFile">Inhoud van het configuratiebestand</message>
 	<message key="installer.createDatabase">Nieuwe database aanmaken</message>
 	<message key="installer.createDatabaseInstructions">Om deze optie te kunnen gebruiken moet uw databasesysteem het op afstand aanmaken van databases en de opgeven gebruiker moet rechten hebben om nieuwe databases aan  te maken. Als installatie met deze optie mislukt, maak de database dan met de hand aan op uw server en voer de installatie opnieuw uit zonder deze optie in te schakelen.</message>
 	<message key="installer.databaseCharset">Database karakterset</message>
-	<message key="installer.databaseCharsetInstructions"><![CDATA[De codering voor de gegevens in de database. Merk op dat deze mogelijkheid pas bestaat vanaf MySQL >= 4.1.1 of PostgreSQL >= 7.1. Kies "Niet van toepassing" als uw database niet aan deze eisen voldoet.]]></message>
 	<message key="installer.databaseDriver">Database stuurprogramma</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Database stuurprogramma's die tussen haakjes staan lijken de verplichte PHP extensie niet geladen te hebben en doen de installatie waarschijnlijk mislukken als ze geselecteerd worden.</strong><br />De niet-ondersteunde database stuurprogramma's die hierboven getoond worden zijn alleen voor academische toepassingen en werken waarschijnlijk niet.]]></message>
 	<message key="installer.databaseHost">Machine</message>
@@ -35,7 +33,6 @@
 	<message key="installer.databasePassword">Wachtwoord</message>
 	<message key="installer.databaseSettings">Databaseinstellingen</message>
 	<message key="installer.databaseUsername">Gebruikersnaam</message>
-	<message key="installer.encryptionInstructions"><![CDATA[SHA1 wordt aanbevolen als uw systeem dat ondersteunt (vereist PHP >= 4.3.0).]]></message>
 	<message key="installer.encryption">Wachtwoord-encryptiealgoritme</message>
 	<message key="installer.filesDir">Map voor het laden van bestanden</message>
 	<message key="installer.fileSettings">Bestandsinstellingen</message>

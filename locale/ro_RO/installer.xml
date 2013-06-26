@@ -22,12 +22,10 @@
 	<message key="installer.clientCharsetInstructions">Codarea utilizată pentru trimiterea datelor și pentru primirea lor de la browsere.</message>
 	<message key="installer.configFileError"><![CDATA[Fișierul de configurare <tt>config.inc.php</tt> nu există sau nu poate fi citit.]]></message>
 	<message key="installer.connectionCharset">Setul de caractere al conectării</message>
-	<message key="installer.connectionCharsetInstructions"><![CDATA[Codarea utilizată pentru trimiterea și primirea datelor de la baza de date. Acesta trebuie să fie același ca și setul de caractere al clientului. Trebuie remarcat faptul că această facilitate este suportată de MySQL >= 4.1.1 sau PostgreSQL >= 7.1. Selectează "Nu se aplică" dacă serverul bazei de date nu întrunește aceste cerințe.]]></message>
 	<message key="installer.contentsOfConfigFile">Conținutul fișierului de configurare</message>
 	<message key="installer.createDatabase">Creează o bază de date nouă</message>
 	<message key="installer.createDatabaseInstructions">Pentru a utiliza această funcționalitate, sistemul de baze de date trebuie să poată crea baze de date la distanță iar contul de utilizator trebuie să aibă permisiunile necesare pentru a le crea. Dacă instalarea eșuează având această opțiune selectată, creează baza de date pe serverul local și rulează instalarea din nou având această opțiune dezactivată.</message>
 	<message key="installer.databaseCharset">Setul de caractere al bazei de date</message>
-	<message key="installer.databaseCharsetInstructions"><![CDATA[Codarea utilizată pentru stocarea datelor. Trebuie punctat că această funcționalitate este suportată doar de MySQL >= 4.1.1 sau PostgreSQL >= 7.1. Selectează "Nu se aplică" dacă serverul bazei de date nu întrunește aceste cerințe.]]></message>
 	<message key="installer.databaseDriver">Driverul bazei de date</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Driverii bazei de date afișate în paranteze pătrate par să nu aibă extensia PHP încărcată iar instalarea e posibil să eșueze dacă este selectată.</strong><br />Oricare driveri ai bazei de date afișați mai jos, sunt menționați doar din motive experimentale fiind posibil să nu funcționeze.]]></message>
 	<message key="installer.databaseHost">Gazdă</message>
@@ -36,7 +34,6 @@
 	<message key="installer.databasePassword">Parolă</message>
 	<message key="installer.databaseSettings">Setările bazei de date</message>
 	<message key="installer.databaseUsername">Nume utilizator</message>
-	<message key="installer.encryptionInstructions"><![CDATA[SHA1 este recomandat dacă sistemul tău suportă (necesită PHP >= 4.3.0).]]></message>
 	<message key="installer.encryption">Algoritmul de criptare a parolei</message>
 	<message key="installer.filesDir">Directorul pentru încărcări de fișiere</message>
 	<message key="installer.fileSettings">Setări fișiere</message>

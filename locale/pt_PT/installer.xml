@@ -21,12 +21,10 @@
 	<message key="installer.clientCharsetInstructions">A codificação utilizada para dados enviados e recebidos pelos navegadores.</message>
 	<message key="installer.configFileError"><![CDATA[O documento de configuração <tt>config.inc.php</tt> não existe ou não possui permissão de leitura.]]></message>
 	<message key="installer.connectionCharset">Conjunto de Caracteres da Conexão</message>
-	<message key="installer.connectionCharsetInstructions"><![CDATA[A codificação utilizada para dados enviados e recebidos pela base de dados. Deve ser o mesmo do Cliente. Note que esta opção é suportada somente em bases MySQL >= 4.1.1 ou PostgreSQL >= 7.1. Escolha "Não disponível" caso a base de dados não atenda aos requisitos.]]></message>
 	<message key="installer.contentsOfConfigFile">Conteúdo para ficheiro de configuração</message>
 	<message key="installer.createDatabase">Criar nova base de dados</message>
 	<message key="installer.createDatabaseInstructions">Para utilizar esta opção o servidor de bases de dados deve permitir criação de bases remotamente e o nome de utilizador e senha deve possuir as permissões necessárias para criação de bases e tabelas. Caso ocorra um erro durante a instalação, crie manualmente a base de dados no servidor e execute novamente o instalador desactivando esta opção.</message>
 	<message key="installer.databaseCharset">Conjunto de Caracteres da Base de Dados</message>
-	<message key="installer.databaseCharsetInstructions"><![CDATA[Conjunto de Caracteres para armazenamento de dados na base. Note que esta funcionalidade é suportada somente em MySQL >= 4.1.1 ou PostgreSQL >= 7.1. Escolha "Não disponível" caso o servidor de bases de dados não atenda aos requisitos.]]></message>
 	<message key="installer.databaseDriver">Driver da Base de Dados</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Drivers de bases de dados relacionados entre chaves ([]) não tiveram as suas extensões PHP reconhecidas pelo sistema, e portanto não devem funcionar.</strong><br />Os drivers não suportados, listados acima, são exibidos apenas em carácter académico e experimental, não devendo funcionar por padrão. Somente poderão ser utilizados pelo sistema os drivers que tiverem as suas extensões PHP prévia e correctamente instaladas no servidor.]]></message>
 	<message key="installer.databaseHost">Servidor</message>
@@ -35,7 +33,6 @@
 	<message key="installer.databasePassword">Senha para acesso à base de dados</message>
 	<message key="installer.databaseSettings">Configurações de Bases de Dados</message>
 	<message key="installer.databaseUsername">Utilizador da base de dados</message>
-	<message key="installer.encryptionInstructions"><![CDATA[SHA1 é recomendado caso o sistema suporte (requer PHP >= 4.3.0).]]></message>
 	<message key="installer.encryption">Algoritmo de criptografia de senha</message>
 	<message key="installer.filesDir">Pasta para Envio de Ficheiros</message>
 	<message key="installer.fileSettings">Configurações de Ficheiros</message>

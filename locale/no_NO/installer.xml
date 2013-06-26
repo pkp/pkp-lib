@@ -21,12 +21,10 @@
 	<message key="installer.clientCharsetInstructions">Tegnkodingen som skal brukes for data som blir sendt til og mottatt fra nettlesere.</message>
 	<message key="installer.configFileError"><![CDATA[Konfigurasjonsfilen <tt>config.inc.php</tt> finnes ikke eller er ikke lesbar.]]></message>
 	<message key="installer.connectionCharset">Tegnsett for databasekoblingen</message>
-	<message key="installer.connectionCharsetInstructions"><![CDATA[Tegnkoding som skal brukes for data som blir sendt til og mottatt fra databasen. Denne bør være den samme som client character sett. Merk at denne muligheten bare er støttet med MySQL >= 4.1.1 eller PostgreSQL >= 7.1. Velg 'Ikke tilgjengelig' hvis databaseserveren din ikke oppfyller disse kravene.]]></message>
 	<message key="installer.contentsOfConfigFile">Innholdet i konfigurasjonsfilen</message>
 	<message key="installer.createDatabase">Opprett ny database</message>
 	<message key="installer.createDatabaseInstructions">For å bruke denne valgmuligheten må ditt databasesystem støtte kreering av databaser  og din brukerkonto må ha de nødvendige rettigheter til å skape nye databaser. Hvis installasjon feiler med denne valgmuligheten valgt, skap databasen manuelt på din server og kjør installasjonsprogrammet igjen med denne valgmuligheten slått av.</message>
 	<message key="installer.databaseCharset">Databasetegnsett</message>
-	<message key="installer.databaseCharsetInstructions"><![CDATA[Tegnkoding som skal brukes for data som lagres i databasen. Merk at denne evnen bare er støttet med MySQL >= 4.1.1 eller PostgreSQL >= 7.1. Velg 'Ikke tilgjengelig' hvis databaseserveren din ikke oppfyller disse kravene.]]></message>
 	<message key="installer.databaseDriver">Databasedriver</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Databasedrivere oppført in hakeparenteser ser ikke ut til å ha den påkrevete PHP-utvidelsen lastet og installasjonen kommer trolig til å feile hvis de velges.</strong><br />Ikke-supporterte databasedrivere oppført over er oppført kun for informasjonsformål og vil trolig ikke fungere.]]></message>
 	<message key="installer.databaseHost">Vert</message>
@@ -35,7 +33,6 @@
 	<message key="installer.databasePassword">Passord</message>
 	<message key="installer.databaseSettings">Databaseinnstillinger</message>
 	<message key="installer.databaseUsername">Brukernavn</message>
-	<message key="installer.encryptionInstructions"><![CDATA[SHA1 anbefales hvis systemet ditt støtter det (krever PHP >= 4.3.0).]]></message>
 	<message key="installer.encryption">Krypteringsalgoritme for passord</message>
 	<message key="installer.filesDir">Mappe for opplastete filer</message>
 	<message key="installer.fileSettings">Filinnstillinger</message>

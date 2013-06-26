@@ -21,12 +21,10 @@
 	<message key="installer.clientCharsetInstructions">Arakatzaileetara bidaltzen eta arakatzaileetatik jasotzen diren datuetan erabiltzeko kodeketa.</message>
 	<message key="installer.configFileError"><![CDATA[<tt>config.inc.php</tt>konfigurazio-fitxategia ez dago edo ezin da irakurri.]]></message>
 	<message key="installer.connectionCharset">Konexioko karaktere-jokoa</message>
-	<message key="installer.connectionCharsetInstructions">Datu-basera bidaltzen eta datu-basetik jasotzen diren datuetan erabiltzeko kodeketa. Bezeroaren karaktere-joko bera izan beharko luke. Kontuan izan, gaitasun hau MySQL >= 4.1.1 edo PostgreSQL >= 7.1 bertsioek bakarrik eskaintzen dutela. Hautatu "Ez da aplikagarria" zure datu-base zerbitzariak eskakizunak betetzen ez baditu.</message>
 	<message key="installer.contentsOfConfigFile">Konfigurazio-fitxategiaren edukia</message>
 	<message key="installer.createDatabase">Sortu datu-base berria</message>
 	<message key="installer.createDatabaseInstructions">Aukera hau erabili ahal izateko, zure datu-base sistemak datu-baseak urrunetik sortzea onartu behar du eta zure erabiltzaile-kontuak datu-base berriak sortzeko baimena izan behar du. Aukera hau hautatuta instalazioak huts egiten badu, eskuz sortu beharko duzu datu-basea zure zerbitzarian eta instalatzailea berriro exekutatu, aukera hori desgaituta.</message>
 	<message key="installer.databaseCharset">Datu-basearen karaktere-jokoa</message>
-	<message key="installer.databaseCharsetInstructions">Datu-basean gordetako datuekin erabiltzeko kodeketa. Kontuan izan, gaitasun hau MySQL >= 4.1.1 edo PostgreSQL >= 7.1 bertsioek bakarrik eskaintzen dutela. Hautatu "Ez da aplikagarria" zure datu-base zerbitzariak eskakizunak betetzen ez baditu.</message>
 	<message key="installer.databaseDriver">Datu-basearen kontrolatzailea</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Kortxete artean dauden datu-base kontrolatzaileek ez du ematen behar den PHP hedapena kargatuta daukatenik eta, hautatzen badira, instalazioak huts egingo du segurutik.</strong><br />Goian zerrendatutako euskarri gabeko kontrolatzaileak xede akademikoetarako soilik zerrendatzen dira, normalean ez dute funtzionatuko.]]></message>
 	<message key="installer.databaseHost">Ostalaria</message>
@@ -35,7 +33,6 @@
 	<message key="installer.databasePassword">Pasahitza</message>
 	<message key="installer.databaseSettings">Datu-basearen ezarpenak</message>
 	<message key="installer.databaseUsername">Erabiltzaile-izena</message>
-	<message key="installer.encryptionInstructions">SHA1 gomendatzen da, zure sistemak onartzen badu (PHP >= 4.3.0 behar du).</message>
 	<message key="installer.encryption">Pasahitza enkriptatzeko algoritmoa</message>
 	<message key="installer.filesDir">Kargak egiteko direktorioa</message>
 	<message key="installer.fileSettings">Fitxategi-ezarpenak</message>

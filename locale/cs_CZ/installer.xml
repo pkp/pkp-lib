@@ -23,12 +23,10 @@
 	<message key="installer.clientCharsetInstructions">Kódování, které má být použito pro data posílaná a přijímaná z prohlížečů.</message>
 	<message key="installer.configFileError"><![CDATA[Konfigurační soubor <tt>config.inc.php</tt> neexistuje nebo není čitelný.]]></message>
 	<message key="installer.connectionCharset">Znaková sada pro připojení</message>
-	<message key="installer.connectionCharsetInstructions"><![CDATA[Kódování, které má být použito pro data posílaná a přijímaná z databáze. Toto by mělo být stejné jako znaková sada klienta. Vězte, že tato schopnost je podporována pouze s MySQL >= 4.1.1 nebo PostgreSQL >= 7.1. Zvolte "Neaplikovatelné", pokud Váš databázový server nesplňuje tyto požadavky.]]></message>
 	<message key="installer.contentsOfConfigFile">Obsah konfiguračního souboru</message>
 	<message key="installer.createDatabase">Vytvořit novou databázi</message>
 	<message key="installer.createDatabaseInstructions">Pro použití této možnosti musí Váš databázový systém podporovat vzdálené vytvoření databáze a Váš uživatelský účet musí mít potřebná oprávnění pro vytváření nových databází. Pokud byla tato možnost vybrána a instalace selže, vytvořte ručně databázi na Vašem serveru a s spusťte znovu instalaci s touto volbou vypnutou.</message>
 	<message key="installer.databaseCharset">Znaková sada databáze</message>
-	<message key="installer.databaseCharsetInstructions"><![CDATA[Kódování, které má být použito pro data uložená v databázi. Vězte, že tato schopnost je podporována pouze s MySQL >= 4.1.1 nebo PostgreSQL >= 7.1. Zvolte "Neaplikovatelné", pokud Váš databázový server nesplňuje tyto požadavky.]]></message>
 	<message key="installer.databaseDriver">Ovladač databáze</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Ovladače databází uvedené v závorkách zřejmě nemají nahrané požadované PHP rozšíření a instalace pravděpodobně selže.</strong><br />Jakékoliv nepodporované ovladače databází uvedené výše, jsou uvedeny pouze pro akademické účely a nebudou pravděpodobně pracovat.]]></message>
 	<message key="installer.databaseHost">Host</message>
@@ -37,7 +35,6 @@
 	<message key="installer.databasePassword">Heslo</message>
 	<message key="installer.databaseSettings">Nastavení databáze</message>
 	<message key="installer.databaseUsername">Uživatelské jméno</message>
-	<message key="installer.encryptionInstructions"><![CDATA[SHA1 je doporučeno, pokud ho Váš systém podporuje (vyžaduje PHP >= 4.3.0).]]></message>
 	<message key="installer.encryption">Algoritmus šifrování hesla</message>
 	<message key="installer.filesDir">Adresář pro nahrávání souborů</message>
 	<message key="installer.fileSettings">Nastavení souboru</message>

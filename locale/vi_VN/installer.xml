@@ -21,12 +21,10 @@
 	<message key="installer.clientCharsetInstructions">Bộ mã ký tự dùng cho dữ liệu gửi và nhận từ các trình duyệt</message>
 	<message key="installer.configFileError"><![CDATA[File cấu hình <tt>config.inc.php</tt> không tồn tại hoặc không đọc được.]]></message>
 	<message key="installer.connectionCharset">Bộ mã ký tự kết nối</message>
-	<message key="installer.connectionCharsetInstructions"><![CDATA[Kiểu mã hoá dùng cho dữ liệu nhận được và gửi đi từ cơ sở dữ liệu này. Kiểu mã hoá này nên giống mã hoá trình duyệt người dùng sử dụng. Lưu ý rằng chức năng này cho được hỗ trợ với phiên bản MySQL >= 4.1.1 hoặc PostgreSQL >= 7.1. Chọn "Không áp dụng" nếu máy chủ cơ sở dữ liệu không đáp ứng yêu cầu này.]]></message>
 	<message key="installer.contentsOfConfigFile">Nội dung của file cấu hình</message>
 	<message key="installer.createDatabase">Tạo CSDL mới</message>
 	<message key="installer.createDatabaseInstructions">Để sử dụng lựa chọn này hệ CSDL của quý vị phải hỗ trợ việc tạo CSDL từ xa và tài khoản của quý vị phải có đủ quyền để tạo các CSDL mới. Nếu việc cài đặt không thành công với lựa chọn này, hãy tự tạo bằng tay CSDL trên máy chủ của quý vị và chạy bộ cài đặt và vô hiệu lựa chọn này.</message>
 	<message key="installer.databaseCharset">Bộ mã ký tự của CSDL</message>
-	<message key="installer.databaseCharsetInstructions"><![CDATA[Kiểu mã hoá dùng cho dữ liệu lưu trong cơ sở dữ liệu này. Kiểu mã hoá này nên giống mã hoá trình duyệt người dùng sử dụng. Lưu ý rằng chức năng này cho được hỗ trợ với phiên bản MySQL >= 4.1.1 hoặc PostgreSQL >= 7.1. Chọn "Không áp dụng" nếu máy chủ cơ sở dữ liệu không đáp ứng yêu cầu này.]]></message>
 	<message key="installer.databaseDriver">Driver của CSDL</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Các driver được liệt kê trong ngoặc dường như không có phần mở rộng PHP tương ứng được tải và vì vậy cài đặt chắc chắn sẽ không thành công nếu nó được chọn.</strong><br />Bất kỳ driver CSDL nào không được hỗ trợ liệt kê trên đây chỉ được nêu ra chỉ nằm mục đích khoa học và không chắc chắn hoạt động được.]]></message>
 	<message key="installer.databaseHost">Máy chủ</message>
@@ -35,7 +33,6 @@
 	<message key="installer.databasePassword">Mật khẩu</message>
 	<message key="installer.databaseSettings">Tham số cho CSDL</message>
 	<message key="installer.databaseUsername">Bí đanh</message>
-	<message key="installer.encryptionInstructions">Khuyến nghị sử dụng SHA1 nếu hệ thống hỗ trợ thuật toán này (yêu cầu PHP >= 4.3.0).</message>
 	<message key="installer.encryption">Thuật toán mã hóa mật khẩu</message>
 	<message key="installer.filesDir">Thư mục cho các file tải lên</message>
 	<message key="installer.fileSettings">Tham số cho file</message>

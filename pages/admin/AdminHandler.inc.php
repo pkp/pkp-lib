@@ -40,22 +40,8 @@ class AdminHandler extends Handler {
 		$router = $request->getRouter();
 		$requestedOp = $router->getRequestedOp($request);
 
-		// The only operation logged users may access outside a context
-		// context is to create contexts.
-		if (!$context && $requestedOp != 'contexts') {
-
-			// Try to find a context that user has access to.
-			$targetContext = $this->getTargetContext($request, true);
-			if ($targetContext) {
-				$url = $router->url($request, $targetContext->getPath(), 'admin', $requestedOp);
-			} else {
-				$url = $router->url($request, 'index', 'admin', 'contexts');
-			}
-			$request->redirectUrl($url);
-		}
-
 		if ($requestedOp == 'settings') {
-			$contextDao = $context->getDAO();
+			$contextDao = Application::getContextDAO();
 			$contextFactory = $contextDao->getAll();
 			if ($contextFactory->getCount() == 1) {
 				// Don't let users access site settings in a single context installation.

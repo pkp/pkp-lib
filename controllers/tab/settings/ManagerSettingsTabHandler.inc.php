@@ -29,6 +29,15 @@ class ManagerSettingsTabHandler extends SettingsTabHandler {
 		parent::SettingsTabHandler($role);
 	}
 
+	/**
+	 * @see PKPHandler::authorize()
+	 */
+	function authorize($request, &$args, $roleAssignments) {
+		import('lib.pkp.classes.security.authorization.PkpContextAccessPolicy');
+		$this->addPolicy(new PkpContextAccessPolicy($request, $roleAssignments));
+		return parent::authorize($request, $args, $roleAssignments);
+	}
+
 
 	//
 	// Getters and Setters

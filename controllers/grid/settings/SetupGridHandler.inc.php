@@ -40,10 +40,13 @@ class SetupGridHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 * @param $args array
 	 * @param $roleAssignments array
+	 * @param $contextRequired boolean
 	 */
-	function authorize($request, &$args, $roleAssignments) {
-		import('lib.pkp.classes.security.authorization.PkpContextAccessPolicy');
-		$this->addPolicy(new PkpContextAccessPolicy($request, $roleAssignments));
+	function authorize($request, &$args, $roleAssignments, $contextRequired = true) {
+		if ($contextRequired) {
+			import('lib.pkp.classes.security.authorization.PkpContextAccessPolicy');
+			$this->addPolicy(new PkpContextAccessPolicy($request, $roleAssignments));
+		}
 		return parent::authorize($request, $args, $roleAssignments);
 	}
 

@@ -11,7 +11,7 @@
 	<ul class="pkp_helpers_flatlist pkp_helpers_align_left">
 		{if $isUserLoggedIn}
 			{if array_intersect(array(ROLE_ID_SITE_ADMIN), $userRoles)}
-				<li><a href="{url page="admin" op="index"}">{translate key="navigation.admin"}</a></li>
+				<li><a href="{if $multipleContexts}{url context="index" page="admin" op="index"}{else}{url page="admin" op="index"}{/if}">{translate key="navigation.admin"}</a></li>
 			{/if}
 		{/if}
 		{if $multipleContexts}

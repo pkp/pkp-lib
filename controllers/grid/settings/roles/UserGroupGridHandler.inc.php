@@ -242,11 +242,11 @@ class UserGroupGridHandler extends CategoryGridHandler {
 	 */
 	function _getAssignedStages($contextId, $userGroupId) {
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		$assignedStages =& $userGroupDao->getAssignedStagesByUserGroupId($contextId, $userGroupId);
+		$assignedStages = $userGroupDao->getAssignedStagesByUserGroupId($contextId, $userGroupId);
 
 		$stages = $userGroupDao->getWorkflowStageTranslationKeys();
 		foreach($stages as $stageId => $stageTranslationKey) {
-			if (!array_key_exists($stageId, $assignedStages)) $stages[$stageId] = null;
+			if (!array_key_exists($stageId, $assignedStages)) unset($stages[$stageId]);
 		}
 
 		return $stages;

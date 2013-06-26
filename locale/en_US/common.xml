@@ -283,7 +283,7 @@
 	<message key="form.confirmSubmit">Are you sure you want to submit this form?</message>
 	<message key="form.confirmSubmit.title">Confirm</message>
 	<message key="form.emailRequired">An email address is required.</message>
-	<message key="form.dataHasChanged">The data on this form has changed. If you wish to save it, please do so before continuing.</message>
+	<message key="form.dataHasChanged">The data on this form has changed. Do wish to continue without saving?</message>
 	<message key="form.errorsOccurred">Errors occurred processing this form</message>
 	<message key="form.formLanguage.description">To enter the information below in additional languages, first select the language.</message>
 	<message key="form.formLanguage">Form Language</message>

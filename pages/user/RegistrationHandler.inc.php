@@ -164,7 +164,7 @@ class RegistrationHandler extends UserHandler {
 	 * Checks if context allows user registration.
 	 */
 	function validate($request) {
-		$context = $request->getPress();
+		$context = $request->getContext();
 		if ($context != null) {
 			$contextSettingsDao = $context->getSettingsDAO();
 			if ($contextSettingsDao->getSetting($context->getId(), 'disableUserReg')) {

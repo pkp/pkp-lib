@@ -36,7 +36,7 @@ class RegistrationHandler extends UserHandler {
 		$site = $request->getSite();
 
 		if ($context != null) {
-			import('lib.pkp.classes.user.form.RegistrationForm');
+			import('classes.user.form.RegistrationForm');
 
 			$existingUser = $request->getUserVar('existingUser') ? 1 : 0;
 
@@ -63,7 +63,7 @@ class RegistrationHandler extends UserHandler {
 	function registerUser($args, $request) {
 		$this->validate($request);
 		$this->setupTemplate($request, true);
-		import('lib.pkp.classes.user.form.RegistrationForm');
+		import('classes.user.form.RegistrationForm');
 
 		$existingUser = $request->getUserVar('existingUser') ? 1 : 0;
 		$site = $request->getSite();

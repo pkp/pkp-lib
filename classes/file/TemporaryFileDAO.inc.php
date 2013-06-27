@@ -144,10 +144,10 @@ class TemporaryFileDAO extends DAO {
 	 * Delete temporary files by user ID.
 	 * @param $userId int
 	 */
-	function deleteTemporaryFilesByUserId($userId) {
+	function deleteByUserId($userId) {
 		return $this->update(
 			'DELETE FROM temporary_files WHERE user_id = ?',
-			array((int) $userId)
+			(int) $userId
 		);
 	}
 

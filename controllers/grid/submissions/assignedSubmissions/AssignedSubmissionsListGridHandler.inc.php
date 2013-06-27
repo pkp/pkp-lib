@@ -70,13 +70,8 @@ class AssignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 		// get signoffs and stage assignments
 		$stageAssignments = $stageAssignmentDao->getByUserId($userId);
 		while($stageAssignment = $stageAssignments->next()) {
-			$submission = $submissionDao->getById($stageAssignment->getSubmissionId());
-			if ($submission->getDateSubmitted() == null) { continue; }; // Still incomplete, don't add to assigned submissions grid.
-
-			if ($submission->getDatePublished() != null) { continue; } // This is published, don't add to the submissions grid
-
-			// Check if user is a submitter of this submission.
-			if ($userId == $submission->getUserId()) { continue; }; // It will be in the 'my submissions' grid.
+			$submission = $submissionDao->getAssignedById($stageAssignment->getSubmissionId(), $userId);
+			if (!$submission) continue;
 
 			$submissionId = $submission->getId();
 			$data[$submissionId] = $submission;
@@ -89,7 +84,9 @@ class AssignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 				!in_array($signoff->getUserGroupId(), $authorUserGroupIds)) {
 				$submission = $submissionDao->getById($signoff->getAssocId());
 				$submissionId = $submission->getId();
-				$data[$submissionId] = $submission;
+				if ($submission->getStatus() != STATUS_DECLINED) {
+					$data[$submissionId] = $submission;
+				}
 			}
 		}
 
@@ -103,13 +100,6 @@ class AssignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 				// otherwise reviewer workflow link may
 				// clobber editorial workflow link
 				$data[$submissionId] = $reviewerSubmission;
-			}
-		}
-
-		// Filter archived submissions
-		foreach ($data as $submissionId => $submission) {
-			if ($submission->getStatus() == STATUS_DECLINED) {
-				unset($data[$submissionId]);
 			}
 		}
 

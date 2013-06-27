@@ -299,6 +299,51 @@ class SubmissionDAO extends DAO {
 	}
 
 	/**
+	 * Retrieve a submission by Id only if the submission is not published, has been submitted, and does not
+	 * belong to the user in question and is not STATUS_DECLINED.
+	 * @param int $submissionId
+	 * @param int $userId
+	 * @param int $contextId
+	 * @param boolean $useCache
+	 * @return Submission
+	 */
+	function getAssignedById($submissionId, $userId, $contextId = null, $useCache = false) {
+		if ($useCache) {
+			$cache = $this->_getCache();
+			$submission = $cache->get($submissionId);
+			if ($submission && (!$contextId || $contextId == $submission->getContextId())) {
+				return $submission;
+			}
+			unset($submission);
+		}
+
+		$params = $this->_getFetchParameters();
+		$params[] = (int) $submissionId;
+		$params[] = (int) $userId;
+		if ($contextId) $params[] = (int) $contextId;
+
+		$result = $this->retrieve(
+				'SELECT	s.*, ps.date_published,
+				' . $this->_getFetchColumns() . '
+				FROM	submissions s
+				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id)
+				' . $this->_getFetchJoins() . '
+				WHERE	s.submission_id = ?
+				AND s.date_submitted IS NOT NULL AND ps.date_published IS NULL AND s.user_id <> ? AND s.status <> ' .  STATUS_DECLINED .
+				($contextId?' AND s.context_id = ?':''),
+				$params
+		);
+
+		$returner = null;
+		if ($result->RecordCount() != 0) {
+			$returner = $this->_fromRow($result->GetRowAssoc(false));
+		}
+
+		$result->Close();
+		return $returner;
+	}
+
+	/**
 	 * Get all submissions for a context.
 	 * @param $contextId int
 	 * @return DAOResultFactory containing matching Submissions
@@ -346,24 +391,54 @@ class SubmissionDAO extends DAO {
 	}
 
 	/**
-	 * Get all submissions for a status.
-	 * @param $status int
+	 * Get all unpublished submissions for a user.
+	 * @param $userId int
 	 * @param $contextId int optional
 	 * @return array Submissions
 	 */
-	function getByStatus($status, $contextId = null) {
+	function getUnpublishedByUserId($userId, $contextId = null, $rangeInfo = null) {
 		$params = $this->_getFetchParameters();
-		$params[] = (int) $status;
+		$params[] = (int) $userId;
 		if ($contextId) $params[] = (int) $contextId;
 
-		$result = $this->retrieve(
+		$result = $this->retrieveRange(
+				'SELECT	s.*, ps.date_published,
+				' . $this->_getFetchColumns() . '
+				FROM	submissions s
+				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id)
+				' . $this->_getFetchJoins() . '
+				WHERE	ps.date_published IS NULL AND s.user_id = ?' .
+				($contextId?' AND s.context_id = ?':''),
+				$params, $rangeInfo
+		);
+
+		return new DAOResultFactory($result, $this, '_fromRow');
+	}
+
+	/**
+	 * Get all submissions for a status.
+	 * @param $status int
+	 * @param $contextId mixed optional
+	 * @param $rangeInfo DBResultRange optional
+	 * @return array Submissions
+	 */
+	function getByStatus($status, $contextId = null, $rangeInfo = null) {
+		$params = $this->_getFetchParameters();
+		$params[] = (int) $status;
+
+		if ($contextId && is_int($contextId))
+			$params[] = (int) $contextId;
+
+		$result = $this->retrieveRange(
 			'SELECT	s.*,
 				' . $this->_getFetchColumns() . '
 			FROM	submissions s
 				' . $this->_getFetchJoins() . '
-			WHERE	s.status = ?' .
-				($contextId?' AND s.context_id = ?':''),
-			$params
+			WHERE	s.status = ?'
+			. ($journalId && !is_array($journalId)?' AND s.context_id = ?':'')
+			. ($journalId && is_array($journalId)?' AND s.context_id IN  (' . join(',', array_map(array($this,'_arrayWalkIntCast'), $contextId)) . ')':''),
+			$params,
+			$rangeInfo
 		);
 
 		return new DAOResultFactory($result, $this, '_fromRow');
@@ -406,6 +481,15 @@ class SubmissionDAO extends DAO {
 	 */
 	protected function _getFetchJoins() {
 		assert(false); // To be overridden by subclasses
+	}
+
+	/**
+	 * Sanity test to cast values to int for database queries.
+	 * @param string $value
+	 * @return int
+	 */
+	protected function _arrayWalkIntCast($value) {
+		return (int) $value;
 	}
 }
 

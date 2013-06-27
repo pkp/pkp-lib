@@ -68,7 +68,8 @@ class ArchivedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 		$contextDao = Application::getContextDAO();
 		$contexts = $contextDao->getAll();
 
-		$archivedSubmissions = array();
+		$accessibleContexts = array();
+
 		while ($context = $contexts->next()) {
 			$isManager = $roleDao->userHasRole($context->getId(), $userId, ROLE_ID_MANAGER);
 			$isSubEditor = $roleDao->userHasRole($context->getId(), $userId, ROLE_ID_SUB_EDITOR);
@@ -76,20 +77,19 @@ class ArchivedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 			if (!$isManager && !$isSubEditor) {
 				continue;
 			}
-
-			$submissionFactory = $submissionDao->getByStatus(
-				STATUS_DECLINED,
-				$context->getId()
-			);
-
-			if (!$submissionFactory->wasEmpty()) {
-				while ($submission = $submissionFactory->next()) {
-					$archivedSubmissions[$submission->getId()] = $submission;
-				}
-			}
+			$accessibleContexts[] = $context->getId();
 		}
 
-		return $archivedSubmissions;
+		$archivedSubmissions = array();
+		$rangeInfo = $this->getGridRangeInfo($request, $this->getId());
+
+		$submissionFactory = $submissionDao->getByStatus(
+			STATUS_DECLINED,
+			$accessibleContexts,
+			$rangeInfo
+		);
+
+		return $submissionFactory;
 	}
 }
 

@@ -55,15 +55,8 @@ class MySubmissionsListGridHandler extends SubmissionsListGridHandler {
 		$this->setTitle('submission.mySubmissions');
 
 		$submissionDao = Application::getSubmissionDAO();
-		$submissions = $submissionDao->getByUserId($userId);
-		$data = array();
-		while ($submission = $submissions->next()) {
-			if ($submission->getDatePublished() == null) {
-				$submissionId = $submission->getId();
-				$data[$submissionId] = $submission;
-			}
-		}
-
+		$rangeInfo = $this->getGridRangeInfo($request, $this->getId());
+		$data = $submissionDao->getUnpublishedByUserId($userId, null, $rangeInfo);
 		return $data;
 	}
 }

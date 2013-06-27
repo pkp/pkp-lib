@@ -69,8 +69,8 @@ class UnassignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 		$roleDao = DAORegistry::getDAO('RoleDAO');
 		$contextDao = Application::getContextDAO();
 		$contexts = $contextDao->getAll();
+		$accessibleContexts = array();
 
-		$accessibleSubmissions = array();
 		while ($context = $contexts->next()) {
 			$isManager = $roleDao->userHasRole($context->getId(), $userId, ROLE_ID_MANAGER);
 			$isSubEditor = $roleDao->userHasRole($context->getId(), $userId, ROLE_ID_SUB_EDITOR);
@@ -78,25 +78,33 @@ class UnassignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 			if (!$isManager && !$isSubEditor) {
 				continue;
 			}
+			$accessibleContexts[] = $context->getId();
+		}
 
-			$submissionFactory = $submissionDao->getBySubEditorId(
-				$context->getId(),
-				$isManager?null:$userId
-			);
+		$accessibleSubmissions = array();
 
-			if (!$submissionFactory->wasEmpty()) {
-				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-				while ($submission = $submissionFactory->next()) {
-					if ($submission->getStatus() == STATUS_DECLINED) continue;
+		$rangeInfo = $this->getGridRangeInfo($request, $this->getId());
 
-					if ($submission->getDatePublished() == null && !$stageAssignmentDao->editorAssignedToStage($submission->getId())) {
-						$accessibleSubmissions[$submission->getId()] = $submission;
-					}
+		$submissionFactory = $submissionDao->getBySubEditorId(
+			$accessibleContexts,
+			$isManager?null:$userId,
+			false, // do not include STATUS_DECLINED submissions
+			false, // include only unpublished submissions
+			$rangeInfo
+		);
+
+		if (!$submissionFactory->wasEmpty()) {
+			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+			while ($submission = $submissionFactory->next()) {
+				if (!$stageAssignmentDao->editorAssignedToStage($submission->getId())) {
+					$accessibleSubmissions[$submission->getId()] = $submission;
 				}
 			}
 		}
 
-		return $accessibleSubmissions;
+
+		import('lib.pkp.classes.core.VirtualArrayIterator');
+		return new VirtualArrayIterator($accessibleSubmissions, $submissionFactory->getCount(), $rangeInfo->getPage(), $rangeInfo->getCount());
 	}
 }
 

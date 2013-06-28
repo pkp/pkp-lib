@@ -19,7 +19,7 @@ class PKPSubmissionEventLogDAO extends EventLogDAO {
 	/**
 	 * Constructor
 	 */
-	function SubmissionEventLogDAO() {
+	function PKPSubmissionEventLogDAO() {
 		parent::EventLogDAO();
 	}
 

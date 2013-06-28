@@ -89,7 +89,7 @@
 				{fbvFormSection}
 					{capture assign="biographyLabel"}{translate key="user.biography"} {translate key="user.biography.description"}{/capture}
 					{fbvElement type="textarea" label="$biographyLabel" multilingual=true name="biography" id="biography" value=$biography subLabelTranslate=false inline=true size=$fbvStyles.size.MEDIUM rich=true}
-					{fbvElement type="textarea" label="common.mailingAddress" name="mailingAddress" id="mailingAddress" value=$mailingAddress inline=true size=$fbvStyles.size.MEDIUM}
+					{fbvElement type="textarea" label="common.mailingAddress" name="mailingAddress" id="mailingAddress" value=$mailingAddress inline=true size=$fbvStyles.size.MEDIUM rich=true}
 				{/fbvFormSection}
 
 				{fbvFormSection}
@@ -100,6 +100,7 @@
 	{/capture}
 	<div id="userExtraFormFields" class="left full">
 		{include file="controllers/extrasOnDemand.tpl"
+			id="userExtras"
 			widgetWrapper="#userExtraFormFields"
 			moreDetailsText="grid.user.moreDetails"
 			lessDetailsText="grid.user.lessDetails"

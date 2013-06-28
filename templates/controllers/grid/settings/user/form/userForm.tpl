@@ -161,6 +161,7 @@
 		{/capture}
 			<div id="userExtraFormFields" class="left full">
 				{include file="controllers/extrasOnDemand.tpl"
+					id="userExtras"
 					widgetWrapper="#userExtraFormFields"
 					moreDetailsText="grid.user.moreDetails"
 					lessDetailsText="grid.user.lessDetails"

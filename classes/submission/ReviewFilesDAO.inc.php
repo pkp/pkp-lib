@@ -25,9 +25,8 @@ class ReviewFilesDAO extends DAO {
 	 * Grant a review file to a review.
 	 * @param $reviewId int Review assignment ID
 	 * @param $fileId int Review file ID
-	 * @param $revision int Review file revision
 	 */
-	function grant($reviewId, $fileId, $revision) {
+	function grant($reviewId, $fileId) {
 		$this->update(
 			'INSERT INTO review_files
 			(review_id, file_id)

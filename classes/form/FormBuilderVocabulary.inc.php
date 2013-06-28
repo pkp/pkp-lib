@@ -560,7 +560,7 @@ class FormBuilderVocabulary {
 
 		$selectParams = '';
 
-		$smarty->clear_assign(array('FBV_from', 'FBV_selected', 'FBV_label_content', 'FBV_defaultValue', 'FBV_defaultLabel'));
+		$smarty->clear_assign(array('FBV_from', 'FBV_selected', 'FBV_label_content', 'FBV_defaultValue', 'FBV_defaultLabel', 'FBV_required'));
 		foreach ($params as $key => $value) {
 			switch ($key) {
 				case 'from':
@@ -569,6 +569,7 @@ class FormBuilderVocabulary {
 				case 'defaultValue':
 				case 'defaultLabel':
 				case 'disabled':
+				case 'required':
 					$smarty->assign('FBV_' . $key, $value);
 					break;
 				case 'type':

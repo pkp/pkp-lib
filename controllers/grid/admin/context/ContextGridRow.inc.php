@@ -39,41 +39,48 @@ class ContextGridRow extends GridRow {
 
 		$rowId = $this->getId();
 
-		if (!empty($rowId) && is_numeric($rowId)) {
-			// Only add row actions if this is an existing row
-			$router = $request->getRouter();
-			$this->addAction(
-				new LinkAction(
-					'edit',
-					new AjaxModal(
-						$router->url($request, null, null, 'editContext', null, array('rowId' => $rowId)),
-						__('grid.action.edit'),
-						'modal_edit',
-						true
-						),
+		// Only add row actions if this is an existing row
+		$router = $request->getRouter();
+		$this->addAction(
+			new LinkAction(
+				'edit',
+				new AjaxModal(
+					$router->url($request, null, null, 'editContext', null, array('rowId' => $rowId)),
 					__('grid.action.edit'),
-					'edit')
-			);
+					'modal_edit',
+					true
+					),
+				__('grid.action.edit'),
+				'edit'
+			)
+		);
+		$this->addAction(
+			new LinkAction(
+				'delete',
+				new RemoteActionConfirmationModal(
+					__('admin.contexts.confirmDelete'),
+					null,
+					$router->url($request, null, null, 'deleteContext', null, array('rowId' => $rowId))
+					),
+				__('grid.action.remove'),
+				'delete'
+			)
+		);
+
+		if (Validation::isPressManager($element->getId())) {
+
+			import('lib.pkp.classes.linkAction.request.RedirectAction');
+			$dispatcher = $router->getDispatcher();
 			$this->addAction(
 				new LinkAction(
-					'delete',
-					new RemoteActionConfirmationModal(
-						__($this->getConfirmDeleteKey()),
-						null,
-						$router->url($request, null, null, 'deleteContext', null, array('rowId' => $rowId))
-						),
-					__('grid.action.remove'),
-					'delete')
+					'wizard',
+					new RedirectAction(
+						$dispatcher->url($request, ROUTE_PAGE, $element->getPath(), 'admin', 'contexts', null, array('openWizard' => 1))),
+					__('grid.action.wizard'),
+					'wrench'
+				)
 			);
 		}
-	}
-
-	/**
-	 * Get the delete context row locale key.
-	 * @return string
-	 */
-	function getConfirmDeleteKey() {
-		assert(false); // Should be overridden by subclasses.
 	}
 }
 

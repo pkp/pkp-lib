@@ -318,8 +318,6 @@ class PKPApplication {
 			'FilterDAO' => 'lib.pkp.classes.filter.FilterDAO',
 			'FilterGroupDAO' => 'lib.pkp.classes.filter.FilterGroupDAO',
 			'GenreDAO' => 'lib.pkp.classes.submission.GenreDAO',
-			'HelpTocDAO' => 'lib.pkp.classes.help.HelpTocDAO',
-			'HelpTopicDAO' => 'lib.pkp.classes.help.HelpTopicDAO',
 			'InterestDAO' => 'lib.pkp.classes.user.InterestDAO',
 			'InterestEntryDAO' => 'lib.pkp.classes.user.InterestEntryDAO',
 			'LanguageDAO' => 'lib.pkp.classes.language.LanguageDAO',
@@ -369,15 +367,6 @@ class PKPApplication {
 		$map =& Registry::get('daoMap', true, $this->getDAOMap());
 		if (isset($map[$name])) return $map[$name];
 		return null;
-	}
-
-	/**
-	 * Instantiate the help object for this application.
-	 * @return object
-	 */
-	function &instantiateHelp() {
-		// must be implemented by sub-classes
-		assert(false);
 	}
 
 	/**

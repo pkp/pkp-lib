@@ -343,22 +343,6 @@ class PKPPlugin {
 	}
 
 	/**
-	 * Add help data for this plugin.
-	 *
-	 * @param $locale string
-	 * @return boolean
-	 */
-	function addHelpData($locale = null) {
-		if ($locale == '') $locale = AppLocale::getLocale();
-		import('classes.help.Help');
-		$help = Help::getHelp();
-		import('lib.pkp.classes.help.PluginHelpMappingFile');
-		$pluginHelpMapping = new PluginHelpMappingFile($this);
-		$help->addMappingFile($pluginHelpMapping);
-		return true;
-	}
-
-	/**
 	 * Retrieve a plugin setting within the given context
 	 *
 	 * @param $context array an array of context ids
@@ -469,16 +453,6 @@ class PKPPlugin {
 		if (file_exists($baseMasterLocaleFilename)) $filenames[] = $baseLocaleFilename;
 		if (file_exists($masterLibPkpFilename)) $filenames[] = $libPkpFilename;
 		return $filenames;
-	}
-
-	/**
-	 * Get the path and filename of the help mapping file, if this
-	 * plugin includes help files.
-	 *
-	 * @return string
-	 */
-	function getHelpMappingFilename() {
-		return $this->getPluginPath() . DIRECTORY_SEPARATOR . 'help.xml';
 	}
 
 	/**

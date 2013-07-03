@@ -144,9 +144,7 @@ class PKPTemplateManager extends Smarty {
 		$this->register_function('call_progress_function', array($this, 'smartyCallProgressFunction'));
 		$this->register_function('page_links', array($this, 'smartyPageLinks'));
 		$this->register_function('page_info', array($this, 'smartyPageInfo'));
-		$this->register_function('get_help_id', array($this, 'smartyGetHelpId'));
 		$this->register_function('icon', array($this, 'smartyIcon'));
-		$this->register_function('help_topic', array($this, 'smartyHelpTopic'));
 		$this->register_function('sort_heading', array($this, 'smartySortHeading'));
 		$this->register_function('sort_search', array($this, 'smartySortSearch'));
 		$this->register_function('assign_mailto', array($this, 'smartyAssignMailto'));

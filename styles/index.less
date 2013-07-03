@@ -30,6 +30,26 @@
 /* Page Elements */
 @import url("lib/pkp/styles/pages/index.less");
 
+/* Bug #8282: Scrollable tabs controls overlap tab names */
+.stTabsInnerWrapper {
+	/* Make sure the tabs don't overlap the navigation controls */
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.stTabsMainWrapper ul.ui-tabs-nav {
+	/* Keep the scrolled tabs from peeking out from under the nav controls */
+	margin-left: 2px;
+	margin-right: 2px;
+}
+
+.stNav {
+	/* Adjust the height of the scrollable tab controls */
+	height: 23px !important;
+	padding-top: 7px;
+}
+
+/* Additional styles: clean up? */
 .loading_container {
 	text-align: center;
 	padding-top: 10px;

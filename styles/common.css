@@ -225,6 +225,7 @@ span.disabled, label.disabled {
 a.action, a.file {
 	font-size: 0.85em;
 	text-transform: uppercase;
+	white-space: nowrap;
 }
 
 a.icon {

@@ -104,8 +104,14 @@ class SubmissionSearch {
 	}
 
 	/**
-	 * See implementation of retrieveResults for a description of this
-	 * function.
+	 * Takes an unordered list of search result data, flattens it, orders it
+	 * and excludes unwanted results.
+	 * @param $unorderedResults array An unordered list of search data (article ID
+	 *   as key and ranking data as values).
+	 * @param $orderBy string One of the values returned by ArticleSearch::getResultSetOrderingOptions();
+	 * @param $orderDir string 'asc' or 'desc', see ArticleSearch::getResultSetOrderingDirectionOptions();
+	 * @param $exclude array A list of article IDs to exclude from the result.
+	 * @return array An ordered and flattened list of article IDs.
 	 */
 	function _getMergedArray($context, &$keywords, $publishedFrom, $publishedTo) {
 		$resultsPerKeyword = Config::getVar('search', 'results_per_keyword');
@@ -122,9 +128,7 @@ class SubmissionSearch {
 			if (!empty($keyword['-']))
 				$mergedKeywords['-'][] = array('type' => $type, '+' => array(), '' => $keyword['-'], '-' => array());
 		}
-		$mergedResults = $this->_getMergedKeywordResults($context, $mergedKeywords, null, $publishedFrom, $publishedTo, $resultsPerKeyword, $resultCacheHours);
-
-		return $mergedResults;
+		return $this->_getMergedKeywordResults($context, $mergedKeywords, null, $publishedFrom, $publishedTo, $resultsPerKeyword, $resultCacheHours);
 	}
 
 	/**
@@ -142,9 +146,9 @@ class SubmissionSearch {
 			if ($mergedResults === null) {
 				$mergedResults = $results;
 			} else {
-				foreach ($mergedResults as $submissionId => $count) {
+				foreach ($mergedResults as $submissionId => $data) {
 					if (isset($results[$submissionId])) {
-						$mergedResults[$submissionId] += $results[$submissionId];
+						$mergedResults[$submissionId]['count'] += $results[$submissionId]['count'];
 					} else {
 						unset($mergedResults[$submissionId]);
 					}
@@ -159,11 +163,11 @@ class SubmissionSearch {
 		if (!empty($mergedResults) || empty($keyword['+'])) {
 			foreach ($keyword[''] as $phrase) {
 				$results = $this->_getMergedPhraseResults($context, $phrase, $type, $publishedFrom, $publishedTo, $resultsPerKeyword, $resultCacheHours);
-				foreach ($results as $submissionId => $count) {
+				foreach ($results as $submissionId => $data) {
 					if (isset($mergedResults[$submissionId])) {
-						$mergedResults[$submissionId] += $count;
+						$mergedResults[$submissionId]['count'] += $data['count'];
 					} else if (empty($keyword['+'])) {
-						$mergedResults[$submissionId] = $count;
+						$mergedResults[$submissionId] = $data;
 					}
 				}
 			}
@@ -192,7 +196,7 @@ class SubmissionSearch {
 		$mergedResults = array();
 		$searchDao = $this->getSearchDao();
 
-		$results = $searchDao->getPhraseResults(
+		return $searchDao->getPhraseResults(
 			$context,
 			$phrase,
 			$publishedFrom,
@@ -201,52 +205,6 @@ class SubmissionSearch {
 			$resultsPerKeyword,
 			$resultCacheHours
 		);
-		while ($result = $results->next()) {
-			$submissionId = $result['submission_id'];
-			if (!isset($mergedResults[$submissionId])) {
-				$mergedResults[$submissionId] = $result['count'];
-			} else {
-				$mergedResults[$submissionId] += $result['count'];
-			}
-		}
-		return $mergedResults;
-	}
-
-	/**
-	 * See implementation of retrieveResults for a description of this
-	 * function.
-	 */
-	function &_getSparseArray(&$mergedResults) {
-		$resultCount = count($mergedResults);
-		$results = array();
-		$i = 0;
-		foreach ($mergedResults as $submissionId => $count) {
-				$frequencyIndicator = ($resultCount * $count) + $i++;
-				$results[$frequencyIndicator] = $submissionId;
-		}
-		krsort($results);
-		return $results;
-	}
-
-	/**
-	 * Load the keywords array from a given search filter.
-	 * @param $searchFilters array Search filters as returned from
-	 *  SubmissionSearch::getSearchFilters()
-	 * @return array Keyword array as required by SubmissionSearch::retrieveResults()
-	 */
-	function getKeywordsFromSearchFilters($searchFilters) {
-		$indexFieldMap = $this->getIndexFieldMap();
-		$indexFieldMap[SUBMISSION_SEARCH_INDEX_TERMS] = 'indexTerms';
-		$keywords = array();
-		if (isset($searchFilters['query'])) {
-			$keywords[null] = $searchFilters['query'];
-		}
-		foreach($indexFieldMap as $bitmap => $searchField) {
-			if (isset($searchFilters[$searchField]) && !empty($searchFilters[$searchField])) {
-				$keywords[$bitmap] = $searchFilters[$searchField];
-			}
-		}
-		return $keywords;
 	}
 
 	/**
@@ -256,6 +214,7 @@ class SubmissionSearch {
 	 * $keywords[SUBMISSION_SEARCH_AUTHOR] = array('John', 'Doe');
 	 * $keywords[SUBMISSION_SEARCH_...] = array(...);
 	 * $keywords[null] = array('Matches', 'All', 'Fields');
+     * @param $request Request
 	 * @param $context object The context to search
 	 * @param $keywords array List of keywords
 	 * @param $error string a reference to a variable that will
@@ -264,10 +223,11 @@ class SubmissionSearch {
 	 * @param $publishedFrom object Search-from date
 	 * @param $publishedTo object Search-to date
 	 * @param $rangeInfo Information on the range of results to return
+	 * @param $exclude array An array of article IDs to exclude from the result.
 	 * @return VirtualArrayIterator An iterator with one entry per retrieved
 	 *  article containing the article, published article, issue, context, etc.
 	 */
-	function retrieveResults($context, $keywords, &$error, $publishedFrom = null, $publishedTo = null, $rangeInfo = null) {
+	function retrieveResults($request, $context, $keywords, &$error, $publishedFrom = null, $publishedTo = null, $rangeInfo = null, $exclude = array()) {
 		// Pagination
 		if ($rangeInfo && $rangeInfo->isValid()) {
 			$page = $rangeInfo->getPage();
@@ -277,11 +237,14 @@ class SubmissionSearch {
 			$itemsPerPage = SUBMISSION_SEARCH_DEFAULT_RESULT_LIMIT;
 		}
 
+		// Result set ordering.
+		list($orderBy, $orderDir) = $this->getResultSetOrdering($request);
+
 		// Check whether a search plug-in jumps in to provide ranked search results.
 		$totalResults = null;
 		$results = HookRegistry::call(
 			'SubmissionSearch::retrieveResults',
-			array(&$context, &$keywords, $publishedFrom, $publishedTo, $page, $itemsPerPage, &$totalResults, &$error)
+			array(&$context, &$keywords, $publishedFrom, $publishedTo, $orderBy, $orderDir, $exclude, $page, $itemsPerPage, &$totalResults, &$error)
 		);
 
 		// If no search plug-in is activated then fall back to the
@@ -304,7 +267,7 @@ class SubmissionSearch {
 			// where higher is better, indicating the quality of the match.
 			// It is generated here in such a manner that matches with
 			// identical frequency do not collide.
-			$results = $this->_getSparseArray($mergedResults);
+			$results = $this->getSparseArray($mergedResults, $orderBy, $orderDir, $exclude);
 			$totalResults = count($results);
 
 			// Use only the results for the specified page.
@@ -331,18 +294,84 @@ class SubmissionSearch {
 		return new VirtualArrayIterator($results, $totalResults, $page, $itemsPerPage);
 	}
 
-	function getIndexFieldMap() {
+	/**
+	 * Return the available options for the result
+	 * set ordering direction.
+	 * @return array
+	 */
+	function getResultSetOrderingDirectionOptions() {
 		return array(
-			SUBMISSION_SEARCH_AUTHOR => 'authors',
-			SUBMISSION_SEARCH_TITLE => 'title',
-			SUBMISSION_SEARCH_ABSTRACT => 'abstract',
-			SUBMISSION_SEARCH_GALLEY_FILE => 'galleyFullText',
-			SUBMISSION_SEARCH_SUPPLEMENTARY_FILE => 'suppFiles',
-			SUBMISSION_SEARCH_DISCIPLINE => 'discipline',
-			SUBMISSION_SEARCH_SUBJECT => 'subject',
-			SUBMISSION_SEARCH_TYPE => 'type',
-			SUBMISSION_SEARCH_COVERAGE => 'coverage'
+			'asc' => __('search.results.orderDir.asc'),
+			'desc' => __('search.results.orderDir.desc')
 		);
+	}
+
+	/**
+	 * Return the currently selected result
+	 * set ordering option (default: descending relevance).
+	 * @param $request Request
+	 * @return array An array with the order field as the
+	 * first entry and the order direction as the second
+	 * entry.
+	 */
+	function getResultSetOrdering($request) {
+		// Order field.
+		$orderBy = $request->getUserVar('orderBy');
+		$orderByOptions = $this->getResultSetOrderingOptions($request);
+		if (is_null($orderBy) || !in_array($orderBy, array_keys($orderByOptions))) {
+			$orderBy = 'score';
+		}
+
+		// Ordering direction.
+		$orderDir = $request->getUserVar('orderDir');
+		$orderDirOptions = $this->getResultSetOrderingDirectionOptions();
+		if (is_null($orderDir) || !in_array($orderDir, array_keys($orderDirOptions))) {
+			$orderDir = $this->getDefaultOrderDir($orderBy);
+		}
+
+		return array($orderBy, $orderDir);
+	}
+
+	//
+	// Methods to be implemented by subclasses.
+	//
+	/**
+	 * See implementation of retrieveResults for a description of this
+	 * function.
+	 *
+	 * Note that this function is also called externally to fetch
+	 * results for the title index, and possibly elsewhere.
+	 *
+	 * @return array
+	 */
+	static function formatResults(&$results) {
+		assert(false);
+	}
+
+	/**
+	 * Return the available options for result set ordering.
+	 * @param $request Request
+	 * @return array
+	 */
+	function getResultSetOrderingOptions($request) {
+		assert(false);
+	}
+
+	/**
+	 * See implementation of retrieveResults for a description of this
+	 * function.
+	 */
+	protected function &getSparseArray(&$unorderedResults, $orderBy, $orderDir, $exclude) {
+		assert(false);
+	}
+
+	/**
+	 * Return the default order direction.
+	 * @param $orderBy string
+	 * @return string
+	 */
+	protected function getDefaultOrderDir($orderBy) {
+		assert(false);
 	}
 
 	/**
@@ -350,8 +379,9 @@ class SubmissionSearch {
 	 * @return DAO
 	 */
 	protected function getSearchDao() {
-		assert(false); // To be implemented by subclasses
+		assert(false);
 	}
+
 }
 
 ?>

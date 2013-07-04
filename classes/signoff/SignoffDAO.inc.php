@@ -1,12 +1,12 @@
 <?php
 
 /**
- * @file classes/signoff/PKPSignoffDAO.inc.php
+ * @file classes/signoff/SignoffDAO.inc.php
  *
  * Copyright (c) 2000-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPSignoffDAO
+ * @class SignoffDAO
  * @ingroup signoff
  * @see Signoff
  *
@@ -16,11 +16,11 @@
 
 import('lib.pkp.classes.signoff.Signoff');
 
-class PKPSignoffDAO extends DAO {
+class SignoffDAO extends DAO {
 	/**
 	 * Constructor
 	 */
-	function PKPSignoffDAO() {
+	function SignoffDAO() {
 		parent::DAO();
 	}
 

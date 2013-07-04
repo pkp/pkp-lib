@@ -332,6 +332,7 @@ class PKPApplication {
 			'ReviewRoundDAO' => 'lib.pkp.classes.submission.reviewRound.ReviewRoundDAO',
 			'ScheduledTaskDAO' => 'lib.pkp.classes.scheduledTask.ScheduledTaskDAO',
 			'SessionDAO' => 'lib.pkp.classes.session.SessionDAO',
+			'SignoffDAO' => 'lib.pkp.classes.signoff.SignoffDAO',
 			'SiteDAO' => 'lib.pkp.classes.site.SiteDAO',
 			'SiteSettingsDAO' => 'lib.pkp.classes.site.SiteSettingsDAO',
 			'SubmissionAgencyDAO' => 'lib.pkp.classes.submission.SubmissionAgencyDAO',

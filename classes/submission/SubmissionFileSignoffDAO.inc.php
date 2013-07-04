@@ -14,7 +14,7 @@
  * files.
  */
 
-import('classes.signoff.SignoffDAO');
+import('lib.pkp.classes.signoff.SignoffDAO');
 
 class SubmissionFileSignoffDAO extends SignoffDAO {
 	/**

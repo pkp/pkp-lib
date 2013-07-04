@@ -110,8 +110,8 @@ class PKPRegistrationForm extends Form {
 		if ($context) {
 			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 
-			$templateMgr->assign_by_ref('reviewerUserGroups', $userGroupDao->getByRoleId($context->getId(), ROLE_ID_REVIEWER));
-			$templateMgr->assign_by_ref('authorUserGroups', $userGroupDao->getByRoleId($context->getId(), ROLE_ID_AUTHOR));
+			$templateMgr->assign('reviewerUserGroups', $userGroupDao->getByRoleId($context->getId(), ROLE_ID_REVIEWER));
+			$templateMgr->assign('authorUserGroups', $userGroupDao->getByRoleId($context->getId(), ROLE_ID_AUTHOR));
 
 			$templateMgr->assign('privacyStatement', $context->getLocalizedSetting('privacyStatement'));
 			$templateMgr->assign('allowRegAuthor', $context->getSetting('allowRegAuthor'));

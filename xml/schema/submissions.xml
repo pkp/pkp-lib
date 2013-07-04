@@ -122,4 +122,40 @@
 			<col>editor_id</col>
 		</index>
 	</table>
+
+	<!--
+	  *
+	  * TABLE submission_comments
+	  *
+	  -->
+	<table name="submission_comments">
+		<field name="comment_id" type="I8">
+			<KEY />
+			<AUTOINCREMENT/>
+		</field>
+		<field name="comment_type" type="I8"/>
+		<field name="role_id" type="I8">
+			<NOTNULL/>
+		</field>
+		<field name="submission_id" type="I8">
+			<NOTNULL/>
+		</field>
+		<field name="assoc_id" type="I8">
+			<NOTNULL/>
+		</field>
+		<field name="author_id" type="I8">
+			<NOTNULL/>
+		</field>
+		<field name="comment_title" type="C2" size="90">
+			<NOTNULL/>
+		</field>
+		<field name="comments" type="X"/>
+		<field name="date_posted" type="T"/>
+		<field name="date_modified" type="T"/>
+		<field name="viewable" type="I1" />
+		<descr>Comments posted on submissions</descr>
+		<index name="submission_comments_submission_id">
+			<col>submission_id</col>
+		</index>
+	</table>
 </schema>

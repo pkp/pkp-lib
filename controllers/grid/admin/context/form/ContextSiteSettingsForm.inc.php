@@ -22,15 +22,18 @@ class ContextSiteSettingsForm extends Form {
 
 	/**
 	 * Constructor.
-	 * @param $template string
 	 * @param $contextId omit for a new context
 	 */
-	function ContextSiteSettingsForm($template, $contextId = null) {
-		parent::Form($template);
+	function ContextSiteSettingsForm($contextId = null) {
+		parent::Form('admin/contextSettings.tpl');
 
 		$this->contextId = isset($contextId) ? (int) $contextId : null;
 
 		// Validation checks for this form
+		$this->addCheck(new FormValidatorLocale($this, 'name', 'required', 'admin.contexts.form.titleRequired'));
+		$this->addCheck(new FormValidator($this, 'path', 'required', 'admin.contexts.form.pathRequired'));
+		$this->addCheck(new FormValidatorAlphaNum($this, 'path', 'required', 'admin.contexts.form.pathAlphaNumeric'));
+		$this->addCheck(new FormValidatorCustom($this, 'path', 'required', 'admin.contexts.form.pathExists', create_function('$path,$form,$contextDao', 'return !$contextDao->existsByPath($path) || ($form->getData(\'oldPath\') != null && $form->getData(\'oldPath\') == $path);'), array(&$this, Application::getContextDAO())));
 		$this->addCheck(new FormValidatorPost($this));
 	}
 
@@ -48,10 +51,12 @@ class ContextSiteSettingsForm extends Form {
 
 	/**
 	 * Initialize form data from current settings.
-	 * @param $context Context optional
 	 */
-	function initData($context = null) {
-		if ($context) {
+	function initData() {
+		if (isset($this->contextId)) {
+			$contextDao = Application::getContextDAO();
+			$context = $contextDao->getById($this->contextId);
+
 			$this->setData('name', $context->getName(null));
 			$this->setData('description', $context->getDescription(null));
 			$this->setData('path', $context->getPath());
@@ -66,6 +71,12 @@ class ContextSiteSettingsForm extends Form {
 	 */
 	function readInputData() {
 		$this->readUserVars(array('name', 'description', 'path', 'enabled'));
+
+		if ($this->contextId) {
+			$contextDao = Application::getContextDAO();
+			$context = $contextDao->getById($this->contextId);
+			if ($context) $this->setData('oldPath', $context->getPath());
+		}
 	}
 
 	/**

@@ -13,6 +13,7 @@
  */
 
 import('lib.pkp.classes.controllers.grid.GridHandler');
+import('lib.pkp.controllers.grid.admin.context.ContextGridRow');
 
 class ContextGridHandler extends GridHandler {
 	/**
@@ -109,6 +110,36 @@ class ContextGridHandler extends GridHandler {
 	// Implement methods from GridHandler.
 	//
 	/**
+	 * @see GridHandler::getRowInstance()
+	 * @return UserGridRow
+	 */
+	function getRowInstance() {
+		return new ContextGridRow();
+	}
+
+	/**
+	 * @see GridHandler::loadData()
+	 * @param $request PKPRequest
+	 * @return array Grid data.
+	 */
+	function loadData($request) {
+		// Get all contexts.
+		$contextDao = Application::getContextDAO();
+		$contexts = $contextDao->getAll();
+
+		return $contexts->toAssociativeArray();
+	}
+
+	/**
+	 * @see lib/pkp/classes/controllers/grid/GridHandler::setDataElementSequence()
+	 */
+	function setDataElementSequence($request, $rowId, $context, $newSequence) {
+		$contextDao = Application::getContextDAO();
+		$context->setSequence($newSequence);
+		$contextDao->updateObject($context);
+	}
+
+	/**
 	 * @see lib/pkp/classes/controllers/grid/GridHandler::getDataElementSequence()
 	 */
 	function getDataElementSequence($context) {
@@ -150,6 +181,19 @@ class ContextGridHandler extends GridHandler {
 	//
 	// Protected helper methods.
 	//
+	/**
+	 * Return a redirect event.
+	 * @param $request Request
+	 * @param $newContextPath string
+	 * @param $openWizard boolean
+	 */
+	protected function _getRedirectEvent($request, $newContextPath, $openWizard) {
+		$dispatcher = $request->getDispatcher();
+
+		$url = $dispatcher->url($request, ROUTE_PAGE, $newContextPath, 'admin', 'contexts', null, array('openWizard' => $openWizard));
+		return $request->redirectUrlJson($url);
+	}
+
 	/**
 	 * Get the "add context" locale key
 	 * @return string

@@ -288,12 +288,12 @@ class PKPReviewAssignmentDAO extends DAO {
 
 		if ($reviewRoundJoinString) {
 			$result = $this->retrieve(
-						'SELECT	r.*, r2.review_revision, u.first_name, u.last_name
-						FROM	review_assignments r
-							LEFT JOIN users u ON (r.reviewer_id = u.user_id)
-							LEFT JOIN review_rounds r2 ON (' . $reviewRoundJoinString . ')
-						WHERE	r.reviewer_id = ?
-						ORDER BY round, review_id',
+				'SELECT	r.*, r2.review_revision, u.first_name, u.last_name
+				FROM	review_assignments r
+					LEFT JOIN users u ON (r.reviewer_id = u.user_id)
+					LEFT JOIN review_rounds r2 ON (' . $reviewRoundJoinString . ')
+				WHERE	r.reviewer_id = ?
+				ORDER BY round, review_id',
 			(int) $userId
 			);
 

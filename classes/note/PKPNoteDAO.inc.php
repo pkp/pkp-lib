@@ -43,15 +43,13 @@ class PKPNoteDAO extends DAO {
 	 * @param $userId int
 	 * @return object DAOResultFactory containing matching Note objects
 	 */
-	function &getByUserId($userId, $rangeInfo = null) {
+	function getByUserId($userId, $rangeInfo = null) {
 		$result = $this->retrieveRange(
 			'SELECT * FROM notes WHERE user_id = ? ORDER BY date_created DESC',
 			array((int) $userId), $rangeInfo
 		);
 
-		$returner = new DAOResultFactory($result, $this, '_returnNoteFromRow');
-
-		return $returner;
+		return new DAOResultFactory($result, $this, '_returnNoteFromRow');
 	}
 
 	/**

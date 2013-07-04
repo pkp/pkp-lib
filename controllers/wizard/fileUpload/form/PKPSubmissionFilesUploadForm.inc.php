@@ -138,7 +138,7 @@ class PKPSubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 		// Retrieve the user's user groups.
 		$user = $request->getUser();
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
-		$assignedUserGroups =& $userGroupDao->getByUserId($user->getId(), $context->getId());
+		$assignedUserGroups = $userGroupDao->getByUserId($user->getId(), $context->getId());
 
 		// Check which of these groups make sense in the context
 		// from which the uploader was instantiated.

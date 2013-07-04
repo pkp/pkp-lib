@@ -51,7 +51,7 @@ class NotificationDAO extends DAO {
 	 * @param $rangeInfo Object
 	 * @return object DAOResultFactory containing matching Notification objects
 	 */
-	function &getByUserId($userId, $level = NOTIFICATION_LEVEL_NORMAL, $type = null, $contextId = null, $rangeInfo = null) {
+	function getByUserId($userId, $level = NOTIFICATION_LEVEL_NORMAL, $type = null, $contextId = null, $rangeInfo = null) {
 		$params = array((int) $userId, (int) $level);
 		if ($type) $params[] = (int) $type;
 		if ($contextId) $params[] = (int) $contextId;
@@ -61,9 +61,7 @@ class NotificationDAO extends DAO {
 			$params, $rangeInfo
 		);
 
-		$returner = new DAOResultFactory($result, $this, '_returnNotificationFromRow');
-
-		return $returner;
+		return new DAOResultFactory($result, $this, '_returnNotificationFromRow');
 	}
 
 	/**

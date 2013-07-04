@@ -316,8 +316,8 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 		$signoffDao = DAORegistry::getDAO('SignoffDAO');
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
 
-		$signoffsFactory =& $signoffDao->getByUserId($userId);
-		while($signoff =& $signoffsFactory->next()) {
+		$signoffsFactory = $signoffDao->getByUserId($userId);
+		while($signoff = $signoffsFactory->next()) {
 			if (($signoff->getSymbolic() != 'SIGNOFF_COPYEDITING' &&
 				$signoff->getSymbolic() != 'SIGNOFF_PROOFING') ||
 				$signoff->getAssocType() != ASSOC_TYPE_SUBMISSION_FILE ||

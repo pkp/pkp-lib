@@ -83,7 +83,7 @@ class CommentDAO extends DAO {
 	 * @param $userId int
 	 * @return Comment objects array
 	 */
-	function &getByUserId($userId) {
+	function getByUserId($userId) {
 		$comments = array();
 
 		$result = $this->retrieve('SELECT * FROM comments WHERE user_id = ?', (int) $userId);

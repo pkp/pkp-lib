@@ -291,7 +291,7 @@ class UserGroupDAO extends DAO {
 	 * @param $contextId int
 	 * @return DAOResultFactory
 	 */
-	function &getByUserId($userId, $contextId = null){
+	function getByUserId($userId, $contextId = null){
 		$params = array((int) $userId);
 		if ($contextId) {
 			$params[] = (int) $contextId;

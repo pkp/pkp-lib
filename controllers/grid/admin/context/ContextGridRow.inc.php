@@ -39,7 +39,6 @@ class ContextGridRow extends GridRow {
 
 		$rowId = $this->getId();
 
-		// Only add row actions if this is an existing row
 		$router = $request->getRouter();
 		$this->addAction(
 			new LinkAction(
@@ -67,20 +66,17 @@ class ContextGridRow extends GridRow {
 			)
 		);
 
-		if (Validation::isPressManager($element->getId())) {
-
-			import('lib.pkp.classes.linkAction.request.RedirectAction');
-			$dispatcher = $router->getDispatcher();
-			$this->addAction(
-				new LinkAction(
-					'wizard',
-					new RedirectAction(
-						$dispatcher->url($request, ROUTE_PAGE, $element->getPath(), 'admin', 'contexts', null, array('openWizard' => 1))),
-					__('grid.action.wizard'),
-					'wrench'
-				)
-			);
-		}
+		import('lib.pkp.classes.linkAction.request.RedirectAction');
+		$dispatcher = $router->getDispatcher();
+		$this->addAction(
+			new LinkAction(
+				'wizard',
+				new RedirectAction(
+					$dispatcher->url($request, ROUTE_PAGE, $element->getPath(), 'admin', 'contexts', null, array('openWizard' => 1))),
+				__('grid.action.wizard'),
+				'wrench'
+			)
+		);
 	}
 }
 

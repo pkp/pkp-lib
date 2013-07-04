@@ -32,6 +32,7 @@ class AdminContextHandler extends AdminHandler {
 	 */
 	function contexts($args, $request) {
 		$templateMgr = TemplateManager::getManager($request);
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER);
 		if ($request->getUserVar('openWizard')) {
 			// Get the open wizard link action.
 			import('lib.pkp.classes.linkAction.request.WizardModal');

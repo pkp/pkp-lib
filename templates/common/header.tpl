@@ -6,15 +6,9 @@
  *
  * Common site header.
  *}
-{strip}
-{if !$pageTitleTranslated}{translate|assign:"pageTitleTranslated" key=$pageTitle}{/if}
-{if $pageCrumbTitle}
-	{translate|assign:"pageCrumbTitleTranslated" key=$pageCrumbTitle}
-{elseif !$pageCrumbTitleTranslated}
-	{assign var="pageCrumbTitleTranslated" value=$pageTitleTranslated}
-{/if}
-{/strip}<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
+{if !$pageTitleTranslated}{translate|assign:"pageTitleTranslated" key=$pageTitle}{/if}
 {include file="core:common/headerHead.tpl"}
 <body>
 	<script type="text/javascript">

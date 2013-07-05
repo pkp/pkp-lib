@@ -23,7 +23,7 @@
 	<message key="user.authorization.restrictedSiteAccess">You have been denied access. Access to this site is currently restricted.</message>
 	<message key="user.authorization.roleBasedAccessDenied">The current role does not have access to this operation.</message>
 	<message key="user.authorization.userGroupRequired">You have to set a valid user group to access this operation.</message>
-	<message key="user.authorization.managerRequired">A user with a Press Manager role (i.e. Press or Production Editor) must be assigned to the stage before you can proceed.</message>
+	<message key="user.authorization.managerRequired">A user with a Manager role (i.e. Production Editor) must be assigned to the stage before you can proceed.</message>
 	<message key="user.biography">Bio Statement</message>
 	<message key="user.biography.description">(E.g., department and rank)</message>
 	<message key="user.changeMyPassword">Change My Password</message>

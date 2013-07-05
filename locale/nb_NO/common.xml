@@ -2,16 +2,16 @@
 <!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
 
 <!--
-  * locale/no_NO/common.xml
+  * locale/nb_NO/common.xml
   *
   * Copyright (c) 2000-2013 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the no_NO (Norwegian) locale.
+  * Localization strings for the nb_NO (Norwegian) locale.
   *
   -->
 
-<locale name="no_NO" full_name = "Norwegian">
+<locale name="nb_NO" full_name = "Norwegian">
 	<message key="about.aboutSite">Om nettstedet</message>
 	<message key="about.contact">Kontakt</message>
 	<message key="about.contact.email">E-post</message>

@@ -2,16 +2,16 @@
 <!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
 
 <!--
-  * locale/no_NO/manager.xml
+  * locale/nb_NO/manager.xml
   *
   * Copyright (c) 2000-2013 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the no_NO (Norwegian) locale.
+  * Localization strings for the nb_NO (Norwegian) locale.
   *
   -->
 
-<locale name="no_NO" full_name = "Norwegian">
+<locale name="nb_NO" full_name = "Norwegian">
 	<message key="manager.announcements">Oppslagstavle</message>
 	<message key="manager.announcements.confirmDelete">Er du sikker på at du vil slette dette oppslaget for alltid?</message>
 	<message key="manager.announcements.create">Opprett nytt oppslag</message>

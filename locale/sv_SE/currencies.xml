@@ -11,7 +11,7 @@
   *
   -->
 
-<currencies locale="no_NO">
+<currencies locale="nb_NO">
 	<currency name="United Arab Emirates dirham" code_alpha="AED" code_numeric="784" />
 	<currency name="Afghani" code_alpha="AFN" code_numeric="971" />
 	<currency name="Lek" code_alpha="ALL" code_numeric="008" />

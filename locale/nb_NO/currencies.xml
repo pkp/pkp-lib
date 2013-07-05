@@ -2,7 +2,7 @@
 <!DOCTYPE currencies SYSTEM "../../dtd/currencies.dtd">
 
 <!--
-  * locale/no_NO/currencies.xml
+  * locale/nb_NO/currencies.xml
   *
   * Copyright (c) 2000-2013 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -11,7 +11,7 @@
   *
   -->
 
-<currencies locale="no_NO">
+<currencies locale="nb_NO">
 	<currency name="US dollar" code_alpha="USD" code_numeric="840" />
 	<currency name="Euro" code_alpha="EUR" code_numeric="978" />
 	<currency name="Canadisk Dollar" code_alpha="CAD" code_numeric="124" />

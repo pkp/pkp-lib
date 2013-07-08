@@ -100,11 +100,11 @@
 			{fbvElement type="select" id="clientCharset" from=$clientCharsetOptions selected=$clientCharset translate=false size=$fbvStyles.size.SMALL}
 		{/fbvFormSection}
 
-		{fbvFormSection label="installer.connectionCharset" description="installer.connectionCharsetInstructions"}
+		{fbvFormSection label="installer.connectionCharset"}
 			{fbvElement type="select" id="connectionCharset" from=$connectionCharsetOptions selected=$connectionCharset translate=false size=$fbvStyles.size.SMALL}
 		{/fbvFormSection}
 
-		{fbvFormSection label="installer.databaseCharset" description="installer.databaseCharsetInstructions"}
+		{fbvFormSection label="installer.databaseCharset"}
 			{fbvElement type="select" id="databaseCharset" from=$databaseCharsetOptions selected=$databaseCharset translate=false size=$fbvStyles.size.SMALL}
 		{/fbvFormSection}
 	{/fbvFormArea}

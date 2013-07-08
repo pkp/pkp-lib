@@ -183,9 +183,8 @@ class UserGroupDAO extends DAO {
 	 * @param $roleId
 	 */
 	function getDefaultByRoleId($contextId, $roleId) {
-		$returner = false;
 		$allDefaults = $this->getByRoleId($contextId, $roleId, true);
-		if ($allDefaults->eof()) return $returner;
+		if ($allDefaults->eof()) return false;
 		return $allDefaults->next();
 	}
 
@@ -304,8 +303,7 @@ class UserGroupDAO extends DAO {
 			$params
 		);
 
-		$returner = new DAOResultFactory($result, $this, '_returnFromRow');
-		return $returner;
+		return new DAOResultFactory($result, $this, '_returnFromRow');
 	}
 
 	/**

@@ -498,7 +498,6 @@ class PKPReviewAssignmentDAO extends DAO {
 				declined, replaced, cancelled,
 				date_assigned, date_notified, date_confirmed,
 				date_completed, date_acknowledged, date_due, date_response_due,
-				reviewer_file_id,
 				quality, date_rated,
 				last_modified,
 				date_reminded, reminder_was_automatic,
@@ -506,7 +505,7 @@ class PKPReviewAssignmentDAO extends DAO {
 				review_round_id,
 				unconsidered
 				) VALUES (
-				?, ?, ?, ?, ?, ?, ?, ?, ?, ?, %s, %s, %s, %s, %s, %s, %s, ?, ?, %s, %s, %s, ?, ?, ?, ?
+				?, ?, ?, ?, ?, ?, ?, ?, ?, ?, %s, %s, %s, %s, %s, %s, %s, ?, %s, %s, %s, ?, ?, ?, ?
 				)',
 				$this->datetimeToDB($reviewAssignment->getDateAssigned()),
 				$this->datetimeToDB($reviewAssignment->getDateNotified()),
@@ -529,7 +528,6 @@ class PKPReviewAssignmentDAO extends DAO {
 				(int) $reviewAssignment->getDeclined(),
 				(int) $reviewAssignment->getReplaced(),
 				(int) $reviewAssignment->getCancelled(),
-				$reviewAssignment->getReviewerFileId(),
 				$reviewAssignment->getQuality(),
 				(int) $reviewAssignment->getReminderWasAutomatic(),
 				$reviewAssignment->getReviewFormId(),
@@ -566,7 +564,6 @@ class PKPReviewAssignmentDAO extends DAO {
 					date_acknowledged = %s,
 					date_due = %s,
 					date_response_due = %s,
-					reviewer_file_id = ?,
 					quality = ?,
 					date_rated = %s,
 					last_modified = %s,
@@ -588,7 +585,6 @@ class PKPReviewAssignmentDAO extends DAO {
 				(int) $reviewAssignment->getDeclined(),
 				(int) $reviewAssignment->getReplaced(),
 				(int) $reviewAssignment->getCancelled(),
-				$reviewAssignment->getReviewerFileId(),
 				$reviewAssignment->getQuality(),
 				$reviewAssignment->getReminderWasAutomatic(),
 				$reviewAssignment->getReviewFormId(),
@@ -624,13 +620,11 @@ class PKPReviewAssignmentDAO extends DAO {
 		$reviewAssignment->setDeclined($row['declined']);
 		$reviewAssignment->setReplaced($row['replaced']);
 		$reviewAssignment->setCancelled($row['cancelled']);
-		$reviewAssignment->setReviewerFileId($row['reviewer_file_id']);
 		$reviewAssignment->setQuality($row['quality']);
 		$reviewAssignment->setDateRated($this->datetimeFromDB($row['date_rated']));
 		$reviewAssignment->setDateReminded($this->datetimeFromDB($row['date_reminded']));
 		$reviewAssignment->setReminderWasAutomatic($row['reminder_was_automatic']);
 		$reviewAssignment->setRound($row['round']);
-		$reviewAssignment->setReviewRevision($row['review_revision']);
 		$reviewAssignment->setReviewFormId($row['review_form_id']);
 		$reviewAssignment->setReviewRoundId($row['review_round_id']);
 		$reviewAssignment->setReviewMethod($row['review_method']);

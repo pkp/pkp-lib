@@ -73,7 +73,7 @@ class ReviewRoundDAO extends DAO {
 	 * @param $reviewRound ReviewRound
 	 * @return int
 	 */
-	function insertObject(&$reviewRound) {
+	function insertObject($reviewRound) {
 		$this->update(
 				'INSERT INTO review_rounds
 				(submission_id, stage_id, round, status)
@@ -94,7 +94,7 @@ class ReviewRoundDAO extends DAO {
 	 * @param $reviewRound ReviewRound
 	 * @return boolean
 	 */
-	function updateObject(&$reviewRound) {
+	function updateObject($reviewRound) {
 		$returner = $this->update(
 			'UPDATE	review_rounds
 			SET	status = ?

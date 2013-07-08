@@ -1029,54 +1029,6 @@ class Submission extends DataObject {
 	}
 
 	/**
-	 * Get submission file id.
-	 * @return int
-	 */
-	function getSubmissionFileId() {
-		return $this->getData('submissionFileId');
-	}
-
-	/**
-	 * Set submission file id.
-	 * @param $submissionFileId int
-	 */
-	function setSubmissionFileId($submissionFileId) {
-		return $this->setData('submissionFileId', $submissionFileId);
-	}
-
-	/**
-	 * Get revised file id.
-	 * @return int
-	 */
-	function getRevisedFileId() {
-		return $this->getData('revisedFileId');
-	}
-
-	/**
-	 * Set revised file id.
-	 * @param $revisedFileId int
-	 */
-	function setRevisedFileId($revisedFileId) {
-		return $this->setData('revisedFileId', $revisedFileId);
-	}
-
-	/**
-	 * Get review file id.
-	 * @return int
-	 */
-	function getReviewFileId() {
-		return $this->getData('reviewFileId');
-	}
-
-	/**
-	 * Set review file id.
-	 * @param $reviewFileId int
-	 */
-	function setReviewFileId($reviewFileId) {
-		return $this->setData('reviewFileId', $reviewFileId);
-	}
-
-	/**
 	 * get pages
 	 * @return string
 	 */

@@ -441,38 +441,6 @@ class PKPReviewAssignment extends DataObject {
 	}
 
 	/**
-	 * Get reviewer file id.
-	 * @return int
-	 */
-	function getReviewerFileId() {
-		return $this->getData('reviewerFileId');
-	}
-
-	/**
-	 * Set reviewer file id.
-	 * @param $reviewerFileId int
-	 */
-	function setReviewerFileId($reviewerFileId) {
-		return $this->setData('reviewerFileId', $reviewerFileId);
-	}
-
-	/**
-	 * Get reviewer file viewable.
-	 * @return boolean
-	 */
-	function getReviewerFileViewable() {
-		return $this->getData('reviewerFileViewable');
-	}
-
-	/**
-	 * Set reviewer file viewable.
-	 * @param $reviewerFileViewable boolean
-	 */
-	function setReviewerFileViewable($reviewerFileViewable) {
-		return $this->setData('reviewerFileViewable', $reviewerFileViewable);
-	}
-
-	/**
 	 * Get quality.
 	 * @return int
 	 */
@@ -505,55 +473,6 @@ class PKPReviewAssignment extends DataObject {
 	}
 
 	/**
-	 * Get review file id.
-	 * @return int
-	 */
-	function getReviewFileId() {
-		return $this->getData('reviewFileId');
-	}
-
-	/**
-	 * Set review file id.
-	 * @param $reviewFileId int
-	 */
-	function setReviewFileId($reviewFileId) {
-		return $this->setData('reviewFileId', $reviewFileId);
-	}
-
-	/**
-	 * Get review file.
-	 * @return object
-	 */
-	function &getReviewFile() {
-		$returner =& $this->getData('reviewFile');
-		return $returner;
-	}
-
-	/**
-	 * Set review file.
-	 * @param $reviewFile object
-	 */
-	function setReviewFile($reviewFile) {
-		return $this->setData('reviewFile', $reviewFile);
-	}
-
-	/**
-	 * Get review revision.
-	 * @return int
-	 */
-	function getReviewRevision() {
-		return $this->getData('reviewRevision');
-	}
-
-	/**
-	 * Set review revision.
-	 * @param $reviewRevision int
-	 */
-	function setReviewRevision($reviewRevision) {
-		return $this->setData('reviewRevision', $reviewRevision);
-	}
-
-	/**
 	 * Get review form id.
 	 * @return int
 	 */
@@ -572,56 +491,6 @@ class PKPReviewAssignment extends DataObject {
 	//
 	// Files
 	//
-
-	/**
-	 * Get reviewer file.
-	 * @return ArticleFile
-	 */
-	function &getReviewerFile() {
-		$returner =& $this->getData('reviewerFile');
-		return $returner;
-	}
-
-	/**
-	 * Set reviewer file.
-	 * @param $reviewFile ArticleFile
-	 */
-	function setReviewerFile($reviewerFile) {
-		return $this->setData('reviewerFile', $reviewerFile);
-	}
-
-	/**
-	 * Get all reviewer file revisions.
-	 * @return array ArticleFiles
-	 */
-	function getReviewerFileRevisions() {
-		return $this->reviewerFileRevisions;
-	}
-
-	/**
-	 * Set all reviewer file revisions.
-	 * @param $reviewerFileRevisions array ArticleFiles
-	 */
-	function setReviewerFileRevisions($reviewerFileRevisions) {
-		return $this->reviewerFileRevisions = $reviewerFileRevisions;
-	}
-
-	/**
-	 * Get supplementary files for this article.
-	 * @return array SuppFiles
-	 */
-	function &getSuppFiles() {
-		$returner =& $this->getData('suppFiles');
-		return $returner;
-	}
-
-	/**
-	 * Set supplementary file for this article.
-	 * @param $suppFiles array SuppFiles
-	 */
-	function setSuppFiles($suppFiles) {
-		return $this->setData('suppFiles', $suppFiles);
-	}
 
 	/**
 	 * Get number of weeks until review is due (or number of weeks overdue).

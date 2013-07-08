@@ -119,10 +119,6 @@ class Installer {
 	 * Destroy / clean-up after the installer.
 	 */
 	function destroy() {
-		if (isset($this->dataXMLParser)) {
-			$this->dataXMLParser->destroy();
-		}
-
 		HookRegistry::call('Installer::destroy', array($this));
 	}
 

@@ -65,4 +65,5 @@
 	<message key="editor.review">Évaluation</message>
 	<message key="editor.signoff.approved">Approuvé</message>
 	<message key="editor.submission.production.productionReadyFiles">Fichiers publiables</message>
+	<message key="editor.submission.newRound">Nouvelle série de révisions</message>
 </locale>

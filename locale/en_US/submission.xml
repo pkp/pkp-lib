@@ -578,4 +578,5 @@
 	<message key="submission.signoff.noAvailableSignoffs">There are no files for you respond to at this time.</message>
 	<message key="submission.signoff.fileResponse">File Response</message>
 	<message key="grid.copyediting.deleteSignoff">Unassign User</message>
+	<message key="notification.type.editorAssignment">An editor must be assigned before review is initiated. Please add editor using Participants link above.</message>
 </locale>

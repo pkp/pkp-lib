@@ -448,4 +448,5 @@
 	<message key="submission.signoff.noAvailableSignoffs">Aucun fichier n'est en attente de votre réponse pour le moment.</message>
 	<message key="submission.signoff.fileResponse">Réponse concernant le fichier</message>
 	<message key="grid.copyediting.deleteSignoff">Rappeler un utilisateur</message>
+	<message key="notification.type.editorAssignment">Il faut choisir un rédacteur en chef afin d'entamer le processus d'évaluation. Veuillez ajouter un rédacteur en chef en utilisant le lien Participants ci-haut.</message>
 </locale>

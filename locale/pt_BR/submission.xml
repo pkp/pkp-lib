@@ -395,4 +395,5 @@
 	<message key="notification.type.editorDecisionSendToProduction">Processo de produção iniciado.</message>
 	<message key="notification.type.signoff">Auditoria pendente.</message>
 	<message key="notification.uploadedResponse">Resposta enviada.</message>
+	<message key="notification.type.editorAssignment">Um editor deve ser designado antes de iniciar a avaliação. Inclua um editor usando o link de Participantes acima.</message>
 </locale>

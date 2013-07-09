@@ -1,5 +1,5 @@
 /**
- * @defgroup js_controllers_modal_editorDecision_form
+ * @defgroup js_controllers_modals_editorDecision_form
  */
 /**
  * @file js/controllers/modals/editorDecision/form/EditorDecisionFormHandler.js
@@ -8,15 +8,15 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class EditorDecisionFormHandler
- * @ingroup js_controllers_modal_editorDecision_form
+ * @ingroup js_controllers_modals_editorDecision_form
  *
  * @brief Handle editor decision forms.
  */
 (function($) {
 
 	/** @type {Object} */
-	$.pkp.controllers.modals.editorDecision.form =
-			$.pkp.controllers.modals.editorDecision.form || { };
+	$.pkp.controllers.modals = $.pkp.controllers.modals ||
+			{ editorDecision: {form: { } } };
 
 
 

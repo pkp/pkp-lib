@@ -32,7 +32,7 @@
 	{/fbvFormSection}
 
 	{if $stageId == $smarty.const.WORKFLOW_STAGE_ID_INTERNAL_REVIEW || $stageId == $smarty.const.WORKFLOW_STAGE_ID_EXTERNAL_REVIEW}
-		<!--  Message to reviewer textarea -->
+		<!-- Message to reviewer textarea -->
 		<span style="float:right;line-height: 24px;"><a id="importPeerReviews" href="#" class="sprite import">{translate key="submission.comments.addReviews"}</a></span>
 	{/if}
 

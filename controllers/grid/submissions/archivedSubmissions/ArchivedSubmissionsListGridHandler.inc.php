@@ -71,10 +71,7 @@ class ArchivedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 		$accessibleContexts = array();
 
 		while ($context = $contexts->next()) {
-			$isManager = $roleDao->userHasRole($context->getId(), $userId, ROLE_ID_MANAGER);
-			$isSubEditor = $roleDao->userHasRole($context->getId(), $userId, ROLE_ID_SUB_EDITOR);
-
-			if (!$isManager && !$isSubEditor) {
+			if (!$roleDao->userHasRole($context->getId(), $userId, ROLE_ID_MANAGER)) {
 				continue;
 			}
 			$accessibleContexts[] = $context->getId();

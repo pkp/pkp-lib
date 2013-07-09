@@ -255,14 +255,11 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
 
 			$userGroup = $userGroupDao->getById($userGroupId);
+			import('classes.workflow.EditorDecisionActionsManager');
 			if ($userGroup->getRoleId() == ROLE_ID_MANAGER) {
 				$notificationMgr->updateNotification(
 					$request,
-					array(NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_SUBMISSION,
-						NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_INTERNAL_REVIEW,
-						NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EXTERNAL_REVIEW,
-						NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EDITING,
-						NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_PRODUCTION),
+					EditorDecisionActionsManager::getStageNotifications(),
 					null,
 					ASSOC_TYPE_SUBMISSION,
 					$submission->getId()
@@ -342,13 +339,10 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 		}
 
 		$notificationMgr = new NotificationManager();
+		import('classes.workflow.EditorDecisionActionsManager');
 		$notificationMgr->updateNotification(
 			$request,
-			array(NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_SUBMISSION,
-				NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_INTERNAL_REVIEW,
-				NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EXTERNAL_REVIEW,
-				NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EDITING,
-				NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_PRODUCTION),
+			EditorDecisionActionsManager::getStageNotifications(),
 			null,
 			ASSOC_TYPE_SUBMISSION,
 			$submission->getId()

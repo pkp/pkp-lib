@@ -26,6 +26,7 @@ class SubmissionFilesArtworkMetadataForm extends SubmissionFilesMetadataForm {
 	 */
 	function SubmissionFilesArtworkMetadataForm(&$submissionFile, $stageId, $reviewRound = null) {
 		parent::SubmissionFilesMetadataForm($submissionFile, $stageId, $reviewRound);
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_GRID);
 	}
 
 

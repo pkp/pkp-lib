@@ -137,7 +137,7 @@
 			// If the element that triggered the event is inside of
 			// this widget or is the widget...
 			if ($elementParentWidget.has(triggerElement[0]).length ||
-					$elementParentWidget[0] == triggerElement[0]) {
+					$elementParentWidget[0] === triggerElement[0]) {
 
 				// If it is inside an accordion container, and this accordion container
 				// doesn't also contain the element that triggered the event, get other

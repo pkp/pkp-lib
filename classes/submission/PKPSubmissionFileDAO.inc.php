@@ -83,6 +83,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 			$nullVar = null;
 			return $nullVar;
 		}
+
 		$revisions =& $this->_getInternally($submissionId, $fileStage, $fileId, null, null, null, null, null, null, null, null, true);
 		return $this->_checkAndReturnRevision($revisions);
 	}
@@ -300,6 +301,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 			// a file name clash.
 			$previousFilePath = $previousFile->getFilePath();
 			$targetFilePath = $updatedFile->getFilePath();
+
 			assert($previousFilePath != $targetFilePath && !file_exists($targetFilePath));
 			import('lib.pkp.classes.file.FileManager');
 			$fileManager = new FileManager();
@@ -607,6 +609,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 			SUBMISSION_FILE_ATTACHMENT,
 			SUBMISSION_FILE_SIGNOFF,
 			SUBMISSION_FILE_REVIEW_REVISION,
+			SUBMISSION_FILE_DEPENDENT,
 		);
 	}
 

@@ -32,6 +32,7 @@ define('SUBMISSION_FILE_ATTACHMENT', 13);
 define('SUBMISSION_FILE_SIGNOFF', 14);
 define('SUBMISSION_FILE_REVIEW_REVISION', 15);
 define('SUBMISSION_FILE_SUPP', 16);
+define('SUBMISSION_FILE_DEPENDENT', 17);
 
 class SubmissionFile extends PKPFile {
 	/**

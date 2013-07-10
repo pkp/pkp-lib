@@ -116,6 +116,8 @@
 	<message key="common.deleteSelection">Delete Selection</message>
 	<message key="common.designation">Designation</message>
 	<message key="common.description">Description</message>
+	<message key="common.dimensionsInches"><![CDATA[{$width}"&nbsp;x&nbsp;{$height}" @ {$dpi} DPI/PPI]]></message>
+	<message key="common.dimensionsPixels">{$width} x {$height} pixels</message>
 	<message key="common.disable">Disable</message>
 	<message key="common.disabled">Disabled</message>
 	<message key="common.discipline">Discipline</message>
@@ -186,6 +188,7 @@
 	<message key="common.prefixAndTitle.tip">If book title begins "A'" or "The" (or something similar re alphabetical order) place word in Prefix.</message>
 	<message key="common.preview">Preview</message>
 	<message key="common.publisher">Publisher</message>
+	<message key="common.quality">Quality</message>
 	<message key="common.re">Re:</message>
 	<message key="common.record">Record</message>
 	<message key="common.refresh">Refresh</message>

@@ -218,4 +218,12 @@
 	<!-- signoffs -->
 	<message key="grid.action.viewSignoffNotes">View signoff notes</message>
 	<message key="grid.action.fileUnconsider">Proofing corrections made. You may unconsider this task</message>
+
+	<!-- Artwork Files Grid -->
+	<message key="grid.artworkFile.caption">Caption</message>
+	<message key="grid.artworkFile.credit">Credit</message>
+	<message key="grid.artworkFile.copyrightOwner">Copyright Owner</message>
+	<message key="grid.artworkFile.copyrightContact">Contact Info (if not author/publisher)</message>
+	<message key="grid.artworkFile.permissionTerms">Permission Terms</message>
+	<message key="grid.artworkFile.placement">Placement in submission</message>
 </locale>

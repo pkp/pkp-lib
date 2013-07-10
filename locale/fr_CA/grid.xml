@@ -94,4 +94,12 @@
 	<!-- signoffs -->
 	<message key="grid.action.viewSignoffNotes">Visionner les notes de certification de conformité</message>
 	<message key="grid.action.fileUnconsider">Les épreuves ont été corrigées. Vous pourriez ne pas tenir compte de cette tâche.</message>
+
+	<!-- Artwork Files Grid -->
+	<message key="grid.artworkFile.caption">Sous-titre</message>
+	<message key="grid.artworkFile.credit">Mention de titre</message>
+	<message key="grid.artworkFile.copyrightOwner">Propriétaire du droit d'auteur</message>
+	<message key="grid.artworkFile.copyrightContact">Coordonnées (si autre que l'auteur/l'éditeur)</message>
+	<message key="grid.artworkFile.permissionTerms">Conditions d'utilisation</message>
+	<message key="grid.artworkFile.placement">Emplacement</message>
 </locale>

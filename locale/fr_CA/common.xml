@@ -34,6 +34,8 @@
 	<message key="common.preview">Aperçu</message>
 	<message key="common.activate">Activer</message>
 	<message key="common.deactivate">Désactiver</message>
+	<message key="common.dimensionsInches"><![CDATA[{$width}"&nbsp;x&nbsp;{$height}" @ {$dpi} DPI/PPI]]></message>
+	<message key="common.dimensionsPixels">{$width} x {$height} pixels</message>
 	<message key="common.action">Action</message>
 	<message key="common.active">Actif</message>
 	<message key="common.add">Ajouter</message>
@@ -124,6 +126,7 @@
 	<message key="common.pageHeaderLogo.altText">Logo de l'en-tête de la page</message>
 	<message key="common.plugin">Plugiciel</message>
 	<message key="common.publisher">Éditeur</message>
+	<message key="common.quality">Qualité</message>
 	<message key="common.record">Consigner</message>
 	<message key="common.related">Connexe</message>
 	<message key="common.remove">Supprimer</message>

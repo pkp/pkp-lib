@@ -620,6 +620,9 @@ class PKPReviewAssignmentDAO extends DAO {
 		$reviewFormResponseDao =& DAORegistry::getDAO('ReviewFormResponseDAO');
 		$reviewFormResponseDao->deleteByReviewId($reviewId);
 
+		$reviewFilesDao =& DAORegistry::getDAO('ReviewFilesDAO');
+		$reviewFilesDao->revokeByReviewId($reviewId);
+
 		return $this->update(
 			'DELETE FROM review_assignments WHERE review_id = ?',
 			(int) $reviewId

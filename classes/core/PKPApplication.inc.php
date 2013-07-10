@@ -336,6 +336,7 @@ class PKPApplication {
 			'NotificationSubscriptionSettingsDAO' => 'lib.pkp.classes.notification.NotificationSubscriptionSettingsDAO',
 			'ONIXCodelistItemDAO' => 'lib.pkp.classes.codelist.ONIXCodelistItemDAO',
 			'ProcessDAO' => 'lib.pkp.classes.process.ProcessDAO',
+			'ReviewFilesDAO' => 'lib.pkp.classes.submission.ReviewFilesDAO',
 			'QualifierDAO' => 'lib.pkp.classes.codelist.QualifierDAO',
 			'ScheduledTaskDAO' => 'lib.pkp.classes.scheduledTask.ScheduledTaskDAO',
 			'SessionDAO' => 'lib.pkp.classes.session.SessionDAO',

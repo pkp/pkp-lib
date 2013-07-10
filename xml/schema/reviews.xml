@@ -121,4 +121,27 @@
 			<UNIQUE/>
 		</index>
 	</table>
+
+	<!--
+	  *
+	  * TABLE review_files
+	  *
+	  -->
+	<table name="review_files">
+		<field name="review_id" type="I8">
+			<NOTNULL/>
+		</field>
+		<field name="file_id" type="I8">
+			<NOTNULL/>
+		</field>
+		<descr>Associates reviewable submission files with reviews</descr>
+		<index name="review_files_review_id">
+			<col>review_id</col>
+		</index>
+		<index name="review_files_pkey">
+			<col>review_id</col>
+			<col>file_id</col>
+			<UNIQUE/>
+		</index>
+	</table>
 </schema>

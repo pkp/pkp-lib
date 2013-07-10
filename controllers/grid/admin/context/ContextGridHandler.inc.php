@@ -56,7 +56,8 @@ class ContextGridHandler extends GridHandler {
 
 		// Load user-related translations.
 		AppLocale::requireComponents(
-			LOCALE_COMPONENT_PKP_USER
+			LOCALE_COMPONENT_PKP_USER,
+			LOCALE_COMPONENT_APP_ADMIN
 		);
 
 		// Grid actions.
@@ -68,12 +69,13 @@ class ContextGridHandler extends GridHandler {
 				'createContext',
 				new AjaxModal(
 					$router->url($request, null, null, 'createContext', null, null),
-					__($this->_getAddContextKey()),
+					__('admin.contexts.create'),
 					'modal_add_item',
 					true
 					),
-				__($this->_getAddContextKey()),
-				'add_item')
+				__('admin.contexts.create'),
+				'add_item'
+			)
 		);
 
 		//
@@ -86,7 +88,7 @@ class ContextGridHandler extends GridHandler {
 		$this->addColumn(
 			new GridColumn(
 				'name',
-				$this->_getContextNameKey(),
+				'common.name',
 				null,
 				'controllers/grid/gridCell.tpl',
 				$contextGridCellProvider
@@ -192,22 +194,6 @@ class ContextGridHandler extends GridHandler {
 
 		$url = $dispatcher->url($request, ROUTE_PAGE, $newContextPath, 'admin', 'contexts', null, array('openWizard' => $openWizard));
 		return $request->redirectUrlJson($url);
-	}
-
-	/**
-	 * Get the "add context" locale key
-	 * @return string
-	 */
-	protected function _getAddContextKey() {
-		assert(false); // Should be overridden by subclasses
-	}
-
-	/**
-	 * Get the context name locale key
-	 * @return string
-	 */
-	protected function _getContextNameKey() {
-		assert(false); // Should be overridden by subclasses
 	}
 }
 

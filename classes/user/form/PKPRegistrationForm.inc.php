@@ -206,11 +206,10 @@ class PKPRegistrationForm extends Form {
 	 */
 	function execute($request) {
 		$requireValidation = Config::getVar('email', 'require_validation');
+		$userDao = DAORegistry::getDAO('UserDAO');
 
 		if ($this->existingUser) { // If using implicit auth - we hardwire that we are working on an existing user
 			// Existing user in the system
-			$userDao = DAORegistry::getDAO('UserDAO');
-
 			if ($this->implicitAuth) { // If we are using implicit auth - then use the session username variable - rather than data from the form
 				$sessionManager = SessionManager::getManager();
 				$session = $sessionManager->getUserSession();
@@ -273,7 +272,6 @@ class PKPRegistrationForm extends Form {
 				$user->setDisabledReason(__('user.login.accountNotValidated'));
 			}
 
-			$userDao = DAORegistry::getDAO('UserDAO');
 			$userDao->insertObject($user);
 			$userId = $user->getId();
 			if (!$userId) {

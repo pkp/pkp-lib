@@ -493,4 +493,5 @@
 	<message key="notification.addedReviewer">Reviewer added.</message>
 	<message key="notification.removedReviewer">Reviewer removed.</message>
 	<message key="notification.addedStageParticipant">User added as a stage participant.</message>
+	<message key="notification.type.reviewAssignment">You have a review pending.</message>
 </locale>

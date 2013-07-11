@@ -108,7 +108,7 @@ class SubmissionMailTemplate extends MailTemplate {
 	 * Save the email in the submission email log.
 	 */
 	function log($request = null) {
-		import('lib.pkp.classes.log.SubmissionLog');
+		import('classes.log.SubmissionEmailLogEntry');
 		$entry = new SubmissionEmailLogEntry();
 		$submission = $this->submission;
 

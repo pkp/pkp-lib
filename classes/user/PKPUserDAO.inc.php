@@ -13,6 +13,7 @@
  * @brief Operations for retrieving and modifying User objects.
  */
 
+import('lib.pkp.classes.user.PKPUser');
 
 /* These constants are used user-selectable search fields. */
 define('USER_FIELD_USERID', 'user_id');
@@ -32,6 +33,14 @@ class PKPUserDAO extends DAO {
 	 */
 	function PKPUserDAO() {
 		parent::DAO();
+	}
+
+	/**
+	 * Construct a new User object.
+	 * @return User
+	 */
+	function newDataObject() {
+		return new PKPUser();
 	}
 
 	/**
@@ -311,7 +320,7 @@ class PKPUserDAO extends DAO {
 	 * @return User
 	 */
 	function &_returnUserFromRow($row, $callHook = true) {
-		$user = new User();
+		$user = $this->newDataObject();
 		$user->setId($row['user_id']);
 		$user->setUsername($row['username']);
 		$user->setPassword($row['password']);

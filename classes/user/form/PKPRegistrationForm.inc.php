@@ -225,7 +225,7 @@ class PKPRegistrationForm extends Form {
 
 		} else {
 			// New user
-			$user = new User();
+			$user = $userDao->newDataObject();
 
 			$user->setUsername($this->getData('username'));
 			$user->setSalutation($this->getData('salutation'));

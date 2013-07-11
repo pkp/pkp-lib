@@ -358,5 +358,6 @@
 	<message key="navigation.goBack">Retour</message>
 
 	<message key="notification.addedReviewer">Un évaluateur a été ajouté.</message>
+	<message key="notification.removedReviewer">L'évaluateur a été supprimé.</message>
 	<message key="notification.addedStageParticipant">L'utilisateur a été ajouté à titre de participant.</message>
 </locale>

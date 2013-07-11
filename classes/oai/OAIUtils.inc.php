@@ -85,7 +85,7 @@ class OAIUtils {
 		} else {
 			foreach ($data as $k => $v) {
 				if (is_array($data[$k])) {
-					$this->prepInput($data[$k]);
+					self::prepInput($data[$k]);
 				} else {
 					$data[$k] = urldecode($v);
 				}

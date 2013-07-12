@@ -32,6 +32,7 @@ define('SUBMISSION_FILE_ATTACHMENT', 13);
 define('SUBMISSION_FILE_SIGNOFF', 14);
 define('SUBMISSION_FILE_REVIEW_REVISION', 15);
 define('SUBMISSION_FILE_SUPP', 16);
+define('SUBMISSION_FILE_DEPENDENT', 17);
 
 class SubmissionFile extends PKPFile {
 	/**
@@ -538,6 +539,7 @@ class SubmissionFile extends PKPFile {
 				SUBMISSION_FILE_FAIR_COPY => 'submission/fairCopy',
 				SUBMISSION_FILE_EDITOR => 'submission/editor',
 				SUBMISSION_FILE_COPYEDIT => 'submission/copyedit',
+				SUBMISSION_FILE_DEPENDENT => 'submission/proof',
 				SUBMISSION_FILE_PROOF => 'submission/proof',
 				SUBMISSION_FILE_PRODUCTION_READY => 'submission/productionReady',
 				SUBMISSION_FILE_LAYOUT => 'submission/layout',

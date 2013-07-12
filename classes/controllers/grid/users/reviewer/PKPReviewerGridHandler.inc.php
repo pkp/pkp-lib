@@ -192,9 +192,9 @@ class PKPReviewerGridHandler extends GridHandler {
 	 */
 	function loadData($request, $filter) {
 		// Get the existing review assignments for this submission
-		$submission = $this->getSubmission(); /* @var $submission Submission */
 		$reviewRound = $this->getReviewRound();
-		return $submission->getReviewAssignments($this->getStageId(), $reviewRound->getRound());
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+		return $reviewAssignmentDao->getByReviewRoundId($reviewRound->getId());
 	}
 
 

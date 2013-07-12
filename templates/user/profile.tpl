@@ -6,10 +6,7 @@
  *
  * User profile form.
  *}
-{strip}
-{assign var="pageTitle" value="user.profile.editProfile"}
-{include file="common/header.tpl"}
-{/strip}
+{include file="common/header.tpl" pageTitle="user.profile.editProfile"}
 
 <script type="text/javascript">
 	$(function() {ldelim}
@@ -19,6 +16,8 @@
 </script>
 
 <form class="pkp_form" id="profile" method="post" action="{url op="saveProfile"}" enctype="multipart/form-data">
+	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="userProfileNotification"}
+
 	<div id="userFormContainer">
 		<div id="userDetails" class="full left">
 			{fbvFormArea id="userNameInfo"}

@@ -242,7 +242,7 @@ class PKPInstall extends Installer {
 	function createData() {
 		// Add initial site administrator user
 		$userDao = DAORegistry::getDAO('UserDAO', $this->dbconn);
-		$user = new User();
+		$user = $userDao->newDataObject();
 		$user->setUsername($this->getParam('adminUsername'));
 		$user->setPassword(Validation::encryptCredentials($this->getParam('adminUsername'), $this->getParam('adminPassword'), $this->getParam('encryption')));
 		$user->setFirstName($user->getUsername());

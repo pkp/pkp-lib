@@ -30,7 +30,7 @@ class PKPLoginHandler extends Handler {
 	function index($args, $request) {
 		$this->setupTemplate($request);
 		if (Validation::isLoggedIn()) {
-			$request->redirect(null, 'user');
+			$request->redirect(null, 'dashboard');
 		}
 
 		if (Config::getVar('security', 'force_login_ssl') && $request->getProtocol() != 'https') {
@@ -85,13 +85,13 @@ class PKPLoginHandler extends Handler {
 	 */
 	function implicitAuthReturn($args, $request) {
 		if (Validation::isLoggedIn()) {
-			$request->redirect(null, 'user');
+			$request->redirect(null, 'dashboard');
 		}
 
 		// Login - set remember to false
 		$user = Validation::login($request->getUserVar('username'), $request->getUserVar('password'), $reason, false);
 
-		$request->redirect(null, 'user');
+		$request->redirect(null, 'dashboard');
 	}
 
 	/**
@@ -308,7 +308,7 @@ class PKPLoginHandler extends Handler {
 			if ($passwordForm->execute()) {
 				$user = Validation::login($passwordForm->getData('username'), $passwordForm->getData('password'), $reason);
 			}
-			$request->redirect(null, 'user');
+			$request->redirect(null, 'dashboard');
 
 		} else {
 			$passwordForm->display($request);

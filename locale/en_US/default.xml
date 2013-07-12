@@ -63,4 +63,6 @@
 	<message key="default.genres.multimedia.designation">##</message>
 	<message key="default.genres.image">Image</message>
 	<message key="default.genres.image.designation">##</message>
+	<message key="default.genres.styleSheet">HTML Stylesheet</message>
+	<message key="default.genres.styleSheet.designation">##</message>
 </locale>

@@ -32,7 +32,7 @@
 	{/fbvFormSection}
 
 	{if $stageId == $smarty.const.WORKFLOW_STAGE_ID_INTERNAL_REVIEW || $stageId == $smarty.const.WORKFLOW_STAGE_ID_EXTERNAL_REVIEW}
-		<!--  Message to reviewer textarea -->
+		<!-- Message to reviewer textarea -->
 		<span style="float:right;line-height: 24px;"><a id="importPeerReviews" href="#" class="sprite import">{translate key="submission.comments.addReviews"}</a></span>
 	{/if}
 
@@ -47,7 +47,7 @@
 	{** Some decisions can be made before review is initiated (i.e. no attachments). **}
 	{if $reviewRoundId}
 		<div id="attachments" style="margin-top: 30px;">
-			{url|assign:reviewAttachmentsGridUrl router=$smarty.const.ROUTE_COMPONENT  component="grid.files.attachment.EditorSelectableReviewAttachmentsGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId reviewRoundId=$reviewRoundId escape=false}
+			{url|assign:reviewAttachmentsGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.attachment.EditorSelectableReviewAttachmentsGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId reviewRoundId=$reviewRoundId escape=false}
 			{load_url_in_div id="reviewAttachmentsGridContainer" url="$reviewAttachmentsGridUrl"}
 		</div>
 	{/if}

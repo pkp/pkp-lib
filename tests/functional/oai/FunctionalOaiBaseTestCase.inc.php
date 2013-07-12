@@ -24,7 +24,7 @@ class FunctionalOaiBaseTestCase extends DatabaseTestCase {
 	protected function getAffectedTables() {
 		return array(
 			'issue_settings', 'submission_settings',
-			'article_galley_settings', 'article_supp_file_settings'
+			'submission_galley_settings', 'article_supp_file_settings'
 		);
 	}
 

@@ -91,4 +91,7 @@
 	<message key="editor.signoff.approved">Approved</message>
 	<message key="editor.submission.production.productionReadyFiles">Production Ready Files</message>
 	<message key="editor.submission.newRound">New Review Round</message>
+	<message key="editor.submission.selectAttachments">Select the review attachments for the author to see</message>
+	<message key="editor.submissionReview.recordDecision">Record Editorial Decision</message>
+	<message key="editor.submission.selectFairCopy">Select approved copy editing files to be sent to Production.</message>
 </locale>

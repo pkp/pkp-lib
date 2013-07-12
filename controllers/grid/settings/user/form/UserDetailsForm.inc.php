@@ -243,7 +243,7 @@ class UserDetailsForm extends UserForm {
 		}
 
 		if (!isset($user)) {
-			$user = new User();
+			$user = $userDao->newDataObject();
 			$user->setInlineHelp(1); // default new users to having inline help visible
 		}
 

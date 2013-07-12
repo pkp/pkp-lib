@@ -52,6 +52,47 @@ class GenreDAO extends DefaultSettingDAO {
 	}
 
 	/**
+	 * Retrieve a set of Genres by category.
+	 * @param int $category
+	 * @param int $contextId
+	 * @param $rangeInfo object optional
+	 * @return DAOResultFactory containing matching genres
+	 */
+	function getByCategory($category, $contextId = null, $rangeInfo = null) {
+		$sqlParams = array((int)$category);
+		$sqlParams[] = 1;
+		if ($contextId) {
+			$sqlParams[] = (int)$contextId;
+		}
+
+		$result = $this->retrieveRange('SELECT * FROM genres WHERE category = ? AND enabled = ?'. ($contextId ? ' AND context_id = ?' : ''), $sqlParams, $rangeInfo);
+		$returner = new DAOResultFactory($result, $this, '_fromRow', array('id'));
+		return $returner;
+	}
+
+	/**
+	 * Retrieve a genre by type.
+	 * @param string $type
+	 * @param int $contextId
+	 * @return Genre
+	 */
+	function getByType($type, $contextId = null) {
+		$sqlParams = array($type); // i.e. 'STYLE'
+		$sqlParams[] = 1;
+		if ($contextId) {
+			$sqlParams[] = (int)$contextId;
+		}
+
+		$result = $this->retrieve('SELECT * FROM genres WHERE entry_key = ? AND enabled = ?'. ($contextId ? ' AND context_id = ?' : ''), $sqlParams);
+		$returner = null;
+		if ($result->RecordCount() != 0) {
+			$returner = $this->_fromRow($result->GetRowAssoc(false));
+		}
+		$result->Close();
+		return $returner;
+	}
+
+	/**
 	 * Retrieve all genres
 	 * @param $contextId int
 	 * @param $enabledOnly boolean optional

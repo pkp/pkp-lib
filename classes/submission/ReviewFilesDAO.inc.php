@@ -66,10 +66,10 @@ class ReviewFilesDAO extends DAO {
 	}
 
 	/**
-	 * Retrieve a review round
-	 * @param $submissionId integer
-	 * @param $stageId int One of the Stage_id_* constants.
-	 * @param $round int The review round to be retrieved.
+	 * Check review file availability
+	 * @param $reviewId integer
+	 * @param $fileId int
+	 * @return boolean
 	 */
 	function check($reviewId, $fileId) {
 		$result = $this->retrieve(

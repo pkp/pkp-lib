@@ -187,6 +187,7 @@
 	<message key="manager.setup.reviewOptions.remindForInvite">Send a reminder if a reviewer has not responded to a review request within the following time (days):</message>
 	<message key="manager.setup.reviewOptions.remindForSubmit">Send a reminder if a reviewer has not submitted a recommendation within the following time (days):</message>
 	<message key="manager.setup.sortableByComponent">Sortable by component</message>
+	<message key="manager.setup.dependentGenre">Dependent Genres</message>
 	<message key="manager.setup.sponsors">Sponsoring Organizations</message>
 	<message key="manager.setup.sponsors.note">You may add a note describing your sponsor relationship and policy; this will appear with the sponsor list on your About page.</message>
 	<message key="manager.setup.contributors.note">You may add a note describing the relationship and policy between you and your sources of support; this will appear with the Sources of Support list on your About page.</message>
@@ -395,5 +396,6 @@
 	<message key="grid.action.deleteGenre">Delete this Genre</message>
 	<message key="grid.action.restoreGenres">Restore the Genres to the default settings</message>
 	<message key="manager.setup.genres.sortable">Allow files of this type to be sorted by component (e.g. by chapter)</message>
+	<message key="manager.setup.genres.dependent">Mark files of this type as dependent files (e.g. not primary submissions)</message>
 	<message key="manager.settings.wizard">Settings Wizard</message>
 </locale>

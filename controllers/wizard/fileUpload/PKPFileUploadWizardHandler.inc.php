@@ -215,6 +215,9 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 		$templateMgr->assign('assocType', $this->getAssocType());
 		$templateMgr->assign('assocId', $this->getAssocId());
 
+		// only dependent file types?
+		$templateMgr->assign('dependentFilesOnly', $request->getUserVar('dependentFilesOnly'));
+
 		// Render the file upload wizard.
 		return $templateMgr->fetchJson('controllers/wizard/fileUpload/fileUploadWizard.tpl');
 	}

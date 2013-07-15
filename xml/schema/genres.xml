@@ -26,8 +26,12 @@
 			<NOTNULL/>
 			<DEFAULT VALUE="1"/>
 		</field>
+		<field name="dependent" type="I1">
+			<NOTNULL/>
+			<DEFAULT VALUE="0"/>
+		</field>
 		<field name="entry_key" type="C2" size="30"/>
-		<descr>A press' monograph file genres.</descr>
+		<descr>A context's submission file genres.</descr>
 	</table>
 
 	<!--

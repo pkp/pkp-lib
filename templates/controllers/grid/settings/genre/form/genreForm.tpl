@@ -27,6 +27,9 @@
 {fbvFormSection list="true" title="manager.setup.sortableByComponent"}
 	{fbvElement type="checkbox" id="sortable" checked=$sortable label="manager.setup.genres.sortable"}
 {/fbvFormSection}
+{fbvFormSection list="true" title="manager.setup.dependentGenre"}
+	{fbvElement type="checkbox" id="dependent" checked=$dependent label="manager.setup.genres.dependent"}
+{/fbvFormSection}
 {fbvFormSection title="manager.setup.groupType" for="category"}
 	{fbvElement type="select" id="category" from=$monographFileCategories selected=$category translate=false}
 {/fbvFormSection}

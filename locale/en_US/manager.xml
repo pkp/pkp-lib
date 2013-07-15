@@ -398,4 +398,5 @@
 	<message key="manager.setup.genres.sortable">Allow files of this type to be sorted by component (e.g. by chapter)</message>
 	<message key="manager.setup.genres.dependent">Mark files of this type as dependent files (e.g. not primary submissions)</message>
 	<message key="manager.settings.wizard">Settings Wizard</message>
+	<message key="manager.users.roleRequired">You need to select at least one role to be associated with this user.</message>
 </locale>

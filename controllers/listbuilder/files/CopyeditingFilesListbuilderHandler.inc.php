@@ -19,7 +19,7 @@ class CopyeditingFilesListbuilderHandler extends FilesListbuilderHandler {
 	 * Constructor
 	 */
 	function CopyeditingFilesListbuilderHandler() {
-		// Get access to the monograph file constants.
+		// Get access to the submission file constants.
 		import('lib.pkp.classes.submission.SubmissionFile');
 		parent::FilesListbuilderHandler(SUBMISSION_FILE_COPYEDIT);
 	}

@@ -12,7 +12,7 @@
  * @see SubmissionFileDAODelegate
  *
  * @brief Abstract base class for retrieving and modifying SubmissionFile
- * objects and their decendents (e.g. MonographFile, ArtworkFile).
+ * objects and their decendents (e.g. SubmissionFile, ArtworkFile).
  *
  * This class provides access to all SubmissionFile implementations. It
  * instantiates and uses delegates internally to provide the right database

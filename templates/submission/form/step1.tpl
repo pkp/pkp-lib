@@ -4,7 +4,7 @@
  * Copyright (c) 2003-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * Step 1 of author monograph submission.
+ * Step 1 of author submission process.
  *}
 <script type="text/javascript">
 	$(function() {ldelim}

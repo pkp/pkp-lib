@@ -15,7 +15,7 @@
 import('lib.pkp.classes.security.authorization.internal.ContextPolicy');
 import('lib.pkp.classes.security.authorization.RoleBasedHandlerOperationPolicy');
 
-// Define the bitfield for monograph file access levels
+// Define the bitfield for submission file access levels
 define('SUBMISSION_FILE_ACCESS_READ', 1);
 define('SUBMISSION_FILE_ACCESS_MODIFY', 2);
 

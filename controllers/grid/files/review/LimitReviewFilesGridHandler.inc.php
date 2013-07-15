@@ -49,7 +49,7 @@ class LimitReviewFilesGridHandler extends SelectableFileListGridHandler {
 			// this, we'll need the review assignment in the context.
 			// Add the required policies:
 
-			// 1) Review stage access policy (fetches monograph in context)
+			// 1) Review stage access policy (fetches submission in context)
 			import('classes.security.authorization.ReviewStageAccessPolicy');
 			$this->addPolicy(new ReviewStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $request->getUserVar('stageId')));
 

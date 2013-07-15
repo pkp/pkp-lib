@@ -62,7 +62,7 @@
 	// Private methods
 	//
 	/**
-	 * Get the metadata edit form URL for the given stage and monograph ID.
+	 * Get the metadata edit form URL for the given stage and submission ID.
 	 *
 	 * @private
 	 * @param {string} paymentPluginName The name of the payment plugin.
@@ -84,8 +84,8 @@
 	// Public methods
 	//
 	/**
-	 * Handle the "monograph selected" event triggered by the
-	 * monograph select form to load the respective metadata form.
+	 * Handle the "submission selected" event triggered by the
+	 * submission select form to load the respective metadata form.
 	 *
 	 * @param {$.pkp.controllers.form.AjaxFormHandler} callingForm The form
 	 *  that triggered the event.

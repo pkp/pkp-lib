@@ -99,7 +99,7 @@
 				{$styleSheetView}
 			</div>
 		{/fbvFormSection}
-		{url|assign:blockPluginsUrl router=$smarty.const.ROUTE_COMPONENT component="listbuilder.settings.BlockPluginsListbuilderHandler" op="fetch" monographId=$monographId escape=false}
+		{url|assign:blockPluginsUrl router=$smarty.const.ROUTE_COMPONENT component="listbuilder.settings.BlockPluginsListbuilderHandler" op="fetch" escape=false}
 		{load_url_in_div id="blockPluginsContainer" url=$blockPluginsUrl}
 	{/fbvFormArea}
 	{* end Layout *}

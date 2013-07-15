@@ -31,7 +31,7 @@
 	{fbvElement type="checkbox" id="dependent" checked=$dependent label="manager.setup.genres.dependent"}
 {/fbvFormSection}
 {fbvFormSection title="manager.setup.groupType" for="category"}
-	{fbvElement type="select" id="category" from=$monographFileCategories selected=$category translate=false}
+	{fbvElement type="select" id="category" from=$submissionFileCategories selected=$category translate=false}
 {/fbvFormSection}
 {/fbvFormArea}
 

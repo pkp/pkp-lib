@@ -94,4 +94,6 @@
 	<message key="editor.submission.selectAttachments">Select the review attachments for the author to see</message>
 	<message key="editor.submissionReview.recordDecision">Record Editorial Decision</message>
 	<message key="editor.submission.selectFairCopy">Select approved copy editing files to be sent to Production.</message>
+	<message key="editor.submission.newRoundDescription">You are about to create a new review round for this submission.  Files that have not been used in other review rounds are listed below.  By default, the reviewers from the previous review round have been selected to participate in this new review round.</message>
+	<message key="editor.submission.createNewRound">Create New Review Round</message>
 </locale>

@@ -356,15 +356,6 @@ class String {
 				return strtok(finfo_file($fi, $filename), ' ;');
 			}
 		}
-		if (function_exists('mime_content_type')) {
-			$result = mime_content_type($filename);
-			// mime_content_type appears to return a charset
-			// (erroneously?) in recent versions of PHP5
-			if (($i = strpos($result, ';')) !== false) {
-				$result = trim(substr($result, 0, $i));
-			}
-			return $result;
-		}
 
 		// Fall back on an external "file" tool
 		$f = escapeshellarg($filename);

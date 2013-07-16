@@ -687,9 +687,9 @@ class PKPReviewerGridHandler extends GridHandler {
 		// Update the review round status.
 		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
 		$reviewRound = $reviewRoundDao->getById($reviewAssignment->getReviewRoundId());
-		$submission = $this->getSubmission();
-		$submission->updateReviewAssignment($reviewAssignment);
-		$reviewAssignments = $submission->getReviewAssignments($reviewRound->getStageId(), $reviewRound->getRound());
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+		$reviewAssignmentDao->updateObject($reviewAssignment);
+		$reviewAssignments = $reviewAssignmentDao->getByReviewRoundId($reviewRound->getId());
 		$reviewRoundDao->updateStatus($reviewRound, $reviewAssignments);
 	}
 }

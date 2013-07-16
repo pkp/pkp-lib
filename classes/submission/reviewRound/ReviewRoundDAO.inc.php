@@ -318,8 +318,7 @@ class ReviewRoundDAO extends DAO {
 			}
 
 			// Check for special cases where we don't want to update the status.
-			if (in_array($status, array(REVIEW_ROUND_STATUS_REVIEWS_COMPLETED,
-			REVIEW_ROUND_STATUS_REVIEWS_READY))) {
+			if (in_array($status, array(REVIEW_ROUND_STATUS_REVIEWS_COMPLETED, REVIEW_ROUND_STATUS_REVIEWS_READY))) {
 				if (in_array($reviewRound->getStatus(), $this->getEditorDecisionRoundStatus())) {
 					// We will skip changing the current review round status to
 					// "reviews completed" or "reviews ready" if the current round

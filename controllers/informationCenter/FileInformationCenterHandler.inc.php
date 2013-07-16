@@ -177,7 +177,7 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 
 		import('controllers.informationCenter.form.InformationCenterNotifyForm');
 		$notifyForm = new InformationCenterNotifyForm($this->submissionFile->getFileId(), ASSOC_TYPE_SUBMISSION_FILE);
-		$notifyForm->readInputData();
+		$notifyForm->readInputData($request);
 
 		if ($notifyForm->validate()) {
 			$noteId = $notifyForm->execute($request);

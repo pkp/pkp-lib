@@ -192,7 +192,7 @@ class PKPSubmissionInformationCenterHandler extends InformationCenterHandler {
 
 		import('controllers.informationCenter.form.InformationCenterNotifyForm');
 		$notifyForm = new InformationCenterNotifyForm($this->_submission->getId(), ASSOC_TYPE_SUBMISSION);
-		$notifyForm->readInputData();
+		$notifyForm->readInputData($request);
 
 		if ($notifyForm->validate()) {
 			$noteId = $notifyForm->execute($request);

@@ -126,6 +126,8 @@
 			}
 		});
 
+		this.$currentTab_.find('.hasDatepicker').datepicker('hide');
+
 		if (unsavedForm) {
 			if (!confirm($.pkp.locale.form_dataHasChanged)) {
 				return false;

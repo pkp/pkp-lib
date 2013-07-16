@@ -41,7 +41,7 @@
 				{if !$userId}{capture assign="usernameInstruction"}{translate key="user.register.usernameRestriction"}{/capture}{/if}
 				{fbvFormSection for="username" description=$usernameInstruction translate=false}
 					{if !$userId}
-						{fbvElement type="text" label="user.username" id="username" required="true" value=$username|escape maxlength="32" inline=true size=$fbvStyles.size.MEDIUM}
+						{fbvElement type="text" label="user.username" id="username" required="true" value=$username maxlength="32" inline=true size=$fbvStyles.size.MEDIUM}
 						{fbvElement type="button" label="common.suggest" id="suggestUsernameButton" inline=true class="default"}
 					{else}
 						{fbvFormSection title="user.username" suppressId="true"}
@@ -51,13 +51,13 @@
 				{/fbvFormSection}
 
 				{fbvFormSection title="user.name"}
-					{fbvElement type="text" label="user.firstName" required="true" id="firstName" value=$firstName|escape maxlength="40" inline=true size=$fbvStyles.size.SMALL}
-					{fbvElement type="text" label="user.middleName" id="middleName" value=$middleName|escape maxlength="40" inline=true size=$fbvStyles.size.SMALL}
-					{fbvElement type="text" label="user.lastName" required="true" id="lastName" value=$lastName|escape maxlength="40" inline=true size=$fbvStyles.size.SMALL}
+					{fbvElement type="text" label="user.firstName" required="true" id="firstName" value=$firstName maxlength="40" inline=true size=$fbvStyles.size.SMALL}
+					{fbvElement type="text" label="user.middleName" id="middleName" value=$middleName maxlength="40" inline=true size=$fbvStyles.size.SMALL}
+					{fbvElement type="text" label="user.lastName" required="true" id="lastName" value=$lastName maxlength="40" inline=true size=$fbvStyles.size.SMALL}
 				{/fbvFormSection}
 
 				{fbvFormSection title="about.contact"}
-					{fbvElement type="text" label="user.email" id="email" required="true" value=$email|escape maxlength="90" size=$fbvStyles.size.MEDIUM}
+					{fbvElement type="text" label="user.email" id="email" required="true" value=$email maxlength="90" size=$fbvStyles.size.MEDIUM}
 				{/fbvFormSection}
 
 				{if $authSourceOptions}

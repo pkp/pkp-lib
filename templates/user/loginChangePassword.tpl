@@ -32,13 +32,13 @@
 
 	{fbvFormArea id="loginFields"}
 		{fbvFormSection label="user.login" for="username"}
-			{fbvElement type="text" required=true id="username" value=$username|escape maxlength="32" size=$fbvStyles.size.MEDIUM}
+			{fbvElement type="text" required=true id="username" value=$username maxlength="32" size=$fbvStyles.size.MEDIUM}
 		{/fbvFormSection}
 		{fbvFormSection label="user.profile.oldPassword" for="oldPassword"}
-			{fbvElement type="text" required=true password=true id="oldPassword" value=$oldPassword|escape maxlength="32" size=$fbvStyles.size.MEDIUM}
+			{fbvElement type="text" required=true password=true id="oldPassword" value=$oldPassword maxlength="32" size=$fbvStyles.size.MEDIUM}
 		{/fbvFormSection}
 		{fbvFormSection label="user.profile.newPassword" for="password"}
-			{fbvElement type="text" required=true password=true id="password" value=$password|escape maxlength="32" size=$fbvStyles.size.MEDIUM}
+			{fbvElement type="text" required=true password=true id="password" value=$password maxlength="32" size=$fbvStyles.size.MEDIUM}
 			{fieldLabel translate=true for=password key=$passwordLengthRestrictionLocaleKey length=$minPasswordLength}
 		{/fbvFormSection}
 		{fbvFormSection label="user.profile.repeatNewPassword" for="password2"}

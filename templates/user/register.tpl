@@ -63,8 +63,8 @@
 		{/fbvFormSection}
 
 		{fbvFormSection title="user.email" for="email" required=true}
-			{fbvElement type="text" id="email" value=$email|escape size=$fbvStyles.size.MEDIUM} <br />
-			{fbvElement type="text" label="user.confirmEmail" id="confirmEmail" value=$confirmEmail|escape size=$fbvStyles.size.MEDIUM}
+			{fbvElement type="text" id="email" value=$email size=$fbvStyles.size.MEDIUM} <br />
+			{fbvElement type="text" label="user.confirmEmail" id="confirmEmail" value=$confirmEmail size=$fbvStyles.size.MEDIUM}
 			{if $privacyStatement}<a class="action" href="#privacyStatement">{translate key="user.register.privacyStatement"}</a>{/if}
 		{/fbvFormSection}
 
@@ -77,31 +77,31 @@
 		{/fbvFormSection}
 
 		{fbvFormSection title="user.phone" for="phone"}
-			{fbvElement type="text" id="phone" value=$phone|escape size=$fbvStyles.size.MEDIUM}
+			{fbvElement type="text" id="phone" value=$phone size=$fbvStyles.size.MEDIUM}
 		{/fbvFormSection}
 
 		{fbvFormSection title="user.fax" for="fax"}
-			{fbvElement type="text" id="fax" value=$fax|escape size=$fbvStyles.size.MEDIUM}
+			{fbvElement type="text" id="fax" value=$fax size=$fbvStyles.size.MEDIUM}
 		{/fbvFormSection}
 
 		{fbvFormSection title="user.url" for="userUrl"}
-			{fbvElement type="text" id="userUrl" value=$userUrl|escape size=$fbvStyles.size.MEDIUM}
+			{fbvElement type="text" id="userUrl" value=$userUrl size=$fbvStyles.size.MEDIUM}
 		{/fbvFormSection}
 
 		{fbvFormSection title="user.affiliation" for="affiliation"}
-			{fbvElement type="textarea" id="affiliation" multilingual=true value=$affiliation|escape label="user.affiliation.description" size=$fbvStyles.size.MEDIUM}<br/>
+			{fbvElement type="textarea" id="affiliation" multilingual=true value=$affiliation label="user.affiliation.description" size=$fbvStyles.size.MEDIUM}<br/>
 		{/fbvFormSection}
 
 		{fbvFormSection title="user.mailingAddress" for="mailingAddress"}
-			{fbvElement type="textarea" id="mailingAddress" value=$mailingAddress|escape rich=true size=$fbvStyles.size.MEDIUM}
+			{fbvElement type="textarea" id="mailingAddress" value=$mailingAddress rich=true size=$fbvStyles.size.MEDIUM}
 		{/fbvFormSection}
 
 		{fbvFormSection title="user.biography" for="biography"}
-			{fbvElement type="textarea" id="biography" name="biography" multilingual=true value=$biography|escape rich=true size=$fbvStyles.size.MEDIUM}
+			{fbvElement type="textarea" id="biography" name="biography" multilingual=true value=$biography rich=true size=$fbvStyles.size.MEDIUM}
 		{/fbvFormSection}
 
 		{fbvFormSection title="user.signature" for="signature"}
-			{fbvElement type="textarea" id="signature" name="signature" multilingual=true value=$signature|escape size=$fbvStyles.size.MEDIUM}
+			{fbvElement type="textarea" id="signature" name="signature" multilingual=true value=$signature size=$fbvStyles.size.MEDIUM}
 		{/fbvFormSection}
 
 		{if count($availableLocales) > 1}

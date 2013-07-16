@@ -22,12 +22,12 @@
 
 	{fbvFormArea id="changePasswordForm"}
 		{fbvFormSection label="user.profile.oldPassword"}
-			{fbvElement type="text" password="true" id="oldPassword" value=$oldPassword|escape maxLength="32" size=$fbvStyles.size.MEDIUM}
+			{fbvElement type="text" password="true" id="oldPassword" value=$oldPassword maxLength="32" size=$fbvStyles.size.MEDIUM}
 		{/fbvFormSection}
 		{fbvFormSection label="user.profile.newPassword"}
 			{translate|assign:"passwordLengthRestriction" key="user.register.passwordLengthRestriction" length=$minPasswordLength}
-			{fbvElement type="text" password="true" id="password" value=$oldPassword|escape label=$passwordLengthRestriction subLabelTranslate=false maxLength="32" size=$fbvStyles.size.MEDIUM}
-			{fbvElement type="text" password="true" id="password2" value=$oldPassword|escape maxLength="32" label="user.profile.repeatNewPassword" size=$fbvStyles.size.MEDIUM}
+			{fbvElement type="text" password="true" id="password" value=$oldPassword label=$passwordLengthRestriction subLabelTranslate=false maxLength="32" size=$fbvStyles.size.MEDIUM}
+			{fbvElement type="text" password="true" id="password2" value=$oldPassword maxLength="32" label="user.profile.repeatNewPassword" size=$fbvStyles.size.MEDIUM}
 		{/fbvFormSection}
 
 		{url|assign:cancelUrl page="user" op="profile"}

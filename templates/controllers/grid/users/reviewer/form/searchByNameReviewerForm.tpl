@@ -17,7 +17,7 @@
 <form class="pkp_form" id="searchByNameReviewerForm" method="post" action="{url op="updateReviewer"}" >
 	{fbvFormSection title="user.role.reviewer" for="reviewer"}
 		{url|assign:autocompleteUrl op="getReviewersNotAssignedToSubmission" submissionId=$submissionId stageId=$stageId reviewRoundId=$reviewRoundId escape=false}
-		{fbvElement type="autocomplete" autocompleteUrl=$autocompleteUrl id="reviewerId" name="reviewer" value=$userNameString|escape disableSync=true}
+		{fbvElement type="autocomplete" autocompleteUrl=$autocompleteUrl id="reviewerId" name="reviewer" value=$userNameString disableSync=true}
 	{/fbvFormSection}
 	<div class="action_links">
 		{foreach from=$reviewerActions item=action}

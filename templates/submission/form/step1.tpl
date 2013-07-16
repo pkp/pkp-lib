@@ -42,7 +42,7 @@
 	{if count($supportedSubmissionLocaleNames) == 1}
 	{* There is only one supported submission locale; choose it invisibly *}
 		{foreach from=$supportedSubmissionLocaleNames item=localeName key=locale}
-			{fbvElement type="hidden" id="locale" value=$locale|escape}
+			{fbvElement type="hidden" id="locale" value=$locale}
 		{/foreach}
 		{else}
 	{* There are several submission locales available; allow choice *}

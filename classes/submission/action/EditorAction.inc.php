@@ -308,7 +308,7 @@ class EditorAction extends PKPAction {
 		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
 		$submissionStageGroups = $userGroupDao->getUserGroupsByStage($submission->getContextId(), $stageId, true, true);
 		while ($userGroup = $submissionStageGroups->next()) {
-			$users = $userGroupDao->getUsersById($userGroup->getId());
+			$users = $userGroupDao->getUsersById($userGroup->getId(), $submission->getContextId());
 			if($users->getCount() == 1) {
 				$user = $users->next();
 				$stageAssignmentDao->build($submission->getId(), $userGroup->getId(), $user->getId());

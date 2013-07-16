@@ -159,45 +159,19 @@ class UserGridHandler extends GridHandler {
 	function loadData($request, $filter) {
 		// Get the context.
 		$context = $request->getContext();
-		$contextId = $context->getId();
 
 		// Get all users for this context that match search criteria.
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$rangeInfo = $this->getGridRangeInfo($request, $this->getId());
-		$rowData = array();
-		$contextIds = array();
 
-		if ($filter['includeNoRole'] == null) {
-			$contextIds[] = $contextId;
-		} else {
-			$contextDao = Application::getContextDAO();
-			$contexts = $contextDao->getAll();
-			while ($context = $contexts->next()) {
-				$contextIds[] = $context->getId();
-			}
-
-			// Get users with no user group assignment.
-			$usersWithNoUserGroup = $userGroupDao->getUsersWithNoUserGroupAssignments($filter);
-			if (!$usersWithNoUserGroup->wasEmpty()) {
-				while ($userWithNoUserGroup = $usersWithNoUserGroup->next()) {
-					$rowData[$userWithNoUserGroup->getId()] = $userWithNoUserGroup;
-				}
-			}
-		}
-
-
-		foreach ($contextIds as $contextId) {
-			$users = $userGroupDao->getUsersById(
+		return $userGroupDao->getUsersById(
 			$filter['userGroup'],
-			$contextId,
+			$filter['includeNoRole']?null:$context->getId(),
 			$filter['searchField'],
 			$filter['search'],
 			$filter['searchMatch'],
 			$rangeInfo
-			);
-		}
-
-		return $users;
+		);
 	}
 
 	/**
@@ -205,9 +179,8 @@ class UserGridHandler extends GridHandler {
 	 */
 	function renderFilter($request) {
 		$context = $request->getContext();
-		$contextId = $context->getId();
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		$userGroups = $userGroupDao->getByContextId($contextId);
+		$userGroups = $userGroupDao->getByContextId($context->getId());
 		$userGroupOptions = array('' => __('grid.user.allRoles'));
 		while ($userGroup = $userGroups->next()) {
 			$userGroupOptions[$userGroup->getId()] = $userGroup->getLocalizedName();

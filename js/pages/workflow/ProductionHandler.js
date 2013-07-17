@@ -97,7 +97,7 @@
 			}
 
 			$formatTabs = $(this.$formatTabsSelector_,
-					this.getHtmlElement()).children('div');
+					this.getHtmlElement()).find('.ui-tabs');
 			if ($formatTabs.has('#' + $triggerElement.attr('id')).length === 0) {
 				$formatTabs.trigger('refreshTabs');
 			}

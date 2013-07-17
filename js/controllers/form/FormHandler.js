@@ -112,6 +112,9 @@
 		// bind a handler to handle change events on input fields.
 		$(':input', $form).change(this.callbackWrapper(this.formChange));
 
+		// ensure that date picker modals are hidden when clicked away from.
+		$form.click(this.callbackWrapper(this.hideDatepicker_));
+
 		this.publishEvent('tinyMCEInitialized');
 		this.bind('tinyMCEInitialized', this.tinyMCEInitHandler_);
 	};
@@ -552,6 +555,31 @@
 		return true;
 	};
 
+
+	/**
+	 * Hide a date picker if a user clicks outside of the element.
+	 * @private
+	 * @param {Object} formElement Element.
+	 * @param {Event} event The event.
+	 */
+	$.pkp.controllers.form.FormHandler.prototype.hideDatepicker_ =
+			function(formElement, event) {
+
+		var originalEvent, ele, form;
+
+		originalEvent = event.originalEvent;
+		ele = originalEvent.relatedTarget;
+
+		form = this.getHtmlElement();
+		if (!$(ele).hasClass('hasDatepicker') &&
+				!$(ele).hasClass('ui-datepicker') &&
+				!$(ele).hasClass('ui-icon') &&
+				!$(ele).hasClass('ui-datepicker-next') &&
+				!$(ele).hasClass('ui-datepicker-prev') &&
+				!$(ele).parent().parents('.ui-datepicker').length) {
+			$(form).find('.hasDatepicker').datepicker('hide');
+		}
+	};
 
 /** @param {jQuery} $ jQuery closure. */
 }(jQuery));

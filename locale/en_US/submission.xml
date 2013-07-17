@@ -423,7 +423,6 @@
 	<message key="submission.submit.submissionLocale">Submission Language</message>
 	<message key="submission.submit.submissionLocaleDescription">This press accepts submissions in several languages. Choose the primary language of the submission from the pulldown below.</message>
 	<message key="submission.submit.submissionFiles">Submission Files</message>
-	<message key="submission.submit.titleAndSummary">Title and Summary</message>
 	<message key="submission.submit.dependentFiles">Dependent Files</message>
 	<message key="submission.manageDependentFiles">Manage Dependent Files</message>
 	<message key="submission.upload.dependent">Upload a Dependent File</message>

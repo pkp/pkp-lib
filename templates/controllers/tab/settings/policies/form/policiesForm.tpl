@@ -45,7 +45,7 @@
 			{fbvFormSection label="manager.setup.reviewPolicy" description="manager.setup.peerReview.description"}
 				{fbvElement type="textarea" multilingual="true" name="reviewPolicy" id="reviewPolicy" value=$reviewPolicy}
 			{/fbvFormSection}
-			{fbvFormSection label="navigation.competingInterestPolicy" description="manager.setup.competingInterestsDescription"}
+			{fbvFormSection label="manager.setup.competingInterests" description="manager.setup.competingInterestsDescription"}
 				{fbvElement type="textarea" multilingual="true" id="competingInterestsPolicy" value=$competingInterestsPolicy}
 			{/fbvFormSection}
 		</div>

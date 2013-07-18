@@ -47,7 +47,10 @@ class ReviewNotesLinkAction extends LinkAction {
 			'modal_information'
 		);
 
-		$icon = ($reviewAssignment->getDateAcknowledged() && $reviewAssignment->getUnconsidered() != REVIEW_ASSIGNMENT_UNCONSIDERED) ? 'notes' : 'notes_new';
+		$viewsDao = DAORegistry::getDAO('ViewsDAO');
+		$lastViewDate = $viewsDao->getLastViewDate(ASSOC_TYPE_REVIEW_RESPONSE, $reviewAssignment->getId(), $user->getId());
+
+		$icon = ($lastViewDate) ? 'notes' : 'notes_new';
 		// Configure the link action.
 		parent::LinkAction(
 			'readReview', $ajaxModal,

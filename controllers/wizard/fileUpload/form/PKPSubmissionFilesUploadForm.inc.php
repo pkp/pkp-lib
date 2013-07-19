@@ -127,7 +127,7 @@ class PKPSubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 	 */
 	function fetch($request) {
 		// Retrieve available submission file genres.
-		$genreList =& $this->_retrieveGenreList($request);
+		$genreList = $this->_retrieveGenreList($request);
 		$this->setData('submissionFileGenres', $genreList);
 
 		// Retrieve the current context.
@@ -149,7 +149,7 @@ class PKPSubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 		$uploaderUserGroups = array();
 		$highestAuthorityUserGroupId = null;
 		$highestAuthorityRoleId = null;
-		while($userGroup =& $assignedUserGroups->next()) { /* @var $userGroup UserGroup */
+		while($userGroup = $assignedUserGroups->next()) { /* @var $userGroup UserGroup */
 			// Add all user groups that belong to any of the uploader roles.
 			if (in_array($userGroup->getRoleId(), $uploaderRoles)) {
 				$uploaderUserGroups[$userGroup->getId()] = $userGroup->getLocalizedName();
@@ -165,8 +165,6 @@ class PKPSubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 					}
 				}
 			}
-
-			unset($userGroup);
 		}
 		if (empty($uploaderUserGroups)) fatalError('Invalid uploader roles!');
 		$this->setData('uploaderUserGroups', $uploaderUserGroups);
@@ -185,7 +183,7 @@ class PKPSubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 				$user->getId()
 			);
 
-			while ($stageAssignment =& $stageAssignments->next()) { /* @var $stageSignoff Signoff */
+			while ($stageAssignment = $stageAssignments->next()) { /* @var $stageSignoff Signoff */
 				if (isset($uploaderUserGroups[$stageAssignment->getUserGroupId()])) {
 					$defaultUserGroupId = $stageAssignment->getUserGroupId();
 					break;
@@ -232,7 +230,7 @@ class PKPSubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 		$assocId = $this->getData('assocId') ? (int) $this->getData('assocId') : null;
 
 		// Upload the file.
-		$submissionFile =& $this->_uploadFile($request, $user, $uploaderUserGroupId, $revisedFileId, $fileGenre, $assocType, $assocId);
+		$submissionFile = $this->_uploadFile($request, $user, $uploaderUserGroupId, $revisedFileId, $fileGenre, $assocType, $assocId);
 
 		$fileStage = $this->getData('fileStage');
 		if ($submissionFile && ($fileStage == SUBMISSION_FILE_REVIEW_FILE || $fileStage == SUBMISSION_FILE_REVIEW_ATTACHMENT || $fileStage == SUBMISSION_FILE_REVIEW_REVISION)) {

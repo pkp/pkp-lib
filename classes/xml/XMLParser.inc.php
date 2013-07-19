@@ -1,7 +1,8 @@
 <?php
 
 /**
- * @defgroup xml
+ * @defgroup xml XML
+ * Implements XML parsing and creation concerns.
  */
 
 /**

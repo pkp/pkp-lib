@@ -1,7 +1,10 @@
 <?php
 
 /**
- * @defgroup form
+ * @defgroup form Form
+ * Implements a toolkit for the server-side implementation of forms, including
+ * initializing forms with presets, reading submitted content, validating
+ * content, and saving the results.
  */
 
 /**

@@ -1,7 +1,9 @@
 <?php
 
 /**
- * @defgroup citation
+ * @defgroup citation Citation
+ * Implements the Citation Assistant, which is used to facilitate
+ * the parsing and approval of citations.
  */
 
 /**

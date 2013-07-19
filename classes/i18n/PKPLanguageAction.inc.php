@@ -1,7 +1,4 @@
 <?php
-/**
- * @defgroup i18n
- */
 
 /**
  * @file classes/i18n/PKPLanguageAction.inc.php

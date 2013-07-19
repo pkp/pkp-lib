@@ -1,7 +1,8 @@
 <?php
 
 /**
- * @defgroup payment
+ * @defgroup payment Payment
+ * Payment handling and processing code.
  */
 
 /**

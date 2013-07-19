@@ -1,7 +1,8 @@
 <?php
 
 /**
- * @defgroup db
+ * @defgroup db DB
+ * Implements basic database concerns such as connection abstraction.
  */
 
 /**

@@ -1,7 +1,8 @@
 <?php
 
 /**
- * @defgroup cache
+ * @defgroup cache Cache
+ * Implements various forms of caching, i.e. object caches, file caches, etc.
  */
 
 /**

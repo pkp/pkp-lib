@@ -1,7 +1,8 @@
 <?php
 
 /**
- * @defgroup language
+ * @defgroup language Language
+ * Language and internationalization code.
  */
 
 /**

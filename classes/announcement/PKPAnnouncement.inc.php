@@ -1,7 +1,8 @@
 <?php
 
 /**
- * @defgroup announcement
+ * @defgroup announcement Announcement
+ * Implements announcements that can be presented to website visitors.
  */
 
 /**

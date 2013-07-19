@@ -1,7 +1,8 @@
 <?php
 
 /**
- * @defgroup validation
+ * @defgroup validation Validation
+ * Implements validation operations.
  */
 
 /**

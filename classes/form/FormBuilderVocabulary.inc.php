@@ -1,7 +1,8 @@
 <?php
 
 /**
- * @defgroup FormBuilderVocabulary
+ * @defgroup FormBuilderVocabulary Form Builder Vocabulary
+ * Implements a form construction toolkit for generating standard form markup.
  */
 
 /**

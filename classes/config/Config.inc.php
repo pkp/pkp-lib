@@ -1,7 +1,8 @@
 <?php
 
 /**
- * @defgroup config
+ * @defgroup config Config
+ * Implements configuration concerns such as the configuration file parser.
  */
 
 /**

@@ -2,6 +2,7 @@
 
 /**
  * @defgroup currency
+ * Implements currency data objects for managing lists of currencies for e-commerce.
  */
 
 /**

@@ -1,7 +1,8 @@
 <?php
 
 /**
- * @defgroup log
+ * @defgroup log Log
+ * Implements submission event logs.
  */
 
 /**

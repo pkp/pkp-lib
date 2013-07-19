@@ -1,7 +1,9 @@
 <?php
 
 /**
- * @defgroup reviewForm
+ * @defgroup reviewForm Review Form
+ * Implements review forms, which are forms that can be created and customized
+ * by the manager and presented to the reviewer in order to assess submissions.
  */
 
 /**

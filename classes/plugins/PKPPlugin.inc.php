@@ -1,7 +1,9 @@
 <?php
 
 /**
- * @defgroup plugins
+ * @defgroup plugins Plugins
+ * Implements a plugin structure that can be used to flexibly extend PKP
+ * software via the use of a set of plugin categories.
  */
 
 /**

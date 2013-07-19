@@ -1,7 +1,8 @@
 <?php
 
 /**
- * @defgroup rt
+ * @defgroup rt RT
+ * Implements the Reading Tools.
  */
 
 /**

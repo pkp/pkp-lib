@@ -1,10 +1,6 @@
 <?php
 
 /**
- * @defgroup oai
- */
-
-/**
  * @file classes/oai/OAIUtils.inc.php
  *
  * Copyright (c) 2000-2013 John Willinsky

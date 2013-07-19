@@ -1,7 +1,8 @@
 <?php
 
 /**
- * @defgroup site
+ * @defgroup site Site
+ * Site-related concerns such as the Site object and version management.
  */
 
 /**

@@ -1,7 +1,9 @@
 <?php
 
 /**
- * @defgroup search
+ * @defgroup search Search
+ * Implements search tools, such as file parsers, workflow integration,
+ * indexing, querying, etc.
  */
 
 /**

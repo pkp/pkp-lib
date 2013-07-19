@@ -1,7 +1,9 @@
 <?php
 
 /**
- * @defgroup oai
+ * @defgroup oai OAI
+ * Implements an OAI (Open Archives Initiative) OAI-PMH interface. See
+ * http://www.openarchives.org for information on OAI-PMH.
  */
 
 /**

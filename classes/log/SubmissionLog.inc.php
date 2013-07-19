@@ -36,8 +36,16 @@ class SubmissionLog {
 		$entry->setDateLogged(Core::getCurrentDate());
 		$entry->setIPAddress($request->getRemoteAddr());
 
-		$user = $request->getUser();
-		if ($user) $entry->setUserId($user->getId());
+		if (Validation::isLoggedInAs()) {
+			// If user is logged in as another user log with real userid
+			$sessionManager = SessionManager::getManager();
+			$session = $sessionManager->getUserSession();
+			$userId = $session->getSessionVar('signedInAs');
+			if ($userId) $entry->setUserId($userId);
+		} else {
+			$user = $request->getUser();
+			if ($user) $entry->setUserId($user->getId());
+		}
 
 		$entry->setAssocType(ASSOC_TYPE_SUBMISSION);
 		$entry->setAssocId($submission->getId());

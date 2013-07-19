@@ -100,7 +100,8 @@
 	<message key="grid.action.unconsiderReview">This review is complete, but you may unconsider it</message>
 	<message key="grid.action.enable">Enable</message>
 	<message key="grid.action.bookInfo">Submission Info</message>
-	
+	<message key="grid.action.logInAs">Login As</message>
+
 	<!--  grid task status -->
 	<message key="grid.task.status.completed">This task is completed</message>
 	<message key="grid.task.status.new">Checked when considered</message>
@@ -205,6 +206,7 @@
 	<message key="grid.user.addRoles">Add Roles</message>
 	<message key="grid.user.selectUser">Select User</message>
 	<message key="grid.user.pleaseSelectUser">Please select a user</message>
+	<message key="grid.user.confirmLogInAs">Log in as this user? All actions you perform will be attributed to this user.</message>
 
 	<!-- Prepared emails -->
 	<message key="grid.preparedEmails.title">Prepared Email Templates</message>

@@ -14,6 +14,7 @@
 
 import('lib.pkp.classes.controllers.grid.GridRow');
 import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
+import('lib.pkp.classes.linkAction.request.RedirectConfirmationModal');
 
 class UserGridRow extends GridRow {
 	/**
@@ -114,6 +115,29 @@ class UserGridRow extends GridRow {
 					__('grid.action.remove'),
 					'delete')
 			);
+
+			$sessionManager = SessionManager::getManager();
+			$session = $sessionManager->getUserSession();
+			$journal = $request->getJournal();
+			if (
+				!Validation::isLoggedInAs() and
+				$session->user->getId() != $this->getId() and
+				Validation::canAdminister($journal->getId(), $this->getId())
+			) {
+				$dispatcher = $router->getDispatcher();
+				$this->addAction(
+					new LinkAction(
+						'logInAs',
+						new RedirectConfirmationModal(
+							__('grid.user.confirmLogInAs'),
+							__('grid.action.logInAs'),
+							$dispatcher->url($request, ROUTE_PAGE, null, 'login', 'signInAsUser', $this->getId())
+						),
+						__('grid.action.logInAs'),
+						'enroll_user'
+					)
+				);
+			}
 		}
 	}
 }

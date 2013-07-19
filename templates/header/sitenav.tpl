@@ -23,6 +23,9 @@
 			<li class="profile">{translate key="user.hello"}&nbsp;<a href="{url page="user" op="profile"}">{$loggedInUsername|escape}</a></li>
 			<li>{null_link_action id="toggleHelp" key="help.toggleInlineHelpOn"}</li>
 			<li><a href="{url page="login" op="signOut"}">{translate key="user.logOut"}</a></li>
+			{if $isUserLoggedInAs}
+				<li><a href="{url page="login" op="signOutAsUser"}">{translate key="user.logOutAs"} {$loggedInUsername|escape}</a></li>
+			{/if}
 		{elseif !$notInstalled}
 			{if !$hideRegisterLink}
 				<li><a disabled="disabled" href="{url page="user" op="register"}">{translate key="navigation.register"}</a></li>

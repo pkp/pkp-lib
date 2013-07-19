@@ -181,6 +181,7 @@ class PKPTemplateManager extends Smarty {
 			 * installer pages).
 			 */
 			$this->assign('isUserLoggedIn', Validation::isLoggedIn());
+			$this->assign('isUserLoggedInAs', Validation::isLoggedInAs());
 
 			$application = PKPApplication::getApplication();
 			$currentVersion = $application->getCurrentVersion();

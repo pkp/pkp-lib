@@ -25,7 +25,7 @@ class SubmissionFileEventLogDAO extends EventLogDAO {
 	}
 
 	/**
-	 * Instantiate a monograph file event log entry.
+	 * Instantiate a submission file event log entry.
 	 * @return SubmissionFileEventLogEntry
 	 */
 	function newDataObject() {

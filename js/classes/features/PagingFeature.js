@@ -109,7 +109,7 @@
 	 */
 	$.pkp.classes.features.PagingFeature.prototype.refreshGrid =
 			function() {
-		var options = this.getOptions(), params, $firstRow, $lastRow;
+		var options = this.getOptions(), params, $firstRow, $lastRow, filter;
 
 		params = this.gridHandler.getFetchExtraParams();
 
@@ -129,6 +129,12 @@
 			params.bottomLimitRowId = 0;
 		} else {
 			params.bottomLimitRowId = this.gridHandler.getRowDataId($lastRow);
+		}
+
+		// Add the filter data, if any.
+		if (options.hasOwnProperty('filter')) {
+			filter = $.parseJSON(options.filter);
+			$.extend(true, params, filter);
 		}
 
 		this.gridHandler.setFetchExtraParams(params);

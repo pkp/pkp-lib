@@ -100,6 +100,21 @@ class PagingFeature extends GridFeature{
 	//
 	// Hooks implementation.
 	//
+	/*
+	 * @see GridFeature::gridInitialize()
+	 * The feature will know about the current filter
+	 * value so it can request grid refreshes keeping
+	 * the filter.
+	 */
+	function getGridDataElements($args) {
+		$filter = $args['filter'];
+
+		if (is_array($filter) && !empty($filter)) {
+			$this->addOptions(array('filter' => json_encode($filter)));
+		}
+	}
+
+
 	/**
 	 * @see GridFeature::setGridDataElements()
 	 */

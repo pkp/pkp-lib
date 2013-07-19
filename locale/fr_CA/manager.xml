@@ -228,4 +228,5 @@
 	<message key="grid.action.restoreGenres">Restaurer les paramètres par défaut des genres.</message>
 	<message key="manager.setup.genres.sortable">Permettre aux fichiers de ce type d'être classés par composante (ex.: chapitre)</message>
 	<message key="manager.settings.wizard">Assistant de paramétrage</message>
+	<message key="manager.users.roleRequired">Vous devez choisir au moins un rôle qui sera associé à cet utilisateur.</message>
 </locale>

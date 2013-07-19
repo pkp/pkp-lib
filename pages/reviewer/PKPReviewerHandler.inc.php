@@ -20,7 +20,7 @@ class PKPReviewerHandler extends Handler {
 	/**
 	 * Constructor
 	 */
-	function ReviewerHandler() {
+	function PKPReviewerHandler() {
 		parent::Handler();
 	}
 

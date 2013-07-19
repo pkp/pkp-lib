@@ -208,7 +208,7 @@ class InformationCenterHandler extends Handler {
 
 	/**
 	 * Get an array representing link parameters that subclasses
-	 * need to have passed to their various handlers (i.e. monograph ID to
+	 * need to have passed to their various handlers (i.e. submission ID to
 	 * the delete note handler). Subclasses should implement.
 	 */
 	function _getLinkParams() {

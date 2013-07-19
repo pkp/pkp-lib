@@ -62,16 +62,16 @@
 	{fbvFormArea id="administratorAccountFormArea" title="installer.administratorAccount" class="border"}
 		<p>{translate key="installer.administratorAccountInstructions"}</p>
 		{fbvFormSection label="user.username"}
-			{fbvElement type="text" id="adminUsername" value=$adminUsername|escape maxlength="32" size=$fbvStyles.size.MEDIUM}
+			{fbvElement type="text" id="adminUsername" value=$adminUsername maxlength="32" size=$fbvStyles.size.MEDIUM}
 		{/fbvFormSection}
 		{fbvFormSection label="user.password"}
-			{fbvElement type="text" password=true id="adminPassword" value=$adminPassword|escape maxlength="32" size=$fbvStyles.size.MEDIUM}
+			{fbvElement type="text" password=true id="adminPassword" value=$adminPassword maxlength="32" size=$fbvStyles.size.MEDIUM}
 		{/fbvFormSection}
 		{fbvFormSection label="user.repeatPassword"}
 			{fbvElement type="text" password=true id="adminPassword2" value=$adminPassword2|escape maxlength="32" size=$fbvStyles.size.MEDIUM}
 		{/fbvFormSection}
 		{fbvFormSection label="user.email"}
-			{fbvElement type="text" id="adminEmail" value=$adminEmail|escape maxlength="90" size=$fbvStyles.size.MEDIUM}
+			{fbvElement type="text" id="adminEmail" value=$adminEmail maxlength="90" size=$fbvStyles.size.MEDIUM}
 		{/fbvFormSection}
 	{/fbvFormArea}
 
@@ -113,7 +113,7 @@
 	{if !$skipFilesDirSection}
 		{fbvFormArea id="fileSettingsFormArea" class="border" title="installer.fileSettings"}
 			{fbvFormSection label="installer.filesDir" description="installer.filesDirInstructions"}
-				{fbvElement type="text" id="filesDir" value=$filesDir|escape maxlength="255" size=$fbvStyles.size.LARGE}
+				{fbvElement type="text" id="filesDir" value=$filesDir maxlength="255" size=$fbvStyles.size.LARGE}
 			{/fbvFormSection}
 			<p>{translate key="installer.allowFileUploads" allowFileUploads=$allowFileUploads}</p>
 			<p>{translate key="installer.maxFileUploadSize" maxFileUploadSize=$maxFileUploadSize}</p>
@@ -134,16 +134,16 @@
 			{fbvElement type="select" id="databaseDriver" from=$databaseDriverOptions selected=$databaseDriver translate=false size=$fbvStyles.size.SMALL}
 		{/fbvFormSection}
 		{fbvFormSection label="installer.databaseHost"}
-			{fbvElement type="text" id="databaseHost" value=$databaseHost|escape maxlength="60" size=$fbvStyles.size.MEDIUM}
+			{fbvElement type="text" id="databaseHost" value=$databaseHost maxlength="60" size=$fbvStyles.size.MEDIUM}
 		{/fbvFormSection}
 		{fbvFormSection label="installer.databaseUsername"}
-			{fbvElement type="text" id="databaseUsername" value=$databaseUsername|escape maxlength="60" size=$fbvStyles.size.MEDIUM}
+			{fbvElement type="text" id="databaseUsername" value=$databaseUsername maxlength="60" size=$fbvStyles.size.MEDIUM}
 		{/fbvFormSection}
 		{fbvFormSection label="installer.databasePassword"}
-			{fbvElement type="text" id="databasePassword" value=$databasePassword|escape maxlength="60" size=$fbvStyles.size.MEDIUM}
+			{fbvElement type="text" id="databasePassword" value=$databasePassword maxlength="60" size=$fbvStyles.size.MEDIUM}
 		{/fbvFormSection}
 		{fbvFormSection label="installer.databaseName"}
-			{fbvElement type="text" id="databaseName" value=$databaseName|escape maxlength="60" size=$fbvStyles.size.MEDIUM}
+			{fbvElement type="text" id="databaseName" value=$databaseName maxlength="60" size=$fbvStyles.size.MEDIUM}
 		{/fbvFormSection}
 		{fbvFormSection list="true"}
 			{fbvElement type="checkbox" id="createDatabase" value="1" checked=$createDatabase label="installer.createDatabase"}
@@ -152,7 +152,7 @@
 
 	{fbvFormArea id="oaiSettingsFormArea" class="border" title="installer.oaiSettings"}
 		{fbvFormSection label="installer.oaiRepositoryId" description="installer.oaiRepositoryIdInstructions"}
-			{fbvElement type="text" id="oaiRepositoryId" value=$oaiRepositoryId|escape maxlength="60" size=$fbvStyles.size.LARGE}
+			{fbvElement type="text" id="oaiRepositoryId" value=$oaiRepositoryId maxlength="60" size=$fbvStyles.size.LARGE}
 		{/fbvFormSection}
 	{/fbvFormArea}
 

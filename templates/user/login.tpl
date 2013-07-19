@@ -46,10 +46,10 @@
 {if ! $implicitAuth}
 	{fbvFormArea id="loginFields"}
 		{fbvFormSection label="user.username" for="username"}
-			{fbvElement type="text" id="username" value=$username|escape maxlength="32" size=$fbvStyles.size.MEDIUM}
+			{fbvElement type="text" id="username" value=$username maxlength="32" size=$fbvStyles.size.MEDIUM}
 		{/fbvFormSection}
 		{fbvFormSection label="user.password" for="password"}
-			{fbvElement type="text" password=true id="password" value=$password|escape maxlength="32" size=$fbvStyles.size.MEDIUM}
+			{fbvElement type="text" password=true id="password" value=$password maxlength="32" size=$fbvStyles.size.MEDIUM}
 			<a href="{url page="login" op="lostPassword"}">{translate key="user.login.forgotPassword"}</a>
 		{/fbvFormSection}
 		{if $showRemember}

@@ -85,7 +85,7 @@ class PKPInformationCenterNotifyForm extends Form {
 	 * Assign form data to user-submitted data.
 	 * @see Form::readInputData()
 	 */
-	function readInputData() {
+	function readInputData($request) {
 		$this->readUserVars(array('message', 'users', 'template'));
 		import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
 		$userData = $this->getData('users');

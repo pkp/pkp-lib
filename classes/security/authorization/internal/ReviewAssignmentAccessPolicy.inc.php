@@ -40,7 +40,7 @@ class ReviewAssignmentAccessPolicy extends AuthorizationPolicy {
 		$user = $this->_request->getUser();
 		if (!is_a($user, 'PKPUser')) return AUTHORIZATION_DENY;
 
-		// Get the monograph
+		// Get the submission
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		if (!is_a($submission, 'Submission')) return AUTHORIZATION_DENY;
 

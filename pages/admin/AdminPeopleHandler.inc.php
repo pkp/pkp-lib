@@ -28,7 +28,7 @@ class AdminPeopleHandler extends AdminHandler {
 	}
 
 	/**
-	 * Allow the Site Administrator to merge user accounts, including attributed monographs etc.
+	 * Allow the Site Administrator to merge user accounts, including attributed submissions etc.
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */

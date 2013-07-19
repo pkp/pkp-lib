@@ -29,6 +29,8 @@ class AddFileLinkAction extends BaseAddFileLinkAction {
 	 *  constants).
 	 * @param $uploaderRoles array The ids of all roles allowed to upload
 	 *  in the context of this action.
+	 * @param $uploaderGroupIds array The ids of all allowed user groups
+	 *  to upload in the context of this action, or null to permit all.
 	 * @param $fileStage integer The file stage the file should be
 	 *  uploaded to (one of the SUBMISSION_FILE_* constants).
 	 * @param $assocType integer The type of the element the file should
@@ -36,9 +38,11 @@ class AddFileLinkAction extends BaseAddFileLinkAction {
 	 * @param $assocId integer The id of the element the file should be
 	 *  associated with.
 	 * @param $reviewRound ReviewRound The current review round (if any).
+	 * @param $dependentFilesOnly bool whether to only include dependent
+	 *  files in the Genres dropdown.
 	 */
 	function AddFileLinkAction($request, $submissionId, $stageId, $uploaderRoles,
-			$fileStage, $assocType = null, $assocId = null, $reviewRoundId = null) {
+			$uploaderGroupIds, $fileStage, $assocType = null, $assocId = null, $reviewRoundId = null, $dependentFilesOnly = false) {
 
 		// Create the action arguments array.
 		$actionArgs = array('fileStage' => $fileStage, 'reviewRoundId' => $reviewRoundId);
@@ -47,12 +51,14 @@ class AddFileLinkAction extends BaseAddFileLinkAction {
 			$actionArgs['assocId'] = (int)$assocId;
 		}
 
+		if ($dependentFilesOnly) $actionArgs['dependentFilesOnly'] = true;
+
 		// Identify text labels based on the file stage.
 		$textLabels = AddFileLinkAction::_getTextLabels($fileStage);
 
 		// Call the parent class constructor.
 		parent::BaseAddFileLinkAction(
-			$request, $submissionId, $stageId, $uploaderRoles, $actionArgs,
+			$request, $submissionId, $stageId, $uploaderRoles, $uploaderGroupIds, $actionArgs,
 			__($textLabels['wizardTitle']), __($textLabels['buttonLabel'])
 		);
 	}

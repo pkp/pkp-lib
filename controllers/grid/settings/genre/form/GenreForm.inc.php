@@ -67,7 +67,8 @@ class GenreForm extends Form {
 				'name' => $genre->getName(null),
 				'designation' => $genre->getDesignation(null),
 				'sortable' => $genre->getSortable(),
-				'category' => $genre->getCategory()
+				'category' => $genre->getCategory(),
+				'dependent' => $genre->getDependent(),
 			);
 		} else {
 			$this->_data = array(
@@ -88,7 +89,7 @@ class GenreForm extends Form {
 	 */
 	function fetch($request) {
 		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('monographFileCategories', array(GENRE_CATEGORY_DOCUMENT => __('submission.document'),
+		$templateMgr->assign('submissionFileCategories', array(GENRE_CATEGORY_DOCUMENT => __('submission.document'),
 					GENRE_CATEGORY_ARTWORK => __('submission.art')));
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
@@ -100,7 +101,7 @@ class GenreForm extends Form {
 	 * @see Form::readInputData()
 	 */
 	function readInputData() {
-		$this->readUserVars(array('genreId', 'name', 'designation', 'sortable', 'category'));
+		$this->readUserVars(array('genreId', 'name', 'designation', 'sortable', 'category', 'dependent'));
 		$this->readUserVars(array('gridId', 'rowId'));
 	}
 
@@ -125,6 +126,7 @@ class GenreForm extends Form {
 		$genre->setData('designation', $this->getData('designation'), null); // Localized
 		$genre->setSortable($this->getData('sortable'));
 		$genre->setCategory($this->getData('category'));
+		$genre->setDependent($this->getData('dependent'));
 
 		if (!$this->getGenreId()) {
 			$this->setGenreId($genreDao->insertObject($genre));

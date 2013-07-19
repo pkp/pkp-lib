@@ -25,7 +25,7 @@
 		{/fbvFormSection}
 
 		{fbvFormSection for="path" title="grid.category.path" required="true"}
-			{fbvElement type="text" id="path" value=$path|escape maxlength="255" size=$fbvStyles.size.MEDIUM inline="true"}
+			{fbvElement type="text" id="path" value=$path maxlength="255" size=$fbvStyles.size.MEDIUM inline="true"}
 		{/fbvFormSection}
 
 		{fbvFormSection title="common.description" required="true"}

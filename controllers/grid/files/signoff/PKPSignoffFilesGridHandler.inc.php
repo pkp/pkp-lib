@@ -122,6 +122,7 @@ class PKPSignoffFilesGridHandler extends CategoryGridHandler {
 			$request, $submission->getId(),
 			$this->getStageId(),
 			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT),
+			null,
 			$this->getFileStage(),
 			$this->getAssocType(), $this->getAssocId()
 		));

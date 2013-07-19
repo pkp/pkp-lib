@@ -54,7 +54,7 @@ class PKPSocialMedia extends DataObject {
 	}
 
 	/**
-	 * Get whether or not this should be included on a monograph's catalog page.
+	 * Get whether or not this should be included on a submission's catalog page.
 	 * @return boolean
 	 */
 	function getIncludeInCatalog() {
@@ -62,7 +62,7 @@ class PKPSocialMedia extends DataObject {
 	}
 
 	/**
-	 * Set whether or not this should be included on a monograph's catalog page.
+	 * Set whether or not this should be included on a submission's catalog page.
 	 * @param $path string
 	 */
 	function setIncludeInCatalog($includeInCatalog) {
@@ -97,7 +97,7 @@ class PKPSocialMedia extends DataObject {
 
 	/**
 	 * Replace various variables in the code template with data
-	 * relevant to the assigned monograph.
+	 * relevant to the assigned submission.
 	 */
 	function replaceCodeVars() {
 		// Subclasses should override as needed.

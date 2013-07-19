@@ -26,7 +26,7 @@ class AddRevisionLinkAction extends BaseAddFileLinkAction {
 	 * @param $uploaderRoles array The ids of all roles allowed to upload
 	 *  in the context of this action.
 	 */
-	function AddRevisionLinkAction($request, $reviewRound, $uploaderRoles) {
+	function AddRevisionLinkAction($request, $reviewRound, $uploaderRoles, $uploaderGroupIds = null) {
 		// Bring in the submission file constants.
 		import('lib.pkp.classes.submission.SubmissionFile');
 
@@ -40,7 +40,7 @@ class AddRevisionLinkAction extends BaseAddFileLinkAction {
 
 		// Call the parent class constructor.
 		parent::BaseAddFileLinkAction(
-			$request, $reviewRound->getSubmissionId(), $reviewRound->getStageId(), $uploaderRoles, $actionArgs,
+			$request, $reviewRound->getSubmissionId(), $reviewRound->getStageId(), $uploaderRoles, $uploaderGroupIds, $actionArgs,
 			__('editor.review.uploadRevisionToRound', array('round' => $reviewRound->getRound())),
 			__('submission.addFile')
 		);

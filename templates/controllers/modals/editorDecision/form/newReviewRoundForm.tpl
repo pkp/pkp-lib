@@ -15,7 +15,7 @@
 	{rdelim});
 </script>
 
-<p>{translate key="editor.monograph.newRoundDescription"}</p>
+<p>{translate key="editor.submission.newRoundDescription"}</p>
 <form class="pkp_form" id="newRoundForm" method="post" action="{url op="saveNewReviewRound"}" >
 	<input type="hidden" name="submissionId" value="{$submissionId|escape}" />
 	<input type="hidden" name="stageId" value="{$stageId|escape}" />
@@ -27,6 +27,6 @@
 	{url|assign:newRoundRevisionsUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.review.SelectableReviewRevisionsGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId reviewRoundId=$reviewRoundId escape=false}
 	{load_url_in_div id="newRoundRevisionsGrid" url=$newRoundRevisionsUrl}
 
-	{fbvFormButtons submitText="editor.monograph.createNewRound"}
+	{fbvFormButtons submitText="editor.submission.createNewRound"}
 </form>
 

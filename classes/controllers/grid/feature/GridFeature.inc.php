@@ -142,6 +142,18 @@ class GridFeature {
 	}
 
 	/**
+	* Hook called when grid data is retrieved.
+	* @param $args array
+	* 'request' => PKPRequest
+	* 'grid' => GridHandler
+	* 'gridData' => mixed (array or ItemIterator)
+	* 'filter' => array
+	*/
+	function getGridDataElements($args) {
+		return null;
+	}
+
+	/**
 	 * Hook called before grid data is setted.
 	 * @param $args array
 	 * 'grid' => GridHandler

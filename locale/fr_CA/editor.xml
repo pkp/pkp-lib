@@ -69,4 +69,5 @@
 	<message key="editor.submission.selectAttachments">Choisir les fichiers d'évaluation que l'auteur pourra consulter</message>
 	<message key="editor.submissionReview.recordDecision">Enregistrement des décisions éditoriales</message>
 	<message key="editor.submission.selectFairCopy">Choisir les fichiers de révision approuvés qui seront envoyés pour la publication.</message>
+	<message key="editor.submission.createNewRound">Créer une nouvelle série de révisions.</message>
 </locale>

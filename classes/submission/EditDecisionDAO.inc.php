@@ -26,7 +26,7 @@ class EditDecisionDAO extends DAO {
 
 	/**
 	 * Update the editor decision table.
-	 * @param $monographId int
+	 * @param $submissionId int
 	 * @param $editorDecision array
 	 * @param $reviewRound ReviewRound (optional)
 	 */
@@ -53,7 +53,7 @@ class EditDecisionDAO extends DAO {
 
 	/**
 	 * Delete editing decisions by submission ID.
-	 * @param $monographId int
+	 * @param $submissionId int
 	 */
 	function deleteDecisionsBySubmissionId($submissionId) {
 		return $this->update(

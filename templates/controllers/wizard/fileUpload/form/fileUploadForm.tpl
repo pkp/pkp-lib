@@ -9,7 +9,7 @@
  * Parameters:
  *   $submissionId: The submissionId for which a file is being uploaded.
  *   $stageId: The workflow stage in which the file uploader was called.
- *   $uploaderUserGroups: An array of user groups that are allowed
+ *   $uploaderUserGroupOptions: An array of user groups that are allowed
  *    to upload.
  *   $defaultUserGroupId: A pre-selected user group (optional).
  *   $revisionOnly: Whether the user can upload new files or not.
@@ -147,12 +147,12 @@
 			<input type="hidden" name="assocType" value="{$assocType|escape}" />
 			<input type="hidden" name="assocId" value="{$assocId|escape}" />
 		{/if}
-		{if count($uploaderUserGroups) > 1}
+		{if count($uploaderUserGroupOptions) > 1}
 			{fbvFormSection label="submission.upload.userGroup" required=true}
-				{fbvElement type="select" name="uploaderUserGroupId" id="uploaderUserGroupId" from=$uploaderUserGroups selected=$defaultUserGroupId translate=false}
+				{fbvElement type="select" name="uploaderUserGroupId" id="uploaderUserGroupId" from=$uploaderUserGroupOptions selected=$defaultUserGroupId translate=false}
 			{/fbvFormSection}
 		{else}
-			<input type="hidden" id="uploaderUserGroupId" name="uploaderUserGroupId" value="{$uploaderUserGroups|@key}" />
+			<input type="hidden" id="uploaderUserGroupId" name="uploaderUserGroupId" value="{$uploaderUserGroupOptions|@key}" />
 		{/if}
 
 		{if $showFileNameOnly}

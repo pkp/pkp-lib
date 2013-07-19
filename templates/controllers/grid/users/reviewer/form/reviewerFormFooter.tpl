@@ -22,7 +22,7 @@
 <div class="reviewerFormFooterContainer">
 	<!--  Message to reviewer textarea -->
 	{fbvFormSection title="editor.review.personalMessageToReviewer" for="personalMessage"}
-		{fbvElement type="textarea" name="personalMessage" id="personalMessage" value=$personalMessage|escape}
+		{fbvElement type="textarea" name="personalMessage" id="personalMessage" value=$personalMessage}
 	{/fbvFormSection}
 
 	<!-- skip email checkbox -->

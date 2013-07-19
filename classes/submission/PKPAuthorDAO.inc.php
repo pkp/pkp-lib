@@ -188,7 +188,7 @@ class PKPAuthorDAO extends DAO {
 			$authorCount = $this->getAuthorCountBySubmissionId($author->getSubmissionId());
 			$author->setSequence($authorCount + 1);
 		}
-		// Reset primary contact for monograph to this author if applicable
+		// Reset primary contact for submission to this author if applicable
 		if ($author->getPrimaryContact()) {
 			$this->resetPrimaryContact($author->getId(), $author->getSubmissionId());
 		}
@@ -224,7 +224,7 @@ class PKPAuthorDAO extends DAO {
 	 * @param $author Author
 	 */
 	function updateObject($author) {
-		// Reset primary contact for monograph to this author if applicable
+		// Reset primary contact for submission to this author if applicable
 		if ($author->getPrimaryContact()) {
 			$this->resetPrimaryContact($author->getId(), $author->getSubmissionId());
 		}

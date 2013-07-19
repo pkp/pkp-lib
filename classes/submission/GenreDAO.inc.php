@@ -100,8 +100,30 @@ class GenreDAO extends DefaultSettingDAO {
 	 * @return DAOResultFactory containing matching genres
 	 */
 	function &getEnabledByContextId($contextId, $rangeInfo = null) {
+		$params = array(1, $contextId);
+
 		$result = $this->retrieveRange(
-			'SELECT * FROM genres WHERE enabled = ? AND context_id = ?', array(1, $contextId), $rangeInfo
+			'SELECT * FROM genres WHERE enabled = ? AND context_id = ?',
+			$params, $rangeInfo
+		);
+
+		$returner = new DAOResultFactory($result, $this, '_fromRow', array('id'));
+		return $returner;
+	}
+
+	/**
+	 * Retrieve genres based on whether they are dependent or not.
+	 * @param $dependentFilesOnly boolean
+	 * @param $contextId int
+	 * @param $rangeInfo object optional
+	 * @return DAOResultFactory containing matching genres
+	 */
+	function &getByDependenceAndContextId($dependentFilesOnly, $contextId, $rangeInfo = null) {
+		$params = array(1, $contextId, (int) $dependentFilesOnly);
+
+		$result = $this->retrieveRange(
+				'SELECT * FROM genres WHERE enabled = ? AND context_id = ? AND dependent = ?',
+				$params, $rangeInfo
 		);
 
 		$returner = new DAOResultFactory($result, $this, '_fromRow', array('id'));
@@ -160,6 +182,7 @@ class GenreDAO extends DefaultSettingDAO {
 		$genre->setContextId($row['context_id']);
 		$genre->setSortable($row['sortable']);
 		$genre->setCategory($row['category']);
+		$genre->setDependent($row['dependent']);
 
 		$this->getDataObjectSettings('genre_settings', 'genre_id', $row['genre_id'], $genre);
 
@@ -175,13 +198,14 @@ class GenreDAO extends DefaultSettingDAO {
 	function insertObject(&$genre) {
 		$this->update(
 			'INSERT INTO genres
-				(sortable, context_id, category)
+				(sortable, context_id, category, dependent)
 			VALUES
 				(?, ?, ?)',
 			array(
 				$genre->getSortable() ? 1 : 0,
 				(int) $genre->getContextId(),
-				(int) $genre->getCategory()
+				(int) $genre->getCategory(),
+				$genre->getDependent() ? 1 : 0
 			)
 		);
 
@@ -197,6 +221,18 @@ class GenreDAO extends DefaultSettingDAO {
 	 * @param $genre Genre
 	 */
 	function updateObject(&$genre) {
+		$this->update(
+			'UPDATE genres
+				SET
+					sortable = ?,
+					dependent = ?
+				WHERE genre_id = ?',
+			array(
+				$genre->getSortable() ? 1 : 0,
+				$genre->getDependent() ? 1 : 0,
+				(int) $genre->getId(),
+			)
+		);
 		$this->updateLocaleFields($genre);
 	}
 
@@ -289,10 +325,10 @@ class GenreDAO extends DefaultSettingDAO {
 			$attrs = $entry['attributes'];
 			$this->update(
 				'INSERT INTO genres
-				(entry_key, sortable, context_id, category)
+				(entry_key, sortable, context_id, category, dependent)
 				VALUES
-				(?, ?, ?, ?)',
-				array($attrs['key'], $attrs['sortable'] ? 1 : 0, $contextId, $attrs['category'])
+				(?, ?, ?, ?, ?)',
+				array($attrs['key'], $attrs['sortable'] ? 1 : 0, $contextId, $attrs['category'], $attrs['dependent'] ? 1 : 0)
 			);
 		}
 		return true;

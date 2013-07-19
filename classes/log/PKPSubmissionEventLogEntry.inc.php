@@ -78,7 +78,7 @@ class PKPSubmissionEventLogEntry extends EventLogEntry {
 
 
 	/**
-	 * Get the monograph ID
+	 * Get the submission ID
 	 * @return int
 	 */
 	function getSubmissionId() {

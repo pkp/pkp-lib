@@ -18,6 +18,7 @@
 	{fbvFormSection title="common.subtitle" for="subtitle"}
 		{fbvElement type="text" multilingual=true name="subtitle" id="subtitle" value=$subtitle readonly=$readOnly}
 	{/fbvFormSection}
+	{fbvFormSection description="common.subtitle.tip"}{/fbvFormSection}
 	{fbvFormSection title="common.abstract" for="abstract" required=true}
 		{fbvElement type="textarea" multilingual=true name="abstract" id="abstract" value=$abstract rich=true readonly=$readOnly}
 	{/fbvFormSection}

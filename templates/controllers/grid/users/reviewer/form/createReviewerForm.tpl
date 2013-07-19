@@ -40,7 +40,7 @@
 	{/fbvFormSection}
 
 	{fbvFormSection title="about.contact"}
-		{fbvElement type="text" label="user.email" id="email" required="true" value=$email|escape maxlength="90" size=$fbvStyles.size.MEDIUM}
+		{fbvElement type="text" label="user.email" id="email" required="true" value=$email maxlength="90" size=$fbvStyles.size.MEDIUM}
 	{/fbvFormSection}
 
 	{fbvFormSection title="manager.reviewerSearch.interests" for="interests"}

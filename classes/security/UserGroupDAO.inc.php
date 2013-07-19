@@ -48,7 +48,7 @@ class UserGroupDAO extends DAO {
 	 * @param $row array
 	 * @return UserGroup
 	 */
-	function &_returnFromRow($row) {
+	function _returnFromRow($row) {
 		$userGroup = $this->newDataObject();
 		$userGroup->setId($row['user_group_id']);
 		$userGroup->setRoleId($row['role_id']);
@@ -152,7 +152,7 @@ class UserGroupDAO extends DAO {
 	 * Update the localized data for this object
 	 * @param $author object
 	 */
-	function updateLocaleFields(&$userGroup) {
+	function updateLocaleFields($userGroup) {
 		$this->updateDataObjectSettings('user_group_settings', $userGroup, array(
 			'user_group_id' => (int) $userGroup->getId()
 		));
@@ -214,7 +214,7 @@ class UserGroupDAO extends DAO {
 	 * @param $roleId in
 	 * @param $contextId int
 	 */
-	function &getUserGroupIdsByRoleId($roleId, $contextId = null) {
+	function getUserGroupIdsByRoleId($roleId, $contextId = null) {
 		$sql = 'SELECT user_group_id FROM user_groups WHERE role_id = ?';
 		$params = array((int) $roleId);
 
@@ -334,7 +334,7 @@ class UserGroupDAO extends DAO {
 	 * Retrieve user groups for a given context (all contexts if null)
 	 * @param $contextId
 	 */
-	function &getByContextId($contextId = null) {
+	function getByContextId($contextId = null) {
 		$params = array();
 		if ($contextId) $params[] = (int) $contextId;
 		$result = $this->retrieve(
@@ -378,7 +378,7 @@ class UserGroupDAO extends DAO {
 	 * @param string $searchMatch
 	 * @param DBResultRange $dbResultRange
 	 */
-	function &getUsersByContextId($contextId = null, $searchType = null, $search = null, $searchMatch = null, $dbResultRange = null) {
+	function getUsersByContextId($contextId, $searchType = null, $search = null, $searchMatch = null, $dbResultRange = null) {
 		return $this->getUsersById(null, $contextId, $searchType, $search, $searchMatch, $dbResultRange);
 	}
 
@@ -388,7 +388,7 @@ class UserGroupDAO extends DAO {
 	 * @param ROLE_ID_... int (const)
 	 * @param $search string
 	 */
-	function &getUsersNotInRole($roleId, $contextId = null, $search = null) {
+	function getUsersNotInRole($roleId, $contextId = null, $search = null) {
 		$params = array((int) $roleId);
 		if ($contextId) $params[] = (int) $contextId;
 		if(isset($search)) $params = array_merge($params, array_pad(array(), 5, '%' . $search . '%'));
@@ -410,80 +410,36 @@ class UserGroupDAO extends DAO {
 
 	/**
 	 * return an Iterator of User objects given the search parameters
-	 * @param int $userGroupId
-	 * @param int $contextId
+	 * @param int $userGroupId optional
+	 * @param int $contextId optional
 	 * @param string $searchType
 	 * @param string $search
 	 * @param string $searchMatch
 	 * @param DBResultRange $dbResultRange
 	 */
-	function &getUsersById($userGroupId = null, $contextId = null, $searchType = null, $search = null, $searchMatch = null, $dbResultRange = null) {
+	function getUsersById($userGroupId = null, $contextId = null, $searchType = null, $search = null, $searchMatch = null, $dbResultRange = null) {
 		$paramArray = array();
 
-		if (isset($userGroupId)) $paramArray[] = (int) $userGroupId;
-		if (isset($contextId)) $paramArray[] = (int) $contextId;
-
-		// For security / resource usage reasons, a user group or context ID
-		// must be specified. Don't allow calls supplying neither.
-		if ($contextId === null && $userGroupId === null) return null;
-
-		$searchSql = $this->_getSearchSql($searchType, $search, $searchMatch, $paramArray);
-
-		$sql = 'SELECT DISTINCT u.*
-			FROM users AS u
-			LEFT JOIN user_settings us ON (us.user_id = u.user_id AND us.setting_name = \'affiliation\')
-			LEFT JOIN user_interests ui ON (u.user_id = ui.user_id)
-			LEFT JOIN controlled_vocab_entry_settings cves ON (ui.controlled_vocab_entry_id = cves.controlled_vocab_entry_id)
-			LEFT JOIN user_user_groups uug ON (uug.user_id = u.user_id)
-			LEFT JOIN user_groups ug ON (ug.user_group_id = uug.user_group_id) WHERE';
-
-
-		$sql .= (isset($userGroupId) ? ' ug.user_group_id = ? ' . (isset($contextId) ? 'AND ' : '') : ' ');
-		$sql .= (isset($contextId) ? ' ug.context_id = ? ' : ' ') . $searchSql;
+		if ($contextId) $paramArray[] = (int) $contextId;
+		if ($userGroupId) $paramArray[] = (int) $userGroupId;
 
 		$result = $this->retrieveRange(
-			$sql,
+			'SELECT DISTINCT u.*
+			FROM	users AS u
+				LEFT JOIN user_settings us ON (us.user_id = u.user_id AND us.setting_name = \'affiliation\')
+				LEFT JOIN user_interests ui ON (u.user_id = ui.user_id)
+				LEFT JOIN controlled_vocab_entry_settings cves ON (ui.controlled_vocab_entry_id = cves.controlled_vocab_entry_id)
+				LEFT JOIN user_user_groups uug ON (uug.user_id = u.user_id)
+				LEFT JOIN user_groups ug ON (ug.user_group_id = uug.user_group_id)
+			WHERE 1=1' .
+				($contextId?' AND ug.context_id = ?':'') .
+				($userGroupId?' AND ug.user_group_id = ?':'') .
+				$this->_getSearchSql($searchType, $search, $searchMatch, $paramArray),
 			$paramArray,
 			$dbResultRange
 		);
 
-		$returner = new DAOResultFactory($result, $this->userDao, '_returnUserFromRowWithData');
-		return $returner;
-	}
-
-	/**
-	 * Retrieve those users with no group assignments in any context.
-	 * @param array $filter an array of search critera
-	 * @param boolean $allowDisabled
-	 * @param DBResultRarnge $dbResultRange
-	 * @return DAOResultFactory
-	 */
-	function &getUsersWithNoUserGroupAssignments($filter = null, $allowDisabled = true, $dbResultRange = null) {
-
-		$sql = 'SELECT DISTINCT u.*
-			FROM users AS u
-			LEFT JOIN user_settings us ON (us.user_id = u.user_id AND us.setting_name = \'affiliation\')
-			LEFT JOIN user_interests ui ON (u.user_id = ui.user_id)
-			LEFT JOIN controlled_vocab_entry_settings cves ON (ui.controlled_vocab_entry_id = cves.controlled_vocab_entry_id)
-			LEFT JOIN user_user_groups uug ON u.user_id=uug.user_id WHERE uug.user_group_id IS NULL ';
-
-		$sql .= ($allowDisabled?'':' AND u.disabled = 0');
-
-		$searchSql = '';
-		$paramArray = array();
-
-		if (isset($filter)) {
-			$searchType = isset($filter['searchType']) ? $filter['searchType'] : null;
-			$search = isset($filter['search']) ? $filter['search'] : null;
-			$searchMatch = isset($filter['searchMatch']) ? $filter['searchMatch'] : null;
-
-			$searchSql = $this->_getSearchSql($searchType, $search, $searchMatch, $paramArray);
-			$sql .= $searchSql;
-		}
-
-		$result = $this->retrieveRange($sql, $paramArray, $dbResultRange);
-		$returner = new DAOResultFactory($result, $this->userDao, '_returnUserFromRowWithData');
-		return $returner;
+		return new DAOResultFactory($result, $this->userDao, '_returnUserFromRowWithData');
 	}
 
 	//
@@ -631,7 +587,7 @@ class UserGroupDAO extends DAO {
 	 * @param $locale string optional
 	 * @return mixed
 	 */
-	function &getSetting($userGroupId, $name, $locale = null) {
+	function getSetting($userGroupId, $name, $locale = null) {
 		$params = array((int) $userGroupId, $name);
 		if ($locale) $params[] = $locale;
 		$result = $this->retrieve(
@@ -922,7 +878,7 @@ class UserGroupDAO extends DAO {
 	 * @param  $stageId
 	 * @return DAOResultFactory
 	 */
-	function &getUserGroupsByStage($contextId, $stageId, $omitAuthors = false, $omitReviewers = false, $roleId = null) {
+	function getUserGroupsByStage($contextId, $stageId, $omitAuthors = false, $omitReviewers = false, $roleId = null) {
 		$params = array((int) $contextId, (int) $stageId);
 		if ($omitAuthors) $params[] = ROLE_ID_AUTHOR;
 		if ($omitReviewers) $params[] = ROLE_ID_REVIEWER;

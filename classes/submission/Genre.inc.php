@@ -95,7 +95,7 @@ class Genre extends DataObject {
 	}
 
 	/**
-	 * Get sortable flag of the monograph type
+	 * Get sortable flag of the context type
 	 * @return bool
 	 */
 	function getSortable() {
@@ -124,6 +124,22 @@ class Genre extends DataObject {
 	 */
 	function setCategory($category) {
 		return $this->setData('category', $category);
+	}
+
+	/**
+	 * Get dependent flag
+	 * @return bool
+	 */
+	function getDependent() {
+		return $this->getData('dependent');
+	}
+
+	/**
+	 * Set dependent flag
+	 * @param $dependent bool
+	 */
+	function setDependent($dependent) {
+		return $this->setData('dependent', $dependent);
 	}
 }
 

@@ -113,8 +113,9 @@ class SubmissionFilesGridDataProvider extends FilesGridDataProvider {
 		import('lib.pkp.controllers.api.file.linkAction.AddFileLinkAction');
 		$submission = $this->getSubmission();
 		return new AddFileLinkAction(
-			$request, $submission->getId(), $this->getStageId(),
-			$this->getUploaderRoles(), $this->getFileStage()
+			$request, $submission->getId(),
+			$this->getStageId(), $this->getUploaderRoles(),
+			$this->getUploaderGroupIds(), $this->getFileStage()
 		);
 	}
 }

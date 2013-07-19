@@ -29,6 +29,8 @@ class BaseAddFileLinkAction extends LinkAction {
 	 *  constants).
 	 * @param $uploaderRoles array The ids of all roles allowed to upload
 	 *  in the context of this action.
+	 * @param $uploaderGroupIds array The ids of all allowed user groups
+	 *  to upload in the context of this action, or null to permit all.
 	 * @param $actionArgs array The arguments to be passed into the file
 	 *  upload wizard.
 	 * @param $wizardTitle string The title to be displayed in the file
@@ -36,13 +38,14 @@ class BaseAddFileLinkAction extends LinkAction {
 	 * @param $buttonLabel string The link action's button label.
 	 */
 	function BaseAddFileLinkAction($request, $submissionId, $stageId,
-			$uploaderRoles, $actionArgs, $wizardTitle, $buttonLabel) {
+			$uploaderRoles, $uploaderGroupIds, $actionArgs, $wizardTitle, $buttonLabel) {
 
 		// Augment the action arguments array.
 		$actionArgs['submissionId'] = $submissionId;
 		$actionArgs['stageId'] = $stageId;
 		assert(is_array($uploaderRoles) && count($uploaderRoles) >= 1);
-		$actionArgs['uploaderRoles'] = implode('-', $uploaderRoles);
+		$actionArgs['uploaderRoles'] = implode('-', (array) $uploaderRoles);
+		$actionArgs['uploaderGroupIds'] = implode('-', (array) $uploaderGroupIds);
 
 		// Instantiate the file upload modal.
 		$dispatcher = $request->getDispatcher();

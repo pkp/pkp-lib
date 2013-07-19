@@ -75,7 +75,7 @@ class SubmissionFilesGridHandler extends GridHandler {
 	 */
 	function &getSubmission() {
 		// We assume proper authentication by the data provider.
-		$submission =& $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		assert(is_a($submission, 'Submission'));
 		return $submission;
 	}

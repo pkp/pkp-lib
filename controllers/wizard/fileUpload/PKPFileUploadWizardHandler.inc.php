@@ -34,6 +34,9 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 	/** @var array */
 	var $_uploaderRoles;
 
+	/** @var array */
+	var $_uploaderGroupIds;
+
 	/** @var boolean */
 	var $_revisionOnly;
 
@@ -81,12 +84,23 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 
 		// Set the uploader roles (if given).
 		$uploaderRoles = $request->getUserVar('uploaderRoles');
-		if (!is_null($uploaderRoles)) {
+		if (!empty($uploaderRoles)) {
 			$this->_uploaderRoles = array();
 			$uploaderRoles = explode('-', $uploaderRoles);
 			foreach($uploaderRoles as $uploaderRole) {
 				if (!is_numeric($uploaderRole)) fatalError('Invalid uploader role!');
 				$this->_uploaderRoles[] = (int)$uploaderRole;
+			}
+		}
+
+		// Set the uploader group IDs (if given).
+		$uploaderGroupIds = $request->getUserVar('uploaderGroupIds');
+		if (!empty($uploaderGroupIds)) {
+			$this->_uploaderGroupIds = array();
+			$uploaderGroupIds = explode('-', $uploaderGroupIds);
+			foreach($uploaderGroupIds as $uploaderGroupId) {
+				if (!is_numeric($uploaderGroupId)) fatalError('Invalid uploader group ID!');
+				$this->_uploaderGroupIds[] = (int)$uploaderGroupId;
 			}
 		}
 
@@ -135,6 +149,14 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 	 */
 	function getUploaderRoles() {
 		return $this->_uploaderRoles;
+	}
+
+	/**
+	 * Get the uploader group IDs.
+	 * @return array
+	 */
+	function getUploaderGroupIds() {
+		return $this->_uploaderGroupIds;
 	}
 
 	/**
@@ -197,7 +219,10 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 		$templateMgr->assign('stageId', $this->getStageId());
 
 		// Assign the roles allowed to upload in the given context.
-		$templateMgr->assign('uploaderRoles', implode('-', $this->getUploaderRoles()));
+		$templateMgr->assign('uploaderRoles', implode('-', (array) $this->getUploaderRoles()));
+
+		// Assign the roles allowed to upload in the given context.
+		$templateMgr->assign('uploaderGroupIds', implode('-', (array) $this->getUploaderGroupIds()));
 
 		// Assign the file stage.
 		$templateMgr->assign('fileStage', $this->getFileStage());
@@ -233,7 +258,7 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 		import('controllers.wizard.fileUpload.form.SubmissionFilesUploadForm'); // app-specific
 		$submission = $this->getSubmission();
 		$fileForm = new SubmissionFilesUploadForm(
-			$request, $submission->getId(), $this->getStageId(), $this->getUploaderRoles(), $this->getFileStage(),
+			$request, $submission->getId(), $this->getStageId(), $this->getUploaderRoles(), $this->getUploaderGroupIds(), $this->getFileStage(),
 			$this->getRevisionOnly(), $this->getReviewRound(), $this->getRevisedFileId(),
 			$this->getAssocType(), $this->getAssocId()
 		);

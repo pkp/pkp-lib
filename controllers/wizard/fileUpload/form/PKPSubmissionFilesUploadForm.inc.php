@@ -20,12 +20,16 @@ class PKPSubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 	/** @var array */
 	var $_uploaderRoles;
 
+	/** @var array */
+	var $_uploaderGroupIds;
+
 
 	/**
 	 * Constructor.
 	 * @param $request Request
 	 * @param $submissionId integer
 	 * @param $uploaderRoles array
+	 * @param $uploaderGroupIds array|null
 	 * @param $stageId integer One of the WORKFLOW_STAGE_ID_* constants.
 	 * @param $fileStage integer
 	 * @param $revisionOnly boolean
@@ -33,12 +37,15 @@ class PKPSubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 	 * @param $reviewRound ReviewRound
 	 * @param $revisedFileId integer
 	 */
-	function PKPSubmissionFilesUploadForm($request, $submissionId, $stageId, $uploaderRoles, $fileStage,
+	function PKPSubmissionFilesUploadForm($request, $submissionId, $stageId, $uploaderRoles, $uploaderGroupIds, $fileStage,
 			$revisionOnly = false, $reviewRound = null, $revisedFileId = null, $assocType = null, $assocId = null) {
 
 		// Initialize class.
 		assert(is_null($uploaderRoles) || (is_array($uploaderRoles) && count($uploaderRoles) >= 1));
 		$this->_uploaderRoles = $uploaderRoles;
+
+		assert(is_null($uploaderGroupIds) || (is_array($uploaderGroupIds) && count($uploaderGroupIds) >= 1));
+		$this->_uploaderGroupIds = $uploaderGroupIds;
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
 
@@ -59,6 +66,14 @@ class PKPSubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 	function getUploaderRoles() {
 		assert(!is_null($this->_uploaderRoles));
 		return $this->_uploaderRoles;
+	}
+
+	/**
+	 * Get the uploader group IDs.
+	 * @return array|null
+	 */
+	function getUploaderGroupIds() {
+		return $this->_uploaderGroupIds;
 	}
 
 
@@ -146,33 +161,38 @@ class PKPSubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 		// user is assigned to the current submission as a sub
 		// editor, see #6000.
 		$uploaderRoles = $this->getUploaderRoles();
-		$uploaderUserGroups = array();
+		$uploaderUserGroups = $this->getUploaderGroupIds();
+		$uploaderUserGroupOptions = array();
 		$highestAuthorityUserGroupId = null;
 		$highestAuthorityRoleId = null;
 		while($userGroup = $assignedUserGroups->next()) { /* @var $userGroup UserGroup */
-			// Add all user groups that belong to any of the uploader roles.
-			if (in_array($userGroup->getRoleId(), $uploaderRoles)) {
-				$uploaderUserGroups[$userGroup->getId()] = $userGroup->getLocalizedName();
+			// Exclude groups outside of the uploader roles.
+			if (!in_array($userGroup->getRoleId(), $uploaderRoles)) continue;
 
-				// Identify the first of the user groups that belongs
-				// to the role with the lowest role id (=highest authority
-				// level). We'll need this information to identify the default
-				// selection, see below.
-				if (is_null($highestAuthorityUserGroupId) || $userGroup->getRoleId() <= $highestAuthorityRoleId) {
-					$highestAuthorityRoleId = $userGroup->getRoleId();
-					if (is_null($highestAuthorityUserGroupId) || $userGroup->getId() < $highestAuthorityUserGroupId) {
-						$highestAuthorityUserGroupId = $userGroup->getId();
-					}
+			// If a specific subset of user groups was specified
+			// and the current one is outside the set, exclude it.
+			if ($uploaderUserGroups !== null && !in_array($userGroup->getId(), $uploaderUserGroups)) continue;
+
+			$uploaderUserGroupOptions[$userGroup->getId()] = $userGroup->getLocalizedName();
+
+			// Identify the first of the user groups that belongs
+			// to the role with the lowest role id (=highest authority
+			// level). We'll need this information to identify the default
+			// selection, see below.
+			if (is_null($highestAuthorityUserGroupId) || $userGroup->getRoleId() <= $highestAuthorityRoleId) {
+				$highestAuthorityRoleId = $userGroup->getRoleId();
+				if (is_null($highestAuthorityUserGroupId) || $userGroup->getId() < $highestAuthorityUserGroupId) {
+					$highestAuthorityUserGroupId = $userGroup->getId();
 				}
 			}
 		}
-		if (empty($uploaderUserGroups)) fatalError('Invalid uploader roles!');
-		$this->setData('uploaderUserGroups', $uploaderUserGroups);
+		if (empty($uploaderUserGroupOptions)) fatalError('Invalid uploader roles!');
+		$this->setData('uploaderUserGroupOptions', $uploaderUserGroupOptions);
 
 		// Identify the default user group (only required when there is
 		// more than one group).
 		$defaultUserGroupId = null;
-		if (count($uploaderUserGroups) > 1) {
+		if (count($uploaderUserGroupOptions) > 1) {
 			// See whether the current user has been assigned as
 			// a workflow stage participant.
 			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
@@ -184,7 +204,7 @@ class PKPSubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 			);
 
 			while ($stageAssignment = $stageAssignments->next()) { /* @var $stageSignoff Signoff */
-				if (isset($uploaderUserGroups[$stageAssignment->getUserGroupId()])) {
+				if (isset($uploaderUserGroupOptions[$stageAssignment->getUserGroupId()])) {
 					$defaultUserGroupId = $stageAssignment->getUserGroupId();
 					break;
 				}

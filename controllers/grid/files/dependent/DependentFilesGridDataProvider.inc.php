@@ -54,7 +54,7 @@ class DependentFilesGridDataProvider extends SubmissionFilesGridDataProvider {
 		$submission = $this->getSubmission();
 		return new AddFileLinkAction(
 			$request, $submission->getId(), $this->getStageId(),
-			$this->getUploaderRoles(), $this->getFileStage(),
+			$this->getUploaderRoles(), null, $this->getFileStage(),
 			ASSOC_TYPE_SUBMISSION_FILE, $this->getAssocId(), null,
 			$this->isDependent()
 		);

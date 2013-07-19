@@ -118,11 +118,10 @@ class UserGridRow extends GridRow {
 
 			$sessionManager = SessionManager::getManager();
 			$session = $sessionManager->getUserSession();
-			$journal = $request->getJournal();
 			if (
 				!Validation::isLoggedInAs() and
 				$session->user->getId() != $this->getId() and
-				Validation::canAdminister($journal->getId(), $this->getId())
+				Validation::canAdminister($this->getId(), $session->user->getId())
 			) {
 				$dispatcher = $router->getDispatcher();
 				$this->addAction(

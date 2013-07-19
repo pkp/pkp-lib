@@ -177,7 +177,7 @@ class PKPValidation {
 	/**
 	 * Check if a user is authorized to access the specified role in the specified context.
 	 * @param $roleId int
-	 * @param $pressId optional (e.g., for global site admin role), the ID of the context
+	 * @param $contextId optional (e.g., for global site admin role), the ID of the context
 	 * @return boolean
 	 */
 	static function isAuthorized($roleId, $contextId = 0) {
@@ -319,13 +319,13 @@ class PKPValidation {
 		// Admin can administer everyone
 		if ($roleDao->userHasRole(0, $administratorUserId, ROLE_ID_SITE_ADMIN)) return true;
 
-		// Check for administered user group assignments in other contextes
+		// Check for administered user group assignments in other contexts
 		// that the administrator user doesn't have a manager role in.
-		$contextDao =& Application::getContextDAO();
-		$contextes = $contextDao->getAll();
+		$contextDao = Application::getContextDAO();
+		$contexts = $contextDao->getAll();
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		while(!$contextes->eof()) {
-			$context = $contextes->next();
+		while(!$contexts->eof()) {
+			$context = $contexts->next();
 			$userGroups = $userGroupDao->getByUserId($administeredUserId, $context->getId());
 			while (!$userGroups->eof()) {
 				$userGroup =& $userGroups->next();

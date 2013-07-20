@@ -321,21 +321,13 @@ class PKPValidation {
 
 		// Check for administered user group assignments in other contexts
 		// that the administrator user doesn't have a manager role in.
-		$contextDao = Application::getContextDAO();
-		$contexts = $contextDao->getAll();
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		while(!$contexts->eof()) {
-			$context = $contexts->next();
-			$userGroups = $userGroupDao->getByUserId($administeredUserId, $context->getId());
-			while (!$userGroups->eof()) {
-				$userGroup =& $userGroups->next();
-				if (!$roleDao->userHasRole($userGroup->getContextId(), $administratorUserId, ROLE_ID_MANAGER)) {
-					// Found an assignment: disqualified.
-					return false;
-				}
-				unset($userGroup);
+		$userGroups = $userGroupDao->getByUserId($administeredUserId);
+		while ($userGroup = $userGroups->next()) {
+			if (!$roleDao->userHasRole($userGroup->getContextId(), $administratorUserId, ROLE_ID_MANAGER)) {
+				// Found an assignment: disqualified.
+				return false;
 			}
-			unset($context, $userGroups);
 		}
 
 		// There were no conflicting roles.

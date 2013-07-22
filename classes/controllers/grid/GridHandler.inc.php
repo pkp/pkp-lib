@@ -297,9 +297,10 @@ class GridHandler extends PKPHandler {
 	 * @return array
 	 */
 	function &getGridDataElements($request) {
+		$filter = $this->getFilterSelectionData($request);
+
 		// Try to load data if it has not yet been loaded.
 		if (is_null($this->_data)) {
-			$filter = $this->getFilterSelectionData($request);
 			$data = $this->loadData($request, $filter);
 
 			if (is_null($data)) {
@@ -309,6 +310,8 @@ class GridHandler extends PKPHandler {
 
 			$this->setGridDataElements($data);
 		}
+
+		$this->callFeaturesHook('getGridDataElements', array('request' => $request, 'grid' => $this, 'gridData' => &$gridData, 'filter' => $filter));
 
 		return $this->_data;
 	}

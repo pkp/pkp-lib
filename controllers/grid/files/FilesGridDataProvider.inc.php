@@ -70,7 +70,7 @@ class FilesGridDataProvider extends GridDataProvider {
 	 * @return array
 	 */
 	function getUploaderGroupIds() {
-		assert(is_array($this->_uploaderGroupIds) || $_uploaderGroupIds === null);
+		assert(is_array($this->_uploaderGroupIds) || $this->_uploaderGroupIds === null);
 		return $this->_uploaderGroupIds;
 	}
 

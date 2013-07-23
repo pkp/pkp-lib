@@ -51,7 +51,7 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 	 * @param $genreId int (e.g. Manuscript, Appendix, etc.)
 	 * @return SubmissionFile
 	 */
-	function &uploadSubmissionFile($fileName, $fileStage, $uploaderUserId,
+	function uploadSubmissionFile($fileName, $fileStage, $uploaderUserId,
 			$uploaderUserGroupId, $revisedFileId = null, $genreId = null, $assocType = null, $assocId = null) {
 		return $this->_handleUpload(
 			$fileName, $fileStage, $uploaderUserId,
@@ -128,7 +128,7 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 	function temporaryFileToSubmissionFile(&$temporaryFile, $fileStage, $uploaderUserId, $uploaderUserGroupId, $revisedFileId, $genreId, $assocType, $assocId) {
 		// Instantiate and pre-populate the new target submission file.
 		$sourceFile = $temporaryFile->getFilePath();
-		$submissionFile =& $this->_instantiateSubmissionFile($sourceFile, $fileStage, $revisedFileId, $genreId, $assocType, $assocId);
+		$submissionFile = $this->_instantiateSubmissionFile($sourceFile, $fileStage, $revisedFileId, $genreId, $assocType, $assocId);
 
 		// Transfer data from the temporary file to the submission file.
 		$submissionFile->setFileType($temporaryFile->getFileType());
@@ -215,7 +215,7 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 	 * @param $assocId int
 	 * @return SubmissionFile the uploaded submission file or null if an error occured.
 	 */
-	function &_handleUpload($fileName, $fileStage, $uploaderUserId, $uploaderUserGroupId,
+	function _handleUpload($fileName, $fileStage, $uploaderUserId, $uploaderUserGroupId,
 			$revisedFileId = null, $genreId = null, $assocType = null, $assocId = null) {
 
 		$nullVar = null;
@@ -260,7 +260,7 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 	 * @param $assocType integer optional
 	 * @return SubmissionFile returns the instantiated submission file or null if an error occurs.
 	 */
-	function &_instantiateSubmissionFile($sourceFilePath, $fileStage, $revisedFileId = null, $genreId = null, $assocType = null, $assocId = null) {
+	function _instantiateSubmissionFile($sourceFilePath, $fileStage, $revisedFileId = null, $genreId = null, $assocType = null, $assocId = null) {
 		$nullVar = null;
 
 		// Retrieve the submission file DAO.
@@ -296,6 +296,7 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 				$submissionFile->setSourceFileId($revisedFileId);
 				$submissionFile->setSourceRevision($revisedFile->getRevision());
 				$submissionFile->setRevision(1);
+				$submissionFile->setViewable(false);
 			} else {
 				// Create a new revision of the file with the existing file id.
 				$submissionFile->setFileId($revisedFileId);
@@ -321,6 +322,7 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 		} else {
 			// Create the first revision of a new file.
 			$submissionFile->setRevision(1);
+			$submissionFile->setViewable($fileStage == SUBMISSION_FILE_SUBMISSION?true:false); // Bug #8308: Submission files should be selected for promotion by default
 		}
 
 		// Determine and set the file size of the file.

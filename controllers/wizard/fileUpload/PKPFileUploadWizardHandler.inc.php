@@ -280,7 +280,7 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 		$submission = $this->getSubmission();
 		import('controllers.wizard.fileUpload.form.SubmissionFilesUploadForm'); // app-specific
 		$uploadForm = new SubmissionFilesUploadForm(
-			$request, $submission->getId(), $this->getStageId(), null, $this->getFileStage(),
+			$request, $submission->getId(), $this->getStageId(), null, null, $this->getFileStage(),
 			$this->getRevisionOnly(), $this->getReviewRound(), null, $this->getAssocType(), $this->getAssocId()
 		);
 		$uploadForm->readInputData();

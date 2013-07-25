@@ -1,7 +1,10 @@
 <?php
 
 /**
- * @defgroup submission
+ * @defgroup submission Submission
+ * The abstract concept of a submission is implemented here, and extended
+ * in each application with the specifics of that content model, i.e.
+ * Articles in OJS, Papers in OCS, and Monographs in OMP.
  */
 
 /**
@@ -12,8 +15,10 @@
  *
  * @class Submission
  * @ingroup submission
+ * @see SubmissionDAO
  *
- * @brief Submission class.
+ * @brief The Submission class implements the abstract data model of a
+ * scholarly submission.
  */
 
 // Submission status constants

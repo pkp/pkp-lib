@@ -1,7 +1,9 @@
 <?php
 
 /**
- * @defgroup file
+ * @defgroup file File
+ * Implements file management tools, including a database-backed list of files
+ * associated with submissions.
  */
 
 /**

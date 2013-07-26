@@ -1,6 +1,8 @@
 <?php
 /**
- * @defgroup linkAction
+ * @defgroup linkAction LinkActions
+ * Link actions are representations of various kinds of actions that can be
+ * invoked by clicking a link.
  */
 
 /**

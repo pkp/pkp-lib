@@ -1,7 +1,8 @@
 <?php
 
 /**
- * @defgroup identity
+ * @defgroup identity Identity
+ * Implements an abstract identity underlying e.g. User and Author records.
  */
 
 /**

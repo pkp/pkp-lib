@@ -1,7 +1,9 @@
 <?php
 
 /**
- * @defgroup stageAssignment
+ * @defgroup stageAssignment Stage Assignment
+ * Implements Stage Assignments, which describe the assignment of users to
+ * stages (discrete parts of the workflow, e.g. Internal Review or Production).
  */
 
 /**

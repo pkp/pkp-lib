@@ -1,7 +1,9 @@
 <?php
 
 /**
- * @defgroup install
+ * @defgroup install Install
+ * Implements a software installer, including a flexible upgrader that can
+ * manage schema changes, data representation changes, etc.
  */
 
 /**

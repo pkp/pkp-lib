@@ -1,7 +1,8 @@
 <?php
 
 /**
- * @defgroup tools
+ * @defgroup tools Tools
+ * Implements command-line management tools for PKP software.
  */
 
 /**

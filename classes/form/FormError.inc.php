@@ -1,10 +1,6 @@
 <?php
 
 /**
- * @defgroup form
- */
-
-/**
  * @file classes/form/FormError.inc.php
  *
  * Copyright (c) 2000-2013 John Willinsky

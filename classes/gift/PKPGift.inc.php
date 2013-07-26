@@ -1,7 +1,8 @@
 <?php
 
 /**
- * @defgroup gift
+ * @defgroup gift Gift
+ * Implements the representation of a gift.
  */
 
 /**

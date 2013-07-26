@@ -1,6 +1,7 @@
 <?php
 /**
- * @defgroup tools
+ * @defgroup tools Tools
+ * Command-line tools for software administration
  */
 
 /**

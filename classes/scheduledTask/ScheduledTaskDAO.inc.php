@@ -1,7 +1,9 @@
 <?php
 
 /**
- * @defgroup scheduledTask
+ * @defgroup scheduledTask Scheduled Tasks
+ * Implements a scheduled task mechanism allowing for the periodic execution
+ * of maintenance tasks, notification, etc.
  */
 
 /**

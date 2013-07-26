@@ -1,7 +1,8 @@
 <?php
 
 /**
- * @defgroup signoff
+ * @defgroup signoff Signoff
+ * Implements signoffs, i.e. opportunities to respond to an assigned item with approval.
  */
 
 /**

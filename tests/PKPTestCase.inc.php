@@ -1,6 +1,7 @@
 <?php
 /**
- * @defgroup tests
+ * @defgroup tests Tests
+ * Tests and test framework for unit and integration tests.
  */
 
 /**

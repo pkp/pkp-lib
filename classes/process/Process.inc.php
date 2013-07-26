@@ -1,6 +1,9 @@
 <?php
 /**
- * @defgroup process
+ * @defgroup process Process
+ * Implements process management tools, used e.g. to manage background tasks
+ * that can be spawned by web requests to handle expensive operations behind
+ * the scenes.
  */
 
 /**

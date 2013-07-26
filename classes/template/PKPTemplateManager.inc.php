@@ -1,7 +1,8 @@
 <?php
 
 /**
- * @defgroup template
+ * @defgroup template Template
+ * Implements template management.
  */
 
 /**

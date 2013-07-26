@@ -1,7 +1,8 @@
 <?php
 
 /**
- * @defgroup security
+ * @defgroup security Security
+ * Concerns related to security, such as access keys, user groups, and roles.
  */
 
 /**

@@ -1,7 +1,8 @@
 <?php
 
 /**
- * @defgroup comment
+ * @defgroup comment Comment
+ * Implements reader comments.
  */
 
 /**

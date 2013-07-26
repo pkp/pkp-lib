@@ -1,7 +1,8 @@
 <?php
 
 /**
- * @defgroup i18n
+ * @defgroup i18n I18N
+ * Implements localization concerns such as locale files, time zones, and country lists.
  */
 
 /**

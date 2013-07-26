@@ -1,7 +1,8 @@
 <?php
 
 /**
- * @defgroup session
+ * @defgroup session Session
+ * Implements session concerns such as the session manager, session objects, etc.
  */
 
 /**

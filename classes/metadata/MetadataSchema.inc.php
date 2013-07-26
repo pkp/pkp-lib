@@ -1,7 +1,10 @@
 <?php
 
 /**
- * @defgroup metadata
+ * @defgroup metadata Metadata
+ * Implements the metadata framework, which allows for the flexible description
+ * of objects in many schemas, and conversion of metadata from one schema to
+ * another.
  */
 
 /**

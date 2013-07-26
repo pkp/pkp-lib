@@ -1,7 +1,8 @@
 <?php
 
 /**
- * @defgroup core
+ * @defgroup core Core
+ * Core web application concerns such as routing, dispatching, etc.
  */
 
 /**

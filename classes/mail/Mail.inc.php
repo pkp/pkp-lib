@@ -1,7 +1,8 @@
 <?php
 
 /**
- * @defgroup mail
+ * @defgroup mail Mail
+ * Mail delivery code.
  */
 
 /**

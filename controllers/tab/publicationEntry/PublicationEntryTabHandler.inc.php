@@ -72,7 +72,7 @@ class PublicationEntryTabHandler extends Handler {
 	// Extended methods from Handler
 	//
 	/**
-	 * @see PKPHandler::initialize()
+	 * @copydoc PKPHandler::initialize()
 	 */
 	function initialize($request) {
 		$this->setCurrentTab($request->getUserVar('tab'));
@@ -85,7 +85,7 @@ class PublicationEntryTabHandler extends Handler {
 	}
 
 	/**
-	 * @see PKPHandler::authorize()
+	 * @copydoc PKPHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
 		$stageId = (int) $request->getUserVar('stageId');

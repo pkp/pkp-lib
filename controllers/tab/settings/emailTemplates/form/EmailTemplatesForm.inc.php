@@ -36,7 +36,7 @@ class EmailTemplatesForm extends ContextSettingsForm {
 	// Implement template methods from Form.
 	//
 	/**
-	 * @see ContextSettingsForm::fetch()
+	 * @copydoc ContextSettingsForm::fetch()
 	 */
 	function fetch($request) {
 		$params = array('envelopeSenderDisabled' => !Config::getVar('email', 'allow_envelope_sender'));

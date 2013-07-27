@@ -37,8 +37,7 @@ class PKPInformationCenterNotifyForm extends Form {
 	}
 
 	/**
-	 * Fetch the form.
-	 * @see Form::fetch()
+	 * @copydoc Form::fetch()
 	 */
 	function fetch($request) {
 		$templateMgr = TemplateManager::getManager($request);
@@ -82,8 +81,7 @@ class PKPInformationCenterNotifyForm extends Form {
 	}
 
 	/**
-	 * Assign form data to user-submitted data.
-	 * @see Form::readInputData()
+	 * @copydoc Form::readInputData()
 	 */
 	function readInputData($request) {
 		$this->readUserVars(array('message', 'users', 'template'));
@@ -93,16 +91,14 @@ class PKPInformationCenterNotifyForm extends Form {
 	}
 
 	/**
-	 * Sends a a notification.
-	 * @see Form::execute()
+	 * @copydoc Form::execute()
 	 */
 	function execute($request) {
 		return parent::execute($request);
 	}
 
 	/**
-	 * Prepare an email for each user and send
-	 * @see ListbuilderHandler::insertEntry
+	 * @copydoc ListbuilderHandler::insertEntry()
 	 */
 	function insertEntry($request, $newRowId) {
 
@@ -174,10 +170,10 @@ class PKPInformationCenterNotifyForm extends Form {
 
 	/**
 	 * Delete a signoff
-	 * (It was throwing a warning when this was not specified. We just want
-	 * client side delete.)
 	 */
 	function deleteEntry($request, $rowId) {
+		// Dummy function; PHP throws a warning when this is not specified.
+		// The actual delete is done on the client side.
 		return true;
 	}
 

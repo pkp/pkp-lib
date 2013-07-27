@@ -35,7 +35,7 @@ class FooterLinkListbuilderHandler extends SetupListbuilderHandler {
 	// Overridden template methods
 	//
 	/**
-	 * @see SetupListbuilderHandler::initialize()
+	 * @copydoc SetupListbuilderHandler::initialize()
 	 */
 	function initialize($request) {
 		parent::initialize($request);
@@ -69,7 +69,7 @@ class FooterLinkListbuilderHandler extends SetupListbuilderHandler {
 	}
 
 	/**
-	 * @see GridHandler::loadData()
+	 * @copydoc GridHandler::loadData()
 	 */
 	function loadData($request) {
 		$context = $this->getContext();
@@ -78,9 +78,7 @@ class FooterLinkListbuilderHandler extends SetupListbuilderHandler {
 	}
 
 	/**
-	 * @see GridHandler::getRowDataElement
-	 * Get the data element that corresponds to the current request
-	 * Allow for a blank $rowId for when creating a not-yet-persisted row
+	 * @copydoc GridHandler::getRowDataElement
 	 */
 	function getRowDataElement($request, $rowId) {
 		// fallback on the parent if a rowId is found

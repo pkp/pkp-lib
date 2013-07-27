@@ -32,7 +32,7 @@ class PaymentMethodForm extends ContextSettingsForm {
 	}
 
 	/**
-	 * @see ContextSettingsForm::fetch
+	 * @copydoc ContextSettingsForm::fetch()
 	 */
 	function fetch($request) {
 		$templateMgr = TemplateManager::getManager($request);
@@ -46,11 +46,11 @@ class PaymentMethodForm extends ContextSettingsForm {
 	}
 
 	/**
-	 * @see ContextSettingsForm::initData
+	 * @copydoc ContextSettingsForm::initData()
 	 */
 
 	/**
-	 * @see ContextSettingsForm::readInputData
+	 * @copydoc ContextSettingsForm::readInputData()
 	 */
 	function readInputData($request) {
 		parent::readInputData($request);
@@ -63,7 +63,7 @@ class PaymentMethodForm extends ContextSettingsForm {
 	}
 
 	/**
-	 * @see ContextSettingsForm::execute
+	 * @copydoc ContextSettingsForm::execute()
 	 */
 	function execute($request) {
 		$context = $request->getContext();

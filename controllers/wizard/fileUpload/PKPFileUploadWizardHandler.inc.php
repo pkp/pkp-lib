@@ -74,7 +74,7 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 	// Implement template methods from PKPHandler
 	//
 	/**
-	 * @see PKPHandler::initialize()
+	 * @copydoc PKPHandler::initialize()
 	 */
 	function initialize($request, $args) {
 		parent::initialize($request, $args);

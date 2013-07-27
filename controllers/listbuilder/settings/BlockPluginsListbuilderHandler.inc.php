@@ -27,7 +27,7 @@ class BlockPluginsListbuilderHandler extends MultipleListsListbuilderHandler {
 	}
 
 	/**
-	 * @see GridHandler::authorize($request, $args, $roleAssignments)
+	 * @copydoc GridHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.PkpContextAccessPolicy');
@@ -36,7 +36,7 @@ class BlockPluginsListbuilderHandler extends MultipleListsListbuilderHandler {
 	}
 
 	/**
-	 * @see ListbuilderHandler::initialize()
+	 * @copydoc ListbuilderHandler::initialize()
 	 */
 	function initialize($request) {
 		parent::initialize($request);
@@ -64,7 +64,7 @@ class BlockPluginsListbuilderHandler extends MultipleListsListbuilderHandler {
 	// Overridden template methods
 	//
 	/**
-	 * @see MultipleListsListbuilderHandler::setListsData()
+	 * @copydoc MultipleListsListbuilderHandler::setListsData()
 	 */
 	function setListsData($request, $filter) {
 		$leftBlockPlugins = $disabledBlockPlugins = $rightBlockPlugins = array();

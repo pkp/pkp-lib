@@ -44,7 +44,7 @@ class SendReviewsForm extends EditorDecisionWithEmailForm {
 	// Implement protected template methods from Form
 	//
 	/**
-	 * @see Form::initData()
+	 * @copydoc Form::initData()
 	 */
 	function initData($args, $request) {
 		$actionLabels = EditorDecisionActionsManager::getActionLabels($this->_getDecisions());
@@ -53,7 +53,7 @@ class SendReviewsForm extends EditorDecisionWithEmailForm {
 	}
 
 	/**
-	 * @see Form::execute()
+	 * @copydoc Form::execute()
 	 */
 	function execute($args, $request) {
 		// Retrieve the submission.

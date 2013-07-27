@@ -44,7 +44,7 @@ class SubmissionFilesUploadConfirmationForm extends SubmissionFilesUploadBaseFor
 	// Implement template methods from Form
 	//
 	/**
-	 * @see Form::readInputData()
+	 * @copydoc Form::readInputData()
 	 */
 	function readInputData() {
 		$this->readUserVars(array('uploadedFileId'));
@@ -52,6 +52,7 @@ class SubmissionFilesUploadConfirmationForm extends SubmissionFilesUploadBaseFor
 	}
 
 	/**
+	 * Save the submission file upload confirmation form.
 	 * @see Form::execute()
 	 * @param $request Request
 	 * @return SubmissionFile if successful, otherwise null

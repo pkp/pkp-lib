@@ -80,21 +80,21 @@ class SubmissionFilesMetadataForm extends Form {
 	// Implement template methods from Form
 	//
 	/**
-	 * @see Form::getLocaleFieldNames()
+	 * @copydoc Form::getLocaleFieldNames()
 	 */
 	function getLocaleFieldNames() {
 		return array('name');
 	}
 
 	/**
-	 * @see Form::readInputData()
+	 * @copydoc Form::readInputData()
 	 */
 	function readInputData() {
 		$this->readUserVars(array('name', 'note'));
 	}
 
 	/**
-	 * @see Form::fetch()
+	 * @copydoc Form::fetch()
 	 */
 	function fetch($request) {
 		$templateMgr = TemplateManager::getManager($request);
@@ -116,7 +116,7 @@ class SubmissionFilesMetadataForm extends Form {
 	}
 
 	/**
-	 * @see Form::execute()
+	 * @copydoc Form::execute()
 	 */
 	function execute($args, $request) {
 		// Update the submission file with data from the form.

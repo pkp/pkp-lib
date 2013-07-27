@@ -29,7 +29,7 @@ class CopyeditingFilesListbuilderHandler extends FilesListbuilderHandler {
 	// Implement template methods from PKPHandler
 	//
 	/**
-	 * @see PKPHandler::authorize()
+	 * @copydoc PKPHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
 		return parent::authorize($request, $args, $roleAssignments, WORKFLOW_STAGE_ID_EDITING);
@@ -40,7 +40,7 @@ class CopyeditingFilesListbuilderHandler extends FilesListbuilderHandler {
 	// Implement methods from FilesListbuilderHandler
 	//
 	/**
-	 * @see FilesListbuilderHandler::initialize
+	 * @copydoc FilesListbuilderHandler::initialize()
 	 */
 	function initialize($request) {
 		parent::initialize($request);
@@ -49,7 +49,7 @@ class CopyeditingFilesListbuilderHandler extends FilesListbuilderHandler {
 	}
 
 	/**
-	 * @see controllers/listbuilder/files/FilesListbuilderHandler::getOptions()
+	 * @copydoc FilesListbuilderHandler::getOptions()
 	 */
 	function getOptions() {
 		import('lib.pkp.classes.submission.SubmissionFile');

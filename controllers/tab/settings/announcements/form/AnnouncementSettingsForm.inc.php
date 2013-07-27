@@ -35,7 +35,7 @@ class AnnouncementSettingsForm extends ContextSettingsForm {
 	// Implement template methods from Form.
 	//
 	/**
-	 * @see Form::getLocaleFieldNames()
+	 * @copydoc Form::getLocaleFieldNames()
 	 */
 	function getLocaleFieldNames() {
 		return array('announcementsIntroduction');
@@ -46,7 +46,7 @@ class AnnouncementSettingsForm extends ContextSettingsForm {
 	// Implement template methods from ContextSettingsForm.
 	//
 	/**
-	 * @see ContextSettingsForm::fetch()
+	 * @copydoc ContextSettingsForm::fetch()
 	 */
 	function fetch($request) {
 		for($x = 1; $x < 11; $x++) {

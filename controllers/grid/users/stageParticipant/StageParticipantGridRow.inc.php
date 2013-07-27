@@ -40,8 +40,7 @@ class StageParticipantGridRow extends GridRow {
 	// Overridden methods from GridRow
 	//
 	/**
-	 * @see GridRow::initialize()
-	 * @param $request PKPRequest
+	 * @copydoc GridRow::initialize()
 	 */
 	function initialize($request) {
 		// Do the default initialization
@@ -97,9 +96,7 @@ class StageParticipantGridRow extends GridRow {
 	}
 
 	/**
-	 * Get the grid request parameters.
-	 * @see GridHandler::getRequestArgs()
-	 * @return array
+	 * @copydoc GridHandler::getRequestArgs()
 	 */
 	function getRequestArgs() {
 		return array(

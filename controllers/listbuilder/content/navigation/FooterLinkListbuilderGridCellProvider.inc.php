@@ -26,7 +26,7 @@ class FooterLinkListbuilderGridCellProvider extends GridCellProvider {
 	// Template methods from GridCellProvider
 	//
 	/**
-	 * @see GridCellProvider::getTemplateVarsFromRowColumn()
+	 * @copydoc GridCellProvider::getTemplateVarsFromRowColumn()
 	 */
 	function getTemplateVarsFromRowColumn($row, $column) {
 		$footerLink =& $row->getData(); /* @var $footerLink FooterLink */

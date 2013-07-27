@@ -30,7 +30,7 @@ class NewSiteCssFileForm extends SettingsFileUploadForm {
 	// Extend methods from SettingsFileUploadForm.
 	//
 	/**
-	 * @see SettingsFileUploadForm::fetch()
+	 * @copydoc SettingsFileUploadForm::fetch()
 	 */
 	function fetch($request) {
 		$params = array('fileType' => 'css');

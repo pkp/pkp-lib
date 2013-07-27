@@ -45,7 +45,7 @@ class PromoteForm extends EditorDecisionWithEmailForm {
 	// Implement protected template methods from Form
 	//
 	/**
-	 * @see Form::initData()
+	 * @copydoc Form::initData()
 	 */
 	function initData($args, $request) {
 		$actionLabels = EditorDecisionActionsManager::getActionLabels($this->_getDecisions());
@@ -57,7 +57,7 @@ class PromoteForm extends EditorDecisionWithEmailForm {
 	}
 
 	/**
-	 * @see Form::execute()
+	 * @copydoc Form::execute()
 	 */
 	function execute($args, $request) {
 		// Retrieve the submission.

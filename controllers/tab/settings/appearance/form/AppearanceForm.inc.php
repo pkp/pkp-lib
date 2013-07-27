@@ -62,7 +62,7 @@ class AppearanceForm extends ContextSettingsForm {
 	// Implement template methods from Form.
 	//
 	/**
-	 * @see Form::getLocaleFieldNames()
+	 * @copydoc Form::getLocaleFieldNames()
 	 */
 	function getLocaleFieldNames() {
 		return array(
@@ -79,7 +79,7 @@ class AppearanceForm extends ContextSettingsForm {
 	// Extend methods from ContextSettingsForm.
 	//
 	/**
-	 * @see ContextSettingsForm::fetch()
+	 * @copydoc ContextSettingsForm::fetch()
 	 */
 	function fetch($request) {
 		// Get all upload form image link actions.
@@ -188,7 +188,7 @@ class AppearanceForm extends ContextSettingsForm {
 	}
 
 	/**
-	 * @see ContextSettingsForm::execute()
+	 * @copydoc ContextSettingsForm::execute()
 	 */
 	function execute($request) {
 		parent::execute($request);

@@ -47,7 +47,7 @@ class AdminSettingsTabHandler extends SettingsTabHandler {
 	// Extended methods from SettingsTabHandler
 	//
 	/**
-	 * @see PKPHandler::initialize()
+	 * @copydoc PKPHandler::initialize()
 	 */
 	function initialize($request, $args = null) {
 		parent::initialize($request, $args);

@@ -34,7 +34,7 @@ class SubmissionFilesArtworkMetadataForm extends SubmissionFilesMetadataForm {
 	// Implement template methods from Form
 	//
 	/**
-	 * @see Form::readInputData()
+	 * @copydoc Form::readInputData()
 	 */
 	function readInputData() {
 		$this->readUserVars(array(
@@ -45,7 +45,7 @@ class SubmissionFilesArtworkMetadataForm extends SubmissionFilesMetadataForm {
 	}
 
 	/**
-	 * @see Form::execute()
+	 * @copydoc Form::execute()
 	 */
 	function execute($args, $request) {
 		//

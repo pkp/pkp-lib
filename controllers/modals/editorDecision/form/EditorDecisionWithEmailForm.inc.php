@@ -54,8 +54,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 	// Implement protected template methods from Form
 	//
 	/**
-	 * @see Form::initData()
-	 * @param $actionLabels array
+	 * @copydoc Form::initData()
 	 */
 	function initData($args, $request, $actionLabels) {
 		$context = $request->getContext();
@@ -107,7 +106,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 	}
 
 	/**
-	 * @see Form::readInputData()
+	 * @copydoc Form::readInputData()
 	 */
 	function readInputData() {
 		$this->readUserVars(array('personalMessage', 'selectedAttachments', 'skipEmail'));
@@ -115,7 +114,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 	}
 
 	/**
-	 * @see Form::fetch()
+	 * @copydoc Form::fetch()
 	 */
 	function fetch($request) {
 		// No all decision forms need a review round.

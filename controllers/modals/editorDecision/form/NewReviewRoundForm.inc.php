@@ -34,7 +34,7 @@ class NewReviewRoundForm extends EditorDecisionForm {
 	// Implement protected template methods from Form
 	//
 	/**
-	 * @see Form::execute()
+	 * @copydoc Form::execute()
 	 * @return integer The new review round number
 	 */
 	function execute($args, $request) {

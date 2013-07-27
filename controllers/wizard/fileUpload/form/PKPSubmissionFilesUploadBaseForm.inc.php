@@ -163,7 +163,7 @@ class PKPSubmissionFilesUploadBaseForm extends Form {
 	// Implement template methods from Form
 	//
 	/**
-	 * @see Form::readInputData()
+	 * @copydoc Form::readInputData()
 	 */
 	function readInputData() {
 		// Only Genre and revised file can be set in the form. All other
@@ -172,7 +172,7 @@ class PKPSubmissionFilesUploadBaseForm extends Form {
 	}
 
 	/**
-	 * @see Form::fetch()
+	 * @copydoc Form::fetch()
 	 */
 	function fetch($request) {
 		// Set the workflow stage.

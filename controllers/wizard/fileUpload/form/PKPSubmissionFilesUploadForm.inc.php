@@ -81,7 +81,7 @@ class PKPSubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 	// Implement template methods from Form
 	//
 	/**
-	 * @see Form::readInputData()
+	 * @copydoc Form::readInputData()
 	 */
 	function readInputData() {
 		$this->readUserVars(array('genreId', 'uploaderUserGroupId'));
@@ -89,7 +89,7 @@ class PKPSubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 	}
 
 	/**
-	 * @see Form::validate()
+	 * @copydoc Form::validate()
 	 */
 	function validate($request) {
 		// Is this a revision?
@@ -138,7 +138,7 @@ class PKPSubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 	}
 
 	/**
-	 * @see Form::fetch()
+	 * @copydoc Form::fetch()
 	 */
 	function fetch($request) {
 		// Retrieve available submission file genres.
@@ -223,6 +223,7 @@ class PKPSubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 	}
 
 	/**
+	 * Save the submission file upload form.
 	 * @see Form::execute()
 	 * @param $request Request
 	 * @return SubmissionFile if successful, otherwise null

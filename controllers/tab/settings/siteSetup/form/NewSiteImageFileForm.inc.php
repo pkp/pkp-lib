@@ -30,7 +30,7 @@ class NewSiteImageFileForm extends SettingsFileUploadForm {
 	// Extend methods from Form.
 	//
 	/**
-	 * @see Form::initData()
+	 * @copydoc Form::initData()
 	 */
 	function initData($request) {
 		$site = $request->getSite();
@@ -51,7 +51,7 @@ class NewSiteImageFileForm extends SettingsFileUploadForm {
 	// Extend methods from SettingsFileUploadForm.
 	//
 	/**
-	 * @see SettingsFileUploadForm::readInputData()
+	 * @copydoc SettingsFileUploadForm::readInputData()
 	 */
 	function readInputData() {
 		$this->readUserVars(array('imageAltText'));
@@ -60,7 +60,7 @@ class NewSiteImageFileForm extends SettingsFileUploadForm {
 	}
 
 	/**
-	 * @see SettingsFileUploadForm::fetch()
+	 * @copydoc SettingsFileUploadForm::fetch()
 	 */
 	function fetch($request) {
 		$params = array('fileType' => 'image');

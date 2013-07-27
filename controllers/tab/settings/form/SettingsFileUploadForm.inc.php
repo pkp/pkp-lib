@@ -57,14 +57,14 @@ class SettingsFileUploadForm extends Form {
 	// Implement template methods from Form.
 	//
 	/**
-	 * @see Form::readInputData()
+	 * @copydoc Form::readInputData()
 	 */
 	function readInputData() {
 		$this->readUserVars(array('temporaryFileId'));
 	}
 
 	/**
-	 * @see Form::fetch()
+	 * @copydoc Form::fetch()
 	 */
 	function fetch($request, $params=null) {
 		$templateMgr = TemplateManager::getManager($request);

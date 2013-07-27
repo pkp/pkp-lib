@@ -31,7 +31,7 @@ class SubmissionStageForm extends ContextSettingsForm {
 	}
 
 	/**
-	 * @see Form::fetch()
+	 * @copydoc Form::fetch()
 	 */
 	function fetch($request, $params = null) {
 		$templateMgr = TemplateManager::getManager($request);

@@ -77,7 +77,7 @@ class UserUserGroupListbuilderHandler extends ListbuilderHandler {
 	// Overridden parent class functions
 	//
 	/**
-	 * @see GridDataProvider::getRequestArgs()
+	 * @copydoc GridDataProvider::getRequestArgs()
 	 */
 	function getRequestArgs() {
 		return array(
@@ -87,7 +87,7 @@ class UserUserGroupListbuilderHandler extends ListbuilderHandler {
 
 
 	/**
-	 * @see ListbuilderHandler::getOptions
+	 * @copydoc ListbuilderHandler::getOptions
 	 * @param $includeDesignations boolean
 	 */
 	function getOptions($includeDesignations = false) {
@@ -137,7 +137,7 @@ class UserUserGroupListbuilderHandler extends ListbuilderHandler {
 	// Implement template methods from PKPHandler
 	//
 	/**
-	 * @see PKPHandler::authorize()
+	 * @copydoc PKPHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.PkpContextAccessPolicy');
@@ -147,7 +147,7 @@ class UserUserGroupListbuilderHandler extends ListbuilderHandler {
 
 
 	/**
-	 * @see PKPHandler::initialize()
+	 * @copydoc PKPHandler::initialize()
 	 */
 	function initialize($request) {
 		// FIXME Validate user ID?
@@ -186,9 +186,7 @@ class UserUserGroupListbuilderHandler extends ListbuilderHandler {
 	}
 
 	/**
-	 * @see GridHandler::getRowDataElement
-	 * Get the data element that corresponds to the current request
-	 * Allow for a blank $rowId for when creating a not-yet-persisted row
+	 * @copydoc GridHandler::getRowDataElement
 	 */
 	function getRowDataElement($request, $rowId) {
 		// fallback on the parent if a rowId is found

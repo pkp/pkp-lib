@@ -46,7 +46,7 @@ class FilesListbuilderHandler extends ListbuilderHandler {
 	// Implement template methods from PKPHandler
 	//
 	/**
-	 * @see PKPHandler::authorize()
+	 * @copydoc PKPHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments, $stageId) {
 		import('classes.security.authorization.WorkflowStageAccessPolicy'); // context-specific.
@@ -96,17 +96,17 @@ class FilesListbuilderHandler extends ListbuilderHandler {
 	// Overridden template methods
 	//
 	/**
-	 * @see GridHandler::getRequestArgs
+	 * @copydoc GridHandler::getRequestArgs()
 	 */
 	function getRequestArgs() {
-		$submission =& $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$args = parent::getRequestArgs();
 		$args['submissionId'] = $submission->getId();
 		return $args;
 	}
 
 	/**
-	 * @see PKPHandler::setupTemplate()
+	 * @copydoc PKPHandler::setupTemplate()
 	 */
 	function setupTemplate($request) {
 		parent::setupTemplate($request);
@@ -115,9 +115,7 @@ class FilesListbuilderHandler extends ListbuilderHandler {
 	}
 
 	/**
-	 * @see GridHandler::getRowDataElement
-	 * Get the data element that corresponds to the current request
-	 * Allow for a blank $rowId for when creating a not-yet-persisted row
+	 * @copydoc GridHandler::getRowDataElement()
 	 */
 	function getRowDataElement($request, $rowId) {
 		// fallback on the parent if a rowId is found

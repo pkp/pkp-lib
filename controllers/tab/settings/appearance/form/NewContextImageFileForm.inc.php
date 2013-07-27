@@ -30,7 +30,7 @@ class NewContextImageFileForm extends SettingsFileUploadForm {
 	// Extend methods from SettingsFileUploadForm.
 	//
 	/**
-	 * @see SettingsFileUploadForm::fetch()
+	 * @copydoc SettingsFileUploadForm::fetch()
 	 */
 	function fetch($request) {
 		$params = array('fileType' => 'image');
@@ -42,14 +42,14 @@ class NewContextImageFileForm extends SettingsFileUploadForm {
 	// Extend methods from Form.
 	//
 	/**
-	 * @see Form::getLocaleFieldNames()
+	 * @copydoc Form::getLocaleFieldNames()
 	 */
 	function getLocaleFieldNames() {
 		return array('imageAltText');
 	}
 
 	/**
-	 * @see Form::initData()
+	 * @copydoc Form::initData()
 	 */
 	function initData($request) {
 		$context = $request->getContext();
@@ -67,7 +67,7 @@ class NewContextImageFileForm extends SettingsFileUploadForm {
 	}
 
 	/**
-	 * @see Form::readInputData()
+	 * @copydoc Form::readInputData()
 	 */
 	function readInputData() {
 		$this->readUserVars(array('imageAltText'));

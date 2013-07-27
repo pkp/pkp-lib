@@ -43,7 +43,7 @@ class SignoffInformationCenterHandler extends Handler {
 	}
 
 	/**
-	 * @see PKPHandler::initialize()
+	 * @copydoc PKPHandler::initialize()
 	 */
 	function initialize($request, $args = null) {
 		parent::initialize($request, $args);
@@ -55,7 +55,7 @@ class SignoffInformationCenterHandler extends Handler {
 	}
 
 	/**
-	 * @see PKPHandler::authorize()
+	 * @copydoc PKPHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
 
@@ -85,7 +85,7 @@ class SignoffInformationCenterHandler extends Handler {
 	}
 
 	/**
-	 * @see PKPHandler::setupTemplate()
+	 * @copydoc PKPHandler::setupTemplate()
 	 */
 	function setupTemplate($request) {
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_PKP_SUBMISSION);

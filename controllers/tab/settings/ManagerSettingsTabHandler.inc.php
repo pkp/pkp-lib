@@ -30,7 +30,7 @@ class ManagerSettingsTabHandler extends SettingsTabHandler {
 	}
 
 	/**
-	 * @see PKPHandler::authorize()
+	 * @copydoc PKPHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.PkpContextAccessPolicy');
@@ -63,7 +63,7 @@ class ManagerSettingsTabHandler extends SettingsTabHandler {
 	// Extended methods from SettingsTabHandler
 	//
 	/**
-	 * @see SettingsTabHandler::initialize()
+	 * @copydoc SettingsTabHandler::initialize()
 	 */
 	function initialize($request, $args = null) {
 		$this->setWizardMode($request->getUserVar('wizardMode'));

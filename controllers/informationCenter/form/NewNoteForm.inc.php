@@ -60,8 +60,7 @@ class NewNoteForm extends Form {
 	}
 
 	/**
-	 * Fetch the form.
-	 * @see Form::fetch()
+	 * @copydoc Form::fetch()
 	 */
 	function fetch($request) {
 		$templateMgr = TemplateManager::getManager($request);
@@ -76,8 +75,7 @@ class NewNoteForm extends Form {
 	}
 
 	/**
-	 * Assign form data to user-submitted data.
-	 * @see Form::readInputData()
+	 * @copydoc Form::readInputData()
 	 */
 	function readInputData() {
 		$this->readUserVars(array(
@@ -87,9 +85,7 @@ class NewNoteForm extends Form {
 	}
 
 	/**
-	 * Register a new user.
-	 * @return userId int
-	 * @see Form::execute()
+	 * @copydoc Form::execute()
 	 */
 	function execute($request) {
 		$user = $request->getUser();

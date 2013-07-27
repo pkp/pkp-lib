@@ -45,7 +45,7 @@ class NotifyUsersListbuilderHandler extends ListbuilderHandler {
 	// Overridden parent class functions
 	//
 	/**
-	 * @see GridDataProvider::getRequestArgs()
+	 * @copydoc GridDataProvider::getRequestArgs()
 	 */
 	function getRequestArgs() {
 		$submission = $this->getSubmission();
@@ -59,7 +59,7 @@ class NotifyUsersListbuilderHandler extends ListbuilderHandler {
 	// Implement protected template methods from PKPHandler
 	//
 	/**
-	 * @see PKPHandler::initialize()
+	 * @copydoc PKPHandler::initialize()
 	 */
 	function initialize($request) {
 		parent::initialize($request);
@@ -93,10 +93,7 @@ class NotifyUsersListbuilderHandler extends ListbuilderHandler {
 	}
 
 	/**
-	 * @see PKPHandler::authorize()
-	 * @param $request PKPRequest
-	 * @param $args array
-	 * @param $roleAssignments array
+	 * @copydoc PKPHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
 		import('classes.security.authorization.SubmissionAccessPolicy');
@@ -108,9 +105,7 @@ class NotifyUsersListbuilderHandler extends ListbuilderHandler {
 	// Implement methods from ListbuilderHandler
 	//
 	/**
-	 * @see GridHandler::getRowDataElement
-	 * Get the data element that corresponds to the current request
-	 * Allow for a blank $rowId for when creating a not-yet-persisted row
+	 * @copydoc GridHandler::getRowDataElement
 	 */
 	function getRowDataElement($request, $rowId) {
 		// fallback on the parent if a rowId is found
@@ -128,8 +123,7 @@ class NotifyUsersListbuilderHandler extends ListbuilderHandler {
 	}
 
 	/**
-	 * @see ListbuilderHandler::getOptions
-	 * @params $userGroupId int A user group id to filter by (defaults to URL)
+	 * @copydoc ListbuilderHandler::getOptions
 	 */
 	function getOptions() {
 		// Initialize the object to return
@@ -149,9 +143,7 @@ class NotifyUsersListbuilderHandler extends ListbuilderHandler {
 	}
 
 	/**
-	 * pre-populate the listbuilder if a userId is passed in, possibly via the stage assignments grid.
-	 * @see GridHandler::loadData($request, $filter)
-	 * @params $request PKPRequest
+	 * @copydoc GridHandler::loadData($request, $filter)
 	 */
 	function loadData($request) {
 		$userId = (int) $request->getUserVar('userId');

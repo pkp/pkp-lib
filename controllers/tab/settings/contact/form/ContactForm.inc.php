@@ -48,7 +48,7 @@ class ContactForm extends ContextSettingsForm {
 	// Implement template methods from Form.
 	//
 	/**
-	 * @see Form::getLocaleFieldNames()
+	 * @copydoc Form::getLocaleFieldNames()
 	 */
 	function getLocaleFieldNames() {
 		return array('contactTitle', 'contactAffiliation', 'contactMailingAddress');

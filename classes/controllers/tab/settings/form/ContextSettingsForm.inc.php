@@ -78,7 +78,7 @@ class ContextSettingsForm extends Form {
 	// Implement template methods from Form.
 	//
 	/**
-	 * @see Form::initData()
+	 * @copydoc Form::initData()
 	 * @param $request Request
 	 */
 	function initData($request) {

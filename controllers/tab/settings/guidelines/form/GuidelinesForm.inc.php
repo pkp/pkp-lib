@@ -32,7 +32,7 @@ class GuidelinesForm extends ContextSettingsForm {
 	// Implement template methods from Form.
 	//
 	/**
-	 * @see Form::getLocaleFieldNames()
+	 * @copydoc Form::getLocaleFieldNames()
 	 */
 	function getLocaleFieldNames() {
 		return array('authorGuidelines');

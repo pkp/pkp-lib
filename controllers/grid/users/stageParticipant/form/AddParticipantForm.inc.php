@@ -67,8 +67,7 @@ class AddParticipantForm extends Form {
 	}
 
 	/**
-	 * Fetch the form.
-	 * @see Form::fetch()
+	 * @copydoc Form::fetch()
 	 */
 	function fetch($request) {
 		$templateMgr = TemplateManager::getManager($request);
@@ -92,8 +91,7 @@ class AddParticipantForm extends Form {
 	}
 
 	/**
-	 * Assign form data to user-submitted data.
-	 * @see Form::readInputData()
+	 * @copydoc Form::readInputData()
 	 */
 	function readInputData() {
 		$this->readUserVars(array(
@@ -103,8 +101,7 @@ class AddParticipantForm extends Form {
 	}
 
 	/**
-	 * Validate the form
-	 * @see Form::validate()
+	 * @copydoc Form::validate()
 	 */
 	function validate() {
 		$userGroupId = (int) $this->getData('userGroupId');
@@ -116,8 +113,7 @@ class AddParticipantForm extends Form {
 	}
 
 	/**
-	 * Save author
-	 * @see Form::execute()
+	 * @copydoc Form::execute()
 	 * @return array($userGroupId, $userId)
 	 */
 	function execute() {

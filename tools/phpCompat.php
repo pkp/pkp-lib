@@ -1,8 +1,4 @@
 <?php
-/**
- * @defgroup tools Tools
- * Command-line tools for software administration
- */
 
 /**
  * @file tools/phpCompat.php

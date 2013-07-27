@@ -1,7 +1,4 @@
 <?php
-/**
- * @defgroup notification_form
- */
 
 /**
  * @file classes/notification/form/NotificationMailingListForm.inc.php

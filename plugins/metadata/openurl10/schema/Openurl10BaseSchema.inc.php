@@ -1,10 +1,6 @@
 <?php
 
 /**
- * @defgroup plugins_metadata_openurl10_schema
- */
-
-/**
  * @file plugins/metadata/openurl10/schema/Openurl10BaseSchema.inc.php
  *
  * Copyright (c) 2000-2013 John Willinsky

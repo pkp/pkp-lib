@@ -1,7 +1,4 @@
 <?php
-/**
- * @defgroup controllers_review_linkAction
- */
 
 /**
  * @file controllers/review/linkAction/SendReminderLinkAction.inc.php

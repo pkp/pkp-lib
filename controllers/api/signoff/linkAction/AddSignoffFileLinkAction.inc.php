@@ -1,7 +1,4 @@
 <?php
-/**
- * @defgroup controllers_api_file_linkAction
- */
 
 /**
  * @file controllers/api/signoff/linkAction/AddSignoffFileLinkAction.inc.php

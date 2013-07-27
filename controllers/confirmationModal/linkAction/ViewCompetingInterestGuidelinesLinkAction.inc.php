@@ -1,7 +1,4 @@
 <?php
-/**
- * @defgroup controllers_confirmationModal_linkAction
- */
 
 /**
  * @file controllers/modals/submissionMetadata/linkAction/ViewCompetingInterestGuidelinesLinkAction.inc.php

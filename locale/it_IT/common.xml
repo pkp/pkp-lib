@@ -183,7 +183,7 @@
 	<message key="email.invalid">L'indirizzo {$email} non è valido.</message>
 	<message key="email.multipart">Questa email è in formato MIME.</message>
 	<message key="email.recipient">Destinatario</message>
-	<message key="email.recipients">Destinatario</message>
+	<message key="email.recipients">Destinatari</message>
 	<message key="email.sender">Mittente</message>
 	<message key="email.send">Invia</message>
 	<message key="email.skip">Salta Email</message>

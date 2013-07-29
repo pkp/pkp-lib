@@ -62,6 +62,7 @@
 	<message key="user.login.rememberUsernameAndPassword">Remember my username and password</message>
 	<message key="user.login.resetPassword">Reset Password</message>
 	<message key="user.logOut">Logout</message>
+	<message key="user.logOutAs">Logout as</message>
 	<message key="user.hello">Hello, </message>
 	<message key="user.mailingAddress">Mailing Address</message>
 	<message key="user.masculine">M</message>

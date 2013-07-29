@@ -200,7 +200,7 @@ class GenreDAO extends DefaultSettingDAO {
 			'INSERT INTO genres
 				(sortable, context_id, category, dependent)
 			VALUES
-				(?, ?, ?)',
+				(?, ?, ?, ?)',
 			array(
 				$genre->getSortable() ? 1 : 0,
 				(int) $genre->getContextId(),

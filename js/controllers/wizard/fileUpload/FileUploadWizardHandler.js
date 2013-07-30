@@ -238,6 +238,8 @@
 
 				// Do not cancel immediately.
 				event.preventDefault();
+			} else {
+				return true;
 			}
 			return false;
 		} else {

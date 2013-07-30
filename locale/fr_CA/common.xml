@@ -288,6 +288,7 @@
 	<message key="common.manage">Gérer</message>
 	<message key="common.noComments">Aucun commentaire</message>
 	<message key="form.startsWith">commence par</message>
+	<message key="notification.updatedReviewFiles">Fichiers d'évaluation mis à jour.</message>
 	<message key="notification.addedAuditor">Un vérificateur a été ajouté.</message>
 	<message key="notification.removedAuditor">Le vérificateur a été supprimé.</message>
 	<message key="notification.allow">Permettre à ces types d'avis d'apparaître dans mon flux d'avis.</message>

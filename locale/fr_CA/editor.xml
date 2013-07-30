@@ -70,4 +70,5 @@
 	<message key="editor.submissionReview.recordDecision">Enregistrement des décisions éditoriales</message>
 	<message key="editor.submission.selectFairCopy">Choisir les fichiers de révision approuvés qui seront envoyés pour la publication.</message>
 	<message key="editor.submission.createNewRound">Créer une nouvelle série de révisions.</message>
+	<message key="editor.submission.review.manageReviewFilesDescription">Tous les fichiers qui ont déjà été téléchargés à une étape du processus de soumission (même à une étape d'édition ou de publication) peuvent être choisis pour révision. Il suffit de cocher la case Ajouter ci-dessous, puis de cliquer Recherche: tous les fichiers disponibles seront affichés et peuvent être choisis pour être ajoutés. Les autres fichiers qui n'ont pas déjà été téléchargés à une certaine étape du processus peuvent être ajoutés à cette liste en cliquant sur le lien Télécharger le fichier d'évaluation.</message>
 </locale>

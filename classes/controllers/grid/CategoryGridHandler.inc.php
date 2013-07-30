@@ -271,7 +271,7 @@ class CategoryGridHandler extends GridHandler {
 	 *  configured with id and data or null if the row
 	 *  could not been found.
 	 */
-	protected function &getRequestedCategoryRow($request, $args) {
+	protected function getRequestedCategoryRow($request, $args) {
 		if (isset($args['rowId'])) {
 			// A row ID was specified. Fetch it
 			$elementId = $args['rowId'];

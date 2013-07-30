@@ -115,11 +115,13 @@ class PKPAuthorGridRow extends GridRow {
 
 	/**
 	 * Get the base arguments that will identify the data in the grid.
-	 * Overridden by child grid rows.
 	 * @return array
 	 */
 	function getRequestArgs() {
-		return array();
+		$submission = $this->getSubmission();
+		return array(
+			'submissionId' => $submission->getId()
+		);
 	}
 
 	/**

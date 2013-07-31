@@ -406,7 +406,7 @@ class PKPReviewerGridHandler extends GridHandler {
 		import('classes.log.SubmissionEventLogEntry');
 
 		$entry = new SubmissionEventLogEntry();
-		$entry->setMonographId($reviewAssignment->getSubmissionId());
+		$entry->setSubmissionId($reviewAssignment->getSubmissionId());
 		$entry->setUserId($user->getId());
 		$entry->setDateLogged(Core::getCurrentDate());
 		$entry->setEventType(SUBMISSION_LOG_REVIEW_UNCONSIDERED);

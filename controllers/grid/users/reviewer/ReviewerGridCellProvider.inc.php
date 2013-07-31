@@ -158,10 +158,13 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider {
 			case 'completed':
 				import('lib.pkp.controllers.review.linkAction.UnconsiderReviewLinkAction');
 				return array(new UnconsiderReviewLinkAction($request, $reviewAssignment, $submission));
+			case 'reviewReady':
+				$user = $request->getUser();
+				import('lib.pkp.controllers.review.linkAction.ReviewNotesLinkAction');
+				return array(new ReviewNotesLinkAction($request, $reviewAssignment, $submission, $user, 'new'));
 			case '':
 			case 'declined':
 			case 'unfinished':
-			case 'reviewReady':
 				// No actions for these cases
 				return array();
 		}

@@ -122,7 +122,7 @@ class GridHandler extends PKPHandler {
 			$requestArgs = $dataProvider->getRequestArgs();
 		}
 
-		$this->callFeaturesHook('getRequestArgs', array('grid' => $this, 'requestArgs' => &$requestArgs));
+		$this->callFeaturesHook('getRequestArgs', array('grid' => &$this, 'requestArgs' => &$requestArgs));
 
 		return $requestArgs;
 	}
@@ -311,7 +311,7 @@ class GridHandler extends PKPHandler {
 			$this->setGridDataElements($data);
 		}
 
-		$this->callFeaturesHook('getGridDataElements', array('request' => $request, 'grid' => $this, 'gridData' => &$gridData, 'filter' => $filter));
+		$this->callFeaturesHook('getGridDataElements', array('request' => &$request, 'grid' => &$this, 'gridData' => &$gridData, 'filter' => &$filter));
 
 		return $this->_data;
 	}
@@ -331,7 +331,7 @@ class GridHandler extends PKPHandler {
 	 * @param $data mixed an array or ItemIterator with element data
 	 */
 	function setGridDataElements($data) {
-		$this->callFeaturesHook('setGridDataElements', array('grid' => $this, 'data' => &$data));
+		$this->callFeaturesHook('setGridDataElements', array('grid' => &$this, 'data' => &$data));
 
 		// FIXME: We go to arrays for all types of iterators because
 		// iterators cannot be re-used, see #6498.
@@ -544,7 +544,7 @@ class GridHandler extends PKPHandler {
 	function getGridRangeInfo($request, $rangeName, $contextData = null) {
 		$rangeInfo = parent::getRangeInfo($request, $rangeName, $contextData);
 
-		$this->callFeaturesHook('getGridRangeInfo', array('request' => $request, 'grid' => $this, 'rangeInfo' => $rangeInfo));
+		$this->callFeaturesHook('getGridRangeInfo', array('request' => &$request, 'grid' => &$this, 'rangeInfo' => $rangeInfo));
 
 		return $rangeInfo;
 	}
@@ -585,7 +585,7 @@ class GridHandler extends PKPHandler {
 		// Because we must control when features are added to a grid,
 		// this is the only place that should use the _addFeature() method.
 		$this->_addFeatures($this->initFeatures($request, $args));
-		$this->callFeaturesHook('gridInitialize', array('grid' => $this));
+		$this->callFeaturesHook('gridInitialize', array('grid' => &$this));
 	}
 
 
@@ -621,7 +621,7 @@ class GridHandler extends PKPHandler {
 		// Assign additional params for the fetchRow and fetchGrid URLs to use.
 		$templateMgr->assign('gridRequestArgs', $this->getRequestArgs());
 
-		$this->callFeaturesHook('fetchGrid', array('grid' => $this, 'request' => $request));
+		$this->callFeaturesHook('fetchGrid', array('grid' => &$this, 'request' => &$request));
 
 		// Assign features.
 		$templateMgr->assign('features', $this->getFeatures());
@@ -658,7 +658,7 @@ class GridHandler extends PKPHandler {
 			$json->setAdditionalAttributes(array('sequenceMap' => $sequenceMap));
 		}
 
-		$this->callFeaturesHook('fetchRow', array('request' => $request, 'grid' => $this, 'row' => $row, 'jsonMessage' => $json));
+		$this->callFeaturesHook('fetchRow', array('request' => &$request, 'grid' => &$this, 'row' => &$row, 'jsonMessage' => &$json));
 
 		// Render and return the JSON message.
 		return $json->getString();
@@ -695,7 +695,7 @@ class GridHandler extends PKPHandler {
 	 * @param $request Request
 	 */
 	function saveSequence($args, $request) {
-		$this->callFeaturesHook('saveSequence', array('request' => $request, 'grid' => $this));
+		$this->callFeaturesHook('saveSequence', array('request' => &$request, 'grid' => &$this));
 
 		return DAO::getDataChangedEvent();
 	}
@@ -782,7 +782,7 @@ class GridHandler extends PKPHandler {
 			$gridData = $dataProvider->loadData();
 		}
 
-		$this->callFeaturesHook('loadData', array('request' => $request, 'grid' => $this, 'gridData' => &$gridData));
+		$this->callFeaturesHook('loadData', array('request' => &$request, 'grid' => &$this, 'gridData' => &$gridData));
 
 		return $gridData;
 	}
@@ -1012,7 +1012,7 @@ class GridHandler extends PKPHandler {
 
 		// Initialize the row before we render it
 		$row->initialize($request);
-		$this->callFeaturesHook('getInitializedRowInstance', array('grid' => $this, 'row' => $row));
+		$this->callFeaturesHook('getInitializedRowInstance', array('grid' => &$this, 'row' => &$row));
 		return $row;
 	}
 

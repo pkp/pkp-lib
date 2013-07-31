@@ -430,9 +430,10 @@ class SubmissionDAO extends DAO {
 			$params[] = (int) $contextId;
 
 		$result = $this->retrieveRange(
-			'SELECT	s.*,
+			'SELECT	s.*, ps.date_published,
 				' . $this->_getFetchColumns() . '
 			FROM	submissions s
+				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id)
 				' . $this->_getFetchJoins() . '
 			WHERE	s.status = ?'
 			. ($journalId && !is_array($journalId)?' AND s.context_id = ?':'')

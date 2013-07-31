@@ -18,7 +18,7 @@ class PKPPreparedEmailsGridRow extends GridRow {
 	/**
 	 * Constructor
 	 */
-	function PreparedEmailsGridRow() {
+	function PKPPreparedEmailsGridRow() {
 		parent::GridRow();
 	}
 

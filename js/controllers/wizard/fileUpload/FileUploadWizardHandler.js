@@ -1,5 +1,5 @@
 /**
- * @defgroup js_controllers_wizard_fileUpload
+ * @defgroup controllers_wizard_fileUpload
  */
 /**
  * @file js/controllers/wizard/fileUpload/FileUploadWizardHandler.js
@@ -8,7 +8,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class FileUploadWizardHandler
- * @ingroup js_controllers_wizard_fileUpload
+ * @ingroup controllers_wizard_fileUpload
  *
  * @brief File uploader wizard handler.
  */

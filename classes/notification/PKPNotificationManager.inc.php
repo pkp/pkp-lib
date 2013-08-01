@@ -20,6 +20,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 	 * Constructor.
 	 */
 	function PKPNotificationManager() {
+		parent::PKPNotificationOperationManager();
 	}
 
 	/**

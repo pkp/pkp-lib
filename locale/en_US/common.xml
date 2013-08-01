@@ -496,4 +496,5 @@
 	<message key="notification.removedReviewer">Reviewer removed.</message>
 	<message key="notification.addedStageParticipant">User added as a stage participant.</message>
 	<message key="notification.type.reviewAssignment">You have a review pending.</message>
+	<message key="notification.type.auditorRequest">You have been asked audit "{$file}"</message>
 </locale>

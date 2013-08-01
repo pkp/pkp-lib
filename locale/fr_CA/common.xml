@@ -362,4 +362,5 @@
 	<message key="notification.removedReviewer">L'évaluateur a été supprimé.</message>
 	<message key="notification.addedStageParticipant">L'utilisateur a été ajouté à titre de participant.</message>
 	<message key="notification.type.reviewAssignment">Vous avez une évaluation en attente.</message>
+	<message key="notification.type.auditorRequest">On vous a demandé de vérifier "{$file}"</message>
 </locale>

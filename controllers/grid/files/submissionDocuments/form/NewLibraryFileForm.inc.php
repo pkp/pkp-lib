@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file controllers/grid/files/submissionDocuments/form/NewLibraryFileForm.inc.php
  *
@@ -32,7 +31,7 @@ class NewLibraryFileForm extends LibraryFileForm {
 
 	/**
 	 * Assign form data to user-submitted data.
-	 * @see Form::readInputData()
+	 * @copydoc Form::readInputData()
 	 */
 	function readInputData() {
 		$this->readUserVars(array('temporaryFileId', 'submissionId'));
@@ -40,7 +39,7 @@ class NewLibraryFileForm extends LibraryFileForm {
 	}
 
 	/**
-	 * @see LibraryFileForm::fetch()
+	 * @copydoc LibraryFileForm::fetch()
 	 */
 	function fetch($request) {
 		$templateMgr = TemplateManager::getManager($request);

@@ -28,7 +28,7 @@ class LanguageGridRow extends GridRow {
 	// Overridden methods from GridRow
 	//
 	/**
-	 * @see GridRow::initialize()
+	 * @copydoc GridRow::initialize()
 	 */
 	function initialize($request) {
 		parent::initialize($request);

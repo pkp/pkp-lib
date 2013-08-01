@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @defgroup plugins_citationOutput_abnt
  */
@@ -32,7 +31,7 @@ class PKPAbntCitationOutputPlugin extends Plugin {
 	// Override protected template methods from PKPPlugin
 	//
 	/**
-	 * @see PKPPlugin::register()
+	 * @copydoc PKPPlugin::register()
 	 */
 	function register($category, $path) {
 		if (!parent::register($category, $path)) return false;
@@ -41,21 +40,21 @@ class PKPAbntCitationOutputPlugin extends Plugin {
 	}
 
 	/**
-	 * @see PKPPlugin::getName()
+	 * @copydoc PKPPlugin::getName()
 	 */
 	function getName() {
 		return 'AbntCitationOutputPlugin';
 	}
 
 	/**
-	 * @see PKPPlugin::getDisplayName()
+	 * @copydoc PKPPlugin::getDisplayName()
 	 */
 	function getDisplayName() {
 		return __('plugins.citationOutput.abnt.displayName');
 	}
 
 	/**
-	 * @see PKPPlugin::getDescription()
+	 * @copydoc PKPPlugin::getDescription()
 	 */
 	function getDescription() {
 		return __('plugins.citationOutput.abnt.description');

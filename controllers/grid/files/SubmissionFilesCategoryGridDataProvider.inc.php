@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file controllers/grid/files/review/SubmissionFilesCategoryGridDataProvider.inc.php
  *
@@ -40,7 +39,7 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider {
 	// Extended method from CategoryGridDataProvider.
 	//
 	/**
-	 * @see CategoryGridDataProvider::setDataProvider()
+	 * @copydoc CategoryGridDataProvider::setDataProvider()
 	 */
 	function setDataProvider($gridDataProvider) {
 		if (is_a($gridDataProvider, 'SubmissionFilesGridDataProvider')) {
@@ -55,18 +54,16 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider {
 	// Implement template methods from GridDataProvider
 	//
 	/**
-	 * @see GridDataProvider::getAuthorizationPolicy()
+	 * @copydoc GridDataProvider::getAuthorizationPolicy()
 	 */
 	function getAuthorizationPolicy($request, $args, $roleAssignments) {
 		// Get the submission files grid data provider authorization policy.
 		$dataProvider = $this->getDataProvider();
-		$policy = $dataProvider->getAuthorizationPolicy($request, $args, $roleAssignments);
-
-		return $policy;
+		return $dataProvider->getAuthorizationPolicy($request, $args, $roleAssignments);
 	}
 
 	/**
-	 * @see GridDataProvider::getRequestArgs()
+	 * @copydoc GridDataProvider::getRequestArgs()
 	 */
 	function getRequestArgs() {
 		$dataProvider = $this->getDataProvider();
@@ -74,7 +71,7 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider {
 	}
 
 	/**
-	 * @see GridDataProvider::loadData()
+	 * @copydoc GridDataProvider::loadData()
 	 */
 	function loadData() {
 		// Return only the user accessible workflow stages.
@@ -86,7 +83,7 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider {
 	// Implement template methods from CategoryGridDataProvider
 	//
 	/**
-	 * @see CategoryGridDataProvider::getCategoryData()
+	 * @copydoc CategoryGridDataProvider::getCategoryData()
 	 */
 	function &getCategoryData($categoryDataElement, $filter = null, $reviewRound = null) {
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
@@ -125,7 +122,7 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider {
 	// Public methods
 	//
 	/**
-	 * @see SubmissionFilesGridDataProvider::getAddFileAction()
+	 * @copydoc SubmissionFilesGridDataProvider::getAddFileAction()
 	 */
 	function getAddFileAction($request) {
 		$dataProvider = $this->getDataProvider();
@@ -133,7 +130,7 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider {
 	}
 
 	/**
-	 * @see SubmissionFilesGridDataProvider::getFileStage()
+	 * @copydoc SubmissionFilesGridDataProvider::getFileStage()
 	 */
 	function setStageId($stageId) {
 		$dataProvider = $this->getDataProvider();
@@ -141,7 +138,7 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider {
 	}
 
 	/**
-	 * @see SubmissionFilesGridDataProvider::getFileStage()
+	 * @copydoc SubmissionFilesGridDataProvider::getFileStage()
 	 */
 	function getFileStage() {
 		$dataProvider = $this->getDataProvider();

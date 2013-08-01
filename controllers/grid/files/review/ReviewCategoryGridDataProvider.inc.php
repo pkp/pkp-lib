@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file controllers/grid/files/review/ReviewCategoryGridDataProvider.inc.php
  *
@@ -44,7 +43,7 @@ class ReviewCategoryGridDataProvider extends SubmissionFilesCategoryGridDataProv
 	// Overriden public methods from SubmissionFilesCategoryGridDataProvider
 	//
 	/**
-	 * @see SubmissionFilesCategoryGridDataProvider::getCategoryData()
+	 * @copydoc SubmissionFilesCategoryGridDataProvider::getCategoryData()
 	 */
 	function &getCategoryData($categoryDataElement, $filter = null) {
 		$reviewRound = $this->getReviewRound();
@@ -52,7 +51,7 @@ class ReviewCategoryGridDataProvider extends SubmissionFilesCategoryGridDataProv
 	}
 
 	/**
-	 * @see SubmissionFilesCategoryGridDataProvider::initGridDataProvider()
+	 * @copydoc SubmissionFilesCategoryGridDataProvider::initGridDataProvider()
 	 */
 	function initGridDataProvider($fileStage, $initParams) {
 		// This category grid data provider will use almost all the
@@ -69,7 +68,7 @@ class ReviewCategoryGridDataProvider extends SubmissionFilesCategoryGridDataProv
 	// Public methods
 	//
 	/**
-	 * @see ReviewGridDataProvider::getSelectAction()
+	 * @copydoc ReviewGridDataProvider::getSelectAction()
 	 */
 	function getSelectAction($request) {
 		$gridDataProvider = $this->getDataProvider();

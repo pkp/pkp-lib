@@ -51,7 +51,7 @@ class FileNameGridColumn extends GridColumn {
 	 * Method expected by ColumnBasedGridCellProvider
 	 * to render a cell in this column.
 	 *
-	 * @see ColumnBasedGridCellProvider::getTemplateVarsFromRowColumn()
+	 * @copydoc ColumnBasedGridCellProvider::getTemplateVarsFromRowColumn()
 	 */
 	function getTemplateVarsFromRow($row) {
 		// We do not need any template variables because
@@ -65,7 +65,7 @@ class FileNameGridColumn extends GridColumn {
 	// Override methods from GridColumn
 	//
 	/**
-	 * @see GridColumn::getCellActions()
+	 * @copydoc GridColumn::getCellActions()
 	 */
 	function getCellActions($request, $row, $position = GRID_ACTION_POSITION_DEFAULT) {
 		$cellActions = parent::getCellActions($request, $row, $position);

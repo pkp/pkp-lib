@@ -47,14 +47,14 @@ class UploadPluginForm extends Form {
 	// Implement template methods from Form.
 	//
 	/**
-	 * @see Form::readInputData()
+	 * @copydoc Form::readInputData()
 	 */
 	function readInputData() {
 		$this->readUserVars(array('temporaryFileId'));
 	}
 
 	/**
-	 * @see Form::fetch()
+	 * @copydoc Form::fetch()
 	 */
 	function fetch($request) {
 		$templateMgr = TemplateManager::getManager($request);
@@ -64,7 +64,7 @@ class UploadPluginForm extends Form {
 	}
 
 	/**
-	 * @see Form::execute()
+	 * @copydoc Form::execute()
 	 */
 	function execute($request) {
 		parent::execute($request);

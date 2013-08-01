@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file controllers/grid/files/review/LimitReviewFilesGridHandler.inc.php
  *
@@ -40,7 +39,7 @@ class LimitReviewFilesGridHandler extends SelectableFileListGridHandler {
 	}
 
 	/**
-	 * @see PKPHandler::authorize()
+	 * @copydoc PKPHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
 		if ($reviewAssignmentId = $request->getUserVar('reviewAssignmentId')) {
@@ -61,7 +60,7 @@ class LimitReviewFilesGridHandler extends SelectableFileListGridHandler {
 	}
 
 	/**
-	 * @see GridHandler::isDataElementSelected()
+	 * @copydoc GridHandler::isDataElementSelected()
 	 */
 	function isDataElementSelected($gridDataElement) {
 		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);

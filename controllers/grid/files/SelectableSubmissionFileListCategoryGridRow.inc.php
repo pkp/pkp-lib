@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file controllers/grid/files/SelectableSubmissionFileListCategoryGridRow.inc.php
  *
@@ -27,7 +26,7 @@ class SelectableSubmissionFileListCategoryGridRow extends GridCategoryRow {
 	// Overridden methods from GridCategoryRow
 	//
 	/**
-	 * @see GridCategoryRow::getCategoryLabel
+	 * @copydoc GridCategoryRow::getCategoryLabel()
 	 */
 	function getCategoryLabel() {
 		$stageId = $this->getData();

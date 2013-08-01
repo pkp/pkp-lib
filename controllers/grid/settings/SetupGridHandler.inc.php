@@ -27,7 +27,7 @@ class SetupGridHandler extends GridHandler {
 	}
 
 	/**
-	 * @see GridHandler::initialize()
+	 * @copydoc GridHandler::initialize()
 	 */
 	function initialize($request) {
 		parent::initialize($request);
@@ -36,7 +36,7 @@ class SetupGridHandler extends GridHandler {
 	}
 
 	/**
-	 * @see PKPHandler::authorize()
+	 * @copydoc PKPHandler::authorize()
 	 * @param $request PKPRequest
 	 * @param $args array
 	 * @param $roleAssignments array

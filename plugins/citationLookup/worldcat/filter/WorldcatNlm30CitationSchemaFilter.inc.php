@@ -12,7 +12,7 @@
  *
  * @class WorldcatNlm30CitationSchemaFilter
  * @ingroup plugins_citationLookup_worldcat_filter
- * @see CitationMangager
+ * @see CitationManager
  *
  * @brief Citation lookup filter that uses the OCLC Worldcat Search API
  *  and xISBN services to search for book citation metadata.

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file plugins/oaiMetadata/dc/PKPOAIMetadataFormat_DC.inc.php
  *
@@ -14,7 +13,7 @@
 
 class PKPOAIMetadataFormat_DC extends OAIMetadataFormat {
 	/**
-	 * @see OAIMetadataFormat#toXML
+	 * @copydoc OAIMetadataFormat::toXML
 	 */
 	function toXml(&$dataObject, $format = null) {
 		import('plugins.metadata.dc11.schema.Dc11Schema');

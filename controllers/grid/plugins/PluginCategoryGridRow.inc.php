@@ -27,7 +27,7 @@ class PluginCategoryGridRow extends GridCategoryRow {
 	// Overridden methods from GridCategoryRow
 	//
 	/**
-	 * @see GridCategoryRow::getCategoryLabel
+	 * @copydoc GridCategoryRow::getCategoryLabel()
 	 */
 	function getCategoryLabel() {
 		$pluginCategory = $this->getData();

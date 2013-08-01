@@ -64,10 +64,7 @@ class ManageFooterGridHandler extends CategoryGridHandler {
 	// Overridden methods from PKPHandler
 	//
 	/**
-	 * @see PKPHandler::authorize()
-	 * @param $request PKPRequest
-	 * @param $args array
-	 * @param $roleAssignments array
+	 * @copydoc PKPHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.PkpContextAccessPolicy');
@@ -144,7 +141,7 @@ class ManageFooterGridHandler extends CategoryGridHandler {
 	//
 
 	/**
-	 * @see CategoryGridHandler::getCategoryRowInstance()
+	 * @copydoc CategoryGridHandler::getCategoryRowInstance()
 	 * @return FooterGridCategoryRow
 	 */
 	function getCategoryRowInstance() {
@@ -152,7 +149,7 @@ class ManageFooterGridHandler extends CategoryGridHandler {
 	}
 
 	/**
-	 * @see CategoryGridHandler::getCategoryData()
+	 * @copydoc CategoryGridHandler::getCategoryData()
 	 */
 	function getCategoryData($category) {
 
@@ -163,7 +160,7 @@ class ManageFooterGridHandler extends CategoryGridHandler {
 	}
 
 	/**
-	 * @see CategoryGridHandler::getCategoryRowIdParameterName()
+	 * @copydoc CategoryGridHandler::getCategoryRowIdParameterName()
 	 */
 	function getCategoryRowIdParameterName() {
 		return 'footerCategoryId';
@@ -183,7 +180,7 @@ class ManageFooterGridHandler extends CategoryGridHandler {
 	}
 
 	/**
-	 * @see GridHandler::loadData
+	 * @copydoc GridHandler::loadData()
 	 */
 	function loadData($request, $filter = null) {
 		// set our labels for the FooterLink categories.

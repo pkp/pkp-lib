@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file controllers/grid/files/submissionDocuments/SubmissionDocumentsFilesGridDataProvider.inc.php
  *
@@ -24,7 +23,7 @@ class SubmissionDocumentsFilesGridDataProvider extends CategoryGridDataProvider 
 	}
 
 	/**
-	 * @see GridDataProvider::getAuthorizationPolicy()
+	 * @copydoc GridDataProvider::getAuthorizationPolicy()
 	 */
 	function getAuthorizationPolicy($request, $args, $roleAssignments) {
 		import('classes.security.authorization.SubmissionAccessPolicy');
@@ -45,7 +44,7 @@ class SubmissionDocumentsFilesGridDataProvider extends CategoryGridDataProvider 
 	}
 
 	/**
-	 * @see GridDataProvider::getRequestArgs()
+	 * @copydoc GridDataProvider::getRequestArgs()
 	 */
 	function getRequestArgs() {
 		$submission = $this->getSubmission();
@@ -55,7 +54,7 @@ class SubmissionDocumentsFilesGridDataProvider extends CategoryGridDataProvider 
 	}
 
 	/**
-	 * @see CategoryGridHandler::getCategoryData()
+	 * @copydoc CategoryGridHandler::getCategoryData()
 	 */
 	function getCategoryData(&$fileType, $filter = null) {
 

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file controllers/grid/files/attachment/ReviewerReviewAttachmentGridDataProvider.inc.php
  *
@@ -31,7 +30,7 @@ class ReviewerReviewAttachmentGridDataProvider extends SubmissionFilesGridDataPr
 	// Implement template methods from GridDataProvider
 	//
 	/**
-	 * @see GridDataProvider::getAuthorizationPolicy()
+	 * @copydoc GridDataProvider::getAuthorizationPolicy()
 	 */
 	function getAuthorizationPolicy($request, $args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.internal.ReviewAssignmentRequiredPolicy');
@@ -63,7 +62,7 @@ class ReviewerReviewAttachmentGridDataProvider extends SubmissionFilesGridDataPr
 	}
 
 	/**
-	 * @see GridDataProvider::getRequestArgs()
+	 * @copydoc GridDataProvider::getRequestArgs()
 	 */
 	function getRequestArgs() {
 		return array_merge(
@@ -76,7 +75,7 @@ class ReviewerReviewAttachmentGridDataProvider extends SubmissionFilesGridDataPr
 	}
 
 	/**
-	 * @see GridDataProvider::loadData()
+	 * @copydoc GridDataProvider::loadData()
 	 */
 	function loadData() {
 		// Get all review files assigned to this submission.
@@ -91,7 +90,7 @@ class ReviewerReviewAttachmentGridDataProvider extends SubmissionFilesGridDataPr
 	// Overridden public methods from FilesGridDataProvider
 	//
 	/**
-	 * @see FilesGridDataProvider::getAddFileAction()
+	 * @copydoc FilesGridDataProvider::getAddFileAction()
 	 */
 	function getAddFileAction($request) {
 		import('lib.pkp.controllers.api.file.linkAction.AddFileLinkAction');

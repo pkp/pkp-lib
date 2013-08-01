@@ -24,7 +24,7 @@ class ViewAnnouncementGridHandler extends AnnouncementGridHandler {
 
 
 	/**
-	 * @see AnnouncementGridHandler::initialize()
+	 * @copydoc AnnouncementGridHandler::initialize()
 	 */
 	function initialize($request) {
 		parent::initialize($request);
@@ -52,7 +52,7 @@ class ViewAnnouncementGridHandler extends AnnouncementGridHandler {
 	}
 
 	/**
-	 * @see GridHandler::getGridRangeInfo()
+	 * @copydoc GridHandler::getGridRangeInfo()
 	 * Override so the display limit announcements setting can work correctly.
 	 */
 	function getGridRangeInfo($request, $rangeName) {

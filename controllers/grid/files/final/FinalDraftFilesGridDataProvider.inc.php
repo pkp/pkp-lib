@@ -29,7 +29,7 @@ class FinalDraftFilesGridDataProvider extends SubmissionFilesGridDataProvider {
 	// Overridden public methods from FilesGridDataProvider
 	//
 	/**
-	 * @see FilesGridDataProvider::getSelectAction()
+	 * @copydoc FilesGridDataProvider::getSelectAction()
 	 */
 	function getSelectAction($request) {
 		import('lib.pkp.controllers.grid.files.fileList.linkAction.SelectFilesLinkAction');

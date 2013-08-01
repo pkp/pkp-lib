@@ -1,4 +1,4 @@
-<?php
+copydoc<?php
 
 /**
  * @file controllers/grid/settings/genre/GenreGridHandler.inc.php
@@ -109,7 +109,7 @@ class GenreGridHandler extends SetupGridHandler {
 	}
 
 	/**
-	 * @see GridHandler::loadData()
+	 * @copydoc GridHandler::loadData()
 	 */
 	function loadData($request, $filter) {
 		// Elements to be displayed in the grid
@@ -122,7 +122,7 @@ class GenreGridHandler extends SetupGridHandler {
 	// Overridden methods from GridHandler
 	//
 	/**
-	 * @see GridHandler::getRowInstance()
+	 * @copydoc GridHandler::getRowInstance()
 	 * @return GenreGridRow
 	 */
 	function getRowInstance() {

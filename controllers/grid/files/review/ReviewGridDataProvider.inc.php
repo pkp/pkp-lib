@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file controllers/grid/files/review/ReviewGridDataProvider.inc.php
  *
@@ -29,7 +28,7 @@ class ReviewGridDataProvider extends SubmissionFilesGridDataProvider {
 	// Implement template methods from GridDataProvider
 	//
 	/**
-	 * @see GridDataProvider::getAuthorizationPolicy()
+	 * @copydoc GridDataProvider::getAuthorizationPolicy()
 	 */
 	function getAuthorizationPolicy($request, $args, $roleAssignments) {
 		// Get the parent authorization policy.
@@ -43,7 +42,7 @@ class ReviewGridDataProvider extends SubmissionFilesGridDataProvider {
 	}
 
 	/**
-	 * @see GridDataProvider::getRequestArgs()
+	 * @copydoc GridDataProvider::getRequestArgs()
 	 */
 	function getRequestArgs() {
 		$reviewRound = $this->getReviewRound();
@@ -54,7 +53,7 @@ class ReviewGridDataProvider extends SubmissionFilesGridDataProvider {
 	}
 
 	/**
-	 * @see GridDataProvider::loadData()
+	 * @copydoc GridDataProvider::loadData()
 	 */
 	function loadData() {
 		// Get all review files assigned to this submission.
@@ -68,7 +67,7 @@ class ReviewGridDataProvider extends SubmissionFilesGridDataProvider {
 	// Overridden public methods from FilesGridDataProvider
 	//
 	/**
-	 * @see FilesGridDataProvider::getSelectAction()
+	 * @copydoc FilesGridDataProvider::getSelectAction()
 	 */
 	function getSelectAction($request) {
 		import('lib.pkp.controllers.grid.files.fileList.linkAction.SelectReviewFilesLinkAction');
@@ -82,7 +81,7 @@ class ReviewGridDataProvider extends SubmissionFilesGridDataProvider {
 	}
 
 	/**
-	 * @see FilesGridDataProvider::getAddFileAction()
+	 * @copydoc FilesGridDataProvider::getAddFileAction()
 	 */
 	function getAddFileAction($request) {
 		import('lib.pkp.controllers.api.file.linkAction.AddFileLinkAction');

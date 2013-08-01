@@ -36,7 +36,7 @@ class Nlm30CitationSchemaMlaFilter extends Nlm30CitationSchemaCitationOutputForm
 	// Implement template methods from PersistableFilter
 	//
 	/**
-	 * @see PersistableFilter::getClassName()
+	 * @copydoc PersistableFilter::getClassName()
 	 */
 	function getClassName() {
 		return 'lib.pkp.plugins.citationOutput.mla.filter.Nlm30CitationSchemaMlaFilter';
@@ -47,7 +47,7 @@ class Nlm30CitationSchemaMlaFilter extends Nlm30CitationSchemaCitationOutputForm
 	// Implement abstract template methods from TemplateBasedFilter
 	//
 	/**
-	 * @see TemplateBasedFilter::getBasePath()
+	 * @copydoc TemplateBasedFilter::getBasePath()
 	 */
 	function getBasePath() {
 		return dirname(__FILE__);

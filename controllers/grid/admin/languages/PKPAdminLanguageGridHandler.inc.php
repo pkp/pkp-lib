@@ -40,7 +40,7 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 	// Implement template methods from PKPHandler.
 	//
 	/**
-	 * @see GridHandler::authorize()
+	 * @copydoc GridHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.PolicySet');
@@ -56,7 +56,7 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 	}
 
 	/**
-	 * @see PKPHandler::initialize()
+	 * @copydoc PKPHandler::initialize()
 	 */
 	function initialize($request) {
 		parent::initialize($request);
@@ -128,14 +128,14 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 	// Implement methods from GridHandler.
 	//
 	/**
-	 * @see GridHandler::getRowInstance()
+	 * @copydoc GridHandler::getRowInstance()
 	 */
 	function getRowInstance() {
 		return new LanguageGridRow();
 	}
 
 	/**
-	 * @see GridHandler::loadData()
+	 * @copydoc GridHandler::loadData()
 	 */
 	function loadData($request, $filter) {
 		$site = $request->getSite();

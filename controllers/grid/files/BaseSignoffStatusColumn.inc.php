@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file controllers/grid/files/BaseSignoffStatusColumn.inc.php
  *
@@ -72,7 +71,7 @@ class BaseSignoffStatusColumn extends GridColumn {
 	/**
 	 * Method expected by ColumnBasedGridCellProvider
 	 * to render a cell in this column.
-	 * @see ColumnBasedGridCellProvider::getTemplateVarsFromRow()
+	 * @copydoc ColumnBasedGridCellProvider::getTemplateVarsFromRow()
 	 * @param $row GridRow
 	 */
 	function getTemplateVarsFromRow($row) {
@@ -84,7 +83,7 @@ class BaseSignoffStatusColumn extends GridColumn {
 	// Overridden methods from GridColumn
 	//
 	/**
-	 * @see GridColumn::getCellActions()
+	 * @copydoc GridColumn::getCellActions()
 	 */
 	function getCellActions($request, $row) {
 		return array();

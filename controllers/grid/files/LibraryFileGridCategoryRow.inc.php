@@ -49,7 +49,7 @@ class LibraryFileGridCategoryRow extends GridCategoryRow {
 	}
 
 	/**
-	 * @see GridCategoryRow::initialize()
+	 * @copydoc GridCategoryRow::initialize()
 	 */
 	function initialize($request) {
 		parent::initialize($request);

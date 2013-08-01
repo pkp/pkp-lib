@@ -37,7 +37,7 @@ class SubmissionsListGridHandler extends GridHandler {
 	// Implement template methods from PKPHandler
 	//
 	/**
-	 * @see PKPHandler::authorize()
+	 * @copydoc PKPHandler::authorize()
 	 * @param $request PKPRequest
 	 * @param $args array
 	 * @param $roleAssignments array
@@ -49,7 +49,7 @@ class SubmissionsListGridHandler extends GridHandler {
 	}
 
 	/**
-	 * @see PKPHandler::initialize()
+	 * @copydoc PKPHandler::initialize()
 	 */
 	function initialize($request) {
 		parent::initialize($request);
@@ -151,7 +151,7 @@ class SubmissionsListGridHandler extends GridHandler {
 	// Protected methods
 	//
 	/**
-	 * @see GridHandler::initFeatures()
+	 * @copydoc GridHandler::initFeatures()
 	 */
 	function initFeatures($request, $args) {
 		import('lib.pkp.classes.controllers.grid.feature.PagingFeature');
@@ -171,7 +171,7 @@ class SubmissionsListGridHandler extends GridHandler {
 	}
 
 	/**
-	 * @see GridHandler::getRowInstance()
+	 * @copydoc GridHandler::getRowInstance()
 	 * @return SubmissionsListGridRow
 	 */
 	function getRowInstance() {

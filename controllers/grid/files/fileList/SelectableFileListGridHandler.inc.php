@@ -33,7 +33,7 @@ class SelectableFileListGridHandler extends FileListGridHandler {
 	// Overriden methods from GridHandler.
 	//
 	/**
-	 * @see GridHandler::initFeatures()
+	 * @copydoc GridHandler::initFeatures()
 	 */
 	function initFeatures($request, $args) {
 		import('lib.pkp.classes.controllers.grid.feature.selectableItems.SelectableItemsFeature');
@@ -45,7 +45,7 @@ class SelectableFileListGridHandler extends FileListGridHandler {
 	// Implemented methods from GridHandler.
 	//
 	/**
-	 * @see GridHandler::isDataElementSelected()
+	 * @copydoc GridHandler::isDataElementSelected()
 	 */
 	function isDataElementSelected($gridDataElement) {
 		$file = $gridDataElement['submissionFile'];
@@ -53,7 +53,7 @@ class SelectableFileListGridHandler extends FileListGridHandler {
 	}
 
 	/**
-	 * @see GridHandler::getSelectName()
+	 * @copydoc GridHandler::getSelectName()
 	 */
 	function getSelectName() {
 		return 'selectedFiles';

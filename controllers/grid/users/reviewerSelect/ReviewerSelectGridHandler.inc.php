@@ -37,7 +37,7 @@ class ReviewerSelectGridHandler extends GridHandler {
 	// Implement template methods from PKPHandler
 	//
 	/**
-	 * @see PKPHandler::authorize()
+	 * @copydoc PKPHandler::authorize()
 	 * @param $request PKPRequest
 	 * @param $args array
 	 * @param $roleAssignments array
@@ -147,7 +147,7 @@ class ReviewerSelectGridHandler extends GridHandler {
 	// Overridden methods from GridHandler
 	//
 	/**
-	 * @see GridHandler::getRowInstance()
+	 * @copydoc GridHandler::getRowInstance()
 	 * @return ReviewerSelectGridRow
 	 */
 	function getRowInstance() {
@@ -155,14 +155,14 @@ class ReviewerSelectGridHandler extends GridHandler {
 	}
 
 	/**
-	 * @see GridHandler::renderFilter()
+	 * @copydoc GridHandler::renderFilter()
 	 */
 	function renderFilter($request) {
 		return parent::renderFilter($request, $this->getFilterSelectionData($request));
 	}
 
 	/**
-	 * @see GridHandler::loadData()
+	 * @copydoc GridHandler::loadData()
 	 */
 	function loadData($request, $filter) {
 		$interests = $filter['interestSearchKeywords'];
@@ -189,7 +189,7 @@ class ReviewerSelectGridHandler extends GridHandler {
 	}
 
 	/**
-	 * @see GridHandler::getFilterSelectionData()
+	 * @copydoc GridHandler::getFilterSelectionData()
 	 * @return array Filter selection data.
 	 */
 	function getFilterSelectionData($request) {
@@ -208,7 +208,7 @@ class ReviewerSelectGridHandler extends GridHandler {
 	}
 
 	/**
-	 * @see GridHandler::getFilterForm()
+	 * @copydoc GridHandler::getFilterForm()
 	 * @return Form
 	 */
 	function getFilterForm() {

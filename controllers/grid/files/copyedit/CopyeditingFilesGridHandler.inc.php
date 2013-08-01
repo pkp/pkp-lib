@@ -42,7 +42,7 @@ class CopyeditingFilesGridHandler extends SignoffFilesGridHandler {
 	}
 
 	/**
-	 * @see SignoffFilesGridHandler::authorize()
+	 * @copydoc SignoffFilesGridHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
 		// Approve copyediting file needs submission access policy.

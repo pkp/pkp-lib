@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file controllers/grid/files/review/ReviewRevisionsGridDataProvider.inc.php
  *
@@ -30,7 +29,7 @@ class ReviewRevisionsGridDataProvider extends ReviewGridDataProvider {
 	// Implement template methods from GridDataProvider
 	//
 	/**
-	 * @see GridDataProvider::loadData()
+	 * @copydoc GridDataProvider::loadData()
 	 */
 	function loadData() {
 		// Grab the files that are new (incoming) revisions
@@ -46,7 +45,7 @@ class ReviewRevisionsGridDataProvider extends ReviewGridDataProvider {
 	// Overridden public methods from FilesGridDataProvider
 	//
 	/**
-	 * @see FilesGridDataProvider::getAddFileAction()
+	 * @copydoc FilesGridDataProvider::getAddFileAction()
 	 */
 	function getAddFileAction($request) {
 		import('lib.pkp.controllers.api.file.linkAction.AddRevisionLinkAction');

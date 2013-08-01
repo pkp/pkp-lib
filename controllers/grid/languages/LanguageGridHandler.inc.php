@@ -33,7 +33,7 @@ class LanguageGridHandler extends GridHandler {
 	// Implement template methods from PKPHandler.
 	//
 	/**
-	 * @see PKPHandler::initialize()
+	 * @copydoc PKPHandler::initialize()
 	 */
 	function initialize($request) {
 		parent::initialize($request);

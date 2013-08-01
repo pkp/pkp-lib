@@ -16,8 +16,6 @@ import('lib.pkp.classes.controllers.grid.CategoryGridHandler');
 import('lib.pkp.controllers.grid.files.LibraryFileGridRow');
 import('lib.pkp.controllers.grid.files.LibraryFileGridCategoryRow');
 import('classes.file.LibraryFileManager');
-
-
 import('lib.pkp.classes.context.LibraryFile');
 
 // Link action & modal classes
@@ -124,14 +122,14 @@ class LibraryFileGridHandler extends CategoryGridHandler {
 	// Implement template methods from CategoryGridHandler
 	//
 	/**
-	 * @see CategoryGridHandler::getCategoryRowInstance()
+	 * @copydoc CategoryGridHandler::getCategoryRowInstance()
 	 */
 	function getCategoryRowInstance() {
 		return new LibraryFileGridCategoryRow($this->getContext());
 	}
 
 	/**
-	 * @see GridHandler::loadData()
+	 * @copydoc GridHandler::loadData()
 	 */
 	function loadData($request, $filter) {
 

@@ -37,7 +37,7 @@ class ManageAnnouncementGridHandler extends AnnouncementGridHandler {
 	// Overridden template methods
 	//
 	/**
-	 * @see AnnouncementGridHandler::initialize()
+	 * @copydoc AnnouncementGridHandler::initialize()
 	 */
 	function initialize($request) {
 		parent::initialize($request);
@@ -66,7 +66,7 @@ class ManageAnnouncementGridHandler extends AnnouncementGridHandler {
 	}
 
 	/**
-	 * @see GridHandler::initFeatures()
+	 * @copydoc GridHandler::initFeatures()
 	 */
 	function initFeatures($request, $args) {
 		import('lib.pkp.classes.controllers.grid.feature.PagingFeature');
@@ -74,7 +74,7 @@ class ManageAnnouncementGridHandler extends AnnouncementGridHandler {
 	}
 
 	/**
-	 * @see GridHandler::getRowInstance()
+	 * @copydoc GridHandler::getRowInstance()
 	 */
 	function getRowInstance() {
 		import('lib.pkp.controllers.grid.announcements.AnnouncementGridRow');
@@ -82,7 +82,7 @@ class ManageAnnouncementGridHandler extends AnnouncementGridHandler {
 	}
 
 	/**
-	 * @see GridHandler::authorize()
+	 * @copydoc GridHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.PkpContextAccessPolicy');

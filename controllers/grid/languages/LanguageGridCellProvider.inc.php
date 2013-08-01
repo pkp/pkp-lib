@@ -23,7 +23,7 @@ class LanguageGridCellProvider extends GridCellProvider {
 	}
 
 	/**
-	 * @see GridCellProvider::getTemplateVarsFromRowColumn()
+	 * @copydoc GridCellProvider::getTemplateVarsFromRowColumn()
 	 */
 	function getTemplateVarsFromRowColumn($row, $column) {
 		$element = $row->getData();
@@ -62,7 +62,7 @@ class LanguageGridCellProvider extends GridCellProvider {
 	}
 
 	/**
-	 * @see GridCellProvider::getCellActions()
+	 * @copydoc GridCellProvider::getCellActions()
 	 */
 	function getCellActions($request, $row, $column) {
 		import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');

@@ -33,7 +33,7 @@ class ContextGridHandler extends GridHandler {
 	// Implement template methods from PKPHandler.
 	//
 	/**
-	 * @see PKPHandler::authorize()
+	 * @copydoc PKPHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.PolicySet');
@@ -49,7 +49,7 @@ class ContextGridHandler extends GridHandler {
 	}
 
 	/**
-	 * @see PKPHandler::initialize()
+	 * @copydoc PKPHandler::initialize()
 	 */
 	function initialize($request) {
 		parent::initialize($request);
@@ -113,7 +113,7 @@ class ContextGridHandler extends GridHandler {
 	// Implement methods from GridHandler.
 	//
 	/**
-	 * @see GridHandler::getRowInstance()
+	 * @copydoc GridHandler::getRowInstance()
 	 * @return UserGridRow
 	 */
 	function getRowInstance() {
@@ -121,7 +121,7 @@ class ContextGridHandler extends GridHandler {
 	}
 
 	/**
-	 * @see GridHandler::loadData()
+	 * @copydoc GridHandler::loadData()
 	 * @param $request PKPRequest
 	 * @return array Grid data.
 	 */
@@ -134,7 +134,7 @@ class ContextGridHandler extends GridHandler {
 	}
 
 	/**
-	 * @see lib/pkp/classes/controllers/grid/GridHandler::setDataElementSequence()
+	 * @copydoc GridHandler::setDataElementSequence()
 	 */
 	function setDataElementSequence($request, $rowId, $context, $newSequence) {
 		$contextDao = Application::getContextDAO();
@@ -143,14 +143,14 @@ class ContextGridHandler extends GridHandler {
 	}
 
 	/**
-	 * @see lib/pkp/classes/controllers/grid/GridHandler::getDataElementSequence()
+	 * @copydoc GridHandler::getDataElementSequence()
 	 */
 	function getDataElementSequence($context) {
 		return $context->getSequence();
 	}
 
 	/**
-	 * @see GridHandler::addFeatures()
+	 * @copydoc GridHandler::addFeatures()
 	 */
 	function initFeatures($request, $args) {
 		import('lib.pkp.classes.controllers.grid.feature.OrderGridItemsFeature');

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file controllers/grid/files/attachment/EditorSelectableReviewAttachmentsGridHandler.inc.php
  *
@@ -39,7 +38,7 @@ class EditorSelectableReviewAttachmentsGridHandler extends SelectableFileListGri
 	}
 
 	/**
-	 * @see SelectableFileListGridHandler::getSelectName()
+	 * @copydoc SelectableFileListGridHandler::getSelectName()
 	 */
 	function getSelectName() {
 		return 'selectedAttachments';

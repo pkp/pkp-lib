@@ -85,7 +85,7 @@ class SubmissionFilesGridHandler extends GridHandler {
 	// Implement template methods from PKPHandler
 	//
 	/**
-	 * @see PKPHandler::authorize()
+	 * @copydoc PKPHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
 		// Set the stage id from the request parameter if not set previously.
@@ -103,7 +103,7 @@ class SubmissionFilesGridHandler extends GridHandler {
 	}
 
 	/**
-	 * @see PKPHandler::initialize()
+	 * @copydoc PKPHandler::initialize()
 	 */
 	function initialize($request) {
 		parent::initialize($request);
@@ -148,7 +148,7 @@ class SubmissionFilesGridHandler extends GridHandler {
 	// Overridden methods from GridHandler
 	//
 	/**
-	 * @see GridHandler::getRowInstance()
+	 * @copydoc GridHandler::getRowInstance()
 	 */
 	function getRowInstance() {
 		$capabilities = $this->getCapabilities();

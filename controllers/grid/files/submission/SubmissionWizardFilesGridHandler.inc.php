@@ -38,7 +38,7 @@ class SubmissionWizardFilesGridHandler extends FileListGridHandler {
 	}
 
 	/**
-	 * @see PKPHandler::initialize()
+	 * @copydoc PKPHandler::initialize()
 	 */
 	function initialize($request) {
 		// Determine whether to force the user group ID submitted

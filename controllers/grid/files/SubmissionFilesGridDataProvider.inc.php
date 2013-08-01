@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file controllers/grid/files/SubmissionFilesGridDataProvider.inc.php
  *
@@ -60,7 +59,7 @@ class SubmissionFilesGridDataProvider extends FilesGridDataProvider {
 	// Implement template methods from GridDataProvider
 	//
 	/**
-	 * @see GridDataProvider::getRequestArgs()
+	 * @copydoc GridDataProvider::getRequestArgs()
 	 */
 	function getRequestArgs() {
 		$submission = $this->getSubmission();
@@ -80,7 +79,7 @@ class SubmissionFilesGridDataProvider extends FilesGridDataProvider {
 	}
 
 	/**
-	 * @see GridDataProvider::loadData()
+	 * @copydoc GridDataProvider::loadData()
 	 */
 	function loadData() {
 		// Retrieve all subission files for the given file stage.
@@ -94,7 +93,7 @@ class SubmissionFilesGridDataProvider extends FilesGridDataProvider {
 	// Implement template methods from GridDataProvider
 	//
 	/**
-	 * @see GridDataProvider::getAuthorizationPolicy()
+	 * @copydoc GridDataProvider::getAuthorizationPolicy()
 	 */
 	function getAuthorizationPolicy($request, $args, $roleAssignments) {
 		$this->setUploaderRoles($roleAssignments);
@@ -107,7 +106,7 @@ class SubmissionFilesGridDataProvider extends FilesGridDataProvider {
 	// Overridden public methods from FilesGridDataProvider
 	//
 	/**
-	 * @see FilesGridDataProvider::getAddFileAction()
+	 * @copydoc FilesGridDataProvider::getAddFileAction()
 	 */
 	function getAddFileAction($request) {
 		import('lib.pkp.controllers.api.file.linkAction.AddFileLinkAction');

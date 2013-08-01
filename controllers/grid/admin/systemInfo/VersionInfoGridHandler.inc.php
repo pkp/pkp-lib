@@ -33,7 +33,7 @@ class VersionInfoGridHandler extends GridHandler {
 	// Implement template methods from PKPHandler.
 	//
 	/**
-	 * @see PKPHandler::authorize()
+	 * @copydoc PKPHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.PolicySet');
@@ -49,7 +49,7 @@ class VersionInfoGridHandler extends GridHandler {
 	}
 
 	/**
-	 * @see PKPHandler::initialize()
+	 * @copydoc PKPHandler::initialize()
 	 */
 	function initialize($request) {
 		parent::initialize($request);
@@ -145,11 +145,12 @@ class VersionInfoGridHandler extends GridHandler {
 	//
 
 	/**
-	 * @see GridHandler::loadData
+	 * @copydoc GridHandler::loadData()
 	 */
 	function loadData($request, $filter) {
 		$versionDao = DAORegistry::getDAO('VersionDAO');
 		return $versionDao->getVersionHistory();
 	}
 }
+
 ?>

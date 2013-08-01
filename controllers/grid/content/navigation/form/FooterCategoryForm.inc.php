@@ -66,7 +66,7 @@ class FooterCategoryForm extends Form {
 	// Extended methods from Form
 	//
 	/**
-	 * @see Form::fetch()
+	 * @copydoc Form::fetch()
 	 */
 	function fetch($request) {
 		$templateMgr = TemplateManager::getManager($request);
@@ -88,14 +88,14 @@ class FooterCategoryForm extends Form {
 	// Extended methods from Form
 	//
 	/**
-	 * @see Form::readInputData()
+	 * @copydoc Form::readInputData()
 	 */
 	function readInputData() {
 		$this->readUserVars(array('title', 'description', 'path', 'footerLinks', 'footerCategoryId'));
 	}
 
 	/**
-	 * @see Form::execute()
+	 * @copydoc Form::execute()
 	 */
 	function execute($request) {
 
@@ -130,7 +130,7 @@ class FooterCategoryForm extends Form {
 	}
 
 	/**
-	 * @see ListbuilderHandler::insertEntry()
+	 * @copydoc ListbuilderHandler::insertEntry()
 	 */
 	function insertEntry($request, $newRowId) {
 		$rowData = $newRowId;
@@ -143,7 +143,7 @@ class FooterCategoryForm extends Form {
 	}
 
 	/**
-	 * @see ListbuilderHandler::updateEntry()
+	 * @copydoc ListbuilderHandler::updateEntry()
 	 */
 	function updateEntry($request, $rowId, $newRowId) {
 		$rowData = $newRowId;
@@ -164,7 +164,7 @@ class FooterCategoryForm extends Form {
 	}
 
 	/**
-	 * @see ListbuilderHandler::deleteEntry()
+	 * @copydoc ListbuilderHandler::deleteEntry()
 	 */
 	function deleteEntry($request, $rowId) {
 		if ($rowId) {

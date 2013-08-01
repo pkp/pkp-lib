@@ -48,10 +48,7 @@ class UserGroupGridHandler extends CategoryGridHandler {
 	// Overridden methods from PKPHandler.
 	//
 	/**
-	 * @see PKPHandler::authorize()
-	 * @param $request PKPRequest
-	 * @param $args array
-	 * @param $roleAssignments array
+	 * @copydoc PKPHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.PkpContextAccessPolicy');
@@ -60,9 +57,7 @@ class UserGroupGridHandler extends CategoryGridHandler {
 	}
 
 	/**
-	 * @see PKPHandler::initialize()
-	 * Configure the grid
-	 * @param $request PKPRequest
+	 * @copydoc PKPHandler::initialize()
 	 */
 	function initialize($request) {
 		parent::initialize($request);
@@ -120,7 +115,7 @@ class UserGroupGridHandler extends CategoryGridHandler {
 	}
 
 	/**
-	 * @see GridHandler::loadData
+	 * @copydoc GridHandler::loadData()
 	 */
 	function loadData($request, $filter) {
 		$contextId = $this->_getContextId();
@@ -146,7 +141,7 @@ class UserGroupGridHandler extends CategoryGridHandler {
 	}
 
 	/**
-	 * @see GridHandler::getRowInstance()
+	 * @copydoc GridHandler::getRowInstance()
 	 * @return UserGroupGridRow
 	 */
 	function getRowInstance() {
@@ -155,7 +150,7 @@ class UserGroupGridHandler extends CategoryGridHandler {
 	}
 
 	/**
-	 * @see CategoryGridHandler::geCategorytRowInstance()
+	 * @copydoc CategoryGridHandler::geCategorytRowInstance()
 	 * @return UserGroupGridCategoryRow
 	 */
 	function getCategoryRowInstance() {
@@ -163,7 +158,7 @@ class UserGroupGridHandler extends CategoryGridHandler {
 	}
 
 	/**
-	 * @see CategoryGridHandler::getCategoryData()
+	 * @copydoc CategoryGridHandler::getCategoryData()
 	 */
 	function getCategoryData(&$stage) {
 		// $stage is an associative array, with id and name (locale key) elements

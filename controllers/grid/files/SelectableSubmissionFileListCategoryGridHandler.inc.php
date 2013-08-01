@@ -88,7 +88,7 @@ class SelectableSubmissionFileListCategoryGridHandler extends CategoryGridHandle
 	// Overridden methods from GridHandler
 	//
 	/**
-	 * @see GridHandler::loadData()
+	 * @copydoc GridHandler::loadData()
 	 */
 	function loadData($request, $filter) {
 		// Let parent class get data from data provider.
@@ -103,14 +103,14 @@ class SelectableSubmissionFileListCategoryGridHandler extends CategoryGridHandle
 	}
 
 	/**
-	 * @see GridHandler::getFilterForm()
+	 * @copydoc GridHandler::getFilterForm()
 	 */
 	function getFilterForm() {
 		return 'controllers/grid/files/selectableSubmissionFileListCategoryGridFilter.tpl';
 	}
 
 	/**
-	 * @see GridHandler::getFilterSelectionData()
+	 * @copydoc GridHandler::getFilterSelectionData()
 	 */
 	function getFilterSelectionData($request) {
 		return array('allStages' => $request->getUserVar('allStages') ? true : false);
@@ -121,7 +121,7 @@ class SelectableSubmissionFileListCategoryGridHandler extends CategoryGridHandle
 	// Overridden methods from CategoryGridHandler
 	//
 	/**
-	 * @see CategoryGridHandler::getCategoryRowInstance()
+	 * @copydoc CategoryGridHandler::getCategoryRowInstance()
 	 */
 	function getCategoryRowInstance() {
 		return new SelectableSubmissionFileListCategoryGridRow();
@@ -132,7 +132,7 @@ class SelectableSubmissionFileListCategoryGridHandler extends CategoryGridHandle
 	// Implement template methods from PKPHandler
 	//
 	/**
-	 * @see PKPHandler::authorize()
+	 * @copydoc PKPHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
 		// Set the stage id from the request parameter if not set previously.
@@ -150,7 +150,7 @@ class SelectableSubmissionFileListCategoryGridHandler extends CategoryGridHandle
 	}
 
 	/**
-	 * @see PKPHandler::initialize()
+	 * @copydoc PKPHandler::initialize()
 	 */
 	function initialize($request) {
 		parent::initialize($request);
@@ -200,7 +200,7 @@ class SelectableSubmissionFileListCategoryGridHandler extends CategoryGridHandle
 	}
 
 	/**
-	 * @see GridHandler::initFeatures()
+	 * @copydoc GridHandler::initFeatures()
 	 */
 	function initFeatures($request, $args) {
 		import('lib.pkp.classes.controllers.grid.feature.selectableItems.SelectableItemsFeature');
@@ -212,7 +212,7 @@ class SelectableSubmissionFileListCategoryGridHandler extends CategoryGridHandle
 	// Overridden methods from GridHandler
 	//
 	/**
-	 * @see GridHandler::getRowInstance()
+	 * @copydoc GridHandler::getRowInstance()
 	 */
 	function getRowInstance() {
 		$capabilities = $this->getCapabilities();
@@ -241,7 +241,7 @@ class SelectableSubmissionFileListCategoryGridHandler extends CategoryGridHandle
 	}
 
 	/**
-	 * @see GridHandler::isDataElementInCategorySelected()
+	 * @copydoc GridHandler::isDataElementInCategorySelected()
 	 */
 	function isDataElementInCategorySelected($categoryDataId, &$gridDataElement) {
 		$currentStageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);

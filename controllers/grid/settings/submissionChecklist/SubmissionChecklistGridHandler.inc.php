@@ -30,7 +30,7 @@ class SubmissionChecklistGridHandler extends SetupGridHandler {
 	// Overridden template methods
 	//
 	/**
-	 * @see SetupGridHandler::initialize()
+	 * @copydoc SetupGridHandler::initialize()
 	 */
 	function initialize($request) {
 		parent::initialize($request);
@@ -74,7 +74,7 @@ class SubmissionChecklistGridHandler extends SetupGridHandler {
 	// Overridden methods from GridHandler
 	//
 	/**
-	 * @see GridHandler::initFeatures()
+	 * @copydoc GridHandler::initFeatures()
 	 */
 	function initFeatures($request, $args) {
 		import('lib.pkp.classes.controllers.grid.feature.OrderGridItemsFeature');
@@ -82,14 +82,14 @@ class SubmissionChecklistGridHandler extends SetupGridHandler {
 	}
 
 	/**
-	 * @see GridHandler::getRowInstance()
+	 * @copydoc GridHandler::getRowInstance()
 	 */
 	function getRowInstance() {
 		return new SubmissionChecklistGridRow();
 	}
 
 	/**
-	 * @see GridHandler::loadData()
+	 * @copydoc GridHandler::loadData()
 	 */
 	function loadData($request, $filter) {
 		// Elements to be displayed in the grid
@@ -190,14 +190,14 @@ class SubmissionChecklistGridHandler extends SetupGridHandler {
 	}
 
 	/**
-	 * @see GridHandler::getDataElementSequence()
+	 * @copydoc GridHandler::getDataElementSequence()
 	 */
 	function getDataElementSequence($gridDataElement) {
 		return $gridDataElement['order'];
 	}
 
 	/**
-	 * @see GridHandler::setDataElementSequence()
+	 * @copydoc GridHandler::setDataElementSequence()
 	 */
 	function setDataElementSequence($request, $rowId, $gridDataElement, $newSequence) {
 		$router = $request->getRouter();

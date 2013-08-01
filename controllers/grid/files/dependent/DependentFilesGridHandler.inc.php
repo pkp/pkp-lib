@@ -37,7 +37,7 @@ class DependentFilesGridHandler extends FileListGridHandler {
 	}
 
 	/**
-	 * @see SubmissionFilesGridHandler::authorize()
+	 * @copydoc SubmissionFilesGridHandler::authorize()
 	 */
 	function authorize($request, $args, $roleAssignments){
 
@@ -48,7 +48,7 @@ class DependentFilesGridHandler extends FileListGridHandler {
 	}
 
 	/**
-	 * @see GridHandler::getRequestArgs()
+	 * @copydoc GridHandler::getRequestArgs()
 	 */
 	function getRequestArgs() {
 		$submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);

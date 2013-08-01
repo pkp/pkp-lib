@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file controllers/grid/files/SignoffOnSignoffGridColumn.inc.php
  *
@@ -29,7 +28,7 @@ class SignoffOnSignoffGridColumn extends BaseSignoffStatusColumn {
 	// Overridden methods from GridColumn
 	//
 	/**
-	 * @see GridColumn::getCellActions()
+	 * @copydoc GridColumn::getCellActions()
 	 */
 	function getCellActions($request, $row) {
 		$status = $this->_getSignoffStatus($row);

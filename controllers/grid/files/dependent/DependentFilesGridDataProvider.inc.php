@@ -35,7 +35,7 @@ class DependentFilesGridDataProvider extends SubmissionFilesGridDataProvider {
 	}
 
 	/**
-	 * @see GridDataProvider::loadData()
+	 * @copydoc GridDataProvider::loadData()
 	 */
 	function loadData() {
 		// Retrieve all dependent files for the given file stage and original submission file id (i.e. the main galley/production file)
@@ -47,7 +47,7 @@ class DependentFilesGridDataProvider extends SubmissionFilesGridDataProvider {
 
 	/**
 	 * Overridden from SubmissionFilesGridDataProvider - we need to also include the assocType and assocId
-	 * @see FilesGridDataProvider::getAddFileAction()
+	 * @copydoc FilesGridDataProvider::getAddFileAction()
 	 */
 	function getAddFileAction($request) {
 		import('lib.pkp.controllers.api.file.linkAction.AddFileLinkAction');

@@ -37,7 +37,7 @@ class LibraryFileAdminGridDataProvider extends CategoryGridDataProvider {
 	//
 
 	/**
-	 * @see GridDataProvider::getAuthorizationPolicy()
+	 * @copydoc GridDataProvider::getAuthorizationPolicy()
 	 */
 	function getAuthorizationPolicy($request, $args, $roleAssignments) {
 		$this->_context = $request->getContext();
@@ -46,7 +46,7 @@ class LibraryFileAdminGridDataProvider extends CategoryGridDataProvider {
 	}
 
 	/**
-	 * @see GridDataProvider::getRequestArgs()
+	 * @copydoc GridDataProvider::getRequestArgs()
 	 */
 	function getRequestArgs() {
 		return array('canEdit' => $this->getCanEdit());
@@ -71,7 +71,7 @@ class LibraryFileAdminGridDataProvider extends CategoryGridDataProvider {
 
 
 	/**
-	 * @see CategoryGridHandler::getCategoryData()
+	 * @copydoc CategoryGridHandler::getCategoryData()
 	 */
 	function getCategoryData(&$fileType, $filter = null) {
 

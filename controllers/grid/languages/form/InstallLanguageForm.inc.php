@@ -28,7 +28,7 @@ class InstallLanguageForm extends Form {
 	// Overridden methods from Form.
 	//
 	/**
-	 * @see Form::initData()
+	 * @copydoc Form::initData()
 	 */
 	function initData($request) {
 		parent::initData($request);
@@ -38,7 +38,7 @@ class InstallLanguageForm extends Form {
 	}
 
 	/**
-	 * @see Form::fetch()
+	 * @copydoc Form::fetch()
 	 */
 	function fetch($request) {
 		$site = $request->getSite();
@@ -72,7 +72,7 @@ class InstallLanguageForm extends Form {
 	}
 
 	/**
-	 * @see Form::readInputData()
+	 * @copydoc Form::readInputData()
 	 */
 	function readInputData($request) {
 		parent::readInputData($request);
@@ -82,7 +82,7 @@ class InstallLanguageForm extends Form {
 	}
 
 	/**
-	 * @see Form::execute()
+	 * @copydoc Form::execute()
 	 */
 	function execute($request) {
 		$site = $request->getSite();

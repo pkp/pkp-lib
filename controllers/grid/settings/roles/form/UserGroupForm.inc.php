@@ -73,7 +73,7 @@ class UserGroupForm extends Form {
 	}
 
 	/**
-	 * @see Form::initData()
+	 * @copydoc Form::initData()
 	 */
 	function initData() {
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
@@ -99,14 +99,14 @@ class UserGroupForm extends Form {
 	}
 
 	/**
-	 * @see Form::readInputData()
+	 * @copydoc Form::readInputData()
 	 */
 	function readInputData() {
 		$this->readUserVars(array('roleId', 'name', 'abbrev', 'assignedStages'));
 	}
 
 	/**
-	 * @see Form::fetch()
+	 * @copydoc Form::fetch()
 	 */
 	function fetch($request) {
 		$templateMgr = TemplateManager::getManager($request);
@@ -124,7 +124,7 @@ class UserGroupForm extends Form {
 	}
 
 	/**
-	 * @see Form::execute()
+	 * @copydoc Form::execute()
 	 */
 	function execute($request) {
 		$userGroupId = $this->getUserGroupId();

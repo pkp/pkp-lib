@@ -46,7 +46,7 @@ class SocialMediaForm extends Form {
 	// Extended methods from Form
 	//
 	/**
-	 * @see Form::fetch()
+	 * @copydoc Form::fetch()
 	 */
 	function fetch($request) {
 		$templateMgr = TemplateManager::getManager($request);
@@ -69,14 +69,14 @@ class SocialMediaForm extends Form {
 	// Extended methods from Form
 	//
 	/**
-	 * @see Form::readInputData()
+	 * @copydoc Form::readInputData()
 	 */
 	function readInputData() {
 		$this->readUserVars(array('platform', 'code', 'includeInCatalog'));
 	}
 
 	/**
-	 * @see Form::execute()
+	 * @copydoc Form::execute()
 	 */
 	function execute($request) {
 

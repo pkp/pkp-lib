@@ -75,10 +75,7 @@ class PKPAuthorGridHandler extends GridHandler {
 	// Overridden methods from PKPHandler.
 	//
 	/**
-	 * @see PKPHandler::authorize()
-	 * @param $request PKPRequest
-	 * @param $args array
-	 * @param $roleAssignments array
+	 * @copydoc PKPHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
 		return parent::authorize($request, $args, $roleAssignments);
@@ -171,7 +168,7 @@ class PKPAuthorGridHandler extends GridHandler {
 	// Overridden methods from GridHandler
 	//
 	/**
-	 * @see GridHandler::getRowInstance()
+	 * @copydoc GridHandler::getRowInstance()
 	 * @return AuthorGridRow
 	 */
 	function getRowInstance() {
@@ -210,7 +207,7 @@ class PKPAuthorGridHandler extends GridHandler {
 	}
 
 	/**
-	 * @see GridHandler::loadData
+	 * @copydoc GridHandler::loadData()
 	 */
 	function loadData($request, $filter = null) {
 		$submission = $this->getSubmission();

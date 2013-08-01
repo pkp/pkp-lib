@@ -37,7 +37,7 @@ class StageParticipantGridCategoryRow extends GridCategoryRow {
 	// Overridden methods from GridCategoryRow
 	//
 	/**
-	 * @see GridCategoryRow::getCategoryLabel
+	 * @copydoc GridCategoryRow::getCategoryLabel()
 	 */
 	function getCategoryLabel() {
 		$userGroup =& $this->getData();

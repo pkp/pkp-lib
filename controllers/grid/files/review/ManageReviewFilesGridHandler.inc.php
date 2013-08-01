@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file controllers/grid/files/review/ManageReviewFilesGridHandler.inc.php
  *
@@ -80,7 +79,7 @@ class ManageReviewFilesGridHandler extends SelectableSubmissionFileListCategoryG
 	// Extended methods from CategoryGridHandler.
 	//
 	/**
-	 * @see CategoryGridHandler::getRequestArgs()
+	 * @copydoc CategoryGridHandler::getRequestArgs()
 	 */
 	function getRequestArgs() {
 		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);

@@ -12,7 +12,6 @@
  * @brief Form to display and post notes on a signoff.
  */
 
-
 import('lib.pkp.controllers.informationCenter.form.NewNoteForm');
 
 class NewSignoffNoteForm extends NewNoteForm {
@@ -65,21 +64,21 @@ class NewSignoffNoteForm extends NewNoteForm {
 	}
 
 	/**
-	 * @see NewNoteForm::getNewNoteFormTemplate()
+	 * @copydoc NewNoteForm::getNewNoteFormTemplate()
 	 */
 	function getNewNoteFormTemplate() {
 		return 'controllers/informationCenter/newFileUploadNoteForm.tpl';
 	}
 
 	/**
-	 * @see NewNoteForm::getSubmitNoteLocaleKey()
+	 * @copydoc NewNoteForm::getSubmitNoteLocaleKey()
 	 */
 	function getSubmitNoteLocaleKey() {
 		return 'submission.task.addNote';
 	}
 
 	/**
-	 * @see NewNoteForm::readInputData()
+	 * @copydoc NewNoteForm::readInputData()
 	 */
 	function readInputData() {
 		$this->readUserVars(array('signoffId', 'temporaryFileId'));
@@ -87,7 +86,7 @@ class NewSignoffNoteForm extends NewNoteForm {
 	}
 
 	/**
-	 * @see Form::validate()
+	 * @copydoc Form::validate()
 	 */
 	function validate() {
 		// FIXME: this should go in a FormValidator in the constructor.
@@ -96,7 +95,7 @@ class NewSignoffNoteForm extends NewNoteForm {
 	}
 
 	/**
-	 * @see NewNoteForm::fetch()
+	 * @copydoc NewNoteForm::fetch()
 	 */
 	function fetch($request) {
 		$templateMgr = TemplateManager::getManager($request);

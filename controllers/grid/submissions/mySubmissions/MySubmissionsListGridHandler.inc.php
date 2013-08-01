@@ -35,7 +35,7 @@ class MySubmissionsListGridHandler extends SubmissionsListGridHandler {
 	// Implement template methods from PKPHandler
 	//
 	/**
-	 * @see PKPHandler::initialize()
+	 * @copydoc PKPHandler::initialize()
 	 */
 	function initialize($request) {
 		parent::initialize($request);
@@ -49,7 +49,7 @@ class MySubmissionsListGridHandler extends SubmissionsListGridHandler {
 	// Implement template methods from SubmissionListGridHandler
 	//
 	/**
-	 * @see SubmissionListGridHandler::getSubmissions()
+	 * @copydoc SubmissionListGridHandler::getSubmissions()
 	 */
 	function getSubmissions($request, $userId) {
 		$this->setTitle('submission.mySubmissions');

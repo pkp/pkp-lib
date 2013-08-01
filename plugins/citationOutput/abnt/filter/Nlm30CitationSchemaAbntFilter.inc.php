@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @defgroup plugins_citationOutput_abnt_filter
  */
@@ -41,7 +40,7 @@ class Nlm30CitationSchemaAbntFilter extends Nlm30CitationSchemaCitationOutputFor
 	// Implement template methods from PersistableFilter
 	//
 	/**
-	 * @see PersistableFilter::getClassName()
+	 * @copydoc PersistableFilter::getClassName()
 	 */
 	function getClassName() {
 		return 'lib.pkp.plugins.citationOutput.abnt.filter.Nlm30CitationSchemaAbntFilter';
@@ -52,7 +51,7 @@ class Nlm30CitationSchemaAbntFilter extends Nlm30CitationSchemaCitationOutputFor
 	// Implement abstract template methods from TemplateBasedFilter
 	//
 	/**
-	 * @see TemplateBasedFilter::getBasePath()
+	 * @copydoc TemplateBasedFilter::getBasePath()
 	 */
 	function getBasePath() {
 		return dirname(__FILE__);

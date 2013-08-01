@@ -35,7 +35,7 @@ class MergeUsersGridHandler extends GridHandler {
 	// Implement template methods from PKPHandler.
 	//
 	/**
-         * @see PKPHandler::authorize()
+         * @copydoc PKPHandler::authorize()
          * @param $request PKPRequest
          * @param $args array
          * @param $roleAssignments array
@@ -47,7 +47,7 @@ class MergeUsersGridHandler extends GridHandler {
         }
 
 	/**
-	 * @see PKPHandler::initialize()
+	 * @copydoc PKPHandler::initialize()
 	 */
 	function initialize($request) {
 		parent::initialize($request);
@@ -110,7 +110,7 @@ class MergeUsersGridHandler extends GridHandler {
 	// Implement methods from GridHandler.
 	//
 	/**
-	 * @see GridHandler::getRowInstance()
+	 * @copydoc GridHandler::getRowInstance()
 	 * @return UserGridRow
 	 */
 	function getRowInstance() {
@@ -118,7 +118,7 @@ class MergeUsersGridHandler extends GridHandler {
 	}
 
 	/**
-	 * @see GridHandler::loadData()
+	 * @copydoc GridHandler::loadData()
 	 * @param $request PKPRequest
 	 * @return array Grid data.
 	 */
@@ -155,7 +155,7 @@ class MergeUsersGridHandler extends GridHandler {
 	}
 
 	/**
-	 * @see GridHandler::getFilterForm()
+	 * @copydoc GridHandler::getFilterForm()
 	 * @return string Filter template.
 	 */
 	function getFilterForm() {
@@ -163,7 +163,7 @@ class MergeUsersGridHandler extends GridHandler {
 	}
 
 	/**
-	 * @see GridHandler::renderFilter()
+	 * @copydoc GridHandler::renderFilter()
 	 */
 	function renderFilter($request) {
 
@@ -202,7 +202,7 @@ class MergeUsersGridHandler extends GridHandler {
 	}
 
 	/**
-	 * @see GridHandler::getFilterSelectionData()
+	 * @copydoc GridHandler::getFilterSelectionData()
 	 * @return array Filter selection data.
 	 */
 	function getFilterSelectionData($request) {

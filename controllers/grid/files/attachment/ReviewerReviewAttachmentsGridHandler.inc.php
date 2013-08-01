@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @filecontrollers/grid/files/attachment/ReviewerReviewAttachmentsGridHandler.inc.php
  *
@@ -39,7 +38,7 @@ class ReviewerReviewAttachmentsGridHandler extends FileListGridHandler {
 	}
 
 	/**
-	 * @see FileListGridHandler::initialize
+	 * @copydoc FileListGridHandler::initialize()
 	 */
 	function initialize($request) {
 		// Watch for flag from including template to warn about the

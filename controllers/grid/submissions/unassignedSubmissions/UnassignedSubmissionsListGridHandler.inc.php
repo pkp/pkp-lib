@@ -37,7 +37,7 @@ class UnassignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 	// Implement template methods from PKPHandler
 	//
 	/**
-	 * @see PKPHandler::initialize()
+	 * @copydoc PKPHandler::initialize()
 	 */
 	function initialize($request) {
 		parent::initialize($request);
@@ -54,7 +54,7 @@ class UnassignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 	// Implement template methods from SubmissionListGridHandler
 	//
 	/**
-	 * @see SubmissionListGridHandler::getSubmissions()
+	 * @copydoc SubmissionListGridHandler::getSubmissions()
 	 */
 	function getSubmissions($request, $userId) {
 		$submissionDao = Application::getSubmissionDAO(); /* @var $submissionDao SubmissionDAO */

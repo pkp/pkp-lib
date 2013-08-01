@@ -46,7 +46,7 @@ class SignoffFilesGridCellProvider extends GridCellProvider {
 	// Implemented methods from GridCellProvider.
 	//
 	/**
-	 * @see GridCellProvider::getCellActions()
+	 * @copydoc GridCellProvider::getCellActions()
 	 */
 	function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
 		$actions = array();

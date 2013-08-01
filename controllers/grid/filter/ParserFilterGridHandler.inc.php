@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file lib/pkp/controllers/grid/filter/ParserFilterGridHandler.inc.php
  *
@@ -23,7 +22,7 @@ class ParserFilterGridHandler extends FilterGridHandler {
 	}
 
 	/**
-	 * @see PKPHandler::initialize()
+	 * @copydoc PKPHandler::initialize()
 	 */
 	function initialize($request) {
 		// Set the filter group defining the filters

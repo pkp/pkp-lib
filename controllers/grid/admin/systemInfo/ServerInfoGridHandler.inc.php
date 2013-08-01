@@ -33,7 +33,7 @@ class ServerInfoGridHandler extends GridHandler {
 	// Implement template methods from PKPHandler.
 	//
 	/**
-	 * @see PKPHandler::authorize()
+	 * @copydoc PKPHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.PolicySet');
@@ -49,7 +49,7 @@ class ServerInfoGridHandler extends GridHandler {
 	}
 
 	/**
-	 * @see PKPHandler::initialize()
+	 * @copydoc PKPHandler::initialize()
 	 */
 	function initialize($request) {
 		parent::initialize($request);
@@ -102,7 +102,7 @@ class ServerInfoGridHandler extends GridHandler {
 	//
 
 	/**
-	 * @see GridHandler::loadData
+	 * @copydoc GridHandler::loadData()
 	 */
 	function loadData($request, $filter) {
 

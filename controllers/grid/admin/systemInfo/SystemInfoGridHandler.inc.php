@@ -35,7 +35,7 @@ class SystemInfoGridHandler extends CategoryGridHandler {
 	// Implement template methods from PKPHandler.
 	//
 	/**
-	 * @see PKPHandler::authorize()
+	 * @copydoc PKPHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.PolicySet');
@@ -51,7 +51,7 @@ class SystemInfoGridHandler extends CategoryGridHandler {
 	}
 
 	/**
-	 * @see PKPHandler::initialize()
+	 * @copydoc PKPHandler::initialize()
 	 */
 	function initialize($request) {
 		parent::initialize($request);
@@ -106,21 +106,21 @@ class SystemInfoGridHandler extends CategoryGridHandler {
 	// Implement template methods from CategoryGridHandler
 	//
 	/**
-	 * @see CategoryGridHandler::getCategoryRowInstance()
+	 * @copydoc CategoryGridHandler::getCategoryRowInstance()
 	 */
 	function getCategoryRowInstance() {
 		return new SystemInfoGridCategoryRow();
 	}
 
 	/**
-	 * @see CategoryGridHandler::getCategoryData()
+	 * @copydoc CategoryGridHandler::getCategoryData()
 	 */
 	function getCategoryData($configSection) {
 		return $this->_configData[$configSection];
 	}
 
 	/**
-	 * @see GridHandler::loadData
+	 * @copydoc GridHandler::loadData()
 	 */
 	function loadData($request, $filter) {
 		return array_keys($this->_configData);

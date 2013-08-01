@@ -96,7 +96,7 @@ class PluginGridCellProvider extends GridCellProvider {
 	}
 
 	/**
-	 * @see GridCellProvider::getCellActions()
+	 * @copydoc GridCellProvider::getCellActions()
 	 */
 	function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
 		if ($column->getId() == 'enabled') {

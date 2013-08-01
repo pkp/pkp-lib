@@ -36,22 +36,21 @@ class UserForm extends Form {
 	}
 
 	/**
-	 * @see Form::readInputData()
+	 * @copydoc Form::readInputData()
 	 */
 	function readInputData() {
 		$this->readUserVars(array('roles'));
 	}
 
 	/**
-	 * @see Form::execute()
+	 * @copydoc Form::execute()
 	 */
 	function execute($request) {
 		ListbuilderHandler::unpack($request, $this->getData('roles'));
 	}
 
 	/**
-	 * Persist a new entry insert.
-	 * @see Listbuilder::insertentry
+	 * @copydoc Listbuilder::insertentry()
 	 */
 	function insertEntry($request, $newRowId) {
 		$context = $request->getContext();
@@ -79,8 +78,7 @@ class UserForm extends Form {
 	}
 
 	/**
-	 * Delete an entry.
-	 * @see Listbuilder::deleteEntry
+	 * @copydoc Listbuilder::deleteEntry()
 	 */
 	function deleteEntry($request, $rowId) {
 		$userGroupId = (int) $rowId;

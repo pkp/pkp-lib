@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file controllers/grid/files/productionready/ProductionReadyFilesGridHandler.inc.php
  *
@@ -44,7 +43,7 @@ class ProductionReadyFilesGridHandler extends SubmissionFilesGridHandler {
 	}
 
 	/**
-	 * @see PKPHandler::initialize()
+	 * @copydoc PKPHandler::initialize()
 	 */
 	function initialize($request) {
 		parent::initialize($request);

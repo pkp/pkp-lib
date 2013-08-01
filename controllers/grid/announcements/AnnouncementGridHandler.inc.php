@@ -29,7 +29,7 @@ class AnnouncementGridHandler extends GridHandler {
 	// Overridden template methods
 	//
 	/**
-	 * @see GridHandler::authorize()
+	 * @copydoc GridHandler::authorize()
 	 * @param $request PKPRequest
 	 * @param $args array
 	 * @param $roleAssignments array
@@ -62,7 +62,7 @@ class AnnouncementGridHandler extends GridHandler {
 	}
 
 	/**
-	 * @see GridHandler::initialize()
+	 * @copydoc GridHandler::initialize()
 	 */
 	function initialize($request) {
 		parent::initialize($request);
@@ -110,7 +110,7 @@ class AnnouncementGridHandler extends GridHandler {
 	}
 
 	/**
-	 * @see GridHandler::loadData()
+	 * @copydoc GridHandler::loadData()
 	 */
 	function loadData($request, $filter) {
 		$context = $request->getContext();

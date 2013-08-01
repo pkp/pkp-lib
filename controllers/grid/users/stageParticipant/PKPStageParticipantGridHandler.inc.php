@@ -62,7 +62,7 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 	// Overridden methods from PKPHandler
 	//
 	/**
-	 * @see PKPHandler::authorize()
+	 * @copydoc PKPHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
 		$stageId = (int) $request->getUserVar('stageId');
@@ -86,7 +86,7 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 
 
 	/**
-	 * @see PKPHandler::initialize()
+	 * @copydoc PKPHandler::initialize()
 	 */
 	function initialize($request) {
 		parent::initialize($request);
@@ -137,7 +137,7 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 	// Overridden methods from [Category]GridHandler
 	//
 	/**
-	 * @see CategoryGridHandler::getCategoryData()
+	 * @copydoc CategoryGridHandler::getCategoryData()
 	 */
 	function getCategoryData(&$userGroup) {
 		// Retrieve useful objects.
@@ -155,14 +155,14 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 	}
 
 	/**
-	 * @see GridHandler::isSubComponent()
+	 * @copydoc GridHandler::isSubComponent()
 	 */
 	function getIsSubcomponent() {
 		return true;
 	}
 
 	/**
-	 * @see GridHandler::getRowInstance()
+	 * @copydoc GridHandler::getRowInstance()
 	 */
 	function getRowInstance() {
 		$submission = $this->getSubmission();
@@ -170,7 +170,7 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 	}
 
 	/**
-	 * @see CategoryGridHandler::getCategoryRowInstance()
+	 * @copydoc CategoryGridHandler::getCategoryRowInstance()
 	 */
 	function getCategoryRowInstance() {
 		$submission = $this->getSubmission();
@@ -178,14 +178,14 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 	}
 
 	/**
-	 * @see CategoryGridHandler::getCategoryRowIdParameterName()
+	 * @copydoc CategoryGridHandler::getCategoryRowIdParameterName()
 	 */
 	function getCategoryRowIdParameterName() {
 		return 'userGroupId';
 	}
 
 	/**
-	 * @see GridHandler::getRequestArgs()
+	 * @copydoc GridHandler::getRequestArgs()
 	 */
 	function getRequestArgs() {
 		$submission = $this->getSubmission();
@@ -197,7 +197,7 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 	}
 
 	/**
-	 * @see GridHandler::loadData()
+	 * @copydoc GridHandler::loadData()
 	 */
 	function loadData($request, $filter) {
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @defgroup plugins_citationParser_regex_filter
  */
@@ -39,7 +38,7 @@ class RegexRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilte
 	// Implement template methods from PersistableFilter
 	//
 	/**
-	 * @see PersistableFilter::getClassName()
+	 * @copydoc PersistableFilter::getClassName()
 	 */
 	function getClassName() {
 		return 'lib.pkp.plugins.citationParser.regex.filter.RegexRawCitationNlm30CitationSchemaFilter';
@@ -50,7 +49,7 @@ class RegexRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilte
 	// Implement template methods from Filter
 	//
 	/**
-	 * @see Filter::process()
+	 * @copydoc Filter::process()
 	 * @param $input string
 	 * @return MetadataDescription
 	 */

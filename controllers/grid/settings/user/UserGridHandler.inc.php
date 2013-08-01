@@ -37,7 +37,7 @@ class UserGridHandler extends GridHandler {
 	// Implement template methods from PKPHandler.
 	//
 	/**
-	 * @see PKPHandler::authorize()
+	 * @copydoc PKPHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.PkpContextAccessPolicy');
@@ -46,7 +46,7 @@ class UserGridHandler extends GridHandler {
 	}
 
 	/**
-	 * @see PKPHandler::initialize()
+	 * @copydoc PKPHandler::initialize()
 	 */
 	function initialize($request) {
 		parent::initialize($request);
@@ -136,7 +136,7 @@ class UserGridHandler extends GridHandler {
 	// Implement methods from GridHandler.
 	//
 	/**
-	 * @see GridHandler::getRowInstance()
+	 * @copydoc GridHandler::getRowInstance()
 	 * @return UserGridRow
 	 */
 	function getRowInstance() {
@@ -144,7 +144,7 @@ class UserGridHandler extends GridHandler {
 	}
 
 	/**
-	 * @see GridHandler::initFeatures()
+	 * @copydoc GridHandler::initFeatures()
 	 */
 	function initFeatures($request, $args) {
 		import('lib.pkp.classes.controllers.grid.feature.PagingFeature');
@@ -152,7 +152,7 @@ class UserGridHandler extends GridHandler {
 	}
 
 	/**
-	 * @see GridHandler::loadData()
+	 * @copydoc GridHandler::loadData()
 	 * @param $request PKPRequest
 	 * @return array Grid data.
 	 */
@@ -175,7 +175,7 @@ class UserGridHandler extends GridHandler {
 	}
 
 	/**
-	 * @see GridHandler::renderFilter()
+	 * @copydoc GridHandler::renderFilter()
 	 */
 	function renderFilter($request) {
 		$context = $request->getContext();
@@ -210,7 +210,7 @@ class UserGridHandler extends GridHandler {
 	}
 
 	/**
-	 * @see GridHandler::getFilterSelectionData()
+	 * @copydoc GridHandler::getFilterSelectionData()
 	 * @return array Filter selection data.
 	 */
 	function getFilterSelectionData($request) {
@@ -231,7 +231,7 @@ class UserGridHandler extends GridHandler {
 	}
 
 	/**
-	 * @see GridHandler::getFilterForm()
+	 * @copydoc GridHandler::getFilterForm()
 	 * @return string Filter template.
 	 */
 	function getFilterForm() {

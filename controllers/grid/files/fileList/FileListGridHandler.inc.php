@@ -36,7 +36,7 @@ class FileListGridHandler extends SubmissionFilesGridHandler {
 	// Extended methods from SubmissionFilesGridHandler.
 	//
 	/**
-	 * @see SubmissionFilesGridHandler::initialize()
+	 * @copydoc SubmissionFilesGridHandler::initialize()
 	 */
 	function initialize($request) {
 		parent::initialize($request);

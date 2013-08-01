@@ -71,10 +71,7 @@ class PKPSignoffFilesGridHandler extends CategoryGridHandler {
 	// Implement template methods from PKPHandler
 	//
 	/**
-	 * @see PKPHandler::authorize()
-	 * @param $request PKPRequest
-	 * @param $args array
-	 * @param $roleAssignments array
+	 * @copydoc PKPHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
 
@@ -267,7 +264,7 @@ class PKPSignoffFilesGridHandler extends CategoryGridHandler {
 	}
 
 	/**
-	 * @see GridDataProvider::getRequestArgs()
+	 * @copydoc GridDataProvider::getRequestArgs()
 	 */
 	function getRequestArgs() {
 		$submission = $this->getSubmission();
@@ -287,7 +284,7 @@ class PKPSignoffFilesGridHandler extends CategoryGridHandler {
 
 
 	/**
-	 * @see GridHandler::loadData
+	 * @copydoc GridHandler::loadData()
 	 */
 	function loadData($request, $filter) {
 		// Grab the files to display as categories
@@ -316,7 +313,7 @@ class PKPSignoffFilesGridHandler extends CategoryGridHandler {
 	// Overridden methods from GridHandler
 	//
 	/**
-	 * @see CategoryGridHandler::getCategoryRowInstance()
+	 * @copydoc CategoryGridHandler::getCategoryRowInstance()
 	 * @return CopyeditingFilesGridCategoryRow
 	 */
 	function getCategoryRowInstance() {
@@ -330,7 +327,7 @@ class PKPSignoffFilesGridHandler extends CategoryGridHandler {
 
 	/**
 	 * Get all the signoffs for this category.
-	 * @see CategoryGridHandler::getCategoryData()
+	 * @copydoc CategoryGridHandler::getCategoryData()
 	 * @param $submissionFile SubmissionFile or string
 	 * @return array Signoffs
 	 */
@@ -348,7 +345,7 @@ class PKPSignoffFilesGridHandler extends CategoryGridHandler {
 	}
 
 	/**
-	 * @see CategoryGridHandler::getCategoryRowIdParameterName()
+	 * @copydoc CategoryGridHandler::getCategoryRowIdParameterName()
 	 */
 	function getCategoryRowIdParameterName() {
 		return 'fileId';

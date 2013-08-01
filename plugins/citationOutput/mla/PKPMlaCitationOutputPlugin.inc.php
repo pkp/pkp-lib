@@ -1,7 +1,6 @@
 <?php
-
 /**
- * @defgroup plugins_citationOutput_mla
+ * @defgroup plugins_citationOutput_mla MLA Citation Format
  */
 
 /**

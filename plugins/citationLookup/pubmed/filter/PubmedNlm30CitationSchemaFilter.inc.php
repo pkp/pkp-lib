@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @defgroup plugins_citationLookup_pubmed_filter
+ * @defgroup plugins_citationLookup_pubmed_filter PubMed Citation Lookup Filter Plugin
  */
 
 /**

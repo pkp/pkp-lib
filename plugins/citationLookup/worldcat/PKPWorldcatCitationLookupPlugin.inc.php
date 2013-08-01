@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @defgroup plugins_citationLookup_worldcat
+ * @defgroup plugins_citationLookup_worldcat WorldCat Citation Lookup Plugin
  */
 
 /**

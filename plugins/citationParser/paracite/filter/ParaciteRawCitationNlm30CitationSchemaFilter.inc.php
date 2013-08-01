@@ -1,6 +1,6 @@
 <?php
 /**
- * @defgroup plugins_citationParser_paracite_filter
+ * @defgroup plugins_citationParser_paracite_filter ParaCite Citation Filter
  */
 
 /**

@@ -1,6 +1,6 @@
 <?php
 /**
- * @defgroup plugins_citationOutput_vancouver_filter
+ * @defgroup plugins_citationOutput_vancouver_filter Vancouver Citation Format Filter
  */
 
 /**

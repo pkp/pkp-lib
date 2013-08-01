@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @defgroup tests_plugins
+ * @defgroup tests_plugins Plugin test suite
  */
 
 /**
@@ -16,7 +16,6 @@
  *
  * @brief Abstract base class for Plugin tests.
  */
-
 
 require_mock_env('env2');
 

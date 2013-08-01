@@ -1,10 +1,6 @@
 <?php
 
 /**
- * @defgroup citation_output
- */
-
-/**
  * @file classes/citation/PlainTextReferencesList.inc.php
  *
  * Copyright (c) 2000-2013 John Willinsky

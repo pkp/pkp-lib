@@ -1,7 +1,6 @@
 <?php
-
 /**
- * @defgroup plugins_metadata_nlm30_schema
+ * @defgroup plugins_metadata_nlm30_schema NLM 3.0 Schema
  */
 
 /**

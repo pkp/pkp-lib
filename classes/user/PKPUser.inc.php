@@ -1,7 +1,6 @@
 <?php
-
 /**
- * @defgroup user
+ * @defgroup user User
  * Implements data objects and DAOs concerned with managing user accounts.
  */
 

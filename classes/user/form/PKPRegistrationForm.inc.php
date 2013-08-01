@@ -1,7 +1,6 @@
 <?php
-
 /**
- * @defgroup user_form
+ * @defgroup user_form User Forms
  */
 
 /**

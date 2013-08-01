@@ -1,7 +1,6 @@
 <?php
-
 /**
- * @defgroup form_validation
+ * @defgroup form_validation Form Validation
  */
 
 /**

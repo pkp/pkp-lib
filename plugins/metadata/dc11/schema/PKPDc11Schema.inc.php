@@ -1,7 +1,6 @@
 <?php
-
 /**
- * @defgroup plugins_metadata_dc11_schema
+ * @defgroup plugins_metadata_dc11_schema Dublin Core 1.1 Metadata Format Schema
  */
 
 /**

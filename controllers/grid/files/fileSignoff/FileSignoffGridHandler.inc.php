@@ -1,6 +1,6 @@
 <?php
 /**
- * @defgroup controllers_grid_files_fileSignoff
+ * @defgroup controllers_grid_files_fileSignoff File Signoff Grid
  */
 
 /**

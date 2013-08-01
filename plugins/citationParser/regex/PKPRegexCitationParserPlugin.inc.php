@@ -1,6 +1,6 @@
 <?php
 /**
- * @defgroup plugins_citationParser_regex
+ * @defgroup plugins_citationParser_regex Regular Expression Citation Parser
  */
 
 /**

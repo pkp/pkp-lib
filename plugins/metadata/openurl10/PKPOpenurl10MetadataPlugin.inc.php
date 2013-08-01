@@ -1,7 +1,6 @@
 <?php
-
 /**
- * @defgroup plugins_metadata_openurl10
+ * @defgroup plugins_metadata_openurl10 OpenURL 1.0 Metadata Plugin
  */
 
 /**

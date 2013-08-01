@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @defgroup pages_notification
+ * @defgroup pages_notification Notification Pages
  */
 
 /**

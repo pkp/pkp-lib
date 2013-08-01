@@ -1,7 +1,6 @@
 <?php
-
 /**
- * @defgroup plugins_citationLookup_crossref
+ * @defgroup plugins_citationLookup_crossref CrossRef Citation Lookup Plugin
  */
 
 /**

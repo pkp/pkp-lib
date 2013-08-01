@@ -1,6 +1,6 @@
 <?php
 /**
- * @defgroup controllers_wizard_settings
+ * @defgroup controllers_wizard_settings Settings Wizard Controller
  */
 
 /**

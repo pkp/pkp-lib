@@ -1,6 +1,6 @@
 <?php
 /**
- * @defgroup controllers_review_linkAction
+ * @defgroup controllers_review_linkAction Review Link Actions
  */
 
 /**

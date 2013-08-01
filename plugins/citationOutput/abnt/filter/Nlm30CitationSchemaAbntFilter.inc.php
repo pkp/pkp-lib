@@ -1,6 +1,6 @@
 <?php
 /**
- * @defgroup plugins_citationOutput_abnt_filter
+ * @defgroup plugins_citationOutput_abnt_filter ABNT Citation Format Filter
  */
 
 /**

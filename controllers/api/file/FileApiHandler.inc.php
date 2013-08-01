@@ -1,6 +1,6 @@
 <?php
 /**
- * @defgroup controllers_api_file
+ * @defgroup controllers_api_file File API controller
  */
 
 /**

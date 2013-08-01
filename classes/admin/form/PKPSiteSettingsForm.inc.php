@@ -1,6 +1,6 @@
 <?php
 /**
- * @defgroup admin_form
+ * @defgroup admin_form Site administration form
  */
 
 /**

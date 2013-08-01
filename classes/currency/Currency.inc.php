@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @defgroup currency
+ * @defgroup currency Currency
  * Implements currency data objects for managing lists of currencies for e-commerce.
  */
 

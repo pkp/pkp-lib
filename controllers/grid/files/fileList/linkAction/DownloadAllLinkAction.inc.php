@@ -1,6 +1,6 @@
 <?php
 /**
- * @defgroup controllers_grid_files_fileList_linkAction
+ * @defgroup controllers_grid_files_fileList_linkAction File List Link Actions
  */
 
 /**

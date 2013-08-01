@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @defgroup tests_plugins_citationParser
+ * @defgroup tests_plugins_citationParser Citation Parser Plugin Tests
  */
 
 /**

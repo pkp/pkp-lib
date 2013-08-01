@@ -1,6 +1,6 @@
 <?php
 /**
- * @defgroup controllers_api_user
+ * @defgroup controllers_api_user User API controller
  */
 
 /**

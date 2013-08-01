@@ -1,7 +1,6 @@
 <?php
-
 /**
- * @defgroup plugins_citationOutput_apa_filter
+ * @defgroup plugins_citationOutput_apa_filter APA Citation Format Filter
  */
 
 /**

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @defgroup tests_plugins_citationOutput
+ * @defgroup tests_plugins_citationOutput Citation Output Plugin Tests
  */
 
 /**

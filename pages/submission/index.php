@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @defgroup pages_submission
+ * @defgroup pages_submission Submission Pages
  */
 
 /**

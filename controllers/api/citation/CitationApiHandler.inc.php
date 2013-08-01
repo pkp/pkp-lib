@@ -1,6 +1,6 @@
 <?php
 /**
- * @defgroup controllers_api_citation
+ * @defgroup controllers_api_citation Citation API controller
  */
 
 /**

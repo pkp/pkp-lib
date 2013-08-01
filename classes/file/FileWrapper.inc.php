@@ -1,7 +1,6 @@
 <?php
-
 /**
- * @defgroup file_wrapper
+ * @defgroup file_wrapper File Wrappers
  */
 
 /**

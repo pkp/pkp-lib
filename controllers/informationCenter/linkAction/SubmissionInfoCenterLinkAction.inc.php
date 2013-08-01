@@ -7,7 +7,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SubmissionInfoCenterLinkAction
- * @ingroup controllers_informationCenter_linkAction
+ * @ingroup controllers_informationCenter
  *
  * @brief An action to open up the information center for a submission.
  */

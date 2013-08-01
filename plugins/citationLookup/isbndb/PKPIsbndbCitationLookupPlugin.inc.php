@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @defgroup plugins_citationLookup_isbndb
+ * @defgroup plugins_citationLookup_isbndb ISBNDB Citation Lookup Plugin
  */
 
 /**

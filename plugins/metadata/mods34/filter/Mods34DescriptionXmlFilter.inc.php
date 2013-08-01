@@ -1,7 +1,6 @@
 <?php
-
 /**
- * @defgroup plugins_metadata_mods34_filter
+ * @defgroup plugins_metadata_mods34_filter MODS 3.4 Filter Plugin
  */
 
 /**

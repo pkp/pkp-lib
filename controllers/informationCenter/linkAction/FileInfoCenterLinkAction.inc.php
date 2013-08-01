@@ -1,16 +1,12 @@
 <?php
 /**
- * @defgroup controllers_informationCenter_linkAction
- */
-
-/**
  * @file controllers/informationCenter/linkAction/FileInfoCenterLinkAction.inc.php
  *
  * Copyright (c) 2003-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class FileInfoCenterLinkAction
- * @ingroup controllers_informationCenter_linkAction
+ * @ingroup controllers_informationCenter
  *
  * @brief A base action to open up the information center for a file.
  */

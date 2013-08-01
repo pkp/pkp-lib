@@ -1,7 +1,6 @@
 <?php
-
 /**
- * @defgroup plugins_metadata_nlm30_filter
+ * @defgroup plugins_metadata_nlm30_filter NLM 3.0 Metadata Filter
  */
 
 /**

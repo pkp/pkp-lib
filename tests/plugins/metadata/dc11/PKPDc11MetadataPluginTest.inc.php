@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @defgroup tests_plugins_metadata_dc11
+ * @defgroup tests_plugins_metadata_dc11 Dublin Core 1.1 Metadata Plugin Tests
  */
 
 /**

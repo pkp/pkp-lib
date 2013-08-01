@@ -1,6 +1,6 @@
 <?php
 /**
- * @defgroup notification_form
+ * @defgroup notification_form Notification Form
  */
 
 /**

@@ -6,7 +6,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class NotifyLinkAction
- * @ingroup controllers_informationCenter_linkAction
+ * @ingroup controllers_informationCenter
  *
  * @brief An action to open up the notify part of the IC.
  */

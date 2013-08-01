@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @defgroup tests_plugins_metadata_nlm30
+ * @defgroup tests_plugins_metadata_nlm30 NLM 3.0 Metadata Plugin Tests
  */
 
 /**

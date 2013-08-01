@@ -1,7 +1,6 @@
 <?php
-
 /**
- * @defgroup submission_form
+ * @defgroup submission_form Submission Forms
  */
 
 /**

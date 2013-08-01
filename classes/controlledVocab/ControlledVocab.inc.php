@@ -1,7 +1,6 @@
 <?php
-
 /**
- * @defgroup controlled_vocab
+ * @defgroup controlled_vocab Controlled Vocabulary
  */
 
 /**

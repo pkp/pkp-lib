@@ -1,9 +1,4 @@
 <?php
-
-/**
- * @defgroup author_form_submit
- */
-
 /**
  * @file classes/submission/reviewer/form/ReviewerReviewForm.inc.php
  *

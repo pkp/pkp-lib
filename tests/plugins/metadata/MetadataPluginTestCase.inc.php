@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @defgroup tests_plugins_metadata
+ * @defgroup tests_plugins_metadata Metadata Plugin Tests
  */
 
 /**

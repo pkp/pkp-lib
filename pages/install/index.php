@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @defgroup pages_install
+ * @defgroup pages_install Installation Pages
  */
 
 /**

@@ -1,6 +1,6 @@
 <?php
 /**
- * @defgroup controllers_modals_submissionMetadata_linkAction
+ * @defgroup controllers_modals_submissionMetadata_linkAction Submission Metadata Link Actions
  */
 
 /**

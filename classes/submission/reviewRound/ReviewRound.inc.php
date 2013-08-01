@@ -1,7 +1,6 @@
 <?php
-
 /**
- * @defgroup submission_reviewRound
+ * @defgroup submission_reviewRound Review Round
  */
 
 /**

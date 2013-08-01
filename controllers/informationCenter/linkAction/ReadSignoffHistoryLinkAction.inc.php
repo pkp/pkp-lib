@@ -6,7 +6,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ReadSignoffHistoryLinkAction
- * @ingroup controllers_informationCenter_linkAction
+ * @ingroup controllers_informationCenter
  *
  * @brief An action to open the signoff history modal.
  */

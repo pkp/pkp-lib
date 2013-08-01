@@ -1,6 +1,6 @@
 <?php
 /**
- * @defgroup plugins_citationParser_freecite
+ * @defgroup plugins_citationParser_freecite FreeCite Citation Parser
  */
 
 /**

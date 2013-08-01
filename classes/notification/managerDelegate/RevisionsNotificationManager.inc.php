@@ -20,8 +20,7 @@ abstract class RevisionsNotificationManager extends NotificationManagerDelegate 
 
 	/**
 	 * Constructor.
-	 * @param $request PKPRequest
-	 * @param $notificationType int
+	 * @param $notificationType int NOTIFICATION_TYPE_...
 	 */
 	function RevisionsNotificationManager($notificationType) {
 		parent::NotificationManagerDelegate($notificationType);

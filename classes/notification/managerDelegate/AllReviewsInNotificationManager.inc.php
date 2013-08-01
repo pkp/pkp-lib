@@ -18,8 +18,7 @@ class AllReviewsInNotificationManager extends NotificationManagerDelegate {
 
 	/**
 	 * Constructor.
-	 * @param $request PKPRequest
-	 * @param $notificationType int
+	 * @param $notificationType int NOTIFICATION_TYPE_...
 	 */
 	function AllReviewsInNotificationManager($notificationType) {
 		parent::NotificationManagerDelegate($notificationType);

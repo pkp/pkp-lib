@@ -275,6 +275,12 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 	 */
 	protected function getMgrDelegate($notificationType, $assocType, $assocId) {
 		switch ($notificationType) {
+			case NOTIFICATION_TYPE_SUBMISSION_SUBMITTED:
+			case NOTIFICATION_TYPE_METADATA_MODIFIED:
+			case NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED:
+				assert($assocType == ASSOC_TYPE_SUBMISSION && is_numeric($assocId));
+				import('lib.pkp.classes.notification.managerDelegate.SubmissionNotificationManager');
+				return new SubmissionNotificationManager($notificationType);
 			case NOTIFICATION_TYPE_SIGNOFF_COPYEDIT:
 			case NOTIFICATION_TYPE_SIGNOFF_PROOF:
 				assert($assocType == ASSOC_TYPE_SUBMISSION && is_numeric($assocId));

@@ -18,8 +18,7 @@ class PendingRevisionsNotificationManager extends RevisionsNotificationManager {
 
 	/**
 	 * Constructor.
-	 * @param $request PKPRequest
-	 * @param $notificationType int
+	 * @param $notificationType int NOTIFICATION_TYPE_...
 	 */
 	function PendingRevisionsNotificationManager($notificationType) {
 		parent::RevisionsNotificationManager($notificationType);

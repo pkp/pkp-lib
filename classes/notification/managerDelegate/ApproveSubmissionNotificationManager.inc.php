@@ -18,8 +18,7 @@ class ApproveSubmissionNotificationManager extends NotificationManagerDelegate {
 
 	/**
 	 * Constructor.
-	 * @param $request PKPRequest
-	 * @param $notificationType int
+	 * @param $notificationType int NOTIFICATION_TYPE_...
 	 */
 	function ApproveSubmissionNotificationManager($notificationType) {
 		parent::NotificationManagerDelegate($notificationType);

@@ -18,8 +18,7 @@ class AllRevisionsInNotificationManager extends RevisionsNotificationManager {
 
 	/**
 	 * Constructor.
-	 * @param $request PKPRequest
-	 * @param $notificationType int
+	 * @param $notificationType int NOTIFICATION_TYPE_...
 	 */
 	function AllRevisionsInNotificationManager($notificationType) {
 		parent::RevisionsNotificationManager($notificationType);

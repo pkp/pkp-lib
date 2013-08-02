@@ -35,8 +35,8 @@ class PKPAnnouncementHandler extends Handler {
 	//
 	/**
 	 * Show public announcements page.
-	 * @var $args array
-	 * @var $request PKPRequest
+	 * @param $args array
+	 * @param $request PKPRequest
 	 * @return string
 	 */
 	function index($args, $request) {

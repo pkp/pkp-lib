@@ -207,7 +207,7 @@ class Installer {
 
 	/**
 	 * Record message to installation log.
-	 * @var $message string
+	 * @param $message string
 	 */
 	function log($message) {
 		if (isset($this->logger)) {
@@ -425,7 +425,7 @@ class Installer {
 
 	/**
 	 * Execute an SQL statement.
-	 * @var $sql mixed
+	 * @param $sql mixed
 	 * @return boolean
 	 */
 	function executeSQL($sql) {
@@ -577,7 +577,7 @@ class Installer {
 
 	/**
 	 * Set the logger for this installer.
-	 * @var $logger Logger
+	 * @param $logger Logger
 	 */
 	function setLogger($logger) {
 		$this->logger = $logger;
@@ -597,7 +597,7 @@ class Installer {
 
 	/**
 	 * Set the current version for this installer.
-	 * @var $version Version
+	 * @param $version Version
 	 */
 	function setCurrentVersion($version) {
 		$this->currentVersion = $version;

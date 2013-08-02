@@ -20,27 +20,26 @@ define('OAIRECORD_STATUS_ALIVE', 1);
  * OAI repository configuration.
  */
 class OAIConfig {
-	/** @var $baseUrl string URL to the OAI front-end */
+	/** @var string URL to the OAI front-end */
 	var $baseUrl = '';
 
-	/** @var $repositoryId string identifier of the repository */
+	/** @var string identifier of the repository */
 	var $repositoryId = 'oai';
 
-	/** @var $granularity string record datestamp granularity */
+	/** @var string record datestamp granularity */
 	// Must be either 'YYYY-MM-DD' or 'YYYY-MM-DDThh:mm:ssZ'
 	var $granularity = 'YYYY-MM-DDThh:mm:ssZ';
 
-	/** @var $tokenLifetime int TTL of resumption tokens */
+	/** @var int TTL of resumption tokens */
 	var $tokenLifetime = 86400;
 
-	/** @var $maxIdentifiers int maximum identifiers returned per request */
+	/** @var int maximum identifiers returned per request */
 	var $maxIdentifiers = 500;
 
-	/** @var $maxRecords int maximum records returned per request */
+	/** @var int maximum records returned per request */
 	var $maxRecords;
 
-	/** @var $maxSets int maximum sets returned per request */
-	// Must be set to zero if sets not supported by repository
+	/** @var int maximum sets returned per request (must be 0 if sets not supported) */
 	var $maxSets = 50;
 
 

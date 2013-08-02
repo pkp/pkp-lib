@@ -10,11 +10,11 @@
  * @ingroup plugins_metadata_mods34_schema
  * @see MetadataSchema
  *
- * @brief Class that provides meta-data properties compliant with
+ * @brief @verbatim Class that provides meta-data properties compliant with
  *  the MODS name tag from MODS Version 3.4. We only support
  *  those sub-elements we have use-cases for. We map elements and attributes
  *  from the original XML standard to 'element[@attribute="..."]' property
- *  names.
+ *  names. @endverbatim
  *
  *  See <http://www.loc.gov/standards/mods34/mods-outline.html#name>.
  *

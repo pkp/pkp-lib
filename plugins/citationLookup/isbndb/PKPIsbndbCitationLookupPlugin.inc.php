@@ -32,7 +32,7 @@ class PKPIsbndbCitationLookupPlugin extends Plugin {
 	// Override protected template methods from PKPPlugin
 	//
 	/**
-	 * @see PKPPlugin::register()
+	 * @copydoc PKPPlugin::register()
 	 */
 	function register($category, $path) {
 		if (!parent::register($category, $path)) return false;
@@ -41,21 +41,21 @@ class PKPIsbndbCitationLookupPlugin extends Plugin {
 	}
 
 	/**
-	 * @see PKPPlugin::getName()
+	 * @copydoc PKPPlugin::getName()
 	 */
 	function getName() {
 		return 'IsbndbCitationLookupPlugin';
 	}
 
 	/**
-	 * @see PKPPlugin::getDisplayName()
+	 * @copydoc PKPPlugin::getDisplayName()
 	 */
 	function getDisplayName() {
 		return __('plugins.citationLookup.isbndb.displayName');
 	}
 
 	/**
-	 * @see PKPPlugin::getDescription()
+	 * @copydoc PKPPlugin::getDescription()
 	 */
 	function getDescription() {
 		return __('plugins.citationLookup.isbndb.description');

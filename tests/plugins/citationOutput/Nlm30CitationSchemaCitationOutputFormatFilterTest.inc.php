@@ -31,14 +31,14 @@ abstract class Nlm30CitationSchemaCitationOutputFormatFilterTest extends PKPTest
 	// Implement template methods from PKPTestCase
 	//
 	/**
-	 * @see PKPTestCase::getMockedRegistryKeys()
+	 * @copydoc PKPTestCase::getMockedRegistryKeys()
 	 */
 	protected function getMockedRegistryKeys() {
 		return array('request');
 	}
 
 	/**
-	 * @see PKPTestCase::setUp()
+	 * @copydoc PKPTestCase::setUp()
 	 */
 	protected function setUp() {
 		$application = PKPApplication::getApplication();

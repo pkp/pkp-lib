@@ -29,7 +29,7 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	}
 
 	/**
-	 * @see PHPUnit_Framework_TestCase::setUp()
+	 * @copydoc PHPUnit_Framework_TestCase::setUp()
 	 */
 	protected function setUp() {
 		// See PKPTestCase::setUp() for an explanation
@@ -69,7 +69,7 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	}
 
 	/**
-	 * @see PHPUnit_Framework_TestCase::tearDown()
+	 * @copydoc PHPUnit_Framework_TestCase::tearDown()
 	 */
 	protected function tearDown() {
 		parent::tearDown();

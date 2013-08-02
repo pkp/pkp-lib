@@ -72,7 +72,7 @@ class SubmissionMailTemplate extends MailTemplate {
 	}
 
 	/**
-	 * @see parent::sendWithParams()
+	 * @copydoc parent::sendWithParams()
 	 */
 	function sendWithParams($paramArray) {
 		$savedSubject = $this->getSubject();

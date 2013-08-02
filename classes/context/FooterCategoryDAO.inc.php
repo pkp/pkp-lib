@@ -73,8 +73,8 @@ class FooterCategoryDAO extends DAO {
 
 	/**
 	 * Check if a category exists with a specified path.
-	 * @param string $path the path for the category
-	 * @param int $contextId the context (optional)
+	 * @param $path string the path for the category
+	 * @param $contextId int the context (optional)
 	 * @return boolean
 	 */
 	function categoryExistsByPath($path, $contextId = null) {
@@ -236,6 +236,8 @@ class FooterCategoryDAO extends DAO {
 
 	/**
 	 * Retrieve all categories for a context.
+	 * @param $contextId int Context ID
+	 * @param $rangeInfo Object Optional range info for results paging
 	 * @return DAOResultFactory containing FooterCategory ordered by sequence
 	 */
 	function getByContextId($contextId, $rangeInfo = null) {
@@ -246,8 +248,7 @@ class FooterCategoryDAO extends DAO {
 			array((int) $contextId)
 		);
 
-		$returner = new DAOResultFactory($result, $this, '_fromRow');
-		return $returner;
+		return new DAOResultFactory($result, $this, '_fromRow');
 	}
 
 	/**
@@ -262,8 +263,7 @@ class FooterCategoryDAO extends DAO {
 			array((int) $contextId)
 		);
 
-		$returner = new DAOResultFactory($result, $this, '_fromRow');
-		return $returner;
+		return new DAOResultFactory($result, $this, '_fromRow');
 	}
 
 	/**

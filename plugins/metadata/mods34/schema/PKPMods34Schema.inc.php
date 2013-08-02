@@ -13,11 +13,11 @@
  * @ingroup plugins_metadata_mods34_schema
  * @see MetadataSchema
  *
- * @brief Class that provides meta-data properties compliant with
+ * @brief @verbatim Class that provides meta-data properties compliant with
  *  a subset of MODS Version 3.4. We only support those sub-elements
  *  we have use-cases (and data) for. We map elements and attributes
  *  from the original XML standard to 'element/subelement[@attribute="..."]'
- *  property names.
+ *  property names. @endverbatim
  *
  *  MODS allows most elements, especially top-level elements to be repeated.
  *  We do not implement that full flexibility as we only require repeated

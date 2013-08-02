@@ -22,7 +22,7 @@ import('lib.pkp.classes.plugins.MetadataPlugin');
 
 class MetadataPluginTestCase extends PluginTestCase {
 	/**
-	 * @see DatabaseTestCase::getAffectedTables()
+	 * @copydoc DatabaseTestCase::getAffectedTables()
 	 */
 	protected function getAffectedTables() {
 		$affectedTables = parent::getAffectedTables();

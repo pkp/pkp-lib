@@ -36,7 +36,7 @@ class PlainTextReferencesListFilter extends TemplateBasedReferencesListFilter {
 	// Implement template methods from TemplateBasedReferencesListFilter
 	//
 	/**
-	 * @see TemplateBasedReferencesListFilter::getCitationOutputFilterTypeDescriptions()
+	 * @copydoc TemplateBasedReferencesListFilter::getCitationOutputFilterTypeDescriptions()
 	 */
 	function getCitationOutputFilterTypeDescriptions() {
 		return array(
@@ -49,7 +49,7 @@ class PlainTextReferencesListFilter extends TemplateBasedReferencesListFilter {
 	// Implement template methods from PersistableFilter
 	//
 	/**
-	 * @see PersistableFilter::getClassName()
+	 * @copydoc PersistableFilter::getClassName()
 	 */
 	function getClassName() {
 		return 'lib.pkp.classes.citation.PlainTextReferencesListFilter';
@@ -60,7 +60,7 @@ class PlainTextReferencesListFilter extends TemplateBasedReferencesListFilter {
 	// Implement template methods from Filter
 	//
 	/**
-	 * @see Filter::process()
+	 * @copydoc Filter::process()
 	 */
 	function &process(&$input) {
 		$output =& parent::process($input);
@@ -73,7 +73,7 @@ class PlainTextReferencesListFilter extends TemplateBasedReferencesListFilter {
 	// Implement template methods from TemplateBasedFilter
 	//
 	/**
-	 * @see TemplateBasedFilter::addTemplateVars()
+	 * @copydoc TemplateBasedFilter::addTemplateVars()
 	 */
 	function addTemplateVars($templateMgr, $submission, $request, &$locale) {
 		parent::addTemplateVars($templateMgr, $submission, $request, $locale);
@@ -83,14 +83,14 @@ class PlainTextReferencesListFilter extends TemplateBasedReferencesListFilter {
 	}
 
 	/**
-	 * @see TemplateBasedFilter::getTemplateName()
+	 * @copydoc TemplateBasedFilter::getTemplateName()
 	 */
 	function getTemplateName() {
 		return 'references-list.tpl';
 	}
 
 	/**
-	 * @see TemplateBasedFilter::getBasePath()
+	 * @copydoc TemplateBasedFilter::getBasePath()
 	 */
 	function getBasePath() {
 		return dirname(__FILE__);

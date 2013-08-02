@@ -29,7 +29,7 @@ class PersistableTestFilter extends PersistableFilter {
 	// Implement template methods from PersistableFilter
 	//
 	/**
-	 * @see PersistableFilter::getClassName()
+	 * @copydoc PersistableFilter::getClassName()
 	 */
 	function getClassName() {
 		return 'lib.pkp.tests.classes.filter.PersistableTestFilter';

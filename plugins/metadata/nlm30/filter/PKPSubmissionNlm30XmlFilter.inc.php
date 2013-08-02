@@ -41,7 +41,7 @@ class PKPSubmissionNlm30XmlFilter extends TemplateBasedReferencesListFilter {
 	// Implement template methods from TemplateBasedReferencesListFilter
 	//
 	/**
-	 * @see TemplateBasedReferencesListFilter::getCitationOutputFilterTypeDescriptions()
+	 * @copydoc TemplateBasedReferencesListFilter::getCitationOutputFilterTypeDescriptions()
 	 */
 	function getCitationOutputFilterTypeDescriptions() {
 		// FIXME: Add NLM citation-element + name validation (requires partial NLM DTD, XSD or RelaxNG), see #5648.
@@ -55,7 +55,7 @@ class PKPSubmissionNlm30XmlFilter extends TemplateBasedReferencesListFilter {
 	// Implement template methods from PersistableFilter
 	//
 	/**
-	 * @see PersistableFilter::getClassName()
+	 * @copydoc PersistableFilter::getClassName()
 	 */
 	function getClassName() {
 		return 'lib.pkp.plugins.metadata.nlm30.filter.PKPSubmissionNlm30XmlFilter';
@@ -66,14 +66,14 @@ class PKPSubmissionNlm30XmlFilter extends TemplateBasedReferencesListFilter {
 	// Implement template methods from TemplateBasedFilter
 	//
 	/**
-	 * @see TemplateBasedFilter::getTemplateName()
+	 * @copydoc TemplateBasedFilter::getTemplateName()
 	 */
 	function getTemplateName() {
 		return 'nlm30-ref-list.tpl';
 	}
 
 	/**
-	 * @see TemplateBasedFilter::getBasePath()
+	 * @copydoc TemplateBasedFilter::getBasePath()
 	 */
 	function getBasePath() {
 		return dirname(__FILE__);

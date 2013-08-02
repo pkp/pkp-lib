@@ -31,7 +31,7 @@ class Nlm30CitationSchemaCitationAdapter extends MetadataDataObjectAdapter {
 	// Implement template methods from PersistableFilter
 	//
 	/**
-	 * @see PersistableFilter::getClassName()
+	 * @copydoc PersistableFilter::getClassName()
 	 */
 	function getClassName() {
 		return 'lib.pkp.plugins.metadata.nlm30.filter.Nlm30CitationSchemaCitationAdapter';
@@ -42,7 +42,7 @@ class Nlm30CitationSchemaCitationAdapter extends MetadataDataObjectAdapter {
 	// Implement template methods from MetadataDataObjectAdapter
 	//
 	/**
-	 * @see MetadataDataObjectAdapter::injectMetadataIntoDataObject()
+	 * @copydoc MetadataDataObjectAdapter::injectMetadataIntoDataObject()
 	 * @param $metadataDescription MetadataDescription
 	 * @param $dataObject Citation
 	 * @return DataObject
@@ -92,7 +92,7 @@ class Nlm30CitationSchemaCitationAdapter extends MetadataDataObjectAdapter {
 	}
 
 	/**
-	 * @see MetadataDataObjectAdapter::extractMetadataFromDataObject()
+	 * @copydoc MetadataDataObjectAdapter::extractMetadataFromDataObject()
 	 * @param $dataObject Citation
 	 * @return MetadataDescription
 	 */

@@ -46,7 +46,7 @@ abstract class PKPTestCase extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * @see PHPUnit_Framework_TestCase::setUp()
+	 * @copydoc PHPUnit_Framework_TestCase::setUp()
 	 */
 	protected function setUp() {
 		$this->setBackupGlobals(true);
@@ -75,7 +75,7 @@ abstract class PKPTestCase extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * @see PHPUnit_Framework_TestCase::tearDown()
+	 * @copydoc PHPUnit_Framework_TestCase::tearDown()
 	 */
 	protected function tearDown() {
 		// Restore registry keys.
@@ -90,7 +90,7 @@ abstract class PKPTestCase extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * @see PHPUnit_Framework_TestCase::getActualOutput()
+	 * @copydoc PHPUnit_Framework_TestCase::getActualOutput()
 	 */
 	public function getActualOutput() {
 		// We do not want to see output.

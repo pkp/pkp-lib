@@ -31,21 +31,21 @@ class PKPMods34MetadataPlugin extends MetadataPlugin {
 	// Override protected template methods from PKPPlugin
 	//
 	/**
-	 * @see PKPPlugin::getName()
+	 * @copydoc PKPPlugin::getName()
 	 */
 	function getName() {
 		return 'Mods34MetadataPlugin';
 	}
 
 	/**
-	 * @see PKPPlugin::getDisplayName()
+	 * @copydoc PKPPlugin::getDisplayName()
 	 */
 	function getDisplayName() {
 		return __('plugins.metadata.mods34.displayName');
 	}
 
 	/**
-	 * @see PKPPlugin::getDescription()
+	 * @copydoc PKPPlugin::getDescription()
 	 */
 	function getDescription() {
 		return __('plugins.metadata.mods34.description');

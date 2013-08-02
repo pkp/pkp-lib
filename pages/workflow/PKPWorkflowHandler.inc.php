@@ -31,7 +31,7 @@ class PKPWorkflowHandler extends Handler {
 	// Implement template methods from PKPHandler
 	//
 	/**
-	 * @see PKPHandler::authorize()
+	 * @copydoc PKPHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
 		$router = $request->getRouter();
@@ -56,7 +56,7 @@ class PKPWorkflowHandler extends Handler {
 	}
 
 	/**
-	 * @see PKPHandler::initialize()
+	 * @copydoc PKPHandler::initialize()
 	 */
 	function initialize($request, $args) {
 		$router = $request->getRouter();

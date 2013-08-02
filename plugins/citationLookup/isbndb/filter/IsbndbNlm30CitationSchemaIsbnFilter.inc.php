@@ -31,7 +31,7 @@ class IsbndbNlm30CitationSchemaIsbnFilter extends IsbndbNlm30CitationSchemaFilte
 	// Implement template methods from PersistableFilter
 	//
 	/**
-	 * @see PersistableFilter::getClassName()
+	 * @copydoc PersistableFilter::getClassName()
 	 */
 	function getClassName() {
 		return 'lib.pkp.plugins.citationLookup.isbndb.filter.IsbndbNlm30CitationSchemaIsbnFilter';
@@ -42,7 +42,7 @@ class IsbndbNlm30CitationSchemaIsbnFilter extends IsbndbNlm30CitationSchemaFilte
 	// Implement template methods from Filter
 	//
 	/**
-	 * @see Filter::supports()
+	 * @copydoc Filter::supports()
 	 * @param $input mixed
 	 * @param $output mixed
 	 * @return boolean
@@ -53,7 +53,7 @@ class IsbndbNlm30CitationSchemaIsbnFilter extends IsbndbNlm30CitationSchemaFilte
 	}
 
 	/**
-	 * @see Filter::process()
+	 * @copydoc Filter::process()
 	 * @param $citationDescription MetadataDescription
 	 * @return string an ISBN or null
 	 */

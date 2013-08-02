@@ -171,7 +171,7 @@ class PKPPageRouter extends PKPRouter {
 	// Implement template methods from PKPRouter
 	//
 	/**
-	 * @see PKPRouter::getCacheFilename()
+	 * @copydoc PKPRouter::getCacheFilename()
 	 */
 	function getCacheFilename($request) {
 		if (!isset($this->_cacheFilename)) {
@@ -193,7 +193,7 @@ class PKPPageRouter extends PKPRouter {
 	}
 
 	/**
-	 * @see PKPRouter::route()
+	 * @copydoc PKPRouter::route()
 	 */
 	function route($request) {
 		// Determine the requested page and operation
@@ -274,7 +274,7 @@ class PKPPageRouter extends PKPRouter {
 	}
 
 	/**
-	 * @see PKPRouter::url()
+	 * @copydoc PKPRouter::url()
 	 */
 	function url($request, $newContext = null, $page = null, $op = null, $path = null,
 				$params = null, $anchor = null, $escape = false) {
@@ -421,7 +421,7 @@ class PKPPageRouter extends PKPRouter {
 	}
 
 	/**
-	 * @see PKPRouter::handleAuthorizationFailure()
+	 * @copydoc PKPRouter::handleAuthorizationFailure()
 	 */
 	function handleAuthorizationFailure($request, $authorizationMessage) {
 		// Redirect to the authorization denied page.

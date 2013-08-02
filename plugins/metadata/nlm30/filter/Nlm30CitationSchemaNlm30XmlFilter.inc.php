@@ -32,7 +32,7 @@ class Nlm30CitationSchemaNlm30XmlFilter extends Nlm30CitationSchemaCitationOutpu
 	// Implement template methods from PersistableFilter
 	//
 	/**
-	 * @see PersistableFilter::getClassName()
+	 * @copydoc PersistableFilter::getClassName()
 	 */
 	function getClassName() {
 		return 'lib.pkp.plugins.metadata.nlm30.filter.Nlm30CitationSchemaNlm30XmlFilter';
@@ -43,7 +43,7 @@ class Nlm30CitationSchemaNlm30XmlFilter extends Nlm30CitationSchemaCitationOutpu
 	// Implement abstract template methods from TemplateBasedFilter
 	//
 	/**
-	 * @see TemplateBasedFilter::addTemplateVars()
+	 * @copydoc TemplateBasedFilter::addTemplateVars()
 	 */
 	function addTemplateVars($templateMgr, &$input, $request, &$locale) {
 		// Assign the full meta-data description.
@@ -53,7 +53,7 @@ class Nlm30CitationSchemaNlm30XmlFilter extends Nlm30CitationSchemaCitationOutpu
 	}
 
 	/**
-	 * @see TemplateBasedFilter::getBasePath()
+	 * @copydoc TemplateBasedFilter::getBasePath()
 	 */
 	function getBasePath() {
 		return dirname(__FILE__);

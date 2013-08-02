@@ -31,21 +31,21 @@ class PKPOpenurl10MetadataPlugin extends MetadataPlugin {
 	// Override protected template methods from PKPPlugin
 	//
 	/**
-	 * @see PKPPlugin::getName()
+	 * @copydoc PKPPlugin::getName()
 	 */
 	function getName() {
 		return 'Openurl10MetadataPlugin';
 	}
 
 	/**
-	 * @see PKPPlugin::getDisplayName()
+	 * @copydoc PKPPlugin::getDisplayName()
 	 */
 	function getDisplayName() {
 		return __('plugins.metadata.openurl10.displayName');
 	}
 
 	/**
-	 * @see PKPPlugin::getDescription()
+	 * @copydoc PKPPlugin::getDescription()
 	 */
 	function getDescription() {
 		return __('plugins.metadata.openurl10.description');

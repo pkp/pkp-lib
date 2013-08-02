@@ -74,7 +74,7 @@ class CrossrefNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 	// Implement template methods from PersistableFilter
 	//
 	/**
-	 * @see PersistableFilter::getClassName()
+	 * @copydoc PersistableFilter::getClassName()
 	 */
 	function getClassName() {
 		return 'lib.pkp.plugins.citationLookup.crossref.filter.CrossrefNlm30CitationSchemaFilter';
@@ -85,7 +85,7 @@ class CrossrefNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 	// Implement template methods from Filter
 	//
 	/**
-	 * @see Filter::process()
+	 * @copydoc Filter::process()
 	 * @param $citationDescription MetadataDescription
 	 * @return MetadataDescription
 	 */

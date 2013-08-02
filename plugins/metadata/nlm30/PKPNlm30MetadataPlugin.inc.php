@@ -31,21 +31,21 @@ class PKPNlm30MetadataPlugin extends MetadataPlugin {
 	// Override protected template methods from PKPPlugin
 	//
 	/**
-	 * @see PKPPlugin::getName()
+	 * @copydoc PKPPlugin::getName()
 	 */
 	function getName() {
 		return 'Nlm30MetadataPlugin';
 	}
 
 	/**
-	 * @see PKPPlugin::getDisplayName()
+	 * @copydoc PKPPlugin::getDisplayName()
 	 */
 	function getDisplayName() {
 		return __('plugins.metadata.nlm30.displayName');
 	}
 
 	/**
-	 * @see PKPPlugin::getDescription()
+	 * @copydoc PKPPlugin::getDescription()
 	 */
 	function getDescription() {
 		return __('plugins.metadata.nlm30.description');

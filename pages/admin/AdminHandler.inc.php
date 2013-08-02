@@ -28,7 +28,7 @@ class AdminHandler extends Handler {
 	}
 
 	/**
-	 * @see PKPHandler::authorize()
+	 * @copydoc PKPHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.PKPSiteAccessPolicy');

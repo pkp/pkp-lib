@@ -92,7 +92,7 @@ class PersonStringNlm30NameSchemaFilter extends Nlm30PersonStringFilter {
 	// Implement template methods from Filter
 	//
 	/**
-	 * @see Filter::supports()
+	 * @copydoc Filter::supports()
 	 */
 	function supports(&$input, &$output) {
 		// We intercept the supports() method so that

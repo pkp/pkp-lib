@@ -34,7 +34,7 @@ class Mods34DescriptionXmlFilter extends PersistableFilter {
 	// Implement template methods from PersistableFilter
 	//
 	/**
-	 * @see PersistableFilter::getClassName()
+	 * @copydoc PersistableFilter::getClassName()
 	 */
 	function getClassName() {
 		return 'lib.pkp.plugins.metadata.mods34.filter.Mods34DescriptionXmlFilter';
@@ -45,7 +45,7 @@ class Mods34DescriptionXmlFilter extends PersistableFilter {
 	// Implement template methods from Filter
 	//
 	/**
-	 * @see Filter::process()
+	 * @copydoc Filter::process()
 	 * @param $input MetadataDescription
 	 */
 	function &process(&$input) {

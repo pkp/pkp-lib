@@ -24,7 +24,7 @@ import('lib.pkp.classes.plugins.PKPPlugin');
 
 class PluginTestCase extends DatabaseTestCase {
 	/**
-	 * @see DatabaseTestCase::getAffectedTables()
+	 * @copydoc DatabaseTestCase::getAffectedTables()
 	 */
 	protected function getAffectedTables() {
 		return array(
@@ -34,7 +34,7 @@ class PluginTestCase extends DatabaseTestCase {
 	}
 
 	/**
-	 * @see PKPTestCase::getMockedRegistryKeys()
+	 * @copydoc PKPTestCase::getMockedRegistryKeys()
 	 */
 	protected function getMockedRegistryKeys() {
 		return array('request', 'hooks');

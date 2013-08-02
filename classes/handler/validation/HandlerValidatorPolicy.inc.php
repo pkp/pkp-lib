@@ -32,7 +32,7 @@ class HandlerValidatorPolicy extends HandlerValidator {
 	}
 
 	/**
-	 * @see HandlerValidator::isValid()
+	 * @copydoc HandlerValidator::isValid()
 	 */
 	function isValid() {
 		// Delegate to the AuthorizationPolicy

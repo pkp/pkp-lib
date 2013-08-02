@@ -82,7 +82,7 @@ class String {
 	 * Check if server has the mbstring library.
 	 * Currently requires PHP >= 4.3.0 (for mb_strtolower, mb_strtoupper,
 	 * and mb_substr_count)
-	 * @return boolean
+	 * @return boolean Returns true iff the server supports mbstring functions.
 	 */
 	static function hasMBString() {
 		static $hasMBString;
@@ -111,7 +111,7 @@ class String {
 
 	/**
 	 * Check if server supports the PCRE_UTF8 modifier.
-	 * @return boolean
+	 * @return boolean True iff the server supports the PCRE_UTF8 modifier.
 	 */
 	static function hasPCREUTF8() {
 		// The PCRE_UTF8 modifier is only supported on PHP >= 4.1.0 (*nix) or PHP >= 4.2.3 (win32)
@@ -130,6 +130,8 @@ class String {
 
 	/**
 	 * @see http://ca.php.net/manual/en/function.strlen.php
+	 * @param $string string Input string
+	 * @return int String length
 	 */
 	static function strlen($string) {
 		if (defined('ENABLE_MBSTRING')) {
@@ -143,6 +145,10 @@ class String {
 
 	/**
 	 * @see http://ca.php.net/manual/en/function.strpos.php
+	 * @param $haystack string Input haystack to search
+	 * @param $needle string Input needle to search for
+	 * @param $offset int Offset at which to begin searching
+	 * @return int Position of needle within haystack
 	 */
 	static function strpos($haystack, $needle, $offset = 0) {
 		if (defined('ENABLE_MBSTRING')) {
@@ -156,6 +162,9 @@ class String {
 
 	/**
 	 * @see http://ca.php.net/manual/en/function.strrpos.php
+	 * @param $haystack string Haystack to search
+	 * @param $needle string Needle to search haystack for
+	 * @return int String position of needle in haystack (starting from end of haystack)
 	 */
 	static function strrpos($haystack, $needle) {
 		if (defined('ENABLE_MBSTRING')) {
@@ -169,6 +178,10 @@ class String {
 
 	/**
 	 * @see http://ca.php.net/manual/en/function.substr.php
+	 * @param $string string Subject to extract substring from
+	 * @param $start int Position to start from
+	 * @param $length int Length to extract, or false for entire string from start position
+	 * @return string Substring of $string
 	 */
 	static function substr($string, $start, $length = false) {
 		if (defined('ENABLE_MBSTRING')) {
@@ -185,6 +198,11 @@ class String {
 
 	/**
 	 * @see http://ca.php.net/manual/en/function.substr_replace.php
+	 * @param $string string Source string to perform replacement upon
+	 * @param $replacement string Replacement to move into $string
+	 * @param $start int Start location for replacement
+	 * @param $length int Number of characters to replace in source string with $replacement
+	 * @return string String resulting from replacement
 	 */
 	static function substr_replace($string, $replacement, $start, $length = null) {
 		if (extension_loaded('mbstring') === true) {
@@ -213,6 +231,8 @@ class String {
 
 	/**
 	 * @see http://ca.php.net/manual/en/function.strtolower.php
+	 * @param $string string Input string
+	 * @return string Lower case version of input string
 	 */
 	static function strtolower($string) {
 		if (defined('ENABLE_MBSTRING')) {
@@ -226,6 +246,8 @@ class String {
 
 	/**
 	 * @see http://ca.php.net/manual/en/function.strtoupper.php
+	 * @param $string string Input string
+	 * @return string Upper case version of input string
 	 */
 	static function strtoupper($string) {
 		if (defined('ENABLE_MBSTRING')) {
@@ -239,6 +261,8 @@ class String {
 
 	/**
 	 * @see http://ca.php.net/manual/en/function.ucfirst.php
+	 * @param $string string Input string
+	 * @return string ucfirst version of input string
 	 */
 	static function ucfirst($string) {
 		if (defined('ENABLE_MBSTRING')) {
@@ -254,6 +278,9 @@ class String {
 
 	/**
 	 * @see http://ca.php.net/manual/en/function.substr_count.php
+	 * @param $haystack string Input string to search
+	 * @param $needle string String to search within $haystack for
+	 * @return int Count of number of times $needle appeared in $haystack
 	 */
 	static function substr_count($haystack, $needle) {
 		if (defined('ENABLE_MBSTRING')) {
@@ -265,6 +292,8 @@ class String {
 
 	/**
 	 * @see http://ca.php.net/manual/en/function.encode_mime_header.php
+	 * @param $string string Input MIME header to encode.
+	 * @return string Encoded MIME header.
 	 */
 	static function encode_mime_header($string) {
 		if (defined('ENABLE_MBSTRING')) {
@@ -281,6 +310,9 @@ class String {
 
 	/**
 	 * @see http://ca.php.net/manual/en/function.regexp_quote.php
+	 * @param $string string String to quote
+	 * @param $delimiter string Delimiter for regular expression
+	 * @return string Quoted equivalent of $string
 	 */
 	static function regexp_quote($string, $delimiter = '/') {
 		return preg_quote($string, $delimiter);
@@ -288,6 +320,8 @@ class String {
 
 	/**
 	 * @see http://ca.php.net/manual/en/function.regexp_grep.php
+	 * @param $pattern string Regular expression
+	 * @param $input string Input string
 	 */
 	static function regexp_grep($pattern, $input) {
 		if (PCRE_UTF8 && !String::utf8_compliant($input)) $input = String::utf8_bad_strip($input);
@@ -296,6 +330,8 @@ class String {
 
 	/**
 	 * @see http://ca.php.net/manual/en/function.regexp_match.php
+	 * @param $pattern string Regular expression
+	 * @param $subject string String to apply regular expression to
 	 */
 	static function regexp_match($pattern, $subject) {
 		if (PCRE_UTF8 && !String::utf8_compliant($subject)) $subject = String::utf8_bad_strip($subject);
@@ -304,6 +340,10 @@ class String {
 
 	/**
 	 * @see http://ca.php.net/manual/en/function.regexp_match_get.php
+	 * @param $pattern string Regular expression
+	 * @param $subject string String to apply regular expression to
+	 * @param $matches array Reference to receive matches
+	 * @return int|boolean Returns 1 if the pattern matches given subject, 0 if it does not, or FALSE if an error occurred. 
 	 */
 	static function regexp_match_get($pattern, $subject, &$matches) {
 		// NOTE: This function was created since PHP < 5.x does not support optional reference parameters
@@ -313,6 +353,10 @@ class String {
 
 	/**
 	 * @see http://ca.php.net/manual/en/function.regexp_match_all.php
+	 * @param $pattern string Regular expression
+	 * @param $subject string String to apply regular expression to
+	 * @param $matches array Reference to receive matches
+	 * @return int|boolean Returns number of full matches of given subject, or FALSE if an error occurred. 
 	 */
 	static function regexp_match_all($pattern, $subject, &$matches) {
 		if (PCRE_UTF8 && !String::utf8_compliant($subject)) $subject = String::utf8_bad_strip($subject);
@@ -321,6 +365,10 @@ class String {
 
 	/**
 	 * @see http://ca.php.net/manual/en/function.regexp_replace.php
+	 * @param $pattern string Regular expression
+	 * @param $replacement string String to replace matches in $subject with
+	 * @param $subject string String to apply regular expression to
+	 * @param $limit int Number of replacements to perform, maximum, or -1 for no limit.
 	 */
 	static function regexp_replace($pattern, $replacement, $subject, $limit = -1) {
 		if (PCRE_UTF8 && !String::utf8_compliant($subject)) $subject = String::utf8_bad_strip($subject);
@@ -329,6 +377,10 @@ class String {
 
 	/**
 	 * @see http://ca.php.net/manual/en/function.regexp_replace_callback.php
+	 * @param $pattern string Regular expression
+	 * @param $callback callback PHP callback to generate content to replace matches with
+	 * @param $subject string String to apply regular expression to
+	 * @param $limit int Number of replacements to perform, maximum, or -1 for no limit.
 	 */
 	static function regexp_replace_callback($pattern, $callback, $subject, $limit = -1) {
 		if (PCRE_UTF8 && !String::utf8_compliant($subject)) $subject = String::utf8_bad_strip($subject);
@@ -337,6 +389,10 @@ class String {
 
 	/**
 	 * @see http://ca.php.net/manual/en/function.regexp_split.php
+	 * @param $pattern string Regular expression
+	 * @param $subject string String to apply regular expression to
+	 * @param $limit int Number of times to match; -1 for unlimited
+	 * @return array Resulting string segments
 	 */
 	static function regexp_split($pattern, $subject, $limit = -1) {
 		if (PCRE_UTF8 && !String::utf8_compliant($subject)) $subject = String::utf8_bad_strip($subject);
@@ -345,6 +401,8 @@ class String {
 
 	/**
 	 * @see http://ca.php.net/manual/en/function.mime_content_type.php
+	 * @param $filename string Filename to test.
+	 * @return string Detected MIME type
 	 */
 	static function mime_content_type($filename) {
 		if (function_exists('finfo_open')) {
@@ -647,8 +705,8 @@ class String {
 
 	/**
 	 * Joins two title string fragments (in $fields) either with a
-	 *  space or a colon.
-	 * @param array $fields
+	 * space or a colon.
+	 * @param $fields array
 	 * @return string the joined string
 	 */
 	static function concatTitleFields($fields) {
@@ -753,8 +811,8 @@ class String {
 	 *    0 = common substring
 	 *    1 = addition
 	 *
-	 * @param $string1 string
-	 * @param $string2 string
+	 * @param $originalString string
+	 * @param $editedString string
 	 * @return array
 	 */
 	static function diff($originalString, $editedString) {
@@ -884,6 +942,7 @@ class String {
 	/**
 	 * Get a letter $steps places after 'A'
 	 * @param $steps int
+	 * @return string Letter
 	 */
 	static function enumerateAlphabetically($steps) {
 		return chr(ord('A') + $steps);

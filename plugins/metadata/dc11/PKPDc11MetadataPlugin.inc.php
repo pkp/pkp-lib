@@ -31,21 +31,21 @@ class PKPDc11MetadataPlugin extends MetadataPlugin {
 	// Override protected template methods from PKPPlugin
 	//
 	/**
-	 * @see PKPPlugin::getName()
+	 * @copydoc PKPPlugin::getName()
 	 */
 	function getName() {
 		return 'Dc11MetadataPlugin';
 	}
 
 	/**
-	 * @see PKPPlugin::getDisplayName()
+	 * @copydoc PKPPlugin::getDisplayName()
 	 */
 	function getDisplayName() {
 		return __('plugins.metadata.dc11.displayName');
 	}
 
 	/**
-	 * @see PKPPlugin::getDescription()
+	 * @copydoc PKPPlugin::getDescription()
 	 */
 	function getDescription() {
 		return __('plugins.metadata.dc11.description');

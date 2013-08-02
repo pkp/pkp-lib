@@ -31,7 +31,7 @@ abstract class DatabaseTestCase extends PKPTestCase {
 	}
 
 	/**
-	 * @see PHPUnit_Framework_TestCase::setUp()
+	 * @copydoc PHPUnit_Framework_TestCase::setUp()
 	 */
 	protected function setUp() {
 		// Switch off xdebug screaming (there are
@@ -48,7 +48,7 @@ abstract class DatabaseTestCase extends PKPTestCase {
 	}
 
 	/**
-	 * @see PHPUnit_Framework_TestCase::tearDown()
+	 * @copydoc PHPUnit_Framework_TestCase::tearDown()
 	 */
 	protected function tearDown() {
 		parent::tearDown();

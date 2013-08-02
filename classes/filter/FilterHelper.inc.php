@@ -13,9 +13,11 @@
 
 class FilterHelper {
 	/**
+	 * @verbatim
 	 * Helper method that installs filter groups based on
 	 * the given XML node which represents a <filterGroups>
 	 * element.
+	 * @endverbatim
 	 * @param $filterGroupsNode XMLNode
 	 */
 	function installFilterGroups($filterGroupsNode) {
@@ -48,9 +50,11 @@ class FilterHelper {
 	}
 
 	/**
+	 * @verbatim
 	 * Helper method that configures and optionally
 	 * installs a filter based on the given XML node
 	 * which represents a <filter> element.
+	 * @endverbatim
 	 * @param $filterNode XMLNode
 	 * @param $persist boolean whether to install the filter
 	 * @return PersistableFilter the installed filter.
@@ -176,8 +180,10 @@ class FilterHelper {
 	}
 
 	/**
+	 * @verbatim
 	 * Helper method that extracts filter settings
 	 * from the children of a <filter> element.
+	 * @endverbatim
 	 * @param $settingNode XMLNode
 	 * @return $setting array a key-value pair.
 	 */

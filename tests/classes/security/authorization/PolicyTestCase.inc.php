@@ -21,21 +21,14 @@ import('lib.pkp.classes.core.PKPRequest');
 define('ROLE_ID_TEST', 0x9999);
 
 abstract class PolicyTestCase extends PKPTestCase {
-	private
-		/**
-		 * @var Array of context object(s);
-		 */
-		$contextObjects,
+	/** @var Array of context object(s) */
+	private $contextObjects;
 
-		/**
-		 * @var AuthorizationContext internal state variable that
-		 *  contains the policy that will be used to manipulate
-		 *  the authorization context
-		 */
-		$authorizationContextManipulationPolicy;
+	/** @var AuthorizationContext internal state variable that contains the policy that will be used to manipulate the authorization context */
+	private $authorizationContextManipulationPolicy;
 
 	/**
-	 * @see PKPTestCase::getMockedRegistryKeys()
+	 * @copydoc PKPTestCase::getMockedRegistryKeys()
 	 */
 	protected function getMockedRegistryKeys() {
 		return array('user');

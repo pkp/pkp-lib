@@ -234,7 +234,7 @@ class PKPComponentRouter extends PKPRouter {
 	// Implement template methods from PKPRouter
 	//
 	/**
-	 * @see PKPRouter::route()
+	 * @copydoc PKPRouter::route()
 	 */
 	function route($request) {
 		// Determine the requested service endpoint.
@@ -252,7 +252,7 @@ class PKPComponentRouter extends PKPRouter {
 	}
 
 	/**
-	 * @see PKPRouter::url()
+	 * @copydoc PKPRouter::url()
 	 */
 	function url($request, $newContext = null, $component = null, $op = null, $path = null,
 			$params = null, $anchor = null, $escape = false) {
@@ -340,7 +340,7 @@ class PKPComponentRouter extends PKPRouter {
 	}
 
 	/**
-	 * @see PKPRouter::handleAuthorizationFailure()
+	 * @copydoc PKPRouter::handleAuthorizationFailure()
 	 */
 	function handleAuthorizationFailure($request, $authorizationMessage) {
 		// Translate the authorization error message.

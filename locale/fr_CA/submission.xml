@@ -451,4 +451,5 @@
 	<message key="notification.type.editorAssignment">Il faut choisir un rédacteur en chef afin d'entamer le processus d'évaluation. Veuillez ajouter un rédacteur en chef en utilisant le lien Participants ci-haut.</message>
 	<message key="grid.reviewAttachments.title">Pièces jointes de l'évaluateur</message>
 	<message key="editor.submission.newRoundDescription">Vous êtes sur le point de créer une nouvelle série de révisions pour cette soumission. Les fichiers qui n'ont pas été utilisés dans les autres séries de révisions apparaissent dans la liste suivante. Par défaut, les évaluateurs de la série précédente ont été sélectionnés pour participer à cette nouvelle série de révisions.</message>
+	<message key="submission.productionReady">Livre disponible</message>
 </locale>

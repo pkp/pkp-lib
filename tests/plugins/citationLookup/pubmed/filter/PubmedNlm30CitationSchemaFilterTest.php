@@ -1,11 +1,10 @@
 <?php
-
 /**
- * @defgroup tests_plugins_citationLookup_pubmed_filter
+ * @defgroup tests_plugins_citationLookup_pubmed_filter PubMed Filter Test Suite
  */
 
 /**
- * @file tests/plugins/citationLookup/pubmed/filter/PubmedNlm30CitationSchemaFilterTest.inc.php
+ * @file tests/plugins/citationLookup/pubmed/filter/PubmedNlm30CitationSchemaFilterTest.php
  *
  * Copyright (c) 2000-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.

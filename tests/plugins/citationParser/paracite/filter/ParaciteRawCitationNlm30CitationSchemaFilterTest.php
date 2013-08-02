@@ -1,11 +1,10 @@
 <?php
-
 /**
- * @defgroup tests_plugins_citationParser_paracite_filter
+ * @defgroup tests_plugins_citationParser_paracite_filter ParaCite Filter Test Suite
  */
 
 /**
- * @file tests/plugins/citationParser/paracite/filter/ParaciteRawCitationNlm30CitationSchemaFilterTest.inc.php
+ * @file tests/plugins/citationParser/paracite/filter/ParaciteRawCitationNlm30CitationSchemaFilterTest.php
  *
  * Copyright (c) 2000-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.

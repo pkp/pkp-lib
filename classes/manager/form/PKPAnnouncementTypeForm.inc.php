@@ -1,14 +1,14 @@
 <?php
 
 /**
- * @file classes/manager/form/AnnouncementTypeForm.inc.php
+ * @file classes/manager/form/PKPAnnouncementTypeForm.inc.php
  *
  * Copyright (c) 2000-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class AnnouncementTypeForm
+ * @class PKPAnnouncementTypeForm
  * @ingroup manager_form
- * @see AnnouncementType
+ * @see PKPAnnouncementType
  *
  * @brief Form for manager to create/edit announcement types.
  */

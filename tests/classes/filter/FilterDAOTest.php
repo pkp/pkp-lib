@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file tests/classes/filter/FilterDAOTest.inc.php
+ * @file tests/classes/filter/FilterDAOTest.php
  *
  * Copyright (c) 2000-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.

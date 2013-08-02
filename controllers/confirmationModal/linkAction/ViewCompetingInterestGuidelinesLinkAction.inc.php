@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file controllers/modals/submissionMetadata/linkAction/ViewCompetingInterestGuidelinesLinkAction.inc.php
+ * @file controllers/confirmationModal/linkAction/ViewCompetingInterestGuidelinesLinkAction.inc.php
  *
  * Copyright (c) 2003-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.

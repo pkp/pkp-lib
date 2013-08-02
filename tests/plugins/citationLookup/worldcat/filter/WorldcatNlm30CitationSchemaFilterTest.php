@@ -1,11 +1,10 @@
 <?php
-
 /**
- * @defgroup tests_plugins_citationLookup_worldcat_filter
+ * @defgroup tests_plugins_citationLookup_worldcat_filter WorldCat Filter Test Suite
  */
 
 /**
- * @file tests/plugins/citationLookup/worldcat/filter/WorldcatNlm30CitationSchemaFilterTest.inc.php
+ * @file tests/plugins/citationLookup/worldcat/filter/WorldcatNlm30CitationSchemaFilterTest.php
  *
  * Copyright (c) 2000-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.

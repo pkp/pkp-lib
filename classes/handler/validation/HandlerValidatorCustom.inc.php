@@ -1,6 +1,7 @@
 <?php
+
 /**
- * @file classes/handler/HandlerValidatorCustom.inc.php
+ * @file classes/handler/validation/HandlerValidatorCustom.inc.php
  *
  * Copyright (c) 2000-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.

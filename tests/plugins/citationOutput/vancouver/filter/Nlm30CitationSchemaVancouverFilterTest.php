@@ -1,11 +1,10 @@
 <?php
-
 /**
- * @defgroup tests_plugins_citationOutput_vancouver_filter
+ * @defgroup tests_plugins_citationOutput_vancouver_filter Vancouver Filter Test Suite
  */
 
 /**
- * @file tests/plugins/citationOutput/vancouver/filter/Nlm30CitationSchemaVancouverFilterTest.inc.php
+ * @file tests/plugins/citationOutput/vancouver/filter/Nlm30CitationSchemaVancouverFilterTest.php
  *
  * Copyright (c) 2000-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.

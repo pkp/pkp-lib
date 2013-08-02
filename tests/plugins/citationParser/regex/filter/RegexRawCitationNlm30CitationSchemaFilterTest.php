@@ -1,11 +1,10 @@
 <?php
-
 /**
- * @defgroup tests_plugins_citationParser_regex_filter
+ * @defgroup tests_plugins_citationParser_regex_filter RegEx Filter Test Suite
  */
 
 /**
- * @file tests/plugins/citationParser/regex/filter/RegexRawCitationNlm30CitationSchemaFilterTest.inc.php
+ * @file tests/plugins/citationParser/regex/filter/RegexRawCitationNlm30CitationSchemaFilterTest.php
  *
  * Copyright (c) 2000-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.

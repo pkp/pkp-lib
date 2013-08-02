@@ -1,11 +1,10 @@
 <?php
-
 /**
- * @defgroup tests_plugins_citationLookup_crossref_filter
+ * @defgroup tests_plugins_citationLookup_crossref_filter CrossRef Filter Test Suite
  */
 
 /**
- * @file tests/plugins/citationLookup/crossref/filter/CrossrefNlm30CitationSchemaFilterTest.inc.php
+ * @file tests/plugins/citationLookup/crossref/filter/CrossrefNlm30CitationSchemaFilterTest.php
  *
  * Copyright (c) 2000-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.

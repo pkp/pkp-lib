@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file tests/plugins/metadata/nlm30/filter/Openurl10Nlm30CitationSchemaCrosswalkFilterTest.inc.php
+ * @file tests/plugins/metadata/nlm30/filter/Openurl10Nlm30CitationSchemaCrosswalkFilterTest.php
  *
  * Copyright (c) 2000-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.

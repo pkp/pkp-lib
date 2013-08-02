@@ -1,12 +1,12 @@
 <?php
 
 /**
- * @file classes/manager/form/AnnouncementForm.inc.php
+ * @file classes/manager/form/PKPAnnouncementForm.inc.php
  *
  * Copyright (c) 2000-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class AnnouncementForm
+ * @class PKPAnnouncementForm
  * @ingroup manager_form
  *
  * @brief Form for managers to create/edit announcements.

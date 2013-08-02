@@ -1,11 +1,10 @@
 <?php
-
 /**
- * @defgroup tests_plugins_citationOutput_abnt_filter
+ * @defgroup tests_plugins_citationOutput_abnt_filter ABNT Filter Test Suite
  */
 
 /**
- * @file tests/plugins/citationOutput/abnt/filter/Nlm30CitationSchemaAbntFilterTest.inc.php
+ * @file tests/plugins/citationOutput/abnt/filter/Nlm30CitationSchemaAbntFilterTest.php
  *
  * Copyright (c) 2000-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.

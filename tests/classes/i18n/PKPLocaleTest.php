@@ -1,11 +1,11 @@
 <?php
 
 /**
- * @defgroup tests_classes_i18n
+ * @defgroup tests_classes_i18n I18N Class Test Suite
  */
 
 /**
- * @file tests/classes/i18n/PKPLocaleTest.inc.php
+ * @file tests/classes/i18n/PKPLocaleTest.php
  *
  * Copyright (c) 2000-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file controllers/grid/settings/library/LibraryFileGridCellProvider.inc.php
+ * @file controllers/grid/files/LibraryFileGridCellProvider.inc.php
  *
  * Copyright (c) 2003-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.

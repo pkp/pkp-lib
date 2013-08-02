@@ -19,26 +19,37 @@ class PKPRequest {
 	//
 	/** @var PKPRouter router instance used to route this request */
 	var $_router = null;
+
 	/** @var Dispatcher dispatcher instance used to dispatch this request */
 	var $_dispatcher = null;
+
 	/** @var array the request variables cache (GET/POST) */
 	var $_requestVars = null;
+
 	/** @var string request base path */
 	var $_basePath;
+
 	/** @var string request path */
 	var $_requestPath;
+
 	/** @var boolean true if restful URLs are enabled in the config */
 	var $_isRestfulUrlsEnabled;
+
 	/** @var boolean true if path info is enabled for this server */
 	var $_isPathInfoEnabled;
+
 	/** @var string server host */
 	var $_serverHost;
+
 	/** @var string base url */
 	var $_baseUrl;
+
 	/** @var string request protocol */
 	var $_protocol;
+
 	/** @var boolean bot flag */
 	var $_isBot;
+
 	/** @var string user agent */
 	var $_userAgent;
 

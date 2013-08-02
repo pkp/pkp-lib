@@ -1,11 +1,10 @@
 <?php
-
 /**
- * @defgroup tests_plugins_citationParser_freecite_filter
+ * @defgroup tests_plugins_citationParser_freecite_filter FreeCite Filter Test Suite
  */
 
 /**
- * @file tests/plugins/citationParser/freecite/filter/FreeciteRawCitationNlm30CitationSchemaFilterTest.inc.php
+ * @file tests/plugins/citationParser/freecite/filter/FreeciteRawCitationNlm30CitationSchemaFilterTest.php
  *
  * Copyright (c) 2000-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.

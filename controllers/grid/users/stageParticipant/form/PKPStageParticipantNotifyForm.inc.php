@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file controllers/informationCenter/form/PKPInformationCenterNotifyForm.inc.php
+ * @file controllers/informationCenter/form/PKPStageParticipantNotifyForm.inc.php
  *
  * Copyright (c) 2003-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -16,23 +16,39 @@
 
 import('lib.pkp.classes.form.Form');
 
-class PKPInformationCenterNotifyForm extends Form {
+class PKPStageParticipantNotifyForm extends Form {
 	/** @var int The file/submission ID this form is for */
 	var $itemId;
 
 	/** @var int The type of item the form is for (used to determine which email template to use) */
 	var $itemType;
 
+	/** @var int the Submission id */
+	var $submissionId;
+
 	/**
 	 * Constructor.
 	 */
-	function PKPInformationCenterNotifyForm($itemId, $itemType) {
-		parent::Form('controllers/informationCenter/notify.tpl');
+	function PKPStageParticipantNotifyForm($itemId, $itemType, $template = null) {
+		$template = ($template != null) ? $template : 'controllers/grid/users/stageParticipant/form/notify.tpl';
+		parent::Form($template);
 		$this->itemId = $itemId;
 		$this->itemType = $itemType;
 
-		$this->addCheck(new FormValidatorListbuilder($this, 'users', 'informationCenter.notify.warning'));
-		$this->addCheck(new FormValidator($this, 'message', 'required', 'informationCenter.notify.warning'));
+		if($itemType == ASSOC_TYPE_SUBMISSION) {
+			$this->submissionId = $itemId;
+		} else {
+			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
+			$submissionFile = $submissionFileDao->getLatestRevision($itemId);
+			$this->submissionId = $submissionFile->getSubmissionId();
+		}
+
+		// Some other forms (e.g. the Add Participant form) subclass this form and do not have the list builder
+		// or may not enforce the sending of an email.  Only include checks if the list builder is included.
+		if ($this->includeNotifyUsersListbuilder()) {
+			$this->addCheck(new FormValidatorListbuilder($this, 'users', 'stageParticipants.notify.warning'));
+			$this->addCheck(new FormValidator($this, 'message', 'required', 'stageParticipants.notify.warning'));
+		}
 		$this->addCheck(new FormValidatorPost($this));
 	}
 
@@ -41,15 +57,8 @@ class PKPInformationCenterNotifyForm extends Form {
 	 */
 	function fetch($request) {
 		$templateMgr = TemplateManager::getManager($request);
-		if($this->itemType == ASSOC_TYPE_SUBMISSION) {
-			$submissionId = $this->itemId;
-		} else {
-			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-			$submissionFile = $submissionFileDao->getLatestRevision($this->itemId);
-			$submissionId = $submissionFile->getSubmissionId();
-		}
 
-		$templateMgr->assign('submissionId', $submissionId);
+		$templateMgr->assign('submissionId', $this->submissionId);
 		$templateMgr->assign('itemId', $this->itemId);
 
 		// All stages can choose the default template
@@ -59,7 +68,7 @@ class PKPInformationCenterNotifyForm extends Form {
 		$stageTemplates = $this->_getStageTemplates();
 
 		$submissionDao = Application::getSubmissionDAO();
-		$submission = $submissionDao->getById($submissionId);
+		$submission = $submissionDao->getById($this->submissionId);
 		$currentStageId = $submission->getStageId();
 
 		$templateKeys = array_merge($templateKeys, $stageTemplates[$currentStageId]);
@@ -71,6 +80,8 @@ class PKPInformationCenterNotifyForm extends Form {
 		}
 
 		$templateMgr->assign('templates', $templates);
+		$templateMgr->assign('stageId', $currentStageId);
+		$templateMgr->assign('includeNotifyUsersListbuilder', $this->includeNotifyUsersListbuilder());
 
 		// check to see if we were handed a userId from the stage participants grid.  If so,
 		// pass that in so the list builder can pre-populate. The Listbuilder validates this.
@@ -105,20 +116,25 @@ class PKPInformationCenterNotifyForm extends Form {
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$application = Application::getApplication();
 		$request = $application->getRequest(); // need to do this because the method version is null.
-		$fromUser = $request->getUser();
 
 		$submissionDao = Application::getSubmissionDAO();
+		$submission =& $submissionDao->getById($this->submissionId);
 
-		if($this->itemType == ASSOC_TYPE_SUBMISSION) {
-			$submissionId = $this->itemId;
-		} else {
-			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-			$submissionFile =& $submissionFileDao->getLatestRevision($this->itemId);
-			$submissionId = $submissionFile->getSubmissionId();
+		foreach ($newRowId as $id) {
+			$this->sendMessage($id, $submission, $request);
 		}
+	}
 
-		$submission =& $submissionDao->getById($submissionId);
+	/**
+	 * Send a message to a user.
+	 * @param $userId int the user id to send email to.
+	 * @param $submission Submission
+	 * @param $request PKPRequest
+	 */
+	function sendMessage($userId, $submission, $request) {
+
 		$template = $this->getData('template');
+		$fromUser = $request->getUser();
 
 		$email = $this->_getMailTemplate($submission, $template, false);
 		$email->setReplyTo($fromUser->getEmail(), $fromUser->getFullName());
@@ -126,17 +142,17 @@ class PKPInformationCenterNotifyForm extends Form {
 		import('lib.pkp.controllers.grid.submissions.SubmissionsListGridCellProvider');
 		$dispatcher = $request->getDispatcher();
 
-		foreach ($newRowId as $id) {
-			$user = $userDao->getById($id);
-			if (isset($user)) {
-				$email->addRecipient($user->getEmail(), $user->getFullName());
-				$email->setBody($this->getData('message'));
-				list($page, $operation) = SubmissionsListGridCellProvider::getPageAndOperationByUserRoles($request, $submission, $user->getId());
-				$submissionUrl = $dispatcher->url($request, ROUTE_PAGE, null, $page, $operation, array('submissionId' => $submission->getId()));
+		$userDao = DAORegistry::getDAO('UserDAO');
+		$user = $userDao->getById($userId);
+		if (isset($user)) {
+			$email->addRecipient($user->getEmail(), $user->getFullName());
+			$email->setBody($this->getData('message'));
+			list($page, $operation) = SubmissionsListGridCellProvider::getPageAndOperationByUserRoles($request, $submission, $user->getId());
+			$submissionUrl = $dispatcher->url($request, ROUTE_PAGE, null, $page, $operation, array('submissionId' => $submission->getId()));
 
-				// these are for *_REQUEST emails
-				$email->assignParams(array(
-					// COPYEDIT_REQUEST
+			// these are for *_REQUEST emails
+			$email->assignParams(array(
+			// COPYEDIT_REQUEST
 					'copyeditorName' => $user->getFullName(),
 					'copyeditorUsername' => $user->getUsername(),
 					'submissionCopyeditingUrl' => $submissionUrl,
@@ -151,19 +167,18 @@ class PKPInformationCenterNotifyForm extends Form {
 					'indexerUsername' => $user->getUsername(),
 					// EDITOR_ASSIGN
 					'editorUsername' => $user->getUsername(),
-				));
+			));
 
-				$this->_createNotifications($request, $submission, $user, $template);
-				$email->send($request);
-				// remove the INDEX_ and LAYOUT_ tasks if a user has sent the appropriate _COMPLETE email
-				switch ($template) {
-					case 'LAYOUT_COMPLETE':
-						$this->_removeUploadTaskNotification($submission, NOTIFICATION_TYPE_LAYOUT_ASSIGNMENT, $request);
-						break;
-					case 'INDEX_COMPLETE':
-						$this->_removeUploadTaskNotification($submission, NOTIFICATION_TYPE_INDEX_ASSIGNMENT, $request);
-						break;
-				}
+			$this->_createNotifications($request, $submission, $user, $template);
+			$email->send($request);
+			// remove the INDEX_ and LAYOUT_ tasks if a user has sent the appropriate _COMPLETE email
+			switch ($template) {
+				case 'LAYOUT_COMPLETE':
+					$this->_removeUploadTaskNotification($submission, NOTIFICATION_TYPE_LAYOUT_ASSIGNMENT, $request);
+					break;
+				case 'INDEX_COMPLETE':
+					$this->_removeUploadTaskNotification($submission, NOTIFICATION_TYPE_INDEX_ASSIGNMENT, $request);
+					break;
 			}
 		}
 	}
@@ -302,6 +317,14 @@ class PKPInformationCenterNotifyForm extends Form {
 				}
 			}
 		}
+	}
+
+	/**
+	 * whether or not to include the Notify Users listbuilder  true, by default.
+	 * @return boolean
+	 */
+	function includeNotifyUsersListbuilder() {
+		return true;
 	}
 
 	/**

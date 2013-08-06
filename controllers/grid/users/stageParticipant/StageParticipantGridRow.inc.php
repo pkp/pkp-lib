@@ -67,7 +67,7 @@ class StageParticipantGridRow extends GridRow {
 				)
 			);
 
-			import('lib.pkp.controllers.informationCenter.linkAction.NotifyLinkAction');
+			import('lib.pkp.controllers.grid.users.stageParticipant.linkAction.NotifyLinkAction');
 			$submission = $this->getSubmission();
 			$stageId = $this->getStageId();
 			$stageAssignment = $this->getData();

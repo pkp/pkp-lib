@@ -23,7 +23,7 @@ class PKPSubmissionInformationCenterHandler extends InformationCenterHandler {
 	/**
 	 * Constructor
 	 */
-	function SubmissionInformationCenterHandler() {
+	function PKPSubmissionInformationCenterHandler() {
 		parent::InformationCenterHandler();
 	}
 
@@ -149,62 +149,6 @@ class PKPSubmissionInformationCenterHandler extends InformationCenterHandler {
 			$user = $request->getUser();
 			$userId = $user->getId();
 			$this->_logEvent($request, SUBMISSION_LOG_NOTE_POSTED);
-		} else {
-			// Return a JSON string indicating failure
-			$json = new JSONMessage(false);
-		}
-
-		return $json->getString();
-	}
-
-	/**
-	 * Display the notify tab.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 */
-	function viewNotify($args, $request) {
-		$this->setupTemplate($request);
-
-		import('controllers.informationCenter.form.InformationCenterNotifyForm'); // exists in each app.
-		$notifyForm = new InformationCenterNotifyForm($this->_submission->getId(), ASSOC_TYPE_SUBMISSION);
-		$notifyForm->initData();
-
-		$json = new JSONMessage(true, $notifyForm->fetch($request));
-		return $json->getString();
-	}
-
-	/**
-	 * Fetches an email template's message body and returns it via AJAX.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 */
-	function fetchTemplateBody($args, $request) {
-		assert(false); // overridden in subclasses.
-	}
-
-	/**
-	 * Send a notification from the notify tab.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 */
-	function sendNotification ($args, $request) {
-		$this->setupTemplate($request);
-
-		import('controllers.informationCenter.form.InformationCenterNotifyForm');
-		$notifyForm = new InformationCenterNotifyForm($this->_submission->getId(), ASSOC_TYPE_SUBMISSION);
-		$notifyForm->readInputData($request);
-
-		if ($notifyForm->validate()) {
-			$noteId = $notifyForm->execute($request);
-			// Return a JSON string indicating success
-			// (will clear the form on return)
-			$json = new JSONMessage(true);
-
-			$this->_logEvent($request, SUBMISSION_LOG_MESSAGE_SENT);
-			// Create trivial notification.
-			$currentUser = $request->getUser();
-			$notificationMgr = new NotificationManager();
-			$notificationMgr->createTrivialNotification($currentUser->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('informationCenter.history.messageSent')));
 		} else {
 			// Return a JSON string indicating failure
 			$json = new JSONMessage(false);

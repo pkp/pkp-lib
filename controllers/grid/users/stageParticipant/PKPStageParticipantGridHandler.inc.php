@@ -29,7 +29,7 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 		//Assistants get read-only access
 		$this->addRoleAssignment(
 			array(ROLE_ID_ASSISTANT),
-			$peOps = array('fetchGrid', 'fetchCategory', 'fetchRow')
+			$peOps = array('fetchGrid', 'fetchCategory', 'fetchRow', 'viewNotify', 'fetchTemplateBody', 'sendNotification')
 		);
 		// Managers and Editors additionally get administrative access
 		$this->addRoleAssignment(
@@ -244,9 +244,9 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 
 		import('lib.pkp.controllers.grid.users.stageParticipant.form.AddParticipantForm');
 		$form = new AddParticipantForm($submission, $stageId, $userGroups);
-		$form->readInputData();
+		$form->readInputData($request);
 		if ($form->validate()) {
-			list($userGroupId, $userId, $stageAssignmentId) = $form->execute();
+			list($userGroupId, $userId, $stageAssignmentId) = $form->execute($request);
 
 			$notificationMgr = new NotificationManager();
 
@@ -283,6 +283,12 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 			$assignedUser =& $userDao->getById($userId);
 			import('lib.pkp.classes.log.SubmissionLog');
 			SubmissionLog::logEvent($request, $submission, SUBMISSION_LOG_ADD_PARTICIPANT, 'submission.event.participantAdded', array('name' => $assignedUser->getFullName(), 'username' => $assignedUser->getUsername(), 'userGroupName' => $userGroup->getLocalizedName()));
+
+			// send message to user if form is filled in.
+			if ($form->getData('message')) {
+				$form->sendMessage($form->getData('userId'), $submission, $request);
+				$this->_logEventAndCreateNotification($request);
+			}
 
 			return DAO::getDataChangedEvent($userGroupId);
 		} else {
@@ -409,6 +415,78 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 
 	function _getIdForSubEditorFilter($submission) {
 		assert(false); // implemented by sub classes.
+	}
+
+	/**
+	 * Display the notify tab.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 */
+	function viewNotify($args, $request) {
+		$this->setupTemplate($request);
+
+		import('controllers.grid.users.stageParticipant.form.StageParticipantNotifyForm'); // exists in each app.
+		$notifyForm = new StageParticipantNotifyForm($this->getSubmission()->getId(), ASSOC_TYPE_SUBMISSION);
+		$notifyForm->initData();
+
+		$json = new JSONMessage(true, $notifyForm->fetch($request));
+		return $json->getString();
+	}
+
+	/**
+	 * Send a notification from the notify tab.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 */
+	function sendNotification($args, $request) {
+		$this->setupTemplate($request);
+
+		import('controllers.grid.users.stageParticipant.form.StageParticipantNotifyForm'); // exists in each app.
+		$notifyForm = new StageParticipantNotifyForm($this->getSubmission()->getId(), ASSOC_TYPE_SUBMISSION);
+		$notifyForm->readInputData($request);
+
+		if ($notifyForm->validate()) {
+			$noteId = $notifyForm->execute($request);
+			// Return a JSON string indicating success
+			// (will clear the form on return)
+			$json = new JSONMessage(true);
+			$this->_logEventAndCreateNotification($request);
+		} else {
+			// Return a JSON string indicating failure
+			$json = new JSONMessage(false);
+		}
+
+		return $json->getString();
+	}
+
+	/**
+	 * Convenience function for logging the message sent event and creating the notification.  Called from more than one place.
+	 * @param PKPRequest $request
+	 */
+	function _logEventAndCreateNotification($request) {
+		$this->_logEvent($request, SUBMISSION_LOG_MESSAGE_SENT);
+		// Create trivial notification.
+		$currentUser = $request->getUser();
+		$notificationMgr = new NotificationManager();
+		$notificationMgr->createTrivialNotification($currentUser->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('stageParticipants.history.messageSent')));
+	}
+
+	/**
+	 * Fetches an email template's message body and returns it via AJAX.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 */
+	function fetchTemplateBody($args, $request) {
+		assert(false); // overridden in subclasses.
+	}
+
+	/**
+	 * Log an event for this file
+	 * @param $request PKPRequest
+	 * @param $eventType SUBMISSION_LOG_...
+	 */
+	function _logEvent ($request, $eventType) {
+		assert(false); // overridden in subclasses.
 	}
 }
 

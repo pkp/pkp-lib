@@ -345,10 +345,12 @@
 	<message key="informationCenter.pastHistory">Earlier Revisions</message>
 	<message key="informationCenter.history.noItems">There are no events logged.</message>
 	<message key="informationCenter.history.notePosted">Posted new note.</message>
-	<message key="informationCenter.history.messageSent">Notification sent to users.</message>
-	<message key="informationCenter.notify.chooseMessage">Choose a predefined message to use, or fill out the form below.</message>
-	<message key="informationCenter.notify.message">Message</message>
-	<message key="informationCenter.notify.warning">Please ensure that you have filled out the message field and selected at least one recipient.</message>
+
+	<!-- Stage Participants -->
+	<message key="stageParticipants.history.messageSent">Notification sent to users.</message>
+	<message key="stageParticipants.notify.chooseMessage">Choose a predefined message to use, or fill out the form below.</message>
+	<message key="stageParticipants.notify.message">Message</message>
+	<message key="stageParticipants.notify.warning">Please ensure that you have filled out the message field and selected at least one recipient.</message>
 
 	<message key="locale.primary">Primary locale</message>
 	<message key="locale.supported">Supported locales</message>

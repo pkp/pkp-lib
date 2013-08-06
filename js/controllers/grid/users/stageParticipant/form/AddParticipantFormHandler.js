@@ -15,9 +15,8 @@
 (function($) {
 
 	/** @type {Object} */
-	$.pkp.controllers.grid.users.stageParticipant =
-			$.pkp.controllers.grid.users.stageParticipant ||
-			{ form: { } };
+	$.pkp.controllers.grid.users.stageParticipant.form =
+			$.pkp.controllers.grid.users.stageParticipant.form || { };
 
 
 
@@ -47,7 +46,8 @@
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.grid.users.stageParticipant.form.
 					AddParticipantFormHandler,
-			$.pkp.controllers.form.AjaxFormHandler);
+			$.pkp.controllers.grid.users.stageParticipant.form.
+					StageParticipantNotifyHandler);
 
 
 	//

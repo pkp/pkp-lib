@@ -12,7 +12,8 @@
 	$(function() {ldelim}
 		$('#informationCenter').pkpHandler(
 			'$.pkp.controllers.TabHandler', {ldelim}
-				selected: {$selectedTabIndex|escape:"javascript"}
+				selected: {$selectedTabIndex|escape:"javascript"},
+				notScrollable: true
 			{rdelim}
 		);
 	{rdelim});
@@ -29,7 +30,6 @@
 			<li><a href="{url op="metadata" params=$linkParams}">{translate key="submission.informationCenter.metadata"}</a></li>
 		{/if}
 		<li><a href="{url op="viewNotes" params=$linkParams}">{translate key="submission.informationCenter.notes"}</a></li>
-		<li><a href="{url op="viewNotify" params=$linkParams}">{translate key="submission.informationCenter.notify"}</a></li>
 		{if !$removeHistoryTab}
 			<li><a href="{url op="viewHistory" params=$linkParams}">{translate key="submission.informationCenter.history"}</a></li>
 		{/if}

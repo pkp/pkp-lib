@@ -1,24 +1,23 @@
 /**
- * @defgroup js_controllers_informationCenter_form
+ * @defgroup js_controllers_grid_users_stageParticipant_form
  */
 /**
- * @file js/controllers/informationCenter/form/InformationCenterNotifyHandler.js
+ * @file js/controllers/grid/users/stageParticipant/form/StageParticipantNotifyHandler.js
  *
  * Copyright (c) 2000-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class InformationCenterNotifyHandler
- * @ingroup js_controllers_informationCenter_form
+ * @class StageParticipantNotifyHandler
+ * @ingroup js_controllers_grid_users_stageParticipant_form
  *
- * @brief Handle Information Center notification forms.
+ * @brief Handle Stage participant notification forms.
  */
 (function($) {
 
 	/** @type {Object} */
-	$.pkp.controllers.informationCenter.form =
-			$.pkp.controllers.informationCenter.form || { };
-
-
+	$.pkp.controllers.grid.users.stageParticipant =
+			$.pkp.controllers.grid.users.stageParticipant ||
+			{ form: { } };
 
 	/**
 	 * @constructor
@@ -28,7 +27,7 @@
 	 * @param {jQueryObject} $form the wrapped HTML form element.
 	 * @param {Object} options form options.
 	 */
-	$.pkp.controllers.informationCenter.form.InformationCenterNotifyHandler =
+	$.pkp.controllers.grid.users.stageParticipant.form.StageParticipantNotifyHandler =
 			function($form, options) {
 
 		this.parent($form, options);
@@ -43,7 +42,7 @@
 				this.callbackWrapper(this.selectTemplateHandler_));
 	};
 	$.pkp.classes.Helper.inherits(
-			$.pkp.controllers.informationCenter.form.InformationCenterNotifyHandler,
+			$.pkp.controllers.grid.users.stageParticipant.form.StageParticipantNotifyHandler,
 			$.pkp.controllers.form.AjaxFormHandler);
 
 
@@ -55,7 +54,7 @@
 	 * @private
 	 * @type {string?}
 	 */
-	$.pkp.controllers.informationCenter.form.InformationCenterNotifyHandler.
+	$.pkp.controllers.grid.users.stageParticipant.form.StageParticipantNotifyHandler.
 			prototype.templateUrl_ = null;
 
 
@@ -70,7 +69,7 @@
 	 * @param {Event} event The triggering event.
 	 * @private
 	 */
-	$.pkp.controllers.informationCenter.form.InformationCenterNotifyHandler.
+	$.pkp.controllers.grid.users.stageParticipant.form.StageParticipantNotifyHandler.
 			prototype.selectTemplateHandler_ = function(sourceElement, event) {
 
 		var $form = this.getHtmlElement();
@@ -87,7 +86,7 @@
 	 * @param {Object} jsonData The data returned from the server.
 	 * @return {boolean} The response status.
 	 */
-	$.pkp.controllers.informationCenter.form.InformationCenterNotifyHandler.
+	$.pkp.controllers.grid.users.stageParticipant.form.StageParticipantNotifyHandler.
 			prototype.updateTemplate = function(formElement, jsonData) {
 
 		var $form = this.getHtmlElement(),

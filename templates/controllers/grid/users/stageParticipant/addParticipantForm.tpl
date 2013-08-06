@@ -13,7 +13,8 @@
 		// Attach the form handler.
 		$('#addParticipantForm').pkpHandler('$.pkp.controllers.grid.users.stageParticipant.form.AddParticipantFormHandler',
 			{ldelim}
-				fetchUserListUrl: '{url op="fetchUserList" submissionId=$submissionId stageId=$stageId userGroupId=$selectedUserGroupId escape=false}'
+				fetchUserListUrl: '{url op="fetchUserList" submissionId=$submissionId stageId=$stageId userGroupId=$selectedUserGroupId escape=false}',
+				templateUrl: "{url|escape:'javascript' router=$smarty.const.ROUTE_COMPONENT component='grid.users.stageParticipant.StageParticipantGridHandler' op='fetchTemplateBody' stageId=$stageId submissionId=$submissionId escape=false}"
 			{rdelim}
 		);
 	{rdelim});
@@ -30,6 +31,16 @@
 		{fbvFormSection title="user.name" required="true"}
 			{capture assign="defaultLabel"}{translate key="common.chooseOne"}{/capture}
 			{fbvElement class="noStyling" type="select" id="userId" size=$fbvStyles.size.MEDIUM required="true" defaultValue="" defaultLabel=$defaultLabel}
+		{/fbvFormSection}
+	{/fbvFormArea}
+
+	{fbvFormArea id="notifyFormArea"}
+		{fbvFormSection title="stageParticipants.notify.chooseMessage" for="template" size=$fbvStyles.size.medium}
+			{fbvElement type="select" from=$templates translate=false id="template" defaultValue="" defaultLabel=""}
+		{/fbvFormSection}
+
+		{fbvFormSection title="stageParticipants.notify.message" for="message"}
+			{fbvElement type="textarea" id="message"}
 		{/fbvFormSection}
 		{fbvFormButtons}
 	{/fbvFormArea}

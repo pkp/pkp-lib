@@ -316,8 +316,10 @@
 	<message key="submission.informationCenter.submissionInfo">Submission Info</message>
 	<message key="submission.informationCenter.metadata">Metadata</message>
 	<message key="submission.informationCenter.notes">Notes</message>
-	<message key="submission.informationCenter.notify">Notify</message>
 	<message key="submission.informationCenter.history">History</message>
+
+	<!-- Stage Participants -->
+	<message key="submission.stageParticipants.notify">Notify</message>
 
 	<message key="submission.lastModified">Last modified</message>
 	<message key="submission.layout.addGalley">Add a Layout Galley</message>

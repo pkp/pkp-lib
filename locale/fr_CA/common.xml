@@ -353,10 +353,13 @@
 	<message key="informationCenter.history.noItems">Aucune activité n'a été enregistrée.</message>
 	<message key="informationCenter.history.notePosted">Nouvelle note publiée.</message>
 	<message key="informationCenter.history.messageSent">Avis envoyé aux utilisateurs.</message>
-	<message key="informationCenter.notify.chooseMessage">Choisir un message prédéfini à utiliser, ou remplir le formulaire ci-dessous.</message>
-	<message key="informationCenter.notify.message">Message</message>
-	<message key="informationCenter.notify.warning">Assurez-vous d'avoir rempli le champ Message et d'avoir choisi au moins un destinataire.</message>
 	<message key="navigation.goBack">Retour</message>
+
+	<!-- Stage Participants -->
+	<message key="stageParticipants.history.messageSent">Avis envoyé aux utilisateurs.</message>
+	<message key="stageParticipants.notify.chooseMessage">Choisir un message prédéfini à utiliser, ou remplir le formulaire ci-dessous.</message>
+	<message key="stageParticipants.notify.message">Message</message>
+	<message key="stageParticipants.notify.warning">Assurez-vous d'avoir rempli le champ Message et d'avoir choisi au moins un destinataire.</message>
 
 	<message key="notification.addedReviewer">Un évaluateur a été ajouté.</message>
 	<message key="notification.removedReviewer">L'évaluateur a été supprimé.</message>

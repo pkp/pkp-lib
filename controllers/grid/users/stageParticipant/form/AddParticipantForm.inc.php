@@ -12,9 +12,9 @@
  * @brief Form for adding a stage participant
  */
 
-import('lib.pkp.classes.form.Form');
+import('controllers.grid.users.stageParticipant.form.StageParticipantNotifyForm');
 
-class AddParticipantForm extends Form {
+class AddParticipantForm extends StageParticipantNotifyForm {
 	/** The submission associated with the submission contributor being edited **/
 	var $_submission;
 
@@ -28,11 +28,12 @@ class AddParticipantForm extends Form {
 	 * Constructor.
 	 */
 	function AddParticipantForm(&$submission, $stageId, &$userGroups) {
-		parent::Form('controllers/grid/users/stageParticipant/addParticipantForm.tpl');
+		parent::StageParticipantNotifyForm($submission->getId(), ASSOC_TYPE_SUBMISSION, 'controllers/grid/users/stageParticipant/addParticipantForm.tpl');
 		$this->_submission =& $submission;
 		$this->_stageId = $stageId;
 		$this->_userGroups =& $userGroups;
 
+		// add checks in addition to anything that the Notification form may apply.
 		$this->addCheck(new FormValidator($this, 'userGroupId', 'required', 'editor.submission.addStageParticipant.form.userGroupRequired'));
 		// FIXME: should use a custom validator to check that the user belongs to this group.
 		// validating in validate method for now.
@@ -93,10 +94,12 @@ class AddParticipantForm extends Form {
 	/**
 	 * @copydoc Form::readInputData()
 	 */
-	function readInputData() {
+	function readInputData($request) {
 		$this->readUserVars(array(
 			'userGroupId',
-			'userId'
+			'userId',
+			'message',
+			'template'
 		));
 	}
 
@@ -109,14 +112,14 @@ class AddParticipantForm extends Form {
 		$submission = $this->getSubmission();
 
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
-		return parent::validate() && $userGroupDao->userInGroup($userId, $userGroupId) && $userGroupDao->getById($userGroupId, $submission->getContextId());
+		return $userGroupDao->userInGroup($userId, $userGroupId) && $userGroupDao->getById($userGroupId, $submission->getContextId());
 	}
 
 	/**
 	 * @copydoc Form::execute()
 	 * @return array($userGroupId, $userId)
 	 */
-	function execute() {
+	function execute($request) {
 		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 
@@ -129,7 +132,17 @@ class AddParticipantForm extends Form {
 			// insert the assignment
 			$stageAssignment = $stageAssignmentDao->build($submission->getId(), $userGroupId, $userId);
 		}
+
+		parent::execute($request);
 		return array($userGroupId, $userId, $stageAssignment->getId());
+	}
+
+	/**
+	 * whether or not to include the Notify Users listbuilder  true, by default.
+	 * @return boolean
+	 */
+	function includeNotifyUsersListbuilder() {
+		return false; // use whoever is assigned to the stage when the form is submitted instead.
 	}
 }
 

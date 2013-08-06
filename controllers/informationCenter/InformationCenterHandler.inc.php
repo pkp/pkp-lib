@@ -30,10 +30,8 @@ class InformationCenterHandler extends Handler {
 			array(ROLE_ID_AUTHOR),
 			$authorOps = array(
 				'viewInformationCenter', // Information Center
-				'fetchTemplateBody', // Notify tab
 				'metadata', 'saveForm', // Metadata
 				'viewNotes', 'listNotes', 'saveNote', // Notes
-				'viewNotify', 'sendNotification', // Notify tab
 				'viewHistory', 'listHistory', // History tab
 			)
 		);
@@ -149,26 +147,6 @@ class InformationCenterHandler extends Handler {
 
 		$json = new JSONMessage(true);
 		return $json->getString();
-	}
-
-	/**
-	 * Display the notify tab.
-	 * NB: sub-classes must implement this method.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 */
-	function viewNotify ($args, $request) {
-		assert(false);
-	}
-
-	/**
-	 * Send a notification from the notify tab.
-	 * NB: sub-classes must implement this method.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 */
-	function sendNotification ($args, $request) {
-		assert(false);
 	}
 
 	/**

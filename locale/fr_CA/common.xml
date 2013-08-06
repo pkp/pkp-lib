@@ -366,4 +366,6 @@
 	<message key="notification.addedStageParticipant">L'utilisateur a été ajouté à titre de participant.</message>
 	<message key="notification.type.reviewAssignment">Vous avez une évaluation en attente.</message>
 	<message key="notification.type.auditorRequest">On vous a demandé de vérifier "{$file}"</message>
+	<message key="notification.type.allReviewsIn">Toutes les évaluations ont été soumises. Il faut prendre une décision à l'étape suivante: {$stage}.</message>
+	<message key="notification.type.allRevisionsIn">Un fichier révisé a été téléchargé dans {$stage} afin que vous puissiez l'évaluer.</message>
 </locale>

@@ -394,4 +394,6 @@
 	<message key="informationCenter.notify.message">Mensagem</message>
 	<message key="informationCenter.notify.warning">Assegure-se de preencher o campo mensagem e escolher pelo menos um destinatário.</message>
 	<message key="navigation.goBack">Voltar</message>
+	<message key="notification.type.allReviewsIn">Todas as avaliações entregues e aguardando decisão final no estágio {$stage}.</message>
+	<message key="notification.type.allRevisionsIn">Um arquivo revisado foi enviado para avaliação editorial no estágio {$stage}.</message>
 </locale>

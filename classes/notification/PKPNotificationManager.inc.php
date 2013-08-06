@@ -28,6 +28,33 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 	 * @see INotificationInfoProvider::getNotificationContents()
 	 */
 	public function getNotificationUrl($request, $notification) {
+		$router = $request->getRouter();
+		$dispatcher = $router->getDispatcher();
+		$contextDao = Application::getContextDAO();
+		$context = $contextDao->getById($notification->getContextId());
+
+		switch ($notification->getType()) {
+			case NOTIFICATION_TYPE_ALL_REVIEWS_IN:
+			case NOTIFICATION_TYPE_ALL_REVISIONS_IN:
+				assert($notification->getAssocType() == ASSOC_TYPE_REVIEW_ROUND && is_numeric($notification->getAssocId()));
+				$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+				$reviewRound = $reviewRoundDao->getById($notification->getAssocId());
+				assert(is_a($reviewRound, 'ReviewRound'));
+
+				$submissionDao = Application::getSubmissionDAO();
+				$submission = $submissionDao->getById($reviewRound->getSubmissionId());
+				import('lib.pkp.controllers.grid.submissions.SubmissionsListGridCellProvider');
+				list($page, $operation) = SubmissionsListGridCellProvider::getPageAndOperationByUserRoles($request, $submission);
+
+				if ($page == 'workflow') {
+					$stageId = $reviewRound->getStageId();
+					$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+					$operation = $userGroupDao->getPathFromId($stageId);
+				}
+
+				return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), $page, $operation, $submission->getId());
+		}
+
 		return $this->getByDelegate(
 			$notification->getType(),
 			$notification->getAssocType(),
@@ -69,6 +96,21 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 			case NOTIFICATION_TYPE_NEW_ANNOUNCEMENT:
 				assert($notification->getAssocType() == ASSOC_TYPE_ANNOUNCEMENT);
 				return __('notification.type.newAnnouncement');
+			case NOTIFICATION_TYPE_ALL_REVIEWS_IN:
+			case NOTIFICATION_TYPE_ALL_REVISIONS_IN:
+				if ($notification->getType() == NOTIFICATION_TYPE_ALL_REVIEWS_IN) {
+					$localeKey = 'notification.type.allReviewsIn';
+				} else {
+					$localeKey = 'notification.type.allRevisionsIn';
+				}
+
+				assert($notification->getAssocType() == ASSOC_TYPE_REVIEW_ROUND && is_numeric($notification->getAssocId()));
+				$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+				$reviewRound = $reviewRoundDao->getById($notification->getAssocId());
+				assert(is_a($reviewRound, 'ReviewRound'));
+				$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+				$stagesData = $userGroupDao->getWorkflowStageKeysAndPaths();
+				return __($localeKey, array('stage' => __($stagesData[$reviewRound->getStageId()]['translationKey'])));
 			default:
 				return $this->getByDelegate(
 					$notification->getType(),

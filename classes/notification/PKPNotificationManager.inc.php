@@ -53,6 +53,51 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 				}
 
 				return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), $page, $operation, $submission->getId());
+			case NOTIFICATION_TYPE_LAYOUT_ASSIGNMENT:
+			case NOTIFICATION_TYPE_INDEX_ASSIGNMENT:
+			case NOTIFICATION_TYPE_APPROVE_SUBMISSION:
+				assert($notification->getAssocType() == ASSOC_TYPE_SUBMISSION && is_numeric($notification->getAssocId()));
+				return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'workflow', 'access', $notification->getAssocId());
+			case NOTIFICATION_TYPE_AUDITOR_REQUEST:
+			case NOTIFICATION_TYPE_COPYEDIT_ASSIGNMENT:
+				assert($notification->getAssocType() == ASSOC_TYPE_SIGNOFF);
+				$signoffDao = DAORegistry::getDAO('SignoffDAO'); /* @var $signoffDao SignoffDAO */
+				$signoff = $signoffDao->getById($notification->getAssocId());
+				assert(is_a($signoff, 'Signoff') && $signoff->getAssocType() == ASSOC_TYPE_SUBMISSION_FILE);
+
+				$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
+				$submissionFile = $submissionFileDao->getLatestRevision($signoff->getAssocId());
+				assert(is_a($submissionFile, 'SubmissionFile'));
+
+				$submissionDao = Application::getSubmissionDAO();
+				$submission = $submissionDao->getById($submissionFile->getSubmissionId());
+
+				// Get correct page (author dashboard or workflow), based
+				// on user roles (if only author, go to author dashboard).
+				import('lib.pkp.controllers.grid.submissions.SubmissionsListGridCellProvider');
+				list($page, $operation) = SubmissionsListGridCellProvider::getPageAndOperationByUserRoles($request, $submission);
+
+				// If workflow, get the correct operation (stage).
+				if ($page == 'workflow') {
+					$stageId = $signoffDao->getStageIdBySymbolic($signoff->getSymbolic());
+					$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+					$operation = $userGroupDao->getPathFromId($stageId);
+				}
+
+				return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), $page, $operation, $submissionFile->getSubmissionId());
+			case NOTIFICATION_TYPE_REVIEW_ASSIGNMENT:
+				$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
+				$reviewAssignment = $reviewAssignmentDao->getById($notification->getAssocId());
+				return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'reviewer', 'submission', $reviewAssignment->getSubmissionId());
+			case NOTIFICATION_TYPE_NEW_ANNOUNCEMENT:
+				assert($notification->getAssocType() == ASSOC_TYPE_ANNOUNCEMENT);
+				$announcementDao = DAORegistry::getDAO('AnnouncementDAO'); /* @var $announcementDao AnnouncementDAO */
+				$announcement = $announcementDao->getById($notification->getAssocId()); /* @var $announcement Announcement */
+				$context = $contextDao->getById($announcement->getAssocId());
+				return $dispatcher->url($request, ROUTE_PAGE, null, $context->getPath(), 'index', array($notification->getAssocId()));
+			case NOTIFICATION_TYPE_CONFIGURE_PAYMENT_METHOD:
+				assert($notification->getAssocType() == ASSOC_TYPE_PRESS && is_numeric($notification->getAssocId()));
+				return __('notification.type.configurePaymentMethod');
 		}
 
 		return $this->getByDelegate(
@@ -111,6 +156,32 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 				$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 				$stagesData = $userGroupDao->getWorkflowStageKeysAndPaths();
 				return __($localeKey, array('stage' => __($stagesData[$reviewRound->getStageId()]['translationKey'])));
+			case NOTIFICATION_TYPE_APPROVE_SUBMISSION:
+				assert($notification->getAssocType() == ASSOC_TYPE_SUBMISSION && is_numeric($notification->getAssocId()));
+				return __('notification.type.approveSubmission');
+			case NOTIFICATION_TYPE_REVIEWER_COMMENT:
+				assert($notification->getAssocType() == ASSOC_TYPE_REVIEW_ASSIGNMENT && is_numeric($notification->getAssocId()));
+				$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
+				$reviewAssignment = $reviewAssignmentDao->getById($notification->getAssocId());
+				$submission = $submissionDao->getById($reviewAssignment->getSubmissionId()); /* @var $submission Submission */
+				return __('notification.type.reviewerComment', array('title' => $submission->getLocalizedTitle()));
+			case NOTIFICATION_TYPE_LAYOUT_ASSIGNMENT:
+				assert($notification->getAssocType() == ASSOC_TYPE_SUBMISSION && is_numeric($notification->getAssocId()));
+				$submission = $submissionDao->getById($notification->getAssocId());
+				return __('notification.type.layouteditorRequest', array('title' => $submission->getLocalizedTitle()));
+			case NOTIFICATION_TYPE_INDEX_ASSIGNMENT:
+				assert($notification->getAssocType() == ASSOC_TYPE_SUBMISSION && is_numeric($notification->getAssocId()));
+				$submission = $submissionDao->getById($notification->getAssocId());
+				return __('notification.type.indexRequest', array('title' => $submission->getLocalizedTitle()));
+			case NOTIFICATION_TYPE_REVIEW_ASSIGNMENT:
+				return __('notification.type.reviewAssignment');
+			case NOTIFICATION_TYPE_REVIEW_ROUND_STATUS:
+				assert($notification->getAssocType() == ASSOC_TYPE_REVIEW_ROUND && is_numeric($notification->getAssocId()));
+				$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+				$reviewRound = $reviewRoundDao->getById($notification->getAssocId());
+
+				AppLocale::requireComponents(LOCALE_COMPONENT_APP_EDITOR); // load review round status keys.
+				return __($reviewRound->getStatusKey());
 			default:
 				return $this->getByDelegate(
 					$notification->getType(),

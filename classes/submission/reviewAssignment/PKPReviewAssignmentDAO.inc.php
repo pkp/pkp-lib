@@ -83,34 +83,22 @@ class PKPReviewAssignmentDAO extends DAO {
 	//
 	// Public methods.
 	//
-
 	/**
-	 * Retrieve a review assignment by reviewer and submission.
-	 * @param $submissionId int
+	 * Retrieve a review assignment by review round and reviewer.
+	 * @param $reviewRoundId int
 	 * @param $reviewerId int
-	 * @param $round int
-	 * @param $stageId int optional
 	 * @return ReviewAssignment
 	 */
-	function getReviewAssignment($submissionId, $reviewerId, $round, $stageId = null) {
-		$params = array(
-			(int) $submissionId,
-			(int) $reviewerId,
-			(int) $round
-		);
-		if ($stageId !== null) $params[] = (int) $stageId;
-
+	function getReviewAssignment($reviewRoundId, $reviewerId) {
 		$result = $this->retrieve(
-			'SELECT r.*, r2.review_revision, u.first_name, u.last_name
-			FROM	review_assignments r
-				INNER JOIN users u ON (r.reviewer_id = u.user_id)
-				INNER JOIN review_rounds r2 ON (r.submission_id = r2.submission_id AND r.round = r2.round)
-			WHERE	r.submission_id = ? AND
+			$this->_getSelectQuery() .
+			' WHERE	r.review_round_id = ? AND
 				r.reviewer_id = ? AND
-				r.cancelled <> 1 AND
-				r.round = ?' .
-				($stageId !== null? ' AND r.stage_id = ?' : ''),
-			$params
+				r.cancelled <> 1',
+			array(
+				(int) $reviewRoundId,
+				(int) $reviewerId
+			)
 		);
 
 		$returner = null;
@@ -121,6 +109,7 @@ class PKPReviewAssignmentDAO extends DAO {
 		$result->Close();
 		return $returner;
 	}
+
 
 	/**
 	 * Retrieve a review assignment by review assignment id.
@@ -196,48 +185,36 @@ class PKPReviewAssignmentDAO extends DAO {
 
 	/**
 	 * Get all review assignments for a submission.
-	 * @param $submissionId int optional
-	 * @param $stageId int optional
+	 * @param $submissionId int Submission ID
+	 * @param $reviewRoundId int Review round ID
+	 * @param $stageId int Optional stage ID
 	 * @return array ReviewAssignments
 	 */
-	function getBySubmissionId($submissionId, $round = null, $stageId = null) {
-		$reviewAssignments = array();
-
-		$query = 'SELECT r.*, r2.review_revision, u.first_name, u.last_name
-			FROM	review_assignments r
-				LEFT JOIN users u ON (r.reviewer_id = u.user_id)
-				LEFT JOIN review_rounds r2 ON (r.submission_id = r2.submission_id AND r.round = r2.round AND r.stage_id = r2.stage_id)
-			WHERE	r.submission_id = ?';
+	function getBySubmissionId($submissionId, $reviewRoundId = null, $stageId = null) {
+		$query = $this->_getSelectQuery() .
+			' WHERE	r.submission_id = ?';
 
 		$orderBy = ' ORDER BY review_id';
 
 		$queryParams[] = (int) $submissionId;
 
-		if ($round != null) {
-			$query .= ' AND r.round = ?';
-			$queryParams[] = (int) $round;
+		if ($reviewRoundId != null) {
+			$query .= ' AND r2.review_round_id = ?';
+			$queryParams[] = (int) $reviewRoundId;
 		} else {
-			$orderBy .= ', r.round';
+			$orderBy .= ', r2.review_round_id';
 		}
 
 		if ($stageId != null) {
-			$query .= ' AND r.stage_id = ?';
+			$query .= ' AND r2.stage_id = ?';
 			$queryParams[] = (int) $stageId;
 		} else {
-			$orderBy .= ', r.stage_id';
+			$orderBy .= ', r2.stage_id';
 		}
 
 		$query .= $orderBy;
 
-		$result = $this->retrieve($query, $queryParams);
-
-		while (!$result->EOF) {
-			$reviewAssignments[$result->fields['review_id']] = $this->_fromRow($result->GetRowAssoc(false));
-			$result->MoveNext();
-		}
-
-		$result->Close();
-		return $reviewAssignments;
+		return $this->_getReviewAssignmentsArray($query, $queryParams);
 	}
 
 	/**

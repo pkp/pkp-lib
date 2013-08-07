@@ -399,4 +399,5 @@
 	<message key="notification.type.pendingRevisions">Revisões para consideração no estágio {$stage}.</message>
 	<message key="notification.type.pendingRevisions.title">Revisões enviadas ao estágio {$stage}.</message>
 	<message key="notification.signedFile">Arquivo considerado.</message>
+	<message key="notification.type.auditorRequest">Solicitação de auditoria de "{$file}"</message>
 </locale>

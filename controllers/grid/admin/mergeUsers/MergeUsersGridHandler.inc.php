@@ -35,16 +35,16 @@ class MergeUsersGridHandler extends GridHandler {
 	// Implement template methods from PKPHandler.
 	//
 	/**
-         * @copydoc PKPHandler::authorize()
-         * @param $request PKPRequest
-         * @param $args array
-         * @param $roleAssignments array
-         */
-        function authorize($request, &$args, $roleAssignments) {
-                import('lib.pkp.classes.security.authorization.PkpContextAccessPolicy');
-                $this->addPolicy(new PkpContextAccessPolicy($request, $roleAssignments));
-                return parent::authorize($request, $args, $roleAssignments);
-        }
+	 * @copydoc PKPHandler::authorize()
+	 * @param $request PKPRequest
+	 * @param $args array
+	 * @param $roleAssignments array
+	 */
+	function authorize($request, &$args, $roleAssignments) {
+		import('lib.pkp.classes.security.authorization.PkpContextAccessPolicy');
+		$this->addPolicy(new PkpContextAccessPolicy($request, $roleAssignments));
+		return parent::authorize($request, $args, $roleAssignments);
+	}
 
 	/**
 	 * @copydoc PKPHandler::initialize()

@@ -129,7 +129,7 @@ class EditorAction extends PKPAction {
 			// Update the review round status, if needed.
 			$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
 			$reviewRound = $reviewRoundDao->getById($reviewAssignment->getReviewRoundId());
-			$reviewAssignments = $reviewAssignmentDao->getBySubmissionId($reviewRound->getSubmissionId(), $reviewRound->getRound(), $reviewRound->getStageId());
+			$reviewAssignments = $reviewAssignmentDao->getBySubmissionId($reviewRound->getSubmissionId(), $reviewRound->getId(), $reviewRound->getStageId());
 			$reviewRoundDao->updateStatus($reviewRound, $reviewAssignments);
 
 			$notificationMgr->updateNotification(
@@ -212,7 +212,7 @@ class EditorAction extends PKPAction {
 
 			// Update the review round status.
 			$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
-			$reviewAssignments = $reviewAssignmentDao->getBySubmissionId($submission->getId(), $round, $stageId);
+			$reviewAssignments = $reviewAssignmentDao->getBySubmissionId($submission->getId(), $reviewRound->getId(), $stageId);
 			$reviewRoundDao->updateStatus($reviewRound, $reviewAssignments);
 
 			$notificationMgr->updateNotification(

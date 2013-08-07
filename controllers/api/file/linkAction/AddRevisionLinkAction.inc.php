@@ -38,7 +38,7 @@ class AddRevisionLinkAction extends BaseAddFileLinkAction {
 		// Call the parent class constructor.
 		parent::BaseAddFileLinkAction(
 			$request, $reviewRound->getSubmissionId(), $reviewRound->getStageId(), $uploaderRoles, $uploaderGroupIds, $actionArgs,
-			__('editor.review.uploadRevisionToRound', array('round' => $reviewRound->getRound())),
+			__('submission.review.uploadRevisionToRound', array('round' => $reviewRound->getRound())),
 			__('submission.addFile')
 		);
 	}

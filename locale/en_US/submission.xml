@@ -586,4 +586,5 @@
 	<message key="notification.type.editorAssignment">An editor must be assigned before review is initiated. Please add editor using Participants link above.</message>
 	<message key="grid.reviewAttachments.title">Reviewer's Attachments</message>
 	<message key="submission.productionReady">Book available</message>
+	<message key="submission.review.uploadRevisionToRound">Upload Revised File</message>
 </locale>

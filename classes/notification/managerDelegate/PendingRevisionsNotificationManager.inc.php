@@ -49,6 +49,7 @@ class PendingRevisionsNotificationManager extends RevisionsNotificationManager {
 	 */
 	public function getNotificationMessage($request, $notification) {
 		$stageData = $this->_getStageDataByType();
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION); // For stage constants
 		$stageKey = $stageData['translationKey'];
 
 		return __('notification.type.pendingRevisions', array('stage' => __($stageKey)));

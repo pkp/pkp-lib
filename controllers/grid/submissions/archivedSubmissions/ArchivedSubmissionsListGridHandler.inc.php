@@ -71,14 +71,17 @@ class ArchivedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 		);
 
 		$accessibleContexts = array();
-		$assignedUserId = null;
+		$stageUserId = null;
+		$reviewUserId = null;
 		foreach ($accessibleRoles as $role) {
 			foreach ($contexts as $context) {
 				if ($roleDao->userHasRole($context->getId(), $user->getId(), $role)) {
 					$accessibleContexts[] = $context->getId();
-					// Check if the user has an assistant role (reviewer, assistant)
-					if (in_array($role, array(ROLE_ID_REVIEWER, ROLE_ID_ASSISTANT))) {
-						$assignedUserId = $user->getId();
+
+					if ($role == ROLE_ID_ASSISTANT) {
+						$stageUserId = $user->getId();
+					} elseif ($role == ROLE_ID_REVIEWER) {
+						$reviewUserId = $user->getId();
 					}
 				}
 			}
@@ -94,7 +97,8 @@ class ArchivedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 		$submissionDao = Application::getSubmissionDAO();
 		$submissionFactory = $submissionDao->getByStatus(
 			array(STATUS_DECLINED, STATUS_PUBLISHED),
-			$assignedUserId,
+			$stageUserId,
+			$reviewUserId,
 			$accessibleContexts,
 			$this->getGridRangeInfo($request, $this->getId())
 		);

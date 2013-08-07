@@ -417,30 +417,34 @@ class SubmissionDAO extends DAO {
 
 	/**
 	 * Get all submissions for a status.
-	 * @param $status int
-	 * @param $assignedUserId int
-	 * @param $contextId mixed optional
+	 * @param $status int Status to get submissions for
+	 * @param $stageUserId int optional Only get submissions where this user was assigned to a stage
+	 * @param $reviewUserId int optional Only get submissions where this user was a reviewer
+	 * @param $contextId mixed optional Context(s) to fetch submissions for
 	 * @param $rangeInfo DBResultRange optional
 	 * @return array Submissions
 	 */
-	function getByStatus($status, $assignedUserId = null, $contextId = null, $rangeInfo = null) {
+	function getByStatus($status, $stageUserId = null, $reviewUserId, $contextId = null, $rangeInfo = null) {
 		$params = $this->_getFetchParameters();
 
-		if ($assignedUserId) $params[] = (int) $assignedUserId;
+		if ($stageUserId) $params[] = (int) $stageUserId;
+		if ($reviewUserId) $params[] = (int) $reviewUserId;
 
 		$result = $this->retrieveRange(
 			'SELECT	s.*, ps.date_published,
 				' . $this->_getFetchColumns() . '
 			FROM	submissions s
 				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id) '
-				. (($assignedUserId)?'LEFT JOIN stage_assignments sa ON (s.submission_id = sa.submission_id) ':'')
+				. (($stageUserId)?'LEFT JOIN stage_assignments sa ON (s.submission_id = sa.submission_id) ':'')
+				. (($reviewUserId)?'LEFT JOIN review_assignments ra ON (s.submission_id = ra.submission_id) ':'')
 				. $this->_getFetchJoins() .
 			'WHERE	'
 			. (!is_array($status)?'s.status = ' . ((int) $status):'')
 			. (is_array($status)?'s.status IN  (' . join(',', array_map(array($this,'_arrayWalkIntCast'), $status)) . ')':'')
 			. ($contextId && !is_array($contextId)?' AND s.context_id = ' . ((int) $contextId):'')
 			. ($contextId && is_array($contextId)?' AND s.context_id IN  (' . join(',', array_map(array($this,'_arrayWalkIntCast'), $contextId)) . ')':'')
-			. (($assignedUserId)?' AND sa.user_id = ?':''),
+			. (($stageUserId)?' AND sa.user_id = ?':'')
+			. (($reviewUserId)?' AND ra.reviewer_id = ?':''),
 			$params,
 			$rangeInfo
 		);

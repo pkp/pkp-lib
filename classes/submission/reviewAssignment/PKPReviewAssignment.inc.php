@@ -501,26 +501,6 @@ class PKPReviewAssignment extends DataObject {
 		if ($dateDue === null) return null;
 		return round((strtotime($dateDue) - time()) / (86400 * 7.0));
 	}
-
-	//
-	// Comments
-	//
-
-	/**
-	 * Get most recent peer review comment.
-	 * @return ArticleComment
-	 */
-	function getMostRecentPeerReviewComment() {
-		return $this->getData('peerReviewComment');
-	}
-
-	/**
-	 * Set most recent peer review comment.
-	 * @param $peerReviewComment ArticleComment
-	 */
-	function setMostRecentPeerReviewComment($peerReviewComment) {
-		return $this->setData('peerReviewComment', $peerReviewComment);
-	}
 }
 
 ?>

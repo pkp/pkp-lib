@@ -1,28 +1,28 @@
 <?php
 
 /**
- * @file classes/submission/reviewAssignment/PKPReviewAssignmentDAO.inc.php
+ * @file classes/submission/reviewAssignment/ReviewAssignmentDAO.inc.php
  *
  * Copyright (c) 2003-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPReviewAssignmentDAO
+ * @class ReviewAssignmentDAO
  * @ingroup submission
- * @see PKPReviewAssignment
+ * @see ReviewAssignment
  *
  * @brief Class for DAO relating reviewers to submissions.
  */
 
 
-import('lib.pkp.classes.submission.reviewAssignment.PKPReviewAssignment');
+import('lib.pkp.classes.submission.reviewAssignment.ReviewAssignment');
 
-class PKPReviewAssignmentDAO extends DAO {
+class ReviewAssignmentDAO extends DAO {
 	var $userDao;
 
 	/**
 	 * Constructor.
 	 */
-	function PKPReviewAssignmentDAO() {
+	function ReviewAssignmentDAO() {
 		parent::DAO();
 		$this->userDao = DAORegistry::getDAO('UserDAO');
 	}
@@ -76,7 +76,7 @@ class PKPReviewAssignmentDAO extends DAO {
 	 * @return string
 	 */
 	function getReviewRoundJoin() {
-		return false;
+		return 'r.review_round_id = r2.review_round_id';
 	}
 
 
@@ -215,43 +215,6 @@ class PKPReviewAssignmentDAO extends DAO {
 		$query .= $orderBy;
 
 		return $this->_getReviewAssignmentsArray($query, $queryParams);
-	}
-
-	/**
-	 * Get the IDs of all reviewers assigned to a submission.
-	 * @param $submissionId int
-	 * @param $round int optional
-	 * @param $stageId int optional
-	 * @return array ReviewAssignments
-	 */
-	function getReviewerIdsBySubmissionId($submissionId, $round = null, $stageId = null) {
-		$query = 'SELECT r.reviewer_id
-				FROM	review_assignments r
-				WHERE r.submission_id = ?';
-
-		$queryParams[] = (int) $submissionId;
-
-		if ($round != null) {
-			$query .= ' AND r.round = ?';
-			$queryParams[] = (int) $round;
-		}
-
-		if ($stageId != null) {
-			$query .= ' AND r.stage_id = ?';
-			$queryParams[] = (int) $stageId;
-		}
-
-		$result = $this->retrieve($query, $queryParams);
-
-		$reviewAssignments = array();
-		while (!$result->EOF) {
-			$row = $result->GetRowAssoc(false);
-			$reviewAssignments[] = $row['reviewer_id'];
-			$result->MoveNext();
-		}
-
-		$result->Close();
-		return $reviewAssignments;
 	}
 
 	/**
@@ -397,60 +360,6 @@ class PKPReviewAssignmentDAO extends DAO {
 		while (!$result->EOF) {
 			$row = $result->GetRowAssoc(false);
 			$returner[$row['review_id']] = $index++;
-			$result->MoveNext();
-		}
-
-		$result->Close();
-		return $returner;
-	}
-
-	/**
-	 * Get the most recent last modified date for all review assignments for each round of a submission.
-	 * @param $submissionId int
-	 * @param $round int
-	 * @return array associating round with most recent last modified date
-	 */
-	function getLastModifiedByRound($submissionId) {
-		$returner = array();
-
-		$result = $this->retrieve(
-			'SELECT	round, MAX(last_modified) as last_modified
-			FROM	review_assignments
-			WHERE	submission_id = ?
-			GROUP BY round',
-			(int) $submissionId
-		);
-
-		while (!$result->EOF) {
-			$row = $result->GetRowAssoc(false);
-			$returner[$row['round']] = $this->datetimeFromDB($row['last_modified']);
-			$result->MoveNext();
-		}
-
-		$result->Close();
-		return $returner;
-	}
-
-	/**
-	 * Get the first notified date from all review assignments for a round of a submission.
-	 * @param $submissionId int
-	 * @param $round int
-	 * @return array Associative array of ($round_num => $earliest_date_of_notification)*
-	 */
-	function getEarliestNotificationByRound($submissionId) {
-		$returner = array();
-
-		$result = $this->retrieve(
-			'SELECT	round, MIN(date_notified) as earliest_date
-			FROM	review_assignments
-			WHERE	submission_id = ?
-			GROUP BY round',
-			(int) $submissionId
-		);
-
-		while (!$result->EOF) {
-			$row = $result->GetRowAssoc(false);
-			$returner[$row['round']] = $this->datetimeFromDB($row['earliest_date']);
 			$result->MoveNext();
 		}
 
@@ -616,7 +525,7 @@ class PKPReviewAssignmentDAO extends DAO {
 	 * @return DataObject
 	 */
 	function newDataObject() {
-		assert(false); // Should be implemented by subclasses
+		return new ReviewAssignment();
 	}
 
 	/**
@@ -629,6 +538,9 @@ class PKPReviewAssignmentDAO extends DAO {
 
 		$reviewFilesDao = DAORegistry::getDAO('ReviewFilesDAO');
 		$reviewFilesDao->revokeByReviewId($reviewId);
+
+		$notificationDao = DAORegistry::getDAO('NotificationDAO');
+		$notificationDao->deleteByAssoc(ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewId);
 
 		return $this->update(
 			'DELETE FROM review_assignments WHERE review_id = ?',
@@ -706,6 +618,95 @@ class PKPReviewAssignmentDAO extends DAO {
 			SUBMISSION_REVIEW_METHOD_BLIND => 'editor.submissionReview.blind',
 			SUBMISSION_REVIEW_METHOD_OPEN => 'editor.submissionReview.open',
 		);
+	}
+
+	/**
+	 * Get the last assigned and last completed dates for all reviewers of the given context.
+	 * @param $contextId int
+	 * @return array
+	 */
+	function getReviewerStatistics($contextId) {
+		// Build an array of all reviewers and provide a placeholder for all statistics (so even if they don't
+		//  have a value, it will be filled in as 0
+		$statistics = array();
+		$reviewerStatsPlaceholder = array('last_notified' => null, 'incomplete' => 0, 'total_span' => 0, 'completed_review_count' => 0, 'average_span' => 0);
+
+		$userDao = DAORegistry::getDAO('UserDAO');
+		$allReviewers = $userDao->getAllReviewers($contextId);
+		while($reviewer = $allReviewers->next()) {
+			$statistics[$reviewer->getId()] = $reviewerStatsPlaceholder;
+		}
+
+		// Get counts of completed submissions
+		$result = $this->retrieve(
+			'SELECT	r.reviewer_id, MAX(r.date_notified) AS last_notified
+			FROM	review_assignments r, submissions s
+			WHERE	r.submission_id = s.submission_id AND
+				s.context_id = ?
+			GROUP BY r.reviewer_id',
+			(int) $contextId
+		);
+		while (!$result->EOF) {
+			$row = $result->GetRowAssoc(false);
+			if (!isset($statistics[$row['reviewer_id']])) $statistics[$row['reviewer_id']] = $reviewerStatsPlaceholder;
+			$statistics[$row['reviewer_id']]['last_notified'] = $this->datetimeFromDB($row['last_notified']);
+			$result->MoveNext();
+		}
+		$result->Close();
+
+		// Get completion status
+		$result = $this->retrieve(
+				'SELECT	r.reviewer_id, COUNT(*) AS incomplete
+				FROM	review_assignments r, submissions s
+				WHERE	r.submission_id = s.submission_id AND
+				r.date_notified IS NOT NULL AND
+				r.date_completed IS NULL AND
+				r.cancelled = 0 AND
+				s.context_id = ?
+				GROUP BY r.reviewer_id',
+				(int) $contextId
+		);
+		while (!$result->EOF) {
+			$row = $result->GetRowAssoc(false);
+			if (!isset($statistics[$row['reviewer_id']])) $statistics[$row['reviewer_id']] = $reviewerStatsPlaceholder;
+			$statistics[$row['reviewer_id']]['incomplete'] = $row['incomplete'];
+			$result->MoveNext();
+		}
+
+		$result->Close();
+
+		// Calculate time taken for completed reviews
+		$result = $this->retrieve(
+			'SELECT	r.reviewer_id, r.date_notified, r.date_completed
+			FROM	review_assignments r, submissions s
+			WHERE	r.submission_id = s.submission_id AND
+				r.date_notified IS NOT NULL AND
+				r.date_completed IS NOT NULL AND
+				r.declined = 0 AND
+				s.context_id = ?',
+			(int) $contextId
+		);
+		while (!$result->EOF) {
+			$row = $result->GetRowAssoc(false);
+			if (!isset($statistics[$row['reviewer_id']])) $statistics[$row['reviewer_id']] = $reviewerStatsPlaceholder;
+
+			$completed = strtotime($this->datetimeFromDB($row['date_completed']));
+			$notified = strtotime($this->datetimeFromDB($row['date_notified']));
+			if (isset($statistics[$row['reviewer_id']]['total_span'])) {
+				$statistics[$row['reviewer_id']]['total_span'] += $completed - $notified;
+				$statistics[$row['reviewer_id']]['completed_review_count'] += 1;
+			} else {
+				$statistics[$row['reviewer_id']]['total_span'] = $completed - $notified;
+				$statistics[$row['reviewer_id']]['completed_review_count'] = 1;
+			}
+
+			// Calculate the average length of review in days.
+			$statistics[$row['reviewer_id']]['average_span'] = round(($statistics[$row['reviewer_id']]['total_span'] / $statistics[$row['reviewer_id']]['completed_review_count']) / 86400);
+			$result->MoveNext();
+		}
+
+		$result->Close();
+		return $statistics;
 	}
 
 	/**

@@ -398,4 +398,5 @@
 	<message key="notification.type.allRevisionsIn">Um arquivo revisado foi enviado para avaliação editorial no estágio {$stage}.</message>
 	<message key="notification.type.pendingRevisions">Revisões para consideração no estágio {$stage}.</message>
 	<message key="notification.type.pendingRevisions.title">Revisões enviadas ao estágio {$stage}.</message>
+	<message key="notification.signedFile">Arquivo considerado.</message>
 </locale>

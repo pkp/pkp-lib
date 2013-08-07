@@ -370,4 +370,5 @@
 	<message key="notification.type.allRevisionsIn">Un fichier révisé a été téléchargé dans {$stage} afin que vous puissiez l'évaluer.</message>
 	<message key="notification.type.pendingRevisions">Vous devez tenir compte des révisions à cette étape: {$stage}.</message>
 	<message key="notification.type.pendingRevisions.title">Révisions soumises à {$stage}.</message>
+	<message key="notification.signedFile">Fichier considéré.</message>
 </locale>

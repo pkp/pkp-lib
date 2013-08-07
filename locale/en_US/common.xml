@@ -503,4 +503,5 @@
 	<message key="notification.type.allRevisionsIn">A revised file has been uploaded for your editorial consideration in {$stage}.</message>
 	<message key="notification.type.pendingRevisions">You have revisions to consider in {$stage}.</message>
 	<message key="notification.type.pendingRevisions.title">Revisions submitted to {$stage}.</message>
+	<message key="notification.signedFile">File considered.</message>
 </locale>

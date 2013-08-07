@@ -56,37 +56,51 @@ class ArchivedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 	/**
 	 * @copydoc SubmissionListGridHandler::getSubmissions()
 	 */
-	function getSubmissions($request, $userId) {
-		$submissionDao = Application::getSubmissionDAO(); /* @var $submissionDao SubmissionDAO */
-
-		// Determine whether this is a Sub Editor or Manager.
+	function getSubmissions($request) {
+		// Get all contexts that user is enrolled in as manager, series editor
+		// reviewer or assistant
 		$user = $request->getUser();
-
-		// Get all submissions for all contexts that user is
-		// enrolled in as manager or series editor.
 		$roleDao = DAORegistry::getDAO('RoleDAO');
 		$contextDao = Application::getContextDAO();
-		$contexts = $contextDao->getAll();
+		$contexts = $contextDao->getAll()->toArray();
+		$accessibleRoles = array(
+			ROLE_ID_MANAGER,
+			ROLE_ID_SERIES_EDITOR,
+			ROLE_ID_REVIEWER,
+			ROLE_ID_ASSISTANT
+		);
 
 		$accessibleContexts = array();
+		$stageUserId = null;
+		$reviewUserId = null;
+		foreach ($accessibleRoles as $role) {
+			foreach ($contexts as $context) {
+				if ($roleDao->userHasRole($context->getId(), $user->getId(), $role)) {
+					$accessibleContexts[] = $context->getId();
 
-		while ($context = $contexts->next()) {
-			$isManager = $roleDao->userHasRole($context->getId(), $userId, ROLE_ID_MANAGER);
-			$isSubEditor = $roleDao->userHasRole($context->getId(), $userId, ROLE_ID_SUB_EDITOR);
-
-			if (!$isManager && !$isSubEditor) {
-				continue;
+					if ($role == ROLE_ID_ASSISTANT) {
+						$stageUserId = $user->getId();
+					} elseif ($role == ROLE_ID_REVIEWER) {
+						$reviewUserId = $user->getId();
+					}
+				}
 			}
-			$accessibleContexts[] = $context->getId();
+		}
+		$accessibleContexts = array_unique($accessibleContexts);
+		if (count($accessibleContexts) == 1) {
+			$accessibleContexts = array_pop($accessibleContexts);
 		}
 
-		$archivedSubmissions = array();
-		$rangeInfo = $this->getGridRangeInfo($request, $this->getId());
-
+		// Fetch all submissions for contexts the user can access. If the user
+		// is a reviewer or assistant only show submissions that have been
+		// assigned to the user
+		$submissionDao = Application::getSubmissionDAO();
 		$submissionFactory = $submissionDao->getByStatus(
-			STATUS_DECLINED,
+			array(STATUS_DECLINED, STATUS_PUBLISHED),
+			$stageUserId,
+			$reviewUserId,
 			$accessibleContexts,
-			$rangeInfo
+			$this->getGridRangeInfo($request, $this->getId())
 		);
 
 		return $submissionFactory;

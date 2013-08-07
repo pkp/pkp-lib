@@ -359,4 +359,5 @@
 	<message key="submission.nameRequired">É necessário um nome para este item.</message>
 	<message key="submission.date.mmdd">MM-DD</message>
 	<message key="submission.date.yyyymmdd">YYYY-MM-DD</message>
+	<message key="log.review.reviewerAssigned">{$reviewerName} designada(o) para a ronda {$round} de revisão da submissão {$submissionId} .</message>
 </locale>

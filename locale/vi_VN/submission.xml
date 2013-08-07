@@ -163,4 +163,5 @@
 	<message key="submission.uploadFileTo">Tải file lên</message>
 	<message key="submission.viewMetadata">Xem dữ liệu mô tả</message>
 	<message key="submission.views">Lượt xem</message>
+	<message key="log.review.reviewerAssigned">Người phản biện {$reviewerName} đã được giao phản biện bài nộp {$submissionId} cho vòng phản biện thứ {$round}.</message>
 </locale>

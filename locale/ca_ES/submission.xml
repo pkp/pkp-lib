@@ -163,4 +163,5 @@
 	<message key="submission.uploadFileTo">Puja el fitxer a</message>
 	<message key="submission.viewMetadata">Visualitza les metadades</message>
 	<message key="submission.views">Visualitzacions</message>
+	<message key="log.review.reviewerAssigned">{$reviewerName} ha estat assignat a la tramesa de revisió {$submissionId} per a la ronda de revisió {$round}.</message>
 </locale>

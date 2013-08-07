@@ -353,4 +353,5 @@ El marcado de citas está configurado por el Gestor de la Revista en <a href="{$
 	<message key="submission.citations.metadata.changeWarning">¿Está seguro de que desea actualizar su lista de referencias? Si hace clic en Aceptar, los cambios hechos por los editores serán sobrescritos. Si no está seguro de si debe hacer cambios a la lista de referencias, por favor póngase en contacto con el Editor a cargo de su presentación.</message>
 	<message key="notification.type.editorAssignmentTask">Una monografía ha sido propuesta y se necesita asignarle un Editor.</message>
 	<message key="workflow.review.externalReview">Revisión externa</message>
+	<message key="log.review.reviewerAssigned">{$reviewerName} ha sido asignado/a para revisar el envío {$submissionId} en la ronda de revisión {$round}.</message>
 </locale>

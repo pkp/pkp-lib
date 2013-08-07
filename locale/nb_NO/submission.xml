@@ -267,4 +267,5 @@
 	<message key="metadata.property.validationMessage.source">Vennligs oppgi en gyldig publikasjonstittel</message>
 	<message key="submission.citations.editor.details.saveAndRevokeApproval">Tilbakekall godkjenning</message>
 	<message key="submission.form.replaceExisting">Erstatte eksisterende fil?</message>
+	<message key="log.review.reviewerAssigned">{$reviewerName} er oppnevnt for å vurdere manuskriptet {$submissionId} for vurderingsrunde {$round}.</message>
 </locale>

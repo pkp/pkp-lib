@@ -395,4 +395,5 @@
 	<!-- Submission file upload form elements -->
 	<message key="submission.form.name">Bitte geben Sie dieser Datei einen aussagefähigen Namen.</message>
 	<message key="submission.form.replaceExisting">Eine existierende Datei ersetzen?</message>
+	<message key="log.review.reviewerAssigned">Der Beitrag {$submissionId} wurde {$reviewerName} zur Begutachtung im Durchgang {$round} zugewiesen.</message>
 </locale>

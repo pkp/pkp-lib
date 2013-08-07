@@ -384,4 +384,5 @@
 	<message key="submission.supportingAgencies">Ondersteunende organisatie</message>
 	<message key="submission.createRemote">Remote aanmaken</message>
 	<message key="submission.addFile">Bestand laden</message>
+	<message key="log.review.reviewerAssigned">{$reviewerName} is toegekend voor het reviewen van inzending {$submissionId} voor reviewronde {$round}.</message>
 </locale>

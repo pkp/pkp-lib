@@ -420,4 +420,5 @@ Coleman Jr, D. (Ralf) Dr</message>
 	<message key="submission.citations.editor.details.citationServices">سرویس های ارجاع</message>
 	<message key="submission.citations.editor.details.googleScholar">گوگل اسکولار</message>
 	<message key="submission.citations.editor.details.manualEditing">ویرایش دستی</message>
+	<message key="log.review.reviewerAssigned">{$reviewerName} برای کارشناسی مقاله  {$submissionId} در دور {$round} اول کارشناسی انتساب یافت.</message>
 </locale>

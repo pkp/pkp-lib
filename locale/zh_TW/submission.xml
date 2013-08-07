@@ -160,4 +160,5 @@
 	<message key="submission.uploadFileTo">上傳檔案到</message>
 	<message key="submission.viewMetadata">檢視後設資料(Metadata)</message>
 	<message key="submission.views">檢視</message>
+	<message key="log.review.reviewerAssigned">{$reviewerName}已經被指派審查稿件{$submissionId} ，進行{$round}審。</message>
 </locale>

@@ -385,4 +385,5 @@ Pastikan Anda mengatur tipe judul yang valid. Nilai dukungan adalah "disingkat",
 	<message key="submission.nameRequired">Nama diperlukan untuk item ini.</message>
 	<message key="submission.date.mmdd">MM-DD</message>
 	<message key="submission.date.yyyymmdd">YYYY-MM-DD</message>
+	<message key="log.review.reviewerAssigned">{$reviewerName} telah ditugaskan untuk mereview naskah {$submissionId} untuk tahapan review {$round}.</message>
 </locale>

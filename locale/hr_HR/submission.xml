@@ -156,4 +156,5 @@
 	<message key="submission.uploadFileTo">Slanje datoteke kao</message>
 	<message key="submission.viewMetadata">Pregled metapodataka</message>
 	<message key="submission.views">Pristupa datoteci</message>
+	<message key="log.review.reviewerAssigned">{$reviewerName} je dodijeljen(a) kao recenzent priloga {$submissionId} u {$round}. krugu recenzije.</message>
 </locale>

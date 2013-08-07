@@ -396,4 +396,5 @@
 	<message key="submission.copyedited">Відрегаговані</message>
 	<message key="submission.reviewed">Рецензовані</message>
 	<message key="submission.createRemote">Створити віддалене</message>
+       <message key="log.review.reviewerAssigned">{$reviewerName} був призначений для проведення {$round} раунду рецензування подання {$submissionId}.</message>
 </locale>

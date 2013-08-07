@@ -358,4 +358,5 @@
 	<message key="submission.citations.editor.details.citationServices">Servicii pentru referințe bibliografice</message>
 	<message key="submission.citations.editor.details.googleScholar">Google Scholar</message>
 	<message key="submission.citations.editor.details.manualEditing">Redactare manuală</message>
+	<message key="log.review.reviewerAssigned">{$reviewerName} a fost angajat în evaluarea propunerii {$submissionId} pentru sesiunea de evaluare {$round}.</message>
 </locale>

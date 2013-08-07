@@ -161,4 +161,5 @@
 	<message key="submission.uploadFileTo">Ladda upp fil till</message>
 	<message key="submission.viewMetadata">Visa metadata</message>
 	<message key="submission.views">Visningar</message>
+	<message key="log.review.reviewerAssigned">{$reviewerName} har tilldelats ett manuskript att granska {$submissionId} för granskningsomgång {$round}.</message>
 </locale>

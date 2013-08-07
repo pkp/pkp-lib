@@ -418,26 +418,30 @@ class SubmissionDAO extends DAO {
 	/**
 	 * Get all submissions for a status.
 	 * @param $status int
+	 * @param $assignedUserId int
 	 * @param $contextId mixed optional
 	 * @param $rangeInfo DBResultRange optional
 	 * @return array Submissions
 	 */
-	function getByStatus($status, $contextId = null, $rangeInfo = null) {
+	function getByStatus($status, $assignedUserId = null, $contextId = null, $rangeInfo = null) {
 		$params = $this->_getFetchParameters();
-		$params[] = (int) $status;
 
-		if ($contextId && is_int($contextId))
-			$params[] = (int) $contextId;
+		if ($status && is_int($status)) $status = (int) $status;
+		if ($contextId && is_int($contextId)) $contextId = (int) $contextId;
 
 		$result = $this->retrieveRange(
 			'SELECT	s.*, ps.date_published,
 				' . $this->_getFetchColumns() . '
 			FROM	submissions s
-				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id)
-				' . $this->_getFetchJoins() . '
-			WHERE	s.status = ?'
-			. ($journalId && !is_array($journalId)?' AND s.context_id = ?':'')
-			. ($journalId && is_array($journalId)?' AND s.context_id IN  (' . join(',', array_map(array($this,'_arrayWalkIntCast'), $contextId)) . ')':''),
+				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id) '
+				. (($assignedUserId)?'LEFT JOIN stage_assignments sa ON (s.submission_id = sa.submission_id) ':'')
+				. $this->_getFetchJoins() .
+			'WHERE	'
+			. (!is_array($status)?'s.status = ' . $status:'')
+			. (is_array($status)?'s.status IN  (' . join(',', array_map(array($this,'_arrayWalkIntCast'), $status)) . ')':'')
+			. ($contextId && !is_array($contextId)?' AND s.context_id = ' . $contextId:'')
+			. ($contextId && is_array($contextId)?' AND s.context_id IN  (' . join(',', array_map(array($this,'_arrayWalkIntCast'), $contextId)) . ')':'')
+			. (($assignedUserId)?' AND sa.user_id = ' . $assignedUserId:''),
 			$params,
 			$rangeInfo
 		);

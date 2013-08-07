@@ -368,4 +368,6 @@
 	<message key="notification.type.auditorRequest">On vous a demandé de vérifier "{$file}"</message>
 	<message key="notification.type.allReviewsIn">Toutes les évaluations ont été soumises. Il faut prendre une décision à l'étape suivante: {$stage}.</message>
 	<message key="notification.type.allRevisionsIn">Un fichier révisé a été téléchargé dans {$stage} afin que vous puissiez l'évaluer.</message>
+	<message key="notification.type.pendingRevisions">Vous devez tenir compte des révisions à cette étape: {$stage}.</message>
+	<message key="notification.type.pendingRevisions.title">Révisions soumises à {$stage}.</message>
 </locale>

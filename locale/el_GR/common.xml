@@ -354,4 +354,6 @@
 	<message key="navigation.goBack">Επιστροφή</message>
 	<message key="notification.type.allReviewsIn">Όλες οι ανθεωρήσεις και μια απόφαση χρειάζονται στο {$stage}.</message>
 	<message key="notification.type.allRevisionsIn">Ένα αναθεωρημένο αρχείο έχει μεταφορτωθεί για εξέταση από εσας ως Επιμελητής στο {$stage}.</message>
+	<message key="notification.type.pendingRevisions">Απαιτούνται αναθεωρήσεις στο {$stage}.</message>
+	<message key="notification.type.pendingRevisions.title">Ανθεωρήσεις έχουν υποβληθεί στο {$stage}.</message>
 </locale>

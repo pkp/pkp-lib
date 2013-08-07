@@ -426,8 +426,7 @@ class SubmissionDAO extends DAO {
 	function getByStatus($status, $assignedUserId = null, $contextId = null, $rangeInfo = null) {
 		$params = $this->_getFetchParameters();
 
-		if ($status && is_int($status)) $status = (int) $status;
-		if ($contextId && is_int($contextId)) $contextId = (int) $contextId;
+		if ($assignedUserId) $params[] = (int) $assignedUserId;
 
 		$result = $this->retrieveRange(
 			'SELECT	s.*, ps.date_published,
@@ -437,11 +436,11 @@ class SubmissionDAO extends DAO {
 				. (($assignedUserId)?'LEFT JOIN stage_assignments sa ON (s.submission_id = sa.submission_id) ':'')
 				. $this->_getFetchJoins() .
 			'WHERE	'
-			. (!is_array($status)?'s.status = ' . $status:'')
+			. (!is_array($status)?'s.status = ' . ((int) $status):'')
 			. (is_array($status)?'s.status IN  (' . join(',', array_map(array($this,'_arrayWalkIntCast'), $status)) . ')':'')
-			. ($contextId && !is_array($contextId)?' AND s.context_id = ' . $contextId:'')
+			. ($contextId && !is_array($contextId)?' AND s.context_id = ' . ((int) $contextId):'')
 			. ($contextId && is_array($contextId)?' AND s.context_id IN  (' . join(',', array_map(array($this,'_arrayWalkIntCast'), $contextId)) . ')':'')
-			. (($assignedUserId)?' AND sa.user_id = ' . $assignedUserId:''),
+			. (($assignedUserId)?' AND sa.user_id = ?':''),
 			$params,
 			$rangeInfo
 		);

@@ -387,4 +387,5 @@
 	<message key="notification.uploadedResponse">Η απάντηση έχει μεταφορτωθεί (uploaded).</message>
 	<message key="notification.type.editorAssignment">Για να ξεκινήσει η διαδικασία αξιολόγησης πρέπει αυτή να ανατεθεί σε ένα επιμελητή (editor). Παρακαλούμε προσθέστε έναν επιμελητή επιλέγοντας τον παραπάνω σύνδεσμο με τους Συμμετέχοντες.</message>
 	<message key="grid.reviewAttachments.title">Συνημμένα Αξιολογητή</message>
+	<message key="workflow.review.externalReview">Εξωτερική Αξιολόγηση</message>
 </locale>

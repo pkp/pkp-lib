@@ -397,4 +397,5 @@
 	<message key="notification.uploadedResponse">Resposta enviada.</message>
 	<message key="notification.type.editorAssignment">Um editor deve ser designado antes de iniciar a avaliação. Inclua um editor usando o link de Participantes acima.</message>
 	<message key="grid.reviewAttachments.title">Anexos do avaliador</message>
+	<message key="workflow.review.externalReview">Avaliação externa</message>
 </locale>

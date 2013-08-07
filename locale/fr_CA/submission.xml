@@ -453,4 +453,5 @@
 	<message key="editor.submission.newRoundDescription">Vous êtes sur le point de créer une nouvelle série de révisions pour cette soumission. Les fichiers qui n'ont pas été utilisés dans les autres séries de révisions apparaissent dans la liste suivante. Par défaut, les évaluateurs de la série précédente ont été sélectionnés pour participer à cette nouvelle série de révisions.</message>
 	<message key="submission.productionReady">Livre disponible</message>
 	<message key="submission.review.uploadRevisionToRound">Télécharger le fichier évalué</message>
+	<message key="workflow.review.externalReview">Évaluation externe</message>
 </locale>

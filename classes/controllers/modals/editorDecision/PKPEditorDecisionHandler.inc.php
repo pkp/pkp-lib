@@ -185,6 +185,100 @@ class PKPEditorDecisionHandler extends Handler {
 		return $this->_saveGeneralPromote($args, $request);
 	}
 
+	/**
+	 * Import all free-text/review form reviews to paste into message
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return string Serialized JSON object
+	 */
+	function importPeerReviews($args, $request) {
+		// Retrieve the authorized submission.
+		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+
+		// Retrieve the current review round.
+		$reviewRound = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND);
+
+		// Retrieve peer reviews.
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+		$submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO');
+		$reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO');
+		$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
+
+		$reviewAssignments = $reviewAssignmentDao->getBySubmissionId($submission->getId(), $reviewRound->getId());
+		$reviewIndexes = $reviewAssignmentDao->getReviewIndexesForRound($submission->getId(), $reviewRound->getId());
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
+
+		$body = '';
+		$textSeparator = '------------------------------------------------------';
+		foreach ($reviewAssignments as $reviewAssignment) {
+			// If the reviewer has completed the assignment, then import the review.
+			if ($reviewAssignment->getDateCompleted() != null && !$reviewAssignment->getCancelled()) {
+				// Get the comments associated with this review assignment
+				$submissionComments = $submissionCommentDao->getSubmissionComments($submission->getId(), COMMENT_TYPE_PEER_REVIEW, $reviewAssignment->getId());
+
+				$body .= "\n\n$textSeparator\n";
+				// If it is not a double blind review, show reviewer's name.
+				if ($reviewAssignment->getReviewMethod() != SUBMISSION_REVIEW_METHOD_DOUBLEBLIND) {
+					$body .= $reviewAssignment->getReviewerFullName() . "\n";
+				} else {
+					$body .= __('submission.comments.importPeerReviews.reviewerLetter', array('reviewerLetter' => String::enumerateAlphabetically($reviewIndexes[$reviewAssignment->getId()]))) . "\n";
+				}
+
+				while ($comment = $submissionComments->next()) {
+					// If the comment is viewable by the author, then add the comment.
+					if ($comment->getViewable()) {
+						$body .= String::html2text($comment->getComments()) . "\n\n";
+					}
+				}
+				$body .= "$textSeparator\n\n";
+
+				if ($reviewFormId = $reviewAssignment->getReviewFormId()) {
+					$reviewId = $reviewAssignment->getId();
+
+
+					$reviewFormElements = $reviewFormElementDao->getReviewFormElements($reviewFormId);
+					if(!$submissionComments) {
+						$body .= "$textSeparator\n";
+
+						$body .= __('submission.comments.importPeerReviews.reviewerLetter', array('reviewerLetter' => String::enumerateAlphabetically($reviewIndexes[$reviewAssignment->getId()]))) . "\n\n";
+					}
+					foreach ($reviewFormElements as $reviewFormElement) {
+						$body .= String::html2text($reviewFormElement->getLocalizedQuestion()) . ": \n";
+						$reviewFormResponse = $reviewFormResponseDao->getReviewFormResponse($reviewId, $reviewFormElement->getId());
+
+						if ($reviewFormResponse) {
+							$possibleResponses = $reviewFormElement->getLocalizedPossibleResponses();
+							if (in_array($reviewFormElement->getElementType(), $reviewFormElement->getMultipleResponsesElementTypes())) {
+								if ($reviewFormElement->getElementType() == REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES) {
+									foreach ($reviewFormResponse->getValue() as $value) {
+										$body .= "\t" . String::htmltext($possibleResponses[$value-1]['content']) . "\n";
+									}
+								} else {
+									$body .= "\t" . String::html2text($possibleResponses[$reviewFormResponse->getValue()-1]['content']) . "\n";
+								}
+								$body .= "\n";
+							} else {
+								$body .= "\t" . String::html2text($reviewFormResponse->getValue()) . "\n\n";
+							}
+						}
+
+					}
+					$body .= "$textSeparator\n\n";
+
+				}
+
+
+			}
+		}
+
+		if(empty($body)) {
+			$json = new JSONMessage(false, __('editor.review.noReviews'));
+		} else {
+			$json = new JSONMessage(true, $body);
+		}
+		return $json->getString();
+	}
+
 
 	//
 	// Protected helper methods

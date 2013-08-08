@@ -168,7 +168,7 @@ class UserGridHandler extends GridHandler {
 			$filter['userGroup'],
 			$filter['includeNoRole']?null:$context->getId(),
 			$filter['searchField'],
-			$filter['search'],
+			$filter['search']?$filter['search']:null,
 			$filter['searchMatch'],
 			$rangeInfo
 		);

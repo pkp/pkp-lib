@@ -455,4 +455,6 @@
 	<message key="submission.review.uploadRevisionToRound">Télécharger le fichier évalué</message>
 	<message key="workflow.review.externalReview">Évaluation externe</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} a été choisi pour évaluer la soumission {$submissionId} pour la {$round}e série de révisions.</message>
+	<message key="submission.art">Illustrations</message>
+	<message key="submission.document">Document</message>
 </locale>

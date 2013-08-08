@@ -226,7 +226,7 @@ class UserGridHandler extends GridHandler {
 			'userGroup' => $userGroup,
 			'searchField' => $searchField,
 			'searchMatch' => $searchMatch,
-			'search' => $search
+			'search' => $search ? $search : ''
 		);
 	}
 

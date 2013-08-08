@@ -201,7 +201,7 @@ class PKPSubmissionFilesUploadBaseForm extends Form {
 
 			// Is this the revised file?
 			if ($revisedFileId && $revisedFileId == $submissionFile->getFileId()) {
-				// This is the revised submission file, so pass it's data on to the form.
+				// This is the revised submission file, so pass its data on to the form.
 				$this->setData('revisedFileName', $submissionFile->getOriginalFileName());
 				$this->setData('genreId', $submissionFile->getGenreId());
 				$foundRevisedFile = true;

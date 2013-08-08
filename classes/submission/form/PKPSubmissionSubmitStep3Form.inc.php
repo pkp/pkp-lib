@@ -58,7 +58,53 @@ class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm {
 	 * @param $request PKPRequest
 	 */
 	function assignDefaultParticipants($submission, $request) {
-		// May be overridden by subclasses
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+
+		// Managerial roles are skipped -- They have access by default and
+		//  are assigned for informational purposes only
+
+		// Series editor roles are skipped -- They are assigned by PM roles
+		//  or by other series editors
+
+		// Assistant roles -- For each assistant role user group assigned to this
+		//  stage in setup, iff there is only one user for the group,
+		//  automatically assign the user to the stage
+		// But skip authors and reviewers, since these are very submission specific
+		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+		$submissionStageGroups = $userGroupDao->getUserGroupsByStage($submission->getContextId(), WORKFLOW_STAGE_ID_SUBMISSION, true, true);
+		while ($userGroup = $submissionStageGroups->next()) {
+			$users = $userGroupDao->getUsersById($userGroup->getId(), $submission->getContextId());
+			if($users->getCount() == 1) {
+				$user = $users->next();
+				$stageAssignmentDao->build($submission->getId(), $userGroup->getId(), $user->getId());
+			}
+		}
+
+		import('classes.workflow.EditorDecisionActionsManager');
+		$notificationMgr = new NotificationManager();
+		$notificationMgr->updateNotification(
+			$request,
+			EditorDecisionActionsManager::getStageNotifications(),
+			null,
+			ASSOC_TYPE_SUBMISSION,
+			$submission->getId()
+		);
+
+		// Reviewer roles -- Do nothing. Reviewers are not included in the stage participant list, they
+		// are administered via review assignments.
+
+		// Author roles
+		// Assign only the submitter in whatever ROLE_ID_AUTHOR capacity they were assigned previously
+		$submitterAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), null, null, $submission->getUserId());
+		while ($assignment = $submitterAssignments->next()) {
+			$userGroup = $userGroupDao->getById($assignment->getUserGroupId());
+			if ($userGroup->getRoleId() == ROLE_ID_AUTHOR) {
+				$stageAssignmentDao->build($submission->getId(), $userGroup->getId(), $assignment->getUserId());
+				// Only assign them once, since otherwise we'll one assignment for each previous stage.
+				// And as long as they are assigned once, they will get access to their submission.
+				break;
+			}
+		}
 	}
 
 	/**

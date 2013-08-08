@@ -306,31 +306,44 @@ class PKPValidation {
 
 	/**
 	 * Check whether a user is allowed to administer another user.
-	 * @param $administeredUserId int
-	 * @param $administratorUserId int
-	 * @return boolean
+	 * @param $administeredUserId int User ID of user to potentially administer
+	 * @param $administratorUserId int User ID of user who wants to do the administrating
+	 * @return boolean True IFF the administration operation is permitted
 	 */
 	static function canAdminister($administeredUserId, $administratorUserId) {
 		$roleDao = DAORegistry::getDAO('RoleDAO');
 
-		// You cannot adminster admin
-		if ($roleDao->userHasRole(0, $administeredUserId, ROLE_ID_SITE_ADMIN)) return false;
+		// You can administer yourself
+		if ($administeredUserId == $administratorUserId) return true;
 
-		// Admin can administer everyone
-		if ($roleDao->userHasRole(0, $administratorUserId, ROLE_ID_SITE_ADMIN)) return true;
+		// You cannot adminster administrators
+		if ($roleDao->userHasRole(CONTEXT_SITE, $administeredUserId, ROLE_ID_SITE_ADMIN)) return false;
+
+		// Otherwise, administrators can administer everyone
+		if ($roleDao->userHasRole(CONTEXT_SITE, $administratorUserId, ROLE_ID_SITE_ADMIN)) return true;
 
 		// Check for administered user group assignments in other contexts
 		// that the administrator user doesn't have a manager role in.
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$userGroups = $userGroupDao->getByUserId($administeredUserId);
 		while ($userGroup = $userGroups->next()) {
-			if (!$roleDao->userHasRole($userGroup->getContextId(), $administratorUserId, ROLE_ID_MANAGER)) {
+			if ($userGroup->getContextId()!=CONTEXT_SITE && !$roleDao->userHasRole($userGroup->getContextId(), $administratorUserId, ROLE_ID_MANAGER)) {
 				// Found an assignment: disqualified.
 				return false;
 			}
 		}
 
-		// There were no conflicting roles.
+		// Make sure the administering user has a manager role somewhere
+		$foundManagerRole = false;
+		$roles = $roleDao->getByUserId($administratorUserId);
+		foreach ($roles as $role) {
+			if ($role->getRoleId() == ROLE_ID_MANAGER) $foundManagerRole = true;
+		}
+		if (!$foundManagerRole) return false;
+
+		// There were no conflicting roles. Permit administration.
 		return true;
 	}
 }
+
+?>

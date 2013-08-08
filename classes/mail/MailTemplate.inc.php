@@ -151,7 +151,7 @@ class MailTemplate extends Mail {
 		}
 
 		if ($context && !$request->getUserVar('continued')) {
-			$this->setSubject('[' . $context->getLocalizedSetting('initials') . '] ' . $this->getSubject());
+			$this->setSubject('[' . $context->getLocalizedAcronym() . '] ' . $this->getSubject());
 		}
 
 		$this->context = $context;

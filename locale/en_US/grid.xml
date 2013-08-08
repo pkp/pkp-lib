@@ -34,6 +34,7 @@
 	<message key="grid.action.approve">Approve</message>
 	<message key="grid.action.moreInformation">More Information</message>
 	<message key="grid.action.restoreDefaults">Restore Defaults</message>
+	<message key="grid.action.restoreDefaults.confirm">Are you sure you wish to restore the defaults?</message>
 	<message key="grid.action.addAuthor">Add Author</message>
 	<message key="grid.action.editAuthor">Edit Author</message>
 	<message key="grid.action.deleteAuthor">Delete Author</message>

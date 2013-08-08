@@ -1,4 +1,4 @@
-copydoc<?php
+<?php
 
 /**
  * @file controllers/grid/settings/genre/GenreGridHandler.inc.php

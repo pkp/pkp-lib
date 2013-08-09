@@ -75,7 +75,7 @@ class PendingRevisionsNotificationManager extends RevisionsNotificationManager {
 			$request, $lastReviewRound, array(ROLE_ID_AUTHOR)
 		);
 
-		return $this->fetchLinkActionNotificationContent($uploadFileAction);
+		return $this->fetchLinkActionNotificationContent($uploadFileAction, $request);
 	}
 
 	/**

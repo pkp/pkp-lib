@@ -141,7 +141,7 @@ class SignoffNotificationManager extends NotificationManagerDelegate {
 			$message, $message
 		);
 
-		return $this->fetchLinkActionNotificationContent($signoffFileLinkAction);
+		return $this->fetchLinkActionNotificationContent($signoffFileLinkAction, $request);
 	}
 
 	/**

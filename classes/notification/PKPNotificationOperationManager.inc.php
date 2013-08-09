@@ -300,10 +300,11 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	/**
 	 * Get a notification content with a link action.
 	 * @param $linkAction LinkAction
+	 * @param $request Request
 	 * @return string
 	 */
-	protected function fetchLinkActionNotificationContent($linkAction) {
-		$templateMgr = TemplateManager::getManager();
+	protected function fetchLinkActionNotificationContent($linkAction, $request) {
+		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('linkAction', $linkAction);
 		return $templateMgr->fetch('controllers/notification/linkActionNotificationContent.tpl');
 	}

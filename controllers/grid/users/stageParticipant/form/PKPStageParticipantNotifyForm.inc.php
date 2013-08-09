@@ -12,8 +12,6 @@
  * @brief Form to notify a user regarding a file
  */
 
-
-
 import('lib.pkp.classes.form.Form');
 
 class PKPStageParticipantNotifyForm extends Form {
@@ -212,7 +210,7 @@ class PKPStageParticipantNotifyForm extends Form {
 				while ($stageAssignment = $stageAssignments->next()) {
 					$userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId());
 					if (in_array($userGroup->getRoleId(), array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT))) {
-						import('classes.submission.SubmissionFile');
+						import('lib.pkp.classes.submission.SubmissionFile');
 						$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
 						$submissionFileSignoffDao = DAORegistry::getDAO('SubmissionFileSignoffDAO');
 						$submissionFiles = $submissionFileDao->getLatestRevisions($submission->getId(), SUBMISSION_FILE_COPYEDIT);

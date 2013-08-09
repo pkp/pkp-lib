@@ -38,14 +38,14 @@ class NotifyLinkAction extends LinkAction {
 				'grid.users.stageParticipant.StageParticipantGridHandler', 'viewNotify',
 				null, $requestArgs
 			),
-			__('submission.stageParticipant.notify'),
+			__('submission.stageParticipants.notify'),
 			'modal_email'
 		);
 
 		// Configure the file link action.
 		parent::LinkAction(
 			'notify', $ajaxModal,
-			__('submission.stageParticipant.notify'), 'notify'
+			__('submission.stageParticipants.notify'), 'notify'
 		);
 	}
 }

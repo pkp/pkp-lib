@@ -85,9 +85,9 @@ class UserRolesRequiredPolicy extends AuthorizationPolicy {
 			}
 			if ($contextDepth == 2 &&
 				array_key_exists(CONTEXT_ID_NONE, $userRoles[$workingRoleContext[0]]) &&
-				array_key_exists($roleDao->getRoleIdFromPath('manager'), $userRoles[$workingRoleContext[0]][CONTEXT_ID_NONE])) {
+				array_key_exists(ROLE_ID_MANAGER, $userRoles[$workingRoleContext[0]][CONTEXT_ID_NONE])) {
 				// This is a main context managerial role (i.e. conference-level).
-				$contextRoles[] = $roleDao->getRoleIdFromPath('manager');
+				$contextRoles[] = ROLE_ID_MANAGER;
 			}
 		} else {
 			// Application has no context.

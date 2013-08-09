@@ -45,7 +45,7 @@ class PKPPreparedEmailsGridRow extends GridRow {
 
 			// Row action to disable/delete the email template
 			$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
-			$emailTemplate =& $emailTemplateDao->getLocaleEmailTemplate($rowId, $contextId);
+			$emailTemplate = $emailTemplateDao->getLocaleEmailTemplate($rowId, $contextId);
 			if (isset($emailTemplate) && $emailTemplate->isCustomTemplate()) {
 				$this->addAction(
 					new LinkAction(

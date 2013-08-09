@@ -29,7 +29,7 @@ class PKPEmailTemplateDAO extends DAO {
 	 * @param $assocId int
 	 * @return BaseEmailTemplate
 	 */
-	function &getBaseEmailTemplate($emailKey, $assocType, $assocId) {
+	function getBaseEmailTemplate($emailKey, $assocType, $assocId) {
 		$result = $this->retrieve(
 			'SELECT	d.email_key,
 				d.can_edit,
@@ -62,7 +62,7 @@ class PKPEmailTemplateDAO extends DAO {
 	 * @param $assocId int
 	 * @return LocaleEmailTemplate
 	 */
-	function &getLocaleEmailTemplate($emailKey, $assocType, $assocId) {
+	function getLocaleEmailTemplate($emailKey, $assocType, $assocId) {
 		$result = $this->retrieve(
 			'SELECT	d.email_key,
 				d.can_edit,
@@ -122,7 +122,7 @@ class PKPEmailTemplateDAO extends DAO {
 	 * @param $assocId int
 	 * @return EmailTemplate
 	 */
-	function &getEmailTemplate($emailKey, $locale, $assocType, $assocId) {
+	function getEmailTemplate($emailKey, $locale, $assocType, $assocId) {
 		$primaryLocale = AppLocale::getPrimaryLocale();
 
 		$result = $this->retrieve(
@@ -445,7 +445,7 @@ class PKPEmailTemplateDAO extends DAO {
 	 * @param $rangeInfo object optional
 	 * @return array Email templates
 	 */
-	function &getEmailTemplates($locale, $assocType, $assocId, $rangeInfo = null) {
+	function getEmailTemplates($locale, $assocType, $assocId, $rangeInfo = null) {
 		$emailTemplates = array();
 
 		$result = $this->retrieveRange(

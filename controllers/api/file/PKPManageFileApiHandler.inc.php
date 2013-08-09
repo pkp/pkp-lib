@@ -97,7 +97,6 @@ class PKPManageFileApiHandler extends Handler {
 		// Delete the submission file.
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 
-
 		// check to see if we need to remove review_round_file associations
 		if (!$stageAssignments->wasEmpty()) {
 			$submissionFileDao->deleteReviewRoundAssignment($submission->getId(), $stageId, $submissionFile->getFileId(), $submissionFile->getRevision());
@@ -131,7 +130,7 @@ class PKPManageFileApiHandler extends Handler {
 
 			$this->setupTemplate($request);
 			$user = $request->getUser();
-			NotificationManager::createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.removedFile')));
+			if (!$request->getUserVar('suppressNotification')) NotificationManager::createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.removedFile')));
 
 			$this->logDeletionEvent($request, $submission, $submissionFile, $user);
 

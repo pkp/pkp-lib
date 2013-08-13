@@ -8,6 +8,6 @@
  *
  *}
 
-{url|assign:usersUrl router=$smarty.const.ROUTE_COMPONENT component="grid.settings.user.UserGridHandler" op="fetchGrid" escape=false}
+{url|assign:usersUrl router=$smarty.const.ROUTE_COMPONENT component="grid.settings.user.UserGridHandler" op="fetchGrid" oldUserId=$oldUserId escape=false}
 {assign var=gridContainerId value="userGridContainer"}
 {load_url_in_div id=$gridContainerId url=$usersUrl}

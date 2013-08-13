@@ -28,6 +28,15 @@ class AccessSettingsTabHandler extends ManagerSettingsTabHandler {
 			'siteAccessOptions' => 'controllers.tab.settings.siteAccessOptions.form.SiteAccessOptionsForm',
 		));
 	}
+
+	/**
+	 * @see PKPHandler::setupTemplate()
+	 */
+	function setupTemplate($request) {
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign('oldUserId', (int) $request->getUserVar('oldUserId')); // for merging users.
+		parent::setupTemplate($request);
+	}
 }
 
 ?>

@@ -94,16 +94,6 @@
 	<message key="admin.version.upToDate">Your system is up-to-date</message>
 	<message key="admin.version">Version</message>
 
-	<message key="admin.mergeUsers">Merge Users</message>
-	<message key="admin.mergeUsers.mergeUser">Merge User</message>
-	<message key="admin.mergeUsers.mergeIntoUser">Merge into this User</message>
-	<message key="admin.mergeUsers.into.description">Now, you must select a user to whom to attribute the previous user's authorships, editing assignments, etc.</message>
-	<message key="admin.mergeUsers.from.description">Select a user to merge into another user account (e.g., when someone has two user accounts). The account selected first will be deleted and its submissions, assignments, etc. will be attributed to the second account.</message>
-	<message key="admin.mergeUsers.allUsers">All Enrolled Users</message>
-	<message key="admin.mergeUsers.mergeUserSelect.confirm">Are you sure you wish to merge this user with another one?  You will choose the next user on the following screen.</message>
-	<message key="admin.mergeUsers.confirm">Are you sure you wish to merge the account with the username "{$oldUsername}" into the account with the username "{$newUsername}"? The account with the username "{$oldUsername}" will not exist afterwards. This action is not reversible.</message>
-	<message key="admin.mergeUsers.noneEnrolled">No users exist with that role.</message>
-	
 	<message key="admin.fileLoader.wrongBasePathLocation">Base path {$path} must be inside the public files directory.</message>
 	<message key="admin.fileLoader.pathNotAccessible">Folder {$path} is not a directory or is not readable.</message>
 	<message key="admin.fileLoader.moveFileFailed">File {$filename} could not be moved from {$currentFilePath} to {$destinationPath}</message>

@@ -19,6 +19,9 @@ import('lib.pkp.controllers.grid.settings.user.UserGridRow');
 import('lib.pkp.controllers.grid.settings.user.form.UserDetailsForm');
 
 class UserGridHandler extends GridHandler {
+	/** integer user id for the user to remove */
+	var $_oldUserId;
+
 	/**
 	 * Constructor
 	 */
@@ -30,6 +33,8 @@ class UserGridHandler extends GridHandler {
 				'editDisableUser', 'disableUser', 'removeUser', 'addUser',
 				'editEmail', 'sendEmail', 'suggestUsername')
 		);
+
+		$this->addRoleAssignment(array(ROLE_ID_SITE_ADMIN), array('mergeUsers'));
 	}
 
 
@@ -58,6 +63,7 @@ class UserGridHandler extends GridHandler {
 			LOCALE_COMPONENT_APP_MANAGER
 		);
 
+		$this->_oldUserId  = (int) $request->getUserVar('oldUserId');
 		// Basic grid configuration.
 		$this->setTitle('grid.user.currentUsers');
 
@@ -140,7 +146,7 @@ class UserGridHandler extends GridHandler {
 	 * @return UserGridRow
 	 */
 	function getRowInstance() {
-		return new UserGridRow();
+		return new UserGridRow($this->_oldUserId);
 	}
 
 	/**
@@ -164,7 +170,7 @@ class UserGridHandler extends GridHandler {
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$rangeInfo = $this->getGridRangeInfo($request, $this->getId());
 
-		return $userGroupDao->getUsersById(
+		return $users = $userGroupDao->getUsersById(
 			$filter['userGroup'],
 			$filter['includeNoRole']?null:$context->getId(),
 			$filter['searchField'],
@@ -528,6 +534,38 @@ class UserGridHandler extends GridHandler {
 			}
 		}
 		return $json->getString();
+	}
+
+	/**
+	 * Allow the Site Administrator to merge user accounts, including attributed submissions etc.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 */
+	function mergeUsers($args, $request) {
+
+		// if there is a $newUserId, this is the second time through, so merge the users.
+		$newUserId =  (int) $request->getUserVar('newUserId');
+		$oldUserId = (int) $request->getUserVar('oldUserId');
+		if ($newUserId > 0 && $oldUserId > 0) {
+			import('classes.user.UserAction');
+			$userAction = new UserAction();
+			$userAction->mergeUsers($oldUserId, $newUserId);
+			return DAO::getDataChangedEvent();
+		} else {
+			// this shouldn't happen since the first time this action is
+			// selected on the grid there is no call to the handler.
+			$json = new JSONMessage(false, __('grid.user.cannotAdminister'));
+			return $json->getString();
+		}
+	}
+
+	/**
+	 * @see GridHandler::getRequestArgs()
+	 */
+	function getRequestArgs() {
+		$requestArgs = (array) parent::getRequestArgs();
+		$requestArgs['oldUserId'] = $this->_oldUserId;
+		return $requestArgs;
 	}
 }
 

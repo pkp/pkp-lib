@@ -210,6 +210,15 @@
 	<message key="grid.user.selectUser">Select User</message>
 	<message key="grid.user.pleaseSelectUser">Please select a user</message>
 	<message key="grid.user.confirmLogInAs">Log in as this user? All actions you perform will be attributed to this user.</message>
+	<message key="grid.user.mergeUsers">Merge Users</message>
+	<message key="grid.user.mergeUsers.mergeUser">Merge User</message>
+	<message key="grid.user.mergeUsers.mergeIntoUser">Merge into this User</message>
+	<message key="grid.user.mergeUsers.into.description">Now, you must select a user to whom to attribute the previous user's authorships, editing assignments, etc.</message>
+	<message key="grid.user.mergeUsers.from.description">Select a user to merge into another user account (e.g., when someone has two user accounts). The account selected first will be deleted and its submissions, assignments, etc. will be attributed to the second account.</message>
+	<message key="grid.user.mergeUsers.allUsers">All Enrolled Users</message>
+	<message key="grid.user.mergeUsers.mergeUserSelect.confirm">Are you sure you wish to merge this user with another one?  You will choose the next user on the following screen.</message>
+	<message key="grid.user.mergeUsers.confirm">Are you sure you wish to merge the account with the username "{$oldUsername}" into the account with the username "{$newUsername}"? The account with the username "{$oldUsername}" will not exist afterwards. This action is not reversible.</message>
+	<message key="grid.user.mergeUsers.noneEnrolled">No users exist with that role.</message>
 
 	<!-- Prepared emails -->
 	<message key="grid.preparedEmails.title">Prepared Email Templates</message>

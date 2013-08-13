@@ -50,7 +50,7 @@ class RegistrationHandler extends UserHandler {
 
 			$templateMgr = TemplateManager::getManager($request);
 			$templateMgr->assign('source', $request->getUserVar('source'));
-			$templateMgr->assign_by_ref('contexts', $contexts);
+			$templateMgr->assign('contexts', $contexts);
 			$templateMgr->display('user/registerSite.tpl');
 		}
 	}

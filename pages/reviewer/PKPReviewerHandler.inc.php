@@ -38,7 +38,7 @@ class PKPReviewerHandler extends Handler {
 		$this->setupTemplate($request);
 
 		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign_by_ref('submission', $reviewerSubmission);
+		$templateMgr->assign('submission', $reviewerSubmission);
 		$templateMgr->assign('reviewIsCompleted', $reviewAssignment->getDateCompleted()?1:0);
 		$templateMgr->display('reviewer/review/reviewStepHeader.tpl');
 	}
@@ -80,7 +80,7 @@ class PKPReviewerHandler extends Handler {
 			return $json->getString();
 		} else {
 			$templateMgr = TemplateManager::getManager($request);
-			$templateMgr->assign_by_ref('submission', $reviewerSubmission);
+			$templateMgr->assign('submission', $reviewerSubmission);
 			$templateMgr->assign('step', 4);
 			return $templateMgr->fetchJson('reviewer/review/reviewCompleted.tpl');
 		}

@@ -79,7 +79,7 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 			$userGroupOptions[$userGroupId] = $userGroup->getLocalizedName();
 		}
 		// assign the user groups options
-		$templateMgr->assign_by_ref('userGroupOptions', $userGroupOptions);
+		$templateMgr->assign('userGroupOptions', $userGroupOptions);
 		// assigned the first element as selected
 		$templateMgr->assign('selectedUserGroupId', array_shift(array_keys($userGroupOptions)));
 

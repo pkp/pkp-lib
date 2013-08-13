@@ -102,12 +102,12 @@ class PKPSubmissionInformationCenterHandler extends InformationCenterHandler {
 		// Assign variables to the template manager and display
 		$templateMgr = TemplateManager::getManager($request);
 		if(isset($lastEvent)) {
-			$templateMgr->assign_by_ref('lastEvent', $lastEvent);
+			$templateMgr->assign('lastEvent', $lastEvent);
 
 			// Get the user who posted the last note
 			$userDao = DAORegistry::getDAO('UserDAO');
 			$user = $userDao->getById($lastEvent->getUserId());
-			$templateMgr->assign_by_ref('lastEventUser', $user);
+			$templateMgr->assign('lastEventUser', $user);
 		}
 
 		return parent::viewInformationCenter($request);

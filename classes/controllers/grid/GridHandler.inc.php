@@ -604,7 +604,7 @@ class GridHandler extends PKPHandler {
 
 		// Prepare the template to render the grid.
 		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign_by_ref('grid', $this);
+		$templateMgr->assign('grid', $this);
 
 		// Add rendered filter
 		$renderedFilter = $this->renderFilter($request);
@@ -612,8 +612,8 @@ class GridHandler extends PKPHandler {
 
 		// Add columns.
 		$this->setFirstDataColumn();
-		$columns =& $this->getColumns();
-		$templateMgr->assign_by_ref('columns', $columns);
+		$columns = $this->getColumns();
+		$templateMgr->assign('columns', $columns);
 
 		// Do specific actions to fetch this grid.
 		$this->doSpecificFetchGridActions($args, $request, $templateMgr);
@@ -871,7 +871,7 @@ class GridHandler extends PKPHandler {
 
 		// Render the body elements.
 		$gridBodyParts = $this->renderGridBodyPartsInternally($request);
-		$templateMgr->assign_by_ref('gridBodyParts', $gridBodyParts);
+		$templateMgr->assign('gridBodyParts', $gridBodyParts);
 	}
 
 	/**
@@ -982,8 +982,8 @@ class GridHandler extends PKPHandler {
 		$templateMgr = TemplateManager::getManager($request);
 		$gridBodyParts = array();
 		if ( count($renderedRows) > 0 ) {
-			$templateMgr->assign_by_ref('grid', $this);
-			$templateMgr->assign_by_ref('rows', $renderedRows);
+			$templateMgr->assign('grid', $this);
+			$templateMgr->assign('rows', $renderedRows);
 			$gridBodyParts[] = $templateMgr->fetch('controllers/grid/gridBodyPart.tpl');
 		}
 		return $gridBodyParts;

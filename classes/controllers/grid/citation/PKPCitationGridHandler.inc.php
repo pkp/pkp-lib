@@ -213,7 +213,7 @@ class PKPCitationGridHandler extends GridHandler {
 			// Only go on when we've no error so far
 			if (is_null($errorMessage)) {
 				// Provide the assoc id to the template.
-				$templateMgr->assign_by_ref('assocId', $this->getAssocId());
+				$templateMgr->assign('assocId', $this->getAssocId());
 
 				// Identify export filters.
 				$filterDao = DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
@@ -248,7 +248,7 @@ class PKPCitationGridHandler extends GridHandler {
 
 					unset($exportFilterObjects);
 				}
-				$templateMgr->assign_by_ref('exportFilters', $exportFilters);
+				$templateMgr->assign('exportFilters', $exportFilters);
 
 				// Did the user choose a custom filter?
 				if (isset($args['filterId'])) {
@@ -293,7 +293,7 @@ class PKPCitationGridHandler extends GridHandler {
 						}
 					}
 				}
-				$templateMgr->assign_by_ref('exportOutput', $exportOutputString);
+				$templateMgr->assign('exportOutput', $exportOutputString);
 			}
 		}
 

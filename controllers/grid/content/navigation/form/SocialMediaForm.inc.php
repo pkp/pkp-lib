@@ -53,7 +53,7 @@ class SocialMediaForm extends Form {
 
 		$socialMediaDao = DAORegistry::getDAO('SocialMediaDAO');
 		$socialMedia = $this->getSocialMedia();
-		$templateMgr->assign_by_ref('socialMedia', $socialMedia);
+		$templateMgr->assign('socialMedia', $socialMedia);
 		$templateMgr->assign('contextId', $this->getContextId());
 
 		if (isset($socialMedia)) {

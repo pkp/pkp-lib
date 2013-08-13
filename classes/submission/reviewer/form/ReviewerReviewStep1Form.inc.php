@@ -44,7 +44,7 @@ class ReviewerReviewStep1Form extends ReviewerReviewForm {
 		// Add review assignment.
 		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
 		$reviewAssignment = $reviewAssignmentDao->getById($submission->getReviewId());
-		$templateMgr->assign_by_ref('reviewAssignment', $reviewAssignment);
+		$templateMgr->assign('reviewAssignment', $reviewAssignment);
 
 		// Add reviewer request text.
 		$reviewerRequestParams = array(
@@ -64,13 +64,13 @@ class ReviewerReviewStep1Form extends ReviewerReviewForm {
 		// "View metadata" action.
 		import('lib.pkp.controllers.modals.submissionMetadata.linkAction.ReviewerViewMetadataLinkAction');
 		$viewMetadataLinkAction = new ReviewerViewMetadataLinkAction($request, $reviewAssignment->getSubmissionId(), $reviewAssignment->getId());
-		$templateMgr->assign_by_ref('viewMetadataAction', $viewMetadataLinkAction);
+		$templateMgr->assign('viewMetadataAction', $viewMetadataLinkAction);
 
 		// include the confirmation modal for competing interests if the context has them.
 		if ($context->getLocalizedSetting('competingInterests') != '') {
 			import('lib.pkp.controllers.confirmationModal.linkAction.ViewCompetingInterestGuidelinesLinkAction');
 			$competingInterestsAction = new ViewCompetingInterestGuidelinesLinkAction($request);
-			$templateMgr->assign_by_ref('competingInterestsAction', $competingInterestsAction);
+			$templateMgr->assign('competingInterestsAction', $competingInterestsAction);
 		}
 		// Instantiate the view review guidelines confirmation modal.
 		$aboutDueDateAction = new LinkAction('viewReviewGuidelines',
@@ -83,7 +83,7 @@ class ReviewerReviewStep1Form extends ReviewerReviewForm {
 			__('reviewer.aboutDueDates')
 		);
 
-		$templateMgr->assign_by_ref('aboutDueDatesAction', $aboutDueDateAction);
+		$templateMgr->assign('aboutDueDatesAction', $aboutDueDateAction);
 
 		import('lib.pkp.classes.linkAction.request.AjaxModal');
 		$declineReviewLinkAction = new LinkAction('declineReview',
@@ -92,7 +92,7 @@ class ReviewerReviewStep1Form extends ReviewerReviewForm {
 				__('reviewer.submission.declineReview')
 			)
 		);
-		$templateMgr->assign_by_ref('declineReviewAction', $declineReviewLinkAction);
+		$templateMgr->assign('declineReviewAction', $declineReviewLinkAction);
 
 		return parent::fetch($request);
 	}

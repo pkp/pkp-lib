@@ -61,8 +61,8 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('locale', AppLocale::getLocale());
 		$templateMgr->assign('siteStyleFileExists', file_exists($siteStyleFilename));
-		$templateMgr->assign_by_ref('uploadCssLinkAction', $uploadCssLinkAction);
-		$templateMgr->assign_by_ref('uploadImageLinkAction', $uploadImageLinkAction);
+		$templateMgr->assign('uploadCssLinkAction', $uploadCssLinkAction);
+		$templateMgr->assign('uploadImageLinkAction', $uploadImageLinkAction);
 		$templateMgr->assign('cssView', $cssView);
 		$templateMgr->assign('imageView', $imageView);
 		$templateMgr->assign('redirectOptions', $contexts);
@@ -174,7 +174,7 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 
 			$templateMgr->assign('publicFilesDir', $request->getBasePath() . '/' . $publicFileManager->getSiteFilesPath());
 			$templateMgr->assign('file', $file);
-			$templateMgr->assign_by_ref('deleteLinkAction', $deleteLinkAction);
+			$templateMgr->assign('deleteLinkAction', $deleteLinkAction);
 			$templateMgr->assign('fileSettingName', $fileSettingName);
 
 			return $templateMgr->fetch($template);

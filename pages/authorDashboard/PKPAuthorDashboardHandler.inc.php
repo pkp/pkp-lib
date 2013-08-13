@@ -79,13 +79,13 @@ class PKPAuthorDashboardHandler extends Handler {
 
 		if ($submission->getStageId() >= WORKFLOW_STAGE_ID_EDITING) {
 			$copyeditingEmails = $submissionEmailLogDao->getByEventType($submission->getId(), SUBMISSION_EMAIL_COPYEDIT_NOTIFY_AUTHOR, $user->getId());
-			$templateMgr->assign_by_ref('copyeditingEmails', $copyeditingEmails);
+			$templateMgr->assign('copyeditingEmails', $copyeditingEmails);
 		}
 
 		// Same for production stage.
 		if ($submission->getStageId() == WORKFLOW_STAGE_ID_PRODUCTION) {
 			$productionEmails = $submissionEmailLogDao->getByEventType($submission->getId(), SUBMISSION_EMAIL_PROOFREAD_NOTIFY_AUTHOR, $user->getId());
-			$templateMgr->assign_by_ref('productionEmails', $productionEmails);
+			$templateMgr->assign('productionEmails', $productionEmails);
 		}
 
 		// Define the notification options.

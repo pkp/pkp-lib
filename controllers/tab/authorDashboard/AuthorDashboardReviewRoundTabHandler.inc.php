@@ -70,7 +70,7 @@ class AuthorDashboardReviewRoundTabHandler extends AuthorDashboardHandler {
 		$reviewRound = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND);
 		$templateMgr->assign('reviewRoundId', $reviewRound->getId());
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-		$templateMgr->assign_by_ref('submission', $submission);
+		$templateMgr->assign('submission', $submission);
 
 		// Review round request notification options.
 		$notificationRequestOptions = array(

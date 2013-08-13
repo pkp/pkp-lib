@@ -232,7 +232,7 @@ class PKPWorkflowHandler extends Handler {
 		$templateMgr = TemplateManager::getManager($request);
 
 		// Assign the authorized submission.
-		$templateMgr->assign_by_ref('submission', $submission);
+		$templateMgr->assign('submission', $submission);
 
 		// Assign workflow stages related data.
 		$templateMgr->assign('stageId', $stageId);
@@ -323,7 +323,7 @@ class PKPWorkflowHandler extends Handler {
 					__('editor.submission.newRound'),
 					'add_item_small'
 				);
-				$templateMgr->assign_by_ref('newRoundAction', $newRoundAction);
+				$templateMgr->assign('newRoundAction', $newRoundAction);
 			}
 		}
 

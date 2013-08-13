@@ -88,7 +88,7 @@ class PKPTemplateManager extends Smarty {
 
 		// Assign common variables
 		$this->styleSheets = array();
-		$this->assign_by_ref('stylesheets', $this->styleSheets);
+		$this->assign('stylesheets', $this->styleSheets);
 
 		$this->javaScripts = array();
 
@@ -110,7 +110,7 @@ class PKPTemplateManager extends Smarty {
 		$this->assign('useMinifiedJavaScript', Config::getVar('general', 'enable_minified'));
 		$this->assign('toggleHelpOnText', __('help.toggleInlineHelpOn'));
 		$this->assign('toggleHelpOffText', __('help.toggleInlineHelpOff'));
-		$this->assign_by_ref('currentContext', $request->getContext());
+		$this->assign('currentContext', $request->getContext());
 
 		$locale = AppLocale::getLocale();
 		$this->assign('currentLocale', $locale);

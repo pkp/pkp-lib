@@ -144,8 +144,7 @@ class UserDetailsForm extends UserForm {
 		$templateMgr->assign('helpTopicId', $helpTopicId);
 
 		$countryDao = DAORegistry::getDAO('CountryDAO');
-		$countries =& $countryDao->getCountries();
-		$templateMgr->assign_by_ref('countries', $countries);
+		$templateMgr->assign('countries', $countryDao->getCountries());
 
 		$authDao = DAORegistry::getDAO('AuthSourceDAO');
 		$authSources =& $authDao->getSources();

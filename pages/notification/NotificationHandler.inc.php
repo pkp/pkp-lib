@@ -218,7 +218,7 @@ class NotificationHandler extends Handler {
 		$templateMgr->assign('locale', AppLocale::getPrimaryLocale());
 		$templateMgr->assign('appName', $appName);
 		$templateMgr->assign('siteTitle', $siteTitle);
-		$templateMgr->assign_by_ref('formattedNotifications', $notifications);
+		$templateMgr->assign('formattedNotifications', $notifications);
 
 		$templateMgr->display('notification/' . $typeMap[$type], $mimeTypeMap[$type]);
 

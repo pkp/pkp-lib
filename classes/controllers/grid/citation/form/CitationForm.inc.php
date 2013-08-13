@@ -310,7 +310,7 @@ class CitationForm extends Form {
 		//
 		// Add the citation to the template.
 		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign_by_ref('citation', $citation);
+		$templateMgr->assign('citation', $citation);
 
 		// Does the form contain unsaved changes?
 		$templateMgr->assign('unsavedChanges', $this->getUnsavedChanges());
@@ -406,7 +406,7 @@ class CitationForm extends Form {
 			// Sort available fields alphabetically.
 			$availableFields = $this->_orderByDisplayName($availableFields);
 
-			$templateMgr->assign_by_ref('availableFields', $availableFields);
+			$templateMgr->assign('availableFields', $availableFields);
 
 			//
 			// 2) Citation Services Query
@@ -488,7 +488,7 @@ class CitationForm extends Form {
 				// Remove source descriptions that don't have data.
 				if (!isset($citationSourceTabs[$sourceDescriptionId]['statements'])) unset($citationSourceTabs[$sourceDescriptionId]);
 			}
-			$templateMgr->assign_by_ref('citationSourceTabs', $citationSourceTabs);
+			$templateMgr->assign('citationSourceTabs', $citationSourceTabs);
 
 			/////////////////////////////////////////////////////
 			// Form level actions

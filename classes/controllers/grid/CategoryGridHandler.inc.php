@@ -205,7 +205,7 @@ class CategoryGridHandler extends GridHandler {
 	protected function doSpecificFetchGridActions($args, $request, &$templateMgr) {
 		// Render the body elements (category groupings + rows inside a <tbody>)
 		$gridBodyParts = $this->_renderCategoriesInternally($request);
-		$templateMgr->assign_by_ref('gridBodyParts', $gridBodyParts);
+		$templateMgr->assign('gridBodyParts', $gridBodyParts);
 	}
 
 	/**

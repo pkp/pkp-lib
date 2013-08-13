@@ -109,7 +109,7 @@ class PKPAction {
 		$templateMgr->assign('citationExportUrl', $citationGridUrl);
 
 		// Add the submission.
-		$templateMgr->assign_by_ref('submission', $submission);
+		$templateMgr->assign('submission', $submission);
 	}
 }
 

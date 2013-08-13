@@ -146,7 +146,7 @@ class AppearanceForm extends ContextSettingsForm {
 			}
 
 			$templateMgr->assign('file', $file);
-			$templateMgr->assign_by_ref('deleteLinkAction', $deleteLinkAction);
+			$templateMgr->assign('deleteLinkAction', $deleteLinkAction);
 			$templateMgr->assign('fileSettingName', $fileSettingName);
 
 			return $templateMgr->fetch($template);

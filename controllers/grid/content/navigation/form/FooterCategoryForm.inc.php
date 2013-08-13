@@ -72,7 +72,7 @@ class FooterCategoryForm extends Form {
 		$templateMgr = TemplateManager::getManager($request);
 
 		$footerCategory = $this->getFooterCategory();
-		$templateMgr->assign_by_ref('footerCategory', $footerCategory);
+		$templateMgr->assign('footerCategory', $footerCategory);
 		$templateMgr->assign('contextId', $this->getContextId());
 
 		if (isset($footerCategory)) {

@@ -19,6 +19,8 @@
 			$.pkp.controllers.grid.users.stageParticipant ||
 			{ form: { } };
 
+
+
 	/**
 	 * @constructor
 	 *
@@ -27,8 +29,8 @@
 	 * @param {jQueryObject} $form the wrapped HTML form element.
 	 * @param {Object} options form options.
 	 */
-	$.pkp.controllers.grid.users.stageParticipant.form.StageParticipantNotifyHandler =
-			function($form, options) {
+	$.pkp.controllers.grid.users.stageParticipant.form.
+			StageParticipantNotifyHandler = function($form, options) {
 
 		this.parent($form, options);
 
@@ -42,7 +44,8 @@
 				this.callbackWrapper(this.selectTemplateHandler_));
 	};
 	$.pkp.classes.Helper.inherits(
-			$.pkp.controllers.grid.users.stageParticipant.form.StageParticipantNotifyHandler,
+			$.pkp.controllers.grid.users.stageParticipant.form.
+					StageParticipantNotifyHandler,
 			$.pkp.controllers.form.AjaxFormHandler);
 
 
@@ -54,8 +57,8 @@
 	 * @private
 	 * @type {string?}
 	 */
-	$.pkp.controllers.grid.users.stageParticipant.form.StageParticipantNotifyHandler.
-			prototype.templateUrl_ = null;
+	$.pkp.controllers.grid.users.stageParticipant.form.
+			StageParticipantNotifyHandler.prototype.templateUrl_ = null;
 
 
 	//
@@ -69,8 +72,9 @@
 	 * @param {Event} event The triggering event.
 	 * @private
 	 */
-	$.pkp.controllers.grid.users.stageParticipant.form.StageParticipantNotifyHandler.
-			prototype.selectTemplateHandler_ = function(sourceElement, event) {
+	$.pkp.controllers.grid.users.stageParticipant.form.
+			StageParticipantNotifyHandler.prototype.selectTemplateHandler_ =
+					function(sourceElement, event) {
 
 		var $form = this.getHtmlElement();
 		$.post(this.templateUrl_, $form.find('#template').serialize(),
@@ -86,8 +90,9 @@
 	 * @param {Object} jsonData The data returned from the server.
 	 * @return {boolean} The response status.
 	 */
-	$.pkp.controllers.grid.users.stageParticipant.form.StageParticipantNotifyHandler.
-			prototype.updateTemplate = function(formElement, jsonData) {
+	$.pkp.controllers.grid.users.stageParticipant.form.
+			StageParticipantNotifyHandler.prototype.updateTemplate =
+					function(formElement, jsonData) {
 
 		var $form = this.getHtmlElement(),
 				processedJsonData = this.handleJson(jsonData);

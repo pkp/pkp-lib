@@ -127,6 +127,8 @@ class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm {
 			}
 		}
 
+		$notificationManager = new NotificationManager();
+
 		// Send a notification to associated users if an editor needs assigning
 		if (!$managerFound) {
 			$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
@@ -137,8 +139,6 @@ class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm {
 			$managersArray = $managers->toAssociativeArray();
 
 			$allUserIds = array_keys($managersArray);
-
-			$notificationManager = new NotificationManager();
 			foreach ($allUserIds as $userId) {
 				$notificationManager->createNotification(
 					$request, $userId, NOTIFICATION_TYPE_SUBMISSION_SUBMITTED,

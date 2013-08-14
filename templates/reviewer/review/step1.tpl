@@ -26,7 +26,7 @@
 	{fbvFormSection label="submission.title"}
 		{$submission->getLocalizedTitle()|strip_unsafe_html}
 	{/fbvFormSection}
-	{fbvFormSection label="submission.description"}
+	{fbvFormSection label=$descriptionFieldKey}
 		{$submission->getLocalizedAbstract()|strip_unsafe_html}
 	{/fbvFormSection}
 

@@ -243,4 +243,5 @@
 	<message key="manager.setup.layout.blockManagement">Налаштування бічних панелей</message>
        <message key="plugins.categories.oaiMetadataFormats">Модулі форматів метаданих OAI</message>
        <message key="plugins.categories.oaiMetadataFormats.description">Ці модулі дозволяють генерувати метадані для OAI-комунікації.</message>
+	<message key="manager.website">Веб-сайт</message>
 </locale>

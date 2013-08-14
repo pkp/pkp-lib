@@ -182,4 +182,5 @@
 	<message key="plugins.categories.citationParser.description">Модули экстракции цитат позволяют получать из оригинальных цитат поля метаданных (например, имя автора, название и т.д.)</message>
 	<message key="plugins.categories.oaiMetadataFormats">Модули Форматов Метаданных OAI</message>
 	<message key="plugins.categories.oaiMetadataFormats.description">Эти модули представляют метеданные при связи с другими архивами.</message>
+	<message key="manager.website">Веб-сайт</message>
 </locale>

@@ -358,7 +358,6 @@
 	<message key="form.invalidImage">Hatalı görsel yüklendi. Geçerli biçimler: .png, .gif, ve .jpg</message>
 	<message key="help.toggleInlineHelpOn">Yardımı Kapat</message>
 	<message key="help.toggleInlineHelpOff">Yardımı Aç</message>
-	<message key="navigation.website">Web Sitesi</message>
 	<message key="navigation.access"><![CDATA[Üyeler &amp; Roller]]></message>
 	<message key="navigation.admin">Yönetim</message>
 	<message key="navigation.browseByAuthor">Yazara Göre</message>

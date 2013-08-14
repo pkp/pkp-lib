@@ -356,7 +356,6 @@
 	<message key="form.emailRequired">Beharrezkoa da helbide elektroniko bat.</message>
 	<message key="form.dataHasChanged">Inprimaki honetako datuak aldatu dira. Jarraitu hala ere?</message>
 	<message key="form.invalidImage">Irudi baliogabe bat kargatu da. Onartzen diren formatuak: .png, .gif, edo .jpg.</message>
-	<message key="navigation.website">Webgunea</message>
 	<message key="navigation.admin">Administrazioa</message>
 	<message key="navigation.data">Datuak</message>
 	<message key="navigation.settings">Ezarpenak</message>

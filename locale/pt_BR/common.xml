@@ -359,7 +359,6 @@
 	<message key="form.invalidImage">Uma imagem inválida foi enviada. Formatos aceitos são .png, .gif, ou .jpg.</message>
 	<message key="help.toggleInlineHelpOn">Desabilitar ajuda</message>
 	<message key="help.toggleInlineHelpOff">Habilitar ajuda</message>
-	<message key="navigation.website">Website</message>
 	<message key="navigation.access"><![CDATA[Usuários &amp; Papéis]]></message>
 	<message key="navigation.admin">Administração</message>
 	<message key="navigation.browseByAuthor">por Autor</message>

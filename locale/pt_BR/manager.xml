@@ -242,4 +242,5 @@
 	<message key="plugins.categories.oaiMetadataFormats">Plugins de Formatos de Metadados OAI</message>
 	<message key="plugins.categories.oaiMetadataFormats.description">Os plugins de formato geram metadados para comunicação via protocolo OAI.</message>
 	<message key="grid.action.addGenre">Incluir gênero</message>
+	<message key="manager.website">Website</message>
 </locale>

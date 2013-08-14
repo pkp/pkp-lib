@@ -357,7 +357,6 @@
 	<message key="form.invalidImage">Bildet som ble lastet opp, var av feil type. Mulige formater er .png, .gif, oeller.jpg.</message>
 	<message key="help.toggleInlineHelpOn">Slå på hjelp</message>
 	<message key="help.toggleInlineHelpOff">Slå av hjelp</message>
-	<message key="navigation.website">Nettsted</message>
 	<message key="navigation.browseByAuthor">Etter forfatter</message>
 	<message key="navigation.data">Data</message>
 	<message key="navigation.submissions">Innsendinger</message>

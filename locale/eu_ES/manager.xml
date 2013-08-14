@@ -239,4 +239,5 @@
 	<message key="manager.setup.layout.blockManagement">Alboko barraren kudeaketa</message>
 	<message key="plugins.categories.oaiMetadataFormats">OAI Metadatuen Formatuen Pluginak</message>
 	<message key="plugins.categories.oaiMetadataFormats.description">Formatuen plugin horiek metadatuak adierazten dituzte OAI komunikazioetan.</message>
+	<message key="manager.website">Webgunea</message>
 </locale>

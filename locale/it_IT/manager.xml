@@ -241,4 +241,5 @@
 	<message key="plugins.categories.citationParser.description">Il plugin di estrazione delle citazioni estrae dati strutturati (p. es. autore, titolo ecc.) dalle citazioni semplici.</message>
 	<message key="plugins.categories.oaiMetadataFormats">OAI Metadata Format Plugins</message>
 	<message key="plugins.categories.oaiMetadataFormats.description">Questi plugin esprimono il formato dei metadati nelle comunicazioni OAI-PMH</message>
+	<message key="manager.website">Sito web</message>
 </locale>

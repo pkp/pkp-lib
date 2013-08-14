@@ -354,7 +354,6 @@
 	<message key="form.invalidImage">Formato dell'immagine non valido. I formati consentiti sono .png, .gif, or .jpg.</message>
 	<message key="help.toggleInlineHelpOn">Chiudi la guida</message>
 	<message key="help.toggleInlineHelpOff">Apri la guida</message>
-	<message key="navigation.website">Sito web</message>
 	<message key="navigation.access"><![CDATA[Utenti &amp; Ruoli]]></message>
 	<message key="navigation.admin">Amministrazione</message>
 	<message key="navigation.browseByAuthor">Per autore</message>

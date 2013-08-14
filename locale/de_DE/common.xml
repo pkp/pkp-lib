@@ -295,7 +295,6 @@
 	<message key="icon.view.alt">Anzeigen</message>
 	<message key="locale.primary">Primäre Regionaleinstellung</message>
 	<message key="locale.supported">Unterstützte Regionaleinstellungen</message>
-	<message key="navigation.website">Website</message>
 	<message key="navigation.access"><![CDATA[Benutzer/innen &amp; Rollen]]></message>
 	<message key="navigation.about">Über uns</message>
 	<message key="navigation.admin">Verwaltung</message>

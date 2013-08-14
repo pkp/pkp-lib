@@ -354,10 +354,7 @@
 
 	<message key="locale.primary">Primary locale</message>
 	<message key="locale.supported">Supported locales</message>
-	<message key="navigation.workflow">Workflow</message>
-	<message key="navigation.distributionProcess">Distribution</message>
 	<message key="navigation.management">Management</message>
-	<message key="navigation.website">Website</message>
 	<message key="navigation.access"><![CDATA[Users &amp; Roles]]></message>
 	<message key="navigation.about">About</message>
 	<message key="navigation.admin">Administration</message>

@@ -213,4 +213,5 @@
 	<message key="plugins.categories.metadata">Programutvidelser for metadata</message>
 	<message key="plugins.categories.oaiMetadataFormats">Programtillegg for OAI metadata-format</message>
 	<message key="plugins.categories.oaiMetadataFormats.description">Disse format-programtilleggene tilgjengeliggjør metadata i OAI-kommunikasjon.</message>
+	<message key="manager.website">Nettsted</message>
 </locale>

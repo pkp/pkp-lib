@@ -237,4 +237,5 @@
 	<message key="plugins.categories.citationParser">Dodaci za ekstrakciju citata</message>
 	<message key="plugins.categories.oaiMetadataFormats">Dodatak OAI formata metapodataka</message>
 	<message key="plugins.categories.oaiMetadataFormats.description">Ovaj dodatak prikazuje metapodatke u formatu OAI komunikacije</message>
+	<message key="manager.website">Sajt</message>
 </locale>

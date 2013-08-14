@@ -359,7 +359,6 @@
 	<message key="form.invalidImage">Et ugyldigt billede blev uploadet. De accepterede formater er .png, .gif eller .jpg</message>
 	<message key="help.toggleInlineHelpOn">Hjælp slået til</message>
 	<message key="help.toggleInlineHelpOff">Hjælp slået fra</message>
-	<message key="navigation.website">Website</message>
 	<message key="navigation.access"><![CDATA[Brugere &amp; roller]]></message>
 	<message key="navigation.admin">Administration</message>
 	<message key="navigation.browseByAuthor">Efter forfatter</message>

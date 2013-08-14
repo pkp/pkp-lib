@@ -273,4 +273,5 @@
 	<message key="manager.plugins.versionFileInvalid">version.xml im Plug-In-Verzeichnis enthält ungültige Daten.</message>
 	<message key="manager.plugins.versionFileNotFound">Version.xml wurde im Plug-In-Verzeichnis nicht gefunden</message>
 
+	<message key="manager.website">Website</message>
 </locale>

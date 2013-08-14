@@ -241,4 +241,5 @@
 	<message key="manager.masthead.title">Redactieteam</message>
 	<message key="plugins.categories.oaiMetadataFormats">OAI Metadata formaat plugins</message>
 	<message key="subscriptions.individualDescription">Bij individuele abonnementen is inloggen nodig om teogang te krijgen tot de inhoud.</message>
+	<message key="manager.website">Website</message>
 </locale>

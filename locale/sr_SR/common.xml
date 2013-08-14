@@ -359,7 +359,6 @@
 	<message key="form.invalidImage">Nesipravna sllika je dostavljena, podržani formati su .png, .gif ili .jpg.</message>
 	<message key="help.toggleInlineHelpOn">Pomoć uključena</message>
 	<message key="help.toggleInlineHelpOff">Pomoć isključena</message>
-	<message key="navigation.website">Sajt</message>
 	<message key="navigation.access"><![CDATA[Korisnici &amp; uloge]]></message>
 	<message key="navigation.admin">Administracija</message>
 	<message key="navigation.browseByAuthor">Po autoru</message>

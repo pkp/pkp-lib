@@ -334,7 +334,6 @@
 	<message key="form.confirmSubmit.title">Подтвердить</message>
 	<message key="form.emailRequired">Необходимо указать адрес email.</message>
 	<message key="form.dataHasChanged">Данные этой формы были изменены. Продолжить в любом случае?</message>
-	<message key="navigation.website">Веб-сайт</message>
 	<message key="navigation.access">Пользователи и роли</message>
 	<message key="navigation.admin">Администрация</message>
 	<message key="navigation.browseByAuthor">По автору</message>

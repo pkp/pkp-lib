@@ -241,4 +241,5 @@
 	<message key="plugins.categories.citationParser.description">Citation Extraction Plugins henter data fra ubearbejdede referencer på feltniveau (f.eks. forfatter, titel osv.)</message>
 	<message key="plugins.categories.oaiMetadataFormats">OAI Metadata Format Plugins</message>
 	<message key="plugins.categories.oaiMetadataFormats.description">Disse format-plugins udtrykker metadata i OAI-kommunikationer.</message>
+	<message key="manager.website">Website</message>
 </locale>

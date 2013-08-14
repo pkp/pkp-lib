@@ -343,7 +343,6 @@
 	<message key="form.emailRequired">een e-mail adres is verplicht</message>
 	<message key="help.toggleInlineHelpOn">Help uit</message>
 	<message key="help.toggleInlineHelpOff">Help aan</message>
-	<message key="navigation.website">Website</message>
 	<message key="navigation.access">Gebruikersrollen</message>
 	<message key="navigation.admin">Beheer</message>
 	<message key="navigation.settings">Instellingen</message>

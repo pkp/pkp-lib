@@ -399,4 +399,10 @@
 	<message key="manager.setup.genres.dependent">Mark files of this type as dependent files (e.g. not primary submissions)</message>
 	<message key="manager.settings.wizard">Settings Wizard</message>
 	<message key="manager.users.roleRequired">You need to select at least one role to be associated with this user.</message>
+	<message key="manager.website">Website</message>
+	<message key="manager.website.title">Website Settings</message>
+	<message key="manager.workflow">Workflow</message>
+	<message key="manager.workflow.title">Workflow Settings</message>
+	<message key="manager.distribution">Distribution</message>
+	<message key="manager.distribution.title">Distribution Settings</message>
 </locale>

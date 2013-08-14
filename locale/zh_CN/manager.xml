@@ -241,4 +241,5 @@
 	<message key="plugins.categories.citationOutput.description">引用输出插件采用引用标准。这取代了引用格式插件。</message>
 	<message key="plugins.categories.oaiMetadataFormats">OAI源数据插件</message>
 	<message key="plugins.categories.oaiMetadataFormats.description">这些格式插件表达OAI通信的元数据.</message>
+	<message key="manager.website">网站</message>
 </locale>

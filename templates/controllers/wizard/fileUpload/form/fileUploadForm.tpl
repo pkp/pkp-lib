@@ -109,8 +109,9 @@
 		{* Use case 3: Upload a new file or a revision *}
 		{assign var="showFileSelector" value=true}
 	{/if}
+
 	{* Disable the genre selector for reviewer attachements *}
-	{if $reviewAttachment}{assign var="showGenreSelector" value=false}{/if}
+	{if $isReviewAttachment}{assign var="showGenreSelector" value=false}{/if}
 {/if}
 
 {if $revisionOnlyWithoutFileOptions}

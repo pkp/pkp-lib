@@ -280,7 +280,7 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 
 		// If we don't have a genre then use the genre from the
 		// existing file.
-		if ($revisedFile and !$genreId) {
+		if ($revisedFile && !$genreId) {
 			$genreId = $revisedFile->getGenreId();
 		}
 

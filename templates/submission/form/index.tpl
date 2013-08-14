@@ -7,6 +7,7 @@
  * Main template for the author's submission pages.
  *}
 {strip}
+{assign var=pageTitle value="submission.submit.title"}
 {include file="common/header.tpl"}
 {/strip}
 

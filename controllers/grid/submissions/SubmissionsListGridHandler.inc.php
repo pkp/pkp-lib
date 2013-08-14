@@ -83,7 +83,7 @@ class SubmissionsListGridHandler extends GridHandler {
 				if ($userGroups->getCount() > 0) $hasRoleCount ++;
 			}
 
-			if ($hasRoleCount > 1) {
+			if ($hasRoleCount > 1 || $request->getContext() == null) {
 				$this->addColumn(
 					new GridColumn(
 						'context',

@@ -23,11 +23,11 @@
 	{fbvFormSection title="reviewer.step1.request"}
 		<p>{$reviewerRequest|nl2br}</p>
 	{/fbvFormSection}
-	{fbvFormSection label="submission.overview"}
-		{fbvElement type="text" id="title" label="submission.title" value=$submission->getLocalizedTitle() disabled=true}
+	{fbvFormSection label="submission.title"}
+		{$submission->getLocalizedTitle()|strip_unsafe_html}
 	{/fbvFormSection}
 	{fbvFormSection label="submission.description"}
-		{$submission->getLocalizedAbstract()}
+		{$submission->getLocalizedAbstract()|strip_unsafe_html}
 	{/fbvFormSection}
 
 	<div class="pkp_linkActions">

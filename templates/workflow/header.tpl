@@ -12,7 +12,8 @@
 	{assign var=authors value=$submission->getAuthors()}
 	{assign var=primaryAuthor value=$authors[0]}
 {/if}
-{assign var="pageTitleTranslated" value=$primaryAuthor->getLastName()|concat:", ":$submission->getLocalizedTitle()}
+{assign var=submissionTitleSafe value=$submission->getLocalizedTitle()|strip_unsafe_html}
+{assign var="pageTitleTranslated" value=$primaryAuthor->getLastName()|concat:", ":$submissionTitleSafe}
 {include file="common/header.tpl" suppressPageTitle=true}
 {/strip}
 

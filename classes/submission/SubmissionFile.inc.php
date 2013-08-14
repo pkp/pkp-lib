@@ -15,7 +15,6 @@
 import('lib.pkp.classes.file.PKPFile');
 
 // Define the file stage identifiers.
-define('SUBMISSION_FILE_PUBLIC', 1);
 define('SUBMISSION_FILE_SUBMISSION', 2);
 define('SUBMISSION_FILE_NOTE', 3);
 define('SUBMISSION_FILE_REVIEW_FILE', 4);
@@ -27,11 +26,9 @@ define('SUBMISSION_FILE_EDITOR', 8);
 define('SUBMISSION_FILE_COPYEDIT', 9);
 define('SUBMISSION_FILE_PROOF', 10);
 define('SUBMISSION_FILE_PRODUCTION_READY', 11);
-define('SUBMISSION_FILE_LAYOUT', 12);
 define('SUBMISSION_FILE_ATTACHMENT', 13);
 define('SUBMISSION_FILE_SIGNOFF', 14);
 define('SUBMISSION_FILE_REVIEW_REVISION', 15);
-define('SUBMISSION_FILE_SUPP', 16);
 define('SUBMISSION_FILE_DEPENDENT', 17);
 
 class SubmissionFile extends PKPFile {
@@ -529,7 +526,6 @@ class SubmissionFile extends PKPFile {
 	 */
 	function _fileStageToPath($fileStage) {
 		static $fileStageToPath = array(
-				SUBMISSION_FILE_PUBLIC => 'public',
 				SUBMISSION_FILE_SUBMISSION => 'submission',
 				SUBMISSION_FILE_NOTE => 'note',
 				SUBMISSION_FILE_REVIEW_FILE => 'submission/review',
@@ -545,7 +541,6 @@ class SubmissionFile extends PKPFile {
 				SUBMISSION_FILE_LAYOUT => 'submission/layout',
 				SUBMISSION_FILE_ATTACHMENT => 'attachment',
 				SUBMISSION_FILE_SIGNOFF => 'submission/signoff',
-				SUBMISSION_FILE_SUPP => 'submission/supp',
 		);
 
 		assert(isset($fileStageToPath[$fileStage]));

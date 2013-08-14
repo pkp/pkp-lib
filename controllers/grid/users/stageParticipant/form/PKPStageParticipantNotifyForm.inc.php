@@ -148,23 +148,23 @@ class PKPStageParticipantNotifyForm extends Form {
 			list($page, $operation) = SubmissionsListGridCellProvider::getPageAndOperationByUserRoles($request, $submission, $user->getId());
 			$submissionUrl = $dispatcher->url($request, ROUTE_PAGE, null, $page, $operation, array('submissionId' => $submission->getId()));
 
-			// these are for *_REQUEST emails
+			// Parameters for various emails
 			$email->assignParams(array(
-			// COPYEDIT_REQUEST
-					'copyeditorName' => $user->getFullName(),
-					'copyeditorUsername' => $user->getUsername(),
-					'submissionCopyeditingUrl' => $submissionUrl,
-					// LAYOUT_REQUEST
-					'layoutEditorName' => $user->getFullName(),
-					'submissionUrl' => $submissionUrl,
-					'layoutEditorUsername' => $user->getUsername(),
-					// LAYOUT_COMPLETE, INDEX_COMPLETE, EDITOR_ASSIGN
-					'editorialContactName' => $user->getFullname(),
-					// INDEX_REQUEST
-					'indexerName' => $user->getFullName(),
-					'indexerUsername' => $user->getUsername(),
-					// EDITOR_ASSIGN
-					'editorUsername' => $user->getUsername(),
+				// COPYEDIT_REQUEST
+				'copyeditorName' => $user->getFullName(),
+				'copyeditorUsername' => $user->getUsername(),
+				'submissionCopyeditingUrl' => $submissionUrl,
+				// LAYOUT_REQUEST
+				'layoutEditorName' => $user->getFullName(),
+				'submissionUrl' => $submissionUrl,
+				'layoutEditorUsername' => $user->getUsername(),
+				// LAYOUT_COMPLETE, INDEX_COMPLETE, EDITOR_ASSIGN
+				'editorialContactName' => $user->getFullname(),
+				// INDEX_REQUEST
+				'indexerName' => $user->getFullName(),
+				'indexerUsername' => $user->getUsername(),
+				// EDITOR_ASSIGN
+				'editorUsername' => $user->getUsername(),
 			));
 
 			$this->_createNotifications($request, $submission, $user, $template);

@@ -499,6 +499,38 @@ class ReviewAssignment extends DataObject {
 		if ($dateDue === null) return null;
 		return round((strtotime($dateDue) - time()) / (86400 * 7.0));
 	}
+
+	/**
+	 * Get an associative array matching reviewer recommendation codes with locale strings.
+	 * (Includes default '' => "Choose One" string.)
+	 * @return array recommendation => localeString
+	 */
+	function getReviewerRecommendationOptions() {
+
+		static $reviewerRecommendationOptions = array(
+				'' => 'common.chooseOne',
+				SUBMISSION_REVIEWER_RECOMMENDATION_ACCEPT => 'reviewer.article.decision.accept',
+				SUBMISSION_REVIEWER_RECOMMENDATION_PENDING_REVISIONS => 'reviewer.article.decision.pendingRevisions',
+				SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_HERE => 'reviewer.article.decision.resubmitHere',
+				SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_ELSEWHERE => 'reviewer.article.decision.resubmitElsewhere',
+				SUBMISSION_REVIEWER_RECOMMENDATION_DECLINE => 'reviewer.article.decision.decline',
+				SUBMISSION_REVIEWER_RECOMMENDATION_SEE_COMMENTS => 'reviewer.article.decision.seeComments'
+		);
+		return $reviewerRecommendationOptions;
+	}
+
+	/**
+	 * Return a localized string representing the reviewer recommendation.
+	 */
+	function getLocalizedRecommendation() {
+
+		$options = self::getReviewerRecommendationOptions();
+		if (array_key_exists($this->getRecommendation(), $options)) {
+			return __($options[$this->getRecommendation()]);
+		} else {
+			return '';
+		}
+	}
 }
 
 ?>

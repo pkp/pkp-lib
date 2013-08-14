@@ -50,7 +50,7 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 	function readInputData() {
 		// FIXME #5123: Include when review form infrastructure is in place
 		$this->readUserVars(
-			array(/*'reviewFormResponses', */ 'comments')
+			array(/*'reviewFormResponses', */ 'comments', 'recommendation')
 		);
 	}
 
@@ -67,6 +67,9 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 		$context = $this->request->getContext();
 		$templateMgr->assign('reviewAssignment', $reviewAssignment);
 		$templateMgr->assign('reviewRoundId', $reviewRoundId);
+
+		// Include the review recommendation options on the form.
+		$templateMgr->assign_by_ref('reviewerRecommendationOptions', ReviewAssignment::getReviewerRecommendationOptions());
 
 		/*  FIXME #5123: Include when review form infrastructure is in place
 		if($reviewAssignment->getReviewFormId()) {
@@ -178,6 +181,9 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 		// Mark the review assignment as completed.
 		$reviewAssignment->setDateCompleted(Core::getCurrentDate());
 		$reviewAssignment->stampModified();
+
+		// assign the recommendation to the review assignment, if there was one.
+		$reviewAssignment->setRecommendation((int) $this->getData('recommendation'));
 
 		// Persist the updated review assignment.
 		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */

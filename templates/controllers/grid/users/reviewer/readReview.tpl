@@ -48,6 +48,12 @@
 					</td>
 				</tr>
 			{/if}
+			{if $reviewAssignment->getRecommendation()}
+				<tr>
+					<td>{translate key="editor.article.recommendation"}:
+					{$reviewAssignment->getLocalizedRecommendation()}</td>
+				</tr>
+			{/if}
 			{if $reviewAssignment->getCompetingInterests()}
 				<tr valign="top"><td><br />
 					{$reviewAssignment->getCompetingInterests()|nl2br|strip_unsafe_html}

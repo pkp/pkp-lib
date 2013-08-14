@@ -65,7 +65,7 @@ class ArchivedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 		$contexts = $contextDao->getAll()->toArray();
 		$accessibleRoles = array(
 			ROLE_ID_MANAGER,
-			ROLE_ID_SERIES_EDITOR,
+			ROLE_ID_SUB_EDITOR,
 			ROLE_ID_REVIEWER,
 			ROLE_ID_ASSISTANT
 		);

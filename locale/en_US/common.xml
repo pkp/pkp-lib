@@ -478,7 +478,6 @@
 
 	<message key="dashboard.tasks">Tasks</message>
 	<message key="dashboard.submissions">Submissions</message>
-	<message key="dashboard.archives">Submission Archives</message>
 
 	<message key="review.blindPeerReview">
 		<![CDATA[<p>To ensure the integrity of the blind peer-review for submission to this press, every effort should be made to prevent the identities of the authors and reviewers from being known to each other. This involves the authors, editors, and reviewers (who upload documents as part of their review) checking to see if the following steps have been taken with regard to the text and the file properties:</p>

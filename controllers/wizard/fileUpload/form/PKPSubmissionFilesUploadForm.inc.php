@@ -53,6 +53,11 @@ class PKPSubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 			$request, 'controllers/wizard/fileUpload/form/fileUploadForm.tpl',
 			$submissionId, $stageId, $fileStage, $revisionOnly, $reviewRound, $revisedFileId, $assocType, $assocId
 		);
+
+		// Disable the genre selector for review file attachments
+		if ($fileStage == SUBMISSION_FILE_REVIEW_ATTACHMENT) {
+			$this->setData('reviewAttachment', true);
+		}
 	}
 
 
@@ -101,8 +106,10 @@ class PKPSubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 		// Retrieve the request context.
 		$router = $request->getRouter();
 		$context = $router->getContext($request);
-
-		if (!$revisedFileId) {
+		if (
+			$this->getData('fileStage') != SUBMISSION_FILE_REVIEW_ATTACHMENT and
+			!$revisedFileId
+		) {
 			// Add an additional check for the genre to the form.
 			$this->addCheck(
 				new FormValidatorCustom(

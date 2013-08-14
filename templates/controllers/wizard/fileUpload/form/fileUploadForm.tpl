@@ -109,6 +109,8 @@
 		{* Use case 3: Upload a new file or a revision *}
 		{assign var="showFileSelector" value=true}
 	{/if}
+	{* Disable the genre selector for reviewer attachements *}
+	{if $reviewAttachment}{assign var="showGenreSelector" value=false}{/if}
 {/if}
 
 {if $revisionOnlyWithoutFileOptions}
@@ -129,7 +131,9 @@
 				// File genres currently assigned to submission files.
 				fileGenres: {ldelim}
 					{foreach name=currentSubmissionFileGenres from=$currentSubmissionFileGenres key=submissionFileId item=fileGenre}
-						{$submissionFileId}: {$fileGenre}{if !$smarty.foreach.currentSubmissionFileGenres.last},{/if}
+						{if !empty($fileGenre)}
+							{$submissionFileId}: {$fileGenre}{if !$smarty.foreach.currentSubmissionFileGenres.last},{/if}
+						{/if}
 					{/foreach}
 				{rdelim},
 				$uploader: $('#plupload'),

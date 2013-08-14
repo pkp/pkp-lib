@@ -265,18 +265,22 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 
 		// Retrieve the submission file DAO.
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-		// We either need a genre id or a revised file, otherwise
-		// we cannot identify the target file implementation.
-		assert($genreId || $revisedFileId);
-		if (!$genreId || $revisedFileId) {
-			// Retrieve the revised file. (null $fileStage in case the revision is from a previous stage).
-			$revisedFile = $submissionFileDao->getLatestRevision($revisedFileId, null, $this->getSubmissionId());
-			if (!is_a($revisedFile, 'SubmissionFile')) return $nullVar;
+
+		// Except for reviewer file attchments we either need a genre id or a
+		// revised file, otherwise we cannot identify the target file
+		// implementation.
+		if ($fileStage != SUBMISSION_FILE_REVIEW_ATTACHMENT) {
+			assert($genreId || $revisedFileId);
+			if (!$genreId || $revisedFileId) {
+				// Retrieve the revised file. (null $fileStage in case the revision is from a previous stage).
+				$revisedFile = $submissionFileDao->getLatestRevision($revisedFileId, null, $this->getSubmissionId());
+				if (!is_a($revisedFile, 'SubmissionFile')) return $nullVar;
+			}
 		}
 
 		// If we don't have a genre then use the genre from the
 		// existing file.
-		if (!$genreId) {
+		if ($revisedFile and !$genreId) {
 			$genreId = $revisedFile->getGenreId();
 		}
 

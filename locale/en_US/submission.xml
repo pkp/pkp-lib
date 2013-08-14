@@ -590,4 +590,5 @@
 	<message key="log.review.reviewerAssigned">{$reviewerName} has been assigned to review submission {$submissionId} for review round {$round}.</message>
 	<message key="submission.document">Document</message>
 	<message key="submission.art">Artwork</message>
+	<message key="grid.action.itemWorkflow">Go to this submission's workflow</message>
 </locale>

@@ -389,4 +389,5 @@
 	<message key="grid.reviewAttachments.title">Συνημμένα Αξιολογητή</message>
 	<message key="workflow.review.externalReview">Εξωτερική Αξιολόγηση</message>
 	<message key="log.review.reviewerAssigned">Ο/Η {$reviewerName} έχει αναλάβει την αξιολόγηση της υποβολής {$submissionId} για τo γύρο αξιολόγησης {$round}.</message>
+	<message key="grid.action.itemWorkflow">Πήγαινε στο ροή εργασιών της υποβολής</message>
 </locale>

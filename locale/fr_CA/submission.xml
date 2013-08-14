@@ -457,4 +457,5 @@
 	<message key="log.review.reviewerAssigned">{$reviewerName} a été choisi pour évaluer la soumission {$submissionId} pour la {$round}e série de révisions.</message>
 	<message key="submission.art">Illustrations</message>
 	<message key="submission.document">Document</message>
+	<message key="grid.action.itemWorkflow">Aller au flux des travaux de cette soumission.</message>
 </locale>

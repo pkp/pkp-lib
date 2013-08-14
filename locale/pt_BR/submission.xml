@@ -399,4 +399,5 @@
 	<message key="grid.reviewAttachments.title">Anexos do avaliador</message>
 	<message key="workflow.review.externalReview">Avaliação externa</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} designado para avaliar a submissão {$submissionId} na rodada de avaliação {$round}.</message>
+	<message key="grid.action.itemWorkflow">Acessar o fluxograma de trabalho desta submissão</message>
 </locale>

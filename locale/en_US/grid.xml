@@ -22,6 +22,7 @@
 	<message key="grid.action.addItem">Add Item</message>
 	<message key="grid.action.addUser">Add User</message>
 	<message key="grid.action.approveCopyedit">Approve this copyedit file for sending it to the next stage</message>
+	<message key="grid.action.reload">Reload</message>
 	<message key="grid.action.delete">Delete</message>
 	<message key="grid.action.deleteFile">Delete File</message>
 	<message key="grid.action.deleteMedia">Delete Media</message>

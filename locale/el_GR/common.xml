@@ -286,6 +286,7 @@
 	<message key="form.startsWith">αρχίζει από</message>
 	<message key="notification.addedAuditor">Ο Ελγκτής (Autidor) έχει προστεθεί.</message>
 	<message key="notification.removedAuditor">Ο Ελγκτής (Autidor) έχει αφαιρεθεί.</message>
+	<message key="notification.reviewAcknowledged">Ο αξιολογητής επισημάνθηκε ως άγνωστος. Το Email δεν αποστέλλεται.</message>
 	<message key="notification.allow">Εμφάνιση αυτών των τύπων ειδοποιήσεων στην προσωπική μου ροή ειδοποιήσεων</message>
 	<message key="notification.confirmError">Παρουσίαστηκε ένα σφάλμα κατά την επιβεβαίωση της συνδρομής σας.</message>
 	<message key="notification.confirmSuccess">Η συνδρομή σας δημιουργήθηκε επιτυχώς.</message>

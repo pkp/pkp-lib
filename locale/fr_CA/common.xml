@@ -291,6 +291,7 @@
 	<message key="notification.updatedReviewFiles">Fichiers d'évaluation mis à jour.</message>
 	<message key="notification.addedAuditor">Un vérificateur a été ajouté.</message>
 	<message key="notification.removedAuditor">Le vérificateur a été supprimé.</message>
+	<message key="notification.reviewAcknowledged">On a accusé réception de l'évaluation. Aucun courriel envoyé.</message>
 	<message key="notification.allow">Permettre à ces types d'avis d'apparaître dans mon flux d'avis.</message>
 	<message key="notification.confirmError">Il s'est produit une erreur lors de la confirmation de votre abonnement.</message>
 	<message key="notification.confirmSuccess">Vous vous êtes abonné avec succès.</message>

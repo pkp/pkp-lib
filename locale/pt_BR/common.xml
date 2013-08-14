@@ -285,6 +285,7 @@
 	<message key="form.startsWith">iniciar por</message>
 	<message key="notification.addedAuditor">Auditor incluído.</message>
 	<message key="notification.removedAuditor">Auditor excluído.</message>
+	<message key="notification.reviewAcknowledged">Avaliação marcada como reconhecida. Mensagem não enviada.</message>
 	<message key="notification.allow">Exibir estas notificações no meu canal de notificações</message>
 	<message key="notification.confirmError">Ocorreu um erro ao confirmar sua assinatura.</message>
 	<message key="notification.confirmSuccess">Assinatura realizada com sucesso.</message>

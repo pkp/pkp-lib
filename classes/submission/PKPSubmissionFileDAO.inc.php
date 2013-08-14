@@ -625,15 +625,22 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 		static $genreCache = array();
 
 		if (!isset($genreCache[$genreId])) {
-			// We have to instantiate the genre to find out about
-			// its category.
-			$genreDao = DAORegistry::getDAO('GenreDAO'); /* @var $genreDao GenreDAO */
-			$genre =& $genreDao->getById($genreId);
+			if (is_null($genreId)) {
+				// If no genreId is given fall back to the document category
+				$genreCategory = GENRE_CATEGORY_DOCUMENT;
+
+			} else {
+				// We have to instantiate the genre to find out about
+				// its category.
+				$genreDao = DAORegistry::getDAO('GenreDAO'); /* @var $genreDao GenreDAO */
+				$genre =& $genreDao->getById($genreId);
+				$genreCategory = $genre->getCategory();
+			}
 
 			// Identify the file implementation.
 			$genreMapping = $this->getGenreCategoryMapping();
-			assert(isset($genreMapping[$genre->getCategory()]));
-			$genreCache[$genreId] = $genreMapping[$genre->getCategory()];
+			assert(isset($genreMapping[$genreCategory]));
+			$genreCache[$genreId] = $genreMapping[$genreCategory];
 		}
 
 		return $genreCache[$genreId];

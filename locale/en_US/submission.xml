@@ -591,4 +591,5 @@
 	<message key="submission.document">Document</message>
 	<message key="submission.art">Artwork</message>
 	<message key="grid.action.itemWorkflow">Go to this submission's workflow</message>
+	<message key="editor.review.personalMessageFromEditor">Message from the editor</message>
 </locale>

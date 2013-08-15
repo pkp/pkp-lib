@@ -44,7 +44,6 @@
 	<message key="editor.review.personalMessageToReviewer">Email to be sent to reviewer</message>
 	<message key="editor.review.importantDates">Important Dates</message>
 	<message key="editor.review.uploadRevision">Upload Revision</message>
-	<message key="editor.review.personalMessageFromEditor">Message from the editor</message>
 	<message key="editor.review.NotifyAuthorAccept">Notify the author of acceptance:</message>
 	<message key="editor.review.NotifyAuthorDecline">Notify the author of decision to decline submission:</message>
 	<message key="editor.review.NotifyAuthorRevisions">Notify the author of need for revisions:</message>

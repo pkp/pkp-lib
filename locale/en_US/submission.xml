@@ -467,6 +467,7 @@
 	<message key="submission.status.submission">Awaiting Editor Decision</message>
 	<message key="submission.status.unassigned">Unassigned</message>
 	<message key="submission.status.declined">Declined</message>
+	<message key="submission.status.published">Published</message>
 
 	<message key="submission.submit.uploadStep">1. Upload Submission</message>
 	<message key="submission.submit.uploadSubmissionFile">Upload Submission File</message>

@@ -390,4 +390,5 @@
 	<message key="workflow.review.externalReview">Εξωτερική Αξιολόγηση</message>
 	<message key="log.review.reviewerAssigned">Ο/Η {$reviewerName} έχει αναλάβει την αξιολόγηση της υποβολής {$submissionId} για τo γύρο αξιολόγησης {$round}.</message>
 	<message key="grid.action.itemWorkflow">Πήγαινε στο ροή εργασιών της υποβολής</message>
+	<message key="notification.type.editorAssignmentProduction">Για να ξεκινήσει η διαδικασία  παραγωγής μιας υποβολής πρέπει αυτή να ανατεθεί σε ένα επιμελητή παραγωγής (production editor). Παρακαλούμε προσθέστε έναν επιμελητή παραγωγής επιλέγοντας τον παραπάνω σύνδεσμο με τους Συμμετέχοντες.</message>
 </locale>

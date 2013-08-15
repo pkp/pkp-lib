@@ -458,4 +458,5 @@
 	<message key="submission.art">Illustrations</message>
 	<message key="submission.document">Document</message>
 	<message key="grid.action.itemWorkflow">Aller au flux des travaux de cette soumission.</message>
+	<message key="notification.type.editorAssignmentProduction">Il faut nommer un directeur de la production avant d'entamer le processus éditorial. Veuillez ajouter un directeur ou une directrice de la production en utilisant le lien Participants ci-dessus.</message>
 </locale>

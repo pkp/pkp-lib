@@ -401,4 +401,5 @@
 	<message key="log.review.reviewerAssigned">{$reviewerName} designado para avaliar a submissão {$submissionId} na rodada de avaliação {$round}.</message>
 	<message key="grid.action.itemWorkflow">Acessar o fluxograma de trabalho desta submissão</message>
 	<message key="notification.type.editorAssignmentProduction">Um editor de produção deve ser designado antes de iniciar o processo de produção. Inclua um editor de produção usando o link de Participantes acima.</message>
+	<message key="notification.type.editorAssignmentEditing">Um editor de produção deve ser designado antes de iniciar o processo editorial. Inclua um editor de produção usando o link de Participantes acima.</message>
 </locale>

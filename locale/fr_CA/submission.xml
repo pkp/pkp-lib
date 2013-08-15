@@ -459,4 +459,5 @@
 	<message key="submission.document">Document</message>
 	<message key="grid.action.itemWorkflow">Aller au flux des travaux de cette soumission.</message>
 	<message key="notification.type.editorAssignmentProduction">Il faut nommer un directeur de la production avant d'entamer le processus éditorial. Veuillez ajouter un directeur ou une directrice de la production en utilisant le lien Participants ci-dessus.</message>
+	<message key="notification.type.editorAssignmentEditing">Il faut nommer un rédacteur metteur en page avant d'entamer le processus éditorial. Veuillez ajouter un rédacteur metteur en page en utilisant le lien Participants ci-dessus.</message>
 </locale>

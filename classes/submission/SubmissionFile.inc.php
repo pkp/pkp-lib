@@ -538,7 +538,6 @@ class SubmissionFile extends PKPFile {
 				SUBMISSION_FILE_DEPENDENT => 'submission/proof',
 				SUBMISSION_FILE_PROOF => 'submission/proof',
 				SUBMISSION_FILE_PRODUCTION_READY => 'submission/productionReady',
-				SUBMISSION_FILE_LAYOUT => 'submission/layout',
 				SUBMISSION_FILE_ATTACHMENT => 'attachment',
 				SUBMISSION_FILE_SIGNOFF => 'submission/signoff',
 		);

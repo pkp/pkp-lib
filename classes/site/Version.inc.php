@@ -277,6 +277,7 @@ class Version extends DataObject {
 	function getVersionString($numeric = true) {
 		$numericVersion = sprintf('%d.%d.%d.%d', $this->getMajor(), $this->getMinor(), $this->getRevision(), $this->getBuild());
 		if (!$numeric && $this->getProduct() == 'omp' && preg_match('/^0\.9\.9\./', $numericVersion)) return ('1.0 Beta');
+		if (!$numeric && $this->getProduct() == 'ojs' && preg_match('/^2\.9\.0\./', $numericVersion)) return ('3.0 Alpha 1');
 		return $numericVersion;
 	}
 }

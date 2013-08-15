@@ -154,9 +154,14 @@ class SubmissionsListGridCellProvider extends DataObjectGridCellProvider {
 					$returner = array('label' => __('submission.status.unassigned'));
 				}
 
-				// Handle declined submissions
-				if ($submission->getStatus() == STATUS_DECLINED) {
-					$returner = array('label' => __('submission.status.declined'));
+				// Handle declined and published submissions
+				switch ($submission->getStatus()) {
+					case STATUS_DECLINED:
+						$returner = array('label' => __('submission.status.declined'));
+						break;
+					case STATUS_PUBLISHED:
+						$returner = array('label' => __('submission.status.published'));
+						break;
 				}
 
 				return $returner;

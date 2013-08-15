@@ -27,8 +27,12 @@ class ArchivedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 	function ArchivedSubmissionsListGridHandler() {
 		parent::SubmissionsListGridHandler();
 		$this->addRoleAssignment(
-			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR),
+			array(ROLE_ID_REVIEWER, ROLE_ID_ASSISTANT, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR),
 			array('fetchGrid', 'fetchRow', 'deleteSubmission')
+		);
+		$this->addRoleAssignment(
+			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR),
+			array('deleteSubmission')
 		);
 	}
 

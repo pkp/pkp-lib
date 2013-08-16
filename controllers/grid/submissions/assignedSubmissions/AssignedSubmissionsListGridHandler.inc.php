@@ -46,7 +46,6 @@ class AssignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 		$this->setTitle('common.queue.long.myAssigned');
 	}
 
-
 	//
 	// Implement template methods from SubmissionListGridHandler
 	//
@@ -55,55 +54,12 @@ class AssignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 	 */
 	function getSubmissions($request, $userId) {
 		$submissionDao = Application::getSubmissionDAO();
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		$signoffDao = DAORegistry::getDAO('SignoffDAO');
-		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-		$authorDao = DAORegistry::getDAO('AuthorDAO');
+		$submissionFactory = $submissionDao->getAssigned(
+			$userId,
+			$this->getGridRangeInfo($request, $this->getId())
+		);
 
-		// Get submissions the user is a stage participant for
-		$signoffs = $signoffDao->getByUserId($userId);
-
-		$authorUserGroupIds = $userGroupDao->getUserGroupIdsByRoleId(ROLE_ID_AUTHOR);
-
-		$data = array();
-
-		// get signoffs and stage assignments
-		$stageAssignments = $stageAssignmentDao->getByUserId($userId);
-		while($stageAssignment = $stageAssignments->next()) {
-			$submission = $submissionDao->getAssignedById($stageAssignment->getSubmissionId(), $userId);
-			if (!$submission) continue;
-
-			$submissionId = $submission->getId();
-			$data[$submissionId] = $submission;
-		}
-
-		while($signoff = $signoffs->next()) {
-			// If it is a submission signoff (and not, say, a file signoff) and
-			// If this is an author signoff, do not include (it will be in the 'my submissions' grid)
-			if( $signoff->getAssocType() == ASSOC_TYPE_SUBMISSION &&
-				!in_array($signoff->getUserGroupId(), $authorUserGroupIds)) {
-				$submission = $submissionDao->getById($signoff->getAssocId());
-				$submissionId = $submission->getId();
-				if ($submission->getStatus() != STATUS_DECLINED) {
-					$data[$submissionId] = $submission;
-				}
-			}
-		}
-
-		// Get submissions the user is reviewing
-		$reviewerSubmissionDao = DAORegistry::getDAO('ReviewerSubmissionDAO'); /* @var $reviewerSubmissionDao ReviewerSubmissionDAO */
-		$reviewerSubmissions = $reviewerSubmissionDao->getReviewerSubmissionsByReviewerId($userId);
-		while($reviewerSubmission = $reviewerSubmissions->next()) {
-			$submissionId = $reviewerSubmission->getId();
-			if (!isset($data[$submissionId])) {
-				// Only add if not already provided above --
-				// otherwise reviewer workflow link may
-				// clobber editorial workflow link
-				$data[$submissionId] = $reviewerSubmission;
-			}
-		}
-
-		return $data;
+		return $submissionFactory;
 	}
 }
 

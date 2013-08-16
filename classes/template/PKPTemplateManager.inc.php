@@ -88,7 +88,6 @@ class PKPTemplateManager extends Smarty {
 
 		// Assign common variables
 		$this->styleSheets = array();
-		$this->assign('stylesheets', $this->styleSheets);
 
 		$this->javaScripts = array();
 
@@ -270,6 +269,10 @@ class PKPTemplateManager extends Smarty {
 			// the same scripts twice in case the template manager is called again.
 			$this->javaScripts = array();
 		}
+
+		$this->assign('stylesheets', $this->styleSheets);
+		$this->styleSheets = array();
+
 		return parent::fetch($resource_name, $cache_id, $compile_id, $display);
 	}
 

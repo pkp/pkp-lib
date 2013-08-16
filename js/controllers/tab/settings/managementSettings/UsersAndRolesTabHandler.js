@@ -78,7 +78,7 @@
 
 		var $element, jsonObject, prop;
 
-		jsonObject = $.parseJSON(data);
+		jsonObject = /** @type {{content: {oldUserId: string}}} */ $.parseJSON(data);
 
 		if (this.userGridContentUrl_ && jsonObject.content.oldUserId) {
 			$element = this.getHtmlElement();
@@ -100,7 +100,7 @@
 	$.pkp.controllers.tab.settings.managementSettings.UsersAndRolesTabHandler.
 			prototype.updateTabsHandler_ = function(ajaxContext, data) {
 
-		var jsonData = /** @type {{formats: Object}} */ (this.handleJson(data)),
+		var jsonData = /** @type {{content: string}} */ (this.handleJson(data)),
 				$element = this.getHtmlElement(),
 				currentTab = $element.find('div').first();
 		$(currentTab).replaceWith(jsonData.content);

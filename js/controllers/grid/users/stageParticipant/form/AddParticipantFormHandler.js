@@ -23,7 +23,7 @@
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.controllers.form.AjaxFormHandler
+	 * @extends $.pkp.controllers.grid.users.stageParticipant.form.StageParticipantNotifyHandler
 	 *
 	 * @param {jQueryObject} $form the wrapped HTML form element.
 	 * @param {Object} options form options.

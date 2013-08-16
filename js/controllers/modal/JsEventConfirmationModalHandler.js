@@ -62,7 +62,7 @@
 	/**
 	 * An array of extra information to be passed along with the event.
 	 * @private
-	 * @type {?string}
+	 * @type {?Array}
 	 */
 	$.pkp.controllers.modal.JsEventConfirmationModalHandler.prototype.
 			extraArguments_ = null;
@@ -100,7 +100,8 @@
 	$.pkp.controllers.modal.JsEventConfirmationModalHandler.prototype.
 			modalConfirm = function(dialogElement) {
 
-		this.trigger(this.jsEvent_, this.extraArguments_);
+		this.trigger(/** @type {string} */ (this.jsEvent_),
+				/** @type {Array} */ (this.extraArguments_));
 		this.modalClose(dialogElement);
 	};
 /** @param {jQuery} $ jQuery closure. */

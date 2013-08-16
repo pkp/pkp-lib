@@ -440,7 +440,7 @@
 	 * @private
 	 * @param {Object} object The window object.
 	 * @param {Event} event The before unload event.
-	 * @return {?string} The warning message string, if needed.
+	 * @return {string|undefined} The warning message string, if needed.
 	 */
 	$.pkp.controllers.SiteHandler.prototype.pageUnloadHandler_ =
 			function(object, event) {
@@ -464,7 +464,7 @@
 		if (unsavedElementCount > 0) {
 			return $.pkp.locale.form_dataHasChanged;
 		}
-		return null;
+		return undefined;
 	};
 
 

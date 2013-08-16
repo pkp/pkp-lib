@@ -54,12 +54,10 @@ class AssignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 	 */
 	function getSubmissions($request, $userId) {
 		$submissionDao = Application::getSubmissionDAO();
-		$submissionFactory = $submissionDao->getAssigned(
+		return $submissionDao->getAssigned(
 			$userId,
 			$this->getGridRangeInfo($request, $this->getId())
 		);
-
-		return $submissionFactory;
 	}
 }
 

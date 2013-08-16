@@ -21,7 +21,6 @@
 	<message key="installer.clientCharsetInstructions">Hizmet vericiden veri gönderme ve alma için şifreleme.</message>
 	<message key="installer.configFileError"><![CDATA[<tt>config.inc.php</tt> adlı konfigürasyon dosyası mevcut değil veya okunabilir değil.]]></message>
 	<message key="installer.connectionCharset">Bağlantı karakter seti</message>
-	<message key="installer.connectionCharsetInstructions"><![CDATA[Veri tabanından veri almak ve göndermek için kodlama kullanın. Bu istemci karakter seti ile aynı olmalıdır. Bunu sadece MySQL > = 4.1.1 veya PostgreSQL> = 7.1. ile desteklendiğini unutmayın. Veri tabanı sunucusu bu gereksinimleri karşılamıyorsa "Uygulanamaz" seçeneğini seçin.]]></message>
 	<message key="installer.contentsOfConfigFile">Konfigürasyon dosyasının içeriği</message>
 	<message key="installer.createDatabase">Yeni veri tabanı oluştur</message>
 	<message key="installer.createDatabaseInstructions">Bu seçeneği kullanmak için veri tabanı sisteminiz uzaktan erişilebilir sistemi desteklemeli ve kullanıcı hesabınız yeni veri tabanı oluşturmak için giriş iznine sahip olmalıdır. Eğer bu seçenek kullanıldığında yükleme başarısız olursa veri tabanını sunucunuzda manuel olarak oluşturun. Daha sonra bu seçeneği pasif durumda bırakarak kurulumu yeniden çalıştırın.</message>
@@ -30,7 +29,6 @@
 	<message key="installer.databaseDriver">Veri tabanı sürücüsü</message>
 	<message key="installer.databaseHostInstructions">Alan (domain) soketleri yerine TCP/IP üzerinden bağlanmak için"hostname"i boş bırakın. "localhost" bilgisi girildiyse soketler otomatik olarak kullanılacaktır. Bu MySQL için gerekli değildir, fakat PstgreSQL gibi bazı veri tabanı sunucuları için gereklidir.</message>
 	<message key="installer.databaseHost">Ana Bilgisayar</message>
-	<message key="installer.databaseHostInstructions">Leave the hostname blank to connect using domain sockets instead of over TCP/IP. This is not necessary with MySQL, which will automatically use sockets if "localhost" is entered, but is required with some other database servers such as PostgreSQL.</message>
 	<message key="installer.databaseName">Veri tabanı adı</message>
 	<message key="installer.databasePassword">Şifre</message>
 	<message key="installer.databaseSettings">Veri Tabanı Ayarları</message>
@@ -66,7 +64,7 @@
 	<message key="installer.publicFilesDirError">Genel dosya dizini mevcut değil veya yazılabilir değil.</message>
 	<message key="installer.releaseNotes">Sürüm Notları</message>
 	<message key="installer.securitySettings">Güvenlik Ayarları</message>
-	<message key="installer.databaseCharsetInstructions"><![CDATA[Kodlama veri tabanında depolanan veriler için kullanılacaktır. Bu özelliği yalnızca MySQL> = 4.1.1 veya PostgreSQL> = 7.1 ve üsüt sürümlerin desteklendiğini unutmayın. Veri tabanı sunucusu bu gereksinimleri karşılamıyorsa "Uygulanamaz" seçeneğini seçin.]]></message>
+	<message key="installer.databaseCharsetInstructions"><![CDATA[Kodlama veri tabanında depolanan veriler için kullanılacaktır.]]></message>
 	<message key="installer.installParseFilterConfigFileError"><![CDATA[Filitre konfigürasyon dosyası <tt>{$file}</tt> ayrıştırma hatası.]]></message>
 	<message key="installer.oaiSettings">OAI Ayarları</message>
 </locale>

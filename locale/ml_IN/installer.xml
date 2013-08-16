@@ -23,12 +23,10 @@
 	<message key="installer.connectionCharset">കണഷന്‍ കാരക്ടര്‍ സെറ്റ്</message>
 	<message key="installer.contentsOfConfigFile">കോണ്‍ഫിഗരേഷന്‍ ഫയലിന്റെ ഉള്ളടക്കം</message>
 	<message key="installer.createDatabase">പുതിയ ഡാറ്റാബേസ്സ് നിര്‍മ്മിക്കുക</message>
-	<message key="installer.createDatabaseInstructions">To use this option your database system must support remote database creation and your user account must have the appropriate permissions to create new databases. If installation fails with this option selected, manually create the database on your server and run the installer again with this option disabled.</message>
 	<message key="installer.databaseCharset">ഡാറ്റാബേസ് കാരക്ടര്‍ സെറ്റ്</message>
 	<message key="installer.databaseDriver">ഡാറ്റാബേസ്സ് ഡ്രിവര്‍</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Database drivers listed in brackets do not appear to have the required PHP extension loaded and installation will likely fail if selected.</strong><br />Any unsupported database drivers listed above are listed solely for academic purposes and are unlikely to work.]]></message>
 	<message key="installer.databaseHost">ഹോസ്റ്റ്</message>
-	<message key="installer.databaseHostInstructions">Leave the hostname blank to connect using domain sockets instead of over TCP/IP. This is not necessary with MySQL, which will automatically use sockets if "localhost" is entered, but is required with some other database servers such as PostgreSQL.</message>
 	<message key="installer.databaseName">ഡാറ്റാബേസ്സിന്റെ പേര്</message>
 	<message key="installer.databasePassword">പാസ്സ് വേഡ്</message>
 	<message key="installer.databaseSettings">ഡാറ്റാബേസ്സ് ക്രമീകരണം</message>
@@ -48,19 +46,14 @@
 	<message key="installer.form.separateMultiple">ബഹുഗുണമുളള വാക്കുകളെ കോമ ഉപയോഗിച്ച് വേര്‍തിരിക്കുക</message>
 	<message key="installer.form.usernameAlphaNumeric">അഡ്മിനിസ്ട്രേറ്റിവ് യൂസര്‍ നാമത്തില്‍ ആല്ഫാ നൂമെറിക് കാരക്ടര്‍,അണ്ടര്‍സ്കോര്‍,ഹൈഫന്‍ എന്നിവയേ പാടുളളു,തുടങ്ങുന്നതും അവസാനിക്കുന്നതും ആല്ഫാ നൂമെറിക് കാരക്ടരില്‍ ആയിരിക്കണം.</message>
 	<message key="installer.form.usernameRequired">അഡ്മിനിസ്ട്രേറ്റര്‍ അക്കൗണ്ടിനു വേണ്ടി ഒരു യൂസര്‍ നാമം ആവശ്യമാണ്.</message>
-	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>WARNING: Your current version of PHP does not meet the minimum requirements for installation. It is recommended to upgrade to a more recent release of PHP.</strong>]]></message>
 	<message key="installer.installErrorsOccurred">ഇന്‍സ്റ്റാളേഷന്‍ നടന്നപ്പോള്‍ തെറ്റുകള്‍ സംഭവിച്ചു</message>
 	<message key="installer.installerSQLStatements">ഇന്‍സ്റ്റാളേഷനു വേണ്ടിയുളള എസ്.ക്യു.എല്‍ കുറിപ്പ്</message>
-	<message key="installer.installFileError"><![CDATA[The installation file <tt>dbscripts/xml/install.xml</tt> does not exist or is not readable.]]></message>
 	<message key="installer.installFilesDirError">അപ് ലോഡ് ചെയ്ത ഫയലുകള്‍ക്കായുളള നിര്‍ദ്ദിഷ്ട ഡയറക്ടറി നിലവിലില്ല.</message>
-	<message key="installer.installParseDBFileError"><![CDATA[Error parsing the database installation file <tt>{$file}</tt>.]]></message>
-	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Error parsing the email template file <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale">ലൊക്കേല്‍</message>
 	<message key="installer.locale.maybeIncomplete">അടയാളപ്പെടുത്തിയിരിക്കുന്ന ലൊക്കേലുകള്‍ അപൂര്‍ണ്ണമായിരിക്കാം.</message>
 	<message key="installer.localeSettings">ലൊക്കേല്‍ ക്രമീകരണങ്ങള്‍</message>
 	<message key="installer.manualInstall">മാനുവല്‍ ഇന്‍സ്റ്റാള്‍</message>
 	<message key="installer.miscSettings">ബഹുവിധ ക്രമീകരണങ്ങള്‍</message>
-	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[A unique identifier used to identify metadata records indexed from this site using the <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protocol for Metadata Harvesting.]]></message>
 	<message key="installer.oaiRepositoryId">ഒ.എ.ഐ സങ്കേതത്തിലേക്കുളള തിരിച്ചറിയല്‍</message>
 	<message key="installer.pleaseUpgradeAfterManualInstall">താങ്കളുടെ ഡേറ്റാബേസ് ഇന്‍സ്റ്റാള്‍ ചെയ്തതിനു ശേഷം ദയവായി അപ്ഗ്രേഡ് ടൂള്‍ പ്രവര്‍ത്തിക്കുന്നുണ്ടോയെന്ന് പരിശോധിക്കുക.ഇതിനായി ഇന്‍സ്റ്റളേഷന്‍ ഡയറക്ടറിയില്‍ നിന്നും 'php tools/upgrade.php upgrade ചെയ്യുക.</message>
 	<message key="installer.publicFilesDirError">പൊതു ഫയലുകളുടെ ഡയറക്ടറി നിലവിലില്ല.</message>

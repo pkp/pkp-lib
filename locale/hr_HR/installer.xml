@@ -21,12 +21,11 @@
 	<message key="installer.clientCharsetInstructions">Enkoding koji se koristi za slanje i primanje podataka iz preglednika.</message>
 	<message key="installer.configFileError"><![CDATA[Konfiguracijska datoteka <tt>config.inc.php</tt> ne postoji ili je nečitljiva.]]></message>
 	<message key="installer.connectionCharset">Skupina znakova konekcije</message>
-	<message key="installer.connectionCharsetInstructions"><![CDATA[Kodna stranica koja se koristi za slanje i primanje podataka iz baze podataka. To bi trebalo biti isto kao i skupina znakova klijenta. Uzmite u obzir da je ova mogućnost podržana s MySQL-om >= 4.1.1 ili PostgreSQL-om >= 7.1. Odaberite "nije primjenjivo" ako vaš poslužitelj baze podataka ne podržava ove zahtjeve.]]></message>
 	<message key="installer.contentsOfConfigFile">Sadržaj konfiguracijske datoteke</message>
 	<message key="installer.createDatabase">Kreiraj novu bazu podataka</message>
 	<message key="installer.createDatabaseInstructions">Da biste koristili ovu opciju, sustav vaše baze podataka mora podržavati kreiranje udaljene baze podataka i vaš koristički račun mora imati prikladne dozvole za kreiranje nove baze podataka. Ukoliko instalacija nije uspjela s ovom odabranom mogućnošću, ručno kreirajte bazu podataka na vašem poslužitelju i ponovno pokrenite instalacijski program bez ove opcije.</message>
 	<message key="installer.databaseCharset">Skupina znakova baze podataka</message>
-	<message key="installer.databaseCharsetInstructions"><![CDATA[Enkoding koji se koristi za podatke pohranjene u bazi podataka. Uzmite u obzir da je ova mogućnost podržana s MySQL-om >= 4.1.1 ili PostgreSQL-om >= 7.1. Odaberite "nije primjenjivo" ako vaš poslužitelj baze podataka ne podržava ove zahtjeve.]]></message>
+	<message key="installer.databaseCharsetInstructions"><![CDATA[Enkoding koji se koristi za podatke pohranjene u bazi podataka.]]></message>
 	<message key="installer.databaseDriver">Upravljač baze podataka</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Upravljači baze podataka izlistani u uglatim zagradama nemaju učitanu potrebnu PHP ekstenziju i instalacija će vjerovatno podbaciti ukoliko su odabrani.</strong><br />Bilo koji nepodržani dolje izlistani upravljači baza podataka su izlistani isključivo za akademske svrhe i vjerovatno neće raditi.]]></message>
 	<message key="installer.databaseHost">Domaćin</message>

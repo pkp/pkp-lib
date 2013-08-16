@@ -22,12 +22,11 @@
 	<message key="installer.clientCharsetInstructions">La codifica da utilizzare per l'invio e ricezione dei dati dai browser.</message>
 	<message key="installer.configFileError"><![CDATA[Il file di configurazione <tt>config.inc.php</tt> non esiste o non &#x00E8; leggibile.]]></message>
 	<message key="installer.connectionCharset">Set di caratteri per la connessione</message>
-	<message key="installer.connectionCharsetInstructions"><![CDATA[La codifica da usare per i dati inviati a e ricevuti daldatabase. Questa dovrebbe essere la stessa del set di caratteri del client. Nota che questa funzionalità è supportata solo da MySQL >= 4.1.1 o PostgreSQL >= 7.1. Seleziona "Non  applicabile" se il server della tua banca dati non riscontra questi requisiti.]]></message>
 	<message key="installer.contentsOfConfigFile">Contenuti del file di configurazione</message>
 	<message key="installer.createDatabase">Crea nuovo database</message>
 	<message key="installer.createDatabaseInstructions">Per utilizzare questa opzione il vostro database deve supportare la creazione remota di database e il vostro account utente deve avere i permessi adeguati. Se con questa opzione selezionata l'installazione dovesse fallire, creare il database manualmente e ripetete il processo d'installazione disabilitando quest'opzione.</message>
 	<message key="installer.databaseCharset">Set di caratteri del database</message>
-	<message key="installer.databaseCharsetInstructions"><![CDATA[La codifica da usare per l'immagazzinamento dei dati in banca dati. Nota che questa funzionalità è supportata solo da MySQL >= 4.1.1 o PostgreSQL >= 7.1. Seleziona "Non  applicabile" se il server della tua banca dati non riscontra questi requisiti.]]></message>
+	<message key="installer.databaseCharsetInstructions"><![CDATA[La codifica da usare per l'immagazzinamento dei dati in banca dati.]]></message>
 	<message key="installer.databaseDriver">Driver del database</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>I driver elencati tra parentesi non sembrano avere la necessaria estensione PHP caricata; verosimilmente l'installazione fallirà se li si seleziona.</strong><br />Tutti i database non supportati sono elencati solo per scopi accademici e non è garantito il loro funzionamento.]]></message>
 	<message key="installer.databaseHost">Host</message>

@@ -129,13 +129,14 @@ class PKPTemporaryFileManager extends FileManager {
 		$newFileName = basename(tempnam($this->filesDir, $fileExtension));
 		if (!$newFileName) return false;
 
+		$uploadedFileType = $this->getUploadedFileType($fileName);
 		if ($this->uploadFile($fileName, $this->filesDir . $newFileName)) {
 			$temporaryFileDao =& DAORegistry::getDAO('TemporaryFileDAO');
 			$temporaryFile = new TemporaryFile();
 
 			$temporaryFile->setUserId($userId);
 			$temporaryFile->setFileName($newFileName);
-			$temporaryFile->setFileType($this->getUploadedFileType($fileName));
+			$temporaryFile->setFileType($uploadedFileType);
 			$temporaryFile->setFileSize($_FILES[$fileName]['size']);
 			$temporaryFile->setOriginalFileName(TemporaryFileManager::truncateFileName($_FILES[$fileName]['name'], 127));
 			$temporaryFile->setDateUploaded(Core::getCurrentDate());

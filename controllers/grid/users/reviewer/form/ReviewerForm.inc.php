@@ -180,17 +180,21 @@ class ReviewerForm extends Form {
 		$this->setData('reviewerId', $reviewerId);
 
 		import('lib.pkp.classes.mail.SubmissionMailTemplate');
-		$template = new SubmissionMailTemplate($submission, 'REVIEW_REQUEST');
+
+		$context = $request->getContext();
+		$template = REVIEW_REQUEST;
+		if ($context->getSetting('reviewerAccessKeysEnabled')) {
+			$template = REVIEW_REQUEST_ONECLICK;
+		}
+		$template = new SubmissionMailTemplate($submission, $template);
 		if ($template) {
 			$user = $request->getUser();
 			$dispatcher = $request->getDispatcher();
-			$context = $request->getContext();
 			$template->assignParams(array(
 				'contextUrl' => $dispatcher->url($request, ROUTE_PAGE, $context->getPath()),
 				'editorialContactSignature' => $user->getContactSignature(),
 				'signatureFullName' => $user->getFullname(),
 				'messageToReviewer' => __('reviewer.step1.requestBoilerplate'),
-				'submissionReviewUrl' => $dispatcher->url($request, ROUTE_PAGE, null, 'reviewer', 'submission', null, array('submissionId' => $this->getSubmissionId()))
 			));
 		}
 		$this->setData('personalMessage', $template->getBody() . "\n" . $context->getSetting('emailSignature'));
@@ -301,9 +305,14 @@ class ReviewerForm extends Form {
 			}
 		}
 
+		$template = REVIEW_REQUEST;
+		if ($context->getSetting('reviewerAccessKeysEnabled')) {
+			$template = REVIEW_REQUEST_ONECLICK;
+		}
+
 		// Notify the reviewer via email.
 		import('lib.pkp.classes.mail.SubmissionMailTemplate');
-		$mail = new SubmissionMailTemplate($submission, 'REVIEW_REQUEST', null, null, null, false);
+		$mail = new SubmissionMailTemplate($submission, $template, null, null, null, false);
 
 		if ($mail->isEnabled() && !$this->getData('skipEmail')) {
 			$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
@@ -313,12 +322,23 @@ class ReviewerForm extends Form {
 			$mail->setBody($this->getData('personalMessage'));
 			$dispatcher = $request->getDispatcher();
 
-			// assign the remaining parameters
+			// Set the additional arguments for the one click url
+			$reviewUrlArgs = array('submissionId' => $this->getSubmissionId());
+			if ($context->getSetting('reviewerAccessKeysEnabled')) {
+				import('lib.pkp.classes.security.AccessKeyManager');
+				$accessKeyManager = new AccessKeyManager();
+				$expiryDays = $context->getSetting('numWeeksPerReview') + 4 * 7;
+				$accessKey = $accessKeyManager->createKey($context->getId(), $reviewerId, $reviewAssignment->getId(), $expiryDays);
+				$reviewUrlArgs = array_merge($reviewUrlArgs, array('reviewId' => $reviewAssignment->getId(), 'key' => $accessKey));
+			}
+
+			// Assign the remaining parameters
 			$paramArray = array(
 				'reviewerName' => $reviewer->getFullName(),
 				'responseDueDate' => $responseDueDate,
 				'reviewDueDate' => $reviewDueDate,
 				'reviewerUserName' => $reviewer->getUsername(),
+				'submissionReviewUrl' => $dispatcher->url($request, ROUTE_PAGE, null, 'reviewer', 'submission', null, $reviewUrlArgs)
 			);
 			$mail->assignParams($paramArray);
 			$mail->send($request);

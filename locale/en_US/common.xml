@@ -248,6 +248,7 @@
 	<message key="common.yes">Yes</message>
 	<message key="common.loading">Loading ...</message>
 	<message key="common.plugins">Plugins</message>
+	<message key="common.metric">Metric</message>
 	<message key="debug.databaseQueries">Number of database queries</message>
 	<message key="debug.executionTime">Page generated in</message>
 	<message key="debug.memoryUsage">Memory Usage</message>

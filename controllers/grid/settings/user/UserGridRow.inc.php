@@ -150,20 +150,23 @@ class UserGridRow extends GridRow {
 				$actionArgs['oldUserId'] = $this->getOldUserId();
 				$actionArgs['newUserId'] = $rowId;
 
-				$userDao = DAORegistry::getDAO('UserDAO');
-				$oldUser =& $userDao->getById($this->getOldUserId());
-				$this->addAction(
-					new LinkAction(
-						'mergeUser',
-						new RemoteActionConfirmationModal(
-							__('grid.user.mergeUsers.confirm', array('oldUsername' => $oldUser->getUsername(), 'newUsername' => $element->getUsername())),
-							null,
-							$router->url($request, null, null, 'mergeUsers', null, $actionArgs),
-							'modal_merge_users'
-						),
-						__('grid.user.mergeUsers.mergeIntoUser'),
-						'merge_users')
-				);
+				// Don't merge a user in itself
+				if ($actionArgs['oldUserId'] != $actionArgs['newUserId']) {
+					$userDao = DAORegistry::getDAO('UserDAO');
+					$oldUser =& $userDao->getById($this->getOldUserId());
+					$this->addAction(
+						new LinkAction(
+							'mergeUser',
+							new RemoteActionConfirmationModal(
+								__('grid.user.mergeUsers.confirm', array('oldUsername' => $oldUser->getUsername(), 'newUsername' => $element->getUsername())),
+								null,
+								$router->url($request, null, null, 'mergeUsers', null, $actionArgs),
+								'modal_merge_users'
+							),
+							__('grid.user.mergeUsers.mergeIntoUser'),
+							'merge_users')
+					);
+				}
 
 			} else {
 				if ($rowId > 1) {  // do not allow the deletion of the admin account.

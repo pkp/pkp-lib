@@ -105,9 +105,8 @@ class PKPApplication {
 		// Starting from PHP 5.3.0 PHP will throw an E_WARNING if the default
 		// time zone is not set and date/time functions are used
 		// http://pl.php.net/manual/en/function.date-default-timezone-set.php
-		if ($timeZone = AppLocale::getTimeZone()) {
-			date_default_timezone_set($timeZone);
-		}
+		$timeZone = AppLocale::getTimeZone();
+		date_default_timezone_set($timeZone);
 
 		String::init();
 		set_error_handler(array($this, 'errorHandler'));

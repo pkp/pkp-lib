@@ -643,16 +643,13 @@ class PKPLocale {
 	}
 
 	/**
-	 * Get the sites time zone. This will try to load the time zone setting from
-	 * config.inc.php. In case the time zone is not specified there it will
-	 * fall back to the time zone specified in php.ini. If this is not set
-	 * either it will default to UTC.
+	 * Get the sites time zone.
 	 * @return string Time zone
 	 */
 	static function getTimeZone() {
 		$timeZone = null;
 
-		// Load the time zone from the config
+		// Load the time zone from the configuration file
 		if ($timeZoneConfig = Config::getVar('general', 'time_zone')) {
 			$timeZoneDAO = DAORegistry::getDAO('TimeZoneDAO');
 			$timeZoneList = $timeZoneDAO->getTimeZones();
@@ -665,10 +662,10 @@ class PKPLocale {
 		}
 
 		// Fall back to the time zone set in php.ini
-		if (empty($timeZone)) { $timeZone = ini_get('date.timezone'); }
+		if (empty($timeZone)) $timeZone = ini_get('date.timezone');
 
 		// Fall back to UTC
-		if (empty($timeZone)) { $timeZone = 'UTC'; }
+		if (empty($timeZone)) $timeZone = 'UTC';
 
 		return $timeZone;
 	}

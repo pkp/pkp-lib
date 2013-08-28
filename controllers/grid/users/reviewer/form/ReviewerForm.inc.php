@@ -182,11 +182,8 @@ class ReviewerForm extends Form {
 		import('lib.pkp.classes.mail.SubmissionMailTemplate');
 
 		$context = $request->getContext();
-		$template = REVIEW_REQUEST;
-		if ($context->getSetting('reviewerAccessKeysEnabled')) {
-			$template = REVIEW_REQUEST_ONECLICK;
-		}
-		$template = new SubmissionMailTemplate($submission, $template);
+		$templateKey = $this->_getMailTemplateKey($context);
+		$template = new SubmissionMailTemplate($submission, $templateKey);
 		if ($template) {
 			$user = $request->getUser();
 			$dispatcher = $request->getDispatcher();
@@ -305,14 +302,11 @@ class ReviewerForm extends Form {
 			}
 		}
 
-		$template = REVIEW_REQUEST;
-		if ($context->getSetting('reviewerAccessKeysEnabled')) {
-			$template = REVIEW_REQUEST_ONECLICK;
-		}
 
 		// Notify the reviewer via email.
 		import('lib.pkp.classes.mail.SubmissionMailTemplate');
-		$mail = new SubmissionMailTemplate($submission, $template, null, null, null, false);
+		$templateKey = $this->_getMailTemplateKey($context);
+		$mail = new SubmissionMailTemplate($submission, $templateKey, null, null, null, false);
 
 		if ($mail->isEnabled() && !$this->getData('skipEmail')) {
 			$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
@@ -394,6 +388,22 @@ class ReviewerForm extends Form {
 		} else {
 			return false;
 		}
+	}
+
+	/**
+	 * Get the email template key depending on if reviewer one click access is
+	 * enabled or not.
+	 *
+	 * @param mixed $context Context
+	 * @return int Email template key
+	 */
+	function _getMailTemplateKey($context) {
+		$templateKey = REVIEW_REQUEST;
+		if ($context->getSetting('reviewerAccessKeysEnabled')) {
+			$templateKey = REVIEW_REQUEST_ONECLICK;
+		}
+
+		return $templateKey;
 	}
 }
 

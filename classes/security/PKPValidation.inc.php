@@ -85,9 +85,9 @@ class PKPValidation {
 	 * @param $user User user to register in the session
 	 * @param $reason string reference to string to receive the reason an account was disabled; null otherwise
 	 * @param $remember boolean remember a user's session past the current browser session
-	 * @return User the User associated with the login credentials, or false if the credentials are invalid
+	 * @return mixed User or boolean the User associated with the login credentials, or false if the credentials are invalid
 	 */
-	static function &registerUserSession(&$user, &$reason = null, $remember = false) {
+	static function &registerUserSession($user, &$reason, $remember = false) {
 		$userDao = DAORegistry::getDAO('UserDAO');
 
 		if (!is_a($user, 'User')) return false;

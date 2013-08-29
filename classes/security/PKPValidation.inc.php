@@ -76,36 +76,50 @@ class PKPValidation {
 			return $valid;
 
 		} else {
-			if ($user->getDisabled()) {
-				// The user has been disabled.
-				$reason = $user->getDisabledReason();
-				if ($reason === null) $reason = '';
-				$valid = false;
-				return $valid;
-			}
-
-			// The user is valid, mark user as logged in in current session
-			$sessionManager = SessionManager::getManager();
-
-			// Regenerate session ID first
-			$sessionManager->regenerateSessionId();
-
-			$session = $sessionManager->getUserSession();
-			$session->setSessionVar('userId', $user->getId());
-			$session->setUserId($user->getId());
-			$session->setSessionVar('username', $user->getUsername());
-			$session->setRemember($remember);
-
-			if ($remember && Config::getVar('general', 'session_lifetime') > 0) {
-				// Update session expiration time
-				$sessionManager->updateSessionLifetime(time() +  Config::getVar('general', 'session_lifetime') * 86400);
-			}
-
-			$user->setDateLastLogin(Core::getCurrentDate());
-			$userDao->updateObject($user);
-
-			return $user;
+			return self::registerUserSession($user, $reason, $remember);
 		}
+	}
+
+	/**
+	 * Mark the user as logged in in the current session.
+	 * @param $user User user to register in the session
+	 * @param $reason string reference to string to receive the reason an account was disabled; null otherwise
+	 * @param $remember boolean remember a user's session past the current browser session
+	 * @return mixed User or boolean the User associated with the login credentials, or false if the credentials are invalid
+	 */
+	static function &registerUserSession($user, &$reason, $remember = false) {
+		$userDao = DAORegistry::getDAO('UserDAO');
+
+		if (!is_a($user, 'User')) return false;
+
+		if ($user->getDisabled()) {
+			// The user has been disabled.
+			$reason = $user->getDisabledReason();
+			if ($reason === null) $reason = '';
+			return false;
+		}
+
+		// The user is valid, mark user as logged in in current session
+		$sessionManager = SessionManager::getManager();
+
+		// Regenerate session ID first
+		$sessionManager->regenerateSessionId();
+
+		$session = $sessionManager->getUserSession();
+		$session->setSessionVar('userId', $user->getId());
+		$session->setUserId($user->getId());
+		$session->setSessionVar('username', $user->getUsername());
+		$session->setRemember($remember);
+
+		if ($remember && Config::getVar('general', 'session_lifetime') > 0) {
+			// Update session expiration time
+			$sessionManager->updateSessionLifetime(time() +  Config::getVar('general', 'session_lifetime') * 86400);
+		}
+
+		$user->setDateLastLogin(Core::getCurrentDate());
+		$userDao->updateObject($user);
+
+		return $user;
 	}
 
 	/**

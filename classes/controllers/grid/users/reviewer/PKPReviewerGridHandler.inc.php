@@ -358,29 +358,50 @@ class PKPReviewerGridHandler extends GridHandler {
 	}
 
 	/**
-	 * Delete a reviewer
+	 * Unassign a reviewer
 	 * @param $args array
 	 * @param $request PKPRequest
 	 * @return string Serialized JSON object
 	 */
-	function deleteReviewer($args, $request) {
-		// Delete the review assignment.
-		// NB: EditorAction::clearReview() will check that this review
-		// id is actually attached to the submission so no need for further
-		// validation here.
-		$submission = $this->getSubmission();
+	function unassignReviewer($args, $request) {
 		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
-		import('lib.pkp.classes.submission.action.EditorAction');
-		$editorAction = new EditorAction();
-		$result = $editorAction->clearReview($request, $submission->getId(), $reviewAssignment->getId());
+		$reviewRound = $this->getReviewRound();
+		$submission = $this->getSubmission();
 
-		// Render the result.
-		if ($result) {
-			return DAO::getDataChangedEvent($reviewAssignment->getId());
-		} else {
-			$json = new JSONMessage(false, __('editor.review.errorDeletingReviewer'));
-			return $json->getString();
+		import('lib.pkp.controllers.grid.users.reviewer.form.UnassignReviewerForm');
+		$unassignReviewerForm = new UnassignReviewerForm($reviewAssignment, $reviewRound, $submission);
+		$unassignReviewerForm->initData($args, $request);
+
+		$json = new JSONMessage(true, $unassignReviewerForm->fetch($request));
+		return $json->getString();
+	}
+
+	/**
+	 * Save the reviewer unassignment
+	 *
+	 * @param mixed $args
+	 * @param $request PKPRequest
+	 * @return string Serialized JSON object
+	 */
+	function updateUnassignReviewer($args, $request) {
+		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
+		$reviewRound = $this->getReviewRound();
+		$submission = $this->getSubmission();
+
+		import('lib.pkp.controllers.grid.users.reviewer.form.UnassignReviewerForm');
+		$unassignReviewerForm = new UnassignReviewerForm($reviewAssignment, $reviewRound, $submission);
+		$unassignReviewerForm->readInputData();
+
+		// Unassign the reviewer and return status message
+		if ($unassignReviewerForm->validate()) {
+			if ($unassignReviewerForm->execute($args, $request)) {
+				return DAO::getDataChangedEvent($reviewAssignment->getId());
+			} else {
+				$json = new JSONMessage(false, __('editor.review.errorDeletingReviewer'));
+				return $json->getString();
+			}
 		}
+
 	}
 
 	/**
@@ -663,7 +684,7 @@ class PKPReviewerGridHandler extends GridHandler {
 	 */
 	function _getReviewAssignmentOps() {
 		// Define operations that need a review assignment policy.
-		return array('readReview', 'reviewHistory', 'reviewRead', 'editThankReviewer', 'thankReviewer', 'editReminder', 'sendReminder', 'deleteReviewer', 'sendEmail', 'unconsiderReview', 'limitFiles', 'updateLimitFiles');
+		return array('readReview', 'reviewHistory', 'reviewRead', 'editThankReviewer', 'thankReviewer', 'editReminder', 'sendReminder', 'unassignReviewer', 'updateUnassignReviewer', 'sendEmail', 'unconsiderReview', 'limitFiles', 'updateLimitFiles');
 
 	}
 

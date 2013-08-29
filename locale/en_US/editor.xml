@@ -31,6 +31,7 @@
 	<message key="editor.submission.returnToSimpleSearch">Return to Simple Search</message>
 	<message key="editor.review.createReviewer">Create New Reviewer</message>
 	<message key="editor.review.enrollReviewer.short">Enroll Existing User</message>
+	<message key="editor.review.unassignReviewer">Unassign Reviewer</message>
 	<message key="editor.submissionReview.reviewType">Review Type</message>
 	<message key="editor.submissionReview.skipEmail">Do not send author email</message>
 	<message key="editor.submissionReview.open">Open</message>

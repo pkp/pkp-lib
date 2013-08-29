@@ -502,4 +502,5 @@
 	<message key="notification.type.pendingRevisions">You have revisions to consider in {$stage}.</message>
 	<message key="notification.type.pendingRevisions.title">Revisions submitted to {$stage}.</message>
 	<message key="notification.signedFile">File considered.</message>
+	<message key="user.authorization.invalidSubmission">Invalid submission.</a>
 </locale>

@@ -60,7 +60,7 @@ class UnassignReviewerForm extends Form {
 		$this->setData('reviewerId', $reviewerId);
 
 		import('lib.pkp.classes.mail.SubmissionMailTemplate');
-		$template = new SubmissionMailTemplate($submission, 'REVIEW_CANCEl');
+		$template = new SubmissionMailTemplate($submission, 'REVIEW_CANCEL');
 		if ($template) {
 			$userDao = DAORegistry::getDAO('UserDAO');
 			$reviewer = $userDao->getById($reviewerId);

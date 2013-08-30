@@ -66,7 +66,7 @@
 			$uploader.find('div.plupload').css('z-index', 99999);
 		}
 
-		$uploader.find('a.plupload_add').css('z-index', 99999);
+		$uploader.find('div.plupload input').css('z-index', 99999);
 
 		// Bind to the pluploader for some configuration
 		pluploader.bind('FilesAdded',

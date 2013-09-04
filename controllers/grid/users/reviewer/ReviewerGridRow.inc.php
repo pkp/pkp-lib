@@ -94,16 +94,15 @@ class ReviewerGridRow extends GridRow {
 			$reviewAssignment = $this->getData();
 			// Only assign this action if the reviewer has not acknowledged yet.
 			if (!$reviewAssignment->getDateConfirmed()) {
-				import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
 				$this->addAction(
 					new LinkAction(
-						'remove',
-						new RemoteActionConfirmationModal(
-							__('common.confirmDelete'), __('common.remove'),
-							$router->url($request, null, null, 'deleteReviewer', null, $actionArgs),
+						'unassignReviewer',
+						new AjaxModal(
+							$router->url($request, null, null, 'unassignReviewer', null, $actionArgs),
+							__('editor.review.unassignReviewer'),
 							'modal_delete'
 						),
-					__('grid.action.unassignUser'),
+					__('editor.review.unassignReviewer'),
 					'delete'
 					)
 				);

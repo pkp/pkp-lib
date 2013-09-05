@@ -218,17 +218,15 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 	function _handleUpload($fileName, $fileStage, $uploaderUserId, $uploaderUserGroupId,
 			$revisedFileId = null, $genreId = null, $assocType = null, $assocId = null) {
 
-		$nullVar = null;
-
 		// Ensure that the file has been correctly uploaded to the server.
-		if (!$this->uploadedFileExists($fileName)) return $nullVar;
+		if (!$this->uploadedFileExists($fileName)) return null;
 
 		// Retrieve the location of the uploaded file.
 		$sourceFile = $this->getUploadedFilePath($fileName);
 
 		// Instantiate and pre-populate a new submission file object.
 		$submissionFile = $this->_instantiateSubmissionFile($sourceFile, $fileStage, $revisedFileId, $genreId, $assocType, $assocId);
-		if (is_null($submissionFile)) return $nullVar;
+		if (is_null($submissionFile)) return null;
 
 		// Retrieve and copy the file type of the uploaded file.
 		$fileType = $this->getUploadedFileType($fileName);
@@ -261,7 +259,7 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 	 * @return SubmissionFile returns the instantiated submission file or null if an error occurs.
 	 */
 	function _instantiateSubmissionFile($sourceFilePath, $fileStage, $revisedFileId = null, $genreId = null, $assocType = null, $assocId = null) {
-		$nullVar = null;
+		$revisedFile = null;
 
 		// Retrieve the submission file DAO.
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
@@ -274,7 +272,7 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 			if (!$genreId || $revisedFileId) {
 				// Retrieve the revised file. (null $fileStage in case the revision is from a previous stage).
 				$revisedFile = $submissionFileDao->getLatestRevision($revisedFileId, null, $this->getSubmissionId());
-				if (!is_a($revisedFile, 'SubmissionFile')) return $nullVar;
+				if (!is_a($revisedFile, 'SubmissionFile')) return null;
 			}
 		}
 
@@ -292,7 +290,7 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 		if ($revisedFileId) {
 			// Make sure that the submission of the revised file is
 			// the same as that of the uploaded file.
-			if ($revisedFile->getSubmissionId() != $this->getSubmissionId()) return $nullVar;
+			if ($revisedFile->getSubmissionId() != $this->getSubmissionId()) return null;
 
 			// If file stages are different we reference with the sourceFileId
 			// Otherwise, we keep the file id, update the revision, and copy other fields.

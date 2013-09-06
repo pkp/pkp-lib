@@ -50,13 +50,14 @@ class SubmissionNotificationManager extends NotificationManagerDelegate {
 	public function getNotificationUrl($request, $notification) {
 		$router = $request->getRouter();
 		$dispatcher = $router->getDispatcher();
-		$context = $request->getContext();
 
 		assert($notification->getAssocType() == ASSOC_TYPE_SUBMISSION && is_numeric($notification->getAssocId()));
 		switch ($notification->getType()) {
 			case NOTIFICATION_TYPE_SUBMISSION_SUBMITTED:
 			case NOTIFICATION_TYPE_METADATA_MODIFIED:
 			case NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED:
+				$contextDao = Application::getContextDAO();
+				$context = $contextDao->getById($notification->getContextId());
 				return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'workflow', 'submission', $notification->getAssocId());
 			default:
 				assert(false);

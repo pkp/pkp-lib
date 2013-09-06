@@ -41,7 +41,9 @@ class PendingRevisionsNotificationManager extends RevisionsNotificationManager {
 
 		$router = $request->getRouter();
 		$dispatcher = $router->getDispatcher();
-		return $dispatcher->url($request, ROUTE_PAGE, null, $page, $operation, $submission->getId());
+		$contextDao = Application::getContextDAO();
+		$context = $contextDao->getById($submission->getContextId());
+		return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), $page, $operation, $submission->getId());
 	}
 
 	/**

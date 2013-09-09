@@ -54,6 +54,19 @@ class VirtualArrayIterator extends ItemIterator {
 	}
 
 	/**
+	 * Factory Method.
+	 * Extracts the appropriate page items from the whole array and
+	 * calls the constructor.
+	 * @param $wholeArray array The whole array of items
+	 * @param $rangeInfo int The number of items per page
+	 * @return object VirtualArrayIterator
+	 */
+	static function factory($wholeArray, $rangeInfo) {
+		if ($rangeInfo->isValid()) $slicedArray = array_slice($wholeArray, $rangeInfo->getCount() * ($rangeInfo->getPage()-1), $rangeInfo->getCount());
+		return new VirtualArrayIterator($slicedArray, count($wholeArray), $rangeInfo->getPage(), $rangeInfo->getCount());
+	}
+
+	/**
 	 * Return the next item in the iterator.
 	 * @return object
 	 */

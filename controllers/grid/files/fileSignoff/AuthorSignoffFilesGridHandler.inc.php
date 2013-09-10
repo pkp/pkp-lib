@@ -15,7 +15,7 @@
  */
 
 import('lib.pkp.classes.controllers.grid.GridHandler');
-import('controllers.grid.files.fileSignoff.AuthorSignoffFilesGridRow');
+import('lib.pkp.controllers.grid.files.fileSignoff.AuthorSignoffFilesGridRow');
 
 class AuthorSignoffFilesGridHandler extends GridHandler {
 

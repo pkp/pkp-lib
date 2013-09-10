@@ -372,4 +372,5 @@
 	<message key="notification.type.pendingRevisions">Vous devez tenir compte des révisions à cette étape: {$stage}.</message>
 	<message key="notification.type.pendingRevisions.title">Révisions soumises à {$stage}.</message>
 	<message key="notification.signedFile">Fichier considéré.</message>
+	<message key="user.authorization.authorRoleMissing">Vos privilèges actuels ne vous permettent pas de visionner cette soumission. Veuillez modifier votre profil pour vous assurer que l'on vous a assigné les rôles appropriés dans la section "S'inscrire comme".</message>
 </locale>

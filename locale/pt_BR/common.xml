@@ -400,4 +400,5 @@
 	<message key="notification.type.pendingRevisions.title">Revisões enviadas ao estágio {$stage}.</message>
 	<message key="notification.signedFile">Arquivo considerado.</message>
 	<message key="notification.type.auditorRequest">Solicitação de auditoria de "{$file}"</message>
+	<message key="user.authorization.authorRoleMissing">Sem privlégios suficientes para ver a submissão. Edite seu perfil para garantir que tenha os papéis apropriadas em "Cadastrar-se como".</message>
 </locale>

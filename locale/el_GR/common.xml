@@ -359,4 +359,5 @@
 	<message key="notification.type.pendingRevisions.title">Ανθεωρήσεις έχουν υποβληθεί στο {$stage}.</message>
 	<message key="notification.signedFile">Το αρχείο έχει θεωρηθεί.</message>
 	<message key="notification.type.auditorRequest">Έχετε κληθεί για τον έλεγχο του αρχείου "{$file}"</message>
+	<message key="user.authorization.authorRoleMissing">Δεν σας έχουν δωθεί πρόσφατα τα ανάλογα δικαιώματα για να δείτε την υποβολή. Παρακαλούμε επεξεργαστείτε το προφίλ σας για να βεβαιωθείτε ότι σας έχουν εκχωρηθεί οι κατάλληλοι ρόλοι μέσω του "Σύνδεση Ως".</message>
 </locale>

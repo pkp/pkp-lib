@@ -88,7 +88,7 @@ class AuthorSignoffFilesGridDataProvider extends SubmissionFilesGridDataProvider
 	 * signoffs, return false.
 	 * @return mixed boolean or LinkAction
 	 */
-	function &getAddSignoffFile($request) {
+	function getAddSignoffFile($request) {
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$signoffDao = DAORegistry::getDAO('SubmissionFileSignoffDAO'); /* @var $signoffDao SubmissionFileSignoffDAO */
 		$signoffFactory = $signoffDao->getAllBySubmission($submission->getId(), $this->getSymbolic(), $this->getUserId(), null, true);

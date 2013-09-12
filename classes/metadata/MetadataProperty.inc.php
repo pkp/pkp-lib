@@ -348,7 +348,7 @@ class MetadataProperty {
 
 							if (is_string($value)) {
 								// Try to translate the string value into a controlled vocab entry
-								$controlledVocabEntryDao =& DAORegistry::getDao('ControlledVocabEntryDAO'); /* @var $controlledVocabEntryDao ControlledVocabEntryDAO */
+								$controlledVocabEntryDao = DAORegistry::getDao('ControlledVocabEntryDAO'); /* @var $controlledVocabEntryDao ControlledVocabEntryDAO */
 								if (!is_null($controlledVocabEntryDao->getBySetting($value, $symbolic, $assocType, $assocId, 'name', $locale))) {
 									// The string was successfully translated so mark it as "valid".
 									return array(METADATA_PROPERTY_TYPE_VOCABULARY => $allowedTypeParam);

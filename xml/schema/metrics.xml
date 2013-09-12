@@ -2,16 +2,15 @@
 <!DOCTYPE schema SYSTEM "../../dtd/xmlSchema.dtd">
 
 <!--
-  * metrics.xml
+  * xml/schema/metrics.xml
   *
-  * Copyright (c) 2000-2012 John Willinsky
+  * Copyright (c) 2000-2013 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Metrics schema in XML.
   -->
 
 <schema version="0.2">
-	
 	<!--
 	  *
 	  * TABLE metrics
@@ -33,12 +32,11 @@
 			<NOTNULL />
 		</field>
 		<field name="day" type="C" size="8" />
-		<field name="month" type="C" size="6">
-		</field>
+		<field name="month" type="C" size="6"/>
 		<field name="file_type" type="I1" />
 		<field name="country_id" type="C2" size="2" />
-	    <field name="region" type="I2" />
-	    <field name="city" type="C2" size="255" />
+		<field name="region" type="I2" />
+		<field name="city" type="C2" size="255" />
 		<field name="metric_type" type="C2" size="255">
 			<NOTNULL />
 		</field>
@@ -50,16 +48,15 @@
 		<index name="metrics_load_id">
 			<col>load_id</col>
 		</index>
-		<index name="metrics_metric_type_journal_id">
+		<index name="metrics_metric_type_context_id">
 			<col>metric_type</col>
-			<col>journal_id</col>
+			<col>context_id</col>
 		</index>
-        <index name="metrics_metric_type_article_id_assoc_type">
-            <col>metric_type</col>
-            <col>article_id</col>
-            <col>assoc_type</col>
-        </index>
+		<index name="metrics_metric_type_submission_id_assoc_type">
+			<col>metric_type</col>
+			<col>submission_id</col>
+			<col>assoc_type</col>
+		</index>
 		<!-- TODO: more indexes, depending on use cases. -->
 	</table>
-	
 </schema>

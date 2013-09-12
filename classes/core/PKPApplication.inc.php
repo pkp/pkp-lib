@@ -562,6 +562,13 @@ class PKPApplication {
 	}
 
 	/**
+	 * Get the representation DAO.
+	 */
+	static function getRepresentationDAO() {
+		assert(false); // Must be implemented by subclasses
+	}
+
+	/**
 	 * Get the DAO for ROLE_ID_SUB_EDITOR roles.
 	 */
 	static function getSubEditorDAO() {

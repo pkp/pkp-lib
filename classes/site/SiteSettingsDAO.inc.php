@@ -21,7 +21,7 @@ class SiteSettingsDAO extends DAO {
 		parent::DAO();
 	}
 
-	function &_getCache() {
+	function _getCache() {
 		$settingCache =& Registry::get('siteSettingCache', true, null);
 		if ($settingCache === null) {
 			$cacheManager = CacheManager::getManager();
@@ -87,7 +87,7 @@ class SiteSettingsDAO extends DAO {
 			}
 			$result->Close();
 
-			$cache =& $this->_getCache();
+			$cache = $this->_getCache();
 			$cache->setEntireCache($siteSettings);
 
 			return $siteSettings;
@@ -104,7 +104,7 @@ class SiteSettingsDAO extends DAO {
 	 */
 	function updateSetting($name, $value, $type = null, $isLocalized = false) {
 		$returner = null;
-		$cache =& $this->_getCache();
+		$cache = $this->_getCache();
 		$cache->setCache($name, $value);
 
 		$keyFields = array('setting_name', 'locale');
@@ -143,7 +143,7 @@ class SiteSettingsDAO extends DAO {
 	 * @param $name string
 	 */
 	function deleteSetting($name, $locale = null) {
-		$cache =& $this->_getCache();
+		$cache = $this->_getCache();
 		$cache->setCache($name, null);
 
 		$params = array($name);

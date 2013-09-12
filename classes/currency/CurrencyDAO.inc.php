@@ -25,12 +25,12 @@ class CurrencyDAO extends DAO {
 		parent::DAO();
 	}
 
-	function &_getCache() {
+	function _getCache() {
 		$locale = AppLocale::getLocale();
 		$cache =& Registry::get('currencyCache', true, null);
 		if ($cache === null) {
 			$cacheManager = CacheManager::getManager();
-			$cache =& $cacheManager->getFileCache(
+			$cache = $cacheManager->getFileCache(
 				'currencies', $locale,
 				array($this, '_cacheMiss')
 			);
@@ -84,21 +84,20 @@ class CurrencyDAO extends DAO {
 	 * @param $currencyId int
 	 * @return Currency
 	 */
-	function &getCurrencyByAlphaCode($codeAlpha) {
-		$cache =& $this->_getCache();
-		$returner =& $this->_returnCurrencyFromRow($codeAlpha, $cache->get($codeAlpha));
-		return $returner;
+	function getCurrencyByAlphaCode($codeAlpha) {
+		$cache = $this->_getCache();
+		return $this->_returnCurrencyFromRow($codeAlpha, $cache->get($codeAlpha));
 	}
 
 	/**
 	 * Retrieve an array of all currencies.
 	 * @return array of Currencies
 	 */
-	function &getCurrencies() {
-		$cache =& $this->_getCache();
+	function getCurrencies() {
+		$cache = $this->_getCache();
 		$returner = array();
 		foreach ($cache->getContents() as $codeAlpha => $entry) {
-			$returner[] =& $this->_returnCurrencyFromRow($codeAlpha, $entry);
+			$returner[] = $this->_returnCurrencyFromRow($codeAlpha, $entry);
 		}
 		return $returner;
 	}

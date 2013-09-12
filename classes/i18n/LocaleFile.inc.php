@@ -36,7 +36,7 @@ class LocaleFile {
 	/**
 	 * Get the cache object for this locale file.
 	 */
-	function &_getCache($locale) {
+	function _getCache($locale) {
 		if (!isset($this->cache)) {
 			$cacheManager = CacheManager::getManager();
 			$this->cache = $cacheManager->getFileCache(
@@ -86,7 +86,7 @@ class LocaleFile {
 			return '';
 		}
 
-		$cache =& $this->_getCache($this->locale);
+		$cache = $this->_getCache($this->locale);
 		$message = $cache->get($key);
 		if (!isset($message)) {
 			// Try to force loading the plugin locales.

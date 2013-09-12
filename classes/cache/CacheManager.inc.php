@@ -13,7 +13,6 @@
  *
  */
 
-
 import('lib.pkp.classes.cache.FileCache');
 
 define('CACHE_TYPE_FILE', 1);
@@ -24,7 +23,7 @@ class CacheManager {
 	 * Get the static instance of the cache manager.
 	 * @return object CacheManager
 	 */
-	static function &getManager() {
+	static function getManager() {
 		$manager =& Registry::get('cacheManager', true, null);
 		if ($manager === null) {
 			$manager = new CacheManager();
@@ -39,17 +38,15 @@ class CacheManager {
 	 * @param $fallback callback
 	 * @return object FileCache
 	 */
-	function &getFileCache($context, $cacheId, $fallback) {
-		$returner = new FileCache(
+	function getFileCache($context, $cacheId, $fallback) {
+		return new FileCache(
 			$context, $cacheId, $fallback,
 			$this->getFileCachePath()
 		);
-		return $returner;
 	}
 
-	function &getObjectCache($context, $cacheId, $fallback) {
-		$returner =& $this->getCache($context, $cacheId, $fallback, CACHE_TYPE_OBJECT);
-		return $returner;
+	function getObjectCache($context, $cacheId, $fallback) {
+		return $this->getCache($context, $cacheId, $fallback, CACHE_TYPE_OBJECT);
 	}
 
 	function getCacheImplementation($type) {
@@ -68,7 +65,7 @@ class CacheManager {
 	 * @param $type string Type of cache: CACHE_TYPE_...
 	 * @return object Cache
 	 */
-	function &getCache($context, $cacheId, $fallback, $type = CACHE_TYPE_FILE) {
+	function getCache($context, $cacheId, $fallback, $type = CACHE_TYPE_FILE) {
 		switch ($this->getCacheImplementation($type)) {
 			case 'xcache':
 				import('lib.pkp.classes.cache.XCacheCache');
@@ -92,7 +89,7 @@ class CacheManager {
 				break;
 			case '': // Provide a default if not specified
 			case 'file':
-				$cache =& $this->getFileCache($context, $cacheId, $fallback);
+				$cache = $this->getFileCache($context, $cacheId, $fallback);
 				break;
 			case 'none':
 				import('lib.pkp.classes.cache.GenericCache');
@@ -127,7 +124,7 @@ class CacheManager {
 			case 'xcache':
 			case 'apc':
 			case 'memcache':
-				$junkCache =& $this->getCache($context, null, null);
+				$junkCache = $this->getCache($context, null, null);
 				$junkCache->flush();
 				break;
 			case 'file':

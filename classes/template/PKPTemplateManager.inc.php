@@ -18,7 +18,6 @@
  * Currently integrated with Smarty (from http://smarty.php.net/).
  */
 
-
 /* This definition is required by Smarty */
 define('SMARTY_DIR', Core::getBaseDir() . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'pkp' . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'smarty' . DIRECTORY_SEPARATOR);
 
@@ -33,6 +32,8 @@ define('CACHEABILITY_PROXY_REVALIDATE',	'proxy-revalidate');
 
 define('CDN_JQUERY_VERSION', '1.4.4');
 define('CDN_JQUERY_UI_VERSION', '1.8.6');
+
+define('COMPILED_CSS_FILENAME', 'compiled.css');
 
 class PKPTemplateManager extends Smarty {
 	/** @var $styleSheets array of URLs to stylesheets */
@@ -85,6 +86,10 @@ class PKPTemplateManager extends Smarty {
 		$this->config_dir = $cachePath . DIRECTORY_SEPARATOR . 't_config';
 		$this->cache_dir = $cachePath . DIRECTORY_SEPARATOR . 't_cache';
 
+		// If the stylesheet does not exist, compile it.
+		if (!file_exists($this->_getCompiledStylesheetPath())) {
+			$this->compileStylesheet();
+		}
 
 		// Assign common variables
 		$this->styleSheets = array();
@@ -230,6 +235,38 @@ class PKPTemplateManager extends Smarty {
 	 */
 	function setCacheability($cacheability = CACHEABILITY_PUBLIC) {
 		$this->cacheability = $cacheability;
+	}
+
+	/**
+	 * Get the full path and filename to the compiled stylesheet file.
+	 * @return string
+	 */
+	protected static function _getCompiledStylesheetPath() {
+		return (CacheManager::getFileCachePath() . '/' . COMPILED_CSS_FILENAME);
+	}
+
+	/**
+	 * Recompile the CSS
+	 * @param $force boolean True if the existing cache should be unlinked before recompiling
+	 * @return string Full path to the compiled file that was generated.
+	 */
+	static function compileStylesheet($force = false) {
+		// Load the LESS compiler class.
+		require_once('lib/pkp/lib/lessphp/lessc.inc.php');
+
+		$compiledStylesheetFile = self::_getCompiledStylesheetPath();
+
+		// Flush if necessary
+		if ($force) unlink($compiledStylesheetFile);
+
+		// KLUDGE pending fix of https://github.com/leafo/lessphp/issues#issue/66
+		// Once this issue is fixed, revisit paths and go back to using
+		// lessc::ccompile to parse & compile.
+		$less = new lessc('styles/index.less');
+		$less->importDir = './';
+		file_put_contents($compiledStylesheetFile, $less->parse());
+
+		return $compiledStylesheetFile;
 	}
 
 	/**

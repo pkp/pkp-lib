@@ -12,12 +12,7 @@
  * @brief CLI tool for processing CSS into a single compiled file using Less for PHP.
  */
 
-
 require(dirname(dirname(dirname(dirname(__FILE__)))) . '/tools/bootstrap.inc.php');
-
-define('APPLICATION_STYLES_DIR', 'styles');
-define('APPLICATION_LESS_WRAPPER', 'index.less');
-define('APPLICATION_CSS_WRAPPER', 'compiled.css');
 
 class buildCss extends CommandLineTool {
 	/** @var $force boolean true to force recompilation */
@@ -50,7 +45,7 @@ class buildCss extends CommandLineTool {
 	function usage() {
 		echo "CSS Compilation tool\n"
 			. "Use this tool to compile CSS into a single file.\n\n"
-			. "Usage: {$this->scriptName}\n";
+			. "Usage: {$this->scriptName} [force]\n";
 	}
 
 	/**
@@ -60,22 +55,10 @@ class buildCss extends CommandLineTool {
 		// Load the LESS compiler class.
 		require_once('lib/pkp/lib/lessphp/lessc.inc.php');
 
-		// Flush if necessary
-		if ($this->force) unlink(APPLICATION_STYLES_DIR . '/' . APPLICATION_CSS_WRAPPER);
-
-		// Perform the compile.
 		try {
-			// KLUDGE pending fix of https://github.com/leafo/lessphp/issues#issue/66
-			// Once this issue is fixed, revisit paths and go back to using
-			// lessc::ccompile to parse & compile.
-			$less = new lessc(APPLICATION_STYLES_DIR . '/' . APPLICATION_LESS_WRAPPER);
-			$less->importDir = './';
-			file_put_contents(
-				APPLICATION_STYLES_DIR . '/' . APPLICATION_CSS_WRAPPER,
-				$less->parse()
-			);
+			TemplateManager::compileStylesheet($this->force);
 		} catch (exception $ex) {
-			echo "ERROR: " . $ex->getMessage() . "\n";
+			echo 'ERROR: ' . $ex->getMessage() . "\n";
 			exit(-1);
 		}
 		exit(0);

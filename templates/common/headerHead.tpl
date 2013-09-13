@@ -17,7 +17,7 @@
 
 	<link rel="stylesheet" type="text/css" media="all" href="{$baseUrl}/styles/lib.css" />
 	{$deprecatedStyles}
-	<link rel="stylesheet" type="text/css" media="all" href="{$baseUrl}/styles/compiled.css" />
+	<link rel="stylesheet" type="text/css" media="all" href="{$baseUrl}/cache/compiled.css" />
 
 	<!-- Base Jquery -->
 	{if $allowCDN}

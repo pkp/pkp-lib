@@ -154,7 +154,7 @@ class PublicationEntryTabHandler extends Handler {
 
 		if ($form) { // null if we didn't have a valid tab
 			$form->readInputData();
-			if($form->validate()) {
+			if($form->validate($request)) {
 				$form->execute($request);
 				// Create trivial notification in place on the form
 				$notificationManager = new NotificationManager();

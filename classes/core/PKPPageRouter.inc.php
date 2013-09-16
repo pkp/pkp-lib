@@ -92,23 +92,9 @@ class PKPPageRouter extends PKPRouter {
 	 * @return String the page path (under the "pages" directory)
 	 */
 	function getRequestedPage($request) {
-		assert(is_a($request->getRouter(), 'PKPPageRouter'));
 		if (!isset($this->_page)) {
-			if ($request->isPathInfoEnabled()) {
-				$application = $this->getApplication();
-				$contextDepth = $application->getContextDepth();
-				if (isset($_SERVER['PATH_INFO'])) {
-					$vars = explode('/', trim($_SERVER['PATH_INFO'], '/'));
-					if (count($vars) > $contextDepth) {
-						$this->_page = $vars[$contextDepth];
-					}
-				}
-			} else {
-				$this->_page = $request->getUserVar('page');
-			}
-			$this->_page = Core::cleanFileVar(is_null($this->_page) ? '' : $this->_page);
+			$this->_page = $this->_getRequestedUrlParts(array('Core', 'getPage'), $request);
 		}
-
 		return $this->_page;
 	}
 
@@ -118,52 +104,19 @@ class PKPPageRouter extends PKPRouter {
 	 * @return string
 	 */
 	function getRequestedOp($request) {
-		assert(is_a($request->getRouter(), 'PKPPageRouter'));
 		if (!isset($this->_op)) {
-			$this->_op = '';
-			if ($request->isPathInfoEnabled()) {
-				$application = $this->getApplication();
-				$contextDepth = $application->getContextDepth();
-				if (isset($_SERVER['PATH_INFO'])) {
-					$vars = explode('/', trim($_SERVER['PATH_INFO'], '/'));
-					if (count($vars) > $contextDepth+1) {
-						$this->_op = $vars[$contextDepth+1];
-					}
-				}
-			} else {
-				$this->_op = $request->getUserVar('op');
-			}
-			$this->_op = Core::cleanFileVar(empty($this->_op) ? 'index' : $this->_op);
+			$this->_op = $this->_getRequestedUrlParts(array('Core', 'getOp'), $request);
 		}
-
 		return $this->_op;
 	}
 
 	/**
-	 * Get the arguments requested in the URL (not GET/POST arguments, only arguments appended to the URL separated by "/").
+	 * Get the arguments requested in the URL.
 	 * @param $request PKPRequest the request to be routed
 	 * @return array
 	 */
 	function getRequestedArgs($request) {
-		if ($request->isPathInfoEnabled()) {
-			$args = array();
-			if (isset($_SERVER['PATH_INFO'])) {
-				$application = $this->getApplication();
-				$contextDepth = $application->getContextDepth();
-				$vars = explode('/', $_SERVER['PATH_INFO']);
-				if (count($vars) > $contextDepth+3) {
-					$args = array_slice($vars, $contextDepth+3);
-					for ($i=0, $count=count($args); $i<$count; $i++) {
-						$args[$i] = Core::cleanVar(get_magic_quotes_gpc() ? stripslashes($args[$i]) : $args[$i]);
-					}
-				}
-			}
-		} else {
-			$args = $request->getUserVar('path');
-			if (empty($args)) $args = array();
-			elseif (!is_array($args)) $args = array($args);
-		}
-		return $args;
+		return $this->_getRequestedUrlParts(array('Core', 'getArgs'), $request);
 	}
 
 
@@ -460,6 +413,35 @@ class PKPPageRouter extends PKPRouter {
 			}
 			$request->redirect('index', 'index');
 		}
+	}
+
+
+	//
+	// Private helper methods.
+	//
+	/**
+	* Retrieve part of the current requested
+	* url using the passed callback method.
+	* @param $callback array Core method to retrieve
+	* page, operation or arguments from url.
+	* @param $request PKPRequest
+	* @return array|string|null
+	*/
+	private function _getRequestedUrlParts($callback, &$request) {
+		$url = null;
+		assert(is_a($request->getRouter(), 'PKPPageRouter'));
+		$isPathInfoEnabled = $request->isPathInfoEnabled();
+
+		if ($isPathInfoEnabled) {
+			if (isset($_SERVER['PATH_INFO'])) {
+				$url = $_SERVER['PATH_INFO'];
+			}
+		} else {
+			$url = $request->getCompleteUrl();
+		}
+
+		$userVars = $request->getUserVars();
+		return call_user_func_array($callback, array($url, $isPathInfoEnabled, $userVars));
 	}
 }
 

@@ -152,33 +152,24 @@ class PKPRouter {
 		// Validate context parameters
 		assert(isset($this->_contextDepth) && isset($this->_contextList));
 
+		$isPathInfoEnabled = $request->isPathInfoEnabled();
+		$userVars = array();
+		$url = null;
+
 		// Determine the context path
 		if (empty($this->_contextPaths)) {
-			if ($request->isPathInfoEnabled()) {
-				// Retrieve context from the path info
+			if ($isPathInfoEnabled) {
+				// Retrieve url from the path info
 				if (isset($_SERVER['PATH_INFO'])) {
-					// Split the path info into its constituents. Save all non-context
-					// path info in $this->_contextPaths[$this->_contextDepth]
-					// by limiting the explode statement.
-					$this->_contextPaths = explode('/', trim($_SERVER['PATH_INFO'], '/'), $this->_contextDepth + 1);
-					// Remove the part of the path info that is not relevant for context (if present)
-					unset($this->_contextPaths[$this->_contextDepth]);
+					$url = $_SERVER['PATH_INFO'];
 				}
 			} else {
-				// Retrieve context from url query string
-				foreach($this->_contextList as $key => $contextName) {
-					$this->_contextPaths[$key] = $request->getUserVar($contextName);
-				}
+				$url = $request->getCompleteUrl();
+				$userVars = $request->getUserVars();
 			}
 
-			// Canonicalize and clean context paths
-			for($key = 0; $key < $this->_contextDepth; $key++) {
-				$this->_contextPaths[$key] = (
-					isset($this->_contextPaths[$key]) && !empty($this->_contextPaths[$key]) ?
-					$this->_contextPaths[$key] : 'index'
-				);
-				$this->_contextPaths[$key] = Core::cleanFileVar($this->_contextPaths[$key]);
-			}
+			$this->_contextPaths = Core::getContextPaths($url, $isPathInfoEnabled,
+				$this->_contextList, $this->_contextDepth, $userVars);
 
 			HookRegistry::call('Router::getRequestedContextPaths', array(&$this->_contextPaths));
 		}

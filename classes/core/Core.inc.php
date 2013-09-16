@@ -161,6 +161,106 @@ class Core {
 	}
 
 	/**
+	 * Get context paths present into the passed
+	 * url information.
+	 * @param $urlInfo string Full url or just path info.
+	 * @param $isPathInfo boolean Whether the
+	 * passed url info string is a path info or not.
+	 * @param $contextList array (optional)
+	 * @param $contextDepth int (optional)
+	 * @param $userVars array (optional) Pass GET variables
+	 * if needed (for testing only).
+	 * @return array
+	 */
+	static function getContextPaths($urlInfo, $isPathInfo, $contextList = null, $contextDepth = null, $userVars = array()) {
+		$contextPaths = array();
+		$application = Application::getApplication();
+
+		if (!$contextList) {
+			$contextList = $application->getContextList();
+		}
+		if (!$contextDepth) {
+			$contextDepth = $application->getContextDepth();
+		}
+
+		// Handle context depth 0
+		if (!$contextDepth) return $contextPaths;
+
+		if ($isPathInfo) {
+			// Split the path info into its constituents. Save all non-context
+			// path info in $contextPaths[$contextDepth]
+			// by limiting the explode statement.
+			$contextPaths = explode('/', trim($urlInfo, '/'), $contextDepth + 1);
+			// Remove the part of the path info that is not relevant for context (if present)
+			unset($contextPaths[$contextDepth]);
+		} else {
+			// Retrieve context from url query string
+			foreach($contextList as $key => $contextName) {
+				$contextPaths[$key] = Core::_getUserVar($urlInfo, $contextName, $userVars);
+			}
+		}
+
+		// Canonicalize and clean context paths
+		for($key = 0; $key < $contextDepth; $key++) {
+			$contextPaths[$key] = (
+				isset($contextPaths[$key]) && !empty($contextPaths[$key]) ?
+				$contextPaths[$key] : 'index'
+			);
+			$contextPaths[$key] = Core::cleanFileVar($contextPaths[$key]);
+		}
+
+		return $contextPaths;
+	}
+
+	/**
+	 * Get the page present into
+	 * the passed url information. It expects that urls
+	 * were built using the system.
+	 * @param $urlInfo string Full url or just path info.
+	 * @param $isPathInfo boolean Tell if the
+	 * passed url info string is a path info or not.
+	 * @param $userVars array (optional) Pass GET variables
+	 * if needed (for testing only).
+	 * @return string
+	 */
+	static function getPage($urlInfo, $isPathInfo, $userVars = array()) {
+		$page = Core::_getUrlComponents($urlInfo, $isPathInfo, 0, 'page', $userVars);
+		return Core::cleanFileVar(is_null($page) ? '' : $page);
+	}
+
+	/**
+	 * Get the operation present into
+	 * the passed url information. It expects that urls
+	 * were built using the system.
+	 * @param $urlInfo string Full url or just path info.
+	 * @param $isPathInfo boolean Tell if the
+	 * passed url info string is a path info or not.
+	 * @param $userVars array (optional) Pass GET variables
+	 * if needed (for testing only).
+	 * @return string
+	 */
+	static function getOp($urlInfo, $isPathInfo, $userVars = array()) {
+		$operation = Core::_getUrlComponents($urlInfo, $isPathInfo, 1, 'op', $userVars);
+		return Core::cleanFileVar(empty($operation) ? 'index' : $operation);
+	}
+
+	/**
+	 * Get the arguments present into
+	 * the passed url information (not GET/POST arguments,
+	 * only arguments appended to the URL separated by "/").
+	 * It expects that urls were built using the system.
+	 * @param $urlInfo string Full url or just path info.
+	 * @param $isPathInfo boolean Tell if the
+	 * passed url info string is a path info or not.
+	 * @param $userVars array (optional) Pass GET variables
+	 * if needed (for testing only).
+	 * @return array
+	 */
+	static function getArgs($urlInfo, $isPathInfo, $userVars = array()) {
+		return Core::_getUrlComponents($urlInfo, $isPathInfo, 2, 'path', $userVars);
+	}
+
+	/**
 	 * Filter the regular expressions to find bots, adding
 	 * delimiters if necessary.
 	 * @param $regexp string
@@ -177,6 +277,73 @@ class Core {
 		} else {
 			return false;
 		}
+	}
+
+	/**
+	 * Get passed variable value inside the passed url.
+	 * @param $url string
+	 * @param $varName string
+	 * @param $userVars array
+	 * @return string|null
+	 */
+	private static function _getUserVar($url, $varName, $userVars = array()) {
+		$returner = null;
+		parse_str(parse_url($url, PHP_URL_QUERY), $userVarsFromUrl);
+		if (isset($userVarsFromUrl[$varName])) $returner = $userVarsFromUrl[$varName];
+
+		if (is_null($returner)) {
+			// Try to retrieve from passed user vars, if any.
+			if (!empty($userVars) && isset($userVars[$varName])) {
+				$returner = $userVars[$varName];
+			}
+		}
+
+		return $returner;
+	}
+
+	/**
+	 * Get url components (page, operation and args)
+	 * based on the passed offset.
+	 * @param $urlInfo string
+	 * @param $isPathInfo string
+	 * @param $offset int
+	 * @param $varName string
+	 * @param $userVars array (optional) GET variables
+	 * (only for testing).
+	 * @return mixed array|string|null
+	 */
+	private static function _getUrlComponents($urlInfo, $isPathInfo, $offset, $varName = '', $userVars = array()) {
+		$component = null;
+
+		$isArrayComponent = false;
+		if ($varName == 'path') {
+			$isArrayComponent = true;
+		}
+		if ($isPathInfo) {
+			$application = Application::getApplication();
+			$contextDepth = $application->getContextDepth();
+
+			$vars = explode('/', trim($urlInfo, '/'));
+			if (count($vars) > $contextDepth + $offset) {
+				if ($isArrayComponent) {
+					$component = array_slice($vars, $contextDepth + $offset);
+					for ($i=0, $count=count($component); $i<$count; $i++) {
+						$component[$i] = Core::cleanVar(get_magic_quotes_gpc() ? stripslashes($component[$i]) : $component[$i]);
+					}
+				} else {
+					$component = $vars[$contextDepth + $offset];
+				}
+			}
+		} else {
+			$component = Core::_getUserVar($urlInfo, $varName, $userVars);
+		}
+
+		if ($isArrayComponent) {
+			if (empty($component)) $component = array();
+			elseif (!is_array($component)) $component = array($component);
+		}
+
+		return $component;
 	}
 }
 

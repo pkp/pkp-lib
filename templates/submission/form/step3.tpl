@@ -14,7 +14,8 @@
 			{ldelim}
 				isEditedVolume: {if $isEditedVolume}true{else}false{/if},
 				chaptersGridContainer: 'chaptersGridContainer',
-				authorsGridContainer: 'authorsGridContainer'
+				authorsGridContainer: 'authorsGridContainer',
+				canExpedite: {if $canExpedite}true{else}false{/if},
 			{rdelim});
 	{rdelim});
 </script>
@@ -35,7 +36,14 @@
 
 	{$additionalFormFields}
 
+	{if $canExpedite}
+		<div id="metadataAccordion"><h3><a href="#">{translate key="submission.submit.extendedMetadata"}</a></h3>
+			<div id="extraSubmissionFields">
+	{/if}
 	{include file="core:submission/submissionMetadataFormFields.tpl"}
-
+	{if $canExpedite}
+			</div>
+		</div>
+	{/if}
 	{fbvFormButtons id="step3Buttons" submitText="submission.submit.finishSubmission" confirmSubmit="submission.confirmSubmit"}
 </form>

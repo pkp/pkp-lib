@@ -37,7 +37,7 @@ class PKPWorkflowHandler extends Handler {
 		$router = $request->getRouter();
 		$operation = $router->getRequestedOp($request);
 
-		if ($operation == 'access') {
+		if ($operation == 'access' || $operation == 'expedite') {
 			// Authorize requested submission.
 			import('lib.pkp.classes.security.authorization.internal.SubmissionRequiredPolicy');
 			$this->addPolicy(new SubmissionRequiredPolicy($request, $args, 'submissionId'));
@@ -144,6 +144,16 @@ class PKPWorkflowHandler extends Handler {
 		// Render the view.
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->display('workflow/editorial.tpl');
+	}
+
+	/**
+	 * Expedites a submission through the submission process, if the submitter is a manager or editor.
+	 *  Implemented in sub classes.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 */
+	function expedite($args, $request) {
+		assert(false);
 	}
 
 	/**

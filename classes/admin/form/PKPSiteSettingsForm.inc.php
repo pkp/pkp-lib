@@ -55,7 +55,6 @@ class PKPSiteSettingsForm extends Form {
 		$templateMgr->assign('publicFilesDir', Request::getBasePath() . '/' . $publicFileManager->getSiteFilesPath());
 		$templateMgr->assign('dateStyleFileUploaded', file_exists($siteStyleFilename)?filemtime($siteStyleFilename):null);
 		$templateMgr->assign('siteStyleFileExists', file_exists($siteStyleFilename));
-		$templateMgr->assign('helpTopicId', 'site.siteManagement');
 		return parent::display();
 	}
 

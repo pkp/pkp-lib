@@ -35,6 +35,7 @@ class AppearanceForm extends ContextSettingsForm {
 			'navItems' => 'object',
 			'itemsPerPage' => 'int',
 			'numPageLinks' => 'int',
+			'themePluginPath' => 'string',
 		));
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON);
@@ -96,6 +97,13 @@ class AppearanceForm extends ContextSettingsForm {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('uploadImageLinkActions', $uploadImageLinkActions);
 		$templateMgr->assign('uploadCssLinkAction', $uploadCssLinkAction);
+
+		$themePlugins = PluginRegistry::loadCategory('themes');
+		$themePluginOptions = array();
+		foreach ($themePlugins as $themePlugin) {
+			$themePluginOptions[basename($themePlugin->getPluginPath())] = $themePlugin->getDisplayName();
+		}
+		$templateMgr->assign('themePluginOptions', $themePluginOptions);
 
 		$params = array(
 			'imagesViews' => $imagesViews,
@@ -196,6 +204,27 @@ class AppearanceForm extends ContextSettingsForm {
 		// Save block plugins context positions.
 		import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
 		ListbuilderHandler::unpack($request, $request->getUserVar('blocks'));
+
+		// Activate the selected theme plugin
+		$context = $request->getContext();
+		$themePlugins = PluginRegistry::loadCategory('themes');
+		$selectedThemePluginPath = $this->getData('themePluginPath');
+		$selectedThemePlugin = null;
+		foreach ($themePlugins as $themePlugin) {
+			if (basename($themePlugin->getPluginPath()) != $selectedThemePluginPath) {
+				// Flag other themes for deactivation to ensure
+				// they won't be included in a CSS recompile.
+				$themePlugin->flagDeactivation($context->getId());
+			} else {
+				$selectedThemePlugin = $themePlugin;
+			}
+		}
+		if ($selectedThemePlugin) {
+			// Activate the selected theme to trigger a CSS recompile.
+			$selectedThemePlugin->activate($context->getId());
+		} else {
+			assert(false); // Couldn't identify the selected theme plugin
+		}
 	}
 
 	/**

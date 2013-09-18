@@ -16,7 +16,7 @@
  */
 
 
-import('classes.plugins.Plugin');
+import('lib.pkp.classes.plugins.Plugin');
 
 class PKPVancouverCitationOutputPlugin extends Plugin {
 	/**
@@ -28,10 +28,10 @@ class PKPVancouverCitationOutputPlugin extends Plugin {
 
 
 	//
-	// Override protected template methods from PKPPlugin
+	// Override protected template methods from Plugin
 	//
 	/**
-	 * @copydoc PKPPlugin::register()
+	 * @copydoc Plugin::register()
 	 */
 	function register($category, $path) {
 		if (!parent::register($category, $path)) return false;
@@ -40,21 +40,21 @@ class PKPVancouverCitationOutputPlugin extends Plugin {
 	}
 
 	/**
-	 * @copydoc PKPPlugin::getName()
+	 * @copydoc Plugin::getName()
 	 */
 	function getName() {
 		return 'VancouverCitationOutputPlugin';
 	}
 
 	/**
-	 * @copydoc PKPPlugin::getDisplayName()
+	 * @copydoc Plugin::getDisplayName()
 	 */
 	function getDisplayName() {
 		return __('plugins.citationOutput.vancouver.displayName');
 	}
 
 	/**
-	 * @copydoc PKPPlugin::getDescription()
+	 * @copydoc Plugin::getDescription()
 	 */
 	function getDescription() {
 		return __('plugins.citationOutput.vancouver.description');

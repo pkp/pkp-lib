@@ -27,10 +27,10 @@ class BlockPlugin extends LazyLoadPlugin {
 	}
 
 	/*
-	 * Override public methods from PKPPlugin
+	 * Override public methods from Plugin
 	 */
 	/**
-	 * @see PKPPlugin::register()
+	 * @see Plugin::register()
 	 */
 	function register($category, $path) {
 		$success = parent::register($category, $path);
@@ -46,10 +46,10 @@ class BlockPlugin extends LazyLoadPlugin {
 	}
 
 	/**
-	 * Override protected methods from PKPPlugin
+	 * Override protected methods from Plugin
 	 */
 	/**
-	 * @see PKPPlugin::getSeq()
+	 * @see Plugin::getSeq()
 	 *
 	 * NB: In the case of block plugins, higher numbers move
 	 * plugins down the page compared to other blocks.

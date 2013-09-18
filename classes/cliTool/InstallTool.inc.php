@@ -85,7 +85,7 @@ class InstallTool extends CommandLineTool {
 	 * FIXME: Use readline if available?
 	 */
 	function readParams() {
-		$installForm = new InstallForm();
+		$installForm = new InstallForm(null); // Request object not available to CLI
 
 		// Locale Settings
 		$this->printTitle('installer.localeSettings');

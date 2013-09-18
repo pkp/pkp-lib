@@ -13,7 +13,7 @@
  */
 
 
-import('classes.plugins.Plugin');
+import('lib.pkp.classes.plugins.Plugin');
 
 // Define the well-known file name for controlled vocabulary data.
 define('METADATA_PLUGIN_VOCAB_DATAFILE', 'controlledVocabs.xml');
@@ -32,10 +32,10 @@ class MetadataPlugin extends Plugin {
 
 
 	//
-	// Override public methods from PKPPlugin
+	// Override public methods from Plugin
 	//
 	/**
-	 * @see PKPPlugin::register()
+	 * @see Plugin::register()
 	 */
 	function register($category, $path) {
 		$success = parent::register($category, $path);
@@ -46,7 +46,7 @@ class MetadataPlugin extends Plugin {
 	/**
 	 * This implementation looks for files that contain controlled
 	 * vocabulary data. It can discover and return more than one file.
-	 * @see PKPPlugin::getInstallDataFile()
+	 * @see Plugin::getInstallDataFile()
 	 * @return array|null
 	 */
 	function getInstallDataFile() {
@@ -76,7 +76,7 @@ class MetadataPlugin extends Plugin {
 
 	/**
 	 * This implementation marks the vocabulary data as installed.
-	 * @see PKPPlugin::installData()
+	 * @see Plugin::installData()
 	 */
 	function installData($hookName, $args) {
 		parent::installData($hookName, $args);

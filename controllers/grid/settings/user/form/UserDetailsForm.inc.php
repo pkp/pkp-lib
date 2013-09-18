@@ -134,14 +134,10 @@ class UserDetailsForm extends UserForm {
 		if (isset($this->userId)) {
 			$user =& $userDao->getById($this->userId);
 			$templateMgr->assign('username', $user->getUsername());
-			$helpTopicId = 'context.users.index';
-		} else {
-			$helpTopicId = 'context.users.createNewUser';
 		}
 
 		$templateMgr->assign('implicitAuth', Config::getVar('security', 'implicit_auth'));
 		$templateMgr->assign('availableLocales', $site->getSupportedLocaleNames());
-		$templateMgr->assign('helpTopicId', $helpTopicId);
 
 		$countryDao = DAORegistry::getDAO('CountryDAO');
 		$templateMgr->assign('countries', $countryDao->getCountries());

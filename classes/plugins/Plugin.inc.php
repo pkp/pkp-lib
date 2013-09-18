@@ -7,12 +7,12 @@
  */
 
 /**
- * @file classes/plugins/PKPPlugin.inc.php
+ * @file classes/plugins/Plugin.inc.php
  *
  * Copyright (c) 2000-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPPlugin
+ * @class Plugin
  * @ingroup plugins
  * @see PluginRegistry, PluginSettingsDAO
  *
@@ -46,7 +46,7 @@
 // Define the well-known file name for filter configuration data.
 define('PLUGIN_FILTER_DATAFILE', 'filterConfig.xml');
 
-class PKPPlugin {
+class Plugin {
 	/** @var $pluginPath string Path name to files for this plugin */
 	var $pluginPath;
 
@@ -59,7 +59,7 @@ class PKPPlugin {
 	/**
 	 * Constructor
 	 */
-	function PKPPlugin() {
+	function Plugin() {
 	}
 
 	/*
@@ -106,7 +106,7 @@ class PKPPlugin {
 		return true;
 	}
 
-	/*
+	/**
 	 * Protected methods (may be overridden by custom plugins)
 	 */
 
@@ -344,6 +344,27 @@ class PKPPlugin {
 		return false;
 	}
 
+	/**
+	 * Convenience version of the generic getContextSpecificSetting() method.
+	 * @see Plugin::getContextSpecificSetting()
+	 * @param $contextId int Context ID
+	 * @param $name string Setting name
+	 */
+	function getSetting($contextId, $name) {
+		return $this->getContextSpecificSetting(array($contextId), $name);
+	}
+
+	/**
+	 * Convenience version of the generic updateContextSpecificSetting() method.
+	 * @see Plugin::updateContextSpecificSetting()
+	 * @param $contextId int Context ID
+	 * @param $name string The name of the setting
+	 * @param $value mixed Setting value
+	 * @param $type string optional
+	 */
+	function updateSetting($contextId, $name, $value, $type = null) {
+		$this->updateContextSpecificSetting(array($contextId), $name, $value, $type);
+	}
 	/**
 	 * Retrieve a plugin setting within the given context
 	 *

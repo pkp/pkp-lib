@@ -33,8 +33,6 @@ define('CACHEABILITY_PROXY_REVALIDATE',	'proxy-revalidate');
 define('CDN_JQUERY_VERSION', '1.4.4');
 define('CDN_JQUERY_UI_VERSION', '1.8.6');
 
-define('COMPILED_CSS_FILENAME', 'compiled.css');
-
 class PKPTemplateManager extends Smarty {
 	/** @var $styleSheets array of URLs to stylesheets */
 	var $styleSheets;
@@ -87,9 +85,24 @@ class PKPTemplateManager extends Smarty {
 		$this->cache_dir = $cachePath . DIRECTORY_SEPARATOR . 't_cache';
 
 		// If the stylesheet does not exist, compile it.
-		if (!file_exists($this->_getCompiledStylesheetPath())) {
-			$this->compileStylesheet();
+		$context = $request->getContext();
+		$contextId = $context?$context->getId():CONTEXT_SITE;
+		if (!file_exists($this->_getCompiledStylesheetPath($contextId))) {
+			if (defined('SESSION_DISABLE_INIT')) {
+				$themePluginName = null;
+			} elseif ($contextId == CONTEXT_SITE) {
+				$siteSettingsDao = DAORegistry::getDAO('SiteSettingsDAO');
+				$themePluginName = $siteSettingsDao->getSetting('themePluginPath');
+			} else { // Specific context
+				$contextSettingsDao = $context->getSettingsDAO();
+				$themePluginName = $contextSettingsDao->getSetting($contextId, 'themePluginPath');
+			}
+			if (!$themePluginName) $themePluginName = 'default';
+			PluginRegistry::loadPlugin('themes', $themePluginName);
+
+			$this->compileStylesheet($contextId);
 		}
+		$this->assign('compiledStylesheetFilename', $this->_getCompiledStylesheetFilename($contextId));
 
 		// Assign common variables
 		$this->styleSheets = array();
@@ -146,7 +159,6 @@ class PKPTemplateManager extends Smarty {
 		$this->register_function('call_hook', array($this, 'smartyCallHook'));
 		$this->register_function('html_options_translate', array($this, 'smartyHtmlOptionsTranslate'));
 		$this->register_block('iterate', array($this, 'smartyIterate'));
-		$this->register_function('call_progress_function', array($this, 'smartyCallProgressFunction'));
 		$this->register_function('page_links', array($this, 'smartyPageLinks'));
 		$this->register_function('page_info', array($this, 'smartyPageInfo'));
 		$this->register_function('icon', array($this, 'smartyIcon'));
@@ -239,32 +251,37 @@ class PKPTemplateManager extends Smarty {
 
 	/**
 	 * Get the full path and filename to the compiled stylesheet file.
+	 * @param $contextId int Context ID
 	 * @return string
 	 */
-	protected static function _getCompiledStylesheetPath() {
-		return (CacheManager::getFileCachePath() . '/' . COMPILED_CSS_FILENAME);
+	protected static function _getCompiledStylesheetPath($contextId) {
+		return CacheManager::getFileCachePath() . '/' . self::_getCompiledStylesheetFilename($contextId);
+	}
+
+	protected static function _getCompiledStylesheetFilename($contextId) {
+		return 'compiled-' . (int) $contextId . '.css';
 	}
 
 	/**
 	 * Recompile the CSS
-	 * @param $force boolean True if the existing cache should be unlinked before recompiling
+	 * @param $contextId int Context ID
 	 * @return string Full path to the compiled file that was generated.
 	 */
-	static function compileStylesheet($force = false) {
+	static function compileStylesheet($contextId) {
 		// Load the LESS compiler class.
 		require_once('lib/pkp/lib/lessphp/lessc.inc.php');
 
-		$compiledStylesheetFile = self::_getCompiledStylesheetPath();
-
-		// Flush if necessary
-		if ($force) unlink($compiledStylesheetFile);
+		$compiledStylesheetFile = self::_getCompiledStylesheetPath($contextId);
 
 		// KLUDGE pending fix of https://github.com/leafo/lessphp/issues#issue/66
 		// Once this issue is fixed, revisit paths and go back to using
 		// lessc::ccompile to parse & compile.
 		$less = new lessc('styles/index.less');
 		$less->importDir = './';
-		file_put_contents($compiledStylesheetFile, $less->parse());
+		$compiledStyles = $less->parse();
+		if (!HookRegistry::call('PKPTemplateManager::compileStylesheet', array(&$compiledStyles, &$compiledStylesheetFile, $contextId))) {
+			file_put_contents($compiledStylesheetFile, $compiledStyles);
+		}
 
 		return $compiledStylesheetFile;
 	}
@@ -813,39 +830,6 @@ class PKPTemplateManager extends Smarty {
 
 		// Let the dispatcher create the url
 		return $dispatcher->url($this->request, $router, $context, $handler, $op, $path, $parameters, $anchor, !isset($escape) || $escape);
-	}
-
-	/**
-	 * Set the progress function callback for updating a progress bar.
-	 * @param $progressFunction callback
-	 */
-	function setProgressFunction($progressFunction) {
-		Registry::set('progressFunctionCallback', $progressFunction);
-	}
-
-	/**
-	 * Smarty function to invoke the progress function callback.
-	 * @param $params array
-	 * @param $smarty Smarty
-	 */
-	function smartyCallProgressFunction($params, &$smarty) {
-		$progressFunctionCallback =& Registry::get('progressFunctionCallback');
-		if ($progressFunctionCallback) {
-			call_user_func($progressFunctionCallback);
-		}
-	}
-
-	function updateProgressBar($progress, $total) {
-		static $lastPercent;
-		$percent = round($progress * 100 / $total);
-		if (!isset($lastPercent) || $lastPercent != $percent) {
-			for($i=1; $i <= $percent-$lastPercent; $i++) {
-				echo '<img src="' . $this->request->getBaseUrl() . '/templates/images/progbar.gif" width="5" height="15">';
-			}
-		}
-		$lastPercent = $percent;
-
-		$this->flush();
 	}
 
 	/**

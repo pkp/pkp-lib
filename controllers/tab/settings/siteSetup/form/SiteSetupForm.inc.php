@@ -67,7 +67,13 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 		$templateMgr->assign('imageView', $imageView);
 		$templateMgr->assign('redirectOptions', $contexts);
 		$templateMgr->assign('pageHeaderTitleImage', $site->getSetting($imageSettingName));
-		$templateMgr->assign('helpTopicId', 'site.siteManagement');
+
+		$themePlugins = PluginRegistry::loadCategory('themes');
+		$themePluginOptions = array();
+		foreach ($themePlugins as $themePlugin) {
+			$themePluginOptions[basename($themePlugin->getPluginPath())] = $themePlugin->getDisplayName();
+		}
+		$templateMgr->assign('themePluginOptions', $themePluginOptions);
 
 		return parent::fetch($request);
 	}
@@ -93,7 +99,7 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 			$siteStyleSheet = array(
 				'name' => $site->getOriginalStyleFilename(),
 				'uploadName' => $site->getSiteStyleFilename(),
-				'dateUploaded' => filemtime($siteStyleFilename)
+				'dateUploaded' => filemtime($siteStyleFilename),
 			);
 		}
 
@@ -101,6 +107,7 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 
 		$this->setData('siteStyleSheet', $siteStyleSheet);
 		$this->setData('pageHeaderTitleImage', $pageHeaderTitleImage);
+		$this->setData('themePluginPath', $site->getSetting('themePluginPath'));
 
 		parent::initData();
 	}
@@ -110,7 +117,7 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 	 */
 	function readInputData() {
 		$this->readUserVars(
-			array('pageHeaderTitleType', 'title', 'intro', 'about', 'redirect', 'contactName', 'contactEmail', 'minPasswordLength')
+			array('pageHeaderTitleType', 'title', 'intro', 'about', 'redirect', 'contactName', 'contactEmail', 'minPasswordLength', 'themePluginPath',)
 		);
 	}
 
@@ -127,6 +134,27 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 		$siteSettingsDao = $this->siteSettingsDao;
 		foreach ($this->getLocaleFieldNames() as $setting) {
 			$siteSettingsDao->updateSetting($setting, $this->getData($setting), null, true);
+		}
+
+		// Activate the selected theme plugin
+		$selectedThemePluginPath = $this->getData('themePluginPath');
+		$site->updateSetting('themePluginPath', $selectedThemePluginPath);
+		$themePlugins = PluginRegistry::loadCategory('themes');
+		$selectedThemePlugin = null;
+		foreach ($themePlugins as $themePlugin) {
+			if (basename($themePlugin->getPluginPath()) != $selectedThemePluginPath) {
+				// Flag other themes for deactivation to ensure
+				// they won't be included in a CSS recompile.
+				$themePlugin->flagDeactivation(CONTEXT_SITE);
+			} else {
+				$selectedThemePlugin = $themePlugin;
+			}
+		}
+		if ($selectedThemePlugin) {
+			// Activate the selected theme to trigger a CSS recompile.
+			$selectedThemePlugin->activate(CONTEXT_SITE);
+		} else {
+			assert(false); // Couldn't identify the selected theme plugin
 		}
 
 		$siteDao->updateObject($site);

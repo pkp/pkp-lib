@@ -236,6 +236,8 @@
 	<message key="manager.setup.homeHeaderImageInvalid">Invalid homepage header logo image format or upload failed. Accepted formats are .gif, .jpg, or .png.</message>
 	<message key="manager.setup.homepageImageInvalid">Invalid homepage image format or upload failed. Accepted formats are .gif, .jpg, or .png.</message>
 	<message key="manager.setup.homeTitleImageInvalid">Invalid homepage header title image format or upload failed. Accepted formats are .gif, .jpg, or .png.</message>
+	<message key="manager.setup.layout.theme">Theme</message>
+	<message key="manager.setup.layout.themeDescription">Choose a theme from the available set of theme plugins.</message>
 	<message key="manager.setup.layout.blockManagement">Sidebar management</message>
 	<message key="manager.setup.layout.leftSidebar">Left Sidebar</message>
 	<message key="manager.setup.layout.rightSidebar">Right Sidebar</message>

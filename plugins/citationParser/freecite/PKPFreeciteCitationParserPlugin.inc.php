@@ -16,7 +16,7 @@
  */
 
 
-import('classes.plugins.Plugin');
+import('lib.pkp.classes.plugins.Plugin');
 
 class PKPFreeciteCitationParserPlugin extends Plugin {
 	/**
@@ -28,10 +28,10 @@ class PKPFreeciteCitationParserPlugin extends Plugin {
 
 
 	//
-	// Override protected template methods from PKPPlugin
+	// Override protected template methods from Plugin
 	//
 	/**
-	 * @copydoc PKPPlugin::register()
+	 * @copydoc Plugin::register()
 	 */
 	function register($category, $path) {
 		if (!parent::register($category, $path)) return false;
@@ -40,21 +40,21 @@ class PKPFreeciteCitationParserPlugin extends Plugin {
 	}
 
 	/**
-	 * @copydoc PKPPlugin::getName()
+	 * @copydoc Plugin::getName()
 	 */
 	function getName() {
 		return 'FreeciteCitationParserPlugin';
 	}
 
 	/**
-	 * @copydoc PKPPlugin::getDisplayName()
+	 * @copydoc Plugin::getDisplayName()
 	 */
 	function getDisplayName() {
 		return __('plugins.citationParser.freecite.displayName');
 	}
 
 	/**
-	 * @copydoc PKPPlugin::getDescription()
+	 * @copydoc Plugin::getDescription()
 	 */
 	function getDescription() {
 		return __('plugins.citationParser.freecite.description');

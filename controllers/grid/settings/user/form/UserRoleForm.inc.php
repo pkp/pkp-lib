@@ -16,7 +16,7 @@ import('lib.pkp.controllers.grid.settings.user.form.UserForm');
 
 class UserRoleForm extends UserForm {
 
-	/* @var string Ûser full name */
+	/* @var string User full name */
 	var $_userFullName;
 
 	/**
@@ -37,12 +37,10 @@ class UserRoleForm extends UserForm {
 	 * @param $request PKPRequest
 	 */
 	function display($args, $request) {
-		$helpTopicId = 'context.users.createNewUser';
 		$templateMgr = TemplateManager::getManager($request);
 
 		$templateMgr->assign('userId', $this->userId);
 		$templateMgr->assign('userFullName', $this->_userFullName);
-		$templateMgr->assign('helpTopicId', $helpTopicId);
 
 		return $this->fetch($request);
 	}

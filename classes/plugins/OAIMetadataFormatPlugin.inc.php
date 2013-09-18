@@ -12,7 +12,7 @@
  * @brief Abstract class for OAI Metadata format plugins
  */
 
-import('classes.plugins.Plugin');
+import('lib.pkp.classes.plugins.Plugin');
 import('lib.pkp.classes.oai.OAIStruct');
 
 class OAIMetadataFormatPlugin extends Plugin {

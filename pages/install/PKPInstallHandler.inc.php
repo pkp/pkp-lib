@@ -42,7 +42,7 @@ class PKPInstallHandler extends Handler {
 			$request->setCookieVar('currentLocale', $setLocale);
 		}
 
-		$installForm = new InstallForm();
+		$installForm = new InstallForm($request);
 		$installForm->initData();
 		$installForm->display();
 	}
@@ -66,7 +66,7 @@ class PKPInstallHandler extends Handler {
 		$this->validate($request);
 		$this->setupTemplate($request);
 
-		$installForm = new InstallForm();
+		$installForm = new InstallForm($request);
 		$installForm->readInputData();
 
 		if ($installForm->validate()) {

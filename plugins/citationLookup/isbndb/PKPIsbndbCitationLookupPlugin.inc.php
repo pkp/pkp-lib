@@ -17,7 +17,7 @@
  */
 
 
-import('classes.plugins.Plugin');
+import('lib.pkp.classes.plugins.Plugin');
 
 class PKPIsbndbCitationLookupPlugin extends Plugin {
 	/**
@@ -29,10 +29,10 @@ class PKPIsbndbCitationLookupPlugin extends Plugin {
 
 
 	//
-	// Override protected template methods from PKPPlugin
+	// Override protected template methods from Plugin
 	//
 	/**
-	 * @copydoc PKPPlugin::register()
+	 * @copydoc Plugin::register()
 	 */
 	function register($category, $path) {
 		if (!parent::register($category, $path)) return false;
@@ -41,21 +41,21 @@ class PKPIsbndbCitationLookupPlugin extends Plugin {
 	}
 
 	/**
-	 * @copydoc PKPPlugin::getName()
+	 * @copydoc Plugin::getName()
 	 */
 	function getName() {
 		return 'IsbndbCitationLookupPlugin';
 	}
 
 	/**
-	 * @copydoc PKPPlugin::getDisplayName()
+	 * @copydoc Plugin::getDisplayName()
 	 */
 	function getDisplayName() {
 		return __('plugins.citationLookup.isbndb.displayName');
 	}
 
 	/**
-	 * @copydoc PKPPlugin::getDescription()
+	 * @copydoc Plugin::getDescription()
 	 */
 	function getDescription() {
 		return __('plugins.citationLookup.isbndb.description');

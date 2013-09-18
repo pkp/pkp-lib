@@ -91,7 +91,7 @@
 
 	{* Layout *}
 	{fbvFormArea id="layout" title="manager.setup.layout" class="border"}
-		{fbvFormSection title="manager.setup.useStyleSheet" description="manager.setup.styleSheetDescription"}
+		{fbvFormSection title="manager.setup.useStyleSheet" description="manager.setup.styleSheetDescription" size=$fbvStyles.size.MEDIUM inline=true}
 			<div id="{$uploadCssLinkAction->getId()}" class="pkp_linkActions">
 				{include file="linkAction/linkAction.tpl" action=$uploadCssLinkAction contextId="appearanceForm"}
 			</div>
@@ -99,6 +99,11 @@
 				{$styleSheetView}
 			</div>
 		{/fbvFormSection}
+		{fbvFormSection title="manager.setup.layout.theme" description="manager.setup.layout.themeDescription" size=$fbvStyles.size.MEDIUM inline=true}
+			{fbvElement type="select" id="themePluginPath" from=$themePluginOptions selected=$themePluginPath translate=false size=$fbvStyles.size.MEDIUM}
+		{/fbvFormSection}
+		{fbvFormSection}{/fbvFormSection}{* FIXME: Clear inline *}
+
 		{url|assign:blockPluginsUrl router=$smarty.const.ROUTE_COMPONENT component="listbuilder.settings.BlockPluginsListbuilderHandler" op="fetch" escape=false}
 		{load_url_in_div id="blockPluginsContainer" url=$blockPluginsUrl}
 	{/fbvFormArea}

@@ -122,7 +122,6 @@ class PKPRegistrationForm extends Form {
 		$site = $request->getSite();
 		$templateMgr->assign('availableLocales', $site->getSupportedLocaleNames());
 
-		$templateMgr->assign('helpTopicId', 'user.registerAndProfile');
 		parent::display();
 	}
 

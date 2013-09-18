@@ -217,25 +217,20 @@ class VersionDAO extends DAO {
 	 */
 	function &getCurrentProducts($context) {
 		if (count($context)) {
-			// Construct the where clause for the plugin settings
-			// context.
-			$contextNames = array_keys($context);
-			foreach ($contextNames as $contextLevel => $contextName) {
-				// Transform from camel case to ..._...
-				String::regexp_match_all('/[A-Z][a-z]*/', ucfirst($contextName), $words);
-				$contextNames[$contextLevel] = strtolower_codesafe(implode('_', $words[0]));
-			}
-			$contextWhereClause = 'AND (('.implode('_id = ? AND ', $contextNames).'_id = ?) OR v.sitewide = 1)';
+			assert(count($context)==1); // Context depth > 1 no longer supported here.
+			$contextWhereClause = 'AND (context_id = ? OR v.sitewide = 1)';
 		} else {
 			$contextWhereClause = '';
 		}
 
 		$result = $this->retrieve(
-				'SELECT v.*
-				 FROM versions v LEFT JOIN plugin_settings ps ON
-					lower(v.product_class_name) = ps.plugin_name
-					AND ps.setting_name = \'enabled\' '.$contextWhereClause.'
-				 WHERE v.current = 1 AND (ps.setting_value = \'1\' OR v.lazy_load <> 1)', $context, false);
+			'SELECT v.*
+			FROM versions v LEFT JOIN plugin_settings ps ON
+				lower(v.product_class_name) = ps.plugin_name
+				AND ps.setting_name = \'enabled\' '.$contextWhereClause.'
+			WHERE v.current = 1 AND (ps.setting_value = \'1\' OR v.lazy_load <> 1)',
+			$context, false
+		);
 
 		$productArray = array();
 		while(!$result->EOF) {

@@ -20,7 +20,7 @@
 require_mock_env('env2');
 
 import('lib.pkp.tests.DatabaseTestCase');
-import('lib.pkp.classes.plugins.PKPPlugin');
+import('lib.pkp.classes.plugins.Plugin');
 
 class PluginTestCase extends DatabaseTestCase {
 	/**

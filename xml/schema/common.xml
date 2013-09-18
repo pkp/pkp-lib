@@ -681,4 +681,36 @@
 			<UNIQUE />
 		</index>
 	</table>
+
+	<!--
+	  *
+	  * TABLE plugin_settings
+	  *
+	  -->
+	<table name="plugin_settings">
+		<field name="plugin_name" type="C2" size="80">
+			<NOTNULL/>
+		</field>
+		<field name="context_id" type="I8">
+			<NOTNULL/>
+		</field>
+		<field name="setting_name" type="C2" size="80">
+			<NOTNULL/>
+		</field>
+		<field name="setting_value" type="X"/>
+		<field name="setting_type" type="C2" size="6">
+			<NOTNULL/>
+			<descr>(bool|int|float|string|object)</descr>
+		</field>
+		<descr>Plugin settings.</descr>
+		<index name="plugin_settings_plugin_name">
+			<col>plugin_name</col>
+		</index>
+		<index name="plugin_settings_pkey">
+			<col>plugin_name</col>
+			<col>context_id</col>
+			<col>setting_name</col>
+			<UNIQUE />
+		</index>
+	</table>
 </schema>

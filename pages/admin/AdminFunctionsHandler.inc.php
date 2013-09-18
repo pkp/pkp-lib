@@ -51,7 +51,6 @@ class AdminFunctionsHandler extends AdminHandler {
 			$latestVersionInfo['patch'] = VersionCheck::getPatch($latestVersionInfo);
 			$templateMgr->assign('latestVersionInfo', $latestVersionInfo);
 		}
-		$templateMgr->assign('helpTopicId', 'site.administrativeFunctions');
 		$templateMgr->display('admin/systemInfo.tpl');
 	}
 

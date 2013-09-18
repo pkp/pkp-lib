@@ -13,7 +13,7 @@
  * support lazy load.
  */
 
-import('classes.plugins.Plugin');
+import('lib.pkp.classes.plugins.Plugin');
 
 class LazyLoadPlugin extends Plugin {
 	/**
@@ -24,13 +24,13 @@ class LazyLoadPlugin extends Plugin {
 	}
 
 	/*
-	 * Override public methods from PKPPlugin
+	 * Override public methods from Plugin
 	 */
 	/**
-	 * Extends the definition of PKPPlugin's register()
+	 * Extends the definition of Plugin's register()
 	 * method to support lazy load.
 	 *
-	 * @see PKPPlugin::register()
+	 * @see Plugin::register()
 	 *
 	 * @param lazyLoad
 	 */
@@ -43,10 +43,10 @@ class LazyLoadPlugin extends Plugin {
 	}
 
 	/*
-	 * Override protected methods from PKPPlugin
+	 * Override protected methods from Plugin
 	 */
 	/**
-	 * @see PKPPlugin::getName()
+	 * @see Plugin::getName()
 	 */
 	function getName() {
 		// Lazy load enabled plug-ins always use the plugin's class name

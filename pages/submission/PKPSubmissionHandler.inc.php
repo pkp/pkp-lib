@@ -158,7 +158,7 @@ class PKPSubmissionHandler extends Handler {
 							'expedite',
 							new AjaxModal(
 								$router->url($request, null, 'workflow', 'expedite', $submission->getId()),
-								__('submission.submit.chooseIssueForExpedite'),
+								__('submission.submit.confirmExpedite'),
 								'modal_edit',
 								true),
 							__('submission.submit.expediteSubmission')

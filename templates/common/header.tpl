@@ -1,5 +1,5 @@
 {**
- * templates/common/header.tpl
+ * lib/pkp/templates/common/header.tpl
  *
  * Copyright (c) 2003-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -28,7 +28,7 @@
 		{rdelim});
 	</script>
 	<div class="pkp_structure_page">
-		{url|assign:fetchHeaderUrl page="header" escape=false}
+		{url|assign:fetchHeaderUrl router=$smarty.const.ROUTE_COMPONENT component="page.PageHandler" op="header" escape=false}
 		{load_url_in_div class="pkp_structure_head" id="headerContainer" url=$fetchHeaderUrl}
 		<div class="pkp_structure_body">
 			<div class="pkp_structure_content">
@@ -38,7 +38,7 @@
 					{/if}
 				</div>
 
-				{url|assign:fetchSidebarUrl page="sidebar" escape=false}
+				{url|assign:fetchSidebarUrl router=$smarty.const.ROUTE_COMPONENT component="page.PageHandler" op="sidebar" escape=false}
 				{load_url_in_div id="sidebarContainer" url=$fetchSidebarUrl}
 
 				<script type="text/javascript">

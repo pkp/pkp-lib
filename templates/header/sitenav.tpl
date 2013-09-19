@@ -11,7 +11,7 @@
 	<ul class="pkp_helpers_flatlist pkp_helpers_align_left">
 		{if $isUserLoggedIn}
 			{if array_intersect(array(ROLE_ID_SITE_ADMIN), $userRoles)}
-				<li><a href="{if $multipleContexts}{url context="index" page="admin" op="index"}{else}{url page="admin" op="index"}{/if}">{translate key="navigation.admin"}</a></li>
+				<li><a href="{if $multipleContexts}{url router=$smarty.const.ROUTE_PAGE context="index" page="admin" op="index"}{else}{url router=$smarty.const.ROUTE_PAGE page="admin" op="index"}{/if}">{translate key="navigation.admin"}</a></li>
 			{/if}
 		{/if}
 		{if $multipleContexts}
@@ -20,17 +20,17 @@
 	</ul>
 	<ul class="pkp_helpers_flatlist pkp_helpers_align_right">
 		{if $isUserLoggedIn}
-			<li class="profile">{translate key="user.hello"}&nbsp;<a href="{url page="user" op="profile"}">{$loggedInUsername|escape}</a></li>
+			<li class="profile">{translate key="user.hello"}&nbsp;<a href="{url router=$smarty.const.ROUTE_PAGE page="user" op="profile"}">{$loggedInUsername|escape}</a></li>
 			<li>{null_link_action id="toggleHelp" key="help.toggleInlineHelpOn"}</li>
-			<li><a href="{url page="login" op="signOut"}">{translate key="user.logOut"}</a></li>
+			<li><a href="{url router=$smarty.const.ROUTE_PAGE page="login" op="signOut"}">{translate key="user.logOut"}</a></li>
 			{if $isUserLoggedInAs}
-				<li><a href="{url page="login" op="signOutAsUser"}">{translate key="user.logOutAs"} {$loggedInUsername|escape}</a></li>
+				<li><a href="{url router=$smarty.const.ROUTE_PAGE page="login" op="signOutAsUser"}">{translate key="user.logOutAs"} {$loggedInUsername|escape}</a></li>
 			{/if}
 		{elseif !$notInstalled}
 			{if !$hideRegisterLink}
-				<li><a disabled="disabled" href="{url page="user" op="register"}">{translate key="navigation.register"}</a></li>
+				<li><a disabled="disabled" href="{url router=$smarty.const.ROUTE_PAGE page="user" op="register"}">{translate key="navigation.register"}</a></li>
 			{/if}
-			<li><a disabled="disabled" href="{url page="login"}">{translate key="navigation.login"}</a></li>
+			<li><a disabled="disabled" href="{url router=$smarty.const.ROUTE_PAGE page="login"}">{translate key="navigation.login"}</a></li>
 		{/if}
 	</ul>
 </div>

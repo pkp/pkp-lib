@@ -1,39 +1,56 @@
 <?php
 
 /**
- * @file pages/header/PKPHeaderHandler.inc.php
+ * @file lib/pkp/controllers/page/PageHandler.inc.php
  *
  * Copyright (c) 2003-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPHeaderHandler
- * @ingroup pages_header
+ * @class PageHandler
+ * @ingroup controllers_page
  *
- * @brief Handle site header requests.
+ * @brief Handler for requests for page components such as the header, sidebar, and CSS.
  */
-
 
 import('classes.handler.Handler');
 
-class PKPHeaderHandler extends Handler {
+class PageHandler extends Handler {
 	/**
 	 * Constructor
 	 */
-	function PKPHeaderHandler() {
+	function PageHandler() {
 		parent::Handler();
 	}
 
 
 	//
-	// Public handler operations
+	// Implement template methods from PKPHandler
+	//
+	/**
+	 * @copydoc PKPHandler::authorize()
+	 */
+	function authorize($request, &$args, $roleAssignments) {
+		import('lib.pkp.classes.security.authorization.PKPSiteAccessPolicy');
+		$this->addPolicy(new PKPSiteAccessPolicy(
+			$request,
+			array('header', 'sidebar'),
+			SITE_ACCESS_ALL_ROLES
+		));
+		return parent::authorize($request, $args, $roleAssignments);
+	}
+
+
+	//
+	// Public operations
 	//
 	/**
 	 * Display the header.
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function index($args, $request) {
+	function header($args, $request) {
 		$this->setupTemplate($request);
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER); // Management menu items
 		$templateMgr = TemplateManager::getManager($request);
 
 		$workingContexts = $this->getWorkingContexts($request);
@@ -78,7 +95,18 @@ class PKPHeaderHandler extends Handler {
 			$templateMgr->assign('contextSettings', $settingsDao->getSettings($context->getId()));
 		}
 
-		return $templateMgr->fetchJson('header/index.tpl');
+		return $templateMgr->fetchJson('controllers/page/header.tpl');
+	}
+
+	/**
+	 * Display the sidebar.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 */
+	function sidebar($args, $request) {
+		$this->setupTemplate($request);
+		$templateMgr = TemplateManager::getManager($request);
+		return $templateMgr->fetchJson('controllers/page/sidebar.tpl');
 	}
 }
 

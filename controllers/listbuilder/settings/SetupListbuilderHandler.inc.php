@@ -15,7 +15,7 @@
 import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
 
 class SetupListbuilderHandler extends ListbuilderHandler {
-	/** @var $_context Context */
+	/** @var Context */
 	var $_context;
 
 	/**

@@ -27,7 +27,7 @@
 import('lib.pkp.classes.file.ContextFileManager');
 
 class BaseSubmissionFileManager extends ContextFileManager {
-	/** @var $_submissionId int */
+	/** @var int */
 	var $_submissionId;
 
 	/**

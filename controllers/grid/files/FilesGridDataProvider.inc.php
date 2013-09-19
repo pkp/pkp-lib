@@ -23,7 +23,7 @@ class FilesGridDataProvider extends GridDataProvider {
 	/* @var array */
 	var $_uploaderGroupIds = null;
 
-	/** @var $_viewableOnly boolean */
+	/** @var boolean */
 	var $_viewableOnly = false;
 
 	/**

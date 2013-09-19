@@ -29,10 +29,10 @@ class XMLParser {
 	/** @var int original magic_quotes_runtime setting */
 	var $magicQuotes;
 
-	/** @var $handler object instance of XMLParserHandler */
+	/** @var object instance of XMLParserHandler */
 	var $handler;
 
-	/** @var $errors array List of error strings */
+	/** @var array List of error strings */
 	var $errors;
 
 	/**

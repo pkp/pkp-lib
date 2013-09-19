@@ -17,7 +17,7 @@ import('lib.pkp.classes.controllers.grid.CategoryGridDataProvider');
 
 class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider {
 
-	/** @var $_submissionFiles array */
+	/** @var array */
 	var $_submissionFiles;
 
 

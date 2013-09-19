@@ -15,7 +15,7 @@
 import('lib.pkp.classes.controllers.grid.GridRow');
 
 class ReviewerSelectGridRow extends GridRow {
-	/** @var $reviewerStats array Contains reviewer statistics array */
+	/** @var array Contains reviewer statistics array */
 	var $reviewerStats;
 
 	/**

@@ -16,7 +16,7 @@ import('lib.pkp.classes.controllers.grid.GridRow');
 import('lib.pkp.classes.linkAction.request.AjaxModal');
 
 class SubmissionsListGridRow extends GridRow {
-	/** @var $_isManager boolean true iff the user has a managerial role */
+	/** @var boolean true iff the user has a managerial role */
 	var $_isManager;
 
 	/**

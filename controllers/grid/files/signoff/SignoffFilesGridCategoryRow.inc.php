@@ -16,7 +16,7 @@ import('lib.pkp.classes.controllers.grid.GridCategoryRow');
 
 class SignoffFilesGridCategoryRow extends GridCategoryRow {
 
-	/** @var $stageId int */
+	/** @var int */
 	var $_stageId;
 
 	/**

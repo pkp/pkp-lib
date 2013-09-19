@@ -22,22 +22,22 @@ define('XSL_TRANSFORMER_DOCTYPE_DOM', 0x03);
 
 class XSLTransformer {
 
-	/** @var $processor string determining the XSLT processor to use for this object */
+	/** @var string determining the XSLT processor to use for this object */
 	var $processor;
 
-	/** @var $externalCommand string containing external XSLT shell command */
+	/** @var string containing external XSLT shell command */
 	var $externalCommand;
 
-	/** @var $externalParameterSnippet string containing external XSLT shell arguments for parameters */
+	/** @var string containing external XSLT shell arguments for parameters */
 	var $externalParameterSnippet;
 
-	/** @var $parameters array of parameters to pass to XSL (built-in libraries only) */
+	/** @var array of parameters to pass to XSL (built-in libraries only) */
 	var $parameters;
 
-	/** @var $registerPHPFunctions array of PHP functions to allow in XSL (PHP5 built-in only) */
+	/** @var array of PHP functions to allow in XSL (PHP5 built-in only) */
 	var $registerPHPFunctions;
 
-	/** @var $errors array List of error strings */
+	/** @var array List of error strings */
 	var $errors;
 
 	/**

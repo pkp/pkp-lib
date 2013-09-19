@@ -15,10 +15,10 @@
 import('lib.pkp.classes.controllers.grid.GridCellProvider');
 
 class DateGridCellProvider extends GridCellProvider {
-	/** @var $_dataProvider The actual data provider to wrap */
+	/** @var The actual data provider to wrap */
 	var $_dataProvider;
 
-	/** @var $_format The format to use; see strftime */
+	/** @var The format to use; see strftime */
 	var $_format;
 
 	/**

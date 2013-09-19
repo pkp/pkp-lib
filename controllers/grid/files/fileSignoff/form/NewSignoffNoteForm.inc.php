@@ -15,19 +15,19 @@
 import('lib.pkp.controllers.informationCenter.form.NewNoteForm');
 
 class NewSignoffNoteForm extends NewNoteForm {
-	/** @var $signoffId int The ID of the signoff to attach the note to */
+	/** @var int The ID of the signoff to attach the note to */
 	var $signoffId;
 
-	/** @var $submissionId int The ID of the signoff submission */
+	/** @var int The ID of the signoff submission */
 	var $_submissionId;
 
-	/** @var $symbolic int The signoff symbolic. */
+	/** @var int The signoff symbolic. */
 	var $_symbolic;
 
-	/** @var $stageId int The signoff stage id. */
+	/** @var int The signoff stage id. */
 	var $_stageId;
 
-	/** @var $actionArgs array The fetch notes list action args. */
+	/** @var array The fetch notes list action args. */
 	var $_actionArgs;
 
 	/**

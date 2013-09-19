@@ -47,13 +47,13 @@
 define('PLUGIN_FILTER_DATAFILE', 'filterConfig.xml');
 
 class Plugin {
-	/** @var $pluginPath string Path name to files for this plugin */
+	/** @var string Path name to files for this plugin */
 	var $pluginPath;
 
-	/** @var $pluginCategory string Category name this plugin is registered to*/
+	/** @var string Category name this plugin is registered to*/
 	var $pluginCategory;
 
-	/** @var $request PKPRequest the current request object */
+	/** @var PKPRequest the current request object */
 	var $request;
 
 	/**

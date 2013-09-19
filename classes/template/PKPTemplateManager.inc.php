@@ -34,19 +34,19 @@ define('CDN_JQUERY_VERSION', '1.4.4');
 define('CDN_JQUERY_UI_VERSION', '1.8.6');
 
 class PKPTemplateManager extends Smarty {
-	/** @var $styleSheets array of URLs to stylesheets */
+	/** @var array of URLs to stylesheets */
 	var $styleSheets;
 
-	/** @var $javaScripts array of URLs to javascript files */
+	/** @var array of URLs to javascript files */
 	var $javaScripts;
 
-	/** @var $cacheability string Type of cacheability (Cache-Control). */
+	/** @var string Type of cacheability (Cache-Control). */
 	var $cacheability;
 
-	/** @var $fbv object The form builder vocabulary class. */
+	/** @var object The form builder vocabulary class. */
 	var $fbv;
 
-	/** @var $request PKPRequest */
+	/** @var PKPRequest */
 	var $request;
 
 	/**

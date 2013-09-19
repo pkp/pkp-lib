@@ -18,10 +18,10 @@ import('lib.pkp.classes.controllers.grid.GridCategoryRow');
 import('lib.pkp.classes.linkAction.request.AjaxModal');
 
 class StageParticipantGridCategoryRow extends GridCategoryRow {
-	/** @var $_submission Submission **/
+	/** @var Submission **/
 	var $_submission;
 
-	/** @var $_stageId int */
+	/** @var int */
 	var $_stageId;
 
 	/**

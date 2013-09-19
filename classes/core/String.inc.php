@@ -322,6 +322,7 @@ class String {
 	 * @see http://ca.php.net/manual/en/function.regexp_grep.php
 	 * @param $pattern string Regular expression
 	 * @param $input string Input string
+	 * @return array
 	 */
 	static function regexp_grep($pattern, $input) {
 		if (PCRE_UTF8 && !String::utf8_compliant($input)) $input = String::utf8_bad_strip($input);
@@ -332,6 +333,7 @@ class String {
 	 * @see http://ca.php.net/manual/en/function.regexp_match.php
 	 * @param $pattern string Regular expression
 	 * @param $subject string String to apply regular expression to
+	 * @return int
 	 */
 	static function regexp_match($pattern, $subject) {
 		if (PCRE_UTF8 && !String::utf8_compliant($subject)) $subject = String::utf8_bad_strip($subject);
@@ -369,6 +371,7 @@ class String {
 	 * @param $replacement string String to replace matches in $subject with
 	 * @param $subject string String to apply regular expression to
 	 * @param $limit int Number of replacements to perform, maximum, or -1 for no limit.
+	 * @return mixed
 	 */
 	static function regexp_replace($pattern, $replacement, $subject, $limit = -1) {
 		if (PCRE_UTF8 && !String::utf8_compliant($subject)) $subject = String::utf8_bad_strip($subject);
@@ -381,6 +384,7 @@ class String {
 	 * @param $callback callback PHP callback to generate content to replace matches with
 	 * @param $subject string String to apply regular expression to
 	 * @param $limit int Number of replacements to perform, maximum, or -1 for no limit.
+	 * @return mixed
 	 */
 	static function regexp_replace_callback($pattern, $callback, $subject, $limit = -1) {
 		if (PCRE_UTF8 && !String::utf8_compliant($subject)) $subject = String::utf8_bad_strip($subject);
@@ -777,6 +781,7 @@ class String {
 	 * Transform "HandlerClass" to "handler-class"
 	 * and "myOp" to "my-op".
 	 * @param $string
+	 * @return string
 	 */
 	static function uncamelize($string) {
 		assert(!empty($string));

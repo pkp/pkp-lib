@@ -17,7 +17,7 @@ import('lib.pkp.classes.core.JSONMessage');
 import('classes.log.SubmissionEventLogEntry');
 
 class PKPSubmissionInformationCenterHandler extends InformationCenterHandler {
-	/** @var $_submission Submission */
+	/** @var Submission */
 	var $_submission;
 
 	/**

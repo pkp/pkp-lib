@@ -24,13 +24,13 @@ import('lib.pkp.classes.oai.OAIStruct');
 import('lib.pkp.classes.oai.OAIUtils');
 
 class OAI {
-	/** @var $config OAIConfig configuration parameters */
+	/** @var OAIConfig configuration parameters */
 	var $config;
 
-	/** @var $params array list of request parameters */
+	/** @var array list of request parameters */
 	var $params;
 
-	/** @var $protocolVersion string version of the OAI protocol supported by this class */
+	/** @var string version of the OAI protocol supported by this class */
 	var $protocolVersion = '2.0';
 
 

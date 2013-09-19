@@ -16,7 +16,7 @@
 import('lib.pkp.classes.form.Form');
 
 class SubmissionChecklistForm extends Form {
-	/** @var $submissionChecklistId int The id for the submissionChecklist being edited **/
+	/** @var int The id for the submissionChecklist being edited **/
 	var $submissionChecklistId;
 
 	/**

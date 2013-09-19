@@ -17,7 +17,7 @@ import('lib.pkp.classes.security.PKPRole');
 import('lib.pkp.classes.security.UserGroupAssignment');
 
 class PKPRoleDAO extends DAO {
-	/** @var $userDao The User DAO to return User objects when necessary **/
+	/** @var The User DAO to return User objects when necessary **/
 	var $userDao;
 
 	/**

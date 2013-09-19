@@ -17,10 +17,10 @@
 import('lib.pkp.classes.core.ItemIterator');
 
 class DAOResultFactory extends ItemIterator {
-	/** The DAO used to create objects */
+	/** @var DAO The DAO used to create objects */
 	var $dao;
 
-	/** The name of the DAO's factory function (to be called with an associative array of values) */
+	/** @var string The name of the DAO's factory function (to be called with an associative array of values) */
 	var $functionName;
 
 	/**
@@ -29,10 +29,10 @@ class DAOResultFactory extends ItemIterator {
 	 */
 	var $idFields;
 
-	/** The ADORecordSet to be wrapped around */
+	/** @var ADORecordSet The ADORecordSet to be wrapped around */
 	var $records;
 
-	/** True iff the resultset was always empty */
+	/** @var boolean True iff the resultset was always empty */
 	var $wasEmpty;
 
 	var $isFirst;

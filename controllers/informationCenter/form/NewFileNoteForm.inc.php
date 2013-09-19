@@ -16,7 +16,7 @@
 import('lib.pkp.controllers.informationCenter.form.NewNoteForm');
 
 class NewFileNoteForm extends NewNoteForm {
-	/** @var $fileId int The ID of the submission file to attach the note to */
+	/** @var int The ID of the submission file to attach the note to */
 	var $fileId;
 
 	/**

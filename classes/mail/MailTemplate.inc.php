@@ -18,35 +18,35 @@ import('lib.pkp.classes.mail.Mail');
 define('MAIL_ERROR_INVALID_EMAIL', 0x000001);
 
 class MailTemplate extends Mail {
-	/** @var $context object The context this message relates to */
+	/** @var object The context this message relates to */
 	var $context;
 
-	/** @var $includeSignature boolean whether to include the context's signature */
+	/** @var boolean whether to include the context's signature */
 	var $includeSignature;
 
-	/** @var $emailKey string Key of the email template we are using */
+	/** @var string Key of the email template we are using */
 	var $emailKey;
 
-	/** @var $locale string locale of this template */
+	/** @var string locale of this template */
 	var $locale;
 
-	/** @var $enabled boolean email template is enabled */
+	/** @var boolean email template is enabled */
 	var $enabled;
 
-	/** @var $errorMessages array List of errors to display to the user */
+	/** @var array List of errors to display to the user */
 	var $errorMessages;
 
-	/** @var $persistAttachments array List of temporary files belonging to
+	/** @var array List of temporary files belonging to
 	    email; these are maintained between requests and only sent to the
 	    attachment handling functions in Mail.inc.php at time of send. */
 	var $persistAttachments;
 	var $attachmentsEnabled;
 
-	/** @var $skip boolean If set to true, this message has been skipped
+	/** @var boolean If set to true, this message has been skipped
 	    during the editing process by the user. */
 	var $skip;
 
-	/** @var $bccSender boolean whether or not to bcc the sender */
+	/** @var boolean whether or not to bcc the sender */
 	var $bccSender;
 
 	/** @var boolean Whether or not email fields are disabled */

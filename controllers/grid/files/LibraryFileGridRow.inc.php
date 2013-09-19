@@ -19,7 +19,7 @@ import('lib.pkp.classes.linkAction.request.AjaxModal');
 import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
 
 class LibraryFileGridRow extends GridRow {
-	/** @var $fileType int LIBRARY_FILE_TYPE_... */
+	/** @var int LIBRARY_FILE_TYPE_... */
 	var $_fileType;
 
 	/** is the grid row read only **/

@@ -27,10 +27,10 @@ define('REVIEWER_SELECT_ENROLL_EXISTING',		0x00000004);
 
 class PKPReviewerGridHandler extends GridHandler {
 
-	/** @var $_submission Submission */
+	/** @var Submission */
 	var $_submission;
 
-	/** @var $_stageId integer */
+	/** @var integer */
 	var $_stageId;
 
 

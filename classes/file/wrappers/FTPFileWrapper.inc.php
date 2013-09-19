@@ -17,7 +17,7 @@
 
 class FTPFileWrapper extends FileWrapper {
 
-	/** @var $ctrl Control socket */
+	/** @var Control socket */
 	var $ctrl;
 
 	function open($mode = 'r') {

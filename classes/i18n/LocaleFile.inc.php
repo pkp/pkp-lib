@@ -14,13 +14,13 @@
 
 
 class LocaleFile {
-	/** @var $cache object Cache of this locale file */
+	/** @var object Cache of this locale file */
 	var $cache;
 
-	/** @var $locale string The identifier for this locale file */
+	/** @var string The identifier for this locale file */
 	var $locale;
 
-	/** @var $filename string The filename for this locale file */
+	/** @var string The filename for this locale file */
 	var $filename;
 
 	/**

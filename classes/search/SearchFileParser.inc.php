@@ -21,10 +21,10 @@
 
 class SearchFileParser {
 
-	/** @var $filePath string the complete path to the file */
+	/** @var string the complete path to the file */
 	var $filePath;
 
-	/** @var $fp int file handle */
+	/** @var int file handle */
 	var $fp;
 
 	/**

@@ -15,13 +15,13 @@
 
 class ListbuilderList {
 
-	/** @var $_id mixed List id. */
+	/** @var mixed List id. */
 	var $_id;
 
-	/** @var $_title string Locale key. */
+	/** @var string Locale key. */
 	var $_title;
 
-	/** @var $_data array */
+	/** @var array */
 	var $_data;
 
 	/**

@@ -17,7 +17,7 @@ import('lib.pkp.classes.context.LibraryFile');
 import('lib.pkp.classes.file.PrivateFileManager');
 
 class PKPLibraryFileManager extends PrivateFileManager {
-	/* @var $contextId Context id for the current context */
+	/* @var Context id for the current context */
 	var $contextId;
 
 	/**

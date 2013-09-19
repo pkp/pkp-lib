@@ -17,10 +17,10 @@ import('lib.pkp.classes.form.Form');
 
 class ChangePasswordForm extends Form {
 
-	/** @var $user object */
+	/** @var object */
 	var $_user;
 
-	/** @var $site object */
+	/** @var object */
 	var $_site;
 
 	/**

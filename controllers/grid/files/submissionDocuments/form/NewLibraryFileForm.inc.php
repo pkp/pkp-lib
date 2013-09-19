@@ -16,7 +16,7 @@ import('lib.pkp.controllers.grid.files.form.LibraryFileForm');
 
 class NewLibraryFileForm extends LibraryFileForm {
 
-	/** @var $submissionId */
+	/** @var */
 	var $submissionId;
 
 	/**

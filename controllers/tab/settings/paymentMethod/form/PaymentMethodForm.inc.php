@@ -15,7 +15,7 @@
 import('lib.pkp.classes.controllers.tab.settings.form.ContextSettingsForm');
 
 class PaymentMethodForm extends ContextSettingsForm {
-	/** @var $paymentPlugins array */
+	/** @var array */
 	var $paymentPlugins;
 
 	/**

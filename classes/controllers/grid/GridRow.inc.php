@@ -32,7 +32,7 @@ class GridRow extends GridBodyElement {
 	/** @var mixed the row's data source */
 	var $_data;
 
-	/** @var $isModified boolean true if the row has been modified */
+	/** @var boolean true if the row has been modified */
 	var $_isModified;
 
 	/** @var string an optional message to display as a 'grid action' in place of real grid actions */

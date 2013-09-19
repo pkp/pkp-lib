@@ -15,13 +15,13 @@
 import('lib.pkp.classes.controllers.grid.GridRow');
 
 class StageParticipantGridRow extends GridRow {
-	/** @var $_submission Submission */
+	/** @var Submission */
 	var $_submission;
 
-	/** @var $_stageId int */
+	/** @var int */
 	var $_stageId;
 
-	/** @var $canAdminister boolean Whether the user can admin this row */
+	/** @var boolean Whether the user can admin this row */
 	var $_canAdminister;
 
 	/**

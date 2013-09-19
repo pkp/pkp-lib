@@ -13,10 +13,10 @@
  */
 
 class ListbuilderMap {
-	/** @var $key mixed */
+	/** @var mixed */
 	var $key;
 
-	/** @var $value string */
+	/** @var string */
 	var $value;
 
 	/**

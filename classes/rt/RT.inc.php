@@ -23,43 +23,43 @@ import('lib.pkp.classes.rt.RTStruct');
 
 class RT {
 
-	/** @var $version RTVersion current version */
+	/** @var RTVersion current version */
 	var $version;
 
-	/** @var $enabled boolean */
+	/** @var boolean */
 	var $enabled;
 
-	/** @var $abstract boolean */
+	/** @var boolean */
 	var $abstract;
 
-	/** @var $viewReviewPolicy boolean */
+	/** @var boolean */
 	var $viewReviewPolicy;
 
-	/** @var $captureCite boolean */
+	/** @var boolean */
 	var $captureCite;
 
-	/** @var $viewMetadata boolean */
+	/** @var boolean */
 	var $viewMetadata;
 
-	/** @var $supplementaryFiles boolean */
+	/** @var boolean */
 	var $supplementaryFiles;
 
-	/** @var $printerFriendly boolean */
+	/** @var boolean */
 	var $printerFriendly;
 
-	/** @var $authorBio boolean */
+	/** @var boolean */
 	var $authorBio;
 
-	/** @var $defineTerms boolean */
+	/** @var boolean */
 	var $defineTerms;
 
-	/** @var $emailAuthor boolean */
+	/** @var boolean */
 	var $emailAuthor;
 
-	/** @var $emailOthers boolean */
+	/** @var boolean */
 	var $emailOthers;
 
-	/** @var $findingReferences boolean */
+	/** @var boolean */
 	var $findingReferences;
 
 	/**

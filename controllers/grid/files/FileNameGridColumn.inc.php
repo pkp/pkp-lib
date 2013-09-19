@@ -15,13 +15,13 @@
 import('lib.pkp.classes.controllers.grid.GridColumn');
 
 class FileNameGridColumn extends GridColumn {
-	/** @var $_includeNotes boolean */
+	/** @var boolean */
 	var $_includeNotes;
 
-	/** @var $_stageId int */
+	/** @var int */
 	var $_stageId;
 
-	/** @var $_removeHistoryTab boolean */
+	/** @var boolean */
 	var $_removeHistoryTab;
 
 	/**

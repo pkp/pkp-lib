@@ -20,7 +20,7 @@ define('SITE_MIN_PASSWORD_LENGTH', 4);
 import('lib.pkp.classes.form.Form');
 
 class PKPSiteSettingsForm extends Form {
-	/** @var $siteSettingsDao object Site settings DAO */
+	/** @var object Site settings DAO */
 	var $siteSettingsDao;
 
 	/**

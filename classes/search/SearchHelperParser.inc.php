@@ -17,7 +17,7 @@ import('lib.pkp.classes.search.SearchFileParser');
 
 class SearchHelperParser extends SearchFileParser {
 
-	/** @var $type string Type should match an index[$type] setting in the "search" section of config.inc.php */
+	/** @var string Type should match an index[$type] setting in the "search" section of config.inc.php */
 	var $type;
 
 	function SearchHelperParser($type, $filePath) {

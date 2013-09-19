@@ -23,13 +23,13 @@
 
 class FileWrapper {
 
-	/** @var $url string URL to the file */
+	/** @var string URL to the file */
 	var $url;
 
-	/** @var $info array parsed URL info */
+	/** @var array parsed URL info */
 	var $info;
 
-	/** @var $fp int the file descriptor */
+	/** @var int the file descriptor */
 	var $fp;
 
 	/**

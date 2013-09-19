@@ -18,7 +18,7 @@
 import('lib.pkp.classes.form.Form');
 
 class SubmissionSubmitForm extends Form {
-	/** @var $context Context */
+	/** @var Context */
 	var $context;
 
 	/** @var int the ID of the submission */

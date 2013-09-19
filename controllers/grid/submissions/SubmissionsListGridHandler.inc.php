@@ -22,7 +22,7 @@ import('lib.pkp.controllers.grid.submissions.SubmissionsListGridCellProvider');
 import('classes.workflow.EditorDecisionActionsManager');
 
 class SubmissionsListGridHandler extends GridHandler {
-	/** @var $_isManager true iff the current user has a managerial role */
+	/** @var true iff the current user has a managerial role */
 	var $_isManager;
 
 	/**

@@ -16,13 +16,13 @@ import('classes.handler.Handler');
 import('lib.pkp.classes.core.JSONMessage');
 
 class SignoffInformationCenterHandler extends Handler {
-	/** @var $signoff object */
+	/** @var object */
 	var $signoff;
 
-	/** @var $submission object */
+	/** @var object */
 	var $submission;
 
-	/** @var $stageId int */
+	/** @var int */
 	var $stageId;
 
 	/**

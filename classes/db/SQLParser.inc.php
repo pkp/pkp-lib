@@ -15,22 +15,22 @@
 
 class SQLParser {
 
-	/** @var $driver string The database driver */
+	/** @var string The database driver */
 	var $driver;
 
-	/** @var $dataSource object The database connection object */
+	/** @var object The database connection object */
 	var $dataSource;
 
-	/** @var $debug boolean Enable debugging (print SQL statements as they are executed) */
+	/** @var boolean Enable debugging (print SQL statements as they are executed) */
 	var $debug;
 
-	/** @var $errorMsg string Error message */
+	/** @var string Error message */
 	var $errorMsg;
 
-	/** @var $commentDelim string Delimiter for SQL comments used by the data source */
+	/** @var string Delimiter for SQL comments used by the data source */
 	var $commentDelim;
 
-	/** @var $statementDelim string Delimiter for SQL statements used by the data source */
+	/** @var string Delimiter for SQL statements used by the data source */
 	var $statementDelim;
 
 	/**

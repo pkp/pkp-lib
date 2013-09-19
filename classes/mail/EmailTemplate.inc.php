@@ -173,7 +173,7 @@ class BaseEmailTemplate extends DataObject {
  */
 class LocaleEmailTemplate extends BaseEmailTemplate {
 
-	/** @var $localeData array of localized email template data */
+	/** @var array of localized email template data */
 	var $localeData;
 
 	/**

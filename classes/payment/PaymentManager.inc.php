@@ -15,7 +15,7 @@
  */
 
 class PaymentManager {
-	/** @var $request PKPRequest */
+	/** @var PKPRequest */
 	var $request;
 
 	/**

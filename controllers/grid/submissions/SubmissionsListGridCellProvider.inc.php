@@ -16,7 +16,7 @@ import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 
 class SubmissionsListGridCellProvider extends DataObjectGridCellProvider {
 
-	/** @var $authorizedRoles Array */
+	/** @var Array */
 	var $_authorizedRoles;
 
 	/**

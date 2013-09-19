@@ -42,13 +42,13 @@ define_exposed('LISTBUILDER_OPTGROUP_LABEL', 'optGroupLabel');
 // the base class and the re-factored grid handler then you know
 // you're on the right track.
 class ListbuilderHandler extends GridHandler {
-	/** @var integer Definition of the type of source LISTBUILDER_SOURCE_TYPE_... **/
+	/** @var int Definition of the type of source LISTBUILDER_SOURCE_TYPE_... */
 	var $_sourceType;
 
-	/** @var integer Constant indicating the save approach for the LB LISTBUILDER_SAVE_TYPE_... **/
+	/** @var int Constant indicating the save approach for the LB LISTBUILDER_SAVE_TYPE_... */
 	var $_saveType = LISTBUILDER_SAVE_TYPE_INTERNAL;
 
-	/** @var $saveFieldName Field for LISTBUILDER_SAVE_TYPE_EXTERNAL naming the field used to send the saved contents of the LB */
+	/** @var string Field for LISTBUILDER_SAVE_TYPE_EXTERNAL naming the field used to send the saved contents of the LB */
 	var $_saveFieldName = null;
 
 	/**

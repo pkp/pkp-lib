@@ -17,10 +17,10 @@ import('lib.pkp.classes.core.JSONMessage');
 import('classes.log.SubmissionEventLogEntry');
 
 class FileInformationCenterHandler extends InformationCenterHandler {
-	/** @var $submissionFile object */
+	/** @var object */
 	var $submissionFile;
 
-	/** @var $submission object */
+	/** @var object */
 	var $submission;
 
 	/**

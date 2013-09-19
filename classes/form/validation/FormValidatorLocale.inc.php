@@ -13,7 +13,7 @@
  */
 
 class FormValidatorLocale extends FormValidator {
-	/** @var $_requiredLocale string Symbolic name of the locale to require */
+	/** @var string Symbolic name of the locale to require */
 	var $_requiredLocale;
 
 	/**

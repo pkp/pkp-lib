@@ -20,19 +20,19 @@
 
 /** DOES NOT inherit from DataObject for the sake of concise serialization */
 class Payment {
-	/** @var $paymentId int payment id */
+	/** @var int payment id */
 	var $paymentId;
 
-	/** @var $amount numeric amount of payment in $currencyCode units */
+	/** @var numeric amount of payment in $currencyCode units */
 	var $amount;
 
-	/** @var $currencyCode string ISO 4217 alpha currency code */
+	/** @var string ISO 4217 alpha currency code */
 	var $currencyCode;
 
-	/** @var $userId int user ID of customer making payment */
+	/** @var int user ID of customer making payment */
 	var $userId;
 
-	/** @var $assocId int association ID for payment */
+	/** @var int association ID for payment */
 	var $assocId;
 
 	/**

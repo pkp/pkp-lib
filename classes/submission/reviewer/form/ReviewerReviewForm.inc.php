@@ -20,7 +20,7 @@ class ReviewerReviewForm extends Form {
 	/** @var ReviewerSubmission current submission */
 	var $_reviewerSubmission;
 
-	/** @var $_reviewAssignment ReviewAssignment */
+	/** @var ReviewAssignment */
 	var $_reviewAssignment;
 
 	/** @var int the current step */

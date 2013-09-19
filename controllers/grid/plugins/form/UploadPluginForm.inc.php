@@ -28,7 +28,7 @@ import('classes.install.Upgrade');
 
 class UploadPluginForm extends Form {
 
-	/** @var $_function String */
+	/** @var String */
 	var $_function;
 
 

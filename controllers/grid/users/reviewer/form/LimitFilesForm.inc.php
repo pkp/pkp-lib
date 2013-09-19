@@ -16,10 +16,10 @@
 import('lib.pkp.classes.form.Form');
 
 class LimitFilesForm extends Form {
-	/** @var $_reviewAssignment ReviewAssignment */
+	/** @var ReviewAssignment */
 	var $_reviewAssignment;
 
-	/** @var $_reviewRound ReviewRound */
+	/** @var ReviewRound */
 	var $_reviewRound;
 
 	/**

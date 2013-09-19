@@ -13,7 +13,7 @@
  * @ingroup plugins_metadata_nlm30_schema
  * @see MetadataSchema
  *
- * @brief Class that provides meta-data properties compliant with
+ * @brief @verbatim Class that provides meta-data properties compliant with
  *  the NLM element-citation tag from the NLM Journal Publishing Tag Set
  *  Version 3.0. We only use the "references class" of elements allowed
  *  in the element-citation tag. We do not support all sub-elements
@@ -25,6 +25,7 @@
  *  <http://dtd.nlm.nih.gov/publishing/tag-library/3.0/n-8xa0.html>,
  *  <http://dtd.nlm.nih.gov/publishing/tag-library/3.0/n-5332.html> and
  *  <http://dtd.nlm.nih.gov/publishing/tag-library/3.0/n-fmz0.html>.
+ * @endverbatim
  */
 
 import('lib.pkp.classes.metadata.MetadataSchema');

@@ -14,13 +14,13 @@
 
 
 class Transcoder {
-	/** @var $fromEncoding string Name of source encoding */
+	/** @var string Name of source encoding */
 	var $fromEncoding;
 
-	/** @var $toEncoding string Name of target encoding */
+	/** @var string Name of target encoding */
 	var $toEncoding;
 
-	/** @var $translit boolean Whether or not to transliterate while transcoding */
+	/** @var boolean Whether or not to transliterate while transcoding */
 	var $translit;
 
 	/**

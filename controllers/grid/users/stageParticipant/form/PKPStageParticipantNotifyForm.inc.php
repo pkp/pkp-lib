@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file controllers/informationCenter/form/PKPStageParticipantNotifyForm.inc.php
+ * @file lib/pkp/controllers/grid/users/stageParticipant/form/PKPStageParticipantNotifyForm.inc.php
  *
  * Copyright (c) 2003-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.

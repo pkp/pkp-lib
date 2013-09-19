@@ -18,7 +18,7 @@ class SignoffStatusFromFileGridColumn extends BaseSignoffStatusColumn {
 	/* @var string */
 	var $_symbolic;
 
-	/* @var $_allowSignoffs boolean */
+	/* @var boolean */
 	var $_allowSignoffs;
 
 	/**

@@ -20,7 +20,7 @@ import('lib.pkp.classes.site.VersionCheck');
 
 class InstallTool extends CommandLineTool {
 
-	/** @var $params array installation parameters */
+	/** @var array installation parameters */
 	var $params;
 
 	/**

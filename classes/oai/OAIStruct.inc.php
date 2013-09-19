@@ -60,28 +60,28 @@ class OAIConfig {
  */
 class OAIRepository {
 
-	/** @var $repositoryName string name of the repository */
+	/** @var string name of the repository */
 	var $repositoryName;
 
-	/** @var $adminEmail string administrative contact email */
+	/** @var string administrative contact email */
 	var $adminEmail;
 
-	/** @var $earliestDatestamp int earliest *nix timestamp in the repository */
+	/** @var int earliest *nix timestamp in the repository */
 	var $earliestDatestamp;
 
-	/** @var $delimiter string delimiter in identifier */
+	/** @var string delimiter in identifier */
 	var $delimiter = ':';
 
-	/** @var $sampleIdentifier string example identifier */
+	/** @var string example identifier */
 	var $sampleIdentifier;
 
-	/** @var $toolkitTitle string toolkit/software title (e.g. Open Journal Systems) */
+	/** @var string toolkit/software title (e.g. Open Journal Systems) */
 	var $toolkitTitle;
 
-	/** @var $toolkitVersion string toolkit/software version */
+	/** @var string toolkit/software version */
 	var $toolkitVersion;
 
-	/** @var $toolkitURL string toolkit/software URL */
+	/** @var string toolkit/software URL */
 	var $toolkitURL;
 }
 
@@ -92,16 +92,16 @@ class OAIRepository {
  */
 class OAIResumptionToken {
 
-	/** @var $id string unique token ID */
+	/** @var string unique token ID */
 	var $id;
 
-	/** @var $offset int record offset */
+	/** @var int record offset */
 	var $offset;
 
-	/** @var $params array request parameters */
+	/** @var array request parameters */
 	var $params;
 
-	/** @var $expire int expiration timestamp */
+	/** @var int expiration timestamp */
 	var $expire;
 
 
@@ -123,13 +123,13 @@ class OAIResumptionToken {
  */
 class OAIMetadataFormat {
 
-	/** @var $prefix string metadata prefix */
+	/** @var string metadata prefix */
 	var $prefix;
 
-	/** @var $schema string XML schema */
+	/** @var string XML schema */
 	var $schema;
 
-	/** @var $namespace string XML namespace */
+	/** @var string XML namespace */
 	var $namespace;
 
 	/**
@@ -175,13 +175,13 @@ class OAIMetadataFormat {
  */
 class OAISet {
 
-	/** @var $spec string unique set specifier */
+	/** @var string unique set specifier */
 	var $spec;
 
-	/** @var $name string set name */
+	/** @var string set name */
 	var $name;
 
-	/** @var $description string set description */
+	/** @var string set description */
 	var $description;
 
 
@@ -200,16 +200,16 @@ class OAISet {
  * OAI identifier.
  */
 class OAIIdentifier {
-	/** @var $identifier string unique OAI record identifier */
+	/** @var string unique OAI record identifier */
 	var $identifier;
 
-	/** @var $datestamp int last-modified *nix timestamp */
+	/** @var int last-modified *nix timestamp */
 	var $datestamp;
 
-	/** @var $sets array sets this record belongs to */
+	/** @var array sets this record belongs to */
 	var $sets;
 
-	/** @var $status string if this record is deleted */
+	/** @var string if this record is deleted */
 	var $status;
 
 	function OAIIdentifier() {

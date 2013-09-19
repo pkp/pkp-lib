@@ -16,7 +16,7 @@ import('lib.pkp.classes.form.Form');
 
 class PKPProfileForm extends Form {
 
-	/** @var $user User */
+	/** @var User */
 	var $_user;
 
 	/**

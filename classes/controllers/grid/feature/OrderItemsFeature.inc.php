@@ -17,7 +17,7 @@ import('lib.pkp.classes.controllers.grid.feature.GridFeature');
 
 class OrderItemsFeature extends GridFeature{
 
-	/** @var $customRowTemplate boolean */
+	/** @var boolean */
 	var $_overrideRowTemplate;
 
 	/**

@@ -18,10 +18,10 @@
 
 class GridFeature {
 
-	/** @var $id string */
+	/** @var string */
 	var $_id;
 
-	/** @var $options array */
+	/** @var array */
 	var $_options;
 
 	/**

@@ -18,7 +18,7 @@ class UserUserGroupListbuilderHandler extends ListbuilderHandler {
 	/** @var integer the user id for which to map user groups */
 	var $_userId;
 
-	/** @var $_context Context */
+	/** @var Context */
 	var $_context;
 
 

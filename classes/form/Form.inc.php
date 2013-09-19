@@ -69,10 +69,10 @@ class Form {
 	/** Client-side validation rules **/
 	var $cssValidation;
 
-	/** @var $requiredLocale string Symbolic name of required locale */
+	/** @var string Symbolic name of required locale */
 	var $requiredLocale;
 
-	/** @var $supportedLocales array Set of supported locales */
+	/** @var array Set of supported locales */
 	var $supportedLocales;
 
 	/**

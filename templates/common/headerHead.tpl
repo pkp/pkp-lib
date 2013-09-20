@@ -15,10 +15,6 @@
 	{$metaCustomHeaders}
 	{if $displayFavicon}<link rel="icon" href="{$faviconDir}/{$displayFavicon.uploadName|escape:"url"}" type="{$displayFavicon.mimeType|escape}" />{/if}
 
-	<link rel="stylesheet" type="text/css" media="all" href="{$baseUrl}/styles/lib.css" />
-	{$deprecatedStyles}
-	<link rel="stylesheet" type="text/css" media="all" href="{$baseUrl}/cache/{$compiledStylesheetFilename}" />
-
 	<!-- Base Jquery -->
 	{if $allowCDN}
 		<script src="http://www.google.com/jsapi"></script>
@@ -55,13 +51,13 @@
 	<script src="{$baseUrl}/lib/pkp/js/lib/plupload/plupload.full.js"></script>
 	<script src="{$baseUrl}/lib/pkp/js/lib/plupload/jquery.ui.plupload/jquery.ui.plupload.js"></script>
 
-	{$deprecatedSidebarStyles}
-
 	{* FIXME: Replace with a smarty template that includes {translate} keys, see #6443. *}
 	{if $currentLocale !== 'en_US'}<script src="{$baseUrl}/lib/pkp/js/lib/plupload/i18n/{$currentLocale|escape}.js"></script>{/if}
 
-	{foreach from=$stylesheets item=cssUrl}
-		<link rel="stylesheet" href="{$cssUrl}" type="text/css" />
+	{foreach from=$stylesheets item=styleSheetList}{* For all priority sets STYLE_PRIORITY_... *}
+		{foreach from=$styleSheetList item=cssUrl}{* For all stylesheet URLs within this priority set *}
+			<link rel="stylesheet" href="{$cssUrl}" type="text/css" />
+		{/foreach}
 	{/foreach}
 
 	<!-- Constants for JavaScript -->

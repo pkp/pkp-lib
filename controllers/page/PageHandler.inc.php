@@ -33,7 +33,7 @@ class PageHandler extends Handler {
 		import('lib.pkp.classes.security.authorization.PKPSiteAccessPolicy');
 		$this->addPolicy(new PKPSiteAccessPolicy(
 			$request,
-			array('header', 'sidebar'),
+			array('header', 'sidebar', 'css'),
 			SITE_ACCESS_ALL_ROLES
 		));
 		return parent::authorize($request, $args, $roleAssignments);
@@ -107,6 +107,62 @@ class PageHandler extends Handler {
 		$this->setupTemplate($request);
 		$templateMgr = TemplateManager::getManager($request);
 		return $templateMgr->fetchJson('controllers/page/sidebar.tpl');
+	}
+
+	/**
+	 * Get the compiled CSS
+	 * @param $args array
+	 * @param $request PKPRequest
+	 */
+	function css($args, $request) {
+		header('Content-Type: text/css');
+
+		$stylesheetName = $request->getUserVar('name');
+		switch ($stylesheetName) {
+			case '':
+			case null:
+				$cacheDirectory = CacheManager::getFileCachePath();
+				$compiledStylesheetFile = $cacheDirectory . '/compiled.css';
+				if (!file_exists($compiledStylesheetFile)) {
+					// Generate the stylesheet file
+					require_once('lib/pkp/lib/lessphp/lessc.inc.php');
+					$less = new lessc('styles/index.less');
+					$less->importDir = './';
+					$compiledStyles = $less->parse();
+
+					$compiledStyles = str_replace('{$baseUrl}', $request->getBaseUrl(), $compiledStyles);
+
+					// Allow plugins to intervene in stylesheet compilation
+					HookRegistry::call('PageHandler::compileCss', array($request, $less, &$compiledStylesheetFile, &$compiledStyles));
+
+					if (file_put_contents($compiledStylesheetFile, $compiledStyles) === false) {
+						// If the stylesheet cache can't be written, log the error and
+						// output the compiled styles directly without caching.
+						error_log("Unable to write \"$compiledStylesheetFile\".");
+						echo $compiledStyles;
+						return;
+					}
+				}
+
+				// Allow plugins to intervene in stylesheet display
+				HookRegistry::call('PageHandler::displayCoreCss', array($request, &$compiledStylesheetFile));
+
+				// Display the styles
+				header('Last-Modified: ' . gmdate('D, d M Y H:i:s', filemtime($compiledStylesheetFile)).' GMT');
+				header('Content-Length: ' . filesize($compiledStylesheetFile));
+				readfile($compiledStylesheetFile);
+				break;
+			default:
+				// Allow plugins to intervene
+				$result = null;
+				$lastModified = null;
+				TemplateManager::getManager($request); // Trigger loading of the themes plugins
+				if (!HookRegistry::call('PageHandler::displayCss', array($request, &$stylesheetName, &$result, &$lastModified))) {
+					if ($lastModified) header('Last-Modified: ' . gmdate('D, d M Y H:i:s', $lastModified) . ' GMT');
+					header('Content-Length: ' . strlen($result));
+					echo $result;
+				}
+		}
 	}
 }
 

@@ -15,9 +15,6 @@
 import('lib.pkp.classes.plugins.LazyLoadPlugin');
 
 class ThemePlugin extends LazyLoadPlugin {
-	/** @var boolean True iff style inclusion is to be inhibited */
-	var $_inhibitCompilation;
-
 	/**
 	 * Constructor
 	 */
@@ -34,11 +31,11 @@ class ThemePlugin extends LazyLoadPlugin {
 		$result = parent::register($category, $path);
 
 		$request = $this->getRequest();
-		$context = $request->getContext();
-		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO');
-		if ($result) {
-			$this->_inhibitCompilation = !$pluginSettingsDao->getSetting($context?$context->getId():CONTEXT_SITE, $this->getName(), 'enabled');
-			HookRegistry::register('PKPTemplateManager::compileStylesheet', array($this, '_compileStylesheetCallback'));
+		if ($result && $this->getEnabled()) {
+			HookRegistry::register('PageHandler::displayCss', array($this, '_displayCssCallback'));
+			$templateManager = TemplateManager::getManager($request);
+			$dispatcher = $request->getDispatcher();
+			$templateManager->addStyleSheet($dispatcher->url($request, ROUTE_COMPONENT, null, 'page.PageHandler', 'css', null, array('name' => $this->getName())), STYLE_SEQUENCE_LAST);
 		}
 		return $result;
 	}
@@ -68,61 +65,68 @@ class ThemePlugin extends LazyLoadPlugin {
 	}
 
 	/**
+	 * Get the compiled CSS cache filename
+	 * @return string|null
+	 */
+	function getStyleCacheFilename() {
+		// Only relevant if Less compilation is used; otherwise return null.
+		if ($this->getLessStylesheet() === null) return null;
+
+		return 'compiled-' . $this->getName() . '.css';
+	}
+
+	/**
 	 * Called as a callback upon stylesheet compilation.
 	 * Used to inject this theme's styles.
 	 */
-	function _compileStylesheetCallback($hookName, $args) {
-		$compiledStyles =& $args[0];
+	function _displayCssCallback($hookName, $args) {
+		$request = $args[0];
+		$stylesheetName = $args[1];
+		$result =& $args[2];
+		$lastModified =& $args[3];
 
-		if ($this->getLessStylesheet() && !$this->_inhibitCompilation) {
-			// Compile this theme's styles
-			$less = new lessc($this->getPluginPath() . '/' . $this->getLessStylesheet());
-			$less->importDir = $this->getPluginPath(); // @see PKPTemplateManager::compileStylesheet
-			$additionalStyles = $less->parse();
+		// Ensure the callback is for this plugin before intervening
+		if ($stylesheetName != $this->getName()) return false;
+
+		if ($this->getLessStylesheet()) {
+			$cacheDirectory = CacheManager::getFileCachePath();
+			$cacheFilename = $this->getStyleCacheFilename();
+			$lessFile = $this->getPluginPath() . '/' . $this->getLessStylesheet();
+			$compiledStylesheetFile = $cacheDirectory . '/' . $cacheFilename;
+
+			if ($cacheFilename === null || !file_exists($compiledStylesheetFile)) {
+				// Need to recompile, so flag last modified.
+				$lastModified = time();
+
+				// Compile this theme's styles
+				require_once('lib/pkp/lib/lessphp/lessc.inc.php');
+				$less = new lessc($lessFile);
+				$less->importDir = $this->getPluginPath(); // @see PKPTemplateManager::compileStylesheet
+				$themeStyles = $less->parse();
+				$compiledStyles = str_replace('{$baseUrl}', $request->getBaseUrl(), $themeStyles);
+
+				// Give other plugins the chance to intervene
+				HookRegistry::call('ThemePlugin::compileCss', array($request, $less, &$compiledStylesheetFile, &$compiledStyles));
+
+				if ($cacheFilename === null || file_put_contents($compiledStylesheetFile, $compiledStyles) === false) {
+					// If the stylesheet cache can't be written, log the error and
+					// output the compiled styles directly without caching.
+					error_log("Unable to write \"$compiledStylesheetFile\".");
+					$result .= $compiledStyles;
+					return false;
+				}
+			} else {
+				// We were able to fall back on a previously compiled file. Set lastModified.
+				$cacheLastModified = filemtime($compiledStylesheetFile);
+				$lastModified = $lastModified===null?
+					$cacheLastModified:
+					min($lastModified, $cacheLastModified);
+			}
 
 			// Add the compiled styles to the rest
-			$compiledStyles .= "\n" . $additionalStyles;
+			$result .= "\n" . file_get_contents($compiledStylesheetFile);
 		}
-
 		return false;
-	}
-
-	/**
-	 * Flag the theme for activation.
-	 * @param $contextId int
-	 */
-	function flagActivation($contextId) {
-		$this->_inhibitCompilation = false;
-		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO');
-		$pluginSettingsDao->updateSetting($contextId, $this->getName(), 'enabled', true);
-	}
-
-	/**
-	 * Trigger a CSS recompile including this theme's style information
-	 * @param $contextId int
-	 */
-	function activate($contextId) {
-		$this->flagActivation($contextId);
-		PKPTemplateManager::compileStylesheet($contextId);
-	}
-
-	/**
-	 * Flag the theme for deactivation.
-	 * @param $contextId int Context ID
-	 */
-	function flagDeactivation($contextId) {
-		$this->_inhibitCompilation = true;
-		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO');
-		$pluginSettingsDao->updateSetting($contextId, $this->getName(), 'enabled', false);
-	}
-
-	/**
-	 * Trigger a CSS recompile without this theme's style information.
-	 * @param $contextId int
-	 */
-	function deactivate($contextId) {
-		$this->flagDeactivation($contextId);
-		PKPTemplateManager::compileStylesheet($contextId);
 	}
 }
 

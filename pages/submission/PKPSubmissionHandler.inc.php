@@ -24,10 +24,7 @@ class PKPSubmissionHandler extends Handler {
 	}
 
 	/**
-	 * @see PKPHandler::authorize()
-	 * @param $request PKPRequest
-	 * @param $args array
-	 * @param $roleAssignments array
+	 * @copydoc PKPHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
 		// The policy for the submission handler depends on the

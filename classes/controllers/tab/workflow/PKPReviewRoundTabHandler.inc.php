@@ -30,7 +30,7 @@ class PKPReviewRoundTabHandler extends Handler {
 	// Extended methods from Handler
 	//
 	/**
-	 * @see PKPHandler::authorize()
+	 * @copydoc PKPHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
 		// We need a review round id in request.

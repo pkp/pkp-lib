@@ -554,7 +554,7 @@ class GridHandler extends PKPHandler {
 	// Overridden methods from PKPHandler
 	//
 	/**
-	 * @see PKPHandler::authorize()
+	 * @copydoc PKPHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
 		$dataProvider = $this->getDataProvider();

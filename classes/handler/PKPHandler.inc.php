@@ -243,7 +243,7 @@ class PKPHandler {
 	 *
 	 * @param $request Request
 	 * @param $args array request arguments
-	 * @param $roleAssignment array the operation role assignment,
+	 * @param $roleAssignments array the operation role assignment,
 	 *  see getRoleAssignment() for more details.
 	 * @return boolean
 	 */

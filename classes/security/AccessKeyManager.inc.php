@@ -40,12 +40,13 @@ class AccessKeyManager {
 	 * If $assocId is specified, it must match the associated ID of the
 	 * key exactly.
 	 * @param $context string The context of the access key
-	 * @param $key string The access key "passcode"
+	 * @param $userId int
+	 * @param $keyHash string The access key "passcode"
 	 * @param $assocId string optional assoc ID to check against the keys in the database
+	 * @return AccessKey
 	 */
-	function &validateKey($context, $userId, $keyHash, $assocId = null) {
-		$accessKey =& $this->accessKeyDao->getAccessKeyByKeyHash($context, $userId, $keyHash, $assocId);
-		return $accessKey;
+	function validateKey($context, $userId, $keyHash, $assocId = null) {
+		return $this->accessKeyDao->getAccessKeyByKeyHash($context, $userId, $keyHash, $assocId);
 	}
 
 	/**

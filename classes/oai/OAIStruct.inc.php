@@ -26,8 +26,9 @@ class OAIConfig {
 	/** @var string identifier of the repository */
 	var $repositoryId = 'oai';
 
-	/** @var string record datestamp granularity */
-	// Must be either 'YYYY-MM-DD' or 'YYYY-MM-DDThh:mm:ssZ'
+	/** @var string record datestamp granularity;
+	 * Must be either 'YYYY-MM-DD' or 'YYYY-MM-DDThh:mm:ssZ'
+	 */
 	var $granularity = 'YYYY-MM-DDThh:mm:ssZ';
 
 	/** @var int TTL of resumption tokens */

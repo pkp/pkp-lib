@@ -22,6 +22,7 @@ class AddRevisionLinkAction extends BaseAddFileLinkAction {
 	 * @param $reviewRound ReviewRound The review round to upload to.
 	 * @param $uploaderRoles array The ids of all roles allowed to upload
 	 *  in the context of this action.
+	 * @param $uploaderGroupIds The user group IDs of all uploaders
 	 */
 	function AddRevisionLinkAction($request, $reviewRound, $uploaderRoles, $uploaderGroupIds = null) {
 		// Bring in the submission file constants.

@@ -31,6 +31,7 @@ class AccessSettingsTabHandler extends ManagerSettingsTabHandler {
 
 	/**
 	 * @see PKPHandler::setupTemplate()
+	 * @param $request PKPKRequest
 	 */
 	function setupTemplate($request) {
 		$templateMgr = TemplateManager::getManager($request);

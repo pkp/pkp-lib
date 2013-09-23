@@ -27,12 +27,9 @@ class AddSignoffFileLinkAction extends LinkAction {
 	 * @param $stageId integer The workflow stage in which the file
 	 *  uploader is being instantiated (one of the WORKFLOW_STAGE_ID_*
 	 *  constants).
-	 * @param $uploaderRoles array The ids of all roles allowed to upload
-	 *  in the context of this action.
-	 * @param $actionArgs array The arguments to be passed into the file
-	 *  upload wizard.
-	 * @param $wizardTitle string The title to be displayed in the file
-	 *  upload wizard.
+	 * @param $symbolic string The symbolic name of the signoff
+	 * @param signoffId The optional ID of the signoff
+	 * @param $modalTitle string The modal title
 	 * @param $buttonLabel string The link action's button label (null for cell action)
 	 */
 	function AddSignoffFileLinkAction($request, $submissionId, $stageId, $symbolic, $signoffId = null,

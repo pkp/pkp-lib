@@ -30,7 +30,7 @@ class PKPEditorDecisionHandler extends Handler {
 	// Implement template methods from PKPHandler
 	//
 	/**
-	 * @see PKPHandler::authorize()
+	 * @copydoc PKPHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
 		// Some operations need a review round id in request.

@@ -139,7 +139,7 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 	/**
 	 * @copydoc CategoryGridHandler::getCategoryData()
 	 */
-	function getCategoryData(&$userGroup) {
+	function getCategoryData($userGroup) {
 		// Retrieve useful objects.
 		$submission = $this->getSubmission();
 		$stageId = $this->getStageId();
@@ -202,9 +202,7 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 	function loadData($request, $filter) {
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$context = $request->getContext();
-		$userGroups = $userGroupDao->getUserGroupsByStage($context->getId(), $this->getStageId(), false, true);
-
-		return $userGroups;
+		return $userGroupDao->getUserGroupsByStage($context->getId(), $this->getStageId(), false, true);
 	}
 
 
@@ -240,11 +238,11 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 	function saveParticipant($args, $request) {
 		$submission = $this->getSubmission();
 		$stageId = $this->getStageId();
-		$userGroups =& $this->getGridDataElements($request);
+		$userGroups = $this->getGridDataElements($request);
 
 		import('lib.pkp.controllers.grid.users.stageParticipant.form.AddParticipantForm');
 		$form = new AddParticipantForm($submission, $stageId, $userGroups);
-		$form->readInputData($request);
+		$form->readInputData();
 		if ($form->validate()) {
 			list($userGroupId, $userId, $stageAssignmentId) = $form->execute($request);
 
@@ -280,7 +278,7 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 
 			// Log addition.
 			$userDao = DAORegistry::getDAO('UserDAO');
-			$assignedUser =& $userDao->getById($userId);
+			$assignedUser = $userDao->getById($userId);
 			import('lib.pkp.classes.log.SubmissionLog');
 			SubmissionLog::logEvent($request, $submission, SUBMISSION_LOG_ADD_PARTICIPANT, 'submission.event.participantAdded', array('name' => $assignedUser->getFullName(), 'username' => $assignedUser->getUsername(), 'userGroupName' => $userGroup->getLocalizedName()));
 
@@ -382,7 +380,7 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 		$users = $userStageAssignmentDao->getUsersNotAssignedToStageInUserGroup($submission->getId(), $stageId, $userGroupId);
 
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		$userGroup =& $userGroupDao->getById($userGroupId);
+		$userGroup = $userGroupDao->getById($userGroupId);
 		$roleId = $userGroup->getRoleId();
 
 		$subEditorFilterId = $this->_getIdForSubEditorFilter($submission);
@@ -396,13 +394,12 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 		}
 
 		$userList = array();
-		while($user =& $users->next()) {
+		while($user = $users->next()) {
 			if ($filterSubEditors && !$seriesEditorsDao->editorExists($contextId, $subEditorFilterId, $user->getId())) {
 				unset($user);
 				continue;
 			}
 			$userList[$user->getId()] = $user->getFullName();
-			unset($user);
 		}
 
 		if (count($userList) == 0) {

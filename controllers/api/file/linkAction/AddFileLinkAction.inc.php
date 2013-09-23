@@ -34,7 +34,7 @@ class AddFileLinkAction extends BaseAddFileLinkAction {
 	 *  be associated with (one fo the ASSOC_TYPE_* constants).
 	 * @param $assocId integer The id of the element the file should be
 	 *  associated with.
-	 * @param $reviewRound ReviewRound The current review round (if any).
+	 * @param $reviewRoundId int The current review round ID (if any)
 	 * @param $dependentFilesOnly bool whether to only include dependent
 	 *  files in the Genres dropdown.
 	 */

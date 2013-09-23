@@ -27,7 +27,7 @@ class FileManagementHandler extends Handler {
 	// Implement template methods from PKPHandler
 	//
 	/**
-	 * @see PKPHandler::authorize()
+	 * @copydoc PKPHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
 		// Allow both reviewers (if in review) and context roles.

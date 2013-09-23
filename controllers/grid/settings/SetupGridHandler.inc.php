@@ -37,9 +37,6 @@ class SetupGridHandler extends GridHandler {
 
 	/**
 	 * @copydoc PKPHandler::authorize()
-	 * @param $request PKPRequest
-	 * @param $args array
-	 * @param $roleAssignments array
 	 * @param $contextRequired boolean
 	 */
 	function authorize($request, &$args, $roleAssignments, $contextRequired = true) {

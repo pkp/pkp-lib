@@ -15,23 +15,26 @@
 import('controllers.grid.users.stageParticipant.form.StageParticipantNotifyForm');
 
 class AddParticipantForm extends StageParticipantNotifyForm {
-	/** The submission associated with the submission contributor being edited **/
+	/** @var Submission The submission associated with the submission contributor being edited **/
 	var $_submission;
 
 	/** The stage Id **/
 	var $_stageId;
 
-	/** UserGroups **/
+	/** @var array **/
 	var $_userGroups;
 
 	/**
 	 * Constructor.
+	 * @param $submission Submission
+	 * @param $stageId int STAGE_ID_...
+	 * @param $userGroups array
 	 */
-	function AddParticipantForm(&$submission, $stageId, &$userGroups) {
+	function AddParticipantForm($submission, $stageId, &$userGroups) {
 		parent::StageParticipantNotifyForm($submission->getId(), ASSOC_TYPE_SUBMISSION, 'controllers/grid/users/stageParticipant/addParticipantForm.tpl');
-		$this->_submission =& $submission;
+		$this->_submission = $submission;
 		$this->_stageId = $stageId;
-		$this->_userGroups =& $userGroups;
+		$this->_userGroups = $userGroups;
 
 		// add checks in addition to anything that the Notification form may apply.
 		$this->addCheck(new FormValidator($this, 'userGroupId', 'required', 'editor.submission.addStageParticipant.form.userGroupRequired'));
@@ -63,12 +66,13 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 	/**
 	 * Get the user groups allowed for this grid
 	 */
-	function &getUserGroups() {
+	function getUserGroups() {
 		return $this->_userGroups;
 	}
 
 	/**
-	 * @copydoc Form::fetch()
+	 * @see Form::fetch()
+	 * @param PKPRequest
 	 */
 	function fetch($request) {
 		$templateMgr = TemplateManager::getManager($request);
@@ -94,7 +98,7 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 	/**
 	 * @copydoc Form::readInputData()
 	 */
-	function readInputData($request) {
+	function readInputData() {
 		$this->readUserVars(array(
 			'userGroupId',
 			'userId',
@@ -116,8 +120,9 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 	}
 
 	/**
-	 * @copydoc Form::execute()
-	 * @return array($userGroupId, $userId)
+	 * @see Form::execute()
+	 * @param $request PKPRequest
+	 * @return array ($userGroupId, $userId)
 	 */
 	function execute($request) {
 		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */

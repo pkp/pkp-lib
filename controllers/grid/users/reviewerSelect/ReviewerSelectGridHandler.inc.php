@@ -38,9 +38,6 @@ class ReviewerSelectGridHandler extends GridHandler {
 	//
 	/**
 	 * @copydoc PKPHandler::authorize()
-	 * @param $request PKPRequest
-	 * @param $args array
-	 * @param $roleAssignments array
 	 */
 	function authorize($request, &$args, $roleAssignments) {
 		$stageId = (int)$request->getUserVar('stageId');

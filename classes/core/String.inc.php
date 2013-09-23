@@ -54,6 +54,7 @@ define ('CAMEL_CASE_HEAD_DOWN', 0x02);
 class String {
 	/**
 	 * Perform initialization required for the string wrapper library.
+	 * @return null
 	 */
 	static function init() {
 		$clientCharset = strtolower_codesafe(Config::getVar('i18n', 'client_charset'));

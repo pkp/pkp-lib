@@ -40,6 +40,7 @@ class AdvancedSearchReviewerForm extends ReviewerForm {
 	/**
 	 * Fetch the form.
 	 * @see Form::fetch()
+	 * @param $request PKPRequest
 	 */
 	function fetch($request) {
 		$searchByNameAction = $this->getSearchByNameAction($request);

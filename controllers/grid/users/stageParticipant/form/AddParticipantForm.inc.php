@@ -72,7 +72,7 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 
 	/**
 	 * @see Form::fetch()
-	 * @param PKPRequest
+	 * @param $request PKPRequest
 	 */
 	function fetch($request) {
 		$templateMgr = TemplateManager::getManager($request);

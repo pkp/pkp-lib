@@ -40,9 +40,9 @@ class Submission extends DataObject {
 
 	/**
 	 * Get a public ID for this submission.
-	 * @param $pubIdType string One of the NLM pub-id-type values or
+	 * @param @literal $pubIdType string One of the NLM pub-id-type values or
 	 * 'other::something' if not part of the official NLM list
-	 * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
+	 * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>). @endliteral
 	 * @param $preview boolean If true, generate a non-persisted preview only.
 	 */
 	function getPubId($pubIdType, $preview = false) {
@@ -121,9 +121,9 @@ class Submission extends DataObject {
 
 	/**
 	 * Get stored public ID of the submission.
-	 * @param $pubIdType string One of the NLM pub-id-type values or
+	 * @param @literal $pubIdType string One of the NLM pub-id-type values or
 	 * 'other::something' if not part of the official NLM list
-	 * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
+	 * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>). @endliteral
 	 * @return int
 	 */
 	function getStoredPubId($pubIdType) {
@@ -330,7 +330,7 @@ class Submission extends DataObject {
 
 	/**
 	 * Get the subtitle for a given locale
-	 * @param string $locale
+	 * @param $locale string
 	 * @return string
 	 */
 	function getSubtitle($locale) {
@@ -339,8 +339,8 @@ class Submission extends DataObject {
 
 	/**
 	 * Set the subtitle for a locale
-	 * @param string $subtitle
-	 * @param string $locale
+	 * @param $subtitle string
+	 * @param $locale string
 	 */
 	function setSubtitle($subtitle, $locale) {
 		return $this->setData('subtitle', $subtitle, $locale);
@@ -680,7 +680,7 @@ class Submission extends DataObject {
 
 	/**
 	 * Get the copyright notice for a given locale
-	 * @param string $locale
+	 * @param $locale string
 	 * @return string
 	 */
 	function getCopyrightNotice($locale) {
@@ -689,8 +689,8 @@ class Submission extends DataObject {
 
 	/**
 	 * Set the copyright notice for a locale
-	 * @param string $copyrightNotice
-	 * @param string $locale
+	 * @param $copyrightNotice string
+	 * @param $locale string
 	 */
 	function setCopyrightNotice($copyrightNotice, $locale) {
 		return $this->setData('copyrightNotice', $copyrightNotice, $locale);

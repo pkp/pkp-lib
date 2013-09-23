@@ -29,6 +29,8 @@ class AdminContextHandler extends AdminHandler {
 
 	/**
 	 * Display a list of the contexts hosted on the site.
+	 * @param $args array
+	 * @param $request PKPRequest
 	 */
 	function contexts($args, $request) {
 		$templateMgr = TemplateManager::getManager($request);

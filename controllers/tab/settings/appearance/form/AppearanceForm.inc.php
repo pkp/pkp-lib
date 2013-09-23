@@ -212,16 +212,16 @@ class AppearanceForm extends ContextSettingsForm {
 		$selectedThemePlugin = null;
 		foreach ($themePlugins as $themePlugin) {
 			if (basename($themePlugin->getPluginPath()) != $selectedThemePluginPath) {
-				// Flag other themes for deactivation to ensure
-				// they won't be included in a CSS recompile.
-				$themePlugin->flagDeactivation($context->getId());
+				if ($themePlugin->getEnabled()) {
+					$themePlugin->setEnabled(false);
+				}
 			} else {
 				$selectedThemePlugin = $themePlugin;
 			}
 		}
 		if ($selectedThemePlugin) {
 			// Activate the selected theme to trigger a CSS recompile.
-			$selectedThemePlugin->activate($context->getId());
+			$selectedThemePlugin->setEnabled(true);
 		} else {
 			assert(false); // Couldn't identify the selected theme plugin
 		}

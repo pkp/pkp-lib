@@ -28,8 +28,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 	 * @see INotificationInfoProvider::getNotificationContents()
 	 */
 	public function getNotificationUrl($request, $notification) {
-		$router = $request->getRouter();
-		$dispatcher = $router->getDispatcher();
+		$dispatcher = Application::getDispatcher();
 		$contextDao = Application::getContextDAO();
 		$context = $contextDao->getById($notification->getContextId());
 

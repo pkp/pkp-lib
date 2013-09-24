@@ -16,7 +16,7 @@
 
 import('lib.pkp.tests.PKPTestCase');
 import('lib.pkp.classes.notification.PKPNotificationManager');
-import('lib.pkp.classes.mail.PKPMailTemplate');
+import('lib.pkp.classes.mail.MailTemplate');
 
 define('NOTIFICATION_ID', 1);
 
@@ -237,7 +237,7 @@ class PKPNotificationManagerTest extends PKPTestCase {
 		// Mock MailTemplate class so we can verify
 		// notification manager interaction with it. Avoid
 		// calling the mail template original constructor.
-		$mailTemplateMock = $this->getMock('PKPMailTemplate',
+		$mailTemplateMock = $this->getMock('MailTemplate',
 			array('setReplyTo', 'addRecipient', 'assignParams', 'send'), array(), '', false);
 		$mailTemplateMock->expects($this->any())
 		                 ->method('setReplyTo')

@@ -198,7 +198,20 @@ class PKPAnnouncementForm extends Form {
 	//
 	// Private methods.
 	//
+	/**
+	 * Get the association information for announcement types.
+	 * @return array (assocType, assocId);
+	 */
 	function _getAnnouncementTypesAssocId() {
+		// must be implemented by sub-classes
+		assert(false);
+	}
+
+	/**
+	 * Helper function to assign the AssocType and the AssocId
+	 * @param $announcement Announcement the announcement to be modified
+	 */
+	function _setAnnouncementAssocId($announcement) {
 		// must be implemented by sub-classes
 		assert(false);
 	}

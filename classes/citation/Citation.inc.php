@@ -81,7 +81,7 @@ class Citation extends DataObject {
 	 * @return integer the source description's sequence
 	 *  number.
 	 */
-	function addSourceDescription(&$sourceDescription) {
+	function addSourceDescription($sourceDescription) {
 		assert(is_a($sourceDescription, 'MetadataDescription'));
 
 		// Identify an appropriate sequence number.
@@ -99,7 +99,7 @@ class Citation extends DataObject {
 		// We add descriptions by display name as they are
 		// purely informational. This avoids getting duplicates
 		// when we update a description.
-		$this->_sourceDescriptions[$sourceDescription->getDisplayName()] =& $sourceDescription;
+		$this->_sourceDescriptions[$sourceDescription->getDisplayName()] = $sourceDescription;
 		return $seq;
 	}
 

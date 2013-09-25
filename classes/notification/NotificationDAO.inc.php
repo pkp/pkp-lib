@@ -29,12 +29,12 @@ class NotificationDAO extends DAO {
 	 * @param $notificationId int
 	 * @return object Notification
 	 */
-	function &getById($notificationId) {
+	function getById($notificationId) {
 		$result = $this->retrieve(
 			'SELECT * FROM notifications WHERE notification_id = ?', (int) $notificationId
 		);
 
-		$notification =& $this->_returnNotificationFromRow($result->GetRowAssoc(false));
+		$notification = $this->_fromRow($result->GetRowAssoc(false));
 
 		$result->Close();
 		return $notification;
@@ -61,7 +61,7 @@ class NotificationDAO extends DAO {
 			$params, $rangeInfo
 		);
 
-		return new DAOResultFactory($result, $this, '_returnNotificationFromRow');
+		return new DAOResultFactory($result, $this, '_fromRow');
 	}
 
 	/**
@@ -74,7 +74,7 @@ class NotificationDAO extends DAO {
 	 * @param $contextId int
 	 * @return object DAOResultFactory containing matching Notification objects
 	 */
-	function &getByAssoc($assocType, $assocId, $userId = null, $type = null, $contextId = null) {
+	function getByAssoc($assocType, $assocId, $userId = null, $type = null, $contextId = null) {
 		$params = array((int) $assocType, (int) $assocId);
 		if ($userId) $params[] = (int) $userId;
 		if ($contextId) $params[] = (int) $contextId;
@@ -85,9 +85,7 @@ class NotificationDAO extends DAO {
 			$params
 		);
 
-		$returner = new DAOResultFactory($result, $this, '_returnNotificationFromRow');
-
-		return $returner;
+		return new DAOResultFactory($result, $this, '_fromRow');
 	}
 
 	/**
@@ -275,8 +273,8 @@ class NotificationDAO extends DAO {
 	 */
 	function transferNotifications($oldUserId, $newUserId) {
 		$this->update(
-				'UPDATE notifications SET user_id = ? WHERE user_id = ?',
-				array($newUserId, $oldUserId)
+			'UPDATE notifications SET user_id = ? WHERE user_id = ?',
+			array((int) $newUserId, (int) $oldUserId)
 		);
 	}
 
@@ -285,7 +283,7 @@ class NotificationDAO extends DAO {
 	 * @param $row array
 	 * @return Notification object
 	 */
-	function &_returnNotificationFromRow($row) {
+	function _fromRow($row) {
 		$notification = $this->newDataObject();
 		$notification->setId($row['notification_id']);
 		$notification->setUserId($row['user_id']);
@@ -297,7 +295,7 @@ class NotificationDAO extends DAO {
 		$notification->setAssocType($row['assoc_type']);
 		$notification->setAssocId($row['assoc_id']);
 
-		HookRegistry::call('NotificationDAO::_returnNotificationFromRow', array(&$notification, &$row));
+		HookRegistry::call('NotificationDAO::_fromRow', array(&$notification, &$row));
 
 		return $notification;
 	}

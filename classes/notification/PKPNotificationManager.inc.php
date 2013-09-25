@@ -95,7 +95,6 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 				$context = $contextDao->getById($announcement->getAssocId());
 				return $dispatcher->url($request, ROUTE_PAGE, null, $context->getPath(), 'index', array($notification->getAssocId()));
 			case NOTIFICATION_TYPE_CONFIGURE_PAYMENT_METHOD:
-				assert($notification->getAssocType() == ASSOC_TYPE_PRESS && is_numeric($notification->getAssocId()));
 				return __('notification.type.configurePaymentMethod');
 		}
 

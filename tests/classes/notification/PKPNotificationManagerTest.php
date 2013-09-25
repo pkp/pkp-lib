@@ -300,7 +300,7 @@ class PKPNotificationManagerTest extends PKPTestCase {
 	 */
 	private function getMgrStubForCreateNotificationTests($blockedNotifications = array(), $emailedNotifications = array(), $extraOpToStub = array()) {
 		$notificationMgrStub = $this->getMock('PKPNotificationManager',
-			array_merge($extraOpToStub, array('getUserBlockedNotifications', 'getEmailedNotifications')));
+			array_merge($extraOpToStub, array('getUserBlockedNotifications', 'getEmailedNotifications', 'getNotificationUrl')));
 
 		$notificationMgrStub->expects($this->any())
 		                    ->method('getUserBlockedNotifications')
@@ -309,6 +309,10 @@ class PKPNotificationManagerTest extends PKPTestCase {
 		$notificationMgrStub->expects($this->any())
 		                    ->method('getEmailedNotifications')
 		                    ->will($this->returnValue($emailedNotifications));
+
+		$notificationMgrStub->expects($this->any())
+							->method('getNotificationUrl')
+							->will($this->returnValue('anyNotificationUrl'));
 
 		return $notificationMgrStub;
 	}

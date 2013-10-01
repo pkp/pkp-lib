@@ -23,7 +23,7 @@
 <div id="submissionHeader" class="pkp_page_header">
 	<div class="participant_popover" style="display: none;">
 		{url|assign:stageParticipantGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.users.stageParticipant.StageParticipantGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId escape=false}
-		{load_url_in_div id="stageParticipantGridContainer" url="$stageParticipantGridUrl"}
+		{load_url_in_div id="stageParticipantGridContainer" url=$stageParticipantGridUrl}
 	</div>
 	<div class="pkp_helpers_align_right">
 		<ul class="submission_actions pkp_helpers_flatlist">

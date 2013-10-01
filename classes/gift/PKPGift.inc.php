@@ -185,7 +185,7 @@ class PKPGift extends DataObject {
 		$middleName = $this->getData('buyerMiddleName');
 		$lastName = $this->getData('buyerLastName');
 		if ($lastFirst) {
-			return "$lastName, " . "$firstName" . ($middleName != ''?" $middleName":'');
+			return "$lastName, " . $firstName . ($middleName != ''?" $middleName":'');
 		} else {
 			return "$firstName " . ($middleName != ''?"$middleName ":'') . $lastName;
 		}
@@ -282,7 +282,7 @@ class PKPGift extends DataObject {
 		$middleName = $this->getData('recipientMiddleName');
 		$lastName = $this->getData('recipientLastName');
 		if ($lastFirst) {
-			return "$lastName, " . "$firstName" . ($middleName != ''?" $middleName":'');
+			return "$lastName, " . $firstName . ($middleName != ''?" $middleName":'');
 		} else {
 			return "$firstName " . ($middleName != ''?"$middleName ":'') . $lastName;
 		}

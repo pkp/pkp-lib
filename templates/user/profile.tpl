@@ -70,7 +70,7 @@
 							{else}
 								{assign var="checked" value="false"}
 							{/if}
-							{fbvElement type="checkbox" name="userLocales[]" id="userLocales-$localeKey" value="$localeKey" checked=$checked label="$localeName" translate=false }
+							{fbvElement type="checkbox" name="userLocales[]" id="userLocales-$localeKey" value=$localeKey checked=$checked label=$localeName translate=false }
 						{/foreach}
 					{/fbvFormSection}
 				{/if}
@@ -87,7 +87,7 @@
 
 				{fbvFormSection}
 					{capture assign="biographyLabel"}{translate key="user.biography"} {translate key="user.biography.description"}{/capture}
-					{fbvElement type="textarea" label="$biographyLabel" multilingual=true name="biography" id="biography" value=$biography subLabelTranslate=false inline=true size=$fbvStyles.size.MEDIUM rich=true}
+					{fbvElement type="textarea" label=$biographyLabel multilingual=true name="biography" id="biography" value=$biography subLabelTranslate=false inline=true size=$fbvStyles.size.MEDIUM rich=true}
 					{fbvElement type="textarea" label="common.mailingAddress" name="mailingAddress" id="mailingAddress" value=$mailingAddress inline=true size=$fbvStyles.size.MEDIUM rich=true}
 				{/fbvFormSection}
 

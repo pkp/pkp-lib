@@ -19,6 +19,6 @@
 </ul>
 
 {url|assign:announcementGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.announcements.ManageAnnouncementGridHandler" op="fetchGrid" escape=false}
-{load_url_in_div id="announcementGridContainer" url="$announcementGridUrl"}
+{load_url_in_div id="announcementGridContainer" url=$announcementGridUrl}
 
 {include file="common/footer.tpl"}

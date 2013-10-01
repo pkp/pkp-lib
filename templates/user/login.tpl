@@ -13,7 +13,7 @@
 {/strip}
 
 {if $loginMessage}
-	<span class="instruct">{translate key="$loginMessage"}</span>
+	<span class="instruct">{translate key=$loginMessage}</span>
 	<br />
 	<br />
 {/if}
@@ -36,7 +36,7 @@
 {/if}
 
 {if $error}
-	<span class="pkp_form_error">{translate key="$error" reason=$reason}</span>
+	<span class="pkp_form_error">{translate key=$error reason=$reason}</span>
 	<br />
 	<br />
 {/if}

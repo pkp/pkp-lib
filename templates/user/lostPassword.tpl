@@ -22,7 +22,7 @@
 <form class="pkp_form" id="lostPasswordForm" action="{url page="login" op="requestResetPassword"}" method="post">
 <p>{translate key="user.login.resetPasswordInstructions"}</p>
 {if $error}
-	<p><span class="pkp_form_error">{translate key="$error"}</span></p>
+	<p><span class="pkp_form_error">{translate key=$error}</span></p>
 {/if}
 {fbvFormArea id="lostPassword"}
 	{fbvFormSection label="user.login.registeredEmail"}

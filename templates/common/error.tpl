@@ -15,7 +15,7 @@
 
 {if $backLink}
 <br /><br />
-&#187; <a id="backLink" href="{$backLink}">{translate key="$backLinkLabel"}</a>
+&#187; <a id="backLink" href="{$backLink}">{translate key=$backLinkLabel}</a>
 {/if}
 
 {include file="common/footer.tpl"}

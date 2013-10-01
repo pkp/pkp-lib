@@ -99,15 +99,13 @@ class ArchivedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 		// is a reviewer or assistant only show submissions that have been
 		// assigned to the user
 		$submissionDao = Application::getSubmissionDAO();
-		$submissionFactory = $submissionDao->getByStatus(
+		return $submissionDao->getByStatus(
 			array(STATUS_DECLINED, STATUS_PUBLISHED),
 			$stageUserId,
 			$reviewUserId,
 			$accessibleContexts,
 			$this->getGridRangeInfo($request, $this->getId())
 		);
-
-		return $submissionFactory;
 	}
 }
 

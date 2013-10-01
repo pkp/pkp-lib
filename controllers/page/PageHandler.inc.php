@@ -37,7 +37,7 @@ class PageHandler extends Handler {
 			SITE_ACCESS_ALL_ROLES
 		));
 		if (!Config::getVar('general', 'installed')) define('SESSION_DISABLE_INIT', true);
-		return parent::authorize($request, $args, $roleAssignments);
+		return parent::authorize($request, $args, $roleAssignments, false);
 	}
 
 

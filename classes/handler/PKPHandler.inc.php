@@ -247,10 +247,12 @@ class PKPHandler {
 	 *  see getRoleAssignment() for more details.
 	 * @return boolean
 	 */
-	function authorize($request, &$args, $roleAssignments) {
-		// Enforce restricted site access.
-		import('lib.pkp.classes.security.authorization.RestrictedSiteAccessPolicy');
-		$this->addPolicy(new RestrictedSiteAccessPolicy($request), true);
+	function authorize($request, &$args, $roleAssignments, $enforceRestrictedSite = true) {
+		// Enforce restricted site access if required.
+		if ($enforceRestrictedSite) {
+			import('lib.pkp.classes.security.authorization.RestrictedSiteAccessPolicy');
+			$this->addPolicy(new RestrictedSiteAccessPolicy($request), true);
+		}
 
 		// Enforce SSL site-wide.
 		import('lib.pkp.classes.security.authorization.HttpsPolicy');

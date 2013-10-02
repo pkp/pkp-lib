@@ -419,6 +419,14 @@ class Installer {
 				}
 				break;
 			case 'note':
+				$condition = isset($action['attr']['condition'])?$action['attr']['condition']:null;
+				$includeAction = true;
+				if ($condition) {
+					$funcName = create_function('$installer,$action', $condition);
+					$includeAction = $funcName($this, $action);
+				}
+				if (!$includeAction) break;
+
 				$this->log(sprintf('note: %s', $action['file']));
 				$this->notes[] = join('', file($action['file']));
 				break;

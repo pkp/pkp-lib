@@ -48,4 +48,5 @@
 		condition CDATA #IMPLIED>
 <!ELEMENT note EMPTY>
 	<!ATTLIST note
-		file CDATA #REQUIRED>
+		file CDATA #REQUIRED
+		condition CDATA #IMPLIED>

@@ -205,7 +205,7 @@ class DataObject {
 	 *
 	 * @return DataObject The upcast target object.
 	 */
-	function &upcastTo(&$targetObject) {
+	function upcastTo($targetObject) {
 		// Make sure that target is really inheriting
 		// from this class.
 		assert(is_a($targetObject, get_class($this)));
@@ -243,7 +243,7 @@ class DataObject {
 	 * can be added.
 	 * @param $metadataAdapter MetadataDataObjectAdapter
 	 */
-	function addSupportedMetadataAdapter(&$metadataAdapter) {
+	function addSupportedMetadataAdapter($metadataAdapter) {
 		$metadataSchemaName = $metadataAdapter->getMetadataSchemaName();
 		assert(!empty($metadataSchemaName));
 
@@ -253,18 +253,18 @@ class DataObject {
 		// input and output type separately.
 
 		// Is this a meta-data extractor?
-		$inputType =& $metadataAdapter->getInputType();
+		$inputType = $metadataAdapter->getInputType();
 		if ($inputType->checkType($this)) {
 			if (!isset($this->_metadataExtractionAdapters[$metadataSchemaName])) {
-				$this->_metadataExtractionAdapters[$metadataSchemaName] =& $metadataAdapter;
+				$this->_metadataExtractionAdapters[$metadataSchemaName] = $metadataAdapter;
 			}
 		}
 
 		// Is this a meta-data injector?
-		$outputType =& $metadataAdapter->getOutputType();
+		$outputType = $metadataAdapter->getOutputType();
 		if ($outputType->checkType($this)) {
 			if (!isset($this->_metadataInjectionAdapters[$metadataSchemaName])) {
-				$this->_metadataInjectionAdapters[$metadataSchemaName] =& $metadataAdapter;
+				$this->_metadataInjectionAdapters[$metadataSchemaName] = $metadataAdapter;
 			}
 		}
 	}
@@ -295,14 +295,13 @@ class DataObject {
 	 * loaded from the database.
 	 * @return array
 	 */
-	function &getSupportedExtractionAdapters() {
+	function getSupportedExtractionAdapters() {
 		// Load meta-data adapters from the database.
 		if ($this->getHasLoadableAdapters() && !$this->_extractionAdaptersLoaded) {
 			$filterDao = DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
-			$loadedAdapters =& $filterDao->getObjectsByTypeDescription('class::%', 'metadata::%', $this);
+			$loadedAdapters = $filterDao->getObjectsByTypeDescription('class::%', 'metadata::%', $this);
 			foreach($loadedAdapters as $loadedAdapter) {
 				$this->addSupportedMetadataAdapter($loadedAdapter);
-				unset($loadedAdapter);
 			}
 			$this->_extractionAdaptersLoaded = true;
 		}
@@ -316,11 +315,11 @@ class DataObject {
 	 * loaded from the database.
 	 * @return array
 	 */
-	function &getSupportedInjectionAdapters() {
+	function getSupportedInjectionAdapters() {
 		// Load meta-data adapters from the database.
 		if ($this->getHasLoadableAdapters() && !$this->_injectionAdaptersLoaded) {
 			$filterDao = DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
-			$loadedAdapters =& $filterDao->getObjectsByTypeDescription('metadata::%', 'class::%', $this, false);
+			$loadedAdapters = $filterDao->getObjectsByTypeDescription('metadata::%', 'class::%', $this, false);
 			foreach($loadedAdapters as $loadedAdapter) {
 				$this->addSupportedMetadataAdapter($loadedAdapter);
 			}
@@ -335,11 +334,11 @@ class DataObject {
 	 * which are supported by extractor adapters.
 	 * @return array
 	 */
-	function &getSupportedMetadataSchemas() {
+	function getSupportedMetadataSchemas() {
 		$supportedMetadataSchemas = array();
-		$extractionAdapters =& $this->getSupportedExtractionAdapters();
+		$extractionAdapters = $this->getSupportedExtractionAdapters();
 		foreach($extractionAdapters as $metadataAdapter) {
-			$supportedMetadataSchemas[] =& $metadataAdapter->getMetadataSchema();
+			$supportedMetadataSchemas[] = $metadataAdapter->getMetadataSchema();
 		}
 		return $supportedMetadataSchemas;
 	}
@@ -353,11 +352,13 @@ class DataObject {
 	function getMetadataFieldNames($translated = true) {
 		// Create a list of all possible meta-data field names
 		$metadataFieldNames = array();
-		$extractionAdapters =& $this->getSupportedExtractionAdapters();
+		$extractionAdapters = $this->getSupportedExtractionAdapters();
 		foreach($extractionAdapters as $metadataAdapter) {
 			// Add the field names from the current adapter
-			$metadataFieldNames = array_merge($metadataFieldNames,
-					$metadataAdapter->getDataObjectMetadataFieldNames($translated));
+			$metadataFieldNames = array_merge(
+				$metadataFieldNames,
+				$metadataAdapter->getDataObjectMetadataFieldNames($translated)
+			);
 		}
 		return array_unique($metadataFieldNames);
 	}
@@ -409,14 +410,14 @@ class DataObject {
 	 * @param $replace boolean whether to delete existing meta-data
 	 * @return boolean true on success, otherwise false
 	 */
-	function injectMetadata(&$metadataDescription) {
+	function injectMetadata($metadataDescription) {
 		$dataObject = null;
 		$metadataSchemaName = $metadataDescription->getMetadataSchemaName();
-		$injectionAdapters =& $this->getSupportedInjectionAdapters();
+		$injectionAdapters = $this->getSupportedInjectionAdapters();
 		if(isset($injectionAdapters[$metadataSchemaName])) {
 			// Get the meta-data adapter that supports the
 			// given meta-data description's schema.
-			$metadataAdapter =& $injectionAdapters[$metadataSchemaName]; /* @var $metadataAdapter MetadataDataObjectAdapter */
+			$metadataAdapter = $injectionAdapters[$metadataSchemaName]; /* @var $metadataAdapter MetadataDataObjectAdapter */
 
 			// Pass in a reference to the data object which
 			// the filter will use to update the current instance
@@ -425,7 +426,7 @@ class DataObject {
 
 			// Use adapter filter to convert from a meta-data
 			// description to a data object.
-			$dataObject =& $metadataAdapter->execute($metadataDescription);
+			$dataObject = $metadataAdapter->execute($metadataDescription);
 		}
 		return $dataObject;
 	}
@@ -436,18 +437,18 @@ class DataObject {
 	 * @param $metadataSchema MetadataSchema
 	 * @return $metadataDescription MetadataDescription
 	 */
-	function &extractMetadata(&$metadataSchema) {
+	function extractMetadata($metadataSchema) {
 		$metadataDescription = null;
 		$metadataSchemaName = $metadataSchema->getClassName();
-		$extractionAdapters =& $this->getSupportedExtractionAdapters();
+		$extractionAdapters = $this->getSupportedExtractionAdapters();
 		if(isset($extractionAdapters[$metadataSchemaName])) {
 			// Get the meta-data adapter that supports the
 			// given meta-data description's schema.
-			$metadataAdapter =& $extractionAdapters[$metadataSchemaName];
+			$metadataAdapter = $extractionAdapters[$metadataSchemaName];
 
 			// Use adapter filter to convert from a data object
 			// to a meta-data description.
-			$metadataDescription =& $metadataAdapter->execute($this);
+			$metadataDescription = $metadataAdapter->execute($this);
 		}
 		return $metadataDescription;
 	}

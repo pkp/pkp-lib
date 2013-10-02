@@ -125,7 +125,7 @@ class CitationForm extends Form {
 			// Loop over the properties in the schema and add string
 			// values for all form fields.
 			$properties = $metadataSchema->getProperties();
-			$metadataDescription =& $citation->extractMetadata($metadataSchema);
+			$metadataDescription = $citation->extractMetadata($metadataSchema);
 
 			// Save the meta-data description for later usage.
 			$this->_metadataDescriptions[] = $metadataDescription;

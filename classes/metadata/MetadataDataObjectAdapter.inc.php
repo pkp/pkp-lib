@@ -213,7 +213,7 @@ class MetadataDataObjectAdapter extends PersistableFilter {
 	 * @param $sourceDataObject DataObject
 	 * @return MetadataDescription
 	 */
-	function &extractMetadataFromDataObject(&$sourceDataObject) {
+	function extractMetadataFromDataObject(&$sourceDataObject) {
 		// Must be implemented by sub-classes
 		assert(false);
 	}
@@ -262,7 +262,7 @@ class MetadataDataObjectAdapter extends PersistableFilter {
 				break;
 
 			case METADATA_DOA_EXTRACTION_MODE:
-				$output =& $this->extractMetadataFromDataObject($input);
+				$output = $this->extractMetadataFromDataObject($input);
 				break;
 
 			default:

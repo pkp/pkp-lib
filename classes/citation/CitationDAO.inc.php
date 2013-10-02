@@ -586,12 +586,12 @@ class CitationDAO extends DAO {
 
 		// Make sure that the citation implements only one
 		// meta-data schema.
-		$supportedMetadataSchemas =& $citation->getSupportedMetadataSchemas();
+		$supportedMetadataSchemas = $citation->getSupportedMetadataSchemas();
 		assert(count($supportedMetadataSchemas) == 1);
-		$metadataSchema =& $supportedMetadataSchemas[0];
+		$metadataSchema = $supportedMetadataSchemas[0];
 
 		// Extract the meta-data description from the citation.
-		$originalDescription =& $citation->extractMetadata($metadataSchema);
+		$originalDescription = $citation->extractMetadata($metadataSchema);
 
 		// Let the callback configure the transformation.
 		$transformationDefinition = call_user_func_array($filterCallback, array(&$citation, &$originalDescription, $context->getId(), $fromFilterIds));

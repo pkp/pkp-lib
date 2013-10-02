@@ -79,7 +79,7 @@ class Nlm30CitationSchemaCitationAdapterTest extends PKPTestCase {
 		$adapter = new Nlm30CitationSchemaCitationAdapter(PersistableFilter::tempGroup(
 				'class::lib.pkp.classes.citation.Citation',
 				'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)'));
-		$extractedDescription =& $adapter->extractMetadataFromDataObject($resultCitation);
+		$extractedDescription = $adapter->extractMetadataFromDataObject($resultCitation);
 		$secondDescription->addStatement('article-title', $articleTitle = 'article title');
 		self::assertEquals($secondDescription, $extractedDescription);
 	}

@@ -64,11 +64,10 @@ class MetadataDescriptionDummyAdapter extends MetadataDataObjectAdapter {
 	 * @param $sourceMetadataDescription MetadataDescription
 	 * @return MetadataDescription
 	 */
-	function &extractMetadataFromDataObject(&$sourceMetadataDescription) {
+	function extractMetadataFromDataObject($sourceMetadataDescription) {
 		// Create a copy of the meta-data description to decouple
 		// it from the original.
-		$clonedMetadataDescription = clone($sourceMetadataDescription);
-		return $clonedMetadataDescription;
+		return clone($sourceMetadataDescription);
 	}
 
 	/**

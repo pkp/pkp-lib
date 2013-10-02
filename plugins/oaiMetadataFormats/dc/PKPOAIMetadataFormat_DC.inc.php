@@ -18,7 +18,7 @@ class PKPOAIMetadataFormat_DC extends OAIMetadataFormat {
 	 */
 	function toXml(&$dataObject, $format = null) {
 		import('plugins.metadata.dc11.schema.Dc11Schema');
-		$dcDescription =& $dataObject->extractMetadata(new Dc11Schema());
+		$dcDescription = $dataObject->extractMetadata(new Dc11Schema());
 
 		$response = "<oai_dc:dc\n" .
 			"\txmlns:oai_dc=\"http://www.openarchives.org/OAI/2.0/oai_dc/\"\n" .

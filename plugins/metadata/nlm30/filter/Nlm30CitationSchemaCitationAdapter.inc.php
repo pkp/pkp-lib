@@ -96,8 +96,8 @@ class Nlm30CitationSchemaCitationAdapter extends MetadataDataObjectAdapter {
 	 * @param $dataObject Citation
 	 * @return MetadataDescription
 	 */
-	function &extractMetadataFromDataObject(&$dataObject) {
-		$metadataDescription =& $this->instantiateMetadataDescription();
+	function extractMetadataFromDataObject(&$dataObject) {
+		$metadataDescription = $this->instantiateMetadataDescription();
 
 		// Establish the association between the meta-data description
 		// and the citation object.

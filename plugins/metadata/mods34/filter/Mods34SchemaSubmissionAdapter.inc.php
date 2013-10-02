@@ -198,9 +198,9 @@ class Mods34SchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 	 *  for submission authors.
 	 * @return MetadataDescription
 	 */
-	function &extractMetadataFromDataObject(&$submission, $authorMarcrelatorRole = 'aut') {
+	function extractMetadataFromDataObject(&$submission, $authorMarcrelatorRole = 'aut') {
 		assert(is_a($submission, 'Submission'));
-		$mods34Description =& $this->instantiateMetadataDescription();
+		$mods34Description = $this->instantiateMetadataDescription();
 
 		// Retrieve the primary locale.
 		$catalogingLocale = AppLocale::getPrimaryLocale();
@@ -211,7 +211,7 @@ class Mods34SchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 		$mods34Description->setAssocId($submission->getId());
 
 		// Title
-		$localizedTitles =& $submission->getTitle(null); // Localized
+		$localizedTitles = $submission->getTitle(null); // Localized
 		$this->addLocalizedStatements($mods34Description, 'titleInfo/title', $localizedTitles);
 
 		// Authors

@@ -54,7 +54,7 @@ class MetadataDescriptionDummyAdapterTest extends PKPTestCase {
 		self::assertEquals($expectedResult, $resultDescription->getStatements());
 
 		// Test meta-data extraction.
-		$extractedDescription =& $adapter->extractMetadataFromDataObject($originalDescription);
+		$extractedDescription = $adapter->extractMetadataFromDataObject($originalDescription);
 		self::assertEquals($originalDescription, $extractedDescription);
 
 		// Test meta-data field names (only test one field of each

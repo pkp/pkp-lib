@@ -152,6 +152,33 @@ class PluginGridHandler extends CategoryGridHandler {
 	function getCategoryData($categoryDataElement, $filter) {
 		$plugins =& PluginRegistry::loadCategory($categoryDataElement);
 
+		$versionDao = DAORegistry::getDAO('VersionDAO');
+		import('lib.pkp.classes.site.VersionCheck');
+		$fileManager = new FileManager();
+
+		foreach ($plugins as $plugin) {
+			$version = $plugin->getCurrentVersion();
+			if ($version == null) { // this plugin is on the file system, but not installed.
+				$versionFile = $plugin->getPluginPath() . '/version.xml';
+				if ($fileManager->fileExists($versionFile)) {
+					$versionInfo = VersionCheck::parseVersionXML($versionFile);
+					$pluginVersion = $versionInfo['version'];
+				} else {
+					$pluginVersion = new Version(
+						1, 0, 0, 0, // Major, minor, revision, build
+						Core::getCurrentDate(), // Date installed
+						1,	// Current
+						'plugins.'.$category, // Type
+						basename($plugin->getPluginPath()), // Product
+						'',	// Class name
+						0,	// Lazy load
+						$plugin->isSitePlugin()	// Site wide
+					);
+				}
+				$versionDao->insertVersion($pluginVersion, true);
+			}
+		}
+
 		if (!is_null($filter) && isset($filter['pluginName']) && $filter['pluginName'] != "") {
 			// Find all plugins that have the filter name string in their display names.
 			$filteredPlugins = array();

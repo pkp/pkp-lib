@@ -708,6 +708,18 @@ class Installer {
 	}
 
 	/**
+	 * Check to see whether the passed file exists.
+	 * @param $filePath string
+	 * @return boolean
+	 */
+	function fileExists($filePath) {
+		import('lib.pkp.classes.file.FileManager');
+		$fileMgr = new FileManager();
+
+		return $fileMgr->fileExists(realpath($filePath));
+	}
+
+	/**
 	 * Insert or update plugin data in versions
 	 * and plugin_settings tables.
 	 * @return boolean

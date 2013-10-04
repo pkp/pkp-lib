@@ -18,6 +18,7 @@
 			'$.pkp.pages.submission.SubmissionTabHandler',
 			{ldelim}
 				submissionProgress: {$submissionProgress},
+				selected: {$submissionProgress-1},
 				notScrollable: true
 			{rdelim}
 		);

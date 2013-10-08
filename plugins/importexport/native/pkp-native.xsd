@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://pkp.sfu.ca" xmlns:pkp="http://pkp.sfu.ca">
+
+	<!--
+	  - Types
+	  -->
+	<!-- Identifies a particular I18N locale, e.g. en_US -->
+	<simpleType name="locale">
+		<restriction base="string">
+			<pattern value="[a-z][a-z]_[A-Z][A-Z]" />
+		</restriction>
+	</simpleType>
+
+	<!-- A text node with an attribute describing its locale, e.g. title -->
+	<complexType name="localizedNode" mixed="true">
+		<attribute name="locale" type="pkp:locale" use="optional"/>
+	</complexType>
+
+	<!--
+	  - Common elements
+	  -->
+	<element name="id">
+		<complexType mixed="true">
+			<attribute name="type" type="string" use="optional"/>
+		</complexType>
+	</element>
+
+	<!--
+	  - Metadata elements
+	  -->
+	<element name="title" type="pkp:localizedNode" />
+	<element name="abstract" type="pkp:localizedNode" />
+
+	<!--
+	  - Composite elements
+	  -->
+	<element name="submissions">
+		<complexType>
+			<sequence>
+				<element ref="pkp:submission" maxOccurs="unbounded"/>
+			</sequence>
+		</complexType>
+	</element>
+
+	<!--
+	  - Submission-related elements
+	  -->
+	<element name="submission">
+		<complexType>
+			<sequence>
+				<element ref="pkp:id" minOccurs="0" maxOccurs="unbounded"/>
+				<element ref="pkp:title" minOccurs="1" maxOccurs="unbounded"/>
+				<element ref="pkp:abstract" minOccurs="1" maxOccurs="unbounded"/>
+			</sequence>
+			<attribute name="locale" type="string" use="optional"/>
+			<attribute name="language" type="string" use="optional"/>
+		</complexType>
+	</element>
+</schema>

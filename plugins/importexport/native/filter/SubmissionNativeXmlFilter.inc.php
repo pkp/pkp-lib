@@ -45,13 +45,26 @@ class SubmissionNativeXmlFilter extends PersistableFilter {
 	//
 	/**
 	 * @see Filter::process()
-	 * @param $submission Submission
+	 * @param $submissions array Array of submissions
 	 */
-	function &process(&$submission) {
+	function &process(&$submissions) {
 		// Create the XML document
 		$doc = new DOMDocument('1.0');
 
-		$doc->appendChild($this->createSubmissionNode($doc, $submission));
+		if (count($submissions)==1) {
+			// Only one submission specified; create root node
+			$rootNode = $this->createSubmissionNode($doc, $submissions[0]);
+		} else {
+			// Multiple submissions; wrap in a <submissions> element
+			$rootNode = $doc->createElementNS($this->getNamespace(), $this->getSubmissionsNodeName());
+			foreach ($submissions as $submission) {
+				$rootNode->appendChild($this->createSubmissionNode($doc, $submission));
+			}
+		}
+		$doc->appendChild($rootNode);
+		$rootNode->setAttributeNS('http://www.w3.org/2000/xmlns/', 'xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance');
+		$rootNode->setAttribute('xsi:schemaLocation', $this->getNamespace() . ' ' . $this->getSchemaFilename());
+
 		return $doc;
 	}
 
@@ -61,8 +74,6 @@ class SubmissionNativeXmlFilter extends PersistableFilter {
 	function createSubmissionNode($doc, $submission) {
 		// Create the root node and namespace information
 		$submissionNode = $doc->createElementNS($this->getNamespace(), $this->getSubmissionNodeName());
-		$submissionNode->setAttributeNS('http://www.w3.org/2000/xmlns/', 'xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance');
-		$submissionNode->setAttribute('xsi:schemaLocation', $this->getNamespace() . ' ' . $this->getSchemaFilename());
 		$submissionNode->setAttribute('locale', $submission->getLocale());
 		// FIXME: language attribute (from old DTD). Necessary? Data migration needed?
 		// FIXME: public_id attribute (from old DTD). Necessary? Move to <id> element below?

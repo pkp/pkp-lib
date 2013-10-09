@@ -197,7 +197,7 @@ class TypeDescription {
 				break;
 
 			case 2:
-				// This is an array, identify it's cardinality
+				// This is an array, identify its cardinality
 				$typeName = $typeNameParts[0];
 				$cardinality = trim($typeNameParts[1], ']');
 				if($cardinality === '') {

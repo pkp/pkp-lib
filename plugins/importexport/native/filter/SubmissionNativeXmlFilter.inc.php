@@ -1,31 +1,27 @@
 <?php
-/**
- * @defgroup plugins_metadata_native_filter Submission to native XML filter base
- */
 
 /**
- * @file plugins/metadata/native/filter/SubmissionNativeXmlFilter.inc.php
+ * @file plugins/importexport/native/filter/SubmissionNativeXmlFilter.inc.php
  *
  * Copyright (c) 2000-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SubmissionNativeXmlFilter
- * @ingroup plugins_importexport_native_filter
+ * @ingroup plugins_importexport_native
  *
  * @brief Base class that converts a set of submissions to a Native XML document
  */
 
-import('lib.pkp.classes.filter.PersistableFilter');
-import('lib.pkp.classes.xml.XMLCustomWriter');
+import('lib.pkp.plugins.importexport.native.filter.NativeImportExportFilter');
 
-class SubmissionNativeXmlFilter extends PersistableFilter {
+class SubmissionNativeXmlFilter extends NativeImportExportFilter {
 	/**
 	 * Constructor
 	 * $filterGroup FilterGroup
 	 */
 	function SubmissionNativeXmlFilter($filterGroup) {
 		$this->setDisplayName('Native XML export');
-		parent::PersistableFilter($filterGroup);
+		parent::NativeImportExportFilter($filterGroup);
 	}
 
 
@@ -51,20 +47,21 @@ class SubmissionNativeXmlFilter extends PersistableFilter {
 	function &process(&$submissions) {
 		// Create the XML document
 		$doc = new DOMDocument('1.0');
+		$deployment = $this->getDeployment();
 
 		if (count($submissions)==1) {
 			// Only one submission specified; create root node
 			$rootNode = $this->createSubmissionNode($doc, $submissions[0]);
 		} else {
 			// Multiple submissions; wrap in a <submissions> element
-			$rootNode = $doc->createElementNS($this->getNamespace(), $this->getSubmissionsNodeName());
+			$rootNode = $doc->createElementNS($deployment->getNamespace(), $deployment->getSubmissionsNodeName());
 			foreach ($submissions as $submission) {
 				$rootNode->appendChild($this->createSubmissionNode($doc, $submission));
 			}
 		}
 		$doc->appendChild($rootNode);
 		$rootNode->setAttributeNS('http://www.w3.org/2000/xmlns/', 'xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance');
-		$rootNode->setAttribute('xsi:schemaLocation', $this->getNamespace() . ' ' . $this->getSchemaFilename());
+		$rootNode->setAttribute('xsi:schemaLocation', $deployment->getNamespace() . ' ' . $deployment->getSchemaFilename());
 
 		return $doc;
 	}
@@ -74,7 +71,8 @@ class SubmissionNativeXmlFilter extends PersistableFilter {
 	//
 	function createSubmissionNode($doc, $submission) {
 		// Create the root node and namespace information
-		$submissionNode = $doc->createElementNS($this->getNamespace(), $this->getSubmissionNodeName());
+		$deployment = $this->getDeployment();
+		$submissionNode = $doc->createElementNS($deployment->getNamespace(), $deployment->getSubmissionNodeName());
 		$submissionNode->setAttribute('locale', $submission->getLocale());
 		// FIXME: language attribute (from old DTD). Necessary? Data migration needed?
 		// FIXME: public_id attribute (from old DTD). Necessary? Move to <id> element below?
@@ -86,7 +84,8 @@ class SubmissionNativeXmlFilter extends PersistableFilter {
 	}
 
 	function addIdentifiers($doc, $submissionNode, $submission) {
-		$submissionNode->appendChild($doc->createElementNS($this->getNamespace(), 'id', $submission->getId()));
+		$deployment = $this->getDeployment();
+		$submissionNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'id', $submission->getId()));
 		// FIXME: Other identifiers
 	}
 
@@ -105,41 +104,6 @@ class SubmissionNativeXmlFilter extends PersistableFilter {
 	}
 
 	//
-	// Identifying information
-	//
-	/**
-	 * Get the submission node name
-	 * @return string
-	 */
-	function getSubmissionNodeName() {
-		return 'submission';
-	}
-
-	/**
-	 * Get the submissions node name
-	 * @return string
-	 */
-	function getSubmissionsNodeName() {
-		return 'submissions';
-	}
-
-	/**
-	 * Get the namespace URN
-	 * @return string
-	 */
-	function getNamespace() {
-		return 'http://pkp.sfu.ca';
-	}
-
-	/**
-	 * Get the schema filename.
-	 * @return string
-	 */
-	function getSchemaFilename() {
-		return 'pkp-native.xsd';
-	}
-
-	//
 	// Helper functions
 	//
 	/**
@@ -151,9 +115,10 @@ class SubmissionNativeXmlFilter extends PersistableFilter {
 	 * @param $values array Array of locale key => value mappings
 	 */
 	function createLocalizedNodes($doc, $parentNode, $name, $values) {
+		$deployment = $this->getDeployment();
 		foreach ($values as $locale => $value) {
 			if ($value === '') continue; // Skip empty values
-			$parentNode->appendChild($node = $doc->createElementNS($this->getNamespace(), $name, $value));
+			$parentNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), $name, $value));
 			$node->setAttribute('locale', $locale);
 		}
 	}

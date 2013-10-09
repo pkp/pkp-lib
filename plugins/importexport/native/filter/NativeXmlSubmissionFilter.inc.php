@@ -1,31 +1,28 @@
 <?php
-/**
- * @defgroup plugins_metadata_native_filter Native XML to submission filter base
- */
 
 /**
- * @file plugins/metadata/native/filter/NativeXmlSubmissionFilter.inc.php
+ * @file plugins/importexport/native/filter/NativeXmlSubmissionFilter.inc.php
  *
  * Copyright (c) 2000-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class NativeXmlSubmissionFilter
- * @ingroup plugins_importexport_native_filter
+ * @ingroup plugins_importexport_native
  *
  * @brief Base class that converts a Native XML document to a set of submissions
  */
 
-import('lib.pkp.classes.filter.PersistableFilter');
+import('lib.pkp.plugins.importexport.native.filter.NativeImportExportFilter');
 import('lib.pkp.classes.xml.XMLCustomWriter');
 
-class NativeXmlSubmissionFilter extends PersistableFilter {
+class NativeXmlSubmissionFilter extends NativeImportExportFilter {
 	/**
 	 * Constructor
 	 * $filterGroup FilterGroup
 	 */
 	function NativeXmlSubmissionFilter($filterGroup) {
 		$this->setDisplayName('Native XML import');
-		parent::PersistableFilter($filterGroup);
+		parent::NativeImportExportFilter($filterGroup);
 	}
 
 
@@ -57,8 +54,9 @@ class NativeXmlSubmissionFilter extends PersistableFilter {
 		}
 		assert(is_a($document, 'DOMDocument'));
 
+		$deployment = $this->getDeployment();
 		$submissions = array();
-		if ($document->documentElement->tagName == $this->getSubmissionsNodeName()) {
+		if ($document->documentElement->tagName == $deployment->getSubmissionsNodeName()) {
 			// Multiple document import
 			for ($n = $document->documentElement->firstChild; $n !== null; $n=$n->nextSibling) {
 				if (!is_a($n, 'DOMElement')) continue;
@@ -78,7 +76,8 @@ class NativeXmlSubmissionFilter extends PersistableFilter {
 	 * @return Submission
 	 */
 	function handleSubmissionElement($submissionElement) {
-		assert($submissionElement->tagName == $this->getSubmissionNodeName());
+		$deployment = $this->getDeployment();
+		assert($submissionElement->tagName == $deployment->getSubmissionNodeName());
 
 		$submissionDao = Application::getSubmissionDAO();
 		$submission = $submissionDao->newDataObject();
@@ -140,25 +139,6 @@ class NativeXmlSubmissionFilter extends PersistableFilter {
 			'source' => 'setSource',
 			'rights' => 'setRights',
 		);
-	}
-
-	//
-	// Identifying information
-	//
-	/**
-	 * Get the submission node name
-	 * @return string
-	 */
-	function getSubmissionNodeName() {
-		return 'submission';
-	}
-
-	/**
-	 * Get the submissions node name
-	 * @return string
-	 */
-	function getSubmissionsNodeName() {
-		return 'submissions';
 	}
 }
 

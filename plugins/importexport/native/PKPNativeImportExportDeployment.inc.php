@@ -9,7 +9,7 @@
  * Copyright (c) 2000-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPNativeXmlSubmissionFilter
+ * @class PKPNativeImportExportDeployment
  * @ingroup plugins_importexport_native
  *
  * @brief Base class configuring the native import/export process to an

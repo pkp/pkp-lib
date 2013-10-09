@@ -52,8 +52,7 @@ class SubmissionNativeXmlFilter extends PersistableFilter {
 		$doc = new DOMDocument('1.0');
 
 		$doc->appendChild($this->createSubmissionNode($doc, $submission));
-		$xml = $doc->saveXML();
-		return $xml;
+		return $doc;
 	}
 
 	//
@@ -61,9 +60,8 @@ class SubmissionNativeXmlFilter extends PersistableFilter {
 	//
 	function createSubmissionNode($doc, $submission) {
 		// Create the root node and namespace information
-		$submissionNode = $doc->createElement($this->getSubmissionNodeName());
-		$submissionNode->setAttribute('xmlns', $this->getNamespace());
-		$submissionNode->setAttribute('xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance');
+		$submissionNode = $doc->createElementNS($this->getNamespace(), $this->getSubmissionNodeName());
+		$submissionNode->setAttributeNS('http://www.w3.org/2000/xmlns/', 'xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance');
 		$submissionNode->setAttribute('xsi:schemaLocation', $this->getNamespace() . ' ' . $this->getSchemaFilename());
 		$submissionNode->setAttribute('locale', $submission->getLocale());
 		// FIXME: language attribute (from old DTD). Necessary? Data migration needed?
@@ -76,22 +74,22 @@ class SubmissionNativeXmlFilter extends PersistableFilter {
 	}
 
 	function addIdentifiers($doc, $submissionNode, $submission) {
-		$submissionNode->appendChild($doc->createElement('id', $submission->getId()));
+		$submissionNode->appendChild($doc->createElementNS($this->getNamespace(), 'id', $submission->getId()));
 		// FIXME: Other identifiers
 	}
 
 	function addMetadata($doc, $submissionNode, $submission) {
-		// Titles
-		foreach ($submission->getTitle(null) as $locale => $value) {
-			$submissionNode->appendChild($node = $doc->createElement('title', $value));
-			$node->setAttribute('locale', $locale);
-		}
-
-		// Abstracts
-		foreach ($submission->getAbstract(null) as $locale => $value) {
-			$submissionNode->appendChild($node = $doc->createElement('abstract', $value));
-			$node->setAttribute('locale', $locale);
-		}
+		$this->createLocalizedNodes($doc, $submissionNode, 'title', $submission->getTitle(null));
+		$this->createLocalizedNodes($doc, $submissionNode, 'prefix', $submission->getPrefix(null));
+		$this->createLocalizedNodes($doc, $submissionNode, 'subtitle', $submission->getSubtitle(null));
+		$this->createLocalizedNodes($doc, $submissionNode, 'abstract', $submission->getAbstract(null));
+		$this->createLocalizedNodes($doc, $submissionNode, 'subject_class', $submission->getSubjectClass(null));
+		$this->createLocalizedNodes($doc, $submissionNode, 'coverage_geo', $submission->getCoverageGeo(null));
+		$this->createLocalizedNodes($doc, $submissionNode, 'coverage_chron', $submission->getCoverageChron(null));
+		$this->createLocalizedNodes($doc, $submissionNode, 'coverage_sample', $submission->getCoverageSample(null));
+		$this->createLocalizedNodes($doc, $submissionNode, 'type', $submission->getType(null));
+		$this->createLocalizedNodes($doc, $submissionNode, 'source', $submission->getSource(null));
+		$this->createLocalizedNodes($doc, $submissionNode, 'rights', $submission->getRights(null));
 	}
 
 	//
@@ -104,6 +102,15 @@ class SubmissionNativeXmlFilter extends PersistableFilter {
 	function getSubmissionNodeName() {
 		return 'submission';
 	}
+
+	/**
+	 * Get the submissions node name
+	 * @return string
+	 */
+	function getSubmissionsNodeName() {
+		return 'submissions';
+	}
+
 
 	/**
 	 * Get the namespace URN
@@ -119,6 +126,25 @@ class SubmissionNativeXmlFilter extends PersistableFilter {
 	 */
 	function getSchemaFilename() {
 		return 'pkp-native.xsd';
+	}
+
+	//
+	// Helper functions
+	//
+	/**
+	 * Create a set of child nodes of parentNode containing the
+	 * localeKey => value data representing translated content.
+	 * @param $doc DOMDocument
+	 * @param $parentNode DOMNode
+	 * @param $name string Node name
+	 * @param $values array Array of locale key => value mappings
+	 */
+	function createLocalizedNodes($doc, $parentNode, $name, $values) {
+		foreach ($values as $locale => $value) {
+			if ($value === '') continue; // Skip empty values
+			$parentNode->appendChild($node = $doc->createElementNS($this->getNamespace(), $name, $value));
+			$node->setAttribute('locale', $locale);
+		}
 	}
 }
 

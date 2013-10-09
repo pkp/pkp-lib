@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://pkp.sfu.ca" xmlns:pkp="http://pkp.sfu.ca">
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://pkp.sfu.ca" xmlns:pkp="http://pkp.sfu.ca" elementFormDefault="qualified">
 
 	<!--
 	  - Types
@@ -26,10 +26,9 @@
 	</element>
 
 	<!--
-	  - Metadata elements
+	  - Metadata element types
 	  -->
 	<element name="title" type="pkp:localizedNode" />
-	<element name="abstract" type="pkp:localizedNode" />
 
 	<!--
 	  - Composite elements
@@ -50,7 +49,16 @@
 			<sequence>
 				<element ref="pkp:id" minOccurs="0" maxOccurs="unbounded"/>
 				<element ref="pkp:title" minOccurs="1" maxOccurs="unbounded"/>
-				<element ref="pkp:abstract" minOccurs="1" maxOccurs="unbounded"/>
+				<element name="prefix" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
+				<element name="subtitle" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
+				<element name="abstract" type="pkp:localizedNode" minOccurs="1" maxOccurs="unbounded" />
+				<element name="subject_class" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
+				<element name="coverage_geo" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
+				<element name="coverage_chron" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
+				<element name="coverage_sample" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
+				<element name="type" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
+				<element name="source" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
+				<element name="rights" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
 			</sequence>
 			<attribute name="locale" type="string" use="optional"/>
 			<attribute name="language" type="string" use="optional"/>

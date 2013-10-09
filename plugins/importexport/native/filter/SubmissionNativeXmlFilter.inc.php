@@ -1,6 +1,6 @@
 <?php
 /**
- * @defgroup plugins_metadata_native_filter Native XML submission filter base
+ * @defgroup plugins_metadata_native_filter Submission to native XML filter base
  */
 
 /**
@@ -12,7 +12,7 @@
  * @class SubmissionNativeXmlFilter
  * @ingroup plugins_importexport_native_filter
  *
- * @brief Base class that converts a Submission to a Native XML document.
+ * @brief Base class that converts a set of submissions to a Native XML document
  */
 
 import('lib.pkp.classes.filter.PersistableFilter');
@@ -24,7 +24,7 @@ class SubmissionNativeXmlFilter extends PersistableFilter {
 	 * $filterGroup FilterGroup
 	 */
 	function SubmissionNativeXmlFilter($filterGroup) {
-		$this->setDisplayName('Native XML');
+		$this->setDisplayName('Native XML export');
 		parent::PersistableFilter($filterGroup);
 	}
 
@@ -46,6 +46,7 @@ class SubmissionNativeXmlFilter extends PersistableFilter {
 	/**
 	 * @see Filter::process()
 	 * @param $submissions array Array of submissions
+	 * @return DOMDocument
 	 */
 	function &process(&$submissions) {
 		// Create the XML document
@@ -121,7 +122,6 @@ class SubmissionNativeXmlFilter extends PersistableFilter {
 	function getSubmissionsNodeName() {
 		return 'submissions';
 	}
-
 
 	/**
 	 * Get the namespace URN

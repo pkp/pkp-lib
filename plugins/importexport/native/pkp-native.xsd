@@ -33,7 +33,7 @@
 	<!--
 	  - Composite elements
 	  -->
-	<element name="submissions">
+	<element name="submissions" abstract="true">
 		<complexType>
 			<sequence>
 				<element ref="pkp:submission" maxOccurs="unbounded"/>
@@ -44,7 +44,7 @@
 	<!--
 	  - Submission-related elements
 	  -->
-	<element name="submission">
+	<element name="submission" abstract="true">
 		<complexType>
 			<sequence>
 				<element ref="pkp:id" minOccurs="0" maxOccurs="unbounded"/>

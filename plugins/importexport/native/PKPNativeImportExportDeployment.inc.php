@@ -17,10 +17,15 @@
  */
 
 class PKPNativeImportExportDeployment {
+	/** @var Context The current import/export context */
+	var $_context;
+
 	/**
 	 * Constructor
+	 * @param $context Context
 	 */
-	function PKPNativeImportExportDeployment() {
+	function PKPNativeImportExportDeployment($context) {
+		$this->setContext($context);
 	}
 
 	//
@@ -56,6 +61,22 @@ class PKPNativeImportExportDeployment {
 	 */
 	function getSchemaFilename() {
 		return 'pkp-native.xsd';
+	}
+
+	/**
+	 * Set the import/export context.
+	 * @param $context Context
+	 */
+	function setContext($context) {
+		$this->_context = $context;
+	}
+
+	/**
+	 * Get the import/export context.
+	 * @return Context
+	 */
+	function getContext() {
+		return $this->_context;
 	}
 }
 

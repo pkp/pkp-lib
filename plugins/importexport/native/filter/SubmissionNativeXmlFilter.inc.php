@@ -69,13 +69,18 @@ class SubmissionNativeXmlFilter extends NativeImportExportFilter {
 	//
 	// Submission conversion functions
 	//
+	/**
+	 * Create and return a submission node.
+	 * @param $doc DOMDocument
+	 * @param $submission Submission
+	 * @return DOMElement
+	 */
 	function createSubmissionNode($doc, $submission) {
 		// Create the root node and namespace information
 		$deployment = $this->getDeployment();
 		$submissionNode = $doc->createElementNS($deployment->getNamespace(), $deployment->getSubmissionNodeName());
 		$submissionNode->setAttribute('locale', $submission->getLocale());
 		// FIXME: language attribute (from old DTD). Necessary? Data migration needed?
-		// FIXME: public_id attribute (from old DTD). Necessary? Move to <id> element below?
 
 		$this->addIdentifiers($doc, $submissionNode, $submission);
 		$this->addMetadata($doc, $submissionNode, $submission);
@@ -83,12 +88,56 @@ class SubmissionNativeXmlFilter extends NativeImportExportFilter {
 		return $submissionNode;
 	}
 
+	/**
+	 * Create and add identifier nodes to a submission node.
+	 * @param $doc DOMDocument
+	 * @param $submissionNode DOMElement
+	 * @param $submission Submission
+	 */
 	function addIdentifiers($doc, $submissionNode, $submission) {
 		$deployment = $this->getDeployment();
-		$submissionNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'id', $submission->getId()));
-		// FIXME: Other identifiers
+
+		// Add internal ID
+		$submissionNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'id', $submission->getId()));
+		$node->setAttribute('type', 'internal');
+
+		// Add public ID
+		if ($pubId = $submission->getPubId('publisher-id')) {
+			$submissionNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'id', $pubId));
+			$node->setAttribute('type', 'public');
+		}
+
+		// Add pub IDs by plugin
+		$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $deployment->getContext()->getId());
+		foreach ((array) $pubIdPlugins as $pubIdPlugin) {
+			$this->addPubIdentifier($doc, $submissionNode, $submission, $pubIdPlugin);
+		}
 	}
 
+	/**
+	 * Add a single pub ID element for a given plugin to the document.
+	 * @param $doc DOMDocument
+	 * @param $submissionNode DOMElement
+	 * @param $submission Submission
+	 * @param $pubIdPlugin PubIdPlugin
+	 * @return DOMElement|null
+	 */
+	function addPubIdentifier($doc, $submissionNode, $submission, $pubIdPlugin) {
+		$pubId = $pubIdPlugin->getPubId($submission, !$submission->getPublished());
+		if ($pubId) {
+			$submissionNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'id', $pubId));
+			$node->setAttribute('type', $pubIdPlugin->getPubIdType());
+			return $node;
+		}
+		return null;
+	}
+
+	/**
+	 * Add the submission metadata for a submission to its DOM element.
+	 * @param $doc DOMDocument
+	 * @param $submissionNode DOMElement
+	 * @param $submission Submission
+	 */
 	function addMetadata($doc, $submissionNode, $submission) {
 		$this->createLocalizedNodes($doc, $submissionNode, 'title', $submission->getTitle(null));
 		$this->createLocalizedNodes($doc, $submissionNode, 'prefix', $submission->getPrefix(null));

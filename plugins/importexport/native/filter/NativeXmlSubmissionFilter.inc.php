@@ -109,7 +109,17 @@ class NativeXmlSubmissionFilter extends NativeImportExportFilter {
 	 * @param $submission Submission
 	 */
 	function parseIdentifier($element, $submission) {
-		// FIXME: Parse identifier node
+		switch ($element->getAttribute('type')) {
+			case 'internal':
+				// Currently internal IDs are discarded; new IDs
+				// are generated and assigned.
+				break;
+			case 'public':
+				$submission->setStoredPubId('publisher-id', $element->textContent);
+				break;
+			default:
+				$submission->setStoredPubId($element->getAttribute('type'), $element->textContent);
+		}
 	}
 
 	/**

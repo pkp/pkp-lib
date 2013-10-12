@@ -13,14 +13,29 @@
 			'$.pkp.controllers.ExtrasOnDemandHandler');
 	{rdelim});
 </script>
+{if !$lessDetailsText}
+	{assign var=lessDetailsText value=$moreDetailsText}
+{/if}
+{if !$lessDetailsLabel}
+	{assign var=lessDetailsLabel value=$moreDetailsLabel}
+{/if}
 <div id="{$id}" class="pkp_controllers_extrasOnDemand">
 	<div class="toggleExtras">
 		<span class="ui-icon"></span>
-		<span class="toggleExtras-inactive">{translate key=$moreDetailsText}</span>
-		<span class="toggleExtras-active">{translate key=$lessDetailsText}</span>
+		<span class="toggleExtras-inactive">{translate key=$moreDetailsText}
+			{if $moreDetailsLabel}
+				<span class="extrasOnDemand-label">{translate key=$moreDetailsLabel}</span>
+			{/if}
+		</span>
+		<span class="toggleExtras-active">{translate key=$lessDetailsText}
+			{if $lessDetailsLabel}
+				<span class="extrasOnDemand-label">{translate key=$lessDetailsLabel}</span>
+			{/if}
+		</span>
 	</div>
 	<div style="clear:both;"></div>
 	<div class="extrasContainer">
 		{$extraContent}
 	</div>
 </div>
+<div style="clear:both"></div>

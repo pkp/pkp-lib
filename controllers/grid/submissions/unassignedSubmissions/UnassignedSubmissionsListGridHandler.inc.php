@@ -87,7 +87,7 @@ class UnassignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 
 		$submissionFactory = $submissionDao->getBySubEditorId(
 			$accessibleContexts,
-			$isManager?null:$userId,
+			null,
 			false, // do not include STATUS_DECLINED submissions
 			false, // include only unpublished submissions
 			$rangeInfo

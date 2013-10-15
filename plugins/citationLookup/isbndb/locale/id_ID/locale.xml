@@ -12,8 +12,8 @@
 
 <locale name="id_ID" full_name="Indonesia">
 	<!-- plug-in -->
-	<message key="plugins.citationLookup.isbndb.displayName">Konektor Database CrossRef</message>
-	<message key="plugins.citationLookup.isbndb.description">Koneksi ke database bibliografi CrossRef.</message>
+	<message key="plugins.citationLookup.isbndb.displayName">Konektor Database ISBNdb</message>
+	<message key="plugins.citationLookup.isbndb.description">Koneksi ke database bibliografi ISBNdb.</message>
 
 	<!-- ISBN lookup and extraction services -->
 	<message key="plugins.citationLookup.isbndbExtraction.displayName">Layanan ekstraksi ISBN</message>

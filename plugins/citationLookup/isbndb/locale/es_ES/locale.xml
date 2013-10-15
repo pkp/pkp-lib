@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
+
+<!--
+  * plugins/citationLookup/isbndb/locale/en_US/locale.xml
+  *
+  * Copyright (c) 2003-2013 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the en_US (U.S. English) locale.
+  -->
+
+<locale name="en_US" full_name="U.S. English">
+	<!-- plug-in -->
+	<message key="plugins.citationLookup.isbndb.displayName">Conector con la base de datos ISBNdb</message>
+	<message key="plugins.citationLookup.isbndb.description">Conecta con la base de datos bibliográfica de ISBNdb.</message>
+
+	<!-- ISBN lookup and extraction services -->
+	<message key="plugins.citationLookup.isbndbExtraction.displayName">Servicio de extración ISBN</message>
+	<message key="plugins.citationLookup.isbndbExtraction.description">Encuentra un ISBN para la descripción NLM 3.0 del elemento-citación.</message>
+	<message key="plugins.citationLookup.isbndbLookup.displayName">Servicio de búsqueda ISBN</message>
+	<message key="plugins.citationLookup.isbndbLookup.description">Busca la descripción completa NLM 3.0 del elemento-citación para el ISBN indicado.</message>
+</locale>

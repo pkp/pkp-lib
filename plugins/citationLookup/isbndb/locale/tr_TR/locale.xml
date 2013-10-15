@@ -12,8 +12,8 @@
 
 <locale name="tr_TR" full_name="Türkiye Türkçesi">
 	<!-- plug-in -->
-	<message key="plugins.citationLookup.isbndb.displayName">CrossRef Veri Tabanı Bağlayıcısı</message>
-	<message key="plugins.citationLookup.isbndb.description">CrossRef bibliyografik veri tabanına bağlan.</message>
+	<message key="plugins.citationLookup.isbndb.displayName">ISBNdb Veri Tabanı Bağlayıcısı</message>
+	<message key="plugins.citationLookup.isbndb.description">ISBNdb bibliyografik veri tabanına bağlan.</message>
 
 	<!-- ISBN lookup and extraction services -->
 	<message key="plugins.citationLookup.isbndbExtraction.displayName">ISBN çıkarma servisi</message>

@@ -12,8 +12,8 @@
 
 <locale name="en_US" full_name="U.S. English">
 	<!-- plug-in -->
-	<message key="plugins.citationLookup.isbndb.displayName">CrossRef Database Connector</message>
-	<message key="plugins.citationLookup.isbndb.description">Connects to the CrossRef bibliographic database.</message>
+	<message key="plugins.citationLookup.isbndb.displayName">ISBNdb Database Connector</message>
+	<message key="plugins.citationLookup.isbndb.description">Connects to the ISBNdb bibliographic database.</message>
 
 	<!-- ISBN lookup and extraction services -->
 	<message key="plugins.citationLookup.isbndbExtraction.displayName">ISBN extraction service</message>

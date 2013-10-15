@@ -12,8 +12,8 @@
 
 <locale name="de_DE" full_name="Deutsch (Deutschland)">
 	<!-- plug-in -->
-	<message key="plugins.citationLookup.isbndb.displayName">CrossRef-Datenbankverbindung</message>
-	<message key="plugins.citationLookup.isbndb.description">Verbindet zu der bibliografischen CrossRef-Datenbank.</message>
+	<message key="plugins.citationLookup.isbndb.displayName">ISBNdb-Datenbankverbindung</message>
+	<message key="plugins.citationLookup.isbndb.description">Verbindet zu der bibliografischen ISBNdb-Datenbank.</message>
 
 	<!-- ISBN lookup and extraction services -->
 	<message key="plugins.citationLookup.isbndbExtraction.displayName">ISBN-Extraktionsdienst</message>

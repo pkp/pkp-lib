@@ -12,8 +12,8 @@
 
 <locale name="sr_SR" full_name="Srpski">
 	<!-- plug-in -->
-	<message key="plugins.citationLookup.isbndb.displayName">CrossRef Database Connector</message>
-	<message key="plugins.citationLookup.isbndb.description">Povezuje se na CrossRef bibliografsku bazu podataka.</message>
+	<message key="plugins.citationLookup.isbndb.displayName">ISBNdb Database Connector</message>
+	<message key="plugins.citationLookup.isbndb.description">Povezuje se na ISBNdb bibliografsku bazu podataka.</message>
 
 	<!-- ISBN lookup and extraction services -->
 	<message key="plugins.citationLookup.isbndbExtraction.displayName">ISBN extraction service</message>

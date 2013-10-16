@@ -17,14 +17,14 @@
  * @brief Basic class describing users existing in the system.
  */
 
-import('lib.pkp.classes.identity.PKPIdentity');
+import('lib.pkp.classes.identity.Identity');
 
-class PKPUser extends PKPIdentity {
+class PKPUser extends Identity {
 	/**
 	 * Constructor
 	 */
 	function PKPUser() {
-		parent::PKPIdentity();
+		parent::Identity();
 	}
 
 	//

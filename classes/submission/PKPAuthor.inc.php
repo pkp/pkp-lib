@@ -13,14 +13,14 @@
  * @brief Author metadata class.
  */
 
-import('lib.pkp.classes.identity.PKPIdentity');
+import('lib.pkp.classes.identity.Identity');
 
-class PKPAuthor extends PKPIdentity {
+class PKPAuthor extends Identity {
 	/**
 	 * Constructor.
 	 */
 	function PKPAuthor() {
-		parent::PKPIdentity();
+		parent::Identity();
 	}
 
 	//

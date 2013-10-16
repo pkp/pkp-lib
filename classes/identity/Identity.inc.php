@@ -6,22 +6,22 @@
  */
 
 /**
- * @file classes/identity/PKPIdentity.inc.php
+ * @file classes/identity/Identity.inc.php
  *
  * Copyright (c) 2000-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPIdentity
+ * @class Identity
  * @ingroup identity
  *
  * @brief Basic class providing common functionality for users and authors in the system.
  */
 
-class PKPIdentity extends DataObject {
+class Identity extends DataObject {
 	/**
 	 * Constructor
 	 */
-	function PKPIdentity() {
+	function Identity() {
 		parent::DataObject();
 	}
 
@@ -253,4 +253,5 @@ class PKPIdentity extends DataObject {
 		return $this->setData('biography', $biography, $locale);
 	}
 }
+
 ?>

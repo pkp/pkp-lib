@@ -29,7 +29,7 @@ class PKPNativeImportExportDeployment {
 	/**
 	 * Constructor
 	 * @param $context Context
-	 * @parma $user User
+	 * @param $user User
 	 */
 	function PKPNativeImportExportDeployment($context, $user) {
 		$this->setContext($context);

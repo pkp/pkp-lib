@@ -78,7 +78,7 @@ class XSLTransformationFilter extends PersistableFilter {
 
 	/**
 	 * Set the XSL as a file name
-	 * @param unknown_type $xslFile
+	 * @param $xslFile string
 	 */
 	function setXSLFilename($xslFile) {
 		$this->setData('xslType', XSL_TRANSFORMER_DOCTYPE_FILE);

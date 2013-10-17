@@ -43,6 +43,9 @@ class XMLParserDOMHandler extends XMLParserHandler {
 
 	/**
 	 * Callback function to act as the start element handler.
+	 * @param $parser XMLParser
+	 * @param $tag string
+	 * @param $attributes array
 	 */
 	function startElement($parser, $tag, $attributes) {
 		$this->currentData = null;
@@ -62,6 +65,8 @@ class XMLParserDOMHandler extends XMLParserHandler {
 
 	/**
 	 * Callback function to act as the end element handler.
+	 * @param $parser XMLParser
+	 * @param $tag string
 	 */
 	function endElement($parser, $tag) {
 		$this->currentNode->setValue($this->currentData);
@@ -71,6 +76,8 @@ class XMLParserDOMHandler extends XMLParserHandler {
 
 	/**
 	 * Callback function to act as the character data handler.
+	 * @param $parser XMLParser
+	 * @param $data string
 	 */
 	function characterData($parser, $data) {
 		$this->currentData .= $data;

@@ -299,18 +299,25 @@ class XMLParserHandler {
 
 	/**
 	 * Callback function to act as the start element handler.
+	 * @param $parser XMLParser
+	 * @param $tag string
+	 * @param $attributes array
 	 */
 	function startElement($parser, $tag, $attributes) {
 	}
 
 	/**
 	 * Callback function to act as the end element handler.
+	 * @param $parser XMLParser
+	 * @param $tag string
 	 */
 	function endElement($parser, $tag) {
 	}
 
 	/**
 	 * Callback function to act as the character data handler.
+	 * @param $parser XMLParser
+	 * @param $data string
 	 */
 	function characterData($parser, $data) {
 	}

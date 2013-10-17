@@ -81,7 +81,7 @@ class XSLTransformer {
 
 	/**
 	 * Set the parameter list for internal processors.
-	 * @param array $parameters
+	 * @param $parameters array
 	 */
 	function setParameters($parameters) {
 		$this->parameters =& $parameters;
@@ -89,7 +89,7 @@ class XSLTransformer {
 
 	/**
 	 * Set the registerPHPFunctions setting on or off.
-	 * @param boolean $flag
+	 * @param $flag boolean
 	 */
 	function setRegisterPHPFunctions($flag) {
 		$this->registerPHPFunctions = $flag;
@@ -99,8 +99,8 @@ class XSLTransformer {
 	//
 	/**
 	 * Apply an XSLT transform to a given XML and XSL source files
-	 * @param $xmlFile absolute pathname to the XML source file
-	 * @param $xslFile absolute pathname to the XSL stylesheet
+	 * @param $xmlFile string absolute pathname to the XML source file
+	 * @param $xslFile string absolute pathname to the XSL stylesheet
 	 * @return string containing the transformed XML output, or false on error
 	 */
 	function transformFiles($xmlFile, $xslFile) {

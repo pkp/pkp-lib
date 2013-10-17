@@ -55,7 +55,7 @@ class EditorAssignmentNotificationManager extends NotificationManagerDelegate {
 	}
 
 	/**
-	 * @see NotificationManagerDelegate::updateNotification()
+	 * @copydoc NotificationManagerDelegate::updateNotification()
 	 *
 	 * If we have a stage without a manager role user, then
 	 * a notification must be inserted or maintained for the submission.

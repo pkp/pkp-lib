@@ -32,7 +32,7 @@ class ApproveSubmissionNotificationManager extends NotificationManagerDelegate {
 	}
 
 	/**
-	 * @see NotificationManagerDelegate::updateNotification()
+	 * @copydoc NotificationManagerDelegate::updateNotification()
 	 */
 	public function updateNotification($request, $userIds, $assocType, $assocId) {
 		$submissionId = $assocId;

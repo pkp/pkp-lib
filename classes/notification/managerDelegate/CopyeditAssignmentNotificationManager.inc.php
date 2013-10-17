@@ -38,7 +38,7 @@ class CopyeditAssignmentNotificationManager extends NotificationManagerDelegate 
 	}
 
 	/**
-	 * @see NotificationManagerDelegate::updateNotification()
+	 * @copydoc NotificationManagerDelegate::updateNotification()
 	 */
 	public function updateNotification($request, $userIds, $assocType, $assocId) {
 		$signoffDao = DAORegistry::getDAO('SignoffDAO'); /* @var $signoffDao SignoffDAO */

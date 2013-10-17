@@ -18,6 +18,7 @@ class AffiliationForm extends ContextSettingsForm {
 
 	/**
 	 * Constructor.
+	 * @param $wizardMode boolean
 	 */
 	function AffiliationForm($wizardMode = false) {
 		$settings = array(

@@ -56,7 +56,7 @@ class SignoffNotificationManager extends NotificationManagerDelegate {
 	}
 
 	/**
-	 * @see NotificationManagerDelegate::updateNotification()
+	 * @copydoc NotificationManagerDelegate::updateNotification()
 	 */
 	public function updateNotification($request, $userIds, $assocType, $assocId) {
 		$notificationType = $this->getNotificationType();

@@ -22,7 +22,7 @@ import('lib.pkp.classes.xml.XMLCustomWriter');
 class Mods34DescriptionXmlFilter extends PersistableFilter {
 	/**
 	 * Constructor
-	 * $filterGroup FilterGroup
+	 * @param $filterGroup FilterGroup
 	 */
 	function Mods34DescriptionXmlFilter($filterGroup) {
 		$this->setDisplayName('MODS 3.4');

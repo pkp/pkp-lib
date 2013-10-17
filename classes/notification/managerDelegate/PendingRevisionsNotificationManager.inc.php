@@ -90,7 +90,7 @@ class PendingRevisionsNotificationManager extends RevisionsNotificationManager {
 	}
 
 	/**
-	 * @see NotificationManagerDelegate::updateNotification()
+	 * @copydoc NotificationManagerDelegate::updateNotification()
 	 */
 	public function updateNotification($request, $userIds, $assocType, $assocId) {
 		$userId = current($userIds);

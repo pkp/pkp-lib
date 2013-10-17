@@ -45,9 +45,7 @@ class AuditorRequestNotificationManager extends NotificationManagerDelegate {
 	}
 
 	/**
-	 * @see NotificationManagerDelegate::updateNotification()
-	 *
-	 * Create one notification for each user auditor signoff.
+	 * @copydoc NotificationManagerDelegate::updateNotification()
 	 */
 	public function updateNotification($request, $userIds, $assocType, $assocId) {
 		$userId = !is_null($userIds) ? current($userIds) : null;

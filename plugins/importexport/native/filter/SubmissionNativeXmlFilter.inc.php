@@ -12,16 +12,16 @@
  * @brief Base class that converts a set of submissions to a Native XML document
  */
 
-import('lib.pkp.plugins.importexport.native.filter.NativeImportExportFilter');
+import('lib.pkp.plugins.importexport.native.filter.NativeExportFilter');
 
-class SubmissionNativeXmlFilter extends NativeImportExportFilter {
+class SubmissionNativeXmlFilter extends NativeExportFilter {
 	/**
 	 * Constructor
-	 * $filterGroup FilterGroup
+	 * @param $filterGroup FilterGroup
 	 */
 	function SubmissionNativeXmlFilter($filterGroup) {
-		$this->setDisplayName('Native XML export');
-		parent::NativeImportExportFilter($filterGroup);
+		$this->setDisplayName('Native XML submission export');
+		parent::NativeExportFilter($filterGroup);
 	}
 
 
@@ -84,6 +84,7 @@ class SubmissionNativeXmlFilter extends NativeImportExportFilter {
 
 		$this->addIdentifiers($doc, $submissionNode, $submission);
 		$this->addMetadata($doc, $submissionNode, $submission);
+		$this->addAuthors($doc, $submissionNode, $submission);
 
 		return $submissionNode;
 	}
@@ -152,23 +153,25 @@ class SubmissionNativeXmlFilter extends NativeImportExportFilter {
 		$this->createLocalizedNodes($doc, $submissionNode, 'rights', $submission->getRights(null));
 	}
 
-	//
-	// Helper functions
-	//
 	/**
-	 * Create a set of child nodes of parentNode containing the
-	 * localeKey => value data representing translated content.
+	 * Add the submission metadata for a submission to its DOM element.
 	 * @param $doc DOMDocument
-	 * @param $parentNode DOMNode
-	 * @param $name string Node name
-	 * @param $values array Array of locale key => value mappings
+	 * @param $submissionNode DOMElement
+	 * @param $submission Submission
 	 */
-	function createLocalizedNodes($doc, $parentNode, $name, $values) {
-		$deployment = $this->getDeployment();
-		foreach ($values as $locale => $value) {
-			if ($value === '') continue; // Skip empty values
-			$parentNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), $name, $value));
-			$node->setAttribute('locale', $locale);
+	function addAuthors($doc, $submissionNode, $submission) {
+		$filterDao = DAORegistry::getDAO('FilterDAO');
+		$nativeExportFilters = $filterDao->getObjectsByGroup('author=>native-xml');
+		assert(count($nativeExportFilters)==1); // Assert only a single serialization filter
+		$exportFilter = array_shift($nativeExportFilters);
+		$exportFilter->setDeployment($this->getDeployment());
+
+		$authorsDoc = $exportFilter->execute($submission->getAuthors());
+		foreach ($authorsDoc->documentElement->childNodes as $child) {
+			if ($child instanceof DOMElement && $child->tagName == 'author') {
+				$clone = $doc->importNode($child, true);
+				$submissionNode->appendChild($clone);
+			}
 		}
 	}
 }

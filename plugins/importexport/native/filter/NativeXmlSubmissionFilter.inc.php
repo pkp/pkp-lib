@@ -12,17 +12,16 @@
  * @brief Base class that converts a Native XML document to a set of submissions
  */
 
-import('lib.pkp.plugins.importexport.native.filter.NativeImportExportFilter');
-import('lib.pkp.classes.xml.XMLCustomWriter');
+import('lib.pkp.plugins.importexport.native.filter.NativeImportFilter');
 
-class NativeXmlSubmissionFilter extends NativeImportExportFilter {
+class NativeXmlSubmissionFilter extends NativeImportFilter {
 	/**
 	 * Constructor
-	 * $filterGroup FilterGroup
+	 * @param $filterGroup FilterGroup
 	 */
 	function NativeXmlSubmissionFilter($filterGroup) {
-		$this->setDisplayName('Native XML import');
-		parent::NativeImportExportFilter($filterGroup);
+		$this->setDisplayName('Native XML submission import');
+		parent::NativeImportFilter($filterGroup);
 	}
 
 
@@ -38,52 +37,49 @@ class NativeXmlSubmissionFilter extends NativeImportExportFilter {
 
 
 	//
-	// Implement template methods from Filter
+	// Implement template methods from NativeImportFilter
 	//
 	/**
-	 * @see Filter::process()
-	 * @param $document DOMDocument|string
-	 * @return array Array of imported documents
+	 * Return the plural element name
+	 * @return string
 	 */
-	function &process(&$document) {
-		// If necessary, convert $document to a DOMDocument.
-		if (is_string($document)) {
-			$xmlString = $document;
-			$document = new DOMDocument();
-			$document->loadXml($xmlString);
-		}
-		assert(is_a($document, 'DOMDocument'));
-
+	function getPluralElementName() {
 		$deployment = $this->getDeployment();
-		$submissions = array();
-		if ($document->documentElement->tagName == $deployment->getSubmissionsNodeName()) {
-			// Multiple document import
-			for ($n = $document->documentElement->firstChild; $n !== null; $n=$n->nextSibling) {
-				if (!is_a($n, 'DOMElement')) continue;
-				$submissions[] = $this->handleSubmissionElement($n);
-			}
-		} else {
-			// Single document import
-			$submissions[] = $this->handleSubmissionElement($document->documentElement);
-		}
-
-		return $submissions;
+		return $deployment->getSubmissionsNodeName();
 	}
 
 	/**
-	 * Handle a submission element
-	 * @param $submissionElement DOMElement
-	 * @return Submission
+	 * Get the singular element name
+	 * @return string
 	 */
-	function handleSubmissionElement($submissionElement) {
+	function getSingularElementName() {
 		$deployment = $this->getDeployment();
-		assert($submissionElement->tagName == $deployment->getSubmissionNodeName());
+		return $deployment->getSubmissionNodeName();
+	}
 
+	/**
+	 * Handle a singular element import.
+	 * @param $node DOMElement
+	 */
+	function handleElement($node) {
+		$deployment = $this->getDeployment();
+		$context = $deployment->getContext();
+		$user = $deployment->getUser();
+
+		// Create and insert the submission (ID needed for other entities)
 		$submissionDao = Application::getSubmissionDAO();
 		$submission = $submissionDao->newDataObject();
+		$submission->setContextId($context->getId());
+		$submission->setUserId($user->getId());
+		$submission->setStatus(STATUS_QUEUED);
+		$submission->setSubmissionProgress(0);
+		$submissionDao->insertObject($submission);
+		$deployment->setSubmission($submission);
+
+		$filterDao = DAORegistry::getDAO('FilterDAO');
 
 		$setterMappings = $this->getLocalizedSubmissionSetterMappings();
-		for ($n = $submissionElement->firstChild; $n !== null; $n=$n->nextSibling) if (is_a($n, 'DOMElement')) {
+		for ($n = $node->firstChild; $n !== null; $n=$n->nextSibling) if (is_a($n, 'DOMElement')) {
 			// If applicable, call a setter for localized content
 			if (isset($setterMappings[$n->tagName])) {
 				$setterFunction = $setterMappings[$n->tagName];
@@ -93,6 +89,15 @@ class NativeXmlSubmissionFilter extends NativeImportExportFilter {
 				// Otherwise, delegate to specific parsing code
 				case 'id':
 					$this->parseIdentifier($n, $submission);
+					break;
+				case 'author':
+					$importFilters = $filterDao->getObjectsByGroup('native-xml=>author');
+					assert(count($importFilters)==1); // Assert only a single unserialization filter
+					$importFilter = array_shift($importFilters);
+					$importFilter->setDeployment($this->getDeployment());
+					$authorDoc = new DOMDocument();
+					$authorDoc->appendChild($authorDoc->importNode($n, true));
+					$importFilter->execute($authorDoc);
 					break;
 			}
 		}

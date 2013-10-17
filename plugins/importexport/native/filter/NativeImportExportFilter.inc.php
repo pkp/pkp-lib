@@ -9,7 +9,7 @@
  * @class NativeXmlSubmissionFilter
  * @ingroup plugins_importexport_native
  *
- * @brief Base class that converts a Native XML document to a set of submissions
+ * @brief Base class that converts between Native XML documents and DataObjects
  */
 
 import('lib.pkp.classes.filter.PersistableFilter');
@@ -20,12 +20,16 @@ class NativeImportExportFilter extends PersistableFilter {
 
 	/**
 	 * Constructor
-	 * $filterGroup FilterGroup
+	 * @param $filterGroup FilterGroup
 	 */
-	function NativeXmlSubmissionFilter($filterGroup) {
+	function NativeImportExportFilter($filterGroup) {
 		parent::PersistableFilter($filterGroup);
 	}
 
+
+	//
+	// Deployment management
+	//
 	/**
 	 * Set the import/export deployment
 	 * @param $deployment NativeImportExportDeployment

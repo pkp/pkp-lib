@@ -20,12 +20,21 @@ class PKPNativeImportExportDeployment {
 	/** @var Context The current import/export context */
 	var $_context;
 
+	/** @var User The current import/export user */
+	var $_user;
+
+	/** @var Submission The current import/export submission */
+	var $_submission;
+
 	/**
 	 * Constructor
 	 * @param $context Context
+	 * @parma $user User
 	 */
-	function PKPNativeImportExportDeployment($context) {
+	function PKPNativeImportExportDeployment($context, $user) {
 		$this->setContext($context);
+		$this->setUser($user);
+		$this->setSubmission(null);
 	}
 
 	//
@@ -63,6 +72,10 @@ class PKPNativeImportExportDeployment {
 		return 'pkp-native.xsd';
 	}
 
+
+	//
+	// Getter/setters
+	//
 	/**
 	 * Set the import/export context.
 	 * @param $context Context
@@ -77,6 +90,38 @@ class PKPNativeImportExportDeployment {
 	 */
 	function getContext() {
 		return $this->_context;
+	}
+
+	/**
+	 * Set the import/export submission.
+	 * @param $submission Submission
+	 */
+	function setSubmission($submission) {
+		$this->_submission = $submission;
+	}
+
+	/**
+	 * Get the import/export submission.
+	 * @return Submission
+	 */
+	function getSubmission() {
+		return $this->_submission;
+	}
+
+	/**
+	 * Set the import/export user.
+	 * @param $user User
+	 */
+	function setUser($user) {
+		$this->_user = $user;
+	}
+
+	/**
+	 * Get the import/export user.
+	 * @return User
+	 */
+	function getUser() {
+		return $this->_user;
 	}
 }
 

@@ -93,6 +93,8 @@ class PKPHandler {
 
 	/**
 	 * Fallback method in case request handler does not implement index method.
+	 * @param $args array
+	 * @param $request PKPRequest
 	 */
 	function index($args, $request) {
 		$dispatcher = $this->getDispatcher();
@@ -209,7 +211,7 @@ class PKPHandler {
 	/**
 	 * This method returns an assignment of operation names for the
 	 * given role.
-	 *
+	 * @param $roleId int
 	 * @return array assignment for the given role.
 	 */
 	function getRoleAssignment($roleId) {
@@ -245,6 +247,7 @@ class PKPHandler {
 	 * @param $args array request arguments
 	 * @param $roleAssignments array the operation role assignment,
 	 *  see getRoleAssignment() for more details.
+	 * @param $enforceRestrictedSite boolean True iff site restrictions are to be enforced
 	 * @return boolean
 	 */
 	function authorize($request, &$args, $roleAssignments, $enforceRestrictedSite = true) {

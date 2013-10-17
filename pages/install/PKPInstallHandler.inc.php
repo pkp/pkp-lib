@@ -116,6 +116,7 @@ class PKPInstallHandler extends Handler {
 
 	/**
 	 * Set up the installer template.
+	 * @param $request PKPRequest
 	 */
 	function setupTemplate($request) {
 		parent::setupTemplate($request);

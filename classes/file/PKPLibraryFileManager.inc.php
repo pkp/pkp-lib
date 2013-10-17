@@ -86,6 +86,7 @@ class PKPLibraryFileManager extends PrivateFileManager {
 	/**
 	 * Routine to copy a library file from a temporary file.
 	 * @param $temporaryFile object
+	 * @param $libraryFileType int LIBRARY_FILE_TYPE_...
 	 * @return LibraryFile the generated file, prepared as much as possible for insert (false if upload failed)
 	 */
 	function &copyFromTemporaryFile(&$temporaryFile, $libraryFileType) {
@@ -96,7 +97,7 @@ class PKPLibraryFileManager extends PrivateFileManager {
 		$libraryFile->setDateModified($temporaryFile->getDateUploaded());
 		$libraryFile->setFileType($temporaryFile->getFileType());
 		$libraryFile->setFileSize($temporaryFile->getFileSize());
-		$libraryFile->setFileName($this->generateFilename($libraryFileType, $temporaryFile->getOriginalFileName()));
+		$libraryFile->setFileName($this->generateFileName($libraryFileType, $temporaryFile->getOriginalFileName()));
 		$libraryFile->setOriginalFileName($temporaryFile->getOriginalFileName());
 		if (!$this->copyFile($temporaryFile->getFilePath(), $this->getBasePath() . $temporaryFile->getOriginalFileName())) {
 			return false;

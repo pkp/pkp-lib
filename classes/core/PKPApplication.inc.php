@@ -590,6 +590,13 @@ class PKPApplication {
 	static function getFileDirectories() {
 		assert(false); // Must be implemented by subclasses.
 	}
+
+	/**
+	 * Returns the context type for this application.
+	 */
+	static function getContextAssocType() {
+		assert(false); // Must be implemented by subclasses.
+	}
 }
 
 /**

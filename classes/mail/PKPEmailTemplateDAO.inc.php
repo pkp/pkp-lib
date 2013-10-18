@@ -625,6 +625,23 @@ class PKPEmailTemplateDAO extends DAO {
 		return $returner;
 	}
 
+	/**
+	 * Returns an array of custom template keys
+	 * @param int $assocType
+	 * @param int $assocId
+	 */
+	function getCustomTemplateKeys($assocType, $assocId) {
+		$result = $this->retrieve('SELECT email_key FROM email_templates WHERE assoc_type = ? AND assoc_id = ?', array($assocType, $assocId));
+		$keys = array();
+		while (!$result->EOF) {
+			$row = $result->GetRowAssoc(false);
+			$keys[] = $row['email_key'];
+			$result->MoveNext();
+		}
+
+		return $keys;
+	}
+
 	function getMainEmailTemplatesFilename() {
 		return 'registry/emailTemplates.xml';
 	}

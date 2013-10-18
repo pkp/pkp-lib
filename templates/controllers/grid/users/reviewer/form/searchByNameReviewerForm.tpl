@@ -10,7 +10,11 @@
 <script type="text/javascript">
 	$(function() {ldelim}
 		// Attach the form handler.
-		$('#searchByNameReviewerForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler');
+		$('#searchByNameReviewerForm').pkpHandler('$.pkp.controllers.grid.users.reviewer.form.AddReviewerFormHandler',
+			{ldelim}
+				templateUrl: "{url|escape:'javascript' router=$smarty.const.ROUTE_COMPONENT component='grid.users.reviewer.ReviewerGridHandler' op='fetchTemplateBody' stageId=$stageId reviewRoundId=$reviewRoundId submissionId=$submissionId escape=false}"
+			{rdelim}
+		);
 	{rdelim});
 </script>
 

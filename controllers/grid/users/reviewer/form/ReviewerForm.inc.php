@@ -209,10 +209,36 @@ class ReviewerForm extends Form {
 		// Get the review method options.
 		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
 		$reviewMethods = $reviewAssignmentDao->getReviewMethodsTranslationKeys();
+		$submission = $this->getSubmission();
 
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('reviewMethods', $reviewMethods);
 		$templateMgr->assign('reviewerActions', $this->getReviewerFormActions());
+
+		// Allow the default template
+		$templateKeys[] = $this->_getMailTemplateKey($request->getContext());
+
+		// Determine if the current user can use any custom templates defined.
+		$user = $request->getUser();
+		$roleDao = DAORegistry::getDAO('RoleDAO');
+
+		$userRoles = $roleDao->getByUserId($user->getId(), $submission->getContextId());
+		foreach ($userRoles as $userRole) {
+			if (in_array($userRole->getId(), array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT))) {
+				$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
+				$customTemplates = $emailTemplateDao->getCustomTemplateKeys(Application::getContextAssocType(), $submission->getContextId());
+				$templateKeys = array_merge($templateKeys, $customTemplates);
+				break;
+			}
+		}
+
+		foreach ($templateKeys as $templateKey) {
+			$template = new SubmissionMailTemplate($submission, $templateKey, null, null, null, false);
+			$template->assignParams(array());
+			$templates[$templateKey] = $template->getSubject();
+		}
+
+		$templateMgr->assign('templates', $templates);
 
 		// Get the reviewer user groups for the create new reviewer/enroll existing user tabs
 		$context = $request->getContext();
@@ -236,6 +262,7 @@ class ReviewerForm extends Form {
 		$this->readUserVars(array(
 			'selectionType',
 			'submissionId',
+			'template',
 			'personalMessage',
 			'responseDueDate',
 			'reviewDueDate',
@@ -305,7 +332,7 @@ class ReviewerForm extends Form {
 
 		// Notify the reviewer via email.
 		import('lib.pkp.classes.mail.SubmissionMailTemplate');
-		$templateKey = $this->_getMailTemplateKey($context);
+		$templateKey = $keywords = $this->getData('template');
 		$mail = new SubmissionMailTemplate($submission, $templateKey, null, null, null, false);
 
 		if ($mail->isEnabled() && !$this->getData('skipEmail')) {
@@ -398,9 +425,9 @@ class ReviewerForm extends Form {
 	 * @return int Email template key
 	 */
 	function _getMailTemplateKey($context) {
-		$templateKey = REVIEW_REQUEST;
+		$templateKey = 'REVIEW_REQUEST';
 		if ($context->getSetting('reviewerAccessKeysEnabled')) {
-			$templateKey = REVIEW_REQUEST_ONECLICK;
+			$templateKey = 'REVIEW_REQUEST_ONECLICK';
 		}
 
 		return $templateKey;

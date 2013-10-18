@@ -474,7 +474,21 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 	 * @param $request PKPRequest
 	 */
 	function fetchTemplateBody($args, $request) {
-		assert(false); // overridden in subclasses.
+		$templateId = $request->getUserVar('template');
+		import('lib.pkp.classes.mail.SubmissionMailTemplate');
+		$template = new SubmissionMailTemplate($this->getSubmission(), $templateId);
+		if ($template) {
+			$user = $request->getUser();
+			$dispatcher = $request->getDispatcher();
+			$context = $request->getContext();
+			$template->assignParams(array(
+					'editorialContactSignature' => $user->getContactSignature(),
+					'signatureFullName' => $user->getFullname(),
+			));
+
+			$json = new JSONMessage(true, $template->getBody() . "\n" . $context->getSetting('emailSignature'));
+			return $json->getString();
+		}
 	}
 
 	/**

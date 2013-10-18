@@ -59,17 +59,34 @@ class PKPStageParticipantNotifyForm extends Form {
 		$templateMgr->assign('submissionId', $this->submissionId);
 		$templateMgr->assign('itemId', $this->itemId);
 
+		$submissionDao = Application::getSubmissionDAO();
+		$submission = $submissionDao->getById($this->submissionId);
+
 		// All stages can choose the default template
 		$templateKeys = array('NOTIFICATION_CENTER_DEFAULT');
+
+		// Determine if the current user can use any custom templates defined.
+		$user = $request->getUser();
+		$roleDao = DAORegistry::getDAO('RoleDAO');
+		$userRoles = $roleDao->getByUserId($user->getId(), $submission->getContextId());
+		foreach ($userRoles as $userRole) {
+			if (in_array($userRole->getId(), array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT))) {
+				$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
+				$customTemplates = $emailTemplateDao->getCustomTemplateKeys(ASSOC_TYPE_PRESS, $submission->getContextId());
+				$templateKeys = array_merge($templateKeys, $customTemplates);
+				break;
+			}
+		}
 
 		// template keys indexed by stageId
 		$stageTemplates = $this->_getStageTemplates();
 
-		$submissionDao = Application::getSubmissionDAO();
-		$submission = $submissionDao->getById($this->submissionId);
+
 		$currentStageId = $submission->getStageId();
 
-		$templateKeys = array_merge($templateKeys, $stageTemplates[$currentStageId]);
+		if (array_key_exists($currentStageId, $stageTemplates)) {
+			$templateKeys = array_merge($templateKeys, $stageTemplates[$currentStageId]);
+		}
 
 		foreach ($templateKeys as $templateKey) {
 			$template = $this->_getMailTemplate($submission, $templateKey);

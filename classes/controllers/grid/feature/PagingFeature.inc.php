@@ -51,6 +51,8 @@ class PagingFeature extends GridFeature{
 
 	/**
 	 * @see GridFeature::setOptions()
+	 * @param $request PKPRequest
+	 * @param $grid Grid
 	 */
 	function setOptions($request, $grid) {
 		// Get the default items per page setting value.
@@ -83,6 +85,8 @@ class PagingFeature extends GridFeature{
 
 	/**
 	 * @see GridFeature::fetchUIElements()
+	 * @param $request PKPRequest
+	 * @param $grid Grid
 	 */
 	function fetchUIElements($request, $grid) {
 		$iterator = $this->getItemIterator();
@@ -105,6 +109,7 @@ class PagingFeature extends GridFeature{
 	 * The feature will know about the current filter
 	 * value so it can request grid refreshes keeping
 	 * the filter.
+	 * @param $args array
 	 */
 	function getGridDataElements($args) {
 		$filter = $args['filter'];
@@ -117,6 +122,7 @@ class PagingFeature extends GridFeature{
 
 	/**
 	 * @see GridFeature::setGridDataElements()
+	 * @param $args array
 	 */
 	function setGridDataElements($args) {
 		$grid =& $args['grid'];
@@ -136,6 +142,7 @@ class PagingFeature extends GridFeature{
 
 	/**
 	 * @see GridFeature::getRequestArgs()
+	 * @param $args array
 	 */
 	function getRequestArgs($args) {
 		$grid = $args['grid'];
@@ -152,6 +159,7 @@ class PagingFeature extends GridFeature{
 
 	/**
 	 * @see GridFeature::getGridRangeInfo()
+	 * @param $args array
 	 */
 	function getGridRangeInfo($args) {
 		$request = $args['request'];
@@ -178,6 +186,7 @@ class PagingFeature extends GridFeature{
 	 * 2 - fetch the last grid data row;
 	 * 3 - send a request to refresh the entire grid usign the previous
 	 * page.
+	 * @param $args array
 	 */
 	function fetchRow($args) {
 		$request = $args['request'];

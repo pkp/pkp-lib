@@ -38,6 +38,7 @@ class GridCategoryAccordionFeature extends GridFeature{
 	//
 	/**
 	 * @see GridFeature::gridInitialize()
+	 * @param $args array
 	 */
 	function gridInitialize($args) {
 		$grid =& $args['grid'];
@@ -63,6 +64,7 @@ class GridCategoryAccordionFeature extends GridFeature{
 
 	/**
 	 * @see GridFeature::getInitializedCategoryRowInstance()
+	 * @param $args array
 	 */
 	function getInitializedCategoryRowInstance($args) {
 		$request =& $args['request'];

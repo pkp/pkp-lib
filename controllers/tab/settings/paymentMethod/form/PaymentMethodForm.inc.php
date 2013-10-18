@@ -20,6 +20,7 @@ class PaymentMethodForm extends ContextSettingsForm {
 
 	/**
 	 * Constructor.
+	 * @param $wizardMode boolean Whether to open the form in wizard mode
 	 */
 	function PaymentMethodForm($wizardMode = false) {
 		$settings = array(
@@ -44,10 +45,6 @@ class PaymentMethodForm extends ContextSettingsForm {
 		$templateMgr->assign('currencies', $currencies);
 		return parent::fetch($request);
 	}
-
-	/**
-	 * @copydoc ContextSettingsForm::initData()
-	 */
 
 	/**
 	 * @copydoc ContextSettingsForm::readInputData()

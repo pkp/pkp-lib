@@ -45,6 +45,7 @@ class OrderGridItemsFeature extends OrderItemsFeature{
 	//
 	/**
 	 * @see GridFeature::saveSequence()
+	 * @param $args array
 	 */
 	function saveSequence($args) {
 		$request =& $args['request'];

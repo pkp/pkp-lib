@@ -465,7 +465,7 @@ class PKPNotificationManager {
 		$mailList = $notificationMailListDao->getMailList($notification->getContextId());
 		AppLocale::requireComponents(LOCALE_COMPONENT_APPLICATION_COMMON);
 
-		foreach ($mailList as $email) {
+		foreach ($mailList as $recipient) {
 			import('classes.mail.MailTemplate');
 			$context =& $request->getContext();
 			$site =& $request->getSite();
@@ -478,9 +478,9 @@ class PKPNotificationManager {
 				'notificationContents' => $this->getNotificationContents($request, $notification),
 				'url' => $this->getNotificationUrl($request, $notification),
 				'siteTitle' => $context->getLocalizedTitle(),
-				'unsubscribeLink' => $dispatcher->url($request, ROUTE_PAGE, null, 'notification', 'unsubscribeMailList')
+				'unsubscribeLink' => $dispatcher->url($request, ROUTE_PAGE, null, 'notification', 'unsubscribeMailList', $recipient['token'])
 			));
-			$mail->addRecipient($email);
+			$mail->addRecipient($recipient['email']);
 			$mail->send();
 		}
 	}

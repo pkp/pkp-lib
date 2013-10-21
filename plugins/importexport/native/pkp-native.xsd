@@ -34,6 +34,7 @@
 		<complexContent>
 			<extension base="pkp:identity">
 				<attribute name="primary_contact" type="boolean" default="false" />
+				<attribute name="user_group" type="string" use="required" />
 			</extension>
 		</complexContent>
 	</complexType>

@@ -61,14 +61,31 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter {
 	 */
 	function handleElement($node) {
 		$deployment = $this->getDeployment();
+		$context = $deployment->getContext();
 		$submission = $deployment->getSubmission();
 		assert(is_a($submission, 'Submission'));
 
+		// Create the data object
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
 		$author = $authorDao->newDataObject();
 		$author->setSubmissionId($submission->getId());
 		if ($node->getAttribute('primary_contact')) $author->setPrimaryContact();
 
+		// Identify the user group by name
+		$userGroupName = $node->getAttribute('user_group');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroups = $userGroupDao->getByContextId($context->getId());
+		while ($userGroup = $userGroups->next()) {
+			if (in_array($userGroupName, $userGroup->getName(null))) {
+				// Found a candidate; stash it.
+				$author->setUserGroupId($userGroup->getId());
+			}
+		}
+		if (!$author->getUserGroupId()) {
+			fatalError("Could not identify a matching user group \"$userGroupName\".");
+		}
+
+		// Handle metadata in subelements
 		for ($n = $node->firstChild; $n !== null; $n=$n->nextSibling) if (is_a($n, 'DOMElement')) switch($n->tagName) {
 			case 'firstname': $author->setFirstName($n->textContent); break;
 			case 'middlename': $author->setMiddleName($n->textContent); break;

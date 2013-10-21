@@ -76,11 +76,18 @@ class PKPAuthorNativeXmlFilter extends NativeExportFilter {
 	 * @return DOMElement
 	 */
 	function createPKPAuthorNode($doc, $author) {
-		// Create the root node and namespace information
 		$deployment = $this->getDeployment();
+		$context = $deployment->getContext();
+
+		// Create the author node
 		$authorNode = $doc->createElementNS($deployment->getNamespace(), 'author');
 		if ($author->getPrimaryContact()) $authorNode->setAttribute('primary_contact', 'true');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroup = $userGroupDao->getById($author->getUserGroupId());
+		assert($userGroup);
+		$authorNode->setAttribute('user_group', $userGroup->getName($context->getPrimaryLocale()));
 
+		// Add metadata
 		$authorNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'firstname', $author->getFirstName()));
 		$this->createOptionalNode($doc, $authorNode, 'middlename', $author->getMiddleName());
 		$authorNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'lastname', $author->getLastName()));

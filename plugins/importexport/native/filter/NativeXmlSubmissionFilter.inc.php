@@ -76,6 +76,17 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 		$submissionDao->insertObject($submission);
 		$deployment->setSubmission($submission);
 
+		// If the date_published was set, add a published submission
+		if ($datePublished = $node->getAttribute('date_published')) {
+			$publishedSubmissionDao = $this->getPublishedSubmissionDAO();
+			$publishedSubmission = $publishedSubmissionDao->newDataObject();
+			$publishedSubmission->setId($submission->getId());
+			$publishedSubmission->setDatePublished(strtotime($datePublished));
+			$publishedSubmissionDao->insertObject($publishedSubmission);
+			// Reload from DB now that some fields may have changed
+			$submission = $submissionDao->getById($submission->getId());
+		}
+
 		$filterDao = DAORegistry::getDAO('FilterDAO');
 
 		$setterMappings = $this->getLocalizedSubmissionSetterMappings();
@@ -154,6 +165,14 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 			'source' => 'setSource',
 			'rights' => 'setRights',
 		);
+	}
+
+	/**
+	 * Get the published submission DAO for this application.
+	 * @return DAO
+	 */
+	function getPublishedSubmissionDAO() {
+		assert(false); // Subclasses must override
 	}
 }
 

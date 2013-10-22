@@ -76,10 +76,13 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 	 * @return DOMElement
 	 */
 	function createSubmissionNode($doc, $submission) {
-		// Create the root node and namespace information
+		// Create the root node and attributes
 		$deployment = $this->getDeployment();
 		$submissionNode = $doc->createElementNS($deployment->getNamespace(), $deployment->getSubmissionNodeName());
 		$submissionNode->setAttribute('locale', $submission->getLocale());
+		if ($datePublished = $submission->getDatePublished()) {
+			$submissionNode->setAttribute('date_published', strftime('%F', strtotime($datePublished)));
+		}
 		// FIXME: language attribute (from old DTD). Necessary? Data migration needed?
 
 		$this->addIdentifiers($doc, $submissionNode, $submission);

@@ -96,11 +96,8 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @param $rangeInfo DBResultRange (optional)
 	 * @return array a list of SubmissionFile instances
 	 */
-	function &getLatestRevisions($submissionId, $fileStage = null, $rangeInfo = null) {
-		if (!$submissionId) {
-			$nullVar = null;
-			return $nullVar;
-		}
+	function getLatestRevisions($submissionId, $fileStage = null, $rangeInfo = null) {
+		if (!$submissionId) return null;
 		return $this->_getInternally($submissionId, $fileStage, null, null, null, null, null, null, null, null, null, true, $rangeInfo);
 	}
 
@@ -132,11 +129,8 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @param $rangeInfo DBResultRange (optional)
 	 * @return array a list of SubmissionFile instances
 	 */
-	function &getLatestRevisionsByAssocId($assocType, $assocId, $submissionId = null, $fileStage = null, $rangeInfo = null) {
-		if (!($assocType && $assocId)) {
-			$nullVar = null;
-			return $nullVar;
-		}
+	function getLatestRevisionsByAssocId($assocType, $assocId, $submissionId = null, $fileStage = null, $rangeInfo = null) {
+		if (!($assocType && $assocId)) return null;
 		return $this->_getInternally($submissionId, $fileStage, null, null, $assocType, $assocId, null, null, null, null, null, true, $rangeInfo);
 	}
 

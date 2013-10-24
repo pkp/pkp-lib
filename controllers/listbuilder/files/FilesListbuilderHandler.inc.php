@@ -126,10 +126,10 @@ class FilesListbuilderHandler extends ListbuilderHandler {
 		// Otherwise return from the newRowId
 		$newRowId = $this->getNewRowId($request);
 		$fileId = (int) $newRowId['name'];
-		$submission =& $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 		import('lib.pkp.classes.submission.SubmissionFile'); // Bring in const
-		$submissionFiles =& $submissionFileDao->getLatestRevisions($submission->getId(), $this->getFileStage());
+		$submissionFiles = $submissionFileDao->getLatestRevisions($submission->getId(), $this->getFileStage());
 		foreach ($submissionFiles as $submissionFile) {
 			if ($submissionFile->getFileId() == $fileId) {
 				return $submissionFile;

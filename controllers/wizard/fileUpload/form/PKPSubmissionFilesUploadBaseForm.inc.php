@@ -150,10 +150,10 @@ class PKPSubmissionFilesUploadBaseForm extends Form {
 			} else {
 				// Retrieve the submission files for the given file stage.
 				if (!$this->getAssocType() || $this->getAssocType() == ASSOC_TYPE_SUBMISSION) {
-					$this->_submissionFiles =& $submissionFileDao->getLatestRevisions(
+					$this->_submissionFiles = $submissionFileDao->getLatestRevisions(
 						$this->getData('submissionId'), $this->getData('fileStage'));
 				} else {
-					$this->_submissionFiles =& $submissionFileDao->getLatestRevisionsByAssocId(
+					$this->_submissionFiles = $submissionFileDao->getLatestRevisionsByAssocId(
 						$this->getAssocType(), $this->getAssocId(), $this->getData('submissionId'), $this->getData('fileStage')
 					);
 				}

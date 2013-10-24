@@ -53,10 +53,10 @@ class CopyeditingFilesListbuilderHandler extends FilesListbuilderHandler {
 	 */
 	function getOptions() {
 		import('lib.pkp.classes.submission.SubmissionFile');
-		$submission =& $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-		$submissionFiles =& $submissionFileDao->getLatestRevisions($submission->getId(), $this->getFileStage());
+		$submissionFiles = $submissionFileDao->getLatestRevisions($submission->getId(), $this->getFileStage());
 
 		return parent::getOptions($submissionFiles);
 	}

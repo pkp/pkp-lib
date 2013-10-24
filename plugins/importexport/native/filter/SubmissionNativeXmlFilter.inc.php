@@ -88,6 +88,7 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 		$this->addIdentifiers($doc, $submissionNode, $submission);
 		$this->addMetadata($doc, $submissionNode, $submission);
 		$this->addAuthors($doc, $submissionNode, $submission);
+		$this->addRepresentations($doc, $submissionNode, $submission);
 
 		return $submissionNode;
 	}
@@ -157,7 +158,7 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 	}
 
 	/**
-	 * Add the submission metadata for a submission to its DOM element.
+	 * Add the author metadata for a submission to its DOM element.
 	 * @param $doc DOMDocument
 	 * @param $submissionNode DOMElement
 	 * @param $submission Submission
@@ -176,6 +177,40 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 				$submissionNode->appendChild($clone);
 			}
 		}
+	}
+
+	/**
+	 * Add the representations of a submission to its DOM element.
+	 * @param $doc DOMDocument
+	 * @param $submissionNode DOMElement
+	 * @param $submission Submission
+	 */
+	function addRepresentations($doc, $submissionNode, $submission) {
+		$filterDao = DAORegistry::getDAO('FilterDAO');
+		$nativeExportFilters = $filterDao->getObjectsByGroup($this->getRepresentationExportFilterGroupName());
+		assert(count($nativeExportFilters)==1); // Assert only a single serialization filter
+		$exportFilter = array_shift($nativeExportFilters);
+		$exportFilter->setDeployment($this->getDeployment());
+
+		$representationDao = Application::getRepresentationDAO();
+		$representations = $representationDao->getBySubmissionId($submission->getId());
+		while ($representation = $representations->next()) {
+			$representationDoc = $exportFilter->execute($representation);
+			$clone = $doc->importNode($representationDoc->documentElement, true);
+			$submissionNode->appendChild($clone);
+		}
+	}
+
+
+	//
+	// Abstract methods for subclasses to implement
+	//
+	/**
+	 * Get the representation export filter group name
+	 * @return string
+	 */
+	function getRepresentationExportFilterGroupName() {
+		assert(false); // Must be overridden by subclasses
 	}
 }
 

@@ -62,11 +62,6 @@
 		<attribute name="mime_type" type="pkp:mimeType" />
 	</complexType>
 
-
-	<!-- **********
-	  -  * Groups *
-	  -  ********** -->
-
 	<!--
 	  - Encapsulate a file, which can be remotely hosted, imported
 	  - from an href, or embedded directly in the XML document.
@@ -78,12 +73,6 @@
 			<element name="embed" type="pkp:embed" />
 		</choice>
 	</group>
-
-
-	<!-- ************
-	  -  * Elements *
-	  -  ************ -->
-
 
 	<!--
 	  - User-related Elements
@@ -113,6 +102,21 @@
 	</complexType>
 
 	<!--
+	  - Representation-related types
+	  -->
+
+	<complexType name="representation">
+		<sequence>
+			<element name="name" type="pkp:localizedNode" minOccurs="1" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+
+
+	<!-- ************
+	  -  * Elements *
+	  -  ************ -->
+
+	<!--
 	  - Identifier elements
 	  -->
 	<element name="id">
@@ -129,6 +133,7 @@
 	<!--
 	  - Composite / root elements
 	  -->
+	<!-- Permit "submissions" as a root element -->
 	<element name="submissions" abstract="true">
 		<complexType>
 			<sequence>
@@ -137,6 +142,7 @@
 		</complexType>
 	</element>
 
+	<!-- Permit "authors" as a root element to keep the filters happy -->
 	<element name="authors">
 		<complexType>
 			<sequence>
@@ -145,11 +151,19 @@
 		</complexType>
 	</element>
 
+	<!-- Permit "author" as a root element to keep the filters happy -->
 	<element name="author" type="pkp:author" />
+
+	<!--
+	  - Representation-related elements
+	  -->
+	<!-- Permit "representation" as a root element to keep the filters happy -->
+	<element name="representation" type="pkp:representation" abstract="true" />
 
 	<!--
 	  - Submission-related elements
 	  -->
+	<!-- Permit "submission" as a root element -->
 	<element name="submission" abstract="true">
 		<complexType>
 			<sequence>
@@ -167,7 +181,8 @@
 				<element name="type" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
 				<element name="source" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
 				<element name="rights" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
-				<element name="author" type="pkp:author" minOccurs="1" maxOccurs="unbounded" />
+				<element ref="pkp:author" minOccurs="1" maxOccurs="unbounded" />
+				<element ref="pkp:representation" minOccurs="0" maxOccurs="unbounded" />
 			</sequence>
 			<attribute name="locale" type="string" use="optional" />
 			<attribute name="language" type="string" use="optional" />

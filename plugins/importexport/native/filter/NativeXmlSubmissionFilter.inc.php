@@ -174,6 +174,14 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 	function getPublishedSubmissionDAO() {
 		assert(false); // Subclasses must override
 	}
+
+	/**
+	 * Get the representation export filter group name
+	 * @return string
+	 */
+	function getRepresentationExportFilterGroupName() {
+		return 'publication-format=>native-xml';
+	}
 }
 
 ?>

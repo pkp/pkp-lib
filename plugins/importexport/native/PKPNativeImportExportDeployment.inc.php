@@ -38,7 +38,7 @@ class PKPNativeImportExportDeployment {
 	}
 
 	//
-	// Deploymenturation items for subclasses to override
+	// Deployment items for subclasses to override
 	//
 	/**
 	 * Get the submission node name
@@ -54,6 +54,13 @@ class PKPNativeImportExportDeployment {
 	 */
 	function getSubmissionsNodeName() {
 		return 'submissions';
+	}
+
+	/**
+	 * Get the representation node name
+	 */
+	function getRepresentationNodeName() {
+		assert(false);
 	}
 
 	/**

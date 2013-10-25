@@ -116,10 +116,14 @@ class PKPAnnouncementForm extends Form {
 					'title' => $announcement->getTitle(null), // Localized
 					'descriptionShort' => $announcement->getDescriptionShort(null), // Localized
 					'description' => $announcement->getDescription(null), // Localized
+					'datePosted' => $announcement->getDatePosted(),
 					'dateExpire' => $announcement->getDateExpire()
 				);
 			} else {
 				$this->announcementId = null;
+				$this->_data = array(
+					'datePosted' => Core::getCurrentDate(),
+				);
 			}
 		}
 	}
@@ -128,8 +132,8 @@ class PKPAnnouncementForm extends Form {
 	 * Assign form data to user-submitted data.
 	 */
 	function readInputData() {
-		$this->readUserVars(array('typeId', 'title', 'descriptionShort', 'description', 'dateExpireYear', 'dateExpireMonth', 'dateExpireDay'));
-		$this->_data['dateExpire'] = Request::getUserDateVar('dateExpire');
+		$this->readUserVars(array('typeId', 'title', 'descriptionShort', 'description'));
+		$this->readUserDateVars(array('dateExpire', 'datePosted'));
 	}
 
 	/**
@@ -160,14 +164,11 @@ class PKPAnnouncementForm extends Form {
 		}
 
 		// Give the parent class a chance to set the dateExpire.
-		$dateExpireSetted = $this->setDateExpire($announcement);
-		if (!$dateExpireSetted) {
-			if ($this->getData('dateExpireYear') != null) {
-				$announcement->setDateExpire($this->getData('dateExpire'));
-			} else {
-				$announcement->setDateExpire(null);
-			}
+		$dateExpireSet = $this->setDateExpire($announcement);
+		if (!$dateExpireSet) {
+			$announcement->setDateExpire($this->getData('dateExpire'));
 		}
+		$announcement->setDatetimePosted($this->getData('datePosted'));
 
 		// Update or insert announcement
 		if ($announcement->getId() != null) {

@@ -72,6 +72,12 @@
 	</td>
 </tr>
 <tr valign="top">
+	<td class="label">{fieldLabel name="datePosted" key="manager.announcements.datePublish"}</td>
+	<td class="value">
+		{html_select_date prefix="datePosted" all_extra="class=\"selectMenu\"" end_year="$yearOffsetFuture" year_empty="" month_empty="" day_empty="" time="$datePosted"}
+	</td>
+</tr>
+<tr valign="top">
 	<td class="label">{fieldLabel name="dateExpire" key="manager.announcements.form.dateExpire"}</td>
 	<td class="value">
 		{if $dateExpire != null}

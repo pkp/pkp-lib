@@ -74,6 +74,7 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 
 		$stageToName = array_flip($deployment->getStageNameStageIdMapping());
 		$submissionFileNode->setAttribute('stage', $stageToName[$submissionFile->getFileStage()]);
+		$submissionFileNode->setAttribute('id', $submissionFile->getFileId());
 
 		// Create the revision node and set metadata
 		$revisionNode = $doc->createElementNS($deployment->getNamespace(), 'revision');
@@ -81,7 +82,7 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 		if ($sourceFileId = $submissionFile->getSourceFileId()) {
 			$revisionNode->setAttribute('source', $sourceFileId . '-' . $submissionFile->getSourceRevision());
 		}
-		$revisionNode->setAttribute('name', $submissionFile->getOriginalFileName());
+		$revisionNode->setAttribute('filename', $submissionFile->getOriginalFileName());
 		$revisionNode->setAttribute('viewable', $submissionFile->getViewable()?'true':'false');
 		$revisionNode->setAttribute('date_uploaded', strftime('%F', strtotime($submissionFile->getDateUploaded())));
 		$revisionNode->setAttribute('date_modified', strftime('%F', strtotime($submissionFile->getDateModified())));
@@ -95,6 +96,7 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 		$uploaderUser = $userDao->getById($submissionFile->getUploaderUserId());
 		assert($uploaderUser);
 		$revisionNode->setAttribute('uploader', $uploaderUser->getUsername());
+		$this->createLocalizedNodes($doc, $revisionNode, 'name', $submissionFile->getName(null));
 
 		$submissionFileNode->appendChild($revisionNode);
 

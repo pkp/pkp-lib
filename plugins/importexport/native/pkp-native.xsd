@@ -88,10 +88,13 @@
 		<sequence>
 			<element name="revision" minOccurs="1" maxOccurs="unbounded" >
 				<complexType>
-					<group ref="pkp:fileContents" />
+					<sequence>
+						<element name="name" type="pkp:localizedNode" minOccurs="1" maxOccurs="unbounded" />
+						<group ref="pkp:fileContents" />
+					</sequence>
 					<attribute name="number" type="int" use="required" />
 					<attribute name="source" type="normalizedString" />
-					<attribute name="name" type="normalizedString" use="required" />
+					<attribute name="filename" type="normalizedString" use="required" />
 					<attribute name="viewable" type="boolean" />
 					<attribute name="date_uploaded" type="date" />
 					<attribute name="date_modified" type="date" />
@@ -100,6 +103,7 @@
 				</complexType>
 			</element>
 		</sequence>
+		<attribute name="id" type="normalizedString" />
 		<attribute name="stage">
 			<simpleType>
 				<restriction base="string">

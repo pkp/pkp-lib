@@ -217,10 +217,37 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
 		$submissionFiles = $submissionFileDao->getBySubmissionId($submission->getId());
+
+		// Submission files will come back from the file export filter
+		// with one revision each, wrapped in a submission_file node:
+		// <submission_file ...>
+		//  <revision ...>...</revision>
+		// </submission_file>
+		// Reformat them into groups by submission_file, i.e.:
+		// <submission_file ...>
+		//  <revision ...>...</revision>
+		//  <revision ...>...</revision>
+		// </submission_file>
+		$submissionFileNodesByFileId = array();
 		foreach ($submissionFiles as $submissionFile) {
 			$submissionFileDoc = $exportFilter->execute($submissionFile);
-			$clone = $doc->importNode($submissionFileDoc->documentElement, true);
-			$submissionNode->appendChild($clone);
+			$fileId = $submissionFileDoc->documentElement->getAttribute('id');
+			if (!isset($submissionFileNodesByFileId[$fileId])) {
+				$clone = $doc->importNode($submissionFileDoc->documentElement, true);
+				$submissionNode->appendChild($clone);
+				$submissionFileNodesByFileId[$fileId] = $clone;
+			} else {
+				$submissionFileNode = $submissionFileNodesByFileId[$fileId];
+				// Look for a <revision> element
+				$revisionNode = null;
+				foreach ($submissionFileDoc->documentElement->childNodes as $childNode) {
+					if (!is_a($childNode, 'DOMElement')) continue;
+					if ($childNode->tagName == 'revision') $revisionNode = $childNode;
+				}
+				assert(is_a($revisionNode, 'DOMElement'));
+				$clone = $doc->importNode($revisionNode, true);
+				$submissionFileNode->appendChild($clone);
+			}
 		}
 	}
 

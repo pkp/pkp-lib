@@ -79,6 +79,30 @@ class PKPNativeImportExportDeployment {
 		return 'pkp-native.xsd';
 	}
 
+	/**
+	 * Get the mapping between stage names in XML and their numeric consts
+	 * @return array
+	 */
+	function getStageNameStageIdMapping() {
+		return array(
+			'public' => SUBMISSION_FILE_PUBLIC,
+			'submission' => SUBMISSION_FILE_SUBMISSION,
+			'note' => SUBMISSION_FILE_NOTE,
+			'review_file' => SUBMISSION_FILE_REVIEW_FILE,
+			'review_attachment' => SUBMISSION_FILE_REVIEW_ATTACHMENT,
+			'final' => SUBMISSION_FILE_FINAL,
+			'fair_copy' => SUBMISSION_FILE_FAIR_COPY,
+			'editor' => SUBMISSION_FILE_EDITOR,
+			'copyedit' => SUBMISSION_FILE_COPYEDIT,
+			'proof' => SUBMISSION_FILE_PROOF,
+			'production_ready' => SUBMISSION_FILE_PRODUCTION_READY,
+			'attachment' => SUBMISSION_FILE_ATTACHMENT,
+			'signoff' => SUBMISSION_FILE_SIGNOFF,
+			'review_revision' => SUBMISSION_FILE_REVIEW_REVISION,
+			'dependent' => SUBMISSION_FILE_DEPENDENT,
+		);
+	}
+
 
 	//
 	// Getter/setters

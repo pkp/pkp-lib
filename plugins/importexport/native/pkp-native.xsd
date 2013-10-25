@@ -18,14 +18,23 @@
 
 	<!-- Identifies a MIME type -->
 	<simpleType name="mimeType">
-		<restriction base="normalizedString">
-		</restriction>
+		<restriction base="normalizedString" />
 	</simpleType>
 
 	<!-- A text node with an attribute describing its locale, e.g. title -->
 	<complexType name="localizedNode" mixed="true">
 		<attribute name="locale" type="pkp:locale" use="optional" />
 	</complexType>
+
+	<!-- Identifies a user group -->
+	<simpleType name="user_group">
+		<restriction base="normalizedString" />
+	</simpleType>
+
+	<!-- Identifies a user name -->
+	<simpleType name="username">
+		<restriction base="normalizedString" />
+	</simpleType>
 
 
 	<!--
@@ -41,6 +50,7 @@
 	<!-- An href tag defining an external URL file resource -->
 	<complexType name="remote">
 		<attribute name="src" type="anyURI" />
+		<attribute name="mime_type" type="pkp:mimeType" />
 	</complexType>
 
 	<!-- An href tag defining an external URL file resource -->
@@ -50,7 +60,7 @@
 	</complexType>
 
 	<!-- An embed tag defining an encoded, embedded file resource -->
-	<complexType name="embed">
+	<complexType name="embed" mixed="true">
 		<attribute name="encoding" use="required">
 			<simpleType>
 				<restriction base="string">
@@ -66,13 +76,52 @@
 	  - Encapsulate a file, which can be remotely hosted, imported
 	  - from an href, or embedded directly in the XML document.
 	  -->
-	<group name="file">
+	<group name="fileContents">
 		<choice>
 			<element name="remote" type="pkp:remote" />
 			<element name="href" type="pkp:href" />
 			<element name="embed" type="pkp:embed" />
 		</choice>
 	</group>
+
+	<complexType name="submission_file">
+		<sequence>
+			<element name="revision" minOccurs="1" maxOccurs="unbounded" >
+				<complexType>
+					<group ref="pkp:fileContents" />
+					<attribute name="number" type="int" use="required" />
+					<attribute name="source" type="normalizedString" />
+					<attribute name="name" type="normalizedString" use="required" />
+					<attribute name="viewable" type="boolean" />
+					<attribute name="date_uploaded" type="date" />
+					<attribute name="date_modified" type="date" />
+					<attribute name="user_group" type="pkp:user_group" use="required" />
+					<attribute name="uploader" type="pkp:username" />
+				</complexType>
+			</element>
+		</sequence>
+		<attribute name="stage">
+			<simpleType>
+				<restriction base="string">
+					<enumeration value="public" />
+					<enumeration value="submission" />
+					<enumeration value="note" />
+					<enumeration value="review_file" />
+					<enumeration value="review_attachment" />
+					<enumeration value="final" />
+					<enumeration value="fair_copy" />
+					<enumeration value="editor" />
+					<enumeration value="copyedit" />
+					<enumeration value="proof" />
+					<enumeration value="production_ready" />
+					<enumeration value="attachment" />
+					<enumeration value="signoff" />
+					<enumeration value="review_revision" />
+					<enumeration value="dependent" />
+				</restriction>
+			</simpleType>
+		</attribute>
+	</complexType>
 
 	<!--
 	  - User-related Elements
@@ -96,7 +145,7 @@
 		<complexContent>
 			<extension base="pkp:identity">
 				<attribute name="primary_contact" type="boolean" default="false" />
-				<attribute name="user_group" type="string" use="required" />
+				<attribute name="user_group" type="pkp:user_group" use="required" />
 			</extension>
 		</complexContent>
 	</complexType>
@@ -159,6 +208,7 @@
 	  -->
 	<!-- Permit "representation" as a root element to keep the filters happy -->
 	<element name="representation" type="pkp:representation" abstract="true" />
+	<element name="submission_file" type="pkp:submission_file" />
 
 	<!--
 	  - Submission-related elements
@@ -182,6 +232,7 @@
 				<element name="source" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
 				<element name="rights" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
 				<element ref="pkp:author" minOccurs="1" maxOccurs="unbounded" />
+				<element ref="pkp:submission_file" minOccurs="0" maxOccurs="unbounded" />
 				<element ref="pkp:representation" minOccurs="0" maxOccurs="unbounded" />
 			</sequence>
 			<attribute name="locale" type="string" use="optional" />

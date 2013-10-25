@@ -120,6 +120,17 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	}
 
 	/**
+	 * Retrieve all submission files & revisions for a submission.
+	 * @param $submissionId int
+	 * @param $rangeInfo DBResultRange (optional)
+	 * @return array a list of SubmissionFile instances
+	 */
+	function getBySubmissionId($submissionId, $rangeInfo = null) {
+		if (!$submissionId) return null;
+		return $this->_getInternally($submissionId, null, null, null, null, null, null, null, null, null, null, false, $rangeInfo);
+	}
+
+	/**
 	 * Retrieve the latest revision of all files associated
 	 * to a certain object.
 	 * @param $assocType int

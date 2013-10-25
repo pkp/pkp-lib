@@ -88,6 +88,7 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 		$this->addIdentifiers($doc, $submissionNode, $submission);
 		$this->addMetadata($doc, $submissionNode, $submission);
 		$this->addAuthors($doc, $submissionNode, $submission);
+		$this->addFiles($doc, $submissionNode, $submission);
 		$this->addRepresentations($doc, $submissionNode, $submission);
 
 		return $submissionNode;
@@ -197,6 +198,28 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 		while ($representation = $representations->next()) {
 			$representationDoc = $exportFilter->execute($representation);
 			$clone = $doc->importNode($representationDoc->documentElement, true);
+			$submissionNode->appendChild($clone);
+		}
+	}
+
+	/**
+	 * Add the submission files to its DOM element.
+	 * @param $doc DOMDocument
+	 * @param $submissionNode DOMElement
+	 * @param $submission Submission
+	 */
+	function addFiles($doc, $submissionNode, $submission) {
+		$filterDao = DAORegistry::getDAO('FilterDAO');
+		$nativeExportFilters = $filterDao->getObjectsByGroup('submission-file=>native-xml');
+		assert(count($nativeExportFilters)==1); // Assert only a single serialization filter
+		$exportFilter = array_shift($nativeExportFilters);
+		$exportFilter->setDeployment($this->getDeployment());
+
+		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+		$submissionFiles = $submissionFileDao->getBySubmissionId($submission->getId());
+		foreach ($submissionFiles as $submissionFile) {
+			$submissionFileDoc = $exportFilter->execute($submissionFile);
+			$clone = $doc->importNode($submissionFileDoc->documentElement, true);
 			$submissionNode->appendChild($clone);
 		}
 	}

@@ -86,6 +86,9 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 		$revisionNode->setAttribute('viewable', $submissionFile->getViewable()?'true':'false');
 		$revisionNode->setAttribute('date_uploaded', strftime('%F', strtotime($submissionFile->getDateUploaded())));
 		$revisionNode->setAttribute('date_modified', strftime('%F', strtotime($submissionFile->getDateModified())));
+		if ($submissionFile->getDirectSalesPrice() !== null) {
+			$revisionNode->setAttribute('direct_sales_price', $submissionFile->getDirectSalesPrice());
+		}
 
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$userGroup = $userGroupDao->getById($submissionFile->getUserGroupId());

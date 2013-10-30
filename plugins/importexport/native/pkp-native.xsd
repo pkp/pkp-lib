@@ -92,6 +92,7 @@
 						<element name="name" type="pkp:localizedNode" minOccurs="1" maxOccurs="unbounded" />
 						<group ref="pkp:fileContents" />
 					</sequence>
+					<attribute name="direct_sales_price" type="decimal" />
 					<attribute name="number" type="int" use="required" />
 					<attribute name="source" type="normalizedString" />
 					<attribute name="filename" type="normalizedString" use="required" />
@@ -125,6 +126,12 @@
 				</restriction>
 			</simpleType>
 		</attribute>
+	</complexType>
+
+	<!-- A reference to a submission file that is declared elsewhere -->
+	<complexType name="submission_file_ref">
+		<attribute name="id" type="normalizedString" />
+		<attribute name="revision" type="int" />
 	</complexType>
 
 	<!--
@@ -161,6 +168,7 @@
 	<complexType name="representation">
 		<sequence>
 			<element name="name" type="pkp:localizedNode" minOccurs="1" maxOccurs="unbounded" />
+			<element name="submission_file_ref" type="pkp:submission_file_ref" minOccurs="0" maxOccurs="unbounded" />
 		</sequence>
 	</complexType>
 

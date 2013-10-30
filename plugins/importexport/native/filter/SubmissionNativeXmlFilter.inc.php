@@ -78,6 +78,7 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 	function createSubmissionNode($doc, $submission) {
 		// Create the root node and attributes
 		$deployment = $this->getDeployment();
+		$deployment->setSubmission($submission);
 		$submissionNode = $doc->createElementNS($deployment->getNamespace(), $deployment->getSubmissionNodeName());
 		$submissionNode->setAttribute('locale', $submission->getLocale());
 		if ($datePublished = $submission->getDatePublished()) {

@@ -76,9 +76,27 @@ class RepresentationNativeXmlFilter extends NativeExportFilter {
 		$this->createLocalizedNodes($doc, $representationNode, 'name', $representation->getName(null));
 
 		// Add files
-		// FIXME: Add files
+		foreach ($this->getFiles($representation) as $submissionFile) {
+			$fileRefNode = $doc->createElementNS($deployment->getNamespace(), 'submission_file_ref');
+			$fileRefNode->setAttribute('id', $submissionFile->getFileId());
+			$fileRefNode->setAttribute('revision', $submissionFile->getRevision());
+			$representationNode->appendChild($fileRefNode);
+		}
 
 		return $representationNode;
+	}
+
+
+	//
+	// Abstract methods to be implemented by subclasses
+	//
+	/**
+	 * Get the submission files associated with this representation
+	 * @param $representation Representation
+	 * @return array
+	 */
+	function getFiles($representation) {
+		assert(false); // To be overridden by subclasses
 	}
 }
 

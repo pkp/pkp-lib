@@ -506,7 +506,7 @@ class SubmissionFile extends PKPFile {
 				$genreDao = DAORegistry::getDAO('GenreDAO'); /* @var $genreDao GenreDAO */
 				$genre =& $genreDao->getById($currentIds['genreId']);
 				assert(is_a($genre, 'Genre'));
-				$genreName = $genre->getDesignation($primaryLocale).'_'.$genre->getName($primaryLocale).'-';
+				$genreName = $genre->getDesignation().'_'.$genre->getName($primaryLocale).'-';
 			}
 
 			// Generate a human readable time stamp.

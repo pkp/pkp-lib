@@ -65,7 +65,7 @@ class GenreForm extends Form {
 			$this->_data = array(
 				'genreId' => $this->getGenreId(),
 				'name' => $genre->getName(null),
-				'designation' => $genre->getDesignation(null),
+				'designation' => $genre->getDesignation(),
 				'sortable' => $genre->getSortable(),
 				'category' => $genre->getCategory(),
 				'dependent' => $genre->getDependent(),

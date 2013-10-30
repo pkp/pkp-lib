@@ -150,7 +150,7 @@ class GenreDAO extends DefaultSettingDAO {
 	 * @return array
 	 */
 	function getLocaleFieldNames() {
-		return array('name', 'designation');
+		return array('name');
 	}
 
 	/**

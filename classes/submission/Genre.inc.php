@@ -71,27 +71,17 @@ class Genre extends DataObject {
 	/**
 	 * Set the designation of the genre
 	 * @param $abbrev string
-	 * @param $locale string
 	 */
-	function setDesignation($abbrev, $locale) {
-		$this->setData('designation', $abbrev, $locale);
+	function setDesignation($abbrev) {
+		$this->setData('designation', $abbrev);
 	}
 
 	/**
 	 * Get the designation of the genre
-	 * @param $locale string
 	 * @return string
 	 */
-	function getDesignation($locale) {
-		return $this->getData('designation', $locale);
-	}
-
-	/**
-	 * Get the localized designation of the genre
-	 * @return string
-	 */
-	function getLocalizedDesignation() {
-		return $this->getLocalizedData('designation');
+	function getDesignation() {
+		return $this->getData('designation');
 	}
 
 	/**

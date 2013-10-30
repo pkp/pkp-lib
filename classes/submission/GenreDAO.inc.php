@@ -154,6 +154,14 @@ class GenreDAO extends DefaultSettingDAO {
 	}
 
 	/**
+	 * Get a list of field names for which non-localized settings are stored
+	 * @return array
+	 */
+	function getAdditionalFieldNames() {
+		return array('designation');
+	}
+
+	/**
 	 * Update the settings for this object
 	 * @param $genre object
 	 */

@@ -62,10 +62,17 @@ class DataObjectGridCellProvider extends GridCellProvider {
 	 * @return array
 	 */
 	function getTemplateVarsFromRowColumn($row, $column) {
-		$element =& $row->getData();
+		$element = $row->getData();
 		$columnId = $column->getId();
 		assert(is_a($element, 'DataObject') && !empty($columnId));
-		return array('label' => $element->getData($columnId, $this->getLocale()));
+
+		$data = $element->getData($columnId);
+		// For localized fields, $data will be an array; otherwise,
+		// it will be a value suitable for conversion to string.
+		// If it's localized, fetch the value in the current locale.
+		if (is_array($data)) $data=$data[$this->getLocale()];
+
+		return array('label' => $data);
 	}
 }
 

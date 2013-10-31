@@ -70,7 +70,7 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 		$context = $deployment->getContext();
 
 		// Create the submission_file node and set metadata
-		$submissionFileNode = $doc->createElementNS($deployment->getNamespace(), 'submission_file');
+		$submissionFileNode = $doc->createElementNS($deployment->getNamespace(), $this->getSubmissionFileElementName());
 
 		$stageToName = array_flip($deployment->getStageNameStageIdMapping());
 		$submissionFileNode->setAttribute('stage', $stageToName[$submissionFile->getFileStage()]);
@@ -109,6 +109,13 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 		$revisionNode->appendChild($embedNode);
 
 		return $submissionFileNode;
+	}
+
+	/**
+	 * Get the submission file element name
+	 */
+	function getSubmissionFileElementName() {
+		return 'submission_file';
 	}
 }
 

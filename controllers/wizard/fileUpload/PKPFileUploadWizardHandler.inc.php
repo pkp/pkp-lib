@@ -479,8 +479,8 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 			// Do not consider files from different publication formats.
 			if ((($uploadedFile->getAssocType() == ASSOC_TYPE_PUBLICATION_FORMAT &&
 				$submissionFile->getAssocType() == ASSOC_TYPE_PUBLICATION_FORMAT) ||
-				($uploadedFile->getAssocType() == ASSOC_TYPE_GALLEY &&
-				$submissionFile->getAssocType() == ASSOC_TYPE_GALLEY)) &&
+				($uploadedFile->getAssocType() == ASSOC_TYPE_REPRESENTATION &&
+				$submissionFile->getAssocType() == ASSOC_TYPE_REPRESENTATION)) &&
 				$uploadedFile->getAssocId() != $submissionFile->getAssocId()) continue;
 
 			// Test whether the current submission file is similar

@@ -104,7 +104,7 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 		$submissionFileNode->appendChild($revisionNode);
 
 		// Embed the file contents
-		$embedNode = $doc->createElementNS($deployment->getNamespace(), 'embed', 'FIXME CONTENT GOES HERE');
+		$embedNode = $doc->createElementNS($deployment->getNamespace(), 'embed', base64_encode(file_get_contents($submissionFile->getFilePath())));
 		$embedNode->setAttribute('encoding', 'base64');
 		$revisionNode->appendChild($embedNode);
 

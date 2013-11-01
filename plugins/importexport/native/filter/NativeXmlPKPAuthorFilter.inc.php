@@ -69,7 +69,7 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter {
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
 		$author = $authorDao->newDataObject();
 		$author->setSubmissionId($submission->getId());
-		if ($node->getAttribute('primary_contact')) $author->setPrimaryContact();
+		if ($node->getAttribute('primary_contact')) $author->setPrimaryContact(true);
 
 		// Identify the user group by name
 		$userGroupName = $node->getAttribute('user_group');

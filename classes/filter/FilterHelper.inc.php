@@ -123,7 +123,7 @@ class FilterHelper {
 		}
 
 		// Configure (and optionally install) the filter.
-		$installedFilter =& $filterDao->configureObject($filterClassName, $filterGroupSymbolic, $settings, $isTemplate, 0, $subFilters, $persist);
+		$installedFilter = $filterDao->configureObject($filterClassName, $filterGroupSymbolic, $settings, $isTemplate, 0, $subFilters, $persist);
 		assert(is_a($installedFilter, 'PersistableFilter'));
 
 		return $installedFilter;

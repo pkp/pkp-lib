@@ -90,8 +90,9 @@ class PluginSettingsDAO extends DAO {
 		// Normalize plug-in name to lower case.
 		$pluginName = strtolower_codesafe($pluginName);
 
+		$contextColumn = Application::getPluginSettingsContextColumnName();
 		$result = $this->retrieve(
-			'SELECT setting_name, setting_value, setting_type FROM plugin_settings WHERE plugin_name = ? AND context_id = ?', array($pluginName, (int) $contextId)
+			'SELECT setting_name, setting_value, setting_type FROM plugin_settings WHERE plugin_name = ? AND ? = ?', array($contextColumn, $pluginName, (int) $contextId)
 		);
 
 		$pluginSettings = array();

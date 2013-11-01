@@ -570,6 +570,13 @@ class PKPApplication {
 	}
 
 	/**
+	 * returns the name of the context column in plugin_settings
+	 */
+	static function getPluginSettingsContextColumnName() {
+		assert(false); // Must be implemented by subclasses
+	}
+
+	/**
 	 * Get the DAO for ROLE_ID_SUB_EDITOR roles.
 	 */
 	static function getSubEditorDAO() {

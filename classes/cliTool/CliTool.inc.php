@@ -61,33 +61,6 @@ class CommandLineTool {
 
 		// Initialize the locale and load generic plugins.
 		AppLocale::initialize($request);
-
-		if (Config::getVar('general', 'installed')) { // we can have database access.
-			// Check for version mismatch with respect to journal_id versus context_id.
-			// This occurs when upgrading a < 3.0 installation to 3.0.
-			// We can examine the schema to see if the column change has been made so we do not
-			// attempt it on subsequent page requests.
-			// it is better to do this by examining the schema rather than comparing DB versions
-			// since this would run on subsequent attempts after a failed upgrade.
-			$database = Config::getVar('database', 'driver');
-			$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO');
-			switch ($database) {
-				case 'mysql':
-					$checkResult = $pluginSettingsDao->retrieve('SHOW COLUMNS FROM plugin_settings LIKE ?', array('context_id'));
-					if ($checkResult->NumRows() == 0) {
-						$pluginSettingsDao->update('ALTER TABLE plugin_settings CHANGE journal_id context_id BIGINT NOT NULL');
-					}
-					break;
-				case 'postgres':
-					$checkResult = $pluginSettingsDao->retrieve('SELECT column_name FROM information_schema.columns WHERE table_name= ? AND column_name= ?',
-					array('plugin_settings', 'context_id'));
-					if ($checkResult->NumRows() == 0) {
-						$pluginSettingsDao->update('ALTER TABLE plugin_settings RENAME COLUMN journal_id TO context_id');
-					}
-					break;
-			}
-		}
-
 		PluginRegistry::loadCategory('generic');
 
 		$this->argv = isset($argv) && is_array($argv) ? $argv : array();

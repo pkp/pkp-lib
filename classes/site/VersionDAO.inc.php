@@ -216,9 +216,11 @@ class VersionDAO extends DAO {
 	 * @return array
 	 */
 	function &getCurrentProducts($context) {
+
+		$contextColumn = Application::getPluginSettingsContextColumnName();
 		if (count($context)) {
 			assert(count($context)==1); // Context depth > 1 no longer supported here.
-			$contextWhereClause = 'AND (context_id = ? OR v.sitewide = 1)';
+			$contextWhereClause = 'AND (' . $contextColumn . ' = ? OR v.sitewide = 1)';
 		} else {
 			$contextWhereClause = '';
 		}

@@ -182,7 +182,8 @@
 	<message key="manager.setup.competingInterests">Competing Interests</message>
 	<message key="manager.setup.competingInterestsDescription">Reviewers will be asked to comply with the competing interests disclosure policy you specify below.</message> <!-- FIXME #6843 (JM): should this just reference reviewers? -->
 	<message key="manager.setup.groupType">File type grouping</message>
-	<message key="manager.setup.reviewOptions.numWeeksPerResponse">Time allowed for review completion (weeks)</message>
+	<message key="manager.setup.reviewOptions.numWeeksPerResponse">Time allowed for review responses (weeks)</message>
+	<message key="manager.setup.reviewOptions.numWeeksPerReview">Time allowed for review completion (weeks)</message>
 	<message key="manager.setup.reviewOptions.neverSendReminder">Never Remind</message>
 	<message key="manager.setup.reviewOptions.remindForInvite">Send a reminder if a reviewer has not responded to a review request within the following time (days):</message>
 	<message key="manager.setup.reviewOptions.remindForSubmit">Send a reminder if a reviewer has not submitted a recommendation within the following time (days):</message>

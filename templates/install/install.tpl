@@ -28,6 +28,7 @@
 		$('#installForm').pkpHandler('$.pkp.controllers.form.FormHandler');
 	{rdelim});
 </script>
+{url|assign:"upgradeUrl" page="install" op="upgrade"}
 <form class="pkp_form" method="post" id="installForm" action="{url op="install"}">
 	<input type="hidden" name="installing" value="0" />
 
@@ -54,7 +55,6 @@
 	{/if}
 
 	{fbvFormArea id="preInstallationFormArea" class="border" title="installer.preInstallationInstructionsTitle"}
-		{url|assign:"upgradeUrl" page="install" op="upgrade"}
 		{translate key="installer.preInstallationInstructions" upgradeUrl=$upgradeUrl baseUrl=$baseUrl writable_config=$writable_config writable_db_cache=$writable_db_cache writable_cache=$writable_cache writable_public=$writable_public writable_templates_cache=$writable_templates_cache writable_templates_compile=$writable_templates_compile phpRequiredVersion=$phpRequiredVersion wrongPhpText=$wrongPhpText phpVersion=$phpVersion}
 	{/fbvFormArea}
 

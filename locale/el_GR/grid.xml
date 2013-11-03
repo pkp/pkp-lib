@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/en_US/grid.xml
+  *
+  * Copyright (c) 2000-2013 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the en_US (English) locale.
+  *
+  -->
+
+<locale name="en_US" full_name = "English">
+	<!-- Common -->
+	<message key="grid.noItems">Δεν υπάρχουν αντικείμενα</message>
+	<message key="grid.settings">Ρυθμίσεις</message>
+
+	<message key="grid.action.sort">Διάταξη</message>
+	<message key="grid.action.addItem">Προσθήκη αντικειμένου</message>
+	<message key="grid.action.delete">Διαγραφή</message>
+	<message key="grid.action.remove">Αφαίρεση</message>
+	<message key="grid.action.edit">Επεξεργασία</message>
+	<message key="grid.action.approve">Έγκριση</message>
+	<message key="grid.action.approveForReview">Υποβολή στο στάδιο Αξιολόγησης</message>
+	<message key="grid.action.approveForPub">Έγκριση για Δημοσίευση</message>
+	<message key="grid.action.decline">Άρνηση</message>
+	<message key="grid.action.moreInformation">Περισσότερες πληροφορίες</message>
+	<message key="grid.action.restoreDefaults">Επαναφορά προκαθορισμένων τιμών</message>
+
+	<!-- Common Grid Column Titles -->
+	<message key="grid.columns.actions">Ενέργειες</message>
+	<message key="grid.columns.institution">Ίδρυμα</message>
+	<message key="grid.columns.url">URL</message>
+
+	<!-- Sponsors Grid -->
+	<message key="grid.sponsor.title">Χορηγοί</message>
+
+	<!-- Masthead Grid -->
+	<message key="grid.masthead.title">Masthead</message>
+	<message key="grid.masthead.column.groups">Ομάδες</message>
+
+	<!-- Contributor Grid -->
+	<message key="grid.contributor.title">Contributor</message>
+	<message key="grid.action.addAuthor">Προσθήκη Συγγραφέα</message>
+
+	<!-- Review Forms Grid -->
+	<message key="grid.reviewForm.title">Φόρμες Αξιολόγησης</message>
+
+	<!-- Book File Types Grid -->
+	<message key="grid.bookFileType.form.sortable">Επιτρέπεται σε αρχεία αυτού του τύπου να ταξινομούνται βάσει των συστατικών (π.χ βάσει κεφαλαίου)</message>
+
+	<!-- Artwork Files Grid -->
+	<message key="grid.artworkFile.title">Artwork w/Permissions</message>
+	<message key="grid.artworkFile.file">Αρχείο</message>
+	<message key="grid.artworkFile.form.title">Add Artwork w/Permissions</message>
+	<message key="grid.artworkFile.form.metadata">Μεταδεδομένα Artwork</message>
+	<message key="grid.artworkFile.caption">Caption</message>
+	<message key="grid.artworkFile.credit">Credit</message>
+	<message key="grid.artworkFile.captionAndCredit">Caption and Credit (If Not Included in the File)</message>
+	<message key="grid.artworkFile.copyrightOwner">Copyright Owner</message>
+	<message key="grid.artworkFile.copyrightContact">Πληροφορίες επικοινωνίας (αν όχι συγγραφέας/εκδότης)</message>
+	<message key="grid.artworkFile.permissionTerms">Όροι άδειας</message>
+	<message key="grid.artworkFile.permissionForm">Φόρμα άδειας</message>
+	<message key="grid.artworkFile.type">Τύπος</message>
+	<message key="grid.artworkFile.type.table">Πίνακας</message>
+	<message key="grid.artworkFile.type.figure">Figure</message>
+	<message key="grid.artworkFile.placement">Placement in book</message>
+	<message key="grid.artworkFile.placementDetail">Table/Fig. No.</message>
+	<message key="grid.artworkFile.contactAuthor">Επικοινωνήστε με τον Συγγραφέα</message>
+
+	<!-- Library Files -->
+	<message key="grid.libraryFiles.column.files">Αρχεία</message>
+	<message key="grid.libraryFiles.submission.title">Submission Library</message>
+	<message key="grid.libraryFiles.editorial.title">Editorial Library</message>
+	<message key="grid.libraryFiles.review.title">Review Library</message>
+	<message key="grid.libraryFiles.production.title">Production Library</message>
+	<message key="grid.libraryFiles.productionTemplate.title">Production Template Library</message>
+
+	<!-- SubmissionChecklist -->
+	<message key="grid.submissionChecklist.title">Λίστα ελέγχου υποβολής</message>
+	<message key="grid.submissionChecklist.column.checklistItem">Αντικείμενο λίστας ελέγχου</message>
+
+	<!-- Submission Contributors -->
+	<message key="author.users.contributor.name">Όνομα</message>
+	<message key="author.users.contributor.email">E-mail</message>
+	<message key="author.users.contributor.role">Ρόλος</message>
+	<message key="author.users.contributor.principalContact">Κύρια επαφή</message>
+
+	<!-- Review Attachments -->
+	<message key="grid.reviewAttachments.title">Συνημμένα Αξιολογητή</message>
+	<message key="grid.reviewAttachments.add">Προσθήκη συνημμένου στην αξιολόγηση</message>
+
+	<!-- Chapters -->
+	<message key="grid.chapters.title">Κεφάλαια</message>
+</locale>

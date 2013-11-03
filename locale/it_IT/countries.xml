@@ -11,6 +11,7 @@
   -->
 <countries>
 	<country name="Afghanistan" code="AF"/>
+	<country name="Isole Åland" code="AX"/>
 	<country name="Albania" code="AL"/>
 	<country name="Algeria" code="DZ"/>
 	<country name="Andorra" code="AD"/>
@@ -65,7 +66,6 @@
 	<country name="Dominica" code="DM"/>
 	<country name="Ecuador" code="EC"/>
 	<country name="Egitto" code="EG"/>
-	<country name="Eire" code="IE"/>
 	<country name="El Salvador" code="SV"/>
 	<country name="Emirati Arabi Uniti" code="AE"/>
 	<country name="Eritrea" code="ER"/>
@@ -92,6 +92,7 @@
 	<country name="Guadalupa" code="GP"/>
 	<country name="Guam" code="GU"/>
 	<country name="Guatemala" code="GT"/>
+	<country name="Guernsey" code="GG"/>
 	<country name="Guinea" code="GN"/>
 	<country name="Guinea-Bissau" code="GW"/>
 	<country name="Guinea Equatoriale" code="GQ"/>
@@ -104,6 +105,7 @@
 	<country name="Indonesia" code="ID"/>
 	<country name="Iran" code="IR"/>
 	<country name="Iraq" code="IQ"/>
+	<country name="Irlanda" code="IE"/>
 	<country name="Isola Bouvet" code="BV"/>
 	<country name="Isola di Man" code="IM"/>
 	<country name="Isola di Natale" code="CX"/>
@@ -124,6 +126,7 @@
 	<country name="Israele" code="IL"/>
 	<country name="Islanda" code="IS"/>
 	<country name="Italia" code="IT"/>
+	<country name="Jersey" code="JE"/>
 	<country name="Kazakistan" code="KZ"/>
 	<country name="Kenya" code="KE"/>
 	<country name="Kirghizistan" code="KG"/>
@@ -155,6 +158,7 @@
 	<country name="Moldavia" code="MD"/>
 	<country name="Monaco" code="MC"/>
 	<country name="Mongolia" code="MN"/>
+	<country name="Montenegro" code="ME"/>
 	<country name="Montserrat" code="MS"/>
 	<country name="Mozambico" code="MZ"/>
 	<country name="Myanmar" code="MM"/>
@@ -192,7 +196,9 @@
 	<country name="Romania" code="RO"/>
 	<country name="Ruanda" code="RW"/>
 	<country name="Sahara Occidentale" code="EH"/>
+	<country name="Saint Barthélemy" code="BL"/>
 	<country name="Saint Kitts e Nevis" code="KN"/>
+	<country name="Saint Martin (Parte francese)" code="MF"/>
 	<country name="Saint Pierre e Miquelon" code="PM"/>
 	<country name="Saint Vincent e Grenadine" code="VC"/>
 	<country name="Samoa" code="WS"/>
@@ -202,7 +208,7 @@
 	<country name="Santa Lucia" code="LC"/>
 	<country name="Sao Tome e Principe" code="ST"/>
 	<country name="Senegal" code="SN"/>
-	<country name="Serbia e Montenegro" code="CS"/>
+	<country name="Serbia" code="RS"/>
 	<country name="Seychelles" code="SC"/>
 	<country name="Sierra Leone" code="SL"/>
 	<country name="Singapore" code="SG"/>

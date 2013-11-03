@@ -238,10 +238,10 @@
 	<message key="navigation.nextStep">Næste trin</message>
 	<message key="navigation.previousPage"><![CDATA[&lt;&lt;]]></message>
 	<message key="navigation.previousStep">Forrige trin</message>
-	<message key="navigation.register">Registrer</message>
+	<message key="navigation.register">Registrér</message>
 	<message key="navigation.search">Søg</message>
 	<message key="navigation.stepNumber">Trin {$step}</message>
-	<message key="navigation.userHome">Brugerstartside</message>
+	<message key="navigation.userHome">Min side</message>
 	<message key="navigation.user">Bruger</message>
 	<message key="search.abstract">Resumé</message>
 	<message key="search.allFields">Alle</message>
@@ -258,10 +258,8 @@
 	<message key="search.operator.and">og</message>
 	<message key="search.operator.not">ikke</message>
 	<message key="search.operator.or">eller</message>
-	<message key="search.reviseSearch">Rediger søgning</message>
 	<message key="search.searchAllCategories">Søg i alle kategorier efter</message>
 	<message key="search.searchCategories">Søg i kategorier</message>
-	<message key="search.searchResults">Søgeresultater</message>
 	<message key="search.subject">Nøgleord</message>
 	<message key="search.titleIndex">Gennemse titelindeks</message>
 	<message key="search.title">Titel</message>
@@ -341,7 +339,7 @@
 	<message key="common.noMatches">Ingen match</message>
 	<message key="common.overdue">Forsinket</message>
 	<message key="common.reminder">Påmindelse</message>
-	<message key="common.remote">Fjern</message>
+	<message key="common.remote">Ekstern</message>
 	<message key="common.remoteURL">EksternURL</message>
 	<message key="common.reset">Nulstil</message>
 	<message key="common.signoff">Afmeld</message>
@@ -372,4 +370,16 @@
 	<message key="navigation.system">System</message>
 	<message key="navigation.userManagement">Brugerstyring</message>
 	<message key="grid.action.downloadFile">Download denne fil</message>
+	<message key="search.advancedSearchMore">Yderligere søgemuligheder (klik for at få vist)</message>
+	<message key="search.advancedSearchLess">Yderligere søgemuligheder (klik for at skjule)</message>
+	<message key="search.indexTermsLong">Alle emneordsfelter</message>
+	<message key="search.activeFilters">Udvidet søgning</message>
+	<message key="search.deleteFilter">Slet</message>
+	<message key="search.cli.rebuildIndex.done">udført</message>
+	<message key="search.cli.rebuildIndex.error">fejl</message>
+	<message key="search.cli.rebuildIndex.clearingIndex">Clearing index</message>
+	<message key="search.cli.rebuildIndex.indexing">Indekserer "{$journalName}"</message>
+	<message key="search.cli.rebuildIndex.indexingByJournalNotSupported">Denne søgeimplementering tillader ikke reindeksering af hver enkelt tidsskrift.</message>
+	<message key="search.cli.rebuildIndex.result">{$numIndexed} artikler indekseret</message>
+	<message key="search.cli.rebuildIndex.unknownJournal">Den foreliggende tidsskriftssti "{$journalPath}" leder ikke til et tidsskrift.</message>
 </locale>

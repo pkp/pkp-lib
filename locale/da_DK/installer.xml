@@ -66,6 +66,6 @@
 	<message key="installer.securitySettings">Sikkerhedsindstillinger</message>
 	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Fejl ved parsing af e-mail-skabelonfil <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale.maybeIncomplete">De markerede landestandarder kan være ufuldstændige.</message>
-	<message key="installer.installParseFilterConfigFileError"><![CDATA[Error parsing the filter configuration file <tt>{$file}</tt>.]]></message>
 	<message key="installer.oaiSettings">OAI indstilling</message>
+	<message key="installer.installParseFilterConfigFileError"><![CDATA[Error parsing the filter configuration file <tt>{$file}</tt>.]]></message>
 </locale>

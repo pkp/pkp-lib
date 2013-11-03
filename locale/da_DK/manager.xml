@@ -115,7 +115,7 @@
 	<message key="manager.people.enrollUserAs">Tilmeld bruger som</message>
 	<message key="manager.people.invalidUser">Den angivne bruger eksisterer ikke.</message>
 	<message key="manager.people.mergeUser">Flet bruger</message>
-	<message key="manager.people.mergeUsers.confirm">Er du sikker på, at du vil flette kontoen med brugernavnet "{$oldAccountCount}" til kontoen med brugernavnet "{$newUsername}"? Kontoen med brugernavnet "{$oldAccountCount}" vil derefter ophøre med at eksistere. Denne handling kan ikke fortrydes.</message>
+	<message key="manager.people.mergeUsers.confirm">Er du sikker på, at du vil flette kontoen med brugernavnet {$oldAccountCount} til kontoen med brugernavnet "{$newUsername}"? Kontoen med brugernavnet {$oldAccountCount} vil derefter ophøre med at eksistere. Denne handling kan ikke fortrydes.</message>
 	<message key="manager.people.mergeUsers">Flet brugere</message>
 	<message key="manager.people.mustChooseRole">Vælg en rolle øverst på siden, inden du klikker på "Tilmeld bruger".</message>
 	<message key="manager.people.mustProvideName">Angiv som minimum først brugerens efternavn.</message>
@@ -177,7 +177,7 @@
 	<message key="manager.reviewerSearch.interests">Bedømmers interesser</message>
 	<message key="manager.setup.citationAssistant">Citationsmarkeringsværktøj</message>
 	<message key="manager.setup.citationFilterParser">Citationsudtrækning</message>
-	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>For at referencer kan findes og kontrolleres i citationsdatabaser, skal de først deles op i metadata, som kan maskinaflæses: titel, udgiver, udgivelsesdato osv. skal trækkes ud af den originale referencetekst, som forfatteren har angivet. Opkoblinger til eksterne webtjenester kan være en hjælp i denne proces. Der kan tilføjes en eller flere opkoblinger ved hjælp af knappen "Tilføj element" herunder. Nogle af disse opkoblinger skal eventuelt konfigureres – det vil du i så fald blive anmodet om.</p>
+	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>For at referencer kan findes og kontrolleres i citationsdatabaser, skal de først deles op i metadata, som kan maskinaflæses: titel, udgiver, udgivelsesdato osv. skal trækkes ud af den originale referencetekst, som forfatteren har angivet. Opkoblinger til eksterne webtjenester kan være en hjælp i denne proces. Der kan tilføjes en eller flere opkoblinger ved hjælp af knappen "Add Item" herunder. Nogle af disse opkoblinger skal eventuelt konfigureres – det vil du i så fald blive anmodet om.</p>
 		<p>Du kan redigere eller slette en eksisterende opkoblinger ved at klikke på tandhjulsikonet.</p>]]></message>
 	<message key="manager.setup.citationFilterLookup">Citationskontrol</message>
 	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>Du skal også aktivere og konfigurere opkoblinger til eksterne citationsdatabaser. Det hjælper dig med at finde fejl i forfatteres referencer eller tilføje yderligere information (fx DOI'er eller PubMed ID'er), som er nødvendige for elektronisk udgivelse eller deponering.</p> 

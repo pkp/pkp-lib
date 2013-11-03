@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
+
+<!--
+  * plugins/metadata/dc11/locale/da_DK/locale.xml
+  *
+  * Copyright (c) 2003-2013 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the da_DK (Danish) locale.
+  -->
+ 
+<locale name="da_DK" full_name="Danish">
+	<!-- plug-in -->
+	<message key="plugins.metadata.dc11.displayName">Dublin Core 1.1 meta-data</message>
+	<message key="plugins.metadata.dc11.description">Leverer Dublin Core 1.1 tilpasnings-skemaer og -applikationer.</message>
+</locale>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
+
+<!--
+  * plugins/citationOutput/vancouver/locale/da_DK/locale.xml
+  *
+  * Copyright (c) 2003-2013 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the da_DK (Danish) locale.
+  -->
+
+<locale name="da_DK" full_name="Danish">
+	<message key="plugins.citationOutput.vancouver.displayName">Vancouver citationsformat</message>
+	<message key="plugins.citationOutput.vancouver.description">Implementerer Vancouver citationsformatet.</message>
+</locale>

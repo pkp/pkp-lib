@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
+
+<!--
+  * plugins/citationParser/freecite/locale/da_DK/locale.xml
+  *
+  * Copyright (c) 2003-2013 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the da_DK (Danish) locale.
+  -->
+
+<locale name="da_DK" full_name="Danish">
+	<message key="plugins.citationParser.freecite.displayName">FreeCite Citation Extractor</message>
+	<message key="plugins.citationParser.freecite.description">Extracts fields from plain text citations via the FreeCite service.</message>
+</locale>

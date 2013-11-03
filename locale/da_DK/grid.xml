@@ -11,7 +11,7 @@
   *
   -->
 
-<locale name="en_US" full_name = "English">
+<locale name="da_DK" full_name = "Danish">
 	<!-- Common -->
 	<message key="grid.noItems">No Items</message>
 	<message key="grid.settings">Settings</message>
@@ -35,6 +35,7 @@
 	<message key="grid.sponsor.title">Sponsors</message>
 
 	<!-- Masthead Grid -->
+
 	<!-- Contributor Grid -->
 	<message key="grid.contributor.title">Contributor</message>
 	<message key="grid.action.addAuthor">Add Author</message>
@@ -43,7 +44,9 @@
 	<message key="grid.reviewForm.title">Review Forms</message>
 
 	<!-- Book File Types Grid -->
+
 	<!-- Artwork Files Grid -->
+
 	<!-- Library Files -->
 	<message key="grid.libraryFiles.column.files">Files</message>
 	<message key="grid.libraryFiles.submission.title">Submission Library</message>
@@ -63,6 +66,7 @@
 	<message key="author.users.contributor.principalContact">Primary Contact</message>
 
 	<!-- Review Attachments -->
+
 	<!-- Chapters -->
 	<message key="grid.action.addUser">Tilføj bruger</message>
 	<message key="grid.action.deleteFile">Slet fil</message>
@@ -192,5 +196,5 @@
 	<message key="grid.preparedEmails.currentList">Aktuel liste</message>
 	<message key="grid.plugin.allCategories">Alle kategorier</message>
 	<message key="grid.plugin.disable">Er du sikker på, at du vil deaktivere dette plug-in?</message>
-	<message key="grid.action.unconsiderReview">This review is complete, but you may unconsider it</message>
+	<message key="grid.action.unconsiderReview">Denne bedømmelse er færdiggjort, men du kan eventuelt se bort fra det</message>
 </locale>

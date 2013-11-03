@@ -33,14 +33,14 @@
 	<message key="user.confirmEmail">Confirmar correo electrónico</message>
 	<message key="user.fax">Fax</message>
 	<message key="user.feminine">F</message>
-	<message key="user.firstName">Nombre</message>
+	<message key="user.firstName">Primer nombre</message>
 	<message key="user.gender">Género</message>
 	<message key="user.initialsExample">Juan Álvarez Sánchez= JAS</message>
 	<message key="user.initials">Iniciales</message>
 	<message key="user.interests">Intereses de revisión</message>
 	<message key="user.interests.description">(Para separar los intereses, introduzca comas o pulse la tecla Intro)</message>
 	<message key="user.gossip">Notas privadas</message>
-	<message key="user.lastName">Segundo apellido</message>
+	<message key="user.lastName">Apellidos</message>
 	<message key="user.profile.form.profileImageInvalid">La imagen del perfil es demasiado grande o no tiene un formato válido. Formatos permitidos: .gif, .jpg, o .png. La imagen no debe ser mayor de 150x150 píxeles.</message>
 	<message key="user.login.accountDisabledWithReason">Su cuenta ha sido deshabilitada por el siguiente motivo: {$reason}</message>
 	<message key="user.login.accountDisabled">Su cuenta ha sido deshabilitada. Para obtener más información, póngase en contacto con el administrador/a.</message>
@@ -61,7 +61,7 @@
 	<message key="user.logOut">Cerrar sesión</message>
 	<message key="user.mailingAddress">Dirección postal</message>
 	<message key="user.masculine">M</message>
-	<message key="user.middleName">Primer apellido</message>
+	<message key="user.middleName">Segundo nombre</message>
 	<message key="user.myAccount">Mi cuenta</message>
 	<message key="user.name">Nombre</message>
 	<message key="user.other">Otros</message>

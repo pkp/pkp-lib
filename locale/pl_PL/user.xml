@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * Copyright (c) 2003-2013 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Plik językowy dla pl_PL
+  *
+  -->
+
+<locale name="pl_PL" full_name = "Polski">
+	<message key="user.affiliation">Afiliacja</message>
+	<message key="user.affiliation.description">(pełna nazwa instytucji naukowej, np. Dolnośląska Szkoła Wyższa. Wydział Nauk Pedagogicznych)</message>
+	<message key="user.affiliations">Afiliacje</message>
+	<message key="user.authorization.accessDenied">Brak dostępu.</message>
+	<message key="user.authorization.processAuthenticationTokenRequired">The process authentication token is missing or invalid.</message>
+	<message key="user.authorization.contextRequired">Nie możesz zakończyć tej operacji bez wprowadzenia wymaganych danych (wydawca, czasopisma, konferencja, itd.).</message>
+	<message key="user.authorization.loginRequired">Wymagany login.</message>
+	<message key="user.authorization.privateOperation">The operation you tried to access is either private or doesn't exist.</message>
+	<message key="user.authorization.restrictedSiteAccess">You have been denied access. Access to this site is currently restricted.</message>
+	<message key="user.authorization.roleBasedAccessDenied">The current role does not have access to this operation.</message>
+	<message key="user.authorization.userGroupRequired">You have to set a valid user group to access this operation.</message>
+	<message key="user.biography">Biogram</message>
+	<message key="user.biography.description">(np. Dokonania, osiągnięcia)</message>
+	<message key="user.changeMyPassword">Zmień moje hasło</message>
+	<message key="user.changePassword">Zmień hasło</message>
+	<message key="user.dateLastLogin">Ostatni login</message>
+	<message key="user.dateRegistered">Data rejestracji</message>
+	<message key="user.editMyProfile">Edytuj mój profil</message>
+	<message key="user.email">E-mail</message>
+	<message key="user.confirmEmail">Potwierdź e-mail</message>
+	<message key="user.fax">Fax</message>
+	<message key="user.feminine">K</message>
+	<message key="user.firstName">Pierwsze imię</message>
+	<message key="user.gender">Płeć</message>
+	<message key="user.initialsExample">Anna Maria Kowalska = AMK</message>
+	<message key="user.initials">Inicjały</message>
+	<message key="user.interests">Przegląd zainteresowań</message>
+	<message key="user.interests.description">(Oddziel zainteresowania stosując ENTER lub przecinek)</message>
+	<message key="user.gossip">Prywatne notatki</message>
+	<message key="user.lastName">Nazwisko</message>
+	<message key="user.profile.form.profileImageInvalid">Nieprawidłowy format lub za duży rozmiar zdjęcia. Akceptowane formaty to: GIF, JPG lub PNG. Maksymalna wielkość zdjęcia to:  150x150 pikseli.</message>
+	<message key="user.login.accountDisabledWithReason">Twoje konto zostało wyłączone z nastepujących powodów: {$reason}</message>
+	<message key="user.login.accountDisabled">Twoje konto zostało wyłączone. Aby dowiedzieć się więcej skontaktuj się z administratorem.</message>
+	<message key="user.login.accountNotValidated">Proszę, sprawdź swój adres i postępuj zgodnie z dalszymi wskazówkami. Jeśli nie otrzymałeś wiadomości na swoją skrzynkę e-mail, możesz skontaktować się z pomocą techniczną.</message>
+	<message key="user.login.activate">Aktywuj konto</message>
+	<message key="user.login.activated">Dziękujemy za aktywację konta. Teraz możesz zalogować się używając danych uwierzytelniających, które wprowadziłeś tworząc konto. </message>
+	<message key="user.login.changePasswordInstructions"><![CDATA[Musisz wybrać nowe hasło zanim zalogujesz się na stronie.<br /><br />Proszę o podanie nazwy użytkownika oraz swojego dotychczasowego oraz nowego hasła, przed zmianą hasła na koncie.]]></message>
+	<message key="user.login.forgotPassword">Zapomniałeś hasła?</message>
+	<message key="user.login.loginError">Błędna nazwa użytkownika lub hasło. Spróbuj ponownie.</message>
+	<message key="user.login">Zaloguj się</message>
+	<message key="user.logIn">Zaloguj się</message>
+	<message key="user.login.lostPassword.confirmationSent">Potwierdzenie zostało wysłane na skrzynkę e-mail. Aby zmienić hasło, proszę postępować zgodnie ze wskazówkami zamieszczonymi w przesłanej wiadomości.</message>
+	<message key="user.login.lostPassword.invalidHash">Przepraszamy, ten link jest nieaktywny. Spróbuj zresetować swoje hasło ponownie. </message>
+	<message key="user.login.lostPassword.invalidUser">Użytkownik z takim adresem e-mail nie istnieje.</message>
+	<message key="user.login.lostPassword.passwordSent">Nowe hasło zostało przesłane na podany adres e-mail. Możesz zalogować się na witrynę używając nowego hasła.</message>
+	<message key="user.login.registeredEmail">Zarejestruj e-mail użytkownika</message>
+	<message key="user.login.rememberUsernameAndPassword">Zapamiętaj nazwę użytkownika i hasło</message>
+	<message key="user.login.resetPassword">Zmień hasło</message>
+	<message key="user.logOut">Wyloguj się</message>
+	<message key="user.mailingAddress">Adres</message>
+	<message key="user.masculine">M</message>
+	<message key="user.middleName">Drugie imię</message>
+	<message key="user.myAccount">Moje konto</message>
+	<message key="user.name">Nazwa użytkownika</message>
+	<message key="user.other">Inne</message>
+	<message key="user.password">Hasło</message>
+	<message key="user.repeatPassword">Powtórz hasło</message>
+	<message key="user.phone">Tel.</message>
+	<message key="user.profile.changePasswordInstructions">Aby zmienić hasło, podaj swoje obecne oraz nowe hasło.</message>
+	<message key="user.profile.editProfile">Edytuj profil</message>
+	<message key="user.profile.form.emailRequired">Podanie adresu e-mail jest obowiązkowe.</message>
+	<message key="user.profile.form.affiliationRequired">Afiliacja jest obowiązkowa.</message>
+	<message key="user.profile.form.firstNameRequired">Pierwsze imię jest obowiązkowe.</message>
+	<message key="user.profile.form.lastNameRequired">Nazwisko jest obowiązkowe.</message>
+	<message key="user.profile.form.newPasswordRequired">Musisz podać swoje nowe hasło.</message>
+	<message key="user.profile.form.oldPasswordInvalid">Wprowadzone hasło jest niepoprawne. </message>
+	<message key="user.profile.form.openAccessNotifications">Powiadomienia dotyczące numerów dostępnych na zasadach open access</message>
+	<message key="user.profile.form.passwordRequired">Hasło jest wymagane</message>
+	<message key="user.profile.form.profileImage">Zdjęcie profilowe</message>
+	<message key="user.profile.form.publishedNotifications">Powiadomienia dotyczące nowych numerów</message>
+	<message key="user.profile.form.urlInvalid">Podany adres nie istnieje. Sprawdź adres i spróbuj ponownie.</message>
+	<message key="user.profile.form.usernameRequired">Nazwa użytkownika jest wymagana.</message>
+	<message key="user.profile.leavePasswordBlank">Pozostaw pola hasła puste aby w dalszym ciągu korzystać ze starego hasła.</message>
+	<message key="user.profile.newPassword">Nowe hasło</message>
+	<message key="user.profile.oldPassword">Obecne hasło</message>
+	<message key="user.profile">Profil</message>
+	<message key="user.profile.publicProfile">Profil użytkownika</message>
+	<message key="user.profile.repeatNewPassword">Powtórz nowe hasło</message>
+	<message key="user.register.form.emailExists">Podany adres e-mail jest już w użyciu przez innego użytkownika.</message>
+	<message key="user.register.form.passwordsDoNotMatch">Podane hasła są różne.</message>
+	<message key="user.register.form.emailsDoNotMatch">Podane adresy e-mail są różne</message>
+	<message key="user.register.form.usernameAlphaNumeric">Nazwa użytkownika może składać się jedynie ze znaków alfanumerycznych, podkreśleń, oraz znaku (-). Ponadto, musi zaczynać się i kończyć znakiem alfanumerycznym.</message>
+	<message key="user.register.form.usernameExists">Wybrana nazwa użytkownika jest już w użyciu, wybierz inną nazwę.</message>
+	<message key="user.register.passwordLengthRestriction">Hasło musi się składać z co najmniej {$length} znaków.</message>
+	<message key="user.register.registerAs">Zarejestruj jako</message>
+	<message key="user.register">Zarejestruj</message>
+	<message key="user.register.usernameRestriction">Dozwolone znaki to małe litery, cyfry oraz znaki (-) i (_).</message>
+	<message key="user.role.reader">Czytelnik</message>
+	<message key="user.role.readers">Czytelnicy</message>
+	<message key="user.role.reviewer">Recenzent</message>
+	<message key="user.role.reviewers">Recenzenci</message>
+	<message key="user.role.siteAdmin">Administrator strony</message>
+	<message key="user.role.siteAdmins">Administrator strony</message>
+	<message key="user.roles">Role</message>
+	<message key="user.salutation">Forma grzecznościowa</message>
+	<message key="user.sendPassword">Potwierdzenie</message>
+	<message key="user.sendPassword.description">Wyślij potwierdzenie zawierające nazwę użytkownika i hasło na adres e-mail.</message>
+	<message key="user.signature">Podpis (dodawany do wiadomości wysyłanych ze strony)</message>
+	<message key="user.title">Tytuł</message>
+	<message key="user.url">WWW</message>
+	<message key="user.userHome">Moje konto</message>
+	<message key="user.username">Nazwa użytkownika</message>
+	<message key="user.workingLanguages">Wybrane języki</message>
+	<message key="user.register.completeForm">Wypełnij formularz w celu zarejestrowania się w tym czasopiśmie.</message>
+</locale>

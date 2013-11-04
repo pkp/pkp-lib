@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * Copyright (c) 2003-2013 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Plik językowy dla pl_PL
+  *
+  -->
+
+<locale name="pl_PL" full_name = "Polski">
+	<message key="manager.announcements">Aktualności</message>
+	<message key="manager.announcements.confirmDelete">Czy jesteś pewny, że chcesz usunąć ten wpis?</message>
+	<message key="manager.announcements.create">Utwórz nowy wpis</message>
+	<message key="manager.announcements.createTitle">Utwórz</message>
+	<message key="manager.announcements.dateExpire">Wygaśnięcie</message>
+	<message key="manager.announcements.edit">Edytuj</message>
+	<message key="manager.announcements.editTitle">Edycja</message>
+	<message key="manager.announcements.form.dateExpireDayIncompleteDate">Wybierz rok i/lub miesiąc wygaśnięcia.</message>
+	<message key="manager.announcements.form.dateExpire">Data wygaśnięcia</message>
+	<message key="manager.announcements.form.dateExpireInstructions">Wpis będzie wyświetlany czytelnikom do tej daty. Zostaw pole puste aby wpis wyświetlało się zawsze.</message>
+	<message key="manager.announcements.form.dateExpireMonthIncompleteDate">Wybierz rok i/lub dzień wygaśnięcia wpisu.</message>
+	<message key="manager.announcements.form.dateExpireValid">Wybierz poprawną datę wygaśnięcia wpisu.</message>
+	<message key="manager.announcements.form.dateExpireYearIncompleteDate">Wybierz miesiąc i/lub dzień wygaśnięcia wpisu.</message>
+	<message key="manager.announcements.form.description">Opis</message>
+	<message key="manager.announcements.form.descriptionInstructions">Pełna treść wpisu.</message>
+	<message key="manager.announcements.form.descriptionRequired">Opis jest wymagany.</message>
+	<message key="manager.announcements.form.descriptionShortInstructions">Krótki opis wyświetlany wraz z tytułem wpisu.</message>
+	<message key="manager.announcements.form.descriptionShortRequired">Krótki opis jest wymagany.</message>
+	<message key="manager.announcements.form.descriptionShort">Krótki opis</message>
+	<message key="manager.announcements.form.saveAndCreateAnother">Zapisz i utwórz następny</message>
+	<message key="manager.announcements.form.titleRequired">Tytuł ogłoszenia jest wymagany.</message>
+	<message key="manager.announcements.form.title">Tytuł</message>
+	<message key="manager.announcements.form.typeId">Rodzaj</message>
+	<message key="manager.announcements.form.typeIdValid">Wybierz poprawny rodzaj wpisu.</message>
+	<message key="manager.announcements.noneCreated">Wpis nie został utworzony.</message>
+	<message key="manager.announcements.title">Tytuł</message>
+	<message key="manager.announcements.type">Rodzaj</message>
+	<message key="manager.announcementTypes">Rodzaje ogłoszeń</message>
+	<message key="manager.announcementTypes.confirmDelete">Uwaga! Wszystkie wpisy tego rodzaju zostaną usunięte. Czy jesteś pewny, że chcesz je usunąć?</message>
+	<message key="manager.announcementTypes.create">Utwórz rodzaj wpisu</message>
+	<message key="manager.announcementTypes.createTitle">Utwórz</message>
+	<message key="manager.announcementTypes.edit">Edytuj rodzaj wpisu</message>
+	<message key="manager.announcementTypes.editTitle">Edytuj</message>
+	<message key="manager.announcementTypes.form.saveAndCreateAnother">Zapisz i utwórz następne</message>
+	<message key="manager.announcementTypes.form.typeNameExists">Rodzaj wpisu o takiej samej nazwie już istnieje.</message>
+	<message key="manager.announcementTypes.form.typeName">Nazwa</message>
+	<message key="manager.announcementTypes.form.typeNameRequired">Nazwa rodzaju wpisu jest wymagana.</message>
+	<message key="manager.announcementTypes.noneCreated">Żadne rodzaje wpisów nie zostały utworzone.</message>
+	<message key="manager.announcementTypes.typeName">Rodzaje wpisów</message>
+	<message key="manager.emails.confirmDelete">Czy jesteś pewny, że chcesz usunąć szablony wiadomości e-mail?</message>
+	<message key="manager.emails.confirmReset">Czy jesteś pewny, że chcesz powrócić do ustawień domyślnych tego szablonu?</message>
+	<message key="manager.emails.createEmail">Utwórz e-mail</message>
+	<message key="manager.emails.disable">Wyłącz</message>
+	<message key="manager.emails.editEmail">Edytuj e-mail</message>
+	<message key="manager.emails.editTestExample">Edytuj szablon testowy wiadomości e-mail</message>
+	<message key="manager.emails.emailKey">Klucz e-mail</message>
+	<message key="manager.emails.emailKeyExists">E-mail o podanym kluczu już istnieje.</message>
+	<message key="manager.emails.emailTemplate">Szablon wiadomości e-mail</message>
+	<message key="manager.emails.emailTemplates">Szablony wiadomości e-mail</message>
+	<message key="manager.emails.enabled">Włącz ten szablon</message>
+	<message key="manager.emails.enable">Włącz</message>
+	<message key="manager.emails.form.emailKeyRequired">Niepowtarzalny klucz e-mail jest wymagany dla tej wiadomości.</message>
+	<message key="manager.emails.form.bodyRequired">Treść wiadomości jest wymagana.</message>
+	<message key="manager.emails.form.subjectRequired">Tytuł wiadomości jest wymagany.</message>
+	<message key="manager.emails">Przygotowane wiadomości e-mail</message>
+	<message key="manager.emails.resetAll">Powrót do ustawień domyślnych dla wszystkich szablonów e-mail</message>
+	<message key="manager.emails.reset">Ustawienia domyślne</message>
+	<message key="manager.emails.resetToDefault">Wróć do ustawień domyślnych</message>
+	<message key="manager.filesBrowser">Przeglądarka plików</message>
+	<message key="manager.files.confirmDelete">Usunąć plik lub katalog? Katalog musi być pusty aby mógł zostać usunięty.</message>
+	<message key="manager.files.createDir">Utwórz katalog</message>
+	<message key="manager.files.emptyDir">Żaden plik nie został odnaleziony w tym katalogu.</message>
+	<message key="manager.files.indexOfDir">Indeks katalogu {$dir}</message>
+	<message key="manager.files.parentDir">Nadrzędny katalog</message>
+	<message key="manager.files.uploadedFiles">Zdeponowane pliki</message>
+	<message key="manager.files.uploadFile">Deponuj plik</message>
+	<message key="manager.groups.confirmDelete">Czy jesteś pewny, że chcesz usunąć tą grupę?</message>
+	<message key="manager.groups.createTitle">Utwórz tytuł</message>
+	<message key="manager.groups.editTitle">Edutuj tytuł</message>
+	<message key="manager.groups.form.groupTitleRequired">Tytuł grupy jest wymagany.</message>
+	<message key="manager.groups.membership.addMember">Dodaj członka</message>
+	<message key="manager.groups.membership.confirmDelete">Czy jesteś pewny, że chcesz usunąć członkostwo w grupie?</message>
+	<message key="manager.groups.membership">Członkostwo</message>
+	<message key="manager.groups.membership.noneCreated">Ta grupa jest pusta.</message>
+	<message key="manager.groups.membership.noUsers">Żadni użytkownicy nie zostali odnalezieni.</message>
+	<message key="manager.groups.title">Tytuł</message>
+	<message key="manager.importExport">Importuj/eksportuj dane</message>
+	<message key="manager.languages.alternateLocaleInstructions">System umożliwia umieszczenie niektórych informacji w innych językach. Aby skorzystać z tej właściwości, wybierz język z listy dostępnych języków widocznej poniżej.</message>
+	<message key="manager.languages.supportedLocalesInstructions">Wybierz, które języki mają być dostępne dla strony z poziomu menu wyświetlanego na każdej podstronie. Menu pojawi się tylko w przypadku wybrania więcej niż jednego języku.</message>
+	<message key="manager.payment.timestamp">Datownik</message>
+	<message key="manager.people.authSource">Źródło uwierzytelniania</message>
+	<message key="manager.people.confirmUnenroll">Wypisać tego użytkownika?</message>
+	<message key="manager.people.createUser">Utwórz nowego użytkownika</message>
+	<message key="manager.people.createUserGeneratePassword">Generuj losowe hasło.</message>
+	<message key="manager.people.createUserSendNotify">Wyślij użytkownikowi powitalną wiadomość zawierającą jego login i hasło.</message>
+	<message key="manager.people.disable">Wyłącz</message>
+	<message key="manager.people.doNotEnroll">Bez przypisanej roli</message>
+	<message key="manager.people.editProfile">Edytuj profil</message>
+	<message key="manager.people.editUser">Edytuj użytkownika</message>
+	<message key="manager.people.emailUsers.emailSelectedUsers">Wyślij e-mail do zaznaczonych użytowników</message>
+	<message key="manager.people.emailUsers.emailUsersEnrolledAs">Wyślij e-mail do użytkowników zapisanych jako</message>
+	<message key="manager.people.emailUsers">Wyślij e-mail</message>
+	<message key="manager.people.emailUsers.selectLocale">Wybierz język</message>
+	<message key="manager.people.emailUsers.selectUsers">Wybierz użytkowników do których chcesz wysłać wiadomość</message>
+	<message key="manager.people.enable">Włącz</message>
+	<message key="manager.people.enroll">Zapisz użytkownika</message>
+	<message key="manager.people.enrollment">Rejestracja</message>
+	<message key="manager.people.enrollSelected">Zapisz zaznaczonych użytkowników</message>
+	<message key="manager.people.enrollSyncRole">Synchronizuj role</message>
+	<message key="manager.people.enrollSync">Synchronizuj zapisy</message>
+	<message key="manager.people.enrollUserAsDescription">Użytkownicy mogą zostać przydzieleni do roli w dowolnym czasie.</message>
+	<message key="manager.people.enrollUserAs">Zapisz użytkownika jako</message>
+	<message key="manager.people.invalidUser">Podany użytkownik nie istnieje.</message>
+	<message key="manager.people.mergeUser">Scal konta użytkowników</message>
+	<message key="manager.people.mergeUsers.confirm">Czy jesteś pewny, że chcesz połączyć {$oldAccountCount} kont z nowym kontem "{$newUsername}"? Zaznaczone {$oldAccountCount} kont przestanie istnieć. Działanie jest nieodwracalne.</message>
+	<message key="manager.people.mergeUsers">Scal użytkowników</message>
+	<message key="manager.people.mustChooseRole">Zaznacz rolę na górze strony przed kliknięciem "Zapisz użytkownika".</message>
+	<message key="manager.people.mustProvideName">Nazwa użytkownika jest wymagana.</message>
+	<message key="manager.people.noMatchingUsers">Brak dopasowanych użytkowników.</message>
+	<message key="manager.people.noneEnrolled">Brak zapisanych użytkowników.</message>
+	<message key="manager.people">Redakcja</message>
+	<message key="manager.people.remove">Usuń</message>
+	<message key="manager.people.saveAndCreateAnotherUser">Zapisz u utwórz następny</message>
+	<message key="manager.people.signInAs">Zaloguj jako</message>
+	<message key="manager.people.signInAsUser">Zaloguj jako użytkownik</message>
+	<message key="manager.people.syncUsers">Synchronizuj zapisy użytkowników</message>
+	<message key="manager.people.unenroll">Wypisz</message>
+	<message key="manager.people.userCreatedSuccessfully">Użytkownik utworzony.</message>
+	<message key="manager.people.userMustChangePassword">Wymagaj aby użytkownik zmienił swoje hasło po następnym logowaniu.</message>
+	<message key="manager.plugins.action">Działanie:</message>
+	<message key="manager.plugins.disable">Wyłącz</message>
+	<message key="manager.plugins.enable">Włącz</message>
+	<message key="manager.plugins.pluginManagement">Zarządzanie wtyczkami</message>
+	<message key="manager.plugins.sitePlugin">To jest wtyczka systemowa. Tylko administrator może zarządzać tą wtyczką.</message>
+	<message key="manager.plugins">Wtyczki systemowe</message>
+	<message key="manager.readingTools">Narzędzia czytelnicze</message>
+	<message key="manager.reviewerSearch.advancedSearch">Zaawansowane wyszukiwanie recenzentów</message>
+	<message key="manager.reviewerSearch.searchByName">Wyszukaj recenzenta po nazwie</message>
+	<message key="manager.reviewerSearch.doneAmount">Ilość wykonanych recenzji</message>
+	<message key="manager.reviewerSearch.avgAmount">Średnia długość procesu recenzowania</message>
+	<message key="manager.reviewerSearch.lastAmount">Dni od ostatniej recenzji</message>
+	<message key="manager.reviewerSearch.activeAmount">Ilość aktywnych recenzji</message>
+	<message key="manager.reviewerSearch.interests">Zainteresowania badawcze</message>
+	<message key="manager.roles">Role</message>
+	<message key="manager.setup.citationAssistant">Asystent cytowań</message>
+	<message key="manager.setup.citationFilterParser">Wydobywanie cytowań</message>
+	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>Aby sprawdzić poprawność opisów bibliograficznych w zewnętrznych bazach, muszą być one najpierw podane w następującym formacie: tytuł, wydawca, data wydania, etc. i dostarczone niezależnie od tekstu. Połączenia z zewnętrznymi usługami mogą być w tym celu pomocne. Jedno lub wiele połączeń może zostać dodanych przez kliknięcie przycisku "Dodaj pozycję". Niektóre z tych połączeń mogą wymagać konfiguracji. Jeżeli zajdzie taka konieczność - zostaniesz o tym poinformowany.</p>
+		<p>Możesz edytować istniejące połączenie poprzez kliknięcie ikony umieszczonej obok nich.</p>]]></message>
+	<message key="manager.setup.citationFilterLookup">Sprawdzanie cytowań</message>
+	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>Musisz również włączyć i skonfigurować połączenia do zewnętrznych baz danych cytowań. Takie działanie pomoże w znalezieniu błędów w cytowaniach oraz uzupełni je o dodatkowe informacje.</p> 
+		<p>Zapewniamy połączenia do zewnętrznych baz danych gdzie możesz wyszukiwać cytowania. Niektóre z tych baz wymagają rejestracji i konfiguracji. Informacje dotyczące rejestracji w poszczególnych bazach danych znajdują się na stronach internetowych tych baz. Możesz dodać jedną lub więcej baz danych poprzez kliknięcie przycisku "Dodaj pozycję".</p>
+		<p>>Możesz edytować istniejącą bazę poprzez kliknięcie ikony umieszczonej obok niej.</p>
+		<p><strong>Nota:</strong> Aby proces sprawdzania cytowań przebiegał w rozsądnym czasie, parametr <tt>citation_checking_max_processes</tt> w pliku konfiguracyjnym powinien posiadać odpowiednią wartość. Więcej informacji dostępnych jest w sekcji General Settings pliku <tt>config.inc.php</tt>.</p>]]></message>
+	<message key="manager.setup.citationOutput">Dane wyjściowe cytowań</message>
+	<message key="manager.setup.citationOutputStyleDescription">Wybierz styl cytowań używany przez autorów czasopisma. Asystent cytowań pozwala na porównanie wersji autora z wersją generowaną w formacie XML, co pozwala w łatwy sposób odnaleźć błędy:</message>
+	<message key="manager.setup.errorDeletingItem">Wystąpił błąd podczas usuwania tego pliku.</message>
+	<message key="manager.setup.filter.grid.errorDeletingFilter">Wystąpił błąd podczas usuwania tego filtra. Proszę zgłośić to jako błąd.</message>
+	<message key="manager.setup.filter.grid.filterDisplayName">Połączenia</message>
+	<message key="manager.setup.filter.grid.filterSettings">Informacje dotyczące rejestracji oraz połaczeń</message>
+	<message key="manager.setup.filter.grid.filterTemplateRequired">Proszę wybrać jeden z rodzajów transformacji z listy.</message>
+	<message key="manager.setup.filter.grid.confirmDelete">Czy na pewno usunąć filtr {$filterName}?</message>	
+	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">Czy na pewno dodać {$filterDisplayName}? Kliknik 'OK' aby potwierdzić.</message>
+	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Dodaj bazę wyszukań.</message>
+	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>Ten filtr łączy się z <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a> bazą książek oraz ISBN.</p>
+	<p>Klucz ISBN jest wymagany. W celu uzyskania informacji o generowaniu kluczy, zapoznaj się z <a href="http://isbndb.com/docs/api/30-keys.html" target="_blank">dokumentacją online</a>.</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Ten filtr łączy się z bazą cytowań CrossRef wykorzystując <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">interfejs OpenURL</a>.</p> 
+	<p>Aby połączyć się z CrossRef, mozesz wykorzystać swoje konto CrossRef, lub zarejestrować się <a href="http://www.crossref.org/requestaccount/" target="_blank">tutaj</a>.</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>Ten filtr łączy się systemem <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">PubMed</a> - krzyżową aplikacją przeszukiwania baz danych.</p>
+	<p>E-mail wykorzystany przy rejestracji nie jest obowiązkoway, ale może okazać się niezbęny w przypadku natrafienia na problemy. Więcej informacji dostępnych jest w dokumentacji <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">dokumentacji</a> systemu.</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.description.worldCat"><![CDATA[<p>Ten filtr łączy się z usługami OCLC <a href="http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp" target="_blank">xISBN</a> oraz <a href="http://www.worldcat.org/" target="_blank">Worldcat</a> (opcjonalnie).</p>
+	<p>Jeżeli posiadasz <a href="http://www.worldcat.org/devnet/wiki/SearchAPIWhoCanUse" target="_blank">klucz API Worldcat</a> możesz połączyć się z systemem Worldcat wpisując klucz poniżej.</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.loadMessage">Zaczekaj na załadowanie konfiguracji baz danych...</message>
+	<message key="manager.setup.filter.lookup.grid.title">Połączenia baz danych cytowań</message>
+	<message key="manager.setup.filter.noMoreTemplates">Wszystkie dostępne transformacje zostały wybrane. Kliknij "Anuluj" aby wrócić do ekranu konfiguracji.</message>
+	<message key="manager.setup.filter.parser.grid.descriptionConfirm">Czy na pewno dodać parser {$filterDisplayName}. Kliknij 'OK' aby kontynuować.</message>
+	<message key="manager.setup.filter.parser.grid.descriptionTemplate">Wybierz parser cytowań.</message>
+	<message key="manager.setup.filter.parser.grid.description.freeCite"><![CDATA[<p>Ten filtr łączy się z usługą <a href="http://freecite.library.brown.edu/" target="_blank">FreeCite</a>.</p>]]></message>
+	<message key="manager.setup.filter.parser.grid.description.paraCite"><![CDATA[<p>Ten filtr korzysta z modułów <a href="http://paracite.eprints.org/developers/" target="_blank">ParaTools</a> w celu wykorzystania parsowania <a href="http://paracite.eprints.org" target="_blank">ParaCite</a>. Wymagana jest instalacja Perla, oraz moduły <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/" target="_blank">Biblio::Citation::Parser</a> i <a href="http://search.cpan.org/~sburke/Text-Unidecode-0.04/" target="_blank">Text::Unidecode</a>. Niezbędna będzie również konfiguracja <tt>perl</tt> w pliku konfiguracyjnym <tt>config.inc.php</tt>.</p>
+	<p>Możesz również zdecydować z których modułów ParaTools powinien korzystać. Możesz wybrać pomiędzy standardowym, <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Jiao.pm" target="_blank">Jiao</a>, oraz <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Citebase.pm" target="_blank">Citebase</a>.</p>]]></message>
+	<message key="manager.setup.filter.parser.grid.description.parsCit"><![CDATA[<p>Ten filtr łączy się z usługą <a href="http://aye.comp.nus.edu.sg/parsCit/" target="_blank">ParsCit</a> .</p>]]></message>
+	<message key="manager.setup.filter.parser.grid.description.regEx">Filtr RegEx wykorzystuje wyrażenia regularne do parsowania cytowań.</message>
+	<message key="manager.setup.filter.parser.grid.loadMessage">Zaczekaj na załadowanie sieci parsowania cytowań...</message>
+	<message key="manager.setup.filter.parser.grid.title">Usługi wydobywania cytowań</message>
+	<message key="manager.setup.filter.pleaseSelect">Wybierz...</message>
+	<message key="manager.setup.homeHeaderImageInvalid">Niepoprawny plik obrazu dla logo. Akceptowane formaty to GIF, JPG lub PNG.</message>
+	<message key="manager.setup.homepageImageInvalid">Niepoprawny plik dla obrazu strony głównej. Akceptowane formaty to GIF, JPG lub PNG.</message>
+	<message key="manager.setup.homeTitleImageInvalid">Niepoprawny plik dla obrazu tytułu nagłówka. Akceptowane formaty to GIF, JPG lub PNG.</message>
+	<message key="manager.setup.layout.leftSidebar">Lewa kolumna</message>
+	<message key="manager.setup.layout.rightSidebar">Prawa kolumna</message>
+	<message key="manager.setup.layout.unselected">Niezaznaczone</message>
+	<message key="manager.setup.loggingAndAuditing">Logowanie i audyt</message>
+	<message key="manager.setup.metaCitationsDescription">Zaznacz pole w celu włączenia edytowania cytowań i źródeł. Umożliwi to autorom dodawanie surowych cytatów. Redaktorzy dostaną również dostęp do asystenta cytowań, co pozwoli im na sprawdzenie dostarczonych, surowych cytowań z zewnętrznymi bazami, takimi jak: Worldcat, ISBNdb, PubMed, itp. Zatwierdzone cytowania mogą być następnie wyeksportowane do ostatecznych plików prezentacyjnych.
+	</message>
+	<message key="manager.setup.pageHeaderLogoImageInvalid">Niepoprawny plik obrazu dla logo. Akceptowane formaty to GIF, JPG lub PNG.</message>
+	<message key="manager.setup.pageHeaderTitleImageInvalid">Niepoprawny plik dla obrazu tytułu nagłówka. Akceptowane formaty to GIF, JPG lub PNG.</message>
+	<message key="manager.setup.selectOne">Wybierz jeden</message>
+	<message key="manager.statistics"><![CDATA[Statystyki i raporty]]></message>
+	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>
+	<message key="manager.statistics.statistics.totalNewValue">{$numTotal} ({$numNew} new)</message>
+	<message key="manager.users">Użytkownicy</message>
+	<message key="plugins.categories.auth">Wtyczki autoryzacji</message>
+	<message key="plugins.categories.blocks">Wtyczki blokowe</message>
+	<message key="plugins.categories.blocks.description">Wtyczki blokowe są komponentami interfejsu użytkownika.</message>
+	<message key="plugins.categories.citationFormats">Wtyczki formatu cytowań</message>
+	<message key="plugins.categories.gateways.description">Wtyczki bram udzielają danych dla zewnętrznych systemów.</message>
+	<message key="plugins.categories.gateways">Wtyczki bram</message>
+	<message key="plugins.categories.generic">Wtyczki ogólne</message>
+	<message key="plugins.categories.importexport.description">Wtyczki importu/eksportu mogą być wykorzystane do transferowania danych pomiędzy systemami.</message>
+	<message key="plugins.categories.importexport">Wtyczki importu/eksportu</message>
+	<message key="plugins.categories.paymethod.description">Wtyczki płatności umożliwiają dokonywanie płatności on-line.</message>
+	<message key="plugins.categories.paymethod">Wtyczki płatności</message>
+	<message key="plugins.categories.reports.description">Wtyczki raportowania wykorzystywane są do tworzenia raportów.</message>
+	<message key="plugins.categories.reports">Wtyczki raportowania</message>
+	<message key="plugins.categories.themes.description">Wtyczki motywów wykorzystywane są do zmiany wyglądu strony.</message>
+	<message key="plugins.categories.themes">Wtyczki motywów</message>
+</locale>

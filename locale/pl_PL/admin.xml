@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * Copyright (c) 2003-2013 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Plik językowy dla pl_PL
+  *
+  -->
+
+<locale name="pl_PL" full_name = "Polski">
+	<message key="admin.adminFunctions">Funkcje administracyjne</message>
+	<message key="admin.auth.confirmDelete">Czy jesteś pewny, że chcesz usunąć źródła uwierzytelniania?</message>
+	<message key="admin.auth.create">Stwórz źródło uwierzytelniania.</message>
+	<message key="admin.auth.noneCreated">Nie zdefiniowano źródeł uwierzytelniania.</message>
+	<message key="admin.authSources">Źródła uwierzytelniania</message>
+	<message key="admin.clearDataCache">Wyczyść pamięć cache danych</message>
+	<message key="admin.clearTemplateCache">Wyczyść pamięć cache szablonów</message>
+	<message key="admin.configFileUpdatedInstructions"><![CDATA[Twój plik konfiguracyjny został zaktualizowany. Jeżeli twoja strona w dalszym ciągu nie działa poprawnie, poddaj ręcznej edycji plik <tt>config.inc.php</tt>.]]></message>
+	<message key="admin.confirmClearTemplateCache">Czy jesteś pewny, że chcesz usunąć pamięć cache skompilowanych szablonów?</message>
+	<message key="admin.confirmExpireSessions">Czy jesteś pewny, że chcesz wylogować wszystkich użytkowników? Wszyscy zalogowani do systemu użytkownicy będą zmuszeni zalogować się powtórnie (dotyczy to również ciebie).</message>
+	<message key="admin.contentsOfConfigFile">Zawartość pliku konfiguracyjnego</message>
+	<message key="admin.currentVersion">Bieżąca wersja</message>
+	<message key="admin.dateInstalled">Data instalacji</message>
+	<message key="admin.displayConfigFileInstructions"><![CDATA[Zawartość twojego zaktualizowanego pliku konfiguracyjnego wyświetlana jest poniżej. Aby zastosować zmiany musisz otworzyć plik <tt>config.inc.php</tt> w edytorze tekstowym i zamienić jego treść na tą widoczną poniżej.]]></message>
+	<message key="admin.displayNewSystemConfig">Wyświetl nową konfigurację</message>
+	<message key="admin.expireSessions">Wyloguj wszystkich użytkowników</message>
+	<message key="admin.languages.confirmReload">Czy jesteś pewny, że chcesz przeładować ten język? Takie działanie spowoduje usunięcie wszystkich danych związanych z językiem włączając w to szablony e-mail.</message>
+	<message key="admin.languages.installedLocales">Zainstalowane języki</message>
+	<message key="admin.languages.installLanguages">Zarządzaj językami</message>
+	<message key="admin.languages.installLocales">Instaluj</message>
+	<message key="admin.languages.installNewLocales">Zainstaluj nowe języki</message>
+	<message key="admin.languages.languageSettings">Ustawienia języków</message>
+	<message key="admin.languages.noLocalesAvailable">Brak dodatkowych języków możliwych do instalacji.</message>
+	<message key="admin.languages.reload">Przeładuj język</message>
+	<message key="admin.languages.uninstall">Odinstaluj język</message>
+	<message key="admin.phpInfo">Wyświetl informację o wersji PHP</message>
+	<message key="admin.server.apacheVersion">Wersja serwera Apache</message>
+	<message key="admin.server.dbDriver">Sterownik bazy danych</message>
+	<message key="admin.server.dbVersion">Wersja serwera bazy danych</message>
+	<message key="admin.serverInformationDescription"><![CDATA[System operacyjny i wersja serwera. Kliknij <span class="highlight">Wyświetl informację o wersji PHP</span> aby wyświetlić szczegółowe informacje dotyczące konfiguracji PHP na tym serwerze.]]></message>
+	<message key="admin.serverInformation">Informacje dotyczące serwera</message>
+	<message key="admin.server.phpVersion">Wersja PHP</message>
+	<message key="admin.server.platform">System operacyjny</message>
+	<message key="admin.settings.aboutDescription">Opis strony</message>
+	<message key="admin.settings.contactEmail">Adres e-mail głównego administratora</message>
+	<message key="admin.settings.contactName">Imię głównego administratora</message>
+	<message key="admin.settings.form.contactEmailRequired">Adres e-mail głównego administratora jest wymagany.</message>
+	<message key="admin.settings.form.contactNameRequired">Imię głównego administratora jest wymagane.</message>
+	<message key="admin.settings.form.minPasswordLengthRequired">Musisz podać hasło o długości składającej się z co najmniej 4 znaków.</message>
+	<message key="admin.settings.form.titleRequired">Tytuł jest wymagany.</message>
+	<message key="admin.settings.homeHeaderImage.altText">Logo strony</message>
+	<message key="admin.settings.homeHeaderImageInvalid">Niepoprawny format pliku. Akceptowane formaty to .gif, .jpg, lub .png.</message>
+	<message key="admin.settings.introduction">Wprowadzenie</message>
+	<message key="admin.settings.minPasswordLength">Minimalna długość hasła</message>
+	<message key="admin.settings.oaiRegistration">Zarejestruj stronę celem indeksowania treści (Metadata Harvesting)</message>
+	<message key="admin.settings.passwordCharacters">znaki</message>
+	<message key="admin.settings.siteLanguage">Język strony</message>
+	<message key="admin.settings.siteStyleSheetInvalid">Niepoprawny format styli strony. Akceptowany format pliku to .css.</message>
+	<message key="admin.settings.siteStyleSheet">Szablon styli strony</message>
+	<message key="admin.settings.siteTitle">Tytuł strony</message>
+	<message key="admin.siteAdmin">Administracja stroną</message>
+	<message key="admin.siteManagement">Zarządzanie stroną</message>
+	<message key="admin.siteSettings">Ustawienia strony</message>
+	<message key="admin.systemConfigFileReadError"><![CDATA[Plik konfiguracyjny <tt>config.inc.php</tt> nie istnieje, nie można go odczytać, lub jest uszkodzony.]]></message>
+	<message key="admin.systemInformation">Informacje dotyczące systemu</message>
+	<message key="admin.versionBuild">Wersja</message>
+	<message key="admin.version.checkForUpdates">Sprawdź aktualizacje</message>
+	<message key="admin.version.downloadPackage">Pobierz</message>
+	<message key="admin.version.downloadPatch">Pobierz łatkę</message>
+	<message key="admin.versionHistory">Historia wersji</message>
+	<message key="admin.version.latest">Najnowsza wersja</message>
+	<message key="admin.versionMajor">Głowna</message>
+	<message key="admin.versionMinor">Pomniejsza</message>
+	<message key="admin.version.moreInfo">Więcej informacji</message>
+	<message key="admin.versionRevision">Rewizja</message>
+	<message key="admin.version.updateAvailable">Aktualizacja jest dostępna</message>
+	<message key="admin.version.upToDate">Twój system jest aktualny</message>
+	<message key="admin.version">Wersja</message>
+</locale>

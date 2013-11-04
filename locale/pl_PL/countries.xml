@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE countries SYSTEM "../../dtd/countries.dtd">
+
+<!--
+  * Copyright (c) 2003-2013 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Plik językowy dla pl_PL
+  *
+  -->
+<countries>
+	<country name="Afganistan" code="AF"/>
+	<country name="Wyspy Alandzkie" code="AX"/>
+	<country name="Albania" code="AL"/>
+	<country name="Algeria" code="DZ"/>
+	<country name="Samoa Amerykańskie" code="AS"/>
+	<country name="Andora" code="AD"/>
+	<country name="Angola" code="AO"/>
+	<country name="Anguilla" code="AI"/>
+	<country name="Antarktyka" code="AQ"/>
+	<country name="Antigua i Barbuda" code="AG"/>
+	<country name="Argentyna" code="AR"/>
+	<country name="Armenia" code="AM"/>
+	<country name="Aruba" code="AW"/>
+	<country name="Australia" code="AU"/>
+	<country name="Austria" code="AT"/>
+	<country name="Azerbejdżan" code="AZ"/>
+	<country name="Bahamy" code="BS"/>
+	<country name="Bahrain" code="BH"/>
+	<country name="Bangladesz" code="BD"/>
+	<country name="Barbados" code="BB"/>
+	<country name="Białoruś" code="BY"/>
+	<country name="Belgia" code="BE"/>
+	<country name="Belize" code="BZ"/>
+	<country name="Benin" code="BJ"/>
+	<country name="Bermudy" code="BM"/>
+	<country name="Bhutan" code="BT"/>
+	<country name="Boliwia" code="BO"/>
+	<country name="Bośnia i Hercegowina" code="BA"/>
+	<country name="Botswana" code="BW"/>
+	<country name="Wyspa Bouveta" code="BV"/>
+	<country name="Brazylia" code="BR"/>
+	<country name="Brytyjskie Terytorium Oceanu Indyjskiego" code="IO"/>
+	<country name="Brunei" code="BN"/>
+	<country name="Bułgaria" code="BG"/>
+	<country name="Burkina Faso" code="BF"/>
+	<country name="Burundi" code="BI"/>
+	<country name="Cambodża" code="KH"/>
+	<country name="Kamerun" code="CM"/>
+	<country name="Kanada" code="CA"/>
+	<country name="Cape Verde" code="CV"/>
+	<country name="Kajmany" code="KY"/>
+	<country name="Republika Środkowoafrykańska" code="CF"/>
+	<country name="Czad" code="TD"/>
+	<country name="Chile" code="CL"/>
+	<country name="Chiny" code="CN"/>
+	<country name="Wyspa Wielkanocna" code="CX"/>
+	<country name="Wyspy Kokosowe" code="CC"/>
+	<country name="Kolumbia" code="CO"/>
+	<country name="Komory" code="KM"/>
+	<country name="Kongo" code="CG"/>
+	<country name="Demokratyczna Republika Konga" code="CD"/>
+	<country name="Wyspy Cooka" code="CK"/>
+	<country name="Kostaryka" code="CR"/>
+	<country name="Wybrzeże Kości Słoniowej" code="CI"/>
+	<country name="Chorwacja" code="HR"/>
+	<country name="Kuba" code="CU"/>
+	<country name="Cypr" code="CY"/>
+	<country name="Czechy" code="CZ"/>
+	<country name="Dania" code="DK"/>
+	<country name="Dżibuti" code="DJ"/>
+	<country name="Dominika" code="DM"/>
+	<country name="Dominikana" code="DO"/>
+	<country name="Ekwador" code="EC"/>
+	<country name="Egipt" code="EG"/>
+	<country name="Salwador" code="SV"/>
+	<country name="Gwinea Równikowa" code="GQ"/>
+	<country name="Erytrea" code="ER"/>
+	<country name="Estonia" code="EE"/>
+	<country name="Etiopia" code="ET"/>
+	<country name="Falklandy (Malwiny)" code="FK"/>
+	<country name="Wyspy Owcze" code="FO"/>
+	<country name="Fidżi" code="FJ"/>
+	<country name="Finlandia" code="FI"/>
+	<country name="Francia" code="FR"/>
+	<country name="Gujana Francuska" code="GF"/>
+	<country name="Polinezja Francuska" code="PF"/>
+	<country name="Francuskie Terytoria Południowe i Antarktyczne" code="TF"/>
+	<country name="Gabon" code="GA"/>
+	<country name="Gambia" code="GM"/>
+	<country name="Georgia" code="GE"/>
+	<country name="Niemcy" code="DE"/>
+	<country name="Ghana" code="GH"/>
+	<country name="Gibraltar" code="GI"/>
+	<country name="Grecja" code="GR"/>
+	<country name="Grenlandia" code="GL"/>
+	<country name="Grenada" code="GD"/>
+	<country name="Guadeloupe" code="GP"/>
+	<country name="Guam" code="GU"/>
+	<country name="Gwatemala" code="GT"/>
+	<country name="Gwinea" code="GN"/>
+	<country name="Guinea-Bissau" code="GW"/>
+	<country name="Gujana" code="GY"/>
+	<country name="Haiti" code="HT"/>
+	<country name="Wyspa Heard i wyspy McDonalda" code="HM"/>
+	<country name="Stolica Apostolska (Watykan)" code="VA"/>
+	<country name="Honduras" code="HN"/>
+	<country name="Hong Kong" code="HK"/>
+	<country name="Węgry" code="HU"/>
+	<country name="Islandia" code="IS"/>
+	<country name="Indie" code="IN"/>
+	<country name="Indonezja" code="ID"/>
+	<country name="Iran" code="IR"/>
+	<country name="Irak" code="IQ"/>
+	<country name="Irlandia" code="IE"/>
+	<country name="Izrael" code="IL"/>
+	<country name="Włochy" code="IT"/>
+	<country name="Jamajka" code="JM"/>
+	<country name="Japonia" code="JP"/>
+	<country name="Jordan" code="JO"/>
+	<country name="Kazahstan" code="KZ"/>
+	<country name="Kenia" code="KE"/>
+	<country name="Kiribati" code="KI"/>
+	<country name="Korea Północna" code="KP"/>
+	<country name="Korea Południowa" code="KR"/>
+	<country name="Kuweit" code="KW"/>
+	<country name="Kirgistan" code="KG"/>
+	<country name="Laos" code="LA"/>
+	<country name="Łotwa" code="LV"/>
+	<country name="Liban" code="LB"/>
+	<country name="Lesotho" code="LS"/>
+	<country name="Liberia" code="LR"/>
+	<country name="Libia" code="LY"/>
+	<country name="Liechtenstein" code="LI"/>
+	<country name="Litwa" code="LT"/>
+	<country name="Luksemburg" code="LU"/>
+	<country name="Makau" code="MO"/>
+	<country name="Macedonia" code="MK"/>
+	<country name="Madagaskar" code="MG"/>
+	<country name="Malawi" code="MW"/>
+	<country name="Malezja" code="MY"/>
+	<country name="Maladiwy" code="MV"/>
+	<country name="Mali" code="ML"/>
+	<country name="Mala" code="MT"/>
+	<country name="Wyspy Marshalla" code="MH"/>
+	<country name="Martynika" code="MQ"/>
+	<country name="Maurytania" code="MR"/>
+	<country name="Mauritius" code="MU"/>
+	<country name="Majotta" code="YT"/>
+	<country name="Meksyk" code="MX"/>
+	<country name="Mikronezja" code="FM"/>
+	<country name="Mołdawia" code="MD"/>
+	<country name="Monako" code="MC"/>
+	<country name="Mongolia" code="MN"/>
+	<country name="Montserrat" code="MS"/>
+	<country name="Maroko" code="MA"/>
+	<country name="Mozambik" code="MZ"/>
+	<country name="Birma (Związek Myanmar)" code="MM"/>
+	<country name="Namibia" code="NA"/>
+	<country name="Nauru" code="NR"/>
+	<country name="Nepal" code="NP"/>
+	<country name="Holandia" code="NL"/>
+	<country name="Antyle Holenderskie" code="AN"/>
+	<country name="Newa Kaledonia" code="NC"/>
+	<country name="Newa Zelandia" code="NZ"/>
+	<country name="Nikaragua" code="NI"/>
+	<country name="Niger" code="NE"/>
+	<country name="Nigeria" code="NG"/>
+	<country name="Niue" code="NU"/>
+	<country name="Wyspa Norfolk" code="NF"/>
+	<country name="Mariany Północne" code="MP"/>
+	<country name="Norwegia" code="NO"/>
+	<country name="Oman" code="OM"/>
+	<country name="Pakistan" code="PK"/>
+	<country name="Palau" code="PW"/>
+	<country name="Palestyna" code="PS"/>
+	<country name="Panama" code="PA"/>
+	<country name="Papua Nowa Gwinea" code="PG"/>
+	<country name="Paragwaj" code="PY"/>
+	<country name="Peru" code="PE"/>
+	<country name="Filipiny" code="PH"/>
+	<country name="Pitcairn" code="PN"/>
+	<country name="Polska" code="PL"/>
+	<country name="Portugalia" code="PT"/>
+	<country name="Portoryko" code="PR"/>
+	<country name="Katar" code="QA"/>
+	<country name="Reunion" code="RE"/>
+	<country name="Rumunia" code="RO"/>
+	<country name="Rosja" code="RU"/>
+	<country name="Rwanda" code="RW"/>
+	<country name="Święta Helena" code="SH"/>
+	<country name="Federacja Saint Christopher i Nevis" code="KN"/>
+	<country name="Święta Łucja" code="LC"/>
+	<country name="Saint-Pierre i Miquelon" code="PM"/>
+	<country name="Saint Vincent i Grenadyny" code="VC"/>
+	<country name="Samoa" code="WS"/>
+	<country name="San Marino" code="SM"/>
+	<country name="Wyspy Świętego Tomasza i Książęca" code="ST"/>
+	<country name="Arabia Saudyjska" code="SA"/>
+	<country name="Senegal" code="SN"/>
+	<country name="Serbia" code="CS"/>
+	<country name="Seszele" code="SC"/>
+	<country name="Sierra Leone" code="SL"/>
+	<country name="Singapur" code="SG"/>
+	<country name="Słowacja" code="SK"/>
+	<country name="Słowenia" code="SI"/>
+	<country name="Wyspy Solomona" code="SB"/>
+	<country name="Somalia" code="SO"/>
+	<country name="Republika Południowej Afryki" code="ZA"/>
+	<country name="Georgia Południowa" code="GS"/>
+	<country name="Hiszpania" code="ES"/>
+	<country name="Sri Lanka" code="LK"/>
+	<country name="Sudan" code="SD"/>
+	<country name="Surinam" code="SR"/>
+	<country name="Svalbard i Jan Mayen" code="SJ"/>
+	<country name="Suazi" code="SZ"/>
+	<country name="Szwecja" code="SE"/>
+	<country name="Szwajcaria" code="CH"/>
+	<country name="Syria" code="SY"/>
+	<country name="Tajwan" code="TW"/>
+	<country name="Tadżykistan" code="TJ"/>
+	<country name="Tanzania" code="TZ"/>
+	<country name="Tajlandia" code="TH"/>
+	<country name="Timor Wschodni" code="TL"/>
+	<country name="Togo" code="TG"/>
+	<country name="Tokelau" code="TK"/>
+	<country name="Tonga" code="TO"/>
+	<country name="Trinidad i Tobago" code="TT"/>
+	<country name="Tunezja" code="TN"/>
+	<country name="Turcja" code="TR"/>
+	<country name="Turkmenistan" code="TM"/>
+	<country name="Wyspy Turks i Caicos" code="TC"/>
+	<country name="Tuvalu" code="TV"/>
+	<country name="Uganda" code="UG"/>
+	<country name="Ukraina" code="UA"/>
+	<country name="Zjednoczone Emiraty Arabskie" code="AE"/>
+	<country name="Zjednoczone Królestwo" code="GB"/>
+	<country name="Stany Zjednoczone Ameryki Północnej" code="US"/>
+	<country name="Dalekie Wyspy Mniejsze Stanów Zjednoczonych" code="UM"/>
+	<country name="Uruguay" code="UY"/>
+	<country name="Uzbekistan" code="UZ"/>
+	<country name="Vanuatu" code="VU"/>
+	<country name="Wenezuala" code="VE"/>
+	<country name="Wietnam" code="VN"/>
+	<country name="Wyspy Dziewicze, Brytyjskie" code="VG"/>
+	<country name="Wyspy Dziewicze, Amerykańskie" code="VI"/>
+	<country name="Wallis i Futuna" code="WF"/>
+	<country name="Sahara Zachodnia" code="EH"/>
+	<country name="Jemen" code="YE"/>
+	<country name="Zambia" code="ZM"/>
+	<country name="Zimbabwe" code="ZW"/>
+</countries>

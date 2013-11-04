@@ -210,11 +210,11 @@
 	<message key="manager.emails.addEmail">Afegeix una plantilla de correu electrònic</message>
 	<message key="manager.emails.data">Plantilla de les dades del missatge</message>
 	<message key="manager.emails.details">Detalls de la plantilla</message>
-  <message key="manager.emails.disable.message">Estàs a punt de desactivar aquesta plantilla de correu electrònic. En cas que hi hagi algun procés al sistema que utilitzi aquesta plantilla, no la tornarà a emprar. Estàs segur/a que vols fer aquest canvi?</message>
-  <message key="manager.emails.enable.message">Estàs a punt d'activar aquesta plantilla de correu electrònic. Estàs segur/a que vols fer aquest canvi?</message>
-  <message key="manager.emails.resetAll.message">Si reinicies totes les plantilles, totes les modificacions de les plantilles de correu electrònic es perdran. Estàs segur/a que vols fer aquest canvi?</message>
+	<message key="manager.emails.disable.message">Estàs a punt de desactivar aquesta plantilla de correu electrònic. En cas que hi hagi algun procés al sistema que utilitzi aquesta plantilla, no la tornarà a emprar. Estàs segur/a que vols fer aquest canvi?</message>
+	<message key="manager.emails.enable.message">Estàs a punt d'activar aquesta plantilla de correu electrònic. Estàs segur/a que vols fer aquest canvi?</message>
+	<message key="manager.emails.resetAll.message">Si reinicies totes les plantilles, totes les modificacions de les plantilles de correu electrònic es perdran. Estàs segur/a que vols fer aquest canvi?</message>
 	<message key="manager.setup.layout.blockManagement">Gestió del bloc lateral</message>
-  <message key="manager.emails.reset.message">Si reinicies aquesta plantilla, totes les dades del correu es reiniciaran al seu valor per defecte i es perdràn totes les modificacions. Estàs segur/a que vols fer aquest canvi?</message>
+	<message key="manager.emails.reset.message">Si reinicies aquesta plantilla, totes les dades del correu es reiniciaran al seu valor per defecte i es perdràn totes les modificacions. Estàs segur/a que vols fer aquest canvi?</message>
 	<message key="manager.masthead.title">Capçalera</message>
 	<message key="manager.navigation">Navegació</message>
 	<message key="manager.reviewerSearch.advancedSearch.short">Cerca avançada</message>
@@ -224,9 +224,9 @@
 	<message key="plugins.categories.metadata">Connectors de metadades</message>
 	<message key="plugins.categories.metadata.description">Els connectors de metadades apliquen estàndards addicionals de metadades.</message>
 	<message key="plugins.categories.citationLookup">Connectors de connexió amb les bases de dades de citació</message>
-  <message key="plugins.categories.citationLookup.description">Els connectors amb les bases de dades de citació permeten fer cerques a les bases de dades de citacions. p.e.: en el procés d'edició de citacions.</message>
-  <message key="plugins.categories.citationOutput">Connectores d'estil de citació</message>
-  <message key="plugins.categories.citationOutput.description">Els connectors d'estil de sortida de citació implementen estàndards de citació. Aquests substitueixen els connectors de format de citacions.</message>
+	<message key="plugins.categories.citationLookup.description">Els connectors amb les bases de dades de citació permeten fer cerques a les bases de dades de citacions. p.e.: en el procés d'edició de citacions.</message>
+	<message key="plugins.categories.citationOutput">Connectores d'estil de citació</message>
+	<message key="plugins.categories.citationOutput.description">Els connectors d'estil de sortida de citació implementen estàndards de citació. Aquests substitueixen els connectors de format de citacions.</message>
 	<message key="plugins.categories.citationParser">Connectors d'extracció de citacions</message>
-  <message key="plugins.categories.citationParser.description">Els connectors d'extracció de citacions segmenten en camps el text d'una cita (p.e.: autori/a, títol, etc.).</message>
+	<message key="plugins.categories.citationParser.description">Els connectors d'extracció de citacions segmenten en camps el text d'una cita (p.e.: autori/a, títol, etc.).</message>
 </locale> 

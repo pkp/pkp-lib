@@ -115,7 +115,7 @@
 	<message key="user.workingLanguages">Llengües de treball</message>
 	<message key="user.register.completeForm">Ompliu aquest formulari per registrar-vos en aquesta revista.</message>
 	<message key="user.accountInformation">Informació del compte</message>
-  <message key="user.authorization.pressManagerRequired">Un usuari amb el rol de gestor d'impremta (p.e.: editor d'impremta o producció) s'ha d'assignar en aquesta etapa abans de continuar</message>
+	<message key="user.authorization.pressManagerRequired">Un usuari amb el rol de gestor d'impremta (p.e.: editor d'impremta o producció) s'ha d'assignar en aquesta etapa abans de continuar</message>
 	<message key="user.group">Grup d'usuaris</message>
 	<message key="user.hello">Hola,</message>
 	<message key="user.profile.form.countryRequired">És necessari indicar un país.</message>

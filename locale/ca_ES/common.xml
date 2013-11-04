@@ -343,7 +343,7 @@
 	<message key="common.plugins">Connectors</message>
 	<message key="email.subjectRequired">Si us plau, escriu l'assumpte del correu.</message>
 	<message key="email.bodyRequired">Si us plau, escriu el cos del correu.</message>
-  <message key="form.confirmSubmit">Estàs segur/a que vols enviar aquest formulari?</message>
+	<message key="form.confirmSubmit">Estàs segur/a que vols enviar aquest formulari?</message>
 	<message key="form.confirmSubmit.title">Confirma</message>
 	<message key="form.emailRequired">Es necesària una adreça electrònica de correu.</message>
 	<message key="form.dataHasChanged">Les dades d'aquest formulari han variat. Vols continuar?</message>
@@ -353,7 +353,7 @@
 	<message key="navigation.website">Lloc web</message>
 	<message key="navigation.access"><![CDATA[Usuaris &amp; Rols]]></message>
 	<message key="navigation.admin">Administració</message>
-  <message key="navigation.browseByAuthor">Per autor/ora</message>
+	<message key="navigation.browseByAuthor">Per autor/ora</message>
 	<message key="navigation.data">Dades</message>
 	<message key="navigation.publicMenu">Menú públic</message>
 	<message key="navigation.settings">Configuració</message>

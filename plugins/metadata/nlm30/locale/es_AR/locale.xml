@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
+
+<!--
+  * locale.xml
+  *
+  * Copyright (c) 2003-2013 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the en_US (U.S. English) locale.
+  -->
+ 
+<locale name="en_US" full_name="U.S. English">
+	<!-- plug-in -->
+	<message key="plugins.metadata.nlm30.displayName">NLM 3.0 metadatos</message>
+	<message key="plugins.metadata.nlm30.description">Contribuye con los esquemas NLM 3.0 y los adaptadores para la aplicación</message>
+
+	<!-- citation meta-data adapter -->
+	<message key="plugins.metadata.nlm30.citationAdapter.displayName">Adaptador NLM 3.0 para citas</message>
+	<message key="plugins.metadata.nlm30.citationAdapter.description">Extraer/inyectar metadatos desde/hacia las citas.</message>
+
+	<!-- citation parsers (citation extraction services) -->
+	<message key="plugins.metadata.nlm30.citationParsers.displayName">"Servicios de Extracción de citas"</message>
+	<message key="plugins.metadata.nlm30.citationParsers.description">"Convierte una cita de texto platno en un elemento de marcado NLM 3.0 para citas"</message>
+
+	<!-- citation lookup (citation database/improvement/lookup services) -->
+	<message key="plugins.metadata.nlm30.citationLookup.displayName">"Servicios de Bases de datos de citas"</message>
+	<message key="plugins.metadata.nlm30.citationLookup.description">Incrementa las marcas de elementos de citas del estilo NLM 3.0. EJ: a través de la búsqueda en bases de datos de citas externas.</message>
+
+	<!-- citation output -->
+	<message key="plugins.metadata.nlm30.citationOutput.displayName">Servicios de Salida de citas.</message>
+	<message key="plugins.metadata.nlm30.citationOutput.description">Convierte elementos de marcado para citas NLM 3.0 en formatos de salida estándares de texto plano.</message>
+	<message key="plugins.metadata.nlm30Xml.citationOutput.displayName">Servicios de Salida de Citas (XML)</message>
+	<message key="plugins.metadata.nlm30Xml.citationOutput.description">Convierte los elementos de marcado de citas  NLM 3.0 en un formato XML de salida estándar.</message>
+
+	<!-- NLM 3.0 output -->
+	<message key="plugins.metadata.nlm30.nlm30XmlOutput.displayName">Formato de Salida  NLM 3.0 para Publicaciones de Revistas</message>
+	<message key="plugins.metadata.nlm30.nlm30XmlOutput.description">Convierte un OJS o OCS artículo/paper al formato NML 3.0.</message>
+
+	<!-- NLM 2.3 output -->
+	<message key="plugins.metadata.nlm30.nlm23XmlOutput.displayName">Formato de Salida  NLM 2.3 para Publicaciones de Revistas</message>
+	<message key="plugins.metadata.nlm30.nlm23XmlOutput.description">Convierte un OJS o OCS artículo/paper al formato NML 2.3.</message>
+
+	<!-- NLM 3.0 to 2.3 downgrade -->
+	<message key="plugins.metadata.nlm30.nlm30ToNlm23Xml.displayName">De NLM 3.0 a 2.3 desactualización para publicacion en Revistas</message>
+	<message key="plugins.metadata.nlm30.nlm30ToNlm23Xml.description">Desactualiza el formato NLM 3.0 al formato NLM 2.3</message>
+
+	<!-- Plain text reference list output -->
+	<message key="plugins.metadata.nlm30.refList.displayName">Generación de lista de referencias en texto plano.</message>
+	<message key="plugins.metadata.nlm30.refList.description">Construye una lista de referencias formateada en texto plano desde una lista de publicaciones en  OJS/OCS/OMP .</message>
+</locale>

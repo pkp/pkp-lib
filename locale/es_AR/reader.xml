@@ -174,4 +174,5 @@
 	<message key="rt.findingReferences.googleScholar">Google Scholar</message>
 	<message key="rt.findingReferences.windowsLiveAcademic">Windows Live Academic</message>
 	<message key="rt.captureCite.web">Web</message>
+	<message key="rt.admin.settings.viewReviewPolicy">Política de para ver las revisiones</message>
 </locale>

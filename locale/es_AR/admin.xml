@@ -80,4 +80,7 @@
 	<message key="admin.settings.homeHeaderImage.altText">Logo del sitio</message>
 	<message key="admin.settings.homeHeaderImageInvalid">Formato del logo del sitio inválido. Los formatos aceptados son .gif, .jpg o .png</message>
 	<message key="admin.settings.siteStyleSheetInvalid">Formato de hoja de estilos inválido. El formato aceptado es .css</message>
+	<message key="admin.settings">Configuración</message>
+	<message key="admin.settings.siteTheme">Tema del Sitio</message>
+	<message key="admin.siteSetup">Instalación del Sitio</message>
 </locale>

@@ -82,6 +82,12 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 		if ($sourceFileId = $submissionFile->getSourceFileId()) {
 			$revisionNode->setAttribute('source', $sourceFileId . '-' . $submissionFile->getSourceRevision());
 		}
+
+		$genreDao = DAORegistry::getDAO('GenreDAO');
+		$genre = $genreDao->getById($submissionFile->getGenreId());
+		assert($genre);
+		$revisionNode->setAttribute('genre', $genre->getName($context->getPrimaryLocale()));
+
 		$revisionNode->setAttribute('filename', $submissionFile->getOriginalFileName());
 		$revisionNode->setAttribute('viewable', $submissionFile->getViewable()?'true':'false');
 		$revisionNode->setAttribute('date_uploaded', strftime('%F', strtotime($submissionFile->getDateUploaded())));

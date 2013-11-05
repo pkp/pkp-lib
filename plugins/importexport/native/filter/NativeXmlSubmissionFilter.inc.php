@@ -87,33 +87,40 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 			$submission = $submissionDao->getById($submission->getId());
 		}
 
-		$filterDao = DAORegistry::getDAO('FilterDAO');
-
-		$setterMappings = $this->getLocalizedSubmissionSetterMappings();
-		for ($n = $node->firstChild; $n !== null; $n=$n->nextSibling) if (is_a($n, 'DOMElement')) {
-			// If applicable, call a setter for localized content
-			if (isset($setterMappings[$n->tagName])) {
-				$setterFunction = $setterMappings[$n->tagName];
-				list($locale, $value) = $this->parseLocalizedContent($n);
-				$submission->$setterFunction($value, $locale);
-			} else switch ($n->tagName) {
-				// Otherwise, delegate to specific parsing code
-				case 'id':
-					$this->parseIdentifier($n, $submission);
-					break;
-				case 'author':
-					$importFilters = $filterDao->getObjectsByGroup('native-xml=>author');
-					assert(count($importFilters)==1); // Assert only a single unserialization filter
-					$importFilter = array_shift($importFilters);
-					$importFilter->setDeployment($this->getDeployment());
-					$authorDoc = new DOMDocument();
-					$authorDoc->appendChild($authorDoc->importNode($n, true));
-					$importFilter->execute($authorDoc);
-					break;
+		for ($n = $node->firstChild; $n !== null; $n=$n->nextSibling) {
+			if (is_a($n, 'DOMElement')) {
+				$this->handleChildElement($n, $submission);
 			}
 		}
-
 		return $submission;
+	}
+
+	/**
+	 * Handle an element whose parent is the submission element.
+	 * @param $n DOMElement
+	 * @param $submission Submission
+	 */
+	function handleChildElement($n, $submission) {
+		$setterMappings = $this->_getLocalizedSubmissionSetterMappings();
+		if (isset($setterMappings[$n->tagName])) {
+			// If applicable, call a setter for localized content
+			$setterFunction = $setterMappings[$n->tagName];
+			list($locale, $value) = $this->parseLocalizedContent($n);
+			$submission->$setterFunction($value, $locale);
+		} else switch ($n->tagName) {
+			// Otherwise, delegate to specific parsing code
+			case 'id':
+				$this->parseIdentifier($n, $submission);
+				break;
+			case 'author':
+				$this->parseAuthor($n, $submission);
+				break;
+			case 'submission_file':
+				$this->parseSubmissionFile($n, $submission);
+				break;
+			default:
+				fatalError('Unknown element ' . $n->tagName);
+		}
 	}
 
 	//
@@ -139,6 +146,37 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 	}
 
 	/**
+	 * Parse an author and add it to the submission.
+	 * @param $n DOMElement
+	 * @param $submission Submission
+	 */
+	function parseAuthor($n, $submission) {
+		$filterDao = DAORegistry::getDAO('FilterDAO');
+		$importFilters = $filterDao->getObjectsByGroup('native-xml=>author');
+		assert(count($importFilters)==1); // Assert only a single unserialization filter
+		$importFilter = array_shift($importFilters);
+		$importFilter->setDeployment($this->getDeployment());
+		$authorDoc = new DOMDocument();
+		$authorDoc->appendChild($authorDoc->importNode($n, true));
+		return $importFilter->execute($authorDoc);
+	}
+
+	/**
+	 * Parse a submission file and add it to the submission.
+	 * @param $n DOMElement
+	 * @param $submission Submission
+	 */
+	function parseSubmissionFile($n, $submission) {
+		$importFilter = $this->getImportFilter($n->tagName);
+		assert($importFilter); // There should be a filter
+
+		$importFilter->setDeployment($this->getDeployment());
+		$submissionFileDoc = new DOMDocument();
+		$submissionFileDoc->appendChild($submissionFileDoc->importNode($n, true));
+		return $importFilter->execute($submissionFileDoc);
+	}
+
+	/**
 	 * Parse a localized element
 	 * @param $element DOMElement
 	 * @return array Array("locale_KEY", "Localized Text")
@@ -148,11 +186,15 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 		return array($element->getAttribute('locale'), $element->textContent);
 	}
 
+
+	//
+	// Helper functions
+	//
 	/**
 	 * Get node name to setter function mapping for localized data.
 	 * @return array
 	 */
-	function getLocalizedSubmissionSetterMappings() {
+	function _getLocalizedSubmissionSetterMappings() {
 		return array(
 			'title' => 'setTitle',
 			'prefix' => 'setPrefix',
@@ -181,6 +223,15 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 	 */
 	function getRepresentationExportFilterGroupName() {
 		return 'publication-format=>native-xml';
+	}
+
+	/**
+	 * Get the import filter for a given element.
+	 * @param $elementName string Name of XML element
+	 * @return Filter
+	 */
+	function getImportFilter($elementName) {
+		assert(false); // Subclasses should override
 	}
 }
 

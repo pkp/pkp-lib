@@ -101,6 +101,7 @@
 					<attribute name="date_modified" type="date" />
 					<attribute name="user_group" type="pkp:user_group" use="required" />
 					<attribute name="uploader" type="pkp:username" />
+					<attribute name="genre" type="normalizedString" use="required" />
 				</complexType>
 			</element>
 		</sequence>

@@ -388,15 +388,14 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 
 		$filterSubEditors = false;
 		if ($roleId == ROLE_ID_SUB_EDITOR && $subEditorFilterId) {
-			$seriesEditorsDao = Application::getSubEditorDAO();
+			$subEditorsDao = Application::getSubEditorDAO();
 			// Flag to filter sub editors only.
 			$filterSubEditors = true;
 		}
 
 		$userList = array();
 		while($user = $users->next()) {
-			if ($filterSubEditors && !$seriesEditorsDao->editorExists($contextId, $subEditorFilterId, $user->getId())) {
-				unset($user);
+			if ($filterSubEditors && !$subEditorsDao->editorExists($contextId, $subEditorFilterId, $user->getId())) {
 				continue;
 			}
 			$userList[$user->getId()] = $user->getFullName();

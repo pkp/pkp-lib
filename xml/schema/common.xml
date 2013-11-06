@@ -20,18 +20,22 @@
 		<field name="major" type="I4">
 			<NOTNULL />
 			<DEFAULT VALUE="0"/>
+			<descr>Major component of version number, e.g. the 2 in OJS 2.3.8-0</descr>
 		</field>
 		<field name="minor" type="I4">
 			<NOTNULL />
 			<DEFAULT VALUE="0"/>
+			<descr>Minor component of version number, e.g. the 3 in OJS 2.3.8-0</descr>
 		</field>
 		<field name="revision" type="I4">
 			<NOTNULL />
 			<DEFAULT VALUE="0"/>
+			<descr>Revision component of version number, e.g. the 8 in OJS 2.3.8-0</descr>
 		</field>
 		<field name="build" type="I4">
 			<NOTNULL />
 			<DEFAULT VALUE="0"/>
+			<descr>Build component of version number, e.g. the 0 in OJS 2.3.8-0</descr>
 		</field>
 		<field name="date_installed" type="T">
 			<NOTNULL/>
@@ -39,19 +43,28 @@
 		<field name="current" type="I1">
 			<NOTNULL/>
 			<DEFAULT VALUE="0"/>
+			<descr>1 iff the version entry being described is currently active. This permits the table to store past installation history for forensic purposes.</descr>
 		</field>
-		<field name="product_type" type="C2" size="30"/>
-		<field name="product" type="C2" size="30"/>
-		<field name="product_class_name" type="C2" size="80"/>
+		<field name="product_type" type="C2" size="30">
+			<descr>Describes the type of product this row describes, e.g. "plugins.generic" (for a generic plugin) or "core" for the application itelf</descr>
+		</field>
+		<field name="product" type="C2" size="30">
+			<descr>Uniquely identifies the product this version row describes, e.g. "ojs2" for OJS 2.x, "languageToggle" for the language toggle block plugin, etc.</descr>
+		</field>
+		<field name="product_class_name" type="C2" size="80">
+			<descr>Specifies the class name associated with this product, for plugins, or the empty string where not applicable.</descr>
+		</field>
 		<field name="lazy_load" type="I1">
 			<NOTNULL/>
 			<DEFAULT VALUE="0"/>
+			<descr>1 iff the row describes a lazy-load plugin; 0 otherwise</descr>
 		</field>
 		<field name="sitewide" type="I1">
 			<NOTNULL/>
 			<DEFAULT VALUE="0"/>
+			<descr>1 iff the row describes a site-wide plugin; 0 otherwise</descr>
 		</field>
-		<descr>Installation and upgrade version history.</descr>
+		<descr>Describes the installation and upgrade version history for the application and all installed plugins.</descr>
 		<index name="versions_pkey">
 			<col>product_type</col>
 			<col>product</col>

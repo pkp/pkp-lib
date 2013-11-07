@@ -232,23 +232,23 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 *  uploaded.
 	 * @return SubmissionFile
 	 */
-	function &insertObject(&$submissionFile, $sourceFile, $isUpload = false) {
+	function &insertObject($submissionFile, $sourceFile, $isUpload = false) {
 		// Make sure that the implementation of the updated file
 		// is compatible with its genre (upcast but no downcast).
-		$submissionFile =& $this->_castToGenre($submissionFile);
+		$submissionFile = $this->_castToGenre($submissionFile);
 
 		// Find the required target implementation and delegate.
 		$targetImplementation = strtolower_codesafe(
 			$this->_getFileImplementationForGenreId(
 			$submissionFile->getGenreId())
 		);
-		$targetDaoDelegate =& $this->_getDaoDelegate($targetImplementation);
-		$insertedFile =& $targetDaoDelegate->insertObject($submissionFile, $sourceFile, $isUpload);
+		$targetDaoDelegate = $this->_getDaoDelegate($targetImplementation);
+		$insertedFile = $targetDaoDelegate->insertObject($submissionFile, $sourceFile, $isUpload);
 
 		// If the updated file does not have the correct target type then we'll have
 		// to retrieve it again from the database to cast it to the right type (downcast).
 		if (strtolower_codesafe(get_class($insertedFile)) != $targetImplementation) {
-			$insertedFile =& $this->_castToDatabase($insertedFile);
+			$insertedFile = $this->_castToDatabase($insertedFile);
 		}
 		return $insertedFile;
 	}
@@ -330,7 +330,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 		// If the updated file does not have the correct target type then we'll have
 		// to retrieve it again from the database to cast it to the right type.
 		if (strtolower_codesafe(get_class($updatedFile)) != $targetImplementation) {
-			$updatedFile =& $this->_castToDatabase($updatedFile);
+			$updatedFile = $this->_castToDatabase($updatedFile);
 		}
 
 		return $updatedFile;
@@ -937,7 +937,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @param $submissionFile SubmissionFile
 	 * @return SubmissionFile
 	 */
-	function &_castToDatabase(&$submissionFile) {
+	function _castToDatabase($submissionFile) {
 		$fileId = $submissionFile->getFileId();
 		$revision = $submissionFile->getRevision();
 		return $this->getRevision($fileId, $revision);

@@ -84,6 +84,7 @@ class PKPNativeImportExportDeployment {
 	 * @return array
 	 */
 	function getStageNameStageIdMapping() {
+		import('lib.pkp.classes.submission.SubmissionFile'); // Get file constants
 		return array(
 			'public' => SUBMISSION_FILE_PUBLIC,
 			'submission' => SUBMISSION_FILE_SUBMISSION,

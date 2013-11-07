@@ -70,7 +70,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 		// Handle metadata in subelements
 		for ($n = $node->firstChild; $n !== null; $n=$n->nextSibling) {
 			if (is_a($n, 'DOMElement')) {
-				$this->handleChildElement($n, $submission, $stageId, $submissionFiles);
+				$this->handleChildElement($n, $stageId, $submissionFiles);
 			}
 		}
 		return $submissionFiles;
@@ -80,11 +80,10 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 	 * Handle a child node of the submission file element; add new files, if
 	 * any, to $submissionFiles
 	 * @param $node DOMElement
-	 * @param $submission Submission
 	 * @param $stageId int SUBMISSION_FILE_...
 	 * @param $submissionFiles array
 	 */
-	function handleChildElement($node, $submission, $stageId, &$submissionFiles) {
+	function handleChildElement($node, $stageId, &$submissionFiles) {
 		switch ($node->tagName) {
 			case 'revision':
 				$submissionFiles[] = $this->handleRevisionElement($node, $stageId);
@@ -127,13 +126,16 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 		$submissionFile->setSubmissionId($submission->getId());
 		$submissionFile->setGenreId($genre->getId());
 		$submissionFile->setFileStage($stageId);
+		$submissionFile->setDateUploaded(Core::getCurrentDate());
+		$submissionFile->setDateModified(Core::getCurrentDate());
 
 		for ($n = $node->firstChild; $n !== null; $n=$n->nextSibling) {
 			if (is_a($n, 'DOMElement')) {
-				$this->handleRevisionChildElement($n, $submission, $submissionFile);
+				$filename = $this->handleRevisionChildElement($n, $submission, $submissionFile);
 			}
 		}
-		$submissionFileDao->insertObject($submissionFile);
+
+		$submissionFileDao->insertObject($submissionFile, $filename, false);
 		return $submissionFile;
 	}
 
@@ -142,6 +144,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 	 * @param $node DOMElement
 	 * @param $submission Submission
 	 * @param $submissionFile SubmissionFile
+	 * @return string Filename for new file
 	 */
 	function handleRevisionChildElement($node, $submission, $submissionFile) {
 		switch ($node->tagName) {
@@ -155,7 +158,16 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 				fatalError('UNIMPLEMENTED');
 				break;
 			case 'embed':
-				fatalError('UNIMPLEMENTED');
+				if (($e = $node->getAttribute('encoding')) != 'base64') {
+					fatalError('Unknown encoding "' . $e . '"!');
+				}
+				$submissionFile->setFileType($node->getAttribute('mime_type'));
+				$submissionFile->setOriginalFileName($filename = $node->getAttribute('filename'));
+
+				$temporaryFileManager = new TemporaryFileManager();
+				$temporaryFilename = tempnam($temporaryFileManager->getBasePath(), 'embed');
+				file_put_contents($temporaryFilename, base64_decode($node->textContent));
+				return $temporaryFilename;
 				break;
 		}
 	}

@@ -35,9 +35,9 @@ class SubmissionArtworkFileDAODelegate extends SubmissionFileDAODelegate {
 	 * @param $artworkFile ArtworkFile
 	 * @return ArtworkFile
 	 */
-	function &insertObject(&$artworkFile, $sourceFile, $isUpload = false) {
+	function &insertObject($artworkFile, $sourceFile, $isUpload = false) {
 		// First insert the data for the super-class.
-		$artworkFile =& parent::insertObject($artworkFile, $sourceFile, $isUpload);
+		$artworkFile = parent::insertObject($artworkFile, $sourceFile, $isUpload);
 		if (is_null($artworkFile)) return $artworkFile;
 
 		// Now insert the artwork-specific data.

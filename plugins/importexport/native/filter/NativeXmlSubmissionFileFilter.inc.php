@@ -129,6 +129,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 		$submissionFile->setDateUploaded(Core::getCurrentDate());
 		$submissionFile->setDateModified(Core::getCurrentDate());
 
+		$submissionFile->setOriginalFileName($filename = $node->getAttribute('filename'));
 		for ($n = $node->firstChild; $n !== null; $n=$n->nextSibling) {
 			if (is_a($n, 'DOMElement')) {
 				$filename = $this->handleRevisionChildElement($n, $submission, $submissionFile);
@@ -155,15 +156,15 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 				fatalError('UNIMPLEMENTED');
 				break;
 			case 'href':
-				fatalError('UNIMPLEMENTED');
+				$submissionFile->setFileType($node->getAttribute('mime_type'));
+				// Allow wrappers to handle URLs
+				return $node->getAttribute('src');
 				break;
 			case 'embed':
+				$submissionFile->setFileType($node->getAttribute('mime_type'));
 				if (($e = $node->getAttribute('encoding')) != 'base64') {
 					fatalError('Unknown encoding "' . $e . '"!');
 				}
-				$submissionFile->setFileType($node->getAttribute('mime_type'));
-				$submissionFile->setOriginalFileName($filename = $node->getAttribute('filename'));
-
 				$temporaryFileManager = new TemporaryFileManager();
 				$temporaryFilename = tempnam($temporaryFileManager->getBasePath(), 'embed');
 				file_put_contents($temporaryFilename, base64_decode($node->textContent));

@@ -8,7 +8,7 @@
  *}
 
 <!-- Author and editor submissions grid -->
-{if array_intersect(array(ROLE_ID_AUTHOR, ROLE_ID_MANAGER, ROLE_ID_GUEST_EDITOR), $userRoles)}
+{if array_intersect(array(ROLE_ID_AUTHOR, ROLE_ID_MANAGER, ROLE_ID_GUEST_EDITOR, ROLE_ID_SUB_EDITOR), $userRoles)}
 	{url|assign:mySubmissionsListGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.submissions.mySubmissions.MySubmissionsListGridHandler" op="fetchGrid" escape=false}
 	{load_url_in_div id="mySubmissionsListGridContainer" url=$mySubmissionsListGridUrl}
 {/if}
@@ -20,7 +20,7 @@
 {/if}
 
 <!-- Assigned submissions grid: Show all submissions the user is assigned to (besides their own) -->
-{if array_intersect(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_GUEST_EDITOR, ROLE_ID_REVIEWER, ROLE_ID_ASSISTANT), $userRoles)}
+{if array_intersect(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_GUEST_EDITOR, ROLE_ID_REVIEWER, ROLE_ID_ASSISTANT, ROLE_ID_SUB_EDITOR), $userRoles)}
 	{url|assign:assignedSubmissionsListGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.submissions.assignedSubmissions.AssignedSubmissionsListGridHandler" op="fetchGrid" escape=false}
 	{load_url_in_div id="assignedSubmissionsListGridContainer" url=$assignedSubmissionsListGridUrl}
 {/if}

@@ -49,15 +49,10 @@ class PKPAuthorNativeXmlFilter extends NativeExportFilter {
 		$doc = new DOMDocument('1.0');
 		$deployment = $this->getDeployment();
 
-		if (count($authors)==1) {
-			// Only one submission specified; create root node
-			$rootNode = $this->createPKPAuthorNode($doc, $authors[0]);
-		} else {
-			// Multiple authors; wrap in a <authors> element
-			$rootNode = $doc->createElementNS($deployment->getNamespace(), 'authors');
-			foreach ($authors as $author) {
-				$rootNode->appendChild($this->createPKPAuthorNode($doc, $author));
-			}
+		// Multiple authors; wrap in a <authors> element
+		$rootNode = $doc->createElementNS($deployment->getNamespace(), 'authors');
+		foreach ($authors as $author) {
+			$rootNode->appendChild($this->createPKPAuthorNode($doc, $author));
 		}
 		$doc->appendChild($rootNode);
 		$rootNode->setAttributeNS('http://www.w3.org/2000/xmlns/', 'xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance');

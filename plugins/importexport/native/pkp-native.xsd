@@ -208,7 +208,7 @@
 	<element name="authors">
 		<complexType>
 			<sequence>
-				<element name="author" type="pkp:author" maxOccurs="unbounded" />
+				<element name="author" type="pkp:author" minOccurs="1" maxOccurs="unbounded" />
 			</sequence>
 		</complexType>
 	</element>
@@ -244,7 +244,7 @@
 				<element name="type" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
 				<element name="source" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
 				<element name="rights" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
-				<element ref="pkp:author" minOccurs="1" maxOccurs="unbounded" />
+				<element ref="pkp:authors" minOccurs="1" maxOccurs="1" />
 				<element ref="pkp:submission_file" minOccurs="0" maxOccurs="unbounded" />
 				<element ref="pkp:representation" minOccurs="0" maxOccurs="unbounded" />
 			</sequence>

@@ -43,9 +43,7 @@ class EditorAction extends PKPAction {
 		// Define the stage and round data.
 		if (!is_null($reviewRound)) {
 			$stageId = $reviewRound->getStageId();
-			$round = $reviewRound->getRound();
 		} else {
-			$round = REVIEW_ROUND_NONE;
 			if ($stageId == null) {
 				// We consider that the decision is being made for the current
 				// submission stage.
@@ -73,7 +71,7 @@ class EditorAction extends PKPAction {
 		if (!HookRegistry::call('EditorAction::recordDecision', array(&$submission, &$editorDecision, &$result))) {
 			// Record the new decision
 			$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO');
-			$editDecisionDao->updateEditorDecision($submission->getId(), $editorDecision, $stageId, $round);
+			$editDecisionDao->updateEditorDecision($submission->getId(), $editorDecision, $stageId, $reviewRound);
 
 			// Stamp the submission modified
 			$submission->setStatus(STATUS_QUEUED);

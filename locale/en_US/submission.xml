@@ -597,6 +597,7 @@
 	<message key="submission.art">Artwork</message>
 	<message key="grid.action.itemWorkflow">Go to this submission's workflow</message>
 	<message key="editor.review.personalMessageFromEditor">Message from the editor</message>
+	<message key="submission.previousAuthorMessages">Previous Messages</message>
 	<message key="notification.type.editorDecisionSendToProduction">Production process started.</message>
 	<message key="notification.type.editorAssignmentProduction">A production editor must be assigned before production process can be initiated. Please add production editor via the Participants link above.</message>
 	<message key="notification.type.editorAssignmentEditing">A production editor must be assigned before editorial process is initiated. Please add production editor using Participants link above.</message>

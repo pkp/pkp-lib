@@ -92,7 +92,7 @@ class PluginSettingsDAO extends DAO {
 
 		$contextColumn = Application::getPluginSettingsContextColumnName();
 		$result = $this->retrieve(
-			'SELECT setting_name, setting_value, setting_type FROM plugin_settings WHERE plugin_name = ? AND ? = ?', array($contextColumn, $pluginName, (int) $contextId)
+			'SELECT setting_name, setting_value, setting_type FROM plugin_settings WHERE plugin_name = ? AND ' . $contextColumn . ' = ?', array($pluginName, (int) $contextId)
 		);
 
 		$pluginSettings = array();

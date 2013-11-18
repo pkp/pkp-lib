@@ -469,55 +469,19 @@ class SubmissionFile extends PKPFile {
 	 * @return string
 	 */
 	function _generateFileName() {
-		// Remember the ID information we generated the file name
-		// on so that we only have to re-generate the name if the
-		// relevant information changed.
-		static $lastIds = array();
-		static $fileName = null;
+		// Generate a human readable time stamp.
+		$timestamp = date('Ymd', strtotime($this->getDateUploaded()));
 
-		// Retrieve the current id information.
-		$currentIds = array(
-				'genreId' => $this->getGenreId(),
-				'dateUploaded' => $this->getDateUploaded(),
-				'submissionId' => $this->getSubmissionId(),
-				'fileId' => $this->getFileId(),
-				'revision' => $this->getRevision(),
-				'fileStage' => $this->getFileStage(),
-				'extension' => strtolower_codesafe($this->getExtension())
-		);
-
-		// Check whether we need a refresh.
-		$refreshRequired = false;
-		foreach($currentIds as $key => $currentId) {
-			if (!isset($lastIds[$key]) || $lastIds[$key] !== $currentId) {
-				$refreshRequired = true;
-				$lastIds = $currentIds;
-				break;
-			}
-		}
-
-		// Refresh the file name if required.
-		if ($refreshRequired) {
-			// If the file has a file genre set then include
-			// human readable genre information.
-			$genreName = '';
-			if ($currentIds['genreId']) {
-				$primaryLocale = AppLocale::getPrimaryLocale();
-				$genreDao = DAORegistry::getDAO('GenreDAO'); /* @var $genreDao GenreDAO */
-				$genre =& $genreDao->getById($currentIds['genreId']);
-				assert(is_a($genre, 'Genre'));
-				$genreName = $genre->getDesignation().'_'.$genre->getName($primaryLocale).'-';
-			}
-
-			// Generate a human readable time stamp.
-			$timestamp = date('Ymd', strtotime($currentIds['dateUploaded']));
-
-			// Make the file name unique across all files and file revisions.
-			// Also make sure that files can be ordered sensibly by file name.
-			$fileName = $currentIds['submissionId'].'-'.$genreName.$currentIds['fileId'].'-'.$currentIds['revision'].'-'.$currentIds['fileStage'].'-'.$timestamp.'.'.$currentIds['extension'];
-		}
-
-		return $fileName;
+		// Make the file name unique across all files and file revisions.
+		// Also make sure that files can be ordered sensibly by file name.
+		return	$this->getSubmissionId() . '-'.
+			$this->getGenreId() . '-' .
+			$this->getFileId() . '-' .
+			$this->getRevision() . '-' .
+			$this->getFileStage() . '-' .
+			$timestamp .
+			'.' .
+			strtolower_codesafe($this->getExtension());
 	}
 
 	/**
@@ -527,6 +491,7 @@ class SubmissionFile extends PKPFile {
 	 */
 	function _fileStageToPath($fileStage) {
 		static $fileStageToPath = array(
+				0 => '', // Temporary files do not use stages
 				SUBMISSION_FILE_PUBLIC => 'public',
 				SUBMISSION_FILE_SUBMISSION => 'submission',
 				SUBMISSION_FILE_NOTE => 'note',
@@ -561,7 +526,6 @@ class SubmissionFile extends PKPFile {
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 		return $submissionFileDao->isInlineable($this);
 	}
-
 }
 
 ?>

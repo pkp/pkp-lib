@@ -64,7 +64,7 @@ class XMLTypeDescription extends TypeDescription {
 	// Implement abstract template methods from TypeDescription
 	//
 	/**
-	 * @see TypeDescription::parseTypeName()
+	 * @copydoc TypeDescription::parseTypeName()
 	 */
 	function parseTypeName($typeName) {
 		// We expect a validation strategy and an optional validation argument
@@ -97,7 +97,7 @@ class XMLTypeDescription extends TypeDescription {
 	}
 
 	/**
-	 * @see TypeDescription::checkType()
+	 * @copydoc TypeDescription::checkType()
 	 */
 	function checkType(&$object) {
 		// We only accept DOMDocument objects and source strings.

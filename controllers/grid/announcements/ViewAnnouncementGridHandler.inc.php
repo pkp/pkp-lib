@@ -25,6 +25,7 @@ class ViewAnnouncementGridHandler extends AnnouncementGridHandler {
 
 	/**
 	 * @copydoc AnnouncementGridHandler::initialize()
+	 * @param $request PKPRequest
 	 */
 	function initialize($request) {
 		parent::initialize($request);

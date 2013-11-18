@@ -59,6 +59,7 @@ class VersionCheck {
 
 	/**
 	 * Parse information from a version XML file.
+	 * @param $url string
 	 * @return array
 	 */
 	function &parseVersionXML($url) {

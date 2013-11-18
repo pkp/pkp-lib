@@ -199,7 +199,7 @@ class Version extends DataObject {
 
 	/**
 	 * Set product type.
-	 * @param $product string
+	 * @param $productType string
 	 */
 	function setProductType($productType) {
 		return $this->setData('productType', $productType);
@@ -271,7 +271,7 @@ class Version extends DataObject {
 
 	/**
 	 * Return complete version string.
-	 * @numeric True (default) iff a numeric (comparable) version is to be returned.
+	 * @numeric boolean True (default) iff a numeric (comparable) version is to be returned.
 	 * @return string
 	 */
 	function getVersionString($numeric = true) {

@@ -165,6 +165,9 @@ class VirtualArrayIterator extends ItemIterator {
 	 * array_slice, but we can't assume everyone has that.
 	 * FIXME: Reconcile this against the dupe in ArrayItemIterator.
 	 * @see http://ca3.php.net/manual/en/function.array-slice.php
+	 * @param $array Array
+	 * @param $offset int
+	 * @param $len int
 	 */
 	function array_slice_key($array, $offset, $len=-1) {
 		if (!is_array($array)) return false;

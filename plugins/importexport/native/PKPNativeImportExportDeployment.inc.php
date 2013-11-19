@@ -16,25 +16,16 @@
  * application's specifics.
  */
 
-class PKPNativeImportExportDeployment {
-	/** @var Context The current import/export context */
-	var $_context;
+import('lib.pkp.classes.plugins.importexport.PKPImportExportDeployment');
 
-	/** @var User The current import/export user */
-	var $_user;
-
-	/** @var Submission The current import/export submission */
-	var $_submission;
-
+class PKPNativeImportExportDeployment extends PKPImportExportDeployment {
 	/**
 	 * Constructor
 	 * @param $context Context
 	 * @param $user User
 	 */
 	function PKPNativeImportExportDeployment($context, $user) {
-		$this->setContext($context);
-		$this->setUser($user);
-		$this->setSubmission(null);
+		parent::PKPImportExportDeployment($context, $user);
 	}
 
 	//
@@ -54,13 +45,6 @@ class PKPNativeImportExportDeployment {
 	 */
 	function getSubmissionsNodeName() {
 		return 'submissions';
-	}
-
-	/**
-	 * Get the representation node name
-	 */
-	function getRepresentationNodeName() {
-		assert(false);
 	}
 
 	/**
@@ -102,58 +86,6 @@ class PKPNativeImportExportDeployment {
 			'review_revision' => SUBMISSION_FILE_REVIEW_REVISION,
 			'dependent' => SUBMISSION_FILE_DEPENDENT,
 		);
-	}
-
-
-	//
-	// Getter/setters
-	//
-	/**
-	 * Set the import/export context.
-	 * @param $context Context
-	 */
-	function setContext($context) {
-		$this->_context = $context;
-	}
-
-	/**
-	 * Get the import/export context.
-	 * @return Context
-	 */
-	function getContext() {
-		return $this->_context;
-	}
-
-	/**
-	 * Set the import/export submission.
-	 * @param $submission Submission
-	 */
-	function setSubmission($submission) {
-		$this->_submission = $submission;
-	}
-
-	/**
-	 * Get the import/export submission.
-	 * @return Submission
-	 */
-	function getSubmission() {
-		return $this->_submission;
-	}
-
-	/**
-	 * Set the import/export user.
-	 * @param $user User
-	 */
-	function setUser($user) {
-		$this->_user = $user;
-	}
-
-	/**
-	 * Get the import/export user.
-	 * @return User
-	 */
-	function getUser() {
-		return $this->_user;
 	}
 }
 

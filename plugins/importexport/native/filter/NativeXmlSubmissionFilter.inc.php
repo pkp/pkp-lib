@@ -72,6 +72,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 		$submission->setContextId($context->getId());
 		$submission->setUserId($user->getId());
 		$submission->setStatus(STATUS_QUEUED);
+		$submission->setLocale($node->getAttribute('locale'));
 		$submission->setSubmissionProgress(0);
 		$submissionDao->insertObject($submission);
 		$deployment->setSubmission($submission);
@@ -92,6 +93,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 				$this->handleChildElement($n, $submission);
 			}
 		}
+		$submissionDao->updateObject($submission); // Persist setters
 		return $submission;
 	}
 

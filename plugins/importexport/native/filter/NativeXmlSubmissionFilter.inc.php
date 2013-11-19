@@ -112,8 +112,8 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 			case 'id':
 				$this->parseIdentifier($n, $submission);
 				break;
-			case 'author':
-				$this->parseAuthor($n, $submission);
+			case 'authors':
+				$this->parseAuthors($n, $submission);
 				break;
 			case 'submission_file':
 				$this->parseSubmissionFile($n, $submission);
@@ -142,6 +142,20 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 				break;
 			default:
 				$submission->setStoredPubId($element->getAttribute('type'), $element->textContent);
+		}
+	}
+
+	/**
+	 * Parse an authors element
+	 * @param $node DOMElement
+	 * @param $submission Submission
+	 */
+	function parseAuthors($node, $submission) {
+		for ($n = $node->firstChild; $n !== null; $n=$n->nextSibling) {
+			if (is_a($n, 'DOMElement')) {
+				assert($n->tagName == 'author');
+				$this->parseAuthor($n, $submission);
+			}
 		}
 	}
 

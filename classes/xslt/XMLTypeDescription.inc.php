@@ -118,15 +118,15 @@ class XMLTypeDescription extends TypeDescription {
 			// We have to suppress validation errors, otherwise the script
 			// will stop when validation errors occur.
 			case XML_TYPE_DESCRIPTION_VALIDATE_DTD:
-				if (!@$xmlDom->validate()) return false;
+				if (!$xmlDom->validate()) return false;
 				break;
 
 			case XML_TYPE_DESCRIPTION_VALIDATE_SCHEMA:
-				if (!@$xmlDom->schemaValidate($this->_validationSource)) return false;
+				if (!$xmlDom->schemaValidate($this->_validationSource)) return false;
 				break;
 
 			case XML_TYPE_DESCRIPTION_VALIDATE_RELAX_NG:
-				if (!@$xmlDom->relaxNGValidate($this->_validationSource)) return false;
+				if (!$xmlDom->relaxNGValidate($this->_validationSource)) return false;
 				break;
 
 			default:

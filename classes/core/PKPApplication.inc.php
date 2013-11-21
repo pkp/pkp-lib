@@ -14,6 +14,7 @@
  */
 
 define_exposed('REALLY_BIG_NUMBER', 10000);
+define_exposed('UPLOAD_MAX_FILESIZE', ini_get('upload_max_filesize'));
 
 define('ROUTE_COMPONENT', 'component');
 define('ROUTE_PAGE', 'page');

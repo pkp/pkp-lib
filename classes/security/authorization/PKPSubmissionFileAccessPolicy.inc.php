@@ -22,7 +22,6 @@ define('SUBMISSION_FILE_ACCESS_MODIFY', 2);
 class PKPSubmissionFileAccessPolicy extends ContextPolicy {
 
 	/** var $_baseFileAccessPolicy the base file file policy before _SUB_EDITOR is considered */
-
 	var $_baseFileAccessPolicy;
 
 	/**

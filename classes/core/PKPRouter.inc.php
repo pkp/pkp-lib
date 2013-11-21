@@ -356,10 +356,15 @@ class PKPRouter {
 	 *  validation step.
 	 */
 	function _authorizeInitializeAndCallRequest(&$serviceEndpoint, $request, &$args, $validate = true) {
-		assert(is_callable($serviceEndpoint));
+		$dispatcher = $this->getDispatcher();
+
+		// It's conceivable that a call has gotten this far without
+		// actually being callable, e.g. a component has been named
+		// that does not exist and that no plugin has registered.
+		if (!is_callable($serviceEndpoint)) $dispatcher->handle404();
 
 		// Pass the dispatcher to the handler.
-		$serviceEndpoint[0]->setDispatcher($this->getDispatcher());
+		$serviceEndpoint[0]->setDispatcher($dispatcher);
 
 		// Authorize the request.
 		$roleAssignments = $serviceEndpoint[0]->getRoleAssignments();

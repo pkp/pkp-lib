@@ -90,9 +90,12 @@ class PKPComponentRouter extends PKPRouter {
 	 * @return boolean true, if the router supports this request, otherwise false
 	 */
 	function supports($request) {
-		// See whether we can resolve the request to
-		// a valid service endpoint.
-		return is_callable($this->getRpcServiceEndpoint($request));
+		// See whether this looks like a component router request.
+		// NOTE: this is prone to false positives i.e. when a class
+		// name cannot be matched, but this laxity permits plugins to
+		// extend the system by registering against the
+		// LoadComponentHandler hook.
+		return $this->_retrieveServiceEndpointParts($request) !== null;
 	}
 
 	/**
@@ -181,6 +184,10 @@ class PKPComponentRouter extends PKPRouter {
 			//
 			// Retrieve requested component handler
 			$component = $this->getRequestedComponent($request);
+
+			// Give plugins a chance to intervene
+			HookRegistry::call('LoadComponentHandler', array(&$component));
+
 			if (empty($component)) return $nullVar;
 
 			// Construct the component handler file name and test its existence.

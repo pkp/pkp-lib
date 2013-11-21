@@ -502,6 +502,7 @@
 	<message key="notification.type.pendingRevisions">You have revisions to consider in {$stage}.</message>
 	<message key="notification.type.pendingRevisions.title">Revisions submitted to {$stage}.</message>
 	<message key="notification.signedFile">File considered.</message>
+	<message key="user.authorization.submissionFile">The current user is not authorized to access the specified submission file.</message>
 	<message key="user.authorization.invalidSubmission">Invalid submission.</message>
 	<message key="navigation.archives">Archives</message>
 	<message key="user.authorization.authorRoleMissing">You do not currently have sufficient privileges to view the submission. Please edit your profile to ensure that you have been granted the appropriate roles under "Register As".</message>

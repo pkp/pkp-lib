@@ -71,6 +71,7 @@ class AuthorSignoffFilesGridDataProvider extends SubmissionFilesGridDataProvider
 		$signoffs = $submissionFileSignoffDao->getAllBySubmission($submission->getId(), $this->getSymbolic(), $this->getUserId());
 
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
+		$preparedData = array();
 		while ($signoff = $signoffs->next()) {
 			$submissionFile = $submissionFileDao->getLatestRevision($signoff->getAssocId(), null, $submission->getId());
 			$preparedData[$signoff->getId()]['signoff'] = $signoff;

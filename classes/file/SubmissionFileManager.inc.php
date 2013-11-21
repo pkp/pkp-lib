@@ -66,7 +66,7 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 	 * @return boolean returns true if successful
 	 */
 	function deleteFile($fileId, $revision = null) {
-		$submissionFile =& $this->_getFile($fileId, $revision);
+		$submissionFile = $this->_getFile($fileId, $revision);
 		if (isset($submissionFile)) {
 			return parent::deleteFile($submissionFile->getfilePath());
 		} else {
@@ -78,12 +78,13 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 	 * Download a file.
 	 * @param $fileId int the file id of the file to download
 	 * @param $revision int the revision of the file to download
-	 * @param $inline print file as inline instead of attachment, optional
+	 * @param $inline boolean print file as inline instead of attachment, optional
+	 * @param $filename string The client-side download filename (optional)
 	 * @return boolean
 	 */
-	function downloadFile($fileId, $revision = null, $inline = false) {
+	function downloadFile($fileId, $revision = null, $inline = false, $filename = null) {
 		$returner = false;
-		$submissionFile =& $this->_getFile($fileId, $revision);
+		$submissionFile = $this->_getFile($fileId, $revision);
 		if (isset($submissionFile)) {
 			// Make sure that the file belongs to the submission.
 			if ($submissionFile->getSubmissionId() != $this->getSubmissionId()) fatalError('Invalid file id!');
@@ -93,7 +94,7 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 			// Send the file to the user.
 			$filePath = $submissionFile->getFilePath();
 			$mediaType = $submissionFile->getFileType();
-			$returner = parent::downloadFile($filePath, $mediaType, $inline);
+			$returner = parent::downloadFile($filePath, $mediaType, $inline, $filename);
 		}
 
 		return $returner;
@@ -159,11 +160,11 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 		if (HookRegistry::call('SubmissionFileManager::copyFileToFileStage', array(&$sourceFileId, &$sourceRevision, &$newFileStage, &$destFileId, &$result))) return $result;
 
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-		$sourceFile =& $submissionFileDao->getRevision($sourceFileId, $sourceRevision); /* @var $sourceFile SubmissionFile */
+		$sourceFile = $submissionFileDao->getRevision($sourceFileId, $sourceRevision); /* @var $sourceFile SubmissionFile */
 		if (!$sourceFile) return false;
 
 		// Rename the variable just so that we don't get confused.
-		$destFile =& $sourceFile;
+		$destFile = $sourceFile;
 
 		// Find out where the source file lives.
 		$sourcePath = $sourceFile->getFilePath();
@@ -194,7 +195,7 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 		$this->copyFile($sourcePath, $destPath);
 
 		// Now insert the row into the DB and get the inserted file id.
-		$insertedFile =& $submissionFileDao->insertObject($destFile, $destPath);
+		$insertedFile = $submissionFileDao->insertObject($destFile, $destPath);
 
 		return array($insertedFile->getFileId(), $insertedFile->getRevision());
 	}
@@ -358,14 +359,13 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 	 * @param $revision integer
 	 * @return SubmissionFile
 	 */
-	function &_getFile($fileId, $revision = null) {
+	function _getFile($fileId, $revision = null) {
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 		if ($revision) {
-			$submissionFile =& $submissionFileDao->getRevision($fileId, $revision);
+			return $submissionFileDao->getRevision($fileId, $revision);
 		} else {
-			$submissionFile =& $submissionFileDao->getLatestRevision($fileId);
+			return $submissionFileDao->getLatestRevision($fileId);
 		}
-		return $submissionFile;
 	}
 }
 

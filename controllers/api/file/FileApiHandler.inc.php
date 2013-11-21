@@ -65,7 +65,8 @@ class FileApiHandler extends Handler {
 			import('lib.pkp.classes.security.authorization.PkpContextAccessPolicy');
 			$this->addPolicy(new PkpContextAccessPolicy($request, $roleAssignments));
 		} else {
-			fatalError('IDs not specified.');
+			// IDs will be specified using the default parameters.
+			$this->addPolicy($this->_getAccessPolicy($request, $args, $roleAssignments));
 		}
 
 		return parent::authorize($request, $args, $roleAssignments);
@@ -84,7 +85,7 @@ class FileApiHandler extends Handler {
 		assert($submissionFile); // Should have been validated already
 		$context = $request->getContext();
 		$fileManager = $this->_getFileManager($context->getId(), $submissionFile->getSubmissionId());
-		$fileManager->downloadFile($submissionFile->getFileId(), $submissionFile->getRevision());
+		$fileManager->downloadFile($submissionFile->getFileId(), $submissionFile->getRevision(), false, $submissionFile->getClientFileName());
 	}
 
 	/**
@@ -158,7 +159,7 @@ class FileApiHandler extends Handler {
 		$filesDir = $fileManager->getBasePath();
 		foreach ($submissionFiles as $submissionFile) {
 			// Remove absolute path so the archive doesn't include it (otherwise all files are organized by absolute path)
-			$filePaths[] = str_replace($filesDir, '', $submissionFile->getFilePath());
+			$filePaths[str_replace($filesDir, '', $submissionFile->getFilePath())] = $submissionFile->getClientFileName();
 
 		}
 

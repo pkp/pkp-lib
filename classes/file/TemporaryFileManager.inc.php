@@ -52,7 +52,7 @@ class TemporaryFileManager extends PrivateFileManager {
 		$temporaryFile =& $this->getFile($fileId, $userId);
 
 		if (isset($temporaryFile)) {
-			$filePath = $this->getBasePath() . $temporaryFile->getFileName();
+			$filePath = $this->getBasePath() . $temporaryFile->getServerFileName();
 			return parent::readFile($filePath, $output);
 		} else {
 			return false;
@@ -66,7 +66,7 @@ class TemporaryFileManager extends PrivateFileManager {
 	function deleteFile($fileId, $userId) {
 		$temporaryFile =& $this->getFile($fileId, $userId);
 
-		parent::deleteFile($this->getBasePath() . $temporaryFile->getFileName());
+		parent::deleteFile($this->getBasePath() . $temporaryFile->getServerFileName());
 
 		$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO');
 		$temporaryFileDao->deleteTemporaryFileById($fileId, $userId);
@@ -81,7 +81,7 @@ class TemporaryFileManager extends PrivateFileManager {
 	function downloadFile($fileId, $userId, $inline = false) {
 		$temporaryFile =& $this->getFile($fileId, $userId);
 		if (isset($temporaryFile)) {
-			$filePath = $this->getBasePath() . $temporaryFile->getFileName();
+			$filePath = $this->getBasePath() . $temporaryFile->getServerFileName();
 			return parent::downloadFile($filePath, null, $inline);
 		} else {
 			return false;
@@ -111,7 +111,7 @@ class TemporaryFileManager extends PrivateFileManager {
 			$temporaryFile = $temporaryFileDao->newDataObject();
 
 			$temporaryFile->setUserId($userId);
-			$temporaryFile->setFileName($newFileName);
+			$temporaryFile->setServerFileName($newFileName);
 			$temporaryFile->setFileType(String::mime_content_type($this->getBasePath() . $newFileName));
 			$temporaryFile->setFileSize($_FILES[$fileName]['size']);
 			$temporaryFile->setOriginalFileName($this->truncateFileName($_FILES[$fileName]['name'], 127));
@@ -134,7 +134,7 @@ class TemporaryFileManager extends PrivateFileManager {
 	 */
 	function submissionToTemporaryFile($submissionFile, $userId) {
 		// Get the file extension, then rename the file.
-		$fileExtension = $this->parseFileExtension($submissionFile->getFileName());
+		$fileExtension = $this->parseFileExtension($submissionFile->getServerFileName());
 
 		if (!$this->fileExists($this->filesDir, 'dir')) {
 			// Try to create destination directory
@@ -149,7 +149,7 @@ class TemporaryFileManager extends PrivateFileManager {
 			$temporaryFile = $temporaryFileDao->newDataObject();
 
 			$temporaryFile->setUserId($userId);
-			$temporaryFile->setFileName($newFileName);
+			$temporaryFile->setServerFileName($newFileName);
 			$temporaryFile->setFileType($submissionFile->getFileType());
 			$temporaryFile->setFileSize($submissionFile->getFileSize());
 			$temporaryFile->setOriginalFileName($submissionFile->getOriginalFileName());

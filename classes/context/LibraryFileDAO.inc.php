@@ -124,7 +124,7 @@ class LibraryFileDAO extends DAO {
 
 		$libraryFile->setId($row['file_id']);
 		$libraryFile->setContextId($row['context_id']);
-		$libraryFile->setFileName($row['file_name']);
+		$libraryFile->setServerFileName($row['file_name']);
 		$libraryFile->setOriginalFileName($row['original_file_name']);
 		$libraryFile->setFileType($row['file_type']);
 		$libraryFile->setFileSize($row['file_size']);
@@ -147,7 +147,7 @@ class LibraryFileDAO extends DAO {
 	function insertObject($libraryFile) {
 		$params = array(
 			(int) $libraryFile->getContextId(),
-			$libraryFile->getFileName(),
+			$libraryFile->getServerFileName(),
 			$libraryFile->getOriginalFileName(),
 			$libraryFile->getFileType(),
 			(int) $libraryFile->getFileSize(),
@@ -194,7 +194,7 @@ class LibraryFileDAO extends DAO {
 				$this->datetimeToDB($libraryFile->getDateUploaded())
 			), array(
 				(int) $libraryFile->getContextId(),
-				$libraryFile->getFileName(),
+				$libraryFile->getServerFileName(),
 				$libraryFile->getOriginalFileName(),
 				$libraryFile->getFileType(),
 				(int) $libraryFile->getFileSize(),

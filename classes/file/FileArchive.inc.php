@@ -21,7 +21,8 @@ class FileArchive {
 	 * Assembles an array of filenames into either a tar.gz or a .zip
 	 * file, based on what is available.  Returns a string representing
 	 * the path to the archive on disk.
-	 * @param array $files the files to add.
+	 * @param array $files the files to add, in an associative array of the
+	 *  format ('serverPath' => 'clientFilename')
 	 * @param string $filesDir a path to the files on disk.
 	 * @return string the path to the archive.
 	 */
@@ -36,8 +37,8 @@ class FileArchive {
 			$zipTest = true;
 			$zip = new ZipArchive();
 			if ($zip->open($archivePath, ZIPARCHIVE::CREATE) == true) {
-				foreach ($files as $file) {
-					$zip->addFile($filesDir . '/' . $file, basename($file));
+				foreach ($files as $serverPath => $clientFilename) {
+					$zip->addFile($filesDir . '/' . $serverPath, $clientFilename);
 				}
 				$zip->close();
 			}
@@ -46,7 +47,7 @@ class FileArchive {
 			exec(Config::getVar('cli', 'tar') . ' -c -z ' .
 					'-f ' . escapeshellarg($archivePath) . ' ' .
 					'-C ' . escapeshellarg($filesDir) . ' ' .
-					implode(' ', array_map('escapeshellarg', $files))
+					implode(' ', array_map('escapeshellarg', array_keys($files)))
 			);
 		}
 

@@ -44,9 +44,9 @@ class PKPLibraryFileManager extends PrivateFileManager {
 	 */
 	function deleteFile($fileId) {
 		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO');
-		$libraryFile =& $libraryFileDao->getById($fileId);
+		$libraryFile = $libraryFileDao->getById($fileId);
 
-		parent::deleteFile($this->getBasePath() . $libraryFile->getFileName());
+		parent::deleteFile($this->getBasePath() . $libraryFile->getServerFileName());
 
 		$libraryFileDao->deleteById($fileId);
 	}
@@ -97,7 +97,7 @@ class PKPLibraryFileManager extends PrivateFileManager {
 		$libraryFile->setDateModified($temporaryFile->getDateUploaded());
 		$libraryFile->setFileType($temporaryFile->getFileType());
 		$libraryFile->setFileSize($temporaryFile->getFileSize());
-		$libraryFile->setFileName($this->generateFileName($libraryFileType, $temporaryFile->getOriginalFileName()));
+		$libraryFile->setServerFileName($this->generateFileName($libraryFileType, $temporaryFile->getOriginalFileName()));
 		$libraryFile->setOriginalFileName($temporaryFile->getOriginalFileName());
 		if (!$this->copyFile($temporaryFile->getFilePath(), $this->getBasePath() . $temporaryFile->getOriginalFileName())) {
 			return false;

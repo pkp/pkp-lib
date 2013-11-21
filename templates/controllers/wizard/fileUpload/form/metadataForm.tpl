@@ -49,7 +49,7 @@
 	{fbvFormArea id="fileInfo" title="submission.submit.fileInformation" class="border"}
 
 		{fbvFormSection title="common.fileName" inline=true size=$fbvStyles.size.MEDIUM}
-			{$submissionFile->getFileName()|escape}
+			{$submissionFile->getClientFileName()|escape}
 		{/fbvFormSection}
 		{fbvFormSection title="common.fileType" inline=true size=$fbvStyles.size.MEDIUM}
 			{$submissionFile->getExtension()|escape}

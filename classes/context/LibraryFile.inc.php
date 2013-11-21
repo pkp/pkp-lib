@@ -36,7 +36,7 @@ class LibraryFile extends DataObject {
 	function getFilePath() {
 		$contextId = $this->getContextId();
 
-		return Config::getVar('files', 'public_files_dir') . '/contexts/' . $contextId . '/library/' . $this->getFileName();
+		return Config::getVar('files', 'public_files_dir') . '/contexts/' . $contextId . '/library/' . $this->getServerFileName();
 	}
 
 	//
@@ -75,18 +75,18 @@ class LibraryFile extends DataObject {
 	}
 
 	/**
-	 * Get file name of the file.
+	 * Get server-side file name of the file.
 	 * @param return string
 	 */
-	function getFileName() {
+	function getServerFileName() {
 		return $this->getData('fileName');
 	}
 
 	/**
-	 * Set file name of the file.
+	 * Set server-side file name of the file.
 	 * @param $fileName string
 	 */
-	function setFileName($fileName) {
+	function setServerFileName($fileName) {
 		return $this->setData('fileName', $fileName);
 	}
 

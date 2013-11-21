@@ -721,7 +721,7 @@ class Submission extends DataObject {
 	}
 
 	/**
-	 * get file name
+	 * get cover page server-side file name
 	 * @param $locale string
 	 * @return string
 	 */
@@ -730,7 +730,7 @@ class Submission extends DataObject {
 	}
 
 	/**
-	 * set file name
+	 * set cover page server-side file name
 	 * @param $fileName string
 	 * @param $locale string
 	 */

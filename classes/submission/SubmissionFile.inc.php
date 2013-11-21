@@ -403,7 +403,7 @@ class SubmissionFile extends PKPFile {
 		// Construct the file path
 		import('lib.pkp.classes.file.SubmissionFileManager');
 		$submissionFileManager = new SubmissionFileManager($contextId, $this->getSubmissionId());
-		return $submissionFileManager->getBasePath() . $this->_fileStageToPath($this->getFileStage()) . '/' . $this->getFileName();
+		return $submissionFileManager->getBasePath() . $this->_fileStageToPath($this->getFileStage()) . '/' . $this->getServerFileName();
 	}
 
 	/**
@@ -438,15 +438,38 @@ class SubmissionFile extends PKPFile {
 		$this->setName($submissionFile->getName(null), null);
 	}
 
+	/**
+	 * Get the filename that should be sent to clients when downloading.
+	 * @return string
+	 */
+	function getClientFileName() {
+		// Generate a human readable time stamp.
+		$timestamp = date('Ymd', strtotime($this->getDateUploaded()));
+
+		$genreDao = DAORegistry::getDAO('GenreDAO');
+		$genre = $genreDao->getById($this->getGenreId());
+
+		// Make the file name unique across all files and file revisions.
+		// Also make sure that files can be ordered sensibly by file name.
+		return	$this->getSubmissionId() . '-'.
+			$genre->getDesignation() . '_' . $genre->getLocalizedName() . '-' .
+			$this->getFileId() . '-' .
+			$this->getRevision() . '-' .
+			$this->getFileStage() . '-' .
+			$timestamp .
+			'.' .
+			strtolower_codesafe($this->getExtension());
+	}
+
 	//
 	// Overridden public methods from PKPFile
 	//
 	/**
-	 * @see PKPFile::getFileName()
+	 * @see PKPFile::getServerFileName()
 	 * Generate the file name from identification data rather than
 	 * retrieving it from the database.
 	 */
-	function getFileName() {
+	function getServerFileName() {
 		return $this->_generateFileName();
 	}
 
@@ -455,8 +478,7 @@ class SubmissionFile extends PKPFile {
 	 * Do not allow setting the file name of a submission file
 	 * directly because it is generated from identification data.
 	 */
-	function setFileName($fileName) {
-		// FIXME: Remove this setter from PKPFile, too? See #6446.
+	function setServerFileName($fileName) {
 		assert(false);
 	}
 

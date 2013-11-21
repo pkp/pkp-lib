@@ -59,10 +59,10 @@ class TemporaryFileDAO extends DAO {
 	 * @param $row array
 	 * @return TemporaryFile
 	 */
-	function &_returnTemporaryFileFromRow($row) {
+	function _returnTemporaryFileFromRow($row) {
 		$temporaryFile = $this->newDataObject();
 		$temporaryFile->setId($row['file_id']);
-		$temporaryFile->setFileName($row['file_name']);
+		$temporaryFile->setServerFileName($row['file_name']);
 		$temporaryFile->setFileType($row['file_type']);
 		$temporaryFile->setFileSize($row['file_size']);
 		$temporaryFile->setUserId($row['user_id']);
@@ -88,7 +88,7 @@ class TemporaryFileDAO extends DAO {
 				$this->datetimeToDB($temporaryFile->getDateUploaded())),
 			array(
 				(int) $temporaryFile->getUserId(),
-				$temporaryFile->getFileName(),
+				$temporaryFile->getServerFileName(),
 				$temporaryFile->getFileType(),
 				(int) $temporaryFile->getFileSize(),
 				$temporaryFile->getOriginalFileName()
@@ -103,7 +103,7 @@ class TemporaryFileDAO extends DAO {
 	 * Update an existing temporary file.
 	 * @param $temporary TemporaryFile
 	 */
-	function updateObject(&$temporaryFile) {
+	function updateObject($temporaryFile) {
 		$this->update(
 			sprintf('UPDATE temporary_files
 				SET
@@ -116,7 +116,7 @@ class TemporaryFileDAO extends DAO {
 				WHERE file_id = ?',
 				$this->datetimeToDB($temporaryFile->getDateUploaded())),
 			array(
-				$temporaryFile->getFileName(),
+				$temporaryFile->getServerFileName(),
 				$temporaryFile->getFileType(),
 				(int) $temporaryFile->getFileSize(),
 				(int) $temporaryFile->getUserId(),

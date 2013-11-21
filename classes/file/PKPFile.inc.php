@@ -43,18 +43,18 @@ class PKPFile extends DataObject {
 	}
 
 	/**
-	 * Get file name of the file.
+	 * Get server-side file name of the file.
 	 * @param return string
 	 */
-	function getFileName() {
+	function getServerFileName() {
 		return $this->getData('fileName');
 	}
 
 	/**
-	 * Set file name of the file.
+	 * Set server-side file name of the file.
 	 * @param $fileName string
 	 */
-	function setFileName($fileName) {
+	function setServerFileName($fileName) {
 		return $this->setData('fileName', $fileName);
 	}
 

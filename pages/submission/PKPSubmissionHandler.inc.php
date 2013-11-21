@@ -247,7 +247,7 @@ class PKPSubmissionHandler extends Handler {
 		if (!$userGroupAssignments->wasEmpty()) {
 			while ($userGroupAssignment = $userGroupAssignments->next()) {
 				$userGroup = $userGroupDao->getById($userGroupAssignment->getUserGroupId());
-				if (in_array($userGroup->getRoleId(), array(ROLE_ID_EDITOR, ROLE_ID_MANAGER, ROLE_ID_SECTION_EDITOR, ROLE_ID_ASSISTANT))) {
+				if (in_array($userGroup->getRoleId(), array(ROLE_ID_EDITOR, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT))) {
 					return true;
 				}
 			}

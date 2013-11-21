@@ -52,6 +52,8 @@ class FileApiHandler extends Handler {
 
 		if (is_string($fileIds)) {
 			$fileIdsArray = explode(';', $fileIds);
+			// Remove empty entries (a trailing ";" will cause these)
+			$fileIdsArray = array_filter($fileIdsArray, create_function('$a', 'return !empty($a);'));
 		}
 		if (!empty($fileIdsArray)) {
 			$multipleSubmissionFileAccessPolicy = new PolicySet(COMBINING_DENY_OVERRIDES);

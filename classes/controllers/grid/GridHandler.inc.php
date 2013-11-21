@@ -235,7 +235,7 @@ class GridHandler extends PKPHandler {
 	 * @param $columnId
 	 * @return GridColumn
 	 */
-	function &getColumn($columnId) {
+	function getColumn($columnId) {
 		assert(isset($this->_columns[$columnId]));
 		return $this->_columns[$columnId];
 	}
@@ -288,7 +288,7 @@ class GridHandler extends PKPHandler {
 	 */
 	function addColumn($column) {
 		assert(is_a($column, 'GridColumn'));
-		$this->_columns[$column->getId()] =& $column;
+		$this->_columns[$column->getId()] = $column;
 	}
 
 	/**
@@ -1039,7 +1039,7 @@ class GridHandler extends PKPHandler {
 
 		// Otherwise, get the cell content.
 		// If row defines a cell provider, use it.
-		$cellProvider =& $row->getCellProvider();
+		$cellProvider = $row->getCellProvider();
 		if (!is_a($cellProvider, 'GridCellProvider')) {
 			// Remove reference to the row variable.
 			unset($cellProvider);
@@ -1074,7 +1074,7 @@ class GridHandler extends PKPHandler {
 				// We need to add width to columns that did not specify it.
 				foreach ($columns as $column) {
 					if (!$column->hasFlag('width')) {
-						$modifyColumn =& $this->getColumn($column->getId());
+						$modifyColumn = $this->getColumn($column->getId());
 						$modifyColumn->addFlag('width', round((100 - $width)/$noSpecifiedWidthCount));
 						unset($modifyColumn);
 					}
@@ -1091,7 +1091,7 @@ class GridHandler extends PKPHandler {
 		assert(is_array($features));
 		foreach ($features as &$feature) {
 			assert(is_a($feature, 'GridFeature'));
-			$this->_features[$feature->getId()] =& $feature;
+			$this->_features[$feature->getId()] = $feature;
 		}
 	}
 }

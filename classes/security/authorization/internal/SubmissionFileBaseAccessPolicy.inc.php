@@ -18,7 +18,7 @@ class SubmissionFileBaseAccessPolicy extends AuthorizationPolicy {
 	/** @var PKPRequest */
 	var $_request;
 
-	/** @var string */
+	/** @var string File id and revision, separated with a dash (e.g. 15-1) */
 	var $_fileIdAndRevision;
 
 	/**
@@ -29,7 +29,7 @@ class SubmissionFileBaseAccessPolicy extends AuthorizationPolicy {
 	 */
 	function SubmissionFileBaseAccessPolicy($request, $fileIdAndRevision = null) {
 		parent::AuthorizationPolicy('user.authorization.submissionFile');
-		$this->_request =& $request;
+		$this->_request = $request;
 		$this->_fileIdAndRevision = $fileIdAndRevision;
 	}
 
@@ -57,7 +57,7 @@ class SubmissionFileBaseAccessPolicy extends AuthorizationPolicy {
 	 * @param $request PKPRequest
 	 * @return SubmissionFile
 	 */
-	function &getSubmissionFile($request) {
+	function getSubmissionFile($request) {
 		// Try to get the submission file info.
 		$fileIdAndRevision = $this->_fileIdAndRevision;
 		if (!is_null($fileIdAndRevision)) {
@@ -79,9 +79,9 @@ class SubmissionFileBaseAccessPolicy extends AuthorizationPolicy {
 			// Cache miss
 			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
 			if ($revision) {
-				$cache[$cacheId] =& $submissionFileDao->getRevision($fileId, $revision);
+				$cache[$cacheId] = $submissionFileDao->getRevision($fileId, $revision);
 			} else {
-				$cache[$cacheId] =& $submissionFileDao->getLatestRevision($fileId);
+				$cache[$cacheId] = $submissionFileDao->getLatestRevision($fileId);
 			}
 		}
 
@@ -92,7 +92,7 @@ class SubmissionFileBaseAccessPolicy extends AuthorizationPolicy {
 	 * Get the current request object.
 	 * @return PKPRequest
 	 */
-	function &getRequest() {
+	function getRequest() {
 		return $this->_request;
 	}
 }

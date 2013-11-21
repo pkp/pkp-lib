@@ -52,19 +52,18 @@ class FileApiHandler extends Handler {
 
 		if (is_string($fileIds)) {
 			$fileIdsArray = explode(';', $fileIds);
-			array_pop($fileIdsArray);
 		}
 		if (!empty($fileIdsArray)) {
 			$multipleSubmissionFileAccessPolicy = new PolicySet(COMBINING_DENY_OVERRIDES);
 			foreach ($fileIdsArray as $fileIdAndRevision) {
-				$multipleSubmissionFileAccessPolicy->addPolicy($this->_getAccessPolicy($request, $args, $roleAssignments, SUBMISSION_FILE_ACCESS_READ));
+				$multipleSubmissionFileAccessPolicy->addPolicy($this->_getAccessPolicy($request, $args, $roleAssignments, $fileIdAndRevision));
 			}
 			$this->addPolicy($multipleSubmissionFileAccessPolicy);
-		}else if (is_numeric($libraryFileId)) {
+		} else if (is_numeric($libraryFileId)) {
 			import('lib.pkp.classes.security.authorization.PkpContextAccessPolicy');
 			$this->addPolicy(new PkpContextAccessPolicy($request, $roleAssignments));
-		}else {
-			$this->addPolicy($this->_getAccessPolicy($request, $args, $roleAssignments, SUBMISSION_FILE_ACCESS_READ));
+		} else {
+			fatalError('IDs not specified.');
 		}
 
 		return parent::authorize($request, $args, $roleAssignments);
@@ -107,7 +106,7 @@ class FileApiHandler extends Handler {
 				$userStageAssignmentDao = DAORegistry::getDAO('UserStageAssignmentDAO');
 				$assignedUsers = $userStageAssignmentDao->getUsersBySubmissionAndStageId($libraryFile->getSubmissionId(), WORKFLOW_STAGE_ID_SUBMISSION);
 				if (!$assignedUsers->wasEmpty()) {
-					while ($assignedUser =& $assignedUsers->next()) {
+					while ($assignedUser = $assignedUsers->next()) {
 						if ($assignedUser->getId()  == $user->getId()) {
 							$allowedAccess = true;
 							break;
@@ -148,23 +147,22 @@ class FileApiHandler extends Handler {
 	function downloadAllFiles($args, $request) {
 		// Retrieve the authorized objects.
 		$submissionFiles = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILES);
-		$submission =& $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 
 		// Find out the paths of all files in this grid.
-		$fileManager = $this->_getFileManager($context->getId(), $submissionFile->getSubmissionId());
-		$filesDir = $fileManager->getBasePath();
+		$context = $request->getContext();
 		$filePaths = array();
+		$fileManager = $this->_getFileManager($context->getId(), $submission->getId());
+		$filesDir = $fileManager->getBasePath();
 		foreach ($submissionFiles as $submissionFile) {
 			// Remove absolute path so the archive doesn't include it (otherwise all files are organized by absolute path)
 			$filePaths[] = str_replace($filesDir, '', $submissionFile->getFilePath());
 
-			unset($submissionFile);
 		}
 
 		import('lib.pkp.classes.file.FileArchive');
 		$fileArchive = new FileArchive();
 		$archivePath = $fileArchive->create($filePaths, $filesDir);
-
 		if (file_exists($archivePath)) {
 			$fileManager = new FileManager();
 			if ($fileArchive->zipFunctional()) {
@@ -232,7 +230,7 @@ class FileApiHandler extends Handler {
 	 * @return SubmissionAccessPolicy
 	 */
 	function _getAccessPolicy($request, $args, $roleAssignments, $fileIdAndRevision = null) {
-		return new SubmissionFileAccessPolicy($request, $args, $roleAssignments, SUBMISSION_FILE_ACCESS_READ);
+		return new SubmissionFileAccessPolicy($request, $args, $roleAssignments, SUBMISSION_FILE_ACCESS_READ, $fileIdAndRevision);
 	}
 }
 

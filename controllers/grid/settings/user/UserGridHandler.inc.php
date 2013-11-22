@@ -249,8 +249,7 @@ class UserGridHandler extends GridHandler {
 	// Public grid actions.
 	//
 	/**
-	 * Get a suggested username, making sure it's not.
-	 * already used by the system. (Poor-man's AJAX.)
+	 * Get a suggested username, making sure it's not already used.
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */

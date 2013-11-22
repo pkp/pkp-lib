@@ -151,10 +151,6 @@ class UserDetailsForm extends UserForm {
 		if (!empty($authSourceOptions)) {
 			$templateMgr->assign('authSourceOptions', $authSourceOptions);
 		}
-		// This parameters will be used by the js form handler to fetch a username suggestion.
-		// In the js form handler the dummy strings will be replaced by the actual form fields values.
-		$userNameParams = array('firstName' => 'FIRST_NAME_DUMMY', 'lastName' => 'LAST_NAME_DUMMY');
-		$templateMgr->assign('suggestUsernameParams', $userNameParams);
 
 		return $this->fetch($request);
 	}

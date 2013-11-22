@@ -13,6 +13,8 @@
 		// Attach the form handler.
 		$('#createReviewerForm').pkpHandler('$.pkp.controllers.grid.users.reviewer.form.AddReviewerFormHandler',
 			{ldelim}
+				fetchUsernameSuggestionUrl: '{url|escape:"javascript" router=$smarty.const.ROUTE_COMPONENT op="suggestUsername" firstName="FIRST_NAME_DUMMY" lastName="LAST_NAME_DUMMY" stageId=$stageId reviewRoundId=$reviewRoundId submissionId=$submissionId escape=false}',
+				usernameSuggestionTextAlert: '{translate key="grid.user.mustProvideName"}',
 				templateUrl: "{url|escape:'javascript' router=$smarty.const.ROUTE_COMPONENT component='grid.users.reviewer.ReviewerGridHandler' op='fetchTemplateBody' stageId=$stageId reviewRoundId=$reviewRoundId submissionId=$submissionId escape=false}"
 			{rdelim}
 		);
@@ -34,7 +36,8 @@
 	{/fbvFormSection}
 
 	{fbvFormSection description="user.register.usernameRestriction"}
-		{fbvElement type="text" label="user.username" id="username" value=$username required="true" size=$fbvStyles.size.MEDIUM}
+		{fbvElement type="text" label="user.username" id="username" value=$username required="true" size=$fbvStyles.size.MEDIUM inline=true}
+		{fbvElement type="button" label="common.suggest" id="suggestUsernameButton" inline=true class="default"}
 	{/fbvFormSection}
 
 	{fbvFormSection title="common.name"}

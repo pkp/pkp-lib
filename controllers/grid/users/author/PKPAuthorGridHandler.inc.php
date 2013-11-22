@@ -101,7 +101,7 @@ class PKPAuthorGridHandler extends GridHandler {
 			LOCALE_COMPONENT_PKP_DEFAULT
 		);
 
-		if ($this->hasAddAction()) {
+		if ($this->canAdminister()) {
 			$this->setReadOnly(false);
 			// Grid actions
 			$router = $request->getRouter();
@@ -192,7 +192,7 @@ class PKPAuthorGridHandler extends GridHandler {
 	 * Overridden by child grids.
 	 * @return boolean
 	 */
-	function hasAddAction() {
+	function canAdminister() {
 		return false;
 	}
 

@@ -52,37 +52,37 @@ class PKPAuthorGridRow extends GridRow {
 			$actionArgs = $this->getRequestArgs();
 			$actionArgs['authorId'] = $rowId;
 
-			// Add row-level actions
-			import('lib.pkp.classes.linkAction.request.AjaxModal');
-			$this->addAction(
-				new LinkAction(
-					'editAuthor',
-					new AjaxModal(
-						$router->url($request, null, null, 'editAuthor', null, $actionArgs),
-						__('grid.action.editContributor'),
-						'modal_edit'
-					),
-					__('grid.action.edit'),
-					'edit'
-				)
-			);
+			if ($this->canAdminister($request)) {
+				// Add row-level actions
+				import('lib.pkp.classes.linkAction.request.AjaxModal');
+				$this->addAction(
+					new LinkAction(
+						'editAuthor',
+						new AjaxModal(
+							$router->url($request, null, null, 'editAuthor', null, $actionArgs),
+							__('grid.action.editContributor'),
+							'modal_edit'
+						),
+						__('grid.action.edit'),
+						'edit'
+					)
+				);
 
-			import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
-			$this->addAction(
-				new LinkAction(
-					'deleteAuthor',
-					new RemoteActionConfirmationModal(
-						__('common.confirmDelete'),
-						__('common.delete'),
-						$router->url($request, null, null, 'deleteAuthor', null, $actionArgs),
-						'modal_delete'
-					),
-					__('grid.action.delete'),
-					'delete'
-				)
-			);
+				import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
+				$this->addAction(
+					new LinkAction(
+						'deleteAuthor',
+						new RemoteActionConfirmationModal(
+							__('common.confirmDelete'),
+							__('common.delete'),
+							$router->url($request, null, null, 'deleteAuthor', null, $actionArgs),
+							'modal_delete'
+						),
+						__('grid.action.delete'),
+						'delete'
+					)
+				);
 
-			if ($this->allowedToCreateUser($request)) {
 				$authorDao = DAORegistry::getDAO('AuthorDAO');
 				$userDao = DAORegistry::getDAO('UserDAO');
 				$author =& $authorDao->getAuthor($rowId);

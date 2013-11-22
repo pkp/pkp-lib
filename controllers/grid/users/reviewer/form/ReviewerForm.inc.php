@@ -43,6 +43,8 @@ class ReviewerForm extends Form {
 		$this->addCheck(new FormValidator($this, 'reviewDueDate', 'required', 'editor.review.errorAddingReviewer'));
 
 		$this->addCheck(new FormValidatorPost($this));
+
+		import('lib.pkp.classes.mail.SubmissionMailTemplate');
 	}
 
 	//
@@ -178,8 +180,6 @@ class ReviewerForm extends Form {
 		$this->setData('reviewMethod', $reviewMethod);
 		$this->setData('reviewRoundId', $reviewRound->getId());
 		$this->setData('reviewerId', $reviewerId);
-
-		import('lib.pkp.classes.mail.SubmissionMailTemplate');
 
 		$context = $request->getContext();
 		$templateKey = $this->_getMailTemplateKey($context);

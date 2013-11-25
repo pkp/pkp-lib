@@ -8,7 +8,7 @@
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the ru_RU (Russian) locale.
-  *
+  * With updates from Pavel Pisklakov (revising translation). 
   -->
 
 <locale name="ru_RU" full_name = "Russian">
@@ -46,11 +46,11 @@
 	<message key="rt.admin.contexts.options.geoTerms">Использовать географические данные как ключевые слова для поиска.</message>
 	<message key="rt.admin.contexts.options">Настройки</message>
 	<message key="rt.admin.management">Управление</message>
-	
+
 	<message key="rt.admin.sharing">Рекомендации</message>
 	<message key="rt.admin.sharing.enabled">Рекомендации включены</message>
 	<message key="rt.admin.sharing.description"><![CDATA[Чтобы дать Вашим читателям возможность рекомендовать статьи друг другу, а так же другим пользователям интернет, зарегистрируйтесь на <a href="http://addthis.com">addthis.com</a> и вставьте полученный там код кнопки "Sharing" ниже.]]></message>
-	
+
 	<message key="rt.admin.sharing.basic">Основные настройки</message>
 	<message key="rt.admin.sharing.userNameLabel">имя пользователя AddThis.com</message>
 	<message key="rt.admin.sharing.buttonStyleLabel">Стиль кнопки</message>
@@ -63,13 +63,14 @@
 	<message key="rt.admin.sharing.logolabel">Логотип</message>
 	<message key="rt.admin.sharing.logoBackgroundLabel">Фон логотипа</message>
 	<message key="rt.admin.sharing.logoColorLabel">Цвет логотипа</message>
-	
+
 	<message key="rt.admin.readingToolsEnabled">Инструменты читателя</message>
 	<message key="rt.admin.searches.confirmDelete">Вы уверены, что хотите удалить эти результаты поиска ?</message>
 	<message key="rt.admin.searches.createSearch">Создать поиск</message>
 	<message key="rt.admin.searches.edit.editSearch">Редактировать поиск</message>
 	<message key="rt.admin.selectedVersion">Подобное</message>
 	<message key="rt.admin.settings.abstract">Резюме (представляет резюме статьи).</message>
+	<message key="rt.admin.settings.viewReviewPolicy">View Review Policy</message>
 	<message key="rt.admin.settings.authorBio">Посмотреть биографические данные автора (показывает биографию, как ее ввел автор при отправке статьи)</message>
 	<message key="rt.admin.settings.captureCite">Цитаты (Показывает цитату из статьи в форматах: EndNote, Reference Manager, and ProCite)</message>
 	<message key="rt.admin.settings.defineTerms">Поиск слова (дает читателям возможность вызова словаря двойным щелчком мышью на любом слове)</message>
@@ -99,6 +100,7 @@
 	<message key="rt.captureCite.format">Формат Ссылки</message>
 	<message key="rt.captureCite">Как ссылаться</message>
 	<message key="rt.captureCite.online">Онлайн</message>
+	<message key="rt.captureCite.web">Web</message>	
 	<message key="rt.colleague">Уведомить коллегу</message>
 	<message key="rt.context.abbrev">Сокращение</message>
 	<message key="rt.context.and">AND</message>

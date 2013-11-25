@@ -8,72 +8,83 @@
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the ru_RU (Russian) locale.
-  *
+  * With updates from Pavel Pisklakov (revising translation). 
   -->
 
 <locale name="ru_RU" full_name = "Russian">
 	<message key="about.aboutSite">О сайте</message>
 	<message key="about.contact">Контакты</message>
-	<message key="about.contact.email">E-mail адрес</message>
+	<message key="about.contact.email">E-mail</message>
 	<message key="about.contact.fax">Факс</message>
 	<message key="about.contact.phone">Телефон</message>
-	<message key="about.contact.principalContact">Главный редактор</message>
-	<message key="about.contact.supportContact">Техподдержка</message>
+	<message key="about.contact.principalContact">Представитель редакции</message>
+	<message key="about.contact.supportContact">Представитель технической поддержки</message>
 	<message key="about.other">Прочее</message>
 	<message key="about.people">Люди</message>
-	<message key="about.policies">Политика</message>
+	<message key="about.policies">Политики</message>
 	<message key="about.siteMap">Карта сайта</message>
 	<message key="announcement.announcements">Объявления</message>
-	<message key="announcement.announcementsHome">Обьявления</message>
-	<message key="announcement.moreAnnouncements">Еще обьявления...</message>
+	<message key="announcement.announcementsHome">Объявления</message>
+	<message key="announcement.moreAnnouncements">Другие объявления...</message>
 	<message key="announcement.noneExist">Не было опубликовано ни одного объявления.</message>
-	<message key="announcement.posted">Размещено</message>
-	<message key="announcement.viewLink">Дальше...</message>
-	<message key="announcement.view">Читать объявление</message>
+	<message key="announcement.posted">Опубликовано</message>
+	<message key="announcement.postedOn">Опубиковано {$postDate}</message>
+	<message key="announcement.viewLink">Далее...</message>
+	<message key="announcement.view">Показать объявление</message>
+	<message key="common.accepted">Принято</message>
+	<message key="common.acknowledged">Признано</message>
 	<message key="common.action">Действие</message>
+	<message key="common.activate">Активировать</message>
 	<message key="common.active">Активный</message>
 	<message key="common.add">Добавить</message>
 	<message key="common.addSelf">Добавить себя</message>
 	<message key="common.all">Все</message>
 	<message key="common.alphaList">А Б В Г Д Е Ё Ж З И Й К Л М Н О П Р С Т У Ф Х Ц Ч Ш Щ Ъ Ы Ь Э Ю Я</message>
+	<message key="common.titleSmallWords">и или но если то иначе когда в на под из над с во</message>
 	<message key="common.alreadyAssigned">Назначен</message>
 	<message key="common.altText">Альтернативный текст</message>
-	<message key="common.altTextInstructions">Пожалуйста введите альтернативный текст для этого изображения, чтобы помочь людям, использующим текстовую версию программы просмотра интернет или синтезатор речи.</message>
+	<message key="common.altTextInstructions">Пожалуйста введите альтернативный текст для этого изображения, чтобы помочь пользователям с ограниченными возможностями, использующим текстовые браузеры или другие вспомогательные устройства.</message>
 	<message key="common.and">и</message>
 	<message key="common.applyAction">Применить</message>
 	<message key="common.assign">Назначить</message>
 	<message key="common.assigned">Назначен</message>
-	<message key="common.back">Обратно</message>
+	<message key="common.back">Назад</message>
 	<message key="common.between">между</message>
 	<message key="common.cancel">Отменить</message>
 	<message key="common.cancelled">Отменено</message>
-	<message key="common.captchaField.altText">Проверочное изображение</message>
-	<message key="common.captchaField.badCaptcha">Введенные вами символы не соответствуют символам на изображении. Пожалуйста проверьте и попробуйте снова.</message>
-	<message key="common.captchaField.description">Пожалуйста введите буквы, показанные на изображении выше.</message>
+	<message key="common.warning">Предупреждение</message>
+	<message key="common.error">Ошибка</message>
+	<message key="common.captchaField.altText">Изображение для проверки</message>
+	<message key="common.captchaField.badCaptcha">Введенные вами символы не совпадают с символами на изображении. Пожалуйста, проверьте символы и попробуйте снова.</message>
+	<message key="common.captchaField.description">Пожалуйста введите буквы, которые вы видите на изображении выше.</message>
 	<message key="common.captchaField">Проверка</message>
 	<message key="common.ccLicense"><![CDATA[
-						 <br /><br />
-						 <a target="_blank" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
-							 <img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"/>
-						 </a>
-						 <br/>
-						 This work is licensed under a <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0  License</a>.
-						 ]]></message>
-					 <message key="common.ccLicense.rt"><![CDATA[
-										<div class="rtBlock">
-										<br />
-										<a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
-										<br />
-										This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_blank">Creative Commons Attribution 3.0 License</a>.
-									</div>
+		<br /><br />
+		<a target="_blank" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
+			<img alt="Лицензия Creative Commons" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"/>
+		</a>
+		<br/>
+		Эта работа распространяется по лицензии <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0</a>.
 	]]></message>
-	<message key="common.changesSaved">Ваши изменения сохранены</message>
-	<message key="common.chooseOne">Выбрать</message>
+	<message key="common.ccLicense.rt"><![CDATA[
+	<div class="rtBlock">
+		<br />
+		<a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_blank"><img alt="Лицензия Creative Commons" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
+		<br />
+		Эта работа распространяется по лицензии <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_blank">Creative Commons Attribution 3.0</a>.
+	</div>
+	]]></message>
+	<message key="common.changesSaved">Ваши изменения были сохранены</message>
+	<message key="common.chooseOne">Выберите одно</message>
 	<message key="common.close">Закрыть</message>
 	<message key="common.closeWindow">Закрыть окно</message>
 	<message key="common.complete">Завершить</message>
 	<message key="common.completed">Завершен</message>
+	<message key="common.confirm">Подтвердить</message>
+	<message key="common.content">Содержание</message>
+	<message key="common.considered">На рассмотрении</message>
 	<message key="common.continue">Продолжить</message>
+	<message key="common.copy">Копировать</message>
 	<message key="common.country">Страна</message>
 	<message key="common.create">Создать</message>
 	<message key="common.dateCompleted">Завершен</message>
@@ -83,26 +94,34 @@
 	<message key="common.dateSubmitted">Депонирован</message>
 	<message key="common.dateUploaded">Загружен</message>
 	<message key="common.day">День</message>
+	<message key="common.deactivate">Выключить</message>
 	<message key="common.default">Умолчание</message>
+	<message key="common.declined">Declined</message>
 	<message key="common.delete">Стереть</message>
 	<message key="common.deleteSelection">Стереть выбранное</message>
 	<message key="common.description">Описание</message>
+	<message key="common.disable">Disable</message>
 	<message key="common.disabled">Отключено</message>
 	<message key="common.discipline">Дисциплина</message>
 	<message key="common.done">Готово</message>
 	<message key="common.download">Скачать</message>
 	<message key="common.edit">Править</message>
+	<message key="common.enable">Enable</message>
 	<message key="common.enabled">Включено</message>
 	<message key="common.error.databaseError">Ошибка базы данных: {$error}</message>
 	<message key="common.error.databaseErrorUnknown">Ошибка связи с базой данных.</message>
 	<message key="common.error.framesRequired"><![CDATA[Эта страница требует фреймов. <a href="{$url}">Нажмите сюда</a> для просмотра версии, не использующей фреймы.]]></message>
 	<message key="common.event">Событие</message>
 	<message key="common.export">Экспорт</message>
-	<message key="common.re">Re:</message>
+	<message key="common.finish">Finish</message>
+	<message key="common.fullscreen">Полноэкранный режим</message>
+	<message key="common.fullscreenOff">Выйти из полноэкранного режима</message>
+	<message key="common.false">False</message>
 	<message key="common.file">Файл</message>
 	<message key="common.fileName">Название файла</message>
 	<message key="common.fileSize">Объем файла</message>
 	<message key="common.fileType">Тип файла</message>
+	<message key="common.go">Go</message>
 	<message key="common.height">Высота</message>
 	<message key="common.homePageHeaderLogo.altText">Логотип Заголовка Домашней Страницы</message>
 	<message key="common.hour">Час</message>
@@ -113,11 +132,14 @@
 	<message key="common.keywords">Ключ. слова</message>
 	<message key="common.language">Язык</message>
 	<message key="common.languages">Языки</message>
+	<message key="common.less">Меньше</message>
 	<message key="common.manage">Изменить</message>
 	<message key="common.mailingAddress">Почтовый адрес</message>
+	<message key="common.billingAddress">Адрес покупателя (если отличается)</message>
 	<message key="common.minute">Минут</message>
 	<message key="common.modify">Изменить</message>
 	<message key="common.month">Месяц</message>
+	<message key="common.more">Больше</message>
 	<message key="common.noneAssigned">Не определено</message>
 	<message key="common.none">Нет</message>
 	<message key="common.no">Нет</message>
@@ -127,24 +149,37 @@
 	<message key="common.notAvailable">Недоступно</message>
 	<message key="common.note">Примечание</message>
 	<message key="common.notes">Примечания</message>
+	<message key="common.notified">Notified</message>
+	<message key="common.noMatches">Нет совпадений</message>
 	<message key="common.off">off</message>
 	<message key="common.on">on</message>
+	<message key="common.ok">OK</message>
 	<message key="common.options">Опции</message>
 	<message key="common.order">Сортировка</message>
 	<message key="common.originalFileName">Ориг. название файла</message>
 	<message key="common.or">или</message>
 	<message key="common.other">Прочее</message>
+	<message key="common.overdue">Overdue</message>
 	<message key="common.pageHeaderLogo.altText">Логотип Заголовка Страницы</message>
 	<message key="common.plugin">Модуль</message>
+	<message key="common.pluginEnabled">Модуль "{$pluginName}" был включен.</message>
+	<message key="common.pluginDisabled">Модуль "{$pluginName}" был выключен.</message>
+	<message key="common.preview">Предпросмотр</message>
 	<message key="common.publisher">Издатель</message>
+	<message key="common.re">Re:</message>
 	<message key="common.record">Запись</message>
+	<message key="common.refresh">Refresh</message>
 	<message key="common.related">Связанные</message>
+	<message key="common.reminder">Reminder</message>
+	<message key="common.remote">Remote</message>
+	<message key="common.remoteURL">RemoteURL</message>
 	<message key="common.remove">Удалить</message>
 	<message key="common.removeSelection">Удалить выбранное</message>
 	<message key="common.replaced">Замещен</message>
 	<message key="common.replaceFile">Заменить файл</message>
 	<message key="common.requiredField">* Обязательное поле</message>
 	<message key="common.required">Обязательно</message>
+	<message key="common.reset">Reset</message>
 	<message key="common.saveAndContinue">Сохранить и продолжить</message>
 	<message key="common.saveAndEmail">Сохранить и послать</message>
 	<message key="common.save">Сохранить</message>
@@ -153,19 +188,26 @@
 	<message key="common.selectAll">Выбрать все</message>
 	<message key="common.selectNone">Отменить выбор</message>
 	<message key="common.select">Выбрать</message>
+	<message key="common.signoff">Sign Off</message>
 	<message key="common.size">Объем</message>
 	<message key="common.source">Источник</message>
 	<message key="common.status">Статус</message>
 	<message key="common.subject">Тема</message>
-	<message key="common.title">Заголовок</message>
 	<message key="common.suggest">Рекомендовать</message>
+	<message key="common.title">Заголовок</message>
 	<message key="common.top">Верх</message>
+	<message key="common.true">True</message>
 	<message key="common.type">Тип</message>
+	<message key="common.element">Элемент</message>
 	<message key="common.uninitiated">Не начат</message>
+	<message key="common.unread">Unread</message>
 	<message key="common.untitled">Неозаглавлен</message>
 	<message key="common.updated">Обновлен</message>
 	<message key="common.uploadedFile">Наличные файлы</message>
 	<message key="common.upload">Закачать</message>
+	<message key="common.uploadFailed">The file could not be uploaded or revised.</message>
+	<message key="common.fileUpload.maxFileSizeStatus"><![CDATA[This server allows a file size upload maximum of {$fileSize}.  If required, please contact <a href="mailto:{$supportEmail}">{$supportName}</a> for assistance.]]></message>
+	<message key="common.invalidFileType">No file uploaded or invalid file type!</message>
 	<message key="common.up">Наверх</message>
 	<message key="common.url">URL</message>
 	<message key="common.user">Пользователь</message>
@@ -174,6 +216,9 @@
 	<message key="common.width">Ширина</message>
 	<message key="common.year">Год</message>
 	<message key="common.yes">Да</message>
+	<message key="common.loading">Загрузка...</message>
+	<message key="common.plugins">Модули</message>
+	<message key="common.metric">Metric</message>
 	<message key="debug.databaseQueries">Количество запросов к БД</message>
 	<message key="debug.executionTime">Страница создана за</message>
 	<message key="debug.memoryUsage">Использование памяти</message>
@@ -181,6 +226,8 @@
 	<message key="debug.notes.localeLoad">Загружен файл локали "{$localeFile}" из XML</message>
 	<message key="debug.notes.missingLocaleKey">В локали отсутствует ключ "{$key}".</message>
 	<message key="debug.notes">Примечания:</message>
+	<message key="defaultMetric.title">Default Metric</message>
+	<message key="defaultMetric.availableMetrics">Available Metrics</message>	
 	<message key="email.addAttachment">Добавить вложение</message>
 	<message key="email.addBccRecipient">Добавить BCC</message>
 	<message key="email.addCcRecipient">Добавить CC</message>
@@ -203,7 +250,13 @@
 	<message key="email.send">Послать</message>
 	<message key="email.skip">Пропустить</message>
 	<message key="email.subject">Тема</message>
+	<message key="email.subjectRequired">Пожалуйста, укажите тему письма.</message>
+	<message key="email.bodyRequired">Пожалуйста, введите текст письма.</message>
 	<message key="email.to">Кому</message>
+	<message key="form.confirmSubmit">Вы уверены, что хотите отослать эту форму?</message>
+	<message key="form.confirmSubmit.title">Подтвердить</message>
+	<message key="form.emailRequired">Необходимо указать адрес email.</message>
+	<message key="form.dataHasChanged">Данные этой формы были изменены. Продолжить в любом случае?</message>
 	<message key="form.errorsOccurred">При заполнении этой формы допущены ошибки</message>
 	<message key="form.formLanguage.description">Измените язык здесь перед тем как вводить запрашиваемую ниже информацию на других языках.</message>
 	<message key="form.formLanguage">Язык формы</message>
@@ -216,8 +269,11 @@
 	<message key="form.saveToUpload">Выберите файл для закачки.</message>
 	<message key="form.send">Послать</message>
 	<message key="form.submit">Отправить</message>
+	<message key="form.invalidImage">An invalid image was uploaded. Accepted formats are .png, .gif, or .jpg.</message>
 	<message key="help.contents">Содержание</message>
 	<message key="help.help">Помощь</message>
+	<message key="help.toggleInlineHelpOn">Help On</message>
+	<message key="help.toggleInlineHelpOff">Help Off</message>
 	<message key="help.helpIndex">Содержание подсказки</message>
 	<message key="help.matchesFound">{$matches} совпадений</message>
 	<message key="help.noMatchingTopics">Подходящих тем в подсказке не найдено.</message>
@@ -243,9 +299,15 @@
 	<message key="icon.view.alt">Посмотреть</message>
 	<message key="locale.primary">Основной язык</message>
 	<message key="locale.supported">Поддерживаемые языки</message>
+	<message key="navigation.website">Веб-сайт</message>
+	<message key="navigation.access">Пользователи и роли</message>
 	<message key="navigation.about">О нас</message>
+	<message key="navigation.admin">Администрация</message>
 	<message key="navigation.browse">Листать</message>
+	<message key="navigation.browseByAuthor">По автору</message>
 	<message key="navigation.browseByTitle">по заглавиям</message>
+	<message key="navigation.dashboard">Dashboard</message>
+	<message key="navigation.data">Данные</message>
 	<message key="navigation.home">Начало</message>
 	<message key="navigation.infoForReaders">Для читателей</message>
 	<message key="navigation.infoForReaders.long">Информация для читателей</message>
@@ -255,11 +317,18 @@
 	<message key="navigation.nextStep">След. шаг</message>
 	<message key="navigation.previousPage"><![CDATA[&lt;&lt;]]></message>
 	<message key="navigation.previousStep">Пред. шаг</message>
+	<message key="navigation.publicMenu">Public Menu</message>
 	<message key="navigation.register">Регистрация</message>
 	<message key="navigation.search">Поиск</message>
+	<message key="navigation.settings">Настройки</message>
+	<message key="navigation.setup">Установка</message>
+	<message key="navigation.sitemap">Карта сайта</message>
 	<message key="navigation.stepNumber">Шаг {$step}</message>
+	<message key="navigation.submissions">Submissions</message>
+	<message key="navigation.system">Система</message>
 	<message key="navigation.userHome">Мои журналы</message>
 	<message key="navigation.user">Пользователь</message>
+	<message key="navigation.userManagement">User Management</message>
 	<message key="notification.allow">Включить следующие типы уведомлений в моей ленте уведомлений.</message>
 	<message key="notification.confirmError">При подверждении Вашей подписки возникла ошибка.</message>
 	<message key="notification.confirmSuccess">Вы были успешно подписаны.</message>
@@ -288,59 +357,40 @@
 	<message key="notification.unsubscribeError">При отмене Вашей подписки произошла ошибка. Пожалуйста убедитесь, что почтовый адрес и пароль введены правильно.</message>
 	<message key="notification.unsubscribeSuccess">Ваша подписка успешно прекращена.</message>
 	<message key="search.abstract">Аннотации</message>
+	<message key="search.activeFilters">Advanced filters</message>
+	<message key="search.advancedSearchMore">Additional Search Options (click to show)</message>
+	<message key="search.advancedSearchLess">Additional Search Options (click to hide)</message>
 	<message key="search.allFields">Все</message>
+	<message key="search.cli.rebuildIndex.clearingIndex">Clearing index</message>
+	<message key="search.cli.rebuildIndex.done">done</message>
+	<message key="search.cli.rebuildIndex.error">error</message>
+	<message key="search.cli.rebuildIndex.indexing">Indexing "{$journalName}"</message>
+	<message key="search.cli.rebuildIndex.indexingByJournalNotSupported">This search implementation does not allow per-journal re-indexing.</message>
+	<message key="search.cli.rebuildIndex.result">{$numIndexed} articles indexed</message>
+	<message key="search.cli.rebuildIndex.unknownJournal">The given journal path "{$journalPath}" could not be resolved to a journal.</message>
 	<message key="search.coverage">Где-когда</message>
 	<message key="search.date">Дата</message>
 	<message key="search.dateFrom">с</message>
 	<message key="search.dateTo">по</message>
+	<message key="search.deleteFilter">Delete</message>
 	<message key="search.discipline">Дисциплины</message>
 	<message key="search.fullText">Полный текст</message>
 	<message key="search.indexTerms">Слова</message>
+	<message key="search.indexTermsLong">All index term fields</message>
 	<message key="search.matchAll">По всем категориям</message>
 	<message key="search.noKeywordError">Ввести хотя бы одно слово.</message>
 	<message key="search.noResults">Нет результатов</message>
 	<message key="search.operator.and">AND</message>
 	<message key="search.operator.not">NOT</message>
 	<message key="search.operator.or">OR</message>
-	<message key="search.reviseSearch">Изменить поиск</message>
 	<message key="search.searchAllCategories">Поиск по всем категориям</message>
 	<message key="search.searchCategories">Искать в категориях</message>
-	<message key="search.searchResults">Результаты поиска</message>
 	<message key="search.subject">Ключевые слова</message>
 	<message key="search.titleIndex">Список названий</message>
 	<message key="search.title">Названия</message>
 	<message key="search.typeMethodApproach">Подход</message>
-	<message key="common.copy">Копировать</message>
-	<message key="common.preview">Предпросмотр</message>
-	<message key="common.activate">Включить</message>
-	<message key="common.deactivate">Выключить</message>
-	<message key="common.warning">Предупреждение</message>
-	<message key="common.content">Содержание</message>
-	<message key="common.fullscreen">Полноэкранный режим</message>
-	<message key="common.fullscreenOff">Выйти из полноэкранного режима</message>
-	<message key="common.less">Меньше</message>
-	<message key="common.billingAddress">Адрес покупателя (если отличается)</message>
-	<message key="common.more">Больше</message>
-	<message key="common.noMatches">Нет совпадений</message>
-	<message key="common.ok">OK</message>
-	<message key="common.pluginEnabled">Модуль "{$pluginName}" был включен.</message>
-	<message key="common.pluginDisabled">Модуль "{$pluginName}" был выключен.</message>
-	<message key="common.element">Элемент</message>
-	<message key="common.loading">Загрузка...</message>
-	<message key="common.plugins">Модули</message>
-	<message key="email.subjectRequired">Пожалуйста, укажите тему письма.</message>
-	<message key="email.bodyRequired">Пожалуйста, введите текст письма.</message>
-	<message key="form.confirmSubmit">Вы уверены, что хотите отослать эту форму?</message>
-	<message key="form.confirmSubmit.title">Подтвердить</message>
-	<message key="form.emailRequired">Необходимо указать адрес email.</message>
-	<message key="form.dataHasChanged">Данные этой формы были изменены. Продолжить в любом случае?</message>
-	<message key="navigation.website">Веб-сайт</message>
-	<message key="navigation.access">Пользователи и роли</message>
-	<message key="navigation.admin">Администрация</message>
-	<message key="navigation.browseByAuthor">По автору</message>
-	<message key="navigation.data">Данные</message>
-	<message key="navigation.settings">Настройки</message>
-	<message key="navigation.setup">Установка</message>
-	<message key="navigation.sitemap">Карта сайта</message>
-	<message key="navigation.system">Система</message>
+		
+	<!-- Common -->
+	<message key="grid.action.downloadFile">Download this file</message>
+	
 </locale>

@@ -8,12 +8,23 @@
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the ru_RU (Russian) locale.
-  *
+  * With updates from Pavel Pisklakov (revising translation). 
   -->
 
 <locale name="ru_RU" full_name = "Russian">
+	<message key="user.accountInformation">Account Information</message>
 	<message key="user.affiliation">Учреждение</message>
-	<message key="user.affiliation">Учреждения</message>
+	<message key="user.affiliation.description">(Ваше место работы, например, Московский государственный университет имени М.В. Ломоносова)</message>
+	<message key="user.affiliations">Организации</message>
+	<message key="user.authorization.accessDenied">Доступ запрещен.</message>
+	<message key="user.authorization.processAuthenticationTokenRequired">The process authentication token is missing or invalid.</message>
+	<message key="user.authorization.contextRequired">You cannot call this operation without a context (press, journal, conference, etc).</message>
+	<message key="user.authorization.loginRequired">Необходимо указать имя пользователя.</message>
+	<message key="user.authorization.privateOperation">The operation you tried to access is either private or doesn't exist.</message>
+	<message key="user.authorization.restrictedSiteAccess">You have been denied access. Access to this site is currently restricted.</message>
+	<message key="user.authorization.roleBasedAccessDenied">The current role does not have access to this operation.</message>
+	<message key="user.authorization.userGroupRequired">You have to set a valid user group to access this operation.</message>
+	<message key="user.authorization.pressManagerRequired">A user with a Press Manager role (i.e. Press or Production Editor) must be assigned to the stage before you can proceed.</message>
 	<message key="user.biography">Коротко о себе</message>
 	<message key="user.biography.description">(напр. кафедра и должность)</message>
 	<message key="user.changeMyPassword">Поменять пароль</message>
@@ -22,6 +33,7 @@
 	<message key="user.dateRegistered">Дата регистрации</message>
 	<message key="user.editMyProfile">Изменить профиль</message>
 	<message key="user.email">E-mail адрес</message>
+	<message key="user.confirmEmail">Подтвердите Email</message>
 	<message key="user.fax">Факс</message>
 	<message key="user.feminine">Ж</message>
 	<message key="user.firstName">Имя</message>
@@ -29,6 +41,9 @@
 	<message key="user.initialsExample">Алексей Алексеевич Бородин = ААБ</message>
 	<message key="user.initials">Инициалы</message>
 	<message key="user.interests">Специализация</message>
+	<message key="user.interests.description">(Separate interests by pressing the enter or comma key)</message>
+	<message key="user.gossip">Личные примечания</message>
+	<message key="user.group">User Group</message>
 	<message key="user.lastName">Фамилия</message>
 	<message key="user.profile.form.profileImageInvalid">Неверный формат графического файла либо он слишком большой. Поддерживаются файлы в форматах .gif, .jpg, или .png, размером не более 150x150 точек.</message>
 	<message key="user.login.accountDisabledWithReason">Ваша учетная запись деактивирована по следующим причинам: {$reason}</message>
@@ -48,6 +63,7 @@
 	<message key="user.login.rememberUsernameAndPassword">Запомнить мой логин</message>
 	<message key="user.login.resetPassword">Послать пароль</message>
 	<message key="user.logOut">Выйти</message>
+	<message key="user.hello">Приветствуем,</message>
 	<message key="user.mailingAddress">Почтовый адрес</message>
 	<message key="user.masculine">М</message>
 	<message key="user.middleName">Отчество</message>
@@ -59,15 +75,21 @@
 	<message key="user.phone">Телефон</message>
 	<message key="user.profile.changePasswordInstructions">Введите Ваш старый и новый пароли.</message>
 	<message key="user.profile.editProfile">Профиль</message>
+	<message key="user.profile.form.countryRequired">Необходимо указать страну.</message>
 	<message key="user.profile.form.emailRequired">Действительный адрес обязателен.</message>
+	<message key="user.profile.form.affiliationRequired">Необходимо указать место работы.</message>
 	<message key="user.profile.form.firstNameRequired">Имя обязательно.</message>
 	<message key="user.profile.form.lastNameRequired">Фамилия обязательна.</message>
+	<message key="user.profile.form.mailingAddressRequired">Необходимо указать почтовый адрес.</message>
 	<message key="user.profile.form.newPasswordRequired">Введите новый пароль.</message>
 	<message key="user.profile.form.oldPasswordInvalid">Старый пароль неправилен.</message>
+	<message key="user.profile.form.openAccessNotifications">Уведомлять по электронной почте об открытии доступа</message>
 	<message key="user.profile.form.passwordRequired">Пароль обязателен.</message>
+	<message key="user.profile.form.passwordSameAsOld">Новый пароль совпадает со старым.</message>
 	<message key="user.profile.form.profileImage">Фото или аватар</message>
 	<message key="user.profile.form.publishedNotifications">Оповещение по E-mail о выходе новых выпусков</message>
 	<message key="user.profile.form.urlInvalid">Указанная ссылка неверна. Пожалуйста проверьте ее еще раз и попробуйте снова (подсказка: может быть в ее начало нужно добавить http://).</message>
+	<message key="user.profile.form.usergroupRequired">A user group is required.</message>
 	<message key="user.profile.form.usernameRequired">Имя пользователя обязательно.</message>
 	<message key="user.profile.leavePasswordBlank">Не заполняйте поле, если хотите сохранить старый пароль.</message>
 	<message key="user.profile.newPassword">Новый пароль</message>
@@ -75,9 +97,9 @@
 	<message key="user.profile">Профиль</message>
 	<message key="user.profile.publicProfile">Профиль пользователя</message>
 	<message key="user.profile.repeatNewPassword">Повторить новый пароль</message>
-	<message key="user.register.completeForm">Заполните эту форму, чтобы получить доступ к этому журналу.</message>
 	<message key="user.register.form.emailExists">Выбранный мейл используется другим членом сайта.</message>
 	<message key="user.register.form.passwordsDoNotMatch">Пароли не совпадают</message>
+	<message key="user.register.form.emailsDoNotMatch">The email address fields do not match.</message>
 	<message key="user.register.form.usernameAlphaNumeric">Имя пользователя может содержать буквы, цифры, дефис, но должно начинаться и заканчиваться буквой.</message>
 	<message key="user.register.form.usernameExists">Выбранное имя пользователя уже зарегистрировано другим членом сайта.</message>
 	<message key="user.register.passwordLengthRestriction">Пароль должен содержать не менее {$length} знаков.</message>
@@ -95,22 +117,11 @@
 	<message key="user.sendPassword">Подтверждение</message>
 	<message key="user.sendPassword.description">Отправить подтверждение по электронной почте, содержащее имя пользователя и пароль.</message>
 	<message key="user.signature">Подпись</message>
+	<message key="user.suffix">Suffix</message>
 	<message key="user.title">Титул</message>
 	<message key="user.url">URL</message>
 	<message key="user.userHome">Моя страница</message>
 	<message key="user.username">Имя пользователя</message>
 	<message key="user.workingLanguages">Рабочие языки</message>
 	<message key="user.register.completeForm">Заполните, пожалуйста, форму регистрации в этом журнале.</message>
-	<message key="user.affiliations">Организации</message>
-	<message key="user.profile.form.openAccessNotifications">Уведомлять по электронной почте об открытии доступа</message>
-	<message key="user.affiliation.description">(Ваше место работы, например, Московский государственный университет имени М.В. Ломоносова)</message>
-	<message key="user.authorization.accessDenied">Доступ запрещен.</message>
-	<message key="user.authorization.loginRequired">Необходимо указать имя пользователя.</message>
-	<message key="user.confirmEmail">Подтвердите Email</message>
-	<message key="user.gossip">Личные примечания</message>
-	<message key="user.hello">Приветствуем,</message>
-	<message key="user.profile.form.countryRequired">Необходимо указать страну.</message>
-	<message key="user.profile.form.affiliationRequired">Необходимо указать место работы.</message>
-	<message key="user.profile.form.mailingAddressRequired">Необходимо указать почтовый адрес.</message>
-	<message key="user.profile.form.passwordSameAsOld">Новый пароль совпадает со старым.</message>
 </locale>

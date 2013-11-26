@@ -14,7 +14,7 @@
 
 // Import grid base classes.
 import('lib.pkp.controllers.grid.submissions.SubmissionsListGridHandler');
-import('lib.pkp.controllers.grid.submissions.SubmissionsListGridRow');
+import('lib.pkp.controllers.grid.submissions.exportableSubmissions.ExportableSubmissionsGridRow');
 
 class ExportableSubmissionsListGridHandler extends SubmissionsListGridHandler {
 	/**
@@ -53,7 +53,7 @@ class ExportableSubmissionsListGridHandler extends SubmissionsListGridHandler {
 	 * @return SubmissionsListGridRow
 	 */
 	function &getRowInstance() {
-		$row = new SubmissionsListGridRow($this->_isManager);
+		$row = new ExportableSubmissionsGridRow();
 		return $row;
 	}
 
@@ -61,8 +61,10 @@ class ExportableSubmissionsListGridHandler extends SubmissionsListGridHandler {
 	 * @copydoc GridHandler::initFeatures()
 	 */
 	function initFeatures($request, $args) {
-		import('lib.pkp.classes.controllers.grid.feature.selectableItems.SelectableItemsFeature');
-		return array(new SelectableItemsFeature());
+		if (!$request->getUserVar('hideSelectColumn')) {
+			import('lib.pkp.classes.controllers.grid.feature.selectableItems.SelectableItemsFeature');
+			return array(new SelectableItemsFeature());
+		}
 	}
 
 

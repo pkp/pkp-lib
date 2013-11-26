@@ -28,6 +28,7 @@
 	<message key="grid.action.deleteMedia">Delete Media</message>
 	<message key="grid.action.editMedia">Edit Media</message>
 	<message key="grid.action.editSection">Edit Section</message>
+	<message key="grid.action.export">Export</message>
 	<message key="grid.action.deleteSection">Delete Section</message>
 	<message key="grid.action.editorialHistory">Editorial History</message>
 	<message key="grid.action.remove">Remove</message>

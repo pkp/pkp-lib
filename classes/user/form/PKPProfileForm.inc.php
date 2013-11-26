@@ -142,7 +142,7 @@ class PKPProfileForm extends Form {
 			$templateMgr->assign('userGroupIds', $userGroupIds);
 		}
 
-		parent::display();
+		parent::display($request);
 	}
 
 	/**

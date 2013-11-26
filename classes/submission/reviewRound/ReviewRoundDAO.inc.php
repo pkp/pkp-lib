@@ -172,22 +172,6 @@ class ReviewRoundDAO extends DAO {
 	}
 
 	/**
-	 * Check if a review round exists for a specified submission.
-	 * @param $submissionId int
-	 * @param $round int
-	 * @return boolean
-	 */
-	function reviewRoundExists($submissionId, $stageId, $round) {
-		$result = $this->retrieve(
-				'SELECT COUNT(*) FROM review_rounds WHERE submission_id = ? AND stage_id = ? AND round = ?',
-				array((int)$submissionId, (int)$stageId, (int)$round));
-		$returner = isset($result->fields[0]) && $result->fields[0] == 1 ? true : false;
-
-		$result->Close();
-		return $returner;
-	}
-
-	/**
 	 * Get an iterator of review round objects associated with this submission
 	 * @param $submissionId int
 	 * @param $stageId int (optional)

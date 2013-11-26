@@ -4,7 +4,7 @@
 <!--
   * locale/fr_CA/manager.xml
   *
-  * Copyright (c) 2000-2013 John Willinsky
+  * Copyright (c) 2000-2003-2013 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the fr_CA (Français (Canada)) locale.
@@ -155,7 +155,6 @@
 	<message key="plugins.categories.auth">Plugiciels d'autorisation</message>
 	<message key="plugins.categories.blocks">Plugiciels de bloc</message>
 	<message key="plugins.categories.blocks.description">Les plugiciels de bloc sont composés de modules d'interface enfichables, tels les différents outils des encadrés latéraux.</message>
-	<message key="plugins.categories.citationLookup.description">Les plugiciels [Citation Database Connector] permettent la connexion à des banques de données de citations/références pour consultation, lorsqu'il y a modification des citations/références, par exemple</message>
 	<message key="plugins.categories.citationFormats">Plugiciels de format de citation</message>
 	<message key="plugins.categories.gateways.description">Les plugiciels de passerelle fournissent des données réelles à des systèmes externes.</message>
 	<message key="plugins.categories.gateways">Plugiciels de passerelle</message>
@@ -183,8 +182,8 @@
 <p>Vous pouvez modifier ou supprimer un connecteur existant en cliquant sur l'icône d'engrenage juste à côté.</p>]]></message>
 	<message key="manager.setup.citationFilterLookup">Vérification des références</message>
 	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>Vous devez également activer et configurer les connections aux bases de données de références externes. Ça vous aide à trouver les erreurs dans les références d'auteurs ou à ajouter des informations supplémentaires (p. ex., identifiants DOI ou PubMed) nécessaires à la publication ou au dépôt numérique.</p>
-<p>Nous fournissions des connecteurs à plusieurs bases de données externes dans lesquelles vous pouvez chercher des références. Certaines de ces bases de données nécessite une inscription ou de l'information de configuration pour y accéder. Veuillez référer aux sites Web publiques de ces bases de données pour plus d'information sur comment s'inscrire. Vous pouvez ajouter une ou plusieurs bases de données en cliquant sur le bouton "Ajouter un élément " ci-dessous.</p>
-<p>Vous pouvez modifier ou supprimer un connection existant à une base de données externe en cliquant sur l'icône d'engrenage juste à côté.</p>
+<p>Nous fournissons des connecteurs à plusieurs bases de données externes dans lesquelles vous pouvez chercher des références. Certaines de ces bases de données nécessitent une inscription ou de l'information de configuration pour y accéder. Veuillez référer aux sites Web publiques de ces bases de données pour plus d'information sur comment s'inscrire. Vous pouvez ajouter une ou plusieurs bases de données en cliquant sur le bouton "Ajouter un élément " ci-dessous.</p>
+<p>Vous pouvez modifier ou supprimer une connection existante à une base de données externe en cliquant sur le bouton Ajouter un élément ci-dessous.</p>
 <p><strong>Note:</strong> en vue de compléter le processus de vérifications des références dans des délais raisonnables, la directive <tt>citation_checking_max_processes</tt> dans votre fichier de configuration doit être paramétré à une valeur raisonnable. Voir la section "General Settings" dans <tt>config.inc.php</tt> pour plus d'information.</p>]]></message>
 	<message key="manager.setup.citationOutput">Version de sortie de la référence</message>
 	<message key="manager.setup.citationOutputStyleDescription">Choisir le modèle de références qui est utilisé dans votre revue pour les soumissions d'auteur. L'Aide au balisage des références vous laisse comparer la version de la référence de l'auteur avec celle générée à partir du XML que vous générez afin que vous puissiez facilement identifier les erreurs :</message>

@@ -4,7 +4,7 @@
 <!--
   * locale/fr_CA/grid.xml
   *
-  * Copyright (c) 2000-2013 John Willinsky
+  * Copyright (c) 2000-2003-2013 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the fr_CA locale.
@@ -19,11 +19,8 @@
 	<message key="grid.action.sort">Trier</message>
 	<message key="grid.action.addItem">Ajouter un élément</message>
 	<message key="grid.action.delete">Supprimer</message>
-	<message key="grid.action.deleteSignoff">Supprimer cette approbation</message>
 	<message key="grid.action.edit">Modifier</message>
 	<message key="grid.action.restoreDefaults">Réinitialiser aux valeurs par défaut</message>
-	<message key="grid.action.fileSignoff">Approbation de ce fichier</message>
-	<message key="grid.action.readSignoff">Lire cette approbation</message>
 
 	<!-- Common Grid Column Titles -->
 	<message key="grid.columns.actions">Actions</message>

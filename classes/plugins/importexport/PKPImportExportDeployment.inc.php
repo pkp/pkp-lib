@@ -29,9 +29,9 @@ class PKPImportExportDeployment {
 	/**
 	 * Constructor
 	 * @param $context Context
-	 * @param $user User
+	 * @param $user User optional
 	 */
-	function PKPImportExportDeployment($context, $user) {
+	function PKPImportExportDeployment($context, $user=null) {
 		$this->setContext($context);
 		$this->setUser($user);
 		$this->setSubmission(null);

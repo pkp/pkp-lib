@@ -56,7 +56,7 @@
 
 
 	//
-	// Private static properties
+	// Public static properties
 	//
 	/**
 	 * An object that assigns stage identifiers to the
@@ -66,14 +66,14 @@
 	 * @const
 	 * FIXME: Is there a less verbose way to define this object?
 	 */
-	$.pkp.pages.authorDashboard.PKPAuthorDashboardHandler.CSS_SELECTORS_ = { };
-	$.pkp.pages.authorDashboard.PKPAuthorDashboardHandler.CSS_SELECTORS_[
+	$.pkp.pages.authorDashboard.PKPAuthorDashboardHandler.CSS_SELECTORS = { };
+	$.pkp.pages.authorDashboard.PKPAuthorDashboardHandler.CSS_SELECTORS[
 			$.pkp.cons.WORKFLOW_STAGE_ID_SUBMISSION] = '#submission';
-	$.pkp.pages.authorDashboard.PKPAuthorDashboardHandler.CSS_SELECTORS_[
+	$.pkp.pages.authorDashboard.PKPAuthorDashboardHandler.CSS_SELECTORS[
 			$.pkp.cons.WORKFLOW_STAGE_ID_EXTERNAL_REVIEW] = '#externalReview';
-	$.pkp.pages.authorDashboard.PKPAuthorDashboardHandler.CSS_SELECTORS_[
+	$.pkp.pages.authorDashboard.PKPAuthorDashboardHandler.CSS_SELECTORS[
 			$.pkp.cons.WORKFLOW_STAGE_ID_EDITING] = '#copyediting';
-	$.pkp.pages.authorDashboard.PKPAuthorDashboardHandler.CSS_SELECTORS_[
+	$.pkp.pages.authorDashboard.PKPAuthorDashboardHandler.CSS_SELECTORS[
 			$.pkp.cons.WORKFLOW_STAGE_ID_PRODUCTION] = '#production';
 
 
@@ -107,7 +107,7 @@
 		// Retrieve the dashboard element.
 		var $dashboard = this.getHtmlElement(),
 				// Retrieve the CSS selector of the current stage's dashboard section.
-				cssSelectors = this.self('CSS_SELECTORS_'),
+				cssSelectors = this.self('CSS_SELECTORS'),
 				// Enable the current stage (and all prior stages) and disable
 				// all later stages.
 				disabled,

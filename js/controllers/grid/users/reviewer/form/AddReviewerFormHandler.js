@@ -123,7 +123,8 @@
 	 * @param {JSON} jsonData The jsonData response.
 	 */
 	$.pkp.controllers.grid.users.reviewer.form.
-			AddReviewerFormHandler.prototype.setUsername = function(formElement, jsonData) {
+			AddReviewerFormHandler.prototype.setUsername =
+			function(formElement, jsonData) {
 
 		var processedJsonData = this.handleJson(jsonData),
 				$form = this.getHtmlElement();

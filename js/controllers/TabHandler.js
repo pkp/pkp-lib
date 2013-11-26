@@ -35,6 +35,7 @@
 		this.bind('tabsshow', this.tabsShow);
 		this.bind('tabsload', this.tabsLoad);
 		this.bind('containerReloadRequested', this.tabsReloadRequested);
+		this.bind('addTab', this.addTab);
 
 		if (options.emptyLastTab) {
 			this.emptyLastTab_ = options.emptyLastTab;
@@ -223,6 +224,27 @@
 			var jsonData = $.parseJSON(data);
 			$element.replaceWith(jsonData.content);
 		});
+	};
+
+
+	/**
+	 * Callback that processes data returned by the server when
+	 * an 'addTab' event is received.
+	 *
+	 * This is useful e.g. when the results of a form handler
+	 * should be sent to a different tab in the containing tabset.
+	 *
+	 * @param {HTMLElement} divElement The parent DIV element
+	 *  which contains the tabs.
+	 * @param {Event} event The triggered event (addTab).
+	 * @param {{url: string, title: string}} jsonContent The tabs ui data.
+	 */
+	$.pkp.controllers.TabHandler.prototype.addTab =
+			function(divElement, event, jsonContent) {
+
+		var $element = this.getHtmlElement();
+		$element.tabs('add', jsonContent.url, jsonContent.title)
+				.tabs('select', $element.tabs('length') - 1);
 	};
 
 

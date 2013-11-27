@@ -168,6 +168,32 @@ class PKPAuthorGridHandler extends GridHandler {
 	// Overridden methods from GridHandler
 	//
 	/**
+	 * @see GridHandler::initFeatures()
+	 */
+	function initFeatures($request, $args) {
+		import('lib.pkp.classes.controllers.grid.feature.OrderGridItemsFeature');
+		return array(new OrderGridItemsFeature());
+	}
+
+	/**
+	 * @copydoc GridHandler::getDataElementSequence()
+	 */
+	function getDataElementSequence($row) {
+		return $row->getSequence();
+	}
+
+	/**
+	 * @copydoc GridHandler::setDataElementSequence()
+	 */
+	function setDataElementSequence($request, $rowId, $gridDataElement, $newSequence) {
+		$authorDao = DAORegistry::getDAO('AuthorDAO');
+		$submission = $this->getSubmission();
+		$author = $authorDao->getAuthor($rowId, $submission->getId());
+		$author->setSequence($newSequence);
+		$authorDao->updateObject($author);
+	}
+
+	/**
 	 * @copydoc GridHandler::getRowInstance()
 	 * @return AuthorGridRow
 	 */

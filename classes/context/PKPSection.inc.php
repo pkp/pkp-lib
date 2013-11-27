@@ -78,6 +78,22 @@ class PKPSection extends DataObject {
 	function setTitle($title, $locale) {
 		return $this->setData('title', $title, $locale);
 	}
+
+	/**
+	 * Return boolean indicating whether or not submissions are restricted to [sub]Editors.
+	 * @return boolean
+	 */
+	function getEditorRestricted() {
+		return $this->getData('editorRestricted');
+	}
+
+	/**
+	 * Set whether or not submissions are restricted to [sub]Editors.
+	 * @param $editorRestricted boolean
+	 */
+	function setEditorRestricted($editorRestricted) {
+		return $this->setData('editorRestricted', $editorRestricted);
+	}
 }
 
 ?>

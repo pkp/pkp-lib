@@ -73,7 +73,7 @@ class SendReviewsForm extends EditorDecisionWithEmailForm {
 		// Identify email key and status of round.
 		switch ($decision) {
 			case SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS:
-				$emailKey = 'SUBMISSION_UNSUITABLE';
+				$emailKey = 'EDITOR_DECISION_REVISIONS';
 				$status = REVIEW_ROUND_STATUS_REVISIONS_REQUESTED;
 				break;
 

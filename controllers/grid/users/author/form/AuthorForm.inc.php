@@ -58,7 +58,7 @@ class AuthorForm extends Form {
 	 * @param @author Author
 	 */
 	function setAuthor($author) {
-		$this->_author =& $author;
+		$this->_author = $author;
 	}
 
 	/**
@@ -74,7 +74,7 @@ class AuthorForm extends Form {
 	 * @param Submission
 	 */
 	function setSubmission($submission) {
-		$this->_submission =& $submission;
+		$this->_submission = $submission;
 	}
 
 	/**
@@ -90,7 +90,7 @@ class AuthorForm extends Form {
 	 * @param String
 	 */
 	function setSubmissionIdFieldName($submissionIdFieldName) {
-		$this->_submissionIdFieldName =& $submissionIdFieldName;
+		$this->_submissionIdFieldName = $submissionIdFieldName;
 	}
 
 
@@ -102,7 +102,7 @@ class AuthorForm extends Form {
 	 * @param $author Author
 	 */
 	function initData() {
-		$author =& $this->getAuthor();
+		$author = $this->getAuthor();
 
 		if ($author) {
 			$this->_data = array(
@@ -178,7 +178,7 @@ class AuthorForm extends Form {
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
 		$submission = $this->getSubmission();
 
-		$author =& $this->getAuthor();
+		$author = $this->getAuthor();
 		if (!$author) {
 			// this is a new submission contributor
 			$author = new Author();

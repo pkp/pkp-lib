@@ -228,7 +228,7 @@ class Submission extends DataObject {
 	 */
 	function getAuthors() {
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
-		return $authorDao->getAuthorsBySubmissionId($this->getId());
+		return $authorDao->getBySubmissionId($this->getId());
 	}
 
 	/**

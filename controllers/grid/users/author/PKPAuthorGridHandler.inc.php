@@ -42,7 +42,7 @@ class PKPAuthorGridHandler extends GridHandler {
 	 * Get the submission associated with this author grid.
 	 * @return Submission
 	 */
-	function &getSubmission() {
+	function getSubmission() {
 		return $this->_submission;
 	}
 
@@ -51,7 +51,7 @@ class PKPAuthorGridHandler extends GridHandler {
 	 * @param Submission
 	 */
 	function setSubmission($submission) {
-		$this->_submission =& $submission;
+		$this->_submission = $submission;
 	}
 
 	/**
@@ -67,7 +67,7 @@ class PKPAuthorGridHandler extends GridHandler {
 	 * @param boolean
 	 */
 	function setReadOnly($readOnly) {
-		$this->_readOnly =& $readOnly;
+		$this->_readOnly = $readOnly;
 	}
 
 
@@ -212,7 +212,7 @@ class PKPAuthorGridHandler extends GridHandler {
 	function loadData($request, $filter = null) {
 		$submission = $this->getSubmission();
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
-		return $authorDao->getAuthorsBySubmissionId($submission->getId(), true);
+		return $authorDao->getBySubmissionId($submission->getId(), true);
 	}
 
 	//
@@ -275,7 +275,7 @@ class PKPAuthorGridHandler extends GridHandler {
 
 			if(!isset($author)) {
 				// This is a new contributor
-				$author =& $authorDao->getAuthor($authorId, $submission->getId());
+				$author = $authorDao->getAuthor($authorId, $submission->getId());
 				// New added author action notification content.
 				$notificationContent = __('notification.addedAuthor');
 			} else {
@@ -322,7 +322,7 @@ class PKPAuthorGridHandler extends GridHandler {
 		$authorId = $request->getUserVar('authorId');
 
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
-		$result = $authorDao->deleteAuthorById($authorId, $submissionId);
+		$result = $authorDao->deleteById($authorId, $submissionId);
 
 		if ($result) {
 			return DAO::getDataChangedEvent($authorId);
@@ -344,7 +344,7 @@ class PKPAuthorGridHandler extends GridHandler {
 
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
 		$userDao = DAORegistry::getDAO('UserDAO');
-		$author =& $authorDao->getAuthor($authorId);
+		$author = $authorDao->getAuthor($authorId);
 
 		if ($author !== null && $userDao->userExistsByEmail($author->getEmail())) {
 			// We don't have administrative rights over this user.

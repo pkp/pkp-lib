@@ -30,7 +30,7 @@ class PKPAuthorDAO extends DAO {
 	 * @param $submissionId int optional
 	 * @return Author
 	 */
-	function &getAuthor($authorId, $submissionId = null) {
+	function getAuthor($authorId, $submissionId = null) {
 		$params = array((int) $authorId);
 		if ($submissionId !== null) $params[] = (int) $submissionId;
 		$result = $this->retrieve(
@@ -41,7 +41,7 @@ class PKPAuthorDAO extends DAO {
 
 		$returner = null;
 		if ($result->RecordCount() != 0) {
-			$returner =& $this->_returnAuthorFromRow($result->GetRowAssoc(false));
+			$returner = $this->_fromRow($result->GetRowAssoc(false));
 		}
 
 		$result->Close();
@@ -54,7 +54,7 @@ class PKPAuthorDAO extends DAO {
 	 * @param $sortByAuthorId bool Use author Ids as indexes in the array
 	 * @return array Authors ordered by sequence
 	 */
-	function getAuthorsBySubmissionId($submissionId, $sortByAuthorId = false) {
+	function getBySubmissionId($submissionId, $sortByAuthorId = false) {
 		$authors = array();
 
 		$result = $this->retrieve(
@@ -66,9 +66,9 @@ class PKPAuthorDAO extends DAO {
 			$row = $result->getRowAssoc(false);
 			if ($sortByAuthorId) {
 				$authorId = $row['author_id'];
-				$authors[$authorId] = $this->_returnAuthorFromRow($row);
+				$authors[$authorId] = $this->_fromRow($row);
 			} else {
-				$authors[] = $this->_returnAuthorFromRow($row);
+				$authors[] = $this->_fromRow($row);
 			}
 			$result->MoveNext();
 		}
@@ -98,7 +98,7 @@ class PKPAuthorDAO extends DAO {
 	 * Update the localized data for this object
 	 * @param $author object
 	 */
-	function updateLocaleFields(&$author) {
+	function updateLocaleFields($author) {
 		$this->updateDataObjectSettings(
 			'author_settings',
 			$author,
@@ -113,7 +113,7 @@ class PKPAuthorDAO extends DAO {
 	 * @param $row array
 	 * @return Author
 	 */
-	function &_returnAuthorFromRow($row) {
+	function _fromRow($row) {
 		$author = $this->newDataObject();
 		$author->setId($row['author_id']);
 		$author->setSubmissionId($row['submission_id']);
@@ -130,7 +130,7 @@ class PKPAuthorDAO extends DAO {
 
 		$this->getDataObjectSettings('author_settings', 'author_id', $row['author_id'], $author);
 
-		HookRegistry::call('AuthorDAO::_returnAuthorFromRow', array(&$author, &$row));
+		HookRegistry::call('AuthorDAO::_fromRow', array(&$author, &$row));
 		return $author;
 	}
 
@@ -140,7 +140,7 @@ class PKPAuthorDAO extends DAO {
 	 * @param $row array
 	 * @return Author
 	 */
-	function &_returnSimpleAuthorFromRow($row) {
+	function _returnSimpleAuthorFromRow($row) {
 		$author = $this->newDataObject();
 		$author->setId($row['author_id']);
 		$author->setSubmissionId($row['submission_id']);
@@ -263,8 +263,8 @@ class PKPAuthorDAO extends DAO {
 	 * Delete an Author.
 	 * @param $author Author
 	 */
-	function deleteAuthor(&$author) {
-		return $this->deleteAuthorById($author->getId());
+	function deleteObject($author) {
+		return $this->deleteById($author->getId());
 	}
 
 	/**
@@ -272,7 +272,7 @@ class PKPAuthorDAO extends DAO {
 	 * @param $authorId int
 	 * @param $submissionId int optional
 	 */
-	function deleteAuthorById($authorId, $submissionId = null) {
+	function deleteById($authorId, $submissionId = null) {
 		$params = array((int) $authorId);
 		if ($submissionId) $params[] = (int) $submissionId;
 		$returner = $this->update(
@@ -315,7 +315,7 @@ class PKPAuthorDAO extends DAO {
 	 * @param $submissionId int
 	 * @return Author
 	 */
-	function &getPrimaryContact($submissionId) {
+	function getPrimaryContact($submissionId) {
 		$result = $this->retrieve(
 			'SELECT * FROM authors WHERE submission_id = ? AND primary_contact = 1',
 			(int) $submissionId
@@ -323,7 +323,7 @@ class PKPAuthorDAO extends DAO {
 
 		$returner = null;
 		if ($result->RecordCount() != 0) {
-			$returner = $this->_returnAuthorFromRow($result->GetRowAssoc(false));
+			$returner = $this->_fromRow($result->GetRowAssoc(false));
 		}
 		$result->Close();
 		return $returner;
@@ -357,8 +357,8 @@ class PKPAuthorDAO extends DAO {
 	 * Delete authors by submission.
 	 * @param $submissionId int
 	 */
-	function deleteAuthorsBySubmission($submissionId) {
-		$authors = $this->getAuthorsBySubmissionId($submissionId);
+	function deleteBySubmissionId($submissionId) {
+		$authors = $this->getBySubmissionId($submissionId);
 		foreach ($authors as $author) {
 			$this->deleteAuthor($author);
 		}

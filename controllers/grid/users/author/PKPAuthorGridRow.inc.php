@@ -85,7 +85,7 @@ class PKPAuthorGridRow extends GridRow {
 
 				$authorDao = DAORegistry::getDAO('AuthorDAO');
 				$userDao = DAORegistry::getDAO('UserDAO');
-				$author =& $authorDao->getAuthor($rowId);
+				$author = $authorDao->getAuthor($rowId);
 
 				if ($author && !$userDao->userExistsByEmail($author->getEmail())) {
 					$this->addAction(
@@ -109,7 +109,7 @@ class PKPAuthorGridRow extends GridRow {
 	 * Get the submission for this row (already authorized)
 	 * @return Submission
 	 */
-	function &getSubmission() {
+	function getSubmission() {
 		return $this->_submission;
 	}
 

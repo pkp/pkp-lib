@@ -124,7 +124,7 @@ class SubmissionDAO extends DAO {
 	 * @param $submissionId int
 	 */
 	function deleteById($submissionId) {
-		$this->authorDao->deleteAuthorsBySubmission($submissionId);
+		$this->authorDao->deleteBySubmissionId($submissionId);
 
 		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
 		$reviewRoundDao->deleteBySubmissionId($submissionId);

@@ -43,3 +43,4 @@
 	{fbvFormButtons submitText="reviewer.submission.submitReview" confirmSubmit="reviewer.confirmSubmit" cancelText="navigation.goBack" cancelUrl=$cancelUrl submitDisabled=$reviewIsComplete}
 {/fbvFormArea}
 </form>
+<p><span class="formRequired">{translate key="common.requiredField"}</span></p>

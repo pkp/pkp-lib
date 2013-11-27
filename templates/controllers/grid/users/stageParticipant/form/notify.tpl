@@ -37,4 +37,5 @@
 			{fbvFormButtons id="notifyButton" hideCancel=true submitText="submission.stageParticipants.notify"}
 		{/fbvFormArea}
 	</form>
+	<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 </div>

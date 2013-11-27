@@ -70,4 +70,5 @@
 	{if !$wizardMode}
 		{fbvFormButtons id="contactFormSubmit" submitText="common.save" hideCancel=true}
 	{/if}
+	<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 </form>

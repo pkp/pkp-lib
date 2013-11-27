@@ -53,4 +53,5 @@
 			{fbvFormButtons id="closeButton" hideCancel=true submitText="common.close"}
 		{/if}
 	</form>
+	<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 </div>

@@ -28,4 +28,5 @@
 		{fbvFormButtons hideCancel=true submitText="common.search"}
 	{/fbvFormArea}
 </form>
+<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 <div class="pkp_helpers_clear">&nbsp;</div>

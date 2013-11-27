@@ -59,3 +59,4 @@
 		{fbvFormButtons id="announcementFormSubmit" submitText="common.save"}
 	{/if}
 </form>
+<p><span class="formRequired">{translate key="common.requiredField"}</span></p>

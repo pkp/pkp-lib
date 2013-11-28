@@ -8,10 +8,9 @@
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the en_US (U.S. English) locale.
-  *
   -->
- 
+
 <locale name="en_US" full_name="U.S. English">
-	<message key="plugins.oaiMetadata.dc.displayName">Format de métadonnées DC</message>
-	<message key="plugins.oaiMetadata.dc.description">Structure les métadonnées afin de les rendre conformes au format Dublin Core.</message>
+	<message key="plugins.citationLookup.crossref.displayName">Connecteur aux bases de données CrossRef</message>
+	<message key="plugins.citationLookup.crossref.description">Connecte aux bases de données bibliographiques CrossRef.</message>
 </locale>

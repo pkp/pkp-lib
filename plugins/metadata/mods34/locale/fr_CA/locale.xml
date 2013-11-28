@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
+
+<!--
+  * locale.xml
+  *
+  * Copyright (c) 2003-2003-2013 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the en_US (U.S. English) locale.
+  -->
+
+<locale name="en_US" full_name="U.S. English">
+	<!-- plug-in -->
+	<message key="plugins.metadata.mods34.displayName">Métadonnées MODS 3.4</message>
+	<message key="plugins.metadata.mods34.description">Met à disposition des schémas et des logiciels d'adaptation MODS 3.4.</message>
+
+	<!-- MODS 3.4 XML output -->
+	<message key="plugins.metadata.mods34.mods34XmlOutput.displayName">Sortie MODS 3.4</message>
+	<message key="plugins.metadata.mods34.mods34XmlOutput.description">Convertissez des métadonnées descriptives MODS 3.4 dans leur structure XML.</message>
+</locale>

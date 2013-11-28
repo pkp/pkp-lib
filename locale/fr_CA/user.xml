@@ -4,7 +4,7 @@
 <!--
   * locale/fr_CA/user.xml
   *
-  * Copyright (c) 2000-2013 John Willinsky
+  * Copyright (c) 2000-2003-2013 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the fr_CA (Français (Canada)) locale.
@@ -25,17 +25,17 @@
 	<message key="user.fax">Télécopieur</message>
 	<message key="user.feminine">F</message>
 	<message key="user.firstName">Prénom</message>
-	<message key="user.gender">Genre</message>
+	<message key="user.gender">Sexe</message>
 	<message key="user.initialsExample">Joan Alice Smith = JAS</message>
 	<message key="user.initials">Initiales</message>
-	<message key="user.interests">Intérêts pour les évaluations</message>
+	<message key="user.interests">Intérêts pour les évaluations (Par ex., Biologie sous-marine, Philosophie)</message>
 	<message key="user.lastName">Nom de famille</message>
 	<message key="user.login.accountDisabledWithReason">Votre compte a été désactivé pour les raisons suivantes : {$reason}</message>
 	<message key="user.login.accountDisabled">Votre compte a été désactivé. Veuillez communiquer avec l'administrateur du site pour plus d'information.</message>
 	<message key="user.login.accountNotValidated">Votre courriel n'a pas été validé. Veuillez vérifier votre courriel et suivre les directives présentées. Si vous n'avez pas reçu de courriel, vous devrez peut-être communiquer avec l'administrateur du site pour obtenir de l'aide.</message>
 	<message key="user.login.activate">Activer le compte</message>
 	<message key="user.login.activated">Merci d'avoir activé votre compte. Vous pouvez maintenant vous connecter en utilisant les authentifiants fournis lors de la création de votre compte.</message>
-	<message key="user.login.changePasswordInstructions"><![CDATA[Vous devez sélectionner un nouveau mot de passe avant de pouvoir vous connecter à ce site.<br /><br />Veuillez entrer votre nom d'utilisateur et vos mots de passe actuel et nouveau ci-dessous pour modifier le mot de passe de votre compte.]]></message>
+	<message key="user.login.changePasswordInstructions"><![CDATA[Vous devez sélectionner un nouveau mot de passe avant de pouvoir vous connecter à ce site.<br /><br />Veuillez entrer votre nom d'utilisateur et vos mots de passe actuels et le nouveau ci-dessous pour modifier le mot de passe de votre compte.]]></message>
 	<message key="user.login.forgotPassword">Vous avez oublié votre mot de passe?</message>
 	<message key="user.login.loginError">Nom d'usager ou mot de passe non valide. Veuillez essayer de nouveau.</message>
 	<message key="user.login">Se connecter</message>
@@ -90,7 +90,7 @@
 	<message key="user.role.siteAdmin">Administrateur du site</message>
 	<message key="user.role.siteAdmins">Administrateurs du site</message>
 	<message key="user.roles">Rôles</message>
-	<message key="user.salutation">Appel</message>
+	<message key="user.salutation">Titre de civilité</message>
 	<message key="user.sendPassword">Confirmation</message>
 	<message key="user.sendPassword.description">M'envoyer un courriel de confirmation incluant mon nom d'utilisateur et mon mot de passe</message>
 	<message key="user.signature">Signature</message>

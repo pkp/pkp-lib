@@ -21,8 +21,7 @@ PHPUTF8 UTF-8 Character Handling Library
  * License: LGPL
 
 SWORD PHP API Library
- * URL: <http://php.swordapp.org>
- * Version: 0.9 (Oct 5, 2009)
+ * URL: <https://github.com/swordapp/swordappv2-php-library>
  * License: Modified BSD
 
 lessphp PHP LESS CSS Compiler

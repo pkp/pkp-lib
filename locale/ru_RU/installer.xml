@@ -13,59 +13,59 @@
 
 <locale name="ru_RU" full_name = "Russian">
 	<message key="installer.additionalLocales">Дополнительные языки</message>
-	<message key="installer.administratorAccount">Учетная запись Администратора</message>
-	<message key="installer.administratorAccountInstructions">Этот пользователь станет администратором сайта и получт полный доступ к системе. Дополнительные учетные записи можно создать после завершения установки.</message>
+	<message key="installer.administratorAccount">Учетная запись администратора</message>
+	<message key="installer.administratorAccountInstructions">Этот пользователь станет администратором сайта и получит полный доступ к системе. Дополнительные учетные записи пользователей можно будет создать после завершения установки.</message>
 	<message key="installer.checkNo"><![CDATA[<span class="pkp_form_error formError">НЕТ</span>]]></message>
 	<message key="installer.checkYes">Да</message>
-	<message key="installer.clientCharset">Кодировка браузера</message>
-	<message key="installer.clientCharsetInstructions">Кодировка, в которой производится обмен данными с пользовательским WWW-браузером.</message>
-	<message key="installer.configFileError"><![CDATA[Конфигурационный файл <tt>config.inc.php</tt> не существует или не может быть прочитан.]]></message>
-	<message key="installer.connectionCharset">Кодировка соединения с СУБД</message>
-	<message key="installer.connectionCharsetInstructions">Кодировка, которую следует использовать для обмена информацией с системой управления базами данных. Желательно совпадение с кодировкой браузера. Заметьте, что возможность установки кодировки соединения поддерживают только MySQL >= 4.1.1 или PostgreSQL >= 7.1. Выберите "неприменимо" если Ваша СУБД не отвечает этим требованиям.</message>
-	<message key="installer.contentsOfConfigFile">Содержимое файла конфигурации</message>
+	<message key="installer.clientCharset">Кодировка клиента</message>
+	<message key="installer.clientCharsetInstructions">Кодировка, которая используется для обмена данными с браузерами.</message>
+	<message key="installer.configFileError"><![CDATA[Конфигурационный файл <tt>config.inc.php</tt> не существует или не доступен для чтения.]]></message>
+	<message key="installer.connectionCharset">Кодировка для соединения с БД</message>
+	<message key="installer.connectionCharsetInstructions">Кодировка, которая используется для обмена информацией с базой данных. Желательно использовать кодировку, совпадающую с кодировкой клиента. Обратите внимание, что эта возможность поддерживается только MySQL >= 4.1.1 или PostgreSQL >= 7.1. Выберите «Не применимо» если ваша СУБД не отвечает этим требованиям.</message>
+	<message key="installer.contentsOfConfigFile">Содержимое конфигурационного файла</message>
 	<message key="installer.createDatabase">Создать новую базу данных</message>
-	<message key="installer.createDatabaseInstructions">Для использования этой возможности необходимо, чтобы ваша СУБД поддерживала возможность удаленного создания баз данных, а Ваш пользователь должени иметь соответствующие права доступа. Если, при включенной этой опции, установка не проходит, создайте базу данных на сервере вручную и попробуйте снова, отключив эту опцию.</message>
+	<message key="installer.createDatabaseInstructions">Для использования этой возможности необходимо, чтобы ваша СУБД поддерживала возможность удаленного создания базы данных, а ваша учетная запись пользователя БД имел соответствующие права на создание новых баз данных. Если установка завершается неудачей при использовании этой настройки, создайте базу данных на сервере вручную и запустите установку снова, отключив эту настройку.</message>
 	<message key="installer.databaseCharset">Кодировка базы данных</message>
-	<message key="installer.databaseCharsetInstructions">Кодировка, которую следует использовать для информации в базе данных. Заметьте, что возможность установки кодировки базы данных поддерживают только MySQL >= 4.1.1 или PostgreSQL >= 7.1. Выберите "неприменимо" если Ваша СУБД не отвечает этим требованиям.</message>
+	<message key="installer.databaseCharsetInstructions">Кодировка, которая используется для хранения данных в базе данных. Обратите внимание, что эта возможность поддерживается только MySQL >= 4.1.1 или PostgreSQL >= 7.1. Выберите «Не применимо» если ваша СУБД не отвечает этим требованиям.</message>
 	<message key="installer.databaseDriver">Драйвер базы данных</message>
-	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Драйверы, приведенные в квадратных скобках, не поддерживаются ни одним из загруженных расширений PHP, в случае выбора одного из них установка, вероятно, закончится неудачно.</strong><br />Любые неподдерживаемые драйверы в вышеприведенном списке, находятся там исключительно с академической целью и вряд ли будут работать.]]></message>
+	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Драйверы, приведенные в квадратных скобках, не поддерживаются ни одним из загруженных расширений PHP, и, в случае выбора одного из них, установка скорее всего закончится неудачно.</strong><br />Любые неподдерживаемые драйверы базы данных, указанные в приведенном выше списке, находятся там исключительно с информационными целями и скорее всего не будут работать.]]></message>
 	<message key="installer.databaseHost">Хост</message>
-	<message key="installer.databaseHostInstructions">Оставьте имя хоста пустым для соединения при помощи unix domain sockets вместо TCP/IP. Этого не требуется для MySQL, который использует unix-сокеты при соединении с "localhost", но может требоваться для других драйверов СУБД, таких как PostgreSQL.</message>
+	<message key="installer.databaseHostInstructions">Оставьте имя хоста пустым для соединения при помощи UNIX domain sockets вместо TCP/IP. Эта нстройка не обязательна для MySQL, который будет автоматически использовать sockets, если введено «localhost», но может требоваться для драйверов других СУБД, таких как PostgreSQL.</message>
 	<message key="installer.databaseName">Имя базы данных</message>
 	<message key="installer.databasePassword">Пароль</message>
-	<message key="installer.databaseSettings">Параметры базы данных</message>
+	<message key="installer.databaseSettings">Настройки базы данных</message>
 	<message key="installer.databaseUsername">Имя пользователя</message>
-	<message key="installer.encryptionInstructions">рекоммендуется SHA1, если Ваша система это поддерживает (требуется PHP >= 4.3.0).</message>
+	<message key="installer.encryptionInstructions">Рекомендуется SHA1, если Ваша система его поддерживает (требуется PHP >= 4.3.0).</message>
 	<message key="installer.encryption">Алгоритм шифрования паролей</message>
-	<message key="installer.filesDir">Каталог для принимаемых файлов</message>
-	<message key="installer.fileSettings">Параметры файлов</message>
-	<message key="installer.form.clientCharsetRequired">Необходимо выбрать кодировку браузера.</message>
-	<message key="installer.form.databaseDriverRequired">Нужно выбрать драйвер СУБД.</message>
-	<message key="installer.form.databaseNameRequired">Необходимо ввести имя базы данных.</message>
-	<message key="installer.form.emailRequired">Требуется правильный адрес электронной почты для учетной записи администратора.</message>
-	<message key="installer.form.encryptionRequired">Необходимо указать алгоритм шифрования паролей.</message>
-	<message key="installer.form.filesDirRequired">Каталог для сохранения принятых файлов должен быть указан обязательно.</message>
-	<message key="installer.form.localeRequired">Обязательно нужно выбрать язык.</message>
-	<message key="installer.form.passwordRequired">Нужно задать пароль администратора сайта.</message>
+	<message key="installer.filesDir">Каталог для загружаемых на сервер файлов</message>
+	<message key="installer.fileSettings">Настройки файлов</message>
+	<message key="installer.form.clientCharsetRequired">Кодировка клиента должна быть выбрана.</message>
+	<message key="installer.form.databaseDriverRequired">Драйвер СУБД должен быть выбран.</message>
+	<message key="installer.form.databaseNameRequired">Имя базы данных обязательно.</message>
+	<message key="installer.form.emailRequired">Правильный адрес электронной почты для учетной записи администратора обязателен.</message>
+	<message key="installer.form.encryptionRequired">Алгоритм шифрования паролей пользователей должен быть выбран.</message>
+	<message key="installer.form.filesDirRequired">Каталог для хранения загруженных на сервер файлов обязателен.</message>
+	<message key="installer.form.localeRequired">Язык должен быть выбран.</message>
+	<message key="installer.form.passwordRequired">Пароль для учетной записи администратора обязателен.</message>
 	<message key="installer.form.passwordsDoNotMatch">Пароли администратора не соответствуют друг другу.</message>
-	<message key="installer.form.separateMultiple">Если значений несколько, разделяйте их запятыми.</message>
-	<message key="installer.form.usernameAlphaNumeric">Имя учетной записи администратора может содержать только буквы, цифры, подчеркивания и тире, оно должно начинаться и заканчиваться буквой или цифрой.</message>
-	<message key="installer.form.usernameRequired">Требуется ввести имя учетной записи для администратора сайта.</message>
-	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>ПРЕДУПРЕЖДЕНИЕ: Ваша текущая версия PHP не соответствует минимальным требованиям для установки этой программы. Желательно обновить ее до более свежей версии.</strong>]]></message>
+	<message key="installer.form.separateMultiple">Несколько вводимых значений разделяйте запятыми.</message>
+	<message key="installer.form.usernameAlphaNumeric">Имя пользователя для учетной записи администратора может содержать только буквы, цифры, подчеркивания и тире; оно должно начинаться и заканчиваться буквой или цифрой.</message>
+	<message key="installer.form.usernameRequired">Имя пользователя для учетной записи администратора обязательно.</message>
+	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>ПРЕДУПРЕЖДЕНИЕ: Ваша текущая версия PHP не соответствует минимальным требованиям для установки. Желательно обновить PHP до более новой версии.</strong>]]></message>
 	<message key="installer.installErrorsOccurred">Во время установки произошли ошибки</message>
-	<message key="installer.installerSQLStatements">операторы SQL для установки</message>
-	<message key="installer.installFileError"><![CDATA[Установочный файл <tt>dbscripts/xml/install.xml</tt> не существует или не может быть прочитан.]]></message>
-	<message key="installer.installFilesDirError">Каталог, указанный в качестве каталога для принятых файлов, не существует либо защищен от записи.</message>
+	<message key="installer.installerSQLStatements">SQL-запросы для установки</message>
+	<message key="installer.installFileError"><![CDATA[Файл установки <tt>dbscripts/xml/install.xml</tt> не существует или не доступен для чтения.]]></message>
+	<message key="installer.installFilesDirError">Каталог, указанный в качестве каталога для хранения загруженных на сервер файлов, не существует или не доступен для записи.</message>
 	<message key="installer.installParseDBFileError"><![CDATA[Ошибка синтаксического разбора файла установки БД <tt>{$file}</tt>.]]></message>
-	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Ошибка синтаксического разбора файла с шаблонами электронной почты <tt>{$file}</tt>.]]></message>
-	<message key="installer.installParseFilterConfigFileError"><![CDATA[Error parsing the filter configuration file <tt>{$file}</tt>.]]></message>
+	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Ошибка синтаксического разбора файла шаблонов писем электронной почты <tt>{$file}</tt>.]]></message>
+	<message key="installer.installParseFilterConfigFileError"><![CDATA[Ошибка синтаксического разбора файла конфигурации фильтров <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale">Язык</message>
 	<message key="installer.locale.maybeIncomplete">Поддержка отмеченных языков может быть неполной.</message>
-	<message key="installer.localeSettings">Настройки Языка</message>
+	<message key="installer.localeSettings">Настройки языка</message>
 	<message key="installer.oaiSettings">Настройки OAI</message>
-	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Для идентификации записей метаданных (в протоколе <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protocol for Metadata Harvesting) требуется идентификатор, уникальный для данного сайта (хранилища метаданных).]]></message>
-	<message key="installer.oaiRepositoryId">идентификатор хранилища OAI</message>
-	<message key="installer.publicFilesDirError">Каталог, указанный в качестве каталога для принятых файлов, не существует либо защищен от записи.</message>
-	<message key="installer.releaseNotes">Замечания о текущей версии</message>
-	<message key="installer.securitySettings">Установки безопасности</message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Уникальный идентификатор используется для идентификации записей метаданных, проиндексированных с этого сайта, при использовании протокола сбора метаданных <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a>.]]></message>
+	<message key="installer.oaiRepositoryId">Идентификатор хранилища</message>
+	<message key="installer.publicFilesDirError">Каталог public для файлов не существует или не доступен для записи.</message>
+	<message key="installer.releaseNotes">Примечания к выпуску</message>
+	<message key="installer.securitySettings">Настройки безопасности</message>
 </locale>

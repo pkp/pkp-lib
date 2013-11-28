@@ -12,33 +12,33 @@
   -->
 
 <locale name="ru_RU" full_name = "Russian">
-	<message key="comments.anonymous">Гость</message>
-	<message key="comments.anonymousNamed">"{$userName}"</message>
-	<message key="comments.body">Основной текст</message>
-	<message key="comments.titleRequired">Тема комментария обязательна.</message>
-	<message key="comments.confirmDeleteChildren">Удаление комментария приведет к удалению всех ответов на него. Хотите ли Вы это сделать?</message>
-	<message key="comments.delete">Стереть комментарий</message>
-	<message key="comments.email">Адрес отправителя</message>
-	<message key="comments.emailReply">Ответить по E-mail</message>
-	<message key="comments.enterComment">Послать комментарий</message>
-	<message key="comments.inResponseTo">По поводу <![CDATA[<a href="]]>{$url}<![CDATA[">]]>{$title}<![CDATA[</a>]]></message>
+	<message key="comments.anonymous">Анонимный пользователь</message>
+	<message key="comments.anonymousNamed">«{$userName}»</message>
+	<message key="comments.body">Текст комментария</message>
+	<message key="comments.titleRequired">Заголовок комментария обязателен.</message>
+	<message key="comments.confirmDeleteChildren">Удаление этого комментария приведет к удалению всех ответов на него. Вы уверены, что хотите это сделать?</message>
+	<message key="comments.delete">Удалить этот комментарий</message>
+	<message key="comments.email">Адрес электронной почты комментатора</message>
+	<message key="comments.emailReply">Ответить письмом</message>
+	<message key="comments.enterComment">Ввести комментарий</message>
+	<message key="comments.inResponseTo"><![CDATA[ В ответ на <a href="{$url}">{$title}</a>]]></message>
 	<message key="comments.name">Имя комментатора</message>
 	<message key="comments.noComments">Нет комментариев читателей.</message>
 	<message key="comments.nReplies">(Ответов - {$num})</message>
 	<message key="comments.oneReply">(1 ответ)</message>
-	<message key="comments.postAnonymously">Послать анонимно</message>
-	<message key="comments.postReply">Послать ответ</message>
+	<message key="comments.postAnonymously">Отправить этот комментарий анонимно</message>
+	<message key="comments.postReply">Отправить ответ</message>
 	<message key="comments.readerComments">Комментарии читателей</message>
 	<message key="comments.readMore">Читать дальше</message>
 	<message key="comments.replies">Ответы</message>
-	<message key="comments.title">Тема</message>
-	<message key="comments.viewAllComments">Посмотреть все комментарии</message>
+	<message key="comments.title">Заголовок</message>
+	<message key="comments.viewAllComments">Просмотреть все комментарии</message>
 	<message key="reader.fullText">Полный текст:</message>
 	<message key="rt.addComment">Добавить комментарий</message>
-	<message key="rt.admin.configuration">Конфигурация</message>
-	<message key="rt.admin.contexts.confirmDelete">Уверены, что хотите удалить этот контекст и все ассоциированные Результаты Поиска?</message>
-	<message key="rt.admin.contexts.createContext">Создать Контекст</message>
-	<message key="rt.admin.contexts.edit.editContext">Редактировать Контекст</message>
+	<message key="rt.admin.configuration">Настройка</message>
+	<message key="rt.admin.contexts.confirmDelete">Вы уверены, что хотите удалить этот контекст и все связанные с ним поисковые запросы?</message>
+	<message key="rt.admin.contexts.createContext">Создать контекст</message>
+	<message key="rt.admin.contexts.edit.editContext">Редактировать контекст</message>
 	<message key="rt.admin.contexts.metadata">Метаданные</message>
 	<message key="rt.admin.contexts.options.authorTerms">Использовать имена авторов как ключевые слова для поиска, чтобы позволить пользователям найти другие работы авторов (например для контекста "Другие Работы")</message>
 	<message key="rt.admin.contexts.options.citedBy">Использовать имена авторов как ключевые слова для поиска и определить контекст как поиск ссылок на статью.</message>

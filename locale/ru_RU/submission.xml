@@ -12,25 +12,25 @@
   -->
 
 <locale name="ru_RU" full_name = "Russian">
-	<!-- Author Submission --> 
-	<message key="author.submit.submissionCitations">Дайте форматированный список ссылок на работы, использованные в данной рукописи.</message>	
+	<!-- Отправка материала автором --> 
+	<message key="author.submit.submissionCitations">Введите отформатированный список ссылок на работы, использованные при подготовке данного материала. Пожалуйста, отделяйте ссылки одну от другой с помощью пустой строки.</message>	
 
-	<!-- FIXME: move to meta-data plug-ins -->
-	<!-- messages used by meta-data filters -->
-	<message key="metadata.filters.crossref.settings.email.displayName">CrossRef Registration Email</message>
-	<message key="metadata.filters.crossref.settings.email.validationMessage">Please enter a valid CrossRef registration email. You can register your email for free on the CrossRef web site.</message>
-	<message key="metadata.filters.isbndb.settings.apiKey.displayName">ISBNdb API Key</message>
-	<message key="metadata.filters.isbndb.settings.apiKey.validationMessage">Please enter your ISBNdb API key. If you don't have a key yet you can request one for free from the ISBNdb project.</message>
-	<message key="metadata.filters.pubmed.settings.email.displayName">PubMed Registration Email</message>
-	<message key="metadata.filters.pubmed.settings.email.validationMessage">Please enter a valid PubMed registration email if you have one.</message>
-	<message key="metadata.filters.worldcat.settings.apiKey.displayName">WorldCat API Key</message>
-	<message key="metadata.filters.worldcat.settings.apiKey.validationMessage">Please enter a valid WorldCat API key if you have one.</message>
-	<message key="metadata.filters.paracite.settings.citationModule.displayName">Citation Module</message>
-	<message key="metadata.filters.paracite.settings.citationModule.validationMessage">Please select one of the given citation modules.</message>
-	<message key="metadata.filters.settings.isOptional.displayName">Don't use by default (will still be available to the editor)</message>
-	<message key="metadata.filters.settings.isOptional.validationMessage">Internal error. A non-valid value has been posted for the 'optional filter' setting. Please report this as a bug.</message>
+	<!-- ИСПРАВИТЬ: переместить в плагины метаданных -->
+	<!-- сообщения, используемые фильтрами метаданных -->
+	<message key="metadata.filters.crossref.settings.email.displayName">Адрес электронной почты, зарегистрированный в CrossRef</message>
+	<message key="metadata.filters.crossref.settings.email.validationMessage">Пожалуйста, введите правильный адрес электронной почты, зарегистрированный в CrossRef. Вы можете бесплатно зарегистрировать свой адрес электронной почты на веб-сайте CrossRef.</message>
+	<message key="metadata.filters.isbndb.settings.apiKey.displayName">Ключ ISBNdb API</message>
+	<message key="metadata.filters.isbndb.settings.apiKey.validationMessage">Пожалуйста, введите ваш ключ ISBNdb API. Если у вас еще нет такого ключа, вы можете бесплатно запросить его на сайте проекта ISBNdb.</message>
+	<message key="metadata.filters.pubmed.settings.email.displayName">Адрес электронной почты, зарегистрированный в PubMed</message>
+	<message key="metadata.filters.pubmed.settings.email.validationMessage">Пожалуйста, введите правильный адрес электронной почты, зарегистрированный в PubMed, если он у вас есть.</message>
+	<message key="metadata.filters.worldcat.settings.apiKey.displayName">Ключ WorldCat API</message>
+	<message key="metadata.filters.worldcat.settings.apiKey.validationMessage">Пожалуйста, введите правильный ключ WorldCat API, если он у вас есть.</message>
+	<message key="metadata.filters.paracite.settings.citationModule.displayName">Модуль ссылок</message>
+	<message key="metadata.filters.paracite.settings.citationModule.validationMessage">Пожалуйста, выберите один из указанных модулей ссылок.</message>
+	<message key="metadata.filters.settings.isOptional.displayName">Не использовать по умолчанию (по-прежнему будет доступен редактору)</message>
+	<message key="metadata.filters.settings.isOptional.validationMessage">Внутрення ошибка. Неверное значение было передано настройке «необязательный фильтр». Пожалуйста, сообщите об этой ошибке разработчикам.</message>
 
-	<!-- messages shared between MD schemas -->
+	<!-- сообщения, совпадающие в разных схемах метаданных -->
 	<message key="metadata.property.displayName.author">Авторы</message>
 	<message key="metadata.property.validationMessage.author">For best results, authors should be entered in the following format: Coleman Jr, D. (Ralf) Dr.</message>
 	<message key="metadata.property.displayName.editor">Редакторы</message>
@@ -119,7 +119,7 @@
 	<message key="metadata.property.validationMessage.partName">Please enter a valid part name.</message>
 	<message key="metadata.property.displayName.name-type">Name Type</message>
 	<message key="metadata.property.validationMessage.name-type">Please make sure that you set a valid name type. Supported values are 'personal', 'corporate' and 'conference'.</message>
-	<!-- FIXME: end -->
+	<!-- ИСПРАВИТЬ: конец -->
 
 	<message key="submission.addFile">Upload File</message>
 	<message key="submission.agencies">Организации</message>

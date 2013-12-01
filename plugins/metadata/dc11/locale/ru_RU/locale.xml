@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
+
+<!--
+  * plugins/metadata/dc11/locale/ru_RU/locale.xml
+  *
+  * Copyright (c) 2003-2013 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the ru_RU (Russian) locale.
+  * With updates from Pavel Pisklakov (revising translation). 
+  -->
+
+<locale name="ru_RU" full_name="Russian">
+	<!-- плагин -->
+	<message key="plugins.metadata.dc11.displayName">Метаданные Dublin Core 1.1</message>
+	<message key="plugins.metadata.dc11.description">Реализует схемы и адаптеры приложений Dublin Core версии 1.1.</message>
+</locale>

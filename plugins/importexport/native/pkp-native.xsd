@@ -1,5 +1,18 @@
 <?xml version="1.0"?>
+
+<!--
+  * plugins/importexport/native/pkp-native.xsd
+  *
+  * Copyright (c) 2003-2013 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Schema describing native XML import/export elements shared across PKP applications
+  -->
+
 <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://pkp.sfu.ca" xmlns:pkp="http://pkp.sfu.ca" elementFormDefault="qualified">
+
+	<!-- Bring in the common PKP import/export content -->
+	<include schemaLocation="../../../xml/importexport.xsd" />
 
 	<!-- *********
 	  -  * Types *
@@ -9,22 +22,10 @@
 	  - Basic Types
 	  -->
 
-	<!-- Identifies a particular I18N locale, e.g. en_US -->
-	<simpleType name="locale">
-		<restriction base="string">
-			<pattern value="[a-z][a-z]_[A-Z][A-Z]" />
-		</restriction>
-	</simpleType>
-
 	<!-- Identifies a MIME type -->
 	<simpleType name="mimeType">
 		<restriction base="normalizedString" />
 	</simpleType>
-
-	<!-- A text node with an attribute describing its locale, e.g. title -->
-	<complexType name="localizedNode" mixed="true">
-		<attribute name="locale" type="pkp:locale" use="optional" />
-	</complexType>
 
 	<!-- Identifies a user group -->
 	<simpleType name="user_group">

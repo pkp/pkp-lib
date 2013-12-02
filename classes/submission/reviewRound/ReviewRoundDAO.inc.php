@@ -350,10 +350,28 @@ class ReviewRoundDAO extends DAO {
 	 * @param $submissionId int
 	 */
 	function deleteBySubmissionId($submissionId) {
-		return $this->update(
-			'DELETE FROM review_rounds WHERE submission_id = ?',
-			(int) $submissionId
-		);
+		$reviewRounds = $this->getBySubmissionId($submissionId);
+		while ($reviewRound = $reviewRounds->next()) {
+			$this->deleteObject($reviewRound);
+		}
+	}
+
+	/**
+	 * Delete a review round.
+	 * @param $reviewRound ReviewRound
+	 */
+	function deleteObject($reviewRound) {
+		$this->deleteById($reviewRound->getId());
+	}
+
+	/**
+	 * Delete a review round by ID.
+	 * @param $reviewRoundId int
+	 * @return boolean
+	 */
+	function deleteById($reviewRoundId) {
+		$this->update('DELETE FROM notifications WHERE assoc_type = ? AND assoc_id = ?', array((int) ASSOC_TYPE_REVIEW_ROUND, (int) $reviewRoundId));
+		return $this->update('DELETE FROM review_rounds WHERE review_round_id = ?', array((int) $reviewRoundId));
 	}
 
 	//

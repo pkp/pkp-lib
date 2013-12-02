@@ -233,6 +233,7 @@ class SignoffDAO extends DAO {
 	 * @return boolean
 	 */
 	function deleteObjectById($signoffId) {
+		$this->update('DELETE FROM notifications WHERE assoc_type = ? AND assoc_id = ?', array((int) ASSOC_TYPE_SIGNOFF, (int) $signoffId));
 		return $this->update('DELETE FROM signoffs WHERE signoff_id = ?', array((int) $signoffId));
 	}
 

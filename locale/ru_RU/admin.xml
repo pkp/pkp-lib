@@ -8,79 +8,84 @@
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the ru_RU (Russian) locale.
-  *
+  * With updates from Pavel Pisklakov (revising translation). 
   -->
 
 <locale name="ru_RU" full_name = "Russian">
 	<message key="admin.adminFunctions">Административные функции</message>
-	<message key="admin.auth.confirmDelete">Вы уверены, что хотите удалить эту базу учетных записей ?</message>
-	<message key="admin.auth.create">Определить новую базу учетных записей</message>
-	<message key="admin.auth.noneCreated">База учетных записей не определена.</message>
-	<message key="admin.authSources">Базы учетных записей</message>
-	<message key="admin.clearDataCache">Очистить кеш данных</message>
-	<message key="admin.clearTemplateCache">Очистить кеш шаблонов</message>
-	<message key="admin.configFileUpdatedInstructions"><![CDATA[Ваш конфигурационный файл не был обновлен. Чтобы применить настройки, Вам нужно открыть  <tt>config.inc.php</tt> в текстовом редакторе и заполнить все нужные поля.]]></message>
-	<message key="admin.confirmClearTemplateCache">Вы действительно хотите упразднить кеш шаблона?</message>
-	<message key="admin.confirmExpireSessions">Вы уверены, что хотите прекратить сессии? Все пользователи должны будут авторизоваться заново (в том числе и Вы).</message>
-	<message key="admin.contentsOfConfigFile">Содержание конфиг файла</message>
-	<message key="admin.currentVersion">Установленная версия</message>
+	<message key="admin.auth.confirmDelete">Вы уверены, что хотите навсегда удалить этот источник аутентификации?</message>
+	<message key="admin.auth.create">Создать источник аутентификации</message>
+	<message key="admin.auth.noneCreated">Источники аутентификации не определены.</message>
+	<message key="admin.authSources">Источники аутентификации</message>
+	<message key="admin.clearDataCache">Очистить кэши данных</message>
+	<message key="admin.clearTemplateCache">Очистить кэш шаблонов</message>
+	<message key="admin.configFileUpdatedInstructions"><![CDATA[Ваш конфигурационный файл был успешно обновлен. Пожалуйста, обратите внимание на то, что если ваш сайт перестал правильно работать, вам необходимо вручную исправить вашу конфигурации, отредактировав <tt>config.inc.php</tt> напрямую, в текстовом редакторе.]]></message>
+	<message key="admin.confirmClearTemplateCache">Вы уверены, что хотите очистить кэш скомпилированных шаблонов?</message>
+	<message key="admin.confirmExpireSessions">Вы уверены, что хотите прекратить все сессии пользователей? Все пользователи, которые сейчас работают в системе, должны будут заново войти в нее под своей учетной записью (в том числе и вы).</message>
+	<message key="admin.contentsOfConfigFile">Содержимое конфигурационного файла</message>
+	<message key="admin.currentVersion">Текущая версия</message>
 	<message key="admin.dateInstalled">Дата установки</message>
-	<message key="admin.displayConfigFileInstructions"><![CDATA[Содержание конфигурационного файла показано внизу. Чтобы применить настройки, Вам нужно открыть  <tt>config.inc.php</tt> в текстовом редакторе и заполнить все нужные поля, используя нижеприведенные данные.]]></message>
-	<message key="admin.displayNewSystemConfig">Показать новые настройки</message>
-	<message key="admin.expireSessions">Прекратить пользовательские сессии</message>
-	<message key="admin.languages.confirmReload">Вы уверены, что хотите загрузить этот языковой файл? Это действие сотрет все специфические языковые шаблоны.</message>
+	<message key="admin.displayConfigFileInstructions"><![CDATA[Содержимое обновленной конфигурации показано ниже. Чтобы применить изменения конфигурации, вы должны открыть <tt>config.inc.php</tt> в подходящем текстовом редакторе и заменить его содержимое содержимым текстового поля, расположенного ниже.]]></message>
+	<message key="admin.displayNewSystemConfig">Показать новую конфигурацию</message>
+	<message key="admin.expireSessions">Прекратить сессии пользователей</message>
+	<message key="admin.languages.confirmReload">Вы уверены, что хотите заново загрузить этот язык? Это приведет к удалению всех данных пользователя, связанных с этим языком, например, изменений в шаблонах писем.</message>
 	<message key="admin.languages.installedLocales">Установленные языки</message>
 	<message key="admin.languages.installLanguages">Управление языками</message>
 	<message key="admin.languages.installLocales">Установить</message>
 	<message key="admin.languages.installNewLocales">Установить новые языки</message>
-	<message key="admin.languages.languageSettings">Настройки языков</message>
-	<message key="admin.languages.noLocalesAvailable">Нет дополнительных языков для установки.</message>
-	<message key="admin.languages.reload">Обновить локаль в памяти</message>
-	<message key="admin.languages.uninstall">Деинсталировать язык</message>
-	<message key="admin.phpInfo">Extended PHP Information</message>
-	<message key="admin.server.apacheVersion">Apache version</message>
-	<message key="admin.server.dbDriver">Database driver</message>
-	<message key="admin.server.dbVersion">Database server version</message>
-	<message key="admin.serverInformationDescription"><![CDATA[Basic operating system and server software versions. Click on <span class="highlight">Extended PHP Information</span> to view extended details of this server's PHP configuration.]]></message>
+	<message key="admin.languages.languageSettings">Настройки языка</message>
+	<message key="admin.languages.noLocalesAvailable">Нет доступных дополнительных языков для установки.</message>
+	<message key="admin.languages.reload">Заново загрузить язык</message>
+	<message key="admin.languages.uninstall">Удалить язык</message>
+	<message key="admin.phpInfo">Расширенная информация PHP</message>
+	<message key="admin.server.apacheVersion">Версия Apache</message>
+	<message key="admin.server.dbDriver">Драйвер базы данных</message>
+	<message key="admin.server.dbVersion">Версия СУБД</message>
+	<message key="admin.serverInformationDescription"><![CDATA[Базовые версии операционной системы и серверного программного обеспечения. Щелкните на <span class="highlight">Расширенная информация PHP</span> для отображения подробной информации о конфигурации PHP на этом сервере.]]></message>
 	<message key="admin.serverInformation">Информация о сервере</message>
-	<message key="admin.server.phpVersion">PHP version</message>
-	<message key="admin.server.platform">OS platform</message>
-	<message key="admin.settings.aboutDescription">Описание сайта</message>
-	<message key="admin.settings.contactEmail">E-mail главного редактора</message>
-	<message key="admin.settings.contactName">Имя главного редактора</message>
-	<message key="admin.settings.form.contactEmailRequired">Требуется задать электронный адрес для контактов.</message>
-	<message key="admin.settings.form.contactNameRequired">Имя секретаря журнала.</message>
+	<message key="admin.server.phpVersion">Версия PHP</message>
+	<message key="admin.server.platform">ОС платформы</message>
+	<message key="admin.settings">Настройки</message>
+	<message key="admin.settings.aboutDescription">Описание «О сайте»</message>
+	<message key="admin.settings.contactEmail">E-mail контактного лица</message>
+	<message key="admin.settings.contactName">Имя контактного лица</message>
+	<message key="admin.settings.form.contactEmailRequired">Адрес электронной почты контактного лица обязателен.</message>
+	<message key="admin.settings.form.contactNameRequired">Имя контактного лица обязательно.</message>
 	<message key="admin.settings.form.minPasswordLengthRequired">Пароль должен содержать минимум 4 знака.</message>
-	<message key="admin.settings.form.titleRequired">Нужно название.</message>
+	<message key="admin.settings.form.titleRequired">Название обязательно.</message>
 	<message key="admin.settings.homeHeaderImage.altText">Логотип сайта</message>
-	<message key="admin.settings.homeHeaderImageInvalid">Неверный формат логотипа. Принимаются изображения в форматах .gif, .jpg, или .png.</message>
-	<message key="admin.settings.introduction">Введение</message>
-	<message key="admin.settings.minPasswordLength">Длина пароля</message>
-	<message key="admin.settings.oaiRegistration">Регистрировать сайт для индексации (Metadata Harvesting)</message>
+	<message key="admin.settings.homeHeaderImageInvalid">Неверный формат изображения логотипа сайта. Разрешенные форматы: .gif, .jpg или .png.</message>
+	<message key="admin.settings.introduction">Преамбула</message>
+	<message key="admin.settings.minPasswordLength">Минимальная длина пароля</message>
+	<message key="admin.settings.oaiRegistration">Зарегистрировать сайт для индексации (сбора метаданных)</message>
 	<message key="admin.settings.passwordCharacters">знаков</message>
 	<message key="admin.settings.siteLanguage">Язык сайта</message>
-	<message key="admin.settings.siteStyleSheetInvalid">Неверный формат стилевого файла. Допустим только формат .css.</message>
-	<message key="admin.settings.siteStyleSheet">Стилевой файл сайта</message>
+	<message key="admin.settings.siteStyleSheetInvalid">Неверный формат таблицы стилей сайта. Разрешенный формат: .css.</message>
+	<message key="admin.settings.siteStyleSheet">Таблица стилей сайта</message>
+	<message key="admin.settings.siteTheme">Тема сайта</message>
 	<message key="admin.settings.siteTitle">Название сайта</message>
 	<message key="admin.siteAdmin">Администрирование сайта</message>
 	<message key="admin.siteManagement">Управление сайтом</message>
 	<message key="admin.siteSettings">Настройки сайта</message>
-	<message key="admin.systemConfigFileReadError"><![CDATA[Конфигурационный файл <tt>config.inc.php</tt> не существует или невалиден.]]></message>
+	<message key="admin.siteSetup">Установка сайта</message>
+	<message key="admin.systemConfigFileReadError"><![CDATA[Конфигурационный файл <tt>config.inc.php</tt> не существует, не доступен для чтения или является неправильным.]]></message>
 	<message key="admin.systemInformation">Информация о системе</message>
-	<message key="admin.versionBuild">Композиция</message>
-	<message key="admin.version.checkForUpdates">Проверить на предмет новых релизов</message>
+	<message key="admin.versionBuild">Сборка</message>
+	<message key="admin.version.checkForUpdates">Проверить наличие обновлений</message>
 	<message key="admin.version.downloadPackage">Скачать</message>
-	<message key="admin.version.downloadPatch">Скачать релиз</message>
+	<message key="admin.version.downloadPatch">Скачать исправление</message>
 	<message key="admin.versionHistory">История версий</message>
 	<message key="admin.version.latest">Последняя версия</message>
-	<message key="admin.versionMajor">Главная</message>
-	<message key="admin.versionMinor">Незначительная</message>
+	<message key="admin.versionMajor">Старшая</message>
+	<message key="admin.versionMinor">Младшая</message>
 	<message key="admin.version.moreInfo">Дополнительная информация</message>
 	<message key="admin.versionRevision">Ревизия</message>
-	<message key="admin.version.updateAvailable">Имеется новый релиз системы</message>
+	<message key="admin.version.updateAvailable">Доступна обновленная версия</message>
 	<message key="admin.version.upToDate">Ваша система актуальна</message>
 	<message key="admin.version">Версия</message>
-	<message key="admin.settings">Настройки</message>
-	<message key="admin.settings.siteTheme">Тема сайта</message>
-	<message key="admin.siteSetup">Установка сайта</message>
+	
+	<message key="admin.fileLoader.wrongBasePathLocation">Основной каталог {$path} должен быть внутри каталога с доступными для всех файлами.</message>
+	<message key="admin.fileLoader.pathNotAccessible">Папка {$path} не является каталогом или не доступен для чтения.</message>
+	<message key="admin.fileLoader.moveFileFailed">Файл {$filename} не может быть перемещен из {$currentFilePath} в {$destinationPath}</message>
+	<message key="admin.fileLoader.emailSubject">ID процесса загрузки файлов {$processId}</message>
 </locale>

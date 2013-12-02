@@ -8,191 +8,393 @@
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the ru_RU (Russian) locale.
-  *
+  * With updates from Pavel Pisklakov (revising translation). 
   -->
 
 <locale name="ru_RU" full_name = "Russian">
+	<!-- Отправка материала автором --> 
+	<message key="author.submit.submissionCitations">Введите отформатированный список ссылок на работы, использованные при подготовке данного материала. Пожалуйста, отделяйте ссылки одну от другой с помощью пустой строки.</message>	
+
+	<!-- ИСПРАВИТЬ: переместить в плагины метаданных -->
+	<!-- сообщения, используемые фильтрами метаданных -->
+	<message key="metadata.filters.crossref.settings.email.displayName">Адрес электронной почты, зарегистрированный в CrossRef</message>
+	<message key="metadata.filters.crossref.settings.email.validationMessage">Пожалуйста, введите правильный адрес электронной почты, зарегистрированный в CrossRef. Вы можете бесплатно зарегистрировать свой адрес электронной почты на веб-сайте CrossRef.</message>
+	<message key="metadata.filters.isbndb.settings.apiKey.displayName">Ключ ISBNdb API</message>
+	<message key="metadata.filters.isbndb.settings.apiKey.validationMessage">Пожалуйста, введите ваш ключ ISBNdb API. Если у вас еще нет такого ключа, вы можете бесплатно запросить его на сайте проекта ISBNdb.</message>
+	<message key="metadata.filters.pubmed.settings.email.displayName">Адрес электронной почты, зарегистрированный в PubMed</message>
+	<message key="metadata.filters.pubmed.settings.email.validationMessage">Пожалуйста, введите правильный адрес электронной почты, зарегистрированный в PubMed, если он у вас есть.</message>
+	<message key="metadata.filters.worldcat.settings.apiKey.displayName">Ключ WorldCat API</message>
+	<message key="metadata.filters.worldcat.settings.apiKey.validationMessage">Пожалуйста, введите правильный ключ WorldCat API, если он у вас есть.</message>
+	<message key="metadata.filters.paracite.settings.citationModule.displayName">Модуль ссылок</message>
+	<message key="metadata.filters.paracite.settings.citationModule.validationMessage">Пожалуйста, выберите один из указанных модулей ссылок.</message>
+	<message key="metadata.filters.settings.isOptional.displayName">Не использовать по умолчанию (по-прежнему будет доступен редактору)</message>
+	<message key="metadata.filters.settings.isOptional.validationMessage">Внутрення ошибка. Неверное значение было передано настройке «необязательный фильтр». Пожалуйста, сообщите об этой ошибке разработчикам.</message>
+
+	<!-- сообщения, совпадающие в разных схемах метаданных -->
+	<message key="metadata.property.displayName.author">Авторы</message>
+	<message key="metadata.property.validationMessage.author">Для получения наилучшего результата авторы должны быть введены в следующем формате: Бородин, А. А.</message>
+	<message key="metadata.property.displayName.editor">Редакторы</message>
+	<message key="metadata.property.validationMessage.editor">ля получения наилучшего результата редакторы должны быть введены в следующем формате: Бородин, А. А.</message>
+
+	<!-- сообщения, специфичные для NLM -->
+	<message key="metadata.property.displayName.article-title">Название статьи/материала</message>
+	<message key="metadata.property.validationMessage.article-title">Пожалуйста, введите правильное название статьи/материала.</message>
+	<message key="metadata.property.displayName.source">Название публикации</message>
+	<message key="metadata.property.validationMessage.source">Пожалуйста, введите правильное название публикации.</message>
+	<message key="metadata.property.displayName.date">Дата публикации</message>
+	<message key="metadata.property.validationMessage.date">Пожалуйста, введите правильную дату публикации (формат: ГГГГ-ММ-ДД).</message>
+	<message key="metadata.property.displayName.access-date">Дата доступа</message>
+	<message key="metadata.property.validationMessage.access-date">Пожалуйста, введите правильную дату доступа (формат: ГГГГ-ММ-ДД).</message>
+	<message key="metadata.property.displayName.issue">Выпуск</message>
+	<message key="metadata.property.validationMessage.issue">Пожалуйста, введите правильный выпуск.</message>
+	<message key="metadata.property.displayName.volume">Том</message>
+	<message key="metadata.property.validationMessage.volume">Пожалуйста, введите правильный том.</message>
+	<message key="metadata.property.displayName.season">Сезон</message>
+	<message key="metadata.property.validationMessage.season">Пожалуйста, введите правильный идентификатор сезона.</message>
+	<message key="metadata.property.displayName.chapter-title">Название главы</message>
+	<message key="metadata.property.validationMessage.chapter-title">Пожалуйста, введите правильное название главы.</message>
+	<message key="metadata.property.displayName.edition">Издание</message>
+	<message key="metadata.property.validationMessage.edition">Пожалуйста, введите правильное издание.</message>
+	<message key="metadata.property.displayName.series">Серия</message>
+	<message key="metadata.property.validationMessage.series">Пожалуйста, введите правильную серию.</message>
+	<message key="metadata.property.displayName.supplement">Дополнение</message>
+	<message key="metadata.property.validationMessage.supplement">Пожалуйста, введите правильное дополнение.</message>
+	<message key="metadata.property.displayName.conf-date">Дата конференции</message>
+	<message key="metadata.property.validationMessage.conf-date">Пожалуйста, введите правильную дату конференции (формат: ГГГГ-ММ-ДД).</message>
+	<message key="metadata.property.displayName.conf-loc">Место проведения конференции</message>
+	<message key="metadata.property.validationMessage.conf-loc">Пожалуйста, введите правильное место проведения конференции.</message>
+	<message key="metadata.property.displayName.conf-name">Название конференции</message>
+	<message key="metadata.property.validationMessage.conf-name">Пожалуйста, введите правильное название конференции.</message>
+	<message key="metadata.property.displayName.conf-sponsor">Спонсор конференции</message>
+	<message key="metadata.property.validationMessage.conf-sponsor">Пожалуйста, введите правильно спонсора конференции.</message>
+	<message key="metadata.property.displayName.institution">Организация</message>
+	<message key="metadata.property.validationMessage.institution">Пожалуйста, введите правильную организацию.</message>
+	<message key="metadata.property.displayName.fpage">Первая страница</message>
+	<message key="metadata.property.validationMessage.fpage">Пожалуйста, введите правильно первую страницу (должна быть числом).</message>
+	<message key="metadata.property.displayName.lpage">Последняя страница</message>
+	<message key="metadata.property.validationMessage.lpage">Пожалуйста, введите правильно последнюю страницу (должна быть числом).</message>
+	<message key="metadata.property.displayName.size">Количество страниц</message>
+	<message key="metadata.property.validationMessage.size">Пожалуйста, введите правильно общее количество страниц (должна быть числом).</message>
+	<message key="metadata.property.displayName.publisher-loc">Место издания</message>
+	<message key="metadata.property.validationMessage.publisher-loc">Пожалуйста, введите правильное место издания.</message>
+	<message key="metadata.property.displayName.publisher-name">Название издателя</message>
+	<message key="metadata.property.validationMessage.publisher-name">Пожалуйста, введите правильное название издателя.</message>
+	<message key="metadata.property.displayName.isbn">ISBN</message>
+	<message key="metadata.property.validationMessage.isbn">Пожалуйста, введите правильный ISBN (9 или 13 цифр).</message>
+	<message key="metadata.property.displayName.issn">Печатный ISSN</message>
+	<message key="metadata.property.validationMessage.issn">Пожалуйста, введите правильный ISSN печатного издания.</message>
+	<message key="metadata.property.displayName.eissn">Электронный ISSN</message>
+	<message key="metadata.property.validationMessage.eissn">Пожалуйста, введите правильный ISSN электронного издания.</message>
+	<message key="metadata.property.displayName.doi">DOI</message>
+	<message key="metadata.property.validationMessage.doi">Пожалуйста, введите правильный DOI.</message>
+	<message key="metadata.property.displayName.publisher-id">Пользовательский ID публикации</message>
+	<message key="metadata.property.validationMessage.publisher-id">Пожалуйста, введите правильный пользовательский ID публикации.</message>
+	<message key="metadata.property.displayName.coden">CODEN</message>
+	<message key="metadata.property.validationMessage.coden">Пожалуйста, введите правильный CODEN.</message>
+	<message key="metadata.property.displayName.sici">SICI</message>
+	<message key="metadata.property.validationMessage.sici">Пожалуйста, введите правильный SICI.</message>
+	<message key="metadata.property.displayName.pmid">PMID</message>
+	<message key="metadata.property.validationMessage.pmid">Пожалуйста, введите правильный PMID.</message>
+	<message key="metadata.property.displayName.uri">Ссылка на публикацию</message>
+	<message key="metadata.property.validationMessage.uri">Пожалуйста, введите правильную альтернативную ссылку (URL) на публикацию.</message>
+	<message key="metadata.property.displayName.comment">Комментарий</message>
+	<message key="metadata.property.validationMessage.comment">Пожалуйста, введите правильный комментарий.</message>
+	<message key="metadata.property.displayName.annotation">Аннотация</message>
+	<message key="metadata.property.validationMessage.annotation">Пожалуйста, введите правильную аннотацию.</message>
+	<message key="metadata.property.displayName.publication-type">Тип публикации</message>
+	<message key="metadata.property.validationMessage.publication-type">Пожалуйста убедитесь, что вы всегда задаете тип публикации. На текущий момент поддерживаются значения book (для книг или глав книги) и journal (для журнальных статей). Если тип не указан или указан неверно, оформление ссылки на источник может работать неправильно.</message>
+
+	<!-- сообщения, специфичные для MODS -->
+	<message key="metadata.property.displayName.title-type">Тип заголовка</message>
+	<message key="metadata.property.validationMessage.title-type">Пожалуйста убедитесь, что вы задали правильный тип заголовка. Поддерживаемые значения: abbreviated, translated, alternative и uniform.</message>
+	<message key="metadata.property.displayName.nonSort">Часть заголовка, игнорируемая при сортировке</message>
+	<message key="metadata.property.validationMessage.nonSort">Пожалуйста, введите только первые буквы заголовка, которые должны быть проигнорированы при сортировке заголовков.</message>
+	<message key="metadata.property.displayName.title">Заголовок</message>
+	<message key="metadata.property.validationMessage.title">Пожалуйста, введите правильный заголовок.</message>
+	<message key="metadata.property.displayName.subTitle">Подзаголовок</message>
+	<message key="metadata.property.validationMessage.subTitle">Пожалуйста, введите правильный подзаголовок.</message>
+	<message key="metadata.property.displayName.partNumber">Номер части</message>
+	<message key="metadata.property.validationMessage.partNumber">Пожалуйста, введите правильный номер части.</message>
+	<message key="metadata.property.displayName.partName">Название части</message>
+	<message key="metadata.property.validationMessage.partName">Пожалуйста, введите правильное название части.</message>
+	<message key="metadata.property.displayName.name-type">Тип названия</message>
+	<message key="metadata.property.validationMessage.name-type">Пожалуйста убедитесь, что вы задали правильный тип названия. Поддерживаемые значения: personal, corporate и conference.</message>
+	<!-- ИСПРАВИТЬ: конец -->
+
+	<message key="submission.addFile">Загрузить файл</message>
 	<message key="submission.agencies">Организации</message>
-	<message key="submission.abstractViews">Просм. аннотации</message>
+	<message key="submission.abstractViews">Вид «Аннотации»</message>
 	<message key="submission.accepted">Принята</message>
-	<message key="submission.acknowledge">Получена</message>
-	<message key="submission.addSuppFile">Добавить сопровождающий файл</message>
+	<message key="submission.acknowledge">Подтвердить</message>
+	<message key="submission.addSuppFile">Добавить дополнительный файл</message>
 	<message key="submission.ask">Спросить</message>
-	<message key="submission.backToSubmissionEditing">Обратно к редакции статьи</message>
+	<message key="submission.backToSubmissionEditing">Назад к редактированию материала</message>
 	<message key="submission.changeComments">Заменить на</message>
 	<message key="submission.citations">Литература</message>
+	<message key="submission.citations.editor.citationlist.approved">Одобрена</message>
+	<message key="submission.citations.editor.citationlist.deleteCitationConfirmation">Вы уверены, что хотите удалить эту ссылку?</message>
+	<message key="submission.citations.editor.citationlist.errorDeletingCitation">Произошла ошибка при попытке удаления этой ссылки. Пожалуйста, сообщите об этой ошибке разработчикам.</message>
+	<message key="submission.citations.editor.citationlist.newCitation">Новая ссылка</message>
+	<message key="submission.citations.editor.citationlist.notApproved">Не одобрена</message>
+	<message key="submission.citations.editor.citationlist.title">Редактировать ссылки</message>
+	<message key="submission.citations.editor.clickToEdit">Щелкните для редактирования.</message>
+	<message key="submission.citations.editor.details.authorQuery">Спросить автора</message>
+	<message key="submission.citations.editor.details.authorQueryBody">Ваше сообщение автору:</message>
+	<message key="submission.citations.editor.details.authorQueryExplanation">Вы можете запросить у автора дополнительную информацию о ссылке на данный источник. Щелкнув внизу на кнопке «Отправить», вы отправите электронной почтой ваше сообщение автору.</message>
+	<message key="submission.citations.editor.details.authorQuerySubject">Тема:</message>
+	<message key="submission.citations.editor.details.cannotSelectDefaultForLabel">Вы не можете отменить метку поля. Пожалуйста, удалите поле, если оно вам не нужно</message>
+	<message key="submission.citations.editor.details.checkInGoogleScholar">Проверить в Академии Google</message>
+	<message key="submission.citations.editor.details.changeFieldInfo">Введите несколько первых букв для выбора...</message>
+	<message key="submission.citations.editor.details.citationExportPreview">Предварительный просмотр ссылки для экспорта</message>
+	<message key="submission.citations.editor.details.citationImprovementResultsActive">Результаты встроенной службы ссылок (щелкните для закрытия)</message>
+	<message key="submission.citations.editor.details.citationImprovementResultsInactive">Результаты встроенной службы ссылок (щелкните для открытия)</message>
+	<message key="submission.citations.editor.details.citationServices">Службы ссылок</message>
+	<message key="submission.citations.editor.details.clickToDismissMessage">Вы можете щелкнуть на тексте сообщения, чтобы оно исчезло.</message>
+	<message key="submission.citations.editor.details.databaseQueryExplanation">Ниже вы видите список служб ссылок, настроенных для вашего журнала. Это предварительно выбранные службы, которые управляющий вашим журналом считает наиболее подходящими для вашего журнала. Вы можете добавить дополнительные службы в свой запрос или исключить те, которые вы считаете неподходящими.</message>
+	<message key="submission.citations.editor.details.dataSaved">Ваши изменения были сохранены.</message>
+	<message key="submission.citations.editor.details.editRawCitationDatabaseServices">Выберите службы баз данных ссылок на источники:</message>
+	<message key="submission.citations.editor.details.editRawCitationExpertSettingsActive">Настройки редактирования ссылок (щелкните для закрытия)</message>
+	<message key="submission.citations.editor.details.editRawCitationExpertSettingsInactive">Настройки редактирования ссылок (щелкните для открытия)</message>
+	<message key="submission.citations.editor.details.editRawCitationExtractionServices">Выбрать службы извлечения ссылок:</message>
+	<message key="submission.citations.editor.details.editRawCitationFilterValidationError">Внутренняя ошибка: неправильный выбор фильтра. Пожалуйста, отправьте отчет об ошибке разработчикам.</message>
+	<message key="submission.citations.editor.details.explainImprovementOptions">Если вы не получили удовлетворительных результатов по умолчанию, то у вас есть различные способы улучшить ссылку. Зачастую стоит отредактировать важные поля вручную (например, заголовок и автор), а затем снова воспользоваться службами ссылок. Если это не помогает, вы можете обратиться к Академии Google или попросить автора уточнить детали.</message>
+	<message key="submission.citations.editor.details.googleScholar">Академия Google</message>
+	<message key="submission.citations.editor.details.googleScholarExplanation">Если ссылка не была найдена ни в одной из подключенных служб ссылок, вы можете попробовать найти ее в Академии Google. К сожалению, Академия Google не предоставляет интерфейса с полями для данных, которые мы могли бы использовать, поэтому мы не можем автоматически передать данные в этот Помощник. Вам нужно будет вручную скопировать информацию со страницы результата Google и вставить ее в ваши поля.</message>
+	<message key="submission.citations.editor.details.manualEditing">Ручное редактирование</message>
+	<message key="submission.citations.editor.details.messages">Пожалуйста, обратите внимание (щелкните на сообщениях, чтобы они исчезли)</message>
+	<message key="submission.citations.editor.details.newFieldInfo">...щелкните здесь для добавления нового поля...</message>
+	<message key="submission.citations.editor.details.queryCitation">Повторный запрос к службам ссылок</message>
+	<message key="submission.citations.editor.details.queryGoogleScholar">Поиск в Академии Google</message>
+	<message key="submission.citations.editor.details.pleaseClickOnCitationToStartEditing"><![CDATA[<p>Добро пожаловать в процесс редактирования ссылок. Щелчок на ссылке в списке слева отобразит ее в этом окне, где вы можете проверить правильность ссылки. Вы также можете проверить ссылку с помощью служб баз данных ссылок на источники, настроенные управляющим журналом, и вручную отредактировать саму ссылку.</p>
+		<h4>Навигация по интерфейсу</h4>
+		<p>Щелкните на одной из приведенных ссылок в списке слева, чтобы начать редактирование.</p>
+		<p>Голубой разделитель между этим окном и столбцом слева можно передвигать. Если вам нужно больше места для просмотра списка ссылок или, наоборот, больше места для редактирования ссылки, этот разделитель можно переместить в соответствующем направлении.</p>
+		<p>Чтобы развернуть интерфейс ссылок, щелните на кнопке <strong>Полноэкранный режим</strong>. Чтобы вернуться к нормальному интерфейсу, щелкните на кнопке <strong>Выйти из полноэкранного режима</strong>.</p>
+		<h4>Добавление и удаление ссылок</h4>
+		<p>Ссылки можно добавить, щелкнув на значке <strong>Новая ссылка</strong> в правом верхнем углу столбца со списком ссылок. Ссылки могут быть удалены щелчком на красном значке <strong>Удалить</strong> слева от ссылки.</p>
+		<h4>Редактирование ссылок</h4>
+		<p>Чтобы отредактировать ссылку в списке слева, щелкните на ней и она откроется в этом окне. Вам будет показана исходная ссылка в том виде, в каком ее ввел автор, и автоматический разбор этой ссылки по полям Помощником. Вы сможете вручную отредактировать исходную ссылку, отредактировать части или всю новую ссылку, повторно проверить ссылку с помощью настроенных служб баз данных ссылок на источники, провести поиск в Академии Google, написать запрос автору, чтобы он предоставил дополнительную информацию о ссылке.</p>
+		<p>Когда вы завершаете редактирование ссылки, щелкая на кнопке <strong>Сохранить и одобрить</strong>, вы автоматически перейдете к следующей ссылке в списке, которая не была одобрена. Таким образом вы можете очень быстро обработать большой список ссылок. Как только все ссылки будут одобрены, вы перейдете на страницу <strong>Экспорт ссылок</strong>.</p>]]></message>
+	<message key="submission.citations.editor.details.processRawCitation">Обработать</message>
+	<message key="submission.citations.editor.details.processRawCitationGoAhead">Перейти к следующей</message>
+	<message key="submission.citations.editor.details.processRawCitationTitle">Изменение исходной ссылки</message>
+	<message key="submission.citations.editor.details.processRawCitationWarning">Вы собираетесь изменить текст исходной ссылки. Если вы это сделаете, то все поля будут заменены заново сгенерированными значениями. Это приведет к удалению тех изменений вручную, которые вы уже могли сделать.</message>
+	<message key="submission.citations.editor.details.saveAndApprove">Сохранить и одобрить</message>
+	<message key="submission.citations.editor.details.saveAndRevokeApproval">Отменить одобрение</message>
+	<message key="submission.citations.editor.details.sendAuthorQuery">Отправить сообщение</message>
+	<message key="submission.citations.editor.details.sendAuthorQuerySuccess">Сообщение отправлено!</message>
+	<message key="submission.citations.editor.details.sourceResultsUse">Использовать</message>
+	<message key="submission.citations.editor.details.sourceResultsUseAll">Использовать все</message>
+	<message key="submission.citations.editor.details.sourceResultsUseAllExplanation">Щелкните, чтобы передать все результирующие поля из этого источника напрямую в ваш список полей</message>
+	<message key="submission.citations.editor.details.sourceResultsUseExplanation">Щелкните, чтобы передать это результирующее поле напрямую в ваш список полей</message>
+	<message key="submission.citations.editor.details.rawCitation">Текст исходной ссылки</message>
+	<message key="submission.citations.editor.details.rawCitationRequired">Текст ссылки обязателен.</message>
+	<message key="submission.citations.editor.details.unsavedChanges">Ссылка содержит несохраненные данные. Пожалуйста, щелкните на кнопке «Сохранить», чтобы сохранить изменения, или на кнопке «Отменить», чтобы отменить изменения.</message>
+	<message key="submission.citations.editor.details.dontShowMessageAgain">Не показывать это сообщение снова.</message>
+	<message key="submission.citations.editor.edit">Редактирование ссылок</message>
+	<message key="submission.citations.editor.export">Экспорт ссылок</message>
+	<message key="submission.citations.editor.export.exportDescription"><![CDATA[<a id="markForExport" href="">Щелкните здесь</a>, чтобы выделить весь сгенерированный вывод. Вы затем сможете скопировать и вставить его в ваш документ.]]></message>
+	<message key="submission.citations.editor.export.filterSelectionDescription">Пожалуйста, выберите один из следующих вариантов экспорта.</message>
+	<message key="submission.citations.editor.export.filterSelectionError">Вы не выбрали один из вариантов вывода.</message>
+	<message key="submission.citations.editor.export.foundUnapprovedCitationsMessage"><![CDATA[<p>Вы еще не одобрили все ссылки. Пожалуйста, перейдите к вкладке <strong>Редактирование ссылок</strong> и убедитесь, что вы одобрили все ссылки, прежде чем экспортировать их. Одобренные ссылки отмечаются темно-синей полосой слева.</p>]]></message>
+	<message key="submission.citations.editor.export.noExportOutput">Фильтр вывода «{$filterName}» выдал ошибку. Пожалуйста, отправьте отчет об ошибке разработчикам.</message>
+	<message key="submission.citations.editor.export.pleaseSelectXmlFilter">Варианты вывода в XML:</message>
+	<message key="submission.citations.editor.export.pleaseSelectPlaintextFilter">Вывод ссылок в соответствии со стилем (экспериментальная функция!):</message>
+	<message key="submission.citations.editor.introduction">Начало</message>
+	<message key="submission.citations.editor.introduction.introductionMessage"><![CDATA[<h4>Добро пожаловать в Помощник разметки ссылок!</h4>
+	<p>Используя этот помощник, вы можете разметить ссылки, приведенные автором, для экспорта в XML-гранки NLM 2.3 или 3.0, или выгрузить в текстовом виде. Этот инструмент сначала пробует автоматически извлечь и распознать ссылки в том виде, в каком они были представлены, но в любой момент вы можете вмешаться и отредактировать результаты.</p>
+	<ul>
+		<li><p><strong>Настройка Помощника</strong></p>
+		<p>Помощник разметки ссылок настраивается управляющим журналом на <a href="{$citationSetupUrl}">шаге 3.7 настройки журнала: Помощник разметки ссылок</a>. Различные инструменты извлечения и проверки ссылок можно добавлять, настраивать и удалять. Для получения дополнительной информации свяжитесь с управляющим журналом.</p></li>
+		<li><p><strong>Навигация по интерфейсу Помощника</strong></p>
+		<p>Чтобы переключиться между вкладками <strong>Начало</strong>, <strong>Редактирование ссылок</strong> и <strong>Экспорт ссылок</strong>, щелкните на названии вкладки. Чтобы развернуть интерфейс ссылок, щелкните на кнопке <strong>Полноэкранный режим</strong>. Чтобы вернуться к нормальному интерфейсу, щелкните на кнопке <strong>Выйти из полноэкранного режима</strong>. Чтобы полностью убрать эту вводную вкладку, щелкните на кнопке ниже.</p></li>
+		<li><p><strong>Запрос ссылок</strong></p>
+		<p>Если Помощник разметки ссылок был включен управляющим журналом, авторам будет предлагаться ввести список литературы в процесе отправки статьи. Эти ссылки будут запрашиваться отдельно от самой отправляемой статьи. После отправки, авторы также могут в любой момент изменить свой список ссылок при редактировании метаданных статьи. обратите внимание, что это приведет к перезаписи всех изменений, которые вы сделали в ссылках, используя этот инструмент.</p></li>
+		<li><p><strong>Редактирование ссылок</strong></p>
+		<p>Помощник разметки ссылок пытается определить и извлечь отдельные ссылки из списка ссылок, указанного автором. Вы можете систематически проверять каждую извлеченную ссылку на точность во внешних базах данных, редактировать неверную информацию в ссылке и добавлять новую информацию, одобрять или удалять ссылки, а также добавлять новые ссылки.</p>
+		<p>Все ссылки из итогового списка для статьи должны быть оформлены, прежде чем они будут экспортированы.</p></li>
+		<li><p><strong>Экспорт ссылок</strong></p>
+ 		<p>Ссылки могут быть экспортированы как XML или текст. Варианты экспорта в XML на текущий момент включают <a href="http://dtd.nlm.nih.gov/publishing/">NLM Journal Publishing</a> 2.3 и 3.0 <a href="http://www.ncbi.nlm.nih.gov/pmc/pmcdoc/tagging-guidelines/article/tags.html#el-reflist">ref-list XML</a>. Выбор одного из этих вариантов выводит фрагмент списка ссылок в формате XML, который может быть скопирован и вставлен в XML-гранки NLM.</p>
+		<p>Экспериментальные варианты экспорта в текстовом формате включают стили оформления ABNT, APA, MLA и Vancouver. Эти варианты обеспечивают вывод текста, который может быть скопирован и вставлен в текстовые гранки статьи (например, в Microsoft Word, OpenOffice, Adobe InDesign и т.д.). Каждая ссылка включает встроенную гиперссылку для автоматического поиска этого источника в Академии Google.</p></li>
+	</ul>]]></message>
+	<message key="submission.citations.editor.loadMessage">Пожалуйста, подождите пока загрузится помощник разметки ссылок.</message>
+	<message key="submission.citations.editor.php5Required">Редактирование ссылок требует поддержки XML и XSL, которая доступна только в PHP версии 5.0.0 и более поздней. Ваша система сейчас работает на более ранней версии PHP. Вы не сможете использовать помощник разметки ссылок до тех пор, пока вы не обновитесь до более поздней версии.</message>
+	<message key="submission.citations.editor.pleaseAddParserFilter"><![CDATA[Пожалуйста, попросите вашего управляющего журналом <a href="{$citationSetupUrl}">добавить хотя бы одну службу извлечения ссылок</a> до того, как вы сможете использовать помощник разметки ссылок.]]></message>
+	<message key="submission.citations.editor.pleaseConfigureOutputStyle"><![CDATA[Пожалуйста, попросите вашего управляющего журналом <a href="{$citationSetupUrl}">настроить стиль экспорта ссылок</a> до того, как вы сможете использовать помощник разметки ссылок.]]></message>
+	<message key="submission.citations.editor.pleaseImportCitationsFirst"><![CDATA[<p>Нет ссылок для этой статьи.</p><p>Пожалуйста, перейдите на <a href="{$articleMetadataUrl}">страницу метаданных</a> статьи и введите список литературв или добавьте ссылки вручную, используя кнопку добавления элементов в редакторе.</p>]]></message>
+	<message key="submission.citations.editor.pleaseSelect">Пожалуйста, выберите...</message>
+	<message key="submission.citations.editor.pleaseSetup"><![CDATA[Пожалуйста, попросите вашего управляющего журналом <a href="{$citationSetupUrl}">включить редактирование ссылок</a> до того, как вы получите доступ к помощнику разметки ссылок.]]></message>
+	<message key="submission.citations.editor.unprocessedCitations">Ссылки из этой статьи все еще обрабатываются сервером. Текущий список ссылок содержит только уже обработанные ссылки. Пожалуйста, щелкните на кнопке «Обновить», чтобы увидеть ссылки, которые были обработаны за это время.</message>
+	<message key="submission.citations.editor.unprocessedCitationsButton">Обновить список ссылок</message>
+	<message key="submission.citations.editor.unprocessedCitationsButtonTitle">Щелкните, чтобы обновить список ссылок.</message>
+	<message key="submission.citations.filter.invalidMetadata">Произошла ошибка в фильтре «{$filterName}»: Один из элементов данных, возвращенный источником данных (например, веб-службой), не соответствует внутреннему формату метаданных. По этой причине результаты, полученный из этого источника данных были отклонены. Пожалуйста, сообщите об этой ошибке разработчикам.</message>
+	<message key="submission.citations.filter.noResultFromFilterError">Несколько служб ссылок не вернули никаких результатов. Вы можете попробовать вручную отредактировать поля ссылки и снова отправить запрос в службы ссылок, чтобы улучшить результаты. Если это не помогло, то такой источник не существует ни в одной из подключенных баз данных ссылок на источники.</message>
+	<message key="submission.citations.filter.unsupportedPublicationType">Тип публикации не указан или не поддерживается. Пожалуйста, отредактируйте ссылку вручную и укажите тип публикации (разрешенные типы: book, journal, thesis и conf-proc).</message>
+	<message key="submission.citations.filter.webserviceError">Вызов веб-службы фильтра «{$filterName}» вернул ошибку при вызове со следующим адресом (URL): {$webserviceUrl}. Возможно, эта веб-служба временно недоступна. Вы можете продолжить работу с остальными службами и сохранить ваши результаты. Вы также можете попробовать обратиться к этой службе позже. Если ошибка продолжает повторяться, попросите управляющего журналом деактивировать эту службу и сообщить об ошибке разработчикам.</message>
+	<message key="submission.citations.filter.webserviceResultTransformationError">Произошла ошибка в фильтре «{$filterName}»: Преобразование XML-результатов (например, от веб-службы) в поля метаданных потерпело неудачу. Вероятная причина в том, что веб-служба вернула неправильные или неполные данные. Пожалуйста, сообщите об этой ошибке разработчикам.</message>
+	<message key="submission.citations.metadata.changeWarning">Вы уверены, что хотит обновить ваш список ссылок? Если вы щелкните на «ОК», все изменения, сделанные редакторами, будут перезаписаны. Если вы не уверены в том, что вам нужно внести изменения в список ссылок, пожалуйста, свяжитесь с редактором, занимающимся вашей статьей.</message>
 	<message key="submission.comments.addComment">Добавить комментарий</message>
 	<message key="submission.comments.comments">Комментарии</message>
-	<message key="submission.comments.confirmDelete">Убрать этот комментарий?</message>
+	<message key="submission.comments.confirmDelete">Вы уверены, что хотите удалить этот комментарий?</message>
 	<message key="submission.comments.corrections">Исправления</message>
-	<message key="submission.comments.editComment">Править комментарий</message>
+	<message key="submission.comments.editComment">Редактировать комментарий</message>
 	<message key="submission.comments.importPeerReviews">Импортировать рецензии</message>
+	<message key="submission.comments.addReviews">Добавить рецензии к письму</message>
 	<message key="submission.comments.importPeerReviews.reviewerLetter">Рецензент {$reviewerLetter}:</message>
 	<message key="submission.comments.noComments">Нет комментариев</message>
 	<message key="submission.comments.noReviews">Нет рецензий</message>
 	<message key="submission.comments.review">Рецензия</message>
-	<message key="submission.comments.sendDecisionToReviewers">Послать рецензентам решение редактора</message>
+	<message key="submission.comments.sendDecisionToReviewers">Отправить рецензентам решение редактора</message>
 	<message key="submission.comments.subject">Тема</message>
 	<message key="submission.complete">Закончена</message>
+	<message key="submission.copyedited">Прошла литературное редактирование</message>
 	<message key="submission.done">Готово</message>
-	<message key="submission.dueDate">Срок</message>
-	<message key="submission.due">Кон. срок</message>
-	<message key="submission.editing">Редакция</message>
-	<message key="submission.editMetadata">Редакция метаданных</message>
-	<message key="submission.email.backToEmailLog">Обратно к почтовому дневнику</message>
-	<message key="submission.email.confirmClearLog">Очистить почтовые записи?</message>
-	<message key="submission.email.confirmDeleteLogEntry">Убрать эту почтовую запись?</message>
-	<message key="submission.email.deleteLogEntry">Стереть запись</message>
-	<message key="submission.emailLog">Послать логфайл</message>
-	<message key="submission.event.backToEventLog">Обратно к дневнику</message>
-	<message key="submission.event.confirmClearLog">Убрать все записи?</message>
-	<message key="submission.event.confirmDeleteLogEntry">Убрать эту запись?</message>
-	<message key="submission.event.deleteLogEntry">Стереть запись</message>
-	<message key="submission.event.general.metadataUpdated">Метаданные обновлены</message>
-	<message key="submission.event.general.suppFileUpdated">Дополн. файл обновлен</message>
-	<message key="submission.event.reviewer.reviewAcceptedByProxy">Рецензент принял назначение заочно</message>
-	<message key="submission.event.reviewer.reviewAccepted">Рецензент принял назначение</message>
+	<message key="submission.dueDate">Срок выполнения</message>
+	<message key="submission.due">Срок выполнения</message>
+	<message key="submission.editing">Редактирование</message>
+	<message key="submission.editMetadata">Редактировать метаданные</message>
+	<message key="submission.email.backToEmailLog">Назад к журналу писем</message>
+	<message key="submission.email.confirmClearLog">Вы уверены, что хотите очистить журнал писем для этого материала?</message>
+	<message key="submission.email.confirmDeleteLogEntry">Вы уверены, что хотите удалить эту запись из журнала писем?</message>
+	<message key="submission.email.deleteLogEntry">Удалить запись журнала</message>
+	<message key="submission.emailLog">Отправить журнал электронной почтой</message>
+	<message key="submission.event.backToEventLog">Назад к журналу событий</message>
+	<message key="submission.event.confirmClearLog">Вы уверены, что хотите очистить журнал событий для этого материала?</message>
+	<message key="submission.event.confirmDeleteLogEntry">Вы уверены, что хотите удалить эту запись из журнала событий?</message>
+	<message key="submission.event.deleteLogEntry">Удалить запись журнала</message>
+	<message key="submission.event.general.metadataUpdated">Метаданные материала обновлены</message>
+	<message key="submission.event.general.suppFileUpdated">Файл материала обновлен</message>
+	<message key="submission.event.reviewer.reviewAcceptedByProxy">Согласие на рецензирование получено через посредника</message>
+	<message key="submission.event.reviewer.reviewAccepted">Согласие на рецензирование получено</message>
 	<message key="submission.event.reviewer.reviewCancelled">Рецензирование отменено</message>
-	<message key="submission.event.reviewer.reviewDeclined">Рецензент отказался от назначения</message>
-	<message key="submission.event.reviewer.reviewDueDate">Срок подачи рецензии изменен</message>
-	<message key="submission.event.reviewer.reviewerAssigned">Назначен рецензент</message>
-	<message key="submission.event.reviewer.reviewerRated">Дана оценка работе рецензента</message>
-	<message key="submission.event.reviewer.reviewerUnassigned">Рецензент отозван</message>
-	<message key="submission.event.reviewer.reviewFile">Рецензия обновлена</message>
-	<message key="submission.event.reviewer.reviewInitiated">Дано начало процессу рецензирования</message>
-	<message key="submission.event.reviewer.reviewRecommendation">Рекоммендации рецензента</message>
-	<message key="submission.event.reviewer.reviewReinitiated">Повторное назначение рецензента</message>
-	<message key="submission.event.reviewer.reviewResubmitted">Рецензия получена</message>
-	<message key="submission.event.reviewer.reviewRevision">Поправки рецензента обновлены</message>
+	<message key="submission.event.reviewer.reviewDeclined">Рецензент отказался от рецензирования</message>
+	<message key="submission.event.reviewer.reviewDueDate">Срок выполнения рецензии изменен</message>
+	<message key="submission.event.reviewer.reviewerAssigned">Назначен рецензент для материала</message>
+	<message key="submission.event.reviewer.reviewerRated">Оценена работа рецензента</message>
+	<message key="submission.event.reviewer.reviewerUnassigned">Отменено назначение рецензента для материала</message>
+	<message key="submission.event.reviewer.reviewFile">Файл рецензии обновлен</message>
+	<message key="submission.event.reviewer.reviewInitiated">Рецензирование начато</message>
+	<message key="submission.event.reviewer.reviewRecommendation">Файл с рекомендацией рецензента</message>
+	<message key="submission.event.reviewer.reviewReinitiated">Рецензирование начато повторно</message>
+	<message key="submission.event.reviewer.reviewResubmitted">Рецензия отправлена повторно</message>
+	<message key="submission.event.reviewer.reviewRevision">Файл с правками рецензента обновлен</message>
 	<message key="submission.files">Файлы</message>
-	<message key="submission.galley">Формат</message>
-	<message key="submission.history.clearLog">Очистить дневник</message>
+	<message key="submission.galley">Гранка</message>
+	<message key="submission.history.clearLog">Очистить журнал</message>
 	<message key="submission.history">История</message>
 	<message key="submission.history.noLogEntries">Нет записей.</message>
-	<message key="submission.history.recentLogEntries">Недавние записи</message>
-	<message key="submission.history.submissionEmailLog">Почтовый дневник</message>
-	<message key="submission.history.submissionEventLog">Дневник действий</message>
-	<message key="submission.history.submissionNotes">Примечания к присланной статье</message>
-	<message key="submission.history.viewLog">Посмотреть дневник</message>
+	<message key="submission.history.recentLogEntries">Последние записи</message>
+	<message key="submission.history.submissionEmailLog">Журнал писем</message>
+	<message key="submission.history.submissionEventLog">Журнал событий</message>
+	<message key="submission.history.submissionNotes">Примечания к материалу</message>
+	<message key="submission.history.viewLog">Просмотреть журнал</message>
 	<message key="submission.indexing">Индексация</message>
-	<message key="submission.initiated">В процессе</message>
-	<message key="submission.lastModified">Изменена</message>
-	<message key="submission.layout.addGalley">Добавить формат</message>
-	<message key="submission.layout.confirmDeleteGalley">Убрать навсегда этот формат?</message>
-	<message key="submission.layout.confirmDeleteGalleyImage">Удалить картинку из этого формата?</message>
-	<message key="submission.layout.confirmDeleteSupplementaryFile">Убрать навсегда этот дополн. файл?</message>
-	<message key="submission.layout.deleteGalleyStylesheet">Стереть этот стиль.</message>
-	<message key="submission.layout.editGalley">Редакция формата</message>
-	<message key="submission.layout.galleyFileData">Информация о форматах</message>
-	<message key="submission.layout.galleyFormat">Формат</message>
-	<message key="submission.layout.galleyHTMLData">HTML форматы</message>
-	<message key="submission.layout.galleyImages">Картинки</message>
-	<message key="submission.layout.galleyLabelInstructions">Этикетка обычно содержит тип используемого формата (напр. HTML, PDF, DOC, PostScript).</message>
-	<message key="submission.layout.galleyLabel">Этикетка</message>
-	<message key="submission.layout.galleyLabelRequired">Нужна этикетка для формата.</message>
-	<message key="submission.layout.galleyLanguageRequired">Требуется указать язык формата.</message>
-	<message key="submission.layout.galleyLocaleRequired">Требуется указать язык формата.</message>
-	<message key="submission.layout.galleyNoImages">Нет картинок</message>
-	<message key="submission.layout.galleys">Форматы</message>
-	<message key="submission.layout.galleyStylesheet">Стилевые файлы</message>
+	<message key="submission.initiated">Начата</message>
+	<message key="submission.lastModified">Последнее изменение</message>
+	<message key="submission.layout.addGalley">Добавить макет гранки</message>
+	<message key="submission.layout.confirmDeleteGalley">Вы уверены, что хотите навсегда удалить эту гранку?</message>
+	<message key="submission.layout.confirmDeleteGalleyImage">Вы уверены, что хотите удалить это изображение из гранки?</message>
+	<message key="submission.layout.confirmDeleteSupplementaryFile">Вы уверены, что хотите навсегда удалить этот дополнительный файл?</message>
+	<message key="submission.layout.deleteGalleyStylesheet">Удалить эту таблицу стилей.</message>
+	<message key="submission.layout.editGalley">Редактировать макет гранки</message>
+	<message key="submission.layout.galleyFileData">Информация о файле гранки</message>
+	<message key="submission.layout.galleyFormat">Формат гранки</message>
+	<message key="submission.layout.galleyHTMLData">Файлы гранок HTML</message>
+	<message key="submission.layout.galleyImages">Изображения</message>
+	<message key="submission.layout.galleyLabelInstructions">Метка гранки используется для идентификации формата файла (например, HTML, PDF и т. д.).</message>
+	<message key="submission.layout.galleyLabel">Метка</message>
+	<message key="submission.layout.galleyLabelRequired">Метка гранки обязательна.</message>
+	<message key="submission.layout.galleyLanguageRequired">Язык граки обязателен.</message>
+	<message key="submission.layout.galleyLocaleRequired">Язык гранки обязателен.</message>
+	<message key="submission.layout.galleyRemoteURL">Адрес URL удаленного сервера</message>
+	<message key="submission.layout.galleyRemoteURLValid">Пожалуйста, введите правильный адрес (URL) удаленного сервера (включая http://).</message>
+	<message key="submission.layout.galleyNoImages">Нет изображений</message>
+	<message key="submission.layout.galleys">Гранки</message>
+	<message key="submission.layout.galleyStylesheet">Файл таблицы стилей</message>
 	<message key="submission.layout.galleyStyle">Стиль</message>
-	<message key="submission.layout.initialGalleyCreation">Нач. создание формата</message>
-	<message key="submission.layout.layoutFile">Файл</message>
-	<message key="submission.layout">Вид</message>
-	<message key="submission.layout.layoutVersion">Шаблон</message>
-	<message key="submission.layout.newGalley">Создать новый формат</message>
-	<message key="submission.layout.newSupplementaryFile">Загрузить новый дополн. файл</message>
-	<message key="submission.layout.noStyleFile">Нет стиля для этого формата.</message>
-	<message key="submission.layout.supplementaryFiles">Отзыв о дополн. файлах</message>
-	<message key="submission.layout.viewingGalley">Формат приема</message>
-	<message key="submission.layout.viewProof">Посмотреть правку</message>
-	<message key="submission.metadata">Метаданные статьи</message>
+	<message key="submission.layout.initialGalleyCreation">Первоначальное создание гранки</message>
+	<message key="submission.layout.layoutFile">Файл макета</message>
+	<message key="submission.layout">Макет</message>
+	<message key="submission.layout.layoutVersion">Версия макета</message>
+	<message key="submission.layout.newGalley">Создать новую гранку</message>
+	<message key="submission.layout.newSupplementaryFile">Загрузить новый дополнительный файл</message>
+	<message key="submission.layout.noStyleFile">Файл таблицы стилей не был добавлен к этой гранке.</message>
+	<message key="submission.layout.supplementaryFiles">Рецензия на дополнительный файл</message>
+	<message key="submission.layout.viewingGalley">Просмотр гранки материала</message>
+	<message key="submission.layout.viewProof">Просмотреть правку</message>
+	<message key="submission.metadata">Метаданные материала</message>
 	<message key="submission.noReviewAssignments">Нет назначенных рецензентов</message>
-	<message key="submission.notes.addNewNote">Добавить примечание</message>
-	<message key="submission.notes.attachedFile">Приложение</message>
-	<message key="submission.notes.backToSubmissionNotes">Обратно к примечаниям</message>
+	<message key="submission.notes.addNewNote">Добавить новое примечание</message>
+	<message key="submission.notes.attachedFile">Прикрепленный файл</message>
+	<message key="submission.notes.backToSubmissionNotes">Назад к примечаниям</message>
 	<message key="submission.notes.breadcrumb">Примечания</message>
-	<message key="submission.notes.clearAllNotes">Удалить примечания</message>
-	<message key="submission.notes.collapseNotes">Спрятать примечания</message>
-	<message key="submission.notes.confirmDeleteAll">Удалить примечания?</message>
-	<message key="submission.notes.confirmDelete">Удалить примечания?</message>
-	<message key="submission.notes.createNewNote">Написать примечание</message>
-	<message key="submission.notes.deleteNote">Стереть примечание</message>
-	<message key="submission.notes.editNote">Редактировать</message>
-	<message key="submission.notes.expandNotes">Полный текст</message>
-	<message key="submission.notes.noSubmissionNotes">Нет примечаний</message>
-	<message key="submission.notes.removeUploadedFile">Удалить загруж. файлы</message>
-	<message key="submission.notes">Примечания к публикации</message>
+	<message key="submission.notes.clearAllNotes">Удалить все примечания</message>
+	<message key="submission.notes.collapseNotes">Свернуть примечания</message>
+	<message key="submission.notes.confirmDeleteAll">Удалить все примечания к материалу?</message>
+	<message key="submission.notes.confirmDelete">Удалить это примечание к материалу?</message>
+	<message key="submission.notes.createNewNote">Создать новое примечание</message>
+	<message key="submission.notes.deleteNote">Удалить примечание</message>
+	<message key="submission.notes.editNote">Редактировать примечание</message>
+	<message key="submission.notes.expandNotes">Развернуть примечания</message>
+	<message key="submission.notes.noSubmissionNotes">Нет примечаний к материалу</message>
+	<message key="submission.notes.removeUploadedFile">Удалить загруженный файл</message>
+	<message key="submission.notes">Примечания к материалу</message>
 	<message key="submission.notes.updateNote">Обновить примечание</message>
-	<message key="submission.notes.viewNotes">Помотреть примечания</message>
-	<message key="submission.originalFile">Ориг. файл</message>
-	<message key="submission.page.editing">#{$id} Редакция</message>
+	<message key="submission.notes.viewNotes">Просмотреть примечания</message>
+	<message key="submission.originalFile">Исходный файл</message>
+	<message key="submission.page.editing">#{$id} Редактирование</message>
 	<message key="submission.page.history">#{$id} История</message>
-	<message key="submission.page.review">#{$id} Рецензии</message>
-	<message key="submission.page.summary">#{$id} Резюме</message>
-	<message key="submission.peerReview">Рецензия</message>
-	<message key="submission.recommendation">Рекомендации</message>
-	<message key="submission.rejected">Отказ</message>
-	<message key="submission.request">Запросы</message>
+	<message key="submission.page.review">#{$id} Рецензирование</message>
+	<message key="submission.page.summary">#{$id} Сводка</message>
+	<message key="submission.page.citations">#{$id} Ссылки</message>
+	<message key="submission.peerReview">Рецензирование</message>
+	<message key="submission.recommendation">Рекомендация</message>
+	<message key="submission.rejected">Отклонена</message>
+	<message key="submission.request">Запрос</message>
 	<message key="submission.response">Ответ</message>
 	<message key="submission.restrictions">Ограничения</message>
-	<message key="submission.reviewMetadata">Посмотреть метаданные</message>
-	<message key="submission.review">Рецензии</message>
+	<message key="submission.reviewMetadata">Проверить метаданные</message>
+	<message key="submission.review">Рецензия</message>
+	<message key="submission.reviewed">Отрецензирована</message>
 	<message key="submission.reviewVersion">Версия рецензии</message>
-	<message key="submissions.active">В подготовке</message>
+	<message key="submissions.active">В работе</message>
 	<message key="submissions.archived">В архиве</message>
 	<message key="submission.saveMetadata">Сохранить метаданные</message>
-	<message key="submissions.completed">Готово</message>
+	<message key="submissions.completed">Завершена</message>
 	<message key="submissions.declined">Отклонена</message>
-	<message key="submissions.incomplete">Незаконченная</message>
-	<message key="submissions.noSubmissions">Нет статей</message>
-	<message key="submissions.queuedEditing">В редакции</message>
+	<message key="submissions.incomplete">Незакончена</message>
+	<message key="submissions.noSubmissions">Нет материалов</message>
+	<message key="submissions.queuedEditing">На редакции</message>
 	<message key="submissions.queued">В очереди</message>
-	<message key="submissions.queuedUnassigned">Ожидают редактора</message>
+	<message key="submissions.queuedUnassigned">Ждут назначения</message>
 	<message key="submissions.ruling">Правила</message>
-	<message key="submissions.submit">Послать</message>
-	<message key="submissions.submitted">Представлена</message>
+	<message key="submissions.submit">Отправить</message>
+	<message key="submissions.submitted">Прислана</message>
 	<message key="submission.start">Начало</message>
-	<message key="submission.submissionHistory">История статьи</message>
-	<message key="submission.submissionManuscript">Рукопись статьи</message>
-	<message key="submission.submissionReview">Рецензия статьи</message>
+	<message key="submission.submissionHistory">История материала</message>
+	<message key="submission.submissionManuscript">Рукопись материала</message>
+	<message key="submission.submissionReview">Рецензирование материала</message>
 	<message key="submission.submitter">Прислал</message>
-	<message key="submission.summary">Резюме</message>
-	<message key="submission.supplementaryFiles">Дополн. файлы</message>
+	<message key="submission.summary">Сводка</message>
+	<message key="submission.supplementaryFiles">Дополнительные файлы</message>
+	<message key="submission.supportingAgencies">Поддерживающие организации</message>
+	<message key="submission.currentAgencies">Текущие организации</message>
+	<message key="submission.indexingInformation">Информация для индексирования</message>
 	<message key="submission.titleAndAbstract">Название и аннотация</message>
-	<message key="submission.underway">На подходе</message>
-	<message key="submission.uploadFileTo">Закачать файл как</message>
-	<message key="submission.viewMetadata">Метаданные</message>
-	<message key="submission.views">Просмотры</message>
-	
-	<!-- Author Submission --> 
-	<message key="author.submit.submissionCitations">Дайте форматированный список ссылок на работы, использованные в данной рукописи.</message>	
-	<message key="metadata.property.displayName.author">Авторы</message>
-	<message key="metadata.property.displayName.editor">Редакторы</message>
-	<message key="metadata.property.displayName.date">Дата публикации</message>
-	<message key="metadata.property.validationMessage.date">Пожалуйста, введите корректную дату публикации (формат: ГГГГ-ММ-ДД).</message>
-	<message key="metadata.property.displayName.access-date">Дата доступа</message>
-	<message key="metadata.property.validationMessage.access-date">Пожалуйста, введите корректную дату доступа (формат: ГГГГ-ММ-ДД).</message>
-	<message key="metadata.property.displayName.issue">Выпуск</message>
-	<message key="metadata.property.validationMessage.issue">Пожалуйста, корректно укажите выпуск.</message>
-	<message key="metadata.property.displayName.volume">Том</message>
-	<message key="metadata.property.validationMessage.volume">Пожалуйста, корректно укажите том.</message>
-	<message key="metadata.property.displayName.chapter-title">Название раздела</message>
-	<message key="metadata.property.validationMessage.chapter-title">Пожалуйста, корректно укажите название раздела.</message>
-	<message key="metadata.property.displayName.edition">Редакция</message>
-	<message key="metadata.property.validationMessage.edition">Пожалуйста, корректно укажите редакцию.</message>
-	<message key="metadata.property.displayName.series">Серии</message>
-	<message key="metadata.property.validationMessage.series">Пожалуйста, корректно укажите серии.</message>
-	<message key="metadata.property.displayName.conf-date">Дата конференции</message>
-	<message key="metadata.property.validationMessage.conf-date">Пожалуйста, введите корректную дату конференции (формат: ГГГГ-ММ-ДД).</message>
-	<message key="metadata.property.displayName.conf-name">Название конференции</message>
-	<message key="metadata.property.validationMessage.conf-name">Пожалуйста, корректно укажите название конференции.</message>
-	<message key="submission.citations.editor.details.googleScholar">Google Scholar</message>
-	<message key="submission.citations.editor.details.queryGoogleScholar">Поиск в Google Scholar</message>
-	<message key="submission.indexingInformation">Индексная информация</message>
-	<message key="submission.uploadSuccessful">Ваш файл был выгружен.</message>
-	<message key="submission.loadMessage">Пожалуйста, подождите пока Ваш файл выгрузится на сервер.</message>
+	<message key="submission.underway">В процессе</message>
+	<message key="submission.uploadFileTo">Загрузить файл в</message>
+	<message key="submission.createRemote">Создать удаленный</message>
+	<message key="submission.viewMetadata">Просмотреть метаданные</message>
+	<message key="submission.views">Просмотры</message>	
+	<message key="submission.uploadSuccessful">Ваш файл был загружен.</message>
+	<message key="submission.loadMessage">Пожалуйста, подождите пока Ваш файл загрузится на сервер.</message>
+	<message key="submission.artworkFileDetails">Информация о графическом файле</message>
+	<message key="submission.fileDetails">Информация о файле</message>
+	<message key="submission.nameRequired">Название обязательно для этого элемента.</message>
 	<message key="submission.date.mmdd">ММ-ДД</message>
 	<message key="submission.date.yyyymmdd">ГГГГ-ММ-ДД</message>
+
+	<!-- Элменты формы загрузки файла с материалом -->
+	<message key="submission.form.name">Задайте этому файлу понятное имя</message>
 	<message key="submission.form.replaceExisting">Заменить существующий файл?</message>
 </locale>

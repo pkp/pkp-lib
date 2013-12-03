@@ -91,9 +91,11 @@ class WebService {
 		if (!$result) return $nullVar;
 
 		// Clean the result
-		$result = stripslashes($result);
-		if ( Config::getVar('i18n', 'charset_normalization') == 'On' && !String::utf8_compliant($result) ) {
-			$result = String::utf8_normalize($result);
+		if ($webServiceRequest->getCleanResult()) {
+			$result = stripslashes($result);
+			if ( Config::getVar('i18n', 'charset_normalization') == 'On' && !String::utf8_compliant($result) ) {
+				$result = String::utf8_normalize($result);
+			}
 		}
 
 		return $result;

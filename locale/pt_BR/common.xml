@@ -245,6 +245,8 @@
 	<message key="navigation.userHome">Página do usuário</message>
 	<message key="navigation.user">Usuário</message>
 	<message key="search.abstract">Resumo</message>
+	<message key="search.advancedSearchMore">Opções adicionais de pesquisa (clique para exibir)</message>
+	<message key="search.advancedSearchLess">Opções adicionais de pesquisa (clique para ocultar)</message>
 	<message key="search.allFields">Todos</message>
 	<message key="search.coverage">Cobertura</message>
 	<message key="search.date">Data</message>

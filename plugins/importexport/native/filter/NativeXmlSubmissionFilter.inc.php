@@ -77,6 +77,26 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 		$submissionDao->insertObject($submission);
 		$deployment->setSubmission($submission);
 
+		// Handle any additional attributes etc.
+		$submission = $this->populateObject($submission, $node);
+
+		for ($n = $node->firstChild; $n !== null; $n=$n->nextSibling) {
+			if (is_a($n, 'DOMElement')) {
+				$this->handleChildElement($n, $submission);
+			}
+		}
+		$submissionDao->updateObject($submission); // Persist setters
+		return $submission;
+	}
+
+	/**
+	 * Populate the submission object from the node
+	 * @param $submission Submission
+	 * @param $node DOMElement
+	 * @return Submission
+	 */
+	function populateObject($submission, $node) {
+		$submissionDao = Application::getSubmissionDAO();
 		// If the date_published was set, add a published submission
 		if ($datePublished = $node->getAttribute('date_published')) {
 			$publishedSubmissionDao = $this->getPublishedSubmissionDAO();
@@ -87,13 +107,6 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 			// Reload from DB now that some fields may have changed
 			$submission = $submissionDao->getById($submission->getId());
 		}
-
-		for ($n = $node->firstChild; $n !== null; $n=$n->nextSibling) {
-			if (is_a($n, 'DOMElement')) {
-				$this->handleChildElement($n, $submission);
-			}
-		}
-		$submissionDao->updateObject($submission); // Persist setters
 		return $submission;
 	}
 

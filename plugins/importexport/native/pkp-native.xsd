@@ -169,6 +169,7 @@
 	<complexType name="representation">
 		<sequence>
 			<element name="name" type="pkp:localizedNode" minOccurs="1" maxOccurs="unbounded" />
+			<element name="seq" type="int" minOccurs="1" maxOccurs="1" />
 			<element name="submission_file_ref" type="pkp:submission_file_ref" minOccurs="0" maxOccurs="unbounded" />
 		</sequence>
 	</complexType>

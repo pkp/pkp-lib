@@ -38,6 +38,7 @@
 	<message key="admin.languages.reload">Reload Locale</message>
 	<message key="admin.languages.uninstall">Uninstall Locale</message>
 	<message key="admin.phpInfo">Extended PHP Information</message>
+	<message key="admin.scheduledTask">Scheduled task</message>
 	<message key="admin.server.apacheVersion">Apache version</message>
 	<message key="admin.server.dbDriver">Database driver</message>
 	<message key="admin.server.dbVersion">Database server version</message>
@@ -87,5 +88,5 @@
 	<message key="admin.fileLoader.wrongBasePathLocation">Base path {$path} must be inside the public files directory.</message>
 	<message key="admin.fileLoader.pathNotAccessible">Folder {$path} is not a directory or is not readable.</message>
 	<message key="admin.fileLoader.moveFileFailed">File {$filename} could not be moved from {$currentFilePath} to {$destinationPath}</message>
-	<message key="admin.fileLoader.emailSubject">File loader process ID {$processId}</message>
+	<message key="admin.fileLoader">File loader</message>
 </locale>

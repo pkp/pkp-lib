@@ -14,8 +14,6 @@
 import('lib.pkp.classes.scheduledTask.ScheduledTask');
 
 define('FILE_LOADER_RETURN_TO_STAGING', 0x01);
-define('FILE_LOADER_MESSAGE_TYPE_ERROR', 'common.error');
-define('FILE_LOADER_MESSAGE_TYPE_WARNING', 'common.warning');
 
 define('FILE_LOADER_PATH_STAGING', 'stage');
 define('FILE_LOADER_PATH_PROCESSING', 'processing');
@@ -23,9 +21,6 @@ define('FILE_LOADER_PATH_REJECT', 'reject');
 define('FILE_LOADER_PATH_ARCHIVE', 'archive');
 
 class FileLoader extends ScheduledTask {
-
-	/** @var string? This process id. */
-	var $_processId = null;
 
 	/** @var string The current claimed filename that the script is working on. */
 	var $_claimedFilename;
@@ -45,12 +40,6 @@ class FileLoader extends ScheduledTask {
 	/** @var string Reject directory path. */
 	var $_rejectPath;
 
-	/** @var string Reject directory path. */
-	var $_adminEmail;
-
-	/** @var string Reject directory path. */
-	var $_adminName;
-
 	/** @var array List of staged back files after processing. */
 	var $_stagedBackFiles = array();
 
@@ -60,11 +49,6 @@ class FileLoader extends ScheduledTask {
 	 */
 	function FileLoader($args) {
 		parent::ScheduledTask($args);
-
-		// Set an initial process id and load translations (required
-		// for email notifications).
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_ADMIN);
-		$this->_newProcessId();
 
 		// Canonicalize the base path.
 		$basePath = rtrim($args[0], DIRECTORY_SEPARATOR);
@@ -149,7 +133,7 @@ class FileLoader extends ScheduledTask {
 			if ($result === false) {
 				$foundErrors = true;
 				$this->_rejectFile();
-				$this->_notify($errorMsg, FILE_LOADER_MESSAGE_TYPE_WARNING);
+				$this->notify(SCHEDULED_TASK_MESSAGE_TYPE_ERROR, $errorMsg);
 				continue;
 			}
 
@@ -182,8 +166,8 @@ class FileLoader extends ScheduledTask {
 		// to be protected against information leak and symlink attacks.
 		$filesDir = realpath(Config::getVar('files', 'files_dir'));
 		if (is_null($this->_basePath) || strpos($this->_basePath, $filesDir) !== 0) {
-			$this->_notify(__('admin.fileLoader.wrongBasePathLocation', array('path' => $this->_basePath)),
-					FILE_LOADER_MESSAGE_TYPE_ERROR);
+			$this->notify(SCHEDULED_TASK_MESSAGE_TYPE_ERROR,
+				__('admin.fileLoader.wrongBasePathLocation', array('path' => $this->_basePath)));
 			return false;
 		}
 
@@ -209,8 +193,8 @@ class FileLoader extends ScheduledTask {
 				// Try again.
 				if (!(is_dir($path) && is_readable($path))) {
 					// Give up...
-					$this->_notify(__('admin.fileLoader.pathNotAccessible', array('path' => $path)),
-							FILE_LOADER_MESSAGE_TYPE_ERROR);
+					$this->notify(SCHEDULED_TASK_MESSAGE_TYPE_ERROR,
+						__('admin.fileLoader.pathNotAccessible', array('path' => $path)));
 					return false;
 				}
 			}
@@ -238,17 +222,17 @@ class FileLoader extends ScheduledTask {
 		assert(false);
 	}
 
+	/**
+	 * @see ScheduledTask::getName()
+	 */
+	function getName() {
+		return __('admin.fileLoader');
+	}
+
 
 	//
 	// Private helper methods.
 	//
-	/**
-	 * Set a new process id.
-	 */
-	function _newProcessId() {
-		$this->_processId = uniqid();
-	}
-
 	/**
 	 * Claim the first file that's inside the staging folder.
 	 * @return mixed The claimed file path or false if
@@ -309,7 +293,7 @@ class FileLoader extends ScheduledTask {
 		if (!rename($currentFilePath, $destinationPath)) {
 			$message = __('admin.fileLoader.moveFileFailed', array('filename' => $filename,
 				'currentFilePath' => $currentFilePath, 'destinationPath' => $destinationPath));
-			$this->_notify($message, FILE_LOADER_MESSAGE_TYPE_ERROR);
+			$this->notify(SCHEDULED_TASK_MESSAGE_TYPE_ERROR, $message);
 
 			// Script should always stop if it can't manipulate files inside
 			// its own directory system.
@@ -317,26 +301,6 @@ class FileLoader extends ScheduledTask {
 		}
 
 		return $destinationPath;
-	}
-
-	/**
-	 * Send the passed message to the administrator by email.
-	 * @param $message string
-	 */
-	function _notify($message, $messageType) {
-		// Instantiate the email to the admin.
-		import('lib.pkp.classes.mail.Mail');
-		$mail = new Mail();
-
-		// Recipient
-		$mail->addRecipient($this->_adminEmail, $this->_adminName);
-
-		// The message
-		$mail->setSubject(__('admin.fileLoader.emailSubject', array('processId' => $this->_processId)) .
-			' - ' . __($messageType));
-		$mail->setBody($message);
-
-		$mail->send();
 	}
 }
 

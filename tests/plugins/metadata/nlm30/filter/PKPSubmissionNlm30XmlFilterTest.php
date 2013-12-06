@@ -3,6 +3,7 @@
 /**
  * @file tests/plugin/metadata/nlm30/filter/PKPSubmissionNlm30XmlFilterTest.inc.php
  *
+ * Copyright (c) 2013 Simon Fraser University Library
  * Copyright (c) 2000-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *

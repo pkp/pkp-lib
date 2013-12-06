@@ -6,6 +6,7 @@
 /**
  * @file controllers/api/user/CitationApiHandler.inc.php
  *
+ * Copyright (c) 2013 Simon Fraser University Library
  * Copyright (c) 2000-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *

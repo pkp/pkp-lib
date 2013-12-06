@@ -38,6 +38,7 @@
 	<message key="admin.languages.reload">Заново загрузить язык</message>
 	<message key="admin.languages.uninstall">Удалить язык</message>
 	<message key="admin.phpInfo">Расширенная информация PHP</message>
+	<message key="admin.scheduledTask">Запланированная задача</message>
 	<message key="admin.server.apacheVersion">Версия Apache</message>
 	<message key="admin.server.dbDriver">Драйвер базы данных</message>
 	<message key="admin.server.dbVersion">Версия СУБД</message>
@@ -87,5 +88,5 @@
 	<message key="admin.fileLoader.wrongBasePathLocation">Основной каталог {$path} должен быть внутри каталога с доступными для всех файлами.</message>
 	<message key="admin.fileLoader.pathNotAccessible">Папка {$path} не является каталогом или не доступен для чтения.</message>
 	<message key="admin.fileLoader.moveFileFailed">Файл {$filename} не может быть перемещен из {$currentFilePath} в {$destinationPath}</message>
-	<message key="admin.fileLoader.emailSubject">ID процесса загрузки файлов {$processId}</message>
+	<message key="admin.fileLoader">Загрузчик файлов</message>
 </locale>

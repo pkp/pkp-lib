@@ -230,4 +230,6 @@
 	<message key="plugins.categories.citationOutput.description">Los conectores de salida de citas implementan estándares de cita. Estos tienen prioridad sobre los conectores de formato de cita.</message>
 	<message key="plugins.categories.citationParser">Conectores de extracción de citas</message>
 	<message key="plugins.categories.citationParser.description">Los conectores de extracción de citas segmentan en campos el texto de una cita (p.e.: autor, título, etc.).</message>
+	<message key="manager.statistics.city">Ciudad</message>
+	<message key="manager.statistics.region">Región</message>
 </locale> 

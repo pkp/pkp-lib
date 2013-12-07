@@ -259,10 +259,8 @@
 	<message key="search.operator.and">and</message>
 	<message key="search.operator.not">not</message>
 	<message key="search.operator.or">or</message>
-	<message key="search.reviseSearch">Alterar parâmetros</message>
 	<message key="search.searchAllCategories">Pesquisar termo em todas as categorias</message>
 	<message key="search.searchCategories">Pesquisar nas categorias</message>
-	<message key="search.searchResults">Resultado da pesquisa</message>
 	<message key="search.subject">Assunto</message>
 	<message key="search.titleIndex">Índice de títulos</message>
 	<message key="search.title">Título</message>
@@ -367,4 +365,26 @@
 	<message key="navigation.submissions">Submissões</message>
 	<message key="navigation.system">Sistema</message>
 	<message key="navigation.userManagement">Gerenciamento de usuários</message>
+	<message key="common.acknowledged">Agradecimento</message>
+	<message key="common.error">Erro</message>
+	<message key="common.considered">Considerado</message>
+	<message key="common.notified">Notificado</message>
+	<message key="common.reset">Reiniciar</message>
+	<message key="common.metric">Métrica</message>
+	<message key="common.count">Total</message>
+	<message key="defaultMetric.title">Métrica padrão</message>
+	<message key="defaultMetric.availableMetrics">Métricas disponíveis</message>
+	<message key="search.activeFilters">Filtros avançados</message>
+	<message key="search.advancedSearchMore">Opções adicionais de pesquisa (clique para exibir)</message>
+	<message key="search.advancedSearchLess">Opções adicionais de pesquisa (clique para ocultar)</message>
+	<message key="search.cli.rebuildIndex.clearingIndex">Limpando índice</message>
+	<message key="search.cli.rebuildIndex.done">concluído</message>
+	<message key="search.cli.rebuildIndex.error">erro</message>
+	<message key="search.cli.rebuildIndex.indexing">Indexando "{$journalName}"</message>
+	<message key="search.cli.rebuildIndex.indexingByJournalNotSupported">Esta implementação de pesquisa não permite reindexação por periódico.</message>
+	<message key="search.cli.rebuildIndex.result">{$numIndexed} artigos indexados</message>
+	<message key="search.cli.rebuildIndex.unknownJournal">O caminho "{$journalPath}" não pôde ser resolvido para um periódico.</message>
+	<message key="search.deleteFilter">Excluir</message>
+	<message key="search.indexTermsLong">Todos os campos de termos de indexação</message>
+	<message key="grid.action.downloadFile">Baixar este arquivo</message>
 </locale>

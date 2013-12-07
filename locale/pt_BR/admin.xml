@@ -84,4 +84,8 @@
 	<message key="admin.settings">Configurações</message>
 	<message key="admin.settings.siteTheme">Tema do site</message>
 	<message key="admin.siteSetup">Configurar site</message>
+	<message key="admin.fileLoader.wrongBasePathLocation">O caminho base {$path} deve estar dentro da pasta pública.</message>
+	<message key="admin.fileLoader.pathNotAccessible">A pasta {$path} não é um diretório ou não tem permissão de leitura.</message>
+	<message key="admin.fileLoader.moveFileFailed">O arquivo {$filename} não pode ser movido de {$currentFilePath} para {$destinationPath}</message>
+	<message key="admin.fileLoader.emailSubject">ID {$processId} do processo de carga do arquivo</message>
 </locale>

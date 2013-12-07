@@ -240,4 +240,6 @@
 	<message key="plugins.categories.citationOutput.description">Plugins de saída de citações implementam padrões de saída de citações. Estes substituem os plugins de formatos de citação.</message>
 	<message key="plugins.categories.citationParser">Plugins de extração de citação</message>
 	<message key="plugins.categories.citationParser.description">Plugins de extração de citação extraem dados a nível de campos para citações cruas (ex.: autor, título, entre outros).</message>
+	<message key="manager.statistics.city">Cidade</message>
+	<message key="manager.statistics.region">Região</message>
 </locale>

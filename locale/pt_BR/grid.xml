@@ -77,7 +77,6 @@
 	<message key="grid.action.collapseAll">Contrair todos</message>
 	<message key="grid.action.wizard">Assistente de configuração</message>
 	<message key="grid.action.moveItem">Mover item</message>
-	<message key="grid.action.downloadFile">Baixar este arquivo</message>
 	<message key="grid.action.downloadAll">Baixar todos os arquivos de uma vez (arquivo compactado)</message>
 	<message key="grid.action.readReview">Ler esta avaliação</message>
 	<message key="grid.action.email">Enviar mensagem</message>
@@ -186,4 +185,10 @@
 	<message key="grid.preparedEmails.currentList">Lista atual</message>
 	<message key="grid.plugin.allCategories">Todas as categorias</message>
 	<message key="grid.plugin.disable">Deseja realmente desabilitar este plugin?</message>
+	<message key="grid.action.mergeUser">Mesclar cadastro</message>
+	<message key="grid.action.unassignUser">Liberar da tarefa</message>
+	<message key="grid.action.history">Ver histórico</message>
+	<message key="grid.action.unconsiderReview">Esta avaliação está concluída, mas pode ser desconsiderada</message>
+	<message key="grid.task.status.unfinished">Tarefa não concluída</message>
+	<message key="grid.task.status.reviewReady">Esta avaliação está concluída. Clique no ícone de anotações à esquerda para ler.</message>
 </locale>

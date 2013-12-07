@@ -372,4 +372,9 @@
 	<message key="search.deleteFilter">Eliminar</message>
 	<message key="search.indexTermsLong">Todos los camps término del índice</message>
 	<message key="grid.action.downloadFile">Descargar el fichero</message>
+	<message key="common.error">Error</message>
+	<message key="common.metric">Métrica</message>
+	<message key="common.count">Contar</message>
+	<message key="defaultMetric.title">Métrica por defecto</message>
+	<message key="defaultMetric.availableMetrics">Métricas disponibles</message>
 </locale> 

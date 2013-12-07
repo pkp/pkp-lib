@@ -385,4 +385,5 @@
 	<message key="submission.createRemote">Criar remoto</message>
 	<message key="submission.form.name">Informe um nome útil para o arquivo</message>
 	<message key="submission.form.replaceExisting">Substituindo um arquivo existente?</message>
+	<message key="submission.addFile">Enviar arquivo</message>
 </locale>

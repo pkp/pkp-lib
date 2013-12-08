@@ -220,6 +220,7 @@
 	<message key="common.loading">Загрузка...</message>
 	<message key="common.plugins">Плагины</message>
 	<message key="common.metric">Метрика</message>
+	<message key="common.count">Счетчик</message>
 	<message key="debug.databaseQueries">Количество запросов к БД</message>
 	<message key="debug.executionTime">Страница создана за</message>
 	<message key="debug.memoryUsage">Использование памяти</message>

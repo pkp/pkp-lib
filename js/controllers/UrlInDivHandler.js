@@ -77,7 +77,13 @@
 				// Hide this div element.
 				this.getHtmlElement().hide();
 			} else {
-				this.getHtmlElement().hide().html(handledJsonData.content).fadeIn(400);
+				// See bug #8237.
+				if (!jQuery.browser.msie) {
+					this.getHtmlElement().hide().html(handledJsonData.content).fadeIn(400);
+				} else {
+					this.getHtmlElement().html(handledJsonData.content);
+				}
+
 				this.trigger('urlInDivLoaded', [this.getHtmlElement().attr('id')]);
 			}
 		} else {

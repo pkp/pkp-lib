@@ -92,8 +92,13 @@ class PageHandler extends Handler {
 		}
 
 		if ($context = $request->getContext()) {
-			$settingsDao = $context->getSettingsDAO();
-			$templateMgr->assign('contextSettings', $settingsDao->getSettings($context->getId()));
+			import('pages.about.AboutContextHandler');
+			if (in_array('IAboutContextInfoProvider', class_implements('AboutContextHandler'))) {
+				$templateMgr->assign('contextInfo', AboutContextHandler::getAboutInfo($context));
+			} else {
+				$settingsDao = $context->getSettingsDAO();
+				$templateMgr->assign('contextSettings', $settingsDao->getSettings($context->getId()));
+			}
 		}
 
 		return $templateMgr->fetchJson('controllers/page/header.tpl');

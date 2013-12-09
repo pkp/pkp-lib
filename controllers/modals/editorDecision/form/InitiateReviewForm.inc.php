@@ -45,7 +45,7 @@ class InitiateReviewForm extends EditorDecisionForm {
 		// Record the decision.
 		import('classes.workflow.EditorDecisionActionsManager');
 		$actionLabels = EditorDecisionActionsManager::getActionLabels(array($this->_decision));
-		import('lib.pkp.classes.submission.editor.EditorAction');
+		import('lib.pkp.classes.submission.action.EditorAction');
 		$editorAction = new EditorAction();
 		$editorAction->recordDecision($request, $submission, $this->_decision, $actionLabels);
 

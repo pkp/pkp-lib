@@ -312,6 +312,7 @@ class PKPRouterTestCase extends PKPTestCase {
 		                ->will($this->returnValue($contextList));
 
 		$this->router->setApplication($mockApplication);
+		Registry::set('application', $mockApplication);
 
 		// Dispatcher
 		$dispatcher = $mockApplication->getDispatcher();

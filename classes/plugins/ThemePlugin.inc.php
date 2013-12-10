@@ -31,7 +31,7 @@ class ThemePlugin extends LazyLoadPlugin {
 		$result = parent::register($category, $path);
 
 		$request = $this->getRequest();
-		if ($result && $this->getEnabled()) {
+		if ($result && $this->getEnabled() && !defined('SESSION_DISABLE_INIT')) {
 			HookRegistry::register('PageHandler::displayCss', array($this, '_displayCssCallback'));
 			$templateManager = TemplateManager::getManager($request);
 			$dispatcher = $request->getDispatcher();

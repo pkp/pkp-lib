@@ -14,12 +14,18 @@
 	min-height: 150px;
 	background-color: #A2C6DC;
 	font-color: #ffffff;
+	position: relative;
 	h4 {
 		color: #000000;
 	}
 
 	.pkp_structure_subfoot {
-		border-top: 1px dotted #fff;
+		min-height: 45px;
+		clear: both;
+		display: block;
+		position: absolute;
+		bottom: 0;
+		right: 0;
 
 		ul li {
 			list-style: square;
@@ -36,6 +42,11 @@
 		h4 a {
 			text-decoration: none;
 			color: #ffffff;
+		}
+
+		.div {
+			height: 100%;
+			vertical-align: bottom;
 		}
 	}
 }

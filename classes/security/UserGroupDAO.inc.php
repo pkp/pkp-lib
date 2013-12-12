@@ -160,8 +160,8 @@ class UserGroupDAO extends DAO {
 
 	/**
 	 * Get an individual user group
-	 * @param $userGroupId
-	 * @param $contextId
+	 * @param $userGroupId int User group ID
+	 * @param $contextId int Optional context ID to use for validation
 	 */
 	function getById($userGroupId, $contextId = null) {
 		$params = array((int) $userGroupId);

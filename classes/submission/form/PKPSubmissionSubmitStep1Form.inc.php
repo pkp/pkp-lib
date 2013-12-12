@@ -36,6 +36,28 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	}
 
 	/**
+	 * Perform additional validation checks
+	 * @copydoc Form::validate
+	 */
+	function validate() {
+		if (!parent::validate()) return false;
+
+		// Ensure that the user is in the specified authorUserGroupId
+		$authorUserGroupId = $this->getData('authorUserGroupId');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$request = Application::getRequest();
+		$context = $request->getContext();
+		$user = $request->getUser();
+		if (!$user) return false;
+
+		$userGroups = $userGroupDao->getByUserId($user->getId(), $context->getId());
+		while ($userGroup = $userGroups->next()) {
+			if ($userGroup->getId() == $authorUserGroupId) return true;
+		}
+		return false;
+	}
+
+	/**
 	 * Fetch the form.
 	 */
 	function fetch($request) {

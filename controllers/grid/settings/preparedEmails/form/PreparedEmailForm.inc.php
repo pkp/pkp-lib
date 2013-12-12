@@ -38,6 +38,7 @@ class PreparedEmailForm extends Form {
 		// Validation checks for this form
 		$this->addCheck(new FormValidatorArray($this, 'subject', 'required', 'manager.emails.form.subjectRequired'));
 		$this->addCheck(new FormValidatorArray($this, 'body', 'required', 'manager.emails.form.bodyRequired'));
+		$this->addCheck(new FormValidatorRegExp($this, 'emailKey', 'required', 'manager.emails.form.emailKeyRequired', '/^[a-zA-Z_-]+$/'));
 		$this->addCheck(new FormValidatorPost($this));
 	}
 
@@ -85,7 +86,8 @@ class PreparedEmailForm extends Form {
 				'emailKey' => $emailTemplate->getEmailKey(),
 				'subject' => $subject,
 				'body' => $body,
-				'description' => $emailTemplate->getDescription(AppLocale::getLocale())
+				'description' => $emailTemplate->getDescription(AppLocale::getLocale()),
+				'emailKey' => $emailTemplate->getEmailKey(), // Fetched for validation only
 			);
 
 		} else {
@@ -100,7 +102,9 @@ class PreparedEmailForm extends Form {
 	 * Assign form data to user-submitted data.
 	 */
 	function readInputData() {
-		$this->readUserVars(array('subject', 'body', 'description'));
+		// emailKey is handled outside this form, but need to fetch
+		// for validation.
+		$this->readUserVars(array('subject', 'body', 'description', 'emailKey'));
 
 		$context = $this->getContext();
 		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');

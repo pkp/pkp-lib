@@ -82,7 +82,7 @@
 	<message key="manager.emails.enabled">Enable this email template</message>
 	<message key="manager.emails.enable">Enable</message>
 	<message key="manager.emails.enable.message">You are about to enable this email.  Do you want to confirm this operation?</message>
-	<message key="manager.emails.form.emailKeyRequired">A unique email key is required for the email.</message>
+	<message key="manager.emails.form.emailKeyRequired">A unique email key containing no spaces or special characters is required for the email.</message>
 	<message key="manager.emails.form.bodyRequired">A body is required for the email.</message>
 	<message key="manager.emails.form.subjectRequired">A subject is required for the email.</message>
 	<message key="manager.emails">Prepared Emails</message>

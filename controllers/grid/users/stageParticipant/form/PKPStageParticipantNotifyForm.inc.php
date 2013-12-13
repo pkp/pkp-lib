@@ -133,7 +133,7 @@ class PKPStageParticipantNotifyForm extends Form {
 		$request = $application->getRequest(); // need to do this because the method version is null.
 
 		$submissionDao = Application::getSubmissionDAO();
-		$submission =& $submissionDao->getById($this->submissionId);
+		$submission = $submissionDao->getById($this->submissionId);
 
 		foreach ($newRowId as $id) {
 			$this->sendMessage($id, $submission, $request);

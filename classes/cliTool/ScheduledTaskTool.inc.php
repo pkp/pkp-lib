@@ -105,7 +105,7 @@ class ScheduledTaskTool extends CommandLineTool {
 	 */
 	function executeTask($className, $args) {
 		// Load and execute the task
-		if (!is_object($task =& instantiate($className, null, null, 'execute', $args))) {
+		if (!is_object($task = instantiate($className, null, null, 'execute', $args))) {
 			fatalError('Cannot instantiate task class.');
 		}
 		$task->execute();

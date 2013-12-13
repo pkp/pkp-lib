@@ -319,7 +319,7 @@ class UserGridHandler extends GridHandler {
 			$userForm->readInputData();
 
 			if ($userForm->validate()) {
-				$user =& $userForm->execute($args, $request);
+				$user = $userForm->execute($args, $request);
 
 				// If this is a newly created user, show role management form.
 				if (!$userId) {
@@ -434,7 +434,7 @@ class UserGridHandler extends GridHandler {
 			$userForm->readInputData();
 
 			if ($userForm->validate()) {
-				$user =& $userForm->execute($args, $request);
+				$user = $userForm->execute($args, $request);
 
 				// Successful enable/disable of an existing user.
 				// Update grid data.

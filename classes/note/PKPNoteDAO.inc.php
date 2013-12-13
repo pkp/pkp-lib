@@ -27,7 +27,7 @@ class PKPNoteDAO extends DAO {
 	 * @param $noteId int
 	 * @return Note object
 	 */
-	function &getById($noteId) {
+	function getById($noteId) {
 		$result = $this->retrieve(
 			'SELECT * FROM notes WHERE note_id = ?', (int) $noteId
 		);

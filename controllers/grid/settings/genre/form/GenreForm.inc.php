@@ -58,7 +58,7 @@ class GenreForm extends Form {
 		$genreDao = DAORegistry::getDAO('GenreDAO');
 
 		if($this->getGenreId()) {
-			$genre =& $genreDao->getById($this->getGenreId(), $context->getId());
+			$genre = $genreDao->getById($this->getGenreId(), $context->getId());
 		}
 
 		if (isset($genre) ) {
@@ -119,7 +119,7 @@ class GenreForm extends Form {
 			$genre = $genreDao->newDataObject();
 			$genre->setContextId($context->getId());
 		} else {
-			$genre =& $genreDao->getById($this->getGenreId(), $context->getId());
+			$genre = $genreDao->getById($this->getGenreId(), $context->getId());
 		}
 
 		$genre->setData('name', $this->getData('name'), null); // Localized

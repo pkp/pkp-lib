@@ -38,7 +38,7 @@ class DataObjectTombstoneDAO extends DAO {
 	 * @param $assocId int
 	 * @return DataObjectTombstone object
 	 */
-	function &getById($tombstoneId, $assocType = null, $assocId = null) {
+	function getById($tombstoneId, $assocType = null, $assocId = null) {
 		$params = array((int) $tombstoneId);
 		if ($assocId !== null && $assocType !== null) {
 			$params[] = (int) $assocType;

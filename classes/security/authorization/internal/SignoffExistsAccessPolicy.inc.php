@@ -77,7 +77,7 @@ class SignoffExistsAccessPolicy extends AuthorizationPolicy {
 				$this->addAuthorizedContextObject(ASSOC_TYPE_SIGNOFF, $baseSignoff);
 				return AUTHORIZATION_PERMIT;
 			case ASSOC_TYPE_SUBMISSION:
-				$submission =& $submissionDao->getById($signoff->getAssocId());
+				$submission = $submissionDao->getById($signoff->getAssocId());
 				if (!is_a($submission, 'Submission')) return AUTHORIZATION_DENY;
 
 				if ($submission->getContextId() != $context->getId()) return AUTHORIZATION_DENY;

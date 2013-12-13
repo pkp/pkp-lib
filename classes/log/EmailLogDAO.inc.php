@@ -31,7 +31,7 @@ class EmailLogDAO extends DAO {
 	 * @param $assocId int optional
 	 * @return EmailLogEntry
 	 */
-	function &getById($logId, $assocType = null, $assocId = null) {
+	function getById($logId, $assocType = null, $assocId = null) {
 		$params = array((int) $logId);
 		if (isset($assocType)) {
 			$params[] = (int) $assocType;

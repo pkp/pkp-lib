@@ -36,7 +36,7 @@ class GenreDAO extends DefaultSettingDAO {
 	 * @param $genreId int
 	 * @return Genre
 	 */
-	function &getById($genreId, $contextId = null){
+	function getById($genreId, $contextId = null){
 		$sqlParams = array((int)$genreId);
 		if ($contextId) {
 			$sqlParams[] = (int)$contextId;

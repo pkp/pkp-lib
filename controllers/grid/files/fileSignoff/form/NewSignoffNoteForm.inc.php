@@ -191,9 +191,9 @@ class NewSignoffNoteForm extends NewNoteForm {
 				import('lib.pkp.classes.log.SubmissionFileLog');
 				import('lib.pkp.classes.log.SubmissionFileEventLogEntry'); // constants
 				$submissionDao = Application::getSubmissionDAO();
-				$submission =& $submissionDao->getById($this->_submissionId);
+				$submission = $submissionDao->getById($this->_submissionId);
 				$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
-				$submissionFile =& $submissionFileDao->getLatestRevision($signoff->getFileId());
+				$submissionFile = $submissionFileDao->getLatestRevision($signoff->getFileId());
 
 				if (isset($submissionFile)) {
 					SubmissionFileLog::logEvent($request, $submissionFile, SUBMISSION_LOG_FILE_AUDIT_UPLOAD, 'submission.event.fileAuditUploaded', array('file' => $submissionFile->getOriginalFileName(), 'name' => $user->getFullName(), 'username' => $user->getUsername()));

@@ -145,7 +145,7 @@ class UserGridRow extends GridRow {
 
 			$oldUserId = $this->getOldUserId();
 			$userDao = DAORegistry::getDAO('UserDAO');
-			$oldUser =& $userDao->getById($this->getOldUserId());
+			$oldUser = $userDao->getById($this->getOldUserId());
 			if ($oldUser) {
 				$actionArgs['oldUserId'] = $this->getOldUserId();
 				$actionArgs['newUserId'] = $rowId;
@@ -153,7 +153,7 @@ class UserGridRow extends GridRow {
 				// Don't merge a user in itself
 				if ($actionArgs['oldUserId'] != $actionArgs['newUserId']) {
 					$userDao = DAORegistry::getDAO('UserDAO');
-					$oldUser =& $userDao->getById($this->getOldUserId());
+					$oldUser = $userDao->getById($this->getOldUserId());
 					$this->addAction(
 						new LinkAction(
 							'mergeUser',

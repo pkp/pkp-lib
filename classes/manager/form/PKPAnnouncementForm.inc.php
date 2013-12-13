@@ -106,7 +106,7 @@ class PKPAnnouncementForm extends Form {
 	function initData() {
 		if (isset($this->announcementId)) {
 			$announcementDao = DAORegistry::getDAO('AnnouncementDAO');
-			$announcement =& $announcementDao->getById($this->announcementId);
+			$announcement = $announcementDao->getById($this->announcementId);
 
 			if ($announcement != null) {
 				$this->_data = array(
@@ -139,7 +139,7 @@ class PKPAnnouncementForm extends Form {
 		$announcementDao = DAORegistry::getDAO('AnnouncementDAO');
 
 		if (isset($this->announcementId)) {
-			$announcement =& $announcementDao->getById($this->announcementId);
+			$announcement = $announcementDao->getById($this->announcementId);
 		}
 
 		if (!isset($announcement)) {

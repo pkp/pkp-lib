@@ -118,8 +118,7 @@ class NotifyUsersListbuilderHandler extends ListbuilderHandler {
 		$newRowId = $this->getNewRowId($request);
 		$userId = (int) $newRowId['name'];
 		$userDao = DAORegistry::getDAO('UserDAO');
-		$user =& $userDao->getById($userId);
-		return $user;
+		return $userDao->getById($userId);
 	}
 
 	/**

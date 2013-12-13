@@ -49,7 +49,7 @@ class PKPUserDAO extends DAO {
 	 * @param $allowDisabled boolean
 	 * @return User
 	 */
-	function &getById($userId, $allowDisabled = true) {
+	function getById($userId, $allowDisabled = true) {
 		$result = $this->retrieve(
 			'SELECT * FROM users WHERE user_id = ?' . ($allowDisabled?'':' AND disabled = 0'),
 			array((int) $userId)

@@ -31,7 +31,7 @@ class EventLogDAO extends DAO {
 	 * @param $assocType int optional
 	 * @return EventLogEntry
 	 */
-	function &getById($logId, $assocType = null, $assocId = null) {
+	function getById($logId, $assocType = null, $assocId = null) {
 		$params = array((int) $logId);
 		if (isset($assocType)) {
 			$params[] = (int) $assocType;

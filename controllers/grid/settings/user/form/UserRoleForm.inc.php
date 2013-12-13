@@ -50,13 +50,12 @@ class UserRoleForm extends UserForm {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function &execute($args, $request) {
+	function execute($args, $request) {
 		parent::execute($request);
 
 		// Role management handled by parent form, just return user.
 		$userDao = DAORegistry::getDAO('UserDAO');
-		$user =& $userDao->getById($this->userId);
-		return $user;
+		return $userDao->getById($this->userId);
 	}
 }
 

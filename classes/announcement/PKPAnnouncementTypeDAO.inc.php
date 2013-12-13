@@ -37,7 +37,7 @@ class PKPAnnouncementTypeDAO extends DAO {
 	 * @param $typeId int
 	 * @return AnnouncementType
 	 */
-	function &getById($typeId) {
+	function getById($typeId) {
 		$result = $this->retrieve(
 			'SELECT * FROM announcement_types WHERE type_id = ?',
 			(int) $typeId

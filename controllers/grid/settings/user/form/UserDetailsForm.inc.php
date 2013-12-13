@@ -70,7 +70,7 @@ class UserDetailsForm extends UserForm {
 
 		if (isset($this->userId)) {
 			$userDao = DAORegistry::getDAO('UserDAO');
-			$user =& $userDao->getById($this->userId);
+			$user = $userDao->getById($this->userId);
 
 			import('lib.pkp.classes.user.InterestManager');
 			$interestManager = new InterestManager();
@@ -132,7 +132,7 @@ class UserDetailsForm extends UserForm {
 		$templateMgr->assign('userId', $this->userId);
 
 		if (isset($this->userId)) {
-			$user =& $userDao->getById($this->userId);
+			$user = $userDao->getById($this->userId);
 			$templateMgr->assign('username', $user->getUsername());
 		}
 

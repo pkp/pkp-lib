@@ -122,7 +122,7 @@ class PKPRegistrationForm extends Form {
 		$site = $request->getSite();
 		$templateMgr->assign('availableLocales', $site->getSupportedLocaleNames());
 
-		parent::display();
+		parent::display($request);
 	}
 
 	/**

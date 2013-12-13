@@ -34,7 +34,8 @@ class ReviewerReviewStep2Form extends ReviewerReviewForm {
 		$templateMgr = TemplateManager::getManager($request);
 		$context = $this->request->getContext();
 
-		$reviewerGuidelines = $context->getLocalizedSetting('reviewGuidelines');
+		$reviewAssignment = $this->getReviewAssignment();
+		$reviewerGuidelines = $context->getLocalizedSetting($reviewAssignment->getStageId()==WORKFLOW_STAGE_ID_INTERNAL_REVIEW?'internalReviewGuidelines':'reviewGuidelines');
 		if (empty($reviewerGuidelines)) {
 			$reviewerGuidelines = __('reviewer.submission.noGuidelines');
 		}

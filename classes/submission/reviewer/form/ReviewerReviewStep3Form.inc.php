@@ -94,7 +94,7 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 		//
 		if ($context->getLocalizedSetting('reviewGuidelines')) {
 			import('lib.pkp.controllers.confirmationModal.linkAction.ViewReviewGuidelinesLinkAction');
-			$viewReviewGuidelinesAction = new ViewReviewGuidelinesLinkAction($request);
+			$viewReviewGuidelinesAction = new ViewReviewGuidelinesLinkAction($request, $reviewAssignment->getStageId());
 			$templateMgr->assign('viewGuidelinesAction', $viewReviewGuidelinesAction);
 		}
 		return parent::fetch($request);

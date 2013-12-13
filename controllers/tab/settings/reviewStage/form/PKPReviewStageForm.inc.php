@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file controllers/tab/settings/reviewStage/form/ReviewStageForm.inc.php
+ * @file controllers/tab/settings/reviewStage/form/PKPReviewStageForm.inc.php
  *
  * Copyright (c) 2003-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -14,12 +14,12 @@
 
 import('lib.pkp.classes.controllers.tab.settings.form.ContextSettingsForm');
 
-class ReviewStageForm extends ContextSettingsForm {
+class PKPReviewStageForm extends ContextSettingsForm {
 
 	/**
 	 * Constructor.
 	 */
-	function ReviewStageForm($wizardMode = false, $settings = array(), $template = 'controllers/tab/settings/reviewStage/form/reviewStageForm.tpl') {
+	function PKPReviewStageForm($wizardMode = false, $settings = array(), $template = 'controllers/tab/settings/reviewStage/form/reviewStageForm.tpl') {
 		parent::ContextSettingsForm(
 			array_merge(
 				$settings,

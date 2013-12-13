@@ -55,11 +55,11 @@
 		{/fbvFormArea}
 
 		{fbvFormArea id="review"}
-			{fbvFormSection label="manager.setup.reviewGuidelines" description="manager.setup.reviewGuidelinesDescription"}
-				{fbvElement type="textarea" multilingual="true" name="reviewGuidelines" id="reviewGuidelines" value=$reviewGuidelines rich=true}
-			{/fbvFormSection}
 			{fbvFormSection label="manager.setup.competingInterests" description="manager.setup.competingInterestsDescription"}
 				{fbvElement type="textarea" multilingual="true" id="competingInterests" value=$competingInterests rich=true}
+			{/fbvFormSection}
+			{fbvFormSection label="manager.setup.reviewGuidelines" description="manager.setup.reviewGuidelinesDescription"}
+				{fbvElement type="textarea" multilingual="true" name="reviewGuidelines" id="reviewGuidelines" value=$reviewGuidelines rich=true}
 			{/fbvFormSection}
 		{/fbvFormArea}
 	</div>

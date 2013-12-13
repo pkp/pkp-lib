@@ -22,13 +22,16 @@ class ViewReviewGuidelinesLinkAction extends LinkAction {
 	/**
 	 * Constructor
 	 * @param $request Request
+	 * @param $stageId int Stage ID of review assignment
 	 */
-	function ViewReviewGuidelinesLinkAction($request) {
+	function ViewReviewGuidelinesLinkAction($request, $stageId) {
 		$context = $request->getContext();
 		// Instantiate the view review guidelines confirmation modal.
 		import('lib.pkp.classes.linkAction.request.ConfirmationModal');
 		$viewGuidelinesModal = new ConfirmationModal(
-			$context->getLocalizedSetting('reviewGuidelines'),
+			$context->getLocalizedSetting(
+				$stageId==WORKFLOW_STAGE_ID_EXTERNAL_REVIEW?'reviewGuidelines':'internalReviewGuidelines'
+			),
 			__('reviewer.submission.guidelines'),
 			null, null,
 			false

@@ -11,8 +11,6 @@
  * @brief Base class for reviewer forms.
  */
 
-
-
 import('lib.pkp.classes.form.Form');
 
 class ReviewerReviewForm extends Form {

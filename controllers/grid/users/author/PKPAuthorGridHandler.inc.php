@@ -171,7 +171,7 @@ class PKPAuthorGridHandler extends GridHandler {
 	 * @see GridHandler::initFeatures()
 	 */
 	function initFeatures($request, $args) {
-		$features = parent::initFeatures();
+		$features = parent::initFeatures($request, $args);
 		if ($this->canAdminister()) {
 			import('lib.pkp.classes.controllers.grid.feature.OrderGridItemsFeature');
 			$features[] = new OrderGridItemsFeature();

@@ -150,19 +150,18 @@ class PKPSubmissionHandler extends Handler {
 				$templateMgr->assign('canExpedite', true);
 
 				import('lib.pkp.classes.linkAction.request.AjaxModal');
-				$expediteLinkAction =
-						new LinkAction(
-							'expedite',
-							new AjaxModal(
-								$router->url($request, null, 'workflow', 'expedite', $submission->getId()),
-								__('submission.submit.confirmExpedite'),
-								'modal_edit',
-								true),
-							__('submission.submit.expediteSubmission')
-						);
+				$templateMgr->assign('expediteLinkAction', new LinkAction(
+					'expedite',
+					new AjaxModal(
+						$router->url($request, null, 'workflow', 'expedite', $submission->getId()),
+						__('submission.submit.confirmExpedite'),
+						'modal_edit',
+						true
+					),
+					__('submission.submit.expediteSubmission')
+				));
 			}
 
-			$templateMgr->assign('expediteLinkAction', $expediteLinkAction);
 			$json = new JSONMessage(true, $templateMgr->fetch('submission/form/complete.tpl'));
                         return $json->getString();
 		}

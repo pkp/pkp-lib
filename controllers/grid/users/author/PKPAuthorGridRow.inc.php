@@ -85,7 +85,7 @@ class PKPAuthorGridRow extends GridRow {
 
 				$authorDao = DAORegistry::getDAO('AuthorDAO');
 				$userDao = DAORegistry::getDAO('UserDAO');
-				$author = $authorDao->getAuthor($rowId);
+				$author = $authorDao->getById($rowId);
 
 				if ($author && !$userDao->userExistsByEmail($author->getEmail())) {
 					$this->addAction(

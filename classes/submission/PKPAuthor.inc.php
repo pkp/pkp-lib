@@ -60,6 +60,25 @@ class PKPAuthor extends Identity {
 	}
 
 	/**
+	 * Get the "show title" flag (whether or not the title of the role
+	 * should be included in the list of submission contributor names).
+	 * This is fetched from the user group for performance reasons.
+	 * @return boolean
+	 */
+	function getShowTitle() {
+		return $this->getData('showTitle');
+	}
+
+	/**
+	 * Set the "show title" flag. This attribute belongs to the user group,
+	 * NOT the author; fetched for performance reasons only.
+	 * @param $isDefault boolean
+	 */
+	function _setShowTitle($showTitle) {
+		$this->setData('showTitle', $showTitle);
+	}
+
+	/**
 	 * Get primary contact.
 	 * @return boolean
 	 */

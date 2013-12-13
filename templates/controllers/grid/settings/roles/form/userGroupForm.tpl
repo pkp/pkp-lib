@@ -34,10 +34,17 @@
 	{/fbvFormArea}
 	<div id="userGroupStageContainer" class="full left">
 		{fbvFormArea id="userGroupRoles"}
-				{fbvFormSection title="grid.roles.stageAssignment" for="assignedStages[]" required="true" list="true"}
-					{fbvElement type="checkboxgroup" name="assignedStages" id="assignedStages" from=$stages selected=$assignedStages}
-				{/fbvFormSection}
-				<label for="stages[]" class="error pkp_form_hidden">{translate key=settings.roles.stageIdRequired}</label>
+			{fbvFormSection title="grid.roles.stageAssignment" for="assignedStages[]" required="true" list="true"}
+				{fbvElement type="checkboxgroup" name="assignedStages" id="assignedStages" from=$stages selected=$assignedStages}
+			{/fbvFormSection}
+			<label for="stages[]" class="error pkp_form_hidden">{translate key=settings.roles.stageIdRequired}</label>
+		{/fbvFormArea}
+	</div>
+	<div id="userGroupOptionsContainer" class="full left">
+		{fbvFormArea id="userGroupOptions"}
+			{fbvFormSection title="settings.roles.roleOptions" list="true"}
+				{fbvElement type="checkbox" name="showTitle" id="showTitle" checked=$showTitle label="settings.roles.showTitles"}
+			{/fbvFormSection}
 		{/fbvFormArea}
 	</div>
 	{fbvFormButtons}

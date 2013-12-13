@@ -26,16 +26,20 @@ class PKPAuthorDAO extends DAO {
 
 	/**
 	 * Retrieve an author by ID.
-	 * @param $authorId int
+	 * @param $authorId int Author ID
 	 * @param $submissionId int optional
 	 * @return Author
 	 */
-	function getAuthor($authorId, $submissionId = null) {
+	function getById($authorId, $submissionId = null) {
 		$params = array((int) $authorId);
 		if ($submissionId !== null) $params[] = (int) $submissionId;
 		$result = $this->retrieve(
-			'SELECT * FROM authors WHERE author_id = ?'
-			. ($submissionId !== null?' AND submission_id = ?':''),
+			'SELECT a.*,
+				ug.show_title
+			FROM	authors a
+				JOIN user_groups ug ON (a.user_group_id=ug.user_group_id)
+			WHERE	a.author_id = ?'
+				. ($submissionId !== null?' AND a.submission_id = ?':''),
 			$params
 		);
 
@@ -58,7 +62,11 @@ class PKPAuthorDAO extends DAO {
 		$authors = array();
 
 		$result = $this->retrieve(
-			'SELECT * FROM authors WHERE submission_id = ? ORDER BY seq',
+			'SELECT	a.*, ug.show_title
+			FROM	authors a
+				JOIN user_groups ug ON (a.user_group_id=ug.user_group_id)
+			WHERE	a.submission_id = ?
+			ORDER BY seq',
 			(int) $submissionId
 		);
 
@@ -84,7 +92,7 @@ class PKPAuthorDAO extends DAO {
 	 */
 	function getAuthorCountBySubmissionId($submissionId) {
 		$result = $this->retrieve(
-			'SELECT count(*) FROM authors WHERE submission_id = ?',
+			'SELECT COUNT(*) FROM authors WHERE submission_id = ?',
 			(int) $submissionId
 		);
 
@@ -127,6 +135,7 @@ class PKPAuthorDAO extends DAO {
 		$author->setUserGroupId($row['user_group_id']);
 		$author->setPrimaryContact($row['primary_contact']);
 		$author->setSequence($row['seq']);
+		$author->_setShowTitle($row['show_title']); // Dependent
 
 		$this->getDataObjectSettings('author_settings', 'author_id', $row['author_id'], $author);
 

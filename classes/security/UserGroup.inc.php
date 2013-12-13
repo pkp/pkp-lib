@@ -24,40 +24,91 @@ class UserGroup extends DataObject {
 		parent::DataObject();
 	}
 
-
+	/**
+	 * Get the role ID
+	 * @return int ROLE_ID_...
+	 */
 	function getRoleId() {
 		return $this->getData('roleId');
 	}
 
+	/**
+	 * Set the role ID
+	 * @param $roleId int ROLE_ID_...
+	 */
 	function setRoleId($roleId) {
 		$this->setData('roleId', $roleId);
 	}
 
+	/**
+	 * Get the role path
+	 * @return string Role path
+	 */
 	function getPath() {
 		return $this->getData('path');
 	}
 
+	/**
+	 * Set the role path
+	 * $param $path string
+	 */
 	function setPath($path) {
 		$this->setData('path', $path);
 	}
 
+	/**
+	 * Get the context ID
+	 * @return int
+	 */
 	function getContextId() {
 		return $this->getData('contextId');
 	}
 
+	/**
+	 * Set the context ID
+	 * @param $contextId int
+	 */
 	function setContextId($contextId) {
 		$this->setData('contextId', $contextId);
 	}
 
-
+	/**
+	 * Get the default flag
+	 * @return boolean
+	 */
 	function getDefault() {
 		return $this->getData('isDefault');
 	}
 
+	/**
+	 * Set the default flag
+	 * @param $isDefault boolean
+	 */
 	function setDefault($isDefault) {
 		$this->setData('isDefault', $isDefault);
 	}
 
+	/**
+	 * Get the "show title" flag (whether or not the title of the role
+	 * should be included in the list of submission contributor names)
+	 * @return boolean
+	 */
+	function getShowTitle() {
+		return $this->getData('showTitle');
+	}
+
+	/**
+	 * Set the "show title" flag
+	 * @param $isDefault boolean
+	 */
+	function setShowTitle($showTitle) {
+		$this->setData('showTitle', $showTitle);
+	}
+
+	/**
+	 * Get the localized role name
+	 * @return string
+	 */
 	function getLocalizedName() {
 		return $this->getLocalizedData('name');
 	}
@@ -80,6 +131,10 @@ class UserGroup extends DataObject {
 		return $this->setData('name', $name, $locale);
 	}
 
+	/**
+	 * Get the localized abbreviation
+	 * @return string
+	 */
 	function getLocalizedAbbrev() {
 		return $this->getLocalizedData('abbrev');
 	}

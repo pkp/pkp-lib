@@ -34,7 +34,11 @@
 			<NOTNULL/>
 			<DEFAULT VALUE="0"/>
 		</field>
-		<descr>User groups for a press.</descr>
+		<field name="show_title" type="I1">
+			<NOTNULL/>
+			<DEFAULT VALUE="1"/>
+		</field>
+		<descr>User groups for a context.</descr>
 		<index name="user_groups_user_group_id">
 			<col>user_group_id</col>
 		</index>
@@ -122,8 +126,8 @@
 			<NOTNULL />
 		</field>
 		<descr>User groups assignments to stages in the workflow</descr>
-		<index name="user_group_stage_press_id">
-			<col>press_id</col>
+		<index name="user_group_stage_context_id">
+			<col>context_id</col>
 		</index>
 		<index name="user_group_stage_user_group_id">
 			<col>user_group_id</col>

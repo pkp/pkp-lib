@@ -55,6 +55,7 @@ class UserGroupDAO extends DAO {
 		$userGroup->setContextId($row['context_id']);
 		$userGroup->setPath($row['path']);
 		$userGroup->setDefault($row['is_default']);
+		$userGroup->setShowTitle($row['show_title']);
 
 		$this->getDataObjectSettings('user_group_settings', 'user_group_id', $row['user_group_id'], $userGroup);
 
@@ -70,20 +71,47 @@ class UserGroupDAO extends DAO {
 	function insertObject($userGroup) {
 		$this->update(
 			'INSERT INTO user_groups
-				(role_id, path, context_id, is_default)
+				(role_id, path, context_id, is_default, show_title)
 				VALUES
-				(?, ?, ?, ?)',
+				(?, ?, ?, ?, ?)',
 			array(
 				(int) $userGroup->getRoleId(),
 				$userGroup->getPath(),
 				(int) $userGroup->getContextId(),
-				($userGroup->getDefault()?1:0)
+				$userGroup->getDefault()?1:0,
+				$userGroup->getShowTitle()?1:0,
 			)
 		);
 
 		$userGroup->setId($this->getInsertId());
 		$this->updateLocaleFields($userGroup);
 		return $this->getInsertId();
+	}
+
+	/**
+	 * Update a user group.
+	 * @param $userGroup UserGroup
+	 */
+	function updateObject($userGroup) {
+		$this->update(
+			'UPDATE user_groups SET
+				role_id = ?,
+				path = ?,
+				context_id = ?,
+				is_default = ?,
+				show_title = ?
+			WHERE	user_group_id=?',
+			array(
+				(int) $userGroup->getRoleId(),
+				$userGroup->getPath(),
+				(int) $userGroup->getContextId(),
+				$userGroup->getDefault()?1:0,
+				$userGroup->getShowTitle()?1:0,
+				(int) $userGroup->getId(),
+			)
+		);
+
+		$this->updateLocaleFields($userGroup);
 	}
 
 	/**
@@ -105,7 +133,7 @@ class UserGroupDAO extends DAO {
 	 * will also delete related settings and all the assignments to this group
 	 * @param $userGroup UserGroup
 	 */
-	function deleteUserGroup(&$userGroup) {
+	function deleteObject($userGroup) {
 		return $this->deleteById($userGroup->getContextId(), $userGroup->getId());
 	}
 
@@ -167,7 +195,7 @@ class UserGroupDAO extends DAO {
 		$params = array((int) $userGroupId);
 		if ($contextId !== null) $params[] = (int) $contextId;
 		$result = $this->retrieve(
-			'SELECT	user_group_id, context_id, role_id, path, is_default
+			'SELECT	*
 			FROM	user_groups
 			WHERE	user_group_id = ?' . ($contextId !== null?' AND context_id = ?':''),
 			$params
@@ -343,8 +371,7 @@ class UserGroupDAO extends DAO {
 				($contextId?' WHERE ug.context_id = ?':''),
 			$params);
 
-		$returner = new DAOResultFactory($result, $this, '_returnFromRow');
-		return $returner;
+		return new DAOResultFactory($result, $this, '_returnFromRow');
 	}
 
 	/**
@@ -404,8 +431,7 @@ class UserGroupDAO extends DAO {
 			$params
 		);
 
-		$returner = new DAOResultFactory($result, $this->userDao, '_returnUserFromRowWithData');
-		return $returner;
+		return new DAOResultFactory($result, $this->userDao, '_returnUserFromRowWithData');
 	}
 
 	/**
@@ -418,10 +444,10 @@ class UserGroupDAO extends DAO {
 	 * @param DBResultRange $dbResultRange
 	 */
 	function getUsersById($userGroupId = null, $contextId = null, $searchType = null, $search = null, $searchMatch = null, $dbResultRange = null) {
-		$paramArray = array();
+		$params = array();
 
-		if ($contextId) $paramArray[] = (int) $contextId;
-		if ($userGroupId) $paramArray[] = (int) $userGroupId;
+		if ($contextId) $params[] = (int) $contextId;
+		if ($userGroupId) $params[] = (int) $userGroupId;
 
 		$result = $this->retrieveRange(
 			'SELECT DISTINCT u.*
@@ -434,8 +460,8 @@ class UserGroupDAO extends DAO {
 			WHERE 1=1' .
 				($contextId?' AND ug.context_id = ?':'') .
 				($userGroupId?' AND ug.user_group_id = ?':'') .
-				$this->_getSearchSql($searchType, $search, $searchMatch, $paramArray),
-			$paramArray,
+				$this->_getSearchSql($searchType, $search, $searchMatch, $params),
+			$params,
 			$dbResultRange
 		);
 
@@ -637,7 +663,7 @@ class UserGroupDAO extends DAO {
 			$roleId = hexdec($setting->getAttribute('roleId'));
 			$nameKey = $setting->getAttribute('name');
 			$abbrevKey = $setting->getAttribute('abbrev');
-			$defaultStages = explode(",", $setting->getAttribute('stages'));
+			$defaultStages = explode(',', $setting->getAttribute('stages'));
 			$userGroup = $this->newDataObject();
 
 			// create a role associated with this user group
@@ -703,8 +729,7 @@ class UserGroupDAO extends DAO {
 	 * @param $locale
 	 */
 	function deleteSettingsByLocale($locale) {
-		$result = $this->update('DELETE FROM user_group_settings WHERE locale = ?', $locale);
-		return $result;
+		return $this->update('DELETE FROM user_group_settings WHERE locale = ?', $locale);
 	}
 
 	/**
@@ -712,16 +737,15 @@ class UserGroupDAO extends DAO {
 	 * @param string $searchType the field to search on.
 	 * @param string $search the keywords to search for.
 	 * @param string $searchMatch where to match (is, contains, startsWith).
-	 * @param array $paramArray SQL parameter array reference
+	 * @param array $params SQL parameter array reference
 	 */
-	function _getSearchSql($searchType, $search, $searchMatch, &$paramArray) {
-
+	function _getSearchSql($searchType, $search, $searchMatch, &$params) {
 		$searchTypeMap = array(
-				USER_FIELD_FIRSTNAME => 'u.first_name',
-				USER_FIELD_LASTNAME => 'u.last_name',
-				USER_FIELD_USERNAME => 'u.username',
-				USER_FIELD_EMAIL => 'u.email',
-				USER_FIELD_AFFILIATION => 'us.setting_value',
+			USER_FIELD_FIRSTNAME => 'u.first_name',
+			USER_FIELD_LASTNAME => 'u.last_name',
+			USER_FIELD_USERNAME => 'u.username',
+			USER_FIELD_EMAIL => 'u.email',
+			USER_FIELD_AFFILIATION => 'us.setting_value',
 		);
 
 		$searchSql = '';
@@ -740,7 +764,7 @@ class UserGroupDAO extends DAO {
 				foreach ($words as $word) {
 					$searchFieldMap[] = $concatFields;
 					$term = '%' . $word . '%';
-					array_push($paramArray, $term, $term);
+					array_push($params, $term, $term);
 				}
 
 				$searchSql .= ' AND (  ' . join(' AND ', $searchFieldMap) . '  ) ';
@@ -749,15 +773,15 @@ class UserGroupDAO extends DAO {
 				switch ($searchMatch) {
 					case 'is':
 						$searchSql = "AND LOWER($fieldName) = LOWER(?)";
-						$paramArray[] = $search;
+						$params[] = $search;
 						break;
 					case 'contains':
 						$searchSql = "AND LOWER($fieldName) LIKE LOWER(?)";
-						$paramArray[] = '%' . $search . '%';
+						$params[] = '%' . $search . '%';
 						break;
 					case 'startsWith':
 						$searchSql = "AND LOWER($fieldName) LIKE LOWER(?)";
-						$paramArray[] = $search . '%';
+						$params[] = $search . '%';
 						break;
 				}
 			}
@@ -796,9 +820,8 @@ class UserGroupDAO extends DAO {
 		);
 		if (isset($stageMapping[$stageId])) {
 			return $stageMapping[$stageId];
-		} else {
-			return null;
 		}
+		return null;
 	}
 
 	/**
@@ -816,9 +839,8 @@ class UserGroupDAO extends DAO {
 		);
 		if (isset($stageMapping[$stagePath])) {
 			return $stageMapping[$stagePath];
-		} else {
-			return null;
 		}
+		return null;
 	}
 
 	/**
@@ -896,8 +918,7 @@ class UserGroupDAO extends DAO {
 			$params
 		);
 
-		$returner = new DAOResultFactory($result, $this, '_returnFromRow');
-		return $returner;
+		return new DAOResultFactory($result, $this, '_returnFromRow');
 	}
 
 	/**

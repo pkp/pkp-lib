@@ -192,7 +192,7 @@ class PKPAuthorGridHandler extends GridHandler {
 	function setDataElementSequence($request, $rowId, $gridDataElement, $newSequence) {
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
 		$submission = $this->getSubmission();
-		$author = $authorDao->getAuthor($rowId, $submission->getId());
+		$author = $authorDao->getById($rowId, $submission->getId());
 		$author->setSequence($newSequence);
 		$authorDao->updateObject($author);
 	}
@@ -271,7 +271,7 @@ class PKPAuthorGridHandler extends GridHandler {
 		$submission = $this->getSubmission();
 
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
-		$author = $authorDao->getAuthor($authorId, $submission->getId());
+		$author = $authorDao->getById($authorId, $submission->getId());
 
 		// Form handling
 		import('lib.pkp.controllers.grid.users.author.form.AuthorForm');
@@ -294,7 +294,7 @@ class PKPAuthorGridHandler extends GridHandler {
 		$submission = $this->getSubmission();
 
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
-		$author = $authorDao->getAuthor($authorId, $submission->getId());
+		$author = $authorDao->getById($authorId, $submission->getId());
 
 		// Form handling
 		import('lib.pkp.controllers.grid.users.author.form.AuthorForm');
@@ -305,7 +305,7 @@ class PKPAuthorGridHandler extends GridHandler {
 
 			if(!isset($author)) {
 				// This is a new contributor
-				$author = $authorDao->getAuthor($authorId, $submission->getId());
+				$author = $authorDao->getById($authorId, $submission->getId());
 				// New added author action notification content.
 				$notificationContent = __('notification.addedAuthor');
 			} else {
@@ -374,7 +374,7 @@ class PKPAuthorGridHandler extends GridHandler {
 
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
 		$userDao = DAORegistry::getDAO('UserDAO');
-		$author = $authorDao->getAuthor($authorId);
+		$author = $authorDao->getById($authorId);
 
 		if ($author !== null && $userDao->userExistsByEmail($author->getEmail())) {
 			// We don't have administrative rights over this user.

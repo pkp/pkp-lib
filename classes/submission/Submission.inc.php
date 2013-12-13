@@ -191,19 +191,36 @@ class Submission extends DataObject {
 	/**
 	 * Return string of author names, separated by the specified token
 	 * @param $lastOnly boolean return list of lastnames only (default false)
-	 * @param $separator string separator for names (default comma+space)
+	 * @param $nameSeparator string Separator for names (default comma+space)
+	 * @param $userGroupSeparator string Separator for user groups (default semicolon+space)
 	 * @return string
 	 */
-	function getAuthorString($lastOnly = false, $separator = ', ') {
+	function getAuthorString($lastOnly = false, $nameSeparator = ', ', $userGroupSeparator = '; ') {
 		$authors = $this->getAuthors();
 
 		$str = '';
+		$lastUserGroupId = null;
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		foreach($authors as $author) {
 			if (!empty($str)) {
-				$str .= $separator;
+				if ($lastUserGroupId != $author->getUserGroupId()) {
+					$userGroup = $userGroupDao->getById($lastUserGroupId);
+					if ($userGroup->getShowTitle()) $str .= ' (' . $userGroup->getLocalizedName() . ')';
+					$str .= $userGroupSeparator;
+				} else {
+					$str .= $nameSeparator;
+				}
 			}
 			$str .= $lastOnly ? $author->getLastName() : $author->getFullName();
+			$lastUserGroupId = $author->getUserGroupId();
 		}
+
+		// If there needs to be a trailing user group title, add it
+		if ($author && $author->getShowTitle()) {
+			$userGroup = $userGroupDao->getById($author->getUserGroupId());
+			$str .= ' (' . $userGroup->getLocalizedName() . ')';
+		}
+
 		return $str;
 	}
 

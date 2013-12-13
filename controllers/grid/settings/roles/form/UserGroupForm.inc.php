@@ -91,6 +91,7 @@ class UserGroupForm extends Form {
 				'name' => $userGroup->getName(null), //Localized
 				'abbrev' => $userGroup->getAbbrev(null), //Localized
 				'assignedStages' => array_keys($assignedStages),
+				'showTitle' => $userGroup->getShowTitle(),
 			);
 			foreach ($data as $field => $value) {
 				$this->setData($field, $value);
@@ -102,7 +103,7 @@ class UserGroupForm extends Form {
 	 * @copydoc Form::readInputData()
 	 */
 	function readInputData() {
-		$this->readUserVars(array('roleId', 'name', 'abbrev', 'assignedStages'));
+		$this->readUserVars(array('roleId', 'name', 'abbrev', 'assignedStages', 'showTitle'));
 	}
 
 	/**
@@ -138,12 +139,14 @@ class UserGroupForm extends Form {
 			$userGroup->setContextId($this->getContextId());
 			$userGroup->setPath($role->getPath());
 			$userGroup->setDefault(false);
+			$userGroup->setShowTitle($this->getData('showTitle'));
 			$userGroup = $this->_setUserGroupLocaleFields($userGroup, $request);
 			$userGroupId = $userGroupDao->insertObject($userGroup);
 		} else {
 			$userGroup = $userGroupDao->getById($userGroupId);
 			$userGroup = $this->_setUserGroupLocaleFields($userGroup, $request);
-			$userGroupDao->updateLocaleFields($userGroup);
+			$userGroup->setShowTitle($this->getData('showTitle'));
+			$userGroupDao->updateObject($userGroup);
 		}
 
 		// After we have created/edited the user group, we assign/update its stages.

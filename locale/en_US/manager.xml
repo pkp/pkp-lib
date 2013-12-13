@@ -334,6 +334,8 @@
 	<message key="manager.paymentMethod.currency.description">Payments made directly through this website will be denominated in the selected currency.</message>
 
 	<!-- Roles grid settings -->
+	<message key="settings.roles.roleOptions">Role Options</message>
+	<message key="settings.roles.showTitles">Show role title in contributor list</message>
 	<message key="settings.roles.roleName">Role Name</message>
 	<message key="settings.roles.roleAbbrev">Abbreviation</message>
 	<message key="settings.roles.assignedStages">Assigned Stages</message>

@@ -78,7 +78,7 @@ class LibraryFileAdminGridDataProvider extends CategoryGridDataProvider {
 		// Elements to be displayed in the grid
 		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO');
 		$context = $this->getContext();
-		$libraryFiles =& $libraryFileDao->getByContextId($context->getId(), $fileType);
+		$libraryFiles = $libraryFileDao->getByContextId($context->getId(), $fileType);
 
 		return $libraryFiles->toAssociativeArray();
 	}

@@ -22,9 +22,11 @@ class GenreGridHandler extends SetupGridHandler {
 	 */
 	function GenreGridHandler() {
 		parent::GridHandler();
-		$this->addRoleAssignment(array(ROLE_ID_MANAGER),
-				array('fetchGrid', 'fetchRow', 'addGenre', 'editGenre', 'updateGenre',
-				'deleteGenre', 'restoreGenres'));
+		$this->addRoleAssignment(array(ROLE_ID_MANAGER), array(
+			'fetchGrid', 'fetchRow',
+			'addGenre', 'editGenre', 'updateGenre',
+			'deleteGenre', 'restoreGenres', 'saveSequence'
+		));
 	}
 
 
@@ -123,11 +125,37 @@ class GenreGridHandler extends SetupGridHandler {
 	// Overridden methods from GridHandler
 	//
 	/**
+	 * @copydoc GridHandler::initFeatures()
+	 */
+	function initFeatures($request, $args) {
+		import('lib.pkp.classes.controllers.grid.feature.OrderGridItemsFeature');
+		return array(new OrderGridItemsFeature());
+	}
+
+	/**
 	 * @copydoc GridHandler::getRowInstance()
 	 * @return GenreGridRow
 	 */
 	function getRowInstance() {
 		return new GenreGridRow();
+	}
+
+	/**
+	 * @copydoc GridHandler::getDataElementSequence()
+	 */
+	function getDataElementSequence($row) {
+		return $row->getSequence();
+	}
+
+	/**
+	 * @copydoc GridHandler::setDataElementSequence()
+	 */
+	function setDataElementSequence($request, $rowId, $gridDataElement, $newSequence) {
+		$genreDao = DAORegistry::getDAO('GenreDAO');
+		$context = $request->getContext();
+		$genre = $genreDao->getById($rowId, $context->getId());
+		$genre->setSequence($newSequence);
+		$genreDao->updateObject($genre);
 	}
 
 	//

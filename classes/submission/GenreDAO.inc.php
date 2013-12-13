@@ -37,12 +37,17 @@ class GenreDAO extends DefaultSettingDAO {
 	 * @return Genre
 	 */
 	function getById($genreId, $contextId = null){
-		$sqlParams = array((int)$genreId);
+		$params = array((int) $genreId);
 		if ($contextId) {
-			$sqlParams[] = (int)$contextId;
+			$params[] = (int) $contextId;
 		}
 
-		$result = $this->retrieve('SELECT * FROM genres WHERE genre_id = ?'. ($contextId ? ' AND context_id = ?' : ''), $sqlParams);
+		$result = $this->retrieve(
+			'SELECT * FROM genres WHERE genre_id = ?' .
+			($contextId ? ' AND context_id = ?' : '') .
+			' ORDER BY seq',
+			$params
+		);
 		$returner = null;
 		if ($result->RecordCount() != 0) {
 			$returner = $this->_fromRow($result->GetRowAssoc(false));
@@ -59,31 +64,43 @@ class GenreDAO extends DefaultSettingDAO {
 	 * @return DAOResultFactory containing matching genres
 	 */
 	function getByCategory($category, $contextId = null, $rangeInfo = null) {
-		$sqlParams = array((int)$category);
-		$sqlParams[] = 1;
+		$params = array((int) $category, 1);
 		if ($contextId) {
-			$sqlParams[] = (int)$contextId;
+			$params[] = (int) $contextId;
 		}
 
-		$result = $this->retrieveRange('SELECT * FROM genres WHERE category = ? AND enabled = ?'. ($contextId ? ' AND context_id = ?' : ''), $sqlParams, $rangeInfo);
-		$returner = new DAOResultFactory($result, $this, '_fromRow', array('id'));
-		return $returner;
+		$result = $this->retrieveRange(
+			'SELECT * FROM genres
+			WHERE	category = ?
+				AND enabled = ?' .
+				($contextId ? ' AND context_id = ?' : '') . '
+			ORDER BY seq',
+			$params,
+			$rangeInfo
+		);
+		return new DAOResultFactory($result, $this, '_fromRow', array('id'));
 	}
 
 	/**
 	 * Retrieve a genre by type.
-	 * @param string $type
-	 * @param int $contextId
+	 * @param string $type e.g. 'STYLE'
+	 * @param int $contextId Context ID
 	 * @return Genre
 	 */
 	function getByType($type, $contextId = null) {
-		$sqlParams = array($type); // i.e. 'STYLE'
-		$sqlParams[] = 1;
+		$params = array($type, 1);
 		if ($contextId) {
-			$sqlParams[] = (int)$contextId;
+			$params[] = (int) $contextId;
 		}
 
-		$result = $this->retrieve('SELECT * FROM genres WHERE entry_key = ? AND enabled = ?'. ($contextId ? ' AND context_id = ?' : ''), $sqlParams);
+		$result = $this->retrieve(
+			'SELECT * FROM genres
+			WHERE	entry_key = ?
+				AND enabled = ?' .
+				($contextId ? ' AND context_id = ?' : '') . '
+			ORDER BY seq',
+			$params
+		);
 		$returner = null;
 		if ($result->RecordCount() != 0) {
 			$returner = $this->_fromRow($result->GetRowAssoc(false));
@@ -99,16 +116,17 @@ class GenreDAO extends DefaultSettingDAO {
 	 * @param $rangeInfo object optional
 	 * @return DAOResultFactory containing matching genres
 	 */
-	function &getEnabledByContextId($contextId, $rangeInfo = null) {
-		$params = array(1, $contextId);
+	function getEnabledByContextId($contextId, $rangeInfo = null) {
+		$params = array(1, (int) $contextId);
 
 		$result = $this->retrieveRange(
-			'SELECT * FROM genres WHERE enabled = ? AND context_id = ?',
+			'SELECT * FROM genres
+			WHERE	enabled = ? AND context_id = ?
+			ORDER BY seq',
 			$params, $rangeInfo
 		);
 
-		$returner = new DAOResultFactory($result, $this, '_fromRow', array('id'));
-		return $returner;
+		return new DAOResultFactory($result, $this, '_fromRow', array('id'));
 	}
 
 	/**
@@ -118,16 +136,16 @@ class GenreDAO extends DefaultSettingDAO {
 	 * @param $rangeInfo object optional
 	 * @return DAOResultFactory containing matching genres
 	 */
-	function &getByDependenceAndContextId($dependentFilesOnly, $contextId, $rangeInfo = null) {
-		$params = array(1, $contextId, (int) $dependentFilesOnly);
-
+	function getByDependenceAndContextId($dependentFilesOnly, $contextId, $rangeInfo = null) {
 		$result = $this->retrieveRange(
-				'SELECT * FROM genres WHERE enabled = ? AND context_id = ? AND dependent = ?',
-				$params, $rangeInfo
+			'SELECT * FROM genres
+			WHERE enabled = ? AND context_id = ? AND dependent = ?
+			ORDER BY seq',
+			array(1, (int) $contextId, (int) $dependentFilesOnly),
+			$rangeInfo
 		);
 
-		$returner = new DAOResultFactory($result, $this, '_fromRow', array('id'));
-		return $returner;
+		return new DAOResultFactory($result, $this, '_fromRow', array('id'));
 	}
 
 	/**
@@ -136,13 +154,14 @@ class GenreDAO extends DefaultSettingDAO {
 	 * @param $rangeInfo object optional
 	 * @return DAOResultFactory containing matching genres
 	 */
-	function &getByContextId($contextId, $rangeInfo = null) {
+	function getByContextId($contextId, $rangeInfo = null) {
 		$result = $this->retrieveRange(
-				'SELECT * FROM genres WHERE context_id = ?', array($contextId), $rangeInfo
+			'SELECT * FROM genres WHERE context_id = ? ORDER BY seq',
+			array((int) $contextId),
+			$rangeInfo
 		);
 
-		$returner = new DAOResultFactory($result, $this, '_fromRow', array('id'));
-		return $returner;
+		return new DAOResultFactory($result, $this, '_fromRow', array('id'));
 	}
 
 	/**
@@ -191,6 +210,7 @@ class GenreDAO extends DefaultSettingDAO {
 		$genre->setSortable($row['sortable']);
 		$genre->setCategory($row['category']);
 		$genre->setDependent($row['dependent']);
+		$genre->setSequence($row['seq']);
 
 		$this->getDataObjectSettings('genre_settings', 'genre_id', $row['genre_id'], $genre);
 
@@ -206,10 +226,11 @@ class GenreDAO extends DefaultSettingDAO {
 	function insertObject(&$genre) {
 		$this->update(
 			'INSERT INTO genres
-				(sortable, context_id, category, dependent)
+				(seq, sortable, context_id, category, dependent)
 			VALUES
-				(?, ?, ?, ?)',
+				(?, ?, ?, ?, ?)',
 			array(
+				(float) $genre->getSequence(),
 				$genre->getSortable() ? 1 : 0,
 				(int) $genre->getContextId(),
 				(int) $genre->getCategory(),
@@ -218,9 +239,7 @@ class GenreDAO extends DefaultSettingDAO {
 		);
 
 		$genre->setId($this->getInsertId());
-
 		$this->updateLocaleFields($genre);
-
 		return $genre->getId();
 	}
 
@@ -228,14 +247,15 @@ class GenreDAO extends DefaultSettingDAO {
 	 * Update an existing genre.
 	 * @param $genre Genre
 	 */
-	function updateObject(&$genre) {
+	function updateObject($genre) {
 		$this->update(
 			'UPDATE genres
-				SET
-					sortable = ?,
-					dependent = ?
-				WHERE genre_id = ?',
+			SET 	seq = ?,
+				sortable = ?,
+				dependent = ?
+			WHERE	genre_id = ?',
 			array(
+				(float) $genre->getSequence(),
 				$genre->getSortable() ? 1 : 0,
 				$genre->getDependent() ? 1 : 0,
 				(int) $genre->getId(),
@@ -254,11 +274,12 @@ class GenreDAO extends DefaultSettingDAO {
 
 	/**
 	 * Soft delete a genre by id.
-	 * @param $entryId int
+	 * @param $genreId int
 	 */
-	function deleteById($entryId) {
+	function deleteById($genreId) {
 		return $this->update(
-			'UPDATE genres SET enabled = ? WHERE genre_id = ?', array(0, (int) $entryId)
+			'UPDATE genres SET enabled = ? WHERE genre_id = ?',
+			array(0, (int) $genreId)
 		);
 	}
 
@@ -268,13 +289,12 @@ class GenreDAO extends DefaultSettingDAO {
 	 * @param $contextId int
 	 */
 	function deleteByContextId($contextId) {
-
-		$result = $this->getByContextId($contextId);
-		while ($genre = $result->next()) {
-			$this->update('DELETE FROM genre_settings WHERE genre_id = ?', array((int) $genre->getId()));
+		$genres = $this->getByContextId($contextId);
+		while ($genre = $genres->next()) {
+			$this->update('DELETE FROM genre_settings WHERE genre_id = ?', (int) $genre->getId());
 		}
 		return $this->update(
-			'DELETE FROM genres WHERE context_id = ?', array((int) $contextId)
+			'DELETE FROM genres WHERE context_id = ?', (int) $contextId
 		);
 	}
 
@@ -328,15 +348,23 @@ class GenreDAO extends DefaultSettingDAO {
 
 		$data = $xmlDao->parseStruct($this->getDefaultBaseFilename(), array('genre'));
 		if (!isset($data['genre'])) return false;
+		$seq = 0;
 
 		foreach ($data['genre'] as $entry) {
 			$attrs = $entry['attributes'];
 			$this->update(
 				'INSERT INTO genres
-				(entry_key, sortable, context_id, category, dependent)
+				(seq, entry_key, sortable, context_id, category, dependent)
 				VALUES
-				(?, ?, ?, ?, ?)',
-				array($attrs['key'], $attrs['sortable'] ? 1 : 0, $contextId, $attrs['category'], $attrs['dependent'] ? 1 : 0)
+				(?, ?, ?, ?, ?, ?)',
+				array(
+					$seq++,
+					$attrs['key'],
+					$attrs['sortable'] ? 1 : 0,
+					(int) $contextId,
+					$attrs['category'],
+					$attrs['dependent'] ? 1 : 0
+				)
 			);
 		}
 		return true;

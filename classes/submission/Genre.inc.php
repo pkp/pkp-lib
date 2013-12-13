@@ -43,6 +43,22 @@ class Genre extends DataObject {
 	}
 
 	/**
+	 * Get sequence of genre.
+	 * @return float
+	 */
+	function getSequence() {
+		return $this->getData('sequence');
+	}
+
+	/**
+	 * Set sequence of genre.
+	 * @param $sequence float
+	 */
+	function setSequence($sequence) {
+		return $this->setData('sequence', $sequence);
+	}
+
+	/**
 	 * Set the name of the genre
 	 * @param $name string
 	 * @param $locale string

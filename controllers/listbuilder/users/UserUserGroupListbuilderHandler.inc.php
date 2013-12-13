@@ -100,7 +100,7 @@ class UserUserGroupListbuilderHandler extends ListbuilderHandler {
 		// Fetch the user groups
 		$context = $this->getContext();
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		$userGroups =& $userGroupDao->getByContextId($context->getId());
+		$userGroups = $userGroupDao->getByContextId($context->getId());
 		$roleDao = DAORegistry::getDAO('RoleDAO');
 		$roleNames = $roleDao->getRoleNames(true);
 

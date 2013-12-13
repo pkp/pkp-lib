@@ -14,6 +14,9 @@
 		<field name="context_id" type="I8">
 			<NOTNULL />
 		</field>
+		<field name="seq" type="I8">
+			<NOTNULL />
+		</field>
 		<field name="sortable" type="I1">
 			<NOTNULL/>
 			<DEFAULT VALUE="1"/>

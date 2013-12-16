@@ -27,11 +27,11 @@
 	$.pkp.controllers.UploaderHandler = function($uploader, options) {
 		this.parent($uploader, options);
 
-		// Check whether we really got an empty div to attach
+		// Check whether we really got a div to attach
 		// our uploader to.
-		if (!($uploader.is('div') && $uploader.text() === '')) {
+		if (!$uploader.is('div')) {
 			throw new Error(['An uploader widget controller can only be attached',
-				' to an empty div!'].join(''));
+				' to a div!'].join(''));
 		}
 
 		// Create uploader settings.
@@ -124,7 +124,7 @@
 	 */
 	$.pkp.controllers.UploaderHandler.DEFAULT_PROPERTIES_ = {
 		// General settings
-		runtimes: 'html5,flash,silverlight',
+		runtimes: 'html5, flash, silverlight',
 		max_file_size: $.pkp.cons.UPLOAD_MAX_FILESIZE,
 		multi_selection: false,
 		file_data_name: 'uploadedFile',

@@ -41,7 +41,7 @@
 
 	{fbvFormArea id="file"}
 		{fbvFormSection title="common.file" required=true}
-			<div id="plupload"></div>
+			{include file="controllers/fileUploadContainer.tpl" id="plupload"}
 		{/fbvFormSection}
 	{/fbvFormArea}
 

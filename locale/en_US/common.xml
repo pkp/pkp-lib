@@ -139,6 +139,7 @@
 	<message key="common.fileName">File Name</message>
 	<message key="common.fileSize">File Size</message>
 	<message key="common.fileType">File Type</message>
+	<message key="common.fileUploaderError">The system file uploader is loading. If it doesn't appear it is likely that none of its runtimes is supported by this browser. Please, contact administration for support.</message>
 	<message key="common.go">Go</message>
 	<message key="common.height">Height</message>
 	<message key="common.homePageHeaderLogo.altText">Homepage Header Logo</message>

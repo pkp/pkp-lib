@@ -188,7 +188,7 @@
 
 		{fbvFormSection title="submission.submit.selectFile" required=true}
 			{* The uploader widget *}
-			<div id="plupload"></div>
+			{include file="controllers/fileUploadContainer.tpl" id="plupload"}
 		{/fbvFormSection}
 
 		{translate|assign:"maxFileUploadStatus" key="common.fileUpload.maxFileSizeStatus" fileSize=$maxFileUploadSize supportName=$currentContext->getSetting('supportName') supportEmail=$currentContext->getSetting('supportEmail')}

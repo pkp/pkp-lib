@@ -42,7 +42,7 @@
 				<input type="hidden" name="temporaryFileId" id="temporaryFileId" value="" />
 				{fbvFormSection title="submission.submit.selectFile" required=0}
 					{* The uploader widget *}
-					<div id="plupload"></div>
+					{include file="controllers/fileUploadContainer.tpl" id="plupload"}
 				{/fbvFormSection}
 				{fbvFormButtons}
 			{/fbvFormArea}

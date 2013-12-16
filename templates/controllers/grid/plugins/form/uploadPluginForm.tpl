@@ -33,7 +33,7 @@
 		{fbvFormSection title="manager.plugins.uploadPluginDir" required=true}
 			{fbvElement type="hidden" id="temporaryFileId" value=""}
 			{* The uploader widget *}
-			<div id="plupload"></div>
+			{include file="controllers/fileUploadContainer.tpl" id="plupload"}
 		{/fbvFormSection}
 	{/fbvFormArea}
 	

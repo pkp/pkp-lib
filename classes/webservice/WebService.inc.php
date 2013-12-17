@@ -121,6 +121,12 @@ class WebService {
 		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($ch, CURLOPT_POST, 1);
+
+		// Bug #8518 safety work-around
+		foreach ($postOptions as $paramValue) {
+			if ($paramValue[0] == '@') die('CURL parameters may not begin with @.');
+		}
+
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $postOptions);
 
 		// Set up basic authentication if required.

@@ -36,6 +36,10 @@ class FunctionalImportExportBaseTestCase extends WebTestCase {
 
 		// Log in.
 		$loginUrl = $this->baseUrl.'/index.php/test/login/signIn';
+
+		// Bug #8518 safety work-around
+		if ($this->password[0] == '@') die('CURL parameters may not begin with @.');
+
 		$loginParams = array(
 			'username' => 'admin',
 			'password' => $this->password
@@ -49,6 +53,12 @@ class FunctionalImportExportBaseTestCase extends WebTestCase {
 		$exportUrl = $this->baseUrl.'/index.php/test/manager/importexport/plugin/'
 			.$pluginUrl;
 		curl_setopt($curlCh, CURLOPT_URL, $exportUrl);
+
+		// Bug #8518 safety work-around
+		foreach ($postParams as $paramValue) {
+			if ($paramValue[0] == '@') die('CURL parameters may not begin with @.');
+		}
+
 		curl_setopt($curlCh, CURLOPT_POSTFIELDS, $postParams);
 		curl_setopt($curlCh, CURLOPT_HTTPHEADER, array('Accept: application/xml, application/x-gtar, */*'));
 		curl_setopt($curlCh, CURLOPT_RETURNTRANSFER, true);

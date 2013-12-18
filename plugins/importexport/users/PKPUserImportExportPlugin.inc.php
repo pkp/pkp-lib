@@ -1,0 +1,209 @@
+<?php
+
+/**
+ * @file plugins/importexport/user/PKPUserImportExportPlugin.inc.php
+ *
+ * Copyright (c) 2003-2013 John Willinsky
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ *
+ * @class UserImportExportPlugin
+ * @ingroup plugins_importexport_user
+ *
+ * @brief User XML import/export plugin
+ */
+
+import('classes.plugins.ImportExportPlugin');
+
+class PKPUserImportExportPlugin extends ImportExportPlugin {
+	/**
+	 * Constructor
+	 */
+	function PKPUserImportExportPlugin() {
+		parent::ImportExportPlugin();
+	}
+
+	/**
+	 * Called as a plugin is registered to the registry
+	 * @param $category String Name of category plugin was registered to
+	 * @param $path string
+	 * @return boolean True iff plugin initialized successfully; if false,
+	 * 	the plugin will not be registered.
+	 */
+	function register($category, $path) {
+		$success = parent::register($category, $path);
+		$this->addLocaleData();
+		$this->import('PKPUserImportExportDeployment');
+		return $success;
+	}
+
+	/**
+	 * Get the template path
+	 * @return string
+	 */
+	function getTemplatePath() {
+		return parent::getTemplatePath() . 'templates/';
+	}
+
+	/**
+	 * Get the name of this plugin. The name must be unique within
+	 * its category.
+	 * @return String name of plugin
+	 */
+	function getName() {
+		return 'UserImportExportPlugin';
+	}
+
+	/**
+	 * Get the display name.
+	 * @return string
+	 */
+	function getDisplayName() {
+		return __('plugins.importexport.users.displayName');
+	}
+
+	/**
+	 * Get the display description.
+	 * @return string
+	 */
+	function getDescription() {
+		return __('plugins.importexport.users.description');
+	}
+
+	/**
+	 * Display the plugin.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 */
+	function display($args, $request) {
+		$templateMgr = TemplateManager::getManager($request);
+		$context = $request->getContext();
+
+		parent::display($args, $request);
+
+		$templateMgr->assign('plugin', $this);
+
+		switch (array_shift($args)) {
+			case 'index':
+			case '':
+				$templateMgr->display($this->getTemplatePath() . 'index.tpl');
+				break;
+			case 'uploadImportXML':
+				$user = $request->getUser();
+				import('lib.pkp.classes.file.TemporaryFileManager');
+				$temporaryFileManager = new TemporaryFileManager();
+				$temporaryFile = $temporaryFileManager->handleUpload('uploadedFile', $user->getId());
+				if ($temporaryFile) {
+					$json = new JSONMessage(true);
+					$json->setAdditionalAttributes(array(
+						'temporaryFileId' => $temporaryFile->getId()
+					));
+				} else {
+					$json = new JSONMessage(false, __('common.uploadFailed'));
+				}
+
+				return $json->getString();
+			case 'importBounce':
+				$json = new JSONMessage(true);
+				$json->setEvent('addTab', array(
+					'title' => __('plugins.importexport.user.results'),
+					'url' => $request->url(null, null, null, array('plugin', $this->getName(), 'import'), array('temporaryFileId' => $request->getUserVar('temporaryFileId'))),
+				));
+				return $json->getString();
+			case 'import':
+				$temporaryFileId = $request->getUserVar('temporaryFileId');
+				$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO');
+				$user = $request->getUser();
+				$temporaryFile = $temporaryFileDao->getTemporaryFile($temporaryFileId, $user->getId());
+				if (!$temporaryFile) {
+					$json = new JSONMessage(true, __('plugins.inportexport.user.uploadFile'));
+					return $json->getString();
+				}
+				$temporaryFilePath = $temporaryFile->getFilePath();
+				$submissions = $this->importSubmissions(file_get_contents($temporaryFilePath), $context, $user);
+				$templateMgr->assign('submissions', $submissions);
+				$json = new JSONMessage(true, $templateMgr->fetch($this->getTemplatePath() . 'results.tpl'));
+				return $json->getString();
+			case 'export':
+				$exportXml = $this->exportUsers(
+					(array) $request->getUserVar('selectedUsers'),
+					$request->getContext(),
+					$request->getUser()
+				);
+				header('Content-type: application/xml');
+				echo $exportXml;
+				break;
+			case 'exportAllUsers':
+				$exportXml = $this->exportAllUsers(
+					$request->getContext(),
+					$request->getUser()
+				);
+				header('Content-type: application/xml');
+				echo $exportXml;
+				break;
+			default:
+				$dispatcher = $request->getDispatcher();
+				$dispatcher->handle404();
+		}
+	}
+
+	/**
+	 * Get the XML for all of users.
+	 * @param $context Context
+	 * @param $user User
+	 * @return string XML contents representing the supplied user IDs.
+	 */
+	function exportAllUsers($context, $user) {
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$users = $userGroupDao->getUsersByContextId($context->getId());
+		return $this->exportUsers($users->toArray(), $context, $user);
+	}
+
+	/**
+	 * Get the XML for a set of users.
+	 * @param $ids array mixed Array of users or user IDs
+	 * @param $context Context
+	 * @param $user User
+	 * @return string XML contents representing the supplied user IDs.
+	 */
+	function exportUsers($ids, $context, $user) {
+		$userDao = DAORegistry::getDAO('UserDAO');
+		$xml = '';
+		$filterDao = DAORegistry::getDAO('FilterDAO');
+		$userExportFilters = $filterDao->getObjectsByGroup('user=>user-xml');
+		assert(count($userExportFilters) == 1); // Assert only a single serialization filter
+		$exportFilter = array_shift($userExportFilters);
+		$exportFilter->setDeployment(new PKPUserImportExportDeployment($context, $user));
+		$users = array();
+		foreach ($ids as $id) {
+			if (is_a($id, 'User')) {
+				$users[] = $id;
+			} else {
+				$user = $userDao->getById($id, $context->getId());
+				if ($user) $users[] = $user;
+			}
+		}
+		$userXml = $exportFilter->execute($users);
+		if ($userXml) $xml = $userXml->saveXml();
+		else fatalError('Could not convert users.');
+		return $xml;
+	}
+
+	/**
+	 * Get the XML for a set of submissions.
+	 * @param $importXml string XML contents to import
+	 * @param $context Context
+	 * @param $user User
+	 * @return array Set of imported submissions
+	 */
+	function importUsers($importXml, $context, $user) {
+		$filterDao = DAORegistry::getDAO('FilterDAO');
+		$userImportFilters = $filterDao->getObjectsByGroup('user-xml=>user');
+		assert(count($userImportFilters) == 1); // Assert only a single unserialization filter
+		$importFilter = array_shift($userImportFilters);
+		$importFilter->setDeployment(new PKPsUserImportExportDeployment($context, $user));
+
+		return $importFilter->execute($importXml);
+	}
+}
+
+?>

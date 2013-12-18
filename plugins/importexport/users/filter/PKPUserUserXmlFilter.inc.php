@@ -102,6 +102,7 @@ class PKPUserUserXmlFilter extends NativeExportFilter {
 		$passwordNode = $doc->createElementNS($deployment->getNamespace(), 'password');
 		$passwordNode->setAttribute('is_disabled', $user->getDisabled() ? 'true' : 'false');
 		$passwordNode->setAttribute('must_change', $user->getMustChangePassword() ? 'true' : 'false');
+		$passwordNode->setAttribute('encryption', Config::getVar('security', 'encryption'));
 		$passwordNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'value', $user->getPassword()));
 
 		$userNode->appendChild($passwordNode);

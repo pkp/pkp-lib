@@ -27,6 +27,7 @@
 		</sequence>
 		<attribute name="is_disabled" type="boolean" default="false" />
 		<attribute name="must_change" type="boolean" default="false" />
+		<attribute name="encryption" type="string" />
 	</complexType>
 
 	<!-- Permit "users" as a root element -->

@@ -876,9 +876,14 @@ class PKPTemplateManager extends Smarty {
 
 	/**
 	 * Concatenate the parameters and return the result.
+	 * @param $a mixed Parameter A
+	 * @param $a mixed Parameter B
+	 * @param $strict boolean True iff a strict (===) compare should be used
+	 * @param $invert booelan True iff the output should be inverted
 	 */
-	function smartyCompare($a, $b, $strict = false) {
-		return $strict?$a===$b:$a==$b;
+	function smartyCompare($a, $b, $strict = false, $invert = false) {
+		$result = $strict?$a===$b:$a==$b;
+		return $invert?!$result:$result;
 	}
 
 	/**

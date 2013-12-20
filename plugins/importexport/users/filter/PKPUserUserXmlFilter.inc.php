@@ -49,11 +49,15 @@ class PKPUserUserXmlFilter extends NativeExportFilter {
 		$doc = new DOMDocument('1.0');
 		$deployment = $this->getDeployment();
 
-		// Multiple users; wrap in a <authors> element
-		$rootNode = $doc->createElementNS($deployment->getNamespace(), 'users');
+		$rootNode = $doc->createElementNS($deployment->getNamespace(), 'PKPUsers');
+		$this->addUserGroups($doc, $rootNode);
+
+		// Multiple users; wrap in a <users> element
+		$usersNode = $doc->createElementNS($deployment->getNamespace(), 'users');
 		foreach ($users as $user) {
-			$rootNode->appendChild($this->createPKPUserNode($doc, $user));
+			$usersNode->appendChild($this->createPKPUserNode($doc, $user));
 		}
+		$rootNode->appendChild($usersNode);
 		$doc->appendChild($rootNode);
 		$rootNode->setAttributeNS('http://www.w3.org/2000/xmlns/', 'xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance');
 		$rootNode->setAttribute('xsi:schemaLocation', $deployment->getNamespace() . ' ' . $deployment->getSchemaFilename());
@@ -127,7 +131,36 @@ class PKPUserUserXmlFilter extends NativeExportFilter {
 			$this->createOptionalNode($doc, $userNode, 'disabled_reason', $user->getDisabledReason());
 		}
 
+		$userGroupAssignmentDao = DAORegistry::getDAO('UserGroupAssignmentDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$assignedGroups = $userGroupAssignmentDao->getByUserId($user->getId(), $context->getId());
+		while ($assignedGroup = $assignedGroups->next()) {
+			$userGroup = $userGroupDao->getById($assignedGroup->getUserGroupId());
+			if ($userGroup) {
+				$userNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'user_group_ref', $userGroup->getName($context->getPrimaryLocale())));
+			}
+		}
 		return $userNode;
+	}
+
+	function addUserGroups($doc, $rootNode) {
+		$deployment = $this->getDeployment();
+		$context = $deployment->getContext();
+		$userGroupsNode = $doc->createElementNS($deployment->getNamespace(), 'user_groups');
+
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroups = $userGroupDao->getByContextId($context->getId());
+		$filterDao = DAORegistry::getDAO('FilterDAO');
+		$userGroupExportFilters = $filterDao->getObjectsByGroup('usergroup=>user-xml');
+		assert(count($userGroupExportFilters)==1); // Assert only a single serialization filter
+		$exportFilter = array_shift($userGroupExportFilters);
+		$exportFilter->setDeployment($this->getDeployment());
+
+		$userGroupsDoc = $exportFilter->execute($userGroups->toArray());
+		if ($userGroupsDoc->documentElement instanceof DOMElement) {
+			$clone = $doc->importNode($userGroupsDoc->documentElement, true);
+			$rootNode->appendChild($clone);
+		}
 	}
 }
 

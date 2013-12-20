@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <!--
-  * plugins/importexport/users/pkp-user.xsd
+  * plugins/importexport/users/pkp-users.xsd
   *
   * Copyright (c) 2003-2013 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -64,6 +64,7 @@
 					<element name="billing_address" type="string" minOccurs="0" maxOccurs="1" />
 					<element name="locales" type="string" minOccurs="0" maxOccurs="1" />
 					<element name="disabled_reason" type="string" minOccurs="0" maxOccurs="1" />
+					<element name="user_group_ref" type="string" maxOccurs="unbounded" />
 				</sequence>
 			</extension>
 		</complexContent>
@@ -71,4 +72,16 @@
 
 	<!-- Permit "user" as a root element -->
 	<element name="user" type="pkp:user" />
+
+	<!--
+	  - Composite / root elements
+	  -->
+	<element name="PKPUsers">
+		<complexType>
+			<sequence>
+				<element ref="pkp:user_groups" maxOccurs="1" />
+				<element ref="pkp:users" maxOccurs="1" />
+			</sequence>
+		</complexType>
+	</element>
 </schema>

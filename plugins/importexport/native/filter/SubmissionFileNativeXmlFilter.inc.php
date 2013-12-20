@@ -99,7 +99,7 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$userGroup = $userGroupDao->getById($submissionFile->getUserGroupId());
 		assert($userGroup);
-		$revisionNode->setAttribute('user_group', $userGroup->getName($context->getPrimaryLocale()));
+		$revisionNode->setAttribute('user_group_ref', $userGroup->getName($context->getPrimaryLocale()));
 
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$uploaderUser = $userDao->getById($submissionFile->getUploaderUserId());

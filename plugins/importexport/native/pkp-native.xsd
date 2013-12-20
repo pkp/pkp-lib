@@ -28,7 +28,7 @@
 	</simpleType>
 
 	<!-- Identifies a user group -->
-	<simpleType name="user_group">
+	<simpleType name="user_group_ref">
 		<restriction base="normalizedString" />
 	</simpleType>
 
@@ -99,7 +99,7 @@
 					<attribute name="viewable" type="boolean" />
 					<attribute name="date_uploaded" type="date" />
 					<attribute name="date_modified" type="date" />
-					<attribute name="user_group" type="pkp:user_group" use="required" />
+					<attribute name="user_group_ref" type="pkp:user_group_ref" use="required" />
 					<attribute name="uploader" type="pkp:username" />
 					<attribute name="genre" type="normalizedString" use="required" />
 				</complexType>
@@ -139,6 +139,33 @@
 	  - User-related Elements
 	  -->
 
+	<!-- A user group -->
+	<complexType name="user_group">
+		<sequence>
+			<element name="role_id" type="int" />
+			<element name="path" type="normalizedString" minOccurs="1" maxOccurs="1" />
+			<element name="context_id" type="int" />
+			<element name="is_default" type="boolean" />
+			<element name="show_title" type="boolean" />
+			<element name="name" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
+			<element name="abbrev" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
+			<element name="stage_assignments" type="string" minOccurs="1" maxOccurs="1" />
+		</sequence>
+	</complexType>
+
+	<!-- Permit "user_group" as a root element -->
+	<element name="user_group" type="pkp:user_group" />
+
+	<!-- A user group -->
+	<complexType name="user_groups">
+		<sequence>
+			<element name="user_group" type="pkp:user_group" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+
+	<!-- Permit "user_groups" as a root element -->
+	<element name="user_groups" type="pkp:user_groups" />
+
 	<!-- An identity (e.g. user, author) -->
 	<complexType name="identity" abstract="true">
 		<sequence>
@@ -157,7 +184,7 @@
 		<complexContent>
 			<extension base="pkp:identity">
 				<attribute name="primary_contact" type="boolean" default="false" />
-				<attribute name="user_group" type="pkp:user_group" use="required" />
+				<attribute name="user_group_ref" type="pkp:user_group_ref" use="required" />
 			</extension>
 		</complexContent>
 	</complexType>

@@ -38,3 +38,8 @@ PHPMailer
  * URL: http://code.google.com/a/apache-extras.org/p/phpmailer/
  * Version: 5.2.1
  * License: GPLv2.1
+
+PDFObject
+ * URL: <http://pdfobject.com>
+ * Version: 1.2
+ * License: MIT style

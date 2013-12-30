@@ -10,7 +10,10 @@
 <script type="text/javascript">
 	$(function() {ldelim}
 		// Attach the form handler.
-		$('#userGroupForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler');
+		$('#userGroupForm').pkpHandler(
+			'$.pkp.controllers.grid.settings.roles.form.UserGroupFormHandler', {ldelim}
+			selfRegistrationRoleIds: [{foreach from=$selfRegistrationRoleIds item=selfRegRoleId}{$selfRegRoleId|escape:'javascript'}, {/foreach}]
+		{rdelim});
 	{rdelim});
 </script>
 
@@ -44,6 +47,7 @@
 		{fbvFormArea id="userGroupOptions"}
 			{fbvFormSection title="settings.roles.roleOptions" list="true"}
 				{fbvElement type="checkbox" name="showTitle" id="showTitle" checked=$showTitle label="settings.roles.showTitles"}
+				{fbvElement type="checkbox" name="permitSelfRegistration" id="permitSelfRegistration" checked=$permitSelfRegistration label="settings.roles.permitSelfRegistration"}
 			{/fbvFormSection}
 		{/fbvFormArea}
 	</div>

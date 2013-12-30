@@ -92,6 +92,7 @@ class UserGroupForm extends Form {
 				'abbrev' => $userGroup->getAbbrev(null), //Localized
 				'assignedStages' => array_keys($assignedStages),
 				'showTitle' => $userGroup->getShowTitle(),
+				'permitSelfRegistration' => $userGroup->getPermitSelfRegistration(),
 			);
 			foreach ($data as $field => $value) {
 				$this->setData($field, $value);
@@ -103,7 +104,7 @@ class UserGroupForm extends Form {
 	 * @copydoc Form::readInputData()
 	 */
 	function readInputData() {
-		$this->readUserVars(array('roleId', 'name', 'abbrev', 'assignedStages', 'showTitle'));
+		$this->readUserVars(array('roleId', 'name', 'abbrev', 'assignedStages', 'showTitle', 'permitSelfRegistration'));
 	}
 
 	/**
@@ -120,8 +121,17 @@ class UserGroupForm extends Form {
 		// userGroupId is 0 for new User Groups because it is cast to int in UserGroupGridHandler.
 		$disableRoleSelect = ($this->getUserGroupId() > 0) ? true : false;
 		$templateMgr->assign('disableRoleSelect', $disableRoleSelect);
+		$templateMgr->assign('selfRegistrationRoleIds', $this->getPermitSelfRegistrationRoles());
 
 		return parent::fetch($request);
+	}
+
+	/**
+	 * Get a list of roles optionally permitting user self-registration.
+	 * @return array
+	 */
+	function getPermitSelfRegistrationRoles() {
+		return array(ROLE_ID_REVIEWER, ROLE_ID_AUTHOR);
 	}
 
 	/**
@@ -140,12 +150,14 @@ class UserGroupForm extends Form {
 			$userGroup->setPath($role->getPath());
 			$userGroup->setDefault(false);
 			$userGroup->setShowTitle($this->getData('showTitle'));
+			$userGroup->setPermitSelfRegistration($this->getData('permitSelfRegistration') && in_array($role->getId(), $this->getPermitSelfRegistrationRoles()));
 			$userGroup = $this->_setUserGroupLocaleFields($userGroup, $request);
 			$userGroupId = $userGroupDao->insertObject($userGroup);
 		} else {
 			$userGroup = $userGroupDao->getById($userGroupId);
 			$userGroup = $this->_setUserGroupLocaleFields($userGroup, $request);
 			$userGroup->setShowTitle($this->getData('showTitle'));
+			$userGroup->setPermitSelfRegistration($this->getData('permitSelfRegistration') && in_array($userGroup->getRoleId(), $this->getPermitSelfRegistrationRoles()));
 			$userGroupDao->updateObject($userGroup);
 		}
 

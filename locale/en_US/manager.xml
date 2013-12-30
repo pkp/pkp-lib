@@ -336,6 +336,7 @@
 	<!-- Roles grid settings -->
 	<message key="settings.roles.roleOptions">Role Options</message>
 	<message key="settings.roles.showTitles">Show role title in contributor list</message>
+	<message key="settings.roles.permitSelfRegistration">Allow user self-registration</message>
 	<message key="settings.roles.roleName">Role Name</message>
 	<message key="settings.roles.roleAbbrev">Abbreviation</message>
 	<message key="settings.roles.assignedStages">Assigned Stages</message>

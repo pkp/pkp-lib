@@ -117,7 +117,9 @@
 					{else}
 						{assign var="checked" value=false}
 					{/if}
-					{fbvElement type="checkbox" id="authorGroup-$userGroupId" name="authorGroup[$userGroupId]" checked=$checked label=$userGroup->getLocalizedName() translate=false}
+					{if $userGroup->getPermitSelfRegistration()}
+						{fbvElement type="checkbox" id="authorGroup-$userGroupId" name="authorGroup[$userGroupId]" checked=$checked label=$userGroup->getLocalizedName() translate=false}
+					{/if}
 				{/iterate}
 			{/if}
 			{if $allowRegReviewer}
@@ -128,7 +130,9 @@
 					{else}
 						{assign var="checked" value=false}
 					{/if}
-					{fbvElement type="checkbox" id="reviewerGroup-$userGroupId" name="reviewerGroup[$userGroupId]" checked=$checked label=$userGroup->getLocalizedName() translate=false}
+					{if $userGroup->getPermitSelfRegistration()}
+						{fbvElement type="checkbox" id="reviewerGroup-$userGroupId" name="reviewerGroup[$userGroupId]" checked=$checked label=$userGroup->getLocalizedName() translate=false}
+					{/if}
 				{/iterate}
 			{/if}
 		{/fbvFormSection}

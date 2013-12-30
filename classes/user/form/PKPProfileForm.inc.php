@@ -250,6 +250,8 @@ class PKPProfileForm extends Form {
 				if (!$context->getSetting($groupData['setting'])) continue;
 				$userGroups = $userGroupDao->getByRoleId($context->getId(), $groupData['roleId']);
 				while ($userGroup = $userGroups->next()) {
+					if (!$userGroup->getPermitSelfRegistration()) continue;
+
 					$groupId = $userGroup->getId();
 					$inGroup = $userGroupDao->userInGroup($user->getId(), $groupId);
 					if (!$inGroup && array_key_exists($groupId, $groupFormData)) {

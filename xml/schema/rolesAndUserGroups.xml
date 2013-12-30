@@ -38,6 +38,10 @@
 			<NOTNULL/>
 			<DEFAULT VALUE="1"/>
 		</field>
+		<field name="permit_self_registration" type="I1">
+			<NOTNULL/>
+			<DEFAULT VALUE="0"/>
+		</field>
 		<descr>User groups for a context.</descr>
 		<index name="user_groups_user_group_id">
 			<col>user_group_id</col>

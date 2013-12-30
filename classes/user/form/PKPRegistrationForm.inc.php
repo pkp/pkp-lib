@@ -295,29 +295,33 @@ class PKPRegistrationForm extends Form {
 			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 			if ($context->getSetting('allowRegReviewer')) {
 				$reviewerGroup = $this->getData('reviewerGroup');
-				$reviewerUserGroupIds = $userGroupDao->getUserGroupIdsByRoleId(ROLE_ID_REVIEWER, $context->getId());
+				$reviewerUserGroups = $userGroupDao->getByRoleId(ROLE_ID_REVIEWER, $context->getId());
+				$reviewerUserGroups = $reviewerUserGroups->toAssociativeArray();
 
 				if (is_array($reviewerGroup)) {
 					foreach ($reviewerGroup as $groupId => $wantsGroup ) {
 						// Validate group id.
-						if (!in_array($groupId, $reviewerUserGroupIds)) {
+						if (!isset($reviewerUserGroups[$groupId])) {
 							fatalError('Invalid user group id!');
 						}
-						if ($wantsGroup) $userGroupDao->assignUserToGroup($userId, $groupId, $context->getId());
+						if ($wantsGroup && $reviewerUserGroups[$groupId]->getPermitSelfRegistration()) $userGroupDao->assignUserToGroup($userId, $groupId, $context->getId());
 					}
 				}
 			}
 
 			if ($context->getSetting('allowRegAuthor')) {
 				$authorGroup = $this->getData('authorGroup');
-				$authorUserGroupIds = $userGroupDao->getUserGroupIdsByRoleId(ROLE_ID_AUTHOR, $context->getId());
+				$authorUserGroups = $userGroupDao->getByRoleId(ROLE_ID_AUTHOR, $context->getId());
+				$authorUserGroups = $authorUserGroups->toAssociativeArray();
 
 				if (isset($authorGroup)) {
 					// Validate group id.
-					if (!in_array($authorGroup, $authorUserGroupIds)) {
+					if (!isset($authorUserGroups[$authorGroup])) {
 						fatalError('Invalid user group id!');
 					}
-					$userGroupDao->assignUserToGroup($userId, $authorGroup, $context->getId());
+					if ($authorUserGroups[$authorGroup]->getPermitSelfRegistration()) {
+						$userGroupDao->assignUserToGroup($userId, $authorGroup, $context->getId());
+					}
 				}
 			}
 		}

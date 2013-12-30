@@ -56,6 +56,7 @@ class UserGroupDAO extends DAO {
 		$userGroup->setPath($row['path']);
 		$userGroup->setDefault($row['is_default']);
 		$userGroup->setShowTitle($row['show_title']);
+		$userGroup->setPermitSelfRegistration($row['permit_self_registration']);
 
 		$this->getDataObjectSettings('user_group_settings', 'user_group_id', $row['user_group_id'], $userGroup);
 
@@ -71,15 +72,16 @@ class UserGroupDAO extends DAO {
 	function insertObject($userGroup) {
 		$this->update(
 			'INSERT INTO user_groups
-				(role_id, path, context_id, is_default, show_title)
+				(role_id, path, context_id, is_default, show_title, permit_self_registration)
 				VALUES
-				(?, ?, ?, ?, ?)',
+				(?, ?, ?, ?, ?, ?)',
 			array(
 				(int) $userGroup->getRoleId(),
 				$userGroup->getPath(),
 				(int) $userGroup->getContextId(),
 				$userGroup->getDefault()?1:0,
 				$userGroup->getShowTitle()?1:0,
+				$userGroup->getPermitSelfRegistration()?1:0,
 			)
 		);
 
@@ -99,14 +101,16 @@ class UserGroupDAO extends DAO {
 				path = ?,
 				context_id = ?,
 				is_default = ?,
-				show_title = ?
-			WHERE	user_group_id=?',
+				show_title = ?,
+				permit_self_registration = ?
+			WHERE	user_group_id = ?',
 			array(
 				(int) $userGroup->getRoleId(),
 				$userGroup->getPath(),
 				(int) $userGroup->getContextId(),
 				$userGroup->getDefault()?1:0,
 				$userGroup->getShowTitle()?1:0,
+				$userGroup->getPermitSelfRegistration()?1:0,
 				(int) $userGroup->getId(),
 			)
 		);
@@ -663,6 +667,7 @@ class UserGroupDAO extends DAO {
 			$roleId = hexdec($setting->getAttribute('roleId'));
 			$nameKey = $setting->getAttribute('name');
 			$abbrevKey = $setting->getAttribute('abbrev');
+			$permitSelfRegistration = $setting->getAttribute('permitSelfRegistration');
 			$defaultStages = explode(',', $setting->getAttribute('stages'));
 			$userGroup = $this->newDataObject();
 
@@ -672,6 +677,7 @@ class UserGroupDAO extends DAO {
 			$userGroup->setRoleId($roleId);
 			$userGroup->setPath($role->getPath());
 			$userGroup->setContextId($contextId);
+			$userGroup->setPermitSelfRegistration($permitSelfRegistration);
 			$userGroup->setDefault(true);
 
 			// insert the group into the DB

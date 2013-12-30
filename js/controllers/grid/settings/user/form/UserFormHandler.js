@@ -1,5 +1,5 @@
 /**
- * @defgroup js_controllers_grid_users_user_form
+ * @defgroup js_controllers_grid_users_user_form User form javascript
  */
 /**
  * @file js/controllers/grid/settings/user/form/UserFormHandler.js

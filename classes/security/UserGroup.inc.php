@@ -106,6 +106,25 @@ class UserGroup extends DataObject {
 	}
 
 	/**
+	 * Get the "permit self-registration" flag (whether or not users may
+	 * self-register for this role, i.e. in the case of external
+	 * reviewers, or whether it should be prohibited, in the case of
+	 * internal reviewers).
+	 * @return boolean True IFF user self-registration is permitted
+	 */
+	function getPermitSelfRegistration() {
+		return $this->getData('permitSelfRegistration');
+	}
+
+	/**
+	 * Set the "permit self-registration" flag
+	 * @param $isDefault boolean
+	 */
+	function setPermitSelfRegistration($permitSelfRegistration) {
+		$this->setData('permitSelfRegistration', $permitSelfRegistration);
+	}
+
+	/**
 	 * Get the localized role name
 	 * @return string
 	 */

@@ -285,6 +285,7 @@
 	<message key="submission.event.confirmClearLog">Are you sure you want to clear the event log for this submission?</message>
 	<message key="submission.event.confirmDeleteLogEntry">Are you sure you want to delete this event log entry?</message>
 	<message key="submission.event.deleteLogEntry">Delete Log Entry</message>
+	<message key="submission.event.submissionSubmitted">Initial submission completed.</message>
 	<message key="submission.event.general.metadataUpdated">Submission metadata updated</message>
 	<message key="submission.event.general.suppFileUpdated">Submission file updated</message>
 	<message key="submission.event.reviewer.reviewAcceptedByProxy">Review assignment accepted by proxy</message>

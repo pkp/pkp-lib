@@ -398,6 +398,20 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 				);
 			}
 
+			// Log the upload event
+			import('lib.pkp.classes.log.SubmissionLog');
+			import('classes.log.SubmissionEventLogEntry');
+			SubmissionLog::logEvent(
+				$request, $submission,
+				$submissionFile->getRevision()>1?SUBMISSION_LOG_FILE_REVISION_UPLOAD:SUBMISSION_LOG_FILE_UPLOAD,
+				$submissionFile->getRevision()>1?'submission.event.fileRevised':'submission.event.fileUploaded',
+				array(
+					'name' => $submissionFile->getLocalizedName(),
+					'fileId' => $submissionFile->getFileId(),
+					'revision' => $submissionFile->getRevision(),
+				)
+			);
+
 			return DAO::getDataChangedEvent();
 		} else {
 			$json = new JSONMessage(false, $metadataForm->fetch($request));

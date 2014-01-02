@@ -36,7 +36,7 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 				ROLE_ID_MANAGER,
 				ROLE_ID_ASSISTANT
 			),
-			array('listPastNotes', 'listPastHistory')
+			array('listPastNotes')
 		);
 	}
 
@@ -201,7 +201,7 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function listHistory($args, $request) {
+	function viewHistory($args, $request) {
 		$this->setupTemplate($request);
 
 		// Get all submission file events
@@ -211,39 +211,9 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 		);
 
 		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('eventLogEntries', $fileEvents);
-		$templateMgr->assign('historyListId', 'historyList');
-		return $templateMgr->fetchJson('controllers/informationCenter/historyList.tpl');
-	}
-
-	/**
-	 * Display the list of history log entries from prior files.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 */
-	function listPastHistory($args, $request) {
-		$this->setupTemplate($request);
-
-		$templateMgr = TemplateManager::getManager($request);
-		$submissionFileEventLogDao = DAORegistry::getDAO('SubmissionFileEventLogDAO');
-
-		$submissionFile = $this->submissionFile;
-		$events = array();
-		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
-		while (true) {
-			$submissionFile = $submissionFileDao->getRevision($submissionFile->getSourceFileId(), $submissionFile->getSourceRevision());
-			if (!$submissionFile) break;
-
-			$iterator = $submissionFileEventLogDao->getByFileId($submissionFile->getFileId());
-			$events += $iterator->toArray();
-		}
-		import('lib.pkp.classes.core.ArrayItemIterator');
-		$templateMgr->assign('eventLogEntries', new ArrayItemIterator($events));
-
-		$user = $request->getUser();
-		$templateMgr->assign('currentUserId', $user->getId());
-		$templateMgr->assign('historyListId', 'pastHistoryList');
-		return $templateMgr->fetchJson('controllers/informationCenter/historyList.tpl');
+		$templateMgr->assign('submissionId', $this->submissionFile->getSubmissionId());
+		$templateMgr->assign('fileId', $this->submissionFile->getFileId());
+		return $templateMgr->fetchJson('controllers/informationCenter/fileHistory.tpl');
 	}
 
 	/**
@@ -302,9 +272,7 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 	 * @param $request PKPRequest
 	 */
 	function setupTemplate($request) {
-		// Provide access to notes from past revisions/file IDs
 		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('showEarlierEntries', true);
 
 		// Get the latest history item to display in the header
 		$submissionEventLogDao = DAORegistry::getDAO('SubmissionFileEventLogDAO');

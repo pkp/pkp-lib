@@ -162,16 +162,11 @@ class PKPSubmissionInformationCenterHandler extends InformationCenterHandler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function listHistory($args, $request) {
+	function viewHistory($args, $request) {
 		$this->setupTemplate($request);
 		$templateMgr = TemplateManager::getManager($request);
-
-		// Get all submission events
-		$submissionEventLogDao = DAORegistry::getDAO('SubmissionEventLogDAO');
-		$submissionEvents = $submissionEventLogDao->getBySubmissionId($this->_submission->getId());
-		$templateMgr->assign('eventLogEntries', $submissionEvents);
-		$templateMgr->assign('historyListId', 'historyList');
-		return $templateMgr->fetchJson('controllers/informationCenter/historyList.tpl');
+		$templateMgr->assign('submissionId', $this->_submission->getId());
+		return $templateMgr->fetchJson('controllers/informationCenter/submissionHistory.tpl');
 	}
 
 	/**

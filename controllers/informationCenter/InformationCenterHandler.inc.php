@@ -32,7 +32,7 @@ class InformationCenterHandler extends Handler {
 				'viewInformationCenter', // Information Center
 				'metadata', 'saveForm', // Metadata
 				'viewNotes', 'listNotes', 'saveNote', // Notes
-				'viewHistory', 'listHistory', // History tab
+				'viewHistory', // History tab
 			)
 		);
 		$this->addRoleAssignment(
@@ -147,28 +147,6 @@ class InformationCenterHandler extends Handler {
 
 		$json = new JSONMessage(true);
 		return $json->getString();
-	}
-
-	/**
-	 * Display the history tab.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 */
-	function viewHistory($args, $request) {
-		$this->setupTemplate($request);
-
-		$templateMgr = TemplateManager::getManager($request);
-		return $templateMgr->fetchJson('controllers/informationCenter/history.tpl');
-	}
-
-	/**
-	 * Fetch a list of log entries.
-	 * NB: sub-classes must implement this method.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 */
-	function listHistory($args, $request) {
-		assert(false);
 	}
 
 	/**

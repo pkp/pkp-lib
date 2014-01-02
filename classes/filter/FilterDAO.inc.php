@@ -539,12 +539,11 @@ class FilterDAO extends DAO {
 			// Retrieve the sub filter.
 			// NB: This recursively loads sub-filters
 			// of this filter via _fromRow().
-			$subFilter =& $daoResultFactory->next();
+			$subFilter = $daoResultFactory->next();
 
 			// Add the sub-filter to the filter list
 			// of its parent filter.
 			$parentFilter->addFilter($subFilter);
-			unset($subFilter);
 		}
 	}
 

@@ -148,9 +148,9 @@ class SignoffInformationCenterHandler extends Handler {
 		$signoffsFactory =& $signoffDao->getAllBySymbolic($symbolic, ASSOC_TYPE_SUBMISSION_FILE, null, $user->getId());
 
 		$signoffs = array();
-		while ($signoff =& $signoffsFactory->next()) { /* @var $signoff Signoff */
+		while ($signoff = $signoffsFactory->next()) { /* @var $signoff Signoff */
 			if (!$signoff->getDateCompleted() && $signoff->getAssocType() == ASSOC_TYPE_SUBMISSION_FILE) {
-				$submissionFile =& $submissionFileDao->getLatestRevision($signoff->getAssocId()); /* @var $submissionFile SubmissionFile */
+				$submissionFile = $submissionFileDao->getLatestRevision($signoff->getAssocId()); /* @var $submissionFile SubmissionFile */
 				if (is_a($submissionFile, 'SubmissionFile')) {
 					if ($submissionFile->getSubmissionId() == $submission->getId()) {
 						$signoffs[$signoff->getId()] = $submissionFile->getLocalizedName();

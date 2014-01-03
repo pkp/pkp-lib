@@ -107,7 +107,7 @@ class NotificationManager {
 			$context =& Request::getContext();
 			$site =& Request::getSite();
 
-			$mail = new MailTemplate('NOTIFICATION_MAILLIST');
+			$mail = new MailTemplate('NOTIFICATION_MAILLIST', null, null, null, null, true, true);
 			$mail->setFrom($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
 			$mail->assignParams(array(
 				'notificationContents' => $notificationContents,

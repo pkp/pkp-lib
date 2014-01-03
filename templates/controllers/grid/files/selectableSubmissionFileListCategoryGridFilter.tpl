@@ -8,7 +8,7 @@
  *}
 <script type="text/javascript">
 	// Attach the form handler to the form.
-	$('#fileListFilterForm').pkpHandler('$.pkp.controllers.grid.files.SelectableSubmissionFileListCategoryGridFilterHandler');
+	$('#fileListFilterForm').pkpHandler('$.pkp.controllers.form.ToggleFormHandler');
 </script>
 <form class="pkp_form" id="fileListFilterForm" action="{url router=$smarty.const.ROUTE_COMPONENT op="fetchGrid"}" method="post">
 	{fbvFormArea id="allStagesFilterArea"}

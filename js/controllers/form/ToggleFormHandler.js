@@ -1,11 +1,11 @@
 /**
- * @file js/controllers/grid/files/SelectableSubmissionFileListCategoryGridFilterHandler.js
+ * @file js/controllers/form/ToggleFormHandler.js
  *
  * Copyright (c) 2000-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class SelectableSubmissionFileListCategoryGridFilterHandler
- * @ingroup js_controllers_grid_files
+ * @class ToggleFormHandler
+ * @ingroup js_controllers_form
  *
  * @brief Extension to ClientFormHandler that accepts a checkbox click as a
  *  submit action.
@@ -20,16 +20,14 @@
 	 *
 	 * @param {jQueryObject} $form the wrapped HTML form element.
 	 */
-	$.pkp.controllers.grid.files.
-			SelectableSubmissionFileListCategoryGridFilterHandler =
+	$.pkp.controllers.form.ToggleFormHandler =
 			function($form) {
 		this.parent($form, {trackFormChanges: false});
-		$form.find('#allStages').click(
-				this.callbackWrapper(this.allStagesHandler_));
+		$form.find('input:checkbox').click(
+				this.callbackWrapper(this.toggleHandler_));
 	};
 	$.pkp.classes.Helper.inherits(
-			$.pkp.controllers.grid.files.
-					SelectableSubmissionFileListCategoryGridFilterHandler,
+			$.pkp.controllers.form.ToggleFormHandler,
 			$.pkp.controllers.form.ClientFormHandler);
 
 
@@ -37,13 +35,12 @@
 	// Private methods
 	//
 	/**
-	 * Click handler for "all stages" checkbox.
+	 * Click handler for the checkbox.
 	 * @private
 	 * @return {boolean} Always returns true.
 	 */
-	$.pkp.controllers.grid.files.
-			SelectableSubmissionFileListCategoryGridFilterHandler.
-			prototype.allStagesHandler_ = function() {
+	$.pkp.controllers.form.ToggleFormHandler.
+			prototype.toggleHandler_ = function() {
 		this.getHtmlElement().submit();
 		return true;
 	};

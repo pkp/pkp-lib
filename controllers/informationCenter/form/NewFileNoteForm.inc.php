@@ -52,6 +52,15 @@ class NewFileNoteForm extends NewNoteForm {
 	function getAssocId() {
 		return $this->fileId;
 	}
+
+	/**
+	 * @copydoc NewFileNoteForm::fetch()
+	 */
+	function fetch($request) {
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign('showEarlierEntries', true);
+		return parent::fetch($request);
+	}
 }
 
 ?>

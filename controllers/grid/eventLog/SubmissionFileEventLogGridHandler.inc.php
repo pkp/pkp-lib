@@ -100,8 +100,36 @@ class SubmissionFileEventLogGridHandler extends SubmissionEventLogGridHandler {
 		$eventLogEntries = $submissionFileEventLogDao->getByFileId(
 			$submissionFile->getFileId()
 		);
+		$eventLogEntries = $eventLogEntries->toArray();
 
-		return $eventLogEntries->toArray();
+		if ($filter['allEvents']) {
+			// Also include events from past versions
+			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+			while (true) {
+				$submissionFile = $submissionFileDao->getRevision($submissionFile->getSourceFileId(), $submissionFile->getSourceRevision());
+				if (!$submissionFile) break;
+
+				$iterator = $submissionFileEventLogDao->getByFileId($submissionFile->getFileId());
+				$eventLogEntries += $iterator->toArray();
+			}
+		}
+
+		return $eventLogEntries;
+	}
+
+	/**
+	 * @copydoc GridHandler::getFilterForm()
+	 * @return string Filter template.
+	 */
+	function getFilterForm() {
+		return 'controllers/grid/eventLog/eventLogGridFilter.tpl';
+	}
+
+	/**
+	 * @copydoc GridHandler::getFilterSelectionData()
+	 */
+	function getFilterSelectionData($request) {
+		return array('allEvents' => $request->getUserVar('allEvents') ? true : false);
 	}
 }
 

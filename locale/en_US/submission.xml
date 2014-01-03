@@ -323,6 +323,7 @@
 	<message key="submission.informationCenter.metadata">Metadata</message>
 	<message key="submission.informationCenter.notes">Notes</message>
 	<message key="submission.informationCenter.history">History</message>
+	<message key="submission.informationCenter.history.allEvents">Show events from prior versions</message>
 
 	<!-- Stage Participants -->
 	<message key="submission.stageParticipants.notify">Notify</message>

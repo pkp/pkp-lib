@@ -1,4 +1,12 @@
 /**
+ * @defgroup js_controllers_informationCenter
+ */
+// Create the modal namespace.
+jQuery.pkp.controllers.informationCenter =
+			jQuery.pkp.controllers.informationCenter || { };
+
+
+/**
  * @file js/controllers/informationCenter/NotesHandler.js
  *
  * Copyright (c) 2000-2013 John Willinsky

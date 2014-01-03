@@ -9,7 +9,7 @@
  * @class EventLogGridCellProvider
  * @ingroup controllers_grid_catalogEntry
  *
- * @brief Base class for a cell provider that can retrieve labels for market regions
+ * @brief Cell provider for event log entries.
  */
 
 import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');

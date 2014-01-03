@@ -9,7 +9,7 @@
  * @class SubmissionEventLogGridHandler
  * @ingroup controllers_grid_eventLog
  *
- * @brief Abstract grid handler presenting the submission event log grid.
+ * @brief Grid handler presenting the submission event log grid.
  */
 
 // import grid base classes

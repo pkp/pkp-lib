@@ -169,7 +169,10 @@ class EventLogEntry extends DataObject {
 
 		// Otherwise, translate it and include parameters.
 		if ($locale === null) $locale = AppLocale::getLocale();
-		return __($message, array_merge($this->_data, $this->getParams()), $locale);
+
+		$params = array_merge($this->_data, $this->getParams());
+		unset($params['params']); // Clean up for translate call
+		return __($message, $params, $locale);
 	}
 
 	/**

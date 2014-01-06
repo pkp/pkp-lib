@@ -96,6 +96,9 @@ class PKPUserUserXmlFilter extends NativeExportFilter {
 		if (is_array($user->getBiography(null))) {
 			$this->createLocalizedNodes($doc, $userNode, 'biography', $user->getBiography(null));
 		}
+
+		$userNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'username', $user->getUsername()));
+
 		if (is_array($user->getGossip(null))) {
 			$this->createLocalizedNodes($doc, $userNode, 'gossip', $user->getGossip(null));
 		}
@@ -140,6 +143,13 @@ class PKPUserUserXmlFilter extends NativeExportFilter {
 				$userNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'user_group_ref', $userGroup->getName($context->getPrimaryLocale())));
 			}
 		}
+
+		// Add Reviewing Interests, if any.
+		import('lib.pkp.classes.user.InterestManager');
+		$interestManager = new InterestManager();
+		$interests = $interestManager->getInterestsString($user);
+		$this->createOptionalNode($doc, $userNode, 'review_interests', $interests);
+
 		return $userNode;
 	}
 

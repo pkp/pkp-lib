@@ -48,7 +48,7 @@
 		<!-- Native XML users input -->
 		<filter
 			inGroup="user-xml=>user"
-			class="lib.pkp.plugins.importexport.users.filter.UserXmlPkpUserFilter"
+			class="lib.pkp.plugins.importexport.users.filter.UserXmlPKPUserFilter"
 			isTemplate="0" />
 		<!-- Native XML usergroup output -->
 		<filter

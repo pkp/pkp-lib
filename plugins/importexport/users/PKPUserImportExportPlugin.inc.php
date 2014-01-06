@@ -7,7 +7,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class UserImportExportPlugin
- * @ingroup plugins_importexport_user
+ * @ingroup plugins_importexport_users
  *
  * @brief User XML import/export plugin
  */
@@ -105,7 +105,7 @@ class PKPUserImportExportPlugin extends ImportExportPlugin {
 			case 'importBounce':
 				$json = new JSONMessage(true);
 				$json->setEvent('addTab', array(
-					'title' => __('plugins.importexport.user.results'),
+					'title' => __('plugins.importexport.users.results'),
 					'url' => $request->url(null, null, null, array('plugin', $this->getName(), 'import'), array('temporaryFileId' => $request->getUserVar('temporaryFileId'))),
 				));
 				return $json->getString();
@@ -115,12 +115,12 @@ class PKPUserImportExportPlugin extends ImportExportPlugin {
 				$user = $request->getUser();
 				$temporaryFile = $temporaryFileDao->getTemporaryFile($temporaryFileId, $user->getId());
 				if (!$temporaryFile) {
-					$json = new JSONMessage(true, __('plugins.inportexport.user.uploadFile'));
+					$json = new JSONMessage(true, __('plugins.importexport.users.uploadFile'));
 					return $json->getString();
 				}
 				$temporaryFilePath = $temporaryFile->getFilePath();
-				$submissions = $this->importSubmissions(file_get_contents($temporaryFilePath), $context, $user);
-				$templateMgr->assign('submissions', $submissions);
+				$users = $this->importUsers(file_get_contents($temporaryFilePath), $context, $user);
+				$templateMgr->assign('users', $users);
 				$json = new JSONMessage(true, $templateMgr->fetch($this->getTemplatePath() . 'results.tpl'));
 				return $json->getString();
 			case 'export':
@@ -189,18 +189,18 @@ class PKPUserImportExportPlugin extends ImportExportPlugin {
 	}
 
 	/**
-	 * Get the XML for a set of submissions.
+	 * Get the XML for a set of users.
 	 * @param $importXml string XML contents to import
 	 * @param $context Context
 	 * @param $user User
-	 * @return array Set of imported submissions
+	 * @return array Set of imported users
 	 */
 	function importUsers($importXml, $context, $user) {
 		$filterDao = DAORegistry::getDAO('FilterDAO');
 		$userImportFilters = $filterDao->getObjectsByGroup('user-xml=>user');
 		assert(count($userImportFilters) == 1); // Assert only a single unserialization filter
 		$importFilter = array_shift($userImportFilters);
-		$importFilter->setDeployment(new PKPsUserImportExportDeployment($context, $user));
+		$importFilter->setDeployment(new PKPUserImportExportDeployment($context, $user));
 
 		return $importFilter->execute($importXml);
 	}

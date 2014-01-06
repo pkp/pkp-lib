@@ -44,6 +44,7 @@
 		<complexContent>
 			<extension base="pkp:identity">
 				<sequence>
+					<element name="username" type="string" minOccurs="1" maxOccurs="1" />
 					<element name="gossip" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
 					<element name="signature" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
 					<element name="password" type="pkp:password" minOccurs="1" maxOccurs="1" />
@@ -65,6 +66,7 @@
 					<element name="locales" type="string" minOccurs="0" maxOccurs="1" />
 					<element name="disabled_reason" type="string" minOccurs="0" maxOccurs="1" />
 					<element name="user_group_ref" type="string" maxOccurs="unbounded" />
+					<element name="review_interests" type="string" minOccurs="0" maxOccurs="1" />
 				</sequence>
 			</extension>
 		</complexContent>

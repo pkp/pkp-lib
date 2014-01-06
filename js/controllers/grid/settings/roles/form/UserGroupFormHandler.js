@@ -84,7 +84,7 @@
 	/**
 	 * Update the enabled/disabled state of the permitSelfRegistration
 	 * checkbox.
-	 * @param {number} roleId The role ID to select.
+	 * @param {number|string} roleId The role ID to select.
 	 */
 	$.pkp.controllers.grid.settings.roles.form.UserGroupFormHandler.prototype.
 			updatePermitSelfRegistration = function(roleId) {

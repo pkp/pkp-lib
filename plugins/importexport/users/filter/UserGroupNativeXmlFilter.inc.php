@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file plugins/importexport/native/filter/UserGroupNativeXmlFilter.inc.php
+ * @file plugins/importexport/users/filter/UserGroupNativeXmlFilter.inc.php
  *
  * Copyright (c) 2000-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.

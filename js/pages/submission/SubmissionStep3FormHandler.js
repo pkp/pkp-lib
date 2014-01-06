@@ -43,9 +43,10 @@ jQuery.pkp.pages.submission = jQuery.pkp.pages.submission || { };
 		this.canExpedite_ = options.canExpedite;
 
 		if (this.canExpedite_) {
-			// wrap the fields in an accordion.  collapsible lets it work with a single panel
-			// and active: false means that it is collapsed by default.
-			$('#metadataAccordion').accordion({ clearStyle: true, collapsible: true, active: false });
+			// Wrap the fields in an accordion. "collapsible" lets it work with a
+			// single panel; "active" false means that it is collapsed by default.
+			$('#metadataAccordion').accordion(
+					{ clearStyle: true, collapsible: true, active: false });
 		}
 	};
 	$.pkp.classes.Helper.inherits(

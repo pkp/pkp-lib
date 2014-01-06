@@ -21,6 +21,9 @@ class apc_false {};
 class APCCache extends GenericCache {
 	/**
 	 * Instantiate a cache.
+	 * @param $context string
+	 * @param $cacheId mixed
+	 * @param $fallback array PKP-style callback
 	 */
 	function APCCache($context, $cacheId, $fallback) {
 		parent::GenericCache($context, $cacheId, $fallback);
@@ -39,7 +42,8 @@ class APCCache extends GenericCache {
 
 	/**
 	 * Get an object from the cache.
-	 * @param $id
+	 * @param $id mixed
+	 * @return mixed
 	 */
 	function getCache($id) {
 		$key = INDEX_FILE_LOCATION . ':'. $this->getContext() . ':' . $this->getCacheId() . ':' . $id;
@@ -52,8 +56,8 @@ class APCCache extends GenericCache {
 	/**
 	 * Set an object in the cache. This function should be overridden
 	 * by subclasses.
-	 * @param $id
-	 * @param $value
+	 * @param $id mixed
+	 * @param $value mixed
 	 */
 	function setCache($id, $value) {
 		$key = INDEX_FILE_LOCATION . ':'. $this->getContext() . ':' . $this->getCacheId() . ':' . $id;
@@ -64,6 +68,7 @@ class APCCache extends GenericCache {
 	/**
 	 * Get the time at which the data was cached.
 	 * Not implemented in this type of cache.
+	 * @return null
 	 */
 	function getCacheTime() {
 		return null;
@@ -72,6 +77,7 @@ class APCCache extends GenericCache {
 	/**
 	 * Set the entire contents of the cache.
 	 * WARNING: THIS DOES NOT FLUSH THE CACHE FIRST!
+	 * @param $contents array Complete cache contents.
 	 */
 	function setEntireCache(&$contents) {
 		foreach ($contents as $id => $value) {

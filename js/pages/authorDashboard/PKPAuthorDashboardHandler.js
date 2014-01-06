@@ -61,7 +61,6 @@
 	/**
 	 * An object that assigns stage identifiers to the
 	 * corresponding CSS section selectors.
-	 * @private
 	 * @type {Object.<number,string>}
 	 * @const
 	 * FIXME: Is there a less verbose way to define this object?

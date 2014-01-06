@@ -27,8 +27,9 @@ class ContextSettingsForm extends Form {
 
 	/**
 	 * Constructor.
-	 * @param $template The form template file.
-	 * @param $settings An associative array with the setting names as keys and associated types as values.
+	 * @param $template string The form template file.
+	 * @param $settings array An associative array with the setting names as keys and associated types as values.
+	 * @param $wizardMode boolean Whether or not to display in wizard mode
 	 */
 	function ContextSettingsForm($settings, $template, $wizardMode) {
 		$this->addCheck(new FormValidatorPost($this));
@@ -88,6 +89,7 @@ class ContextSettingsForm extends Form {
 
 	/**
 	 * @see Form::readInputData()
+	 * @param $request PKPRequest
 	 */
 	function readInputData($request) {
 		$this->readUserVars(array_keys($this->getSettings()));
@@ -95,6 +97,8 @@ class ContextSettingsForm extends Form {
 
 	/**
 	 * @see Form::fetch()
+	 * @param $request PKPRequest
+	 * @param $params array optional
 	 */
 	function fetch($request, $params = null) {
 		$templateMgr = TemplateManager::getManager($request);
@@ -112,6 +116,7 @@ class ContextSettingsForm extends Form {
 
 	/**
 	 * @see Form::execute()
+	 * @param $request PKPRequest
 	 */
 	function execute($request) {
 		$context = $request->getContext();

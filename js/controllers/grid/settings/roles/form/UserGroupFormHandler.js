@@ -73,16 +73,16 @@
 	 * @param {string} dropdown The dropdown input element.
 	 */
 	$.pkp.controllers.grid.settings.roles.form.UserGroupFormHandler.prototype.
-			changeRoleId = function(checkbox) {
+			changeRoleId = function(dropdown) {
 
-		this.updatePermitSelfRegistration($(checkbox).val());
+		this.updatePermitSelfRegistration($(dropdown).val());
 	};
 
 
 	/**
 	 * Update the enabled/disabled state of the permitSelfRegistration
-	 * checkboxl.
-	 * @param {int} roleId The role ID to select.
+	 * checkbox.
+	 * @param {number} roleId The role ID to select.
 	 */
 	$.pkp.controllers.grid.settings.roles.form.UserGroupFormHandler.prototype.
 			updatePermitSelfRegistration = function(roleId) {
@@ -101,10 +101,10 @@
 		}
 
 		if (found) {
-			$checkbox.attr('disabled', false);
+			$checkbox.removeAttr('disabled');
 		} else {
-			$checkbox.attr('disabled', true);
-			$checkbox.attr('checked', false);
+			$checkbox.attr('disabled', 'disabled');
+			$checkbox.removeAttr('checked');
 		}
 	};
 

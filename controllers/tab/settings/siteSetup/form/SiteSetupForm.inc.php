@@ -38,7 +38,9 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 	// Extended methods from Form.
 	//
 	/**
-	 * @copydoc Form::fetch()
+	 * @see Form::fetch()
+	 * @param $request PKPRequest
+	 * @param $params array
 	 */
 	function fetch($request, $params = null) {
 		$site = $request->getSite();
@@ -83,7 +85,8 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 	// Extend method from PKPSiteSettingsForm
 	//
 	/**
-	 * @copydoc PKPSiteSettingsForm::initData()
+	 * @see PKPSiteSettingsForm::initData()
+	 * @param $request PKPRequest
 	 */
 	function initData($request) {
 		$site = $request->getSite();

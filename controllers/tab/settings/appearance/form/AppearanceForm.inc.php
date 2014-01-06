@@ -166,6 +166,7 @@ class AppearanceForm extends ContextSettingsForm {
 	/**
 	 * Delete an uploaded file.
 	 * @param $fileSettingName string
+	 * @param $request PKPRequest
 	 * @return boolean
 	 */
 	function deleteFile($fileSettingName, $request) {

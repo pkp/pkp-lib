@@ -56,6 +56,7 @@
 								itemsTotal: number,
 								pageParamName: string,
 								currentPage: number,
+								filter: string,
 								pagingMarkup: string }} */
 				this.parent('getOptions');
 

@@ -574,6 +574,8 @@ class GridHandler extends PKPHandler {
 
 	/**
 	 * @see PKPHandler::initialize()
+	 * @param $request PKPRequest
+	 * @param $args array optional
 	 */
 	function initialize($request, $args = null) {
 		parent::initialize($request, $args);

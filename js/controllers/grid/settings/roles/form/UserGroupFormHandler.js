@@ -43,7 +43,8 @@
 
 		// Initialize the "permit self register" checkbox disabled
 		// state based on the form's current selection
-		this.updatePermitSelfRegistration($roleId.val());
+		this.updatePermitSelfRegistration(
+				/** @type {string} */ ($roleId.val()));
 
 		// ...and make sure it's updated when changing roles
 		$roleId.change(this.callbackWrapper(this.changeRoleId));
@@ -75,7 +76,8 @@
 	$.pkp.controllers.grid.settings.roles.form.UserGroupFormHandler.prototype.
 			changeRoleId = function(dropdown) {
 
-		this.updatePermitSelfRegistration($(dropdown).val());
+		this.updatePermitSelfRegistration(
+				/** @type {string} */ ($(dropdown).val()));
 	};
 
 

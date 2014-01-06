@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file plugins/importexport/user/PKPUserImportExportPlugin.inc.php
+ * @file plugins/importexport/users/PKPUserImportExportPlugin.inc.php
  *
  * Copyright (c) 2003-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.

@@ -12,7 +12,12 @@
  * @brief EventLog grid row definition
  */
 
+// Parent class
 import('lib.pkp.classes.controllers.grid.GridRow');
+
+// Other classes used
+import('lib.pkp.classes.log.SubmissionFileEventLogEntry');
+import('lib.pkp.controllers.api.file.linkAction.DownloadFileLinkAction');
 
 class EventLogGridRow extends GridRow {
 	/** @var Submission **/
@@ -24,6 +29,30 @@ class EventLogGridRow extends GridRow {
 	function EventLogGridRow($submission) {
 		$this->_submission = $submission;
 		parent::GridRow();
+	}
+
+	//
+	// Overridden methods from GridRow
+	//
+	/**
+	 * @see GridRow::initialize()
+	 */
+	function initialize($request) {
+		parent::initialize($request);
+
+		$logEntry = $this->getData(); // a Category object
+                assert($logEntry != null && is_a($logEntry, 'EventLogEntry'));
+
+		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+		$params = $logEntry->getParams();
+
+		switch ($logEntry->getEventType()) {
+			case SUBMISSION_LOG_FILE_REVISION_UPLOAD:
+			case SUBMISSION_LOG_FILE_UPLOAD:
+				$submissionFile = $submissionFileDao->getRevision($params['fileId'], $params['fileRevision']);
+				if ($submissionFile) $this->addAction(new DownloadFileLinkAction($request, $submissionFile, null, __('common.download')));
+				break;
+		}
 	}
 }
 

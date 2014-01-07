@@ -61,11 +61,10 @@ class EventLogDAO extends DAO {
 	 * @return DAOResultFactory containing matching EventLogEntry ordered by sequence
 	 */
 	function getByAssoc($assocType, $assocId, $rangeInfo = null) {
-		$params = array((int) $assocType, (int) $assocId);
-
 		$result = $this->retrieveRange(
 			'SELECT * FROM event_log WHERE assoc_type = ? AND assoc_id = ? ORDER BY log_id DESC',
-			$params, $rangeInfo
+			array((int) $assocType, (int) $assocId),
+			$rangeInfo
 		);
 
 		return new DAOResultFactory($result, $this, 'build');
@@ -84,7 +83,7 @@ class EventLogDAO extends DAO {
 	 * @param $row array
 	 * @return EventLogEntry
 	 */
-	function &build($row) {
+	function build($row) {
 		$entry = $this->newDataObject();
 		$entry->setId($row['log_id']);
 		$entry->setUserId($row['user_id']);
@@ -118,7 +117,7 @@ class EventLogDAO extends DAO {
 	 * Insert a new log entry.
 	 * @param $entry EventLogEntry
 	 */
-	function insertObject(&$entry) {
+	function insertObject($entry) {
 		$this->update(
 			sprintf('INSERT INTO event_log
 				(user_id, date_logged, ip_address, event_type, assoc_type, assoc_id, message, is_translated)
@@ -159,7 +158,7 @@ class EventLogDAO extends DAO {
 	 * Delete a single log entry (and associated settings).
 	 * @param $logId int
 	 */
-	function deleteObject($logId, $assocType = null, $assocId = null) {
+	function deleteById($logId, $assocType = null, $assocId = null) {
 		$params = array((int) $logId);
 		if ($assocType !== null) {
 			$params[] = (int) $assocType;
@@ -181,7 +180,7 @@ class EventLogDAO extends DAO {
 	function deleteByAssoc($assocType, $assocId) {
 		$entries = $this->getByAssoc($assocType, $assocId);
 		while ($entry = $entries->next()) {
-			$this->deleteObject($entry->getId());
+			$this->deleteById($entry->getId());
 		}
 	}
 

@@ -14,6 +14,8 @@
 import('lib.pkp.controllers.api.file.linkAction.FileLinkAction');
 
 class DownloadFileLinkAction extends FileLinkAction {
+	/** @var string Optional label to use instead of file name */
+	var $label;
 
 	/**
 	 * Constructor
@@ -21,11 +23,13 @@ class DownloadFileLinkAction extends FileLinkAction {
 	 * @param $submissionFile SubmissionFile the submission file to
 	 *  link to.
 	 * @param $stageId int (optional)
+	 * @param $label string (optional) Label to use instead of filename
 	 */
-	function DownloadFileLinkAction($request, $submissionFile, $stageId = null) {
+	function DownloadFileLinkAction($request, $submissionFile, $stageId = null, $label = null) {
 		// Instantiate the redirect action request.
 		$router = $request->getRouter();
 		import('lib.pkp.classes.linkAction.request.PostAndRedirectAction');
+		$this->label = $label;
 		$redirectRequest = new PostAndRedirectAction(
 			$router->url(
 				$request, null, 'api.file.FileApiHandler', 'recordDownload',
@@ -47,7 +51,8 @@ class DownloadFileLinkAction extends FileLinkAction {
 	 * @param $submissionFile SubmissionFile
 	 * @return string
 	 */
-	function getLabel(&$submissionFile) {
+	function getLabel($submissionFile) {
+		if ($this->label !== null) return $this->label;
 		return $submissionFile->getFileLabel();
 	}
 }

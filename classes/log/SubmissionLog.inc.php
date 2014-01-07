@@ -48,14 +48,13 @@ class SubmissionLog {
 			if ($user) $entry->setUserId($user->getId());
 		}
 
-		$entry->setAssocType(ASSOC_TYPE_SUBMISSION);
-		$entry->setAssocId($submission->getId());
+		$entry->setMonographId($submission->getId());
 
 		// Set explicit parts of the log entry
 		$entry->setEventType($eventType);
 		$entry->setMessage($messageKey);
 		$entry->setParams($params);
-		$entry->setIsTranslated(0); // Legacy for other apps. All messages use locale keys.
+		$entry->setIsTranslated(0); // Legacy for old entries. All messages now use locale keys.
 
 		// Insert the resulting object
 		$submissionEventLogDao->insertObject($entry);

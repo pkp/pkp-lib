@@ -401,6 +401,7 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 			// Log the upload event
 			import('lib.pkp.classes.log.SubmissionLog');
 			import('classes.log.SubmissionEventLogEntry');
+			import('lib.pkp.classes.log.SubmissionFileEventLogEntry'); // constants
 			SubmissionLog::logEvent(
 				$request, $submission,
 				$submissionFile->getRevision()>1?SUBMISSION_LOG_FILE_REVISION_UPLOAD:SUBMISSION_LOG_FILE_UPLOAD,

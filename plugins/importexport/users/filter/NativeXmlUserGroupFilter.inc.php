@@ -105,17 +105,6 @@ class NativeXmlUserGroupFilter extends NativeImportFilter {
 			fatalError("unable to find \"name\" userGroup node element.  Check import XML document structure for validity.");
 		}
 	}
-
-	/**
-	 * Parse a localized element
-	 * @param $element DOMElement
-	 * @return array Array("locale_KEY", "Localized Text")
-	 */
-	function parseLocalizedContent($element) {
-		assert($element->hasAttribute('locale'));
-		return array($element->getAttribute('locale'), $element->textContent);
-	}
-
 }
 
 ?>

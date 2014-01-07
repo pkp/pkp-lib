@@ -192,16 +192,6 @@ class UserXmlPKPUserFilter extends NativeImportFilter {
 				fatalError('Unknown element ' . $n->tagName);
 		}
 	}
-
-	/**
-	 * Parse a localized element
-	 * @param $element DOMElement
-	 * @return array Array("locale_KEY", "Localized Text")
-	 */
-	function parseLocalizedContent($element) {
-		assert($element->hasAttribute('locale'));
-		return array($element->getAttribute('locale'), $element->textContent);
-	}
 }
 
 ?>

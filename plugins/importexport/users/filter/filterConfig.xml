@@ -53,12 +53,12 @@
 		<!-- Native XML usergroup output -->
 		<filter
 			inGroup="usergroup=>user-xml"
-			class="plugins.importexport.users.filter.UserGroupNativeXmlFilter"
+			class="lib.pkp.plugins.importexport.users.filter.UserGroupNativeXmlFilter"
 			isTemplate="0" />
 		<!-- Native XML usergroup input -->
 		<filter
 			inGroup="user-xml=>usergroup"
-			class="plugins.importexport.users.filter.NativeXmlUserGroupFilter"
+			class="lib.pkp.plugins.importexport.users.filter.NativeXmlUserGroupFilter"
 			isTemplate="0" />
 	</filters>
 </filterConfig>

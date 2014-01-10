@@ -34,9 +34,6 @@
 	<message key="grid.sponsor.title">Commanditaires</message>
 
 	<!-- Masthead Grid -->
-	<message key="grid.masthead.title">Bloc générique</message>
-	<message key="grid.masthead.column.groups">Groupes</message>
-
 	<!-- Contributor Grid -->
 	<message key="grid.contributor.title">Contributeur</message>
 
@@ -44,23 +41,12 @@
 	<message key="grid.reviewForm.title">Formulaires d'évaluation</message>
 
 	<!-- Artwork Files Grid -->
-	<message key="grid.artworkFile.title">Illustration libre de droit</message>
-	<message key="grid.artworkFile.file">Fichier</message>
-	<message key="grid.artworkFile.form.title">Ajouter une illustration libre de droit</message>
-	<message key="grid.artworkFile.form.metadata">Métadonnées de l'illustration</message>
 	<message key="grid.artworkFile.caption">Légende</message>
 	<message key="grid.artworkFile.credit">Source</message>
 	<message key="grid.artworkFile.copyrightOwner">Titulaire du droit d'auteur</message>
 	<message key="grid.artworkFile.copyrightContact">Info du contact (si autre que auteur/imprimeur)</message>
 	<message key="grid.artworkFile.permissionTerms">Conditions d'autorisation</message>
-	<message key="grid.artworkFile.permissionForm">Formulaire d'autorisation</message>
-	<message key="grid.artworkFile.type">Type</message>
-	<message key="grid.artworkFile.type.table">Tableau</message>
-	<message key="grid.artworkFile.type.figure">Figure</message>
 	<message key="grid.artworkFile.placement">Emplacement dans le livre</message>
-	<message key="grid.artworkFile.placementDetail">Tabl./Fig. No</message>
-	<message key="grid.artworkFile.contactAuthor">Auteur contact</message>
-
 	<!-- Library Files -->
 	<message key="grid.libraryFiles.column.files">Fichiers</message>
 	<message key="grid.libraryFiles.submission.title">Bibliothèque de soumission</message>
@@ -77,20 +63,13 @@
 	<!-- Submission Contributors -->
 	<message key="grid.action.remove">Supprimer</message>
 	<message key="grid.action.approve">Approuver</message>
-	<message key="grid.action.approveForReview">Soumettre à l'étape d'évaluation</message>
-	<message key="grid.action.approveForPub">Approuver pour publication</message>
 	<message key="grid.action.decline">Décliner</message>
 	<message key="grid.action.moreInformation">Plus d'information</message>
 	<message key="grid.action.addAuthor">Ajouter un auteur</message>
-	<message key="grid.artworkFile.captionAndCredit">Légende et source (si non inclus dans le fichier)</message>
 	<message key="author.users.contributor.name">Nom</message>
 	<message key="author.users.contributor.email">Courriel</message>
 	<message key="author.users.contributor.role">Rôle</message>
 	<message key="author.users.contributor.principalContact">Contact principal</message>
-	<message key="grid.reviewAttachments.title">Pièces jointes de l'évaluateur</message>
-	<message key="grid.reviewAttachments.add">Ajouter une pièce jointe à l'évaluation</message>
-	<message key="grid.chapters.title">Chapitres</message>
-
 	<!-- signoffs -->
 	<message key="grid.action.viewSignoffNotes">Visionner les notes de certification de conformité</message>
 	<message key="grid.action.fileUnconsider">Les épreuves ont été corrigées. Vous pourriez ne pas tenir compte de cette tâche.</message>

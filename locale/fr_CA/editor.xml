@@ -37,8 +37,6 @@
 	<message key="editor.submissionReview.open">Ouvrir</message>
 	<message key="editor.submissionReview.blind">Examen aveugle</message>
 	<message key="editor.submissionReview.doubleBlind">Examen en double aveugle</message>
-	<message key="editor.submissionReview.uploadFile">Télécharger le fichier d'évaluation</message>
-	<message key="editor.submissionReview.uploadAttachment">Télécharger le fichier</message>
 	<message key="editor.review.skipEmail">Ne pas envoyer un courriel à l'évaluateur</message>
 	<message key="editor.review.sendReminder">Envoyer un rappel</message>
 	<message key="editor.review.reviewDueDate">Date d'échéance de l'évaluation</message>

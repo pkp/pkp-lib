@@ -115,7 +115,6 @@
 	<message key="common.notAvailable">Non disponible</message>
 	<message key="common.note">Note</message>
 	<message key="common.notes">Notes</message>
-	<message key="common.notify">Aviser</message>
 	<message key="common.off">Arrêté</message>
 	<message key="common.on">Démarré</message>
 	<message key="common.options">Options</message>
@@ -264,7 +263,6 @@
 	<message key="search.operator.and">et</message>
 	<message key="search.operator.not">sauf</message>
 	<message key="search.operator.or">ou</message>
-	<message key="search.reviseSearch">Modifier la recherche</message>
 	<message key="search.searchAllCategories">Rechercher dans toutes les catégories pour</message>
 	<message key="search.searchCategories">Catégories de recherche</message>
 	<message key="search.searchResults">Résultats de recherche</message>
@@ -353,7 +351,6 @@
 	<message key="informationCenter.pastHistory">Révisions antérieures</message>
 	<message key="informationCenter.history.noItems">Aucune activité n'a été enregistrée.</message>
 	<message key="informationCenter.history.notePosted">Nouvelle note publiée.</message>
-	<message key="informationCenter.history.messageSent">Avis envoyé aux utilisateurs.</message>
 	<message key="navigation.goBack">Retour</message>
 
 	<!-- Stage Participants -->

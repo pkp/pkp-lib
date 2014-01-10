@@ -364,7 +364,6 @@
 	<message key="submission.citations.filter.webserviceError">L'appel {$filterName} du service Web a retourné une erreur lorsqu'appelé à partir de l'URL suivante : {$webserviceUrl}.  Il est possible que le service Web ne soit pas disponible temporairement. Vous serez tout de même en mesure de travailler avec les services restants et d'enregistrer vos résultats. Vous pouvez également essayer de nouveau plus tard. Si le problème persiste, veuillez alors demander au directeur de revue de désactiver ce service et d'ouvrir un rapport de bogue.</message>
 	<message key="submission.citations.filter.webserviceResultTransformationError">Une erreur est survenue dans {$filterName} : la transformation des résultats XML ( par ex., à partir d'un service Web) dans des métadonnées par champ a échoué. La raison en est probablement que le service Web a retourné des données invalides ou incomplètes. Veuillez le consigner comme un bogue.</message>
 	<message key="submission.citations.metadata.changeWarning">Êtes-vous certain de vouloir mettre à jour votre liste de références? Si vous cliquer sur OK, toute modification effectuée par les Rédacteurs sera écrasée. Si vous n'êtes pas certain de devoir effectuer les modifications à la liste de références, veuillez communiquer avec le Rédacteur responsable de votre soumission.</message>
-	<message key="submission.uploadSuccessfulContinue">Votre fichier a été téléchargé. Appuyer sur Continuer pour modifier les métadonnées du fichier.</message>
 	<message key="submission.artworkFileDetails">Détails du fichier de la maquette</message>
 	<message key="submission.nameRequired">Le nom est obligatoire pour cet élément.</message>
 	<message key="submission.date.mmdd">MM-JJ</message>
@@ -450,7 +449,6 @@
 	<message key="grid.copyediting.deleteSignoff">Rappeler un utilisateur</message>
 	<message key="notification.type.editorAssignment">Il faut choisir un rédacteur en chef afin d'entamer le processus d'évaluation. Veuillez ajouter un rédacteur en chef en utilisant le lien Participants ci-haut.</message>
 	<message key="grid.reviewAttachments.title">Pièces jointes de l'évaluateur</message>
-	<message key="editor.submission.newRoundDescription">Vous êtes sur le point de créer une nouvelle série de révisions pour cette soumission. Les fichiers qui n'ont pas été utilisés dans les autres séries de révisions apparaissent dans la liste suivante. Par défaut, les évaluateurs de la série précédente ont été sélectionnés pour participer à cette nouvelle série de révisions.</message>
 	<message key="submission.productionReady">Livre disponible</message>
 	<message key="submission.review.uploadRevisionToRound">Télécharger le fichier évalué</message>
 	<message key="workflow.review.externalReview">Évaluation externe</message>

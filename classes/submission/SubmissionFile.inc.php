@@ -452,7 +452,7 @@ class SubmissionFile extends PKPFile {
 		// Make the file name unique across all files and file revisions.
 		// Also make sure that files can be ordered sensibly by file name.
 		return	$this->getSubmissionId() . '-'.
-			$genre->getDesignation() . '_' . $genre->getLocalizedName() . '-' .
+			($genre? ($genre->getDesignation() . '_' . $genre->getLocalizedName() . '-'):'') .
 			$this->getFileId() . '-' .
 			$this->getRevision() . '-' .
 			$this->getFileStage() . '-' .

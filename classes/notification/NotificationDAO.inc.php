@@ -27,15 +27,22 @@ class NotificationDAO extends DAO {
 	/**
 	 * Retrieve Notification by notification id
 	 * @param $notificationId int
+	 * @param $userId int optional
 	 * @return object Notification
 	 */
-	function getById($notificationId) {
+	function getById($notificationId, $userId = null) {
+		$params = array((int) $notificationId;
+		if ($userId) $params[] = (int) $userId;
+
 		$result = $this->retrieve(
-			'SELECT * FROM notifications WHERE notification_id = ?', (int) $notificationId
+			'SELECT	*
+			FROM	notifications
+			WHERE	notification_id = ?
+			' . ($userId?' AND user_id = ?':''),
+			$params
 		);
 
 		$notification = $this->_fromRow($result->GetRowAssoc(false));
-
 		$result->Close();
 		return $notification;
 	}

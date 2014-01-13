@@ -136,6 +136,28 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 			}
 		}
 
+		$uploaderUsername = $node->getAttribute('uploader');
+		$uploaderUserGroup = $node->getAttribute('user_group_ref');
+
+		// Determine the user group based on the user_group_ref element.
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroups = $userGroupDao->getByContextId($context->getId());
+		while ($userGroup = $userGroups->next()) {
+			if (in_array($uploaderUserGroup, $userGroup->getName(null))) {
+				$submissionFile->setUserGroupId($userGroup->getId());
+			}
+		}
+
+		// Do the same for the user.
+		$userDao = DAORegistry::getDAO('UserDAO');
+		$user = $userDao->getByUsername($uploaderUsername);
+		if ($user) {
+			$submissionFile->setUploaderUserId($user->getId());
+		}
+
+		$fileSize = $node->getAttribute('filesize');
+		$submissionFile->setFileSize($fileSize);
+
 		$submissionFileDao->insertObject($submissionFile, $filename, false);
 		return $submissionFile;
 	}

@@ -102,6 +102,7 @@
 					<attribute name="user_group_ref" type="pkp:user_group_ref" use="required" />
 					<attribute name="uploader" type="pkp:username" />
 					<attribute name="genre" type="normalizedString" use="required" />
+					<attribute name="filesize" type="int" use="required" />
 				</complexType>
 			</element>
 		</sequence>

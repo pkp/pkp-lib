@@ -10,7 +10,7 @@
 	$(function() {ldelim}
 		// Attach the form handler.
 		$('#reviewStep3Form').pkpHandler(
-			'$.pkp.controllers.form.AjaxFormHandler'
+			'$.pkp.controllers.form.reviewer.ReviewerReviewStep3FormHandler'
 		);
 	{rdelim});
 </script>
@@ -29,7 +29,7 @@
 				{include file="linkAction/linkAction.tpl" action=$viewGuidelinesAction contextId="viewGuidelines"}
 			</div>
 		{/if}
-		{fbvElement type="textarea" id="comments" name="comments" required=true value=$reviewAssignment->getComments()|escape disabled=$reviewIsComplete}
+		{fbvElement type="textarea" id="comments" name="comments" value=$reviewAssignment->getComments()|escape disabled=$reviewIsComplete}
 	{/fbvFormSection}
 
 	{fbvFormSection label="common.upload" description="reviewer.submission.uploadDescription"}

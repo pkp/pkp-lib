@@ -30,7 +30,7 @@
  */
 
 import('lib.pkp.classes.file.PKPFileDAO');
-
+import('lib.pkp.classes.submission.Genre'); // GENRE_CATEGORY_... constants
 
 class PKPSubmissionFileDAO extends PKPFileDAO {
 	/**

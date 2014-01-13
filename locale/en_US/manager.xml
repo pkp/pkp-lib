@@ -177,6 +177,42 @@
 	<message key="manager.reviewerSearch.form.instructions">Use the form below to set the maximum values for the terms you wish to search for.  The form is pre-populated with the calculated averages of those fields.</message>
 	<message key="manager.reviewerSearch.form.interests.instructions">Enter reviewer interests, separated by commas...</message>
 	<message key="manager.roles">Roles</message>
+	<message key="manager.statistics.defaultMetricDescription">
+		Your {$contextObjectName} is configured to record more than one usage metric. Usage statistics will be displayed in severeral contexts.
+		There are cases where a single usage statistic must be used, e.g. to display an ordered list of most-used submissions or to rank
+		search results. Please select one of the configured metrics as a default.
+	</message>
+	<message key="manager.statistics.city">City</message>	
+	<message key="manager.statistics.region">Region</message>
+	<message key="manager.statistics.reports.aggregationColumns">Aggregate stats by:</message>
+	<message key="manager.statistics.reports.defaultReportTemplates">Default report templates</message>
+	<message key="manager.statistics.reports.generateReport">Generate custom report</message>
+	<message key="manager.statistics.reports.advancedOptions">Advanced Options</message>
+	<message key="manager.statistics.reports.advancedOptions.label">Customize columns, filter and ordering options. Changing any of these options might change the expected report template result.</message>
+	<message key="manager.statistics.reports.columns">Columns</message>
+	<message key="manager.statistics.reports.columns.description">Define the columns that will be used to build the report. The columns you select here not only define which data will be presented inside the reports, but also defines the aggregation level of the statistics. For example, if you choose ID, Type and Month columns, the report will sum all views from an object from one month and will present that data in one row. If you choose Day instead of Month, each object will have a row for each day.</message>
+	<message key="manager.statistics.reports.filters">Filters</message>
+	<message key="manager.statistics.reports.objectType">Object Type</message>
+	<message key="manager.statistics.reports.objectId">Object id</message>
+	<message key="manager.statistics.reports.objectId.label">Define one or more object ids, comma separated (e.g. 1,2,3,4,5).</message>
+	<message key="manager.statistics.reports.today">Today</message>
+	<message key="manager.statistics.reports.currentMonth">Current month</message>
+	<message key="manager.statistics.reports.orderBy">Order by</message>
+	<message key="manager.statistics.reports.orderDir">Direction</message>
+	<message key="manager.statistics.reports.orderDir.asc">Ascending</message>
+	<message key="manager.statistics.reports.orderDir.desc">Descending</message>
+	<message key="manager.statistics.reports.month.label">Use the YYYYMM format.</message>
+	<message key="manager.statistics.reports.day.label">Use the YYYYMMDD format.</message>
+	<message key="manager.statistics.reports.cities.label">One or more city names, comma separated (e.g. City Name 1,City Name 2)</message>
+	<message key="manager.statistics.reports.form.columnsRequired">You have to select at least one column to generate the report.</message>
+	<message key="manager.statistics.reports.reportUrl">Report URL</message>
+	<message key="manager.statistics.reports.reportUrl.label">The following url can be used to generate the report with this current form settings. Just copy it, paste into your browser and enter. You can use your favorites to store your custom report url generator.</message>
+	<message key="manager.statistics.reports.filters.byContext">By context</message>
+	<message key="manager.statistics.reports.filters.byObject">By object type and/or object id</message>
+	<message key="manager.statistics.reports.filters.byTime">Select report range</message>
+	<message key="manager.statistics.reports.filters.byTime.dimensionSelector">Or select range by:</message>
+	<message key="manager.statistics.reports.filters.byLocation">By geo location</message>
+	<message key="manager.statistics.reports.filters.byLocation.description">Narrow results by country, region and/or city.</message>
 	<message key="manager.affiliationAndSupport">Sponsor</message>
 	<message key="manager.setup.authorGuidelines">Author Guidelines</message>
 	<message key="manager.setup.competingInterests">Competing Interests</message>

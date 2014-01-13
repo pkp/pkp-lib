@@ -250,6 +250,7 @@
 	<message key="common.loading">Loading ...</message>
 	<message key="common.plugins">Plugins</message>
 	<message key="common.metric">Metric</message>
+	<message key="common.count">Count</message>
 	<message key="debug.databaseQueries">Number of database queries</message>
 	<message key="debug.executionTime">Page generated in</message>
 	<message key="debug.memoryUsage">Memory Usage</message>
@@ -257,10 +258,10 @@
 	<message key="debug.notes.localeLoad">Loaded locale file "{$localeFile}" from XML</message>
 	<message key="debug.notes.missingLocaleKey">Missing locale key "{$key}".</message>
 	<message key="debug.notes">Notes:</message>
-	<message key="editor.submissionReview.uploadFile">Upload Review File</message>
-	<message key="editor.submissionReview.uploadAttachment">Upload File</message>
 	<message key="defaultMetric.title">Default Metric</message>
 	<message key="defaultMetric.availableMetrics">Available Metrics</message>
+	<message key="editor.submissionReview.uploadFile">Upload Review File</message>
+	<message key="editor.submissionReview.uploadAttachment">Upload File</message>
 	<message key="email.addAttachment">Add Attachment</message>
 	<message key="email.addBccRecipient">Add BCC</message>
 	<message key="email.addCcRecipient">Add CC</message>

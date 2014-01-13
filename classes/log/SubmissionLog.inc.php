@@ -48,7 +48,7 @@ class SubmissionLog {
 			if ($user) $entry->setUserId($user->getId());
 		}
 
-		$entry->setMonographId($submission->getId());
+		$entry->setSubmissionId($submission->getId());
 
 		// Set explicit parts of the log entry
 		$entry->setEventType($eventType);

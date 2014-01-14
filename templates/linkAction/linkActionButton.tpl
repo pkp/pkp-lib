@@ -21,6 +21,6 @@
 		{/strip} title="{$action->getHoverTitle()|escape}">{if $hoverTitle}&nbsp;{else}{$action->getTitle()|escape}{/if}{strip}
 	{/strip}{else}{strip}
 		{/strip} class="pkp_controllers_linkAction"{strip}
-		{/strip} title="{$action->getHoverTitle()|escape}">{if !$hoverTitle}{$action->getTitle()|escape}{/if}{strip}
+		{/strip} title="{$action->getHoverTitle()|escape}">{if !$hoverTitle}{$action->getTitle()|strip_unsafe_html}{/if}{strip}
 	{/strip}{/if}{strip}
 {/strip}</a>

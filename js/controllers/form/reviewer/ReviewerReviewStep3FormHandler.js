@@ -64,7 +64,8 @@
 		var $formElement = this.getHtmlElement(),
 				$commentsElement = $formElement.find('[id^="comments"]');
 
-		if ($('#reviewAttachmentsGridContainer').find('tbody.empty:visible').length==1) {
+		if ($('#reviewAttachmentsGridContainer').
+				find('tbody.empty:visible').length == 1) {
 			// There's nothing in the files grid; make sure the
 			// comments field is required.
 			$commentsElement.attr('required', '1');

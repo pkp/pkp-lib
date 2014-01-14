@@ -937,7 +937,7 @@ class PKPTemplateManager extends Smarty {
 				$string = $this->_removeTags($string, $tags, $length);
 			}
 			if (!empty($etc)) {
-				$length = min($length, String::strlen($etc));
+				$length = max($length, String::strlen($etc));
 			}
 			$length--;
 			if (!$middle) {

@@ -31,7 +31,7 @@ class NotificationDAO extends DAO {
 	 * @return object Notification
 	 */
 	function getById($notificationId, $userId = null) {
-		$params = array((int) $notificationId;
+		$params = array((int) $notificationId);
 		if ($userId) $params[] = (int) $userId;
 
 		$result = $this->retrieve(

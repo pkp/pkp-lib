@@ -138,7 +138,14 @@
 		}
 
 		if (this.emptyLastTab_) {
-			this.$currentTab_.empty();
+			// bind a single (i.e. one()) error event handler to prevent
+			// propagation if the tab being unloaded no longer exists.
+			// We cannot simply getHandler() since that in of itself throws
+			// an Error.
+			$(window).one('error', function(msg, url, line) { return false; });
+			if (this.$currentTab_) {
+				this.$currentTab_.empty();
+			}
 		}
 		return true;
 	};

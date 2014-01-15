@@ -66,14 +66,7 @@ class ListbuilderHandler extends GridHandler {
 
 		if ($addItemLink) {
 			import('lib.pkp.classes.linkAction.request.NullAction');
-			$this->addAction(
-				new LinkAction(
-					'addItem',
-					new NullAction(),
-					__('grid.action.addItem'),
-					'add_item'
-				)
-			);
+			$this->addAction($this->getAddItemLinkAction(new NullAction()));
 		}
 	}
 
@@ -140,6 +133,20 @@ class ListbuilderHandler extends GridHandler {
 	function getSaveFieldName() {
 		assert(isset($this->_saveFieldName));
 		return $this->_saveFieldName;
+	}
+
+	/**
+	 * Get the "add item" link action.
+	 * @param $actionRequest ActionRequest
+	 * @return LinkAction
+	 */
+	function getAddItemLinkAction($actionRequest) {
+		return new LinkAction(
+			'addItem',
+			$actionRequest,
+			__('grid.action.addItem'),
+			'add_item'
+		);
 	}
 
 	/**

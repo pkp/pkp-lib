@@ -85,6 +85,19 @@ class UserUserGroupListbuilderHandler extends ListbuilderHandler {
 		);
 	}
 
+	/**
+	 * @copydoc ListbuilderHandler::getAddItemLinkAction()
+	 */
+	function getAddItemLinkAction($actionRequest) {
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_GRID);
+		return new LinkAction(
+			'addItem',
+			$actionRequest,
+			__('grid.user.addRole'),
+			'add_item'
+		);
+	}
+
 
 	/**
 	 * @copydoc ListbuilderHandler::getOptions

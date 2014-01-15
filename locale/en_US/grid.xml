@@ -211,6 +211,7 @@
 	<message key="grid.user.step1">Step #1: Fill in User Details</message>
 	<message key="grid.user.step2">Step #2: Add User Roles to {$userFullName}</message>
 	<message key="grid.user.addRoles">Add Roles</message>
+	<message key="grid.user.addRole">Add Role</message>
 	<message key="grid.user.selectUser">Select User</message>
 	<message key="grid.user.pleaseSelectUser">Please select a user</message>
 	<message key="grid.user.confirmLogInAs">Log in as this user? All actions you perform will be attributed to this user.</message>

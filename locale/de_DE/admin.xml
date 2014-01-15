@@ -39,6 +39,7 @@
 	<message key="admin.languages.reload">Regionaleinstellung neu laden</message>
 	<message key="admin.languages.uninstall">Regionaleinstellung deinstallieren</message>
 	<message key="admin.phpInfo">Ausführliche Informationen zu PHP</message>
+	<message key="admin.scheduledTask">Geplante Aufgabe</message>
 	<message key="admin.server.apacheVersion">Apache-Version</message>
 	<message key="admin.server.dbDriver">Datenbanktreiber</message>
 	<message key="admin.server.dbVersion">Version des Datenbankservers</message>
@@ -88,5 +89,5 @@
 	<message key="admin.fileLoader.wrongBasePathLocation">Der Basispfad {$path} muss im Verzeichnis der öffentlichen Dateien liegen.</message>
 	<message key="admin.fileLoader.pathNotAccessible">Der Ordner {$path} ist kein Verzeichnis oder ist nicht lesbar.</message>
 	<message key="admin.fileLoader.moveFileFailed">Die Datei {$filename} konnte nicht von {$currentFilePath} nach {$destinationPath} verschoben werden</message>
-	<message key="admin.fileLoader.emailSubject">Process ID des Fileloaders {$processId}</message>
+	<message key="admin.fileLoader">Fileloader</message>
 </locale>

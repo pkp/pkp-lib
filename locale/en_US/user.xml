@@ -69,7 +69,6 @@
 	<message key="user.middleName">Middle Name</message>
 	<message key="user.myAccount">My Account</message>
 	<message key="user.name">Name</message>
-	<message key="user.noRoles.selectUsersWithoutRoles">Include users with no roles in this context.</message>
 	<message key="user.other">Other</message>
 	<message key="user.password">Password</message>
 	<message key="user.repeatPassword">Repeat password</message>

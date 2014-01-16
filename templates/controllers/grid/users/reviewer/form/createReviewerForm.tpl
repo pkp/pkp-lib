@@ -35,15 +35,15 @@
 		{fbvElement type="select" name="userGroupId" id="userGroupId" from=$userGroups translate=false label="editor.review.userGroupSelect" required="true"}
 	{/fbvFormSection}
 
-	{fbvFormSection description="user.register.usernameRestriction"}
-		{fbvElement type="text" label="user.username" id="username" value=$username required="true" size=$fbvStyles.size.MEDIUM inline=true}
-		{fbvElement type="button" label="common.suggest" id="suggestUsernameButton" inline=true class="default"}
-	{/fbvFormSection}
-
 	{fbvFormSection title="common.name"}
 		{fbvElement type="text" label="user.firstName" id="firstname" value=$firstname required="true" inline=true size=$fbvStyles.size.SMALL}
 		{fbvElement type="text" label="user.middleName" id="middlename" value=$middlename inline=true size=$fbvStyles.size.SMALL}
 		{fbvElement type="text" label="user.lastName" id="lastname" value=$lastname required="true" inline=true size=$fbvStyles.size.SMALL}
+	{/fbvFormSection}
+
+	{fbvFormSection description="user.register.usernameRestriction"}
+		{fbvElement type="text" label="user.username" id="username" value=$username required="true" size=$fbvStyles.size.MEDIUM inline=true}
+		{fbvElement type="button" label="common.suggest" id="suggestUsernameButton" inline=true class="default"}
 	{/fbvFormSection}
 
 	{fbvFormSection title="about.contact"}

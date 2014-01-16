@@ -38,6 +38,12 @@
 		</div>
 		<div id="userFormCompactLeftContainer" class="pkp_helpers_clear">
 			{fbvFormArea id="userFormCompactLeft"}
+				{fbvFormSection title="user.name"}
+					{fbvElement type="text" label="user.firstName" required="true" id="firstName" value=$firstName maxlength="40" inline=true size=$fbvStyles.size.SMALL}
+					{fbvElement type="text" label="user.middleName" id="middleName" value=$middleName maxlength="40" inline=true size=$fbvStyles.size.SMALL}
+					{fbvElement type="text" label="user.lastName" required="true" id="lastName" value=$lastName maxlength="40" inline=true size=$fbvStyles.size.SMALL}
+				{/fbvFormSection}
+
 				{if !$userId}{capture assign="usernameInstruction"}{translate key="user.register.usernameRestriction"}{/capture}{/if}
 				{fbvFormSection for="username" description=$usernameInstruction translate=false}
 					{if !$userId}
@@ -48,12 +54,6 @@
 							{$username|escape}
 						{/fbvFormSection}
 					{/if}
-				{/fbvFormSection}
-
-				{fbvFormSection title="user.name"}
-					{fbvElement type="text" label="user.firstName" required="true" id="firstName" value=$firstName maxlength="40" inline=true size=$fbvStyles.size.SMALL}
-					{fbvElement type="text" label="user.middleName" id="middleName" value=$middleName maxlength="40" inline=true size=$fbvStyles.size.SMALL}
-					{fbvElement type="text" label="user.lastName" required="true" id="lastName" value=$lastName maxlength="40" inline=true size=$fbvStyles.size.SMALL}
 				{/fbvFormSection}
 
 				{fbvFormSection title="about.contact"}

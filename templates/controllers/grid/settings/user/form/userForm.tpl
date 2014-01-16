@@ -170,9 +170,8 @@
 		</div>
 		{if $userId}
 			<div id="userRoles" class="full left">
-				<h3>{translate key="grid.user.userRoles"}</h3>
 				<div id="userRolesContainer" class="full left">
-					{url|assign:userRolesUrl router=$smarty.const.ROUTE_COMPONENT component="listbuilder.users.UserUserGroupListbuilderHandler" op="fetch" userId=$userId title="grid.user.addRoles" escape=false}
+					{url|assign:userRolesUrl router=$smarty.const.ROUTE_COMPONENT component="listbuilder.users.UserUserGroupListbuilderHandler" op="fetch" userId=$userId title="grid.user.userRoles" escape=false}
 					{load_url_in_div id="userRolesContainer" url=$userRolesUrl}
 				</div>
 			</div>

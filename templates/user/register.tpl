@@ -44,14 +44,6 @@
 {fbvFormArea id="registration"}
 
 {if !$implicitAuth}
-	{fbvFormSection title="user.accountInformation"}
-		{fbvElement type="text" label="user.username" id="username" value=$username required=true size=$fbvStyles.size.MEDIUM}
-		{fbvElement type="text" label="user.password" id="password" value=$password required=true password=true size=$fbvStyles.size.MEDIUM}
-		{if !$existingUser}
-			{fbvElement type="text" label="user.repeatPassword" id="password2" value=$password2 required=true password=true size=$fbvStyles.size.MEDIUM}
-		{/if}{* !$existingUser *}
-	{/fbvFormSection}
-
 	{if !$existingUser}
 		{fbvFormSection title="common.name"}
 			{fbvElement type="text" label="user.salutation" id="salutation" value=$salutation size=$fbvStyles.size.SMALL inline=true}
@@ -61,7 +53,20 @@
 			{fbvElement type="text" label="user.suffix" id="suffix" value=$suffix size=$fbvStyles.size.SMALL inline=true}
 			{fbvElement type="text" label="user.initials" id="initials" value=$initials size=$fbvStyles.size.SMALL inline=true}
 		{/fbvFormSection}
+	{/if}
 
+	{fbvFormSection for="username" class="border" description="user.register.usernameRestriction"}
+		{fbvElement type="text" label="user.username" id="username" required="true" value=$username maxlength="32" inline=true size=$fbvStyles.size.MEDIUM}
+	{/fbvFormSection}
+
+	{fbvFormSection for="password" title="user.password" description="user.register.passwordLengthRestriction" length=$minPasswordLength}
+		{fbvElement type="text" label="user.password" required=$passwordRequired name="password" id="password" password="true" value=$password maxlength="32" inline=true size=$fbvStyles.size.MEDIUM}
+		{if !$existingUser}
+			{fbvElement type="text" label="user.repeatPassword" required=$passwordRequired name="password2" id="password2" password="true" value=$password2 maxlength="32" inline=true size=$fbvStyles.size.MEDIUM}
+		{/if}
+	{/fbvFormSection}
+
+	{if !$existingUser}
 		{fbvFormSection title="user.email" for="email" required=true}
 			{fbvElement type="text" id="email" value=$email size=$fbvStyles.size.MEDIUM} <br />
 			{fbvElement type="text" label="user.confirmEmail" id="confirmEmail" value=$confirmEmail size=$fbvStyles.size.MEDIUM}

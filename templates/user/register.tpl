@@ -59,19 +59,24 @@
 		{fbvElement type="text" label="user.username" id="username" required="true" value=$username maxlength="32" inline=true size=$fbvStyles.size.MEDIUM}
 	{/fbvFormSection}
 
-	{fbvFormSection for="password" title="user.password" description="user.register.passwordLengthRestriction" length=$minPasswordLength}
-		{fbvElement type="text" label="user.password" required=$passwordRequired name="password" id="password" password="true" value=$password maxlength="32" inline=true size=$fbvStyles.size.MEDIUM}
-		{if !$existingUser}
-			{fbvElement type="text" label="user.repeatPassword" required=$passwordRequired name="password2" id="password2" password="true" value=$password2 maxlength="32" inline=true size=$fbvStyles.size.MEDIUM}
-		{/if}
-	{/fbvFormSection}
+	{fbvFormArea id="passwordArea" class="border" title="user.password"}
+		{translate|assign:"passwordLengthRestriction" key="user.register.passwordLengthRestriction" length=$minPasswordLength}
+		{fbvFormSection for="password" title="user.password" description=$passwordLengthRestriction translate=false}
+			{fbvElement type="text" label="user.password" required=$passwordRequired name="password" id="password" password="true" value=$password maxlength="32" inline=true size=$fbvStyles.size.MEDIUM}
+			{if !$existingUser}
+				{fbvElement type="text" label="user.repeatPassword" required=$passwordRequired name="password2" id="password2" password="true" value=$password2 maxlength="32" inline=true size=$fbvStyles.size.MEDIUM}
+			{/if}
+		{/fbvFormSection}
+	{/fbvFormArea}
 
 	{if !$existingUser}
-		{fbvFormSection title="user.email" for="email" required=true}
-			{fbvElement type="text" id="email" value=$email size=$fbvStyles.size.MEDIUM} <br />
-			{fbvElement type="text" label="user.confirmEmail" id="confirmEmail" value=$confirmEmail size=$fbvStyles.size.MEDIUM}
+		{fbvFormArea id="emailArea" class="border" title="user.email"}
+			{fbvFormSection}
+				{fbvElement type="text" label="user.email" id="email" value=$email size=$fbvStyles.size.MEDIUM required=true inline=true}
+				{fbvElement type="text" label="user.confirmEmail" id="confirmEmail" value=$confirmEmail required=true size=$fbvStyles.size.MEDIUM inline=true}
+			{/fbvFormSection}
 			{if $privacyStatement}<a class="action" href="#privacyStatement">{translate key="user.register.privacyStatement"}</a>{/if}
-		{/fbvFormSection}
+		{/fbvFormArea}
 
 		{fbvFormSection title="common.country" for="country" size=$fbvStyles.size.MEDIUM required="true"}
 			{fbvElement type="select" from=$countries selected=$country translate=false id="country" defaultValue="" defaultLabel="" required=true}

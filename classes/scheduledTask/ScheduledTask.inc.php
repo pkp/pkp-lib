@@ -46,7 +46,7 @@ class ScheduledTask {
 		$this->_adminEmail = $site->getLocalizedContactEmail();
 		$this->_adminName = $site->getLocalizedContactName();
 
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_ADMIN);
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_ADMIN, LOCALE_COMPONENT_PKP_COMMON);
 	}
 
 

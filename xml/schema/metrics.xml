@@ -21,14 +21,17 @@
 		<field name="load_id" type="C2" size="255">
 			<NOTNULL />
 		</field>
-		<field name="assoc_type" type="I8">
-			<NOTNULL />
-		</field>
 		<field name="context_id" type="I8">
 			<NOTNULL />
 		</field>
-		<field name="issue_id" type="I8" />
+		<field name="pkp_section_id" type="I8" />
+		<field name="assoc_object_type" type="I8" />
+		<field name="assoc_object_id" type="I8" />
 		<field name="submission_id" type="I8" />
+		<field name="representation_id" type="I8" />
+		<field name="assoc_type" type="I8">
+			<NOTNULL />
+		</field>
 		<field name="assoc_id" type="I8">
 			<NOTNULL />
 		</field>

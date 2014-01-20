@@ -99,6 +99,7 @@ class PKPApplication {
 		import('lib.pkp.classes.session.SessionManager');
 		import('classes.template.TemplateManager');
 		import('classes.notification.NotificationManager');
+		import('lib.pkp.classes.statistics.PKPStatisticsHelper');
 
 		import('lib.pkp.classes.plugins.PluginRegistry');
 		import('lib.pkp.classes.plugins.HookRegistry');
@@ -334,6 +335,7 @@ class PKPApplication {
 			'LanguageDAO' => 'lib.pkp.classes.language.LanguageDAO',
 			'LibraryFileDAO' => 'lib.pkp.classes.context.LibraryFileDAO',
 			'MetadataDescriptionDAO' => 'lib.pkp.classes.metadata.MetadataDescriptionDAO',
+			'MetricsDAO' => 'lib.pkp.classes.statistics.PKPMetricsDAO',
 			'NotificationDAO' => 'lib.pkp.classes.notification.NotificationDAO',
 			'NotificationMailListDAO' => 'lib.pkp.classes.notification.NotificationMailListDAO',
 			'NotificationSettingsDAO' => 'lib.pkp.classes.notification.NotificationSettingsDAO',

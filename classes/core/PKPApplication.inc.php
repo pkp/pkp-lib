@@ -37,6 +37,7 @@ define('ASSOC_TYPE_REVIEW_ROUND',		0x000020B);
 define('ASSOC_TYPE_SUBMISSION_FILES',		0x000020F);
 define('ASSOC_TYPE_PUBLISHED_SUBMISSION',	0x0000210);
 define('ASSOC_TYPE_PLUGIN',			0x0000211);
+define('ASSOC_TYPE_SECTION',		0x0000212);
 define('ASSOC_TYPE_USER',			0x0001000); // This value used because of bug #6068
 define('ASSOC_TYPE_USER_GROUP',			0x0100002);
 define('ASSOC_TYPE_CITATION',			0x0100003);
@@ -562,6 +563,14 @@ class PKPApplication {
 	 */
 	static function getContextDAO() {
 		assert(false); // Must be implemented by subclasses
+	}
+
+	/**
+	 * Get the section DAO.
+	 * @return DAO
+	 */
+	static function getSectionDAO() {
+		assert(false);
 	}
 
 	/**

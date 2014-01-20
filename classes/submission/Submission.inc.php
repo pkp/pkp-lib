@@ -28,7 +28,7 @@ define('STATUS_QUEUED', 1);
 define('STATUS_PUBLISHED', 3);
 define('STATUS_DECLINED', 4);
 
-class Submission extends DataObject {
+abstract class Submission extends DataObject {
 	/**
 	 * Constructor.
 	 */
@@ -1115,6 +1115,16 @@ class Submission extends DataObject {
 	function setDatePublished($datePublished) {
 		return $this->SetData('datePublished', $datePublished);
 	}
+
+
+	//
+	// Abstract methods.
+	//
+	/**
+	 * Get section id.
+	 * @return int
+	 */
+	abstract function getSectionId();
 }
 
 ?>

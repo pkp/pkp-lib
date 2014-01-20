@@ -368,8 +368,8 @@
 
 
 	/**
-	 * Callback that will be activated when a request for row appending
-	 * returns.
+	 * Callback that will be activated when a set of options is returned
+	 * from the server for a new select control.
 	 *
 	 * @private
 	 *

@@ -35,9 +35,9 @@
 	</div>
 	<br /><br />
 	{fbvFormSection title="reviewer.submission.reviewSchedule"}
-		{fbvElement type="text" id="dateNotified" label="reviewer.submission.reviewRequestDate" value=$submission->getDateNotified()|date_format:$dateFormatShort disabled=true inline=true size=$fbvStyles.size.SMALL}
-		{fbvElement type="text" id="responseDue" label="reviewer.submission.responseDueDate" value=$submission->getDateResponseDue()|date_format:$dateFormatShort disabled=true inline=true size=$fbvStyles.size.SMALL}
-		{fbvElement type="text" id="dateDue" label="reviewer.submission.reviewDueDate" value=$submission->getDateDue()|date_format:$dateFormatShort disabled=true inline=true size=$fbvStyles.size.SMALL}
+		{fbvElement type="text" id="dateNotified" label="reviewer.submission.reviewRequestDate" value=$submission->getDateNotified()|date_format:$dateFormatShort readonly=true inline=true size=$fbvStyles.size.SMALL}
+		{fbvElement type="text" id="responseDue" label="reviewer.submission.responseDueDate" value=$submission->getDateResponseDue()|date_format:$dateFormatShort readonly=true inline=true size=$fbvStyles.size.SMALL}
+		{fbvElement type="text" id="dateDue" label="reviewer.submission.reviewDueDate" value=$submission->getDateDue()|date_format:$dateFormatShort readonly=true inline=true size=$fbvStyles.size.SMALL}
 	{/fbvFormSection}
 	<br /><br />
 		<div class="pkp_linkActions">

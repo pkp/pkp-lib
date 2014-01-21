@@ -59,6 +59,22 @@ class Genre extends DataObject {
 	}
 
 	/**
+	 * Get key of genre.
+	 * @return string
+	 */
+	function getKey() {
+		return $this->getData('key');
+	}
+
+	/**
+	 * Set key of genre.
+	 * @param $sequence float
+	 */
+	function setKey($key) {
+		return $this->setData('key', $key);
+	}
+
+	/**
 	 * Set the name of the genre
 	 * @param $name string
 	 * @param $locale string

@@ -661,42 +661,6 @@
 
 	<!--
 	  *
-	  * TABLE context_defaults
-	  *
-	  -->
-	<table name="context_defaults">
-		<field name="context_id" type="I8">
-			<NOTNULL/>
-		</field>
-		<field name="locale" type="C2" size="5">
-			<NOTNULL/>
-			<DEFAULT VALUE=""/>
-		</field>
-		<field name="assoc_type" type="I8"/>
-		<field name="entry_key" type="C2" size="30"/>
-		<field name="setting_name" type="C2" size="255">
-			<NOTNULL/>
-		</field>
-		<field name="setting_value" type="X"/>
-		<field name="setting_type" type="C2" size="6">
-			<NOTNULL/>
-			<descr>(bool|int|float|string|object)</descr>
-		</field>
-		<descr>Context defaults.</descr>
-		<index name="context_default_settings_context_id">
-			<col>context_id</col>
-		</index>
-		<index name="conext_default_settings_pkey">
-			<col>context_id</col>
-			<col>locale</col>
-			<col>setting_name</col>
-			<col>entry_key</col>
-			<UNIQUE />
-		</index>
-	</table>
-
-	<!--
-	  *
 	  * TABLE plugin_settings
 	  *
 	  -->

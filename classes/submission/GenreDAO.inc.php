@@ -14,21 +14,14 @@
  */
 
 import('lib.pkp.classes.submission.Genre');
-import('lib.pkp.classes.context.DefaultSettingDAO');
+import('lib.pkp.classes.db.DAO');
 
-class GenreDAO extends DefaultSettingDAO {
+class GenreDAO extends DAO {
 	/**
 	 * Constructor
 	 */
 	function GenreDAO() {
-		parent::DefaultSettingDAO();
-	}
-
-	/**
-	 * @see DefaultSettingsDAO::getPrimaryKeyColumnName()
-	 */
-	function getPrimaryKeyColumnName() {
-		return 'genre_id';
+		parent::DAO();
 	}
 
 	/**
@@ -36,69 +29,14 @@ class GenreDAO extends DefaultSettingDAO {
 	 * @param $genreId int
 	 * @return Genre
 	 */
-	function getById($genreId, $contextId = null){
+	function getById($genreId, $contextId = null) {
 		$params = array((int) $genreId);
-		if ($contextId) {
-			$params[] = (int) $contextId;
-		}
+		if ($contextId) $params[] = (int) $contextId;
 
 		$result = $this->retrieve(
 			'SELECT * FROM genres WHERE genre_id = ?' .
 			($contextId ? ' AND context_id = ?' : '') .
 			' ORDER BY seq',
-			$params
-		);
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-		$result->Close();
-		return $returner;
-	}
-
-	/**
-	 * Retrieve a set of Genres by category.
-	 * @param int $category
-	 * @param int $contextId
-	 * @param $rangeInfo object optional
-	 * @return DAOResultFactory containing matching genres
-	 */
-	function getByCategory($category, $contextId = null, $rangeInfo = null) {
-		$params = array((int) $category, 1);
-		if ($contextId) {
-			$params[] = (int) $contextId;
-		}
-
-		$result = $this->retrieveRange(
-			'SELECT * FROM genres
-			WHERE	category = ?
-				AND enabled = ?' .
-				($contextId ? ' AND context_id = ?' : '') . '
-			ORDER BY seq',
-			$params,
-			$rangeInfo
-		);
-		return new DAOResultFactory($result, $this, '_fromRow', array('id'));
-	}
-
-	/**
-	 * Retrieve a genre by type.
-	 * @param string $type e.g. 'STYLE'
-	 * @param int $contextId Context ID
-	 * @return Genre
-	 */
-	function getByType($type, $contextId = null) {
-		$params = array($type, 1);
-		if ($contextId) {
-			$params[] = (int) $contextId;
-		}
-
-		$result = $this->retrieve(
-			'SELECT * FROM genres
-			WHERE	entry_key = ?
-				AND enabled = ?' .
-				($contextId ? ' AND context_id = ?' : '') . '
-			ORDER BY seq',
 			$params
 		);
 		$returner = null;
@@ -185,9 +123,10 @@ class GenreDAO extends DefaultSettingDAO {
 	 * @param $genre object
 	 */
 	function updateLocaleFields($genre) {
-		$this->updateDataObjectSettings('genre_settings', $genre, array(
-			'genre_id' => $genre->getId()
-		));
+		$this->updateDataObjectSettings(
+			'genre_settings', $genre,
+			array('genre_id' => $genre->getId())
+		);
 	}
 
 	/**
@@ -206,6 +145,7 @@ class GenreDAO extends DefaultSettingDAO {
 	function _fromRow($row) {
 		$genre = $this->newDataObject();
 		$genre->setId($row['genre_id']);
+		$genre->getKey($row['entry_key']);
 		$genre->setContextId($row['context_id']);
 		$genre->setSortable($row['sortable']);
 		$genre->setCategory($row['category']);
@@ -226,10 +166,11 @@ class GenreDAO extends DefaultSettingDAO {
 	function insertObject($genre) {
 		$this->update(
 			'INSERT INTO genres
-				(seq, sortable, context_id, category, dependent)
+				(entry_key, seq, sortable, context_id, category, dependent)
 			VALUES
-				(?, ?, ?, ?, ?)',
+				(?, ?, ?, ?, ?, ?)',
 			array(
+				$genre->getKey(),
 				(float) $genre->getSequence(),
 				$genre->getSortable() ? 1 : 0,
 				(int) $genre->getContextId(),
@@ -250,11 +191,13 @@ class GenreDAO extends DefaultSettingDAO {
 	function updateObject($genre) {
 		$this->update(
 			'UPDATE genres
-			SET 	seq = ?,
+			SET	entry_key = ?,
+				seq = ?,
 				sortable = ?,
 				dependent = ?
 			WHERE	genre_id = ?',
 			array(
+				$genre->getKey(),
 				(float) $genre->getSequence(),
 				$genre->getSortable() ? 1 : 0,
 				$genre->getDependent() ? 1 : 0,
@@ -284,7 +227,7 @@ class GenreDAO extends DefaultSettingDAO {
 	}
 
 	/**
-	 * delete the genre entries associated with a context.
+	 * Delete the genre entries associated with a context.
 	 * Called when deleting a Context in ContextDAO.
 	 * @param $contextId int
 	 */
@@ -307,91 +250,35 @@ class GenreDAO extends DefaultSettingDAO {
 	}
 
 	/**
-	 * Get the name of the settings table.
-	 * @return string
-	 */
-	function getSettingsTableName() {
-		return 'genre_settings';
-	}
-
-	/**
-	 * Get the name of the main table for this setting group.
-	 * @return string
-	 */
-	function getTableName() {
-		return 'genres';
-	}
-
-	/**
-	 * Get the default type constant.
-	 * @return int
-	 */
-	function getDefaultType() {
-		return DEFAULT_SETTING_GENRES;
-	}
-
-	/**
-	 * Get the path of the setting data file.
-	 * @return string
-	 */
-	function getDefaultBaseFilename() {
-		return 'registry/genres.xml';
-	}
-
-	/**
-	 * Install genres from an XML file.
+	 * Install default data for settings.
 	 * @param $contextId int
-	 * @return boolean
+	 * @param $locales array
 	 */
-	function installDefaultBase($contextId) {
-		$xmlDao = new XMLDAO();
+	function installDefaults($contextId, $locales) {
+		// Load all the necessary locales.
+		foreach ($locales as $locale) AppLocale::requireComponents(LOCALE_COMPONENT_APP_DEFAULT, LOCALE_COMPONENT_PKP_DEFAULT, $locale);
 
-		$data = $xmlDao->parseStruct($this->getDefaultBaseFilename(), array('genre'));
+		$xmlDao = new XMLDAO();
+		$data = $xmlDao->parseStruct('registry/genres.xml', array('genre'));
 		if (!isset($data['genre'])) return false;
 		$seq = 0;
 
 		foreach ($data['genre'] as $entry) {
 			$attrs = $entry['attributes'];
-			$this->update(
-				'INSERT INTO genres
-				(seq, entry_key, sortable, context_id, category, dependent)
-				VALUES
-				(?, ?, ?, ?, ?, ?)',
-				array(
-					$seq++,
-					$attrs['key'],
-					$attrs['sortable'] ? 1 : 0,
-					(int) $contextId,
-					$attrs['category'],
-					$attrs['dependent'] ? 1 : 0
-				)
-			);
+			$genre = $this->newDataObject();
+			$genre->setContextId($contextId);
+			$genre->setKey($attrs['key']);
+			$genre->setSortable($attrs['sortable']);
+			$genre->setCategory($attrs['category']);
+			$genre->setDependent($attrs['dependent']);
+			$genre->setSequence($seq++);
+			foreach ($locales as $locale) {
+				$genre->setName(__($attrs['localeKey'], array(), $locale), $locale);
+			}
+			$genre->setDesignation($attrs['designation']);
+
+			$this->insertObject($genre);
 		}
-		return true;
-	}
-
-	/**
-	 * Get setting names and values.
-	 * @param $node XMLNode
-	 * @param $locale string
-	 * @return array
-	 */
-	function &getSettingAttributes($node = null, $locale = null) {
-
-		if ($node == null) {
-			$settings = array('name', 'designation');
-		} else {
-			$localeKey = $node->getAttribute('localeKey');
-			$sortable = $node->getAttribute('sortable');
-
-			$designation = $sortable ? GENRE_SORTABLE_DESIGNATION : __($localeKey.'.designation', array(), $locale);
-
-			$settings = array(
-				'name' => __($localeKey, array(), $locale),
-				'designation' => $designation
-			);
-		}
-		return $settings;
 	}
 }
 

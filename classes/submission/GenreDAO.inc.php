@@ -184,7 +184,7 @@ class GenreDAO extends DefaultSettingDAO {
 	 * Update the settings for this object
 	 * @param $genre object
 	 */
-	function updateLocaleFields(&$genre) {
+	function updateLocaleFields($genre) {
 		$this->updateDataObjectSettings('genre_settings', $genre, array(
 			'genre_id' => $genre->getId()
 		));
@@ -223,7 +223,7 @@ class GenreDAO extends DefaultSettingDAO {
 	 * Insert a new genre.
 	 * @param $genre Genre
 	 */
-	function insertObject(&$genre) {
+	function insertObject($genre) {
 		$this->update(
 			'INSERT INTO genres
 				(seq, sortable, context_id, category, dependent)

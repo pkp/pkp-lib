@@ -867,7 +867,7 @@ class UserGroupDAO extends DAO {
 	 */
 	static function getWorkflowStageTranslationKeys() {
 		$applicationStages = Application::getApplicationStages();
-
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
 		static $stageMapping = array(
 			WORKFLOW_STAGE_ID_SUBMISSION => 'submission.submission',
 			WORKFLOW_STAGE_ID_INTERNAL_REVIEW => 'workflow.review.internalReview',

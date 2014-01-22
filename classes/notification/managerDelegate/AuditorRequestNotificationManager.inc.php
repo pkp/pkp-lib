@@ -25,7 +25,7 @@ class AuditorRequestNotificationManager extends NotificationManagerDelegate {
 	}
 
 	/**
-	 * @see NotificationManagerDelegate::getNotificationMessage()
+	 * @copydoc NotificationManagerDelegate::getNotificationMessage()
 	 */
 	function getNotificationMessage($request, $notification) {
 		$signoffDao = DAORegistry::getDAO('SignoffDAO'); /* @var $signoffDao SignoffDAO */
@@ -38,7 +38,7 @@ class AuditorRequestNotificationManager extends NotificationManagerDelegate {
 	}
 
 	/**
-	 * @see NotificationManagerDelegate::getStyleClass()
+	 * @copydoc NotificationManagerDelegate::getStyleClass()
 	 */
 	function getStyleClass($notification) {
 		return NOTIFICATION_STYLE_CLASS_WARNING;

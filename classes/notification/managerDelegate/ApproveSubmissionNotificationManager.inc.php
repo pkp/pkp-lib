@@ -25,7 +25,7 @@ class ApproveSubmissionNotificationManager extends NotificationManagerDelegate {
 	}
 
 	/**
-	 * @see NotificationManagerDelegate::getStyleClass()
+	 * @copydoc NotificationManagerDelegate::getStyleClass()
 	 */
 	public function getStyleClass($notification) {
 		return NOTIFICATION_STYLE_CLASS_WARNING;

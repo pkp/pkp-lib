@@ -25,7 +25,7 @@ class AllReviewsInNotificationManager extends NotificationManagerDelegate {
 	}
 
 	/**
-	 * @see NotificationManagerDelegate::getStyleClass()
+	 * @copydoc NotificationManagerDelegate::getStyleClass()
 	 * @param $notification Notification
 	 */
 	public function getStyleClass($notification) {

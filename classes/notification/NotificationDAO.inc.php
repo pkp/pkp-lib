@@ -75,10 +75,11 @@ class NotificationDAO extends DAO {
 	 * Retrieve Notifications by assoc.
 	 * Note that this method will not return fully-fledged notification objects.  Use
 	 *  NotificationManager::getNotificationsForUser() to get notifications with URL, and contents
-	 * @param $assocType int
+	 * @param $assocType int ASSOC_TYPE_...
 	 * @param $assocId int
+	 * @param $userId int User ID (optional)
 	 * @param $type int
-	 * @param $contextId int
+	 * @param $contextId int Context (journal/press/etc.) ID (optional)
 	 * @return object DAOResultFactory containing matching Notification objects
 	 */
 	function getByAssoc($assocType, $assocId, $userId = null, $type = null, $contextId = null) {

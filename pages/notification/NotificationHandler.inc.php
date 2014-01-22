@@ -444,7 +444,7 @@ class NotificationHandler extends Handler {
 
 	/**
 	 * Override setupTemplate() so we can load other locale components.
-	 * @see PKPHandler::setupTemplate()
+	 * @copydoc PKPHandler::setupTemplate()
 	 */
 	function setupTemplate($request) {
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_GRID, LOCALE_COMPONENT_PKP_SUBMISSION);

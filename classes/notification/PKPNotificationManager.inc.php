@@ -25,7 +25,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 
 	/**
 	 * Construct a URL for the notification based on its type and associated object
-	 * @see INotificationInfoProvider::getNotificationContents()
+	 * @copydoc INotificationInfoProvider::getNotificationContents()
 	 */
 	public function getNotificationUrl($request, $notification) {
 		$dispatcher = Application::getDispatcher();
@@ -110,7 +110,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 	/**
 	 * Return a message string for the notification based on its type
 	 * and associated object.
-	 * @see INotificationInfoProvider::getNotificationContents()
+	 * @copydoc INotificationInfoProvider::getNotificationContents()
 	 */
 	public function getNotificationMessage($request, $notification) {
 		$type = $notification->getType();
@@ -199,7 +199,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 	 * Define a notification type case on this method only if you need to
 	 * present more than just text in notification. If you need to define
 	 * just a locale key, use the getNotificationMessage method only.
-	 * @see INotificationInfoProvider::getNotificationContents()
+	 * @copydoc INotificationInfoProvider::getNotificationContents()
 	 */
 	public function getNotificationContents($request, $notification) {
 		$type = $notification->getType();
@@ -238,7 +238,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 	}
 
 	/**
-	 * @see INotificationInfoProvider::getNotificationContents()
+	 * @copydoc INotificationInfoProvider::getNotificationContents()
 	 */
 	public function getNotificationTitle($notification) {
 		$type = $notification->getType();
@@ -267,7 +267,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 	}
 
 	/**
-	 * @see INotificationInfoProvider::getNotificationContents()
+	 * @copydoc INotificationInfoProvider::getNotificationContents()
 	 */
 	public function getStyleClass($notification) {
 		switch ($notification->getType()) {
@@ -297,7 +297,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 	}
 
 	/**
-	 * @see INotificationInfoProvider::getNotificationContents()
+	 * @copydoc INotificationInfoProvider::getNotificationContents()
 	 */
 	public function getIconClass($notification) {
 		switch ($notification->getType()) {
@@ -325,7 +325,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 	}
 
 	/**
-	 * @see INotificationInfoProvider::isVisibleToAllUsers()
+	 * @copydoc INotificationInfoProvider::isVisibleToAllUsers()
 	 */
 	public function isVisibleToAllUsers($notificationType, $assocType, $assocId) {
 		switch ($notificationType) {

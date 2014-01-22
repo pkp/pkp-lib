@@ -19,8 +19,6 @@ define('NOTIFICATION_STYLE_CLASS_FORM_ERROR', 'notifyFormError');
 define('NOTIFICATION_STYLE_CLASS_FORBIDDEN', 'notifyForbidden');
 define('NOTIFICATION_STYLE_CLASS_HELP', 'notifyHelp');
 
-
-
 interface INotificationInfoProvider {
 
 	/**
@@ -75,6 +73,8 @@ interface INotificationInfoProvider {
 	 * Whether any notification with the passed notification type
 	 * is visible to all users or not.
 	 * @param $notificationType int
+	 * @param $assocType int ASSOC_TYPE_...
+	 * @param $assocId int
 	 * @return boolean
 	 */
 	public function isVisibleToAllUsers($notificationType, $assocType, $assocId);

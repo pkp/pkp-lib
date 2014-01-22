@@ -25,7 +25,7 @@ class CopyeditAssignmentNotificationManager extends NotificationManagerDelegate 
 	}
 
 	/**
-	 * @see NotificationManagerDelegate::getNotificationMessage()
+	 * @copydoc NotificationManagerDelegate::getNotificationMessage()
 	 */
 	function getNotificationMessage($request, $notification) {
 		$signoffDao = DAORegistry::getDAO('SignoffDAO'); /* @var $signoffDao SignoffDAO */

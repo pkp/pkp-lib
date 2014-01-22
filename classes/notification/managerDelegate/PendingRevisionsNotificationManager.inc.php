@@ -25,7 +25,7 @@ class PendingRevisionsNotificationManager extends RevisionsNotificationManager {
 	}
 
 	/**
-	 * @see NotificationManagerDelegate::getNotificationUrl()
+	 * @copydoc NotificationManagerDelegate::getNotificationUrl()
 	 */
 	public function getNotificationUrl($request, $notification) {
 		$submissionDao = Application::getSubmissionDAO();
@@ -47,7 +47,7 @@ class PendingRevisionsNotificationManager extends RevisionsNotificationManager {
 	}
 
 	/**
-	 * @see NotificationManagerDelegate::getNotificationMessage()
+	 * @copydoc NotificationManagerDelegate::getNotificationMessage()
 	 */
 	public function getNotificationMessage($request, $notification) {
 		$stageData = $this->_getStageDataByType();
@@ -58,7 +58,7 @@ class PendingRevisionsNotificationManager extends RevisionsNotificationManager {
 	}
 
 	/**
-	 * @see NotificationManagerDelegate::getNotificationContents()
+	 * @copydoc NotificationManagerDelegate::getNotificationContents()
 	 */
 	public function getNotificationContents($request, $notification) {
 		$stageData = $this->_getStageDataByType();
@@ -81,7 +81,7 @@ class PendingRevisionsNotificationManager extends RevisionsNotificationManager {
 	}
 
 	/**
-	 * @see NotificationManagerDelegate::getNotificationTitle()
+	 * @copydoc NotificationManagerDelegate::getNotificationTitle()
 	 */
 	public function getNotificationTitle($notification) {
 		$stageData = $this->_getStageDataByType();

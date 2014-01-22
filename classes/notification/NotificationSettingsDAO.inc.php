@@ -54,6 +54,10 @@ class NotificationSettingsDAO extends DAO {
 	/**
 	 * Store a notification's metadata
 	 * @param $notificationId int
+	 * @param $name string
+	 * @param $value string
+	 * @param $isLocalized boolean optional
+	 * @param $type string optional
 	 * @param $params array
 	 */
 	function updateNotificationSetting($notificationId, $name, $value, $isLocalized = false, $type = null) {
@@ -79,7 +83,10 @@ class NotificationSettingsDAO extends DAO {
 					(notification_id, setting_name, setting_value, setting_type, locale)
 					VALUES (?, ?, ?, ?, ?)',
 					array(
-						$notificationId, $name, $this->convertToDB($localeValue, $type), $type, $locale
+						(int) $notificationId,
+						$name, $this->convertToDB($localeValue, $type),
+						$type,
+						$locale
 					)
 				);
 			}
@@ -93,7 +100,6 @@ class NotificationSettingsDAO extends DAO {
 	function deleteSettingsByNotificationId($notificationId) {
 		return $this->update('DELETE FROM notification_settings WHERE notification_id = ?', (int) $notificationId);
 	}
-
 }
 
 ?>

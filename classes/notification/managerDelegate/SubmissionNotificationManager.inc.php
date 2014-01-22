@@ -65,7 +65,7 @@ class SubmissionNotificationManager extends NotificationManagerDelegate {
 	}
 
 	/**
-	 * @see PKPNotificationManager::getIconClass()
+	 * @copydoc PKPNotificationManager::getIconClass()
 	 */
 	public function getIconClass($notification) {
 		switch ($notification->getType()) {
@@ -81,7 +81,7 @@ class SubmissionNotificationManager extends NotificationManagerDelegate {
 	}
 
 	/**
-	 * @see PKPNotificationManager::getStyleClass()
+	 * @copydoc PKPNotificationManager::getStyleClass()
 	 */
 	public function getStyleClass($notification) {
 		switch ($notification->getType()) {

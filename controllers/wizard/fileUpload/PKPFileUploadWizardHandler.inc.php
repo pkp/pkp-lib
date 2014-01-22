@@ -402,15 +402,12 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 			import('lib.pkp.classes.log.SubmissionLog');
 			import('classes.log.SubmissionEventLogEntry');
 			import('lib.pkp.classes.log.SubmissionFileEventLogEntry'); // constants
+			$user = $request->getUser();
 			SubmissionLog::logEvent(
 				$request, $submission,
 				$submissionFile->getRevision()>1?SUBMISSION_LOG_FILE_REVISION_UPLOAD:SUBMISSION_LOG_FILE_UPLOAD,
 				$submissionFile->getRevision()>1?'submission.event.fileRevised':'submission.event.fileUploaded',
-				array(
-					'name' => $submissionFile->getLocalizedName(),
-					'fileId' => $submissionFile->getFileId(),
-					'revision' => $submissionFile->getRevision(),
-				)
+				array('fileStage' => $submissionFile->getFileStage(), 'fileId' => $submissionFile->getFileId(), 'fileRevision' => $submissionFile->getRevision(), 'originalFileName' => $submissionFile->getOriginalFileName(), 'submissionId' => $submissionFile->getSubmissionId(), 'username' => $user->getUsername())
 			);
 
 			return DAO::getDataChangedEvent();

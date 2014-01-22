@@ -46,49 +46,49 @@ abstract class NotificationManagerDelegate extends PKPNotificationOperationManag
 	// Public methods to be overriden by subclasses.
 	//
 	/**
-	 * @see INotificationInfoProvider::getNotificationUrl()
+	 * @copydoc INotificationInfoProvider::getNotificationUrl()
 	 */
 	public function getNotificationUrl($request, $notification) {
 		return '';
 	}
 
 	/**
-	 * @see INotificationInfoProvider::getNotificationMessage()
+	 * @copydoc INotificationInfoProvider::getNotificationMessage()
 	 */
 	public function getNotificationMessage($request, $notification) {
 		return '';
 	}
 
 	/**
-	 * @see INotificationInfoProvider::getNotificationContents()
+	 * @copydoc INotificationInfoProvider::getNotificationContents()
 	 */
 	public function getNotificationContents($request, $notification) {
 		return '';
 	}
 
 	/**
-	 * @see INotificationInfoProvider::getNotificationTitle()
+	 * @copydoc INotificationInfoProvider::getNotificationTitle()
 	 */
 	public function getNotificationTitle($notification) {
 		return '';
 	}
 
 	/**
-	 * @see INotificationInfoProvider::getStyleClass()
+	 * @copydoc INotificationInfoProvider::getStyleClass()
 	 */
 	public function getStyleClass($notification) {
 		return '';
 	}
 
 	/**
-	 * @see INotificationInfoProvider::getIconClass()
+	 * @copydoc INotificationInfoProvider::getIconClass()
 	 */
 	public function getIconClass($notification) {
 		return '';
 	}
 
 	/**
-	 * @see INotificationInfoProvider::isVisibleToAllUsers()
+	 * @copydoc INotificationInfoProvider::isVisibleToAllUsers()
 	 */
 	public function isVisibleToAllUsers($notificationType, $assocType, $assocId) {
 		return false;

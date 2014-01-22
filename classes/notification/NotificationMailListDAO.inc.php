@@ -24,7 +24,7 @@ class NotificationMailListDAO extends DAO {
 	/**
 	 * Generates an access key for the guest user and adds them to the notification_mail_list table
 	 * @param $email string
-	 * @param $contextId int
+	 * @param $contextId int Context (journal/conference/press) ID
 	 * @return string
 	 */
 	function subscribeGuest($email, $contextId) {
@@ -61,7 +61,7 @@ class NotificationMailListDAO extends DAO {
 	/**
 	 * Gets a mailing list subscription id by a token value
 	 * @param $token int
-	 * @param $contextId
+	 * @param $contextId int Context (journal/conference/press) ID
 	 * @return int
 	 */
 	function getMailListIdByToken($token, $contextId) {
@@ -79,9 +79,8 @@ class NotificationMailListDAO extends DAO {
 
 	/**
 	 * Removes an email address from email notifications
-	 * @param $email string
-	 * @param $password string
-	 * @param $contextId int
+	 * @param $token string
+	 * @param $contextId int Context (journal/conference/press) ID
 	 * @return boolean
 	 */
 	function unsubscribeGuest($token, $contextId) {
@@ -109,7 +108,7 @@ class NotificationMailListDAO extends DAO {
 
 	/**
 	 * Gets a list of email addresses of users subscribed to the mailing list
-	 * @param $contextId int
+	 * @param $contextId int Context (journal/conference/press) ID
 	 * @return array
 	 */
 	function getMailList($contextId) {

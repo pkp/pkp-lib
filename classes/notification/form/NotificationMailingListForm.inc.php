@@ -54,6 +54,7 @@ class NotificationMailingListForm extends Form {
 
 	/**
 	 * Display the form.
+	 * @param $request PKPRequest
 	 */
 	function display($request) {
 		$templateMgr = TemplateManager::getManager($request);
@@ -79,6 +80,7 @@ class NotificationMailingListForm extends Form {
 
 	/**
 	 * Save the form
+	 * @param $request PKPRequest
 	 */
 	function execute($request) {
 		$userEmail = $this->getData('email');

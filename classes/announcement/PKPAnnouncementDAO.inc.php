@@ -36,7 +36,7 @@ class PKPAnnouncementDAO extends DAO {
 
 		$returner = null;
 		if ($result->RecordCount() != 0) {
-			$returner =& $this->_returnAnnouncementFromRow($result->GetRowAssoc(false));
+			$returner = $this->_fromRow($result->GetRowAssoc(false));
 		}
 		$result->Close();
 		return $returner;
@@ -91,7 +91,7 @@ class PKPAnnouncementDAO extends DAO {
 	 * @param $row array
 	 * @return Announcement
 	 */
-	function &_returnAnnouncementFromRow($row) {
+	function _fromRow($row) {
 		$announcement = $this->newDataObject();
 		$announcement->setId($row['announcement_id']);
 		$announcement->setAssocType($row['assoc_type']);
@@ -109,7 +109,7 @@ class PKPAnnouncementDAO extends DAO {
 	 * Update the settings for this object
 	 * @param $announcement object
 	 */
-	function updateLocaleFields(&$announcement) {
+	function updateLocaleFields($announcement) {
 		$this->updateDataObjectSettings('announcement_settings', $announcement, array(
 			'announcement_id' => $announcement->getId()
 		));
@@ -143,7 +143,7 @@ class PKPAnnouncementDAO extends DAO {
 	 * @param $announcement Announcement
 	 * @return boolean
 	 */
-	function updateObject(&$announcement) {
+	function updateObject($announcement) {
 		$returner = $this->update(
 			sprintf('UPDATE announcements
 				SET
@@ -185,7 +185,7 @@ class PKPAnnouncementDAO extends DAO {
 
 	/**
 	 * Delete announcements by announcement type ID.
-	 * @param $typeId int
+	 * @param $typeId int Announcement type ID
 	 * @return boolean
 	 */
 	function deleteByTypeId($typeId) {
@@ -197,7 +197,7 @@ class PKPAnnouncementDAO extends DAO {
 
 	/**
 	 * Delete announcements by Assoc ID
-	 * @param $assocType int
+	 * @param $assocType int ASSOC_TYPE_...
 	 * @param $assocId int
 	 */
 	function deleteByAssoc($assocType, $assocId) {
@@ -210,7 +210,9 @@ class PKPAnnouncementDAO extends DAO {
 
 	/**
 	 * Retrieve an array of announcements matching a particular assoc ID.
-	 * @param $assocType int
+	 * @param $assocType int ASSOC_TYPE_...
+	 * @param $assocId int
+	 * @param $rangeInfo DBResultRange (optional)
 	 * @return object DAOResultFactory containing matching Announcements
 	 */
 	function getByAssocId($assocType, $assocId, $rangeInfo = null) {
@@ -223,12 +225,13 @@ class PKPAnnouncementDAO extends DAO {
 			$rangeInfo
 		);
 
-		return new DAOResultFactory($result, $this, '_returnAnnouncementFromRow');
+		return new DAOResultFactory($result, $this, '_fromRow');
 	}
 
 	/**
 	 * Retrieve an array of announcements matching a particular type ID.
 	 * @param $typeId int
+	 * @param $rangeInfo DBResultRange (optional)
 	 * @return object DAOResultFactory containing matching Announcements
 	 */
 	function getByTypeId($typeId, $rangeInfo = null) {
@@ -238,12 +241,15 @@ class PKPAnnouncementDAO extends DAO {
 			$rangeInfo
 		);
 
-		return new DAOResultFactory($result, $this, '_returnAnnouncementFromRow');
+		return new DAOResultFactory($result, $this, '_fromRow');
 	}
 
 	/**
 	 * Retrieve an array of numAnnouncements announcements matching a particular Assoc ID.
-	 * @param $assocType int
+	 * @param $assocType int ASSOC_TYPE_...
+	 * @param $assocId int
+	 * @param $numAnnouncements int Maximum number of announcements
+	 * @param $rangeInfo DBResultRange (optional)
 	 * @return object DAOResultFactory containing matching Announcements
 	 */
 	function getNumAnnouncementsByAssocId($assocType, $assocId, $numAnnouncements, $rangeInfo = null) {
@@ -257,14 +263,14 @@ class PKPAnnouncementDAO extends DAO {
 			$rangeInfo
 		);
 
-		return new DAOResultFactory($result, $this, '_returnAnnouncementFromRow');
+		return new DAOResultFactory($result, $this, '_fromRow');
 	}
 
 	/**
 	 * Retrieve an array of announcements with no/valid expiry date matching a particular Assoc ID.
-	 * @param $assocType int
+	 * @param $assocType int ASSOC_TYPE_...
 	 * @param $assocId int
-	 * @param $rangeInfo DBResultRange
+	 * @param $rangeInfo DBResultRange (optional)
 	 * @return object DAOResultFactory containing matching Announcements
 	 */
 	function getAnnouncementsNotExpiredByAssocId($assocType, $assocId, $rangeInfo = null) {
@@ -279,12 +285,15 @@ class PKPAnnouncementDAO extends DAO {
 			$rangeInfo
 		);
 
-		return new DAOResultFactory($result, $this, '_returnAnnouncementFromRow');
+		return new DAOResultFactory($result, $this, '_fromRow');
 	}
 
 	/**
 	 * Retrieve an array of numAnnouncements announcements with no/valid expiry date matching a particular Assoc ID.
-	 * @param $assocType int
+	 * @param $assocType int ASSOC_TYPE_...
+	 * @param $assocId int
+	 * @param $numAnnouncements Maximum number of announcements to include
+	 * @param $rangeInfo DBResultRange (optional)
 	 * @return object DAOResultFactory containing matching Announcements
 	 */
 	function getNumAnnouncementsNotExpiredByAssocId($assocType, $assocId, $numAnnouncements, $rangeInfo = null) {
@@ -299,12 +308,13 @@ class PKPAnnouncementDAO extends DAO {
 			$rangeInfo
 		);
 
-		return new DAOResultFactory($result, $this, '_returnAnnouncementFromRow');
+		return new DAOResultFactory($result, $this, '_fromRow');
 	}
 
 	/**
 	 * Retrieve most recent announcement by Assoc ID.
-	 * @param $assocType int
+	 * @param $assocType int ASSOC_TYPE_...
+	 * @param $assocId int
 	 * @return Announcement
 	 */
 	function getMostRecentAnnouncementByAssocId($assocType, $assocId) {
@@ -319,7 +329,7 @@ class PKPAnnouncementDAO extends DAO {
 
 		$returner = null;
 		if ($result->RecordCount() != 0) {
-			$returner = $this->_returnAnnouncementFromRow($result->GetRowAssoc(false));
+			$returner = $this->_fromRow($result->GetRowAssoc(false));
 		}
 		$result->Close();
 		return $returner;

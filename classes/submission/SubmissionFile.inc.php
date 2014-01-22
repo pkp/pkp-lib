@@ -275,7 +275,7 @@ class SubmissionFile extends PKPFile {
 
 	/**
 	 * Get file stage of the file.
-	 * @return int
+	 * @return int SUBMISSION_FILE_...
 	 */
 	function getFileStage() {
 		return $this->getData('fileStage');
@@ -283,7 +283,7 @@ class SubmissionFile extends PKPFile {
 
 	/**
 	 * Set file stage of the file.
-	 * @param $fileStage int
+	 * @param $fileStage int SUBMISSION_FILE_...
 	 */
 	function setFileStage($fileStage) {
 		return $this->setData('fileStage', $fileStage);

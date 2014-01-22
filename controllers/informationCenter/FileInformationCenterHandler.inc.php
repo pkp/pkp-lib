@@ -20,8 +20,8 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 	/** @var object */
 	var $submissionFile;
 
-	/** @var object */
-	var $submission;
+	/** @var int */
+	var $_stageId;
 
 	/**
 	 * Constructor
@@ -41,19 +41,31 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 	}
 
 	/**
+	 * @copydoc PKPHandler::authorize()
+	 */
+	function authorize($request, &$args, $roleAssignments) {
+		// Require stage access
+		import('classes.security.authorization.WorkflowStageAccessPolicy');
+		$this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', (int) $request->getUserVar('stageId')));
+
+		return parent::authorize($request, $args, $roleAssignments);
+	}
+
+	/**
 	 * Fetch and store away objects
+	 * @param $request PKPRequest
+	 * @param $args array optional
 	 */
 	function initialize($request, $args = null) {
 		parent::initialize($request, $args);
 
-		// Fetch the submission and file to display information about
-		$this->submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+		$this->_stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
 
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 		$this->submissionFile = $submissionFileDao->getLatestRevision($request->getUserVar('fileId'));
 
 		// Ensure data integrity.
-		if (!$this->submission || !$this->submissionFile || $this->submission->getId() != $this->submissionFile->getSubmissionId()) fatalError('Unknown or invalid submission or submission file!');
+		if (!$this->_submission || !$this->submissionFile || $this->_submission->getId() != $this->submissionFile->getSubmissionId()) fatalError('Unknown or invalid submission or submission file!');
 	}
 
 	/**
@@ -203,16 +215,7 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 	 */
 	function viewHistory($args, $request) {
 		$this->setupTemplate($request);
-
-		// Get all submission file events
-		$submissionFileEventLogDao = DAORegistry::getDAO('SubmissionFileEventLogDAO');
-		$fileEvents = $submissionFileEventLogDao->getByFileId(
-			$this->submissionFile->getFileId()
-		);
-
 		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('submissionId', $this->submissionFile->getSubmissionId());
-		$templateMgr->assign('fileId', $this->submissionFile->getFileId());
 		return $templateMgr->fetchJson('controllers/informationCenter/fileHistory.tpl');
 	}
 
@@ -240,14 +243,17 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 
 	/**
 	 * Get an array representing link parameters that subclasses
-	 * need to have passed to their various handlers (i.e. submission ID to
-	 * the delete note handler). Subclasses should implement.
+	 * need to have passed to their various handlers (i.e. submission ID
+	 * to the delete note handler).
+	 * @return array
 	 */
 	function _getLinkParams() {
-		return array(
-			'fileId' => $this->submissionFile->getFileId(),
-			'submissionId' => $this->submission->getId(),
-			'stageId' => $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE)
+		return array_merge(
+			parent::_getLinkParams(),
+			array(
+				'fileId' => $this->submissionFile->getFileId(),
+				'stageId' => $this->_stageId,
+			)
 		);
 	}
 

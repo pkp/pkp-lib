@@ -37,7 +37,7 @@ class FileLinkAction extends LinkAction {
 	 * @param $stageId int (optional)
 	 * @return array
 	 */
-	function getActionArgs(&$submissionFile, $stageId = null) {
+	function getActionArgs($submissionFile, $stageId = null) {
 		assert(is_a($submissionFile, 'SubmissionFile'));
 
 		// Create the action arguments array.

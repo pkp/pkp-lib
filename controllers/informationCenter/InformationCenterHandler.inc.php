@@ -17,6 +17,9 @@ import('lib.pkp.classes.core.JSONMessage');
 import('classes.log.SubmissionEventLogEntry');
 
 class InformationCenterHandler extends Handler {
+	/** @var Submission */
+	var $_submission;
+
 	/**
 	 * Constructor
 	 */
@@ -51,9 +54,24 @@ class InformationCenterHandler extends Handler {
 	 * @copydoc PKPHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
+		// Require a submission
 		import('classes.security.authorization.SubmissionAccessPolicy');
 		$this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments, 'submissionId'));
+
+
 		return parent::authorize($request, $args, $roleAssignments);
+	}
+
+	/**
+	 * Fetch and store away objects
+	 * @param $request PKPRequest
+	 * @param $args array optional
+	 */
+	function initialize($request, $args = null) {
+		parent::initialize($request, $args);
+
+		// Fetch the submission and file to display information about
+		$this->_submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 	}
 
 
@@ -161,11 +179,14 @@ class InformationCenterHandler extends Handler {
 
 	/**
 	 * Get an array representing link parameters that subclasses
-	 * need to have passed to their various handlers (i.e. submission ID to
-	 * the delete note handler). Subclasses should implement.
+	 * need to have passed to their various handlers (i.e. submission ID
+	 * to the delete note handler).
+	 * @return array
 	 */
 	function _getLinkParams() {
-		assert(false);
+		return array(
+			'submissionId' => $this->_submission->getId(),
+		);
 	}
 
 	function setupTemplate($request) {

@@ -6,5 +6,5 @@
  *
  * Display submission history in information center.
  *}
-{url|assign:eventLogGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.eventLog.SubmissionEventLogGridHandler" op="fetchGrid" submissionId=$submissionId escape=false}
+{url|assign:eventLogGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.eventLog.SubmissionEventLogGridHandler" op="fetchGrid" params=$linkParams escape=false}
 {load_url_in_div id="eventLogGrid" url=$eventLogGridUrl}

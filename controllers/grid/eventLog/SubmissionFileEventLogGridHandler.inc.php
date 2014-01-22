@@ -55,7 +55,7 @@ class SubmissionFileEventLogGridHandler extends SubmissionEventLogGridHandler {
 	 */
 	function authorize($request, &$args, $roleAssignments) {
 		import('classes.security.authorization.SubmissionFileAccessPolicy');
-		$this->addPolicy(new SubmissionFileAccessPolicy($request, $args, $roleAssignments, SUBMISSION_FILE_ACCESS_MODIFY));
+		$this->addPolicy(new SubmissionFileAccessPolicy($request, $args, $roleAssignments, SUBMISSION_FILE_ACCESS_READ));
 		return parent::authorize($request, $args, $roleAssignments);
 	}
 
@@ -122,7 +122,13 @@ class SubmissionFileEventLogGridHandler extends SubmissionEventLogGridHandler {
 	 * @return string Filter template.
 	 */
 	function getFilterForm() {
-		return 'controllers/grid/eventLog/eventLogGridFilter.tpl';
+		// If the user only has an author role, do not permit access
+		// to earlier stages.
+		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+		if (array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT), $userRoles)) {
+			return 'controllers/grid/eventLog/eventLogGridFilter.tpl';
+		}
+		return parent::getFilterForm();
 	}
 
 	/**

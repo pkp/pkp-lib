@@ -17,13 +17,10 @@ import('lib.pkp.classes.core.JSONMessage');
 
 class SignoffInformationCenterHandler extends Handler {
 	/** @var object */
-	var $signoff;
-
-	/** @var object */
-	var $submission;
+	var $_signoff;
 
 	/** @var int */
-	var $stageId;
+	var $_stageId;
 
 	/**
 	 * Constructor
@@ -48,48 +45,35 @@ class SignoffInformationCenterHandler extends Handler {
 	function initialize($request, $args = null) {
 		parent::initialize($request, $args);
 
-		// Fetch the submission and file to display information about
-		$this->submission =& $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-		$this->signoff =& $this->getAuthorizedContextObject(ASSOC_TYPE_SIGNOFF);
-		$this->stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+		// Fetch and store information for later use
+		$this->_stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+		$this->_signoff = $this->getAuthorizedContextObject(ASSOC_TYPE_SIGNOFF);
 	}
 
 	/**
 	 * @copydoc PKPHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
-
-		import('classes.security.authorization.SubmissionAccessPolicy');
-		$this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments));
-
-		import('classes.security.authorization.SignoffAccessPolicy');
-		$router = $request->getRouter();
-		$mode = SIGNOFF_ACCESS_READ;
-		if ($router->getRequestedOp($request) == 'saveNote') {
-			$mode = SIGNOFF_ACCESS_MODIFY;
+		if (!parent::authorize($request, $args, $roleAssignments)) {
+			return false;
 		}
 
-		$router = $request->getRouter();
-		$requestedOp = $router->getRequestedOp($request);
-		$stageId = $request->getUserVar('stageId');
+		// Require stage access
+		import('classes.security.authorization.WorkflowStageAccessPolicy');
+		$this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', (int) $request->getUserVar('stageId')));
+
 		if ($request->getUserVar('signoffId')) {
-			$this->addPolicy(new SignoffAccessPolicy($request, $args, $roleAssignments, $mode, $stageId));
-		} else if ($requestedOp == 'viewNotes' || $requestedOp == 'getUserSignoffs') {
-			import('lib.pkp.classes.security.authorization.internal.WorkflowStageRequiredPolicy');
-			$this->addPolicy(new WorkflowStageRequiredPolicy($stageId));
-		} else {
-			return AUTHORIZATION_DENY;
+			// Determine the access mode
+			$router = $request->getRouter();
+
+			// Require signoff access
+			import('classes.security.authorization.SignoffAccessPolicy');
+			$this->addPolicy(new SignoffAccessPolicy(
+				$request, $args, $roleAssignments,
+				$router->getRequestedOp($request)=='saveNote'?SIGNOFF_ACCESS_MODIFY:SIGNOFF_ACCESS_READ,
+				$request->getUserVar('stageId');
+			));
 		}
-
-		return parent::authorize($request, $args, $roleAssignments);
-	}
-
-	/**
-	 * @copydoc PKPHandler::setupTemplate()
-	 */
-	function setupTemplate($request) {
-		AppLocale::requireComponents(LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_PKP_SUBMISSION);
-		parent::setupTemplate($request);
 	}
 
 	/**
@@ -100,12 +84,9 @@ class SignoffInformationCenterHandler extends Handler {
 	 */
 	function viewSignoffHistory($args, $request) {
 		$this->setupTemplate($request);
-		$user = $request->getUser();
-
-		$signoff = $this->getAuthorizedContextObject(ASSOC_TYPE_SIGNOFF);
 
 		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('signoff', $signoff);
+		$templateMgr->assign('signoff', $this->_signoff);
 
 		return $templateMgr->fetchJson('controllers/informationCenter/signoffHistory.tpl');
 	}
@@ -118,16 +99,12 @@ class SignoffInformationCenterHandler extends Handler {
 	 */
 	function viewNotes($args, $request) {
 		$this->setupTemplate($request);
-		$signoff = $this->getAuthorizedContextObject(ASSOC_TYPE_SIGNOFF);
-		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
-		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-
 		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('submissionId', $submission->getId());
-		$templateMgr->assign('stageId', $stageId);
+		$templateMgr->assign('submissionId', $this->_submission->getId());
+		$templateMgr->assign('stageId', $this->_stageId);
 		$templateMgr->assign('symbolic', (string) $request->getUserVar('symbolic'));
 		if ($signoff) {
-			$templateMgr->assign('signoffId', $signoff->getId());
+			$templateMgr->assign('signoffId', $this->_signoff->getId());
 		}
 		return $templateMgr->fetchJson('controllers/informationCenter/signoffNotes.tpl');
 	}
@@ -141,18 +118,17 @@ class SignoffInformationCenterHandler extends Handler {
 	function getUserSignoffs($args, $request) {
 		$user = $request->getUser();
 		$signoffDao = DAORegistry::getDAO('SignoffDAO'); /* @var $signoffDao SignoffDAO */
-		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$symbolic = (string) $request->getUserVar('symbolic');
 
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-		$signoffsFactory =& $signoffDao->getAllBySymbolic($symbolic, ASSOC_TYPE_SUBMISSION_FILE, null, $user->getId());
+		$signoffsFactory = $signoffDao->getAllBySymbolic($symbolic, ASSOC_TYPE_SUBMISSION_FILE, null, $user->getId());
 
 		$signoffs = array();
 		while ($signoff = $signoffsFactory->next()) { /* @var $signoff Signoff */
 			if (!$signoff->getDateCompleted() && $signoff->getAssocType() == ASSOC_TYPE_SUBMISSION_FILE) {
 				$submissionFile = $submissionFileDao->getLatestRevision($signoff->getAssocId()); /* @var $submissionFile SubmissionFile */
 				if (is_a($submissionFile, 'SubmissionFile')) {
-					if ($submissionFile->getSubmissionId() == $submission->getId()) {
+					if ($submissionFile->getSubmissionId() == $this->_submission->getId()) {
 						$signoffs[$signoff->getId()] = $submissionFile->getLocalizedName();
 					}
 				} else {
@@ -173,11 +149,9 @@ class SignoffInformationCenterHandler extends Handler {
 	 */
 	function fetchNotesForm($args, $request) {
 		$this->setupTemplate($request);
-		$signoff =& $this->getAuthorizedContextObject(ASSOC_TYPE_SIGNOFF);
-		$submission =& $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 
 		import('lib.pkp.controllers.grid.files.fileSignoff.form.NewSignoffNoteForm');
-		$notesForm = new NewSignoffNoteForm($signoff->getId(), $submission->getId(), $signoff->getSymbolic(), $this->stageId);
+		$notesForm = new NewSignoffNoteForm($this->_signoff->getId(), $this->_submission->getId(), $this->_signoff->getSymbolic(), $this->_stageId);
 		$notesForm->initData();
 
 		$json = new JSONMessage(true, $notesForm->fetch($request));
@@ -191,12 +165,10 @@ class SignoffInformationCenterHandler extends Handler {
 	 */
 	function saveNote($args, $request) {
 		$this->setupTemplate($request);
-		$signoff =& $this->signoff;
-		$submission =& $this->submission;
 		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
 
 		import('lib.pkp.controllers.grid.files.fileSignoff.form.NewSignoffNoteForm');
-		$notesForm = new NewSignoffNoteForm($signoff->getId(), $submission->getId(), $signoff->getSymbolic(), $this->stageId);
+		$notesForm = new NewSignoffNoteForm($this->_signoff->getId(), $this->_submission->getId(), $this->_signoff->getSymbolic(), $this->stageId);
 		$notesForm->readInputData();
 
 		if ($notesForm->validate()) {
@@ -218,19 +190,17 @@ class SignoffInformationCenterHandler extends Handler {
 	 */
 	function listNotes($args, $request) {
 		$this->setupTemplate($request);
-		$signoff = $this->signoff;
-		$submission = $this->submission;
 
 		$templateMgr = TemplateManager::getManager($request);
 		$noteDao = DAORegistry::getDAO('NoteDAO');
-		$notesFactory = $noteDao->getByAssoc(ASSOC_TYPE_SIGNOFF, $signoff->getId());
+		$notesFactory = $noteDao->getByAssoc(ASSOC_TYPE_SIGNOFF, $this->_signoff->getId());
 		$notes = $notesFactory->toAssociativeArray();
 		// Get any note files.
 		$noteFilesDownloadLink = array();
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /** @var $submissionFileDao SubmissionFileDAO */
 		import('lib.pkp.controllers.api.file.linkAction.DownloadFileLinkAction');
 		foreach ($notes as $noteId => $note) {
-			$file = $submissionFileDao->getLatestRevisionsByAssocId(ASSOC_TYPE_NOTE, $noteId, $submission->getId(), SUBMISSION_FILE_NOTE);
+			$file = $submissionFileDao->getLatestRevisionsByAssocId(ASSOC_TYPE_NOTE, $noteId, $this->_submission->getId(), SUBMISSION_FILE_NOTE);
 			// We don't expect more than one file per note
 			$file = current($file);
 
@@ -276,6 +246,25 @@ class SignoffInformationCenterHandler extends Handler {
 		}
 
 		return $json->getString();
+	}
+
+
+	//
+	// Private functions
+	//
+	/**
+	 * Get an array representing link parameters that subclasses
+	 * need to have passed to their various handlers (i.e. submission ID
+	 * to the delete note handler).
+	 * @return array
+	 */
+	function _getLinkParams() {
+		return array_merge(
+			parent::_getLinkParams(),
+			array(
+				'stageId' => $this->_stageId,
+			)
+		);
 	}
 }
 

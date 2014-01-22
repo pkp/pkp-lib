@@ -17,24 +17,11 @@ import('lib.pkp.classes.core.JSONMessage');
 import('classes.log.SubmissionEventLogEntry');
 
 class PKPSubmissionInformationCenterHandler extends InformationCenterHandler {
-	/** @var Submission */
-	var $_submission;
-
 	/**
 	 * Constructor
 	 */
 	function PKPSubmissionInformationCenterHandler() {
 		parent::InformationCenterHandler();
-	}
-
-	/**
-	 * Fetch and store away objects
-	 */
-	function initialize($request, $args = null) {
-		parent::initialize($request, $args);
-
-		// Fetch the submission to display information about
-		$this->_submission =& $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 	}
 
 	/**
@@ -167,15 +154,6 @@ class PKPSubmissionInformationCenterHandler extends InformationCenterHandler {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('submissionId', $this->_submission->getId());
 		return $templateMgr->fetchJson('controllers/informationCenter/submissionHistory.tpl');
-	}
-
-	/**
-	 * Get an array representing link parameters that subclasses
-	 * need to have passed to their various handlers (i.e. submission ID to
-	 * the delete note handler). Subclasses should implement.
-	 */
-	function _getLinkParams() {
-		return array('submissionId' => $this->_submission->getId());
 	}
 
 	/**

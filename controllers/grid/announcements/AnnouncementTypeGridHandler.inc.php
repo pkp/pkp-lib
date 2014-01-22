@@ -198,7 +198,7 @@ class AnnouncementTypeGridHandler extends GridHandler {
 	/**
 	 * Delete an announcement type.
 	 * @param $args array
-	 * @param $request
+	 * @param $request PKPRequest
 	 */
 	function deleteAnnouncementType($args, $request) {
 		$announcementTypeId = (int) $request->getUserVar('announcementTypeId');

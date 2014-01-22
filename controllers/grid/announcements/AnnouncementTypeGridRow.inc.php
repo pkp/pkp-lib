@@ -34,7 +34,7 @@ class AnnouncementTypeGridRow extends GridRow {
 		parent::initialize($request);
 
 		// Is this a new row or an existing row?
-		$element =& $this->getData();
+		$element = $this->getData();
 		assert(is_a($element, 'AnnouncementType'));
 
 		$rowId = $this->getId();

@@ -17,6 +17,8 @@ import('lib.pkp.classes.submission.form.SubmissionSubmitForm');
 class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	/**
 	 * Constructor.
+	 * @param $context Context
+	 * @param $submission Submission (optional)
 	 */
 	function PKPSubmissionSubmitStep1Form($context, $submission = null) {
 		parent::SubmissionSubmitForm($context, $submission, 1);

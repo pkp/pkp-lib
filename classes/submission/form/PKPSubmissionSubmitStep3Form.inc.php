@@ -21,6 +21,9 @@ class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm {
 
 	/**
 	 * Constructor.
+	 * @param $context Context
+	 * @param $submission Submission
+	 * @param $metadataFormImplementation MetadataFormImplementation
 	 */
 	function PKPSubmissionSubmitStep3Form($context, $submission, $metadataFormImplementation) {
 		parent::SubmissionSubmitForm($context, $submission, 3);
@@ -49,7 +52,7 @@ class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm {
 	 * @return array
 	 */
 	function getLocaleFieldNames() {
-		$this->_metadataFormImplem->getLocaleFieldNames();
+		return $this->_metadataFormImplem->getLocaleFieldNames();
 	}
 
 	/**

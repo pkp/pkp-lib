@@ -171,7 +171,7 @@ class Form {
 
 
 		// Attach this form object to the Form Builder Vocabulary for validation to work
-		$fbv =& $templateMgr->getFBV();
+		$fbv = $templateMgr->getFBV();
 		$fbv->setForm($this);
 
 		$templateMgr->assign($this->_data);

@@ -190,7 +190,7 @@ class PKPAnnouncementForm extends Form {
 	 * @param $annoucement Announcement the announcement to be modified
 	 * @return boolean
 	 */
-	function setDateExpire(&$announcement) {
+	function setDateExpire($announcement) {
 		return false;
 	}
 

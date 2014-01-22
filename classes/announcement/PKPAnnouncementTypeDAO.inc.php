@@ -45,7 +45,7 @@ class PKPAnnouncementTypeDAO extends DAO {
 
 		$returner = null;
 		if ($result->RecordCount() != 0) {
-			$returner =& $this->_returnAnnouncementTypeFromRow($result->GetRowAssoc(false));
+			$returner = $this->_fromRow($result->GetRowAssoc(false));
 		}
 		$result->Close();
 		return $returner;
@@ -89,7 +89,8 @@ class PKPAnnouncementTypeDAO extends DAO {
 	/**
 	 * Check if a announcement type exists with the given type id for a assoc type/id pair.
 	 * @param $typeId int
-	 * @param $assocType int
+	 * @param $assocType int ASSOC_TYPE_...
+	 * @param $assocId int
 	 * @return boolean
 	 */
 	function announcementTypeExistsByTypeId($typeId, $assocType, $assocId) {
@@ -111,6 +112,10 @@ class PKPAnnouncementTypeDAO extends DAO {
 		return $returner;
 	}
 
+	/**
+	 * Get the locale field names.
+	 * @return array
+	 */
 	function getLocaleFieldNames() {
 		return array('name');
 	}
@@ -118,7 +123,7 @@ class PKPAnnouncementTypeDAO extends DAO {
 	/**
 	 * Return announcement type ID based on a type name for an assoc type/id pair.
 	 * @param $typeName string
-	 * @param $assocType int
+	 * @param $assocType int ASSOC_TYPE_...
 	 * @param $assocId int
 	 * @return int
 	 */
@@ -148,7 +153,7 @@ class PKPAnnouncementTypeDAO extends DAO {
 	 * @param $row array
 	 * @return AnnouncementType
 	 */
-	function &_returnAnnouncementTypeFromRow($row) {
+	function _fromRow($row) {
 		$announcementType = $this->newDataObject();
 		$announcementType->setId($row['type_id']);
 		$announcementType->setAssocType($row['assoc_type']);
@@ -162,7 +167,7 @@ class PKPAnnouncementTypeDAO extends DAO {
 	 * Update the localized settings for this object
 	 * @param $announcementType object
 	 */
-	function updateLocaleFields(&$announcementType) {
+	function updateLocaleFields($announcementType) {
 		$this->updateDataObjectSettings('announcement_type_settings', $announcementType, array(
 			'type_id' => (int) $announcementType->getId()
 		));
@@ -194,7 +199,7 @@ class PKPAnnouncementTypeDAO extends DAO {
 	 * @param $announcement AnnouncementType
 	 * @return boolean
 	 */
-	function updateObject(&$announcementType) {
+	function updateObject($announcementType) {
 		$returner = $this->update(
 			'UPDATE	announcement_types
 			SET	assoc_type = ?,
@@ -236,7 +241,8 @@ class PKPAnnouncementTypeDAO extends DAO {
 
 	/**
 	 * Delete announcement types by association.
-	 * @param $assocType int
+	 * @param $assocType int ASSOC_TYPE_...
+	 * @param $assocId int
 	 */
 	function deleteByAssoc($assocType, $assocId) {
 		$types = $this->getByAssoc($assocType, $assocId);
@@ -247,7 +253,9 @@ class PKPAnnouncementTypeDAO extends DAO {
 
 	/**
 	 * Retrieve an array of announcement types matching a particular Assoc ID.
-	 * @param $assocType int
+	 * @param $assocType int ASSOC_TYPE_...
+	 * @param $assocId int
+	 * @param $rangeInfo DBResultRange (optional)
 	 * @return object DAOResultFactory containing matching AnnouncementTypes
 	 */
 	function getByAssoc($assocType, $assocId, $rangeInfo = null) {
@@ -257,7 +265,7 @@ class PKPAnnouncementTypeDAO extends DAO {
 			$rangeInfo
 		);
 
-		return new DAOResultFactory($result, $this, '_returnAnnouncementTypeFromRow');
+		return new DAOResultFactory($result, $this, '_fromRow');
 	}
 
 	/**

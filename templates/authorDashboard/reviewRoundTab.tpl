@@ -13,7 +13,8 @@
 			'$.pkp.controllers.TabHandler',
 			{ldelim}
 				{assign var=roundIndex value=$lastReviewRoundNumber-1}
-				selected: {$roundIndex}
+				selected: {$roundIndex},
+				notScrollable: true
 			{rdelim}
 		);
 	{rdelim});

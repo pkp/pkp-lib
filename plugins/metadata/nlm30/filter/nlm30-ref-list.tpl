@@ -1,8 +1,7 @@
 {**
  * nlm.tpl
  *
- * Copyright (c) 2013 Simon Fraser University Library
- * Copyright (c) 2000-2013 John Willinsky
+ * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * NLM Journal Publication Tag Set 3.0 XML document output.
@@ -12,7 +11,7 @@
  *}
 <ref-list>
 	{foreach from=$citationsOutput key=seq item=citationOutput}
-		<ref id="B{$seq}">
+		<ref id="ref{$seq}">
 			<label>{$seq}</label>
 			{$citationOutput}
 		</ref>

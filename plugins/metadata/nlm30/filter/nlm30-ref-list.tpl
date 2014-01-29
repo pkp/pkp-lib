@@ -1,7 +1,7 @@
 {**
  * nlm.tpl
  *
- * Copyright (c) 2000-2013 John Willinsky
+ * Copyright (c) 2000-2013 Simon Fraser University Library
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * NLM Journal Publication Tag Set 3.0 XML document output.

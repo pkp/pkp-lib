@@ -97,8 +97,31 @@ class EditorDecisionNotificationManager extends NotificationManagerDelegate {
 			$context->getId(),
 			ASSOC_TYPE_SUBMISSION,
 			$assocId,
-			NOTIFICATION_LEVEL_NORMAL
+			$this->_getNotificationTaskLevel($this->getNotificationType())
 		);
+	}
+
+	/**
+	 * @copydoc INotificationInfoProvider::getNotificationUrl()
+	 */
+	public function getNotificationUrl($request, $notification) {
+			switch ($notification->getType()) {
+			case NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS:
+				$submissionDao = Application::getSubmissionDAO();
+				$submission = $submissionDao->getById($notification->getAssocId());
+				import('lib.pkp.controllers.grid.submissions.SubmissionsListGridCellProvider');
+				list($page, $operation) = SubmissionsListGridCellProvider::getPageAndOperationByUserRoles($request, $submission);
+				$router = $request->getRouter();
+				$dispatcher = $router->getDispatcher();
+				$contextDao = Application::getContextDAO();
+				$context = $contextDao->getById($submission->getContextId());
+				// this will probably be authorDashboard/submission, but the possibility exists that an editor is
+				// revising a submission without being an author in the stage assignments.
+				return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), $page, $operation, $submission->getId());
+
+			default:
+				return '';
+		}
 	}
 
 	//
@@ -118,6 +141,20 @@ class EditorDecisionNotificationManager extends NotificationManagerDelegate {
 			NOTIFICATION_TYPE_EDITOR_DECISION_DECLINE,
 			NOTIFICATION_TYPE_EDITOR_DECISION_SEND_TO_PRODUCTION
 		);
+	}
+
+	/**
+	 * Get the notification level for the type of notification being created.
+	 * @param int $type
+	 * @return int
+	 */
+	function _getNotificationTaskLevel($type) {
+		switch ($type) {
+			case NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS:
+				return NOTIFICATION_LEVEL_TASK;
+			default:
+				return NOTIFICATION_LEVEL_NORMAL;
+		}
 	}
 }
 

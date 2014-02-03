@@ -396,6 +396,11 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 					ASSOC_TYPE_REVIEW_ROUND,
 					$reviewRound->getId()
 				);
+
+				// Delete any 'revision requested' notifications since all revisions are now in.
+				$context = $request->getContext();
+				$notificationDao = DAORegistry::getDAO('NotificationDAO');
+				$notificationDao->deleteByAssoc(ASSOC_TYPE_SUBMISSION, $submission->getId(), $submission->getUserId(), NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS, $context->getId());
 			}
 
 			// Log the upload event

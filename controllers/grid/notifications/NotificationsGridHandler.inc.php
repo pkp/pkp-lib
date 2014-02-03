@@ -54,7 +54,7 @@ class NotificationsGridHandler extends GridHandler {
 	 */
 	function initialize($request, $args = null) {
 		parent::initialize($request);
-		AppLocale::requireComponents(LOCALE_COMPONENT_APP_SUBMISSION);
+		AppLocale::requireComponents(LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_PKP_SUBMISSION);
 
 		$cellProvider = new NotificationsGridCellProvider();
 		$this->addColumn(

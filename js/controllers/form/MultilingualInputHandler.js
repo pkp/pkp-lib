@@ -37,7 +37,7 @@
 
 		$popoverNode
 				.focus(this.callbackWrapper(this.focusHandler_));
-		// Bind to the blur of any of the inputs to to check if we should close.
+		// Bind to the blur of any of the inputs to check if we should close.
 		$popover.find(':input').
 				blur(this.callbackWrapper(this.blurHandler_));
 

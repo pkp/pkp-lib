@@ -184,7 +184,8 @@ class PKPPageRouter extends PKPRouter {
 		// opportunity to load required resources and set HANDLER_CLASS.
 		if (!HookRegistry::call('LoadHandler', array(&$page, &$op, &$sourceFile))) {
 			if (file_exists($sourceFile)) require('./'.$sourceFile);
-			elseif (file_exists('lib/pkp/'.$sourceFile)) require('./lib/pkp/'.$sourceFile);
+			elseif (file_exists(PKP_LIB_PATH . DIRECTORY_SEPARATOR . $sourceFile))
+				require('.' . DIRECTORY_SEPARATOR . PKP_LIB_PATH . DIRECTORY_SEPARATOR . $sourceFile);
 			elseif (empty($page)) require(ROUTER_DEFAULT_PAGE);
 			else {
 				$dispatcher = $this->getDispatcher();

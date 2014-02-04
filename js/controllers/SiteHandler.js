@@ -129,6 +129,22 @@
 	};
 
 
+	/**
+	 * Callback used by the tinyMCE plugin upon setup.
+	 * @param {Object} tinyMCEObject The tinyMCE object instance being
+	 * set up.
+	 */
+	$.pkp.controllers.SiteHandler.prototype.triggerTinyMCESetup =
+			function(tinyMCEObject) {
+		var $inputElement = $('#' + tinyMCEObject.id);
+
+		// For read-only controls, set up TinyMCE read-only mode.
+		if ($inputElement.attr('readonly')) {
+			tinyMCEObject.settings.readonly = true;
+		}
+	};
+
+
 	//
 	// Public methods
 	//

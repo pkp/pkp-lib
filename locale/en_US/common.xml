@@ -348,6 +348,7 @@
 	<message key="informationCenter.pastHistory">Earlier Revisions</message>
 	<message key="informationCenter.history.noItems">There are no events logged.</message>
 	<message key="informationCenter.history.notePosted">Posted new note.</message>
+	<message key="informationCenter.history.messageSent">Notification sent to users.</message>
 
 	<!-- Stage Participants -->
 	<message key="stageParticipants.history.messageSent">Notification sent to users.</message>

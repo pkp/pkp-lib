@@ -14,4 +14,5 @@
 		sortable CDATA #REQUIRED
 		category CDATA #REQUIRED
 		dependent CDATA #REQUIRED
-		localeKey CDATA #REQUIRED>
+		localeKey CDATA #REQUIRED
+		designation CDATA #REQUIRED>

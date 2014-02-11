@@ -38,11 +38,10 @@ class PKPUserImportExportPlugin extends ImportExportPlugin {
 	}
 
 	/**
-	 * Get the template path
-	 * @return string
+	 * @see Plugin::getTemplatePath($inCore)
 	 */
-	function getTemplatePath() {
-		return parent::getTemplatePath() . 'templates/';
+	function getTemplatePath($inCore = false) {
+		return parent::getTemplatePath($inCore) . 'templates/';
 	}
 
 	/**

@@ -318,12 +318,15 @@ class Plugin {
 
 	/**
 	 * Return the canonical template path of this plug-in
-	 *
+	 * @param $inCore Return the core template path if true.
 	 * @return string
 	 */
-	function getTemplatePath() {
+	function getTemplatePath($inCore = false) {
 		$basePath = Core::getBaseDir();
-		return "file:$basePath/" . $this->getPluginPath() . '/';
+		if ($inCore) {
+			$basePath = $basePath . DIRECTORY_SEPARATOR . PKP_LIB_PATH;
+		}
+		return "file:$basePath" . DIRECTORY_SEPARATOR . $this->getPluginPath() . DIRECTORY_SEPARATOR;
 	}
 
 	/**

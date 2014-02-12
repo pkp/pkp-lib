@@ -68,10 +68,26 @@ class Genre extends DataObject {
 
 	/**
 	 * Set key of genre.
-	 * @param $sequence float
+	 * @param $key string
 	 */
 	function setKey($key) {
 		return $this->setData('key', $key);
+	}
+
+	/**
+	 * Get enabled status of genre.
+	 * @return boolean
+	 */
+	function getEnabled() {
+		return $this->getData('enabled');
+	}
+
+	/**
+	 * Set enabled status of genre.
+	 * @param $enabled boolean
+	 */
+	function setEnabled($enabled) {
+		return $this->setData('enabled', $enabled);
 	}
 
 	/**

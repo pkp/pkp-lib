@@ -103,6 +103,29 @@ class GenreDAO extends DAO {
 	}
 
 	/**
+	 * Retrieves the genre associated with a key.
+	 * @param $key String the entry key
+	 * @param $contextId int optional
+	 * @return Genre
+	 */
+	function getByKey($key, $contextId = null) {
+		$params = array($key);
+		if ($contextId) $params[] = (int) $contextId;
+
+		$sql = 'SELECT * FROM genres WHERE entry_key = ? ' .
+		($contextId ? ' AND context_id = ?' : '');
+
+		$result = $this->retrieve($sql, $params);
+
+		$returner = null;
+		if ($result->RecordCount() != 0) {
+			$returner = $this->_fromRow($result->GetRowAssoc(false));
+		}
+		$result->Close();
+		return $returner;
+	}
+
+	/**
 	 * Get a list of field names for which data is localized.
 	 * @return array
 	 */
@@ -151,6 +174,7 @@ class GenreDAO extends DAO {
 		$genre->setCategory($row['category']);
 		$genre->setDependent($row['dependent']);
 		$genre->setSequence($row['seq']);
+		$genre->setEnabled($row['enabled']);
 
 		$this->getDataObjectSettings('genre_settings', 'genre_id', $row['genre_id'], $genre);
 
@@ -194,13 +218,15 @@ class GenreDAO extends DAO {
 			SET	entry_key = ?,
 				seq = ?,
 				sortable = ?,
-				dependent = ?
+				dependent = ?,
+				enabled = ?
 			WHERE	genre_id = ?',
 			array(
 				$genre->getKey(),
 				(float) $genre->getSequence(),
 				$genre->getSortable() ? 1 : 0,
 				$genre->getDependent() ? 1 : 0,
+				$genre->getEnabled() ? 1 : 0,
 				(int) $genre->getId(),
 			)
 		);
@@ -265,7 +291,10 @@ class GenreDAO extends DAO {
 
 		foreach ($data['genre'] as $entry) {
 			$attrs = $entry['attributes'];
-			$genre = $this->newDataObject();
+			// attempt to retrieve an installed Genre with this key.
+			// Do this to preserve the genreId.
+			$genre = $this->getByKey($attrs['key'], $contextId);
+			if (!$genre) $genre = $this->newDataObject();
 			$genre->setContextId($contextId);
 			$genre->setKey($attrs['key']);
 			$genre->setSortable($attrs['sortable']);
@@ -277,8 +306,20 @@ class GenreDAO extends DAO {
 			}
 			$genre->setDesignation($attrs['designation']);
 
-			$this->insertObject($genre);
+			if ($genre->getId() > 0) { // existing genre.
+				$this->updateObject($genre);
+			} else {
+				$this->insertObject($genre);
+			}
 		}
+	}
+
+	/**
+	 * Remove all settings associated with a locale
+	 * @param $locale
+	 */
+	function deleteSettingsByLocale($locale) {
+		return $this->update('DELETE FROM genre_settings WHERE locale = ?', $locale);
 	}
 }
 

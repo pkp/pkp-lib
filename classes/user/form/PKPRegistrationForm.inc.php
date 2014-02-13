@@ -295,7 +295,7 @@ class PKPRegistrationForm extends Form {
 			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 			if ($context->getSetting('allowRegReviewer')) {
 				$reviewerGroup = $this->getData('reviewerGroup');
-				$reviewerUserGroups = $userGroupDao->getByRoleId(ROLE_ID_REVIEWER, $context->getId());
+				$reviewerUserGroups = $userGroupDao->getByRoleId($context->getId(), ROLE_ID_REVIEWER);
 				$reviewerUserGroups = $reviewerUserGroups->toAssociativeArray();
 
 				if (is_array($reviewerGroup)) {
@@ -311,7 +311,7 @@ class PKPRegistrationForm extends Form {
 
 			if ($context->getSetting('allowRegAuthor')) {
 				$authorGroup = $this->getData('authorGroup');
-				$authorUserGroups = $userGroupDao->getByRoleId(ROLE_ID_AUTHOR, $context->getId());
+				$authorUserGroups = $userGroupDao->getByRoleId($context->getId(), ROLE_ID_AUTHOR);
 				$authorUserGroups = $authorUserGroups->toAssociativeArray();
 
 				if (isset($authorGroup)) {

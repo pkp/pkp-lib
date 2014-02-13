@@ -141,17 +141,21 @@
 		{fbvFormSection title="user.register.registerAs" list=true}
 			{if $allowRegAuthor}
 				{iterate from=authorUserGroups item=userGroup}
-					{assign var="userGroupId" value=$userGroup->getId()}
-					{if $authorGroup == $userGroupId}{assign var="checked" value=true}{else}{assign var="checked" value=false}{/if}
-					{fbvElement type="radio" id="authorGroup-$userGroupId" name="authorGroup" value=$userGroupId label=$userGroup->getLocalizedName() translate=false checked=$checked}
+					{if $userGroup->getPermitSelfRegistration()}
+						{assign var="userGroupId" value=$userGroup->getId()}
+						{if $authorGroup == $userGroupId}{assign var="checked" value=true}{else}{assign var="checked" value=false}{/if}
+						{fbvElement type="radio" id="authorGroup-$userGroupId" name="authorGroup" value=$userGroupId label=$userGroup->getLocalizedName() translate=false checked=$checked}
+					{/if}{* Permit self registration *}
 				{/iterate}
 			{/if}
 			<div class="pkp_helpers_clear"></div>
 			{if $allowRegReviewer}
 				{iterate from=reviewerUserGroups item=userGroup}
-					{assign var="userGroupId" value=$userGroup->getId()}
-					{if $reviewerGroup[$userGroupId] != ''}{assign var="checked" value=true}{else}{assign var="checked" value=false}{/if}
-					{fbvElement type="checkbox" id="reviewerGroup-$userGroupId" name="reviewerGroup[$userGroupId]" label=$userGroup->getLocalizedName() checked=$checked translate=false}
+					{if $userGroup->getPermitSelfRegistration()}
+						{assign var="userGroupId" value=$userGroup->getId()}
+						{if $reviewerGroup[$userGroupId] != ''}{assign var="checked" value=true}{else}{assign var="checked" value=false}{/if}
+						{fbvElement type="checkbox" id="reviewerGroup-$userGroupId" name="reviewerGroup[$userGroupId]" label=$userGroup->getLocalizedName() checked=$checked translate=false}
+					{/if}{* Permit self registration *}
 				{/iterate}
 			{/if}
 		{/fbvFormSection}

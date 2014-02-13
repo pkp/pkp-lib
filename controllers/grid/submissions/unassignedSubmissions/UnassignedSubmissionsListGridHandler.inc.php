@@ -102,7 +102,6 @@ class UnassignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 			}
 		}
 
-
 		import('lib.pkp.classes.core.VirtualArrayIterator');
 		return new VirtualArrayIterator($accessibleSubmissions, $submissionFactory->getCount(), $rangeInfo->getPage(), $rangeInfo->getCount());
 	}

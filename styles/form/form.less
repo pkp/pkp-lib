@@ -68,7 +68,7 @@ span.pkp_form_error {
 		clear: left;
 		margin-bottom: 10px;
 	}
-	
+
 	div.section:after {
 		clear: both;
 		content: "";
@@ -181,7 +181,6 @@ span.pkp_form_error {
 	}
 
 	.localization_popover_container {
-
 		input, textarea, select {
 		}
 //
@@ -198,6 +197,21 @@ span.pkp_form_error {
 			position: relative;
 			z-index:1;
 		}
+
+		// Localization globe icon within TinyMce
+		div.mceGlobe {
+			position: absolute;
+			top: 2px;
+			right: 2px;
+			z-index: 1;
+			width: 16px;
+			height: 16px;
+		}
+	}
+
+	// Makes it posible to displey the localization globe icon within TinyMce
+	div.mceGlobeParent {
+		position: relative;
 	}
 
 	.localization_popover_container_focus {
@@ -220,6 +234,9 @@ span.pkp_form_error {
 	.localization_popover {
 		input, textarea, select {
 			background: none;
+		}
+		div.mceGlobe {
+			display: none;
 		}
 
 		box-shadow: 3px 3px 6px #999999;

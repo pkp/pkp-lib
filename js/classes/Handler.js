@@ -573,6 +573,15 @@
 				$('#' + elementId).find('.richContent').each(function(index) {
 					var id = /** @type {string} */ ($(this).attr('id'));
 					tinyMCE.execCommand('mceAddControl', false, id);
+
+					if ($(this).hasClass('localizable')) {
+						var globe = $('<div></div>');
+						globe.addClass('mceGlobe');
+						globe.addClass('localizable');
+						var globeParent = $(this).parent();
+						globeParent.append(globe);
+						globeParent.parent().addClass('mceGlobeParent');
+					}
 				});
 			}, 500);
 		}

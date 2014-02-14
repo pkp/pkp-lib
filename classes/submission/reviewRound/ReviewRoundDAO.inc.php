@@ -246,7 +246,7 @@ class ReviewRoundDAO extends DAO {
 	 * @return int
 	 */
 	function getInsertId() {
-		return $this->_getInsertId('review_rounds', 'user_id');
+		return $this->_getInsertId('review_rounds', 'review_round_id');
 	}
 
 	/**

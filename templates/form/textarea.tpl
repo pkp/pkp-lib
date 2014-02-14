@@ -38,7 +38,7 @@
 					{strip}
 					<textarea id="{$FBV_id|escape}-{$thisFormLocale|escape}{$uniqId}" {$FBV_textAreaParams}
 						placeholder="{$thisFormLocaleName|escape}"
-						class="locale_{$thisFormLocale|escape} {$FBV_class} {$FBV_height}{if $FBV_rich && !$FBV_disabled} richContent{/if}"
+						class="flag flag_{$thisFormLocale|escape} {$FBV_class} {$FBV_height}{if $FBV_rich && !$FBV_disabled} richContent{/if}"
 						{if $FBV_disabled} disabled="disabled"{/if}
 						{if $FBV_readonly} readonly="readonly"{/if}
 						name="{$FBV_name|escape}[{$thisFormLocale|escape}]">{$FBV_value[$thisFormLocale]|escape}

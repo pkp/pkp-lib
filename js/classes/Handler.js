@@ -574,10 +574,10 @@
 					var id = /** @type {string} */ ($(this).attr('id'));
 					tinyMCE.execCommand('mceAddControl', false, id);
 
+					// For localizable text fields add globe and flag icons
 					if ($(this).hasClass('localizable') || $(this).hasClass('flag')) {
 						var icon = $('<div></div>');
-						icon.addClass('mceLocalizationIcon');
-						icon.addClass('localizable');
+						icon.addClass('mceLocalizationIcon localizable');
 						var iconParent = $('<div></div>');
 						iconParent.addClass('mceLocalizationIconParent');
 						$(this).wrap(iconParent);

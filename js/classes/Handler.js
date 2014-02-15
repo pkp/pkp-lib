@@ -574,13 +574,30 @@
 					var id = /** @type {string} */ ($(this).attr('id'));
 					tinyMCE.execCommand('mceAddControl', false, id);
 
-					if ($(this).hasClass('localizable')) {
-						var globe = $('<div></div>');
-						globe.addClass('mceGlobe');
-						globe.addClass('localizable');
-						var globeParent = $(this).parent();
-						globeParent.append(globe);
-						globeParent.parent().addClass('mceGlobeParent');
+					if ($(this).hasClass('localizable') || $(this).hasClass('flag')) {
+						var icon = $('<div></div>');
+						icon.addClass('mceLocalizationIcon');
+						icon.addClass('localizable');
+						var iconParent = $('<div></div>');
+						iconParent.addClass('mceLocalizationIconParent');
+						$(this).wrap(iconParent);
+						$(this).parent().append(icon);
+
+						if ($(this).hasClass('localizable')) {
+							// Add a globe icon to localizable TinyMCE textareas
+							icon.addClass('mceGlobe');
+						} else if ($(this).hasClass('flag')) {
+							// Add country flag icon to localizable TinyMCE textareas
+							var classes = $(this).attr('class').split(' ');
+							if (classes.length) {
+								for (var i = 0; i < classes.length; i++) {
+									if (classes[i].match(/^flag_[a-z]{2}_[A-Z]{2}$/)) {
+										icon.addClass(classes[i]);
+										break;
+									}
+								}
+							}
+						}
 					}
 				});
 			}, 500);

@@ -142,6 +142,40 @@
 		if ($inputElement.attr('readonly')) {
 			tinyMCEObject.settings.readonly = true;
 		}
+
+		// Add support for HTML5 placeholders
+		var placeHolderHTML = function(id) {
+			var placeholder = $('#' + id).attr('placeholder');
+			if (typeof placeholder === 'undefined') return;
+			return '<p style="color: #aaa;">' + placeholder + '</p>';
+		};
+		tinyMCEObject.onInit.add(function(tinyMCEObject) {
+			if (tinyMCEObject.getContent().length) return;
+
+			html = placeHolderHTML(tinyMCEObject.id);
+			if (typeof html === 'undefined') return;
+
+			// Add the placholder HTML when the editor is created
+			tinyMCEObject.setContent(html);
+		});
+		tinyMCEObject.onActivate.add(function(tinyMCEObject) {
+			html = placeHolderHTML(tinyMCEObject.id);
+			if (typeof html === 'undefined') return;
+
+			// Remove the placholder HTML when the editor is focussed
+			if (tinyMCEObject.getContent() == html) {
+				tinyMCEObject.setContent('');
+			}
+		});
+		tinyMCEObject.onDeactivate.add(function(tinyMCEObject) {
+			html = placeHolderHTML(tinyMCEObject.id);
+			if (typeof html === 'undefined') return;
+
+			// Re-add the placholder HTML when the editor is deactivated
+			if (!tinyMCEObject.getContent().length) {
+				tinyMCEObject.setContent(html);
+			}
+		});
 	};
 
 

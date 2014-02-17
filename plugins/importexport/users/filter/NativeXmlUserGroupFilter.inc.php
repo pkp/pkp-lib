@@ -96,7 +96,9 @@ class NativeXmlUserGroupFilter extends NativeImportFilter {
 				$n = $stageNodeList->item(0);
 				$assignedStages = preg_split('/:/', $n->textContent);
 				foreach ($assignedStages as $stage) {
-					$userGroupDao->assignGroupToStage($context->getId(), $userGroupId, $stage);
+					if($stage >= WORKFLOW_STAGE_ID_SUBMISSION && $stage <= WORKFLOW_STAGE_ID_PRODUCTION) {
+						$userGroupDao->assignGroupToStage($context->getId(), $userGroupId, $stage);
+					}
 				}
 			}
 

@@ -64,6 +64,8 @@ class ExportableSubmissionsListGridHandler extends SubmissionsListGridHandler {
 		if (!$request->getUserVar('hideSelectColumn')) {
 			import('lib.pkp.classes.controllers.grid.feature.selectableItems.SelectableItemsFeature');
 			return array(new SelectableItemsFeature());
+		} else {
+			return array();
 		}
 	}
 

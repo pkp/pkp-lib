@@ -573,6 +573,32 @@
 				$('#' + elementId).find('.richContent').each(function(index) {
 					var id = /** @type {string} */ ($(this).attr('id'));
 					tinyMCE.execCommand('mceAddControl', false, id);
+
+					// For localizable text fields add globe and flag icons
+					if ($(this).hasClass('localizable') || $(this).hasClass('flag')) {
+						var icon = $('<div></div>');
+						icon.addClass('mceLocalizationIcon localizable');
+						var iconParent = $('<div></div>');
+						iconParent.addClass('mceLocalizationIconParent');
+						$(this).wrap(iconParent);
+						$(this).parent().append(icon);
+
+						if ($(this).hasClass('localizable')) {
+							// Add a globe icon to localizable TinyMCE textareas
+							icon.addClass('mceGlobe');
+						} else if ($(this).hasClass('flag')) {
+							// Add country flag icon to localizable TinyMCE textareas
+							var classes = $(this).attr('class').split(' ');
+							if (classes.length) {
+								for (var i = 0; i < classes.length; i++) {
+									if (classes[i].match(/^flag_[a-z]{2}_[A-Z]{2}$/)) {
+										icon.addClass(classes[i]);
+										break;
+									}
+								}
+							}
+						}
+					}
 				});
 			}, 500);
 		}

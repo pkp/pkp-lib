@@ -13,49 +13,38 @@
 	@pkp_form_flag_mixin {
 		margin: 0;
 		background-repeat: no-repeat;
+		background-color: #fff !important;
+		background-repeat: no-repeat;
+		background-position: 99.5% 3px;
 	}
 
-	@pkp_form_input_flag_mixin {
-		background-position: 98% 50%;
-	}
-
-	@pkp_form_textArea_flag_mixin {
-		background-position: 99.5% 2px;
-	}
-
-	input.locale_en_US {
+	.flag_en_US {
 		@pkp_form_flag_mixin;
-		@pkp_form_input_flag_mixin;
 		background-image: url({$baseUrl}/lib/pkp/templates/images/structure/flags/en_US.png) !important;
 	}
 
-	input.locale_fr_CA {
+	.flag_fr_CA {
 		@pkp_form_flag_mixin;
-		@pkp_form_input_flag_mixin;
 		background-image: url({$baseUrl}/lib/pkp/templates/images/structure/flags/fr_CA.png) !important;
 	}
 
-	input.locale_te_ST {
+	.flag_te_ST {
 		@pkp_form_flag_mixin;
-		@pkp_form_input_flag_mixin;
 		background-image: url({$baseUrl}/lib/pkp/templates/images/structure/flags/te_ST.png) !important;
 	}
 
-	textarea.locale_en_US {
+	.flag_el_GR {
 		@pkp_form_flag_mixin;
-		@pkp_form_textArea_flag_mixin;
-		background-image: url({$baseUrl}/lib/pkp/templates/images/structure/flags/en_US.png) !important;
+		background-image: url({$baseUrl}/lib/pkp/templates/images/structure/flags/el_GR.png) !important;
 	}
 
-	textarea.locale_fr_CA {
+	.flag_es_ES {
 		@pkp_form_flag_mixin;
-		@pkp_form_textArea_flag_mixin;
-		background-image: url({$baseUrl}/lib/pkp/templates/images/structure/flags/fr_CA.png) !important;
+		background-image: url({$baseUrl}/lib/pkp/templates/images/structure/flags/es_ES.png) !important;
 	}
 
-	textarea.locale_te_ST {
+	.flag_pt_BR {
 		@pkp_form_flag_mixin;
-		@pkp_form_textArea_flag_mixin;
-		background-image: url({$baseUrl}/lib/pkp/templates/images/structure/flags/te_ST.png) !important;
+		background-image: url({$baseUrl}/lib/pkp/templates/images/structure/flags/pt_BR.png) !important;
 	}
 }

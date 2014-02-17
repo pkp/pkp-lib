@@ -46,7 +46,7 @@
 		{rdelim});
 		</script>
 		<span id="{$FBV_id|escape}-localization-popover-container{$uniqId}" class="localization_popover_container pkpTagit">
-			<ul class="localization_popover_container localizable {if $formLocale != $currentLocale} locale_{$formLocale|escape}{/if}" id="{$formLocale|escape}-{$FBV_id|escape}{$uniqId}">
+			<ul class="localization_popover_container localizable {if $formLocale != $currentLocale} flag flag_{$formLocale|escape}{/if}" id="{$formLocale|escape}-{$FBV_id|escape}{$uniqId}">
 				{if $FBV_currentKeywords}{foreach from=$FBV_currentKeywords.$formLocale item=currentKeyword}<li>{$currentKeyword|escape}</li>{/foreach}{/if}
 			</ul>
 			{if $FBV_label_content}<span>{$FBV_label_content}</span>{/if}

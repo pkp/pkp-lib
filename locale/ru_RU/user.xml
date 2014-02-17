@@ -117,7 +117,7 @@
 	<message key="user.salutation">Приветствие</message>
 	<message key="user.sendPassword">Подтверждение</message>
 	<message key="user.sendPassword.description">Отправить мне подтверждение по электронной почте, содержащее мои имя пользователя и пароль</message>
-	<message key="user.signature">Подпись</message>
+	<message key="user.signature">Подпись для отправляемых писем</message>
 	<message key="user.suffix">Суффикс</message>
 	<message key="user.title">Обращение</message>
 	<message key="user.url">URL</message>

@@ -322,7 +322,7 @@
 	<message key="submission.layout.noStyleFile">Файл таблицы стилей не был добавлен к этой гранке.</message>
 	<message key="submission.layout.supplementaryFiles">Рецензия на дополнительный файл</message>
 	<message key="submission.layout.viewingGalley">Просмотр гранки материала</message>
-	<message key="submission.layout.viewProof">Просмотреть правку</message>
+	<message key="submission.layout.viewProof">Показать гранку</message>
 	<message key="submission.metadata">Метаданные материала</message>
 	<message key="submission.noReviewAssignments">Нет назначенных рецензентов</message>
 	<message key="submission.notes.addNewNote">Добавить новое примечание</message>
@@ -369,7 +369,7 @@
 	<message key="submissions.queued">В очереди</message>
 	<message key="submissions.queuedUnassigned">Ждут назначения</message>
 	<message key="submissions.ruling">Правила</message>
-	<message key="submissions.submit">Отправить</message>
+	<message key="submissions.submit">Отправка</message>
 	<message key="submissions.submitted">Прислана</message>
 	<message key="submission.start">Начало</message>
 	<message key="submission.submissionHistory">История материала</message>

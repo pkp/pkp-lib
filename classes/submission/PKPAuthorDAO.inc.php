@@ -326,7 +326,10 @@ class PKPAuthorDAO extends DAO {
 	 */
 	function getPrimaryContact($submissionId) {
 		$result = $this->retrieve(
-			'SELECT * FROM authors WHERE submission_id = ? AND primary_contact = 1',
+			'SELECT a.*, ug.show_title
+				FROM authors a
+			JOIN user_groups ug ON (a.user_group_id=ug.user_group_id)
+			WHERE submission_id = ? AND primary_contact = 1',
 			(int) $submissionId
 		);
 

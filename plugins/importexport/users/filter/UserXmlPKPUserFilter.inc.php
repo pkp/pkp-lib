@@ -131,10 +131,12 @@ class UserXmlPKPUserFilter extends NativeImportFilter {
 			$interestNodeList = $node->getElementsByTagNameNS($deployment->getNamespace(), 'review_interests');
 			if ($interestNodeList->length == 0) {
 				$n = $interestNodeList->item(0);
-				$interests = preg_split('/,\s*/', $n->textContent);
-				import('lib.pkp.classes.user.InterestManager');
-				$interestManager = new InterestManager();
-				$interestManager->setInterestsForUser($user, $interests);
+				if ($n) {
+					$interests = preg_split('/,\s*/', $n->textContent);
+					import('lib.pkp.classes.user.InterestManager');
+					$interestManager = new InterestManager();
+					$interestManager->setInterestsForUser($user, $interests);
+				}
 			}
 
 			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');

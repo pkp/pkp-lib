@@ -9,7 +9,8 @@ jQuery.pkp.pages.submission = jQuery.pkp.pages.submission || { };
 /**
 * @file js/pages/submission/SubmissionStep3FormHandler.js
 *
-* Copyright (c) 2000-2013 John Willinsky
+* Copyright (c) 2014 Simon Fraser University Library
+* Copyright (c) 2000-2014 John Willinsky
 * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
 *
 * @class SubmissionStep3FormHandler

@@ -1,7 +1,8 @@
 {**
  * templates/controllers/wizard/fileUpload/fileUploadWizard.tpl
  *
- * Copyright (c) 2003-2013 John Willinsky
+ * Copyright (c) 2014 Simon Fraser University Library
+ * Copyright (c) 2003-2014 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * A wizard to add files or revisions of files.

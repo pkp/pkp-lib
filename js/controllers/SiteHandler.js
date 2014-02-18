@@ -136,7 +136,8 @@
 	 */
 	$.pkp.controllers.SiteHandler.prototype.triggerTinyMCESetup =
 			function(tinyMCEObject) {
-		var $inputElement = $('#' + tinyMCEObject.id);
+		var $inputElement = $('#' + tinyMCEObject.id),
+				placeHolderHTML;
 
 		// For read-only controls, set up TinyMCE read-only mode.
 		if ($inputElement.attr('readonly')) {
@@ -144,23 +145,32 @@
 		}
 
 		// Add support for HTML5 placeholders
-		var placeHolderHTML = function(id) {
+		placeHolderHTML = function(id) {
 			var placeholder = $('#' + id).attr('placeholder');
-			if (typeof placeholder === 'undefined') return;
+			if (typeof placeholder === 'undefined') {
+				return;
+			}
 			return '<p style="color: #aaa;">' + placeholder + '</p>';
 		};
 		tinyMCEObject.onInit.add(function(tinyMCEObject) {
-			if (tinyMCEObject.getContent().length) return;
+			var html;
+			if (tinyMCEObject.getContent().length) {
+				return;
+			}
 
 			html = placeHolderHTML(tinyMCEObject.id);
-			if (typeof html === 'undefined') return;
+			if (typeof html === 'undefined') {
+				return;
+			}
 
 			// Add the placholder HTML when the editor is created
 			tinyMCEObject.setContent(html);
 		});
 		tinyMCEObject.onActivate.add(function(tinyMCEObject) {
-			html = placeHolderHTML(tinyMCEObject.id);
-			if (typeof html === 'undefined') return;
+			var html = placeHolderHTML(tinyMCEObject.id);
+			if (typeof html === 'undefined') {
+				return;
+			}
 
 			// Remove the placholder HTML when the editor is focussed
 			if (tinyMCEObject.getContent() == html) {
@@ -168,8 +178,10 @@
 			}
 		});
 		tinyMCEObject.onDeactivate.add(function(tinyMCEObject) {
-			html = placeHolderHTML(tinyMCEObject.id);
-			if (typeof html === 'undefined') return;
+			var html = placeHolderHTML(tinyMCEObject.id);
+			if (typeof html === 'undefined') {
+				return;
+			}
 
 			// Re-add the placholder HTML when the editor is deactivated
 			if (!tinyMCEObject.getContent().length) {

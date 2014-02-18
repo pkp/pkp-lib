@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE schema SYSTEM "../../dtd/xmlSchema.dtd">
+
+<!--
+  * xml/schema/genres.xml
+  *
+  * Copyright (c) 2014 Simon Fraser University Library
+  * Copyright (c) 2000-2014 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Genre list schema in XML.
+  -->
+
 <schema version="0.2">
 	<!--
 	  *

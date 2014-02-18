@@ -68,7 +68,8 @@ shift $((OPTIND-1))
 ### Start Processing ###
 echo >&2
 echo "Starting PKP JavaScript builder." >&2
-echo "Copyright (c) 2010-2013 John Willinsky" >&2
+echo "Copyright (c) 2014 Simon Fraser University Library" >&2
+echo "Copyright (c) 2010-2014 John Willinsky" >&2
 
 
 ### Checking Requirements ###

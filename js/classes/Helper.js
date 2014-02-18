@@ -76,7 +76,8 @@
 	 * http://www.broofa.com, adapted by PKP.
 	 *
 	 * Copyright (c) 2010 Robert Kieffer
-	 * Copyright (c) 2010-2013 John Willinsky
+	 * Copyright (c) 2014 Simon Fraser University Library
+	 * Copyright (c) 2010-2014 John Willinsky
 	 * Distributed under the GNU GPL v2 and MIT licenses. For full
 	 * terms see the file docs/COPYING.
 	 *

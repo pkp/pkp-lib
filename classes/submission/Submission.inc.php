@@ -201,6 +201,7 @@ class Submission extends DataObject {
 
 		$str = '';
 		$lastUserGroupId = null;
+		$author = null;
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		foreach($authors as $author) {
 			if (!empty($str)) {

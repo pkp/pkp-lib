@@ -137,7 +137,7 @@
 	$.pkp.controllers.SiteHandler.prototype.triggerTinyMCESetup =
 			function(tinyMCEObject) {
 		var $inputElement = $('#' + tinyMCEObject.id),
-				placeHolderHTML;
+				placeholderHTML;
 
 		// For read-only controls, set up TinyMCE read-only mode.
 		if ($inputElement.attr('readonly')) {
@@ -145,12 +145,17 @@
 		}
 
 		// Add support for HTML5 placeholders
-		placeHolderHTML = function(id) {
-			var placeholder = $('#' + id).attr('placeholder');
+		placeholderHTML = function(id) {
+			var placeholder = $('#' + id).attr('placeholder'),
+				placeholderTag;
+
 			if (typeof placeholder === 'undefined') {
 				return;
 			}
-			return '<p style="color: #aaa;">' + placeholder + '</p>';
+
+			placeholderTag = $('<p></p>').html(placeholder);
+			placeholderTag.attr('style', 'color: #aaa;');
+			return placeholderTag[0].outerHTML;
 		};
 		tinyMCEObject.onInit.add(function(tinyMCEObject) {
 			var html;
@@ -158,7 +163,7 @@
 				return;
 			}
 
-			html = placeHolderHTML(tinyMCEObject.id);
+			html = placeholderHTML(tinyMCEObject.id);
 			if (typeof html === 'undefined') {
 				return;
 			}
@@ -167,7 +172,7 @@
 			tinyMCEObject.setContent(html);
 		});
 		tinyMCEObject.onActivate.add(function(tinyMCEObject) {
-			var html = placeHolderHTML(tinyMCEObject.id);
+			var html = placeholderHTML(tinyMCEObject.id);
 			if (typeof html === 'undefined') {
 				return;
 			}
@@ -178,7 +183,7 @@
 			}
 		});
 		tinyMCEObject.onDeactivate.add(function(tinyMCEObject) {
-			var html = placeHolderHTML(tinyMCEObject.id);
+			var html = placeholderHTML(tinyMCEObject.id);
 			if (typeof html === 'undefined') {
 				return;
 			}

@@ -533,12 +533,22 @@ class PKPRouter {
 	 * @return string the URL
 	 */
 	function _urlFromParts($baseUrl, $pathInfoArray = array(), $queryParametersArray = array(), $anchor = '', $escape = false) {
+		// parse_url does not support protocol relative URLs;
+		// work around it here (https://bugs.php.net/bug.php?id=66274)
+		if (strpos($baseUrl,'//')===0) {
+			$baseUrl = 'http:' . $baseUrl;
+			$protocolRelativeWorkaround = true;
+		} else {
+			$protocolRelativeWorkaround = false;
+		}
+
 		// Parse the base url
 		$baseUrlParts = parse_url($baseUrl);
 		assert(isset($baseUrlParts['scheme']) && isset($baseUrlParts['host']) && !isset($baseUrlParts['fragment']));
 
 		// Reconstruct the base url without path and query
-		$baseUrl = $baseUrlParts['scheme'].'://';
+		// (supporting the work-around for protocol relative URLs)
+		$baseUrl = $protocolRelativeWorkaround?'//':($baseUrlParts['scheme'].'://');
 		if (isset($baseUrlParts['user'])) {
 			$baseUrl .= $baseUrlParts['user'];
 			if (isset($baseUrlParts['pass'])) {

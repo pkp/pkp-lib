@@ -110,9 +110,9 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 
 			// Send notification emails
 			if ($notification->getLevel() != NOTIFICATION_LEVEL_TRIVIAL) {
-				$notificationEmailSettings = $this->getEmailedNotifications($userId, $contextId);
+				$notificationEmailSettings = $this->getUserBlockedNotifications($userId, $contextId);
 
-				if(in_array($notificationType, $notificationEmailSettings)) {
+				if(!in_array($notificationType, $notificationEmailSettings)) {
 					$this->sendNotificationEmail($request, $notification);
 				}
 			}

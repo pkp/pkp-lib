@@ -116,6 +116,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 	public function getNotificationMessage($request, $notification) {
 		$type = $notification->getType();
 		assert(isset($type));
+		$submissionDao = Application::getSubmissionDAO();
 
 		switch ($type) {
 			case NOTIFICATION_TYPE_SUCCESS:

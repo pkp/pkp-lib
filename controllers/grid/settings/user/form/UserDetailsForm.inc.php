@@ -83,6 +83,7 @@ class UserDetailsForm extends UserForm {
 				'firstName' => $user->getFirstName(),
 				'middleName' => $user->getMiddleName(),
 				'lastName' => $user->getLastName(),
+				'suffix' => $user->getSuffix(),
 				'signature' => $user->getSignature(null), // Localized
 				'initials' => $user->getInitials(),
 				'gender' => $user->getGender(),
@@ -172,6 +173,7 @@ class UserDetailsForm extends UserForm {
 			'firstName',
 			'middleName',
 			'lastName',
+			'suffix',
 			'gender',
 			'initials',
 			'signature',
@@ -243,6 +245,7 @@ class UserDetailsForm extends UserForm {
 		$user->setFirstName($this->getData('firstName'));
 		$user->setMiddleName($this->getData('middleName'));
 		$user->setLastName($this->getData('lastName'));
+		$user->setSuffix($this->getData('suffix'));
 		$user->setInitials($this->getData('initials'));
 		$user->setGender($this->getData('gender'));
 		$user->setAffiliation($this->getData('affiliation'), null); // Localized

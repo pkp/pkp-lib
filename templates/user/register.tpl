@@ -8,7 +8,6 @@
  * User registration form.
  *}
 {strip}
-{assign var="registrationForm" value=true}
 {assign var="pageTitle" value="user.register"}
 {include file="common/header.tpl"}
 {/strip}
@@ -46,7 +45,7 @@
 {fbvFormArea id="registration"}
 
 	{if !$implicitAuth}
-		{include file="common/userDetails.tpl"}
+		{include file="common/userDetails.tpl" registrationForm=true}
 	{/if}
 
 	{if $currentContext && ($allowRegAuthor || $allowRegReviewer)}

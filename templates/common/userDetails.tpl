@@ -6,6 +6,9 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Common user details form.
+ *
+ * Parameters
+ * 	$registrationForm: Whether or not the template is included from the registration form
  *}
 
 <div id="userFormCompactLeftContainer" class="pkp_helpers_clear">

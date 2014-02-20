@@ -45,7 +45,21 @@
 {fbvFormArea id="registration"}
 
 	{if !$implicitAuth}
-		{include file="common/userDetails.tpl" registrationForm=true}
+		{include
+			file="common/userDetails.tpl"
+			disableEmailSection=true
+			disableAuthSourceSection=true
+			disableGeneratePasswordSection=true
+			disableSendNotifySection=true
+			extraContentSectionUnfolded=true
+			countryRequired=true
+			disableNamesSection=$existingUser
+			disableUserNameSection=$existingUser
+			disableEmailConfirmSection=$existingUser
+			disablePasswordRepeatSection=$existingUser
+			disableCountrySection=$existingUser
+			disableExtraContentSection=$existingUser
+		}
 	{/if}
 
 	{if $currentContext && ($allowRegAuthor || $allowRegReviewer)}

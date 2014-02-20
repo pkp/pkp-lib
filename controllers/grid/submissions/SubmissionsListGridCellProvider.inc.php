@@ -111,6 +111,7 @@ class SubmissionsListGridCellProvider extends DataObjectGridCellProvider {
 				return array('label' => $context->getLocalizedName());
 				break;
 			case 'author':
+				if (is_a($submission, 'ReviewerSubmission') && $submission->getReviewMethod() == SUBMISSION_REVIEW_METHOD_DOUBLEBLIND) return array('label' => '—');
 				return array('label' => $submission->getAuthorString(true));
 				break;
 			case 'dateAssigned':

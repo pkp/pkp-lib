@@ -97,6 +97,7 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 			$revisionNode->setAttribute('direct_sales_price', $submissionFile->getDirectSalesPrice());
 		}
 		$revisionNode->setAttribute('filesize', $submissionFile->getFileSize());
+		$revisionNode->setAttribute('filetype', $submissionFile->getFileType());
 
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$userGroup = $userGroupDao->getById($submissionFile->getUserGroupId());

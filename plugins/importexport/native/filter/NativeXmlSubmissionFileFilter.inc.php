@@ -159,6 +159,9 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 		$fileSize = $node->getAttribute('filesize');
 		$submissionFile->setFileSize($fileSize);
 
+		$fileType = $node->getAttribute('filetype');
+		$submissionFile->setFileType($fileType);
+
 		$submissionFileDao->insertObject($submissionFile, $filename, false);
 		return $submissionFile;
 	}

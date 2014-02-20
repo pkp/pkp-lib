@@ -104,6 +104,7 @@
 					<attribute name="uploader" type="pkp:username" />
 					<attribute name="genre" type="normalizedString" use="required" />
 					<attribute name="filesize" type="int" use="required" />
+					<attribute name="filetype" type="normalizedString" use="required" />
 				</complexType>
 			</element>
 		</sequence>

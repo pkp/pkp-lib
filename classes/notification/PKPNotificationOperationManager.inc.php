@@ -374,18 +374,20 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 		$userId = $notification->getUserId();
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$user = $userDao->getById($userId);
-		AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON);
+		if ($user) {
+			AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON);
 
-		$site = $request->getSite();
-		$mail = $this->getMailTemplate('NOTIFICATION');
-		$mail->setReplyTo($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
-		$mail->assignParams(array(
-			'notificationContents' => $this->getNotificationContents($request, $notification),
-			'url' => $this->getNotificationUrl($request, $notification),
-			'siteTitle' => $site->getLocalizedTitle()
-		));
-		$mail->addRecipient($user->getEmail(), $user->getFullName());
-		$mail->send();
+			$site = $request->getSite();
+			$mail = $this->getMailTemplate('NOTIFICATION');
+			$mail->setReplyTo($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
+			$mail->assignParams(array(
+				'notificationContents' => $this->getNotificationContents($request, $notification),
+				'url' => $this->getNotificationUrl($request, $notification),
+				'siteTitle' => $site->getLocalizedTitle()
+			));
+			$mail->addRecipient($user->getEmail(), $user->getFullName());
+			$mail->send();
+		}
 	}
 }
 

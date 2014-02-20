@@ -1,5 +1,5 @@
 {**
- * controllers/grid/users/author/form/authorForm.tpl
+ * templates/controllers/grid/users/author/form/authorForm.tpl
  *
  * Copyright (c) 2014 Simon Fraser University Library
  * Copyright (c) 2003-2014 John Willinsky
@@ -55,7 +55,7 @@
 	{/fbvFormArea}
 
 	{if $submissionId}
-		<input type="hidden" name="{$submissionIdFieldName|escape}" value="{$submissionId|escape}" />
+		<input type="hidden" name="submissionId" value="{$submissionId|escape}" />
 	{/if}
 	{if $gridId}
 		<input type="hidden" name="gridId" value="{$gridId|escape}" />

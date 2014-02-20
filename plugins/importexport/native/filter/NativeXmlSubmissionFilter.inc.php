@@ -98,6 +98,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 	 */
 	function populateObject($submission, $node) {
 		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao->updateObject($submission);
 		// If the date_published was set, add a published submission
 		if ($datePublished = $node->getAttribute('date_published')) {
 			$publishedSubmissionDao = $this->getPublishedSubmissionDAO();

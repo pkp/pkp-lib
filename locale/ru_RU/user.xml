@@ -4,8 +4,8 @@
 <!--
   * locale/ru_RU/user.xml
   *
-  * Copyright (c) 2013 Simon Fraser University Library
-  * Copyright (c) 2000-2013 John Willinsky
+  * Copyright (c) 2014 Simon Fraser University Library
+  * Copyright (c) 2000-2014 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the ru_RU (Russian) locale.
@@ -114,10 +114,10 @@
 	<message key="user.role.siteAdmin">Администратор сайта</message>
 	<message key="user.role.siteAdmins">Администраторы сайта</message>
 	<message key="user.roles">Роли</message>
-	<message key="user.salutation">Приветствие</message>
+	<message key="user.salutation">Обращение (г-н., г-жа и пр.)</message>
 	<message key="user.sendPassword">Подтверждение</message>
 	<message key="user.sendPassword.description">Отправить мне подтверждение по электронной почте, содержащее мои имя пользователя и пароль</message>
-	<message key="user.signature">Подпись для отправляемых писем</message>
+	<message key="user.signature">Подпись</message>
 	<message key="user.suffix">Суффикс</message>
 	<message key="user.title">Обращение</message>
 	<message key="user.url">URL</message>

@@ -6,7 +6,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Common user details form.
- * 
+ *
  * Parameters:
  *   $disableNameSection: Disable Name section
  *   $disableUserNameSection: Disable UserName section

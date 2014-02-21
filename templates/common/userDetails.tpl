@@ -181,9 +181,9 @@
 					{fbvFormSection title="user.workingLanguages" list=true}
 						{foreach from=$availableLocales key=localeKey item=localeName}
 							{if $userLocales && in_array($localeKey, $userLocales)}
-								{assign var="checked" value="true"}
+								{assign var="checked" value=true}
 							{else}
-								{assign var="checked" value="false"}
+								{assign var="checked" value=false}
 							{/if}
 							{fbvElement type="checkbox" name="userLocales[]" id="userLocales-$localeKey" value=$localeKey checked=$checked label=$localeName translate=false}
 						{/foreach}

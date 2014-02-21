@@ -9,10 +9,9 @@
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings
-  *
   -->
 
-<locale name="en_US" full_name = "English">
+<locale name="en_US" full_name="U.S. English">
 	<!-- Used in submission review -->
 	<message key="reviewer.reviewSteps.request">1. Request</message>
 	<message key="reviewer.reviewSteps.guidelines">2. Guidelines</message>

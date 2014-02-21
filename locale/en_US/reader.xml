@@ -8,11 +8,10 @@
   * Copyright (c) 2000-2014 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the en_US (English) locale.
-  *
+  * Localization strings.
   -->
 
-<locale name="en_US" full_name = "English">
+<locale name="en_US" full_name="U.S. English">
 	<message key="comments.anonymous">Anonymous User</message>
 	<message key="comments.anonymousNamed">"{$userName}"</message>
 	<message key="comments.body">Body</message>

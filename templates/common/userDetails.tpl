@@ -20,11 +20,20 @@
  *   $disableSendNotifySection: Disable SendNotify section
  *   $disableExtraContentSection: Disable ExtraContent section
  *   $disableNameDetailsSection: Disable NameDetails section
+ *   $disableGenderSection: Disable Gender section
+ *   $disableSalutationSection: Disable Salutation section
+ *   $disableSuffixSection: Disable Suffix section
+ *   $disableInitialsSection: Disable Initials section
  *   $disableContactSection: Disable Contact section
+ *   $disableUrlSection: Disable Url section
+ *   $disablePhoneSection: Disable Phone section
+ *   $disableFaxSection: Disable Fax section
  *   $disableLocaleSection: Disable Locale section
  *   $disableInterestsSection: Disable Interests section
  *   $disableAffiliationSection: Disable Affiliation section
  *   $disableBiographyMailingSection: Disable BiographyMailing section
+ *   $disableBiographySection: Disable Biography section
+ *   $disableMailingSection: Disable Mailing section
  *   $disableSignatureSection: Disable Signature section
  *
  *   $countryRequired: Whether or not the country select is a required field
@@ -139,18 +148,32 @@
 			{fbvFormArea id="userFormExtendedLeft"}
 				{if !$disableNameDetailsSection}
 					{fbvFormSection}
-						{fbvElement type="select" label="user.gender" name="gender" id="gender" defaultLabel="" defaultValue="" from=$genderOptions translate="true" selected=$gender inline=true size=$fbvStyles.size.SMALL}
-						{fbvElement type="text" label="user.salutation" name="salutation" id="salutation" value=$salutation maxlength="40" inline=true size=$fbvStyles.size.SMALL}
-						{fbvElement type="text" label="user.suffix" id="suffix" value=$suffix size=$fbvStyles.size.SMALL inline=true}
-						{fbvElement type="text" label="user.initials" name="initials" id="initials" value=$initials maxlength="5" inline=true size=$fbvStyles.size.SMALL}
+						{if !$disableGenderSection}
+							{fbvElement type="select" label="user.gender" name="gender" id="gender" defaultLabel="" defaultValue="" from=$genderOptions translate="true" selected=$gender inline=true size=$fbvStyles.size.SMALL}
+						{/if}
+						{if !$disableSalutationSection}
+							{fbvElement type="text" label="user.salutation" name="salutation" id="salutation" value=$salutation maxlength="40" inline=true size=$fbvStyles.size.SMALL}
+						{/if}
+						{if !$disableSuffixSection}
+							{fbvElement type="text" label="user.suffix" id="suffix" value=$suffix size=$fbvStyles.size.SMALL inline=true}
+						{/if}
+						{if !$disableInitialsSection}
+							{fbvElement type="text" label="user.initials" name="initials" id="initials" value=$initials maxlength="5" inline=true size=$fbvStyles.size.SMALL}
+						{/if}
 					{/fbvFormSection}
 				{/if}
 
 				{if !$disableContactSection}
 					{fbvFormSection}
-						{fbvElement type="text" label="user.url" name="userUrl" id="userUrl" value=$userUrl maxlength="255" inline=true size=$fbvStyles.size.SMALL}
-						{fbvElement type="text" label="user.phone" name="phone" id="phone" value=$phone maxlength="24" inline=true size=$fbvStyles.size.SMALL}
-						{fbvElement type="text" label="user.fax" name="fax" id="fax" value=$fax maxlength="24" inline=true size=$fbvStyles.size.SMALL}
+						{if !$disableUrlSection}
+							{fbvElement type="text" label="user.url" name="userUrl" id="userUrl" value=$userUrl maxlength="255" inline=true size=$fbvStyles.size.SMALL}
+						{/if}
+						{if !$disablePhoneSection}
+							{fbvElement type="text" label="user.phone" name="phone" id="phone" value=$phone maxlength="24" inline=true size=$fbvStyles.size.SMALL}
+						{/if}
+						{if !$disableFaxSection}
+							{fbvElement type="text" label="user.fax" name="fax" id="fax" value=$fax maxlength="24" inline=true size=$fbvStyles.size.SMALL}
+						{/if}
 					{/fbvFormSection}
 				{/if}
 
@@ -181,8 +204,12 @@
 
 				{if !$disableBiographyMailingSection}
 					{fbvFormSection}
-						{fbvElement type="textarea" label="user.biography" multilingual="true" name="biography" id="biography" value=$biography inline=true size=$fbvStyles.size.MEDIUM}
-						{fbvElement type="textarea" label="common.mailingAddress" name="mailingAddress" id="mailingAddress" value=$mailingAddress inline=true size=$fbvStyles.size.MEDIUM}
+						{if !$disableBiographySection}
+							{fbvElement type="textarea" label="user.biography" multilingual="true" name="biography" id="biography" value=$biography inline=true size=$fbvStyles.size.MEDIUM}
+						{/if}
+						{if !$disableMailingSection}
+							{fbvElement type="textarea" label="common.mailingAddress" name="mailingAddress" id="mailingAddress" value=$mailingAddress inline=true size=$fbvStyles.size.MEDIUM}
+						{/if}
 					{/fbvFormSection}
 					<br />
 					<span class="instruct">{translate key="user.biography.description"}</span>

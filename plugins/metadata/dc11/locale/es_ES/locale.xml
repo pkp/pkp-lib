@@ -2,7 +2,7 @@
 <!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
 
 <!--
-  * plugins/generic/usageEvent/locale/en_US/locale.xml
+  * plugins/metadata/dc11/locale/es_ES/locale.xml
   *
   * Copyright (c) 2014 Simon Fraser University Library
   * Copyright (c) 2003-2014 John Willinsky
@@ -11,7 +11,8 @@
   * Localization strings.
   -->
  
-<locale name="en_US" full_name="U.S. English">
-	<message key="plugins.generic.usageEvent.displayName">Evento de uso</message>
-	<message key="plugins.generic.usageEvent.description">Cria um gancho que oferece eventos de uso em um formato definido.</message>
+<locale name="es_ES" full_name="Español">
+	<!-- plug-in -->
+	<message key="plugins.metadata.dc11.displayName">Metadatos Dublin Core 1.1</message>
+	<message key="plugins.metadata.dc11.description">Proporciona esquemas Dublin Core 1.1 y adaptadores de aplicación.</message>
 </locale>

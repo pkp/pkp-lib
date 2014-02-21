@@ -125,4 +125,18 @@
 	<message key="user.profile.form.passwordSameAsOld">Sua nova senha é a mesma que a anterior.</message>
 	<message key="user.profile.form.usergroupRequired">Um grupo de usuários é obrigatório.</message>
 	<message key="user.suffix">Sufixo</message>
+	<message key="user.logOutAs">Sair como</message>
+	<message key="user.login.registerNewAccount">Não é um usuário? Registe-se no site</message>
+	<message key="user.login.resetPasswordInstructions"><![CDATA[Por razões de segurança, este sistema envia por e-mail uma nova senha ao usuário cadastrado, em vez de recordar a senha atual. <br/> <br/> Digite seu email abaixo para redefinir sua senha. Uma confirmação será enviada para este endereço de e-mail.]]></message>
+	<message key="user.role.author">Autor</message>
+	<message key="user.role.author_s">Autor(es)</message>
+	<message key="user.role.authors">Autores</message>
+	<message key="user.role.editor">Editor</message>
+	<message key="user.role.editors">Editores</message>
+	<message key="user.role.copyeditor">Editor de Texto</message>
+	<message key="user.role.copyeditors">Editores de Texto</message>
+	<message key="user.role.proofreader">Leitor de Prova</message>
+	<message key="user.role.proofreaders">Leitores de Prova</message>
+	<message key="user.role.layoutEditor">Editor de Leiaute</message>
+	<message key="user.role.layoutEditors">Editores de Leiaute</message>
 </locale>

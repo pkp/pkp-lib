@@ -64,4 +64,21 @@
 	<message key="installer.securitySettings">Paramètres de sécurité</message>
 	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Une erreur s'est produite lors de l'analyse du fichier du modèle de courriel <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale.maybeIncomplete">Les langues sélectionnées peuvent être incomplètes.</message>
+	<message key="installer.oaiSettings">Paramètres OAI</message>
+	<message key="installer.preInstallationInstructionsTitle">Étapes de pré-installation</message>
+	<message key="installer.encryptionInstructions">On recommande SHA1</message>
+	<message key="installer.installParseFilterConfigFileError"><![CDATA[Erreur de traitement du fichier de configuration du filtre <tt>{$file}</tt>.]]></message>
+	<message key="installer.unsupportedUpgradeError">Mise à niveau non supportée. Voir docs/UPGRADE-UNSUPPORTED pour les détails.</message>
+	<message key="installer.configureXSLMessage"><![CDATA[<p>Le module XSL de votre installation PHP n'est pas activé. Veuillez l'activer ou configurer le paramètre xslt_command de votre fichier config.inc.php.</p>]]></message>
+	<message key="installer.preInstallationInstructions"><![CDATA[<p>1. Les fichiers et repertoires suivants (et leur contenu) doivent être accessibles en écriture:</p>
+		<ul>
+			<li><tt>config.inc.php</tt> est accessible en écriture (optionnel): {$writable_config}</li>
+			<li><tt>public/</tt> est accessible en écriture : {$writable_public}</li>
+			<li><tt>cache/</tt> est accessible en écriture : {$writable_cache}</li>
+			<li><tt>cache/t_cache/</tt> est accessible en écriture : {$writable_templates_cache}</li>
+			<li><tt>cache/t_compile/</tt> est accessible en écriture : {$writable_templates_compile}</li>
+			<li><tt>cache/_db</tt> est accessible en écriture : {$writable_db_cache}</li>
+		</ul>
+
+		<p>2. Vous devez créer un repertoire pour conserver les fichiers téléchargés et il doit être accessible en écriture (voir "Paramètres du fichier" ci-dessous).</p>]]></message>
 </locale>

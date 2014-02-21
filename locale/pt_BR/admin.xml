@@ -84,4 +84,33 @@
 	<message key="admin.settings">Configurações</message>
 	<message key="admin.settings.siteTheme">Tema do site</message>
 	<message key="admin.siteSetup">Configurar site</message>
+	<message key="admin.systemInfo.settingName">Nome da Configuração</message>
+	<message key="admin.systemInfo.settingValue">Valor da Configuração</message>
+	<message key="admin.copyAccessLogFileTool.error.creatingFolder">Erro: não foi possível criar a pasta temporária {$tmpDir}</message>
+	<message key="admin.copyAccessLogFileTool.error.acessingFile">Erro: Arquivo {$filePath} não existe ou não pode ser acessado.</message>
+	<message key="admin.copyAccessLogFileTool.error.copyingFile">Erro: não foi possível copiar o arquivo {$filePath} para {$tmpFilePath}</message>
+	<message key="admin.copyAccessLogFileTool.error.deletingFile">Erro: não foi possível apagar o arquivo {$tmpFilePath}</message>
+	<message key="admin.copyAccessLogFileTool.warning.fileAlreadyExists">Aviso: o arquivo {$filePath} já existe dentro do diretório de estatísticas de uso.</message>
+	<message key="admin.copyAccessLogFileTool.success">Sucesso: {$filePath} para {$destinationPath}</message>
+	<message key="admin.languages.download">Baixar Idioma</message>
+	<message key="admin.languages.downloadLocales">Baixar Idiomas</message>
+	<message key="admin.languages.download.cannotOpen">Não foi possível abrir o descritor do idioma do site do PKP.</message>
+	<message key="admin.languages.download.cannotModifyRegistry">Não foi possível adicionar um novo idioma ao arquivo de registro, tipicamente "registry/locales.xml".</message>
+	<message key="admin.languages.cantDisable">Este idioma é o principal. Você não pode desabilita-lo enquanto não escolher outro como principal.</message>
+	<message key="admin.languages.availableLocales">Idiomas Disponíveis</message>
+	<message key="admin.languages.installLocale">Instalar Idioma</message>
+	<message key="admin.scheduledTask">Tarefa agendada</message>
+	<message key="admin.fileLoader.pathNotAccessible">A pasta {$path} não é um diretório ou não está acessível.</message>
+	<message key="admin.fileLoader.emailSubject">Carregador de arquivos</message>
+	<message key="admin.copyAccessLogFileTool.usage">Copie o arquivo de log de acessos do apache, filtrando as entradas relacionadas com a instalação,
+para o diretório de arquivos atual, dentro do diretório fase UsageStatsPlugin. Deve ser executado por um usuário com privilégios suficientes para ler os arquivos de log de acesso do apache.
+
+Esta ferramenta só vai copiar os arquivos que ainda não estão entre os arquivos usageStats \ n diretório (estágio, processamento, arquivo, rejeitar).
+
+Uso: {$scriptName} caminho/para/logs/apache/FILE.LOG
+Uso (tratamento de todos os arquivos dentro de um diretório): {$scriptName} caminho/para/diretorio/apache</message>
+	<message key="admin.settings.defaultMetricDescription">Sua instalação é configurada para gravar mais de uma métrica de uso. As estatísticas de uso serão exibidas em diferentes contextos.
+Há casos em que uma única estatística de uso deve ser utilizada, por exemplo, para exibir uma lista ordenada de submissões mais utilizados ou para classificação de resultados da pesquisa. Por favor selecione uma das métricas configuradas como padrão.</message>
+	<message key="admin.fileLoader.wrongBasePathLocation">Caminho base {$path} deve estar dentro do diretório de arquivos publicos.</message>
+	<message key="admin.fileLoader.moveFileFailed">Arquivo {$filename} não pode ser movido de {$currentFilePath} para {$destinationPath}</message>
 </locale>

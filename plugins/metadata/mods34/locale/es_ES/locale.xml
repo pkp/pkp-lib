@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
+
+<!--
+  * plugins/metadata/mods34/locale/es_ES/locale.xml
+  *
+  * Copyright (c) 2014 Simon Fraser University Library
+  * Copyright (c) 2003-2014 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings.
+  -->
+
+<locale name="es_ES" full_name="Español">
+	<!-- plug-in -->
+	<message key="plugins.metadata.mods34.displayName">Metadatos MODS 3.4</message>
+	<message key="plugins.metadata.mods34.description">Proporciona esquemas MODS 3.4 y adaptadores de aplicaciones.</message>
+
+	<!-- MODS 3.4 XML output -->
+	<message key="plugins.metadata.mods34.mods34XmlOutput.displayName">Salida de MODS 3.4</message>
+	<message key="plugins.metadata.mods34.mods34XmlOutput.description">Convertir una descripción de metadatos MODS 3.4 a su XML vinculante.g.</message>
+</locale>

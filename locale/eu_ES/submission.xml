@@ -383,5 +383,5 @@
 	<message key="submission.createRemote">Sortu urrunekoa</message>
 	<message key="submission.form.name">Eman fitxategi honi izen erabilgarri bat</message>
 	<message key="submission.form.replaceExisting">Ordeztu jada badagoen fitxategi bat?</message>
-	<message key="log.review.reviewerAssigned">{$reviewerName} izendatu da {$submissionId} 
+	<message key="log.review.reviewerAssigned">{$reviewerName} izendatu da {$submissionId}</message>
 </locale>

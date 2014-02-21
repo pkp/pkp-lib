@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * locale/pt_BR/editor.xml
+  *
+  * Copyright (c) 2014 Simon Fraser University Library
+  * Copyright (c) 2003-2014 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings.
+  -->
+
+<locale name="pt_BR" full_name = "Português (Brasil)">
+	<message key="editor.submissionLibrary.description"><![CDATA[Upload documents that pertain to the review and publication of this submission. Templates for many of these documents are found by clicking on <em>View Document Library</em>.]]></message>
+	<message key="editor.review.notInitiated">The review process has not yet been initiated.</message>
+	<message key="editor.submission.copyediting.personalMessageToUser">Message to user</message>
+	<message key="editor.submission.externalReviewDescription">You are about to initiate an external review for this submission.  Files that are part of the submission are listed below and can be selected for review.</message>
+	<message key="editor.submission.review.reviewFilesDescription"><![CDATA[These are the files that can be selected for review, when adding reviewers in <span class="pkp_help_title">Reviewers</span>.]]></message>
+	<!-- Add file or auditor to editor/audit grids -->
+	<message key="editor.submission.fileAuditor.form.fileRequired">You must select at least one file to assign the user to.</message>
+	<message key="editor.submission.fileAuditor.form.messageRequired">You must include a personal message.</message>
+	<message key="editor.submission.fileAuditor.skipEmail">Do not send email to the Auditor</message>
+	<message key="editor.submission.fileAuditor.form.userRequired">You must select a user to assign.</message>
+	<message key="editor.submission.uploadSelectFiles">Upload/Select Files</message>
+	<message key="editor.submission.revisions">Revisions</message>
+	<message key="editor.submission.revisionsDescription">Revised submission files appear here, with the open folder icon indicating who uploaded the file.</message>
+	<message key="editor.submission.review.reviewersDescription"><![CDATA[Use <em>+Add Reviewer</em> to invite readers to review the submission files. The notebook icon indicates that a review has been submitted, which is then checked <em>Considered</em> after it has been consulted. When reviews are overdue, a red envelope icon appears for reminding reviewers.]]></message>
+	<message key="editor.submission.addReviewer">Add Reviewer</message>
+	<message key="editor.submission.fileList.includeAllStages">Include all files from all accessible workflow stages.</message>
+	<message key="editor.submission.review.currentFiles">Current Review Files For Round {$round}</message>
+	<message key="editor.submission.returnToSimpleSearch">Return to Simple Search</message>
+	<message key="editor.review.createReviewer">Create New Reviewer</message>
+	<message key="editor.review.enrollReviewer.short">Enroll Existing User</message>
+	<message key="editor.review.unassignReviewer">Unassign Reviewer</message>
+	<message key="editor.submissionReview.reviewType">Review Type</message>
+	<message key="editor.submissionReview.skipEmail">Do not send author email</message>
+	<message key="editor.submissionReview.open">Open</message>
+	<message key="editor.submissionReview.blind">Blind</message>
+	<message key="editor.submissionReview.doubleBlind">Double-blind</message>
+	<message key="editor.submissionReview.restrictFiles">Restrict Available Files</message>
+	<message key="editor.submissionReview.restrictFiles.gridTitle">Available Review Files</message>
+	<message key="editor.submissionReview.limitFiles">Manage Available Files</message>
+	<message key="editor.submissionReview.limitFiles.link">Files</message>
+	<message key="editor.submissionReview.restrictFiles.gridDescription">If this reviewer should not be granted access to all of the review files listed, ensure that only the relevant files are checked.</message>
+	<message key="editor.review.personalMessageToReviewer">Email to be sent to reviewer</message>
+	<message key="editor.review.importantDates">Important Dates</message>
+	<message key="editor.review.uploadRevision">Upload Revision</message>
+	<message key="editor.review.NotifyAuthorAccept">Notify the author of acceptance:</message>
+	<message key="editor.review.NotifyAuthorDecline">Notify the author of decision to decline submission:</message>
+	<message key="editor.review.NotifyAuthorRevisions">Notify the author of need for revisions:</message>
+	<message key="editor.review.NotifyAuthorResubmit">Notify the author of need for revisions that will be subject to further review:</message>
+	<message key="editor.review.NotifyAuthorExternal">Notify the author of decision to conduct external review:</message>
+	<message key="editor.review.personalMessageToAuthor">Email to be sent to author</message>
+	<message key="editor.review.dateAccepted">Review Acceptance Date</message>
+	<message key="editor.review.noReviews">No peer reviews to import</message>
+	<message key="editor.review.reminder">Review Reminder</message>
+	<message key="editor.review.thankReviewer">Thank Reviewer</message>
+	<message key="editor.review.reminderError">Error sending review reminder</message>
+	<message key="editor.review.thankReviewerError">Error sending thank you to reviewer</message>
+	<message key="editor.review.skipEmail">Do not send Reviewer email</message>
+	<message key="editor.review.sendReminder">Send Reminder</message>
+	<message key="editor.review.reviewDueDate">Review Due Date</message>
+	<message key="editor.review.reviewCompleted">Review Completed</message>
+	<message key="editor.review.reviewerComments">Reviewer Comments</message>
+	<message key="editor.review.days">Average Days</message>
+	<message key="editor.review.mustSelect">You must select a reviewer</message>
+	<message key="editor.review.errorAddingReviewer">There was an error adding the reviewer.  Please try again.</message>
+	<message key="editor.review.errorDeletingReviewer">There was an error deleting the reviewer.  Please try again.</message>
+	<message key="editor.review.userGroupSelect">Enroll the user with this reviewer user group</message>
+	<message key="editor.review.unconsiderReviewText">Do you wish to mark this review as unconsidered?  The review history will be preserved.</message>
+	<message key="editor.review.unconsiderReview">Unconsider this Review</message>
+	<message key="editor.review.errorUnconsideringReview">There was an error marking this review as unconsidered.  Please try again.</message>
+	<message key="editor.review.readConfirmation">Once this review has been read, press "Confirm" to flag that the review process may proceed.</message>
+	<message key="editor.submission.selectCopyedingFiles">Copyediting Files</message>
+	<message key="editor.submission.selectReviewer">Select Reviewer</message>
+	<message key="editor.submission.taskDueDate">Task Due Date</message>
+	<message key="editor.submission.taskSchedule">Task schedule</message>
+	<message key="editor.review.enrollReviewer">Enroll an Existing User as Reviewer</message>
+	<message key="editor.submission.editorial.introduction"><![CDATA[In Editorial, the copyeditor works on final draft files before uploading files to <span class="pkp_help_title">Copyediting</span>, where the author and others  review them, leading to the preparation and uploading to <span class="pkp_help_title">Copyediting</span> of a copyedited fair copy of the submission, where it is <em>Approved</em> by an editor and sent to the Production stage.]]></message>
+	<message key="editor.submission.noAuditRequested">No audit requested for this file</message>
+	<message key="editor.submission.personalMessageToUser">Email to be sent to user</message>
+	<message key="editor.submission.proof.reminder">Proof reminder</message>
+	<message key="editor.submission.editorial.approveCopyeditDescription">The copyedited file needs to be approved before it can be sent to the Production stage. Do you want to approve this file?</message>
+	<message key="editor.submission.editorial.disapproveCopyeditDescription">Disapproving this copyedited file will make it unavailable to send to production stage. Do you want to disapprove this file?</message>
+	<message key="editor.submission.editorial.approveCopyeditFile">Approve copyedited file</message>
+	<message key="editor.submission.addAuditor">Assign Auditor</message>
+	<message key="editor.submission.editorial.copyeditingDescription"><![CDATA[Assign the copyedited files to authors (and others as needed) to review changes and answer queries, with their responses and uploaded files appearing in the notebook icon. These are marked <em>Considered</em> by the copyeditor, who then prepares a final copyedited fair copy to upload to <span class="pkp_help_title">Copyediting</span>, which the editor checks Approved, before sending to the Production stage.]]></message>
+	<message key="editor.submission.final.manageFinalDraftFilesDescription">Any files that have already been uploaded to any submission stage can be added to the Final Draft Files listing by checking the Include checkbox below and clicking Search: all available files will be listed and can be chosen for inclusion. Additional files not already uploaded to a stage can be added to the listing by clicking the Upload A Final Draft link.</message>
+	<message key="editor.review">Review</message>
+	<message key="editor.signoff.approved">Approved</message>
+	<message key="editor.submission.production.productionReadyFiles">Production Ready Files</message>
+	<message key="editor.submission.newRound">New Review Round</message>
+	<message key="editor.submission.selectAttachments">Select the review attachments for the author to see</message>
+	<message key="editor.submissionReview.recordDecision">Record Editorial Decision</message>
+	<message key="editor.submission.selectFairCopy">Select approved copy editing files to be sent to Production.</message>
+	<message key="editor.submission.newRoundDescription">You are about to create a new review round for this submission.  Files that have not been used in other review rounds are listed below.  By default, the reviewers from the previous review round have been selected to participate in this new review round.</message>
+	<message key="editor.submission.createNewRound">Create New Review Round</message>
+	<message key="editor.submission.review.manageReviewFilesDescription">Any files that have already been uploaded to any submission stage (even Editorial or Production) can be chosen for review by checking the Include checkbox below and clicking Search: all available files will be listed and can be chosen for inclusion. Additional files not already uploaded to a stage can be added to this listing by clicking the Upload Review File link.</message>
+	<message key="editor.submission.selectPromoteRevisions">Select revisions to use in the next stage</message>
+</locale>

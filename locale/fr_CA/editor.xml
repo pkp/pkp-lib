@@ -2,7 +2,7 @@
 <!DOCTYPE locale SYSTEM "../../lib/pkp/dtd/locale.dtd">
 
 <!--
-  * locale/en_US/editor.xml
+  * locale/fr_CA/editor.xml
   *
   * Copyright (c) 2014 Simon Fraser University Library
   * Copyright (c) 2003-2014 John Willinsky
@@ -70,4 +70,33 @@
 	<message key="editor.submission.createNewRound">Créer une nouvelle série de révisions.</message>
 	<message key="editor.submission.review.manageReviewFilesDescription">Tous les fichiers qui ont déjà été téléchargés à une étape du processus de soumission (même à une étape d'édition ou de publication) peuvent être choisis pour révision. Il suffit de cocher la case Ajouter ci-dessous, puis de cliquer Recherche: tous les fichiers disponibles seront affichés et peuvent être choisis pour être ajoutés. Les autres fichiers qui n'ont pas déjà été téléchargés à une certaine étape du processus peuvent être ajoutés à cette liste en cliquant sur le lien Télécharger le fichier d'évaluation.</message>
 	<message key="editor.submission.selectPromoteRevisions">Choisir les révisions qui seront utilisées à la prochaine étape</message>
+	<message key="editor.review.unassignReviewer">Retirer le privilège de l'examinateur.</message>
+	<message key="editor.submissionReview.restrictFiles">Restreindre les fichiers disponibles.</message>
+	<message key="editor.submissionReview.restrictFiles.gridTitle">Fichiers à réviser disponibles.</message>
+	<message key="editor.submissionReview.limitFiles">Gestion des fichiers disponibles.</message>
+	<message key="editor.submissionReview.limitFiles.link">Fichiers</message>
+	<message key="editor.submissionReview.restrictFiles.gridDescription">Si cet examinateur ne devrait pas avoir le droit de réviser tous les fichiers apparaissant dans cette liste, assurez-vous de cocher uniquement les fichiers pertinents.</message>
+	<message key="editor.review.uploadRevision">Télécharger la révision</message>
+	<message key="editor.review.NotifyAuthorAccept">Avertir l'auteur de l'acceptation:</message>
+	<message key="editor.review.NotifyAuthorDecline">Avertir l'auteur que sa soumission a été refusée:</message>
+	<message key="editor.review.NotifyAuthorRevisions">Avertir l'auteur que la soumission doit être révisée:</message>
+	<message key="editor.review.NotifyAuthorResubmit">Avertir l'auteur que la soumission doit être révisée et examinée à nouveau:</message>
+	<message key="editor.review.NotifyAuthorExternal">Avertir l'auteur que l'on a décidé de mener un examen externe:</message>
+	<message key="editor.review.personalMessageToAuthor">Envoyer un courriel à l'auteur</message>
+	<message key="editor.review.dateAccepted">Date d'acceptation de la révision</message>
+	<message key="editor.review.noReviews">Aucune révision des pairs à importer</message>
+	<message key="editor.review.reminder">Rappel d'examen de la soumission</message>
+	<message key="editor.review.thankReviewer">Remercier l'examinateur</message>
+	<message key="editor.review.thankReviewerError">Erreur d'envoi du remerciement à l'examinateur</message>
+	<message key="editor.review.reviewerComments">Commentaires de l'examinateur</message>
+	<message key="editor.review.days">Moyenne des jours</message>
+	<message key="editor.review.mustSelect">Vous devez sélectionner un examinateur</message>
+	<message key="editor.review.errorAddingReviewer">Il y a eu une erreur au moment d'ajouter l'examinateur. Essayez de nouveau.</message>
+	<message key="editor.review.errorDeletingReviewer">Il y a eu une erreur au moment de supprimer l'examinateur. Essayez de nouveau.</message>
+	<message key="editor.review.userGroupSelect">Ajouter l'utilisateur à ce groupe d'examinateurs</message>
+	<message key="editor.review.unconsiderReviewText">Vous souhaitez indiquer que cet examen n'a pas été considéré? L'historique des révisions sera conservé.</message>
+	<message key="editor.review.unconsiderReview">Ne pas considérer cet examen.</message>
+	<message key="editor.review.errorUnconsideringReview">Il y a eu une erreur au moment d'indiquer que cet examen devrait être catégorisé "non considéré". Essayez de nouveau.</message>
+	<message key="editor.review.readConfirmation">Après avoir lu cet examen, choisissez "Confirmer" pour indiquer que le processus d'examen peut se poursuivre.</message>
+	<message key="editor.submission.newRoundDescription">Vous êtes sur le point de créer une nouvelle ronde d'examens pour cette soumission. Les fichiers qui n'ont pas été utilisés dans les autres rondes d'examens sont indiqués ci-dessous. Par défaut, les examinateurs de la ronde d'examens précédente ont été sélectionnés pour participer à cette nouvelle ronde.</message>
 </locale>

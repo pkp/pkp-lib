@@ -114,7 +114,6 @@
 	<message key="common.notAvailable">No disponible</message>
 	<message key="common.note">Nota</message>
 	<message key="common.notes">Notas</message>
-	<message key="common.notify">Notificar</message>
 	<message key="common.off">Off</message>
 	<message key="common.on">On</message>
 	<message key="common.options">Opciones</message>
@@ -262,7 +261,6 @@
 	<message key="search.operator.and">and</message>
 	<message key="search.operator.not">not</message>
 	<message key="search.operator.or">or</message>
-	<message key="search.reviseSearch">Revisar búsqueda</message>
 	<message key="search.searchAllCategories">Buscar en todas las categorías</message>
 	<message key="search.searchCategories">Buscar categorías</message>
 	<message key="search.searchResults">Buscar resultados</message>
@@ -327,4 +325,5 @@
 	<message key="common.refresh">Recargar</message>
 	<message key="common.loading">Cargando ...</message>
 	<message key="navigation.goBack">Volver</message>
+	<message key="common.publicKnowledgeProject">Public Knowledge Project</message>
 </locale>

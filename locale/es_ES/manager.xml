@@ -116,7 +116,7 @@
 	<message key="manager.people.enrollUserAs">Inscribir usuaria/o como</message>
 	<message key="manager.people.invalidUser">Lo sentimos, la/el usuaria/o solicitada/o no existe.</message>
 	<message key="manager.people.mergeUser">Unir usuario/a</message>
-	<message key="manager.people.mergeUsers.confirm">¿Seguro que quiere unir la cuenta "{$oldUsername}" con la cuenta "{$newUsername}"? La cuenta "{$oldUsername}" se eliminará.  Esta acción no es reversible.</message>
+	<message key="manager.people.mergeUsers.confirm">¿Seguro que quiere unir la cuenta "{$oldAccountCount}" con la cuenta "{$newUsername}"? La cuenta "{$oldAccountCount}" se eliminará.  Esta acción no es reversible.</message>
 	<message key="manager.people.mergeUsers">Unir usuarios/as</message>
 	<message key="manager.people.mustChooseRole">Seleccione un rol en la parte superior de la página antes de pulsar "Asociar Usuario/a".</message>
 	<message key="manager.people.mustProvideName">Por favor, indique al menos un apellido.</message>
@@ -149,7 +149,6 @@
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Formato de imagen no válido. Los formatos aceptados son .gif, .jpg, o .png.</message>
 	<message key="manager.setup.pageHeaderTitleImageInvalid">Formato de imagen no válido. Los formatos aceptados son .gif, .jpg, o .png.</message>
 	<message key="manager.setup.selectOne">Seleccione una</message>
-	<message key="manager.statistics">Estadísticas e informes</message>
 	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>
 	<message key="manager.statistics.statistics.totalNewValue">{$numTotal} ({$numNew} nuevos)</message>
 	<message key="manager.users">Usuarios/as</message>
@@ -186,7 +185,7 @@
 	<message key="manager.setup.filter.grid.filterSettings">Información de Registro y Opciones del Conector</message>
 	<message key="manager.setup.filter.grid.filterTemplateRequired">Por favor, seleccione una de las transformaciones de la lista desplegable.</message>
 	<message key="manager.setup.filter.grid.confirmDelete">¿De veras desea eliminar el filtro {$filterName}?</message>
-	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">Usted ha elegido añadir la base de datos ($filterDisplayName). Por favor, haga clic en "Aceptar" para confirmar.</message>
+	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">Usted ha elegido añadir la base de datos {$filterDisplayName}. Por favor, haga clic en "Aceptar" para confirmar.</message>
 	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Por favor, seleccione una base de datos de búsqueda.</message>
 	<message key="manager.setup.filter.lookup.grid.loadMessage">Por favor, espere a que la cuadrícula de configuración de la base de datos de citas haya sido cargado...</message>
 	<message key="manager.setup.filter.lookup.grid.title">Conectores de la Base de Datos de Citas</message>

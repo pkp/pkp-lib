@@ -175,4 +175,5 @@
 	<message key="rt.admin.sharing.logoColorLabel">Couleur du logo</message>
 	<message key="rt.admin.configureSharing">Configurer AddThis</message>
 	<message key="rt.captureCite.web">Web</message>
+	<message key="rt.admin.settings.viewReviewPolicy">Visionner la politique d'examen</message>
 </locale>

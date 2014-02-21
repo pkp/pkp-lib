@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
+
+<!--
+  * plugins/metadata/openurl10/locale/es_ES/locale.xml
+  *
+  * Copyright (c) 2014 Simon Fraser University Library
+  * Copyright (c) 2003-2014 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the en_US (U.S. English) locale.
+  -->
+
+<locale name="es_ES" full_name="Español">
+	<message key="plugins.metadata.openurl10.displayName">Metadatos OpenURL 1.0</message>
+	<message key="plugins.metadata.openurl10.description">Proporciona esquemas OpenURL 1.0. y adaptadores de aplicaciones.</message>
+</locale>

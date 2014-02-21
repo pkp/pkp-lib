@@ -83,4 +83,34 @@
 	<message key="admin.version.updateAvailable">Une mise à jour est disponible</message>
 	<message key="admin.version.upToDate">Votre système est à jour</message>
 	<message key="admin.version">Version</message>
+	<message key="admin.copyAccessLogFileTool.usage">Copier le(s) fichier(s) journal(aux) d'accès Apache, en filtrant les entrées liées à cette installation, vers le répertoire de fichiers actuel, à l'intérieur du répertoire UsageStatsPlugin stage. Doit être exécuté par un utilisateur ayant suffisamment de privilèges pour lire les fichiers journaux d'accès Apache.
+
+Cet outil ne copiera que les fichiers qui ne sont pas déjà dans les répertoires chargeurs usageStats file/n (étape, traitement, archive, rejet).
+
+Usage: {$scriptName} path/to/apache/log/file.log
+Usage (traitement de tous les fichiers dans le répertoire): {$scriptName} path/to/apache/directory</message>
+	<message key="admin.copyAccessLogFileTool.error.creatingFolder">Erreur: le dossier temporaire {$tmpDir} ne peut être créé.</message>
+	<message key="admin.copyAccessLogFileTool.error.acessingFile">Erreur: Le fichier {$filePath} n'existe pas ou n'est pas accessible.</message>
+	<message key="admin.copyAccessLogFileTool.error.copyingFile">Erreur: vous ne pouvez pas copier {$filePath} dans {$tmpFilePath}</message>
+	<message key="admin.copyAccessLogFileTool.error.deletingFile">Erreur: vous ne pouvez pas effacer le fichier {$tmpFilePath}</message>
+	<message key="admin.copyAccessLogFileTool.warning.fileAlreadyExists">Attention: le fichier {$filePath} existe déjà dans le répertoire des statistiques d'utilisation.</message>
+	<message key="admin.copyAccessLogFileTool.success">Succès: {$filePath} dans {$destinationPath}</message>
+	<message key="admin.languages.download">Télécharger le paramètre régional</message>
+	<message key="admin.languages.downloadLocales">Télécharger les paramètres régionaux</message>
+	<message key="admin.languages.download.cannotOpen">Ne peut pas ouvrir le descripteur de langue du site Web PKP</message>
+	<message key="admin.languages.download.cannotModifyRegistry">Ne peut pas ajouter le nouveau paramètre régional au fichier de registre du paramètre régional, normalement "registry/locales.xml".</message>
+	<message key="admin.languages.cantDisable">Ce paramètre régional est la langue principale du site. Vous ne pouvez pas le désactiver avant d'avoir choisi un autre paramètre régional principal.</message>
+	<message key="admin.languages.availableLocales">Paramètres régionaux disponibles</message>
+	<message key="admin.languages.installLocale">Installer le paramètre régional</message>
+	<message key="admin.scheduledTask">Tâche programmée</message>
+	<message key="admin.settings">Paramètres</message>
+	<message key="admin.settings.defaultMetricDescription">Votre installation a été configurée pour enregistrer plus d'une mesure d'utilisation. Les statistiques d'utilisation seront affichées dans plusieurs contextes.
+
+Vous devez parfois utiliser une seule statistique d'utilisation pour, par exemple, afficher une liste ordonnée des soumissions les plus utilisées ou classer les résultats des recherches. Veuillez choisir l'une des mesures configurées à titre de mesure par défaut.</message>
+	<message key="admin.settings.siteTheme">Thème du site</message>
+	<message key="admin.siteSetup">Réglage du site</message>
+	<message key="admin.fileLoader.wrongBasePathLocation">Le chemin d'accès de base {$path} doit se trouver à l'intérieur du répertoire des fichiers publics.</message>
+	<message key="admin.fileLoader.pathNotAccessible">Le dossier {$path} n'est pas un répertoire ou ne peut être lu.</message>
+	<message key="admin.fileLoader.moveFileFailed">Le fichier {$filename} ne peut être déplacé de {$currentFilePath} à {$destinationPath}</message>
+	<message key="admin.fileLoader.emailSubject">Chargeur de fichier</message>
 </locale>

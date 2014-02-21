@@ -205,10 +205,10 @@
 				{if !$disableBiographyMailingSection}
 					{fbvFormSection}
 						{if !$disableBiographySection}
-							{fbvElement type="textarea" label="user.biography" multilingual="true" name="biography" id="biography" value=$biography inline=true size=$fbvStyles.size.MEDIUM}
+							{fbvElement type="textarea" label="user.biography" multilingual="true" name="biography" id="biography" rich=true value=$biography inline=true size=$fbvStyles.size.MEDIUM}
 						{/if}
 						{if !$disableMailingSection}
-							{fbvElement type="textarea" label="common.mailingAddress" name="mailingAddress" id="mailingAddress" value=$mailingAddress inline=true size=$fbvStyles.size.MEDIUM}
+							{fbvElement type="textarea" label="common.mailingAddress" name="mailingAddress" id="mailingAddress" rich=true value=$mailingAddress inline=true size=$fbvStyles.size.MEDIUM}
 						{/if}
 					{/fbvFormSection}
 					<br />

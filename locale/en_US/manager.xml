@@ -177,6 +177,7 @@
 	<message key="manager.reviewerSearch.form.instructions">Use the form below to set the maximum values for the terms you wish to search for.  The form is pre-populated with the calculated averages of those fields.</message>
 	<message key="manager.reviewerSearch.form.interests.instructions">Enter reviewer interests, separated by commas...</message>
 	<message key="manager.roles">Roles</message>
+	<message key="manager.statistics"><![CDATA[Stats &amp; Reports]]></message>
 	<message key="manager.statistics.defaultMetricDescription">
 		Your {$contextObjectName} is configured to record more than one usage metric. Usage statistics will be displayed in severeral contexts.
 		There are cases where a single usage statistic must be used, e.g. to display an ordered list of most-used submissions or to rank
@@ -184,6 +185,8 @@
 	</message>
 	<message key="manager.statistics.city">City</message>	
 	<message key="manager.statistics.region">Region</message>
+	<message key="manager.statistics.reports">Report Generator</message>
+	<message key="manager.statistics.reports.description">The system generates reports that track the details associated with site usage and submissions over a given period of time. Reports are generated in CSV format which requires a spreadsheet application to view.</message>
 	<message key="manager.statistics.reports.aggregationColumns">Aggregate stats by:</message>
 	<message key="manager.statistics.reports.defaultReportTemplates">Default report templates</message>
 	<message key="manager.statistics.reports.generateReport">Generate custom report</message>

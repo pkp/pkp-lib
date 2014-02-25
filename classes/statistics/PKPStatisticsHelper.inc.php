@@ -57,7 +57,7 @@ define('STATISTICS_UNKNOWN_COUNTRY_ID', 'ZZ');
 define('STATISTICS_CURRENT_DAY', 'currentDay');
 define('STATISTICS_CURRENT_MONTH', 'currentMonth');
 
-class PKPStatisticsHelper {
+abstract class PKPStatisticsHelper {
 
 	function PKPStatisticsHelper() {
 	}
@@ -300,8 +300,9 @@ class PKPStatisticsHelper {
 		return array(
 			STATISTICS_DIMENSION_ASSOC_ID => __('common.id'),
 			STATISTICS_DIMENSION_ASSOC_TYPE => __('common.type'),
-			STATISTICS_DIMENSION_SUBMISSION_ID => __('article.article'),
-			STATISTICS_DIMENSION_CONTEXT_ID => __('common.journal'),
+			STATISTICS_DIMENSION_SUBMISSION_ID => $this->getAppColumnTitle(STATISTICS_DIMENSION_SUBMISSION_ID),
+			STATISTICS_DIMENSION_CONTEXT_ID => $this->getAppColumnTitle(STATISTICS_DIMENSION_CONTEXT_ID),
+			STATISTICS_DIMENSION_PKP_SECTION_ID => $this->getAppColumnTitle(STATISTICS_DIMENSION_PKP_SECTION_ID),
 			STATISTICS_DIMENSION_CITY => __('manager.statistics.city'),
 			STATISTICS_DIMENSION_REGION => __('manager.statistics.region'),
 			STATISTICS_DIMENSION_COUNTRY => __('common.country'),
@@ -336,6 +337,13 @@ class PKPStatisticsHelper {
 			STATISTICS_FILE_TYPE_OTHER => __('common.other')
 		);
 	}
+
+	/**
+	 * Get an application specific column name.
+	 * @param $column string One of the statistics column constant.
+	 * @return string A localized text.
+	 */
+	abstract protected function getAppColumnTitle($column);
 }
 
 ?>

@@ -151,6 +151,7 @@ class PKPToolsHandler extends ManagementHandler {
 		}
 
 		// Generates only one metric type report at a time.
+		if (is_array($metricType)) $metricType = current($metricType);
 		if (!is_scalar($metricType)) $metricType = null;
 
 		$reportPlugin =& $statsHelper->getReportPluginByMetricType($metricType);
@@ -235,7 +236,7 @@ class PKPToolsHandler extends ManagementHandler {
 					case STATISTICS_DIMENSION_SUBMISSION_ID:
 						if (isset($record[STATISTICS_DIMENSION_SUBMISSION_ID])) {
 							$assocId = $record[STATISTICS_DIMENSION_SUBMISSION_ID];
-							$assocType = ASSOC_TYPE_ARTICLE;
+							$assocType = ASSOC_TYPE_SUBMISSION;
 							$row[] = $this->getObjectTitle($assocId, $assocType);
 						} else {
 							$row[] = '';
@@ -255,6 +256,17 @@ class PKPToolsHandler extends ManagementHandler {
 							}
 						}
 						$row[] = '';
+						break;
+					case STATISTICS_DIMENSION_PKP_SECTION_ID:
+						$sectionId = null;
+						if (isset($record[STATISTICS_DIMENSION_PKP_SECTION_ID])) {
+							$sectionId = $record[STATISTICS_DIMENSION_PKP_SECTION_ID];
+						}
+						if ($sectionId) {
+							$row[] = $this->getObjectTitle($sectionId, ASSOC_TYPE_SECTION);
+						} else {
+							$row[] = '';
+						}
 						break;
 					default:
 						$row[] = $record[$key];
@@ -291,15 +303,19 @@ class PKPToolsHandler extends ManagementHandler {
 	protected function getObjectTitle($assocId, $assocType) {
 		switch ($assocType) {
 			case Application::getContextAssocType():
-				$contextDao =& Application::getContextDAO(); /* @var $contextDao ContextDAO */
-				$context =& $contextDao->getById($assocId);
-				return $context->getLocalizedTitle();
+				$contextDao = Application::getContextDAO(); /* @var $contextDao ContextDAO */
+				$context = $contextDao->getById($assocId);
+				return $context->getLocalizedName();
 			case ASSOC_TYPE_SUBMISSION:
-				$submissionDao =& Application::getSubmissionDAO(); /* @var $submissionDao SubmissionDAO */
-				$submission =& $submissionDao->getById($assocId, null, true);
+				$submissionDao = Application::getSubmissionDAO(); /* @var $submissionDao SubmissionDAO */
+				$submission = $submissionDao->getById($assocId, null, true);
 				return $submission->getLocalizedTitle();
+			case ASSOC_TYPE_SECTION:
+				$sectionDao = Application::getSectionDAO();
+				$section = $sectionDao->getById($assocId);
+				return $section->getLocalizedTitle();
 			default:
-				assert(false);
+				return null;
 		}
 	}
 

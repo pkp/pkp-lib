@@ -334,7 +334,7 @@ abstract class PKPUsageEventPlugin extends GenericPlugin {
 
 			// First check for a context index page view.
 			if (($page == 'index' || empty($page)) && $op == 'index') {
-				$pubObject =& $templateMgr->get_template_vars('currentContext');
+				$pubObject = $templateMgr->get_template_vars('currentContext');
 				if (is_a($pubObject, 'Context')) {
 					$assocType = Application::getContextAssocType();
 					$canonicalUrlOp = '';

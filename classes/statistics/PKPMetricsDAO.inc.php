@@ -190,9 +190,9 @@ class PKPMetricsDAO extends DAO {
 			if ($range->getCount() > STATISTICS_MAX_ROWS) {
 				$range->setCount(STATISTICS_MAX_ROWS);
 			}
-			$result =& $this->retrieveRange($sql, $params, $range);
+			$result = $this->retrieveRange($sql, $params, $range);
 		} else {
-			$result =& $this->retrieveLimit($sql, $params, STATISTICS_MAX_ROWS);
+			$result = $this->retrieveLimit($sql, $params, STATISTICS_MAX_ROWS);
 		}
 
 		// Return the report.
@@ -263,7 +263,7 @@ class PKPMetricsDAO extends DAO {
 	 * @param $record array
 	 * @param $errorMsg string
 	 */
-	function insertRecord(&$record, &$errorMsg) {
+	function insertRecord($record, $errorMsg) {
 		$recordToStore = array();
 
 		// Required dimensions.

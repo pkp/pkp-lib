@@ -24,8 +24,8 @@ class UsageStatsSettingsForm extends Form {
 	 * Constructor
 	 * @param $plugin object
 	 */
-	function UsageStatsSettingsForm(&$plugin) {
-		$this->plugin =& $plugin;
+	function UsageStatsSettingsForm($plugin) {
+		$this->plugin = $plugin;
 
 		parent::Form($plugin->getTemplatePath() . 'usageStatsSettingsForm.tpl');
 		$this->addCheck(new FormValidatorPost($this));
@@ -35,7 +35,7 @@ class UsageStatsSettingsForm extends Form {
 	 * Initialize form data.
 	 */
 	function initData() {
-		$plugin =& $this->plugin;
+		$plugin = $this->plugin;
 
 		$this->setData('createLogFiles', $plugin->getSetting(CONTEXT_SITE, 'createLogFiles'));
 		$this->setData('accessLogFileParseRegex', $plugin->getSetting(0, 'accessLogFileParseRegex'));
@@ -53,7 +53,7 @@ class UsageStatsSettingsForm extends Form {
 	 * @see Form::fetch()
 	 */
 	function fetch($request) {
-		$templateMgr =& TemplateManager::getManager($request);
+		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('pluginName', $this->plugin->getName());
 		return parent::fetch($request);
 	}
@@ -62,7 +62,7 @@ class UsageStatsSettingsForm extends Form {
 	 * Save settings.
 	 */
 	function execute() {
-		$plugin =& $this->plugin;
+		$plugin = $this->plugin;
 
 		$plugin->updateSetting(0, 'createLogFiles', $this->getData('createLogFiles'));
 		$plugin->updateSetting(0, 'accessLogFileParseRegex', $this->getData('accessLogFileParseRegex'));

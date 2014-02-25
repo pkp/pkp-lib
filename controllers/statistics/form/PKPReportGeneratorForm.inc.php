@@ -71,9 +71,9 @@ abstract class PKPReportGeneratorForm extends Form {
 	/**
 	 * Initialize the form from the current settings.
 	 */
-	function fetch(&$request) {
-		$router =& $request->getRouter();
-		$context =& $router->getContext($request);
+	function fetch($request) {
+		$router = $request->getRouter();
+		$context = $router->getContext($request);
 		$columns = $this->_columns;
 		$statsHelper = new StatisticsHelper();
 
@@ -152,7 +152,7 @@ abstract class PKPReportGeneratorForm extends Form {
 		$this->setData('dateEnd', $endTime);
 
 		if (isset($columns[STATISTICS_DIMENSION_COUNTRY])) {
-			$geoLocationTool =& $statsHelper->getGeoLocationTool();
+			$geoLocationTool = $statsHelper->getGeoLocationTool();
 			if ($geoLocationTool) {
 				$countryCodes = $geoLocationTool->getAllCountryCodes();
 				$countryCodes = array_combine($countryCodes, $countryCodes);
@@ -211,10 +211,10 @@ abstract class PKPReportGeneratorForm extends Form {
 	/**
 	 * @see Form::execute()
 	 */
-	function execute(&$request) {
+	function execute($request) {
 		parent::execute();
-		$router =& $request->getRouter(); /* @var $router PageRouter */
-		$context =& $router->getContext($request);
+		$router = $request->getRouter(); /* @var $router PageRouter */
+		$context = $router->getContext($request);
 		$statsHelper = new StatisticsHelper();
 
 		$columns = $this->getData('columns');

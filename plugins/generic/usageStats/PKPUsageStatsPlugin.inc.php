@@ -44,7 +44,7 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 
 		if ($this->getEnabled() && $success) {
 			// Register callbacks.
-			$app =& PKPApplication::getApplication();
+			$app = PKPApplication::getApplication();
 			$version = $app->getCurrentVersion();
 
 			HookRegistry::register('AcronPlugin::parseCronTab', array($this, 'callbackParseCronTab'));
@@ -116,7 +116,7 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 
 		switch($verb) {
 			case 'settings':
-				$templateMgr =& TemplateManager::getManager();
+				$templateMgr = TemplateManager::getManager();
 				$templateMgr->register_function('plugin_url', array(&$this, 'smartyPluginUrl'));
 				$settingsForm = new UsageStatsSettingsForm($this);
 				$settingsForm->initData();
@@ -204,7 +204,7 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 	 * @see AcronPlugin::parseCronTab()
 	 */
 	function callbackParseCronTab($hookName, $args) {
-		$taskFilesPath =& $args[0];
+		$taskFilesPath =& $args[0]; // Reference needed.
 		$taskFilesPath[] = PKP_LIB_PATH . DIRECTORY_SEPARATOR . $this->getPluginPath() . DIRECTORY_SEPARATOR . 'scheduledTasksAutoStage.xml';
 
 		return false;

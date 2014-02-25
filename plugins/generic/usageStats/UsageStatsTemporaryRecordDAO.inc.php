@@ -75,14 +75,14 @@ class UsageStatsTemporaryRecordDAO extends DAO {
 		$returner = false;
 
 		if (!$this->_result || $this->_loadId != $loadId) {
-			$this->_result =& $this->_getGrouped($loadId);
+			$this->_result = $this->_getGrouped($loadId);
 			$this->_loadId = $loadId;
 		}
 
-		$result =& $this->_result;
+		$result = $this->_result;
 
 		if ($result->EOF) return $returner;
-		$returner =& $result->GetRowAssoc(false);
+		$returner = $result->GetRowAssoc(false);
 		$result->MoveNext();
 		return $returner;
 	}

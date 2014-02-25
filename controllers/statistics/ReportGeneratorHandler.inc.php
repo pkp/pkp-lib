@@ -35,7 +35,7 @@ class ReportGeneratorHandler extends Handler {
 	*/
 	function fetchReportGenerator($args, $request) {
 		$this->setupTemplate($request);
-		$reportGeneratorForm =& $this->_getReportGeneratorForm($request);
+		$reportGeneratorForm = $this->_getReportGeneratorForm($request);
 		$reportGeneratorForm->initData($request);
 
 		$formContent = $reportGeneratorForm->fetch($request);
@@ -58,7 +58,7 @@ class ReportGeneratorHandler extends Handler {
 	function saveReportGenerator($args, $request) {
 		$this->setupTemplate($request);
 
-		$reportGeneratorForm =& $this->_getReportGeneratorForm($request);
+		$reportGeneratorForm = $this->_getReportGeneratorForm($request);
 		$reportGeneratorForm->readInputData();
 		$json = new JSONMessage(true);
 		if ($reportGeneratorForm->validate()) {
@@ -88,8 +88,8 @@ class ReportGeneratorHandler extends Handler {
 		if (!$issueId) {
 			$json->setStatus(false);
 		} else {
-			$articleDao =& DAORegistry::getDAO('PublishedArticleDAO'); /* @var $articleDao PublishedArticleDAO */
-			$articles =& $articleDao->getPublishedArticles($issueId);
+			$articleDao = DAORegistry::getDAO('PublishedArticleDAO'); /* @var $articleDao PublishedArticleDAO */
+			$articles = $articleDao->getPublishedArticles($issueId);
 			$articlesInfo = array();
 			foreach ($articles as $article) {
 				$articlesInfo[] = array('id' => $article->getId(), 'title' => $article->getLocalizedTitle());
@@ -117,7 +117,7 @@ class ReportGeneratorHandler extends Handler {
 
 		if ($countryId) {
 			$statsHelper = new StatisticsHelper();
-			$geoLocationTool =& $statsHelper->getGeoLocationTool();
+			$geoLocationTool = $statsHelper->getGeoLocationTool();
 			if ($geoLocationTool) {
 				$regions = $geoLocationTool->getRegions($countryId);
 				if (!empty($regions)) {
@@ -140,7 +140,7 @@ class ReportGeneratorHandler extends Handler {
 	function setupTemplate($request) {
 		parent::setupTemplate($request);
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_PKP_SUBMISSION,
-			LOCALE_COMPONENT_APP_MANAGER);
+			LOCALE_COMPONENT_APP_MANAGER, LOCALE_COMPONENT_APP_SUBMISSION);
 	}
 
 
@@ -152,8 +152,8 @@ class ReportGeneratorHandler extends Handler {
 	 * @return ReportGeneratorForm
 	 */
 	function &_getReportGeneratorForm($request) {
-		$router =& $request->getRouter();
-		$context =& $router->getContext($request);
+		$router = $request->getRouter();
+		$context = $router->getContext($request);
 
 		$metricType = $request->getUserVar('metricType');
 		if (!$metricType) {
@@ -161,7 +161,7 @@ class ReportGeneratorHandler extends Handler {
 		}
 
 		$statsHelper = new StatisticsHelper();
-		$reportPlugin =& $statsHelper->getReportPluginByMetricType($metricType);
+		$reportPlugin = $statsHelper->getReportPluginByMetricType($metricType);
 		if (!is_scalar($metricType) || !$reportPlugin) {
 			fatalError('Invalid metric type.');
 		}

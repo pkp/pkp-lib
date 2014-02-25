@@ -109,7 +109,7 @@ abstract class ReportPlugin extends Plugin {
 	 * @param $subclass boolean
 	 */
 	function setBreadcrumbs($crumbs = array(), $isSubclass = false) {
-		$templateMgr =& TemplateManager::getManager();
+		$templateMgr = TemplateManager::getManager();
 		$pageCrumbs = array(
 			array(
 				Request::url(null, 'user'),
@@ -137,8 +137,8 @@ abstract class ReportPlugin extends Plugin {
 	 * Display the import/export plugin UI.
 	 * @param $args Array The array of arguments the user supplied.
 	 */
-	function display(&$args) {
-		$templateManager =& TemplateManager::getManager();
+	function display($args) {
+		$templateManager = TemplateManager::getManager();
 		$templateManager->register_function('plugin_url', array(&$this, 'smartyPluginUrl'));
 	}
 

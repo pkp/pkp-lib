@@ -78,7 +78,7 @@ abstract class PKPUsageStatsReportPlugin extends ReportPlugin {
 	function getMetrics($metricType = null, $columns = null, $filters = null, $orderBy = null, $range = null) {
 		// This plug-in uses the MetricsDAO to store metrics. So we simply
 		// delegate there.
-		$metricsDao =& DAORegistry::getDAO('MetricsDAO'); /* @var $metricsDao MetricsDAO */
+		$metricsDao = DAORegistry::getDAO('MetricsDAO'); /* @var $metricsDao MetricsDAO */
 		return $metricsDao->getMetrics($metricType, $columns, $filters, $orderBy, $range);
 	}
 

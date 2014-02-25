@@ -82,7 +82,7 @@ abstract class PKPStatisticsHelper {
 			$contextFilter = $filter[STATISTICS_DIMENSION_CONTEXT_ID];
 			if (is_scalar($contextFilter)) {
 				// Retrieve the context object.
-				$contextDao =& Application::getContextDAO(); /* @var $contextDao ContextDAO */
+				$contextDao = Application::getContextDAO(); /* @var $contextDao ContextDAO */
 				$context = $contextDao->getById($contextFilter);
 			}
 		}
@@ -99,7 +99,7 @@ abstract class PKPStatisticsHelper {
 	* @return null|array The canonicalized metric type array. Null if an error
 	*  occurred.
 	*/
-	function canonicalizeMetricTypes($metricType, &$context, $defaultSiteMetricType, $siteMetricTypes) {
+	function canonicalizeMetricTypes($metricType, $context, $defaultSiteMetricType, $siteMetricTypes) {
 		// Metric type is null: Return the default metric for
 		// the filtered context.
 		if (is_null($metricType)) {
@@ -177,7 +177,7 @@ abstract class PKPStatisticsHelper {
 	 */
 	function getAllMetricTypeStrings() {
 		$allMetricTypes = array();
-		$reportPlugins =& PluginRegistry::loadCategory('reports', true, CONTEXT_SITE);
+		$reportPlugins = PluginRegistry::loadCategory('reports', true, CONTEXT_SITE);
 		if (is_array($reportPlugins)) {
 			foreach ($reportPlugins as $reportPlugin) {
 				/* @var $reportPlugin ReportPlugin */
@@ -258,7 +258,7 @@ abstract class PKPStatisticsHelper {
 	 * @param $orderBy array (optional) Report order by values.
 	 * @return string
 	 */
-	function getReportUrl(&$request, $metricType, $columns, $filter, $orderBy = array()) {
+	function getReportUrl($request, $metricType, $columns, $filter, $orderBy = array()) {
 		$dispatcher = $request->getDispatcher(); /* @var $dispatcher Dispatcher */
 		$args = array(
 			'metricType' => $metricType,

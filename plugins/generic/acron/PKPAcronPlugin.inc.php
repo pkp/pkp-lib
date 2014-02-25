@@ -113,7 +113,7 @@ class PKPAcronPlugin extends GenericPlugin {
 	function callbackLoadHandler($hookName, $args) {
 		$isEnabled = $this->getSetting(0, 'enabled');
 		if($isEnabled) {
-			$taskDao =& DAORegistry::getDao('ScheduledTaskDAO');
+			$taskDao = DAORegistry::getDao('ScheduledTaskDAO');
 
 			// Grab the scheduled scheduled tree
 			$scheduledTasks = $this->getSetting(0, 'crontab');
@@ -179,7 +179,7 @@ class PKPAcronPlugin extends GenericPlugin {
 		$taskFilesPath = array();
 
 		// Let plugins register their scheduled tasks too.
-		HookRegistry::call('AcronPlugin::parseCronTab', array(&$taskFilesPath));
+		HookRegistry::call('AcronPlugin::parseCronTab', array(&$taskFilesPath)); // Reference needed.
 
 		// Add the default tasks file.
 		$taskFilesPath[] = Config::getVar('general', 'registry_dir') . '/scheduledTasks.xml'; // TODO: make this a plugin setting, rather than assuming.

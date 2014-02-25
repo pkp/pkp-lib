@@ -69,6 +69,11 @@ class PKPMetricsDAO extends DAO {
 			STATISTICS_DIMENSION_METRIC_TYPE
 		);
 
+		// If the metric column was defined, remove it. We've already
+		// add that below.
+		$metricKey = array_search(STATISTICS_METRIC, $columns);
+		if ($metricKey !== false) unset($columns[$metricKey]);
+
 		if (count(array_diff($columns, $validColumns)) > 0) return $nullVar;
 		$validColumns[] = STATISTICS_METRIC;
 		foreach ($filters as $filterColumn => $value) {

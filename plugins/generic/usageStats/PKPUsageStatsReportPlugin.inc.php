@@ -53,19 +53,19 @@ abstract class PKPUsageStatsReportPlugin extends ReportPlugin {
 	 */
 	function display($args, $request) {
 		parent::display($args);
+		$router = $request->getRouter();
+		$context = $router->getContext($request);
 
-		$reportTemplates = $this->getDefaultReportTemplates();
-		$allObjectsReportTemplate = array_pop($reportTemplates);
+		$metricType = $this->getMetricTypes();
 
-		if (!$allObjectsReportTemplate) {
-			assert(false);
-			Request::redirect(null, null, 'tools', 'statistics', $reportArgs);
-		}
+		import('classes.statistics.StatisticsHelper');
+		$statsHelper = new StatisticsHelper();
+		$columns = array_keys($statsHelper->getColumnNames());
 
 		$reportArgs = array(
-			'metricType' => $allObjectsReportTemplate['metricType'],
-			'columns' => $allObjectsReportTemplate['columns'],
-			'filters' => serialize($allObjectsReportTemplate['filter']),
+			'metricType' => $metricType,
+			'columns' => $columns,
+			'filters' => serialize(array(STATISTICS_DIMENSION_CONTEXT_ID => $context->getId())),
 			'orderBy' => serialize(array(STATISTICS_DIMENSION_MONTH => STATISTICS_ORDER_ASC))
 		);
 

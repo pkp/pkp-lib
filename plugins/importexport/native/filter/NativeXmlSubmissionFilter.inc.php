@@ -135,6 +135,9 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 			case 'submission_file':
 				$this->parseSubmissionFile($n, $submission);
 				break;
+			case 'comments_to_editor':
+				$submission->setCommentsToEditor($n->textContent);
+				break;
 			default:
 				fatalError('Unknown element ' . $n->tagName);
 		}

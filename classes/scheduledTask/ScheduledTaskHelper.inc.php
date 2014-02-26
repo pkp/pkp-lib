@@ -21,7 +21,7 @@ class ScheduledTaskHelper {
 	 * @param XMLNode
 	 * @return array
 	 */
-	function getTaskArgs($task) {
+	static function getTaskArgs($task) {
 		$args = array();
 		$index = 0;
 
@@ -40,7 +40,7 @@ class ScheduledTaskHelper {
 	 * @param $frequency XMLNode
 	 * @return string
 	 */
-	function checkFrequency($className, $frequency) {
+	static function checkFrequency($className, $frequency) {
 		$isValid = true;
 		$taskDao = DAORegistry::getDAO('ScheduledTaskDAO'); /* @var $taskDao ScheduledTaskDAO */
 		$lastRunTime = $taskDao->getLastRunTime($className);
@@ -95,7 +95,7 @@ class ScheduledTaskHelper {
 	 * @param $cutoffTimestamp int value will be considered valid if older than this
 	 * @return boolean
 	 */
-	function _isInRange($rangeStr, $currentValue, $lastTimestamp, $timeCompareStr, $cutoffTimestamp) {
+	static function _isInRange($rangeStr, $currentValue, $lastTimestamp, $timeCompareStr, $cutoffTimestamp) {
 		$isValid = false;
 		$rangeArray = explode(',', $rangeStr);
 
@@ -146,7 +146,7 @@ class ScheduledTaskHelper {
 	 * @param $max int
 	 * @return boolean
 	 */
-	function _isInNumericRange($value, $min, $max) {
+	static function _isInNumericRange($value, $min, $max) {
 		return ($value >= $min && $value <= $max);
 	}
 

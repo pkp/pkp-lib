@@ -221,6 +221,7 @@
 			<element name="type" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
 			<element name="source" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
 			<element name="rights" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
+			<element name="comments_to_editor" type="string" minOccurs="0" maxOccurs="1" />
 			<element ref="pkp:authors" minOccurs="1" maxOccurs="1" />
 			<element ref="pkp:submission_file" minOccurs="0" maxOccurs="unbounded" />
 			<element ref="pkp:representation" minOccurs="0" maxOccurs="unbounded" />

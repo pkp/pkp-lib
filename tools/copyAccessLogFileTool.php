@@ -29,6 +29,10 @@ class CopyAccessLogFileTool extends CommandLineTool {
 
 	var $_contextPaths;
 
+	var $_egrepPath;
+
+	var $_gunzipPath;
+
 	/**
 	 * Constructor.
 	 * @param $argv array command-line arguments

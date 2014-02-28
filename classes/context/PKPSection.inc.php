@@ -95,6 +95,15 @@ class PKPSection extends DataObject {
 	function setEditorRestricted($editorRestricted) {
 		return $this->setData('editorRestricted', $editorRestricted);
 	}
+
+	/**
+	* Get section main page views.
+	* @return int
+	*/
+	function getViews() {
+		$application = Application::getApplication();
+		return $application->getPrimaryMetricByAssoc(ASSOC_TYPE_SECTION, $this->getId());
+	}
 }
 
 ?>

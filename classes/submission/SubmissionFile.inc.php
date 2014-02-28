@@ -483,6 +483,15 @@ class SubmissionFile extends PKPFile {
 		assert(false);
 	}
 
+	/**
+	* Get submission file number of public downloads.
+	* @return int
+	*/
+	function getViews() {
+		$application = Application::getApplication();
+		return $application->getPrimaryMetricByAssoc(ASSOC_TYPE_SUBMISSION_FILE, $this->getFileId());
+	}
+
 	//
 	// Private helper methods
 	//

@@ -354,6 +354,15 @@ class Context extends DataObject {
 		return $returner;
 	}
 
+	/**
+	 * Get context main page views.
+	 * @return int
+	 */
+	function getViews() {
+		$application = Application::getApplication();
+		return $application->getPrimaryMetricByAssoc(Application::getContextAssocType(), $this->getId());
+	}
+
 
 	//
 	// Statistics API

@@ -155,6 +155,7 @@ abstract class PKPReportGeneratorForm extends Form {
 			$geoLocationTool = $statsHelper->getGeoLocationTool();
 			if ($geoLocationTool) {
 				$countryCodes = $geoLocationTool->getAllCountryCodes();
+				if (!$countryCodes) $countryCodes = array();
 				$countryCodes = array_combine($countryCodes, $countryCodes);
 				$this->setData('countriesOptions', $countryCodes);
 			}

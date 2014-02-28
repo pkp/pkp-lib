@@ -26,7 +26,7 @@
 			<NOTNULL />
 		</field>
 		<field name="seq" type="I8">
-			<NOTNULL />
+			<!-- NOTNULL --><!-- For upgrades; see bug #8585 -->
 		</field>
 		<field name="sortable" type="I1">
 			<NOTNULL/>

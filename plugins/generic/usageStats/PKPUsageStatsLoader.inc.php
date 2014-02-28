@@ -182,7 +182,7 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 			list($countryCode, $cityName, $region) = $geoTool->getGeoLocation($entryData['ip']);
 			$day = date('Ymd', $entryData['date']);
 
-			$type = $this->getFileType($assocId, $assocType);
+			$type = $this->getFileType($assocType, $assocId);
 
 			// Implement double click filtering.
 			$entryHash = $assocType . $assocId . $entryData['ip'];
@@ -275,15 +275,6 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 				$context = $this->getContextByPath($contextPaths);
 				if ($context) {
 					$assocId = $context->getId();
-				}
-				break;
-			case ASSOC_TYPE_SECTION:
-				if (!isset($args[0])) break;
-				$sectionId = $args[0];
-				$sectionDao = Application::getSectionDAO(); /* @var $sectionDao SectionDAO */
-				$section = $sectionDao->getById($sectionId);
-				if ($section) {
-					$assocId = $section->getId();
 				}
 				break;
 		}

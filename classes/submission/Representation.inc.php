@@ -63,7 +63,7 @@ class Representation extends DataObject {
 	 * @param $name string
 	 * @param $locale
 	 */
-	function setName($name, $locale) {
+	function setName($name, $locale = null) {
 		return $this->setData('name', $name, $locale);
 	}
 

@@ -305,18 +305,26 @@ class PKPToolsHandler extends ManagementHandler {
 			case Application::getContextAssocType():
 				$contextDao = Application::getContextDAO(); /* @var $contextDao ContextDAO */
 				$context = $contextDao->getById($assocId);
+				if (!$context) break;
 				return $context->getLocalizedName();
 			case ASSOC_TYPE_SUBMISSION:
 				$submissionDao = Application::getSubmissionDAO(); /* @var $submissionDao SubmissionDAO */
 				$submission = $submissionDao->getById($assocId, null, true);
+				if (!$submission) break;
 				return $submission->getLocalizedTitle();
 			case ASSOC_TYPE_SECTION:
 				$sectionDao = Application::getSectionDAO();
 				$section = $sectionDao->getById($assocId);
+				if (!$section) break;
 				return $section->getLocalizedTitle();
-			default:
-				return null;
+			case ASSOC_TYPE_SUBMISSION_FILE:
+				$submissionFileDao =& DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
+				$submissionFile =& $submissionFileDao->getLatestRevision($assocId);
+				if (!$submissionFile) break;
+				return $submissionFile->getFileLabel();
 		}
+
+		return null;
 	}
 
 }

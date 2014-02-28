@@ -263,15 +263,14 @@ class PKPMetricsDAO extends DAO {
 	 * @param $record array
 	 * @param $errorMsg string
 	 */
-	function insertRecord($record, $errorMsg) {
+	function insertRecord($record) {
 		$recordToStore = array();
 
 		// Required dimensions.
 		$requiredDimensions = array('load_id', 'assoc_type', 'assoc_id', 'metric_type');
 		foreach ($requiredDimensions as $requiredDimension) {
 			if (!isset($record[$requiredDimension])) {
-				$errorMsg = 'Cannot load record: missing dimension "' . $requiredDimension . '".';
-				return false;
+				throw new Exception('Cannot load record: missing dimension "' . $requiredDimension . '".');
 			}
 			$recordToStore[$requiredDimension] = $record[$requiredDimension];
 		}
@@ -294,24 +293,20 @@ class PKPMetricsDAO extends DAO {
 		// We require either month or day in the time dimension.
 		if (isset($record['day'])) {
 			if (!String::regexp_match('/[0-9]{8}/', $record['day'])) {
-				$errorMsg = 'Cannot load record: invalid date.';
-				return false;
+				throw new Exception('Cannot load record: invalid date.');
 			}
 			$recordToStore['day'] = $record['day'];
 			$recordToStore['month'] = substr($record['day'], 0, 6);
 			if (isset($record['month']) && $recordToStore['month'] != $record['month']) {
-				$errorMsg = 'Cannot load record: invalid month.';
-				return false;
+				throw new Exception('Cannot load record: invalid month.');
 			}
 		} elseif (isset($record['month'])) {
 			if (!String::regexp_match('/[0-9]{6}/', $record['month'])) {
-				$errorMsg = 'Cannot load record: invalid month.';
-				return false;
+				throw new Exception('Cannot load record: invalid month.');
 			}
 			$recordToStore['month'] = $record['month'];
 		} else {
-			$errorMsg = 'Cannot load record: Missing time dimension.';
-			return false;
+			throw new Exception('Cannot load record: Missing time dimension.');
 		}
 
 		// Geolocation is optional.
@@ -321,12 +316,10 @@ class PKPMetricsDAO extends DAO {
 
 		// The metric must be set. If it is 0 we ignore the record.
 		if (!isset($record['metric'])) {
-			$errorMsg = 'Cannot load record: metric is missing.';
-			return false;
+			throw new Exception('Cannot load record: metric is missing.');
 		}
 		if (!is_numeric($record['metric'])) {
-			$errorMsg = 'Cannot load record: invalid metric.';
-			return false;
+			throw new Exception('Cannot load record: invalid metric.');
 		}
 		$recordToStore['metric'] = (int) $record['metric'];
 
@@ -393,7 +386,7 @@ class PKPMetricsDAO extends DAO {
 					$submissionId = $submission->getId();
 					$sectionId = $submission->getSectionId();
 				} else {
-					throwException('Cannot load record: invalid submission id.');
+					throw new Exception('Cannot load record: invalid submission id.');
 				}
 				break;
 			case ASSOC_TYPE_SECTION:
@@ -403,7 +396,7 @@ class PKPMetricsDAO extends DAO {
 					$sectionId = $section->getId();
 					$contextId = $section->getContextId();
 				} else {
-					throwException('Cannot load record: invalid section id.');
+					throw new Exception('Cannot load record: invalid section id.');
 				}
 				break;
 			case Application::getContextAssocType():

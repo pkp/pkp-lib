@@ -37,7 +37,7 @@ class LanguageDAO extends DAO {
 		$cache =& Registry::get('languageCache-'.$locale, true, null);
 		if ($cache === null) {
 			$cacheManager = CacheManager::getManager();
-			$cache =& $cacheManager->getFileCache(
+			$cache = $cacheManager->getFileCache(
 				'languages', $locale,
 				array($this, '_cacheMiss')
 			);

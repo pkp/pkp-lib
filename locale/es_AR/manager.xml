@@ -147,6 +147,8 @@
 	<message key="manager.setup.pageHeaderTitleImageInvalid">Formato de imagen no válido para el título de la cabecera de página. Los formatos permitidos son .gif, .jpg, or .png.</message>
 	<message key="manager.setup.selectOne">Seleccione uno</message>
 	<message key="manager.statistics">Estadísticas e informes</message>
+	<message key="manager.statistics.reports">Generador de informes</message>
+	<message key="manager.statistics.reports.description">El sistema genera informes que hacen un seguimiento de los detalles asociados con el uso del sitio y de las comunicaciones durante un período determinado de tiempo. Los informes se generan en formato CSV que requiere una aplicación de hoja de cálculo para ver.</message>
 	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>
 	<message key="manager.statistics.statistics.totalNewValue">{$numTotal} ({$numNew} nuevo)</message>
 	<message key="manager.users">Usuarios</message>

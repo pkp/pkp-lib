@@ -150,6 +150,8 @@
 	<message key="manager.setup.pageHeaderTitleImageInvalid">El format de la imatge utilitzada com a títol per a la capçalera de la pàgina no és vàlid. Els formats admesos són .gif, .jpg i .png.</message>
 	<message key="manager.setup.selectOne">Seleccioneu una de les opcions següents:</message>
 	<message key="manager.statistics">Estadístiques i informes</message>
+	<message key="manager.statistics.reports">Generador d’informes</message>
+	<message key="manager.statistics.reports.description">El sistema genera informes que fan un seguiment dels detalls associats amb l'ús del lloc i de les comunicacions durant un període determinat de temps. Els informes es generen en format CSV que requereix una aplicació de full de càlcul per veure.</message>
 	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>
 	<message key="manager.statistics.statistics.totalNewValue">{$numTotal} ({$numNew} nous)</message>
 	<message key="manager.users">Usuaris/usuàries</message>

@@ -217,9 +217,10 @@
 	<message key="common.width">Breite</message>
 	<message key="common.year">Jahr</message>
 	<message key="common.yes">Ja</message>
-	<message key="common.loading">Laden …</message>
+	<message key="common.loading">Laden ...</message>
 	<message key="common.plugins">Plug-Ins</message>
 	<message key="common.metric">Metrik</message>
+	<message key="common.count">Anzahl</message>
 	<message key="debug.databaseQueries">Anzahl der Datenbankanfragen</message>
 	<message key="debug.executionTime">Seite erstellt am</message>
 	<message key="debug.memoryUsage">Speicherbelegung:</message>
@@ -244,7 +245,7 @@
 	<message key="email.email">E-Mail</message>
 	<message key="email.from">Von</message>
 	<message key="email.invalid">Die E-Mail-Adresse {$email} ist ungültig.</message>
-	<message key="email.multipart">Dies ist eine mehrteilige Nachricht im Format MIME.</message>
+	<message key="email.multipart">Dies ist eine mehrteilige Nachricht im MIME-Format.</message>
 	<message key="email.recipient">Empfänger/in</message>
 	<message key="email.recipients">Empfänger/innen</message>
 	<message key="email.sender">Absender/in</message>
@@ -337,7 +338,7 @@
 	<message key="notification.location">Gehe zu URL</message>
 	<message key="notification.mailList">Benachrichtigungs-Mailingliste</message>
 	<message key="notification.mailList.emailInvalid">Bitte geben Sie eine gültige E-Mail-Adresse ein.</message>
-	<message key="notification.mailList.privacyProtection">Verfahren zum Schutz persönlicher Daten</message>
+	<message key="notification.mailList.privacyProtection">Schutz persönlicher Daten</message>
 	<message key="notification.mailList.protectedContent"><![CDATA[Geschützten Inhalt <a href="{$subscribeUrl}">abonnieren</a>.]]></message>
 	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Beitrag einreichen</a>]]></message>
 	<message key="notification.mailList.register">Sie können sich hier registrieren für ...</message>

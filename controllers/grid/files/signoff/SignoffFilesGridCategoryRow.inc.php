@@ -49,7 +49,8 @@ class SignoffFilesGridCategoryRow extends GridCategoryRow {
 			// Add the row actions.
 			$actionArgs = array(
 				'submissionId' => $submissionFile->getSubmissionId(),
-				'fileId' => $submissionFile->getFileId()
+				'fileId' => $submissionFile->getFileId(),
+				'stageId' => $this->_stageId
 			);
 
 			$router = $request->getRouter();

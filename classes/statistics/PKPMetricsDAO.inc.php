@@ -354,6 +354,7 @@ class PKPMetricsDAO extends DAO {
 
 		$isFile = false;
 		$isRepresentation = false;
+
 		switch($assocType) {
 			case ASSOC_TYPE_SUBMISSION_FILE:
 				$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
@@ -379,18 +380,17 @@ class PKPMetricsDAO extends DAO {
 
 					$contextId = $representation->getContextId();
 					$submissionId = $representation->getSubmissionId();
-					$representationId = $assocId;
 				} else {
 					throw new Exception('Cannot load record: invalid representation id.');
 				}
 				// Don't break but go on to retrieve the submission.
 			case ASSOC_TYPE_SUBMISSION:
-				if (!$isFile || !$isRepresentation) $submissionId = $assocId;
+				if (!$isFile && !$isRepresentation) $submissionId = $assocId;
 				$submissionDao = Application::getSubmissionDAO(); /* @var $submissionDao SubmissionDAO */
 				$submission = $submissionDao->getById($submissionId);
 				if ($submission) {
 					$contextId = $submission->getContextId();
-					$submissionId = $assocId;
+					$submissionId = $submission->getId();
 					$sectionId = $submission->getSectionId();
 				} else {
 					throwException('Cannot load record: invalid submission id.');
@@ -400,6 +400,7 @@ class PKPMetricsDAO extends DAO {
 				$sectionDao = Application::getSectionDAO();
 				$section = $sectionDao->getById($assocId); /* @var $section PKPSection */
 				if ($section) {
+					$sectionId = $section->getId();
 					$contextId = $section->getContextId();
 				} else {
 					throwException('Cannot load record: invalid section id.');
@@ -418,5 +419,4 @@ class PKPMetricsDAO extends DAO {
 		return array($contextId, $sectionId, null, null, $submissionId, $representationId);
 	}
 }
-
 ?>

@@ -28,6 +28,9 @@
     <field name="day" type="I8">
       <NOTNULL/>
     </field>
+    <field name="time" type="I8">
+      <NOTNULL/>
+    </field>
     <field name="metric" type="I8">
       <NOTNULL/>
       <DEFAULT VALUE="1"/>

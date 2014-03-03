@@ -71,6 +71,9 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 		$templateMgr->assign('redirectOptions', $contexts);
 		$templateMgr->assign('pageHeaderTitleImage', $site->getSetting($imageSettingName));
 
+		$application = Application::getApplication();
+		$templateMgr->assign('availableMetricTypes', $application->getMetricTypes(true));
+
 		$themePlugins = PluginRegistry::loadCategory('themes');
 		$themePluginOptions = array();
 		foreach ($themePlugins as $themePlugin) {
@@ -112,6 +115,7 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 		$this->setData('siteStyleSheet', $siteStyleSheet);
 		$this->setData('pageHeaderTitleImage', $pageHeaderTitleImage);
 		$this->setData('themePluginPath', $site->getSetting('themePluginPath'));
+		$this->setData('defaultMetricType', $site->getSetting('defaultMetricType'));
 
 		parent::initData();
 	}
@@ -121,7 +125,8 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 	 */
 	function readInputData() {
 		$this->readUserVars(
-			array('pageHeaderTitleType', 'title', 'intro', 'about', 'redirect', 'contactName', 'contactEmail', 'minPasswordLength', 'themePluginPath',)
+			array('pageHeaderTitleType', 'title', 'intro', 'about', 'redirect', 'contactName',
+				'contactEmail', 'minPasswordLength', 'themePluginPath', 'defaultMetricType',)
 		);
 	}
 
@@ -139,6 +144,8 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 		foreach ($this->getLocaleFieldNames() as $setting) {
 			$siteSettingsDao->updateSetting($setting, $this->getData($setting), null, true);
 		}
+
+		$siteSettingsDao->updateSetting('defaultMetricType', $this->getData('defaultMetricType'));
 
 		// Activate the selected theme plugin
 		$selectedThemePluginPath = $this->getData('themePluginPath');

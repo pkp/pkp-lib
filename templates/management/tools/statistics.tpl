@@ -13,12 +13,9 @@
 {include file="common/header.tpl"}
 {/strip}
 
-<br/>
-
-
-<div class="separator">&nbsp;</div>
-
-<br/>
+{if $showMetricTypeSelector || $appSettings}
+	{include file="management/tools/form/statisticsSettingsForm.tpl"}
+{/if}
 
 <div id="reports">
 	<h3>{translate key="manager.statistics.reports"}</h3>

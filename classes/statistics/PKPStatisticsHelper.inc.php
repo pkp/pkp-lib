@@ -49,6 +49,7 @@ define('STATISTICS_MAX_ROWS', 5000);
 define('STATISTICS_FILE_TYPE_HTML', 1);
 define('STATISTICS_FILE_TYPE_PDF', 2);
 define('STATISTICS_FILE_TYPE_OTHER', 3);
+define('STATISTICS_FILE_TYPE_DOC', 4);
 
 // Geography.
 define('STATISTICS_UNKNOWN_COUNTRY_ID', 'ZZ');
@@ -300,6 +301,7 @@ abstract class PKPStatisticsHelper {
 		return array(
 			STATISTICS_DIMENSION_ASSOC_ID => __('common.id'),
 			STATISTICS_DIMENSION_ASSOC_TYPE => __('common.type'),
+			STATISTICS_DIMENSION_FILE_TYPE => __('common.fileType'),
 			STATISTICS_DIMENSION_SUBMISSION_ID => $this->getAppColumnTitle(STATISTICS_DIMENSION_SUBMISSION_ID),
 			STATISTICS_DIMENSION_CONTEXT_ID => $this->getAppColumnTitle(STATISTICS_DIMENSION_CONTEXT_ID),
 			STATISTICS_DIMENSION_PKP_SECTION_ID => $this->getAppColumnTitle(STATISTICS_DIMENSION_PKP_SECTION_ID),
@@ -308,7 +310,6 @@ abstract class PKPStatisticsHelper {
 			STATISTICS_DIMENSION_COUNTRY => __('common.country'),
 			STATISTICS_DIMENSION_DAY => __('common.day'),
 			STATISTICS_DIMENSION_MONTH => __('common.month'),
-			STATISTICS_DIMENSION_FILE_TYPE => __('common.fileType'),
 			STATISTICS_DIMENSION_METRIC_TYPE => __('common.metric'),
 			STATISTICS_METRIC => __('common.count')
 		);
@@ -334,7 +335,8 @@ abstract class PKPStatisticsHelper {
 		return array(
 			STATISTICS_FILE_TYPE_PDF => 'PDF',
 			STATISTICS_FILE_TYPE_HTML => 'HTML',
-			STATISTICS_FILE_TYPE_OTHER => __('common.other')
+			STATISTICS_FILE_TYPE_OTHER => __('common.other'),
+			STATISTICS_FILE_TYPE_DOC => 'DOC',
 		);
 	}
 

@@ -278,9 +278,16 @@ class PKPToolsHandler extends ManagementHandler {
 							$row[] = '';
 						}
 						break;
+					case STATISTICS_DIMENSION_FILE_TYPE:
+						if ($record[$key]) {
+							$row[] = $statsHelper->getFileTypeString($record[$key]);
+						} else {
+							$row[] = '';
+						}
+						break;
 					default:
 						$row[] = $record[$key];
-					break;
+						break;
 				}
 			}
 			fputcsv($fp, $row);

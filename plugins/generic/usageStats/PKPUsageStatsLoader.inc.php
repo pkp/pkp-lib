@@ -233,16 +233,6 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 	// Abstract protected methods.
 	//
 	/**
-	 * Based on the passed object data, get the file type.
-	 * @param $assocType int
-	 * @param $assocId int
-	 * @return mixed int|null Return one of the file types
-	 * constants STATISTICS_FILE_TYPE... if the
-	 * object is a file, if not, return null.
-	 */
-	abstract protected function getFileType($assocType, $assocId);
-
-	/**
 	 * Get metric type on which this loader process statistics.
 	 */
 	abstract protected function getMetricType();
@@ -251,6 +241,61 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 	//
 	// Protected methods.
 	//
+	/**
+	* Based on the passed object data, get the file type.
+	* @param $assocType int
+	* @param $assocId int
+	* @return mixed int|null Return one of the file types
+	* constants STATISTICS_FILE_TYPE... if the
+	* object is a file, if not, return null.
+	*/
+	protected function getFileType($assocType, $assocId) {
+		// Check downloaded file type, if any.
+		$file = null;
+		$type = null;
+		if ($assocType == ASSOC_TYPE_SUBMISSION_FILE) {
+			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
+			$file = $submissionFileDao->getLatestRevision($assocId);
+		}
+
+		if ($file) {
+			$fileType = $file->getFileType();
+			$fileExtension = pathinfo($file->getOriginalFileName(), PATHINFO_EXTENSION);
+			switch ($fileType) {
+				case 'application/pdf':
+				case 'application/x-pdf':
+				case 'text/pdf':
+				case 'text/x-pdf':
+					$type = STATISTICS_FILE_TYPE_PDF;
+					break;
+				case 'application/octet-stream':
+					if ($fileExtension == 'pdf') {
+						$type = STATISTICS_FILE_TYPE_PDF;
+					} else {
+						$type = STATISTICS_FILE_TYPE_OTHER;
+					}
+					break;
+				case 'application/msword':
+					$type = STATISTICS_FILE_TYPE_DOC;
+					break;
+				case 'application/zip':
+					if ($fileExtension == 'docx') {
+						$type = STATISTICS_FILE_TYPE_DOC;
+					} else {
+						$type = STATISTICS_FILE_TYPE_OTHER;
+					}
+					break;
+				case 'text/html':
+					$type = STATISTICS_FILE_TYPE_HTML;
+					break;
+				default:
+					$type = STATISTICS_FILE_TYPE_OTHER;
+			}
+		}
+
+		return $type;
+	}
+
 	/**
 	 * Get assoc type and id from the passed page, operation and
 	 * arguments.

@@ -59,6 +59,8 @@ class PKPToolsHandler extends ManagementHandler {
 			case 'generateReport':
 				$this->generateReport($args, $request);
 				break;
+			case 'saveStatisticsSettings':
+				return $this->saveStatisticsSettings($args, $request);
 			default:
 				assert(false);
 			}
@@ -86,11 +88,19 @@ class PKPToolsHandler extends ManagementHandler {
 
 		$templateMgr = TemplateManager::getManager($request);
 
-		$reportPlugins =& PluginRegistry::loadCategory('reports');
+		$application = Application::getApplication();
+		$templateMgr->assign('appSettings', $this->hasAppStatsSettings());
+		$templateMgr->assign('contextObjectName', __($application->getNameKey()));
+
+		$reportPlugins = PluginRegistry::loadCategory('reports');
 		$templateMgr->assign_by_ref('reportPlugins', $reportPlugins);
 
 		$templateMgr->assign('defaultMetricType', $context->getSetting('defaultMetricType'));
-		$templateMgr->assign('availableMetricTypes', $context->getMetricTypes(true));
+		$availableMetricTypes = $context->getMetricTypes(true);
+		$templateMgr->assign('availableMetricTypes', $availableMetricTypes);
+		if (count($availableMetricTypes) > 1) {
+			$templateMgr->assign('showMetricTypeSelector', true);
+		}
 
 		$templateMgr->display('management/tools/statistics.tpl');
 	}
@@ -105,13 +115,13 @@ class PKPToolsHandler extends ManagementHandler {
 		$this->setupTemplate($request);
 
 		$pluginName = $request->getUserVar('pluginName');
-		$reportPlugins =& PluginRegistry::loadCategory('reports');
+		$reportPlugins = PluginRegistry::loadCategory('reports');
 
 		if ($pluginName == '' || !isset($reportPlugins[$pluginName])) {
 			Request::redirect(null, null, 'management', 'statistics');
 		}
 
-		$plugin =& $reportPlugins[$pluginName];
+		$plugin = $reportPlugins[$pluginName];
 		$plugin->display($args, $request);
 	}
 
@@ -125,7 +135,7 @@ class PKPToolsHandler extends ManagementHandler {
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_EDITOR);
 
-		$templateMgr =& TemplateManager::getManager();
+		$templateMgr = TemplateManager::getManager();
 		$templateMgr->display('management/tools/reportGenerator.tpl');
 	}
 
@@ -136,12 +146,12 @@ class PKPToolsHandler extends ManagementHandler {
 	* @param $args array
 	* @param $request PKPRequest
 	*/
-	function generateReport(&$args, &$request) {
+	function generateReport($args, $request) {
 		$this->setupTemplate($request);
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
 
-		$router =& $request->getRouter();
-		$context =& $router->getContext($request);
+		$router = $request->getRouter();
+		$context = $router->getContext($request);
 		import('classes.statistics.StatisticsHelper');
 		$statsHelper = new StatisticsHelper();
 
@@ -154,7 +164,7 @@ class PKPToolsHandler extends ManagementHandler {
 		if (is_array($metricType)) $metricType = current($metricType);
 		if (!is_scalar($metricType)) $metricType = null;
 
-		$reportPlugin =& $statsHelper->getReportPluginByMetricType($metricType);
+		$reportPlugin = $statsHelper->getReportPluginByMetricType($metricType);
 		if (!$reportPlugin || is_null($metricType)) {
 			$request->redirect(null, null, 'tools', 'statistics');
 		}
@@ -244,7 +254,7 @@ class PKPToolsHandler extends ManagementHandler {
 						break;
 					case STATISTICS_DIMENSION_REGION:
 						if (isset($record[STATISTICS_DIMENSION_REGION]) && isset($record[STATISTICS_DIMENSION_COUNTRY])) {
-							$geoLocationTool =& $statsHelper->getGeoLocationTool();
+							$geoLocationTool = $statsHelper->getGeoLocationTool();
 							if ($geoLocationTool) {
 								$regions = $geoLocationTool->getRegions($record[STATISTICS_DIMENSION_COUNTRY]);
 								$regionId = $record[STATISTICS_DIMENSION_REGION];
@@ -276,6 +286,26 @@ class PKPToolsHandler extends ManagementHandler {
 			fputcsv($fp, $row);
 		}
 		fclose($fp);
+	}
+
+	/**
+	 * Save statistics settings.
+	 * @
+	 */
+	function saveStatisticsSettings($args, $request) {
+		$router = $request->getRouter();
+		$context = $router->getContext($request);
+
+		$defaultMetricType = $request->getUserVar('defaultMetricType');
+		$context->updateSetting('defaultMetricType', $defaultMetricType);
+
+		$notificationManager = new NotificationManager();
+		$user = $request->getUser();
+		$notificationManager->createTrivialNotification($user->getId());
+
+		('classes.core.JSONMessage');
+		$json = new JSONMessage();
+		return $json->getString();
 	}
 
 
@@ -318,13 +348,22 @@ class PKPToolsHandler extends ManagementHandler {
 				if (!$section) break;
 				return $section->getLocalizedTitle();
 			case ASSOC_TYPE_SUBMISSION_FILE:
-				$submissionFileDao =& DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-				$submissionFile =& $submissionFileDao->getLatestRevision($assocId);
+				$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
+				$submissionFile = $submissionFileDao->getLatestRevision($assocId);
 				if (!$submissionFile) break;
 				return $submissionFile->getFileLabel();
 		}
 
 		return null;
+	}
+
+	/**
+	 * Override and return true if application has
+	 * more statistics settings than the defined in library.
+	 * @return boolean
+	 */
+	protected function hasAppStatsSettings() {
+		return false;
 	}
 
 }

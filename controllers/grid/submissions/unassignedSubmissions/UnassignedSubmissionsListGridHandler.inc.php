@@ -84,14 +84,15 @@ class UnassignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 
 		$accessibleSubmissions = array();
 
-		$rangeInfo = $this->getGridRangeInfo($request, $this->getId());
-
+		// Don't use range info to retrieve the object, because we do
+		// some more filtering below, and that would end up breaking
+		// the range info. FIXME: to speed up the process, do all
+		// the filtering needed in SQL and use range info here.
 		$submissionFactory = $submissionDao->getBySubEditorId(
 			$accessibleContexts,
 			null,
 			false, // do not include STATUS_DECLINED submissions
-			false, // include only unpublished submissions
-			$rangeInfo
+			false  // include only unpublished submissions
 		);
 
 		if (!$submissionFactory->wasEmpty()) {
@@ -103,8 +104,9 @@ class UnassignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 			}
 		}
 
+		$rangeInfo = $this->getGridRangeInfo($request, $this->getId());
 		import('lib.pkp.classes.core.VirtualArrayIterator');
-		return new VirtualArrayIterator($accessibleSubmissions, $submissionFactory->getCount(), $rangeInfo->getPage(), $rangeInfo->getCount());
+		return VirtualArrayIterator::factory($accessibleSubmissions, $rangeInfo);
 	}
 }
 

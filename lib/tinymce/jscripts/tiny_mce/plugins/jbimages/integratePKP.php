@@ -49,7 +49,7 @@ class IntegratePKP {
 			// User is logged in
 			$siteDir = $this->baseDir . '/' . $publicDir . '/site/';
 			if (!file_exists($siteDir . '/images/')) {
-				import('classes.file.FileManager');
+				import('lib.pkp.classes.file.FileManager');
 				$fileManager = new FileManager();
 
 				// Check that the public/site/ directory exists and is writeable
@@ -63,7 +63,7 @@ class IntegratePKP {
 			}
 			//Check if user's image directory exists, else create it
 			if (Validation::isLoggedIn() && !file_exists($siteDir . '/images/' . $user->getUsername())) {
-				import('classes.file.FileManager');
+				import('lib.pkp.classes.file.FileManager');
 				$fileManager = new FileManager();
 
 				// Check that the public/site/images/ directory exists and is writeable

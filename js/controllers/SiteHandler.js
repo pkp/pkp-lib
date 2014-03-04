@@ -137,61 +137,49 @@
 	 */
 	$.pkp.controllers.SiteHandler.prototype.triggerTinyMCESetup =
 			function(tinyMCEObject) {
-		var $inputElement = $('#' + tinyMCEObject.id),
-				placeholderHTML;
 
 		// For read-only controls, set up TinyMCE read-only mode.
-		if ($inputElement.attr('readonly')) {
+		if ($('#' + tinyMCEObject.id).attr('readonly')) {
 			tinyMCEObject.settings.readonly = true;
 		}
 
-		// Add support for HTML5 placeholders
-		placeholderHTML = function(id) {
-			var placeholder = $('#' + id).attr('placeholder'),
-				placeholderTag;
-
-			if (typeof placeholder === 'undefined') {
-				return;
-			}
-
-			placeholderTag = $('<p></p>').html(placeholder);
-			placeholderTag.attr('style', 'color: #aaa;');
-			return placeholderTag[0].outerHTML;
-		};
+		// Add a fake HTML5 placeholder when the editor is intitialized
 		tinyMCEObject.onInit.add(function(tinyMCEObject) {
-			var html;
+			var $element = $('#' + tinyMCEObject.id),
+				placeholderText,
+				$placeholder,
+				$placeholderParent;
+
+			// Don't add anything if we don't have a placeholder
+			placeholderText = $('#' + tinyMCEObject.id).attr('placeholder');
+			if (placeholderText === '') {
+				return;
+			}
+
+			// Create placeholder element
+			$placeholder = $('<span></span>').html(placeholderText);
+			$placeholder.addClass('mcePlaceholder');
+			$placeholder.attr('id', 'mcePlaceholder-' + tinyMCEObject.id);
 			if (tinyMCEObject.getContent().length) {
-				return;
+				$placeholder.hide();
 			}
 
-			html = placeholderHTML(tinyMCEObject.id);
-			if (typeof html === 'undefined') {
-				return;
-			}
-
-			// Add the placholder HTML when the editor is created
-			tinyMCEObject.setContent(html);
+			// Create placeholder wrapper
+			$placeholderParent = $('<div></div>');
+			$placeholderParent.addClass('mcePlaceholderParent');
+			$element.wrap($placeholderParent);
+			$element.parent().append($placeholder);
 		});
+
 		tinyMCEObject.onActivate.add(function(tinyMCEObject) {
-			var html = placeholderHTML(tinyMCEObject.id);
-			if (typeof html === 'undefined') {
-				return;
-			}
-
-			// Remove the placholder HTML when the editor is focussed
-			if (tinyMCEObject.getContent() == html) {
-				tinyMCEObject.setContent('');
-			}
+			// Hide the placeholder when the editor is activated
+			$('#mcePlaceholder-' + tinyMCEObject.id).hide();
 		});
-		tinyMCEObject.onDeactivate.add(function(tinyMCEObject) {
-			var html = placeholderHTML(tinyMCEObject.id);
-			if (typeof html === 'undefined') {
-				return;
-			}
 
-			// Re-add the placholder HTML when the editor is deactivated
+		tinyMCEObject.onDeactivate.add(function(tinyMCEObject) {
+			// Show the placholder when the editor is deactivated
 			if (!tinyMCEObject.getContent().length) {
-				tinyMCEObject.setContent(html);
+				$('#mcePlaceholder-' + tinyMCEObject.id).show();
 			}
 		});
 	};

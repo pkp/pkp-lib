@@ -181,10 +181,20 @@ span.pkp_form_error {
 		overflow: hidden;
 	}
 
+	// Fake HTML5 placeholder behavior for TinyMCE
+	.mcePlaceholderParent { position: relative; }
+	.mcePlaceholder {
+		color: #AAA;
+		position: absolute;
+		top: 5px;
+		left: 5px;
+		z-index: 2;
+	}
+
 	.localization_popover_container {
 		td.mceFirst iframe {
 			position: relative;
-			z-index:1;
+			z-index: 1;
 		}
 
 		// Localization globe icon within TinyMce

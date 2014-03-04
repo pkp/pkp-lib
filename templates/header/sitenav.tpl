@@ -29,9 +29,9 @@
 			{/if}
 		{elseif !$notInstalled}
 			{if !$hideRegisterLink}
-				<li><a disabled="disabled" href="{url router=$smarty.const.ROUTE_PAGE page="user" op="register"}">{translate key="navigation.register"}</a></li>
+				<li><a href="{url router=$smarty.const.ROUTE_PAGE page="user" op="register"}">{translate key="navigation.register"}</a></li>
 			{/if}
-			<li><a disabled="disabled" href="{url router=$smarty.const.ROUTE_PAGE page="login"}">{translate key="navigation.login"}</a></li>
+			<li><a href="{url router=$smarty.const.ROUTE_PAGE page="login"}">{translate key="navigation.login"}</a></li>
 		{/if}
 	</ul>
 </div>

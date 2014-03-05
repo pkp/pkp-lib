@@ -28,7 +28,7 @@
     <field name="day" type="I8">
       <NOTNULL/>
     </field>
-    <field name="timestamp" type="I8">
+    <field name="entry_time" type="I8">
       <NOTNULL/>
     </field>
     <field name="metric" type="I8">

@@ -48,7 +48,7 @@ class UsageStatsTemporaryRecordDAO extends DAO {
 	function insert($assocType, $assocId, $day, $time, $countryCode, $region, $cityName, $fileType, $loadId) {
 		$this->update(
 				'INSERT INTO usage_stats_temporary_records
-					(assoc_type, assoc_id, day, timestamp, country_id, region, city, file_type, load_id)
+					(assoc_type, assoc_id, day, entry_time, country_id, region, city, file_type, load_id)
 					VALUES
 					(?, ?, ?, ?, ?, ?, ?, ?, ?)',
 			array(
@@ -110,7 +110,7 @@ class UsageStatsTemporaryRecordDAO extends DAO {
 	 */
 	function deleteRecord($assocType, $assocId, $time, $loadId) {
 		return $this->update('DELETE from usage_stats_temporary_records
-			WHERE assoc_type = ? AND assoc_id = ? AND timestamp = ? AND load_id = ?',
+			WHERE assoc_type = ? AND assoc_id = ? AND entry_time = ? AND load_id = ?',
 			array((int) $assocType, (int) $assocId, $time, $loadId)); // Not number.
 	}
 

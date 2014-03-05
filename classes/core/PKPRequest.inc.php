@@ -283,7 +283,9 @@ class PKPRequest {
 	}
 
 	/**
-	 * Get the complete set of URL parameters to the current request as an associative array.
+	 * Get the complete set of URL parameters to the current request as an
+	 * associative array. (Excludes reserved parameters, such as "path",
+	 * which are used by disable_path_info mode.)
 	 * @return array
 	 */
 	function getQueryArray() {
@@ -294,6 +296,11 @@ class PKPRequest {
 
 		if (isset($queryString)) {
 			parse_str($queryString, $queryArray);
+		}
+
+		// Filter out disable_path_info reserved parameters
+		foreach (array_merge(Application::getContextList(), array('path', 'page', 'op')) as $varName) {
+			if (isset($queryArray[$varName])) unset($queryArray[$varName]);
 		}
 
 		return $queryArray;

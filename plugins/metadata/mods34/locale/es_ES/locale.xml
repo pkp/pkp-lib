@@ -14,9 +14,9 @@
 <locale name="es_ES" full_name="Español">
 	<!-- plug-in -->
 	<message key="plugins.metadata.mods34.displayName">Metadatos MODS 3.4</message>
-	<message key="plugins.metadata.mods34.description">Proporciona esquemas MODS 3.4 y adaptadores de aplicaciones.</message>
+	<message key="plugins.metadata.mods34.description">Proporciona plantillas MODS 3.4 y compatibilidad de aplicaciones.</message>
 
 	<!-- MODS 3.4 XML output -->
 	<message key="plugins.metadata.mods34.mods34XmlOutput.displayName">Salida de MODS 3.4</message>
-	<message key="plugins.metadata.mods34.mods34XmlOutput.description">Convertir una descripción de metadatos MODS 3.4 a su XML vinculante.g.</message>
+	<message key="plugins.metadata.mods34.mods34XmlOutput.description">Convertir una descripción de metadatos MODS 3.4 a su XML vinculante.</message>
 </locale>

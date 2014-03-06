@@ -14,54 +14,54 @@
 
 <locale name="es_ES" full_name = "Español (España)">
 	<message key="installer.additionalLocales">Locales adicionales</message>
-	<message key="installer.administratorAccount">Cuenta de administrador/a</message>
-	<message key="installer.administratorAccountInstructions">Esta cuenta de usuaria/o se convertirá en el/la administrador/a y tendrá acceso completo al sistema. Adicionalmente se pueden crear cuentas de usuaria/o tras la instalación.</message>
+	<message key="installer.administratorAccount">Cuenta del administrador</message>
+	<message key="installer.administratorAccountInstructions">Esta cuenta de usuario se convertirá en el administrador de la página web y tendrá acceso completo al sistema. Se podrá crear cuentas de usuario adicionales tras la instalación</message>
 	<message key="installer.checkNo"><![CDATA[<span class="pkp_form_error formError">NO</span>]]></message>
 	<message key="installer.checkYes">Sí</message>
-	<message key="installer.clientCharset">Conjunto de caractes del cliente</message>
-	<message key="installer.clientCharsetInstructions">La codificación a usar al mandar y recibir información de los navegadores.</message>
+	<message key="installer.clientCharset">Conjunto de caracteres del cliente</message>
+	<message key="installer.clientCharsetInstructions">Codificación que usar para la información enviada y recibida de los navegadores.</message>
 	<message key="installer.configFileError"><![CDATA[El fichero de configuración <tt>config.inc.php</tt> no existe o no es legible.]]></message>
 	<message key="installer.connectionCharset">Conjunto de caracteres de la conexión</message>
 	<message key="installer.contentsOfConfigFile">Contenidos del fichero de configuración</message>
 	<message key="installer.createDatabase">Crear nueva base de datos</message>
-	<message key="installer.createDatabaseInstructions">Para usar esta opción, su sistema de bases de datos debe soportar creación de bases de datos remota y su cuenta de usuario debe tener los permisos apropiados para crear bases de datos nuevas. Si la instalación falla con esta opción seleccionada, cree manualmente la base de datos en su servidor y lance el instalador de nuevo con esta opción desactivada.</message>
+	<message key="installer.createDatabaseInstructions">Para usar esta opción, el sistema de bases de datos debe soportar la creación de bases de datos remota y la cuenta de usuario debe tener los permisos apropiados para crear bases de datos nuevas. Si no se consigue la instalación con esta opción seleccionada, crea manualmente la base de datos en tu servidor y ejecuta el instalador de nuevo con esta opción desactivada.</message>
 	<message key="installer.databaseCharset">Conjunto de caracteres de la base de datos</message>
 	<message key="installer.databaseDriver">Driver de la base de datos</message>
-	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Los controladores de bases de datos listados entre corchetes no cuentan con la extensión PHP necesaria, por lo probablemente la instalación fallará si se seleccionan.</strong><br />Cualquier driver de base de datos no soportado mostrado más abajo lo está por motivos académicos y seguramente no funcionarán.]]></message>
+	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Los controladores de bases de datos listados entre corchetes no cuentan con la extensión PHP necesaria, por lo que, probablemente, no se instalarán si se seleccionan.</strong><br />Cualquier driver de base de datos no soportado y mostrado más arriba se incluyen únicamente por motivos académicos y, seguramente, no funcionarán.]]></message>
 	<message key="installer.databaseHost">Servidor</message>
-	<message key="installer.databaseHostInstructions">Deje el nombre del servidor en blanco para conectar usando sockets de dominio en vez de a través de TCP/IP. Esto no es necesario con MySQL, que usará automáticamente sockets si se introduce "localhost", pero es necesario con otros servidores de bases de datos como PostgreSQL.</message>
+	<message key="installer.databaseHostInstructions">Deja el nombre del servidor en blanco para conectarte usando sockets de dominio y no a través de TCP/IP. Esto no es necesario con MySQL, que usará automáticamente sockets si se introduce "localhost", pero es necesario con otros servidores de bases de datos como PostgreSQL.</message>
 	<message key="installer.databaseName">Nombre de la base de datos</message>
 	<message key="installer.databasePassword">Contraseña</message>
 	<message key="installer.databaseSettings">Configuración de la base de datos</message>
-	<message key="installer.databaseUsername">Usuario/a</message>
+	<message key="installer.databaseUsername">Nombre de usuario</message>
 	<message key="installer.encryption">Algoritmo de encriptación de contraseñas</message>
-	<message key="installer.filesDir">Directorio para subir</message>
+	<message key="installer.filesDir">Directorio para subir documentos</message>
 	<message key="installer.fileSettings">Configuración de ficheros</message>
 	<message key="installer.form.clientCharsetRequired">Se debe seleccionar un conjunto de caracteres del cliente.</message>
-	<message key="installer.form.databaseDriverRequired">Es necesario seleccionar un controlador de base de datos.</message>
+	<message key="installer.form.databaseDriverRequired">Se debe seleccionar un controlador de base de datos.</message>
 	<message key="installer.form.databaseNameRequired">Es necesario el nombre de la base de datos.</message>
-	<message key="installer.form.emailRequired">Es necesaria una cuenta de correo-e válida para la cuenta de administrador/a.</message>
-	<message key="installer.form.encryptionRequired">Es necesario seleccionar el algoritmo usado para encriptar las contraseñas.</message>
+	<message key="installer.form.emailRequired">Es necesaria una cuenta de correo electrónico válida para la cuenta de administrador.</message>
+	<message key="installer.form.encryptionRequired">Es necesario seleccionar el algoritmo usado para codificar las contraseñas.</message>
 	<message key="installer.form.filesDirRequired">Es necesario introducir el directorio usado para almacenar los ficheros subidos.</message>
 	<message key="installer.form.localeRequired">Se debe seleccionar un locale.</message>
-	<message key="installer.form.passwordRequired">Es necesaria una contraseña para la cuenta de administrador/a.</message>
-	<message key="installer.form.passwordsDoNotMatch">Las contraseñas de administrador/a no coinciden.</message>
+	<message key="installer.form.passwordRequired">Es necesaria una contraseña para la cuenta de administrador</message>
+	<message key="installer.form.passwordsDoNotMatch">Las contraseñas del administrador no coinciden.</message>
 	<message key="installer.form.separateMultiple">Separar valores múltiples con comas</message>
-	<message key="installer.form.usernameAlphaNumeric">El nombre de usuario/a del / de la administrador/a sólo puede contener caracteres alfanuméricos, guiones bajos, y guiones, y debe empezar y finalizar con un caracter alfanumérico.</message>
-	<message key="installer.form.usernameRequired">Es necesario un nombre de usuario/a para la cuenta de administrador/a.</message>
-	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>ATENCIÓN: Su versión actual de PHP no cumple los requisitos mínimos necesarios de instalación. Actualice a una versión más reciente de PHP.</strong>]]></message>
+	<message key="installer.form.usernameAlphaNumeric">El nombre de usuario del administrador sólo puede contener caracteres alfanuméricos, guiones bajos, y guiones, y debe empezar y finalizar con un carácter alfanumérico.</message>
+	<message key="installer.form.usernameRequired">Es necesario un nombre de usuario para la cuenta de administrador.</message>
+	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>ATENCIÓN: La versión actual de PHP no cumple los requisitos mínimos necesarios de instalación. Se recomienda actualizar una versión más reciente de PHP.</strong>]]></message>
 	<message key="installer.installErrorsOccurred">Se han producido errores durante la instalación</message>
 	<message key="installer.installerSQLStatements">Sentencias SQL para la instalación</message>
 	<message key="installer.installFileError"><![CDATA[No existe o no se puede leer el fichero de instalación <tt>dbscripts/xml/install.xml</tt>.]]></message>
 	<message key="installer.installFilesDirError">El directorio especificado para los ficheros subidos no existe o no tiene permisos de escritura.</message>
-	<message key="installer.installParseDBFileError"><![CDATA[Error parseando el fichero de instalación de la base de datos<tt>{$file}</tt>.]]></message>
+	<message key="installer.installParseDBFileError"><![CDATA[Se ha producir un error durante el análisis del fichero de instalación de la base de datos<tt>{$file}</tt>.]]></message>
 	<message key="installer.locale">Locale</message>
 	<message key="installer.localeSettings">Configuración de locales</message>
-	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Un identificador único para identificar registros de metadatos indexados desde este sitio usando el protocolo de la <a href="http://www.openarchives.org/" target="_blank">Iniciativa de Archivos Abiertos</a> para recogida de metadatos.]]></message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Un identificador único para identificar registros de metadatos indexados desde este sitio usando el protocolo de la <a href="http://www.openarchives.org/" target="_blank">Iniciativa de Archivos Abiertos</a> para la recogida de metadatos.]]></message>
 	<message key="installer.oaiRepositoryId">Identificador de repositorio OAI</message>
-	<message key="installer.publicFilesDirError">El directorio de ficheros públicos no existe o no tiene permisos de escritura.</message>
+	<message key="installer.publicFilesDirError">El directorio de ficheros públicos no existe o no tiene permiso de escritura.</message>
 	<message key="installer.releaseNotes">Notas de lanzamiento</message>
 	<message key="installer.securitySettings">Configuración de seguridad</message>
-	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Ha habido un error analizándo el fichero de plantilla de correo <tt>{$file}</tt>.]]></message>
+	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Se ha producido un error durante el análisis del fichero de la plantilla de correo <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale.maybeIncomplete">Las traducciones marcadas pueden estar incompletas.</message>
 </locale>

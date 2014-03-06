@@ -229,19 +229,19 @@
 	<message key="icon.view.alt">Ver</message>
 	<message key="locale.primary">Locale primario</message>
 	<message key="locale.supported">Locales soportados</message>
-	<message key="navigation.about">Acerca de...</message>
+	<message key="navigation.about">Acerca de</message>
 	<message key="navigation.browse">Navegar</message>
 	<message key="navigation.browseByTitle">Por título</message>
 	<message key="navigation.home">Inicio</message>
 	<message key="navigation.infoForReaders">Para lectoras/es</message>
 	<message key="navigation.infoForReaders.long">Información para lectoras/es</message>
 	<message key="navigation.items">{$from} - {$to} de {$total} elementos</message>
-	<message key="navigation.login">Ingresar</message>
+	<message key="navigation.login">Iniciar sesión</message>
 	<message key="navigation.nextPage"><![CDATA[>>]]></message>
 	<message key="navigation.nextStep">Siguiente paso</message>
 	<message key="navigation.previousPage"><![CDATA[<<]]></message>
 	<message key="navigation.previousStep">Paso anterior</message>
-	<message key="navigation.register">Registro</message>
+	<message key="navigation.register">Crear una cuenta</message>
 	<message key="navigation.search">Buscar</message>
 	<message key="navigation.stepNumber">Paso {$step}</message>
 	<message key="navigation.userHome">Área Personal</message>
@@ -326,4 +326,8 @@
 	<message key="common.loading">Cargando ...</message>
 	<message key="navigation.goBack">Volver</message>
 	<message key="common.publicKnowledgeProject">Public Knowledge Project</message>
+	<message key="common.currentStyleSheet">Hoja de estilos actual</message>
+	<message key="about.description">Descripción</message>
+	<message key="about.guidelines">Directrices</message>
+	<message key="common.go">Ir</message>
 </locale>

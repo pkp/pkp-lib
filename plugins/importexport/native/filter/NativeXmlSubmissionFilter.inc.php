@@ -245,7 +245,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 	 * @return string
 	 */
 	function getRepresentationExportFilterGroupName() {
-		return 'publication-format=>native-xml';
+		assert(false); // Subclasses must override
 	}
 
 	/**

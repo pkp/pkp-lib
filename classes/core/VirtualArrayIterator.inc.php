@@ -63,7 +63,7 @@ class VirtualArrayIterator extends ItemIterator {
 	 * @return object VirtualArrayIterator
 	 */
 	static function factory($wholeArray, $rangeInfo) {
-		if ($rangeInfo->isValid()) $slicedArray = array_slice($wholeArray, $rangeInfo->getCount() * ($rangeInfo->getPage()-1), $rangeInfo->getCount());
+		if ($rangeInfo->isValid()) $slicedArray = array_slice($wholeArray, $rangeInfo->getCount() * ($rangeInfo->getPage()-1), $rangeInfo->getCount(), true);
 		return new VirtualArrayIterator($slicedArray, count($wholeArray), $rangeInfo->getPage(), $rangeInfo->getCount());
 	}
 

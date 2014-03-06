@@ -45,14 +45,6 @@ class PKPUserHandler extends Handler {
 			$request->redirectUrl($_SERVER['HTTP_REFERER']);
 		}
 
-		$source = $request->getUserVar('source');
-		if (isset($source) && !empty($source)) {
-			$request->redirectUrl(
-				$request->getProtocol() . '://' . $request->getServerHost() . $source,
-				false
-			);
-		}
-
 		$request->redirect(null, 'index');
 	}
 

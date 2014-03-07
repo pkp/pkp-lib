@@ -38,10 +38,12 @@ class NativeExportFilter extends NativeImportExportFilter {
 	 */
 	function createLocalizedNodes($doc, $parentNode, $name, $values) {
 		$deployment = $this->getDeployment();
-		foreach ($values as $locale => $value) {
-			if ($value === '') continue; // Skip empty values
-			$parentNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), $name, $value));
-			$node->setAttribute('locale', $locale);
+		if (is_array($values)) {
+			foreach ($values as $locale => $value) {
+				if ($value === '') continue; // Skip empty values
+				$parentNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), $name, $value));
+				$node->setAttribute('locale', $locale);
+			}
 		}
 	}
 

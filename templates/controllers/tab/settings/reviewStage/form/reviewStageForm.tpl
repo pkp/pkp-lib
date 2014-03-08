@@ -45,6 +45,9 @@
 			{/fbvFormSection}
 		{/fbvFormArea}
 
+		{url|assign:reviewFormsUrl router=$smarty.const.ROUTE_COMPONENT component="grid.settings.reviewForms.ReviewFormGridHandler" op="fetchGrid"}
+		{load_url_in_div id="reviewFormGridContainer" url=$reviewFormsUrl}
+
 		{fbvFormArea id="reviewProcessDetails"}
 			{fbvFormSection title="manager.setup.reviewOptions.reviewerRatings" list=true}
 				{fbvElement type="checkbox" id="rateReviewerOnQuality" value="1" checked=$rateReviewerOnQuality label="manager.setup.reviewOptions.onQuality"}

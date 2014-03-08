@@ -108,6 +108,10 @@
 	<message key="grid.action.logInAs">Login As</message>
 	<message key="grid.action.exportAllUsers">Export All Users</message>
 	<message key="grid.users.confirmExportAllUsers">Are you sure you wish to export all users?</message>
+	<message key="grid.action.activate">Activate</message>
+	<message key="grid.action.deactivate">Deactivate</message>
+	<message key="grid.action.copy">Copy</message>
+	<message key="grid.action.preview">Preview</message>
 
 	<!--  grid task status -->
 	<message key="grid.task.status.completed">This task is completed</message>
@@ -152,6 +156,9 @@
 
 	<!-- Review Forms Grid -->
 	<message key="grid.reviewForm.title">Review Forms</message>
+
+	<!-- Review Form Element Reponse Items Grid -->
+	<message key="grid.reviewFormElement.responseItems">Response Options</message>
 
 	<!-- Files -->
 	<message key="grid.noFiles">No Files</message>

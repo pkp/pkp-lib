@@ -77,14 +77,14 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 
 			// Get the review form components
 			$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
-			$reviewFormElements =& $reviewFormElementDao->getReviewFormElements($reviewAssignment->getReviewFormId());
+			$reviewFormElements = $reviewFormElementDao->getByReviewFormId($reviewAssignment->getReviewFormId());
 			$reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO');
-			$reviewFormResponses =& $reviewFormResponseDao->getReviewReviewFormResponseValues($reviewAssignment->getReviewId());
+			$reviewFormResponses = $reviewFormResponseDao->getReviewReviewFormResponseValues($reviewAssignment->getReviewId());
 			$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
 			$reviewformid = $reviewAssignment->getReviewFormId();
-			$reviewForm =& $reviewFormDao->getReviewForm($reviewAssignment->getReviewFormId(), ASSOC_TYPE_..., $context->getId());
+			$reviewForm = $reviewFormDao->getById($reviewAssignment->getReviewFormId(), ASSOC_TYPE_..., $context->getId());
 
-			$templateMgr->assign_by_ref('reviewForm', $reviewForm);
+			$templateMgr->assign('reviewForm', $reviewForm);
 			$templateMgr->assign('reviewFormElements', $reviewFormElements);
 			$templateMgr->assign('reviewFormResponses', $reviewFormResponses);
 			$templateMgr->assign('isLocked', isset($reviewAssignment) && $reviewAssignment->getDateCompleted() != null);
@@ -118,7 +118,7 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 					$reviewFormResponse = new ReviewFormResponse();
 				}
 				$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
-				$reviewFormElement = $reviewFormElementDao->getReviewFormElement($reviewFormElementId);
+				$reviewFormElement = $reviewFormElementDao->getById($reviewFormElementId);
 				$elementType = $reviewFormElement->getElementType();
 				switch ($elementType) {
 					case REVIEW_FORM_ELEMENT_TYPE_SMALL_TEXT_FIELD:

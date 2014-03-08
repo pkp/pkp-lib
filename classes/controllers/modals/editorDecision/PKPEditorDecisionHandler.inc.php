@@ -237,7 +237,7 @@ class PKPEditorDecisionHandler extends Handler {
 					$reviewId = $reviewAssignment->getId();
 
 
-					$reviewFormElements = $reviewFormElementDao->getReviewFormElements($reviewFormId);
+					$reviewFormElements = $reviewFormElementDao->getByReviewFormId($reviewFormId);
 					if(!$submissionComments) {
 						$body .= "$textSeparator\n";
 

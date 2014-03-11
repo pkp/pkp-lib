@@ -224,6 +224,8 @@ class PKPLoginHandler extends Handler {
 	function resetPassword($args, &$request) {
 		$this->validate();
 		$this->setupTemplate($request);
+		$site =& $request->getSite();
+		$oneStepReset = $site->getSetting('oneStepReset') ? true : false;
 
 		$username = isset($args[0]) ? $args[0] : null;
 		$userDao =& DAORegistry::getDAO('UserDAO');
@@ -242,7 +244,7 @@ class PKPLoginHandler extends Handler {
 			$templateMgr->assign('backLinkLabel',  'user.login.resetPassword');
 			$templateMgr->display('common/error.tpl');
 
-		} else {
+		} else if (!$oneStepReset) {
 			// Reset password
 			$newPassword = Validation::generatePassword();
 
@@ -262,7 +264,6 @@ class PKPLoginHandler extends Handler {
 			$userDao->updateObject($user);
 
 			// Send email with new password
-			$site =& $request->getSite();
 			import('classes.mail.MailTemplate');
 			$mail = new MailTemplate('PASSWORD_RESET');
 			$this->_setMailFrom($request, $mail, $site);
@@ -278,6 +279,12 @@ class PKPLoginHandler extends Handler {
 			$templateMgr->assign('backLink', $request->url(null, $request->getRequestedPage()));
 			$templateMgr->assign('backLinkLabel',  'user.login');
 			$templateMgr->display('common/message.tpl');
+		} else {
+			import('classes.user.form.LoginChangePasswordForm');
+
+			$passwordForm = new LoginChangePasswordForm($confirmHash);
+			$passwordForm->initData();
+			$passwordForm->display();
 		}
 	}
 
@@ -305,10 +312,15 @@ class PKPLoginHandler extends Handler {
 	function savePassword($args, &$request) {
 		$this->validate();
 		$this->setupTemplate($request);
-
+		$site = $request->getSite();
+		$oneStepReset = $site->getSetting('oneStepReset') ? true : false;
+		$confirmHash = null;
+		if ($oneStepReset) {
+			$confirmHash = $request->getUserVar('confirmHash');
+		}
 		import('classes.user.form.LoginChangePasswordForm');
 
-		$passwordForm = new LoginChangePasswordForm();
+		$passwordForm = new LoginChangePasswordForm($confirmHash);
 		$passwordForm->readInputData();
 
 		if ($passwordForm->validate()) {

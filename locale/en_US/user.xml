@@ -46,6 +46,7 @@
 	<message key="user.group">User Group</message>
 	<message key="user.lastName">Last Name</message>
 	<message key="user.profile.form.profileImageInvalid">Invalid profile image format or image too big. Accepted formats are .gif, .jpg, or .png, and the image must not exceed 150x150 pixels.</message>
+	<message key="user.profile.form.hashInvalid">The password reset hash you attempted to use is not valid.</message>
 	<message key="user.login.accountDisabledWithReason">Your account has been disabled for the following reason: {$reason}</message>
 	<message key="user.login.accountDisabled">Your account has been disabled. Please contact the administrator for more information.</message>
 	<message key="user.login.accountNotValidated">Your email address has not been validated. Please check your email and follow the provided instructions. If you have not received an email, you may need to contact the site administrator for assistance.</message>

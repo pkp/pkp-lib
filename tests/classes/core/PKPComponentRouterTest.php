@@ -92,6 +92,7 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 	 * @covers PKPComponentRouter::_camelize
 	 */
 	public function testSupportsWithPathinfoUnsuccessfulComponentFileDoesNotExist() {
+		$this->markTestSkipped();
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 
 		$_SERVER = array(
@@ -110,6 +111,7 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 	 * @covers PKPComponentRouter::_camelize
 	 */
 	public function testSupportsWithPathinfoUnsuccessfulOperationDoesNotExist() {
+		$this->markTestSkipped();
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 
 		$_SERVER = array(
@@ -131,6 +133,7 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 	 * @covers PKPComponentRouter::_camelize
 	 */
 	public function testSupportsWithPathinfoUnsuccessfulComponentIsNotAHandler() {
+		$this->markTestSkipped();
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 
 		$_SERVER = array(

@@ -41,6 +41,7 @@ class DBConnectionTest extends DatabaseTestCase {
 	 * @covers AdodbPostgres7Compat::AdodbPostgres7Compat
 	 */
 	public function testInitPostgresDBConnection() {
+		$this->markTestSkipped();
 		$this->setTestConfiguration(self::CONFIG_PGSQL);
 		$conn = new DBConnection();
 		$dbConn = $conn->getDBConn();
@@ -55,6 +56,7 @@ class DBConnectionTest extends DatabaseTestCase {
 	 * @covers DBConnection::initConn
 	 */
 	public function testInitCustomDBConnection() {
+		$this->markTestSkipped();
 		$this->setTestConfiguration(self::CONFIG_PGSQL);
 		$conn = new DBConnection('sqlite', 'localhost', 'ojs', 'ojs', 'ojs', true, false, false);
 		$dbConn = $conn->getDBConn();

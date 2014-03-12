@@ -130,7 +130,7 @@
 
 	{$additionalHeadData}
 </head>
-<body>
+<body id="{$requestedPage|default:'index'}">
 <div id="container">
 
 <div id="header">

@@ -21,6 +21,7 @@ if (TinyMCE_Compressor::getParam("js")) {
 	 *  "files"     => "somescript,anotherscript",
 	 *  "expires"   => "1m",
 	 */
+		'cache_dir' => realpath(dirname(__FILE__) . '/../../../../../../cache'),
 	));
 
 	// Handle request, compress and stream to client

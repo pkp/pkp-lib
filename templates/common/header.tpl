@@ -129,7 +129,7 @@
 
 	{$additionalHeadData}
 </head>
-<body>
+<body id="{$pageTitle|replace:'.':'-'}">
 <div id="container">
 
 <div id="header">

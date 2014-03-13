@@ -54,7 +54,7 @@
 
 	{$additionalHeadData}
 </head>
-<body>
+<body id="{$pageTitle|replace:'.':'-'}">
 {literal}
 <script type="text/javascript">
 <!--

@@ -12,7 +12,7 @@
  * Copyright (c) 2014 Simon Fraser University Library
  * Copyright (c) 2000-2014 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
- *
+ * ePUB mime type added  Leah M Root (rootl) SUNY Geneseo
  * @class FileManager
  * @ingroup file
  *
@@ -29,6 +29,7 @@ define('DOCUMENT_TYPE_HTML', 'html');
 define('DOCUMENT_TYPE_IMAGE', 'image');
 define('DOCUMENT_TYPE_PDF', 'pdf');
 define('DOCUMENT_TYPE_WORD', 'word');
+/**ADDED rootl**/define('DOCUMENT_TYPE_EPUB', 'epub');
 define('DOCUMENT_TYPE_ZIP', 'zip');
 
 class FileManager {
@@ -405,6 +406,11 @@ class FileManager {
 			case 'application/x-compressed':
 			case 'multipart/x-zip':
 				return DOCUMENT_TYPE_ZIP;
+		/*****ADDED by rootl per http://pkp.sfu.ca/support/forum/viewtopic.php?f=40&t=10083 ***/		
+			case 'application/epub':
+			case 'application/epub+zip':
+				return DOCUMENT_TYPE_EPUB;	
+		/*******end added****/
 			default:
 				return DOCUMENT_TYPE_DEFAULT;
 		}
@@ -423,6 +429,8 @@ class FileManager {
 				return '.doc';
 			case 'text/html':
 				return '.html';
+	/*****ADDED by rootl  **/ case 'application/epub+zip':
+				return '.epub';
 			default:
 				return false;
 		}

@@ -130,7 +130,7 @@
 
 	{$additionalHeadData}
 </head>
-<body id="{$requestedPage|default:'index'}">
+<body id="pkp-{$pageTitle|replace:'.':'-'}">
 <div id="container">
 
 <div id="header">

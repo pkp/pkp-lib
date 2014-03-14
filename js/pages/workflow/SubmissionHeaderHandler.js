@@ -28,8 +28,10 @@
 
 		this.parent($submissionHeader, options);
 
+		this.participantToggleSeletor_ = options.participantToggleSeletor;
+
 		// show and hide on click of link
-		$('#participantToggle').click(this.callbackWrapper(
+		$(this.participantToggleSeletor_).click(this.callbackWrapper(
 				this.appendToggleIndicator_));
 
 		this.bind('gridRefreshRequested', this.refreshWorkflowContent_);
@@ -38,6 +40,18 @@
 	$.pkp.classes.Helper.inherits(
 			$.pkp.pages.workflow.SubmissionHeaderHandler,
 			$.pkp.classes.Handler);
+
+
+	//
+	// Private properties.
+	//
+	/**
+	 * The selector for participants grid toggle link.
+	 * @protected
+	 * @type {?string}
+	 */
+	$.pkp.pages.workflow.SubmissionHeaderHandler.prototype.
+		participantToggleSelector_ = null;
 
 
 	//
@@ -59,6 +73,10 @@
 			// If the participants grid was the event source, we
 			// may need to re-draw workflow contents.
 			this.trigger('stageParticipantsChanged');
+
+			// We also want to close the participants grid view
+			// every time a change is made there.
+			$(this.participantToggleSeletor_).click();
 		}
 	};
 

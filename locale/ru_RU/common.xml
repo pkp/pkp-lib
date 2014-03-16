@@ -36,7 +36,7 @@
 	<message key="common.acknowledged">Признано</message>
 	<message key="common.action">Действие</message>
 	<message key="common.activate">Активировать</message>
-	<message key="common.active">Активный</message>
+	<message key="common.active">Активны</message>
 	<message key="common.add">Добавить</message>
 	<message key="common.addSelf">Добавить себя</message>
 	<message key="common.all">Все</message>

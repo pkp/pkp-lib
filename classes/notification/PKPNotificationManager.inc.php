@@ -331,6 +331,12 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 	 */
 	public function isVisibleToAllUsers($notificationType, $assocType, $assocId) {
 		switch ($notificationType) {
+			case NOTIFICATION_TYPE_REVIEW_ROUND_STATUS:
+			case NOTIFICATION_TYPE_APPROVE_SUBMISSION:
+			case NOTIFICATION_TYPE_VISIT_CATALOG:
+			case NOTIFICATION_TYPE_CONFIGURE_PAYMENT_METHOD:
+				$isVisible = true;
+				break;
 			default:
 				$isVisible = $this->getByDelegate(
 					$notificationType,

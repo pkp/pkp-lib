@@ -259,7 +259,7 @@
 	<message key="form.confirmSubmit.title">Подтвердить</message>
 	<message key="form.emailRequired">Адрес электронной почты обязателен.</message>
 	<message key="form.dataHasChanged">Данные этой формы были изменены. Все равно продолжить?</message>
-	<message key="form.errorsOccurred">При обработки этой формы произошли ошибки</message>
+	<message key="form.errorsOccurred">При обработке этой формы произошли ошибки</message>
 	<message key="form.formLanguage.description">Сначала выберите язык, чтобы ввести ниже информацию на других языках.</message>
 	<message key="form.formLanguage">Язык формы</message>
 	<message key="form.contains">содержит</message>

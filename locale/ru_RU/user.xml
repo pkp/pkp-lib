@@ -47,6 +47,7 @@
 	<message key="user.group">Группа пользователя</message>
 	<message key="user.lastName">Фамилия</message>
 	<message key="user.profile.form.profileImageInvalid">Неверный формат изображения профиля или изображение слишком большое. Разрешенные форматы — .gif, .jpg, или .png, размер изображения не более 150x150 пикселей.</message>
+	<message key="user.profile.form.hashInvalid">Хэш для сброса пароля, который вы пытаетесь использовать, является неправильным.</message>
 	<message key="user.login.accountDisabledWithReason">Ваша учетная запись была отключена по следующей причине: {$reason}</message>
 	<message key="user.login.accountDisabled">Ваша учетная запись была отключена. Пожалуйста, свяжитесь с администратором для получения более подробной информации.</message>
 	<message key="user.login.accountNotValidated">Ваш адрес электронной почты не был проверен. Пожалуйста, проверьте свою почту и следуйте инструкциям в отправленном Вам письме. Если Вы не получили письмо, то Вам стоит связаться с администратором сайта для получения помощи.</message>

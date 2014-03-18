@@ -59,6 +59,7 @@
 	<message key="admin.settings.homeHeaderImageInvalid">Неверный формат изображения логотипа сайта. Разрешенные форматы: .gif, .jpg или .png.</message>
 	<message key="admin.settings.introduction">Преамбула</message>
 	<message key="admin.settings.minPasswordLength">Минимальная длина пароля</message>
+	<message key="admin.settings.oneStepReset">Использовать один шаг для сброса пароля?</message>
 	<message key="admin.settings.oaiRegistration">Зарегистрировать сайт для индексации (сбора метаданных)</message>
 	<message key="admin.settings.passwordCharacters">знаков</message>
 	<message key="admin.settings.siteLanguage">Язык сайта</message>

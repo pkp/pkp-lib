@@ -59,6 +59,7 @@
 	<message key="admin.settings.homeHeaderImageInvalid">Invalid site logo image format. Accepted formats are .gif, .jpg, or .png.</message>
 	<message key="admin.settings.introduction">Introduction</message>
 	<message key="admin.settings.minPasswordLength">Minimum password length</message>
+	<message key="admin.settings.oneStepReset">Use a single step for password resets?</message>
 	<message key="admin.settings.oaiRegistration">Register Site for Indexing (Metadata Harvesting)</message>
 	<message key="admin.settings.passwordCharacters">characters</message>
 	<message key="admin.settings.siteLanguage">Site language</message>

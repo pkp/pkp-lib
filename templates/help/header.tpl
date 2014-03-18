@@ -65,6 +65,7 @@ if (self.blur) { self.focus(); }
 {/literal}
 
 <div id="container">
+<body id="body" class="pkp-{$pageTitle|replace:'.':' pkp-'}">
 <div id="body">
 <div id="top"></div>
 

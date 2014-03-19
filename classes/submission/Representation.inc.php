@@ -52,10 +52,11 @@ class Representation extends DataObject {
 
 	/**
 	 * Get the format name (if applicable).
+	 * @param $locale string
 	 * @return string
 	 */
-	function getName() {
-		return $this->getData('name');
+	function getName($locale) {
+		return $this->getData('name', $locale);
 	}
 
 	/**

@@ -11,6 +11,8 @@
 # If no options are specified, then all tests will be executed.
 #
 
+set -e # Fail on first error
+
 # Before executing tests for the first time please execute the
 # following commands from the main ojs directory to install
 # the default test environment.

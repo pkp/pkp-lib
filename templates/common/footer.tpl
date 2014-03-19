@@ -13,7 +13,7 @@
 {/if}
 {if $pageFooter}
 	<br /><br />
-	{$pageFooter}
+	<div id="pageFooter">{$pageFooter}</div>
 {/if}
 {call_hook name="Templates::Common::Footer::PageFooter"}
 </div><!-- content -->

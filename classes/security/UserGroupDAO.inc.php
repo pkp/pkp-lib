@@ -222,21 +222,43 @@ class UserGroupDAO extends DAO {
 	}
 
 	/**
+	 * Check whether the passed user group
+	 * id is default or not.
+	 * @param $userGroupId Integer
+	 * @return boolean
+	 */
+	function isDefault($userGroupId) {
+		$result = $this->retrieve(
+			'SELECT is_default FROM user_groups
+			WHERE user_group_id = ?', array((int)$userGroupId)
+		);
+
+		$result = $result->GetArray();
+		if (isset($result[0]['is_default'])) {
+			return $result[0]['is_default'];
+		} else {
+			return false;
+		}
+	}
+
+	/**
 	 * Get all user groups belonging to a role
-	 * @param $contextId
-	 * @param $roleId
-	 * @param $default
+	 * @param Integer $contextId
+	 * @param Integer $roleId
+	 * @param boolean $default (optional)
+	 * @param DBResultRange $dbResultRange (optional)
 	 * @return DAOResultFactory
 	 */
-	function getByRoleId($contextId, $roleId, $default = false) {
+	function getByRoleId($contextId, $roleId, $default = false, $dbResultRange = null) {
 		$params = array((int) $contextId, (int) $roleId);
 		if ($default) $params[] = 1; // true
-		$result = $this->retrieve(
+		$result = $this->retrieveRange(
 			'SELECT	*
 			FROM	user_groups
 			WHERE	context_id = ? AND
 				role_id = ?' . ($default?' AND is_default = ?':''),
-			$params
+			$params,
+			$dbResultRange
 		);
 
 		return new DAOResultFactory($result, $this, '_returnFromRow');
@@ -365,16 +387,19 @@ class UserGroupDAO extends DAO {
 
 	/**
 	 * Retrieve user groups for a given context (all contexts if null)
-	 * @param $contextId
+	 * @param Integer $contextId (optional)
+	 * @param DBResultRange $dbResultRange (optional)
+	 * @return DAOResultFactory
 	 */
-	function getByContextId($contextId = null) {
+	function getByContextId($contextId = null, $dbResultRange = null) {
 		$params = array();
 		if ($contextId) $params[] = (int) $contextId;
-		$result = $this->retrieve(
+		$result = $this->retrieveRange(
 			'SELECT ug.*
 			FROM	user_groups ug' .
 				($contextId?' WHERE ug.context_id = ?':''),
-			$params);
+			$params,
+			$dbResultRange);
 
 		return new DAOResultFactory($result, $this, '_returnFromRow');
 	}
@@ -399,7 +424,7 @@ class UserGroupDAO extends DAO {
 		$returner = $result->fields[0];
 
 		$result->Close();
-		return $returner;
+		return (int) $returner;
 	}
 
 	/**
@@ -903,16 +928,20 @@ class UserGroupDAO extends DAO {
 	/**
 	 * Get the user groups assigned to each stage. Provide the ability to omit authors and reviewers
 	 * Since these are typically stored differently and displayed in different circumstances
-	 * @param  $contextId
-	 * @param  $stageId
+	 * @param Integer $contextId
+	 * @param Integer $stageId
+	 * @param boolean (optional) $omitAuthors
+	 * @param boolean (optional) $omitReviewers
+	 * @param Integer (optional) $roleId
+	 * @param DBResultRange (optional) $dbResultRange
 	 * @return DAOResultFactory
 	 */
-	function getUserGroupsByStage($contextId, $stageId, $omitAuthors = false, $omitReviewers = false, $roleId = null) {
+	function getUserGroupsByStage($contextId, $stageId, $omitAuthors = false, $omitReviewers = false, $roleId = null, $dbResultRange = null) {
 		$params = array((int) $contextId, (int) $stageId);
 		if ($omitAuthors) $params[] = ROLE_ID_AUTHOR;
 		if ($omitReviewers) $params[] = ROLE_ID_REVIEWER;
 		if ($roleId) $params[] = $roleId;
-		$result = $this->retrieve(
+		$result = $this->retrieveRange(
 			'SELECT	ug.*
 			FROM	user_groups ug
 			JOIN user_group_stage ugs ON (ug.user_group_id = ugs.user_group_id AND ug.context_id = ugs.context_id)
@@ -922,7 +951,8 @@ class UserGroupDAO extends DAO {
 			($omitReviewers?' AND ug.role_id <> ?':'') .
 			($roleId?' AND ug.role_id = ?':'') .
 			' ORDER BY role_id ASC',
-			$params
+			$params,
+			$dbResultRange
 		);
 
 		return new DAOResultFactory($result, $this, '_returnFromRow');

@@ -13,7 +13,9 @@
 		// Attach the form handler.
 		$('#userGroupForm').pkpHandler(
 			'$.pkp.controllers.grid.settings.roles.form.UserGroupFormHandler', {ldelim}
-			selfRegistrationRoleIds: [{foreach from=$selfRegistrationRoleIds item=selfRegRoleId}{$selfRegRoleId|escape:'javascript'}, {/foreach}]
+			selfRegistrationRoleIds: [{foreach from=$selfRegistrationRoleIds item=selfRegRoleId}{$selfRegRoleId|escape:'javascript'}, {/foreach}],
+			roleForbiddenStagesJSON: {$roleForbiddenStagesJSON},
+			stagesSelector: '[id^="assignedStages"]'
 		{rdelim});
 	{rdelim});
 </script>

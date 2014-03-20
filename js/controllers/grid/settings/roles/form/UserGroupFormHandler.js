@@ -42,12 +42,20 @@
 			this.selfRegistrationRoleIds_ = options.selfRegistrationRoleIds;
 		}
 
+		this.roleForbiddenStages_ = options.roleForbiddenStagesJSON.content;
+		this.stagesSelector_ = options.stagesSelector;
+
 		// Initialize the "permit self register" checkbox disabled
 		// state based on the form's current selection
 		this.updatePermitSelfRegistration(
 				/** @type {string} */ ($roleId.val()));
 
-		// ...and make sure it's updated when changing roles
+		// ...also initialize the stage options, disabling the ones
+		// that are forbidden for the current role.
+		this.updateStageOptions(
+				/** @type {string} */ ($roleId.val()));
+
+		// ...and make sure both it's updated when changing roles.
 		$roleId.change(this.callbackWrapper(this.changeRoleId));
 	};
 	$.pkp.classes.Helper.inherits(
@@ -66,6 +74,22 @@
 	$.pkp.controllers.grid.settings.roles.form.
 			UserGroupFormHandler.prototype.selfRegistrationRoleIds_ = null;
 
+	/**
+	 * A list of role forbidden stages.
+	 * @private
+	 * @type {Object}
+	 */
+	$.pkp.controllers.grid.settings.roles.form.
+			UserGroupFormHandler.prototype.roleForbiddenStages_ = null;
+
+	/**
+	 * The stage options selector.
+	 * @private
+	 * @type {String}
+	 */
+	$.pkp.controllers.grid.settings.roles.form.
+			UserGroupFormHandler.prototype.stagesSelector_ = null;
+
 
 	//
 	// Private methods.
@@ -77,8 +101,12 @@
 	$.pkp.controllers.grid.settings.roles.form.UserGroupFormHandler.prototype.
 			changeRoleId = function(dropdown) {
 
-		this.updatePermitSelfRegistration(
-				/** @type {string} */ ($(dropdown).val()));
+		dropDownValue = $(dropdown).val(); /** @type {string} */
+
+		this.updatePermitSelfRegistration((dropDownValue));
+
+		// Also update the stages options.
+		this.updateStageOptions(dropDownValue);
 	};
 
 
@@ -108,6 +136,30 @@
 		} else {
 			$checkbox.attr('disabled', 'disabled');
 			$checkbox.removeAttr('checked');
+		}
+	};
+
+	/**
+	 * Update the stage options.
+	 * @param {number|string} roleId The role ID to select.
+	 */
+	$.pkp.controllers.grid.settings.roles.form.UserGroupFormHandler.prototype.
+			updateStageOptions = function(roleId) {
+
+		// JQuerify the element
+		var $stageOptions = $(this.stagesSelector_, this.getHtmlElement()).
+			filter('input'),
+				i,
+				stageId = null;
+
+		$stageOptions.removeAttr('disabled');
+
+		if (this.roleForbiddenStages_[roleId] != undefined) {
+			for (i = 0; i < this.roleForbiddenStages_[roleId].length; i++) {
+				stageId = this.roleForbiddenStages_[roleId][i];
+				$stageOptions.filter('input[value="' + stageId + '"]').
+					attr('disabled', 'disabled');
+			}
 		}
 	};
 

@@ -17,9 +17,6 @@
 import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 
-// import user group grid specific classes
-import('lib.pkp.controllers.grid.settings.roles.UserGroupGridCategoryRow');
-
 // Link action & modal classes
 import('lib.pkp.classes.linkAction.request.AjaxModal');
 
@@ -236,7 +233,7 @@ class UserGroupGridHandler extends GridHandler {
 	 * @return string Filter template.
 	 */
 	function getFilterForm() {
-		return 'lib/pkp/controllers/grid/settings/roles/userGroupsGridFilter.tpl';
+		return 'controllers/grid/settings/roles/userGroupsGridFilter.tpl';
 	}
 
 	/**

@@ -214,6 +214,32 @@ class PKPRoleDAO extends DAO {
 	}
 
 	/**
+	* Get role forbidden stages.
+	* @param $roleId int
+	* @return array
+	*/
+	function getForbiddenStages($roleId = null) {
+		$forbiddenStages = array(ROLE_ID_REVIEWER =>
+				// User groups with reviewer roles should only have review stage assignments.
+				array(WORKFLOW_STAGE_ID_SUBMISSION, WORKFLOW_STAGE_ID_EDITING, WORKFLOW_STAGE_ID_PRODUCTION)
+		);
+
+		if ($roleId) {
+			if (isset($forbiddenStages[$roleId])) {
+				return $forbiddenStages[$roleId];
+			} else {
+				return array();
+			}
+		} else {
+			return $forbiddenStages;
+		}
+	}
+
+
+	//
+	// Static methods.
+	//
+	/**
 	 * Get a mapping of role keys and i18n key names.
 	 * @param boolean $contextOnly If false, also returns site-level roles (Site admin)
 	 * @return array

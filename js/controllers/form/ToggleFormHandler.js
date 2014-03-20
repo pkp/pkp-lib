@@ -24,7 +24,7 @@
 	$.pkp.controllers.form.ToggleFormHandler =
 			function($form) {
 		this.parent($form, {trackFormChanges: false});
-		$form.find('input:checkbox').click(
+		$form.change(
 				this.callbackWrapper(this.toggleHandler_));
 	};
 	$.pkp.classes.Helper.inherits(

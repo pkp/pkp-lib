@@ -380,7 +380,6 @@
 	<message key="settings.roles.roleAbbrev">Abbreviation</message>
 	<message key="settings.roles.assignedStages">Assigned Stages</message>
 	<message key="settings.roles.stages">Stages</message>
-	<message key="settings.roles.listRoles">List roles from</message>
 	<message key="settings.roles.roleDetails">Role details</message>
 	<message key="settings.roles.from">Permission level</message>
 	<message key="settings.roles.removeText">You are about to remove this role from this context. This operation will also delete related settings and all the users assignments to this role. Do you want to continue?</message>

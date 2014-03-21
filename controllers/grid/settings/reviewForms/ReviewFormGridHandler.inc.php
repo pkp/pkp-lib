@@ -317,6 +317,7 @@ class ReviewFormGridHandler extends GridHandler {
 		$json = new JSONMessage(true, $templateMgr->fetch('controllers/grid/settings/reviewForms/reviewFormElements.tpl'));
 		return $json->getString();
 	}
+
 	/**
 	 * Update an existing review form.
 	 * @param $args array

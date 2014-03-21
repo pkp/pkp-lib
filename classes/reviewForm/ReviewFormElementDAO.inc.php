@@ -40,7 +40,7 @@ class ReviewFormElementDAO extends DAO {
 			'SELECT	*
 			FROM	review_form_elements
 			WHERE	review_form_element_id = ?
-			' . ($reviewFormId?' AND rfe.review_form_id = ?':''),
+			' . ($reviewFormId?' AND review_form_id = ?':''),
 			$params
 		);
 
@@ -103,6 +103,7 @@ class ReviewFormElementDAO extends DAO {
 	/**
 	 * Insert a new review form element.
 	 * @param $reviewFormElement ReviewFormElement
+	 * @return int Review form element ID
 	 */
 	function insertObject($reviewFormElement) {
 		$this->update(

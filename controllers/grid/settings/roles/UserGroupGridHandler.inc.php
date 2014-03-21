@@ -14,23 +14,26 @@
  */
 
 // Import the base GridHandler.
-import('lib.pkp.classes.controllers.grid.CategoryGridHandler');
+import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
-
-// import user group grid specific classes
-import('lib.pkp.controllers.grid.settings.roles.UserGroupGridCategoryRow');
 
 // Link action & modal classes
 import('lib.pkp.classes.linkAction.request.AjaxModal');
 
-class UserGroupGridHandler extends CategoryGridHandler {
-	var $_contextId;
+class UserGroupGridHandler extends GridHandler {
+
+	/** @var integer Context id. */
+	private $_contextId;
+
+	/** @var UserGroup User group object handled by some grid operations. */
+	private $_userGroup;
+
 
 	/**
 	 * Constructor
 	 */
 	function UserGroupGridHandler() {
-		parent::CategoryGridHandler();
+		parent::GridHandler();
 
 		$this->addRoleAssignment(
 			array(ROLE_ID_MANAGER),
@@ -40,7 +43,10 @@ class UserGroupGridHandler extends CategoryGridHandler {
 				'fetchRow',
 				'addUserGroup',
 				'editUserGroup',
-				'updateUserGroup'
+				'updateUserGroup',
+				'removeUserGroup',
+				'assignStage',
+				'unassignStage'
 			)
 		);
 	}
@@ -54,6 +60,28 @@ class UserGroupGridHandler extends CategoryGridHandler {
 	function authorize($request, &$args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.PkpContextAccessPolicy');
 		$this->addPolicy(new PkpContextAccessPolicy($request, $roleAssignments));
+
+		$operation = $request->getRequestedOp();
+		$workflowStageRequiredOps = array('assignStage', 'unassignStage');
+		if (in_array($operation, $workflowStageRequiredOps)) {
+			import('lib.pkp.classes.security.authorization.internal.WorkflowStageRequiredPolicy');
+			$this->addPolicy(new WorkflowStageRequiredPolicy($request->getUserVar('stageId')));
+		}
+
+		$userGroupRequiredOps = array_merge($workflowStageRequiredOps, array('editUserGroup', 'updateUserGroup', 'removeUserGroup'));
+		if (in_array($operation, $userGroupRequiredOps)) {
+			// Validate the user group object.
+			$userGroupId = $request->getUserVar('userGroupId');
+			$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+			$userGroup = $userGroupDao->getById($userGroupId);
+
+			if (!$userGroup) {
+				fatalError('Invalid user group id!');
+			} else {
+				$this->_userGroup = $userGroup;
+			}
+		}
+
 		return parent::authorize($request, $args, $roleAssignments);
 	}
 
@@ -93,26 +121,31 @@ class UserGroupGridHandler extends CategoryGridHandler {
 			)
 		);
 
-		// Add grid columns.
-		$cellProvider = new DataObjectGridCellProvider();
-		$cellProvider->setLocale(AppLocale::getLocale());
+		import('lib.pkp.controllers.grid.settings.roles.UserGroupGridCellProvider');
+		$cellProvider = new UserGroupGridCellProvider();
+
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+		$workflowStagesLocales = $userGroupDao->getWorkflowStageTranslationKeys();
+
+		// Set array containing the columns info with the same cell provider.
+		$columnsInfo = array(
+			1 => array('id' => 'name', 'title' => 'settings.roles.roleName', 'template' => 'controllers/grid/gridCell.tpl'),
+			2 => array('id' => 'abbrev', 'title' => 'settings.roles.roleAbbrev', 'template' => 'controllers/grid/gridCell.tpl')
+		);
+
+		foreach ($workflowStagesLocales as $stageId => $stageTitleKey) {
+			$columnsInfo[] = array('id' => $stageId, 'title' => $stageTitleKey, 'template' => 'controllers/grid/common/cell/selectStatusCell.tpl');
+		}
 
 		// Add array columns to the grid.
-		$this->addColumn(new GridColumn(
-			'name',
-			'settings.roles.roleName',
-			null,
-			'controllers/grid/gridCell.tpl',
-			$cellProvider,
-			array('alignment' => COLUMN_ALIGNMENT_LEFT)
-		));
-		$this->addColumn(new GridColumn(
-			'abbrev',
-			'settings.roles.roleAbbrev',
-			null,
-			'controllers/grid/gridCell.tpl',
-			$cellProvider
-		));
+		foreach($columnsInfo as $columnInfo) {
+			$this->addColumn(
+				new GridColumn(
+					$columnInfo['id'], $columnInfo['title'], null,
+					$columnInfo['template'], $cellProvider
+				)
+			);
+		}
 	}
 
 	/**
@@ -120,25 +153,34 @@ class UserGroupGridHandler extends CategoryGridHandler {
 	 */
 	function loadData($request, $filter) {
 		$contextId = $this->_getContextId();
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 
-		if (is_array($filter) && isset($filter['selectedRoleId']) && $filter['selectedRoleId'] != 0) {
-			$userGroups = $userGroupDao->getByRoleId($contextId, $filter['selectedRoleId']);
+		$roleIdFilter = null;
+		$stageIdFilter = null;
+
+		if (!is_array($filter)) {
+			$filter = array();
+		}
+
+		if (isset($filter['selectedRoleId'])) {
+			$roleIdFilter = $filter['selectedRoleId'];
+		}
+
+		if (isset($filter['selectedStageId'])) {
+			$stageIdFilter = $filter['selectedStageId'];
+		}
+
+		$rangeInfo = $this->getGridRangeInfo($request, $this->getId());
+
+		if ($stageIdFilter && $stageIdFilter != 0) {
+			$userGroups = $userGroupDao->getUserGroupsByStage($contextId, $stageIdFilter, false, false, $roleIdFilter, $rangeInfo);
+		} else if ($roleIdFilter && $roleIdFilter != 0) {
+			$userGroups = $userGroupDao->getByRoleId($contextId, $roleIdFilter, false, $rangeInfo);
 		} else {
-			$userGroups = $userGroupDao->getByContextId($contextId);
+			$userGroups = $userGroupDao->getByContextId($contextId, $rangeInfo);
 		}
 
-		$stages = array();
-		while ($userGroup = $userGroups->next()) {
-			$userGroupStages = $this->_getAssignedStages($contextId, $userGroup->getId());
-			foreach ($userGroupStages as $stageId => $stage) {
-				if ($stage != null) {
-					$stages[$stageId] = array('id' => $stageId, 'name' => $stage);
-				}
-			}
-		}
-
-		return $stages;
+		return $userGroups;
 	}
 
 	/**
@@ -151,26 +193,61 @@ class UserGroupGridHandler extends CategoryGridHandler {
 	}
 
 	/**
-	 * @copydoc CategoryGridHandler::geCategorytRowInstance()
-	 * @return UserGroupGridCategoryRow
-	 */
-	function getCategoryRowInstance() {
-		return new UserGroupGridCategoryRow();
+	* @see GridHandler::renderFilter()
+	*/
+	function renderFilter($request) {
+		// Get filter data.
+		import('classes.security.RoleDAO');
+		$roleOptions = array(0 => 'grid.user.allPermissionLevels') + RoleDAO::getRoleNames(true);
+
+		// Reader roles are not important for stage assignments.
+		if (array_key_exists(ROLE_ID_READER, $roleOptions)) {
+			unset($roleOptions[ROLE_ID_READER]);
+		}
+
+		$filterData = array('roleOptions' => $roleOptions);
+
+		$workflowStages = array(0 => 'grid.userGroup.allStages') + UserGroupDao::getWorkflowStageTranslationKeys();
+		$filterData['stageOptions'] = $workflowStages;
+
+		return parent::renderFilter($request, $filterData);
 	}
 
 	/**
-	 * @copydoc CategoryGridHandler::getCategoryData()
+	 * @see GridHandler::getFilterSelectionData()
+	 * @return array Filter selection data.
 	 */
-	function getCategoryData(&$stage) {
-		// $stage is an associative array, with id and name (locale key) elements
-		$stageId = $stage['id'];
+	function getFilterSelectionData($request) {
+		$selectedRoleId = $request->getUserVar('selectedRoleId');
+		$selectedStageId = $request->getUserVar('selectedStageId');
 
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		// Cast or set to grid filter default value (all roles).
+		$selectedRoleId = (is_null($selectedRoleId) ? 0 : (int)$selectedRoleId);
+		$selectedStageId = (is_null($selectedStageId) ? 0 : (int)$selectedStageId);
 
-		$assignedGroups = $userGroupDao->getUserGroupsByStage($this->_getContextId(), $stageId);
-		return $assignedGroups->toAssociativeArray(); // array of UserGroup objects
+		return array ('selectedRoleId' => $selectedRoleId, 'selectedStageId' => $selectedStageId);
 	}
 
+	/**
+	 * @see GridHandler::getFilterForm()
+	 * @return string Filter template.
+	 */
+	function getFilterForm() {
+		return 'controllers/grid/settings/roles/userGroupsGridFilter.tpl';
+	}
+
+	/**
+	 * @see GridHandler::initFeatures()
+	 */
+	function initFeatures($request, $args) {
+		import('lib.pkp.classes.controllers.grid.feature.PagingFeature');
+		return array(new PagingFeature());
+	}
+
+
+	//
+	// Handler operations.
+	//
 	/**
 	 * Handle the add user group operation.
 	 * @param $args array
@@ -212,16 +289,112 @@ class UserGroupGridHandler extends CategoryGridHandler {
 		}
 	}
 
+	/**
+	 * Remove user group.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 */
+	function removeUserGroup($args, $request) {
+		$user = $request->getUser();
+		$userGroup = $this->_userGroup;
+		$contextId = $this->_getContextId();
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+		$notificationMgr = new NotificationManager();
+
+		$usersAssignedToUserGroupCount = $userGroupDao->getContextUsersCount($contextId, $userGroup->getId());
+		if ($usersAssignedToUserGroupCount == 0) {
+			if ($userGroupDao->isDefault($userGroup->getId())) {
+				// Can't delete default user groups.
+				$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_WARNING,
+					array('contents' => __('grid.userGroup.cantRemoveDefaultUserGroup',
+						array('userGroupName' => $userGroup->getLocalizedName()	)
+				)));
+			} else {
+				// We can delete, no user assigned yet.
+				$userGroupDao->deleteObject($userGroup);
+				$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS,
+					array('contents' => __('grid.userGroup.removed',
+						array('userGroupName' => $userGroup->getLocalizedName()	)
+				)));
+			}
+		} else {
+			// Can't delete while an user
+			// is still assigned to that user group.
+			$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_WARNING,
+				array('contents' => __('grid.userGroup.cantRemoveUserGroup',
+					array('userGroupName' => $userGroup->getLocalizedName()	, 'usersCount' => $usersAssignedToUserGroupCount)
+			)));
+
+		}
+
+		return DAO::getDataChangedEvent($userGroup->getId());
+	}
+
+	/**
+	 * Assign stage to user group.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 */
+	function assignStage($args, $request) {
+		return $this->_toggleAssignment($args, $request);
+	}
+
+	/**
+	* Unassign stage to user group.
+	* @param $args array
+	* @param $request PKPRequest
+	*/
+	function unassignStage($args, $request) {
+		return $this->_toggleAssignment($args, $request);
+	}
+
 	//
 	// Private helper methods.
 	//
+
+	/**
+	 * Toggle user group stage assignment.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 */
+	private function _toggleAssignment($args, $request) {
+		$userGroup = $this->_userGroup;
+		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+		$contextId = $this->_getContextId();
+		$operation = $request->getRequestedOp();
+
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+
+		switch($operation) {
+			case 'assignStage':
+				$userGroupDao->assignGroupToStage($contextId, $userGroup->getId(), $stageId);
+				$messageKey = 'grid.userGroup.assignedStage';
+				break;
+			case 'unassignStage':
+				$userGroupDao->removeGroupFromStage($contextId, $userGroup->getId(), $stageId);
+				$messageKey = 'grid.userGroup.unassignedStage';
+				break;
+		}
+
+		$notificationMgr = new NotificationManager();
+		$user = $request->getUser();
+
+		$stageLocaleKeys = UserGroupDao::getWorkflowStageTranslationKeys();
+
+		$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS,
+			array('contents' => __($messageKey,
+				array('userGroupName' => $userGroup->getLocalizedName(), 'stageName' => __($stageLocaleKeys[$stageId]))
+		)));
+
+		return DAO::getDataChangedEvent($userGroup->getId());
+	}
 
 	/**
 	 * Get a UserGroupForm instance.
 	 * @param $request Request
 	 * @return UserGroupForm
 	 */
-	function _getUserGroupForm($request) {
+	private function _getUserGroupForm($request) {
 		// Get the user group Id.
 		$userGroupId = (int) $request->getUserVar('userGroupId');
 
@@ -232,28 +405,10 @@ class UserGroupGridHandler extends CategoryGridHandler {
 	}
 
 	/**
-	 * Get a list of stages that are assigned to a user group.
-	 * @param $id int Context id
-	 * @param $id int UserGroup id
-	 * @return array Given user group stages assignments.
-	 */
-	function _getAssignedStages($contextId, $userGroupId) {
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		$assignedStages = $userGroupDao->getAssignedStagesByUserGroupId($contextId, $userGroupId);
-
-		$stages = $userGroupDao->getWorkflowStageTranslationKeys();
-		foreach($stages as $stageId => $stageTranslationKey) {
-			if (!array_key_exists($stageId, $assignedStages)) unset($stages[$stageId]);
-		}
-
-		return $stages;
-	}
-
-	/**
 	 * Get context id.
 	 * @return int
 	 */
-	function _getContextId() {
+	private function _getContextId() {
 		return $this->_contextId;
 	}
 }

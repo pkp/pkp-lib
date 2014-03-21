@@ -175,6 +175,8 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 			list($assocType, $contextPaths, $page, $op, $args) = $this->_getUrlMatches($entryData['url']);
 			if ($assocType && $contextPaths && $page && $op) {
 				list($assocId, $assocType) = $this->getAssoc($assocType, $contextPaths, $page, $op, $args);
+			} else {
+				$assocId = $assocType = null;
 			}
 
 			if(!$assocId || !$assocType) continue;
@@ -472,7 +474,7 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 		if ($pageAndOpMatch) {
 			return array($workingAssocType, $contextPaths, $page, $operation, $args);
 		} else {
-			return array();
+			return array(null, null, null, null, null);
 		}
 	}
 

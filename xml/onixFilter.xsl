@@ -49,7 +49,7 @@
 	<xsl:template name="onixFilterOutput">
 		<xs:enumeration><xsl:attribute name="value"><xsl:value-of select="@value"/></xsl:attribute>
 			<xs:documentation>
-				<xsl:value-of select="xs:annotation/xs:documentation[position()=1]"/>
+				<xsl:value-of select="xs:annotation/xs:documentation[position()=1]"/> (<xsl:value-of select="@value"/>)
 			</xs:documentation>
 		</xs:enumeration>
 	</xsl:template>

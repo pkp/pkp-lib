@@ -190,6 +190,7 @@
 	<message key="grid.user.currentUsers">Current Users</message>
 	<message key="grid.user.currentEnrollment">Current Enrollment</message>
 	<message key="grid.user.allRoles">All Roles</message>
+	<message key="grid.user.allPermissionLevels">All Permission Levels</message>
 	<message key="grid.user.add">Add User</message>
 	<message key="grid.user.enroll">Enroll User</message>
 	<message key="grid.user.edit">Edit User</message>
@@ -252,4 +253,16 @@
 	<message key="grid.artworkFile.copyrightContact">Contact Info (if not author/publisher)</message>
 	<message key="grid.artworkFile.permissionTerms">Permission Terms</message>
 	<message key="grid.artworkFile.placement">Placement in submission</message>
+	
+	<!-- User Group Grid -->
+	<message key="grid.userGroup.assignStage">Assign stage</message>
+	<message key="grid.userGroup.unassignStage">Unassign stage</message>
+	<message key="grid.userGroup.allStages">All Workflow Stages</message>
+	<message key="grid.userGroup.filter.listRoles">List roles assigned to</message>
+	<message key="grid.userGroup.filter.permissionLevel">With permission level set to</message>
+	<message key="grid.userGroup.cantRemoveDefaultUserGroup">The role {$userGroupName} is a default one and can't be removed.</message>
+	<message key="grid.userGroup.cantRemoveUserGroup">Can't remove {$userGroupName} role. Currently {$usersCount} user(s) is/are assigned to it.</message>
+	<message key="grid.userGroup.removed">{$userGroupName} role removed.</message>
+	<message key="grid.userGroup.assignedStage">{$userGroupName} role assigned to {$stageName} stage.</message>
+	<message key="grid.userGroup.unassignedStage">{$userGroupName} role unassigned from {$stageName} stage.</message>
 </locale>

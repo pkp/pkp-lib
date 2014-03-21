@@ -121,6 +121,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 		switch ($type) {
 			case NOTIFICATION_TYPE_SUCCESS:
 			case NOTIFICATION_TYPE_ERROR:
+			case NOTIFICATION_TYPE_WARNING:
 				if (!is_null($this->getNotificationSettings($notification->getId()))) {
 					$notificationSettings = $this->getNotificationSettings($notification->getId());
 					return $notificationSettings['contents'];
@@ -331,6 +332,12 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 	 */
 	public function isVisibleToAllUsers($notificationType, $assocType, $assocId) {
 		switch ($notificationType) {
+			case NOTIFICATION_TYPE_REVIEW_ROUND_STATUS:
+			case NOTIFICATION_TYPE_APPROVE_SUBMISSION:
+			case NOTIFICATION_TYPE_VISIT_CATALOG:
+			case NOTIFICATION_TYPE_CONFIGURE_PAYMENT_METHOD:
+				$isVisible = true;
+				break;
 			default:
 				$isVisible = $this->getByDelegate(
 					$notificationType,

@@ -33,14 +33,16 @@ class UserGroupGridRow extends GridRow {
 	function initialize($request) {
 		parent::initialize($request);
 
-		$rowData =& $this->getData(); // a UserGroup object
-		assert($rowData != null);
+		$userGroup = $this->getData(); /* @var $userGroup UserGroup */
+		assert($userGroup != null);
 
 		$rowId = $this->getId();
 
+		$actionArgs = array('userGroupId' => $userGroup->getId());
+		$this->setRequestArgs($actionArgs);
+
 		// Only add row actions if this is an existing row.
 		if (!empty($rowId) && is_numeric($rowId)) {
-			$actionArgs = array('userGroupId' => $rowData->getId());
 			$router = $request->getRouter();
 
 			$ajaxModal = new AjaxModal($router->url($request, null, null, 'editUserGroup', null, $actionArgs), __('grid.action.edit'), 'modal_edit');
@@ -51,6 +53,22 @@ class UserGroupGridRow extends GridRow {
 				'edit'
 			);
 			$this->addAction($editUserGroupLinkAction);
+
+			import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
+			$confirmationModal = new RemoteActionConfirmationModal(
+				__('settings.roles.removeText'),
+				null,
+				$router->url($request, null, null, 'removeUserGroup', null, $actionArgs)
+			);
+
+			$removeUserGroupLinkAction = new LinkAction(
+				'removeUserGroup',
+				$confirmationModal,
+				__('grid.action.remove'),
+				'delete'
+			);
+
+			$this->addAction($removeUserGroupLinkAction);
 		}
 	}
 }

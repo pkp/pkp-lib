@@ -16,7 +16,7 @@
 
 
 class DataObject {
-	/** Array of object data */
+	/** @var array Array of object data */
 	var $_data = array();
 
 	/** @var boolean whether this objects loads meta-data adapters from the database */

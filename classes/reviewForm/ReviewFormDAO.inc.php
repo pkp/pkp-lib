@@ -41,9 +41,21 @@ class ReviewFormDAO extends DAO {
 		}
 
 		$result = $this->retrieve (
-			'SELECT	rf.*
+			'SELECT	rf.*,
+				COUNT(rac.review_id) AS complete_count,
+				COUNT(rai.review_id) AS incomplete_count
 			FROM	review_forms rf
-			WHERE	rf.review_form_id = ? ' . ($assocType?'AND rf.assoc_type = ? AND rf.assoc_id = ?':''),
+				LEFT JOIN review_assignments rac ON (
+					rac.review_form_id = rf.review_form_id AND
+					rac.date_confirmed IS NOT NULL
+				)
+				LEFT JOIN review_assignments rai ON (
+					rai.review_form_id = rf.review_form_id AND
+					rai.date_notified IS NOT NULL AND
+					rai.date_confirmed IS NULL
+				)
+			WHERE	rf.review_form_id = ? AND rf.assoc_type = ? AND rf.assoc_id = ?
+			GROUP BY rf.assoc_type, rf.assoc_id, rf.review_form_id, rf.seq, rf.is_active',
 			$params
 		);
 

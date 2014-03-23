@@ -32,7 +32,7 @@ function togglePossibleResponses(newValue, multipleResponsesElementTypesString) 
 {/literal}
 </script>
 
-<form class="pkp_form" id="reviewFormElementForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.reviewForms.ReviewFormElementGridHandler" op="updateReviewFormElement" anchor="possibleResponses"}">
+<form class="pkp_form" id="reviewFormElementForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.reviewForms.ReviewFormElementsGridHandler" op="updateReviewFormElement" anchor="possibleResponses"}">
 	{fbvElement id="reviewFormId" type="hidden" name="reviewFormId" value=$reviewFormId}
 	{fbvElement id="reviewFormElementId" type="hidden" name="reviewFormElementId" value=$reviewFormElementId}
 
@@ -78,10 +78,6 @@ function togglePossibleResponses(newValue, multipleResponsesElementTypesString) 
 		<!-- when editing a user, 'add role' uses a listbuilder -->
 		<!-- see templates/controllers/grid/settings/user/form/userForm.tpl -->
 		<div id="elementOptions" class="full left">
-			<div>
-				<p>reviewFormId: {$reviewFormId}</p>
-				<p>reviewFormElementId: {$reviewFormElementId}</p>
-			</div>
 			<div id="elementOptionsContainer" class="full left">
 				{url|assign:elementOptionsUrl router=$smarty.const.ROUTE_COMPONENT component="listbuilder.settings.reviewForms.ReviewFormElementResponseItemListbuilderHandler" op="fetch" reviewFormId=$reviewFormId reviewFormElementId=$reviewFormElementId title="grid.reviewFormElement.responseItems" escape=false}
 				{load_url_in_div id="elementOptionsContainer" url=$elementOptionsUrl}

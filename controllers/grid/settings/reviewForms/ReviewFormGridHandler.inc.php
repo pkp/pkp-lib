@@ -50,7 +50,8 @@ class ReviewFormGridHandler extends GridHandler {
 			LOCALE_COMPONENT_APP_ADMIN,
 			LOCALE_COMPONENT_APP_MANAGER,
 			LOCALE_COMPONENT_APP_COMMON,
-			LOCALE_COMPONENT_PKP_USER
+			LOCALE_COMPONENT_PKP_USER,
+			LOCALE_COMPONENT_PKP_GRID
 		);
 
 		// Basic grid configuration.
@@ -316,6 +317,7 @@ class ReviewFormGridHandler extends GridHandler {
 		$json = new JSONMessage(true, $templateMgr->fetch('controllers/grid/settings/reviewForms/reviewFormElements.tpl'));
 		return $json->getString();
 	}
+
 	/**
 	 * Update an existing review form.
 	 * @param $args array

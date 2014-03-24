@@ -449,4 +449,6 @@
 	<message key="manager.workflow.title">Workflow Settings</message>
 	<message key="manager.distribution">Distribution</message>
 	<message key="manager.distribution.title">Distribution Settings</message>
+
+	<message key="grid.action.createReviewForm">Create a new Review Form</message>
 </locale>

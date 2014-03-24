@@ -78,22 +78,19 @@ class ReviewFormElementForm extends Form {
 		if ($this->reviewFormElementId) {
 			$context = $request->getContext();
 			$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
-			$reviewFormElement = $reviewFormElementDao->getById($this->reviewFormElementId, Application::getContextAssocType(), $context->getId());
+			$reviewFormElement = $reviewFormElementDao->getById($this->reviewFormElementId, $this->reviewFormId);
+			$this->_data = array(
+				'question' => $reviewFormElement->getQuestion(null), // Localized
+				'required' => $reviewFormElement->getRequired(),
+				'included' => $reviewFormElement->getIncluded(),
 
-			if ($reviewFormElement == null) {
-				$this->_data = array(
-					'included' => 1
-				);
-			} else {
-				$this->_data = array(
-					'question' => $reviewFormElement->getQuestion(null), // Localized
-					'required' => $reviewFormElement->getRequired(),
-					'included' => $reviewFormElement->getIncluded(),
-
-					'elementType' => $reviewFormElement->getElementType(),
-					'possibleResponses' => $reviewFormElement->getPossibleResponses(null) //Localized
-				);
-			}
+				'elementType' => $reviewFormElement->getElementType(),
+				'possibleResponses' => $reviewFormElement->getPossibleResponses(null) //Localized
+			);
+		} else {
+			$this->_data = array(
+				'included' => 1
+			);
 		}
 	}
 
@@ -112,16 +109,14 @@ class ReviewFormElementForm extends Form {
 	function execute($request) {
 		$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
 
-		if ($this->reviewFormElementId != null) {
+		if ($this->reviewFormElementId) {
 			$context = $request->getContext();
 			$reviewFormElement = $reviewFormElementDao->getById($this->reviewFormElementId);
 			$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
-			$reviewForm = $reviewFormDao->getById($reviewFormElement->getReviewFormId(), $context->getId());
+			$reviewForm = $reviewFormDao->getById($reviewFormElement->getReviewFormId(), Application::getContextAssocType(), $context->getId());
 			if (!$reviewForm) fatalError('Invalid review form element ID!');
-		}
-
-		if (!isset($reviewFormElement)) {
-			$reviewFormElement = new ReviewFormElement();
+		} else {
+			$reviewFormElement = $reviewFormElementDao->newDataObject();
 			$reviewFormElement->setReviewFormId($this->reviewFormId);
 			$reviewFormElement->setSequence(REALLY_BIG_NUMBER);
 		}
@@ -137,15 +132,13 @@ class ReviewFormElementForm extends Form {
 			$reviewFormElement->setPossibleResponses(null, null);
 		}
 
-		if ($reviewFormElement->getId() != null) {
+		if ($reviewFormElement->getId()) {
 			$reviewFormElementDao->deleteSetting($reviewFormElement->getId(), 'possibleResponses');
 			$reviewFormElementDao->updateObject($reviewFormElement);
-			$this->reviewFormElementId = $reviewFormElement->getId();
 		} else {
 			$this->reviewFormElementId = $reviewFormElementDao->insertObject($reviewFormElement);
 			$reviewFormElementDao->resequenceReviewFormElements($this->reviewFormId);
 		}
-
 		return $this->reviewFormElementId;
 	}
 }

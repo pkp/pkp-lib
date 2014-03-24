@@ -22,10 +22,10 @@ class DataObjectTombstoneSettingsDAO extends DAO {
 	 * @param $locale string optional
 	 */
 	function &getSetting($tombstoneId, $name, $locale = null) {
-		$sql = 'SELECT	setting_value, setting_type	FROM data_object_tombstone_settings	WHERE tombstone_id = ? AND setting_name = ?';
+		$sql = 'SELECT	setting_value, setting_type, locale FROM data_object_tombstone_settings	WHERE tombstone_id = ? AND setting_name = ?';
 		$params = array((int) $tombstoneId, $name);
 		if ($locale !== null) {
-			$sql .= ' AND l.locale = ?';
+			$sql .= ' AND locale = ?';
 			$params[] = $locale;
 		}
 		$result =& $this->retrieve($sql, $params);

@@ -164,9 +164,6 @@ class SubmissionDAO extends DAO {
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 		$submissionFileDao->deleteAllRevisionsBySubmissionId($submissionId);
 
-		$commentDao = DAORegistry::getDAO('CommentDAO');
-		$commentDao->deleteBySubmissionId($submissionId);
-
 		$noteDao = DAORegistry::getDAO('NoteDAO');
 		$noteDao->deleteByAssoc(ASSOC_TYPE_SUBMISSION, $submissionId);
 

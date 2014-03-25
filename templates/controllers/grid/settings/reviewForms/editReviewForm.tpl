@@ -11,7 +11,11 @@
 	// Attach the JS file tab handler.
 	$(function() {ldelim}
 		$('#editReviewFormTabs').pkpHandler(
-				'$.pkp.controllers.TabHandler');
+				'$.pkp.controllers.TabHandler',
+				{ldelim}
+					selected: {if $preview}2{else}0{/if}
+				{rdelim}
+		);
 	{rdelim});
 </script>
 <div id="editReviewFormTabs">

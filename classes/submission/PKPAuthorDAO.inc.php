@@ -373,7 +373,7 @@ class PKPAuthorDAO extends DAO {
 	function deleteBySubmissionId($submissionId) {
 		$authors = $this->getBySubmissionId($submissionId);
 		foreach ($authors as $author) {
-			$this->deleteAuthor($author);
+			$this->deleteObject($author);
 		}
 	}
 }

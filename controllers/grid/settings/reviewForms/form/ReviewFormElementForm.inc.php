@@ -127,11 +127,11 @@ class ReviewFormElementForm extends Form {
 		$reviewFormElement->setElementType($this->getData('elementType'));
 
 		if (in_array($this->getData('elementType'), ReviewFormElement::getMultipleResponsesElementTypes())) {
-			$reviewFormElement->setPossibleResponses($this->getData('possibleResponses'), null); // Localized
+			ListbuilderHandler::unpack($request, $this->getData('possibleResponses'));
+			$reviewFormElement->setPossibleResponses($this->getData('possibleResponsesProcessed'), null);
 		} else {
 			$reviewFormElement->setPossibleResponses(null, null);
 		}
-
 		if ($reviewFormElement->getId()) {
 			$reviewFormElementDao->deleteSetting($reviewFormElement->getId(), 'possibleResponses');
 			$reviewFormElementDao->updateObject($reviewFormElement);
@@ -140,6 +140,28 @@ class ReviewFormElementForm extends Form {
 			$reviewFormElementDao->resequenceReviewFormElements($this->reviewFormId);
 		}
 		return $this->reviewFormElementId;
+	}
+
+	/**
+	 * @copydoc ListbuilderHandler::insertEntry()
+	 */
+	function insertEntry($request, $newRowId) {
+		$possibleResponsesProcessed = (array) $this->getData('possibleResponsesProcessed');
+		foreach ($newRowId['possibleResponse'] as $key => $value) {
+			$possibleResponsesProcessed[$key][] = $value;
+		}
+		$this->setData('possibleResponsesProcessed', $possibleResponsesProcessed);
+		return true;
+	}
+
+	/**
+	 * @copydoc ListbuilderHandler::deleteEntry()
+	 */
+	function deleteEntry($request, $rowId) {
+		$possibleResponsesDeleted = (array) $this->getData('possibleResponsesDeleted');
+		$possibleResponsesDelete[] = $rowId;
+		$this->setData('possibleResponsesDeleted', $possibleResponsesDeleted);
+		return true;
 	}
 }
 

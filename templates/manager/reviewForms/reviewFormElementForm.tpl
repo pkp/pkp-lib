@@ -36,7 +36,7 @@ function togglePossibleResponses(newValue, multipleResponsesElementTypesString) 
 	{fbvElement id="reviewFormId" type="hidden" name="reviewFormId" value=$reviewFormId}
 	{fbvElement id="reviewFormElementId" type="hidden" name="reviewFormElementId" value=$reviewFormElementId}
 
-	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="reviewFormsNotification"}
+	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="reviewFormElementsNotification"}
 
 	{fbvFormArea id="reviewFormElementForm"}
 

@@ -16,6 +16,9 @@
 import('lib.pkp.plugins.importexport.native.filter.NativeExportFilter');
 
 class SubmissionNativeXmlFilter extends NativeExportFilter {
+
+	var $_includeSubmissionsNode;
+
 	/**
 	 * Constructor
 	 * @param $filterGroup FilterGroup
@@ -50,7 +53,7 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 		$doc = new DOMDocument('1.0');
 		$deployment = $this->getDeployment();
 
-		if (count($submissions)==1) {
+		if (count($submissions)==1 && !$this->getIncludeSubmissionsNode()) {
 			// Only one submission specified; create root node
 			$rootNode = $this->createSubmissionNode($doc, $submissions[0]);
 		} else {
@@ -262,6 +265,24 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 	 */
 	function getRepresentationExportFilterGroupName() {
 		assert(false); // Must be overridden by subclasses
+	}
+
+	/**
+	 * Sets a flag to always include the <submissions> node, even if there
+	 * may only be one submission.
+	 * @param boolean $includeSubmissionsNode
+	 */
+	function setIncludeSubmissionsNode($includeSubmissionsNode) {
+		$this->_includeSubmissionsNode = $includeSubmissionsNode;
+	}
+
+	/**
+	 * Returnes whether to always include the <submissions> node, even if there
+	 * may only be one submission.
+	 * @return boolean $includeSubmissionsNode
+	 */
+	function getIncludeSubmissionsNode() {
+		return $this->_includeSubmissionsNode;
 	}
 }
 

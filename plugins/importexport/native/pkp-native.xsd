@@ -256,7 +256,7 @@
 	<element name="submissions" abstract="true">
 		<complexType>
 			<sequence>
-				<element ref="pkp:submission" maxOccurs="unbounded" />
+				<element ref="pkp:submission" minOccurs="0" maxOccurs="unbounded" />
 			</sequence>
 		</complexType>
 	</element>

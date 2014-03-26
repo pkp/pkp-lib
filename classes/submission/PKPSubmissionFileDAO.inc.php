@@ -719,7 +719,8 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 		if ($round || $reviewRoundId) {
 			$sql .= 'INNER JOIN review_round_files rrf
 					ON sf.'.$submissionEntity.'_id = rrf.'.$submissionEntity.'_id
-					AND sf.file_id = rrf.file_id ';
+					AND sf.file_id = rrf.file_id
+					AND sf.revision '.($latestOnly ? '>' : '=').' rrf.revision ';
 		}
 
 		// Filter the query.

@@ -60,12 +60,9 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @param $submissionId int (optional) for validation
 	 *  purposes only
 	 */
-	function &getRevision($fileId, $revision, $fileStage = null, $submissionId = null) {
-		if (!($fileId && $revision)) {
-			$nullVar = null;
-			return $nullVar;
-		}
-		$revisions =& $this->_getInternally($submissionId, $fileStage, $fileId, $revision);
+	function getRevision($fileId, $revision, $fileStage = null, $submissionId = null) {
+		if (!($fileId && $revision)) return null;
+		$revisions = $this->_getInternally($submissionId, $fileStage, $fileId, $revision);
 		return $this->_checkAndReturnRevision($revisions);
 	}
 
@@ -79,13 +76,10 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 *  purposes only
 	 * @return SubmissionFile
 	 */
-	function &getLatestRevision($fileId, $fileStage = null, $submissionId = null) {
-		if (!$fileId) {
-			$nullVar = null;
-			return $nullVar;
-		}
+	function getLatestRevision($fileId, $fileStage = null, $submissionId = null) {
+		if (!$fileId) return null;
 
-		$revisions =& $this->_getInternally($submissionId, $fileStage, $fileId, null, null, null, null, null, null, null, null, true);
+		$revisions = $this->_getInternally($submissionId, $fileStage, $fileId, null, null, null, null, null, null, null, null, true);
 		return $this->_checkAndReturnRevision($revisions);
 	}
 
@@ -112,11 +106,8 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @param $rangeInfo DBResultRange (optional)
 	 * @return array a list of SubmissionFile instances
 	 */
-	function &getAllRevisions($fileId, $fileStage = null, $submissionId = null, $rangeInfo = null) {
-		if (!$fileId) {
-			$nullVar = null;
-			return $nullVar;
-		}
+	function getAllRevisions($fileId, $fileStage = null, $submissionId = null, $rangeInfo = null) {
+		if (!$fileId) return null;
 		return $this->_getInternally($submissionId, $fileStage, $fileId, null, null, null, null, null, null, null, null, false, $rangeInfo);
 	}
 
@@ -155,11 +146,8 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @param $rangeInfo DBResultRange (optional)
 	 * @return array a list of SubmissionFile instances
 	 */
-	function &getAllRevisionsByAssocId($assocType, $assocId, $fileStage = null, $rangeInfo = null) {
-		if (!($assocType && $assocId)) {
-			$nullVar = null;
-			return $nullVar;
-		}
+	function getAllRevisionsByAssocId($assocType, $assocId, $fileStage = null, $rangeInfo = null) {
+		if (!($assocType && $assocId)) return null;
 		return $this->_getInternally(null, $fileStage, null, null, $assocType, $assocId, null, null, null, null, null, false, $rangeInfo);
 	}
 
@@ -174,12 +162,9 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @param $fileStage integer (optional) One of the MONOGRAPH_FILE constants
 	 * @return array A list of SubmissionFiles.
 	 */
-	function &getRevisionsByReviewRound($submissionId, $stageId, $round, $fileStage = null,
+	function getRevisionsByReviewRound($submissionId, $stageId, $round, $fileStage = null,
 			$uploaderUserId = null, $uploaderUserGroupId = null) {
-		if (!($stageId && $round)) {
-			$nullVar = null;
-			return $nullVar;
-		}
+		if (!($stageId && $round)) return null;
 		return $this->_getInternally($submissionId, $fileStage, null, null, null, null, $stageId, $uploaderUserId, $uploaderUserGroupId, $round);
 	}
 
@@ -192,7 +177,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @param $fileStage int (optional) A SUBMISSION_FILE_* constant
 	 * @return array A list of SubmissionFiles.
 	 */
-	function &getLatestNewRevisionsByReviewRound($submissionId, $stageId, $round, $fileStage = null) {
+	function getLatestNewRevisionsByReviewRound($submissionId, $stageId, $round, $fileStage = null) {
 		if (!($stageId && $round)) {
 			$emptyArray = array();
 			return $emptyArray;
@@ -233,7 +218,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 *  uploaded.
 	 * @return SubmissionFile
 	 */
-	function &insertObject($submissionFile, $sourceFile, $isUpload = false) {
+	function insertObject($submissionFile, $sourceFile, $isUpload = false) {
 		// Make sure that the implementation of the updated file
 		// is compatible with its genre (upcast but no downcast).
 		$submissionFile = $this->_castToGenre($submissionFile);
@@ -272,17 +257,17 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 *  a different file implementation than the file passed into the
 	 *  method if the genre of the file didn't fit its implementation.
 	 */
-	function &updateObject(&$updatedFile, $previousFileId = null, $previousRevision = null) {
+	function updateObject($updatedFile, $previousFileId = null, $previousRevision = null) {
 		// Make sure that the implementation of the updated file
 		// is compatible with its genre.
-		$updatedFile =& $this->_castToGenre($updatedFile);
+		$updatedFile = $this->_castToGenre($updatedFile);
 
 		// Complete the identifying data of the previous file if not given.
 		$previousFileId = (int)($previousFileId ? $previousFileId : $updatedFile->getFileId());
 		$previousRevision = (int)($previousRevision ? $previousRevision : $updatedFile->getRevision());
 
 		// Retrieve the previous file.
-		$previousFile =& $this->getRevision($previousFileId, $previousRevision);
+		$previousFile = $this->getRevision($previousFileId, $previousRevision);
 		assert(is_a($previousFile, 'SubmissionFile'));
 
 		// Canonicalized the implementation of the previous file.
@@ -293,7 +278,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 			$this->_getFileImplementationForGenreId(
 			$updatedFile->getGenreId())
 		);
-		$targetDaoDelegate =& $this->_getDaoDelegate($targetImplementation);
+		$targetDaoDelegate = $this->_getDaoDelegate($targetImplementation);
 
 		// If the implementation in the database differs from the target
 		// implementation then we'll have to delete + insert the object
@@ -316,15 +301,14 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 			// We use the delegates directly to make sure
 			// that we address the right implementation in the database
 			// on delete and insert.
-			$sourceDaoDelegate =& $this->_getDaoDelegate($previousImplementation);
+			$sourceDaoDelegate = $this->_getDaoDelegate($previousImplementation);
 			$sourceDaoDelegate->deleteObject($previousFile);
 			$targetDaoDelegate->insertObject($updatedFile, $targetFilePath);
 		} else {
 			// If the implementation in the database does not change then we
 			// can do an efficient update.
 			if (!$targetDaoDelegate->updateObject($updatedFile, $previousFile)) {
-				$nullVar = null;
-				return $nullVar;
+				return null;
 			}
 		}
 
@@ -349,20 +333,19 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 *  must belong to.
 	 * @return SubmissionFile the new revision or null if something went wrong.
 	 */
-	function &setAsLatestRevision($revisedFileId, $newFileId, $submissionId, $fileStage) {
+	function setAsLatestRevision($revisedFileId, $newFileId, $submissionId, $fileStage) {
 		$revisedFileId = (int)$revisedFileId;
 		$newFileId = (int)$newFileId;
 		$submissionId = (int)$submissionId;
 		$fileStage = (int)$fileStage;
 
 		// Check whether the two files are already revisions of each other.
-		$nullVar = null;
-		if ($revisedFileId == $newFileId) return $nullVar;
+		if ($revisedFileId == $newFileId) return null;
 
 		// Retrieve the latest revisions of the two submission files.
-		$revisedFile =& $this->getLatestRevision($revisedFileId, $fileStage, $submissionId);
-		$newFile =& $this->getLatestRevision($newFileId, $fileStage, $submissionId);
-		if (!($revisedFile && $newFile)) return $nullVar;
+		$revisedFile = $this->getLatestRevision($revisedFileId, $fileStage, $submissionId);
+		$newFile = $this->getLatestRevision($newFileId, $fileStage, $submissionId);
+		if (!($revisedFile && $newFile)) return null;
 
 		// Save identifying data of the changed file required for update.
 		$previousFileId = $newFile->getFileId();
@@ -400,7 +383,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @param $submissionFile SubmissionFile
 	 * @return integer the number of deleted file revisions
 	 */
-	function deleteRevision(&$submissionFile) {
+	function deleteRevision($submissionFile) {
 		return $this->deleteRevisionById($submissionFile->getFileId(), $submissionFile->getRevision(), $submissionFile->getFileStage(), $submissionFile->getSubmissionId());
 	}
 
@@ -504,9 +487,9 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @param $newUserId int
 	 */
 	function transferOwnership($oldUserId, $newUserId) {
-		$submissionFiles =& $this->_getInternally(null, null, null, null, null, null, null, $oldUserId, null, null);
+		$submissionFiles = $this->_getInternally(null, null, null, null, null, null, null, $oldUserId, null, null);
 		foreach ($submissionFiles as $file) {
-			$daoDelegate =& $this->_getDaoDelegateForObject($file);
+			$daoDelegate = $this->_getDaoDelegateForObject($file);
 			$file->setUploaderUserId($newUserId);
 			$daoDelegate->updateObject($file, $file); // nothing else changes
 		}
@@ -624,7 +607,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @param $genreId integer
 	 * @return string The class name of the file implementation.
 	 */
-	function &_getFileImplementationForGenreId($genreId) {
+	function _getFileImplementationForGenreId($genreId) {
 		static $genreCache = array();
 
 		if (!isset($genreCache[$genreId])) {
@@ -655,7 +638,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @param $genreId integer
 	 * @return SubmissionFileDAODelegate
 	 */
-	function &_getDaoDelegateForGenreId($genreId) {
+	function _getDaoDelegateForGenreId($genreId) {
 		// Find the required file implementation.
 		$fileImplementation = $this->_getFileImplementationForGenreId($genreId);
 
@@ -669,7 +652,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @param $object SubmissionFile
 	 * @return SubmissionFileDAODelegate
 	 */
-	function &_getDaoDelegateForObject(&$object) {
+	function _getDaoDelegateForObject($object) {
 		return $this->_getDaoDelegate(get_class($object));
 	}
 
@@ -680,7 +663,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 *  should serve.
 	 * @return SubmissionFileDAODelegate
 	 */
-	function &_getDaoDelegate($fileImplementation) {
+	function _getDaoDelegate($fileImplementation) {
 		// Normalize the file implementation name.
 		$fileImplementation = strtolower_codesafe($fileImplementation);
 
@@ -690,7 +673,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 			$delegateClasses = $this->getDelegateClassNames();
 			assert(isset($delegateClasses[$fileImplementation]));
 			$delegateClass = $delegateClasses[$fileImplementation];
-			$this->_delegates[$fileImplementation] =& instantiate($delegateClass, 'SubmissionFileDAODelegate', null, null, $this);
+			$this->_delegates[$fileImplementation] = instantiate($delegateClass, 'SubmissionFileDAODelegate', null, null, $this);
 		}
 
 		// Return the delegate.
@@ -712,7 +695,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @param $rangeInfo DBResultRange
 	 * @return array a list of SubmissionFile instances
 	 */
-	function &_getInternally($submissionId = null, $fileStage = null, $fileId = null, $revision = null,
+	function _getInternally($submissionId = null, $fileStage = null, $fileId = null, $revision = null,
 			$assocType = null, $assocId = null, $stageId = null, $uploaderUserId = null, $uploaderUserGroupId = null,
 			$round = null, $reviewRoundId = null, $latestOnly = false, $rangeInfo = null) {
 
@@ -816,7 +799,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 			$round = null, $latestOnly = false) {
 
 		// Identify all matched files.
-		$deletedFiles =& $this->_getInternally($submissionId, $fileStage, $fileId, $revision,
+		$deletedFiles = $this->_getInternally($submissionId, $fileStage, $fileId, $revision,
 				$assocType, $assocId, $stageId, $uploaderUserId, $uploaderUserGroupId, $round, null, $latestOnly);
 		if (empty($deletedFiles)) return 0;
 
@@ -827,7 +810,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 			// for multi-table access or subselects in the DELETE
 			// statement. And having a long (... AND ...) OR (...)
 			// clause could hit length limitations.
-			$daoDelegate =& $this->_getDaoDelegateForObject($deletedFile);
+			$daoDelegate = $this->_getDaoDelegateForObject($deletedFile);
 			if (!$daoDelegate->deleteObject($deletedFile)) return false;
 		}
 
@@ -912,7 +895,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @param $submissionFile SubmissionFile
 	 * @return SubmissionFile The same file in a compatible implementation.
 	 */
-	function &_castToGenre($submissionFile) {
+	function _castToGenre($submissionFile) {
 		// Find the required target implementation.
 		$targetImplementation = strtolower_codesafe(
 			$this->_getFileImplementationForGenreId(
@@ -950,16 +933,13 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @param $revisions array
 	 * @return SubmissionFile
 	 */
-	function &_checkAndReturnRevision(&$revisions) {
+	function _checkAndReturnRevision($revisions) {
 		assert(count($revisions) <= 1);
-		if (empty($revisions)) {
-			$nullVar = null;
-			return $nullVar;
-		} else {
-			$revision = array_pop($revisions);
-			assert(is_a($revision, 'SubmissionFile'));
-			return $revision;
-		}
+		if (empty($revisions)) return null;
+
+		$revision = array_pop($revisions);
+		assert(is_a($revision, 'SubmissionFile'));
+		return $revision;
 	}
 }
 

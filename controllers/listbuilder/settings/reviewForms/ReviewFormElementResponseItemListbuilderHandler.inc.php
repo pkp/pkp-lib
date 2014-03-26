@@ -16,7 +16,7 @@ import('lib.pkp.controllers.listbuilder.settings.SetupListbuilderHandler');
 
 class ReviewFormElementResponseItemListbuilderHandler extends SetupListbuilderHandler {
 
-	/** @var int **/
+	/** @var int Review form element ID **/
 	var $_reviewFormElementId;
 
 	/**
@@ -24,10 +24,6 @@ class ReviewFormElementResponseItemListbuilderHandler extends SetupListbuilderHa
 	 */
 	function ReviewFormElementResponseItemListbuilderHandler() {
 		parent::SetupListbuilderHandler();
-		$this->addRoleAssignment(
-			ROLE_ID_MANAGER,
-			array('fetchOptions')
-		);
 	}
 
 
@@ -43,7 +39,7 @@ class ReviewFormElementResponseItemListbuilderHandler extends SetupListbuilderHa
 		$this->_reviewFormElementId = (int) $request->getUserVar('reviewFormElementId');
 
 		// Basic configuration
-		$this->setTitle($request->getUserVar('title'));
+		$this->setTitle('grid.reviewFormElement.responseItems');
 		$this->setSourceType(LISTBUILDER_SOURCE_TYPE_TEXT);
 		$this->setSaveType(LISTBUILDER_SAVE_TYPE_EXTERNAL);
 		$this->setSaveFieldName('possibleResponses');
@@ -61,16 +57,16 @@ class ReviewFormElementResponseItemListbuilderHandler extends SetupListbuilderHa
 	function loadData($request) {
 		$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
 		$reviewFormElement = $reviewFormElementDao->getById($this->_reviewFormElementId);
-		if($reviewFormElement) {
+		$formattedResponses = array();
+		if ($reviewFormElement) {
 			$possibleResponses = $reviewFormElement->getPossibleResponses(null);
-			$formattedResponses = array();
 			foreach ((array) $possibleResponses as $locale => $values) {
 				foreach ($values as $value) {
 					$formattedResponses[] = array(array('content' => array($locale => $value)));
 				}
 			}
-			return $formattedResponses;
 		}
+		return $formattedResponses;
 	}
 
 	/**
@@ -79,12 +75,12 @@ class ReviewFormElementResponseItemListbuilderHandler extends SetupListbuilderHa
 	 * Allow for a blank $rowId for when creating a not-yet-persisted row
 	 */
 	function getRowDataElement($request, $rowId) {
-		// fallback on the parent if a rowId is found
+		// Fallback on the parent if an existing rowId is found
 		if ( !empty($rowId) ) {
 			return parent::getRowDataElement($request, $rowId); 
 		}
 
-		// If we're bouncing a row back from a row submit
+		// If we're bouncing a row back upon a row edit
 		$rowData = $this->getNewRowId($request);
 		if ($rowData) {
 			return array(array('content' => $rowData['possibleResponse']));
@@ -93,13 +89,6 @@ class ReviewFormElementResponseItemListbuilderHandler extends SetupListbuilderHa
 		// If we're generating an empty row to edit
 		return array(array('content' => array()));
 	}
-
-	/**
-	 * Fetch the review form element ID for this listbuilder.
-	 * @return int
-	 */
-	function _getReviewFormElementId() {
-		return $this->_reviewFormElementId;
-	}
 }
+
 ?>

@@ -23,6 +23,7 @@ class FilterGroupDAOTest extends DatabaseTestCase {
 	 * @covers FilterGroupDAO
 	 */
 	public function testFilterGroupCrud() {
+		$this->markTestSkipped();
 		$filterGroupDao = DAORegistry::getDAO('FilterGroupDAO'); /* @var $filterGroupDao FilterGroupDAO */
 
 		// Instantiate a test filter group object.

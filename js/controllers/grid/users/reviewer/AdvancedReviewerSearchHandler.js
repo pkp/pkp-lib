@@ -66,7 +66,7 @@
 
 		if (reviewerId) {
 			reviewerName = $.trim($selectedInput.parent().next().
-					children('span').html());
+					children('span').text());
 
 			// Update the hidden review id input
 			$('#reviewerId').val(reviewerId);

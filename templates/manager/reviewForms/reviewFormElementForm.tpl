@@ -74,12 +74,9 @@ function togglePossibleResponses(newValue, multipleResponsesElementTypesString) 
 		{/fbvFormSection}
 
 		<!-- Options listbuilder. Activated for some element types. -->
-		<!-- action: delete. field: option text. ordering?? -->
-		<!-- when editing a user, 'add role' uses a listbuilder -->
-		<!-- see templates/controllers/grid/settings/user/form/userForm.tpl -->
 		<div id="elementOptions" class="full left">
 			<div id="elementOptionsContainer" class="full left">
-				{url|assign:elementOptionsUrl router=$smarty.const.ROUTE_COMPONENT component="listbuilder.settings.reviewForms.ReviewFormElementResponseItemListbuilderHandler" op="fetch" reviewFormId=$reviewFormId reviewFormElementId=$reviewFormElementId title="grid.reviewFormElement.responseItems" escape=false}
+				{url|assign:elementOptionsUrl router=$smarty.const.ROUTE_COMPONENT component="listbuilder.settings.reviewForms.ReviewFormElementResponseItemListbuilderHandler" op="fetch" reviewFormId=$reviewFormId reviewFormElementId=$reviewFormElementId escape=false}
 				{load_url_in_div id="elementOptionsContainer" url=$elementOptionsUrl}
 			</div>
 		</div>

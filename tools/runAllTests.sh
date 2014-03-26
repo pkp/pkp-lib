@@ -8,6 +8,7 @@
 #  -c	Include class tests in application.
 #  -p	Include plugin tests in application.
 #  -f	Include functional tests in application.
+#  -d   Display debug output from phpunit.
 # If no options are specified, then all tests will be executed.
 #
 
@@ -100,9 +101,10 @@ DO_PKP_PLUGINS=0
 DO_APP_CLASSES=0
 DO_APP_PLUGINS=0
 DO_APP_FUNCTIONAL=0
+DEBUG=""
 
 # Parse arguments
-while getopts "CPcpf" opt; do
+while getopts "CPcpfd" opt; do
 	case "$opt" in
 		C)	DO_ALL=0
 			DO_PKP_CLASSES=1
@@ -119,25 +121,27 @@ while getopts "CPcpf" opt; do
 		f)	DO_ALL=0
 			DO_APP_FUNCTIONAL=1
 			;;
+		d)	DEBUG="--debug"
+			;;
 	esac
 done
 
 if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_PKP_CLASSES" -eq 1 \) ]; then
-	phpunit $TEST_CONF1 lib/pkp/tests/classes
+	phpunit $DEBUG $TEST_CONF1 lib/pkp/tests/classes
 fi
 
 if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_PKP_PLUGINS" -eq 1 \) ]; then
-	phpunit $TEST_CONF2 lib/pkp/tests/plugins
+	phpunit $DEBUG $TEST_CONF2 lib/pkp/tests/plugins
 fi
 
 if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_APP_CLASSES" -eq 1 \) ]; then
-	phpunit $TEST_CONF1 tests/classes
+	phpunit $DEBUG $TEST_CONF1 tests/classes
 fi
 
 if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_APP_PLUGINS" -eq 1 \) ]; then
-	phpunit $TEST_CONF2 tests/plugins
+	phpunit $DEBUG $TEST_CONF2 tests/plugins
 fi
 
 if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_APP_FUNCTIONAL" -eq 1 \) ]; then
-	phpunit $TEST_CONF1 tests/functional
+	phpunit $DEBUG $TEST_CONF1 tests/functional
 fi

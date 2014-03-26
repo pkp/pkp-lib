@@ -88,7 +88,7 @@ class ReviewFormGridRow extends GridRow {
 				new LinkAction(
 					'preview',
 					new AjaxModal(
-						$router->url($request, null, null, 'previewReviewForm', null, array('rowId' => $rowId)),
+						$router->url($request, null, null, 'editReviewForm', null, array('rowId' => $rowId, 'preview' => 1)),
 						__('grid.action.preview'),
 						'preview',
 						true

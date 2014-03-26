@@ -31,7 +31,7 @@ class ReviewFormGridHandler extends GridHandler {
 		$this->addRoleAssignment(
 			array(ROLE_ID_MANAGER),
 			array('fetchGrid', 'fetchRow', 'createReviewForm', 'editReviewForm', 'updateReviewForm',
-				'reviewFormBasics', 'reviewFormElements', 'copyReviewForm', 'previewReviewForm',
+				'reviewFormBasics', 'reviewFormElements', 'copyReviewForm',
 				'reviewFormPreview', 'activateReviewForm', 'deactivateReviewForm', 'deleteReviewForm',
 				'saveSequence')
 		);
@@ -197,22 +197,6 @@ class ReviewFormGridHandler extends GridHandler {
 	// Public grid actions.
 	//
 	/**
-	 * Preview the review form
-	 * @param $args array
-	 * @param $request PKPRequest
-	 */
-	function previewReviewForm($args, $request) {
-		// Identify the review form Id
-		$reviewFormId = (int) $request->getUserVar('rowId');
-
-		// Display 'editReviewForm' tabs
-		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('reviewFormId', $reviewFormId);
-		$json = new JSONMessage(true, $templateMgr->fetch('controllers/grid/settings/reviewForms/editReviewForm.tpl'));
-		return $json->getString();
-	}
-
-	/**
 	 * Preview a review form.
 	 * @param $args array
 	 * @param $request PKPRequest
@@ -229,25 +213,6 @@ class ReviewFormGridHandler extends GridHandler {
 		$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
 		$reviewForm = $reviewFormDao->getById($reviewFormId, Application::getContextAssocType(), $context->getId());
 
-		// If no review form Id, then kick user back to main Review Forms page.
-		// FIXME figure out how to do this under new js schema
-		if (!isset($reviewForm)) {
-			#Request::redirect(null, null, 'reviewForms');
-		}
-
-		// Determine whether or not the review form is in use. If it is, then we don't want the user to modify it.
-		/***
-		$completeCounts = $reviewFormDao->getUseCounts(ASSOC_TYPE_JOURNAL, $contextId, true);
-		$incompleteCounts = $reviewFormDao->getUseCounts(ASSOC_TYPE_JOURNAL, $contextId, false);
-		if ($completeCounts[$reviewFormId] != 0 || $incompleteCounts[$reviewFormId] != 0) {
-			$inUse = 1;
-		} else {
-			$inUse = 0;
-		}
-		***/
-
-		// Form handling
-		#$previewReviewForm = new PreviewReviewForm($inUse ? null : $reviewFormId);
 		$previewReviewForm = new PreviewReviewForm($reviewFormId);
 		$previewReviewForm->initData($request);
 		$json = new JSONMessage(true, $previewReviewForm->fetch($args, $request));
@@ -280,6 +245,7 @@ class ReviewFormGridHandler extends GridHandler {
 
 		// Display 'editReviewForm' tabs
 		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign('preview', $request->getUserVar('preview'));
 		$templateMgr->assign('reviewFormId', $reviewFormId);
 		$json = new JSONMessage(true, $templateMgr->fetch('controllers/grid/settings/reviewForms/editReviewForm.tpl'));
 		return $json->getString();

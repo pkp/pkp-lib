@@ -29,16 +29,14 @@ class ReviewFormElementResponseItemListbuilderGridCellProvider extends GridCellP
 	 * @see GridCellProvider::getTemplateVarsFromRowColumn()
 	 */
 	function getTemplateVarsFromRowColumn($row, $column) {
-		$possibleResponse = $row->getData();
-		$contentColumn = $possibleResponse[0];
-		$content = $contentColumn['content'];
-
-		$columnId = $column->getId();
-
-		switch ($columnId) {
+		switch ($column->getId()) {
 			case 'possibleResponse':
+				$possibleResponse = $row->getData();
+				$contentColumn = $possibleResponse[0];
+				$content = $contentColumn['content'];
 				return array('label' => $content);
 		}
+		assert(false);
 	}
 }
 

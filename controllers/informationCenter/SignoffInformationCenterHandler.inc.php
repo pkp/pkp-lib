@@ -17,11 +17,15 @@ import('classes.handler.Handler');
 import('lib.pkp.classes.core.JSONMessage');
 
 class SignoffInformationCenterHandler extends Handler {
-	/** @var object */
-	var $_signoff;
+
+	/** @var Ŝignoff */
+	private $_signoff;
 
 	/** @var int */
-	var $_stageId;
+	private $_stageId;
+
+	/** @var Submission */
+	private $_submission;
 
 	/**
 	 * Constructor
@@ -47,6 +51,7 @@ class SignoffInformationCenterHandler extends Handler {
 		parent::initialize($request, $args);
 
 		// Fetch and store information for later use
+		$this->_submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$this->_stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
 		$this->_signoff = $this->getAuthorizedContextObject(ASSOC_TYPE_SIGNOFF);
 	}
@@ -55,10 +60,6 @@ class SignoffInformationCenterHandler extends Handler {
 	 * @copydoc PKPHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
-		if (!parent::authorize($request, $args, $roleAssignments)) {
-			return false;
-		}
-
 		// Require stage access
 		import('classes.security.authorization.WorkflowStageAccessPolicy');
 		$this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', (int) $request->getUserVar('stageId')));
@@ -72,9 +73,10 @@ class SignoffInformationCenterHandler extends Handler {
 			$this->addPolicy(new SignoffAccessPolicy(
 				$request, $args, $roleAssignments,
 				$router->getRequestedOp($request)=='saveNote'?SIGNOFF_ACCESS_MODIFY:SIGNOFF_ACCESS_READ,
-				$request->getUserVar('stageId');
-			));
+				$request->getUserVar('stageId')));
 		}
+
+		return parent::authorize($request, $args, $roleAssignments);
 	}
 
 	/**
@@ -104,6 +106,7 @@ class SignoffInformationCenterHandler extends Handler {
 		$templateMgr->assign('submissionId', $this->_submission->getId());
 		$templateMgr->assign('stageId', $this->_stageId);
 		$templateMgr->assign('symbolic', (string) $request->getUserVar('symbolic'));
+		$signoff = $this->_signoff;
 		if ($signoff) {
 			$templateMgr->assign('signoffId', $this->_signoff->getId());
 		}
@@ -169,7 +172,7 @@ class SignoffInformationCenterHandler extends Handler {
 		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
 
 		import('lib.pkp.controllers.grid.files.fileSignoff.form.NewSignoffNoteForm');
-		$notesForm = new NewSignoffNoteForm($this->_signoff->getId(), $this->_submission->getId(), $this->_signoff->getSymbolic(), $this->stageId);
+		$notesForm = new NewSignoffNoteForm($this->_signoff->getId(), $this->_submission->getId(), $this->_signoff->getSymbolic(), $this->_stageId);
 		$notesForm->readInputData();
 
 		if ($notesForm->validate()) {
@@ -207,7 +210,7 @@ class SignoffInformationCenterHandler extends Handler {
 
 			// Get the download file link action.
 			if ($file) {
-				$noteFilesDownloadLink[$noteId] = new DownloadFileLinkAction($request, $file, $this->stageId);
+				$noteFilesDownloadLink[$noteId] = new DownloadFileLinkAction($request, $file, $this->_stageId);
 			}
 		}
 

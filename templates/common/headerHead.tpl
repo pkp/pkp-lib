@@ -38,16 +38,7 @@
 	<script src="{$baseUrl}/lib/pkp/js/lib/superfish/hoverIntent.js"></script>
 	<script src="{$baseUrl}/lib/pkp/js/lib/superfish/superfish.js"></script>
 
-	<!-- Form validation -->
-	<script src="{$baseUrl}/lib/pkp/js/lib/jquery/plugins/validate/jquery.validate.min.js"></script>
-	<script>{literal}
-		$(function(){
-			// Include the appropriate validation localization.
-			// FIXME: Replace with a smarty template that includes {translate} keys, see #6443.
-			jqueryValidatorI18n("{/literal}{$baseUrl}{literal}", "{/literal}{$currentLocale}{literal}");
-		});
-	{/literal}</script>
-
+	{include file="common/validate.tpl"}
 	{include file="common/plupload.tpl"}
 
 	{foreach from=$stylesheets item=styleSheetList}{* For all priority sets STYLE_PRIORITY_... *}

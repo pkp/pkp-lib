@@ -116,7 +116,7 @@
 	<message key="manager.people.enrollUserAs">Registar utilizador como</message>
 	<message key="manager.people.invalidUser">Utilizador não existe.</message>
 	<message key="manager.people.mergeUser">Juntar Registo</message>
-	<message key="manager.people.mergeUsers.confirm">Deseja realmente juntar o registo do utilizador "{$oldUsername}" no registo do utilizador "{$newUsername}"? O registo de "{$oldUsername}" será eliminado permanentemente. Esta acção é irreversível!</message>
+	<message key="manager.people.mergeUsers.confirm">Deseja realmente juntar o registo do utilizador "{$oldAccountCount}" no registo do utilizador "{$newUsername}"? O registo de "{$oldAccountCount}" será eliminado permanentemente. Esta acção é irreversível!</message>
 	<message key="manager.people.mergeUsers">Juntar Registos</message>
 	<message key="manager.people.mustChooseRole">Escolha um papel editorial antes de confirmar</message>
 	<message key="manager.people.mustProvideName">Indique pelo menos o apelido para o utilizador.</message>

@@ -48,12 +48,7 @@
 		});
 	{/literal}</script>
 
-	<!-- Plupload -->
-	<script src="{$baseUrl}/lib/pkp/js/lib/plupload/plupload.full.js"></script>
-	<script src="{$baseUrl}/lib/pkp/js/lib/plupload/jquery.ui.plupload/jquery.ui.plupload.js"></script>
-
-	{* FIXME: Replace with a smarty template that includes {translate} keys, see #6443. *}
-	{if $currentLocale !== 'en_US'}<script src="{$baseUrl}/lib/pkp/js/lib/plupload/i18n/{$currentLocale|escape}.js"></script>{/if}
+	{include file="common/plupload.tpl"}
 
 	{foreach from=$stylesheets item=styleSheetList}{* For all priority sets STYLE_PRIORITY_... *}
 		{foreach from=$styleSheetList item=cssUrl}{* For all stylesheet URLs within this priority set *}

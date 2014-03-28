@@ -35,8 +35,8 @@ HTML Purifier
  * License: GPLv2.1
 
 PHPMailer
- * URL: http://code.google.com/a/apache-extras.org/p/phpmailer/
- * Version: 5.2.1
+ * URL: https://github.com/PHPMailer/PHPMailer
+ * Version: 5.2.7
  * License: GPLv2.1
 
 PDFObject

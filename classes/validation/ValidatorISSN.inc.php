@@ -56,7 +56,7 @@ class ValidatorISSN extends ValidatorRegExp {
 	 * @return string
 	 */
 	static function getRegexp() {
-		return '/(\d{4})-(\d{4})/';
+		return '/^(\d{4})-(\d{4})$/';
 	}
 }
 

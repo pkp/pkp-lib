@@ -26,6 +26,7 @@ class ValidatorISSNTest extends PKPTestCase {
 	public function testValidatorISSN() {
 		$validator = new ValidatorISSN();
 		self::assertTrue($validator->isValid('0378-5955')); // Valid
+		self::assertFalse($validator->isValid('0378-5955f')); // Overlong
 		self::assertFalse($validator->isValid('03785955')); // Missing dash
 		self::assertFalse($validator->isValid('1234-5678')); // Wrong check digit
 	}

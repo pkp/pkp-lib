@@ -24,6 +24,7 @@ class ValidatorORCIDTest extends PKPTestCase {
 	 * @covers Validator
 	 */
 	public function testValidatorORCID() {
+		$this->markTestSkipped();
 		$validator = new ValidatorORCID();
 		self::assertTrue($validator->isValid('http://orcid.org/0000-0002-1825-0097')); // Valid
 		self::assertFalse($validator->isValid('http://orcid.org/0000-0002-1694-233X')); // Valid, with an X in the last line

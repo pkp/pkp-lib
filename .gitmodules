@@ -1,6 +1,6 @@
 [submodule "lib/swordappv2"]
 	path = lib/swordappv2
-	url = http://github.com/swordapp/swordappv2-php-library.git
+	url = git://github.com/swordapp/swordappv2-php-library.git
 [submodule "lib/phpmailer"]
 	path = lib/phpmailer
-	url = https://github.com/PHPMailer/PHPMailer.git
+	url = git://github.com/PHPMailer/PHPMailer.git

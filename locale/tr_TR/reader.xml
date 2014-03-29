@@ -50,13 +50,13 @@
 
 	<message key="rt.admin.sharing">Paylaşım</message>
 	<message key="rt.admin.sharing.enabled">Paylaşım Etkinleştirildi</message>
-	<message key="rt.admin.sharing.description"><![CDATA[İçeriğini paylaşmak için okuyucularınızı etkinleştirin. <a href="http://addthis.com">addthis.com</a> adresine bir hesap ile giriş yapın ve paylaşım butonu kodunu kopyalayıp aşağıya yapıştırın.]]></message>
+	<message key="rt.admin.sharing.description"><![CDATA[İçeriğini paylaşmak için okuyucularınızı etkinleştirin. <a href="http://www.addthis.com">addthis.com</a> adresine bir hesap ile giriş yapın ve paylaşım butonu kodunu kopyalayıp aşağıya yapıştırın.]]></message>
 	<message key="rt.admin.sharing.basic">Temel Ayarlar</message>
 	<message key="rt.admin.sharing.userNameLabel">AddThis.com kullanıcı adı</message>
 	<message key="rt.admin.sharing.buttonStyleLabel">Buton Biçimi</message>
 	<message key="rt.admin.sharing.dropDownMenuLabel">Açılır menüyü kullan</message>
 	<message key="rt.admin.sharing.advanced">Gelişmiş Ayarlar (isteğe bağlı)</message>
-	<message key="rt.admin.sharing.customizationLink"><![CDATA[Referans için <a href="http://www.addthis.com/help/customize/custom-button/">AddThis.com özelleştirilmiş belgeleri</a>ne bakınız.]]></message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[Referans için <a href="http://support.addthis.com/customer/portal/articles/381236-custom-buttons">AddThis.com özelleştirilmiş belgeleri</a>ne bakınız.]]></message>
 	<message key="rt.admin.sharing.brandLabel">Marka</message>
 	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Açılan seçenekler <br /> (virgül ile ayırın)]]></message>
 	<message key="rt.admin.sharing.languageLabel">Dil</message>

@@ -51,14 +51,14 @@
 
 	<message key="rt.admin.sharing">Partajare</message>
 	<message key="rt.admin.sharing.enabled">Partajare activată</message>
-	<message key="rt.admin.sharing.description"><![CDATA[Pentru a permite cititorilor să împartă între ei articole de revistă, fă-ți cont la <a href="http://addthis.com">addthis.com</a> și copiază și inserează codul pentru partajare mai jos.]]></message>
+	<message key="rt.admin.sharing.description"><![CDATA[Pentru a permite cititorilor să împartă între ei articole de revistă, fă-ți cont la <a href="http://www.addthis.com">addthis.com</a> și copiază și inserează codul pentru partajare mai jos.]]></message>
 
 	<message key="rt.admin.sharing.basic">Setări de bază</message>
 	<message key="rt.admin.sharing.userNameLabel">Nume de utilizator la AddThis.com</message>
 	<message key="rt.admin.sharing.buttonStyleLabel">Stilul butonului</message>
 	<message key="rt.admin.sharing.dropDownMenuLabel">Folosește meniul derulant</message>
 	<message key="rt.admin.sharing.advanced">Setări avansate (opțional)</message>
-	<message key="rt.admin.sharing.customizationLink"><![CDATA[Vezi <a href="http://www.addthis.com/help/customize/custom-button/">documentația pentru configurarea AddThis.com</a> ca referință.]]></message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[Vezi <a href="http://support.addthis.com/customer/portal/articles/381236-custom-buttons">documentația pentru configurarea AddThis.com</a> ca referință.]]></message>
 	<message key="rt.admin.sharing.brandLabel">Brand</message>
 	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Opțiuni pentru meniul derulant <br /> (listă separată prin virgule)]]></message>
 	<message key="rt.admin.sharing.languageLabel">Limbă</message>

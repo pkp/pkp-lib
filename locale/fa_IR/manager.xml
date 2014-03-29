@@ -214,7 +214,7 @@
 وصل می شود
 </p><p>
 کلید ISBNdb الزامی است. برای اطلاع از نحوه تولید یک کلید به
-<a href="http://isbndb.com/docs/api/30-keys.html" target="_blank">online documentation</a>
+<a href="http://isbndb.com/api/v1/docs/keys" target="_blank">online documentation</a>
 مراجعه کنید</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>
 این فیلتر به بانک ارجاع CrossRef به کمک 
@@ -245,7 +245,7 @@
 </p>
 <p>
 اگر شما یک 
-<a href="http://www.worldcat.org/devnet/wiki/SearchAPIWhoCanUse" target="_blank">
+<a href="http://oclc.org/developer/develop/web-services.html" target="_blank">
 کلید API
 </a>
 Worldcat

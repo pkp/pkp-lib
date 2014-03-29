@@ -50,14 +50,14 @@
 	
 	<message key="rt.admin.sharing">Рекомендации</message>
 	<message key="rt.admin.sharing.enabled">Рекомендации включены</message>
-	<message key="rt.admin.sharing.description"><![CDATA[Чтобы дать Вашим читателям возможность рекомендовать статьи друг другу, а так же другим пользователям интернет, зарегистрируйтесь на <a href="http://addthis.com">addthis.com</a> и вставьте полученный там код кнопки "Sharing" ниже.]]></message>
+	<message key="rt.admin.sharing.description"><![CDATA[Чтобы дать Вашим читателям возможность рекомендовать статьи друг другу, а так же другим пользователям интернет, зарегистрируйтесь на <a href="http://www.addthis.com">addthis.com</a> и вставьте полученный там код кнопки "Sharing" ниже.]]></message>
 	
 	<message key="rt.admin.sharing.basic">Основные настройки</message>
 	<message key="rt.admin.sharing.userNameLabel">имя пользователя AddThis.com</message>
 	<message key="rt.admin.sharing.buttonStyleLabel">Стиль кнопки</message>
 	<message key="rt.admin.sharing.dropDownMenuLabel">Использовать выпадающее меню</message>
 	<message key="rt.admin.sharing.advanced">Дополнительные настройки</message>
-	<message key="rt.admin.sharing.customizationLink"><![CDATA[См. <a href="http://www.addthis.com/help/customize/custom-button/">документациб по настройке AddThis.com</a>.]]></message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[См. <a href="http://support.addthis.com/customer/portal/articles/381236-custom-buttons">документациб по настройке AddThis.com</a>.]]></message>
 	<message key="rt.admin.sharing.brandLabel">Бренд</message>
 	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Опции выпадающего меню <br /> (список, разделенный запятыми)]]></message>
 	<message key="rt.admin.sharing.languageLabel">Язык</message>

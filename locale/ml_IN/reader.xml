@@ -50,14 +50,14 @@
 
 	<message key="rt.admin.sharing">ഷെയര്‍ ചെയുക</message>
 	<message key="rt.admin.sharing.enabled">ഷെയറിങ്ങ് പ്രാപ്യമാക്കുക</message>
-	<message key="rt.admin.sharing.description"><![CDATA[വയനക്കാര്‍ക്ക് താങ്കളുടെ ജര്‍ണല്‍ ലേഖനങ്ങള്‍ ഷെയര്‍ ചെയ്യുന്നതിനായി, <a href="http://addthis.com">addthis.com</a>, ഈ ഷെയറിങ്ങ് ബട്ടണ്‍    കോട് താഴെ കോപ്പി/പേസ്റ്റ് ചെയ്യുക]]></message>
+	<message key="rt.admin.sharing.description"><![CDATA[വയനക്കാര്‍ക്ക് താങ്കളുടെ ജര്‍ണല്‍ ലേഖനങ്ങള്‍ ഷെയര്‍ ചെയ്യുന്നതിനായി, <a href="http://www.addthis.com">addthis.com</a>, ഈ ഷെയറിങ്ങ് ബട്ടണ്‍    കോട് താഴെ കോപ്പി/പേസ്റ്റ് ചെയ്യുക]]></message>
 
 	<message key="rt.admin.sharing.basic">അടിസ്ഥാന ക്രമീകരണം</message>
 	<message key="rt.admin.sharing.userNameLabel">ഈ .കോം യൂസര്‍ നാമം ആഡ് ചെയ്യുക</message>
 	<message key="rt.admin.sharing.buttonStyleLabel">ബട്ടണ്‍ സ്റ്റൈല്‍</message>
 	<message key="rt.admin.sharing.dropDownMenuLabel">ട്രോപ്പ്-ഡൗണ്‍ മെനു ഉപയോഗിക്കുക</message>
 	<message key="rt.admin.sharing.advanced">മുന്‍കൂര്‍ ക്രമീകരണം (ഓപ്ഷ്ണല്‍)</message>
-	<message key="rt.admin.sharing.customizationLink"><![CDATA[അവലംബത്തിനു വേണ്ടി ഇത് നോക്കുക  <a href="http://www.addthis.com/help/customize/custom-button/">AddThis.com customization documentation</a>]]></message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[അവലംബത്തിനു വേണ്ടി ഇത് നോക്കുക  <a href="http://support.addthis.com/customer/portal/articles/381236-custom-buttons">AddThis.com customization documentation</a>]]></message>
 	<message key="rt.admin.sharing.brandLabel">ഇനം</message>
 	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[ട്രോപ്പ്-ഡൗണ്‍ ഓപ്ഷന്‍സ് <br /> (comma separated list)]]></message>
 	<message key="rt.admin.sharing.languageLabel">ഭാഷ</message>

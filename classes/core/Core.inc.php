@@ -166,6 +166,8 @@ class Core {
 	 * @return array
 	 */
 	function getContextPaths($urlInfo, $isPathInfo, $contextList = null, $contextDepth = null, $userVars = array()) {
+		$urlInfo = Core::_removeBaseUrl($urlInfo);
+
 		$contextPaths = array();
 		$application =& Application::getApplication();
 
@@ -217,6 +219,7 @@ class Core {
 	 * @return string
 	 */
 	function getPage($urlInfo, $isPathInfo, $userVars = array()) {
+		$urlInfo = Core::_removeBaseUrl($urlInfo);
 		$page = Core::_getUrlComponents($urlInfo, $isPathInfo, 0, 'page', $userVars);
 		return Core::cleanFileVar(is_null($page) ? '' : $page);
 	}
@@ -233,6 +236,7 @@ class Core {
 	 * @return string
 	 */
 	function getOp($urlInfo, $isPathInfo, $userVars = array()) {
+		$urlInfo = Core::_removeBaseUrl($urlInfo);
 		$operation = Core::_getUrlComponents($urlInfo, $isPathInfo, 1, 'op', $userVars);
 		return Core::cleanFileVar(empty($operation) ? 'index' : $operation);
 	}
@@ -250,6 +254,7 @@ class Core {
 	 * @return array
 	 */
 	function getArgs($urlInfo, $isPathInfo, $userVars = array()) {
+		$urlInfo = Core::_removeBaseUrl($urlInfo);
 		return Core::_getUrlComponents($urlInfo, $isPathInfo, 2, 'path', $userVars);
 	}
 
@@ -352,6 +357,91 @@ class Core {
 
 		return $component;
 	}
+
+	/**
+	 * Remove base url from the passed url, if any.
+	 * Also, if true, checks for the context path in
+	 * url and if it's missing, tries to add it.
+	 * @param $url string
+	 * @return mixed string The url without base url.
+	 */
+	function _removeBaseUrl($url) {
+		$workingBaseUrl = Config::getVar('general', 'base_url');
+
+		// Check for override base url settings.
+		$contextBaseUrls =& Registry::get('contextBaseUrls');
+
+		if (is_null($contextBaseUrls)) {
+			$contextBaseUrls = array();
+			$configData =& Config::getData();
+			// Filter the settings.
+			foreach ($configData['general'] as $settingName => $settingValue) {
+				$matches = null;
+				if (preg_match('/base_url\[(.*)\]/', $settingName, $matches)) {
+					$workingContextPath = $matches[1];
+					$contextBaseUrls[$workingContextPath] = $settingValue;
+				}
+			}
+		}
+
+		// Passed url context path.
+		$contextPath = null;
+
+		if (!empty($contextBaseUrls)) {
+			// Arrange them in length order, so we make sure
+			// we get the correct one, in case there's an overlaping
+			// of contexts, eg.:
+			// base_url[context1] = http://somesite.com/
+			// base_url[context2] = http://somesite.com/context2
+			$sortedBaseUrls = array_combine($contextBaseUrls, array_map('strlen', $contextBaseUrls));
+			arsort($sortedBaseUrls);
+			foreach ($sortedBaseUrls as $baseUrl => $baseUrlLength) {
+				$urlHost = parse_url($url, PHP_URL_HOST);
+				if (is_null($urlHost)) {
+					// Check the base url without the host part.
+					$baseUrlHost = parse_url($baseUrl, PHP_URL_HOST);
+					if (is_null($baseUrlHost)) break;
+					$baseUrlToSearch = substr($baseUrl, strpos($baseUrl, $baseUrlHost) + strlen($baseUrlHost));
+					// We can't determine the correct base url for the passed
+					// url, it has no host and also no other path info to make
+					// it possible guessing it.
+					if (strlen($baseUrlToSearch) == 0) break;
+				} else {
+					$baseUrlToSearch = $baseUrl;
+				}
+
+				if (strpos($url, $baseUrlToSearch) === 0) {
+					$contextPath = array_search($baseUrl, $contextBaseUrls);
+					$workingBaseUrl = $baseUrl;
+					break;
+				}
+			}
+		}
+
+		// Remove base url from url, if any.
+		$url = str_replace($workingBaseUrl, '', $url);
+
+		// If url doesn't have the entire protocol and host part,
+		// remove any possible base url path from url.
+		$baseSystemEscapedPath = preg_quote(parse_url($workingBaseUrl, PHP_URL_PATH), '/');
+		$url = preg_replace('/^' . $baseSystemEscapedPath . '/', '', $url);
+
+		// Remove possible index.php page from url.
+		$url = str_replace('/index.php', '', $url);
+
+		if ($contextPath) {
+			// We found the contextPath using the base_url
+			// config file settings. Check if the url starts
+			// with the context path, if not, apend it.
+			if (strpos($url, $contextPath) !== 0) {
+				$url = '/' . $contextPath . $url;
+			}
+		}
+
+		return $url;
+	}
+
+
 }
 
 ?>

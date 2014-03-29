@@ -164,10 +164,10 @@
 	<message key="rt.email.needLogin"><![CDATA[* <a target="_parent" href="{$loginUrl}">登録</a> が必要]]></message>
 	<message key="comments.titleRequired">コメントタイトルが必要です。</message>
 	<message key="rt.admin.sharing.userNameLabel">AddThis.com のユーザ名</message>
-	<message key="rt.admin.sharing.customizationLink"><![CDATA[<a href="http://www.addthis.com/help/customize/custom-button/">AddThis.com customization documentation</a> を参照してください。]]></message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[<a href="http://support.addthis.com/customer/portal/articles/381236-custom-buttons">AddThis.com customization documentation</a> を参照してください。]]></message>
 	<message key="rt.admin.sharing">共有</message>
 	<message key="rt.admin.sharing.enabled">共有を有効にする</message>
-	<message key="rt.admin.sharing.description"><![CDATA[読者による雑誌論文の共有を可能にするために，<a href="http://addthis.com">addthis.com</a> でアカウントを作成して，下記の共有ボタンコードをコピーおよび貼り付けてください。]]></message>
+	<message key="rt.admin.sharing.description"><![CDATA[読者による雑誌論文の共有を可能にするために，<a href="http://www.addthis.com">addthis.com</a> でアカウントを作成して，下記の共有ボタンコードをコピーおよび貼り付けてください。]]></message>
 	<message key="rt.admin.sharing.brandLabel">ブランド</message>
 	<message key="rt.admin.sharing.dropDownLabel">ドロップダウン</message>
 	<message key="rt.admin.sharing.logoBackgroundLabel">ロゴの背景</message>

@@ -167,13 +167,13 @@
 	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">താങ്കള്‍ ഡേറ്റാബേസ് ചേര്‍ക്കണമെന്ന് ആഗ്രഹിക്കുന്നു.സ്ഥിരീകരിക്കുന്നതിനായി 'OK' ക്ലിക്ക് ചെയ്യുക.</message>
 	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">ദയവായി ഒരു ലുക്ക്-അപ്പ് ഡേറ്റാബേസ് തിരഞ്ഞെടുക്കുക.</message>
 	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>This filter connects to the <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a> book and ISBN database.</p>
-	<p>An ISBNdb API key is mandatory. For information on generating a key, see the <a href="http://isbndb.com/docs/api/30-keys.html" target="_blank">online documentation</a>.</p>]]></message>
+	<p>An ISBNdb API key is mandatory. For information on generating a key, see the <a href="http://isbndb.com/api/v1/docs/keys" target="_blank">online documentation</a>.</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>This filter connects to the CrossRef citation database using CrossRef's <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">OpenURL Query Interface</a>.</p> 
 	<p>To use this filter, you can use your CrossRef system account, or register a valid email address with CrossRef <a href="http://www.crossref.org/requestaccount/" target="_blank">here</a>.</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>This filter connects to PubMed's <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">Entrez</a> cross-database search engine.</p>
 	<p>A registration email is not strictly mandatory, but may be necessary if you run into connection problems. See the section on <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">Usage Guidelines and Requirements</a> in the Entrez documentation for more information.</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.worldCat"><![CDATA[<p>This filter connects to OCLC services <a href="http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp" target="_blank">xISBN</a> and <a href="http://www.worldcat.org/" target="_blank">Worldcat</a> (optional).</p>
-	<p>If you have a Worldcat <a href="http://www.worldcat.org/devnet/wiki/SearchAPIWhoCanUse" target="_blank">API key</a> you can connect to Worldcat by entering the key below.</p>]]></message>
+	<p>If you have a Worldcat <a href="http://oclc.org/developer/develop/web-services.html" target="_blank">API key</a> you can connect to Worldcat by entering the key below.</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.loadMessage">സൈറ്റേഷന്‍ ഡേറ്റാബേസ് കോണ്‍ഫിഗറേഷന്‍ ഗ്രിഡ് ലോഡ് ആയിത്തീരുന്നതുവരെ ദയവായി കാത്തിരിക്കുക...</message>
 	<message key="manager.setup.filter.lookup.grid.title">സൈറ്റേഷന്‍ ഡേറ്റാബേസ് കണക്ടറുകള്‍</message>
 	<message key="manager.setup.filter.noMoreTemplates">ലഭ്യമായ പരിവര്‍ത്തനങ്ങളെല്ലാം നേരത്തെ തന്നെ ചേര്‍ത്തിരിക്കുന്നു.സെറ്റപ്പ് പേജിലേക്ക് തിരിച്ചു പോകുന്നതിനായി 'Cancel' ക്ലിക്ക് ചെയ്യുക</message>

@@ -165,13 +165,13 @@
 	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">Czy na pewno dodać {$filterDisplayName}? Kliknik 'OK' aby potwierdzić.</message>
 	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Dodaj bazę wyszukań.</message>
 	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>Ten filtr łączy się z <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a> bazą książek oraz ISBN.</p>
-	<p>Klucz ISBN jest wymagany. W celu uzyskania informacji o generowaniu kluczy, zapoznaj się z <a href="http://isbndb.com/docs/api/30-keys.html" target="_blank">dokumentacją online</a>.</p>]]></message>
+	<p>Klucz ISBN jest wymagany. W celu uzyskania informacji o generowaniu kluczy, zapoznaj się z <a href="http://isbndb.com/api/v1/docs/keys" target="_blank">dokumentacją online</a>.</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Ten filtr łączy się z bazą cytowań CrossRef wykorzystując <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">interfejs OpenURL</a>.</p> 
 	<p>Aby połączyć się z CrossRef, mozesz wykorzystać swoje konto CrossRef, lub zarejestrować się <a href="http://www.crossref.org/requestaccount/" target="_blank">tutaj</a>.</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>Ten filtr łączy się systemem <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">PubMed</a> - krzyżową aplikacją przeszukiwania baz danych.</p>
 	<p>E-mail wykorzystany przy rejestracji nie jest obowiązkoway, ale może okazać się niezbęny w przypadku natrafienia na problemy. Więcej informacji dostępnych jest w dokumentacji <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">dokumentacji</a> systemu.</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.worldCat"><![CDATA[<p>Ten filtr łączy się z usługami OCLC <a href="http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp" target="_blank">xISBN</a> oraz <a href="http://www.worldcat.org/" target="_blank">Worldcat</a> (opcjonalnie).</p>
-	<p>Jeżeli posiadasz <a href="http://www.worldcat.org/devnet/wiki/SearchAPIWhoCanUse" target="_blank">klucz API Worldcat</a> możesz połączyć się z systemem Worldcat wpisując klucz poniżej.</p>]]></message>
+	<p>Jeżeli posiadasz <a href="http://oclc.org/developer/develop/web-services.html" target="_blank">klucz API Worldcat</a> możesz połączyć się z systemem Worldcat wpisując klucz poniżej.</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.loadMessage">Zaczekaj na załadowanie konfiguracji baz danych...</message>
 	<message key="manager.setup.filter.lookup.grid.title">Połączenia baz danych cytowań</message>
 	<message key="manager.setup.filter.noMoreTemplates">Wszystkie dostępne transformacje zostały wybrane. Kliknij "Anuluj" aby wrócić do ekranu konfiguracji.</message>

@@ -160,13 +160,13 @@
 	<message key="comments.titleRequired">O título do comentário é obrigatório.</message>
 	<message key="rt.admin.sharing">Compartilhamento</message>
 	<message key="rt.admin.sharing.enabled">Compartilhamento habilitado</message>
-	<message key="rt.admin.sharing.description"><![CDATA[Para permitir aos leitores compartilhar artigos, cadastre-se no <a href="http://addthis.com">AddThis.com</a>, e copie/cole o código de Compartilhar a seguir.]]></message>
+	<message key="rt.admin.sharing.description"><![CDATA[Para permitir aos leitores compartilhar artigos, cadastre-se no <a href="http://www.addthis.com">AddThis.com</a>, e copie/cole o código de Compartilhar a seguir.]]></message>
 	<message key="rt.admin.sharing.basic">Configurações Básicas</message>
 	<message key="rt.admin.sharing.userNameLabel">Usuário AddThis.com</message>
 	<message key="rt.admin.sharing.buttonStyleLabel">Estilo do botão</message>
 	<message key="rt.admin.sharing.dropDownMenuLabel">Usar menu drop-down</message>
 	<message key="rt.admin.sharing.advanced">Configurações avançadas (opcional)</message>
-	<message key="rt.admin.sharing.customizationLink"><![CDATA[Leia a <a href="http://www.addthis.com/help/customize/custom-button/">Documentação de customização do AddThis.com</a> para referência.]]></message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[Leia a <a href="http://support.addthis.com/customer/portal/articles/381236-custom-buttons">Documentação de customização do AddThis.com</a> para referência.]]></message>
 	<message key="rt.admin.sharing.brandLabel">Marca</message>
 	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Opções do menu drop-down <br /> (lista separada por vírgula)]]></message>
 	<message key="rt.admin.sharing.languageLabel">Idioma</message>

@@ -50,14 +50,14 @@
 
 	<message key="rt.admin.sharing">Deljenje</message>
 	<message key="rt.admin.sharing.enabled">Deljenje je omogućeno</message>
-	<message key="rt.admin.sharing.description"><![CDATA[Da biste omogućili čitaocima da dele članke vašeg časopisa naprqavite nalog na <a href="http://addthis.com">addthis.com</a> i kopirajte "Sharing button" kod ispod.]]></message>
+	<message key="rt.admin.sharing.description"><![CDATA[Da biste omogućili čitaocima da dele članke vašeg časopisa naprqavite nalog na <a href="http://www.addthis.com">addthis.com</a> i kopirajte "Sharing button" kod ispod.]]></message>
 
 	<message key="rt.admin.sharing.basic">Osnovna podešavanja</message>
 	<message key="rt.admin.sharing.userNameLabel">AddThis.com korisničko ime</message>
 	<message key="rt.admin.sharing.buttonStyleLabel">Stil dugmeta</message>
 	<message key="rt.admin.sharing.dropDownMenuLabel">Koristi padajući meni</message>
 	<message key="rt.admin.sharing.advanced">Napredna podešavanja (opciono)</message>
-	<message key="rt.admin.sharing.customizationLink"><![CDATA[Pogledaj <a href="http://www.addthis.com/help/customize/custom-button/">AddThis.com dokumentaciju za prilagođavanje</a> za dalja uputstva.]]></message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[Pogledaj <a href="http://support.addthis.com/customer/portal/articles/381236-custom-buttons">AddThis.com dokumentaciju za prilagođavanje</a> za dalja uputstva.]]></message>
 	<message key="rt.admin.sharing.brandLabel">Brend</message>
 	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Opcije padajućeg menija <br /> (lista odvojena zarezom)]]></message>
 	<message key="rt.admin.sharing.languageLabel">Jezik</message>

@@ -49,14 +49,14 @@
 
 	<message key="rt.admin.sharing">Comparteix</message>
 	<message key="rt.admin.sharing.enabled">Comparteix habilitat</message>
-	<message key="rt.admin.sharing.description"><![CDATA[Per permetre als vostres lectors/ores compartir articles de revista, registreu-vos per obtenir un compte a <a href="http://addthis.com">addthis.com</a>, i copieu i enganxeu el codi del botó «Compartir» a continuació.]]></message>
+	<message key="rt.admin.sharing.description"><![CDATA[Per permetre als vostres lectors/ores compartir articles de revista, registreu-vos per obtenir un compte a <a href="http://www.addthis.com">addthis.com</a>, i copieu i enganxeu el codi del botó «Compartir» a continuació.]]></message>
 
 	<message key="rt.admin.sharing.basic">Paràmetres bàsics</message>
 	<message key="rt.admin.sharing.userNameLabel">Nom d’usuari/ària d’AddThis.com</message>
 	<message key="rt.admin.sharing.buttonStyleLabel">Estil del botó</message>
 	<message key="rt.admin.sharing.dropDownMenuLabel">Utilitzeu el menú desplegable</message>
 	<message key="rt.admin.sharing.advanced">Paràmetres avançats (opcional)</message>
-	<message key="rt.admin.sharing.customizationLink"><![CDATA[Vegeu la <a href="http://www.addthis.com/help/customize/custom-button/">documentació de personalització d’AddThis.com</a> com a referència.]]></message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[Vegeu la <a href="http://support.addthis.com/customer/portal/articles/381236-custom-buttons">documentació de personalització d’AddThis.com</a> com a referència.]]></message>
 	<message key="rt.admin.sharing.brandLabel">Marca</message>
 	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Opcions desplegables <br /> (llista separada per comes)]]></message>
 	<message key="rt.admin.sharing.languageLabel">Llengua</message>

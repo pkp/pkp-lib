@@ -43,6 +43,7 @@ import('lib.pkp.classes.form.validation.FormValidatorUri');
 import('lib.pkp.classes.form.validation.FormValidatorUrl');
 import('lib.pkp.classes.form.validation.FormValidatorLocaleUrl');
 import('lib.pkp.classes.form.validation.FormValidatorISSN');
+import('lib.pkp.classes.form.validation.FormValidatorORCID');
 
 class Form {
 

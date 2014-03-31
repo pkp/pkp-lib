@@ -33,6 +33,7 @@ define('CACHEABILITY_PROXY_REVALIDATE',	'proxy-revalidate');
 
 define('STYLE_SEQUENCE_CORE', 0);
 define('STYLE_SEQUENCE_NORMAL', 10);
+define('STYLE_SEQUENCE_LATE', 15);
 define('STYLE_SEQUENCE_LAST', 20);
 
 define('CDN_JQUERY_VERSION', '1.4.4');

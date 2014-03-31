@@ -36,7 +36,7 @@ class ThemePlugin extends LazyLoadPlugin {
 			HookRegistry::register('PageHandler::displayCss', array($this, '_displayCssCallback'));
 			$templateManager = TemplateManager::getManager($request);
 			$dispatcher = $request->getDispatcher();
-			$templateManager->addStyleSheet($dispatcher->url($request, ROUTE_COMPONENT, null, 'page.PageHandler', 'css', null, array('name' => $this->getName())), STYLE_SEQUENCE_LAST);
+			$templateManager->addStyleSheet($dispatcher->url($request, ROUTE_COMPONENT, null, 'page.PageHandler', 'css', null, array('name' => $this->getName())), STYLE_SEQUENCE_LATE);
 		}
 		return $result;
 	}

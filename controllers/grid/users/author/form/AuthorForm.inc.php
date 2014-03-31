@@ -194,12 +194,12 @@ class AuthorForm extends Form {
 		$author->setMiddleName($this->getData('middleName'));
 		$author->setLastName($this->getData('lastName'));
 		$author->setSuffix($this->getData('suffix'));
-		$author->setAffiliation($this->getData('affiliation'), AppLocale::getLocale()); // localized
+		$author->setAffiliation($this->getData('affiliation'), null); // localized
 		$author->setCountry($this->getData('country'));
 		$author->setEmail($this->getData('email'));
 		$author->setUrl($this->getData('url'));
 		$author->setUserGroupId($this->getData('userGroupId'));
-		$author->setBiography($this->getData('biography'), AppLocale::getLocale()); // localized
+		$author->setBiography($this->getData('biography'), null); // localized
 		$author->setPrimaryContact(($this->getData('primaryContact') ? true : false));
 
 		if ($existingAuthor) {

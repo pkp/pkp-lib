@@ -198,13 +198,13 @@
 	<message key="manager.setup.filter.grid.filterDisplayName">Σύνδεσμος (Connector)</message>
 	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Παρακαλούμε επιλέξτε μια βάση δεδομένων</message>
 	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>Το φίλτρο αυτό συνδέεται στην βάση βιβλίων και ISBN  <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a> .</p>
-	<p>Ένα ISBNdb API κλειδό είναι υποχρεωτικό. Πληροφορίες για την δημιιουργία ενός τέτοιου κλειδιού, μπορείτε να βρείτε στη <a href="http://isbndb.com/docs/api/30-keys.html" target="_blank">σχετική ιστοσελίδα τεκμηρίωσης</a>.</p>]]></message>
+	<p>Ένα ISBNdb API κλειδό είναι υποχρεωτικό. Πληροφορίες για την δημιιουργία ενός τέτοιου κλειδιού, μπορείτε να βρείτε στη <a href="http://isbndb.com/api/v1/docs/keys" target="_blank">σχετική ιστοσελίδα τεκμηρίωσης</a>.</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Το φίλτρο αυτό συνδέεται με την βάση CrossRef χρησιμοποιώντας το  <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">OpenURL Query Interface</a>.</p> 
 	<p>Για να χρησιμοποιήσετε αυτό το φίλτρο, μπορείτε είτε να χρησιμοποιήσετε τον λογαριασμό σας στο CrossRef, ή να εγγραφείτε στο CrossRef <a href="http://www.crossref.org/requestaccount/" target="_blank">ακολουθώντας τη σχετική διαδικασία</a>.</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>Το φίλτρο αυτό συνδέεται στη βάση <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">PubMed's Entrez</a> </p>
 	<p>Η εγγραφή δεν είναι υποχρεωτική, αλλά μπορεί να είναι χρήσιμη σε περίπτωση προβλημάτων σύνδεσης. Δείτε τη σχετική ενότητα στις <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">Οδηγίες και Απαιτήσεις Χρήσης </a> για περισσότερες πληροφορίες.</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.worldCat"><![CDATA[<p>Το φίλτρο αυτό συνδέεται με τις υπηρεσίες της OCLC  <a href="http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp" target="_blank">xISBN</a> και <a href="http://www.worldcat.org/" target="_blank">Worldcat</a> (optional).</p>
-	<p>Αν έχετε ένα <a href="http://www.worldcat.org/devnet/wiki/SearchAPIWhoCanUse" target="_blank">Worldcat API κλειδί</a> μπορείτε να συνδεθείτε στη βάση εισάγοντας το κλειδί παρακάτω.</p>]]></message>
+	<p>Αν έχετε ένα <a href="http://oclc.org/developer/develop/web-services.html" target="_blank">Worldcat API κλειδί</a> μπορείτε να συνδεθείτε στη βάση εισάγοντας το κλειδί παρακάτω.</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.loadMessage">Σας παρακαλούμε περιμένετε μέχρι να φορτωθεί το πλέγμα ρυθμίσεων της βάσης...</message>
 	<message key="manager.setup.filter.lookup.grid.title">Σύνδεσμοι (Connectosrs) Βάσεων Αναφορών/Παραπομπών</message>
 	<message key="manager.setup.filter.noMoreTemplates">Όλες οι διαθεσιμες μετατροπές έχουν ολοκλήρωθεί. Παρακαλούμε πατήσετ "Ακύρωση" για να επιστρέψετε στη σελίδα ρυθμίσεων.</message>

@@ -166,13 +166,13 @@
 	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">Anda telah memilih untuk menambah database {$filterDisplayName}. Klik di "OK" untuk mengkonfirmasi.</message>
 	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Pilih lookup database.</message>
 	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>Filter ini terkoneksi ke <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a> buku dan database ISBN.</p>
-	<p>Kunci ISBNdb API bersifat mandatori. Untuk informasi tentang menghasilkan kunci, lihat <a href="http://isbndb.com/docs/api/30-keys.html" target="_blank">dokumentasi online</a>.</p>]]></message>
+	<p>Kunci ISBNdb API bersifat mandatori. Untuk informasi tentang menghasilkan kunci, lihat <a href="http://isbndb.com/api/v1/docs/keys" target="_blank">dokumentasi online</a>.</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Filter ini terkoneksi ke database sitiran CrossRef dengan menggunakan CrossRef<a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">OpenURL Query antarmuka</a>.</p> 
 	<p>Untuk menggunakan filter ini, Anda dapat menggunakan akun sistem CrossRef Anda, atau mendaftarkan alamat email yang valid dengan CrossRef <a href="http://www.crossref.org/requestaccount/" target="_blank">di sini</a>.</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>Filter ini terkoneksi ke PubMed <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">Entrez</a> cross-database search engine.</p>
 	<p>Email pendaftaran tidak mandatori secara ketat, tapi mungkin perlu jika Anda menghadapi masalah koneksi. Lihat bagian di  <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">Persyaratan dan Petunjuk Penggunaan</a> di dokumentasi Entrez untuk informasi lebih lanjut.</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.worldCat"><![CDATA[<p>Filter ini terkoneksi ke layanan OCLC <a href="http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp" target="_blank">xISBN</a> and <a href="http://www.worldcat.org/" target="_blank">Worldcat</a> (optional).</p>
-	<p>Jika Anda mempunyai Worldcat <a href="http://www.worldcat.org/devnet/wiki/SearchAPIWhoCanUse" target="_blank">kunci API</a>Anda dapat terkoneksi dengan Worldcat dengan memasukkan kunci di bawah ini.</p>]]></message>
+	<p>Jika Anda mempunyai Worldcat <a href="http://oclc.org/developer/develop/web-services.html" target="_blank">kunci API</a>Anda dapat terkoneksi dengan Worldcat dengan memasukkan kunci di bawah ini.</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.loadMessage">Tunggu hingga grid konfigurasi database sitiran telah dimuat...</message>
 	<message key="manager.setup.filter.lookup.grid.title">Konektor Database Sitiran</message>
 	<message key="manager.setup.filter.noMoreTemplates">Semua transformasi yang tersedia telah ditambahkan. Klik "Batal" untuk kembali ke halaman setup.</message>

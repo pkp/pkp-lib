@@ -224,13 +224,13 @@
 		<p><strong>注释：</strong> 为了保证引用检查过程及时有效地完成， <tt>引用_检查_最大值_进程</tt> 您配置文件中的导则必须设置成合理值。更多信息请参阅<tt>config.inc.php</tt>中的常规设置部分。</p>]]></message>
 	<message key="manager.setup.citationOutputStyleDescription">选择您出版提交中使用的引用样式。引用标记助理工具帮您将作者的引用版本和您从XML中生成的版本进行对比，如此您可以轻而易举地发现错误：</message>
 	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>该过滤器连接到<a href="http://isbndb.com/" target="_blank">ISBNdb.com</a> 书和ISBN数据库。</p>
-	<p>ISBNdb API 密匙为强制性的。有关生成密匙的信息，请参阅<a href="http://isbndb.com/docs/api/30-keys.html" target="_blank">在线文档</a>.</p>]]></message>
+	<p>ISBNdb API 密匙为强制性的。有关生成密匙的信息，请参阅<a href="http://isbndb.com/api/v1/docs/keys" target="_blank">在线文档</a>.</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>该文件连接到CrossRef 引用数据库，采用CrossRef的 <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">OpenURL 查询界面</a>.</p>
 	<p>您可以使用您的CrossRef系统账户，或注册一个CrossRef有效电子信箱来使用该过滤器<a]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>该过滤器连接到PubMed<a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">Entrez</a>的 跨数据库搜索引擎。</p>
 	<p>注册邮箱不是强制性的，但如果您碰到连接问题的时候会需要它。更多信息请参阅<a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">Entrez文档中的</a>使用准则和要求部分。</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.worldCat"><![CDATA[<p>该过滤器连接到OCLC服务上<a href="http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp" target="_blank">xISBN</a> and <a href="http://www.worldcat.org/" target="_blank">Worldcat</a> (optional).</p>
-	<p>如果您有 Worldcat <a href="http://www.worldcat.org/devnet/wiki/SearchAPIWhoCanUse" target="_blank">API key</a> 您可以通过输入下列密匙来连接到Worldcat。</p>]]></message>
+	<p>如果您有 Worldcat <a href="http://oclc.org/developer/develop/web-services.html" target="_blank">API key</a> 您可以通过输入下列密匙来连接到Worldcat。</p>]]></message>
 	<message key="manager.setup.filter.parser.grid.description.freeCite"><![CDATA[<p>该提取过滤器连接到<a href="http://freecite.library.brown.edu/" target="_blank">FreeCite</a> web服务上。</p>]]></message>
 	<message key="manager.setup.filter.parser.grid.description.paraCite"><![CDATA[<p>该提取过滤器使用 <a href="http://paracite.eprints.org/developers/" target="_blank">ParaTools</a> Perl 模块来提供 <a href="http://paracite.eprints.org" target="_blank">ParaCite</a> 引文分析功能。为了使其恰当运作，您必须安装Perl, 和<a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/" target="_blank">Biblio::Citation::Parser</a> 和 <a href="http://search.cpan.org/~sburke/Text-Unidecode-0.04/" target="_blank">Text::Unidecode</a> CPAN 模块。您必须还要对您配置文件中的<tt>perl</tt>导则进行配置。该导则可以在<tt>config.inc.php</tt>外部指令部分中找到。</p>
 	<p>您还可以选择使用哪种分析模块。您可以在标准， <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Jiao.pm" target="_blank">Jiao</a>, 和 <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Citebase.pm" target="_blank">Citebase</a> 间选择分析模块。</p>]]></message>

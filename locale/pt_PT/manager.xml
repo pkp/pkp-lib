@@ -197,13 +197,13 @@
 	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">A base de dados {$filterDisplayName} está sendo incluída. Clique no botão 'OK' para confirmar.</message>
 	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Escolha uma base de dados para verificação.</message>
 	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>Este filtro se conecta à base de livros e códigos ISBN <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a>.</p>
-<p>Uma chave de API ISBNdb é obrigatória. Para informações sobre como gerar a chave, acesse a<a href="http://isbndb.com/docs/api/30-keys.html" target="_blank">documentação online</a>.</p>]]></message>
+<p>Uma chave de API ISBNdb é obrigatória. Para informações sobre como gerar a chave, acesse a<a href="http://isbndb.com/api/v1/docs/keys" target="_blank">documentação online</a>.</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Este filtro se conecta à base CrossRef de citações usando sua <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">Interface de Query OpenURL</a>.</p> 
 <p>Para usar este filtro, deve-se usar sua conta CrossRef, ou cadastrar um e-mail válido <a href="http://www.crossref.org/requestaccount/" target="_blank">aqui</a>.</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>Este filtro se conecta ao mecanismo de busca na base cruzada do PubMed's <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">Entrez</a>.</p>
 <p>Um e-mail para cadastro não estritamente obrigatório, mas pode ser necessário caso tenha problemas de conexão. Veja como funciona o sistema na documentação do Entrez acessando <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">Guia de Uso e Requisitos</a>.</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.worldCat"><![CDATA[<p>Este filtro se conecta aos serviços da OCLC <a href="http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp" target="_blank">xISBN</a> e <a href="http://www.worldcat.org/" target="_blank">Worldcat</a> (opcional).</p>
-<p>Se possui uma <a href="http://www.worldcat.org/devnet/wiki/SearchAPIWhoCanUse" target="_blank">chave de API</a> da WorldCat, poderá se conectar informando a chave no campo a seguir.</p>]]></message>
+<p>Se possui uma <a href="http://oclc.org/developer/develop/web-services.html" target="_blank">chave de API</a> da WorldCat, poderá se conectar informando a chave no campo a seguir.</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.loadMessage">Aguarde enquanto a grade de configuração de bases de dados de citações é carregado...</message>
 	<message key="manager.setup.filter.lookup.grid.title">Conexões de bases de dados de citações</message>
 	<message key="manager.setup.filter.noMoreTemplates">Todas as transformações disponíveis foram incluídas. Clique no botão 'Cancelar' para voltar à página de configuração.</message>

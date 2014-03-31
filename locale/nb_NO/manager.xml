@@ -207,7 +207,7 @@
 	<message key="manager.setup.filter.grid.filterSettings">Registreringsinformasjon og konnektorinnstillinger</message>
 	<message key="manager.setup.filter.grid.filterTemplateRequired">Velg en av  omformingene fra nedtrekksmenyen.</message>
 	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>Dette filteret kobler til <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a>s bok- og ISBN-database.</p>
-	<p>En ISBNdb API-nøkkel er nødvendig. For informasjon om hvordan generere en slik nøkkel, se <a href="http://isbndb.com/docs/api/30-keys.html" target="_blank">dokumentasjon på nett</a>.</p>]]></message>
+	<p>En ISBNdb API-nøkkel er nødvendig. For informasjon om hvordan generere en slik nøkkel, se <a href="http://isbndb.com/api/v1/docs/keys" target="_blank">dokumentasjon på nett</a>.</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Dette filteret kobler til CrossRefs referansedatabase ved bruk av CrossRefs <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">OpenURL Query Interface</a>.</p>
 	<p>For å benytte dette filteret kan du bruke din system-konto hos CrossRef, eller registrere en gyldig e-postadresse hos CrossRef <a href="http://www.crossref.org/requestaccount/" target="_blank">her</a>.</p>]]></message>
 	<message key="manager.setup.filter.pleaseSelect">Vennligst velg...</message>

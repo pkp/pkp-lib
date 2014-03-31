@@ -168,13 +168,13 @@
 	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">Seçiminiz {$filterDisplayName} adlı veri tabanına eklendi. Lütfen onaylamak için "TAMAM"ı tıklayınız.</message>
 	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Arama için bir veri tabanı seçiniz.</message>
 	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<a href="http://isbndb.com/" target="_blank">ISBNdb.com</a> adlı bu filitre bağlantısı kitap ve ISBN veri tabanı içindir.
-	<p>ISBNdb API anahtarı zorunludur. Bir anahtar oluşturmak için <a href="http://isbndb.com/docs/api/30-keys.html" target="_blank">çevrimiçi dokümana</a> bakınız.</p>]]></message>
+	<p>ISBNdb API anahtarı zorunludur. Bir anahtar oluşturmak için <a href="http://isbndb.com/api/v1/docs/keys" target="_blank">çevrimiçi dokümana</a> bakınız.</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Bu filtre CrossRef'i kullanarak <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">OpenURL Sorgu Arayüzü</ a> CrossRef atıf veri tabanına bağlanır.</p>
 	</p>Bu filtreyi kullanmak için, CrossRef sistem hesabını kullanabilir veya CrossRef'e  geçerli bir e-posta adresi ile <a href="http://www.crossref.org/requestaccount/" target="_blank">buraya tıklayarak</ a> kayıt olabilirsiniz.</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>Bu filitre çapraz veritabanı arama motoru ile PubMed'e <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank"> Giriş</ a> yapar.</ p> 
 </ p>Kayıt için e-posta adresi zorunlu değildir, ancak bağlantı sorunlarının giderilmesinde gerekli olabilir. Daha fazla bilgi için giriş dokümanında <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">Kullanım Yönergeleri ve Gereksinimler</ a> bölümüne  bakınız. </ p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.worldCat"><![CDATA[<p>Bu filitre  <a href="http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp" target="_blank">xISBN</a> ve <a href="http://www.worldcat.org/" target="_blank">Worldcat</a> seçenekleriyle OCLC servisine bağlanır.</ p>
-	</ p>Eğer bir Worldcad <a href="http://www.worldcat.org/devnet/wiki/SearchAPIWhoCanUse" target="_blank">API anahtarı</a>nız varsa, bu anahtarla Wolrdcat'e aşağıdaki girişten bağlantı kurabilirsiniz.</ p>]]></message>
+	</ p>Eğer bir Worldcad <a href="http://oclc.org/developer/develop/web-services.html" target="_blank">API anahtarı</a>nız varsa, bu anahtarla Wolrdcat'e aşağıdaki girişten bağlantı kurabilirsiniz.</ p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.loadMessage">Atıf veritabanı yapılandırma şebekesi yüklenene kadar bekleyin ...</message>
 	<message key="manager.setup.filter.lookup.grid.title">Atıf Veritabanı Bağlayıcıları</message>
 	<message key="manager.setup.filter.noMoreTemplates">Kullanılabilir tüm dönüşümler zaten eklenmiş. Kurulum sayfasına dönmek için 'İptal'e tıklayınız.</message>

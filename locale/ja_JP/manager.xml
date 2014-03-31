@@ -199,9 +199,9 @@
 	<message key="manager.setup.filter.parser.grid.title">引用抽出サービス</message>
 	<message key="manager.setup.filter.pleaseSelect">選択してください...</message>
 	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>このフィルタでは <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a> の book and ISBN database に接続できます。</p>
-	<p>ISBNdb API key の取得が必要です。key 作成の詳細については <a href="http://isbndb.com/docs/api/30-keys.html" target="_blank">online documentation</a> を参照してください。</p>]]></message>
+	<p>ISBNdb API key の取得が必要です。key 作成の詳細については <a href="http://isbndb.com/api/v1/docs/keys" target="_blank">online documentation</a> を参照してください。</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.worldCat"><![CDATA[<p>このフィルタでは，OCLCが提供する <a href="http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp" target="_blank">xISBN</a> と <a href="http://www.worldcat.org/" target="_blank">Worldcat</a> (オプション)に接続します。</p>
-	<p>既に Worldcat <a href="http://www.worldcat.org/devnet/wiki/SearchAPIWhoCanUse" target="_blank">API key</a> を持っている場合は下記にkey を入力することで Worldcat にアクセスできます。</p>]]></message>
+	<p>既に Worldcat <a href="http://oclc.org/developer/develop/web-services.html" target="_blank">API key</a> を持っている場合は下記にkey を入力することで Worldcat にアクセスできます。</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.loadMessage">引用データベースの設定を読み込むまでお待ちください。</message>
 	<message key="manager.setup.filter.parser.grid.description.freeCite"><![CDATA[<p>この抽出フィルタでは <a href="http://freecite.library.brown.edu/" target="_blank">FreeCite</a> のWebサービスに接続します。</p>]]></message>
 	<message key="manager.setup.filter.parser.grid.description.parsCit"><![CDATA[<p>この抽出フィルタでは <a href="http://aye.comp.nus.edu.sg/parsCit/" target="_blank">ParsCit</a> のWebサービスに接続します。</p>]]></message>

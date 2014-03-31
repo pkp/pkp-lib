@@ -160,13 +160,13 @@
 	<message key="comments.titleRequired">En kommentartittel er påkrevd.</message>
 	<message key="rt.admin.sharing">Deling</message>
 	<message key="rt.admin.sharing.enabled">Deling er slått på</message>
-	<message key="rt.admin.sharing.description"><![CDATA[For å gjøre det mulig for dine lesere å dele artikler må du opprette en konto hos <a href="http://addthis.com">addthis.com</a>, og kopiere inn nødvendig (program-)kode for Delingsknapp nedenfor.]]></message>
+	<message key="rt.admin.sharing.description"><![CDATA[For å gjøre det mulig for dine lesere å dele artikler må du opprette en konto hos <a href="http://www.addthis.com">addthis.com</a>, og kopiere inn nødvendig (program-)kode for Delingsknapp nedenfor.]]></message>
 	<message key="rt.admin.sharing.basic">Basisinnstillinger</message>
 	<message key="rt.admin.sharing.userNameLabel">Brukernavn hos AddThis.com</message>
 	<message key="rt.admin.sharing.buttonStyleLabel">Knappestil</message>
 	<message key="rt.admin.sharing.dropDownMenuLabel">Bruk rullegardinmeny</message>
 	<message key="rt.admin.sharing.advanced">Avanserte innstillinger (valgfritt)</message>
-	<message key="rt.admin.sharing.customizationLink"><![CDATA[Se <a href="http://www.addthis.com/help/customize/custom-button/">AddThis.com tilpasningsdokumentasjon</a> for informasjon.]]></message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[Se <a href="http://support.addthis.com/customer/portal/articles/381236-custom-buttons">AddThis.com tilpasningsdokumentasjon</a> for informasjon.]]></message>
 	<message key="rt.admin.sharing.brandLabel">Merke</message>
 	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Rullegardinmenyvalg <br /> (kommaseparert liste)]]></message>
 	<message key="rt.admin.sharing.languageLabel">Språk</message>

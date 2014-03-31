@@ -52,14 +52,14 @@
 
 	<message key="rt.admin.sharing">Sdílení</message>
 	<message key="rt.admin.sharing.enabled">Sdílení povoleno</message>
-	<message key="rt.admin.sharing.description"><![CDATA[Abyste umožnili vašim čtenářům sdílet články, vytvořte si účet u <a href="http://addthis.com">addthis.com</a>, a zkopírujte/vložte kód tlačítka Sdílení níže.]]></message>
+	<message key="rt.admin.sharing.description"><![CDATA[Abyste umožnili vašim čtenářům sdílet články, vytvořte si účet u <a href="http://www.addthis.com">addthis.com</a>, a zkopírujte/vložte kód tlačítka Sdílení níže.]]></message>
 
 	<message key="rt.admin.sharing.basic">Základní nastavení</message>
 	<message key="rt.admin.sharing.userNameLabel">AddThis.com uživatelské jméno</message>
 	<message key="rt.admin.sharing.buttonStyleLabel">Styl tlačítka</message>
 	<message key="rt.admin.sharing.dropDownMenuLabel">Použít rozevírací seznam</message>
 	<message key="rt.admin.sharing.advanced">Pokročilá nastavení (volitelné)</message>
-	<message key="rt.admin.sharing.customizationLink"><![CDATA[Viz <a href="http://www.addthis.com/help/customize/custom-button/">AddThis.com customization documentation</a> pro odkazy.]]></message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[Viz <a href="http://support.addthis.com/customer/portal/articles/381236-custom-buttons">AddThis.com customization documentation</a> pro odkazy.]]></message>
 	<message key="rt.admin.sharing.brandLabel">Značka</message>
 	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Možnosti rozbalovacího seznamu <br /> (seznam oddělený čárkou)]]></message>
 	<message key="rt.admin.sharing.languageLabel">Jazyk</message>

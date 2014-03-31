@@ -49,14 +49,14 @@
 
 	<message key="rt.admin.sharing">Uso compartido</message>
 	<message key="rt.admin.sharing.enabled">Uso compartido habilitado</message>
-	<message key="rt.admin.sharing.description"><![CDATA[Para permitir que los lectores/as compartan artículos de la revista, puede registrarse en <a href="http://addthis.com"></a> y copiar y pegar el código del botón Compartir situado a continuación.]]></message>
+	<message key="rt.admin.sharing.description"><![CDATA[Para permitir que los lectores/as compartan artículos de la revista, puede registrarse en <a href="http://www.addthis.com"></a> y copiar y pegar el código del botón Compartir situado a continuación.]]></message>
 
 	<message key="rt.admin.sharing.basic">Configuración básica</message>
 	<message key="rt.admin.sharing.userNameLabel">Nombre de usuario/a de AddThis.com</message>
 	<message key="rt.admin.sharing.buttonStyleLabel">Estilo del botón</message>
 	<message key="rt.admin.sharing.dropDownMenuLabel">Use el menú desplegable</message>
 	<message key="rt.admin.sharing.advanced">Configuración avanzada (opcional)</message>
-	<message key="rt.admin.sharing.customizationLink"><![CDATA[Véase la documentación sobre cómo personalizar AddThis.com a modo de referencia.<a href="http://www.addthis.com/help/customize/custom-button/"></a>.]]></message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[Véase la documentación sobre cómo personalizar AddThis.com a modo de referencia.<a href="http://support.addthis.com/customer/portal/articles/381236-custom-buttons"></a>.]]></message>
 	<message key="rt.admin.sharing.brandLabel">Marca</message>
 	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Opciones del menú desplegable <br /> (lista separada por comas)]]></message>
 	<message key="rt.admin.sharing.languageLabel">Idioma</message>

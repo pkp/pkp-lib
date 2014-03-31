@@ -50,14 +50,14 @@
 
 	<message key="rt.admin.sharing">分享</message>
 	<message key="rt.admin.sharing.enabled">共享启用</message>
-	<message key="rt.admin.sharing.description"><![CDATA[为了让读者分享您的期刊文章，请注册一个账户到网站<a href="http://addthis.com">addthis.com</a>, 并且复制/粘帖分享按钮代码到下面.]]></message>
+	<message key="rt.admin.sharing.description"><![CDATA[为了让读者分享您的期刊文章，请注册一个账户到网站<a href="http://www.addthis.com">addthis.com</a>, 并且复制/粘帖分享按钮代码到下面.]]></message>
 
 	<message key="rt.admin.sharing.basic">基础设置</message>
 	<message key="rt.admin.sharing.userNameLabel">AddThis.com user name</message>
 	<message key="rt.admin.sharing.buttonStyleLabel">按钮样式</message>
 	<message key="rt.admin.sharing.dropDownMenuLabel">使用下拉菜单</message>
 	<message key="rt.admin.sharing.advanced">高级设置 (可选)</message>
-	<message key="rt.admin.sharing.customizationLink"><![CDATA[参阅关于参考文献的 <a href="http://www.addthis.com/help/customize/custom-button/">AddThis.com 定制文档</a>.]]></message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[参阅关于参考文献的 <a href="http://support.addthis.com/customer/portal/articles/381236-custom-buttons">AddThis.com 定制文档</a>.]]></message>
 	<message key="rt.admin.sharing.brandLabel">Brand</message>
 	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[下拉选项 <br /> (逗号分隔的列表)]]></message>
 	<message key="rt.admin.sharing.languageLabel">语言</message>

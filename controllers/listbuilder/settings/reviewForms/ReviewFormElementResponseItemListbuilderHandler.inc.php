@@ -61,8 +61,10 @@ class ReviewFormElementResponseItemListbuilderHandler extends SetupListbuilderHa
 		if ($reviewFormElement) {
 			$possibleResponses = $reviewFormElement->getPossibleResponses(null);
 			foreach ((array) $possibleResponses as $locale => $values) {
-				foreach ($values as $value) {
-					$formattedResponses[] = array(array('content' => array($locale => $value)));
+				foreach ($values as $rowId => $value) {
+					// WARNING: Listbuilders don't like 0 row IDs; offsetting
+					// by 1. This is reversed in the saving code.
+					$formattedResponses[$rowId+1][0]['content'][$locale] = $value;
 				}
 			}
 		}

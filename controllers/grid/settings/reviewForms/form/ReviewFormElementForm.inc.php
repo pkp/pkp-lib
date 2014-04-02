@@ -127,6 +127,7 @@ class ReviewFormElementForm extends Form {
 		$reviewFormElement->setElementType($this->getData('elementType'));
 
 		if (in_array($this->getData('elementType'), ReviewFormElement::getMultipleResponsesElementTypes())) {
+			$this->setData('possibleResponsesProcessed', $reviewFormElement->getPossibleResponses(null));
 			ListbuilderHandler::unpack($request, $this->getData('possibleResponses'));
 			$reviewFormElement->setPossibleResponses($this->getData('possibleResponsesProcessed'), null);
 		} else {
@@ -158,9 +159,27 @@ class ReviewFormElementForm extends Form {
 	 * @copydoc ListbuilderHandler::deleteEntry()
 	 */
 	function deleteEntry($request, $rowId) {
-		$possibleResponsesDeleted = (array) $this->getData('possibleResponsesDeleted');
-		$possibleResponsesDelete[] = $rowId;
-		$this->setData('possibleResponsesDeleted', $possibleResponsesDeleted);
+		$possibleResponsesProcessed = (array) $this->getData('possibleResponsesProcessed');
+		foreach (array_keys($possibleResponsesProcessed) as $locale) {
+			// WARNING: Listbuilders don't like zero row IDs. They are offset
+			// by 1 to avoid this case, so 1 is subtracted here to normalize.
+			unset($possibleResponsesProcessed[$locale][$rowId-1]);
+		}
+		$this->setData('possibleResponsesProcessed', $possibleResponsesProcessed);
+		return true;
+	}
+
+	/**
+	 * @copydoc ListbuilderHandler::updateEntry
+	 */
+	function updateEntry($request, $rowId, $newRowId) {
+		$possibleResponsesProcessed = (array) $this->getData('possibleResponsesProcessed');
+		foreach ($newRowId['possibleResponse'] as $locale => $value) {
+			// WARNING: Listbuilders don't like zero row IDs. They are offset
+			// by 1 to avoid this case, so 1 is subtracted here to normalize.
+			$possibleResponsesProcessed[$locale][$rowId-1] = $value;
+		}
+		$this->setData('possibleResponsesProcessed', $possibleResponsesProcessed);
 		return true;
 	}
 }

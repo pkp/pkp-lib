@@ -222,4 +222,45 @@
 	<message key="plugins.categories.oaiMetadataFormats">OAI Metadata Format Plugins</message>
 	<message key="plugins.categories.oaiMetadataFormats.description">Αυτοί οι τύποι Plugins μεταφέρους τα μεταδεδομένα στις ΟΑΙ επικοινωνίας.</message>
 	<message key="grid.action.addGenre">Προσθήκη Μέρος Βιβλίου</message>
+
+	<!-- Review forms -->
+	<message key="manager.reviewForms">Φόρμες αξιολόγησης</message>
+	<message key="manager.reviewForms.completed">Ολοκληρωμένη</message>
+	<message key="manager.reviewForms.confirmDeletePublished">Είστε σίγουροι ότι επιθυμείτε να διαγράψετε αυτή τη δημοσιευμένη φόρμα αξιολόγησης?</message>
+	<message key="manager.reviewForms.confirmDeleteUnpublished">Είστε σίγουροι ότι επιθυμείτε να διαγράψετε αυτή την αδημοσίευτη φόρμα αξιολόγησης?</message>
+	<message key="manager.reviewForms.create">Δημιουργία Φόρμας Αξιολόγησης</message>
+	<message key="manager.reviewForms.description">Περιγραφή και Οδηγίες</message>
+	<message key="manager.reviewForms.edit">Φόρμα Αξιολόγησης</message>
+	<message key="manager.reviewForms.form.titleRequired">Ένας τίτλος απαιτείται για τη φόρμα αξιολόγησης.</message>
+	<message key="manager.reviewForms.inReview">Σε αξιολόγηση</message>
+	<message key="manager.reviewForms.list.description">Οι φόρμες αξιολόγησης που δημιουργήθηκαν εδώ, θα εμφανιστούν στους αξιολογητές για να συμπληρωθούν, αντί για τις εξ΄ορισμού φόρμες που συνίστανται από δύο ανοικτά πλαίσια κειμένου, το πρώτο "για τον συγγραφέα και τον επιμελητή" και το δεύτερο "για τον επιμελητή". Οι φόρμες αξιολόγησης μπορούν να χρησιμοποιηθούν σε μια συγκεκριμένη ενότητα της έκδοσης, και οι επιμελητές θα έχουν τη δυνατότητα να επιλέξουν ποια φόρμα θα χρησιμοποιήσουν για την αξιολόγηση. Σε κάθε περίπτωση, οι επιμελητές θα έχουν την επιλογή να συμπεριλάβουν τις αξιολογήσεις στην επικοινωνία τους με τους συγγραφείς.</message>
+	<message key="manager.reviewForms.noneChosen">Καμία/ Ελεύθερη Φόρμα Αξιολόγησης</message>
+	<message key="manager.reviewForms.noneCreated">Καμία φόρμα αξιολόγησης δεν έχει δημιουργηθεί.</message>
+	<message key="manager.reviewForms.noneUsed">Καμία φόρμα αξιολόγησης δεν έχει χρησιμοποιηθεί.</message>
+	<message key="manager.reviewForms.preview">Φόρμα Προεπισκόπησης</message>
+	<message key="manager.reviewForms.reviewFormData">Δεδομένα Φόρμας Αξιολόγησης</message>
+	<message key="manager.reviewForms.title">Τίτλος</message>
+	<message key="manager.reviewFormElement.changeType">Αλλάζοντας τον τύπο πεδίου της φόρμας...</message>
+	<message key="manager.reviewFormElements">Πεδία Φόρμας</message>
+	<message key="manager.reviewFormElements.addResponseItem">Προσθήκη Επιλογής</message>
+	<message key="manager.reviewFormElements.checkboxes">Checkboxes (επιλέξτε ένα ή περισσότερα)</message>
+	<message key="manager.reviewFormElements.chooseType">Επιλέξτε τύπο πεδίου</message>
+	<message key="manager.reviewFormElements.confirmDelete">Είστε σίγουροι ότι επιθυμείτε να διαγράψετε ένα στοιχείο μιας δημοσιευμένης φόρμας αξιολόγησης?</message>
+	<message key="manager.reviewFormElements.copyTo">Αντιγραφή σε:</message>
+	<message key="manager.reviewFormElements.create">Δημιουργία νέου πεδίου</message>
+	<message key="manager.reviewFormElements.dropdownbox">Drop-down box</message>
+	<message key="manager.reviewFormElements.edit">Επεξεργασία Πεδίου Φόρμας</message>
+	<message key="manager.reviewFormElements.elementType">Τύπος πεδίου</message>
+	<message key="manager.reviewFormElements.form.elementTypeRequired">Απαιτείται ένα τύπος πεδίου για το πεδίο της φόρμας.</message>
+	<message key="manager.reviewFormElements.form.questionRequired">Απαιτείται μια ερώτηση για το πεδίο της φόρμας.</message>
+	<message key="manager.reviewFormElements.noneCreated">Δεν έχει δημιουργηθεί πεδίο.</message>
+	<message key="manager.reviewFormElements.possibleResponse">Επιλογή</message>
+	<message key="manager.reviewFormElements.question">Πεδίο</message>
+	<message key="manager.reviewFormElements.radiobuttons">Radio buttons (επιλέξτε ένα ή περισσότερα)</message>
+	<message key="manager.reviewFormElements.required">Απαιτείται οι αξιολογητές να συμπληρώσουν το πεδίο</message>
+	<message key="manager.reviewFormElements.smalltextfield">Πλαίσιο κειμένου μονής λέξης</message>
+	<message key="manager.reviewFormElements.textarea">Εκτεταμένο πλαίσιο κειμένου</message>
+	<message key="manager.reviewFormElements.textfield">Πλαίσιο κειμένου μονής γραμμής</message>
+	<message key="manager.reviewFormElements.viewable">Ορατό (για συγγραφείς)</message>
+
 </locale>

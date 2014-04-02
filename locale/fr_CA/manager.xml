@@ -429,4 +429,45 @@ Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, p
 	<message key="manager.setup.genres.dependent">Marquer les fichiers de ce type en tant que fichiers indépendants (ex.: ne sont pas des soumissions principales)</message>
 	<message key="manager.workflow">Flux des travaux</message>
 	<message key="manager.workflow.title">Paramètres du flux des travaux</message>
+
+	<!-- Review forms -->
+	<message key="manager.reviewForms">Formulaires d'évaluation</message>
+	<message key="manager.reviewForms.completed">Complété</message>
+	<message key="manager.reviewForms.confirmDeletePublished">Confirmer la suppression d'un formulaire d'évaluation publié...</message>
+	<message key="manager.reviewForms.confirmDeleteUnpublished">Confirmer la suppression d'un formulaire d'évaluation non publié…</message>
+	<message key="manager.reviewForms.create">Créer un formulaire d'évaluation</message>
+	<message key="manager.reviewForms.description">Description et instructions</message>
+	<message key="manager.reviewForms.edit">Formulaire d'évaluation</message>
+	<message key="manager.reviewForms.form.titleRequired">Vous devez donner un titre à ce formulaire d'évaluation.</message>
+	<message key="manager.reviewForms.inReview">En cours d'évaluation</message>
+	<message key="manager.reviewForms.list.description">Les formulaires d'évaluation par les pairs créés ici seront présentés aux évaluateurs (plutôt que les formulaires par défaut) afin qu'ils puissent les remplir. Ces formulaires consistent en deux zones de texte ouvertes, la première "pour l'auteur et le rédacteur en chef" et la deuxième "pour le rédacteur en chef". Les formulaires d'évaluation peuvent être assignés à une section spécifique de la presse, et les rédacteurs en chef auront la possibilité de choisir le formulaire à remplir au moment d'assigner l'évaluation. Dans tous les cas, les rédacteurs en chef auront la possibilité de joindre les évaluations à leur message lorsqu'ils correspondront avec l'auteur.</message>
+	<message key="manager.reviewForms.noneChosen">Aucune évaluation / Évaluation en formule libre</message>
+	<message key="manager.reviewForms.noneCreated">Aucun formulaire d'évaluation n'a été créé.</message>
+	<message key="manager.reviewForms.noneUsed">Aucuns formulaires d'évaluation n'ont été créés.</message>
+	<message key="manager.reviewForms.preview">Prévisualiser le formulaire</message>
+	<message key="manager.reviewForms.reviewFormData">Réviser les données du formulaire</message>
+	<message key="manager.reviewForms.title">Titre</message>
+	<message key="manager.reviewFormElement.changeType">Modification du type d'élément du formulaire...</message>
+	<message key="manager.reviewFormElements">Éléments du formulaire</message>
+	<message key="manager.reviewFormElements.addResponseItem">Ajouter une sélection</message>
+	<message key="manager.reviewFormElements.checkboxes">Cases à cocher (vous pouvez en choisir une, ou plusieurs)</message>
+	<message key="manager.reviewFormElements.chooseType">Choisir un type d'élément</message>
+	<message key="manager.reviewFormElements.confirmDelete">Confirmer la suppression d'un élément dans le formulaire publié...</message>
+	<message key="manager.reviewFormElements.copyTo">Copier:</message>
+	<message key="manager.reviewFormElements.create">Créer un nouvel élément </message>
+	<message key="manager.reviewFormElements.dropdownbox">Case déroulante</message>
+	<message key="manager.reviewFormElements.edit">Modifier un élément du formulaire</message>
+	<message key="manager.reviewFormElements.elementType">Type d'élément</message>
+	<message key="manager.reviewFormElements.form.elementTypeRequired">Il faut indiquer un type d'élément pour l'élément du formulaire.</message>
+	<message key="manager.reviewFormElements.form.questionRequired">Il faut ajouter une question pour l'élément du formulaire.</message>
+	<message key="manager.reviewFormElements.noneCreated">Aucun élément du formulaire n'a été créé.</message>
+	<message key="manager.reviewFormElements.possibleResponse">Sélection</message>
+	<message key="manager.reviewFormElements.question">Élément </message>
+	<message key="manager.reviewFormElements.radiobuttons">Boutons radio (vous ne pouvez en choisir qu'un)</message>
+	<message key="manager.reviewFormElements.required">Les évaluateurs doivent remplir l'élément</message>
+	<message key="manager.reviewFormElements.smalltextfield">Case de saisie pour un seul mot</message>
+	<message key="manager.reviewFormElements.textarea">Case de saisie élargie</message>
+	<message key="manager.reviewFormElements.textfield">Zone de texte simple ligne</message>
+	<message key="manager.reviewFormElements.viewable">Visualisable (pour les auteurs)</message>
+
 </locale>

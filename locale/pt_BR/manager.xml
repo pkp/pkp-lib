@@ -426,4 +426,44 @@ Há casos em que uma única estatística de uso devem ser utilizada, por exemplo
 	<message key="manager.distribution.title">Configurações da Distribuição</message>
 	<message key="manager.setup.genres.dependent">Marque os arquivos deste tipo como arquivos dependentes (por exemplo, não submissões primárias)</message>
 	<message key="manager.workflow.title">Definições de Fluxo de Trabalho</message>
+
+	<!-- Review forms -->
+	<message key="manager.reviewForms">Formulários de avaliação</message>
+	<message key="manager.reviewForms.completed">Concluído</message>
+	<message key="manager.reviewForms.confirmDeletePublished">Confirmar a exclusão de formulário de avaliação publicado...</message>
+	<message key="manager.reviewForms.confirmDeleteUnpublished">Confirmar a exclusão de formulário de avaliação não publicado...</message>
+	<message key="manager.reviewForms.create">Criar formulário de avaliação</message>
+	<message key="manager.reviewForms.description">Detalhes e instruções</message>
+	<message key="manager.reviewForms.edit">Forumlário de avaliação</message>
+	<message key="manager.reviewForms.form.titleRequired">É necessário informar o título do formulário.</message>
+	<message key="manager.reviewForms.inReview">Em avaliação</message>
+	<message key="manager.reviewForms.list.description">Os formulários de avaliação pelos pares creados aqui serão apresentados aos avaliadores para seu preenchimento, em vez do formulário padrão que consiste de dois campos de texto aberto, sendo o primeiro "para autor editor," e o segundo "para editor." Formulários de avaliação podem ser designados a seções específicas, e editores poderão escolher qual formulário designar durante a avaliação. Em todos os casos, os editores poderão optar por incluir as avaliações ao se comunicarem com o autor.</message>
+	<message key="manager.reviewForms.noneChosen">Nenhum / Formulário aberto de avaliação</message>
+	<message key="manager.reviewForms.noneCreated">Nenhum formulário de avaliação criado.</message>
+	<message key="manager.reviewForms.noneUsed">Nenhum formulário de avaliação usado.</message>
+	<message key="manager.reviewForms.preview">Prévia do formulário</message>
+	<message key="manager.reviewForms.reviewFormData">Dados do formulário de avaliação</message>
+	<message key="manager.reviewForms.title">Título</message>
+	<message key="manager.reviewFormElement.changeType">Alterando o tipo de item do formulário...</message>
+	<message key="manager.reviewFormElements">Itens do formulário</message>
+	<message key="manager.reviewFormElements.addResponseItem">Incliur seleção</message>
+	<message key="manager.reviewFormElements.checkboxes">Checkboxes (permite escolher mais de uma opção)</message>
+	<message key="manager.reviewFormElements.chooseType">Escolher tipo de item</message>
+	<message key="manager.reviewFormElements.confirmDelete">Confirmar a exclusão de item de formulário publicado...</message>
+	<message key="manager.reviewFormElements.copyTo">Copiar para:</message>
+	<message key="manager.reviewFormElements.create">Criar novo item</message>
+	<message key="manager.reviewFormElements.dropdownbox">Menu dropdown</message>
+	<message key="manager.reviewFormElements.edit">Editar item</message>
+	<message key="manager.reviewFormElements.elementType">Tipo de item</message>
+	<message key="manager.reviewFormElements.form.elementTypeRequired">É necessário definir o tipo para o item de formulário.</message>
+	<message key="manager.reviewFormElements.form.questionRequired">A pergunta é obrigatório para o item.</message>
+	<message key="manager.reviewFormElements.noneCreated">Nenhum item de formulário criado.</message>
+	<message key="manager.reviewFormElements.possibleResponse">Escolha</message>
+	<message key="manager.reviewFormElements.question">Item</message>
+	<message key="manager.reviewFormElements.radiobuttons">Botões rádio (permite escolher apenas uma opção)</message>
+	<message key="manager.reviewFormElements.required">Preenchimento obrigatório para avaliadores</message>
+	<message key="manager.reviewFormElements.smalltextfield">Caixa de texto de uma palavra</message>
+	<message key="manager.reviewFormElements.textarea">Caixa de texto extendida</message>
+	<message key="manager.reviewFormElements.textfield">Caixa de texto de uma linha</message>
+	<message key="manager.reviewFormElements.viewable">Visível (para autores)</message>
 </locale>

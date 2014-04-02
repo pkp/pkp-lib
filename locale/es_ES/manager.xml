@@ -221,5 +221,44 @@
 	<message key="manager.setup.metaCitationsDescription">Active la siguiente casilla de verificación para habilitar la edición de citas y referencias. Esto permitirá a los autores incluir citas en bruto con los envíos. Los editores también tendrán acceso a un asistente de marcado de citas con el que pueden comprobar las citas originales respecto a las bases de datos externas, tales como WorldCat, ISBNdb, PubMed y otros, para mayor exactitud. Las citas aprobadas se pueden exportar a archivos de galerada final.</message>
 	<message key="plugins.categories.oaiMetadataFormats">Plugins de Formato de Metadatos de OAI</message>
 	<message key="plugins.categories.oaiMetadataFormats.description">Estos plugin de formato expresan metadatos en comunicaciones OAI</message>
-	<message key="grid.action.addGenre">Add Genre</message>
+
+	<!-- Review forms -->
+	<message key="manager.reviewForms">Formularios de revisión</message>
+	<message key="manager.reviewForms.completed">Completados</message>
+	<message key="manager.reviewForms.confirmDeletePublished">Confirmar la eliminación del formulario de revisión publicado...</message>
+	<message key="manager.reviewForms.confirmDeleteUnpublished">Confirmar la eliminación del formulario de revisión no publicado...</message>
+	<message key="manager.reviewForms.create">Crear formulario de revisión</message>
+	<message key="manager.reviewForms.description">Descripción e indicaciones</message>
+	<message key="manager.reviewForms.edit">Formulario de revisión</message>
+	<message key="manager.reviewForms.form.titleRequired">Se necesita un título para el formulario de revisión.</message>
+	<message key="manager.reviewForms.inReview">En revisión</message>
+	<message key="manager.reviewForms.list.description">Los formularios de revisión por pares creados aquí se presentarán a los revisores para que lo completen, en lugar de los formularios estándar, que contienen dos cuadros de texto abiertos, el primero "para el autor y coordinador", y el segundo "para el coordinador". Los formularios de revisión pueden determinarse según una sección editorial específica, y los coordinadores tendrán la opción de elegir que formulario usar para asignar la revisión. En cualquier caso, los coordinadores tendrán la opción de incluir las revisiones de acuerdo con el autor.</message>
+	<message key="manager.reviewForms.noneChosen">Ninguno / Revisión de formulario libre</message>
+	<message key="manager.reviewForms.noneCreated">No se ha creado ningún formulario de revisión.</message>
+	<message key="manager.reviewForms.noneUsed">No se ha utilizado ningún formulario de revisión.</message>
+	<message key="manager.reviewForms.preview">Previsualizar formulario</message>
+	<message key="manager.reviewForms.reviewFormData">Información del formulario de revisión</message>
+	<message key="manager.reviewForms.title">Título</message>
+	<message key="manager.reviewFormElement.changeType">Cambiando el tipo de elementos del formulario...</message>
+	<message key="manager.reviewFormElements">Elementos del formulario</message>
+	<message key="manager.reviewFormElements.addResponseItem">Añadir selección</message>
+	<message key="manager.reviewFormElements.checkboxes">Casillas (puedes elegir más de una)</message>
+	<message key="manager.reviewFormElements.chooseType">Elegir tipo de elemento</message>
+	<message key="manager.reviewFormElements.confirmDelete">Confirmar la eliminación del elemento del formulario publicado...</message>
+	<message key="manager.reviewFormElements.copyTo">Copiar a:</message>
+	<message key="manager.reviewFormElements.create">Crear un nuevo elemento</message>
+	<message key="manager.reviewFormElements.dropdownbox">Menú desplegable</message>
+	<message key="manager.reviewFormElements.edit">Editar elemento del formulario</message>
+	<message key="manager.reviewFormElements.elementType">Tipo de elemento</message>
+	<message key="manager.reviewFormElements.form.elementTypeRequired">Se necesita un tipo de elemento para el elemento del formulario.</message>
+	<message key="manager.reviewFormElements.form.questionRequired">Se necesita una pregunta para el elemento del formulario.</message>
+	<message key="manager.reviewFormElements.noneCreated">No se ha creado ningún elemento del formulario.</message>
+	<message key="manager.reviewFormElements.possibleResponse">Selección</message>
+	<message key="manager.reviewFormElements.question">Elemento</message>
+	<message key="manager.reviewFormElements.radiobuttons">Botones de selección (solo puedes elegir uno)</message>
+	<message key="manager.reviewFormElements.required">Es necesario que los revisores completen el elemento</message>
+	<message key="manager.reviewFormElements.smalltextfield">Cuadro de texto de una sola palabra</message>
+	<message key="manager.reviewFormElements.textarea">Cuadro de texto ampliado</message>
+	<message key="manager.reviewFormElements.textfield">Cuadro de texto de una sola línea</message>
+	<message key="manager.reviewFormElements.viewable">Visible (para autores)</message>
 </locale>

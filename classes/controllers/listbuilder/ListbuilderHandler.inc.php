@@ -32,16 +32,6 @@ define('LISTBUILDER_SAVE_TYPE_INTERNAL', 1); // Using ListbuilderHandler::save
  * array[columnIndex][LISTBUILDER_OPTGROUP_LABEL][optgroupId] */
 define_exposed('LISTBUILDER_OPTGROUP_LABEL', 'optGroupLabel');
 
-// FIXME: Rather than inheriting from grid handler, common base
-// functionality might better be factored into a common base handler
-// class and then both, GridHandler and ListbuilderHandler should
-// inherit from the common base class. The shared concept of grids
-// and list builders is that both seem to work with element lists. Maybe
-// ElementListHandler would be a good name then for a common base
-// class? I'm not a 100% sure about this but it'll become obvious
-// once you try. If there's considerable amounts of code in both
-// the base class and the re-factored grid handler then you know
-// you're on the right track.
 class ListbuilderHandler extends GridHandler {
 	/** @var int Definition of the type of source LISTBUILDER_SOURCE_TYPE_... */
 	var $_sourceType;
@@ -61,6 +51,8 @@ class ListbuilderHandler extends GridHandler {
 
 	/**
 	 * @see GridHandler::initialize
+	 * @param $request PKPRequest
+	 * @param $addItemLink boolean optional True/default to present an "add item" link action
 	 */
 	function initialize($request, $addItemLink = true) {
 		parent::initialize($request);
@@ -128,7 +120,8 @@ class ListbuilderHandler extends GridHandler {
 	}
 
 	/**
-	 * Set the save field name for LISTBUILDER_SAVE_TYPE_EXTERNAL
+	 * Set the save field name for LISTBUILDER_SAVE_TYPE_EXTERNAL.
+	 * This will be the HTML field that receives the data upon submission.
 	 * @return string
 	 */
 	function getSaveFieldName() {
@@ -312,6 +305,7 @@ class ListbuilderHandler extends GridHandler {
 	 * Load the set of options for a select list type listbuilder.
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return string JSON-encoded set of options
 	 */
 	function fetchOptions($args, $request) {
 		$options = $this->getOptions($request);

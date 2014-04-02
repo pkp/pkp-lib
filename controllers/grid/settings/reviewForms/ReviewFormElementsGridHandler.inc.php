@@ -105,7 +105,8 @@ class ReviewFormElementsGridHandler extends GridHandler {
 				'manager.reviewFormElements.question',
 				null,
 				'controllers/grid/gridCell.tpl',
-				$reviewFormElementGridCellProvider
+				$reviewFormElementGridCellProvider,
+				array('multiline' => true, 'html' => true, 'maxLength' => 220)
 			)
 		);
 

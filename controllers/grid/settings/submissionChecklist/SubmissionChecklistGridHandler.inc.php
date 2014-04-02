@@ -111,8 +111,7 @@ class SubmissionChecklistGridHandler extends SetupGridHandler {
 	 * @param $request PKPRequest
 	 */
 	function addItem($args, $request) {
-		// Calling editSubmissionChecklist with an empty row id will add
-		// a new submissionChecklist.
+		// Calling editItem with an empty row id will add a new row.
 		return $this->editItem($args, $request);
 	}
 

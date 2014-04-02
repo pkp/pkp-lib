@@ -5,13 +5,13 @@
   * locale.xml
   *
   * Copyright (c) 2003-2013 Simon Fraser University Library
-  * Copyright (c) 2003-2003-2013 John Willinsky
+  * Copyright (c) 2003-2013 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the en_US (U.S. English) locale.
+  * Localization strings.
   -->
 
-<locale name="en_US" full_name="U.S. English">
+<locale name="fr_CA" full_name="Français">
 	<message key="plugins.citationParser.freecite.displayName">Extracteur de citation FreeCite</message>
 	<message key="plugins.citationParser.freecite.description">Extraction de champs de citations en texte brut via le service FreeCite.</message>
 </locale>

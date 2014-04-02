@@ -160,4 +160,37 @@
 	<message key="plugins.categories.reports">Dodaci za izvješća</message>
 	<message key="plugins.categories.themes.description">Dodatci za stilske teme mijenjaju izgled sistema.</message>
 	<message key="plugins.categories.themes">Dodatci za stilske teme</message>
+
+	<!-- Review forms -->
+	<message key="manager.reviewFormElements">Stavke obrasca</message>
+	<message key="manager.reviewFormElements.addResponseItem">Dodaj izbor</message>
+	<message key="manager.reviewFormElements.checkboxes">Ponuđeni odgovori (moguć odabir jednog ili više)</message>
+	<message key="manager.reviewFormElements.chooseType">Odaberite tip stavke</message>
+	<message key="manager.reviewFormElements.copyTo">Kopiraj u:</message>
+	<message key="manager.reviewFormElements.create">Kreiraj novu stavku</message>
+	<message key="manager.reviewFormElements.dropdownbox">Izbornik s listom odgovora</message>
+	<message key="manager.reviewFormElements.edit">Uredi stavku obrasca</message>
+	<message key="manager.reviewFormElements.elementType">Tip stavke</message>
+	<message key="manager.reviewFormElements.form.elementTypeRequired">Potrebno je odrediti tip stavke.</message>
+	<message key="manager.reviewFormElements.form.questionRequired">Stavka obrasca treba sadržavati pitanje.</message>
+	<message key="manager.reviewFormElements.noneCreated">Stavke recenzijskog obrasca nisu kreirane.</message>
+	<message key="manager.reviewFormElements.possibleResponse">Izbor</message>
+	<message key="manager.reviewFormElements.question">Stavka</message>
+	<message key="manager.reviewFormElements.radiobuttons">Ponuđeni odgovori (moguć odabir samo jednog)</message>
+	<message key="manager.reviewFormElements.required">Recenzenti moraju ispuniti ovu stavku</message>
+	<message key="manager.reviewFormElements.smalltextfield">Jedna riječ teksta</message>
+	<message key="manager.reviewFormElements.textarea">Proizvoljna količina teksta</message>
+	<message key="manager.reviewFormElements.textfield">Jedna linija teksta</message>
+	<message key="manager.reviewForms">Recenzijski obrasci</message>
+	<message key="manager.reviewForms.completed">Završeni</message>
+	<message key="manager.reviewForms.create">Kreiraj recenzijski obrazac</message>
+	<message key="manager.reviewForms.description">Opis i upute</message>
+	<message key="manager.reviewForms.edit">Recenzijski obrazac</message>
+	<message key="manager.reviewForms.form.titleRequired">Recenzijskom obrascu nedostaje naslov.</message>
+	<message key="manager.reviewForms.inReview">U recenziji</message>
+	<message key="manager.reviewForms.list.description">Ovdje se mogu kreirati specifični obrasci za recenzije koji će biti zadani recenzentima umjesto standardnog oblika koji sadrži dva tekstualna polja ("za autora i urednika" te "za urednika"). Različiti recenzijski obrasci mogu biti dodijeljeni pojedinim  rubrikama časopisa, a urednici imaju mogućnost određivanja koji će obrazac koristiti prilikom dodjeljivanja recenzijskog zaduženja. U svim slučajevima, urednici imaju mogućnost uključivanja sadržaja recenzija u korespondenciju s autorom.</message>
+	<message key="manager.reviewForms.noneChosen">Nema / Standardna recenzijska polja</message>
+	<message key="manager.reviewForms.noneCreated">Nema kreiranih recenzijskih obrazaca.</message>
+	<message key="manager.reviewForms.preview">Pregled obrasca</message>
+	<message key="manager.reviewForms.title">Naslov</message>
 </locale>

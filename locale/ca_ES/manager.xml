@@ -170,4 +170,44 @@
 	<message key="plugins.categories.reports">Connectors per a informes</message>
 	<message key="plugins.categories.themes.description">Podeu utilitzar els connectors de tema per a canviar l’aparença del sistema.</message>
 	<message key="plugins.categories.themes">Connectors de tema</message>
+
+	<!-- Review forms -->
+	<message key="manager.reviewFormElement.changeType">S’està canviant el tipus d’element del formulari...</message>
+	<message key="manager.reviewFormElements">Elements del formulari</message>
+	<message key="manager.reviewFormElements.addResponseItem">Afegeix una selecció</message>
+	<message key="manager.reviewFormElements.checkboxes">Caselles de selecció (en podeu activar una o més)</message>
+	<message key="manager.reviewFormElements.chooseType">Tria el tipus d’element</message>
+	<message key="manager.reviewFormElements.confirmDelete">Confirma la supressió d’un element del formulari publicat...</message>
+	<message key="manager.reviewFormElements.copyTo">Copia a:</message>
+	<message key="manager.reviewFormElements.create">Crea un element nou</message>
+	<message key="manager.reviewFormElements.dropdownbox">Llista desplegable</message>
+	<message key="manager.reviewFormElements.edit">Edita l’element del formulari</message>
+	<message key="manager.reviewFormElements.elementType">Tipus d’element</message>
+	<message key="manager.reviewFormElements.form.elementTypeRequired">L’element de formulari ha de tenir assignat un tipus d’element.</message>
+	<message key="manager.reviewFormElements.form.questionRequired">L’element de formulari ha de tenir una pregunta.</message>
+	<message key="manager.reviewFormElements.noneCreated">No s’ha creat cap element del formulari.</message>
+	<message key="manager.reviewFormElements.possibleResponse">Selecció</message>
+	<message key="manager.reviewFormElements.question">Element</message>
+	<message key="manager.reviewFormElements.radiobuttons">Botons d’opció (només en podeu triar un)</message>
+	<message key="manager.reviewFormElements.required">Els revisors/es han de completar l’element</message>
+	<message key="manager.reviewFormElements.smalltextfield">Quadre de text d’una sola paraula</message>
+	<message key="manager.reviewFormElements.textarea">Quadre de text ampliat</message>
+	<message key="manager.reviewFormElements.textfield">Quadre de text d’una sola línia</message>
+	<message key="manager.reviewFormElements.viewable">Visualitzable (per a autors/es)</message>
+	<message key="manager.reviewForms">Formularis per a la revisió de persones expertes</message>
+	<message key="manager.reviewForms.completed">Completat</message>
+	<message key="manager.reviewForms.confirmDeletePublished">Confirma la supressió d’un formulari de revisió publicat...</message>
+	<message key="manager.reviewForms.confirmDeleteUnpublished">Confirma la supressió d’un formulari de revisió no publicat...</message>
+	<message key="manager.reviewForms.create">Crea un formulari de revisió</message>
+	<message key="manager.reviewForms.description">Descripció i instruccions</message>
+	<message key="manager.reviewForms.edit">Formulari de revisió</message>
+	<message key="manager.reviewForms.form.titleRequired">El formulari de revisió ha de tenir un títol.</message>
+	<message key="manager.reviewForms.inReview">En revisió</message>
+	<message key="manager.reviewForms.list.description"><![CDATA[Els formularis per a la revisió de persones expertes creats aquí s’enviaran als revisors/es perquè els completin en comptes del formulari per defecte, que consisteix en dos quadres de text oberts, el primer &#171;Per a l’autor/a i l’editor/a&#187; i el segon &#171;Per a l’editor/a&#187;. Podeu assignar formularis de revisió a una secció específica de la revista. A més, els editors/es tindran l’opció de triar un formulari quan assignin una revisió. En tots els casos, els editors/es podran incloure les revisions en posar-se en contacte amb l’autor/a.]]></message>
+	<message key="manager.reviewForms.noneChosen">Cap / Formularis de revisió disponibles</message>
+	<message key="manager.reviewForms.noneCreated">No s’ha creat cap formulari de revisió.</message>
+	<message key="manager.reviewForms.noneUsed">No s’ha utilitzat cap formulari de revisió.</message>
+	<message key="manager.reviewForms.preview">Previsualitza el formulari</message>
+	<message key="manager.reviewForms.reviewFormData">Dades del formulari de revisió</message>
+	<message key="manager.reviewForms.title">Títol</message>
 </locale>

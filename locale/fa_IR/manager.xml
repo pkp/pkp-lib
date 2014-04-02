@@ -299,4 +299,37 @@ WorldCat, ISBNdb, PubMed
 از نظر صحت چک کند. سپس ارجاعات تایید شده را می توان به گالی نهائی انتقال داد.</message>
 	<message key="plugins.categories.oaiMetadataFormats">پلاگین فرمات فراداده او ای آی</message>
 	<message key="plugins.categories.oaiMetadataFormats.description">این پلاگین های فرمات، فراداه را در ارتباطات او ای آی بیان میکنند.</message>
+
+	<!-- Review forms -->
+	<message key="manager.reviewFormElements">آیتم های فرم</message>
+	<message key="manager.reviewFormElements.addResponseItem">افزودن گزینه</message>
+	<message key="manager.reviewFormElements.checkboxes">جعبه چک مارک: یک یا چند گزینه قابل انتخاب است</message>
+	<message key="manager.reviewFormElements.chooseType">انتخاب نوع آیتم</message>
+	<message key="manager.reviewFormElements.copyTo">کپی به:</message>
+	<message key="manager.reviewFormElements.create">ایجاد آیتم جدید</message>
+	<message key="manager.reviewFormElements.dropdownbox">جعبه منوی کرکره ای</message>
+	<message key="manager.reviewFormElements.edit">ویرایش آیتم فرم</message>
+	<message key="manager.reviewFormElements.elementType">نوع آیتم</message>
+	<message key="manager.reviewFormElements.form.elementTypeRequired">تعیین نوع آیتم برای آیتم فرم اجباری است</message>
+	<message key="manager.reviewFormElements.form.questionRequired">این آیتم یک پرسش لازم دارد</message>
+	<message key="manager.reviewFormElements.noneCreated">هنوز آیتمی برای این فرم ایجاد نشده است</message>
+	<message key="manager.reviewFormElements.possibleResponse">گزینه</message>
+	<message key="manager.reviewFormElements.question">آیتم</message>
+	<message key="manager.reviewFormElements.radiobuttons">دکمه رادیوئی: فقط یک گزینه قابل انتخاب است</message>
+	<message key="manager.reviewFormElements.required">پاسخ به این آیتم توسط کارشناسان الزامی است</message>
+	<message key="manager.reviewFormElements.smalltextfield">جعبه متن یک کلمه ای</message>
+	<message key="manager.reviewFormElements.textarea">جعبه متن طویل</message>
+	<message key="manager.reviewFormElements.textfield">جعبه متن یک سطری</message>
+	<message key="manager.reviewForms">فرم های کارشناسی</message>
+	<message key="manager.reviewForms.completed">موارد تکمیل شده</message>
+	<message key="manager.reviewForms.create">ایجاد فرم کارشناسی</message>
+	<message key="manager.reviewForms.description">تعاریف و دستورالعمل ها</message>
+	<message key="manager.reviewForms.edit">فرم کارشناسی</message>
+	<message key="manager.reviewForms.form.titleRequired">عنوان فرم کارشناسی الزامی است</message>
+	<message key="manager.reviewForms.inReview">در حال کارشناسی</message>
+	<message key="manager.reviewForms.list.description">این فرم های کارشناسی به جای فرم پیش فرض در اختیار کارشناسان قرار میگیرند. فزم پیش فرض فقط دارای دو جعبه متن یکی برای وارد کردن نظراتی که فقط دبیر مقاله باید ببیند و دیگری برای دبیر مقاله و نویسنده مقاله. فرمهای کارشناسی را میتوان برای نوع خاصی از مقالات در نظر گرفت - به علاوه دبیر مقاله این اختیار را دارد که کدام فرم یا فرمهای کارشناسی برای کدام کارشناس برود. در تمامی این حالات دبیر مقاله مختار است که ماحصل این فرم های کارشناسی را در اختیار نویسنده مقاله قرار بدهد یا خیر.</message>
+	<message key="manager.reviewForms.noneChosen">هیچکدام / فرم کارشناسی آزاد</message>
+	<message key="manager.reviewForms.noneCreated">هیچ فرم کارشناسی تولید نشده است</message>
+	<message key="manager.reviewForms.preview">فرم کارشناسی</message>
+	<message key="manager.reviewForms.title">عنوان</message>
 </locale>

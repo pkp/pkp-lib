@@ -244,7 +244,6 @@
 	<message key="manager.reviewFormElements.textfield">行テキストボックス</message>
 	<message key="manager.reviewForms">査読フォーム</message>
 	<message key="manager.reviewForms.completed">完了</message>
-	<message key="manager.reviewForms.confirmDeleteUnpublished">公開されていない査読フォームの削除を確認</message>
 	<message key="manager.reviewForms.create">査読フォームの作成</message>
 	<message key="manager.reviewForms.description">説明と操作法</message>
 	<message key="manager.reviewForms.edit">査読フォーム</message>

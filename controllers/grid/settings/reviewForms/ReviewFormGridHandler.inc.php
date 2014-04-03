@@ -346,8 +346,8 @@ class ReviewFormGridHandler extends GridHandler {
 			$reviewFormDao->resequenceReviewForms(Application::getContextAssocType(), $context->getId());
 
 			$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
-			$reviewFormElements = $reviewFormElementDao->getByIds($reviewFormId);
-			foreach ($reviewFormElements as $reviewFormElement) {
+			$reviewFormElements = $reviewFormElementDao->getByReviewFormId($reviewFormId);
+			while ($reviewFormElement = $reviewFormElements->next()) {
 				$reviewFormElement->setReviewFormId($newReviewFormId);
 				$reviewFormElement->setSequence(REALLY_BIG_NUMBER);
 				$reviewFormElementDao->insertObject($reviewFormElement);

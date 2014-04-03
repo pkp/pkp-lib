@@ -46,10 +46,7 @@ class ReviewFormGridRow extends GridRow {
 			// determine whether or not this Review Form is editable.
 			$incompleteCount = $element->getIncompleteCount();
 			$completeCount = $element->getCompleteCount();
-			$canEdit = 0;
-			if($incompleteCount == 0 && $completeCount == 0) {
-				$canEdit = 1;
-			}
+			$canEdit = ($incompleteCount == 0 && $completeCount == 0);
 
 			// if review form is editable, add 'edit' grid row action
 			if($canEdit) {
@@ -104,7 +101,7 @@ class ReviewFormGridRow extends GridRow {
 					new LinkAction(
 						'delete',
 						new RemoteActionConfirmationModal(
-							__('manager.reviewForms.confirmDeleteUnpublished'),
+							__('manager.reviewForms.confirmDelete'),
 							null,
 							$router->url($request, null, null, 'deleteReviewForm', null, array('rowId' => $rowId))
 						),

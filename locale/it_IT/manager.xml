@@ -268,7 +268,6 @@
 	<message key="manager.reviewFormElements.textfield">Text box su una linea</message>
 	<message key="manager.reviewForms">Moduli per la revisione</message>
 	<message key="manager.reviewForms.completed">Completato</message>
-	<message key="manager.reviewForms.confirmDeleteUnpublished">Conferma la cancellazione di un modulo di revisione non pubblicato ...</message>
 	<message key="manager.reviewForms.create">Crea un modulo di revisione</message>
 	<message key="manager.reviewForms.description">Descrizione e istruzioni</message>
 	<message key="manager.reviewForms.edit">Modulo di revisione</message>

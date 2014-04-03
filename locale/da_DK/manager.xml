@@ -247,7 +247,6 @@
 	<!-- Review forms -->
 	<message key="manager.reviewForms">Review formular</message>
 	<message key="manager.reviewForms.completed">Færdig</message>
-	<message key="manager.reviewForms.confirmDeleteUnpublished">Bekræft sletning af en upubliceret review formular...</message>
 	<message key="manager.reviewForms.create">Opret review formular</message>
 	<message key="manager.reviewForms.description">Beskrivelse og instruktioner</message>
 	<message key="manager.reviewForms.edit">Review formular</message>

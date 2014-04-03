@@ -225,8 +225,6 @@
 	<!-- Review forms -->
 	<message key="manager.reviewForms">Formularios de revisión</message>
 	<message key="manager.reviewForms.completed">Completados</message>
-	<message key="manager.reviewForms.confirmDeletePublished">Confirmar la eliminación del formulario de revisión publicado...</message>
-	<message key="manager.reviewForms.confirmDeleteUnpublished">Confirmar la eliminación del formulario de revisión no publicado...</message>
 	<message key="manager.reviewForms.create">Crear formulario de revisión</message>
 	<message key="manager.reviewForms.description">Descripción e indicaciones</message>
 	<message key="manager.reviewForms.edit">Formulario de revisión</message>

@@ -199,7 +199,6 @@
 	<message key="manager.reviewFormElements.textfield">Jednořádkové textové pole</message>
 	<message key="manager.reviewForms">Formuláře posudků</message>
 	<message key="manager.reviewForms.completed">Dokončeno</message>
-	<message key="manager.reviewForms.confirmDeleteUnpublished">Potvrdit smazání nepublikovaného formuláře posudku...</message>
 	<message key="manager.reviewForms.create">Vytvořit formulář posudku</message>
 	<message key="manager.reviewForms.description">Popis a instrukce</message>
 	<message key="manager.reviewForms.edit">Formulář posudku</message>

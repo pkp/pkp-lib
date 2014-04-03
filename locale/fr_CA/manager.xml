@@ -433,8 +433,6 @@ Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, p
 	<!-- Review forms -->
 	<message key="manager.reviewForms">Formulaires d'évaluation</message>
 	<message key="manager.reviewForms.completed">Complété</message>
-	<message key="manager.reviewForms.confirmDeletePublished">Confirmer la suppression d'un formulaire d'évaluation publié...</message>
-	<message key="manager.reviewForms.confirmDeleteUnpublished">Confirmer la suppression d'un formulaire d'évaluation non publié…</message>
 	<message key="manager.reviewForms.create">Créer un formulaire d'évaluation</message>
 	<message key="manager.reviewForms.description">Description et instructions</message>
 	<message key="manager.reviewForms.edit">Formulaire d'évaluation</message>

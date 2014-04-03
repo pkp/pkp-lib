@@ -226,8 +226,6 @@
 	<!-- Review forms -->
 	<message key="manager.reviewForms">Φόρμες αξιολόγησης</message>
 	<message key="manager.reviewForms.completed">Ολοκληρωμένη</message>
-	<message key="manager.reviewForms.confirmDeletePublished">Είστε σίγουροι ότι επιθυμείτε να διαγράψετε αυτή τη δημοσιευμένη φόρμα αξιολόγησης?</message>
-	<message key="manager.reviewForms.confirmDeleteUnpublished">Είστε σίγουροι ότι επιθυμείτε να διαγράψετε αυτή την αδημοσίευτη φόρμα αξιολόγησης?</message>
 	<message key="manager.reviewForms.create">Δημιουργία Φόρμας Αξιολόγησης</message>
 	<message key="manager.reviewForms.description">Περιγραφή και Οδηγίες</message>
 	<message key="manager.reviewForms.edit">Φόρμα Αξιολόγησης</message>

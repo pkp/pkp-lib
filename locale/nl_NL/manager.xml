@@ -268,7 +268,6 @@
 	<message key="manager.reviewFormElements.textfield">Tekstveld voor één regel</message>
 	<message key="manager.reviewForms">Reviewformulieren</message>
 	<message key="manager.reviewForms.completed">Afgerond</message>
-	<message key="manager.reviewForms.confirmDeleteUnpublished">Bevestig het verwijderen van een niet-gepubliceerd reviewformulier...</message>
 	<message key="manager.reviewForms.create">Maak reviewformulier aan</message>
 	<message key="manager.reviewForms.description">Beschrijving en instructies</message>
 	<message key="manager.reviewForms.edit">Reviewformulier</message>

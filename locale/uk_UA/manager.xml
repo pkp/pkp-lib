@@ -271,7 +271,6 @@
        <message key="manager.reviewFormElements.textfield">Текстове поле з одним рядком</message>
        <message key="manager.reviewForms">Форми рецензування</message>
        <message key="manager.reviewForms.completed">Завершено</message>
-       <message key="manager.reviewForms.confirmDeleteUnpublished">Ви впевнені, що хочете видалити цю неопубліковану форму рецензування?</message>
        <message key="manager.reviewForms.create">Створити форму рецензування</message>
        <message key="manager.reviewForms.description">Опис та інструкції</message>
        <message key="manager.reviewForms.edit">Форма рецензування</message>

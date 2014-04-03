@@ -273,7 +273,6 @@
 	<message key="manager.reviewFormElements.textfield">Tek satırlık metin kutusu</message>
 	<message key="manager.reviewForms">Değerlendirme Formları</message>
 	<message key="manager.reviewForms.completed">Tamamlandı</message>
-	<message key="manager.reviewForms.confirmDeleteUnpublished">Yayımlanmamış bu inceleme formunu silmek istediğinizden emin misiniz?</message>
 	<message key="manager.reviewForms.create">Değerlendirme Formu Oluştur</message>
 	<message key="manager.reviewForms.description">Açıklamalar ve Talimatlar</message>
 	<message key="manager.reviewForms.edit">Değerlendirme Formu</message>

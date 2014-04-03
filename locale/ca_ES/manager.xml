@@ -196,8 +196,6 @@
 	<message key="manager.reviewFormElements.viewable">Visualitzable (per a autors/es)</message>
 	<message key="manager.reviewForms">Formularis per a la revisió de persones expertes</message>
 	<message key="manager.reviewForms.completed">Completat</message>
-	<message key="manager.reviewForms.confirmDeletePublished">Confirma la supressió d’un formulari de revisió publicat...</message>
-	<message key="manager.reviewForms.confirmDeleteUnpublished">Confirma la supressió d’un formulari de revisió no publicat...</message>
 	<message key="manager.reviewForms.create">Crea un formulari de revisió</message>
 	<message key="manager.reviewForms.description">Descripció i instruccions</message>
 	<message key="manager.reviewForms.edit">Formulari de revisió</message>

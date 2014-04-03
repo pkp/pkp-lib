@@ -240,7 +240,6 @@
 	<message key="manager.reviewFormElements.textfield">Tekstboks for enkeltlinje</message>
 	<message key="manager.reviewForms">Vurderingsskjemaer</message>
 	<message key="manager.reviewForms.completed">Ferdigstilt</message>
-	<message key="manager.reviewForms.confirmDeleteUnpublished">Er du sikker på at du vil slette dette upubliserte vurderingsskjemaet?</message>
 	<message key="manager.reviewForms.create">Opprett vurderingsskjema</message>
 	<message key="manager.reviewForms.description">Beskrivelse og instruks</message>
 	<message key="manager.reviewForms.edit">Vurderingsskjema</message>

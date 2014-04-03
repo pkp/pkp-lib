@@ -209,7 +209,6 @@
 	<message key="manager.reviewFormElements.textfield">Поле для ввода строки</message>
 	<message key="manager.reviewForms">Формы для рецензентов</message>
 	<message key="manager.reviewForms.completed">Заполнено</message>
-	<message key="manager.reviewForms.confirmDeleteUnpublished">Уверены, что хотите удалить эту неопубликованную форму рецензента ?</message>
 	<message key="manager.reviewForms.create">Создать форму рецензента</message>
 	<message key="manager.reviewForms.description">Описание и инструкции</message>
 	<message key="manager.reviewForms.edit">Форма рецензента</message>

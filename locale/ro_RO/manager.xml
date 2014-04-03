@@ -245,7 +245,6 @@
 	<message key="manager.reviewFormElements.textfield">Căsuţă de text cu o singură linie de text</message>
 	<message key="manager.reviewForms">Formulare pentru evaluare</message>
 	<message key="manager.reviewForms.completed">Încheiat</message>
-	<message key="manager.reviewForms.confirmDeleteUnpublished">Confirmi ştergerea unui formular de evaluare nepublicat?</message>
 	<message key="manager.reviewForms.create">Creează Formular pentru evaluare</message>
 	<message key="manager.reviewForms.description">Descriere şi instrucţiuni</message>
 	<message key="manager.reviewForms.edit">Formular pentru Evaluare</message>

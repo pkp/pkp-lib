@@ -213,7 +213,6 @@
 	<message key="manager.reviewFormElements.textfield">സിഗിള്‍ ലൈന്‍ ടെക്സ്റ്റ് ബോക്സ്</message>
 	<message key="manager.reviewForms">അവലോകന ഫോറംസ്</message>
 	<message key="manager.reviewForms.completed">പൂര്‍ണ്ണമായ</message>
-	<message key="manager.reviewForms.confirmDeleteUnpublished">പ്രസിദ്ധീകരിച്ചിട്ടില്ലാത്ത ഈ അവലോകന ഫോറം നീക്കം ചെയ്യണമെന്ന് താങ്കള്‍ക്ക് ഉറപ്പാണോ?</message>
 	<message key="manager.reviewForms.create">അവലോകന ഫോറം സൃഷ്ടിക്കുക</message>
 	<message key="manager.reviewForms.description">വിവരണങ്ങളും പിന്നെ നിര്‍ദ്ദേശങ്ങളും</message>
 	<message key="manager.reviewForms.edit">അവലോകന ഫോറം</message>

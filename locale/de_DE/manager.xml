@@ -278,7 +278,6 @@
 	<!-- Review forms -->
 	<message key="manager.reviewForms">Begutachtungsformulare</message>
 	<message key="manager.reviewForms.completed">Beendet</message>
-	<message key="manager.reviewForms.confirmDeleteUnpublished">Bestätigen Sie das Löschen eines nicht veröffentlichten Begutachtungsformulars...</message>
 	<message key="manager.reviewForms.create">Begutachtungsformular erstellen</message>
 	<message key="manager.reviewForms.description">Beschreibung und Anweisungen</message>
 	<message key="manager.reviewForms.edit">Review Begutachtungsformular</message>

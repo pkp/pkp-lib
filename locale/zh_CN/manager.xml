@@ -268,7 +268,6 @@
 	<message key="manager.reviewFormElements.textfield">单行文本框</message>
 	<message key="manager.reviewForms">审稿表单管理</message>
 	<message key="manager.reviewForms.completed">完成</message>
-	<message key="manager.reviewForms.confirmDeleteUnpublished">你确定要删除这个未使用的审稿表单吗？</message>
 	<message key="manager.reviewForms.create">创建审阅表单</message>
 	<message key="manager.reviewForms.description">描述</message>
 	<message key="manager.reviewForms.edit">审稿表单</message>

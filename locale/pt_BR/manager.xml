@@ -430,8 +430,6 @@ Há casos em que uma única estatística de uso devem ser utilizada, por exemplo
 	<!-- Review forms -->
 	<message key="manager.reviewForms">Formulários de avaliação</message>
 	<message key="manager.reviewForms.completed">Concluído</message>
-	<message key="manager.reviewForms.confirmDeletePublished">Confirmar a exclusão de formulário de avaliação publicado...</message>
-	<message key="manager.reviewForms.confirmDeleteUnpublished">Confirmar a exclusão de formulário de avaliação não publicado...</message>
 	<message key="manager.reviewForms.create">Criar formulário de avaliação</message>
 	<message key="manager.reviewForms.description">Detalhes e instruções</message>
 	<message key="manager.reviewForms.edit">Forumlário de avaliação</message>

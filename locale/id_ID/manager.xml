@@ -244,7 +244,6 @@
 	<message key="manager.reviewFormElements.textfield"> Kotak teks satu garis </message> 
 	<message key="manager.reviewForms"> Form Review</message> 
 	<message key="manager.reviewForms.completed"> Selesai </message> 
-	<message key="manager.reviewForms.confirmDeleteUnpublished"> Apakah Anda yakin ingin menghapus form review yang belum diterbitkan ini?</message>  
 	<message key="manager.reviewForms.create"> Buat Form Review </message> 
 	<message key="manager.reviewForms.description"> Deskripsi dan Instruksi </message> 
 	<message key="manager.reviewForms.edit"> Form Review </message> 

@@ -266,7 +266,6 @@
 	<message key="manager.reviewFormElements.textfield">Lerro bakarreko testu-koadroa</message>
 	<message key="manager.reviewForms">Ebaluazio-inprimakiak</message>
 	<message key="manager.reviewForms.completed">Bukatuta</message>
-	<message key="manager.reviewForms.confirmDeleteUnpublished">Ziur zaude argitaratu gabeko ebaluazio-inprimaki hau ezabatu nahi duzula?</message>
 	<message key="manager.reviewForms.create">Sortu Ebaluazio-inprimakia</message>
 	<message key="manager.reviewForms.description">Azalpena eta Instrukzioak</message>
 	<message key="manager.reviewForms.edit">Ebaluazio-inprimakia</message>

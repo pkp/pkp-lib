@@ -296,7 +296,9 @@ class ReviewFormDAO extends DAO {
 	 */
 	function getActiveByAssocId($assocType, $assocId, $rangeInfo = null) {
 		$result = $this->retrieveRange(
-			'SELECT	rf.*
+			'SELECT	rf.*,
+				COUNT(rac.review_id) AS complete_count,
+				COUNT(rai.review_id) AS incomplete_count
 			FROM	review_forms rf
 				LEFT JOIN review_assignments rac ON (
 					rac.review_form_id = rf.review_form_id AND
@@ -307,7 +309,7 @@ class ReviewFormDAO extends DAO {
 					rai.date_notified IS NOT NULL AND
 					rai.date_confirmed IS NULL
 				)
-			WHERE	rf.assoc_type = ? AND assoc_id = ? AND rf.is_active = 1
+			WHERE	rf.assoc_type = ? AND rf.assoc_id = ? AND rf.is_active = 1
 			GROUP BY rf.assoc_type, rf.assoc_id, rf.review_form_id, rf.seq, rf.is_active
 			ORDER BY rf.seq',
 			array((int) $assocType, (int) $assocId), $rangeInfo

@@ -88,6 +88,20 @@ class PaymentMethodForm extends ContextSettingsForm {
 
 		return parent::execute($request);
 	}
+
+	/**
+	 * Adds plugin-specific validation checks to the form. Called by SettingsTabHandler before validate().
+	 * @see ContextSettingsForm::addValidationChecks()
+	 */
+	function addValidationChecks() {
+		$paymentPluginName = $this->getData('paymentPluginName');
+		if (isset($this->paymentPlugins[$paymentPluginName])) {
+			$plugin = $this->paymentPlugins[$paymentPluginName];
+			foreach ($plugin->getSettingsFormFieldNames() as $settingName) {
+				$this->addCheck(new FormValidator($this, $settingName, 'required', 'common.required'));
+			}
+		}
+	}
 }
 
 ?>

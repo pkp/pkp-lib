@@ -122,6 +122,7 @@ class SettingsTabHandler extends Handler {
 
 			// Try to save the form data.
 			$tabForm->readInputData($request);
+			$tabForm->addValidationChecks();
 			if($tabForm->validate()) {
 				$result = $tabForm->execute($request);
 				if ($result !== false) {
@@ -130,7 +131,7 @@ class SettingsTabHandler extends Handler {
 					$notificationManager->createTrivialNotification($user->getId());
 				}
 			} else {
-				$json->setStatus(false);
+				$json = new JSONMessage(true);
 			}
 		}
 

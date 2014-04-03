@@ -259,8 +259,10 @@ class PKPHandler {
 		}
 
 		// Enforce SSL site-wide.
-		import('lib.pkp.classes.security.authorization.HttpsPolicy');
-		$this->addPolicy(new HttpsPolicy($request), true);
+		if ($this->requireSSL()) {
+			import('lib.pkp.classes.security.authorization.HttpsPolicy');
+			$this->addPolicy(new HttpsPolicy($request), true);
+		}
 
 		if (!defined('SESSION_DISABLE_INIT')) {
 			// Add user roles in authorized context.
@@ -501,6 +503,14 @@ class PKPHandler {
 			}
 		}
 		return $context;
+	}
+
+	/**
+	 * Assume SSL is required for all handlers, unless overridden in subclasses.
+	 * @return boolean
+	 */
+	function requireSSL() {
+		return true;
 	}
 }
 

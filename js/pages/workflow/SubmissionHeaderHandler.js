@@ -47,11 +47,11 @@
 	//
 	/**
 	 * The selector for participants grid toggle link.
-	 * @protected
+	 * @private
 	 * @type {?string}
 	 */
 	$.pkp.pages.workflow.SubmissionHeaderHandler.prototype.
-		participantToggleSelector_ = null;
+			participantToggleSelector_ = null;
 
 
 	//

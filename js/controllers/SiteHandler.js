@@ -146,9 +146,9 @@
 		// Add a fake HTML5 placeholder when the editor is intitialized
 		tinyMCEObject.onInit.add(function(tinyMCEObject) {
 			var $element = $('#' + tinyMCEObject.id),
-				placeholderText,
-				$placeholder,
-				$placeholderParent;
+					placeholderText,
+					$placeholder,
+					$placeholderParent;
 
 			// Don't add anything if we don't have a placeholder
 			placeholderText = $('#' + tinyMCEObject.id).attr('placeholder');
@@ -157,7 +157,8 @@
 			}
 
 			// Create placeholder element
-			$placeholder = $('<span></span>').html(placeholderText);
+			$placeholder = /** @type {jQueryObject} */ ($('<span></span>')
+					.html(/** @type {string} */ (placeholderText)));
 			$placeholder.addClass('mcePlaceholder');
 			$placeholder.attr('id', 'mcePlaceholder-' + tinyMCEObject.id);
 			if (tinyMCEObject.getContent().length) {

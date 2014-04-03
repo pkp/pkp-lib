@@ -74,6 +74,7 @@
 	$.pkp.controllers.grid.settings.roles.form.
 			UserGroupFormHandler.prototype.selfRegistrationRoleIds_ = null;
 
+
 	/**
 	 * A list of role forbidden stages.
 	 * @private
@@ -81,6 +82,7 @@
 	 */
 	$.pkp.controllers.grid.settings.roles.form.
 			UserGroupFormHandler.prototype.roleForbiddenStages_ = null;
+
 
 	/**
 	 * The stage options selector.
@@ -101,7 +103,7 @@
 	$.pkp.controllers.grid.settings.roles.form.UserGroupFormHandler.prototype.
 			changeRoleId = function(dropdown) {
 
-		dropDownValue = $(dropdown).val(); /** @type {string} */
+		var dropDownValue = $(dropdown).val(); /** @type {string} */
 
 		this.updatePermitSelfRegistration((dropDownValue));
 
@@ -139,6 +141,7 @@
 		}
 	};
 
+
 	/**
 	 * Update the stage options.
 	 * @param {number|string} roleId The role ID to select.
@@ -148,7 +151,7 @@
 
 		// JQuerify the element
 		var $stageOptions = $(this.stagesSelector_, this.getHtmlElement()).
-			filter('input'),
+				filter('input'),
 				i,
 				stageId = null;
 
@@ -158,7 +161,7 @@
 			for (i = 0; i < this.roleForbiddenStages_[roleId].length; i++) {
 				stageId = this.roleForbiddenStages_[roleId][i];
 				$stageOptions.filter('input[value="' + stageId + '"]').
-					attr('disabled', 'disabled');
+						attr('disabled', 'disabled');
 			}
 		}
 	};

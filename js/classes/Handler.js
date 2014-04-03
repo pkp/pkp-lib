@@ -569,16 +569,19 @@
 					elementId = $element.attr('id'),
 					handleScrollBar;
 
-			// Make sure the localization icon is re-positioned when the scroll bar is added
+			// Make sure the localization icon is re-positioned when the scroll bar
+			// is added
 			handleScrollBar = function() {
 				var editor = tinyMCE.activeEditor,
-					root = editor.dom.getRoot();
+						root = editor.dom.getRoot();
 				if (root.scrollHeight > root.clientHeight) {
-					$('#mceLocalizationIcon-' + editor.id).addClass('mceLocalizationIconScroll');
+					$('#mceLocalizationIcon-' + editor.id)
+							.addClass('mceLocalizationIconScroll');
 				} else {
-					$('#mceLocalizationIcon-' + editor.id).removeClass('mceLocalizationIconScroll');
+					$('#mceLocalizationIcon-' + editor.id)
+							.removeClass('mceLocalizationIconScroll');
 				}
-			}
+			};
 
 			setTimeout(function() {
 				// Re-select the original element, to prevent closure memory leaks
@@ -617,11 +620,10 @@
 						// Reposition the localization icons when a scroll bar is added
 						handleScrollBar();
 						tinyMCE.dom.Event.add(
-							tinyMCE.activeEditor.dom.get('tinymce'),
-							'keyup',
-							function() { handleScrollBar(); }
+								tinyMCE.activeEditor.dom.get('tinymce'),
+								'keyup',
+								function() { handleScrollBar(); }
 						);
-
 					}
 				});
 			}, 500);

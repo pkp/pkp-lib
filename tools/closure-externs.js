@@ -159,6 +159,24 @@ tinyMCEObject.prototype.triggerSave = function() {};
  */
 tinyMCEObject.prototype.execCommand = function(c, u, v) {};
 
+tinyMCEObject.prototype.activeEditor = { dom: {}, id: '' };
+
+tinyMCEObject.prototype.onActivate = {};
+
+tinyMCEObject.prototype.onDeactivate = {};
+
+tinyMCEObject.prototype.onActive = {};
+
+tinyMCEObject.prototype.onInit = {};
+
+tinyMCEObject.prototype.editor = { dom: {}, id: '' };
+
+tinyMCEObject.prototype.editor.getContent = function() {};
+
+tinyMCEObject.prototype.editor.getRoot = function() {};
+
+tinyMCEObject.prototype.dom = {};
+
 /**
  * @type {string} c
  */

@@ -254,8 +254,10 @@ class PKPHandler {
 		$this->addPolicy(new RestrictedSiteAccessPolicy($request), true);
 
 		// Enforce SSL site-wide.
-		import('lib.pkp.classes.security.authorization.HttpsPolicy');
-		$this->addPolicy(new HttpsPolicy($request), true);
+		if ($this->requireSSL()) {
+			import('lib.pkp.classes.security.authorization.HttpsPolicy');
+			$this->addPolicy(new HttpsPolicy($request), true);
+		}
 
 		if (!defined('SESSION_DISABLE_INIT')) {
 			// Add user roles in authorized context.
@@ -457,6 +459,14 @@ class PKPHandler {
 	function getLoginExemptions() {
 		import('lib.pkp.classes.security.authorization.RestrictedSiteAccessPolicy');
 		return RestrictedSiteAccessPolicy::_getLoginExemptions();
+	}
+
+	/**
+	 * Assume SSL is required for all handlers, unless overridden in subclasses.
+	 * @return boolean
+	 */
+	function requireSSL() {
+		return true;
 	}
 }
 

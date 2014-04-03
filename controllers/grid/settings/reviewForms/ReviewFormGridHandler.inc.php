@@ -242,11 +242,15 @@ class ReviewFormGridHandler extends GridHandler {
 	function editReviewForm($args, $request) {
 		// Identify the review form ID
 		$reviewFormId = (int) $request->getUserVar('rowId');
+		$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
+		$context = $request->getContext();
+		$reviewForm = $reviewFormDao->getById($reviewFormId, Application::getContextAssocType(), $context->getId());
 
 		// Display 'editReviewForm' tabs
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('preview', $request->getUserVar('preview'));
 		$templateMgr->assign('reviewFormId', $reviewFormId);
+		$templateMgr->assign('canEdit', $reviewForm->getIncompleteCount() == 0 && $reviewForm->getCompleteCount() == 0);
 		$json = new JSONMessage(true, $templateMgr->fetch('controllers/grid/settings/reviewForms/editReviewForm.tpl'));
 		return $json->getString();
 	}

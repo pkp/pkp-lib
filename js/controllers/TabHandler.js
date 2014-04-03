@@ -65,7 +65,8 @@
 				cache: false,
 				dataFilter: this.callbackWrapper(this.dataFilter)
 			},
-			selected: options.selected
+			selected: options.selected,
+			disabled: options.disabled
 		});
 
 		if ($tabs.find('.stTabsInnerWrapper').length == 0 && !options.notScrollable) {

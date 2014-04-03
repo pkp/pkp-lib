@@ -44,9 +44,7 @@ class ReviewFormGridRow extends GridRow {
 			$router = $request->getRouter();
 
 			// determine whether or not this Review Form is editable.
-			$incompleteCount = $element->getIncompleteCount();
-			$completeCount = $element->getCompleteCount();
-			$canEdit = ($incompleteCount == 0 && $completeCount == 0);
+			$canEdit = ($element->getIncompleteCount() == 0 && $element->getCompleteCount() == 0);
 
 			// if review form is editable, add 'edit' grid row action
 			if($canEdit) {

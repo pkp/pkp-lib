@@ -39,19 +39,19 @@ class PKPSection extends DataObject {
 	}
 
 	/**
-	 * Get path to section (in URL).
-	 * @return string
+	 * Get sequence of section.
+	 * @return float
 	 */
-	function getPath() {
-		return $this->getData('path');
+	function getSequence() {
+		return $this->getData('sequence');
 	}
 
 	/**
-	 * Set path to section (in URL).
-	 * @param $path string
+	 * Set sequence of section.
+	 * @param $sequence float
 	 */
-	function setPath($path) {
-		return $this->setData('path', $path);
+	function setSequence($sequence) {
+		return $this->setData('sequence', $sequence);
 	}
 
 	/**

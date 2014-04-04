@@ -32,9 +32,12 @@
 	</div>
 
 	<h3>{translate key="editor.review.createReviewer"}</h3>
-	{fbvFormSection title="user.group"}
-		{fbvElement type="select" name="userGroupId" id="userGroupId" from=$userGroups translate=false label="editor.review.userGroupSelect" required="true"}
-	{/fbvFormSection}
+
+	{if count($userGroups)>1}
+		{fbvFormSection title="user.group"}
+			{fbvElement type="select" name="userGroupId" id="userGroupId" from=$userGroups translate=false label="editor.review.userGroupSelect" required="true"}
+		{/fbvFormSection}
+	{/if}
 
 	{fbvFormSection title="common.name"}
 		{fbvElement type="text" label="user.firstName" id="firstname" value=$firstname required="true" inline=true size=$fbvStyles.size.SMALL}

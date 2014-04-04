@@ -63,6 +63,12 @@
 		{/foreach}
 	{/fbvFormSection}
 
+	{if count($reviewForms)>1}{* There will always be a "none" entry *}
+		{fbvFormSection title="submission.reviewForm"}
+			{fbvElement type="select" name="reviewFormId" id="reviewFormId" defaultLabel="" defaultValue="" translate=false from=$reviewForms selected=$reviewFormId}
+		{/fbvFormSection}
+	{/if}
+
 	<!-- All of the hidden inputs -->
 	<input type="hidden" name="selectionType" value="{$selectionType|escape}" />
 	<input type="hidden" name="submissionId" value="{$submissionId|escape}" />

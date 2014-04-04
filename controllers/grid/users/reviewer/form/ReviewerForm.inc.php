@@ -153,9 +153,16 @@ class ReviewerForm extends Form {
 		// Get the review method (open, blind, or double-blind)
 		if (isset($reviewAssignment) && $reviewAssignment->getReviewMethod() != false) {
 			$reviewMethod = $reviewAssignment->getReviewMethod();
+			$reviewFormId = $reviewAssignment->getReviewFormId();
 		} else {
-			// Set default value.
+			// Set default review method.
 			$reviewMethod = SUBMISSION_REVIEW_METHOD_BLIND;
+
+			// If there is a section/series and it has a default
+			// review form designated, use it.
+			$sectionDao = Application::getSectionDAO();
+			$section = $sectionDao->getById($submission->getSectionId(), $context->getId());
+			if ($section) $reviewFormId = $section->getReviewFormId();
 		}
 
 		// Get the response/review due dates or else set defaults
@@ -179,6 +186,7 @@ class ReviewerForm extends Form {
 		$this->setData('submissionId', $this->getSubmissionId());
 		$this->setData('stageId', $stageId);
 		$this->setData('reviewMethod', $reviewMethod);
+		$this->setData('reviewFormId', $reviewFormId);
 		$this->setData('reviewRoundId', $reviewRound->getId());
 		$this->setData('reviewerId', $reviewerId);
 
@@ -208,6 +216,8 @@ class ReviewerForm extends Form {
 	 * @see Form::fetch()
 	 */
 	function fetch($request) {
+		$context = $request->getContext();
+
 		// Get the review method options.
 		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
 		$reviewMethods = $reviewAssignmentDao->getReviewMethodsTranslationKeys();
@@ -216,6 +226,13 @@ class ReviewerForm extends Form {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('reviewMethods', $reviewMethods);
 		$templateMgr->assign('reviewerActions', $this->getReviewerFormActions());
+		$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
+		$reviewForms = array(0 => 'editor.article.selectReviewForm');
+		$reviewFormsIterator = $reviewFormDao->getActiveByAssocId(Application::getContextAssocType(), $context->getId());
+		while ($reviewForm = $reviewFormsIterator->next()) {
+			$reviewForms[$reviewForm->getId()] = $reviewForm->getLocalizedTitle();
+		}
+		$templateMgr->assign('reviewForms', $reviewForms);
 
 		// Allow the default template
 		$templateKeys[] = $this->_getMailTemplateKey($request->getContext());

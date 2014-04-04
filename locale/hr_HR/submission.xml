@@ -158,4 +158,6 @@
 	<message key="submission.viewMetadata">Pregled metapodataka</message>
 	<message key="submission.views">Pristupa datoteci</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} je dodijeljen(a) kao recenzent priloga {$submissionId} u {$round}. krugu recenzije.</message>
+	<message key="submission.reviewForm">Recenzijski obrazac</message>
+	<message key="submission.reviewFormResponse">Odgovor na recenziju</message>
 </locale>

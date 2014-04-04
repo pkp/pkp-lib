@@ -361,4 +361,6 @@
 	<message key="submission.date.mmdd">MM-DD</message>
 	<message key="submission.date.yyyymmdd">YYYY-MM-DD</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} designada(o) para a ronda {$round} de revisão da submissão {$submissionId} .</message>
+	<message key="submission.reviewForm">Formulário de revisão</message>
+	<message key="submission.reviewFormResponse">Resposta do formulário de revisão</message>
 </locale>

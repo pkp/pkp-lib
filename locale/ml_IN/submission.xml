@@ -385,4 +385,8 @@
 	<message key="submission.nameRequired">ഈ ഇനത്തിനു ഒരു നാമം ആവശ്യമാണ്.</message>
 	<message key="submission.date.mmdd">മാസം-തീയതി</message>
 	<message key="submission.date.yyyymmdd">വര്‍ഷം-മാസം-തീയതി</message>
+
+	<!--  peer review -->
+	<message key="submission.reviewForm">അവലോകനാരൂപം</message>
+	<message key="submission.reviewFormResponse">അവലോകനാരൂപത്തിന്റെ പ്രതികരണം</message>
 </locale>

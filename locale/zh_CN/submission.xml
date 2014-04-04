@@ -375,4 +375,8 @@
 	<message key="submission.citations.metadata.changeWarning">您确定要更新您的参考文献列表吗？如果点击OK键，任何编辑所做的更改都将被覆盖。如果您不确定是否应该更改参考文献列表，请联系管理您文件提交的编辑。</message>
 	<message key="submission.addFile">上传文件</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName}已经被指派审稿稿件{$submissionId} ，进行{$round}审.</message>
+
+	<!--  peer review -->
+	<message key="submission.reviewForm">审稿单</message>
+	<message key="submission.reviewFormResponse">审稿单答复</message>
 </locale>

@@ -163,4 +163,5 @@
 	<message key="submission.viewMetadata">Visa metadata</message>
 	<message key="submission.views">Visningar</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} har tilldelats ett manuskript att granska {$submissionId} för granskningsomgång {$round}.</message>
+	<message key="submission.reviewForm">Granskningsformulär</message> 
 </locale>

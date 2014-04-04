@@ -386,4 +386,6 @@
 	<message key="submission.createRemote">Remote aanmaken</message>
 	<message key="submission.addFile">Bestand laden</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} is toegekend voor het reviewen van inzending {$submissionId} voor reviewronde {$round}.</message>
+	<message key="submission.reviewForm">Reviewformulier</message>
+	<message key="submission.reviewFormResponse">Reactie reviewformulier</message>
 </locale>

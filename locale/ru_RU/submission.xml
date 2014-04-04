@@ -196,4 +196,5 @@
 	<message key="submission.date.mmdd">ММ-ДД</message>
 	<message key="submission.date.yyyymmdd">ГГГГ-ММ-ДД</message>
 	<message key="submission.form.replaceExisting">Заменить существующий файл?</message>
+	<message key="submission.reviewForm">Форма Рецензента</message>
 </locale>

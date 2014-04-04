@@ -394,4 +394,7 @@
 	<message key="submission.citations.filter.webserviceResultTransformationError">An error occurred in {$filterName}: The transformation of XML results (e.g. from a web service) into field-based meta-data failed. The reason probably is that the web service returned invalid or incomplete data. Please file this as a bug.</message>
 	<message key="submission.citations.metadata.changeWarning">Are you sure you want to update your references list? If you click OK, any changes made by the Editors will be overwritten. If you are not sure whether you should make changes to the references list, please contact the Editor in charge of your submission.</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} {$submissionId} numaralı gönderiyi değerlendirmeyi {$round}. kez kabul etti.</message>
+	<!--  peer review -->
+	<message key="submission.reviewForm">Değerlendirme Formu</message>
+	<message key="submission.reviewFormResponse">Değerlendirme Formu Yanıtı</message>
 </locale>

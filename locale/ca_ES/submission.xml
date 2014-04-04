@@ -165,4 +165,8 @@
 	<message key="submission.viewMetadata">Visualitza les metadades</message>
 	<message key="submission.views">Visualitzacions</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} ha estat assignat a la tramesa de revisió {$submissionId} per a la ronda de revisió {$round}.</message>
+
+	<!--  peer review -->
+	<message key="submission.reviewForm">Formulari de revisió</message>
+	<message key="submission.reviewFormResponse">Resposta al formulari de revisió</message>
 </locale>

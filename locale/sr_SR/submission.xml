@@ -394,4 +394,6 @@
 	<message key="submission.form.name">Dajte fajlu ime od pomoći</message>
 	<message key="submission.form.replaceExisting">Zameniti postojeći fajl?</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} je dodeljen(a) kao recenzent priloga {$submissionId} u {$round}. krugu recenzije.</message>
+	<message key="submission.reviewForm">Recenzijski obrazac</message>
+	<message key="submission.reviewFormResponse">Odgovor na recenziju</message>
 </locale>

@@ -348,5 +348,7 @@
 		<p>左側のリストにある引用を編集するには，それをクリックしてこのウィンドウを開いてください。著者によって記述されたオリジナルの引用情報と自動抽出支援機能が表示されます。オリジナルの引用情報についてマニュアルで修正，新しい引用の一部あるいはすべてを編集，設定済の引用データベースでの再チェック，Google Scholarの検索，引用情報の詳細について著者への問合せ，がおこなえます。</p>
 		<p>
 満足のいく結果が得られて引用の編集を終了する場合は，<strong>保存して承認</strong> ボタンをクリックすると，リストにある次の未承認の引用に自動的に遷移します。このように大量の引用情報を迅速に処理することができます。すべての引用情報が承認されると，<strong>引用をエクスポート</strong> ページに移動します。</p>]]></message>
-  <message key="log.review.reviewerAssigned">{$reviewerName}が投稿物 {$submissionId} の{$round}回目の査読の査読者に任命された。</message>
+	<message key="log.review.reviewerAssigned">{$reviewerName}が投稿物 {$submissionId} の{$round}回目の査読の査読者に任命された。</message>
+	<message key="submission.reviewForm">査読フォーム</message>
+	<message key="submission.reviewFormResponse">査読フォームレスポンス</message>
 </locale>

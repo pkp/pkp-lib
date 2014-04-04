@@ -398,4 +398,8 @@
 	<message key="submission.reviewed">Рецензовані</message>
 	<message key="submission.createRemote">Створити віддалене</message>
        <message key="log.review.reviewerAssigned">{$reviewerName} був призначений для проведення {$round} раунду рецензування подання {$submissionId}.</message>
+
+       <!--  peer review -->
+       <message key="submission.reviewForm">Форма рецензування</message>
+       <message key="submission.reviewFormResponse">Заповнена форма рецензування</message>
 </locale>

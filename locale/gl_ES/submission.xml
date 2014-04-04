@@ -354,4 +354,6 @@ El marcado de citas está configurado por el Gestor de la Revista en <a href="{$
 	<message key="submission.citations.filter.webserviceResultTransformationError">Se produjo un error en ($filterName): La transformación de los resultados XML (por ejemplo, de un servicio web) en meta-datos. La razón es probablemente que el servicio web devuelve datos no válidos o incompletos. Por favor presente esto como un error.</message>
 	<message key="submission.citations.metadata.changeWarning">¿Está seguro de que desea actualizar su lista de referencias? Si hace clic en Aceptar, los cambios hechos por los editores serán sobrescritos. Si no está seguro de si debe hacer cambios a la lista de referencias, por favor póngase en contacto con el Editor a cargo de su presentación.</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} foi asignado/a para revisar o envío {$submissionId} na rolda de revisión {$round}.</message>
+	<message key="submission.reviewForm">Formulario de revisión</message>
+	<message key="submission.reviewFormResponse">Resposta ao Formulario de Revisión</message>
 </locale>

@@ -98,4 +98,7 @@
 	<message key="editor.submission.createNewRound">Crear nueva ronda de revisión</message>
 	<message key="editor.submission.review.manageReviewFilesDescription">Cualquier archivo que ya haya sido subido a cualquier etapa de envío (incluso Editorial o Producción) se puede seleccionar para su revisión seleccionado la casilla Include de abajo y haciendo clic en Buscar. Todos los archivos disponibles se listarán y podrán ser seleccionados para su inclusión. Los archivos complementarios que todavía no hayan sido subidos a ninguna etapa pueden ser añadidos a este listado haciendo clic en Subir enlace de revisión de archivo.</message>
 	<message key="editor.submission.selectPromoteRevisions">Seleccionar las revisiones que se usarán en la siguiente etapa</message>
+	<message key="editor.article.reviewForms">Formularios de Revisión</message>
+	<message key="editor.article.selectReviewForm">Escoger Formulario de Revisión</message>
+	<message key="editor.article.clearReviewForm">Limpiar Formulario de Revisión</message>
 </locale>

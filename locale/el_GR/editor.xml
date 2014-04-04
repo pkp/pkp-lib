@@ -98,4 +98,8 @@
 	<message key="editor.submission.createNewRound">Create New Review Round</message>
 	<message key="editor.submission.review.manageReviewFilesDescription">Any files that have already been uploaded to any submission stage (even Editorial or Production) can be chosen for review by checking the Include checkbox below and clicking Search: all available files will be listed and can be chosen for inclusion. Additional files not already uploaded to a stage can be added to this listing by clicking the Upload Review File link.</message>
 	<message key="editor.submission.selectPromoteRevisions">Select revisions to use in the next stage</message>
+	<message key="editor.article.reviewForms">Φόρμες Αξιολόγησης</message>
+	<message key="editor.article.selectReviewForm">Επιλέξτε Φόρμα Αξιολόγησης</message>
+	<message key="editor.article.clearReviewForm">Καθαρισμός Φόρμας Αξιολόγησης</message>
+	<message key="editor.article.confirmChangeReviewForm">Προσοχή: Η αλλαγή της φόρμας αξιολόγησης θα επηρεάσει όλες τις απαντήσεις των αξιολογητών που έχουν γίνει με την χρήση αυτής της φόρμας. Είστε σίγουροι ότι επιθυμείτε να συνεχίσετε?</message>
 </locale>

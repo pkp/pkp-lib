@@ -62,10 +62,9 @@
 		{fbvElement type="text" multilingual="true" name="affiliation" id="affiliation" value=$affiliation label="user.affiliation" inline=true size=$fbvStyles.size.LARGE}
 	{/fbvFormSection}
 
-
-
 	{include file="controllers/grid/users/reviewer/form/reviewerFormFooter.tpl"}
 
 	{fbvFormButtons submitText="editor.submission.addReviewer"}
+
+	<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 </form>
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>

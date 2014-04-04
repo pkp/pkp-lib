@@ -163,6 +163,7 @@ class ReviewerForm extends Form {
 			$sectionDao = Application::getSectionDAO();
 			$section = $sectionDao->getById($submission->getSectionId(), $context->getId());
 			if ($section) $reviewFormId = $section->getReviewFormId();
+			else $reviewFormId = null;
 		}
 
 		// Get the response/review due dates or else set defaults
@@ -227,7 +228,7 @@ class ReviewerForm extends Form {
 		$templateMgr->assign('reviewMethods', $reviewMethods);
 		$templateMgr->assign('reviewerActions', $this->getReviewerFormActions());
 		$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
-		$reviewForms = array(0 => 'editor.article.selectReviewForm');
+		$reviewForms = array(0 => __('editor.article.selectReviewForm'));
 		$reviewFormsIterator = $reviewFormDao->getActiveByAssocId(Application::getContextAssocType(), $context->getId());
 		while ($reviewForm = $reviewFormsIterator->next()) {
 			$reviewForms[$reviewForm->getId()] = $reviewForm->getLocalizedTitle();

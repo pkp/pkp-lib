@@ -65,7 +65,7 @@
 
 	{if count($reviewForms)>1}{* There will always be a "none" entry *}
 		{fbvFormSection title="submission.reviewForm"}
-			{fbvElement type="select" name="reviewFormId" id="reviewFormId" defaultLabel="" defaultValue="" translate=false from=$reviewForms selected=$reviewFormId}
+			{fbvElement type="select" name="reviewFormId" id="reviewFormId" translate=false from=$reviewForms selected=$reviewFormId}
 		{/fbvFormSection}
 	{/if}
 

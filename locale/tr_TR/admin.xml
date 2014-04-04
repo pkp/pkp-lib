@@ -33,7 +33,7 @@
 	<message key="admin.languages.installedLocales">Kurulmuş Diller</message>
 	<message key="admin.languages.installLanguages">Dilleri Yönet</message>
 	<message key="admin.languages.installLocales">Kur</message>
-	<message key="admin.languages.installNewLocales">Yeni Dil Ekle</message>
+	<message key="admin.languages.installNewLocales">Yeni Dil Yükle</message>
 	<message key="admin.languages.languageSettings">Dil Ayarları</message>
 	<message key="admin.languages.noLocalesAvailable">Kurulum için ek dil kullanılabilir değil.</message>
 	<message key="admin.languages.reload">Dili Yeniden Yükle</message>
@@ -47,19 +47,19 @@
 	<message key="admin.server.phpVersion">PHP sürümü</message>
 	<message key="admin.server.platform">İşletim Sistemi Platformu</message>
 	<message key="admin.settings.aboutDescription">Site Tanımı Hakkında</message>
-	<message key="admin.settings.contactEmail">Temel iletişim e-posta adresi</message>
-	<message key="admin.settings.contactName">İletişim için temel kişi adı</message>
-	<message key="admin.settings.form.contactEmailRequired">Temel iletişim e-posta adresi gerekiyor.</message>
-	<message key="admin.settings.form.contactNameRequired">İletişim için temel kişi adı gerekiyor.</message>
+	<message key="admin.settings.contactEmail">Temel e-posta adresi</message>
+	<message key="admin.settings.contactName">Temel kişi adı</message>
+	<message key="admin.settings.form.contactEmailRequired">Temel e-posta adresi gerekiyor.</message>
+	<message key="admin.settings.form.contactNameRequired">Temel kişi adı gerekiyor.</message>
 	<message key="admin.settings.form.minPasswordLengthRequired">Şifre için en az dört karakter girmelisiniz.</message>
 	<message key="admin.settings.form.titleRequired">Bir başlık gerekli.</message>
 	<message key="admin.settings.homeHeaderImage.altText">Site Logosu</message>
 	<message key="admin.settings.homeHeaderImageInvalid">Geçersiz site logosu biçimi. Kabul edilebilir biçimler: .gif, .jpg veya .png.</message>
 	<message key="admin.settings.introduction">Giriş</message>
-	<message key="admin.settings.minPasswordLength">Şifre için en kısa karakter sayısı</message>
-	<message key="admin.settings.oaiRegistration">İndekslemesi için Siteyi Kaydet (Üst veri Harmanlama)</message>
+	<message key="admin.settings.minPasswordLength">Minimum şifre uzunluğu</message>
+	<message key="admin.settings.oaiRegistration">İndekslemesi İçin Siteyi Kaydet (Üst Veri Harmanlama)</message>
 	<message key="admin.settings.passwordCharacters">karakterler</message>
-	<message key="admin.settings.siteLanguage">Site Dili</message>
+	<message key="admin.settings.siteLanguage">Site dili</message>
 	<message key="admin.settings.siteStyleSheetInvalid">Geçersiz biçim. Kabul edilebilir biçimler .css.</message>
 	<message key="admin.settings.siteStyleSheet">Site biçimi</message>
 	<message key="admin.settings.siteTitle">Site başlığı</message>
@@ -84,4 +84,9 @@
 	<message key="admin.settings">Ayarlar</message>
 	<message key="admin.settings.siteTheme">Site teması</message>
 	<message key="admin.siteSetup">Site Ayarı</message>
+	<message key="admin.scheduledTask">Zamanlanmış Görev</message>
+	<message key="admin.fileLoader">Dosya Yükleyici</message>
+	<message key="admin.fileLoader.wrongBasePathLocation">{$path} temel yolu genel dosyalar dizinin içinde olmalıdır.</message>
+	<message key="admin.fileLoader.pathNotAccessible">{$path} klasörü bir dizin veya okunabilir değildir.</message>
+	<message key="admin.fileLoader.moveFileFailed">{$filename} dosyası {$destinationPath} için {$currentFilePath}'ye taşınamaz</message>
 </locale>

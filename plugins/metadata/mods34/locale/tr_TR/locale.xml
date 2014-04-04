@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
+
+<!--
+  * plugins/metadata/mods34/locale/en_US/locale.xml
+  *
+  * Copyright (c) 2013-2014 Simon Fraser University Library
+  * Copyright (c) 2003-2014 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the en_US (U.S. English) locale.
+  -->
+
+<locale name="en_US" full_name="U.S. English">
+	<!-- plug-in -->
+	<message key="plugins.metadata.mods34.displayName">MODS 3.4 Üst Veri</message>
+	<message key="plugins.metadata.mods34.description">MODS 3.4 şemaları ve uygulama adaptörlerine katkıda bulunun.</message>
+
+	<!-- MODS 3.4 XML output -->
+	<message key="plugins.metadata.mods34.mods34XmlOutput.displayName">MODS 3.4 Çıtısı</message>
+	<message key="plugins.metadata.mods34.mods34XmlOutput.description">XML bağlayıcı için bir MODS 3.4 üst veri tanımlayıcı dönüştürün.</message>
+</locale>

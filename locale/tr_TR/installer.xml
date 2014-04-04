@@ -29,7 +29,7 @@
 	<message key="installer.databaseCharset">Veri tabanı karakter seti</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Parentez içinde belirtilen veri tabanı sürücüleri, gerekli olan PHP uzantısını göstermez ve eğer o seçilirse yükleme muhtemelen başarısız olacaktır. </strong><br />Yukarıda belirtilen desteklenmeyen veri tabanı sürücülerinden her hangi biri yalnızca akademik amaçlar için listelenmiştir ve muhtemelen işlemeyecektir.]]></message>
 	<message key="installer.databaseDriver">Veri tabanı sürücüsü</message>
-	<message key="installer.databaseHostInstructions">Alan (domain) soketleri yerine TCP/IP üzerinden bağlanmak için"hostname"i boş bırakın. "localhost" bilgisi girildiyse soketler otomatik olarak kullanılacaktır. Bu MySQL için gerekli değildir, fakat PstgreSQL gibi bazı veri tabanı sunucuları için gereklidir.</message>
+	<message key="installer.databaseHostInstructions">Veri tabanına, alan soketleri yerine TCP/IP üzerinden bağlantı kurmak için barındırma alan adı kısmını boş bırakınız. Bu MySQL için gerekli değildir eğer "localhost" girilmişse otomatik olarak soketleri kullanacaktır. Fakat PostgreSQL gibi bazı diğer veri tabanı sunucuları için gereklidir.</message>
 	<message key="installer.databaseHost">Ana Bilgisayar</message>
 	<message key="installer.databaseHostInstructions">Leave the hostname blank to connect using domain sockets instead of over TCP/IP. This is not necessary with MySQL, which will automatically use sockets if "localhost" is entered, but is required with some other database servers such as PostgreSQL.</message>
 	<message key="installer.databaseName">Veri tabanı adı</message>
@@ -59,7 +59,7 @@
 	<message key="installer.installFilesDirError">Yüklenen dosyalara özgü dizin mevcut veya yazılabilir değil.</message>
 	<message key="installer.installParseDBFileError"><![CDATA[<tt>{$file}</tt> adlı veri tabanı kurulum dosyasında ayrıştırma hatası oluştu.]]></message>
 	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[<tt>{$file}</tt> adlı e-posta şablon dosyasında ayrıştırma hatası oluştu.]]></message>
-	<message key="installer.locale">Kurulum dili yeri</message>
+	<message key="installer.locale">Kurulum dili</message>
 	<message key="installer.locale.maybeIncomplete">İşaretli diller tamamlanmamış olabilir.</message>
 	<message key="installer.localeSettings">Yerel Ayarlar</message>
 	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Bu sitede <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> üst veri harmanlama protokolüne uygun olarak üst verileri tanımlamak için tekil bir tanımlama kullanılır.]]></message>
@@ -67,7 +67,7 @@
 	<message key="installer.publicFilesDirError">Genel dosya dizini mevcut değil veya yazılabilir değil.</message>
 	<message key="installer.releaseNotes">Sürüm Notları</message>
 	<message key="installer.securitySettings">Güvenlik Ayarları</message>
-	<message key="installer.databaseCharsetInstructions"><![CDATA[Kodlama veri tabanında depolanan veriler için kullanılacaktır. Bu özelliği yalnızca MySQL> = 4.1.1 veya PostgreSQL> = 7.1 ve üsüt sürümlerin desteklendiğini unutmayın. Veri tabanı sunucusu bu gereksinimleri karşılamıyorsa "Uygulanamaz" seçeneğini seçin.]]></message>
+	<message key="installer.databaseCharsetInstructions"><![CDATA[Kodlama veri tabanında depolanan veriler için kullanılacaktır. Bu özelliği yalnızca MySQL> = 4.1.1 veya PostgreSQL> = 7.1 ve üstü sürümlerin desteklendiğini unutmayın. Veri tabanı sunucusu bu gereksinimleri karşılamıyorsa "Uygulanamaz" seçeneğini seçin.]]></message>
 	<message key="installer.installParseFilterConfigFileError"><![CDATA[Filitre konfigürasyon dosyası <tt>{$file}</tt> ayrıştırma hatası.]]></message>
-	<message key="installer.oaiSettings">OAI Ayarları</message>
+	<message key="installer.oaiSettings">Açık Arşivler Girişimi (OAI) Ayarları</message>
 </locale>

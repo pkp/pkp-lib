@@ -324,7 +324,7 @@
 	<message key="submissions.submitted">Gönderildi</message>
 	<message key="submission.start">Başla</message>
 	<message key="submission.submissionHistory">Başvuru Geçmişi</message>
-	<message key="submission.submissionManuscript">Gönderi Mizanpajı</message>
+	<message key="submission.submissionManuscript">Değerlendirilecek Makale:</message>
 	<message key="submission.submissionReview">Gönderi Değerlendirme</message>
 	<message key="submission.submitter">Gönderici</message>
 	<message key="submission.summary">Özet</message>

@@ -30,6 +30,8 @@ class ValidatorORCIDTest extends PKPTestCase {
 		self::assertFalse($validator->isValid('http://orcid.org/0000-0002-1694-233X')); // Valid, with an X in the last line
 		self::assertFalse($validator->isValid('0000-0002-1694-233X')); // Missing URI component
 		self::assertFalse($validator->isValid('000000021694233X')); // Missing dashes, URI component
+		self::assertFalse($validator->isValid('http://orcid.org/000000021694233X')); // Missing dashes
+		self::assertFalse($validator->isValid('http://orcid.org/0000-0002-1694-233XY')); // extra character at end
 	}
 }
 

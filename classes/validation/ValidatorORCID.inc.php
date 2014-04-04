@@ -45,8 +45,8 @@ class ValidatorORCID extends ValidatorRegExp {
 		$total = 0;
 		for ($i=0; $i<15; $i++) {
 			// convert X to 10
-			if ($orcid[i] == "X") {
-				$orcid[i] = 10;
+			if ($orcid[$i] == "X") {
+				$orcid[$i] = 10;
 			}
 			$total += $orcid[$i] * 2;
 		}

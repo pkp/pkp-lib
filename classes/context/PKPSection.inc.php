@@ -97,9 +97,25 @@ class PKPSection extends DataObject {
 	}
 
 	/**
-	* Get section main page views.
-	* @return int
-	*/
+	 * Get ID of primary review form.
+	 * @return int
+	 */
+	function getReviewFormId() {
+		return $this->getData('reviewFormId');
+	}
+
+	/**
+	 * Set ID of primary review form.
+	 * @param $reviewFormId int
+	 */
+	function setReviewFormId($reviewFormId) {
+		return $this->setData('reviewFormId', $reviewFormId);
+	}
+
+	/**
+	 * Get section main page views.
+	 * @return int
+	 */
 	function getViews() {
 		$application = Application::getApplication();
 		return $application->getPrimaryMetricByAssoc(ASSOC_TYPE_SECTION, $this->getId());

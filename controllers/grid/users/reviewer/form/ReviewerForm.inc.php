@@ -293,6 +293,7 @@ class ReviewerForm extends Form {
 			'reviewRoundId',
 			'stageId',
 			'selectedFiles',
+			'reviewFormId',
 		));
 
 		$keywords = $this->getData('keywords');
@@ -335,6 +336,13 @@ class ReviewerForm extends Form {
 		$reviewAssignment->setDateNotified(Core::getCurrentDate());
 		$reviewAssignment->setCancelled(0);
 		$reviewAssignment->stampModified();
+
+		// Ensure that the review form ID is valid, if specified
+		$reviewFormId = (int) $this->getData('reviewFormId');
+		$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
+		$reviewForm = $reviewFormDao->getById($reviewFormId, Application::getContextAssocType(), $context->getId());
+		$reviewAssignment->setReviewFormId($reviewForm?$reviewFormId:null);
+
 		$reviewAssignmentDao->updateObject($reviewAssignment);
 
 		// Grant access for this review to all selected files.

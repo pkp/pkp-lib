@@ -86,7 +86,7 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 			$templateMgr->assign('reviewForm', $reviewForm);
 			$templateMgr->assign('reviewFormElements', $reviewFormElements);
 			$templateMgr->assign('reviewFormResponses', $reviewFormResponses);
-			$templateMgr->assign('isLocked', isset($reviewAssignment) && $reviewAssignment->getDateCompleted() != null);
+			$templateMgr->assign('disabled', isset($reviewAssignment) && $reviewAssignment->getDateCompleted() != null);
 		}
 
 		//

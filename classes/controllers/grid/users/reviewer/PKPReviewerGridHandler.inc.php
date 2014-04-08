@@ -533,10 +533,27 @@ class PKPReviewerGridHandler extends GridHandler {
 		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
 		$templateMgr->assign('reviewAssignment', $reviewAssignment);
 
-		// Retrieve reviewer comment.
-		$submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO');
-		$submissionComments = $submissionCommentDao->getReviewerCommentsByReviewerId($reviewAssignment->getReviewerId(), $reviewAssignment->getSubmissionId(), $reviewAssignment->getId());
-		$templateMgr->assign('reviewerComment', $submissionComments->next());
+		if ($reviewAssignment->getReviewFormId()) {
+			// Retrieve review form
+			$context = $request->getContext();
+			$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
+			$reviewFormElements = $reviewFormElementDao->getByReviewFormId($reviewAssignment->getReviewFormId());
+			$reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO');
+			$reviewFormResponses = $reviewFormResponseDao->getReviewReviewFormResponseValues($reviewAssignment->getId());
+			$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
+			$reviewformid = $reviewAssignment->getReviewFormId();
+			$reviewForm = $reviewFormDao->getById($reviewAssignment->getReviewFormId(), Application::getContextAssocType(), $context->getId());
+
+			$templateMgr->assign('reviewForm', $reviewForm);
+			$templateMgr->assign('reviewFormElements', $reviewFormElements);
+			$templateMgr->assign('reviewFormResponses', $reviewFormResponses);
+			$templateMgr->assign('disabled', true);
+		} else {
+			// Retrieve reviewer comment.
+			$submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO');
+			$submissionComments = $submissionCommentDao->getReviewerCommentsByReviewerId($reviewAssignment->getReviewerId(), $reviewAssignment->getSubmissionId(), $reviewAssignment->getId());
+			$templateMgr->assign('reviewerComment', $submissionComments->next());
+		}
 
 		// Render the response.
 		return $templateMgr->fetchJson('controllers/grid/users/reviewer/readReview.tpl');

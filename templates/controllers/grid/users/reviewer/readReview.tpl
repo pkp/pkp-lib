@@ -30,7 +30,7 @@
 				</td>
 			</tr>
 			{if $reviewAssignment->getReviewFormId()}
-				{** FIXME: add review forms **}
+				{include file="reviewer/review/reviewFormResponse.tpl"}
 			{else}
 				<tr valign="top">
 					<td>

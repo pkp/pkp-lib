@@ -243,7 +243,7 @@ class PKPEditorDecisionHandler extends Handler {
 
 						$body .= __('submission.comments.importPeerReviews.reviewerLetter', array('reviewerLetter' => String::enumerateAlphabetically($reviewIndexes[$reviewAssignment->getId()]))) . "\n\n";
 					}
-					foreach ($reviewFormElements as $reviewFormElement) {
+					while ($reviewFormElement = $reviewFormElements->next()) {
 						$body .= String::html2text($reviewFormElement->getLocalizedQuestion()) . ": \n";
 						$reviewFormResponse = $reviewFormResponseDao->getReviewFormResponse($reviewId, $reviewFormElement->getId());
 
@@ -252,10 +252,12 @@ class PKPEditorDecisionHandler extends Handler {
 							if (in_array($reviewFormElement->getElementType(), $reviewFormElement->getMultipleResponsesElementTypes())) {
 								if ($reviewFormElement->getElementType() == REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES) {
 									foreach ($reviewFormResponse->getValue() as $value) {
-										$body .= "\t" . String::htmltext($possibleResponses[$value-1]['content']) . "\n";
+										$body .= "\t" . String::html2text($possibleResponses[$value-1]) . "\n";
 									}
-								} else {
-									$body .= "\t" . String::html2text($possibleResponses[$reviewFormResponse->getValue()-1]['content']) . "\n";
+								} elseif ($reviewFormElement->getElementType() == REVIEW_FORM_ELEMENT_TYPE_DROP_DOWN_BOX) {
+									$body .= "\t" . String::html2text($possibleResponses[$reviewFormResponse->getValue()]) . "\n";
+								} else {error_log($reviewFormElement->getLocalizedQuestion());
+									$body .= "\t" . String::html2text($possibleResponses[$reviewFormResponse->getValue()-1]) . "\n";
 								}
 								$body .= "\n";
 							} else {

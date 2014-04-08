@@ -25,15 +25,16 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 		parent::ReviewerReviewForm($request, $reviewerSubmission, $reviewAssignment, 3);
 
 		// Validation checks for this form
-		// FIXME #5123: Include when review form infrastructure is in place
-		//$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
-		//$requiredReviewFormElementIds = $reviewFormElementDao->getRequiredReviewFormElementIds($this->reviewAssignment->getReviewFormId());
-		//$this->addCheck(new FormValidatorCustom($this, 'reviewFormResponses', 'required', 'reviewer.submission.reviewFormResponse.form.responseRequired', create_function('$reviewFormResponses, $requiredReviewFormElementIds', 'foreach ($requiredReviewFormElementIds as $requiredReviewFormElementId) { if (!isset($reviewFormResponses[$requiredReviewFormElementId]) || $reviewFormResponses[$requiredReviewFormElementId] == \'\') return false; } return true;'), array($requiredReviewFormElementIds)));
+		$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
+		$requiredReviewFormElementIds = $reviewFormElementDao->getRequiredReviewFormElementIds($reviewAssignment->getReviewFormId());
+		$this->addCheck(new FormValidatorCustom($this, 'reviewFormResponses', 'required', 'reviewer.submission.reviewFormResponse.form.responseRequired', create_function('$reviewFormResponses, $requiredReviewFormElementIds', 'foreach ($requiredReviewFormElementIds as $requiredReviewFormElementId) { if (!isset($reviewFormResponses[$requiredReviewFormElementId]) || $reviewFormResponses[$requiredReviewFormElementId] == \'\') return false; } return true;'), array($requiredReviewFormElementIds)));
 
 		$this->addCheck(new FormValidatorPost($this));
 	}
 
-
+	/**
+	 * Initialize the form data.
+	 */
 	function initData() {
 		$reviewAssignment = $this->getReviewAssignment();
 		// Retrieve reviewer comment.
@@ -49,9 +50,8 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 	 * @see Form::readInputData()
 	 */
 	function readInputData() {
-		// FIXME #5123: Include when review form infrastructure is in place
 		$this->readUserVars(
-			array(/*'reviewFormResponses', */ 'comments', 'recommendation')
+			array('reviewFormResponses', 'comments', 'recommendation')
 		);
 	}
 
@@ -72,23 +72,22 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 		// Include the review recommendation options on the form.
 		$templateMgr->assign_by_ref('reviewerRecommendationOptions', ReviewAssignment::getReviewerRecommendationOptions());
 
-		/*  FIXME #5123: Include when review form infrastructure is in place
-		if($reviewAssignment->getReviewFormId()) {
+		if ($reviewAssignment->getReviewFormId()) {
 
 			// Get the review form components
 			$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
 			$reviewFormElements = $reviewFormElementDao->getByReviewFormId($reviewAssignment->getReviewFormId());
 			$reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO');
-			$reviewFormResponses = $reviewFormResponseDao->getReviewReviewFormResponseValues($reviewAssignment->getReviewId());
+			$reviewFormResponses = $reviewFormResponseDao->getReviewReviewFormResponseValues($reviewAssignment->getId());
 			$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
 			$reviewformid = $reviewAssignment->getReviewFormId();
-			$reviewForm = $reviewFormDao->getById($reviewAssignment->getReviewFormId(), ASSOC_TYPE_..., $context->getId());
+			$reviewForm = $reviewFormDao->getById($reviewAssignment->getReviewFormId(), Application::getContextAssocType(), $context->getId());
 
 			$templateMgr->assign('reviewForm', $reviewForm);
 			$templateMgr->assign('reviewFormElements', $reviewFormElements);
 			$templateMgr->assign('reviewFormResponses', $reviewFormResponses);
 			$templateMgr->assign('isLocked', isset($reviewAssignment) && $reviewAssignment->getDateCompleted() != null);
-		}*/
+		}
 
 		//
 		// Assign the link actions
@@ -108,12 +107,11 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 	function execute($request) {
 		$reviewAssignment =& $this->getReviewAssignment();
 		$notificationMgr = new NotificationManager();
-		if($reviewAssignment->getReviewFormId()) {
-			/* FIXME #5123: Include when review form infrastructure is in place
+		if ($reviewAssignment->getReviewFormId()) {
 			$reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO');
 			$reviewFormResponses = $this->getData('reviewFormResponses');
 			if (is_array($reviewFormResponses)) foreach ($reviewFormResponses as $reviewFormElementId => $reviewFormResponseValue) {
-				$reviewFormResponse =& $reviewFormResponseDao->getReviewFormResponse($reviewAssignment->getReviewId(), $reviewFormElementId);
+				$reviewFormResponse = $reviewFormResponseDao->getReviewFormResponse($reviewAssignment->getId(), $reviewFormElementId);
 				if (!isset($reviewFormResponse)) {
 					$reviewFormResponse = new ReviewFormResponse();
 				}
@@ -141,10 +139,10 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 					$reviewFormResponseDao->updateObject($reviewFormResponse);
 				} else {
 					$reviewFormResponse->setReviewFormElementId($reviewFormElementId);
-					$reviewFormResponse->setReviewId($reviewAssignment->getReviewId());
+					$reviewFormResponse->setReviewId($reviewAssignment->getId());
 					$reviewFormResponseDao->insertObject($reviewFormResponse);
 				}
-			} */
+			}
 		} else {
 			// Create a comment with the review.
 			$submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO');

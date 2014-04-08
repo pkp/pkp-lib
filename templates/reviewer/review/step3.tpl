@@ -30,7 +30,12 @@
 				{include file="linkAction/linkAction.tpl" action=$viewGuidelinesAction contextId="viewGuidelines"}
 			</div>
 		{/if}
-		{fbvElement type="textarea" id="comments" name="comments" value=$reviewAssignment->getComments()|escape disabled=$reviewIsComplete}
+
+		{if $reviewForm}
+			{include file="reviewer/review/reviewFormResponse.tpl"}
+		{else}
+			{fbvElement type="textarea" id="comments" name="comments" value=$reviewAssignment->getComments()|escape disabled=$reviewIsComplete}
+		{/if}
 	{/fbvFormSection}
 
 	{fbvFormSection label="common.upload" description="reviewer.submission.uploadDescription"}

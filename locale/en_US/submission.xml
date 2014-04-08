@@ -610,6 +610,4 @@
 	<!--  peer review -->
 	<message key="submission.reviewForm">Review Form</message>
 	<message key="submission.reviewFormResponse">Review Form Response</message>
-	<message key="notification.type.approveSubmission">This submission is currently awaiting approval in the Catalog Entry tool before it will appear in the public catalog.</message>
-	<message key="notification.type.approveSubmissionTitle">Awaiting approval.</message>
 </locale>

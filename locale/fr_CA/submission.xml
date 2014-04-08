@@ -580,6 +580,4 @@
 	<message key="editor.review.personalMessageFromEditor">Message de l'éditeur.</message>
 	<message key="submission.reviewForm">Formulaire d'évaluation</message>
 	<message key="submission.reviewFormResponse">Réponse au formulaire d'évaluation</message>
-	<message key="notification.type.approveSubmission">Cette soumission est en attente d'approbation dans l'outil d'entrée de catalogue avant d'apparaitre dans le catalogue public.</message>
-	<message key="notification.type.approveSubmissionTitle">En attente d'approbation.</message>
 </locale>

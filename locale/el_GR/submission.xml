@@ -395,4 +395,6 @@
 	<message key="notification.type.editorAssignmentEditing">Για να ξεκινήσει η διαδικασία  σύνταξης/επιμέλειας μιας υποβολής πρέπει αυτή να ανατεθεί σε ένα επιμελητή. Παρακαλούμε προσθέστε έναν επιμελητή επιλέγοντας τον παραπάνω σύνδεσμο με τους Συμμετέχοντες.</message>
 	<message key="submission.reviewForm">Φόρμα αξιολόγησης</message>
 	<message key="submission.reviewFormResponse">Απόκριση Φόρμας Αξιολόγησης</message>
+	<message key="notification.type.approveSubmission">Αυτή η υποβολή αναμένει πρόσφατα για Καταχώριση στον Κατάλογο πριν αυτή εμφανιστεί δημόσια στον κατάλογο.</message>
+	<message key="notification.type.approveSubmissionTitle">Εν αναμονή έγκρισης.</message>
 </locale>

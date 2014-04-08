@@ -355,4 +355,6 @@ El Asistente de Marcado de Citas está configurado por el gestor de la revista e
 	<message key="log.review.reviewerAssigned">{$reviewerName} ha sido asignado/a para revisar el envío {$submissionId} en la ronda de revisión {$round}.</message>
 	<message key="submission.reviewForm">Formulario de revisión</message>
 	<message key="submission.reviewFormResponse">Respuesta al Formulario de Revisión</message>
+	<message key="notification.type.approveSubmission">Esta propuesta está actualmente pendiente de aprobación en la herramienta de Entrada de Catálogo antes de que pueda aparecer en el catálogo público.</message>
+	<message key="notification.type.approveSubmissionTitle">Pendiente de aprobación.</message>
 </locale>

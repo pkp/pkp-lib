@@ -562,7 +562,7 @@ class FormBuilderVocabulary {
 
 		$selectParams = '';
 
-		$smarty->clear_assign(array('FBV_from', 'FBV_selected', 'FBV_label_content', 'FBV_defaultValue', 'FBV_defaultLabel', 'FBV_required'));
+		$smarty->clear_assign(array('FBV_label', 'FBV_from', 'FBV_selected', 'FBV_label_content', 'FBV_defaultValue', 'FBV_defaultLabel', 'FBV_required'));
 		foreach ($params as $key => $value) {
 			switch ($key) {
 				case 'from':

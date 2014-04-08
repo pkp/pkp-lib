@@ -24,7 +24,7 @@
 	{translate|assign:"authorCopyrightNoticeDescription" key="manager.setup.authorCopyrightNotice.description" sampleCopyrightWordingUrl=$sampleCopyrightWordingUrl}
 
 	{fbvFormArea id="policiesFormArea"}
-		{fbvFormSection label="manager.setup.authorCopyrightNotice" description=$authorCopyrightNoticeDescription translate=false}
+		{fbvFormSection label="manager.setup.authorCopyrightNotice"|translate description=$authorCopyrightNoticeDescription translate=false}
 			{fbvElement type="textarea" multilingual=true name="copyrightNotice" id="copyrightNotice" value=$copyrightNotice rich=true}
 		{/fbvFormSection}
 		{fbvFormSection list=true}

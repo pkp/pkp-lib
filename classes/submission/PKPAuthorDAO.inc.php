@@ -71,7 +71,7 @@ class PKPAuthorDAO extends DAO {
 				JOIN user_groups ug ON (a.user_group_id=ug.user_group_id)
 			WHERE	a.submission_id = ? ' .
 			($useIncludeInBrowse ? ' AND a.include_in_browse = ?' : '')
-			. 'ORDER BY seq',
+			. ' ORDER BY seq',
 			$params
 		);
 

@@ -57,18 +57,22 @@ class PKPAuthorDAO extends DAO {
 	 * Retrieve all authors for a submission.
 	 * @param $submissionId int
 	 * @param $sortByAuthorId bool Use author Ids as indexes in the array
+	 * @param $useIncludeInBrowse bool Whether to limit to just include_in_browse authors
 	 * @return array Authors ordered by sequence
 	 */
-	function getBySubmissionId($submissionId, $sortByAuthorId = false) {
+	function getBySubmissionId($submissionId, $sortByAuthorId = false, $useIncludeInBrowse = false) {
 		$authors = array();
+		$params = array((int) $submissionId);
+		if ($useIncludeInBrowse) $params[] = 1;
 
 		$result = $this->retrieve(
 			'SELECT	a.*, ug.show_title
 			FROM	authors a
 				JOIN user_groups ug ON (a.user_group_id=ug.user_group_id)
-			WHERE	a.submission_id = ?
-			ORDER BY seq',
-			(int) $submissionId
+			WHERE	a.submission_id = ? ' .
+			($useIncludeInBrowse ? ' AND a.include_in_browse = ?' : '')
+			. 'ORDER BY seq',
+			$params
 		);
 
 		while (!$result->EOF) {
@@ -136,6 +140,7 @@ class PKPAuthorDAO extends DAO {
 		$author->setUserGroupId($row['user_group_id']);
 		$author->setPrimaryContact($row['primary_contact']);
 		$author->setSequence($row['seq']);
+		$author->setIncludeInBrowse($row['include_in_browse']);
 		$author->_setShowTitle($row['show_title']); // Dependent
 
 		$this->getDataObjectSettings('author_settings', 'author_id', $row['author_id'], $author);
@@ -164,6 +169,7 @@ class PKPAuthorDAO extends DAO {
 		$author->setUserGroupId($row['user_group_id']);
 		$author->setPrimaryContact($row['primary_contact']);
 		$author->setSequence($row['seq']);
+		$author->setIncludeInBrowse($row['include_in_browse'] == 1 ? true : false);
 
 		$author->setAffiliation($row['affiliation_l'], $row['locale']);
 		$author->setAffiliation($row['affiliation_pl'], $row['primary_locale']);
@@ -205,7 +211,7 @@ class PKPAuthorDAO extends DAO {
 
 		$this->update(
 				'INSERT INTO authors
-				(submission_id, first_name, middle_name, last_name, suffix, country, email, url, user_group_id, primary_contact, seq)
+				(submission_id, first_name, middle_name, last_name, suffix, country, email, url, user_group_id, primary_contact, seq, include_in_browse)
 				VALUES
 				(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
 				array(
@@ -219,7 +225,8 @@ class PKPAuthorDAO extends DAO {
 						$author->getUrl(),
 						(int) $author->getUserGroupId(),
 						(int) $author->getPrimaryContact(),
-						(float) $author->getSequence()
+						(float) $author->getSequence(),
+						(int) $author->getIncludeInBrowse() ? 1 : 0,
 				)
 		);
 
@@ -249,7 +256,8 @@ class PKPAuthorDAO extends DAO {
 					url = ?,
 					user_group_id = ?,
 					primary_contact = ?,
-					seq = ?
+					seq = ?,
+					include_in_browse = ?
 				WHERE	author_id = ?',
 				array(
 						$author->getFirstName(),
@@ -262,6 +270,7 @@ class PKPAuthorDAO extends DAO {
 						(int) $author->getUserGroupId(),
 						(int) $author->getPrimaryContact(),
 						(float) $author->getSequence(),
+						(int) $author->getIncludeInBrowse() ? 1 : 0,
 						(int) $author->getId()
 				)
 		);

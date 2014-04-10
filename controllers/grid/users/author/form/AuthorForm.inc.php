@@ -118,8 +118,12 @@ class AuthorForm extends Form {
 				'url' => $author->getUrl(),
 				'userGroupId' => $author->getUserGroupId(),
 				'biography' => $author->getBiography(AppLocale::getLocale()),
-				'primaryContact' => $author->getPrimaryContact()
+				'primaryContact' => $author->getPrimaryContact(),
+				'includeInBrowse' => $author->getIncludeInBrowse(),
 			);
+		} else {
+			// assume authors should be listed unless otherwise specified.
+			$this->_data = array('includeInBrowse' => true);
 		}
 	}
 
@@ -166,7 +170,8 @@ class AuthorForm extends Form {
 			'url',
 			'userGroupId',
 			'biography',
-			'primaryContact'
+			'primaryContact',
+			'includeInBrowse',
 		));
 	}
 
@@ -201,6 +206,7 @@ class AuthorForm extends Form {
 		$author->setUserGroupId($this->getData('userGroupId'));
 		$author->setBiography($this->getData('biography'), null); // localized
 		$author->setPrimaryContact(($this->getData('primaryContact') ? true : false));
+		$author->setIncludeInBrowse(($this->getData('includeInBrowse') ? true : false));
 
 		if ($existingAuthor) {
 			$authorDao->updateObject($author);

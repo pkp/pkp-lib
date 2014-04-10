@@ -19,8 +19,6 @@
  * @brief Basic class describing a announcement.
  */
 
-define('ANNOUNCEMENT_EXPIRE_YEAR_OFFSET_FUTURE',	'+10');
-
 class Announcement extends DataObject {
 	/**
 	 * Constructor

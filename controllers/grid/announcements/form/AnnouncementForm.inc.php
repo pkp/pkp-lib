@@ -87,22 +87,6 @@ class AnnouncementForm extends Form {
 	}
 
 	/**
-	 * Display the form.
-	 */
-	function display() {
-		$templateMgr = TemplateManager::getManager();
-
-		$templateMgr->assign('announcementId', $this->announcementId);
-		$templateMgr->assign('yearOffsetFuture', ANNOUNCEMENT_EXPIRE_YEAR_OFFSET_FUTURE);
-
-		$announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO');
-		$announcementTypes = $announcementTypeDao->getByAssoc(Application::getContextAssocType(), $this->getContextId());
-		$templateMgr->assign('announcementTypes', $announcementTypes);
-
-		parent::display();
-	}
-
-	/**
 	 * @copydoc Form::fetch()
 	 */
 	function fetch($request) {

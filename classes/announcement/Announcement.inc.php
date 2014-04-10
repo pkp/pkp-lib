@@ -6,26 +6,26 @@
  */
 
 /**
- * @file classes/announcement/PKPAnnouncement.inc.php
+ * @file classes/announcement/Announcement.inc.php
  *
  * Copyright (c) 2014 Simon Fraser University Library
  * Copyright (c) 2000-2014 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPAnnouncement
+ * @class Announcement
  * @ingroup announcement
- * @see AnnouncementDAO, PKPAnnouncementDAO
+ * @see AnnouncementDAO
  *
  * @brief Basic class describing a announcement.
  */
 
 define('ANNOUNCEMENT_EXPIRE_YEAR_OFFSET_FUTURE',	'+10');
 
-class PKPAnnouncement extends DataObject {
+class Announcement extends DataObject {
 	/**
 	 * Constructor
 	 */
-	function PKPAnnouncement() {
+	function Announcement() {
 		parent::DataObject();
 	}
 

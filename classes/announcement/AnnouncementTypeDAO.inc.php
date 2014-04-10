@@ -1,27 +1,27 @@
 <?php
 
 /**
- * @file classes/announcement/PKPAnnouncementTypeDAO.inc.php
+ * @file classes/announcement/AnnouncementTypeDAO.inc.php
  *
  * Copyright (c) 2014 Simon Fraser University Library
  * Copyright (c) 2000-2014 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPAnnouncementTypeDAO
+ * @class AnnouncementTypeDAO
  * @ingroup announcement
- * @see AnnouncementType, PKPAnnouncementType
+ * @see AnnouncementType
  *
  * @brief Operations for retrieving and modifying AnnouncementType objects.
  */
 
 
-import('lib.pkp.classes.announcement.PKPAnnouncementType');
+import('lib.pkp.classes.announcement.AnnouncementType');
 
-class PKPAnnouncementTypeDAO extends DAO {
+class AnnouncementTypeDAO extends DAO {
 	/**
 	 * Constructor
 	 */
-	function PKPAnnouncementTypeDAO() {
+	function AnnouncementTypeDAO() {
 		parent::DAO();
 	}
 
@@ -30,7 +30,7 @@ class PKPAnnouncementTypeDAO extends DAO {
 	 * @return DataObject
 	 */
 	function newDataObject() {
-		assert(false); // To be implemented by subclasses
+		return new AnnouncementType();
 	}
 
 	/**

@@ -317,6 +317,8 @@ class PKPApplication {
 	function getDAOMap() {
 		return array(
 			'AccessKeyDAO' => 'lib.pkp.classes.security.AccessKeyDAO',
+			'AnnouncementDAO' => 'lib.pkp.classes.announcement.AnnouncementDAO',
+			'AnnouncementTypeDAO' => 'lib.pkp.classes.announcement.AnnouncementTypeDAO',
 			'AuthSourceDAO' => 'lib.pkp.classes.security.AuthSourceDAO',
 			'CitationDAO' => 'lib.pkp.classes.citation.CitationDAO',
 			'ControlledVocabDAO' => 'lib.pkp.classes.controlledVocab.ControlledVocabDAO',

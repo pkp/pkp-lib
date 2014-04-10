@@ -1,24 +1,24 @@
 <?php
 
 /**
- * @file classes/announcement/PKPAnnouncementType.inc.php
+ * @file classes/announcement/AnnouncementType.inc.php
  *
  * Copyright (c) 2014 Simon Fraser University Library
  * Copyright (c) 2000-2014 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPAnnouncementType
+ * @class AnnouncementType
  * @ingroup announcement
- * @see AnnouncementTypeDAO, AnnouncementTypeForm, PKPAnnouncementTypeDAO, PKPAnnouncementTypeForm
+ * @see AnnouncementTypeDAO, AnnouncementTypeForm
  *
  * @brief Basic class describing an announcement type.
  */
 
-class PKPAnnouncementType extends DataObject {
+class AnnouncementType extends DataObject {
 	/**
 	 * Constructor
 	 */
-	function PKPAnnouncementType() {
+	function AnnouncementType() {
 		parent::DataObject();
 	}
 

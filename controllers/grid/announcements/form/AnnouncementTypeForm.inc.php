@@ -1,15 +1,15 @@
 <?php
 
 /**
- * @file classes/manager/form/PKPAnnouncementTypeForm.inc.php
+ * @file controllers/grid/announcements/form/AnnouncementTypeForm.inc.php
  *
  * Copyright (c) 2014 Simon Fraser University Library
  * Copyright (c) 2000-2014 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPAnnouncementTypeForm
- * @ingroup manager_form
- * @see PKPAnnouncementType
+ * @class AnnouncementTypeForm
+ * @ingroup controllers_grid_announcements_form
+ * @see AnnouncementType
  *
  * @brief Form for manager to create/edit announcement types.
  */
@@ -17,16 +17,21 @@
 
 import('lib.pkp.classes.form.Form');
 
-class PKPAnnouncementTypeForm extends Form {
+class AnnouncementTypeForm extends Form {
+	/** @var int Context ID */
+	var $contextId;
+
 	/** @var typeId int the ID of the announcement type being edited */
 	var $typeId;
 
 	/**
 	 * Constructor
-	 * @param typeId int leave as default for new announcement type
+	 * @param $contextId int Context ID
+	 * @param $typeId int leave as default for new announcement type
 	 */
-	function PKPAnnouncementTypeForm($typeId = null) {
+	function AnnouncementTypeForm($contextId, $typeId = null) {
 		$this->typeId = isset($typeId) ? (int) $typeId : null;
+		$this->contextId = $contextId;
 
 		parent::Form('manager/announcement/announcementTypeForm.tpl');
 
@@ -46,13 +51,12 @@ class PKPAnnouncementTypeForm extends Form {
 	}
 
 	/**
-	 * Display the form.
+	 * @copydoc Form::fetch()
 	 */
-	function display() {
-		$templateMgr = TemplateManager::getManager();
+	function fetch($request) {
+		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('typeId', $this->typeId);
-
-		parent::display();
+		return parent::fetch($request, 'controllers/grid/announcements/form/announcementTypeForm.tpl');
 	}
 
 	/**
@@ -96,7 +100,8 @@ class PKPAnnouncementTypeForm extends Form {
 			$announcementType = $announcementTypeDao->newDataObject();
 		}
 
-		$this->_setAnnouncementTypeAssocId($announcementType);
+		$announcementType->setAssocType(Application::getContextAssocType());
+		$announcementType->setAssocId($this->contextId);
 		$announcementType->setName($this->getData('name'), null); // Localized
 
 		// Update or insert announcement type

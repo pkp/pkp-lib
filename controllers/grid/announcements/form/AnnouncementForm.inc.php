@@ -1,14 +1,14 @@
 <?php
 
 /**
- * @file classes/manager/form/PKPAnnouncementForm.inc.php
+ * @file controllers/grid/announcements/form/AnnouncementForm.inc.php
  *
  * Copyright (c) 2014 Simon Fraser University Library
  * Copyright (c) 2000-2014 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPAnnouncementForm
- * @ingroup manager_form
+ * @class AnnouncementForm
+ * @ingroup controllers_grid_announcements
  *
  * @brief Form for managers to create/edit announcements.
  */
@@ -16,7 +16,10 @@
 
 import('lib.pkp.classes.form.Form');
 
-class PKPAnnouncementForm extends Form {
+class AnnouncementForm extends Form {
+	/** @var boolean */
+	var $_readOnly;
+
 	/** @var announcementId int the ID of the announcement being edited */
 	var $announcementId;
 
@@ -27,9 +30,11 @@ class PKPAnnouncementForm extends Form {
 	 * Constructor
 	 * @param $contextId int
 	 * @param announcementId int leave as default for new announcement
+	 * @param $readOnly boolean
 	 */
-	function PKPAnnouncementForm($contextId, $announcementId = null) {
+	function AnnouncementForm($contextId, $announcementId = null, $readOnly = false) {
 
+		$this->_readOnly = $readOnly;
 		$this->_contextId = $contextId;
 		$this->announcementId = isset($announcementId) ? (int) $announcementId : null;
 		parent::Form('manager/announcement/announcementForm.tpl');
@@ -43,18 +48,8 @@ class PKPAnnouncementForm extends Form {
 		// Description is provided
 		$this->addCheck(new FormValidatorLocale($this, 'description', 'optional', 'manager.announcements.form.descriptionRequired'));
 
-		// If provided, expiry date is valid
-		$this->addCheck(new FormValidatorCustom($this, 'dateExpireYear', 'optional', 'manager.announcements.form.dateExpireValid', create_function('$dateExpireYear', '$minYear = date(\'Y\'); $maxYear = date(\'Y\') + ANNOUNCEMENT_EXPIRE_YEAR_OFFSET_FUTURE; return ($dateExpireYear >= $minYear && $dateExpireYear <= $maxYear) ? true : false;')));
-
-		$this->addCheck(new FormValidatorCustom($this, 'dateExpireYear', 'optional', 'manager.announcements.form.dateExpireYearIncompleteDate', create_function('$dateExpireYear, $form', '$dateExpireMonth = $form->getData(\'dateExpireMonth\'); $dateExpireDay = $form->getData(\'dateExpireDay\'); return ($dateExpireMonth != null && $dateExpireDay != null) ? true : false;'), array($this)));
-
-		$this->addCheck(new FormValidatorCustom($this, 'dateExpireMonth', 'optional', 'manager.announcements.form.dateExpireValid', create_function('$dateExpireMonth', 'return ($dateExpireMonth >= 1 && $dateExpireMonth <= 12) ? true : false;')));
-
-		$this->addCheck(new FormValidatorCustom($this, 'dateExpireMonth', 'optional', 'manager.announcements.form.dateExpireMonthIncompleteDate', create_function('$dateExpireMonth, $form', '$dateExpireYear = $form->getData(\'dateExpireYear\'); $dateExpireDay = $form->getData(\'dateExpireDay\'); return ($dateExpireYear != null && $dateExpireDay != null) ? true : false;'), array($this)));
-
-		$this->addCheck(new FormValidatorCustom($this, 'dateExpireDay', 'optional', 'manager.announcements.form.dateExpireValid', create_function('$dateExpireDay', 'return ($dateExpireDay >= 1 && $dateExpireDay <= 31) ? true : false;')));
-
-		$this->addCheck(new FormValidatorCustom($this, 'dateExpireDay', 'optional', 'manager.announcements.form.dateExpireDayIncompleteDate', create_function('$dateExpireDay, $form', '$dateExpireYear = $form->getData(\'dateExpireYear\'); $dateExpireMonth = $form->getData(\'dateExpireMonth\'); return ($dateExpireYear != null && $dateExpireMonth != null) ? true : false;'), array($this)));
+		// If provided, announcement type is valid
+		$this->addCheck(new FormValidatorCustom($this, 'typeId', 'optional', 'manager.announcements.form.typeIdValid', create_function('$typeId, $contextId', '$announcementTypeDao = DAORegistry::getDAO(\'AnnouncementTypeDAO\'); if((int)$typeId === 0) { return true; } else { return $announcementTypeDao->announcementTypeExistsByTypeId($typeId, Application::getContextAssocType(), $contextId);}'), array($contextId)));
 
 		$this->addCheck(new FormValidatorPost($this));
 	}
@@ -63,6 +58,13 @@ class PKPAnnouncementForm extends Form {
 	//
 	// Getters and setters.
 	//
+	/**
+	 * Return if this form is read only or not.
+	 */
+	function isReadOnly() {
+		return $this->_readOnly;
+	}
+
 	/**
 	 * Get the current context id.
 	 * @return int
@@ -94,11 +96,37 @@ class PKPAnnouncementForm extends Form {
 		$templateMgr->assign('yearOffsetFuture', ANNOUNCEMENT_EXPIRE_YEAR_OFFSET_FUTURE);
 
 		$announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO');
-		list($assocType, $assocId) = $this->_getAnnouncementTypesAssocId();
-		$announcementTypes = $announcementTypeDao->getByAssoc($assocType, $assocId);
+		$announcementTypes = $announcementTypeDao->getByAssoc(Application::getContextAssocType(), $this->getContextId());
 		$templateMgr->assign('announcementTypes', $announcementTypes);
 
 		parent::display();
+	}
+
+	/**
+	 * @copydoc Form::fetch()
+	 */
+	function fetch($request) {
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign('readOnly', $this->isReadOnly());
+		$templateMgr->assign('selectedTypeId', $this->getData('typeId'));
+
+		$announcementDao = DAORegistry::getDAO('AnnouncementDAO');
+		$announcement = $announcementDao->getById($this->announcementId);
+		$templateMgr->assign('announcement', $announcement);
+
+		$announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO');
+		$announcementTypeFactory = $announcementTypeDao->getByAssoc(Application::getContextAssocType(), $this->getContextId());
+
+		$announcementTypeOptions = array();
+		if (!$announcementTypeFactory->wasEmpty()) {
+			$announcementTypeOptions = array(0 => __('common.none'));
+		}
+		while ($announcementType = $announcementTypeFactory->next()) {
+			$announcementTypeOptions[$announcementType->getId()] = $announcementType->getLocalizedTypeName();
+		}
+		$templateMgr->assign('announcementTypes', $announcementTypeOptions);
+
+		return parent::fetch($request, 'controllers/grid/announcements/form/announcementForm.tpl');
 	}
 
 	/**
@@ -129,14 +157,14 @@ class PKPAnnouncementForm extends Form {
 	 * Assign form data to user-submitted data.
 	 */
 	function readInputData() {
-		$this->readUserVars(array('typeId', 'title', 'descriptionShort', 'description', 'dateExpireYear', 'dateExpireMonth', 'dateExpireDay'));
-		$this->_data['dateExpire'] = Request::getUserDateVar('dateExpire');
+		$this->readUserVars(array('typeId', 'title', 'descriptionShort', 'description', 'dateExpireYear', 'dateExpireMonth', 'dateExpireDay', 'dateExpire'));
 	}
 
 	/**
 	 * Save announcement.
+	 * @param $request PKPRequest
 	 */
-	function execute() {
+	function execute($request) {
 		$announcementDao = DAORegistry::getDAO('AnnouncementDAO');
 
 		if (isset($this->announcementId)) {
@@ -147,8 +175,8 @@ class PKPAnnouncementForm extends Form {
 			$announcement = $announcementDao->newDataObject();
 		}
 
-		// Give the parent class a chance to set the assocType/assocId.
-		$this->_setAnnouncementAssocId($announcement);
+		$announcement->setAssocType(Application::getContextAssocType());
+		$announcement->setAssocId($this->getContextId());
 
 		$announcement->setTitle($this->getData('title'), null); // Localized
 		$announcement->setDescriptionShort($this->getData('descriptionShort'), null); // Localized
@@ -178,7 +206,30 @@ class PKPAnnouncementForm extends Form {
 			$announcementDao->insertObject($announcement);
 		}
 
-		return $announcement;
+		$contextId = $this->getContextId();
+
+		// Send a notification to associated users
+		import('classes.notification.NotificationManager');
+		$notificationManager = new NotificationManager();
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$notificationUsers = array();
+		$allUsers = $userGroupDao->getUsersByContextId($contextId);
+		while ($user = $allUsers->next()) {
+			$notificationUsers[] = array('id' => $user->getId());
+		}
+		foreach ($notificationUsers as $userRole) {
+			$notificationManager->createNotification(
+				$request, $userRole['id'], NOTIFICATION_TYPE_NEW_ANNOUNCEMENT,
+				$contextId, ASSOC_TYPE_ANNOUNCEMENT, $announcement->getId()
+			);
+		}
+		$notificationManager->sendToMailingList($request,
+			$notificationManager->createNotification(
+				$request, UNSUBSCRIBED_USER_NOTIFICATION, NOTIFICATION_TYPE_NEW_ANNOUNCEMENT,
+				$contextId, ASSOC_TYPE_ANNOUNCEMENT, $announcement->getId()
+			)
+		);
+		return $announcement->getId();
 	}
 
 
@@ -186,35 +237,19 @@ class PKPAnnouncementForm extends Form {
 	// Protected methods.
 	//
 	/**
-	 * Helper function to assign the date expire.
-	 * Must be implemented by subclasses.
-	 * @param $annoucement Announcement the announcement to be modified
-	 * @return boolean
+	 * Set the expiry date.
+	 * @param $announcement Announcement
 	 */
 	function setDateExpire($announcement) {
-		return false;
-	}
-
-
-	//
-	// Private methods.
-	//
-	/**
-	 * Get the association information for announcement types.
-	 * @return array (assocType, assocId);
-	 */
-	function _getAnnouncementTypesAssocId() {
-		// must be implemented by sub-classes
-		assert(false);
-	}
-
-	/**
-	 * Helper function to assign the AssocType and the AssocId
-	 * @param $announcement Announcement the announcement to be modified
-	 */
-	function _setAnnouncementAssocId($announcement) {
-		// must be implemented by sub-classes
-		assert(false);
+		$dateExpire = $this->getData('dateExpire');
+		if ($dateExpire) {
+			$announcement->setDateExpire(DAO::formatDateToDB($dateExpire, null, false));
+		} else {
+			// No date passed but null is acceptable for
+			// announcements.
+			$announcement->setDateExpire(null);
+		}
+		return true;
 	}
 }
 

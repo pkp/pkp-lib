@@ -197,7 +197,7 @@ abstract class Submission extends DataObject {
 	 * @return string
 	 */
 	function getAuthorString($lastOnly = false, $nameSeparator = ', ', $userGroupSeparator = '; ') {
-		$authors = $this->getAuthors();
+		$authors = $this->getAuthors(true);
 
 		$str = '';
 		$lastUserGroupId = null;
@@ -243,11 +243,15 @@ abstract class Submission extends DataObject {
 
 	/**
 	 * Get all authors of this submission.
+	 * @param $onlyIncludeInBrowse boolean whether to limit to include_in_browse authors.
 	 * @return array Authors
 	 */
-	function getAuthors() {
+	function getAuthors($onlyIncludeInBrowse = false) {
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
-		return $authorDao->getBySubmissionId($this->getId());
+		if (!$onlyIncludeInBrowse)
+			return $authorDao->getBySubmissionId($this->getId());
+		else
+			return $authorDao->getBySubmissionId($this->getId(), false, true);
 	}
 
 	/**

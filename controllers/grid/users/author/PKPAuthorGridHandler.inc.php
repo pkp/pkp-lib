@@ -132,7 +132,7 @@ class PKPAuthorGridHandler extends GridHandler {
 				null,
 				'controllers/grid/gridCell.tpl',
 				$cellProvider,
-				array('width' => 50, 'alignment' => COLUMN_ALIGNMENT_LEFT)
+				array('width' => 40, 'alignment' => COLUMN_ALIGNMENT_LEFT)
 			)
 		);
 		$this->addColumn(
@@ -159,6 +159,15 @@ class PKPAuthorGridHandler extends GridHandler {
 				'author.users.contributor.principalContact',
 				null,
 				'controllers/grid/users/author/primaryContact.tpl',
+				$cellProvider
+			)
+		);
+		$this->addColumn(
+			new GridColumn(
+				'includeInBrowse',
+				'author.users.contributor.includeInBrowse',
+				null,
+				'controllers/grid/users/author/includeInBrowse.tpl',
 				$cellProvider
 			)
 		);

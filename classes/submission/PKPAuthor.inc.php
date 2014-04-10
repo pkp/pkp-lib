@@ -61,6 +61,22 @@ class PKPAuthor extends Identity {
 	}
 
 	/**
+	 * Set whether or not to include in browse lists.
+	 * @param $include boolean
+	 */
+	function setIncludeInBrowse($include) {
+		$this->setData('includeInBrowse', $include);
+	}
+
+	/**
+	 * Get whether or not to include in browse lists.
+	 * @return boolean
+	 */
+	function getIncludeInBrowse() {
+		return $this->getData('includeInBrowse');
+	}
+
+	/**
 	 * Get the "show title" flag (whether or not the title of the role
 	 * should be included in the list of submission contributor names).
 	 * This is fetched from the user group for performance reasons.

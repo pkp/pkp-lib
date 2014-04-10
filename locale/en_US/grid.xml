@@ -180,6 +180,7 @@
 	<message key="author.users.contributor.email">E-mail</message>
 	<message key="author.users.contributor.role">Role</message>
 	<message key="author.users.contributor.principalContact">Primary Contact</message>
+	<message key="author.users.contributor.includeInBrowse">In Browse Lists</message>
 
 	<!-- Roles -->
 	<message key="grid.roles.currentRoles">Current Roles</message>

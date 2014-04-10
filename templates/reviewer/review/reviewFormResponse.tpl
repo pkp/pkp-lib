@@ -27,25 +27,25 @@
 		{elseif $reviewFormElement->getElementType() == REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES}
 			{assign var=possibleResponses value=$reviewFormElement->getLocalizedPossibleResponses()}
 			{foreach name=responses from=$possibleResponses key=responseId item=responseItem}
-				{if !empty($reviewFormResponses[$elementId]) && in_array($smarty.foreach.responses.iteration, $reviewFormResponses[$elementId])}
+				{assign var=index value=$smarty.foreach.responses.index}
+				{if !empty($reviewFormResponses[$elementId]) && in_array($index, $reviewFormResponses[$elementId])}
 					{assign var=checked value=true}
 				{else}
 					{assign var=checked value=false}
 				{/if}
-				{assign var=iteration value=$smarty.foreach.responses.iteration}
 
-				{fbvElement type="checkbox" disabled=$disabled name="reviewFormResponses[$elementId][]" id="reviewFormResponses-$elementId-$iteration" value=$iteration checked=$checked label=$responseItem translate=false}
+				{fbvElement type="checkbox" disabled=$disabled name="reviewFormResponses[$elementId][]" id="reviewFormResponses-$elementId-$index" value=$index checked=$checked label=$responseItem translate=false}
 			{/foreach}
 		{elseif $reviewFormElement->getElementType() == REVIEW_FORM_ELEMENT_TYPE_RADIO_BUTTONS}
 			{assign var=possibleResponses value=$reviewFormElement->getLocalizedPossibleResponses()}
-			{if $iteration == $reviewFormResponses[$elementId]}
-				{assign var=checked value=true}
-			{else}
-				{assign var=checked value=false}
-			{/if}
 			{foreach name=responses from=$possibleResponses key=responseId item=responseItem}
-				{assign var=iteration value=$smarty.foreach.responses.iteration}
-				{fbvElement type="radio" disabled=$disabled name="reviewFormResponses[$elementId]" id="reviewFormResponses-$elementId-$iteration" value=$iteration checked=$checked label=$responseItem translate=false}
+				{assign var=index value=$smarty.foreach.responses.index}
+				{if $index == $reviewFormResponses[$elementId]}
+					{assign var=checked value=true}
+				{else}
+					{assign var=checked value=false}
+				{/if}
+				{fbvElement type="radio" disabled=$disabled name="reviewFormResponses[$elementId]" id="reviewFormResponses-$elementId-$index" value=$index checked=$checked label=$responseItem translate=false}
 			{/foreach}
 		{elseif $reviewFormElement->getElementType() == REVIEW_FORM_ELEMENT_TYPE_DROP_DOWN_BOX}
 			{fbvElement type="select" subLabelTranslate=false translate=false name="reviewFormResponses[$elementId]" id="reviewFormResponses-$elementId" required=$reviewFormElement->getRequired() readonly=$disabled defaultLabel="" defaultValue="" from=$possibleResponses selected=$reviewFormResponses.$elementId size=$fbvStyles.size.MEDIUM}

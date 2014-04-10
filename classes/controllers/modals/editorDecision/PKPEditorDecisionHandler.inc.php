@@ -252,12 +252,10 @@ class PKPEditorDecisionHandler extends Handler {
 							if (in_array($reviewFormElement->getElementType(), $reviewFormElement->getMultipleResponsesElementTypes())) {
 								if ($reviewFormElement->getElementType() == REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES) {
 									foreach ($reviewFormResponse->getValue() as $value) {
-										$body .= "\t" . String::html2text($possibleResponses[$value-1]) . "\n";
+										$body .= "\t" . String::html2text($possibleResponses[$value]) . "\n";
 									}
-								} elseif ($reviewFormElement->getElementType() == REVIEW_FORM_ELEMENT_TYPE_DROP_DOWN_BOX) {
+								} else {
 									$body .= "\t" . String::html2text($possibleResponses[$reviewFormResponse->getValue()]) . "\n";
-								} else {error_log($reviewFormElement->getLocalizedQuestion());
-									$body .= "\t" . String::html2text($possibleResponses[$reviewFormResponse->getValue()-1]) . "\n";
 								}
 								$body .= "\n";
 							} else {

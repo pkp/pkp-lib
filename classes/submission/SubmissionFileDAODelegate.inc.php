@@ -48,7 +48,7 @@ class SubmissionFileDAODelegate extends DAO {
 	 *  uploaded.
 	 * @return SubmissionFile the inserted file
 	 */
-	function insertObject(&$submissionFile, $sourceFile, $isUpload = false) {
+	function insertObject($submissionFile, $sourceFile, $isUpload = false) {
 		$fileId = $submissionFile->getFileId();
 
 		if (!is_numeric($submissionFile->getRevision())) {
@@ -305,7 +305,7 @@ class SubmissionFileDAODelegate extends DAO {
 	 * Update the localized fields for this submission file.
 	 * @param $submissionFile SubmissionFile
 	 */
-	function updateLocaleFields(&$submissionFile) {
+	function updateLocaleFields($submissionFile) {
 		// Update the locale fields.
 		$this->updateDataObjectSettings($this->getSubmissionEntityName().'_file_settings', $submissionFile, array(
 			'file_id' => $submissionFile->getFileId()

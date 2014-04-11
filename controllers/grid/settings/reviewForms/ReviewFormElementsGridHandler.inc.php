@@ -110,8 +110,8 @@ class ReviewFormElementsGridHandler extends GridHandler {
 			)
 		);
 
-	       // Basic grid configuration.
-	       $this->setTitle('manager.reviewFormElements');
+		// Basic grid configuration.
+		$this->setTitle('manager.reviewFormElements');
 	}
 
 	//

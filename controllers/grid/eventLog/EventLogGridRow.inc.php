@@ -42,7 +42,7 @@ class EventLogGridRow extends GridRow {
 		parent::initialize($request);
 
 		$logEntry = $this->getData(); // a Category object
-                assert($logEntry != null && is_a($logEntry, 'EventLogEntry'));
+		assert($logEntry != null && is_a($logEntry, 'EventLogEntry'));
 
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
 		$params = $logEntry->getParams();

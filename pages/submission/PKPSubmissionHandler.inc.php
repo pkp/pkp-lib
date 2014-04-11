@@ -130,7 +130,7 @@ class PKPSubmissionHandler extends Handler {
 				$submitForm->initData();
 			}
 			$json = new JSONMessage(true, $submitForm->fetch($request));
-                        return $json->getString();
+			return $json->getString();
 			$submitForm->display($request);
 		} elseif($step == $this->_getStepCount()) {
 			$templateMgr = TemplateManager::getManager($request);
@@ -164,7 +164,7 @@ class PKPSubmissionHandler extends Handler {
 			}
 
 			$json = new JSONMessage(true, $templateMgr->fetch('submission/form/complete.tpl'));
-                        return $json->getString();
+			return $json->getString();
 		}
 	}
 

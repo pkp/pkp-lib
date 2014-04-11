@@ -71,7 +71,7 @@ class ReviewFormElements extends Form {
 			$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
 			//$reviewFormElements = $reviewFormElementDao->getByReviewFormId($reviewFormId, $rangeInfo);
 			$reviewFormElements = $reviewFormElementDao->getByReviewFormId($reviewFormId, null);
-	       
+
 			// Get titles of unused review forms
 			$unusedReviewFormTitles = $reviewFormDao->getTitlesByAssocId(ASSOC_TYPE_JOURNAL, $this->contextId, 0);
 

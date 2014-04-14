@@ -12,6 +12,9 @@
  * @brief Class that implements functionality common to all PKP test types.
  */
 
+/* Config backup file name */
+define('PKP_TEST_HELPER_BACKUP_CONFIG_FILE', Core::getBaseDir() . DIRECTORY_SEPARATOR . 'config.BACKUP.inc.php');
+
 abstract class PKPTestHelper {
 
 	//
@@ -59,6 +62,24 @@ abstract class PKPTestHelper {
 					$test->fail("Error while restoring $table: offending SQL is '$sql'");
 				}
 			}
+		}
+	}
+
+	/**
+	* Backup the config file.
+	*/
+	public static function backupConfigFile() {
+		$fileMgr = new FileManager();
+		$fileMgr->copyFile(CONFIG_FILE, PKP_TEST_HELPER_BACKUP_CONFIG_FILE);
+	}
+
+	/**
+	* Restore the config file, if any backup is present.
+	*/
+	public static function restoreConfigFile() {
+		$fileMgr = new FileManager();
+		if ($fileMgr->fileExists(PKP_TEST_HELPER_BACKUP_CONFIG_FILE)) {
+			$fileMgr->copyFile(PKP_TEST_HELPER_BACKUP_CONFIG_FILE, CONFIG_FILE);
 		}
 	}
 

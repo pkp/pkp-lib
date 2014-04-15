@@ -23,7 +23,8 @@
 	<message key="submission.submit.whatNext.return">Return to your dashboard</message>
 	<message key="submission.submit.uploadExpeditedFiles">As an editor, you may upload a PDF now and choose to expedite it to production on the last submission step.</message>
 	<message key="submission.submit.extendedMetadata">Extended Metadata</message>
-	<message key="submission.submit.expediteSubmission">Expedite this submission</message>
+	<message key="submission.submit.expediteSubmission">Expedite submission</message>
+	<message key="grid.action.expedite">Move this submission directly into publication.</message>
 
 	<!-- FIXME: move to meta-data plug-ins -->
 	<!-- messages used by meta-data filters -->

@@ -197,6 +197,13 @@ abstract class PKPWorkflowHandler extends Handler {
 
 		// Iterate through the editor decisions and create a link action for each decision.
 		$editorActions = array();
+
+		// If expedition is an option, show it first.
+		import('lib.pkp.classes.workflow.linkAction.ExpediteSubmissionLinkAction');
+		if (ExpediteSubmissionLinkAction::canExpedite($request->getUser(), $request->getContext())) {
+			$editorActions[] = new ExpediteSubmissionLinkAction($request, $submission->getId());
+		}
+
 		$dispatcher = $request->getDispatcher();
 		import('lib.pkp.classes.linkAction.request.AjaxModal');
 		foreach($decisions as $decision => $action) {

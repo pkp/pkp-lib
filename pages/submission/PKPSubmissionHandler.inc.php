@@ -147,20 +147,12 @@ class PKPSubmissionHandler extends Handler {
 			$templateMgr->assign('submissionId', $submission->getId());
 			$templateMgr->assign('submitStep', $step);
 			$templateMgr->assign('submissionProgress', $submission->getSubmissionProgress());
-			if ($this->_canExpedite($request->getUser(), $context)) {
-				$templateMgr->assign('canExpedite', true);
 
-				import('lib.pkp.classes.linkAction.request.AjaxModal');
-				$templateMgr->assign('expediteLinkAction', new LinkAction(
-					'expedite',
-					new AjaxModal(
-						$router->url($request, null, 'workflow', 'expedite', $submission->getId()),
-						__('submission.submit.confirmExpedite'),
-						'modal_edit',
-						true
-					),
-					__('submission.submit.expediteSubmission')
-				));
+			// If the expedited process is available, show it.
+			import('lib.pkp.classes.workflow.linkAction.ExpediteSubmissionLinkAction');
+			if (ExpediteSubmissionLinkAction::canExpedite($request->getUser(), $context)) {
+				$templateMgr->assign('canExpedite', true);
+				$templateMgr->assign('expediteLinkAction', new ExpediteSubmissionLinkAction($request, $submission->getId()));
 			}
 
 			$json = new JSONMessage(true, $templateMgr->fetch('submission/form/complete.tpl'));
@@ -235,26 +227,6 @@ class PKPSubmissionHandler extends Handler {
 		assert(false); // Subclasses to implement
 	}
 
-	/**
-	 * Determines whether or not this user can expedite this submission.
-	 * @param User $user
-	 * @param Context $context
-	 */
-	protected function _canExpedite($user, $context) {
-		$userGroupAssignmentDao = DAORegistry::getDAO('UserGroupAssignmentDAO');
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		$userGroupAssignments = $userGroupAssignmentDao->getByUserId($user->getId(), $context->getId());
-		if (!$userGroupAssignments->wasEmpty()) {
-			while ($userGroupAssignment = $userGroupAssignments->next()) {
-				$userGroup = $userGroupDao->getById($userGroupAssignment->getUserGroupId());
-				if (in_array($userGroup->getRoleId(), array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT))) {
-					return true;
-				}
-			}
-		}
-
-		return false;
-	}
 }
 
 ?>

@@ -213,7 +213,7 @@ class PKPAuthorDAO extends DAO {
 				'INSERT INTO authors
 				(submission_id, first_name, middle_name, last_name, suffix, country, email, url, user_group_id, primary_contact, seq, include_in_browse)
 				VALUES
-				(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+				(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
 				array(
 						(int) $author->getSubmissionId(),
 						$author->getFirstName(),

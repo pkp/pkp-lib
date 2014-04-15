@@ -329,7 +329,7 @@ class PKPLoginHandler extends Handler {
 			$userId = (int)$args[0];
 			$session = $request->getSession();
 
-			if (!Validation::canAdminister($userId, $session->getUserId())) {
+			if (!PKPValidation::canAdminister($userId, $session->getUserId())) {
 				$this->setupTemplate($request);
 				// We don't have administrative rights
 				// over this user. Display an error.
@@ -344,7 +344,6 @@ class PKPLoginHandler extends Handler {
 			$userDao = DAORegistry::getDAO('UserDAO');
 			$newUser = $userDao->getById($userId);
 
-			// FIXME Support "stack" of signed-in-as user IDs?
 			if (isset($newUser) && $session->getUserId() != $newUser->getId()) {
 				$session->setSessionVar('signedInAs', $session->getUserId());
 				$session->setSessionVar('userId', $userId);

@@ -105,7 +105,9 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 			$publishedSubmission = $publishedSubmissionDao->newDataObject();
 			$publishedSubmission->setId($submission->getId());
 			$publishedSubmission->setDatePublished(strtotime($datePublished));
-			$publishedSubmissionDao->insertObject($publishedSubmission);
+			$insertMethod = $this->getPublishedSubmissionInsertMethod();
+			$publishedSubmission = $this->populatePublishedSubmission($publishedSubmission, $node);
+			$publishedSubmissionDao->$insertMethod($publishedSubmission);
 			// Reload from DB now that some fields may have changed
 			$submission = $submissionDao->getById($submission->getId());
 		}
@@ -241,6 +243,14 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 	}
 
 	/**
+	 * Get the method name for inserting a published submission.
+	 * @return string
+	 */
+	function getPublishedSubmissionInsertMethod() {
+		assert(false); // Subclasses must override.
+	}
+
+	/**
 	 * Get the representation export filter group name
 	 * @return string
 	 */
@@ -255,6 +265,16 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 	 */
 	function getImportFilter($elementName) {
 		assert(false); // Subclasses should override
+	}
+
+	/**
+	 * Class-specific methods for published submissions.
+	 * @param PublishedSubmission $submission
+	 * @param DOMElement $node
+	 * @return PublishedSubmission
+	 */
+	function populatePublishedSubmission($submission, $node) {
+		assert(false); // Subclasses should override.
 	}
 }
 

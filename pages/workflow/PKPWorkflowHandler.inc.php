@@ -198,9 +198,9 @@ abstract class PKPWorkflowHandler extends Handler {
 		// Iterate through the editor decisions and create a link action for each decision.
 		$editorActions = array();
 
-		// If expedition is an option, show it first.
+		// If we're in Submission stage and could expedite, show action.
 		import('lib.pkp.classes.workflow.linkAction.ExpediteSubmissionLinkAction');
-		if (ExpediteSubmissionLinkAction::canExpedite($request->getUser(), $request->getContext())) {
+		if ($stageId == WORKFLOW_STAGE_ID_SUBMISSION && ExpediteSubmissionLinkAction::canExpedite($request->getUser(), $request->getContext())) {
 			$editorActions[] = new ExpediteSubmissionLinkAction($request, $submission->getId());
 		}
 

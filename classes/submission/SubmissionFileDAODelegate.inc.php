@@ -30,15 +30,6 @@ class SubmissionFileDAODelegate extends DAO {
 	// Abstract public methods to be implemented by subclasses.
 	//
 	/**
-	 * Return the name of the base submission entity
-	 * (i.e. 'monograph', 'paper', 'article', etc.)
-	 * @return string
-	 */
-	function getSubmissionEntityName() {
-		return 'submission';
-	}
-
-	/**
 	 * Insert a new submission file.
 	 * @param $submissionFile SubmissionFile
 	 * @param $sourceFile string The place where the physical file
@@ -307,7 +298,7 @@ class SubmissionFileDAODelegate extends DAO {
 	 */
 	function updateLocaleFields($submissionFile) {
 		// Update the locale fields.
-		$this->updateDataObjectSettings($this->getSubmissionEntityName().'_file_settings', $submissionFile, array(
+		$this->updateDataObjectSettings('submission_file_settings', $submissionFile, array(
 			'file_id' => $submissionFile->getFileId()
 		));
 	}

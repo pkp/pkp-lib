@@ -37,7 +37,7 @@ class ReviewRevisionsGridDataProvider extends ReviewGridDataProvider {
 		// of those currently assigned to the review round.
 		$reviewRound = $this->getReviewRound();
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-		$submissionFiles = $submissionFileDao->getLatestNewRevisionsByReviewRound($reviewRound, $this->getFileStage());
+		$submissionFiles = $submissionFileDao->getLatestRevisionsByReviewRound($reviewRound, $this->getFileStage());
 		return $this->prepareSubmissionFileData($submissionFiles);
 	}
 

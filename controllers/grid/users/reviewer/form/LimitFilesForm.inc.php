@@ -77,7 +77,7 @@ class LimitFilesForm extends Form {
 		// Get the list of available files for this review.
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
 		import('lib.pkp.classes.submission.SubmissionFile'); // File constants
-		$submissionFiles = $submissionFileDao->getLatestNewRevisionsByReviewRound($this->_reviewRound, SUBMISSION_FILE_REVIEW_FILE);
+		$submissionFiles = $submissionFileDao->getLatestRevisionsByReviewRound($this->_reviewRound, SUBMISSION_FILE_REVIEW_FILE);
 		$selectedFiles = (array) $this->getData('selectedFiles');
 
 		// Revoke all, then grant selected.

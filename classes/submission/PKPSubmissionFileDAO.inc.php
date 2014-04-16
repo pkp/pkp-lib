@@ -169,13 +169,13 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	}
 
 	/**
-	 * Get all files that are in the current review round, but have later
-	 * revisions.
+	 * Get the latest revisions of all files that are in the specified
+	 * review round.
 	 * @param $reviewRound ReviewRound
 	 * @param $fileStage int SUBMISSION_FILE_... (Optional)
 	 * @return array A list of SubmissionFiles.
 	 */
-	function getLatestNewRevisionsByReviewRound($reviewRound, $fileStage = null) {
+	function getLatestRevisionsByReviewRound($reviewRound, $fileStage = null) {
 		if (!$reviewRound) return array();
 		return $this->_getInternally($reviewRound->getSubmissionId(),
 			$fileStage, null, null, null, null, $reviewRound->getStageId(),
@@ -689,13 +689,8 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	function _getInternally($submissionId = null, $fileStage = null, $fileId = null, $revision = null,
 			$assocType = null, $assocId = null, $stageId = null, $uploaderUserId = null, $uploaderUserGroupId = null,
 			$reviewRoundId = null, $latestOnly = false, $rangeInfo = null) {
-
-		// Sanitize parameters.
-		$latestOnly = (boolean)$latestOnly;
-		if (!is_null($rangeInfo)) assert(is_a($rangeInfo, 'DBResultRange'));
-
 		// Retrieve the base query.
-		$sql = $this->baseQueryForFileSelection($latestOnly);
+		$sql = $this->baseQueryForFileSelection();
 
 		// Add the revision round file join if a revision round
 		// filter was requested.
@@ -703,7 +698,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 			$sql .= 'INNER JOIN review_round_files rrf
 					ON sf.submission_id = rrf.submission_id
 					AND sf.file_id = rrf.file_id
-					AND sf.revision '.($latestOnly ? '>' : '=').' rrf.revision ';
+					AND sf.revision '.($latestOnly ? '>=' : '=').' rrf.revision ';
 		}
 
 		// Filter the query.

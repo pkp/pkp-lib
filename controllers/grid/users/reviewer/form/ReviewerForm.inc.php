@@ -348,7 +348,7 @@ class ReviewerForm extends Form {
 		// Grant access for this review to all selected files.
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
 		import('lib.pkp.classes.submission.SubmissionFile'); // File constants
-		$submissionFiles = $submissionFileDao->getLatestNewRevisionsByReviewRound($currentReviewRound, SUBMISSION_FILE_REVIEW_FILE);
+		$submissionFiles = $submissionFileDao->getLatestRevisionsByReviewRound($currentReviewRound, SUBMISSION_FILE_REVIEW_FILE);
 		$selectedFiles = (array) $this->getData('selectedFiles');
 		$reviewFilesDao = DAORegistry::getDAO('ReviewFilesDAO');
 		foreach ($submissionFiles as $submissionFile) {

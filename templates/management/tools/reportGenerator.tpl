@@ -10,7 +10,6 @@
  *}
 {strip}
 {assign var="pageTitle" value="manager.statistics.reports"}
-{assign var="pageCrumbTitle" value="manager.statistics.reports"}
 {include file="common/header.tpl"}
 {/strip}
 

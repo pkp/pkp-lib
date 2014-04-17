@@ -202,6 +202,7 @@ class PKPRegistrationForm extends Form {
 
 	/**
 	 * Register a new user.
+	 * @return int|null User ID, or false on failure
 	 */
 	function execute($request) {
 		$requireValidation = Config::getVar('email', 'require_validation');
@@ -360,6 +361,7 @@ class PKPRegistrationForm extends Form {
 				unset($mail);
 			}
 		}
+		return $userId;
 	}
 
 	/**

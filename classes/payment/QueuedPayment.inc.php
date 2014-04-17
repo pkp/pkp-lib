@@ -19,7 +19,7 @@ import('lib.pkp.classes.payment.Payment');
 
 class QueuedPayment extends Payment {
 	/**
-	 * Constructor
+	 * @copydoc Payment::Payment
 	 */
 	function QueuedPayment($amount, $currencyCode, $userId = null, $assocId = null) {
 		parent::Payment($amount, $currencyCode, $userId, $assocId);

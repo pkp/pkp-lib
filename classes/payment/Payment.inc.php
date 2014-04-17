@@ -38,6 +38,10 @@ class Payment {
 
 	/**
 	 * Constructor
+	 * @param $amount number
+	 * @param $currencyCode string
+	 * @param $userId int
+	 * @param $assocId int optional
 	 */
 	function Payment($amount = null, $currencyCode = null, $userId = null, $assocId = null) {
 		$this->amount = $amount;

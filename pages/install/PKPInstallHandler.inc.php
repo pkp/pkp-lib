@@ -14,8 +14,8 @@
  */
 
 
-import('classes.install.form.InstallForm');
-import('classes.install.form.UpgradeForm');
+import('lib.pkp.classes.install.form.InstallForm');
+import('lib.pkp.classes.install.form.UpgradeForm');
 import('classes.handler.Handler');
 
 class PKPInstallHandler extends Handler {
@@ -91,7 +91,7 @@ class PKPInstallHandler extends Handler {
 			$request->setCookieVar('currentLocale', $setLocale);
 		}
 
-		$installForm = new UpgradeForm();
+		$installForm = new UpgradeForm($request);
 		$installForm->initData();
 		$installForm->display();
 	}
@@ -105,7 +105,7 @@ class PKPInstallHandler extends Handler {
 		$this->validate($request);
 		$this->setupTemplate($request);
 
-		$installForm = new UpgradeForm();
+		$installForm = new UpgradeForm($request);
 		$installForm->readInputData();
 
 		if ($installForm->validate()) {

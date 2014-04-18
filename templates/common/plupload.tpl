@@ -7,7 +7,7 @@
  *
  * Components of the header related to plupload
  *}
-	<script src="{$baseUrl}/lib/pkp/js/lib/plupload/plupload.full.js"></script>
+	<script src="{$baseUrl}/lib/pkp/js/lib/plupload/plupload.full.min.js"></script>
 	<script src="{$baseUrl}/lib/pkp/js/lib/plupload/jquery.ui.plupload/jquery.ui.plupload.js"></script>
 
 	{if in_array($currentLocale, array('fr_CA', 'pt_BR'))}

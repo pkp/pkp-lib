@@ -1,12 +1,2 @@
-// .po file like language pack
-plupload.addI18n({
-	'Select files' : 'Vælg filer',
-	'Add files to the upload queue and click the start button.' : 'Tilføj filer til køen, og tryk på start.',
-	'Filename' : 'Filnavn',
-	'Status' : 'Status',
-	'Size' : 'Størrelse',
-	'Add files' : 'Tilføj filer',
-	'Stop current upload' : 'Stop upload',
-	'Start uploading queue' : 'Start upload',
-	'Drag files here.' : 'Træk filer her.'
-});
+// Danish (da)
+plupload.addI18n({"Stop Upload":"Stop Upload","Upload URL might be wrong or doesn't exist.":"Upload URL might be wrong or doesn't exist.","tb":"","Size":"Størrelse","Close":"Close","Init error.":"Init error.","Add files to the upload queue and click the start button.":"Tilføj filer til køen","Filename":"Filnavn","Image format either wrong or not supported.":"Image format either wrong or not supported.","Status":"Status","HTTP Error.":"HTTP Error.","Start Upload":"Start Upload","mb":"","kb":"","Duplicate file error.":"","File size error.":"File size error.","N/A":"N/A","gb":"","Error: Invalid file extension:":"Error: Invalid file extension:","Select files":"Vælg filer","%s already present in the queue.":"","File: %s":"File: %s","b":"","Uploaded %d/%d files":"Uploaded %d/%d files","Upload element accepts only %d file(s) at a time. Extra files were stripped.":"Upload element accepts only %d file(s) at a time. Extra files were stripped.","%d files queued":"%d files queued","File: %s, size: %d, max file size: %d":"","Drag files here.":"Træk filer her.","Runtime ran out of available memory.":"Runtime ran out of available memory.","File count error.":"File count error.","File extension error.":"File extension error.","Error: File too large:":"Error: File too large:","Add Files":"Add Files"});

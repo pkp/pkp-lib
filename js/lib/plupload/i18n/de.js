@@ -1,24 +1,2 @@
-// German
-plupload.addI18n({
-    'Select files' : 'Dateien hochladen',
-    'Add files to the upload queue and click the start button.' : 'Dateien hinzuf&uuml;gen und auf \'Hochladen\' klicken.',
-    'Filename' : 'Dateiname',
-    'Status' : 'Status',
-    'Size' : 'Gr&ouml;&szlig;e',
-    'Add files' : 'Dateien', // hinzuf&uuml;gen',
-    'Stop current upload' : 'Aktuelles Hochladen stoppen',
-    'Start uploading queue' : 'Hochladen starten',
-    'Uploaded %d/%d files': '%d/%d Dateien sind hochgeladen',
-    'N/A' : 'Nicht verf&uuml;gbar',
-    'Drag files here.' : 'Ziehen Sie die Dateien hier hin',
-    'File extension error.': 'Fehler bei Dateiendung',
-    'File size error.': 'Fehler bei Dateigr&ouml;ße',
-    'Init error.': 'Initialisierungsfehler',
-    'HTTP Error.': 'HTTP-Fehler',
-    'Security error.': 'Sicherheitsfehler',
-    'Generic error.': 'Typischer Fehler',
-    'IO error.': 'Ein/Ausgabe-Fehler',
-    'Stop Upload': 'Hochladen stoppen',
-    'Start upload': 'Hochladen',
-    '%d files queued': '%d Dateien in der Warteschlange'
-});
+// German (de)
+plupload.addI18n({"Stop Upload":"Hochladen stoppen","Upload URL might be wrong or doesn't exist.":"Upload-URL ist falsch oder existiert nicht.","tb":"TB","Size":"Gr&ouml;&szlig;e","Close":"Schließen","Init error.":"Initialisierungsfehler","Add files to the upload queue and click the start button.":"Dateien hinzuf&uuml;gen und auf 'Hochladen' klicken.","Filename":"Dateiname","Image format either wrong or not supported.":"Bildformat falsch oder nicht unterst&uuml;tzt.","Status":"Status","HTTP Error.":"HTTP-Fehler","Start Upload":"Upload beginnen","mb":"MB","kb":"kB","Duplicate file error.":"","File size error.":"Fehler bei Dateigr&ouml;ße","N/A":"Nicht verf&uuml;gbar","gb":"GB","Error: Invalid file extension:":"Fehler: Ungültige Dateiendung:","Select files":"Dateien hochladen","%s already present in the queue.":"","File: %s":"Datei: %s","b":"B","Uploaded %d/%d files":"%d/%d Dateien sind hochgeladen","Upload element accepts only %d file(s) at a time. Extra files were stripped.":"Der Uploader akzeptiert nur %d Datei(en) pro Durchgang. Überzählige Dateien wurden abgetrennt.","%d files queued":"%d Dateien in der Warteschlange","File: %s, size: %d, max file size: %d":"Datei: %s, Größe: %d, maximale Dateigröße: %d","Drag files here.":"Ziehen Sie die Dateien hier hin","Runtime ran out of available memory.":"Runtime ran out of available memory.","File count error.":"File count error.","File extension error.":"Fehler bei Dateiendung","Error: File too large:":"Fehler: Datei zu groß:","Add Files":"Dateien hinzufügen"});

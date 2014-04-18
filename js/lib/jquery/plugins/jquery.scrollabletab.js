@@ -6,7 +6,7 @@
  * @author Aamir Afridi - aamirafridi(at)gmail(dot)com | http://www.aamirafridi.com
  * @version 1.0
  */
- 
+
 ;(function($){
 	//Global plugin settings
 	var settings = {
@@ -33,12 +33,12 @@
 			$tabs = $(this),
 			$tabsNav = $tabs.find('.ui-tabs-nav'),
 			$nav;//will save the refrence for the wrapper having next and previous buttons
-			
+
 			//Adjust the css class
 			//$tabsNav.removeClass('ui-corner-all').addClass('ui-corner-top');
 			$tabs.css({'padding':2, 'position':'relative'});
 			//$tabsNav.css('position','inherit');
-						
+
 			//Wrap inner items
 			$tabs.wrap('<div id="stTabswrapper" class="stTabsMainWrapper" style="position:relative"/>').find('.ui-tabs-nav').css('overflow','hidden').wrapInner('<div class="stTabsInnerWrapper" style="width:30000px"><span class="stWidthChecker"/></div>');
 			var $widthChecker = $tabs.find('.stWidthChecker'),
@@ -73,7 +73,7 @@
 					alert('Error:\nCannot be resizable because "jQuery.resizable" plugin is not available.');
 				}
 			}
-			
+
 
 			//Add navigation icons
 				//Total height of nav/2 - total height of arrow/2
@@ -116,10 +116,10 @@
 							})
 					)
 			);
-			
+
 			//Bind events to the $tabs
 			$tabs
-			.bind('tabsremove', function(){ 
+			.bind('tabsremove', function(){
   				$tabs.trigger('scrollToTab').trigger('navHandler').trigger('navEnabler');
 			})
 			.bind('addCloseButton',function(){
@@ -179,7 +179,7 @@
 				//Scroll the pane to the last tab
 				var navWidth = $nav.is(':visible') ? $nav.find('.stPrev').outerWidth(true) : 0;
 				//debug($tabToScrollTo.prevAll().length)
-				
+
 				offsetLeft = -($tabs.width()-($tabToScrollTo.outerWidth(true)+navWidth+parseInt($tabsNav.find('li:last').css('margin-right'),10)));
 				offsetLeft = (clickedFrom=='tabClicked' && hiddenOnSide=='left') ? -navWidth : offsetLeft;
 				offsetLeft = (clickedFrom=='tabClicked' && hiddenOnSide=='right') ? offsetLeft : offsetLeft;
@@ -242,7 +242,7 @@
 			//For the tabs that already exists
 			.trigger('navHandler')
 			.trigger('navEnabler');
-			
+
 			//Select last tab if option is true
 			if(o.loadLastTab)
 			{

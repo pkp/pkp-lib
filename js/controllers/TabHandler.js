@@ -60,12 +60,8 @@
 
 		// Render the tabs as jQueryUI tabs.
 		$tabs.tabs({
-			// Enable AJAX-driven tabs with JSON messages.
-			ajaxOptions: {
-				cache: false,
-				dataFilter: this.callbackWrapper(this.dataFilter)
-			},
-			selected: options.selected,
+			beforeLoad: this.callbackWrapper(this.beforeLoad),
+			active: options.selected,
 			disabled: options.disabled
 		});
 
@@ -189,6 +185,19 @@
 		return true;
 	};
 
+	/**
+	 * Callback that that is triggered before the tab is loaded
+	 *
+	 * @param {HTMLElement} tabsElement The tab element that triggered
+	 *  the event.
+	 * @param {Event} event The triggered event.
+	 * @param {Object} ui The tabs ui data.
+	 */
+	$.pkp.controllers.TabHandler.prototype.beforeLoad =
+			function(tabsElement, event, ui) {
+		ui.ajaxSettings.cache = false;
+		ui.ajaxSettings.dataFilter = this.callbackWrapper(this.dataFilter);
+	};
 
 	/**
 	 * Callback that processes AJAX data returned by the server before

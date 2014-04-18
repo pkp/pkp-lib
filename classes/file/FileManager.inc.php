@@ -197,7 +197,7 @@ class FileManager {
 	 * Read a file's contents.
 	 * @param $filePath string the location of the file to be read
 	 * @param $output boolean output the file's contents instead of returning a string
-	 * @return boolean
+	 * @return string|boolean
 	 */
 	function readFile($filePath, $output = false) {
 		if (is_readable($filePath)) {
@@ -213,15 +213,13 @@ class FileManager {
 			fclose($f);
 
 			if ($output) {
-				$returner = true;
-				return $returner;
+				return true;
 			} else {
 				return $data;
 			}
 
 		} else {
-			$returner = false;
-			return $returner;
+			return false;
 		}
 	}
 

@@ -234,7 +234,7 @@ class PKPSignoffFilesGridHandler extends CategoryGridHandler {
 
 
 	/**
-	 * Get the email key
+	 * Get the event type
 	 */
 	function getEventType() {
 		return $this->_eventType;

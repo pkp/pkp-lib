@@ -96,17 +96,17 @@
 	 * @inheritDoc
 	 */
 	$.pkp.controllers.wizard.fileUpload.FileUploadWizardHandler.
-			prototype.tabsSelect = function(tabsElement, event, ui) {
+			prototype.tabsBeforeActivate = function(tabsElement, event, ui) {
 
 		// The last two tabs require a file to be uploaded.
-		if (ui.index > 0) {
+		if (ui.newTab.index() > 0) {
 			if (!this.uploadedFile_) {
 				throw new Error('Uploaded file missing!');
 			}
 
 			// Set the correct URLs.
 			var $wizard = this.getHtmlElement(), newUrl = '';
-			switch (ui.index) {
+			switch (ui.newTab.index()) {
 				case 1:
 					newUrl = this.metadataUrl_;
 					break;
@@ -120,11 +120,11 @@
 			}
 
 			newUrl = newUrl + '&fileId=' + this.uploadedFile_.fileId;
-			$wizard.tabs('url', ui.index, newUrl);
+			ui.newTab.find('.ui-tabs-anchor').attr('href', newUrl);
 		}
 
 		return /** @type {boolean} */ (
-				this.parent('tabsSelect', tabsElement, event, ui));
+				this.parent('tabsBeforeActivate', tabsElement, event, ui));
 	};
 
 
@@ -158,7 +158,7 @@
 		$wizard.tabs('enable', targetStep);
 
 		// Advance to the target step.
-		$wizard.tabs('select', targetStep);
+		$wizard.tabs('option', 'active', targetStep);
 
 		// Disable the previous step if it is the first one.
 		if (currentStep === 0) {
@@ -188,7 +188,7 @@
 
 		// In the last step: Bind click a event to the button that re-starts
 		// the upload process.
-		if (ui.index === 2) {
+		if (ui.tab.index() === 2) {
 			$newFileButton = $('#newFile', $wizard);
 			if ($newFileButton.length !== 1) {
 				throw new Error('Did not find "new file" button!');

@@ -296,7 +296,7 @@
 		$wizard.tabs('enable', targetStep);
 
 		// Advance to the target step.
-		$wizard.tabs('select', targetStep);
+		$wizard.tabs('option', 'active', targetStep);
 
 		// Disable the previous step.
 		$wizard.tabs('disable', currentStep);
@@ -334,7 +334,7 @@
 			$wizard.tabs('enable', 0);
 
 			// Go to the first step.
-			$wizard.tabs('select', 0);
+			$wizard.tabs('option', 'active', 0);
 
 			// Reset the continue button label.
 			$continueButton = this.getContinueButton();

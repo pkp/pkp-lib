@@ -32,8 +32,9 @@
 		this.parent($tabs, options);
 
 		// Attach the tabs event handlers.
-		this.bind('tabsselect', this.tabsSelect);
-		this.bind('tabsshow', this.tabsShow);
+		this.bind('tabsbeforeactivate', this.tabsBeforeActivate);
+		this.bind('tabsactivate', this.tabsActivate);
+		this.bind('tabscreate', this.tabsCreate);
 		this.bind('tabsload', this.tabsLoad);
 		this.bind('containerReloadRequested', this.tabsReloadRequested);
 		this.bind('addTab', this.addTab);
@@ -123,7 +124,7 @@
 	 * @param {Object} ui The tabs ui data.
 	 * @return {boolean} Should return true to continue tab loading.
 	 */
-	$.pkp.controllers.TabHandler.prototype.tabsSelect =
+	$.pkp.controllers.TabHandler.prototype.tabsBeforeActivate =
 			function(tabsElement, event, ui) {
 
 		var unsavedForm = false;
@@ -159,9 +160,8 @@
 		return true;
 	};
 
-
 	/**
-	 * Event handler that is called when a tab is shown.
+	 * Event handler that is called when a tab is created.
 	 *
 	 * @param {HTMLElement} tabsElement The tab element that triggered
 	 *  the event.
@@ -169,18 +169,35 @@
 	 * @param {{panel: jQueryObject}} ui The tabs ui data.
 	 * @return {boolean} Should return true to continue tab loading.
 	 */
-	$.pkp.controllers.TabHandler.prototype.tabsShow =
+	$.pkp.controllers.TabHandler.prototype.tabsCreate =
 			function(tabsElement, event, ui) {
 
 		// Save a reference to the current tab.
 		this.$currentTab_ = (ui.panel.jquery ? ui.panel : $(ui.panel));
 
-		// Save the tab index.
-		this.currentTabIndex_ = ui.index;
-
 		return true;
 	};
 
+	/**
+	 * Event handler that is called when a tab is activated.
+	 *
+	 * @param {HTMLElement} tabsElement The tab element that triggered
+	 *  the event.
+	 * @param {Event} event The triggered event.
+	 * @param {{panel: jQueryObject}} ui The tabs ui data.
+	 * @return {boolean} Should return true to continue tab loading.
+	 */
+	$.pkp.controllers.TabHandler.prototype.tabsActivate =
+			function(tabsElement, event, ui) {
+
+		// Save a reference to the current tab.
+		this.$currentTab_ = (ui.newPanel.jquery ? ui.newPanel : $(ui.newPanel));
+
+		// Save the tab index.
+		this.currentTabIndex_ = ui.newTab.index();
+
+		return true;
+	};
 
 	/**
 	 * Event handler that is called after a remote tab was loaded.
@@ -273,7 +290,7 @@
 
 		var $element = this.getHtmlElement();
 		$element.tabs('add', jsonContent.url, jsonContent.title)
-				.tabs('select', $element.tabs('length') - 1);
+				.tabs('option', 'active', $element.tabs('length') - 1);
 	};
 
 

@@ -73,7 +73,7 @@ class ReviewFormGridRow extends GridRow {
 							$router->url($request, null, null, 'copyReviewForm', null, array('rowId' => $rowId))
 							),
 						__('grid.action.copy'),
-						'copy' // FIXME need icon
+						'copy'
 						)
 				);
 			}
@@ -89,7 +89,7 @@ class ReviewFormGridRow extends GridRow {
 						true
 					),
 					__('grid.action.preview'),
-					'preview' // FIXME need icon
+					'preview'
 				)
 			);
 

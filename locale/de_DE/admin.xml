@@ -59,6 +59,7 @@
 	<message key="admin.settings.homeHeaderImageInvalid">Ungültiges Bildformat für das Logo der Website. Gültige Formate sind .gif, .jpg oder .png.</message>
 	<message key="admin.settings.introduction">Einleitung</message>
 	<message key="admin.settings.minPasswordLength">Mindestlänge des Passworts</message>
+	<message key="admin.settings.oneStepReset">Passwort in einem einzigen Schritt zurücksetzen?</message>
 	<message key="admin.settings.oaiRegistration">Registrieren Sie die Website für die Indizierung (Metadaten-Harvesting).</message>
 	<message key="admin.settings.passwordCharacters">Zeichen</message>
 	<message key="admin.settings.siteLanguage">Sprache der Website</message>

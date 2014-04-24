@@ -7,8 +7,8 @@
   * Copyright (c) 2013-2014 Simon Fraser University Library
   * Copyright (c) 2000-2014 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
-  *
   * Localization strings for the de_DE (Deutsch (Deutschland)) locale.
+  * Please contact Marco Tullney, marco.tullney@fu-berlin.de, with any questions regarding this translation.
   *
   -->
 
@@ -59,6 +59,7 @@
 	<message key="admin.settings.homeHeaderImageInvalid">Ungültiges Bildformat für das Logo der Website. Gültige Formate sind .gif, .jpg oder .png.</message>
 	<message key="admin.settings.introduction">Einleitung</message>
 	<message key="admin.settings.minPasswordLength">Mindestlänge des Passworts</message>
+	<message key="admin.settings.oneStepReset">Passwort in einem einzigen Schritt zurücksetzen?</message>
 	<message key="admin.settings.oaiRegistration">Registrieren Sie die Website für die Indizierung (Metadaten-Harvesting).</message>
 	<message key="admin.settings.passwordCharacters">Zeichen</message>
 	<message key="admin.settings.siteLanguage">Sprache der Website</message>

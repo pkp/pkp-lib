@@ -1,12 +1,12 @@
 <?php
 
 /**
- * @file pages/management/PKPToolsHandler.inc.php
+ * @file pages/management/ToolsHandler.inc.php
  *
  * Copyright (c) 2003-2013 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPToolsHandler
+ * @class ToolsHandler
  * @ingroup pages_management
  *
  * @brief Handle requests for Tool pages.
@@ -17,11 +17,11 @@ import('lib.pkp.pages.management.ManagementHandler');
 
 define('IMPORTEXPORT_PLUGIN_CATEGORY', 'importexport');
 
-class PKPToolsHandler extends ManagementHandler {
+class ToolsHandler extends ManagementHandler {
 	/**
 	 * Constructor.
 	 */
-	function PKPToolsHandler() {
+	function ToolsHandler() {
 		parent::Handler();
 		$this->addRoleAssignment(
 			ROLE_ID_MANAGER,

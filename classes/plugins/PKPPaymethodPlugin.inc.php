@@ -40,19 +40,6 @@ abstract class PKPPaymethodPlugin extends Plugin {
 	}
 
 	/**
-	 * Get the name of this plugin. The name must be unique within
-	 * its category, and should be suitable for part of a filename
-	 * (ie short, no spaces, and no dependencies on cases being unique).
-	 * @return String name of plugin
-	 */
-	abstract function getName();
-
-	/**
-	 * Get a description of this plugin.
-	 */
-	abstract function getDescription();
-
-	/**
 	 * @see Plugin::getTemplatePath($inCore)
 	 */
 	function getTemplatePath($inCore = false) {
@@ -62,11 +49,10 @@ abstract class PKPPaymethodPlugin extends Plugin {
 	/**
 	 * Display the payment form.
 	 * @param $queuedPaymentId int
-	 * @param $key string
 	 * @param $queuedPayment QueuedPayment
 	 * @param $request PKPRequest
 	 */
-	abstract function displayPaymentForm($queuedPaymentId, $key, &$queuedPayment, $request);
+	abstract function displayPaymentForm($queuedPaymentId, $queuedPayment, $request);
 
 	/**
 	 * Determine whether or not the payment plugin is configured for use.

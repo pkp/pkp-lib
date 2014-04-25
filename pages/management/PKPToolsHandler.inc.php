@@ -15,6 +15,8 @@
 // Import the base ManagementHandler.
 import('lib.pkp.pages.management.ManagementHandler');
 
+define('IMPORTEXPORT_PLUGIN_CATEGORY', 'importexport');
+
 class PKPToolsHandler extends ManagementHandler {
 	/**
 	 * Constructor.
@@ -23,7 +25,7 @@ class PKPToolsHandler extends ManagementHandler {
 		parent::Handler();
 		$this->addRoleAssignment(
 			ROLE_ID_MANAGER,
-			array('tools')
+			array('tools', 'importexport')
 		);
 	}
 
@@ -48,7 +50,7 @@ class PKPToolsHandler extends ManagementHandler {
 				$this->index($args, $request);
 				break;
 			case 'statistics':
-				$this->statisticcs($args, $request);
+				$this->statistics($args, $request);
 				break;
 			case 'report':
 				$this->report($args, $request);
@@ -78,11 +80,30 @@ class PKPToolsHandler extends ManagementHandler {
 	}
 
 	/**
+	 * Import or export data.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 */
+	function importexport($args, $request) {
+		$this->setupTemplate($request, true);
+
+		PluginRegistry::loadCategory(IMPORTEXPORT_PLUGIN_CATEGORY);
+		$templateMgr = TemplateManager::getManager($request);
+
+		if (array_shift($args) === 'plugin') {
+			$pluginName = array_shift($args);
+			$plugin =& PluginRegistry::getPlugin(IMPORTEXPORT_PLUGIN_CATEGORY, $pluginName);
+			if ($plugin) return $plugin->display($args, $request);
+		}
+		$templateMgr->assign('plugins', PluginRegistry::getPlugins(IMPORTEXPORT_PLUGIN_CATEGORY));
+		$templateMgr->display('manager/importexport/plugins.tpl');
+	}
+	/**
 	 * Display the
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function statisticcs($args, $request) {
+	function statistics($args, $request) {
 		$this->setupTemplate($request);
 		$context = $request->getContext();
 

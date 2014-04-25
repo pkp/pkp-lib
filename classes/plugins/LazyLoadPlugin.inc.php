@@ -16,7 +16,7 @@
 
 import('lib.pkp.classes.plugins.Plugin');
 
-class LazyLoadPlugin extends Plugin {
+abstract class LazyLoadPlugin extends Plugin {
 	/**
 	 * Constructor
 	 */

@@ -24,26 +24,6 @@ abstract class PKPImportExportPlugin extends Plugin {
 	}
 
 	/**
-	 * Get the name of this plugin. The name must be unique within
-	 * its category.
-	 * @return String name of plugin
-	 */
-	abstract function getName();
-
-	/**
-	 * Get the display name of this plugin. This name is displayed on the
-	 * Journal Manager's import/export page, for example.
-	 * @return String
-	 */
-	abstract function getDisplayName();
-
-	/**
-	 * Get a description of the plugin.
-	 * @return string
-	 */
-	abstract function getDescription();
-
-	/**
 	 * Display the import/export plugin UI.
 	 * @param $args array The array of arguments the user supplied.
 	 * @param $request Request
@@ -78,18 +58,6 @@ abstract class PKPImportExportPlugin extends Plugin {
 			)
 		);
 	}
-
- 	/**
-	 * @see Plugin::manage()
-	 */
-	abstract function manage($verb, $args, &$message, &$messageParams, &$pluginModalContent = null);
-
-	/**
-	 * Extend the {url ...} smarty to support import/export plugins.
-	 * @param $params array
-	 * @param $smarty Smarty
-	 */
-	abstract function smartyPluginUrl($params, $smarty);
 }
 
 ?>

@@ -169,7 +169,7 @@ class PluginGridHandler extends CategoryGridHandler {
 						1, 0, 0, 0, // Major, minor, revision, build
 						Core::getCurrentDate(), // Date installed
 						1,	// Current
-						'plugins.'.$category, // Type
+						'plugins.'.$plugin->getCategory(), // Type
 						basename($plugin->getPluginPath()), // Product
 						'',	// Class name
 						0,	// Lazy load

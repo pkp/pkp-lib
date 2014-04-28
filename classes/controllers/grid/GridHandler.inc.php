@@ -10,7 +10,27 @@
  * @class GridHandler
  * @ingroup classes_controllers_grid
  *
- * @brief Class defining basic operations for handling HTML grids.
+ * @brief This class defines basic operations for handling HTML grids. Grids
+ *  are used to implement a standardized listing of elements, as would commonly
+ *  be laid out in an HTML table, permitting rows, columns, row actions (such
+ *  as "delete" and "edit" actions, which operate on a single row), and grid
+ *  actions (such as "new element", which operates on the grid as a whole), and
+ *  other functionality to be implemented consistently.
+ *
+ * An implemented grid consists of several classes, with a subclass of
+ * GridHandler as the centerpiece. Each row is described by an instance of a
+ * GridRow, which is generally extended for the row in question; each column
+ * is described by an instance of GridColumn (for which several generic columns
+ * are implemented). Often grids will make use of a specific subclass of
+ * DataProvider in order to prepare data for display in the grid.
+ *
+ * Actions (be they row or grid actions) are implemented by LinkAction
+ * instances.
+ *
+ * There are several subclasses of GridHandler that provide generalized grids
+ * of particular forms, such as CategoryGridHandler and ListbuilderHandler.
+ *
+ * The JavaScript front-end is described at <http://pkp.sfu.ca/wiki/index.php?title=JavaScript_widget_controllers#Grids>.
  */
 
 // Import the base Handler.

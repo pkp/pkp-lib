@@ -10,11 +10,15 @@
  * @class GridRow
  * @ingroup controllers_grid
  *
- * @brief Class defining basic operations for handling HTML gridRows.
+ * @brief GridRow implements a row of a Grid. See GridHandler for general
+ *  information about grids.
  *
- * NB: If you want row-level refresh then you must override the getData() method
- *  so that it fetches data (e.g. from the database) when called. The data to be
- *  fetched can be determined from the id (=row id) which is always set.
+ * Each Grid is populated with data that is displayed in a series of rows. Each
+ * row is implemented using a GridRow, which knows how to describe the data it
+ * represents, and can present and manage row actions such as Edit and Delete
+ * operations.
+ *
+ * For general information on grids, see GridHandler.
  */
 
 define('GRID_ACTION_POSITION_ROW_CLICK', 'row-click');

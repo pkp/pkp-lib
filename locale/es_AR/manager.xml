@@ -240,4 +240,6 @@
 	<message key="plugins.categories.citationOutput.description">Los plugins de generación de citas, implementan formas estándares de citas. Lo que sustituye a los plugins de fformto de citas.</message>
 	<message key="plugins.categories.citationParser">Plugins de Extracción de Citas.</message>
 	<message key="plugins.categories.citationParser.description">Los plugins de extracción de citas extraen los datos de los campos para las citaciones en texto. (ej: autor, titulo, etc)</message>
+	<message key="manager.statistics.city">Ciudad</message>
+	<message key="manager.statistics.region">Región</message>
 </locale>

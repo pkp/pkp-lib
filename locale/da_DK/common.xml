@@ -383,4 +383,9 @@
 	<message key="search.cli.rebuildIndex.indexingByJournalNotSupported">Denne søgeimplementering tillader ikke reindeksering af hver enkelt tidsskrift.</message>
 	<message key="search.cli.rebuildIndex.result">{$numIndexed} artikler indekseret</message>
 	<message key="search.cli.rebuildIndex.unknownJournal">Den foreliggende tidsskriftssti "{$journalPath}" leder ikke til et tidsskrift.</message>
+	<message key="common.error">Fejl</message>
+	<message key="common.metric">Måling</message>
+	<message key="common.count">Count</message>
+	<message key="defaultMetric.title">Standardmåling</message>
+	<message key="defaultMetric.availableMetrics">Tilgængelioge målinger</message>
 </locale>

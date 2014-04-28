@@ -17,12 +17,12 @@
 	<message key="comments.anonymousNamed">"{$userName}"</message>
 	<message key="comments.body">正文</message>
 	<message key="comments.titleRequired">评论的标题是必须的.</message>
-	<message key="comments.confirmDeleteChildren">删除此评论将同时删除任何回复。您确定要做到这一点?</message>
+	<message key="comments.confirmDeleteChildren">删除此评论将同时删除任何回复。您确定这么做?</message>
 	<message key="comments.delete">删除这个评论</message>
 	<message key="comments.email">提交人电子邮箱</message>
 	<message key="comments.emailReply">回复电子邮件</message>
 	<message key="comments.enterComment">输入评论</message>
-	<message key="comments.inResponseTo">在回应 <![CDATA[<a href="]]>{$url}<![CDATA[">]]>{$title}<![CDATA[</a>]]></message>
+	<message key="comments.inResponseTo"><![CDATA[在回应 <a href="{$url}">{$title}</a>]]></message>
 	<message key="comments.name">提交人姓名</message>
 	<message key="comments.noComments">没有已经发布的读者评论.</message>
 	<message key="comments.nReplies">({$num} 回复)</message>
@@ -69,12 +69,12 @@
 	<message key="rt.admin.searches.confirmDelete">您确认删除这个搜索?</message>
 	<message key="rt.admin.searches.createSearch">创建搜索</message>
 	<message key="rt.admin.searches.edit.editSearch">编辑搜索</message>
-	<message key="rt.admin.selectedVersion">相关项目</message>
+	<message key="rt.admin.selectedVersion">相关文章</message>
 	<message key="rt.admin.settings.abstract">摘要 (介绍项目的摘要).</message>
 	<message key="rt.admin.settings.authorBio">关于作者 (显示由作者提供的简介).</message>
 	<message key="rt.admin.settings.captureCite">如何印证项目 (提供书目详细项目).</message>
 	<message key="rt.admin.settings.defineTerms">查找名词 (使读者双击单词中的任何一个项目并把单词发送到词典).</message>
-	<message key="rt.admin.settings.disableRelatedItems">禁用相关项目</message>
+	<message key="rt.admin.settings.disableRelatedItems">禁用相关文章</message>
 	<message key="rt.admin.settings.emailAuthor">电子邮件通知作者(指向一个带有作者邮箱的电子邮件模板).</message>
 	<message key="rt.admin.settings.emailOthers">通知同事 (指向一个的带有链接到项目的电子邮件模板).</message>
 	<message key="rt.admin.settings.findingReferences">查找参考文献</message>
@@ -94,11 +94,11 @@
 	<message key="rt.admin.versions.edit.editVersion">编辑版本</message>
 	<message key="rt.admin.versions.export">导出</message>
 	<message key="rt.admin.versions.importVersion">导入版本</message>
-	<message key="rt.admin.versions.metadata">源数据</message>
+	<message key="rt.admin.versions.metadata">元数据</message>
 	<message key="rt.admin.versions.restoreVersions">恢复到默认版本</message>
 	<message key="rt.authorBio">关于作者</message>
-	<message key="rt.captureCite.format">印证格式</message>
-	<message key="rt.captureCite">如何引证项目</message>
+	<message key="rt.captureCite.format">引用格式</message>
+	<message key="rt.captureCite">如何引用文章</message>
 	<message key="rt.captureCite.online">在线</message>
 	<message key="rt.colleague">通知同事</message>
 	<message key="rt.context.abbrev">缩写</message>
@@ -111,7 +111,7 @@
 	<message key="rt.contexts">语境</message>
 	<message key="rt.context.searchDescription">作者已经选择了搜寻词汇。读者可以变更或者删除它们，同时以两到三个准确的词汇或片语进行最佳的布尔逻辑(AND)搜寻。要学习更多关于搜寻资源的信息，请点击「介绍」。这些资源是基于其关连性与开放（自由）阅读所有或部分内容而被选取的.</message>
 	<message key="rt.context.searchTerms">搜索项目</message>
-	<message key="rt.context.termToDefine">Word to define</message>
+	<message key="rt.context.termToDefine">特定词语</message>
 	<message key="rt.context.title">标题</message>
 	<message key="rt.emailAuthor">发送邮件给作者</message>
 	<message key="rt.email.needLogin"><![CDATA[* 必填 <a target="_parent" href="{$loginUrl}">注册</a>]]></message>
@@ -156,7 +156,7 @@
 	<message key="rt.metadata.pkp.uri">环球资源指标</message>
 	<message key="rt.printVersion">打印版本</message>
 	<message key="rt.readingTools">阅读工具</message>
-	<message key="rt.relatedItems">相关项目</message>
+	<message key="rt.relatedItems">相关文章</message>
 	<message key="rt.reviewPolicy">审查政策</message>
 	<message key="rt.search.description">描述</message>
 	<message key="rt.searches">搜索</message>

@@ -87,4 +87,7 @@
 	<message key="admin.fileLoader.pathNotAccessible">El directorio {$path} no es un deirectorio o no se puede leer.</message>
 	<message key="admin.fileLoader.moveFileFailed">El fichero {$filename} no se puede mover desde {$currentFilePath} a {$destinationPath}</message>
 	<message key="admin.fileLoader.emailSubject">ID {$processId} del proceso que carga el archivo.</message>
+	<message key="admin.scheduledTask">Tarea programada</message>
+	<message key="admin.settings.oneStepReset">Utilizar un sólo paso para el reinicio de contraseñas?</message>
+	<message key="admin.fileLoader">Cargador de archivos</message>
 </locale> 

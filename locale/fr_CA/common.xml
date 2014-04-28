@@ -387,4 +387,8 @@
 	<message key="search.cli.rebuildIndex.unknownJournal">Le chemin d'accès suivant "{$journalPath}" n'a pu être rattaché à une revue.</message>
 	<message key="search.deleteFilter">Effacer</message>
 	<message key="search.indexTermsLong">Tous les champs d'index</message>
+	<message key="common.metric">Métrique</message>
+	<message key="common.count">Décompte</message>
+	<message key="defaultMetric.title">Métrique (par défaut)</message>
+	<message key="defaultMetric.availableMetrics">Métriques</message>
 </locale>

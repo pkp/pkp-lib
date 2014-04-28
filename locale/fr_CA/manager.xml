@@ -116,7 +116,7 @@
 	<message key="manager.people.enrollUserAs">Inscrire l'utilisateur en tant que</message>
 	<message key="manager.people.invalidUser">Désolé, l'utilisateur demandé n'existe pas.</message>
 	<message key="manager.people.mergeUser">Fusionner l'utilisateur</message>
-	<message key="manager.people.mergeUsers.confirm">Êtes-vous certain de vouloir fusionner le compte ayant le nom d'utilisateur "{$oldUsername}" avec le compte ayant le nom d'utilisateur "{$newUsername}"? Le compte ayant le nom d'utilisateur "{$oldUsername}" n'existera plus par la suite. Cette action est irréversible.</message>
+	<message key="manager.people.mergeUsers.confirm">Êtes-vous certain de vouloir fusionner le(s) {$oldAccountCount} compte(s) avec le compte ayant le nom d'utilisateur "{$newUsername}"? Le(s) {$oldAccountCount} compte(s) seront supprimés. Cette action est irréversible.</message>
 	<message key="manager.people.mergeUsers">Fusionner les utilisateurs</message>
 	<message key="manager.people.mustChooseRole">Veuillez sélectionner un rôle en haut de la page avant de cliquer sur « Inscrire un utilisateur ».</message>
 	<message key="manager.people.mustProvideName">Veuillez d'abord fournir au moins un nom de famille pour l'utilisateur.</message>

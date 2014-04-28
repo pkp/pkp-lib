@@ -240,4 +240,6 @@
 	<message key="plugins.categories.citationOutput.description">Citation Output Plugins indsætter referencestandarder. Dette erstatter Citation Format Plugins (Plug-ins til citatformater).</message>
 	<message key="plugins.categories.citationParser">Citation Extraction Plugins</message>
 	<message key="plugins.categories.citationParser.description">Citation Extraction Plugins henter data fra ubearbejdede referencer på feltniveau (f.eks. forfatter, titel osv.)</message>
+	<message key="manager.statistics.city">By</message>
+	<message key="manager.statistics.region">Region</message>
 </locale>

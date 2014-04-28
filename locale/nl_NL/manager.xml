@@ -240,4 +240,6 @@
 	<message key="plugins.categories.citationParser">Citatie extractie plugins</message>
 	<message key="plugins.categories.citationParser.description">Citatie extractie plugins extraheren velden uit citaties (auteur, titel, etc).</message>
 	<message key="manager.masthead.title">Redactieteam</message>
+	<message key="manager.statistics.city">Stad</message>
+	<message key="manager.statistics.region">Regio</message>
 </locale>

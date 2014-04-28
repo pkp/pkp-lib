@@ -125,4 +125,5 @@
 	<message key="user.profile.form.passwordSameAsOld">Su nueva clave es la misma que la anterior clave.</message>
 	<message key="user.profile.form.usergroupRequired">Un  grupo de usuario es requerido</message>
 	<message key="user.suffix">Subfijo</message>
+	<message key="user.profile.form.hashInvalid">El hash de reseteo de claves que esta intentando utilizar no es válido.</message>
 </locale>

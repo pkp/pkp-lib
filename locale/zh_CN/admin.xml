@@ -71,11 +71,11 @@
 	<message key="admin.versionBuild">Build</message>
 	<message key="admin.version.checkForUpdates">检查更新</message>
 	<message key="admin.version.downloadPackage">下载</message>
-	<message key="admin.version.downloadPatch">现在不定</message>
+	<message key="admin.version.downloadPatch">下载补丁</message>
 	<message key="admin.versionHistory">版本历史</message>
 	<message key="admin.version.latest">最新版本</message>
-	<message key="admin.versionMajor">Major</message>
-	<message key="admin.versionMinor">Minor</message>
+	<message key="admin.versionMajor">主要</message>
+	<message key="admin.versionMinor">次要</message>
 	<message key="admin.version.moreInfo">更多信息</message>
 	<message key="admin.versionRevision">修订版本</message>
 	<message key="admin.version.updateAvailable">一个更新的版本可用</message>
@@ -84,4 +84,10 @@
 	<message key="admin.settings">设置</message>
 	<message key="admin.siteSetup">整站设置</message>
 	<message key="admin.settings.siteTheme">站点主题</message>
+	<message key="admin.fileLoader">文件加载器</message>
+	<message key="admin.scheduledTask">计划任务</message>
+	<message key="admin.settings.oneStepReset">一步进行密码重置</message>
+	<message key="admin.fileLoader.wrongBasePathLocation">基本路径{$path}必须包含在公共文件目录中。</message>
+	<message key="admin.fileLoader.pathNotAccessible">文件夹{$ PATH}不是目录或无法读取。</message>
+	<message key="admin.fileLoader.moveFileFailed">文件{$filename}无法从{$currentFilePath}移动到{$destinationPath}</message>
 </locale>

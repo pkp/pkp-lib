@@ -26,8 +26,8 @@
 	<message key="manager.announcements.form.dateExpireMonthIncompleteDate">根据到期月份请选择一个年和（或）日.</message>
 	<message key="manager.announcements.form.dateExpireValid">请选择一个有效的公告期满之日.</message>
 	<message key="manager.announcements.form.dateExpireYearIncompleteDate">根据到期日年选择一个月份和（或）日.</message>
-	<message key="manager.announcements.form.description">描述</message>
-	<message key="manager.announcements.form.descriptionInstructions">公告的全文.</message>
+	<message key="manager.announcements.form.description">详情</message>
+	<message key="manager.announcements.form.descriptionInstructions">公告全文.</message>
 	<message key="manager.announcements.form.descriptionRequired">公告的描述是必须的.</message>
 	<message key="manager.announcements.form.descriptionShortInstructions">简要的说明出现在公告的标题下.</message>
 	<message key="manager.announcements.form.descriptionShortRequired">一个简短的公告说明是必须的.</message>
@@ -76,7 +76,7 @@
 	<message key="manager.files.createDir">创建目录</message>
 	<message key="manager.files.emptyDir">这个目录下没有找到文件.</message>
 	<message key="manager.files.indexOfDir">目录{$dir} 索引</message>
-	<message key="manager.files.parentDir">父目录</message>
+	<message key="manager.files.parentDir">根目录</message>
 	<message key="manager.files.uploadedFiles">已经上传的文件</message>
 	<message key="manager.files.uploadFile">上传文件</message>
 	<message key="manager.groups.confirmDelete">您确认要删除这个群组?</message>
@@ -190,7 +190,7 @@
 	<message key="manager.setup.filter.noMoreTemplates">所有可用的转换已经被添加，请点击取消返回到设置页面</message>
 	<message key="manager.setup.filter.parser.grid.descriptionTemplate">请选择一个引文解析器</message>
 	<message key="manager.setup.filter.pleaseSelect">请选择...</message>
-	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">您已经选择添加到 {$filterDisplayName}数据库，请点击“OK”确认</message>
+	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">您已经选择添加 {$filterDisplayName}到数据库，请点击“OK”确认</message>
 	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">请选择一个查找数据库</message>
 	<message key="manager.setup.filter.lookup.grid.loadMessage">请等待引文数据库配置网格加载成功...</message>
 	<message key="manager.setup.filter.parser.grid.descriptionConfirm">您已经选择添加 {$filterDisplayName} 解析器，请点击“OK”确认</message>
@@ -203,10 +203,10 @@
 	<message key="manager.reviewerSearch.advancedSearch.short">高级搜索</message>
 	<message key="manager.reviewerSearch.searchByName.short">根据名字检索</message>
 	<message key="manager.emails.data">模板信息数据</message>
-	<message key="manager.emails.disable.message">你是要禁用此电子邮件模板。如果有使用此模板的系统进程，他们不会用它了。你要确认此操作？</message>
-	<message key="manager.emails.enable.message">你是即将启用此电子邮件。你要确认此操作？</message>
-	<message key="manager.emails.resetAll.message">如果您重置所有模板，所有的电子邮件模板的修改都将丢失。你要确认此操作？</message>
-	<message key="manager.emails.reset.message">如果重置这个模板，所有的消息数据将被重置为其默认值，失去了所有的修改。你要确认此操作？</message>
+	<message key="manager.emails.disable.message">您将禁用此电子邮件模板。如果系统进程使用该模版，他们不会用它了。确认此操作？</message>
+	<message key="manager.emails.enable.message">您即将启用此电子邮件。确认此操作？</message>
+	<message key="manager.emails.resetAll.message">如果您重置所有模板，所有的电子邮件模板的修改都将丢失。确认此操作？</message>
+	<message key="manager.emails.reset.message">如果重置这个模板，所有的消息数据将被重置为其默认值，失去了所有的修改。确认此操作？</message>
 	<message key="manager.reviewerSearch.form.interests.instructions">输入审稿兴趣，以逗号分隔...</message>
 	<message key="manager.setup.layout.blockManagement">边栏管理</message>
 	<message key="plugins.categories.metadata">元数据插件</message>
@@ -216,8 +216,8 @@
 	<message key="plugins.categories.citationParser">引文提取插件</message>
 	<message key="plugins.categories.citationParser.description">引提取插件提取字段级数据（如作者，标题等）</message>
 	<message key="manager.reviewerSearch.form.instructions">使用下表来设定您希望用来查询术语的最大值。此表已预先填充了这些领域的计算平均值。</message>
-	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>To find and check citations in citation databases they first have to be split into machine readable metadata: title, publisher, publication date, etc. must all be extracted from the original citation text provided by the author. Connectors to external web services can assist in this process. One or several connectors can be added by clicking on the "Add Item" button below. Some of these connectors may need to be configured; you will be prompted if this is the case.</p>
-		<p>You can edit or delete an existing Connector by clicking the gear icon next to it.</p>]]></message>
+	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>在数据库中找到或者合适一个引文，首先把它们分到机器可读的元数据：标题，出版社，出版信息等，这些必须从作者提供的原是引用文提取。点击下面的“添加项目”键添加一个或多个连接器。一些连接器需要设置，如果是这种情况，系统会自动提醒您。</p>
+		</p>点击连接器旁边的齿轮，选择编辑或者删除现有的连接器。</p>]]></message>
 	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>您必须还要启动和配置同外部引用数据库的连接。这可以帮助您发现作者引用中的错误或添加电子出版或存档所要求的其他信息（如 DOIs 或PubMed IDs）。</p>
 		<p>我们向您提供多个外部数据库的连接，通过这些数据库您可以搜寻相关引用。其中某些数据库要求注册或输入配置信息。有关如何进行注册的详细信息，请参照数据库的公共网站。您可以通过点击下面的“新增项目”按钮添加一个或多个数据库。</p>
 		<p>您可以点击其旁边的齿轮形状按钮来对已有的外部数据库连接进行编辑或删除。</p>
@@ -240,4 +240,6 @@
 	<message key="plugins.categories.metadata.description">元数据插件采用附加的元数据标准。</message>
 	<message key="plugins.categories.citationLookup.description">引用数据库连接插件，在如引用编辑的过程中，连接到引用数据库中来查询引用。</message>
 	<message key="plugins.categories.citationOutput.description">引用输出插件采用引用标准。这取代了引用格式插件。</message>
+	<message key="manager.statistics.city">城市</message>
+	<message key="manager.statistics.region">地区</message>
 </locale>

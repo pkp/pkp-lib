@@ -126,4 +126,5 @@
 	<message key="user.group">Gebruikersgroep</message>
 	<message key="user.profile.form.usergroupRequired">Een gebruikersgroep is verplicht.</message>
 	<message key="user.authorization.pressManagerRequired">Een gebruiker met de rol Perscontact  (zoals Pers of Productieredacteur) moet aan dit stadium toegekend zijn voor u verder kunt gaan.</message>
+	<message key="user.profile.form.hashInvalid">De hash voor het terugzetten van het wachtwoord die u probeerde te gebruiken is niet geldig.</message>
 </locale>

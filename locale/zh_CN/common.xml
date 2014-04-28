@@ -304,10 +304,8 @@
 	<message key="search.operator.and">AND</message>
 	<message key="search.operator.not">NOT</message>
 	<message key="search.operator.or">OR</message>
-	<message key="search.reviseSearch">修改搜索</message>
 	<message key="search.searchAllCategories">搜索所有类别</message>
 	<message key="search.searchCategories">搜索类别</message>
-	<message key="search.searchResults">搜索结果</message>
 	<message key="search.subject">关键词</message>
 	<message key="search.titleIndex">浏览标题索引</message>
 	<message key="search.title">标题</message>
@@ -371,4 +369,23 @@
 	<message key="common.notified">通知的</message>
 	<message key="common.reset">重置</message>
 	<message key="common.acknowledged">已确认</message>
+	<message key="common.error">错误</message>
+	<message key="search.activeFilters">高级过滤器</message>
+	<message key="search.advancedSearchMore">其他搜索选项（点击显示）</message>
+	<message key="search.advancedSearchLess">其他搜索选项（点击隐藏）</message>
+	<message key="search.cli.rebuildIndex.done">完成</message>
+	<message key="search.cli.rebuildIndex.error">错误</message>
+	<message key="search.deleteFilter">删除</message>
+	<message key="grid.action.downloadFile">下载文件</message>
+	<message key="common.metric">度量标准</message>
+	<message key="defaultMetric.title">默认度量标准</message>
+	<message key="search.cli.rebuildIndex.clearingIndex">清除索引</message>
+	<message key="common.count">计算</message>
+	<message key="defaultMetric.availableMetrics">有效的度量标准</message>
+	<message key="search.cli.rebuildIndex.indexing">索引"{$journalName}"</message>
+	<message key="search.cli.rebuildIndex.indexingByJournalNotSupported">这个搜索不允许期刊的从新索引。</message>
+	<message key="search.cli.rebuildIndex.result">{$numIndexed}文章索引</message>
+	<message key="search.cli.rebuildIndex.unknownJournal">指定的期刊路径"{$journalPath}"炸偶到匹配期刊。</message>
+	<message key="search.indexTermsLong">所有索引词字段</message>
+	<message key="common.titleSmallWords">of a the and an or nor but is if then else when at from by on off for in out over to into with</message>
 </locale>

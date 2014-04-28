@@ -84,9 +84,10 @@
 	<message key="admin.settings">Ayarlar</message>
 	<message key="admin.settings.siteTheme">Site teması</message>
 	<message key="admin.siteSetup">Site Ayarı</message>
-	<message key="admin.scheduledTask">Zamanlanmış Görev</message>
+	<message key="admin.scheduledTask">Zamanlanmış görevler</message>
+	<message key="admin.settings.oneStepReset">Şifre sıfırlama için tek adım kullan</message>
 	<message key="admin.fileLoader">Dosya Yükleyici</message>
-	<message key="admin.fileLoader.wrongBasePathLocation">{$path} temel yolu genel dosyalar dizinin içinde olmalıdır.</message>
-	<message key="admin.fileLoader.pathNotAccessible">{$path} klasörü bir dizin veya okunabilir değildir.</message>
-	<message key="admin.fileLoader.moveFileFailed">{$filename} dosyası {$destinationPath} için {$currentFilePath}'ye taşınamaz</message>
+	<message key="admin.fileLoader.wrongBasePathLocation">Temel {$path} yolu genel alanlar dizininde olmalıdır.</message>
+	<message key="admin.fileLoader.pathNotAccessible">{$path} bir dizin yolu veya okunabilir değil.</message>
+	<message key="admin.fileLoader.moveFileFailed">{$filename} adlı dosya {$currentFilePath}'dan {$destinationPath} hedefine taşınamadı</message>
 </locale>

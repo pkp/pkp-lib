@@ -84,4 +84,10 @@
 	<message key="admin.settings">Instelligen</message>
 	<message key="admin.settings.siteTheme">Site thema</message>
 	<message key="admin.siteSetup">Site instellingen</message>
+	<message key="admin.scheduledTask">Geplande taak</message>
+	<message key="admin.settings.oneStepReset">Gebruik één stap voor het opnieuw instellen van wachtwoorden?</message>
+	<message key="admin.fileLoader.pathNotAccessible">De map {$path} is geen map of is niet leesbaar.</message>
+	<message key="admin.fileLoader.wrongBasePathLocation">Het basispad {$path} moet in de public colliers map zijn.</message>
+	<message key="admin.fileLoader.moveFileFailed">Bestand {$filename} kon niet verplaatst worden van {$currentFilePath} naar {$destinationPath}</message>
+	<message key="admin.fileLoader">Bestandslader</message>
 </locale>

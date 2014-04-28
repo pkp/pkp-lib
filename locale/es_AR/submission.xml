@@ -325,7 +325,6 @@
 	<message key="submission.citations.editor.pleaseSelect">Seleccione...</message>
 	<message key="submission.citations.editor.unprocessedCitationsButton">Refrescar la lista de citas</message>
 	<message key="submission.citations.editor.unprocessedCitationsButtonTitle">Clique para refrescar la lista de citas.</message>
-	<message key="submission.uploadSuccessfulContinue">Su fichero ha sido subido. Pulse en continuar para editar los metadaos del fichero.</message>
 	<message key="submission.artworkFileDetails">Detalles del fichero de Artwork.</message>
 	<message key="submission.nameRequired">Se requiere un nombre para este ítem.</message>
 	<message key="submission.date.mmdd">MM-DD</message>

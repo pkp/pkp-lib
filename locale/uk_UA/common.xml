@@ -372,4 +372,5 @@
 	<message key="common.overdue">Прострочені</message>
 	<message key="help.toggleInlineHelpOn">Допомога Вкл</message>
 	<message key="help.toggleInlineHelpOff">Допомога Викл</message>
+	<message key="common.error">错误</message>
 </locale>

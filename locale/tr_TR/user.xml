@@ -123,4 +123,5 @@
 	<message key="user.suffix">Son Ek</message>
 	<message key="user.accountInformation">Hesap Bilgisi</message>
 	<message key="user.profile.form.passwordSameAsOld">Yeni şifreniz eski şifrenizle aynıdır.</message>
+	<message key="user.profile.form.hashInvalid">Sıfırlama için verdiğiniz şifre karması geçerli değil.</message>
 </locale>

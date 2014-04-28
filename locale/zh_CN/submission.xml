@@ -20,7 +20,7 @@
 	<message key="submission.ask">Ask</message>
 	<message key="submission.backToSubmissionEditing">回到投稿编辑</message>
 	<message key="submission.changeComments">修改为</message>
-	<message key="submission.comments.addComment">天骄注释</message>
+	<message key="submission.comments.addComment">添加注释</message>
 	<message key="submission.comments.comments">注释</message>
 	<message key="submission.comments.confirmDelete">您确认删除这个注释?</message>
 	<message key="submission.comments.corrections">更正</message>
@@ -43,7 +43,7 @@
 	<message key="submission.email.confirmDeleteLogEntry">您确定要删除此电子邮件日志项?</message>
 	<message key="submission.email.deleteLogEntry">删除日志项</message>
 	<message key="submission.emailLog">电子邮件日志</message>
-	<message key="submission.event.backToEventLog">反回到事件日志</message>
+	<message key="submission.event.backToEventLog">返回到事件日志</message>
 	<message key="submission.event.confirmClearLog">您确认清楚这个投稿的事件日志?</message>
 	<message key="submission.event.confirmDeleteLogEntry">您确认清楚这个投稿的事件日志项?</message>
 	<message key="submission.event.deleteLogEntry">删除事件日志项</message>
@@ -67,8 +67,8 @@
 	<message key="submission.galley">样稿</message>
 	<message key="submission.history.clearLog">清除日志</message>
 	<message key="submission.history">历史</message>
-	<message key="submission.history.noLogEntries">没有日志项.</message>
-	<message key="submission.history.recentLogEntries">最近的日志项目</message>
+	<message key="submission.history.noLogEntries">没有日志条目.</message>
+	<message key="submission.history.recentLogEntries">最近的日志条目</message>
 	<message key="submission.history.submissionEmailLog">邮件日志</message>
 	<message key="submission.history.submissionEventLog">事件日志</message>
 	<message key="submission.history.submissionNotes">投稿须知</message>
@@ -129,7 +129,7 @@
 	<message key="submission.page.history">#{$id} 历史</message>
 	<message key="submission.page.review">#{$id} 审查</message>
 	<message key="submission.page.summary">#{$id} 摘要</message>
-	<message key="submission.peerReview">Peer&amp;nbsp;审查</message>
+	<message key="submission.peerReview"><![CDATA[Peer&nbsp;审查]]></message>
 	<message key="submission.recommendation">建议</message>
 	<message key="submission.rejected">已经拒绝的</message>
 	<message key="submission.request">请求</message>

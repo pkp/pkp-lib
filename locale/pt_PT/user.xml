@@ -126,4 +126,5 @@
 	<message key="user.profile.form.passwordSameAsOld">A sua nova senha é igual à antiga.</message>
 	<message key="user.profile.form.usergroupRequired">É obrigatório um grupo de utilizadores.</message>
 	<message key="user.suffix">Sufixo</message>
+	<message key="user.profile.form.hashInvalid">O hash de recuperação de senha não é válido.</message>
 </locale>

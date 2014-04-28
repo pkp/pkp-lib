@@ -25,7 +25,7 @@
 	<message key="user.email">E-mail</message>
 	<message key="user.fax">Fax</message>
 	<message key="user.feminine">F</message>
-	<message key="user.firstName">Prenome</message>
+	<message key="user.firstName">Nome</message>
 	<message key="user.gender">Sexo</message>
 	<message key="user.initialsExample">Joan Alice Smith = JAS</message>
 	<message key="user.initials">Iniciais</message>
@@ -58,7 +58,7 @@
 	<message key="user.profile.changePasswordInstructions">Digite as senhas atual e nova para alterar a senha de acesso ao cadastro.</message>
 	<message key="user.profile.editProfile">Editar perfil</message>
 	<message key="user.profile.form.emailRequired">Endereço de e-mail válido obrigatório.</message>
-	<message key="user.profile.form.firstNameRequired">Prenome obrigatório.</message>
+	<message key="user.profile.form.firstNameRequired">Nome é obrigatório.</message>
 	<message key="user.profile.form.lastNameRequired">Sobrenome obrigatório.</message>
 	<message key="user.profile.form.newPasswordRequired">Nova senha obrigatória.</message>
 	<message key="user.profile.form.oldPasswordInvalid">Senha atual incorreta.</message>
@@ -125,4 +125,5 @@
 	<message key="user.profile.form.passwordSameAsOld">Sua nova senha é a mesma que a anterior.</message>
 	<message key="user.profile.form.usergroupRequired">Um grupo de usuários é obrigatório.</message>
 	<message key="user.suffix">Sufixo</message>
+	<message key="user.profile.form.hashInvalid">O codigo de redefinição de senha que você usou é inválido.</message>
 </locale>

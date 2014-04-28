@@ -329,4 +329,5 @@
 	<message key="search.titleIndex">Przeszukaj indeks tytułów</message>
 	<message key="search.title">Tytuł</message>
 	<message key="search.typeMethodApproach">Typ (metoda/podejście)</message>
+	<message key="common.error">Błąd</message>
 </locale>

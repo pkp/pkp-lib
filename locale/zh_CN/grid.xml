@@ -94,7 +94,6 @@
 	<message key="grid.action.collapseAll">全部崩溃</message>
 	<message key="grid.action.wizard">设置向导</message>
 	<message key="grid.action.moveItem">移动项目</message>
-	<message key="grid.action.downloadFile">下载文件</message>
 	<message key="grid.action.downloadAll">以压缩文档形式下载所有文件</message>
 	<message key="grid.action.readReview">阅读该审稿结果</message>
 	<message key="grid.action.email">发送邮件</message>
@@ -181,4 +180,5 @@
 	<message key="grid.action.history">查看历史</message>
 	<message key="grid.task.status.unfinished">未完成的审稿</message>
 	<message key="grid.task.status.reviewReady">审稿完毕。点击左侧的通知按钮进行阅读。</message>
+	<message key="grid.action.unconsiderReview">该评论比较完整，但是您可以不用参考。</message>
 </locale>

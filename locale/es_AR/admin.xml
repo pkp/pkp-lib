@@ -84,4 +84,10 @@
 	<message key="admin.settings">Configuración</message>
 	<message key="admin.settings.siteTheme">Tema del Sitio</message>
 	<message key="admin.siteSetup">Instalación del Sitio</message>
+	<message key="admin.scheduledTask">Tareas Programadas</message>
+	<message key="admin.settings.oneStepReset">¿Usar un solo paso para resetear la claves?</message>
+	<message key="admin.fileLoader.wrongBasePathLocation">La ruta base debe estar dentro de la carpeta de archivos públicos</message>
+	<message key="admin.fileLoader.pathNotAccessible">La carpeta con la ruta {$path} no es una  carpeta o no puede leerse.</message>
+	<message key="admin.fileLoader.moveFileFailed">El Archivo {$filename} no puede ser movido desde {$currentFilePath} hacia {$destinationPath}</message>
+	<message key="admin.fileLoader">Cargador de Archivos</message>
 </locale>

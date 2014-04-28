@@ -87,7 +87,6 @@
 	<message key="grid.action.collapseAll">Alles dichtklappen</message>
 	<message key="grid.action.wizard">Instellingen assistent</message>
 	<message key="grid.action.moveItem">Verplaats item</message>
-	<message key="grid.action.downloadFile">Dit bestand downloaden</message>
 	<message key="grid.action.downloadAll">Alle bestanden downloaden als archief</message>
 	<message key="grid.action.readReview">Lees dit review</message>
 	<message key="grid.action.internalReview">Stuur deze inzending naar interne review</message>
@@ -193,4 +192,5 @@
 	<message key="grid.action.history">Bekijk geschiedenis</message>
 	<message key="grid.task.status.unfinished">Review nog niet gereed</message>
 	<message key="grid.task.status.reviewReady">Dit review is gereed. Klik op het ikoon aan de links om het te lezen.</message>
+	<message key="grid.action.unconsiderReview">Deze review is compleet, maar u kunt erop terugkomen</message>
 </locale>

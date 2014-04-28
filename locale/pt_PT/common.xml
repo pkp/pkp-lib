@@ -259,10 +259,8 @@
 	<message key="search.operator.and">E</message>
 	<message key="search.operator.not">NÃO</message>
 	<message key="search.operator.or">OU</message>
-	<message key="search.reviseSearch">Alterar Parâmetros</message>
 	<message key="search.searchAllCategories">Pesquisar termo</message>
 	<message key="search.searchCategories">Pesquisar categorias</message>
-	<message key="search.searchResults">Resultado da Pesquisa</message>
 	<message key="search.subject">Assunto</message>
 	<message key="search.titleIndex">Índice de Títulos</message>
 	<message key="search.title">Título</message>
@@ -372,4 +370,21 @@
 	<message key="navigation.system">Sistema</message>
 	<message key="navigation.userManagement">Administração de Utilizadores</message>
 	<message key="grid.action.downloadFile">Transferir este ficheiro</message>
+	<message key="common.error">Erro</message>
+	<message key="common.metric">Métrica</message>
+	<message key="common.count">Contagem</message>
+	<message key="defaultMetric.title">Métrica padrão</message>
+	<message key="defaultMetric.availableMetrics">Métricas disponíveis</message>
+	<message key="search.activeFilters">Filtros avançados</message>
+	<message key="search.advancedSearchMore">Opções Adicionais Pesquisa Options (clicar para mostrar)</message>
+	<message key="search.advancedSearchLess">Opções Adicionais Pesquisa Options (clicar para ocultar)</message>
+	<message key="search.cli.rebuildIndex.clearingIndex">Limpando índice</message>
+	<message key="search.cli.rebuildIndex.done">concluído</message>
+	<message key="search.cli.rebuildIndex.error">erro</message>
+	<message key="search.cli.rebuildIndex.indexing">Indexação "{$journalName}"</message>
+	<message key="search.cli.rebuildIndex.indexingByJournalNotSupported">Esta pesquisa não permite re-indexação per-journal.</message>
+	<message key="search.cli.rebuildIndex.result">{$numIndexed} artigos indexados</message>
+	<message key="search.cli.rebuildIndex.unknownJournal">O caminho fornecido para a revista "{$journalPath}" não pode ser atribuído a uma revista.</message>
+	<message key="search.deleteFilter">Eliminar</message>
+	<message key="search.indexTermsLong">Todos os campos de indexação de palavras</message>
 </locale>

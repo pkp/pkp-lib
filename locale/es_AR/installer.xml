@@ -59,7 +59,6 @@
 	<message key="installer.installParseDBFileError"><![CDATA[Error en la sintaxis en el archivo de instalación de la base de datos <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale">Interfaz de idioma (archivo "Locale")</message>
 	<message key="installer.localeSettings">Opciones del archivo locale</message>
-	<message key="installer.miscSettings">Otras Opciones</message>
 	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Identificador único utilizado para identificar los archivos de metadatos para su captura mediante el protocolo <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> de recolección de metadatos PMH-OAI.]]></message>
 	<message key="installer.oaiRepositoryId">Identificador OAI del repositorio</message>
 	<message key="installer.publicFilesDirError">El directorio de archivos de acceso público no existe o no tiene el permiso de escritura.</message>

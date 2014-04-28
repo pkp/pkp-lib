@@ -260,10 +260,8 @@
 	<message key="search.operator.and">en</message>
 	<message key="search.operator.not">niet</message>
 	<message key="search.operator.or">of</message>
-	<message key="search.reviseSearch">Herzie zoekopdracht</message>
 	<message key="search.searchAllCategories">Doorzoek alle categorieën op</message>
 	<message key="search.searchCategories">Doorzoek categorieën</message>
-	<message key="search.searchResults">Zoekresultaten</message>
 	<message key="search.subject">Trefwoord(en</message>
 	<message key="search.titleIndex">Blader door de titelindex</message>
 	<message key="search.title">Titel</message>
@@ -372,4 +370,22 @@
 	<message key="common.considered">Overwogen</message>
 	<message key="common.notified">Bericht gegeven</message>
 	<message key="common.reset">Herstel</message>
+	<message key="common.error">Fout</message>
+	<message key="common.metric">Telling</message>
+	<message key="common.count">Teller</message>
+	<message key="defaultMetric.title">Standaard metriek</message>
+	<message key="defaultMetric.availableMetrics">Beschikbare metrieken</message>
+	<message key="search.activeFilters">Geavanceerde filters</message>
+	<message key="search.advancedSearchMore">Additionele zoekopties (klik om te tonen)</message>
+	<message key="search.advancedSearchLess">Additionele zoekoptie (klik om te verbergen)</message>
+	<message key="search.cli.rebuildIndex.clearingIndex">Index wordt gewist</message>
+	<message key="search.cli.rebuildIndex.done">klaar</message>
+	<message key="search.cli.rebuildIndex.indexing">"{$journalName}" indexeren</message>
+	<message key="search.cli.rebuildIndex.indexingByJournalNotSupported">Deze implementatie van zoeken staat niet toe per tijdschrift te herindexeren.</message>
+	<message key="search.cli.rebuildIndex.result">{$numIndexed} artikelen geïndexeerd.</message>
+	<message key="search.deleteFilter">Verwijder</message>
+	<message key="grid.action.downloadFile">Download dit bestand</message>
+	<message key="search.cli.rebuildIndex.error">fout</message>
+	<message key="search.cli.rebuildIndex.unknownJournal">Het tijdschriftpad "{$journalPath}" kan niet herleid worden tot een tijdschrift.</message>
+	<message key="search.indexTermsLong">Alle indexvelden</message>
 </locale>

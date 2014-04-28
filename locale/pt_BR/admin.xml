@@ -88,4 +88,7 @@
 	<message key="admin.fileLoader.pathNotAccessible">A pasta {$path} não é um diretório ou não tem permissão de leitura.</message>
 	<message key="admin.fileLoader.moveFileFailed">O arquivo {$filename} não pode ser movido de {$currentFilePath} para {$destinationPath}</message>
 	<message key="admin.fileLoader.emailSubject">ID {$processId} do processo de carga do arquivo</message>
+	<message key="admin.scheduledTask">Tarefas Agendadas</message>
+	<message key="admin.settings.oneStepReset">Usar um só passo para a redefinição de senhas?</message>
+	<message key="admin.fileLoader">Carregador de arquivos</message>
 </locale>

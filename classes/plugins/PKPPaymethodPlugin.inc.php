@@ -96,6 +96,14 @@ abstract class PKPPaymethodPlugin extends Plugin {
 	}
 
 	/**
+	 * Fetch the required form field names.
+	 * @return array
+	 */
+	function getRequiredSettingsFormFieldNames() {
+		return $this->getSettingsFormFieldNames();
+	}
+
+	/**
 	 * Handle an incoming request from a user callback or an external
 	 * payment processing system.
 	 * @param $args array

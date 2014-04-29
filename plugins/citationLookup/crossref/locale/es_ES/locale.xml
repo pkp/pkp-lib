@@ -2,16 +2,16 @@
 <!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
 
 <!--
-  * plugins/citationLookup/crossref/locale/en_US/locale.xml
+  * plugins/citationLookup/crossref/locale/es_ES/locale.xml
   *
   * Copyright (c) 2013-2014 Simon Fraser University Library
   * Copyright (c) 2003-2014 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the en_US (U.S. English) locale.
+  * Localization strings for the es_ES (Español) locale.
   -->
 
-<locale name="en_US" full_name="U.S. English">
+<locale name="es_ES" full_name="Español">
 	<message key="plugins.citationLookup.crossref.displayName">Conector con la base de datos CrossRef</message>
 	<message key="plugins.citationLookup.crossref.description">Conecta con la base de datos bibliográfica CrossRef.</message>
 </locale>

@@ -2,16 +2,16 @@
 <!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
 
 <!--
-  * plugins/metadata/nlm30/locale/en_US/locale.xml
+  * plugins/metadata/nlm30/locale/es_ES/locale.xml
   *
   * Copyright (c) 2013-2014 Simon Fraser University Library
   * Copyright (c) 2003-2014 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the en_US (U.S. English) locale.
+  * Localization strings for the es_ES (Español) locale.
   -->
  
-<locale name="en_US" full_name="U.S. English">
+<locale name="es_ES" full_name="Español">
 	<!-- plug-in -->
 	<message key="plugins.metadata.nlm30.displayName">Metadatos NLM 3.0</message>
 	<message key="plugins.metadata.nlm30.description">Proporciona esquema y adaptadores de aplicación NLM 3.0.</message>

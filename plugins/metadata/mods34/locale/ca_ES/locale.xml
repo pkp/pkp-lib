@@ -2,16 +2,16 @@
 <!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
 
 <!--
-  * plugins/metadata/mods34/locale/en_US/locale.xml
+  * plugins/metadata/mods34/locale/ca_ES/locale.xml
   *
   * Copyright (c) 2013-2014 Simon Fraser University Library
   * Copyright (c) 2003-2014 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the en_US (U.S. English) locale.
+  * Localization strings for the ca_ES (Català) locale.
   -->
 
-<locale name="en_US" full_name="U.S. English">
+<locale name="ca_ES" full_name="Català">
 	<!-- plug-in -->
 	<message key="plugins.metadata.mods34.displayName">Metadades MODS 3.4</message>
 	<message key="plugins.metadata.mods34.description">Proporciona l'esquema i els adaptadors d'aplicació per MODS 3.4.</message>

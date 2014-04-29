@@ -2,16 +2,16 @@
 <!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
 
 <!--
-  * plugins/citationLookup/isbndb/locale/en_US/locale.xml
+  * plugins/citationLookup/isbndb/locale/ca_ES/locale.xml
   *
   * Copyright (c) 2014 Simon Fraser University Library
   * Copyright (c) 2003-2014 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the en_US (U.S. English) locale.
+  * Localization strings for the ca_ES (Català) locale.
   -->
 
-<locale name="en_US" full_name="U.S. English">
+<locale name="ca_ES" full_name="Català">
 	<!-- plug-in -->
 	<message key="plugins.citationLookup.isbndb.displayName">Connector amb la base de dades ISBNdb</message>
 	<message key="plugins.citationLookup.isbndb.description">Connecta amb la base de dades bibliogràfica de ISBNdb</message>

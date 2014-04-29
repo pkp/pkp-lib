@@ -8,10 +8,10 @@
   * Copyright (c) 2003-2014 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the en_US (U.S. English) locale.
+  * Localization strings for the es_AR (Español (Argentina)) locale.
   -->
  
-<locale name="en_US" full_name="U.S. English">
+<locale name="es_AR" full_name="Español (Argentina)">
 	<!-- plug-in -->
 	<message key="plugins.metadata.nlm30.displayName">NLM 3.0 metadatos</message>
 	<message key="plugins.metadata.nlm30.description">Contribuye con los esquemas NLM 3.0 y los adaptadores para la aplicación</message>

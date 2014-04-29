@@ -8,11 +8,11 @@
   * Copyright (c) 2003-2014 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the en_US (U.S. English) locale.
+  * Localization strings for the es_AR (Español (Argentina)) locale.
   *
   -->
  
-<locale name="en_US" full_name="U.S. English">
+<locale name="es_AR" full_name="Español (Argentina)">
 	<message key="plugins.oaiMetadata.dc.displayName">Formato de metadatos DC</message>
 	<message key="plugins.oaiMetadata.dc.description">Estructura los metadatos de forma que sean consistentes con el formato Dublin Core.</message>
 </locale>

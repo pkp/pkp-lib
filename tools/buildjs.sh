@@ -189,8 +189,11 @@ java -jar "$TOOL_PATH/compiler.jar" --jscomp_warning visibility --warning_level 
 
 # Only minify when there were no warnings.
 if [ -n "`cat $WORKDIR/.compile-warnings.out | grep '^	'`" ]; then
-	# Issue warnings.
-	less "$WORKDIR/.compile-warnings.out"
+	# Issue warnings. If interactive, use "less".
+	case "$-" in
+		*i*)	less "$WORKDIR/.compile-warnings.out" ;;
+		*)	cat "$WORKDIR/.compile-warnings.out" ;;
+	esac
 	echo >&2
 	echo "Found Errors! Not minified."
 	echo "Exiting!"

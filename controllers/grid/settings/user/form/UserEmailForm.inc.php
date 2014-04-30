@@ -84,8 +84,8 @@ class UserEmailForm extends Form {
 		$toUser = $userDao->getById($this->userId);
 		$fromUser = $request->getUser();
 
-		import('lib.pkp.classes.mail.Mail');
-		$email = new Mail();
+		import('lib.pkp.classes.mail.MailTemplate');
+		$email = new MailTemplate();
 
 		$email->addRecipient($toUser->getEmail(), $toUser->getFullName());
 		$email->setReplyTo($fromUser->getEmail(), $fromUser->getFullName());

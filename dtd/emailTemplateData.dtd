@@ -9,7 +9,7 @@
   *
   -->
 
-<!ELEMENT email_texts (email_text+)>
+<!ELEMENT email_texts (email_text*)>
 	<!ATTLIST email_texts
 		locale CDATA #REQUIRED>
 <!ELEMENT email_text (subject, body, description?)>

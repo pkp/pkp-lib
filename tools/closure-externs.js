@@ -161,6 +161,13 @@ tinyMCEObject.prototype.execCommand = function(c, u, v) {};
 
 tinyMCEObject.prototype.activeEditor = { dom: {}, id: '' };
 
+/**
+ * @param {string} param1
+ */
+tinyMCEObject.prototype.activeEditor.dom.get = function(param1) {};
+
+tinyMCEObject.prototype.activeEditor.dom.getRoot = function() {};
+
 tinyMCEObject.prototype.onActivate = {};
 
 tinyMCEObject.prototype.onDeactivate = {};
@@ -176,6 +183,17 @@ tinyMCEObject.prototype.editor.getContent = function() {};
 tinyMCEObject.prototype.editor.getRoot = function() {};
 
 tinyMCEObject.prototype.dom = {};
+
+tinyMCEObject.prototype.editor.dom.getRoot = function() {};
+
+tinyMCEObject.prototype.dom.Event = {};
+
+/**
+ * @param {Object} param1
+ * @param {string} param2
+ * @param {Object} param3
+ */
+tinyMCEObject.prototype.dom.Event.add = function(param1, param2, param3) {};
 
 /**
  * @type {string} c

@@ -27,7 +27,11 @@
 	 * @extends $.pkp.controllers.form.AjaxFormHandler
 	 *
 	 * @param {jQueryObject} $form the wrapped HTML form element.
-	 * @param {Object} options form options.
+	 * @param {{
+	 *   selfRegistrationRoleIds: Array,
+	 *   roleForbiddenStagesJSON: Object.<string, *>,
+	 *   stagesSelector: string
+	 *   }} options form options.
 	 */
 	$.pkp.controllers.grid.settings.roles.form.UserGroupFormHandler =
 			function($form, options) {
@@ -87,7 +91,7 @@
 	/**
 	 * The stage options selector.
 	 * @private
-	 * @type {String}
+	 * @type {string|null}
 	 */
 	$.pkp.controllers.grid.settings.roles.form.
 			UserGroupFormHandler.prototype.stagesSelector_ = null;
@@ -108,7 +112,7 @@
 		this.updatePermitSelfRegistration((dropDownValue));
 
 		// Also update the stages options.
-		this.updateStageOptions(dropDownValue);
+		this.updateStageOptions(/** @type {string} */ (dropDownValue));
 	};
 
 

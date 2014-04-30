@@ -14,6 +14,8 @@
  * @externs
  */
 
+jQueryObject.prototype.browser = { msie: false };
+
 /**
  * @param {Object} arg1
  */

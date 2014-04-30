@@ -91,7 +91,7 @@
 	/**
 	 * The stage options selector.
 	 * @private
-	 * @type {string|null}
+	 * @type {?string}
 	 */
 	$.pkp.controllers.grid.settings.roles.form.
 			UserGroupFormHandler.prototype.stagesSelector_ = null;

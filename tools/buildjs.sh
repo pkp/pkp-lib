@@ -197,6 +197,11 @@ if [ -n "`cat $WORKDIR/.compile-warnings.out | grep '^	'`" ]; then
 	echo >&2
 	echo "Found Errors! Not minified."
 	echo "Exiting!"
+
+	# Remove the temporary directory.
+	rm -r "$WORKDIR"
+
+	exit -1
 else
 	# Show the list of files we are going to compile:
 	echo >&2
@@ -214,8 +219,9 @@ else
 	echo "Please don't forget to set enable_minified=On in your config.inc.php." >&2
 	echo >&2
 	echo "Done!" >&2
+
+	# Remove the temporary directory.
+	rm -r "$WORKDIR"
+
+	exit 0
 fi
-
-# Remove the temporary directory.
-rm -r "$WORKDIR"
-

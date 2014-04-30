@@ -10,4 +10,4 @@
   * Empty dummy installation descriptor file for backwards compatible plug-in installation.
   -->
 
-<install/>
+<install version="1.0" />

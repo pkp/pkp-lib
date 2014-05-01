@@ -458,11 +458,11 @@ class Form {
 		}
 
 		// Display the language selector widget.
-		$returner .= '<div id="languageSelector"><select size="1" name="formLocale" id="formLocale" onchange="changeFormAction(\'' . htmlentities($params['form'], ENT_COMPAT, LOCALE_ENCODING) . '\', \'' . htmlentities($params['url'], ENT_QUOTES, LOCALE_ENCODING) . '\')" class="selectMenu">';
+		$returner .= '<div id="languageSelector"><select size="1" name="formLocale" id="formLocale" class="selectMenu">';
 		foreach ($this->supportedLocales as $locale => $name) {
 			$returner .= '<option ' . ($locale == $formLocale?'selected="selected" ':'') . 'value="' . htmlentities($locale, ENT_COMPAT, LOCALE_ENCODING) . '">' . htmlentities($name, ENT_COMPAT, LOCALE_ENCODING) . '</option>';
 		}
-		$returner .= '</select></div>';
+		$returner .= '</select><input type="submit" class="button" value="Submit" onclick="changeFormAction(\'' . htmlentities($params['form'], ENT_COMPAT, LOCALE_ENCODING) . '\', \'' . htmlentities($params['url'], ENT_QUOTES, LOCALE_ENCODING) . '\'); return false" /></div>';
 		return $returner;
 	}
 

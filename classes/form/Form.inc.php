@@ -462,7 +462,7 @@ class Form {
 		foreach ($this->supportedLocales as $locale => $name) {
 			$returner .= '<option ' . ($locale == $formLocale?'selected="selected" ':'') . 'value="' . htmlentities($locale, ENT_COMPAT, LOCALE_ENCODING) . '">' . htmlentities($name, ENT_COMPAT, LOCALE_ENCODING) . '</option>';
 		}
-		$returner .= '</select><input type="submit" class="button" value="Submit" onclick="changeFormAction(\'' . htmlentities($params['form'], ENT_COMPAT, LOCALE_ENCODING) . '\', \'' . htmlentities($params['url'], ENT_QUOTES, LOCALE_ENCODING) . '\'); return false" /></div>';
+		$returner .= '</select><input type="submit" class="button" value="'. __('form.submit'). '" onclick="changeFormAction(\'' . htmlentities($params['form'], ENT_COMPAT, LOCALE_ENCODING) . '\', \'' . htmlentities($params['url'], ENT_QUOTES, LOCALE_ENCODING) . '\'); return false" /></div>';
 		return $returner;
 	}
 

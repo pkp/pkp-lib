@@ -45,7 +45,7 @@ class ExportableSubmissionsGridRow extends GridRow {
 				$dispatcher = $request->getDispatcher();
 				$pluginName = $request->getUserVar('pluginName');
 				assert(!empty($pluginName));
-				$url = $dispatcher->url($request, ROUTE_PAGE, null, 'manager', 'importexport', array('plugin', $pluginName, 'export'), array('selectedSubmissions[]' => $rowId));
+				$url = $dispatcher->url($request, ROUTE_PAGE, null, 'management', 'importexport', array('plugin', $pluginName, 'export'), array('selectedSubmissions[]' => $rowId));
 				import('lib.pkp.classes.linkAction.request.RedirectAction');
 				$redirectAction = new RedirectAction($url);
 				$this->addAction(new LinkAction('export', $redirectAction, __('grid.action.export'), 'export'));

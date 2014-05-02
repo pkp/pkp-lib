@@ -101,7 +101,7 @@ class CaptchaDAO extends DAO {
 
 	/**
 	 * Instantiate and return a new data object.
- 	 * @return Captcha
+	 * @return Captcha
 	 */
 	function newDataObject() {
 		return new Captcha();

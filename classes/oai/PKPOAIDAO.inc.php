@@ -18,10 +18,10 @@ import('lib.pkp.classes.oai.OAI');
 
 class PKPOAIDAO extends DAO {
 
- 	/** @var $oai OAI parent OAI object */
- 	var $oai;
+	/** @var $oai OAI parent OAI object */
+	var $oai;
 
- 	/**
+	/**
 	 * Constructor.
 	 */
 	function PKPOAIDAO() {

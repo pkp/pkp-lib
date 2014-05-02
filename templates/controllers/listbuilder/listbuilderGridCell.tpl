@@ -22,7 +22,7 @@
 			{if $column->getFlag('sourceType') === $smarty.const.LISTBUILDER_SOURCE_TYPE_SELECT}
 				{**
 				 * Include a hidden element containing the current key.
-			 	 * Used e.g. to match the currently selected value.
+				 * Used e.g. to match the currently selected value.
 				 *}
 				<input type="hidden" value="{$labelKey|escape}" />
 			{/if}

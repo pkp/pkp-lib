@@ -53,7 +53,7 @@
 	<message key="user.myAccount">マイ・アカウント</message>
 	<message key="user.name">名前</message>
 	<message key="user.password">パスワード</message>
-  	<message key="user.repeatPassword">もう一度パスワードを入力してください</message>
+ 	<message key="user.repeatPassword">もう一度パスワードを入力してください</message>
 	<message key="user.phone">電話</message>
 	<message key="user.profile.changePasswordInstructions">パスワードの変更を行う場合は、現在のパスワードと新しいパスワードを以下の該当欄に入力してください。</message>
 	<message key="user.profile.editProfile">ユーザ情報の編集</message>

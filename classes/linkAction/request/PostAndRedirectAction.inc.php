@@ -36,7 +36,7 @@ class PostAndRedirectAction extends RedirectAction {
 	// Getters and Setters
 	//
 	/**
-  	 * Get the url to post data.
+ 	 * Get the url to post data.
 	 * @return string
 	 */
 	function getPostUrl() {

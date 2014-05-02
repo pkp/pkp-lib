@@ -348,7 +348,7 @@
 		<p>引用标记助理将试图从读者引用列表中辨别和提取个人引用。您可以系统地将每个引用提取尝试和若干外部元数据进行比对，检查其准确性；编辑不正确引用信息和添加新信息；批准或消除引用；添加新引用。</p>
 		<p>所有用来提交的最终引用在其能够导出前必须获得批准。</p></li>
 		<li><p><strong>导出引用</strong></p>
- 		<p>引用可以以XML 或文本形式导出。XML 导出选项目前包括 <a href="http://dtd.nlm.nih.gov/publishing/">NLM 期刊出版</a> 2.3 and 3.0 <a href="http://www.ncbi.nlm.nih.gov/pmc/pmcdoc/tagging-guidelines/article/tags.html#el-reflist">ref-list XML</a>. 在这些选项中选择一个来输出XML-编码的文献列表片段，该片段可以复制和粘贴到 NLM XML 校样中。</p>
+		<p>引用可以以XML 或文本形式导出。XML 导出选项目前包括 <a href="http://dtd.nlm.nih.gov/publishing/">NLM 期刊出版</a> 2.3 and 3.0 <a href="http://www.ncbi.nlm.nih.gov/pmc/pmcdoc/tagging-guidelines/article/tags.html#el-reflist">ref-list XML</a>. 在这些选项中选择一个来输出XML-编码的文献列表片段，该片段可以复制和粘贴到 NLM XML 校样中。</p>
 		<p>实验问吧导出选项包括 ABNT、APA、MLA 和 温哥华引用输出样式。这些选项提供了可以进行复制和粘贴到基于文本的文章校样（如Microsoft Word 或 OpenOffice; Adobe InDesign; 等）中的文本输出。每个引用包括一个嵌入的链接以便在Google学术中自动搜索引用。</p></li>
 	</ul>]]></message>
 	<message key="submission.citations.editor.loadMessage">请等待加载引用标记助理。</message>

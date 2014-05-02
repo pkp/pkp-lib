@@ -59,7 +59,7 @@ abstract class FunctionalSubmissionBaseTestCase extends WebTestCase {
 		//
 		// Second submission page.
 		//
-		$this->waitForLocation($submissionPage . '2');
+		$this->waitForLocation($submissionPage . '2*');
 		$this->waitForElementPresent('css=div.plupload_buttons');
 
 		// We should now have the submission ID in the URL.

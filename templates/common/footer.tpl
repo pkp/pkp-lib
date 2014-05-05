@@ -14,8 +14,8 @@
 
 <div class="pkp_structure_foot">
 
-{if $footerCategories|@count > 0}{* include a subfoot section if there are footer link categories defined *}
-	<div class="pkp_structure_subfoot">
+<div class="pkp_structure_subfoot">
+	{if $footerCategories|@count > 0}{* include a section if there are footer link categories defined *}
 		<div class="pkp_structure_content">
 			{foreach from=$footerCategories item=category name=loop}
 				{assign var=links value=$category->getLinks()}
@@ -34,9 +34,7 @@
 				</div>
 			{/foreach}
 		</div><!-- pkp_structure_content -->
-	</div><!-- pkp_structure_subfoot -->
-{/if}
-<div class="pkp_structure_subfoot">
+	{/if}
 	<div class="pkp_structure_content">
 		<a href="{url page="about" op="aboutThisPublishingSystem"}"><img class="pkp_helpers_align_right" alt="{translate key=$packageKey}" src="{$baseUrl}/{$brandImage}"/></a>
 		<a href="{$pkpLink}"><img class="pkp_helpers_align_right pkp_helpers_clear" alt="{translate key="common.publicKnowledgeProject"}" src="{$baseUrl}/lib/pkp/templates/images/pkp_brand.png"/></a>

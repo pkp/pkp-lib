@@ -20,10 +20,10 @@
 			{foreach from=$footerCategories item=category name=loop}
 				{assign var=links value=$category->getLinks()}
 				<div class="unit size1of{$footerCategories|@count} {if $smarty.foreach.loop.last}lastUnit{/if}">
-					<h4>{$category->getLocalizedTitle()}</h4>
+					<h4><a href="{url page="links" op="link" path=$category->getPath()|escape}">{$category->getLocalizedTitle()|strip_unsafe_html}</a></h4>
 					<ul>
 						{foreach from=$links item=link}
-							<li><a href="{$link->getUrl()}">{$link->getLocalizedTitle()}</a></li>
+							<li><a href="{$link->getUrl()}">{$link->getLocalizedTitle()|strip_unsafe_html}</a></li>
 						{/foreach}
 						{if $links|@count < $maxLinks}
 							{section name=padding start=$links|@count loop=$maxLinks step=1}

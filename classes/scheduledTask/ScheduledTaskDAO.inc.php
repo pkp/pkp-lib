@@ -55,7 +55,8 @@ class ScheduledTaskDAO extends DAO {
 	/**
 	 * Update a scheduled task's last run time.
 	 * @param $className string
-	 * @param $timestamp int optional, if omitted the current time is used
+	 * @param $timestamp int optional, if omitted the current time is used.
+	 * @return int
 	 */
 	function updateLastRunTime($className, $timestamp = null) {
 		$result = $this->retrieve(
@@ -65,12 +66,12 @@ class ScheduledTaskDAO extends DAO {
 
 		if (isset($result->fields[0]) && $result->fields[0] != 0) {
 			if (isset($timestamp)) {
-				$returner = $this->update(
+				$this->update(
 					'UPDATE scheduled_tasks SET last_run = ' . $this->datetimeToDB($timestamp) . ' WHERE class_name = ?',
 					array($className)
 				);
 			} else {
-				$returner = $this->update(
+				$this->update(
 					'UPDATE scheduled_tasks SET last_run = NOW() WHERE class_name = ?',
 					array($className)
 				);
@@ -78,13 +79,13 @@ class ScheduledTaskDAO extends DAO {
 
 		} else {
 			if (isset($timestamp)) {
-				$returner = $this->update(
+				$this->update(
 					sprintf('INSERT INTO scheduled_tasks (class_name, last_run)
 					VALUES (?, %s)', $this->datetimeToDB($timestamp)),
 					array($className)
 				);
 			} else {
-				$returner = $this->update(
+				$this->update(
 					'INSERT INTO scheduled_tasks (class_name, last_run)
 					VALUES (?, NOW())',
 					array($className)
@@ -93,7 +94,7 @@ class ScheduledTaskDAO extends DAO {
 		}
 
 		$result->Close();
-		return $returner;
+		return $this->getAffectedRows();
 	}
 }
 

@@ -71,15 +71,6 @@
 		{include file="common/minifiedScripts.tpl"}
 	{/if}
 
-	<!-- Add javascript required for font sizer -->
-	<script type="text/javascript">{literal}
-		<!--
-		$(function(){
-			fontSize("#sizer", "body", 9, 16, 32, "{/literal}{$basePath|escape:"javascript"}{literal}"); // Initialize the font sizer
-		});
-		// -->
-	{/literal}</script>
-
 	<!-- Form validation -->
 	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/lib/jquery/plugins/validate/jquery.validate.js"></script>
 	<script type="text/javascript">

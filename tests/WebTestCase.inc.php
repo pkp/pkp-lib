@@ -19,6 +19,9 @@ import('lib.pkp.tests.PKPTestHelper');
 class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	protected $baseUrl, $password;
 
+	protected $captureScreenshotOnFailure = true;
+	protected $screenshotPath, $screenshotUrl;
+
 
 	/**
 	 * Override this method if you want to backup/restore
@@ -33,6 +36,10 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	 * @copydoc PHPUnit_Framework_TestCase::setUp()
 	 */
 	protected function setUp() {
+		$screenshotsFolder = PKP_LIB_PATH . DIRECTORY_SEPARATOR . 'tests' . DIRECTORY_SEPARATOR . 'results';
+		$this->screenshotPath = BASE_SYS_DIR . DIRECTORY_SEPARATOR . $screenshotsFolder;
+		$this->screenshotUrl = Config::getVar('general', 'base_url') . '/' . $screenshotsFolder;
+
 		// See PKPTestCase::setUp() for an explanation
 		// of this code.
 		if(function_exists('_array_change_key_case')) {

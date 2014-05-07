@@ -129,13 +129,13 @@ class XSLTransformer {
 
 		switch ($this->processor) {
 			case 'External':
-				return $this->_transformExternal(&$xml, $xmlType, &$xsl, $xslType, $resultType);
+				return $this->_transformExternal($xml, $xmlType, $xsl, $xslType, $resultType);
 
 			case 'PHP4':
-				return $this->_transformPHP4(&$xml, $xmlType, &$xsl, $xslType, $resultType);
+				return $this->_transformPHP4($xml, $xmlType, $xsl, $xslType, $resultType);
 
 			case 'PHP5':
-				return $this->_transformPHP5(&$xml, $xmlType, &$xsl, $xslType, $resultType);
+				return $this->_transformPHP5($xml, $xmlType, $xsl, $xslType, $resultType);
 
 			default:
 				// No XSLT processor available

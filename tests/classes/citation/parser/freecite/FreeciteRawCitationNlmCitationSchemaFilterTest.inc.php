@@ -83,7 +83,7 @@ class FreeciteRawCitationNlmCitationSchemaFilterTest extends NlmCitationSchemaPa
 	 */
 	public function testAllCitationsWithThisParser() {
 		$filter = new FreeciteRawCitationNlmCitationSchemaFilter();
-		parent::testAllCitationsWithThisParser(&$filter);
+		parent::testAllCitationsWithThisParser($filter);
 	}
 }
 ?>

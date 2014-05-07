@@ -136,6 +136,9 @@
 				$form = this.getHtmlElement();
 				$form.replaceWith(processedJsonData.content);
 			}
+		} else {
+			// data was false -- assume errors, re-enable form controls.
+			this.enableFormControls();
 		}
 
 		$(this.getHtmlElement()).find('.pkp_helpers_progressIndicator').hide();

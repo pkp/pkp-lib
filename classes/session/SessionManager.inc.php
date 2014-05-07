@@ -95,6 +95,13 @@ class SessionManager {
 			// Update existing session's timestamp; will be saved when write is called
 			$this->userSession->setSecondsLastUsed($now);
 		}
+
+		// Adding session_write_close as a shutdown function. This is a PHP
+		// space workaround for the "Class '...' not found" bug in installations
+		// having the APC opcode cache installed
+		// Bugzilla: http://pkp.sfu.ca/bugzilla/show_bug.cgi?id=8151
+		// PHP Bug tracker: https://bugs.php.net/bug.php?id=58739
+		register_shutdown_function('session_write_close');
 	}
 
 	/**

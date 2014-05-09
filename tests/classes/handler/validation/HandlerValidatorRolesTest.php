@@ -101,19 +101,15 @@ class HandlerValidatorRolesTest extends PKPTestCase {
 
 		switch($roleType) {
 			case HANDLER_VALIDATOR_ROLES_FULL_CONTEXT_ROLE:
-				$roleId = $roleDao->getRoleIdFromPath('author');
-				// Harvester doesn't have an author role so use submitter there.
-				if (is_null($roleId)) $roleId = $roleDao->getRoleIdFromPath('submitter');
+				$roleId = ROLE_ID_AUTHOR;
 				break;
 
 			case HANDLER_VALIDATOR_ROLES_MANAGER_ROLE:
-				$roleId = $roleDao->getRoleIdFromPath('manager');
-				// Harvester doesn't have a manager role so use admin there.
-				if (is_null($roleId)) $roleId = $roleDao->getRoleIdFromPath('admin');
+				$roleId = ROLE_ID_MANAGER;
 				break;
 
 			case HANDLER_VALIDATOR_ROLES_SITE_ADMIN_ROLE:
-				$roleId = $roleDao->getRoleIdFromPath('admin');
+				$roleId = ROLE_ID_SITE_ADMIN;
 				break;
 
 			default:

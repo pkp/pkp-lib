@@ -95,7 +95,8 @@ class PKPApplication {
 
 		import('lib.pkp.classes.cache.CacheManager');
 
-		import('classes.security.Validation');
+		import('classes.security.Role');
+		import('lib.pkp.classes.security.Validation');
 		import('lib.pkp.classes.session.SessionManager');
 		import('classes.template.TemplateManager');
 		import('classes.notification.NotificationManager');

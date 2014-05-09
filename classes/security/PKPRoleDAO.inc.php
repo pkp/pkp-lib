@@ -177,28 +177,6 @@ class PKPRoleDAO extends DAO {
 	}
 
 	/**
-	 * Get a role's ID based on its path.
-	 * @param $rolePath string
-	 * @return int
-	 */
-	function getRoleIdFromPath($rolePath) {
-		switch ($rolePath) {
-			case 'manager':
-				return ROLE_ID_MANAGER;
-			case 'admin':
-				return ROLE_ID_SITE_ADMIN;
-			case 'author':
-				return ROLE_ID_AUTHOR;
-			case 'reviewer':
-				return ROLE_ID_REVIEWER;
-			case 'reader':
-				return ROLE_ID_READER;
-			default:
-				return null;
-		}
-	}
-
-	/**
 	 * Map a column heading value to a database value for sorting
 	 * @param string
 	 * @return string

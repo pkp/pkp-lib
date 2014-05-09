@@ -54,7 +54,6 @@ class UserGroupDAO extends DAO {
 		$userGroup->setId($row['user_group_id']);
 		$userGroup->setRoleId($row['role_id']);
 		$userGroup->setContextId($row['context_id']);
-		$userGroup->setPath($row['path']);
 		$userGroup->setDefault($row['is_default']);
 		$userGroup->setShowTitle($row['show_title']);
 		$userGroup->setPermitSelfRegistration($row['permit_self_registration']);
@@ -73,12 +72,11 @@ class UserGroupDAO extends DAO {
 	function insertObject($userGroup) {
 		$this->update(
 			'INSERT INTO user_groups
-				(role_id, path, context_id, is_default, show_title, permit_self_registration)
+				(role_id, context_id, is_default, show_title, permit_self_registration)
 				VALUES
-				(?, ?, ?, ?, ?, ?)',
+				(?, ?, ?, ?, ?)',
 			array(
 				(int) $userGroup->getRoleId(),
-				$userGroup->getPath(),
 				(int) $userGroup->getContextId(),
 				$userGroup->getDefault()?1:0,
 				$userGroup->getShowTitle()?1:0,
@@ -99,7 +97,6 @@ class UserGroupDAO extends DAO {
 		$this->update(
 			'UPDATE user_groups SET
 				role_id = ?,
-				path = ?,
 				context_id = ?,
 				is_default = ?,
 				show_title = ?,
@@ -107,7 +104,6 @@ class UserGroupDAO extends DAO {
 			WHERE	user_group_id = ?',
 			array(
 				(int) $userGroup->getRoleId(),
-				$userGroup->getPath(),
 				(int) $userGroup->getContextId(),
 				$userGroup->getDefault()?1:0,
 				$userGroup->getShowTitle()?1:0,
@@ -211,9 +207,8 @@ class UserGroupDAO extends DAO {
 
 	/**
 	 * Get a single default user group with a particular roleId
-	 * FIXME: ??
-	 * @param $contextId
-	 * @param $roleId
+	 * @param $contextId int Context ID
+	 * @param $roleId int ROLE_ID_...
 	 */
 	function getDefaultByRoleId($contextId, $roleId) {
 		$allDefaults = $this->getByRoleId($contextId, $roleId, true);
@@ -222,15 +217,15 @@ class UserGroupDAO extends DAO {
 	}
 
 	/**
-	 * Check whether the passed user group
-	 * id is default or not.
+	 * Check whether the passed user group id is default or not.
 	 * @param $userGroupId Integer
 	 * @return boolean
 	 */
 	function isDefault($userGroupId) {
 		$result = $this->retrieve(
 			'SELECT is_default FROM user_groups
-			WHERE user_group_id = ?', array((int)$userGroupId)
+			WHERE user_group_id = ?',
+			(int) $userGroupId
 		);
 
 		$result = $result->GetArray();
@@ -256,7 +251,8 @@ class UserGroupDAO extends DAO {
 			'SELECT	*
 			FROM	user_groups
 			WHERE	context_id = ? AND
-				role_id = ?' . ($default?' AND is_default = ?':''),
+				role_id = ?
+				' . ($default?' AND is_default = ?':''),
 			$params,
 			$dbResultRange
 		);
@@ -266,19 +262,20 @@ class UserGroupDAO extends DAO {
 
 	/**
 	 * Get an array of user group ids belonging to a given role
-	 * @param $roleId in
-	 * @param $contextId int
+	 * @param $roleId int ROLE_ID_...
+	 * @param $contextId int Context ID
 	 */
 	function getUserGroupIdsByRoleId($roleId, $contextId = null) {
-		$sql = 'SELECT user_group_id FROM user_groups WHERE role_id = ?';
 		$params = array((int) $roleId);
+		if ($contextId) $params[] = (int) $contextId;
 
-		if ($contextId) {
-			$sql .= ' AND context_id = ?';
-			$params[] = (int) $contextId;
-		}
-
-		$result = $this->retrieve($sql, $params);
+		$result = $this->retrieve(
+			'SELECT	user_group_id
+			FROM	user_groups
+				WHERE role_id = ?
+				' . ($contextId?' AND context_id = ?':''),
+			$params
+		);
 
 		$userGroupIds = array();
 		while (!$result->EOF) {
@@ -329,7 +326,8 @@ class UserGroupDAO extends DAO {
 			'SELECT	count(*)
 			FROM	user_groups ug
 				JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
-			WHERE	uug.user_id = ?' . ($contextId?' AND ug.context_id = ?':''),
+			WHERE	uug.user_id = ?
+				' . ($contextId?' AND ug.context_id = ?':''),
 			$params
 		);
 
@@ -347,14 +345,14 @@ class UserGroupDAO extends DAO {
 	 */
 	function getByUserId($userId, $contextId = null){
 		$params = array((int) $userId);
-		if ($contextId) {
-			$params[] = (int) $contextId;
-		}
+		if ($contextId) $params[] = (int) $contextId;
+
 		$result = $this->retrieve(
 			'SELECT	ug.*
 			FROM	user_groups ug
 				JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
-				WHERE uug.user_id = ?' . ($contextId?' AND ug.context_id = ?':''),
+				WHERE uug.user_id = ?
+				' . ($contextId?' AND ug.context_id = ?':''),
 			$params
 		);
 
@@ -394,12 +392,14 @@ class UserGroupDAO extends DAO {
 	function getByContextId($contextId = null, $dbResultRange = null) {
 		$params = array();
 		if ($contextId) $params[] = (int) $contextId;
+
 		$result = $this->retrieveRange(
 			'SELECT ug.*
 			FROM	user_groups ug' .
 				($contextId?' WHERE ug.context_id = ?':''),
 			$params,
-			$dbResultRange);
+			$dbResultRange
+		);
 
 		return new DAOResultFactory($result, $this, '_returnFromRow');
 	}
@@ -417,7 +417,9 @@ class UserGroupDAO extends DAO {
 			'SELECT	COUNT(DISTINCT(uug.user_id))
 			FROM	user_groups ug
 				JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
-			WHERE	context_id = ?' . ($userGroupId?' AND ug.user_group_id = ?':'') . ($roleId?' AND ug.role_id = ?':''),
+			WHERE	context_id = ?' .
+				($userGroupId?' AND ug.user_group_id = ?':'') .
+				($roleId?' AND ug.role_id = ?':''),
 			$params
 		);
 
@@ -487,7 +489,7 @@ class UserGroupDAO extends DAO {
 				LEFT JOIN controlled_vocab_entry_settings cves ON (ui.controlled_vocab_entry_id = cves.controlled_vocab_entry_id)
 				LEFT JOIN user_user_groups uug ON (uug.user_id = u.user_id)
 				LEFT JOIN user_groups ug ON (ug.user_group_id = uug.user_group_id)
-			WHERE 1=1' .
+			WHERE	1=1' .
 				($contextId?' AND ug.context_id = ?':'') .
 				($userGroupId?' AND ug.user_group_id = ?':'') .
 				$this->_getSearchSql($searchType, $search, $searchMatch, $params),
@@ -701,7 +703,6 @@ class UserGroupDAO extends DAO {
 			$role = new Role($roleId);
 			$userGroup = $this->newDataObject();
 			$userGroup->setRoleId($roleId);
-			$userGroup->setPath($role->getPath());
 			$userGroup->setContextId($contextId);
 			$userGroup->setPermitSelfRegistration($permitSelfRegistration);
 			$userGroup->setDefault(true);
@@ -968,12 +969,11 @@ class UserGroupDAO extends DAO {
 			'SELECT	stage_id
 			FROM	user_group_stage
 			WHERE	context_id = ? AND
-			user_group_id = ?',
+				user_group_id = ?',
 			array((int) $contextId, (int) $userGroupId)
 		);
 
 		$returner = array();
-
 		while (!$result->EOF) {
 			$stageId = $result->Fields('stage_id');
 			$returner[$stageId] = $this->getTranslationKeyFromId($stageId);

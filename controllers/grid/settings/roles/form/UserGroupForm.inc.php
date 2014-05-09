@@ -154,7 +154,6 @@ class UserGroupForm extends Form {
 			$role = new Role($this->getData('roleId'));
 			$userGroup->setRoleId($role->getId());
 			$userGroup->setContextId($this->getContextId());
-			$userGroup->setPath($role->getPath());
 			$userGroup->setDefault(false);
 			$userGroup->setShowTitle($this->getData('showTitle'));
 			$userGroup->setPermitSelfRegistration($this->getData('permitSelfRegistration') && in_array($role->getId(), $this->getPermitSelfRegistrationRoles()));

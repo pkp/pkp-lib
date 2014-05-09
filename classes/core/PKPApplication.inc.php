@@ -68,10 +68,13 @@ import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
 // To expose ORDER_CATEGORY_GRID_... constants via JS
 import('lib.pkp.classes.controllers.grid.feature.OrderCategoryGridItemsFeature');
 
-class PKPApplication {
+abstract class PKPApplication {
 	var $enabledProducts;
 	var $allProducts;
 
+	/**
+	 * Constructor
+	 */
 	function PKPApplication() {
 		// Seed random number generator
 		mt_srand(((double) microtime()) * 1000000);
@@ -140,17 +143,16 @@ class PKPApplication {
 	 * Get the current application object
 	 * @return Application
 	 */
-	static function &getApplication() {
-		$application =& Registry::get('application');
-		return $application;
+	static function getApplication() {
+		return Registry::get('application');
 	}
 
 	/**
 	 * Get the request implementation singleton
 	 * @return Request
 	 */
-	static function &getRequest() {
-		$request =& Registry::get('request', true, null);
+	static function getRequest() {
+		$request =& Registry::get('request', true, null); // Ref req'd
 
 		if (is_null($request)) {
 			import('classes.core.Request');
@@ -166,8 +168,8 @@ class PKPApplication {
 	 * Get the dispatcher implementation singleton
 	 * @return Dispatcher
 	 */
-	static function &getDispatcher() {
-		$dispatcher =& Registry::get('dispatcher', true, null);
+	static function getDispatcher() {
+		$dispatcher =& Registry::get('dispatcher', true, null); // Ref req'd
 
 		if (is_null($dispatcher)) {
 			import('lib.pkp.classes.core.Dispatcher');
@@ -208,10 +210,7 @@ class PKPApplication {
 	 * Get the locale key for the name of this application.
 	 * @return string
 	 */
-	function getNameKey() {
-		// must be implemented by sub-classes
-		assert(false);
-	}
+	abstract function getNameKey();
 
 	/**
 	 * Get the "context depth" of this application, i.e. the number of
@@ -220,10 +219,7 @@ class PKPApplication {
 	 * Scheduled Conference [2]).
 	 * @return int
 	 */
-	function getContextDepth() {
-		// must be implemented by sub-classes
-		assert(false);
-	}
+	abstract function getContextDepth();
 
 	/**
 	 * Get the list of the contexts available for this application
@@ -231,20 +227,14 @@ class PKPApplication {
 	 * (e.g. array('journal') or array('conference', 'schedConf'))
 	 * @return Array
 	 */
-	function getContextList() {
-		// must be implemented by sub-classes
-		assert(false);
-	}
+	abstract function getContextList();
 
 	/**
 	 * Get the URL to the XML descriptor for the current version of this
 	 * application.
 	 * @return string
 	 */
-	function getVersionDescriptorUrl() {
-		// must be implemented by sub-classes
-		assert(false);
-	}
+	abstract function getVersionDescriptorUrl();
 
 	/**
 	 * This function retrieves all enabled product versions once
@@ -294,11 +284,9 @@ class PKPApplication {
 
 	/**
 	 * Get the list of plugin categories for this application.
+	 * @return array
 	 */
-	function getPluginCategories() {
-		// To be implemented by sub-classes
-		assert(false);
-	}
+	abstract function getPluginCategories();
 
 	/**
 	 * Return the current version of the application.
@@ -382,7 +370,7 @@ class PKPApplication {
 	 * @return string
 	 */
 	function getQualifiedDAOName($name) {
-		$map =& Registry::get('daoMap', true, $this->getDAOMap());
+		$map =& Registry::get('daoMap', true, $this->getDAOMap()); // Ref req'd
 		if (isset($map[$name])) return $map[$name];
 		return null;
 	}
@@ -395,7 +383,7 @@ class PKPApplication {
 	static function defineExposedConstant($name, $value) {
 		define($name, $value);
 		assert(preg_match('/^[a-zA-Z_]+$/', $name));
-		$constants =& PKPApplication::getExposedConstants();
+		$constants =& PKPApplication::getExposedConstants(); // Ref req'd
 		$constants[$name] = $value;
 	}
 
@@ -415,41 +403,32 @@ class PKPApplication {
 	 * @return array
 	 */
 	function getJSLocaleKeys() {
-		$keys = array('form.dataHasChanged');
-		return $keys;
+		return array('form.dataHasChanged');
 	}
 
 	/**
 	 * Get the top-level context DAO.
 	 */
-	static function getContextDAO() {
-		assert(false); // Must be implemented by subclasses
-	}
+	abstract static function getContextDAO();
 
 	/**
 	 * Get the section DAO.
 	 * @return DAO
 	 */
-	static function getSectionDAO() {
-		assert(false);
-	}
+	abstract static function getSectionDAO();
 
 	/**
 	 * Get the submission DAO.
 	 */
-	static function getSubmissionDAO() {
-		assert(false); // Must be implemented by subclasses
-	}
+	abstract static function getSubmissionDAO();
 
 	/**
 	 * Get the representation DAO.
 	 */
-	static function getRepresentationDAO() {
-		assert(false); // Must be implemented by subclasses
-	}
+	abstract static function getRepresentationDAO();
 
 	/**
-	 * returns the name of the context column in plugin_settings.
+	 * Returns the name of the context column in plugin_settings.
 	 * This is necessary to prevent a column name mismatch during
 	 * the upgrade process when the codebase and the database are out
 	 * of sync.
@@ -460,39 +439,30 @@ class PKPApplication {
 	 * against their various schemas to determine which column is
 	 * present when an upgrade is being performed so the plugin
 	 * category can be initially be loaded correctly.
+	 * @return string
 	 */
-	static function getPluginSettingsContextColumnName() {
-		assert(false); // Must be implemented by subclasses
-	}
+	abstract static function getPluginSettingsContextColumnName();
 
 	/**
 	 * Get the DAO for ROLE_ID_SUB_EDITOR roles.
 	 */
-	static function getSubEditorDAO() {
-		assert(false); // Must be implemented by subclasses
-	}
+	abstract static function getSubEditorDAO();
 
 	/**
 	 * Get the stages used by the application.
 	 */
-	static function getApplicationStages() {
-		assert(false); // Must be implemented by subclasses
-	}
+	abstract static function getApplicationStages();
 
 	/**
 	 * Get the file directory array map used by the application.
 	 * should return array('context' => ..., 'submission' => ...)
 	 */
-	static function getFileDirectories() {
-		assert(false); // Must be implemented by subclasses.
-	}
+	abstract static function getFileDirectories();
 
 	/**
 	 * Returns the context type for this application.
 	 */
-	static function getContextAssocType() {
-		assert(false); // Must be implemented by subclasses.
-	}
+	abstract static function getContextAssocType();
 
 	//
 	// Statistics API
@@ -554,23 +524,23 @@ class PKPApplication {
 	}
 
 	/**
-	* Main entry point for PKP statistics reports.
-	*
-	* @see <http://pkp.sfu.ca/wiki/index.php/OJSdeStatisticsConcept#Input_and_Output_Formats_.28Aggregation.2C_Filters.2C_Metrics_Data.29>
-	* for a full specification of the input and output format of this method.
-	*
-	* @param $metricType null|string|array metrics selection
-	*   NB: If you want to use the default metric on journal level then you must
-	*   set $metricType = null and add an explicit filter on a single journal ID.
-	*   Otherwise the default site-level metric will be used.
-	* @param $columns string|array column (aggregation level) selection
-	* @param $filters array report-level filter selection
-	* @param $orderBy array order criteria
-	* @param $range null|DBResultRange paging specification
-	*
-	* @return null|array The selected data as a simple tabular result set or
-	*   null if the given parameter combination is not supported.
-	*/
+	 * Main entry point for PKP statistics reports.
+	 *
+	 * @see <http://pkp.sfu.ca/wiki/index.php/OJSdeStatisticsConcept#Input_and_Output_Formats_.28Aggregation.2C_Filters.2C_Metrics_Data.29>
+	 * for a full specification of the input and output format of this method.
+	 *
+	 * @param $metricType null|string|array metrics selection
+	 *   NB: If you want to use the default metric on journal level then you must
+	 *   set $metricType = null and add an explicit filter on a single journal ID.
+	 *   Otherwise the default site-level metric will be used.
+	 * @param $columns string|array column (aggregation level) selection
+	 * @param $filters array report-level filter selection
+	 * @param $orderBy array order criteria
+	 * @param $range null|DBResultRange paging specification
+	 *
+	 * @return null|array The selected data as a simple tabular result set or
+	 *   null if the given parameter combination is not supported.
+	 */
 	function getMetrics($metricType = null, $columns = array(), $filter = array(), $orderBy = array(), $range = null) {
 		import('classes.statistics.StatisticsHelper');
 		$statsHelper = new StatisticsHelper();
@@ -639,12 +609,12 @@ class PKPApplication {
 	}
 
 	/**
-	* Return metric in the primary metric type
-	* for the passed associated object.
-	* @param $assocType int
-	* @param $assocId int
-	* @return int
-	*/
+	 * Return metric in the primary metric type
+	 * for the passed associated object.
+	 * @param $assocType int
+	 * @param $assocId int
+	 * @return int
+	 */
 	function getPrimaryMetricByAssoc($assocType, $assocId) {
 		$filter = array(
 			STATISTICS_DIMENSION_ASSOC_ID => $assocId,

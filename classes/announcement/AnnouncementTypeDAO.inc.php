@@ -197,7 +197,7 @@ class AnnouncementTypeDAO extends DAO {
 
 	/**
 	 * Update an existing announcement type.
-	 * @param $announcement AnnouncementType
+	 * @param $announcementType AnnouncementType
 	 * @return boolean
 	 */
 	function updateObject($announcementType) {

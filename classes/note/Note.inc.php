@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/note/PKPNote.inc.php
+ * @file classes/note/Note.inc.php
  *
  * Copyright (c) 2014 Simon Fraser University Library
  * Copyright (c) 2000-2014 John Willinsky
@@ -9,16 +9,16 @@
  *
  * @class Note
  * @ingroup note
- * @see PKPNoteDAO
+ * @see NoteDAO
  * @brief Class for Note.
  */
 
 
-class PKPNote extends DataObject {
+class Note extends DataObject {
 	/**
 	 * Constructor.
 	 */
-	function PKPNote() {
+	function Note() {
 		parent::DataObject();
 	}
 
@@ -141,22 +141,6 @@ class PKPNote extends DataObject {
 	 */
 	function setAssocId($assocId) {
 		return $this->setData('assocId', $assocId);
-	}
-
-	/**
-	 * get file id
-	 * @return int
-	 */
-	function getFileId() {
-		return $this->getData('fileId');
-	}
-
-	/**
-	 * set file id
-	 * @param $fileId int
-	 */
-	function setFileId($fileId) {
-		return $this->setData('fileId',$fileId);
 	}
 
 	/**

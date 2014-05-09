@@ -336,6 +336,7 @@ class PKPApplication {
 			'LanguageDAO' => 'lib.pkp.classes.language.LanguageDAO',
 			'LibraryFileDAO' => 'lib.pkp.classes.context.LibraryFileDAO',
 			'MetadataDescriptionDAO' => 'lib.pkp.classes.metadata.MetadataDescriptionDAO',
+			'NoteDAO' => 'lib.pkp.classes.note.NoteDAO',
 			'NotificationDAO' => 'lib.pkp.classes.notification.NotificationDAO',
 			'NotificationMailListDAO' => 'lib.pkp.classes.notification.NotificationMailListDAO',
 			'NotificationSettingsDAO' => 'lib.pkp.classes.notification.NotificationSettingsDAO',

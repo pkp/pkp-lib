@@ -54,7 +54,7 @@ class SubEditorsListbuilderHandler extends SetupListbuilderHandler {
 		$context = $this->getContext();
 		$sectionId = $this->getSectionId();
 
-		$subEditorsDao = Application::getSubEditorDAO();
+		$subEditorsDao = Application::getSubEditorsDAO();
 		return $subEditorsDao->getBySectionId($sectionId, $context->getId());
 	}
 
@@ -63,7 +63,7 @@ class SubEditorsListbuilderHandler extends SetupListbuilderHandler {
 	 */
 	function getOptions() {
 		$context = $this->getContext();
-		$subEditorsDao = Application::getSubEditorDAO();
+		$subEditorsDao = Application::getSubEditorsDAO();
 
 		if ($this->getSectionId()) {
 			$unassignedSubEditors = $subEditorsDao->getEditorsNotInSection($context->getId(), $this->getSectionId());

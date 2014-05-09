@@ -389,7 +389,7 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 
 		$filterSubEditors = false;
 		if ($roleId == ROLE_ID_SUB_EDITOR && $subEditorFilterId) {
-			$subEditorsDao = Application::getSubEditorDAO();
+			$subEditorsDao = Application::getSubEditorsDAO();
 			// Flag to filter sub editors only.
 			$filterSubEditors = true;
 		}

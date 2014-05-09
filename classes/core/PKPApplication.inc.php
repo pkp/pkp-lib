@@ -446,7 +446,7 @@ abstract class PKPApplication {
 	/**
 	 * Get the DAO for ROLE_ID_SUB_EDITOR roles.
 	 */
-	abstract static function getSubEditorDAO();
+	abstract static function getSubEditorsDAO();
 
 	/**
 	 * Get the stages used by the application.

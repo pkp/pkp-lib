@@ -80,6 +80,7 @@ class PKPSectionForm extends Form {
 	 * @see ListbuilderHandler::deleteEntry
 	 * @param $request PKPRequest
 	 * @param $rowId int
+	 * @return boolean Success
 	 */
 	function deleteSubEditorEntry($request, $rowId) {
 		$subEditorsDao = Application::getSubEditorsDAO();
@@ -95,6 +96,7 @@ class PKPSectionForm extends Form {
 	 * @param $request PKPRequest
 	 * @param $rowId int the old section editor
 	 * @param $newRowId array the new section editor
+	 * @return boolean Success
 	 */
 	function updateSubEditorEntry($request, $rowId, $newRowId) {
 		$this->deleteSubEditorEntry($request, $rowId);

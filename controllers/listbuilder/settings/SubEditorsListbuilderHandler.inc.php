@@ -17,7 +17,7 @@ import('lib.pkp.controllers.listbuilder.settings.SetupListbuilderHandler');
 
 class SubEditorsListbuilderHandler extends SetupListbuilderHandler {
 	/** @var The section/series ID for this listbuilder */
-	var $sectionId;
+	var $_sectionId;
 
 	/**
 	 * Constructor
@@ -35,7 +35,7 @@ class SubEditorsListbuilderHandler extends SetupListbuilderHandler {
 	 * @param $sectionId int
 	 */
 	function setSectionId($sectionId) {
-		$this->sectionId = $sectionId;
+		$this->_sectionId = $sectionId;
 	}
 
 	/**
@@ -43,12 +43,13 @@ class SubEditorsListbuilderHandler extends SetupListbuilderHandler {
 	 * @return int
 	 */
 	function getSectionId() {
-		return $this->sectionId;
+		return $this->_sectionId;
 	}
 
 	/**
 	 * Load the list from an external source into the grid structure
 	 * @param $request PKPRequest
+	 * @return array List of sub-editors by section ID
 	 */
 	function loadData($request) {
 		$context = $this->getContext();
@@ -60,6 +61,7 @@ class SubEditorsListbuilderHandler extends SetupListbuilderHandler {
 
 	/**
 	 * Get possible items to populate pulldown with
+	 * @return array Listbuilder-formatted array of pulldown options
 	 */
 	function getOptions() {
 		$context = $this->getContext();

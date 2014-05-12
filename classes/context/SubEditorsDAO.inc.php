@@ -48,7 +48,7 @@ class SubEditorsDAO extends DAO {
 	 * @param $userId int
 	 */
 	function deleteEditor($contextId, $sectionId, $userId) {
-		return $this->update(
+		$this->update(
 			'DELETE FROM section_editors WHERE context_id = ? AND section_id = ? AND user_id = ?',
 			array(
 				(int) $contextId,

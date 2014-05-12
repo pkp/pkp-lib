@@ -50,7 +50,7 @@ class LibraryFileAdminGridDataProvider extends CategoryGridDataProvider {
 	 * @copydoc GridDataProvider::getRequestArgs()
 	 */
 	function getRequestArgs() {
-		return array('canEdit' => $this->getCanEdit());
+		return array('canEdit' => $this->canEdit());
 	}
 
 	/**
@@ -66,7 +66,7 @@ class LibraryFileAdminGridDataProvider extends CategoryGridDataProvider {
 	 * get whether or not this grid is editable (has actions).
 	 * @return boolean $canEdit
 	 */
-	function getCanEdit() {
+	function canEdit() {
 		return $this->_canEdit;
 	}
 

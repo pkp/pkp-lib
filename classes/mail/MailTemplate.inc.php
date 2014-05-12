@@ -251,54 +251,6 @@ class MailTemplate extends Mail {
 	}
 
 	/**
-	 * Displays an edit form to customize the email.
-	 * @param $formActionUrl string
-	 * @param $hiddenFormParams array
-	 * @return void
-	 */
-	function displayEditForm($formActionUrl, $hiddenFormParams = null, $alternateTemplate = null, $additionalParameters = array()) {
-		import('lib.pkp.classes.form.Form');
-		$form = new Form($alternateTemplate!=null?$alternateTemplate:'email/email.tpl');
-
-		$form->setData('formActionUrl', $formActionUrl);
-		$form->setData('subject', $this->getSubject());
-		$form->setData('body', $this->getBody());
-
-		$form->setData('to', $this->getRecipients());
-		$form->setData('cc', $this->getCcs());
-		$form->setData('bcc', $this->getBccs());
-		$form->setData('blankTo', Request::getUserVar('blankTo'));
-		$form->setData('blankCc', Request::getUserVar('blankCc'));
-		$form->setData('blankBcc', Request::getUserVar('blankBcc'));
-		$form->setData('from', $this->getFromString(false));
-
-		$form->setData('addressFieldsEnabled', $this->getAddressFieldsEnabled());
-
-		$user = Request::getUser();
-		if ($user) {
-			$form->setData('senderEmail', $user->getEmail());
-			$form->setData('bccSender', $this->bccSender);
-		}
-
-		if ($this->attachmentsEnabled) {
-			$form->setData('attachmentsEnabled', true);
-			$form->setData('persistAttachments', $this->persistAttachments);
-		}
-
-		$form->setData('errorMessages', $this->errorMessages);
-
-		if ($hiddenFormParams != null) {
-			$form->setData('hiddenFormParams', $hiddenFormParams);
-		}
-
-		foreach ($additionalParameters as $key => $value) {
-			$form->setData($key, $value);
-		}
-
-		$form->display();
-	}
-
-	/**
 	 * Send the email.
 	 * Aside from calling the parent method, this actually attaches
 	 * the persistent attachments if they are used.

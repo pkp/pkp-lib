@@ -9,12 +9,12 @@
  *
  * @class PKPRoleDAO
  * @ingroup security
- * @see PKPRole
+ * @see Role
  *
  * @brief Operations for retrieving and modifying Role objects.
  */
 
-import('lib.pkp.classes.security.PKPRole');
+import('lib.pkp.classes.security.Role');
 import('lib.pkp.classes.security.UserGroupAssignment');
 
 class PKPRoleDAO extends DAO {
@@ -30,12 +30,11 @@ class PKPRoleDAO extends DAO {
 	}
 
 	/**
-	 * create new data object
-	 * (allows DAO to be subclassed)
-	 * @return PKPRole
+	 * Create new data object
+	 * @return Role
 	 */
 	function newDataObject() {
-		return new PKPRole();
+		return new Role();
 	}
 
 	/**
@@ -148,7 +147,9 @@ class PKPRoleDAO extends DAO {
 
 		$roles = array();
 		while ( !$result->EOF ) {
-			$roles[] = new Role($result->fields[0]);
+			$role = $this->newDataObject();
+			$role->setRoleId($result->fields[0]);
+			$roles[] = $role;
 			$result->MoveNext();
 		}
 		$result->Close();

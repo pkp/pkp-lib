@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file classes/security/PKPRole.inc.php
+ * @file classes/security/Role.inc.php
  *
  * Copyright (c) 2014 Simon Fraser University Library
  * Copyright (c) 2003-2014 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPRole
+ * @class Role
  * @ingroup security
  * @see RoleDAO
  *
@@ -22,13 +22,13 @@ define('ROLE_ID_REVIEWER',		0x00001000);
 define('ROLE_ID_ASSISTANT',		0x00001001);
 define('ROLE_ID_READER',		0x00100000);
 
-class PKPRole extends DataObject {
+class Role extends DataObject {
 	/**
 	 * Constructor.
 	 * @param $roleId for this role.  Default to null for backwards
 	 * 	compatibility
 	 */
-	function PKPRole($roleId = null) {
+	function Role($roleId = null) {
 		parent::DataObject();
 		$this->setId($roleId);
 	}

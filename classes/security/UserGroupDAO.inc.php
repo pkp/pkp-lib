@@ -12,9 +12,6 @@
  * @see UserGroup
  *
  * @brief Operations for retrieving and modifying User Groups and user group assignments
- * FIXME: Some of the context-specific features of this class will have
- * to be changed for zero- or double-context applications when user groups
- * are ported over to them.
  */
 
 
@@ -68,6 +65,7 @@ class UserGroupDAO extends DAO {
 	/**
 	 * Insert a user group.
 	 * @param $userGroup UserGroup
+	 * @return int Inserted user group ID
 	 */
 	function insertObject($userGroup) {
 		$this->update(
@@ -122,11 +120,10 @@ class UserGroupDAO extends DAO {
 	 * @param $userGroupId int
 	 */
 	function deleteById($contextId, $userGroupId) {
-		$ret1 = $this->userGroupAssignmentDao->deleteAssignmentsByUserGroupId($userGroupId);
-		$ret2 = $this->update('DELETE FROM user_group_settings WHERE user_group_id = ?', (int) $userGroupId);
-		$ret3 = $this->update('DELETE FROM user_groups WHERE user_group_id = ?', (int) $userGroupId);
-		$ret4 = $this->removeAllStagesFromGroup($contextId, $userGroupId);
-		return $ret1 && $ret2 && $ret3 && $ret4;
+		$this->userGroupAssignmentDao->deleteAssignmentsByUserGroupId($userGroupId);
+		$this->update('DELETE FROM user_group_settings WHERE user_group_id = ?', (int) $userGroupId);
+		$this->update('DELETE FROM user_groups WHERE user_group_id = ?', (int) $userGroupId);
+		$this->removeAllStagesFromGroup($contextId, $userGroupId);
 	}
 
 	/**
@@ -135,7 +132,7 @@ class UserGroupDAO extends DAO {
 	 * @param $userGroup UserGroup
 	 */
 	function deleteObject($userGroup) {
-		return $this->deleteById($userGroup->getContextId(), $userGroup->getId());
+		$this->deleteById($userGroup->getContextId(), $userGroup->getId());
 	}
 
 
@@ -146,19 +143,15 @@ class UserGroupDAO extends DAO {
 	function deleteByContextId($contextId) {
 		$result = $this->retrieve('SELECT user_group_id FROM user_groups WHERE context_id = ?', (int) $contextId);
 
-		$returner = true;
 		for ($i=1; !$result->EOF; $i++) {
 			list($userGroupId) = $result->fields;
 
-			$ret1 = $this->update('DELETE FROM user_group_stage WHERE user_group_id = ?', (int) $userGroupId);
-			$ret2 = $this->update('DELETE FROM user_group_settings WHERE user_group_id = ?', (int) $userGroupId);
-			$ret3 = $this->update('DELETE FROM user_groups WHERE user_group_id = ?', (int) $userGroupId);
+			$this->update('DELETE FROM user_group_stage WHERE user_group_id = ?', (int) $userGroupId);
+			$this->update('DELETE FROM user_group_settings WHERE user_group_id = ?', (int) $userGroupId);
+			$this->update('DELETE FROM user_groups WHERE user_group_id = ?', (int) $userGroupId);
 
-			$returner = $returner && $ret1 && $ret2 && $ret3;
 			$result->MoveNext();
 		}
-
-		return $returner;
 	}
 
 	/**
@@ -436,6 +429,7 @@ class UserGroupDAO extends DAO {
 	 * @param string $search
 	 * @param string $searchMatch
 	 * @param DBResultRange $dbResultRange
+	 * @return DAOResultFactory
 	 */
 	function getUsersByContextId($contextId, $searchType = null, $search = null, $searchMatch = null, $dbResultRange = null) {
 		return $this->getUsersById(null, $contextId, $searchType, $search, $searchMatch, $dbResultRange);
@@ -446,6 +440,7 @@ class UserGroupDAO extends DAO {
 	 * @param $contextId int optional
 	 * @param ROLE_ID_... int (const)
 	 * @param $search string
+	 * @return DAOResultFactory
 	 */
 	function getUsersNotInRole($roleId, $contextId = null, $search = null) {
 		$params = array((int) $roleId);
@@ -474,6 +469,7 @@ class UserGroupDAO extends DAO {
 	 * @param string $search
 	 * @param string $searchMatch
 	 * @param DBResultRange $dbResultRange
+	 * @return DAOResultFactory
 	 */
 	function getUsersById($userGroupId = null, $contextId = null, $searchType = null, $search = null, $searchMatch = null, $dbResultRange = null) {
 		$params = array();
@@ -537,7 +533,7 @@ class UserGroupDAO extends DAO {
 		$assignment = $this->userGroupAssignmentDao->newDataObject();
 		$assignment->setUserId($userId);
 		$assignment->setUserGroupId($groupId);
-		return $this->userGroupAssignmentDao->insertObject($assignment);
+		$this->userGroupAssignmentDao->insertObject($assignment);
 	}
 
 	/**
@@ -572,10 +568,9 @@ class UserGroupDAO extends DAO {
 	 * @param $contextId int
 	 * @param $userGroupId int
 	 * @param $stageId int
-	 * @return bool
 	 */
 	function assignGroupToStage($contextId, $userGroupId, $stageId) {
-		return $this->update(
+		$this->update(
 			'INSERT INTO user_group_stage (context_id, user_group_id, stage_id) VALUES (?, ?, ?)',
 			array((int) $contextId, (int) $userGroupId, (int) $stageId)
 		);
@@ -586,10 +581,9 @@ class UserGroupDAO extends DAO {
 	 * @param $contextId int
 	 * @param $userGroupId int
 	 * @param $stageId int
-	 * @return bool
 	 */
 	function removeGroupFromStage($contextId, $userGroupId, $stageId) {
-		return $this->update(
+		$this->update(
 			'DELETE FROM user_group_stage WHERE context_id = ? AND user_group_id = ? AND stage_id = ?',
 			array((int) $contextId, (int) $userGroupId, (int) $stageId)
 		);
@@ -681,6 +675,7 @@ class UserGroupDAO extends DAO {
 	 * Load the XML file and move the settings to the DB
 	 * @param $contextId
 	 * @param $filename
+	 * @return boolean true === success
 	 */
 	function installSettings($contextId, $filename) {
 		$xmlParser = new XMLParser();
@@ -700,7 +695,6 @@ class UserGroupDAO extends DAO {
 			$userGroup = $this->newDataObject();
 
 			// create a role associated with this user group
-			$role = new Role($roleId);
 			$userGroup = $this->newDataObject();
 			$userGroup->setRoleId($roleId);
 			$userGroup->setContextId($contextId);
@@ -727,6 +721,8 @@ class UserGroupDAO extends DAO {
 			// install the settings in the current locale for this context
 			$this->installLocale(AppLocale::getLocale(), $contextId);
 		}
+
+		return true;
 	}
 
 	/**
@@ -771,6 +767,7 @@ class UserGroupDAO extends DAO {
 	 * @param string $search the keywords to search for.
 	 * @param string $searchMatch where to match (is, contains, startsWith).
 	 * @param array $params SQL parameter array reference
+	 * @return string SQL search snippet
 	 */
 	function _getSearchSql($searchType, $search, $searchMatch, &$params) {
 		$searchTypeMap = array(
@@ -961,8 +958,9 @@ class UserGroupDAO extends DAO {
 
 	/**
 	 * Get all stages assigned to one user group in one context.
-	 * @param Integer $contextId The user group context.
-	 * @param Integer $userGroupId
+	 * @param $contextId int The context ID.
+	 * @param $userGroupId int The user group ID
+	 * @return array
 	 */
 	function getAssignedStagesByUserGroupId($contextId, $userGroupId) {
 		$result = $this->retrieve(

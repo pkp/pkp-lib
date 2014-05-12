@@ -151,8 +151,7 @@ class UserGroupForm extends Form {
 		// Check if we are editing an existing user group or creating another one.
 		if ($userGroupId == null) {
 			$userGroup = $userGroupDao->newDataObject();
-			$role = new Role($this->getData('roleId'));
-			$userGroup->setRoleId($role->getId());
+			$userGroup->setRoleId($this->getData('roleId'));
 			$userGroup->setContextId($this->getContextId());
 			$userGroup->setDefault(false);
 			$userGroup->setShowTitle($this->getData('showTitle'));

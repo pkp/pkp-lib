@@ -89,7 +89,7 @@ class ProfileHandler extends UserHandler {
 			$context = $request->getContext();
 			if ($userGroupDao->userInAnyGroup($user->getId(), $context->getId())) {
 				$request->redirect(null, 'dashboard');
-			}	else {
+			} else {
 				$request->redirect(null, 'index');
 			}
 		} else {

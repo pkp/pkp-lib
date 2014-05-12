@@ -60,13 +60,7 @@ class PKPTemplateManager extends Smarty {
 	 * Initialize template engine and assign basic template variables.
 	 * @param $request PKPRequest
 	 */
-	function PKPTemplateManager($request = null) {
-		if (!isset($request)) {
-			$request =& Registry::get('request');
-			// Disabled as it makes too much noise as long as
-			// there are so many handlers that don't pass in the request.
-			// if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated call without request object.');
-		}
+	function PKPTemplateManager($request) {
 		assert(is_a($request, 'PKPRequest'));
 		$this->request = $request;
 
@@ -87,6 +81,9 @@ class PKPTemplateManager extends Smarty {
 		$this->cache_dir = $cachePath . DIRECTORY_SEPARATOR . 't_cache';
 
 		$this->cacheability = CACHEABILITY_NO_STORE; // Safe default
+
+		// Are we using implicit authentication?
+		$this->assign('implicitAuth', Config::getVar('security', 'implicit_auth'));
 	}
 
 	/**
@@ -118,6 +115,8 @@ class PKPTemplateManager extends Smarty {
 		$locale = AppLocale::getLocale();
 		$this->assign('currentLocale', $locale);
 
+		// Add uncompilable styles
+		$this->addStyleSheet($this->request->getBaseUrl() . '/styles/lib.css', STYLE_SEQUENCE_CORE);
 		$dispatcher = $this->request->getDispatcher();
 		$this->addStyleSheet($dispatcher->url($this->request, ROUTE_COMPONENT, null, 'page.PageHandler', 'css'), STYLE_SEQUENCE_CORE);
 		// If there's a locale-specific stylesheet, add it.

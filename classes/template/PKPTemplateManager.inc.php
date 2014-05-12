@@ -50,7 +50,7 @@ class PKPTemplateManager extends Smarty {
 	var $cacheability;
 
 	/** @var object The form builder vocabulary class. */
-	var $fbv;
+	var $_fbv;
 
 	/** @var PKPRequest */
 	var $request;
@@ -130,7 +130,6 @@ class PKPTemplateManager extends Smarty {
 
 		// Register custom functions
 		$this->register_modifier('translate', array('AppLocale', 'translate'));
-		$this->register_modifier('get_value', array($this, 'smartyGetValue'));
 		$this->register_modifier('strip_unsafe_html', array('String', 'stripUnsafeHtml'));
 		$this->register_modifier('String_substr', array('String', 'substr'));
 		$this->register_modifier('to_array', array($this, 'smartyToArray'));
@@ -149,10 +148,6 @@ class PKPTemplateManager extends Smarty {
 		$this->register_function('page_links', array($this, 'smartyPageLinks'));
 		$this->register_function('page_info', array($this, 'smartyPageInfo'));
 		$this->register_function('icon', array($this, 'smartyIcon'));
-		$this->register_function('sort_heading', array($this, 'smartySortHeading'));
-		$this->register_function('sort_search', array($this, 'smartySortSearch'));
-		$this->register_function('assign_mailto', array($this, 'smartyAssignMailto'));
-		$this->register_function('display_template', array($this, 'smartyDisplayTemplate'));
 		$this->register_modifier('truncate', array($this, 'smartyTruncate'));
 
 		// Modified vocabulary for creating forms
@@ -332,18 +327,6 @@ class PKPTemplateManager extends Smarty {
 		}
 	}
 
-	/**
-	 * Display templates from Smarty and allow hook overrides
-	 *
-	 * Smarty usage: {display_template template="name.tpl" hookname="My::Hook::Name"}
-	 */
-	function smartyDisplayTemplate($params, $smarty) {
-		// This is basically a wrapper for display()
-		if (isset($params['template'])) {
-			$this->display($params['template'], "", $params['hookname']);
-		}
-	}
-
 
 	/**
 	 * Clear template compile and cache directories.
@@ -381,11 +364,11 @@ class PKPTemplateManager extends Smarty {
 	 * @return TemplateManager the template manager object
 	 */
 	function getFBV() {
-		if(!$this->fbv) {
+		if(!$this->_fbv) {
 			import('lib.pkp.classes.form.FormBuilderVocabulary');
-			$this->fbv = new FormBuilderVocabulary();
+			$this->_fbv = new FormBuilderVocabulary();
 		}
-		return $this->fbv;
+		return $this->_fbv;
 	}
 
 	//
@@ -499,34 +482,6 @@ class PKPTemplateManager extends Smarty {
 
 		$this->assign('hoverTitle', $hoverTitle);
 		return $this->fetch('linkAction/linkAction.tpl');
-	}
-
-	/**
-	 * Smarty usage: {assign_mailto var="varName" address="email@address.com" ...]}
-	 *
-	 * Generates a hex-encoded mailto address and assigns it to the variable name specified..
-	 */
-	function smartyAssignMailto($params, $smarty) {
-		if (isset($params['var']) && isset($params['address'])) {
-			// Password encoding code taken from Smarty's mailto
-			// function.
-			$address = $params['address'];
-			$address_encode = '';
-			for ($x=0; $x < strlen($address); $x++) {
-				if(preg_match('!\w!',$address[$x])) {
-					$address_encode .= '%' . bin2hex($address[$x]);
-				} else {
-					$address_encode .= $address[$x];
-				}
-			}
-			$text_encode = '';
-			for ($x=0; $x < strlen($text); $x++) {
-				$text_encode .= '&#x' . bin2hex($text[$x]).';';
-			}
-
-			$mailto = "&#109;&#97;&#105;&#108;&#116;&#111;&#58;";
-			$smarty->assign($params['var'], $mailto . $address_encode);
-		}
 	}
 
 	/**
@@ -895,13 +850,6 @@ class PKPTemplateManager extends Smarty {
 	}
 
 	/**
-	 * Get the value of a template variable.
-	 */
-	function smartyGetValue($name) {
-		return $this->get_template_vars($name);
-	}
-
-	/**
 	 * Override the built-in smarty escape modifier to set the charset
 	 * properly; also add the jsparam escaping method.
 	 */
@@ -1157,76 +1105,6 @@ class PKPTemplateManager extends Smarty {
 			$this->assign($varName, $value);
 		}
 		if ($passThru) return $value;
-	}
-
-	/**
-	 * Smarty usage: {sort_heading key="localization.key.name" sort="foo"}
-	 *
-	 * Custom Smarty function for creating heading links to sort tables by
-	 * @param $params array associative array
-	 * @param $smarty Smarty
-	 * @return string heading link to sort table by
-	 */
-	function smartySortHeading($params, $smarty) {
-		if (isset($params) && !empty($params)) {
-			$sortParams = $this->request->getQueryArray();
-			isset($params['sort'])? ($sortParams['sort'] = $params['sort']) : null;
-			$sortDirection = $smarty->get_template_vars('sortDirection');
-			$sort = $smarty->get_template_vars('sort');
-
-			// Invert sort direction
-			if($params['sort'] == $sort) {
-				if ($sortDirection == SORT_DIRECTION_ASC) {
-					$sortParams['sortDirection'] = SORT_DIRECTION_DESC;
-				} else {
-					$sortParams['sortDirection'] = SORT_DIRECTION_ASC;
-				}
-			} else {
-				$sortParams['sortDirection'] = SORT_DIRECTION_ASC;
-			}
-
-			$link = $this->request->url(null, null, null, $this->request->getRequestedArgs(), $sortParams, null, true);
-			$text = isset($params['key']) ? __($params['key']) : '';
-			$style = (isset($sort) && isset($params['sort']) && ($sort == $params['sort'])) ? ' style="font-weight:bold"' : '';
-
-			return "<a href=\"$link\"$style>$text</a>";
-		}
-	}
-
-	/**
-	 * Smarty usage: {sort_search key="localization.key.name" sort="foo"}
-	 *
-	 * Custom Smarty function for creating heading links to sort search-generated tables
-	 * @param $params array associative array
-	 * @param $smarty Smarty
-	 * @return string heading link to sort table by
-	 */
-	function smartySortSearch($params, $smarty) {
-		if (isset($params) && !empty($params)) {
-			$sort = $smarty->get_template_vars('sort');
-			$sortDirection = $smarty->get_template_vars('sortDirection');
-
-			// Invert sort direction
-			if($params['sort'] == $sort) {
-				if ($sortDirection == SORT_DIRECTION_ASC) {
-					$direction = SORT_DIRECTION_DESC;
-				} else {
-					$direction = SORT_DIRECTION_ASC;
-				}
-			} else {
-				$direction = SORT_DIRECTION_ASC;
-			}
-
-			// Escape variables for JS inclusion
-			foreach (array('heading', 'direction') as $varName) {
-				$$varName = $this->smartyEscape($$varName, 'javascript');
-			}
-
-			$heading = isset($params['sort']) ? $params['sort'] : $sort;
-			$text = isset($params['key']) ? __($params['key']) : '';
-			$style = (isset($sort) && isset($params['sort']) && ($sort == $params['sort'])) ? ' style="font-weight:bold"' : '';
-			return "<a href=\"javascript:sortSearch('$heading','$direction')\"$style>$text</a>";
-		}
 	}
 
 	/**

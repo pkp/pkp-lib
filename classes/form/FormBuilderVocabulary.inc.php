@@ -81,9 +81,9 @@ class FormBuilderVocabulary {
 	 * Set the form
 	 * @param $form object
 	 */
-	function setForm(&$form) {
-		if (isset($form)) assert(is_a($form, 'Form'));
-		$this->_form =& $form;
+	function setForm($form) {
+		if ($form) assert(is_a($form, 'Form'));
+		$this->_form = $form;
 	}
 
 	/**

@@ -212,6 +212,7 @@ class PKPProfileForm extends Form {
 			'interestsTextOnly',
 			'userLocales',
 			'authorGroup',
+			'reviewerGroup',
 		));
 
 		if ($this->getData('userLocales') == null || !is_array($this->getData('userLocales'))) {

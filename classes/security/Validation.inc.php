@@ -1,19 +1,19 @@
 <?php
 
 /**
- * @file classes/security/PKPValidation.inc.php
+ * @file classes/security/Validation.inc.php
  *
  * Copyright (c) 2014 Simon Fraser University Library
  * Copyright (c) 2003-2014 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPValidation
+ * @class Validation
  * @ingroup security
  *
  * @brief Class providing user validation/authentication operations.
  */
 
-class PKPValidation {
+class Validation {
 
 	/**
 	 * Authenticate user credentials and mark the user as logged in in the current session.

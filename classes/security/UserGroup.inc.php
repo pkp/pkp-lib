@@ -15,7 +15,7 @@
  */
 
 // Bring in role constants.
-import('classes.security.Role');
+import('lib.pkp.classes.security.Role');
 
 class UserGroup extends DataObject {
 	/**

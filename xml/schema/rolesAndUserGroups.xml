@@ -28,9 +28,6 @@
 		<field name="role_id" type="I8">
 			<NOTNULL />
 		</field>
-		<field name="path" type="C2" size="30">
-			<NOTNULL />
-		</field>
 		<field name="is_default" type="I1">
 			<NOTNULL/>
 			<DEFAULT VALUE="0"/>
@@ -52,9 +49,6 @@
 		</index>
 		<index name="user_groups_role_id">
 			<col>role_id</col>
-		</index>
-		<index name="user_groups_path">
-			<col>path</col>
 		</index>
 	</table>
 

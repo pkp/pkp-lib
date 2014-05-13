@@ -85,7 +85,15 @@ class ProfileHandler extends UserHandler {
 
 		if (!$dataModified && $profileForm->validate()) {
 			$profileForm->execute($request);
-			$request->redirect(null, 'dashboard');
+			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+			$context = $request->getContext();
+			$userGroups = $userGroupDao->getByUserId($user->getId(), $context->getId());
+			while ($userGroup = $userGroups->next()) {
+				if ($userGroup->getRoleId() != ROLE_ID_READER) {
+					$request->redirect(null, 'dashboard');
+				}
+			}
+			$request->redirect(null, 'index');
 		} else {
 			$profileForm->display($request);
 		}

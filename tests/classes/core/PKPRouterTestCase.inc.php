@@ -19,7 +19,7 @@ import('lib.pkp.tests.PKPTestCase');
 import('lib.pkp.classes.core.PKPRouter');
 import('lib.pkp.classes.core.PKPRequest');
 import('lib.pkp.classes.plugins.HookRegistry'); // This imports a mock HookRegistry implementation.
-import('lib.pkp.classes.core.PKPApplication');
+import('classes.core.PKPApplication');
 import('lib.pkp.classes.db.DAORegistry');
 
 class PKPRouterTestCase extends PKPTestCase {
@@ -299,7 +299,7 @@ class PKPRouterTestCase extends PKPTestCase {
 			$contextDepth = 2, $contextList = array('firstContext', 'secondContext')) {
 		// Mock application object without calling its constructor.
 		$mockApplication =
-				$this->getMock('PKPApplication', array('getContextDepth', 'getContextList'),
+				$this->getMock('Application', array('getContextDepth', 'getContextList'),
 				array(), '', false);
 
 		// Set up the getContextDepth() method

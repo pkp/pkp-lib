@@ -14,9 +14,6 @@
  *
  */
 
-define_exposed('REALLY_BIG_NUMBER', 10000);
-define_exposed('UPLOAD_MAX_FILESIZE', ini_get('upload_max_filesize'));
-
 define('ROUTE_COMPONENT', 'component');
 define('ROUTE_PAGE', 'page');
 
@@ -37,7 +34,7 @@ define('ASSOC_TYPE_REVIEW_ROUND',		0x000020B);
 define('ASSOC_TYPE_SUBMISSION_FILES',		0x000020F);
 define('ASSOC_TYPE_PUBLISHED_SUBMISSION',	0x0000210);
 define('ASSOC_TYPE_PLUGIN',			0x0000211);
-define('ASSOC_TYPE_SECTION',		0x0000212);
+define('ASSOC_TYPE_SECTION',			0x0000212);
 define('ASSOC_TYPE_USER',			0x0001000); // This value used because of bug #6068
 define('ASSOC_TYPE_USER_GROUP',			0x0100002);
 define('ASSOC_TYPE_CITATION',			0x0100003);
@@ -48,13 +45,6 @@ define('ASSOC_TYPE_USER_ROLES',			0x0100007);
 define('ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES',	0x0100008);
 define('ASSOC_TYPE_SUBMISSION',			0x0100009);
 
-define_exposed('WORKFLOW_STAGE_ID_PUBLISHED', 0); // FIXME? See bug #6463.
-define_exposed('WORKFLOW_STAGE_ID_SUBMISSION', 1);
-define_exposed('WORKFLOW_STAGE_ID_INTERNAL_REVIEW', 2);
-define_exposed('WORKFLOW_STAGE_ID_EXTERNAL_REVIEW', 3);
-define_exposed('WORKFLOW_STAGE_ID_EDITING', 4);
-define_exposed('WORKFLOW_STAGE_ID_PRODUCTION', 5);
-
 // FIXME: these were defined in userGroup. they need to be moved somewhere with classes that do mapping.
 define('WORKFLOW_STAGE_PATH_SUBMISSION', 'submission');
 define('WORKFLOW_STAGE_PATH_INTERNAL_REVIEW', 'internalReview');
@@ -62,13 +52,67 @@ define('WORKFLOW_STAGE_PATH_EXTERNAL_REVIEW', 'externalReview');
 define('WORKFLOW_STAGE_PATH_EDITING', 'editorial');
 define('WORKFLOW_STAGE_PATH_PRODUCTION', 'production');
 
-// To expose LISTBUILDER_SOURCE_TYPE_... constants via JS
-import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
+interface iPKPApplicationInfoProvider {
+	/**
+	 * Get the top-level context DAO.
+	 */
+	static function getContextDAO();
 
-// To expose ORDER_CATEGORY_GRID_... constants via JS
-import('lib.pkp.classes.controllers.grid.feature.OrderCategoryGridItemsFeature');
+	/**
+	 * Get the section DAO.
+	 * @return DAO
+	 */
+	static function getSectionDAO();
 
-abstract class PKPApplication {
+	/**
+	 * Get the submission DAO.
+	 */
+	static function getSubmissionDAO();
+
+	/**
+	 * Get the representation DAO.
+	 */
+	static function getRepresentationDAO();
+
+	/**
+	 * Returns the name of the context column in plugin_settings.
+	 * This is necessary to prevent a column name mismatch during
+	 * the upgrade process when the codebase and the database are out
+	 * of sync.
+	 * See:  http://pkp.sfu.ca/bugzilla/show_bug.cgi?id=8265
+	 *
+	 * The 'generic' category of plugin is loaded before the schema
+	 * is reconciled.  Subclasses of PKPApplication perform a check
+	 * against their various schemas to determine which column is
+	 * present when an upgrade is being performed so the plugin
+	 * category can be initially be loaded correctly.
+	 * @return string
+	 */
+	static function getPluginSettingsContextColumnName();
+
+	/**
+	 * Get the DAO for ROLE_ID_SUB_EDITOR roles.
+	 */
+	static function getSubEditorsDAO();
+
+	/**
+	 * Get the stages used by the application.
+	 */
+	static function getApplicationStages();
+
+	/**
+	 * Get the file directory array map used by the application.
+	 * should return array('context' => ..., 'submission' => ...)
+	 */
+	static function getFileDirectories();
+
+	/**
+	 * Returns the context type for this application.
+	 */
+	static function getContextAssocType();
+}
+
+abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	var $enabledProducts;
 	var $allProducts;
 
@@ -408,63 +452,6 @@ abstract class PKPApplication {
 		return array('form.dataHasChanged');
 	}
 
-	/**
-	 * Get the top-level context DAO.
-	 */
-	abstract static function getContextDAO();
-
-	/**
-	 * Get the section DAO.
-	 * @return DAO
-	 */
-	abstract static function getSectionDAO();
-
-	/**
-	 * Get the submission DAO.
-	 */
-	abstract static function getSubmissionDAO();
-
-	/**
-	 * Get the representation DAO.
-	 */
-	abstract static function getRepresentationDAO();
-
-	/**
-	 * Returns the name of the context column in plugin_settings.
-	 * This is necessary to prevent a column name mismatch during
-	 * the upgrade process when the codebase and the database are out
-	 * of sync.
-	 * See:  http://pkp.sfu.ca/bugzilla/show_bug.cgi?id=8265
-	 *
-	 * The 'generic' category of plugin is loaded before the schema
-	 * is reconciled.  Subclasses of PKPApplication perform a check
-	 * against their various schemas to determine which column is
-	 * present when an upgrade is being performed so the plugin
-	 * category can be initially be loaded correctly.
-	 * @return string
-	 */
-	abstract static function getPluginSettingsContextColumnName();
-
-	/**
-	 * Get the DAO for ROLE_ID_SUB_EDITOR roles.
-	 */
-	abstract static function getSubEditorsDAO();
-
-	/**
-	 * Get the stages used by the application.
-	 */
-	abstract static function getApplicationStages();
-
-	/**
-	 * Get the file directory array map used by the application.
-	 * should return array('context' => ..., 'submission' => ...)
-	 */
-	abstract static function getFileDirectories();
-
-	/**
-	 * Returns the context type for this application.
-	 */
-	abstract static function getContextAssocType();
 
 	//
 	// Statistics API
@@ -644,5 +631,21 @@ abstract class PKPApplication {
 function define_exposed($name, $value) {
 	PKPApplication::defineExposedConstant($name, $value);
 }
+
+define_exposed('REALLY_BIG_NUMBER', 10000);
+define_exposed('UPLOAD_MAX_FILESIZE', ini_get('upload_max_filesize'));
+
+define_exposed('WORKFLOW_STAGE_ID_PUBLISHED', 0); // FIXME? See bug #6463.
+define_exposed('WORKFLOW_STAGE_ID_SUBMISSION', 1);
+define_exposed('WORKFLOW_STAGE_ID_INTERNAL_REVIEW', 2);
+define_exposed('WORKFLOW_STAGE_ID_EXTERNAL_REVIEW', 3);
+define_exposed('WORKFLOW_STAGE_ID_EDITING', 4);
+define_exposed('WORKFLOW_STAGE_ID_PRODUCTION', 5);
+
+// To expose LISTBUILDER_SOURCE_TYPE_... constants via JS
+import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
+
+// To expose ORDER_CATEGORY_GRID_... constants via JS
+import('lib.pkp.classes.controllers.grid.feature.OrderCategoryGridItemsFeature');
 
 ?>

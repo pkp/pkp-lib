@@ -142,7 +142,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 
 		import('lib.pkp.classes.cache.CacheManager');
 
-		import('lib.pkp.classes.security.Role');
+		import('classes.security.RoleDAO');
 		import('lib.pkp.classes.security.Validation');
 		import('lib.pkp.classes.session.SessionManager');
 		import('classes.template.TemplateManager');

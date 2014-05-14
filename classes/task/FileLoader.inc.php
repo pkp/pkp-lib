@@ -128,8 +128,8 @@ class FileLoader extends ScheduledTask {
 		if (!$this->checkFolderStructure()) return false;
 
 		$foundErrors = false;
-		$errorMsg = null;
 		while($filePath = $this->_claimNextFile()) {
+			$errorMsg = null;
 			$result = $this->processFile($filePath, $errorMsg);
 			if ($result === false) {
 				$foundErrors = true;
@@ -141,6 +141,7 @@ class FileLoader extends ScheduledTask {
 			if ($result === FILE_LOADER_RETURN_TO_STAGING) {
 				$foundErrors = true;
 				$this->_stageFile();
+				$this->notify(SCHEDULED_TASK_MESSAGE_TYPE_ERROR, $errorMsg);
 				// Let the script know what files were sent back to staging,
 				// so it doesn't claim them again thereby entering an infinite loop.
 				$this->_stagedBackFiles[] = $this->_claimedFilename;

@@ -56,7 +56,7 @@ class SubmissionFilesMetadataForm extends Form {
 	 * Get the submission file.
 	 * @return SubmissionFile
 	 */
-	function &getSubmissionFile() {
+	function getSubmissionFile() {
 		return $this->_submissionFile;
 	}
 

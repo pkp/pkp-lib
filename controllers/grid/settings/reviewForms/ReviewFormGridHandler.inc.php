@@ -464,7 +464,7 @@ class ReviewFormGridHandler extends GridHandler {
 
 			foreach ($reviewAssignments as $reviewAssignment) {
 				$reviewAssignment->setReviewFormId(null);
-				$reviewAssignmentDao->updateReviewAssignment($reviewAssignment);
+				$reviewAssignmentDao->updateObject($reviewAssignment);
 			}
 
 			$reviewFormDao->deleteById($reviewFormId, $context->getId());

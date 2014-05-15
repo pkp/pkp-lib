@@ -35,6 +35,9 @@
 		$headerElement.find('[id^="toggleHelp"]').click(
 				this.callbackWrapper(this.toggleInlineHelpHandler_));
 		this.publishEvent('toggleInlineHelp');
+
+		$('#notificationsToggle').click(this.callbackWrapper(
+				this.appendToggleIndicator_));
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.pages.header.HeaderHandler,
@@ -47,6 +50,39 @@
 	 * @type {{requestedPage: string}?}
 	 */
 	$.pkp.pages.header.HeaderHandler.prototype.options_ = null;
+
+
+	//
+	// Public helper methods
+	//
+	/**
+	 * Toggle the notifications grid visibility
+	 *
+	 * @param {jQueryObject} callingElement The calling element.
+	 *  that triggered the event.
+	 * @param {Event} event The event.
+	 * @private
+	 */
+	$.pkp.pages.header.HeaderHandler.prototype.appendToggleIndicator_ =
+			function(callingElement, event) {
+
+		var $submissionHeader = this.getHtmlElement(),
+				$notificationsPopover = $submissionHeader.find('.notifications_popover'),
+				$notificationsListElement = $submissionHeader.find('li.notificationsLinkContainer'),
+				$notificationsToggle = $submissionHeader.find('#notificationsToggle');
+
+		$notificationsPopover.toggle();
+		$notificationsListElement.toggleClass('expandedIndicator');
+		$notificationsToggle.toggleClass('expandedIndicator');
+
+		if ($notificationsListElement.hasClass('expandedIndicator')) {
+			this.trigger('callWhenClickOutside', [{
+				container: $notificationsPopover.add($notificationsListElement),
+				callback: this.callbackWrapper(this.appendToggleIndicator_),
+				skipWhenVisibleModals: true
+			}]);
+		}
+	};
 
 
 	//

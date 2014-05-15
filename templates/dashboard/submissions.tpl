@@ -7,6 +7,36 @@
  *
  * Dashboard submissions tab.
  *}
+<script type="text/javascript">
+	$(function() {ldelim}
+		// Attach the form handler.
+		$('#contextSubmissionForm').pkpHandler('$.pkp.controllers.dashboard.form.DashboardTaskFormHandler',
+			{ldelim}
+				{if $contextCount == 1}
+					singleContextSubmissionUrl: '{url context=$context->getPath() page="submission" op="wizard"}',
+				{/if}
+				trackFormChanges: false
+			{rdelim}
+		);
+	{rdelim});
+</script>
+<br />
+<form class="pkp_form" id="contextSubmissionForm">
+<!-- New Submission entry point -->
+	{if $contextCount > 1}
+		{fbvFormSection title="submission.submit.newSubmissionMultiple"}
+			{capture assign="defaultLabel"}{translate key="context.select"}{/capture}
+			{fbvElement type="select" id="multipleContext" from=$contexts defaultValue=0 defaultLabel=$defaultLabel translate=false size=$fbvStyles.size.MEDIUM}
+		{/fbvFormSection}
+	{elseif $contextCount == 1}
+		{fbvFormSection}
+			{capture assign="singleLabel"}{translate key="submission.submit.newSubmissionSingle" contextName=$context->getLocalizedName()}{/capture}
+			{fbvElement type="button" id="singleContext" label=$singleLabel translate=false}
+		{/fbvFormSection}
+	{/if}
+
+</form>
+<div class="pkp_helpers_clear"></div>
 
 <!-- Author and editor submissions grid -->
 {if array_intersect(array(ROLE_ID_AUTHOR, ROLE_ID_MANAGER, ROLE_ID_GUEST_EDITOR, ROLE_ID_SUB_EDITOR), $userRoles)}

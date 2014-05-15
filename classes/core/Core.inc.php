@@ -254,13 +254,13 @@ class Core {
 	}
 
 	/**
-	* Remove base url from the passed url, if any.
-	* Also, if true, checks for the context path in
-	* url and if it's missing, tries to add it.
-	* @param $url string
-	* @return mixed string The url without base url,
-	* false if it was not possible to remove it.
-	*/
+	 * Remove base url from the passed url, if any.
+	 * Also, if true, checks for the context path in
+	 * url and if it's missing, tries to add it.
+	 * @param $url string
+	 * @return mixed string The url without base url,
+	 * false if it was not possible to remove it.
+	 */
 	function removeBaseUrl($url) {
 		list($baseUrl, $contextPath) = Core::_getBaseUrlAndPath($url);
 

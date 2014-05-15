@@ -87,11 +87,11 @@ class Config {
 	}
 
 	/**
-	* Get context base urls from config file.
-	* @return array Empty array if none is set.
-	*/
+	 * Get context base urls from config file.
+	 * @return array Empty array if none is set.
+	 */
 	function &getContextBaseUrls() {
-		$contextBaseUrls =& Registry::get('contextBaseUrls');
+		$contextBaseUrls =& Registry::get('contextBaseUrls'); //Reference required.
 
 		if (is_null($contextBaseUrls)) {
 			$contextBaseUrls = array();

@@ -54,7 +54,6 @@ abstract class PKPWorkflowStageAccessPolicy extends ContextPolicy {
 	/**
 	 * Get the user-accessible workflow stage policy for this application
 	 * @param $request PKPRequest
-	 * @return UserAccessibleWorkflowStageRequiredPolicy
 	 */
 	abstract protected function _addUserAccessibleWorkflowStageRequiredPolicy($request);
 }

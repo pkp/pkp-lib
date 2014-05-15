@@ -16,7 +16,7 @@ import('lib.pkp.classes.security.authorization.internal.ContextPolicy');
 import('lib.pkp.classes.security.authorization.PolicySet');
 import('lib.pkp.classes.security.authorization.RoleBasedHandlerOperationPolicy');
 
-class PKPWorkflowStageAccessPolicy extends ContextPolicy {
+abstract class PKPWorkflowStageAccessPolicy extends ContextPolicy {
 	/**
 	 * Constructor
 	 * @param $request PKPRequest
@@ -31,7 +31,31 @@ class PKPWorkflowStageAccessPolicy extends ContextPolicy {
 		// A workflow stage component requires a valid workflow stage.
 		import('lib.pkp.classes.security.authorization.internal.WorkflowStageRequiredPolicy');
 		$this->addPolicy(new WorkflowStageRequiredPolicy($stageId));
+
+		// A workflow stage component can only be called if there's a
+		// valid submission in the request.
+		import('lib.pkp.classes.security.authorization.internal.SubmissionRequiredPolicy');
+		$this->addPolicy(new SubmissionRequiredPolicy($request, $args, $submissionParameterName));
+
+		$this->_addUserAccessibleWorkflowStageRequiredPolicy($request);
+
+		// Users can access all whitelisted operations for submissions and workflow stages...
+		$roleBasedPolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
+		foreach ($roleAssignments as $roleId => $operations) {
+			$roleBasedPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $roleId, $operations));
+		}
+		$this->addPolicy($roleBasedPolicy);
+
+		// ... if they can access the requested workflow stage.
+		import('lib.pkp.classes.security.authorization.internal.UserAccessibleWorkflowStagePolicy');
+		$this->addPolicy(new UserAccessibleWorkflowStagePolicy($stageId));
 	}
+
+	/**
+	 * Get the user-accessible workflow stage policy for this application
+	 * @param $request PKPRequest
+	 */
+	abstract protected function _addUserAccessibleWorkflowStageRequiredPolicy($request);
 }
 
 ?>

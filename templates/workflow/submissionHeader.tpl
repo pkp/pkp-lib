@@ -18,7 +18,7 @@
 	$(function() {ldelim}
 		$('#submissionHeader').pkpHandler(
 			'$.pkp.pages.workflow.SubmissionHeaderHandler', {ldelim}
-				participantToggleSeletor: '#participantToggle'
+				participantToggleSelector: '#participantToggle'
 			{rdelim}
 		);
 	{rdelim});

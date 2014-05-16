@@ -24,6 +24,7 @@ class NotificationMailingListForm extends Form {
 	
 	/** @var boolean Whether or not Captcha support is enabled */
 	var $captchaEnabled;
+	/** @var boolean Whether or not Recaptcha support is enabled */
 	var $recaptchaEnabled;
 	
 	/**

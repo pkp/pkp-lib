@@ -24,6 +24,8 @@ class NotificationMailingListForm extends Form {
 	
 	/** @var boolean Whether or not Captcha support is enabled */
 	var $captchaEnabled;
+	/** @var boolean Whether or not Recaptcha support is enabled */
+	var $recaptchaEnabled;
 	
 	/**
 	 * Constructor.
@@ -34,9 +36,12 @@ class NotificationMailingListForm extends Form {
 		import('lib.pkp.classes.captcha.CaptchaManager');
 		$captchaManager = new CaptchaManager();
 		$this->captchaEnabled = ($captchaManager->isEnabled() && Config::getVar('captcha', 'captcha_on_mailinglist'))?true:false;		
+		$this->recaptchaEnabled = Config::getVar('captcha', 'captcha_on_mailinglist') && Config::getVar('captcha', 'recaptcha');
 
 		// Validation checks for this form
-		if ($this->captchaEnabled) {
+		if ($this->captchaEnabled && $this->recaptchaEnabled) {
+			$this->addCheck(new FormValidatorReCaptcha($this, 'recaptcha_challenge_field', 'recaptcha_response_field', Request::getRemoteAddr(), 'common.captchaField.badCaptcha'));
+		} elseif ($this->captchaEnabled) {
 			$this->addCheck(new FormValidatorCaptcha($this, 'captcha', 'captchaId', 'common.captchaField.badCaptcha'));
 		}
 		$this->addCheck(new FormValidatorPost($this));
@@ -51,8 +56,8 @@ class NotificationMailingListForm extends Form {
 		$userVars = array('email', 'confirmEmail');
 		
 		if ($this->captchaEnabled) {
-			$userVars[] = 'captchaId';
-			$userVars[] = 'captcha';
+			$userVars[] = ($this->recaptchaEnabled ? 'recaptcha_challenge_field' : 'captchaId');
+			$userVars[] = ($this->recaptchaEnabled ? 'recaptcha_response_field' : 'captcha');
 		}
 		
 		$this->readUserVars($userVars);
@@ -65,7 +70,14 @@ class NotificationMailingListForm extends Form {
 		$templateMgr =& TemplateManager::getManager();
 		$templateMgr->assign('new', true);
 		
-		if ($this->captchaEnabled) {
+		if ($this->captchaEnabled && $this->recaptchaEnabled) {
+			import('lib.pkp.lib.recaptcha.recaptchalib');
+			$publicKey = Config::getVar('captcha', 'recaptcha_public_key');
+			$useSSL = Config::getVar('security', 'force_ssl')?true:false;
+			$reCaptchaHtml = recaptcha_get_html($publicKey, null, $useSSL);
+			$templateMgr->assign('reCaptchaHtml', $reCaptchaHtml);
+			$templateMgr->assign('captchaEnabled', true);
+		} elseif ($this->captchaEnabled) {
 			import('lib.pkp.classes.captcha.CaptchaManager');
 			$captchaManager = new CaptchaManager();
 			$captcha =& $captchaManager->createCaptcha();

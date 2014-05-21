@@ -105,7 +105,7 @@ class ADODB_postgres7 extends ADODB_postgres64 {
 			$i = 1;
 			$last = sizeof($sqlarr)-1;
 			$localedata = localeconv();
-			foreach($sqlarr as $k => $v) {
+			foreach($sqlarr as $v) {
 				if ($last < $i) $sql .= $v;
 				else $sql .= $v.' $'.$i;
 				$i++;
@@ -113,8 +113,11 @@ class ADODB_postgres7 extends ADODB_postgres64 {
 				// doubles using localized number formats, i.e.
 				// , instead of . for floats, violating the
 				// SQL standard. Format it locally.
-				if (gettype($inputarr[$k]) == 'double') {
-					$inputarr[$k] = str_replace($localedata['decimal_point'], '.', $inputarr[$k]);
+				$k = $i-2; // Use proper index for $inputarr to avoid going over the end
+				if ($k < $last) {
+					if (gettype($inputarr[$k]) == 'double') {
+						$inputarr[$k] = str_replace($localedata['decimal_point'], '.', $inputarr[$k]);
+					}
 				}
 			}
 			

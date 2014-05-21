@@ -69,17 +69,6 @@ class NotificationsGridHandler extends GridHandler {
 						'alignment' => COLUMN_ALIGNMENT_LEFT)
 			)
 		);
-		$this->addColumn(
-			new GridColumn(
-				'title',
-				'submission.title',
-				null,
-				'controllers/grid/gridCell.tpl',
-				$cellProvider,
-				array('html' => true,
-						'alignment' => COLUMN_ALIGNMENT_LEFT)
-			)
-		);
 
 		// Set the no items row text
 		$this->setEmptyRowText('grid.noItems');

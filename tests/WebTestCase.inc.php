@@ -183,10 +183,10 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	}
 
 	/**
-	* Upload a file using plupload interface.
-	* @param $file string Path to the file relative to the
-	* OmpWebTestCase class file location.
-	*/
+	 * Upload a file using plupload interface.
+	 * @param $file string Path to the file relative to the
+	 * OmpWebTestCase class file location.
+	 */
 	protected function uploadFile($file) {
 		$this->assertTrue(file_exists($file), 'Test file does not exist.');
 		$testFile = realpath($file);
@@ -200,8 +200,8 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	}
 
 	/**
-	* Log in as author user.
-	*/
+	 * Log in as author user.
+	 */
 	protected function logAuthorIn() {
 		$authorUser = 'author';
 		$authorPw = 'author';

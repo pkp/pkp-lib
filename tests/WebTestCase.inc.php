@@ -92,8 +92,11 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 			$password = $this->password;
 		}
 
-		$this->open($this->baseUrl.'/index.php/test/login/signIn?username='. $username .'&password='
-			.$password);
+		$this->open($this->baseUrl . '/index.php/test/login/signIn?' .
+			'username=' . urlencode($username) .'&' .
+			'password=' . urlencode($password));
+
+		$this->waitForTextPresent('Hello,');
 	}
 
 	/**
@@ -202,7 +205,7 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	protected function logAuthorIn() {
 		$authorUser = 'author';
 		$authorPw = 'author';
-		$this->login($authorUser, $authorPw);
+		$this->logIn($authorUser, $authorPw);
 	}
 }
 ?>

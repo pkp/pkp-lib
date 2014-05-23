@@ -13,11 +13,13 @@
  * @brief Base test class for Selenium functional tests.
  */
 
-require_once 'PHPUnit/Extensions/SeleniumTestCase.php';
 import('lib.pkp.tests.PKPTestHelper');
 
 class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	protected $baseUrl, $password;
+
+	protected $captureScreenshotOnFailure = true;
+	protected $screenshotPath, $screenshotUrl;
 
 
 	/**
@@ -33,6 +35,10 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	 * @copydoc PHPUnit_Framework_TestCase::setUp()
 	 */
 	protected function setUp() {
+		$screenshotsFolder = PKP_LIB_PATH . DIRECTORY_SEPARATOR . 'tests' . DIRECTORY_SEPARATOR . 'results';
+		$this->screenshotPath = BASE_SYS_DIR . DIRECTORY_SEPARATOR . $screenshotsFolder;
+		$this->screenshotUrl = Config::getVar('general', 'base_url') . '/' . $screenshotsFolder;
+
 		// See PKPTestCase::setUp() for an explanation
 		// of this code.
 		if(function_exists('_array_change_key_case')) {
@@ -86,8 +92,11 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 			$password = $this->password;
 		}
 
-		$this->open($this->baseUrl.'/index.php/test/login/signIn?username='. $username .'&password='
-			.$password);
+		$this->open($this->baseUrl . '/index.php/test/login/signIn?' .
+			'username=' . urlencode($username) .'&' .
+			'password=' . urlencode($password));
+
+		$this->waitForTextPresent('Hello,');
 	}
 
 	/**
@@ -171,6 +180,32 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 
 		// Wait until it disappears (the form submit process is finished).
 		$this->waitForCondition("selenium.browserbot.getUserWindow().jQuery('$progressIndicatorSelector:visible').length == 0");
+	}
+
+	/**
+	 * Upload a file using plupload interface.
+	 * @param $file string Path to the file relative to the
+	 * OmpWebTestCase class file location.
+	 */
+	protected function uploadFile($file) {
+		$this->assertTrue(file_exists($file), 'Test file does not exist.');
+		$testFile = realpath($file);
+		$fileName = basename($testFile);
+
+		$this->waitForElementPresent('//input[@type="file"]');
+		$this->attachFile('//input[@type="file"]', "file://$testFile");
+		$this->waitForTextPresent($fileName);
+		$this->click('css=a[id=plupload_start]');
+		$this->waitForTextPresent('100%');
+	}
+
+	/**
+	 * Log in as author user.
+	 */
+	protected function logAuthorIn() {
+		$authorUser = 'author';
+		$authorPw = 'author';
+		$this->logIn($authorUser, $authorPw);
 	}
 }
 ?>

@@ -15,23 +15,22 @@
  * All scheduled task classes must extend this class and implement execute().
  */
 
-define('SCHEDULED_TASK_MESSAGE_TYPE_COMPLETED', 'common.completed');
-define('SCHEDULED_TASK_MESSAGE_TYPE_ERROR', 'common.error');
-define('SCHEDULED_TASK_MESSAGE_TYPE_WARNING', 'common.warning');
+import('lib.pkp.classes.scheduledTask.ScheduledTaskHelper');
 
 class ScheduledTask {
 
 	/** @var array task arguments */
 	var $args;
 
-	/** @var string Site admin email. */
-	var $_adminEmail;
-
-	/** @var string Site admin name. */
-	var $_adminName;
-
 	/** @var string? This process id. */
 	var $_processId = null;
+
+	/** @var array Messages log about the execution process */
+	var $_executionLog;
+
+	/** @var ScheduledTaskHelper */
+	var $_helper;
+
 
 	/**
 	 * Constructor.
@@ -39,43 +38,33 @@ class ScheduledTask {
 	 */
 	function ScheduledTask($args = array()) {
 		$this->args = $args;
-		$this->_newProcessId();
-
-		$siteDao =& DAORegistry::getDAO('SiteDAO'); /* @var $siteDao SiteDAO */
-		$site =& $siteDao->getSite(); /* @var $site Site */
-		$this->_adminEmail = $site->getLocalizedContactEmail();
-		$this->_adminName = $site->getLocalizedContactName();
+		$this->_processId = uniqid();
+		$this->_executionLog = array();
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_ADMIN, LOCALE_COMPONENT_PKP_COMMON);
 	}
 
 
 	//
-	// Getters and setters.
+	// Protected methods.
 	//
 	/**
-	* Get this process id.
-	* @return int
-	*/
+	 * Get this process id.
+	 * @return int
+	 */
 	function getProcessId() {
 		return $this->_processId;
 	}
 
-
-	//
-	// Public template methods.
-	//
 	/**
-	 * Fallback method in case task does not implement execute method.
+	 * Get scheduled task helper object.
+	 * @return ScheduledTaskHelper
 	 */
-	function execute() {
-		fatalError("ScheduledTask does not implement execute()!\n");
+	function &getHelper() {
+		if (!$this->_helper) $this->_helper =& new ScheduledTaskHelper();
+		return $this->_helper;
 	}
 
-
-	//
-	// Protected methods.
-	//
 	/**
 	 * Get the scheduled task name. Override to
 	 * define a custom task name.
@@ -86,36 +75,65 @@ class ScheduledTask {
 	}
 
 	/**
-	 * Notify the site administrator via email about
-	 * the task process.
-	 * @param $type string One of the
-	 * SCHEDULED_TASK_MESSAGE_TYPE... constants
-	 * @param $message string
-	 * @param $subject string (optional)
+	 * Add an entry into the execution log.
+	 * @param $message string A translated message.
+	 * @param $type string (optional) One of the ScheduledTaskHelper
+	 * SCHEDULED_TASK_MESSAGE_TYPE... constants.
 	 */
-	function notify($type, $message, $subject = '') {
-		// Check type.
-		$taskMessageTypes = $this->_getAllMessageTypes();
-		if (!in_array($type, $taskMessageTypes)) {
-			assert(false);
+	function addExecutionLogEntry($message, $type = null) {
+		$log = $this->_executionLog;
+
+		if (!$message) return;
+
+		if ($type) {
+			$log[] = '[' . Core::getCurrentDate() . '] ' . '[' . __($type) . '] ' . $message;
+		} else {
+			$log[] = $message;
 		}
 
-		// Instantiate the email to the admin.
-		import('lib.pkp.classes.mail.Mail');
-		$mail = new Mail();
+		$this->_executionLog = $log;
+	}
 
-		// Recipient
-		$mail->addRecipient($this->_adminEmail, $this->_adminName);
 
-		// The message
-		if ($subject == '') {
-			$subject = $this->getName() . ' - ' . $this->getProcessId() . ' - ' . __($type);
+	//
+	// Protected abstract methods.
+	//
+	/**
+	 * Implement this method to execute the task actions.
+	 */
+	function executeActions() {
+		// In case task does not implement it.
+		fatalError("ScheduledTask does not implement executeActions()!\n");
+	}
+
+
+	//
+	// Public methods.
+	//
+	/**
+	 * Make sure the execution process follow the required steps.
+	 * This is not the method one should extend to implement the
+	 * task actions, for this see ScheduledTask::executeActions().
+	 * @param boolean $notifyAdmin optional Whether or not the task
+	 * will notify the site administrator about errors, warnings or
+	 * completed process.
+	 * @return boolean Whether or not the task was succesfully
+	 * executed.
+	 */
+	function execute($notifyAdmin = true) {
+		$this->addExecutionLogEntry(Config::getVar('general', 'base_url'));
+		$this->addExecutionLogEntry(__('admin.scheduledTask.startTime'), SCHEDULED_TASK_MESSAGE_TYPE_NOTICE);
+
+		$result = $this->executeActions();
+
+		$this->addExecutionLogEntry(__('admin.scheduledTask.stopTime'), SCHEDULED_TASK_MESSAGE_TYPE_NOTICE);
+
+		if ($notifyAdmin) {
+			$helper =& $this->getHelper();
+			$helper->notifyExecutionResult($this->_processId, $this->getName(), $result, $this->_getLogMessage());
 		}
 
-		$mail->setSubject($subject);
-		$mail->setBody($message);
-
-		return $mail->send();
+		return $result;
 	}
 
 
@@ -123,22 +141,14 @@ class ScheduledTask {
 	// Private helper methods.
 	//
 	/**
-	* Set a new process id.
-	*/
-	function _newProcessId() {
-		$this->_processId = uniqid();
-	}
-
-	/**
-	 * Get all schedule task message types.
-	 * @return array
+	 * Get the execution log as string.
+	 * @return string
 	 */
-	function _getAllMessageTypes() {
-		return array(
-			SCHEDULED_TASK_MESSAGE_TYPE_COMPLETED,
-			SCHEDULED_TASK_MESSAGE_TYPE_ERROR,
-			SCHEDULED_TASK_MESSAGE_TYPE_WARNING
-		);
+	function _getLogMessage() {
+		$log = $this->_executionLog;
+		$logString = implode(PHP_EOL . PHP_EOL, $log);
+
+		return $logString;
 	}
 }
 

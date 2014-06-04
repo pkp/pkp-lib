@@ -120,11 +120,9 @@ class FileLoader extends ScheduledTask {
 	// Public methods
 	//
 	/**
-	 * Execute the specified command.
-	 *
-	 * @return boolean True if no errors, otherwise false.
+	 * @see ScheduledTask::executeActions()
 	 */
-	function execute() {
+	function executeActions() {
 		if (!$this->checkFolderStructure()) return false;
 
 		$foundErrors = false;
@@ -134,19 +132,24 @@ class FileLoader extends ScheduledTask {
 			if ($result === false) {
 				$foundErrors = true;
 				$this->_rejectFile();
-				$this->notify(SCHEDULED_TASK_MESSAGE_TYPE_ERROR, $errorMsg);
+				$this->addExecutionLogEntry($errorMsg, SCHEDULED_TASK_MESSAGE_TYPE_ERROR);
 				continue;
 			}
 
 			if ($result === FILE_LOADER_RETURN_TO_STAGING) {
 				$foundErrors = true;
 				$this->_stageFile();
-				$this->notify(SCHEDULED_TASK_MESSAGE_TYPE_ERROR, $errorMsg);
+				$this->addExecutionLogEntry($errorMsg, SCHEDULED_TASK_MESSAGE_TYPE_ERROR);
 				// Let the script know what files were sent back to staging,
 				// so it doesn't claim them again thereby entering an infinite loop.
 				$this->_stagedBackFiles[] = $this->_claimedFilename;
 			} else {
 				$this->_archiveFile();
+			}
+
+			if ($result) {
+				$this->addExecutionLogEntry(__('admin.fileLoader.fileProcessed',
+						array('filename' => $filePath)), SCHEDULED_TASK_MESSAGE_TYPE_NOTICE);
 			}
 		}
 		return !$foundErrors;
@@ -168,8 +171,8 @@ class FileLoader extends ScheduledTask {
 		// to be protected against information leak and symlink attacks.
 		$filesDir = realpath(Config::getVar('files', 'files_dir'));
 		if (is_null($this->_basePath) || strpos($this->_basePath, $filesDir) !== 0) {
-			$this->notify(SCHEDULED_TASK_MESSAGE_TYPE_ERROR,
-				__('admin.fileLoader.wrongBasePathLocation', array('path' => $this->_basePath)));
+			$this->addExecutionLogEntry(__('admin.fileLoader.wrongBasePathLocation',
+					array('path' => $this->_basePath)), SCHEDULED_TASK_MESSAGE_TYPE_ERROR);
 			return false;
 		}
 
@@ -195,8 +198,8 @@ class FileLoader extends ScheduledTask {
 				// Try again.
 				if (!(is_dir($path) && is_readable($path))) {
 					// Give up...
-					$this->notify(SCHEDULED_TASK_MESSAGE_TYPE_ERROR,
-						__('admin.fileLoader.pathNotAccessible', array('path' => $path)));
+					$this->addExecutionLogEntry(__('admin.fileLoader.pathNotAccessible',
+							array('path' => $path)), SCHEDULED_TASK_MESSAGE_TYPE_ERROR);
 					return false;
 				}
 			}
@@ -295,7 +298,7 @@ class FileLoader extends ScheduledTask {
 		if (!rename($currentFilePath, $destinationPath)) {
 			$message = __('admin.fileLoader.moveFileFailed', array('filename' => $filename,
 				'currentFilePath' => $currentFilePath, 'destinationPath' => $destinationPath));
-			$this->notify(SCHEDULED_TASK_MESSAGE_TYPE_ERROR, $message);
+			$this->addExecutionLogEntry($message, SCHEDULED_TASK_MESSAGE_TYPE_ERROR);
 
 			// Script should always stop if it can't manipulate files inside
 			// its own directory system.

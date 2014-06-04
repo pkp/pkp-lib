@@ -55,6 +55,7 @@
 	<message key="common.cancelled">Cancelled</message>
 	<message key="common.warning">Warning</message>
 	<message key="common.error">Error</message>
+	<message key="common.notice">Notice</message>
 	<message key="common.captchaField.altText">Validation image</message>
 	<message key="common.captchaField.badCaptcha">The characters you entered did not match the characters in the image. Please check the characters and try again.</message>
 	<message key="common.captchaField.description">Please enter the letters as they appear in the image above.</message>

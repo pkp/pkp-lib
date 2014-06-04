@@ -18,10 +18,12 @@
 			<li>{include file="header/contextSwitcher.tpl"}</li>
 		{/if}
 	</ul>
-	<div class="notifications_popover" style="display: none;">
-		{url|assign:notificationsGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.notifications.NotificationsGridHandler" op="fetchGrid" escape=false}
-		{load_url_in_div id="notificationsGrid" url=$notificationsGridUrl}
-	</div>
+	{if $isUserLoggedIn}
+		<div class="notifications_popover" style="display: none;">
+			{url|assign:notificationsGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.notifications.NotificationsGridHandler" op="fetchGrid" escape=false}
+			{load_url_in_div id="notificationsGrid" url=$notificationsGridUrl}
+		</div>
+	{/if}
 	<ul class="pkp_helpers_flatlist pkp_helpers_align_right">
 		{if $isUserLoggedIn}
 			<li class="profile">{translate key="user.hello"}&nbsp;<a href="{url router=$smarty.const.ROUTE_PAGE page="user" op="profile"}">{$loggedInUsername|escape}</a></li>

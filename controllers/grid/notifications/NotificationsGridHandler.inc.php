@@ -26,29 +26,8 @@ class NotificationsGridHandler extends GridHandler {
 	 */
 	function NotificationsGridHandler() {
 		parent::GridHandler();
-
-		$this->addRoleAssignment(
-			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR, ROLE_ID_REVIEWER),
-			array('fetchGrid', 'deleteNotification')
-		);
 	}
 
-
-	//
-	// Getters and Setters
-	//
-
-	//
-	// Implement template methods from PKPHandler
-	//
-	/**
-	 * @copydoc PKPHandler::authorize()
-	 */
-	function authorize($request, &$args, $roleAssignments) {
-		import('lib.pkp.classes.security.authorization.PKPSiteAccessPolicy');
-		$this->addPolicy(new PKPSiteAccessPolicy($request, null, $roleAssignments));
-		return parent::authorize($request, $args, $roleAssignments);
-	}
 
 	/**
 	 * @see PKPHandler::initialize()

@@ -20,7 +20,7 @@ import('lib.pkp.classes.scheduledTask.ScheduledTaskHelper');
 class ScheduledTask {
 
 	/** @var array task arguments */
-	var $args;
+	var $_args;
 
 	/** @var string? This process id. */
 	var $_processId = null;
@@ -37,7 +37,7 @@ class ScheduledTask {
 	 * @param $args array
 	 */
 	function ScheduledTask($args = array()) {
-		$this->args = $args;
+		$this->_args = $args;
 		$this->_processId = uniqid();
 		$this->_executionLog = array();
 

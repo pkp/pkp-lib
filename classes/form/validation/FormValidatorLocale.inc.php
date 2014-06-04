@@ -23,8 +23,8 @@ class FormValidatorLocale extends FormValidator {
 	 * @param $field string the name of the associated field
 	 * @param $type string the type of check, either "required" or "optional"
 	 * @param $message string the error message for validation failures (i18n key)
-	 * @param $validator Validator the validator used to validate this form field (optional)
 	 * @param $requiredLocale The name of the required locale, i.e. en_US
+	 * @param $validator Validator the validator used to validate this form field (optional)
 	 */
 	function FormValidatorLocale(&$form, $field, $type, $message, $requiredLocale = null, $validator = null) {
 		$this->_form =& $form;

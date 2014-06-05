@@ -119,9 +119,7 @@ abstract class PKPWorkflowHandler extends Handler {
 	 * @param $request PKPRequest
 	 */
 	function submission($args, $request) {
-		// Render the view.
-		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->display('workflow/submission.tpl');
+		$this->_displayWorkflowTabs($args, $request);
 	}
 
 	/**
@@ -130,10 +128,7 @@ abstract class PKPWorkflowHandler extends Handler {
 	 * @param $request PKPRequest
 	 */
 	function externalReview($args, $request) {
-		// Use different ops so we can identify stage by op.
-		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('reviewRoundOp', 'externalReviewRound');
-		return $this->_review($args, $request);
+		$this->_displayWorkflowTabs($args, $request);
 	}
 
 	/**
@@ -142,10 +137,18 @@ abstract class PKPWorkflowHandler extends Handler {
 	 * @param $args array
 	 */
 	function editorial(&$args, $request) {
-		// Render the view.
-		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->display('workflow/editorial.tpl');
+		$this->_displayWorkflowTabs($args, $request);
 	}
+
+	/**
+	 * Show the production stage
+	 * @param $request PKPRequest
+	 * @param $args array
+	 */
+	function production(&$args, $request) {
+		$this->_displayWorkflowTabs($args, $request);
+	}
+
 
 	/**
 	 * Expedites a submission through the submission process, if the submitter is a manager or editor.
@@ -256,9 +259,19 @@ abstract class PKPWorkflowHandler extends Handler {
 			$stageNotifications[$stageId] = $this->notificationOptionsByStage($request->getUser(), $stageId, $context->getId());
 		}
 
+		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+
+		$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /* @var $editDecisionDao EditDecisionDAO */
+		$stageDecisions = $editDecisionDao->getEditorDecisions($submission->getId());
+
+		$stagesWithDecisions = array();
+		foreach ($stageDecisions as $decision) {
+			$stagesWithDecisions[$decision['stageId']] = $decision['stageId'];
+		}
+
+		$templateMgr->assign('stagesWithDecisions', $stagesWithDecisions);
 		$templateMgr->assign('stageNotifications', $stageNotifications);
 
-		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		if ($this->isSubmissionReady($submission)) {
 			$templateMgr->assign('submissionIsReady', true);
 		}
@@ -293,45 +306,37 @@ abstract class PKPWorkflowHandler extends Handler {
 		$templateMgr->assign('submissionStageId', $submission->getStageId());
 		$templateMgr->assign('workflowStages', $workflowStages);
 
-		// Get the right notifications type based on current stage id.
-		$notificationMgr = new NotificationManager();
-		$editorAssignmentNotificationType = $this->getEditorAssignmentNotificationTypeByStageId($stageId);
-
-		// Define the workflow notification options.
-		$notificationRequestOptions = array(
-				NOTIFICATION_LEVEL_TASK => array(
-						$editorAssignmentNotificationType => array(ASSOC_TYPE_SUBMISSION, $submission->getId())
-				),
-				NOTIFICATION_LEVEL_TRIVIAL => array()
-		);
-
-		$signoffNotificationType = $this->_getSignoffNotificationTypeByStageId($stageId);
-		if (!is_null($signoffNotificationType)) {
-			$notificationRequestOptions[NOTIFICATION_LEVEL_TASK][$signoffNotificationType] = array(ASSOC_TYPE_SUBMISSION, $submission->getId());
-		}
-
-		$templateMgr->assign('workflowNotificationRequestOptions', $notificationRequestOptions);
-
 		import('controllers.modals.submissionMetadata.linkAction.SubmissionEntryLinkAction');
 		$templateMgr->assign(
-				'submissionEntryAction',
-				new SubmissionEntryLinkAction($request, $submission->getId(), $stageId)
+			'submissionEntryAction',
+			new SubmissionEntryLinkAction($request, $submission->getId(), $stageId)
 		);
 
 		import('lib.pkp.controllers.informationCenter.linkAction.SubmissionInfoCenterLinkAction');
 		$templateMgr->assign(
-				'submissionInformationCenterAction',
-				new SubmissionInfoCenterLinkAction($request, $submission->getId())
+			'submissionInformationCenterAction',
+			new SubmissionInfoCenterLinkAction($request, $submission->getId())
 		);
 	}
 
 	//
 	// Protected helper methods
 	//
+
+	/**
+	 * Displays the workflow tab structure.
+	 * @param $args array
+	 * @param $request Request
+	 */
+	protected function _displayWorkflowTabs($args, $request) {
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->display('workflow/workflowTabs.tpl');
+	}
+
 	/**
 	 * Internal function to handle both internal and external reviews
-	 * @param $request PKPRequest
 	 * @param $args array
+	 * @param $request PKPRequest
 	 */
 	protected function _review($args, $request) {
 		// Retrieve the authorized submission and stage id.
@@ -436,10 +441,10 @@ abstract class PKPWorkflowHandler extends Handler {
 			}
 		}
 
-		if ($stageId == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW || $stageId == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW) {
+		if ($stageId == WORKFLOW_STAGE_ID_INTERNAL_REVIEW || $stageId == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW) {
 			$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
 			$reviewRounds = $reviewRoundDao->getBySubmissionId($submission->getId(), $stageId);
-			$notificationTypes = array(NOTIFICATION_TYPE_REVIEW_ROUND_STATUS, NOTIFICATION_TYPE_ALL_REVIEWS_IN);
+			$notificationTypes = array(NOTIFICATION_TYPE_ALL_REVIEWS_IN);
 			while ($reviewRound = $reviewRounds->next()) {
 				foreach ($notificationTypes as $type) {
 					$notifications = $notificationDao->getByAssoc(ASSOC_TYPE_REVIEW_ROUND, $reviewRound->getId(), null, $type, $contextId);

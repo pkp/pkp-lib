@@ -7,12 +7,9 @@
  *
  * Copyediting workflow stage
  *}
-{strip}
-{include file="workflow/header.tpl"}
-{/strip}
 
 <div id="editorial">
-	{url|assign:copyeditingEditorDecisionsUrl op="editorDecisionActions" submissionId=$submission->getId() stageId=$stageId contextId="copyediting" escape=false}
+	{url|assign:copyeditingEditorDecisionsUrl router=$smarty.const.ROUTE_PAGE page="workflow" op="editorDecisionActions" submissionId=$submission->getId() stageId=$stageId contextId="copyediting" escape=false}
 	{load_url_in_div id="copyeditingEditorDecisionsDiv" url=$copyeditingEditorDecisionsUrl class="editorDecisionActions"}
 
 	<p class="pkp_help">{translate key="editor.submission.editorial.introduction"}</p>
@@ -24,5 +21,3 @@
 	{load_url_in_div id="copyeditingGrid" url=$copyeditingGridUrl}
 
 </div>
-
-{include file="common/footer.tpl"}

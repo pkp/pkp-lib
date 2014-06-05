@@ -7,11 +7,8 @@
  *
  * Display submission details (metadata, file grid)
  *}
-{strip}
-{include file="workflow/header.tpl"}
-{/strip}
 
-{url|assign:submissionEditorDecisionsUrl op="editorDecisionActions" submissionId=$submission->getId() stageId=$stageId contextId="submission" escape=false}
+{url|assign:submissionEditorDecisionsUrl router=$smarty.const.ROUTE_PAGE page="workflow" op="editorDecisionActions" submissionId=$submission->getId() stageId=$stageId contextId="submission" escape=false}
 {load_url_in_div id="submissionEditorDecisionsDiv" url=$submissionEditorDecisionsUrl class="editorDecisionActions"}
 
 <p class="pkp_help">{translate key="editor.submission.introduction"}</p>
@@ -23,4 +20,3 @@
 {load_url_in_div id="documentsGridDiv" url=$documentsGridUrl}
 </div>
 
-{include file="common/footer.tpl"}

@@ -1,0 +1,60 @@
+/**
+ * @defgroup js_controllers_tab_workflow
+ */
+/**
+ * @file js/controllers/tab/workflow/WorkflowTabHandler.js
+ *
+ * Copyright (c) 2014 Simon Fraser University Library
+ * Copyright (c) 2000-2014 John Willinsky
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ *
+ * @class WorkflowTabHandler
+ * @ingroup js_controllers_tab_workflow
+ *
+ * @brief A subclass of TabHandler for handling requests to load stages of the workflow.
+ */
+(function($) {
+
+	/** @type {Object} */
+	$.pkp.controllers.tab.workflow =
+			$.pkp.controllers.tab.workflow || {};
+
+
+
+	/**
+	 * @constructor
+	 *
+	 * @extends $.pkp.controllers.TabHandler
+	 *
+	 * @param {jQueryObject} $tabs A wrapped HTML element that
+	 *  represents the tabbed interface.
+	 * @param {Object} options Handler options.
+	 */
+	$.pkp.controllers.tab.workflow.WorkflowTabHandler =
+			function($tabs, options) {
+
+		var pageUrl, stage, pattern, i;
+		this.parent($tabs, options);
+
+		// if the page has been loaded with an #anchor
+		// determine what tab that is for and set the
+		// options.selected value to it so it gets used
+		// when tabs() are initialized.
+		pageUrl = document.location.toString();
+		if (pageUrl.search('workflow/([^/]+)/')) {
+			stage = pageUrl.match('workflow/([^/]+)/')[1];
+			tabAnchors = $tabs.find('li a');
+			for (i = 0; i < tabAnchors.length; i++) {
+				pattern = new RegExp(stage);
+				if (tabAnchors[i].getAttribute('class').match(pattern)) {
+					options.selected = i;
+				}
+			}
+		}
+	};
+	$.pkp.classes.Helper.inherits(
+			$.pkp.controllers.tab.workflow.WorkflowTabHandler,
+			$.pkp.controllers.TabHandler);
+
+/** @param {jQuery} $ jQuery closure. */
+}(jQuery));

@@ -7,10 +7,6 @@
  *
  * Review workflow stage.
  *}
-{strip}
-{include file="workflow/header.tpl"}
-{/strip}
-
 <script type="text/javascript">
 	// Attach the JS file tab handler.
 	$(function() {ldelim}
@@ -46,5 +42,3 @@
 	<p>{translate key="editor.review.notInitiated"}</p>
 {/if}
 </div>
-
-{include file="common/footer.tpl"}

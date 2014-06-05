@@ -51,6 +51,33 @@ class NotificationsGridHandler extends GridHandler {
 		// Set the no items row text
 		$this->setEmptyRowText('grid.noItems');
 
+		// PROTOTYPING: Use a NullAction for markNew/markRead actions.
+		// This is (currently) not hooked up to anything.
+		import('lib.pkp.classes.linkAction.request.NullAction');
+		$this->addAction(
+			new LinkAction(
+				'markNew',
+				new NullAction(),
+				__('grid.action.markNew'),
+				'edit' // FIXME: Icon
+			),
+			GRID_ACTION_POSITION_BELOW
+		);
+		$this->addAction(
+			new LinkAction(
+				'markRead',
+				new NullAction(),
+				__('grid.action.markRead'),
+				'edit' // FIXME: Icon
+			),
+			GRID_ACTION_POSITION_BELOW
+		);
+
+		// PROTOTYPING: Use a RemoteActionConfirmationModal for delete
+		// action. This does not yet properly map onto the existing
+		// deleteNotification function here, which handles deleting a
+		// single notification. It does not submit selected notification
+		// IDs e.g. as a form submission.
 		$router = $request->getRouter();
 		import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
 		$this->addAction(

@@ -17,7 +17,6 @@
 import('lib.pkp.classes.controllers.grid.GridHandler');
 
 // Other classes associated with this grid
-import('lib.pkp.controllers.grid.notifications.NotificationsGridRow');
 import('lib.pkp.controllers.grid.notifications.NotificationsGridCellProvider');
 
 class NotificationsGridHandler extends GridHandler {
@@ -51,12 +50,51 @@ class NotificationsGridHandler extends GridHandler {
 
 		// Set the no items row text
 		$this->setEmptyRowText('grid.noItems');
+
+		$router = $request->getRouter();
+		import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
+		$this->addAction(
+			new LinkAction(
+				'deleteNotification',
+				new RemoteActionConfirmationModal(
+					__('common.confirmDelete'),
+					__('grid.action.delete'),
+					$router->url($request, null, null, 'deleteNotification', null, array()), 'modal_delete'
+				),
+				__('grid.action.delete'),
+				'delete'
+			),
+			GRID_ACTION_POSITION_BELOW
+		);
 	}
 
 
 	//
 	// Overridden methods from GridHandler
 	//
+	/**
+	 * @copydoc GridHandler::initFeatures()
+	 */
+	function initFeatures($request, $args) {
+		import('lib.pkp.classes.controllers.grid.feature.selectableItems.SelectableItemsFeature');
+		import('lib.pkp.classes.controllers.grid.feature.PagingFeature');
+		return array(new SelectableItemsFeature(), new PagingFeature());
+	}
+
+	/**
+	 * @copydoc GridHandler::getSelectName()
+	 */
+	function getSelectName() {
+		return 'selectedNotifications';
+	}
+
+	/**
+	 * @copydoc GridHandler::isDataElementSelected()
+	 */
+	function isDataElementSelected($gridDataElement) {
+		return false; // Nothing is selected by default
+	}
+
 	/**
 	 * @see GridHandler::loadData()
 	 * @return array Grid data.
@@ -111,13 +149,6 @@ class NotificationsGridHandler extends GridHandler {
 	 */
 	function _getNotListableTaskTypes() {
 		return array(NOTIFICATION_TYPE_SIGNOFF_COPYEDIT, NOTIFICATION_TYPE_SIGNOFF_PROOF);
-	}
-
-	/**
-	 * @copydoc GridHandler::getRowInstance
-	 */
-	protected function getRowInstance() {
-		return new NotificationsGridRow();
 	}
 }
 

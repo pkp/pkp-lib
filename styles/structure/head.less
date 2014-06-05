@@ -43,7 +43,28 @@
 		margin-top: -2px;
 		position:absolute;
 		background-color: #fff;
-		z-index: 11;
+		z-index: 1001;
+
+		.pkp_controllers_grid {
+			margin-top: 0;
+			thead {
+				visibility: hidden;
+				tr {
+					height: 0px;
+				}
+				th:first-child {
+					padding-left: 0px;
+				}
+			}
+
+			input {
+				margin-left: 10px;
+			}
+
+			.grid_link_actions_below {
+				margin-left: 20px;
+			}
+		}
 	}
 
 	li.notificationsLinkContainer {

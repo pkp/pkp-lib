@@ -228,13 +228,8 @@ class NotificationsGridHandler extends GridHandler {
 		return $json->getString();
 	}
 
-
-	//
-	// Private helper methods.
-	//
 	/**
-	 * Get the notification types that we don't want
-	 * to list in this grid.
+	 * Get the notification types that we don't want to list in this grid.
 	 * @return array
 	 */
 	static function getNotListableTaskTypes() {

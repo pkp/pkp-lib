@@ -91,6 +91,21 @@
 	// Private methods.
 	//
 	/**
+	 * Get the array of selected notifications
+	 * @return {Array}
+	 */
+	$.pkp.controllers.grid.notifications.NotificationsGridHandler.prototype.
+			getSelectedNotifications_ = function(callingContext, opt_event) {
+		var selectedElements = [];
+		this.getHtmlElement().find('input:checkbox:checked').each(function() 
+{
+			selectedElements.push($(this).val());
+		});
+		return selectedElements;
+	};
+
+
+	/**
 	 * Callback that will be activated when the "mark new" icon is clicked
 	 *
 	 * @private
@@ -102,14 +117,8 @@
 	 */
 	$.pkp.controllers.grid.notifications.NotificationsGridHandler.prototype.markNewHandler_ =
 			function(callingContext, opt_event) {
-
-		var selectedElements = [];
-		this.getHtmlElement().find('input:checkbox:checked').each(function() 
-{
-			selectedElements.push($(this).val());
-		});
-
-		$.post(this.markNewUrl_, {selectedElements: selectedElements}, this.callbackWrapper(this.responseHandler_, null), 'json');
+		$.post(this.markNewUrl_, {selectedElements: this.getSelectedNotifications_()},
+				this.callbackWrapper(this.responseHandler_, null), 'json');
 
 		return false;
 	};
@@ -127,14 +136,8 @@
 	 */
 	$.pkp.controllers.grid.notifications.NotificationsGridHandler.prototype.markReadHandler_ =
 			function(callingContext, opt_event) {
-
-		var selectedElements = [];
-		this.getHtmlElement().find('input:checkbox:checked').each(function() 
-{
-			selectedElements.push($(this).val());
-		});
-
-		$.post(this.markReadUrl_, {selectedElements: selectedElements}, this.callbackWrapper(this.responseHandler_, null), 'json');
+		$.post(this.markReadUrl_, {selectedElements: this.getSelectedNotifications_()},
+				this.callbackWrapper(this.responseHandler_, null), 'json');
 
 		return false;
 	};
@@ -152,14 +155,8 @@
 	 */
 	$.pkp.controllers.grid.notifications.NotificationsGridHandler.prototype.deleteHandler_ =
 			function(callingContext, opt_event) {
-
-		var selectedElements = [];
-		this.getHtmlElement().find('input:checkbox:checked').each(function() 
-{
-			selectedElements.push($(this).val());
-		});
-
-		$.post(this.deleteUrl_, {selectedElements: selectedElements}, this.callbackWrapper(this.responseHandler_, null), 'json');
+		$.post(this.deleteUrl_, {selectedElements: this.getSelectedNotifications_()},
+				this.callbackWrapper(this.responseHandler_, null), 'json');
 
 		return false;
 	};

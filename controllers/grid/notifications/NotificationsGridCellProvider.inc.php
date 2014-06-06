@@ -42,8 +42,10 @@ class NotificationsGridCellProvider extends GridCellProvider {
 			new RedirectAction(
 				$notificationMgr->getNotificationUrl($request, $notification)
 			),
-			'"' . $this->_getTitle($notification) . '": ' .
-			$notificationMgr->getNotificationMessage($request, $notification)
+			($notification->getDateRead()?'':'<strong>') . __('common.tasks.titleAndTask', array(
+				'title' => $this->_getTitle($notification),
+				'task' => $notificationMgr->getNotificationMessage($request, $notification)
+			)) . ($notification->getDateRead()?'':'</strong>')
 		));
 	}
 

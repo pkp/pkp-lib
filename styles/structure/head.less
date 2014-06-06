@@ -43,6 +43,7 @@
 		margin-top: -2px;
 		position:absolute;
 		background-color: #fff;
+		color: #000;
 		z-index: 1001;
 
 		.pkp_controllers_grid {
@@ -66,12 +67,19 @@
 
 	li.notificationsLinkContainer {
 		margin-right: 10px;
+		padding-top: 5px;
+		margin-top: -5px;
 
-		&.expandedIndicator {
+		&.expandedIndicator, &:hover {
+			z-index: 1002;
 			border: 1px solid #999;
 			border-bottom: 1px solid #fff;
-			padding: 0px 10px 3px 10px !important;
-			margin: 0px 0px 0px 10px !important;
+			padding: 5px 10px 3px 10px !important;
+			margin: -5px 0px 0px 10px !important;
+			background-color: #fff;
+			a {
+				color: #000;
+			}
 		}
 	}
 }

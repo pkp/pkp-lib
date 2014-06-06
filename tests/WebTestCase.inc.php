@@ -13,7 +13,6 @@
  * @brief Base test class for Selenium functional tests.
  */
 
-require_once 'PHPUnit/Extensions/SeleniumTestCase.php';
 import('lib.pkp.tests.PKPTestHelper');
 
 class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {

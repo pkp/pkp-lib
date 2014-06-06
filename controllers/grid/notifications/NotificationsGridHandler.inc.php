@@ -51,8 +51,6 @@ class NotificationsGridHandler extends GridHandler {
 		// Set the no items row text
 		$this->setEmptyRowText('grid.noItems');
 
-		// PROTOTYPING: Use a NullAction for markNew/markRead actions.
-		// This is (currently) not hooked up to anything.
 		import('lib.pkp.classes.linkAction.request.NullAction');
 		$this->addAction(
 			new LinkAction(
@@ -73,21 +71,11 @@ class NotificationsGridHandler extends GridHandler {
 			GRID_ACTION_POSITION_BELOW
 		);
 
-		// PROTOTYPING: Use a RemoteActionConfirmationModal for delete
-		// action. This does not yet properly map onto the existing
-		// deleteNotification function here, which handles deleting a
-		// single notification. It does not submit selected notification
-		// IDs e.g. as a form submission.
 		$router = $request->getRouter();
-		import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
 		$this->addAction(
 			new LinkAction(
-				'deleteNotification',
-				new RemoteActionConfirmationModal(
-					__('common.confirmDelete'),
-					__('grid.action.delete'),
-					$router->url($request, null, null, 'deleteNotification', null, array()), 'modal_delete'
-				),
+				'deleteNotifications',
+				new NullAction(),
 				__('grid.action.delete'),
 				'delete'
 			),
@@ -99,6 +87,25 @@ class NotificationsGridHandler extends GridHandler {
 	//
 	// Overridden methods from GridHandler
 	//
+	/**
+	 * @see GridHandler::getJSHandler()
+	 */
+	public function getJSHandler() {
+		return '$.pkp.controllers.grid.notifications.NotificationsGridHandler';
+	}
+
+	/**
+	 * @see GridHandler::setUrls()
+	 */
+	function setUrls($request) {
+		$router = $request->getRouter();
+		parent::setUrls($request, array(
+			'markNewUrl' => $router->url($request, null, null, 'markNew', null, $this->getRequestArgs()),
+			'markReadUrl' => $router->url($request, null, null, 'markRead', null, $this->getRequestArgs()),
+			'deleteUrl' => $router->url($request, null, null, 'deleteNotifications', null, $this->getRequestArgs()),
+		));
+	}
+
 	/**
 	 * @copydoc GridHandler::initFeatures()
 	 */
@@ -135,7 +142,7 @@ class NotificationsGridHandler extends GridHandler {
 		$rowData = $notifications->toAssociativeArray();
 
 		// Remove not listable task types.
-		$notListableTaskTypes = $this->_getNotListableTaskTypes();
+		$notListableTaskTypes = $this->getNotListableTaskTypes();
 		foreach ($rowData as $key => $notification) {
 			if (in_array($notification->getType(), $notListableTaskTypes)) {
 				unset($rowData[$key]);
@@ -150,18 +157,53 @@ class NotificationsGridHandler extends GridHandler {
 	// Public methods
 	//
 	/**
-	 * Delete a notification
+	 * Mark notifications unread
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function deleteNotification($args, $request) {
+	function markNew($args, $request) {
 		$notificationDao = DAORegistry::getDAO('NotificationDAO');
 		$user = $request->getUser();
-		$notification = $notificationDao->getById(
-			$request->getUserVar('notificationId'),
-			$user->getId()
-		);
-		$notificationDao->deleteObject($notification);
+
+		foreach ((array) $request->getUserVar('selectedElements') as $notificationId) {
+			if ($notification = $notificationDao->getById($notificationId, $user->getId())) {
+				$notificationDao->setDateRead($notificationId, null);
+			}
+		}
+		return DAO::getDataChangedEvent();
+	}
+
+	/**
+	 * Mark notifications unread
+	 * @param $args array
+	 * @param $request PKPRequest
+	 */
+	function markRead($args, $request) {
+		$notificationDao = DAORegistry::getDAO('NotificationDAO');
+		$user = $request->getUser();
+
+		foreach ((array) $request->getUserVar('selectedElements') as $notificationId) {
+			if ($notification = $notificationDao->getById($notificationId, $user->getId())) {
+				$notificationDao->setDateRead($notificationId, Core::getCurrentDate());
+			}
+		}
+		return DAO::getDataChangedEvent();
+	}
+
+	/**
+	 * Delete notifications
+	 * @param $args array
+	 * @param $request PKPRequest
+	 */
+	function deleteNotifications($args, $request) {
+		$notificationDao = DAORegistry::getDAO('NotificationDAO');
+		$user = $request->getUser();
+
+		foreach ((array) $request->getUserVar('selectedElements') as $notificationId) {
+			if ($notification = $notificationDao->getById($notificationId, $user->getId())) {
+				$notificationDao->deleteObject($notification);
+			}
+		}
 		return DAO::getDataChangedEvent();
 	}
 
@@ -174,7 +216,7 @@ class NotificationsGridHandler extends GridHandler {
 	 * to list in this grid.
 	 * @return array
 	 */
-	function _getNotListableTaskTypes() {
+	static function getNotListableTaskTypes() {
 		return array(NOTIFICATION_TYPE_SIGNOFF_COPYEDIT, NOTIFICATION_TYPE_SIGNOFF_PROOF);
 	}
 }

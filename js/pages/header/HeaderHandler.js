@@ -53,7 +53,7 @@
 
 
 	//
-	// Public helper methods
+	// Private helper methods
 	//
 	/**
 	 * Toggle the notifications grid visibility
@@ -67,7 +67,7 @@
 			function(callingElement, event) {
 
 		var $submissionHeader = this.getHtmlElement(),
-				$notificationsPopover = $submissionHeader.find('.notifications_popover'),
+				$notificationsPopover = $submissionHeader.find('#notificationsPopover'),
 				$notificationsListElement = $submissionHeader.find('li.notificationsLinkContainer'),
 				$notificationsToggle = $submissionHeader.find('#notificationsToggle');
 
@@ -85,9 +85,6 @@
 	};
 
 
-	//
-	// Private helper methods.
-	//
 	/**
 	 * Respond to a user toggling the display of inline help.
 	 *

@@ -102,6 +102,15 @@ class PageHandler extends Handler {
 			}
 		}
 
+		if ($user = $request->getUser()) {
+			// Get a count of unread tasks.
+			$notificationDao = DAORegistry::getDAO('NotificationDAO');
+
+			// Don't include certain tasks, defined in the notifications grid handler
+			import('lib.pkp.controllers.grid.notifications.NotificationsGridHandler');
+			$templateMgr->assign('unreadNotificationCount', $notificationDao->getNotificationCount(false, $user->getId(), null, NOTIFICATION_LEVEL_TASK, NotificationsGridHandler::getNotListableTaskTypes()));
+		}
+
 		return $templateMgr->fetchJson('controllers/page/header.tpl');
 	}
 

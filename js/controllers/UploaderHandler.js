@@ -45,10 +45,10 @@
 					url: options.uploadUrl,
 					// Flash settings
 					flash_swf_url: options.baseUrl +
-							'/lib/pkp/js/lib/plupload/plupload.flash.swf',
+							'/lib/pkp/js/lib/plupload/js/plupload.flash.swf',
 					// Silverlight settings
 					silverlight_xap_url: options.baseUrl +
-							'/lib/pkp/js/lib/plupload/plupload.silverlight.xap'
+							'/lib/pkp/js/lib/plupload/js/plupload.silverlight.xap'
 				}),
 				pluploader;
 

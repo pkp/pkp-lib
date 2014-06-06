@@ -4,3 +4,6 @@
 [submodule "lib/phpmailer"]
 	path = lib/phpmailer
 	url = git://github.com/PHPMailer/PHPMailer.git
+[submodule "js/lib/plupload"]
+	path = js/lib/plupload
+	url = git://github.com/moxiecode/plupload.git

@@ -595,15 +595,17 @@ class DAO {
 	 * to the client to refresh itself according to changes
 	 * in the DB.
 	 *
-	 * @param $elementId string To refresh a single element
-	 * give the element ID here. Otherwise all elements will
-	 * be refreshed.
-	 * @param $parentElementId string To refresh a single element
-	 * that is associated with another one give the parent element
-	 * ID here.
+	 * @param $elementId string (Optional) To refresh a single element
+	 *  give the element ID here. Otherwise all elements will
+	 *  be refreshed.
+	 * @param $parentElementId string (Optional) To refresh a single
+	 *  element that is associated with another one give the parent
+	 *  element ID here.
+	 * @param $content mixed (Optional) Additional content to pass back
+	 *  to the handler of the JSON message.
 	 * @return string A rendered JSON message.
 	 */
-	static function getDataChangedEvent($elementId = null, $parentElementId = null) {
+	static function getDataChangedEvent($elementId = null, $parentElementId = null, $content = '') {
 		// Create the event data.
 		$eventData = null;
 		if ($elementId) {
@@ -616,7 +618,7 @@ class DAO {
 		// Create and render the JSON message with the
 		// event to be triggered on the client side.
 		import('lib.pkp.classes.core.JSONMessage');
-		$json = new JSONMessage(true);
+		$json = new JSONMessage(true, $content);
 		$json->setEvent('dataChanged', $eventData);
 		return $json->getString();
 	}

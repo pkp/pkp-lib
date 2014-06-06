@@ -173,6 +173,14 @@
 	$.pkp.controllers.grid.notifications.NotificationsGridHandler.prototype.
 			responseHandler_ = function(ajaxContext, jsonData) {
 
+		// Bounce the selected notification IDs back to the server
+		// so that selections can be maintained
+		var params = this.getFetchExtraParams();
+		params['selectedNotificationIds'] = jsonData.content;
+		this.setFetchExtraParams(params);
+
+		// Pass through the JSON handler to cause the grid to be
+		// refreshed.
 		this.handleJson(jsonData);
 	};
 /** @param {jQuery} $ jQuery closure. */

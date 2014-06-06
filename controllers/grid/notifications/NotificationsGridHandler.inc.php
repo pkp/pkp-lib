@@ -20,6 +20,9 @@ import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.controllers.grid.notifications.NotificationsGridCellProvider');
 
 class NotificationsGridHandler extends GridHandler {
+	/** @var $_selectedNotificationIds array Set of selected IDs */
+	var $_selectedNotificationIds;
+
 	/**
 	 * Constructor
 	 */
@@ -34,6 +37,8 @@ class NotificationsGridHandler extends GridHandler {
 	function initialize($request, $args = null) {
 		parent::initialize($request);
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_PKP_SUBMISSION);
+
+		$this->_selectedNotificationIds = (array) $request->getUserVar('selectedNotificationIds');
 
 		$cellProvider = new NotificationsGridCellProvider();
 		$this->addColumn(
@@ -135,7 +140,7 @@ class NotificationsGridHandler extends GridHandler {
 	 * @copydoc GridHandler::isDataElementSelected()
 	 */
 	function isDataElementSelected($gridDataElement) {
-		return false; // Nothing is selected by default
+		return in_array($gridDataElement->getId(), $this->_selectedNotificationIds);
 	}
 
 	/**
@@ -174,12 +179,13 @@ class NotificationsGridHandler extends GridHandler {
 		$notificationDao = DAORegistry::getDAO('NotificationDAO');
 		$user = $request->getUser();
 
-		foreach ((array) $request->getUserVar('selectedElements') as $notificationId) {
+		$selectedElements = (array) $request->getUserVar('selectedElements');
+		foreach ($selectedElements as $notificationId) {
 			if ($notification = $notificationDao->getById($notificationId, $user->getId())) {
 				$notificationDao->setDateRead($notificationId, null);
 			}
 		}
-		return DAO::getDataChangedEvent();
+		return DAO::getDataChangedEvent(null, null, $selectedElements);
 	}
 
 	/**
@@ -191,12 +197,13 @@ class NotificationsGridHandler extends GridHandler {
 		$notificationDao = DAORegistry::getDAO('NotificationDAO');
 		$user = $request->getUser();
 
-		foreach ((array) $request->getUserVar('selectedElements') as $notificationId) {
+		$selectedElements = (array) $request->getUserVar('selectedElements');
+		foreach ($selectedElements as $notificationId) {
 			if ($notification = $notificationDao->getById($notificationId, $user->getId())) {
 				$notificationDao->setDateRead($notificationId, Core::getCurrentDate());
 			}
 		}
-		return DAO::getDataChangedEvent();
+		return DAO::getDataChangedEvent(null, null, $selectedElements);
 	}
 
 	/**
@@ -208,7 +215,8 @@ class NotificationsGridHandler extends GridHandler {
 		$notificationDao = DAORegistry::getDAO('NotificationDAO');
 		$user = $request->getUser();
 
-		foreach ((array) $request->getUserVar('selectedElements') as $notificationId) {
+		$selectedElements = (array) $request->getUserVar('selectedElements');
+		foreach ($selectedElements as $notificationId) {
 			if ($notification = $notificationDao->getById($notificationId, $user->getId())) {
 				$notificationDao->deleteObject($notification);
 			}

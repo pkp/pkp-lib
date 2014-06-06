@@ -107,6 +107,15 @@ class NotificationsGridHandler extends GridHandler {
 	}
 
 	/**
+	 * Get the list of "publish data changed" events.
+	 * Used to update the site context switcher upon create/delete.
+	 * @return array
+	 */
+	function getPublishChangeEvents() {
+		return array('updateUnreadNotificationsCount');
+	}
+
+	/**
 	 * @copydoc GridHandler::initFeatures()
 	 */
 	function initFeatures($request, $args) {
@@ -205,6 +214,18 @@ class NotificationsGridHandler extends GridHandler {
 			}
 		}
 		return DAO::getDataChangedEvent();
+	}
+
+	/**
+	 * Get unread notifications count
+	 * @param $args array
+	 * @param $request PKPRequest
+	 */
+	function getUnreadNotificationsCount($args, $request) {
+		$notificationDao = DAORegistry::getDAO('NotificationDAO');
+		$user = $request->getUser();
+		$json = new JSONMessage(true, $notificationDao->getNotificationCount(false, $user->getId(), null, NOTIFICATION_LEVEL_TASK, $this->getNotListableTaskTypes()));
+		return $json->getString();
 	}
 
 

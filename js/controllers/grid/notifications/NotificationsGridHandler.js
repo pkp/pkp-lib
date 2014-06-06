@@ -14,7 +14,7 @@
 
 	// Define the namespace.
 	$.pkp.controllers.grid.notifications = $.pkp.controllers.grid.notifications || {};
-	
+
 
 
 	/**

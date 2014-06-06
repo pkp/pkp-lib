@@ -28,7 +28,12 @@
 		{if $isUserLoggedIn}
 			<li class="profile">{translate key="user.hello"}&nbsp;<a href="{url router=$smarty.const.ROUTE_PAGE page="user" op="profile"}">{$loggedInUsername|escape}</a></li>
 			<li class="notificationsLinkContainer">
-				<a href="#" id="notificationsToggle">{translate key="common.tasks"}{if $unreadNotificationCount} ({$unreadNotificationCount}){/if}</a>
+				{**
+				 * Unread notifications count is set here on header load, but
+				 * can also be updated dynamically via the javascript event
+				 * called updateUnreadNotificationsCount.
+				 *}
+				<a href="#" id="notificationsToggle">{translate key="common.tasks"} (<span id="unreadNotificationCount">{$unreadNotificationCount}</span>)</a>
 			</li>
 			<li>{null_link_action id="toggleHelp" key="help.toggleInlineHelpOn"}</li>
 			<li><a href="{url router=$smarty.const.ROUTE_PAGE page="login" op="signOut"}">{translate key="user.logOut"}</a></li>

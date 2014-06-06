@@ -21,7 +21,8 @@
 	 *
 	 * @param {jQueryObject} $headerElement The HTML element encapsulating
 	 *  the header.
-	 * @param {{requestedPage: string}} options Handler options.
+	 * @param {{requestedPage: string,
+	 * 		fetchUnreadNotificationsCountUrl: string}} options Handler options.
 	 */
 	$.pkp.pages.header.HeaderHandler =
 			function($headerElement, options) {
@@ -38,6 +39,8 @@
 
 		$('#notificationsToggle').click(this.callbackWrapper(
 				this.appendToggleIndicator_));
+
+		this.bind('updateUnreadNotificationsCount', this.fetchUnreadNotificationsCountHandler_);
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.pages.header.HeaderHandler,
@@ -142,6 +145,38 @@
 			// can be extended if needed.
 		}
 	};
+
+
+	/**
+	 * Handler to kick off a request to update the unread notifications
+	 * count.
+	 * @param {Object} ajaxContext The AJAX request context.
+	 * @param {Object} jsonData A parsed JSON response object.
+	 * @private
+	 */
+	$.pkp.pages.header.HeaderHandler.prototype.fetchUnreadNotificationsCountHandler_ =
+			function(ajaxContext, jsonData) {
+
+		$.get(this.options_.fetchUnreadNotificationsCountUrl,
+				this.callbackWrapper(this.updateUnreadNotificationsCountHandler_), 'json');
+	}
+
+
+	/**
+	 * Handler to update the unread notifications count upon receipt of
+	 * an updated number.
+	 * event.
+	 * @param {Object} ajaxContext The AJAX request context.
+	 * @param {Object} jsonData A parsed JSON response object.
+	 * @private
+	 */
+	$.pkp.pages.header.HeaderHandler.prototype.updateUnreadNotificationsCountHandler_ =
+			function(ajaxContext, jsonData) {
+
+		this.getHtmlElement().find('#unreadNotificationCount').replaceWith('<span id="unreadNotificationCount">' + jsonData.content + '</span>');
+	}
+
+
 
 
 /** @param {jQuery} $ jQuery closure. */

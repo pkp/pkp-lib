@@ -191,6 +191,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 		$email = new SubmissionMailTemplate($submission, $emailKey, null, null, null, false);
 		$email->setBody($this->getData('personalMessage'));
 		$email->addRecipient($submitter->getEmail(), $submitter->getFullName());
+		DAORegistry::getDAO('SubmissionEmailLogDAO'); // Load constants
 		$email->setEventType(SUBMISSION_EMAIL_EDITOR_NOTIFY_AUTHOR);
 
 		$userStageAssignmentDao = DAORegistry::getDAO('UserStageAssignmentDAO');

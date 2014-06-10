@@ -180,10 +180,10 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 		$formattedNotificationsData = array();
 		foreach ($notifications as $notification) { /* @var $notification Notification */
 			$formattedNotificationsData[$notification->getLevel()][$notification->getId()] = array(
-				'pnotify_title' => $this->getNotificationTitle($notification),
-				'pnotify_text' => $this->getNotificationContents($request, $notification),
-				'pnotify_addclass' => $this->getStyleClass($notification),
-				'pnotify_notice_icon' => $this->getIconClass($notification)
+				'title' => $this->getNotificationTitle($notification),
+				'text' => $this->getNotificationContents($request, $notification),
+				'addclass' => $this->getStyleClass($notification),
+				'notice_icon' => $this->getIconClass($notification)
 			);
 		}
 

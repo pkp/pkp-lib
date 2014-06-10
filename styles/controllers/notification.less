@@ -8,7 +8,7 @@
  * Copyright (c) 2014 Simon Fraser University Library
  * Copyright (c) 2003-2014 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
- * 
+ *
  * @ingroup pkp_controllers_notification
  *
  * @brief Styles for pkp_controllers_notification
@@ -28,6 +28,11 @@ div.ui-pnotify-container {
 	padding-right: 16px;
 	height: 18px;
 }
+
+.ui-pnotify-title {
+	margin-top: -.4em;
+}
+
 
 .notifyError div.ui-pnotify-container,
 .notifyFormError div.ui-pnotify-container {
@@ -63,25 +68,25 @@ div.ui-pnotify-container {
 .pkp_notification {
  	margin-top: 10px;
 	text-align: left;
- 
+
  	.notification_block {
  		background-position: 7px 5px !important;
 		background-repeat: no-repeat !important;
 		padding: 5px 20px 5px 30px;
 		min-height: 20px;
 	}
-	
+
 	p {
 		display: inline;
 		padding: 0px;
 		font-size: 80%;
 	}
-	
+
 	h4 {
 		display: inline;
 		padding-right: 0px;
 	}
-	
+
 	.pkp_linkActions {
 		line-height: 24px;
 	}
@@ -90,24 +95,24 @@ div.ui-pnotify-container {
 	.notifySuccess {
 		background: #c9e3f8 url({$baseUrl}/lib/pkp/templates/images/structure/response_success.png);
 	}
-	
+
 	.notifyWarning {
 		background: #c9e3f8 url({$baseUrl}/lib/pkp/templates/images/structure/response_warning.png);
 	}
-	
+
 	.notifyError, .notifyFormError {
 		background: #f8dada url({$baseUrl}/lib/pkp/templates/images/structure/response_error.png);
 	}
-	
+
 	.notifyForbidden {
 		background: #f8dada url({$baseUrl}/lib/pkp/templates/images/structure/response_forbidden.png);
 	}
-	
+
 	.notifyInformation {
 		background: #c9e3f8 url({$baseUrl}/lib/pkp/templates/images/structure/response_info.png);
 	}
-	
+
 	.notifyHelp {
 		background: #c9e3f8 url({$baseUrl}/lib/pkp/templates/images/structure/response_help.png);
-	}	
+	}
 }

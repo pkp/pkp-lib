@@ -95,7 +95,7 @@
 	 * @return {Array}
 	 */
 	$.pkp.controllers.grid.notifications.NotificationsGridHandler.prototype.
-			getSelectedNotifications_ = function(callingContext, opt_event) {
+			getSelectedNotifications_ = function() {
 		var selectedElements = [];
 		this.getHtmlElement().find('input:checkbox:checked').each(function() 
 {

@@ -135,12 +135,6 @@ jQuery.validator.prototype.defaultShowErrors = function() {};
 jQuery.validator.prototype.settings = {};
 
 /**
- * @constructor
- * @param {Object=} options
- */
-jQuery.pnotify = function(options) {};
-
-/**
  * @param {Object=} userDefinedSettings
  * @return {jQueryObject}
  */

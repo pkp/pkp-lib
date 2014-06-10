@@ -570,7 +570,7 @@
 				notificationsData = workingJsonData.content.general;
 				for (levelId in notificationsData) {
 					for (notificationId in notificationsData[levelId]) {
-						$.pnotify(notificationsData[levelId][notificationId]);
+						new PNotify(notificationsData[levelId][notificationId]);
 					}
 				}
 			}

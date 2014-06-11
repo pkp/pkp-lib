@@ -19,7 +19,7 @@ define('BLOCK_CONTEXT_HOMEPAGE',		0x00000003);
 
 import('lib.pkp.classes.plugins.LazyLoadPlugin');
 
-class BlockPlugin extends LazyLoadPlugin {
+abstract class BlockPlugin extends LazyLoadPlugin {
 	/**
 	 * Constructor
 	 */
@@ -179,4 +179,5 @@ class BlockPlugin extends LazyLoadPlugin {
 		return 'Templates::Index::'.array_shift($contextList);
 	}
 }
+
 ?>

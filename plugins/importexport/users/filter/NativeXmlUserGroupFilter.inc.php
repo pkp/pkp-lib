@@ -82,7 +82,6 @@ class NativeXmlUserGroupFilter extends NativeImportFilter {
 
 			for ($n = $node->firstChild; $n !== null; $n=$n->nextSibling) if (is_a($n, 'DOMElement')) switch($n->tagName) {
 				case 'role_id': $userGroup->setRoleId($n->textContent); break;
-				case 'path': $userGroup->setPath($n->textContent); break;
 				case 'is_default': $userGroup->setDefault($n->textContent); break;
 				case 'show_title': $userGroup->setShowTitle($n->textContent); break;
 				case 'name': $userGroup->setName($n->textContent, $n->getAttribute('locale')); break;

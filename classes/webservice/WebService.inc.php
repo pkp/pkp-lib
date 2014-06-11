@@ -124,7 +124,7 @@ class WebService {
 		curl_setopt($ch, CURLOPT_POST, 1);
 
 		// Bug #8518 safety work-around
-		foreach ($postOptions as $paramValue) {
+		if (is_array($postOptions)) foreach ($postOptions as $paramValue) {
 			if ($paramValue[0] == '@') die('CURL parameters may not begin with @.');
 		}
 

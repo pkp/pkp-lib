@@ -41,34 +41,28 @@ define('CDN_JQUERY_UI_VERSION', '1.8.6');
 
 class PKPTemplateManager extends Smarty {
 	/** @var array of URLs to stylesheets */
-	var $styleSheets = array();
+	private $_styleSheets = array();
 
 	/** @var array of URLs to javascript files */
-	var $javaScripts = array();
+	private $javaScripts = array();
 
 	/** @var string Type of cacheability (Cache-Control). */
-	var $cacheability;
+	private $_cacheability;
 
 	/** @var object The form builder vocabulary class. */
-	var $fbv;
+	private $_fbv;
 
 	/** @var PKPRequest */
-	var $request;
+	private $_request;
 
 	/**
 	 * Constructor.
 	 * Initialize template engine and assign basic template variables.
 	 * @param $request PKPRequest
 	 */
-	function PKPTemplateManager($request = null) {
-		if (!isset($request)) {
-			$request =& Registry::get('request');
-			// Disabled as it makes too much noise as long as
-			// there are so many handlers that don't pass in the request.
-			// if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated call without request object.');
-		}
+	function PKPTemplateManager($request) {
 		assert(is_a($request, 'PKPRequest'));
-		$this->request = $request;
+		$this->_request = $request;
 
 		parent::Smarty();
 
@@ -86,7 +80,10 @@ class PKPTemplateManager extends Smarty {
 		$this->config_dir = $cachePath . DIRECTORY_SEPARATOR . 't_config';
 		$this->cache_dir = $cachePath . DIRECTORY_SEPARATOR . 't_cache';
 
-		$this->cacheability = CACHEABILITY_NO_STORE; // Safe default
+		$this->_cacheability = CACHEABILITY_NO_STORE; // Safe default
+
+		// Are we using implicit authentication?
+		$this->assign('implicitAuth', Config::getVar('security', 'implicit_auth'));
 	}
 
 	/**
@@ -94,15 +91,15 @@ class PKPTemplateManager extends Smarty {
 	 */
 	function initialize() {
 		// Retrieve the router
-		$router = $this->request->getRouter();
+		$router = $this->_request->getRouter();
 		assert(is_a($router, 'PKPRouter'));
 
 		$this->assign('defaultCharset', Config::getVar('i18n', 'client_charset'));
-		$this->assign('basePath', $this->request->getBasePath());
-		$this->assign('baseUrl', $this->request->getBaseUrl());
-		$this->assign('requiresFormRequest', $this->request->isPost());
-		if (is_a($router, 'PKPPageRouter')) $this->assign('requestedPage', $router->getRequestedPage($this->request));
-		$this->assign('currentUrl', $this->request->getCompleteUrl());
+		$this->assign('basePath', $this->_request->getBasePath());
+		$this->assign('baseUrl', $this->_request->getBaseUrl());
+		$this->assign('requiresFormRequest', $this->_request->isPost());
+		if (is_a($router, 'PKPPageRouter')) $this->assign('requestedPage', $router->getRequestedPage($this->_request));
+		$this->assign('currentUrl', $this->_request->getCompleteUrl());
 		$this->assign('dateFormatTrunc', Config::getVar('general', 'date_format_trunc'));
 		$this->assign('dateFormatShort', Config::getVar('general', 'date_format_short'));
 		$this->assign('dateFormatLong', Config::getVar('general', 'date_format_long'));
@@ -113,15 +110,17 @@ class PKPTemplateManager extends Smarty {
 		$this->assign('useMinifiedJavaScript', Config::getVar('general', 'enable_minified'));
 		$this->assign('toggleHelpOnText', __('help.toggleInlineHelpOn'));
 		$this->assign('toggleHelpOffText', __('help.toggleInlineHelpOff'));
-		$this->assign('currentContext', $this->request->getContext());
+		$this->assign('currentContext', $this->_request->getContext());
 
 		$locale = AppLocale::getLocale();
 		$this->assign('currentLocale', $locale);
 
-		$dispatcher = $this->request->getDispatcher();
-		$this->addStyleSheet($dispatcher->url($this->request, ROUTE_COMPONENT, null, 'page.PageHandler', 'css'), STYLE_SEQUENCE_CORE);
+		// Add uncompilable styles
+		$this->addStyleSheet($this->_request->getBaseUrl() . '/styles/lib.css', STYLE_SEQUENCE_CORE);
+		$dispatcher = $this->_request->getDispatcher();
+		$this->addStyleSheet($dispatcher->url($this->_request, ROUTE_COMPONENT, null, 'page.PageHandler', 'css'), STYLE_SEQUENCE_CORE);
 		// If there's a locale-specific stylesheet, add it.
-		if (($localeStyleSheet = AppLocale::getLocaleStyleSheet($locale)) != null) $this->addStyleSheet($this->request->getBaseUrl() . '/' . $localeStyleSheet);
+		if (($localeStyleSheet = AppLocale::getLocaleStyleSheet($locale)) != null) $this->addStyleSheet($this->_request->getBaseUrl() . '/' . $localeStyleSheet);
 
 		$application = PKPApplication::getApplication();
 		$this->assign('pageTitle', $application->getNameKey());
@@ -131,7 +130,6 @@ class PKPTemplateManager extends Smarty {
 
 		// Register custom functions
 		$this->register_modifier('translate', array('AppLocale', 'translate'));
-		$this->register_modifier('get_value', array($this, 'smartyGetValue'));
 		$this->register_modifier('strip_unsafe_html', array('String', 'stripUnsafeHtml'));
 		$this->register_modifier('String_substr', array('String', 'substr'));
 		$this->register_modifier('to_array', array($this, 'smartyToArray'));
@@ -150,10 +148,6 @@ class PKPTemplateManager extends Smarty {
 		$this->register_function('page_links', array($this, 'smartyPageLinks'));
 		$this->register_function('page_info', array($this, 'smartyPageInfo'));
 		$this->register_function('icon', array($this, 'smartyIcon'));
-		$this->register_function('sort_heading', array($this, 'smartySortHeading'));
-		$this->register_function('sort_search', array($this, 'smartySortSearch'));
-		$this->register_function('assign_mailto', array($this, 'smartyAssignMailto'));
-		$this->register_function('display_template', array($this, 'smartyDisplayTemplate'));
 		$this->register_modifier('truncate', array($this, 'smartyTruncate'));
 
 		// Modified vocabulary for creating forms
@@ -200,7 +194,7 @@ class PKPTemplateManager extends Smarty {
 		PluginRegistry::loadCategory('blocks', true);
 
 		if (!defined('SESSION_DISABLE_INIT')) {
-			$user = $this->request->getUser();
+			$user = $this->_request->getUser();
 			$hasSystemNotifications = false;
 			if ($user) {
 				// Assign the user name to be used in the sitenav
@@ -234,7 +228,7 @@ class PKPTemplateManager extends Smarty {
 	 * @param $cacheability boolean optional
 	 */
 	function setCacheability($cacheability = CACHEABILITY_PUBLIC) {
-		$this->cacheability = $cacheability;
+		$this->_cacheability = $cacheability;
 	}
 
 	/**
@@ -243,7 +237,7 @@ class PKPTemplateManager extends Smarty {
 	 * @param $priority int STYLE_SEQUENCE_...
 	 */
 	function addStyleSheet($url, $priority = STYLE_SEQUENCE_NORMAL) {
-		$this->styleSheets[$priority][] = $url;
+		$this->_styleSheets[$priority][] = $url;
 	}
 
 	/**
@@ -251,7 +245,7 @@ class PKPTemplateManager extends Smarty {
 	 * @param $url string the URL to be included
 	 */
 	function addJavaScript($url) {
-		array_push($this->javaScripts, $url);
+		array_push($this->_javaScripts, $url);
 	}
 
 	/**
@@ -259,12 +253,12 @@ class PKPTemplateManager extends Smarty {
 	 */
 	function fetch($resource_name, $cache_id = null, $compile_id = null, $display = false) {
 		// Add additional java script URLs
-		if (!empty($this->javaScripts)) {
+		if (!empty($this->_javaScripts)) {
 			$baseUrl = $this->get_template_vars('baseUrl');
 			$scriptOpen = '	<script type="text/javascript" src="';
 			$scriptClose = '"></script>';
 			$javaScript = '';
-			foreach ($this->javaScripts as $script) {
+			foreach ($this->_javaScripts as $script) {
 				$javaScript .= $scriptOpen . $baseUrl . '/' . $script . $scriptClose . "\n";
 			}
 
@@ -272,8 +266,8 @@ class PKPTemplateManager extends Smarty {
 			$this->assign('additionalHeadData', $additionalHeadData."\n".$javaScript);
 		}
 
-		ksort($this->styleSheets);
-		$this->assign('stylesheets', $this->styleSheets);
+		ksort($this->_styleSheets);
+		$this->assign('stylesheets', $this->_styleSheets);
 
 		return parent::fetch($resource_name, $cache_id, $compile_id, $display);
 	}
@@ -322,7 +316,7 @@ class PKPTemplateManager extends Smarty {
 				header('Content-Type: ' . $sendContentType . '; charset=' . $charset);
 
 				// Send caching info
-				header('Cache-Control: ' . $this->cacheability);
+				header('Cache-Control: ' . $this->_cacheability);
 			}
 
 			// Actually display the template.
@@ -330,18 +324,6 @@ class PKPTemplateManager extends Smarty {
 		} else {
 			// Display the results of the plugin.
 			echo $output;
-		}
-	}
-
-	/**
-	 * Display templates from Smarty and allow hook overrides
-	 *
-	 * Smarty usage: {display_template template="name.tpl" hookname="My::Hook::Name"}
-	 */
-	function smartyDisplayTemplate($params, $smarty) {
-		// This is basically a wrapper for display()
-		if (isset($params['template'])) {
-			$this->display($params['template'], "", $params['hookname']);
 		}
 	}
 
@@ -382,11 +364,11 @@ class PKPTemplateManager extends Smarty {
 	 * @return TemplateManager the template manager object
 	 */
 	function getFBV() {
-		if(!$this->fbv) {
+		if(!$this->_fbv) {
 			import('lib.pkp.classes.form.FormBuilderVocabulary');
-			$this->fbv = new FormBuilderVocabulary();
+			$this->_fbv = new FormBuilderVocabulary();
 		}
-		return $this->fbv;
+		return $this->_fbv;
 	}
 
 	//
@@ -500,34 +482,6 @@ class PKPTemplateManager extends Smarty {
 
 		$this->assign('hoverTitle', $hoverTitle);
 		return $this->fetch('linkAction/linkAction.tpl');
-	}
-
-	/**
-	 * Smarty usage: {assign_mailto var="varName" address="email@address.com" ...]}
-	 *
-	 * Generates a hex-encoded mailto address and assigns it to the variable name specified..
-	 */
-	function smartyAssignMailto($params, $smarty) {
-		if (isset($params['var']) && isset($params['address'])) {
-			// Password encoding code taken from Smarty's mailto
-			// function.
-			$address = $params['address'];
-			$address_encode = '';
-			for ($x=0; $x < strlen($address); $x++) {
-				if(preg_match('!\w!',$address[$x])) {
-					$address_encode .= '%' . bin2hex($address[$x]);
-				} else {
-					$address_encode .= $address[$x];
-				}
-			}
-			$text_encode = '';
-			for ($x=0; $x < strlen($text); $x++) {
-				$text_encode .= '&#x' . bin2hex($text[$x]).';';
-			}
-
-			$mailto = "&#109;&#97;&#105;&#108;&#116;&#111;&#58;";
-			$smarty->assign($params['var'], $mailto . $address_encode);
-		}
 	}
 
 	/**
@@ -752,7 +706,7 @@ class PKPTemplateManager extends Smarty {
 
 		// Set the default router
 		if (is_null($router)) {
-			if (is_a($this->request->getRouter(), 'PKPComponentRouter')) {
+			if (is_a($this->_request->getRouter(), 'PKPComponentRouter')) {
 				$router = ROUTE_COMPONENT;
 			} else {
 				$router = ROUTE_PAGE;
@@ -780,7 +734,7 @@ class PKPTemplateManager extends Smarty {
 		}
 
 		// Let the dispatcher create the url
-		return $dispatcher->url($this->request, $router, $context, $handler, $op, $path, $parameters, $anchor, !isset($escape) || $escape);
+		return $dispatcher->url($this->_request, $router, $context, $handler, $op, $path, $parameters, $anchor, !isset($escape) || $escape);
 	}
 
 	/**
@@ -830,17 +784,17 @@ class PKPTemplateManager extends Smarty {
 
 		$value = '';
 
-		$router = $this->request->getRouter();
+		$router = $this->_request->getRouter();
 		$requestedArgs = null;
 		if (is_a($router, 'PageRouter')) {
-			$requestedArgs = $router->getRequestedArgs($this->request);
+			$requestedArgs = $router->getRequestedArgs($this->_request);
 		}
 
 		if ($page>1) {
 			$params[$paramName] = 1;
-			$value .= '<a href="' . $this->request->url(null, null, null, $requestedArgs, $params, $anchor) . '"' . $allExtra . '>&lt;&lt;</a>&nbsp;';
+			$value .= '<a href="' . $this->_request->url(null, null, null, $requestedArgs, $params, $anchor) . '"' . $allExtra . '>&lt;&lt;</a>&nbsp;';
 			$params[$paramName] = $page - 1;
-			$value .= '<a href="' . $this->request->url(null, null, null, $requestedArgs, $params, $anchor) . '"' . $allExtra . '>&lt;</a>&nbsp;';
+			$value .= '<a href="' . $this->_request->url(null, null, null, $requestedArgs, $params, $anchor) . '"' . $allExtra . '>&lt;</a>&nbsp;';
 		}
 
 		for ($i=$pageBase; $i<min($pageBase+$numPageLinks, $pageCount+1); $i++) {
@@ -848,14 +802,14 @@ class PKPTemplateManager extends Smarty {
 				$value .= "<strong>$i</strong>&nbsp;";
 			} else {
 				$params[$paramName] = $i;
-				$value .= '<a href="' . $this->request->url(null, null, null, $requestedArgs, $params, $anchor) . '"' . $allExtra . '>' . $i . '</a>&nbsp;';
+				$value .= '<a href="' . $this->_request->url(null, null, null, $requestedArgs, $params, $anchor) . '"' . $allExtra . '>' . $i . '</a>&nbsp;';
 			}
 		}
 		if ($page < $pageCount) {
 			$params[$paramName] = $page + 1;
-			$value .= '<a href="' . $this->request->url(null, null, null, $requestedArgs, $params, $anchor) . '"' . $allExtra . '>&gt;</a>&nbsp;';
+			$value .= '<a href="' . $this->_request->url(null, null, null, $requestedArgs, $params, $anchor) . '"' . $allExtra . '>&gt;</a>&nbsp;';
 			$params[$paramName] = $pageCount;
-			$value .= '<a href="' . $this->request->url(null, null, null, $requestedArgs, $params, $anchor) . '"' . $allExtra . '>&gt;&gt;</a>&nbsp;';
+			$value .= '<a href="' . $this->_request->url(null, null, null, $requestedArgs, $params, $anchor) . '"' . $allExtra . '>&gt;&gt;</a>&nbsp;';
 		}
 
 		return $value;
@@ -893,13 +847,6 @@ class PKPTemplateManager extends Smarty {
 	 */
 	function smartyStrtotime($string) {
 		return strtotime($string);
-	}
-
-	/**
-	 * Get the value of a template variable.
-	 */
-	function smartyGetValue($name) {
-		return $this->get_template_vars($name);
 	}
 
 	/**
@@ -1158,76 +1105,6 @@ class PKPTemplateManager extends Smarty {
 			$this->assign($varName, $value);
 		}
 		if ($passThru) return $value;
-	}
-
-	/**
-	 * Smarty usage: {sort_heading key="localization.key.name" sort="foo"}
-	 *
-	 * Custom Smarty function for creating heading links to sort tables by
-	 * @param $params array associative array
-	 * @param $smarty Smarty
-	 * @return string heading link to sort table by
-	 */
-	function smartySortHeading($params, $smarty) {
-		if (isset($params) && !empty($params)) {
-			$sortParams = $this->request->getQueryArray();
-			isset($params['sort'])? ($sortParams['sort'] = $params['sort']) : null;
-			$sortDirection = $smarty->get_template_vars('sortDirection');
-			$sort = $smarty->get_template_vars('sort');
-
-			// Invert sort direction
-			if($params['sort'] == $sort) {
-				if ($sortDirection == SORT_DIRECTION_ASC) {
-					$sortParams['sortDirection'] = SORT_DIRECTION_DESC;
-				} else {
-					$sortParams['sortDirection'] = SORT_DIRECTION_ASC;
-				}
-			} else {
-				$sortParams['sortDirection'] = SORT_DIRECTION_ASC;
-			}
-
-			$link = $this->request->url(null, null, null, $this->request->getRequestedArgs(), $sortParams, null, true);
-			$text = isset($params['key']) ? __($params['key']) : '';
-			$style = (isset($sort) && isset($params['sort']) && ($sort == $params['sort'])) ? ' style="font-weight:bold"' : '';
-
-			return "<a href=\"$link\"$style>$text</a>";
-		}
-	}
-
-	/**
-	 * Smarty usage: {sort_search key="localization.key.name" sort="foo"}
-	 *
-	 * Custom Smarty function for creating heading links to sort search-generated tables
-	 * @param $params array associative array
-	 * @param $smarty Smarty
-	 * @return string heading link to sort table by
-	 */
-	function smartySortSearch($params, $smarty) {
-		if (isset($params) && !empty($params)) {
-			$sort = $smarty->get_template_vars('sort');
-			$sortDirection = $smarty->get_template_vars('sortDirection');
-
-			// Invert sort direction
-			if($params['sort'] == $sort) {
-				if ($sortDirection == SORT_DIRECTION_ASC) {
-					$direction = SORT_DIRECTION_DESC;
-				} else {
-					$direction = SORT_DIRECTION_ASC;
-				}
-			} else {
-				$direction = SORT_DIRECTION_ASC;
-			}
-
-			// Escape variables for JS inclusion
-			foreach (array('heading', 'direction') as $varName) {
-				$$varName = $this->smartyEscape($$varName, 'javascript');
-			}
-
-			$heading = isset($params['sort']) ? $params['sort'] : $sort;
-			$text = isset($params['key']) ? __($params['key']) : '';
-			$style = (isset($sort) && isset($params['sort']) && ($sort == $params['sort'])) ? ' style="font-weight:bold"' : '';
-			return "<a href=\"javascript:sortSearch('$heading','$direction')\"$style>$text</a>";
-		}
 	}
 
 	/**

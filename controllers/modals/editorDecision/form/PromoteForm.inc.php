@@ -22,12 +22,12 @@ class PromoteForm extends EditorDecisionWithEmailForm {
 
 	/**
 	 * Constructor.
-	 * @param $seriesEditorSubmission SeriesEditorSubmission
+	 * @param $submission Submission
 	 * @param $decision int
 	 * @param $stageId int
 	 * @param $reviewRound ReviewRound
 	 */
-	function PromoteForm(&$seriesEditorSubmission, $decision, $stageId, $reviewRound = null) {
+	function PromoteForm($submission, $decision, $stageId, $reviewRound = null) {
 		if (!in_array($decision, $this->_getDecisions())) {
 			fatalError('Invalid decision!');
 		}
@@ -35,7 +35,7 @@ class PromoteForm extends EditorDecisionWithEmailForm {
 		$this->setSaveFormOperation('savePromote');
 
 		parent::EditorDecisionWithEmailForm(
-			$seriesEditorSubmission, $decision, $stageId,
+			$submission, $decision, $stageId,
 			'controllers/modals/editorDecision/form/promoteForm.tpl',
 			$reviewRound
 		);
@@ -51,7 +51,7 @@ class PromoteForm extends EditorDecisionWithEmailForm {
 	function initData($args, $request) {
 		$actionLabels = EditorDecisionActionsManager::getActionLabels($this->_getDecisions());
 
-		$seriesEditorSubmission = $this->getSubmission();
+		$submission = $this->getSubmission();
 		$this->setData('stageId', $this->getStageId());
 
 		return parent::initData($args, $request, $actionLabels);
@@ -62,7 +62,7 @@ class PromoteForm extends EditorDecisionWithEmailForm {
 	 */
 	function execute($args, $request) {
 		// Retrieve the submission.
-		$seriesEditorSubmission = $this->getSubmission();
+		$submission = $this->getSubmission();
 
 		// Get this form decision actions labels.
 		$actionLabels = EditorDecisionActionsManager::getActionLabels($this->_getDecisions());
@@ -72,20 +72,20 @@ class PromoteForm extends EditorDecisionWithEmailForm {
 		$decision = $this->getDecision();
 		import('lib.pkp.classes.submission.action.EditorAction');
 		$editorAction = new EditorAction();
-		$editorAction->recordDecision($request, $seriesEditorSubmission, $decision, $actionLabels, $reviewRound);
+		$editorAction->recordDecision($request, $submission, $decision, $actionLabels, $reviewRound);
 
 		// Identify email key and status of round.
 		import('lib.pkp.classes.file.SubmissionFileManager');
-		$submissionFileManager = new SubmissionFileManager($seriesEditorSubmission->getContextId(), $seriesEditorSubmission->getId());
+		$submissionFileManager = new SubmissionFileManager($submission->getContextId(), $submission->getId());
 		switch ($decision) {
 			case SUBMISSION_EDITOR_DECISION_ACCEPT:
 				$emailKey = 'EDITOR_DECISION_ACCEPT';
 				$status = REVIEW_ROUND_STATUS_ACCEPTED;
 
-				$this->_updateReviewRoundStatus($seriesEditorSubmission, $status, $reviewRound);
+				$this->_updateReviewRoundStatus($submission, $status, $reviewRound);
 
 				// Move to the editing stage.
-				$editorAction->incrementWorkflowStage($seriesEditorSubmission, WORKFLOW_STAGE_ID_EDITING, $request);
+				$editorAction->incrementWorkflowStage($submission, WORKFLOW_STAGE_ID_EDITING, $request);
 
 				// Bring in the SUBMISSION_FILE_* constants.
 				import('lib.pkp.classes.submission.SubmissionFile');
@@ -103,30 +103,30 @@ class PromoteForm extends EditorDecisionWithEmailForm {
 				}
 
 				// Send email to the author.
-				$this->_sendReviewMailToAuthor($seriesEditorSubmission, $emailKey, $request);
+				$this->_sendReviewMailToAuthor($submission, $emailKey, $request);
 				break;
 
 			case SUBMISSION_EDITOR_DECISION_EXTERNAL_REVIEW:
 				$emailKey = 'EDITOR_DECISION_SEND_TO_EXTERNAL';
 				$status = REVIEW_ROUND_STATUS_SENT_TO_EXTERNAL;
 
-				$this->_updateReviewRoundStatus($seriesEditorSubmission, $status, $reviewRound);
+				$this->_updateReviewRoundStatus($submission, $status, $reviewRound);
 
 				// Move to the external review stage.
-				$editorAction->incrementWorkflowStage($seriesEditorSubmission, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW, $request);
+				$editorAction->incrementWorkflowStage($submission, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW, $request);
 
 				// Create an initial external review round.
-				$this->_initiateReviewRound($seriesEditorSubmission, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW, $request, REVIEW_ROUND_STATUS_PENDING_REVIEWERS);
+				$this->_initiateReviewRound($submission, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW, $request, REVIEW_ROUND_STATUS_PENDING_REVIEWERS);
 
 				// Send email to the author.
-				$this->_sendReviewMailToAuthor($seriesEditorSubmission, $emailKey, $request);
+				$this->_sendReviewMailToAuthor($submission, $emailKey, $request);
 				break;
 			case SUBMISSION_EDITOR_DECISION_SEND_TO_PRODUCTION:
 				$emailKey = 'EDITOR_DECISION_SEND_TO_PRODUCTION';
 				// FIXME: this is copy-pasted from above, save the FILE_GALLEY.
 
 				// Move to the editing stage.
-				$editorAction->incrementWorkflowStage($seriesEditorSubmission, WORKFLOW_STAGE_ID_PRODUCTION, $request);
+				$editorAction->incrementWorkflowStage($submission, WORKFLOW_STAGE_ID_PRODUCTION, $request);
 
 				// Bring in the SUBMISSION_FILE_* constants.
 				import('lib.pkp.classes.submission.SubmissionFile');
@@ -144,7 +144,7 @@ class PromoteForm extends EditorDecisionWithEmailForm {
 					}
 				}
 				// Send email to the author.
-				$this->_sendReviewMailToAuthor($seriesEditorSubmission, $emailKey, $request);
+				$this->_sendReviewMailToAuthor($submission, $emailKey, $request);
 				break;
 			default:
 				fatalError('Unsupported decision!');

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE version SYSTEM "../../../lib/pkp/dtd/pluginVersion.dtd">
+<!DOCTYPE version SYSTEM "../../../dtd/pluginVersion.dtd">
 
 <!--
   * plugins/generic/usageStats/version.xml

@@ -10,7 +10,10 @@
  * @class GridCellProvider
  * @ingroup controllers_grid
  *
- * @brief Base class for a grid column's cell provider
+ * @brief Base class for a grid column's cell provider.
+ *
+ * Grid cell providers provide formatted data to grid columns.
+ * For general information about grids, see GridHandler.
  */
 
 

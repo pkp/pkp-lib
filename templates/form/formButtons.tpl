@@ -17,6 +17,7 @@
  *}
 
 {fbvFormSection class="formButtons"}
+	{assign var=buttonId value="submitFormButton"|concat:"-"|uniqid}
 	{if !$FBV_hideCancel}
 		{if $FBV_cancelAction}
 			{include file="linkAction/buttonGenericLinkAction.tpl"
@@ -33,11 +34,11 @@
 
 	{* IF we have confirmation dialog text specified, load buttonConfirmationLinkAction for the submit button *}
 	{if $FBV_confirmSubmit}
-		{include file="linkAction/buttonConfirmationLinkAction.tpl"
-				 buttonSelector="#submitFormButton"
+		{include file="core:linkAction/buttonConfirmationLinkAction.tpl"
+				 buttonSelector="#"|concat:$buttonId
 				 dialogText="$FBV_confirmSubmit"}
 	{/if}
-	{fbvElement type="submit" class="submitFormButton" id="submitFormButton" label=$FBV_submitText translate=$FBV_translate disabled=$FBV_submitDisabled}
+	{fbvElement type="submit" class="submitFormButton" id=$buttonId label=$FBV_submitText translate=$FBV_translate disabled=$FBV_submitDisabled}
 	<div class="pkp_helpers_progressIndicator"></div>
 	<div class="clear"></div>
 {/fbvFormSection}

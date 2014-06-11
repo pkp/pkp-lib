@@ -10,10 +10,12 @@
  * @class GridColumn
  * @ingroup controllers_grid
  *
- * @brief Represents a column within a grid. It is used to configure the way
- *  cells within a column are displayed (cell provider) and can also be used
- *  to configure a editing strategy (not yet implemented). Contains all column-
- *  specific configuration (e.g. column title).
+ * @brief The GridColumn class represents a column within a grid. It is used to
+ *  format the data presented in a particular column, which is provided by the
+ *  GridRow implementation, and to handle user operations on that column (such
+ *  as clicking a checkbox).
+ *
+ * For general information on grids, see GridHandler.
  */
 
 define('COLUMN_ALIGNMENT_LEFT', 'left');
@@ -124,8 +126,7 @@ class GridColumn extends GridBodyElement {
 	 */
 	function getCellActions($request, $row, $position = GRID_ACTION_POSITION_DEFAULT) {
 		// The default implementation returns an empty array
-		$actions = array();
-		return $actions;
+		return array();
 	}
 }
 

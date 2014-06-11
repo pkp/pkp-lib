@@ -189,11 +189,19 @@ java -jar "$TOOL_PATH/compiler.jar" --jscomp_warning visibility --warning_level 
 
 # Only minify when there were no warnings.
 if [ -n "`cat $WORKDIR/.compile-warnings.out | grep '^	'`" ]; then
-	# Issue warnings.
-	less "$WORKDIR/.compile-warnings.out"
+	# Issue warnings. If interactive, use "less".
+	case "$-" in
+		*i*)	less "$WORKDIR/.compile-warnings.out" ;;
+		*)	cat "$WORKDIR/.compile-warnings.out" ;;
+	esac
 	echo >&2
 	echo "Found Errors! Not minified."
 	echo "Exiting!"
+
+	# Remove the temporary directory.
+	rm -r "$WORKDIR"
+
+	exit -1
 else
 	# Show the list of files we are going to compile:
 	echo >&2
@@ -211,8 +219,9 @@ else
 	echo "Please don't forget to set enable_minified=On in your config.inc.php." >&2
 	echo >&2
 	echo "Done!" >&2
+
+	# Remove the temporary directory.
+	rm -r "$WORKDIR"
+
+	exit 0
 fi
-
-# Remove the temporary directory.
-rm -r "$WORKDIR"
-

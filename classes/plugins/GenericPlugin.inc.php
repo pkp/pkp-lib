@@ -13,10 +13,9 @@
  * @brief Abstract class for generic plugins
  */
 
-
 import('lib.pkp.classes.plugins.LazyLoadPlugin');
 
-class GenericPlugin extends LazyLoadPlugin {
+abstract class GenericPlugin extends LazyLoadPlugin {
 	/**
 	 * Constructor
 	 */
@@ -74,4 +73,5 @@ class GenericPlugin extends LazyLoadPlugin {
 		return true;
 	}
 }
+
 ?>

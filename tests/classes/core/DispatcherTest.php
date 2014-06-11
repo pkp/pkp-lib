@@ -16,7 +16,7 @@
 
 import('lib.pkp.tests.PKPTestCase');
 import('lib.pkp.classes.core.Registry');
-import('lib.pkp.classes.core.PKPApplication');
+import('classes.core.Application');
 import('lib.pkp.classes.core.Dispatcher');
 import('lib.pkp.classes.core.PKPRequest');
 import('lib.pkp.classes.plugins.HookRegistry');
@@ -44,7 +44,7 @@ class DispatcherTest extends PKPTestCase {
 		parent::setUp();
 		// Mock application object without calling its constructor.
 		$mockApplication =
-				$this->getMock('PKPApplication', array('getContextDepth', 'getContextList'),
+				$this->getMock('Application', array('getContextDepth', 'getContextList'),
 				array(), '', false);
 		Registry::set('application', $mockApplication);
 		$nullVar = null;

@@ -286,15 +286,6 @@ class EditorAction extends PKPAction {
 	}
 
 	/**
-	 * Assign the default participants to a workflow stage.
-	 * @param $submission Submission
-	 * @param $stageId int
-	 * @param $request Request
-	 */
-	function assignDefaultStageParticipants($submission, $stageId, $request) {
-	}
-
-	/**
 	 * Increment a submission's workflow stage.
 	 * @param $submission Submission
 	 * @param $newStage integer One of the WORKFLOW_STAGE_* constants.
@@ -305,11 +296,7 @@ class EditorAction extends PKPAction {
 		$submission->setStageId($newStage);
 		$submissionDao = Application::getSubmissionDAO();
 		$submissionDao->updateObject($submission);
-
-		// Assign the default users to the next workflow stage.
-		$this->assignDefaultStageParticipants($submission, $newStage, $request);
 	}
-
 }
 
 ?>

@@ -51,6 +51,7 @@ class SignoffNotesLinkAction extends LinkAction {
 	 * Get the signoff note state.
 	 * @param $signoff Signoff
 	 * @param $user User
+	 * @return string CSS class representing note state
 	 */
 	function _getNoteState($signoff, $user) {
 		$noteDao = DAORegistry::getDAO('NoteDAO');

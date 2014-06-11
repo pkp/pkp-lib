@@ -23,7 +23,7 @@ define('METADATA_PLUGIN_VOCAB_DATAFILE', 'controlledVocabs.xml');
 // controlled vocabulary data.
 define('METADATA_PLUGIN_VOCAB_INSTALLED_SETTING', 'metadataPluginControlledVocabInstalled');
 
-class MetadataPlugin extends Plugin {
+abstract class MetadataPlugin extends Plugin {
 	/**
 	 * Constructor
 	 */

@@ -62,15 +62,6 @@ class SubmissionComment extends DataObject {
 	}
 
 	/**
-	 * get role name
-	 * @return string
-	 */
-	function getRoleName() {
-		$role = new Role($this->getData('roleId'));
-		return $role->getRoleName();
-	}
-
-	/**
 	 * get submission id
 	 * @return int
 	 */

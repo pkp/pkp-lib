@@ -97,7 +97,7 @@ class PaymentMethodForm extends ContextSettingsForm {
 		$paymentPluginName = $this->getData('paymentPluginName');
 		if (isset($this->paymentPlugins[$paymentPluginName])) {
 			$plugin = $this->paymentPlugins[$paymentPluginName];
-			foreach ($plugin->getSettingsFormFieldNames() as $settingName) {
+			foreach ($plugin->getRequiredSettingsFormFieldNames() as $settingName) {
 				$this->addCheck(new FormValidator($this, $settingName, 'required', 'common.required'));
 			}
 		}

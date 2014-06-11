@@ -47,7 +47,7 @@
 // Define the well-known file name for filter configuration data.
 define('PLUGIN_FILTER_DATAFILE', 'filterConfig.xml');
 
-class Plugin {
+abstract class Plugin {
 	/** @var string Path name to files for this plugin */
 	var $pluginPath;
 
@@ -122,27 +122,21 @@ class Plugin {
 	 *
 	 * @return string name of plugin
 	 */
-	function getName() {
-		assert(false);
-	}
+	abstract function getName();
 
 	/**
 	 * Get the display name for this plugin.
 	 *
 	 * @return string
 	 */
-	function getDisplayName() {
-		assert(false);
-	}
+	abstract function getDisplayName();
 
 	/**
 	 * Get a description of this plugin.
 	 *
 	 * @return string
 	 */
-	function getDescription() {
-		assert(false);
-	}
+	abstract function getDescription();
 
 	//
 	// Plugin Behavior and Management

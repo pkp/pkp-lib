@@ -38,6 +38,12 @@ class FileNotesLinkAction extends FileLinkAction {
 		);
 	}
 
+	/**
+	 * Get the notes icon state for a submission file and user combo.
+	 * @param $submissionFile SubmissionFile
+	 * @param $user User
+	 * @return string CSS class representing icon state
+	 */
 	function getNotesState($submissionFile, $user) {
 		$noteDao = DAORegistry::getDAO('NoteDAO');
 

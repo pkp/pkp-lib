@@ -28,10 +28,10 @@
 
 		this.parent($submissionHeader, options);
 
-		this.participantToggleSeletor_ = options.participantToggleSeletor;
+		this.participantToggleSelector_ = options.participantToggleSelector;
 
 		// show and hide on click of link
-		$(this.participantToggleSeletor_).click(this.callbackWrapper(
+		$(this.participantToggleSelector_).click(this.callbackWrapper(
 				this.appendToggleIndicator_));
 
 		this.bind('gridRefreshRequested', this.refreshWorkflowContent_);
@@ -76,7 +76,7 @@
 
 			// We also want to close the participants grid view
 			// every time a change is made there.
-			$(this.participantToggleSeletor_).click();
+			$(this.participantToggleSelector_).click();
 		}
 	};
 

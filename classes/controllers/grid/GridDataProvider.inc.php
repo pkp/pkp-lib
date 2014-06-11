@@ -10,7 +10,10 @@
  * @class GridDataProvider
  * @ingroup classes_controllers_grid
  *
- * @brief Provide access to grid data.
+ * @brief Grid data providers serve data to the grid classes for presentation
+ *  in a grid.
+ *
+ * For general information about grids, see GridHandler.
  */
 
 class GridDataProvider {

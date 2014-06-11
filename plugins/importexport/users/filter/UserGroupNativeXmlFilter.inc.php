@@ -80,7 +80,6 @@ class UserGroupNativeXmlFilter extends NativeExportFilter {
 
 		// Add metadata
 		$userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'role_id', $userGroup->getRoleId()));
-		$userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'path', $userGroup->getPath()));
 		$userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'context_id', $userGroup->getContextId()));
 		$userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'is_default', $userGroup->getDefault() ? 'true' : 'false'));
 		$userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'show_title', $userGroup->getShowTitle() ? 'true' : 'false'));

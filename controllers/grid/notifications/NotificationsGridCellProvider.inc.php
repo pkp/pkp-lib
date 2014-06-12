@@ -35,6 +35,8 @@ class NotificationsGridCellProvider extends GridCellProvider {
 		assert($column->getId() == 'task');
 
 		$notification = $row->getData();
+		$contextDao = Application::getContextDAO();
+		$context = $contextDao->getById($notification->getContextId());
 
 		$notificationMgr = new NotificationManager();
 		return array(new LinkAction(
@@ -43,6 +45,7 @@ class NotificationsGridCellProvider extends GridCellProvider {
 				$notificationMgr->getNotificationUrl($request, $notification)
 			),
 			($notification->getDateRead()?'':'<strong>') . __('common.tasks.titleAndTask', array(
+				'acronym' => $context->getLocalizedAcronym(),
 				'title' => $this->_getTitle($notification),
 				'task' => $notificationMgr->getNotificationMessage($request, $notification)
 			)) . ($notification->getDateRead()?'':'</strong>')

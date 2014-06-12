@@ -174,6 +174,7 @@ class NotificationsGridHandler extends GridHandler {
 	 * Mark notifications unread
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return string JSON-encoded response
 	 */
 	function markNew($args, $request) {
 		$notificationDao = DAORegistry::getDAO('NotificationDAO');
@@ -192,6 +193,7 @@ class NotificationsGridHandler extends GridHandler {
 	 * Mark notifications unread
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return string JSON-encoded response
 	 */
 	function markRead($args, $request) {
 		$notificationDao = DAORegistry::getDAO('NotificationDAO');
@@ -210,6 +212,7 @@ class NotificationsGridHandler extends GridHandler {
 	 * Delete notifications
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return string JSON-encoded response
 	 */
 	function deleteNotifications($args, $request) {
 		$notificationDao = DAORegistry::getDAO('NotificationDAO');
@@ -228,6 +231,7 @@ class NotificationsGridHandler extends GridHandler {
 	 * Get unread notifications count
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return string JSON-encoded response
 	 */
 	function getUnreadNotificationsCount($args, $request) {
 		$notificationDao = DAORegistry::getDAO('NotificationDAO');

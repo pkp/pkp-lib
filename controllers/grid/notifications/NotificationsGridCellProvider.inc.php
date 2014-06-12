@@ -61,17 +61,10 @@ class NotificationsGridCellProvider extends GridCellProvider {
 	 * @return array
 	 */
 	function getTemplateVarsFromRowColumn($row, $column) {
-		$notification = $row->getData();
+		assert($column->getId()=='task');
 
-		switch ($column->getId()) {
-			case 'task':
-				// The action has the label
-				return array('label' => '');
-				break;
-			default:
-				assert(false);
-				return array();
-		}
+		// The action has the label.
+		return array('label' => '');
 	}
 
 	/**

@@ -189,6 +189,7 @@
 			<extension base="pkp:identity">
 				<attribute name="primary_contact" type="boolean" default="false" />
 				<attribute name="user_group_ref" type="pkp:user_group_ref" use="required" />
+				<attribute name="include_in_browse" type="boolean" default="true" />
 			</extension>
 		</complexContent>
 	</complexType>

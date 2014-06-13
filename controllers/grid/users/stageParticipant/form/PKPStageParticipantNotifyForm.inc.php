@@ -17,16 +17,16 @@ import('lib.pkp.classes.form.Form');
 
 class PKPStageParticipantNotifyForm extends Form {
 	/** @var int The file/submission ID this form is for */
-	var $itemId;
+	var $_itemId;
 
 	/** @var int The type of item the form is for (used to determine which email template to use) */
-	var $itemType;
+	var $_itemType;
 
 	/** The stage Id **/
-	var $stageId;
+	var $_stageId;
 
 	/** @var int the Submission id */
-	var $submissionId;
+	var $_submissionId;
 
 	/**
 	 * Constructor.
@@ -34,16 +34,16 @@ class PKPStageParticipantNotifyForm extends Form {
 	function PKPStageParticipantNotifyForm($itemId, $itemType, $stageId, $template = null) {
 		$template = ($template != null) ? $template : 'controllers/grid/users/stageParticipant/form/notify.tpl';
 		parent::Form($template);
-		$this->itemId = $itemId;
-		$this->itemType = $itemType;
-		$this->stageId = $stageId;
+		$this->_itemId = $itemId;
+		$this->_itemType = $itemType;
+		$this->_stageId = $stageId;
 
 		if($itemType == ASSOC_TYPE_SUBMISSION) {
-			$this->submissionId = $itemId;
+			$this->_submissionId = $itemId;
 		} else {
 			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 			$submissionFile = $submissionFileDao->getLatestRevision($itemId);
-			$this->submissionId = $submissionFile->getSubmissionId();
+			$this->_submissionId = $submissionFile->getSubmissionId();
 		}
 
 		// Some other forms (e.g. the Add Participant form) subclass this form and do not have the list builder
@@ -61,11 +61,11 @@ class PKPStageParticipantNotifyForm extends Form {
 	function fetch($request) {
 		$templateMgr = TemplateManager::getManager($request);
 
-		$templateMgr->assign('submissionId', $this->submissionId);
-		$templateMgr->assign('itemId', $this->itemId);
+		$templateMgr->assign('submissionId', $this->_submissionId);
+		$templateMgr->assign('itemId', $this->_itemId);
 
 		$submissionDao = Application::getSubmissionDAO();
-		$submission = $submissionDao->getById($this->submissionId);
+		$submission = $submissionDao->getById($this->_submissionId);
 
 		// All stages can choose the default template
 		$templateKeys = array('NOTIFICATION_CENTER_DEFAULT');
@@ -137,7 +137,7 @@ class PKPStageParticipantNotifyForm extends Form {
 		$request = $application->getRequest(); // need to do this because the method version is null.
 
 		$submissionDao = Application::getSubmissionDAO();
-		$submission = $submissionDao->getById($this->submissionId);
+		$submission = $submissionDao->getById($this->_submissionId);
 
 		foreach ($newRowId as $id) {
 			$this->sendMessage($id, $submission, $request);
@@ -216,7 +216,7 @@ class PKPStageParticipantNotifyForm extends Form {
 	 * @return int
 	 */
 	function getStageId() {
-		return $this->stageId;
+		return $this->_stageId;
 	}
 
 	/**

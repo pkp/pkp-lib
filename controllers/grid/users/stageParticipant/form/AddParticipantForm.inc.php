@@ -80,7 +80,6 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 		// assign the vars required for the request
 		$submission = $this->getSubmission();
 		$templateMgr->assign('submissionId', $submission->getId());
-		$templateMgr->assign('stageId', $this->getStageId());
 
 		return parent::fetch($request);
 	}

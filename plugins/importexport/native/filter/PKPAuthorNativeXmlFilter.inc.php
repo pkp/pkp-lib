@@ -78,6 +78,8 @@ class PKPAuthorNativeXmlFilter extends NativeExportFilter {
 		// Create the author node
 		$authorNode = $doc->createElementNS($deployment->getNamespace(), 'author');
 		if ($author->getPrimaryContact()) $authorNode->setAttribute('primary_contact', 'true');
+		if ($author->getIncludeInBrowse()) $authorNode->setAttribute('include_in_browse', 'true');
+
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$userGroup = $userGroupDao->getById($author->getUserGroupId());
 		assert($userGroup);

@@ -22,7 +22,7 @@
 	 * @param {jQueryObject} $headerElement The HTML element encapsulating
 	 *  the header.
 	 * @param {{requestedPage: string,
-	 * 		fetchUnreadNotificationsCountUrl: string}} options Handler options.
+	 *  fetchUnreadNotificationsCountUrl: string}} options Handler options.
 	 */
 	$.pkp.pages.header.HeaderHandler =
 			function($headerElement, options) {
@@ -40,7 +40,8 @@
 		$('#notificationsToggle').click(this.callbackWrapper(
 				this.appendToggleIndicator_));
 
-		this.bind('updateUnreadNotificationsCount', this.fetchUnreadNotificationsCountHandler_);
+		this.bind('updateUnreadNotificationsCount',
+				this.fetchUnreadNotificationsCountHandler_);
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.pages.header.HeaderHandler,
@@ -69,18 +70,18 @@
 	$.pkp.pages.header.HeaderHandler.prototype.appendToggleIndicator_ =
 			function(callingElement, event) {
 
-		var $submissionHeader = this.getHtmlElement(),
-				$notificationsPopover = $submissionHeader.find('#notificationsPopover'),
-				$notificationsListElement = $submissionHeader.find('li.notificationsLinkContainer'),
-				$notificationsToggle = $submissionHeader.find('#notificationsToggle');
+		var $header = this.getHtmlElement(),
+				$popover = $header.find('#notificationsPopover'),
+				$listElement = $header.find('li.notificationsLinkContainer'),
+				$toggle = $header.find('#notificationsToggle');
 
-		$notificationsPopover.toggle();
-		$notificationsListElement.toggleClass('expandedIndicator');
-		$notificationsToggle.toggleClass('expandedIndicator');
+		$popover.toggle();
+		$listElement.toggleClass('expandedIndicator');
+		$toggle.toggleClass('expandedIndicator');
 
-		if ($notificationsListElement.hasClass('expandedIndicator')) {
+		if ($listElement.hasClass('expandedIndicator')) {
 			this.trigger('callWhenClickOutside', [{
-				container: $notificationsPopover.add($notificationsListElement),
+				container: $popover.add($listElement),
 				callback: this.callbackWrapper(this.appendToggleIndicator_),
 				skipWhenVisibleModals: true
 			}]);
@@ -154,12 +155,13 @@
 	 * @param {Object} jsonData A parsed JSON response object.
 	 * @private
 	 */
-	$.pkp.pages.header.HeaderHandler.prototype.fetchUnreadNotificationsCountHandler_ =
-			function(ajaxContext, jsonData) {
+	$.pkp.pages.header.HeaderHandler.prototype.
+			fetchUnreadNotificationsCountHandler_ = function(ajaxContext, jsonData) {
 
 		$.get(this.options_.fetchUnreadNotificationsCountUrl,
-				this.callbackWrapper(this.updateUnreadNotificationsCountHandler_), 'json');
-	}
+				this.callbackWrapper(
+				this.updateUnreadNotificationsCountHandler_), 'json');
+	};
 
 
 	/**
@@ -170,11 +172,12 @@
 	 * @param {Object} jsonData A parsed JSON response object.
 	 * @private
 	 */
-	$.pkp.pages.header.HeaderHandler.prototype.updateUnreadNotificationsCountHandler_ =
-			function(ajaxContext, jsonData) {
+	$.pkp.pages.header.HeaderHandler.prototype.
+			updateUnreadNotificationsCountHandler_ = function(ajaxContext, jsonData) {
 
-		this.getHtmlElement().find('#unreadNotificationCount').replaceWith('<span id="unreadNotificationCount">' + jsonData.content + '</span>');
-	}
+		this.getHtmlElement().find('#unreadNotificationCount').replaceWith(
+				'<span id="unreadNotificationCount">' + jsonData.content + '</span>');
+	};
 
 
 

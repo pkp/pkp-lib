@@ -13,7 +13,8 @@
 (function($) {
 
 	// Define the namespace.
-	$.pkp.controllers.grid.notifications = $.pkp.controllers.grid.notifications || {};
+	$.pkp.controllers.grid.notifications =
+			$.pkp.controllers.grid.notifications || {};
 
 
 
@@ -26,7 +27,8 @@
 	 *  attached to.
 	 * @param {Object} options Grid handler configuration.
 	 */
-	$.pkp.controllers.grid.notifications.NotificationsGridHandler = function($grid, options) {
+	$.pkp.controllers.grid.notifications.NotificationsGridHandler =
+			function($grid, options) {
 		$grid.find('a[id*="markNew"]').mousedown(
 				this.callbackWrapper(this.markNewHandler_));
 
@@ -38,35 +40,38 @@
 
 		this.parent($grid, options);
 	};
-	$.pkp.classes.Helper.inherits($.pkp.controllers.grid.notifications.NotificationsGridHandler,
-			$.pkp.controllers.grid.GridHandler);
+	$.pkp.classes.Helper.inherits($.pkp.controllers.grid.notifications
+			.NotificationsGridHandler, $.pkp.controllers.grid.GridHandler);
 
 
 	//
-	// Protected properties
+	// Private properties
 	//
 	/**
 	 * The "mark notifications as new" URL
-	 * @protected
+	 * @private
 	 * @type {?string}
 	 */
-	$.pkp.controllers.grid.notifications.NotificationsGridHandler.prototype.markNewUrl_ = null;
+	$.pkp.controllers.grid.notifications.NotificationsGridHandler
+			.prototype.markNewUrl_ = null;
 
 
 	/**
 	 * The "mark notifications as read" URL
-	 * @protected
+	 * @private
 	 * @type {?string}
 	 */
-	$.pkp.controllers.grid.notifications.NotificationsGridHandler.prototype.markReadUrl_ = null;
+	$.pkp.controllers.grid.notifications.NotificationsGridHandler
+			.prototype.markReadUrl_ = null;
 
 
 	/**
 	 * The "delete notifications" URL
-	 * @protected
+	 * @private
 	 * @type {?string}
 	 */
-	$.pkp.controllers.grid.notifications.NotificationsGridHandler.prototype.deleteUrl_ = null;
+	$.pkp.controllers.grid.notifications.NotificationsGridHandler
+			.prototype.deleteUrl_ = null;
 
 
 	//
@@ -75,8 +80,8 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.controllers.grid.notifications.NotificationsGridHandler.prototype.initialize =
-			function(options) {
+	$.pkp.controllers.grid.notifications.NotificationsGridHandler.
+			prototype.initialize = function(options) {
 
 		// Save the URLs to interact with selected sets of notifications
 		this.markNewUrl_ = options.markNewUrl;
@@ -92,13 +97,13 @@
 	//
 	/**
 	 * Get the array of selected notifications
-	 * @return {Array}
+	 * @private
+	 * @return {Array} List of selected notification IDs.
 	 */
 	$.pkp.controllers.grid.notifications.NotificationsGridHandler.prototype.
 			getSelectedNotifications_ = function() {
 		var selectedElements = [];
-		this.getHtmlElement().find('input:checkbox:checked').each(function() 
-{
+		this.getHtmlElement().find('input:checkbox:checked').each(function() {
 			selectedElements.push($(this).val());
 		});
 		return selectedElements;
@@ -115,8 +120,8 @@
 	 *  a button.
 	 * @return {boolean} Should return false to stop event processing.
 	 */
-	$.pkp.controllers.grid.notifications.NotificationsGridHandler.prototype.markNewHandler_ =
-			function(callingContext, opt_event) {
+	$.pkp.controllers.grid.notifications.NotificationsGridHandler.prototype.
+			markNewHandler_ = function(callingContext, opt_event) {
 		$.post(this.markNewUrl_, {selectedElements: this.getSelectedNotifications_()},
 				this.callbackWrapper(this.responseHandler_, null), 'json');
 
@@ -134,9 +139,10 @@
 	 *  a button.
 	 * @return {boolean} Should return false to stop event processing.
 	 */
-	$.pkp.controllers.grid.notifications.NotificationsGridHandler.prototype.markReadHandler_ =
-			function(callingContext, opt_event) {
-		$.post(this.markReadUrl_, {selectedElements: this.getSelectedNotifications_()},
+	$.pkp.controllers.grid.notifications.NotificationsGridHandler.prototype.
+			markReadHandler_ = function(callingContext, opt_event) {
+		$.post(this.markReadUrl_,
+				{selectedElements: this.getSelectedNotifications_()},
 				this.callbackWrapper(this.responseHandler_, null), 'json');
 
 		return false;
@@ -153,8 +159,8 @@
 	 *  a button.
 	 * @return {boolean} Should return false to stop event processing.
 	 */
-	$.pkp.controllers.grid.notifications.NotificationsGridHandler.prototype.deleteHandler_ =
-			function(callingContext, opt_event) {
+	$.pkp.controllers.grid.notifications.NotificationsGridHandler.prototype.
+			deleteHandler_ = function(callingContext, opt_event) {
 		$.post(this.deleteUrl_, {selectedElements: this.getSelectedNotifications_()},
 				this.callbackWrapper(this.responseHandler_, null), 'json');
 
@@ -176,7 +182,7 @@
 		// Bounce the selected notification IDs back to the server
 		// so that selections can be maintained
 		var params = this.getFetchExtraParams();
-		params['selectedNotificationIds'] = jsonData.content;
+		params.selectedNotificationIds = jsonData.content;
 		this.setFetchExtraParams(params);
 
 		// Pass through the JSON handler to cause the grid to be

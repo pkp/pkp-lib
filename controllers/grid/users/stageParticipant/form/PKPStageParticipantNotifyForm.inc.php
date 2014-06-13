@@ -17,29 +17,33 @@ import('lib.pkp.classes.form.Form');
 
 class PKPStageParticipantNotifyForm extends Form {
 	/** @var int The file/submission ID this form is for */
-	var $itemId;
+	var $_itemId;
 
 	/** @var int The type of item the form is for (used to determine which email template to use) */
-	var $itemType;
+	var $_itemType;
+
+	/** The stage Id **/
+	var $_stageId;
 
 	/** @var int the Submission id */
-	var $submissionId;
+	var $_submissionId;
 
 	/**
 	 * Constructor.
 	 */
-	function PKPStageParticipantNotifyForm($itemId, $itemType, $template = null) {
+	function PKPStageParticipantNotifyForm($itemId, $itemType, $stageId, $template = null) {
 		$template = ($template != null) ? $template : 'controllers/grid/users/stageParticipant/form/notify.tpl';
 		parent::Form($template);
-		$this->itemId = $itemId;
-		$this->itemType = $itemType;
+		$this->_itemId = $itemId;
+		$this->_itemType = $itemType;
+		$this->_stageId = $stageId;
 
 		if($itemType == ASSOC_TYPE_SUBMISSION) {
-			$this->submissionId = $itemId;
+			$this->_submissionId = $itemId;
 		} else {
 			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 			$submissionFile = $submissionFileDao->getLatestRevision($itemId);
-			$this->submissionId = $submissionFile->getSubmissionId();
+			$this->_submissionId = $submissionFile->getSubmissionId();
 		}
 
 		// Some other forms (e.g. the Add Participant form) subclass this form and do not have the list builder
@@ -57,11 +61,11 @@ class PKPStageParticipantNotifyForm extends Form {
 	function fetch($request) {
 		$templateMgr = TemplateManager::getManager($request);
 
-		$templateMgr->assign('submissionId', $this->submissionId);
-		$templateMgr->assign('itemId', $this->itemId);
+		$templateMgr->assign('submissionId', $this->_submissionId);
+		$templateMgr->assign('itemId', $this->_itemId);
 
 		$submissionDao = Application::getSubmissionDAO();
-		$submission = $submissionDao->getById($this->submissionId);
+		$submission = $submissionDao->getById($this->_submissionId);
 
 		// All stages can choose the default template
 		$templateKeys = array('NOTIFICATION_CENTER_DEFAULT');
@@ -82,8 +86,7 @@ class PKPStageParticipantNotifyForm extends Form {
 		// template keys indexed by stageId
 		$stageTemplates = $this->_getStageTemplates();
 
-
-		$currentStageId = $submission->getStageId();
+		$currentStageId = $this->getStageId();
 
 		if (array_key_exists($currentStageId, $stageTemplates)) {
 			$templateKeys = array_merge($templateKeys, $stageTemplates[$currentStageId]);
@@ -134,7 +137,7 @@ class PKPStageParticipantNotifyForm extends Form {
 		$request = $application->getRequest(); // need to do this because the method version is null.
 
 		$submissionDao = Application::getSubmissionDAO();
-		$submission = $submissionDao->getById($this->submissionId);
+		$submission = $submissionDao->getById($this->_submissionId);
 
 		foreach ($newRowId as $id) {
 			$this->sendMessage($id, $submission, $request);
@@ -209,6 +212,14 @@ class PKPStageParticipantNotifyForm extends Form {
 	}
 
 	/**
+	 * Get the stage ID
+	 * @return int
+	 */
+	function getStageId() {
+		return $this->_stageId;
+	}
+
+	/**
 	 * Internal method to create the necessary notifications, with user validation.
 	 * @param PKPRquest $request
 	 * @param Submission $submission
@@ -217,10 +228,9 @@ class PKPStageParticipantNotifyForm extends Form {
 	 */
 	function _createNotifications($request, $submission, $user, $template) {
 
-		$currentStageId = $submission->getStageId();
 		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		$stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), $submission->getStageId(), null, $user->getId());
+		$stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), $this->getStageId(), null, $user->getId());
 		$notificationMgr = new NotificationManager();
 
 		switch ($template) {
@@ -314,7 +324,7 @@ class PKPStageParticipantNotifyForm extends Form {
 
 		// if this is a submission by a LAYOUT_EDITOR for a submission in production, check
 		// to see if there is a task notification for that and if so, clear it.
-		$currentStageId = $submission->getStageId();
+		$currentStageId = $this->getStageId();
 		$notificationMgr = new NotificationManager();
 
 		if ($currentStageId == WORKFLOW_STAGE_ID_PRODUCTION) {
@@ -322,7 +332,7 @@ class PKPStageParticipantNotifyForm extends Form {
 			$user = $request->getUser();
 			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
 			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-			$stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), $submission->getStageId(), null, $user->getId());
+			$stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), $this->getStageId(), null, $user->getId());
 
 			while ($stageAssignment = $stageAssignments->next()) {
 				$userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId());

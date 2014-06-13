@@ -19,9 +19,6 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 	/** @var Submission The submission associated with the submission contributor being edited **/
 	var $_submission;
 
-	/** The stage Id **/
-	var $_stageId;
-
 	/** @var array **/
 	var $_userGroups;
 
@@ -32,7 +29,7 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 	 * @param $userGroups array
 	 */
 	function AddParticipantForm($submission, $stageId, &$userGroups) {
-		parent::StageParticipantNotifyForm($submission->getId(), ASSOC_TYPE_SUBMISSION, 'controllers/grid/users/stageParticipant/addParticipantForm.tpl');
+		parent::StageParticipantNotifyForm($submission->getId(), ASSOC_TYPE_SUBMISSION, $stageId, 'controllers/grid/users/stageParticipant/addParticipantForm.tpl');
 		$this->_submission = $submission;
 		$this->_stageId = $stageId;
 		$this->_userGroups = $userGroups;
@@ -54,14 +51,6 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 	 */
 	function &getSubmission() {
 		return $this->_submission;
-	}
-
-	/**
-	 * Get the stage ID
-	 * @return int
-	 */
-	function getStageId() {
-		return $this->_stageId;
 	}
 
 	/**
@@ -91,7 +80,6 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 		// assign the vars required for the request
 		$submission = $this->getSubmission();
 		$templateMgr->assign('submissionId', $submission->getId());
-		$templateMgr->assign('stageId', $this->getStageId());
 
 		return parent::fetch($request);
 	}

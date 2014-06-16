@@ -40,9 +40,11 @@ class FileCache extends GenericCache {
 
 		$this->filename = $path . DIRECTORY_SEPARATOR . "fc-$context-" . str_replace('/', '.', $cacheId) . '.php';
 
-		// Load the cache data if it exists.
-		if (file_exists($this->filename)) {
-			$this->cache = include($this->filename);
+		// Load the cache data if it exists. (To avoid a race condition,
+		// we assume the file exists and suppress the potential warn.)
+		$result = @include($this->filename);
+		if ($result !== false) {
+			$this->cache = $result;
 		} else {
 			$this->cache = null;
 		}

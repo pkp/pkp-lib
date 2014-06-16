@@ -93,6 +93,12 @@
 		<span class="instruct">{translate key="manager.announcements.form.dateExpireInstructions"}</span>
 	</td>
 </tr>
+<tr valign="top">
+	<td class="label">{fieldLabel name="notificationToggle" key="manager.announcements.form.notificationToggle"}</td>
+		<td class="value">
+		<input type="checkbox" name="notificationToggle" id="notificationToggle" value="1" {if $notificationToggle} checked="checked"{/if} />{translate key="manager.announcements.form.notificationToggleInstructions"}
+	</td>
+</tr>
 </table>
 
 <p><input type="submit" value="{translate key="common.save"}" class="button defaultButton" /> {if not $announcementId}<input type="submit" name="createAnother" value="{translate key="manager.announcements.form.saveAndCreateAnother"}" class="button" /> {/if}<input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url op="announcements" escape=false}'" /></p>

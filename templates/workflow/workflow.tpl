@@ -1,11 +1,11 @@
 {**
- * templates/workflow/header.tpl
+ * templates/workflow/workflow.tpl
  *
  * Copyright (c) 2014 Simon Fraser University Library
  * Copyright (c) 2003-2014 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * Header that contains details about the submission
+ * Display the workflow tab structure.
  *}
 {strip}
 {assign var=primaryAuthor value=$submission->getPrimaryAuthor()}
@@ -35,3 +35,5 @@
 {include file="controllers/notification/inPlaceNotification.tpl" notificationId="workflowNotification" requestOptions=$workflowNotificationRequestOptions}
 <br />
 <div class="pkp_helpers_clear"></div>
+
+{include file="common/footer.tpl"}

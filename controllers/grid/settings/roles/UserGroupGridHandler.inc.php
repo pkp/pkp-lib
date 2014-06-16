@@ -124,8 +124,8 @@ class UserGroupGridHandler extends GridHandler {
 		import('lib.pkp.controllers.grid.settings.roles.UserGroupGridCellProvider');
 		$cellProvider = new UserGroupGridCellProvider();
 
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
-		$workflowStagesLocales = $userGroupDao->getWorkflowStageTranslationKeys();
+		$workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO');
+		$workflowStagesLocales = $workflowStageDao->getWorkflowStageTranslationKeys();
 
 		// Set array containing the columns info with the same cell provider.
 		$columnsInfo = array(
@@ -207,7 +207,7 @@ class UserGroupGridHandler extends GridHandler {
 
 		$filterData = array('roleOptions' => $roleOptions);
 
-		$workflowStages = array(0 => 'grid.userGroup.allStages') + UserGroupDao::getWorkflowStageTranslationKeys();
+		$workflowStages = array(0 => 'grid.userGroup.allStages') + WorkflowStageDAO::getWorkflowStageTranslationKeys();
 		$filterData['stageOptions'] = $workflowStages;
 
 		return parent::renderFilter($request, $filterData);
@@ -379,7 +379,7 @@ class UserGroupGridHandler extends GridHandler {
 		$notificationMgr = new NotificationManager();
 		$user = $request->getUser();
 
-		$stageLocaleKeys = UserGroupDao::getWorkflowStageTranslationKeys();
+		$stageLocaleKeys = WorkflowStageDAO::getWorkflowStageTranslationKeys();
 
 		$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS,
 			array('contents' => __($messageKey,

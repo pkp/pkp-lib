@@ -44,8 +44,8 @@ class PKPUserAccessibleWorkflowStageRequiredPolicy extends AuthorizationPolicy {
 		$userId = $user->getId();
 		$submission =& $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		$workflowStages = $userGroupDao->getWorkflowStageTranslationKeys();
+		$workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO');
+		$workflowStages = $workflowStageDao->getWorkflowStageTranslationKeys();
 
 		$accessibleWorkflowStages = array();
 		foreach ($workflowStages as $stageId => $translationKey) {

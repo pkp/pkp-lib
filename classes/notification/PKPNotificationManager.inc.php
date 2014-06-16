@@ -48,8 +48,8 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 
 				if ($page == 'workflow') {
 					$stageId = $reviewRound->getStageId();
-					$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-					$operation = $userGroupDao->getPathFromId($stageId);
+					$workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO');
+					$operation = $workflowStageDao->getPathFromId($stageId);
 				}
 
 				return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), $page, $operation, $submission->getId());
@@ -80,8 +80,8 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 				// If workflow, get the correct operation (stage).
 				if ($page == 'workflow') {
 					$stageId = $signoffDao->getStageIdBySymbolic($signoff->getSymbolic());
-					$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-					$operation = $userGroupDao->getPathFromId($stageId);
+					$workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO');
+					$operation = $workflowStageDao->getPathFromId($stageId);
 				}
 
 				return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), $page, $operation, $submissionFile->getSubmissionId());
@@ -154,8 +154,8 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 				$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
 				$reviewRound = $reviewRoundDao->getById($notification->getAssocId());
 				assert(is_a($reviewRound, 'ReviewRound'));
-				$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
-				$stagesData = $userGroupDao->getWorkflowStageKeysAndPaths();
+				$workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO');
+				$stagesData = $workflowStageDao->getWorkflowStageKeysAndPaths();
 				return __($localeKey, array('stage' => __($stagesData[$reviewRound->getStageId()]['translationKey'])));
 			case NOTIFICATION_TYPE_APPROVE_SUBMISSION:
 				assert($notification->getAssocType() == ASSOC_TYPE_SUBMISSION && is_numeric($notification->getAssocId()));

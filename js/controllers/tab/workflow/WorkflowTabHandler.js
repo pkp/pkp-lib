@@ -36,10 +36,6 @@
 		var pageUrl, stage, pattern, i;
 		this.parent($tabs, options);
 
-		// if the page has been loaded with an #anchor
-		// determine what tab that is for and set the
-		// options.selected value to it so it gets used
-		// when tabs() are initialized.
 		pageUrl = document.location.toString();
 		if (pageUrl.search('workflow/([^/]+)/')) {
 			stage = pageUrl.match('workflow/([^/]+)/')[1];

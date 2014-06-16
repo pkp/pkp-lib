@@ -21,8 +21,7 @@
 			'$.pkp.controllers.tab.workflow.WorkflowTabHandler',
 			{ldelim}
 				selected: {$selectedTabIndex},
-				notScrollable: true,
-				emptyLastTab: true
+				notScrollable: true
 			{rdelim}
 		);
 	{rdelim});
@@ -31,28 +30,12 @@
 	<div id="stageTabs">
 		<ul>
 			{foreach from=$workflowStages item=stage}
-				<li>
+				<li class="workflowStage">
 					<a class="{$stage.path}" href="{url router=$smarty.const.ROUTE_COMPONENT component="tab.workflow.WorkflowTabHandler" op="fetchTab" submissionId=$submission->getId() stageId=$stage.id escape=false}">
-						{assign var="foundState" value=false}
-						{translate key=$stage.translationKey}
-						{if !$foundState && $stage.id <= $submission->getStageId() && (in_array($stage.id, $stagesWithDecisions) || $stage.id == $smarty.const.WORKFLOW_STAGE_ID_PRODUCTION) && !$stageNotifications[$stage.id]}
-							<div class="stageState">
-								{translate key="submission.complete"}
-							</div>
-							{assign var="foundState" value=true}
-						{/if}
-
-						{if !$foundState && $stage.id < $submission->getStageId() && !$stageNotifications[$stage.id]}
-							{assign var="foundState" value=true}
-							{* Those are stages not initiated, that were skipped, like review stages. *}
-						{/if}
-
-						{if !$foundState && $stage.id <= $submission->getStageId() && (!in_array($stage.id, $stagesWithDecisions) || $stageNotifications[$stage.id])}
-							<div class="stageState">
-								{translate key="submission.initiated"}
-							</div>
-							{assign var="foundState" value=true}
-						{/if}
+					{translate key=$stage.translationKey}
+					<div class="stageState">
+							{translate key=$stage.statusKey}
+						</div>
 					</a>
 				</li>
 			{/foreach}

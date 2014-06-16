@@ -836,94 +836,6 @@ class UserGroupDAO extends DAO {
 	//
 
 	/**
-	 * Convert a stage id into a stage path
-	 * @param $stageId integer
-	 * @return string|null
-	 */
-	function getPathFromId($stageId) {
-		static $stageMapping = array(
-			WORKFLOW_STAGE_ID_SUBMISSION => WORKFLOW_STAGE_PATH_SUBMISSION,
-			WORKFLOW_STAGE_ID_INTERNAL_REVIEW => WORKFLOW_STAGE_PATH_INTERNAL_REVIEW,
-			WORKFLOW_STAGE_ID_EXTERNAL_REVIEW => WORKFLOW_STAGE_PATH_EXTERNAL_REVIEW,
-			WORKFLOW_STAGE_ID_EDITING => WORKFLOW_STAGE_PATH_EDITING,
-			WORKFLOW_STAGE_ID_PRODUCTION => WORKFLOW_STAGE_PATH_PRODUCTION
-		);
-		if (isset($stageMapping[$stageId])) {
-			return $stageMapping[$stageId];
-		}
-		return null;
-	}
-
-	/**
-	 * Convert a stage path into a stage id
-	 * @param $stagePath string
-	 * @return integer|null
-	 */
-	function getIdFromPath($stagePath) {
-		static $stageMapping = array(
-			WORKFLOW_STAGE_PATH_SUBMISSION => WORKFLOW_STAGE_ID_SUBMISSION,
-			WORKFLOW_STAGE_PATH_INTERNAL_REVIEW => WORKFLOW_STAGE_ID_INTERNAL_REVIEW,
-			WORKFLOW_STAGE_PATH_EXTERNAL_REVIEW => WORKFLOW_STAGE_ID_EXTERNAL_REVIEW,
-			WORKFLOW_STAGE_PATH_EDITING => WORKFLOW_STAGE_ID_EDITING,
-			WORKFLOW_STAGE_PATH_PRODUCTION => WORKFLOW_STAGE_ID_PRODUCTION
-		);
-		if (isset($stageMapping[$stagePath])) {
-			return $stageMapping[$stagePath];
-		}
-		return null;
-	}
-
-	/**
-	 * Convert a stage id into a stage translation key
-	 * @param $stageId integer
-	 * @return string|null
-	 */
-	function getTranslationKeyFromId($stageId) {
-		$stageMapping = $this->getWorkflowStageTranslationKeys();
-
-		assert(isset($stageMapping[$stageId]));
-		return $stageMapping[$stageId];
-	}
-
-	/**
-	 * Return a mapping of workflow stages and its translation keys.
-	 * @return array
-	 */
-	static function getWorkflowStageTranslationKeys() {
-		$applicationStages = Application::getApplicationStages();
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
-		static $stageMapping = array(
-			WORKFLOW_STAGE_ID_SUBMISSION => 'submission.submission',
-			WORKFLOW_STAGE_ID_INTERNAL_REVIEW => 'workflow.review.internalReview',
-			WORKFLOW_STAGE_ID_EXTERNAL_REVIEW => 'workflow.review.externalReview',
-			WORKFLOW_STAGE_ID_EDITING => 'submission.editorial',
-			WORKFLOW_STAGE_ID_PRODUCTION => 'submission.production'
-		);
-
-		return array_intersect_key($stageMapping, array_flip($applicationStages));
-	}
-
-	/**
-	 * Return a mapping of workflow stages, its translation keys and
-	 * paths.
-	 * @return array
-	 */
-	function getWorkflowStageKeysAndPaths() {
-		$workflowStages = $this->getWorkflowStageTranslationKeys();
-		$stageMapping = array();
-		foreach ($workflowStages as $stageId => $translationKey) {
-			$stageMapping[$stageId] = array(
-				'id' => $stageId,
-				'translationKey' => $translationKey,
-				'path' => $this->getPathFromId($stageId)
-			);
-		}
-
-		return $stageMapping;
-	}
-
-
-	/**
 	 * Get the user groups assigned to each stage. Provide the ability to omit authors and reviewers
 	 * Since these are typically stored differently and displayed in different circumstances
 	 * @param Integer $contextId
@@ -972,9 +884,10 @@ class UserGroupDAO extends DAO {
 		);
 
 		$returner = array();
+		$workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO');
 		while (!$result->EOF) {
 			$stageId = $result->Fields('stage_id');
-			$returner[$stageId] = $this->getTranslationKeyFromId($stageId);
+			$returner[$stageId] = $workflowStageDao->getTranslationKeyFromId($stageId);
 			$result->MoveNext();
 		}
 

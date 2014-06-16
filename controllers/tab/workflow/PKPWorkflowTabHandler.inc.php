@@ -50,7 +50,7 @@ class PKPWorkflowTabHandler extends Handler {
 	// Public handler operations
 	//
 	/**
-	 * Fetch the specified review round.
+	 * Fetch the specified workflow tab.
 	 * @param $args array
 	 * @param $request Request
 	 * @return string
@@ -68,61 +68,59 @@ class PKPWorkflowTabHandler extends Handler {
 
 		switch ($stageId) {
 			case WORKFLOW_STAGE_ID_SUBMISSION:
-				return $templateMgr->fetchJson('workflow/submission.tpl');
+				return $templateMgr->fetchJson('controllers/tab/workflow/submission.tpl');
 			case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
 				// Retrieve the authorized submission and stage id.
-				$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 				$selectedStageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
 
 				// Get all review rounds for this submission, on the current stage.
 				$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
 				$reviewRoundsFactory = $reviewRoundDao->getBySubmissionId($submission->getId(), $selectedStageId);
-				if (!$reviewRoundsFactory->wasEmpty()) {
-					$reviewRoundsArray = $reviewRoundsFactory->toAssociativeArray();
+				$reviewRoundsArray = $reviewRoundsFactory->toAssociativeArray();
+				$lastReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $selectedStageId);
 
-					// Get the review round number of the last review round to be used
-					// as the current review round tab index.
-					$lastReviewRoundNumber = end($reviewRoundsArray)->getRound();
-					$lastReviewRoundId = end($reviewRoundsArray)->getId();
-					reset($reviewRoundsArray);
+				// Get the review round number of the last review round to be used
+				// as the current review round tab index.
+				$lastReviewRoundNumber = $lastReviewRound->getRound();
+				$lastReviewRoundId = $lastReviewRound->getId();
 
-					// Add the round information to the template.
-					$templateMgr->assign('reviewRounds', $reviewRoundsArray);
-					$templateMgr->assign('lastReviewRoundNumber', $lastReviewRoundNumber);
-					$templateMgr->assign('reviewRoundOp', 'externalReviewRound');
+				// Add the round information to the template.
+				$templateMgr->assign('reviewRounds', $reviewRoundsArray);
+				$templateMgr->assign('lastReviewRoundNumber', $lastReviewRoundNumber);
+				$templateMgr->assign('reviewRoundOp', 'externalReviewRound');
 
-					if ($submission->getStageId() == $selectedStageId) {
-						$dispatcher = $request->getDispatcher();
-						$newRoundAction = new LinkAction(
-							'newRound',
-							new AjaxModal(
-								$dispatcher->url(
-									$request, ROUTE_COMPONENT, null,
-									'modals.editorDecision.EditorDecisionHandler',
-									'newReviewRound', null, array(
-										'submissionId' => $submission->getId(),
-										'decision' => SUBMISSION_EDITOR_DECISION_RESUBMIT,
-										'stageId' => $selectedStageId,
-										'reviewRoundId' => $lastReviewRoundId
-									)
-								),
-								__('editor.submission.newRound'),
-								'modal_add_item'
+				if ($submission->getStageId() == $selectedStageId) {
+					$dispatcher = $request->getDispatcher();
+
+					import('lib.pkp.classes.linkAction.request.AjaxModal');
+					$newRoundAction = new LinkAction(
+						'newRound',
+						new AjaxModal(
+							$dispatcher->url(
+								$request, ROUTE_COMPONENT, null,
+								'modals.editorDecision.EditorDecisionHandler',
+								'newReviewRound', null, array(
+									'submissionId' => $submission->getId(),
+									'decision' => SUBMISSION_EDITOR_DECISION_RESUBMIT,
+									'stageId' => $selectedStageId,
+									'reviewRoundId' => $lastReviewRoundId
+								)
 							),
 							__('editor.submission.newRound'),
-							'add_item_small'
-						);
-						$templateMgr->assign('newRoundAction', $newRoundAction);
-					}
+							'modal_add_item'
+						),
+						__('editor.submission.newRound'),
+						'add_item_small'
+					);
+					$templateMgr->assign('newRoundAction', $newRoundAction);
 				}
 
 				// Render the view.
-				return $templateMgr->fetchJson('workflow/review.tpl');
+				return $templateMgr->fetchJson('controllers/tab/workflow/review.tpl');
 			case WORKFLOW_STAGE_ID_EDITING:
-				return $templateMgr->fetchJson('workflow/editorial.tpl');
+				return $templateMgr->fetchJson('controllers/tab/workflow/editorial.tpl');
 			case WORKFLOW_STAGE_ID_PRODUCTION:
 				$templateMgr = TemplateManager::getManager($request);
-				$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 				$notificationRequestOptions = array(
 					NOTIFICATION_LEVEL_NORMAL => array(
 						NOTIFICATION_TYPE_VISIT_CATALOG => array(ASSOC_TYPE_SUBMISSION, $submission->getId()),
@@ -136,7 +134,7 @@ class PKPWorkflowTabHandler extends Handler {
 				$templateMgr->assign('galleys', $galleys);
 
 				$templateMgr->assign('productionNotificationRequestOptions', $notificationRequestOptions);
-				return $templateMgr->fetchJson('workflow/production.tpl');
+				return $templateMgr->fetchJson('controllers/tab/workflow/production.tpl');
 		}
 	}
 
@@ -147,8 +145,6 @@ class PKPWorkflowTabHandler extends Handler {
 	function setupTemplate($request) {
 		parent::setupTemplate($request);
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_APP_EDITOR, LOCALE_COMPONENT_PKP_GRID, LOCALE_COMPONENT_PKP_EDITOR);
-
-		$router = $request->getRouter();
 
 		$submission =& $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
@@ -225,14 +221,6 @@ class PKPWorkflowTabHandler extends Handler {
 		if ($stageId = $request->getUserVar('stageId')) {
 			return (int) $stageId;
 		}
-
-		// Retrieve the requested operation.
-		$router = $request->getRouter();
-		$operation = $router->getRequestedOp($request);
-
-		// Translate the operation to a workflow stage identifier.
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		return $userGroupDao->getIdFromPath($operation);
 	}
 }
 

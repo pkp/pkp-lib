@@ -50,7 +50,7 @@ abstract class PKPWorkflowHandler extends Handler {
 			$this->addPolicy(new UserAccessibleWorkflowStageRequiredPolicy($request));
 		} else {
 			import('classes.security.authorization.WorkflowStageAccessPolicy');
-			$this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $this->_identifyStageId($request)));
+			$this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $this->_identifyStageId($request, $args)));
 		}
 
 		return parent::authorize($request, $args, $roleAssignments);
@@ -81,7 +81,7 @@ abstract class PKPWorkflowHandler extends Handler {
 	 */
 	function access($args, $request) {
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO');
 		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
 
 		$stageId = $submission->getStageId();
@@ -89,28 +89,37 @@ abstract class PKPWorkflowHandler extends Handler {
 
 		// Get the closest workflow stage that user has an assignment.
 		$stagePath = null;
+		$workingStageId = 0;
+
 		for ($workingStageId = $stageId; $workingStageId >= WORKFLOW_STAGE_ID_SUBMISSION; $workingStageId--) {
 			if (array_key_exists($workingStageId, $accessibleWorkflowStages)) {
-				$stagePath = $userGroupDao->getPathFromId($workingStageId);
 				break;
 			}
 		}
 
 		// If no stage was found, user still have access to future stages of the
 		// submission. Try to get the closest future workflow stage.
-		if (!$stagePath) {
+		if ($workingStageId == 0) {
 			for ($workingStageId = $stageId; $workingStageId <= WORKFLOW_STAGE_ID_PRODUCTION; $workingStageId++) {
 				if (array_key_exists($workingStageId, $accessibleWorkflowStages)) {
-					$stagePath = $userGroupDao->getPathFromId($workingStageId);
 					break;
 				}
 			}
 		}
 
-		assert(!is_null($stagePath));
+		assert($workingStageId > 0);
 
 		$router = $request->getRouter();
-		$request->redirectUrl($router->url($request, null, 'workflow', $stagePath, $submission->getId()));
+		$request->redirectUrl($router->url($request, null, 'workflow', 'index', array($submission->getId(), $workingStageId)));
+	}
+
+	/**
+	 * Show the workflow stage, with the stage path as an #anchor.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 */
+	function index($args, $request) {
+		$this->_displayWorkflow($args, $request);
 	}
 
 	/**
@@ -119,7 +128,7 @@ abstract class PKPWorkflowHandler extends Handler {
 	 * @param $request PKPRequest
 	 */
 	function submission($args, $request) {
-		$this->_displayWorkflowTabs($args, $request);
+		$this->_redirectToIndex($args, $request);
 	}
 
 	/**
@@ -128,7 +137,7 @@ abstract class PKPWorkflowHandler extends Handler {
 	 * @param $request PKPRequest
 	 */
 	function externalReview($args, $request) {
-		$this->_displayWorkflowTabs($args, $request);
+		$this->_redirectToIndex($args, $request);
 	}
 
 	/**
@@ -137,7 +146,7 @@ abstract class PKPWorkflowHandler extends Handler {
 	 * @param $args array
 	 */
 	function editorial(&$args, $request) {
-		$this->_displayWorkflowTabs($args, $request);
+		$this->_redirectToIndex($args, $request);
 	}
 
 	/**
@@ -146,9 +155,23 @@ abstract class PKPWorkflowHandler extends Handler {
 	 * @param $args array
 	 */
 	function production(&$args, $request) {
-		$this->_displayWorkflowTabs($args, $request);
+		$this->_redirectToIndex($args, $request);
 	}
 
+	/**
+	 * Redirect all old stage paths to index
+	 * @param $args array
+	 * @param $request PKPRequest
+	 */
+	function _redirectToIndex(&$args, $request) {
+		// Translate the operation to a workflow stage identifier.
+		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+		$workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO');
+		$router = $request->getRouter();
+		$workflowPath = $router->getRequestedOp($request);
+		$stageId = $workflowStageDao->getIdFromPath($workflowPath);
+		$request->redirectUrl($router->url($request, null, 'workflow', 'index', array($submission->getId(), $stageId)));
+	}
 
 	/**
 	 * Expedites a submission through the submission process, if the submitter is a manager or editor.
@@ -252,8 +275,8 @@ abstract class PKPWorkflowHandler extends Handler {
 		$templateMgr = TemplateManager::getManager($request);
 		$context = $request->getContext();
 
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		$workflowStages = $userGroupDao->getWorkflowStageKeysAndPaths();
+		$workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO');
+		$workflowStages = $workflowStageDao->getWorkflowStageKeysAndPaths();
 		$stageNotifications = array();
 		foreach (array_keys($workflowStages) as $stageId) {
 			$stageNotifications[$stageId] = $this->notificationOptionsByStage($request->getUser(), $stageId, $context->getId());
@@ -269,9 +292,8 @@ abstract class PKPWorkflowHandler extends Handler {
 			$stagesWithDecisions[$decision['stageId']] = $decision['stageId'];
 		}
 
-		$templateMgr->assign('stagesWithDecisions', $stagesWithDecisions);
-		$templateMgr->assign('stageNotifications', $stageNotifications);
-
+		$workflowStages = $workflowStageDao->getStageStatusesBySubmission($submission, $stagesWithDecisions, $stageNotifications);
+		$templateMgr->assign('workflowStages', $workflowStages);
 		if ($this->isSubmissionReady($submission)) {
 			$templateMgr->assign('submissionIsReady', true);
 		}
@@ -293,8 +315,8 @@ abstract class PKPWorkflowHandler extends Handler {
 		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
 
 		// Construct array with workflow stages data.
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		$workflowStages = $userGroupDao->getWorkflowStageKeysAndPaths();
+		$workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO');
+		$workflowStages = $workflowStageDao->getWorkflowStageKeysAndPaths();
 
 		$templateMgr = TemplateManager::getManager($request);
 
@@ -328,9 +350,9 @@ abstract class PKPWorkflowHandler extends Handler {
 	 * @param $args array
 	 * @param $request Request
 	 */
-	protected function _displayWorkflowTabs($args, $request) {
+	protected function _displayWorkflow($args, $request) {
 		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->display('workflow/workflowTabs.tpl');
+		$templateMgr->display('workflow/workflow.tpl');
 	}
 
 	/**
@@ -393,20 +415,29 @@ abstract class PKPWorkflowHandler extends Handler {
 	/**
 	 * Translate the requested operation to a stage id.
 	 * @param $request Request
+	 * @param $args array
 	 * @return integer One of the WORKFLOW_STAGE_* constants.
 	 */
-	protected function _identifyStageId($request) {
+	protected function _identifyStageId($request, $args) {
 		if ($stageId = $request->getUserVar('stageId')) {
 			return (int) $stageId;
 		}
 
-		// Retrieve the requested operation.
+		// Maintain the old check for previous path urls
+		$workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO');
 		$router = $request->getRouter();
-		$operation = $router->getRequestedOp($request);
+		$workflowPath = $router->getRequestedOp($request);
+		$stageId = $workflowStageDao->getIdFromPath($workflowPath);
+		if ($stageId) {
+			return $stageId;
+		}
+
+		// Finally, etrieve the requested operation.
+		$stageId = $args[1];
 
 		// Translate the operation to a workflow stage identifier.
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		return $userGroupDao->getIdFromPath($operation);
+		assert($workflowStageDao->getPathFromId($stageId) !== null);
+		return $stageId;
 	}
 
 	/**

@@ -142,8 +142,8 @@ class PendingRevisionsNotificationManager extends RevisionsNotificationManager {
 	 * @return string
 	 */
 	private function _getStageDataByType() {
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
-		$stagesData = $userGroupDao->getWorkflowStageKeysAndPaths();
+		$workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO');
+		$stagesData = $workflowStageDao->getWorkflowStageKeysAndPaths();
 
 		switch ($this->getNotificationType()) {
 			case NOTIFICATION_TYPE_PENDING_INTERNAL_REVISIONS:

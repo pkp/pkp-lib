@@ -78,8 +78,9 @@ class UserGroupForm extends Form {
 	 */
 	function initData() {
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO');
 		$userGroup = $userGroupDao->getById($this->getUserGroupId());
-		$stages = $userGroupDao->getWorkflowStageTranslationKeys();
+		$stages = $workflowStageDao->getWorkflowStageTranslationKeys();
 		$this->setData('stages', $stages);
 		$this->setData('assignedStages', array()); // sensible default
 
@@ -184,9 +185,10 @@ class UserGroupForm extends Form {
 	function _assignStagesToUserGroup($userGroupId, $userAssignedStages) {
 		$contextId = $this->getContextId();
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO');
 
 		// Current existing workflow stages.
-		$stages = $userGroupDao->getWorkflowStageTranslationKeys();
+		$stages = $workflowStageDao->getWorkflowStageTranslationKeys();
 
 		foreach (array_keys($stages) as $stageId) {
 			$userGroupDao->removeGroupFromStage($contextId, $userGroupId, $stageId);

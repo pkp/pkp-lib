@@ -102,7 +102,7 @@ class PageHandler extends Handler {
 			}
 		}
 
-		if ($user = $request->getUser()) {
+		if (!defined('SESSION_DISABLE_INIT') && $user = $request->getUser()) {
 			// Get a count of unread tasks.
 			$notificationDao = DAORegistry::getDAO('NotificationDAO');
 

@@ -32,6 +32,8 @@
 	<message key="manager.announcements.form.descriptionShortInstructions">En kortare beskrivning som kommer att synas bredvid titeln på tillkännagivandet.</message>
 	<message key="manager.announcements.form.descriptionShortRequired">Man måste ange en kortare beskrivning av tillkännagivandet.</message>
 	<message key="manager.announcements.form.descriptionShort">Kort beskrivning</message>
+	<message key="manager.announcements.form.notificationToggle">Skapa anmälan</message>
+	<message key="manager.announcements.form.notificationToggleInstructions">Skapa en ny anmälan på att rädda detta tillkännagivande.</message>
 	<message key="manager.announcements.form.saveAndCreateAnother">Spara och skapa ny</message>
 	<message key="manager.announcements.form.titleRequired">Man måste ange titel på tillkännagivandet.</message>
 	<message key="manager.announcements.form.title">Titel</message>

@@ -33,6 +33,8 @@
 	<message key="manager.announcements.form.descriptionShortInstructions">O scurtă descriere care apare împreună cu titlul înștiințării.</message>
 	<message key="manager.announcements.form.descriptionShortRequired">Este necesară o scurtă descriere a înștiințării.</message>
 	<message key="manager.announcements.form.descriptionShort">Scurtă descriere</message>
+	<message key="manager.announcements.form.notificationToggle">Trimite o notificare</message>
+	<message key="manager.announcements.form.notificationToggleInstructions">Creați o nouă notificare la salvarea acestui anunț.</message>
 	<message key="manager.announcements.form.saveAndCreateAnother">Salvează şi creează altul</message>
 	<message key="manager.announcements.form.titleRequired">Este necesar un titlu pentru înștiințare.</message>
 	<message key="manager.announcements.form.title">Titlu</message>

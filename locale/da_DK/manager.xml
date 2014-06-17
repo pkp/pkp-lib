@@ -32,6 +32,8 @@
 	<message key="manager.announcements.form.descriptionShortInstructions">Vis en kort beskrivelse sammen med meddelelsestitlen.</message>
 	<message key="manager.announcements.form.descriptionShortRequired">En kort meddelelsesbeskrivelse er påkrævet.</message>
 	<message key="manager.announcements.form.descriptionShort">Kort beskrivelse</message>
+	<message key="manager.announcements.form.notificationToggle">Send meddelelse</message>
+	<message key="manager.announcements.form.notificationToggleInstructions">Opret en ny meddelelse ved at gemme denne meddelelse.</message>
 	<message key="manager.announcements.form.saveAndCreateAnother">Gem og opret en ny</message>
 	<message key="manager.announcements.form.titleRequired">En meddelelsestitel er påkrævet.</message>
 	<message key="manager.announcements.form.title">Titel</message>

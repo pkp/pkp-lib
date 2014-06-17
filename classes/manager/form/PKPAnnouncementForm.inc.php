@@ -97,6 +97,7 @@ class PKPAnnouncementForm extends Form {
 		list($assocType, $assocId) = $this->_getAnnouncementTypesAssocId();
 		$announcementTypes =& $announcementTypeDao->getByAssoc($assocType, $assocId);
 		$templateMgr->assign('announcementTypes', $announcementTypes);
+		$templateMgr->assign('notificationToggle', $this->getData('notificationToggle'));
 
 		parent::display();
 	}
@@ -118,14 +119,18 @@ class PKPAnnouncementForm extends Form {
 					'descriptionShort' => $announcement->getDescriptionShort(null), // Localized
 					'description' => $announcement->getDescription(null), // Localized
 					'datePosted' => $announcement->getDatePosted(),
-					'dateExpire' => $announcement->getDateExpire()
+					'dateExpire' => $announcement->getDateExpire(),
+					'notificationToggle' => false,
 				);
 			} else {
 				$this->announcementId = null;
 				$this->_data = array(
 					'datePosted' => Core::getCurrentDate(),
+					'notificationToggle' => true,
 				);
 			}
+		} else {
+			$this->_data['notificationToggle'] = true;
 		}
 	}
 
@@ -133,7 +138,7 @@ class PKPAnnouncementForm extends Form {
 	 * Assign form data to user-submitted data.
 	 */
 	function readInputData() {
-		$this->readUserVars(array('typeId', 'title', 'descriptionShort', 'description'));
+		$this->readUserVars(array('typeId', 'title', 'descriptionShort', 'description', 'notificationToggle'));
 		$this->readUserDateVars(array('dateExpire', 'datePosted'));
 	}
 

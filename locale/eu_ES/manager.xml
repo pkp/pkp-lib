@@ -32,6 +32,8 @@
 	<message key="manager.announcements.form.descriptionShortInstructions">Anuntzioaren tituluarekin batera erakusteko azalpen laburra.</message>
 	<message key="manager.announcements.form.descriptionShortRequired">Anuntzioaren azalpen laburra eman behar da.</message>
 	<message key="manager.announcements.form.descriptionShort">Azalpen laburra</message>
+	<message key="manager.announcements.form.notificationToggle">Bidali jakinarazpena</message>
+	<message key="manager.announcements.form.notificationToggleInstructions">Sortu jakinarazpen berri bat iragarki hau aurrezteko gainean.</message>
 	<message key="manager.announcements.form.saveAndCreateAnother">Gorde eta sortu beste bat</message>
 	<message key="manager.announcements.form.titleRequired">Anuntzioaren titulua eman behar da.</message>
 	<message key="manager.announcements.form.title">Titulua</message>

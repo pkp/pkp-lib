@@ -33,6 +33,8 @@
 	<message key="manager.announcements.form.descriptionShortInstructions">A brief description to appear along with the announcement title.</message>
 	<message key="manager.announcements.form.descriptionShortRequired">A short announcement description is required.</message>
 	<message key="manager.announcements.form.descriptionShort">Short Description</message>
+	<message key="manager.announcements.form.notificationToggle">Send Notification</message>
+	<message key="manager.announcements.form.notificationToggleInstructions">Create a new notification upon saving this announcement.</message>
 	<message key="manager.announcements.form.saveAndCreateAnother">Save and Create Another</message>
 	<message key="manager.announcements.form.titleRequired">An announcement title is required.</message>
 	<message key="manager.announcements.form.title">Title</message>

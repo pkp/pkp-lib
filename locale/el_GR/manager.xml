@@ -32,6 +32,8 @@
 	<message key="manager.announcements.form.descriptionShortInstructions">Σύντομη περιγραφή που εμφανίζεται μαζί με τον τίτλο της ανακοίνωσης.</message>
 	<message key="manager.announcements.form.descriptionShortRequired">Απαιτείται σύντομη περιγραφή της ανακοίνωσης.</message>
 	<message key="manager.announcements.form.descriptionShort">Σύντομη περιγραφή</message>
+	<message key="manager.announcements.form.notificationToggle">Αποστολή ειδοποίησης.</message>
+	<message key="manager.announcements.form.notificationToggleInstructions">Δημιουργήστε μια νέα κοινοποίηση κατά την αποθήκευση αυτής της ανακοίνωσης.</message>
 	<message key="manager.announcements.form.saveAndCreateAnother">Αποθήκευση και δημιουργία νέας</message>
 	<message key="manager.announcements.form.titleRequired">Απαιτείται τίτλος ανακοίνωσης.</message>
 	<message key="manager.announcements.form.title">Τίτλος</message>

@@ -31,6 +31,8 @@
 	<message key="manager.announcements.form.descriptionShortInstructions">Descripció breu que es mostrarà juntament amb el títol de l’avís.</message>
 	<message key="manager.announcements.form.descriptionShortRequired">Heu d’introduir una descripció breu de l’avís.</message>
 	<message key="manager.announcements.form.descriptionShort">Descripció breu</message>
+	<message key="manager.announcements.form.notificationToggle">Enviar notificació</message>
+	<message key="manager.announcements.form.notificationToggleInstructions">Crear una nova notificació en desar aquest anunci.</message>
 	<message key="manager.announcements.form.saveAndCreateAnother">Desa'l i crea'n un altre</message>
 	<message key="manager.announcements.form.titleRequired">Heu d’introduir un títol per a l’avís.</message>
 	<message key="manager.announcements.form.title">Títol</message>

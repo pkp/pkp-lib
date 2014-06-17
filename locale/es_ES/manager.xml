@@ -31,6 +31,8 @@
 	<message key="manager.announcements.form.descriptionShortInstructions">Breve descripción que aparecerá junto con el título del aviso.</message>
 	<message key="manager.announcements.form.descriptionShortRequired">Se requiere una breve descripción del aviso.</message>
 	<message key="manager.announcements.form.descriptionShort">Descripción breve</message>
+	<message key="manager.announcements.form.notificationToggle">Enviar notificación</message>
+	<message key="manager.announcements.form.notificationToggleInstructions">Crear una nueva notificación al guardar este anuncio.</message>
 	<message key="manager.announcements.form.saveAndCreateAnother">Guardar y crear otro</message>
 	<message key="manager.announcements.form.titleRequired">Se requiere un título para el aviso.</message>
 	<message key="manager.announcements.form.title">Título</message>

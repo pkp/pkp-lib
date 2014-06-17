@@ -32,6 +32,8 @@
 	<message key="manager.announcements.form.descriptionShortInstructions">Kratak opis pojavljuje se uz naslov obavijesti.</message>
 	<message key="manager.announcements.form.descriptionShortRequired">Kratki opis obavijesti je obavezan.</message>
 	<message key="manager.announcements.form.descriptionShort">Kratak opis</message>
+	<message key="manager.announcements.form.notificationToggle">Pošalji obavijest.</message>
+	<message key="manager.announcements.form.notificationToggleInstructions">Stvaranje novog obavijest nakon spremanja ovu najavu.</message>
 	<message key="manager.announcements.form.saveAndCreateAnother">Spremi i kreiraj drugi</message>
 	<message key="manager.announcements.form.titleRequired">Naslov obavijesti je obavezan.</message>
 	<message key="manager.announcements.form.title">Naslov</message>

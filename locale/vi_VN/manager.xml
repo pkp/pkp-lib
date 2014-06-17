@@ -32,6 +32,8 @@
 	<message key="manager.announcements.form.descriptionShortInstructions">Tóm tắt đi kèm với tiêu đề của thông báo.</message>
 	<message key="manager.announcements.form.descriptionShortRequired">Thông báo cần có tóm tắt.</message>
 	<message key="manager.announcements.form.descriptionShort">Tóm tắt</message>
+	<message key="manager.announcements.form.notificationToggle">Gửi thông báo</message>
+	<message key="manager.announcements.form.notificationToggleInstructions">Tạo ra một thông báo mới khi tiết kiệm thông báo này.</message>
 	<message key="manager.announcements.form.saveAndCreateAnother">Ghi và Tạo mới</message>
 	<message key="manager.announcements.form.titleRequired">Thông báo cần có tiêu đề.</message>
 	<message key="manager.announcements.form.title">Tiêu đề</message>

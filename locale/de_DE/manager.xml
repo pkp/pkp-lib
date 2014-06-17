@@ -33,6 +33,8 @@
 	<message key="manager.announcements.form.descriptionShortInstructions">Eine kurze Beschreibung, die zusammen mit dem Mitteilungstitel erscheint</message>
 	<message key="manager.announcements.form.descriptionShortRequired">Eine kurze Beschreibung der Mitteilung ist erforderlich.</message>
 	<message key="manager.announcements.form.descriptionShort">Kurze Beschreibung</message>
+	<message key="manager.announcements.form.notificationToggle">Benachrichtigung senden</message>
+	<message key="manager.announcements.form.notificationToggleInstructions">Erstellen Sie eine neue Meldung auf Speichern dieser Ankündigung.</message>
 	<message key="manager.announcements.form.saveAndCreateAnother">Speichern und eine weitere Mitteilung erstellen</message>
 	<message key="manager.announcements.form.titleRequired">Ein Mitteilungstitel ist erforderlich.</message>
 	<message key="manager.announcements.form.title">Titel</message>

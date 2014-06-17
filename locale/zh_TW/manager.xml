@@ -32,6 +32,8 @@
 	<message key="manager.announcements.form.descriptionShortInstructions">隨著公告標題一起出現的簡要說明。</message>
 	<message key="manager.announcements.form.descriptionShortRequired">需要一個簡短的公告說明。</message>
 	<message key="manager.announcements.form.descriptionShort">簡要說明</message>
+	<message key="manager.announcements.form.notificationToggle">發送通知</message>
+	<message key="manager.announcements.form.notificationToggleInstructions">在保存本公佈創建一個新的通知</message>
 	<message key="manager.announcements.form.saveAndCreateAnother">存檔並建立另一個</message>
 	<message key="manager.announcements.form.titleRequired">需要一個公告標題</message>
 	<message key="manager.announcements.form.title">標題</message>

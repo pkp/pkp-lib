@@ -32,6 +32,8 @@
 	<message key="manager.announcements.form.descriptionShortInstructions">یک توصیف مختصر که همرا با عنوان اطلاعیه ظاهر شود.</message>
 	<message key="manager.announcements.form.descriptionShortRequired">یک توصیف مختصر برای اطلاعیه لازم است</message>
 	<message key="manager.announcements.form.descriptionShort">توصیف مختصر</message>
+	<message key="manager.announcements.form.notificationToggle">إرسال الإخطار</message>
+	<message key="manager.announcements.form.notificationToggleInstructions">.إنشاء إخطارا جديدا على توفير هذا الإعلان</message>
 	<message key="manager.announcements.form.saveAndCreateAnother">ذخیره و ایجاد مورد</message>
 	<message key="manager.announcements.form.titleRequired">عنوان اطلاعیه لازم است</message>
 	<message key="manager.announcements.form.title">عنوان</message>

@@ -32,6 +32,8 @@
 	<message key="manager.announcements.form.descriptionShortInstructions">Een korte beschrijving die bij de titel van het nieuwsbericht getoond wordt.</message>
 	<message key="manager.announcements.form.descriptionShortRequired">Een korte beschrijving is verplicht.</message>
 	<message key="manager.announcements.form.descriptionShort">Korte beschrijving</message>
+	<message key="manager.announcements.form.notificationToggle">Stuur kennisgeving</message>
+	<message key="manager.announcements.form.notificationToggleInstructions">Maak een nieuwe melding op het redden van deze aankondiging.</message>
 	<message key="manager.announcements.form.saveAndCreateAnother">Bewaar en maak er nog een aan</message>
 	<message key="manager.announcements.form.titleRequired">Een titel voor het nieuwsbericht is verplicht.</message>
 	<message key="manager.announcements.form.title">Titel</message>

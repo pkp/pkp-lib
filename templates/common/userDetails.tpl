@@ -10,6 +10,7 @@
  * Parameters:
  *   $disableNameSection: Disable Name section
  *   $disableUserNameSection: Disable UserName section
+ *   $disableUserNameSuggestSection: Disable UserNameSuggest section
  *   $disableEmailSection: Disable Email section
  *   $disableEmailWithConfirmSection: Disable EmailWithConfirm section
  *   $disableAuthSourceSection: Disable Auth section
@@ -55,7 +56,9 @@
 			{fbvFormSection for="username" description=$usernameInstruction translate=false}
 				{if !$userId}
 					{fbvElement type="text" label="user.username" id="username" required="true" value=$username maxlength="32" inline=true size=$fbvStyles.size.MEDIUM}
-					{fbvElement type="button" label="common.suggest" id="suggestUsernameButton" inline=true class="default"}
+					{if !$disableUserNameSuggestSection}
+						{fbvElement type="button" label="common.suggest" id="suggestUsernameButton" inline=true class="default"}
+					{/if}
 				{else}
 					{fbvFormSection title="user.username" suppressId="true"}
 						{$username|escape}

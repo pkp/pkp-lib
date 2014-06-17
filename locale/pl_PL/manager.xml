@@ -30,6 +30,8 @@
 	<message key="manager.announcements.form.descriptionShortInstructions">Krótki opis wyświetlany wraz z tytułem wpisu.</message>
 	<message key="manager.announcements.form.descriptionShortRequired">Krótki opis jest wymagany.</message>
 	<message key="manager.announcements.form.descriptionShort">Krótki opis</message>
+	<message key="manager.announcements.form.notificationToggle">Wyślij zgłoszenie</message>
+	<message key="manager.announcements.form.notificationToggleInstructions">Utwórz nowe zgłoszenie na oszczędność ogłoszeniem.</message>
 	<message key="manager.announcements.form.saveAndCreateAnother">Zapisz i utwórz następny</message>
 	<message key="manager.announcements.form.titleRequired">Tytuł ogłoszenia jest wymagany.</message>
 	<message key="manager.announcements.form.title">Tytuł</message>

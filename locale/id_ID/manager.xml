@@ -31,6 +31,8 @@
 	<message key="manager.announcements.form.descriptionShortInstructions">Deskripsi singkat untuk ditampilkan bersama judul pengumuman.</message>
 	<message key="manager.announcements.form.descriptionShortRequired">Deskripsi pengumuman singkat diperlukan.</message>
 	<message key="manager.announcements.form.descriptionShort">Deskripsi singkat</message>
+	<message key="manager.announcements.form.notificationToggle">Mengirim pemberitahuan</message>
+	<message key="manager.announcements.form.notificationToggleInstructions">Buat notifikasi baru pada tabungan pengumuman ini.</message>
 	<message key="manager.announcements.form.saveAndCreateAnother">Simpan dan Buat Baru</message>
 	<message key="manager.announcements.form.titleRequired">Judul pengumuman diperlukan.</message>
 	<message key="manager.announcements.form.title">Judul</message>

@@ -34,6 +34,8 @@
 	<message key="manager.announcements.form.descriptionShortInstructions">Короткий опис відображатиметься разом із назвою анонсу.</message>
 	<message key="manager.announcements.form.descriptionShortRequired">Необхідно ввести короткий опис анонсу.</message>
 	<message key="manager.announcements.form.descriptionShort">Короткий опис</message>
+	<message key="manager.announcements.form.notificationToggle">Надіслати повідомлення</message>
+	<message key="manager.announcements.form.notificationToggleInstructions">Створити нове повідомлення після збереження це оголошення.</message>
 	<message key="manager.announcements.form.saveAndCreateAnother">Записати та створити інший</message>
 	<message key="manager.announcements.form.titleRequired">Необхідно ввести заголовок анонсу.</message>
 	<message key="manager.announcements.form.title">Заголовок</message>

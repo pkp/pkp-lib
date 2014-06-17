@@ -32,6 +32,8 @@
 	<message key="manager.announcements.form.descriptionShortInstructions">Duyuru başlığı ile birlikte gösterilecek kısa tanım.</message>
 	<message key="manager.announcements.form.descriptionShortRequired">Duyuru için kısa bir tanım gerekli.</message>
 	<message key="manager.announcements.form.descriptionShort">Kısa Tanım</message>
+	<message key="manager.announcements.form.notificationToggle">Bildirim gönderebilirsiniz</message>
+	<message key="manager.announcements.form.notificationToggleInstructions">Bu ilanı tasarrufu üzerine yeni bir bildirim oluşturun.</message>
 	<message key="manager.announcements.form.saveAndCreateAnother">Kaydet ve Başka Oluştur</message>
 	<message key="manager.announcements.form.titleRequired">Bir duyuru başlığı gerekli.</message>
 	<message key="manager.announcements.form.title">Başlık</message>

@@ -34,6 +34,8 @@
 	<message key="manager.announcements.form.descriptionShortInstructions">Stručný popis, který se zobrazí spolu s názvem oznámení.</message>
 	<message key="manager.announcements.form.descriptionShortRequired">Je vyžadován krátký popis oznámení.</message>
 	<message key="manager.announcements.form.descriptionShort">Krátký popis</message>
+	<message key="manager.announcements.form.notificationToggle">Poslat upozornění</message>
+	<message key="manager.announcements.form.notificationToggleInstructions">Vytvoření nové oznámení o uložení tohoto oznámení.</message>
 	<message key="manager.announcements.form.saveAndCreateAnother">Uložit a vytvořit další</message>
 	<message key="manager.announcements.form.titleRequired">Je vyžadován název oznámení.</message>
 	<message key="manager.announcements.form.title">Název</message>

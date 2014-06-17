@@ -33,6 +33,8 @@
 	<message key="manager.announcements.form.descriptionShortInstructions">Краткое описание, которое появится вместе с заголовком объявления.</message>
 	<message key="manager.announcements.form.descriptionShortRequired">Краткое описание объявления обязатеьно.</message>
 	<message key="manager.announcements.form.descriptionShort">Краткое описание</message>
+	<message key="manager.announcements.form.notificationToggle">Отправить уведомление</message>
+	<message key="manager.announcements.form.notificationToggleInstructions">Создать новое уведомление после сохранения это объявление.</message>
 	<message key="manager.announcements.form.saveAndCreateAnother">Сохранить и создать другое</message>
 	<message key="manager.announcements.form.titleRequired">Заголовок объявления обязателен.</message>
 	<message key="manager.announcements.form.title">Заголовок</message>

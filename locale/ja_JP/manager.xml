@@ -32,6 +32,8 @@
 	<message key="manager.announcements.form.descriptionShortInstructions">見出しと共に表示する簡潔な記述。</message>
 	<message key="manager.announcements.form.descriptionShortRequired">簡単なお知らせ内容は必須です。</message>
 	<message key="manager.announcements.form.descriptionShort">簡潔な記述</message>
+	<message key="manager.announcements.form.notificationToggle">通知を送信します</message>
+	<message key="manager.announcements.form.notificationToggleInstructions">この発表を保存するときに新しい通知を作成します</message>
 	<message key="manager.announcements.form.saveAndCreateAnother">保存して新規作成</message>
 	<message key="manager.announcements.form.titleRequired">お知らせ見出しは必須です。</message>
 	<message key="manager.announcements.form.title">見出し</message>

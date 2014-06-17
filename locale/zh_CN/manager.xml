@@ -8,7 +8,7 @@
   * Copyright (c) 2000-2014 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the en_US (English) locale.
+  * Localization strings for the zh_CN (Simplified Chinese) locale.
   *
   -->
 
@@ -32,6 +32,8 @@
 	<message key="manager.announcements.form.descriptionShortInstructions">简要的说明出现在公告的标题下.</message>
 	<message key="manager.announcements.form.descriptionShortRequired">一个简短的公告说明是必须的.</message>
 	<message key="manager.announcements.form.descriptionShort">简短的描述</message>
+	<message key="manager.announcements.form.notificationToggle">发送通知</message>
+	<message key="manager.announcements.form.notificationToggleInstructions">在保存本公布创建一个新的通知</message>
 	<message key="manager.announcements.form.saveAndCreateAnother">保存并创建其他的</message>
 	<message key="manager.announcements.form.titleRequired">公告标题是必须的.</message>
 	<message key="manager.announcements.form.title">标题</message>

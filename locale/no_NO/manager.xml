@@ -32,6 +32,8 @@
 	<message key="manager.announcements.form.descriptionShortInstructions">En kort beskrivelse som vil bli vist sammen med oppslagets tittel.</message>
 	<message key="manager.announcements.form.descriptionShortRequired">En kort oppslagsbeskrivelse er påkrevet.</message>
 	<message key="manager.announcements.form.descriptionShort">Kort beskrivelse</message>
+	<message key="manager.announcements.form.notificationToggle">Send varsel</message>
+	<message key="manager.announcements.form.notificationToggleInstructions">Opprett en ny melding ved å spare denne kunngjøringen.</message>
 	<message key="manager.announcements.form.saveAndCreateAnother">Lagre og opprett en til</message>
 	<message key="manager.announcements.form.titleRequired">En oppslagtittel er påkrevet.</message>
 	<message key="manager.announcements.form.title">Tittel</message>

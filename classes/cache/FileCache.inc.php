@@ -85,19 +85,10 @@ class FileCache extends GenericCache {
 	 * Set the entire contents of the cache.
 	 */
 	function setEntireCache(&$contents) {
-		$newFile = !file_exists($this->filename);
-		$fp = fopen($this->filename, 'wb');
-		if ($newFile) {
-			$umask = Config::getVar('files', 'umask');
-			if ($umask) chmod($this->filename, FILE_MODE_MASK & ~$umask);
-		}
+		file_put_contents($this->filename, '<?php return ' . var_export($contents, true) . '; ?>', LOCK_EX);
+		$umask = Config::getVar('files', 'umask');
+		if ($umask) @chmod($this->filename, FILE_MODE_MASK & ~$umask);
 
-		// If the cache can be written, write it. If not, fall
-		// back on NO CACHING AT ALL.
-		if ($fp) {
-			fwrite ($fp, '<?php return ' . var_export($contents, true) . '; ?>');
-			fclose ($fp);
-		}
 		$this->cache =& $contents;
 	}
 

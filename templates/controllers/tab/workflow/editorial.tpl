@@ -7,7 +7,7 @@
  *
  * Copyediting workflow stage
  *}
-
+{include file="controllers/tab/workflow/stageParticipants.tpl"}
 <div id="editorial">
 	{url|assign:copyeditingEditorDecisionsUrl router=$smarty.const.ROUTE_PAGE page="workflow" op="editorDecisionActions" submissionId=$submission->getId() stageId=$stageId contextId="copyediting" escape=false}
 	{load_url_in_div id="copyeditingEditorDecisionsDiv" url=$copyeditingEditorDecisionsUrl class="editorDecisionActions"}

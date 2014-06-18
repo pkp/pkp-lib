@@ -54,6 +54,19 @@ class DashboardHandler extends Handler {
 		$templateMgr = TemplateManager::getManager($request);
 		$this->setupTemplate($request);
 
+
+		return $templateMgr->fetchJson('dashboard/tasks.tpl');
+	}
+
+	/**
+	 * View submissions tab
+	 * @param $args array
+	 * @param $request PKPRequest
+	 */
+	function submissions($args, $request) {
+		$templateMgr = TemplateManager::getManager($request);
+		$this->setupTemplate($request);
+
 		// Get all the contexts in the system, to determine which 'new submission' entry point we display
 		$contextDao = Application::getContextDAO(); /* @var $contextDao ContextDAO */
 		$contexts = $contextDao->getAll();
@@ -86,18 +99,6 @@ class DashboardHandler extends Handler {
 			}
 			$templateMgr->assign('contexts', $contexts);
 		}
-
-		return $templateMgr->fetchJson('dashboard/tasks.tpl');
-	}
-
-	/**
-	 * View submissions tab
-	 * @param $args array
-	 * @param $request PKPRequest
-	 */
-	function submissions($args, $request) {
-		$templateMgr = TemplateManager::getManager($request);
-		$this->setupTemplate($request);
 
 		return $templateMgr->fetchJson('dashboard/submissions.tpl');
 	}

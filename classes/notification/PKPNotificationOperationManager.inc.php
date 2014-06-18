@@ -344,7 +344,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 		// Set the date read if it isn't already set
 		if (!$notification->getDateRead()) {
 			$notificationDao = DAORegistry::getDAO('NotificationDAO');
-			$dateRead = $notificationDao->setDateRead($notification->getId());
+			$dateRead = $notificationDao->setDateRead($notification->getId(), Core::getCurrentDate());
 			$notification->setDateRead($dateRead);
 		}
 

@@ -477,6 +477,10 @@
 	<message key="context.path">Path</message>
 	<message key="review.ensuringBlindReview">Ensuring a Blind Review</message>
 	<message key="grid.action.showReviewPolicy">Read the current review policy</message>
+	<message key="grid.action.deleteNotification">Delete Task</message>
+	<message key="grid.action.markNew">Mark New</message>
+	<message key="grid.action.markRead">Mark Read</message>
+	<message key="common.tasks.titleAndTask">{$acronym}: "{$title}": {$task}</message>
 
 	<message key="dashboard.tasks">Tasks</message>
 	<message key="dashboard.submissions">Submissions</message>
@@ -498,11 +502,11 @@
 	<message key="notification.addedReviewer">Reviewer added.</message>
 	<message key="notification.removedReviewer">Reviewer removed.</message>
 	<message key="notification.addedStageParticipant">User added as a stage participant.</message>
-	<message key="notification.type.reviewAssignment">You have a review pending.</message>
-	<message key="notification.type.auditorRequest">You have been asked audit "{$file}"</message>
+	<message key="notification.type.reviewAssignment">Review pending.</message>
+	<message key="notification.type.auditorRequest">Audit request for "{$file}"</message>
 	<message key="notification.type.allReviewsIn">All reviews are in and a decision is needed in {$stage}.</message>
 	<message key="notification.type.allRevisionsIn">A revised file has been uploaded for your editorial consideration in {$stage}.</message>
-	<message key="notification.type.pendingRevisions">You have revisions to consider in {$stage}.</message>
+	<message key="notification.type.pendingRevisions">Revisions to consider in {$stage}.</message>
 	<message key="notification.type.pendingRevisions.title">Revisions submitted to {$stage}.</message>
 	<message key="notification.signedFile">File considered.</message>
 	<message key="user.authorization.submissionFile">The current user is not authorized to access the specified submission file.</message>

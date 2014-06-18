@@ -329,7 +329,7 @@ class PKPLoginHandler extends Handler {
 			$userId = (int)$args[0];
 			$session = $request->getSession();
 
-			if (!PKPValidation::canAdminister($userId, $session->getUserId())) {
+			if (!Validation::canAdminister($userId, $session->getUserId())) {
 				$this->setupTemplate($request);
 				// We don't have administrative rights
 				// over this user. Display an error.

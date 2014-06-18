@@ -7,7 +7,6 @@
  *
  * Site-Wide Navigation Bar
  *}
-
 <div class="pkp_structure_head_siteNav">
 	<ul class="pkp_helpers_flatlist pkp_helpers_align_left">
 		{if $isUserLoggedIn}
@@ -19,9 +18,23 @@
 			<li>{include file="header/contextSwitcher.tpl"}</li>
 		{/if}
 	</ul>
+	{if $isUserLoggedIn}
+		<div id="notificationsPopover" style="display: none;">
+			{url|assign:notificationsGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.notifications.NotificationsGridHandler" op="fetchGrid" escape=false}
+			{load_url_in_div id="notificationsGrid" url=$notificationsGridUrl}
+		</div>
+	{/if}
 	<ul class="pkp_helpers_flatlist pkp_helpers_align_right">
 		{if $isUserLoggedIn}
 			<li class="profile">{translate key="user.hello"}&nbsp;<a href="{url router=$smarty.const.ROUTE_PAGE page="user" op="profile"}">{$loggedInUsername|escape}</a></li>
+			<li class="notificationsLinkContainer">
+				{**
+				 * Unread notifications count is set here on header load, but
+				 * can also be updated dynamically via the javascript event
+				 * called updateUnreadNotificationsCount.
+				 *}
+				<a href="#" id="notificationsToggle">{translate key="common.tasks"} (<span id="unreadNotificationCount">{$unreadNotificationCount}</span>)</a>
+			</li>
 			<li>{null_link_action id="toggleHelp" key="help.toggleInlineHelpOn"}</li>
 			<li><a href="{url router=$smarty.const.ROUTE_PAGE page="login" op="signOut"}">{translate key="user.logOut"}</a></li>
 			{if $isUserLoggedInAs}

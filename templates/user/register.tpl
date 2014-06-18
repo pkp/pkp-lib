@@ -53,9 +53,9 @@
 			disableSendNotifySection=true
 			extraContentSectionUnfolded=true
 			countryRequired=true
-			disableNamesSection=$existingUser
-			disableUserNameSection=$existingUser
-			disableEmailConfirmSection=$existingUser
+			disableNameSection=$existingUser
+			disableUserNameSuggestSection=$existingUser
+			disableEmailWithConfirmSection=$existingUser
 			disablePasswordRepeatSection=$existingUser
 			disableCountrySection=$existingUser
 			disableExtraContentSection=$existingUser

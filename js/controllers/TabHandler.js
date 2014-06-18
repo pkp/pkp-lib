@@ -33,8 +33,8 @@
 
 		// Attach the tabs event handlers.
 		this.bind('tabsbeforeactivate', this.tabsBeforeActivate);
-		this.bind('tabsactivate', this.tabsActivate);
-		this.bind('tabscreate', this.tabsCreate);
+		this.bind('tabsactivate', this.tabsActivateCreate);
+		this.bind('tabscreate', this.tabsActivateCreate);
 		this.bind('tabsload', this.tabsLoad);
 		this.bind('containerReloadRequested', this.tabsReloadRequested);
 		this.bind('addTab', this.addTab);
@@ -161,7 +161,7 @@
 	};
 
 	/**
-	 * Event handler that is called when a tab is created.
+	 * Event handler that is called when a tab is activated or created.
 	 *
 	 * @param {HTMLElement} tabsElement The tab element that triggered
 	 *  the event.
@@ -169,32 +169,16 @@
 	 * @param {{panel: jQueryObject}} ui The tabs ui data.
 	 * @return {boolean} Should return true to continue tab loading.
 	 */
-	$.pkp.controllers.TabHandler.prototype.tabsCreate =
+	$.pkp.controllers.TabHandler.prototype.tabsActivateCreate =
 			function(tabsElement, event, ui) {
 
-		// Save a reference to the current tab.
-		this.$currentTab_ = (ui.panel.jquery ? ui.panel : $(ui.panel));
-
-		return true;
-	};
-
-	/**
-	 * Event handler that is called when a tab is activated.
-	 *
-	 * @param {HTMLElement} tabsElement The tab element that triggered
-	 *  the event.
-	 * @param {Event} event The triggered event.
-	 * @param {{panel: jQueryObject}} ui The tabs ui data.
-	 * @return {boolean} Should return true to continue tab loading.
-	 */
-	$.pkp.controllers.TabHandler.prototype.tabsActivate =
-			function(tabsElement, event, ui) {
+		var tab = (event.type == 'tabscreate') ? ui.panel : ui.newTab;
 
 		// Save a reference to the current tab.
-		this.$currentTab_ = (ui.newPanel.jquery ? ui.newPanel : $(ui.newPanel));
+		this.$currentTab_ = tab.jquery ? tab : $(tab);
 
 		// Save the tab index.
-		this.currentTabIndex_ = ui.newTab.index();
+		this.currentTabIndex_ = tab.index();
 
 		return true;
 	};

@@ -16,21 +16,25 @@
 
 class PKPSubmissionMetadataFormImplementation {
 
-	/** @var Form Form that use this implementation */
+	/** @var Form Form that uses this implementation */
 	var $_parentForm;
 
 	/**
 	 * Constructor.
-	 *
 	 * @param $parentForm Form A form that can use this form.
 	 */
 	function PKPSubmissionMetadataFormImplementation($parentForm = null) {
+		assert(is_a($parentForm, 'Form'));
+		$this->_parentForm = $parentForm;
+	}
 
-		if (is_a($parentForm, 'Form')) {
-			$this->_parentForm = $parentForm;
-		} else {
-			assert(false);
-		}
+	/**
+	 * Determine whether or not abstracts are required.
+	 * @param $submission Submission
+	 * @return boolean
+	 */
+	function _getAbstractsRequired($submission) {
+		return true; // Required by default
 	}
 
 	/**
@@ -43,6 +47,9 @@ class PKPSubmissionMetadataFormImplementation {
 
 		// Validation checks.
 		$this->_parentForm->addCheck(new FormValidatorLocale($this->_parentForm, 'title', 'required', 'submission.submit.form.titleRequired'));
+		if ($this->_getAbstractsRequired($submission)) {
+			$this->_parentForm->addCheck(new FormValidatorLocale($this->_parentForm, 'abstract', 'required', 'submission.submit.form.abstractRequired'));
+		}
 
 		// Validates that at least one author has been added (note that authors are in grid, so Form does not
 		// directly see the authors value (there is no "authors" input. Hence the $ignore parameter.
@@ -97,6 +104,7 @@ class PKPSubmissionMetadataFormImplementation {
 
 			// include all submission metadata fields for submissions
 			$this->_parentForm->setData('submissionSettings', array('all' => true));
+			$this->_parentForm->setData('abstractsRequired', $this->_getAbstractsRequired($submission));
 		}
 	}
 

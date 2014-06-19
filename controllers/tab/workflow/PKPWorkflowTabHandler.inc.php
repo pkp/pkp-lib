@@ -80,16 +80,18 @@ class PKPWorkflowTabHandler extends Handler {
 				$lastReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $selectedStageId);
 
 				// Get the review round number of the last review round to be used
-				// as the current review round tab index.
-				$lastReviewRoundNumber = $lastReviewRound->getRound();
-				$lastReviewRoundId = $lastReviewRound->getId();
+				// as the current review round tab index, if we have review rounds.
+				if ($lastReviewRound) {
+					$lastReviewRoundNumber = $lastReviewRound->getRound();
+					$lastReviewRoundId = $lastReviewRound->getId();
+				}
 
 				// Add the round information to the template.
 				$templateMgr->assign('reviewRounds', $reviewRoundsArray);
 				$templateMgr->assign('lastReviewRoundNumber', $lastReviewRoundNumber);
 				$templateMgr->assign('reviewRoundOp', 'externalReviewRound');
 
-				if ($submission->getStageId() == $selectedStageId) {
+				if ($submission->getStageId() == $selectedStageId && count($reviewRoundsArray) > 0) {
 					$dispatcher = $request->getDispatcher();
 
 					import('lib.pkp.classes.linkAction.request.AjaxModal');

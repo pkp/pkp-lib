@@ -33,11 +33,11 @@
 		options.notScrollable = true;
 		this.parent($wizard, options);
 
-		// Start the wizard.
-		this.startWizard();
-
 		// Add the wizard buttons
 		this.addWizardButtons_($wizard, options);
+
+		// Start the wizard.
+		this.startWizard();
 
 		// Bind the wizard events to handlers.
 		this.bindWizardEvents();

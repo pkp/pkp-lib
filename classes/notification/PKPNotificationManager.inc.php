@@ -94,7 +94,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 				$announcementDao = DAORegistry::getDAO('AnnouncementDAO'); /* @var $announcementDao AnnouncementDAO */
 				$announcement = $announcementDao->getById($notification->getAssocId()); /* @var $announcement Announcement */
 				$context = $contextDao->getById($announcement->getAssocId());
-				return $dispatcher->url($request, ROUTE_PAGE, null, $context->getPath(), 'index', array($notification->getAssocId()));
+				return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'announcement', 'view', array($notification->getAssocId()));
 			case NOTIFICATION_TYPE_CONFIGURE_PAYMENT_METHOD:
 				return __('notification.type.configurePaymentMethod');
 		}

@@ -16,6 +16,7 @@
 // Import the base GridHandler.
 import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
+import('lib.pkp.classes.workflow.WorkflowStageDAO');
 
 // Link action & modal classes
 import('lib.pkp.classes.linkAction.request.AjaxModal');
@@ -124,8 +125,7 @@ class UserGroupGridHandler extends GridHandler {
 		import('lib.pkp.controllers.grid.settings.roles.UserGroupGridCellProvider');
 		$cellProvider = new UserGroupGridCellProvider();
 
-		$workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO');
-		$workflowStagesLocales = $workflowStageDao->getWorkflowStageTranslationKeys();
+		$workflowStagesLocales = WorkflowStageDAO::getWorkflowStageTranslationKeys();
 
 		// Set array containing the columns info with the same cell provider.
 		$columnsInfo = array(

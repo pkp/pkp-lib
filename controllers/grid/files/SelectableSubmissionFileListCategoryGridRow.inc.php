@@ -31,8 +31,8 @@ class SelectableSubmissionFileListCategoryGridRow extends GridCategoryRow {
 	 */
 	function getCategoryLabel() {
 		$stageId = $this->getData();
-		$workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO');
-		$stageTranslationKey = $workflowStageDao->getTranslationKeyFromId($stageId);
+		import('lib.pkp.classes.workflow.WorkflowStageDAO');
+		$stageTranslationKey = WorkflowStageDAO::getTranslationKeyFromId($stageId);
 
 		return __($stageTranslationKey);
 	}

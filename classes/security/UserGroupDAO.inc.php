@@ -16,6 +16,7 @@
 
 
 import('lib.pkp.classes.security.UserGroup');
+import('lib.pkp.classes.workflow.WorkflowStageDAO');
 
 class UserGroupDAO extends DAO {
 	/** @var a shortcut to get the UserDAO **/
@@ -884,10 +885,9 @@ class UserGroupDAO extends DAO {
 		);
 
 		$returner = array();
-		$workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO');
 		while (!$result->EOF) {
 			$stageId = $result->Fields('stage_id');
-			$returner[$stageId] = $workflowStageDao->getTranslationKeyFromId($stageId);
+			$returner[$stageId] = WorkflowStageDAO::getTranslationKeyFromId($stageId);
 			$result->MoveNext();
 		}
 

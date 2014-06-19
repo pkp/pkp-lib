@@ -28,7 +28,7 @@ class WorkflowStageDAO extends DAO {
 	 * @param $stageId integer
 	 * @return string|null
 	 */
-	function getPathFromId($stageId) {
+	static function getPathFromId($stageId) {
 		static $stageMapping = array(
 			WORKFLOW_STAGE_ID_SUBMISSION => WORKFLOW_STAGE_PATH_SUBMISSION,
 			WORKFLOW_STAGE_ID_INTERNAL_REVIEW => WORKFLOW_STAGE_PATH_INTERNAL_REVIEW,
@@ -47,7 +47,7 @@ class WorkflowStageDAO extends DAO {
 	 * @param $stagePath string
 	 * @return integer|null
 	 */
-	function getIdFromPath($stagePath) {
+	static function getIdFromPath($stagePath) {
 		static $stageMapping = array(
 			WORKFLOW_STAGE_PATH_SUBMISSION => WORKFLOW_STAGE_ID_SUBMISSION,
 			WORKFLOW_STAGE_PATH_INTERNAL_REVIEW => WORKFLOW_STAGE_ID_INTERNAL_REVIEW,
@@ -66,8 +66,8 @@ class WorkflowStageDAO extends DAO {
 	 * @param $stageId integer
 	 * @return string|null
 	 */
-	function getTranslationKeyFromId($stageId) {
-		$stageMapping = $this->getWorkflowStageTranslationKeys();
+	static function getTranslationKeyFromId($stageId) {
+		$stageMapping = self::getWorkflowStageTranslationKeys();
 
 		assert(isset($stageMapping[$stageId]));
 		return $stageMapping[$stageId];
@@ -96,14 +96,14 @@ class WorkflowStageDAO extends DAO {
 	 * paths.
 	 * @return array
 	 */
-	function getWorkflowStageKeysAndPaths() {
-		$workflowStages = $this->getWorkflowStageTranslationKeys();
+	static function getWorkflowStageKeysAndPaths() {
+		$workflowStages = self::getWorkflowStageTranslationKeys();
 		$stageMapping = array();
 		foreach ($workflowStages as $stageId => $translationKey) {
 			$stageMapping[$stageId] = array(
 				'id' => $stageId,
 				'translationKey' => $translationKey,
-				'path' => $this->getPathFromId($stageId)
+				'path' => self::getPathFromId($stageId)
 			);
 		}
 
@@ -112,7 +112,7 @@ class WorkflowStageDAO extends DAO {
 
 	/**
 	 * Returns an array containing data for rendering the stage workflow tabs
-	 *  for a submission.
+	 * for a submission.
 	 * @param $submission Submission
 	 * @param $stagesWithDecisions array
 	 * @param $stageNotifications array
@@ -120,23 +120,27 @@ class WorkflowStageDAO extends DAO {
 	 */
 	function getStageStatusesBySubmission($submission, $stagesWithDecisions, $stageNotifications) {
 
-		$stageId = $submission->getStageId();
-		$workflowStages = $this->getWorkflowStageKeysAndPaths();
+		$currentStageId = $submission->getStageId();
+		$workflowStages = self::getWorkflowStageKeysAndPaths();
 
-		foreach ($workflowStages as $stageId => $stage) {
+		foreach ($workflowStages as $stageId => $stageData) {
 
 			$foundState = false;
-			if (!$foundState && $stage['id'] <= $stageId && (in_array($stage['id'], $stagesWithDecisions) || $stage['id'] == WORKFLOW_STAGE_ID_PRODUCTION) && !$stageNotifications[$stage['id']]) {
-				$workflowStages[$stageId]['statusKey'] = 'submission.complete';
+			// If we have not found a state, and the current stage being examined is below the current submission stage, and there have been
+			// decisions for this stage, but no notifications outstanding, mark it as complete.
+			if (!$foundState && $stageId <= $currentStageId && (in_array($stageId, $stagesWithDecisions) || $stageId == WORKFLOW_STAGE_ID_PRODUCTION) && !$stageNotifications[$stageId]) {
+				$workflowStages[$currentStageId]['statusKey'] = 'submission.complete';
 			}
 
-			if (!$foundState && $stage['id'] < $stageId && !$stageNotifications[$stage['id']]) {
+			// If this is an old stage with no notifications, this was a skiped/not initiated stage.
+			if (!$foundState && $stageId < $currentStageId && !$stageNotifications[$stageId]) {
 				$foundState = true;
 				// Those are stages not initiated, that were skipped, like review stages.
 			}
 
-			if (!$foundState && $stage['id'] <= $stageId && ( !in_array($stage['id'], $stagesWithDecisions) || $stageNotifications[$stage['id']])) {
-				$workflowStages[$stageId]['statusKey'] = 'submission.initiated';
+			// Finally, if this stage has outstanding notifications, or has no decision yet, mark it as initiated.
+			if (!$foundState && $stageId <= $currentStageId && ( !in_array($stageId, $stagesWithDecisions) || $stageNotifications[$stageId])) {
+				$workflowStages[$currentStageId]['statusKey'] = 'submission.initiated';
 				$foundState = true;
 			}
 		}

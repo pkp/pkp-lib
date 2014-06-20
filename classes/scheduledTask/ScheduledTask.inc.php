@@ -120,7 +120,7 @@ class ScheduledTask {
 	 * @return boolean Whether or not the task was succesfully
 	 * executed.
 	 */
-	function execute($notifyAdmin = true) {
+	function execute() {
 		$this->addExecutionLogEntry(Config::getVar('general', 'base_url'));
 		$this->addExecutionLogEntry(__('admin.scheduledTask.startTime'), SCHEDULED_TASK_MESSAGE_TYPE_NOTICE);
 
@@ -128,10 +128,8 @@ class ScheduledTask {
 
 		$this->addExecutionLogEntry(__('admin.scheduledTask.stopTime'), SCHEDULED_TASK_MESSAGE_TYPE_NOTICE);
 
-		if ($notifyAdmin) {
-			$helper =& $this->getHelper();
-			$helper->notifyExecutionResult($this->_processId, $this->getName(), $result, $this->_getLogMessage());
-		}
+		$helper =& $this->getHelper();
+		$helper->notifyExecutionResult($this->_processId, $this->getName(), $result, $this->_getLogMessage());
 
 		return $result;
 	}

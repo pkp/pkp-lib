@@ -134,20 +134,26 @@ class ScheduledTaskHelper {
 	 * @param $message string Message.
 	 */
 	function notifyExecutionResult($id, $name, $result, $message = '') {
-		if (!$message) {
-			$message = __('admin.scheduledTask.noLog');
+		$reportErrorOnly = Config::getVar('general', 'scheduled_tasks_report_error_only', true);
+
+		if (!$result || !$reportErrorOnly) {
+			if (!$message) {
+				$message = __('admin.scheduledTask.noLog');
+			}
+
+			if ($result) {
+				// Success.
+				$type = SCHEDULED_TASK_MESSAGE_TYPE_COMPLETED;
+			} else {
+				// Error.
+				$type = SCHEDULED_TASK_MESSAGE_TYPE_ERROR;
+			}
+
+			$subject = $name . ' - ' . $id . ' - ' . __($type);
+			return $this->_sendEmail($message, $subject);
 		}
 
-		if ($result) {
-			// Success.
-			$type = SCHEDULED_TASK_MESSAGE_TYPE_COMPLETED;
-		} else {
-			// Error.
-			$type = SCHEDULED_TASK_MESSAGE_TYPE_ERROR;
-		}
-
-		$subject = $name . ' - ' . $id . ' - ' . __($type);
-		return $this->_sendEmail($message, $subject);
+		return false;
 	}
 
 	/**

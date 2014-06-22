@@ -858,13 +858,19 @@
 	$.pkp.controllers.grid.GridHandler.prototype.initFeatures_ =
 			function(features) {
 
-		var id, $feature;
+		var id, $feature, jsClass;
+
 		for (id in features) {
+			// Only initiate features that have a js handler.
+			jsClass = features[id].JSClass;
+			if (jsClass == '') {
+				continue;
+			}
+
 			$feature =
 					/** @type {$.pkp.classes.features.Feature} */
 					($.pkp.classes.Helper.objectFactory(
-							features[id].JSClass,
-							[this, features[id].options]));
+							jsClass, [this, features[id].options]));
 
 			this.addFeature_(id, $feature);
 			this.features_[id].init();

@@ -382,7 +382,7 @@ class ToolsHandler extends ManagementHandler {
 				return $submissionFile->getFileLabel();
 		}
 
-		return null;
+		return __('manager.statistics.reports.objectNotFound');
 	}
 
 	/**

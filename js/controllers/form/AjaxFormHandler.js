@@ -21,7 +21,7 @@
 	 *
 	 * @extends $.pkp.controllers.form.FormHandler
 	 *
-	 * @param {jQuery} $form the wrapped HTML form element.
+	 * @param {jQueryObject} $form the wrapped HTML form element.
 	 * @param {Object} options options to configure the AJAX form handler.
 	 */
 	$.pkp.controllers.form.AjaxFormHandler = function($form, options) {
@@ -40,7 +40,7 @@
 	 * Overridden default from FormHandler -- disable form controls
 	 * on AJAX forms by default.
 	 * @private
-	 * @type {Boolean}
+	 * @type {boolean}
 	 */
 	$.pkp.controllers.form.AjaxFormHandler.prototype.
 			disableControlsOnSubmit_ = true;
@@ -75,7 +75,7 @@
 	 *
 	 * @private
 	 *
-	 * @param {$jQuery} sourceElement The containing element.
+	 * @param {jQueryObject} sourceElement The containing element.
 	 * @param {Event} event The calling event.
 	 * @param {String} content The content to replace with.
 	 */
@@ -106,11 +106,12 @@
 	$.pkp.controllers.form.AjaxFormHandler.prototype.handleResponse =
 			function(formElement, jsonData) {
 
+		var $form, formSubmittedEvent;
 		jsonData = this.handleJson(jsonData);
 		if (jsonData !== false) {
 			if (jsonData.content === '') {
 				// Notify any nested formWidgets of form submitted event.
-				var formSubmittedEvent = new $.Event('formSubmitted');
+				formSubmittedEvent = new $.Event('formSubmitted');
 				$(this.getHtmlElement()).find('.formWidget').trigger(formSubmittedEvent);
 
 				// Trigger the "form submitted" event.
@@ -126,7 +127,7 @@
 				}
 
 				// Redisplay the form.
-				var $form = this.getHtmlElement();
+				$form = this.getHtmlElement();
 				$form.replaceWith(jsonData.content);
 			}
 		}

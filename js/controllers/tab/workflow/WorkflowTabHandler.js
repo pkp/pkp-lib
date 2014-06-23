@@ -11,7 +11,8 @@
  * @class WorkflowTabHandler
  * @ingroup js_controllers_tab_workflow
  *
- * @brief A subclass of TabHandler for handling requests to load stages of the workflow.
+ * @brief A subclass of TabHandler for handling requests to load stages
+ * of the workflow.
  */
 (function($) {
 
@@ -33,7 +34,7 @@
 	$.pkp.controllers.tab.workflow.WorkflowTabHandler =
 			function($tabs, options) {
 
-		var pageUrl, stage, pattern, i;
+		var pageUrl, stage, pattern, i, tabAnchors;
 		this.parent($tabs, options);
 
 		pageUrl = document.location.toString();

@@ -14,6 +14,7 @@
  */
 
 import('lib.pkp.classes.notification.managerDelegate.RevisionsNotificationManager');
+import('lib.pkp.classes.workflow.WorkflowStageDAO');
 
 class PendingRevisionsNotificationManager extends RevisionsNotificationManager {
 
@@ -142,8 +143,7 @@ class PendingRevisionsNotificationManager extends RevisionsNotificationManager {
 	 * @return string
 	 */
 	private function _getStageDataByType() {
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
-		$stagesData = $userGroupDao->getWorkflowStageKeysAndPaths();
+		$stagesData = WorkflowStageDAO::getWorkflowStageKeysAndPaths();
 
 		switch ($this->getNotificationType()) {
 			case NOTIFICATION_TYPE_PENDING_INTERNAL_REVISIONS:

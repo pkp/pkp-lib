@@ -14,6 +14,7 @@
  */
 
 import('lib.pkp.classes.form.Form');
+import('lib.pkp.classes.workflow.WorkflowStageDAO');
 
 class UserGroupForm extends Form {
 
@@ -79,7 +80,7 @@ class UserGroupForm extends Form {
 	function initData() {
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$userGroup = $userGroupDao->getById($this->getUserGroupId());
-		$stages = $userGroupDao->getWorkflowStageTranslationKeys();
+		$stages = WorkflowStageDAO::getWorkflowStageTranslationKeys();
 		$this->setData('stages', $stages);
 		$this->setData('assignedStages', array()); // sensible default
 
@@ -186,7 +187,7 @@ class UserGroupForm extends Form {
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 
 		// Current existing workflow stages.
-		$stages = $userGroupDao->getWorkflowStageTranslationKeys();
+		$stages = WorkflowStageDAO::getWorkflowStageTranslationKeys();
 
 		foreach (array_keys($stages) as $stageId) {
 			$userGroupDao->removeGroupFromStage($contextId, $userGroupId, $stageId);

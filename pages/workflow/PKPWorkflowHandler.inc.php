@@ -164,7 +164,7 @@ abstract class PKPWorkflowHandler extends Handler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	private function _redirectToIndex(&$args, $request) {
+	protected function _redirectToIndex(&$args, $request) {
 		// Translate the operation to a workflow stage identifier.
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$router = $request->getRouter();

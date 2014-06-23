@@ -69,6 +69,7 @@ class PKPWorkflowTabHandler extends Handler {
 		switch ($stageId) {
 			case WORKFLOW_STAGE_ID_SUBMISSION:
 				return $templateMgr->fetchJson('controllers/tab/workflow/submission.tpl');
+			case WORKFLOW_STAGE_ID_INTERNAL_REVIEW:
 			case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
 				// Retrieve the authorized submission and stage id.
 				$selectedStageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
@@ -84,12 +85,12 @@ class PKPWorkflowTabHandler extends Handler {
 				if ($lastReviewRound) {
 					$lastReviewRoundNumber = $lastReviewRound->getRound();
 					$lastReviewRoundId = $lastReviewRound->getId();
+					$templateMgr->assign('lastReviewRoundNumber', $lastReviewRoundNumber);
 				}
 
 				// Add the round information to the template.
 				$templateMgr->assign('reviewRounds', $reviewRoundsArray);
-				$templateMgr->assign('lastReviewRoundNumber', $lastReviewRoundNumber);
-				$templateMgr->assign('reviewRoundOp', 'externalReviewRound');
+				$templateMgr->assign('reviewRoundOp', $this->_identifyReviewRoundOp($stageId));
 
 				if ($submission->getStageId() == $selectedStageId && count($reviewRoundsArray) > 0) {
 					$dispatcher = $request->getDispatcher();
@@ -131,9 +132,9 @@ class PKPWorkflowTabHandler extends Handler {
 					NOTIFICATION_LEVEL_TRIVIAL => array()
 				);
 
-				$galleyDao = DAORegistry::getDAO('ArticleGalleyDAO');
-				$galleys = $galleyDao->getBySubmissionId($submission->getId());
-				$templateMgr->assign('galleys', $galleys);
+				$representationDao = Application::getRepresentationDAO();
+				$representations = $representationDao->getBySubmissionId($submission->getId());
+				$templateMgr->assign('representations', $representations);
 
 				$templateMgr->assign('productionNotificationRequestOptions', $notificationRequestOptions);
 				return $templateMgr->fetchJson('controllers/tab/workflow/production.tpl');
@@ -219,9 +220,25 @@ class PKPWorkflowTabHandler extends Handler {
 	 * @param $request Request
 	 * @return integer One of the WORKFLOW_STAGE_* constants.
 	 */
-	protected function _identifyStageId($request) {
+	private function _identifyStageId($request) {
 		if ($stageId = $request->getUserVar('stageId')) {
 			return (int) $stageId;
+		}
+	}
+
+	/**
+	 * Identifies the review round.
+	 * @param int $stageId
+	 * @return string
+	 */
+	private function _identifyReviewRoundOp($stageId) {
+		switch ($stageId) {
+			case WORKFLOW_STAGE_ID_INTERNAL_REVIEW:
+				return 'internalReviewRound';
+			case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
+				return 'externalReviewRound';
+			default:
+				fatalError('unknown review round id.');
 		}
 	}
 }

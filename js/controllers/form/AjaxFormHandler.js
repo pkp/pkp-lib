@@ -141,5 +141,6 @@
 		return jsonData.status;
 	};
 
+
 /** @param {jQuery} $ jQuery closure. */
-})(jQuery);
+}(jQuery));

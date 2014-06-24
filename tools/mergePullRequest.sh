@@ -10,6 +10,16 @@
 # Script to perform a pull request merge correctly updating the library submodule hashes.
 # 
 # Usage:
+# Make sure your local repository is the same of the pull request (ojs, omp or ocs).
+# Also, there is no library only pull requests. All library changes must have a app
+# submodule commit, so run this script always in app folder.
+#
+# Also make sure that your local branch is the same where the pull request wants to
+# merge code in, both for application and library. Also make sure that both are updated 
+# and clean from other local commits or files. This script will not check this.
+#
+# After that, just run the command passing the correct parameters.
+# 
 # ./lib/pkp/mergePullRequest.sh github_user feature_branch application_only bug_id
 #
 # github_user: 
@@ -70,7 +80,8 @@ PR_LIB_REMOTE="$GITHUB_URL/$GITHUB_USER/$PKP_LIB_REPOSITORY $FEATURE_BRANCH"
 TEMP_BRANCH="$FEATURE_BRANCH-temp"
 
 # Make sure the developer knows the repository they are working with.
-confirm "Would you like to merge code into the $userRepository repository? [y/N]?"
+echo -e "\n"
+confirm "Merge code into the official $userRepository repository. That's correct? [y/N]?"
 ret=$?
 if [ "$ret" -eq 1 ]; then
 	echo "Merging process stopped."
@@ -151,20 +162,29 @@ else
 fi
 
 # Present commits that will be sent to official repositories.
+echo -e "\n"
+echo -e "\n"
+echo "*****************************************************************************"
 echo "Presenting the merged pull request commits that will be pushed to official..."
+echo "*****************************************************************************"
 echo "Commits in application, to be pushed to branch $appBranchToMerge:"
 git log $OFFICIAL_REPO_NAME/$appBranchToMerge..$TEMP_BRANCH
 echo "____________________________________________________"
 if [ "$APPLICATION_ONLY" -eq 0 ]; then
+	echo -e "\n"
 	cd $PKP_LIB_PATH
 	echo "Commits in library, to be pushed to branch $libBranchToMerge:"
 	git log $OFFICIAL_REPO_NAME/$libBranchToMerge..$TEMP_BRANCH
 	cd ../..
+	echo "____________________________________________________"
 fi
+echo -e "\n"
+echo -e "\n"
 # Ask for user confirmation before pushing to official
 confirm "Confirm merging into $OFFICIAL_REPO_NAME the commits presented above? [y/N]?"
 ret=$?
 if [ "$ret" -eq 1 ]; then
+	echo -e "\n"
         echo "Merging process stopped."
 	echo "The merge is done locally, but IT'S NOT pushed to official. You are now in $TEMP_BRANCH, for both application and library. This is just a temporary branch created by the script. You should delete it if you want to run the script again for the same pull request."
         exit 0
@@ -178,6 +198,7 @@ if [ "$APPLICATION_ONLY" -eq 0 ]; then
 	libPushResult=$?
 	cd ../..
 	if [ "$libPushResult" -eq 1 ]; then
+		echo -e "\n"
 		echo "Could not push the library commits. Try to update your local repositories and push again manually from this $TEMP_BRANCH branch."
 		exit 1
 	fi
@@ -186,6 +207,7 @@ fi
 git push $OFFICIAL_REPO_NAME $TEMP_BRANCH:$appBranchToMerge
 pushResult=$?
 if [ "$pushResult" -eq 1 ]; then
+	echo -e "\n"
 	echo "Could not push the application commits. Try to update your local repositories and push again manually from this $TEMP_BRANCH branch."
 	if [ "$libPushResult" -eq 0 ]; then
 		echo "The library commits were successfully pushed to official though."
@@ -203,4 +225,15 @@ if [ "$APPLICATION_ONLY" -eq 0 ]; then
 	git branch -D $TEMP_BRANCH
 	cd ../..
 fi
+
+# Update.
+git pull $OFFICIAL_REPO_NAME $appBranchToMerge
+if [ "$APPLICATION_ONLY" -eq 0 ]; then
+	cd $PKP_LIB_PATH
+	git pull $OFFICIAL_REPO_NAME $libBranchToMerge
+	cd ../..
+fi
+
+# End script.
 echo "Merge process completed."
+echo 0

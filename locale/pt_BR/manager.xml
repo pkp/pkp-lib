@@ -32,7 +32,7 @@
 	<message key="manager.announcements.form.descriptionShortInstructions">Um texto introdutório a ser exibido com o título da notícia.</message>
 	<message key="manager.announcements.form.descriptionShortRequired">A introdução da notícia é obrigatória.</message>
 	<message key="manager.announcements.form.descriptionShort">Introdução</message>
-	<message key="manager.announcements.form.notificationToggle">Enviar notificação.</message>
+	<message key="manager.announcements.form.notificationToggle">Enviar notificação</message>
 	<message key="manager.announcements.form.notificationToggleInstructions">Criar uma nova notificação ao salvar este anúncio.</message>
 	<message key="manager.announcements.form.saveAndCreateAnother">Salvar e criar outra</message>
 	<message key="manager.announcements.form.titleRequired">O título da notícia é obrigatório.</message>

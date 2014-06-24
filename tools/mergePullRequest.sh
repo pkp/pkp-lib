@@ -124,7 +124,7 @@ if [ "$APPLICATION_ONLY" -eq 0 ]; then
 	fi	
 
 	# Pull library changes.
-	git pull --rebase $PR_LIB_REMOTE
+	git pull $PR_LIB_REMOTE
 	cd ../..
 fi
 
@@ -144,7 +144,7 @@ if [ "$checkoutResult" -ne 0 ]; then
 fi
 
 # Pull application changes.
-git pull --rebase $PR_REMOTE
+git pull $PR_REMOTE
 
 # Check if the HEAD is a submodule hash commit.
 submoduleCommitHash=$(git show | grep "+Subproject commit" | cut -f3 -d" ")

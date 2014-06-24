@@ -14,9 +14,9 @@
 # Also, there is no library only pull requests. All library changes must have a app
 # submodule commit, so run this script always in app folder.
 #
-# Also make sure that your local branch is the same where the pull request wants to
-# merge code in, both for application and library. Also make sure that both are updated 
-# and clean from other local commits or files. This script will not check this.
+# Also make sure that your local branch is the one the pull request will be merged into, 
+# both for application and library. Make sure that both are updated and clean from other 
+# local commits or files. This script will not check this.
 #
 # After that, just run the command passing the correct parameters.
 # 

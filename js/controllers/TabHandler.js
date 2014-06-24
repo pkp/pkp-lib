@@ -178,7 +178,7 @@
 		this.$currentTab_ = tab.jquery ? tab : $(tab);
 
 		// Save the tab index.
-		this.currentTabIndex_ = tab.index();
+		if (event.type == 'tabsactivate') this.currentTabIndex_ = tab.index();
 
 		return true;
 	};

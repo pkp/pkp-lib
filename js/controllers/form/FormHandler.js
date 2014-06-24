@@ -56,7 +56,7 @@
 
 		// disable submission controls on certain forms.
 		if (options.disableControlsOnSubmit) {
-			this.disableControlsOnSubmit_ = options.disableControlsOnSubmit;
+			this.disableControlsOnSubmit = options.disableControlsOnSubmit;
 		}
 
 		if (options.enableDisablePairs) {
@@ -145,10 +145,10 @@
 	/**
 	 * If true, the FormHandler will disable the submit button if the form
 	 * successfully validates and is submitted.
-	 * @private
+	 * @protected
 	 * @type {boolean}
 	 */
-	$.pkp.controllers.form.FormHandler.prototype.disableControlsOnSubmit_ = false;
+	$.pkp.controllers.form.FormHandler.prototype.disableControlsOnSubmit = false;
 
 
 	/**
@@ -226,7 +226,7 @@
 
 		// We have made it to submission, disable the form control if
 		// necessary, submit the form.
-		if (this.disableControlsOnSubmit_) {
+		if (this.disableControlsOnSubmit) {
 			this.getHtmlElement().find(':submit').attr('disabled', 'disabled').
 					addClass('ui-state-disabled');
 		}

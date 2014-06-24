@@ -298,8 +298,11 @@
 	 * @param {HTMLElement} sourceElement The element that issued the
 	 *  callWhenClickOutside event.
 	 * @param {Event} event The "call when click outside" event.
-	 * @param {Object} eventParams The event parameters. We expect
-	 * an object with the following properties:
+	 * @param {{
+	 *   container: jQueryObject,
+	 *   callback: Function,
+	 *   skipWhenVisibleModals: boolean
+	 *   }} eventParams The event parameters.
 	 * - container: a jQuery element to be used to test if user click
 	 * outside of it or not.
 	 * - callback: a callback function in case test is true.

@@ -209,7 +209,6 @@ class NotificationsGridHandler extends GridHandler {
 			// In this case, the user has clicked on a notification
 			// and wants to view it. Mark it read first and redirect
 			$notificationMgr = new NotificationManager();
-			error_log($notificationMgr->getNotificationUrl($request, $notification));
 			return $request->redirectUrlJson($notificationMgr->getNotificationUrl($request, $notification));
 		} else {
 			// The notification has been marked read explicitly.

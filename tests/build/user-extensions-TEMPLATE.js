@@ -16,3 +16,4 @@ var dbusername='ojs-ci';
 var dbpassword='ojs-ci';
 var filesdir='files'; // Complete path.
 var dummyfilepath='dummy.pdf'; // Complete path to existing file.
+var timeout=60000; // Time in ms that selenium will wait in actions like clickAndWait() until it times out. Some slower environments will need higher times to complete tests.

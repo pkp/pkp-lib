@@ -77,7 +77,7 @@
 
 		this.getHtmlElement().tabs('option', 'disabled',
 				this.getDisabledSteps(stepNumber));
-		this.getHtmlElement().tabs('option', 'selected', stepNumber - 1);
+		this.getHtmlElement().tabs('option', 'active', stepNumber - 1);
 	};
 
 

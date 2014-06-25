@@ -77,7 +77,7 @@
 
 		this.getHtmlElement().tabs('option', 'disabled',
 				this.getDisabledSteps(submissionProgress));
-		this.getHtmlElement().tabs('option', 'selected', submissionProgress - 1);
+		this.getHtmlElement().tabs('option', 'active', submissionProgress - 1);
 	};
 
 

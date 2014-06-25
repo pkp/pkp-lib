@@ -34,12 +34,13 @@
 	$.pkp.controllers.tab.workflow.WorkflowTabHandler =
 			function($tabs, options) {
 
-		var pageUrl, stage, pattern, i, tabAnchors;
+		var pageUrl, stage, pattern, i, tabAnchors, matches;
 		this.parent($tabs, options);
 
 		pageUrl = document.location.toString();
-		if (pageUrl.search('workflow/([^/]+)/')) {
-			stage = pageUrl.match('workflow/([^/]+)/')[1];
+		matches = pageUrl.match('workflow/([^/]+)/');
+		if (matches) {
+			stage = matches[1];
 			tabAnchors = $tabs.find('li a');
 			for (i = 0; i < tabAnchors.length; i++) {
 				pattern = new RegExp(stage);

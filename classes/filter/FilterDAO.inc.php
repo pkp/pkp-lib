@@ -439,7 +439,7 @@ class FilterDAO extends DAO {
 	 */
 	function getLocaleFieldNames() {
 		assert(is_array($this->localeFieldNames));
-		return $this->localeFieldNames;
+		return parent::getLocaleFieldNames() + $this->localeFieldNames;
 	}
 
 

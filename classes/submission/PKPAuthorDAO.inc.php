@@ -183,7 +183,7 @@ class PKPAuthorDAO extends DAO {
 	 * @return array
 	 */
 	function getLocaleFieldNames() {
-		return array('biography', 'competingInterests', 'affiliation');
+		return parent::getLocaleFieldNames() + array('biography', 'competingInterests', 'affiliation');
 	}
 
 	/**

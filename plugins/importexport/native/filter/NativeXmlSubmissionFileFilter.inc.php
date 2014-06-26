@@ -179,7 +179,12 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 				$submissionFile->setName($node->textContent, $node->getAttribute('locale'));
 				break;
 			case 'remote':
-				fatalError('UNIMPLEMENTED');
+				$submissionFile->setFileType($node->getAttribute('mime_type'));
+				$src = $node->getAttribute('src');
+				$temporaryFileManager = new TemporaryFileManager();
+				$temporaryFilename = tempnam($temporaryFileManager->getBasePath(), 'remote');
+				$temporaryFileManager->copyFile($src, $temporaryFilename);
+				return $temporaryFilename;
 				break;
 			case 'href':
 				$submissionFile->setFileType($node->getAttribute('mime_type'));

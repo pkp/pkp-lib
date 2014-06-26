@@ -33,8 +33,8 @@
 
 		// Attach the tabs event handlers.
 		this.bind('tabsbeforeactivate', this.tabsBeforeActivate);
-		this.bind('tabsactivate', this.tabsActivateCreate);
-		this.bind('tabscreate', this.tabsActivateCreate);
+		this.bind('tabsactivate', this.tabsActivate);
+		this.bind('tabscreate', this.tabsCreate);
 		this.bind('tabsload', this.tabsLoad);
 		this.bind('containerReloadRequested', this.tabsReloadRequested);
 		this.bind('addTab', this.addTab);
@@ -94,7 +94,6 @@
 	 * @type {jQueryObject}
 	 */
 	$.pkp.controllers.TabHandler.prototype.$currentTab_ = null;
-
 
 	/**
 	 * The current tab index.
@@ -161,7 +160,7 @@
 	};
 
 	/**
-	 * Event handler that is called when a tab is activated or created.
+	 * Event handler that is called when a tab is created.
 	 *
 	 * @param {HTMLElement} tabsElement The tab element that triggered
 	 *  the event.
@@ -169,16 +168,35 @@
 	 * @param {{panel: jQueryObject}} ui The tabs ui data.
 	 * @return {boolean} Should return true to continue tab loading.
 	 */
-	$.pkp.controllers.TabHandler.prototype.tabsActivateCreate =
+	$.pkp.controllers.TabHandler.prototype.tabsCreate =
 			function(tabsElement, event, ui) {
 
-		var tab = (event.type == 'tabscreate') ? ui.panel : ui.newTab;
+		// Save the tab index.
+		this.currentTabIndex_ = ui.tab.index();
 
-		// Save a reference to the current tab.
-		this.$currentTab_ = tab.jquery ? tab : $(tab);
+		// Save a reference to the current panel.
+		this.$currentTab_ = ui.panel.jquery ? ui.panel : $(ui.panel);
+
+		return true;
+	};
+
+	/**
+	 * Event handler that is called when a tab is activated
+	 *
+	 * @param {HTMLElement} tabsElement The tab element that triggered
+	 *  the event.
+	 * @param {Event} event The triggered event.
+	 * @param {{panel: jQueryObject}} ui The tabs ui data.
+	 * @return {boolean} Should return true to continue tab loading.
+	 */
+	$.pkp.controllers.TabHandler.prototype.tabsActivate =
+			function(tabsElement, event, ui) {
 
 		// Save the tab index.
-		if (event.type == 'tabsactivate') this.currentTabIndex_ = tab.index();
+		this.currentTabIndex_ = ui.newTab.index();
+
+		// Save a reference to the current panel.
+		this.$currentTab_ = ui.newPanel.jquery ? ui.newPanel : $(ui.newPanel);
 
 		return true;
 	};

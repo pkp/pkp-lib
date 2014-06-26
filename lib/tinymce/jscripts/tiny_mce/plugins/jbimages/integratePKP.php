@@ -27,7 +27,39 @@ class IntegratePKP {
 		require($this->baseDir . '/lib/pkp/includes/bootstrap.inc.php');
 
 		$publicDir = Config::getVar('files', 'public_files_dir');
+		$config = Config::getData();
+		// Get all possible base_urls, compare these against the web request.  Use the best match to assign the base_url
+		$baseUrls = array();
+		foreach ($config['general'] as $k => $v) {
+			if (substr($k, 0, 8) == 'base_url') {
+				// Rank the URLs based on length for best match (higher is better)
+				$ranking = strlen($v);
+				$key = substr($k, 9, strlen($k) - 10);
+				if (!$key) {
+					$key = '';
+				}
+				// index URL is ranked as 0
+				if ($key == 'index') {
+					$ranking = 0;
+				}
+				// unqualified base_url is ranked as -1
+				if ($key == '') {
+					$ranking = -1;
+				}
+				$baseUrls[$v] = sprintf('%08d', $ranking).$key;
+			}
+		}
+		// Higher is better
+		arsort($baseUrls);
+		// Default to the base url
 		$this->baseUrl = Config::getVar('general', 'base_url');
+		// Override with the best match
+		foreach ($baseUrls as $k => $v) {
+			if (stripos($_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], preg_replace('#^https?://#i', '', $k)) !== false) {
+				$this->baseUrl = $k;
+				break;
+			}
+		}
 
 		// Skip locale detection
 		define('SESSION_DISABLE_INIT', 1);

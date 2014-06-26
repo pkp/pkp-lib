@@ -140,7 +140,7 @@ class Core {
 
 		if (!isset($botRegexps[$botRegexpsFile])) {
 			$cacheManager =& CacheManager::getManager();
-			$cache =& $cacheManager->getCache('core', $botRegexpsFile, array('Core', '_botFileListCacheMiss'), CACHE_TYPE_FILE);
+			$cache =& $cacheManager->getCache('core', 'botAgents', array('Core', '_botFileListCacheMiss'), CACHE_TYPE_FILE);
 			$botRegexps[$botRegexpsFile] = $cache->getContents($botRegexpsFile);
 		}
 
@@ -417,7 +417,7 @@ class Core {
 	 */
 	function _botFileListCacheMiss(&$cache) {
 		$id = $cache->getCacheId();
-		$botRegexps = array_filter(file($id),
+		$botRegexps = array_filter(file(USER_AGENTS_FILE),
 			array('Core', '_filterBotRegexps'));
 
 		$cache->setEntireCache($botRegexps);

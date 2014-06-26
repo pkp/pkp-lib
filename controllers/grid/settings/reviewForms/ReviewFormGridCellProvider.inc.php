@@ -33,7 +33,8 @@ class ReviewFormGridCellProvider extends GridCellProvider {
 		$element = $row->getData();
 		$columnId = $column->getId();
 		assert(is_a($element, 'ReviewForm') && !empty($columnId));
-		switch ($columnId) { case 'name':
+		switch ($columnId) {
+			case 'name':
 				$label = $element->getLocalizedTitle();
 				return array('label' => $label);
 				break;

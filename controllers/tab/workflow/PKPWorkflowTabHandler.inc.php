@@ -134,7 +134,7 @@ class PKPWorkflowTabHandler extends Handler {
 
 				$representationDao = Application::getRepresentationDAO();
 				$representations = $representationDao->getBySubmissionId($submission->getId());
-				$templateMgr->assign('representations', $representations);
+				$templateMgr->assign('representations', $representations->toAssociativeArray());
 
 				$templateMgr->assign('productionNotificationRequestOptions', $notificationRequestOptions);
 				return $templateMgr->fetchJson('controllers/tab/workflow/production.tpl');

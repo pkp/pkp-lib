@@ -205,7 +205,16 @@ class NotificationsGridHandler extends GridHandler {
 				$notificationDao->setDateRead($notificationId, Core::getCurrentDate());
 			}
 		}
-		return DAO::getDataChangedEvent(null, null, $selectedElements);
+		if ($request->getUserVar('redirect')) {
+			// In this case, the user has clicked on a notification
+			// and wants to view it. Mark it read first and redirect
+			$notificationMgr = new NotificationManager();
+			return $request->redirectUrlJson($notificationMgr->getNotificationUrl($request, $notification));
+		} else {
+			// The notification has been marked read explicitly.
+			// Update its status in the grid.
+			return DAO::getDataChangedEvent(null, null, $selectedElements);
+		}
 	}
 
 	/**

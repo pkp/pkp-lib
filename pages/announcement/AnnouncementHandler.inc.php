@@ -51,6 +51,28 @@ class AnnouncementHandler extends Handler {
 
 		$templateMgr->display('announcements/index.tpl');
 	}
+
+	/**
+	 * View announcement details.
+	 * @param $args array first parameter is the ID of the announcement to display
+	 * @param $request PKPRequest
+	 */
+	function view($args, $request) {
+		$this->validate();
+		$this->setupTemplate($request);
+
+		$context = $request->getContext();
+		$announcementId = (int) array_shift($args);
+		$announcementDao = DAORegistry::getDAO('AnnouncementDAO');
+		$announcement = $announcementDao->getById($announcementId);
+		if ($announcement && $announcement->getAssocType() == Application::getContextAssocType() && $announcement->getAssocId() == $context->getId() && ($announcement->getDateExpire() == null || strtotime($announcement->getDateExpire()) > time())) {
+			$templateMgr = TemplateManager::getManager($request);
+			$templateMgr->assign('announcement', $announcement);
+			$templateMgr->assign('announcementTitle', $announcement->getLocalizedTitleFull());
+			return $templateMgr->display('announcements/view.tpl');
+		}
+		$request->redirect(null, 'announcement');
+	}
 }
 
 ?>

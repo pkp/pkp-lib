@@ -15,7 +15,7 @@
 
 
 import('lib.pkp.classes.controllers.grid.GridCellProvider');
-import('lib.pkp.classes.linkAction.request.RedirectAction');
+import('lib.pkp.classes.linkAction.request.AjaxAction');
 
 class NotificationsGridCellProvider extends GridCellProvider {
 	/**
@@ -39,11 +39,14 @@ class NotificationsGridCellProvider extends GridCellProvider {
 		$context = $contextDao->getById($notification->getContextId());
 
 		$notificationMgr = new NotificationManager();
+		$router = $request->getRouter();
 		return array(new LinkAction(
 			'details',
-			new RedirectAction(
-				$notificationMgr->getNotificationUrl($request, $notification)
-			),
+			new AjaxAction($router->url(
+				$request, null, null, 'markRead',
+				null,
+				array('redirect' => 1, 'selectedElements' => array($notification->getId()))
+			)),
 			($notification->getDateRead()?'':'<strong>') . __('common.tasks.titleAndTask', array(
 				'acronym' => $context->getLocalizedAcronym(),
 				'title' => $this->_getTitle($notification),

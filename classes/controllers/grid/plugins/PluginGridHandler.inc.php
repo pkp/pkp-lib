@@ -23,7 +23,7 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 	 */
 	function PluginGridHandler($roles) {
 		$this->addRoleAssignment($roles,
-			array('fetchGrid, fetchCategory', 'fetchRow', 'pluginGallery'));
+			array('fetchGrid, fetchCategory', 'fetchRow'));
 
 		$this->addRoleAssignment(ROLE_ID_SITE_ADMIN,
 			array('uploadPlugin', 'upgradePlugin', 'deletePlugin'));
@@ -97,16 +97,6 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 						$router->url($request, null, null, 'uploadPlugin'),
 						__('manager.plugins.upload'), 'modal_add_file'),
 					__('manager.plugins.upload'),
-					'add'));
-
-			// Browse the plugin gallery.
-			$this->addAction(
-				new LinkAction(
-					'pluginGallery',
-					new AjaxModal(
-						$router->url($request, null, null, 'pluginGallery'),
-						__('manager.plugins.pluginGallery'), 'modal_add_file'),
-					__('manager.plugins.pluginGallery'),
 					'add'));
 		}
 	}
@@ -355,18 +345,6 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 		}
 
 		return DAO::getDataChangedEvent($plugin->getName());
-	}
-
-	/**
-	 * Fetch upload plugin form.
-	 * @param $params array Parameters
-	 * @param $request PKPRequest Request object
-	 * @return string
-	 */
-	function pluginGallery($params, $request) {
-		$templateMgr = TemplateManager::getManager($request);
-		$json = new JSONMessage(true, $templateMgr->fetch('controllers/grid/plugins/pluginGallery.tpl'));
-		return $json->getString();
 	}
 
 	/**

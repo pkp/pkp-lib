@@ -15,7 +15,7 @@
 			{ldelim}
 				$uploader: $('#plupload'),
 				uploaderOptions: {ldelim}
-					uploadUrl: '{url|escape:javascript router=$smarty.const.ROUTE_COMPONENT op="uploadPlugin" function=$function}',
+					uploadUrl: '{url|escape:javascript router=$smarty.const.ROUTE_COMPONENT op="uploadPluginFile" function=$function}',
 					baseUrl: '{$baseUrl|escape:javascript}'
 				{rdelim}
 			{rdelim});
@@ -27,7 +27,7 @@
 	
 	{fbvFormArea id="file"}
 		{if $function == 'install'}
-			<p>{translate key="manager.plugins.installDescription"}</p>
+			<p>{translate key="manager.plugins.uploadDescription"}</p>
 		{elseif $function == 'upgrade'}
 			<p>{translate key="manager.plugins.upgradeDescription"}</p>
 		{/if}

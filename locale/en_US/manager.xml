@@ -330,8 +330,10 @@
 	<message key="manager.plugins.description">This page allows the Manager to review and potentially configure the plugins that are currently installed. Plugins are divided into categories, according to their function. The categories are listed below, and within each category, its current set of plugins.</message>
 	<message key="manager.plugins.doesNotExist">Plugin "{$pluginName}" does not exist</message>
 	<message key="manager.plugins.fileSelectError">Please select a file first</message>
-	<message key="manager.plugins.install">Install A New Plugin</message>
-	<message key="manager.plugins.installDescription">This form allows you to upload and install a new plugin.  Please ensure the plugin is compressed as a .tar.gz file.</message>
+	<message key="manager.plugins.upload">Upload A New Plugin</message>
+	<message key="manager.plugins.uploadDescription">This form allows you to upload and install a new plugin.  Please ensure the plugin is compressed as a .tar.gz file.</message>
+	<message key="manager.plugins.uploadFailed">Please ensure a file was selected for upload.</message>
+	<message key="manager.plugins.pluginGallery">Plugin Gallery</message>
 	<message key="manager.plugins.installedVersionNewer">Plugin already exists, and is newer or equal to installed version</message>
 	<message key="manager.plugins.installedVersionOlder">Plugin already exists, and is older or equal to the installed version</message>
 	<message key="manager.plugins.installFailed">Installation failed. {$errorString}</message>

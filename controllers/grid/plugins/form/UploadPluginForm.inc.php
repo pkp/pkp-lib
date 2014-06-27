@@ -13,11 +13,6 @@
  * @brief Form to upload a plugin file.
  */
 
-
-define('VERSION_FILE', '/version.xml');
-define('INSTALL_FILE', '/install.xml');
-define('UPGRADE_FILE', '/upgrade.xml');
-
 // Import the base Form.
 import('lib.pkp.classes.form.Form');
 
@@ -27,21 +22,29 @@ import('lib.pkp.classes.file.FileManager');
 import('classes.install.Install');
 import('classes.install.Upgrade');
 
+define('PLUGIN_ACTION_UPLOAD', 'upload');
+define('PLUGIN_ACTION_UPGRADE', 'upgrade');
+
+define('PLUGIN_VERSION_FILE', 'version.xml');
+define('PLUGIN_INSTALL_FILE', 'install.xml');
+define('PLUGIN_UPGRADE_FILE', 'upgrade.xml');
+
 class UploadPluginForm extends Form {
 
-	/** @var String */
+	/** @var String PLUGIN_ACTION_... */
 	var $_function;
 
 
 	/**
 	 * Constructor.
+	 * @param $function string PLUGIN_ACTION_...
 	 */
 	function UploadPluginForm($function) {
 		parent::Form('controllers/grid/plugins/form/uploadPluginForm.tpl');
 
 		$this->_function = $function;
 
-		$this->addCheck(new FormValidator($this, 'temporaryFileId', 'required', 'Please select a file first'));
+		$this->addCheck(new FormValidator($this, 'temporaryFileId', 'required', 'manager.plugins.uploadFailed'));
 	}
 
 	//
@@ -102,9 +105,9 @@ class UploadPluginForm extends Form {
 			$pluginDir .= DIRECTORY_SEPARATOR . $pluginName;
 			if (is_dir($pluginDir)) {
 				$result = null;
-				if ($this->_function == 'install') {
+				if ($this->_function == PLUGIN_ACTION_UPLOAD) {
 					$result = $this->_installPlugin($request, $pluginDir);
-				} else if ($this->_function == 'upgrade') {
+				} else if ($this->_function == PLUGIN_ACTION_UPGRADE) {
 					$result = $this->_upgradePlugin($request, $pluginDir);
 				}
 
@@ -136,7 +139,7 @@ class UploadPluginForm extends Form {
 	 * @return boolean
 	 */
 	function _installPlugin($request, $path) {
-		$versionFile = $path . VERSION_FILE;
+		$versionFile = $path . '/' . PLUGIN_VERSION_FILE;
 
 		$checkResult =& VersionCheck::getValidPluginVersionInfo($versionFile, true);
 		if (is_string($checkResult)) return __($checkResult);
@@ -175,8 +178,8 @@ class UploadPluginForm extends Form {
 			$fileManager->rmtree(dirname($path));
 
 			// Upgrade the database with the new plug-in.
-			$installFile = $pluginDest . INSTALL_FILE;
-			if(!is_file($installFile)) $installFile = Core::getBaseDir() . DIRECTORY_SEPARATOR . PKP_LIB_PATH . DIRECTORY_SEPARATOR . 'xml' . DIRECTORY_SEPARATOR . 'defaultPluginInstall.xml';
+			$installFile = $pluginDest . '/' . PLUGIN_INSTALL_FILE;
+			if(!is_file($installFile)) $installFile = Core::getBaseDir() . '/' . PKP_LIB_PATH . '/xml/defaultPluginInstall.xml';
 			assert(is_file($installFile));
 			$params = $this->_setConnectionParams();
 			$installer = new Install($params, $installFile, true);
@@ -253,7 +256,7 @@ class UploadPluginForm extends Form {
 		$category = $request->getUserVar('category');
 		$plugin = $request->getUserVar('plugin');
 
-		$versionFile = $path . VERSION_FILE;
+		$versionFile = $path . '/' . PLUGIN_VERSION_FILE;
 		$templateMgr->assign('error', true);
 
 		$pluginVersion =& VersionCheck::getValidPluginVersionInfo($versionFile, $templateMgr);
@@ -311,7 +314,7 @@ class UploadPluginForm extends Form {
 			// Remove the temporary folder.
 			$fileManager->rmtree(dirname($path));
 
-			$upgradeFile = $pluginDest . UPGRADE_FILE;
+			$upgradeFile = $pluginDest . '/' . PLUGIN_UPGRADE_FILE;
 			if($fileManager->fileExists($upgradeFile)) {
 				$params = $this->_setConnectionParams();
 				$installer = new Upgrade($params, $upgradeFile, true);

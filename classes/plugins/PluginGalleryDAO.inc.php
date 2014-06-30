@@ -65,13 +65,48 @@ class PluginGalleryDAO extends DAO {
 	protected function _fromElement($element) {
 		$plugin = $this->newDataObject();
 		$doc = $element->ownerDocument;
-		foreach ($doc->getElementsByTagName('name') as $element) {
-			$plugin->setName($element->nodeValue, $element->getAttribute('locale'));
-		}
-		foreach ($doc->getElementsByTagName('description') as $element) {
-			$plugin->setDescription($element->nodeValue, $element->getAttribute('locale'));
+		for ($n = $element->firstChild; $n; $n=$n->nextSibling) {
+			if (!is_a($n, 'DOMElement')) continue;
+			switch ($n->tagName) {
+				case 'name':
+					$plugin->setName($n->nodeValue, $n->getAttribute('locale'));
+					break;
+				case 'homepage':
+					$plugin->setHomepage($n->nodeValue);
+					break;
+				case 'description':
+					$plugin->setDescription($n->nodeValue, $n->getAttribute('locale'));
+					break;
+				case 'maintainer':
+					$this->_handleMaintainer($n, $plugin);
+				case 'release':
+					// Unimplemented
+					break;
+			}
 		}
 		return $plugin;
+	}
+
+	/**
+	 * Handle a maintainer element
+	 * @param $maintainerElement DOMElement
+	 * @param $plugin GalleryPlugin
+	 */
+	function _handleMaintainer($element, $plugin) {
+		for ($n = $element->firstChild; $n; $n=$n->nextSibling) {
+			if (!is_a($n, 'DOMElement')) continue;
+			switch ($n->tagName) {
+				case 'name':
+					$plugin->setContactName($n->nodeValue);
+					break;
+				case 'institution':
+					$plugin->setContactInstitutionName($n->nodeValue);
+					break;
+				case 'email':
+					$plugin->setContactEmail($n->nodeValue);
+					break;
+			}
+		}
 	}
 }
 

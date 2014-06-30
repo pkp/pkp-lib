@@ -49,6 +49,22 @@ class GalleryPlugin extends DataObject {
 	}
 
 	/**
+	 * Get the homepage for this context
+	 * @return string
+	 */
+	function getHomepage() {
+		return $this->getData('homepage');
+	}
+
+	/**
+	 * Set the homepage for this context
+	 * @param $homepage string
+	 */
+	function setHomepage($homepage) {
+		$this->setData('homepage', $homepage);
+	}
+
+	/**
 	 * Get the contact name for this context
 	 * @return string
 	 */
@@ -62,6 +78,22 @@ class GalleryPlugin extends DataObject {
 	 */
 	function setContactName($contactName) {
 		$this->setData('contactName', $contactName);
+	}
+
+	/**
+	 * Get the contact institution name for this context
+	 * @return string
+	 */
+	function getContactInstitutionName() {
+		return $this->getData('contactInstitutionName');
+	}
+
+	/**
+	 * Set the contact institution name for this context
+	 * @param $contactInstitutionName string
+	 */
+	function setContactInstitutionName($contactInstitutionName) {
+		$this->setData('contactInstitutionName', $contactInstitutionName);
 	}
 
 	/**

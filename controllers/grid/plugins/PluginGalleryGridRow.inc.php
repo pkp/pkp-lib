@@ -48,8 +48,8 @@ class PluginGalleryGridRow extends GridRow {
 				'moreInformation',
 				new AjaxModal(
 					$router->url($request, null, null, 'viewPlugin', null, array('rowId' => $rowId)),
-					__('grid.action.moreInformation'),
-					'modal_details',
+					$element->getLocalizedName(),
+					'modal_information',
 					true
 				),
 			__('grid.action.moreInformation'),

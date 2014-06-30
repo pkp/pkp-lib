@@ -25,7 +25,7 @@ class PluginGalleryGridHandler extends GridHandler {
 		parent::GridHandler();
 		$this->addRoleAssignment(
 			array(ROLE_ID_MANAGER),
-			array('fetchGrid', 'fetchRow')
+			array('fetchGrid', 'fetchRow', 'viewPlugin')
 		);
 	}
 
@@ -108,12 +108,35 @@ class PluginGalleryGridHandler extends GridHandler {
 	 * @return array Grid data.
 	 */
 	function loadData($request) {
-		// Get all review forms.
+		// Get all plugins.
 		$pluginGalleryDao = DAORegistry::getDAO('PluginGalleryDAO');
-		$context = $request->getContext();
+		return $pluginGalleryDao->get();
+	}
+
+	//
+	// Public operations
+	//
+	/**
+	 * View a plugin's details
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return string
+	 */
+	function viewPlugin($args, $request) {
+		// Get all plugins.
+		$pluginGalleryDao = DAORegistry::getDAO('PluginGalleryDAO');
 		$plugins = $pluginGalleryDao->get();
 
-		return $plugins;
+		// Get specified plugin
+		$rowId = (int) $request->getUserVar('rowId');
+		if (!isset($plugins[$rowId])) fatalError('Invalid row ID!');
+		$plugin = $plugins[$rowId];
+
+		// Display plugin information
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign('plugin', $plugin);
+		$json = new JSONMessage(true, $templateMgr->fetch('controllers/grid/plugins/viewPlugin.tpl'));
+		return $json->getString();
 	}
 }
 

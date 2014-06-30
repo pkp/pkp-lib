@@ -401,8 +401,8 @@ class SignoffDAO extends DAO {
 			SET	user_id = ?
 			WHERE	user_id = ?',
 			array(
-				(int) $oldUserId,
-				(int) $newUserId
+				(int) $newUserId,
+				(int) $oldUserId
 			)
 		);
 	}

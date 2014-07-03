@@ -57,10 +57,29 @@
 	$.pkp.pages.workflow.WorkflowHandler.prototype.handleStageParticipantsChanged_ =
 			function(callingElement, event) {
 		// Find and reload editor decision action and progress bar.
-		var $editorDecisionActions = this.getHtmlElement()
+		var $elements, $stageTabs, matches, cssClass, stageId, sourceUrl,
+				$editorDecisionActions = this.getHtmlElement()
 				.find('.editorDecisionActions'),
 				$progressBar = this.getHtmlElement().find('#submissionProgressBarDiv'),
-				$elements = $editorDecisionActions.add($progressBar);
+				$stageTabContainer = this.getHtmlElement().find('#stageTabs');
+
+		$stageTabs = $stageTabContainer.find('li');
+		$stageTabs.each(function(index) {
+			if ($(this).hasClass('ui-state-active')) {
+				cssClass = $(this).find('a').attr('class');
+				matches = cssClass.match(/stageId(\d)/);
+				if (matches) {
+					stageId = matches[1];
+					var handler = $.pkp.classes.Handler.getHandler($progressBar);
+					sourceUrl = handler.getSourceUrl();
+					handler.setSourceUrl(sourceUrl.replace(/stageId=\d/, 'stageId=' +
+							stageId));
+				}
+				return false;
+			}
+		});
+
+		$elements = $editorDecisionActions.add($progressBar);
 
 		$elements.each(function() {
 			var handler = $.pkp.classes.Handler.getHandler($(this));

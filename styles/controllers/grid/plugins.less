@@ -1,0 +1,63 @@
+/**
+ * @file styles/controllers/grid/plugins.less
+ *
+ * Copyright (c) 2014 Simon Fraser University Library
+ * Copyright (c) 2003-2014 John Willinsky
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * 
+ * @ingroup pkp_controllers_grid
+ *
+ * @brief Classes for the plugin grid and gallery
+ */
+
+div.pluginReleaseDetails {
+	float: right;
+	border: 1px solid;
+	padding: 0.5em 1em 1em 1em;
+	margin-top: 1em;
+
+	ul.pluginCertifications {
+		list-style-type: none;
+		padding: 0;
+		li {
+			float: left;
+			width: 50px;
+			height: 50px;
+
+			&.official {
+				background-image: url("{$baseUrl}/badge.png")
+			}
+
+			&.reviewed {
+				/* FIXME: Needs badge */
+			}
+
+			&.partner {
+				/* FIXME: Needs badge */
+			}
+		}
+	}
+}
+
+div.pluginDescription {
+	img {
+		border: 1px solid;
+		max-width: 96%;
+		margin-left: 2%;
+	}
+}
+
+.pluginStatus {
+	&.notInstalled {
+		color: #000000;
+	}
+	&.newer {
+		color: #990000;
+	}
+	&.older {
+		color: #990000;
+	}
+	&.newest {
+		color: #009900;
+	}
+}

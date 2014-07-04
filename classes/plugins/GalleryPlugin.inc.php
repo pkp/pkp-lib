@@ -22,7 +22,7 @@ class GalleryPlugin extends DataObject {
 	}
 
 	/**
-	 * Get the localized name of the context
+	 * Get the localized name of the plugin
 	 * @param $preferredLocale string
 	 * @return string
 	 */
@@ -31,7 +31,7 @@ class GalleryPlugin extends DataObject {
 	}
 
 	/**
-	 * Set the name of the context
+	 * Set the name of the plugin
 	 * @param $name string
 	 * @param $locale string optional
 	 */
@@ -40,7 +40,7 @@ class GalleryPlugin extends DataObject {
 	}
 
 	/**
-	 * Get the name of the context
+	 * Get the name of the plugin
 	 * @param $locale string optional
 	 * @return string
 	 */
@@ -49,7 +49,7 @@ class GalleryPlugin extends DataObject {
 	}
 
 	/**
-	 * Get the homepage for this context
+	 * Get the homepage for this plugin
 	 * @return string
 	 */
 	function getHomepage() {
@@ -57,7 +57,7 @@ class GalleryPlugin extends DataObject {
 	}
 
 	/**
-	 * Set the homepage for this context
+	 * Set the homepage for this plugin
 	 * @param $homepage string
 	 */
 	function setHomepage($homepage) {
@@ -65,7 +65,71 @@ class GalleryPlugin extends DataObject {
 	}
 
 	/**
-	 * Get the contact name for this context
+	 * Get the product (symbolic name) for this plugin
+	 * @return string
+	 */
+	function getProduct() {
+		return $this->getData('product');
+	}
+
+	/**
+	 * Set the product (symbolic name) for this plugin
+	 * @param $product string
+	 */
+	function setProduct($product) {
+		$this->setData('product', $product);
+	}
+
+	/**
+	 * Get the category for this plugin
+	 * @return string
+	 */
+	function getCategory() {
+		return $this->getData('category');
+	}
+
+	/**
+	 * Set the category for this plugin
+	 * @param $category string
+	 */
+	function setCategory($category) {
+		$this->setData('category', $category);
+	}
+
+	/**
+	 * Get the newest compatible version of this plugin
+	 * @return string
+	 */
+	function getVersion() {
+		return $this->getData('version');
+	}
+
+	/**
+	 * Set the version for this plugin
+	 * @param $version string
+	 */
+	function setVersion($version) {
+		$this->setData('version', $version);
+	}
+
+	/**
+	 * Get the release date of this plugin
+	 * @return int
+	 */
+	function getDate() {
+		return $this->getData('date');
+	}
+
+	/**
+	 * Set the release date for this plugin
+	 * @param $date int
+	 */
+	function setDate($date) {
+		$this->setData('date', $date);
+	}
+
+	/**
+	 * Get the contact name for this plugin
 	 * @return string
 	 */
 	function getContactName() {
@@ -73,7 +137,7 @@ class GalleryPlugin extends DataObject {
 	}
 
 	/**
-	 * Set the contact name for this context
+	 * Set the contact name for this plugin
 	 * @param $contactName string
 	 */
 	function setContactName($contactName) {
@@ -81,7 +145,7 @@ class GalleryPlugin extends DataObject {
 	}
 
 	/**
-	 * Get the contact institution name for this context
+	 * Get the contact institution name for this plugin
 	 * @return string
 	 */
 	function getContactInstitutionName() {
@@ -89,7 +153,7 @@ class GalleryPlugin extends DataObject {
 	}
 
 	/**
-	 * Set the contact institution name for this context
+	 * Set the contact institution name for this plugin
 	 * @param $contactInstitutionName string
 	 */
 	function setContactInstitutionName($contactInstitutionName) {
@@ -97,7 +161,7 @@ class GalleryPlugin extends DataObject {
 	}
 
 	/**
-	 * Get the contact email for this context
+	 * Get the contact email for this plugin
 	 * @return string
 	 */
 	function getContactEmail() {
@@ -105,7 +169,7 @@ class GalleryPlugin extends DataObject {
 	}
 
 	/**
-	 * Set the contact email for this context
+	 * Set the contact email for this plugin
 	 * @param $contactEmail string
 	 */
 	function setContactEmail($contactEmail) {
@@ -113,8 +177,26 @@ class GalleryPlugin extends DataObject {
 	}
 
 	/**
-	 * Get context description.
-	 * @param $description string optional
+	 * Get plugin summary.
+	 * @param $locale string optional
+	 * @return string
+	 */
+	function getSummary($locale = null) {
+		return $this->getData('summary', $locale);
+	}
+
+	/**
+	 * Set plugin summary.
+	 * @param $summary string
+	 * @param $locale string optional
+	 */
+	function setSummary($summary, $locale = null) {
+		$this->setData('summary', $summary, $locale);
+	}
+
+	/**
+	 * Get plugin description.
+	 * @param $locale string optional
 	 * @return string
 	 */
 	function getDescription($locale = null) {
@@ -122,7 +204,7 @@ class GalleryPlugin extends DataObject {
 	}
 
 	/**
-	 * Set context description.
+	 * Set plugin description.
 	 * @param $description string
 	 * @param $locale string optional
 	 */
@@ -131,11 +213,86 @@ class GalleryPlugin extends DataObject {
 	}
 
 	/**
-	 * Get the localized description of the context.
+	 * Get release description.
+	 * @param $locale string optional
+	 * @return string
+	 */
+	function getReleaseDescription($locale = null) {
+		return $this->getData('releaseDescription', $locale);
+	}
+
+	/**
+	 * Set plugin release description.
+	 * @param $releaseDescription string
+	 * @param $locale string optional
+	 */
+	function setReleaseDescription($releaseDescription, $locale = null) {
+		$this->setData('releaseDescription', $releaseDescription, $locale);
+	}
+
+	/**
+	 * Get the certifications for this plugin release
+	 * @return array
+	 */
+	function getReleaseCertifications() {
+		return $this->getData('releaseCertifications');
+	}
+
+	/**
+	 * Set the certifications for this plugin release
+	 * @param $certifications array
+	 */
+	function setReleaseCertifications($certifications) {
+		$this->setData('releaseCertifications', $certifications);
+	}
+
+	/**
+	 * Get the package URL for this plugin release
+	 * @return strings
+	 */
+	function getReleasePackage() {
+		return $this->getData('releasePackage');
+	}
+
+	/**
+	 * Set the package URL for this plugin release
+	 * @param $package string
+	 */
+	function setReleasePackage($releasePackage) {
+		$this->setData('releasePackage', $releasePackage);
+	}
+
+	/**
+	 * Get the localized summary of the plugin.
+	 * @return string
+	 */
+	function getLocalizedSummary() {
+		return $this->getLocalizedData('summary');
+	}
+
+	/**
+	 * Get the localized description of the plugin.
 	 * @return string
 	 */
 	function getLocalizedDescription() {
 		return $this->getLocalizedData('description');
+	}
+
+	/**
+	 * Get the localized release description of the plugin.
+	 * @return string
+	 */
+	function getLocalizedReleaseDescription() {
+		return $this->getLocalizedData('releaseDescription');
+	}
+
+	/**
+	 * Determine the version of this plugin that is currently installed,
+	 * if any
+	 */
+	function getInstalledVersion() {
+		$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
+		return $versionDao->getCurrentVersion('plugins.' . $this->getCategory(), $this->getProduct(), true);
 	}
 }
 

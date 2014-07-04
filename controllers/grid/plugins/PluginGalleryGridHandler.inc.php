@@ -65,7 +65,7 @@ class PluginGalleryGridHandler extends GridHandler {
 		// Description.
 		$this->addColumn(
 			new GridColumn(
-				'description',
+				'summary',
 				'common.description',
 				null,
 				'controllers/grid/gridCell.tpl',
@@ -110,7 +110,7 @@ class PluginGalleryGridHandler extends GridHandler {
 	function loadData($request) {
 		// Get all plugins.
 		$pluginGalleryDao = DAORegistry::getDAO('PluginGalleryDAO');
-		return $pluginGalleryDao->get();
+		return $pluginGalleryDao->getNewestCompatible(Application::getApplication());
 	}
 
 	//
@@ -125,7 +125,7 @@ class PluginGalleryGridHandler extends GridHandler {
 	function viewPlugin($args, $request) {
 		// Get all plugins.
 		$pluginGalleryDao = DAORegistry::getDAO('PluginGalleryDAO');
-		$plugins = $pluginGalleryDao->get();
+		$plugins = $pluginGalleryDao->getNewestCompatible(Application::getApplication());
 
 		// Get specified plugin
 		$rowId = (int) $request->getUserVar('rowId');
@@ -135,6 +135,7 @@ class PluginGalleryGridHandler extends GridHandler {
 		// Display plugin information
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('plugin', $plugin);
+		$templateMgr->assign('installedVersion', $plugin->getInstalledVersion(Application::getApplication()));
 		$json = new JSONMessage(true, $templateMgr->fetch('controllers/grid/plugins/viewPlugin.tpl'));
 		return $json->getString();
 	}

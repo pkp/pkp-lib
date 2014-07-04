@@ -38,8 +38,8 @@ class PluginGalleryGridCellProvider extends GridCellProvider {
 				$label = $element->getLocalizedName();
 				return array('label' => $label);
 				break;
-			case 'description':
-				$label = $element->getLocalizedDescription();
+			case 'summary':
+				$label = $element->getLocalizedSummary();
 				return array('label' => $label);
 				break;
 			default:

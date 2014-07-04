@@ -11,11 +11,31 @@
 		<sequence>
 			<element name="name" type="pkp:localizedNode" minOccurs="1" maxOccurs="unbounded" />
 			<element name="homepage" type="anyURI" minOccurs="1" maxOccurs="1" />
+			<element name="summary" type="pkp:localizedNode" minOccurs="1" maxOccurs="unbounded" />
 			<element name="description" type="pkp:localizedNode" minOccurs="1" maxOccurs="unbounded" />
 			<element name="maintainer" type="pkp:entityType" minOccurs="1" maxOccurs="1" />
 			<element name="release" type="pkp:releaseType" minOccurs="1" maxOccurs="unbounded" />
 		</sequence>
-		<attribute name="category" type="string" use="required" />
+		<attribute name="category" use="required">
+			<simpleType>
+				<restriction base="string">
+					<enumeration value="viewableFiles" />
+					<enumeration value="metadata" />
+					<enumeration value="auth" />
+					<enumeration value="blocks" />
+					<enumeration value="gateways" />
+					<enumeration value="generic" />
+					<enumeration value="implicitAuth" />
+					<enumeration value="importexport" />
+					<enumeration value="oaiMetadataFormats" />
+					<enumeration value="paymethod" />
+					<enumeration value="pubIds" />
+					<enumeration value="reports" />
+					<enumeration value="themes" />
+				</restriction>
+			</simpleType>
+		</attribute>
+		<attribute name="product" use="required" type="string" />
 	</complexType>
 
 	<complexType name="entityType">
@@ -28,13 +48,13 @@
 
 	<complexType name="releaseType">
 		<sequence>
-			<element name="name" type="pkp:localizedNode" minOccurs="1" maxOccurs="unbounded" />
 			<element name="package" type="anyURI" minOccurs="1" maxOccurs="1" />
 			<element name="compatibility" type="pkp:compatibilityType" minOccurs="1" maxOccurs="unbounded" />
 			<element name="certification" type="pkp:certificationType" minOccurs="0" maxOccurs="unbounded" />
 			<element name="description" type="pkp:localizedNode" minOccurs="1" maxOccurs="unbounded" />
 		</sequence>
 		<attribute name="date" type="date" use="required" />
+		<attribute name="version" type="string" use="required" />
 	</complexType>
 
 	<complexType name="compatibilityType">
@@ -50,8 +70,8 @@
 		<attribute name="application" use="required">
 			<simpleType>
 				<restriction base="string">
-					<enumeration value="ojs" />
-					<enumeration value="ocs" />
+					<enumeration value="ojs2" />
+					<enumeration value="ocs2" />
 					<enumeration value="omp" />
 					<enumeration value="ohs" />
 				</restriction>
@@ -64,7 +84,7 @@
 			<simpleType>
 				<restriction base="string">
 					<enumeration value="official" />
-					<enumeration value="pkp-reviewed" />
+					<enumeration value="reviewed" />
 					<enumeration value="partner" />
 				</restriction>
 			</simpleType>

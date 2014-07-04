@@ -27,14 +27,18 @@ class PluginGalleryDAO extends DAO {
 	}
 
 	/**
-	 * Get an array of DOM elements describing the available plugins.
-	 * @return array Array of DOM elements
+	 * Get a set of GalleryPlugin objects describing the available
+	 * compatible plugins in their newest versions.
+	 * @param $application PKPApplication
+	 * @return array GalleryPlugin objects
 	 */
-	function get() {
+	function getNewestCompatible($application) {
 		$doc = $this->_getDocument();
 		$plugins = array();
 		foreach ($doc->getElementsByTagName('plugin') as $element) {
-			$plugins[] = $this->_fromElement($element);
+			$plugin = $this->_compatibleFromElement($element, $application);
+			// May be null if no compatible version exists.
+			if ($plugin) $plugins[] = $plugin;
 		}
 		return $plugins;
 	}
@@ -58,12 +62,16 @@ class PluginGalleryDAO extends DAO {
 	}
 
 	/**
-	 * Build a GalleryPlugin from a DOM element.
+	 * Build a GalleryPlugin from a DOM element, using the newest compatible
+	 * release with the supplied Application.
 	 * @param $element DOMElement
-	 * @return GalleryPlugin
+	 * @param $application Application
+	 * @return GalleryPlugin or null, if no compatible plugin was available
 	 */
-	protected function _fromElement($element) {
+	protected function _compatibleFromElement($element, $application) {
 		$plugin = $this->newDataObject();
+		$plugin->setCategory($element->getAttribute('category'));
+		$plugin->setProduct($element->getAttribute('product'));
 		$doc = $element->ownerDocument;
 		for ($n = $element->firstChild; $n; $n=$n->nextSibling) {
 			if (!is_a($n, 'DOMElement')) continue;
@@ -77,11 +85,20 @@ class PluginGalleryDAO extends DAO {
 				case 'description':
 					$plugin->setDescription($n->nodeValue, $n->getAttribute('locale'));
 					break;
+				case 'summary':
+					$plugin->setSummary($n->nodeValue, $n->getAttribute('locale'));
+					break;
 				case 'maintainer':
 					$this->_handleMaintainer($n, $plugin);
-				case 'release':
-					// Unimplemented
 					break;
+				case 'release':
+					// If a compatible release couldn't be
+					// found, return null.
+					if (!$this->_handleRelease($n, $plugin, $application)) return null;
+					break;
+				default:
+					// Not erroring out here so that future
+					// additions won't break old releases.
 			}
 		}
 		return $plugin;
@@ -105,8 +122,91 @@ class PluginGalleryDAO extends DAO {
 				case 'email':
 					$plugin->setContactEmail($n->nodeValue);
 					break;
+				default:
+					// Not erroring out here so that future
+					// additions won't break old releases.
 			}
 		}
+	}
+
+	/**
+	 * Handle a release element
+	 * @param $maintainerElement DOMElement
+	 * @param $plugin GalleryPlugin
+	 * @param $application PKPApplication
+	 */
+	function _handleRelease($element, $plugin, $application) {
+		$release = array(
+			'date' => strtotime($element->getAttribute('date')),
+			'version' => $element->getAttribute('version')
+		);
+
+		$compatible = false;
+		for ($n = $element->firstChild; $n; $n=$n->nextSibling) {
+			if (!is_a($n, 'DOMElement')) continue;
+			switch ($n->tagName) {
+				case 'description':
+					$release[$n->tagName][$n->getAttribute('locale')] = $n->nodeValue;
+					break;
+				case 'package':
+					$release['package'] = $n->nodeValue;
+					break;
+				case 'compatibility':
+					// If a compatible release couldn't be
+					// found, return null.
+					if ($this->_handleCompatibility($n, $plugin, $application)) {
+						$compatible = true;
+					}
+					break;
+				case 'certification':
+					$release[$n->tagName][] = $n->getAttribute('type');
+					break;
+				default:
+					// Not erroring out here so that future
+					// additions won't break old releases.
+			}
+		}
+
+		if ($compatible && (!$plugin->getDate() || $plugin->getDate() < $release['date'])) {
+			// This release is newer than the one found earlier, or
+			// this is the first compatible release we've found.
+			$plugin->setDate($release['date']);
+			$plugin->setVersion($release['version']);
+			$plugin->setReleaseDescription($release['description']);
+			$plugin->setReleaseCertifications($release['certification']);
+			$plugin->setReleasePackage($release['package']);
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * Handle a compatibility element, fishing out the most recent statement
+	 * of compatibility.
+	 * @param $maintainerElement DOMElement
+	 * @param $plugin GalleryPlugin
+	 * @param $application PKPApplication
+	 * @return boolean True iff a compatibility statement matched this app
+	 */
+	function _handleCompatibility($element, $plugin, $application) {
+		// Check that the compatibility statement refers to this app
+		if ($element->getAttribute('application')!=$application->getName()) return false;
+
+		for ($n = $element->firstChild; $n; $n=$n->nextSibling) {
+			if (!is_a($n, 'DOMElement')) continue;
+			switch ($n->tagName) {
+				case 'version':
+					$installedVersion = $application->getCurrentVersion();
+					if ($installedVersion->compare($n->nodeValue)==0) {
+						// Compatibility was determined.
+						return true;
+					}
+					break;
+			}
+		}
+
+		// No applicable compatibility statement found.
+		return false;
 	}
 }
 

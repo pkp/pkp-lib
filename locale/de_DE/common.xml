@@ -55,6 +55,7 @@
 	<message key="common.cancelled">Abgebrochen</message>
 	<message key="common.warning">Warnung</message>
 	<message key="common.error">Fehler</message>
+	<message key="common.notice">Hinweis</message>
 	<message key="common.captchaField.altText">Bild zur Überprüfung</message>
 	<message key="common.captchaField.badCaptcha">Die Zeichen, die Sie eingegeben haben, entsprechen nicht den Zeichen im Bild. Bitte überprüfen Sie Ihre Eingabe und versuchen Sie es erneut.</message>
 	<message key="common.captchaField.description">Geben Sie bitte die Zeichen so ein, wie Sie in der obigen Grafik erscheinen.</message>

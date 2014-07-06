@@ -40,6 +40,12 @@
 	<message key="admin.languages.uninstall">Regionaleinstellung deinstallieren</message>
 	<message key="admin.phpInfo">Ausführliche Informationen zu PHP</message>
 	<message key="admin.scheduledTask">Geplante Aufgabe</message>
+	<message key="admin.scheduledTask.startTime">Geplante Aufgabe gestartet.</message>
+	<message key="admin.scheduledTask.stopTime">Geplante Aufgabe beendet.</message>
+	<message key="admin.scheduledTask.noLog">Geplante Aufgabe hat kein Log erzeugt.</message>
+	<message key="admin.scheduledTask.openAccessNotification">Open-Access-Benachrichtigung</message>
+	<message key="admin.scheduledTask.reviewReminder">Begutachtungs-Erinnerung</message>
+	<message key="admin.scheduledTask.subscriptionExpiryReminder">Erinnerung an Auslaufen des Abonnements</message>
 	<message key="admin.server.apacheVersion">Apache-Version</message>
 	<message key="admin.server.dbDriver">Datenbanktreiber</message>
 	<message key="admin.server.dbVersion">Version des Datenbankservers</message>

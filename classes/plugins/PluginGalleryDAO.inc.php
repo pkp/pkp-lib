@@ -85,6 +85,9 @@ class PluginGalleryDAO extends DAO {
 				case 'description':
 					$plugin->setDescription($n->nodeValue, $n->getAttribute('locale'));
 					break;
+				case 'installation':
+					$plugin->setInstallationInstructions($n->nodeValue, $n->getAttribute('locale'));
+					break;
 				case 'summary':
 					$plugin->setSummary($n->nodeValue, $n->getAttribute('locale'));
 					break;

@@ -13,6 +13,7 @@
 			<element name="homepage" type="anyURI" minOccurs="1" maxOccurs="1" />
 			<element name="summary" type="pkp:localizedNode" minOccurs="1" maxOccurs="unbounded" />
 			<element name="description" type="pkp:localizedNode" minOccurs="1" maxOccurs="unbounded" />
+			<element name="installation" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
 			<element name="maintainer" type="pkp:entityType" minOccurs="1" maxOccurs="1" />
 			<element name="release" type="pkp:releaseType" minOccurs="1" maxOccurs="unbounded" />
 		</sequence>

@@ -213,6 +213,24 @@ class GalleryPlugin extends DataObject {
 	}
 
 	/**
+	 * Get plugin installation instructions.
+	 * @param $locale string optional
+	 * @return string
+	 */
+	function getInstallationInstructions($locale = null) {
+		return $this->getData('installation', $locale);
+	}
+
+	/**
+	 * Set plugin installation instructions.
+	 * @param $installation string
+	 * @param $locale string optional
+	 */
+	function setInstallationInstructions($installation, $locale = null) {
+		$this->setData('installation', $installation, $locale);
+	}
+
+	/**
 	 * Get release description.
 	 * @param $locale string optional
 	 * @return string
@@ -268,6 +286,14 @@ class GalleryPlugin extends DataObject {
 	 */
 	function getLocalizedSummary() {
 		return $this->getLocalizedData('summary');
+	}
+
+	/**
+	 * Get the localized installation instructions of the plugin.
+	 * @return string
+	 */
+	function getLocalizedInstallationInstructions() {
+		return $this->getLocalizedData('installation');
 	}
 
 	/**

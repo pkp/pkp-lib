@@ -337,6 +337,7 @@
 	<message key="manager.plugins.installed">Installed Plugins</message>
 	<message key="manager.plugins.pluginGallery">Plugin Gallery</message>
 	<message key="manager.plugins.pluginGallery.overview">Overview</message>
+	<message key="manager.plugins.pluginGallery.installation">Installation</message>
 	<message key="manager.plugins.pluginGallery.latestCompatible">Latest Compatible Release</message>
 	<message key="manager.plugins.pluginGallery.certifications.official">Official</message>
 	<message key="manager.plugins.pluginGallery.certifications.reviewed">Reviewed</message>

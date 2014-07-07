@@ -20,6 +20,9 @@
 	<ul>
 		<li><a href="#pluginOverviewContainer">{translate key="manager.plugins.pluginGallery.overview"}</a></li>
 		<li><a href="#pluginDescriptionContainer">{translate key="common.description"}</a></li>
+		{if $plugin->getLocalizedInstallationInstructions()}
+			<li><a href="#pluginInstallationContainer">{translate key="manager.plugins.pluginGallery.installation"}</a></li>
+		{/if}
 	</ul>
 	<div id="pluginOverviewContainer">
 		<div class="pluginReleaseDetails">
@@ -78,4 +81,9 @@
 	<div id="pluginDescriptionContainer">
 		<div class="pluginDescription">{$plugin->getLocalizedDescription()|strip_unsafe_html}</div>
 	</div>
+	{if $plugin->getLocalizedInstallationInstructions()}
+		<div id="pluginInstallationContainer">
+			<div class="pluginInstallation">{$plugin->getLocalizedInstallationInstructions()|strip_unsafe_html}</div>
+		</div>
+	{/if}
 </div>

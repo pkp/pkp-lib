@@ -136,6 +136,19 @@ class PluginGalleryGridHandler extends GridHandler {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('plugin', $plugin);
 		$templateMgr->assign('installedVersion', $plugin->getInstalledVersion(Application::getApplication()));
+
+		$router = $request->getRouter();
+		$templateMgr->assign('installAction', new LinkAction(
+			'installPlugin',
+			new RemoteActionConfirmationModal(
+				__('manager.plugins.installConfirm'),
+				__('grid.action.install'),
+				$router->url($request, null, null, 'installPlugin', null, array('rowId' => $rowId)),
+				'modal_information'
+			),
+			__('grid.action.install'),
+			null
+		));
 		$json = new JSONMessage(true, $templateMgr->fetch('controllers/grid/plugins/viewPlugin.tpl'));
 		return $json->getString();
 	}

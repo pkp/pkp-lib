@@ -323,6 +323,7 @@
 	<!-- Plugin management -->
 	<message key="manager.plugins.copyError">Plugin was not successfully copied. This may be a permissions problem. Please make sure that the web server is able to write to the plugins directory (including subdirectories) but don't forget to secure it again later.</message>
 	<message key="manager.plugins.delete">Delete Plugin</message>
+	<message key="manager.plugins.installConfirm">Are you sure you wish to install this plugin?</message>
 	<message key="manager.plugins.deleteConfirm">Are you sure you wish to delete this plugin from the system?</message>
 	<message key="manager.plugins.deleteDescription">By clicking delete, you will delete the plugin from the server's file system.</message>
 	<message key="manager.plugins.deleteError">Plugin "{$pluginName}" could not be deleted from the file system. This may be a permissions problem. Please make sure that the web server is able to write to the plugins directory (including subdirectories) but don't forget to secure it again later.</message>

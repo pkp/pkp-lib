@@ -71,7 +71,9 @@
 				<div class="pluginStatus notinstalled">{translate key="manager.plugins.noInstalledVersion"}</div>
 			{/if}
 		</div>
-
+		<div class="pluginActions pkp_linkActions">
+			{include file="linkAction/linkAction.tpl" action=$installAction contextId="pluginGallery"}
+		</div>
 	</div>
 	<div id="pluginDescriptionContainer">
 		<div class="pluginDescription">{$plugin->getLocalizedDescription()|strip_unsafe_html}</div>

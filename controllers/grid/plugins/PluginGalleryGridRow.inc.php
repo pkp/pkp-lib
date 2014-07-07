@@ -43,31 +43,6 @@ class PluginGalleryGridRow extends GridRow {
 		// Only add row actions if this is an existing row
 		$router = $request->getRouter();
 
-		$this->addAction(
-			new LinkAction(
-				'moreInformation',
-				new AjaxModal(
-					$router->url($request, null, null, 'viewPlugin', null, array('rowId' => $rowId)),
-					$element->getLocalizedName(),
-					'modal_information',
-					true
-				),
-			__('grid.action.moreInformation'),
-			'details')
-		);
-
-		$this->addAction(
-			new LinkAction(
-				'install',
-				new RemoteActionConfirmationModal(
-					__('manager.plugins.confirmInstall'),
-					null,
-					$router->url($request, null, null, 'installPlugin', null, array('rowId' => $rowId))
-					),
-				__('grid.action.install'),
-				'install'
-				)
-		);
 	}
 }
 

@@ -35,8 +35,8 @@ class PluginGalleryGridCellProvider extends GridCellProvider {
 		assert(is_a($element, 'GalleryPlugin') && !empty($columnId));
 		switch ($columnId) {
 			case 'name':
-				$label = $element->getLocalizedName();
-				return array('label' => $label);
+				// The name is returned as an action.
+				return array('label' => '');
 				break;
 			case 'summary':
 				$label = $element->getLocalizedSummary();
@@ -45,6 +45,33 @@ class PluginGalleryGridCellProvider extends GridCellProvider {
 			default:
 				break;
 		}
+	}
+
+	/**
+	 * Get cell actions associated with this row/column combination
+	 * @param $row GridRow
+	 * @param $column GridColumn
+	 * @return array an array of LinkAction instances
+	 */
+	function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
+		$columnId = $column->getId();
+		$element = $row->getData();
+
+		switch ($columnId) {
+			case 'name':
+				$router = $request->getRouter();
+				return array(new LinkAction(
+					'moreInformation',
+					new AjaxModal(
+						$router->url($request, null, null, 'viewPlugin', null, array('rowId' => $row->getId())),
+						$element->getLocalizedName(),
+						'modal_information',
+						true
+					),
+				$element->getLocalizedName(),
+				'details'));
+		}
+		return array();
 	}
 }
 

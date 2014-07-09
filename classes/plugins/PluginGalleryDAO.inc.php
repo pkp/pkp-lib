@@ -73,6 +73,7 @@ class PluginGalleryDAO extends DAO {
 		$plugin->setCategory($element->getAttribute('category'));
 		$plugin->setProduct($element->getAttribute('product'));
 		$doc = $element->ownerDocument;
+		$foundRelease = false;
 		for ($n = $element->firstChild; $n; $n=$n->nextSibling) {
 			if (!is_a($n, 'DOMElement')) continue;
 			switch ($n->tagName) {
@@ -97,12 +98,16 @@ class PluginGalleryDAO extends DAO {
 				case 'release':
 					// If a compatible release couldn't be
 					// found, return null.
-					if (!$this->_handleRelease($n, $plugin, $application)) return null;
+					if ($this->_handleRelease($n, $plugin, $application)) $foundRelease = true;
 					break;
 				default:
 					// Not erroring out here so that future
 					// additions won't break old releases.
 			}
+		}
+		if (!$foundRelease) {
+			// No compatible release was found.
+			return null;
 		}
 		return $plugin;
 	}
@@ -170,7 +175,7 @@ class PluginGalleryDAO extends DAO {
 			}
 		}
 
-		if ($compatible && (!$plugin->getDate() || $plugin->getDate() < $release['date'])) {
+		if ($compatible && (!$plugin->getDate() || $plugin->getDate() >= $release['date'])) {
 			// This release is newer than the one found earlier, or
 			// this is the first compatible release we've found.
 			$plugin->setDate($release['date']);

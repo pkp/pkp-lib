@@ -162,7 +162,7 @@ class PluginGalleryGridHandler extends GridHandler {
 			new RemoteActionConfirmationModal(
 				__('manager.plugins.installConfirm'),
 				__($installActionKey),
-				$router->url($request, null, null, 'installPlugin', null, array('rowId' => $rowId)),
+				$router->url($request, null, null, 'installPlugin', null, array('rowId' => $request->getUserVar('rowId'))),
 				'modal_information'
 			),
 			__($installActionKey),

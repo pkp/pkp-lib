@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file controllers/tab/workflow/PKPWorkflowTabHandler.inc.php
+ * @file controllers/tab/workflow/WorkflowTabHandler.inc.php
  *
  * Copyright (c) 2014 Simon Fraser University Library
  * Copyright (c) 2003-2014 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPWorkflowTabHandler
+ * @class WorkflowTabHandler
  * @ingroup controllers_tab_workflow
  *
  * @brief Handle AJAX operations for workflow tabs.
@@ -20,12 +20,12 @@ import('lib.pkp.classes.core.JSONMessage');
 // Access decision actions constants.
 import('classes.workflow.EditorDecisionActionsManager');
 
-class PKPWorkflowTabHandler extends Handler {
+class WorkflowTabHandler extends Handler {
 
 	/**
 	 * Constructor
 	 */
-	function PKPWorkflowTabHandler() {
+	function WorkflowTabHandler() {
 		parent::Handler();
 		$this->addRoleAssignment(array(ROLE_ID_SUB_EDITOR, ROLE_ID_MANAGER, ROLE_ID_ASSISTANT), array('fetchTab'));
 	}

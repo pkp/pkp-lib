@@ -57,6 +57,24 @@
 	};
 
 
+	/**
+	 * Fetches the progress bar URL.
+	 * @return {?string} the source URL.
+	 */
+	$.pkp.controllers.UrlInDivHandler.prototype.getSourceUrl = function() {
+		return this.sourceUrl_;
+	};
+
+
+	/**
+	 * Sets the progress bar URL.
+	 * @param {string} sourceUrl the new source URL.
+	 */
+	$.pkp.controllers.UrlInDivHandler.prototype.setSourceUrl = function(sourceUrl) {
+		this.sourceUrl_ = sourceUrl;
+	};
+
+
 	//
 	// Private Methods
 	//

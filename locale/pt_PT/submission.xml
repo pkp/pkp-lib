@@ -147,7 +147,7 @@
 	<message key="submissions.declined">Rejeitado</message>
 	<message key="submissions.incomplete">Incompleto</message>
 	<message key="submissions.noSubmissions">Sem submissões</message>
-	<message key="submissions.queuedEditing">Em Revisão</message>
+	<message key="submissions.queuedEditing">Em Edição</message>
 	<message key="submissions.queued">Em fila de espera</message>
 	<message key="submissions.queuedUnassigned">Aguardando designação</message>
 	<message key="submissions.ruling">Decisão</message>

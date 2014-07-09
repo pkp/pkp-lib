@@ -146,7 +146,8 @@ class PluginGalleryDAO extends DAO {
 	function _handleRelease($element, $plugin, $application) {
 		$release = array(
 			'date' => strtotime($element->getAttribute('date')),
-			'version' => $element->getAttribute('version')
+			'version' => $element->getAttribute('version'),
+			'md5' => $element->getAttribute('md5'),
 		);
 
 		$compatible = false;
@@ -180,6 +181,7 @@ class PluginGalleryDAO extends DAO {
 			// this is the first compatible release we've found.
 			$plugin->setDate($release['date']);
 			$plugin->setVersion($release['version']);
+			$plugin->setReleaseMD5($release['md5']);
 			$plugin->setReleaseDescription($release['description']);
 			$plugin->setReleaseCertifications($release['certification']);
 			$plugin->setReleasePackage($release['package']);

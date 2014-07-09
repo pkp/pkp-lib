@@ -71,7 +71,7 @@ class UploadPluginForm extends Form {
 
 		$pluginHelper = new PluginHelper();
 		$errorMsg = null;
-		$pluginDir = $pluginHelper->extractPlugin($temporaryFile, $errorMsg);
+		$pluginDir = $pluginHelper->extractPlugin($temporaryFile->getFilePath(), $temporaryFile->getOriginalFileName(), $errorMsg);
 		$notificationMgr = new NotificationManager();
 		if ($pluginDir) {
 			if ($this->_function == PLUGIN_ACTION_UPLOAD) {

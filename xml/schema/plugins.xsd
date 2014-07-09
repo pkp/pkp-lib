@@ -56,6 +56,13 @@
 		</sequence>
 		<attribute name="date" type="date" use="required" />
 		<attribute name="version" type="string" use="required" />
+		<attribute name="md5" use="required">
+			<simpleType>
+				<restriction base="hexBinary">
+					<pattern value="[0-9A-Fa-f]{32}"/>
+				</restriction>
+			</simpleType>
+		</attribute>
 	</complexType>
 
 	<complexType name="compatibilityType">

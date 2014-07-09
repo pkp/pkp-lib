@@ -36,15 +36,16 @@ class PluginHelper {
 
 	/**
 	 * Extract and validate a plugin (prior to installation)
-	 * @param $temporaryFile TemporaryFile
+	 * @param $filePath string Full path to plugin archive
+	 * @param $originalFileName string Original filename of plugin archive
 	 * @return string|null Extracted plugin path on success; null on error
 	 */
-	function extractPlugin($temporaryFile, &$errorMsg) {
+	function extractPlugin($filePath, $originalFileName, &$errorMsg) {
 		// tar archive basename (less potential version number) must
 		// equal plugin directory name and plugin files must be in a
 		// directory named after the plug-in (potentially with version)
 		$matches = array();
-		String::regexp_match_get('/^[a-zA-Z0-9]+/', basename($temporaryFile->getOriginalFileName(), '.tar.gz'), $matches);
+		String::regexp_match_get('/^[a-zA-Z0-9]+/', basename($originalFileName, '.tar.gz'), $matches);
 		$pluginShortName = array_pop($matches);
 		if (!$pluginShortName) {
 			$errorMsg = __('manager.plugins.invalidPluginArchive');
@@ -52,13 +53,13 @@ class PluginHelper {
 		}
 
 		// Create random dirname to avoid symlink attacks.
-		$pluginExtractDir = dirname($temporaryFile->getFilePath()) . DIRECTORY_SEPARATOR . $pluginShortName . substr(md5(mt_rand()), 0, 10);
+		$pluginExtractDir = dirname($filePath) . DIRECTORY_SEPARATOR . $pluginShortName . substr(md5(mt_rand()), 0, 10);
 		mkdir($pluginExtractDir);
 
 		// Test whether the tar binary is available for the export to work
 		$tarBinary = Config::getVar('cli', 'tar');
 		if (!empty($tarBinary) && file_exists($tarBinary)) {
-			exec($tarBinary.' -xzf ' . escapeshellarg($temporaryFile->getFilePath()) . ' -C ' . escapeshellarg($pluginExtractDir));
+			exec($tarBinary.' -xzf ' . escapeshellarg($filePath) . ' -C ' . escapeshellarg($pluginExtractDir));
 		} else {
 			$errorMsg = __('manager.plugins.tarCommandNotFound');
 		}
@@ -73,7 +74,7 @@ class PluginHelper {
 			// Failing that, look for a directory named after the
 			// archive. (Typically also contains the version number
 			// e.g. with github generated release archives.)
-			String::regexp_match_get('/^[a-zA-Z0-9.-]+/', basename($temporaryFile->getOriginalFileName(), '.tar.gz'), $matches);
+			String::regexp_match_get('/^[a-zA-Z0-9.-]+/', basename($originalFileName, '.tar.gz'), $matches);
 			if (is_dir($tryDir = $pluginExtractDir . '/' . array_pop($matches))) {
 				// We found a directory named after the archive
 				// within the extracted archive. (Typically also

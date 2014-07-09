@@ -29,7 +29,7 @@ class PluginGalleryGridHandler extends GridHandler {
 		);
 		$this->addRoleAssignment(
 			array(ROLE_ID_SITE_ADMIN),
-			array('installPlugin')
+			array('installPlugin', 'upgradePlugin')
 		);
 	}
 
@@ -135,7 +135,7 @@ class PluginGalleryGridHandler extends GridHandler {
 
 		// Get currently installed version, if any.
 		$installedVersion = $plugin->getInstalledVersion(Application::getApplication());
-		$installActionKey=null;
+		$installActionKey = $installConfirmKey = $installOp = null;
 		if ($installedVersion) {
 			if ($installedVersion->compare($plugin->getVersion())>0) {
 				$statusKey = 'manager.plugins.installedVersionNewer';
@@ -143,7 +143,9 @@ class PluginGalleryGridHandler extends GridHandler {
 			} elseif ($installedVersion->compare($plugin->getVersion())<0) {
 				$statusKey = 'manager.plugins.installedVersionOlder';
 				$statusClass = 'older';
-				$installActionKey='common.upgrade';
+				$installActionKey='grid.action.upgrade';
+				$installOp = 'upgradePlugin';
+				$installConfirmKey = 'manager.plugins.upgradeConfirm';
 			} else {
 				$statusKey = 'manager.plugins.installedVersionNewest';
 				$statusClass = 'newest';
@@ -152,17 +154,19 @@ class PluginGalleryGridHandler extends GridHandler {
 			$statusKey = 'manager.plugins.noInstalledVersion';
 			$statusClass = 'notinstalled';
 			$installActionKey='grid.action.install';
+			$installOp = 'installPlugin';
+			$installConfirmKey = 'manager.plugins.installConfirm';
 		}
 		$templateMgr->assign('statusKey', $statusKey);
 		$templateMgr->assign('statusClass', $statusClass);
 
 		$router = $request->getRouter();
-		if (Validation::isSiteAdmin() && $installActionKey) $templateMgr->assign('installAction', new LinkAction(
+		if (Validation::isSiteAdmin() && $installOp) $templateMgr->assign('installAction', new LinkAction(
 			'installPlugin',
 			new RemoteActionConfirmationModal(
-				__('manager.plugins.installConfirm'),
+				__($installConfirmKey),
 				__($installActionKey),
-				$router->url($request, null, null, 'installPlugin', null, array('rowId' => $request->getUserVar('rowId'))),
+				$router->url($request, null, null, $installOp, null, array('rowId' => $request->getUserVar('rowId'))),
 				'modal_information'
 			),
 			__($installActionKey),
@@ -173,11 +177,52 @@ class PluginGalleryGridHandler extends GridHandler {
 	}
 
 	/**
+	 * Upgrade a plugin
+	 */
+	function upgradePlugin($args, $request) {
+		return $this->installPlugin($args, $request, true);
+	}
+
+	/**
 	 * Install or upgrade a plugin
 	 */
-	function installPlugin($args, $request) {
+	function installPlugin($args, $request, $isUpgrade = false) {
 		$plugin = $this->_getSpecifiedPlugin($request);
-		print_r($plugin);exit();
+		$notificationMgr = new NotificationManager();
+		$user = $request->getUser();
+		$dispatcher = $request->getDispatcher();
+
+		// Download the file and ensure the MD5 sum
+		$fileManager = new FileManager();
+		$destPath = tempnam(sys_get_temp_dir(), 'plugin');
+		$fileManager->copyFile($plugin->getReleasePackage(), $destPath);
+		if (md5_file($destPath) !== $plugin->getReleaseMD5()) fatalError('Incorrect MD5 checksum!');
+
+		// Extract the plugin
+		import('lib.pkp.classes.plugins.PluginHelper');
+		$pluginHelper = new PluginHelper();
+		$errorMsg = null;
+		if (!($pluginDir = $pluginHelper->extractPlugin($destPath, $plugin->getProduct() . '-' . $plugin->getVersion(), $errorMsg))) {
+			$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => $errorMsg));
+		}
+
+		// Install the plugin
+		if (!$isUpgrade) {
+			if (!($pluginVersion = $pluginHelper->installPlugin($pluginDir, $errorMsg))) {
+				$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => $errorMsg));
+			}
+		} else {
+			if (!($pluginVersion = $pluginHelper->upgradePlugin($plugin->getCategory(), $plugin->getProduct(), $pluginDir, $errorMsg))) {
+				$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => $errorMsg));
+			}
+		}
+
+		if (!$errorMsg) {
+			$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('manager.plugins.upgradeSuccessful', array('versionString' => $pluginVersion->getVersionString(false)))));
+		}
+
+		// ui-tabs-5 is (currently) the plugins tab.
+		return $request->redirectUrlJson($dispatcher->url($request, ROUTE_PAGE, null, 'management', 'settings', array('website'), null, 'ui-tabs-5'));
 	}
 
 	/**

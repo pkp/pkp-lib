@@ -249,6 +249,22 @@ class GalleryPlugin extends DataObject {
 	}
 
 	/**
+	 * Get release MD5 checksum.
+	 * @return string
+	 */
+	function getReleaseMD5() {
+		return $this->getData('releaseMD5');
+	}
+
+	/**
+	 * Set plugin release MD5.
+	 * @param $releaseMD5 string
+	 */
+	function setReleaseMD5($releaseMD5) {
+		$this->setData('releaseMD5', $releaseMD5);
+	}
+
+	/**
 	 * Get the certifications for this plugin release
 	 * @return array
 	 */

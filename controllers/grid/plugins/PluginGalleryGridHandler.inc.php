@@ -24,8 +24,12 @@ class PluginGalleryGridHandler extends GridHandler {
 	function PluginGalleryGridHandler() {
 		parent::GridHandler();
 		$this->addRoleAssignment(
-			array(ROLE_ID_MANAGER),
+			array(ROLE_ID_MANAGER, ROLE_ID_SITE_ADMIN),
 			array('fetchGrid', 'fetchRow', 'viewPlugin')
+		);
+		$this->addRoleAssignment(
+			array(ROLE_ID_SITE_ADMIN),
+			array('installPlugin')
 		);
 	}
 
@@ -123,6 +127,65 @@ class PluginGalleryGridHandler extends GridHandler {
 	 * @return string
 	 */
 	function viewPlugin($args, $request) {
+		$plugin = $this->_getSpecifiedPlugin($request);
+
+		// Display plugin information
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign('plugin', $plugin);
+
+		// Get currently installed version, if any.
+		$installedVersion = $plugin->getInstalledVersion(Application::getApplication());
+		$installActionKey=null;
+		if ($installedVersion) {
+			if ($installedVersion->compare($plugin->getVersion())>0) {
+				$statusKey = 'manager.plugins.installedVersionNewer';
+				$statusClass = 'newer';
+			} elseif ($installedVersion->compare($plugin->getVersion())<0) {
+				$statusKey = 'manager.plugins.installedVersionOlder';
+				$statusClass = 'older';
+				$installActionKey='common.upgrade';
+			} else {
+				$statusKey = 'manager.plugins.installedVersionNewest';
+				$statusClass = 'newest';
+			}
+		} else {
+			$statusKey = 'manager.plugins.noInstalledVersion';
+			$statusClass = 'notinstalled';
+			$installActionKey='grid.action.install';
+		}
+		$templateMgr->assign('statusKey', $statusKey);
+		$templateMgr->assign('statusClass', $statusClass);
+
+		$router = $request->getRouter();
+		if (Validation::isSiteAdmin() && $installActionKey) $templateMgr->assign('installAction', new LinkAction(
+			'installPlugin',
+			new RemoteActionConfirmationModal(
+				__('manager.plugins.installConfirm'),
+				__($installActionKey),
+				$router->url($request, null, null, 'installPlugin', null, array('rowId' => $rowId)),
+				'modal_information'
+			),
+			__($installActionKey),
+			null
+		));
+		$json = new JSONMessage(true, $templateMgr->fetch('controllers/grid/plugins/viewPlugin.tpl'));
+		return $json->getString();
+	}
+
+	/**
+	 * Install or upgrade a plugin
+	 */
+	function installPlugin($args, $request) {
+		$plugin = $this->_getSpecifiedPlugin($request);
+		print_r($plugin);exit();
+	}
+
+	/**
+	 * Get the specified plugin.
+	 * @param $request PKPRequest
+	 * @return GalleryPlugin
+	 */
+	function _getSpecifiedPlugin($request) {
 		// Get all plugins.
 		$pluginGalleryDao = DAORegistry::getDAO('PluginGalleryDAO');
 		$plugins = $pluginGalleryDao->getNewestCompatible(Application::getApplication());
@@ -130,27 +193,7 @@ class PluginGalleryGridHandler extends GridHandler {
 		// Get specified plugin
 		$rowId = (int) $request->getUserVar('rowId');
 		if (!isset($plugins[$rowId])) fatalError('Invalid row ID!');
-		$plugin = $plugins[$rowId];
-
-		// Display plugin information
-		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('plugin', $plugin);
-		$templateMgr->assign('installedVersion', $plugin->getInstalledVersion(Application::getApplication()));
-
-		$router = $request->getRouter();
-		$templateMgr->assign('installAction', new LinkAction(
-			'installPlugin',
-			new RemoteActionConfirmationModal(
-				__('manager.plugins.installConfirm'),
-				__('grid.action.install'),
-				$router->url($request, null, null, 'installPlugin', null, array('rowId' => $rowId)),
-				'modal_information'
-			),
-			__('grid.action.install'),
-			null
-		));
-		$json = new JSONMessage(true, $templateMgr->fetch('controllers/grid/plugins/viewPlugin.tpl'));
-		return $json->getString();
+		return $plugins[$rowId];
 	}
 }
 

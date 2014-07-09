@@ -140,7 +140,7 @@ class VersionCheck {
 	 * @param $returnErrorMesg boolean
 	 * @return Version or null/string if invalid or missing version file
 	 */
-	function &getValidPluginVersionInfo($versionFile, $returnErrorMsg = false) {
+	function getValidPluginVersionInfo($versionFile, $returnErrorMsg = false) {
 		$nullVar = null;
 		$errorMsg = null;
 		$fileManager = new FileManager();

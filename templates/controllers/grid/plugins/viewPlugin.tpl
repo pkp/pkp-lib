@@ -13,6 +13,8 @@
 		$('#viewPluginTabs').pkpHandler('$.pkp.controllers.TabHandler', {ldelim}
 				notScrollable: true
 		{rdelim});
+		// This isn't enough to justify a separate JS controller
+		$('#pluginOverviewContainer').find('.pluginActions a').button();
 	{rdelim});
 </script>
 
@@ -59,24 +61,13 @@
 		<div id="pluginStatus">
 			<h4>{translate key="common.status"}</h4>
 
-			{if $installedVersion}
-				{if $installedVersion->compare($plugin->getVersion())>0}
-					{* Already installed and newer than available *}
-					<div class="pluginStatus newer">{translate key="manager.plugins.installedVersionNewer"}</div>
-				{elseif $installedVersion->compare($plugin->getVersion())<0}
-					{* Already installed but old *}
-					<div class="pluginStatus older">{translate key="manager.plugins.installedVersionOlder"}</div>
-				{else}
-					{* Already installed and newest *}
-					<div class="pluginStatus newest">{translate key="manager.plugins.installedVersionNewest"}</div>
-				{/if}
-			{else}
-				<div class="pluginStatus notinstalled">{translate key="manager.plugins.noInstalledVersion"}</div>
+			<div class="pluginStatus {$statusClass|escape}">{translate key=$statusKey}</div>
+		</div>
+		<p class="pluginActions pkp_linkActions pkp_helpers_align_right">
+			{if $installAction}
+				{include file="linkAction/linkAction.tpl" action=$installAction contextId="pluginGallery"}
 			{/if}
-		</div>
-		<div class="pluginActions pkp_linkActions">
-			{include file="linkAction/linkAction.tpl" action=$installAction contextId="pluginGallery"}
-		</div>
+		</p>
 	</div>
 	<div id="pluginDescriptionContainer">
 		<div class="pluginDescription">{$plugin->getLocalizedDescription()|strip_unsafe_html}</div>

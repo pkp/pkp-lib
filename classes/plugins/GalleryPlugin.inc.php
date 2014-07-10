@@ -13,6 +13,11 @@
  * @brief Class describing a plugin in the Plugin Gallery.
  */
 
+define('PLUGIN_GALLERY_STATE_NONE', 0);
+define('PLUGIN_GALLERY_STATE_UPGRADABLE', 1);
+define('PLUGIN_GALLERY_STATE_CURRENT', 2);
+define('PLUGIN_GALLERY_STATE_NEWER', 3);
+
 class GalleryPlugin extends DataObject {
 	/**
 	 * Constructor
@@ -98,10 +103,18 @@ class GalleryPlugin extends DataObject {
 
 	/**
 	 * Get the newest compatible version of this plugin
+	 * @param $pad boolean True iff returned version numbers should be
+	 *  padded to 4 terms, e.g. 1.0.0.0 instead of just 1.0
 	 * @return string
 	 */
-	function getVersion() {
-		return $this->getData('version');
+	function getVersion($pad = false) {
+		$version = $this->getData('version');
+		if ($pad) {
+			// Ensure there are 4 terms (3 separators)
+			$separators = substr_count($version, '.');
+			if ($separators<3) $version .= str_repeat('.0', 3-$separators);
+		}
+		return $version;
 	}
 
 	/**
@@ -331,10 +344,24 @@ class GalleryPlugin extends DataObject {
 	/**
 	 * Determine the version of this plugin that is currently installed,
 	 * if any
+	 * @return Version|null
 	 */
 	function getInstalledVersion() {
 		$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
 		return $versionDao->getCurrentVersion('plugins.' . $this->getCategory(), $this->getProduct(), true);
+	}
+
+	/**
+	 * Get the current state of the gallery plugin with respect to this
+	 * installation.
+	 * @return int PLUGIN_GALLERY_STATE_...
+	 */
+	function getCurrentStatus() {
+		$installedVersion = $this->getInstalledVersion();
+		if (!$installedVersion) return PLUGIN_GALLERY_STATE_NONE;
+		if ($installedVersion->compare($this->getVersion(true))>0) return PLUGIN_GALLERY_STATE_NEWER;
+		if ($installedVersion->compare($this->getVersion(true))<0) return PLUGIN_GALLERY_STATE_UPGRADABLE;
+		return PLUGIN_GALLERY_STATE_CURRENT;
 	}
 }
 

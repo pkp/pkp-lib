@@ -42,6 +42,23 @@ class PluginGalleryGridCellProvider extends GridCellProvider {
 				$label = $element->getLocalizedSummary();
 				return array('label' => $label);
 				break;
+			case 'status':
+				switch ($element->getCurrentStatus()) {
+					case PLUGIN_GALLERY_STATE_NEWER:
+						$statusKey = 'manager.plugins.installedVersionNewer.short';
+						break;
+					case PLUGIN_GALLERY_STATE_UPGRADABLE:
+						$statusKey = 'manager.plugins.installedVersionOlder.short';
+						break;
+					case PLUGIN_GALLERY_STATE_CURRENT:
+						$statusKey = 'manager.plugins.installedVersionNewest.short';
+						break;
+					case PLUGIN_GALLERY_STATE_NONE:
+						$statusKey = null;
+						break;
+					default: return assert(false);
+				}
+				return array('label' => __($statusKey));
 			default:
 				break;
 		}

@@ -354,6 +354,9 @@
 	<message key="manager.plugins.installedVersionNewer">Plugin already installed, and is newer than the version available in the gallery.</message>
 	<message key="manager.plugins.installedVersionOlder">Plugin already installed, but can be updated to a newer version.</message>
 	<message key="manager.plugins.installedVersionNewest">Plugin already installed and up-to-date.</message>
+	<message key="manager.plugins.installedVersionNewer.short">Newer than available version</message>
+	<message key="manager.plugins.installedVersionOlder.short">Can be upgraded</message>
+	<message key="manager.plugins.installedVersionNewest.short">Up to date</message>
 	<message key="manager.plugins.installFailed">Installation failed. {$errorString}</message>
 	<message key="manager.plugins.installSuccessful">Successfully installed version {$versionNumber}</message>
 	<message key="manager.plugins.invalidPluginArchive">The uploaded plugin archive does not contain a folder that corresponds to the plugin name.</message>

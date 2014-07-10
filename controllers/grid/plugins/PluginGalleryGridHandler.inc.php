@@ -74,7 +74,19 @@ class PluginGalleryGridHandler extends GridHandler {
 				null,
 				'controllers/grid/gridCell.tpl',
 				$pluginGalleryGridCellProvider,
-				array('width' => 70, 'alignment' => COLUMN_ALIGNMENT_LEFT)
+				array('width' => 50, 'alignment' => COLUMN_ALIGNMENT_LEFT)
+			)
+		);
+
+		// Status.
+		$this->addColumn(
+			new GridColumn(
+				'status',
+				'common.status',
+				null,
+				'controllers/grid/gridCell.tpl',
+				$pluginGalleryGridCellProvider,
+				array('width' => 20)
 			)
 		);
 	}
@@ -134,28 +146,31 @@ class PluginGalleryGridHandler extends GridHandler {
 		$templateMgr->assign('plugin', $plugin);
 
 		// Get currently installed version, if any.
-		$installedVersion = $plugin->getInstalledVersion(Application::getApplication());
 		$installActionKey = $installConfirmKey = $installOp = null;
-		if ($installedVersion) {
-			if ($installedVersion->compare($plugin->getVersion())>0) {
+		switch ($plugin->getCurrentStatus()) {
+			case PLUGIN_GALLERY_STATE_NEWER:
 				$statusKey = 'manager.plugins.installedVersionNewer';
 				$statusClass = 'newer';
-			} elseif ($installedVersion->compare($plugin->getVersion())<0) {
+				break;
+			case PLUGIN_GALLERY_STATE_UPGRADABLE:
 				$statusKey = 'manager.plugins.installedVersionOlder';
 				$statusClass = 'older';
 				$installActionKey='grid.action.upgrade';
 				$installOp = 'upgradePlugin';
 				$installConfirmKey = 'manager.plugins.upgradeConfirm';
-			} else {
+				break;
+			case PLUGIN_GALLERY_STATE_CURRENT:
 				$statusKey = 'manager.plugins.installedVersionNewest';
 				$statusClass = 'newest';
-			}
-		} else {
-			$statusKey = 'manager.plugins.noInstalledVersion';
-			$statusClass = 'notinstalled';
-			$installActionKey='grid.action.install';
-			$installOp = 'installPlugin';
-			$installConfirmKey = 'manager.plugins.installConfirm';
+				break;
+			case PLUGIN_GALLERY_STATE_NONE:
+				$statusKey = 'manager.plugins.noInstalledVersion';
+				$statusClass = 'notinstalled';
+				$installActionKey='grid.action.install';
+				$installOp = 'installPlugin';
+				$installConfirmKey = 'manager.plugins.installConfirm';
+				break;
+			default: return assert(false);
 		}
 		$templateMgr->assign('statusKey', $statusKey);
 		$templateMgr->assign('statusClass', $statusClass);

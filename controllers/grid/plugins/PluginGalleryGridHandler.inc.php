@@ -15,8 +15,6 @@
 
 import('lib.pkp.classes.controllers.grid.GridHandler');
 
-import('lib.pkp.controllers.grid.plugins.PluginGalleryGridRow');
-
 class PluginGalleryGridHandler extends GridHandler {
 	/**
 	 * Constructor
@@ -111,22 +109,54 @@ class PluginGalleryGridHandler extends GridHandler {
 	// Implement methods from GridHandler.
 	//
 	/**
-	 * @see GridHandler::getRowInstance()
-	 * @return UserGridRow
+	 * @see GridHandler::loadData()
+	 * @param $request PKPRequest Request object
+	 * @param $filter array Filter parameters
+	 * @return array Grid data.
 	 */
-	function getRowInstance() {
-		return new PluginGalleryGridRow();
+	function loadData($request, $filter) {
+		// Get all plugins.
+		$pluginGalleryDao = DAORegistry::getDAO('PluginGalleryDAO');
+		return $pluginGalleryDao->getNewestCompatible(
+			Application::getApplication(),
+			$request->getUserVar('category'),
+			$request->getUserVar('pluginText')
+		);
 	}
 
 	/**
-	 * @see GridHandler::loadData()
-	 * @param $request PKPRequest
-	 * @return array Grid data.
+	 * @see GridHandler::getFilterForm()
 	 */
-	function loadData($request) {
-		// Get all plugins.
-		$pluginGalleryDao = DAORegistry::getDAO('PluginGalleryDAO');
-		return $pluginGalleryDao->getNewestCompatible(Application::getApplication());
+	function getFilterForm() {
+		return 'controllers/grid/plugins/pluginGalleryGridFilter.tpl';
+	}
+
+	/**
+	 * @see GridHandler::getFilterSelectionData()
+	 */
+	function getFilterSelectionData($request) {
+		$category = $request->getUserVar('category');
+		$pluginName = $request->getUserVar('pluginText');
+
+		if (is_null($category)) {
+			$category = 'all';
+		}
+
+		return array('category' => $category, 'pluginText' => $pluginName);
+	}
+
+	/**
+	 * @see GridHandler::renderFilter()
+	 */
+	function renderFilter($request) {
+		$categoriesSymbolic = $categories = PluginRegistry::getCategories();
+		$categories = array('all' => __('grid.plugin.allCategories'));
+		foreach ($categoriesSymbolic as $category) {
+			$categories[$category] = __("plugins.categories.$category");
+		}
+		$filterData = array('categories' => $categories);
+
+		return parent::renderFilter($request, $filterData);
 	}
 
 	//
@@ -163,12 +193,16 @@ class PluginGalleryGridHandler extends GridHandler {
 				$statusKey = 'manager.plugins.installedVersionNewest';
 				$statusClass = 'newest';
 				break;
-			case PLUGIN_GALLERY_STATE_NONE:
+			case PLUGIN_GALLERY_STATE_AVAILABLE:
 				$statusKey = 'manager.plugins.noInstalledVersion';
 				$statusClass = 'notinstalled';
 				$installActionKey='grid.action.install';
 				$installOp = 'installPlugin';
 				$installConfirmKey = 'manager.plugins.installConfirm';
+				break;
+			case PLUGIN_GALLERY_STATE_INCOMPATIBLE:
+				$statusKey = 'manager.plugins.noCompatibleVersion';
+				$statusClass = 'incompatible';
 				break;
 			default: return assert(false);
 		}
@@ -250,8 +284,9 @@ class PluginGalleryGridHandler extends GridHandler {
 		$pluginGalleryDao = DAORegistry::getDAO('PluginGalleryDAO');
 		$plugins = $pluginGalleryDao->getNewestCompatible(Application::getApplication());
 
-		// Get specified plugin
-		$rowId = (int) $request->getUserVar('rowId');
+		// Get specified plugin. Indexes into $plugins are 0-based
+		// but row IDs are 1-based; compensate.
+		$rowId = (int) $request->getUserVar('rowId')-1;
 		if (!isset($plugins[$rowId])) fatalError('Invalid row ID!');
 		return $plugins[$rowId];
 	}

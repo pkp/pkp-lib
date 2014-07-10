@@ -30,15 +30,24 @@ class PluginGalleryDAO extends DAO {
 	 * Get a set of GalleryPlugin objects describing the available
 	 * compatible plugins in their newest versions.
 	 * @param $application PKPApplication
+	 * @param $category string Optional category name to use as filter
+	 * @param $search string Optional text to use as filter
 	 * @return array GalleryPlugin objects
 	 */
-	function getNewestCompatible($application) {
+	function getNewestCompatible($application, $category = null, $search = null) {
 		$doc = $this->_getDocument();
 		$plugins = array();
 		foreach ($doc->getElementsByTagName('plugin') as $element) {
 			$plugin = $this->_compatibleFromElement($element, $application);
-			// May be null if no compatible version exists.
-			if ($plugin) $plugins[] = $plugin;
+			// May be null if no compatible version exists; also
+			// apply search filters if any supplied.
+			if (
+				$plugin &&
+				($category == '' || $plugin->getCategory() == $category) &&
+				($search == '' || String::strpos(String::strtolower(serialize($plugin)), String::strtolower($search)) !== false)
+			) {
+				$plugins[] = $plugin;
+			}
 		}
 		return $plugins;
 	}

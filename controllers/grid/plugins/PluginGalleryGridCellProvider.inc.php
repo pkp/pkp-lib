@@ -13,6 +13,7 @@
  */
 
 import('lib.pkp.classes.controllers.grid.GridCellProvider');
+import('lib.pkp.classes.linkAction.request.AjaxModal');
 
 class PluginGalleryGridCellProvider extends GridCellProvider {
 	/**
@@ -53,8 +54,11 @@ class PluginGalleryGridCellProvider extends GridCellProvider {
 					case PLUGIN_GALLERY_STATE_CURRENT:
 						$statusKey = 'manager.plugins.installedVersionNewest.short';
 						break;
-					case PLUGIN_GALLERY_STATE_NONE:
+					case PLUGIN_GALLERY_STATE_AVAILABLE:
 						$statusKey = null;
+						break;
+					case PLUGIN_GALLERY_STATE_INCOMPATIBLE:
+						$statusKey = 'manager.plugins.noCompatibleVersion.short';
 						break;
 					default: return assert(false);
 				}

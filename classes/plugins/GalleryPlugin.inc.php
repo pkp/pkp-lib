@@ -13,7 +13,8 @@
  * @brief Class describing a plugin in the Plugin Gallery.
  */
 
-define('PLUGIN_GALLERY_STATE_NONE', 0);
+define('PLUGIN_GALLERY_STATE_AVAILABLE', 0);
+define('PLUGIN_GALLERY_STATE_INCOMPATIBLE', 0);
 define('PLUGIN_GALLERY_STATE_UPGRADABLE', 1);
 define('PLUGIN_GALLERY_STATE_CURRENT', 2);
 define('PLUGIN_GALLERY_STATE_NEWER', 3);
@@ -358,7 +359,8 @@ class GalleryPlugin extends DataObject {
 	 */
 	function getCurrentStatus() {
 		$installedVersion = $this->getInstalledVersion();
-		if (!$installedVersion) return PLUGIN_GALLERY_STATE_NONE;
+		if ($this->getVersion()===null) return PLUGIN_GALLERY_STATE_INCOMPATIBLE;
+		if (!$installedVersion) return PLUGIN_GALLERY_STATE_AVAILABLE;
 		if ($installedVersion->compare($this->getVersion(true))>0) return PLUGIN_GALLERY_STATE_NEWER;
 		if ($installedVersion->compare($this->getVersion(true))<0) return PLUGIN_GALLERY_STATE_UPGRADABLE;
 		return PLUGIN_GALLERY_STATE_CURRENT;

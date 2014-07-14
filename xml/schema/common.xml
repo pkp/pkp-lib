@@ -282,6 +282,10 @@
 			<NOTNULL/>
 			<DEFAULT VALUE=""/>
 		</field>
+		<field name="domain" type="X">
+			<NOTNULL/>
+			<DEFAULT VALUE=""/>
+		</field>
 		<descr>Browser/user sessions and session data.</descr>
 		<index name="sessions_user_id">
 			<col>user_id</col>

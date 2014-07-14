@@ -1,28 +1,27 @@
 <?php
 
 /**
- * @file pages/install/PKPInstallHandler.inc.php
+ * @file pages/install/InstallHandler.inc.php
  *
  * Copyright (c) 2014 Simon Fraser University Library
  * Copyright (c) 2000-2014 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPInstallHandler
+ * @class InstallHandler
  * @ingroup pages_install
  *
  * @brief Handle installation requests.
  */
 
-
 import('lib.pkp.classes.install.form.InstallForm');
 import('lib.pkp.classes.install.form.UpgradeForm');
 import('classes.handler.Handler');
 
-class PKPInstallHandler extends Handler {
+class InstallHandler extends Handler {
 	/**
 	 * Constructor
 	 */
-	function PKPInstallHandler() {
+	function InstallHandler() {
 		parent::Handler();
 	}
 
@@ -72,7 +71,6 @@ class PKPInstallHandler extends Handler {
 
 		if ($installForm->validate()) {
 			$installForm->execute();
-
 		} else {
 			$installForm->display();
 		}

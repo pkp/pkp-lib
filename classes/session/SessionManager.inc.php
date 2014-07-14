@@ -13,7 +13,6 @@
  * @brief Implements PHP methods for a custom session storage handler (see http://php.net/session).
  */
 
-
 class SessionManager {
 
 	/** @var object The DAO for accessing Session objects */
@@ -107,11 +106,12 @@ class SessionManager {
 	 * Return an instance of the session manager.
 	 * @return SessionManager
 	 */
-	static function &getManager() {
+	static function getManager() {
+		// Reference required
 		$instance =& Registry::get('sessionManager', true, null);
 
 		if (is_null($instance)) {
-			$application =& Registry::get('application');
+			$application = Registry::get('application');
 			assert(!is_null($application));
 			$request = $application->getRequest();
 			assert(!is_null($request));
@@ -127,7 +127,7 @@ class SessionManager {
 	 * Get the session associated with the current request.
 	 * @return Session
 	 */
-	function &getUserSession() {
+	function getUserSession() {
 		return $this->userSession;
 	}
 
@@ -156,7 +156,7 @@ class SessionManager {
 	 */
 	function read($sessionId) {
 		if (!isset($this->userSession)) {
-			$this->userSession =& $this->sessionDao->getSession($sessionId);
+			$this->userSession = $this->sessionDao->getSession($sessionId);
 			if (isset($this->userSession)) {
 				$data = $this->userSession->getSessionData();
 			}
@@ -220,32 +220,13 @@ class SessionManager {
 		$success = false;
 		$currentSessionId = session_id();
 
-		if (function_exists('session_regenerate_id')) {
-			// session_regenerate_id is only available on PHP >= 4.3.2
-			if (session_regenerate_id() && isset($this->userSession)) {
-				// Delete old session and insert new session
-				$this->sessionDao->deleteById($currentSessionId);
-				$this->userSession->setId(session_id());
-				$this->sessionDao->insertObject($this->userSession);
-				$this->updateSessionCookie(); // TODO: this might not be needed on >= 4.3.3
-				$success = true;
-			}
-
-		} else {
-			// Regenerate session ID (for PHP < 4.3.2)
-			do {
-				// Generate new session ID -- should be random enough to typically execute only once
-				$newSessionId = md5(mt_rand());
-			} while ($this->sessionDao->sessionExistsById($newSessionId));
-
-			if (isset($this->userSession)) {
-				// Delete old session and insert new session
-				$this->sessionDao->deleteById($currentSessionId);
-				$this->userSession->setId($newSessionId);
-				$this->sessionDao->insertObject($this->userSession);
-				$this->updateSessionCookie($newSessionId);
-				$success = true;
-			}
+		if (session_regenerate_id() && isset($this->userSession)) {
+			// Delete old session and insert new session
+			$this->sessionDao->deleteById($currentSessionId);
+			$this->userSession->setId(session_id());
+			$this->sessionDao->insertObject($this->userSession);
+			$this->updateSessionCookie(); // TODO: this might not be needed on >= 4.3.3
+			$success = true;
 		}
 
 		return $success;

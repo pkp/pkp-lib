@@ -536,6 +536,7 @@ class PKPRequest {
 	function &getUser() {
 		PKPRequest::_checkThis();
 
+		// Reference required
 		$user =& Registry::get('user', true, null);
 		if ($user === null) {
 			$sessionManager = SessionManager::getManager();

@@ -24,6 +24,13 @@ class PKPUserHandler extends Handler {
 	}
 
 	/**
+	 * Index page; redirect to profile
+	 */
+	function index($args, $request) {
+		$request->redirect(null, null, 'profile');
+	}
+
+	/**
 	 * Change the locale for the current user.
 	 * @param $args array first parameter is the new locale
 	 */

@@ -86,18 +86,18 @@ class PKPPluginGridRow extends GridRow {
 									$linkAction = $verbLinkAction;
 								} else {
 									// Legacy plugin behavior. Define a default redirect request.
-									import('lib.pkp.classes.linkAction.request.RedirectAction');
+									import('lib.pkp.classes.linkAction.request.AjaxAction');
 									$dispatcher = PKPApplication::getDispatcher();
 									$context = $request->getContext();
-									$actionRequest = new RedirectAction(
-										$dispatcher->url(
-											$request, ROUTE_PAGE,
-											$context?$context->getPath():'index',
-											'manager', 'plugin', array(
-												$plugin->getCategory(), $plugin->getName(), $verbName
-											)
-										)
-									);
+									$actionRequest = new AjaxAction(
+										$router->url(
+											$request, null, null, 'plugin', null,
+											array(
+												'category' => $plugin->getCategory(),
+												'plugin' => $plugin->getName(),
+												'verb' => $verbName
+											))
+										);
 								}
 								break;
 						}

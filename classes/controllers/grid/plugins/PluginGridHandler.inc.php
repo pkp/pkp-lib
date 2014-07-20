@@ -236,8 +236,6 @@ class PluginGridHandler extends CategoryGridHandler {
 				$notificationManager = new NotificationManager();
 				$user = $request->getUser();
 				$notificationManager->createTrivialNotification($user->getId(), $message, $messageParams);
-
-				return DAO::getDataChangedEvent($request->getUserVar('plugin'), $request->getUserVar($this->getCategoryRowIdParameterName()));
 			}
 		}
 		if ($pluginModalContent) {
@@ -245,6 +243,8 @@ class PluginGridHandler extends CategoryGridHandler {
 			$json->setEvent('refreshForm', $pluginModalContent);
 			return $json->getString();
 		}
+
+		return DAO::getDataChangedEvent($request->getUserVar('plugin'), $request->getUserVar($this->getCategoryRowIdParameterName()));
 	}
 
 	/**

@@ -216,7 +216,7 @@ class SessionManager {
 	 * @return boolean
 	 */
 	function updateSessionCookie($sessionId = false, $expireTime = 0) {
-		return setcookie(session_name(), ($sessionId === false) ? session_id() : $sessionId, $expireTime, ini_get('session.cookie_path'));
+		return setcookie(session_name(), ($sessionId === false) ? session_id() : $sessionId, $expireTime, ini_get('session.cookie_path'), ini_get('session.cookie_domain'));
 	}
 
 	/**

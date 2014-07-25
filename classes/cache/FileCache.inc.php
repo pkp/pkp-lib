@@ -56,9 +56,7 @@ class FileCache extends GenericCache {
 	function flush() {
 		unset($this->cache);
 		$this->cache = null;
-		if (file_exists($this->filename)) {
-			@unlink($this->filename);
-		}
+		@unlink($this->filename);
 	}
 
 	/**

@@ -34,7 +34,7 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	/**
 	 * @copydoc PHPUnit_Framework_TestCase::setUpBeforeClass()
 	 */
-	protected static function setUpBeforeClass() {
+	public static function setUpBeforeClass() {
 		// Retrieve and check configuration.
 		self::$baseUrl = getenv('BASEURL');
 		parent::setUpBeforeClass();

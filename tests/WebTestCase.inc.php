@@ -155,7 +155,9 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	 * Log out.
 	 */
 	protected function logOut() {
-		$this->open(self::$baseUrl . '/index.php/test/login/signOut');
+		$this->open(self::$baseUrl);
+		$this->waitForElementPresent('link=Logout');
+		$this->click('link=Logout');
 		$this->waitForElementPresent('link=Login');
 		$this->waitJQuery();
 	}

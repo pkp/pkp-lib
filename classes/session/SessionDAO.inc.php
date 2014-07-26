@@ -67,7 +67,8 @@ class SessionDAO extends DAO {
 	 * @param $session Session
 	 */
 	function insertObject($session) {
-		return $this->update(
+		// Simultaneous requests may cause dupes; suppressing errors
+		@$this->update(
 			'INSERT INTO sessions
 				(session_id, ip_address, user_agent, created, last_used, remember, data)
 				VALUES

@@ -132,7 +132,7 @@ while getopts "bCPcpfd" opt; do
 done
 
 if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_APP_DATA" -eq 1 \) ]; then
-	phpunit $DEBUG $TEST_CONF1 --stop-on-failure --stop-on-skipped tests/data
+	phpunit $DEBUG $TEST_CONF1 -v --stop-on-failure --stop-on-skipped tests/data
 fi
 
 if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_PKP_CLASSES" -eq 1 \) ]; then

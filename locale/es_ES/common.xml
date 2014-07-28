@@ -23,10 +23,10 @@
 	<message key="about.people">Contactos</message>
 	<message key="about.policies">Políticas</message>
 	<message key="about.siteMap">Mapa del sitio</message>
-	<message key="announcement.announcements">Avisos</message>
-	<message key="announcement.announcementsHome">Avisos</message>
-	<message key="announcement.moreAnnouncements">Más avisos</message>
-	<message key="announcement.noneExist">No se ha publicado ningún aviso.</message>
+	<message key="announcement.announcements">Notícias</message>
+	<message key="announcement.announcementsHome">Notícias</message>
+	<message key="announcement.moreAnnouncements">Más notícias</message>
+	<message key="announcement.noneExist">No se ha publicado ninguna notícia.</message>
 	<message key="announcement.posted">Enviado</message>
 	<message key="announcement.viewLink">Más</message>
 	<message key="announcement.view">Ver aviso</message>

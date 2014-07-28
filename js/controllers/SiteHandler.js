@@ -111,11 +111,12 @@
 	 * @param {Event} event The "redirect requested" event.
 	 * @param {string} url The URL to redirect to.
 	 */
+	/*jslint unparam: true*/
 	$.pkp.controllers.SiteHandler.prototype.redirectToUrl =
 			function(sourceElement, event, url) {
-
 		window.location = url;
 	};
+	/*jslint unparam: false*/
 
 
 	/**
@@ -129,6 +130,7 @@
 	 * @param {Event} event The formChanged event.
 	 * @private
 	 */
+	/*jslint unparam: true*/
 	$.pkp.controllers.SiteHandler.prototype.registerUnsavedFormElement_ =
 			function(siteHandlerElement, sourceElement, event) {
 		var $formElement, formId, index;
@@ -140,6 +142,7 @@
 			this.unsavedFormElements_.push(formId);
 		}
 	};
+	/*jslint unparam: false*/
 
 
 	/**
@@ -153,6 +156,7 @@
 	 * @param {Event} event The unregisterChangedForm event.
 	 * @private
 	 */
+	/*jslint unparam: true*/
 	$.pkp.controllers.SiteHandler.prototype.unregisterUnsavedFormElement_ =
 			function(siteHandlerElement, sourceElement, event) {
 		var $formElement, formId, index;
@@ -164,6 +168,7 @@
 			delete this.unsavedFormElements_[index];
 		}
 	};
+	/*jslint unparam: false*/
 
 
 	/**
@@ -182,15 +187,11 @@
 	/**
 	 * Respond to a user toggling the display of inline help.
 	 *
-	 * @param {HTMLElement} sourceElement The element that
-	 *  issued the event.
-	 * @param {Event} event The triggering event.
 	 * @return {boolean} Always returns false.
 	 * @private
 	 */
 	$.pkp.controllers.SiteHandler.prototype.toggleInlineHelpHandler_ =
-			function(sourceElement, event) {
-
+			function() {
 		// persist the change on the server.
 		$.ajax({url: this.options_.toggleHelpUrl});
 
@@ -207,13 +208,9 @@
 	 * toggle the inline help display on them.
 	 *
 	 * @private
-	 *
-	 * @param {HTMLElement=} opt_sourceElement The element that issued the
-	 *  "gridInitialized" event.
-	 * @param {Event=} opt_event The "gridInitialized" event.
 	 */
 	$.pkp.controllers.SiteHandler.prototype.updateHelpDisplayHandler_ =
-			function(opt_sourceElement, opt_event) {
+			function() {
 		var $bodyElement, inlineHelpState;
 
 		$bodyElement = this.getHtmlElement();
@@ -242,6 +239,7 @@
 	 *  notification.
 	 * @private
 	 */
+	/*jslint unparam: true*/
 	$.pkp.controllers.SiteHandler.prototype.fetchNotificationHandler_ =
 			function(sourceElement, event, jsonData) {
 
@@ -261,17 +259,15 @@
 			async: false
 		});
 	};
+	/*jslint unparam: false*/
 
 
 	/**
 	 * Fetch the header (e.g. on header configuration change).
 	 * @private
-	 * @param {HTMLElement} sourceElement The element that issued the
-	 *  update header event.
-	 * @param {Event} event The "fetch header" event.
 	 */
 	$.pkp.controllers.SiteHandler.prototype.updateHeaderHandler_ =
-			function(sourceElement, event) {
+			function() {
 		var handler = $.pkp.classes.Handler.getHandler($('#headerContainer'));
 		handler.reload();
 	};
@@ -279,13 +275,10 @@
 
 	/**
 	 * Fetch the sidebar (e.g. on sidebar configuration change).
-	 * @param {HTMLElement} sourceElement The element that issued the
-	 *  update sidebar event.
-	 * @param {Event} event The "fetch sidebar" event.
 	 * @private
 	 */
 	$.pkp.controllers.SiteHandler.prototype.updateSidebarHandler_ =
-			function(sourceElement, event) {
+			function() {
 		var handler = $.pkp.classes.Handler.getHandler($('#sidebarContainer'));
 		handler.reload();
 	};
@@ -309,6 +302,7 @@
 	 * - skipWhenVisibleModals: boolean flag to tell whether skip the
 	 * callback when modals are visible or not.
 	 */
+	/*jslint unparam: true*/
 	$.pkp.controllers.SiteHandler.prototype.callWhenClickOutsideHandler_ =
 			function(sourceElement, event, eventParams) {
 		if (this.callWhenClickOutsideEventParams_ !== undefined) {
@@ -320,6 +314,7 @@
 			this.bind('mousedown', this.checkOutsideClickHandler_);
 		}), 25);
 	};
+	/*jslint unparam: false*/
 
 
 	/**
@@ -333,6 +328,7 @@
 	 * @param {Event} event The "mousedown" event.
 	 * @return {?boolean} Event handling status.
 	 */
+	/*jslint unparam: true*/
 	$.pkp.controllers.SiteHandler.prototype.checkOutsideClickHandler_ =
 			function(sourceElement, event) {
 		var $container, callback;
@@ -382,6 +378,7 @@
 
 		return false;
 	};
+	/*jslint unparam: false*/
 
 
 	/**
@@ -391,12 +388,10 @@
 	 *
 	 * @private
 	 *
-	 * @param {Object} object The window object.
-	 * @param {Event} event The before unload event.
 	 * @return {?string} The warning message string, if needed.
 	 */
 	$.pkp.controllers.SiteHandler.prototype.pageUnloadHandler_ =
-			function(object, event) {
+			function() {
 		var handler, unsavedElementCount, element;
 
 		// any registered and then unregistered forms will exist
@@ -446,10 +441,12 @@
 	 * @param {Object} jsonData A parsed JSON response object.
 	 * @private
 	 */
+	/*jslint unparam: true*/
 	$.pkp.controllers.SiteHandler.prototype.showNotificationResponseHandler_ =
 			function(ajaxContext, jsonData) {
 		this.showNotification_(jsonData);
 	};
+	/*jslint unparam: false*/
 
 
 	//

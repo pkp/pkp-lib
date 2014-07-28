@@ -80,12 +80,14 @@
 	 * @param {Event} event The event that activated the link action.
 	 * @return {boolean} Should return false to stop event propagation.
 	 */
+	/*jslint unparam: true*/
 	$.pkp.classes.linkAction.LinkActionRequest.prototype.activate =
 			function(element, event) {
 
 		this.getLinkActionElement().trigger('actionStart');
 		return false;
 	};
+	/*jslint unparam: false*/
 
 
 	/**
@@ -115,9 +117,9 @@
 			function() {
 		if (this.options.url) {
 			return this.options.url;
-		} else {
-			return null;
 		}
+
+		return null;
 	};
 
 

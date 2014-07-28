@@ -47,6 +47,7 @@
 	 * @param {Object} validator The validator plug-in.
 	 * @param {HTMLElement} formElement The wrapped HTML form.
 	 */
+	/*jslint unparam: true*/
 	$.pkp.controllers.form.AjaxFormHandler.prototype.submitForm =
 			function(validator, formElement) {
 
@@ -59,6 +60,7 @@
 		$.post($form.attr('action'), $form.serialize(),
 				this.callbackWrapper(this.handleResponse), 'json');
 	};
+	/*jslint unparam: false*/
 
 
 	/**
@@ -70,6 +72,7 @@
 	 * @param {Event} event The calling event.
 	 * @param {string} content The content to replace with.
 	 */
+	/*jslint unparam: true*/
 	$.pkp.controllers.form.AjaxFormHandler.prototype.refreshFormHandler_ =
 			function(sourceElement, event, content) {
 
@@ -81,6 +84,7 @@
 			$element.replaceWith(content);
 		}
 	};
+	/*jslint unparam: false*/
 
 
 	/**
@@ -94,6 +98,7 @@
 	 * @param {Object} jsonData The data returned from the server.
 	 * @return {boolean} The response status.
 	 */
+	/*jslint unparam: true*/
 	$.pkp.controllers.form.AjaxFormHandler.prototype.handleResponse =
 			function(formElement, jsonData) {
 
@@ -111,8 +116,8 @@
 				// Fire off any other optional events.
 				this.publishChangeEvents();
 			} else {
-				if (/** @type {{reloadContainer: Object}} */ (
-						processedJsonData).reloadContainer !== undefined) {
+				if (/** @type {{reloadContainer: Object}} */
+						processedJsonData.reloadContainer !== undefined) {
 					this.trigger('dataChanged');
 					this.trigger('containerReloadRequested', [processedJsonData]);
 					return processedJsonData.status;
@@ -133,6 +138,7 @@
 
 		return processedJsonData.status;
 	};
+	/*jslint unparam: false*/
 
 
 /** @param {jQuery} $ jQuery closure. */

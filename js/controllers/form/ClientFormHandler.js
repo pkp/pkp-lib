@@ -44,6 +44,7 @@
 	 * @param {Object} validator The validator plug-in.
 	 * @param {HTMLElement} formElement The wrapped HTML form.
 	 */
+	/*jslint unparam: true*/
 	$.pkp.controllers.form.ClientFormHandler.prototype.submitForm =
 			function(validator, formElement) {
 		var $form, formData;
@@ -62,6 +63,7 @@
 		// data as argument.
 		this.trigger('formSubmitted', [$.param(formData)]);
 	};
+	/*jslint unparam: false*/
 
 
 /** @param {jQuery} $ jQuery closure. */

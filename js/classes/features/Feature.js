@@ -81,10 +81,12 @@
 	 * @param {jQueryObject} $newElement The new element to be appended.
 	 * @return {boolean} Always returns false.
 	 */
+	/*jslint unparam: true*/
 	$.pkp.classes.features.Feature.prototype.appendElement =
 			function($newElement) {
 		return false;
 	};
+	/*jslint unparam: false*/
 
 
 	/**
@@ -92,10 +94,12 @@
 	 * @param {jQueryObject} $newContent The element new content to be shown.
 	 * @return {boolean} Always returns false.
 	 */
+	/*jslint unparam: true*/
 	$.pkp.classes.features.Feature.prototype.replaceElement =
 			function($newContent) {
 		return false;
 	};
+	/*jslint unparam: false*/
 
 
 	//
@@ -119,10 +123,13 @@
 	 * @param {jQueryObject} $gridElement Grid element to add elements to.
 	 * @param {Object} options Feature options.
 	 */
+	/*jslint unparam: true*/
 	$.pkp.classes.features.Feature.prototype.addFeatureHtml =
 			function($gridElement, options) {
 		// Default implementation does nothing.
+		return;
 	};
+	/*jslint unparam: false*/
 
 
 	/**

@@ -159,10 +159,9 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 	 *
 	 * @param {HTMLElement} sourceElement The element that
 	 *  issued the event.
-	 * @param {Event} event The triggering event.
 	 */
 	$.pkp.controllers.linkAction.LinkActionHandler.prototype.
-			imagePreviewHandler_ = function(sourceElement, event) {
+			imagePreviewHandler_ = function(sourceElement) {
 
 		// Use the jQuery imagepreview plug-in to show the image.
 		var $sourceElement = $(sourceElement);
@@ -199,8 +198,7 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 		}
 
 		// Call the link request.
-		return this.linkActionRequest_.activate.call(this.linkActionRequest_,
-				callingElement, event);
+		return this.linkActionRequest_.activate(callingElement, event);
 	};
 
 
@@ -278,6 +276,7 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 	 * @param {Event} event The event object (dataChanged).
 	 * @param {Object} eventData Event data.
 	 */
+	/*jslint unparam: true*/
 	$.pkp.controllers.linkAction.LinkActionHandler.prototype.
 			dataChangedHandler_ = function(callingElement, event, eventData) {
 
@@ -289,6 +288,7 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 		}
 		this.trigger('notifyUser', [this.getHtmlElement()]);
 	};
+	/*jslint unparam: false*/
 
 
 	/**

@@ -23,7 +23,9 @@
 	 * The constructor must remain empty because it will
 	 * be replaced on instantiation of the proxy.
 	 */
-	$.pkp.classes.ObjectProxy = function() {};
+	$.pkp.classes.ObjectProxy = function() {
+		return this;
+	};
 
 
 	//
@@ -41,6 +43,7 @@
 	//
 	/**
 	 * Find a static property in the constructor hierarchy.
+	 * Extra arguments will be passed to the static method (if any).
 	 *
 	 * NB: If the property is a function then it will be executed
 	 * in the current context with the additional arguments given.
@@ -48,13 +51,11 @@
 	 *
 	 * @param {string} propertyName The name of the static
 	 *  property to be found.
-	 * @param {...*} var_args Arguments to be passed to the
-	 *  static method (if any).
 	 * @return {*} The property or undefined if the property
 	 *  was not found.
 	 */
 	$.pkp.classes.ObjectProxy.prototype.self =
-			function(propertyName, var_args) {
+			function(propertyName) {
 		var ctor, foundProperty, args;
 
 		// Loop through the inheritance hierarchy to find the property.
@@ -68,10 +69,9 @@
 					// If the property is a function then call it.
 					args = Array.prototype.slice.call(arguments, 1);
 					return foundProperty.apply(this, args);
-				} else {
-					// Return the property itself.
-					return foundProperty;
 				}
+				// Return the property itself.
+				return foundProperty;
 			}
 		}
 
@@ -83,7 +83,8 @@
 
 	/**
 	 * Find the parent constructor or method in the prototype
-	 * hierarchy.
+	 * hierarchy. Extra arguments will be passed to the parent
+	 * method.
 	 *
 	 * NB: If the method is found then it will be executed in the
 	 * context of the me parameter with the given arguments.
@@ -91,12 +92,10 @@
 	 * @param {*=} opt_methodName The name of the method to
 	 *  be found. Do not set when calling this method from a
 	 *  constructor!
-	 * @param {...*} var_args Arguments to be passed to the
-	 *  parent method.
 	 * @return {*} The return value of the parent method.
 	 */
 	$.pkp.classes.ObjectProxy.prototype.parent =
-			function(opt_methodName, var_args) {
+			function(opt_methodName) {
 		var caller, args, foundCaller, ctor;
 
 		// Retrieve a reference to the function that called us.

@@ -68,6 +68,7 @@
 	 * @return {boolean} Message handling result.
 	 * @private
 	 */
+	/*jslint unparam: true*/
 	$.pkp.controllers.UrlInDivHandler.prototype.handleLoadedContent_ =
 			function(ajaxContext, jsonData) {
 
@@ -81,6 +82,7 @@
 
 		return false;
 	};
+	/*jslint unparam: false*/
 
 /** @param {jQuery} $ jQuery closure. */
 }(jQuery));

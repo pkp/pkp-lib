@@ -128,7 +128,9 @@
 		// on the parent object which also may have
 		// undesired side effects. Also avoids instantiating
 		// a potentially big object.
-		/** @constructor */ var Temp = function() {};
+		/** @constructor */ var Temp = function() {
+			return this;
+		};
 		Temp.prototype = Parent.prototype;
 
 		// Provide a way to reach the parent's
@@ -295,7 +297,12 @@
 		 *  parent method.
 		 * @return {*} The return value of the parent method.
 		 */
-		proxyConstructor.prototype.parent = function(opt_methodName, var_args) {};
+		/*jslint unparam: true*/
+		proxyConstructor.prototype.parent = function(opt_methodName, var_args) {
+			return this;
+		};
+		/*jslint unparam: false*/
+
 
 		return proxyConstructor;
 	};
@@ -319,16 +326,17 @@
 
 	/**
 	 * A function currying implementation borrowed from Google Closure.
+	 * Additional arguments can be passed, that are partially
+	 * applied to the function.
 	 * @param {Function} fn A function to partially apply.
 	 * @param {Object} context Specifies the object which |this| should
 	 *  point to when the function is run. If the value is null or undefined, it
 	 *  will default to the global object.
-	 * @param {...*} var_args Additional arguments that are partially
-	 *  applied to the function.
 	 * @return {!Function} A partially-applied form of the function bind() was
 	 *  invoked as a method of.
 	 */
-	$.pkp.classes.Helper.curry = function(fn, context, var_args) {
+	$.pkp.classes.Helper.curry = function(fn, context) {
+		// Any additional arguments?
 		if (arguments.length > 2) {
 			var boundArgs, newArgs;
 			boundArgs = Array.prototype.slice.call(arguments, 2);
@@ -338,11 +346,10 @@
 				Array.prototype.unshift.apply(newArgs, boundArgs);
 				return fn.apply(context, newArgs);
 			};
-		} else {
-			return function() {
-				return fn.apply(context, arguments);
-			};
 		}
+		return function() {
+			return fn.apply(context, arguments);
+		};
 	};
 
 

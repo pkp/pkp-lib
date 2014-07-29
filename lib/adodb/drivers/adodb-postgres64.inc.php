@@ -686,7 +686,10 @@ WHERE (c2.relname=\'%s\' or c2.relname=lower(\'%s\'))';
 	function _connect($str,$user='',$pwd='',$db='',$ctype=0)
 	{
 
-		if (!function_exists('pg_connect')) return null;
+		if (!function_exists('pg_connect')) {
+			error_log('PG_CONNECT NOT AVAILABLE');
+			return null;
+		}
 
 		$this->_errorMsg = false;
 

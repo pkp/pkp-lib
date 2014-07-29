@@ -25,6 +25,14 @@ class RegistrationHandler extends UserHandler {
 	}
 
 	/**
+	 * @see PKPHandler::initialize()
+	 */
+	function initialize($request, &$args) {
+		AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON);
+		parent::initialize($request, $args);
+	}
+
+	/**
 	 * Display registration form for new users.
 	 * @param $args array
 	 * @param $request PKPRequest

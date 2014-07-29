@@ -157,7 +157,11 @@ class PluginGridHandler extends CategoryGridHandler {
 		import('lib.pkp.classes.site.VersionCheck');
 		$fileManager = new FileManager();
 
+		$notHiddenPlugins = array();
 		foreach ($plugins as $plugin) {
+			if (!$plugin->getHideManagement()) {
+				$notHiddenPlugins[$plugin->getName()] = $plugin;
+			}
 			$version = $plugin->getCurrentVersion();
 			if ($version == null) { // this plugin is on the file system, but not installed.
 				$versionFile = $plugin->getPluginPath() . '/version.xml';
@@ -183,7 +187,7 @@ class PluginGridHandler extends CategoryGridHandler {
 		if (!is_null($filter) && isset($filter['pluginName']) && $filter['pluginName'] != "") {
 			// Find all plugins that have the filter name string in their display names.
 			$filteredPlugins = array();
-			foreach ($plugins as $plugin) { /* @var $plugin Plugin */
+			foreach ($notHiddenPlugins as $plugin) { /* @var $plugin Plugin */
 				$pluginName = $plugin->getDisplayName();
 				if (stristr($pluginName, $filter['pluginName']) !== false) {
 					$filteredPlugins[$plugin->getName()] = $plugin;
@@ -192,7 +196,7 @@ class PluginGridHandler extends CategoryGridHandler {
 			return $filteredPlugins;
 		}
 
-		return $plugins;
+		return $notHiddenPlugins;
 	}
 
 	/**

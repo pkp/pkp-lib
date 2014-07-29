@@ -88,7 +88,9 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	 */
 	protected function tearDown() {
 		parent::tearDown();
-		PKPTestHelper::restoreTables($this->getAffectedTables(), $this);
+		if (Config::getVar('general', 'installed') && !defined('SESSION_DISABLE_INIT')) {
+			PKPTestHelper::restoreTables($this->getAffectedTables(), $this);
+		}
 	}
 
 	/**

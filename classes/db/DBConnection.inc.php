@@ -113,6 +113,7 @@ class DBConnection {
 	function initConn() {
 		require_once('lib/pkp/lib/adodb/adodb.inc.php');
 
+		error_log("DRIVER: $this->driver\n");
 		$this->dbconn = ADONewConnection($this->driver);
 
 		if ($this->connectOnInit) {
@@ -128,7 +129,7 @@ class DBConnection {
 	 */
 	function connect() {
 		if ($this->persistent) {
-			$this->connected = @$this->dbconn->PConnect(
+			$this->connected = $this->dbconn->PConnect(
 				$this->host,
 				$this->username,
 				$this->password,
@@ -136,7 +137,8 @@ class DBConnection {
 			);
 
 		} else {
-			$this->connected = @$this->dbconn->Connect(
+			error_log("HOST: $this->host\nUSERNAME: $this->username\nPASSWORD: $this->password\nDATABASENAME: $this->databaseName\n");
+			$this->connected = $this->dbconn->Connect(
 				$this->host,
 				$this->username,
 				$this->password,

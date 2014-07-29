@@ -66,7 +66,9 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 		$this->setBrowser('*chrome');
 
 		$this->setBrowserUrl(self::$baseUrl . '/');
-		PKPTestHelper::backupTables($this->getAffectedTables(), $this);
+		if (Config::getVar('general', 'installed')) {
+			PKPTestHelper::backupTables($this->getAffectedTables(), $this);
+		}
 
 		$cacheManager = CacheManager::getManager();
 		$cacheManager->flush(null, CACHE_TYPE_FILE);

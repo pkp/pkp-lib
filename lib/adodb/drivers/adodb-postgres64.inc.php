@@ -710,6 +710,7 @@ WHERE (c2.relname=\'%s\' or c2.relname=lower(\'%s\'))';
 		//if ($user) $linea = "user=$user host=$linea password=$pwd dbname=$db port=5432";
 
 		if ($ctype === 1) { // persistent
+error_log('PG_CONNECT 1: ' . $str);
 			$this->_connectionID = pg_pconnect($str);
 		} else {
 			if ($ctype === -1) { // nconnect, we trick pgsql ext by changing the connection str
@@ -720,8 +721,10 @@ WHERE (c2.relname=\'%s\' or c2.relname=lower(\'%s\'))';
 
 				$str .= str_repeat(' ',$ncnt);
 			}
+error_log('PG_CONNECT 2: ' . $str);
 			$this->_connectionID = pg_connect($str);
 		}
+error_log($this->_connectionID?'SUCCESS':'FAILURE');
 		if ($this->_connectionID === false) return false;
 		$this->Execute("set datestyle='ISO'");
 

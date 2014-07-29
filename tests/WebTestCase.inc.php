@@ -75,8 +75,10 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 		$cacheManager->flush(null, CACHE_TYPE_OBJECT);
 
 		// Clear ADODB's cache
-		$userDao = DAORegistry::getDAO('UserDAO'); // As good as any
-		$userDao->flushCache();
+		if (Config::getVar('general', 'installed')) {
+			$userDao = DAORegistry::getDAO('UserDAO'); // As good as any
+			$userDao->flushCache();
+		}
 
 		parent::setUp();
 	}

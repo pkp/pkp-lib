@@ -53,7 +53,7 @@ define('COMPONENT_ROUTER_PARAMETER_MARKER', 'component');
 
 // This is the maximum directory depth allowed within the component directory. Set
 // it to something reasonable to avoid DoS or overflow attacks
-define ('COMPONENT_ROUTER_PARTS_MAXDEPTH', 5);
+define ('COMPONENT_ROUTER_PARTS_MAXDEPTH', 9);
 
 // This is the maximum/minimum length of the name of a sub-directory or
 // handler class name.
@@ -186,33 +186,36 @@ class PKPComponentRouter extends PKPRouter {
 			// Retrieve requested component handler
 			$component = $this->getRequestedComponent($request);
 
+			$allowedPackages = null;
+
 			// Give plugins a chance to intervene
-			HookRegistry::call('LoadComponentHandler', array(&$component));
+			if (!HookRegistry::call('LoadComponentHandler', array(&$component))) {
 
-			if (empty($component)) return $nullVar;
+				if (empty($component)) return $nullVar;
 
-			// Construct the component handler file name and test its existence.
-			$component = 'controllers.'.$component;
-			$componentFileName = str_replace('.', DIRECTORY_SEPARATOR, $component).'.inc.php';
-			switch (true) {
-				case file_exists($componentFileName):
-					break;
+				// Construct the component handler file name and test its existence.
+				$component = 'controllers.'.$component;
+				$componentFileName = str_replace('.', DIRECTORY_SEPARATOR, $component).'.inc.php';
+				switch (true) {
+					case file_exists($componentFileName):
+						break;
 
-				case file_exists(PKP_LIB_PATH . DIRECTORY_SEPARATOR . $componentFileName):
-					$component = 'lib.pkp.'.$component;
-					break;
+					case file_exists(PKP_LIB_PATH . DIRECTORY_SEPARATOR . $componentFileName):
+						$component = 'lib.pkp.'.$component;
+						break;
 
-				default:
-					// Request to non-existent handler
-					return $nullVar;
+					default:
+						// Request to non-existent handler
+						return $nullVar;
+				}
+
+				// We expect the handler to be part of one
+				// of the following packages:
+				$allowedPackages = array(
+					'controllers',
+					'lib.pkp.controllers'
+				);
 			}
-
-			// We expect the handler to be part of one
-			// of the following packages:
-			$allowedPackages = array(
-				'controllers',
-				'lib.pkp.controllers'
-			);
 
 			// Retrieve requested component operation
 			$op = $this->getRequestedOp($request);

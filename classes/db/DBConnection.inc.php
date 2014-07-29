@@ -129,6 +129,7 @@ class DBConnection {
 	 */
 	function connect() {
 		if ($this->persistent) {
+			error_log("PERSIST CONN. HOST: $this->host\nUSERNAME: $this->username\nPASSWORD: $this->password\nDATABASENAME: $this->databaseName\n");
 			$this->connected = $this->dbconn->PConnect(
 				$this->host,
 				$this->username,
@@ -137,7 +138,7 @@ class DBConnection {
 			);
 
 		} else {
-			error_log("HOST: $this->host\nUSERNAME: $this->username\nPASSWORD: $this->password\nDATABASENAME: $this->databaseName\n");
+			error_log("NOT PERSIST. HOST: $this->host\nUSERNAME: $this->username\nPASSWORD: $this->password\nDATABASENAME: $this->databaseName\n");
 			$this->connected = $this->dbconn->Connect(
 				$this->host,
 				$this->username,

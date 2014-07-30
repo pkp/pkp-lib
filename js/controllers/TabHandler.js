@@ -216,7 +216,7 @@
 	};
 
 	/**
-	 * Callback that that is triggered before the tab is loaded
+	 * Callback that that is triggered before the tab is loaded.
 	 *
 	 * @param {HTMLElement} tabsElement The tab element that triggered
 	 *  the event.
@@ -225,6 +225,8 @@
 	 */
 	$.pkp.controllers.TabHandler.prototype.beforeLoad =
 			function(tabsElement, event, ui) {
+
+		// Initialize AJAX settings for loading tab content remotely
 		ui.ajaxSettings.cache = false;
 		ui.ajaxSettings.dataFilter = this.callbackWrapper(this.dataFilter);
 	};

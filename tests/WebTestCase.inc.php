@@ -155,6 +155,10 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 		$this->click('//span[text()=\'Register\']/..');
 		$this->waitForElementPresent('link=Logout');
 		$this->waitJQuery();
+
+		if (in_array('Author', $data['roles'])) {
+			$this->waitForText('css=h3', 'My Authored Submissions');
+		}
 	}
 
 	/**

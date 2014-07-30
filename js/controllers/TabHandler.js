@@ -35,6 +35,7 @@
 		this.bind('tabsbeforeactivate', this.tabsBeforeActivate);
 		this.bind('tabsactivate', this.tabsActivate);
 		this.bind('tabscreate', this.tabsCreate);
+		this.bind('tabsbeforeload', this.tabsBeforeLoad);
 		this.bind('tabsload', this.tabsLoad);
 		this.bind('containerReloadRequested', this.tabsReloadRequested);
 		this.bind('addTab', this.addTab);
@@ -223,7 +224,7 @@
 	 * @param {Event} event The triggered event.
 	 * @param {Object} ui The tabs ui data.
 	 */
-	$.pkp.controllers.TabHandler.prototype.beforeLoad =
+	$.pkp.controllers.TabHandler.prototype.tabsBeforeLoad =
 			function(tabsElement, event, ui) {
 
 		// Initialize AJAX settings for loading tab content remotely

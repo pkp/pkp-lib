@@ -24,15 +24,15 @@ sudo apt-get install a2ps
 echo "This is a test" | a2ps -o - | ps2pdf - ~/dummy.pdf
 
 # Create the database.
-if [[ "$DB" == "pgsql" ]]; then
+if [[ "$TEST" == "pgsql" ]]; then
 	psql -c "CREATE DATABASE \"ojs-ci\";" -U postgres
 	psql -c "CREATE USER \"ojs-ci\" WITH PASSWORD 'ojs-ci';" -U postgres
 	psql -c "GRANT ALL PRIVILEGES ON DATABASE \"ojs-ci\" TO \"ojs-ci\";" -U postgres
-	export DBTYPE=MySQL
-elif [[ "$DB" == "mysql" ]]; then
+	export DBTYPE=PostgreSQL
+elif [[ "$TEST" == "mysql" ]]; then
 	mysql -u root -e 'CREATE DATABASE `ojs-ci` DEFAULT CHARACTER SET utf8'
 	mysql -u root -e "GRANT ALL ON \`ojs-ci\`.* TO \`ojs-ci\`@localhost IDENTIFIED BY 'ojs-ci'"
-	export DBTYPE=PostgreSQL
+	export DBTYPE=MySQL
 fi
 
 # Prep files

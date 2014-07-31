@@ -44,10 +44,8 @@
 		// FIXME *7610*: IE8 can't handle well ordering in both categories and
 		// category rows.
 		userAgent = navigator.userAgent.toLowerCase();
-		if (
-			/msie/.test(userAgent) &&
-			parseInt(userAgent.substr(userAgent.indexOf('msie') + 5, 1), 10) <= 8
-		) {
+		if (/msie/.test(userAgent) &&
+				parseInt(userAgent.substr(userAgent.indexOf('msie') + 5, 1), 10) <= 8) {
 			return;
 		}
 

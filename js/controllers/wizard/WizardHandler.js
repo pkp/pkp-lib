@@ -445,10 +445,10 @@
 	 * @return {jQueryObject?} The form (if any).
 	 */
 	$.pkp.controllers.wizard.WizardHandler.prototype.getForm_ = function() {
-		var i, $element;
+		var i, $element, $tabContent;
 
 		// If we find a form in the current tab then return it.
-		var $tabContent = this.getCurrentTab().children();
+		$tabContent = this.getCurrentTab().children();
 		for (i = 0; i < $tabContent.length; i++) {
 			$element = $($tabContent[i]);
 			if ($element.is('form')) {

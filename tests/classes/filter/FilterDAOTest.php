@@ -48,7 +48,7 @@ class FilterDAOTest extends DatabaseTestCase {
 
 		// Install a test filter object.
 		$settings = array('seq' => '1', 'some-key' => 'some-value');
-		$testFilter =& $filterDao->configureObject('lib.pkp.tests.classes.filter.PersistableTestFilter', 'test-filter-group', $settings, false, 9999);
+		$testFilter = $filterDao->configureObject('lib.pkp.tests.classes.filter.PersistableTestFilter', 'test-filter-group', $settings, false, 9999);
 		self::assertInstanceOf('PersistableFilter', $testFilter);
 		$filterId = $testFilter->getId();
 		self::assertTrue(is_integer($filterId));

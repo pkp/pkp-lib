@@ -16,5 +16,5 @@ export DISPLAY=":99.0" # Travis init script for xvfb specifies this
 # Start Selenium server.
 wget http://selenium-release.storage.googleapis.com/2.42/selenium-server-standalone-2.42.2.jar
 nohup java -jar selenium-server-standalone-2.42.2.jar -browserSessionReuse >> selenium-output &
-sleep 5 # Give time for Selenium to start
+sleep 10 # Give time for Selenium to start
 mkdir screenshots

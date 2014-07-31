@@ -9,7 +9,7 @@
 # Script to prepare the webserver for Travis testing.
 #
 
-set -e
+set -xe
 
 # Start apache and configure a virtual host.
 sudo apt-get update > /dev/null

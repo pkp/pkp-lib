@@ -9,7 +9,7 @@
 # Script to run data build, unit, and integration tests.
 #
 
-set -e
+set -xe
 
 export DUMMYFILE=~/dummy.pdf
 export BASEURL="http://localhost"

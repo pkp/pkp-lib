@@ -9,7 +9,7 @@
 # Script to validate all XML files in the repository (unless excluded).
 #
 
-set -e # Fail on first error
+set -xe # Fail on first error
 
 # Search for all XML files in the current directory
 REPOSITORY_DIR="."

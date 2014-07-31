@@ -11,13 +11,13 @@
 
 set -e
 
-DUMMYFILE=~/dummy.pdf
-BASEURL="http://localhost"
-DBHOST=localhost
-DBNAME=ojs-ci
-DBUSERNAME=ojs-ci
-DBPASSWORD=ojs-ci
-FILESDIR=files
+export DUMMYFILE=~/dummy.pdf
+export BASEURL="http://localhost"
+export DBHOST=localhost
+export DBNAME=ojs-ci
+export DBUSERNAME=ojs-ci
+export DBPASSWORD=ojs-ci
+export FILESDIR=files
 
 # Generate a sample PDF file to use for testing.
 sudo apt-get install a2ps
@@ -28,11 +28,11 @@ if [[ "$DB" == "pgsql" ]]; then
 	psql -c "CREATE DATABASE \"ojs-ci\";" -U postgres
 	psql -c "CREATE USER \"ojs-ci\" WITH PASSWORD 'ojs-ci';" -U postgres
 	psql -c "GRANT ALL PRIVILEGES ON DATABASE \"ojs-ci\" TO \"ojs-ci\";" -U postgres
-	DBTYPE=MySQL
+	export DBTYPE=MySQL
 elif [[ "$DB" == "mysql" ]]; then
 	mysql -u root -e 'CREATE DATABASE `ojs-ci` DEFAULT CHARACTER SET utf8'
 	mysql -u root -e "GRANT ALL ON \`ojs-ci\`.* TO \`ojs-ci\`@localhost IDENTIFIED BY 'ojs-ci'"
-	DBTYPE=PostgreSQL
+	export DBTYPE=PostgreSQL
 fi
 
 # Prep files

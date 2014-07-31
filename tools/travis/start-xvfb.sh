@@ -9,7 +9,7 @@
 # Script to install and start xvfb.
 #
 
-set -e
+set -xe
 
 # Xvfb requirements.
 sudo apt-get install -y x11-xkb-utils

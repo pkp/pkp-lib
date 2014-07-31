@@ -9,7 +9,7 @@
 # Script to install PHPUnit.
 #
 
-set -e
+set -xe
 
 # Install phpunit in a phar package with selenium extension already on it.
 sudo rm -R /home/travis/.phpenv/versions/5.3/bin/phpunit

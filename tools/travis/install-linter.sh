@@ -9,7 +9,7 @@
 # Script to install the JS linter.
 #
 
-set -e
+set -xe
 
 # Install python, linter, closure compiler stuff
 sudo easy_install "http://closure-linter.googlecode.com/files/closure_linter-latest.tar.gz"

@@ -29,7 +29,17 @@ class DBConnectionTest extends DatabaseTestCase {
 	public function testInitDefaultDBConnection() {
 		$conn = new DBConnection();
 		$dbConn = $conn->getDBConn();
-		self::assertInstanceOf('ADODB_mysql', $dbConn);
+		switch (Config::getVar('database', 'driver')) {
+			case 'mysql':
+				self::assertInstanceOf('ADODB_mysql', $dbConn);
+				break;
+			case 'postgres':
+				self::assertInstanceOf('ADODB_postgres64', $dbConn);
+				break;
+			default:
+				$this->fail('Unknown DB driver.');
+				return false;
+		}
 		$conn->disconnect();
 		unset($conn);
 	}

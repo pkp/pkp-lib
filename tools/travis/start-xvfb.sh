@@ -19,6 +19,5 @@ sudo apt-get install -y defoma x-ttcidfont-conf cabextract ttf-mscorefonts-insta
 sudo dpkg-reconfigure --default-priority x-ttcidfont-conf
 mkfontdir
 # Start Virtual Framebuffer to imitate a monitor.
-sudo Xvfb :10 -ac > xvfb-output &
-export DISPLAY=:10
-sleep 10 # Give xvfb time to start.
+sh -e /etc/init.d/xvfb start
+sleep 5 # Give xvfb time to start.

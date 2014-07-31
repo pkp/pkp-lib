@@ -21,4 +21,4 @@ mkfontdir
 # Start Virtual Framebuffer to imitate a monitor.
 sudo Xvfb :10 -ac > xvfb-output &
 export DISPLAY=:10
-sleep 3 # Give xvfb time to start.
+sleep 10 # Give xvfb time to start.

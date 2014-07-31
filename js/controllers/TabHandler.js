@@ -96,6 +96,7 @@
 	 */
 	$.pkp.controllers.TabHandler.prototype.$currentTab_ = null;
 
+
 	/**
 	 * The current tab index.
 	 * @private
@@ -121,7 +122,7 @@
 	 * @param {HTMLElement} tabsElement The tab element that triggered
 	 *  the event.
 	 * @param {Event} event The triggered event.
-	 * @param {Object} ui The tabs ui data.
+	 * @param {jQueryObject} ui The tabs ui data.
 	 * @return {boolean} Should return true to continue tab loading.
 	 */
 	$.pkp.controllers.TabHandler.prototype.tabsBeforeActivate =
@@ -160,13 +161,14 @@
 		return true;
 	};
 
+
 	/**
 	 * Event handler that is called when a tab is created.
 	 *
 	 * @param {HTMLElement} tabsElement The tab element that triggered
 	 *  the event.
 	 * @param {Event} event The triggered event.
-	 * @param {{panel: jQueryObject}} ui The tabs ui data.
+	 * @param {jQueryObject} ui The tabs ui data.
 	 * @return {boolean} Should return true to continue tab loading.
 	 */
 	$.pkp.controllers.TabHandler.prototype.tabsCreate =
@@ -181,13 +183,14 @@
 		return true;
 	};
 
+
 	/**
 	 * Event handler that is called when a tab is activated
 	 *
 	 * @param {HTMLElement} tabsElement The tab element that triggered
 	 *  the event.
 	 * @param {Event} event The triggered event.
-	 * @param {{panel: jQueryObject}} ui The tabs ui data.
+	 * @param {jQueryObject} ui The tabs ui data.
 	 * @return {boolean} Should return true to continue tab loading.
 	 */
 	$.pkp.controllers.TabHandler.prototype.tabsActivate =
@@ -202,13 +205,14 @@
 		return true;
 	};
 
+
 	/**
 	 * Event handler that is called after a remote tab was loaded.
 	 *
 	 * @param {HTMLElement} tabsElement The tab element that triggered
 	 *  the event.
 	 * @param {Event} event The triggered event.
-	 * @param {Object} ui The tabs ui data.
+	 * @param {jQueryObject} ui The tabs ui data.
 	 * @return {boolean} Should return true to continue tab loading.
 	 */
 	$.pkp.controllers.TabHandler.prototype.tabsLoad =
@@ -216,13 +220,14 @@
 		return true;
 	};
 
+
 	/**
 	 * Callback that that is triggered before the tab is loaded.
 	 *
 	 * @param {HTMLElement} tabsElement The tab element that triggered
 	 *  the event.
 	 * @param {Event} event The triggered event.
-	 * @param {Object} ui The tabs ui data.
+	 * @param {jQueryObject} ui The tabs ui data.
 	 */
 	$.pkp.controllers.TabHandler.prototype.tabsBeforeLoad =
 			function(tabsElement, event, ui) {
@@ -231,6 +236,7 @@
 		ui.ajaxSettings.cache = false;
 		ui.ajaxSettings.dataFilter = this.callbackWrapper(this.dataFilter);
 	};
+
 
 	/**
 	 * Callback that processes AJAX data returned by the server before

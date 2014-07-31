@@ -37,3 +37,8 @@ function JSON() {};
  * @param {Object} param1
  */
 JSON.stringify = function(param1) {};
+
+/**
+ * @constructor
+ */
+function PNotify(param1) {};

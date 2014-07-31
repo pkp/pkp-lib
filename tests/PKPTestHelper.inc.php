@@ -24,15 +24,26 @@ abstract class PKPTestHelper {
 	 */
 	public static function backupTables($tables, $test) {
 		$dao = new DAO();
+		$driver = Config::getVar('database', 'driver');
 		foreach ($tables as $table) {
+			switch ($driver) {
+				case 'mysql':
+					$createLikeSql = "CREATE TABLE backup_$table LIKE $table";
+					break;
+				case 'postgres':
+					$createLikeSql = "CREATE TABLE backup_$table (LIKE $table)";
+					break;
+				default:
+					$test->fail("Unknown driver \"$driver\"");
+					return;
+			}
+
 			$sqls = array(
-				"ALTER TABLE $table RENAME TO backup_$table",
-				"CREATE TABLE $table LIKE backup_$table",
-				"INSERT INTO $table SELECT * FROM backup_$table"
+				$createLikeSql,
+				"INSERT INTO backup_$table SELECT * FROM $table"
 			);
 			foreach ($sqls as $sql) {
 				if (!$dao->update($sql, false, true, false)) {
-					self::restoreTables($tables, $test);
 					$test->fail("Error while backing up $table: offending SQL is '$sql'");
 				}
 			}
@@ -48,14 +59,12 @@ abstract class PKPTestHelper {
 		$dao = new DAO();
 		foreach ($tables as $table) {
 			$sqls = array(
-				"ALTER TABLE $table RENAME TO temp_$table",
-				"ALTER TABLE backup_$table RENAME TO $table",
-				"DROP TABLE temp_$table" // Only drop original table if we're sure that we really had a backup!
+				"TRUNCATE TABLE $table",
+				"INSERT INTO $table SELECT * FROM backup_$table",
+				"DROP TABLE backup_$table"
 			);
 			foreach ($sqls as $sql) {
 				if (!$dao->update($sql, false, true, false)) {
-					// Try to reset to the prior state before giving up.;
-					$dao->update("ALTER TABLE temp_$table RENAME TO $table");
 					$test->fail("Error while restoring $table: offending SQL is '$sql'");
 				}
 			}

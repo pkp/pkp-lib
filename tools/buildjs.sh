@@ -1,7 +1,6 @@
 #!/bin/bash
 
-#
-# buildjs.sh
+# @file tools/buildjs.sh
 #
 # Copyright (c) 2014 Simon Fraser University Library
 # Copyright (c) 2010-2014 John Willinsky

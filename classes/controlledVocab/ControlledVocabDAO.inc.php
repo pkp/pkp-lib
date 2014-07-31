@@ -59,17 +59,18 @@ class ControlledVocabDAO extends DAO {
 	 * @return $controlledVocab
 	 */
 	function build($symbolic, $assocType = 0, $assocId = 0) {
-		// If one exists, fetch and return.
-		$controlledVocab = $this->getBySymbolic($symbolic, $assocType, $assocId);
-		if ($controlledVocab) return $controlledVocab;
-
-		// Otherwise, build one.
+		// Attempt to build a new controlled vocabulary.
 		$controlledVocab = $this->newDataObject();
 		$controlledVocab->setSymbolic($symbolic);
 		$controlledVocab->setAssocType($assocType);
 		$controlledVocab->setAssocId($assocId);
-		$this->insertObject($controlledVocab);
-		return $controlledVocab;
+		$id = $this->insertObject($controlledVocab, false);
+		if ($id !== null) return $controlledVocab;
+
+		// Presume that an error was a duplicate insert.
+		// In this case, try to fetch an existing controlled
+		// vocabulary.
+		return $this->getBySymbolic($symbolic, $assocType, $assocId);
 	}
 
 	/**
@@ -98,10 +99,10 @@ class ControlledVocabDAO extends DAO {
 	/**
 	 * Insert a new ControlledVocab.
 	 * @param $controlledVocab ControlledVocab
-	 * @return int
+	 * @return int? New insert ID on insert, or null on error
 	 */
-	function insertObject(&$controlledVocab) {
-		$this->update(
+	function insertObject($controlledVocab, $dieOnError = true) {
+		$success = $this->update(
 			sprintf('INSERT INTO controlled_vocabs
 				(symbolic, assoc_type, assoc_id)
 				VALUES
@@ -110,10 +111,15 @@ class ControlledVocabDAO extends DAO {
 				$controlledVocab->getSymbolic(),
 				(int) $controlledVocab->getAssocType(),
 				(int) $controlledVocab->getAssocId()
-			)
+			),
+			true, // callHooks
+			$dieOnError
 		);
-		$controlledVocab->setId($this->getInsertId());
-		return $controlledVocab->getId();
+		if ($success) {
+			$controlledVocab->setId($this->getInsertId());
+			return $controlledVocab->getId();
+		}
+		else return null; // An error occurred on insert
 	}
 
 	/**

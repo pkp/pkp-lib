@@ -42,36 +42,7 @@
 		countryRequired=true
 	}
 
-	{if $currentContext && ($allowRegAuthor || $allowRegReviewer)}
-		{fbvFormSection label="user.register.registerAs" list="true"}
-			{if $allowRegAuthor}
-				{iterate from=authorUserGroups item=userGroup}
-					{assign var="userGroupId" value=$userGroup->getId()}
-					{if in_array($userGroup->getId(), $userGroupIds)}
-						{assign var="checked" value=true}
-					{else}
-						{assign var="checked" value=false}
-					{/if}
-					{if $userGroup->getPermitSelfRegistration()}
-						{fbvElement type="checkbox" id="authorGroup-$userGroupId" name="authorGroup[$userGroupId]" checked=$checked label=$userGroup->getLocalizedName() translate=false}
-					{/if}
-				{/iterate}
-			{/if}
-			{if $allowRegReviewer}
-				{iterate from=reviewerUserGroups item=userGroup}
-					{assign var="userGroupId" value=$userGroup->getId()}
-					{if in_array($userGroup->getId(), $userGroupIds)}
-						{assign var="checked" value=true}
-					{else}
-						{assign var="checked" value=false}
-					{/if}
-					{if $userGroup->getPermitSelfRegistration()}
-						{fbvElement type="checkbox" id="reviewerGroup-$userGroupId" name="reviewerGroup[$userGroupId]" checked=$checked label=$userGroup->getLocalizedName() translate=false}
-					{/if}
-				{/iterate}
-			{/if}
-		{/fbvFormSection}
-	{/if}
+	{include file="user/userGroups.tpl"}
 
 	{** FIXME 6760: Fix profile image uploads
 	{fbvFormSection id="profileImage" label="user.profile.form.profileImage"}

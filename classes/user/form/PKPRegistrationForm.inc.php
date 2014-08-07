@@ -16,9 +16,9 @@
  * @brief Form for user registration.
  */
 
-import('lib.pkp.classes.form.Form');
+import('lib.pkp.classes.user.form.PKPUserForm');
 
-class PKPRegistrationForm extends Form {
+class PKPRegistrationForm extends PKPUserForm {
 
 	/** @var boolean user is already registered with another context */
 	var $existingUser;
@@ -36,7 +36,7 @@ class PKPRegistrationForm extends Form {
 	 * Constructor.
 	 */
 	function PKPRegistrationForm($site, $existingUser = false) {
-		parent::Form('user/register.tpl');
+		parent::PKPUserForm('user/register.tpl');
 		$this->implicitAuth = Config::getVar('security', 'implicit_auth');
 
 		if ($this->implicitAuth) {
@@ -60,13 +60,15 @@ class PKPRegistrationForm extends Form {
 				$this->addCheck(new FormValidatorAlphaNum($this, 'username', 'required', 'user.register.form.usernameAlphaNumeric'));
 				$this->addCheck(new FormValidatorLength($this, 'password', 'required', 'user.register.form.passwordLengthTooShort', '>=', $site->getMinPasswordLength()));
 				$this->addCheck(new FormValidatorCustom($this, 'password', 'required', 'user.register.form.passwordsDoNotMatch', create_function('$password,$form', 'return $password == $form->getData(\'password2\');'), array(&$this)));
-				$this->addCheck(new FormValidator($this, 'firstName', 'required', 'user.profile.form.firstNameRequired'));
-				$this->addCheck(new FormValidator($this, 'lastName', 'required', 'user.profile.form.lastNameRequired'));
-				$this->addCheck(new FormValidatorUrl($this, 'userUrl', 'optional', 'user.profile.form.urlInvalid'));
+
+				// Add base user form checks (first name, last name, ...)
+				$this->_addBaseUserFieldChecks();
+
+				// Email checks
 				$this->addCheck(new FormValidatorEmail($this, 'email', 'required', 'user.profile.form.emailRequired'));
 				$this->addCheck(new FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailsDoNotMatch', create_function('$email,$form', 'return $email == $form->getData(\'confirmEmail\');'), array(&$this)));
 				$this->addCheck(new FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailExists', array(DAORegistry::getDAO('UserDAO'), 'userExistsByEmail'), array(), true));
-				$this->addCheck(new FormValidator($this, 'country', 'required', 'user.profile.form.countryRequired'));
+
 				if ($this->captchaEnabled) {
 					$this->addCheck(new FormValidatorReCaptcha($this, 'recaptcha_challenge_field', 'recaptcha_response_field', Request::getRemoteAddr(), 'common.captchaField.badCaptcha'));
 				}
@@ -78,8 +80,6 @@ class PKPRegistrationForm extends Form {
 				}
 			}
 		}
-
-		$this->addCheck(new FormValidatorPost($this));
 	}
 
 	/**
@@ -100,103 +100,52 @@ class PKPRegistrationForm extends Form {
 			$templateMgr->assign('captchaEnabled', true);
 		}
 
-		$countryDao = DAORegistry::getDAO('CountryDAO');
-		$countries = $countryDao->getCountries();
-		$templateMgr->assign('countries', $countries);
-
-		$userDao = DAORegistry::getDAO('UserDAO');
-		$templateMgr->assign('genderOptions', $userDao->getGenderOptions());
-
 		if ($context) {
-			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-
-			$templateMgr->assign('reviewerUserGroups', $userGroupDao->getByRoleId($context->getId(), ROLE_ID_REVIEWER));
-			$templateMgr->assign('authorUserGroups', $userGroupDao->getByRoleId($context->getId(), ROLE_ID_AUTHOR));
-
 			$templateMgr->assign('privacyStatement', $context->getLocalizedSetting('privacyStatement'));
-			$templateMgr->assign('allowRegAuthor', $context->getSetting('allowRegAuthor'));
-			$templateMgr->assign('allowRegReviewer', $context->getSetting('allowRegReviewer'));
 		}
 
 		$templateMgr->assign('source', $request->getUserVar('source'));
 
-		$site = $request->getSite();
-		$templateMgr->assign('availableLocales', $site->getSupportedLocaleNames());
-
 		parent::display($request);
-	}
-
-	/**
-	 * @see Form::getLocaleFieldNames
-	 */
-	function getLocaleFieldNames() {
-		$userDao = DAORegistry::getDAO('UserDAO');
-		return $userDao->getLocaleFieldNames();
 	}
 
 	/**
 	 * Initialize default data.
 	 */
 	function initData() {
-		$this->setData('existingUser', $this->existingUser);
-		$this->setData('userLocales', array());
-		$this->setData('sendPassword', false);
+		$this->_data = array(
+			'existingUser' => $this->existingUser,
+			'userLocales' => array(),
+			'sendPassword' => false,
+			'userGroupIds' => array(),
+		);
 	}
 
 	/**
 	 * Assign form data to user-submitted data.
 	 */
 	function readInputData() {
-		$userVars = array(
+		parent::readInputData();
+
+		$this->readUserVars(array(
 			'username',
 			'password',
 			'password2',
-			'salutation',
-			'firstName',
-			'middleName',
-			'lastName',
-			'suffix',
-			'gender',
-			'initials',
-			'country',
-			'affiliation',
-			'email',
 			'confirmEmail',
-			'userUrl',
-			'phone',
-			'fax',
-			'signature',
-			'reviewerGroup',
-			'authorGroup',
-			'mailingAddress',
-			'biography',
-			'interestsTextOnly',
-			'keywords',
-			'userLocales',
-			'registerAsReviewer',
 			'existingUser',
 			'sendPassword'
-		);
+		));
+
 		if ($this->captchaEnabled) {
-			$userVars[] = 'recaptcha_challenge_field';
-			$userVars[] = 'recaptcha_response_field';
-		}
-
-		$this->readUserVars($userVars);
-
-		if ($this->getData('userLocales') == null || !is_array($this->getData('userLocales'))) {
-			$this->setData('userLocales', array());
+			$this->readUserVars(array(
+				'recaptcha_challenge_field',
+				'recaptcha_response_field',
+			));
 		}
 
 		if ($this->getData('username') != null) {
 			// Usernames must be lowercase
 			$this->setData('username', strtolower($this->getData('username')));
-		}
-
-		$keywords = $this->getData('keywords');
-		if ($keywords != null && is_array($keywords['interests'])) {
-			// The interests are coming in encoded -- Decode them for DB storage
-			$this->setData('interestsKeywords', array_map('urldecode', $keywords['interests']));
 		}
 	}
 
@@ -227,35 +176,12 @@ class PKPRegistrationForm extends Form {
 			$user = $userDao->newDataObject();
 
 			$user->setUsername($this->getData('username'));
-			$user->setSalutation($this->getData('salutation'));
-			$user->setFirstName($this->getData('firstName'));
-			$user->setMiddleName($this->getData('middleName'));
-			$user->setInitials($this->getData('initials'));
-			$user->setLastName($this->getData('lastName'));
-			$user->setSuffix($this->getData('suffix'));
-			$user->setGender($this->getData('gender'));
-			$user->setAffiliation($this->getData('affiliation'), null); // Localized
-			$user->setSignature($this->getData('signature'), null); // Localized
-			$user->setEmail($this->getData('email'));
-			$user->setUrl($this->getData('userUrl'));
-			$user->setPhone($this->getData('phone'));
-			$user->setFax($this->getData('fax'));
-			$user->setMailingAddress($this->getData('mailingAddress'));
-			$user->setBiography($this->getData('biography'), null); // Localized
+
+			// Set the base user fields (name, etc.)
+			$this->_setBaseUserFields($user, $request);
+
 			$user->setDateRegistered(Core::getCurrentDate());
-			$user->setCountry($this->getData('country'));
 			$user->setInlineHelp(1); // default new users to having inline help visible.
-
-			$site = $request->getSite();
-			$availableLocales = $site->getSupportedLocales();
-
-			$locales = array();
-			foreach ($this->getData('userLocales') as $locale) {
-				if (AppLocale::isLocaleValid($locale) && in_array($locale, $availableLocales)) {
-					array_push($locales, $locale);
-				}
-			}
-			$user->setLocales($locales);
 
 			if (isset($this->defaultAuth)) {
 				$user->setPassword($this->getData('password'));
@@ -278,55 +204,15 @@ class PKPRegistrationForm extends Form {
 				return false;
 			}
 
-			// Insert the user interests
-			$interests = $this->getData('interestsKeywords') ? $this->getData('interestsKeywords') : $this->getData('interestsTextOnly');
-			import('lib.pkp.classes.user.InterestManager');
-			$interestManager = new InterestManager();
-			$interestManager->setInterestsForUser($user, $interests);
+			$this->_updateUserInterests($user);
 
+			// Associate the new user with the existing session
 			$sessionManager = SessionManager::getManager();
 			$session = $sessionManager->getUserSession();
 			$session->setSessionVar('username', $user->getUsername());
 		}
 
-		// User Groups
-		$application = PKPApplication::getApplication();
-		$request = $application->getRequest();
-		$context = $request->getContext();
-		if ($context) {
-			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-			if ($context->getSetting('allowRegReviewer')) {
-				$reviewerGroup = $this->getData('reviewerGroup');
-				$reviewerUserGroups = $userGroupDao->getByRoleId($context->getId(), ROLE_ID_REVIEWER);
-				$reviewerUserGroups = $reviewerUserGroups->toAssociativeArray();
-
-				if (is_array($reviewerGroup)) {
-					foreach ($reviewerGroup as $groupId => $wantsGroup ) {
-						// Validate group id.
-						if (!isset($reviewerUserGroups[$groupId])) {
-							fatalError('Invalid user group id!');
-						}
-						if ($wantsGroup && $reviewerUserGroups[$groupId]->getPermitSelfRegistration()) $userGroupDao->assignUserToGroup($userId, $groupId, $context->getId());
-					}
-				}
-			}
-
-			if ($context->getSetting('allowRegAuthor')) {
-				$authorGroup = $this->getData('authorGroup');
-				$authorUserGroups = $userGroupDao->getByRoleId($context->getId(), ROLE_ID_AUTHOR);
-				$authorUserGroups = $authorUserGroups->toAssociativeArray();
-
-				if (isset($authorGroup)) {
-					// Validate group id.
-					if (!isset($authorUserGroups[$authorGroup])) {
-						fatalError('Invalid user group id!');
-					}
-					if ($authorUserGroups[$authorGroup]->getPermitSelfRegistration()) {
-						$userGroupDao->assignUserToGroup($userId, $authorGroup, $context->getId());
-					}
-				}
-			}
-		}
+		$this->_updateUserGroups($user);
 
 		if (!$this->existingUser) {
 			import('lib.pkp.classes.mail.MailTemplate');

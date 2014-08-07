@@ -10,7 +10,8 @@
 
 {fbvFormArea id="userGroups" title="user.roles" class=border}
 	{if $currentContext && ($currentContext->getSetting('allowRegAuthor') || $currentContext->getSetting('allowRegReviewer'))}
-		{fbvFormSection label="user.register.registerAs" list="true"}
+		{translate|assign:"userGroupSectionLabel" key="user.register.registerAs" contextName=$currentContext->getLocalizedName()}
+		{fbvFormSection label=$userGroupSectionLabel translate=false list=true}
 			{include file="user/userGroupSelfRegistration.tpl" context=$currentContext authorUserGroups=$authorUserGroups reviewerUserGroups=$reviewerUserGroups}
 		{/fbvFormSection}
 	{/if}

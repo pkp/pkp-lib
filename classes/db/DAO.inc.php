@@ -422,10 +422,21 @@ class DAO {
 		return $value;
 	}
 
+	/**
+	 * Cast the given parameter to an int, or leave it null.
+	 * @param $value mixed
+	 * @return string|null
+	 */
 	function nullOrInt($value) {
 		return (empty($value)?null:(int) $value);
 	}
 
+	/**
+	 * Get a list of additional field names to store in this DAO.
+	 * This can be used to extend the table with virtual "columns",
+	 * typically using the ..._settings table.
+	 * @return array List of strings representing field names.
+	 */
 	function getAdditionalFieldNames() {
 		$returner = array();
 		// Call hooks based on the calling entity, assuming
@@ -437,6 +448,12 @@ class DAO {
 		return $returner;
 	}
 
+	/**
+	 * Get locale field names. Like getAdditionalFieldNames, but for
+	 * localized (multilingual) fields.
+	 * @see getAdditionalFieldNames
+	 * @return array Array of string field names.
+	 */
 	function getLocaleFieldNames() {
 		$returner = array();
 		// Call hooks based on the calling entity, assuming
@@ -540,6 +557,13 @@ class DAO {
 		}
 	}
 
+	/**
+	 * Get contents of the _settings table, storing entries in the specified
+	 * data object.
+	 * @param $tableName string Settings table name
+	 * @param $idFieldName string Name of ID column
+	 * @param $dataObject DataObject Object in which to store retrieved values
+	 */
 	function getDataObjectSettings($tableName, $idFieldName, $idFieldValue, &$dataObject) {
 		if ($idFieldName !== null) {
 			$sql = "SELECT * FROM $tableName WHERE $idFieldName = ?";

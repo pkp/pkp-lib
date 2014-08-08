@@ -33,11 +33,11 @@
 		options.notScrollable = true;
 		this.parent($wizard, options);
 
-		// Start the wizard.
-		this.startWizard();
-
 		// Add the wizard buttons
 		this.addWizardButtons_($wizard, options);
+
+		// Start the wizard.
+		this.startWizard();
 
 		// Bind the wizard events to handlers.
 		this.bindWizardEvents();
@@ -296,7 +296,7 @@
 		$wizard.tabs('enable', targetStep);
 
 		// Advance to the target step.
-		$wizard.tabs('select', targetStep);
+		$wizard.tabs('option', 'active', targetStep);
 
 		// Disable the previous step.
 		$wizard.tabs('disable', currentStep);
@@ -334,7 +334,7 @@
 			$wizard.tabs('enable', 0);
 
 			// Go to the first step.
-			$wizard.tabs('select', 0);
+			$wizard.tabs('option', 'active', 0);
 
 			// Reset the continue button label.
 			$continueButton = this.getContinueButton();
@@ -445,10 +445,15 @@
 	 * @return {jQueryObject?} The form (if any).
 	 */
 	$.pkp.controllers.wizard.WizardHandler.prototype.getForm_ = function() {
+		var i, $element, $tabContent;
+
 		// If we find a form in the current tab then return it.
-		var $tabContent = this.getCurrentTab().children().first();
-		if ($tabContent.is('form')) {
-			return $tabContent;
+		$tabContent = this.getCurrentTab().children();
+		for (i = 0; i < $tabContent.length; i++) {
+			$element = $($tabContent[i]);
+			if ($element.is('form')) {
+				return $element;
+			}
 		}
 
 		return null;

@@ -91,21 +91,9 @@
 		// Identify if there is a scrollable parent.
 		$scrollable = $widgetWrapper.closest('.scrollable');
 		if ($scrollable.size() > 0) {
-
 			// Scroll the parent so that all extra content in
 			// extras container is visible.
-			if ($.browser.msie && parseInt(
-					$.browser.version.substring(0, 1), 10) <= 7) {
-
-				// IE7 is old and slow and returns before repainting everything,
-				// so wait half a second for the page to repaint before going on.
-				setTimeout(function() {this.scrollToMakeVisible_(
-						$widgetWrapper, $scrollable);}, 500);
-			} else {
-
-				// Other browsers can proceed immediately.
-				this.scrollToMakeVisible_($widgetWrapper, $scrollable);
-			}
+			this.scrollToMakeVisible_($widgetWrapper, $scrollable);
 		}
 	};
 

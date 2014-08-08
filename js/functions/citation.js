@@ -336,14 +336,7 @@ function extrasOnDemand(actOnId) {
 		// Change the header icon into a triangle pointing downwards.
 		$(actOnId + ' .ui-icon').removeClass('ui-icon-triangle-1-e').addClass('ui-icon-triangle-1-s');
 		// Scroll the parent so that all extra options are visible.
-		if ($.browser.msie && parseInt($.browser.version.substring(0,1), 10) <= 7) {
-			// IE7 is old and slow and returns before repainting everything,
-			// so wait half a second for the page to repaint before going on.
-			setTimeout(function(){scrollToMakeVisible(actOnId)}, 500);
-		} else {
-			// Other browsers can proceed immediately.
-			scrollToMakeVisible(actOnId);
-		}
+		scrollToMakeVisible(actOnId);
 	}
 
 	/**
@@ -475,53 +468,45 @@ function scrollToMakeVisible(actOnId) {
 	 */
 	$(function() {
 		var userAgent = navigator.userAgent.toLowerCase();
-		$.browser.chrome = /chrome/.test(navigator.userAgent.toLowerCase());
 
 		// Is this a version of IE?
-		if($.browser.msie){
+		if (/msie/.test(userAgent)) {
 			$('body').addClass('browserIE');
 
 			// Add the version number
-			$('body').addClass('browserIE' + $.browser.version.substring(0,1));
+			userAgent = userAgent.substr(userAgent.indexOf('msie') + 5, 1);
+			$('body').addClass('browserIE' + userAgent);
 		}
 
-
 		// Is this a version of Chrome?
-		if($.browser.chrome){
-
+		else if (/chrome/.test(userAgent)) {
 			$('body').addClass('browserChrome');
 
 			//Add the version number
-			userAgent = userAgent.substring(userAgent.indexOf('chrome/') +7);
-			userAgent = userAgent.substring(0,1);
+			userAgent = userAgent.substr(userAgent.indexOf('chrome/') + 7, 1);
 			$('body').addClass('browserChrome' + userAgent);
-
-			// If it is chrome then jQuery thinks it's safari so we have to tell it it isn't
-			$.browser.safari = false;
 		}
 
 		// Is this a version of Safari?
-		if($.browser.safari) {
+		else if (/safari/.test(userAgent)) {
 			$('body').addClass('browserSafari');
 
 			// Add the version number
-			userAgent = userAgent.substring(userAgent.indexOf('version/') +8);
-			userAgent = userAgent.substring(0,1);
+			userAgent = userAgent.substr(userAgent.indexOf('version/') + 8, 1);
 			$('body').addClass('browserSafari' + userAgent);
 		}
 
 		// Is this a version of Mozilla?
-		if($.browser.mozilla) {
-
+		else if (/mozilla/.test(userAgent)) {
 			// Is it Firefox?
-			if(navigator.userAgent.toLowerCase().indexOf('firefox') != -1) {
+			if (/firefox/.test(userAgent)) {
 				$('body').addClass('browserFirefox');
 
 				// Add the version number
-				userAgent = userAgent.substring(userAgent.indexOf('firefox/') +8);
-				userAgent = userAgent.substring(0,1);
+				userAgent = userAgent.substr(userAgent.indexOf('firefox/') + 8, 1);
 				$('body').addClass('browserFirefox' + userAgent);
 			}
+
 			// If not then it must be another Mozilla
 			else {
 				$('body').addClass('browserMozilla');
@@ -529,9 +514,10 @@ function scrollToMakeVisible(actOnId) {
 		}
 
 		// Is this a version of Opera?
-		if($.browser.opera) {
+		else if (/opera/.test(userAgent)) {
 			$('body').addClass('browserOpera');
 		}
+
 	});
 
 	/**

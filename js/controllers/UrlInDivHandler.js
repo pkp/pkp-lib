@@ -97,7 +97,7 @@
 				this.getHtmlElement().hide();
 			} else {
 				// See bug #8237.
-				if (!jQuery.browser.msie) {
+				if (! /msie/.test(navigator.userAgent.toLowerCase())) {
 					this.getHtmlElement().hide().html(handledJsonData.content).fadeIn(400);
 				} else {
 					this.getHtmlElement().html(handledJsonData.content);

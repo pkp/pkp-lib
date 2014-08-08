@@ -32,8 +32,8 @@
 				{include file="controllers/extrasOnDemand.tpl"
 					id="userGroupExtras"
 					widgetWrapper="#userGroupExtraFormFields"
-					moreDetailsText="user.profile.form.showOtherPresses"
-					lessDetailsText="user.profile.form.hideOtherPresses"
+					moreDetailsText="user.profile.form.showOtherContexts"
+					lessDetailsText="user.profile.form.hideOtherContexts"
 					extraContent=$otherContextContent
 				}
 			</div>

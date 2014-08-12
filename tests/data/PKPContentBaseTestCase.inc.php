@@ -23,6 +23,18 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 	abstract protected function _handleSection($data);
 
 	/**
+	 * Get the number of items in the default submission checklist
+	 * @return int
+	 */
+	abstract protected function _getChecklistLength();
+
+	/**
+	 * Get the submission submission element's name
+	 * @return string
+	 */
+	abstract protected function _getSubmissionElementName();
+
+	/**
 	 * Create a submission with the supplied data.
 	 */
 	protected function createSubmission($data) {
@@ -47,8 +59,9 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		// Permit the subclass to handle any series/section data
 		$this->_handleSection($data);
 
-		// By default there are 6 checklist items; check them.
-		for ($i=0; $i<6; $i++) $this->click('id=checklist-' . $i);
+		// Check the default checklist items.
+		$this->waitForElementPresent('id=checklist-0');
+		for ($i=0; $i<$this->_getChecklistLength(); $i++) $this->click('id=checklist-' . $i);
 		$this->click('css=[id^=submitFormButton-]');
 
 		// Page 2: File wizard
@@ -87,7 +100,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 	protected function uploadWizardFile($fileTitle, $file = null) {
 		if (!$file) $file = getenv('DUMMYFILE');
 		$this->waitForElementPresent('id=genreId');
-		$this->select('id=genreId', 'label=Submission');
+		$this->select('id=genreId', 'label=' . $this->_getSubmissionElementName());
 		$this->uploadFile($file);
 		$this->click('id=continueButton');
 		$this->waitForElementPresent('css=[id^=name-]');

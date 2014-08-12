@@ -109,10 +109,11 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	protected function logIn($username, $password) {
 		$this->open(self::$baseUrl);
 		$this->waitForElementPresent('link=Login');
-		$this->click('link=Login');
+		$this->clickAndWait('link=Login');
 		$this->waitForElementPresent('css=[id^=username]');
 		$this->type('css=[id^=username-]', $username);
 		$this->type('css=[id^=password-]', $password);
+		$this->waitForElementPresent('//span[text()=\'Login\']/..');
 		$this->click('//span[text()=\'Login\']/..');
 		$this->waitForTextPresent('Hello,');
 	}

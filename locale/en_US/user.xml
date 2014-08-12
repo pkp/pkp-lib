@@ -45,6 +45,7 @@
 	<message key="user.gossip">Private Notes</message>
 	<message key="user.group">User Group</message>
 	<message key="user.lastName">Last Name</message>
+	<message key="user.login.activated">Thank you for activating your account. You may now log in using the credentials you supplied when you created your account.</message>
 	<message key="user.profile.form.profileImageInvalid">Invalid profile image format or image too big. Accepted formats are .gif, .jpg, or .png, and the image must not exceed 150x150 pixels.</message>
 	<message key="user.login.accountDisabledWithReason">Your account has been disabled for the following reason: {$reason}</message>
 	<message key="user.login.accountDisabled">Your account has been disabled. Please contact the administrator for more information.</message>

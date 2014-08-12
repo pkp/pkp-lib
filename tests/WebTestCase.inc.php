@@ -16,7 +16,11 @@
 import('lib.pkp.tests.PKPTestHelper');
 
 class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
+	/** @var string Base URL provided from environment */
 	static protected $baseUrl;
+
+	/** @var int Timeout limit for tests in seconds */
+	static protected $timeout;
 
 	protected $captureScreenshotOnFailure = true;
 	protected $screenshotPath, $screenshotUrl;
@@ -37,6 +41,8 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	public static function setUpBeforeClass() {
 		// Retrieve and check configuration.
 		self::$baseUrl = getenv('BASEURL');
+		self::$timeout = (int) getenv('TIMEOUT');
+		if (!self::$timeout) self::$timeout = 30; // Default 30 seconds
 		parent::setUpBeforeClass();
 	}
 
@@ -53,6 +59,8 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 				'Please set BASEURL as an environment variable.'
 			);
 		}
+
+		$this->setTimeout(self::$timeout);
 
 		// See PKPTestCase::setUp() for an explanation
 		// of this code.

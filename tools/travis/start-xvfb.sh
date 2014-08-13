@@ -11,6 +11,8 @@
 
 set -xe
 
+export DISPLAY=":99.0" # Travis init script for xvfb specifies this
+
 # Xvfb requirements.
 sudo apt-get install -y x11-xkb-utils
 # Add fonts.

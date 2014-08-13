@@ -16,7 +16,7 @@
 
 import('lib.pkp.classes.plugins.GalleryPlugin');
 
-define('PLUGIN_GALLERY_XML_URL', 'http://localhost/git/ojs/plugins.xml');
+define('PLUGIN_GALLERY_XML_URL', 'http://pkp.sfu.ca/ojs/xml/plugins.xml');
 
 class PluginGalleryDAO extends DAO {
 	/**

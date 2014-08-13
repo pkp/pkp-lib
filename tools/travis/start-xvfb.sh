@@ -20,4 +20,6 @@ sudo dpkg-reconfigure --default-priority x-ttcidfont-conf
 mkfontdir
 # Start Virtual Framebuffer to imitate a monitor.
 sh -e /etc/init.d/xvfb start
-sleep 10 # Give xvfb time to start.
+
+# Wait for xvfb to start.
+until xprop -root; do sleep 1; done

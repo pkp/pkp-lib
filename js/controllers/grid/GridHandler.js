@@ -237,10 +237,12 @@
 	 *
 	 * @param {HTMLElement} sourceElement The element that
 	 *  issued the event.
-	 * @param {Event} event The triggering event.
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.toggleRowActions =
-			function(sourceElement, event) {
+			function(sourceElement) {
+		// Toggle the extras link class.
+		$(sourceElement).toggleClass('show_extras');
+		$(sourceElement).toggleClass('hide_extras');
 
 		// Toggle the row actions.
 		var $controlRow = $(sourceElement).parents('tr').next('.row_controls');
@@ -253,12 +255,7 @@
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.hideAllVisibleRowActions =
 			function() {
-		var $visibleControlRows, index, limit;
-
-		$visibleControlRows = $('.row_controls:visible', this.getHtmlElement());
-		for (index = 0, limit = $visibleControlRows.length; index < limit; index++) {
-			this.applyToggleRowActionEffect_($($visibleControlRows[index]));
-		}
+		this.getHtmlElement().find('a.hide_extras').click();
 	};
 
 
@@ -491,6 +488,11 @@
 		this.activateRowActions_();
 
 		this.setFetchExtraParams({});
+
+		// Control grid row hover background change.
+		this.getHtmlElement().find('tr.gridRow').not('.category').hover(
+				function(){$(this).css('background-color', '#F7F5F4');},
+				function(){$(this).css('background-color', '');});
 
 		this.trigger('gridInitialized');
 	};
@@ -796,7 +798,7 @@
 			function() {
 
 		var $grid = this.getHtmlElement();
-		$grid.find('a.settings').unbind('click').bind('click',
+		$grid.find('a.show_extras').unbind('click').bind('click',
 				this.callbackWrapper(this.toggleRowActions));
 	};
 

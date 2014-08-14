@@ -14,22 +14,19 @@
  */
 
 import('lib.pkp.classes.controllers.grid.CategoryGridHandler');
+import('lib.pkp.controllers.grid.plugins.form.UploadPluginForm');
 
-class PluginGridHandler extends CategoryGridHandler {
+abstract class PluginGridHandler extends CategoryGridHandler {
 	/**
 	 * Constructor
 	 * @param $roles array
 	 */
 	function PluginGridHandler($roles) {
-		if (is_null($roles)) {
-			fatalError('Direct access not allowed!');
-		}
-
 		$this->addRoleAssignment($roles,
 			array('fetchGrid, fetchCategory', 'fetchRow'));
 
 		$this->addRoleAssignment(ROLE_ID_SITE_ADMIN,
-			array('installPlugin', 'upgradePlugin', 'deletePlugin'));
+			array('uploadPlugin', 'upgradePlugin', 'deletePlugin'));
 
 		parent::CategoryGridHandler();
 	}
@@ -95,11 +92,11 @@ class PluginGridHandler extends CategoryGridHandler {
 			// Install plugin.
 			$this->addAction(
 				new LinkAction(
-					'install',
+					'upload',
 					new AjaxModal(
-						$router->url($request, null, null, 'installPlugin'),
-						__('manager.plugins.install'), 'modal_add_file'),
-					__('manager.plugins.install'),
+						$router->url($request, null, null, 'uploadPlugin'),
+						__('manager.plugins.upload'), 'modal_add_file'),
+					__('manager.plugins.upload'),
 					'add'));
 		}
 	}
@@ -230,8 +227,6 @@ class PluginGridHandler extends CategoryGridHandler {
 	function plugin($args, $request) {
 		$verb = (string) $request->getUserVar('verb');
 
-		$this->setupTemplate($request, true);
-
 		$plugin = $this->getAuthorizedContextObject(ASSOC_TYPE_PLUGIN); /* @var $plugin Plugin */
 		$message = null;
 		$pluginModalContent = null;
@@ -252,13 +247,13 @@ class PluginGridHandler extends CategoryGridHandler {
 	}
 
 	/**
-	 * Show upload plugin form to install a new plugin.
+	 * Show upload plugin form to upload a new plugin.
 	 * @param $args array
 	 * @param $request PKPRequest
 	 * @return string
 	 */
-	function installPlugin($args, $request) {
-		return $this->_showUploadPluginForm('install', $request);
+	function uploadPlugin($args, $request) {
+		return $this->_showUploadPluginForm(PLUGIN_ACTION_UPLOAD, $request);
 	}
 
 	/**
@@ -268,7 +263,7 @@ class PluginGridHandler extends CategoryGridHandler {
 	 * @return string
 	 */
 	function upgradePlugin($args, $request) {
-		return $this->_showUploadPluginForm('upgrade', $request);
+		return $this->_showUploadPluginForm(PLUGIN_ACTION_UPGRADE, $request);
 	}
 
 	/**
@@ -276,7 +271,7 @@ class PluginGridHandler extends CategoryGridHandler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function uploadPlugin($args, $request) {
+	function uploadPluginFile($args, $request) {
 		import('lib.pkp.classes.file.TemporaryFileManager');
 		$temporaryFileManager = new TemporaryFileManager();
 		$user = $request->getUser();
@@ -302,8 +297,6 @@ class PluginGridHandler extends CategoryGridHandler {
 	 */
 	function saveUploadPlugin($args, $request) {
 		$function = $request->getUserVar('function');
-
-		import('lib.pkp.controllers.grid.plugins.form.UploadPluginForm');
 		$uploadPluginForm = new UploadPluginForm($function);
 		$uploadPluginForm->readInputData();
 
@@ -323,7 +316,6 @@ class PluginGridHandler extends CategoryGridHandler {
 	 * @param $request PKPRequest
 	 */
 	function deletePlugin($args, $request) {
-		$this->setupTemplate($request);
 		$plugin =& $this->getAuthorizedContextObject(ASSOC_TYPE_PLUGIN);
 		$category = $plugin->getCategory();
 		$productName = basename($plugin->getPluginPath());
@@ -362,11 +354,10 @@ class PluginGridHandler extends CategoryGridHandler {
 	/**
 	 * Fetch upload plugin form.
 	 * @param $function string
+	 * @param $request PKPRequest Request object
 	 * @return string
 	 */
 	function _showUploadPluginForm($function, $request) {
-		$this->setupTemplate($request, true);
-
 		import('lib.pkp.controllers.grid.plugins.form.UploadPluginForm');
 		$uploadPluginForm = new UploadPluginForm($function);
 		$uploadPluginForm->initData();

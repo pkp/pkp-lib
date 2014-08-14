@@ -112,6 +112,7 @@
 	<message key="grid.action.deactivate">Deactivate</message>
 	<message key="grid.action.copy">Copy</message>
 	<message key="grid.action.preview">Preview</message>
+	<message key="grid.action.install">Install</message>
 
 	<!--  grid task status -->
 	<message key="grid.task.status.completed">This task is completed</message>

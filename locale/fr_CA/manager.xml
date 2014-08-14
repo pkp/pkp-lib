@@ -331,8 +331,6 @@ Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, p
 	<message key="manager.plugins.deleteSuccess">Le module d'extension  "{$pluginName}" a été supprimé.</message>
 	<message key="manager.plugins.description">Cette page permet au gestionnaire de réviser et de configurer les modules d'extension actuellement installés. Les modules d'extension sont divisés en catégories, selon leur fonction. Les catégories sont énumérées ci-dessous, et dans chaque catégorie, son ensemble de modules d'extension.</message>
 	<message key="manager.plugins.doesNotExist">Le module d'extension "{$pluginName}" n'existe pas.</message>
-	<message key="manager.plugins.install">Installer un nouveau module d'extension</message>
-	<message key="manager.plugins.installDescription">Ce formulaire vous permet de télécharger et d'installer un nouveau module d'extension. Assurez-vous que le module d'extension est compressé en un fichier .tar.gz.</message>
 	<message key="manager.plugins.installedVersionNewer">Ce module d'extension existe déjà, et il est aussi ou plus récent que la version installée.</message>
 	<message key="manager.plugins.installedVersionOlder">Ce module d'extension existe déjà, et il est aussi ou moins récent que la version installée.</message>
 	<message key="manager.plugins.installFailed">L'installation a échoué. {$errorString}</message>

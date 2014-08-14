@@ -323,8 +323,6 @@ Há casos em que uma única estatística de uso devem ser utilizada, por exemplo
 	<message key="manager.plugins.description">Esta página permite que o gerente revise e configure os plugins que estão instalados atualmente. Plugins são divididos em categorias, de acordo com a sua função. As categorias estão listados abaixo, e dentro de cada categoria, o seu atual conjunto de plugins.</message>
 	<message key="manager.plugins.doesNotExist">O plugin "{$ pluginName}" não existe</message>
 	<message key="manager.plugins.fileSelectError">Por favor, primeiro selecione um arquivo</message>
-	<message key="manager.plugins.install">Instalar um novo plugin</message>
-	<message key="manager.plugins.installDescription">Este formulário permite que você faça o upload e instale um novo plugin. Certifique-se o plugin está compactado como um arquivo tar.gz.</message>
 	<message key="manager.plugins.installedVersionNewer">O plugin já existe, e é mais novo ou igual a versão instalada</message>
 	<message key="manager.plugins.installedVersionOlder">O plugin já existe, e é mais antigo ou igual à versão instalada</message>
 	<message key="manager.plugins.installFailed">Falha na instalação. {$errorString}</message>

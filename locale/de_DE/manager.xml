@@ -252,8 +252,6 @@
 	<message key="manager.plugins.description">Diese Seite ermöglicht es der/dem Zeitschriftenverwalter/in, die aktuell installierten Plug-Ins zu überprüfen und ggf. zu konfigurieren. Plug-Ins sind nach ihren Funktionen in Kategorien eingeteilt. Die entsprechenden Ordnungskategorien sind unten aufgeführt, darunter jeweils die derzeitig eingesetzten Plug-Ins.</message>
 	<message key="manager.plugins.doesNotExist">Plug-In nicht verfügbar.</message>
 	<message key="manager.plugins.fileSelectError">Bitte wählen Sie zuerst eine Datei aus</message>
-	<message key="manager.plugins.install">Ein neues Plug-In installieren</message>
-	<message key="manager.plugins.installDescription">Mit diesem Formular können Sie ein neues Plug-In hochladen und installieren. Bitte stellen Sie sicher, das das Plug-In als .tar.gz-Datei komprimiert ist.</message>
 	<message key="manager.plugins.installedVersionNewer">Das Plug-In existiert bereits und ist neuer als oder genauso alt wie die installierte Version.</message>
 	<message key="manager.plugins.installedVersionOlder">Das Plug-In existiert bereits, ist aber älter als oder genauso alt wie die installierte Version.</message>
 	<message key="manager.plugins.installFailed">Installation gescheitert</message>

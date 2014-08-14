@@ -44,9 +44,6 @@ class PluginGalleryGridHandler extends GridHandler {
 		// Basic grid configuration.
 		$this->setTitle('manager.plugins.pluginGallery');
 
-		// Grid actions.
-		$router = $request->getRouter();
-
 		//
 		// Grid columns.
 		//

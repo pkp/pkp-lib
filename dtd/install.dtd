@@ -30,7 +30,7 @@
 
 <!ELEMENT install (schema?, data?, code?, note?, upgrade?)*>
 	<!ATTLIST install
-		version CDATA #REQUIRED>
+		version CDATA #IMPLIED>
 <!ELEMENT upgrade (schema?, data?, code?, note?, upgrade?)+>
 	<!ATTLIST upgrade
 		minversion CDATA #IMPLIED

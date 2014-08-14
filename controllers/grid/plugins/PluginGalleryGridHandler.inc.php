@@ -268,7 +268,7 @@ class PluginGalleryGridHandler extends GridHandler {
 		}
 
 		// ui-tabs-5 is (currently) the plugins tab.
-		return $request->redirectUrlJson($dispatcher->url($request, ROUTE_PAGE, null, 'management', 'settings', array('website'), null, 'ui-tabs-5'));
+		return $request->redirectUrlJson($dispatcher->url($request, ROUTE_PAGE, null, 'management', 'settings', array('website'), null, 'plugins'));
 	}
 
 	/**

@@ -34,7 +34,7 @@
 	{rdelim});
 </script>
 
-<div id="{$gridId|escape}" class="pkp_controllers_grid">
+<div id="{$gridId|escape}" class="pkp_controllers_grid{if is_a($grid, 'CategoryGridHandler')} pkp_controllers_category_grid{/if}">
 	{if !$grid->getIsSubcomponent()}<div class="wrapper">{/if}
 		{include file="controllers/grid/gridHeader.tpl"}
 		<table id="{$gridTableId|escape}">
@@ -48,7 +48,7 @@
 						{if $column->hasFlag('alignment')}
 							{assign var=alignment value=$column->getFlag('alignment')}
 						{else}
-							{assign var=alignment value=$smarty.const.COLUMN_ALIGNMENT_CENTER}
+							{assign var=alignment value=$smarty.const.COLUMN_ALIGNMENT_LEFT}
 						{/if}
 						<th scope="col" style="text-align: {$alignment};{if $column->hasFlag('width')} width: {$column->getFlag('width')}%{/if}">
 							{$column->getLocalizedTitle()}

@@ -11,8 +11,10 @@
  */
 
 div.pkp_controllers_grid {
-
+	
 	margin-top: 20px;
+	
+	
 
 	div.actions {
 		margin-top: 10px;
@@ -22,23 +24,37 @@ div.pkp_controllers_grid {
 		width: 100%;
 	}
 
-	thead, tr.gridRow td, tr.row_controls td, tr.category, .empty td {
-		border-bottom: 1px solid #c8c7c7;
+	thead, tr.gridRow td, tr.row_controls td, .empty td, tr.category {
+		border-bottom: 1px solid #dedede;
 	}
 	
 	tr.gridRow td {
-		height: 40px;
+		vertical-align: top;
+		padding: 6px 0px 6px 5px;
 	}
 	
 	tr.category {
-		border-top: 1px solid #c8c7c7;
-		background-color: #f4f8fb;
+		background-color: #f2f2f2;
+		border-top: 1px solid #dedede;
+		height: 32px;
+	}
+	
+	tr.category td.first_column:before {
+  		background-color: #d5e7f4;
+  		color: transparent;
+  		content: "-";
+  		display: block;
+  		height: 100%;
+  		width: 5px;
+  		position: absolute;
+  		left:0px;
+  		top:0px;
 	}
 
 	.empty td {
 		padding-left: 10px;
 		text-align: left;
-		height: 40px;
+		height: 30px;
 	}
 	
 	thead tr {
@@ -50,17 +66,20 @@ div.pkp_controllers_grid {
 		padding: 0 4px; /* Padding top/bottom must be 0 for IE7 compatibility. */
 		vertical-align: middle;
 		text-align: center;
+		font-size: 80%;
+		color:#888;
 	}
 
 	thead th:first-child {
-		padding-left: 40px;
+		padding-left: 35px;
 	}
 
 	td {
+		color: #777777;
 		text-align: center;
 		font-size: 100%;
-		vertical-align: middle;
 		padding: 0px;
+		position: relative;
 	}
 
 	th:first-child, td:first-child, td.first_column, .category_grid_body td:first-child + td {
@@ -68,7 +87,7 @@ div.pkp_controllers_grid {
 	}
 
 	td.first_column {
-		padding: 0 !important;
+		color: #333333;
 	}
 	
 	td.category {
@@ -76,13 +95,12 @@ div.pkp_controllers_grid {
 	}
 	
 	tr.no_border, td.no_border {
-		border: none !important;
+		border-bottom: none !important;
 	}
 	
 	.default_category_style td {
-		font-size: 120%;
+		font-size: 90%;
 		text-transform: uppercase;
-		font-family: "Courier New", Courier, mono;
 	}
 
 	tr.category td.no_actions {
@@ -105,8 +123,8 @@ div.pkp_controllers_grid {
 	}
 	
 	.grid_header_bar {
-		background-color: #f7f5f4;
-		padding: 5px 10px 5px 0px;
+		background-color: #d5e7f4;
+		padding: 3px 10px 3px 0px;
 	}
 	
 	.grid_header_bar h3 {
@@ -136,43 +154,33 @@ div.pkp_controllers_grid {
 	}
 
 	.hidetext {
-		visibility: hidden;
-		overflow: hidden;
+		display:none;
 	}
 
 	.row_container {
 		display: table;
 		overflow: hidden;
-		height: 40px;
-	}
-
-	.row_container .row_actions {
-		display: table-cell;
-		vertical-align: middle;
 	}
 
 	.row_actions {
+		display: block;
 	}
-
+	
 	.row_actions a {
 		display: block;
 		cursor: pointer;
-		width: 40px;
-		height: 40px;
-	}
-	
-	.row_actions a:before {
-		margin: 8px;
+		width: 24px;
+		float: right;
 	}
 
 	.row_file {
 		display: table-cell;
-		vertical-align: middle;
-		padding: 5px 0 5px 10px;
+		padding: 0 10px 0 5px;
+		vertical-align:top;
 	}
 
 	.row_file a.pkp_controllers_linkAction {
-		margin-right: 20px;
+		margin-right: 10px;
 	}
 
 	.multiline {
@@ -218,13 +226,13 @@ div.pkp_controllers_grid {
 
 	a.task {
 		width: 100%;
-		min-height: 40px;
 		text-indent: -1500px;
 		overflow: hidden;
 		display: block;
 		background-position: 50% 50%;
 		background-repeat: no-repeat;
 		margin: 0;
+		height: 24px;
 	}
 	
 	.grid_link_actions_below a {
@@ -235,7 +243,6 @@ div.pkp_controllers_grid {
 
 	table {
 		background-color: #fff;
-		border-collapse: collapse; /* Required for IE7 to remove table borders. */
 	}
 
 	tr.alternate_row, tr.alternate_row .row_file {
@@ -292,8 +299,8 @@ div.pkp_controllers_grid {
 		background: #EAF3F8 !important;  
 	}
 	
-	.indent_row {
-		width: 40px;
+	tr.gridRow td.indent_row, .row_controls td.indent_row {
+		padding: 0 !important;
 	}
 	
 	tbody .ui-sortable-placeholder {
@@ -316,5 +323,20 @@ div.pkp_controllers_grid {
 	div.gridPaging select.itemsPerPage {
 		width: auto;
 		margin-left: 5px;
+	}
+	
+	.indent_row, .indent_col {
+		width:5px;
+	}
+}
+
+div.pkp_controllers_category_grid {
+	
+	thead th:first-child {
+		padding-left: 5px;
+	}
+	
+	thead th:nth-child(2) {
+		padding-left: 35px;
 	}
 }

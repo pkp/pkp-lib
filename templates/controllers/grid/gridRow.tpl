@@ -33,7 +33,7 @@
 					<div class="row_container">
 						<div class="row_actions">
 							{if $row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT) || $row->getNoActionMessage()}
-								<a class="sprite settings" title="{translate key="grid.settings"}"><span class="hidetext">{translate key="grid.settings"}</span></a>
+								<a class="sprite show_extras" title="{translate key="grid.settings"}"><span class="hidetext">{translate key="grid.settings"}</span></a>
 							{/if}
 							{if $row->getActions($smarty.const.GRID_ACTION_POSITION_ROW_LEFT)}
 								{foreach from=$row->getActions($smarty.const.GRID_ACTION_POSITION_ROW_LEFT) item=action}
@@ -48,7 +48,7 @@
 				{if $column->hasFlag('alignment')}
 					{assign var=alignment value=$column->getFlag('alignment')}
 				{else}
-					{assign var=alignment value=$smarty.const.COLUMN_ALIGNMENT_CENTER}
+					{assign var=alignment value=$smarty.const.COLUMN_ALIGNMENT_LEFT}
 				{/if}
 				style="text-align: {$alignment}">
 					{$cells[$smarty.foreach.columnLoop.index]}

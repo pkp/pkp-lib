@@ -23,7 +23,7 @@
 	&:before {
 		content: " ";
 		display: inline-block;
-		vertical-align: middle;
+		vertical-align: top;
 		width: @iconwidth;
 		height: @iconheight;
 		background: url({$baseUrl}/lib/pkp/templates/images/structure/sprites.png);
@@ -44,10 +44,13 @@
 
 	&.upgrade:before { background-position: (-7*@iconwidth) (0*@iconheight); }
 	&.upgrade:hover:before { background-position: (-7*@iconwidth) (-1*@iconheight); }
-
+	
 	/* NONSTANDARD #8 */
 	&.information:before { background-position: -194px (0*@iconheight); }
 	&.information:hover:before { background-position: -194px (-1*@iconheight); }
+	
+	&.hide_extras:before { background-position: -1655px 0; }
+	&.hide_extras:hover:before { background-position: -1655px -24px; }
 
 	&.edit:before { background-position: (-10*@iconwidth) (0*@iconheight); }
 	&.edit:hover:before { background-position: (-10*@iconwidth) (-1*@iconheight); }
@@ -182,18 +185,17 @@
 
 	&.release_highlighted:before { margin-right:4px; background-position: (-58*@iconwidth) (0*@iconheight); }
 	&.release_highlighted:hover:before { background-position: (-58*@iconwidth) (-1*@iconheight); }
+	&.collapse_all:before { margin-right:4px; background-position: -1440px 5px; }
+	&.collapse_all:hover:before { background-position: -1440px -19px; }
 
-	&.collapse_all:before { margin-right:4px; background-position: (-59*@iconwidth) (0*@iconheight); }
-	&.collapse_all:hover:before { background-position: (-59*@iconwidth) (-1*@iconheight); }
+	&.expand_all:before { margin-right:4px; background-position: -1416px 5px; }
+	&.expand_all:hover:before { background-position: -1416px -19px; }
 
-	&.expand_all:before { margin-right:4px; background-position: (-60*@iconwidth) (0*@iconheight); }
-	&.expand_all:hover:before { background-position: (-60*@iconwidth) (-1*@iconheight); }
+	&.expanded:before { margin-right:4px; background-position: -1416px 0; }
+	&.expanded:hover:before { background-position: -1416px -24px; }
 
-	&.expanded:before { margin-right:4px; background-position: (-61*@iconwidth) (0*@iconheight); }
-	&.expanded:hover:before { background-position: (-61*@iconwidth) (-1*@iconheight); }
-
-	&.collapsed:before { margin-right:4px; background-position: (-62*@iconwidth) (0*@iconheight); }
-	&.collapsed:hover:before { background-position: (-62*@iconwidth) (-1*@iconheight); }
+	&.collapsed:before { margin-right:4px; background-position: -1440px 0; }
+	&.collapsed:hover:before { background-position: -1440px -24px; }
 
 	&.manage:before { margin-right:4px; background-position: (-63*@iconwidth) (0*@iconheight); }
 	&.manage:hover:before { background-position: (-63*@iconwidth) (-1*@iconheight); }

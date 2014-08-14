@@ -34,7 +34,7 @@
 <p><span class="instruct">{translate key="user.login.changePasswordInstructions"}</span></p>
 
 	{fbvFormArea id="loginFields"}
-		{fbvFormSection label="user.login" for="username"}
+		{fbvFormSection label="user.username" for="username"}
 			{fbvElement type="text" required=true id="username" value=$username|escape maxlength="32" size=$fbvStyles.size.MEDIUM}
 		{/fbvFormSection}
 		{if !$confirmHash}

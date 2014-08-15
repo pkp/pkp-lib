@@ -9,18 +9,13 @@
  *
  *}
 <script type="text/javascript">
-	$("input[id^='responseDueDate']").datepicker({ldelim} dateFormat: 'yy-mm-dd' {rdelim});
-	$("input[id^='reviewDueDate']").datepicker({ldelim} dateFormat: 'yy-mm-dd' {rdelim});
-	$("#filesAccordion").accordion({ldelim}
-			collapsible: true,
-			active: false,
-			// WARNING: The following two options are deprecated in JQueryUI.
-			autoHeight: false,
-			clearStyle: true
-			{rdelim});
+	$(function() {ldelim}
+		// Attach the form handler.
+		$('#reviewFormFooter').pkpHandler('$.pkp.controllers.grid.users.reviewer.form.ReviewerFormFooterHandler');
+	{rdelim});
 </script>
 
-<div class="reviewerFormFooterContainer">
+<div id="reviewFormFooter" class="reviewerFormFooterContainer">
 	<!--  message template choice -->
 	{fbvFormSection title="stageParticipants.notify.chooseMessage" for="template" size=$fbvStyles.size.medium}
 		{fbvElement type="select" from=$templates translate=false id="template" defaultValue="" defaultLabel=""}

@@ -320,10 +320,10 @@ class SignoffDAO extends DAO {
 	 * @return DAOResultFactory
 	 */
 	function getByUserId($userId) {
-		$sql = 'SELECT * FROM signoffs WHERE user_id = ?';
-		$params = array((int) $userId);
-
-		$result = $this->retrieve($sql, $params);
+		$result = $this->retrieve(
+			'SELECT * FROM signoffs WHERE user_id = ?',
+			(int) $userId
+		);
 
 		return new DAOResultFactory($result, $this, '_fromRow', array('id'));
 	}

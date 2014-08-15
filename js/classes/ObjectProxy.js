@@ -82,20 +82,19 @@
 
 
 	/**
-	 * Find the parent constructor or method in the prototype
-	 * hierarchy. Extra arguments will be passed to the parent
-	 * method.
+	 * Find the parent constructor or method in the prototype hierarchy.
+	 * Extra arguments will be passed to the parent method.
 	 *
-	 * NB: If the method is found then it will be executed in the
-	 * context of the me parameter with the given arguments.
+	 * NB: If the method is found then it will be executed in the context
+	 * of the me parameter with the given arguments.
 	 *
-	 * @param {*=} opt_methodName The name of the method to
-	 *  be found. Do not set when calling this method from a
-	 *  constructor!
+	 * @param {*=} opt_methodName The name of the method to  be found. Do
+	 * not set when calling this method from a constructor!
+	 * @param {...*} var_args Additional parameters to be passed.
 	 * @return {*} The return value of the parent method.
 	 */
 	$.pkp.classes.ObjectProxy.prototype.parent =
-			function(opt_methodName) {
+			function(opt_methodName, var_args) {
 		var caller, args, foundCaller, ctor;
 
 		// Retrieve a reference to the function that called us.

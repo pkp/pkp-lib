@@ -380,7 +380,7 @@
 	 */
 	$.pkp.controllers.statistics.ReportGeneratorFormHandler.prototype.
 			updateRegionSelectCallback_ = function(ajaxContext, jsonData) {
-		var $regionSelectElement, limit, content;
+		var $regionSelectElement, limit, content, i;
 		$regionSelectElement = this.$regionSelectElement_;
 
 		$regionSelectElement.empty();

@@ -101,7 +101,7 @@
 	$.pkp.controllers.grid.settings.roles.form.UserGroupFormHandler.prototype.
 			changeRoleId = function(dropdown) {
 
-		dropDownValue = $(dropdown).val(); /** @type {string} */
+		var dropDownValue = $(dropdown).val(); /** @type {string} */
 
 		this.updatePermitSelfRegistration((dropDownValue));
 

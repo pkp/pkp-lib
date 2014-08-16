@@ -11,11 +11,11 @@
 <script type="text/javascript">
 	$(function() {ldelim}
 		// Attach the form handler.
-		$('#reviewFormFooter').pkpHandler('$.pkp.controllers.grid.users.reviewer.form.ReviewerFormFooterHandler');
+		$('#reviewerFormFooter').pkpHandler('$.pkp.controllers.grid.users.reviewer.form.ReviewerFormFooterHandler');
 	{rdelim});
 </script>
 
-<div id="reviewFormFooter" class="reviewerFormFooterContainer">
+<div id="reviewerFormFooter" class="reviewerFormFooterContainer">
 	<!--  message template choice -->
 	{fbvFormSection title="stageParticipants.notify.chooseMessage" for="template" size=$fbvStyles.size.medium}
 		{fbvElement type="select" from=$templates translate=false id="template" defaultValue="" defaultLabel=""}
@@ -37,6 +37,7 @@
 		{fbvElement type="text" id="reviewDueDate" name="reviewDueDate" label="editor.review.reviewDueDate" value=$reviewDueDate inline=true size=$fbvStyles.size.MEDIUM}
 	{/fbvFormSection}
 
+	{include file="controllers/grid/users/reviewer/form/noFilesWarning.tpl"}
 	<div id="filesAccordion">
 		<h3>{translate key="editor.submissionReview.restrictFiles"}</h3>
 		<div>

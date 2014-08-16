@@ -36,11 +36,32 @@
 			autoHeight: false,
 			clearStyle: true
 		});
+
+		this.bind('expandFileList', this.handleExpandFileList_);
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.grid.users.reviewer.form.
 					ReviewerFormFooterHandler,
 			$.pkp.classes.Handler);
+
+
+	//
+	// Private methods.
+	//
+	/**
+	 * Handle the "expandFileList" event, triggered by external widgets
+	 * to expand the file list in this widget.
+	 * @private
+	 */
+	$.pkp.controllers.grid.users.reviewer.form.ReviewerFormFooterHandler.
+			prototype.handleExpandFileList_ = function() {
+
+		// If the "limit files" accordion is not already open, open it.
+		var $accordion = this.getHtmlElement().find('#filesAccordion');
+		if ($accordion.accordion('option', 'active') === false) {
+			$accordion.accordion('option', 'active', 0);
+		}
+	};
 
 /** @param {jQuery} $ jQuery closure. */
 }(jQuery));

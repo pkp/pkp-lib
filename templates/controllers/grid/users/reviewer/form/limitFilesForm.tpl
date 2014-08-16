@@ -12,7 +12,7 @@
 <script type="text/javascript">
 	$(function() {ldelim}
 		// Attach the form handler.
-		$('#limitFilesForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler');
+		$('#limitFilesForm').pkpHandler('$.pkp.controllers.grid.users.reviewer.form.LimitFilesFormHandler');
 	{rdelim});
 </script>
 
@@ -21,6 +21,8 @@
 	<input type="hidden" name="stageId" value="{$stageId|escape}" />
 	<input type="hidden" name="submissionId" value="{$submissionId|escape}" />
 	<input type="hidden" name="reviewRoundId" value="{$reviewRoundId|escape}" />
+
+	{include file="controllers/grid/users/reviewer/form/noFilesWarning.tpl"}
 
 	{url|assign:limitReviewFilesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.review.LimitReviewFilesGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId reviewRoundId=$reviewRoundId reviewAssignmentId=$reviewAssignmentId escape=false}
 	{load_url_in_div id="limitReviewFilesGrid" url=$limitReviewFilesGridUrl}

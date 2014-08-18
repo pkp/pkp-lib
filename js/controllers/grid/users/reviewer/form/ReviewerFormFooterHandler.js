@@ -57,7 +57,7 @@
 		// If the "limit files" accordion is not already open, open it.
 		var $accordion = this.getHtmlElement().find('#filesAccordion');
 		if ($accordion.accordion('option', 'active') === false) {
-			$accordion.accordion('option', 'active', 0);
+			$accordion.accordion('option', 'active', '0');
 		}
 	};
 

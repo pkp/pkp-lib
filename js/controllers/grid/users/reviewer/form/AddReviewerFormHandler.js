@@ -16,7 +16,7 @@
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.controllers.grid.users.reviewer.form.LimitFilesForm
+	 * @extends $.pkp.controllers.grid.users.reviewer.form.LimitFilesFormHandler
 	 *
 	 * @param {jQueryObject} $form the wrapped HTML form element.
 	 * @param {Object} options form options.

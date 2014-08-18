@@ -43,5 +43,5 @@
 
 	{fbvFormButtons submitText="editor.submission.addReviewer"}
 
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
+	<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 </form>

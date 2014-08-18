@@ -92,7 +92,7 @@
 		var handledJsonData = this.handleJson(jsonData);
 		if (handledJsonData.status === true) {
 			if (handledJsonData.content === undefined) {
-				// Request successfull, but no data returned.
+				// Request successful, but no data returned.
 				// Hide this div element.
 				this.getHtmlElement().hide();
 			} else {

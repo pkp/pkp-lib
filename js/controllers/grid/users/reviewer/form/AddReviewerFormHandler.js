@@ -1,7 +1,4 @@
 /**
- * @defgroup js_controllers_grid_users_reviewer_form
- */
-/**
  * @file js/controllers/grid/users/reviewer/form/AddReviewerFormHandler.js
  *
  * Copyright (c) 2014 Simon Fraser University Library
@@ -15,17 +12,11 @@
  */
 (function($) {
 
-	/** @type {Object} */
-	$.pkp.controllers.grid.users.reviewer =
-			$.pkp.controllers.grid.users.reviewer ||
-			{ form: { } };
-
-
 
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.controllers.form.AjaxFormHandler
+	 * @extends $.pkp.controllers.grid.users.reviewer.form.LimitFilesFormHandler
 	 *
 	 * @param {jQueryObject} $form the wrapped HTML form element.
 	 * @param {Object} options form options.
@@ -53,7 +44,8 @@
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.grid.users.reviewer.form.
 					AddReviewerFormHandler,
-			$.pkp.controllers.form.AjaxFormHandler);
+			$.pkp.controllers.grid.users.reviewer.form.
+					LimitFilesFormHandler);
 
 
 	//
@@ -135,6 +127,26 @@
 		}
 
 		$('[id^="username"]', $form).val(processedJsonData.content);
+	};
+
+
+	//
+	// Protected methods
+	//
+	/**
+	 * Show the "no files" warning.
+	 * @param {jQueryObject} $form the wrapped HTML form element.
+	 * @protected
+	 */
+	$.pkp.controllers.grid.users.reviewer.form.AddReviewerFormHandler.
+			prototype.showWarning = function($form) {
+		// Call the parent showWarning to show the warning
+		this.parent('showWarning');
+
+		// Ask the reviewer form footer handler to expand the file
+		// list extras-on-demand if it isn't already expanded.
+		this.getHtmlElement().find('#reviewerFormFooter')
+				.trigger('expandFileList');
 	};
 
 

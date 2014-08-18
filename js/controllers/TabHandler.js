@@ -76,7 +76,7 @@
 			}
 		}
 
-		$tabs.tabs({selected: options.selected});
+		$tabs.tabs({active: options.selected});
 
 		if ($tabs.find('.stTabsInnerWrapper').length == 0 && !options.notScrollable) {
 			$tabs.tabs().scrollabletab();

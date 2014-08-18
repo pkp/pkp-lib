@@ -480,7 +480,11 @@
 
 		// Add/retrieve the data to/from the
 		// element's data cache.
-		return this.getHtmlElement().data(key, opt_value);
+		if (arguments.length > 1) {
+			return this.getHtmlElement().data(key, opt_value);
+		} else {
+			return this.getHtmlElement().data(key);
+		}
 	};
 
 

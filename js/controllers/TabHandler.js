@@ -32,8 +32,10 @@
 		this.parent($tabs, options);
 
 		// Attach the tabs event handlers.
-		this.bind('tabsselect', this.tabsSelect);
-		this.bind('tabsshow', this.tabsShow);
+		this.bind('tabsbeforeactivate', this.tabsBeforeActivate);
+		this.bind('tabsactivate', this.tabsActivate);
+		this.bind('tabscreate', this.tabsCreate);
+		this.bind('tabsbeforeload', this.tabsBeforeLoad);
 		this.bind('tabsload', this.tabsLoad);
 		this.bind('containerReloadRequested', this.tabsReloadRequested);
 		this.bind('addTab', this.addTab);
@@ -120,10 +122,10 @@
 	 * @param {HTMLElement} tabsElement The tab element that triggered
 	 *  the event.
 	 * @param {Event} event The triggered event.
-	 * @param {Object} ui The tabs ui data.
+	 * @param {jQueryObject} ui The tabs ui data.
 	 * @return {boolean} Should return true to continue tab loading.
 	 */
-	$.pkp.controllers.TabHandler.prototype.tabsSelect =
+	$.pkp.controllers.TabHandler.prototype.tabsBeforeActivate =
 			function(tabsElement, event, ui) {
 
 		var unsavedForm = false;
@@ -161,22 +163,44 @@
 
 
 	/**
-	 * Event handler that is called when a tab is shown.
+	 * Event handler that is called when a tab is created.
 	 *
 	 * @param {HTMLElement} tabsElement The tab element that triggered
 	 *  the event.
 	 * @param {Event} event The triggered event.
-	 * @param {{panel: jQueryObject}} ui The tabs ui data.
+	 * @param {jQueryObject} ui The tabs ui data.
 	 * @return {boolean} Should return true to continue tab loading.
 	 */
-	$.pkp.controllers.TabHandler.prototype.tabsShow =
+	$.pkp.controllers.TabHandler.prototype.tabsCreate =
 			function(tabsElement, event, ui) {
 
-		// Save a reference to the current tab.
-		this.$currentTab_ = (ui.panel.jquery ? ui.panel : $(ui.panel));
+		// Save the tab index.
+		this.currentTabIndex_ = ui.tab.index();
+
+		// Save a reference to the current panel.
+		this.$currentTab_ = ui.panel.jquery ? ui.panel : $(ui.panel);
+
+		return true;
+	};
+
+
+	/**
+	 * Event handler that is called when a tab is activated
+	 *
+	 * @param {HTMLElement} tabsElement The tab element that triggered
+	 *  the event.
+	 * @param {Event} event The triggered event.
+	 * @param {jQueryObject} ui The tabs ui data.
+	 * @return {boolean} Should return true to continue tab loading.
+	 */
+	$.pkp.controllers.TabHandler.prototype.tabsActivate =
+			function(tabsElement, event, ui) {
 
 		// Save the tab index.
-		this.currentTabIndex_ = ui.index;
+		this.currentTabIndex_ = ui.newTab.index();
+
+		// Save a reference to the current panel.
+		this.$currentTab_ = ui.newPanel.jquery ? ui.newPanel : $(ui.newPanel);
 
 		return true;
 	};
@@ -188,12 +212,29 @@
 	 * @param {HTMLElement} tabsElement The tab element that triggered
 	 *  the event.
 	 * @param {Event} event The triggered event.
-	 * @param {Object} ui The tabs ui data.
+	 * @param {jQueryObject} ui The tabs ui data.
 	 * @return {boolean} Should return true to continue tab loading.
 	 */
 	$.pkp.controllers.TabHandler.prototype.tabsLoad =
 			function(tabsElement, event, ui) {
 		return true;
+	};
+
+
+	/**
+	 * Callback that that is triggered before the tab is loaded.
+	 *
+	 * @param {HTMLElement} tabsElement The tab element that triggered
+	 *  the event.
+	 * @param {Event} event The triggered event.
+	 * @param {jQueryObject} ui The tabs ui data.
+	 */
+	$.pkp.controllers.TabHandler.prototype.tabsBeforeLoad =
+			function(tabsElement, event, ui) {
+
+		// Initialize AJAX settings for loading tab content remotely
+		ui.ajaxSettings.cache = false;
+		ui.ajaxSettings.dataFilter = this.callbackWrapper(this.dataFilter);
 	};
 
 
@@ -260,7 +301,7 @@
 
 		var $element = this.getHtmlElement();
 		$element.tabs('add', jsonContent.url, jsonContent.title)
-				.tabs('select', $element.tabs('length') - 1);
+				.tabs('option', 'active', $element.tabs('length') - 1);
 	};
 
 

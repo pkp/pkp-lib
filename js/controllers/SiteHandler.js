@@ -562,7 +562,7 @@
 	 */
 	$.pkp.controllers.SiteHandler.prototype.showNotification_ =
 			function(jsonData) {
-		var workingJsonData, notificationsData, levelId, notificationId;
+		var workingJsonData, notificationsData, levelId, notificationId, pnotify;
 
 		workingJsonData = this.handleJson(jsonData);
 		if (workingJsonData !== false) {
@@ -570,7 +570,7 @@
 				notificationsData = workingJsonData.content.general;
 				for (levelId in notificationsData) {
 					for (notificationId in notificationsData[levelId]) {
-						$.pnotify(notificationsData[levelId][notificationId]);
+						pnotify = new PNotify(notificationsData[levelId][notificationId]);
 					}
 				}
 			}

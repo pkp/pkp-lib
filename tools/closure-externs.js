@@ -8,7 +8,7 @@
  * Import symbols into the closure compiler that are not defined
  * within the compiled files.
  *
- * See https://code.google.com/p/closure-compiler/source/browse/trunk/contrib/externs
+ * See https://github.com/google/closure-compiler/tree/master/externs
  * for pre-extracted extern files, e.g. for jQuery.
  *
  * @externs
@@ -135,16 +135,19 @@ jQuery.validator.prototype.defaultShowErrors = function() {};
 jQuery.validator.prototype.settings = {};
 
 /**
- * @constructor
- * @param {Object=} options
- */
-jQuery.pnotify = function(options) {};
-
-/**
  * @param {Object=} userDefinedSettings
  * @return {jQueryObject}
  */
 jQueryObject.prototype.imgPreview = function(userDefinedSettings) {};
+
+jQueryObject.prototype.prop = function(param1, param2) {};
+
+jQueryObject.prototype.panel = null;
+jQueryObject.prototype.newTab = null;
+jQueryObject.prototype.newTab.index = function() {};
+jQueryObject.prototype.newTab.find = function() {};
+jQueryObject.prototype.newPanel = null;
+jQueryObject.prototype.ajaxSettings = null;
 
 /**
  * @constructor

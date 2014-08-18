@@ -36,6 +36,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 
 	/**
 	 * Create a submission with the supplied data.
+	 * @param $data array Associative array of submission information
 	 */
 	protected function createSubmission($data) {
 		// Check that the required parameters are provided

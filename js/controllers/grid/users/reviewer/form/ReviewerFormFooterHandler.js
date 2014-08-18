@@ -32,7 +32,7 @@
 		$('#filesAccordion').accordion({
 			collapsible: true,
 			active: false,
-			heightStyle: "content"
+			heightStyle: 'content'
 		});
 
 		this.bind('expandFileList', this.handleExpandFileList_);

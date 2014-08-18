@@ -32,9 +32,7 @@
 		$('#filesAccordion').accordion({
 			collapsible: true,
 			active: false,
-			// WARNING: The following two options are deprecated in JQueryUI.
-			autoHeight: false,
-			clearStyle: true
+			heightStyle: "content"
 		});
 
 		this.bind('expandFileList', this.handleExpandFileList_);

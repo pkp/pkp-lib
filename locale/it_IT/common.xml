@@ -262,10 +262,8 @@
 	<message key="search.operator.and">and</message>
 	<message key="search.operator.not">not</message>
 	<message key="search.operator.or">or</message>
-	<message key="search.reviseSearch">Modifica la ricerca</message>
 	<message key="search.searchAllCategories">Ricerca in tutti i campi</message>
 	<message key="search.searchCategories">Cerca in</message>
-	<message key="search.searchResults">Risultati della ricerca</message>
 	<message key="search.subject">Parola(e) chiave</message>
 	<message key="search.titleIndex">Scorri la lista dei titoli</message>
 	<message key="search.title">Titoli</message>

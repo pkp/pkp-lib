@@ -4,8 +4,8 @@
 <!--
   * locale/it_IT/common.xml
   *
-  * Copyright (c) 2013 Simon Fraser University Library
-  * Copyright (c) 2000-2013 John Willinsky
+  * Copyright (c) 2013-2014 Simon Fraser University Library
+  * Copyright (c) 2000-2014 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the it_IT (Italiano) locale.
@@ -160,6 +160,8 @@
 	<message key="common.width">Larghezza</message>
 	<message key="common.year">Anno</message>
 	<message key="common.yes">Si</message>
+	<message key="common.metric">Metriche</message>
+	<message key="common.count">Conteggio</message>
 	<message key="debug.databaseQueries">Numero di query sul database</message>
 	<message key="debug.executionTime">Pagina generata in</message>
 	<message key="debug.memoryUsage">Utilizzo della memoria:</message>
@@ -374,4 +376,18 @@
 	<message key="common.notified">Notificato</message>
 	<message key="common.reset">Reset</message>
 	<message key="grid.action.downloadFile">Scarica questo file</message>
+	<message key="common.error">Errore</message>
+	<message key="defaultMetric.title">Metriche di default</message>
+	<message key="defaultMetric.availableMetrics">Metriche disponibili</message>
+	<message key="search.activeFilters">Filtri avanzati</message>
+	<message key="search.advancedSearchMore">Altre opzioni di ricerca (clicca per visualizzare)</message>
+	<message key="search.advancedSearchLess">Altre opzioni di ricerca (clicca per nascondere)</message>
+	<message key="search.cli.rebuildIndex.clearingIndex">Pulisci l'indice</message>
+	<message key="search.cli.rebuildIndex.done">fatto</message>
+	<message key="search.cli.rebuildIndex.error">errore</message>
+	<message key="search.cli.rebuildIndex.indexing">Indicizzazione di "{$journalName}"</message>
+	<message key="search.cli.rebuildIndex.result">{$numIndexed} articoli indicizzati</message>
+	<message key="search.cli.rebuildIndex.unknownJournal">Il path "{$journalPath}"non appartiene ad alcuna rivista.</message>
+	<message key="search.deleteFilter">Cancella</message>
+	<message key="search.indexTermsLong">Tutti i termini di ricerca</message>
 </locale>

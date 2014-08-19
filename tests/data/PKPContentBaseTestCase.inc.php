@@ -210,8 +210,9 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 	 * @param $password string (or null to presume twice-username)
 	 * @param $title string
 	 * @param $recommendation string
+	 * @param $comments string optional
 	 */
-	function performReview($username, $password, $title, $recommendation) {
+	function performReview($username, $password, $title, $recommendation, $comments = 'Here are my review comments.') {
 		if ($password===null) $password = $username . $username;
 		$this->logIn($username, $password);
 		$this->waitForElementPresent('link=Dashboard');
@@ -224,8 +225,8 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 
 		$this->waitForElementPresent('//span[text()=\'Continue to Step #3\']/..');
 		$this->click('//span[text()=\'Continue to Step #3\']/..');
-
-		$this->waitForElementPresent('id=recommendation');
+		$this->waitForElementPresent('css=[id^=comments-]');
+		$this->type('css=[id^=comments-]', $comments);
 		$this->select('id=recommendation', 'label=' . $this->escapeJS($recommendation));
 
 		$this->waitForElementPresent('//span[text()=\'Submit Review\']/..');

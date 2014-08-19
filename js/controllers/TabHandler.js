@@ -56,12 +56,6 @@
 				if (pageAnchor == tabAnchors[i].getAttribute('name')) {
 					// Matched on anchor name.
 					options.selected = i;
-				} else {
-					// Try to match on anchor href.
-					pattern = new RegExp('[/=]' + pageAnchor + '([?]|$)');
-					if (tabAnchors[i].getAttribute('href').match(pattern)) {
-						options.selected = i;
-					}
 				}
 			}
 		}

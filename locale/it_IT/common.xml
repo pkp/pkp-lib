@@ -386,6 +386,7 @@
 	<message key="search.cli.rebuildIndex.done">fatto</message>
 	<message key="search.cli.rebuildIndex.error">errore</message>
 	<message key="search.cli.rebuildIndex.indexing">Indicizzazione di "{$journalName}"</message>
+	<message key="search.cli.rebuildIndex.indexingByJournalNotSupported">L'implementazione di questa ricerca non permette la reindicizzazione di una singola rivista.</message>
 	<message key="search.cli.rebuildIndex.result">{$numIndexed} articoli indicizzati</message>
 	<message key="search.cli.rebuildIndex.unknownJournal">Il path "{$journalPath}"non appartiene ad alcuna rivista.</message>
 	<message key="search.deleteFilter">Cancella</message>

@@ -134,7 +134,7 @@
 		$activatedSection = $(cssSelectors[newStage] +
 				'.pkp_authorDashboard_stageContainer', $dashboard);
 		if ($activatedSection.accordion('option', 'active') !== 0) {
-			$activatedSection.accordion('option', 'active', 0);
+			$activatedSection.accordion('option', 'active', '0');
 		}
 	};
 

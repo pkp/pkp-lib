@@ -36,7 +36,7 @@
 
 		// bind a handler to make sure we update the required state
 		// of the comments field.
-		$('#submitFormButton', $formElement).click(this.callbackWrapper(
+		$formElement.find('[id^=\'submitFormButton-\']').click(this.callbackWrapper(
 				this.updateCommentsRequired_));
 	};
 	$.pkp.classes.Helper.inherits(

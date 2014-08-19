@@ -44,16 +44,6 @@
 			this.emptyLastTab_ = options.emptyLastTab;
 		}
 
-		// Render the tabs as jQueryUI tabs.
-		$tabs.tabs({
-			// Enable AJAX-driven tabs with JSON messages.
-			ajaxOptions: {
-				cache: false,
-				dataFilter: this.callbackWrapper(this.dataFilter)
-			},
-			disabled: options.disabled
-		});
-
 		// if the page has been loaded with an #anchor
 		// determine what tab that is for and set the
 		// options.selected value to it so it gets used
@@ -76,7 +66,17 @@
 			}
 		}
 
-		$tabs.tabs({active: options.selected});
+		// Render the tabs as jQueryUI tabs.
+		$tabs.tabs({
+			// Enable AJAX-driven tabs with JSON messages.
+			ajaxOptions: {
+				cache: false,
+				dataFilter: this.callbackWrapper(this.dataFilter)
+			},
+			disabled: options.disabled,
+			active: options.selected
+		});
+
 
 		if ($tabs.find('.stTabsInnerWrapper').length == 0 && !options.notScrollable) {
 			$tabs.tabs().scrollabletab();

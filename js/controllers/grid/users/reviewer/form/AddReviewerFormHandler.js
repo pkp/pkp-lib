@@ -113,7 +113,7 @@
 	/**
 	 * Check JSON message and set it to username, back on form.
 	 * @param {HTMLElement} formElement The Form HTML element.
-	 * @param {JSON} jsonData The jsonData response.
+	 * @param {JSONType} jsonData The jsonData response.
 	 */
 	$.pkp.controllers.grid.users.reviewer.form.
 			AddReviewerFormHandler.prototype.setUsername =

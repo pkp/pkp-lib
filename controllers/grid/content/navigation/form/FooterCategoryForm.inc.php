@@ -157,7 +157,6 @@ class FooterCategoryForm extends Form {
 
 		if ($rowData) {
 			$footerLink = $this->_setLocaleData($footerLink, $rowData);
-			$footerLink->setUrl($rowData['url']);
 		}
 
 		$footerLinkDao->updateObject($footerLink);
@@ -191,7 +190,6 @@ class FooterCategoryForm extends Form {
 
 		if ($rowData) {
 			$footerLink = $this->_setLocaleData($footerLink, $rowData);
-			$footerLink->setUrl($rowData['url']);
 		}
 
 		$context = $request->getContext();
@@ -217,6 +215,10 @@ class FooterCategoryForm extends Form {
 	function &_setLocaleData(&$footerLink, $rowData) {
 		foreach($rowData['title'] as $locale => $data) {
 			$footerLink->setTitle($data, $locale);
+		}
+
+		foreach($rowData['url'] as $locale => $data) {
+			$footerLink->setUrl($data, $locale);
 		}
 
 		return $footerLink;

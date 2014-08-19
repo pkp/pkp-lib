@@ -38,7 +38,7 @@ class FooterLinkListbuilderGridCellProvider extends GridCellProvider {
 			case 'title':
 				return array('labelKey' => $footerLink->getId(), 'label' => $footerLink->getData('title'));
 			case 'url':
-				return array('labelKey' => $footerLink->getId(), 'label' => $footerLink->getUrl());
+				return array('labelKey' => $footerLink->getId(), 'label' => $footerLink->getData('url'));
 		}
 	}
 }

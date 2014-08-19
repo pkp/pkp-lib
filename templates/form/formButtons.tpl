@@ -17,28 +17,35 @@
  *}
 
 {fbvFormSection class="formButtons"}
-	{assign var=buttonId value="submitFormButton"|concat:"-"|uniqid}
+	{* Cancel button (if any) *}
 	{if !$FBV_hideCancel}
+		{assign var=cancelButtonId value="cancelFormButton"|concat:"-"|uniqid}
 		{if $FBV_cancelAction}
 			{include file="linkAction/buttonGenericLinkAction.tpl"
-					buttonSelector="#cancelFormButton"
+					buttonSelector="#"|concat:$cancelButtonId
 					action=$FBV_cancelAction}
 		{elseif $FBV_cancelUrl}
 			{include file="linkAction/buttonRedirectLinkAction.tpl"
-					buttonSelector="#cancelFormButton"
+					buttonSelector="#"|concat:$cancelButtonId
 					cancelUrl=$FBV_cancelUrl}
 		{/if}
-		{if $FBV_formReset}{assign var="cancelButton" value="resetFormButton"}{else}{assign var="cancelButton" value="cancelFormButton"}{/if}
-		{fbvElement type="link" class=$cancelButton id=$cancelButton label=$FBV_cancelText}
+		{if $FBV_formReset}
+			{fbvElement type="link" class="resetButton" id="resetButton"|concat:"-":uniqid label=$FBV_cancelText}
+		{else}
+			{fbvElement type="link" class="cancelButton" id=$cancelButtonId label=$FBV_cancelText}
+		{/if}
 	{/if}
+
+	{* Submit button *}
+	{assign var=submitButtonId value="submitFormButton"|concat:"-"|uniqid}
 
 	{* IF we have confirmation dialog text specified, load buttonConfirmationLinkAction for the submit button *}
 	{if $FBV_confirmSubmit}
 		{include file="core:linkAction/buttonConfirmationLinkAction.tpl"
-				 buttonSelector="#"|concat:$buttonId
+				 buttonSelector="#"|concat:$submitButtonId
 				 dialogText="$FBV_confirmSubmit"}
 	{/if}
-	{fbvElement type="submit" class="submitFormButton" id=$buttonId label=$FBV_submitText translate=$FBV_translate disabled=$FBV_submitDisabled}
+	{fbvElement type="submit" class="submitFormButton" id=$submitButtonId label=$FBV_submitText translate=$FBV_translate disabled=$FBV_submitDisabled}
 	<div class="pkp_helpers_progressIndicator"></div>
 	<div class="clear"></div>
 {/fbvFormSection}

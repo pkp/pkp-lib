@@ -3,6 +3,7 @@
 #
 # USAGE:
 # runAllTests.sh [options]
+#  -b	Include data build tests in application.
 #  -C	Include class tests in lib/pkp.
 #  -P	Include plugin tests in lib/pkp.
 #  -c	Include class tests in application.
@@ -96,6 +97,7 @@ TEST_CONF2="--configuration $TESTS_DIR/phpunit-env2.xml"
 DO_ALL=1
 
 # Various types of tests
+DO_APP_DATA=0
 DO_PKP_CLASSES=0
 DO_PKP_PLUGINS=0
 DO_APP_CLASSES=0
@@ -104,8 +106,11 @@ DO_APP_FUNCTIONAL=0
 DEBUG=""
 
 # Parse arguments
-while getopts "CPcpfd" opt; do
+while getopts "bCPcpfd" opt; do
 	case "$opt" in
+		b)	DO_ALL=0
+			DO_APP_DATA=1
+			;;
 		C)	DO_ALL=0
 			DO_PKP_CLASSES=1
 			;;
@@ -125,6 +130,10 @@ while getopts "CPcpfd" opt; do
 			;;
 	esac
 done
+
+if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_APP_DATA" -eq 1 \) ]; then
+	phpunit $DEBUG $TEST_CONF1 --debug -v --stop-on-failure --stop-on-skipped tests/data
+fi
 
 if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_PKP_CLASSES" -eq 1 \) ]; then
 	phpunit $DEBUG $TEST_CONF1 lib/pkp/tests/classes

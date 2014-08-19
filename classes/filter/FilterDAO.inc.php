@@ -69,17 +69,15 @@ class FilterDAO extends DAO {
 	 * @param $persist boolean whether to actually persist the filter
 	 * @return PersistableFilter|boolean the new filter if installation successful, otherwise 'false'.
 	 */
-	function &configureObject($filterClassName, $filterGroupSymbolic, $settings = array(), $asTemplate = false, $contextId = 0, $subFilters = array(), $persist = true) {
-		$falseVar = false;
-
+	function configureObject($filterClassName, $filterGroupSymbolic, $settings = array(), $asTemplate = false, $contextId = 0, $subFilters = array(), $persist = true) {
 		// Retrieve the filter group from the database.
 		$filterGroupDao = DAORegistry::getDAO('FilterGroupDAO'); /* @var $filterGroupDao FilterGroupDAO */
 		$filterGroup =& $filterGroupDao->getObjectBySymbolic($filterGroupSymbolic);
-		if (!is_a($filterGroup, 'FilterGroup')) return $falseVar;
+		if (!is_a($filterGroup, 'FilterGroup')) return false;
 
 		// Instantiate the filter.
 		$filter =& instantiate($filterClassName, 'PersistableFilter', null, 'execute', $filterGroup); /* @var $filter PersistableFilter */
-		if (!is_object($filter)) return $falseVar;
+		if (!is_object($filter)) return false;
 
 		// Is this a template?
 		$filter->setIsTemplate((boolean)$asTemplate);
@@ -103,7 +101,7 @@ class FilterDAO extends DAO {
 		// Persist the filter.
 		if ($persist) {
 			$filterId = $this->insertObject($filter, $contextId);
-			if (!is_integer($filterId) || $filterId == 0) return $falseVar;
+			if (!is_integer($filterId) || $filterId == 0) return false;
 		}
 
 		return $filter;
@@ -116,8 +114,8 @@ class FilterDAO extends DAO {
 	 * @param $contextId integer
 	 * @return integer the new filter id
 	 */
-	function insertObject(&$filter, $contextId = CONTEXT_ID_NONE) {
-		$filterGroup =& $filter->getFilterGroup();
+	function insertObject($filter, $contextId = CONTEXT_ID_NONE) {
+		$filterGroup = $filter->getFilterGroup();
 		assert($filterGroup->getSymbolic() != FILTER_GROUP_TEMPORARY_ONLY);
 
 		$this->update(

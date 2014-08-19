@@ -184,7 +184,7 @@ class PKPSubmissionHandler extends Handler {
 			if ($submitForm->validate()) {
 				$submissionId = $submitForm->execute($args, $request);
 				if (!$submission) {
-					return $request->redirectUrlJson($router->url($request, null, null, 'wizard', $step+1, array('submissionId' => $submissionId), '2'));
+					return $request->redirectUrlJson($router->url($request, null, null, 'wizard', $step+1, array('submissionId' => $submissionId), 'step-2'));
 				}
 				$json = new JSONMessage(true);
 				$json->setEvent('setStep', max($step+1, $submission->getSubmissionProgress()));

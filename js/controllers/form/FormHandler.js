@@ -90,7 +90,8 @@
 		});
 
 		// Activate the cancel button (if present).
-		$('#cancelFormButton', $form).click(this.callbackWrapper(this.cancelForm));
+		$('[id^=\'cancelFormButton-\']', $form)
+				.click(this.callbackWrapper(this.cancelForm));
 
 		// Activate the reset button (if present).
 		$('#resetFormButton', $form).click(this.callbackWrapper(this.resetForm));

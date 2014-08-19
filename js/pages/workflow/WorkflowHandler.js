@@ -100,10 +100,13 @@
 	$.pkp.pages.workflow.WorkflowHandler.prototype.dataChangedHandler_ =
 			function(callingElement, event, eventData) {
 
-		if ($(event.target, this.getHtmlElement()).children('a').
-				attr('id').match(/submissionEntry/)) {
+		var $childAnchors = $(event.target, this.getHtmlElement()).children('a'),
+				$formatsGrid;
+
+		if ($childAnchors.length &&
+				$childAnchors.attr('id').match(/submissionEntry/)) {
 			// Refresh the format grid on this page, if any.
-			var $formatsGrid = $('[id^="formatsGridContainer"]',
+			$formatsGrid = $('[id^="formatsGridContainer"]',
 					this.getHtmlElement()).children('div');
 			$formatsGrid.trigger('dataChanged', [eventData]);
 			$formatsGrid.trigger('notifyUser', [$formatsGrid]);

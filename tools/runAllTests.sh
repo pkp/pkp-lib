@@ -12,6 +12,18 @@
 #  -d   Display debug output from phpunit.
 # If no options are specified, then all tests will be executed.
 #
+# Some tests will certain require environment variables in order to cnfigure
+# the environment. In particular...
+#  DUMMYFILE=dummy.pdf: Path to dummy file to use for document uploads
+#  BASEURL="http://localhost/omp": Full URL to base URL, excluding index.php
+#  DBHOST=localhost: Hostname of database server
+#  DBNAME=yyy: Database name
+#  DBUSERNAME=xxx: Username for database connections
+#  DBPASSWORD=zzz: Database password
+#  FILESDIR=files: Pathname to use for storing server-side submission files
+#  DBTYPE=MySQL: Name of database driver (MySQL or PostgreSQL)
+#  TIMEOUT=30: Selenium timeout; optional, 30 seconds by default
+#
 
 set -e # Fail on first error
 
@@ -41,14 +53,6 @@ set -e # Fail on first error
 #    show_stacktrace = On
 #    deprecation_warnings = On
 #    ...
-#
-#    ; Code Coverage Analysis (optional)
-#    coverage_phpunit_dir = /usr/share/php/PHPUnit/            ; This points to the PHPUnit installation directory.
-#    coverage_report_dir = .../coverage/                       ; This is an absolute path to a folder accessible by the web server which will contain the coverage reports.
-#
-#    ; Functional Test Configuration
-#    webtest_base_url = http://localhost/...                   ; This points to the base URL to be used for Selenium Tests.
-#    webtest_admin_pw = ...                                    ; This is the admin password used for Selenium Tests.
 #
 #    ; Configuration for DOI export tests
 #    webtest_datacite_pw = ...                                 ; To test Datacite export you need a Datacite test account.

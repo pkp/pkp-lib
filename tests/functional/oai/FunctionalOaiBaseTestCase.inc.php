@@ -31,11 +31,11 @@ class FunctionalOaiBaseTestCase extends DatabaseTestCase {
 
 	public function setUp() {
 		// Retrieve and check configuration.
-		$webtestBaseUrl = Config::getVar('debug', 'webtest_base_url');
+		$webtestBaseUrl = getenv('BASEURL');
 		if (empty($webtestBaseUrl)) {
 			$this->markTestSkipped(
-				'Please set webtest_base_url in your config.php\'s ' .
-				'[debug] section to the base url of your test server.'
+				'Please set the BASEURL environment variable ' .
+				'to the base url of your test server.'
 			);
 		}
 		$this->baseUrl = $webtestBaseUrl . '/index.php/test/oai';;

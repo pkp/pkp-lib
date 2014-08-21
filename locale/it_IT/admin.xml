@@ -84,4 +84,10 @@
 	<message key="admin.settings">Impostazioni</message>
 	<message key="admin.settings.siteTheme">Tema del sito</message>
 	<message key="admin.siteSetup">Setup del sito</message>
+	<message key="admin.scheduledTask">Attività programmate</message>
+	<message key="admin.settings.oneStepReset">Usa il reset delle password in un unico passaggio?</message>
+	<message key="admin.fileLoader.wrongBasePathLocation">Il path bas {$path} deve essere dentro la cartella dei file public</message>
+	<message key="admin.fileLoader.pathNotAccessible">La cartella {$path} non è esiste o non è scrivibile</message>
+	<message key="admin.fileLoader.moveFileFailed">il file {$filename} non può essere spostato da {$currentFilePath} a {$destinationPath}</message>
+	<message key="admin.fileLoader">Caricatore di file</message>
 </locale>

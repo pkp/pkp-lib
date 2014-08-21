@@ -160,6 +160,8 @@
 	<message key="common.width">Larghezza</message>
 	<message key="common.year">Anno</message>
 	<message key="common.yes">Si</message>
+	<message key="common.metric">Metriche</message>
+	<message key="common.count">Conteggio</message>
 	<message key="debug.databaseQueries">Numero di query sul database</message>
 	<message key="debug.executionTime">Pagina generata in</message>
 	<message key="debug.memoryUsage">Utilizzo della memoria:</message>
@@ -260,10 +262,8 @@
 	<message key="search.operator.and">and</message>
 	<message key="search.operator.not">not</message>
 	<message key="search.operator.or">or</message>
-	<message key="search.reviseSearch">Modifica la ricerca</message>
 	<message key="search.searchAllCategories">Ricerca in tutti i campi</message>
 	<message key="search.searchCategories">Cerca in</message>
-	<message key="search.searchResults">Risultati della ricerca</message>
 	<message key="search.subject">Parola(e) chiave</message>
 	<message key="search.titleIndex">Scorri la lista dei titoli</message>
 	<message key="search.title">Titoli</message>
@@ -374,4 +374,19 @@
 	<message key="common.notified">Notificato</message>
 	<message key="common.reset">Reset</message>
 	<message key="grid.action.downloadFile">Scarica questo file</message>
+	<message key="common.error">Errore</message>
+	<message key="defaultMetric.title">Metriche di default</message>
+	<message key="defaultMetric.availableMetrics">Metriche disponibili</message>
+	<message key="search.activeFilters">Filtri avanzati</message>
+	<message key="search.advancedSearchMore">Altre opzioni di ricerca (clicca per visualizzare)</message>
+	<message key="search.advancedSearchLess">Altre opzioni di ricerca (clicca per nascondere)</message>
+	<message key="search.cli.rebuildIndex.clearingIndex">Pulisci l'indice</message>
+	<message key="search.cli.rebuildIndex.done">fatto</message>
+	<message key="search.cli.rebuildIndex.error">errore</message>
+	<message key="search.cli.rebuildIndex.indexing">Indicizzazione di "{$journalName}"</message>
+	<message key="search.cli.rebuildIndex.indexingByJournalNotSupported">L'implementazione di questa ricerca non permette la reindicizzazione di una singola rivista.</message>
+	<message key="search.cli.rebuildIndex.result">{$numIndexed} articoli indicizzati</message>
+	<message key="search.cli.rebuildIndex.unknownJournal">Il path "{$journalPath}"non appartiene ad alcuna rivista.</message>
+	<message key="search.deleteFilter">Cancella</message>
+	<message key="search.indexTermsLong">Tutti i termini di ricerca</message>
 </locale>

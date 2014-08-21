@@ -126,4 +126,5 @@
 	<message key="user.profile.form.mailingAddressRequired">E' obbligatorio un indirizzo di posta elettronica.</message>
 	<message key="user.profile.form.passwordSameAsOld">La nuova password è identica alla vecchia.</message>
 	<message key="user.profile.form.usergroupRequired">E' obbligatorio un gruppo utenti.</message>
+	<message key="user.profile.form.hashInvalid">La chiave di reset password che hai utilizzato non è valida.</message>
 </locale>

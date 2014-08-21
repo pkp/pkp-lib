@@ -69,7 +69,6 @@ class FooterLinkDAO extends DAO {
 
 		$footerLink->setId($row['footerlink_id']);
 		$footerLink->setContextId($row['context_id']);
-		$footerLink->setUrl($row['url']);
 		$footerLink->setCategoryId($row['footer_category_id']);
 
 		$this->getDataObjectSettings('footerlink_settings', 'footerlink_id', $row['footerlink_id'], $footerLink);
@@ -84,7 +83,7 @@ class FooterLinkDAO extends DAO {
 	 * @return array
 	 */
 	function getLocaleFieldNames() {
-		return array('title');
+		return array('title', 'url');
 	}
 
 	/**
@@ -108,13 +107,12 @@ class FooterLinkDAO extends DAO {
 	function insertObject($footerLink) {
 		$this->update(
 			'INSERT INTO footerlinks
-				(context_id, footer_category_id, url)
+				(context_id, footer_category_id)
 				VALUES
-				(?, ?, ?)',
+				(?, ?)',
 			array(
 				(int) $footerLink->getContextId(),
 				(int) $footerLink->getCategoryId(),
-				$footerLink->getUrl()
 			)
 		);
 
@@ -131,13 +129,11 @@ class FooterLinkDAO extends DAO {
 		$returner = $this->update(
 			'UPDATE	footerlinks
 			SET	context_id = ?,
-				footer_category_id = ?,
-				url = ?
+				footer_category_id = ?
 			WHERE	footerlink_id = ?',
 			array(
 				(int) $footerLink->getContextId(),
 				(int) $footerLink->getCategoryId(),
-				$footerLink->getUrl(),
 				(int) $footerLink->getId()
 			)
 		);

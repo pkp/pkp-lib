@@ -58,13 +58,15 @@ class FooterLinkListbuilderHandler extends SetupListbuilderHandler {
 		$this->setSaveType(LISTBUILDER_SAVE_TYPE_EXTERNAL);
 		$this->setSaveFieldName('footerLinks');
 
+		import('lib.pkp.controllers.listbuilder.content.navigation.FooterLinkListbuilderGridCellProvider');
+
 		// Title column
 		$titleColumn = new MultilingualListbuilderGridColumn($this, 'title', 'common.title', null, null, null, null, array('tabIndex' => 1));
-		import('lib.pkp.controllers.listbuilder.content.navigation.FooterLinkListbuilderGridCellProvider');
 		$titleColumn->setCellProvider(new FooterLinkListbuilderGridCellProvider());
 		$this->addColumn($titleColumn);
 
-		$urlColumn = new ListbuilderGridColumn($this, 'url', 'common.url', null, null, null, array('tabIndex' => 2));
+		// Url column
+		$urlColumn = new MultilingualListbuilderGridColumn($this, 'url', 'common.url', null, null, null, null, array('tabIndex' => 2));
 		$urlColumn->setCellProvider(new FooterLinkListbuilderGridCellProvider());
 		$this->addColumn($urlColumn);
 	}

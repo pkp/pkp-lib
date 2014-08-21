@@ -26,6 +26,16 @@ import('lib.pkp.classes.i18n.PKPLocale');
 
 class PKPLocaleTest extends PKPTestCase {
 	/**
+	 * Clean data caches before running tests
+	 */
+	public static function setUpBeforeClass() {
+		// Preexisting cache files can cause problems with the mock
+		// environment.
+		$cacheManager =& CacheManager::getManager();
+		$cacheManager->flush();
+	}
+
+	/**
 	 * @covers PKPLocale
 	 */
 	public function testGetLocaleStylesheet() {

@@ -47,4 +47,5 @@ sudo chown -R travis:www-data .
 # (Permissions will need to be fixed; web tests run w/different user than unit)
 sudo chown -R travis:www-data ${FILESDIR}
 sudo chmod -R 775 ${FILESDIR}
+sudo rm -f cache/*.php
 ./lib/pkp/tools/runAllTests.sh -Ccf

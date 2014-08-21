@@ -85,9 +85,6 @@
 		<field name="footer_category_id" type="I8">
 			<NOTNULL/>
 		</field>
-		<field name="url" type="C2" size="255">
-			<NOTNULL />
-		</field>
 		<descr>Press Footer Links.</descr>
 		<index name="footerlink_context_id">
 			<col>context_id</col>

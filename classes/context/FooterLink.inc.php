@@ -55,19 +55,28 @@ class FooterLink extends DataObject {
 	}
 
 	/**
+	 * Get localized url of the link.
+	 * @return string
+	 */
+	function getLocalizedUrl() {
+		return $this->getLocalizedData('url');
+	}
+
+	/**
 	 * Get link URL.
 	 * @return string
 	 */
-	function getUrl() {
-		return $this->getData('url');
+	function getUrl($locale) {
+		return $this->getData('url', $locale);
 	}
 
 	/**
 	 * Set link URL.
 	 * @param $path string
+	 * @param $locale string
 	 */
-	function setUrl($url) {
-		return $this->setData('url', $url);
+	function setUrl($url, $locale) {
+		return $this->setData('url', $url, $locale);
 	}
 
 	/**

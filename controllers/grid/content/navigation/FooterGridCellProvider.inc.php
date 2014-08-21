@@ -41,7 +41,7 @@ class FooterGridCellProvider extends DataObjectGridCellProvider {
 		// there is only one column in the Footer grid.
 		switch ($columnId) {
 			case 'title':
-				return array('label' => '<a href="' . String::stripUnsafeHtml($element->getUrl()) . '" target="_blank">' . $element->getLocalizedTitle() . '</a>');
+				return array('label' => '<a href="' . String::stripUnsafeHtml($element->getLocalizedUrl()) . '" target="_blank">' . $element->getLocalizedTitle() . '</a>');
 		}
 	}
 }

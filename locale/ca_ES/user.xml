@@ -121,7 +121,7 @@
 	<message key="user.suffix">Sufix</message>
 	<message key="user.title">Títol</message>
 	<message key="user.url">URL</message>
-	<message key="user.userHome">Àrea personal de l’usuari/ària</message>
+	<message key="user.userHome">Àrea personal</message>
 	<message key="user.username">Nom d’usuari/ària</message>
 	<message key="user.workingLanguages">Llengües de treball</message>
 	<message key="user.register.completeForm">Ompliu aquest formulari per registrar-vos en aquest lloc web.</message>

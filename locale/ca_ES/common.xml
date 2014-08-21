@@ -301,7 +301,7 @@
 	<message key="navigation.browseByTitle">Per títol</message>
 	<message key="navigation.dashboard">Tauler d'eines</message>
 	<message key="navigation.data">Dades</message>
-	<message key="navigation.home">Pàgina d'inici</message>
+	<message key="navigation.home">Inici</message>
 	<message key="navigation.infoForReaders">Per a lectors/ores</message>
 	<message key="navigation.infoForReaders.long">Informació per a lectors/ores</message>
 	<message key="navigation.items">{$from} - {$to} de {$total} elements</message>
@@ -319,7 +319,7 @@
 	<message key="navigation.stepNumber">Pas {$step}</message>
 	<message key="navigation.submissions">Trameses</message>
 	<message key="navigation.system">Sistema</message>
-	<message key="navigation.userHome">Àrea personal de l’usuari/ària</message>
+	<message key="navigation.userHome">Àrea personal</message>
 	<message key="navigation.user">Usuari/ària</message>
 	<message key="navigation.userManagement">Administració d'usuaris/àries</message>
 	<message key="notification.allow">Permet que aquest tipus de notificacions apareguin al canal de notificacions.</message>

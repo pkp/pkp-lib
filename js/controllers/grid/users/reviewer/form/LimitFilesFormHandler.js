@@ -69,22 +69,20 @@
 
 	/**
 	 * Hide the "no files" warning.
-	 * @param {jQueryObject} $form the wrapped HTML form element.
 	 * @protected
 	 */
 	$.pkp.controllers.grid.users.reviewer.form.LimitFilesFormHandler.
-			prototype.hideWarning = function($form) {
+			prototype.hideWarning = function() {
 		this.getHtmlElement().find('#noFilesWarning').hide(250);
 	};
 
 
 	/**
 	 * Show the "no files" warning.
-	 * @param {jQueryObject} $form the wrapped HTML form element.
 	 * @protected
 	 */
 	$.pkp.controllers.grid.users.reviewer.form.LimitFilesFormHandler.
-			prototype.showWarning = function($form) {
+			prototype.showWarning = function() {
 		this.getHtmlElement().find('#noFilesWarning').show(250);
 	};
 

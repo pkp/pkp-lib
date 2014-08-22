@@ -89,7 +89,7 @@
 			submitForm = function(validator, formElement) {
 
 		var $form = this.getHtmlElement();
-		$(':password', $form).attr('disabled', 0);
+		$(':password', $form).prop('disabled', false);
 		this.parent('submitForm', validator, formElement);
 	};
 
@@ -150,7 +150,7 @@
 	/**
 	 * Check JSON message and set it to username, back on form.
 	 * @param {HTMLElement} formElement The Form HTML element.
-	 * @param {JSON} jsonData The jsonData response.
+	 * @param {JSONType} jsonData The jsonData response.
 	 */
 	$.pkp.controllers.grid.settings.user.form.UserFormHandler.prototype.
 			setUsername = function(formElement, jsonData) {

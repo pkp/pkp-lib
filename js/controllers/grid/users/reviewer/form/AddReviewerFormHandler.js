@@ -113,7 +113,7 @@
 	/**
 	 * Check JSON message and set it to username, back on form.
 	 * @param {HTMLElement} formElement The Form HTML element.
-	 * @param {JSON} jsonData The jsonData response.
+	 * @param {JSONType} jsonData The jsonData response.
 	 */
 	$.pkp.controllers.grid.users.reviewer.form.
 			AddReviewerFormHandler.prototype.setUsername =
@@ -135,11 +135,10 @@
 	//
 	/**
 	 * Show the "no files" warning.
-	 * @param {jQueryObject} $form the wrapped HTML form element.
 	 * @protected
 	 */
 	$.pkp.controllers.grid.users.reviewer.form.AddReviewerFormHandler.
-			prototype.showWarning = function($form) {
+			prototype.showWarning = function() {
 		// Call the parent showWarning to show the warning
 		this.parent('showWarning');
 

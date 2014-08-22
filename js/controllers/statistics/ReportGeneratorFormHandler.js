@@ -112,7 +112,7 @@
 		$objectTypeSelectElement = $(options.objectTypeSelectSelector,
 				this.getHtmlElement());
 		if (this.$fileTypeSelectElement_.length == 1) {
-			this.$fileTypeSelectElement_.attr('disabled', true);
+			this.$fileTypeSelectElement_.attr('disabled', 'disabled');
 			$objectTypeSelectElement.change(this.callbackWrapper(
 					this.updateFileTypeSelectHandler_));
 		}
@@ -347,13 +347,13 @@
 			assocType = $objectTypeSelectedOptions[0].value;
 			for (i in this.fileAssocTypes_) {
 				if (this.fileAssocTypes_[i] == assocType) {
-					this.$fileTypeSelectElement_.attr('disabled', false);
+					this.$fileTypeSelectElement_.removeAttr('disabled');
 					return false;
 				}
 			}
 		}
 
-		this.$fileTypeSelectElement_.attr('disabled', true);
+		this.$fileTypeSelectElement_.attr('disabled', 'disabled');
 		return false;
 	};
 

@@ -3,11 +3,13 @@
 #
 # USAGE:
 # runAllTests.sh [options]
+#  -b	Include data build tests in application.
 #  -C	Include class tests in lib/pkp.
 #  -P	Include plugin tests in lib/pkp.
 #  -c	Include class tests in application.
 #  -p	Include plugin tests in application.
 #  -f	Include functional tests in application.
+#  -d   Display debug output from phpunit.
 # If no options are specified, then all tests will be executed.
 #
 
@@ -18,7 +20,7 @@ set -e # Fail on first error
 # the default test environment.
 # 
 # NB: This will replace your database and files directory, so
-# either use a separate OJS instance for testing or back-up
+# either use a separate application instance for testing or back-up
 # your original database and files before you execute tests!
 #
 # 1) Set up test data for functional tests:
@@ -32,7 +34,7 @@ set -e # Fail on first error
 #    > mysql -u ... -p... ... <tests/functional/testserver.sql # exchange ... for your database access data
 #
 #
-# 2) Configure OJS for testing (in 'config.inc.php'):
+# 2) Configure application for testing (in 'config.inc.php'):
 #   
 #    [debug]
 #    ...
@@ -45,8 +47,7 @@ set -e # Fail on first error
 #    coverage_report_dir = .../coverage/                       ; This is an absolute path to a folder accessible by the web server which will contain the coverage reports.
 #
 #    ; Functional Test Configuration
-#    webtest_base_url = http://localhost/...                   ; This points to the OJS base URL to be used for Selenium Tests.
-#    webtest_admin_pw = ...                                    ; This is the OJS admin password used for Selenium Tests.
+#    webtest_base_url = http://localhost/...                   ; This points to the base URL to be used for Selenium Tests.
 #
 #    ; Configuration for DOI export tests
 #    webtest_datacite_pw = ...                                 ; To test Datacite export you need a Datacite test account.
@@ -60,7 +61,7 @@ set -e # Fail on first error
 #
 #    - If you want to execute ConfigTest you'll have to make local copies
 #      of lib/pkp/tests/config/*.TEMPLATE.* without the "TEMPLATE" extension
-#      (similarly to what you do in a new OJS installation). In most
+#      (similarly to what you do in a new installation). In most
 #      cases it should be enough to just adapt the database access data in
 #      there.
 #
@@ -95,15 +96,20 @@ TEST_CONF2="--configuration $TESTS_DIR/phpunit-env2.xml"
 DO_ALL=1
 
 # Various types of tests
+DO_APP_DATA=0
 DO_PKP_CLASSES=0
 DO_PKP_PLUGINS=0
 DO_APP_CLASSES=0
 DO_APP_PLUGINS=0
 DO_APP_FUNCTIONAL=0
+DEBUG=""
 
 # Parse arguments
-while getopts "CPcpf" opt; do
+while getopts "bCPcpfd" opt; do
 	case "$opt" in
+		b)	DO_ALL=0
+			DO_APP_DATA=1
+			;;
 		C)	DO_ALL=0
 			DO_PKP_CLASSES=1
 			;;
@@ -119,25 +125,31 @@ while getopts "CPcpf" opt; do
 		f)	DO_ALL=0
 			DO_APP_FUNCTIONAL=1
 			;;
+		d)	DEBUG="--debug"
+			;;
 	esac
 done
 
+if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_APP_DATA" -eq 1 \) ]; then
+	phpunit $DEBUG $TEST_CONF1 --debug -v --stop-on-failure --stop-on-skipped tests/data
+fi
+
 if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_PKP_CLASSES" -eq 1 \) ]; then
-	phpunit $TEST_CONF1 lib/pkp/tests/classes
+	phpunit $DEBUG $TEST_CONF1 lib/pkp/tests/classes
 fi
 
 if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_PKP_PLUGINS" -eq 1 \) ]; then
-	phpunit $TEST_CONF2 lib/pkp/tests/plugins
+	phpunit $DEBUG $TEST_CONF2 lib/pkp/tests/plugins
 fi
 
 if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_APP_CLASSES" -eq 1 \) ]; then
-	phpunit $TEST_CONF1 tests/classes
+	phpunit $DEBUG $TEST_CONF1 tests/classes
 fi
 
 if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_APP_PLUGINS" -eq 1 \) ]; then
-	phpunit $TEST_CONF2 tests/plugins
+	phpunit $DEBUG $TEST_CONF2 tests/plugins
 fi
 
 if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_APP_FUNCTIONAL" -eq 1 \) ]; then
-	phpunit $TEST_CONF1 tests/functional
+	phpunit $DEBUG $TEST_CONF1 tests/functional
 fi

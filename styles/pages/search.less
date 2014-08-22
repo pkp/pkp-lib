@@ -1,13 +1,17 @@
 /**
- * @file styles/pages/index.less
+ * @file styles/pages/search.less
  *
  * Copyright (c) 2014 Simon Fraser University Library
  * Copyright (c) 2003-2014 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @brief Pages stylesheet wrapper
+ * @brief Search stylesheet wrapper
  *
  */
 
-@import url("lib/pkp/styles/pages/workflow.less");
-@import url("lib/pkp/styles/pages/search.less");
+.pkp_structure_search {
+	#topSearchForm label {
+		z-index: 0 !important;
+		top: 2px !important;
+	}
+}

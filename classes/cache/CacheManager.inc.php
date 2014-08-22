@@ -132,7 +132,7 @@ class CacheManager {
 				$filePath = $this->getFileCachePath();
 				$files = glob($filePath . DIRECTORY_SEPARATOR . 'fc-' . (isset($context)?$context . '-':'') . '*.php');
 				foreach ($files as $file) {
-					unlink ($file);
+					@unlink ($file);
 				}
 				break;
 			case '':

@@ -9,6 +9,7 @@
 #  -c	Include class tests in application.
 #  -p	Include plugin tests in application.
 #  -f	Include functional tests in application.
+#  -H   Generate HTML code coverage report.
 #  -d   Display debug output from phpunit.
 # If no options are specified, then all tests will be executed.
 #
@@ -30,7 +31,7 @@ set -e # Fail on first error
 # Before executing tests for the first time please execute the
 # following commands from the main ojs directory to install
 # the default test environment.
-# 
+#
 # NB: This will replace your database and files directory, so
 # either use a separate application instance for testing or back-up
 # your original database and files before you execute tests!
@@ -47,7 +48,7 @@ set -e # Fail on first error
 #
 #
 # 2) Configure application for testing (in 'config.inc.php'):
-#   
+#
 #    [debug]
 #    ...
 #    show_stacktrace = On
@@ -82,6 +83,29 @@ set -e # Fail on first error
 #        to make sure that new files, created by start.sh will
 #        will have the right permissions.
 #
+#	- To get code coverage reports for selenium tests working you need to
+#	  install the dependencies for phpunit-selenium:
+#		- cd lib/pkp/lib/phpunit-selenium/
+#		- curl -sS https://getcomposer.org/installer | php
+#		- php composer.phar install
+#
+#		and configure php auto_prepend/append
+#
+#	  	- sudo vi /etc/php5/mods-available/selenium-coverage.ini
+#	  	- insert:
+#			auto_append_file=[path_to_ojs]/lib/pkp/lib/phpunit-selenium/PHPUnit/Extensions/SeleniumCommon/append.php
+#			auto_prepend_file=[path_to_ojs]/lib/pkp/tests/prependCoverageReport.php
+#			selenium_coverage_prepend_file=[path_to_ojs]/lib/pkp/lib/phpunit-selenium/PHPUnit/Extensions/SeleniumCommon/prepend.php
+#			phpunit_coverage_data_directory=[path_to_ojs]/lib/pkp/tests/results/coverage-tmp
+#		- cd /etc/php5/apache2/conf.d/
+#		- sudo ln -s ../../mods-available/selenium-coverage.ini 99-selenium-coverage.ini
+#		- sudo /etc/init.d/apache2 restart
+#
+#		Make sure to have xdebug installed
+#
+#		Make sure that the web server can write to the output and temporary directories:
+#		- lib/pkp/tests/results/coverage-tmp
+#		- lib/pkp/tests/results/coverage-html
 #
 # 4) Don't forget to start your local selenium server before executing functional tests, i.e.:
 #
@@ -107,10 +131,11 @@ DO_PKP_PLUGINS=0
 DO_APP_CLASSES=0
 DO_APP_PLUGINS=0
 DO_APP_FUNCTIONAL=0
+DO_COVERAGE=0
 DEBUG=""
 
 # Parse arguments
-while getopts "bCPcpfd" opt; do
+while getopts "bCPcpfdH" opt; do
 	case "$opt" in
 		b)	DO_ALL=0
 			DO_APP_DATA=1
@@ -130,31 +155,74 @@ while getopts "bCPcpfd" opt; do
 		f)	DO_ALL=0
 			DO_APP_FUNCTIONAL=1
 			;;
+		H)	DO_COVERAGE=1
+			;;
 		d)	DEBUG="--debug"
 			;;
 	esac
 done
 
+REPORTS=''
+REPORT_SWITCH=''
+REPORT_TMP="$TESTS_DIR/results/coverage-tmp"
 if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_APP_DATA" -eq 1 \) ]; then
-	phpunit $DEBUG $TEST_CONF1 --debug -v --stop-on-failure --stop-on-skipped tests/data
+	if [ \( "$DO_COVERAGE" -eq 1 \) ]; then
+		REPORT="$REPORT_TMP/coverage-APP_DATA.php"
+		REPORTS="$REPORTS $REPORT"
+		REPORT_SWITCH="--coverage-php $REPORT"
+	fi
+	phpunit $DEBUG $TEST_CONF1 --debug -v --stop-on-failure --stop-on-skipped $REPORT_SWITCH tests/data
 fi
 
 if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_PKP_CLASSES" -eq 1 \) ]; then
-	phpunit $DEBUG $TEST_CONF1 lib/pkp/tests/classes
+	if [ \( "$DO_COVERAGE" -eq 1 \) ]; then
+		REPORT="$REPORT_TMP/coverage-PKP_CLASSES.php"
+		REPORTS="$REPORTS $REPORT"
+		REPORT_SWITCH="--coverage-php $REPORT"
+	fi
+	phpunit $DEBUG $TEST_CONF1 $REPORT_SWITCH lib/pkp/tests/classes
 fi
 
 if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_PKP_PLUGINS" -eq 1 \) ]; then
-	phpunit $DEBUG $TEST_CONF2 lib/pkp/plugins
+	if [ \( "$DO_COVERAGE" -eq 1 \) ]; then
+		REPORT="$REPORT_TMP/coverage-PKP_PLUGINS.php"
+		REPORTS="$REPORTS $REPORT"
+		REPORT_SWITCH="--coverage-php $REPORT"
+	fi
+	phpunit $DEBUG $TEST_CONF2 $REPORT_SWITCH lib/pkp/plugins
 fi
 
 if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_APP_CLASSES" -eq 1 \) ]; then
-	phpunit $DEBUG $TEST_CONF1 tests/classes
+	if [ \( "$DO_COVERAGE" -eq 1 \) ]; then
+		REPORT="$REPORT_TMP/coverage-APP_CLASSES.php"
+		REPORTS="$REPORTS $REPORT"
+		REPORT_SWITCH="--coverage-php $REPORT"
+	fi
+	phpunit $DEBUG $TEST_CONF1 $REPORT_SWITCH tests/classes
 fi
 
 if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_APP_PLUGINS" -eq 1 \) ]; then
+<<<<<<< HEAD
 	phpunit $DEBUG $TEST_CONF2 plugins
+=======
+	if [ \( "$DO_COVERAGE" -eq 1 \) ]; then
+		REPORT="$REPORT_TMP/coverage-APP_PLUGINS.php"
+		REPORTS="$REPORTS $REPORT"
+		REPORT_SWITCH="--coverage-php $REPORT"
+	fi
+	phpunit $DEBUG $TEST_CONF2 $REPORT_SWITCH tests/plugins
+>>>>>>> *8876* Implemented coverage reports
 fi
 
 if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_APP_FUNCTIONAL" -eq 1 \) ]; then
-	phpunit $DEBUG $TEST_CONF1 tests/functional
+	if [ \( "$DO_COVERAGE" -eq 1 \) ]; then
+		REPORT="$REPORT_TMP/coverage-APP_FUNCTIONAL.php"
+		REPORTS="$REPORTS $REPORT"
+		REPORT_SWITCH="--coverage-php $REPORT"
+	fi
+	phpunit $DEBUG $TEST_CONF1 $REPORT_SWITCH tests/functional
+fi
+
+if [ \( "$DO_COVERAGE" -eq 1 \) -a \( -n "$REPORTS" \) ]; then
+	php $TESTS_DIR/mergeCoverageReportTool.php $TESTS_DIR/results/coverage-html $REPORTS
 fi

@@ -24,7 +24,6 @@ class DBConnectionTest extends DatabaseTestCase {
 	 * @covers DBConnection::DBConnection
 	 * @covers DBConnection::initDefaultDBConnection
 	 * @covers DBConnection::initConn
-	 * @covers AdodbMysqlCompat::AdodbMysqlCompat
 	 */
 	public function testInitDefaultDBConnection() {
 		$conn = new DBConnection();

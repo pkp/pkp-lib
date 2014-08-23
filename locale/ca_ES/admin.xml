@@ -91,4 +91,12 @@
 	<message key="admin.fileLoader.pathNotAccessible">El directori {$path} no és un directori o no es pot llegir.</message>
 	<message key="admin.fileLoader.moveFileFailed">El fitxer {$filename} no s'ha pogut moure de {$currentFilePath} a {$destinationPath}</message>
 	<message key="admin.fileLoader">Carregador de fitxers</message>
+	<message key="admin.scheduledTask.startTime">S'ha iniciat la tasca.</message>
+	<message key="admin.scheduledTask.stopTime">S'ha aturat la tasca.</message>
+	<message key="admin.scheduledTask.noLog">La tasca no ha generat cap registre (log).</message>
+	<message key="admin.scheduledTask.openAccessNotification">Notifiació d'accès obert</message>
+	<message key="admin.scheduledTask.reviewReminder">Recordatori de revisió</message>
+	<message key="admin.scheduledTask.subscriptionExpiryReminder">Recordatori de caducitat de la subscripció</message>
+	<message key="admin.settings.oneStepReset">Utilitzar reiniciat de paraules clau en un sol pas?</message>
+	<message key="admin.fileLoader.fileProcessed">El fitxer {$filename} ha estat procesat i arxivat.</message>
 </locale> 

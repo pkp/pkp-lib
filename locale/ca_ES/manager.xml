@@ -234,4 +234,6 @@
 	<message key="plugins.categories.reports">Mòduls per a informes</message>
 	<message key="plugins.categories.themes.description">Podeu utilitzar els mòduls de tema per a canviar l’aparença del sistema.</message>
 	<message key="plugins.categories.themes">Mòduls de tema</message>
+	<message key="manager.announcements.form.notificationToggle">Enviar notificació</message>
+	<message key="manager.announcements.form.notificationToggleInstructions">Crea una nova notificació al guardar aquest anunci.</message>
 </locale> 

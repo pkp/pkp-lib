@@ -338,7 +338,7 @@
 	<message key="notification.notification">Notificació</message>
 	<message key="notification.notifications">Notificacions</message>
 	<message key="notification.notificationsNew">({$numNew} nous)</message>
-	<message key="notification.notificationsDescription"><![CDATA[  <a href="{$settingsUrl}">Feu clic aquí </a>per canviar la configuració de les notificacions.]]></message>
+	<message key="notification.notificationsDescription">Teniu {$unreadCount} notificacions pendents i {$readCount} llegides.<![CDATA[  <a href="{$settingsUrl}">Feu clic aquí </a>per canviar la configuració de les notificacions.]]></message>
 	<message key="notification.settings">Configuració de les notificacions</message>
 	<message key="notification.settingsDescription">Seleccioneu quines incidències del sistema voleu que us notifiquin. Si desactiveu un element, les notificacions d’aquesta incidència no apareixeran al vostre canal de notificacions.</message>
 	<message key="notification.subscribe">Subscriviu-vos</message>
@@ -386,4 +386,5 @@
 	<!-- Common -->
 	<message key="grid.action.downloadFile">Descarrega aquest fitxer</message>
 	
+	<message key="common.notice">Notificació</message>
 </locale> 

@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
-
 <!--
   * plugins/citationLookup/isbndb/locale/es_ES/locale.xml
   *
-  * Copyright (c) 2013-2014 Simon Fraser University Library
+  * Copyright (c) 2014 Simon Fraser University Library
   * Copyright (c) 2003-2014 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the es_ES (Español) locale.
+  * Credits: http://pkp.sfu.ca/wiki/index.php?title=OJS:_Spanish_%28es_ES%29
+  *
+  * Localization strings for the es_ES (Español (España)) locale.
   -->
 
-<locale name="es_ES" full_name="Español">
-	<!-- plug-in -->
-	<message key="plugins.citationLookup.isbndb.displayName">Conector con la base de datos ISBNdb</message>
-	<message key="plugins.citationLookup.isbndb.description">Conecta con la base de datos bibliográfica de ISBNdb.</message>
+<locale name="es_ES" full_name="Español (España)">	<!-- plug-in -->
+	<message key="plugins.citationLookup.isbndb.displayName">Conector de bases de datos ISBNdb</message>
+	<message key="plugins.citationLookup.isbndb.description">Conecta con la base de datos bibliográfica ISBNdb.</message>
 
 	<!-- ISBN lookup and extraction services -->
-	<message key="plugins.citationLookup.isbndbExtraction.displayName">Servicio de extración ISBN</message>
-	<message key="plugins.citationLookup.isbndbExtraction.description">Encuentra un ISBN para la descripción NLM 3.0 del elemento-citación.</message>
-	<message key="plugins.citationLookup.isbndbLookup.displayName">Servicio de búsqueda ISBN</message>
-	<message key="plugins.citationLookup.isbndbLookup.description">Busca la descripción completa NLM 3.0 del elemento-citación para el ISBN indicado.</message>
-</locale>
+	<message key="plugins.citationLookup.isbndbExtraction.displayName">Servicio de extracción de ISBN</message>
+	<message key="plugins.citationLookup.isbndbExtraction.description">Encuentra el ISBN de una descripción de un elemento de cita NLM 3.0.</message>
+	<message key="plugins.citationLookup.isbndbLookup.displayName">Servicio de búsqueda de ISBN</message>
+	<message key="plugins.citationLookup.isbndbLookup.description">Busca una descripción completa de un elemento de cita NLM 3.0 con el ISBN introducido.</message>
+</locale> 

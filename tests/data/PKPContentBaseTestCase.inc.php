@@ -103,22 +103,6 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 	}
 
 	/**
-	 * Log in as an Editor and find the specified submission.
-	 * @param $username string
-	 * @param $password string (null to presume twice-username)
-	 * @param $title string
-	 */
-	protected function findSubmissionAsEditor($username, $password = null, $title) {
-		if ($password === null) $password = $username . $username;
-		$this->logIn($username, $password);
-
-		// Use the search to find the submission
-		$this->type('//div[@id=\'main\']//input[@name=\'search\']', $title);
-		$this->select('//div[@id=\'main\']//select[@name=\'searchMatch\']', 'label=is');
-		$this->clickAndWait('//div[@id=\'main\']//input[@value=\'Search\']');
-	}
-
-	/**
 	 * Record an editorial decision
 	 * @param $decision string
 	 */

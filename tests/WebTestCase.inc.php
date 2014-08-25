@@ -104,9 +104,12 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	/**
 	 * Log in.
 	 * @param $username string
-	 * @param $password string
+	 * @param $password string Optional -- defaults to usernameusername
 	 */
-	protected function logIn($username, $password) {
+	protected function logIn($username, $password = null) {
+		// Default to twice username (convention for test data)
+		if ($password === null) $password = $username . $username;
+
 		$this->open(self::$baseUrl);
 		$this->waitForElementPresent('link=Login');
 		$this->clickAndWait('link=Login');
@@ -171,6 +174,22 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 		$this->click('link=Log Out');
 		$this->waitForElementPresent('link=Login');
 		$this->waitJQuery();
+	}
+
+	/**
+	 * Log in as an Editor and find the specified submission.
+	 * @param $username string
+	 * @param $password string (null to presume twice-username)
+	 * @param $title string
+	 */
+	protected function findSubmissionAsEditor($username, $password = null, $title) {
+		if ($password === null) $password = $username . $username;
+		$this->logIn($username, $password);
+
+		// Use the search to find the submission
+		$this->type('//div[@id=\'main\']//input[@name=\'search\']', $title);
+		$this->select('//div[@id=\'main\']//select[@name=\'searchMatch\']', 'label=is');
+		$this->clickAndWait('//div[@id=\'main\']//input[@value=\'Search\']');
 	}
 
 	/**
@@ -257,18 +276,19 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	}
 
 	/**
-	 * Upload a file using plupload interface.
-	 * @param $file string Path to the file relative to the
-	 * OmpWebTestCase class file location.
+	 * Upload a file using an input type=file.
+	 * @param $file string Path to the file
+	 * @param $inputSelector string Selenium selector for file input control
+	 * @param $buttonSelector string Selenium selector for upload button
 	 */
-	protected function uploadFile($file) {
+	protected function uploadFile($file, $inputSelector = '//input[@type="file"]', $buttonSelector = '//input[@value=\'Upload\']') {
 		$this->assertTrue(file_exists($file), 'Test file does not exist.');
 		$testFile = realpath($file);
 		$fileName = basename($testFile);
 
-		$this->waitForElementPresent('//input[@type="file"]');
-		$this->attachFile('//input[@type="file"]', "file://$testFile");
-		$this->clickAndWait('//input[@value=\'Upload\']');
+		$this->waitForElementPresent($inputSelector);
+		$this->attachFile($inputSelector, "file://$testFile");
+		$this->clickAndWait($buttonSelector);
 	}
 
 	/**

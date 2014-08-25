@@ -48,4 +48,4 @@ sudo chown -R travis:www-data .
 sudo chown -R travis:www-data ${FILESDIR}
 sudo chmod -R 775 ${FILESDIR}
 sudo rm -f cache/*.php
-./lib/pkp/tools/runAllTests.sh -Ccf
+./lib/pkp/tools/runAllTests.sh -Ccfr

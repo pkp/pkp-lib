@@ -104,9 +104,12 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	/**
 	 * Log in.
 	 * @param $username string
-	 * @param $password string
+	 * @param $password string Optional -- defaults to usernameusername
 	 */
-	protected function logIn($username, $password) {
+	protected function logIn($username, $password = null) {
+		// Default to twice username (convention for test data)
+		if ($password === null) $password = $username . $username;
+
 		$this->open(self::$baseUrl);
 		$this->waitForElementPresent('link=Login');
 		$this->clickAndWait('link=Login');

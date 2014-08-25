@@ -47,6 +47,6 @@ sudo chown -R travis:www-data .
 # (Permissions will need to be fixed; web tests run w/different user than unit)
 sudo chown -R travis:www-data ${FILESDIR}
 sudo chmod -R 775 ${FILESDIR}
-./lib/pkp/tools/runAllTests.sh -Cc
+./lib/pkp/tools/runAllTests.sh -Ccr
 # Functional tests temporarily disabled
 # - ./lib/pkp/tools/runAllTests.sh -f

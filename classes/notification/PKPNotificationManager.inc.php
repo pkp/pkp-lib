@@ -446,7 +446,7 @@ class PKPNotificationManager {
 		import('classes.mail.MailTemplate');
 		$site =& $request->getSite();
 		$mail = new MailTemplate('NOTIFICATION', null, null, null, true, true);
-		$mail->setFrom($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
+		$mail->setReplyTo($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
 		$mail->assignParams(array(
 			'notificationContents' => $this->getNotificationContents($request, $notification),
 			'url' => $this->getNotificationUrl($request, $notification),
@@ -474,7 +474,7 @@ class PKPNotificationManager {
 			$dispatcher =& $router->getDispatcher();
 
 			$mail = new MailTemplate('NOTIFICATION_MAILLIST');
-			$mail->setFrom($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
+			$mail->setReplyTo($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
 			$mail->assignParams(array(
 				'notificationContents' => $this->getNotificationContents($request, $notification),
 				'url' => $this->getNotificationUrl($request, $notification),
@@ -513,7 +513,7 @@ class PKPNotificationManager {
 		}
 
 		$mail = new MailTemplate($template);
-		$mail->setFrom($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
+		$mail->setReplyTo($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
 		$mail->assignParams($params);
 		$mail->addRecipient($email);
 		$mail->send();

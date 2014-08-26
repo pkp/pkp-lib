@@ -78,10 +78,15 @@ class Mail extends DataObject {
 
 	/**
 	 * Get the envelope sender (bounce address) for the message, if set.
+	 * Override any set envelope sender if force_default_envelope_sender config option is in effect.
 	 * @return string
 	 */
 	function getEnvelopeSender() {
-		return $this->getData('envelopeSender');
+		if (Config::getVar('email', 'force_default_envelope_sender') && Config::getVar('email', 'default_envelope_sender')) {
+			return Config::getVar('email', 'default_envelope_sender');
+		} else {
+			return $this->getData('envelopeSender');
+		}
 	}
 
 	/**
@@ -502,6 +507,9 @@ class Mail extends DataObject {
 
 		if (($r = $this->getReplyToString()) != '') {
 			$this->addHeader('Reply-To', $r);
+		} elseif (Config::getVar('email', 'force_default_envelope_sender') && Config::getVar('email', 'default_envelope_sender')) {
+			// Set a default reply-to of what would have been the from address if we are overriding the envelope sender
+			$this->addHeader('Reply-To', $from);
 		}
 
 		$ccs = $this->getAddressArrayString($this->getCcs(), true, true);

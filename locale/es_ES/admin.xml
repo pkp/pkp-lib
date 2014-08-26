@@ -184,5 +184,13 @@
 
 	<message key="admin.fileLoader">Cargador de archivos</message>
 
+	<message key="admin.scheduledTask.startTime">Se ha iniciado la tarea.</message>
+	<message key="admin.scheduledTask.stopTime">Se ha detenido la tarea.</message>
+	<message key="admin.scheduledTask.noLog">La tarea no ha generado ningún registro.</message>
+	<message key="admin.scheduledTask.openAccessNotification">Notificación de acceso abierto</message>
+	<message key="admin.scheduledTask.reviewReminder">Recordatorio de revisión</message>
+	<message key="admin.scheduledTask.subscriptionExpiryReminder">Recordatorio de caducidad de subscripción</message>
+	<message key="admin.settings.oneStepReset">Utilitzar reinicio de palabras clave en un solo paso?</message>
+	<message key="admin.fileLoader.fileProcessed">El fitxero {$filename} se ha procesado y archivado.</message>
 </locale> 
 

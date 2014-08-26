@@ -1,4 +1,4 @@
-/*
+/**
  * imgPreview jQuery plugin
  * Copyright (c) 2009 James Padolsey
  * j@qd9.co.uk | http://james.padolsey.com
@@ -11,6 +11,7 @@
  *  The original javascript required image extensions in the URL.
  *
  */
+
 (function($){
     // MC Customization: Removed $.expr definition which ensures files end with typical image extensions
     $.fn.imgPreview = function(userDefinedSettings){
@@ -26,7 +27,8 @@
             containerLoadingClass: 'loading',
             thumbPrefix: '',
             srcAttr: 'href'
-        }, userDefinedSettings);
+          }, userDefinedSettings),
+          $container, $img;
 
 		// MC Customization: Re-use the container if it is already in the DOM
 		if($("#"+s.containerID).length) {

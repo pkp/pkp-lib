@@ -92,6 +92,7 @@
 							.css('left',3)
 							.append($('<span/>').disableSelection().addClass('ui-icon ui-icon-carat-1-w').html('').css('margin-top',arrowsTopMargin))
 							.click(function(){
+								var prevIndex;
 								//Check if disabled
 								if($(this).hasClass('ui-state-disabled')) return;
 								//Just select the previous tab and trigger scrollToTab event
@@ -108,6 +109,7 @@
 							.css({'right':3})
 							.append($('<span/>').addClass('ui-icon ui-icon-carat-1-e').html('').css('margin-top',arrowsTopMargin))
 							.click(function(){
+								var nextIndex;
 								//Just select the previous tab and trigger scrollToTab event
 								nextIndex = $tabsNav.find('li.ui-tabs-selected').prevAll().length+1
 								//Now select the tab
@@ -174,6 +176,7 @@
 			})
 			//Bind the event to act when tab is added
 			.bind('scrollToTab',function(event,$tabToScrollTo,clickedFrom,hiddenOnSide){
+				var offsetLeft;
 				//If tab not provided than scroll to the last tab
 				$tabToScrollTo = (typeof $tabToScrollTo!='undefined') ? $($tabToScrollTo) : $tabsNav.find('li.ui-tabs-selected');
 				//Scroll the pane to the last tab
@@ -249,10 +252,6 @@
 				setTimeout(function(){$tabsNav.find('li:last a').trigger('click')},o.animationSpeed);
 			}
 		});
-
-		//Just for debuging
-		function debug(obj)
-		{console.log(obj)}
 	}
 })(jQuery);
 

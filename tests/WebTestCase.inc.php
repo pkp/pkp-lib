@@ -314,10 +314,31 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	}
 
 	/**
+	 * Click a link action with the specified name.
+	 * @param $name string Name of link action.
+	 * @param $waitFirst boolean True (default) to wait for the element first.
+	 */
+	protected function clickLinkActionNamed($name, $waitFirst = true) {
+		$selector = '//span[text()=\'' . $this->escapeJS($name) . '\']/..';
+		$this->waitForElementPresent($selector);
+		$this->click($selector);
+	}
+
+	/**
 	 * Wait for active JQuery requests to complete.
 	 */
 	protected function waitJQuery() {
 		$this->waitForCondition('window.jQuery.active == 0');
+	}
+
+	/**
+	 * Escape a string for inclusion in JS, typically as part of a selector.
+	 * WARNING: This is probably not safe for use outside the test suite.
+	 * @param $value string The value to escape.
+	 * @return string Escaped string.
+	 */
+	protected function escapeJS($value) {
+		return str_replace('\'', '\\\'', $value);
 	}
 }
 ?>

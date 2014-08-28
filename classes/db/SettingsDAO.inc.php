@@ -13,7 +13,6 @@
  * @brief Operations for retrieving and modifying settings.
  */
 
-
 class SettingsDAO extends DAO {
 	/**
 	 * Constructor.

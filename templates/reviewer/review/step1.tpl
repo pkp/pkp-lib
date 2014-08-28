@@ -51,23 +51,27 @@
 				{include file="linkAction/linkAction.tpl" action=$competingInterestsAction contextId="reviewStep1"}
 			</div>
 		{/fbvFormSection}
+	{/if}
 
+	{if $competingInterestsText != null}
+		{assign var="hasCI" value=true}
+		{assign var="noCI" value=false}
+	{else}
+		{assign var="hasCI" value=false}
+		{assign var="noCI" value=true}
+	{/if}
+	{if $hasCI || $currentContext->getSetting('reviewerCompetingInterestsRequired')}
 		{fbvFormSection list=true}
-			{if $competingInterestsText != null}
-				{assign var="hasCI" value=true}
-				{assign var="noCI" value=false}
-			{else}
-				{assign var="hasCI" value=false}
-				{assign var="noCI" value=true}
-			{/if}
 			{fbvElement type="radio" value="noCompetingInterests" id="noCompetingInterests" name="competingInterestOption" checked=$noCI label="reviewer.submission.noCompetingInterests" disabled=$reviewIsComplete}
 			<br /><br />
 			{fbvElement type="radio" value="hasCompetingInterests" id="hasCompetingInterests" name="competingInterestOption" checked=$hasCI label="reviewer.submission.hasCompetingInterests" disabled=$reviewIsComplete}
 		{/fbvFormSection}
+
 		{fbvFormSection}
 			{fbvElement type="textarea" name="competingInterestsText" id="competingInterestsText" value=$competingInterestsText size=$fbvStyles.size.MEDIUM disabled=$reviewIsComplete}
 		{/fbvFormSection}
 	{/if}
+
 	{if $reviewAssignment->getDateConfirmed()}
 		{fbvFormButtons hideCancel=true submitText="common.saveAndContinue" submitDisabled=$reviewIsComplete}
 	{else}

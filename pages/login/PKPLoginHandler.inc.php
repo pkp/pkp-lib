@@ -284,6 +284,9 @@ class PKPLoginHandler extends Handler {
 
 			$passwordForm = new LoginChangePasswordForm($confirmHash);
 			$passwordForm->initData();
+			if (isset($args[0])) {
+				$passwordForm->setData('username', $username);
+			}
 			$passwordForm->display();
 		}
 	}

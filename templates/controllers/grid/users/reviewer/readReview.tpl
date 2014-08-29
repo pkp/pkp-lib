@@ -30,7 +30,7 @@
 		{else}
 			<h3>{translate key="editor.review.reviewerComments"}</h3>
 			{assign var="contents" value=$reviewerComment->getComments()}
-			<span>
+			<span id="reviewContents">
 				{$contents|truncate:250|nl2br|strip_unsafe_html}
 				{if $contents|strlen > 250}<a href="javascript:$.noop();" class="showMore">{translate key="common.more"}</a>{/if}
 			</span>
@@ -47,7 +47,7 @@
 		{/if}
 		{if $reviewAssignment->getCompetingInterests()}
 			<h3>{translate key="reviewer.submission.competingInterests"}</h3>
-			{$reviewAssignment->getCompetingInterests()|nl2br|strip_unsafe_html}
+			<span id="reviewCompetingInterests">{$reviewAssignment->getCompetingInterests()|nl2br|strip_unsafe_html}</span>
 		{/if}
 	</div>
 	{fbvFormArea id="readReview"}

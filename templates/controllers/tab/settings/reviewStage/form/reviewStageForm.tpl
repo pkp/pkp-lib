@@ -62,6 +62,9 @@
 			{fbvFormSection label="manager.setup.competingInterests" description="manager.setup.competingInterestsDescription"}
 				{fbvElement type="textarea" multilingual="true" id="competingInterests" value=$competingInterests rich=true}
 			{/fbvFormSection}
+			{fbvFormSection for="reviewerCompetingInterestsRequired" list=true label="manager.setup.reviewerCompetingInterestsRequired.description"}
+				{fbvElement type="checkbox" id="reviewerCompetingInterestsRequired" checked=$reviewerCompetingInterestsRequired label="manager.setup.competingInterests.required" inline=true}
+			{/fbvFormSection}
 			{fbvFormSection label="manager.setup.reviewGuidelines" description="manager.setup.reviewGuidelinesDescription"}
 				{fbvElement type="textarea" multilingual="true" name="reviewGuidelines" id="reviewGuidelines" value=$reviewGuidelines rich=true}
 			{/fbvFormSection}

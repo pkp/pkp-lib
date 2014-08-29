@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file tests/data/PKPContentBaseTestCase.inc.php
+ * @file tests/PKPContentBaseTestCase.inc.php
  *
  * Copyright (c) 2014 Simon Fraser University Library
  * Copyright (c) 2000-2014 John Willinsky
@@ -10,7 +10,7 @@
  * @class PKPContentBaseTestCase
  * @ingroup tests_data
  *
- * @brief Data build suite: Base class for content creation tests (PKP base)
+ * @brief Base class for content-based tests (PKP base)
  */
 
 import('lib.pkp.tests.WebTestCase');
@@ -236,10 +236,6 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->waitForText('css=#ui-tabs-4 > h2', 'Review Submitted');
 		$this->waitJQuery();
 		$this->logOut();
-	}
-
-	protected function escapeJS($value) {
-		return str_replace('\'', '\\\'', $value);
 	}
 }
 

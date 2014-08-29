@@ -519,4 +519,6 @@
 	<message key="manager.reviewFormElements.textfield">Single line text box</message>
 	<message key="manager.reviewFormElements.viewable">Viewable (for authors)</message>
 	<message key="grid.action.createReviewForm">Create a new Review Form</message>
+	<message key="manager.setup.reviewerCompetingInterestsRequired.description">Reviewer Competing Interest statement</message>
+	<message key="manager.setup.competingInterests.required">Accept a Competing Interest statement</message>
 </locale>

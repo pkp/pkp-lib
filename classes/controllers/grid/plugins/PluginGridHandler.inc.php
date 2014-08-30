@@ -102,6 +102,14 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 	}
 
 	/**
+	 * @see GridHandler::initFeatures()
+	 */
+	function initFeatures($request, $args) {
+		import('lib.pkp.classes.controllers.grid.feature.GridCategoryAccordionFeature');
+		return array(new GridCategoryAccordionFeature());
+	}
+
+	/**
 	 * @see GridHandler::getFilterForm()
 	 */
 	function getFilterForm() {

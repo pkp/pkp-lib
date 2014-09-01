@@ -20,9 +20,9 @@
 	<message key="admin.authSources">Authentifizierungsquellen</message>
 	<message key="admin.clearDataCache">Den Datenspeicher leeren</message>
 	<message key="admin.clearTemplateCache">Den Vorlagenspeicher leeren</message>
-	<message key="admin.configFileUpdatedInstructions"><![CDATA[Ihre Konfigurationsdatei wurde erfolgreich aktualisiert. Beachten Sie bitte, dass Sie, falls Ihr Seite nicht mehr richtig arbeitet, eventuell die Konfiguration manuell wiederherstellen müssen, indem Sie direkt <tt>config.inc.php</tt> bearbeiten.]]></message>
+	<message key="admin.configFileUpdatedInstructions"><![CDATA[Ihre Konfigurationsdatei wurde erfolgreich aktualisiert. Beachten Sie bitte, dass Sie, falls Ihre Seite nicht mehr richtig arbeitet, eventuell die Konfiguration manuell wiederherstellen müssen, indem Sie direkt <tt>config.inc.php</tt> bearbeiten.]]></message>
 	<message key="admin.confirmClearTemplateCache">Sind Sie sicher, dass Sie den Vorlagenspeicher leeren wollen?</message>
-	<message key="admin.confirmExpireSessions">Sind Sie sicher, dass Sie alle Benutzer/innensitzungen schließen wollen? Alle Benutzer/innen, die gerade arbeiten (auch Sie selbst), müssen sich dann neu einloggen.</message>
+	<message key="admin.confirmExpireSessions">Sind Sie sicher, dass Sie alle Benutzer/innensitzungen schließen wollen? Alle Benutzer/innen, die gerade arbeiten (auch Sie selbst), müssen sich danach neu einloggen.</message>
 	<message key="admin.contentsOfConfigFile">Inhalt der Konfigurationsdatei</message>
 	<message key="admin.currentVersion">Aktuelle Version</message>
 	<message key="admin.dateInstalled">Installiert am</message>
@@ -40,8 +40,8 @@
 	<message key="admin.languages.uninstall">Regionaleinstellung deinstallieren</message>
 	<message key="admin.phpInfo">Ausführliche Informationen zu PHP</message>
 	<message key="admin.scheduledTask">Geplante Aufgabe</message>
-	<message key="admin.scheduledTask.startTime">Geplante Aufgabe gestartet.</message>
-	<message key="admin.scheduledTask.stopTime">Geplante Aufgabe beendet.</message>
+	<message key="admin.scheduledTask.startTime">Geplante Aufgabe wurde gestartet.</message>
+	<message key="admin.scheduledTask.stopTime">Geplante Aufgabe wurde beendet.</message>
 	<message key="admin.scheduledTask.noLog">Geplante Aufgabe hat kein Log erzeugt.</message>
 	<message key="admin.scheduledTask.openAccessNotification">Open-Access-Benachrichtigung</message>
 	<message key="admin.scheduledTask.reviewReminder">Begutachtungs-Erinnerung</message>
@@ -82,7 +82,7 @@
 	<message key="admin.versionBuild">Build</message>
 	<message key="admin.version.checkForUpdates">Nach Aktualisierungen suchen</message>
 	<message key="admin.version.downloadPackage">Herunterladen</message>
-	<message key="admin.version.downloadPatch">Einen Patch herunterladen.</message>
+	<message key="admin.version.downloadPatch">Patch herunterladen</message>
 	<message key="admin.versionHistory">Bisherige Versionen</message>
 	<message key="admin.version.latest">Neueste Version</message>
 	<message key="admin.versionMajor">Hauptversion</message>
@@ -95,6 +95,7 @@
 	
 	<message key="admin.fileLoader.wrongBasePathLocation">Der Basispfad {$path} muss im Verzeichnis der öffentlichen Dateien liegen.</message>
 	<message key="admin.fileLoader.pathNotAccessible">Der Ordner {$path} ist kein Verzeichnis oder ist nicht lesbar.</message>
-	<message key="admin.fileLoader.moveFileFailed">Die Datei {$filename} konnte nicht von {$currentFilePath} nach {$destinationPath} verschoben werden</message>
+	<message key="admin.fileLoader.moveFileFailed">Die Datei {$filename} konnte nicht von {$currentFilePath} nach {$destinationPath} verschoben werden.</message>
+	<message key="admin.fileLoader.fileProcessed">Die Datei {$filename} wurde verarbeitet und archiviert.</message>
 	<message key="admin.fileLoader">Fileloader</message>
 </locale>

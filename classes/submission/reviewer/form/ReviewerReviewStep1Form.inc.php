@@ -39,7 +39,6 @@ class ReviewerReviewStep1Form extends ReviewerReviewForm {
 		// Add submission parameters.
 		$submission = $this->getReviewerSubmission();
 		$templateMgr->assign('completedSteps', $submission->getStatus());
-		// FIXME: Need context setting that denotes competing interests are required, see #6402.
 		$templateMgr->assign('competingInterestsText', $submission->getCompetingInterests());
 
 		// Add review assignment.

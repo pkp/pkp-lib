@@ -9,8 +9,6 @@
 #  -c	Include class tests in application.
 #  -p	Include plugin tests in application.
 #  -f	Include functional tests in application.
-#  -R   Include regression tests in lib/pkp.
-#  -r   Include regression tests in application.
 #  -d   Display debug output from phpunit.
 # If no options are specified, then all tests will be executed.
 #
@@ -108,13 +106,11 @@ DO_PKP_CLASSES=0
 DO_PKP_PLUGINS=0
 DO_APP_CLASSES=0
 DO_APP_PLUGINS=0
-DO_APP_REGRESSION=0
-DO_PKP_REGRESSION=0
 DO_APP_FUNCTIONAL=0
 DEBUG=""
 
 # Parse arguments
-while getopts "bCPcpfRrd" opt; do
+while getopts "bCPcpfd" opt; do
 	case "$opt" in
 		b)	DO_ALL=0
 			DO_APP_DATA=1
@@ -133,12 +129,6 @@ while getopts "bCPcpfRrd" opt; do
 			;;
 		f)	DO_ALL=0
 			DO_APP_FUNCTIONAL=1
-			;;
-		R)	DO_ALL=0
-			DO_PKP_REGRESSION=1
-			;;
-		r)	DO_ALL=0
-			DO_APP_REGRESSION=1
 			;;
 		d)	DEBUG="--debug"
 			;;
@@ -163,14 +153,6 @@ fi
 
 if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_APP_PLUGINS" -eq 1 \) ]; then
 	phpunit $DEBUG $TEST_CONF2 tests/plugins
-fi
-
-if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_PKP_REGRESSION" -eq 1 \) ]; then
-	phpunit $DEBUG $TEST_CONF1 lib/pkp/tests/regression
-fi
-
-if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_APP_REGRESSION" -eq 1 \) ]; then
-	phpunit $DEBUG $TEST_CONF1 tests/regression
 fi
 
 if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_APP_FUNCTIONAL" -eq 1 \) ]; then

@@ -12,6 +12,7 @@
   * Localized list of countries. Based on ISO 3166-1.
   *
   -->
+  
 <countries>
 	<country name="Afganistán" code="AF" />
 	<country name="Islas Åland" code="AX" />

@@ -5,9 +5,12 @@
   *
   * Copyright BIC and Nielsen Book Services Ltd 2010
   *
+  * Credits: http://pkp.sfu.ca/wiki/index.php?title=OJS:_Spanish_%28es_ES%29
+  *
   * localized list of BIC 2.1 Subjects
   * Reference:  http://www.bic.org.uk/7/BIC-Standard-Subject-Categories
   -->
+
 <subjects>
 	<subject code="A" text="Artes" />
 	<subject code="AB" text="Artes: aspectos generales" />

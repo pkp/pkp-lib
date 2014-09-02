@@ -12,6 +12,7 @@
   * Localized list of common languages. Based on ISO 639-1.
   *
   -->
+  
 <languages>
 	<language code="ab" name="Abjasiano" />
 	<language code="aa" name="Afar" />

@@ -9,6 +9,7 @@
   * localized list of BIC 2.1 Subject Qualifiers
   * Reference:  http://www.bic.org.uk/7/BIC-Standard-Subject-Categories
   -->
+ 
 <qualifiers>
 	<qualifier code="1D" text="Europa" />
 	<qualifier code="1DB" text="Illes Britàniques" />

@@ -15,7 +15,7 @@
 <locale name="ca_ES" full_name="Català">
 	<message key="user.accountInformation">Informació del compte</message>
 	<message key="user.affiliation">Institució</message>
-	<message key="user.affiliation.description">  (La institució en què esteu adscrit, p. ex. «Universitat Autònoma de Barcelona»)</message>
+	<message key="user.affiliation.description">(La institució en què esteu adscrit, p. ex. «Universitat Autònoma de Barcelona»)</message>
 	<message key="user.affiliations">Institucions</message>
 	<message key="user.authorization.accessDenied">Accés denegat.</message>
 	<message key="user.authorization.processAuthenticationTokenRequired">El testimoni (token) d’autenticació del procés no hi és o no és vàlid.</message>
@@ -39,7 +39,7 @@
 	<message key="user.feminine">Dona</message>
 	<message key="user.firstName">Nom</message>
 	<message key="user.gender">Sexe</message>
-	<message key="user.initialsExample">Carla Martí Valls = CMV</message>
+	<message key="user.initialsExample">Joan Arana Serrat = JAS</message>
 	<message key="user.initials">Inicials</message>
 	<message key="user.interests">Interessos de revisió</message>
 	<message key="user.interests.description">(Separeu els interessos mitjançant la tecla de retorn o la tecla de coma)</message>
@@ -125,5 +125,5 @@
 	<message key="user.username">Nom d’usuari/ària</message>
 	<message key="user.workingLanguages">Llengües de treball</message>
 	<message key="user.register.completeForm">Ompliu aquest formulari per registrar-vos en aquest lloc web.</message>
-	<message key="user.profile.form.hashInvalid">El reinici del hash de la paraula de pas que intentes utilitza no es vàlid.</message>
+	<message key="user.profile.form.hashInvalid">El reinici del hash de la paraula de pas que intenteu utilitzar no es vàlid.</message>
 </locale> 

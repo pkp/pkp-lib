@@ -98,5 +98,5 @@
 	<message key="admin.scheduledTask.reviewReminder">Recordatori de revisió</message>
 	<message key="admin.scheduledTask.subscriptionExpiryReminder">Recordatori de caducitat de la subscripció</message>
 	<message key="admin.settings.oneStepReset">Utilitzar reiniciat de paraules clau en un sol pas?</message>
-	<message key="admin.fileLoader.fileProcessed">El fitxer {$filename} ha estat procesat i arxivat.</message>
+	<message key="admin.fileLoader.fileProcessed">El fitxer {$filename} ha estat processat i arxivat.</message>
 </locale> 

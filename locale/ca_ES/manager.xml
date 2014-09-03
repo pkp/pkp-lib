@@ -10,7 +10,6 @@
   * Credits: http://pkp.sfu.ca/wiki/index.php?title=OJS:_Catalan_%28ca_ES%29
   *
   * Localization strings for the ca_ES (Català) locale.
-  *
   -->
 
 <locale name="ca_ES" full_name="Català">
@@ -236,4 +235,4 @@
 	<message key="plugins.categories.themes">Mòduls de tema</message>
 	<message key="manager.announcements.form.notificationToggle">Enviar notificació</message>
 	<message key="manager.announcements.form.notificationToggleInstructions">Crea una nova notificació al guardar aquest anunci.</message>
-</locale> 
+</locale>

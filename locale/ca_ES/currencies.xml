@@ -10,7 +10,6 @@
   * Credits: http://pkp.sfu.ca/wiki/index.php?title=OJS:_Catalan_%28ca_ES%29
   *
   * Currencies data XML file. Based on ISO 4217.
-  *
   -->
 
 <currencies locale="ca_ES">
@@ -175,4 +174,4 @@
 	<currency name="Rand sud-africà" code_alpha="ZAR" code_numeric="710" />
 	<currency name="Kwacha" code_alpha="ZMK" code_numeric="894" />
 	<currency name="Dòlar zimbabuès" code_alpha="ZWD" code_numeric="716" />
-</currencies> 
+</currencies>

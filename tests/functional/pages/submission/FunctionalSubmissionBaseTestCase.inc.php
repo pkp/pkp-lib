@@ -37,7 +37,7 @@ abstract class FunctionalSubmissionBaseTestCase extends WebTestCase {
 	protected function submitSubmission() {
 		$this->logAuthorIn();
 
-		$submissionPage = $this->baseUrl . '/index.php/test/submission/wizard/';
+		$submissionPage = self::$baseUrl . '/index.php/publicknowledge/submission/wizard/';
 
 		//
 		// First submission page.
@@ -102,7 +102,7 @@ abstract class FunctionalSubmissionBaseTestCase extends WebTestCase {
 		$this->waitForElementPresent("//button[@type='button']");
 		$this->click("//button[@type='button']");
 
-		$authorDashboardLink = $this->baseUrl . '/index.php/test/authorDashboard/submission/' . $submissionId;
+		$authorDashboardLink = self::$baseUrl . '/index.php/publicknowledge/authorDashboard/submission/' . $submissionId;
 		$this->waitForElementPresent("css=a[href='" . $authorDashboardLink . "']");
 
 		$this->assertTrue(is_int($submissionId));

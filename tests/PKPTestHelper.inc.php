@@ -75,16 +75,67 @@ abstract class PKPTestHelper {
 	}
 
 	/**
-	* Backup the config file.
-	*/
+	 * Restore the database from a dump file.
+	 */
+	public static function restoreDB($test) {
+		$filename = getenv('DATABASEDUMP');
+		if (!$filename || !file_exists($filename)) {
+			$test->fail('Database dump filename needs to be specified in env variable DATABASEDUMP!');
+			return;
+		}
+
+		$output = $status = null; // For PHP scrutinizer
+		switch (Config::getVar('database', 'driver')) {
+			case 'mysql':
+				exec($cmd = 'zcat ' .
+					escapeshellarg($filename) .
+					' | /usr/bin/mysql --user=' .
+					escapeshellarg(Config::getVar('database', 'username')) .
+					' --password=' .
+					escapeshellarg(Config::getVar('database', 'password')) .
+					' --host=' .
+					escapeshellarg(Config::getVar('database', 'host')) .
+					' ' .
+					escapeshellarg(Config::getVar('database', 'name')),
+					$output,
+					$status
+				);
+				if ($status !== 0) {
+					$test->fail("Error while restoring database from \"$filename\" (command: \"$cmd\").");
+				}
+				break;
+			case 'postgres':
+				// WARNING: Does not send a password.
+				exec($cmd = 'zcat ' .
+					escapeshellarg($filename) .
+					' | /usr/bin/psql --username=' .
+					escapeshellarg(Config::getVar('database', 'username')) .
+					' --no-password' .
+					' --host=' .
+					escapeshellarg(Config::getVar('database', 'host')) .
+					' ' .
+					escapeshellarg(Config::getVar('database', 'name')),
+					$output,
+					$status
+				);
+				if ($status !== 0) {
+					$test->fail("Error while restoring database from \"$filename\" (command: \"$cmd\".");
+				}
+				break;
+		}
+	}
+
+	/**
+	 * Backup the config file.
+	 */
 	public static function backupConfigFile() {
 		$fileMgr = new FileManager();
 		$fileMgr->copyFile(CONFIG_FILE, PKP_TEST_HELPER_BACKUP_CONFIG_FILE);
 	}
 
 	/**
-	* Restore the config file, if any backup is present.
-	*/
+	 * Restore the config file, if any backup is present.
+	 */
 	public static function restoreConfigFile() {
 		$fileMgr = new FileManager();
 		if ($fileMgr->fileExists(PKP_TEST_HELPER_BACKUP_CONFIG_FILE)) {

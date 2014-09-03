@@ -216,7 +216,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		if ($password===null) $password = $username . $username;
 		$this->logIn($username, $password);
 		$this->waitForElementPresent('link=Dashboard');
-		$this->click('link=Dashboard');
+		$this->clickAndWait('link=Dashboard');
 		$this->waitForElementPresent('//a[contains(text(),\'' . $this->escapeJS($title) . '\')]');
 		$this->click('//a[contains(text(),\'' . $this->escapeJS($title) . '\')]');
 

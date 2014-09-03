@@ -47,13 +47,7 @@ class ReviewerReviewStep1Form extends ReviewerReviewForm {
 		$templateMgr->assign('reviewAssignment', $reviewAssignment);
 
 		// Add reviewer request text.
-		$reviewerRequestParams = array(
-			'reviewer' => $reviewAssignment->getReviewerFullName(),
-			'personalNote' => 'EDITOR NOTE', // FIXME Bug #6531
-			'editor' => $context->getSetting('contactName')
-		);
-
-		$templateMgr->assign('reviewerRequest', __('reviewer.step1.requestBoilerplate', $reviewerRequestParams));
+		$templateMgr->assign('reviewerRequest', __('reviewer.step1.requestBoilerplate'));
 
 		//
 		// Assign the link actions

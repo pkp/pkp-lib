@@ -72,6 +72,57 @@ abstract class PKPTestHelper {
 	}
 
 	/**
+	 * Restore the database from a dump file.
+	 */
+	public static function restoreDB($test) {
+		$filename = getenv('DATABASEDUMP');
+		if (!$filename || !file_exists($filename)) {
+			$test->fail('Database dump filename needs to be specified in env variable DATABASEDUMP!');
+			return;
+		}
+
+		$output = $status = null; // For PHP scrutinizer
+		switch (Config::getVar('database', 'driver')) {
+			case 'mysql':
+				exec($cmd = 'zcat ' .
+					escapeshellarg($filename) .
+					' | /usr/bin/mysql --user=' .
+					escapeshellarg(Config::getVar('database', 'username')) .
+					' --password=' .
+					escapeshellarg(Config::getVar('database', 'password')) .
+					' --host=' .
+					escapeshellarg(Config::getVar('database', 'host')) .
+					' ' .
+					escapeshellarg(Config::getVar('database', 'name')),
+					$output,
+					$status
+				);
+				if ($status !== 0) {
+					$test->fail("Error while restoring database from \"$filename\" (command: \"$cmd\").");
+				}
+				break;
+			case 'postgres':
+				// WARNING: Does not send a password.
+				exec($cmd = 'zcat ' .
+					escapeshellarg($filename) .
+					' | /usr/bin/psql --username=' .
+					escapeshellarg(Config::getVar('database', 'username')) .
+					' --no-password' .
+					' --host=' .
+					escapeshellarg(Config::getVar('database', 'host')) .
+					' ' .
+					escapeshellarg(Config::getVar('database', 'name')),
+					$output,
+					$status
+				);
+				if ($status !== 0) {
+					$test->fail("Error while restoring database from \"$filename\" (command: \"$cmd\".");
+				}
+				break;
+		}
+	}
+
+	/**
 	 * Some 3rd-party libraries (i.e. adodb)
 	 * use the PHP @ operator a lot which can lead
 	 * to test failures when xdebug's scream parameter

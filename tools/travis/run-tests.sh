@@ -18,6 +18,7 @@ export DBNAME=ojs-ci
 export DBUSERNAME=ojs-ci
 export DBPASSWORD=ojs-ci
 export FILESDIR=files
+export DATABASEDUMP=~/database.sql.gz
 
 # Generate a sample PDF file to use for testing.
 sudo apt-get install a2ps
@@ -28,6 +29,8 @@ if [[ "$TEST" == "pgsql" ]]; then
 	psql -c "CREATE DATABASE \"ojs-ci\";" -U postgres
 	psql -c "CREATE USER \"ojs-ci\" WITH PASSWORD 'ojs-ci';" -U postgres
 	psql -c "GRANT ALL PRIVILEGES ON DATABASE \"ojs-ci\" TO \"ojs-ci\";" -U postgres
+	echo "localhost:5432:ojs-ci:ojs-ci:ojs-ci" > ~/.pgpass
+	chmod 600 ~/.pgpass
 	export DBTYPE=PostgreSQL
 elif [[ "$TEST" == "mysql" ]]; then
 	mysql -u root -e 'CREATE DATABASE `ojs-ci` DEFAULT CHARACTER SET utf8'
@@ -42,6 +45,14 @@ sudo chown -R travis:www-data .
 
 # Run data build suite
 ./lib/pkp/tools/runAllTests.sh -b
+
+# Dump the completed database.
+if [[ "$TEST" == "pgsql" ]]; then
+	pg_dump --clean --username=$DBUSERNAME --host=$DBHOST $DBNAME | gzip -9 > $DATABASEDUMP
+elif [[ "$TEST" == "mysql" ]]; then
+	mysqldump --user=$DBUSERNAME --password=$DBPASSWORD --host=$DBHOST $DBNAME | gzip -9 > $DATABASEDUMP
+fi
+
 
 # Run unit test suite.
 # (Permissions will need to be fixed; web tests run w/different user than unit)

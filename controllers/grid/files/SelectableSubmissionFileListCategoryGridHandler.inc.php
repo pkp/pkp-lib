@@ -236,7 +236,7 @@ class SelectableSubmissionFileListCategoryGridHandler extends CategoryGridHandle
 		// Get the submission files to be downloaded.
 		$submissionFiles = array();
 		foreach ($workflowStages as $stageId) {
-			$submissionFiles = array_merge($submissionFiles, $dataProvider->getCategoryData($stageId));
+			$submissionFiles = array_merge($submissionFiles, $dataProvider->loadCategoryData($request, $stageId));
 		}
 		return $submissionFiles;
 	}

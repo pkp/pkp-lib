@@ -55,9 +55,9 @@ class SubmissionDocumentsFilesGridDataProvider extends CategoryGridDataProvider 
 	}
 
 	/**
-	 * @copydoc CategoryGridHandler::getCategoryData()
+	 * @copydoc CategoryGridHandler::loadCategoryData()
 	 */
-	function getCategoryData(&$fileType, $filter = null) {
+	function loadCategoryData($request, &$fileType, $filter = null) {
 
 		// Retrieve all library files for the given submission document category.
 		$submission = $this->getSubmission();

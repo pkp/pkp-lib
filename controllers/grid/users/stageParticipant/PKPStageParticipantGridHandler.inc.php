@@ -138,9 +138,9 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 	// Overridden methods from [Category]GridHandler
 	//
 	/**
-	 * @copydoc CategoryGridHandler::getCategoryData()
+	 * @copydoc CategoryGridHandler::loadCategoryData()
 	 */
-	function getCategoryData($userGroup) {
+	function loadCategoryData($request, $userGroup) {
 		// Retrieve useful objects.
 		$submission = $this->getSubmission();
 		$stageId = $this->getStageId();

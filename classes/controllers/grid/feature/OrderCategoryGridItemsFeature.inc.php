@@ -113,7 +113,7 @@ class OrderCategoryGridItemsFeature extends OrderItemsFeature{
 		}
 
 		// Save rows sequence, if this grid has also orderable rows inside each category.
-		$this->_saveRowsInCategoriesSequence($grid, $gridCategoryElements, $data);
+		$this->_saveRowsInCategoriesSequence($request, $grid, $gridCategoryElements, $data);
 	}
 
 
@@ -122,14 +122,15 @@ class OrderCategoryGridItemsFeature extends OrderItemsFeature{
 	//
 	/**
 	 * Save row elements sequence inside categories.
+	 * @param $request PKPRequest
 	 * @param $grid GridHandler
 	 * @param $gridCategoryElements array
 	 * @param $data
 	 */
-	function _saveRowsInCategoriesSequence(&$grid, $gridCategoryElements, $data) {
+	function _saveRowsInCategoriesSequence($request, &$grid, $gridCategoryElements, $data) {
 		if ($this->getType() != ORDER_CATEGORY_GRID_CATEGORIES_ONLY) {
 			foreach($gridCategoryElements as $categoryId => $element) {
-				$gridRowElements = $grid->getCategoryData($element);
+				$gridRowElements = $grid->getGridCategoryDataElements($request, $element);
 
 				// Get the correct rows sequence data.
 				$rowsData = null;

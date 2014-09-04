@@ -85,9 +85,9 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider {
 	// Implement template methods from CategoryGridDataProvider
 	//
 	/**
-	 * @copydoc CategoryGridDataProvider::getCategoryData()
+	 * @copydoc CategoryGridDataProvider::loadCategoryData()
 	 */
-	function &getCategoryData($categoryDataElement, $filter = null, $reviewRound = null) {
+	function &loadCategoryData($request, $categoryDataElement, $filter = null, $reviewRound = null) {
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 		$dataProvider = $this->getDataProvider();
 		$submission = $dataProvider->getSubmission();

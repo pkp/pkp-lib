@@ -59,7 +59,10 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 				null,
 				null,
 				$pluginCellProvider,
-				array('multiline' => true)
+				array(
+					'multiline' => true,
+					'showTotalItemsNumber' => true
+				)
 			)
 		);
 
@@ -153,9 +156,9 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 	}
 
 	/**
-	 * @see CategoryGridHandler::getCategoryData()
+	 * @see CategoryGridHandler::loadCategoryData()
 	 */
-	function getCategoryData($categoryDataElement, $filter) {
+	function loadCategoryData($request, $categoryDataElement, $filter) {
 		$plugins =& PluginRegistry::loadCategory($categoryDataElement);
 
 		$versionDao = DAORegistry::getDAO('VersionDAO');

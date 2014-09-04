@@ -65,7 +65,7 @@ class ManageFinalDraftFilesGridHandler extends SelectableSubmissionFileListCateg
 
 		if ($manageFinalDraftFilesForm->validate()) {
 			$dataProvider = $this->getDataProvider();
-			$manageFinalDraftFilesForm->execute($args, $request, $dataProvider->getCategoryData($this->getStageId()));
+			$manageFinalDraftFilesForm->execute($args, $request, $dataProvider->loadCategoryData($request, $this->getStageId()));
 
 			// Let the calling grid reload itself
 			return DAO::getDataChangedEvent();

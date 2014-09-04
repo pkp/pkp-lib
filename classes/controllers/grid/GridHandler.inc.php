@@ -605,6 +605,17 @@ class GridHandler extends PKPHandler {
 		// Load grid-specific translations
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_GRID, LOCALE_COMPONENT_APP_COMMON);
 
+		if ($this->getFilterForm()) {
+			import('lib.pkp.classes.linkAction.request.NullAction');
+			$this->addAction(
+				new LinkAction(
+					'search',
+					new NullAction(),
+					'',
+					'search_extras_expand'
+				));
+		}
+
 		// Give a chance to grid add features before calling hooks.
 		// Because we must control when features are added to a grid,
 		// this is the only place that should use the _addFeature() method.

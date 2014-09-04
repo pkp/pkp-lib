@@ -88,6 +88,7 @@
 	<message key="grid.action.details">View this item</message>
 	<message key="grid.action.enrolExisting">Enrol an existing user as a reviewer</message>
 	<message key="grid.action.selectCreate">Create a new reviewer</message>
+	<message key="grid.action.search">Search</message>
 	<message key="grid.action.advancedSearch">Advanced Search</message>
 	<message key="grid.action.viewLibrary">View Document Library</message>
 	<message key="grid.action.viewMetadata">View the metadata for this submission</message>

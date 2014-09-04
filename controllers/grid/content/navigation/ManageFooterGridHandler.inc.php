@@ -150,9 +150,9 @@ class ManageFooterGridHandler extends CategoryGridHandler {
 	}
 
 	/**
-	 * @copydoc CategoryGridHandler::getCategoryData()
+	 * @copydoc CategoryGridHandler::loadCategoryData()
 	 */
-	function getCategoryData($category) {
+	function loadCategoryData($request, $category) {
 
 		$footerLinkDao = DAORegistry::getDAO('FooterLinkDAO');
 		$context = $this->getContext();

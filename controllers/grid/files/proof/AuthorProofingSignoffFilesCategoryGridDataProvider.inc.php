@@ -63,9 +63,9 @@ class AuthorProofingSignoffFilesCategoryGridDataProvider extends CategoryGridDat
 	}
 
 	/**
-	 * @see CategoryGridDataProvider::getCategoryData()
+	 * @see CategoryGridDataProvider::loadCategoryData()
 	 */
-	function &getCategoryData($representation, $filter = null) {
+	function &loadCategoryData($request, $representation, $filter = null) {
 		$dataProvider = $this->getDataProvider();
 		$signoffFiles = $dataProvider->loadData();
 

@@ -44,11 +44,11 @@ class ReviewCategoryGridDataProvider extends SubmissionFilesCategoryGridDataProv
 	// Overriden public methods from SubmissionFilesCategoryGridDataProvider
 	//
 	/**
-	 * @copydoc SubmissionFilesCategoryGridDataProvider::getCategoryData()
+	 * @copydoc SubmissionFilesCategoryGridDataProvider::loadCategoryData()
 	 */
-	function &getCategoryData($categoryDataElement, $filter = null) {
+	function loadCategoryData($request, $categoryDataElement, $filter = null) {
 		$reviewRound = $this->getReviewRound();
-		return parent::getCategoryData($categoryDataElement, $filter, $reviewRound);
+		return parent::loadCategoryData($request, $categoryDataElement, $filter, $reviewRound);
 	}
 
 	/**

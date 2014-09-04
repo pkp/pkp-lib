@@ -26,6 +26,9 @@
 				{assign var=columnSpan value=2}
 			{/if}
 		{else}
+			{if is_a($row, 'GridCategoryRow') && $column->hasFlag('collapseAllColumnsInCategories')}
+				{assign var=columnSpan value=$grid->getColumnsCount()-1}
+			{/if}
 			<td {if $columnSpan && $smarty.foreach.columnLoop.iteration == 2}colspan="{$columnSpan}"{/if}
 			{if $column->hasFlag('firstColumn')} class="first_column{if !$row->hasActions() && !$row->getNoActionMessage()} no_actions{/if}"{/if}
 			{if ($row->hasActions() || $row->getNoActionMessage()) && $column->hasFlag('firstColumn')}

@@ -4,16 +4,17 @@
 <!--
   * locale/de_DE/admin.xml
   *
-  * Copyright (c) 2014 Simon Fraser University Library
+  * Copyright (c) 2013-2014 Simon Fraser University Library
   * Copyright (c) 2000-2014 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Localization strings for the de_DE (Deutsch (Deutschland)) locale.
   * Please contact Marco Tullney, marco.tullney@fu-berlin.de, with any questions regarding this translation.
+  *
   -->
 
 <locale name="de_DE" full_name = "Deutsch (Deutschland)">
-	<message key="admin.systemInfo.settingName">Name der Einstellung</message>
-	<message key="admin.systemInfo.settingValue">Wert der Einstellung</message>
+	<message key="admin.systemInfo.settingName">Setting Name</message>
+	<message key="admin.systemInfo.settingValue">Setting Value</message>
 	<message key="admin.adminFunctions">Administrationsaufgaben</message>
 	<message key="admin.auth.confirmDelete">Sind Sie sicher, dass Sie diese Authentifizierungsquelle endgültig löschen möchten?</message>
 	<message key="admin.auth.create">Authentifizierungsquelle erstellen</message>
@@ -34,7 +35,7 @@
 	<message key="admin.languages.downloadLocales">Regionaleinstellungen herunterladen</message>
 	<message key="admin.languages.download.cannotOpen">Die Sprachbeschreibung von der PKP-Webseite kann nicht geöffnet werden.</message>
 	<message key="admin.languages.download.cannotModifyRegistry">Die neue Regionaleinstellung kann nicht zu der Registrierungsdatei für Regionaleinstellungen (üblicherweise "registry/locales.xml") hinzugefügt werden.</message>
-	<message key="admin.languages.cantDisable">Diese Sprache ist die primäre Sprache dieser Website. Sie können sie erst deaktivieren, wenn Sie eine andere primäre Regionalausstellung ausgewählt haben.</message>
+	<message key="admin.languages.cantDisable">This locale is the primary language of the site. You can't disable it until you choose another primary locale.</message>
 
 	<message key="admin.languages.confirmReload">Sind Sie sicher, dass Sie diese Regionaleinstellung neu laden wollen? Dadurch werden alle regionalspezifischen Daten (wie z.B. angepasste E-Mail-Vorlagen) gelöscht.</message>
 	<message key="admin.languages.installedLocales">Eingerichtete Regionaleinstellungen</message>
@@ -65,9 +66,9 @@
 	<message key="admin.settings.form.minPasswordLengthRequired">Ihr Passwort muss mindestens 4 Zeichen lang sein.</message>
 	<message key="admin.settings.form.titleRequired">Ein Titel ist erforderlich.</message>
 	<message key="admin.settings.defaultMetricDescription">
-		Ihre Installation ist so eingestellt, dass sie mehr als eine Nutzungsstatistik aufzeichnet. Nutzungsstatistiken werden in verschiedenen Kontexten angezeigt.
-		Es gibt Fälle, in denen eine einzige Nutzungsstatistik benutzt werden muss, z.B. wenn eine sortierte Liste der am häufigsten genutzten Beiträge angezeigt werden soll oder um
-		Suchergebnisse zu gewichten. Bitte wählen Sie eine der Nutzungsmetriken als Standard aus.
+		Your installation is configured to record more than one usage metric. Usage statistics will be displayed in severeral contexts.
+		There are cases where a single usage statistic must be used, e.g. to display an orderd list of most-used submissions or to rank
+		search results. Please select one of the configured metrics as a default.
 	</message>
 	<message key="admin.settings.homeHeaderImage.altText">Logo der Website</message>
 	<message key="admin.settings.homeHeaderImageInvalid">Ungültiges Bildformat für das Logo der Website. Gültige Formate sind .gif, .jpg oder .png.</message>
@@ -105,21 +106,21 @@
 	<message key="admin.fileLoader.moveFileFailed">Die Datei {$filename} konnte nicht von {$currentFilePath} nach {$destinationPath} verschoben werden</message>
 	<message key="admin.fileLoader.emailSubject">Fileloader</message>
 	
-	<message key="admin.copyAccessLogFileTool.usage">Kopiere die übergebenen Apache-Zugriffsdatei(en), woraus die mit dieser Installation zusammenhängenden Einträge ausgewählt werden,
-in das aktuelle Dateiverzeichnis innerhalb des Vorbereitungs-Verzeichnisses des UsageStats-Plug-Ins. Muss unter einem Benutzer mit ausreichenden Rechten für den Lesezugriff auf Apache-Log-Dateien ausgeführt werden.
+	<message key="admin.copyAccessLogFileTool.usage">Copy the passed apache access log file(s), filtering the entries related with this installation,
+to the current files directory, inside the UsageStatsPlugin stage directory. Must run under user with enough privilegies to read access apache log files.
 
-Dieses Werkzeug wird nur Dateien kopieren, die nicht bereits in den usageStats-Verzeichnissen (Vorbereitung, Bearbeitung, Archiv, zurückgewiesen) sind.
+This tool will only copy files that aren't already inside the usageStats file loader directories (stage, processing, archive, reject).
 
-Benutzung: {$scriptName} path/to/apache/log/file.log
-Benutzung (verarbeite alle Dateien in einem Verzeichnis): {$scriptName} path/to/apache/directory 
+Usage: {$scriptName} path/to/apache/log/file.log
+Usage (processing all files inside a directory): {$scriptName} path/to/apache/directory 
 	</message>
-	<message key="admin.copyAccessLogFileTool.error.creatingFolder">Fehler: kann temporären Ordner {$tmpDir} nicht anlegen</message>
-	<message key="admin.copyAccessLogFileTool.error.acessingFile">Fehler: Datei {$filePath} existiert nicht, oder es kann nicht auf sie zugegriffen werden.</message>
-	<message key="admin.copyAccessLogFileTool.error.copyingFile">Fehler: kann Datei nicht von {$filePath} nach {$tmpFilePath} kopieren</message>
-	<message key="admin.copyAccessLogFileTool.error.deletingFile">Fehler: kann Datei {$tmpFilePath} nicht löschen</message>
-	<message key="admin.copyAccessLogFileTool.warning.fileAlreadyExists">Warnung: Datei {$filePath} gibt es bereits im Verzeichnis der Nutzungsstatistiken.</message>
-	<message key="admin.copyAccessLogFileTool.success">Erfolgreich kopiert: {$filePath} nach {$destinationPath}</message>
-	<message key="admin.copyAccessLogFileTool.error.noEgrep">Pfad zu Egrep nicht konfiguriert. Siehe config.inc.php, Abschnitt cli.</message>
-	<message key="admin.copyAccessLogFileTool.error.noGunzip">Pfad zu Gunzip nicht konfiguriert. Siehe config.inc.php, Abschnitt cli.</message>
+	<message key="admin.copyAccessLogFileTool.error.creatingFolder">Error: can't create temporary folder {$tmpDir}</message>
+	<message key="admin.copyAccessLogFileTool.error.acessingFile">Error: File {$filePath} don't exist or can't be accessed.</message>
+	<message key="admin.copyAccessLogFileTool.error.copyingFile">Error: can't copy file from {$filePath} to {$tmpFilePath}</message>
+	<message key="admin.copyAccessLogFileTool.error.deletingFile">Error: can't delete file {$tmpFilePath}</message>
+	<message key="admin.copyAccessLogFileTool.warning.fileAlreadyExists">Warning: file {$filePath} already exists inside the usage stats directory.</message>
+	<message key="admin.copyAccessLogFileTool.success">Success: {$filePath} to {$destinationPath}</message>
+	<message key="admin.copyAccessLogFileTool.error.noEgrep">Egrep path not configured. See config.inc.php, cli section.</message>
+	<message key="admin.copyAccessLogFileTool.error.noGunzip">Gunzip path not configured. See config.inc.php, cli section.</message>
 	
 </locale>

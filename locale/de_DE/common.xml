@@ -355,7 +355,6 @@
 	<message key="stageParticipants.notify.chooseMessage">Bitte wählen Sie eine vordefinierte Nachricht aus oder füllen Sie das Formular unten aus.</message>
 	<message key="stageParticipants.notify.message">Nachricht</message>
 	<message key="stageParticipants.notify.warning">Bitte stellen Sie sicher, dass Sie das Nachrichtenfeld ausgefüllt und mindestens eine/n Empfänger/in ausgewählt haben.</message>
-
 	<message key="locale.primary">Primäre Regionaleinstellung</message>
 	<message key="locale.supported">Unterstützte Regionaleinstellungen</message>
 	<message key="navigation.access"><![CDATA[Benutzer/innen &amp; Rollen]]></message>

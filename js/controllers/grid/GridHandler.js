@@ -494,6 +494,14 @@
 				function(){$(this).css('background-color', '#F7F5F4');},
 				function(){$(this).css('background-color', '');});
 
+		// Search control.
+		this.getHtmlElement().find('.pkp_form').hide();
+		this.getHtmlElement().find('a.search_extras_expand').click(
+				this.callbackWrapper(function(){
+					this.getHtmlElement().find('.pkp_form').toggle();
+					this.getHtmlElement().find('a.search_extras_expand').toggleClass('search_extras_collapse');
+				}));
+
 		this.trigger('gridInitialized');
 	};
 

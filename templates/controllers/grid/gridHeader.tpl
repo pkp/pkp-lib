@@ -8,7 +8,6 @@
  * Grid header HTML markup
  *}
 <div class="grid_header">
-	{$gridFilterForm}
 	{if $grid->getActions($smarty.const.GRID_ACTION_POSITION_ABOVE) || $grid->getTitle()}
 		<div class="grid_header_bar">
 			{if $grid->getTitle()}<h3>{$grid->getTitle()|translate}</h3>{/if}
@@ -18,6 +17,7 @@
 			<div class="pkp_helpers_clear"></div>
 		</div>
 	{/if}
+	{$gridFilterForm}
 	{if $grid->getInstructions()}
 		<p class="pkp_grid_description">{translate key=$grid->getInstructions()}</p>
 	{/if}

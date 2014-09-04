@@ -25,6 +25,9 @@ chdir(dirname(INDEX_FILE_LOCATION));
 // Configure PKP error handling for tests
 define('DONT_DIE_ON_ERROR', true);
 
+// Don't support sessions
+define('SESSION_DISABLE_INIT', true);
+
 // Configure assertions for tests
 ini_set('assert.active', true);
 ini_set('assert.bail', false);

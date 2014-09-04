@@ -75,7 +75,7 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 		$this->setBrowser('*chrome');
 
 		$this->setBrowserUrl(self::$baseUrl . '/');
-		if (Config::getVar('general', 'installed') && !defined('SESSION_DISABLE_INIT')) {
+		if (Config::getVar('general', 'installed')) {
 			$affectedTables = $this->getAffectedTables();
 			if (is_array($affectedTables)) {
 				PKPTestHelper::backupTables($affectedTables, $this);
@@ -87,7 +87,7 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 		$cacheManager->flush(null, CACHE_TYPE_OBJECT);
 
 		// Clear ADODB's cache
-		if (Config::getVar('general', 'installed') && !defined('SESSION_DISABLE_INIT')) {
+		if (Config::getVar('general', 'installed')) {
 			$userDao = DAORegistry::getDAO('UserDAO'); // As good as any
 			$userDao->flushCache();
 		}
@@ -100,7 +100,7 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	 */
 	protected function tearDown() {
 		parent::tearDown();
-		if (Config::getVar('general', 'installed') && !defined('SESSION_DISABLE_INIT')) {
+		if (Config::getVar('general', 'installed')) {
 			$affectedTables = $this->getAffectedTables();
 			if (is_array($affectedTables)) {
 				PKPTestHelper::restoreTables($this->getAffectedTables(), $this);

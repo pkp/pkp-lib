@@ -119,6 +119,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 	 * @param $name string
 	 */
 	function assignReviewer($username, $name) {
+		$this->waitForElementPresent('link=Select Reviewer');
 		$this->clickAndWait('link=Select Reviewer');
 		$this->clickAndWait('//td/a[contains(text(),\'' . $name . '\')]/../..//a[text()=\'Assign\']');
 

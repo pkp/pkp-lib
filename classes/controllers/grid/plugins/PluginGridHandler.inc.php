@@ -61,7 +61,8 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 				$pluginCellProvider,
 				array(
 					'multiline' => true,
-					'showTotalItemsNumber' => true
+					'showTotalItemsNumber' => true,
+					'collapseAllColumnsInCategories' => true
 				)
 			)
 		);

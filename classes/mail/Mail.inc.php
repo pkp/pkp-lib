@@ -394,6 +394,7 @@ class Mail extends DataObject {
 
 	/**
 	 * Return a string containing the from address.
+	 * Override any from address if force_default_envelope_sender config option is in effect.
 	 * @return string
 	 */
 	function getFromString($send = false) {
@@ -401,7 +402,16 @@ class Mail extends DataObject {
 		if ($from == null) {
 			return null;
 		} else {
-			return (Mail::encodeDisplayName($from['name'], $send) . ' <'.$from['email'].'>');
+			$display = $from['name'];
+			$address = $from['email'];
+			if (Config::getVar('email', 'force_default_envelope_sender') && Config::getVar('email', 'default_envelope_sender')) {
+				$address = Config::getVar('email', 'default_envelope_sender');
+				$replyTo = $this->getReplyTo();
+				if ($replyTo['name']) {
+					$display = $replyTo['name'];
+				}
+			}
+			return (Mail::encodeDisplayName($display, $send) . ' <'.$address.'>');
 		}
 	}
 
@@ -507,9 +517,6 @@ class Mail extends DataObject {
 
 		if (($r = $this->getReplyToString()) != '') {
 			$this->addHeader('Reply-To', $r);
-		} elseif (Config::getVar('email', 'force_default_envelope_sender') && Config::getVar('email', 'default_envelope_sender')) {
-			// Set a default reply-to of what would have been the from address if we are overriding the envelope sender
-			$this->addHeader('Reply-To', $from);
 		}
 
 		$ccs = $this->getAddressArrayString($this->getCcs(), true, true);

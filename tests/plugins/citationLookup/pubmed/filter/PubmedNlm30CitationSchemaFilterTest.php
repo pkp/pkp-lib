@@ -104,7 +104,7 @@ class PubmedNlm30CitationSchemaFilterTest extends Nlm30CitationSchemaFilterTestC
 			'date' => '2002-07-25',
 			'[@publication-type]' => 'journal',
 			'pub-id[@pub-id-type="doi"]' => '10.1056/NEJMsb020632',
-			'uri' => 'http://www.nlm.nih.gov/medlineplus/organtransplantation.html'
+			'uri' => 'http://www.scholaruniverse.com/ncbi-linkout?id=12140307'
 		);
 		return $testOutput;
 	}

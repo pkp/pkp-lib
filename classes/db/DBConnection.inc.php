@@ -84,14 +84,14 @@ class DBConnection {
 	 * @param $username string
 	 * @param $password string
 	 * @param $databaseName string
-	 * @param $persistent boolean use persistent connections (default true)
+	 * @param $persistent boolean use persistent connections (default false)
 	 * @param $connectionCharset string character set to use for the connection (default none)
 	 * @param $connectOnInit boolean establish database connection on initiation (default true)
 	 * @param $debug boolean enable verbose debug output (default false)
 	 * @param $forceNew boolean force a new connection (default false)
 	 * @return boolean
 	 */
-	function initCustomDBConnection($driver, $host, $username, $password, $databaseName, $persistent = true, $connectionCharset = false, $connectOnInit = true, $debug = false, $forceNew = false) {
+	function initCustomDBConnection($driver, $host, $username, $password, $databaseName, $persistent = false, $connectionCharset = false, $connectOnInit = true, $debug = false, $forceNew = false) {
 		$this->driver = $driver;
 		$this->host = $host;
 		$this->username = $username;

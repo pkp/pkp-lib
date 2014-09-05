@@ -54,6 +54,7 @@ class VersionDAO extends DAO {
 				$oldVersion =& $this->_returnVersionFromRow($result->GetRowAssoc(false));
 				if (isset($oldVersion)) $returner =& $oldVersion;
 			}
+			$result->Close();
 		}
 
 		if (!$returner) {

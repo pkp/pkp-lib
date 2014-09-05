@@ -89,7 +89,7 @@ class FileManager {
 	 */
 	function getUploadedFileType($fileName) {
 		if (isset($_FILES[$fileName])) {
-			$type = String::mime_content_type($_FILES[$fileName]['tmp_name']);
+			$type = String::mime_content_type($_FILES[$fileName]['tmp_name'], array_pop(explode('.', $_FILES[$fileName]['name'])));
 			if (!empty($type)) return $type;
 			return $_FILES[$fileName]['type'];
 		}

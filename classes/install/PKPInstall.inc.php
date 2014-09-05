@@ -70,7 +70,7 @@ class PKPInstall extends Installer {
 			$this->getParam('databaseUsername'),
 			$this->getParam('databasePassword'),
 			$this->getParam('createDatabase') ? null : $this->getParam('databaseName'),
-			true,
+			false,
 			$this->getParam('connectionCharset') == '' ? false : $this->getParam('connectionCharset')
 		);
 

@@ -30,8 +30,9 @@ class Mods34SchemaSubmissionAdapterTest extends Mods34DescriptionTestCase {
 	/**
 	 * @covers Mods34SchemaSubmissionAdapter
 	 */
-	/* FIXME: This test is currently broken (see #5231).
 	public function testMods34SchemaSubmissionAdapter() {
+		$this->markTestSkipped('This test is currently broken (bug #5231)');
+
 		// Test constructor.
 		$adapter = new Mods34SchemaSubmissionAdapter(PersistableFilter::tempGroup(
 				'metadata::plugins.metadata.mods34.schema.Mods34Schema(CITATION)',
@@ -109,6 +110,6 @@ class Mods34SchemaSubmissionAdapterTest extends Mods34DescriptionTestCase {
 			$submissionDescription->removeStatement($missingMapping);
 		}
 		self::assertEquals($submissionDescription, $extractedDescription);
-	} */
+	}
 }
 ?>

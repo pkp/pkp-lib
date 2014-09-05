@@ -20,8 +20,10 @@ export DBPASSWORD=ojs-ci
 export FILESDIR=files
 export DATABASEDUMP=~/database.sql.gz
 
+# Install required software
+sudo apt-get install a2ps libbiblio-citation-parser-perl
+
 # Generate a sample PDF file to use for testing.
-sudo apt-get install a2ps
 echo "This is a test" | a2ps -o - | ps2pdf - ~/dummy.pdf
 
 # Create the database.
@@ -59,4 +61,4 @@ fi
 sudo chown -R travis:www-data ${FILESDIR}
 sudo chmod -R 775 ${FILESDIR}
 sudo rm -f cache/*.php
-./lib/pkp/tools/runAllTests.sh -Ccf
+./lib/pkp/tools/runAllTests.sh -CcPpf

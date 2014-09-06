@@ -55,6 +55,7 @@
 	<message key="common.cancelled">Отменено</message>
 	<message key="common.warning">Предупреждение</message>
 	<message key="common.error">Ошибка</message>
+	<message key="common.notice">Сообщение</message>
 	<message key="common.captchaField.altText">Изображение для проверки</message>
 	<message key="common.captchaField.badCaptcha">Введенные вами символы не совпадают с символами на изображении. Пожалуйста, проверьте символы и попробуйте снова.</message>
 	<message key="common.captchaField.description">Пожалуйста введите буквы, которые вы видите на изображении выше.</message>

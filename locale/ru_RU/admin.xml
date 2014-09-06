@@ -40,6 +40,12 @@
 	<message key="admin.languages.uninstall">Удалить язык</message>
 	<message key="admin.phpInfo">Расширенная информация PHP</message>
 	<message key="admin.scheduledTask">Запланированная задача</message>
+	<message key="admin.scheduledTask.startTime">Начато выполнение задачи.</message>
+	<message key="admin.scheduledTask.stopTime">Закончено выполнение задачи.</message>
+	<message key="admin.scheduledTask.noLog">Задача не создавала записей для журнала событий.</message>
+	<message key="admin.scheduledTask.openAccessNotification">Уведомление об открытом доступе</message>
+	<message key="admin.scheduledTask.reviewReminder">Напоминание рецензенту</message>
+	<message key="admin.scheduledTask.subscriptionExpiryReminder">Напоминание об окончании подписки</message>
 	<message key="admin.server.apacheVersion">Версия Apache</message>
 	<message key="admin.server.dbDriver">Драйвер базы данных</message>
 	<message key="admin.server.dbVersion">Версия СУБД</message>
@@ -90,5 +96,6 @@
 	<message key="admin.fileLoader.wrongBasePathLocation">Основной каталог {$path} должен быть внутри каталога с доступными для всех файлами.</message>
 	<message key="admin.fileLoader.pathNotAccessible">Папка {$path} не является каталогом или не доступен для чтения.</message>
 	<message key="admin.fileLoader.moveFileFailed">Файл {$filename} не может быть перемещен из {$currentFilePath} в {$destinationPath}</message>
+	<message key="admin.fileLoader.fileProcessed">Файл {$filename} был обработан и помещен в архив.</message>
 	<message key="admin.fileLoader">Загрузчик файлов</message>
 </locale>

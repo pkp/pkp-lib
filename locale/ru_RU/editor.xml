@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * locale/ru_RU/editor.xml
+  *
+  * Copyright (c) 2014 Simon Fraser University Library
+  * Copyright (c) 2003-2014 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the ru_RU (Russian) locale.
+  * With updates from Pavel Pisklakov (revising translation). 
+  -->
+
+<locale name="ru_RU" full_name="Russian">
+	<message key="editor.submissionLibrary.description"><![CDATA[Загрузите документы, которые имеют отношение к рецензированию и публикации этого материала. Шаблоны для большинства этих документов можно найти перейдя по ссылке <em>Показать библиотеку документов</em>.]]></message>
+	<message key="editor.review.notInitiated">Процесс рецензирования пока еще не был начат.</message>
+	<message key="editor.submission.copyediting.personalMessageToUser">Сообщение пользователю</message>
+	<message key="editor.submission.externalReviewDescription">Вы собираетесь начать процесс внешнего рецензирования этого материала. Файлы, являющиеся частью этого материала, приведены в списке ниже и могут быть выбраны для рецензирования.</message>
+	<message key="editor.submission.review.reviewFilesDescription"><![CDATA[Эти файлы могут быть выбраны для рецензирования при добавлении рецензентов в раздел <span class="pkp_help_title">Рецензенты</span>]]>.</message>
+	<!-- Добавить файл или контролера для сетки редактор/контролер -->
+	<message key="editor.submission.fileAuditor.form.fileRequired">Вы должны выбрать как минимум один файл, чтобы назначить пользователя.</message>
+	<message key="editor.submission.fileAuditor.form.messageRequired">Вы должны добавить личное сообщение.</message>
+	<message key="editor.submission.fileAuditor.skipEmail">Не отправлять сообщение Контролеру</message>
+	<message key="editor.submission.fileAuditor.form.userRequired">Вы должны выбрать пользователя для назначения.</message>
+	<message key="editor.submission.uploadSelectFiles">Загрузить/Выбрать файлы</message>
+	<message key="editor.submission.revisions">Версии</message>
+	<message key="editor.submission.revisionsDescription">Измененные файлы материала появятся здесь со значком открытой папки, указывая на загрузившего этот файл.</message>
+	<message key="editor.submission.review.reviewersDescription"><![CDATA[Используйте <em>+Добавить рецензента</em>, чтобы пригласить читателей для участия в рецензировании присланных файлов. Значок блокнота указывает, что рецензия была отправлена, которая затем помечается <em>Рассмотрено</em> после того как она будет изучена. Значок красного конверта появляется для напоминания рецензентам, если срок сдачи рецензии прошел.]]></message>
+	<message key="editor.submission.addReviewer">Добавить рецензента</message>
+	<message key="editor.submission.fileList.includeAllStages">Включить все файлы из всех доступных этапов рабочего процесса.</message>
+	<message key="editor.submission.review.currentFiles">Текущие файлы для рецензирования для раунда {$round}</message>
+	<message key="editor.submission.returnToSimpleSearch">Вернуться к простому поиску</message>
+	<message key="editor.review.createReviewer">Создать нового рецензента</message>
+	<message key="editor.review.enrollReviewer.short">Назначить существующего пользователя</message>
+	<message key="editor.review.unassignReviewer">Отменить назначение рецензента</message>
+	<message key="editor.submissionReview.reviewType">Тип рецензии</message>
+	<message key="editor.submissionReview.skipEmail">Не отправлять автору письмо электронной почтой</message>
+	<message key="editor.submissionReview.open">Открытое</message>
+	<message key="editor.submissionReview.blind">Слепое</message>
+	<message key="editor.submissionReview.doubleBlind">Двойное слепое</message>
+	<message key="editor.submissionReview.restrictFiles">Ограничить доступные файлы</message>
+	<message key="editor.submissionReview.restrictFiles.gridTitle">Доступные файлы для рецензии</message>
+	<message key="editor.submissionReview.limitFiles">Управление доступными файлами</message>
+	<message key="editor.submissionReview.limitFiles.link">Файлы</message>
+	<message key="editor.submissionReview.restrictFiles.gridDescription">Если этому рецензенту не нужно предоставлять доступ ко всем файлам для рецензирования из списка, убедитесь, что отмечены только нужные файлы.</message>
+	<message key="editor.review.personalMessageToReviewer">Письмо для отправки рецензенту</message>
+	<message key="editor.review.importantDates">Ключевые даты</message>
+	<message key="editor.review.uploadRevision">Загрузить версию</message>
+	<message key="editor.review.NotifyAuthorAccept">Уведомить автора о принятии:</message>
+	<message key="editor.review.NotifyAuthorDecline">Уведомить автора о решении отклонить материал:</message>
+	<message key="editor.review.NotifyAuthorRevisions">Уведомить авторв о необходимости доработки:</message>
+	<message key="editor.review.NotifyAuthorResubmit">Уведомить автора о необходимости доработки, после которой материал будет направлен на дальнейшее рецензирование:</message>
+	<message key="editor.review.NotifyAuthorExternal">Уведомить автора о решении провести внешнее рецензирование:</message>
+	<message key="editor.review.personalMessageToAuthor">Письмо для отправки автору</message>
+	<message key="editor.review.dateAccepted">Дата согласия на рецензирование</message>
+	<message key="editor.review.noReviews">Нет рецензий для импорта</message>
+	<message key="editor.review.reminder">Напомнить рецензенту</message>
+	<message key="editor.review.thankReviewer">Поблагодарить рецензента</message>
+	<message key="editor.review.reminderError">Ошибка при отправке напоминания рецензенту</message>
+	<message key="editor.review.thankReviewerError">Ошибка отправки благодарственного письма рецензенту</message>
+	<message key="editor.review.skipEmail">Не отправлять письмо рецензенту</message>
+	<message key="editor.review.sendReminder">Отправить напоминание</message>
+	<message key="editor.review.reviewDueDate">Срок выполнения рецензии</message>
+	<message key="editor.review.reviewCompleted">Рецензия выполнена</message>
+	<message key="editor.review.reviewerComments">Комментарии рецензента</message>
+	<message key="editor.review.days">Среднее количество дней</message>
+	<message key="editor.review.mustSelect">Вы должны выбрать рецензента</message>
+	<message key="editor.review.errorAddingReviewer">Произошла ошибка при добавлении рецензента. Пожалуйста, попробуйте снова.</message>
+	<message key="editor.review.errorDeletingReviewer">Произошла ошибка при удалении рецензента. Пожалуйста, попробуйте снова.</message>
+	<message key="editor.review.userGroupSelect">Записать пользователя в эту группу пользователей-рецензентов</message>
+	<message key="editor.review.unconsiderReviewText">Вы хотите отметить эту рецензию как не рассмотренную? История рецензирования будет сохранена.</message>
+	<message key="editor.review.unconsiderReview">Отметить рецензию как не рассмотренную</message>
+	<message key="editor.review.errorUnconsideringReview">Произошла ошибка при пометке рецензии как не рассмотренной. Пожалуйста, попробуйте снова.</message>
+	<message key="editor.review.readConfirmation">После того как рецензия была прочитана, нажмите «Подтвердить», чтобы отметить, что процесс рецензирования может продолжаться.</message>
+	<message key="editor.submission.selectCopyedingFiles">Файлы для литературного редактирования</message>
+	<message key="editor.submission.selectReviewer">Выбрать рецензента</message>
+	<message key="editor.submission.taskDueDate">Срок выполнения задачи</message>
+	<message key="editor.submission.taskSchedule">Расписание задачи</message>
+	<message key="editor.review.enrollReviewer">Записать существующего пользователя как рецензента</message>
+	<message key="editor.submission.editorial.introduction"><![CDATA[В процессе редактирования, литературный редактор работает с последними файлами-черновиками перед загрузкой файлов в раздел <span class="pkp_help_title">Литературное редактирование</span>, где автор и другие могут просмотреть их, подготовить и загрузить в <span class="pkp_help_title">Литературное редактирование</span> правильную копию материалов для литературного редактирования, где они могут быть отмечены как <em>Одобрено</em> редактором и переданы на этап подготовки выпуска.]]></message>
+	<message key="editor.submission.noAuditRequested">Для этого файла не был сформирован запрос на контроль</message>
+	<message key="editor.submission.personalMessageToUser">Письмо для отправки пользователю</message>
+	<message key="editor.submission.proof.reminder">Напоминание корректору</message>
+	<message key="editor.submission.editorial.approveCopyeditDescription">Файл после литературного редактирования должен быть одобрен перед отправкой на этап выпуска. Вы хотите одобрить этот файл?</message>
+	<message key="editor.submission.editorial.disapproveCopyeditDescription">Отмена одобрения файла, прошедшего литературное редактирование, сделает невозможным его отправку на этап выпуска. Вы хотите отменить одобрение этого файла?</message>
+	<message key="editor.submission.editorial.approveCopyeditFile">Одобрить файл после литературного редактирования</message>
+	<message key="editor.submission.addAuditor">Назначить контролера</message>
+	<message key="editor.submission.editorial.copyeditingDescription"><![CDATA[Назначьте авторам (и другим пользователям, при необходимости) файлы, прошедшие литературное редактирование, для просмотра изменений и ответов на вопросы. Их ответы и загруженные файлы появятся в значке блокнота. Они помечаются <em>Рассмотрено</em> литературным редактором, который затем готовит финальную копию, прошедшую литературное редактирование, для загрузки в <span class="pkp_help_title">Литературное редактирование</span>, в котором редактор ставит пометку «Одобрено» перед отправкой на этап выпуска.]]></message>
+	<message key="editor.submission.final.manageFinalDraftFilesDescription">Любые файлы, которые уже были загружены на любом этапе отправки, могут быть добавлены в список «Файлы финального черновика», если вы поставите галочку «Включить» ниже и щелкните на «Поиск»: все доступные файлы будут показаны и могут быть выбраны для включения в список. Дополнительные файлы, которые еще не были загружены, могут быть добавлены в список, если вы щелкните на ссылке «Загрузить финальный черновик».</message>
+	<message key="editor.review">Рецензия</message>
+	<message key="editor.signoff.approved">Одобрен</message>
+	<message key="editor.submission.production.productionReadyFiles">Файлы, готовые для выпуска</message>
+	<message key="editor.submission.newRound">Новый раунд рецензирования</message>
+	<message key="editor.submission.selectAttachments">Выберите рецензии и файлы, которые нужно показать автору</message>
+	<message key="editor.submissionReview.recordDecision">Записать редакционное решение</message>
+	<message key="editor.submission.selectFairCopy">Выберите одобренные файлы, прошедшие литературное редактирование, для отправки их на этап выпуска.</message>
+	<message key="editor.submission.newRoundDescription">Вы собираетесь создать новый раунд рецензирования для этого материала. Файлы, которые не использовались в других раундах рецензирования, приведены ниже. По умолчанию, рецензенты из предыдущего раунда рецензирования будут добавлены для участия в этом новом раунде рецензирования.</message>
+	<message key="editor.submission.createNewRound">Создать новый раунд рецензирования</message>
+	<message key="editor.submission.review.manageReviewFilesDescription">Любые файлы, которые уже были загружены на любом этапе отправки (даже на этапе редактирования или выпуска), могут быть выбраны для рецензирования, если вы поставите галочку «Включить» ниже и щелкните на «Поиск»: все доступные файлы будут показаны и могут быть выбраны для включения. Дополнительные файлы, которые еще не были загружены, могут быть добавлены в этот список, если вы щелкните на ссылке «Загрузить файл для рецензирования».</message>
+	<message key="editor.submission.selectPromoteRevisions">Выбрать версии для использования на следующем этапе</message>
+	<message key="editor.article.reviewForms">Формы рецензии</message>
+	<message key="editor.article.selectReviewForm">Выбрать форму рецензии</message>
+	<message key="editor.article.clearReviewForm">Убрать форму рецензии</message>
+	<message key="editor.article.confirmChangeReviewForm">Предупреждение: Изменение формы рецензии повлияет на все ответы рецензентов, которые были сделаны с помощью этой формы. Вы уверены, что хотите продолжить?</message>
+</locale>

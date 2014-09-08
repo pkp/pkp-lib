@@ -57,7 +57,7 @@ class SubmissionDAO extends DAO {
 	 * @return array
 	 */
 	function getLocaleFieldNames() {
-		return array(
+		return parent::getLocaleFieldNames() + array(
 			'title', 'cleanTitle', 'abstract', 'prefix', 'subtitle',
 			'discipline', 'subjectClass', 'subject',
 			'coverageGeo', 'coverageChron', 'coverageSample',

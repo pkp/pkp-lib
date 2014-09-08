@@ -31,6 +31,8 @@ class FormValidatorPostTest extends PKPTestCase {
 		$form = new Form('some template');
 		$validator = new FormValidatorPost($form, 'some.message.key');
 
+		$this->markTestSkipped('Disabled for static invocation of Request.');
+
 		Request::setRequestMethod('POST');
 		self::assertTrue($validator->isValid());
 

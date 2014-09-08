@@ -48,7 +48,7 @@ class MetadataPluginTestCase extends PluginTestCase {
 		// Delete vocab data so that we can re-install it.
 		$controlledVocabDao = DAORegistry::getDAO('ControlledVocabDAO'); /* @var $controlledVocabDao ControlledVocabDAO */
 		foreach($controlledVocabs as $controlledVocabSymbolic) {
-			$controlledVocab =& $controlledVocabDao->getBySymbolic($controlledVocabSymbolic, 0, 0);
+			$controlledVocab = $controlledVocabDao->getBySymbolic($controlledVocabSymbolic, 0, 0);
 			if ($controlledVocab) $controlledVocabDao->deleteObject($controlledVocab);
 		}
 

@@ -63,15 +63,15 @@ class OAIMetadataFormatPlugin extends Plugin {
 	/**
 	 * Get the metadata prefix for this plugin's format.
 	 */
-	function getMetadataPrefix() {
+	static function getMetadataPrefix() {
 		assert(false); // Should always be overridden
 	}
 
-	function getSchema() {
+	static function getSchema() {
 		return '';
 	}
 
-	function getNamespace() {
+	static function getNamespace() {
 		return '';
 	}
 

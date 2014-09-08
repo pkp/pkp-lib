@@ -39,6 +39,7 @@ abstract class PKPTestHelper {
 			}
 
 			$sqls = array(
+				"DROP TABLE IF EXISTS backup_$table",
 				$createLikeSql,
 				"INSERT INTO backup_$table SELECT * FROM $table"
 			);

@@ -77,6 +77,8 @@ class Nlm30XmlFilterTestCase extends PKPTestCase {
 	 * @return Submission
 	 */
 	protected function &getTestSubmission() {
+		$this->markTestSkipped('Attempts to mock abstract class');
+
 		import('lib.pkp.classes.submission.Submission');
 		$mockSubmission =&
 				$this->getMock('Submission', array('getAssocType'));

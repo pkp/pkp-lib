@@ -25,6 +25,10 @@ class PKPIsbndbCitationLookupPluginTest extends PluginTestCase {
 	 * @covers PKPIsbndbCitationLookupPlugin
 	 */
 	public function testIsbndbCitationLookupPlugin() {
+		if (!file_exists('plugins/citationLookup/isbndb/version.xml')) {
+			$this->markTestSkipped('Plugin does not exist in application!');
+		}
+
 		// Delete the ISBNdb generic sequencer filter.
 		$filterDao = DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
 		$filterFactory =& $filterDao->getObjectsByGroupAndClass('nlm30-element-citation=>nlm30-element-citation', 'lib.pkp.classes.filter.GenericSequencerFilter', 0, true);

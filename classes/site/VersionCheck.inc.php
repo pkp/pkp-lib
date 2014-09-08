@@ -63,7 +63,7 @@ class VersionCheck {
 	 * @param $url string
 	 * @return array
 	 */
-	function &parseVersionXML($url) {
+	static function &parseVersionXML($url) {
 		$xmlDao = new XMLDAO();
 		$data = $xmlDao->parseStruct($url, array());
 		if (!$data) {

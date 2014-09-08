@@ -27,10 +27,10 @@
  * @author Monte Ohrt <monte at ohrt dot com>
  * @author Andrei Zmievski <andrei@php.net>
  * @package Smarty
- * @version 2.6.26
+ * @version 2.6.28
  */
 
-/* $Id$ */
+/* $Id: Smarty.class.php 4660 2012-09-24 20:05:15Z uwe.tews@googlemail.com $ */
 
 /**
  * DIR_SEP isn't used anymore, but third party apps might
@@ -465,7 +465,7 @@ class Smarty
      *
      * @var string
      */
-    var $_version              = '2.6.26';
+    var $_version              = '2.6.28';
 
     /**
      * current template inclusion depth
@@ -1058,7 +1058,7 @@ class Smarty
         } else {
             // var non-existant, return valid reference
             $_tmp = null;
-            return $_tmp;   
+            return $_tmp;
         }
     }
 
@@ -1090,7 +1090,8 @@ class Smarty
      */
     function trigger_error($error_msg, $error_type = E_USER_WARNING)
     {
-        trigger_error("Smarty error: $error_msg", $error_type);
+        $msg = htmlentities($error_msg);
+        trigger_error("Smarty error: $msg", $error_type);
     }
 
 
@@ -1105,7 +1106,7 @@ class Smarty
     {
         $this->fetch($resource_name, $cache_id, $compile_id, true);
     }
-    
+
     /**
      * executes & returns or displays the template results
      *
@@ -1117,7 +1118,7 @@ class Smarty
     function fetch($resource_name, $cache_id = null, $compile_id = null, $display = false)
     {
         static $_cache_info = array();
-        
+
         $_smarty_old_error_level = $this->debugging ? error_reporting() : error_reporting(isset($this->error_reporting)
                ? $this->error_reporting : error_reporting() & ~E_NOTICE);
 
@@ -1260,7 +1261,7 @@ class Smarty
             if ($this->_is_compiled($resource_name, $_smarty_compile_path)
                     || $this->_compile_resource($resource_name, $_smarty_compile_path))
             {
-            	include($_smarty_compile_path);
+                include($_smarty_compile_path);
             }
             $_smarty_results = ob_get_contents();
             ob_end_clean();
@@ -1933,10 +1934,10 @@ class Smarty
     {
         return eval($code);
     }
-    
+
     /**
      * Extracts the filter name from the given callback
-     * 
+     *
      * @param callback $function
      * @return string
      */
@@ -1951,7 +1952,7 @@ class Smarty
 			return $function;
 		}
 	}
-  
+
     /**#@-*/
 
 }

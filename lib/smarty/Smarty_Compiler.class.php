@@ -21,12 +21,12 @@
  * @link http://smarty.php.net/
  * @author Monte Ohrt <monte at ohrt dot com>
  * @author Andrei Zmievski <andrei@php.net>
- * @version 2.6.26
+ * @version 2.6.25-dev
  * @copyright 2001-2005 New Digital Group, Inc.
  * @package Smarty
  */
 
-/* $Id$ */
+/* $Id: Smarty_Compiler.class.php 4779 2013-09-30 19:14:32Z Uwe.Tews@googlemail.com $ */
 
 /**
  * Template compiling class
@@ -262,11 +262,11 @@ class Smarty_Compiler extends Smarty {
         reset($this->_folded_blocks);
 
         /* replace special blocks by "{php}" */
-        $source_content = preg_replace($search.'e', "'"
+        $source_content = preg_replace_callback($search, create_function ('$matches', "return '"
                                        . $this->_quote_replace($this->left_delimiter) . 'php'
-                                       . "' . str_repeat(\"\n\", substr_count('\\0', \"\n\")) .'"
+                                       . "' . str_repeat(\"\n\", substr_count('\$matches[1]', \"\n\")) .'"
                                        . $this->_quote_replace($this->right_delimiter)
-                                       . "'"
+                                       . "';")
                                        , $source_content);
 
         /* Gather all template tags. */
@@ -1683,7 +1683,7 @@ class Smarty_Compiler extends Smarty {
     function _expand_quoted_text($var_expr)
     {
         // if contains unescaped $, expand it
-        if(preg_match_all('~(?:\`(?<!\\\\)\$' . $this->_dvar_guts_regexp . '(?:' . $this->_obj_call_regexp . ')*\`)|(?:(?<!\\\\)\$\w+(\[[a-zA-Z0-9]+\])*)~', $var_expr, $_match)) {
+        if(preg_match_all('~(?:\`(?<!\\\\)\$' . $this->_dvar_guts_regexp . '(?:' . $this->_obj_ext_regexp . ')*\`)|(?:(?<!\\\\)\$\w+(\[[a-zA-Z0-9]+\])*)~', $var_expr, $_match)) {
             $_match = $_match[0];
             $_replace = array();
             foreach($_match as $_var) {
@@ -2122,7 +2122,7 @@ class Smarty_Compiler extends Smarty {
                 return null;
 
             case 'template':
-                $compiled_ref = "'$this->_current_file'";
+                $compiled_ref = "'" . addslashes($this->_current_file) . "'";
                 $_max_index = 1;
                 break;
 

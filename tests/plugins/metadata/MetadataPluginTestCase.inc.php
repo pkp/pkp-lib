@@ -48,7 +48,7 @@ class MetadataPluginTestCase extends PluginTestCase {
 		// Delete vocab data so that we can re-install it.
 		$controlledVocabDao = DAORegistry::getDAO('ControlledVocabDAO'); /* @var $controlledVocabDao ControlledVocabDAO */
 		foreach($controlledVocabs as $controlledVocabSymbolic) {
-			$controlledVocab =& $controlledVocabDao->getBySymbolic($controlledVocabSymbolic, 0, 0);
+			$controlledVocab = $controlledVocabDao->getBySymbolic($controlledVocabSymbolic, 0, 0);
 			if ($controlledVocab) $controlledVocabDao->deleteObject($controlledVocab);
 		}
 
@@ -56,7 +56,6 @@ class MetadataPluginTestCase extends PluginTestCase {
 		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /* @var $pluginSettingsDao PluginSettingsDAO */
 		$pluginSettingsDao->updateSetting(0, $pluginName, METADATA_PLUGIN_VOCAB_INSTALLED_SETTING, false);
 
-		// Unregister the plug-in so that we're sure it will be registered again.
 		// Unregister the plug-in so that we're sure it will be registered again.
 		$plugins =& PluginRegistry::getPlugins();
 		unset($plugins['metadata'][$pluginName]);

@@ -43,15 +43,15 @@ class PKPOAIMetadataFormatPlugin_DC extends OAIMetadataFormatPlugin {
 		return 'OAIMetadataFormat_DC';
 	}
 
-	function getMetadataPrefix() {
+	static function getMetadataPrefix() {
 		return 'oai_dc';
 	}
 
-	function getSchema() {
+	static function getSchema() {
 		return 'http://www.openarchives.org/OAI/2.0/oai_dc.xsd';
 	}
 
-	function getNamespace() {
+	static function getNamespace() {
 		return 'http://www.openarchives.org/OAI/2.0/oai_dc/';
 	}
 }

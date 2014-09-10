@@ -12,6 +12,8 @@
  * @brief Class that implements functionality common to all PKP test types.
  */
 
+define('PKP_TEST_ENTIRE_DB', 1);
+
 abstract class PKPTestHelper {
 
 	//

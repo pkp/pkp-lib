@@ -14,7 +14,6 @@
  */
 
 import('lib.pkp.tests.PKPTestHelper');
-define('WEB_TEST_ENTIRE_DB', 1);
 
 class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	/** @var string Base URL provided from environment */
@@ -30,7 +29,7 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	/**
 	 * Override this method if you want to backup/restore
 	 * tables before/after the test.
-	 * @return array|WEB_TEST_ENTIRE_DB A list of tables to backup and restore.
+	 * @return array|PKP_TEST_ENTIRE_DB A list of tables to backup and restore.
 	 */
 	protected function getAffectedTables() {
 		return array();
@@ -104,7 +103,7 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 			$affectedTables = $this->getAffectedTables();
 			if (is_array($affectedTables)) {
 				PKPTestHelper::restoreTables($this->getAffectedTables(), $this);
-			} elseif ($affectedTables === WEB_TEST_ENTIRE_DB) {
+			} elseif ($affectedTables === PKP_TEST_ENTIRE_DB) {
 				PKPTestHelper::restoreDB($this);
 			}
 		}

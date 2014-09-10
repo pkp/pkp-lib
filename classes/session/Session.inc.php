@@ -188,6 +188,22 @@ class Session extends DataObject {
 	}
 
 	/**
+	 * Get the domain with which the session is registered
+	 * @return array
+	 */
+	function getDomain() {
+		return $this->getData('domain');
+	}
+
+	/**
+	 * Set the domain with which the session is registered
+	 * @param $data array
+	 */
+	function setDomain($data) {
+		return $this->setData('domain', $data);
+	}
+
+	/**
 	 * Get user associated with this session (null if anonymous user).
 	 * @return User
 	 */

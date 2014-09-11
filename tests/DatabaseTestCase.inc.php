@@ -36,7 +36,10 @@ abstract class DatabaseTestCase extends PKPTestCase {
 	 */
 	protected function setUp() {
 		// Backup affected tables.
-		PKPTestHelper::backupTables($this->getAffectedTables(), $this);
+		$affectedTables = $this->getAffectedTables();
+		if (is_array($affectedTables)) {
+			PKPTestHelper::backupTables($affectedTables, $this);
+		}
 		parent::setUp();
 	}
 
@@ -45,7 +48,12 @@ abstract class DatabaseTestCase extends PKPTestCase {
 	 */
 	protected function tearDown() {
 		parent::tearDown();
-		PKPTestHelper::restoreTables($this->getAffectedTables(), $this);
+		$affectedTables = $this->getAffectedTables();
+		if (is_array($affectedTables)) {
+			PKPTestHelper::restoreTables($this->getAffectedTables(), $this);
+		} elseif ($affectedTables === PKP_TEST_ENTIRE_DB) {
+			PKPTestHelper::restoreDB($this);
+		}
 	}
 }
 ?>

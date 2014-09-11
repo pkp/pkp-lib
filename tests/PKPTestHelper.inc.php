@@ -14,6 +14,7 @@
 
 /* Config backup file name */
 define('PKP_TEST_HELPER_BACKUP_CONFIG_FILE', Core::getBaseDir() . DIRECTORY_SEPARATOR . 'config.BACKUP.inc.php');
+define('PKP_TEST_ENTIRE_DB', 1);
 
 abstract class PKPTestHelper {
 

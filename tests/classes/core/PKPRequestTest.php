@@ -23,6 +23,7 @@ import('lib.pkp.classes.plugins.HookRegistry'); // This imports our mock HookReg
 
 class PKPRequestTest extends PKPTestCase {
 	protected $request;
+	private $getRemoteAddrTestConfigData;
 
 	public function setUp() {
 		parent::setUp();
@@ -327,6 +328,7 @@ class PKPRequestTest extends PKPTestCase {
 			array('trust_x_forwarded_for' => true)
 		);
 		self::assertEquals($forwardedIp, $this->request->getRemoteAddr());
+		$this->getRemoteAddrTestCleanup();
 	}
 
 	/**
@@ -337,6 +339,7 @@ class PKPRequestTest extends PKPTestCase {
 			array('trust_x_forwarded_for' => false)
 		);
 		self::assertEquals($remoteIp, $this->request->getRemoteAddr());
+		$this->getRemoteAddrTestCleanup();
 	}
 
 	/**
@@ -345,11 +348,13 @@ class PKPRequestTest extends PKPTestCase {
 	public function testTrustXForwardedForNotSet() {
 		list($forwardedIp, $remoteIp) = $this->getRemoteAddrTestPrepare(array());
 		self::assertEquals($forwardedIp, $this->request->getRemoteAddr());
+		$this->getRemoteAddrTestCleanup();
 	}
 
 
 	/**
-	 * Helper function for testTrustXForwardedFor tests
+	 * Helper function for testTrustXForwardedFor tests that prepares the
+	 * environment
 	 *
 	 * @param $generalConfigData mixed Array containing overwrites for the
 	 * general section of the config
@@ -362,9 +367,18 @@ class PKPRequestTest extends PKPTestCase {
 		$_SERVER['REMOTE_ADDR'] = '2.2.2.2';
 
 		$configData =& Registry::get('configData', true, array());
+		$this->getRemoteAddrTestConfigData = $configData;
 		$configData['general'] = $generalConfigData;
 
 		return array($_SERVER['HTTP_X_FORWARDED_FOR'], $_SERVER['REMOTE_ADDR']);
+	}
+
+	/**
+	 * Helper function for testTrustXForwardedFor tests that restores the
+	 * environment
+	 */
+	private function getRemoteAddrTestCleanup() {
+		Registry::set('configData', $this->getRemoteAddrTestConfigData);
 	}
 
 	/**

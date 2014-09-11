@@ -383,7 +383,7 @@ class PKPRequest {
 	function getRemoteAddr() {
 		PKPRequest::_checkThis();
 
-		$ipaddr = Registry::get('remoteIpAddr');
+		$ipaddr =& Registry::get('remoteIpAddr');
 		if (is_null($ipaddr)) {
 			if (isset($_SERVER['HTTP_X_FORWARDED_FOR']) &&
 				Config::getVar('general', 'trust_x_forwarded_for', true) &&
@@ -400,8 +400,6 @@ class PKPRequest {
 				$ipaddr = $matches[0][count($matches[0])-1];
 			}
 			HookRegistry::call('Request::getRemoteAddr', array(&$ipaddr));
-
-			Registry::set('remoteIpAddr', $ipaddr);
 		}
 		return $ipaddr;
 	}

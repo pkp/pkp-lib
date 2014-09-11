@@ -38,7 +38,7 @@ class PKPUserDAO extends DAO {
 
 	/**
 	 * Construct a new User object.
-	 * @return User
+	 * @return PKPUser
 	 */
 	function newDataObject() {
 		return new PKPUser();
@@ -48,7 +48,7 @@ class PKPUserDAO extends DAO {
 	 * Retrieve a user by ID.
 	 * @param $userId int
 	 * @param $allowDisabled boolean
-	 * @return User
+	 * @return PKPUser
 	 */
 	function getById($userId, $allowDisabled = true) {
 		$result = $this->retrieve(
@@ -68,7 +68,7 @@ class PKPUserDAO extends DAO {
 	 * Retrieve a user by username.
 	 * @param $username string
 	 * @param $allowDisabled boolean
-	 * @return User
+	 * @return PKPUser
 	 */
 	function &getByUsername($username, $allowDisabled = true) {
 		$result = $this->retrieve(
@@ -108,7 +108,7 @@ class PKPUserDAO extends DAO {
 	 * Retrieve a user by email address.
 	 * @param $email string
 	 * @param $allowDisabled boolean
-	 * @return User
+	 * @return PKPUser
 	 */
 	function &getUserByEmail($email, $allowDisabled = true) {
 		$result = $this->retrieve(
@@ -129,7 +129,7 @@ class PKPUserDAO extends DAO {
 	 * @param $username string
 	 * @param $password string encrypted password
 	 * @param $allowDisabled boolean
-	 * @return User
+	 * @return PKPUser
 	 */
 	function &getUserByCredentials($username, $password, $allowDisabled = true) {
 		$result = $this->retrieve(
@@ -154,22 +154,22 @@ class PKPUserDAO extends DAO {
 	 */
 	function getReviewersForSubmission($contextId, $submissionId, $round) {
 		$result = $this->retrieve(
-				'SELECT	u.*
-				FROM	users u
-				LEFT JOIN user_user_groups uug ON (uug.user_id = u.user_id)
-				LEFT JOIN user_groups ug ON (ug.user_group_id = uug.user_group_id)
-				LEFT JOIN review_assignments r ON (r.reviewer_id = u.user_id)
-				WHERE	ug.context_id = ? AND
-				ug.role_id = ? AND
-				r.submission_id = ? AND
-				r.round = ?
-				ORDER BY last_name, first_name',
-				array(
-						(int) $contextId,
-						ROLE_ID_REVIEWER,
-						(int) $submissionId,
-						(int) $round
-				)
+			'SELECT	u.*
+			FROM	users u
+			LEFT JOIN user_user_groups uug ON (uug.user_id = u.user_id)
+			LEFT JOIN user_groups ug ON (ug.user_group_id = uug.user_group_id)
+			LEFT JOIN review_assignments r ON (r.reviewer_id = u.user_id)
+			WHERE	ug.context_id = ? AND
+			ug.role_id = ? AND
+			r.submission_id = ? AND
+			r.round = ?
+			ORDER BY last_name, first_name',
+			array(
+				(int) $contextId,
+				ROLE_ID_REVIEWER,
+				(int) $submissionId,
+				(int) $round
+			)
 		);
 
 		return new DAOResultFactory($result, $this, '_returnUserFromRowWithData');
@@ -190,18 +190,18 @@ class PKPUserDAO extends DAO {
 		if (!empty($name)) $params[] = $params[] = $params[] = $params[] = "%$name%";
 
 		$result = $this->retrieve(
-				'SELECT	DISTINCT u.*
-				FROM	users u
-				JOIN user_user_groups uug ON (uug.user_id = u.user_id)
-				JOIN user_groups ug ON (ug.user_group_id = uug.user_group_id AND ug.context_id = ? AND ug.role_id = ?)
-				JOIN user_group_stage ugs ON (ugs.user_group_id = ug.user_group_id AND ugs.stage_id = ?)
-				WHERE 0=(SELECT COUNT(r.reviewer_id)
-				FROM review_assignments r
-				WHERE r.submission_id = ? AND r.reviewer_id = u.user_id AND (r.review_round_id = ? OR' .
-				$reviewAssignmentDao->getIncompleteReviewAssignmentsWhereString() . '))' .
-				(!empty($name)?' AND (first_name LIKE ? OR last_name LIKE ? OR username LIKE ? OR email LIKE ?)':'') .
-				' ORDER BY last_name, first_name',
-				$params
+			'SELECT	DISTINCT u.*
+			FROM	users u
+			JOIN user_user_groups uug ON (uug.user_id = u.user_id)
+			JOIN user_groups ug ON (ug.user_group_id = uug.user_group_id AND ug.context_id = ? AND ug.role_id = ?)
+			JOIN user_group_stage ugs ON (ugs.user_group_id = ug.user_group_id AND ugs.stage_id = ?)
+			WHERE 0=(SELECT COUNT(r.reviewer_id)
+			FROM review_assignments r
+			WHERE r.submission_id = ? AND r.reviewer_id = u.user_id AND (r.review_round_id = ? OR' .
+			$reviewAssignmentDao->getIncompleteReviewAssignmentsWhereString() . '))' .
+			(!empty($name)?' AND (first_name LIKE ? OR last_name LIKE ? OR username LIKE ? OR email LIKE ?)':'') .
+			' ORDER BY last_name, first_name',
+			$params
 		);
 
 		return new DAOResultFactory($result, $this, '_returnUserFromRowWithData');
@@ -214,14 +214,14 @@ class PKPUserDAO extends DAO {
 	 */
 	function getAllReviewers($contextId) {
 		$result = $this->retrieve(
-				'SELECT	u.*
-				FROM	users u
-				LEFT JOIN user_user_groups uug ON (uug.user_id = u.user_id)
-				LEFT JOIN user_groups ug ON (ug.user_group_id = uug.user_group_id)
-				WHERE	ug.context_id = ? AND
-				ug.role_id = ?
-				ORDER BY last_name, first_name',
-				array((int) $contextId, ROLE_ID_REVIEWER)
+			'SELECT	u.*
+			FROM	users u
+			LEFT JOIN user_user_groups uug ON (uug.user_id = u.user_id)
+			LEFT JOIN user_groups ug ON (ug.user_group_id = uug.user_group_id)
+			WHERE	ug.context_id = ? AND
+			ug.role_id = ?
+			ORDER BY last_name, first_name',
+			array((int) $contextId, ROLE_ID_REVIEWER)
 		);
 
 		return new DAOResultFactory($result, $this, '_returnUserFromRowWithData');
@@ -266,7 +266,7 @@ class PKPUserDAO extends DAO {
 		}
 
 		// If submissionId is set, get the list of available reviewers to the submission
-		if($submissionId) {
+		if ($submissionId) {
 			$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 			$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
 			$reviewRound = $reviewRoundDao->getById($reviewRoundId);
@@ -304,6 +304,11 @@ class PKPUserDAO extends DAO {
 		return $filteredReviewers;
 	}
 
+	/**
+	 * Create and return a complete PKPUser object from a given row.
+	 * @param $row array
+	 * @return PKPUser
+	 */
 	function &_returnUserFromRowWithData($row) {
 		$user =& $this->_returnUserFromRow($row, false);
 		$this->getDataObjectSettings('user_settings', 'user_id', $row['user_id'], $user);
@@ -318,7 +323,7 @@ class PKPUserDAO extends DAO {
 	 * Internal function to return a User object from a row.
 	 * @param $row array
 	 * @param $callHook boolean
-	 * @return User
+	 * @return PKPUser
 	 */
 	function &_returnUserFromRow($row, $callHook = true) {
 		$user = $this->newDataObject();
@@ -405,11 +410,17 @@ class PKPUserDAO extends DAO {
 		return $user->getId();
 	}
 
+	/**
+	 * @copydoc DAO::getLocaleFieldNames
+	 */
 	function getLocaleFieldNames() {
 		return array('biography', 'signature', 'gossip', 'affiliation');
 	}
 
-	function updateLocaleFields(&$user) {
+	/**
+	 * @copydoc DAO::updateLocaleFields
+	 */
+	function updateLocaleFields($user) {
 		$this->updateDataObjectSettings('user_settings', $user, array(
 			'user_id' => (int) $user->getId()
 		));
@@ -417,9 +428,9 @@ class PKPUserDAO extends DAO {
 
 	/**
 	 * Update an existing user.
-	 * @param $user User
+	 * @param $user PKPUser
 	 */
-	function updateObject(&$user) {
+	function updateObject($user) {
 		if ($user->getDateLastLogin() == null) {
 			$user->setDateLastLogin(Core::getCurrentDate());
 		}
@@ -489,7 +500,7 @@ class PKPUserDAO extends DAO {
 	 * Delete a user.
 	 * @param $user User
 	 */
-	function deleteObject(&$user) {
+	function deleteObject($user) {
 		return $this->deleteUserById($user->getId());
 	}
 
@@ -504,7 +515,7 @@ class PKPUserDAO extends DAO {
 
 	/**
 	 * Retrieve a user's name.
-	 * @param int $userId
+	 * @param $userId int
 	 * @param $allowDisabled boolean
 	 * @return string
 	 */
@@ -526,7 +537,7 @@ class PKPUserDAO extends DAO {
 
 	/**
 	 * Retrieve a user's email address.
-	 * @param int $userId
+	 * @param $userId int
 	 * @param $allowDisabled boolean
 	 * @return string
 	 */
@@ -553,10 +564,9 @@ class PKPUserDAO extends DAO {
 	 * @param $value mixed the value to match
 	 * @param $allowDisabled boolean
 	 * @param $dbResultRange object The desired range of results to return
-	 * @return array matching Users
+	 * @return DAOResultFactory
 	 */
-
-	function &getUsersByField($field = USER_FIELD_NONE, $match = null, $value = null, $allowDisabled = true, $dbResultRange = null, $sortBy = null, $sortDirection = SORT_DIRECTION_ASC) {
+	function getUsersByField($field = USER_FIELD_NONE, $match = null, $value = null, $allowDisabled = true, $dbResultRange = null, $sortBy = null, $sortDirection = SORT_DIRECTION_ASC) {
 		$sql = 'SELECT DISTINCT u.* FROM users u';
 		switch ($field) {
 			case USER_FIELD_USERID:
@@ -602,25 +612,23 @@ class PKPUserDAO extends DAO {
 		if ($field != USER_FIELD_NONE) $result = $this->retrieveRange($sql . ($allowDisabled?'':' AND u.disabled = 0') . $orderSql, $var, $dbResultRange);
 		else $result = $this->retrieveRange($sql . ($allowDisabled?'':' WHERE u.disabled = 0') . $orderSql, false, $dbResultRange);
 
-		$returner = new DAOResultFactory($result, $this, '_returnUserFromRowWithData');
-		return $returner;
+		return new DAOResultFactory($result, $this, '_returnUserFromRowWithData');
 	}
 
 	/**
 	 * Retrieve an array of users with no role defined.
 	 * @param $allowDisabled boolean
 	 * @param $dbResultRange object The desired range of results to return
-	 * @return array matching Users
+	 * @return DAOResultFactory
 	 */
-	function &getUsersWithNoRole($allowDisabled = true, $dbResultRange = null) {
+	function getUsersWithNoRole($allowDisabled = true, $dbResultRange = null) {
 		$sql = 'SELECT u.* FROM users u LEFT JOIN roles r ON u.user_id=r.user_id WHERE r.role_id IS NULL';
 
 		$orderSql = ' ORDER BY u.last_name, u.first_name'; // FIXME Add "sort field" parameter?
 
 		$result = $this->retrieveRange($sql . ($allowDisabled?'':' AND u.disabled = 0') . $orderSql, false, $dbResultRange);
 
-		$returner = new DAOResultFactory($result, $this, '_returnUserFromRowWithData');
-		return $returner;
+		return new DAOResultFactory($result, $this, '_returnUserFromRowWithData');
 	}
 
 	/**

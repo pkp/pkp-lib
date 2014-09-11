@@ -397,6 +397,8 @@ class SubmissionDAO extends DAO {
 	function getUnpublishedByUserId($userId, $contextId = null, $rangeInfo = null) {
 		$params = $this->_getFetchParameters();
 		$params[] = (int) $userId;
+		$params[] = (int) $userId;
+
 		if ($contextId) $params[] = (int) $contextId;
 
 		$result = $this->retrieveRange(
@@ -404,8 +406,9 @@ class SubmissionDAO extends DAO {
 				' . $this->_getFetchColumns() . '
 				FROM	submissions s
 				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id)
+				LEFT JOIN stage_assignments sa ON (s.submission_id = sa.submission_id)
 				' . $this->_getFetchJoins() . '
-				WHERE	ps.date_published IS NULL AND s.user_id = ?' .
+				WHERE	ps.date_published IS NULL AND (s.user_id = ? OR sa.user_id = ?)' .
 				($contextId?' AND s.context_id = ?':''),
 				$params, $rangeInfo
 		);

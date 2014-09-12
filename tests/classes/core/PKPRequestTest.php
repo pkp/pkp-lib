@@ -29,10 +29,20 @@ class PKPRequestTest extends PKPTestCase {
 		parent::setUp();
 		HookRegistry::rememberCalledHooks();
 		$this->request = new PKPRequest();
+
+		// Save the config data for testTrustXForwardedFor tests
+		if (is_null($this->getRemoteAddrTestConfigData) && strpos($this->getName(), 'testTrustXForwardedFor') === 0) {
+			$this->getRemoteAddrTestConfigData = Registry::get('configData');
+		}
 	}
 
 	public function tearDown() {
 		HookRegistry::resetCalledHooks();
+
+		// Restore the config data after testTrustXForwardedFor tests
+		if (strpos($this->getName(), 'testTrustXForwardedFor') === 0) {
+			Registry::set('configData', $this->getRemoteAddrTestConfigData);
+		}
 	}
 
 	/**
@@ -328,7 +338,6 @@ class PKPRequestTest extends PKPTestCase {
 			array('trust_x_forwarded_for' => true)
 		);
 		self::assertEquals($forwardedIp, $this->request->getRemoteAddr());
-		$this->getRemoteAddrTestCleanup();
 	}
 
 	/**
@@ -339,16 +348,14 @@ class PKPRequestTest extends PKPTestCase {
 			array('trust_x_forwarded_for' => false)
 		);
 		self::assertEquals($remoteIp, $this->request->getRemoteAddr());
-		$this->getRemoteAddrTestCleanup();
 	}
 
-	/**
+	/*
 	 * @covers PKPRequest::getRemoteAddr
 	 */
 	public function testTrustXForwardedForNotSet() {
 		list($forwardedIp, $remoteIp) = $this->getRemoteAddrTestPrepare(array());
 		self::assertEquals($forwardedIp, $this->request->getRemoteAddr());
-		$this->getRemoteAddrTestCleanup();
 	}
 
 
@@ -367,18 +374,9 @@ class PKPRequestTest extends PKPTestCase {
 		$_SERVER['REMOTE_ADDR'] = '2.2.2.2';
 
 		$configData =& Registry::get('configData', true, array());
-		$this->getRemoteAddrTestConfigData = $configData;
 		$configData['general'] = $generalConfigData;
 
 		return array($_SERVER['HTTP_X_FORWARDED_FOR'], $_SERVER['REMOTE_ADDR']);
-	}
-
-	/**
-	 * Helper function for testTrustXForwardedFor tests that restores the
-	 * environment
-	 */
-	private function getRemoteAddrTestCleanup() {
-		Registry::set('configData', $this->getRemoteAddrTestConfigData);
 	}
 
 	/**

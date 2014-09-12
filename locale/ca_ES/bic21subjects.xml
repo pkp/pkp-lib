@@ -1,0 +1,2701 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE subjects SYSTEM "../../dtd/bic21subjects.dtd">
+<!--
+  * locale/ca_ES/bic21subjects.xml
+  *
+  * Copyright BIC and Nielsen Book Services Ltd 2010
+  * Credits: http://pkp.sfu.ca/wiki/index.php?title=OJS:_Catalan_%28ca_ES%29
+  *
+  * localized list of BIC 2.1 Subjects
+  * Reference:  http://www.bic.org.uk/7/BIC-Standard-Subject-Categories
+  -->
+
+<subjects>
+	<subject code="A" text="Les arts" />
+	<subject code="AB" text="Les arts: temes generals" />
+	<subject code="ABA" text="Teories de l'art" />
+	<subject code="ABC" text="Conservació, restauració i manteniment d'obres d'art" />
+	<subject code="ABK" text="Imitació, falsificació i robatori d'obres d'art" />
+	<subject code="ABQ" text="Art: aspectes financers" />
+	<subject code="AC" text="Història de l'art i dels estils artístics i de disseny" />
+	<subject code="ACB" text="Estils artístics no definits per la data" />
+	<subject code="ACBK" text="Art dels pobles indígenes" />
+	<subject code="ACBN" text="Art naïf" />
+	<subject code="ACBP" text="Art oriental" />
+	<subject code="ACBS" text="Art colonial" />
+	<subject code="ACC" text="Història de l'art: prehistòria" />
+	<subject code="ACG" text="Història de l'art: art antic i clàssic, d'abans de Crist fins ca. 500 dC" />
+	<subject code="ACK" text="Història de l'art: art bizantí i medieval des de ca. 500 dC fins ca. 1400" />
+	<subject code="ACN" text="Història dels estils artístics i de disseny: des de ca. 1400 fins ca. 1600" />
+	<subject code="ACND" text="Art del Renaixement" />
+	<subject code="ACNH" text="Estils artístics i de disseny: manierisme" />
+	<subject code="ACQ" text="Història dels estils artístics i de disseny: des de ca. 1600 fins ca. 1800" />
+	<subject code="ACQB" text="Estils artístics i de disseny: barroc" />
+	<subject code="ACQH" text="Estils artístics i de disseny: classicisme" />
+	<subject code="ACV" text="Història dels estils artístics i de disseny: des de ca. 1800 fins ca. 1900" />
+	<subject code="ACVC" text="Estils artístics i de disseny: romanticisme" />
+	<subject code="ACVM" text="Estils artístics i de disseny: art prerafaelita" />
+	<subject code="ACVN" text="Estils artístics i de disseny: estil d'arts i oficis" />
+	<subject code="ACVT" text="Estils artístics i de disseny: impressionisme i postimpressionisme" />
+	<subject code="ACVY" text="Estils artístics i de disseny: modernisme" />
+	<subject code="ACX" text="Història dels estils artístics i de disseny: des de ca. 1900" />
+	<subject code="ACXD" text="Història dels estils artístics i de disseny: des de ca. 1900 fins ca. 1960" />
+	<subject code="ACXD1" text="Estils artístics i de disseny: expressionisme" />
+	<subject code="ACXD2" text="Estils artístics i de disseny: dissenys modernistes i Bauhaus" />
+	<subject code="ACXD3" text="Estils artístics i de disseny: art déco" />
+	<subject code="ACXD5" text="Estils artístics i de disseny: cubisme" />
+	<subject code="ACXD7" text="Estils artístics i de disseny: surrealisme i dadaisme" />
+	<subject code="ACXD9" text="Estils artístics i de disseny: expressionisme abstracte" />
+	<subject code="ACXJ" text="Estils artístics i de disseny: des de ca. 1960" />
+	<subject code="ACXJ1" text="Estils artístics i de disseny: art pop" />
+	<subject code="ACXJ4" text="Estils artístics i de disseny: minimalisme" />
+	<subject code="ACXJ5" text="Estils artístics i de disseny: art conceptual" />
+	<subject code="ACXJ8" text="Estils artístics i de disseny: postmodernisme" />
+	<subject code="AF" text="Disciplines artístiques" />
+	<subject code="AFC" text="Pintura i obres" />
+	<subject code="AFCC" text="Aquarel·les" />
+	<subject code="AFCL" text="Olis" />
+	<subject code="AFF" text="Dibuix i obres" />
+	<subject code="AFH" text="Impressions i gravats" />
+	<subject code="AFJ" text="Altres disciplines d'arts gràfiques" />
+	<subject code="AFJD" text="Collage i fotomuntatge" />
+	<subject code="AFJG" text="Grafit i art de carrer" />
+	<subject code="AFK" text="Disciplines artístiques no gràfiques" />
+	<subject code="AFKB" text="Escultura" />
+	<subject code="AFKC" text="Tallats: obres d'art" />
+	<subject code="AFKG" text="Metalls preciosos, pedres precioses i joieria: obres d'art i dissenys" />
+	<subject code="AFKN" text="Environament artístic" />
+	<subject code="AFKP" text="Art en viu" />
+	<subject code="AFKV" text="Art electrònic, hologràfic i en vídeo" />
+	<subject code="AFP" text="Ceràmica, terrisseria i vidre" />
+	<subject code="AFPC" text="Ceràmica: obres d'art" />
+	<subject code="AFPM" text="Mosaics: obres d'art" />
+	<subject code="AFPS" text="Vitralls: obres d'art" />
+	<subject code="AFT" text="Arts decoratives" />
+	<subject code="AFTB" text="Art folklòric" />
+	<subject code="AFTC" text="Art i artesania cèltics" />
+	<subject code="AFW" text="Obres d'art tèxtils" />
+	<subject code="AFWD" text="Obres d'art tèxtils: catifes i estores" />
+	<subject code="AFWH" text="Obres d'art tèxtils: tapissos, cortines i cobertors" />
+	<subject code="AFY" text="Art corporal i tatuatges" />
+	<subject code="AG" text="Temàtiques i tractaments de l'art" />
+	<subject code="AGB" text="Artistes individuals, monografies d'art" />
+	<subject code="AGC" text="Catàlegs d'exhibicions i col·leccions específiques" />
+	<subject code="AGH" text="Representacions artístiques de la figura humana" />
+	<subject code="AGHF" text="Retrats artístics" />
+	<subject code="AGHN" text="Representacions artístiques de la nuesa" />
+	<subject code="AGHX" text="Art eròtic" />
+	<subject code="AGK" text="Escenes a petita escala, seculars i domèstiques a l'art" />
+	<subject code="AGN" text="Animals i natura a l'art (natura morta, paisatges de terra o marins, etc.)" />
+	<subject code="AGNB" text="Art botànic" />
+	<subject code="AGP" text="Representacions artístiques d'objectes fabricats per l'home (ciutats, màquines, etc.)" />
+	<subject code="AGR" text="Representacions artístiques de temes religiosos" />
+	<subject code="AGZ" text="Tècniques i principis artístics" />
+	<subject code="AJ" text="Fotografia i obres" />
+	<subject code="AJB" text="Fotògrafs individuals" />
+	<subject code="AJC" text="Fotografia: col·leccions" />
+	<subject code="AJCP" text="Fotografia: retrats" />
+	<subject code="AJCR" text="Reportatges fotogràfics" />
+	<subject code="AJCX" text="Fotografia eròtica i de nus" />
+	<subject code="AJG" text="Equipament i tècniques fotogràfiques" />
+	<subject code="AJR" text="Tipus especials de fotografia" />
+	<subject code="AJRD" text="Cinematografia, ús de les càmeres a la televisió" />
+	<subject code="AJRH" text="Vídeofotografia" />
+	<subject code="AJRK" text="Fotografia aèria" />
+	<subject code="AK" text="Art i disseny industrial / comercial" />
+	<subject code="AKB" text="Dissenyadors individuals" />
+	<subject code="AKC" text="Disseny gràfic" />
+	<subject code="AKD" text="Tipografia i cal·ligrafia" />
+	<subject code="AKH" text="Disseny de llibres" />
+	<subject code="AKL" text="Il·lustració i art comercial" />
+	<subject code="AKLB" text="Il·lustració" />
+	<subject code="AKLC" text="Art de dibuixos animats i còmics" />
+	<subject code="AKLC1" text="Novel·la gràfica i obres manga" />
+	<subject code="AKLP" text="Art de pòsters" />
+	<subject code="AKP" text="Disseny de productes" />
+	<subject code="AKR" text="Disseny de mobles" />
+	<subject code="AKT" text="Moda i tèxtils: disseny" />
+	<subject code="AKTA" text="Teoria i disseny de la moda" />
+	<subject code="AKTH" text="Història de la moda" />
+	<subject code="AKTX" text="Teoria i disseny tèxtil" />
+	<subject code="AM" text="Arquitectura" />
+	<subject code="AMA" text="Teoria de l'arquitectura" />
+	<subject code="AMB" text="Arquitectes individuals i estudis d'arquitectura" />
+	<subject code="AMC" text="Estructura i disseny arquitectònic" />
+	<subject code="AMCR" text="Arquitectura i disseny respectuosos amb el medi ambient" />
+	<subject code="AMD" text="Arquitectura: pràctica professional" />
+	<subject code="AMG" text="Edificis públics: cívics, comercials, industrials, etc." />
+	<subject code="AMGC" text="Auditoris, camps i estadis" />
+	<subject code="AMGD" text="Monuments, monuments commemoratius" />
+	<subject code="AMK" text="Edificis residencials, edificis domèstics" />
+	<subject code="AMKD" text="Cases, apartaments, pisos, etc." />
+	<subject code="AMKH" text="Palaus, palauets i cases de camp" />
+	<subject code="AMKL" text="Castells i fortificacions" />
+	<subject code="AMN" text="Edificis religiosos" />
+	<subject code="AMR" text="Disseny d'interiors professional" />
+	<subject code="AMV" text="Paisatgisme i arquitectura" />
+	<subject code="AMVD" text="Aspectes arquitectònics de la planificació urbana" />
+	<subject code="AMX" text="Història de l'arquitectura" />
+	<subject code="AN" text="Estudis dramàtics" />
+	<subject code="ANB" text="Teatre: actors individuals i directors" />
+	<subject code="ANC" text="Tècniques d'actuació" />
+	<subject code="ANF" text="Direcció i producció de teatre" />
+	<subject code="ANH" text="Teatre: habilitats tècniques i experiència" />
+	<subject code="ANS" text="Administració teatral" />
+	<subject code="AP" text="Cinema, radio i televisió" />
+	<subject code="APB" text="Actors i intèrprets individuals" />
+	<subject code="APF" text="Pel·lícules, cinema" />
+	<subject code="APFA" text="Teoria i crítica de cinematogràfica" />
+	<subject code="APFB" text="Directors i realitzadors cinematogràfics individuals" />
+	<subject code="APFD" text="Guions i fullets cinematogràfics" />
+	<subject code="APFG" text="Guies i ressenyes cinematogràfiques" />
+	<subject code="APFN" text="Pel·lícules: estils i gèneres" />
+	<subject code="APFR" text="Documentals" />
+	<subject code="APFV" text="Pel·lícules d’animació" />
+	<subject code="APFX" text="Producció cinematogràfica: experiència i habilitats tècniques" />
+	<subject code="APT" text="Televisió" />
+	<subject code="APTD" text="Guions i fullets televisius" />
+	<subject code="APTS" text="Telenovel·les" />
+	<subject code="APTX" text="Producció televisiva: experiència i habilitats tècniques" />
+	<subject code="APW" text="Ràdio" />
+	<subject code="APWD" text="Guions de ràdio" />
+	<subject code="AS" text="Dansa i altres arts escèniques" />
+	<subject code="ASD" text="Dansa" />
+	<subject code="ASDC" text="Coreografia" />
+	<subject code="ASDL" text="Ballet" />
+	<subject code="ASDR" text="Balls de saló" />
+	<subject code="ASDT" text="Dansa contemporània" />
+	<subject code="ASDX" text="Dansa folklòrica" />
+	<subject code="ASZ" text="Altres arts escèniques" />
+	<subject code="ASZB" text="Arts escèniques: comèdia" />
+	<subject code="ASZC" text="Mim" />
+	<subject code="ASZD" text="Teatre al carrer" />
+	<subject code="ASZG" text="Prestidigitació i màgia" />
+	<subject code="ASZH" text="Espectacles de varietats, musicals i cabaret" />
+	<subject code="ASZJ" text="Malabarismes" />
+	<subject code="ASZM" text="Teatre amb titelles, miniatures i joguines" />
+	<subject code="ASZP" text="Concursos, desfilades i festivals" />
+	<subject code="ASZW" text="Art circense" />
+	<subject code="ASZX" text="Espectacles amb animals" />
+	<subject code="AV" text="Música" />
+	<subject code="AVA" text="Teoria de la música i musicologia" />
+	<subject code="AVC" text="Ressenyes i crítiques musicals" />
+	<subject code="AVD" text="Discografies i guies per a compradors" />
+	<subject code="AVG" text="Música: estils i gèneres" />
+	<subject code="AVGC" text="Música «clàssica» occidental" />
+	<subject code="AVGC1" text="Inicis de la música (fins ca. 1000 dC)" />
+	<subject code="AVGC2" text="Música medieval i del Renaixement (des de ca. 1000 fins ca. 1600)" />
+	<subject code="AVGC3" text="Música barroca (des de ca. 1600 fins ca. 1750)" />
+	<subject code="AVGC4" text="Música clàssica (des de ca. 1750 fins ca. 1830)" />
+	<subject code="AVGC5" text="Música romàntica (des de ca. 1830 fins ca. 1900)" />
+	<subject code="AVGC6" text="Música clàssica del segle XX i contemporània" />
+	<subject code="AVGC8" text="Música coral" />
+	<subject code="AVGC9" text="Òpera" />
+	<subject code="AVGD" text="Música sacra i religiosa" />
+	<subject code="AVGE" text="Música no occidental: tradicional i «clàssica»" />
+	<subject code="AVGF" text="Música orquestral i orquestra de jazz (big band)" />
+	<subject code="AVGG" text="Banda de metalls, música militar i marxes" />
+	<subject code="AVGH" text="Música tradicional i folklòrica" />
+	<subject code="AVGJ" text="Jazz" />
+	<subject code="AVGK" text="Blues" />
+	<subject code="AVGL" text="Música country i de l'oest" />
+	<subject code="AVGM" text="Musicals" />
+	<subject code="AVGN" text="Música popular i lleugera d'escoltar" />
+	<subject code="AVGP" text="Música pop rock" />
+	<subject code="AVGQ" text="Soul i R 'n' B" />
+	<subject code="AVGR" text="Rap i Hip-Hop" />
+	<subject code="AVGS" text="Reggae" />
+	<subject code="AVGT" text="Heavy Metal" />
+	<subject code="AVGU" text="Punk, New Wave i Indie" />
+	<subject code="AVGV" text="Música electrònica" />
+	<subject code="AVGW" text="Música del món" />
+	<subject code="AVGZ" text="Música ambiental i New Age" />
+	<subject code="AVH" text="Compositors i músics individuals, bandes i grups específics" />
+	<subject code="AVQ" text="Partitures musicals, lletres i llibrets" />
+	<subject code="AVQS" text="Cançoners" />
+	<subject code="AVR" text="Instruments musicals i conjunts instrumentals" />
+	<subject code="AVRB" text="Orquestres" />
+	<subject code="AVRD" text="Conjunts de cambra" />
+	<subject code="AVRG" text="Instruments de teclat" />
+	<subject code="AVRJ" text="Instruments de percussió" />
+	<subject code="AVRL" text="Instruments de corda" />
+	<subject code="AVRL1" text="Guitarra" />
+	<subject code="AVRN" text="Instruments de vent" />
+	<subject code="AVRQ" text="Instruments musicals mecànics" />
+	<subject code="AVRS" text="Instruments musicals electrònics" />
+	<subject code="AVS" text="Tècniques musicals i programes d'autoaprenentatge" />
+	<subject code="AVX" text="Enregistrament i reproducció de música" />
+	<subject code="B" text="Biografies i històries reals" />
+	<subject code="BG" text="Biografia: general" />
+	<subject code="BGA" text="Autobiografia: general" />
+	<subject code="BGB" text="Biografia: negocis i indústria" />
+	<subject code="BGBA" text="Autobiografia: negocis i indústria" />
+	<subject code="BGF" text="Biografia: arts i entreteniment" />
+	<subject code="BGFA" text="Autobiografia: arts i entreteniment" />
+	<subject code="BGH" text="Biografia: històrica, política i militar" />
+	<subject code="BGHA" text="Autobiografia: històrica, política i militar" />
+	<subject code="BGL" text="Biografia: literària" />
+	<subject code="BGLA" text="Autobiografia: literària" />
+	<subject code="BGR" text="Biografia: reialesa" />
+	<subject code="BGRA" text="Autobiografia: reialesa" />
+	<subject code="BGS" text="Biografia: esport" />
+	<subject code="BGSA" text="Autobiografia: esport" />
+	<subject code="BGT" text="Biografia: ciència, tecnologia i medicina" />
+	<subject code="BGTA" text="Autobiografia: ciència, tecnologia i medicina" />
+	<subject code="BGX" text="Biografia: religiosa i espiritual" />
+	<subject code="BGXA" text="Autobiografia: religiosa i espiritual" />
+	<subject code="BJ" text="Agendes, cartes i diaris" />
+	<subject code="BK" text="Reculls de biografies" />
+	<subject code="BM" text="Memòries" />
+	<subject code="BT" text="Històries reals" />
+	<subject code="BTC" text="Crims reals" />
+	<subject code="BTH" text="Històries reals: descobriments / històriques / científiques" />
+	<subject code="BTM" text="Guerres reals i històries de combats" />
+	<subject code="BTP" text="Històries reals d'heroisme, resistència i supervivència" />
+	<subject code="BTX" text="Confessions eròtiques i històries reals" />
+	<subject code="C" text="Llengua" />
+	<subject code="CB" text="Llengua: de referència i general" />
+	<subject code="CBD" text="Diccionaris" />
+	<subject code="CBDX" text="Diccionaris bilingües i multilingües" />
+	<subject code="CBF" text="Tesaurus" />
+	<subject code="CBG" text="Guies d'ús i gramàtiques" />
+	<subject code="CBP" text="Guies per parlar en públic" />
+	<subject code="CBV" text="Escriptura creativa i guies d'escriptura creativa" />
+	<subject code="CBVS" text="Tècniques d'escriptura de guions" />
+	<subject code="CBW" text="Guies d'escriptura i revisió" />
+	<subject code="CBWJ" text="Guies d'estil periodístic" />
+	<subject code="CBWT" text="Escriptura tècnica" />
+	<subject code="CBX" text="Llengua: història i obres generals" />
+	<subject code="CF" text="Lingüística" />
+	<subject code="CFA" text="Filosofia del llenguatge" />
+	<subject code="CFB" text="Sociolingüística" />
+	<subject code="CFC" text="Alfabetització" />
+	<subject code="CFD" text="Psicolingüística" />
+	<subject code="CFDC" text="Adquisició del llenguatge" />
+	<subject code="CFDM" text="Bilingüisme i multilingüisme" />
+	<subject code="CFF" text="Lingüística històrica i comparativa" />
+	<subject code="CFFD" text="Dialectes i argot" />
+	<subject code="CFG" text="Semàntica, anàlisi discursiu, etc." />
+	<subject code="CFGA" text="Semàntica i pragmàtica" />
+	<subject code="CFGR" text="Anàlisi discursiu" />
+	<subject code="CFH" text="Fonètica i fonologia" />
+	<subject code="CFK" text="Gramàtica, sintaxi i morfologia" />
+	<subject code="CFL" text="Paleografia (història de l'escriptura)" />
+	<subject code="CFLA" text="Sistemes d'escriptura i alfabets" />
+	<subject code="CFM" text="Lexicografia" />
+	<subject code="CFP" text="Traducció i interpretació" />
+	<subject code="CFX" text="Lingüística computacional" />
+	<subject code="CFZ" text="Llenguatge de signes, braille i altres tipus de comunicació lingüística" />
+	<subject code="CJ" text="Ensenyament i aprenentatge de llengües (diferents de l'anglès)" />
+	<subject code="CJA" text="Teoria i mètodes d'ensenyament de llengües" />
+	<subject code="CJB" text="Ensenyament i aprenentatge de llengües i material per classes" />
+	<subject code="CJBG" text="Gramàtica i vocabulari" />
+	<subject code="CJBR" text="Literatura en altres idiomes" />
+	<subject code="CJBT" text="Text per a l'autoaprenentatge de llengües" />
+	<subject code="CJBV" text="Aprenentatge de llengües: audiovisual i multimèdia" />
+	<subject code="CJC" text="Aprenentatge de llengües: habilitats específiques" />
+	<subject code="CJCK" text="Habilitats orals i de pronunciació" />
+	<subject code="CJCL" text="Habilitats de comprensió auditiva" />
+	<subject code="CJCR" text="Habilitats lectores" />
+	<subject code="CJCW" text="Habilitats de redacció" />
+	<subject code="D" text="Literatura i estudis literaris" />
+	<subject code="DB" text="Texts clàssics" />
+	<subject code="DC" text="Poesia" />
+	<subject code="DCF" text="Poesia de poetes individuals" />
+	<subject code="DCQ" text="Antologies de poemes (diversos poetes)" />
+	<subject code="DD" text="Obres i guions" />
+	<subject code="DDS" text="Obres de Shakespeare" />
+	<subject code="DN" text="Prosa: no ficció" />
+	<subject code="DNF" text="Assaigs literaris" />
+	<subject code="DNJ" text="Reportatges i reculls periodístics" />
+	<subject code="DNS" text="Discursos" />
+	<subject code="DQ" text="Antologies (no poètiques)" />
+	<subject code="DS" text="Literatura: història i crítica" />
+	<subject code="DSA" text="Teoria literària" />
+	<subject code="DSB" text="Estudis literaris: general" />
+	<subject code="DSBB" text="Estudis literaris: època clàssica, antiga i medieval" />
+	<subject code="DSBD" text="Estudis literaris des de ca. 1500 fins ca. 1800" />
+	<subject code="DSBF" text="Estudis literaris des de ca. 1800 fins ca. 1900 " />
+	<subject code="DSBH" text="Estudis literaris a partir de ca. 1900" />
+	<subject code="DSBH5" text="Estudis literaris: literatura postcolonial" />
+	<subject code="DSC" text="Estudis literaris: poesies i poetes" />
+	<subject code="DSG" text="Estudis literaris: obres i dramaturgs" />
+	<subject code="DSGS" text="Estudis sobre Shakespeare i crítiques" />
+	<subject code="DSK" text="Estudis literaris: ficció, novel·listes i escriptors de prosa" />
+	<subject code="DSR" text="Obres literàries de referència" />
+	<subject code="DSRC" text="Manuals literaris, ressenyes de llibres i guies" />
+	<subject code="DSY" text="Estudis de literatura infantil i juvenil" />
+	<subject code="DSYC" text="Ressenyes de llibres infantils, juvenils i guies" />
+	<subject code="E" text="Ensenyament de la llengua anglesa" />
+	<subject code="EB" text="Ensenyament de la llengua anglesa: material de referència i contextual" />
+	<subject code="EBA" text="Ensenyament de la llengua anglesa: teoria i mètodes d'ensenyament" />
+	<subject code="EBAL" text="Lingüística aplicada a l'ensenyament de la llengua anglesa" />
+	<subject code="EBAR" text="Llibres de referència per a professors de llengua anglesa" />
+	<subject code="EBD" text="Diccionaris i referències per a l'ensenyament de la llengua anglesa" />
+	<subject code="EL" text="Ensenyament de la llengua anglesa: material d'aprenentatge i tasques per cursos" />
+	<subject code="ELG" text="Gramàtica, vocabulari i pronunciació per a l'ensenyament de la llengua anglesa" />
+	<subject code="ELGG" text="Gramàtica per a l'ensenyament de la llengua anglesa" />
+	<subject code="ELGP" text="Pronunciació per a l'ensenyament de la llengua anglesa" />
+	<subject code="ELGV  " text="Vocabulari per a l'ensenyament de la llengua anglesa" />
+	<subject code="ELH" text="Literatura per nivells per a l'ensenyament de la llengua anglesa" />
+	<subject code="ELHB" text="Literatura de referència i no ficció per a l'ensenyament de la llengua anglesa" />
+	<subject code="ELHF" text="Literatura de ficció i narrativa per a l'ensenyament de la llengua anglesa" />
+	<subject code="ELM" text="Materials i recursos no editorials per a l'ensenyament de la llengua anglesa" />
+	<subject code="ELP" text="Quaderns de treball, de pràctica i exercicis per a l'ensenyament de la llengua anglesa" />
+	<subject code="ELS" text="Texts per a l'autoaprenentatge de llengües per a l'ensenyament de la llengua anglesa" />
+	<subject code="ELV" text="Diccionaris i referències per l'ensenyament de la llengua anglesa" />
+	<subject code="ELX" text="Ensenyament de la llengua anglesa: habilitats específiques" />
+	<subject code="ELXD" text="Ensenyament de la llengua anglesa: habilitats orals" />
+	<subject code="ELXG" text="Ensenyament de la llengua anglesa: habilitats de comprensió auditiva" />
+	<subject code="ELXJ" text="Ensenyament de la llengua anglesa: habilitats lectores" />
+	<subject code="ELXN" text="Ensenyament de la llengua anglesa: habilitats de redacció" />
+	<subject code="ES" text="Ensenyament de la llengua anglesa: Anglès per a propòsits específics" />
+	<subject code="ESB" text="Ensenyament de la llengua anglesa: Anglès per als negocis" />
+	<subject code="ESF" text="Ensenyament de la llengua anglesa: Anglès acadèmic" />
+	<subject code="EST" text="Ensenyament de la llengua anglesa: Anglès tècnic i científic" />
+	<subject code="ESV" text="Ensenyament de la llengua anglesa: Anglès per viatjar i comunicar-se" />
+	<subject code="F" text="Ficció i temes relacionats" />
+	<subject code="FA" text="Ficció moderna i contemporània (posterior a ca. 1945)" />
+	<subject code="FC" text="Ficció clàssica (anterior a ca. 1945)" />
+	<subject code="FF" text="Crim i misteri" />
+	<subject code="FFC" text="Literatura clàssica sobre crims" />
+	<subject code="FFH" text="Misteris històrics" />
+	<subject code="FH" text="Thriller / suspens" />
+	<subject code="FHD" text="Espionatge i novel·les d'espies" />
+	<subject code="FHP" text="Novel·la de suspens polític i legal" />
+	<subject code="FJ" text="Aventures" />
+	<subject code="FJH" text="Aventures històriques" />
+	<subject code="FJM" text="Ficció de la guerra i de combats" />
+	<subject code="FJMC" text="Ficció de la guerra napoleònica" />
+	<subject code="FJMF" text="Ficció de la Primera Guerra Mundial" />
+	<subject code="FJMS" text="Ficció de la Segona Guerra Mundial" />
+	<subject code="FJMV" text="Ficció de la guerra de Vietnam" />
+	<subject code="FJW" text="Novel·les de l'oest" />
+	<subject code="FK" text="Històries de terror i fantasmes" />
+	<subject code="FKC" text="Històries clàssiques de terror i fantasmes" />
+	<subject code="FL" text="Ciència-ficció" />
+	<subject code="FLC" text="Ciència-ficció clàssica" />
+	<subject code="FLS" text="Òpera espacial" />
+	<subject code="FM" text="Fantasia" />
+	<subject code="FMR" text="Novel·la sentimental fantàstica" />
+	<subject code="FP" text="Ficció eròtica" />
+	<subject code="FQ" text="Mites i llegendes narrats com a ficció" />
+	<subject code="FR" text="Novel·la sentimental" />
+	<subject code="FRD" text="Novel·la sentimental adulta i contemporània" />
+	<subject code="FRH" text="Novel·la sentimental històrica" />
+	<subject code="FT" text="Sagues" />
+	<subject code="FV" text="Ficció històrica" />
+	<subject code="FW" text="Ficció religiosa i espiritual" />
+	<subject code="FX" text="Novel·les gràfiques" />
+	<subject code="FXA" text="Novel·les gràfiques: Manga" />
+	<subject code="FXL" text="Novel·les gràfiques: literatura i memòries" />
+	<subject code="FXS" text="Novel·les gràfiques: superherois i supervillans" />
+	<subject code="FXZ" text="Novel·les gràfiques: històries reals i no ficció" />
+	<subject code="FY" text="Ficció: edicions especials" />
+	<subject code="FYB" text="Relats curts" />
+	<subject code="FYT" text="La ficció en traduccions" />
+	<subject code="FZ" text="Temes relacionats amb la ficció" />
+	<subject code="FZC" text="Guies literàries de ficció" />
+	<subject code="FZG" text="Novel·la gràfica: història i crítica" />
+	<subject code="G" text="Referència, informació i temes interdisciplinaris" />
+	<subject code="GB" text="Enciclopèdies i obres de referència" />
+	<subject code="GBA" text="Enciclopèdies generals" />
+	<subject code="GBC" text="Obres de referència" />
+	<subject code="GBCB" text="Diccionaris biogràfics (qui és qui)" />
+	<subject code="GBCQ" text="Diccionaris de citacions" />
+	<subject code="GBCR" text="Bibliografies i catàlegs" />
+	<subject code="GBCS" text="Sèries, publicacions periòdiques, resums i índexs" />
+	<subject code="GBCT" text="Directoris" />
+	<subject code="GBCY" text="Anuaris i almanacs" />
+	<subject code="GBG" text="Referències geogràfiques" />
+	<subject code="GBGM" text="Atles i mapes mundials" />
+	<subject code="GBGP" text="Topònims i diccionaris geogràfics" />
+	<subject code="GL" text="Biblioteconomia i ciències de la informació" />
+	<subject code="GLC" text="Biblioteconomia, administració d'arxius i informació" />
+	<subject code="GLF" text="Informàtica, Internet i recursos electrònics a biblioteques" />
+	<subject code="GLH" text="Adquisicions i formació de col·leccions" />
+	<subject code="GLK" text="Control bibliogràfic i per temes" />
+	<subject code="GLM" text="Biblioteconomia i serveis d'informació" />
+	<subject code="GLMA" text="Biblioteques acadèmiques i especialitzades " />
+	<subject code="GLMB" text="Biblioteques públiques" />
+	<subject code="GLMC" text="Biblioteques escolars i serveis per a lectors joves " />
+	<subject code="GLMG" text="Serveis de referències" />
+	<subject code="GLML" text="Serveis de circulació (per ex. préstecs interbibliotecaris)" />
+	<subject code="GLMX" text="Serveis comunitaris i de participació" />
+	<subject code="GLP" text="Arxivament, conservació i digitalització&amp;nbsp;" />
+	<subject code="GM" text="Museologia i estudis sobre el patrimoni" />
+	<subject code="GP" text="Investigació i informació: general" />
+	<subject code="GPF" text="Teoria de la informació" />
+	<subject code="GPFC" text="Cibernètica i teoria de sistemes" />
+	<subject code="GPH" text="Anàlisi de dades: general" />
+	<subject code="GPJ" text="Teoria de la codificació i criptologia" />
+	<subject code="GPQ" text="Teoria de la presa de decisions: general" />
+	<subject code="GPQD" text="Avaluació de riscos" />
+	<subject code="GPS" text="Mètodes d'investigació: general" />
+	<subject code="GT" text="Estudis interdisciplinaris" />
+	<subject code="GTB" text="Estudis regionals" />
+	<subject code="GTC" text="Estudis sobre la comunicació" />
+	<subject code="GTE" text="Semiòtica i semiologia" />
+	<subject code="GTF" text="Estudis sobre el desenvolupament" />
+	<subject code="GTG" text="Estudis generals" />
+	<subject code="GTH" text="Banderes, emblemes, símbols i logotips" />
+	<subject code="GTJ" text="Estudis sobre la pau i la resolució de conflictes" />
+	<subject code="GTN" text="Institucions i societats acadèmiques: general" />
+	<subject code="GTR" text="Ciència cognitiva" />
+	<subject code="H" text="Humanitats" />
+	<subject code="HB" text="Història" />
+	<subject code="HBA" text="Història: teoria i mètodes" />
+	<subject code="HBAH" text="Historiografia" />
+	<subject code="HBG" text="Història general i mundial" />
+	<subject code="HBJ" text="Història nacional i regional" />
+	<subject code="HBJD" text="Història d'Europa" />
+	<subject code="HBJD1" text="Història de Gran Bretanya i Irlanda" />
+	<subject code="HBJF" text="Història d'Àsia" />
+	<subject code="HBJF1" text="Història de l'Orient Pròxim" />
+	<subject code="HBJH" text="Història d'Àfrica" />
+	<subject code="HBJK" text="Història d'Amèrica" />
+	<subject code="HBJM" text="Història d'Australàsia i del Pacífic" />
+	<subject code="HBJQ" text="Història d'altres regions" />
+	<subject code="HBL" text="Història: des de l'inici dels temps fins a l'actualitat" />
+	<subject code="HBLA" text="Història antiga: fins ca. 500 dC." />
+	<subject code="HBLA1" text="Història i civilitzacions clàssiques" />
+	<subject code="HBLC" text="Edat antiga: des de ca. 500 fins ca. 1450/1500" />
+	<subject code="HBLC1" text="Història medieval" />
+	<subject code="HBLH" text="Història dels inicis de l'edat moderna: des de ca. 1450/1500 fins ca. 1700" />
+	<subject code="HBLL" text="Història moderna fins el segle XX: des de ca. 1700 fins ca. 1900" />
+	<subject code="HBLW" text="Història del segle XX: des de ca. 1900 fins ca. 2000" />
+	<subject code="HBLW3" text="Història de la postguerra del segle XX, des de ca. 1945 fins ca. 2000" />
+	<subject code="HBLX" text="Història del segle XXI: a partir de ca. 2000" />
+	<subject code="HBT" text="Història: esdeveniments i temes específics" />
+	<subject code="HBTB" text="Història social i cultural" />
+	<subject code="HBTD" text="Història oral" />
+	<subject code="HBTG" text="Genealogia, heràldica, noms i distincions" />
+	<subject code="HBTK" text="Industrialització i història industrial" />
+	<subject code="HBTM" text="Història naval" />
+	<subject code="HBTP" text="Geografia històrica" />
+	<subject code="HBTP1" text="Mapes i atles històrics" />
+	<subject code="HBTQ" text="Colonialisme i imperialisme" />
+	<subject code="HBTR" text="Alliberament i independència nacional, postcolonialisme" />
+	<subject code="HBTS" text="Esclavitud i abolició de l'esclavitud" />
+	<subject code="HBTV" text="Revolucions, insurreccions i rebel·lions" />
+	<subject code="HBTV2" text="Revolució francesa" />
+	<subject code="HBTV4" text="Revolució russa" />
+	<subject code="HBTW" text="La guerra freda" />
+	<subject code="HBTZ" text="Genocidi i neteja ètnica" />
+	<subject code="HBTZ1" text="L'holocaust" />
+	<subject code="HBW" text="Història militar" />
+	<subject code="HBWC" text="Croades" />
+	<subject code="HBWE" text="Guerra civil anglesa" />
+	<subject code="HBWF" text="Guerra de la independència dels Estats Units" />
+	<subject code="HBWH" text="Guerres napoleòniques" />
+	<subject code="HBWJ" text="Guerra civil dels Estats Units" />
+	<subject code="HBWL" text="Guerra de Crimea" />
+	<subject code="HBWM" text="Guerres Bòer" />
+	<subject code="HBWN" text="Primera Guerra Mundial" />
+	<subject code="HBWP" text="Guerra civil espanyola" />
+	<subject code="HBWQ" text="Segona Guerra Mundial" />
+	<subject code="HBWS" text="Història militar: posterior als conflictes de la Segona Guerra Mundial (IIGM)" />
+	<subject code="HBWS1" text="Guerra de Corea" />
+	<subject code="HBWS2" text="Guerra de Vietnam" />
+	<subject code="HBWS3" text="Guerra del Golf" />
+	<subject code="HBWS4" text="Guerra d'Afganistan" />
+	<subject code="HBWS5" text="Guerra d'Irak" />
+	<subject code="HD" text="Arqueologia" />
+	<subject code="HDA" text="Teoria de l'arqueologia" />
+	<subject code="HDD" text="Arqueologia per període i regió" />
+	<subject code="HDDA" text="Arqueologia prehistòrica" />
+	<subject code="HDDC" text="Arqueologia d'Orient Pròxim i Mitjà" />
+	<subject code="HDDG" text="Arqueologia egípcia i egiptologia" />
+	<subject code="HDDH" text="Arqueologia bíblica" />
+	<subject code="HDDK" text="Arqueologia clàssica grega i romana" />
+	<subject code="HDDM" text="Arqueologia medieval europea" />
+	<subject code="HDL" text="Arqueologia de paisatges" />
+	<subject code="HDP" text="Arqueologia del medi ambient" />
+	<subject code="HDR" text="Arqueologia submarina" />
+	<subject code="HDT" text="Arqueologia industrial" />
+	<subject code="HDW" text="Ciència, metodologia i tècniques arqueològiques" />
+	<subject code="HP" text="Filosofia" />
+	<subject code="HPC" text="Història de la filosofia occidental" />
+	<subject code="HPCA" text="Filosofia occidental: Antiga fins ca. 500" />
+	<subject code="HPCB" text="Filosofia occidental: Medieval i del Renaixement, des de ca. 500 fins ca. 1600" />
+	<subject code="HPCD" text="Filosofia occidental: des de ca. 1600 fins ca. 1900" />
+	<subject code="HPCD1" text="Filosofia occidental: Il·lustració" />
+	<subject code="HPCF" text="Filosofia occidental a partir de ca. 1900" />
+	<subject code="HPCF3" text="Fenomenologia i existencialisme" />
+	<subject code="HPCF5" text="Filosofia analítica i positivisme lògic" />
+	<subject code="HPCF7" text="Deconstruccionisme, estructuralisme i postestructuralisme" />
+	<subject code="HPD" text="Filosofia no occidental" />
+	<subject code="HPDC" text="Filosofia islàmica i àrab" />
+	<subject code="HPDF" text="Filosofia oriental i índia" />
+	<subject code="HPJ" text="Filosofia: metafísica i ontologia" />
+	<subject code="HPK" text="Filosofia: epistemologia i teoria del coneixement" />
+	<subject code="HPL" text="Filosofia: lògica" />
+	<subject code="HPM" text="Filosofia de la ment" />
+	<subject code="HPN" text="Filosofia: estètica" />
+	<subject code="HPQ" text="Filosofia de l'ètica i la moral" />
+	<subject code="HPS" text="Filosofia social i política" />
+	<subject code="HPX" text="Filosofia popular" />
+	<subject code="HR" text="Religió i creences" />
+	<subject code="HRA" text="Religió: general" />
+	<subject code="HRAB" text="Filosofia de la religió" />
+	<subject code="HRAB1" text="La natura i l'existència de déu" />
+	<subject code="HRAC" text="Religió comparativa" />
+	<subject code="HRAF" text="Relacions interconfessionals" />
+	<subject code="HRAM" text="Conflictes i debats religiosos" />
+	<subject code="HRAM1" text="Ètica religiosa" />
+	<subject code="HRAM2" text="Religió i política" />
+	<subject code="HRAM3" text="Religió i ciència" />
+	<subject code="HRAM6" text="Fonamentalisme religiós" />
+	<subject code="HRAM7 " text="Blasfèmia, heretgia i apostasia" />
+	<subject code="HRAM9" text="Intolerància religiosa, persecució i conflicte" />
+	<subject code="HRAX" text="Història de la religió" />
+	<subject code="HRC" text="Cristiandat" />
+	<subject code="HRCA" text="Jesús com a personatge històric" />
+	<subject code="HRCC" text="Esglésies cristianes i denominacions" />
+	<subject code="HRCC1" text="Inicis de l'Església" />
+	<subject code="HRCC2" text="Història de l'Església" />
+	<subject code="HRCC7" text="Catolicisme romà, Església catòlica romana" />
+	<subject code="HRCC8" text="Esglésies ortodoxes i orientals" />
+	<subject code="HRCC9" text="Protestantisme i esglésies protestants" />
+	<subject code="HRCC91" text="Esglésies anglicanes i episcopals, Església d'Anglaterra" />
+	<subject code="HRCC92" text="Esglésies baptistes" />
+	<subject code="HRCC93" text="Esglésies calvinistes, reformistes i presbiterianes" />
+	<subject code="HRCC95" text="Esglésies metodistes" />
+	<subject code="HRCC96" text="Esglésies pentecostals" />
+	<subject code="HRCC97" text="Quàquers (Societat Religiosa d'Amics)" />
+	<subject code="HRCC99" text="Altres esglésies inconformistes i evangèliques" />
+	<subject code="HRCF" text="Bíblies" />
+	<subject code="HRCF1" text="Antic Testament" />
+	<subject code="HRCF2" text="Nou Testament" />
+	<subject code="HRCG " text="Estudis bíblics i exegesi" />
+	<subject code="HRCG1 " text="Comentaris bíblics" />
+	<subject code="HRCG2" text="Concordances bíbliques" />
+	<subject code="HRCG3 " text="Exegesi i hermenèutica bíbliques" />
+	<subject code="HRCG7 " text="Estudis bíblics: per a individus o grups d'estudi reduïts" />
+	<subject code="HRCG9" text="Lectures, seleccions i meditacions de la bíblia" />
+	<subject code="HRCJ" text="Ecumenisme" />
+	<subject code="HRCL" text="Litúrgia cristiana, llibres d'oracions i himnari" />
+	<subject code="HRCL1" text="Llibres d'oracions cristianes" />
+	<subject code="HRCL2" text="Himnaris cristians" />
+	<subject code="HRCM" text="Teologia cristiana" />
+	<subject code="HRCP" text="Sermons cristians" />
+	<subject code="HRCR" text="Cultes, rituals i cerimònies cristianes" />
+	<subject code="HRCR1" text="Oracions cristianes" />
+	<subject code="HRCS" text="Espiritualitat i experiència religiosa cristiana" />
+	<subject code="HRCS1" text="Misticisme cristià" />
+	<subject code="HRCV" text="Vida i pràctiques cristianes" />
+	<subject code="HRCV1" text="Sagraments cristians" />
+	<subject code="HRCV2" text="Instrucció cristiana" />
+	<subject code="HRCV3" text="Consell espiritual cristià" />
+	<subject code="HRCV4" text="Aspectes cristians de la sexualitat, gènere i relacions" />
+	<subject code="HRCV9" text="Testimonis personals cristians i obres populars inspiradores" />
+	<subject code="HRCX" text="Institucions i organitzacions cristianes" />
+	<subject code="HRCX1" text="Líders i lideratge cristià" />
+	<subject code="HRCX4" text="Ministres cristians i activitat pastoral" />
+	<subject code="HRCX6" text="Pensament social i activitats cristianes" />
+	<subject code="HRCX7" text="Missió i evangelització cristiana" />
+	<subject code="HRCX8" text="Comunitats i ascetisme cristians" />
+	<subject code="HRCZ" text="Cultes i sectes cristianes i quasicristianes" />
+	<subject code="HRE" text="Budisme" />
+	<subject code="HREC" text="Cultes, rituals i cerimònies budistes" />
+	<subject code="HREP" text="Vida i pràctiques budistes" />
+	<subject code="HRES" text="Llibres sagrats budistes" />
+	<subject code="HREX" text="Budisme tibetà" />
+	<subject code="HREZ" text="Budisme zen" />
+	<subject code="HRG" text="Hinduisme" />
+	<subject code="HRGC" text="Cultes, rituals i cerimònies hindús" />
+	<subject code="HRGP" text="Vida i pràctiques hindús" />
+	<subject code="HRGS" text="Llibres sagrats hindús" />
+	<subject code="HRH" text="Islam" />
+	<subject code="HRHC" text="Cultes, rituals i cerimònies islàmiques" />
+	<subject code="HRHP" text="Vida i pràctiques islàmiques" />
+	<subject code="HRHS" text="L'Alcorà" />
+	<subject code="HRHT" text="Teologia islàmica" />
+	<subject code="HRHX" text="Sufisme i misticisme islàmic" />
+	<subject code="HRJ" text="Judaisme" />
+	<subject code="HRJC" text="Judaisme: cultes, rituals i cerimònies" />
+	<subject code="HRJP" text="Judaisme: vida i pràctiques" />
+	<subject code="HRJS" text="Judaisme: llibres sagrats" />
+	<subject code="HRJT" text="Judaisme: teologia" />
+	<subject code="HRJX" text="Judaisme: misticisme" />
+	<subject code="HRK" text="Altres religions no cristianes" />
+	<subject code="HRKB" text="Bahà'i" />
+	<subject code="HRKJ" text="Jainisme" />
+	<subject code="HRKN" text="Religions orientals" />
+	<subject code="HRKN1" text="Confucianisme" />
+	<subject code="HRKN3" text="Xintoisme" />
+	<subject code="HRKN5" text="Taoisme" />
+	<subject code="HRKP" text="Religions i mitologies antigues" />
+	<subject code="HRKP1" text="Religió i mitologia de l'antic Egipte" />
+	<subject code="HRKP2" text="Religió i mitologia cèltica" />
+	<subject code="HRKP3" text="Religió i mitologia de l'antiga Grècia" />
+	<subject code="HRKP4" text="Religió i mitologia romanes" />
+	<subject code="HRKP5" text="Religió i mitologia nòrdiques" />
+	<subject code="HRKS" text="Sikhisme" />
+	<subject code="HRKT" text="Religions tribals" />
+	<subject code="HRKZ" text="Zoroastrisme" />
+	<subject code="HRL" text="Aspectes religiosos (no cristians)" />
+	<subject code="HRLB" text="Teologia" />
+	<subject code="HRLC" text="Llibres sagrats" />
+	<subject code="HRLC1" text="Crítiques i exegesi dels llibres sagrats" />
+	<subject code="HRLD" text="Oracions i material litúrgic" />
+	<subject code="HRLF" text="Cultes, rituals i cerimònies" />
+	<subject code="HRLF9" text="Oracions" />
+	<subject code="HRLK" text="Espiritualitat i experiències religioses" />
+	<subject code="HRLK2" text="Misticisme" />
+	<subject code="HRLM" text="Vida i pràctica religiosa" />
+	<subject code="HRLM3" text="Instrucció religiosa" />
+	<subject code="HRLM5" text="Consell espiritual religiós" />
+	<subject code="HRLM7" text="Aspectes religiosos de la sexualitat, gènere i relacions" />
+	<subject code="HRLP" text="Institucions i organitzacions religioses" />
+	<subject code="HRLP1" text="Líders religiosos i espirituals" />
+	<subject code="HRLP5" text="Pensament i activitat social i pastoral religiosa" />
+	<subject code="HRLP7" text="Comunitats i ascetisme religiós" />
+	<subject code="HRQ" text="Sistemes de creences alternatius" />
+	<subject code="HRQA" text="Alternatives humanistes i seculars a la religió" />
+	<subject code="HRQA5" text="Agnosticisme i ateisme" />
+	<subject code="HRQC" text="Sistemes de creences i religions eclèctiques i esotèriques" />
+	<subject code="HRQC1" text="Gnosticisme" />
+	<subject code="HRQC5" text="Teosofia i antroposofia" />
+	<subject code="HRQM" text="Cultes i sectes no cristianes i paracristianes contemporànies" />
+	<subject code="HRQM2" text="Espiritualisme" />
+	<subject code="HRQX" text="Ocultisme" />
+	<subject code="HRQX2" text="Màgia, alquímia i hermetisme" />
+	<subject code="HRQX5" text="Bruixeria" />
+	<subject code="HRQX9" text="Satanisme i demonologia" />
+	<subject code="J" text="Societat i ciències socials" />
+	<subject code="JF" text="Societat i cultura: general" />
+	<subject code="JFC" text="Estudis culturals" />
+	<subject code="JFCA" text="Cultura popular" />
+	<subject code="JFCD" text="Cultura material" />
+	<subject code="JFCK" text="Moda i societat" />
+	<subject code="JFCV" text="Menjar i societat" />
+	<subject code="JFCX" text="Història de les idees" />
+	<subject code="JFD" text="Estudis de mitjans" />
+	<subject code="JFDT" text="Televisió i societat" />
+	<subject code="JFDV" text="Publicitat i societat" />
+	<subject code="JFF" text="Temes i processos socials" />
+	<subject code="JFFA" text="Pobresa i atur" />
+	<subject code="JFFB" text="Habitatge i persones sense sostre" />
+	<subject code="JFFC" text="Impacte social dels desastres" />
+	<subject code="JFFC1" text="Fam" />
+	<subject code="JFFD" text="Refugiats i asil polític" />
+	<subject code="JFFE" text="Violència a la societat" />
+	<subject code="JFFE1" text="Abús de menors" />
+	<subject code="JFFE2" text="Abús i assetjament sexual" />
+	<subject code="JFFE3" text="Violència domèstica" />
+	<subject code="JFFG" text="Discapacitats: aspectes socials" />
+	<subject code="JFFH" text="Malalties i addiccions: aspectes socials" />
+	<subject code="JFFH1" text="Abús de drogues i altres substàncies: aspectes socials" />
+	<subject code="JFFH2" text="VIH / SIDA: aspectes socials" />
+	<subject code="JFFJ" text="Discriminació i desigualtat social" />
+	<subject code="JFFK" text="Feminisme i teoria feminista" />
+	<subject code="JFFL" text="Correcció política" />
+	<subject code="JFFM" text="Mobilitat social" />
+	<subject code="JFFN" text="Migració, immigració i emigració" />
+	<subject code="JFFP" text="Interacció social" />
+	<subject code="JFFR" text="Previsions socials, estudis de futur" />
+	<subject code="JFFS" text="Globalització" />
+	<subject code="JFFT" text="Consumisme" />
+	<subject code="JFFU" text="Problemes de seguretat pública" />
+	<subject code="JFFX" text="Corrupció a la societat" />
+	<subject code="JFFZ" text="Animals i societat" />
+	<subject code="JFH" text="Creences populars i coneixement controvertit" />
+	<subject code="JFHC" text="Teories de la conspiració" />
+	<subject code="JFHF" text="Folklore, mites i llegendes" />
+	<subject code="JFHX" text="Enganys i estafes" />
+	<subject code="JFM" text="Qüestions i debats ètics" />
+	<subject code="JFMA" text="Qüestions ètiques: avortament i control de la natalitat" />
+	<subject code="JFMC" text="Qüestions ètiques: pena capital" />
+	<subject code="JFMD" text="Qüestions ètiques: censura" />
+	<subject code="JFME" text="Qüestions ètiques: eutanàsia i dret a morir" />
+	<subject code="JFMG" text="Qüestions ètiques: desenvolupament científic i tecnològic" />
+	<subject code="JFMP" text="Qüestions ètiques: pornografia i obscenitats" />
+	<subject code="JFMX" text="Qüestions ètiques: prostitució i indústria del sexe" />
+	<subject code="JFS" text="Grups socials" />
+	<subject code="JFSC" text="Classes socials" />
+	<subject code="JFSF" text="Comunitats rurals" />
+	<subject code="JFSG" text="Comunitats urbanes" />
+	<subject code="JFSJ" text="Estudis de gènere, grups de gènere" />
+	<subject code="JFSJ1" text="Estudis de gènere: dones" />
+	<subject code="JFSJ2" text="Estudis de gènere: homes" />
+	<subject code="JFSJ5" text="Estudis de gènere: transsexualitat i hermafroditisme" />
+	<subject code="JFSK" text="Estudis de gais i lesbianes" />
+	<subject code="JFSK1" text="Estudis de lesbianes" />
+	<subject code="JFSK2" text="Estudis de gais (homes gais)" />
+	<subject code="JFSL" text="Estudis ètnics" />
+	<subject code="JFSL1" text="Minories ètniques i estudis multiculturals" />
+	<subject code="JFSL3" text="Estudis de poblacions afrodescendents i asiàtiques" />
+	<subject code="JFSL4" text="Estudis de poblacions hispanes i llatines" />
+	<subject code="JFSL9" text="Pobles indígenes" />
+	<subject code="JFSP" text="Grups per edat" />
+	<subject code="JFSP1" text="Grups per edat: nens" />
+	<subject code="JFSP2" text="Grups per edat: adolescents" />
+	<subject code="JFSP3" text="Grups per edat: adults" />
+	<subject code="JFSP31" text="Grups per edat: tercera edat" />
+	<subject code="JFSR" text="Grups religiosos: aspectes socials i culturals" />
+	<subject code="JFSR1" text="Estudis jueus" />
+	<subject code="JFSR2" text="Estudis islàmics" />
+	<subject code="JFSS" text="Estils de vida alternatius" />
+	<subject code="JFSV" text="Grups socials: clubs i societats" />
+	<subject code="JFSV1" text="Francmaçoneria i societats secretes" />
+	<subject code="JH" text="Sociologia i antropologia" />
+	<subject code="JHB" text="Sociologia" />
+	<subject code="JHBA" text="Teoria social" />
+	<subject code="JHBC" text="Investigació social i estadístiques" />
+	<subject code="JHBD" text="Població i demografia" />
+	<subject code="JHBF" text="Sociologia: natalitat" />
+	<subject code="JHBK" text="Sociologia: família i relacions" />
+	<subject code="JHBK5" text="Sociologia: relacions sexuals" />
+	<subject code="JHBL" text="Sociologia: treball i mà d'obra" />
+	<subject code="JHBS" text="Sociologia: esport i temps lliure" />
+	<subject code="JHBT" text="Sociologia: costums i tradicions" />
+	<subject code="JHBZ" text="Sociologia: morts i defuncions" />
+	<subject code="JHM" text="Antropologia" />
+	<subject code="JHMC" text="Antropologia social i cultural, etnografia" />
+	<subject code="JHMP" text="Antropologia física" />
+	<subject code="JK" text="Serveis i prestacions socials, criminologia" />
+	<subject code="JKS" text="Serveis i beneficis socials" />
+	<subject code="JKSB" text="Sistemes de beneficis i prestacions" />
+	<subject code="JKSB1" text="Prestacions socials per a nens" />
+	<subject code="JKSF" text="Adopció i famílies d'acollida" />
+	<subject code="JKSG" text="Atenció a la tercera edat" />
+	<subject code="JKSM" text="Atenció als malalts mentals" />
+	<subject code="JKSN" text="Treball social" />
+	<subject code="JKSN1" text="Caritat, serveis de voluntariat i filantropia" />
+	<subject code="JKSN2" text="Serveis d'assessorament i orientació" />
+	<subject code="JKSR" text="Programes d'ajuda i assistència" />
+	<subject code="JKSW" text="Serveis d'emergència" />
+	<subject code="JKSW1" text="Serveis de policia i seguretat" />
+	<subject code="JKSW2" text="Serveis de bombers" />
+	<subject code="JKSW3" text="Serveis d'ambulàncies i salvament" />
+	<subject code="JKV" text="Crim i criminologia" />
+	<subject code="JKVC" text="Causes i prevenció de delictes" />
+	<subject code="JKVF" text="Investigació i detecció de delictes" />
+	<subject code="JKVF1" text="Ciències forenses" />
+	<subject code="JKVG" text="Comerç i tràfic de drogues" />
+	<subject code="JKVJ" text="Delictes al carrer i amb armes de foc" />
+	<subject code="JKVK" text="Delictes corporatius" />
+	<subject code="JKVM" text="Crim organitzat" />
+	<subject code="JKVP" text="Criminologia i penes" />
+	<subject code="JKVP1" text="Presons" />
+	<subject code="JKVQ" text="Criminals" />
+	<subject code="JKVQ1" text="Rehabilitació de criminals" />
+	<subject code="JKVQ2" text="Criminals adolescents" />
+	<subject code="JKVS" text="Serveis de llibertat condicional" />
+	<subject code="JM" text="Psicologia" />
+	<subject code="JMA" text="Teoria de la psicologia i escoles del pensament" />
+	<subject code="JMAF" text="Teoria de la psicoanàlisi (psicologia freudiana)" />
+	<subject code="JMAJ" text="Psicologia analítica i junguiana" />
+	<subject code="JMAL" text="Teoria de la conducta (conductisme)" />
+	<subject code="JMAN" text="Psicologia humanista" />
+	<subject code="JMAQ" text="Cognitivisme, teoria cognitiva" />
+	<subject code="JMB" text="Metodologia psicològica" />
+	<subject code="JMBT" text="Proves i medicions psicològiques" />
+	<subject code="JMC" text="Psicologia infantil i del desenvolupament" />
+	<subject code="JMD" text="Psicologia del creixement" />
+	<subject code="JMF" text="Psicologia familiar" />
+	<subject code="JMG" text="Psicologia de gènere" />
+	<subject code="JMH" text="Psicologia social, grupal o col·lectiva" />
+	<subject code="JMJ" text="Psicologia ocupacional i industrial" />
+	<subject code="JMK" text="Psicologia criminal o forense" />
+	<subject code="JML" text="Psicologia experimental" />
+	<subject code="JMM" text="Psicologia fisiològica i neuropsicologia, biopsicologia" />
+	<subject code="JMP" text="Psicologia anormal" />
+	<subject code="JMQ" text="Psicologia: emocions" />
+	<subject code="JMR" text="Psicologia cognitiva i del coneixement" />
+	<subject code="JMRL" text="Aprenentatge" />
+	<subject code="JMRM" text="Memòria" />
+	<subject code="JMRN" text="Intel·ligència i raonament" />
+	<subject code="JMRP" text="Percepció" />
+	<subject code="JMS" text="El jo, l'ego, identitat i personalitat" />
+	<subject code="JMT" text="Estats de la consciència" />
+	<subject code="JMTC" text="Conscient i inconscient" />
+	<subject code="JMTD" text="La son i els somnis" />
+	<subject code="JMTH" text="Hipnosi" />
+	<subject code="JMTK" text="Estats induïts per les drogues" />
+	<subject code="JMU" text="Comportament sexual" />
+	<subject code="JMX" text="Estudis parapsicològics" />
+	<subject code="JN" text="Educació" />
+	<subject code="JNA" text="Filosofia i teoria de l'educació" />
+	<subject code="JNAM" text="Moral i propòsit social de l'educació" />
+	<subject code="JNB" text="Història de l'educació" />
+	<subject code="JNC" text="Psicologia de l'educació" />
+	<subject code="JNF" text="Estratègies i polítiques educacionals" />
+	<subject code="JNFD" text="Estratègies d'alfabetització" />
+	<subject code="JNFG" text="Estratègies d'educació matemàtica" />
+	<subject code="JNFN" text="Educació inclusiva i uniforme" />
+	<subject code="JNFR" text="Educació multicultural" />
+	<subject code="JNH" text="Educació: atenció als estudiants i consell" />
+	<subject code="JNHB" text="Assetjament i estratègies per combatir-lo" />
+	<subject code="JNHT" text="Absentisme i estratègies per combatir-lo" />
+	<subject code="JNHX" text="Exclusions i abandonament dels estudis" />
+	<subject code="JNK" text="Organització i administració de l'educació" />
+	<subject code="JNKA" text="Procediments d'admissió" />
+	<subject code="JNKC" text="Planificació i implementació de programes d'estudi" />
+	<subject code="JNKD" text="Exàmens i avaluacions" />
+	<subject code="JNKF" text="Inspeccions escolars (i preparació de les inspeccions)" />
+	<subject code="JNKG" text="Finançament de l'educació i per als estudiants" />
+	<subject code="JNKH" text="Personal docent" />
+	<subject code="JNKH1" text="Avaluació docent" />
+	<subject code="JNKN" text="Personal no docent i de suport" />
+	<subject code="JNKP" text="Relacions entre l'escola i la comunitat i entre l'escola i les llars" />
+	<subject code="JNKR" text="Directors i juntes directives d'escoles" />
+	<subject code="JNKS" text="Estudiants i organitzacions estudiantils" />
+	<subject code="JNL" text="Escoles" />
+	<subject code="JNLA" text="Preescolar i jardí d'infància" />
+	<subject code="JNLB" text="Escoles d'educació primària i mitjana" />
+	<subject code="JNLC" text="Instituts d'educació secundària" />
+	<subject code="JNLP" text="Col·legis independents, educació privada" />
+	<subject code="JNLR" text="Escoles confessionals (religioses)" />
+	<subject code="JNM" text="Educació superior i contínua, educació terciària" />
+	<subject code="JNMF" text="Instituts d'educació contínua" />
+	<subject code="JNMH" text="Instituts d'educació superior" />
+	<subject code="JNMN" text="Universitats" />
+	<subject code="JNMT" text="Capacitació de docents" />
+	<subject code="JNP" text="Educació per a adults, formació contínua" />
+	<subject code="JNQ" text="Educació oberta, educació a la llar i a distància" />
+	<subject code="JNR" text="Orientació professional" />
+	<subject code="JNRV" text="Formació industrial o vocacional" />
+	<subject code="JNS" text="Ensenyament a grups i persones específiques amb necessitats educatives especials" />
+	<subject code="JNSC" text="Ensenyament a estudiants amb discapacitats físiques" />
+	<subject code="JNSC1" text="Ensenyament a estudiants amb problemes d'audició" />
+	<subject code="JNSC2" text="Ensenyament a estudiants amb problemes de visió" />
+	<subject code="JNSG" text="Ensenyament a estudiants amb dificultats o necessitats d'aprenentatge específiques" />
+	<subject code="JNSG1" text="Ensenyament a estudiants amb dislèxia" />
+	<subject code="JNSG2" text="Ensenyament a estudiants autistes" />
+	<subject code="JNSL" text="Ensenyament a estudiants amb dificultats emocionals i de comportament" />
+	<subject code="JNSP" text="Ensenyament a estudiants superdotats" />
+	<subject code="JNSV" text="Ensenyament a estudiants amb l'anglès com a segon idioma" />
+	<subject code="JNT" text="Tècniques i habilitats de l'ensenyament" />
+	<subject code="JNU" text="Ensenyament sobre un tema específic" />
+	<subject code="JNUM" text="Recursos i materials de classe per a docents" />
+	<subject code="JNV" text="Equipament i tecnologia educatives, aprenentatge assistit per ordinador" />
+	<subject code="JNW" text="Activitats extracurriculars" />
+	<subject code="JNWT" text="Visites educatives i excursions" />
+	<subject code="JNZ" text="Estudi i tècniques d'aprenentatge: general" />
+	<subject code="JP" text="Política i govern" />
+	<subject code="JPA" text="Ciència i teoria política" />
+	<subject code="JPB" text="Política comparada" />
+	<subject code="JPF" text="Ideologies polítiques" />
+	<subject code="JPFB" text="Anarquisme" />
+	<subject code="JPFC" text="Marxisme i comunisme" />
+	<subject code="JPFF" text="Socialisme i ideologies democràtiques de centreesquerra" />
+	<subject code="JPFK" text="Liberalisme i ideologies democràtiques de centre" />
+	<subject code="JPFM" text="Conservadorisme i ideologies democràtiques de centredreta" />
+	<subject code="JPFN" text="Nacionalisme" />
+	<subject code="JPFQ" text="Feixisme i nazisme" />
+	<subject code="JPFR" text="Ideologies religioses i teocràtiques" />
+	<subject code="JPH" text="Estructura i processos polítics" />
+	<subject code="JPHC" text="Constitució: govern i estat" />
+	<subject code="JPHF" text="Eleccions i referèndums" />
+	<subject code="JPHL" text="Líders i lideratge polítics" />
+	<subject code="JPHV" text="Estructures polítiques: democràcia" />
+	<subject code="JPHX" text="Estructures polítiques: totalitarisme i dictadura" />
+	<subject code="JPL" text="Partits polítics" />
+	<subject code="JPLM" text="Manifests polítics" />
+	<subject code="JPP" text="Administració pública" />
+	<subject code="JPQ" text="Govern central" />
+	<subject code="JPQB" text="Polítiques del govern central" />
+	<subject code="JPR" text="Governs regionals" />
+	<subject code="JPRB" text="Polítiques dels governs regionals" />
+	<subject code="JPS" text="Relacions internacionals" />
+	<subject code="JPSD" text="Diplomàcia" />
+	<subject code="JPSF" text="Negociació i control armamentístic" />
+	<subject code="JPSH" text="Espionatge i serveis secrets" />
+	<subject code="JPSL" text="Geopolítica" />
+	<subject code="JPSN" text="Institucions internacionals" />
+	<subject code="JPSN1" text="Les Nacions Unides i les seves agències" />
+	<subject code="JPSN2" text="La Unió Europea i institucions d'Europa" />
+	<subject code="JPV" text="Control polític i llibertats" />
+	<subject code="JPVH" text="Drets humans" />
+	<subject code="JPVH1" text="Drets civils i ciutadania" />
+	<subject code="JPVH2" text="Llibertat d'informació i llibertat d'expressió" />
+	<subject code="JPVH3" text="Drets sobre la terra" />
+	<subject code="JPVH4" text="Llibertat religiosa i llibertat de culte" />
+	<subject code="JPVK" text="Opinió pública i eleccions" />
+	<subject code="JPVL" text="Campanyes polítiques i publicitat" />
+	<subject code="JPVN" text="Propaganda" />
+	<subject code="JPVR" text="Opressió política i persecució" />
+	<subject code="JPW" text="Activisme polític" />
+	<subject code="JPWD" text="Grups de pressió i lobbisme" />
+	<subject code="JPWF" text="Manifestacions i moviments de protesta" />
+	<subject code="JPWH" text="Organitzacions no governamentals (ONG)" />
+	<subject code="JPWJ" text="Subversió política" />
+	<subject code="JPWL" text="Terrorisme, lluita armada" />
+	<subject code="JPWL1" text="Assassinats polítics" />
+	<subject code="JPWL2" text="Atacs terroristes" />
+	<subject code="JPWQ" text="Grups i moviments revolucionaris" />
+	<subject code="JPWS" text="Conflicte armat" />
+	<subject code="JPZ" text="Corrupció política" />
+	<subject code="JW" text="Conflicte armat i defensa" />
+	<subject code="JWA" text="Teoria del conflicte armat i ciència militar" />
+	<subject code="JWD" text="Exèrcit de terra i conflicte armat" />
+	<subject code="JWDG" text="Exèrcit irregular o guerrilla i conflicte armat" />
+	<subject code="JWF" text="Exèrcit naval i conflicte armat" />
+	<subject code="JWG" text="Exèrcit de l'aire i conflicte armat" />
+	<subject code="JWH" text="Forces especials i d'elit" />
+	<subject code="JWJ" text="Administració militar" />
+	<subject code="JWK" text="Estratègies de defensa, planificació i investigació" />
+	<subject code="JWKF" text="Intel·ligència militar" />
+	<subject code="JWKT" text="Tàctiques militars" />
+	<subject code="JWKW" text="Defensa civil" />
+	<subject code="JWL" text="Guerra i operacions de defensa" />
+	<subject code="JWLF" text="Batalles i campanyes militars" />
+	<subject code="JWLP" text="Operacions de manteniment de la pau" />
+	<subject code="JWM" text="Armes i equipament" />
+	<subject code="JWMC" text="Armes químiques i biològiques" />
+	<subject code="JWMN" text="Armes nuclears" />
+	<subject code="JWMV" text="Vehicles militars" />
+	<subject code="JWMV1" text="Tancs i vehicles de terra militars" />
+	<subject code="JWMV2" text="Vaixells militars" />
+	<subject code="JWMV3" text="Avions militars" />
+	<subject code="JWT" text="Vida i institució militar" />
+	<subject code="JWTR" text="Regiments" />
+	<subject code="JWTU" text="Uniformes i insígnies" />
+	<subject code="JWTY" text="Homenatges i quadres d'honor" />
+	<subject code="JWX" text="Altres temes sobre conflictes armats i defensa" />
+	<subject code="JWXF" text="Comerç d'armes" />
+	<subject code="JWXK" text="Crims de guerra" />
+	<subject code="JWXN" text="Mercenaris" />
+	<subject code="JWXR" text="Presoners de guerra" />
+	<subject code="JWXT" text="Motins" />
+	<subject code="JWXV" text="Veterans militars" />
+	<subject code="JWXZ" text="Manuals i habilitats per al combat i la defensa" />
+	<subject code="K" text="Economia, finances, negocis i administració" />
+	<subject code="KC" text="Economia" />
+	<subject code="KCA" text="Teoria i filosofia de l'economia" />
+	<subject code="KCB" text="Macroeconomia" />
+	<subject code="KCBM" text="Economia monetària" />
+	<subject code="KCC" text="Microeconomia" />
+	<subject code="KCCD" text="Comerç intern" />
+	<subject code="KCD" text="Economia de l'organització industrial" />
+	<subject code="KCF" text="Economia del treball" />
+	<subject code="KCFM" text="Treball i atur" />
+	<subject code="KCG" text="Creixement econòmic" />
+	<subject code="KCH" text="Econometria" />
+	<subject code="KCHS" text="Estadístiques econòmiques" />
+	<subject code="KCJ" text="Previsió econòmica" />
+	<subject code="KCK" text="Economia conductual" />
+	<subject code="KCL" text="Economia internacional" />
+	<subject code="KCLF" text="Finances internacionals" />
+	<subject code="KCLT" text="Comerç internacional" />
+	<subject code="KCLT1" text="Tractats comercials" />
+	<subject code="KCM" text="Economia del desenvolupament i economies emergents" />
+	<subject code="KCN" text="Economia mediambiental" />
+	<subject code="KCP" text="Economia política" />
+	<subject code="KCQ" text="Economia de la salut" />
+	<subject code="KCR" text="Economia del benestar" />
+	<subject code="KCS" text="Sistemes i estructures econòmics" />
+	<subject code="KCT" text="Economia agrícola" />
+	<subject code="KCU" text="Economia urbana" />
+	<subject code="KCX" text="Crisis i desastres econòmics i financers" />
+	<subject code="KCY" text="Economia popular" />
+	<subject code="KCZ" text="Història de l'economia" />
+	<subject code="KF" text="Finances i comptabilitat" />
+	<subject code="KFC" text="Comptabilitat" />
+	<subject code="KFCC" text="Comptabilitat de costs" />
+	<subject code="KFCF" text="Comptabilitat financera" />
+	<subject code="KFCM" text="Comptabilitat administrativa i registres" />
+	<subject code="KFCP" text="Comptabilitat de les finances públiques" />
+	<subject code="KFCR" text="Informes i declaracions financers" />
+	<subject code="KFCX" text="Comptabilitat: guies d'estudi i revisió" />
+	<subject code="KFF" text="Finances" />
+	<subject code="KFFD" text="Finances públiques" />
+	<subject code="KFFD1" text="Impostos" />
+	<subject code="KFFH" text="Finances corporatives" />
+	<subject code="KFFK" text="Banca" />
+	<subject code="KFFL" text="Crèdit i institucions de crèdit" />
+	<subject code="KFFM" text="Inversions i dipòsits" />
+	<subject code="KFFM1" text="Mercaderies" />
+	<subject code="KFFM2" text="Accions i participacions" />
+	<subject code="KFFN" text="Assegurances i estudis actuarials" />
+	<subject code="KFFP" text="Pensions" />
+	<subject code="KFFR" text="Propietats i immobles" />
+	<subject code="KFFX" text="Banca i finances: estudis i guies de revisió" />
+	<subject code="KJ" text="Negocis i administració" />
+	<subject code="KJB" text="Estudis de negocis: general" />
+	<subject code="KJBX" text="Negocis i administració: estudis i guies de revisió" />
+	<subject code="KJC" text="Estratègia empresarial" />
+	<subject code="KJD" text="Innovació empresarial" />
+	<subject code="KJE" text="Comerç electrònic: aspectes empresarials" />
+	<subject code="KJF" text="Competència empresarial" />
+	<subject code="KJG" text="Ètica empresarial i responsabilitat social" />
+	<subject code="KJH" text="Capacitat emprenedora" />
+	<subject code="KJJ" text="Negocis i medi ambient: apropament «verd» als negocis" />
+	<subject code="KJK" text="Negocis internacionals" />
+	<subject code="KJL" text="Consultoria i subvencions empresarials" />
+	<subject code="KJM" text="Administració i tècniques d'administració" />
+	<subject code="KJMB" text="Administració: lideratge i motivació" />
+	<subject code="KJMD" text="Presa de decisions a l'administració" />
+	<subject code="KJMP" text="Administració de projectes" />
+	<subject code="KJMQ" text="Control de qualitat (QA) i administració total de la qualitat (TQM)" />
+	<subject code="KJMT" text="Administració del temps" />
+	<subject code="KJMV" text="Administració d'àrees específiques" />
+	<subject code="KJMV1" text="Pressupost i administració financera" />
+	<subject code="KJMV2" text="Personal i administració de recursos humans" />
+	<subject code="KJMV3" text="Administració del coneixement" />
+	<subject code="KJMV4" text="Administració d'immobles, propietats i plantes" />
+	<subject code="KJMV5" text="Administració de la producció i del control de qualitat" />
+	<subject code="KJMV6" text="Administració de la investigació i el desenvolupament" />
+	<subject code="KJMV7" text="Administració de vendes i comercialització" />
+	<subject code="KJMV8" text="Administració de compres i subministraments" />
+	<subject code="KJMV9" text="Administració de la distribució i l'emmagatzematge" />
+	<subject code="KJN" text="Negociació empresarial" />
+	<subject code="KJP" text="Comunicació i presentació empresarial" />
+	<subject code="KJQ" text="Sistemes i matemàtiques empresarials" />
+	<subject code="KJR" text="Govern corporatiu" />
+	<subject code="KJRD" text="Consells i directors: rol i responsabilitats" />
+	<subject code="KJRS" text="Secretaria general: rol i responsabilitats" />
+	<subject code="KJS" text="Vendes i publicitat" />
+	<subject code="KJSA" text="Publicitat" />
+	<subject code="KJSM" text="Estudis de mercat" />
+	<subject code="KJSP" text="Relacions públiques" />
+	<subject code="KJSU" text="Atenció al client" />
+	<subject code="KJT" text="Investigació operacional" />
+	<subject code="KJU" text="Teoria i comportament de l'organització" />
+	<subject code="KJV" text="Propietat i organització de les empreses" />
+	<subject code="KJVB" text="Absorcions, fusions i adquisicions" />
+	<subject code="KJVD" text="Privatització" />
+	<subject code="KJVF" text="Franquícies" />
+	<subject code="KJVG" text="Multinacionals" />
+	<subject code="KJVN" text="Propietat pública i nacionalització" />
+	<subject code="KJVP" text="Monopolis" />
+	<subject code="KJVS" text="Petita empresa i autònoms" />
+	<subject code="KJVT" text="Subcontractes" />
+	<subject code="KJVV" text="Aliança d'empreses (Joint venture)" />
+	<subject code="KJVW" text="Empleats propietaris i cooperatives" />
+	<subject code="KJVX" text="Organitzacions sense ànim de lucre" />
+	<subject code="KJW" text="Oficina i lloc de treball" />
+	<subject code="KJWB" text="Administració de l'oficina" />
+	<subject code="KJWF" text="Sistemes i equipaments d'oficina" />
+	<subject code="KJWS" text="Habilitats de secretaria, oficina i administració" />
+	<subject code="KJWX" text="Patrons i pràctiques laborals" />
+	<subject code="KJZ" text="Història d'empreses específiques i història corporativa" />
+	<subject code="KN" text="Indústria i estudis industrials" />
+	<subject code="KNA" text="Indústries primàries" />
+	<subject code="KNAC" text="Agricultura i indústries relacionades" />
+	<subject code="KNAF" text="Pesca i indústries relacionades" />
+	<subject code="KNAL" text="Silvicultura i indústries relacionades" />
+	<subject code="KNAT" text="Indústria minera" />
+	<subject code="KNB" text="Indústries energètiques i serveis" />
+	<subject code="KNBC" text="Indústries del carbó i combustibles sòlids" />
+	<subject code="KNBG" text="Indústries del gas" />
+	<subject code="KNBL" text="Indústries d'energia elèctrica" />
+	<subject code="KNBN" text="Indústries d'energia nuclear" />
+	<subject code="KNBP" text="Indústries petroleres" />
+	<subject code="KNBT" text="Indústries d'energies alternatives i renovables" />
+	<subject code="KNBW" text="Indústries hidrològiques" />
+	<subject code="KND" text="Indústries manufactureres" />
+	<subject code="KNDC" text="Indústries químiques" />
+	<subject code="KNDD" text="Indústries tèxtils" />
+	<subject code="KNDF" text="Indústria alimentària i indústries relacionades" />
+	<subject code="KNDF1" text="Indústria del tabac" />
+	<subject code="KNDH" text="Indústries de fabricació d'alta tecnologia" />
+	<subject code="KNDH1" text="Indústries de biotecnologia" />
+	<subject code="KNDM" text="Indústries d'armament" />
+	<subject code="KNDP" text="Indústries farmacèutiques" />
+	<subject code="KNDR" text="Indústries de fabricació de vehicles a motor" />
+	<subject code="KNDS" text="Indústria de fabricació naval" />
+	<subject code="KNDV" text="Indústria de fabricació aeronàutica" />
+	<subject code="KNG" text="Indústries de transport" />
+	<subject code="KNGR" text="Indústries de transport per carretera" />
+	<subject code="KNGS" text="Indústries de transport marítim" />
+	<subject code="KNGT" text="Indústries de transport ferroviari" />
+	<subject code="KNGV" text="Indústries de transport aeri i aeroespacial" />
+	<subject code="KNGV1" text="Aeroports" />
+	<subject code="KNJ" text="Construcció i indústria pesada" />
+	<subject code="KNJC" text="Indústria de la construcció" />
+	<subject code="KNJH" text="Indústries de ferro, acer i metalls" />
+	<subject code="KNP" text="Indústries de distribució" />
+	<subject code="KNPR" text="Sector minorista" />
+	<subject code="KNPW" text="Sector majorista" />
+	<subject code="KNS" text="Indústries de serveis" />
+	<subject code="KNSG" text="Indústria del turisme" />
+	<subject code="KNSH" text="Indústria hotelera" />
+	<subject code="KNSJ" text="Indústria d'administració d'esdeveniments" />
+	<subject code="KNSP" text="Indústria esportiva i de l'oci" />
+	<subject code="KNSS" text="Serveis de seguretat" />
+	<subject code="KNSS1" text="Serveis de vigilància" />
+	<subject code="KNST" text="Indústria de serveis financers" />
+	<subject code="KNSX" text="Indústria de moda i bellesa" />
+	<subject code="KNSZ" text="Serveis funeraris" />
+	<subject code="KNT" text="Indústria de la comunicació i els mitjans d'informació" />
+	<subject code="KNTC" text="Indústria del cinema" />
+	<subject code="KNTD" text="Indústria de la ràdio i la televisió" />
+	<subject code="KNTF" text="Indústria de la música" />
+	<subject code="KNTJ" text="Premsa i periodisme" />
+	<subject code="KNTP" text="Indústria editorial i comerç de llibres" />
+	<subject code="KNTR" text="Indústria de l'impremta, els embalatges i la reprografia" />
+	<subject code="KNTT" text="Indústries postals i de telecomunicacions" />
+	<subject code="KNTX" text="Indústries de tecnologies de la informació" />
+	<subject code="KNTX1" text="Indústries d'Internet" />
+	<subject code="KNTY" text="Indústria publicitària" />
+	<subject code="KNV" text="Serveis civils i sector públic" />
+	<subject code="KNX" text="Relacions laborals, seguretat i salut" />
+	<subject code="KNXB" text="Relacions laborals" />
+	<subject code="KNXB1" text="Vagues" />
+	<subject code="KNXB2" text="Sindicats" />
+	<subject code="KNXB3" text="Arbitratge i mediació laboral" />
+	<subject code="KNXC" text="Problemes de salut i seguretat" />
+	<subject code="L" text="Dret" />
+	<subject code="LA" text="Jurisprudència i temes generals" />
+	<subject code="LAB" text="Jurisprudència i filosofia del dret" />
+	<subject code="LAF" text="Sistemes de dret" />
+	<subject code="LAFC" text="Jurisprudència (Common law)" />
+	<subject code="LAFD" text="Codi civil i dret civil" />
+	<subject code="LAFR" text="Dret romà" />
+	<subject code="LAFS" text="Dret islàmic" />
+	<subject code="LAFX" text="Dret eclesiàstic o canònic" />
+	<subject code="LAM" text="Dret comparat" />
+	<subject code="LAQ" text="Dret i societat" />
+	<subject code="LAQG" text="Gènere i dret" />
+	<subject code="LAR" text="Criminologia: aspectes legals" />
+	<subject code="LAS" text="Habilitats i pràctiques legals" />
+	<subject code="LASD" text="Advocacia" />
+	<subject code="LASP" text="Auxiliars jurídics i paralegalitat" />
+	<subject code="LAT" text="Professió jurídica: general" />
+	<subject code="LATC" text="Ètica legal i conducta professional" />
+	<subject code="LAY" text="Dret aplicat a altres professions" />
+	<subject code="LAZ" text="Història legal" />
+	<subject code="LB" text="Dret internacional" />
+	<subject code="LBB" text="Dret públic internacional" />
+	<subject code="LBBC" text="Tractats i altres fonts de dret internacional" />
+	<subject code="LBBC1" text="Dret consuetudinari" />
+	<subject code="LBBD" text="Dret diplomàtic" />
+	<subject code="LBBF" text="Jurisdicció i immunitat" />
+	<subject code="LBBJ" text="Dret internacional del territori i de l'estat" />
+	<subject code="LBBK" text="Dret marítim" />
+	<subject code="LBBM" text="Dret econòmic i comercial internacional" />
+	<subject code="LBBM1" text="Aranzels" />
+	<subject code="LBBM3" text="Tractats d'inversió i litigis" />
+	<subject code="LBBP" text="Dret mediambiental internacional" />
+	<subject code="LBBR" text="Dret internacional sobre els drets humans" />
+	<subject code="LBBS" text="Dret humanitari internacional" />
+	<subject code="LBBU" text="Organitzacions internacionals i institucions" />
+	<subject code="LBBV" text="Responsabilitat dels estats i altres entitats" />
+	<subject code="LBBZ" text="Dret criminal internacional" />
+	<subject code="LBD" text="Dret internacional sobre el transport, les comunicacions i el comerç" />
+	<subject code="LBDA" text="Dret espacial i aeroespacial internacional" />
+	<subject code="LBDK" text="Dret comercial transnacional" />
+	<subject code="LBDM" text="Dret internacional marítim" />
+	<subject code="LBDT" text="Dret internacional sobre les comunicacions i les telecomunicacions" />
+	<subject code="LBG" text="Dret privat internacional i conflicte de lleis" />
+	<subject code="LBH" text="Resolució de disputes internacionals" />
+	<subject code="LBHG" text="Tribunals i procediments internacionals" />
+	<subject code="LBHT" text="Arbitratge internacional" />
+	<subject code="LBL" text="Informes legals internacionals" />
+	<subject code="LN" text="Lleis de jurisdiccions específiques" />
+	<subject code="LNA" text="Sistema legal: general" />
+	<subject code="LNAA" text="Tribunals i procediments" />
+	<subject code="LNAA1" text="Poders judicials" />
+	<subject code="LNAA2" text="Sistema legal: llei de desacatament" />
+	<subject code="LNAC" text="Procediment civil, litigi i resolució de disputes" />
+	<subject code="LNAC1" text="Reparacions civils" />
+	<subject code="LNAC12" text="Restitució" />
+	<subject code="LNAC14" text="Danys i indemnitzacions" />
+	<subject code="LNAC16" text="Requeriments i altres ordres" />
+	<subject code="LNAC3" text="Procediments civils: llei d'evidència" />
+	<subject code="LNAC5" text="Arbitratge, mediació i resolució alternativa de disputes" />
+	<subject code="LNAF" text="Sistema legal: costs i finançament" />
+	<subject code="LNAL" text="Regulació de la professió legal" />
+	<subject code="LNB" text="Dret privat i civil: obres generals" />
+	<subject code="LNC" text="Dret empresarial, comercial i de la competència" />
+	<subject code="LNCB" text="Dret comercial" />
+	<subject code="LNCB1" text="Dret de franquícia" />
+	<subject code="LNCB2" text="Dret del comerç electrònic" />
+	<subject code="LNCB3" text="Dret de venta de béns" />
+	<subject code="LNCB4" text="Dret de subcontractes" />
+	<subject code="LNCB5" text="Dret d'embarcacions" />
+	<subject code="LNCB6" text="Dret aeronàutic" />
+	<subject code="LNCD" text="Dret empresarial" />
+	<subject code="LNCD1" text="Dret de fusions i adquisicions" />
+	<subject code="LNCF" text="Dret d'associació" />
+	<subject code="LNCH" text="Dret de la competència i antimonopolis" />
+	<subject code="LNCJ" text="Dret contractual" />
+	<subject code="LNCL" text="Dret d'agències" />
+	<subject code="LNCN" text="Dret d'adquisicions" />
+	<subject code="LNCQ" text="Dret de la construcció i la enginyeria" />
+	<subject code="LNCR" text="Dret energètic i de recursos naturals" />
+	<subject code="LND" text="Dret constitucional i administratiu" />
+	<subject code="LNDA" text="Dret de ciutadania i nacionalitat" />
+	<subject code="LNDA1" text="Dret d'immigració" />
+	<subject code="LNDA3" text="Dret d'asil" />
+	<subject code="LNDC" text="Dret dels drets humans i les llibertats civils" />
+	<subject code="LNDC2" text="Dret de la privacitat" />
+	<subject code="LNDC4" text="Dret de la llibertat d'expressió" />
+	<subject code="LNDF" text="Dret de la llibertat d'informació" />
+	<subject code="LNDH" text="Poders governamentals" />
+	<subject code="LNDK" text="Dret militar i de defensa" />
+	<subject code="LNDM" text="Informes judicials" />
+	<subject code="LNDP" text="Pràctica parlamentària i legislativa" />
+	<subject code="LNDS" text="Dret electoral" />
+	<subject code="LNDU" text="Dret de governs locals" />
+	<subject code="LNF" text="Dret i procediment criminal" />
+	<subject code="LNFB" text="Dret de justícia criminal" />
+	<subject code="LNFG" text="Delictes contra el govern" />
+	<subject code="LNFJ" text="Delictes contra les persones" />
+	<subject code="LNFJ1" text="Dret de l'assetjament" />
+	<subject code="LNFL" text="Delictes contra la propietat" />
+	<subject code="LNFN" text="Frau" />
+	<subject code="LNFQ" text="Dret criminal juvenil" />
+	<subject code="LNFR" text="Crims contra la salut, la seguretat i l'ordre públics" />
+	<subject code="LNFT" text="Dret de trànsit per carreteres, delictes de vehicles" />
+	<subject code="LNFV" text="Dret de terrorisme" />
+	<subject code="LNFX" text="Procediment criminal" />
+	<subject code="LNFX1" text="Sentències i penes" />
+	<subject code="LNFX3" text="Procediments criminals: llei d'evidència" />
+	<subject code="LNFX5" text="Dret policial i procediments policials" />
+	<subject code="LNH" text="Dret de treball i laboral" />
+	<subject code="LNHD" text="Discriminació en el dret laboral" />
+	<subject code="LNHH" text="Dret sobre la salut i la seguretat ocupacional" />
+	<subject code="LNHR" text="Dret de relacions industrials i sindicals" />
+	<subject code="LNHU" text="Contractes laborals" />
+	<subject code="LNJ" text="Dret d'entreteniment i mitjans" />
+	<subject code="LNJD" text="Dret de la difamació (calúmnies i injúries)" />
+	<subject code="LNJS" text="L'esport i la llei" />
+	<subject code="LNJX" text="Dret de publicitat, màrqueting i patrocinadors" />
+	<subject code="LNK" text="Dret mediambiental, de transport i de planificació" />
+	<subject code="LNKF" text="Dret agrícola" />
+	<subject code="LNKG" text="Dret animal" />
+	<subject code="LNKJ" text="Dret mediambiental" />
+	<subject code="LNKN" text="Dret de conservació de la natura" />
+	<subject code="LNKT" text="Dret de transports" />
+	<subject code="LNKV" text="Autopistes" />
+	<subject code="LNKW" text="Dret de planificació" />
+	<subject code="LNL" text="Equitat i fideïcomís" />
+	<subject code="LNM" text="Dret familiar" />
+	<subject code="LNMB" text="Dret familiar: matrimoni i divorci" />
+	<subject code="LNMC" text="Dret familiar: cohabitatge" />
+	<subject code="LNMF" text="Dret familiar: parelles del mateix sexe" />
+	<subject code="LNMK" text="Dret familiar: fills" />
+	<subject code="LNP" text="Dret financer" />
+	<subject code="LNPA" text="Dret comptable" />
+	<subject code="LNPB" text="Dret bancari" />
+	<subject code="LNPC" text="Fallida i insolvència" />
+	<subject code="LNPD" text="Dret i regulació dels mercats de capital i títols" />
+	<subject code="LNPF" text="Dret i regulació dels serveis financers" />
+	<subject code="LNPN" text="Dret d'assegurances" />
+	<subject code="LNPP" text="Dret de pensions" />
+	<subject code="LNQ" text="Dret informàtic i de comunicacions" />
+	<subject code="LNQD" text="Dret de protecció de dades" />
+	<subject code="LNR" text="Dret de propietat intel·lectual" />
+	<subject code="LNRC" text="Dret d'autor" />
+	<subject code="LNRD" text="Dret de patents" />
+	<subject code="LNRF" text="Dret de marques comercials" />
+	<subject code="LNRL" text="Dret de dissenys" />
+	<subject code="LNRV" text="Dret d'informació confidencial" />
+	<subject code="LNS" text="Dret de propietat" />
+	<subject code="LNSH" text="Dret de terres i immobles" />
+	<subject code="LNSH1" text="Dret de propietat i hipoteca" />
+	<subject code="LNSH3" text="Dret d'arrendador i arrendatari" />
+	<subject code="LNSH5" text="Dret de traspassos" />
+	<subject code="LNSH7" text="Dret de classificació i valoració" />
+	<subject code="LNSH9" text="Dret d'habitatge" />
+	<subject code="LNSP" text="Dret de propietat personal" />
+	<subject code="LNT" text="Dret social" />
+	<subject code="LNTC" text="Dret de caritat" />
+	<subject code="LNTD" text="L'educació i el dret" />
+	<subject code="LNTH" text="Dret de seguretat social i benestar" />
+	<subject code="LNTH1" text="Dret de la seguretat social" />
+	<subject code="LNTJ" text="Dret de salut pública i seguretat" />
+	<subject code="LNTM" text="Dret mèdic i de la salut" />
+	<subject code="LNTM1" text="Dret de salut mental" />
+	<subject code="LNTM2" text="Regulació dels medicaments i els aparells mèdics" />
+	<subject code="LNTQ" text="La discapacitat i el dret" />
+	<subject code="LNTS" text="Dret i tercera edat" />
+	<subject code="LNTU" text="Dret de protecció del consumidor" />
+	<subject code="LNTX" text="Dret de llicències, jocs d'atzar i clubs" />
+	<subject code="LNU" text="Dret d'imposts i aranzels" />
+	<subject code="LNUC" text="Impost de societats" />
+	<subject code="LNUP" text="Impost dels ciutadans" />
+	<subject code="LNUS" text="Impostos de vendes i dret de duanes" />
+	<subject code="LNUT" text="Fideïcomisos i impostos patrimonials" />
+	<subject code="LNV" text="Delictes i danys" />
+	<subject code="LNVC" text="Negligència" />
+	<subject code="LNVF" text="Soroll" />
+	<subject code="LNVJ" text="Lesions personals" />
+	<subject code="LNW" text="Testaments i herències, successions" />
+	<subject code="LNZ" text="Fonts primàries del dret" />
+	<subject code="LNZC" text="Jurisprudència" />
+	<subject code="LNZL" text="Legislació" />
+	<subject code="LR" text="Dret: guies d'estudi i de revisió" />
+	<subject code="M" text="Medicina" />
+	<subject code="MB" text="Medicina: temes generals" />
+	<subject code="MBD" text="Professió mèdica" />
+	<subject code="MBDC" text="Ètica mèdica i conducta professional" />
+	<subject code="MBDP" text="Relació doctor-pacient" />
+	<subject code="MBF" text="Bioinformàtica mèdica" />
+	<subject code="MBG" text="Equipament i tècniques mèdiques" />
+	<subject code="MBGL" text="Tècniques i anàlisis de laboratoris mèdics" />
+	<subject code="MBGR" text="Investigació mèdica" />
+	<subject code="MBGR1" text="Assaigs clínics" />
+	<subject code="MBGT" text="Telemedicina" />
+	<subject code="MBN" text="Salut pública i medicina preventiva" />
+	<subject code="MBNC" text="Exàmens mèdics" />
+	<subject code="MBNH" text="Salut personal i pública" />
+	<subject code="MBNH1" text="Higiene" />
+	<subject code="MBNH2" text="Factors mediambientals" />
+	<subject code="MBNH3" text="Dietètica i nutrició" />
+	<subject code="MBNH4" text="Control de la natalitat, anticonceptius i planificació familiar" />
+	<subject code="MBNH9" text="Psicologia de la salut" />
+	<subject code="MBNS" text="Epidemiologia i estadístiques mèdiques" />
+	<subject code="MBP" text="Sistemes i serveis sanitaris" />
+	<subject code="MBPC" text="Pràctica general" />
+	<subject code="MBPK" text="Serveis de salut mental" />
+	<subject code="MBPM" text="Administració i gestió mèdica" />
+	<subject code="MBPR" text="Assegurança mèdica" />
+	<subject code="MBQ" text="Temes medico-legals" />
+	<subject code="MBS" text="Sociologia mèdica" />
+	<subject code="MBX" text="Història de la medicina" />
+	<subject code="MF" text="Medicina preclínica: ciències bàsiques" />
+	<subject code="MFC" text="Anatomia" />
+	<subject code="MFCC" text="Citologia" />
+	<subject code="MFCH" text="Histologia" />
+	<subject code="MFCR" text="Anatomia regional" />
+	<subject code="MFCX" text="Dissecció" />
+	<subject code="MFG" text="Fisiologia" />
+	<subject code="MFGC" text="Fisiologia cel·lular" />
+	<subject code="MFGG" text="Fisiologia regional" />
+	<subject code="MFGM" text="Metabolisme" />
+	<subject code="MFGV" text="Biomecànica i motricitat humana" />
+	<subject code="MFK" text="Reproducció humana, creixement i desenvolupament" />
+	<subject code="MFKC" text="Medicina reproductiva" />
+	<subject code="MFKC1" text="Infertilitat i fertilització" />
+	<subject code="MFKC3" text="Embriologia" />
+	<subject code="MFKH" text="Desenvolupament i creixement humà" />
+	<subject code="MFKH3" text="Maduració i envelliment" />
+	<subject code="MFN" text="Genètica mèdica" />
+	<subject code="MJ" text="Medicina clínica i interna" />
+	<subject code="MJA" text="Diagnòstic mèdic" />
+	<subject code="MJAD" text="Examen de pacients" />
+	<subject code="MJC" text="Malalties i trastorns" />
+	<subject code="MJCG" text="Malalties i trastorns congènits" />
+	<subject code="MJCG1" text="Malalties i trastorns hereditaris" />
+	<subject code="MJCJ" text="Malalties infeccioses i contagioses" />
+	<subject code="MJCJ1" text="Malalties de transmissió sexual" />
+	<subject code="MJCJ2" text="VIH i sida" />
+	<subject code="MJCJ3" text="Infeccions nosocomials" />
+	<subject code="MJCL" text="Oncologia" />
+	<subject code="MJCL1" text="Radioteràpia" />
+	<subject code="MJCL2" text="Quimioteràpia" />
+	<subject code="MJCM" text="Immunologia" />
+	<subject code="MJCM1" text="Al·lèrgies" />
+	<subject code="MJD" text="Medicina cardiovascular" />
+	<subject code="MJE" text="Medicina del sistema musculoesquelètic" />
+	<subject code="MJF" text="Hematologia" />
+	<subject code="MJG" text="Endocrinologia" />
+	<subject code="MJGD" text="Diabetis" />
+	<subject code="MJH" text="Digestologia" />
+	<subject code="MJJ" text="Hepatologia" />
+	<subject code="MJK" text="Dermatologia" />
+	<subject code="MJL" text="Medicina respiratòria" />
+	<subject code="MJM" text="Reumatologia" />
+	<subject code="MJN" text="Neurologia i neurofisiologia clínica" />
+	<subject code="MJNA" text="Autisme i síndrome d'Asperger." />
+	<subject code="MJND" text="Alzheimer i demència" />
+	<subject code="MJP" text="Otorinolaringologia" />
+	<subject code="MJPD" text="Audiologia i otologia" />
+	<subject code="MJQ" text="Oftalmologia" />
+	<subject code="MJR" text="Medicina renal i nefrologia" />
+	<subject code="MJRD" text="Hemodiàlisi" />
+	<subject code="MJS" text="Urologia i medicina urogenital" />
+	<subject code="MJT" text="Ginecologia i obstetrícia" />
+	<subject code="MJTF" text="Medicina fetomaternal" />
+	<subject code="MJW" text="Medicina pediàtrica" />
+	<subject code="MJWN" text="Medicina neonatal" />
+	<subject code="MJX" text="Geriatria" />
+	<subject code="MJZ" text="Teràpia genètica" />
+	<subject code="MM" text="Altres branques de la medicina" />
+	<subject code="MMB" text="Anestesiologia" />
+	<subject code="MMBP" text="Dolor i tractament del dolor" />
+	<subject code="MMC" text="Medicina pal·liativa" />
+	<subject code="MMD" text="Odontologia" />
+	<subject code="MMDS" text="Cirurgia oral i maxil·lofacial" />
+	<subject code="MMF" text="Patologia" />
+	<subject code="MMFC" text="Citopatologia" />
+	<subject code="MMFH" text="Histopatologia" />
+	<subject code="MMFM" text="Microbiologia i virologia mèdiques" />
+	<subject code="MMFP" text="Parasitologia mèdica" />
+	<subject code="MMG" text="Farmacologia" />
+	<subject code="MMGT" text="Toxicologia mèdica" />
+	<subject code="MMGW" text="Psicofarmacologia" />
+	<subject code="MMH" text="Psiquiatria" />
+	<subject code="MMJ" text="Psicologia clínica" />
+	<subject code="MMJT" text="Psicoteràpia" />
+	<subject code="MMJT1" text="Teràpia cognitivoconductual" />
+	<subject code="MMK" text="Medicina d'accidents i emergències" />
+	<subject code="MMKB" text="Traumatismes i commocions" />
+	<subject code="MMKD" text="Cremades" />
+	<subject code="MMKL" text="Medicina de cures intensives" />
+	<subject code="MMN" text="Medicina nuclear" />
+	<subject code="MMP" text="Imatgeria mèdica" />
+	<subject code="MMPF" text="Ultrasons" />
+	<subject code="MMPG" text="Ressonància magnètica nuclear" />
+	<subject code="MMPH" text="Radiologia" />
+	<subject code="MMPJ" text="Tomografia" />
+	<subject code="MMQ" text="Medicina forense" />
+	<subject code="MMR" text="Medicina del medi ambient" />
+	<subject code="MMRB" text="Medicina aeroespacial" />
+	<subject code="MMRD" text="Medicina subaquàtica i hiperbàrica" />
+	<subject code="MMRP" text="Medicina ocupacional" />
+	<subject code="MMRT" text="Medicina tropical" />
+	<subject code="MMS" text="Medicina de l'esport i lesions" />
+	<subject code="MMZ" text="Teràpia i terapèutica" />
+	<subject code="MMZD" text="Trastorns de la conducta alimentària i teràpia" />
+	<subject code="MMZF" text="Obesitat:tractament i teràpia" />
+	<subject code="MMZL" text="Trastorns de la parla i el llenguatge i teràpia" />
+	<subject code="MMZR" text="Addiccions i teràpia" />
+	<subject code="MMZS" text="Trastorns del son i teràpia" />
+	<subject code="MN" text="Cirurgia" />
+	<subject code="MNB" text="Tècniques quirúrgiques" />
+	<subject code="MNC" text="Cirurgia general" />
+	<subject code="MNG" text="Cirurgia gastrointestinal i colorectal" />
+	<subject code="MNH" text="Cirurgia cardiotoràcica" />
+	<subject code="MNJ" text="Cirurgia vascular" />
+	<subject code="MNK" text="Oncologia quirúrgica" />
+	<subject code="MNL" text="Cirurgia de cures intensives" />
+	<subject code="MNN" text="Neurocirurgia" />
+	<subject code="MNP" text="Cirurgia plàstica i reconstructiva" />
+	<subject code="MNPC" text="Cirurgia cosmètica" />
+	<subject code="MNQ" text="Cirurgia de trasplantaments" />
+	<subject code="MNS" text="Ortopèdia i fractures" />
+	<subject code="MNZ" text="Cures durant el perioperatori" />
+	<subject code="MQ" text="Serveis d'infermeria" />
+	<subject code="MQC" text="Infermeria" />
+	<subject code="MQCA" text="Fonaments i competències en infermeria" />
+	<subject code="MQCB" text="Teoria i investigació en infermeria" />
+	<subject code="MQCH" text="Relació entre infermer/a i pacient" />
+	<subject code="MQCL" text="Especialitats d'infermeria" />
+	<subject code="MQCL1" text="Infermeria d'accidents i emergències" />
+	<subject code="MQCL2" text="Infermeria de cures intensives" />
+	<subject code="MQCL3" text="Infermeria pediàtrica" />
+	<subject code="MQCL4" text="Infermeria geriàtrica" />
+	<subject code="MQCL5" text="Infermeria psiquiàtrica" />
+	<subject code="MQCL6" text="Infermeria quirúrgica" />
+	<subject code="MQCL9" text="Infermeria en la fase terminal" />
+	<subject code="MQCM" text="Farmacologia de la infermeria" />
+	<subject code="MQCW" text="Sociologia de la infermeria" />
+	<subject code="MQCX" text="Infermeria comunitària" />
+	<subject code="MQCZ" text="Gestió i direcció d'infermeria" />
+	<subject code="MQD" text="Comaratge" />
+	<subject code="MQDB" text="Mètodes per al part" />
+	<subject code="MQF" text="Primers auxilis i serveis paramèdics" />
+	<subject code="MQH" text="Radiografia" />
+	<subject code="MQK" text="Pedicura i podologia" />
+	<subject code="MQP" text="Farmàcia i venda" />
+	<subject code="MQR" text="Optometria i òptics" />
+	<subject code="MQS" text="Fisioteràpia" />
+	<subject code="MQT" text="Teràpia ocupacional" />
+	<subject code="MQTC" text="Teràpia creativa (p. ex: art, música, teatre)" />
+	<subject code="MQU" text="Aconsellament mèdic" />
+	<subject code="MQV" text="Rehabilitació" />
+	<subject code="MQVB" text="Rehabilitació: lesions cerebrals i medul·lars" />
+	<subject code="MQW" text="Enginyeria biomèdica" />
+	<subject code="MQWB" text="Ortopèdia" />
+	<subject code="MQWP" text="Pròtesis" />
+	<subject code="MQZ" text="Pràctica mortuòria" />
+	<subject code="MR" text="Estudis mèdics, guies de revisió i obres de referència" />
+	<subject code="MRG" text="Estudis mèdics i guies de revisió" />
+	<subject code="MRGD" text="Ajudes per a la revisió mèdica: Membres del Col·legi Oficial de Metges" />
+	<subject code="MRGK" text="Ajudes per a la revisió mèdica: Membres del Col·legi Oficial de Cirurgians" />
+	<subject code="MRGL" text="Ajudes per a la revisió mèdica: MIR" />
+	<subject code="MRT" text="Expedients mèdics i atles" />
+	<subject code="MX" text="Medicina complementària" />
+	<subject code="MXH" text="Quiropràctica i osteopatia" />
+	<subject code="MZ" text="Medicina veterinària" />
+	<subject code="MZC" text="Medicina veterinària: animals petits (mascotes)" />
+	<subject code="MZD" text="Medicina veterinària: animals grans (de granja)" />
+	<subject code="MZDH" text="Medicina veterinària equina" />
+	<subject code="MZF" text="Medicina veterinària: animals de laboratori" />
+	<subject code="MZG" text="Medicina veterinària: animals exòtics i del zoo" />
+	<subject code="MZH" text="Anatomia veterinària i fisiologia" />
+	<subject code="MZK" text="Patologia veterinària i histologia" />
+	<subject code="MZL" text="Nutrició veterinària" />
+	<subject code="MZM" text="Medicina veterinària: malalties infeccioses i terapèutica" />
+	<subject code="MZMP" text="Bacteriologia veterinària, virologia i parasitologia" />
+	<subject code="MZP" text="Farmacologia veterinària" />
+	<subject code="MZR" text="Radiologia veterinària" />
+	<subject code="MZS" text="Cirurgia veterinària" />
+	<subject code="MZSN" text="Anestesiologia veterinària" />
+	<subject code="MZT" text="Odontologia veterinària" />
+	<subject code="MZV" text="Infermeria veterinària" />
+	<subject code="MZX" text="Medicina complementària per a animals" />
+	<subject code="P" text="Matemàtiques i ciència" />
+	<subject code="PB" text="Matemàtiques" />
+	<subject code="PBB" text="Filosofia de les matemàtiques" />
+	<subject code="PBC" text="Fonaments de les matemàtiques" />
+	<subject code="PBCD" text="Lògica matemàtica" />
+	<subject code="PBCH" text="Teoria de conjunts" />
+	<subject code="PBCN" text="Sistemes numèrics" />
+	<subject code="PBD" text="Matemàtica discreta" />
+	<subject code="PBF" text="Àlgebra" />
+	<subject code="PBG" text="Grups i teoria de grups" />
+	<subject code="PBH" text="Teoria numèrica" />
+	<subject code="PBJ" text="Precàlcul" />
+	<subject code="PBK" text="Càlcul i anàlisi matemàtica" />
+	<subject code="PBKA" text="Càlcul" />
+	<subject code="PBKB" text="Anàlisi real i variables reals" />
+	<subject code="PBKD" text="Anàlisi complexa i variables complexes" />
+	<subject code="PBKF" text="Anàlisi funcional i transformacions" />
+	<subject code="PBKJ" text="Càlcul diferencial i equacions" />
+	<subject code="PBKL" text="Càlcul integral i equacions" />
+	<subject code="PBKQ" text="Càlcul de variacions" />
+	<subject code="PBKS" text="Anàlisi numèrica" />
+	<subject code="PBM" text="Geometria" />
+	<subject code="PBMB" text="Trigonometria" />
+	<subject code="PBMH" text="Geometria euclidiana" />
+	<subject code="PBML" text="Geometria no euclidiana" />
+	<subject code="PBMP" text="Geometria diferencial i de Riemann" />
+	<subject code="PBMS" text="Geometria analítica" />
+	<subject code="PBMW" text="Geometria algebraica" />
+	<subject code="PBMX" text="Geometria fractal" />
+	<subject code="PBP" text="Topologia" />
+	<subject code="PBPD" text="Topologia algebraica" />
+	<subject code="PBPH" text="Topologia analítica" />
+	<subject code="PBT" text="Probabilitat i estadística" />
+	<subject code="PBTB" text="Inferència bayesiana" />
+	<subject code="PBU" text="Optimització" />
+	<subject code="PBUD" text="Teoria del joc" />
+	<subject code="PBUH" text="Programació lineal" />
+	<subject code="PBV" text="Combinatòria i teoria gràfica" />
+	<subject code="PBW" text="Matemàtiques aplicades" />
+	<subject code="PBWH" text="Models matemàtics" />
+	<subject code="PBWL" text="Estocàstica" />
+	<subject code="PBWR" text="Ciència no lineal" />
+	<subject code="PBWS" text="Teoria del caos" />
+	<subject code="PBWX" text="Teoria de conjunts borrosos" />
+	<subject code="PBX" text="Història de les matemàtiques" />
+	<subject code="PD" text="Ciència: temes generals" />
+	<subject code="PDA" text="Filosofia de la ciència" />
+	<subject code="PDC" text="Nomenclatura científica i classificació" />
+	<subject code="PDD" text="Normes científiques" />
+	<subject code="PDDM" text="Mesures i sistemes de mesura" />
+	<subject code="PDE" text="Matemàtiques per a científics" />
+	<subject code="PDG" text="Aplicacions industrials de la recerca científica i innovació tecnològica" />
+	<subject code="PDK" text="Finançament i política de la ciència" />
+	<subject code="PDN" text="Equips científics, experiments i tècniques" />
+	<subject code="PDND" text="Microscòpia" />
+	<subject code="PDR" text="Impacte de la ciència i la tecnologia en la societat" />
+	<subject code="PDX" text="Història de la ciència" />
+	<subject code="PDZ" text="Ciència popular" />
+	<subject code="PDZM" text="Matemàtiques populars" />
+	<subject code="PG" text="Astronomia, espai i temps" />
+	<subject code="PGC" text="Astronomia teorètica i matemàtica" />
+	<subject code="PGG" text="Observació astronòmica: observatoris, equips i mètodes" />
+	<subject code="PGK" text="Cosmologia i l'univers" />
+	<subject code="PGM" text="Galàxies i estels" />
+	<subject code="PGS" text="Sistema solar: el sol i els planetes" />
+	<subject code="PGT" text="Cartes astronòmiques i atles" />
+	<subject code="PGZ" text="Temps (cronologia), sistemes de temps i normes" />
+	<subject code="PH" text="Física" />
+	<subject code="PHD" text="Mecànica clàssica" />
+	<subject code="PHDB" text="Mecànica elemental" />
+	<subject code="PHDD" text="Mecànica analítica" />
+	<subject code="PHDF" text="Mecànica de fluids" />
+	<subject code="PHDS" text="Mecànica ondulatòria (vibració i acústica)" />
+	<subject code="PHDT" text="Dinàmica i estàtica" />
+	<subject code="PHDV" text="Gravetat" />
+	<subject code="PHDY" text="Energia" />
+	<subject code="PHF" text="Materials i estats de la matèria" />
+	<subject code="PHFB" text="Física de baixes temperatures" />
+	<subject code="PHFC" text="Física de la matèria condensada (estat líquid i estat sòlid)" />
+	<subject code="PHFC1" text="Física de la matèria tova" />
+	<subject code="PHFC2" text="Física mesoscòpica" />
+	<subject code="PHFG" text="Física dels gasos" />
+	<subject code="PHFP" text="Física del plasma" />
+	<subject code="PHH" text="Termodinàmica i calor" />
+	<subject code="PHJ" text="Física òptica" />
+	<subject code="PHJL" text="Física del làser" />
+	<subject code="PHK" text="Electricitat, electromagnetisme i magnetisme" />
+	<subject code="PHM" text="Física atòmica i molecular" />
+	<subject code="PHN" text="Física nuclear" />
+	<subject code="PHP" text="Física de les partícules i de l'alta energia" />
+	<subject code="PHQ" text="Física quàntica (mecànica quàntica i teoria del camp quàntic)" />
+	<subject code="PHR" text="Física de la relativitat" />
+	<subject code="PHS" text="Física estadística" />
+	<subject code="PHU" text="Física matemàtica" />
+	<subject code="PHV" text="Física aplicada" />
+	<subject code="PHVB" text="Astrofísica" />
+	<subject code="PHVD" text="Física mèdica" />
+	<subject code="PHVG" text="Geofísica" />
+	<subject code="PHVJ" text="Física atmosfèrica" />
+	<subject code="PHVN" text="Biofísica" />
+	<subject code="PHVQ" text="Física química" />
+	<subject code="PHVS" text="Criogènia" />
+	<subject code="PN" text="Química" />
+	<subject code="PNF" text="Química analítica" />
+	<subject code="PNFC" text="Cromatografia" />
+	<subject code="PNFR" text="Ressonància magnètica" />
+	<subject code="PNFS" text="Anàlisi d'espectres, espectroquímica i espectrometria de masses" />
+	<subject code="PNK" text="Química inorgànica" />
+	<subject code="PNN" text="Química orgànica" />
+	<subject code="PNND" text="Química organometàl·lica" />
+	<subject code="PNNP" text="Química de polímers" />
+	<subject code="PNR" text="Química física" />
+	<subject code="PNRC" text="Química col·loïdal" />
+	<subject code="PNRD" text="Catàlisi" />
+	<subject code="PNRH" text="Electroquímica i magnetoquímica" />
+	<subject code="PNRL" text="Química nuclear, fotoquímica i radiacions" />
+	<subject code="PNRP" text="Química quàntica i teorètica" />
+	<subject code="PNRS" text="Química dels estats sòlids" />
+	<subject code="PNRW" text="Termoquímica i termodinàmica química" />
+	<subject code="PNRX" text="Química superficial i absorció" />
+	<subject code="PNT" text="Cristal·lografia" />
+	<subject code="PNV" text="Mineralogia i gemmologia" />
+	<subject code="PS" text="Biologia i ciències de la vida" />
+	<subject code="PSA" text="Ciències de la vida: temes generals" />
+	<subject code="PSAB" text="Taxonomia i sistemàtica" />
+	<subject code="PSAD" text="Bioètica" />
+	<subject code="PSAF" text="Ecologia i la biosfera" />
+	<subject code="PSAG" text="Xenobiòtica" />
+	<subject code="PSAJ" text="Evolució" />
+	<subject code="PSAK" text="Genètica (no mèdica)" />
+	<subject code="PSAK1" text="ADN i genoma" />
+	<subject code="PSAN" text="Neurociència" />
+	<subject code="PSB" text="Bioquímica" />
+	<subject code="PSBC" text="Proteïnes" />
+	<subject code="PSBF" text="Hidrats de carboni" />
+	<subject code="PSBH" text="Lípids" />
+	<subject code="PSBM" text="Immunologia bioquímica" />
+	<subject code="PSBT" text="Toxicologia (no-mèdica)" />
+	<subject code="PSBZ" text="Enzimologia" />
+	<subject code="PSC" text="Biologia del desenvolupament" />
+	<subject code="PSD" text="Biologia molecular" />
+	<subject code="PSF" text="Citologia cel·lular (citologia)" />
+	<subject code="PSG" text="Microbiologia (no mèdica)" />
+	<subject code="PSGD" text="Bacteriologia (no mèdica)" />
+	<subject code="PSGH" text="Parasitologia (no mèdica)" />
+	<subject code="PSGL" text="Virologia (no mèdica)" />
+	<subject code="PSGN" text="Protozous" />
+	<subject code="PSP" text="Hidrobiologia" />
+	<subject code="PSPF" text="Biologia d'aigua dolça" />
+	<subject code="PSPM" text="Biologia marina" />
+	<subject code="PSQ" text="Micologia i fongs (no mèdica)" />
+	<subject code="PST" text="Botànica i ciències botàniques" />
+	<subject code="PSTD" text="Fisiologia botànica" />
+	<subject code="PSTL" text="Reproducció botànica i propagació" />
+	<subject code="PSTP" text="Patologia botànica i malalties" />
+	<subject code="PSTS" text="Ecologia botànica" />
+	<subject code="PSTV" text="Ficologia, algues i líquens" />
+	<subject code="PSV" text="Zoologia i ciències dels animals" />
+	<subject code="PSVD" text="Fisiologia animal" />
+	<subject code="PSVH" text="Reproducció animal" />
+	<subject code="PSVL" text="Patologia animal i malalties" />
+	<subject code="PSVP" text="Comportament animal" />
+	<subject code="PSVS" text="Ecologia animal" />
+	<subject code="PSVT" text="Zoologia: Invertebrats" />
+	<subject code="PSVT3" text="Mol·luscs" />
+	<subject code="PSVT5" text="Crustacis" />
+	<subject code="PSVT6" text="Aràcnids" />
+	<subject code="PSVT7" text="Insectes (entomologia)" />
+	<subject code="PSVW" text="Zoologia: Vertebrats" />
+	<subject code="PSVW1" text="Peixos (ictiologia)" />
+	<subject code="PSVW3" text="Amfibis" />
+	<subject code="PSVW5" text="Rèptils" />
+	<subject code="PSVW6" text="Ocells (ornitologia)" />
+	<subject code="PSVW7" text="Zoologia: Mamífers" />
+	<subject code="PSVW71" text="Marsupials i monotremes" />
+	<subject code="PSVW73" text="Mamífers marins i d'aigua dolça" />
+	<subject code="PSVW79" text="Primats" />
+	<subject code="PSX" text="Biologia humana" />
+	<subject code="PSXE" text="Home primitiu" />
+	<subject code="PSXM" text="Antropologia mèdica" />
+	<subject code="R" text="Ciències de la Terra, geografia, medi ambient i planificació" />
+	<subject code="RB" text="Ciències de la Terra" />
+	<subject code="RBC" text="Vulcanologia i sismologia" />
+	<subject code="RBG" text="Geologia i la litosfera" />
+	<subject code="RBGB" text="Ciència del sòl i sedimentologia" />
+	<subject code="RBGD" text="Processos de la superfície terrestre (geomorfologia)" />
+	<subject code="RBGF" text="Geologia històrica" />
+	<subject code="RBGG" text="Petrologia" />
+	<subject code="RBGH" text="Estratigrafia" />
+	<subject code="RBGK" text="Geoquímica" />
+	<subject code="RBGL" text="Geologia econòmica" />
+	<subject code="RBK" text="Hidrologia i la hidrosfera" />
+	<subject code="RBKC" text="Oceanografia (mars)" />
+	<subject code="RBKF" text="Limnologia (aigua dolça)" />
+	<subject code="RBP" text="Meteorologia i climatologia" />
+	<subject code="RBX" text="Paleontologia" />
+	<subject code="RG" text="Geografia" />
+	<subject code="RGB" text="Geografia física i topografia" />
+	<subject code="RGBA" text="Zones àrides i deserts" />
+	<subject code="RGBC" text="Herbassars, landes, prades i tundres" />
+	<subject code="RGBF" text="Zones humides, aiguamolls i pantans" />
+	<subject code="RGBL" text="Boscos i boscos tropicals" />
+	<subject code="RGBP" text="Deltes, estuaris i regions costaneres" />
+	<subject code="RGBR" text="Esculls coral·lins" />
+	<subject code="RGBS" text="Muntanyes" />
+	<subject code="RGC" text="Geografia humana" />
+	<subject code="RGCM" text="Geografia econòmica" />
+	<subject code="RGCP" text="Geografia política" />
+	<subject code="RGL" text="Geografia regional" />
+	<subject code="RGM" text="Biogeografia" />
+	<subject code="RGR" text="Descobriments geogràfics i exploració" />
+	<subject code="RGS" text="Mapes geogràfics especialitzats" />
+	<subject code="RGV" text="Cartografia, elaboració de mapes i projeccions" />
+	<subject code="RGW" text="Sistemes de informació geogràfica i teledetecció" />
+	<subject code="RGY" text="Geodèsia, instruments de topografia i gràfics" />
+	<subject code="RN" text="Medi ambient" />
+	<subject code="RNA" text="Pensament i ideologia del medi ambient" />
+	<subject code="RNB" text="Ecologistes, conservacionistes i organitzacions ecologistes" />
+	<subject code="RNC" text="Ecologia aplicada" />
+	<subject code="RNCB" text="Biodiversitat" />
+	<subject code="RND" text="Política i protocols mediambientals" />
+	<subject code="RNF" text="Gestió del medi ambient" />
+	<subject code="RNFD" text="Sequeres i abastiment d'aigua" />
+	<subject code="RNFF" text="Seguretat i abastiment d'aliments" />
+	<subject code="RNFY" text="Recursos energètics" />
+	<subject code="RNH" text="Gestió dels residus" />
+	<subject code="RNK" text="Conservació del medi ambient" />
+	<subject code="RNKH" text="Conservació de la vida salvatge i dels hàbitats" />
+	<subject code="RNKH1" text="Espècies en perill i extinció d'espècies" />
+	<subject code="RNP" text="Contaminació i amenaces mediambientals" />
+	<subject code="RNPD" text="Desforestació" />
+	<subject code="RNPG" text="Canvi climàtic" />
+	<subject code="RNQ" text="Qüestions nuclears" />
+	<subject code="RNR" text="Desastres naturals" />
+	<subject code="RNT" text="Impacte social de les qüestions mediambientals" />
+	<subject code="RNU" text="Sostenibilitat" />
+	<subject code="RP" text="Planificació local i regional" />
+	<subject code="RPC" text="Planificació urbana i municipal" />
+	<subject code="RPG" text="Planificació rural" />
+	<subject code="RPT" text="Planificació i política de transports" />
+	<subject code="T" text="Tecnologia, enginyeria i agricultura" />
+	<subject code="TB" text="Tecnologia: temes generals" />
+	<subject code="TBC" text="Enginyeria: general" />
+	<subject code="TBD" text="Disseny tècnic" />
+	<subject code="TBDG" text="Ergonomia" />
+	<subject code="TBG" text="Enginyeria gràfica i dibuix tècnic" />
+	<subject code="TBJ" text="Matemàtiques per a enginyers" />
+	<subject code="TBM" text="Instruments d'enginyeria" />
+	<subject code="TBMM" text="Mesures d'enginyeria i calibrat" />
+	<subject code="TBN" text="Nanotecnologia" />
+	<subject code="TBR" text="Tecnologia intermèdia" />
+	<subject code="TBX" text="Història de l'enginyeria i la tecnologia" />
+	<subject code="TBY" text="Invents i inventors/es" />
+	<subject code="TC" text="Enginyeria bioquímica" />
+	<subject code="TCB" text="Biotecnologia" />
+	<subject code="TCBG" text="Enginyeria genètica" />
+	<subject code="TCBS" text="Biosensors" />
+	<subject code="TD" text="Química industrial i tecnologia de fabricació" />
+	<subject code="TDC" text="Química industrial" />
+	<subject code="TDCB" text="Enginyeria química" />
+	<subject code="TDCC" text="Química pesada" />
+	<subject code="TDCD" text="Tecnologia dels detergents" />
+	<subject code="TDCG" text="Tecnologia de les pólvores" />
+	<subject code="TDCH" text="Tecnologia dels insecticides i herbicides" />
+	<subject code="TDCJ" text="Tecnologia dels pigments, colorants i pintures" />
+	<subject code="TDCJ1" text="Tecnologia dels cosmètics" />
+	<subject code="TDCK" text="Tecnologia del lacat" />
+	<subject code="TDCP" text="Tecnologia dels plàstics i polímers" />
+	<subject code="TDCQ" text="Tecnologia de la ceràmica i del vidre" />
+	<subject code="TDCR" text="Tecnologia del cautxú" />
+	<subject code="TDCT" text="Tecnologia del menjar i la beguda" />
+	<subject code="TDCT1" text="Tecnologia de l'elaboració de la cervesa" />
+	<subject code="TDCT2" text="Tecnologia de l'elaboració del vi" />
+	<subject code="TDCW" text="Tecnologia farmacèutica" />
+	<subject code="TDG" text="Tecnologia del cuir i la pell" />
+	<subject code="TDH" text="Tecnologia del teixit i la fibra" />
+	<subject code="TDJ" text="Fusta tractada i processament de la fusta" />
+	<subject code="TDJP" text="Tecnologia de la polpa i el paper" />
+	<subject code="TDM" text="Tecnologia del metall o metal·lúrgia" />
+	<subject code="TDP" text="Altres tecnologies de fabricació" />
+	<subject code="TDPB" text="Fabricació d'instruments de precisió" />
+	<subject code="TDPB1" text="Rellotges i cronòmetres (rellotgeria)" />
+	<subject code="TDPD" text="Fabricació d'aparells domèstics" />
+	<subject code="TDPF" text="Mobles i fabricació de mobles" />
+	<subject code="TDPH" text="Fabricació de roba i calçat" />
+	<subject code="TDPP" text="Tecnologia de la impressió i reprografia" />
+	<subject code="TG" text="Enginyeria mecànica i materials" />
+	<subject code="TGB" text="Enginyeria mecànica" />
+	<subject code="TGBF" text="Tribologia (fricció i lubricació)" />
+	<subject code="TGBN" text="Motor i transmissió elèctrica" />
+	<subject code="TGBN1" text="Màquines de vapor" />
+	<subject code="TGM" text="Ciència dels materials" />
+	<subject code="TGMB" text="Enginyeria termodinàmica" />
+	<subject code="TGMD" text="Mecànica dels sòlids" />
+	<subject code="TGMD4" text="Dinàmica i vibració" />
+	<subject code="TGMD5" text="Sobrecàrrega i fractures" />
+	<subject code="TGMF" text="Mecànica dels fluids" />
+	<subject code="TGMF1" text="Aerodinàmica" />
+	<subject code="TGMF2" text="Hidràulica i pneumàtica" />
+	<subject code="TGMF3" text="Flux, turbulència i reologia" />
+	<subject code="TGMT" text="Proves de materials" />
+	<subject code="TGMT1" text="Proves no destructives" />
+	<subject code="TGP" text="Enginyeria de producció" />
+	<subject code="TGPC" text="Fabricació assistida per ordinador (FAO)" />
+	<subject code="TGPQ" text="Control de qualitat industrial" />
+	<subject code="TGPR" text="Enginyeria de fiabilitat" />
+	<subject code="TGX" text="Aptituds d'enginyeria i especialitzacions" />
+	<subject code="TGXT" text="Fabricació d'eines" />
+	<subject code="TGXW" text="Soldadura" />
+	<subject code="TH" text="Tecnologia i enginyeria de l'energia" />
+	<subject code="THF" text="Tecnologies del combustible fòssil" />
+	<subject code="THFG" text="Tecnologia del gas" />
+	<subject code="THFP" text="Tecnologia del petroli" />
+	<subject code="THFS" text="Tecnologia del combustible sòlid" />
+	<subject code="THK" text="Energia i enginyeria nuclear" />
+	<subject code="THN" text="Processos de transferència de calor" />
+	<subject code="THR" text="Enginyeria elèctrica" />
+	<subject code="THRB" text="Generació i distribució d'energia" />
+	<subject code="THRD" text="Xarxes, sistemes, estacions i plantes energètiques" />
+	<subject code="THRF" text="Ús i aplicacions de l'energia" />
+	<subject code="THRH" text="Conversió i emmagatzemament de l'energia" />
+	<subject code="THRM" text="Motors elèctrics" />
+	<subject code="THRS" text="Habilitats d'electricista" />
+	<subject code="THT" text="Eficiència energètica" />
+	<subject code="THX" text="Tecnologia i fonts d'energia alternativa i renovable" />
+	<subject code="TJ" text="Enginyeria electrònica i de comunicacions" />
+	<subject code="TJF" text="Enginyeria electrònica" />
+	<subject code="TJFC" text="Circuits i components" />
+	<subject code="TJFD" text="Dispositius i materials electrònics" />
+	<subject code="TJFD1" text="Microprocessadors" />
+	<subject code="TJFD3" text="Transistors" />
+	<subject code="TJFD5" text="Semiconductors i superconductors" />
+	<subject code="TJFM" text="Enginyeria de control automàtic" />
+	<subject code="TJFM1" text="Robòtica" />
+	<subject code="TJFN" text="Tecnologia de microones" />
+	<subject code="TJK" text="Enginyeria de la comunicació / telecomunicacions" />
+	<subject code="TJKD" text="Radar" />
+	<subject code="TJKR" text="Radiotecnologia" />
+	<subject code="TJKS" text="Comunicació via satèl·lit" />
+	<subject code="TJKT" text="Tecnologia telefònica" />
+	<subject code="TJKT1" text="Tecnologia de telefonia mòbil" />
+	<subject code="TJKV" text="Tecnologia de la televisió" />
+	<subject code="TJKW" text="Tecnologia WAP (sense fil)" />
+	<subject code="TN" text="Enginyeria civil, inspecció i construcció" />
+	<subject code="TNC" text="Enginyeria d'estructures" />
+	<subject code="TNCB" text="Inspecció" />
+	<subject code="TNCB1" text="Càlcul i mesura de materials en la construcció" />
+	<subject code="TNCC" text="Mecànica de sòls i roques" />
+	<subject code="TNCE" text="Enginyeria de terratrèmols" />
+	<subject code="TNCJ" text="Ponts" />
+	<subject code="TNF" text="Enginyeria hidràulica" />
+	<subject code="TNFD" text="Preses i embassaments" />
+	<subject code="TNFH" text="Ports" />
+	<subject code="TNFL" text="Control d'inundacions" />
+	<subject code="TNFR" text="Drenatge i recuperació de la terra" />
+	<subject code="TNH" text="Enginyeria de carreteres i trànsit" />
+	<subject code="TNK" text="Construcció d'edificis i materials" />
+	<subject code="TNKF" text="Protecció contra incendis i seguretat" />
+	<subject code="TNKH" text="Calefacció, il·luminació, ventilació" />
+	<subject code="TNKS" text="Sistemes de seguretat i alarmes contra incendis" />
+	<subject code="TNKX" text="Conservació d'edificis i materials de construcció" />
+	<subject code="TNT" text="Habilitats de construcció i especialitzacions" />
+	<subject code="TNTB" text="Maçoneria i lliscat" />
+	<subject code="TNTC" text="Fusteria" />
+	<subject code="TNTP" text="Fontaneria" />
+	<subject code="TNTR" text="Cobertes" />
+	<subject code="TQ" text="Ciència, enginyeria i tecnologia mediambiental" />
+	<subject code="TQD" text="Monitoratge mediambiental" />
+	<subject code="TQK" text="Control de la contaminació" />
+	<subject code="TQS" text="Enginyeria sanitària i municipal" />
+	<subject code="TQSR" text="Tractament i eliminació de residus" />
+	<subject code="TQSR1" text="Tractament i eliminació d'aigües residuals" />
+	<subject code="TQSR3" text="Tractament i eliminació de residus perillosos" />
+	<subject code="TQSW" text="Abastiment i tractament de l'aigua" />
+	<subject code="TQSW1" text="Depuració i dessalinització de l'aigua" />
+	<subject code="TR" text="Tecnologia del transport i especialitzacions" />
+	<subject code="TRC" text="Tecnologia de l'automòbil i especialitzacions" />
+	<subject code="TRCS" text="Habilitats en l'automoció (mecànica del motor)" />
+	<subject code="TRCT" text="Transport per carretera i especialitzacions" />
+	<subject code="TRF" text="Tecnologia i enginyeria ferroviàries i especialitzacions" />
+	<subject code="TRFT" text="Especialitzacions ferroviàries" />
+	<subject code="TRL" text="Tecnologia i enginyeria de la construcció naval i especialitzacions" />
+	<subject code="TRLD" text="Disseny de vaixells i enginyera naval" />
+	<subject code="TRLN" text="Navegació i nàutica" />
+	<subject code="TRLT" text="Especialitzacions marítimes i nàutiques" />
+	<subject code="TRP" text="Tecnologia aeroespacial i de l'aviació" />
+	<subject code="TRPS" text="Habilitats d'aviació i pilotatge" />
+	<subject code="TRT" text="Tecnologia de sistema de transport intel·ligent i automatitzat" />
+	<subject code="TT" text="Altres tecnologies i ciències aplicades" />
+	<subject code="TTA" text="Acústica i enginyeria del so" />
+	<subject code="TTB" text="Òptica aplicada" />
+	<subject code="TTBF" text="Fibra òptica" />
+	<subject code="TTBL" text="Tecnologia làser i holografia" />
+	<subject code="TTBM" text="Tecnologia i sistemes de la imatge" />
+	<subject code="TTBS" text="Tecnologia i sistemes d'escanejat" />
+	<subject code="TTD" text="Ciència espacial" />
+	<subject code="TTDS" text="Astronàutica" />
+	<subject code="TTM" text="Enginyeria militar" />
+	<subject code="TTMW" text="Artilleria i tecnologia d'armes" />
+	<subject code="TTP" text="Tecnologia d'explosius i pirotècnia" />
+	<subject code="TTS" text="Enginyeria marina" />
+	<subject code="TTSH" text="Enginyeria de costes" />
+	<subject code="TTSX" text="Sonar" />
+	<subject code="TTU" text="Tecnologia i enginyeria de la mineria" />
+	<subject code="TTV" text="Altres tecnologies i especialitzacions vocacionals" />
+	<subject code="TTVC" text="Especialitzacions en hostaleria i restauració" />
+	<subject code="TTVH" text="Habilitats de perruqueria" />
+	<subject code="TTVR" text="Habilitats i especialitzacions tradicionals" />
+	<subject code="TTX" text="Taxidèrmia" />
+	<subject code="TV" text="Agricultura i ramaderia" />
+	<subject code="TVB" text="Ciències agràries" />
+	<subject code="TVD" text="Maquinària i enginyeria agrònoma" />
+	<subject code="TVDR" text="Regadiu" />
+	<subject code="TVF" text="Agricultura sostenible" />
+	<subject code="TVG" text="Ramaderia ecològica" />
+	<subject code="TVH" text="Indústria pecuària" />
+	<subject code="TVHB" text="Cria d'animals" />
+	<subject code="TVHF" text="Producció de làctics" />
+	<subject code="TVHH" text="Apicultura" />
+	<subject code="TVHP" text="Avicultura" />
+	<subject code="TVK" text="Agronomia i cultius" />
+	<subject code="TVKC" text="Cultiu de cereals" />
+	<subject code="TVKF" text="Fertilitzants i adobs" />
+	<subject code="TVM" text="Minifundi" />
+	<subject code="TVP" text="Control de plagues" />
+	<subject code="TVQ" text="Agricultura tropical: pràctica i tècniques" />
+	<subject code="TVR" text="Silvicultura: pràctica i tècniques" />
+	<subject code="TVS" text="Horticultura" />
+	<subject code="TVSW" text="Viticultura" />
+	<subject code="TVT" text="Aqüicultura i piscicultura: pràctica i tècniques" />
+	<subject code="U" text="Tecnologia de la informació i informàtica" />
+	<subject code="UB" text="Tecnologia de la informació: temes generals" />
+	<subject code="UBH" text="Aspectes de salut i seguretat en la TI" />
+	<subject code="UBJ" text="Aspectes ètics i socials en la TI" />
+	<subject code="UBL" text="Aspectes legals de la TI" />
+	<subject code="UBW" text="Internet: obres generals " />
+	<subject code="UD" text="Estil de vida digital" />
+	<subject code="UDA" text="Programari i aplicacions per a la organització personal" />
+	<subject code="UDB" text="Guies d'Internet i serveis en línia" />
+	<subject code="UDBA" text="Compres i subhastes en línia" />
+	<subject code="UDBD" text="Cerques a Internet" />
+	<subject code="UDBG" text="Apostes a Internet" />
+	<subject code="UDBM" text="Finances i inversions en línia" />
+	<subject code="UDBR" text="Navegadors d'Internet" />
+	<subject code="UDBS" text="Xarxes socials" />
+	<subject code="UDBV" text="Móns virtuals " />
+	<subject code="UDF" text="Correu electrònic: guies per a l'usuari/ària" />
+	<subject code="UDH" text="Dispositius portàtils: guies per a l'usuari/ària" />
+	<subject code="UDM" text="Música digital: guies per a l'usuari/ària" />
+	<subject code="UDP" text="Fotografia digital guies per a l'usuari/ària" />
+	<subject code="UDQ" text="Vídeo digital: guies per a l'usuari/ària" />
+	<subject code="UDT" text="Telèfons mòbils: guies per a l'usuari/ària" />
+	<subject code="UDV" text="Televisió digital i centres multimèdia: guies per a l'usuari/ària" />
+	<subject code="UDX" text="Jocs d'ordinador /jocs en línia: guies per a l'usuari/ària" />
+	<subject code="UF" text="Aplicacions per a negocis" />
+	<subject code="UFB" text="Paquets de programari integrat" />
+	<subject code="UFBC" text="Microsoft Office" />
+	<subject code="UFBF" text="Microsoft Works" />
+	<subject code="UFBL" text="Lotus Smartsuite" />
+	<subject code="UFBP" text="OpenOffice" />
+	<subject code="UFBS" text="StarOffice" />
+	<subject code="UFBW" text="iWork" />
+	<subject code="UFC" text="Programari de fulls de càlcul" />
+	<subject code="UFCE" text="Excel" />
+	<subject code="UFCL" text="Lotus 1-2-3" />
+	<subject code="UFD" text="Programari de processament de textos" />
+	<subject code="UFDM" text="Microsoft Word" />
+	<subject code="UFG" text="Programari de presentació de gràfics" />
+	<subject code="UFGP" text="PowerPoint" />
+	<subject code="UFK" text="Programari de comptabilitat" />
+	<subject code="UFL" text="Programari d'empresa" />
+	<subject code="UFLS" text="SAP (Sistemes, aplicacions i productes a bases de dades)" />
+	<subject code="UFM" text="Programari de matemàtiques i estadística" />
+	<subject code="UFP" text="Programari de gestió de projectes" />
+	<subject code="UFS" text="Programari per a grups" />
+	<subject code="UG" text="Aplicacions de mitjans digitals i gràfics" />
+	<subject code="UGB" text="Gràfica i disseny web" />
+	<subject code="UGC" text="Disseny assistit per ordinador (DAO)" />
+	<subject code="UGD" text="Autoedició" />
+	<subject code="UGG " text="Disseny de jocs d'ordinador" />
+	<subject code="UGK" text="Gràfics i modelat en 3D" />
+	<subject code="UGL" text="Programari d'il·lustració i dibuix" />
+	<subject code="UGM" text="Música digital: professional" />
+	<subject code="UGN" text="Animació digital" />
+	<subject code="UGP" text="Edició de foto i imatge" />
+	<subject code="UGV" text="Vídeo digital: professional" />
+	<subject code="UK" text="Maquinari d'ordinador" />
+	<subject code="UKC" text="Superordinadors" />
+	<subject code="UKD" text="Ordinadors centrals i miniordinadors" />
+	<subject code="UKF" text="Servidors" />
+	<subject code="UKG" text="Computació de quadrícula i paral·lela" />
+	<subject code="UKM" text="Sistemes incrustats" />
+	<subject code="UKN" text="Maquinari de xarxa" />
+	<subject code="UKP" text="Ordinadors personals" />
+	<subject code="UKPC" text="PC (ordinadors personals compatibles amb IBM)" />
+	<subject code="UKPM" text="Macintosh" />
+	<subject code="UKR" text="Manteniment i reparació" />
+	<subject code="UKS" text="Emmagatzematge de dades i perifèrics" />
+	<subject code="UKX" text="Utilitats i eines" />
+	<subject code="UL" text="Sistemes operatius" />
+	<subject code="ULD" text="Windows i variants" />
+	<subject code="ULDF" text="Windows 7" />
+	<subject code="ULDG" text="Windows Vista" />
+	<subject code="ULDL" text="Windows 2003" />
+	<subject code="ULDP" text="Windows XP" />
+	<subject code="ULDT" text="Windows 2000" />
+	<subject code="ULDX" text="Windows NT" />
+	<subject code="ULH" text="Macintosh OS" />
+	<subject code="ULL" text="Linux" />
+	<subject code="ULLD" text="Debian" />
+	<subject code="ULLR" text="Red Hat" />
+	<subject code="ULLS" text="SUSE" />
+	<subject code="ULLU" text="UBUNTU" />
+	<subject code="ULN" text="UNIX" />
+	<subject code="ULNB" text="BSD / FreeBSD" />
+	<subject code="ULNH" text="HP-UX" />
+	<subject code="ULNM" text="IBM AIX" />
+	<subject code="ULNS" text="Sun Solaris" />
+	<subject code="ULP" text="Sistemes operatius portàtils" />
+	<subject code="ULQ" text="Sistemes operatius per a servidors IBM" />
+	<subject code="ULR" text="Sistemes operatius a temps real" />
+	<subject code="UM" text="Programació informàtica / desenvolupament de programari" />
+	<subject code="UMA" text="Conceptes de programació / aprendre a programar" />
+	<subject code="UMB" text="Algoritmes i estructures de dades" />
+	<subject code="UMC" text="Compiladors" />
+	<subject code="UMF" text="Programació àgil" />
+	<subject code="UMG" text="Programació d'aspectes / POA" />
+	<subject code="UMH" text="Programació extrema" />
+	<subject code="UMJ" text="Programació funcional" />
+	<subject code="UMK" text="Programació i desenvolupament de jocs" />
+	<subject code="UMKB" text="Gràfics en 2D: programació de videojocs" />
+	<subject code="UMKC" text="Gràfics en 3D: programació de videojocs" />
+	<subject code="UMKL" text="Disseny de nivells: programació de videojocs" />
+	<subject code="UML" text="Programació de gràfics" />
+	<subject code="UMN" text="Programació orientada a objectes (OOP)" />
+	<subject code="UMP" text="Programació de Microsoft" />
+	<subject code="UMPN" text="Programació .Net" />
+	<subject code="UMPW" text="Programació de Windows" />
+	<subject code="UMQ" text="Programació de Macintosh" />
+	<subject code="UMR" text="Programació de xarxa" />
+	<subject code="UMS" text="Programació de dispositius mòbils i portàtils / Programació d'aplicacions" />
+	<subject code="UMT" text="Programació de bases de dades" />
+	<subject code="UMW" text="Programació web" />
+	<subject code="UMWS" text="Serveis web" />
+	<subject code="UMX" text="Programació i llenguatges d'script: general" />
+	<subject code="UMZ" text="Enginyeria de programari" />
+	<subject code="UMZL" text="Llenguatge universal de modelització (UML)" />
+	<subject code="UMZT" text="Proves i verificació de programari" />
+	<subject code="UMZW" text="Enginyeria de programari orientat a objectes" />
+	<subject code="UN" text="Bases de dades" />
+	<subject code="UNA" text="Teoria i disseny de bases de dades" />
+	<subject code="UNAR" text="Bases de dades relacionals" />
+	<subject code="UNC" text="Captura i anàlisi de dades" />
+	<subject code="UND" text="Emmagatzematge de dades" />
+	<subject code="UNF" text="Mineria de dades" />
+	<subject code="UNH" text="Recuperació de informació" />
+	<subject code="UNJ" text="Bases de dades orientades a objectes" />
+	<subject code="UNK" text="Bases de dades distribuïdes" />
+	<subject code="UNN" text="Bases de dades i el web" />
+	<subject code="UNS" text="Programari de base de dades" />
+	<subject code="UNSB" text="Oracle" />
+	<subject code="UNSC" text="Access" />
+	<subject code="UNSF" text="FileMaker" />
+	<subject code="UNSJ" text="SQL Server / MS SQL" />
+	<subject code="UNSK" text="SQLite" />
+	<subject code="UNSM" text="MySQL" />
+	<subject code="UNSP" text="PostgreSQL" />
+	<subject code="UNSX" text="IBM DB2" />
+	<subject code="UNSY" text="Sybase" />
+	<subject code="UQ" text="Certificació d'ordinador" />
+	<subject code="UQF" text="Certificació d'ordinador: Microsoft" />
+	<subject code="UQJ" text="Certificació d'ordinador: Cisco" />
+	<subject code="UQL" text="Certificació d'ordinador: ECDL" />
+	<subject code="UQR" text="Certificació d'ordinador: CompTia" />
+	<subject code="UQT" text="Certificació d'ordinador: CLAiT" />
+	<subject code="UR" text="Seguretat informàtica" />
+	<subject code="URD" text="Protecció de dades i privacitat" />
+	<subject code="URH" text="Pirateria i frau informàtic" />
+	<subject code="URJ" text="Virus informàtics, troians i cucs" />
+	<subject code="URQ" text="Tallafocs" />
+	<subject code="URS" text="Correu brossa" />
+	<subject code="URW" text="Programari espia" />
+	<subject code="URY" text="Encriptació de dades" />
+	<subject code="UT" text="Comunicacions i xarxes informàtiques" />
+	<subject code="UTC" text="Informàtica en núvol" />
+	<subject code="UTD" text="Xarxa client/a-servidor" />
+	<subject code="UTF" text="Gestió de xarxa" />
+	<subject code="UTFB" text="Còpia de seguretat de sistemes informàtics i recuperació de dades" />
+	<subject code="UTG" text="Computació de quadrícules" />
+	<subject code="UTM" text="Correu electrònic: professional" />
+	<subject code="UTN" text="Seguretat de xarxa" />
+	<subject code="UTP" text="Estàndards de xarxa i protocols" />
+	<subject code="UTR" text="Sistemes distribuïts" />
+	<subject code="UTS" text="Paquets de xarxa" />
+	<subject code="UTV" text="Virtualització" />
+	<subject code="UTW" text="Aplicacions i xarxes WAP" />
+	<subject code="UTX" text="Intercanvi electrònic de dades (EDI)" />
+	<subject code="UY" text="Ciències computacionals" />
+	<subject code="UYA" text="Teoria matemàtica de la computació" />
+	<subject code="UYAM" text="Matemàtiques per a científics computacionals" />
+	<subject code="UYD" text="Anàlisi i disseny de sistemes" />
+	<subject code="UYF" text="Arquitectura d'ordinadors i disseny lògic" />
+	<subject code="UYFL" text="Llenguatges d'assemblador" />
+	<subject code="UYFP" text="Processament en paral·lel" />
+	<subject code="UYM" text="Modelat i simulació d'ordinadors" />
+	<subject code="UYQ" text="Intel·ligència artificial" />
+	<subject code="UYQE" text="Sistemes experts / sistemes de coneixement" />
+	<subject code="UYQL" text="Llenguatge natural i traducció automàtica" />
+	<subject code="UYQM" text="Aprenentatge automàtic" />
+	<subject code="UYQN" text="Xarxes neuronals i sistemes borrosos" />
+	<subject code="UYQP" text="Reconeixement de patrons" />
+	<subject code="UYQS" text="Reconeixement de la parla" />
+	<subject code="UYQV" text="Visió artificial" />
+	<subject code="UYS" text="Processament de senyals" />
+	<subject code="UYT" text="Processament d'imatges" />
+	<subject code="UYU" text="Processament d'àudio" />
+	<subject code="UYV" text="Realitat virtual" />
+	<subject code="UYZ" text="Interacció persona-ordinador" />
+	<subject code="UYZF" text="Visualització de la informació" />
+	<subject code="UYZG" text="Disseny d'interfície d'usuari/ària i usabilitat" />
+	<subject code="UYZM" text="Arquitectura de la informació" />
+	<subject code="V" text="Salut i desenvolupament personal" />
+	<subject code="VF" text="Família i salut" />
+	<subject code="VFB" text="Seguretat personal" />
+	<subject code="VFD" text="Salut i medicina popular" />
+	<subject code="VFDF" text="Primers auxilis a la llar" />
+	<subject code="VFDM" text="Salut dels homes" />
+	<subject code="VFDW" text="Salut de les dones" />
+	<subject code="VFG" text="Infermeria i cures a la llar" />
+	<subject code="VFJ" text="Afrontament dels problemes personals" />
+	<subject code="VFJB" text="Afrontament de malalties i condicions específiques" />
+	<subject code="VFJD" text="Afrontament de les discapacitats" />
+	<subject code="VFJG" text="Afrontament de la vellesa" />
+	<subject code="VFJJ" text="Afrontament dels trastorns de la conducta alimentària" />
+	<subject code="VFJK" text="Afrontament de l'abús de les drogues i l'alcohol" />
+	<subject code="VFJP" text="Afrontament de l'ansietat i les fòbies" />
+	<subject code="VFJS" text="Afrontament de l'estrès" />
+	<subject code="VFJX" text="Afrontament de la mort i la pèrdua" />
+	<subject code="VFL" text="Deixar de fumar" />
+	<subject code="VFM" text="Salut física i dieta" />
+	<subject code="VFMD" text="Règims i dietes" />
+	<subject code="VFMG" text="Llibres sobre exercici i entrenament" />
+	<subject code="VFMS" text="Massatges" />
+	<subject code="VFV" text="Família i relacions" />
+	<subject code="VFVC" text="Sexe i sexualitat, manuals de sexe" />
+	<subject code="VFVG" text="Cites, relacions, vida en parella i matrimoni" />
+	<subject code="VFVK" text="Adopció" />
+	<subject code="VFVS" text="Separació i divorci" />
+	<subject code="VFVX" text="Relacions intergeneracionals" />
+	<subject code="VFX" text="Consells per ser pares i mares" />
+	<subject code="VFXB" text="Embaràs, part i cura del nadó" />
+	<subject code="VFXB1" text="Noms per als nadons" />
+	<subject code="VFXC" text="Puericultura i educació" />
+	<subject code="VFXC1" text="Adolescents: consells per a pares i mares" />
+	<subject code="VS" text="Autoajuda i creixement personal" />
+	<subject code="VSB" text="Economia personal" />
+	<subject code="VSC" text="Consells per a carreres i com aconseguir l'èxit" />
+	<subject code="VSD" text="Legislació, ciutadania i drets per al ciutadà/na comú" />
+	<subject code="VSF" text="Conducció i codi de circulació" />
+	<subject code="VSG" text="Consells per al consumidor/a" />
+	<subject code="VSH" text="Habitatge i propietat / compravenda i aspectes legals" />
+	<subject code="VSK" text="Consells sobre educació" />
+	<subject code="VSL" text="Guies i manuals d'alfabetització per a adults" />
+	<subject code="VSN" text="Guies i manuals de matemàtiques per a adults" />
+	<subject code="VSP" text="Psicologia popular" />
+	<subject code="VSPM" text="Autoafirmació, motivació i autoestima" />
+	<subject code="VSPT" text="Millora de la memòria i tècniques de concentració" />
+	<subject code="VSPX" text="Programació neurolingüística (PNL)" />
+	<subject code="VSR" text="Jubilació" />
+	<subject code="VSW" text="Viure i treballar a l'estranger" />
+	<subject code="VSZ" text="Estil de vida ecològic i autosuficiència" />
+	<subject code="VX" text="Ment, cos, esperit" />
+	<subject code="VXA" text="Ment, cos, esperit: reflexió i pràctica" />
+	<subject code="VXF" text="Predicció del futur i endevinació" />
+	<subject code="VXFA" text="Astrologia" />
+	<subject code="VXFA1" text="Signes del zodíac i horòscops" />
+	<subject code="VXFC" text="Predicció del futur amb cartes (cartomància)" />
+	<subject code="VXFC1" text="Tarot" />
+	<subject code="VXFD" text="El Yijing" />
+	<subject code="VXFG" text="Grafologia" />
+	<subject code="VXFJ" text="Quiromància, frenologia i fisonomia" />
+	<subject code="VXFN" text="Numerologia" />
+	<subject code="VXFT" text="Clarividència i precognició" />
+	<subject code="VXH" text="Teràpies alternatives, curació i salut" />
+	<subject code="VXHA" text="Tècnica Alexander" />
+	<subject code="VXHC" text="Aromateràpia i olis essencials" />
+	<subject code="VXHH" text="Homeopatia" />
+	<subject code="VXHJ" text="Reflexologia" />
+	<subject code="VXHK" text="Reiki" />
+	<subject code="VXHT" text="Medicina tradicional i remeis naturals" />
+	<subject code="VXHT1" text="Medicina xinesa i acupuntura" />
+	<subject code="VXHT2" text="Teràpies ayurvèdiques" />
+	<subject code="VXM" text="Ment, cos, esperit: meditació i visualització" />
+	<subject code="VXN" text="Els somnis i les seves interpretacions" />
+	<subject code="VXP" text="Poders psíquics i fenòmens psíquics" />
+	<subject code="VXPC" text="Curació amb cristalls i colors" />
+	<subject code="VXPH" text="Xacres, àuries i energia espiritual" />
+	<subject code="VXPJ" text="Projecció astral i experiències extracorpòries" />
+	<subject code="VXPR" text="El més enllà, reencarnació&amp;nbsp;i vides passades" />
+	<subject code="VXPS" text="Guies espirituals, àngels i canalització" />
+	<subject code="VXQ" text="Fenòmens inexplicables / paranormals" />
+	<subject code="VXQB" text="Ovnis i extraterrestres" />
+	<subject code="VXQG" text="Fantasmes i poltergeists" />
+	<subject code="VXQM" text="Monstres i criatures llegendàries" />
+	<subject code="VXV" text="Fengshui" />
+	<subject code="VXW" text="Misticisme, màgia i rituals" />
+	<subject code="VXWK" text="Càbala: treballs populars" />
+	<subject code="VXWM" text="Màgia, encantaments i alquímia" />
+	<subject code="VXWS" text="Xamanisme, paganisme i druïdisme" />
+	<subject code="VXWT" text="Bruixeria i Wicca" />
+	<subject code="W" text="Estil de vida, esport i lleure" />
+	<subject code="WB" text="Cuina, menjar i beure, etc." />
+	<subject code="WBA" text="Cuina general i receptes" />
+	<subject code="WBB" text="Llibres de cuina de xefs famosos i de la televisió" />
+	<subject code="WBC" text="Cuinar per un mateix" />
+	<subject code="WBD" text="Cuina econòmica" />
+	<subject code="WBF" text="Cuina fàcil i ràpida" />
+	<subject code="WBH" text="Cuina saludable i integral" />
+	<subject code="WBHS" text="Cuina per a dietes i condicions específiques" />
+	<subject code="WBJ" text="Cuina vegetariana" />
+	<subject code="WBN" text="Cuina nacional i regional" />
+	<subject code="WBQ" text="Cuinar amb/per a mainada" />
+	<subject code="WBR" text="Cuina per a festes" />
+	<subject code="WBS" text="Cuinar amb estris específics" />
+	<subject code="WBT" text="Cuina per ingredients" />
+	<subject code="WBTB" text="Cuina amb carn i carn de caça" />
+	<subject code="WBTC" text="Cuina amb pollastre i altres aus" />
+	<subject code="WBTF" text="Cuina amb peix i marisc" />
+	<subject code="WBTH" text="Cuina amb herbes i espècies" />
+	<subject code="WBTP" text="Plats de pasta" />
+	<subject code="WBTR" text="Cuina amb productes làctics" />
+	<subject code="WBTX" text="Cuina amb xocolata" />
+	<subject code="WBV" text="Plats i cursos de cuina" />
+	<subject code="WBVD" text="Sopes i entrants" />
+	<subject code="WBVG" text="Amanides" />
+	<subject code="WBVM" text="Plats principals" />
+	<subject code="WBVQ" text="Postres" />
+	<subject code="WBVS" text="Pastissos, brioixeria, gelats i escultures de sucre" />
+	<subject code="WBW" text="Conserves i congelats" />
+	<subject code="WBX" text="Begudes" />
+	<subject code="WBXD" text="Begudes alcohòliques" />
+	<subject code="WBXD1" text="Vins" />
+	<subject code="WBXD2" text="Cerveses" />
+	<subject code="WBXD3" text="Licors i còctels" />
+	<subject code="WBXN" text="Begudes no alcohòliques" />
+	<subject code="WBZ" text="Cigars i tabac" />
+	<subject code="WC" text="Antiguitats i col·leccionables" />
+	<subject code="WCB" text="Antiguitats i col·leccionables: guies del comprador/a" />
+	<subject code="WCC" text="Cura i restauració d'antiguitats" />
+	<subject code="WCF" text="Monedes, bitllets, medalles i segells (numismàtica)" />
+	<subject code="WCG" text="Segells (filatèlia)" />
+	<subject code="WCJ" text="Rellotges antics, rellotges, caixes musicals i autòmats" />
+	<subject code="WCK" text="Objectes militars, armes i armadures" />
+	<subject code="WCL" text="Mobiliari antic / col·leccionisme de mobles" />
+	<subject code="WCN" text="Antiguitats i col·leccionables: ceràmica i vidre" />
+	<subject code="WCP" text="Antiguitats i col·leccionables: joieria" />
+	<subject code="WCR" text="Antiguitats i col·leccionables: or i plata (excepte la joieria)" />
+	<subject code="WCS" text="Antiguitats i col·leccionables: llibres, manuscrits, records i material imprès" />
+	<subject code="WCU" text="Antiguitats i col·leccionables: fotografies, gravats i mapes" />
+	<subject code="WCV" text="Antiguitats i col·leccionables: catifes, cobretaules i tèxtils" />
+	<subject code="WCW" text="Antiguitats i col·leccionables: jocs, joguines i maquetes" />
+	<subject code="WCX" text="Antiguitats i col·leccionables instruments científics i musicals" />
+	<subject code="WD" text="Aficions, jocs de preguntes i altres jocs" />
+	<subject code="WDH" text="Aficions" />
+	<subject code="WDHM" text="Maquetes de trens" />
+	<subject code="WDHR" text="Maquetes amb radiocontrol" />
+	<subject code="WDHW" text="Jocs de rol, jocs de guerra i esports fantàstics" />
+	<subject code="WDJ" text="Imatges en 3D i il·lusions òptiques" />
+	<subject code="WDK" text="Trencaclosques i jocs de preguntes" />
+	<subject code="WDKC" text="Mots encreuats" />
+	<subject code="WDKN" text="Sudokus i trencaclosques numèrics" />
+	<subject code="WDKX" text="Llibres de jocs de preguntes" />
+	<subject code="WDM" text="Jocs d'interior" />
+	<subject code="WDMC" text="Jocs de cartes" />
+	<subject code="WDMC1" text="Bridge" />
+	<subject code="WDMC2" text="Pòquer" />
+	<subject code="WDMG" text="Jocs de taula" />
+	<subject code="WDMG1" text="Escacs" />
+	<subject code="WDP" text="Apostes: teories i mètodes" />
+	<subject code="WF" text="Artesania, arts decoratives i treballs manuals" />
+	<subject code="WFA" text="Manuals d'art i pintura" />
+	<subject code="WFB" text="Costura i artesania amb teixits" />
+	<subject code="WFBC" text="Brodats" />
+	<subject code="WFBL" text="Punta i puntes de coixí" />
+	<subject code="WFBQ" text="Edredons, labor de retalls i aplicacions" />
+	<subject code="WFBS" text="Mitja i ganxet" />
+	<subject code="WFBV" text="Bàtik i tenyit" />
+	<subject code="WFC" text="Corderia, nusos i macramé" />
+	<subject code="WFF" text="Elaboració de catifes i cobretaules" />
+	<subject code="WFG" text="Filat i teixit" />
+	<subject code="WFH" text="Joguines: fabricació i decoració" />
+	<subject code="WFJ" text="Joieria i granadura" />
+	<subject code="WFK" text="Superfícies i acabats decoratius" />
+	<subject code="WFL" text="Fusta decorativa i treball sobre metall" />
+	<subject code="WFLF" text="Emmarcat d'imatges" />
+	<subject code="WFN" text="Terrissa, ceràmica i artesania amb vidre" />
+	<subject code="WFS" text="Escultura i modelat, emmotllat i fosa" />
+	<subject code="WFT" text="Artesania amb llibres i paper" />
+	<subject code="WFTG" text="Postals de felicitació" />
+	<subject code="WFTM" text="Origami i enginyeria del paper" />
+	<subject code="WFTS" text="Creació d'àlbums de retalls" />
+	<subject code="WFU" text="Escriptura i cal·ligrafia" />
+	<subject code="WFV" text="Artesania rural" />
+	<subject code="WFW" text="Decoració i artesania florals" />
+	<subject code="WG" text="Transport: interès general" />
+	<subject code="WGC" text="Vehicles de carretera i motor: interès general" />
+	<subject code="WGCB" text="Automòbils: interès general" />
+	<subject code="WGCF" text="Autobusos, tramvies i vehicles comercials: interès general" />
+	<subject code="WGCK" text="Motocicletes: interès general" />
+	<subject code="WGCT" text="Tractors i vehicles de granja: interès general" />
+	<subject code="WGCV" text="Manuals i manteniment de vehicles" />
+	<subject code="WGF" text="Trens i ferrocarrils: interès general" />
+	<subject code="WGG" text="Vaixells i embarcacions: interès general" />
+	<subject code="WGGN" text="Barcasses i canals" />
+	<subject code="WGGV" text="Construcció de vaixells i manteniment" />
+	<subject code="WGM" text="Aviació: interès general" />
+	<subject code="WH" text="Humor" />
+	<subject code="WHC" text="Dibuixos animats i còmics" />
+	<subject code="WHG" text="Humor basat en la televisió" />
+	<subject code="WHJ" text="Acudits i endevinalles" />
+	<subject code="WHL" text="Humor d'argots i dialectes" />
+	<subject code="WHP" text="Paròdies i bromes" />
+	<subject code="WHX" text="Col·leccions i antologies d'humor" />
+	<subject code="WJ" text="Guies d'estil de vida i d'estil personal" />
+	<subject code="WJF" text="Moda i guies d'estil" />
+	<subject code="WJH" text="Cosmètica, cabells i bellesa" />
+	<subject code="WJK" text="Guies d'estil, interiorisme i decoració" />
+	<subject code="WJS" text="Guies de compres" />
+	<subject code="WJW" text="Bodes, organització de bodes" />
+	<subject code="WJX" text="Festes, etiqueta i celebracions" />
+	<subject code="WK" text="Casa i manteniment de la llar" />
+	<subject code="WKD" text="Bricolatge: general" />
+	<subject code="WKDM" text="Bricolatge: manuals de manteniment de la llar" />
+	<subject code="WKDW" text="Bricolatge: fusteria i treballs amb fusta" />
+	<subject code="WKH" text="Consells per a la llar" />
+	<subject code="WKR" text="Renovació i ampliació de la llar" />
+	<subject code="WM" text="Jardineria" />
+	<subject code="WMB" text="Jardins (descripcions, història, etc.)" />
+	<subject code="WMD" text="Disseny i planificació de jardins" />
+	<subject code="WMF" text="Hivernacles, terrasses cobertes, patis" />
+	<subject code="WMP" text="Jardineria: plantes" />
+	<subject code="WMPC" text="Jardineria: flors" />
+	<subject code="WMPF" text="Jardineria: cultiu de fruita i verdura" />
+	<subject code="WMPH" text="Jardineria: herbes" />
+	<subject code="WMPM" text="Plantes crasses i cactus" />
+	<subject code="WMPS" text="Jardineria: arbusts i arbres" />
+	<subject code="WMPX" text="Plantes d'interior" />
+	<subject code="WMQ" text="Mètodes de jardineria especialitzats" />
+	<subject code="WMQB" text="Bonsais" />
+	<subject code="WMQF" text="Jardineria ecològica" />
+	<subject code="WMQL" text="Paisatgisme" />
+	<subject code="WMQN" text="Jardineria natural i salvatge" />
+	<subject code="WMQP" text="Jardineria amb plantes autòctones" />
+	<subject code="WMQR" text="Jardineria en testos" />
+	<subject code="WMQW" text="Jardins d'aigua, piscines" />
+	<subject code="WMT" text="Parcel·les" />
+	<subject code="WN" text="Història natural" />
+	<subject code="WNA" text="Dinosaures i prehistòria" />
+	<subject code="WNC" text="Vida salvatge: interès general" />
+	<subject code="WNCB" text="Vida salvatge: ocells i observació d'ocells" />
+	<subject code="WNCF" text="Vida salvatge: mamífers" />
+	<subject code="WNCK" text="Vida salvatge: rèptils i amfibis" />
+	<subject code="WNCN" text="Vida salvatge: papallones, altres insectes i aranyes" />
+	<subject code="WNCS" text="Vida salvatge: éssers aquàtics" />
+	<subject code="WNCS1" text="Vida marítima i costanera" />
+	<subject code="WNCS2" text="Vida d'aigua dolça" />
+	<subject code="WND" text="El camp, la vida al camp" />
+	<subject code="WNF" text="Animals de granja i de tracció" />
+	<subject code="WNG" text="Animals domèstics i mascotes" />
+	<subject code="WNGC" text="Gats com a mascotes" />
+	<subject code="WNGD" text="Gossos com a mascotes" />
+	<subject code="WNGD1" text="Obediència i ensinistrament dels gossos" />
+	<subject code="WNGF" text="Peixos i aquaris" />
+	<subject code="WNGH" text="Cavalls i ponis" />
+	<subject code="WNGK" text="Ocells, també ocells de gàbia, com a mascotes" />
+	<subject code="WNGR" text="Conills i rosegadors com a mascotes" />
+	<subject code="WNGS" text="Rèptils i amfibis com a mascotes" />
+	<subject code="WNGX" text="Insectes i aranyes com a mascotes" />
+	<subject code="WNH" text="Zoològics i reserves naturals" />
+	<subject code="WNP" text="Arbres, flors silvestres i plantes" />
+	<subject code="WNR" text="Roques, minerals i fòssils" />
+	<subject code="WNW" text="La Terra: història natural en general" />
+	<subject code="WNWM" text="Clima" />
+	<subject code="WNX" text="Espai i astronomia popular" />
+	<subject code="WQ" text="Interès local, història familiar i nostàlgia" />
+	<subject code="WQH" text="Història local" />
+	<subject code="WQN" text="Nostàlgia: general" />
+	<subject code="WQP" text="Llocs en fotografies antigues" />
+	<subject code="WQY" text="Història familiar, arbres genealògics" />
+	<subject code="WS" text="Esports i activitats recreatives d'exterior" />
+	<subject code="WSB" text="Esdeveniments esportius i la seva gestió" />
+	<subject code="WSBB" text="Jocs olímpics i paralímpics" />
+	<subject code="WSBG" text="Consells d'administració esportiva" />
+	<subject code="WSBM" text="Instal·lacions i gestió esportiva" />
+	<subject code="WSBT" text="Clubs i equips esportius" />
+	<subject code="WSBV" text="Estadis esportius" />
+	<subject code="WSBX" text="Història de l'esport" />
+	<subject code="WSC" text="Esports per a persones discapacitades" />
+	<subject code="WSD" text="Entrenament esportiu" />
+	<subject code="WSDF" text="Ciència de l'esport, educació física" />
+	<subject code="WSDP" text="Psicologia esportiva" />
+	<subject code="WSDX" text="Abús de drogues en l'esport" />
+	<subject code="WSE" text="Esports extrems" />
+	<subject code="WSF" text="Esports aeris i recreació" />
+	<subject code="WSJ" text="Jocs de pilota" />
+	<subject code="WSJA" text="Futbol" />
+	<subject code="WSJA1" text="Copa del Món" />
+	<subject code="WSJC" text="Criquet" />
+	<subject code="WSJF" text="Rugbi" />
+	<subject code="WSJF1" text="Rugbi Union / Rugbi 15" />
+	<subject code="WSJF2" text="Rugbi League / Rugbi 13" />
+	<subject code="WSJG" text="Golf" />
+	<subject code="WSJH" text="Hoquei" />
+	<subject code="WSJJ" text="Lacrosse" />
+	<subject code="WSJK" text="Hurling" />
+	<subject code="WSJL" text="Futbol gaèlic" />
+	<subject code="WSJM" text="Bàsquet" />
+	<subject code="WSJN" text="Netbol" />
+	<subject code="WSJQ" text="Regles australianes de futbol" />
+	<subject code="WSJR" text="Jocs de raqueta" />
+	<subject code="WSJR2" text="Tennis" />
+	<subject code="WSJR3" text="Bàdminton" />
+	<subject code="WSJR4" text="Esquaix i raquetes" />
+	<subject code="WSJR5" text="Tennis de taula" />
+	<subject code="WSJS" text="Futbol americà" />
+	<subject code="WSJT" text="Beisbol" />
+	<subject code="WSJV" text="Voleibol" />
+	<subject code="WSJY" text="Bitlles i petanca" />
+	<subject code="WSJZ" text="Billar, billar anglès i billar americà" />
+	<subject code="WSK" text="Esports de pista i camp, atletisme" />
+	<subject code="WSKC" text="Marató i carreres de camp a través" />
+	<subject code="WSKQ" text="Esports multidisciplinaris" />
+	<subject code="WSL" text="Gimnàstica" />
+	<subject code="WSM" text="Halterofília" />
+	<subject code="WSN" text="Hípica i esports amb animals" />
+	<subject code="WSNB" text="Curses de cavalls" />
+	<subject code="WSNF" text="Equitació i salts eqüestres" />
+	<subject code="WSNP" text="Curses de llebrers" />
+	<subject code="WSP" text="Esports de motor" />
+	<subject code="WSPC" text="Automobilisme" />
+	<subject code="WSPC1" text="Fórmula 1 i Grand Prix" />
+	<subject code="WSPG" text="Ral·lis i carreres de cotxes" />
+	<subject code="WSPM" text="Motociclisme" />
+	<subject code="WSQ" text="Ciclisme" />
+	<subject code="WSR" text="Patinatge en línia, monopatins, etc." />
+	<subject code="WSS" text="Lleure i esports d'aigua" />
+	<subject code="WSSC" text="Natació i busseig" />
+	<subject code="WSSC1" text="Natació subaquàtica" />
+	<subject code="WSSG" text="Surf, windsurf, esquí aquàtic" />
+	<subject code="WSSN" text="Navegació" />
+	<subject code="WSSN1" text="Navegació a motor i creuers" />
+	<subject code="WSSN3" text="Navegació a vela" />
+	<subject code="WSSN5" text="Piragüisme" />
+	<subject code="WSSN7" text="Rem" />
+	<subject code="WST" text="Esports de combat i defensa personal" />
+	<subject code="WSTB" text="Boxa" />
+	<subject code="WSTC" text="Lluita" />
+	<subject code="WSTF" text="Esgrima" />
+	<subject code="WSTM" text="Arts marcials orientals" />
+	<subject code="WSU" text="Culturisme" />
+	<subject code="WSW" text="Esports d'hivern" />
+	<subject code="WSWK" text="Esquí" />
+	<subject code="WSWM" text="Surf de neu" />
+	<subject code="WSWS" text="Patinatge sobre gel" />
+	<subject code="WSWY" text="Hoquei sobre gel" />
+	<subject code="WSX" text="Esports de camp: pesca, caça, tir" />
+	<subject code="WSXF" text="Pesca, pesca amb canya" />
+	<subject code="WSXH" text="Caça, caça major" />
+	<subject code="WSXR" text="Tir amb arc" />
+	<subject code="WSXS" text="Armes de foc petites, armes i altres equipaments" />
+	<subject code="WSXT" text="Tir al blanc" />
+	<subject code="WSZ" text="Activitats d'exterior actives" />
+	<subject code="WSZC" text="Senderisme i excursionisme" />
+	<subject code="WSZG" text="Escalada i muntanyisme" />
+	<subject code="WSZK" text="Orientació" />
+	<subject code="WSZN" text="Espeleologia" />
+	<subject code="WSZR" text="Acampada i artesania en fusta" />
+	<subject code="WSZV" text="Habilitats de supervivència a l'aire lliure" />
+	<subject code="WT" text="Viatges i vacances" />
+	<subject code="WTD" text="Consells i trucs per viatjar: general" />
+	<subject code="WTH" text="Guies de viatges i vacances" />
+	<subject code="WTHA" text="Vacances d'aventura" />
+	<subject code="WTHB" text="Viatges de negocis" />
+	<subject code="WTHC" text="Guies d'ecoturisme" />
+	<subject code="WTHF" text="Viatjar amb nens / vacances familiars" />
+	<subject code="WTHH" text="Guies d'hotels i allotjaments de vacances" />
+	<subject code="WTHH1" text="Guies de caravanes i llocs d'acampada" />
+	<subject code="WTHM" text="Guies de museus, llocs històrics, galeries i art" />
+	<subject code="WTHR" text="Guies de restaurants, cafeteries i bars" />
+	<subject code="WTHT" text="Parcs temàtics i parcs d'atraccions" />
+	<subject code="WTHX" text="Creuers" />
+	<subject code="WTK" text="Guies de conversa" />
+	<subject code="WTL" text="Literatura de viatges" />
+	<subject code="WTLC" text="Literatura de viatges clàssica" />
+	<subject code="WTLP" text="Expedicions" />
+	<subject code="WTM" text="Llocs i persones: obres generals i il·lustrades" />
+	<subject code="WTR" text="Mapes i atles de viatge" />
+	<subject code="WTRD" text="Mapes i atles de carreteres" />
+	<subject code="WTRM" text="Mapes de viatge" />
+	<subject code="WTRS" text="Guies de carrers i plànols de ciutats" />
+	<subject code="WZ" text="Miscel·lània" />
+	<subject code="WZG" text="Llibres de regal" />
+	<subject code="WZS" text="Articles de papereria" />
+	<subject code="Y" text="Llibres per a nens i adolescents, llibres educatius" />
+	<subject code="YB" text="Llibres amb il·lustracions, llibres d'activitats i material d'ensenyament infantil" />
+	<subject code="YBC" text="Llibres amb il·lustracions" />
+	<subject code="YBCB" text="Llibres per a nadons" />
+	<subject code="YBCH" text="Llibres amb il·lustracions: llibres de personatges" />
+	<subject code="YBCS" text="Llibres de contes amb il·lustracions" />
+	<subject code="YBG" text="Paquets i llibres interactius i d'activitats" />
+	<subject code="YBGC" text="Llibres per acolorir i pintar" />
+	<subject code="YBGK" text="Llibres desmuntables i retallables" />
+	<subject code="YBGP" text="Llibres desplegables tridimensionals" />
+	<subject code="YBGS" text="Llibres d'adhesius i segells" />
+	<subject code="YBGT" text="Llibres-joguina i encunyats" />
+	<subject code="YBGT1" text="Contes amb sons, llibres amb sorolls i llibres musicals" />
+	<subject code="YBGT3" text="Llibres tàctils" />
+	<subject code="YBGT5" text="Llibres magnètics" />
+	<subject code="YBGT7" text="Llibres-trencaclosques" />
+	<subject code="YBL" text="Ensenyament infantil / conceptes d'ensenyament infantil" />
+	<subject code="YBLA" text="Ensenyament infantil: Abecedaris i cartilles" />
+	<subject code="YBLA1" text="Ensenyament infantil: llibres de primeres paraules" />
+	<subject code="YBLB" text="Ensenyament infantil: llibres de rimes i jocs de paraules" />
+	<subject code="YBLB1" text="Ensenyament infantil: versos i rimes" />
+	<subject code="YBLC" text="Ensenyament infantil: els nombres i aprendre a comptar" />
+	<subject code="YBLD" text="Ensenyament infantil: els colors" />
+	<subject code="YBLF" text="Ensenyament infantil: els antònims" />
+	<subject code="YBLH" text="Ensenyament infantil: les dimensions, les formes i els patrons" />
+	<subject code="YBLJ" text="Ensenyament infantil: el temps i les estacions" />
+	<subject code="YBLJ1" text="Ensenyament infantil: les hores" />
+	<subject code="YBLN" text="Ensenyament infantil: primeres experiències" />
+	<subject code="YBLN1" text="Ensenyament infantil: els sentits" />
+	<subject code="YBLP" text="Ensenyament infantil: les persones que ens ajuden" />
+	<subject code="YBLT" text="Ensenyament infantil: les coses que passen" />
+	<subject code="YD" text="Poesia infantil i juvenil, antologies, anuaris" />
+	<subject code="YDA" text="Anuaris (infantil / juvenil)" />
+	<subject code="YDC" text="Antologies (infantil / juvenil)" />
+	<subject code="YDP" text="Poesia (infantil / juvenil)" />
+	<subject code="YF" text="Ficció i històries reals (infantil / juvenil)" />
+	<subject code="YFA" text="Ficció clàssica (infantil / juvenil)" />
+	<subject code="YFB" text="Ficció general (infantil /juvenil)" />
+	<subject code="YFC" text="Històries d'aventures (infantil / juvenil)" />
+	<subject code="YFCB" text="Novel·les de misteri (infantil / juvenil)" />
+	<subject code="YFCF" text="Novel·la policíaca i de misteri (infantil / juvenil)" />
+	<subject code="YFD" text="Històries de por i de fantasmes (infantil / juvenil)" />
+	<subject code="YFG" text="Ciència ficció (infantil / juvenil)" />
+	<subject code="YFH" text="Fantasia i realisme màgic (infantil / juvenil)" />
+	<subject code="YFHR" text="Història d'amor fantàstica (juvenil)" />
+	<subject code="YFJ" text="Contes tradicionals (infantil / juvenil)" />
+	<subject code="YFM" text="Històries d'amor i de relacions (infantil / juvenil)" />
+	<subject code="YFN" text="Històries de la família i la llar (infantil / juvenil)" />
+	<subject code="YFP" text="Històries d'animals (infantil / juvenil)" />
+	<subject code="YFQ" text="Històries còmiques (infantil / juvenil)" />
+	<subject code="YFR" text="Històries esportives (infantil / juvenil)" />
+	<subject code="YFS" text="Històries que passen a l'escola (infantil / juvenil)" />
+	<subject code="YFT" text="Ficció històrica (infantil / juvenil)" />
+	<subject code="YFU" text="Contes curts (infantil / juvenil)" />
+	<subject code="YFW" text="Còmic de ficció / novel·les gràfiques (infantil / juvenil)" />
+	<subject code="YFY" text="Històries reals (infantil / juvenil)" />
+	<subject code="YN" text="Infantil / juvenil: no-ficció general" />
+	<subject code="YNA" text="Art: interès general (infantil / juvenil)" />
+	<subject code="YNC" text="Música: interès general (infantil / juvenil)" />
+	<subject code="YNCP" text="Música pop (infantil / juvenil)" />
+	<subject code="YND" text="Teatre i arts escèniques (infantil / juvenil)" />
+	<subject code="YNDB" text="Dansa, ballet (infantil / juvenil)" />
+	<subject code="YNDS" text="Guions (infantil / juvenil)" />
+	<subject code="YNF" text="Televisió i cinema (infantil / juvenil)" />
+	<subject code="YNG" text="Coneixement i cultura generals (infantil / juvenil)" />
+	<subject code="YNGL" text="Biblioteques, museus, escoles (infantil / juvenil)" />
+	<subject code="YNH" text="Història i el passat: interès general (infantil / juvenil)" />
+	<subject code="YNJ" text="Guerres, batalles, forces armades (infantil / juvenil)" />
+	<subject code="YNK" text="Treball i indústria / el món del treball (infantil / juvenil)" />
+	<subject code="YNL" text="Literatura, llibres i escriptors/es (infantil / juvenil)" />
+	<subject code="YNM" text="Persones i llocs (infantil / juvenil)" />
+	<subject code="YNN" text="Història natural (infantil / juvenil)" />
+	<subject code="YNNA" text="Dinosaures i la prehistòria (infantil / juvenil)" />
+	<subject code="YNND" text="Mascotes (infantil / juvenil)" />
+	<subject code="YNNF" text="Animals de granja (infantil / juvenil)" />
+	<subject code="YNNR" text="Vida salvatge (infantil / juvenil)" />
+	<subject code="YNP" text="Interessos pràctics (infantil / juvenil)" />
+	<subject code="YNPC" text="Cuina i menjar (infantil / juvenil)" />
+	<subject code="YNPG" text="Jardineria (infantil / juvenil)" />
+	<subject code="YNPH" text="Treballs manuals (infantil / juvenil)" />
+	<subject code="YNPK" text="Diners (infantil / juvenil)" />
+	<subject code="YNR" text="Religió i creences: interès general (infantil / juvenil)" />
+	<subject code="YNRB" text="Bíblies i històries bíbliques (infantil / juvenil)" />
+	<subject code="YNT" text="Ciència i tecnologia: interès general (infantil / juvenil)" />
+	<subject code="YNTB" text="Edificis i construcció (infantil / juvenil)" />
+	<subject code="YNTR" text="Transport (infantil / juvenil)" />
+	<subject code="YNTS" text="Espai (infantil / juvenil)" />
+	<subject code="YNU" text="Acudits i humor (infantil / juvenil)" />
+	<subject code="YNUC" text="Dibuixos animats i tires còmiques (infantil / juvenil)" />
+	<subject code="YNV" text="Aficions, jocs de preguntes i altres jocs (infantil / juvenil)" />
+	<subject code="YNVP" text="Llibres de trencaclosques (infantil / juvenil)" />
+	<subject code="YNVU" text="Guies de jocs d'ordinador (infantil / juvenil)" />
+	<subject code="YNW" text="Esports i activitats de lleure a l'exterior (infantil / juvenil)" />
+	<subject code="YNWA" text="Futbol (infantil / juvenil)" />
+	<subject code="YNWB" text="Rugbi (infantil / juvenil)" />
+	<subject code="YNWC" text="Criquet (infantil / juvenil)" />
+	<subject code="YNWG" text="Atletisme i gimnàstica (infantil / juvenil)" />
+	<subject code="YNWW" text="Natació i esports d'aigua (infantil / juvenil)" />
+	<subject code="YNWY" text="Ciclisme, patinatge i monopatins (infantil / juvenil)" />
+	<subject code="YNX" text="Misteris, fets sobrenaturals, monstres i criatures mitològiques (infantil / juvenil)" />
+	<subject code="YNXF" text="Ovnis i extraterrestres (infantil / juvenil)" />
+	<subject code="YNXW" text="Bruixes i fantasmes (infantil / juvenil)" />
+	<subject code="YQ" text="Material educatiu" />
+	<subject code="YQA" text="Educatiu: Art i disseny" />
+	<subject code="YQB" text="Educatiu: Música" />
+	<subject code="YQC" text="Educatiu: L'anglès i la seva alfabetització" />
+	<subject code="YQCR" text="Educatiu: Anglès: lectors/es i estratègies de lectura" />
+	<subject code="YQCR5" text="Educatiu: lectors/es i estratègies de lectura: Fonètica sintètica" />
+	<subject code="YQCS" text="Educatiu: Anglès: habilitats de lectura i escriptura" />
+	<subject code="YQCS1" text="Educatiu: escriptura a mà" />
+	<subject code="YQCS5" text="Educatiu: Anglès: habilitats de lectura: Fonètica sintètica" />
+	<subject code="YQD" text="Educatiu: estudis de teatre" />
+	<subject code="YQE" text="Educatiu: Literatura anglesa" />
+	<subject code="YQEF" text="Edicions escolars de textos de ficció de la literatura anglesa" />
+	<subject code="YQES" text="Edicions escolars de Shakespeare" />
+	<subject code="YQF" text="Educatiu: Altres idiomes diferents a l'anglès" />
+	<subject code="YQFL" text="Educatiu: literatura en altres idiomes diferents a l'anglès" />
+	<subject code="YQG" text="Educatiu: Geografia" />
+	<subject code="YQH" text="Educatiu: Història" />
+	<subject code="YQJ" text="Educatiu: Ciències socials" />
+	<subject code="YQJP" text="Educatiu: Psicologia" />
+	<subject code="YQM" text="Educatiu: Matemàtiques i aritmètica" />
+	<subject code="YQMT" text="Educatiu: Matemàtiques i aritmètica: taules de multiplicar" />
+	<subject code="YQN" text="Educatiu: Educació social i per a la ciutadania" />
+	<subject code="YQNP" text="Educatiu: Educació personal, social i sanitària (PSHE)" />
+	<subject code="YQR" text="Educatiu: Estudis religiosos" />
+	<subject code="YQRA" text="Educatiu: Recursos materials per al consell escolar" />
+	<subject code="YQRC" text="Educatiu: Estudis religiosos: Cristiandat" />
+	<subject code="YQRN" text="Educatiu: Estudis religiosos: Religions no cristianes" />
+	<subject code="YQRN1" text="Educatiu: Estudis religiosos: Judaisme" />
+	<subject code="YQRN2" text="Educatiu: Estudis religiosos: Islam" />
+	<subject code="YQRN3" text="Educatiu: Estudis religiosos: Hinduisme" />
+	<subject code="YQRN4" text="Educatiu: Estudis religiosos: Budisme" />
+	<subject code="YQS" text="Educatiu: Ciències, ciència general" />
+	<subject code="YQSB" text="Educatiu: Biologia" />
+	<subject code="YQSC" text="Educatiu: Química" />
+	<subject code="YQSP" text="Educatiu: Física" />
+	<subject code="YQT" text="Educatiu: Tecnologia" />
+	<subject code="YQTD" text="Educatiu: Disseny i tecnologia" />
+	<subject code="YQTF" text="Educatiu: Tecnologia dels aliments" />
+	<subject code="YQTU" text="Educatiu: TU i informàtica, TIC" />
+	<subject code="YQV" text="Educatiu: Estudis en administració d'empreses i economia" />
+	<subject code="YQW" text="Educatiu: Educació física (inclou la dansa)" />
+	<subject code="YQX" text="Educatiu: Estudis generals / habilitats d'estudi generals" />
+	<subject code="YQY" text="Educatiu: Assignatures professionals" />
+	<subject code="YQZ" text="Educatiu: guies d'estudi i revisió" />
+	<subject code="YR" text="Material de referència (infantil / juvenil)" />
+	<subject code="YRD" text="Diccionaris, diccionaris escolars (infantil / juvenil)" />
+	<subject code="YRDC" text="Diccionaris il·lustrats (infantil / juvenil)" />
+	<subject code="YRDL" text="Diccionaris bilingües / multilingües (infantil / juvenil)" />
+	<subject code="YRE" text="Enciclopèdies (infantil / juvenil)" />
+	<subject code="YRG" text="Obres de referència (infantil / juvenil)" />
+	<subject code="YRW" text="Mapes i atles (infantil / juvenil)" />
+	<subject code="YX" text="Temàtica personal i social (infantil / juvenil)" />
+	<subject code="YXA" text="Temàtica personal i social: cos i salut (infantil /juvenil)" />
+	<subject code="YXAX" text="Temàtica personal i social: educació sexual i conèixer la vida (infantil / juvenil)" />
+	<subject code="YXC" text="Temàtica personal i social: assetjament, violència i abús (infantil / juvenil)" />
+	<subject code="YXF" text="Temàtica personal i social: assumptes familiars (infantil / juvenil)" />
+	<subject code="YXFD" text="Temàtica personal i social: divorci, separació, famílies desestructurades (infantil / juvenil)" />
+	<subject code="YXFM" text="Temàtica personal i social: germans/es (infantil / juvenil)" />
+	<subject code="YXFT" text="Temàtica personal i social: embaràs adolescent (infantil / juvenil)" />
+	<subject code="YXG" text="Temàtica personal i social: mort i pèrdua (infantil / juvenil)" />
+	<subject code="YXJ" text="Temàtica personal i social: drogues i addicció (infantil / juvenil)" />
+	<subject code="YXK" text="Temàtica personal i social: discapacitat i necessitats especials (infantil / juvenil)" />
+	<subject code="YXL" text="Temàtica personal i social: consciència d'un mateix i autoestima (infantil / juvenil)" />
+	<subject code="YXN" text="Temàtica personal i social: racisme i multiculturalisme (infantil / juvenil)" />
+	<subject code="YXS" text="Temàtica personal i social: sexualitat i relacions (infantil / juvenil)" />
+	<subject code="YXT" text="Temàtica personal i social: absentisme escolar i problemes escolars (infantil / juvenil)" />
+	<subject code="YXV" text="Temàtica personal i social: orientació professional (juvenil)" />
+	<subject code="YXZ" text="Temàtica social (infantil / juvenil)" />
+	<subject code="YXZG" text="Temàtica social: medi ambient i ecologia (infantil / juvenil)" />
+	<subject code="YXZR" text="Temàtica social: temàtica religiosa (infantil / juvenil)" />
+	<subject code="YXZW" text="Temàtica social: guerres i conflictes (infantil / juvenil)" />
+	<subject code="YZ" text="Articles de papereria i temes variats (infantil / juvenil)" />
+</subjects> 

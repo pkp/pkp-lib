@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
-
 <!--
   * plugins/metadata/openurl10/locale/ca_ES/locale.xml
   *
-  * Copyright (c) 2013-2014 Simon Fraser University Library
+  * Copyright (c) 2014 Simon Fraser University Library
   * Copyright (c) 2003-2014 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Credits: http://pkp.sfu.ca/wiki/index.php?title=OJS:_Catalan_%28ca_ES%29
   *
   * Localization strings for the ca_ES (Català) locale.
   -->
 
 <locale name="ca_ES" full_name="Català">
-	<message key="plugins.metadata.openurl10.displayName">Metadades OpenURL 1.0.</message>
-	<message key="plugins.metadata.openurl10.description">Proporciona l'esquema i els adaptadors d'aplicació per a OpenURL 1.0.</message>
-</locale>
+	<message key="plugins.metadata.openurl10.displayName">Metadades OpenURL 1.0</message>
+	<message key="plugins.metadata.openurl10.description">Contribueix als esquemes i adaptadors d'aplicacions OpenURL 1.0.</message>
+</locale> 

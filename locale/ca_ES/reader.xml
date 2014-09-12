@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
-
 <!--
   * locale/ca_ES/reader.xml
   *
-  * Copyright (c) 2013-2014 Simon Fraser University Library
+  * Copyright (c) 2014 Simon Fraser University Library
   * Copyright (c) 2000-2014 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Credits: http://pkp.sfu.ca/wiki/index.php?title=OJS:_Catalan_%28ca_ES%29
   *
   * Localization strings for the ca_ES (Català) locale.
   -->
@@ -16,9 +17,9 @@
 	<message key="comments.anonymousNamed">"{$userName}"</message>
 	<message key="comments.body">Cos</message>
 	<message key="comments.titleRequired">Cal que introduïu un títol de comentari.</message>
-	<message key="comments.confirmDeleteChildren">Si suprimiu aquest comentari també en suprimireu totes les respostes. Esteu segur/a que voleu fer aquesta acció?</message>
+	<message key="comments.confirmDeleteChildren">Si suprimiu aquest comentari també en suprimireu totes les respostes. Esteu segur que voleu fer aquesta acció?</message>
 	<message key="comments.delete">Suprimeix aquest comentari</message>
-	<message key="comments.email">Correu electrònic</message>
+	<message key="comments.email">Correu electrònic del participant</message>
 	<message key="comments.emailReply">Resposta per correu electrònic</message>
 	<message key="comments.enterComment">Introduïu un comentari</message>
 	<message key="comments.inResponseTo"><![CDATA[En resposta a <a href="{$url}">{$title}</a>]]></message>
@@ -29,66 +30,67 @@
 	<message key="comments.postAnonymously">Publica aquest comentari de manera anònima</message>
 	<message key="comments.postReply">Publica la resposta</message>
 	<message key="comments.readerComments">Comentaris dels lectors/ores</message>
-	<message key="comments.readMore">Llegiu-ne més</message>
+	<message key="comments.readMore">Llegir-ne més</message>
 	<message key="comments.replies">Respostes</message>
 	<message key="comments.title">Títol</message>
 	<message key="comments.viewAllComments">Visualitza tots els comentaris</message>
 	<message key="reader.fullText">Text complet:</message>
 	<message key="rt.addComment">Afegeix un comentari</message>
 	<message key="rt.admin.configuration">Configuració</message>
-	<message key="rt.admin.contexts.confirmDelete">Esteu segur/a que voleu suprimir aquest context i totes les cerques associades?</message>
+	<message key="rt.admin.contexts.confirmDelete">Esteu segur que voleu suprimir aquest context i totes les cerques associades?</message>
 	<message key="rt.admin.contexts.createContext">Crea un context</message>
 	<message key="rt.admin.contexts.edit.editContext">Edita el context</message>
 	<message key="rt.admin.contexts.metadata">Metadades</message>
-	<message key="rt.admin.contexts.options.authorTerms">Utilitza els noms dels autors/ores com a termes predeterminats per a la cerca per permetre els usuaris/àries que cerquin altres obres dels autors/ores d’aquest element (p. ex. en un context de tipus «Altres obres»).</message>
+	<message key="rt.admin.contexts.options.authorTerms">Utilitza els noms dels autors/ores com a termes predeterminats per a la cerca de manera que els usuaris/àries puguin trobar altres obres dels autors/ores d’aquest element (p. ex. en un context de tipus «Altres obres»).</message>
 	<message key="rt.admin.contexts.options.citedBy">Utilitza els noms dels autors/ores com a termes predeterminats per a la cerca i descriu el context com a cerca per a les citacions de l’article.</message>
-	<message key="rt.admin.contexts.options.defineTerms"><![CDATA[Utilitza la paraula realçada pel lector/a com a terme predeterminat per a la cerca o deixa’l en blanc si no s’ha seleccionat res per a aquest element (p. ex. per a un context de «Definició de termes»). Per permetre que s’obri aquest context en fer doble clic en una paraula, cal habilitar l’opció «Definició de termes» a la <a href="{$settingsUrl}">paràmetres de l’ESC</a>.]]></message>
+	<message key="rt.admin.contexts.options.defineTerms"><![CDATA[Utilitza la paraula realçada pel lector/a com a terme predeterminat per a la cerca o deixa’l en blanc si no s’ha seleccionat res per a aquest element (p. ex. en un context de «Definició de termes»). Per permetre que s’obri aquest context en fer doble clic en una paraula, cal que habiliteu l’opció «Definició de termes» a <a href="{$settingsUrl}">Paràmetres RST</a>.]]></message>
 	<message key="rt.admin.contexts.options.geoTerms">Utilitza les dades d’indexació geogràfica com a termes predeterminats per a la cerca.</message>
 	<message key="rt.admin.contexts.options">Opcions</message>
-	<message key="rt.admin.management">Gestió</message>
+	<message key="rt.admin.management">Administració</message>
 
-	<message key="rt.admin.sharing">Comparteix</message>
-	<message key="rt.admin.sharing.enabled">Comparteix habilitat</message>
-	<message key="rt.admin.sharing.description"><![CDATA[Per permetre als vostres lectors/ores compartir articles de revista, registreu-vos per obtenir un compte a <a href="http://www.addthis.com">addthis.com</a>, i copieu i enganxeu el codi del botó «Compartir» a continuació.]]></message>
+	<message key="rt.admin.sharing">Compartició</message>
+	<message key="rt.admin.sharing.enabled">Compartició habilitada</message>
+	<message key="rt.admin.sharing.description"><![CDATA[Per permetre als vostres lectors/ores compartir articles de revista, registreu-vos per obtenir un compte a <a href="http://addthis.com">addthis.com</a>, i copieu i enganxeu el codi del botó «Compartir» a continuació.]]></message>
 
-	<message key="rt.admin.sharing.basic">Paràmetres bàsics</message>
+	<message key="rt.admin.sharing.basic">Configuració bàsica</message>
 	<message key="rt.admin.sharing.userNameLabel">Nom d’usuari/ària d’AddThis.com</message>
 	<message key="rt.admin.sharing.buttonStyleLabel">Estil del botó</message>
 	<message key="rt.admin.sharing.dropDownMenuLabel">Utilitzeu el menú desplegable</message>
-	<message key="rt.admin.sharing.advanced">Paràmetres avançats (opcional)</message>
-	<message key="rt.admin.sharing.customizationLink"><![CDATA[Vegeu la <a href="http://support.addthis.com/customer/portal/articles/381236-custom-buttons">documentació de personalització d’AddThis.com</a> com a referència.]]></message>
+	<message key="rt.admin.sharing.advanced">Configuració avançada (opcional)</message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[Consulteu la <a href="http://www.addthis.com/help/customize/custom-button/">documentació de personalització d’AddThis.com</a> com a referència.]]></message>
 	<message key="rt.admin.sharing.brandLabel">Marca</message>
-	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Opcions desplegables <br /> (llista separada per comes)]]></message>
+	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Opcions del desplegable <br /> (llista separada per comes)]]></message>
 	<message key="rt.admin.sharing.languageLabel">Llengua</message>
 	<message key="rt.admin.sharing.logolabel">Logotip</message>
 	<message key="rt.admin.sharing.logoBackgroundLabel">Fons del logotip</message>
 	<message key="rt.admin.sharing.logoColorLabel">Color del logotip</message>
 
 	<message key="rt.admin.readingToolsEnabled">Eines de lectura</message>
-	<message key="rt.admin.searches.confirmDelete">Esteu segur/a que voleu suprimir aquesta cerca?</message>
+	<message key="rt.admin.searches.confirmDelete">Esteu segur que voleu suprimir aquesta cerca?</message>
 	<message key="rt.admin.searches.createSearch">Crea una cerca</message>
 	<message key="rt.admin.searches.edit.editSearch">Edita la cerca</message>
 	<message key="rt.admin.selectedVersion">Elements relacionats</message>
 	<message key="rt.admin.settings.abstract">Resum (presenta el resum de l’element).</message>
+	<message key="rt.admin.settings.viewReviewPolicy">Visualitzeu les polítiques per a la revisió</message>
 	<message key="rt.admin.settings.authorBio">Sobre l’autor/a (mostra els resums biogràfics introduïts per l’autor/a).</message>
 	<message key="rt.admin.settings.captureCite">Com s’ha de citar un element (proporciona detalls bibliogràfics per a l’element).</message>
 	<message key="rt.admin.settings.defineTerms">Cerca termes (permet que els lectors/ores facin doble clic a qualsevol paraula d’un element i l’enviïn a un diccionari).</message>
-	<message key="rt.admin.settings.disableRelatedItems">Deshabilita els elements relacionats</message>
+	<message key="rt.admin.settings.disableRelatedItems">Inhabilita els elements relacionats</message>
 	<message key="rt.admin.settings.emailAuthor">Envia un missatge de correu electrònic a l’autor/a (obre una plantilla de missatge de correu electrònic amb l’adreça electrònica de l’autor/a).</message>
 	<message key="rt.admin.settings.emailOthers">Notifica a un col·lega (obre una plantilla de missatge de correu electrònic amb un enllaç a un element).</message>
-	<message key="rt.admin.settings.findingReferences">Cerca referències.</message>
+	<message key="rt.admin.settings.findingReferences">Troba referències</message>
 	<message key="rt.admin.settings.printerFriendly">Versió d’impressió (proporciona una versió adequada per a la impressió d’un element).</message>
-	<message key="rt.admin.settings.supplementaryFiles">Fitxers addicionals (mostra la llista de fitxers de l’autor/a inclosos amb aquesta tramesa).</message>
-	<message key="rt.admin.settings.viewMetadata">Metadades d’indexació (mostra les dades d’indexació de l’element proporcionades per l’autor/a i el sistema).</message>
+	<message key="rt.admin.settings.supplementaryFiles">Fitxers addicionals (mostra la llista de fitxers que l’autor/a va incloure a aquesta tramesa).</message>
+	<message key="rt.admin.settings.viewMetadata">Metadades indexades (mostra les metadades indexades de l’element proporcionades per l’autor/a i el sistema).</message>
 	<message key="rt.admin.status">Estat</message>
-	<message key="rt.admin.configureSharing">Configura l’AddThis</message>
+	<message key="rt.admin.configureSharing">Configura AddThis</message>
 	<message key="rt.admin.validateUrls.complete">S’ha completat la validació.</message>
-	<message key="rt.admin.validateUrls.ok">D’acord</message>
+	<message key="rt.admin.validateUrls.ok">Accepta</message>
 	<message key="rt.admin.validateUrls.urlIsInvalid">{$url} no és vàlid.</message>
 	<message key="rt.admin.validateUrls">Valida els URL per a les eines de lectura</message>
 	<message key="rt.admin.validateUrls.validate">Valida</message>
-	<message key="rt.admin.versions.confirmDelete">Esteu segur/a que voleu suprimir aquesta versió i tots els contextos i cerques associats?</message>
-	<message key="rt.admin.versions.confirmRestore">Esteu segur/a que voleu restaurar totes les versions als seus valors predeterminats? Si ho feu, haureu de triar una versió activa a la pàgina «Configuració».</message>
+	<message key="rt.admin.versions.confirmDelete">Esteu segur que voleu suprimir aquesta versió i tots els contexts i cerques associats?</message>
+	<message key="rt.admin.versions.confirmRestore">Esteu segur que voleu restaurar de forma irreversible totes les versions als seus valors predeterminats? Si ho feu, haureu de triar una versió activa a la pàgina «configuració».</message>
 	<message key="rt.admin.versions.createVersion">Crea una versió</message>
 	<message key="rt.admin.versions.edit.editVersion">Edita la versió</message>
 	<message key="rt.admin.versions.export">Exporta</message>
@@ -100,21 +102,21 @@
 	<message key="rt.captureCite">Com s’ha de citar un element</message>
 	<message key="rt.captureCite.online">En línia</message>
 	<message key="rt.captureCite.web">Web</message>	
-	<message key="rt.colleague">Recomana-ho</message>
+	<message key="rt.colleague">Recomaneu-ho</message>
 	<message key="rt.context.abbrev">Abrev.</message>
-	<message key="rt.context.and">AND</message>
-	<message key="rt.context.citesContextDescription">Si l’article està indexat al Google Acadèmic, és possible que inclogui un enllaç «Citat per X» que dirigeixi a una llista de les obres que el citen. A més, el Google Acadèmic llista tots els elements i en cita el títol i l’autor. Per accedir als recursos en línia que només siguin accessibles mitjançant la vostra biblioteca de recerca, aneu a la secció «Preferències acadèmiques» del Google Acadèmic i activeu l’opció «Enllaços de biblioteca» per a la vostra institució.</message>
+	<message key="rt.context.and">I</message>
+	<message key="rt.context.citesContextDescription">Si l’article està indexat a Google Acadèmic, és possible que inclogui un enllaç «Citat per X» que dirigeixi a una llista de les obres que el citen. A més, Google Acadèmic llista tots els elements i en cita el títol i l’autor/a. Per accedir als recursos en línia que només siguin accessibles mitjançant la vostra biblioteca de recerca, aneu a la secció «preferències acadèmiques» del Google Acadèmic i activeu l’opció «enllaços de biblioteca» per a la vostra institució.</message>
 	<message key="rt.context">Context</message>
-	<message key="rt.context.defineTermsDescription">Si l’article és un fitxer HTML i no un PDF, en fer doble clic damunt de qualsevol paraula del text, aquesta paraula s’afegirà al quadre «Paraula per definir». A més, també podeu escriure o enganxar paraules en aquest quadre. Feu clic a «Sobre la revista» per obtenir més informació sobre el recurs cercat. Aquests recursos han estat seleccionats per la rellevància que tenen i perquè ofereixen accés lliure (gratuït) a tots o part dels continguts.</message>
+	<message key="rt.context.defineTermsDescription">Si l’article és un fitxer HTML i no un PDF, en fer doble clic damunt de qualsevol paraula del text, aquesta paraula s’afegirà al quadre «Paraula per definir». A més, també podeu escriure o enganxar paraules en aquest quadre. Feu clic a «sobre» per obtenir més informació sobre el recurs cercat. Aquests recursos han estat seleccionats per la rellevància que tenen i perquè ofereixen accés lliure (gratuït) a tots o part dels continguts.</message>
 	<message key="rt.context.description">Descripció</message>
 	<message key="rt.context.order">Ordena</message>
 	<message key="rt.contexts">Contextos</message>
-	<message key="rt.context.searchDescription">Els termes de la cerca han estat seleccionats per l’autor/a o els autors/ores, però els lectors/ores els poden modificar o suprimir tenint en compte que les millors cerques booleanes (amb l’operador AND) són les formades per dos o tres termes o frases precisos. Feu clic a «Sobre la revista» per obtenir més informació sobre els recursos cercats. Aquests recursos han estat seleccionats per la rellevància que tenen i perquè ofereixen accés lliure (gratuït) a tots o part dels continguts.</message>
+	<message key="rt.context.searchDescription">Els termes de la cerca han estat seleccionats pels autors/ores. Els lectors/ores els poden modificar o suprimir tenint en compte que les millors cerques booleanes (amb l’operador AND) són les formades per dos o tres termes o frases precisos. Feu clic a «sobre» per obtenir més informació sobre els recursos cercats. Aquests recursos han estat seleccionats per la rellevància que tenen i perquè ofereixen accés lliure (gratuït) a tots o part dels continguts.</message>
 	<message key="rt.context.searchTerms">Termes de la cerca</message>
 	<message key="rt.context.termToDefine">Paraula per definir</message>
 	<message key="rt.context.title">Títol</message>
 	<message key="rt.emailAuthor">Envia un correu electrònic a l’autor/a</message>
-	<message key="rt.email.needLogin"><![CDATA[* Requereix estar <a target="_parent" href="{$loginUrl}">registrat/ada</a>.]]></message>
+	<message key="rt.email.needLogin"><![CDATA[* Requereix <a target="_parent" href="{$loginUrl}">registre</a>.]]></message>
 	<message key="rt.email.sent">S’ha enviat el missatge.</message>
 	<message key="rt.findingReferences">Cerca de referències</message>
 	<message key="rt.findingReferences.googleScholar">Google Acadèmic</message>
@@ -139,17 +141,17 @@
 	<message key="rt.metadata.pkp.abstract">Resum</message>
 	<message key="rt.metadata.pkp.copyright">Copyright i permisos</message>
 	<message key="rt.metadata.pkp.coverage">Ubicació geospacial, període cronològic, mostra de recerca (gènere, edat, etc.)</message>
-	<message key="rt.metadata.pkp.date">(AAAA-MM-DD)</message>
+	<message key="rt.metadata.pkp.date">(DD-MM-AAAA)</message>
 	<message key="rt.metadata.pkp.discipline">Disciplines</message>
 	<message key="rt.metadata.pkp.format">Format del fitxer</message>
 	<message key="rt.metadata.pkp.genre"><![CDATA[Estat i gènere]]></message>
 	<message key="rt.metadata.pkpItem">Elements de metadades del PKP</message>
 	<message key="rt.metadata.pkp.language">Anglès=en</message>
 	<message key="rt.metadata.pkp.publisher">Agència organitzadora, ubicació</message>
-	<message key="rt.metadata.pkp.source">Títol de la revista o conferència, vol., núm. (any)</message>
+	<message key="rt.metadata.pkp.source">Títol, vol., núm. (any)</message>
 	<message key="rt.metadata.pkp.sponsors">Patrocinadors/ores</message>
-	<message key="rt.metadata.pkp.subjectClass">Classificació per matèries</message>
-	<message key="rt.metadata.pkp.subject">Paraula/es clau</message>
+	<message key="rt.metadata.pkp.subjectClass">Classificació per temes</message>
+	<message key="rt.metadata.pkp.subject">Paraules clau</message>
 	<message key="rt.metadata.pkp.suppFiles">Fitxers add.</message>
 	<message key="rt.metadata.pkp.title">Títol del document</message>
 	<message key="rt.metadata.pkp.type">Tipus</message>
@@ -163,19 +165,18 @@
 	<message key="rt.search.order">Ordena</message>
 	<message key="rt.search">Cerca</message>
 	<message key="rt.search.searchPost">Publica les dades</message>
-	<message key="rt.search.searchUrl">Cerca un URL</message>
-	<message key="rt.search.suggest">Suggereix una font</message>
+	<message key="rt.search.searchUrl">Cerqueu un URL</message>
+	<message key="rt.search.suggest">Suggeriu una font</message>
 	<message key="rt.search.title">Títol</message>
 	<message key="rt.search.url">URL</message>
 	<message key="rt.suppFiles.download">Descarrega</message>
 	<message key="rt.suppFiles">Fitxers addicionals</message>
-	<message key="rt.suppFiles.viewMetadata">Metadades d’indexació</message>
+	<message key="rt.suppFiles.viewMetadata">Metadades indexades</message>
 	<message key="rt.version.description">Descripció</message>
 	<message key="rt.version.key">Clau</message>
 	<message key="rt.version.locale">Configuració regional</message>
 	<message key="rt.versions">Conjunts d’elements relacionats</message>
 	<message key="rt.version.title">Títol</message>
 	<message key="rt.version">Versió</message>
-	<message key="rt.viewMetadata">Metadades d’indexació</message>
-	<message key="rt.admin.settings.viewReviewPolicy">Vegeu la política de revisión</message>
+	<message key="rt.viewMetadata">Metadades indexades</message>
 </locale> 

@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
-
 <!--
   * plugins/metadata/dc11/locale/ca_ES/locale.xml
   *
-  * Copyright (c) 2013-2014 Simon Fraser University Library
+  * Copyright (c) 2014 Simon Fraser University Library
   * Copyright (c) 2003-2014 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Credits: http://pkp.sfu.ca/wiki/index.php?title=OJS:_Catalan_%28ca_ES%29
   *
   * Localization strings for the ca_ES (Català) locale.
   -->
  
 <locale name="ca_ES" full_name="Català">
 	<!-- plug-in -->
-	<message key="plugins.metadata.dc11.displayName">Dublin Core 1.1 meta-data</message>
-	<message key="plugins.metadata.dc11.description">Contributes Dublin Core version 1.1 schemas and application adapters.</message>
-</locale>
+	<message key="plugins.metadata.dc11.displayName">Metadades Dublin Core 1.1</message>
+	<message key="plugins.metadata.dc11.description">Contribueix als esquemes i adaptacions d'aplicacions Dublin Core versió 1.1.</message>
+</locale> 

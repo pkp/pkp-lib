@@ -1,36 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
-
 <!--
   * locale/ca_ES/admin.xml
   *
-  * Copyright (c) 2013-2014 Simon Fraser University Library
+  * Copyright (c) 2014 Simon Fraser University Library
   * Copyright (c) 2000-2014 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
+  * Credits: http://pkp.sfu.ca/wiki/index.php?title=OJS:_Catalan_%28ca_ES%29
+  *
   * Localization strings for the ca_ES (Català) locale.
+  *
   -->
 
 <locale name="ca_ES" full_name="Català">
 	<message key="admin.adminFunctions">Funcions administratives</message>
-	<message key="admin.auth.confirmDelete">Esteu segur/a que voleu suprimir aquesta font d’autenticació de manera permanent?</message>
+	<message key="admin.auth.confirmDelete">Esteu segurs que voleu suprimir aquesta font d’autenticació de manera permanent?</message>
 	<message key="admin.auth.create">Crea una font d’autenticació</message>
 	<message key="admin.auth.noneCreated">No s’ha definit cap font d’autenticació.</message>
 	<message key="admin.authSources">Fonts d’autenticació</message>
 	<message key="admin.clearDataCache">Esborra la memòria cau de dades</message>
 	<message key="admin.clearTemplateCache">Esborra la memòria cau de plantilles</message>
 	<message key="admin.configFileUpdatedInstructions"><![CDATA[El fitxer de configuració s’ha actualitzat amb èxit. Si el lloc web deixa de funcionar correctament haureu de modificar la configuració de manera manual editant el fitxer <tt>config.inc.php</tt> directament.]]></message>
-	<message key="admin.confirmClearTemplateCache">Esteu segur/a que voleu esborrar la memòria cau de les plantilles compilades?</message>
-	<message key="admin.confirmExpireSessions">Esteu segur/a que voleu fer vèncer totes les sessions d’usuari/ària. Si ho feu, tots els usuaris/àries que hagin iniciat sessió en el sistema, entre els quals us incloeu, hauran de tornar a iniciar la sessió.</message>
+	<message key="admin.confirmClearTemplateCache">Esteu segurs que voleu esborrar la memòria cau de les plantilles compilades?</message>
+	<message key="admin.confirmExpireSessions">Esteu segurs que voleu tancar totes les sessions d’usuari/ària? Si ho feu, tots els usuaris/àries que hagin iniciat sessió en el sistema, entre els quals us incloeu, hauran de tornar a iniciar la sessió.</message>
 	<message key="admin.contentsOfConfigFile">Continguts del fitxer de configuració</message>
 	<message key="admin.currentVersion">Versió actual</message>
 	<message key="admin.dateInstalled">Data d’instal·lació</message>
-	<message key="admin.displayConfigFileInstructions"><![CDATA[A continuació es mostra el contingut de la configuració actualitzada. Per a aplicar els canvis a la configuració heu d’obrir el fitxer <tt>config.inc.php</tt> en un editor de textos adequat i reemplaçar-ne el contingut amb el contingut del camp de text que es mostra a continuació.]]></message>
+	<message key="admin.displayConfigFileInstructions"><![CDATA[A continuació es mostra el contingut de la configuració actualitzada. Per aplicar els canvis a la configuració heu d’obrir el fitxer <tt>config.inc.php</tt> en un editor de textos adequat i reemplaçar-ne el contingut amb el contingut del camp de text que es mostra a continuació.]]></message>
 	<message key="admin.displayNewSystemConfig">Visualitza la nova configuració</message>
-	<message key="admin.expireSessions">Tanca les sessions de l’usuari/ària</message>
-	<message key="admin.languages.confirmReload">Esteu segur/a que voleu actualitzar aquesta configuració regional? Si ho feu, s’esborraran totes les dades específiques d’aquesta configuració, com ara les plantilles de correu electrònic personalitzades.</message>
+	<message key="admin.expireSessions">Tanca les sessions dels usuaris/àries</message>
+	<message key="admin.languages.confirmReload">Esteu segurs que voleu recarregar aquesta configuració regional? Si ho feu, s’esborraran totes les dades específiques d’aquesta configuració regional, com ara les plantilles de correu electrònic personalitzades.</message>
 	<message key="admin.languages.installedLocales">Configuracions regionals instal·lades</message>
-	<message key="admin.languages.installLanguages">Gestiona les configuracions regionals</message>
+	<message key="admin.languages.installLanguages">Administra les configuracions regionals</message>
 	<message key="admin.languages.installLocales">Instal·la</message>
 	<message key="admin.languages.installNewLocales">Instal·la configuracions regionals noves</message>
 	<message key="admin.languages.languageSettings">Paràmetres de la llengua</message>
@@ -38,6 +40,7 @@
 	<message key="admin.languages.reload">Torna a carregar la configuració regional</message>
 	<message key="admin.languages.uninstall">Desinstal·la la configuració regional</message>
 	<message key="admin.phpInfo">Informació de PHP ampliada</message>
+	<message key="admin.scheduledTask">Tasques planificades</message>
 	<message key="admin.server.apacheVersion">Versió d’Apache</message>
 	<message key="admin.server.dbDriver">Controlador de la base de dades</message>
 	<message key="admin.server.dbVersion">Versió del servidor de la base de dades</message>
@@ -45,26 +48,29 @@
 	<message key="admin.serverInformation">Informació del servidor</message>
 	<message key="admin.server.phpVersion">Versió de PHP</message>
 	<message key="admin.server.platform">Plataforma del SO</message>
+	<message key="admin.settings">Configuració</message>
 	<message key="admin.settings.aboutDescription">Sobre la descripció del lloc web</message>
 	<message key="admin.settings.contactEmail">Correu electrònic del contacte principal</message>
 	<message key="admin.settings.contactName">Nom del contacte principal</message>
-	<message key="admin.settings.form.contactEmailRequired">Heu d’introduir el correu electrònic del contacte principal.</message>
-	<message key="admin.settings.form.contactNameRequired">Heu d’introduir el nom del contacte principal.</message>
-	<message key="admin.settings.form.minPasswordLengthRequired">Heu d’introduir una contrasenya de quatre caràcters com a mínim.</message>
-	<message key="admin.settings.form.titleRequired">Heu d'introduir un títol.</message>
+	<message key="admin.settings.form.contactEmailRequired">Cal que introduïu el correu electrònic del contacte principal.</message>
+	<message key="admin.settings.form.contactNameRequired">Cal que introduïu el nom del contacte principal.</message>
+	<message key="admin.settings.form.minPasswordLengthRequired">Cal que introduïu una contrasenya de quatre caràcters com a mínim.</message>
+	<message key="admin.settings.form.titleRequired">Cal que introduïu un títol.</message>
 	<message key="admin.settings.homeHeaderImage.altText">Logotip del lloc web</message>
 	<message key="admin.settings.homeHeaderImageInvalid">El format de la imatge per al logotip del lloc web no és vàlid. Els formats admesos són .gif, .jpg i .png.</message>
 	<message key="admin.settings.introduction">Introducció</message>
 	<message key="admin.settings.minPasswordLength">Longitud mínima de la contrasenya</message>
-	<message key="admin.settings.oaiRegistration">Registra el lloc web per a la indexació (recopilació de dades)</message>
+	<message key="admin.settings.oaiRegistration">Registra el lloc web per a la indexació (recopilació de metadades)</message>
 	<message key="admin.settings.passwordCharacters">caràcters</message>
 	<message key="admin.settings.siteLanguage">Llengua del lloc web</message>
 	<message key="admin.settings.siteStyleSheetInvalid">El format del full d’estil del lloc web no és vàlid. El format admès és .css.</message>
 	<message key="admin.settings.siteStyleSheet">Full d’estil del lloc web</message>
+	<message key="admin.settings.siteTheme">Tema del lloc web</message>
 	<message key="admin.settings.siteTitle">Títol del lloc web</message>
 	<message key="admin.siteAdmin">Administració del lloc web</message>
 	<message key="admin.siteManagement">Administració del lloc web</message>
-	<message key="admin.siteSettings">Paràmetres del lloc web</message>
+	<message key="admin.siteSettings">Configuració del lloc web</message>
+	<message key="admin.siteSetup">Desplegament del lloc web</message>
 	<message key="admin.systemConfigFileReadError"><![CDATA[El fitxer de configuració <tt>config.inc.php</tt> no existeix, no es pot llegir o no és vàlid.]]></message>
 	<message key="admin.systemInformation">Informació del sistema</message>
 	<message key="admin.versionBuild">Muntatge</message>
@@ -77,10 +83,20 @@
 	<message key="admin.versionMinor">Secundària</message>
 	<message key="admin.version.moreInfo">Més informació</message>
 	<message key="admin.versionRevision">Revisió</message>
-	<message key="admin.version.updateAvailable">Hi ha una versió actualitzada disponible.</message>
-	<message key="admin.version.upToDate">El sistema està actualitzat.</message>
+	<message key="admin.version.updateAvailable">Hi ha una versió actualitzada disponible</message>
+	<message key="admin.version.upToDate">El sistema està actualitzat</message>
 	<message key="admin.version">Versió</message>
-	<message key="admin.settings">Configuració</message>
-	<message key="admin.settings.siteTheme">Tema del lloc</message>
-	<message key="admin.siteSetup">Instal·lació</message>
+	
+	<message key="admin.fileLoader.wrongBasePathLocation">Cal que la ruta base {$path} sigui dins del directori de fitxers públics.</message>
+	<message key="admin.fileLoader.pathNotAccessible">El directori {$path} no és un directori o no es pot llegir.</message>
+	<message key="admin.fileLoader.moveFileFailed">El fitxer {$filename} no s'ha pogut moure de {$currentFilePath} a {$destinationPath}</message>
+	<message key="admin.fileLoader">Carregador de fitxers</message>
+	<message key="admin.scheduledTask.startTime">S'ha iniciat la tasca.</message>
+	<message key="admin.scheduledTask.stopTime">S'ha aturat la tasca.</message>
+	<message key="admin.scheduledTask.noLog">La tasca no ha generat cap registre (log).</message>
+	<message key="admin.scheduledTask.openAccessNotification">Notifiació d'accès obert</message>
+	<message key="admin.scheduledTask.reviewReminder">Recordatori de revisió</message>
+	<message key="admin.scheduledTask.subscriptionExpiryReminder">Recordatori de caducitat de la subscripció</message>
+	<message key="admin.settings.oneStepReset">Utilitzar reiniciat de paraules clau en un sol pas?</message>
+	<message key="admin.fileLoader.fileProcessed">El fitxer {$filename} ha estat processat i arxivat.</message>
 </locale> 

@@ -31,18 +31,14 @@ class PKPRequestTest extends PKPTestCase {
 		$this->request = new PKPRequest();
 
 		// Save the config data for testTrustXForwardedFor tests
-		if (is_null($this->getRemoteAddrTestConfigData) && strpos($this->getName(), 'testTrustXForwardedFor') === 0) {
-			$this->getRemoteAddrTestConfigData = Registry::get('configData');
-		}
+		$this->getRemoteAddrTestConfigData = Registry::get('configData');
 	}
 
 	public function tearDown() {
 		HookRegistry::resetCalledHooks();
 
 		// Restore the config data after testTrustXForwardedFor tests
-		if (strpos($this->getName(), 'testTrustXForwardedFor') === 0) {
-			Registry::set('configData', $this->getRemoteAddrTestConfigData);
-		}
+		Registry::set('configData', $this->getRemoteAddrTestConfigData);
 	}
 
 	/**

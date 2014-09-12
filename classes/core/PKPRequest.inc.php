@@ -335,14 +335,21 @@ class PKPRequest {
 	 */
 	function getServerHost($default = 'localhost') {
 		$_this =& PKPRequest::_checkThis();
-
-		if (!isset($_this->_serverHost)) {
-			$_this->_serverHost = isset($_SERVER['HTTP_X_FORWARDED_HOST']) ? $_SERVER['HTTP_X_FORWARDED_HOST']
-				: (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST']
-				: (isset($_SERVER['HOSTNAME']) ? $_SERVER['HOSTNAME']
-				: $default));
-			HookRegistry::call('Request::getServerHost', array(&$_this->_serverHost));
-		}
+        if (!isset($_this->_serverHost)) {
+            $base_url = Config::getVar('general', 'base_url');
+            if ('' !== $base_url) {
+                $parts = parse_url($base_url);
+                if (false !== $parts) {
+                    $_this->_serverHost = $parts['host'];
+                } else {
+                    $_this->_serverHost = isset($_SERVER['HTTP_X_FORWARDED_HOST']) ? $_SERVER['HTTP_X_FORWARDED_HOST']
+                            : (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST']
+                            : (isset($_SERVER['HOSTNAME']) ? $_SERVER['HOSTNAME']
+                            : $default));
+                }
+            }
+            HookRegistry::call('Request::getServerHost', array(&$_this->_serverHost));
+        }
 		return $_this->_serverHost;
 	}
 

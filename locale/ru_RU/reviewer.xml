@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/ru_RU/reviewer.xml
+  *
+  * Copyright (c) 2014 Simon Fraser University Library
+  * Copyright (c) 2000-2014 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the ru_RU (Russian) locale.
+  * With updates from Pavel Pisklakov (revising translation). 
+  -->
+
+<locale name="ru_RU" full_name="Russian">
+	<!-- Используется в процессе рецензирования -->
+	<message key="reviewer.reviewSteps.request">1. Запрос</message>
+	<message key="reviewer.reviewSteps.guidelines">2. Руководство</message>
+	<message key="reviewer.reviewSteps.download">3. Скачать и рецензировать</message>
+	<message key="reviewer.reviewSteps.completion">4. Завершение</message>
+	<message key="reviewer.step1.request">Запрос на рецензию</message>
+	<message key="reviewer.step1.requestBoilerplate">Вы были выбраны в качестве потенциального рецензента для следующего материала. Ниже приведено описание материала и сроки выполнения этой рецензии. Мы надеемся, что вы сможете принять участие в рецензировании.</message>
+	<message key="reviewer.step1.viewAllDetails">Показать всю информацию о материале</message>
+	<message key="reviewer.submission.reviewerFiles">Файлы рецензента</message>
+	<message key="reviewer.submission.declineReview">Отклонить запрос на рецензию</message>
+	<message key="reviewer.submission.declineReviewMessage">Вы можете описать для редактора причины вашего отказа от рецензирования этого материала в поле ниже.</message>
+	<message key="reviewer.submission.acceptReview">Согласиться на рецензирование, перейти к шагу 2</message>
+	<message key="reviewer.submission.continueToStepThree">Перейти к шагу 3</message>
+	<message key="reviewer.submission.submitReview">Отправить рецензию</message>
+	<message key="reviewer.submission.reviewerGuidelines">Руководство для рецензентов</message>
+	<message key="reviewer.submission.enterCompetingInterests">У данного издателя есть политика раскрытия потенциального конфликта интересов для его рецензентов. Пожалуйста, ознакомьтесь с этой политикой.</message>
+	<message key="reviewer.submission.noCompetingInterests">У меня нет конфликта интересов</message>
+	<message key="reviewer.submission.hasCompetingInterests">У меня может быть конфликт интересов (опишите ниже)</message>
+	<message key="reviewer.submission.competingInterests">Конфликт интересов</message>
+	<message key="reviewer.submission.guidelines">Руководство для рецензентов</message>
+	<message key="reviewer.submission.noGuidelines">Данный издатель не создал руководство для рецензентов.</message>
+	<message key="reviewer.submission.downloadDescription">Щелкойте на именах файлов, чтобы скачать и отрецензировать (на экране или в бумажном виде) файлы, связанные с этой отправкой.</message>
+	<message key="reviewer.submission.reviewDescription">Введите (или вставьте) вашу рецензию для этой отправки в форме ниже.</message>
+	<message key="reviewer.submission.uploadDescription">В качестве дополнения вы можете загрузить файлы для редактора и/или автора, чтобы проконсультироваться (включая откорректированные версии оригинальных рецензируемых файлов).</message>
+	<message key="reviewer.complete">Рецензия отправлена</message>
+	<message key="reviewer.confirmSubmit">Вы уверены, что хотите отправить эту рецензию?</message>
+	<message key="reviewer.complete.whatNext">Благодарим вас за рецензирование данного материала. Ваша рецензия была успешно отправлена. Мы высоко ценим ваш вклад в качество работ, которые мы публикуем; если понадобится, редактор может связаться с вами снова для получения более подробной информации.</message>
+	<message key="reviewer.aboutDueDates">О сроках выполнения</message>
+	<message key="reviewer.aboutDueDates.text">Редактор просит вас принять или отклонить запрос на рецензию до даты согласия на рецензирование и выполнить рецензию до срока выполнения рецензии.</message>
+
+</locale>

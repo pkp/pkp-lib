@@ -1,71 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
-
 <!--
   * locale/es_ES/installer.xml
   *
-  * Copyright (c) 2013-2014 Simon Fraser University Library
+  * Copyright (c) 2014 Simon Fraser University Library
   * Copyright (c) 2000-2014 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the es_ES (Español) locale.
+  * Credits: http://pkp.sfu.ca/wiki/index.php?title=OJS:_Spanish_%28es_ES%29
+  *
+  * Localization strings for the es_ES (Español (España)) locale.
+  *
   -->
 
-<locale name="es_ES" full_name="Español">
+<locale name="es_ES" full_name="Español (España)">
 	<message key="installer.additionalLocales">Más configuraciones regionales</message>
-	<message key="installer.administratorAccount">Cuenta del administrador/a</message>
-	<message key="installer.administratorAccountInstructions">Esta cuenta de usuario/a será del administrador/a del sitio y tendrá total acceso al sistema. Tras la instalación se pueden crear cuentas de usuario/a adicionales.</message>
-	<message key="installer.checkNo"><![CDATA[<span class="formError">NO</span>]]></message>
+	<message key="installer.administratorAccount">Cuenta de administrador/a</message>
+	<message key="installer.administratorAccountInstructions">Esta cuenta de usuario/a será el administrador/a del sitio y tendrá total acceso al sistema. Tras la instalación se pueden crear cuentas de usuario/a adicionales.</message>
+	<message key="installer.checkNo"><![CDATA[<span class="pkp_form_error formError">NO</span>]]></message>
 	<message key="installer.checkYes">Sí</message>
 	<message key="installer.clientCharset">Juego de caracteres del cliente</message>
-	<message key="installer.clientCharsetInstructions">La codificación que debe utilizarse para los datos enviados a los navegadores y recibidos desde ellos.</message>
+	<message key="installer.clientCharsetInstructions">La codificación que debe utilizarse para los datos enviados y recibidos desde los navegadores.</message>
 	<message key="installer.configFileError"><![CDATA[El archivo de configuración <tt>config.inc.php</tt> no existe o no se puede leer.]]></message>
 	<message key="installer.connectionCharset">Juego de caracteres de la conexión</message>
-	<message key="installer.connectionCharsetInstructions">La codificación que debe utilizar para los datos enviados a la base de datos y recibidos desde ella. Debería ser la misma que el juego de caracteres del cliente. Tenga en cuenta que esto sólo se puede hacer en la versión 4.1.1 o superior de MySQL o en la 7.1 o superior de PostgreSQL. Seleccione "No aplicable" si su servidor de base de datos no cumple estos requisitos.</message>
+	<message key="installer.connectionCharsetInstructions">La codificación que debe utilizarse para los datos enviados y recibidos desde la base de datos. Debería ser la misma que la del juego de caracteres del cliente. Nótese que esta funcionalidad sólo es compatible con MySQL &amp;gt;= 4.1.1 o PostgreSQL &amp;gt;= 7.1. Seleccione "No aplicable" si su servidor de base de datos no cumple estos requisitos.</message>
 	<message key="installer.contentsOfConfigFile">Contenidos del archivo de configuración</message>
 	<message key="installer.createDatabase">Crear nueva base de datos</message>
-	<message key="installer.createDatabaseInstructions">Para utilizar esta opción, el sistema de la base de datos debe soportar la creación de bases de datos remotas y su cuenta de usuario/a debe tener los permisos necesarios para crear bases de datos nuevas. Si la instalación falla con esta opción activada, cree la base de datos manualmente en su servidor y ejecute de nuevo el instalador con la opción deshabilitada.</message>
+	<message key="installer.createDatabaseInstructions">Para utilizar esta opción, el sistema de la base de datos debe ser compatible con la creación de bases de datos remotas y su cuenta de usuario/a debe tener los permisos necesarios para crear nuevas bases de datos. Si la instalación falla con esta opción activada, cree la base de datos manualmente en su servidor y ejecute de nuevo el instalador con la opción deshabilitada.</message>
 	<message key="installer.databaseCharset">Juego de caracteres de la base de datos</message>
-	<message key="installer.databaseCharsetInstructions">La codificación que debe utilizar para los datos guardados en la base de datos. Tenga en cuenta que esto sólo se puede hacer en la versión 4.1.1 o superior de MySQL o en la 7.1 o superior de PostgreSQL. Seleccione "No aplicable" si su servidor de base de datos no cumple estos requisitos.</message>
-	<message key="installer.databaseDriver">Controlador de la base de datos</message>
-	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Los controladores de bases de datos de la lista inferior que aparecen entre corchetes no tienen cargada la versión requerida de PHP. Si se instalan, puede haber errores.</strong><br />Cualquier controlador de bases de datos no soportado de la lista anterior, aparece únicamente con fines académicos y probablemente no funcione.]]></message>
+	<message key="installer.databaseCharsetInstructions">La codificación que debe utilizarse para los datos almacenados en la base de datos. Nótese que esta funcionalidad sólo es compatible con MySQL &amp;gt;= 4.1.1 o PostgreSQL &amp;gt;= 7.1. Seleccione "No aplicable" si su servidor de base de datos no cumple estos requisitos.</message>
+	<message key="installer.databaseDriver">Controlador de bases de datos</message>
+	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Los controladores de bases de datos que se muestran entre paréntesis no poseen la extensión PHP requerida cargada y la instalación podría fallar si la selecciona.</strong><br />Los controladores de bases de datos no compatibles se han mostrado anteriormente sólo con fines académicos y es probable que no funcionen.]]></message>
 	<message key="installer.databaseHost">Host</message>
-	<message key="installer.databaseHostInstructions">Deje el nombre del host en blanco cuando se conecte mediante sockets de dominio y no por TCP/IP. No es necesario hacerlo con MySQL, ya que utiliza automáticamente sockets si se introduce "localhost", pero sí que es necesario con otros servidores de bases de datos, como PostgreSQL.</message>
+	<message key="installer.databaseHostInstructions">Deje el nombre del host en blanco cuando se conecte mediante sockets de dominio y no por TCP/IP. Esto no es necesario con MySQL, ya que utiliza sockets automáticamente si se introduce "localhost", pero sí lo es con otros servidores de bases de datos como PostgreSQL.</message>
 	<message key="installer.databaseName">Nombre de la base de datos</message>
 	<message key="installer.databasePassword">Contraseña</message>
 	<message key="installer.databaseSettings">Configuración de la base de datos</message>
 	<message key="installer.databaseUsername">Nombre de usuario/a</message>
-	<message key="installer.encryptionInstructions">Es recomendable utilizar SHA1 si su sistema lo soporta (se requiere una versión de PHP igual o superior a la 4.3.0)</message>
+	<message key="installer.encryptionInstructions">Se recomienda SHA1 si su sistema es compatible (requiere PHP &amp;gt;= 4.3.0).</message>
 	<message key="installer.encryption">Algoritmo de encriptación de contraseña</message>
-	<message key="installer.filesDir">Directorio de subidas</message>
-	<message key="installer.fileSettings">Configuración de archivos</message>
+	<message key="installer.filesDir">Directorio de cargas</message>
+	<message key="installer.fileSettings">Configuración del archivo</message>
 	<message key="installer.form.clientCharsetRequired">Debe seleccionar un juego de caracteres del cliente.</message>
-	<message key="installer.form.databaseDriverRequired">Debe seleccionar un controlador de base de datos.</message>
-	<message key="installer.form.databaseNameRequired">Se requiere un nombre para la base de datos.</message>
+	<message key="installer.form.databaseDriverRequired">Debe seleccionar un controlador de bases de datos.</message>
+	<message key="installer.form.databaseNameRequired">Se requiere el nombre de la base de datos.</message>
 	<message key="installer.form.emailRequired">Se requiere una dirección de correo electrónico válida para la cuenta de administrador/a.</message>
-	<message key="installer.form.encryptionRequired">Debe seleccionar un algoritmo para encriptar las contraseñas de los usuarios/as.</message>
-	<message key="installer.form.filesDirRequired">Se requiere el directorio que se utilizará para guardar los archivos subidos.</message>
+	<message key="installer.form.encryptionRequired">Debe seleccionar el algoritmo para encriptar las contraseñas de los usuarios/as.</message>
+	<message key="installer.form.filesDirRequired">Se requiere el directorio que se utilizará para guardar los archivos cargados.</message>
 	<message key="installer.form.localeRequired">Debe seleccionar una configuración regional.</message>
 	<message key="installer.form.passwordRequired">Se requiere una contraseña para la cuenta de administrador/a.</message>
 	<message key="installer.form.passwordsDoNotMatch">Las contraseñas de administrador/a no coinciden.</message>
-	<message key="installer.form.separateMultiple">Separar valores múltiples con comas</message>
-	<message key="installer.form.usernameAlphaNumeric">El nombre de usuario/a del administrador/a solo puede contener caracteres alfanuméricos, guiones bajos y guiones y debe empezar y terminar con un carácter alfanumérico.</message>
+	<message key="installer.form.separateMultiple">Separar valores múltiples mediante comas</message>
+	<message key="installer.form.usernameAlphaNumeric">El nombre de usuario/a del administrador/a sólo puede contener caracteres alfanuméricos, guiones y guiones bajos, y debe empezar y terminar con un carácter alfanumérico.</message>
 	<message key="installer.form.usernameRequired">Se requiere un nombre de usuario/a para la cuenta de administrador/a.</message>
-	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>AVISO: Su versión de PHP actual no reúne los requisitos mínimos para la instalación. Se recomienda actualizar PHP a una versión más reciente.</strong>]]></message>
-	<message key="installer.installErrorsOccurred">Se han producido errores durante la instalación.</message>
+	<message key="installer.installationWrongPhp"><![CDATA[<br /><strong>ADVERTENCIA: La versión actual de PHP no cumple los requisitos mínimos para la instalación. Se recomienda actualizar a una versión más reciente de PHP. </strong>]]></message>
+	<message key="installer.installErrorsOccurred">Se han producido errores durante la instalación</message>
 	<message key="installer.installerSQLStatements">Instrucciones para instalar SQL</message>
-	<message key="installer.installFileError"><![CDATA[La instalación del archivo <tt>dbscripts/xml/install.xml</tt> no existe o no se puede leer.]]></message>
-	<message key="installer.installFilesDirError">El directorio especificado para los archivos subidos no existe o no puede escribirse en él.</message>
+	<message key="installer.installFileError"><![CDATA[El archivo de instalación <tt>dbscripts/xml/install.xml</tt> no existe o no se puede leer.]]></message>
+	<message key="installer.installFilesDirError">El directorio especificado para los archivos cargados no existe o no se puede escribir.</message>
 	<message key="installer.installParseDBFileError"><![CDATA[Error al analizar el archivo de instalación de la base de datos <tt>{$file}</tt>.]]></message>
-	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Error al analizar el archivo de la plantilla correo electrónico <tt>{$file}</tt>.]]></message>
+	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Error al analizar el archivo de la plantilla de correo electrónico <tt>{$file}</tt>.]]></message>
+	<message key="installer.installParseFilterConfigFileError"><![CDATA[Error al analizar el archivo de configuración del filtro <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale">Configuración regional</message>
 	<message key="installer.locale.maybeIncomplete">Las configuraciones regionales marcadas pueden estar incompletas.</message>
-	<message key="installer.localeSettings">Opciones de configuración regional</message>
-	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Un identificador único utilizado para identificar registros de metadatos indexados a partir de este sitio utilizando la <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protocolo para la recolección de metadatos.]]></message>
-	<message key="installer.oaiRepositoryId">Identificador del repositorio de OAI</message>
-	<message key="installer.publicFilesDirError">El directorio de archivos público no existe o no es escribible.</message>
+	<message key="installer.localeSettings">Configuración regional</message>
+	<message key="installer.oaiSettings">Configuración OAI</message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Un identificador único que se usa para identificar los registros de metadatos indizados desde este sitio mediante <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a>, el protocolo para la recopilación de metadatos.]]></message>
+	<message key="installer.oaiRepositoryId">Identificador de repositorio</message>
+	<message key="installer.publicFilesDirError">El directorio de archivos públicos no existe o no se puede escribir.</message>
 	<message key="installer.releaseNotes">Notas de la versión</message>
 	<message key="installer.securitySettings">Configuración de seguridad</message>
-	<message key="installer.installParseFilterConfigFileError"><![CDATA[Error al procesar el filtro de configuración del fichero <tt>{$file}</tt>.]]></message>
-	<message key="installer.oaiSettings">Configuración de OAI</message>
 </locale> 

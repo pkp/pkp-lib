@@ -1,0 +1,2702 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE subjects SYSTEM "../../dtd/bic21subjects.dtd">
+<!--
+  * locale/es_ES/bic21subjects.xml
+  *
+  * Copyright BIC and Nielsen Book Services Ltd 2010
+  *
+  * Credits: http://pkp.sfu.ca/wiki/index.php?title=OJS:_Spanish_%28es_ES%29
+  *
+  * localized list of BIC 2.1 Subjects
+  * Reference:  http://www.bic.org.uk/7/BIC-Standard-Subject-Categories
+  -->
+
+<subjects>
+	<subject code="A" text="Artes" />
+	<subject code="AB" text="Artes: aspectos generales" />
+	<subject code="ABA" text="Teoría del arte" />
+	<subject code="ABC" text="Conservación, restauración y cuidado de obras de arte" />
+	<subject code="ABK" text="Adulteración, falsificación y sustracción de obras de arte" />
+	<subject code="ABQ" text="Arte: aspectos económicos" />
+	<subject code="AC" text="Historia del arte/estilos de arte y diseño" />
+	<subject code="ACB" text="Estilos de arte no definidos por fecha" />
+	<subject code="ACBK" text="Arte de los pueblos indígenas" />
+	<subject code="ACBN" text="Arte naíf" />
+	<subject code="ACBP" text="Arte oriental" />
+	<subject code="ACBS" text="Arte colonial" />
+	<subject code="ACC" text="Historia del arte: prehistoria" />
+	<subject code="ACG" text="Historia del arte: arte antiguo y clásico, hasta c. 500 e. c." />
+	<subject code="ACK" text="Historia del arte: arte bizantino y medieval, c. 500 e.c.-c. 1400" />
+	<subject code="ACN" text="Historia del arte y estilos de diseño: c. 1400-c. 1600" />
+	<subject code="ACND" text="Arte del Renacimiento" />
+	<subject code="ACNH" text="Estilos de arte y diseño: manierismo" />
+	<subject code="ACQ" text="Historia del arte y estilos de diseño: c. 1600-c. 1800" />
+	<subject code="ACQB" text="Estilos de arte y diseño: barroco" />
+	<subject code="ACQH" text="Estilos de arte y diseño: clasicismo" />
+	<subject code="ACV" text="Historia del arte y estilos de diseño: c. 1800-c. 1900" />
+	<subject code="ACVC" text="Estilos de arte y diseño: romanticismo" />
+	<subject code="ACVM" text="Estilos de arte y diseño: arte prerrafaelista" />
+	<subject code="ACVN" text="Estilos de arte y diseño: estilo de manualidades" />
+	<subject code="ACVT" text="Estilos de arte y diseño: impresionismo y posimpresionismo" />
+	<subject code="ACVY" text="Estilos de arte y diseño: art nouveau (modernismo)" />
+	<subject code="ACX" text="Historia del arte y estilos de diseño: c. 1900-" />
+	<subject code="ACXD" text="Estilos de arte y diseño: c. 1900-c. 1960" />
+	<subject code="ACXD1" text="Estilos de arte y diseño: expresionismo" />
+	<subject code="ACXD2" text="Estilos de arte y diseño: diseño modernista y Bauhaus" />
+	<subject code="ACXD3" text="Estilos de arte y diseño: art déco" />
+	<subject code="ACXD5" text="Estilos de arte y diseño: cubismo" />
+	<subject code="ACXD7" text="Estilos de arte y diseño: surrealismo y dadaísmo" />
+	<subject code="ACXD9" text="Estilos de arte y diseño: expresionismo abstracto" />
+	<subject code="ACXJ" text="Estilos de arte y diseño: c. 1960-" />
+	<subject code="ACXJ1" text="Estilos de arte y diseño: arte pop" />
+	<subject code="ACXJ4" text="Estilos de arte y diseño: minimalismo" />
+	<subject code="ACXJ5" text="Estilos de arte y diseño: arte conceptual" />
+	<subject code="ACXJ8" text="Estilos de arte y diseño: posmodernismo" />
+	<subject code="AF" text="Formas de expresión artística" />
+	<subject code="AFC" text="Pintura y pinturas" />
+	<subject code="AFCC" text="Acuarelas" />
+	<subject code="AFCL" text="Óleos" />
+	<subject code="AFF" text="Dibujo y dibujos" />
+	<subject code="AFH" text="Grabados y arte del grabado" />
+	<subject code="AFJ" text="Otras formas de arte gráfico" />
+	<subject code="AFJD" text="Collage y fotomontaje" />
+	<subject code="AFJG" text="Grafitos y arte callejero" />
+	<subject code="AFK" text="Formas de arte no gráfico" />
+	<subject code="AFKB" text="Escultura" />
+	<subject code="AFKC" text="Tallas: obras de arte" />
+	<subject code="AFKG" text="Metales preciosos, piedras preciosas y alhajas: obras de arte y diseño" />
+	<subject code="AFKN" text="Instalaciones artísticas" />
+	<subject code="AFKP" text="Arte de la performance" />
+	<subject code="AFKV" text="Arte electrónico, holográfico y video arte" />
+	<subject code="AFP" text="Arte cerámico, alfarería y vidrio" />
+	<subject code="AFPC" text="Cerámicas: obras de arte" />
+	<subject code="AFPM" text="Mosaicos: obras de arte" />
+	<subject code="AFPS" text="Vitrales: obras de arte" />
+	<subject code="AFT" text="Artes decorativas" />
+	<subject code="AFTB" text="Arte folclórico" />
+	<subject code="AFTC" text="Artes decorativas celtas" />
+	<subject code="AFW" text="Obras de arte textil" />
+	<subject code="AFWD" text="Obras de arte textil: alfombras y mantas" />
+	<subject code="AFWH" text="Obras de arte textil: tapices, cortinas y colchas" />
+	<subject code="AFY" text="Arte corporal y tatuajes" />
+	<subject code="AG" text="Tratamientos y materias artísticas" />
+	<subject code="AGB" text="Artistas, monografías sobre el arte" />
+	<subject code="AGC" text="Catálogos de exposiciones y colecciones específicas" />
+	<subject code="AGH" text="Figuras humanas representadas en el arte" />
+	<subject code="AGHF" text="Retratos representados en el arte" />
+	<subject code="AGHN" text="Desnudos representados en el arte" />
+	<subject code="AGHX" text="Arte erótico" />
+	<subject code="AGK" text="Escenas domésticas, seculares y a pequeña escala representadas en el arte" />
+	<subject code="AGN" text="Animales y naturaleza en el arte (naturalezas muertas, paisajes terrestres y marinos, etc.)" />
+	<subject code="AGNB" text="Arte botánico" />
+	<subject code="AGP" text="Objetos creados por el hombre representados en el arte (paisajes urbanos, máquinas, etc.)" />
+	<subject code="AGR" text="Temas religiosos representados en el arte" />
+	<subject code="AGZ" text="Técnicas y principios artísticos" />
+	<subject code="AJ" text="Fotografía y fotografías" />
+	<subject code="AJB" text="Fotógrafos" />
+	<subject code="AJC" text="Fotografías: colecciones" />
+	<subject code="AJCP" text="Fotografías: retratos" />
+	<subject code="AJCR" text="Fotoperiodismo" />
+	<subject code="AJCX" text="Fotografía erótica y de desnudos" />
+	<subject code="AJG" text="Equipos y técnicas fotográficas" />
+	<subject code="AJR" text="Tipos especiales de fotografía" />
+	<subject code="AJRD" text="Cinematografía, manejo de la cámara de televisión" />
+	<subject code="AJRH" text="Vídeo filmación" />
+	<subject code="AJRK" text="Fotografía aérea" />
+	<subject code="AK" text="Arte y diseño industrial/comercial" />
+	<subject code="AKB" text="Diseñadores" />
+	<subject code="AKC" text="Diseño gráfico" />
+	<subject code="AKD" text="Tipografías y rotulación" />
+	<subject code="AKH" text="Diseño de libros" />
+	<subject code="AKL" text="Ilustración y arte comercial" />
+	<subject code="AKLB" text="Ilustración" />
+	<subject code="AKLC" text="Cómic y caricatura" />
+	<subject code="AKLC1" text="Novela gráfica y manga como obra de arte" />
+	<subject code="AKLP" text="Pósteres y carteles" />
+	<subject code="AKP" text="Diseño de productos" />
+	<subject code="AKR" text="Diseño de muebles" />
+	<subject code="AKT" text="Moda y textiles: diseño" />
+	<subject code="AKTA" text="Diseño y teoría de la moda" />
+	<subject code="AKTH" text="Historia de la moda" />
+	<subject code="AKTX" text="Diseño y teoría de los textiles" />
+	<subject code="AM" text="Arquitectura" />
+	<subject code="AMA" text="Teoría de la arquitectura" />
+	<subject code="AMB" text="Arquitectos y estudios de arquitectura" />
+	<subject code="AMC" text="Estructura y diseño arquitectónicos" />
+	<subject code="AMCR" text="Arquitectura y diseño ecológicos" />
+	<subject code="AMD" text="Arquitectura: ejercicio profesional" />
+	<subject code="AMG" text="Edificios públicos: municipales, comerciales, industriales, etc." />
+	<subject code="AMGC" text="Salas de concierto, arenas, estadios" />
+	<subject code="AMGD" text="Monumentos conmemorativos y otros" />
+	<subject code="AMK" text="Edificios residenciales, edificios destinados al uso doméstico" />
+	<subject code="AMKD" text="Casas, pisos, apartamentos, etc." />
+	<subject code="AMKH" text="Palacios, mansiones, casas solariegas" />
+	<subject code="AMKL" text="Castillos y fortificaciones" />
+	<subject code="AMN" text="Edificios religiosos" />
+	<subject code="AMR" text="Diseño profesional de interiores" />
+	<subject code="AMV" text="Paisajismo y arquitectura" />
+	<subject code="AMVD" text="Urbanismo y urbanización: aspectos arquitectónicos" />
+	<subject code="AMX" text="Historia de la arquitectura" />
+	<subject code="AN" text="Estudios teatrales" />
+	<subject code="ANB" text="Teatro: actores y directores" />
+	<subject code="ANC" text="Técnicas de actuación" />
+	<subject code="ANF" text="Dirección y producción de teatro" />
+	<subject code="ANH" text="Teatro: capacidades técnicas y de ambientación escénica" />
+	<subject code="ANS" text="Gestión teatral" />
+	<subject code="AP" text="Cine, televisión y radio" />
+	<subject code="APB" text="Actores e intérpretes" />
+	<subject code="APF" text="Películas, cine" />
+	<subject code="APFA" text="Teoría y crítica cinematográficas" />
+	<subject code="APFB" text="Directores de cine y cineastas" />
+	<subject code="APFD" text="Guiones cinematográficos" />
+	<subject code="APFG" text="Guías y críticas de cine" />
+	<subject code="APFN" text="Cine: estilos y géneros" />
+	<subject code="APFR" text="Películas documentales" />
+	<subject code="APFV" text="Películas animadas" />
+	<subject code="APFX" text="Producción cinematográfica: capacidades técnicas y de ambientación escénica" />
+	<subject code="APT" text="Televisión" />
+	<subject code="APTD" text="Guiones televisivos" />
+	<subject code="APTS" text="Telenovelas" />
+	<subject code="APTX" text="Producción de televisión: capacidades técnicas y de ambientación escénica" />
+	<subject code="APW" text="Radio" />
+	<subject code="APWD" text="Guiones de radio" />
+	<subject code="AS" text="Danza y otras artes escénicas" />
+	<subject code="ASD" text="Danza" />
+	<subject code="ASDC" text="Coreografía" />
+	<subject code="ASDL" text="Ballet" />
+	<subject code="ASDR" text="Baile de salón" />
+	<subject code="ASDT" text="Danza contemporánea" />
+	<subject code="ASDX" text="Danza folclórica" />
+	<subject code="ASZ" text="Otras artes escénicas" />
+	<subject code="ASZB" text="Artes escénicas: comedia" />
+	<subject code="ASZC" text="Pantomima" />
+	<subject code="ASZD" text="Teatro callejero" />
+	<subject code="ASZG" text="Prestidigitación y magia" />
+	<subject code="ASZH" text="Espectáculos de variedades, music hall y cabaré" />
+	<subject code="ASZJ" text="Malabarismo" />
+	<subject code="ASZM" text="Teatro de títeres, marionetas y teatrillos" />
+	<subject code="ASZP" text="Espectáculos públicos, desfiles y festivales" />
+	<subject code="ASZW" text="Circo" />
+	<subject code="ASZX" text="Espectáculos con animales" />
+	<subject code="AV" text="Música" />
+	<subject code="AVA" text="Teoría de la música y musicología" />
+	<subject code="AVC" text="Reseñas y crítica musicales" />
+	<subject code="AVD" text="Discografías y guías de compra" />
+	<subject code="AVG" text="Música: estilos y géneros" />
+	<subject code="AVGC" text="Música &quot;clásica&quot; occidental" />
+	<subject code="AVGC1" text="Música antigua (hasta c. 1000 e. c.)" />
+	<subject code="AVGC2" text="Música medieval y renacentista (c. 1000-c. 1600)" />
+	<subject code="AVGC3" text="Música barroca (c. 1600-c. 1750)" />
+	<subject code="AVGC4" text="Música clásica (c. 1750-c. 1830)" />
+	<subject code="AVGC5" text="Música romance (c. 1830-c. 1900)" />
+	<subject code="AVGC6" text="Música clásica del siglo XX y contemporánea" />
+	<subject code="AVGC8" text="Música coral" />
+	<subject code="AVGC9" text="Ópera" />
+	<subject code="AVGD" text="Música sacra y religiosa" />
+	<subject code="AVGE" text="Música no occidental: tradicional y &quot;clásica&quot;" />
+	<subject code="AVGF" text="Música orquestal y big band" />
+	<subject code="AVGG" text="Banda de metales, música militar y marchas" />
+	<subject code="AVGH" text="Música folclórica y tradicional" />
+	<subject code="AVGJ" text="Jazz" />
+	<subject code="AVGK" text="Blues" />
+	<subject code="AVGL" text="Música country y western" />
+	<subject code="AVGM" text="Musicales" />
+	<subject code="AVGN" text="Música popular y música ligera" />
+	<subject code="AVGP" text="Música rock y pop" />
+	<subject code="AVGQ" text="Soul y R&amp;amp;B" />
+	<subject code="AVGR" text="Rap y hip hop" />
+	<subject code="AVGS" text="Reggae" />
+	<subject code="AVGT" text="Música heavy metal" />
+	<subject code="AVGU" text="Punk, new wave e indie" />
+	<subject code="AVGV" text="Música electrónica" />
+	<subject code="AVGW" text="Música universal" />
+	<subject code="AVGZ" text="Ambient y new age" />
+	<subject code="AVH" text="Compositores y músicos, bandas y grupos específicos" />
+	<subject code="AVQ" text="Partituras, letras y libretos" />
+	<subject code="AVQS" text="Cancioneros" />
+	<subject code="AVR" text="Instrumentos musicales y conjuntos instrumentales" />
+	<subject code="AVRB" text="Orquestas" />
+	<subject code="AVRD" text="Conjuntos de cámara" />
+	<subject code="AVRG" text="Instrumentos de teclado" />
+	<subject code="AVRJ" text="Instrumentos de percusión" />
+	<subject code="AVRL" text="Instrumentos de cuerda" />
+	<subject code="AVRL1" text="Guitarra" />
+	<subject code="AVRN" text="Instrumentos de viento" />
+	<subject code="AVRQ" text="Instrumentos musicales mecánicos" />
+	<subject code="AVRS" text="Instrumentos musicales electrónicos" />
+	<subject code="AVS" text="Técnicas musicales/clases prácticas" />
+	<subject code="AVX" text="Grabación y reproducción de música" />
+	<subject code="B" text="Biografía e historias reales" />
+	<subject code="BG" text="Biografía: general" />
+	<subject code="BGA" text="Autobiografía: general" />
+	<subject code="BGB" text="Biografía: de negocios e industrias" />
+	<subject code="BGBA" text="Autobiografía: de negocios e industria" />
+	<subject code="BGF" text="Biografía: arte y espectáculo" />
+	<subject code="BGFA" text="Autobiografía: arte y espectáculo" />
+	<subject code="BGH" text="Biografía: histórica, política y militar" />
+	<subject code="BGHA" text="Autobiografía: histórica, política y militar" />
+	<subject code="BGL" text="Biografía: literaria" />
+	<subject code="BGLA" text="Autobiografía: literaria" />
+	<subject code="BGR" text="Biografía: realeza" />
+	<subject code="BGRA" text="Autobiografía: realeza" />
+	<subject code="BGS" text="Biografía: deporte" />
+	<subject code="BGSA" text="Autobiografía: deporte" />
+	<subject code="BGT" text="Biografía: ciencia, tecnología y medicina" />
+	<subject code="BGTA" text="Autobiografía: ciencia, tecnología y medicina" />
+	<subject code="BGX" text="Biografía: religiosa y espiritual" />
+	<subject code="BGXA" text="Autobiografía: religiosa y espiritual" />
+	<subject code="BJ" text="Diarios, cartas y diarios de navegación" />
+	<subject code="BK" text="Antologías de biografías" />
+	<subject code="BM" text="Memorias" />
+	<subject code="BT" text="Historias reales" />
+	<subject code="BTC" text="Crímenes reales" />
+	<subject code="BTH" text="Historias reales: descubrimientos/históricas/científicas" />
+	<subject code="BTM" text="Historias reales de guerra y combate" />
+	<subject code="BTP" text="Historias reales de heroísmo, entereza y supervivencia" />
+	<subject code="BTX" text="Confesiones e historias reales eróticas" />
+	<subject code="C" text="Lenguaje" />
+	<subject code="CB" text="Lenguaje: consulta y general" />
+	<subject code="CBD" text="Diccionarios" />
+	<subject code="CBDX" text="Diccionarios bilingües y multilingües" />
+	<subject code="CBF" text="Tesauros" />
+	<subject code="CBG" text="Guías gramaticales y de uso" />
+	<subject code="CBP" text="Guías de oratoria" />
+	<subject code="CBV" text="Creación literaria y guías de creación literaria" />
+	<subject code="CBVS" text="Técnicas de escritura de guiones" />
+	<subject code="CBW" text="Guías de redacción y corrección de textos" />
+	<subject code="CBWJ" text="Guías de estilo para periodismo" />
+	<subject code="CBWT" text="Escritura técnica" />
+	<subject code="CBX" text="Lenguaje: historia y obras generales" />
+	<subject code="CF" text="lingüística" />
+	<subject code="CFA" text="Filosofía del lenguaje" />
+	<subject code="CFB" text="Sociolingüística" />
+	<subject code="CFC" text="Alfabetismo" />
+	<subject code="CFD" text="Psicolingüística" />
+	<subject code="CFDC" text="Adquisición del lenguaje" />
+	<subject code="CFDM" text="Bilingüismo y multilingüismo" />
+	<subject code="CFF" text="Lingüística histórica y comparada" />
+	<subject code="CFFD" text="Dialecto, jerga" />
+	<subject code="CFG" text="Semántica, análisis del discurso, etc." />
+	<subject code="CFGA" text="Semántica y pragmática" />
+	<subject code="CFGR" text="Análisis del discurso" />
+	<subject code="CFH" text="Fonética, fonología" />
+	<subject code="CFK" text="Gramática, sintaxis y morfología" />
+	<subject code="CFL" text="Paleografía (historia de la escritura)" />
+	<subject code="CFLA" text="Sistemas de escritura, alfabetos" />
+	<subject code="CFM" text="Lexicografía" />
+	<subject code="CFP" text="Traducción e interpretación" />
+	<subject code="CFX" text="Lingüística informática" />
+	<subject code="CFZ" text="Lenguas de signos, braille y otras formas de comunicación lingüística" />
+	<subject code="CJ" text="Enseñanza y aprendizaje de lenguas (distinta al ELT)" />
+	<subject code="CJA" text="Teoría y métodos de enseñanza de lenguas" />
+	<subject code="CJB" text="Material y trabajos de clase para la enseñanza y el aprendizaje de lenguas" />
+	<subject code="CJBG" text="Gramática y vocabulario" />
+	<subject code="CJBR" text="Libros de lectura en lengua extranjera" />
+	<subject code="CJBT" text="Textos de autoestudio de lenguas extranjeras" />
+	<subject code="CJBV" text="Aprendizaje de lenguas: audiovisual y multimedia" />
+	<subject code="CJC" text="Aprendizaje de lenguas: destrezas específicas" />
+	<subject code="CJCK" text="Destrezas de expresión oral/pronunciación" />
+	<subject code="CJCL" text="Destrezas de comprensión auditiva" />
+	<subject code="CJCR" text="Destrezas de lectura" />
+	<subject code="CJCW" text="Destrezas de escritura" />
+	<subject code="D" text="Literatura y estudios literarios" />
+	<subject code="DB" text="Textos clásicos" />
+	<subject code="DC" text="Poesía" />
+	<subject code="DCF" text="Poesía de poetas individuales" />
+	<subject code="DCQ" text="Antologías poéticas (varios poetas)" />
+	<subject code="DD" text="Obras de teatro, textos teatrales" />
+	<subject code="DDS" text="Obras de teatro de Shakespeare" />
+	<subject code="DN" text="Prosa: no ficción" />
+	<subject code="DNF" text="Ensayos literarios" />
+	<subject code="DNJ" text="Reportajes y colección de artículos periodísticos" />
+	<subject code="DNS" text="Discursos" />
+	<subject code="DQ" text="Antologías (no poéticas)" />
+	<subject code="DS" text="Literatura: historia y crítica" />
+	<subject code="DSA" text="Teoría literaria" />
+	<subject code="DSB" text="Estudios literarios: general" />
+	<subject code="DSBB" text="Estudios literarios: clásicos, primitivos y medievales" />
+	<subject code="DSBD" text="Estudios literarios: c. 1500-c. 1800" />
+	<subject code="DSBF" text="Estudios literarios: c. 1800-c. 1900 " />
+	<subject code="DSBH" text="Estudios literarios: c. 1900-" />
+	<subject code="DSBH5" text="Estudios literarios: literatura poscolonial" />
+	<subject code="DSC" text="Estudios literarios: poesía y poetas" />
+	<subject code="DSG" text="Estudios literarios: obras de teatro y dramaturgos" />
+	<subject code="DSGS" text="Estudios y crítica sobre Shakespeare" />
+	<subject code="DSK" text="Estudios literarios: ficción, novelistas y prosistas" />
+	<subject code="DSR" text="Obras de consulta literaria" />
+	<subject code="DSRC" text="Manuales de literatura, reseñas y guías de libros" />
+	<subject code="DSY" text="Estudios de literatura infantil y juvenil" />
+	<subject code="DSYC" text="Reseñas y guías de libros infantiles y juveniles" />
+	<subject code="E" text="Enseñanza del idioma inglés (ELT)" />
+	<subject code="EB" text="Antecedentes y referencias de la ELT" />
+	<subject code="EBA" text="ELT: teoría y métodos de enseñanza" />
+	<subject code="EBAL" text="Lingüística aplicada a la ELT" />
+	<subject code="EBAR" text="Libros de recursos para profesores de la ELT" />
+	<subject code="EBD" text="Diccionarios y referencias de la ELT" />
+	<subject code="EL" text="ELT: material de aprendizaje y trabajo de clase" />
+	<subject code="ELG" text="Gramática, vocabulario y pronunciación de la ELT" />
+	<subject code="ELGG" text="Gramática de la ELT" />
+	<subject code="ELGP" text="Pronunciación de la ELT" />
+	<subject code="ELGV  " text="Vocabulario de la ELT" />
+	<subject code="ELH" text="Lecturas catalogadas de la ELT" />
+	<subject code="ELHB" text="Lecturas de no ficción y de antecedentes de la ELT" />
+	<subject code="ELHF" text="Lecturas de ficción y literarias de la ELT" />
+	<subject code="ELM" text="Recursos y materiales (no libros)" />
+	<subject code="ELP" text="Libros de ejercicios y prácticos de la ELT" />
+	<subject code="ELS" text="Textos de autoaprendizaje de la ELT" />
+	<subject code="ELV" text="Pruebas prácticas de la ELT" />
+	<subject code="ELX" text="ELT: destrezas específicas" />
+	<subject code="ELXD" text="ELT: destrezas de expresión oral" />
+	<subject code="ELXG" text="ELT: destrezas de comprensión auditiva" />
+	<subject code="ELXJ" text="ELT: destrezas de lectura" />
+	<subject code="ELXN" text="ELT: destrezas de escritura" />
+	<subject code="ES" text="ELT: inglés para fines específicos" />
+	<subject code="ESB" text="ELT: inglés comercial" />
+	<subject code="ESF" text="ELT: inglés para fines académicos" />
+	<subject code="EST" text="ELT: inglés para fines técnicos y científicos" />
+	<subject code="ESV" text="ELT: inglés para viajar y comunicarse" />
+	<subject code="F" text="Ficción y temas afines" />
+	<subject code="FA" text="Ficción moderna y contemporánea (posterior a c. 1945)" />
+	<subject code="FC" text="Ficción clásica (anterior a c. 1945)" />
+	<subject code="FF" text="Género policíaco y de misterio" />
+	<subject code="FFC" text="Clásicos policíacos" />
+	<subject code="FFH" text="Misterios históricos" />
+	<subject code="FH" text="Obra de misterio y suspense" />
+	<subject code="FHD" text="Obra de espionaje y espías" />
+	<subject code="FHP" text="Obra de suspense político y judicial" />
+	<subject code="FJ" text="Aventura" />
+	<subject code="FJH" text="Aventura histórica" />
+	<subject code="FJM" text="Ficción de guerra y combate" />
+	<subject code="FJMC" text="Ficción de las guerras napoleónicas" />
+	<subject code="FJMF" text="Ficción de la Primera Guerra Mundial" />
+	<subject code="FJMS" text="Ficción de la Segunda Guerra Mundial" />
+	<subject code="FJMV" text="Ficción de la guerra de Vietnam" />
+	<subject code="FJW" text="Westerns" />
+	<subject code="FK" text="Cuentos de terror y fantasmas" />
+	<subject code="FKC" text="Cuentos clásicos de terror y fantasmas" />
+	<subject code="FL" text="Ciencia ficción" />
+	<subject code="FLC" text="Ciencia ficción clásica" />
+	<subject code="FLS" text="Ópera espacial" />
+	<subject code="FM" text="Fantasía" />
+	<subject code="FMR" text="Fantasía romántica" />
+	<subject code="FP" text="Ficción erótica" />
+	<subject code="FQ" text="Mitos y leyendas narrados como ficción" />
+	<subject code="FR" text="Narrativa romántica" />
+	<subject code="FRD" text="Narrativa romántica adulta y contemporánea" />
+	<subject code="FRH" text="Narrativa romántica histórica" />
+	<subject code="FT" text="Sagas" />
+	<subject code="FV" text="Ficción histórica" />
+	<subject code="FW" text="Ficción religiosa y espiritual" />
+	<subject code="FX" text="Novelas gráficas" />
+	<subject code="FXA" text="Novelas gráficas: manga" />
+	<subject code="FXL" text="Novelas gráficas: literarias y memorias" />
+	<subject code="FXS" text="Novelas gráficas: superhéroes y supervillanos" />
+	<subject code="FXZ" text="Novelas gráficas: historias reales y no ficción" />
+	<subject code="FY" text="Ficción: características especiales" />
+	<subject code="FYB" text="Cuentos" />
+	<subject code="FYT" text="Ficción en la traducción" />
+	<subject code="FZ" text="Conceptos vinculados a la ficción" />
+	<subject code="FZC" text="Manuales de ficción" />
+	<subject code="FZG" text="Novelas gráficas: historia y crítica" />
+	<subject code="G" text="Consulta, información y materias interdisciplinarias" />
+	<subject code="GB" text="Enciclopedias y obras de consulta" />
+	<subject code="GBA" text="Enciclopedias generales" />
+	<subject code="GBC" text="Obras de consulta" />
+	<subject code="GBCB" text="Diccionarios biográficos (Quién es quién)" />
+	<subject code="GBCQ" text="Diccionarios de citas" />
+	<subject code="GBCR" text="Bibliografías, catálogos" />
+	<subject code="GBCS" text="Fascículos, boletines, resúmenes, índices" />
+	<subject code="GBCT" text="Directorios" />
+	<subject code="GBCY" text="Anuarios y almanaques" />
+	<subject code="GBG" text="Consulta geográfica" />
+	<subject code="GBGM" text="Atlas mundiales/mapas del mundo" />
+	<subject code="GBGP" text="Nombres de lugares y diccionarios geográficos" />
+	<subject code="GL" text="Bibliotecas y ciencias de la información" />
+	<subject code="GLC" text="Biblioteca, archivo y gestión de la información" />
+	<subject code="GLF" text="TIC, Internet y recursos electrónicos en bibliotecas" />
+	<subject code="GLH" text="Adquisiciones y desarrollo de colecciones" />
+	<subject code="GLK" text="Control bibliográfico y de materias" />
+	<subject code="GLM" text="Biblioteca y servicios de información" />
+	<subject code="GLMA" text="Bibliotecas académicas y especializadas " />
+	<subject code="GLMB" text="Bibliotecas públicas" />
+	<subject code="GLMC" text="Bibliotecas escolares y servicios para jóvenes lectores/as " />
+	<subject code="GLMG" text="Servicios de consulta" />
+	<subject code="GLML" text="Servicios de circulación (p. ej., préstamos interbibliotecarios)" />
+	<subject code="GLMX" text="Servicios comunitarios y ambulatorios/de extensión bibliotecaria" />
+	<subject code="GLP" text="Archivos, preservación y digitalización&amp;nbsp;" />
+	<subject code="GM" text="Museología y estudios del patrimonio" />
+	<subject code="GP" text="Investigación e información: general" />
+	<subject code="GPF" text="Teoría de la información" />
+	<subject code="GPFC" text="Cibernética y teoría de sistemas" />
+	<subject code="GPH" text="Análisis de datos: general" />
+	<subject code="GPJ" text="Teoría de la codificación y criptología" />
+	<subject code="GPQ" text="Teoría de la decisión: general" />
+	<subject code="GPQD" text="Evaluación de riesgos" />
+	<subject code="GPS" text="Métodos de investigación: general" />
+	<subject code="GT" text="Estudios interdisciplinarios" />
+	<subject code="GTB" text="Estudios regionales" />
+	<subject code="GTC" text="Estudios de comunicación" />
+	<subject code="GTE" text="Semiótica/semiología" />
+	<subject code="GTF" text="Estudios del desarrollo" />
+	<subject code="GTG" text="Estudios generales" />
+	<subject code="GTH" text="Banderas, emblemas, símbolos, logotipos" />
+	<subject code="GTJ" text="Estudios sobre la paz y resolución de conflictos" />
+	<subject code="GTN" text="Instituciones y sociedades eruditas: general" />
+	<subject code="GTR" text="Ciencia cognitiva" />
+	<subject code="H" text="Humanidades" />
+	<subject code="HB" text="Historia" />
+	<subject code="HBA" text="Historia: teoría y métodos" />
+	<subject code="HBAH" text="Historiografía" />
+	<subject code="HBG" text="Historia general y mundial" />
+	<subject code="HBJ" text="Historia regional y nacional" />
+	<subject code="HBJD" text="Historia de Europa" />
+	<subject code="HBJD1" text="Historia de Gran Bretaña e Irlanda" />
+	<subject code="HBJF" text="Historia de Asia" />
+	<subject code="HBJF1" text="Historia de Oriente Próximo" />
+	<subject code="HBJH" text="Historia de África" />
+	<subject code="HBJK" text="Historia de América" />
+	<subject code="HBJM" text="Historia de Australasia y el Pacífico" />
+	<subject code="HBJQ" text="Historia de otras regiones" />
+	<subject code="HBL" text="Historia: primitiva hasta la actualidad" />
+	<subject code="HBLA" text="Historia antigua: hasta c. 500 e. c." />
+	<subject code="HBLA1" text="Historia clásica/civilización clásica" />
+	<subject code="HBLC" text="Historia primitiva: c. 500-c. 1450/1500" />
+	<subject code="HBLC1" text="Historia medieval" />
+	<subject code="HBLH" text="Historia moderna: c. 1450/1500-c 1700" />
+	<subject code="HBLL" text="Historia contemporánea hasta el siglo XX: c. 1700-c. 1900" />
+	<subject code="HBLW" text="Historia del siglo XX: c. 1900-c. 2000" />
+	<subject code="HBLW3" text="Historia de posguerra del siglo XX, c.1945-c. 2000" />
+	<subject code="HBLX" text="Historia del siglo XXI: c. 2000-" />
+	<subject code="HBT" text="Historia: acontecimientos y temas específicos" />
+	<subject code="HBTB" text="Historia social y cultural" />
+	<subject code="HBTD" text="Historia oral" />
+	<subject code="HBTG" text="Genealogía, heráldica, nombres y honores" />
+	<subject code="HBTK" text="Historia de la industria y la industrialización" />
+	<subject code="HBTM" text="Historia marítima" />
+	<subject code="HBTP" text="Geografía histórica" />
+	<subject code="HBTP1" text="Mapas y atlas históricos" />
+	<subject code="HBTQ" text="Colonialismo e imperialismo" />
+	<subject code="HBTR" text="Liberación e independencia nacional, poscolonialismo" />
+	<subject code="HBTS" text="Esclavitud y abolición de la esclavitud" />
+	<subject code="HBTV" text="Revoluciones, levantamientos y rebeliones" />
+	<subject code="HBTV2" text="Revolución francesa" />
+	<subject code="HBTV4" text="Revolución rusa" />
+	<subject code="HBTW" text="La guerra fría" />
+	<subject code="HBTZ" text="Genocidio y limpieza étnica" />
+	<subject code="HBTZ1" text="El Holocausto" />
+	<subject code="HBW" text="Historia militar" />
+	<subject code="HBWC" text="Cruzadas" />
+	<subject code="HBWE" text="Guerra civil inglesa" />
+	<subject code="HBWF" text="Guerra de Independencia de los Estados Unidos" />
+	<subject code="HBWH" text="Guerras napoleónicas" />
+	<subject code="HBWJ" text="Guerra de secesión estadounidense" />
+	<subject code="HBWL" text="Guerra de Crimea" />
+	<subject code="HBWM" text="Guerras de los Bóeres" />
+	<subject code="HBWN" text="Primera Guerra Mundial" />
+	<subject code="HBWP" text="Guerra civil española" />
+	<subject code="HBWQ" text="Segunda Guerra Mundial" />
+	<subject code="HBWS" text="Historia militar: conflictos posteriores a la Segunda Guerra Mundial" />
+	<subject code="HBWS1" text="Guerra de Corea" />
+	<subject code="HBWS2" text="Guerra de Vietnam" />
+	<subject code="HBWS3" text="Guerra del Golfo" />
+	<subject code="HBWS4" text="Guerra de Afganistán" />
+	<subject code="HBWS5" text="Guerra de Irak" />
+	<subject code="HD" text="Arqueología" />
+	<subject code="HDA" text="Teoría arqueológica" />
+	<subject code="HDD" text="Arqueología por período/región" />
+	<subject code="HDDA" text="Arqueología prehistórica" />
+	<subject code="HDDC" text="Arqueología Oriente Próximo y Oriente Medio" />
+	<subject code="HDDG" text="Arqueología egipcia/egiptología" />
+	<subject code="HDDH" text="Arqueología bíblica" />
+	<subject code="HDDK" text="Arqueología clásica griega y romana" />
+	<subject code="HDDM" text="Arqueología europea medieval" />
+	<subject code="HDL" text="Arqueología del paisaje" />
+	<subject code="HDP" text="Arqueología ambiental" />
+	<subject code="HDR" text="Arqueología submarina" />
+	<subject code="HDT" text="Arqueología industrial" />
+	<subject code="HDW" text="Ciencia arqueológica, metodología y técnicas" />
+	<subject code="HP" text="Filosofía" />
+	<subject code="HPC" text="Historia de la filosofía occidental" />
+	<subject code="HPCA" text="Filosofía occidental: antigua, hasta c. 500" />
+	<subject code="HPCB" text="Filosofía occidental: medieval y renacentista, c. 500-c. 1600" />
+	<subject code="HPCD" text="Filosofía occidental: c. 1600-c. 1900" />
+	<subject code="HPCD1" text="Filosofía occidental: ilustración" />
+	<subject code="HPCF" text="Filosofía occidental: c. 1900-" />
+	<subject code="HPCF3" text="Fenomenología y existencialismo" />
+	<subject code="HPCF5" text="Filosofía analítica y positivismo lógico" />
+	<subject code="HPCF7" text="Deconstructivismo, estructuralismo, posestructuralismo" />
+	<subject code="HPD" text="Filosofía no occidental" />
+	<subject code="HPDC" text="Filosofía islámica y árabe" />
+	<subject code="HPDF" text="Filosofía oriental e india" />
+	<subject code="HPJ" text="Filosofía: metafísica y ontología" />
+	<subject code="HPK" text="Filosofía: epistemología y teoría del conocimiento" />
+	<subject code="HPL" text="Filosofía: lógica" />
+	<subject code="HPM" text="Filosofía de la mente" />
+	<subject code="HPN" text="Filosofía: estética" />
+	<subject code="HPQ" text="Ética y filosofía moral" />
+	<subject code="HPS" text="Filosofía social y política" />
+	<subject code="HPX" text="Filosofía popular" />
+	<subject code="HR" text="Religión y creencias" />
+	<subject code="HRA" text="Religión: general" />
+	<subject code="HRAB" text="Filosofía de la religión" />
+	<subject code="HRAB1" text="Naturaleza y existencia de Dios" />
+	<subject code="HRAC" text="Religión comparada" />
+	<subject code="HRAF" text="Relaciones interreligiosas" />
+	<subject code="HRAM" text="Cuestiones y debates religiosos" />
+	<subject code="HRAM1" text="Ética religiosa" />
+	<subject code="HRAM2" text="Religión y política" />
+	<subject code="HRAM3" text="Religión y ciencia" />
+	<subject code="HRAM6" text="Fundamentalismo religioso" />
+	<subject code="HRAM7 " text="Blasfemia, herejía, apostasía" />
+	<subject code="HRAM9" text="Intolerancia, persecución y conflicto religiosos" />
+	<subject code="HRAX" text="Historia de la religión" />
+	<subject code="HRC" text="Cristianismo" />
+	<subject code="HRCA" text="El Jesucristo histórico" />
+	<subject code="HRCC" text="Iglesias y confesiones cristianas" />
+	<subject code="HRCC1" text="La Iglesia primitiva" />
+	<subject code="HRCC2" text="Historia de la Iglesia" />
+	<subject code="HRCC7" text="Catolicismo romano, Iglesia católica romana" />
+	<subject code="HRCC8" text="Iglesias ortodoxas y orientales" />
+	<subject code="HRCC9" text="Protestantismo e iglesias protestantes" />
+	<subject code="HRCC91" text="Iglesias anglicanas y episcopales, Iglesia de Inglaterra" />
+	<subject code="HRCC92" text="Iglesias bautistas" />
+	<subject code="HRCC93" text="Iglesias calvinistas, reformadas y presbiterianas" />
+	<subject code="HRCC95" text="Iglesias metodistas" />
+	<subject code="HRCC96" text="Iglesias pentecostales" />
+	<subject code="HRCC97" text="Cuáqueros (sociedad religiosa de amigos)" />
+	<subject code="HRCC99" text="Otras iglesias inconformistas y evangélicas" />
+	<subject code="HRCF" text="Biblias" />
+	<subject code="HRCF1" text="Antiguos testamentos" />
+	<subject code="HRCF2" text="Nuevos testamentos" />
+	<subject code="HRCG " text="Estudios bíblicos y exégesis" />
+	<subject code="HRCG1 " text="Comentarios bíblicos" />
+	<subject code="HRCG2" text="Concordancias bíblicas" />
+	<subject code="HRCG3 " text="Exégesis y hermenéutica bíblica" />
+	<subject code="HRCG7 " text="Estudios bíblicos: para el estudio individual o en pequeños grupos" />
+	<subject code="HRCG9" text="Lecturas, selecciones y meditaciones bíblicas" />
+	<subject code="HRCJ" text="Ecumenismo" />
+	<subject code="HRCL" text="Liturgia, devocionarios e himnarios cristianos" />
+	<subject code="HRCL1" text="Devocionarios cristianos" />
+	<subject code="HRCL2" text="Himnarios cristianos" />
+	<subject code="HRCM" text="Teología cristiana" />
+	<subject code="HRCP" text="Sermones cristianos" />
+	<subject code="HRCR" text="Culto, ritos y ceremonias cristianas" />
+	<subject code="HRCR1" text="Oración cristiana" />
+	<subject code="HRCS" text="Espiritualidad y experiencia religiosa cristiana" />
+	<subject code="HRCS1" text="Misticismo cristiano" />
+	<subject code="HRCV" text="Vida y práctica cristianas" />
+	<subject code="HRCV1" text="Sacramentos cristianos" />
+	<subject code="HRCV2" text="Instrucción cristiana" />
+	<subject code="HRCV3" text="Orientación cristiana" />
+	<subject code="HRCV4" text="Aspectos cristianos de la sexualidad, el género y las relaciones" />
+	<subject code="HRCV9" text="Testimonios personales y obras populares como fuente de inspiración cristiana" />
+	<subject code="HRCX" text="Instituciones y organizaciones cristianas" />
+	<subject code="HRCX1" text="Líderes y liderazgo cristianos" />
+	<subject code="HRCX4" text="Ministerio y actividad pastoral cristianas" />
+	<subject code="HRCX6" text="Pensamiento y actividad social cristianas" />
+	<subject code="HRCX7" text="Misión y evangelización cristianas" />
+	<subject code="HRCX8" text="Comunidades y monacatos cristianos" />
+	<subject code="HRCZ" text="Cultos y sectas cristianas y cuasicristianas" />
+	<subject code="HRE" text="Budismo" />
+	<subject code="HREC" text="Culto, ritos y ceremonias budistas" />
+	<subject code="HREP" text="Vida y práctica budistas" />
+	<subject code="HRES" text="Textos sagrados budistas" />
+	<subject code="HREX" text="Budismo tibetano" />
+	<subject code="HREZ" text="Budismo zen" />
+	<subject code="HRG" text="Hinduismo" />
+	<subject code="HRGC" text="Culto, ritos y ceremonias hinduistas" />
+	<subject code="HRGP" text="Vida y práctica hinduistas" />
+	<subject code="HRGS" text="Textos sagrados hinduistas" />
+	<subject code="HRH" text="Islamismo" />
+	<subject code="HRHC" text="Culto, ritos y ceremonias islámicos" />
+	<subject code="HRHP" text="Vida y práctica islámicas" />
+	<subject code="HRHS" text="El Corán" />
+	<subject code="HRHT" text="Teología islámica" />
+	<subject code="HRHX" text="Sufismo y misticismo islámico" />
+	<subject code="HRJ" text="Judaísmo" />
+	<subject code="HRJC" text="Judaísmo: culto, ritos y ceremonias" />
+	<subject code="HRJP" text="Judaísmo: vida y práctica" />
+	<subject code="HRJS" text="Judaísmo: textos sagrados" />
+	<subject code="HRJT" text="Judaísmo: teología" />
+	<subject code="HRJX" text="Judaísmo: misticismo" />
+	<subject code="HRK" text="Otras religiones no cristianas" />
+	<subject code="HRKB" text="Bahaísmo" />
+	<subject code="HRKJ" text="Jainismo" />
+	<subject code="HRKN" text="Religiones orientales" />
+	<subject code="HRKN1" text="Confucianismo" />
+	<subject code="HRKN3" text="Sintoísmo" />
+	<subject code="HRKN5" text="Taoísmo" />
+	<subject code="HRKP" text="Religiones y mitologías antiguas" />
+	<subject code="HRKP1" text="Religión y mitología del antiguo Egipto" />
+	<subject code="HRKP2" text="Religión y mitología celtas" />
+	<subject code="HRKP3" text="Religión y mitología de la antigua Grecia" />
+	<subject code="HRKP4" text="Religión y mitología romana" />
+	<subject code="HRKP5" text="Religión y mitología nórdica" />
+	<subject code="HRKS" text="Sijismo" />
+	<subject code="HRKT" text="Religiones tribales" />
+	<subject code="HRKZ" text="Zoroastrismo" />
+	<subject code="HRL" text="Aspectos de la religión (no cristiana)" />
+	<subject code="HRLB" text="Teología" />
+	<subject code="HRLC" text="Textos sagrados" />
+	<subject code="HRLC1" text="Críticas y exégesis de textos sagrados" />
+	<subject code="HRLD" text="Oraciones y material litúrgico" />
+	<subject code="HRLF" text="Culto, ritos y ceremonias" />
+	<subject code="HRLF9" text="Oración" />
+	<subject code="HRLK" text="Espiritualidad y experiencia religiosa" />
+	<subject code="HRLK2" text="Misticismo" />
+	<subject code="HRLM" text="Vida y práctica religiosas" />
+	<subject code="HRLM3" text="Instrucción religiosa" />
+	<subject code="HRLM5" text="Orientación religiosa" />
+	<subject code="HRLM7" text="Aspectos religiosos de la sexualidad, el género y las relaciones" />
+	<subject code="HRLP" text="Instituciones y organizaciones religiosas" />
+	<subject code="HRLP1" text="Líderes religiosos y espirituales" />
+	<subject code="HRLP5" text="Pensamiento y actividad pastoral y social religiosas" />
+	<subject code="HRLP7" text="Comunidades religiosas y monasticismo" />
+	<subject code="HRQ" text="Sistemas de creencia alternativos" />
+	<subject code="HRQA" text="Alternativas humanistas y seculares a la religión" />
+	<subject code="HRQA5" text="Agnosticismo y ateísmo" />
+	<subject code="HRQC" text="Religiones y sistemas de creencias eclécticas y esotéricas" />
+	<subject code="HRQC1" text="Gnosticismo" />
+	<subject code="HRQC5" text="Teosofía y antroposofía" />
+	<subject code="HRQM" text="Cultos y sectas contemporáneas no cristianas y paracristianas" />
+	<subject code="HRQM2" text="Espiritualismo" />
+	<subject code="HRQX" text="Ocultismo" />
+	<subject code="HRQX2" text="Magia, alquimia y pensamiento hermético" />
+	<subject code="HRQX5" text="Brujería" />
+	<subject code="HRQX9" text="Satanismo y demonología" />
+	<subject code="J" text="Sociedad y ciencias sociales" />
+	<subject code="JF" text="Sociedad y cultura: general" />
+	<subject code="JFC" text="Estudios culturales" />
+	<subject code="JFCA" text="Cultura popular" />
+	<subject code="JFCD" text="Cultura material" />
+	<subject code="JFCK" text="Moda y sociedad" />
+	<subject code="JFCV" text="Comida y sociedad" />
+	<subject code="JFCX" text="Historia de las ideas" />
+	<subject code="JFD" text="Estudio de los medios" />
+	<subject code="JFDT" text="Televisión y sociedad" />
+	<subject code="JFDV" text="Publicidad y sociedad" />
+	<subject code="JFF" text="Cuestiones sociales y sociedad" />
+	<subject code="JFFA" text="Pobreza y desempleo" />
+	<subject code="JFFB" text="Vivienda y persona sin hogar" />
+	<subject code="JFFC" text="Impacto social de los desastres" />
+	<subject code="JFFC1" text="Hambrunas" />
+	<subject code="JFFD" text="Refugiados y asilo político" />
+	<subject code="JFFE" text="Violencia en la sociedad" />
+	<subject code="JFFE1" text="Maltrato infantil" />
+	<subject code="JFFE2" text="Abuso y acoso sexual" />
+	<subject code="JFFE3" text="Violencia doméstica" />
+	<subject code="JFFG" text="Discapacidad: aspectos sociales" />
+	<subject code="JFFH" text="Enfermedad y adicción: aspectos sociales" />
+	<subject code="JFFH1" text="Drogas y abuso de sustancias tóxicas: aspectos sociales" />
+	<subject code="JFFH2" text="VIH/SIDA: aspectos sociales" />
+	<subject code="JFFJ" text="Discriminación social y desigualdad" />
+	<subject code="JFFK" text="Feminismo y teoría feminista" />
+	<subject code="JFFL" text="Corrección política" />
+	<subject code="JFFM" text="Movilidad social" />
+	<subject code="JFFN" text="Migración, inmigración y emigración" />
+	<subject code="JFFP" text="Interacción social" />
+	<subject code="JFFR" text="Pronóstico socia, estudios futuros" />
+	<subject code="JFFS" text="Globalización" />
+	<subject code="JFFT" text="Consumismo" />
+	<subject code="JFFU" text="Asuntos de seguridad pública" />
+	<subject code="JFFX" text="Corrupción en la sociedad" />
+	<subject code="JFFZ" text="Animales y sociedad" />
+	<subject code="JFH" text="Creencias populares y conocimiento controvertido" />
+	<subject code="JFHC" text="Teorías conspiratorias" />
+	<subject code="JFHF" text="Folclore, mitos y leyendas" />
+	<subject code="JFHX" text="Bromas y engaños" />
+	<subject code="JFM" text="Asuntos y debates éticos" />
+	<subject code="JFMA" text="Cuestiones éticas: aborto y control de la natalidad" />
+	<subject code="JFMC" text="Cuestiones éticas: pena de muerte" />
+	<subject code="JFMD" text="Cuestiones éticas: censura" />
+	<subject code="JFME" text="Cuestiones éticas: eutanasia y el derecho a morir" />
+	<subject code="JFMG" text="Cuestiones éticas: descubrimientos científicos y tecnológicos" />
+	<subject code="JFMP" text="Cuestiones éticas: pornografía y obscenidad" />
+	<subject code="JFMX" text="Cuestiones éticas: prostitución e industria del sexo" />
+	<subject code="JFS" text="Grupos sociales" />
+	<subject code="JFSC" text="Clases sociales" />
+	<subject code="JFSF" text="Comunidades rurales" />
+	<subject code="JFSG" text="Comunidades urbanas" />
+	<subject code="JFSJ" text="Estudios de género, grupos de género" />
+	<subject code="JFSJ1" text="Estudios de género: mujeres" />
+	<subject code="JFSJ2" text="Estudios de género: hombres" />
+	<subject code="JFSJ5" text="Estudios de género: transexuales y hermafroditismo" />
+	<subject code="JFSK" text="Estudios de gais y lesbianas" />
+	<subject code="JFSK1" text="Estudios de lesbianas" />
+	<subject code="JFSK2" text="Estudios de gais" />
+	<subject code="JFSL" text="Estudios étnicos" />
+	<subject code="JFSL1" text="Minorías étnicas y estudios culturales" />
+	<subject code="JFSL3" text="Estudios de la población negra y asiática" />
+	<subject code="JFSL4" text="Estudios de poblaciones/grupos de origen hispano y latinoamericano" />
+	<subject code="JFSL9" text="Pueblos indígenas" />
+	<subject code="JFSP" text="Grupos por edades" />
+	<subject code="JFSP1" text="Grupos por edades: niños" />
+	<subject code="JFSP2" text="Grupos por edades: adolescentes" />
+	<subject code="JFSP3" text="Grupos por edades: adultos" />
+	<subject code="JFSP31" text="Grupos por edades: ancianos" />
+	<subject code="JFSR" text="Grupos religiosos: aspectos sociales y culturales" />
+	<subject code="JFSR1" text="Estudios judíos" />
+	<subject code="JFSR2" text="Estudios islámicos" />
+	<subject code="JFSS" text="Estilos de vida alternativos" />
+	<subject code="JFSV" text="Grupos sociales: clubes y sociedades" />
+	<subject code="JFSV1" text="Masonería y sociedades secretas" />
+	<subject code="JH" text="Sociología y antropología" />
+	<subject code="JHB" text="Sociología" />
+	<subject code="JHBA" text="Teoría social" />
+	<subject code="JHBC" text="Investigación y estadísticas sociales" />
+	<subject code="JHBD" text="Población y demografía" />
+	<subject code="JHBF" text="Sociología del nacimiento" />
+	<subject code="JHBK" text="Sociología de la familia y las relaciones sociales" />
+	<subject code="JHBK5" text="Sociología de las relaciones sexuales" />
+	<subject code="JHBL" text="Sociología del trabajo y el esfuerzo" />
+	<subject code="JHBS" text="Sociología del deporte y el ocio" />
+	<subject code="JHBT" text="Sociología de las costumbres y las tradiciones" />
+	<subject code="JHBZ" text="Sociología de la muerte y el morir" />
+	<subject code="JHM" text="Antropología" />
+	<subject code="JHMC" text="Antropología social y cultural, etnografía" />
+	<subject code="JHMP" text="Antropología física" />
+	<subject code="JK" text="Servicios sociales y bienestar, criminología" />
+	<subject code="JKS" text="Bienestar social y servicios sociales" />
+	<subject code="JKSB" text="Sistemas de bienestar y beneficios sociales" />
+	<subject code="JKSB1" text="Bienestar infantil" />
+	<subject code="JKSF" text="Adopción y acogimiento" />
+	<subject code="JKSG" text="Cuidados de los ancianos" />
+	<subject code="JKSM" text="Cuidados de enfermos mentales" />
+	<subject code="JKSN" text="Asistencia social" />
+	<subject code="JKSN1" text="Obras de beneficencia, servicios de voluntariado y filantropía" />
+	<subject code="JKSN2" text="Servicios de asesoramiento y orientación" />
+	<subject code="JKSR" text="Programas de asistencia y ayuda" />
+	<subject code="JKSW" text="Servicios de emergencia" />
+	<subject code="JKSW1" text="Servicios de policía y seguridad" />
+	<subject code="JKSW2" text="Servicios contra incendios" />
+	<subject code="JKSW3" text="Servicios de ambulancia y salvamento" />
+	<subject code="JKV" text="Delito y criminología" />
+	<subject code="JKVC" text="Causas y prevención del delito" />
+	<subject code="JKVF" text="Investigación y detección de delitos" />
+	<subject code="JKVF1" text="Ciencia forense" />
+	<subject code="JKVG" text="Comercio de drogas/tráfico de drogas" />
+	<subject code="JKVJ" text="Delincuencia callejera/delincuencia con uso de armas de fuego" />
+	<subject code="JKVK" text="Delincuencia empresarial" />
+	<subject code="JKVM" text="Crimen organizado" />
+	<subject code="JKVP" text="Penología y penas" />
+	<subject code="JKVP1" text="Cárceles" />
+	<subject code="JKVQ" text="Delincuentes" />
+	<subject code="JKVQ1" text="Rehabilitación de delincuentes" />
+	<subject code="JKVQ2" text="Delincuentes juveniles" />
+	<subject code="JKVS" text="Servicios de libertad condicional" />
+	<subject code="JM" text="Psicología" />
+	<subject code="JMA" text="Teoría psicológica y escuelas de pensamiento" />
+	<subject code="JMAF" text="Teoría psicoanalítica (psicología freudiana)" />
+	<subject code="JMAJ" text="Psicología analítica y jungiana" />
+	<subject code="JMAL" text="Teoría conductista (conductismo)" />
+	<subject code="JMAN" text="Psicología humanista" />
+	<subject code="JMAQ" text="Cognitivismo, teoría cognitiva" />
+	<subject code="JMB" text="Metodología psicológica" />
+	<subject code="JMBT" text="Pruebas y mediciones psicológicas" />
+	<subject code="JMC" text="Psicología infantil y evolutiva/del desarrollo" />
+	<subject code="JMD" text="Psicología del envejecimiento" />
+	<subject code="JMF" text="Psicología de la familia" />
+	<subject code="JMG" text="Psicología de género" />
+	<subject code="JMH" text="Psicología social, grupal o colectiva" />
+	<subject code="JMJ" text="Psicología del trabajo e industrial" />
+	<subject code="JMK" text="Psicología forense o de la delincuencia" />
+	<subject code="JML" text="Psicología experimental" />
+	<subject code="JMM" text="Psicología fisiológica y neuropsicología, biopsicología" />
+	<subject code="JMP" text="Psicología anormal" />
+	<subject code="JMQ" text="Psicología: emociones" />
+	<subject code="JMR" text="Cognición y psicología cognitiva" />
+	<subject code="JMRL" text="Aprendizaje" />
+	<subject code="JMRM" text="Memoria" />
+	<subject code="JMRN" text="Inteligencia y razonamiento" />
+	<subject code="JMRP" text="Percepción" />
+	<subject code="JMS" text="El yo, el ego, la identidad y la personalidad" />
+	<subject code="JMT" text="Estados de conciencia" />
+	<subject code="JMTC" text="Conciencia e inconsciente" />
+	<subject code="JMTD" text="El sueño y los sueños" />
+	<subject code="JMTH" text="Hipnosis" />
+	<subject code="JMTK" text="Estados inducidos por drogas" />
+	<subject code="JMU" text="Conducta sexual" />
+	<subject code="JMX" text="Estudios parapsicológicos" />
+	<subject code="JN" text="Educación" />
+	<subject code="JNA" text="Filosofía y teoría de la educación" />
+	<subject code="JNAM" text="Objetivo moral y social de la educación" />
+	<subject code="JNB" text="Historia de la educación" />
+	<subject code="JNC" text="Psicología educacional" />
+	<subject code="JNF" text="Estrategias y políticas educativas" />
+	<subject code="JNFD" text="Estrategias de alfabetización" />
+	<subject code="JNFG" text="Estrategias de numeración" />
+	<subject code="JNFN" text="Educación inclusiva/regularización educativa" />
+	<subject code="JNFR" text="Educación multicultural" />
+	<subject code="JNH" text="Educación: cuidado y orientación de alumnos" />
+	<subject code="JNHB" text="Acoso escolar y estrategias para evitarlo" />
+	<subject code="JNHT" text="Absentismo escolar y estrategias para evitarlo" />
+	<subject code="JNHX" text="Exclusiones/deserción escolar" />
+	<subject code="JNK" text="Organización y gestión educativa" />
+	<subject code="JNKA" text="Procedimientos de admisión" />
+	<subject code="JNKC" text="Planificación y desarrollo de programas de estudio" />
+	<subject code="JNKD" text="Exámenes y evaluación" />
+	<subject code="JNKF" text="Inspección escolar (y prepararación para la inspección)" />
+	<subject code="JNKG" text="Financiación de la educación y los alumnos" />
+	<subject code="JNKH" text="Cuerpo docente/de educadores" />
+	<subject code="JNKH1" text="Evaluación de docentes/educadores" />
+	<subject code="JNKN" text="Personal no docente y de apoyo" />
+	<subject code="JNKP" text="Relaciones escuela/comunidad y relaciones escuela/hogar" />
+	<subject code="JNKR" text="Consejos escolares y sus miembros" />
+	<subject code="JNKS" text="Alumnos y organizaciones estudiantiles" />
+	<subject code="JNL" text="Escuelas" />
+	<subject code="JNLA" text="Preescolar y jardín de infancia" />
+	<subject code="JNLB" text="Escuelas primarias e intermedias" />
+	<subject code="JNLC" text="Escuelas secundarias" />
+	<subject code="JNLP" text="Escuelas independientes, privadas" />
+	<subject code="JNLR" text="Escuelas confesionales" />
+	<subject code="JNM" text="Educación superior y continua, educación terciaria" />
+	<subject code="JNMF" text="Colegios de educación continua" />
+	<subject code="JNMH" text="Colegios de educación superior" />
+	<subject code="JNMN" text="Universidades" />
+	<subject code="JNMT" text="Formación docente" />
+	<subject code="JNP" text="Educación para adultos, aprendizaje continuo" />
+	<subject code="JNQ" text="Aprendizaje abierto, educación en el hogar, educación a distancia" />
+	<subject code="JNR" text="Orientación profesional" />
+	<subject code="JNRV" text="Formación industrial o vocacional" />
+	<subject code="JNS" text="Enseñanza de grupos específicos y personas con necesidades educativas especiales" />
+	<subject code="JNSC" text="Enseñanza de alumnos con discapacidades físicas" />
+	<subject code="JNSC1" text="Enseñanza de alumnos con impedimentos auditivos" />
+	<subject code="JNSC2" text="Enseñanza de alumnos con impedimentos visuales" />
+	<subject code="JNSG" text="Enseñanza de alumnos con dificultades/necesidades de aprendizaje específicas" />
+	<subject code="JNSG1" text="Enseñanza de la alumnos con dislexia" />
+	<subject code="JNSG2" text="Enseñanza de alumnos con autismo" />
+	<subject code="JNSL" text="Enseñanza de alumnos con problemas emocionales y de conducta" />
+	<subject code="JNSP" text="Enseñanza de alumnos con altas capacidades" />
+	<subject code="JNSV" text="Enseñanza de inglés para hablantes de otros idiomas" />
+	<subject code="JNT" text="Destrezas y técnicas de enseñanza" />
+	<subject code="JNU" text="Enseñanza de una materia específica" />
+	<subject code="JNUM" text="Recursos y materiales del profesor en el aula" />
+	<subject code="JNV" text="Equipo y tecnología educacional, enseñanza con asistencia por ordenador" />
+	<subject code="JNW" text="Actividades extraescolares" />
+	<subject code="JNWT" text="Visitas y exclusiones educativas" />
+	<subject code="JNZ" text="Destrezas de estudio y aprendizaje: general" />
+	<subject code="JP" text="Política y gobierno" />
+	<subject code="JPA" text="Ciencias políticas y teoría" />
+	<subject code="JPB" text="Política comparada" />
+	<subject code="JPF" text="Ideologías políticas" />
+	<subject code="JPFB" text="Anarquismo" />
+	<subject code="JPFC" text="Marxismo y comunismo" />
+	<subject code="JPFF" text="Socialismo e ideologías democráticas de centro izquierda" />
+	<subject code="JPFK" text="Liberalismo e ideologías democráticas de centro" />
+	<subject code="JPFM" text="Conservacionismo e ideologías democráticas de centroizquierda" />
+	<subject code="JPFN" text="Nacionalismo" />
+	<subject code="JPFQ" text="Fascismo y nazismo" />
+	<subject code="JPFR" text="Ideologías religiosas y teocráticas" />
+	<subject code="JPH" text="Estructuras políticas: democracia" />
+	<subject code="JPHC" text="Constitución: Gobierno y Estado" />
+	<subject code="JPHF" text="Elecciones y referéndums" />
+	<subject code="JPHL" text="Líderes y liderazgo políticos" />
+	<subject code="JPHV" text="Estructuras políticas: democracia" />
+	<subject code="JPHX" text="Estructuras políticas: totalitarismo y dictadura" />
+	<subject code="JPL" text="Partidos políticos" />
+	<subject code="JPLM" text="Manifiestos políticos" />
+	<subject code="JPP" text="Administración pública" />
+	<subject code="JPQ" text="Gobierno central" />
+	<subject code="JPQB" text="Políticas del Gobierno central" />
+	<subject code="JPR" text="Gobierno regional" />
+	<subject code="JPRB" text="Políticas del gobierno regional" />
+	<subject code="JPS" text="Relaciones internacionales" />
+	<subject code="JPSD" text="Diplomacia" />
+	<subject code="JPSF" text="Negociación y control de armamento" />
+	<subject code="JPSH" text="Espionaje y servicios secretos" />
+	<subject code="JPSL" text="Geopolítica" />
+	<subject code="JPSN" text="Instituciones internacionales" />
+	<subject code="JPSN1" text="Naciones Unidas y agencias de la ONU" />
+	<subject code="JPSN2" text="UE e instituciones europeas" />
+	<subject code="JPV" text="Control y libertades políticas" />
+	<subject code="JPVH" text="Derechos humanos" />
+	<subject code="JPVH1" text="Derechos civiles y ciudadanía" />
+	<subject code="JPVH2" text="Libertad de información y expresión" />
+	<subject code="JPVH3" text="Tenencia de la tierra" />
+	<subject code="JPVH4" text="Libertad religiosa/libertad de culto" />
+	<subject code="JPVK" text="Opinión pública y encuestas" />
+	<subject code="JPVL" text="Campañas y publicidad políticas" />
+	<subject code="JPVN" text="Propaganda" />
+	<subject code="JPVR" text="Opresión y persecución políticas" />
+	<subject code="JPW" text="Activismo político" />
+	<subject code="JPWD" text="Grupos de presión y cabildeo" />
+	<subject code="JPWF" text="Manifestaciones y movimientos de protesta" />
+	<subject code="JPWH" text="Organizaciones no gubernamentales (ONG)" />
+	<subject code="JPWJ" text="Subversión política" />
+	<subject code="JPWL" text="Terrorismo, lucha armada" />
+	<subject code="JPWL1" text="Asesinatos políticos" />
+	<subject code="JPWL2" text="Ataque terrorista" />
+	<subject code="JPWQ" text="Grupos y movimientos revolucionarios" />
+	<subject code="JPWS" text="Conflicto armado" />
+	<subject code="JPZ" text="Corrupción política" />
+	<subject code="JW" text="Guerra y defensa" />
+	<subject code="JWA" text="Teoría de la guerra y ciencia militar" />
+	<subject code="JWD" text="Fuerzas terrestres y guerra" />
+	<subject code="JWDG" text="Fuerzas guerrilleras irregulares y guerra" />
+	<subject code="JWF" text="Fuerzas navales y guerra" />
+	<subject code="JWG" text="Fuerzas aéreas y guerra" />
+	<subject code="JWH" text="Fuerzas especiales y de elite" />
+	<subject code="JWJ" text="Administración militar" />
+	<subject code="JWK" text="Estrategia, planificación e investigación defensivas" />
+	<subject code="JWKF" text="Inteligencia militar" />
+	<subject code="JWKT" text="Táctica militar" />
+	<subject code="JWKW" text="Defensa civil" />
+	<subject code="JWL" text="Operaciones de guerra y defensa" />
+	<subject code="JWLF" text="Batallas y campañas" />
+	<subject code="JWLP" text="Operaciones de mantenimiento de la paz" />
+	<subject code="JWM" text="Armas y equipamiento" />
+	<subject code="JWMC" text="Armas químicas y biológicas" />
+	<subject code="JWMN" text="Armas nucleares" />
+	<subject code="JWMV" text="Vehículos militares" />
+	<subject code="JWMV1" text="Tanques y vehículos militares terrestres" />
+	<subject code="JWMV2" text="Embarcaciones militares y navales" />
+	<subject code="JWMV3" text="Aeronaves militares" />
+	<subject code="JWT" text="Vida e instituciones militares" />
+	<subject code="JWTR" text="Regimientos" />
+	<subject code="JWTU" text="Uniformes e insignias" />
+	<subject code="JWTY" text="Actos y realizaciones conmemorativas y listas de honor" />
+	<subject code="JWX" text="Otras cuestiones de guerra y defensa" />
+	<subject code="JWXF" text="Tráfico de armas" />
+	<subject code="JWXK" text="Crímenes de guerra" />
+	<subject code="JWXN" text="Mercenarios" />
+	<subject code="JWXR" text="Prisioneros de guerra" />
+	<subject code="JWXT" text="Motín/amotinamiento" />
+	<subject code="JWXV" text="Veteranos de guerra" />
+	<subject code="JWXZ" text="Destrezas de combate/defensa y manuales" />
+	<subject code="K" text="Economía, finanzas, empresa y gestión" />
+	<subject code="KC" text="Economía" />
+	<subject code="KCA" text="Teoría y filosofía económicas" />
+	<subject code="KCB" text="Macroeconomía" />
+	<subject code="KCBM" text="Economía monetaria" />
+	<subject code="KCC" text="Microeconomía" />
+	<subject code="KCCD" text="Comercio interior" />
+	<subject code="KCD" text="Economía de la organización industrial" />
+	<subject code="KCF" text="Economía del trabajo" />
+	<subject code="KCFM" text="Empleo y desempleo" />
+	<subject code="KCG" text="Crecimiento económico" />
+	<subject code="KCH" text="Econometría" />
+	<subject code="KCHS" text="Estadística económica" />
+	<subject code="KCJ" text="Prospectiva económica" />
+	<subject code="KCK" text="Economía conductista/conductual" />
+	<subject code="KCL" text="Economía internacional" />
+	<subject code="KCLF" text="Finanzas internacionales" />
+	<subject code="KCLT" text="Comercio internacional" />
+	<subject code="KCLT1" text="Acuerdos comerciales" />
+	<subject code="KCM" text="Economía del desarrollo y economías emergentes" />
+	<subject code="KCN" text="Economía medioambiental" />
+	<subject code="KCP" text="Economía política" />
+	<subject code="KCQ" text="Economía de la salud" />
+	<subject code="KCR" text="Economía del bienestar" />
+	<subject code="KCS" text="Sistemas y estructuras económicas" />
+	<subject code="KCT" text="Economía de la agricultura" />
+	<subject code="KCU" text="Economía urbana" />
+	<subject code="KCX" text="Crisis y desastres económicos y financieros" />
+	<subject code="KCY" text="Economía popular" />
+	<subject code="KCZ" text="Historia de la economía" />
+	<subject code="KF" text="Finanzas y contabilidad" />
+	<subject code="KFC" text="Contabilidad" />
+	<subject code="KFCC" text="Contabilidad de costes" />
+	<subject code="KFCF" text="Contabilidad general o financiera" />
+	<subject code="KFCM" text="Contabilidad de gestión y teneduría de libros" />
+	<subject code="KFCP" text="Contabilidad de la hacienda pública" />
+	<subject code="KFCR" text="Memorias anuales, estados financieros y contables" />
+	<subject code="KFCX" text="Contabilidad: guías de estudio y revisión" />
+	<subject code="KFF" text="Finanzas" />
+	<subject code="KFFD" text="Hacienda pública" />
+	<subject code="KFFD1" text="Impuestos" />
+	<subject code="KFFH" text="Gestión financiera de las sociedades" />
+	<subject code="KFFK" text="Banca" />
+	<subject code="KFFL" text="Crédito e instituciones de crédito" />
+	<subject code="KFFM" text="Inversión y valores" />
+	<subject code="KFFM1" text="Materias primas" />
+	<subject code="KFFM2" text="Títulos y acciones" />
+	<subject code="KFFN" text="Estudios de seguros y actuariales" />
+	<subject code="KFFP" text="Pensiones" />
+	<subject code="KFFR" text="Inmuebles y bienes raíces" />
+	<subject code="KFFX" text="Banca y finanzas: guías de estudio y revisión" />
+	<subject code="KJ" text="Empresa y gestión" />
+	<subject code="KJB" text="Estudios empresariales: general" />
+	<subject code="KJBX" text="Empresa y gestión: guías de estudio y revisión" />
+	<subject code="KJC" text="Estrategia empresarial" />
+	<subject code="KJD" text="Innovación empresarial" />
+	<subject code="KJE" text="Comercio electrónico: aspectos empresariales" />
+	<subject code="KJF" text="Competencia empresarial" />
+	<subject code="KJG" text="Ética empresarial y responsabilidad social" />
+	<subject code="KJH" text="Espíritu emprendedor" />
+	<subject code="KJJ" text="Empresa y medio ambiente, enfoques &quot;verdes&quot; de los negocios" />
+	<subject code="KJK" text="Negocios internacionales" />
+	<subject code="KJL" text="Asesoramiento y subvenciones para empresas" />
+	<subject code="KJM" text="Gestión y técnicas de gestión" />
+	<subject code="KJMB" text="Gestión: liderazgo y motivación" />
+	<subject code="KJMD" text="Toma de decisiones en la gestión de empresas" />
+	<subject code="KJMP" text="Gestión de proyectos" />
+	<subject code="KJMQ" text="Garantía de calidad y gestión de calidad total" />
+	<subject code="KJMT" text="Gestión del tiempo" />
+	<subject code="KJMV" text="Gestión de áreas específicas" />
+	<subject code="KJMV1" text="Preparación de presupuestos y gestión financiera" />
+	<subject code="KJMV2" text="Gestión de personal y recursos humanos" />
+	<subject code="KJMV3" text="Gestión del conocimiento" />
+	<subject code="KJMV4" text="Gestión de bienes raíces y activos fijos" />
+	<subject code="KJMV5" text="Gestión de la producción y control de calidad" />
+	<subject code="KJMV6" text="Gestión de investigación y desarrollo" />
+	<subject code="KJMV7" text="Gestión de ventas y marketing" />
+	<subject code="KJMV8" text="Gestión de compras y abastecimiento" />
+	<subject code="KJMV9" text="Gestión de distribución y almacenamiento" />
+	<subject code="KJN" text="Negociación empresarial" />
+	<subject code="KJP" text="Comunicación y presentación empresarial" />
+	<subject code="KJQ" text="Matemáticas y sistemas empresariales" />
+	<subject code="KJR" text="Gobierno de la sociedad" />
+	<subject code="KJRD" text="Secretario de la sociedad: funciones y responsabilidades" />
+	<subject code="KJRS" text="Consejos de administración y consejeros: funciones y responsabilidades" />
+	<subject code="KJS" text="Ventas y marketing" />
+	<subject code="KJSA" text="Publicidad" />
+	<subject code="KJSM" text="Investigación de mercado" />
+	<subject code="KJSP" text="Relaciones públicas" />
+	<subject code="KJSU" text="Atención al cliente" />
+	<subject code="KJT" text="Investigación operativa" />
+	<subject code="KJU" text="Teoría y comportamiento organizativos" />
+	<subject code="KJV" text="Propiedad y organización de empresas" />
+	<subject code="KJVB" text="Propiedad y organización de empresas" />
+	<subject code="KJVD" text="Privatización" />
+	<subject code="KJVF" text="Franquicias" />
+	<subject code="KJVG" text="Multinacionales" />
+	<subject code="KJVN" text="Propiedad pública/nacionalización" />
+	<subject code="KJVP" text="Monopolios" />
+	<subject code="KJVS" text="Pequeñas empresas y trabajadores autónomos" />
+	<subject code="KJVT" text="Externalización" />
+	<subject code="KJVV" text="Joint ventures/empresas conjuntas" />
+	<subject code="KJVW" text="Empresas en manos de los trabajadores y cooperativas" />
+	<subject code="KJVX" text="Organizaciones sin fines de lucro" />
+	<subject code="KJW" text="Oficina y lugar de trabajo" />
+	<subject code="KJWB" text="Gestión de oficina" />
+	<subject code="KJWF" text="Sistemas y equipamientos de oficina" />
+	<subject code="KJWS" text="Destrezas de secretaría y oficina" />
+	<subject code="KJWX" text="Esquemas y prácticas de trabajo" />
+	<subject code="KJZ" text="Historia de empresas específicas/historia societaria" />
+	<subject code="KN" text="Industria y estudios industriales" />
+	<subject code="KNA" text="Industrias primarias" />
+	<subject code="KNAC" text="Agricultura e industrias afines" />
+	<subject code="KNAF" text="Industria pesquera y afines" />
+	<subject code="KNAL" text="Industria forestal y afines" />
+	<subject code="KNAT" text="Industria minera" />
+	<subject code="KNB" text="Industrias energéticas y servicios públicos" />
+	<subject code="KNBC" text="Industrias del carbón y de los combustibles sólidos" />
+	<subject code="KNBG" text="Industrias del gas" />
+	<subject code="KNBL" text="Industrias de energía eléctrica" />
+	<subject code="KNBN" text="Industrias de energía nuclear" />
+	<subject code="KNBP" text="Industrias del petróleo" />
+	<subject code="KNBT" text="Industrias de energías alternativas y renovables" />
+	<subject code="KNBW" text="Industrias del agua" />
+	<subject code="KND" text="Industrias manufactureras" />
+	<subject code="KNDC" text="Industrias químicas" />
+	<subject code="KNDD" text="Industrias textiles" />
+	<subject code="KNDF" text="Manufactura de alimentos e industrias afines" />
+	<subject code="KNDF1" text="Industria del tabaco" />
+	<subject code="KNDH" text="Industrias manufactureras de tecnología avanzada" />
+	<subject code="KNDH1" text="Industrias de biotecnología" />
+	<subject code="KNDM" text="Industrias armamentísticas" />
+	<subject code="KNDP" text="Industrias farmacéuticas" />
+	<subject code="KNDR" text="Industria manufacturera de vehículos terrestres" />
+	<subject code="KNDS" text="Industria de construcción naval" />
+	<subject code="KNDV" text="Industria manufacturera aeronáutica" />
+	<subject code="KNG" text="Industrias del transporte" />
+	<subject code="KNGR" text="Industrias del transporte terrestre" />
+	<subject code="KNGS" text="Industrias del transporte marítimo" />
+	<subject code="KNGT" text="Industrias del transporte ferroviario" />
+	<subject code="KNGV" text="Industrias del transporte aéreo y aeroespacial" />
+	<subject code="KNGV1" text="Aeropuertos" />
+	<subject code="KNJ" text="Construcción e industria pesada" />
+	<subject code="KNJC" text="Industria de la construcción" />
+	<subject code="KNJH" text="Industrias siderúrgica y metalúrgica" />
+	<subject code="KNP" text="Industrias de distribución" />
+	<subject code="KNPR" text="Sector de comercio minorista" />
+	<subject code="KNPW" text="Sector de comercio mayorista" />
+	<subject code="KNS" text="Industrias de servicios" />
+	<subject code="KNSG" text="Industria del turismo" />
+	<subject code="KNSH" text="Industria hotelera" />
+	<subject code="KNSJ" text="Industrias de la gestión de eventos" />
+	<subject code="KNSP" text="Industrias del deporte y el ocio" />
+	<subject code="KNSS" text="Servicios de seguridad" />
+	<subject code="KNSS1" text="Servicios de vigilancia" />
+	<subject code="KNST" text="Industria de servicios financieros" />
+	<subject code="KNSX" text="Industrias de la moda y la belleza" />
+	<subject code="KNSZ" text="Servicios funerarios" />
+	<subject code="KNT" text="Industrias de los medios, la información y la comunicación" />
+	<subject code="KNTC" text="Industria del cine" />
+	<subject code="KNTD" text="Industria de la radio y la televisión" />
+	<subject code="KNTF" text="Industria de la música" />
+	<subject code="KNTJ" text="Prensa y periodismo" />
+	<subject code="KNTP" text="Industria editorial y comercio de libros" />
+	<subject code="KNTR" text="Industria de la impresión, el embalaje y la reproducción gráfica" />
+	<subject code="KNTT" text="Industrias postales y de telecomunicaciones" />
+	<subject code="KNTX" text="Industrias de la tecnología informática" />
+	<subject code="KNTX1" text="Industrias de Internet" />
+	<subject code="KNTY" text="Industrias de la publicidad" />
+	<subject code="KNV" text="Administración pública y sector público" />
+	<subject code="KNX" text="Relaciones industriales, higiene y seguridad" />
+	<subject code="KNXB" text="Relaciones industriales" />
+	<subject code="KNXB1" text="Huelgas" />
+	<subject code="KNXB2" text="Sindicatos" />
+	<subject code="KNXB3" text="Arbitraje y negociación industrial" />
+	<subject code="KNXC" text="Cuestiones de higiene y seguridad" />
+	<subject code="L" text="Derecho" />
+	<subject code="LA" text="Teoría general del derecho" />
+	<subject code="LAB" text="Filosofía del derecho" />
+	<subject code="LAF" text="Sistemas jurídicos" />
+	<subject code="LAFC" text="Derecho anglosajón" />
+	<subject code="LAFD" text="Sistema continental" />
+	<subject code="LAFR" text="Derecho romano" />
+	<subject code="LAFS" text="Derecho islámico" />
+	<subject code="LAFX" text="Derecho eclesiástico" />
+	<subject code="LAM" text="Derecho de sociedades" />
+	<subject code="LAQ" text="Derecho y sociedad" />
+	<subject code="LAQG" text="El género y el derecho" />
+	<subject code="LAR" text="Criminología: aspectos legales" />
+	<subject code="LAS" text="Aspectos y prácticas legales" />
+	<subject code="LASD" text="Abogacía" />
+	<subject code="LASP" text="Procuradores" />
+	<subject code="LAT" text="Ejercicio profesional de la abogacía: general" />
+	<subject code="LATC" text="Ética legal y deontología profesional" />
+	<subject code="LAY" text="El derecho y su aplicación en otras profesiones" />
+	<subject code="LAZ" text="Historia del Derecho" />
+	<subject code="LB" text="Derecho internacional" />
+	<subject code="LBB" text="Derecho internacional público" />
+	<subject code="LBBC" text="Tratados y otras fuentes de derecho internacional" />
+	<subject code="LBBC1" text="Derecho consuetudinario" />
+	<subject code="LBBD" text="Derecho diplomático" />
+	<subject code="LBBF" text="Jurisdicción e inmunidades" />
+	<subject code="LBBJ" text="Derecho internacional de la territorialidad y el Estado" />
+	<subject code="LBBK" text="Derecho del mar" />
+	<subject code="LBBM" text="Derecho internacional económico y mercantil" />
+	<subject code="LBBM1" text="Aranceles" />
+	<subject code="LBBM3" text="Tratados y disputas de inversión" />
+	<subject code="LBBP" text="Protección internacional del medio ambiente" />
+	<subject code="LBBR" text="Protección internacional de los derechos humanos" />
+	<subject code="LBBS" text="Derecho internacional humanitario" />
+	<subject code="LBBU" text="Responsabilidad de organizaciones e instituciones" />
+	<subject code="LBBV" text="Responsabilidad de los Estados y otras entidades" />
+	<subject code="LBBZ" text="Derecho penal internacional" />
+	<subject code="LBD" text="Derecho internacional del transporte, las comunicaciones y el comercio" />
+	<subject code="LBDA" text="Derecho internacional espacial y del espacio aéreo" />
+	<subject code="LBDK" text="Derecho mercantil transnacional" />
+	<subject code="LBDM" text="Derecho internacional marítimo" />
+	<subject code="LBDT" text="Derecho internacional de las comunicaciones y telecomunicaciones" />
+	<subject code="LBG" text="Derecho internacional privado y conflicto de leyes" />
+	<subject code="LBH" text="Resolución de controversias internacionales" />
+	<subject code="LBHG" text="Tribunales internacionales y normas de procedimiento" />
+	<subject code="LBHT" text="Arbitraje internacional" />
+	<subject code="LBL" text="Repertorio jurisprudencial de derecho internacional" />
+	<subject code="LN" text="Leyes de jurisdicciones específicas" />
+	<subject code="LNA" text="Régimen jurídico: general" />
+	<subject code="LNAA" text="Tribunales y procedimientos" />
+	<subject code="LNAA1" text="Derecho procesal" />
+	<subject code="LNAA2" text="Régimen jurídico: ley de desacato" />
+	<subject code="LNAC" text="Proceso civil, litigación y resolución de disputas" />
+	<subject code="LNAC1" text="Recursos civiles" />
+	<subject code="LNAC12" text="Restitución" />
+	<subject code="LNAC14" text="Daños y perjuicios e indemnización" />
+	<subject code="LNAC16" text="Requerimientos y otros mandatos" />
+	<subject code="LNAC3" text="Procedimiento civil: derecho probatorio" />
+	<subject code="LNAC5" text="Arbitraje, mediación y otras formas de resolución de conflictos" />
+	<subject code="LNAF" text="Régimen jurídico: costes y financiación" />
+	<subject code="LNAL" text="Regulación de la profesión legal" />
+	<subject code="LNB" text="Derecho privado/civil: general" />
+	<subject code="LNC" text="Derecho mercantil, de sociedades y de la competencia" />
+	<subject code="LNCB" text="Derecho mercantil" />
+	<subject code="LNCB1" text="Derecho de la franquicia" />
+	<subject code="LNCB2" text="Comercio electrónico" />
+	<subject code="LNCB3" text="Compraventa de bienes" />
+	<subject code="LNCB4" text="Colaboradores del empresario" />
+	<subject code="LNCB5" text="Derecho de la navegación" />
+	<subject code="LNCB6" text="Derecho aeronáutico" />
+	<subject code="LNCD" text="Derecho de sociedades mercantiles" />
+	<subject code="LNCD1" text="Transformación, fusión y escisión de sociedades" />
+	<subject code="LNCF" text="Sociedades personales y colectivas" />
+	<subject code="LNCH" text="Derecho de la competencia" />
+	<subject code="LNCJ" text="Contratación mercantil" />
+	<subject code="LNCL" text="Mandato y representación" />
+	<subject code="LNCN" text="Compraventa mercantil" />
+	<subject code="LNCQ" text="Derecho de la construcción" />
+	<subject code="LNCR" text="Derecho energético y de los recursos naturales" />
+	<subject code="LND" text="Derecho constitucional y administrativo" />
+	<subject code="LNDA" text="Extranjería" />
+	<subject code="LNDA1" text="Derecho de la inmigración" />
+	<subject code="LNDA3" text="Derecho del asilo/Asilo y refugio" />
+	<subject code="LNDC" text="Derechos fundamentales y libertades públicas" />
+	<subject code="LNDC2" text="Derecho al honor, a la intimidad y a la propia imagen" />
+	<subject code="LNDC4" text="Libertad de expresión" />
+	<subject code="LNDF" text="Libertad de información" />
+	<subject code="LNDH" text="Potestades del gobierno/de la administración pública" />
+	<subject code="LNDK" text="Derecho militar" />
+	<subject code="LNDM" text="Revisión judicial" />
+	<subject code="LNDP" text="Derecho parlamentario" />
+	<subject code="LNDS" text="Derecho electoral" />
+	<subject code="LNDU" text="Administración local" />
+	<subject code="LNF" text="Derecho y procedimiento penal" />
+	<subject code="LNFB" text="Derecho de la justicia penal" />
+	<subject code="LNFG" text="Delitos contra la Constitución" />
+	<subject code="LNFJ" text="Delitos contra la persona" />
+	<subject code="LNFJ1" text="Derecho contra el acoso y el hostigamiento" />
+	<subject code="LNFL" text="Delitos contra la propiedad" />
+	<subject code="LNFN" text="Fraude" />
+	<subject code="LNFQ" text="Derecho penal de menores" />
+	<subject code="LNFR" text="Delitos contra el orden público" />
+	<subject code="LNFT" text="Delitos contra la seguridad vial, infracciones de tráfico" />
+	<subject code="LNFV" text="Derecho de terrorismo" />
+	<subject code="LNFX" text="Proceso penal" />
+	<subject code="LNFX1" text="Sentencias y penas" />
+	<subject code="LNFX3" text="Procedimiento penal: derecho probatorio" />
+	<subject code="LNFX5" text="Legislación policial y procedimientos policiales" />
+	<subject code="LNH" text="Derecho del trabajo" />
+	<subject code="LNHD" text="Discriminación en el derecho del trabajo" />
+	<subject code="LNHH" text="Prevención de riesgos laborales" />
+	<subject code="LNHR" text="Negociación colectiva y sindicatos" />
+	<subject code="LNHU" text="Contrato de trabajo" />
+	<subject code="LNJ" text="Espectáculos públicos" />
+	<subject code="LNJD" text="Delitos contra el honor" />
+	<subject code="LNJS" text="Derecho del deporte" />
+	<subject code="LNJX" text="Derecho de la publicidad, el marketing y el patrocinio" />
+	<subject code="LNK" text="Derecho medioambiental, el transporte y la planificación" />
+	<subject code="LNKF" text="Derecho agrario" />
+	<subject code="LNKG" text="Derecho de los animales" />
+	<subject code="LNKJ" text="Derecho medioambiental" />
+	<subject code="LNKN" text="Derecho de la conservación de la naturaleza" />
+	<subject code="LNKT" text="Derecho del transporte" />
+	<subject code="LNKV" text="Carreteras" />
+	<subject code="LNKW" text="Urbanismo" />
+	<subject code="LNL" text="Equidad y fideicomisos" />
+	<subject code="LNM" text="Derecho de familia" />
+	<subject code="LNMB" text="Derecho de familia: Matrimonio y divorcio" />
+	<subject code="LNMC" text="Derecho de familia: Uniones no matrimoniales" />
+	<subject code="LNMF" text="Derecho de familia: Parejas del mismo sexo" />
+	<subject code="LNMK" text="Derecho de familia: Filiación y patria potestad" />
+	<subject code="LNP" text="Derecho financiero" />
+	<subject code="LNPA" text="Derecho de contabilidad" />
+	<subject code="LNPB" text="Contratos bancarios" />
+	<subject code="LNPC" text="Quiebra e insolvencia" />
+	<subject code="LNPD" text="Mercado d capitales, derecho d valores y regulación" />
+	<subject code="LNPF" text="Derecho de los servicios financieros" />
+	<subject code="LNPN" text="Contrato de seguro" />
+	<subject code="LNPP" text="Jubilación" />
+	<subject code="LNQ" text="Derecho de las TIC" />
+	<subject code="LNQD" text="Protección de datos de carácter personal" />
+	<subject code="LNR" text="Propiedad intelectual" />
+	<subject code="LNRC" text="Derecho de autor" />
+	<subject code="LNRD" text="Derecho de patentes" />
+	<subject code="LNRF" text="Derecho de marcas" />
+	<subject code="LNRL" text="Derecho de diseños" />
+	<subject code="LNRV" text="Derecho de la información confidencial" />
+	<subject code="LNS" text="Derecho de propiedad" />
+	<subject code="LNSH" text="Bienes inmuebles" />
+	<subject code="LNSH1" text="Derecho hipotecario" />
+	<subject code="LNSH3" text="Arrendamientos" />
+	<subject code="LNSH5" text="Transmisión de la propiedad inmueble" />
+	<subject code="LNSH7" text="Derecho de la calificación y la valoración" />
+	<subject code="LNSH9" text="Derecho de la vivienda" />
+	<subject code="LNSP" text="Bienes muebles" />
+	<subject code="LNT" text="Derecho social" />
+	<subject code="LNTC" text="Servicios sociales y asistencia social" />
+	<subject code="LNTD" text="Derecho a la educación" />
+	<subject code="LNTH" text="Derecho de la seguridad y el bienestar social" />
+	<subject code="LNTH1" text="Derecho de la Seguridad Social" />
+	<subject code="LNTJ" text="Derecho de la salud y la seguridad pública" />
+	<subject code="LNTM" text="Asistencia sanitaria" />
+	<subject code="LNTM1" text="Derecho de la salud mental" />
+	<subject code="LNTM2" text="Regulación de medicamentos y dispositivos médicos" />
+	<subject code="LNTQ" text="Personas con discapacidad" />
+	<subject code="LNTS" text="Personas mayores" />
+	<subject code="LNTU" text="Protección de consumidores y usuarios" />
+	<subject code="LNTX" text="Derecho de las licencias y permisos para apuestas y clubes" />
+	<subject code="LNU" text="Derecho tributario y arancelario" />
+	<subject code="LNUC" text="Impuesto sobre sociedades" />
+	<subject code="LNUP" text="Impuesto sobre la renta de las personas físicas" />
+	<subject code="LNUS" text="Impuestos sobre las ventas y derechos aduaneros/Impuesto sobre el valor añadido" />
+	<subject code="LNUT" text="Impuestos sobre fideicomisos y sucesiones/Impuesto sobre sucesiones y donaciones" />
+	<subject code="LNV" text="Responsabilidad civil" />
+	<subject code="LNVC" text="Negligencia" />
+	<subject code="LNVF" text="Molestias causadas a la convivencia civilizada" />
+	<subject code="LNVJ" text="Daños personales" />
+	<subject code="LNW" text="Derecho de sucesiones" />
+	<subject code="LNZ" text="Fuentes del derecho" />
+	<subject code="LNZC" text="Jurisprudencia" />
+	<subject code="LNZL" text="Legislación" />
+	<subject code="LR" text="Derecho: guías de estudio y revisión" />
+	<subject code="M" text="Medicina" />
+	<subject code="MB" text="Medicina: cuestiones generales" />
+	<subject code="MBD" text="Profesión médica" />
+	<subject code="MBDC" text="Ética médica y conducta profesional" />
+	<subject code="MBDP" text="Relación médico/paciente" />
+	<subject code="MBF" text="Bioinformática médica" />
+	<subject code="MBG" text="Equipamiento y técnicas médicas" />
+	<subject code="MBGL" text="Análisis y técnicas médicas de laboratorio" />
+	<subject code="MBGR" text="Investigación médica" />
+	<subject code="MBGR1" text="Pruebas clínicas" />
+	<subject code="MBGT" text="Telemedicina" />
+	<subject code="MBN" text="Salud pública y medicina preventiva" />
+	<subject code="MBNC" text="Examen médico sistemático" />
+	<subject code="MBNH" text="Salud personal y pública" />
+	<subject code="MBNH1" text="Higiene" />
+	<subject code="MBNH2" text="Factores medioambientales" />
+	<subject code="MBNH3" text="Dietética y nutrición" />
+	<subject code="MBNH4" text="Control de la natalidad, anticoncepción y planificación familiar" />
+	<subject code="MBNH9" text="Psicología de la salud" />
+	<subject code="MBNS" text="Epidemiología y estadística médica" />
+	<subject code="MBP" text="Sistemas y servicios de salud" />
+	<subject code="MBPC" text="Medicina general" />
+	<subject code="MBPK" text="Servicios de salud mental" />
+	<subject code="MBPM" text="Administración y gestión médicas" />
+	<subject code="MBPR" text="Seguro médico" />
+	<subject code="MBQ" text="Cuestiones médicolegales" />
+	<subject code="MBS" text="Sociología médica" />
+	<subject code="MBX" text="Historia de la medicina" />
+	<subject code="MF" text="Medicina preclínica: ciencias básicas" />
+	<subject code="MFC" text="Anatomía" />
+	<subject code="MFCC" text="Citología" />
+	<subject code="MFCH" text="Histología" />
+	<subject code="MFCR" text="Anatomía regional" />
+	<subject code="MFCX" text="Disección" />
+	<subject code="MFG" text="Fisiología" />
+	<subject code="MFGC" text="Fisiología celular" />
+	<subject code="MFGG" text="Fisiología regional" />
+	<subject code="MFGM" text="Metabolismo" />
+	<subject code="MFGV" text="Biomecánica, cinética del movimiento humano" />
+	<subject code="MFK" text="Reproducción, crecimiento y desarrollo humanos" />
+	<subject code="MFKC" text="Medicina reproductiva" />
+	<subject code="MFKC1" text="Infertilidad y fertilización" />
+	<subject code="MFKC3" text="Embriología" />
+	<subject code="MFKH" text="Crecimiento y desarrollo humanos" />
+	<subject code="MFKH3" text="Maduración y envejecimiento" />
+	<subject code="MFN" text="Genética médica" />
+	<subject code="MJ" text="Medicina clínica e interna" />
+	<subject code="MJA" text="Diagnóstico médico" />
+	<subject code="MJAD" text="Examen de pacientes" />
+	<subject code="MJC" text="Enfermedades y trastornos" />
+	<subject code="MJCG" text="Enfermedades y trastornos congénitos" />
+	<subject code="MJCG1" text="Enfermedades y trastornos hereditarios" />
+	<subject code="MJCJ" text="Enfermedades infectocontagiosas" />
+	<subject code="MJCJ1" text="Enfermedades venéreas" />
+	<subject code="MJCJ2" text="VIH/SIDA" />
+	<subject code="MJCJ3" text="Infecciones hospitalarias" />
+	<subject code="MJCL" text="Oncología" />
+	<subject code="MJCL1" text="Radioterapia" />
+	<subject code="MJCL2" text="Quimioterapia" />
+	<subject code="MJCM" text="Inmunología" />
+	<subject code="MJCM1" text="Alergias" />
+	<subject code="MJD" text="Medicina cardiovascular" />
+	<subject code="MJE" text="Medicina musculoesquelética" />
+	<subject code="MJF" text="Hematología" />
+	<subject code="MJG" text="Endocrinología" />
+	<subject code="MJGD" text="Diabetes" />
+	<subject code="MJH" text="Gastroenterología" />
+	<subject code="MJJ" text="Hepatología" />
+	<subject code="MJK" text="Dermatología" />
+	<subject code="MJL" text="Medicina respiratoria" />
+	<subject code="MJM" text="Reumatología" />
+	<subject code="MJN" text="Neurología y neurofisiología clínica" />
+	<subject code="MJNA" text="Autismo y síndrome de Asperger" />
+	<subject code="MJND" text="Enfermedad de Alzheimer y demencia" />
+	<subject code="MJP" text="Otorrinolaringología (nariz, garganta, oídos)" />
+	<subject code="MJPD" text="Audiología y otología" />
+	<subject code="MJQ" text="Oftalmología" />
+	<subject code="MJR" text="Medicina renal y nefrología" />
+	<subject code="MJRD" text="Hemodiálisis" />
+	<subject code="MJS" text="Urología y medicina urogenital" />
+	<subject code="MJT" text="Ginecología y obstetricia" />
+	<subject code="MJTF" text="Medicina maternofetal" />
+	<subject code="MJW" text="Medicina pediátrica" />
+	<subject code="MJWN" text="Medicina neonatal" />
+	<subject code="MJX" text="Medicina geriátrica" />
+	<subject code="MJZ" text="Terapia genética" />
+	<subject code="MM" text="Otras ramas de la medicina" />
+	<subject code="MMB" text="Anestesiología" />
+	<subject code="MMBP" text="Dolor y tratamiento del dolor" />
+	<subject code="MMC" text="Medicina paliativa" />
+	<subject code="MMD" text="Odontología" />
+	<subject code="MMDS" text="Cirugía oral y maxilofacial" />
+	<subject code="MMF" text="Patología" />
+	<subject code="MMFC" text="Citopatología" />
+	<subject code="MMFH" text="Histopatología" />
+	<subject code="MMFM" text="Microbiología médica y virología" />
+	<subject code="MMFP" text="Parasitología médica" />
+	<subject code="MMG" text="Farmacología" />
+	<subject code="MMGT" text="Toxicología médica" />
+	<subject code="MMGW" text="Psicofarmacología" />
+	<subject code="MMH" text="Psiquiatría" />
+	<subject code="MMJ" text="Psicología clínica" />
+	<subject code="MMJT" text="Psicoterapia" />
+	<subject code="MMJT1" text="Terapia cognitiva conductual" />
+	<subject code="MMK" text="Medicina de urgencias y emergencias" />
+	<subject code="MMKB" text="Traumatismos y choques" />
+	<subject code="MMKD" text="Quemaduras" />
+	<subject code="MMKL" text="Medicina de cuidados intensivos" />
+	<subject code="MMN" text="Medicina nuclear" />
+	<subject code="MMP" text="Técnicas de diagnóstico por la imagen" />
+	<subject code="MMPF" text="Ultrasonido" />
+	<subject code="MMPG" text="Resonancia magnética nuclear (RMN/IRM)" />
+	<subject code="MMPH" text="Radiología" />
+	<subject code="MMPJ" text="Tomografía" />
+	<subject code="MMQ" text="Medicina forense" />
+	<subject code="MMR" text="Medicina medioambiental" />
+	<subject code="MMRB" text="Medicina aeronáutica y espacial" />
+	<subject code="MMRD" text="Medicina subacuática e hiperbárica" />
+	<subject code="MMRP" text="Medicina del trabajo" />
+	<subject code="MMRT" text="Medicina tropical" />
+	<subject code="MMS" text="Lesiones deportivas y medicina del deporte" />
+	<subject code="MMZ" text="Terapia y terapéutica" />
+	<subject code="MMZD" text="Trastornos de la alimentación y su tratamiento" />
+	<subject code="MMZF" text="Obesidad: tratamientos" />
+	<subject code="MMZL" text="Trastornos del habla y del lenguaje y su tratamiento" />
+	<subject code="MMZR" text="Adicciones y su tratamiento" />
+	<subject code="MMZS" text="Trastornos del sueño y su tratamiento" />
+	<subject code="MN" text="Cirugía" />
+	<subject code="MNB" text="Técnicas quirúrgicas" />
+	<subject code="MNC" text="Cirugía general" />
+	<subject code="MNG" text="Cirugía gastrointestinal y colorrectal" />
+	<subject code="MNH" text="Cirugía cardiotorácica" />
+	<subject code="MNJ" text="Cirugía vascular" />
+	<subject code="MNK" text="Oncología quirúrgica" />
+	<subject code="MNL" text="Cirugía de cuidados intensivos" />
+	<subject code="MNN" text="Neurocirugía" />
+	<subject code="MNP" text="Cirugía plástica y reparadora" />
+	<subject code="MNPC" text="Cirugía estética" />
+	<subject code="MNQ" text="Cirugía de trasplantes" />
+	<subject code="MNS" text="Ortopedia y traumatología" />
+	<subject code="MNZ" text="Cuidados periquirúrgicos" />
+	<subject code="MQ" text="Enfermería y servicios auxiliares" />
+	<subject code="MQC" text="Enfermería" />
+	<subject code="MQCA" text="Fundamentos y destrezas de la enfermería" />
+	<subject code="MQCB" text="Investigación y teoría de la enfermería" />
+	<subject code="MQCH" text="Relación enfermera/paciente" />
+	<subject code="MQCL" text="Especialidades de enfermería" />
+	<subject code="MQCL1" text="Enfermería de urgencias y emergencias" />
+	<subject code="MQCL2" text="Enfermería de cuidados intensivos" />
+	<subject code="MQCL3" text="Enfermería pediátrica" />
+	<subject code="MQCL4" text="Enfermería geriátrica" />
+	<subject code="MQCL5" text="Enfermería psiquiátrica" />
+	<subject code="MQCL6" text="Enfermería quirúrgica" />
+	<subject code="MQCL9" text="Cuidados de enfermería en pacientes terminales" />
+	<subject code="MQCM" text="Farmacología en enfermería" />
+	<subject code="MQCW" text="Sociología en enfermería" />
+	<subject code="MQCX" text="Enfermería comunitaria" />
+	<subject code="MQCZ" text="Gestión y liderazgo en enfermería" />
+	<subject code="MQD" text="Enfermería obstétrica-ginecológica" />
+	<subject code="MQDB" text="Métodos de parto" />
+	<subject code="MQF" text="Servicios de primeros auxilios y de auxiliares sanitarios" />
+	<subject code="MQH" text="Radiología" />
+	<subject code="MQK" text="Podología y quiropodia/Podología" />
+	<subject code="MQP" text="Farmacia/prescripción/dispensación" />
+	<subject code="MQR" text="Optometría/ópticos-optometristas" />
+	<subject code="MQS" text="Fisioterapia" />
+	<subject code="MQT" text="Terapia ocupacional" />
+	<subject code="MQTC" text="Terapia creativa (p. ej. arte, música, teatro)" />
+	<subject code="MQU" text="Asesoramiento médico" />
+	<subject code="MQV" text="Rehabilitación" />
+	<subject code="MQVB" text="Rehabilitación: lesiones cerebrales y de columna" />
+	<subject code="MQW" text="Ingeniería biomédica" />
+	<subject code="MQWB" text="Ortesis" />
+	<subject code="MQWP" text="Prótesis" />
+	<subject code="MQZ" text="Tanatopraxia" />
+	<subject code="MR" text="Guías de estudio y revisión y material de consulta de la medicina" />
+	<subject code="MRG" text="Guías de estudio y revisión de la medicina" />
+	<subject code="MRGD" text="Medios auxiliares de estudio de la medicina para Medios auxiliares de estudio de la medicina para colegiarse en el Colegio Real de Médicos del Reino Unido (MRCP, según sus siglas en inglés)" />
+	<subject code="MRGK" text="Medios auxiliares de estudio de la medicina para Medios auxiliares de estudio de la medicina para colegiarse en el Colegio Real de Cirujanos del Reino Unido (MRCS, según sus siglas en inglés)" />
+	<subject code="MRGL" text="Medios auxiliares de estudio de la medicina para Medios auxiliares de estudio de la medicina para el examen del Consejo de Evaluaciones Profesionales y Lingüísticas del Reino Unido (PLAB, según sus siglas en inglés)" />
+	<subject code="MRT" text="Gráficos y atlas en color de medicina" />
+	<subject code="MX" text="Medicina complementaria" />
+	<subject code="MXH" text="Quiropraxia y osteopatía" />
+	<subject code="MZ" text="Veterinaria" />
+	<subject code="MZC" text="Veterinaria: pequeños animales (mascotas)" />
+	<subject code="MZD" text="Veterinaria: grandes animales (domésticos/de granja)" />
+	<subject code="MZDH" text="Veterinaria de equinos" />
+	<subject code="MZF" text="Veterinaria: animales de laboratorio" />
+	<subject code="MZG" text="Veterinaria: animales exóticos y de zoológico" />
+	<subject code="MZH" text="Anatomía y fisiología veterinarias" />
+	<subject code="MZK" text="Patología e histología veterinarias" />
+	<subject code="MZL" text="Nutrición veterinaria" />
+	<subject code="MZM" text="Veterinaria: enfermedades infecciosas y terapéutica" />
+	<subject code="MZMP" text="Bacteriología, virología, parasitología veterinarias" />
+	<subject code="MZP" text="Farmacología veterinaria" />
+	<subject code="MZR" text="Radiología veterinaria" />
+	<subject code="MZS" text="Cirugía veterinaria" />
+	<subject code="MZSN" text="Anestesiología veterinaria" />
+	<subject code="MZT" text="Odontología veterinaria" />
+	<subject code="MZV" text="Enfermería veterinaria" />
+	<subject code="MZX" text="Medicina complementaria para animales" />
+	<subject code="P" text="Matemáticas y ciencia" />
+	<subject code="PB" text="Matemáticas" />
+	<subject code="PBB" text="Filosofía de las matemáticas" />
+	<subject code="PBC" text="Bases matemáticas" />
+	<subject code="PBCD" text="Lógica matemática" />
+	<subject code="PBCH" text="Teoría de los conjuntos" />
+	<subject code="PBCN" text="Sistemas numéricos" />
+	<subject code="PBD" text="Matemáticas discretas" />
+	<subject code="PBF" text="Álgebra" />
+	<subject code="PBG" text="Grupos y teoría de grupos" />
+	<subject code="PBH" text="Teoría de números" />
+	<subject code="PBJ" text="Precálculo" />
+	<subject code="PBK" text="Cálculo y análisis matemático" />
+	<subject code="PBKA" text="Cálculo" />
+	<subject code="PBKB" text="Análisis real, variables reales" />
+	<subject code="PBKD" text="Análisis complejo, variables complejas" />
+	<subject code="PBKF" text="Análisis funcional y transformaciones" />
+	<subject code="PBKJ" text="Cálculo diferencial y ecuaciones" />
+	<subject code="PBKL" text="Cálculo integral y ecuaciones" />
+	<subject code="PBKQ" text="Cálculo de variaciones" />
+	<subject code="PBKS" text="Análisis numérico" />
+	<subject code="PBM" text="Geometría" />
+	<subject code="PBMB" text="Trigonometría" />
+	<subject code="PBMH" text="Geometría euclidiana" />
+	<subject code="PBML" text="Geometría no euclidiana" />
+	<subject code="PBMP" text="Geometría diferencial y riemanniana" />
+	<subject code="PBMS" text="Geometría analítica" />
+	<subject code="PBMW" text="Geometría algebraica" />
+	<subject code="PBMX" text="Geometría fractal" />
+	<subject code="PBP" text="Topología" />
+	<subject code="PBPD" text="Topología algebraica" />
+	<subject code="PBPH" text="Topología analítica" />
+	<subject code="PBT" text="Probabilidad y estadística" />
+	<subject code="PBTB" text="Inferencia bayesiana" />
+	<subject code="PBU" text="Optimización" />
+	<subject code="PBUD" text="Teoría del juego" />
+	<subject code="PBUH" text="Programación lineal" />
+	<subject code="PBV" text="Combinatoria y teoría de grafos" />
+	<subject code="PBW" text="Matemáticas aplicadas" />
+	<subject code="PBWH" text="Modelos matemáticos" />
+	<subject code="PBWL" text="Estocástica" />
+	<subject code="PBWR" text="Ciencia no lineal" />
+	<subject code="PBWS" text="Teoría del caos" />
+	<subject code="PBWX" text="Teoría de conjuntos difusos" />
+	<subject code="PBX" text="Historia de las matemáticas" />
+	<subject code="PD" text="Ciencia: cuestiones generales" />
+	<subject code="PDA" text="Filosofía de la ciencia" />
+	<subject code="PDC" text="Nomenclatura y clasificación científica" />
+	<subject code="PDD" text="Normas científicas" />
+	<subject code="PDDM" text="Medidas y sistemas de medición" />
+	<subject code="PDE" text="Matemáticas para científicos" />
+	<subject code="PDG" text="Aplicaciones industriales de investigación científica e innovación tecnológica" />
+	<subject code="PDK" text="Financiación y política científica" />
+	<subject code="PDN" text="Equipamiento, experimentos y técnicas científicas" />
+	<subject code="PDND" text="Microscopía" />
+	<subject code="PDR" text="Influencia de la ciencia y la tecnología sobre la sociedad" />
+	<subject code="PDX" text="Historia de la ciencia" />
+	<subject code="PDZ" text="Divulgación científica" />
+	<subject code="PDZM" text="Matemática popular" />
+	<subject code="PG" text="Astronomía, espacio y tiempo" />
+	<subject code="PGC" text="Astronomía teórica y matemática" />
+	<subject code="PGG" text="Observación astronómica: observatorios, equipamiento y métodos" />
+	<subject code="PGK" text="Cosmología y el universo" />
+	<subject code="PGM" text="Galaxias y estrellas" />
+	<subject code="PGS" text="Sistema solar: el Sol y los planetas" />
+	<subject code="PGT" text="Cartas celestes y atlas astronómicos" />
+	<subject code="PGZ" text="Tiempo (cronología), sistemas y medidas de tiempo" />
+	<subject code="PH" text="Física" />
+	<subject code="PHD" text="Mecánica clásica" />
+	<subject code="PHDB" text="Mecánica elemental" />
+	<subject code="PHDD" text="Mecánica analítica" />
+	<subject code="PHDF" text="Mecánica de fluidos" />
+	<subject code="PHDS" text="Mecánica ondulatoria (vibración y acústica)" />
+	<subject code="PHDT" text="Dinámica y estática" />
+	<subject code="PHDV" text="Gravedad" />
+	<subject code="PHDY" text="Energía" />
+	<subject code="PHF" text="Materiales/estados de la materia" />
+	<subject code="PHFB" text="Física de bajas temperaturas" />
+	<subject code="PHFC" text="Física de la materia condensada (física del estado líquido y del estado sólido)" />
+	<subject code="PHFC1" text="Física de la materia blanda" />
+	<subject code="PHFC2" text="Física mesoscópica" />
+	<subject code="PHFG" text="Física de los gases" />
+	<subject code="PHFP" text="Física del plasma" />
+	<subject code="PHH" text="Termodinámica y calor" />
+	<subject code="PHJ" text="Física óptica" />
+	<subject code="PHJL" text="Física del láser" />
+	<subject code="PHK" text="Electricidad, electromagnetismo y magnetismo" />
+	<subject code="PHM" text="Física atómica y molecular" />
+	<subject code="PHN" text="Física nuclear/Estructura nuclear" />
+	<subject code="PHP" text="Física de partículas y de altas energías" />
+	<subject code="PHQ" text="Física cuántica (mecánica cuántica y teoría cuántica de campos)" />
+	<subject code="PHR" text="Física de la relatividad" />
+	<subject code="PHS" text="Física estadística" />
+	<subject code="PHU" text="Física matemática" />
+	<subject code="PHV" text="Física aplicada" />
+	<subject code="PHVB" text="Astrofísica" />
+	<subject code="PHVD" text="Física médica" />
+	<subject code="PHVG" text="Geofísica" />
+	<subject code="PHVJ" text="Física atmosférica" />
+	<subject code="PHVN" text="Biofísica" />
+	<subject code="PHVQ" text="Física química" />
+	<subject code="PHVS" text="Criogenia" />
+	<subject code="PN" text="Química" />
+	<subject code="PNF" text="Química analítica" />
+	<subject code="PNFC" text="Cromatografía" />
+	<subject code="PNFR" text="Resonancia magnética" />
+	<subject code="PNFS" text="Análisis espectral, espectroquímica, espectrometría de masas" />
+	<subject code="PNK" text="Química inorgánica" />
+	<subject code="PNN" text="Química orgánica" />
+	<subject code="PNND" text="Química organometálica" />
+	<subject code="PNNP" text="Química de los polímeros" />
+	<subject code="PNR" text="Química física" />
+	<subject code="PNRC" text="Química coloidal" />
+	<subject code="PNRD" text="Catálisis" />
+	<subject code="PNRH" text="Electroquímica y magnetoquímica" />
+	<subject code="PNRL" text="Química nuclear, fotoquímica y radiación" />
+	<subject code="PNRP" text="Química cuántica y teórica" />
+	<subject code="PNRS" text="Química del estado sólido" />
+	<subject code="PNRW" text="Termoquímica y termodinámica química" />
+	<subject code="PNRX" text="Química de superficies y adsorción" />
+	<subject code="PNT" text="Cristalografía" />
+	<subject code="PNV" text="Mineralogía y gemas" />
+	<subject code="PS" text="Biología, ciencias de la vida" />
+	<subject code="PSA" text="Ciencias de la vida: cuestiones generales" />
+	<subject code="PSAB" text="Taxonomía y sistemática" />
+	<subject code="PSAD" text="Bioética" />
+	<subject code="PSAF" text="Ecología, la bioesfera" />
+	<subject code="PSAG" text="Xenobiótica" />
+	<subject code="PSAJ" text="Evolución" />
+	<subject code="PSAK" text="Genética (no médica)" />
+	<subject code="PSAK1" text="ADN y genoma" />
+	<subject code="PSAN" text="Neurociencias" />
+	<subject code="PSB" text="Bioquímica" />
+	<subject code="PSBC" text="Proteínas" />
+	<subject code="PSBF" text="Carbohidratos" />
+	<subject code="PSBH" text="Lípidos" />
+	<subject code="PSBM" text="Inmunología bioquímica" />
+	<subject code="PSBT" text="Toxicología (no médica)" />
+	<subject code="PSBZ" text="Enzimología" />
+	<subject code="PSC" text="Biología del desarrollo" />
+	<subject code="PSD" text="Biología molecular" />
+	<subject code="PSF" text="Biología celular (citología)" />
+	<subject code="PSG" text="Microbiología (no médica)" />
+	<subject code="PSGD" text="Bacteriología (no médica)" />
+	<subject code="PSGH" text="Parasitología (no médica)" />
+	<subject code="PSGL" text="Virología (no médica)" />
+	<subject code="PSGN" text="Protozoos" />
+	<subject code="PSP" text="Hidrobiología" />
+	<subject code="PSPF" text="Biología de aguas dulces" />
+	<subject code="PSPM" text="Biología marina" />
+	<subject code="PSQ" text="Micología, hongos (no médica)" />
+	<subject code="PST" text="Botánica y ciencias de las plantas" />
+	<subject code="PSTD" text="Fisiología vegetal" />
+	<subject code="PSTL" text="Reproducción y propagación de las plantas" />
+	<subject code="PSTP" text="Fitopatología y enfermedades de las plantas" />
+	<subject code="PSTS" text="Ecología vegetal" />
+	<subject code="PSTV" text="Ficología, algas y líquenes" />
+	<subject code="PSV" text="Zoología y ciencias animales" />
+	<subject code="PSVD" text="Fisiología animal" />
+	<subject code="PSVH" text="Reproducción animal" />
+	<subject code="PSVL" text="Patología animal y enfermedades de los animales" />
+	<subject code="PSVP" text="Conducta animal" />
+	<subject code="PSVS" text="Ecología animal" />
+	<subject code="PSVT" text="Zoología: invertebrados" />
+	<subject code="PSVT3" text="Moluscos" />
+	<subject code="PSVT5" text="Crustáceos" />
+	<subject code="PSVT6" text="Arácnidos" />
+	<subject code="PSVT7" text="Insectos (entomología)" />
+	<subject code="PSVW" text="Zoología: vertebrados" />
+	<subject code="PSVW1" text="Peces (ictiología)" />
+	<subject code="PSVW3" text="Anfibios" />
+	<subject code="PSVW5" text="Reptiles" />
+	<subject code="PSVW6" text="Aves (ornitología)" />
+	<subject code="PSVW7" text="Zoología: mamíferos" />
+	<subject code="PSVW71" text="Marsupiales y monotremas" />
+	<subject code="PSVW73" text="Mamíferos marinos y de agua dulce" />
+	<subject code="PSVW79" text="Primates" />
+	<subject code="PSX" text="Biología humana" />
+	<subject code="PSXE" text="Hombre primitivo" />
+	<subject code="PSXM" text="Antropología médica" />
+	<subject code="R" text="Ciencias de la tierra, geografía, medio ambiente, planificación" />
+	<subject code="RB" text="Ciencias de la tierra/geociencias" />
+	<subject code="RBC" text="Vulcanología y sismología" />
+	<subject code="RBG" text="Geología y la litosfera" />
+	<subject code="RBGB" text="Ciencia del suelo, sedimentología" />
+	<subject code="RBGD" text="Procesos geológicos de la superficie de la Tierra (geomorfología)" />
+	<subject code="RBGF" text="Geología histórica" />
+	<subject code="RBGG" text="Petrología" />
+	<subject code="RBGH" text="Estratigrafía" />
+	<subject code="RBGK" text="Geoquímica" />
+	<subject code="RBGL" text="Geología económica" />
+	<subject code="RBK" text="Hidrología e hidrosfera" />
+	<subject code="RBKC" text="Oceanografía (mares)" />
+	<subject code="RBKF" text="Limnología (aguas dulces)" />
+	<subject code="RBP" text="Meteorología y climatología" />
+	<subject code="RBX" text="Paleontología" />
+	<subject code="RG" text="Geografía" />
+	<subject code="RGB" text="Geografía física y topografía" />
+	<subject code="RGBA" text="Zonas áridas, desiertos" />
+	<subject code="RGBC" text="Pastizales, brezales, praderas y tundra" />
+	<subject code="RGBF" text="Tierras anegadizas, pantanos, marjales" />
+	<subject code="RGBL" text="Bosques, selvas tropicales" />
+	<subject code="RGBP" text="Deltas, estuarios, regiones costeras" />
+	<subject code="RGBR" text="Arrecifes de coral" />
+	<subject code="RGBS" text="Montañas" />
+	<subject code="RGC" text="Geografía humana" />
+	<subject code="RGCM" text="Geografía económica" />
+	<subject code="RGCP" text="Geografía política" />
+	<subject code="RGL" text="Geografía regional" />
+	<subject code="RGM" text="Biogeografía" />
+	<subject code="RGR" text="Descrubrimientos y exploración geográficas" />
+	<subject code="RGS" text="Mapas geográficos (especializados)" />
+	<subject code="RGV" text="Cartografía, elaboración de mapas y proyecciones" />
+	<subject code="RGW" text="Sistemas de información geográfica (SIG) y percepción remota" />
+	<subject code="RGY" text="Geodesia y topografía para mapas y cartas" />
+	<subject code="RN" text="El medio ambiente" />
+	<subject code="RNA" text="Pensamiento e ideología ecologista" />
+	<subject code="RNB" text="Organizaciones ecologistas, conservacionistas y verdes" />
+	<subject code="RNC" text="Ecología aplicada" />
+	<subject code="RNCB" text="Biodiversidad" />
+	<subject code="RND" text="Política y protocolos medioambientales" />
+	<subject code="RNF" text="Gestión medioambiental" />
+	<subject code="RNFD" text="Sequía y suministro de agua" />
+	<subject code="RNFF" text="Seguridad y suministro de alimentos" />
+	<subject code="RNFY" text="Recursos energéticos" />
+	<subject code="RNH" text="Gestión de residuos" />
+	<subject code="RNK" text="Conservación del medio ambiente" />
+	<subject code="RNKH" text="Conservación de la vida silvestre y del hábitat" />
+	<subject code="RNKH1" text="Especies en peligro de extinción y la extinción de especies" />
+	<subject code="RNP" text="Contaminación y amenazas al medio ambiente" />
+	<subject code="RNPD" text="Deforestación" />
+	<subject code="RNPG" text="Cambio climático" />
+	<subject code="RNQ" text="Cuestiones nucleares" />
+	<subject code="RNR" text="Desastres naturales" />
+	<subject code="RNT" text="Impacto social de las cuestiones medioambientales" />
+	<subject code="RNU" text="Sostenibilidad" />
+	<subject code="RP" text="Planificación regional y zonal" />
+	<subject code="RPC" text="Planificación urbana y municipal" />
+	<subject code="RPG" text="Planificación rural" />
+	<subject code="RPT" text="Planificación y política de transporte" />
+	<subject code="T" text="Tecnología, ingeniería, agricultura" />
+	<subject code="TB" text="Tecnología: cuestiones generales" />
+	<subject code="TBC" text="Ingeniería: general" />
+	<subject code="TBD" text="Diseño técnico" />
+	<subject code="TBDG" text="Ergonomía" />
+	<subject code="TBG" text="Gráficos de ingeniería y dibujo técnico" />
+	<subject code="TBJ" text="Matemáticas para ingenieros" />
+	<subject code="TBM" text="Ingeniería de instrumentos e instrumentación" />
+	<subject code="TBMM" text="Medición y calibración en ingeniería" />
+	<subject code="TBN" text="Nanotecnología" />
+	<subject code="TBR" text="Tecnología intermedia" />
+	<subject code="TBX" text="Historia de la tecnología y la ingeniería" />
+	<subject code="TBY" text="Invenciones e inventores" />
+	<subject code="TC" text="Ingeniería bioquímica" />
+	<subject code="TCB" text="Biotecnología" />
+	<subject code="TCBG" text="Ingeniería genética" />
+	<subject code="TCBS" text="Biosensores" />
+	<subject code="TD" text="Química industrial y tecnologías manufactureras" />
+	<subject code="TDC" text="Química industrial" />
+	<subject code="TDCB" text="Ingeniería química" />
+	<subject code="TDCC" text="Productos químicos pesados" />
+	<subject code="TDCD" text="Tecnología de detergentes" />
+	<subject code="TDCG" text="Tecnología de polvos" />
+	<subject code="TDCH" text="Tecnología de insecticidas y herbicidas" />
+	<subject code="TDCJ" text="Tecnología de pigmentos, tinturas y pinturas" />
+	<subject code="TDCJ1" text="Tecnología de la cosmética" />
+	<subject code="TDCK" text="Tecnología del revestimiento de superficies" />
+	<subject code="TDCP" text="Tecnología de plásticos y polímeros" />
+	<subject code="TDCQ" text="Tecnología de la cerámica y el vidrio" />
+	<subject code="TDCR" text="Tecnología del caucho" />
+	<subject code="TDCT" text="Tecnología de alimentos y bebidas" />
+	<subject code="TDCT1" text="Tecnología cervecera" />
+	<subject code="TDCT2" text="Tecnología vitivinícola" />
+	<subject code="TDCW" text="Tecnología farmacéutica" />
+	<subject code="TDG" text="Tecnología de cuero y pieles" />
+	<subject code="TDH" text="Tecnología textil y de fibras" />
+	<subject code="TDJ" text="Procesamiento de la madera" />
+	<subject code="TDJP" text="Tecnología de la pulpa y el papel" />
+	<subject code="TDM" text="Tecnología de los metales (metalurgía)" />
+	<subject code="TDP" text="Otras tecnologías de las manufacturas" />
+	<subject code="TDPB" text="Manufactura de instrumentos de precisión" />
+	<subject code="TDPB1" text="Relojes y cronómetros (relojería)" />
+	<subject code="TDPD" text="Manufactura de electrodomésticos" />
+	<subject code="TDPF" text="Manufactura de muebles y mobiliario" />
+	<subject code="TDPH" text="Manufactura de ropa y calzado" />
+	<subject code="TDPP" text="Tecnología de la impresión y reproducción gráfica" />
+	<subject code="TG" text="Ingeniería mecánica y de materiales" />
+	<subject code="TGB" text="Ingeniería mecánica" />
+	<subject code="TGBF" text="Tribología (fricción y lubricación)" />
+	<subject code="TGBN" text="Motores y transmisión de fuerza" />
+	<subject code="TGBN1" text="Motores de vapor" />
+	<subject code="TGM" text="Ciencia de materiales" />
+	<subject code="TGMB" text="Termodinámica con aplicaciones en ingeniería" />
+	<subject code="TGMD" text="Mecánica de sólidos" />
+	<subject code="TGMD4" text="Dinámica y vibraciones" />
+	<subject code="TGMD5" text="Esfuerzo y fractura" />
+	<subject code="TGMF" text="Mecánica de fluidos" />
+	<subject code="TGMF1" text="Aerodinámica" />
+	<subject code="TGMF2" text="Hidráulica y neumática" />
+	<subject code="TGMF3" text="Flujo, turbulencia, reología" />
+	<subject code="TGMT" text="Ensayo de materiales" />
+	<subject code="TGMT1" text="Ensayo no destructivo" />
+	<subject code="TGP" text="Ingeniería de producción" />
+	<subject code="TGPC" text="Manufactura asistida por ordenador (CAM)" />
+	<subject code="TGPQ" text="Control de calidad industrial" />
+	<subject code="TGPR" text="Ingeniería de confiabilidad" />
+	<subject code="TGX" text="Destrezas y actividades comerciales de la ingeniería" />
+	<subject code="TGXT" text="Fabricación de herramientas" />
+	<subject code="TGXW" text="Soldadura" />
+	<subject code="TH" text="Tecnología e ingeniería energética" />
+	<subject code="THF" text="Tecnologías de los combustibles fósiles" />
+	<subject code="THFG" text="Tecnología del gas" />
+	<subject code="THFP" text="Tecnología del petróleo" />
+	<subject code="THFS" text="Tecnología del combustible sólido" />
+	<subject code="THK" text="Energía nuclear e ingeniería" />
+	<subject code="THN" text="Procesos de transferencia de calor" />
+	<subject code="THR" text="Ingeniería eléctrica" />
+	<subject code="THRB" text="Generación y distribución de energía" />
+	<subject code="THRD" text="Redes, sistemas, estaciones y plantas de energía" />
+	<subject code="THRF" text="Usos y aplicaciones de la energía" />
+	<subject code="THRH" text="Conversión y almacenaje de la energía" />
+	<subject code="THRM" text="Motores eléctricos" />
+	<subject code="THRS" text="Destrezas del electricista" />
+	<subject code="THT" text="Eficiencia energética" />
+	<subject code="THX" text="Tecnología y fuentes de energía alternativa y renovable" />
+	<subject code="TJ" text="Ingeniería electrónica y de las comunicaciones" />
+	<subject code="TJF" text="Ingeniería electrónica" />
+	<subject code="TJFC" text="Circuitos y componentes" />
+	<subject code="TJFD" text="Dispositivos y materiales electrónicos" />
+	<subject code="TJFD1" text="Microprocesadores" />
+	<subject code="TJFD3" text="Transistores" />
+	<subject code="TJFD5" text="Semiconductores y superconductores" />
+	<subject code="TJFM" text="Ingeniería de control automático" />
+	<subject code="TJFM1" text="Robótica" />
+	<subject code="TJFN" text="Tecnología de microondas" />
+	<subject code="TJK" text="Ingeniería de las comunicaciones/las telecomunicaciones" />
+	<subject code="TJKD" text="Radar" />
+	<subject code="TJKR" text="Radiotecnología" />
+	<subject code="TJKS" text="Comunicación por satélite" />
+	<subject code="TJKT" text="Tecnología de la telefonía" />
+	<subject code="TJKT1" text="Tecnología de la telefonía móvil" />
+	<subject code="TJKV" text="Tecnología televisiva" />
+	<subject code="TJKW" text="Tecnología WAP (inalámbrica)" />
+	<subject code="TN" text="Ingeniería civil, topografía y construcción" />
+	<subject code="TNC" text="Ingeniería estructural" />
+	<subject code="TNCB" text="Topografía" />
+	<subject code="TNCB1" text="Evaluación de costes de proyectos" />
+	<subject code="TNCC" text="Mecánica de suelos y rocas" />
+	<subject code="TNCE" text="Ingeniería de terremotos" />
+	<subject code="TNCJ" text="Puentes" />
+	<subject code="TNF" text="Ingeniería hidráulica" />
+	<subject code="TNFD" text="Diques y embalses" />
+	<subject code="TNFH" text="Puertos" />
+	<subject code="TNFL" text="Control de inundaciones" />
+	<subject code="TNFR" text="Recuperación y drenaje de terrenos" />
+	<subject code="TNH" text="Ingeniería de caminos y tráfico" />
+	<subject code="TNK" text="Construcción de edificios y materiales" />
+	<subject code="TNKF" text="Protección y seguridad contra incendios" />
+	<subject code="TNKH" text="Calefacción, iluminación, ventilación" />
+	<subject code="TNKS" text="Sistemas de seguridad y de alarma contra incendios" />
+	<subject code="TNKX" text="Conservación de edificios y materiales de construcción" />
+	<subject code="TNT" text="Destrezas y actividades comerciales de la construcción" />
+	<subject code="TNTB" text="Albañilería y enlucido" />
+	<subject code="TNTC" text="Carpintería" />
+	<subject code="TNTP" text="Fontanería" />
+	<subject code="TNTR" text="Construcción y reparación de techos" />
+	<subject code="TQ" text="Ciencia, ingeniería y tecnología medioambientales" />
+	<subject code="TQD" text="Supervisión/control/verificación medioambiental" />
+	<subject code="TQK" text="Control de la contaminación" />
+	<subject code="TQS" text="Ingeniería sanitaria y municipal" />
+	<subject code="TQSR" text="Tratamiento y eliminación de residuos" />
+	<subject code="TQSR1" text="Tratamiento y eliminación de aguas residuales" />
+	<subject code="TQSR3" text="Tratamiento y eliminación de residuos peligrosos" />
+	<subject code="TQSW" text="Suministro y tratamiento de aguas" />
+	<subject code="TQSW1" text="Purificación y desalinización de aguas" />
+	<subject code="TR" text="Tecnología y actividades comerciales del transporte" />
+	<subject code="TRC" text="Tecnología y actividades comerciales del automóvil" />
+	<subject code="TRCS" text="Destrezas relacionadas con el automóvil (mecánica del automóvil)" />
+	<subject code="TRCT" text="Transporte terrestre y actividades comerciales de acarreo" />
+	<subject code="TRF" text="Tecnología, ingeniería y actividades comerciales ferroviarias" />
+	<subject code="TRFT" text="Actividades comerciales ferroviarias" />
+	<subject code="TRL" text="Tecnología, ingeniería y actividades comerciales navales" />
+	<subject code="TRLD" text="Diseño de barcos y arquitectura naval" />
+	<subject code="TRLN" text="Navegación y marinería" />
+	<subject code="TRLT" text="Actividades comerciales marítimas/náuticas" />
+	<subject code="TRP" text="Tecnología aeroespacial y aeronáutica" />
+	<subject code="TRPS" text="Destrezas aeronáuticas/pilotaje" />
+	<subject code="TRT" text="Tecnología de sistemas de transporte inteligentes y automatizados" />
+	<subject code="TT" text="Otras tecnologías y ciencias aplicadas" />
+	<subject code="TTA" text="Ingeniería acústica y de sonido" />
+	<subject code="TTB" text="Óptica aplicada" />
+	<subject code="TTBF" text="Fibra óptica" />
+	<subject code="TTBL" text="Tecnología láser y holografía" />
+	<subject code="TTBM" text="Sistemas y tecnología de captación de imágenes" />
+	<subject code="TTBS" text="Sistemas y tecnología de escaneo" />
+	<subject code="TTD" text="Ciencia espacial" />
+	<subject code="TTDS" text="Astronáutica" />
+	<subject code="TTM" text="Ingeniería militar" />
+	<subject code="TTMW" text="Pertrechos, tecnología de armas de guerra" />
+	<subject code="TTP" text="Tecnología de explosivos y pirotecnia" />
+	<subject code="TTS" text="Ingeniería naval" />
+	<subject code="TTSH" text="Ingeniería en alta mar" />
+	<subject code="TTSX" text="Sonar" />
+	<subject code="TTU" text="Tecnología e ingeniería minera" />
+	<subject code="TTV" text="Otras tecnologías y actividades comerciales profesionales" />
+	<subject code="TTVC" text="Actividades de hostelería y restauración" />
+	<subject code="TTVH" text="Destrezas de peluquería y belleza" />
+	<subject code="TTVR" text="Oficios y destrezas tradicionales" />
+	<subject code="TTX" text="Taxidermia" />
+	<subject code="TV" text="Agricultura y explotación agropecuaria" />
+	<subject code="TVB" text="Ciencia agrícola" />
+	<subject code="TVD" text="Ingeniería y maquinaria agrícola" />
+	<subject code="TVDR" text="Irrigación" />
+	<subject code="TVF" text="Agricultura sostenible" />
+	<subject code="TVG" text="Agricultura orgánica" />
+	<subject code="TVH" text="Ganadería" />
+	<subject code="TVHB" text="Reproducción de ganado" />
+	<subject code="TVHF" text="Explotación lechera" />
+	<subject code="TVHH" text="Apicultura (cría de abejas)" />
+	<subject code="TVHP" text="Avicultura" />
+	<subject code="TVK" text="Agronomía y producción agrícola" />
+	<subject code="TVKC" text="Cultivo de cereales" />
+	<subject code="TVKF" text="Fertilizante y abonos" />
+	<subject code="TVM" text="Minifundios" />
+	<subject code="TVP" text="Control de plagas" />
+	<subject code="TVQ" text="Agricultura tropical: práctica y técnicas" />
+	<subject code="TVR" text="Ingeniería forestal y silvicultura: práctica y técnicas" />
+	<subject code="TVS" text="Horticultura" />
+	<subject code="TVSW" text="Viticultura" />
+	<subject code="TVT" text="Acuicultura y piscicultura: práctica y técnicas" />
+	<subject code="U" text="Computación e informática" />
+	<subject code="UB" text="Informática: cuestiones generales" />
+	<subject code="UBH" text="Condiciones de trabajo de las TIC" />
+	<subject code="UBJ" text="Aspectos éticos y sociales de las TIC" />
+	<subject code="UBL" text="Aspectos legales de las TIC" />
+	<subject code="UBW" text="Internet: obras generales " />
+	<subject code="UD" text="Estilo de vida digital" />
+	<subject code="UDA" text="Software de organización personal y aplicaciones" />
+	<subject code="UDB" text="Guías de Internet y servicios en línea" />
+	<subject code="UDBA" text="Compras y subastas en línea" />
+	<subject code="UDBD" text="Búsqueda en Internet" />
+	<subject code="UDBG" text="Juegos de azar en Internet" />
+	<subject code="UDBM" text="Finanzas e inversiones en línea" />
+	<subject code="UDBR" text="Navegadores" />
+	<subject code="UDBS" text="Redes sociales" />
+	<subject code="UDBV" text="Mundos virtuales " />
+	<subject code="UDF" text="Correo electrónico: guías para el consumidor/usuario" />
+	<subject code="UDH" text="Dispositivos portátiles y de mano: guías para el consumidor/usuario" />
+	<subject code="UDM" text="Música digital: guías para el consumidor/usuario" />
+	<subject code="UDP" text="Fotografía digital: guías para el consumidor/usuario" />
+	<subject code="UDQ" text="Vídeo digital: guías para el consumidor/usuario" />
+	<subject code="UDT" text="Teléfonos móviles: guías para el consumidor/usuario" />
+	<subject code="UDV" text="Televisión digital y centros multimedia: guías para el consumidor/usuario" />
+	<subject code="UDX" text="Juegos de PC/ordenador/en línea: guías de estrategia" />
+	<subject code="UF" text="Apliaciones empresariales" />
+	<subject code="UFB" text="Paquetes integrados de software" />
+	<subject code="UFBC" text="Microsoft Office" />
+	<subject code="UFBF" text="Microsoft Works" />
+	<subject code="UFBL" text="Lotus Smartsuite" />
+	<subject code="UFBP" text="OpenOffice" />
+	<subject code="UFBS" text="StarOffice" />
+	<subject code="UFBW" text="iWork" />
+	<subject code="UFC" text="Hojas de cálculo" />
+	<subject code="UFCE" text="Excel" />
+	<subject code="UFCL" text="Lotus 1-2-3" />
+	<subject code="UFD" text="Procesadores de texto" />
+	<subject code="UFDM" text="Microsoft Word" />
+	<subject code="UFG" text="Software para presentaciones gráficas" />
+	<subject code="UFGP" text="PowerPoint" />
+	<subject code="UFK" text="Software de contabilidad" />
+	<subject code="UFL" text="Software empresarial" />
+	<subject code="UFLS" text="SAP (sistemas, aplicaciones y productos en bases de datos)" />
+	<subject code="UFM" text="Software de matemáticas y estadísticas" />
+	<subject code="UFP" text="Software de gestión de proyectos" />
+	<subject code="UFS" text="Software de colaboración y trabajo en grupo" />
+	<subject code="UG" text="Apliaciones gráficas y multimedia" />
+	<subject code="UGB" text="Gráficos y diseño web" />
+	<subject code="UGC" text="Diseño asistido por ordenador (CAD)" />
+	<subject code="UGD" text="Autoedición/publicación de escritorio" />
+	<subject code="UGG " text="Diseño de juegos de PC/ordenador" />
+	<subject code="UGK" text="Gráficos y modelado en 3D" />
+	<subject code="UGL" text="Software de ilustración y dibujo" />
+	<subject code="UGM" text="Música digital: profesional" />
+	<subject code="UGN" text="Animación digital" />
+	<subject code="UGP" text="Edición de fotos e imágenes" />
+	<subject code="UGV" text="Vídeo digital: profesional" />
+	<subject code="UK" text="Hardware (o soporte físico del ordenador)" />
+	<subject code="UKC" text="Superordenadores" />
+	<subject code="UKD" text="Ordenadores centrales y mini ordenadores" />
+	<subject code="UKF" text="Servidores" />
+	<subject code="UKG" text="Computación matricial y paralela" />
+	<subject code="UKM" text="Sistemas incorporados/integrados" />
+	<subject code="UKN" text="Hardware de redes" />
+	<subject code="UKP" text="Ordenadores personales (PC)" />
+	<subject code="UKPC" text="Los PCs (ordenadores personales compatibles con IBM)" />
+	<subject code="UKPM" text="Macintosh" />
+	<subject code="UKR" text="Mantenimiento y reparación" />
+	<subject code="UKS" text="Medios de almacenamiento y dispositivos periféricos" />
+	<subject code="UKX" text="Servicios y herramientas" />
+	<subject code="UL" text="Sistemas operativos" />
+	<subject code="ULD" text="Windows y variantes" />
+	<subject code="ULDF" text="Windows 7" />
+	<subject code="ULDG" text="Windows Vista" />
+	<subject code="ULDL" text="Windows 2003" />
+	<subject code="ULDP" text="Windows XP" />
+	<subject code="ULDT" text="Windows 2000" />
+	<subject code="ULDX" text="Windows NT" />
+	<subject code="ULH" text="Macintosh OS" />
+	<subject code="ULL" text="Linux" />
+	<subject code="ULLD" text="Debian" />
+	<subject code="ULLR" text="Red Hat" />
+	<subject code="ULLS" text="SUSE" />
+	<subject code="ULLU" text="UBUNTU" />
+	<subject code="ULN" text="UNIX" />
+	<subject code="ULNB" text="BSD/FreeBSD" />
+	<subject code="ULNH" text="HP-UX" />
+	<subject code="ULNM" text="IBM AIX" />
+	<subject code="ULNS" text="Sun Solaris" />
+	<subject code="ULP" text="Sistemas operativos móviles" />
+	<subject code="ULQ" text="Sistemas operativos para mainframes IBM" />
+	<subject code="ULR" text="Sistemas operativos de tiempo real" />
+	<subject code="UM" text="Programación informática/desarrollo de software" />
+	<subject code="UMA" text="Conceptos de programación. Aprendizaje de la programación" />
+	<subject code="UMB" text="Algoritmos y estructuras de datos" />
+	<subject code="UMC" text="Compiladores" />
+	<subject code="UMF" text="Programación ágil" />
+	<subject code="UMG" text="Programación orientada a aspectos/POA" />
+	<subject code="UMH" text="Programación extrema" />
+	<subject code="UMJ" text="Programación funcional" />
+	<subject code="UMK" text="Desarrollo y programación de juegos" />
+	<subject code="UMKB" text="Gráficos en 2D: programación de juegos" />
+	<subject code="UMKC" text="Gráficos en 3D: programación de juegos" />
+	<subject code="UMKL" text="Diseño de niveles: programación de juegos" />
+	<subject code="UML" text="Programación de gráficos" />
+	<subject code="UMN" text="Programación orientada a objetos (POO)" />
+	<subject code="UMP" text="Programación de Microsoft" />
+	<subject code="UMPN" text="Programación .Net" />
+	<subject code="UMPW" text="Programación de Windows" />
+	<subject code="UMQ" text="Programación de Macintosh" />
+	<subject code="UMR" text="Programación de redes" />
+	<subject code="UMS" text="Programación de móviles y dispositivos de mano/bolsillo-programación de aplicaciones" />
+	<subject code="UMT" text="Programación de base de datos" />
+	<subject code="UMW" text="Programación de web" />
+	<subject code="UMWS" text="Servicios de web" />
+	<subject code="UMX" text="Lenguajes de programación y extensión/scripting: general" />
+	<subject code="UMZ" text="Ingeniería del software" />
+	<subject code="UMZL" text="Lenguaje Unificado de Modelado (LUM)" />
+	<subject code="UMZT" text="Pruebas y verificación de software" />
+	<subject code="UMZW" text="Ingeniería del software orientada a objetos" />
+	<subject code="UN" text="Bases de datos" />
+	<subject code="UNA" text="Teoría y diseño de base de datos" />
+	<subject code="UNAR" text="Bases de datos relacionales" />
+	<subject code="UNC" text="Captura y análisis de datos" />
+	<subject code="UND" text="Depósito de datos" />
+	<subject code="UNF" text="Minería de datos" />
+	<subject code="UNH" text="Recuperación de información" />
+	<subject code="UNJ" text="Bases de datos orientadas a objetos" />
+	<subject code="UNK" text="Bases de datos distribuidas" />
+	<subject code="UNN" text="Bases de datos y la web" />
+	<subject code="UNS" text="Software para bases de datos" />
+	<subject code="UNSB" text="Oracle" />
+	<subject code="UNSC" text="Acces" />
+	<subject code="UNSF" text="FileMaker" />
+	<subject code="UNSJ" text="SQL Server/MS SQL" />
+	<subject code="UNSK" text="SQLite" />
+	<subject code="UNSM" text="MySQL" />
+	<subject code="UNSP" text="PostgreSQL" />
+	<subject code="UNSX" text="IBM DB2" />
+	<subject code="UNSY" text="Sybase" />
+	<subject code="UQ" text="Certificación informática" />
+	<subject code="UQF" text="Certificación informática: Microsoft" />
+	<subject code="UQJ" text="Certificación informática: Cisco" />
+	<subject code="UQL" text="Certificación informática: ECDL" />
+	<subject code="UQR" text="Certificación informática: CompTia" />
+	<subject code="UQT" text="Certificación informática: CLAiT" />
+	<subject code="UR" text="Seguridad informática" />
+	<subject code="URD" text="Privacidad y protección de datos" />
+	<subject code="URH" text="Fraude informático y hacking" />
+	<subject code="URJ" text="Virus informáticos, troyanos y gusanos" />
+	<subject code="URQ" text="Cortafuegos" />
+	<subject code="URS" text="Correo no deseado" />
+	<subject code="URW" text="Spyware" />
+	<subject code="URY" text="Encriptación de datos" />
+	<subject code="UT" text="Redes y comunicaciones informáticas" />
+	<subject code="UTC" text="Computación en la nube" />
+	<subject code="UTD" text="Redes cliente-servidor" />
+	<subject code="UTF" text="Gestión de redes" />
+	<subject code="UTFB" text="Copias de seguridad y recuperación de datos de los sistemas informáticos" />
+	<subject code="UTG" text="Computación matricial" />
+	<subject code="UTM" text="Correo electrónico: profesional" />
+	<subject code="UTN" text="Seguridad de redes" />
+	<subject code="UTP" text="Normas y protocolos de red" />
+	<subject code="UTR" text="Sistemas distribuidos" />
+	<subject code="UTS" text="Paquetes de red" />
+	<subject code="UTV" text="Virtualización" />
+	<subject code="UTW" text="Redes y aplicaciones WAP (del protocolo para aplicaciones inalámbricas)" />
+	<subject code="UTX" text="EDI (intercambio electrónico de datos)" />
+	<subject code="UY" text="Ciencias de la computación" />
+	<subject code="UYA" text="Teoría matemática de la computación" />
+	<subject code="UYAM" text="Matemáticas para científicos de la computación" />
+	<subject code="UYD" text="Análisis y diseño de sistemas" />
+	<subject code="UYF" text="Arquitectura y diseño lógico de ordenadores" />
+	<subject code="UYFL" text="Lenguajes Assembly/ensambladores" />
+	<subject code="UYFP" text="Procesamiento paralelo" />
+	<subject code="UYM" text="Modelos y simulaciones por ordenador" />
+	<subject code="UYQ" text="Inteligencia artificial" />
+	<subject code="UYQE" text="Sistemas expertos/sistemas basados en el conocimiento" />
+	<subject code="UYQL" text="Lenguaje natural y traducción automática" />
+	<subject code="UYQM" text="Aprendizaje automático" />
+	<subject code="UYQN" text="Redes neuronales y sistemas difusos" />
+	<subject code="UYQP" text="Reconocimiento de formas" />
+	<subject code="UYQS" text="Reconocimiento del habla" />
+	<subject code="UYQV" text="Visión por ordenador" />
+	<subject code="UYS" text="Procesamiento de señales" />
+	<subject code="UYT" text="Procesamiento de imágenes" />
+	<subject code="UYU" text="Procesamiento de sonido" />
+	<subject code="UYV" text="Realidad virtual" />
+	<subject code="UYZ" text="Interacción persona-ordenador" />
+	<subject code="UYZF" text="Visualización de la información" />
+	<subject code="UYZG" text="Diseño y usabilidad de interfaces de usuario" />
+	<subject code="UYZM" text="Arquitectura de la información" />
+	<subject code="V" text="Salud y desarrollo personal" />
+	<subject code="VF" text="Familia y salud" />
+	<subject code="VFB" text="Seguridad personal" />
+	<subject code="VFD" text="Medicina popular y salud" />
+	<subject code="VFDF" text="Primeros auxilios en el hogar" />
+	<subject code="VFDM" text="Salud del hombre" />
+	<subject code="VFDW" text="Salud de la mujer" />
+	<subject code="VFG" text="Enfermería y ayuda a domicilio" />
+	<subject code="VFJ" text="Hacer frente a los problemas personales" />
+	<subject code="VFJB" text="Hacer frente a la enfermedad y a determinados trastornos y dolencias" />
+	<subject code="VFJD" text="Hacer frente a la discapacidad" />
+	<subject code="VFJG" text="Hacer frente a la vejez" />
+	<subject code="VFJJ" text="Hacer frente a trastornos alimentarios" />
+	<subject code="VFJK" text="Hacer frente al abuso de las drogas y el alcohol" />
+	<subject code="VFJP" text="Hacer frente a la ansiedad y las fobias" />
+	<subject code="VFJS" text="Hacer frente al estrés" />
+	<subject code="VFJX" text="Hacer frente a la muerte y el duelo" />
+	<subject code="VFL" text="Dejar de fumar" />
+	<subject code="VFM" text="Forma física y alimentación" />
+	<subject code="VFMD" text="Dietas y régimen alimenticio" />
+	<subject code="VFMG" text="Libros de ejercicio y entrenamiento físicos" />
+	<subject code="VFMS" text="Masajes" />
+	<subject code="VFV" text="Familia y relaciones" />
+	<subject code="VFVC" text="Sexo y sexualidad, manuales de sexo" />
+	<subject code="VFVG" text="Citas, relaciones, convivencia y matrimonio" />
+	<subject code="VFVK" text="Adopción" />
+	<subject code="VFVS" text="Separación y divorcio" />
+	<subject code="VFVX" text="Relaciones intergeneracionales" />
+	<subject code="VFX" text="Consejos para padres" />
+	<subject code="VFXB" text="Embarazo, parto y cuidados del bebé" />
+	<subject code="VFXB1" text="Nombres para bebés" />
+	<subject code="VFXC" text="Cuidado y crianza de los niños" />
+	<subject code="VFXC1" text="Adolescentes: consejos para padres" />
+	<subject code="VS" text="Autoayuda y desarollo personal" />
+	<subject code="VSB" text="Finanzas personales" />
+	<subject code="VSC" text="Consejos sobre carreras profesionales y cómo alcanzar el éxito" />
+	<subject code="VSD" text="Derecho, ciudadanía y derechos para legos" />
+	<subject code="VSF" text="Manuales de conducción, Reglamento General de Circulación" />
+	<subject code="VSG" text="Asesoramiento al consumidor" />
+	<subject code="VSH" text="Vivienda y propiedad para la persona-compraventa y aspectos legales" />
+	<subject code="VSK" text="Consejos sobre la educación" />
+	<subject code="VSL" text="Guías y manuales de alfabetización para adultos" />
+	<subject code="VSN" text="Guías y manuales de numeración para adultos" />
+	<subject code="VSP" text="Psicología popular" />
+	<subject code="VSPM" text="Afirmación personal, motivación y autoestima" />
+	<subject code="VSPT" text="Fortalecimiento de la memoria y técnicas del pensamiento" />
+	<subject code="VSPX" text="Programación neurolingüística (PNL)" />
+	<subject code="VSR" text="Jubilación" />
+	<subject code="VSW" text="Vivir y trabajar en el extranjero" />
+	<subject code="VSZ" text="Estilo de vida ecológico y autosuficiencia" />
+	<subject code="VX" text="Mente, cuerpo y espíritu" />
+	<subject code="VXA" text="Mente, cuerpo y espíritu: pensamiento y práctica" />
+	<subject code="VXF" text="Prácticas de adivinación" />
+	<subject code="VXFA" text="Astrología" />
+	<subject code="VXFA1" text="Signos del zodiaco y horóscopos" />
+	<subject code="VXFC" text="Adivinación por medio de la interpretación de las cartas (cartomancia)" />
+	<subject code="VXFC1" text="Tarot" />
+	<subject code="VXFD" text="I Ching" />
+	<subject code="VXFG" text="Grafología" />
+	<subject code="VXFJ" text="Quiromancia, frenología y fisionomía" />
+	<subject code="VXFN" text="Numerología" />
+	<subject code="VXFT" text="Clarividencia y precognición" />
+	<subject code="VXH" text="Terapias complementarias, curación y salud" />
+	<subject code="VXHA" text="Técnica Alexander" />
+	<subject code="VXHC" text="Aromaterapia y aceites esenciales" />
+	<subject code="VXHH" text="Homeopatía" />
+	<subject code="VXHJ" text="Reflexología" />
+	<subject code="VXHK" text="Reiki" />
+	<subject code="VXHT" text="Medicina tradicional y remedios herbarios" />
+	<subject code="VXHT1" text="Medicina china y acupuntura" />
+	<subject code="VXHT2" text="Terapias ayurvédicas" />
+	<subject code="VXM" text="Mente, cuerpo y espíritu: meditación y visualización" />
+	<subject code="VXN" text="Los sueños y su interpretación" />
+	<subject code="VXP" text="Poderes psíquicos y fenómenos psíquicos" />
+	<subject code="VXPC" text="Cristaloterapia/gemoterapia y cromoterapia" />
+	<subject code="VXPH" text="Chakras, auras y energía espiritual" />
+	<subject code="VXPJ" text="Proyección astral y experiencias extracorporales" />
+	<subject code="VXPR" text="El más allá, reencarnación y vidas pasadas" />
+	<subject code="VXPS" text="Espíritus guía, ángeles y canalización" />
+	<subject code="VXQ" text="Fenómenes inexplicables/paranormales" />
+	<subject code="VXQB" text="Ovnis y seres extraterrestres" />
+	<subject code="VXQG" text="Fantasmas y poltergeist" />
+	<subject code="VXQM" text="Monstruos y seres legendarios" />
+	<subject code="VXV" text="Feng Shui" />
+	<subject code="VXW" text="Misticismo, magia y rituales" />
+	<subject code="VXWK" text="Cábala: obras populares" />
+	<subject code="VXWM" text="Magia, encantamientos y alquimia" />
+	<subject code="VXWS" text="Chamanismo, paganismo y druidismo" />
+	<subject code="VXWT" text="Brujería y wicca" />
+	<subject code="W" text="Estilo de vida, deporte y ocio" />
+	<subject code="WB" text="Cocina/comidas y bebida etc." />
+	<subject code="WBA" text="Cocina general y recetas" />
+	<subject code="WBB" text="Libros de cocina de cocineros famosos y de televisión" />
+	<subject code="WBC" text="Cocina para uno" />
+	<subject code="WBD" text="Cocina económica" />
+	<subject code="WBF" text="Cocina fácil y rápida" />
+	<subject code="WBH" text="Cocina sana y con alimentos integrales" />
+	<subject code="WBHS" text="Cocina para dietas y estados de salud específicos" />
+	<subject code="WBJ" text="Cocina vegetariana" />
+	<subject code="WBN" text="Cocina nacional y regional" />
+	<subject code="WBQ" text="Cocina para niños/cocinar con niños" />
+	<subject code="WBR" text="Cocina para fiestas" />
+	<subject code="WBS" text="Cocina con aparatos específicos" />
+	<subject code="WBT" text="Cocina por ingredientes" />
+	<subject code="WBTB" text="Cocina con carne y caza" />
+	<subject code="WBTC" text="Cocina con pollo y otras aves" />
+	<subject code="WBTF" text="Cocina con pescado y frutos de mar" />
+	<subject code="WBTH" text="Cocina con hierbas y especias" />
+	<subject code="WBTP" text="Recetas de pasta" />
+	<subject code="WBTR" text="Cocina con productos de lácteos" />
+	<subject code="WBTX" text="Cocina con chocolate" />
+	<subject code="WBV" text="Recetas y cursos de cocina" />
+	<subject code="WBVD" text="Sopas y entrantes" />
+	<subject code="WBVG" text="Ensaladas" />
+	<subject code="WBVM" text="Platos principales" />
+	<subject code="WBVQ" text="Postres" />
+	<subject code="WBVS" text="Tartas, pastelería, glaseado y moldeado artístico de azúcar" />
+	<subject code="WBW" text="Conservación y congelación (de alimentos)" />
+	<subject code="WBX" text="Bebidas" />
+	<subject code="WBXD" text="Bebidas alcohólicas" />
+	<subject code="WBXD1" text="Vinos" />
+	<subject code="WBXD2" text="Cervezas" />
+	<subject code="WBXD3" text="Licores y cócteles" />
+	<subject code="WBXN" text="Bebidas no alcohólicas" />
+	<subject code="WBZ" text="Cigarros y fumar" />
+	<subject code="WC" text="Antigüedades y coleccionables" />
+	<subject code="WCB" text="Antigüedades y coleccionables: guías de compra" />
+	<subject code="WCC" text="Cuidado y restauración de antigüedades" />
+	<subject code="WCF" text="Monedas, billetes, medallas, sellos (numismática)" />
+	<subject code="WCG" text="Sellos de correo, filatelia" />
+	<subject code="WCJ" text="Relojes, cajas de música y autómatas antiguos" />
+	<subject code="WCK" text="Objetos militares de valor histórico, armas y armaduras" />
+	<subject code="WCL" text="Muebles antiguos/coleccionismo de muebles" />
+	<subject code="WCN" text="Antigüedades y coleccionables: cerámica y vidrio" />
+	<subject code="WCP" text="Antigüedades y coleccionables: joyas" />
+	<subject code="WCR" text="Antigüedades y coleccionables: oro y plata (excepto joyas)" />
+	<subject code="WCS" text="Antigüedades y coleccionables: libros, manuscritos, ephemera y material impreso" />
+	<subject code="WCU" text="Antigüedades y coleccionables: pinturas, grabados y mapas" />
+	<subject code="WCV" text="Antigüedades y coleccionables: alfombras, mantas/tapetes y textiles" />
+	<subject code="WCW" text="Antigüedades y coleccionables: juguetes, juegos y maquetas" />
+	<subject code="WCX" text="Antigüedades y coleccionables: instrumentos científicos y musicales" />
+	<subject code="WD" text="Pasatiempos, acertijos y juegos" />
+	<subject code="WDH" text="Pasatiempos" />
+	<subject code="WDHM" text="Maquetas de trenes" />
+	<subject code="WDHR" text="Maquetas manejadas por radio control" />
+	<subject code="WDHW" text="Juegos de rol, juegos de guerra y juegos de gestión deportiva" />
+	<subject code="WDJ" text="Imágenes en 3D e ilusiones ópticas" />
+	<subject code="WDK" text="Juegos de ingenio y acertijos" />
+	<subject code="WDKC" text="Crucigramas" />
+	<subject code="WDKN" text="Sudoku y rompecabezas matemáticos" />
+	<subject code="WDKX" text="Libros de juegos de preguntas y respuestas" />
+	<subject code="WDM" text="Juegos de salón" />
+	<subject code="WDMC" text="Juegos de cartas" />
+	<subject code="WDMC1" text="Bridge" />
+	<subject code="WDMC2" text="Póquer" />
+	<subject code="WDMG" text="Juegos de mesa" />
+	<subject code="WDMG1" text="Ajedrez" />
+	<subject code="WDP" text="Juegos de azar: teorías y métodos" />
+	<subject code="WF" text="Artesanías, artes decorativas y manualidades" />
+	<subject code="WFA" text="Manuales de pintura y arte" />
+	<subject code="WFB" text="Labor de aguja y manualidades con telas" />
+	<subject code="WFBC" text="Bordado" />
+	<subject code="WFBL" text="Encaje y labores de encaje" />
+	<subject code="WFBQ" text="Acolchados, patchwork y aplicaciones" />
+	<subject code="WFBS" text="Labor de punto y ganchillo/croché" />
+	<subject code="WFBV" text="Batik y teñido por amarras" />
+	<subject code="WFC" text="Cuerdas, nudos y macramé" />
+	<subject code="WFF" text="Mantas y alfombras (fabricación de…)" />
+	<subject code="WFG" text="Hilandería y tejeduría" />
+	<subject code="WFH" text="Juguetes: fabricación y decoración" />
+	<subject code="WFJ" text="Bisutería y manualidades con cuentas y abalorios" />
+	<subject code="WFK" text="Acabados y superficies decorativas" />
+	<subject code="WFL" text="Labrado decorativo de maderas y metales" />
+	<subject code="WFLF" text="Fabricación de marcos para cuadros" />
+	<subject code="WFN" text="Alfarería, cerámica y arte y técnica de la fabricación de objetos de vidrio" />
+	<subject code="WFS" text="Tallado y modelado, moldeado y fundición" />
+	<subject code="WFT" text="Manualidades con libros y papel" />
+	<subject code="WFTG" text="Tarjetas de felicitación" />
+	<subject code="WFTM" text="Origami y papiroflexia" />
+	<subject code="WFTS" text="Álbumes de recortes" />
+	<subject code="WFU" text="Escritura &amp;amp; caligrafía" />
+	<subject code="WFV" text="Artesanía rural" />
+	<subject code="WFW" text="Arreglos florales y manualidades con flores" />
+	<subject code="WG" text="Transporte: interés general" />
+	<subject code="WGC" text="Carretera y vehículos a motor: interés general" />
+	<subject code="WGCB" text="Automóviles: interés general" />
+	<subject code="WGCF" text="Autobuses, tranvías y vehículos comerciales: interés general" />
+	<subject code="WGCK" text="Motocicletas: interés general" />
+	<subject code="WGCT" text="Tractores y vehículos agrícolas: interés general" />
+	<subject code="WGCV" text="Tractores y vehículos agrícolas" />
+	<subject code="WGF" text="Mantenimiento y manuales de vehículos" />
+	<subject code="WGG" text="Barcos y embarcaciones: interés general" />
+	<subject code="WGGN" text="Barcazas y canales" />
+	<subject code="WGGV" text="Construcción y mantenimiento de barcos" />
+	<subject code="WGM" text="Aeronaves: interés general" />
+	<subject code="WH" text="Humor" />
+	<subject code="WHC" text="Caricaturas e historietas" />
+	<subject code="WHG" text="Humor relacionado con programas de televisión" />
+	<subject code="WHJ" text="Chistes y adivinanzas" />
+	<subject code="WHL" text="Humor basado en jergas y dialectos" />
+	<subject code="WHP" text="Parodias y chanzas/bromas" />
+	<subject code="WHX" text="Colecciones y antologías de humor" />
+	<subject code="WJ" text="Guías de estilo personales y estilo de vida" />
+	<subject code="WJF" text="Guías de estilo y moda" />
+	<subject code="WJH" text="Cosméticos, peluquería y belleza" />
+	<subject code="WJK" text="Guías de diseño de interiores, decoración y estilo" />
+	<subject code="WJS" text="Guías de compra" />
+	<subject code="WJW" text="Bodas, planificadores de bodas" />
+	<subject code="WJX" text="Fiestas, etiqueta y entretenimiento" />
+	<subject code="WK" text="Mantenimiento del hogar y la vivienda" />
+	<subject code="WKD" text="Bricolaje: general" />
+	<subject code="WKDM" text="Bricolaje: manuales para el mantenimiento de la casa" />
+	<subject code="WKDW" text="Bricolaje: carpintería y manualidades en madera" />
+	<subject code="WKH" text="Consejos para el hogar" />
+	<subject code="WKR" text="Renovación y ampliación de la casa" />
+	<subject code="WM" text="Jardinería" />
+	<subject code="WMB" text="Jardines (descripciones, historia, etc.)" />
+	<subject code="WMD" text="Diseño y planificación de jardines" />
+	<subject code="WMF" text="Invernaderos, jardines de invierno, patios" />
+	<subject code="WMP" text="Jardinería: plantas" />
+	<subject code="WMPC" text="Jardinería: flores" />
+	<subject code="WMPF" text="Jardinería: horticultura" />
+	<subject code="WMPH" text="Jardinería: hierbas" />
+	<subject code="WMPM" text="Plantas suculentas y cactáceas" />
+	<subject code="WMPS" text="Jardinería: arbustos y árboles" />
+	<subject code="WMPX" text="Plantas de interior" />
+	<subject code="WMQ" text="Métodos de jardinería especializados" />
+	<subject code="WMQB" text="Bonsáis" />
+	<subject code="WMQF" text="Jardinería orgánica" />
+	<subject code="WMQL" text="Jardinería ornamental" />
+	<subject code="WMQN" text="Jardinería natural y silvestre" />
+	<subject code="WMQP" text="Jardinería con plantas nativas" />
+	<subject code="WMQR" text="Jardinería en macetas" />
+	<subject code="WMQW" text="Jardines acuáticos, estanques" />
+	<subject code="WMT" text="Parcelas" />
+	<subject code="WN" text="Historia natural" />
+	<subject code="WNA" text="Dinosaurios y el mundo prehistórico" />
+	<subject code="WNC" text="Fauna: interés general" />
+	<subject code="WNCB" text="Fauna: aves y observación de aves" />
+	<subject code="WNCF" text="Fauna: mamíferos" />
+	<subject code="WNCK" text="Fauna: reptiles y anfibios" />
+	<subject code="WNCN" text="Fauna: mariposas, otros insectos y arañas" />
+	<subject code="WNCS" text="Fauna: animales acuáticos" />
+	<subject code="WNCS1" text="Fauna y flora marina y zona litoral/área costera" />
+	<subject code="WNCS2" text="Fauna y flora de agua dulce" />
+	<subject code="WND" text="La campiña, vida campestre" />
+	<subject code="WNF" text="Animales de granja y de labor" />
+	<subject code="WNG" text="Animales domésticos y mascotas" />
+	<subject code="WNGC" text="Gatos como mascotas" />
+	<subject code="WNGD" text="Perros como mascotas" />
+	<subject code="WNGD1" text="Perros: obediencia y adiestramiento" />
+	<subject code="WNGF" text="Peces y acuarios" />
+	<subject code="WNGH" text="Caballos y ponis" />
+	<subject code="WNGK" text="Aves, incluidas las aves de jaula, como mascotas" />
+	<subject code="WNGR" text="Conejos y roedores como mascotas" />
+	<subject code="WNGS" text="Reptiles y anfibios como mascotas" />
+	<subject code="WNGX" text="Insectos y arañas como mascotas" />
+	<subject code="WNH" text="Zoológicos y reservas naturales" />
+	<subject code="WNP" text="Árboles, flores silvestres y plantas" />
+	<subject code="WNR" text="Rocas, minerales y fósiles" />
+	<subject code="WNW" text="La Tierra: historia natural general" />
+	<subject code="WNWM" text="Condiciones climáticas" />
+	<subject code="WNX" text="Astronomía popular y el espacio" />
+	<subject code="WQ" text="Interés local, historia familiar y nostalgia" />
+	<subject code="WQH" text="Historia local" />
+	<subject code="WQN" text="Nostalgia: general" />
+	<subject code="WQP" text="Lugares en fotografías antiguas" />
+	<subject code="WQY" text="Historia familiar, genealogía" />
+	<subject code="WS" text="Deportes y recreación al aire libre" />
+	<subject code="WSB" text="Acontecimientos deportivos y su gestión" />
+	<subject code="WSBB" text="Juegos olímpicos y paralímpicos" />
+	<subject code="WSBG" text="Órganos de gobierno de entidades deportivas" />
+	<subject code="WSBM" text="Gestión e instalaciones deportivas" />
+	<subject code="WSBT" text="Equipos y clubes deportivos" />
+	<subject code="WSBV" text="Centros deportivos" />
+	<subject code="WSBX" text="Historia del deporte" />
+	<subject code="WSC" text="Deportes para minusválidos" />
+	<subject code="WSD" text="Entrenamiento y dirección técnica deportiva" />
+	<subject code="WSDF" text="Ciencia del deporte, educación física" />
+	<subject code="WSDP" text="Psicología del deporte" />
+	<subject code="WSDX" text="Abuso de drogas en el deporte" />
+	<subject code="WSE" text="Deportes extremos" />
+	<subject code="WSF" text="Deportes y juegos aéreos" />
+	<subject code="WSJ" text="Deportes y juegos practicados con pelota" />
+	<subject code="WSJA" text="Fútbol" />
+	<subject code="WSJA1" text="Copa mundial" />
+	<subject code="WSJC" text="Críquet" />
+	<subject code="WSJF" text="Rugby" />
+	<subject code="WSJF1" text="Unión de rugby" />
+	<subject code="WSJF2" text="Liga de rugby" />
+	<subject code="WSJG" text="Golf" />
+	<subject code="WSJH" text="Hockey" />
+	<subject code="WSJJ" text="Lacrosse" />
+	<subject code="WSJK" text="Hurling" />
+	<subject code="WSJL" text="Fútbol gaélico" />
+	<subject code="WSJM" text="Baloncesto" />
+	<subject code="WSJN" text="Netball" />
+	<subject code="WSJQ" text="Fútbol australiano" />
+	<subject code="WSJR" text="Deportes de raqueta" />
+	<subject code="WSJR2" text="Tenis" />
+	<subject code="WSJR3" text="Bádminton" />
+	<subject code="WSJR4" text="Squash y raquetas" />
+	<subject code="WSJR5" text="Tenis de mesa" />
+	<subject code="WSJS" text="Fútbol americano" />
+	<subject code="WSJT" text="Béisbol" />
+	<subject code="WSJV" text="Voleibol" />
+	<subject code="WSJY" text="Juego de bolos, juego de las bochas, petanca" />
+	<subject code="WSJZ" text="Billar inglés, billar, pool" />
+	<subject code="WSK" text="Deportes de pista y campo, atletismo" />
+	<subject code="WSKC" text="Maratón y carrera a campo traviesa" />
+	<subject code="WSKQ" text="Deportes multidisciplinarios" />
+	<subject code="WSL" text="Gimnasia" />
+	<subject code="WSM" text="Levantamiento de pesas" />
+	<subject code="WSN" text="Deportes ecuestres y con animales" />
+	<subject code="WSNB" text="Carreras de caballos" />
+	<subject code="WSNF" text="Equitación, salto de obstáculos e hípica" />
+	<subject code="WSNP" text="Carreras de galgos" />
+	<subject code="WSP" text="Deportes con vehículos motorizados" />
+	<subject code="WSPC" text="Automovilismo" />
+	<subject code="WSPC1" text="Fórmula 1 y Gran Premio" />
+	<subject code="WSPG" text="Rally de vehículos motorizados/conducción de vehículos de rally" />
+	<subject code="WSPM" text="Motociclismo" />
+	<subject code="WSQ" text="Ciclismo" />
+	<subject code="WSR" text="Patinaje sobre ruedas, monopatinaje, etc." />
+	<subject code="WSS" text="Deportes y juegos acuáticos" />
+	<subject code="WSSC" text="Natación y saltos" />
+	<subject code="WSSC1" text="Natación subactuática" />
+	<subject code="WSSG" text="Surf, windsurf, esquí acuático" />
+	<subject code="WSSN" text="Náutica" />
+	<subject code="WSSN1" text="Navegación en barcos de motor/embarcaciones de recreo" />
+	<subject code="WSSN3" text="Navegación en barcos de vela" />
+	<subject code="WSSN5" text="Navegación en canoas y kayak" />
+	<subject code="WSSN7" text="Remo" />
+	<subject code="WST" text="Deportes de combate y defensa personal" />
+	<subject code="WSTB" text="Boxeo" />
+	<subject code="WSTC" text="Lucha libre y grecorromana" />
+	<subject code="WSTF" text="Esgrima" />
+	<subject code="WSTM" text="Artes marciales orientales" />
+	<subject code="WSU" text="Culturismo" />
+	<subject code="WSW" text="Deportes de invierno" />
+	<subject code="WSWK" text="Esquí" />
+	<subject code="WSWM" text="Snowboard" />
+	<subject code="WSWS" text="Patinaje sobre hielo" />
+	<subject code="WSWY" text="Hockey sobre hielo" />
+	<subject code="WSX" text="Caza, pesca, tiro (deportivo)" />
+	<subject code="WSXF" text="Pesca, pesca con caña" />
+	<subject code="WSXH" text="Caza o tiro deportivo de animales" />
+	<subject code="WSXR" text="Tiro con arco" />
+	<subject code="WSXS" text="Armas de fuego cortas, armas ligeras y otro equipamiento" />
+	<subject code="WSXT" text="Tiro al blanco" />
+	<subject code="WSZ" text="Actividades recreativas al aire libre" />
+	<subject code="WSZC" text="Excursionismo y senderismo" />
+	<subject code="WSZG" text="Escalada y montañismo" />
+	<subject code="WSZK" text="Orientación" />
+	<subject code="WSZN" text="Espeleología y exploración de cuevas" />
+	<subject code="WSZR" text="Campismo y conocimiento de la vida en los bosques" />
+	<subject code="WSZV" text="Destrezas de supervivencia al aire libre" />
+	<subject code="WT" text="Viajes y vacaciones" />
+	<subject code="WTD" text="Consejos prácticos para viajar: general" />
+	<subject code="WTH" text="Guías de viaje y turismo" />
+	<subject code="WTHA" text="Vacaciones de aventura" />
+	<subject code="WTHB" text="Viajes de negocios" />
+	<subject code="WTHC" text="Guías de ecoturismo" />
+	<subject code="WTHF" text="Viajes con niños/vacaciones en familia" />
+	<subject code="WTHH" text="Guías de hoteles y alojamientos turísticos" />
+	<subject code="WTHH1" text="Guías de acampada para campistas y caravanas" />
+	<subject code="WTHM" text="Guías de museos, lugares históricos, galerías y arte" />
+	<subject code="WTHR" text="Guías de restaurantes, cafeterías y bares" />
+	<subject code="WTHT" text="Parques tématicos y de atracciones" />
+	<subject code="WTHX" text="Cruceros" />
+	<subject code="WTK" text="Libros de frases para el viajero" />
+	<subject code="WTL" text="Literatura de viajes" />
+	<subject code="WTLC" text="Literatura de viajes clásicos" />
+	<subject code="WTLP" text="Expediciones" />
+	<subject code="WTM" text="Lugares y personas: general y obras pictóricas" />
+	<subject code="WTR" text="Mapas y atlas de viaje" />
+	<subject code="WTRD" text="Atlas y mapas de carreteras" />
+	<subject code="WTRM" text="Mapas de viaje" />
+	<subject code="WTRS" text="Mapas de calles y planos de ciudades" />
+	<subject code="WZ" text="Varios" />
+	<subject code="WZG" text="Libros de regalo" />
+	<subject code="WZS" text="Artículos de escritorio" />
+	<subject code="Y" text="Infantiles, juveniles y didácticos" />
+	<subject code="YB" text="Libros ilustrados, libros de actividades y material de aprendizaje temprano" />
+	<subject code="YBC" text="Libros ilustrados" />
+	<subject code="YBCB" text="Libros para bebés" />
+	<subject code="YBCH" text="Álbumes ilustrados: libros de personajes" />
+	<subject code="YBCS" text="Libros de cuentos ilustrados" />
+	<subject code="YBG" text="Libros y paquetes interactivos y de actividades" />
+	<subject code="YBGC" text="Libros de actividades para colorear y pintar" />
+	<subject code="YBGK" text="Libros troquelados o recortables" />
+	<subject code="YBGP" text="Libros con pop-ups, solapas y lengüetas" />
+	<subject code="YBGS" text="Libros de pegatinas y cromos" />
+	<subject code="YBGT" text="Libros juguete, libros regalo" />
+	<subject code="YBGT1" text="Libros sonoros, musicales y con sonidos" />
+	<subject code="YBGT3" text="Libros de tacto o libros de texturas" />
+	<subject code="YBGT5" text="Libros con imanes" />
+	<subject code="YBGT7" text="Libros puzles" />
+	<subject code="YBL" text="Aprendizaje temprano/conceptos de aprendizaje temprano" />
+	<subject code="YBLA" text="Aprendizaje temprano: el abecedario/el alfabeto" />
+	<subject code="YBLA1" text="Aprendizaje temprano: las primeras palabras" />
+	<subject code="YBLB" text="Aprendizaje temprano: rimas y juegos de palabras" />
+	<subject code="YBLB1" text="Aprendizaje temprano: los versos y las rimas" />
+	<subject code="YBLC" text="Aprendizaje temprano: los números y aprender a contar" />
+	<subject code="YBLD" text="Aprendizaje temprano: los colores" />
+	<subject code="YBLF" text="Aprendizaje temprano: los contrarios" />
+	<subject code="YBLH" text="Aprendizaje temprano: los tamaños, las formas y las figuras" />
+	<subject code="YBLJ" text="Aprendizaje temprano: la hora y las estaciones" />
+	<subject code="YBLJ1" text="Aprendizaje temprano: aprender la hora" />
+	<subject code="YBLN" text="Aprendizaje temprano: primeras experiencias" />
+	<subject code="YBLN1" text="Aprendizaje temprano: los sentidos" />
+	<subject code="YBLP" text="Aprendizaje temprano: las personas que nos ayudan" />
+	<subject code="YBLT" text="Aprendizaje temprano: cosas que se mueven" />
+	<subject code="YD" text="Poesía, antologías, anuarios para niños y adolescentes" />
+	<subject code="YDA" text="Anuarios (infantil/juvenil)" />
+	<subject code="YDC" text="Antologías (infantil/juvenil)" />
+	<subject code="YDP" text="Poesía (infantil/juvenil)" />
+	<subject code="YF" text="Ficción e historias reales infantiles y juveniles" />
+	<subject code="YFA" text="Ficción clásica (infantil/juvenil)" />
+	<subject code="YFB" text="Ficción general (infantil/juvenil)" />
+	<subject code="YFC" text="Relatos de aventuras (infantil/juvenil)" />
+	<subject code="YFCB" text="Thriller (infantil/juvenil)" />
+	<subject code="YFCF" text="Ficción de crimen y misterio (infantil/juvenil)" />
+	<subject code="YFD" text="Relatos de terror y fantasmas, obras de suspense (infantil/juvenil)" />
+	<subject code="YFG" text="Ciencia ficción (infantil/juvenil)" />
+	<subject code="YFH" text="Fantasía y realismo mágico (infantil/juvenil)" />
+	<subject code="YFHR" text="Fantasía romántica (juvenil)" />
+	<subject code="YFJ" text="Cuentos tradicionales (infantil/juvenil)" />
+	<subject code="YFM" text="Relatos románticos y de relaciones interpersonales (infantil/juvenil)" />
+	<subject code="YFN" text="Relatos sobre la familia y el hogar (infantil/juvenil)" />
+	<subject code="YFP" text="Relatos sobre animales (infantil/juvenil)" />
+	<subject code="YFQ" text="Relatos de humor (infantil/juvenil)" />
+	<subject code="YFR" text="Relatos sobre deportes (infantil/juvenil)" />
+	<subject code="YFS" text="Relatos sobre la escuela (infantil/juvenil)" />
+	<subject code="YFT" text="Ficción histórica (infantil/juvenil)" />
+	<subject code="YFU" text="Cuentos (infantil/juvenil)" />
+	<subject code="YFW" text="Cómics y novelas gráficas (infantil/juvenil)" />
+	<subject code="YFY" text="Historias reales (infantil/juvenil)" />
+	<subject code="YN" text="Infantil y juvenil: no ficción general" />
+	<subject code="YNA" text="Arte: interés general (infantil/juvenil)" />
+	<subject code="YNC" text="Música: interés general (infantil/juvenil)" />
+	<subject code="YNCP" text="Música pop (infantil/juvenil)" />
+	<subject code="YND" text="Arte dramático y otras artes escénicas (infantil/juvenil)" />
+	<subject code="YNDB" text="Danza, ballet (infantil/juvenil)" />
+	<subject code="YNDS" text="Textos teatrales (infantil/juvenil)" />
+	<subject code="YNF" text="Televisión y películas (infantil/juvenil)" />
+	<subject code="YNG" text="Conocimientos generales y temas de actualidad (infantil/juvenil)" />
+	<subject code="YNGL" text="Bibliotecas, museos, escuelas (infantil/juvenil)" />
+	<subject code="YNH" text="Historia y el pasado (infantil/juvenil)" />
+	<subject code="YNJ" text="Guerras, batallas, fuerzas armadas (infantil/juvenil)" />
+	<subject code="YNK" text="Trabajo e industria/el mundo laboral (infantil/juvenil)" />
+	<subject code="YNL" text="Literatura, libros y escritores (infantil/juvenil)" />
+	<subject code="YNM" text="Personas y lugares (infantil/juvenil)" />
+	<subject code="YNN" text="Historia natural (infantil/juvenil)" />
+	<subject code="YNNA" text="Dinosaurios y el mundo prehistórico (infantil/juvenil)" />
+	<subject code="YNND" text="Mascotas (infantil/juvenil)" />
+	<subject code="YNNF" text="Animales de granja (infantil/juvenil)" />
+	<subject code="YNNR" text="Flora y fauna (infantil/juvenil)" />
+	<subject code="YNP" text="Intereses prácticos (infantil/juvenil)" />
+	<subject code="YNPC" text="Cocina y alimentos (infantil/juvenil)" />
+	<subject code="YNPG" text="Jardinería (infantil/juvenil)" />
+	<subject code="YNPH" text="Artesanías (infantil/juvenil)" />
+	<subject code="YNPK" text="Dinero (infantil/juvenil)" />
+	<subject code="YNR" text="Religión y creencias: interés general (infantil/juvenil)" />
+	<subject code="YNRB" text="Biblias e historias de la Biblia (infantil/juvenil)" />
+	<subject code="YNT" text="Ciencia y tecnología: interés general (infantil/juvenil)" />
+	<subject code="YNTB" text="Edificios y construcción (infantil/juvenil)" />
+	<subject code="YNTR" text="Transporte (infantil/juvenil)" />
+	<subject code="YNTS" text="El espacio (infantil/juvenil)" />
+	<subject code="YNU" text="Humor y chistes (infantil/juvenil)" />
+	<subject code="YNUC" text="Caricaturas e historietas (infantil/juvenil)" />
+	<subject code="YNV" text="Pasatiempos, adivinanzas y juegos (infantil/juvenil)" />
+	<subject code="YNVP" text="Libros de acertijos (infantil/juvenil)" />
+	<subject code="YNVU" text="Guías para juegos de PC/ordenador (infantil/juvenil)" />
+	<subject code="YNW" text="Deportes y juegos al aire libre (infantil/juvenil)" />
+	<subject code="YNWA" text="Fútbol (infantil/juvenil)" />
+	<subject code="YNWB" text="Rugby (infantil/juvenil)" />
+	<subject code="YNWC" text="Críquet (infantil/juvenil)" />
+	<subject code="YNWG" text="Atletismo y gimnasia (infantil/juvenil)" />
+	<subject code="YNWW" text="Natación y deportes acuáticos (infantil/juvenil)" />
+	<subject code="YNWY" text="Ciclismo, monopatinaje y patinaje (Infantil/juvenil)" />
+	<subject code="YNX" text="Misterios, lo sobrenatural, monstruos y seres mitológicos (infantil/juvenil)" />
+	<subject code="YNXF" text="Los ovnis y los seres extraterrestres (infantil/juvenil)" />
+	<subject code="YNXW" text="Brujas y fantasmas (infantil/juvenil)" />
+	<subject code="YQ" text="Material didáctico" />
+	<subject code="YQA" text="Didáctica: Arte y diseño" />
+	<subject code="YQB" text="Didáctica: Música" />
+	<subject code="YQC" text="Didáctica: Lengua inglesa y alfabetización" />
+	<subject code="YQCR" text="Didáctica: Lengua inglesa. Libros y guías de lectura" />
+	<subject code="YQCR5" text="Didáctica: Lengua inglesa. Libros y guías de lectura. Fonética sintética" />
+	<subject code="YQCS" text="Didáctica: Lengua inglesa. Destrezas de lectura y escritura" />
+	<subject code="YQCS1" text="Didáctica: destrezas de escritura. Caligrafía" />
+	<subject code="YQCS5" text="Didáctica: Lengua inglesa: destrezas de lectura: Fonética sintética" />
+	<subject code="YQD" text="Didáctica: estudios de arte dramático" />
+	<subject code="YQE" text="Didáctica: Literatura inglesa" />
+	<subject code="YQEF" text="Ediciones escolares de textos de ficción de literatura inglesa" />
+	<subject code="YQES" text="Ediciones escolares de Shakespeare" />
+	<subject code="YQF" text="Didáctica: lenguas distintas de la inglesa" />
+	<subject code="YQFL" text="Didáctica: literatura en lenguas distintas de la inglesa" />
+	<subject code="YQG" text="Didáctica: Geografía" />
+	<subject code="YQH" text="Didáctica: Historia" />
+	<subject code="YQJ" text="Didáctica: Ciencias sociales" />
+	<subject code="YQJP" text="Didáctica: Psicología" />
+	<subject code="YQM" text="Didáctica: Matemáticas y numerización" />
+	<subject code="YQMT" text="Didáctica: Matemáticas y numerización. Tablas de multiplicar" />
+	<subject code="YQN" text="Didáctica: Ciudadanía y educación social" />
+	<subject code="YQNP" text="Didáctica: Educación personal, social y para la salud (PSHE)" />
+	<subject code="YQR" text="Didáctica: Estudios religiosos" />
+	<subject code="YQRA" text="Didáctica: material para asambleas escolares" />
+	<subject code="YQRC" text="Didáctica: Estudios religiosos. Cristianismo" />
+	<subject code="YQRN" text="Didáctica: Estudios religiosos. Religiones no cristianas" />
+	<subject code="YQRN1" text="Didáctica: Estudios religiosos. Judaísmo" />
+	<subject code="YQRN2" text="Didáctica: Estudios religiosos. Islamismo" />
+	<subject code="YQRN3" text="Didáctica: Estudios religiosos. Hinduismo" />
+	<subject code="YQRN4" text="Didáctica: Estudios religiosos. Budismo" />
+	<subject code="YQS" text="Didáctica: Ciencias, ciencia general" />
+	<subject code="YQSB" text="Didáctica: Biología" />
+	<subject code="YQSC" text="Didáctica: Química" />
+	<subject code="YQSP" text="Didáctica: Física" />
+	<subject code="YQT" text="Didáctica: Tecnología" />
+	<subject code="YQTD" text="Didáctica: Diseño y tecnología" />
+	<subject code="YQTF" text="Didáctica: Tecnología de los alimentos" />
+	<subject code="YQTU" text="Didáctica: Informática y computación, TIC (tecnologías de la información y la comunicación)" />
+	<subject code="YQV" text="Didáctica: Estudios empresariales y economía" />
+	<subject code="YQW" text="Didáctica: Educación física (incluye danza)" />
+	<subject code="YQX" text="Didáctica: Estudios generales/destrezas de estudio generales" />
+	<subject code="YQY" text="Didáctica: Materias con orientación vocacional/profesional" />
+	<subject code="YQZ" text="Didáctica: guías de estudio y repaso" />
+	<subject code="YR" text="Material de consulta infantil y juvenil" />
+	<subject code="YRD" text="Diccionarios, diccionarios escolares (infantil/juvenil)" />
+	<subject code="YRDC" text="Diccionarios pictóricos (infantil/juvenil)" />
+	<subject code="YRDL" text="Diccionarios bilingües/multilingües (infantil/juvenil)" />
+	<subject code="YRE" text="Enciclopedias (infantil/juvenil)" />
+	<subject code="YRG" text="Obras de consulta (infantil/juvenil)" />
+	<subject code="YRW" text="Atlas y mapas (infantil/juvenil)" />
+	<subject code="YX" text="Cuestiones personales y sociales (infantil/juvenil)" />
+	<subject code="YXA" text="Cuestiones personales y sociales: cuerpo y salud (infantil/juvenil)" />
+	<subject code="YXAX" text="Cuestiones personales y sociales: educación sexual y los hechos de la vida (infantil/juvenil)" />
+	<subject code="YXC" text="Cuestiones personales y sociales: acoso escolar, violencia y abuso (infantil/juvenil)" />
+	<subject code="YXF" text="Cuestiones personales y sociales: familia (infantil/juvenil)" />
+	<subject code="YXFD" text="Cuestiones personales y sociales: divorcio, separación y desmembración de la familia (infantil/juvenil)" />
+	<subject code="YXFM" text="Cuestiones personales y sociales: hermanos (infantil/juvenil)" />
+	<subject code="YXFT" text="Cuestiones personales y sociales: embarazo en la adolescencia (infantil/juvenil)" />
+	<subject code="YXG" text="Cuestiones personales y sociales: muerte y duelo (infantil/juvenil)" />
+	<subject code="YXJ" text="Cuestiones personales y sociales: drogas y adicciones (infantil/juvenil)" />
+	<subject code="YXK" text="Cuestiones personales y sociales: discapacidad y necesidades especiales (infantil/juvenil)" />
+	<subject code="YXL" text="Cuestiones personales y sociales: autoconocimiento y autoestima (infantil/juvenil)" />
+	<subject code="YXN" text="Cuestiones personales y sociales: racismo y multiculturalismo (infantil/juvenil)" />
+	<subject code="YXS" text="Cuestiones personales y sociales: sexualidad y relaciones interpersonales (infantil/juvenil)" />
+	<subject code="YXT" text="Cuestiones personales y sociales: ausentismo escolar y problemas en la escuela (infantil/juvenil)" />
+	<subject code="YXV" text="Cuestiones personales y sociales: orientación profesional (adolescente)" />
+	<subject code="YXZ" text="Cuestiones sociales (Infantil/juvenil)" />
+	<subject code="YXZG" text="Cuestiones sociales: cuestiones ecológicas y relacionadas con el medio ambiente (infantil/juvenil)" />
+	<subject code="YXZR" text="Cuestiones sociales: cuestiones religiosas (infantil/juvenil)" />
+	<subject code="YXZW" text="Cuestiones sociales: cuestiones de guerra y conflicto (infantil/juvenil)" />
+	<subject code="YZ" text="Artículos de escritorio infantiles y varios (infantil/juvenil)" />
+</subjects> 

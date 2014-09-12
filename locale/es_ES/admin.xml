@@ -4,73 +4,80 @@
 <!--
   * locale/es_ES/admin.xml
   *
-  * Copyright (c) 2013-2014 Simon Fraser University Library
+  * Copyright (c) 2014 Simon Fraser University Library
   * Copyright (c) 2000-2014 John Willinsky
-  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  * Distributed under the GNU GPL v2. For full terms see the 
   *
-  * Localization strings for the es_ES (Español) locale.
+  * Credits: http://pkp.sfu.ca/wiki/index.php?title=OJS:_Spanish_%28es_ES%29
+  *
+  * Localization strings.
+  *
   -->
 
-<locale name="es_ES" full_name="Español">
+<locale name="es_ES" full_name="Español (España)">
 	<message key="admin.adminFunctions">Funciones administrativas</message>
 	<message key="admin.auth.confirmDelete">¿Está seguro/a de que desea eliminar esta fuente de autenticación de forma permanente?</message>
 	<message key="admin.auth.create">Crear fuente de autenticación</message>
-	<message key="admin.auth.noneCreated">No hay recursos de autenticación definidos.</message>
-	<message key="admin.authSources">Recursos de autenticación</message>
+	<message key="admin.auth.noneCreated">No hay fuentes de autenticación definidas.</message>
+	<message key="admin.authSources">Fuentes de autenticación</message>
 	<message key="admin.clearDataCache">Eliminar cachés de datos</message>
 	<message key="admin.clearTemplateCache">Eliminar cachés de plantilla</message>
-	<message key="admin.configFileUpdatedInstructions"><![CDATA[Su archivo de configuración se actualizó correctamente. Tenga en cuenta que si su sitio ya no funciona correctamente es posible que deba corregir manualmente la configuración mediante la edición de <tt>config.inc.php</tt>.]]></message>
-	<message key="admin.confirmClearTemplateCache">¿Está seguro/a de que desea eliminar la caché de las plantillas compiladas?</message>
-	<message key="admin.confirmExpireSessions">¿Está seguro/a de que desea cancelar todas las sesiones de usuario/a? Todos los usuarios/as que hayan iniciado sesión en el sistema deberán reiniciar dicha sesión (incluido usted).</message>
+	<message key="admin.configFileUpdatedInstructions"><![CDATA[El archivo de configuración se actualizó con éxito. Tenga en cuenta que si su sitio ya no funciona correctamente es posible que deba corregir manualmente la configuración mediante la edición de <tt>config.inc.php</tt>.]]></message>
+	<message key="admin.confirmClearTemplateCache">¿Está seguro/a de que desea eliminar cachés de las plantillas compiladas?</message>
+	<message key="admin.confirmExpireSessions">¿Está seguro/a de que desea cerrar todas las sesiones de usuario/a? Todos los usuarios/as que hayan iniciado sesión en el sistema deberán reiniciar dicha sesión (incluido usted).</message>
 	<message key="admin.contentsOfConfigFile">Contenidos del archivo de configuración</message>
 	<message key="admin.currentVersion">Versión actual</message>
 	<message key="admin.dateInstalled">Fecha de instalación</message>
 	<message key="admin.displayConfigFileInstructions"><![CDATA[Los contenidos de la configuración actualizada se muestran a continuación. Para aplicar los cambios de configuración es necesario abrir <tt>config.inc.php</tt> en un editor de texto adecuado y reemplazar los contenidos por los del campo de texto que se muestran a continuación.]]></message>
 	<message key="admin.displayNewSystemConfig">Mostrar nueva configuración</message>
-	<message key="admin.expireSessions">Cancelar sesiones de usuario/a</message>
+	<message key="admin.expireSessions">Sesiones de usuario/a caducadas</message>
 	<message key="admin.languages.confirmReload">¿Está seguro/a de que desea volver a cargar la configuración regional? Se borrarán todos los datos existentes específicos de la configuración regional, tales como las plantillas de correo electrónico personalizadas.</message>
 	<message key="admin.languages.installedLocales">Configuraciones regionales instaladas</message>
 	<message key="admin.languages.installLanguages">Gestionar configuraciones regionales</message>
 	<message key="admin.languages.installLocales">Instalar</message>
 	<message key="admin.languages.installNewLocales">Instalar nuevas configuraciones regionales</message>
 	<message key="admin.languages.languageSettings">Configuración de idioma</message>
-	<message key="admin.languages.noLocalesAvailable">No hay configuraciones regionales adicionales disponibles para instalar.</message>
+	<message key="admin.languages.noLocalesAvailable">No existen configuraciones regionales adicionales disponibles para instalar.</message>
 	<message key="admin.languages.reload">Volver a cargar configuración regional</message>
 	<message key="admin.languages.uninstall">Desinstalar configuración regional</message>
 	<message key="admin.phpInfo">Información adicional de PHP</message>
+	<message key="admin.scheduledTask">Tarea programada</message>
 	<message key="admin.server.apacheVersion">Versión Apache</message>
 	<message key="admin.server.dbDriver">Controlador de la base de datos</message>
 	<message key="admin.server.dbVersion">Versión del servidor de la base de datos</message>
-	<message key="admin.serverInformationDescription"><![CDATA[Sistema operativo básico y versiones del software del servidor. Haga clic en <span class="highlight">Información adicional del PHP</span> para visualizar información detallada sobre la configuración PHP del servidor.]]></message>
+	<message key="admin.serverInformationDescription"><![CDATA[Sistema operativo básico y versiones del software del servidor. Haga clic en <span class="highlight">Información adicional del PHP</span> para ver información detallada sobre la configuración PHP del servidor.]]></message>
 	<message key="admin.serverInformation">Información del servidor</message>
 	<message key="admin.server.phpVersion">Versión PHP</message>
-	<message key="admin.server.platform">Plataforma del sistema operativo</message>
-	<message key="admin.settings.aboutDescription">Acerca de la Descripción del sitio</message>
+	<message key="admin.server.platform">Plataforma del SO</message>
+	<message key="admin.settings">Configuración</message>
+	<message key="admin.settings.aboutDescription">Acerca de la descripción del sitio</message>
 	<message key="admin.settings.contactEmail">Correo electrónico del contacto principal</message>
 	<message key="admin.settings.contactName">Nombre del contacto principal</message>
-	<message key="admin.settings.form.contactEmailRequired">Se requiere el correo electrónico del contacto principal.</message>
+	<message key="admin.settings.form.contactEmailRequired">Se requiere la dirección de correo electrónico del contacto principal.</message>
 	<message key="admin.settings.form.contactNameRequired">Se requiere el nombre del contacto principal.</message>
 	<message key="admin.settings.form.minPasswordLengthRequired">Se requiere una contraseña de al menos cuatro caracteres.</message>
-	<message key="admin.settings.form.titleRequired">Se requiere un título.</message>
+	<message key="admin.settings.form.titleRequired">Inserte un título.</message>
 	<message key="admin.settings.homeHeaderImage.altText">Logotipo del sitio</message>
-	<message key="admin.settings.homeHeaderImageInvalid">El formato de la imagen para el logotipo del sitio no es válido. Formatos admitidos: .gif, .jpg, o .png.</message>
+	<message key="admin.settings.homeHeaderImageInvalid">Formato de imagen para el logotipo del sitio no válido. Formatos aceptados: .gif, .jpg o .png.</message>
 	<message key="admin.settings.introduction">Introducción</message>
 	<message key="admin.settings.minPasswordLength">Longitud mínima de la contraseña</message>
-	<message key="admin.settings.oaiRegistration">Registrar sitio para realizar la indexación (recolección de metadatos)</message>
+	<message key="admin.settings.oaiRegistration">Registrar sitio para realizar la indexación (recopilación de metadatos)</message>
 	<message key="admin.settings.passwordCharacters">caracteres</message>
 	<message key="admin.settings.siteLanguage">Idioma del sitio</message>
-	<message key="admin.settings.siteStyleSheetInvalid">Formato de hoja de estilo no válido. El formato permitido es .css</message>
+	<message key="admin.settings.siteStyleSheetInvalid">Formato de hoja de estilo del sitio no válido. El formato aceptado es .css.</message>
 	<message key="admin.settings.siteStyleSheet">Hoja de estilo del sitio</message>
+	<message key="admin.settings.siteTheme">Tema del sitio</message>
 	<message key="admin.settings.siteTitle">Título del sitio</message>
 	<message key="admin.siteAdmin">Administración del sitio</message>
 	<message key="admin.siteManagement">Gestión del sitio</message>
 	<message key="admin.siteSettings">Configuración del sitio</message>
+	<message key="admin.siteSetup">Configuración del sitio</message>
 	<message key="admin.systemConfigFileReadError"><![CDATA[El archivo de configuración <tt>config.inc.php</tt> no existe, no se puede leer o no es válido.]]></message>
 	<message key="admin.systemInformation">Información del sistema</message>
 	<message key="admin.versionBuild">Compilar</message>
 	<message key="admin.version.checkForUpdates">Buscar actualizaciones</message>
 	<message key="admin.version.downloadPackage">Descargar</message>
-	<message key="admin.version.downloadPatch">Descargar actualización</message>
+	<message key="admin.version.downloadPatch">Descargar parche</message>
 	<message key="admin.versionHistory">Historial de versiones</message>
 	<message key="admin.version.latest">Última versión</message>
 	<message key="admin.versionMajor">Principal</message>
@@ -80,14 +87,17 @@
 	<message key="admin.version.updateAvailable">Está disponible una versión actualizada</message>
 	<message key="admin.version.upToDate">El sistema está actualizado</message>
 	<message key="admin.version">Versión</message>
-	<message key="admin.settings">Configuración</message>
-	<message key="admin.settings.siteTheme">Tema del sitio</message>
-	<message key="admin.siteSetup">Configuración del sitio</message>
-	<message key="admin.fileLoader.wrongBasePathLocation">El camino base {$path} debe estar dentro del directorio de archivos "public".</message>
-	<message key="admin.fileLoader.pathNotAccessible">El directorio {$path} no es un deirectorio o no se puede leer.</message>
-	<message key="admin.fileLoader.moveFileFailed">El fichero {$filename} no se puede mover desde {$currentFilePath} a {$destinationPath}</message>
-	<message key="admin.fileLoader.emailSubject">ID {$processId} del proceso que carga el archivo.</message>
-	<message key="admin.scheduledTask">Tarea programada</message>
-	<message key="admin.settings.oneStepReset">Utilizar un sólo paso para el reinicio de contraseñas?</message>
+	
+	<message key="admin.fileLoader.wrongBasePathLocation">La ruta base {$path} tiene que estar dentro del directorio de archivos públicos.</message>
+	<message key="admin.fileLoader.pathNotAccessible">La carpeta {$path} no es un directorio o no se puede leer.</message>
+	<message key="admin.fileLoader.moveFileFailed">No se puede mover el archivo {$filename} de {$currentFilePath} a {$destinationPath}.</message>
 	<message key="admin.fileLoader">Cargador de archivos</message>
+	<message key="admin.scheduledTask.startTime">Se ha iniciado la tarea.</message>
+	<message key="admin.scheduledTask.stopTime">Se ha detenido la tarea.</message>
+	<message key="admin.scheduledTask.noLog">La tarea no ha generado ningún registro.</message>
+	<message key="admin.scheduledTask.openAccessNotification">Notificación de acceso abierto</message>
+	<message key="admin.scheduledTask.reviewReminder">Recordatorio de revisión</message>
+	<message key="admin.scheduledTask.subscriptionExpiryReminder">Recordatorio de caducidad de subscripción</message>
+	<message key="admin.settings.oneStepReset">Utilitzar reinicio de palabras clave en un solo paso?</message>
+	<message key="admin.fileLoader.fileProcessed">El fitxero {$filename} se ha procesado y archivado.</message>
 </locale> 

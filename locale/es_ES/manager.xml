@@ -1,39 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
-
 <!--
   * locale/es_ES/manager.xml
   *
-  * Copyright (c) 2013-2014 Simon Fraser University Library
+  * Copyright (c) 2014 Simon Fraser University Library
   * Copyright (c) 2000-2014 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the es_ES (Español) locale.
+  * Credits: http://pkp.sfu.ca/wiki/index.php?title=OJS:_Spanish_%28es_ES%29
+  *
+  * Localization strings for the es_ES (Español (España)) locale.
+  *
   -->
 
-<locale name="es_ES" full_name = "Español">
+<locale name="es_ES" full_name="Español (España)">
 	<message key="manager.announcements">Avisos</message>
 	<message key="manager.announcements.confirmDelete">¿Está seguro/a de que desea eliminar este aviso de forma permanente?</message>
 	<message key="manager.announcements.create">Crear nuevo aviso</message>
 	<message key="manager.announcements.createTitle">Crear</message>
 	<message key="manager.announcements.dateExpire">Vencimiento</message>
+	<message key="manager.announcements.datePublish">Publicado</message>
 	<message key="manager.announcements.edit">Editar aviso</message>
 	<message key="manager.announcements.editTitle">Editar</message>
-	<message key="manager.announcements.form.dateExpireDayIncompleteDate">Seleccione un año o mes, además del día de la fecha de vencimiento.</message>
+	<message key="manager.announcements.form.dateExpireDayIncompleteDate">Seleccione un año o mes además del día de la fecha de vencimiento.</message>
 	<message key="manager.announcements.form.dateExpire">Fecha de vencimiento</message>
-	<message key="manager.announcements.form.dateExpireInstructions">El aviso se mostrará a los lectores/as hasta esta fecha. Dejar en blanco si el aviso debe mostrarse de forma indefinida.</message>
-	<message key="manager.announcements.form.dateExpireMonthIncompleteDate">Seleccione un año o día, además del mes de la fecha de vencimiento.</message>
+	<message key="manager.announcements.form.dateExpireInstructions">El aviso se mostrará a los lectores/as hasta esa fecha. Dejar en blanco si el aviso debe mostrarse de forma indefinida.</message>
+	<message key="manager.announcements.form.dateExpireMonthIncompleteDate">Seleccione un año y/o día además del mes de la fecha de vencimiento.</message>
 	<message key="manager.announcements.form.dateExpireValid">Seleccione una fecha de vencimiento válida para el aviso.</message>
-	<message key="manager.announcements.form.dateExpireYearIncompleteDate">Seleccione un mes o día, además del año de la fecha de vencimiento.</message>
+	<message key="manager.announcements.form.dateExpireYearIncompleteDate">Seleccione un mes o día además del año de la fecha de vencimiento.</message>
 	<message key="manager.announcements.form.description">Descripción</message>
 	<message key="manager.announcements.form.descriptionInstructions">Texto completo del aviso.</message>
 	<message key="manager.announcements.form.descriptionRequired">Se requiere una descripción del aviso.</message>
-	<message key="manager.announcements.form.descriptionShortInstructions">Breve descripción que aparecerá junto con el título del aviso.</message>
+	<message key="manager.announcements.form.descriptionShortInstructions">Breve descripción que aparecerá junto al título del aviso.</message>
 	<message key="manager.announcements.form.descriptionShortRequired">Se requiere una breve descripción del aviso.</message>
 	<message key="manager.announcements.form.descriptionShort">Descripción breve</message>
-	<message key="manager.announcements.form.notificationToggle">Enviar notificación</message>
-	<message key="manager.announcements.form.notificationToggleInstructions">Crear una nueva notificación al guardar este anuncio.</message>
-	<message key="manager.announcements.form.saveAndCreateAnother">Guardar y crear otro</message>
+	<message key="manager.announcements.form.saveAndCreateAnother">Guardar y crear nuevo</message>
 	<message key="manager.announcements.form.titleRequired">Se requiere un título para el aviso.</message>
 	<message key="manager.announcements.form.title">Título</message>
 	<message key="manager.announcements.form.typeId">Tipo</message>
@@ -41,41 +42,48 @@
 	<message key="manager.announcements.noneCreated">No se ha creado ningún aviso.</message>
 	<message key="manager.announcements.title">Título</message>
 	<message key="manager.announcements.type">Tipo</message>
-	<message key="manager.announcementTypes">Tipos de aviso</message>
-	<message key="manager.announcementTypes.confirmDelete">Advertencia: se eliminarán todos los avisos de este tipo. ¿Está seguro/a de que desea continuar y eliminar este tipo de aviso?</message>
+	<message key="manager.announcementTypes">Tipos de avisos</message>
+	<message key="manager.announcementTypes.confirmDelete">Advertencia: También se eliminarán todos los avisos de este tipo. ¿Está seguro/a de que desea continuar y eliminar este tipo de aviso?</message>
 	<message key="manager.announcementTypes.create">Crear tipo de aviso</message>
 	<message key="manager.announcementTypes.createTitle">Crear</message>
 	<message key="manager.announcementTypes.edit">Editar tipo de aviso</message>
 	<message key="manager.announcementTypes.editTitle">Editar</message>
-	<message key="manager.announcementTypes.form.saveAndCreateAnother">Guardar y crear otro</message>
-	<message key="manager.announcementTypes.form.typeNameExists">Ya existe un tipo de aviso con este nombre.</message>
+	<message key="manager.announcementTypes.form.saveAndCreateAnother">Guardar y crear nuevo</message>
+	<message key="manager.announcementTypes.form.typeNameExists">Ya existe un tipo de aviso con ese nombre.</message>
 	<message key="manager.announcementTypes.form.typeName">Nombre</message>
 	<message key="manager.announcementTypes.form.typeNameRequired">Se requiere un nombre para el tipo de aviso.</message>
 	<message key="manager.announcementTypes.noneCreated">No se ha creado ningún tipo de aviso.</message>
 	<message key="manager.announcementTypes.typeName">Tipo de aviso</message>
 	<message key="manager.emails.confirmDelete">¿Está seguro/a de que desea eliminar la plantilla de correo electrónico?</message>
-	<message key="manager.emails.confirmReset">¿Está seguro/a de que desea restablecer la plantilla de correo electrónico a sus valores predeterminados?</message>
+	<message key="manager.emails.confirmReset">¿Está seguro/a de que desea restablecer la plantilla de correo electrónico a sus valores por defecto?</message>
+	<message key="manager.emails.addEmail">Añadir plantilla de correo electrónico</message>
 	<message key="manager.emails.createEmail">Crear correo electrónico</message>
+	<message key="manager.emails.data">Plantilla de datos de mensaje</message>
+	<message key="manager.emails.details">Detalles de plantilla</message>
 	<message key="manager.emails.disable">Deshabilitar</message>
+	<message key="manager.emails.disable.message">Está a punto de deshabilitar esta plantilla de correo electrónico. Si hubiera procesos del sistema que utilicen esta plantilla, dejarán de usarla a partir de ahora. ¿Está seguro/a de que desea confirmar la operación?</message>
 	<message key="manager.emails.editEmail">Editar correo electrónico</message>
 	<message key="manager.emails.editTestExample">Editar ejemplo de prueba de correo electrónico</message>
-	<message key="manager.emails.emailKey">Contraseña</message>
+	<message key="manager.emails.emailKey">Clave de correo electrónico</message>
 	<message key="manager.emails.emailKeyExists">Ya existe un correo electrónico con la clave proporcionada. Las claves de correo electrónico deben ser únicas.</message>
 	<message key="manager.emails.emailTemplate">Plantilla de correo electrónico</message>
-	<message key="manager.emails.emailTemplates">Nombre</message>
+	<message key="manager.emails.emailTemplates">Plantillas de correo electrónico</message>
 	<message key="manager.emails.enabled">Habilitar la plantilla de correo electrónico</message>
 	<message key="manager.emails.enable">Habilitar</message>
-	<message key="manager.emails.form.emailKeyRequired">No se ha introducido una contraseña válida.</message>
-	<message key="manager.emails.form.bodyRequired">No se ha introducido texto en el cuerpo del correo.</message>
-	<message key="manager.emails.form.subjectRequired">No se ha indicado el asunto del correo.</message>
+	<message key="manager.emails.enable.message">Está a punto de habilitar este correo electrónico. ¿Está seguro/a de que desea confirmar la operación?</message>
+	<message key="manager.emails.form.emailKeyRequired">Se requiere una clave única para el correo electrónico.</message>
+	<message key="manager.emails.form.bodyRequired">Se requiere un cuerpo para el correo electrónico.</message>
+	<message key="manager.emails.form.subjectRequired">Se requiere un asunto para el correo electrónico.</message>
 	<message key="manager.emails">Plantillas de correo electrónico</message>
 	<message key="manager.emails.resetAll">Restablecer todas las plantillas</message>
+	<message key="manager.emails.resetAll.message">Si restablece todas las plantillas, se perderán todas las modificaciones realizadas en las plantillas de correo electrónico. ¿Está seguro/a de que desea confirmar la operación?</message>
 	<message key="manager.emails.reset">Restablecer</message>
+	<message key="manager.emails.reset.message">Si restablece esta plantilla todos los datos de mensaje se restablecerán a sus valores por defecto y se perderán todas las modificaciones. ¿Está seguro/a de que desea confirmar la operación?</message>
 	<message key="manager.emails.resetToDefault">Restablecer valores por defecto</message>
 	<message key="manager.filesBrowser">Explorador de archivos</message>
 	<message key="manager.files.confirmDelete">¿Está seguro/a de que desea eliminar el archivo o el directorio? Tenga en cuenta que un directorio debe estar vacío antes de eliminarlo.</message>
 	<message key="manager.files.createDir">Crear directorio</message>
-	<message key="manager.files.emptyDir">No hay archivos en el directorio.</message>
+	<message key="manager.files.emptyDir">No existen archivos en el directorio.</message>
 	<message key="manager.files.indexOfDir">Índice de {$dir}</message>
 	<message key="manager.files.parentDir">Directorio principal</message>
 	<message key="manager.files.uploadedFiles">Archivos cargados</message>
@@ -85,20 +93,22 @@
 	<message key="manager.groups.editTitle">Editar título</message>
 	<message key="manager.groups.form.groupTitleRequired">Se requiere un título para el grupo.</message>
 	<message key="manager.groups.membership.addMember">Añadir miembro</message>
-	<message key="manager.groups.membership.confirmDelete">¿Está seguro/a de que desea eliminar la asignación a este grupo?</message>
-	<message key="manager.groups.membership">Miembros</message>
+	<message key="manager.groups.membership.confirmDelete">¿Está seguro/a de que desea eliminar la pertenencia al grupo?</message>
+	<message key="manager.groups.membership">Afiliación</message>
 	<message key="manager.groups.membership.noneCreated">El grupo no tiene miembros.</message>
-	<message key="manager.groups.membership.noUsers">No hay usuarios/as.</message>
+	<message key="manager.groups.membership.noUsers">No se encontró ningún usuario/a.</message>
 	<message key="manager.groups.title">Título</message>
-	<message key="manager.importExport">Importar/exportar datos</message>
-	<message key="manager.languages.alternateLocaleInstructions">Opcionalmente, este sistema permite introducir cierta información importante en varios idiomas adicionales. Para utilizar esta función, seleccione configuraciones regionales alternas y elija entre las opciones que aparecen a continuación.</message>
-	<message key="manager.languages.supportedLocalesInstructions">Seleccione todas las configuraciones regionales que estarán disponibles en el sitio a través de un menú de selección de idiomas que aparecerá en cada página. El menú aparecerá sólo si hay más de una configuración regional seleccionada.</message>
-	<message key="manager.payment.timestamp">Sello de tiempo</message>
+	<message key="manager.importExport">Importar/Exportar datos</message>
+	<message key="manager.languages.alternateLocaleInstructions">Opcionalmente, este sistema permite introducir cierta información crítica en varios idiomas adicionales. Para utilizar esta función, seleccione configuraciones regionales alternativas y elija entre las opciones que aparecen a continuación.</message>
+	<message key="manager.languages.supportedLocalesInstructions">Seleccione todas las configuraciones regionales que estarán disponibles en el sitio mediante un menú de selección de idiomas que aparecerá en cada página. El menú sólo aparecerá si hay más de una configuración regional seleccionada.</message>
+	<message key="manager.masthead.title">Cabecera</message>
+	<message key="manager.navigation">Navegación</message>
+	<message key="manager.payment.timestamp">Marca de tiempo</message>
 	<message key="manager.people.authSource">Fuente de autenticación</message>
-	<message key="manager.people.confirmUnenroll">¿Está seguro/a de que desea dar de baja al usuario/a?</message>
-	<message key="manager.people.createUser">Crear nuevo usuario/a</message>
+	<message key="manager.people.confirmUnenroll">¿Está seguro/a de que desea anular el registro del usuario/a?</message>
+	<message key="manager.people.createUser">Crear un usuario/a nuevo</message>
 	<message key="manager.people.createUserGeneratePassword">Generar una contraseña aleatoria.</message>
-	<message key="manager.people.createUserSendNotify">Enviar al usuario/a un correo electrónico de bienvenida con su nombre de usuario/a y su contraseña.</message>
+	<message key="manager.people.createUserSendNotify">Enviar al usuario/a un correo electrónico de bienvenida con su nombre de usuario/a y contraseña.</message>
 	<message key="manager.people.disable">Deshabilitar</message>
 	<message key="manager.people.doNotEnroll">Sin rol</message>
 	<message key="manager.people.editProfile">Editar perfil</message>
@@ -107,7 +117,7 @@
 	<message key="manager.people.emailUsers.emailUsersEnrolledAs">Enviar un correo electrónico a los usuarios/as dados de alta como</message>
 	<message key="manager.people.emailUsers">Enviar un correo electrónico a los usuarios/as</message>
 	<message key="manager.people.emailUsers.selectLocale">Seleccione una configuración regional</message>
-	<message key="manager.people.emailUsers.selectUsers">Para seleccionar a los usuarios a los cuales desea enviar un correo electrónico, marque las casillas situadas al lado de sus nombres.</message>
+	<message key="manager.people.emailUsers.selectUsers">Para seleccionar a los usuarios que desee enviar un correo electrónico, marque las casillas situadas junto a sus nombres</message>
 	<message key="manager.people.enable">Habilitar</message>
 	<message key="manager.people.enroll">Dar de alta a un usuario/a</message>
 	<message key="manager.people.enrollment">Altas</message>
@@ -118,120 +128,112 @@
 	<message key="manager.people.enrollUserAs">Dar de alta a un usuario/a como</message>
 	<message key="manager.people.invalidUser">El usuario/a solicitado no existe.</message>
 	<message key="manager.people.mergeUser">Fusionar usuario/a</message>
-	<message key="manager.people.mergeUsers.confirm">¿Está seguro/a de que desea fusionar la/s cuenta/s seleccionada/s {$oldAccountCount} con la cuenta con el nombre de usuario/a "{$newUsername}"? Las cuentas seleccionadas {$oldAccountCount} dejarán de existir. Esta acción no se puede deshacer.</message>
+	<message key="manager.people.mergeUsers.confirm">¿Está seguro/a de que desea fusionar la cuenta seleccionada/s {$oldAccountCount} con la cuenta con el nombre de usuario/a "{$newUsername}"? Las cuentas seleccionadas {$oldAccountCount} dejarán de existir. Esta acción no es reversible.</message>
 	<message key="manager.people.mergeUsers">Fusionar usuarios/as</message>
-	<message key="manager.people.mustChooseRole">Seleccione un rol en la parte superior de la página antes de hacer clic en «Dar de alta a un usuario/a».</message>
+	<message key="manager.people.mustChooseRole">Seleccione un rol en la parte superior de la página antes de hacer clic en "Dar de alta a un usuario/a".</message>
 	<message key="manager.people.mustProvideName">Primero proporcione al menos un apellido para el usuario/a.</message>
-	<message key="manager.people.noMatchingUsers">Los usuarios/as no existen.</message>
-	<message key="manager.people.noneEnrolled">No hay usuarios/as dados de alta.</message>
+	<message key="manager.people.noMatchingUsers">No se encuentran los usuarios/as.</message>
+	<message key="manager.people.noneEnrolled">Usuarios/as no registrados.</message>
 	<message key="manager.people">Contactos</message>
-	<message key="manager.people.remove">Quitar</message>
-	<message key="manager.people.saveAndCreateAnotherUser">Guardar y crear otro</message>
+	<message key="manager.people.remove">Eliminar</message>
+	<message key="manager.people.saveAndCreateAnotherUser">Guardar y crear nuevo</message>
 	<message key="manager.people.signInAs">Iniciar sesión como</message>
 	<message key="manager.people.signInAsUser">Iniciar sesión como usuario/a</message>
-	<message key="manager.people.syncUsers">Sincronizar altas de usuarios/as</message>
+	<message key="manager.people.syncUsers">Sincronizar altas de usuario/a</message>
 	<message key="manager.people.unenroll">Dar de baja</message>
 	<message key="manager.people.userCreatedSuccessfully">Usuario/a creado correctamente.</message>
-	<message key="manager.people.userMustChangePassword">Requerir que el usuario/a cambie su contraseña la próxima vez que inicie sesión.</message>
+	<message key="manager.people.userMustChangePassword">Se requiere que el usuario/a cambie su contraseña la próxima vez que inicie sesión.</message>
 	<message key="manager.plugins.action">Acción:</message>
 	<message key="manager.plugins.disable">Deshabilitar</message>
 	<message key="manager.plugins.enable">Habilitar</message>
-	<message key="manager.plugins.pluginManagement">Gestión de conectores</message>
-	<message key="manager.plugins.sitePlugin">Este conector está activo en todo el sitio. Sólo el administrador/a del sitio puede gestionar el conector.</message>
-	<message key="manager.plugins">Conectores del sistema</message>
+	<message key="manager.plugins.pluginManagement">Gestión de módulos</message>
+	<message key="manager.plugins.sitePlugin">Este módulo está activo en todo el sitio. Sólo el administrador/a del sitio puede gestionar el módulo.</message>
+	<message key="manager.plugins">Módulos del sistema</message>
 	<message key="manager.readingTools">Herramientas de lectura</message>
 	<message key="manager.reviewerSearch.advancedSearch">Búsqueda avanzada de revisor/a</message>
+	<message key="manager.reviewerSearch.advancedSearch.short">Búsqueda avanzada</message>
 	<message key="manager.reviewerSearch.searchByName">Buscar revisor/a por nombre</message>
-	<message key="manager.reviewerSearch.doneAmount">Número de revisiones completadas</message>
-	<message key="manager.reviewerSearch.avgAmount">Promedio de días por revisión</message>
+	<message key="manager.reviewerSearch.searchByName.short">Buscar por nombre</message>
+	<message key="manager.reviewerSearch.doneAmount">Revisiones completadas</message>
+	<message key="manager.reviewerSearch.avgAmount">Promedio de días para completar</message>
 	<message key="manager.reviewerSearch.lastAmount">Días desde la última revisión</message>
-	<message key="manager.reviewerSearch.activeAmount">Número de revisiones activas actualmente</message>
+	<message key="manager.reviewerSearch.activeAmount">Revisiones activas actualmente</message>
 	<message key="manager.reviewerSearch.interests">Intereses de revisión</message>
+	<message key="manager.reviewerSearch.form.instructions">Use el siguiente formulario para configurar los valores máximos de los términos que desee buscar. El formulario se ha rellenado previamente con los promedios calculados de esos campos.</message>
+	<message key="manager.reviewerSearch.form.interests.instructions">Introduzca los intereses de revisión separados por comas</message>
 	<message key="manager.roles">Roles</message>
 	<message key="manager.setup.citationAssistant">Asistente de marcado de citas</message>
 	<message key="manager.setup.citationFilterParser">Extracto de citas</message>
-	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>Para buscar y comprobar las citas en las bases de datos de citas primero se deben dividir en metadatos legibles por el sistema: título, editor/a, fecha de publicación, etc., todas se tienen que extraer del texto original de la cita proporcionado por el autor/a. Los conectores a servicios web externos pueden ser útiles en este proceso. Se pueden añadir uno o varios conectores al hacer clic en el botón «Añadir elemento» situado a continuación. Es posible que algunos de estos conectores deban ser configurados; se le avisará si es éste el caso.</p> <p>Puede editar o eliminar un conector existente al hacer clic en el icono de engranaje situado al lado.</p>]]></message>
+	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>Para buscar y comprobar las citas en una base de datos es necesario que éstas se dividan en metadatos legibles a máquina. El título, editor, fecha de publicación, etc. deben extraerse del texto de la cita original proporcionado por el autor. Los conectores a servicios web externos pueden ser útiles en este proceso. Se pueden añadir uno o varios conectores haciendo clic en el siguiente botón "Añadir elemento". Es posible que necesite configurar algunos de estos conectores; se le solicitará si fuera necesario.</p> <p>Puede editar o eliminar un conector existente al hacer clic en el icono de engranaje situado a su lado.</p>]]></message>
 	<message key="manager.setup.citationFilterLookup">Comprobación de citas</message>
-	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>También debe habilitar y configurar las conexiones a bases de datos de citas externas. Esto ayuda a encontrar errores en las citas de los autores/as o a añadir información adicional (p.ej., DOIs o PubMed IDs) necesaria para la publicación electrónica o el depósito.</p> <p>Se proporcionan conectores a varias bases de datos externas en las que puede buscar citas. Para acceder a algunas de estas bases de datos, se requiere información de registro o de configuración. Consulte los sitios web públicos de las bases de datos para obtener más información acerca de cómo registrarse. Puede añadir una o varias bases de datos al hacer clic en el botón «Añadir elemento» situado a continuación.</p> <p>Puede editar o eliminar una conexión existente a una base de datos externa al hacer clic en el botón de engranaje situado al lado.</p> <p><strong>Nota:</strong> Para que el proceso de comprobación de las citas se complete de manera oportuna, la directiva <tt>citation_checking_max_processes</tt> se debe establecer en un valor razonable en el archivo de configuración. Véase la sección Configuración general en <tt>config.inc.php</tt> para más información.</p>]]></message>
-	<message key="manager.setup.citationOutput">Salida de cita</message>
-	<message key="manager.setup.citationOutputStyleDescription">Elija el estilo de citas empleado actualmente en los envíos de los autores/as a la revista. El Asistente de marcado de citas le permite comparar la versión del autor/a de la cita con una versión generada desde el XML que está generando, de modo que usted pueda detectar fácilmente los errores:</message>
+	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>Además, puede habilitar y configurar las conexiones a bases de datos de citas externas. Esto resulta útil para detectar errores en las citas del autor/a o para añadir información complementaria (p. ej. DOI o Id. de PubMed) requerida para publicaciones electrónicas o depósitos.</p> <p>Se proporcionan conectores a varias bases de datos externas en las que puede buscar citas. Para acceder a algunas de estas bases de datos se requiere introducir la información de registro o de configuración. Consulte los sitios web públicos de las bases de datos para obtener más información acerca de cómo registrarse. Puede añadir una o varias bases de datos haciendo clic en el siguiente botón "Añadir elemento".</p> <p>Puede editar o eliminar una conexión existente a una base de datos externa haciendo clic en el icono de engranaje situado a su lado.</p> <p><strong>Nota:</strong> Para completar el proceso de comprobación de citas con la mayor brevedad, la directiva <tt>citation_checking_max_processes</tt> de su archivo de configuración debe establecer un valor razonable. Para obtener más información consulte la sección Configuración general en <tt>config.inc.php</tt>.</p>]]></message>
+	<message key="manager.setup.citationOutput">Formato de citas</message>
+	<message key="manager.setup.citationOutputStyleDescription">Elija el estilo de citas empleado actualmente en los envíos de sus publicaciones. El asistente de marcado de citas le permite comparar la versión del autor/a de la cita con una versión generada a partir del XML que usted está generando con el fin de que pueda detectar errores fácilmente:</message>
 	<message key="manager.setup.errorDeletingItem">Se ha producido un error al eliminar el elemento.</message>
-	<message key="manager.setup.filter.grid.errorDeletingFilter">Se ha producido un error al intentar quitar el filtro. Informar del error.</message>
+	<message key="manager.setup.filter.grid.errorDeletingFilter">Se ha producido un error al intentar quitar el filtro. Enviar un informe de error.</message>
 	<message key="manager.setup.filter.grid.filterDisplayName">Conector</message>
 	<message key="manager.setup.filter.grid.filterSettings">Información de registro y configuración de conector</message>
 	<message key="manager.setup.filter.grid.filterTemplateRequired">Seleccione una de las transformaciones de la lista desplegable.</message>
-	<message key="manager.setup.filter.grid.confirmDelete">¿Está seguro/a de que desea eliminar el filtro {$filterName}?</message>	
-	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">Ha elegido añadir la base de datos {$filterDisplayName}. Haga clic en «Aceptar» para confirmar.</message>
+	<message key="manager.setup.filter.grid.confirmDelete">¿Está seguro/a de que desea eliminar el filtro {$filterName}?</message>
+	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">Ha elegido añadir la base de datos {$filterDisplayName}. Haga clic en "Aceptar" para confirmar.</message>
 	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Seleccione una base de datos de búsqueda.</message>
-	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>Este filtro se conecta al libro en ISBNdb.com y a la base de datos del ISBN.<a href="http://isbndb.com/" target="_blank"></a></p> <p>La clave del API de ISBNdb es obligatoria. Para obtener información sobre generar una clave, véase la <a href="http://isbndb.com/api/v1/docs/keys" target="_blank">documentación en línea</a>.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Este filtro se conecta a la base de datos de citas CrossRef y emplea la interfaz de OpenURL de consultas de CrossRef.<a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">OpenURL Query</a>.</p> <p>Para utilizar este filtro, puede emplear la cuenta del sistema CrossRef, o registrar una dirección de correo electrónico válida con CrossRef <a href="http://www.crossref.org/requestaccount/" target="_blank">aquí</a>.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>Este filtro se conecta al motor de búsqueda entre bases de datos de PubMed Entrez.<a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank"></a>.</p> <p>No es estrictamente obligatorio un correo electrónico de registro, pero puede ser necesario si surgen problemas de conexión. Véase la sección en <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">Indicaciones y requisitos de uso</a> en la documentación de Entrez para más información.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.worldCat"><![CDATA[<p>Este filtro se conecta a los servicios OCLC <a href="http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp" target="_blank">xISBN</a> y <a href="http://www.worldcat.org/" target="_blank">Worldcat</a> (opcional).</p> <p>Si tiene una clave del API Worldcat<a href="http://oclc.org/developer/develop/web-services.html" target="_blank"></a> puede conectarse a Worldcat introduciendo la clave a continuación.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.loadMessage">Espere a que la cuadrícula de configuración de la base de datos de citas se haya cargado...</message>
+	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>Este filtro conecta a la base de datos de libros e ISBN <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a>.</p> <p>Es obligatoria una clave API de ISBNdb. Para más información sobre cómo obtener la clave, consulte la <a href="http://isbndb.com/docs/api/30-keys.html" target="_blank">documentación en línea </a>.</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Este filtro conecta a la base de datos de citas CrossRef que utiliza la <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">interfaz de consulta</a> OpenURLde CrossRef.</p> <p>Para usar este filtro puede utilizar su cuenta de sistema CrossRef o registrarse en CrossRef con una dirección de correo electrónico válida <a href="http://www.crossref.org/requestaccount/" target="_blank">aquí</a>.</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>Este filtro conecta al motor de búsqueda de bases de datos cruzadas <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">Entrez</a> de PubMed.</p> <p>Registrarse por correo electrónico no es estrictamente obligatorio, pero puede ser necesario en caso de tener problemas de conexión. Para más información, consulte la sección sobre <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&amp;part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">Requisitos y directrices de uso</a> en la documentación de Entrez.</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.description.worldCat"><![CDATA[<p>Este filtro conecta a los servicios OCLC<a href="http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp" target="_blank">xISBN</a> y <a href="http://www.worldcat.org/" target="_blank">Worldcat</a> (opcional).</p> <p>Si posee una <a href="http://www.worldcat.org/devnet/wiki/SearchAPIWhoCanUse" target="_blank">clave API</a> de Worldcat puede conectarse a Worldcat introduciendo la clave a continuación.</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.loadMessage">Por favor, espere a que la cuadrícula de configuración de la base de datos de citas se haya cargado...</message>
 	<message key="manager.setup.filter.lookup.grid.title">Conectores de bases de datos de citas</message>
-	<message key="manager.setup.filter.noMoreTemplates">Ya se han añadido todas las transformaciones disponibles. Haga clic en «Cancelar» para volver a la página de configuración.</message>
-	<message key="manager.setup.filter.parser.grid.descriptionConfirm">Ha elegido añadir el analizador {$filterDisplayName}. Haga clic en «Aceptar» para confirmar.</message>
+	<message key="manager.setup.filter.noMoreTemplates">Ya se han añadido todas las transformaciones disponibles. Haga clic en "Cancelar" para volver a la página de configuración.</message>
+	<message key="manager.setup.filter.parser.grid.descriptionConfirm">Ha elegido añadir el analizador {$filterDisplayName}. Haga clic en "Aceptar" para confirmar.</message>
 	<message key="manager.setup.filter.parser.grid.descriptionTemplate">Seleccione un analizador de citas.</message>
-	<message key="manager.setup.filter.parser.grid.description.freeCite"><![CDATA[<p>Este filtro de extracción se conecta al servicio web de FreeCite<a href="http://freecite.library.brown.edu/" target="_blank"></a></p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.paraCite"><![CDATA[<p>Este filtro de extracción emplea los módulos Perl de <a href="http://paracite.eprints.org/developers/" target="_blank">ParaTools</a> para proporcionar la funcionalidad del analizador de citas <a href="http://paracite.eprints.org" target="_blank">ParaCite</a>. Para que funcione correctamente, debe tener Perl instalado, junto con <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/" target="_blank">Biblio::Citation::Parser</a> y <a href="http://search.cpan.org/~sburke/Text-Unidecode-0.04/" target="_blank">Texto::Unidecode</a> módulos CPAN. Debe configurar también la directiva<tt>perl</tt> en el archivo de configuración. La directiva se encuentra en la sección de comandos externos de <tt>config.inc.php</tt>.</p> <p>También puede decidir qué módulo analizador ParaTools usar. Puede elegir entre los módulos analizadores estándar, <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Jiao.pm" target="_blank">Jiao</a>, y <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Citebase.pm" target="_blank">Citebase</a>.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.parsCit"><![CDATA[<p>Este filtro de extracción se conecta al servicio web <a href="http://aye.comp.nus.edu.sg/parsCit/" target="_blank">ParsCit</a>.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.regEx">El filtro de extracción RegEx emplea una serie de expresiones regulares para analizar las citas.</message>
-	<message key="manager.setup.filter.parser.grid.loadMessage">Espere a que la cuadrícula de configuración del analizador de citas se haya cargado...</message>
+	<message key="manager.setup.filter.parser.grid.description.freeCite"><![CDATA[<p>Este filtro de extracción conecta al servicio web <a href="http://freecite.library.brown.edu/" target="_blank">FreeCite</a>.</p>]]></message>
+	<message key="manager.setup.filter.parser.grid.description.paraCite"><![CDATA[<p>Este filtro de extracción usa módulos Perl <a href="http://paracite.eprints.org/developers/" target="_blank">ParaTools</a> para proporcionar la funcionalidad de análisis de cita <a href="http://paracite.eprints.org" target="_blank">ParaCite</a> . Para que funcione correctamente es necesario tener instalado Perl y los módulos CPAN <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/" target="_blank">Biblio::Citation::Parser</a> y <a href="http://search.cpan.org/~sburke/Text-Unidecode-0.04/" target="_blank">Text::Unidecode</a>. Además, debe configurar la directiva <tt>perl</tt> en su archivo de configuración. Puede encontrar la directiva en la sección Comandos externos de <tt>config.inc.php</tt>.</p> <p>También puede elegir qué módulo analizador ParaTools prefiere utilizar. Puede elegir entre el estándar, <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Jiao.pm" target="_blank">Jiao</a>, y los módulos analizadores <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Jiao.pm" target="_blank">Citebase</a>.</p>]]></message>
+	<message key="manager.setup.filter.parser.grid.description.parsCit"><![CDATA[<p>Este filtro de extracción conecta al servicio web <a href="http://aye.comp.nus.edu.sg/parsCit/" target="_blank">ParsCit</a> .</p>]]></message>
+	<message key="manager.setup.filter.parser.grid.description.regEx">El filtro de extracción RegEx utiliza una serie de expresiones regulares para analizar las citas.</message>
+	<message key="manager.setup.filter.parser.grid.loadMessage">Por favor, espere a que la cuadrícula de configuración del analizador de citas se haya cargado...</message>
 	<message key="manager.setup.filter.parser.grid.title">Servicios de extracción de citas</message>
 	<message key="manager.setup.filter.pleaseSelect">Seleccione...</message>
-	<message key="manager.setup.homeHeaderImageInvalid">Logotipo de la cabecera de la página de inicio no válido o error de carga. Los formatos permitidos son .gif, .jpg, o .png.</message>
-	<message key="manager.setup.homepageImageInvalid">Formato de imagen de la página de inicio no válido o error de carga. Los formatos permitidos son .gif, .jpg, o .png.</message>
-	<message key="manager.setup.homeTitleImageInvalid">Formato de imagen del título de la cabecera de la página de inicio no válido o error de carga. Los formatos permitidos son .gif, .jpg, o .png.</message>
+	<message key="manager.setup.homeHeaderImageInvalid">Formato de imagen del logotipo de la cabecera de la página principal no válido o error al cargar. Formatos aceptados: .gif, .jpg o .png.</message>
+	<message key="manager.setup.homepageImageInvalid">Formato de imagen de la página principal no válido o error al cargar. Formatos aceptados: .gif, .jpg o .png.</message>
+	<message key="manager.setup.homeTitleImageInvalid">Formato de imagen del título de la cabecera de la página principal no válido o error al cargar. Formatos aceptados: .gif, .jpg o .png.</message>
+	<message key="manager.setup.layout.blockManagement">Gestión de la barra lateral</message>
 	<message key="manager.setup.layout.leftSidebar">Barra lateral izquierda</message>
 	<message key="manager.setup.layout.rightSidebar">Barra lateral derecha</message>
 	<message key="manager.setup.layout.unselected">No seleccionado</message>
-	<message key="manager.setup.loggingAndAuditing">Registro y verificación de cuentas.</message>
-	<message key="manager.setup.metaCitationsDescription">Active la siguiente casilla de verificación para habilitar la edición de citas y referencias. Esto permitirá a los autores/as incluir citas con los envíos. Los editores/as también tendrán acceso a un asistente de marcado de citas con el que pueden comprobar las citas en bruto respecto a las bases de datos externas, tales como WorldCat, ISBNdb, PubMed y otras, para más exactitud. Las citas aprobadas se pueden exportar a archivos de galeradas finales.</message>
-	<message key="manager.setup.pageHeaderLogoImageInvalid">Formato de imagen del logotipo de la cabecera de la página de inicio no válido o error de carga. Los formatos permitidos son .gif, .jpg, o .png.</message>
-	<message key="manager.setup.pageHeaderTitleImageInvalid">Formato de imagen del título de la cabecera de la página de inicio no válido o error de carga. Los formatos permitidos son .gif, .jpg, o .png.</message>
+	<message key="manager.setup.loggingAndAuditing">Registro y verificación de cuentas</message>
+	<message key="manager.setup.metaCitationsDescription">Active la siguiente casilla de verificación para habilitar la edición de citas y referencias. Esto permitirá a los autores/as incluir citas en bruto en los envíos. Para mayor exactitud, los editores/as también tendrán acceso a un asistente de marcado de citas con el que podrán verificar las citas en bruto en bases de datos externas como WorldCat, ISBNdb, PubMed y otras. Las citas aprobadas se pueden exportar a archivos de galeradas finales.</message>
+	<message key="manager.setup.pageHeaderLogoImageInvalid">Formato de imagen del logotipo de la cabecera de la página no válido o error al cargar. Formatos aceptados: .gif, .jpg o .png.</message>
+	<message key="manager.setup.pageHeaderTitleImageInvalid">Formato de imagen del título de la cabecera de la página no válido o error al cargar. Formatos aceptados: .gif, .jpg o .png.</message>
 	<message key="manager.setup.selectOne">Seleccione uno</message>
-	<message key="manager.statistics">Estadísticas e informes</message>
+	<message key="manager.statistics"><![CDATA[Estadísticas &amp; Informes]]></message>
 	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>
-	<message key="manager.statistics.statistics.totalNewValue">{$numTotal} ({$numNew} nuevo)</message>
+	<message key="manager.statistics.statistics.totalNewValue">{$numTotal} ({$numNew} new)</message>
+	<message key="manager.statistics.city">Ciudad</message>	
+	<message key="manager.statistics.region">Región</message>	
 	<message key="manager.users">Usuarios/as</message>
-	<message key="plugins.categories.auth">Conectores de autorización</message>
-	<message key="plugins.categories.blocks">Conectores de bloque</message>
-	<message key="plugins.categories.blocks.description">Los conectores de bloque son componentes de la interfaz de usuario/a, como las barras de herramientas laterales.</message>
-	<message key="plugins.categories.citationFormats">Conectores de formato de cita</message>
-	<message key="plugins.categories.gateways.description">Los conectores de puerta de enlace proporcionan datos a sistemas externos al instante.</message>
-	<message key="plugins.categories.gateways">Conectores de puerta de enlace</message>
-	<message key="plugins.categories.generic">Conectores genéricos</message>
-	<message key="plugins.categories.importexport.description">Los conectores de importación/exportación se pueden emplear para transferir contenido entre sistemas.</message>
-	<message key="plugins.categories.importexport">Conectores de importación/exportación</message>
-	<message key="plugins.categories.paymethod.description">Los conectores de método de pago ejecutan varias formas de procesar los pagos en línea.</message>
-	<message key="plugins.categories.paymethod">Conectores de pago</message>
-	<message key="plugins.categories.reports.description">Los conectores de informes se emplean para ejecutar varios tipos de informes y extractos de datos.</message>
-	<message key="plugins.categories.reports">Conectores de informes</message>
-	<message key="plugins.categories.themes.description">Los conectores de tema se pueden emplear para cambiar la apariencia del sistema.</message>
-	<message key="plugins.categories.themes">Conectores de tema</message>
-	<message key="manager.announcements.datePublish">Publicado</message>
-	<message key="manager.emails.addEmail">Añadir plantilla de correo</message>
-	<message key="manager.emails.data">Datos de mensaje de la plantilla</message>
-	<message key="manager.emails.details">Detalles de la plantilla</message>
-	<message key="manager.emails.disable.message">Estás a punto de desactivar esta plantilla de correo. Si existe algún proceso del sistema que use esta plantilla, no lo seguirá haciendo. Estás seguro/a?</message>
-	<message key="manager.emails.enable.message">Estás a punto de activar este correo. Estás seguro/a?</message>
-	<message key="manager.emails.resetAll.message">Si reinicializas todas las plantillas, todas las modificaciones realizadas previamente se perderán. ¿Estás seguro/a?</message>
-	<message key="manager.emails.reset.message">Si reinicializas esta plantilla, todas las modificaciones realizadas previamente se perderán y se reemplazarán por los valores por defecto. ¿Estás seguro/a?</message>
-	<message key="manager.masthead.title">Cabecera</message>
-	<message key="manager.navigation">Navegación</message>
-	<message key="manager.reviewerSearch.advancedSearch.short">Búsqueda avanzada</message>
-	<message key="manager.reviewerSearch.searchByName.short">Buscar por nombre</message>
-	<message key="manager.reviewerSearch.form.instructions">Utiliza el siguiente formulario para definir los valores máximos para los términos que deseas. El formulario se almacenará con el promedio de estos campos.</message>
-	<message key="manager.reviewerSearch.form.interests.instructions">Entrar los intereses de revisión separados por comas...</message>
-	<message key="manager.setup.layout.blockManagement">Gestión de la barra lateral</message>
-	<message key="plugins.categories.metadata">Conectores de metadatos</message>
-	<message key="plugins.categories.metadata.description">Los conectores de metadatos implementan estándares adicionales de metadatos.</message>
-	<message key="plugins.categories.citationLookup">Conectores de conexión con las bases de datos de cita</message>
-	<message key="plugins.categories.citationLookup.description">Los conectores con las bases de datos de cita permiten realizar búsquedas en las bases de datos de citas. p.e.: durante el proceso de edición de las citas.</message>
-	<message key="plugins.categories.citationOutput">Conectores de estilo de salida de citas</message>
-	<message key="plugins.categories.citationOutput.description">Los conectores de salida de citas implementan estándares de cita. Estos tienen prioridad sobre los conectores de formato de cita.</message>
-	<message key="plugins.categories.citationParser">Conectores de extracción de citas</message>
-	<message key="plugins.categories.citationParser.description">Los conectores de extracción de citas segmentan en campos el texto de una cita (p.e.: autor, título, etc.).</message>
-	<message key="manager.statistics.city">Ciudad</message>
-	<message key="manager.statistics.region">Región</message>
+	<message key="plugins.categories.metadata">Módulos de metadatos</message>
+	<message key="plugins.categories.metadata.description">Los módulos de metadatos implementan los estándares de metadatos complementarios.</message>
+	<message key="plugins.categories.auth">Módulos de autorización</message>
+	<message key="plugins.categories.blocks">Módulos de bloque</message>
+	<message key="plugins.categories.blocks.description">Los módulos de bloque son componentes de la interfaz de usuario/a, como las barras de herramientas laterales.</message>
+	<message key="plugins.categories.citationFormats">Módulos de formato de citas</message>
+	<message key="plugins.categories.citationLookup">Módulos de conectores de bases de datos de citas</message>
+	<message key="plugins.categories.citationLookup.description">Los módulos de conectores de bases de datos de citas se conectan a la base de datos para buscar citas, p. ej. durante la edición de citas.</message>
+	<message key="plugins.categories.citationOutput">Módulos de salida de citas</message>
+	<message key="plugins.categories.citationOutput.description">Los módulos de salida de citas implementan los estándares de citas. Sustituye a los módulos de formato de citas.</message>
+	<message key="plugins.categories.citationParser">Módulos de extracción de citas</message>
+	<message key="plugins.categories.citationParser.description">Los módulos de extracción de citas extraen datos de nivel de campo a partir de las citas en bruto (p. ej. autor/a, título, etc.).</message>
+	<message key="plugins.categories.gateways.description">Los módulos de puerta de enlace proporcionan datos en tiempo real a sistemas externos.</message>
+	<message key="plugins.categories.gateways">Módulos de puerta de enlace</message>
+	<message key="plugins.categories.generic">Módulos genéricos</message>
+	<message key="plugins.categories.importexport.description">Los módulos de importación/exportación se pueden utilizar para transferir contenido entre sistemas.</message>
+	<message key="plugins.categories.importexport">Módulos de importación/exportación</message>
+	<message key="plugins.categories.paymethod.description">Los módulos de métodos de pago implementan el soporte para diversas formas de procesar los pagos en línea.</message>
+	<message key="plugins.categories.paymethod">Módulos de pago</message>
+	<message key="plugins.categories.reports.description">Los módulos de informes se utilizan para implementar diversos tipos de informes y extracciones de datos.</message>
+	<message key="plugins.categories.reports">Módulos de informe</message>
+	<message key="plugins.categories.themes.description">Los módulos de tema se pueden utilizar para cambiar la apariencia del sistema.</message>
+	<message key="plugins.categories.themes">Módulos de tema</message>
+	<message key="manager.announcements.form.notificationToggle">Enviar notificación</message>
+	<message key="manager.announcements.form.notificationToggleInstructions">Crear una nueva notificación al guardar este anuncio.</message>
 </locale> 

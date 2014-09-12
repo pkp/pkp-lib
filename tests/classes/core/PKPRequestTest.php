@@ -350,7 +350,7 @@ class PKPRequestTest extends PKPTestCase {
 		self::assertEquals($remoteIp, $this->request->getRemoteAddr());
 	}
 
-	/*
+	/**
 	 * @covers PKPRequest::getRemoteAddr
 	 */
 	public function testTrustXForwardedForNotSet() {

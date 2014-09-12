@@ -23,15 +23,22 @@ import('lib.pkp.classes.plugins.HookRegistry'); // This imports our mock HookReg
 
 class PKPRequestTest extends PKPTestCase {
 	protected $request;
+	private $getRemoteAddrTestConfigData;
 
 	public function setUp() {
 		parent::setUp();
 		HookRegistry::rememberCalledHooks();
 		$this->request = new PKPRequest();
+
+		// Save the config data for testTrustXForwardedFor tests
+		$this->getRemoteAddrTestConfigData = Registry::get('configData');
 	}
 
 	public function tearDown() {
 		HookRegistry::resetCalledHooks();
+
+		// Restore the config data after testTrustXForwardedFor tests
+		Registry::set('configData', $this->getRemoteAddrTestConfigData);
 	}
 
 	/**
@@ -317,6 +324,55 @@ class PKPRequestTest extends PKPTestCase {
 			'HTTPS' => 'ON'
 		);
 		self::assertEquals('https', $this->request->getProtocol());
+	}
+
+	/**
+	 * @covers PKPRequest::getRemoteAddr
+	 */
+	public function testTrustXForwardedForOn() {
+		list($forwardedIp, $remoteIp) = $this->getRemoteAddrTestPrepare(
+			array('trust_x_forwarded_for' => true)
+		);
+		self::assertEquals($forwardedIp, $this->request->getRemoteAddr());
+	}
+
+	/**
+	 * @covers PKPRequest::getRemoteAddr
+	 */
+	public function testTrustXForwardedForOff() {
+		list($forwardedIp, $remoteIp) = $this->getRemoteAddrTestPrepare(
+			array('trust_x_forwarded_for' => false)
+		);
+		self::assertEquals($remoteIp, $this->request->getRemoteAddr());
+	}
+
+	/**
+	 * @covers PKPRequest::getRemoteAddr
+	 */
+	public function testTrustXForwardedForNotSet() {
+		list($forwardedIp, $remoteIp) = $this->getRemoteAddrTestPrepare(array());
+		self::assertEquals($forwardedIp, $this->request->getRemoteAddr());
+	}
+
+
+	/**
+	 * Helper function for testTrustXForwardedFor tests that prepares the
+	 * environment
+	 *
+	 * @param $generalConfigData mixed Array containing overwrites for the
+	 * general section of the config
+	 */
+	private function getRemoteAddrTestPrepare($generalConfigData = array()) {
+		// Remove cached IP address from registry
+		Registry::delete('remoteIpAddr');
+
+		$_SERVER['HTTP_X_FORWARDED_FOR'] = '1.1.1.1';
+		$_SERVER['REMOTE_ADDR'] = '2.2.2.2';
+
+		$configData =& Registry::get('configData', true, array());
+		$configData['general'] = $generalConfigData;
+
+		return array($_SERVER['HTTP_X_FORWARDED_FOR'], $_SERVER['REMOTE_ADDR']);
 	}
 
 	/**

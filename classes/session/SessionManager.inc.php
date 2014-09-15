@@ -40,7 +40,7 @@ class SessionManager {
 		ini_set('session.name', Config::getVar('general', 'session_cookie_name')); // Cookie name
 		ini_set('session.cookie_lifetime', 0);
 		ini_set('session.cookie_path', $request->getBasePath() . '/');
-		ini_set('session.cookie_domain', $request->getServerHost());
+		ini_set('session.cookie_domain', $request->getServerHost(null, false));
 		ini_set('session.gc_probability', 1);
 		ini_set('session.gc_maxlifetime', 60 * 60);
 		ini_set('session.auto_start', 1);
@@ -65,9 +65,9 @@ class SessionManager {
 		$now = time();
 
 		// Check if the session is tied to the parent domain
-		if (isset($this->userSession) && $this->userSession->getDomain() && $this->userSession->getDomain() != $request->getServerHost()) {
+		if (isset($this->userSession) && $this->userSession->getDomain() && $this->userSession->getDomain() != $request->getServerHost(null, false)) {
 			// if current host contains . and the session domain (is a subdomain of the session domain), adjust the session's domain parameter to the parent
-			if (strtolower(substr($request->getServerHost(), -1 - strlen($this->userSession->getDomain()))) == '.'.strtolower($this->userSession->getDomain())) {
+			if (strtolower(substr($request->getServerHost(null, false), -1 - strlen($this->userSession->getDomain()))) == '.'.strtolower($this->userSession->getDomain())) {
 				ini_set('session.cookie_domain', $this->userSession->getDomain());
 			}
 		}
@@ -216,7 +216,17 @@ class SessionManager {
 	 * @return boolean
 	 */
 	function updateSessionCookie($sessionId = false, $expireTime = 0) {
-		return setcookie(session_name(), ($sessionId === false) ? session_id() : $sessionId, $expireTime, ini_get('session.cookie_path'), ini_get('session.cookie_domain'));
+		$domain = ini_get('session.cookie_domain');
+		// Specific domains must contain at least one '.' (e.g. Chrome)
+		if (strpos($domain, '.') === false) $domain = false;
+
+		return setcookie(
+			session_name(),
+			($sessionId === false) ? session_id() : $sessionId,
+			$expireTime,
+			ini_get('session.cookie_path'),
+			$domain
+		);
 	}
 
 	/**

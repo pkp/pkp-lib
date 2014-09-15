@@ -155,8 +155,8 @@ class PKPRequest {
 		$_this =& PKPRequest::_checkThis();
 
 		if (!isset($_this->_baseUrl)) {
-			$serverHost = $_this->getServerHost(null);
-			if ($serverHost !== null) {
+			$serverHost = $_this->getServerHost(false);
+			if ($serverHost !== false) {
 				// Auto-detection worked.
 				$_this->_baseUrl = $_this->getProtocol() . '://' . $_this->getServerHost() . $_this->getBasePath();
 			} else {
@@ -329,11 +329,14 @@ class PKPRequest {
 	}
 
 	/**
-	 * Get the server hostname in the request. May optionally include the
-	 * port number if non-standard.
+	 * Get the server hostname in the request.
+	 * @param $default string Default hostname (defaults to localhost)
+	 * @param $includePort boolean Whether to include non-standard port number; default true
 	 * @return string
 	 */
-	function getServerHost($default = 'localhost') {
+	function getServerHost($default = null, $includePort = true) {
+		if ($default === null) $default = 'localhost';
+
 		$_this =& PKPRequest::_checkThis();
 
 		if (!isset($_this->_serverHost)) {
@@ -341,7 +344,11 @@ class PKPRequest {
 				: (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST']
 				: (isset($_SERVER['HOSTNAME']) ? $_SERVER['HOSTNAME']
 				: $default));
-			HookRegistry::call('Request::getServerHost', array(&$_this->_serverHost));
+			HookRegistry::call('Request::getServerHost', array(&$_this->_serverHost, &$default, &$includePort));
+		}
+		if (!$includePort) {
+			// Strip the port number, if one is included. (#3912)
+			return preg_replace("/:\d*$/", '', $_this->_serverHost);
 		}
 		return $_this->_serverHost;
 	}

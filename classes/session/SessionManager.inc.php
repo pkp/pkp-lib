@@ -39,6 +39,7 @@ class SessionManager {
 		ini_set('session.name', Config::getVar('general', 'session_cookie_name')); // Cookie name
 		ini_set('session.cookie_lifetime', 0);
 		ini_set('session.cookie_path', Config::getVar('general', 'session_cookie_path', $request->getBasePath() . '/'));
++		ini_set('session.cookie_domain', $request->getServerHost(null, false));
 		ini_set('session.gc_probability', 1);
 		ini_set('session.gc_maxlifetime', 60 * 60);
 		ini_set('session.auto_start', 1);
@@ -62,6 +63,14 @@ class SessionManager {
 		$userAgent = $request->getUserAgent();
 		$now = time();
 
+		// Check if the session is tied to the parent domain
+		if (isset($this->userSession) && $this->userSession->getDomain() && $this->userSession->getDomain() != $request->getServerHost(null, false)) {
+			// if current host contains . and the session domain (is a subdomain of the session domain), adjust the session's domain parameter to the parent
+			if (strtolower(substr($request->getServerHost(null, false), -1 - strlen($this->userSession->getDomain()))) == '.'.strtolower($this->userSession->getDomain())) {
+				ini_set('session.cookie_domain', $this->userSession->getDomain());
+			}
+		}
+
 		if (!isset($this->userSession) || (Config::getVar('security', 'session_check_ip') && $this->userSession->getIpAddress() != $ip) || $this->userSession->getUserAgent() != substr($userAgent, 0, 255)) {
 			if (isset($this->userSession)) {
 				// Destroy old session
@@ -75,6 +84,7 @@ class SessionManager {
 			$this->userSession->setUserAgent($userAgent);
 			$this->userSession->setSecondsCreated($now);
 			$this->userSession->setSecondsLastUsed($now);
+			$this->userSession->setDomain(ini_get('session.cookie_domain'));
 			$this->userSession->setSessionData('');
 
 			$this->sessionDao->insertObject($this->userSession);
@@ -206,7 +216,17 @@ class SessionManager {
 	 * @return boolean
 	 */
 	function updateSessionCookie($sessionId = false, $expireTime = 0) {
-		return setcookie(session_name(), ($sessionId === false) ? session_id() : $sessionId, $expireTime, ini_get('session.cookie_path'));
+		$domain = ini_get('session.cookie_domain');
+		// Specific domains must contain at least one '.' (e.g. Chrome)
+		if (strpos($domain, '.')===false) $domain = false;
+
+		return setcookie(
+			session_name(),
+			($sessionId === false) ? session_id() : $sessionId,
+			$expireTime,
+			ini_get('session.cookie_path'),
+			$domain
+		);
 	}
 
 	/**

@@ -140,8 +140,8 @@ class PKPRequest {
 		$_this =& PKPRequest::_checkThis();
 
 		if (!isset($_this->_baseUrl)) {
-			$serverHost = $_this->getServerHost(null);
-			if ($serverHost !== null) {
+			$serverHost = $_this->getServerHost(false);
+			if ($serverHost !== false) {
 				// Auto-detection worked.
 				$_this->_baseUrl = $_this->getProtocol() . '://' . $_this->getServerHost() . $_this->getBasePath();
 			} else {

@@ -431,7 +431,7 @@ class FilterDAO extends DAO {
 	 */
 	function getAdditionalFieldNames() {
 		assert(is_array($this->additionalFieldNames));
-		return $this->additionalFieldNames;
+		return parent::getAdditionalFieldNames() + $this->additionalFieldNames;
 	}
 
 	/**
@@ -439,7 +439,7 @@ class FilterDAO extends DAO {
 	 */
 	function getLocaleFieldNames() {
 		assert(is_array($this->localeFieldNames));
-		return $this->localeFieldNames;
+		return parent::getLocaleFieldNames() + $this->localeFieldNames;
 	}
 
 

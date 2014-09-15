@@ -81,7 +81,7 @@ class PKPAnnouncementForm extends Form {
 	 */
 	function getLocaleFieldNames() {
 		$announcementDao =& DAORegistry::getDAO('AnnouncementDAO');
-		return $announcementDao->getLocaleFieldNames();
+		return parent::getLocaleFieldNames() + $announcementDao->getLocaleFieldNames();
 	}
 
 	/**

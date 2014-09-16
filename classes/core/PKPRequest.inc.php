@@ -405,8 +405,8 @@ class PKPRequest {
 	function getRemoteAddr() {
 		PKPRequest::_checkThis();
 
-		static $ipaddr;
-		if (!isset($ipaddr)) {
+		$ipaddr =& Registry::get('remoteIpAddr'); // Reference required.
+		if (is_null($ipaddr)) {
 			if (isset($_SERVER['HTTP_X_FORWARDED_FOR']) &&
 				Config::getVar('general', 'trust_x_forwarded_for', true) &&
 				preg_match_all('/([0-9.a-fA-F:]+)/', $_SERVER['HTTP_X_FORWARDED_FOR'], $matches)) {

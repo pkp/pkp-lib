@@ -100,7 +100,7 @@ class PKPRequestTest extends PKPTestCase {
 		// Two hooks should have been triggered.
 		self::assertEquals(
 			array(
-				array('Request::getServerHost' , array(false)),
+				array('Request::getServerHost' , array(false, false, true)),
 				array('Request::getBaseUrl' , array('http://baseurl1/'))
 			),
 			HookRegistry::getCalledHooks()

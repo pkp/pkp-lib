@@ -55,7 +55,7 @@ abstract class PKPInstallationTest extends WebTestCase {
 		$this->type('css=[id^=filesDir-]', getenv('FILESDIR'));
 
 		// Execute
-		$this->click('css=[id^=submitFormButton-]');
+		$this->clickAndWait('css=[id^=submitFormButton-]');
 		$this->waitForElementPresent('link=Login');
 		$this->waitJQuery();
 	}

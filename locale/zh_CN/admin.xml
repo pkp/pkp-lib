@@ -90,4 +90,11 @@
 	<message key="admin.fileLoader.wrongBasePathLocation">基本路径{$path}必须包含在公共文件目录中。</message>
 	<message key="admin.fileLoader.pathNotAccessible">文件夹{$ PATH}不是目录或无法读取。</message>
 	<message key="admin.fileLoader.moveFileFailed">文件{$filename}无法从{$currentFilePath}移动到{$destinationPath}</message>
+	<message key="admin.scheduledTask.startTime">任务进程开始</message>
+	<message key="admin.scheduledTask.stopTime">任务进程结束</message>
+	<message key="admin.scheduledTask.noLog">任务尚未生成日志</message>
+	<message key="admin.scheduledTask.openAccessNotification">开放通知</message>
+	<message key="admin.scheduledTask.reviewReminder">评审提醒</message>
+	<message key="admin.scheduledTask.subscriptionExpiryReminder">订阅到期提醒</message>
+	<message key="admin.fileLoader.fileProcessed">文件{$filename} 被存档</message>
 </locale>

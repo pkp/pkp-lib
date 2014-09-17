@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
+
+<!--
+  * locale.xml
+  *
+  * Copyright (c) 2003-2013 Simon Fraser University Library
+  * Copyright (c) 2013-2014 Simon Fraser University Library
+  * Copyright (c) 2003-2014 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings.
+  -->
+ 
+<locale name="fr_FR" full_name="Français">
+	<!-- plug-in -->
+	<message key="plugins.metadata.nlm30.displayName">Métadonnées NLM 3.0</message>
+	<message key="plugins.metadata.nlm30.description">Met à disposition des schémas et des logiciels d'adaptation NLM 3.0.</message>
+
+	<!-- citation meta-data adapter -->
+	<message key="plugins.metadata.nlm30.citationAdapter.displayName">Adapteur de citation NLM 3.0</message>
+	<message key="plugins.metadata.nlm30.citationAdapter.description">Extrait/Injecte des métadonnées à partir/dans les citations.</message>
+
+	<!-- citation parsers (citation extraction services) -->
+	<message key="plugins.metadata.nlm30.citationParsers.displayName">Service d'extraction de citations"</message>
+	<message key="plugins.metadata.nlm30.citationParsers.description">Convertissez des citations en texte brut en balises de citation NLM 3.0."</message>
+
+	<!-- citation lookup (citation database/improvement/lookup services) -->
+	<message key="plugins.metadata.nlm30.citationLookup.displayName">Service de base de données de citation"</message>
+	<message key="plugins.metadata.nlm30.citationLookup.description">Améliorez le balisage de citation NLM 3.0, par ex. en consultant les citations de bases de données externes."</message>
+
+	<!-- citation output -->
+	<message key="plugins.metadata.nlm30.citationOutput.displayName">Services de production de citation</message>
+	<message key="plugins.metadata.nlm30.citationOutput.description">Convertissez des balises de citation NLM 3.0 en citation en texte brut normalisé.</message>
+	<message key="plugins.metadata.nlm30Xml.citationOutput.displayName">Services de production de citation (XML)</message>
+	<message key="plugins.metadata.nlm30Xml.citationOutput.description">Convertissez des balises de citation NLM 3.0 en balises XML standard.</message>
+
+	<!-- NLM 3.0 output -->
+	<message key="plugins.metadata.nlm30.nlm30XmlOutput.displayName">Édition de revue NLM 3.0</message>
+	<message key="plugins.metadata.nlm30.nlm30XmlOutput.description">Convertissez un article OJS ou OCS en NLM 3.0.</message>
+
+	<!-- NLM 2.3 output -->
+	<message key="plugins.metadata.nlm30.nlm23XmlOutput.displayName">Édition de revue NLM 2.3</message>
+	<message key="plugins.metadata.nlm30.nlm23XmlOutput.description">Convertissez un article OJS ou OCS en NLM 2.3.</message>
+
+	<!-- NLM 3.0 to 2.3 downgrade -->
+	<message key="plugins.metadata.nlm30.nlm30ToNlm23Xml.displayName">Rétrogradation de l'édition de revue NLM 3.0 à 2.3</message>
+	<message key="plugins.metadata.nlm30.nlm30ToNlm23Xml.description">Rétrogradation de NLM 3.0 à NLM 2.3.</message>
+
+	<!-- Plain text reference list output -->
+	<message key="plugins.metadata.nlm30.refList.displayName">Génération d'une bibliographie en texte brut</message>
+	<message key="plugins.metadata.nlm30.refList.description">Produisez une bibliographie en texte brut formatée à partir des références d'une soumission OJS/OCS/OMP</message>
+</locale>

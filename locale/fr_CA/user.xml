@@ -126,5 +126,4 @@
 	<message key="user.profile.form.passwordSameAsOld">Votre nouveau mot de passe est identique à l'ancien.</message>
 	<message key="user.profile.form.usergroupRequired">Groupe d'utilisateurs requis.</message>
 	<message key="user.suffix">Suffixe</message>
-	<message key="user.profile.form.hashInvalid">Votre demande de réinitialisation de mot de passe n'est pas valide.</message>
 </locale>

@@ -388,4 +388,5 @@
 	<message key="search.title">Título</message>
 	<message key="search.typeMethodApproach">Tipo (método / alcance)</message>
 	<message key="grid.action.downloadFile">Descargar este archivo</message>
+	<message key="common.notice">Mensaje</message>
 </locale>

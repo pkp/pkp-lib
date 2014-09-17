@@ -374,21 +374,4 @@
 	<message key="navigation.system">Système</message>
 	<message key="navigation.userManagement">Gestion des utilisateurs</message>
 	<message key="grid.action.downloadFile">Télécharger ce fichier</message>
-	<message key="common.error">Erreur</message>
-	<message key="search.activeFilters">Filtres avancés</message>
-	<message key="search.advancedSearchMore">Options de recherches supplémentaires (cliquer pour voir)</message>
-	<message key="search.advancedSearchLess">Options de recherches supplémentaires (cliquer pour cacher)</message>
-	<message key="search.cli.rebuildIndex.clearingIndex">Nettoyer l'index</message>
-	<message key="search.cli.rebuildIndex.done">Complété</message>
-	<message key="search.cli.rebuildIndex.error">erreur</message>
-	<message key="search.cli.rebuildIndex.indexing">Indexer "{$journalName}"</message>
-	<message key="search.cli.rebuildIndex.indexingByJournalNotSupported">L’exécution de cette recherche ne permet pas la ré-indexation par revue</message>
-	<message key="search.cli.rebuildIndex.result">{$numIndexed} articles indexés</message>
-	<message key="search.cli.rebuildIndex.unknownJournal">Le chemin d'accès suivant "{$journalPath}" n'a pu être rattaché à une revue.</message>
-	<message key="search.deleteFilter">Effacer</message>
-	<message key="search.indexTermsLong">Tous les champs d'index</message>
-	<message key="common.metric">Métrique</message>
-	<message key="common.count">Décompte</message>
-	<message key="defaultMetric.title">Métrique (par défaut)</message>
-	<message key="defaultMetric.availableMetrics">Métriques</message>
 </locale>

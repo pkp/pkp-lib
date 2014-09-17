@@ -90,4 +90,11 @@
 	<message key="admin.fileLoader.pathNotAccessible">La carpeta con la ruta {$path} no es una  carpeta o no puede leerse.</message>
 	<message key="admin.fileLoader.moveFileFailed">El Archivo {$filename} no puede ser movido desde {$currentFilePath} hacia {$destinationPath}</message>
 	<message key="admin.fileLoader">Cargador de Archivos</message>
+	<message key="admin.scheduledTask.startTime">Tarea automática iniciada</message>
+	<message key="admin.scheduledTask.stopTime">Tarea automática finalizada</message>
+	<message key="admin.scheduledTask.noLog">La no tarea no ha producido log</message>
+	<message key="admin.scheduledTask.openAccessNotification">Notificación de Acceso Abierto</message>
+	<message key="admin.scheduledTask.reviewReminder">Recordatorio de revisión</message>
+	<message key="admin.scheduledTask.subscriptionExpiryReminder">Recordatorio de expiración de la suscripción</message>
+	<message key="admin.fileLoader.fileProcessed">El Archivo {$filename} ha sido procesado y archivado</message>
 </locale>

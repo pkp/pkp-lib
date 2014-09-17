@@ -90,4 +90,11 @@
 	<message key="admin.fileLoader.pathNotAccessible">{$path} er ikke en mappe eller er ikke læselig.</message>
 	<message key="admin.fileLoader.moveFileFailed">Filen {$filename} kunne ikke flyttes fra {$currentFilePath} til {$destinationPath}</message>
 	<message key="admin.fileLoader">File loader</message>
+	<message key="admin.scheduledTask.subscriptionExpiryReminder">Påmindelse om abonnementsophør</message>
+	<message key="admin.scheduledTask.startTime">Task process started.</message>
+	<message key="admin.scheduledTask.stopTime">Task process stopped.</message>
+	<message key="admin.scheduledTask.noLog">Task produced no log.</message>
+	<message key="admin.scheduledTask.openAccessNotification">Open access notification</message>
+	<message key="admin.scheduledTask.reviewReminder">Review reminder</message>
+	<message key="admin.fileLoader.fileProcessed">File {$filename} was processed and archived.</message>
 </locale>

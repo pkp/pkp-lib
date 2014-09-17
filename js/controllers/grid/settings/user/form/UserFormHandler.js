@@ -89,7 +89,7 @@
 			submitForm = function(validator, formElement) {
 
 		var $form = this.getHtmlElement();
-		$(':password', $form).prop('disabled', false);
+		$(':password', $form).removeAttr('disabled');
 		this.parent('submitForm', validator, formElement);
 	};
 

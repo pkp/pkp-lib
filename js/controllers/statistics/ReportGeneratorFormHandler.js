@@ -422,13 +422,13 @@
 	 * @param {Object} callingContext The calling element or object.
 	 * @param {Event=} opt_event The triggering event (e.g. a click on
 	 *  a button.
-	 * @return {boolean} Should return false to stop event processing.
+	 * @return {boolean} Should return true to continue event processing.
 	 */
 	$.pkp.controllers.statistics.ReportGeneratorFormHandler.prototype.
 			currentTimeElementsClickHandler_ =
 			function(callingContext, opt_event) {
 		this.dateRangeElementsWrapper_.hide();
-		return false;
+		return true;
 	};
 
 
@@ -439,7 +439,7 @@
 	 * @param {Object} callingContext The calling element or object.
 	 * @param {Event=} opt_event The triggering event (e.g. a click on
 	 *  a button.
-	 * @return {boolean} Should return false to stop event processing.
+	 * @return {boolean} Should return true to continue event processing.
 	 */
 	$.pkp.controllers.statistics.ReportGeneratorFormHandler.prototype.
 			rangeTimeElementsClickHandler_ =
@@ -455,7 +455,7 @@
 		if ('#' + $(callingContext).attr('id') == this.rangeByMonthSelector_) {
 			$dayElements.hide();
 		}
-		return false;
+		return true;
 	};
 
 

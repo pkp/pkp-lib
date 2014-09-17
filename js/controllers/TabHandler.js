@@ -51,8 +51,8 @@
 			pageAnchor = pageUrl.split('#')[1];
 			tabAnchors = $tabs.find('li a');
 			for (i = 0; i < tabAnchors.length; i++) {
-				pattern = new RegExp('[/=]' + pageAnchor + '([?]|$)');
-				if (tabAnchors[i].getAttribute('href').match(pattern)) {
+				if (pageAnchor == tabAnchors[i].getAttribute('name')) {
+					// Matched on anchor name.
 					options.selected = i;
 				}
 			}

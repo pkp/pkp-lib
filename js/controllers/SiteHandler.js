@@ -570,7 +570,9 @@
 				notificationsData = workingJsonData.content.general;
 				for (levelId in notificationsData) {
 					for (notificationId in notificationsData[levelId]) {
-						$.pnotify(notificationsData[levelId][notificationId]);
+						// Hmm, this cast shouldn't be necessary but buildjs thinks so.
+						/** @type {jQueryObject} */ ($).pnotify(
+								notificationsData[levelId][notificationId]);
 					}
 				}
 			}

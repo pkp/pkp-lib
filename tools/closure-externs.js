@@ -254,3 +254,9 @@ $.pkp.cons = {
  * @return {jQueryObject}
  */
 jQueryObject.prototype.scrollabletab = function(param1) {};
+
+/**
+ * @param {Object} param1
+ * @return {jQueryObject}
+ */
+jQueryObject.prototype.pnotify = function(param1) {};

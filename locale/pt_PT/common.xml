@@ -387,4 +387,5 @@
 	<message key="search.cli.rebuildIndex.unknownJournal">O caminho fornecido para a revista "{$journalPath}" não pode ser atribuído a uma revista.</message>
 	<message key="search.deleteFilter">Eliminar</message>
 	<message key="search.indexTermsLong">Todos os campos de indexação de palavras</message>
+	<message key="common.notice">Aviso</message>
 </locale>

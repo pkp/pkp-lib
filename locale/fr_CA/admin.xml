@@ -84,10 +84,4 @@
 	<message key="admin.settings">Paramètres</message>
 	<message key="admin.settings.siteTheme">Thème du site</message>
 	<message key="admin.siteSetup">Configuration du site</message>
-	<message key="admin.fileLoader.wrongBasePathLocation">Le chemin de base {$path} doit être à l'intérieur du répertoire des fichiers publics</message>
-	<message key="admin.fileLoader.pathNotAccessible">Le dossier {$path} n'est pas dans un répertoire ou n'est pas en mode lecture autorisé.</message>
-	<message key="admin.fileLoader.moveFileFailed">Le fichier {$filename} n'a pu être déplacé de {$currentFilePath} à {$destinationPath}</message>
-	<message key="admin.scheduledTask">Tâche programmée</message>
-	<message key="admin.settings.oneStepReset">Effectuer la réinitialisation de mot de passe en une étape?</message>
-	<message key="admin.fileLoader">Chargeur de fichier</message>
 </locale>

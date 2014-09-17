@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
+
+<!--
+  * plugins/metadata/nlm30/locale/en_US/locale.xml
+  *
+  * Copyright (c) 2013-2014 Simon Fraser University Library
+  * Copyright (c) 2003-2014 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the en_US (U.S. English) locale.
+  -->
+ 
+<locale name="en_US" full_name="U.S. English">
+	<!-- plug-in -->
+	<message key="plugins.metadata.nlm30.displayName">NLM 3.0 元数据</message>
+	<message key="plugins.metadata.nlm30.description">有助于NLM 3.0 模式 和应用配适器。</message>
+
+	<!-- citation meta-data adapter -->
+	<message key="plugins.metadata.nlm30.citationAdapter.displayName">NLM 3.0 引用适配器</message>
+	<message key="plugins.metadata.nlm30.citationAdapter.description">提取/添加元数据从/到引用。</message>
+
+	<!-- citation parsers (citation extraction services) -->
+	<message key="plugins.metadata.nlm30.citationParsers.displayName">引用提取服务”</message>
+	<message key="plugins.metadata.nlm30.citationParsers.description">将纯文本引用到NLM 3元引文标记起来。”</message>
+
+	<!-- citation lookup (citation database/improvement/lookup services) -->
+	<message key="plugins.metadata.nlm30.citationLookup.displayName">引用数据库服务"</message>
+	<message key="plugins.metadata.nlm30.citationLookup.description">提高NLM 3.0元素引用标记，例如，在外部数据库查询引用。“</message>
+
+	<!-- citation output -->
+	<message key="plugins.metadata.nlm30.citationOutput.displayName">引用输出服务</message>
+	<message key="plugins.metadata.nlm30.citationOutput.description">转变NLM 3.0元素引用标记到纯文本引用输出标准。</message>
+	<message key="plugins.metadata.nlm30Xml.citationOutput.displayName">引用输出服务 (XML)</message>
+	<message key="plugins.metadata.nlm30Xml.citationOutput.description">转变NLM 3.0 元素引用标记到  XML 引用输出标准。</message>
+
+	<!-- NLM 3.0 output -->
+	<message key="plugins.metadata.nlm30.nlm30XmlOutput.displayName">NLM 3.0 期刊出版输出</message>
+	<message key="plugins.metadata.nlm30.nlm30XmlOutput.description">转变 OJS或者 OCS 文章/论文 到 NLM 3.0。</message>
+
+	<!-- NLM 2.3 output -->
+	<message key="plugins.metadata.nlm30.nlm23XmlOutput.displayName">NLM 2.3期刊出版输出</message>
+	<message key="plugins.metadata.nlm30.nlm23XmlOutput.description">转变 OJS 或者 OCS 文章/论文 到 NLM 2.3.</message>
+
+	<!-- NLM 3.0 to 2.3 downgrade -->
+	<message key="plugins.metadata.nlm30.nlm30ToNlm23Xml.displayName">NLM 3.0 到 2.3 期刊出版降级</message>
+	<message key="plugins.metadata.nlm30.nlm30ToNlm23Xml.description">NLM 3.0降到 NLM 2.3.</message>
+
+	<!-- Plain text reference list output -->
+	<message key="plugins.metadata.nlm30.refList.displayName">纯文本引用列表</message>
+	<message key="plugins.metadata.nlm30.refList.description">从OJS/OCS/OMP提交的引用生成格式化的纯文本引用列表。</message>
+</locale>

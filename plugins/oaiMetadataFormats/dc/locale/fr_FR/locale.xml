@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
+
+<!--
+  * locale.xml
+  *
+  * Copyright (c) 2003-2013 Simon Fraser University Library
+  * Copyright (c) 2013-2014 Simon Fraser University Library
+  * Copyright (c) 2003-2014 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings.
+  *
+  -->
+ 
+<locale name="fr_FR" full_name="Français">
+	<message key="plugins.oaiMetadata.dc.displayName">Format de métadonnées DC</message>
+	<message key="plugins.oaiMetadata.dc.description">Structure les métadonnées afin de les rendre conformes au format Dublin Core.</message>
+</locale>

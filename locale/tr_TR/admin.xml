@@ -90,4 +90,11 @@
 	<message key="admin.fileLoader.wrongBasePathLocation">Temel {$path} yolu genel alanlar dizininde olmalıdır.</message>
 	<message key="admin.fileLoader.pathNotAccessible">{$path} bir dizin yolu veya okunabilir değil.</message>
 	<message key="admin.fileLoader.moveFileFailed">{$filename} adlı dosya {$currentFilePath}'dan {$destinationPath} hedefine taşınamadı</message>
+	<message key="admin.scheduledTask.startTime">Görev süreci başladı.</message>
+	<message key="admin.scheduledTask.stopTime">Görev süreci durduruldu.</message>
+	<message key="admin.scheduledTask.noLog">Görev günlük (log) oluşturmadı</message>
+	<message key="admin.scheduledTask.openAccessNotification">Açık erişim bildirimi</message>
+	<message key="admin.scheduledTask.reviewReminder">Değerlendirme Hatırlatması</message>
+	<message key="admin.scheduledTask.subscriptionExpiryReminder">Abonelik sonu hatırlatması</message>
+	<message key="admin.fileLoader.fileProcessed">{$filename} dosyası işlendi ve arşivlendi.</message>
 </locale>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/fr_FR/admin.xml
+  *
+  * Copyright (c) 2000-2014 Simon Fraser University Library
+  * Copyright (c) 2000-2014 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the fr_FR (Français) locale.
+  *
+  -->
+
+<locale name="fr_FR" full_name = "Français">
+	<message key="admin.adminFunctions">Fonctions administratives</message>
+	<message key="admin.auth.confirmDelete">Êtes-vous certain de vouloir supprimer définitivement cette source d'authentification?</message>
+	<message key="admin.auth.create">Créer une source d'authentification</message>
+	<message key="admin.auth.noneCreated">Aucune source d'authentification définie.</message>
+	<message key="admin.authSources">Sources d'authentification</message>
+	<message key="admin.clearDataCache">Vider les caches de données</message>
+	<message key="admin.clearTemplateCache">Vider le cache de modèles</message>
+	<message key="admin.configFileUpdatedInstructions"><![CDATA[Votre fichier de configuration a été mis à jour avec succès. Noter que si votre site ne fonctionne plus correctement, vous aurez peut être à réparer manuellement votre configuration en modifiant directement le <tt>config.inc.php</tt>.]]></message>
+	<message key="admin.confirmClearTemplateCache">Êtes-vous sûr de vouloir effacer le cache des modèles compilés?</message>
+	<message key="admin.confirmExpireSessions">Êtes-vous sûr de vouloir fermer toutes les sessions utilisateurs? Tous les utilisateurs actuellement connectés devront se reconnecter (vous y compris).</message>
+	<message key="admin.contentsOfConfigFile">Contenu du fichier de configuration</message>
+	<message key="admin.currentVersion">Version actuelle</message>
+	<message key="admin.dateInstalled">Date d'installation</message>
+	<message key="admin.displayConfigFileInstructions"><![CDATA[Le contenu de votre configuration mise à jour est affiché ci-dessous. Pour appliquer les modifications affectées à cette configuration, vous devez ouvrir le <tt>config.inc.php</tt> dans un éditeur de texte adéquat et remplacer son contenu par le contenu de la zone de texte ci-dessous.]]></message>
+	<message key="admin.displayNewSystemConfig">Afficher la nouvelle configuration</message>
+	<message key="admin.expireSessions">Fermer les sessions utilisateurs</message>
+	<message key="admin.languages.confirmReload">Êtes-vous sûr de vouloir réinitialiser cette langue? Ceci effacera toute donnée spécifique à cette langue tels que les modèles de courriel personnalisés.</message>
+	<message key="admin.languages.installedLocales">Langues installées</message>
+	<message key="admin.languages.installLanguages">Gérer les langues</message>
+	<message key="admin.languages.installLocales">Installer</message>
+	<message key="admin.languages.installNewLocales">Installer de nouvelles langues</message>
+	<message key="admin.languages.languageSettings">Paramètres de langue</message>
+	<message key="admin.languages.noLocalesAvailable">Aucune langue supplémentaire disponible.</message>
+	<message key="admin.languages.reload">Recharger la langue</message>
+	<message key="admin.languages.uninstall">Désinstaller la langue</message>
+	<message key="admin.phpInfo">Information détaillée concernant PHP</message>
+	<message key="admin.server.apacheVersion">Version Apache</message>
+	<message key="admin.server.dbDriver">Pilote de base de données</message>
+	<message key="admin.server.dbVersion">Version du serveur de bases de données</message>
+	<message key="admin.serverInformationDescription"><![CDATA[Versions du système d'exploitation de base et du logiciel serveur. Cliquer sur <span class="highlight">Information détaillée concernant PHP</span> pour avoir plus de détails sur la configuration PHP de ce serveur.]]></message>
+	<message key="admin.serverInformation">Information sur le serveur</message>
+	<message key="admin.server.phpVersion">Version PHP</message>
+	<message key="admin.server.platform">Système d'exploitation</message>
+	<message key="admin.settings.aboutDescription">Description "À propos du site"</message>
+	<message key="admin.settings.contactEmail">Courriel du contact principal</message>
+	<message key="admin.settings.contactName">Nom du contact principal</message>
+	<message key="admin.settings.form.contactEmailRequired">Le courriel de la personne-ressource principale est obligatoire.</message>
+	<message key="admin.settings.form.contactNameRequired">Le nom du contact principal est obligatoire.</message>
+	<message key="admin.settings.form.minPasswordLengthRequired">Vous devez entrer un mot de passe d'au moins 4 caractères.</message>
+	<message key="admin.settings.form.titleRequired">Le titre est obligatoire.</message>
+	<message key="admin.settings.homeHeaderImage.altText">Logo du site</message>
+	<message key="admin.settings.homeHeaderImageInvalid">Le format de l'image du logo du site est invalide. Seuls les formats .gif, .jpg ou .png sont acceptés.</message>
+	<message key="admin.settings.introduction">Introduction</message>
+	<message key="admin.settings.minPasswordLength">Longueur minimum du mot de passe</message>
+	<message key="admin.settings.oaiRegistration">Enregistrer le site pour l'indexation (collecte de métadonnées)</message>
+	<message key="admin.settings.passwordCharacters">caractères</message>
+	<message key="admin.settings.siteLanguage">Langue du site</message>
+	<message key="admin.settings.siteStyleSheetInvalid">Format de la feuille de style du site invalide. Le format accepté est .css.</message>
+	<message key="admin.settings.siteStyleSheet">Feuille de style du site</message>
+	<message key="admin.settings.siteTitle">Titre du site</message>
+	<message key="admin.siteAdmin">Administration du site</message>
+	<message key="admin.siteManagement">Gestion du site</message>
+	<message key="admin.siteSettings">Paramètres du site</message>
+	<message key="admin.systemConfigFileReadError"><![CDATA[Le fichier de configuration <tt>config.inc.php</tt> n'existe pas, n'est pas lisible, ou n'est pas valide.]]></message>
+	<message key="admin.systemInformation">Information sur le système</message>
+	<message key="admin.versionBuild">Assemblage</message>
+	<message key="admin.version.checkForUpdates">Rechercher les mises à jour</message>
+	<message key="admin.version.downloadPackage">Télécharger</message>
+	<message key="admin.version.downloadPatch">Télécharger un correctif</message>
+	<message key="admin.versionHistory">Historique de version</message>
+	<message key="admin.version.latest">Dernière version</message>
+	<message key="admin.versionMajor">Majeure</message>
+	<message key="admin.versionMinor">Mineure</message>
+	<message key="admin.version.moreInfo">Pour en savoir plus</message>
+	<message key="admin.versionRevision">Révision</message>
+	<message key="admin.version.updateAvailable">Une mise à jour est disponible</message>
+	<message key="admin.version.upToDate">Votre système est à jour</message>
+	<message key="admin.version">Version</message>
+	<message key="admin.settings">Paramètres</message>
+	<message key="admin.settings.siteTheme">Thème du site</message>
+	<message key="admin.siteSetup">Configuration du site</message>
+	<message key="admin.fileLoader.wrongBasePathLocation">Le chemin de base {$path} doit être à l'intérieur du répertoire des fichiers publics</message>
+	<message key="admin.fileLoader.pathNotAccessible">Le dossier {$path} n'est pas dans un répertoire ou n'est pas en mode lecture autorisé.</message>
+	<message key="admin.fileLoader.moveFileFailed">Le fichier {$filename} n'a pu être déplacé de {$currentFilePath} à {$destinationPath}</message>
+	<message key="admin.scheduledTask">Tâche programmée</message>
+	<message key="admin.settings.oneStepReset">Effectuer la réinitialisation de mot de passe en une étape?</message>
+	<message key="admin.fileLoader">Chargeur de fichier</message>
+</locale>

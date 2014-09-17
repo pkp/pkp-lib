@@ -90,4 +90,11 @@
 	<message key="admin.fileLoader.pathNotAccessible">Pasta {$path} não é directório ou não permite leitura.</message>
 	<message key="admin.fileLoader.moveFileFailed">Ficheiro {$filename} não pode ser removido de {$currentFilePath} para {$destinationPath}</message>
 	<message key="admin.fileLoader">Carregador ficheiro</message>
+	<message key="admin.scheduledTask.startTime">Tarefa do iniciada.</message>
+	<message key="admin.scheduledTask.stopTime">Tarefa do interrropida.</message>
+	<message key="admin.scheduledTask.noLog">A tarefa não gerou nenhum log.</message>
+	<message key="admin.scheduledTask.openAccessNotification">Notificação Open Access</message>
+	<message key="admin.scheduledTask.reviewReminder">Lembrete revisor</message>
+	<message key="admin.scheduledTask.subscriptionExpiryReminder">Lembrete expiração assinatura</message>
+	<message key="admin.fileLoader.fileProcessed">O ficheiro {$filename} foi processado e arquivado.</message>
 </locale>

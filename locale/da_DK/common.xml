@@ -388,4 +388,5 @@
 	<message key="common.count">Count</message>
 	<message key="defaultMetric.title">Standardmåling</message>
 	<message key="defaultMetric.availableMetrics">Tilgængelioge målinger</message>
+	<message key="common.notice">Notice</message>
 </locale>

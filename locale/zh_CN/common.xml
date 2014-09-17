@@ -388,4 +388,5 @@
 	<message key="search.cli.rebuildIndex.unknownJournal">指定的期刊路径"{$journalPath}"炸偶到匹配期刊。</message>
 	<message key="search.indexTermsLong">所有索引词字段</message>
 	<message key="common.titleSmallWords">of a the and an or nor but is if then else when at from by on off for in out over to into with</message>
+	<message key="common.notice">通知</message>
 </locale>

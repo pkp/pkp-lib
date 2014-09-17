@@ -391,4 +391,5 @@
 	<message key="search.cli.rebuildIndex.result">{$numIndexed} makale indekslendi</message>
 	<message key="search.cli.rebuildIndex.unknownJournal">Verilen "{$journalPath}" dergi yolu herhangi bir dergi için çözümlenemedi.</message>
 	<message key="search.cli.rebuildIndex.indexingByJournalNotSupported">Bu arama uygulaması her bir derginin yeniden indekslenmesini kabul etmiyor.</message>
+	<message key="common.notice">Uyarı</message>
 </locale>

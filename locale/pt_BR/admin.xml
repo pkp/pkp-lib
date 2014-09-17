@@ -87,8 +87,14 @@
 	<message key="admin.fileLoader.wrongBasePathLocation">O caminho base {$path} deve estar dentro da pasta pública.</message>
 	<message key="admin.fileLoader.pathNotAccessible">A pasta {$path} não é um diretório ou não tem permissão de leitura.</message>
 	<message key="admin.fileLoader.moveFileFailed">O arquivo {$filename} não pode ser movido de {$currentFilePath} para {$destinationPath}</message>
-	<message key="admin.fileLoader.emailSubject">ID {$processId} do processo de carga do arquivo</message>
 	<message key="admin.scheduledTask">Tarefas Agendadas</message>
 	<message key="admin.settings.oneStepReset">Usar um só passo para a redefinição de senhas?</message>
 	<message key="admin.fileLoader">Carregador de arquivos</message>
+	<message key="admin.scheduledTask.startTime">Tarefa iniciada.</message>
+	<message key="admin.scheduledTask.stopTime">Tarefa parada.</message>
+	<message key="admin.scheduledTask.noLog">Tarefa não produziu registros (logs).</message>
+	<message key="admin.scheduledTask.openAccessNotification">Notificação de acesso aberto</message>
+	<message key="admin.scheduledTask.reviewReminder">Lembrete de avaliador</message>
+	<message key="admin.scheduledTask.subscriptionExpiryReminder">Lembrete de expiração de assinatura.</message>
+	<message key="admin.fileLoader.fileProcessed">O arquivo {$filename} foi processado e arquivado.</message>
 </locale>

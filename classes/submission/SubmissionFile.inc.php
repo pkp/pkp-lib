@@ -115,7 +115,8 @@ class SubmissionFile extends PKPFile {
 
 	/**
 	 * Get price of submission file.
-	 * @return numeric
+	 * A null return indicates "not available"; 0 is free.
+	 * @return numeric|null
 	 */
 	function getDirectSalesPrice() {
 		return $this->getData('directSalesPrice');
@@ -123,7 +124,8 @@ class SubmissionFile extends PKPFile {
 
 	/**
 	 * Set direct sales price.
-	 * @param $directSalesPrice numeric
+	 * A null return indicates "not available"; 0 is free.
+	 * @param $directSalesPrice numeric|null
 	 */
 	function setDirectSalesPrice($directSalesPrice) {
 		return $this->setData('directSalesPrice', $directSalesPrice);

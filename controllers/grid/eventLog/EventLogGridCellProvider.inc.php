@@ -39,11 +39,11 @@ class EventLogGridCellProvider extends DataObjectGridCellProvider {
 		assert(is_a($element, 'DataObject') && !empty($columnId));
 		switch ($columnId) {
 			case 'date':
-				return array('label' => $element->getDateLogged());
+				return array('label' => is_a($element, 'EventLogEntry') ? $element->getDateLogged() : $element->getDateSent());
 			case 'event':
-				return array('label' => $element->getTranslatedMessage());
+				return array('label' => is_a($element, 'EventLogEntry') ? $element->getTranslatedMessage() : $element->getPrefixedSubject());
 			case 'user':
-				return array('label' => $element->getUserFullname());
+				return array('label' => is_a($element, 'EventLogEntry') ? $element->getUserFullName() : $element->getSenderFullName());
 			default:
 				assert(false);
 		}

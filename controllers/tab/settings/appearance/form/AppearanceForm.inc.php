@@ -37,6 +37,9 @@ class AppearanceForm extends ContextSettingsForm {
 			'itemsPerPage' => 'int',
 			'numPageLinks' => 'int',
 			'themePluginPath' => 'string',
+			'displayNewReleases' => 'bool',
+			'displayFeaturedBooks' => 'bool',
+			'displayInSpotlight' => 'bool',
 		));
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON);

@@ -48,7 +48,7 @@
 	</tr>
 	<tr>
 		<td class="label"><label for="loginPassword">{translate key="user.password"}</label></td>
-		<td class="value"><input type="password" id="loginPassword" name="password" value="{$password|escape}" size="20" maxlength="32" class="textField" /></td>
+		<td class="value"><input type="password" id="loginPassword" name="password" value="{$password|escape}" size="20" class="textField" /></td>
 	</tr>
 	{if $showRemember}
 	<tr valign="middle">

@@ -85,7 +85,7 @@ class AuthorSignoffFilesGridHandler extends GridHandler {
 				'response',
 				'submission.response',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$cellProvider,
 				array('alignment' => COLUMN_ALIGNMENT_LEFT))
 		);

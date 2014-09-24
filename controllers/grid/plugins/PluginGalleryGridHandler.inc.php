@@ -56,7 +56,7 @@ class PluginGalleryGridHandler extends GridHandler {
 				'name',
 				'common.name',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$pluginGalleryGridCellProvider
 			)
 		);
@@ -67,7 +67,7 @@ class PluginGalleryGridHandler extends GridHandler {
 				'summary',
 				'common.description',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$pluginGalleryGridCellProvider,
 				array('width' => 50, 'alignment' => COLUMN_ALIGNMENT_LEFT)
 			)
@@ -79,7 +79,7 @@ class PluginGalleryGridHandler extends GridHandler {
 				'status',
 				'common.status',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$pluginGalleryGridCellProvider,
 				array('width' => 20)
 			)

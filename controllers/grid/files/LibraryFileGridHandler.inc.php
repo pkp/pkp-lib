@@ -164,7 +164,7 @@ class LibraryFileGridHandler extends CategoryGridHandler {
 			'files',
 			'grid.libraryFiles.column.files',
 			null,
-			'controllers/grid/gridCell.tpl',
+			null,
 			new LibraryFileGridCellProvider()
 		);
 	}

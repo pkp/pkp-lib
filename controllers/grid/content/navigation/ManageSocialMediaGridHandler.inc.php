@@ -119,7 +119,7 @@ class ManageSocialMediaGridHandler extends GridHandler {
 				'platform',
 				'grid.content.navigation.socialMedia.platform',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$cellProvider,
 				array('width' => 50, 'alignment' => COLUMN_ALIGNMENT_LEFT)
 			)

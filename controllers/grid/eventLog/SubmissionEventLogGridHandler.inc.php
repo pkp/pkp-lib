@@ -99,7 +99,7 @@ class SubmissionEventLogGridHandler extends GridHandler {
 				'date',
 				'common.date',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				new DateGridCellProvider(
 					$cellProvider,
 					Config::getVar('general', 'date_format_short')
@@ -111,7 +111,7 @@ class SubmissionEventLogGridHandler extends GridHandler {
 				'user',
 				'common.user',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$cellProvider
 			)
 		);
@@ -120,7 +120,7 @@ class SubmissionEventLogGridHandler extends GridHandler {
 				'event',
 				'common.event',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$cellProvider,
 				array('width' => 60)
 			)

@@ -150,7 +150,7 @@ class PKPFilterGridHandler extends GridHandler {
 				'displayName',
 				'manager.setup.filter.grid.filterDisplayName',
 				false,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$cellProvider
 			)
 		);
@@ -159,7 +159,7 @@ class PKPFilterGridHandler extends GridHandler {
 				'settings',
 				'manager.setup.filter.grid.filterSettings',
 				false,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$cellProvider
 			)
 		);

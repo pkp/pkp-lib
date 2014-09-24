@@ -36,9 +36,18 @@ class GridColumn extends GridBodyElement {
 
 	/**
 	 * Constructor
+	 * @param $id string Grid column identifier
+	 * @param $title string Locale key for grid column title
+	 * @param $titleTranslated string Optional translated grid title
+	 * @param $template string Optional template filename for grid column, including path
+	 * @param $cellProvider GridCellProvider Optional grid cell provider for this column
+	 * @param $flags array Optional set of flags for this grid column
 	 */
 	function GridColumn($id = '', $title = null, $titleTranslated = null,
-			$template = 'controllers/grid/gridCell.tpl', $cellProvider = null, $flags = array()) {
+			$template = null, $cellProvider = null, $flags = array()) {
+
+		// Use default template if none specified
+		if ($template === null) $template = 'controllers/grid/gridCell.tpl';
 
 		parent::GridBodyElement($id, $cellProvider, $flags);
 

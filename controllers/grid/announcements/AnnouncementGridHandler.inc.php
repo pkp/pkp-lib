@@ -77,7 +77,7 @@ class AnnouncementGridHandler extends GridHandler {
 			new GridColumn('title',
 				'common.title',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$announcementCellProvider,
 				array('width' => 60)
 			)
@@ -87,7 +87,7 @@ class AnnouncementGridHandler extends GridHandler {
 			new GridColumn('type',
 				'common.type',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$announcementCellProvider
 			)
 		);
@@ -101,7 +101,7 @@ class AnnouncementGridHandler extends GridHandler {
 				'datePosted',
 				'announcement.posted',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$dateCellProvider
 			)
 		);

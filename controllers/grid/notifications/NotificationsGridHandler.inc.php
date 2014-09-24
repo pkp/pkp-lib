@@ -46,7 +46,7 @@ class NotificationsGridHandler extends GridHandler {
 				'task',
 				'common.tasks',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$cellProvider,
 				array('html' => true,
 						'alignment' => COLUMN_ALIGNMENT_LEFT)

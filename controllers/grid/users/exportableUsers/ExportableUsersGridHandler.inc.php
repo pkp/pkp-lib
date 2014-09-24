@@ -94,7 +94,7 @@ class ExportableUsersGridHandler extends GridHandler {
 				'firstName',
 				'user.firstName',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$cellProvider
 			)
 		);
@@ -106,7 +106,7 @@ class ExportableUsersGridHandler extends GridHandler {
 				'lastName',
 				'user.lastName',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$cellProvider
 			)
 		);
@@ -118,7 +118,7 @@ class ExportableUsersGridHandler extends GridHandler {
 					'username',
 					'user.username',
 					null,
-					'controllers/grid/gridCell.tpl',
+					null,
 					$cellProvider
 				)
 		);
@@ -130,7 +130,7 @@ class ExportableUsersGridHandler extends GridHandler {
 				'email',
 				'user.email',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$cellProvider
 			)
 		);

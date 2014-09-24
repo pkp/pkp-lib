@@ -87,7 +87,7 @@ class ReviewFormGridHandler extends GridHandler {
 				'name',
 				'manager.reviewForms.title',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$reviewFormGridCellProvider
 			)
 		);
@@ -98,7 +98,7 @@ class ReviewFormGridHandler extends GridHandler {
 				'inReview',
 				'manager.reviewForms.inReview',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$reviewFormGridCellProvider
 			)
 		);
@@ -109,7 +109,7 @@ class ReviewFormGridHandler extends GridHandler {
 				'completed',
 				'manager.reviewForms.completed',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$reviewFormGridCellProvider
 			)
 		);

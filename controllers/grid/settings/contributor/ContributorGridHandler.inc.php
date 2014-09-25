@@ -69,7 +69,7 @@ class ContributorGridHandler extends SetupGridHandler {
 				'institution',
 				'grid.columns.institution',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				null,
 				array('width' => 50, 'alignment' => COLUMN_ALIGNMENT_LEFT)
 			)
@@ -79,7 +79,7 @@ class ContributorGridHandler extends SetupGridHandler {
 				'url',
 				'grid.columns.url',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				null,
 				array('width' => 50, 'alignment' => COLUMN_ALIGNMENT_LEFT)
 			)

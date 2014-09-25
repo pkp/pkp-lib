@@ -84,10 +84,10 @@ class PKPPreparedEmailsGridHandler extends GridHandler {
 		// Columns
 		import('lib.pkp.controllers.grid.settings.preparedEmails.PreparedEmailsGridCellProvider');
 		$cellProvider = new PreparedEmailsGridCellProvider();
-		$this->addColumn(new GridColumn('name', 'common.name', null, 'controllers/grid/gridCell.tpl', $cellProvider, array('width' => 40)));
-		$this->addColumn(new GridColumn('sender', 'email.sender', null, 'controllers/grid/gridCell.tpl', $cellProvider, array('width' => 10)));
-		$this->addColumn(new GridColumn('recipient', 'email.recipient', null, 'controllers/grid/gridCell.tpl', $cellProvider));
-		$this->addColumn(new GridColumn('subject', 'common.subject', null, 'controllers/grid/gridCell.tpl', $cellProvider));
+		$this->addColumn(new GridColumn('name', 'common.name', null, null, $cellProvider, array('width' => 40)));
+		$this->addColumn(new GridColumn('sender', 'email.sender', null, null, $cellProvider, array('width' => 10)));
+		$this->addColumn(new GridColumn('recipient', 'email.recipient', null, null, $cellProvider));
+		$this->addColumn(new GridColumn('subject', 'common.subject', null, null, $cellProvider));
 		$this->addColumn(new GridColumn('enabled', 'common.enabled', null, 'controllers/grid/common/cell/selectStatusCell.tpl', $cellProvider, array('width' => 5)));
 	}
 

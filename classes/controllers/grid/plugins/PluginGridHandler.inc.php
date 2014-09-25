@@ -57,7 +57,7 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 			new GridColumn('name',
 				'common.name',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$pluginCellProvider,
 				array('multiline' => true)
 			)
@@ -67,7 +67,7 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 				'description',
 				'common.description',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$pluginCellProvider
 		);
 		$descriptionColumn->addFlag('html', true);

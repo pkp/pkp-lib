@@ -130,7 +130,7 @@ class PKPAuthorGridHandler extends GridHandler {
 				'name',
 				'author.users.contributor.name',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$cellProvider,
 				array('width' => 40, 'alignment' => COLUMN_ALIGNMENT_LEFT)
 			)
@@ -140,7 +140,7 @@ class PKPAuthorGridHandler extends GridHandler {
 				'email',
 				'author.users.contributor.email',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$cellProvider
 			)
 		);
@@ -149,7 +149,7 @@ class PKPAuthorGridHandler extends GridHandler {
 				'role',
 				'author.users.contributor.role',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$cellProvider
 			)
 		);

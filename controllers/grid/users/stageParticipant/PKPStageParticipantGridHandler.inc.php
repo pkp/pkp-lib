@@ -108,7 +108,7 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 			'participants',
 			null,
 			null,
-			'controllers/grid/gridCell.tpl',
+			null,
 			$cellProvider
 		));
 

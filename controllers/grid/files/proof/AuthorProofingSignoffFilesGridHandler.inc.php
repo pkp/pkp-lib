@@ -66,7 +66,7 @@ class AuthorProofingSignoffFilesGridHandler extends CategoryGridHandler {
 				'response',
 				'submission.response',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$cellProvider)
 		);
 

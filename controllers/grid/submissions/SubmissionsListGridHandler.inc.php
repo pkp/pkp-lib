@@ -87,7 +87,7 @@ class SubmissionsListGridHandler extends GridHandler {
 						'context',
 						'context.context',
 						null,
-						'controllers/grid/gridCell.tpl',
+						null,
 						$cellProvider
 					)
 				);
@@ -99,7 +99,7 @@ class SubmissionsListGridHandler extends GridHandler {
 				'author',
 				'submission.authors',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$cellProvider
 			)
 		);
@@ -108,19 +108,18 @@ class SubmissionsListGridHandler extends GridHandler {
 				'title',
 				'submission.title',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$cellProvider,
 				array('html' => true,
 						'alignment' => COLUMN_ALIGNMENT_LEFT)
 			)
 		);
-
 		$this->addColumn(
 			new GridColumn(
 				'status',
 				'common.status',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$cellProvider
 			)
 		);

@@ -129,8 +129,8 @@ class UserGroupGridHandler extends GridHandler {
 
 		// Set array containing the columns info with the same cell provider.
 		$columnsInfo = array(
-			1 => array('id' => 'name', 'title' => 'settings.roles.roleName', 'template' => 'controllers/grid/gridCell.tpl'),
-			2 => array('id' => 'abbrev', 'title' => 'settings.roles.roleAbbrev', 'template' => 'controllers/grid/gridCell.tpl')
+			1 => array('id' => 'name', 'title' => 'settings.roles.roleName', 'template' => null),
+			2 => array('id' => 'abbrev', 'title' => 'settings.roles.roleAbbrev', 'template' => null)
 		);
 
 		foreach ($workflowStagesLocales as $stageId => $stageTitleKey) {

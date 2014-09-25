@@ -82,7 +82,7 @@ class SystemInfoGridHandler extends CategoryGridHandler {
 				'name',
 				'admin.systemInfo.settingName',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$infoGridCellProvider,
 				array('width' => 20)
 			)
@@ -94,7 +94,7 @@ class SystemInfoGridHandler extends CategoryGridHandler {
 				'value',
 				'admin.systemInfo.settingValue',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$infoGridCellProvider
 			)
 		);

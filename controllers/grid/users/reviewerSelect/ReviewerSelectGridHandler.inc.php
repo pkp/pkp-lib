@@ -85,11 +85,11 @@ class ReviewerSelectGridHandler extends GridHandler {
 				'name',
 				'author.users.contributor.name',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$cellProvider,
 				array('alignment' => COLUMN_ALIGNMENT_LEFT,
-						'width' => 30
-					)
+					'width' => 30
+				)
 			)
 		);
 		$this->addColumn(
@@ -97,7 +97,7 @@ class ReviewerSelectGridHandler extends GridHandler {
 				'done',
 				'common.done',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$cellProvider
 			)
 		);
@@ -106,7 +106,7 @@ class ReviewerSelectGridHandler extends GridHandler {
 				'avg',
 				'editor.review.days',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$cellProvider
 			)
 		);
@@ -115,7 +115,7 @@ class ReviewerSelectGridHandler extends GridHandler {
 				'last',
 				'editor.submissions.lastAssigned',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$cellProvider
 			)
 		);
@@ -124,7 +124,7 @@ class ReviewerSelectGridHandler extends GridHandler {
 				'active',
 				'common.active',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$cellProvider
 			)
 		);
@@ -133,7 +133,7 @@ class ReviewerSelectGridHandler extends GridHandler {
 				'interests',
 				'user.interests',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$cellProvider,
 				array('width' => 20)
 			)

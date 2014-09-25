@@ -96,7 +96,7 @@ class GenreGridHandler extends SetupGridHandler {
 			new GridColumn('name',
 				'common.name',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$cellProvider
 			)
 		);
@@ -106,7 +106,7 @@ class GenreGridHandler extends SetupGridHandler {
 				'designation',
 				'common.designation',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$cellProvider
 			)
 		);

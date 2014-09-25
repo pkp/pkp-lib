@@ -79,7 +79,7 @@ class ServerInfoGridHandler extends GridHandler {
 				'name',
 				'admin.systemInfo.settingName',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$infoGridCellProvider,
 				array('width' => 20, 'alignment' => COLUMN_ALIGNMENT_LEFT)
 			)
@@ -91,7 +91,7 @@ class ServerInfoGridHandler extends GridHandler {
 				'value',
 				'admin.systemInfo.settingValue',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$infoGridCellProvider
 			)
 		);

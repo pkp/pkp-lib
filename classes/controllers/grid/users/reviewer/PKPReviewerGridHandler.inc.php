@@ -145,7 +145,7 @@ class PKPReviewerGridHandler extends GridHandler {
 				'name',
 				'user.name',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$cellProvider,
 				array('width' => 60)
 			)

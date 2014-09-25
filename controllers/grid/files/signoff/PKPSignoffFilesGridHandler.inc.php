@@ -169,7 +169,7 @@ class PKPSignoffFilesGridHandler extends CategoryGridHandler {
 				'name',
 				'common.file',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				new SignoffGridCellProvider($submission->getId(), $this->getStageId()),
 				array('alignment' => COLUMN_ALIGNMENT_LEFT, 'width' => 60)
 			)
@@ -186,7 +186,7 @@ class PKPSignoffFilesGridHandler extends CategoryGridHandler {
 		import('lib.pkp.classes.controllers.grid.NullGridCellProvider');
 		$this->addColumn(new GridColumn(
 			'approved',
-			'editor.signoff.approved', null, 'controllers/grid/gridCell.tpl',
+			'editor.signoff.approved', null, null,
 			new NullGridCellProvider())
 		);
 

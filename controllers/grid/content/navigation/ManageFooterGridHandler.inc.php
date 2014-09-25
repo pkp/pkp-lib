@@ -111,7 +111,7 @@ class ManageFooterGridHandler extends CategoryGridHandler {
 				'title',
 				'common.title',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$footerLinksGridCellProvider,
 				array()
 			);

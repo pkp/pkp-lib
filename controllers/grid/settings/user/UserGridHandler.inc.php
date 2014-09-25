@@ -96,7 +96,7 @@ class UserGridHandler extends GridHandler {
 				'firstName',
 				'user.firstName',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$cellProvider
 			)
 		);
@@ -108,7 +108,7 @@ class UserGridHandler extends GridHandler {
 				'lastName',
 				'user.lastName',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$cellProvider
 			)
 		);
@@ -116,13 +116,13 @@ class UserGridHandler extends GridHandler {
 		// User name.
 		$cellProvider = new DataObjectGridCellProvider();
 		$this->addColumn(
-				new GridColumn(
-					'username',
-					'user.username',
-					null,
-					'controllers/grid/gridCell.tpl',
-					$cellProvider
-				)
+			new GridColumn(
+				'username',
+				'user.username',
+				null,
+				null,
+				$cellProvider
+			)
 		);
 
 		// Email.
@@ -132,7 +132,7 @@ class UserGridHandler extends GridHandler {
 				'email',
 				'user.email',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$cellProvider
 			)
 		);

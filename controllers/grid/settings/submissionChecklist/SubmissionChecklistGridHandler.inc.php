@@ -63,7 +63,7 @@ class SubmissionChecklistGridHandler extends SetupGridHandler {
 				'content',
 				'grid.submissionChecklist.column.checklistItem',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				null,
 				array('multiline' => true, 'html' => true, 'maxLength' => 220)
 			)

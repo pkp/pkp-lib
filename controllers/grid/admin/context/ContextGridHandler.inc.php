@@ -92,7 +92,7 @@ class ContextGridHandler extends GridHandler {
 				'name',
 				'common.name',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$contextGridCellProvider
 			)
 		);
@@ -103,7 +103,7 @@ class ContextGridHandler extends GridHandler {
 				'path',
 				'context.path',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$contextGridCellProvider
 			)
 		);

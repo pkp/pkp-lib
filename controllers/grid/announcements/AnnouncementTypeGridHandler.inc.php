@@ -77,7 +77,7 @@ class AnnouncementTypeGridHandler extends GridHandler {
 			new GridColumn('name',
 				'common.name',
 				null,
-				'controllers/grid/gridCell.tpl',
+				null,
 				$announcementTypeCellProvider,
 				array('width' => 60)
 			)

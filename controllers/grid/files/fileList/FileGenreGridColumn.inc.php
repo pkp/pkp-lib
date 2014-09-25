@@ -22,7 +22,7 @@ class FileGenreGridColumn extends GridColumn {
 	function FileGenreGridColumn() {
 		import('lib.pkp.classes.controllers.grid.ColumnBasedGridCellProvider');
 		$cellProvider = new ColumnBasedGridCellProvider();
-		parent::GridColumn('type', 'common.element', null, 'controllers/grid/gridCell.tpl', $cellProvider);
+		parent::GridColumn('type', 'common.element', null, null, $cellProvider);
 	}
 
 

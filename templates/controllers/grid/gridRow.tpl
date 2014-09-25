@@ -47,7 +47,7 @@
 						<div class="row_file {if $column->hasFlag('multiline')}multiline{/if}">
 							{$cells[$smarty.foreach.columnLoop.index]}
 							{if is_a($row, 'GridCategoryRow') && $column->hasFlag('showTotalItemsNumber')}	
-								<span class="category_items_number">({$grid->getCategoryItemsNumber($categoryRow->getData())})</span>
+								<span class="category_items_number">({$grid->getCategoryItemsCount($categoryRow->getData(), $request)})</span>
 							{/if}
 						</div>
 					</div>

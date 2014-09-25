@@ -35,13 +35,13 @@
 
 		this.parent($tabs, options);
 
-		this.reviewIsCompleted_ = options.reviewIsCompleted;
+		this.reviewStep_ = options.reviewStep;
 
 		// Attach the tabs grid refresh handler.
 		this.bind('setStep', this.setStepHandler);
 
 		this.getHtmlElement().tabs('option', 'disabled',
-				this.getDisabledSteps(this.reviewIsCompleted_ == '1' ? 4 : 1));
+				this.getDisabledSteps(this.reviewStep_));
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.pages.reviewer.ReviewerTabHandler,
@@ -52,12 +52,12 @@
 	// Private Properties
 	//
 	/**
-	 * Whether or not this review has already been finished (and is read-only).
+	 * Review steps completed so far (read-only).
 	 * @private
-	 * @type {boolean?}
+	 * @type {int}
 	 */
 	$.pkp.pages.reviewer.ReviewerTabHandler.
-			prototype.reviewIsCompleted_ = null;
+			prototype.reviewStep_ = null;
 
 
 	//

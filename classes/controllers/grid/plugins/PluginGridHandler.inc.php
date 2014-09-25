@@ -36,7 +36,7 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 	// Overridden template methods
 	//
 	/**
-	 * @see GridHandler::initialize()
+	 * @copydoc GridHandler::initialize()
 	 */
 	function initialize($request) {
 		parent::initialize($request);
@@ -106,7 +106,7 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 	}
 
 	/**
-	 * @see GridHandler::initFeatures()
+	 * @copydoc GridHandler::initFeatures()
 	 */
 	function initFeatures($request, $args) {
 		import('lib.pkp.classes.controllers.grid.feature.GridCategoryAccordionFeature');
@@ -114,14 +114,14 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 	}
 
 	/**
-	 * @see GridHandler::getFilterForm()
+	 * @copydoc GridHandler::getFilterForm()
 	 */
 	function getFilterForm() {
 		return 'controllers/grid/plugins/pluginGridFilter.tpl';
 	}
 
 	/**
-	 * @see GridHandler::getFilterSelectionData()
+	 * @copydoc GridHandler::getFilterSelectionData()
 	 */
 	function getFilterSelectionData($request) {
 		$category = $request->getUserVar('category');
@@ -135,7 +135,7 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 	}
 
 	/**
-	 * @see GridHandler::renderFilter()
+	 * @copydoc GridHandler::renderFilter()
 	 */
 	function renderFilter($request) {
 		$categoriesSymbolic = $this->loadData($request, null);
@@ -149,7 +149,7 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 	}
 
 	/**
-	 * @see CategoryGridHandler::getCategoryRowInstance()
+	 * @copydoc CategoryGridHandler::getCategoryRowInstance()
 	 */
 	function getCategoryRowInstance() {
 		import('lib.pkp.controllers.grid.plugins.PluginCategoryGridRow');
@@ -157,7 +157,7 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 	}
 
 	/**
-	 * @see CategoryGridHandler::loadCategoryData()
+	 * @copydoc CategoryGridHandler::loadCategoryData()
 	 */
 	function loadCategoryData($request, $categoryDataElement, $filter) {
 		$plugins =& PluginRegistry::loadCategory($categoryDataElement);
@@ -209,14 +209,14 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 	}
 
 	/**
-	 * @see CategoryGridHandler::getCategoryRowIdParameterName()
+	 * @copydoc CategoryGridHandler::getCategoryRowIdParameterName()
 	 */
 	function getCategoryRowIdParameterName() {
 		return 'category';
 	}
 
 	/**
-	 * @see GridHandler::loadData()
+	 * @copydoc GridHandler::loadData()
 	 */
 	function loadData($request, $filter) {
 		$categories = PluginRegistry::getCategories();

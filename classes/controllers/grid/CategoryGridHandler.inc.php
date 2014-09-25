@@ -117,9 +117,7 @@ class CategoryGridHandler extends GridHandler {
 		// Get the category element id.
 		$categories = $this->getGridDataElements($request);
 		$categoryElementId = array_search($categoryElement, $categories);
-		if ($categoryElementId === false) {
-			assert(false);
-		}
+		assert($categoryElementId !== false);
 
 		// Try to load data if it has not yet been loaded.
 		if (!array_key_exists($categoryElementId, $this->_categoryData)) {
@@ -152,12 +150,13 @@ class CategoryGridHandler extends GridHandler {
 	/**
 	 * Get the number of elements inside the passed category element.
 	 * @param $categoryElement mixed
-	 * @return number
+	 * @param $request PKPRequest
+	 * @return int 
 	 */
-	function getCategoryItemsNumber($categoryElement) {
-		$request = Application::getRequest();
-		$items = $this->getGridCategoryDataElements($request, $categoryElement);
-		return count($items);
+	function getCategoryItemsCount($categoryElement, $request) {
+		$data = $this->getGridCategoryDataElements($request, $categoryElement);
+		assert(is_array($data));
+		return count($data);
 	}
 
 	/**
@@ -399,7 +398,7 @@ class CategoryGridHandler extends GridHandler {
 		if (is_a($dataProvider, 'CategoryGridDataProvider')) {
 			// Populate the grid with data from the
 			// data provider.
-			$gridData =& $dataProvider->loadCategoryData($request, $categoryDataElement, $filter);
+			$gridData = $dataProvider->loadCategoryData($request, $categoryDataElement, $filter);
 		}
 		return $gridData;
 	}

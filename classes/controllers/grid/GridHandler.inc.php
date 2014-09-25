@@ -640,6 +640,7 @@ class GridHandler extends PKPHandler {
 		// Prepare the template to render the grid.
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('grid', $this);
+		$templateMgr->assign('request', $request);
 
 		// Add rendered filter
 		$renderedFilter = $this->renderFilter($request);

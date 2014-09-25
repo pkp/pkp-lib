@@ -491,8 +491,7 @@
 
 		// Control grid row hover background change.
 		this.getHtmlElement().find('tr.gridRow').not('.category').hover(
-				function(){$(this).css('background-color', '#F7F5F4');},
-				function(){$(this).css('background-color', '');});
+				function(){$(this).toggleClass('mouse_over');});
 
 		// Search control.
 		this.getHtmlElement().find('.pkp_form').hide();

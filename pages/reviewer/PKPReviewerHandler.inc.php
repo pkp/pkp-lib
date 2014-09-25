@@ -40,7 +40,10 @@ class PKPReviewerHandler extends Handler {
 
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('submission', $reviewerSubmission);
-		$templateMgr->assign('reviewIsCompleted', $reviewAssignment->getDateCompleted()?1:0);
+		$reviewStep = max($reviewerSubmission->getStep(), 1);
+		$templateMgr->assign('reviewStep', $reviewStep);
+		$templateMgr->assign('selected', $reviewStep - 1);
+
 		$templateMgr->display('reviewer/review/reviewStepHeader.tpl');
 	}
 
@@ -63,10 +66,10 @@ class PKPReviewerHandler extends Handler {
 		$reviewStep = max($reviewerSubmission->getStep(), 1); // Get the current saved step from the DB
 		$userStep = (int) $request->getUserVar('step');
 		$step = (int) (!empty($userStep) ? $userStep: $reviewStep);
-		if($step > $reviewStep) $step = $reviewStep; // Reviewer can't go past incomplete steps
-		if ($step<1 || $step>4) fatalError('Invalid step!');
+		if ($step > $reviewStep) $step = $reviewStep; // Reviewer can't go past incomplete steps
+		if ($step < 1 || $step > 4) fatalError('Invalid step!');
 
-		if($step < 4) {
+		if ($step < 4) {
 			$formClass = "ReviewerReviewStep{$step}Form";
 			import("lib.pkp.classes.submission.reviewer.form.$formClass");
 

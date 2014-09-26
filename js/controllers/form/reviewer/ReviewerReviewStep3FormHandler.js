@@ -2,7 +2,7 @@
  * @defgroup js_controllers_form_reviewer
  */
 /**
- * @file js/controllers/grid/files/proof/form/ApprovedProofFormHandler.js
+ * @file js/controllers/form/reviewer/ReviewerReviewStep3FormHandler.js
  *
  * Copyright (c) 2014 Simon Fraser University Library
  * Copyright (c) 2000-2014 John Willinsky

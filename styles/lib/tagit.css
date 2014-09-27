@@ -42,9 +42,7 @@ ul.tagit li.tagit-choice .tagit-close {
 ul.tagit li.tagit-choice .tagit-close .text-icon {
     display: none;
 }
-.ui-autocomplete .ui-menu-item a {
-	font-size: .6em;
-}
+
 ul.tagit li.tagit-choice input {
 	display: block;
 	float: left;

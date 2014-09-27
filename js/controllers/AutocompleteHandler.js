@@ -41,6 +41,9 @@
 		opt = {};
 		opt.source = this.callbackWrapper(this.fetchAutocomplete);
 
+		// Set the anchor where to append the suggestions menu
+		opt.appendTo = '#' + $autocompleteField.attr('id');
+
 		autocompleteOptions = $.extend({ },
 				this.self('DEFAULT_PROPERTIES_'), opt, options);
 

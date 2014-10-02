@@ -67,13 +67,14 @@
 		{if !$hideRegisterLink}&#187; <a href="{url page="user" op=$registerOp}">{translate key=$registerLocaleKey}</a><br />{/if}
 		&#187; <a href="{url page="login" op="lostPassword"}">{translate key="user.login.forgotPassword"}</a>
 	</p>
-{/if}{* !$implicitAuth *}
 
 <script type="text/javascript">
 <!--
 	document.getElementById('{if $username}loginPassword{else}loginUsername{/if}').focus();
 // -->
 </script>
+{/if}{* !$implicitAuth *}
+
 </form>
 
 {include file="common/footer.tpl"}

@@ -320,6 +320,22 @@ class PKPUser extends DataObject {
 	}
 
 	/**
+	 * Get billing address.
+	 * @return string
+	 */
+	function getBillingAddress() {
+		return $this->getData('billingAddress');
+	}
+
+	/**
+	 * Set billing address.
+	 * @param $billingAddress string
+	 */
+	function setBillingAddress($billingAddress) {
+		return $this->setData('billingAddress', $billingAddress);
+	}
+
+	/**
 	 * Get country.
 	 * @return string
 	 */

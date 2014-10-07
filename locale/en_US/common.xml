@@ -118,6 +118,7 @@
 	<message key="common.languages">Languages</message>
 	<message key="common.manage">Manage</message>
 	<message key="common.mailingAddress">Mailing Address</message>
+	<message key="common.billingAddress">Billing address (if different)</message>
 	<message key="common.minute">Minute(s)</message>
 	<message key="common.modify">Modify</message>
 	<message key="common.month">Month</message>

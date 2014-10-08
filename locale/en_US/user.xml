@@ -53,6 +53,7 @@
 	<message key="user.login.activate">Activate Account</message>
 	<message key="user.login.activated">Thank you for activating your account. You may now log in using the credentials you supplied when you created your account.</message>
 	<message key="user.login.changePasswordInstructions"><![CDATA[You must choose a new password before you can log in to this site.<br /><br />Please enter your username and your current and new passwords below to change the password for your account.]]></message>
+	<message key="user.login.changePasswordInstructionsOneStep"><![CDATA[You must choose a new password before you can log in to this site.<br /><br />Please enter your username and your new passwords below to change the password for your account.]]></message>
 	<message key="user.login.forgotPassword">Forgot your password?</message>
 	<message key="user.login.loginError">Invalid username or password. Please try again.</message>
 	<message key="user.login">Login</message>

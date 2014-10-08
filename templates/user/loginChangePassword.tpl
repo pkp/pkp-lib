@@ -31,7 +31,7 @@
 {/if}
 {include file="common/formErrors.tpl"}
 
-<p><span class="instruct">{translate key="user.login.changePasswordInstructions"}</span></p>
+<p><span class="instruct">{if !$confirmHash}{translate key="user.login.changePasswordInstructions"}{else}{translate key="user.login.changePasswordInstructionsOneStep"}{/if}</span></p>
 
 	{fbvFormArea id="loginFields"}
 		{fbvFormSection label="user.username" for="username"}

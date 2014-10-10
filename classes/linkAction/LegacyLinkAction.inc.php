@@ -26,6 +26,10 @@ define('LINK_ACTION_TYPE_REPLACE', 'replace');
 define('LINK_ACTION_TYPE_REMOVE', 'remove');
 define('LINK_ACTION_TYPE_REDIRECT', 'redirect');
 
+// Actions types for AJAX mode
+define('LINK_ACTION_TYPE_GET', 'get');
+define('LINK_ACTION_TYPE_POST', 'post');
+
 class LegacyLinkAction {
 	/** @var string the id of the action */
 	var $_id;

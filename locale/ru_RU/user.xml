@@ -54,6 +54,7 @@
 	<message key="user.login.activate">Активировать учетную запись</message>
 	<message key="user.login.activated">Спасибо за активацию Вашей учетной записи. Теперь Вы можете войти в систему, используя имя пользователя и пароль, указанные Вами при создании учетной записи.</message>
 	<message key="user.login.changePasswordInstructions"><![CDATA[Вы должны выбрать новый пароль, прежде чем войдете на этот сайт.<br /><br />Пожалуйста, введите ниже Ваше имя пользователя, Ваш текущий и новый пароли, чтобы изменить пароль для Вашей учетной записи.]]></message>
+	<message key="user.login.changePasswordInstructionsOneStep"><![CDATA[Вы должны выбрать новый пароль, прежде чем войдете на этот сайт.<br /><br />Пожалуйста, введите ниже Ваше имя пользователя и Ваш новый пароль, чтобы изменить пароль для Вашей учетной записи.]]></message>
 	<message key="user.login.forgotPassword">Забыли Ваш пароль?</message>
 	<message key="user.login.loginError">Неправильное имя пользователя или пароль. Попробуйте еще раз.</message>
 	<message key="user.login">Войти в систему</message>

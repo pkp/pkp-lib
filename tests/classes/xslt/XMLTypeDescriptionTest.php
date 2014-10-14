@@ -87,7 +87,7 @@ class XMLTypeDescriptionTest extends PKPTestCase {
 	 * @covers XMLTypeDescription
 	 * @expectedException PHPUnit_Framework_Error
 	 */
-	function testInstantiateWithInvalidTypeDescriptor1() {
+	public function testInstantiateWithInvalidTypeDescriptor1() {
 		// Type name is not fully qualified.
 		$typeDescription = new XMLTypeDescription('Nlm30CitationSchema(CITATION)');
 	}

@@ -20,13 +20,6 @@ import('lib.pkp.classes.xslt.XMLTypeDescription');
 class XMLTypeDescriptionTest extends PKPTestCase {
 
 	/**
-	 * @see PHPUnit_Framework_TestCase::tearDown()
-	 */
-	function tearDown() {
-		PKPTestHelper::xdebugScream(true);
-	}
-
-	/**
 	 * @covers XMLTypeDescription
 	 */
 	public function testInstantiateAndCheck() {
@@ -85,10 +78,13 @@ class XMLTypeDescriptionTest extends PKPTestCase {
 
 	/**
 	 * @covers XMLTypeDescription
-	 * @expectedException PHPUnit_Framework_Error
+	 * @expectedException PHPUnit_Framework_SkippedTestError
 	 */
-	function testInstantiateWithInvalidTypeDescriptor1() {
-		$this->markTestSkipped();
+	public function testInstantiateWithInvalidTypeDescriptor1() {
+		// When this test is re-enabled, change expected exception
+		// to PHPUnit_Framework_Error.
+		$this->markTestSkipped('Temporarily disabled.');
+
 		// Type name is not fully qualified.
 		$typeDescription = new XMLTypeDescription('Nlm30CitationSchema(CITATION)');
 	}

@@ -19,13 +19,23 @@ class RedirectAction extends LinkActionRequest {
 	/** @var string The URL this action will invoke */
 	var $_url;
 
+	/** @var string The name of the window */
+	var $_name;
+
+	/** @var string The specifications of the window */
+	var $_specs;
+
 	/**
 	 * Constructor
 	 * @param $url string Target URL
+	 * @param $name string Name of window to direct (defaults to current window)
+	 * @param $specs string Optional set of window specs (see window.open JS reference)
 	 */
-	function RedirectAction($url) {
+	function RedirectAction($url, $name = '_self', $specs = '') {
 		parent::LinkActionRequest();
 		$this->_url = $url;
+		$this->_name = $name;
+		$this->_specs = $specs;
 	}
 
 
@@ -38,6 +48,24 @@ class RedirectAction extends LinkActionRequest {
 	 */
 	function getUrl() {
 		return $this->_url;
+	}
+
+	/**
+	 * Get the target name.
+	 * See JS reference for the name parameter to "window.open".
+	 * @return string
+	 */
+	function getName() {
+		return $this->_name;
+	}
+
+	/**
+	 * Get the target specifications.
+	 * See JS reference for the specs parameter to "window.open".
+	 * @return string
+	 */
+	function getSpecs() {
+		return $this->_specs;
 	}
 
 
@@ -55,7 +83,11 @@ class RedirectAction extends LinkActionRequest {
 	 * @see LinkActionRequest::getLocalizedOptions()
 	 */
 	function getLocalizedOptions() {
-		return array('url' => $this->getUrl());
+		return array(
+			'url' => $this->getUrl(),
+			'name' => $this->getName(),
+			'specs' => $this->getSpecs()
+		);
 	}
 }
 

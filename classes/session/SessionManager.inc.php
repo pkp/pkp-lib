@@ -218,7 +218,12 @@ class SessionManager {
 	function updateSessionCookie($sessionId = false, $expireTime = 0) {
 		$domain = ini_get('session.cookie_domain');
 		// Specific domains must contain at least one '.' (e.g. Chrome)
-		if (strpos($domain, '.')===false) $domain = false;
+		if (strpos($domain, '.') === false) $domain = false;
+
+		// Clear cookies with no domain #8921
+		if ($domain) {
+			setcookie(session_name(), "", 0, ini_get('session.cookie_path'), false);
+		}
 
 		return setcookie(
 			session_name(),

@@ -220,6 +220,10 @@ class SessionManager {
 		// Specific domains must contain at least one '.' (e.g. Chrome)
 		if (strpos($domain, '.') === false) $domain = false;
 
+		if ($domain) {
+			setcookie(session_name(), "", 0, ini_get('session.cookie_path'), false);
+		}
+
 		return setcookie(
 			session_name(),
 			($sessionId === false) ? session_id() : $sessionId,

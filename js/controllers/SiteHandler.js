@@ -182,6 +182,8 @@
 			if (!tinyMCEObject.getContent().length) {
 				$('#mcePlaceholder-' + tinyMCEObject.id).show();
 			}
+
+			tinyMCEObject.dom.addClass(tinyMCEObject.dom.select('li'), 'show');
 		});
 	};
 

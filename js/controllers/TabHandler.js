@@ -293,9 +293,16 @@
 	$.pkp.controllers.TabHandler.prototype.addTab =
 			function(divElement, event, jsonContent) {
 
-		var $element = this.getHtmlElement();
-		$element.tabs('add', jsonContent.url, jsonContent.title)
-				.tabs('option', 'active', $element.tabs('length') - 1);
+		var $element = this.getHtmlElement(),
+				numTabs = $element.children('ul').children('li').length + 1,
+				$anchorElement = $('<a/>')
+					.text(jsonContent.title)
+					.attr('href', jsonContent.url),
+				$liElement = $('<li/>').append($anchorElement);
+
+		// Add the new tab element and refresh the tab set.
+		$element.children('ul').append($liElement);
+		$element.tabs('refresh');
 	};
 
 

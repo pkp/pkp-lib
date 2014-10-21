@@ -18,7 +18,7 @@
 	{rdelim});
 </script>
 
-<div id="viewPluginTabs">
+<div id="viewPluginTabs" class="pkp_controllers_tab">
 	<ul>
 		<li><a href="#pluginOverviewContainer">{translate key="manager.plugins.pluginGallery.overview"}</a></li>
 		<li><a href="#pluginDescriptionContainer">{translate key="common.description"}</a></li>

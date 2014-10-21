@@ -23,7 +23,7 @@
 			);
 	{rdelim});
 </script>
-<div id="dashboardTabs">
+<div id="dashboardTabs" class="pkp_controllers_tab">
 	<ul>
 		<li><a href="{url op="submissions"}">{translate key="dashboard.submissions"}</a></li>
 		{if array_intersect(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_REVIEWER, ROLE_ID_ASSISTANT), $userRoles)}

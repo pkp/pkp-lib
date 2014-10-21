@@ -28,7 +28,7 @@
 	{rdelim});
 </script>
 <div style="clear:both">
-	<div id="stageTabs">
+	<div id="stageTabs" class="pkp_controllers_tab">
 		<ul>
 			{foreach from=$workflowStages item=stage}
 				<li class="workflowStage">

@@ -23,7 +23,7 @@
 {include file="controllers/tab/workflow/stageParticipants.tpl"}
 
 {if $reviewRounds}
-	<div id="reviewTabs">
+	<div id="reviewTabs" class="pkp_controllers_tab">
 		<ul>
 			{foreach from=$reviewRounds item=reviewRound}
 				<li>

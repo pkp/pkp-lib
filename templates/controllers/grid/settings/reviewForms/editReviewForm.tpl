@@ -19,7 +19,7 @@
 		);
 	{rdelim});
 </script>
-<div id="editReviewFormTabs">
+<div id="editReviewFormTabs" class="pkp_controllers_tab">
 	<ul>
 		<li><a href="{url router=$smarty.const.ROUTE_COMPONENT op="reviewFormBasics" reviewFormId=$reviewFormId}">{translate key="manager.reviewForms.edit"}</a></li>
 		<li><a href="{url router=$smarty.const.ROUTE_COMPONENT op="reviewFormElements" reviewFormId=$reviewFormId}">{translate key="manager.reviewFormElements"}</a></li>

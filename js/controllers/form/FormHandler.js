@@ -112,7 +112,10 @@
 				this.pushTinyMCEChanges_));
 
 		// bind a handler to handle change events on input fields.
+		// 1. For normal inputs...
 		$(':input', $form).change(this.callbackWrapper(this.formChange));
+		// 2. For other kinds of controls like listbuilders
+		this.bind('formChange', this.callbackWrapper(this.formChange));
 
 		// ensure that date picker modals are hidden when clicked away from.
 		$form.click(this.callbackWrapper(this.hideDatepicker_));
@@ -241,7 +244,6 @@
 	 */
 	$.pkp.controllers.form.FormHandler.prototype.formChange =
 			function(formElement, event) {
-
 		if (this.trackFormChanges && !this.formChangesTracked) {
 			this.formChangesTracked = true;
 			this.trigger('formChanged');

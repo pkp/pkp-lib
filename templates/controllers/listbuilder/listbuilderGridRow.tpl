@@ -36,7 +36,12 @@
 				</div>
 			</td>
 		{else}
-			<td class="gridCell">{$cell}</td>
+			{if $column->hasFlag('alignment')}
+				{assign var=alignment value=$column->getFlag('alignment')}
+			{else}
+				{assign var=alignment value=$smarty.const.COLUMN_ALIGNMENT_CENTER}
+			{/if}
+			<td style="text-align: {$alignment}" class="gridCell">{$cell}</td>
 		{/if}
 	{/foreach}
 </tr>

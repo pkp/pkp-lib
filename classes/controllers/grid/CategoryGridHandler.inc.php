@@ -210,9 +210,9 @@ class CategoryGridHandler extends GridHandler {
 	}
 
 	/**
-	 * @see GridHandler::getRowDataElement()
+	 * @copydoc GridHandler::getRowDataElement()
 	 */
-	protected function getRowDataElement($request, $rowId) {
+	protected function getRowDataElement($request, &$rowId) {
 		$rowData = parent::getRowDataElement($request, $rowId);
 		$rowCategoryId = $request->getUserVar('rowCategoryId');
 

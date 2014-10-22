@@ -120,6 +120,7 @@ class EditableLocaleFile extends LocaleFile {
 		$newContents .= "\t<message key=\"$key\">" . $this->editableFile->xmlEscape($value) . "</message>\n";
 		$newContents .= substr($this->getContents(), $offset);
 		$this->setContents($newContents);
+		return true;
 	}
 }
 

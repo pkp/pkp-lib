@@ -26,7 +26,7 @@ SWORD PHP API Library
 
 lessphp PHP LESS CSS Compiler
  * URL: <http://leafo.net/lessphp>
- * Version: 0.2+ (downloaded from github 2011-02-04)
+ * Version: 0.4.0
  * License: GPLv3 or MIT
 
 HTML Purifier 

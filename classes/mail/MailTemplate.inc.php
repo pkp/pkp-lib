@@ -97,7 +97,7 @@ class MailTemplate extends Mail {
 		}
 
 		$userSig = '';
-		if ($user) {
+		if ($user && $this->includeSignature) {
 			$userSig = $user->getLocalizedSignature();
 			if (!empty($userSig)) $userSig = "\n" . $userSig;
 		}

@@ -34,11 +34,11 @@ class EditableEmailFile {
 		$this->editableFile->write();
 	}
 
-	function &getContents() {
+	function getContents() {
 		return $this->editableFile->getContents();
 	}
 
-	function setContents(&$contents) {
+	function setContents($contents) {
 		$this->editableFile->setContents($contents);
 	}
 

@@ -14,34 +14,62 @@
  *
  */
 
-
 import('lib.pkp.classes.file.EditableFile');
 
 class EditableEmailFile {
 	var $locale;
 	var $editableFile;
 
+	/**
+	 * Constructor
+	 * @param $locale string Locale code
+	 * @param $filename string Filename
+	 */
 	function EditableEmailFile($locale, $filename) {
 		$this->locale = $locale;
 		$this->editableFile = new EditableFile($filename);
 	}
 
+	/**
+	 * Report whether or not the file exists.
+	 * @return boolean
+	 */
 	function exists() {
 		return $this->editableFile->exists();
 	}
 
+	/**
+	 * Write the file to disk.
+	 * @return boolean True iff success.
+	 */
 	function write() {
-		$this->editableFile->write();
+		return $this->editableFile->write();
 	}
 
+	/**
+	 * Get the file contents.
+	 * @return string File contents.
+	 */
 	function getContents() {
 		return $this->editableFile->getContents();
 	}
 
+	/**
+	 * Set the file contents buffer contents.
+	 * @param $contents string
+	 */
 	function setContents($contents) {
 		$this->editableFile->setContents($contents);
 	}
 
+	/**
+	 * Update an email in the buffer.
+	 * @param $key string Email key.
+	 * @param $subject string Email subject.
+	 * @param $body string Email body.
+	 * @param $description string Email description.
+	 * @return boolean True iff success.
+	 */
 	function update($key, $subject, $body, $description) {
 		$matches = null;
 		$quotedKey = String::regexp_quote($key);
@@ -68,6 +96,11 @@ class EditableEmailFile {
 		return true;
 	}
 
+	/**
+	 * Delete an email from the file buffer.
+	 * @param $key string Email key.
+	 * @return boolean True iff success.
+	 */
 	function delete($key) {
 		$matches = null;
 		$quotedKey = String::regexp_quote($key);
@@ -90,6 +123,14 @@ class EditableEmailFile {
 		return true;
 	}
 
+	/**
+	 * Insert an email into the file buffer.
+	 * @param $key string Email key.
+	 * @param $subject string Email subject.
+	 * @param $body string Email body.
+	 * @param $description string Email description.
+	 * @return boolean True iff success.
+	 */
 	function insert($key, $subject, $body, $description) {
 		$offset = strrpos($this->getContents(), '</email_texts>');
 		if ($offset === false) return false;
@@ -102,6 +143,7 @@ class EditableEmailFile {
 ';
 		$newContents .= substr($this->getContents(), $offset);
 		$this->setContents($newContents);
+		return true;
 	}
 }
 

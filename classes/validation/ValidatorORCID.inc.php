@@ -44,16 +44,12 @@ class ValidatorORCID extends ValidatorRegExp {
 
 		$total = 0;
 		for ($i=0; $i<15; $i++) {
-			$digit = (int) $orcid[$i];
-			$total = ($total + $digit) *2;
+			$total = ($total + $orcid[$i]) * 2;
 		}
 		
 		$remainder = $total % 11;
 		$result = (12 - $remainder) % 11;
-
-		$checkDigit = ($result==10?'X':$result);
-		if ($checkDigit == $orcid[15]) return true;
-		return false;
+		return ($orcid[15] == ($result==10 ? 'X' : $result));
 	}
 
 	//

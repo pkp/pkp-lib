@@ -32,7 +32,7 @@ class UserGridHandler extends GridHandler {
 			ROLE_ID_MANAGER),
 			array('fetchGrid', 'fetchRow', 'editUser', 'updateUser', 'updateUserRoles',
 				'editDisableUser', 'disableUser', 'removeUser', 'addUser',
-				'editEmail', 'sendEmail', 'suggestUsername')
+				'editEmail', 'sendEmail')
 		);
 
 		$this->addRoleAssignment(array(ROLE_ID_SITE_ADMIN), array('mergeUsers'));
@@ -249,21 +249,6 @@ class UserGridHandler extends GridHandler {
 	//
 	// Public grid actions.
 	//
-	/**
-	 * Get a suggested username, making sure it's not already used.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 */
-	function suggestUsername($args, $request) {
-		$suggestion = Validation::suggestUsername(
-			$request->getUserVar('firstName'),
-			$request->getUserVar('lastName')
-		);
-
-		$json = new JSONMessage(true, $suggestion);
-		return $json->getString();
-	}
-
 	/**
 	 * Add a new user.
 	 * @param $args array

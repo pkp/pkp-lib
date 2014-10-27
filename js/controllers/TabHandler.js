@@ -303,7 +303,7 @@
 		// Add the new tab element and refresh the tab set.
 		$element.children('ul').append($liElement);
 		$element.tabs('refresh');
-		$element.tabs('option', 'active', numTabs-1);
+		$element.tabs('option', 'active', numTabs - 1);
 	};
 
 

@@ -41,7 +41,7 @@ class UserApiHandler extends PKPHandler {
 		import('lib.pkp.classes.security.authorization.PKPSiteAccessPolicy');
 		$this->addPolicy(new PKPSiteAccessPolicy(
 			$request,
-			array('updateUserMessageState'),
+			array('updateUserMessageState', 'suggestUsername'),
 			SITE_ACCESS_ALL_ROLES
 		));
 		return parent::authorize($request, $args, $roleAssignments);
@@ -97,6 +97,22 @@ class UserApiHandler extends PKPHandler {
 		$json = new JSONMessage(true);
 		return $json->getString();
 
+	}
+
+
+	/**
+	 * Get a suggested username, making sure it's not already used.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 */
+	function suggestUsername($args, $request) {
+		$suggestion = Validation::suggestUsername(
+			$request->getUserVar('firstName'),
+			$request->getUserVar('lastName')
+		);
+
+		$json = new JSONMessage(true, $suggestion);
+		return $json->getString();
 	}
 
 	/**

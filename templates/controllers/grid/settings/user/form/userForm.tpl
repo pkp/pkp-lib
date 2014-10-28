@@ -13,7 +13,7 @@
 		// Attach the form handler.
 		$('#userForm').pkpHandler('$.pkp.controllers.grid.settings.user.form.UserFormHandler',
 			{ldelim}
-				fetchUsernameSuggestionUrl: '{url|escape:"javascript" router=$smarty.const.ROUTE_COMPONENT component="grid.settings.user.UserGridHandler" op="suggestUsername" firstName="FIRST_NAME_DUMMY" lastName="LAST_NAME_DUMMY" escape=false}',
+				fetchUsernameSuggestionUrl: '{url|escape:"javascript" router=$smarty.const.ROUTE_COMPONENT component="api.user.UserApiHandler" op="suggestUsername" firstName="FIRST_NAME_DUMMY" lastName="LAST_NAME_DUMMY" escape=false}',
 				usernameSuggestionTextAlert: '{translate key="grid.user.mustProvideName"}'
 			{rdelim}
 		);

@@ -79,6 +79,10 @@
 		this.bind('unregisterAllForms', this.callbackWrapper(
 				this.unregisterAllFormElements_));
 
+		// Add event handler to the modal open event that fixes stacking ui issues
+		this.bind('modalOpen', this.callbackWrapper(
+				this.stackModal_));
+
 		this.outsideClickChecks_ = {};
 	};
 	$.pkp.classes.Helper.inherits(
@@ -628,6 +632,24 @@
 		}
 	};
 
+	/**
+	 * Fixes modal stacking overlay issue where stacked modal overlays don't
+	 * get layered directly below the modal
+	 * @private
+	 * @param {HTMLElement} siteHandlerElement The html element
+	 * attached to this handler.
+	 * @param {HTMLElement} sourceElement The element that
+	 *  issued the event.
+	 * @param {Event} event The triggering event.
+	 * @param {HTMLElement} handledElement The modal that is being added
+	 */
+	$.pkp.controllers.SiteHandler.prototype.stackModal_ =
+			function(siteHandlerElement, sourceElement, event, handledElement) {
+		var $dialogElement = $(handledElement).parent(),
+			$dialogElementOverlay = $dialogElement.next('.ui-widget-overlay');
+
+		$dialogElementOverlay.css('z-index',$dialogElement.css('z-index') - 1);
+	};
 
 /** @param {jQuery} $ jQuery closure. */
 }(jQuery));

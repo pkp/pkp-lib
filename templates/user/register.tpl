@@ -53,10 +53,12 @@
 			disableSendNotifySection=true
 			extraContentSectionUnfolded=true
 			countryRequired=true
-			disableNamesSection=$existingUser
-			disableUserNameSection=$existingUser
-			disableEmailConfirmSection=$existingUser
+			disableNameSection=$existingUser
+			disableUserNameSection=false
+			disableUserNameSuggestSection=$existingUser
+			disableEmailWithConfirmSection=$existingUser
 			disablePasswordRepeatSection=$existingUser
+			passwordRequired=true
 			disableCountrySection=$existingUser
 			disableExtraContentSection=$existingUser
 		}

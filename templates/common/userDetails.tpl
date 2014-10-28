@@ -10,6 +10,7 @@
  * Parameters:
  *   $disableNameSection: Disable Name section
  *   $disableUserNameSection: Disable UserName section
+ *   $disableUserNameSuggestSection: Disable UserName suggest section
  *   $disableEmailSection: Disable Email section
  *   $disableEmailWithConfirmSection: Disable EmailWithConfirm section
  *   $disableAuthSourceSection: Disable Auth section
@@ -37,6 +38,7 @@
  *   $disableSignatureSection: Disable Signature section
  *
  *   $countryRequired: Whether or not the country select is a required field
+ *   $passwordRequired: Whether or not the password/password confirm is a required field
  *   $extraContentSectionUnfolded: Whether or not the extra content section is unfolded by default
  *}
 
@@ -55,7 +57,9 @@
 			{fbvFormSection for="username" description=$usernameInstruction translate=false}
 				{if !$userId}
 					{fbvElement type="text" label="user.username" id="username" required="true" value=$username maxlength="32" inline=true size=$fbvStyles.size.MEDIUM}
-					{fbvElement type="button" label="common.suggest" id="suggestUsernameButton" inline=true class="default"}
+					{if !$disableUserNameSuggestSection}
+						{fbvElement type="button" label="common.suggest" id="suggestUsernameButton" inline=true class="default"}
+					{/if}
 				{else}
 					{fbvFormSection title="user.username" suppressId="true"}
 						{$username|escape}

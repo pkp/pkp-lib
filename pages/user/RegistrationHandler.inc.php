@@ -183,21 +183,6 @@ class RegistrationHandler extends UserHandler {
 			}
 		}
 	}
-
-	/**
-	 * Get a suggested username, making sure it's not already used.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 */
-	function suggestUsername($args, $request) {
-		$suggestion = Validation::suggestUsername(
-				$request->getUserVar('firstName'),
-				$request->getUserVar('lastName')
-		);
-
-		$json = new JSONMessage(true, $suggestion);
-		return $json->getString();
-	}
 }
 
 ?>

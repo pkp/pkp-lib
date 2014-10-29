@@ -251,6 +251,13 @@
 			function(divElement, event, jsonContent) {
 
 		var $element = this.getHtmlElement();
+
+		// The JQueryUI tabs "add" function uses String.replace to drop URLs into
+		// HTML templates. The String.replace function uses $ as a special character
+		// and the tab "add" function does not escape them. This does not apply to
+		// newer releases of JQueryUI in which the "add" function has been removed.
+		jsonContent.url = jsonContent.url.replace(/\$/g, '$$$$');
+
 		$element.tabs('add', jsonContent.url, jsonContent.title)
 				.tabs('select', $element.tabs('length') - 1);
 	};

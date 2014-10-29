@@ -24,7 +24,7 @@
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.pages.user.form.UserFormHandler
+	 * @extends $.pkp.controllers.form.AjaxFormHandler
 	 *
 	 * @param {jQueryObject} $form the wrapped HTML form element.
 	 * @param {Object} options form options.
@@ -33,10 +33,6 @@
 			function($form, options) {
 
 		this.parent($form, options);
-
-		// Set data to private variables.
-		this.fetchUsernameSuggestionUrl_ = options.fetchUsernameSuggestionUrl;
-		this.usernameSuggestionTextAlert_ = options.usernameSuggestionTextAlert;
 
 		// Attach form elements events.
 		$('[id^="generatePassword"]', $form).click(
@@ -50,12 +46,26 @@
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.grid.settings.user.form.UserFormHandler,
-			$.pkp.pages.user.form.UserFormHandler);
+			$.pkp.controllers.form.AjaxFormHandler);
 
 
 	//
 	// Public methods.
 	//
+	/**
+	 * @see AjaxFormHandler::submitForm
+	 * @param {Object} validator The validator plug-in.
+	 * @param {HTMLElement} formElement The wrapped HTML form.
+	 */
+	$.pkp.controllers.grid.settings.user.form.UserFormHandler.prototype.
+			submitForm = function(validator, formElement) {
+
+		var $form = this.getHtmlElement();
+		$(':password', $form).removeAttr('disabled');
+		this.parent('submitForm', validator, formElement);
+	};
+
+
 	/**
 	 * Event handler that is called when generate password checkbox is
 	 * clicked.

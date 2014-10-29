@@ -76,6 +76,13 @@
 			this.setupEnableDisablePairs();
 		}
 
+		// Set data for suggesting usernames.  Both keys should be present.
+		if (options.fetchUsernameSuggestionUrl &&
+				options.usernameSuggestionTextAlert) {
+			this.fetchUsernameSuggestionUrl_ = options.fetchUsernameSuggestionUrl;
+			this.usernameSuggestionTextAlert_ = options.usernameSuggestionTextAlert;
+		}
+
 		var validator = $form.validate({
 			onfocusout: this.callbackWrapper(this.onFocusOutValidation_),
 			errorClass: 'error',
@@ -96,6 +103,10 @@
 		// Activate the reset button (if present).
 		$('#resetFormButton', $form).click(this.callbackWrapper(this.resetForm));
 		$form.find('.showMore, .showLess').bind('click', this.switchViz);
+
+		// Attach handler to suggest username button (if present)
+		$('[id^="suggestUsernameButton"]', $form).click(
+				this.callbackWrapper(this.generateUsername));
 
 
 		// Initial form validation.
@@ -182,6 +193,25 @@
 	 * @type {Object?}
 	 */
 	$.pkp.controllers.form.FormHandler.prototype.enableDisablePairs_ = null;
+
+
+	/**
+	 * The URL to be called to fetch a username suggestion.
+	 * @private
+	 * @type {string}
+	 */
+	$.pkp.controllers.form.FormHandler.
+			prototype.fetchUsernameSuggestionUrl_ = '';
+
+
+	/**
+	 * The message that will be displayed if users click on suggest
+	 * username button with no data in lastname.
+	 * @private
+	 * @type {string}
+	 */
+	$.pkp.controllers.form.FormHandler.
+			prototype.usernameSuggestionTextAlert_ = '';
 
 
 	//
@@ -378,6 +408,53 @@
 		this.disableFormControls();
 		this.getHtmlElement().submit();
 		this.formChangesTracked = false;
+	};
+
+
+	/**
+	 * Event handler that is called when the suggest username button is clicked.
+	 */
+	$.pkp.controllers.form.FormHandler.prototype.
+			generateUsername = function() {
+
+		var $form = this.getHtmlElement(),
+				firstName, lastName, fetchUrl;
+
+		if ($('[id^="lastName"]', $form).val() === '') {
+			// No last name entered; cannot suggest. Complain.
+			alert(this.usernameSuggestionTextAlert_);
+			return;
+		}
+
+		// Fetch entered names
+		firstName = /** @type {string} */ $('[id^="firstName"]', $form).val();
+		lastName = /** @type {string} */ $('[id^="lastName"]', $form).val();
+
+		// Replace dummy values in the URL with entered values
+		fetchUrl = this.fetchUsernameSuggestionUrl_.
+				replace('FIRST_NAME_DUMMY', firstName).
+				replace('LAST_NAME_DUMMY', lastName);
+
+		$.get(fetchUrl, this.callbackWrapper(this.setUsername), 'json');
+	};
+
+
+	/**
+	 * Check JSON message and set it to username, back on form.
+	 * @param {HTMLElement} formElement The Form HTML element.
+	 * @param {JSONType} jsonData The jsonData response.
+	 */
+	$.pkp.controllers.form.FormHandler.prototype.
+			setUsername = function(formElement, jsonData) {
+
+		var processedJsonData = this.handleJson(jsonData),
+				$form = this.getHtmlElement();
+
+		if (processedJsonData === false) {
+			throw new Error('JSON response must be set to true!');
+		}
+
+		$('[id^="username"]', $form).val(processedJsonData.content);
 	};
 
 

@@ -26,7 +26,7 @@ div.pkp_controllers_grid {
 		width: 100%;
 	}
 
-	thead, tr.gridRow td, tr.row_controls td, .empty td, tr.category {
+	thead, tr.gridRow td, tr.row_controls td, .empty td {
 		border-bottom: 1px solid #dedede;
 	}
 	
@@ -42,6 +42,8 @@ div.pkp_controllers_grid {
 	tr.category {
 		background-color: #f2f2f2;
 		border-top: 1px solid #dedede;
+		border-bottom: 1px solid #dedede;
+		border-left: 5px solid #d5e7f4;
 		height: 32px;
 		
 		span.category_items_number {
@@ -50,18 +52,6 @@ div.pkp_controllers_grid {
 		}	
 	}
 	
-	tr.category td.first_column:before {
-  		background-color: #d5e7f4;
-  		color: transparent;
-  		content: "-";
-  		display: block;
-  		height: 100%;
-  		width: 5px;
-  		position: absolute;
-  		left:0px;
-  		top:0px;
-	}
-
 	.empty td {
 		padding-left: 10px;
 		text-align: left;
@@ -90,7 +80,6 @@ div.pkp_controllers_grid {
 		text-align: center;
 		font-size: 100%;
 		padding: 0px;
-		position: relative;
 	}
 
 	th:first-child, td:first-child, td.first_column, .category_grid_body td:first-child + td {

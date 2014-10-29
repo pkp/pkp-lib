@@ -108,7 +108,7 @@ class NotifyUsersListbuilderHandler extends ListbuilderHandler {
 	/**
 	 * @copydoc GridHandler::getRowDataElement
 	 */
-	function getRowDataElement($request, $rowId) {
+	function getRowDataElement($request, &$rowId) {
 		// fallback on the parent if a rowId is found
 		if ( !empty($rowId) ) {
 			return parent::getRowDataElement($request, $rowId);

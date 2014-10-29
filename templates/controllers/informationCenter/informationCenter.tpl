@@ -25,7 +25,7 @@
 	<br /><br />
 {/if}
 
-<div id="informationCenter" class="pkp_controllers_informationCenter">
+<div id="informationCenter" class="pkp_controllers_informationCenter pkp_controllers_tab">
 	<ul>
 		{if array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT), $userRoles) && $showMetadataLink}
 			<li><a href="{url op="metadata" params=$linkParams}">{translate key="submission.informationCenter.metadata"}</a></li>

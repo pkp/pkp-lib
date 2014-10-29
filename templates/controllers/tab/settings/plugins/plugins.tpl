@@ -17,7 +17,7 @@
 				{rdelim});
 	{rdelim});
 </script>
-<div id="pluginsTabs">
+<div id="pluginsTabs" class="pkp_controllers_tab">
 	<ul>
 		<li><a href="#installedPluginsDiv">{translate key="manager.plugins.installed"}</a></li>
 		<li><a href="#pluginGalleryDiv">{translate key="manager.plugins.pluginGallery"}</a></li>

@@ -451,7 +451,10 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	 * @return array
 	 */
 	function getJSLocaleKeys() {
-		return array('form.dataHasChanged');
+		return array(
+			'form.dataHasChanged',
+			'common.close',
+		);
 	}
 
 

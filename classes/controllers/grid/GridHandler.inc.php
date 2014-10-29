@@ -530,16 +530,14 @@ class GridHandler extends PKPHandler {
 				return $nullVar;
 			}
 		} elseif ( $isModified ) {
+			$elementId = null;
 			// The row is modified. The client may be asking
 			// for a formatted new entry, to be saved later, or
 			// for a representation of a modified row.
-			$dataElement = $this->getRowDataElement($request, null);
+			$dataElement = $this->getRowDataElement($request, $elementId);
 			if ( isset($args['rowId']) ) {
 				// the rowId holds the elementId being modified
 				$elementId = $args['rowId'];
-			} else {
-				// no rowId means that there is no element being modified.
-				$elementId = null;
 			}
 		}
 
@@ -779,10 +777,10 @@ class GridHandler extends PKPHandler {
 	 * Retrieve a single data element from the grid's data
 	 * source corresponding to the given row id. If none is
 	 * found then return null.
-	 * @param $rowId
+	 * @param $rowId string The row ID; reference permits modification.
 	 * @return mixed
 	 */
-	protected function getRowDataElement($request, $rowId) {
+	protected function getRowDataElement($request, &$rowId) {
 		$elements =& $this->getGridDataElements($request);
 
 		assert(is_array($elements));

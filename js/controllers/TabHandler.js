@@ -298,7 +298,52 @@
 				$anchorElement = $('<a/>')
 					.text(jsonContent.title)
 					.attr('href', jsonContent.url),
-				$liElement = $('<li/>').append($anchorElement);
+				$closeSpanElement = $('<span/>')
+					.addClass('ui-icon')
+					.addClass('ui-icon-close')
+					.text($.pkp.locale.common_close)
+					.attr('role', 'presentation'),
+				$liElement = $('<li/>')
+					.append($anchorElement)
+					.append($closeSpanElement);
+
+		// Get the "close" button working
+		$closeSpanElement.click(function() {
+			var $liElement = $(this).closest('li'),
+					$divElement = $('#' + $liElement.attr('aria-controls')),
+					thisTabIndex = $liElement.index(),
+					unsavedForm;
+
+			// Check to see if any unsaved changes need to be confirmed
+			unsavedForm = false;
+			$divElement.find('form').each(function() {
+				handler = $.pkp.classes.Handler.getHandler($(this));
+				if (handler.formChangesTracked) {
+					// Confirm before proceeding
+					if (!confirm($.pkp.locale.form_dataHasChanged)) {
+						unsavedForm = true;
+						return false;
+					}
+				}
+			});
+
+			if (!unsavedForm) {
+				$divElement.find('form').each(function() {
+					handler = $.pkp.classes.Handler.getHandler($(this));
+					if (handler) handler.unregisterForm();
+				});
+
+				// If the panel being closed is currently selected, move off first.
+				if ($element.tabs('option', 'active') == thisTabIndex) {
+					$element.tabs('option', 'active', thisTabIndex-1);
+				}
+
+				$liElement.remove();
+				$divElement.remove();
+
+				$element.tabs('refresh');
+			}
+		});
 
 		// Add the new tab element and refresh the tab set.
 		$element.children('ul').append($liElement);

@@ -1,14 +1,14 @@
 /**
- * @file js/classes/linkAction/NullAction.js
+ * @file js/classes/linkAction/EventAction.js
  *
  * Copyright (c) 2014 Simon Fraser University Library
  * Copyright (c) 2000-2014 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class NullAction
+ * @class EventAction
  * @ingroup js_classes_linkAction
  *
- * @brief A simple action request that doesn't.
+ * @brief A simple action request that triggers a Javascript event.
  */
 (function($) {
 
@@ -23,13 +23,12 @@
 	 * @param {Object} options Configuration of the link action
 	 *  request.
 	 */
-	$.pkp.classes.linkAction.NullAction =
+	$.pkp.classes.linkAction.EventAction =
 			function($linkActionElement, options) {
-
 		this.parent($linkActionElement, options);
 	};
 	$.pkp.classes.Helper.inherits(
-			$.pkp.classes.linkAction.NullAction,
+			$.pkp.classes.linkAction.EventAction,
 			$.pkp.classes.linkAction.LinkActionRequest);
 
 
@@ -39,9 +38,9 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.classes.linkAction.NullAction.prototype.activate =
+	$.pkp.classes.linkAction.EventAction.prototype.activate =
 			function(element, event) {
-
+		$(this.options.target).trigger(this.options.event, this.options);
 		return /** @type {boolean} */ (this.parent('activate', element, event));
 	};
 
@@ -50,11 +49,9 @@
 	 * Determine whether or not the link action should be debounced.
 	 * @return {boolean} Whether or not to debounce the link action.
 	 */
-	$.pkp.classes.linkAction.NullAction.prototype.shouldDebounce =
+	$.pkp.classes.linkAction.EventAction.prototype.shouldDebounce =
 			function() {
 		return false;
 	};
-
-
 /** @param {jQuery} $ jQuery closure. */
 }(jQuery));

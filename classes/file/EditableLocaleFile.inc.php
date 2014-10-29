@@ -14,29 +14,50 @@
  *
  */
 
-
 import('lib.pkp.classes.file.EditableFile');
 
 class EditableLocaleFile extends LocaleFile {
 	var $editableFile;
 
+	/**
+	 * Constructor
+	 * @param $locale string Locale code
+	 * @param $filename string Filename
+	 */
 	function EditableLocaleFile($locale, $filename) {
 		parent::LocaleFile($locale, $filename);
 		$this->editableFile = new EditableFile($this->filename);
 	}
 
+	/**
+	 * Write the modified contents back to disk.
+	 */
 	function write() {
 		$this->editableFile->write();
 	}
 
-	function &getContents() {
+	/**
+	 * Get the file contents.
+	 * @return string
+	 */
+	function getContents() {
 		return $this->editableFile->getContents();
 	}
 
-	function setContents(&$contents) {
+	/**
+	 * Set the file contents.
+	 * @param $contents string New file contents.
+	 */
+	function setContents($contents) {
 		$this->editableFile->setContents($contents);
 	}
 
+	/**
+	 * Update a locale key with a new value.
+	 * @param $key string Locale key.
+	 * @param $value string New value.
+	 * @return boolean True iff the change was successful.
+	 */
 	function update($key, $value) {
 		$matches = null;
 		$quotedKey = String::regexp_quote($key);
@@ -50,7 +71,7 @@ class EditableLocaleFile extends LocaleFile {
 
 		$offset = $matches[0][1];
 		$closeOffset = strpos($this->getContents(), '</message>', $offset);
-		if ($closeOffset === FALSE) return false;
+		if ($closeOffset === false) return false;
 
 		$newContents = substr($this->getContents(), 0, $offset);
 		$newContents .= "<message key=\"$key\">" . $this->editableFile->xmlEscape($value);
@@ -59,6 +80,11 @@ class EditableLocaleFile extends LocaleFile {
 		return true;
 	}
 
+	/**
+	 * Delete a locale key from the file.
+	 * @param $key string Locale key
+	 * @return boolean True iff the deletion was successful.
+	 */
 	function delete($key) {
 		$matches = null;
 		$quotedKey = String::regexp_quote($key);
@@ -81,6 +107,12 @@ class EditableLocaleFile extends LocaleFile {
 		return true;
 	}
 
+	/**
+	 * Insert a new locale key and value.
+	 * @param $key string Locale key
+	 * @param $value string Translated value for this locale
+	 * @return boolean True iff the addition was successful.
+	 */
 	function insert($key, $value) {
 		$offset = strrpos($this->getContents(), '</locale>');
 		if ($offset === false) return false;
@@ -88,6 +120,7 @@ class EditableLocaleFile extends LocaleFile {
 		$newContents .= "\t<message key=\"$key\">" . $this->editableFile->xmlEscape($value) . "</message>\n";
 		$newContents .= substr($this->getContents(), $offset);
 		$this->setContents($newContents);
+		return true;
 	}
 }
 

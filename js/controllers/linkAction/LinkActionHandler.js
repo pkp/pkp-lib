@@ -194,8 +194,7 @@
 		// while the link action is executing. We will not disable
 		// if this link action have a null action request. In that
 		// case, the action request is handled by some parent widget.
-		if (this.linkActionRequest_.getObjectName() !=
-				'$.pkp.classes.linkAction.NullAction') {
+		if (this.linkActionRequest_.shouldDebounce()) {
 			this.disableLink();
 		}
 

@@ -144,5 +144,15 @@
 	};
 
 
+	/**
+	 * Determine whether or not the link action should be debounced.
+	 * @return {boolean} Whether or not to debounce the link action.
+	 */
+	$.pkp.classes.linkAction.LinkActionRequest.prototype.
+			shouldDebounce = function() {
+		return true;
+	};
+
+
 /** @param {jQuery} $ jQuery closure. */
 }(jQuery));

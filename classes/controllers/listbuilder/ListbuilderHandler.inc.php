@@ -235,11 +235,14 @@ class ListbuilderHandler extends GridHandler {
 		}
 
 		$data = json_decode($data);
+		$status = true;
 
 		// Handle deletions
-		if (isset($data->deletions)) {
+		if (isset($data->deletions) && $data->deletions !== '') {
 			foreach (explode(' ', trim($data->deletions)) as $rowId) {
-				call_user_func($deletionCallback, $request, $rowId, $data->numberOfRows);
+				if (!call_user_func($deletionCallback, $request, $rowId, $data->numberOfRows)) {
+					$status = false;
+				}
 			}
 		}
 
@@ -274,11 +277,12 @@ class ListbuilderHandler extends GridHandler {
 			// array ('localizedColumnName' => array('en_US' => 'englishValue'),
 			// 'nonLocalizedColumnName' => 'someNonLocalizedValue');
 			if (is_null($rowId)) {
-				call_user_func($insertionCallback, $request, $changes);
+				if (!call_user_func($insertionCallback, $request, $changes)) $status = false;
 			} else {
-				call_user_func($updateCallback, $request, $rowId, $changes);
+				if (!call_user_func($updateCallback, $request, $rowId, $changes)) $status = false;
 			}
 		}
+		return $status;
 	}
 
 	/**

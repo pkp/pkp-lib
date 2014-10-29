@@ -319,6 +319,9 @@
 		// Append the row ID to the deletions list.
 		if (rowId !== undefined) {
 			$deletions.val($deletions.val() + ' ' + rowId);
+
+			// Notify containing form (if any) about a change
+			this.getHtmlElement().trigger('formChange');
 		}
 
 		this.deleteElement(/** @type {jQueryObject} */ ($targetRow));
@@ -718,6 +721,10 @@
 
 			this.callFeaturesHook('replaceElement', $newContent);
 		}
+
+		// Ensure that containing forms are notified of the changed data
+		this.getHtmlElement().trigger('formChange');
+
 		this.enableControls();
 	};
 

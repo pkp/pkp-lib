@@ -44,7 +44,7 @@
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.pages.user.form.UserFormHandler,
-			$.pkp.controllers.form.AjaxFormHandler);
+			$.pkp.controllers.form.FormHandler);
 
 
 	//
@@ -135,3 +135,4 @@
 
 /** @param {jQuery} $ jQuery closure. */
 }(jQuery));
+

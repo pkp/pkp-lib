@@ -164,8 +164,8 @@
 		$('.category .' + this.getCollapseClass(),
 				this.getGridHtmlElement()).click();
 
-		$('.row_controls :visible').closest('tr').prev().
-				find('.row_actions > a:first').click();
+		this.closeOpenedRowControls_();
+
 		return false;
 	};
 
@@ -205,6 +205,7 @@
 					$actionsContainer);
 			$expandLink.show();
 			$categoryElements.hide();
+			this.closeOpenedRowControls_($category);
 		}
 
 		this.updateGridActions_();
@@ -252,6 +253,22 @@
 			// Show the collapse all action.
 			$gridExpandAction.click();
 		}
+	};
+
+
+	/**
+	 * Close all visible grid row controls.
+	 * @param {jQueryObject=} opt_$context Close row controls only inside
+	 * this object.
+	 * @private
+	 */
+	$.pkp.classes.features.GridCategoryAccordionFeature.prototype.
+			closeOpenedRowControls_ = function(opt_$context) {
+		if (opt_$context == undefined) {
+			opt_$context = this.gridHandler.getHtmlElement();
+		}
+		$('.row_controls :visible', opt_$context).closest('tr').prev().
+			find('.row_actions > a:first').click();
 	};
 
 

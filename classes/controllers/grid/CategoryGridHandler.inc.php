@@ -120,7 +120,7 @@ class CategoryGridHandler extends GridHandler {
 		assert($categoryElementId !== false);
 
 		// Try to load data if it has not yet been loaded.
-		if (!array_key_exists($categoryElementId, $this->_categoryData)) {
+		if (!is_array($this->_categoryData) || !array_key_exists($categoryElementId, $this->_categoryData)) {
 			$data = $this->loadCategoryData($request, $categoryElement, $filter);
 
 			if (is_null($data)) {

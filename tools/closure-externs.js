@@ -140,6 +140,10 @@ jQuery.validator.prototype.settings = {};
  */
 jQueryObject.prototype.imgPreview = function(userDefinedSettings) {};
 
+/**
+ * @param {string} param1
+ * @param {string|Object=} param2
+ */
 jQueryObject.prototype.prop = function(param1, param2) {};
 
 jQueryObject.prototype.panel = null;

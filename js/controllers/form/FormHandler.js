@@ -32,7 +32,8 @@
 	 *  cancelRedirectUrl: string,
 	 *  disableControlsOnSubmit: boolean,
 	 *  trackFormChanges: boolean,
-	 *  enableDisablePairs: Object
+	 *  enableDisablePairs: Object,
+	 *  usernameSuggestionTextAlert: string
 	 *  }} options options to configure the form handler.
 	 */
 	$.pkp.controllers.form.FormHandler = function($form, options) {

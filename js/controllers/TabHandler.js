@@ -267,13 +267,13 @@
 		$closeSpanElement.click(function() {
 			var $liElement = $(this).closest('li'),
 					$divElement = $('#' + $liElement.attr('aria-controls')),
-					thisTabIndex = $liElement.index(),
+					thisTabIndex = $liElement.eq(0).index(),
 					unsavedForm;
 
 			// Check to see if any unsaved changes need to be confirmed
 			unsavedForm = false;
 			$divElement.find('form').each(function() {
-				handler = $.pkp.classes.Handler.getHandler($(this));
+				var handler = $.pkp.classes.Handler.getHandler($(this));
 				if (handler.formChangesTracked) {
 					// Confirm before proceeding
 					if (!confirm($.pkp.locale.form_dataHasChanged)) {
@@ -285,13 +285,15 @@
 
 			if (!unsavedForm) {
 				$divElement.find('form').each(function() {
-					handler = $.pkp.classes.Handler.getHandler($(this));
-					if (handler) handler.unregisterForm();
+					var handler = $.pkp.classes.Handler.getHandler($(this));
+					if (handler) {
+						handler.unregisterForm();
+					}
 				});
 
 				// If the panel being closed is currently selected, move off first.
 				if ($element.tabs('option', 'selected') == thisTabIndex) {
-					$element.tabs('select', thisTabIndex-1);
+					$element.tabs('select', thisTabIndex - 1);
 				}
 
 				$liElement.remove();

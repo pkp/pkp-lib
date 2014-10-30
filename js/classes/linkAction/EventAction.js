@@ -40,7 +40,8 @@
 	 */
 	$.pkp.classes.linkAction.EventAction.prototype.activate =
 			function(element, event) {
-		$(this.options.target).trigger(this.options.event, this.options);
+		$(this.options.target).trigger(this.options.event,
+				/** @type {Array} */ (this.options));
 		return /** @type {boolean} */ (this.parent('activate', element, event));
 	};
 

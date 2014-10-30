@@ -43,7 +43,8 @@
 			function(element, event) {
 
 		var options = this.getOptions();
-		window.open(options.url, options.name, options.specs);
+		window.open(options.url, options.name,
+				/** @type {{specs: string}} */ (options).specs);
 
 		return /** @type {boolean} */ this.parent('activate', element, event);
 	};

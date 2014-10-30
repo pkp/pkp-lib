@@ -15,7 +15,7 @@
 <script type="text/javascript">
 	$(function() {ldelim}
 		// Attach the form handler.
-		$('#register').pkpHandler('$.pkp.pages.user.form.UserFormHandler',
+		$('#register').pkpHandler('$.pkp.controllers.form.FormHandler',
 			{ldelim}
 				fetchUsernameSuggestionUrl: '{url|escape:"javascript" router=$smarty.const.ROUTE_COMPONENT component="api.user.UserApiHandler" op="suggestUsername" firstName="FIRST_NAME_DUMMY" lastName="LAST_NAME_DUMMY" escape=false}',
 				usernameSuggestionTextAlert: '{translate key="grid.user.mustProvideName"}'

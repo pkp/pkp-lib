@@ -14,7 +14,7 @@
 		// Attach the form handler.
 		$('#createReviewerForm').pkpHandler('$.pkp.controllers.grid.users.reviewer.form.AddReviewerFormHandler',
 			{ldelim}
-				fetchUsernameSuggestionUrl: '{url|escape:"javascript" router=$smarty.const.ROUTE_COMPONENT op="suggestUsername" firstName="FIRST_NAME_DUMMY" lastName="LAST_NAME_DUMMY" stageId=$stageId reviewRoundId=$reviewRoundId submissionId=$submissionId escape=false}',
+				fetchUsernameSuggestionUrl: '{url|escape:"javascript" router=$smarty.const.ROUTE_COMPONENT component="api.user.UserApiHandler" op="suggestUsername" firstName="FIRST_NAME_DUMMY" lastName="LAST_NAME_DUMMY" escape=false}',
 				usernameSuggestionTextAlert: '{translate key="grid.user.mustProvideName"}',
 				templateUrl: "{url|escape:'javascript' router=$smarty.const.ROUTE_COMPONENT component='grid.users.reviewer.ReviewerGridHandler' op='fetchTemplateBody' stageId=$stageId reviewRoundId=$reviewRoundId submissionId=$submissionId escape=false}"
 			{rdelim}
@@ -40,9 +40,9 @@
 	{/if}
 
 	{fbvFormSection title="common.name"}
-		{fbvElement type="text" label="user.firstName" id="firstname" value=$firstname required="true" inline=true size=$fbvStyles.size.SMALL}
-		{fbvElement type="text" label="user.middleName" id="middlename" value=$middlename inline=true size=$fbvStyles.size.SMALL}
-		{fbvElement type="text" label="user.lastName" id="lastname" value=$lastname required="true" inline=true size=$fbvStyles.size.SMALL}
+		{fbvElement type="text" label="user.firstName" id="firstName" value=$firstname required="true" inline=true size=$fbvStyles.size.SMALL}
+		{fbvElement type="text" label="user.middleName" id="middleName" value=$middlename inline=true size=$fbvStyles.size.SMALL}
+		{fbvElement type="text" label="user.lastName" id="lastName" value=$lastname required="true" inline=true size=$fbvStyles.size.SMALL}
 	{/fbvFormSection}
 
 	{fbvFormSection description="user.register.usernameRestriction"}

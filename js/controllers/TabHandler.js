@@ -249,17 +249,63 @@
 	 */
 	$.pkp.controllers.TabHandler.prototype.addTab =
 			function(divElement, event, jsonContent) {
+		var $element = this.getHtmlElement(),
+				numTabs = $element.children('ul').children('li').length + 1,
+				$anchorElement = $('<a/>')
+					.text(jsonContent.title)
+					.attr('href', jsonContent.url),
+				$closeSpanElement = $('<span/>')
+					.addClass('ui-icon')
+					.addClass('ui-icon-close')
+					.text($.pkp.locale.common_close)
+					.attr('role', 'presentation'),
+				$liElement = $('<li/>')
+					.append($anchorElement)
+					.append($closeSpanElement);
 
-		var $element = this.getHtmlElement();
+		// Get the "close" button working
+		$closeSpanElement.click(function() {
+			var $liElement = $(this).closest('li'),
+					$divElement = $('#' + $liElement.attr('aria-controls')),
+					thisTabIndex = $liElement.index(),
+					unsavedForm;
 
-		// The JQueryUI tabs "add" function uses String.replace to drop URLs into
-		// HTML templates. The String.replace function uses $ as a special character
-		// and the tab "add" function does not escape them. This does not apply to
-		// newer releases of JQueryUI in which the "add" function has been removed.
-		jsonContent.url = jsonContent.url.replace(/\$/g, '$$$$');
+			// Check to see if any unsaved changes need to be confirmed
+			unsavedForm = false;
+			$divElement.find('form').each(function() {
+				handler = $.pkp.classes.Handler.getHandler($(this));
+				if (handler.formChangesTracked) {
+					// Confirm before proceeding
+					if (!confirm($.pkp.locale.form_dataHasChanged)) {
+						unsavedForm = true;
+						return false;
+					}
+				}
+			});
 
-		$element.tabs('add', jsonContent.url, jsonContent.title)
-				.tabs('select', $element.tabs('length') - 1);
+			if (!unsavedForm) {
+				$divElement.find('form').each(function() {
+					handler = $.pkp.classes.Handler.getHandler($(this));
+					if (handler) handler.unregisterForm();
+				});
+
+				// If the panel being closed is currently selected, move off first.
+				if ($element.tabs('option', 'selected') == thisTabIndex) {
+					$element.tabs('select', thisTabIndex-1);
+				}
+
+				$liElement.remove();
+				$divElement.remove();
+
+				$element.tabs('refresh');
+			}
+		});
+
+		// Add the new tab element and refresh the tab set.
+		$element.children('ul').append($liElement);
+		$element.tabs('refresh');
+		$element.tabs('option', 'active', numTabs - 1);
+		$anchorElement.click();
 	};
 
 

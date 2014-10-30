@@ -555,8 +555,10 @@ class PKPApplication {
 	 * @return array
 	 */
 	function getJSLocaleKeys() {
-		$keys = array('form.dataHasChanged');
-		return $keys;
+		return array(
+			'form.dataHasChanged',
+			'common.close',
+		);
 	}
 
 	/**

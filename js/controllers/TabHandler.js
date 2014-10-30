@@ -317,7 +317,7 @@
 			// Check to see if any unsaved changes need to be confirmed
 			unsavedForm = false;
 			$divElement.find('form').each(function() {
-				handler = $.pkp.classes.Handler.getHandler($(this));
+				var handler = $.pkp.classes.Handler.getHandler($(this));
 				if (handler.formChangesTracked) {
 					// Confirm before proceeding
 					if (!confirm($.pkp.locale.form_dataHasChanged)) {

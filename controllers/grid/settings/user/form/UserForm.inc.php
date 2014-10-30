@@ -32,7 +32,7 @@ class UserForm extends Form {
 		$this->userId = isset($userId) ? (int) $userId : null;
 
 		if (!is_null($userId)) {
-			$this->addCheck(new FormValidatorListBuilder($this, 'roles', 'manager.users.roleRequired'));
+			$this->addCheck(new FormValidatorListbuilder($this, 'roles', 'manager.users.roleRequired'));
 		}
 	}
 

@@ -53,7 +53,7 @@ class PKPFileAuditorForm extends Form {
 		$this->_assocId = $assocId;
 
 		$this->addCheck(new FormValidator($this, 'userId', 'required', 'editor.submission.fileAuditor.form.userRequired'));
-		$this->addCheck(new FormValidatorListBuilder($this, 'files', 'editor.submission.fileAuditor.form.fileRequired'));
+		$this->addCheck(new FormValidatorListbuilder($this, 'files', 'editor.submission.fileAuditor.form.fileRequired'));
 		$this->addCheck(new FormValidator($this, 'personalMessage', 'required', 'editor.submission.fileAuditor.form.messageRequired'));
 		$this->addCheck(new FormValidatorPost($this));
 	}

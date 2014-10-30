@@ -53,17 +53,14 @@ class FormValidatorListbuilder extends FormValidator {
 		}
 	}
 
-	function deleteEntry($request, $rowId, $numberOfRows) {
-		if ($numberOfRows > 0) {
-			$this->_valid = true;
-		} else {
-			$this->_valid = false;
-		}
-
+	function deleteEntry($request, $rowId) {
 		return true;
 	}
 
 	function insertEntry($request, $rowId) {
+		// At least one entry has been created; flag as valid.
+		$this->_valid = true;
+
 		return true;
 	}
 }

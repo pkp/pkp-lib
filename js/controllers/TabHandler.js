@@ -329,13 +329,15 @@
 
 			if (!unsavedForm) {
 				$divElement.find('form').each(function() {
-					handler = $.pkp.classes.Handler.getHandler($(this));
-					if (handler) handler.unregisterForm();
+					var handler = $.pkp.classes.Handler.getHandler($(this));
+					if (handler) {
+						handler.unregisterForm();
+					}
 				});
 
 				// If the panel being closed is currently selected, move off first.
 				if ($element.tabs('option', 'active') == thisTabIndex) {
-					$element.tabs('option', 'active', thisTabIndex-1);
+					$element.tabs('option', 'active', thisTabIndex - 1);
 				}
 
 				$liElement.remove();

@@ -78,10 +78,15 @@ class Mail extends DataObject {
 
 	/**
 	 * Get the envelope sender (bounce address) for the message, if set.
+	 * Override any set envelope sender if force_default_envelope_sender config option is in effect.
 	 * @return string
 	 */
 	function getEnvelopeSender() {
-		return $this->getData('envelopeSender');
+		if (Config::getVar('email', 'force_default_envelope_sender') && Config::getVar('email', 'default_envelope_sender')) {
+			return Config::getVar('email', 'default_envelope_sender');
+		} else {
+			return $this->getData('envelopeSender');
+		}
 	}
 
 	/**
@@ -325,6 +330,37 @@ class Mail extends DataObject {
 	}
 
 	/**
+	 * Set the reply-to of the message.
+	 * @param $email string or null to clear
+	 * @param $name string optional
+	 */
+	function setReplyTo($email, $name = '') {
+		if ($email === null) $this->setData('replyTo', null);
+		return $this->setData('replyTo', array('name' => $name, 'email' => $email));
+	}
+
+	/**
+	 * Get the reply-to of the message.
+	 * @return array
+	 */
+	function getReplyTo() {
+		return $this->getData('replyTo');
+	}
+
+	/**
+	 * Return a string containing the reply-to address.
+	 * @return string
+	 */
+	function getReplyToString($send = false) {
+		$replyTo = $this->getReplyTo();
+		if ($replyTo == null) {
+			return null;
+		} else {
+			return (Mail::encodeDisplayName($replyTo['name'], $send) . ' <'.$replyTo['email'].'>');
+		}
+	}
+
+	/**
 	 * Set the subject of the message.
 	 * @param $subject string
 	 */
@@ -358,6 +394,7 @@ class Mail extends DataObject {
 
 	/**
 	 * Return a string containing the from address.
+	 * Override any from address if force_default_envelope_sender config option is in effect.
 	 * @return string
 	 */
 	function getFromString($send = false) {
@@ -365,7 +402,16 @@ class Mail extends DataObject {
 		if ($from == null) {
 			return null;
 		} else {
-			return (Mail::encodeDisplayName($from['name'], $send) . ' <'.$from['email'].'>');
+			$display = $from['name'];
+			$address = $from['email'];
+			if (Config::getVar('email', 'force_default_envelope_sender') && Config::getVar('email', 'default_envelope_sender')) {
+				$address = Config::getVar('email', 'default_envelope_sender');
+				$replyTo = $this->getReplyTo();
+				if ($replyTo['name']) {
+					$display = $replyTo['name'];
+				}
+			}
+			return (Mail::encodeDisplayName($display, $send) . ' <'.$address.'>');
 		}
 	}
 
@@ -469,6 +515,10 @@ class Mail extends DataObject {
 			$this->addHeader('From', $from);
 		}
 
+		if (($r = $this->getReplyToString()) != '') {
+			$this->addHeader('Reply-To', $r);
+		}
+
 		$ccs = $this->getAddressArrayString($this->getCcs(), true, true);
 		if ($ccs != null) {
 			$this->addHeader('Cc', $ccs);
@@ -553,6 +603,7 @@ class Mail extends DataObject {
 	/**
 	 * Encode a display name for proper inclusion with an email address.
 	 * @param $displayName string
+	 * @param $send boolean True to encode the results for sending
 	 * @return string
 	 */
 	function encodeDisplayName($displayName, $send = false) {

@@ -487,10 +487,6 @@ class PKPCitationGridHandler extends GridHandler {
 		import('lib.pkp.classes.mail.Mail');
 		$mail = new Mail();
 
-		// Sender
-		$user =& $request->getUser();
-		$mail->setFrom($user->getEmail(), $user->getFullName());
-
 		// Recipient
 		$assocObject =& $this->getAssocObject();
 		$author =& $assocObject->getUser();

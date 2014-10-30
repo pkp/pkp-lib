@@ -345,7 +345,7 @@ class PKPLoginHandler extends Handler {
 	 * @param $site Site
 	 */
 	function _setMailFrom($request, &$mail, &$site) {
-		$mail->setFrom($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
+		$mail->setReplyTo($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
 		return true;
 	}
 }

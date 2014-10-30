@@ -311,8 +311,7 @@
 		$closeSpanElement.click(function() {
 			var $liElement = $(this).closest('li'),
 					$divElement = $('#' + $liElement.attr('aria-controls')),
-					thisTabIndex = $liElement.index(),
-					unsavedForm;
+					thisTabIndex, unsavedForm;
 
 			// Check to see if any unsaved changes need to be confirmed
 			unsavedForm = false;
@@ -336,6 +335,7 @@
 				});
 
 				// If the panel being closed is currently selected, move off first.
+				thisTabIndex = $liElement.index(),
 				if ($element.tabs('option', 'active') == thisTabIndex) {
 					$element.tabs('option', 'active', thisTabIndex - 1);
 				}

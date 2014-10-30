@@ -231,7 +231,8 @@ var tinyMCE;
 
 $.pkp.locale = {
 	search_noKeywordError: '',
-	form_dataHasChanged: ''
+	form_dataHasChanged: '',
+	common_close: '',
 };
 
 $.pkp.cons = {

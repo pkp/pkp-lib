@@ -225,6 +225,7 @@ class PKPRegistrationForm extends PKPUserForm {
 				// Send email validation request to user
 				$mail = new MailTemplate('USER_VALIDATE');
 				$this->_setMailFrom($request, $mail);
+				$context = $request->getContext();
 				$mail->assignParams(array(
 					'userFullName' => $user->getFullName(),
 					'activateUrl' => $request->url($context->getPath(), 'user', 'activateUser', array($this->getData('username'), $accessKey))

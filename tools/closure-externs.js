@@ -232,7 +232,7 @@ var tinyMCE;
 $.pkp.locale = {
 	search_noKeywordError: '',
 	form_dataHasChanged: '',
-	common_close: '',
+	common_close: ''
 };
 
 $.pkp.cons = {

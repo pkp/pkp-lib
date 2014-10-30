@@ -641,9 +641,10 @@
 	/**
 	 * Trigger a public event.
 	 *
-	 * Public events will bubble outside the widget and will
-	 * also be forwarded through the event bridge if one has
+	 * Public events will bubble outside the widget or will
+	 * be forwarded through the event bridge if one has
 	 * been configured.
+	 * See bug #8994#
 	 *
 	 * @private
 	 * @param {string} eventName The event to be triggered.
@@ -651,15 +652,14 @@
 	 */
 	$.pkp.classes.Handler.prototype.triggerPublicEvent_ =
 			function(eventName, opt_data) {
-
-		// Publish the event.
-		var $handledElement = this.getHtmlElement();
-		$handledElement.parent().trigger(eventName, opt_data);
-
-		// If we have an event bridge configured then re-trigger
+		// If we have an event bridge configured then trigger
 		// the event on the target object.
 		if (this.$eventBridge_) {
 			$('[id^="' + this.$eventBridge_ + '"]').trigger(eventName, opt_data);
+		} else {
+			// Publish the event.
+	                var $handledElement = this.getHtmlElement();
+        	        $handledElement.parent().trigger(eventName, opt_data);
 		}
 	};
 

@@ -25,8 +25,8 @@ class CreateReviewerForm extends ReviewerForm {
 		parent::ReviewerForm($submission, $reviewRound);
 		$this->setTemplate('controllers/grid/users/reviewer/form/createReviewerForm.tpl');
 
-		$this->addCheck(new FormValidator($this, 'firstname', 'required', 'user.profile.form.firstNameRequired'));
-		$this->addCheck(new FormValidator($this, 'lastname', 'required', 'user.profile.form.lastNameRequired'));
+		$this->addCheck(new FormValidator($this, 'firstName', 'required', 'user.profile.form.firstNameRequired'));
+		$this->addCheck(new FormValidator($this, 'lastName', 'required', 'user.profile.form.lastNameRequired'));
 		$this->addCheck(new FormValidatorCustom($this, 'username', 'required', 'user.register.form.usernameExists', array(DAORegistry::getDAO('UserDAO'), 'userExistsByUsername'), array(), true));
 		$this->addCheck(new FormValidatorAlphaNum($this, 'username', 'required', 'user.register.form.usernameAlphaNumeric'));
 		$this->addCheck(new FormValidatorEmail($this, 'email', 'required', 'user.profile.form.emailRequired'));
@@ -54,9 +54,9 @@ class CreateReviewerForm extends ReviewerForm {
 		parent::readInputData();
 
 		$this->readUserVars(array(
-			'firstname',
-			'middlename',
-			'lastname',
+			'firstName',
+			'middleName',
+			'lastName',
 			'affiliation',
 			'keywords',
 			'interestsTextOnly',
@@ -76,9 +76,9 @@ class CreateReviewerForm extends ReviewerForm {
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$user = $userDao->newDataObject();
 
-		$user->setFirstName($this->getData('firstname'));
-		$user->setMiddleName($this->getData('middlename'));
-		$user->setLastName($this->getData('lastname'));
+		$user->setFirstName($this->getData('firstName'));
+		$user->setMiddleName($this->getData('middleName'));
+		$user->setLastName($this->getData('lastName'));
 		$user->setEmail($this->getData('email'));
 
 		$authDao = DAORegistry::getDAO('AuthSourceDAO');

@@ -335,7 +335,7 @@
 				});
 
 				// If the panel being closed is currently selected, move off first.
-				thisTabIndex = $liElement.index(),
+				thisTabIndex = $liElement.index();
 				if ($element.tabs('option', 'active') == thisTabIndex) {
 					$element.tabs('option', 'active', thisTabIndex - 1);
 				}

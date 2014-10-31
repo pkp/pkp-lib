@@ -283,10 +283,10 @@ class GridHandler extends PKPHandler {
 	/**
 	 * Get columns number. If a flag is passed, the columns
 	 * using it will not be counted.
-	 * @param $flag string
+	 * @param $flag optional string
 	 * @return int
 	 */
-	function getColumnsCount($flag) {
+	function getColumnsCount($flag = null) {
 		$count = 0;
 		foreach ($this->getColumns() as $column) {
 			if (!$column->hasFlag($flag)) {

@@ -96,6 +96,14 @@
 	$.pkp.controllers.grid.GridHandler.prototype.fetchExtraParams_ = null;
 
 
+	/**
+	 * Search grid link element.
+	 * @private
+	 * @type {jQuery}
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.$searchLink_ = null;
+
+
 	//
 	// Public methods
 	//
@@ -495,10 +503,12 @@
 
 		// Search control.
 		this.getHtmlElement().find('.pkp_form').hide();
-		this.getHtmlElement().find('a.search_extras_expand').click(
+		this.$searchLink_ = this.getHtmlElement().find('a[class^="sprite search_extras_"]');
+		this.$searchLink_.click(
 				this.callbackWrapper(function(){
 					this.getHtmlElement().find('.pkp_form').toggle();
-					this.getHtmlElement().find('a.search_extras_expand').toggleClass('search_extras_collapse');
+					this.$searchLink_.toggleClass('search_extras_expand').
+						toggleClass('search_extras_collapse');
 				}));
 
 		this.trigger('gridInitialized');

@@ -205,6 +205,11 @@ class Nlm30CitationSchemaFilter extends PersistableFilter {
 		$result =& $xmlWebService->call($webServiceRequest);
 
 		if (is_null($result)) {
+			// Add a flag for cases where the web service call failed because of their problems.
+			if ($xmlWebService->getLastResponseStatus() >= 500 || $xmlWebService->getLastResponseStatus() <= 599) {
+				$this->setData('serverError', true);
+			}
+
 			// Construct a helpful error message including
 			// the offending webservice url for get requests.
 			$webserviceUrl = $url;

@@ -46,12 +46,17 @@ abstract class Nlm30CitationSchemaFilterTestCase extends PKPTestCase {
 			$testOutput =& $filter->execute($testInput);
 
 			// Prepare an error message
-			if (is_string($testInput)) {
+			if (is_string($testInput) && !$filter->getData('serverError')) {
 				// A raw citation or other easy-to-display test input.
 				$errorMessage = "Error in test #$citationFilterTestIndex: '$testInput'.";
 			} else {
 				// The test input cannot be easily rendered.
 				$errorMessage = "Error in test #$citationFilterTestIndex.";
+			}
+
+			if ($filter->getData('serverError')) {
+				// The error wasn't our fault.
+				$this->markTestSkipped('The external service is not working at the moment.');
 			}
 
 			// The citation filter should return a result

@@ -91,6 +91,10 @@ class WebService {
 		$nullVar = null;
 		if (!$result) return $nullVar;
 
+		if ($this->_lastResponseStatus >= 400 || $this->_lastResponseStatus <= 599) {
+			return $nullVar;
+		}
+
 		// Clean the result
 		$result = stripslashes($result);
 		if ( Config::getVar('i18n', 'charset_normalization') == 'On' && !String::utf8_compliant($result) ) {

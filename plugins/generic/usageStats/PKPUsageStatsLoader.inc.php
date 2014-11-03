@@ -34,12 +34,6 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 	/** @var $_contextsByPath array */
 	var $_contextsByPath;
 
-	/** @var $_baseSystemUrl string */
-	var $_baseSystemUrl;
-
-	/** @var $_baseSystemEscapedPath string */
-	var $_baseSystemEscapedPath;
-
 	/** @var $_autoStage string */
 	var $_autoStage;
 
@@ -72,9 +66,6 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 		$args[0] = $plugin->getFilesPath();
 
 		parent::FileLoader($args);
-
-		$this->_baseSystemUrl = Config::getVar('general', 'base_url');
-		$this->_baseSystemEscapedPath = str_replace('/', '\/', parse_url($this->_baseSystemUrl, PHP_URL_PATH));
 
 		// Load the metric type constant.
 		PluginRegistry::loadCategory('reports');
@@ -224,6 +215,10 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 		$statsDao->deleteByLoadId($loadId);
 
 		if (!$loadResult) {
+			// Improve the error message.
+			$errorMsg = __('plugins.generic.usageStats.loadDataError',
+				array('file' => $filePath, 'error' => $errorMsg));
+			
 			return FILE_LOADER_RETURN_TO_STAGING;
 		} else {
 			return true;
@@ -433,21 +428,23 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 		// Check the passed url.
 		$expectedPageAndOp = $this->getExpectedPageAndOp();
 
-		// Remove base system url from url, if any.
-		$url = str_replace($this->_baseSystemUrl, '', $url);
-
-		// If url don't have the entire protocol and host part,
-		// remove any possible base url path from url.
-		$url = preg_replace('/^' . $this->_baseSystemEscapedPath . '/', '', $url);
-
-		// Remove possible index.php page from url.
-		$url = str_replace('/index.php', '', $url);
-
 		$pathInfoDisabled = Config::getVar('general', 'disable_path_info');
-		$contextPaths = Core::getContextPaths($url, !$pathInfoDisabled);
-		$page = Core::getPage($url, !$pathInfoDisabled);
-		$operation = Core::getOp($url, !$pathInfoDisabled);
-		$args = Core::getArgs($url, !$pathInfoDisabled);
+
+		// Apache and usage stats plugin log files comes with complete or partial
+		// base url, remove it so system can retrieve path, page,
+		// operation and args.
+		$url = Core::removeBaseUrl($url);
+		if ($url) {
+			$contextPaths = Core::getContextPaths($url, !$pathInfoDisabled);
+			$page = Core::getPage($url, !$pathInfoDisabled);
+			$operation = Core::getOp($url, !$pathInfoDisabled);
+			$args = Core::getArgs($url, !$pathInfoDisabled);
+		} else {
+			// Could not remove the base url, can't go on.
+			$errorMsg = __('plugins.generic.usageStats.removeUrlError',
+				array('file' => $filePath, 'lineNumber' => $lineNumber));
+			return array(false, false);
+		}
 
 		// See bug #8698#.
 		if (is_array($contextPaths) && !$page && $operation == 'index') {

@@ -3,7 +3,7 @@
 /**
  * @file classes/scheduledTask/ScheduledTaskHelper.inc.php
  *
- * Copyright (c) 2014 Simon Fraser University Library
+ * Copyright (c) 2013-2014 Simon Fraser University Library
  * Copyright (c) 2000-2014 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
@@ -13,15 +13,53 @@
  * @brief Helper class for common scheduled tasks operations.
  */
 
+define('SCHEDULED_TASK_MESSAGE_TYPE_COMPLETED', 'common.completed');
+define('SCHEDULED_TASK_MESSAGE_TYPE_ERROR', 'common.error');
+define('SCHEDULED_TASK_MESSAGE_TYPE_WARNING', 'common.warning');
+define('SCHEDULED_TASK_MESSAGE_TYPE_NOTICE', 'common.notice');
 
 class ScheduledTaskHelper {
+
+	/** @var string Contact email. */
+	var $_contactEmail;
+
+	/** @var string Contact name. */
+	var $_contactName;
+
+	/**
+	 * Constructor.
+	 * @param $email string (optional)
+	 * @param $contactName string (optional)
+	 */
+	function ScheduledTaskHelper($email = '', $contactName = '') {
+		if (!$email || !$contactName) {
+			$siteDao = DAORegistry::getDAO('SiteDAO'); /* @var $siteDao SiteDAO */
+			$site = $siteDao->getSite(); /* @var $site Site */
+			$email = $site->getLocalizedContactEmail();
+			$contactName = $site->getLocalizedContactName();
+		}
+
+		$this->_contactEmail = $email;
+		$this->_contactName = $contactName;
+
+	}
+
+	/**
+	 * Get mail object.
+	 * @return Mail
+	 */
+	function getMail() {
+		// Instantiate a mail object.
+		import('lib.pkp.classes.mail.Mail');
+		return new Mail();
+	}
 
 	/**
 	 * Get the arguments for a task from the parsed XML.
 	 * @param XMLNode
 	 * @return array
 	 */
-	static function getTaskArgs($task) {
+	function getTaskArgs($task) {
 		$args = array();
 		$index = 0;
 
@@ -40,7 +78,7 @@ class ScheduledTaskHelper {
 	 * @param $frequency XMLNode
 	 * @return string
 	 */
-	static function checkFrequency($className, $frequency) {
+	function checkFrequency($className, $frequency) {
 		$isValid = true;
 		$taskDao = DAORegistry::getDAO('ScheduledTaskDAO'); /* @var $taskDao ScheduledTaskDAO */
 		$lastRunTime = $taskDao->getLastRunTime($className);
@@ -87,6 +125,53 @@ class ScheduledTaskHelper {
 	}
 
 	/**
+	 * Notifies site administrator about the
+	 * task execution result.
+	 * @param $id int Task id.
+	 * @param $name string Task name.
+	 * @param $result boolean Whether or not the task
+	 * execution was successful.
+	 * @param $message string Message.
+	 */
+	function notifyExecutionResult($id, $name, $result, $message = '') {
+		$reportErrorOnly = Config::getVar('general', 'scheduled_tasks_report_error_only', true);
+
+		if (!$result || !$reportErrorOnly) {
+			if (!$message) {
+				$message = __('admin.scheduledTask.noLog');
+			}
+
+			if ($result) {
+				// Success.
+				$type = SCHEDULED_TASK_MESSAGE_TYPE_COMPLETED;
+			} else {
+				// Error.
+				$type = SCHEDULED_TASK_MESSAGE_TYPE_ERROR;
+			}
+
+			$subject = $name . ' - ' . $id . ' - ' . __($type);
+			return $this->_sendEmail($message, $subject);
+		}
+
+		return false;
+	}
+
+	/**
+	 * Send email to the site administrator.
+	 * @param $message string
+	 * @param $subject string
+	 * @return boolean
+	 */
+	function _sendEmail($message, $subject) {
+		$mail = $this->getMail();
+		$mail->addRecipient($this->_contactEmail, $this->_contactName);
+		$mail->setSubject($subject);
+		$mail->setBody($message);
+
+		return $mail->send();
+	}
+
+	/**
 	 * Check if a value is within the specified range.
 	 * @param $rangeStr string the range (e.g., 0, 1-5, *, etc.)
 	 * @param $currentValue int value to check if its in the range
@@ -95,7 +180,7 @@ class ScheduledTaskHelper {
 	 * @param $cutoffTimestamp int value will be considered valid if older than this
 	 * @return boolean
 	 */
-	static function _isInRange($rangeStr, $currentValue, $lastTimestamp, $timeCompareStr, $cutoffTimestamp) {
+	function _isInRange($rangeStr, $currentValue, $lastTimestamp, $timeCompareStr, $cutoffTimestamp) {
 		$isValid = false;
 		$rangeArray = explode(',', $rangeStr);
 
@@ -146,7 +231,7 @@ class ScheduledTaskHelper {
 	 * @param $max int
 	 * @return boolean
 	 */
-	static function _isInNumericRange($value, $min, $max) {
+	function _isInNumericRange($value, $min, $max) {
 		return ($value >= $min && $value <= $max);
 	}
 

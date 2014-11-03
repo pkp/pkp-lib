@@ -120,6 +120,13 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 	}
 
 	/**
+	 * @copydoc FileLoader::getName()
+	 */
+	function getName() {
+		return __('plugins.generic.usageStats.usageStatsLoaderName');
+	}
+
+	/**
 	 * @see FileLoader::processFile()
 	 */
 	protected function processFile($filePath) {
@@ -163,7 +170,7 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 			// Avoid bots.
 			if (Core::isUserAgentBot($entryData['userAgent'], $this->_counterRobotsListFile)) continue;
 
-			list($assocType, $contextPaths, $page, $op, $args) = $this->_getUrlMatches($entryData['url']);
+			list($assocType, $contextPaths, $page, $op, $args) = $this->_getUrlMatches($entryData['url'], $filePath, $lineNumber);
 			if ($assocType && $contextPaths && $page && $op) {
 				list($assocId, $assocType) = $this->getAssoc($assocType, $contextPaths, $page, $op, $args);
 			} else {
@@ -421,10 +428,12 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 	 * the passed url, if it matches anyone that's defined
 	 * in UsageStatsLoader::getExpectedPageAndOp().
 	 * @param $url string
+	 * @param $filePath string
+	 * @param $lineNumber int
 	 * @return array
 	 * @see UsageStatsLoader::getExpectedPageAndOp()
 	 */
-	private function _getUrlMatches($url) {
+	private function _getUrlMatches($url, $filePath, $lineNumber) {
 		// Check the passed url.
 		$expectedPageAndOp = $this->getExpectedPageAndOp();
 
@@ -441,8 +450,8 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 			$args = Core::getArgs($url, !$pathInfoDisabled);
 		} else {
 			// Could not remove the base url, can't go on.
-			$errorMsg = __('plugins.generic.usageStats.removeUrlError',
-				array('file' => $filePath, 'lineNumber' => $lineNumber));
+			$this->addExecutionLogEntry( __('plugins.generic.usageStats.removeUrlError',
+				array('file' => $filePath, 'lineNumber' => $lineNumber)), SCHEDULED_TASK_MESSAGE_TYPE_WARNING);
 			return array(false, false);
 		}
 

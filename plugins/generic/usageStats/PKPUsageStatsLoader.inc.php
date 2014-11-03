@@ -443,18 +443,12 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 		// Remove possible index.php page from url.
 		$url = str_replace('/index.php', '', $url);
 
-		// Check whether it's path info or not.
-		$pathInfo = parse_url($url, PHP_URL_PATH);
-		$isPathInfo = false;
-		if ($pathInfo) {
-			$isPathInfo = true;
-		}
-
-		$contextPaths = Core::getContextPaths($url, $isPathInfo);
-		$page = Core::getPage($url, $isPathInfo);
-		$operation = Core::getOp($url, $isPathInfo);
-		$args = Core::getArgs($url, $isPathInfo);
-
+		$pathInfoDisabled = Config::getVar('general', 'disable_path_info');
+		$contextPaths = Core::getContextPaths($url, !$pathInfoDisabled);
+		$page = Core::getPage($url, !$pathInfoDisabled);
+		$operation = Core::getOp($url, !$pathInfoDisabled);
+		$args = Core::getArgs($url, !$pathInfoDisabled);
+	
 		if (empty($contextPaths) || !$page || !$operation) return array(false, false);
 
 		$pageAndOperation = $page . '/' . $operation;

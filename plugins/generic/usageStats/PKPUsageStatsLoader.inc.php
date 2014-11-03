@@ -452,7 +452,7 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 			// Could not remove the base url, can't go on.
 			$this->addExecutionLogEntry( __('plugins.generic.usageStats.removeUrlError',
 				array('file' => $filePath, 'lineNumber' => $lineNumber)), SCHEDULED_TASK_MESSAGE_TYPE_WARNING);
-			return array(false, false);
+			return array(null, null, null, null);
 		}
 
 		// See bug #8698#.
@@ -460,7 +460,7 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 			$page = 'index';
 		}
 	
-		if (empty($contextPaths) || !$page || !$operation) return array(false, false);
+		if (empty($contextPaths) || !$page || !$operation) return array(null, null, null, null);
 
 		$pageAndOperation = $page . '/' . $operation;
 

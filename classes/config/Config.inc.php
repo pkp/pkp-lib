@@ -86,6 +86,28 @@ class Config {
 	static function getConfigFileName() {
 		return Registry::get('configFile', true, CONFIG_FILE);
 	}
-}
 
+	/**
+	 * Get context base urls from config file.
+	 * @return array Empty array if none is set.
+	 */
+	function &getContextBaseUrls() {
+		$contextBaseUrls =& Registry::get('contextBaseUrls'); // Reference required.
+
+		if (is_null($contextBaseUrls)) {
+			$contextBaseUrls = array();
+			$configData = Config::getData();
+			// Filter the settings.
+			foreach ($configData['general'] as $settingName => $settingValue) {
+				$matches = null;
+				if (preg_match('/base_url\[(.*)\]/', $settingName, $matches)) {
+					$workingContextPath = $matches[1];
+					$contextBaseUrls[$workingContextPath] = $settingValue;
+				}
+			}
+		}
+
+		return $contextBaseUrls;
+	}
+}
 ?>

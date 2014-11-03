@@ -262,6 +262,163 @@ class Core {
 		return Core::_getUrlComponents($urlInfo, $isPathInfo, 2, 'path', $userVars);
 	}
 
+ 	/**
+	 * Remove base url from the passed url, if any.
+	 * Also, if true, checks for the context path in
+	 * url and if it's missing, tries to add it.
+	 * @param $url string
+	 * @return mixed string The url without base url,
+	 * false if it was not possible to remove it.
+	 */
+	function removeBaseUrl($url) {
+		list($baseUrl, $contextPath) = Core::_getBaseUrlAndPath($url);
+
+		if (!$baseUrl) return false;
+
+		// Remove base url from url, if any.
+		$url = str_replace($baseUrl, '', $url);
+
+		// If url doesn't have the entire protocol and host part,
+		// remove any possible base url path from url.
+		$baseUrlPath = parse_url($baseUrl, PHP_URL_PATH);
+		if ($baseUrlPath == $url) {
+			// Access to the base url, no context, the entire
+			// url is part of the base url and we can return empty.
+			$url = '';
+		} else {
+			// Handle case where index.php was removed by rewrite rules,
+			// and we have base url followed by the args.
+			if (strpos($url, $baseUrlPath . '?') === 0) {
+				$replacement = '?'; // Url path replacement.
+				$baseSystemEscapedPath = preg_quote($baseUrlPath . '?', '/');
+			} else {
+				$replacement = '/'; // Url path replacement.
+				$baseSystemEscapedPath = preg_quote($baseUrlPath . '/', '/');
+			}
+			$url = preg_replace('/^' . $baseSystemEscapedPath . '/', $replacement, $url);
+
+			// Remove possible index.php page from url.
+			$url = str_replace('/index.php', '', $url);
+		}
+
+		if ($contextPath) {
+			// We found the contextPath using the base_url
+			// config file settings. Check if the url starts
+			// with the context path, if not, apend it.
+			if (strpos($url, '/' . $contextPath) !== 0) {
+				$url = '/' . $contextPath . $url;
+			}
+		}
+
+		// Remove any possible trailing slashes.
+		$url = rtrim($url, '/');
+
+		return $url;
+	}
+
+	/**
+	 * Try to get the base url and, if configuration
+	 * is set to use base url override, context
+	 * path for the passed url.
+	 * @param $url string
+	 * @return array Base url and context path strings,
+	 * false if not found or not the case.
+	 */
+	function _getBaseUrlAndPath($url) {
+		$baseUrl = false;
+		$contextPath = false;
+
+		// Check for override base url settings.
+		$contextBaseUrls = Config::getContextBaseUrls();
+
+		if (empty($contextBaseUrls)) {
+			$baseUrl = Config::getVar('general', 'base_url');
+		} else {
+			// Arrange them in length order, so we make sure
+			// we get the correct one, in case there's an overlaping
+			// of contexts, eg.:
+			// base_url[context1] = http://somesite.com/
+			// base_url[context2] = http://somesite.com/context2
+			$sortedBaseUrls = array_combine($contextBaseUrls, array_map('strlen', $contextBaseUrls));
+			arsort($sortedBaseUrls);
+
+			foreach ($sortedBaseUrls as $workingBaseUrl => $baseUrlLength) {
+				$urlHost = parse_url($url, PHP_URL_HOST);
+				if (is_null($urlHost)) {
+					// Check the base url without the host part.
+					$baseUrlHost = parse_url($workingBaseUrl, PHP_URL_HOST);
+					if (is_null($baseUrlHost)) break;
+					$baseUrlToSearch = substr($workingBaseUrl, strpos($workingBaseUrl, $baseUrlHost) + strlen($baseUrlHost));
+					// Base url with only host part, add trailing slash
+					// so it can be checked below.
+					if (!$baseUrlToSearch) $baseUrlToSearch = '/';
+				} else {
+					$baseUrlToSearch = $workingBaseUrl;
+				}
+
+				$baseUrlCheck = Core::_checkBaseUrl($baseUrlToSearch, $url);
+				if (is_null($baseUrlCheck)) {
+					// Can't decide. Stop searching.
+					break;
+				} else if ($baseUrlCheck === true) {
+					$contextPath = array_search($workingBaseUrl, $contextBaseUrls);
+					$baseUrl = $workingBaseUrl;
+					break;
+				}
+			}
+		}
+
+		return array($baseUrl, $contextPath);
+	}
+
+	/**
+	 * Check if the passed base url is part of
+	 * the passed url, based on the context base url
+	 * configuration. Both parameters can represent
+	 * full url (host plus path) or just the path,
+	 * but they have to be consistent.
+	 * @param $baseUrl string Full base url
+	 * or just it's path info.
+	 * @param $url string Full url or just it's
+	 * path info.
+	 * @return boolean
+	 */
+	function _checkBaseUrl($baseUrl, $url) {
+		// Check if both base url and url have host
+		// component or not.
+		$baseUrlHasHost = (boolean) parse_url($baseUrl, PHP_URL_HOST);
+		$urlHasHost = (boolean) parse_url($url, PHP_URL_HOST);
+		if ($baseUrlHasHost !== $urlHasHost) return false;
+
+		$contextBaseUrls =& Config::getContextBaseUrls();
+
+		// If the base url is found inside the passed url,
+		// then we might found the right context path.
+		if (strpos($url, $baseUrl) === 0) {
+			if (strpos($url, '/index.php') == strlen($baseUrl) - 1) {
+				// index.php appears right after the base url,
+				// no more possible paths.
+				return true;
+			} else {
+				// Still have to check if there is no other context
+				// base url that combined with it's context path is
+				// equal to this base url. If it exists, we can't
+				// tell which base url is contained in url.
+				foreach ($contextBaseUrls as $contextPath => $workingBaseUrl) {
+					$urlToCheck = $workingBaseUrl . '/' . $contextPath;
+					if (!$baseUrlHasHost) $urlToCheck = parse_url($urlToCheck, PHP_URL_PATH);
+					if ($baseUrl == $urlToCheck) {
+						return null;
+					}
+				}
+
+				return true;
+			}
+		}
+
+		return false;
+	}
+
 	/**
 	 * Filter the regular expressions to find bots, adding
 	 * delimiters if necessary.

@@ -42,7 +42,7 @@ class CopyAccessLogFileTool extends CommandLineTool {
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_OJS_ADMIN);
 
-		if (sizeof($this->argv) !== 1) {
+		if (count($this->argv) < 1 || count($this->argv) > 2) {
 			$this->usage();
 			exit(1);
 		}
@@ -131,6 +131,14 @@ class CopyAccessLogFileTool extends CommandLineTool {
 			// Directory.
 			$filesToCopy = glob($filePath . DIRECTORY_SEPARATOR . '*');
 			foreach ($filesToCopy as $file) {
+				// If a base filename is given as a parameter, check it.
+				if (count($this->argv) == 2) {
+					$baseFilename = $this->argv[1];
+					if (strpos(pathinfo($file, PATHINFO_BASENAME), $baseFilename) !== 0) {
+						continue;
+					}
+				}
+
 				$this->_copyFile($file);
 			}
 		} else {

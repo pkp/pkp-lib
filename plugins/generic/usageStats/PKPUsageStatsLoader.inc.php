@@ -448,6 +448,11 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 		$page = Core::getPage($url, !$pathInfoDisabled);
 		$operation = Core::getOp($url, !$pathInfoDisabled);
 		$args = Core::getArgs($url, !$pathInfoDisabled);
+
+		// See bug #8698#.
+		if (is_array($contextPaths) && !$page && $operation == 'index') {
+			$page = 'index';
+		}
 	
 		if (empty($contextPaths) || !$page || !$operation) return array(false, false);
 

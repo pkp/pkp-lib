@@ -139,7 +139,12 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 		$plugin = $this->_plugin;
 		if (!$plugin->getEnabled()) {
 			$this->addExecutionLogEntry(__('plugins.generic.usageStats.pluginNotEnabled'), SCHEDULED_TASK_MESSAGE_TYPE_WARNING);
-			return true;
+			return false;
+		}
+
+		if (!$this->_counterRobotsListFile || !file_exists($this->_counterRobotsListFile)) {
+			$this->addExecutionLogEntry(__('plugins.generic.usageStats.noCounterBotList', array('botlist' => $this->_counterRobotsListFile)), SCHEDULED_TASK_MESSAGE_TYPE_WARNING);
+			return false;
 		}
 
 		parent::executeActions();

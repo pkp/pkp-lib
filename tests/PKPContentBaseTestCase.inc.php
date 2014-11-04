@@ -20,7 +20,13 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 	 * Handle any section information on submission step 1
 	 * @return string
 	 */
-	abstract protected function _handleSection($data);
+	protected function _handleStep1($data);
+
+	/**
+	 * Handle any section information on submission step 3
+	 * @return string
+	 */
+	protected function _handleStep3($data);
 
 	/**
 	 * Get the number of items in the default submission checklist
@@ -57,12 +63,13 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->waitForElementPresent('//span[starts-with(., \'Start a New Submission\')]/..');
 		$this->click('//span[starts-with(., \'Start a New Submission\')]/..');
 
-		// Permit the subclass to handle any series/section data
-		$this->_handleSection($data);
-
 		// Check the default checklist items.
 		$this->waitForElementPresent('id=checklist-0');
 		for ($i=0; $i<$this->_getChecklistLength(); $i++) $this->click('id=checklist-' . $i);
+
+		// Permit the subclass to handle any series/section data
+		$this->_handleStep1($data);
+
 		$this->click('css=[id^=submitFormButton-]');
 
 		// Page 2: File wizard
@@ -82,6 +89,8 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		foreach ($data['additionalAuthors'] as $authorData) {
 			$this->addAuthor($authorData);
 		}
+		// Permit the subclass to handle any extra step 3 actions
+		$this->_handleStep3($data);
 
 		// Finish
 		$this->waitForElementPresent('//span[text()=\'Finish Submission\']/..');

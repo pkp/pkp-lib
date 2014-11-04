@@ -41,13 +41,11 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 	*/
 	function register($category, $path) {
 		$success = parent::register($category, $path);
+		
+		HookRegistry::register('AcronPlugin::parseCronTab', array($this, 'callbackParseCronTab'));
 
 		if ($this->getEnabled() && $success) {
 			// Register callbacks.
-			$app = PKPApplication::getApplication();
-			$version = $app->getCurrentVersion();
-
-			HookRegistry::register('AcronPlugin::parseCronTab', array($this, 'callbackParseCronTab'));
 			HookRegistry::register('PluginRegistry::loadCategory', array($this, 'callbackLoadCategory'));
 
 			// If the plugin will provide the access logs,

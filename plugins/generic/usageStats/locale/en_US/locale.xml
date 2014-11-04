@@ -24,6 +24,7 @@
 	<message key="plugins.generic.usageStats.invalidLogEntry">The line number {$lineNumber} from the file {$file} is not a valid log entry and the file was rejected.</message>
 	<message key="plugins.generic.usageStats.removeUrlError">The line number {$lineNumber} from the file {$file} contains an url that the system can't remove the base url from.</message>
 	<message key="plugins.generic.usageStats.loadDataError">Couldn't load data extracted from file {$file}. The error was: {$error}. The file was moved to stage again.</message>
+	<message key="plugins.generic.usageStats.pluginNotEnabled">Usage statistics plugin is disabled. No log files processed.</message>
 	<message key="plugins.generic.usageStats.displayName">Usage Statistics</message>
 	<message key="plugins.generic.usageStats.description">Present data objects usage statistics. Can use server access log files to extract statistics.</message>
 	

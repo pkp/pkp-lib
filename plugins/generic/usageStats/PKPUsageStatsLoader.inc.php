@@ -67,59 +67,61 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 
 		parent::FileLoader($args);
 
-		// Load the metric type constant.
-		PluginRegistry::loadCategory('reports');
+		if ($plugin->getEnabled()) {
+			// Load the metric type constant.
+			PluginRegistry::loadCategory('reports');
 
-		import('classes.statistics.StatisticsHelper');
-		$statsHelper = new StatisticsHelper();
-		$geoLocationTool = $statsHelper->getGeoLocationTool();
-		$this->_geoLocationTool = $geoLocationTool;
+			import('classes.statistics.StatisticsHelper');
+			$statsHelper = new StatisticsHelper();
+			$geoLocationTool = $statsHelper->getGeoLocationTool();
+			$this->_geoLocationTool = $geoLocationTool;
 
-		$plugin->import('UsageStatsTemporaryRecordDAO');
-		$statsDao = new UsageStatsTemporaryRecordDAO();
-		DAORegistry::registerDAO('UsageStatsTemporaryRecordDAO', $statsDao);
+			$plugin->import('UsageStatsTemporaryRecordDAO');
+			$statsDao = new UsageStatsTemporaryRecordDAO();
+			DAORegistry::registerDAO('UsageStatsTemporaryRecordDAO', $statsDao);
 
-		$this->_counterRobotsListFile = $this->_getCounterRobotListFile();
+			$this->_counterRobotsListFile = $this->_getCounterRobotListFile();
 
-		$contextDao = Application::getContextDAO(); /* @var $contextDao ContextDAO */
-		$contextFactory = $contextDao->getAll(); /* @var $contextFactory DAOResultFactory */
-		$contextsByPath = array();
-		while ($context = $contextFactory->next()) { /* @var $context Context */
-			$contextsByPath[$context->getPath()] = $context;
-		}
-		$this->_contextsByPath = $contextsByPath;
-
-		$this->checkFolderStructure(true);
-
-		if ($this->_autoStage) {
-			// Copy all log files to stage directory, except the current day one.
-			$fileMgr = new FileManager();
-			$logFiles = array();
-			$logsDirFiles =  glob($plugin->getUsageEventLogsPath() . DIRECTORY_SEPARATOR . '*');
-			// It's possible that the processing directory have files that
-			// were being processed but the php process was stopped before
-			// finishing the processing. Just copy them to the stage directory too.
-			$processingDirFiles = glob($this->getProcessingPath() . DIRECTORY_SEPARATOR . '*');
-			if (is_array($logsDirFiles)) {
-				$logFiles = array_merge($logFiles, $logsDirFiles);
+			$contextDao = Application::getContextDAO(); /* @var $contextDao ContextDAO */
+			$contextFactory = $contextDao->getAll(); /* @var $contextFactory DAOResultFactory */
+			$contextsByPath = array();
+			while ($context = $contextFactory->next()) { /* @var $context Context */
+				$contextsByPath[$context->getPath()] = $context;
 			}
-			
-			if (is_array($processingDirFiles)) {
-				$logFiles = array_merge($logFiles, $processingDirFiles);
-			}
-			
-			foreach ($logFiles as $filePath) {
-				// Make sure it's a file.
-				if ($fileMgr->fileExists($filePath)) {
-					// Avoid current day file.
-					$filename = pathinfo($filePath, PATHINFO_BASENAME);
-					$currentDayFilename = $plugin->getUsageEventCurrentDayLogName();
-					if ($filename == $currentDayFilename) continue;
-					if ($fileMgr->copyFile($filePath, $this->getStagePath() . DIRECTORY_SEPARATOR . $filename)) {
-						$fileMgr->deleteFile($filePath);
+			$this->_contextsByPath = $contextsByPath;
+
+			$this->checkFolderStructure(true);
+
+			if ($this->_autoStage) {
+				// Copy all log files to stage directory, except the current day one.
+				$fileMgr = new FileManager();
+				$logFiles = array();
+				$logsDirFiles =  glob($plugin->getUsageEventLogsPath() . DIRECTORY_SEPARATOR . '*');
+				// It's possible that the processing directory have files that
+				// were being processed but the php process was stopped before
+				// finishing the processing. Just copy them to the stage directory too.
+				$processingDirFiles = glob($this->getProcessingPath() . DIRECTORY_SEPARATOR . '*');
+				if (is_array($logsDirFiles)) {
+					$logFiles = array_merge($logFiles, $logsDirFiles);
+				}
+				
+				if (is_array($processingDirFiles)) {
+					$logFiles = array_merge($logFiles, $processingDirFiles);
+				}
+				
+				foreach ($logFiles as $filePath) {
+					// Make sure it's a file.
+					if ($fileMgr->fileExists($filePath)) {
+						// Avoid current day file.
+						$filename = pathinfo($filePath, PATHINFO_BASENAME);
+						$currentDayFilename = $plugin->getUsageEventCurrentDayLogName();
+						if ($filename == $currentDayFilename) continue;
+						if ($fileMgr->copyFile($filePath, $this->getStagePath() . DIRECTORY_SEPARATOR . $filename)) {
+							$fileMgr->deleteFile($filePath);
+						}
 					}
 				}
-			}
+			}	
 		}
 	}
 
@@ -131,7 +133,20 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 	}
 
 	/**
-	 * @see FileLoader::processFile()
+	* @copydoc FileLoader::executeActions()
+	*/
+	function executeActions() {
+		$plugin = $this->_plugin;
+		if (!$plugin->getEnabled()) {
+			$this->addExecutionLogEntry(__('plugins.generic.usageStats.pluginNotEnabled'), SCHEDULED_TASK_MESSAGE_TYPE_WARNING);
+			return true;
+		}
+
+		parent::executeActions();
+	}
+
+	/**
+	 * @copydoc FileLoader::processFile()
 	 */
 	protected function processFile($filePath) {
 		$fhandle = fopen($filePath, 'r');
@@ -518,7 +533,7 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 
 		// We only expect one file inside the directory.
 		$fileCount = 0;
-		foreach (glob($dir . DIRECTORY_SEPARATOR . "*.*") as $file) {
+		foreach (glob($dir . DIRECTORY_SEPARATOR . "*") as $file) {
 			$fileCount++;
 		}
 		if (!$file || $fileCount !== 1) {

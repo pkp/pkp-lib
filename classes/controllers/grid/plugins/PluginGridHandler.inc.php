@@ -231,6 +231,7 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 		$message = null;
 		$pluginModalContent = null;
 		if (!is_a($plugin, 'Plugin') || !$plugin->manage($verb, $args, $message, $messageParams, $pluginModalContent)) {
+			HookRegistry::call('PluginGridHandler::plugin', array($verb, $args, $message, $messageParams, $plugins[$plugin]));
 			if ($message) {
 				$notificationManager = new NotificationManager();
 				$user = $request->getUser();

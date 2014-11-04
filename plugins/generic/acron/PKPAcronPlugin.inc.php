@@ -33,10 +33,14 @@ class PKPAcronPlugin extends GenericPlugin {
 	 */
 	function register($category, $path) {
 		$success = parent::register($category, $path);
+		HookRegistry::register('Installer::postInstall', array(&$this, 'callbackPostInstall'));
+
 		if (!Config::getVar('general', 'installed') || defined('RUNNING_UPGRADE')) return $success;
 		if ($success) {
 			$this->addLocaleData();
 			HookRegistry::register('LoadHandler',array(&$this, 'callbackLoadHandler'));
+			// Need to reload cron tab on possible enable or disable generic plugin actions.
+			HookRegistry::register('PluginGridHandler::plugin',array(&$this, 'callbackManage'));
 		}
 		return $success;
 	}
@@ -115,7 +119,23 @@ class PKPAcronPlugin extends GenericPlugin {
 	}
 
 	/**
-	 * @see PKPPageRouter::loadHandler()
+	 * Post install hook to flag cron tab reload on every install/upgrade.
+	 * @param $hookName string
+	 * @param $args array
+	 * @return boolean
+	 * @see Installer::postInstall() for the hook call.
+	 */
+	function callbackPostInstall($hookName, $args) {
+		$this->_parseCrontab();
+		return false;
+	}
+
+	/**
+	 * Load handler hook to check for tasks to run.
+	 * @param $hookName string
+	 * @param $args array
+	 * @return boolean
+	 * @see PKPPageRouter::loadHandler() for the hook call.
 	 */
 	function callbackLoadHandler($hookName, $args) {
 		$request = Application::getRequest();
@@ -141,6 +161,40 @@ class PKPAcronPlugin extends GenericPlugin {
 			// is finished. It will not stop running, even if the user cancels
 			// the request or the time limit is reach.
 			register_shutdown_function(array(&$this, 'shutdownFunction'));
+		}
+
+		return false;
+	}
+
+	/**
+	 * Syncronize crontab with lazy load plugins management.
+	 * @param $hookName string
+	 * @param $args array
+	 * @return boolean
+	 * @see PluginHandler::plugin() for the hook call.
+	 */
+	function callbackManage($hookName, $args) {
+		$verb = $args[0];
+		$plugin = $args[4]; /* @var $plugin LazyLoadPlugin */
+		
+		// Only interested in plugins that can be enabled/disabled.
+		if (!is_a($plugin, 'LazyLoadPlugin')) return false;
+	
+		// Only interested in enable/disable actions.
+		if ($verb !== 'enable' && $verb !== 'disable') return false;
+	
+		// Check if the plugin wants to add its own
+		// scheduled task into the cron tab.
+		$hooks = HookRegistry::getHooks();
+		$hookName = 'AcronPlugin::parseCronTab';
+
+		if (!isset($hooks[$hookName])) return false;
+	
+		foreach($hooks[$hookName] as $index => $callback) {
+			if ($callback[0] == $plugin) {
+				$this->_parseCrontab();
+				break;
+			}
 		}
 
 		return false;
@@ -217,6 +271,9 @@ class PKPAcronPlugin extends GenericPlugin {
 
 		$taskFilesPath = array();
 
+		// Load all plugins so any plugin can register a crontab.
+		PluginRegistry::loadAllPlugins();
+		
 		// Let plugins register their scheduled tasks too.
 		HookRegistry::call('AcronPlugin::parseCronTab', array(&$taskFilesPath)); // Reference needed.
 

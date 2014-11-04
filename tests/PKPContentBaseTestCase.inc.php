@@ -20,13 +20,15 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 	 * Handle any section information on submission step 1
 	 * @return string
 	 */
-	protected function _handleStep1($data);
+	protected function _handleStep1($data) {
+	}
 
 	/**
 	 * Handle any section information on submission step 3
 	 * @return string
 	 */
-	protected function _handleStep3($data);
+	protected function _handleStep3($data) {
+	}
 
 	/**
 	 * Get the number of items in the default submission checklist

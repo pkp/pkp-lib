@@ -220,14 +220,12 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 	 * @param $username string
 	 * @param $password string (or null to presume twice-username)
 	 * @param $title string
-	 * @param $recommendation string
-	 * @param $comments string optional
+	 * @param $recommendation string Optional recommendation label
+	 * @param $comments string optional Optional comment text
 	 */
-	function performReview($username, $password, $title, $recommendation, $comments = 'Here are my review comments.') {
+	function performReview($username, $password, $title, $recommendation = null, $comments = 'Here are my review comments.') {
 		if ($password===null) $password = $username . $username;
 		$this->logIn($username, $password);
-		$this->waitForElementPresent('link=Dashboard');
-		$this->clickAndWait('link=Dashboard');
 		$this->waitForElementPresent('//a[contains(text(),\'' . $this->escapeJS($title) . '\')]');
 		$this->click('//a[contains(text(),\'' . $this->escapeJS($title) . '\')]');
 
@@ -238,7 +236,10 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->click('//span[text()=\'Continue to Step #3\']/..');
 		$this->waitForElementPresent('css=[id^=comments-]');
 		$this->type('css=[id^=comments-]', $comments);
-		$this->select('id=recommendation', 'label=' . $this->escapeJS($recommendation));
+
+		if ($recommendation !== null) {
+			$this->select('id=recommendation', 'label=' . $this->escapeJS($recommendation));
+		}
 
 		$this->waitForElementPresent('//span[text()=\'Submit Review\']/..');
 		$this->click('//span[text()=\'Submit Review\']/..');

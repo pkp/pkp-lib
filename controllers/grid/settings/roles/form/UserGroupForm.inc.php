@@ -228,8 +228,8 @@ class UserGroupForm extends Form {
 			foreach ($context->getSupportedLocaleNames() as $localeKey => $localeName) {
 				$name = $this->getData('name');
 				$abbrev = $this->getData('abbrev');
-				$userGroup->setName($name[$localeKey], $localeKey);
-				$userGroup->setAbbrev($abbrev[$localeKey], $localeKey);
+				if (isset($name[$localeKey])) $userGroup->setName($name[$localeKey], $localeKey);
+				if (isset($abbrev[$localeKey])) $userGroup->setAbbrev($abbrev[$localeKey], $localeKey);
 			}
 		} else {
 			$localeKey = AppLocale::getLocale();

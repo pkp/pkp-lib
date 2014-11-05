@@ -306,6 +306,8 @@
 	<message key="submission.event.reviewer.reviewReinitiated">Review assignment reinitiated</message>
 	<message key="submission.event.reviewer.reviewResubmitted">Review resubmitted</message>
 	<message key="submission.event.reviewer.reviewRevision">Reviewer revisions file updated</message>
+	<message key="submission.event.subjectPrefix">An email has been sent:</message>
+	<message key="submission.event.viewEmail">View Email</message>
 	<message key="submission.files">Files</message>
 	<message key="submission.files.downloadAll">Download All Files</message>
 	<message key="submission.galley">Galley</message>

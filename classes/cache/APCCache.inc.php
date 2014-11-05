@@ -80,7 +80,7 @@ class APCCache extends GenericCache {
 	 * WARNING: THIS DOES NOT FLUSH THE CACHE FIRST!
 	 * @param $contents array Complete cache contents.
 	 */
-	function setEntireCache(&$contents) {
+	function setEntireCache($contents) {
 		foreach ($contents as $id => $value) {
 			$this->setCache($id, $value);
 		}

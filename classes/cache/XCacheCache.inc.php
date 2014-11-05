@@ -77,7 +77,7 @@ class XCacheCache extends GenericCache {
 	 * Set the entire contents of the cache.
 	 * WARNING: THIS DOES NOT FLUSH THE CACHE FIRST!
 	 */
-	function setEntireCache(&$contents) {
+	function setEntireCache($contents) {
 		foreach ($contents as $id => $value) {
 			$this->setCache($id, $value);
 		}

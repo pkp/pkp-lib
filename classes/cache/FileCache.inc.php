@@ -40,11 +40,11 @@ class FileCache extends GenericCache {
 
 		$this->filename = $path . DIRECTORY_SEPARATOR . "fc-$context-" . str_replace('/', '.', $cacheId) . '.php';
 
-		// Load the cache data if it exists. (To avoid a race condition,
-		// we assume the file exists and suppress the potential warn.)
-		$result = @include($this->filename);
-		if ($result !== false) {
-			$this->cache = $result;
+		// Load the cache data if it exists.
+		if (($fp = fopen($this->filename, 'r')) !== false) {
+			flock($fp, LOCK_SH);
+			$this->cache = include($this->filename);
+			flock($fp, LOCK_UN);
 		} else {
 			$this->cache = null;
 		}
@@ -82,21 +82,24 @@ class FileCache extends GenericCache {
 	/**
 	 * Set the entire contents of the cache.
 	 */
-	function setEntireCache(&$contents) {
-		file_put_contents($this->filename, '<?php return ' . var_export($contents, true) . '; ?>', LOCK_EX);
-		$umask = Config::getVar('files', 'umask');
-		if ($umask) @chmod($this->filename, FILE_MODE_MASK & ~$umask);
-
-		$this->cache =& $contents;
+	function setEntireCache($contents) {
+		if (file_put_contents(
+			$this->filename,
+			'<?php return ' . var_export($contents, true) . '; ?>',
+			LOCK_EX
+		) !== false) {
+			$umask = Config::getVar('files', 'umask');
+			if ($umask) chmod($this->filename, FILE_MODE_MASK & ~$umask);
+		}
+		$this->cache = $contents;
 	}
 
 	/**
 	 * Get the time at which the data was cached.
 	 * If the file does not exist or an error occurs, null is returned.
-	 * @return int
+	 * @return int|null
 	 */
 	function getCacheTime() {
-		if (!file_exists($this->filename)) return null;
 		$result = filemtime($this->filename);
 		if ($result === false) return null;
 		return ((int) $result);

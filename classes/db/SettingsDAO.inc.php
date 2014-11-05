@@ -22,11 +22,11 @@ class SettingsDAO extends DAO {
 	}
 
 	/**
-	 * Retrieve and cache all settings.
+	 * Retrieve (and newly cache) all settings.
 	 * @param $id int
-	 * @return array
+	 * @return array Associative array of settings.
 	 */
-	function &getSettings($id) {
+	function loadSettings($id) {
 		$settings = array();
 
 		$result = $this->retrieve(
@@ -47,6 +47,16 @@ class SettingsDAO extends DAO {
 		$cache->setEntireCache($settings);
 
 		return $settings;
+	}
+
+	/**
+	 * Retrieve cached settings, using the cache if available.
+	 * @param $id int
+	 * @return array Associative array of settings.
+	 */
+	function &getSettings($id) {
+		$cache = $this->_getCache($id);
+		return $cache->getContents();
 	}
 
 	/**
@@ -77,7 +87,7 @@ class SettingsDAO extends DAO {
 	 * @return mixed
 	 */
 	function _cacheMiss($cache, $id) {
-		$settings = $this->getSettings($cache->getCacheId());
+		$settings = $this->loadSettings($cache->getCacheId());
 		if (!isset($settings[$id])) {
 			$cache->setCache($id, null);
 			return null;

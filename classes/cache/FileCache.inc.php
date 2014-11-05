@@ -100,7 +100,7 @@ class FileCache extends GenericCache {
 	 * @return int|null
 	 */
 	function getCacheTime() {
-		$result = filemtime($this->filename);
+		$result = @filemtime($this->filename);
 		if ($result === false) return null;
 		return ((int) $result);
 	}

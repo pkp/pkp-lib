@@ -26,7 +26,7 @@ class PKPProfileForm extends Form {
 	 * @param $user PKPUser
 	 */
 	function PKPProfileForm($user) {
-		parent::Form('user/profile.tpl');
+		parent::Form('user/form/profileForm.tpl');
 
 		$this->_user = $user;
 		assert($user);
@@ -104,9 +104,9 @@ class PKPProfileForm extends Form {
 	}
 
 	/**
-	 * Display the form.
+	 * @copydoc Form::fetch()
 	 */
-	function display($request) {
+	function fetch($request) {
 		$templateMgr = TemplateManager::getManager($request);
 
 		$user = $this->getUser();
@@ -143,7 +143,7 @@ class PKPProfileForm extends Form {
 			$templateMgr->assign('userGroupIds', $userGroupIds);
 		}
 
-		parent::display($request);
+		return parent::fetch($request);
 	}
 
 	/**

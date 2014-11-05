@@ -166,8 +166,15 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->logIn($username, $password);
 		$this->waitForElementPresent('xpath=(//a[contains(text(),\'Submissions\')])[2]');
 		$this->click('xpath=(//a[contains(text(),\'Submissions\')])[2]');
-		$this->waitForElementPresent('//a[text()=\'' . $this->escapeJS($title) . '\']');
-		$this->click('//a[text()=\'' . $this->escapeJS($title) . '\']');
+		// Use an xpath concat to permit apostrophes to appear in titles
+		// http://kushalm.com/the-perils-of-xpath-expressions-specifically-escaping-quotes
+		$xpath = '//a[text()=concat(\'' . strtr($this->escapeJS($title),
+			array(
+				'\\\'' => '\', "\'", \''
+			)
+		) . '\',\'\')]';
+		$this->waitForElementPresent($xpath);
+		$this->click($xpath);
 	}
 
 	/**
@@ -230,8 +237,15 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->logIn($username, $password);
 		$this->waitForElementPresent('//div[@id=\'dashboardTabs\']//a[text()=\'Submissions\']');
 		$this->click('//div[@id=\'dashboardTabs\']//a[text()=\'Submissions\']');
-		$this->waitForElementPresent('//a[contains(text(),\'' . $this->escapeJS($title) . '\')]');
-		$this->click('//a[contains(text(),\'' . $this->escapeJS($title) . '\')]');
+		// Use an xpath concat to permit apostrophes to appear in titles
+		// http://kushalm.com/the-perils-of-xpath-expressions-specifically-escaping-quotes
+		$xpath = '//a[contains(text(), concat(\'' . strtr($this->escapeJS($title),
+			array(
+				'\\\'' => '\', "\'", \''
+			)
+		) . '\',\'\'))]';
+		$this->waitForElementPresent($xpath);
+		$this->click($xpath);
 
 		$this->waitForElementPresent('//span[text()=\'Accept Review, Continue to Step #2\']/..');
 		$this->click('//span[text()=\'Accept Review, Continue to Step #2\']/..');

@@ -141,7 +141,7 @@ class MemcacheCache extends GenericCache {
 	 * resulting in more subsequent calls to this function,
 	 * resulting in more flushes, etc.
 	 */
-	function setEntireCache(&$contents) {
+	function setEntireCache($contents) {
 		foreach ($contents as $id => $value) {
 			$this->setCache($id, $value);
 		}

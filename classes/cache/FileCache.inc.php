@@ -41,7 +41,7 @@ class FileCache extends GenericCache {
 		$this->filename = $path . DIRECTORY_SEPARATOR . "fc-$context-" . str_replace('/', '.', $cacheId) . '.php';
 
 		// Load the cache data if it exists.
-		if (($fp = fopen($this->filename, 'r')) !== false) {
+		if (($fp = @fopen($this->filename, 'r')) !== false) {
 			flock($fp, LOCK_SH);
 			$this->cache = include($this->filename);
 			flock($fp, LOCK_UN);

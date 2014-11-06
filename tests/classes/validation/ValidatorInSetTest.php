@@ -26,7 +26,7 @@ class ValidatorInSetTest extends PKPTestCase {
 		$validator = new ValidatorInSet(array(0, 1, 'a', 'B'));
 		self::assertTrue($validator->isValid(0)); // Valid for logically false variable
 		self::assertTrue($validator->isValid(1)); // Valid
-		self::assertTrue($validator->isValid('b')); // Case insensitive
+		self::assertFalse($validator->isValid('b')); // Loose in_array() checking
 		$validator = new ValidatorInSet(array());
 		self::assertFalse($validator->isValid(1)); // Any value in empty set
 	}

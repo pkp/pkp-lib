@@ -20,6 +20,7 @@ import('lib.pkp.classes.validation.ValidatorORCID');
 class ValidatorORCIDTest extends PKPTestCase {
 	/**
 	 * @covers ValidatorORCID
+	 * @covers ValidatorISNI
 	 * @covers ValidatorRegExp
 	 * @covers Validator
 	 */

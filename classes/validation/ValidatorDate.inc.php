@@ -11,7 +11,7 @@
  * @ingroup validation
  * @see Validator
  *
- * @brief Validation check for email addresses.
+ * @brief Validation check for dates.  Accepts truncated dates, such as year, or year and month.
  */
 
 import('lib.pkp.classes.validation.ValidatorRegExp');

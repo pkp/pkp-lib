@@ -43,7 +43,9 @@ class FormValidatorInSet extends FormValidator {
 	 * @return boolean
 	 */
 	function isValid() {
-		return $this->isEmptyAndOptional() || in_array($this->getFieldValue(), $this->_acceptedValues);
+		import('lib.pkp.classes.validation.ValidatorInSet');
+		$validator = new ValidatorInSet($this->_acceptedValues);
+		return $this->isEmptyAndOptional() || $validator->isValid($this->getFieldValue());
 	}
 }
 

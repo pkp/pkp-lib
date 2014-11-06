@@ -342,6 +342,52 @@ class SubmissionDAO extends DAO {
 	}
 
 	/**
+	 * Get all assigned submissions for a user id.
+	 * @param $userId int User id to get submissions for
+	 * @param $rangeInfo DBResultRange optional
+	 * @return DAOResultFactory containing matching Submissions
+	 */
+	function getAssigned($userId, $rangeInfo = null) {
+		$params = $this->_getFetchParameters();
+		for ($i = 0; $i < 3; $i++) { $params[] = (int) $userId; }
+
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$authorUserGroupIds = $userGroupDao->getUserGroupIdsByRoleId(ROLE_ID_AUTHOR);
+
+		$result = $this->retrieve(
+			'SELECT s.*,
+				' . $this->_getFetchColumns() . '
+			FROM submissions s
+			LEFT JOIN review_assignments ra ON (s.submission_id = ra.submission_id)
+			LEFT JOIN stage_assignments sa ON (s.submission_id = sa.submission_id)
+			LEFT JOIN signoffs so ON (s.submission_id = so.assoc_id)
+				' . $this->_getFetchJoins() . '
+			WHERE
+				(
+					(
+						ra.reviewer_id = ?
+						AND ra.date_notified IS NOT NULL
+						AND ra.date_completed IS NULL
+						AND ra.declined <> 1
+						AND (ra.cancelled = 0 OR ra.cancelled IS NULL)
+					)
+					OR (sa.user_id = ?)
+					OR (
+						so.user_id = ?
+						AND so.assoc_type = ' . ASSOC_TYPE_SUBMISSION . '
+						AND so.user_group_id NOT IN (' . join(',', array_map(array($this,'_arrayWalkIntCast'), $authorUserGroupIds)) . ')
+					)
+				)
+				AND s.status <> ' . STATUS_DECLINED . ' ' .
+			'GROUP BY s.submission_id',
+			$params,
+			$rangeInfo
+		);
+
+		return new DAOResultFactory($result, $this, '_fromRow');
+	}
+
+	/**
 	 * Get all submissions for a context.
 	 * @param $contextId int
 	 * @return DAOResultFactory containing matching Submissions

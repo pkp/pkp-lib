@@ -96,50 +96,6 @@ class NotificationHandler extends Handler {
 	}
 
 	/**
-	 * View and modify notification settings
-	 * @param $args array
-	 * @param $request Request
-	 */
-	function settings($args, $request) {
-		$this->validate();
-		$this->setupTemplate($request);
-
-
-		$user = $request->getUser();
-		if(isset($user)) {
-			import('classes.notification.form.NotificationSettingsForm');
-			$notificationSettingsForm = new NotificationSettingsForm();
-			$notificationSettingsForm->display($request);
-		} else {
-			$router = $request->getRouter();
-			$request->redirectUrl($router->url($request, null, 'notification'));
-		}
-	}
-
-	/**
-	 * Save user notification settings
-	 * @param $args array
-	 * @param $request Request
-	 */
-	function saveSettings($args, $request) {
-		$this->validate();
-		$this->setupTemplate($request, true);
-
-		import('classes.notification.form.NotificationSettingsForm');
-
-		$notificationSettingsForm = new NotificationSettingsForm();
-		$notificationSettingsForm->readInputData();
-
-		if ($notificationSettingsForm->validate()) {
-			$notificationSettingsForm->execute($request);
-			$router = $request->getRouter();
-			$request->redirectUrl($router->url($request, null, 'notification', 'settings'));
-		} else {
-			$notificationSettingsForm->display($request);
-		}
-	}
-
-	/**
 	 * Fetch the existing or create a new URL for the user's RSS feed
 	 * @param $args array
 	 * @param $request Request

@@ -19,6 +19,7 @@ require_once(dirname(dirname(__FILE__)) . '/classes/cliTool/CliTool.inc.php');
 
 class MergeCoverageReportTool extends CommandLineTool {
 	var $target = '';
+	var $script = '';
 	var $coverageFiles = array();
 	var $phpUnit = '';
 
@@ -32,7 +33,7 @@ class MergeCoverageReportTool extends CommandLineTool {
 
 		// Show the usage screen if explicitly requested or wrong
 		// number of command line arguments.
-		$wrongArgCount = (count($this->argv) <= 2 ? true : false);
+		$wrongArgCount = (count($this->argv) < 2 ? true : false);
 		if ($wrongArgCount || $argv[0] == '-h') {
 			$this->usage();
 			if ($wrongArgCount) {
@@ -43,12 +44,8 @@ class MergeCoverageReportTool extends CommandLineTool {
 			}
 		}
 
-		// Change the working directory
-		if (realpath(array_shift($argv))) {
-			chdir(dirname(realpath(array_shift($argv))));
-		}
-
 		// Parse the command line arguments
+		$this->script = array_shift($argv);
 		$this->target = array_shift($argv);
 		if (!is_dir($this->target)) {
 			echo "Target directory $this->target dosn't exist" . PHP_EOL;

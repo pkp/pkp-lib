@@ -291,6 +291,7 @@ class FileManager {
 	 */
 	function deleteFile($filePath) {
 		if ($this->fileExists($filePath)) {
+			HookRegistry::call('FileManager::deleteFile', array($filePath));
 			return unlink($filePath);
 		} else {
 			return false;
@@ -408,7 +409,7 @@ class FileManager {
 				return DOCUMENT_TYPE_ZIP;
 			case 'application/epub':
 			case 'application/epub+zip':
-				return DOCUMENT_TYPE_EPUB;	
+				return DOCUMENT_TYPE_EPUB;
 			default:
 				return DOCUMENT_TYPE_DEFAULT;
 		}

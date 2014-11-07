@@ -275,6 +275,9 @@ class PKPTemplateManager extends Smarty {
 		ksort($this->styleSheets);
 		$this->assign('stylesheets', $this->styleSheets);
 
+		if ($display == false) {
+			HookRegistry::call('TemplateManager::fetch', array($this,$resource_name));
+		}
 		return parent::fetch($resource_name, $cache_id, $compile_id, $display);
 	}
 

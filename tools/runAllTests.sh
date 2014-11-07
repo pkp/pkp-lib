@@ -162,41 +162,32 @@ while getopts "bCPcpfdH" opt; do
 	esac
 done
 
-REPORTS=''
 REPORT_SWITCH=''
 REPORT_TMP="$TESTS_DIR/results/coverage-tmp"
 if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_APP_DATA" -eq 1 \) ]; then
 	if [ \( "$DO_COVERAGE" -eq 1 \) ]; then
-		REPORT="$REPORT_TMP/coverage-APP_DATA.php"
-		REPORTS="$REPORTS $REPORT"
-		REPORT_SWITCH="--coverage-php $REPORT"
+		REPORT_SWITCH="--coverage-php $REPORT_TMP/coverage-APP_DATA.php"
 	fi
 	phpunit $DEBUG $TEST_CONF1 --debug -v --stop-on-failure --stop-on-skipped $REPORT_SWITCH tests/data
 fi
 
 if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_PKP_CLASSES" -eq 1 \) ]; then
 	if [ \( "$DO_COVERAGE" -eq 1 \) ]; then
-		REPORT="$REPORT_TMP/coverage-PKP_CLASSES.php"
-		REPORTS="$REPORTS $REPORT"
-		REPORT_SWITCH="--coverage-php $REPORT"
+		REPORT_SWITCH="--coverage-php $REPORT_TMP/coverage-PKP_CLASSES.php"
 	fi
 	phpunit $DEBUG $TEST_CONF1 $REPORT_SWITCH lib/pkp/tests/classes
 fi
 
 if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_PKP_PLUGINS" -eq 1 \) ]; then
 	if [ \( "$DO_COVERAGE" -eq 1 \) ]; then
-		REPORT="$REPORT_TMP/coverage-PKP_PLUGINS.php"
-		REPORTS="$REPORTS $REPORT"
-		REPORT_SWITCH="--coverage-php $REPORT"
+		REPORT_SWITCH="--coverage-php $REPORT_TMP/coverage-PKP_PLUGINS.php"
 	fi
 	phpunit $DEBUG $TEST_CONF2 $REPORT_SWITCH lib/pkp/plugins
 fi
 
 if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_APP_CLASSES" -eq 1 \) ]; then
 	if [ \( "$DO_COVERAGE" -eq 1 \) ]; then
-		REPORT="$REPORT_TMP/coverage-APP_CLASSES.php"
-		REPORTS="$REPORTS $REPORT"
-		REPORT_SWITCH="--coverage-php $REPORT"
+		REPORT_SWITCH="--coverage-php $REPORT_TMP/coverage-APP_CLASSES.php"
 	fi
 	phpunit $DEBUG $TEST_CONF1 $REPORT_SWITCH tests/classes
 fi
@@ -206,9 +197,7 @@ if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_APP_PLUGINS" -eq 1 \) ]; then
 	phpunit $DEBUG $TEST_CONF2 plugins
 =======
 	if [ \( "$DO_COVERAGE" -eq 1 \) ]; then
-		REPORT="$REPORT_TMP/coverage-APP_PLUGINS.php"
-		REPORTS="$REPORTS $REPORT"
-		REPORT_SWITCH="--coverage-php $REPORT"
+		REPORT_SWITCH="--coverage-php $REPORT_TMP/coverage-APP_PLUGINS.php"
 	fi
 	phpunit $DEBUG $TEST_CONF2 $REPORT_SWITCH tests/plugins
 >>>>>>> *8876* Implemented coverage reports
@@ -216,13 +205,7 @@ fi
 
 if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_APP_FUNCTIONAL" -eq 1 \) ]; then
 	if [ \( "$DO_COVERAGE" -eq 1 \) ]; then
-		REPORT="$REPORT_TMP/coverage-APP_FUNCTIONAL.php"
-		REPORTS="$REPORTS $REPORT"
-		REPORT_SWITCH="--coverage-php $REPORT"
+		REPORT_SWITCH="--coverage-php $REPORT_TMP/coverage-APP_FUNCTIONAL.php"
 	fi
 	phpunit $DEBUG $TEST_CONF1 $REPORT_SWITCH tests/functional
-fi
-
-if [ \( "$DO_COVERAGE" -eq 1 \) -a \( -n "$REPORTS" \) ]; then
-	php $TESTS_DIR/mergeCoverageReportTool.php $TESTS_DIR/results/coverage-html $REPORTS
 fi

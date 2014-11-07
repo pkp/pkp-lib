@@ -46,7 +46,11 @@ sed -i -e "s/enable_cdn = On/enable_cdn = Off/" config.inc.php # Disable CDN use
 mkdir ${FILESDIR}
 
 # Run data build suite
-./lib/pkp/tools/runAllTests.sh -b
+if [[ "$TEST" == "mysql" ]]; then
+	./lib/pkp/tools/runAllTests.sh -bH
+else
+	./lib/pkp/tools/runAllTests.sh -b
+fi
 
 # Dump the completed database.
 if [[ "$TEST" == "pgsql" ]]; then
@@ -57,4 +61,8 @@ fi
 
 # Run test suite.
 sudo rm -f cache/*.php
-./lib/pkp/tools/runAllTests.sh -CcPpf
+if [[ "$TEST" == "mysql" ]]; then
+	./lib/pkp/tools/runAllTests.sh -CcPpfH
+else
+	./lib/pkp/tools/runAllTests.sh -CcPpf
+fi

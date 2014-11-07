@@ -28,6 +28,7 @@ class ScheduledTaskHelper {
 
 	/**
 	 * Constructor.
+	 * Ovewrites both parameters if one is not passed. 
 	 * @param $email string (optional)
 	 * @param $contactName string (optional)
 	 */
@@ -162,7 +163,7 @@ class ScheduledTaskHelper {
 	 * @param $subject string
 	 * @return boolean
 	 */
-	function _sendEmail($message, $subject) {
+	private function _sendEmail($message, $subject) {
 		$mail = $this->getMail();
 		$mail->addRecipient($this->_contactEmail, $this->_contactName);
 		$mail->setSubject($subject);
@@ -180,7 +181,7 @@ class ScheduledTaskHelper {
 	 * @param $cutoffTimestamp int value will be considered valid if older than this
 	 * @return boolean
 	 */
-	function _isInRange($rangeStr, $currentValue, $lastTimestamp, $timeCompareStr, $cutoffTimestamp) {
+	private function _isInRange($rangeStr, $currentValue, $lastTimestamp, $timeCompareStr, $cutoffTimestamp) {
 		$isValid = false;
 		$rangeArray = explode(',', $rangeStr);
 
@@ -231,7 +232,7 @@ class ScheduledTaskHelper {
 	 * @param $max int
 	 * @return boolean
 	 */
-	function _isInNumericRange($value, $min, $max) {
+	private function _isInNumericRange($value, $min, $max) {
 		return ($value >= $min && $value <= $max);
 	}
 

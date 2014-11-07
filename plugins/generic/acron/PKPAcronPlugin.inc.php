@@ -40,7 +40,7 @@ class PKPAcronPlugin extends GenericPlugin {
 			$this->addLocaleData();
 			HookRegistry::register('LoadHandler',array(&$this, 'callbackLoadHandler'));
 			// Need to reload cron tab on possible enable or disable generic plugin actions.
-			HookRegistry::register('PluginGridHandler::plugin',array(&$this, 'callbackManage'));
+			HookRegistry::register('PluginGridHandler::plugin', array(&$this, 'callbackManage'));
 		}
 		return $success;
 	}
@@ -190,7 +190,7 @@ class PKPAcronPlugin extends GenericPlugin {
 
 		if (!isset($hooks[$hookName])) return false;
 	
-		foreach($hooks[$hookName] as $index => $callback) {
+		foreach ($hooks[$hookName] as $callback) {
 			if ($callback[0] == $plugin) {
 				$this->_parseCrontab();
 				break;

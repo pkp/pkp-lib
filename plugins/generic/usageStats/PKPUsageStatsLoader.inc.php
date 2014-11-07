@@ -135,7 +135,7 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 	/**
 	* @copydoc FileLoader::executeActions()
 	*/
-	function executeActions() {
+	protected function executeActions() {
 		$plugin = $this->_plugin;
 		if (!$plugin->getEnabled()) {
 			$this->addExecutionLogEntry(__('plugins.generic.usageStats.pluginNotEnabled'), SCHEDULED_TASK_MESSAGE_TYPE_WARNING);
@@ -458,6 +458,7 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 	 * @see UsageStatsLoader::getExpectedPageAndOp()
 	 */
 	private function _getUrlMatches($url, $filePath, $lineNumber) {
+		$noMatchesReturner = array(null, null, null, null, null);
 		// Check the passed url.
 		$expectedPageAndOp = $this->getExpectedPageAndOp();
 
@@ -476,7 +477,7 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 			// Could not remove the base url, can't go on.
 			$this->addExecutionLogEntry( __('plugins.generic.usageStats.removeUrlError',
 				array('file' => $filePath, 'lineNumber' => $lineNumber)), SCHEDULED_TASK_MESSAGE_TYPE_WARNING);
-			return array(null, null, null, null);
+			return $noMatchesReturner;
 		}
 
 		// See bug #8698#.
@@ -484,7 +485,7 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 			$page = 'index';
 		}
 	
-		if (empty($contextPaths) || !$page || !$operation) return array(null, null, null, null);
+		if (empty($contextPaths) || !$page || !$operation) return $noMatchesReturner;
 
 		$pageAndOperation = $page . '/' . $operation;
 
@@ -503,7 +504,7 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 		if ($pageAndOpMatch) {
 			return array($workingAssocType, $contextPaths, $page, $operation, $args);
 		} else {
-			return array(null, null, null, null, null);
+			return $noMatchesReturner;
 		}
 	}
 

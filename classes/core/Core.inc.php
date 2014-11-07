@@ -267,7 +267,7 @@ class Core {
 	 * Also, if true, checks for the context path in
 	 * url and if it's missing, tries to add it.
 	 * @param $url string
-	 * @return mixed string The url without base url,
+	 * @return string|bool The url without base url,
 	 * false if it was not possible to remove it.
 	 */
 	function removeBaseUrl($url) {
@@ -304,7 +304,7 @@ class Core {
 		if ($contextPath) {
 			// We found the contextPath using the base_url
 			// config file settings. Check if the url starts
-			// with the context path, if not, apend it.
+			// with the context path, if not, prepend it.
 			if (strpos($url, '/' . $contextPath) !== 0) {
 				$url = '/' . $contextPath . $url;
 			}
@@ -321,8 +321,7 @@ class Core {
 	 * is set to use base url override, context
 	 * path for the passed url.
 	 * @param $url string
-	 * @return array Base url and context path strings,
-	 * false if not found or not the case.
+	 * @return array With two elements, base url and context path.
 	 */
 	function _getBaseUrlAndPath($url) {
 		$baseUrl = false;
@@ -342,7 +341,7 @@ class Core {
 			$sortedBaseUrls = array_combine($contextBaseUrls, array_map('strlen', $contextBaseUrls));
 			arsort($sortedBaseUrls);
 
-			foreach ($sortedBaseUrls as $workingBaseUrl => $baseUrlLength) {
+			foreach (array_keys($sortedBaseUrls) as $workingBaseUrl) {
 				$urlHost = parse_url($url, PHP_URL_HOST);
 				if (is_null($urlHost)) {
 					// Check the base url without the host part.

@@ -25,9 +25,6 @@ define('FILE_LOADER_PATH_ARCHIVE', 'archive');
 
 abstract class FileLoader extends ScheduledTask {
 
-	/** @var string This process id. */
-	private $_processId = null;
-
 	/** @var string The current claimed filename that the script is working on. */
 	private $_claimedFilename;
 
@@ -65,7 +62,6 @@ abstract class FileLoader extends ScheduledTask {
 		// Set an initial process id and load translations (required
 		// for email notifications).
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_ADMIN);
-		$this->_newProcessId();
 
 		// Canonicalize the base path.
 		$basePath = rtrim($args[0], DIRECTORY_SEPARATOR);
@@ -138,10 +134,7 @@ abstract class FileLoader extends ScheduledTask {
 	/**
 	 * @copydoc ScheduledTask::executeActions()
 	 */
-	public function executeActions() {
-		// Create a new process id to identify individual execution instances.
-		$this->_newProcessId();
-
+	protected function executeActions() {
 		if (!$this->checkFolderStructure()) return false;
 
 		$foundErrors = false;
@@ -243,13 +236,6 @@ abstract class FileLoader extends ScheduledTask {
 	// Private helper methods.
 	//
 	/**
-	 * Set a new process id.
-	 */
-	private function _newProcessId() {
-		$this->_processId = uniqid();
-	}
-
-	/**
 	 * Claim the first file that's inside the staging folder.
 	 * @return mixed The claimed file path or false if
 	 * the claim was not successful.
@@ -332,7 +318,7 @@ abstract class FileLoader extends ScheduledTask {
 		$mail->addRecipient($this->_adminEmail, $this->_adminName);
 
 		// The message
-		$mail->setSubject(__('admin.fileLoader.emailSubject', array('processId' => $this->_processId)) .
+		$mail->setSubject(__('admin.fileLoader.emailSubject', array('processId' => $this->getProcessId())) .
 			' - ' . __($messageType));
 		$mail->setBody($message);
 

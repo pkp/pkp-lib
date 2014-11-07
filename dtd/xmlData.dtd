@@ -1,11 +1,16 @@
 <!--
-  * dtd/xmldata.dtd
+  * dtd/xmlData.dtd
   *
-  * DTD for database data files.
-  * Describes data to be inserted into a database.
+  * Copyright (c) 2014 Simon Fraser University Library
+  * Copyright (c) 2014 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * DTD describing database data and/or operations.
   -->
 
 <!ELEMENT data (table?, sql?)*>
+
+<!-- Table data -->
 <!ELEMENT table (field_default*, row*)+>
 	<!ATTLIST table
 		name CDATA #REQUIRED>
@@ -18,10 +23,14 @@
 	<!ATTLIST field
 		name CDATA #REQUIRED
 		null (0|1) #IMPLIED>
+
+<!-- Raw SQL -->
 <!ELEMENT sql (query|drop|rename)*>
 <!ELEMENT query (#PCDATA)>
 	<!ATTLIST query
 		driver CDATA #IMPLIED>
+
+<!-- Schema operations -->
 <!ELEMENT drop EMPTY>
 	<!ATTLIST drop
 		table CDATA #REQUIRED

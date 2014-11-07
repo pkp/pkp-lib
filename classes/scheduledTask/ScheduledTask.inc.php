@@ -17,19 +17,19 @@
 
 import('lib.pkp.classes.scheduledTask.ScheduledTaskHelper');
 
-class ScheduledTask {
+abstract class ScheduledTask {
 
 	/** @var array task arguments */
-	var $_args;
+	private $_args;
 
 	/** @var string? This process id. */
-	var $_processId = null;
+	private $_processId = null;
 
 	/** @var array Messages log about the execution process */
-	var $_executionLog;
+	private $_executionLog;
 
 	/** @var ScheduledTaskHelper */
-	var $_helper;
+	private $_helper;
 
 
 	/**
@@ -84,11 +84,12 @@ class ScheduledTask {
 		$log = $this->_executionLog;
 
 		if (!$message) return;
+		$date = '[' . Core::getCurrentDate() . '] ';
 
 		if ($type) {
-			$log[] = '[' . Core::getCurrentDate() . '] ' . '[' . __($type) . '] ' . $message;
+			$log[] = $date . '[' . __($type) . '] ' . $message;
 		} else {
-			$log[] = $message;
+			$log[] = $date . $message;
 		}
 
 		$this->_executionLog = $log;
@@ -101,10 +102,7 @@ class ScheduledTask {
 	/**
 	 * Implement this method to execute the task actions.
 	 */
-	function executeActions() {
-		// In case task does not implement it.
-		fatalError("ScheduledTask does not implement executeActions()!\n");
-	}
+	abstract protected function executeActions();
 
 
 	//
@@ -142,7 +140,7 @@ class ScheduledTask {
 	 * Get the execution log as string.
 	 * @return string
 	 */
-	function _getLogMessage() {
+	private function _getLogMessage() {
 		$log = $this->_executionLog;
 		$logString = implode(PHP_EOL . PHP_EOL, $log);
 

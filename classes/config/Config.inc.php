@@ -98,8 +98,8 @@ class Config {
 			$contextBaseUrls = array();
 			$configData = Config::getData();
 			// Filter the settings.
+			$matches = null;
 			foreach ($configData['general'] as $settingName => $settingValue) {
-				$matches = null;
 				if (preg_match('/base_url\[(.*)\]/', $settingName, $matches)) {
 					$workingContextPath = $matches[1];
 					$contextBaseUrls[$workingContextPath] = $settingValue;

@@ -37,6 +37,8 @@
 	 *  }} options options to configure the form handler.
 	 */
 	$.pkp.controllers.form.FormHandler = function($form, options) {
+		var key;
+
 		this.parent($form, options);
 
 		// Check whether we really got a form.
@@ -77,6 +79,10 @@
 		if (options.enableDisablePairs) {
 			this.enableDisablePairs_ = options.enableDisablePairs;
 			this.setupEnableDisablePairs();
+		}
+		// Update enable disable pairs state.
+		for (key in this.enableDisablePairs_) {
+			$form.find("[id^='" + key + "']").trigger('updatePair');
 		}
 
 		// Set data for suggesting usernames.  Both keys should be present.
@@ -387,7 +393,7 @@
 		var formElement = this.getHtmlElement(), key;
 		for (key in this.enableDisablePairs_) {
 			$(formElement).find("[id^='" + key + "']").bind(
-					'click', this.callbackWrapper(this.toggleDependentElement_));
+					'click updatePair', this.callbackWrapper(this.toggleDependentElement_));
 		}
 		return true;
 	};

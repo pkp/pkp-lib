@@ -333,6 +333,11 @@ class Core {
 		if (empty($contextBaseUrls)) {
 			$baseUrl = Config::getVar('general', 'base_url');
 		} else {
+			// We are just interested in context base urls, remove the index one.
+			if (isset($contextBaseUrls['index'])) {
+				unset($contextBaseUrls['index']);
+			} 
+
 			// Arrange them in length order, so we make sure
 			// we get the correct one, in case there's an overlaping
 			// of contexts, eg.:

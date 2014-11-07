@@ -42,7 +42,7 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 		// Retrieve and check configuration.
 		self::$baseUrl = getenv('BASEURL');
 		self::$timeout = (int) getenv('TIMEOUT');
-		if (!self::$timeout) self::$timeout = 30; // Default 30 seconds
+		if (!self::$timeout) self::$timeout = 60; // Default 60 seconds
 		parent::setUpBeforeClass();
 	}
 

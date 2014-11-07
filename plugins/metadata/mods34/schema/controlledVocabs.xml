@@ -1,319 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE data SYSTEM "../../../../dtd/xmlData.dtd">
+<!DOCTYPE controlled_vocabs SYSTEM "../../../../dtd/controlledVocab.dtd">
 
 <!--
-  * controlled_vocabs.xml
+  * controlledVocabs.xml
   *
   * Copyright (c) 2014 Simon Fraser University Library
   * Copyright (c) 2003-2014 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Definition of controlled vocabularies for the MODS meta-data schema.
+  * Definition of controlled vocabularies
   -->
-<data>
-	<table name="controlled_vocabs">
-		<field_default name="assoc_type">0</field_default>
-		<field_default name="assoc_id">0</field_default>
-		<row>
-			<field name="controlled_vocab_id">100</field>
-			<field name="symbolic">mods34-name-types</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_id">101</field>
-			<field name="symbolic">mods34-name-role-roleTerms-marcrelator</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_id">102</field>
-			<field name="symbolic">mods34-typeOfResource</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_id">103</field>
-			<field name="symbolic">mods34-genre-marcgt</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_id">104</field>
-			<field name="symbolic">mods34-physicalDescription-form-marcform</field>
-		</row>
-	</table>
-	<table name="controlled_vocab_entries">
-		<!-- MODS name types -->
-		<field_default name="controlled_vocab_id">100</field_default>
-		<row>
-			<field name="controlled_vocab_entry_id">100</field>
-			<field name="seq">1</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">101</field>
-			<field name="seq">2</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">102</field>
-			<field name="seq">3</field>
-		</row>
-
-		<!-- MODS marcrelator role types -->
-		<field_default name="controlled_vocab_id">101</field_default>
-		<row>
-			<field name="controlled_vocab_entry_id">110</field>
-			<field name="seq">1</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">111</field>
-			<field name="seq">2</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">112</field>
-			<field name="seq">3</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">113</field>
-			<field name="seq">4</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">114</field>
-			<field name="seq">5</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">115</field>
-			<field name="seq">6</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">116</field>
-			<field name="seq">7</field>
-		</row>
-
-		<!-- MODS types of resources -->
-		<field_default name="controlled_vocab_id">102</field_default>
-		<row>
-			<field name="controlled_vocab_entry_id">120</field>
-			<field name="seq">1</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">121</field>
-			<field name="seq">2</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">122</field>
-			<field name="seq">3</field>
-		</row>
-
-		<!-- MODS marc genre types -->
-		<field_default name="controlled_vocab_id">103</field_default>
-		<row>
-			<field name="controlled_vocab_entry_id">130</field>
-			<field name="seq">1</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">131</field>
-			<field name="seq">2</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">132</field>
-			<field name="seq">3</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">133</field>
-			<field name="seq">4</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">134</field>
-			<field name="seq">5</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">135</field>
-			<field name="seq">6</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">136</field>
-			<field name="seq">7</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">137</field>
-			<field name="seq">8</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">138</field>
-			<field name="seq">9</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">139</field>
-			<field name="seq">10</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">140</field>
-			<field name="seq">11</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">141</field>
-			<field name="seq">12</field>
-		</row>
-
-		<!-- MODS marc form types -->
-		<field_default name="controlled_vocab_id">104</field_default>
-		<row>
-			<field name="controlled_vocab_entry_id">150</field>
-			<field name="seq">1</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">151</field>
-			<field name="seq">2</field>
-		</row>
-	</table>
-	<table name="controlled_vocab_entry_settings">
-		<!-- MODS name types -->
-		<field_default name="locale" null="0" />
-		<field_default name="setting_name">name</field_default>
-		<field_default name="setting_type">string</field_default>
-		<row>
-			<field name="controlled_vocab_entry_id">100</field>
-			<field name="setting_value">personal</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">101</field>
-			<field name="setting_value">corporate</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">102</field>
-			<field name="setting_value">conference</field>
-		</row>
-
-		<!-- MODS marcrelator role types -->
-		<row>
-			<field name="controlled_vocab_entry_id">110</field>
-			<field name="setting_value">aut</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">110</field>
-			<field name="setting_name">description</field>
-			<field name="setting_value">Author</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">111</field>
-			<field name="setting_value">ctb</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">111</field>
-			<field name="setting_name">description</field>
-			<field name="setting_value">Contributor</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">112</field>
-			<field name="setting_value">edt</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">112</field>
-			<field name="setting_name">description</field>
-			<field name="setting_value">Editor</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">113</field>
-			<field name="setting_value">ill</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">113</field>
-			<field name="setting_name">description</field>
-			<field name="setting_value">Illustrator</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">114</field>
-			<field name="setting_value">pht</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">114</field>
-			<field name="setting_name">description</field>
-			<field name="setting_value">Photographer</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">115</field>
-			<field name="setting_value">spn</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">115</field>
-			<field name="setting_name">description</field>
-			<field name="setting_value">Sponsor</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">116</field>
-			<field name="setting_value">trl</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">116</field>
-			<field name="setting_name">description</field>
-			<field name="setting_value">Translator</field>
-		</row>
-
-		<!-- MODS types of resources -->
-		<row>
-			<field name="controlled_vocab_entry_id">120</field>
-			<field name="setting_value">multimedia</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">121</field>
-			<field name="setting_value">still image</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">122</field>
-			<field name="setting_value">text</field>
-		</row>
-
-		<!-- MODS marc genre types -->
-		<row>
-			<field name="controlled_vocab_entry_id">130</field>
-			<field name="setting_value">article</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">131</field>
-			<field name="setting_value">book</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">132</field>
-			<field name="setting_value">conference publication</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">133</field>
-			<field name="setting_value">issue</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">134</field>
-			<field name="setting_value">journal</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">135</field>
-			<field name="setting_value">newspaper</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">136</field>
-			<field name="setting_value">picture</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">137</field>
-			<field name="setting_value">review</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">138</field>
-			<field name="setting_value">periodical</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">139</field>
-			<field name="setting_value">series</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">140</field>
-			<field name="setting_value">thesis</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">141</field>
-			<field name="setting_value">web site</field>
-		</row>
-
-		<!-- MODS marc form types -->
-		<row>
-			<field name="controlled_vocab_entry_id">150</field>
-			<field name="setting_value">electronic</field>
-		</row>
-		<row>
-			<field name="controlled_vocab_entry_id">151</field>
-			<field name="setting_value">print</field>
-		</row>
-	</table>
-</data>
+<controlled_vocabs>
+	<controlled_vocab symbolic="mods34-name-types">
+		<entry seq="1"><setting name="name" type="string">personal</setting></entry>
+		<entry seq="2"><setting name="name" type="string">corporate</setting></entry>
+		<entry seq="3"><setting name="name" type="string">conference</setting></entry>
+	</controlled_vocab>
+	<controlled_vocab symbolic="mods34-name-role-roleTerms-marcrelator">
+		<entry seq="1">
+			<setting name="name" type="string">aut</setting>
+			<setting name="description" type="string">Author</setting>
+		</entry>
+		<entry seq="2">
+			<setting name="name" type="string">ctb</setting>
+			<setting name="description" type="string">Contributor</setting>
+		</entry>
+		<entry seq="3">
+			<setting name="name" type="string">edt</setting>
+			<setting name="description" type="string">Editor</setting>
+		</entry>
+		<entry seq="4">
+			<setting name="name" type="string">ill</setting>
+			<setting name="description" type="string">Illustrator</setting>
+		</entry>
+		<entry seq="5">
+			<setting name="name" type="string">pht</setting>
+			<setting name="description" type="string">Photographer</setting>
+		</entry>
+		<entry seq="6">
+			<setting name="name" type="string">spn</setting>
+			<setting name="description" type="string">Sponsor</setting>
+		</entry>
+		<entry seq="7">
+			<setting name="name" type="string">trl</setting>
+			<setting name="description" type="string">Translator</setting>
+		</entry>
+	</controlled_vocab>
+	<controlled_vocab symbolic="mods34-typeOfResource">
+		<entry seq="1">
+			<setting name="name" type="string">multimedia</setting>
+		</entry>
+		<entry seq="2">
+			<setting name="name" type="string">still image</setting>
+		</entry>
+		<entry seq="3">
+			<setting name="name" type="string">text</setting>
+		</entry>
+	</controlled_vocab>
+	<controlled_vocab symbolic="mods34-genre-marcgt">
+		<entry seq="1">
+			<setting name="name" type="string">article</setting>
+		</entry>
+		<entry seq="2">
+			<setting name="name" type="string">book</setting>
+		</entry>
+		<entry seq="3">
+			<setting name="name" type="string">conference publication</setting>
+		</entry>
+		<entry seq="4">
+			<setting name="name" type="string">issue</setting>
+		</entry>
+		<entry seq="5">
+			<setting name="name" type="string">journal</setting>
+		</entry>
+		<entry seq="6">
+			<setting name="name" type="string">newspaper</setting>
+		</entry>
+		<entry seq="7">
+			<setting name="name" type="string">picture</setting>
+		</entry>
+		<entry seq="8">
+			<setting name="name" type="string">review</setting>
+		</entry>
+		<entry seq="9">
+			<setting name="name" type="string">periodical</setting>
+		</entry>
+		<entry seq="10">
+			<setting name="name" type="string">series</setting>
+		</entry>
+		<entry seq="11">
+			<setting name="name" type="string">thesis</setting>
+		</entry>
+		<entry seq="12">
+			<setting name="name" type="string">web site</setting>
+		</entry>
+	</controlled_vocab>
+	<controlled_vocab symbolic="mods34-physicalDescription-form-marcform">
+		<entry seq="1">
+			<setting name="name" type="string">electronic</setting>
+		</entry>
+		<entry seq="2">
+			<setting name="name" type="string">print</setting>
+		</entry>
+	</controlled_vocab>
+</controlled_vocabs>

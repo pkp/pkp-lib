@@ -45,7 +45,7 @@ class SettingsDAO extends DAO {
 		$result->Close();
 
 		$cache = $this->_getCache($id);
-		$cache->setEntireCache($settings);
+		if ($cache) $cache->setEntireCache($settings);
 
 		return $settings;
 	}
@@ -57,7 +57,8 @@ class SettingsDAO extends DAO {
 	 */
 	function &getSettings($id) {
 		$cache = $this->_getCache($id);
-		return $cache->getContents();
+		if ($cache) return $cache->getContents();
+		return $this->loadSettings($id);
 	}
 
 	/**
@@ -68,8 +69,13 @@ class SettingsDAO extends DAO {
 	 * @return mixed
 	 */
 	function &getSetting($id, $name, $locale = null) {
-		$cache = $this->_getCache($id);
-		$returner = $cache->get($name);
+		if ($cache = $this->_getCache($id)) {
+			$returner = $cache->get($name);
+		} else {
+			$settings = $this->loadSettings($id);
+			if (isset($settings[$name])) $returner = $settings[$name];
+			else $returner = null;
+		}
 		if ($locale !== null) {
 			if (!isset($returner[$locale]) || !is_array($returner)) {
 				unset($returner);
@@ -197,7 +203,7 @@ class SettingsDAO extends DAO {
 	 */
 	function updateSetting($id, $name, $value, $type = null, $isLocalized = false) {
 		$cache = $this->_getCache($id);
-		$cache->setCache($name, $value);
+		if ($cache) $cache->setCache($name, $value);
 
 		$keyFields = array('setting_name', 'locale', $this->_getPrimaryKeyColumn());
 
@@ -236,7 +242,7 @@ class SettingsDAO extends DAO {
 	 */
 	function deleteSetting($id, $name, $locale = null) {
 		$cache = $this->_getCache($id);
-		$cache->setCache($name, null);
+		if ($cache) $cache->setCache($name, null);
 
 		$params = array($id, $name);
 		$sql = 'DELETE FROM ' . $this->_getTableName() . ' WHERE ' . $this->_getPrimaryKeyColumn() . ' = ? AND setting_name = ?';
@@ -254,7 +260,7 @@ class SettingsDAO extends DAO {
 	 */
 	function deleteById($id) {
 		$cache = $this->_getCache($id);
-		$cache->flush();
+		if ($cache) $cache->flush();
 
 		return $this->update(
 			'DELETE FROM ' . $this->_getTableName() . ' WHERE ' . $this->_getPrimaryKeyColumn() . ' = ?',
@@ -417,9 +423,12 @@ class SettingsDAO extends DAO {
 	/**
 	 * Get the settings cache for a given ID
 	 * @param $id
-	 * @return array
+	 * @return array|null (Null indicates caching disabled)
 	 */
 	function _getCache($id) {
+		$cacheName = $this->_getCacheName();
+		if ($cacheName === null) return null;
+
 		static $settingCache;
 		if (!isset($settingCache)) {
 			$settingCache = array();
@@ -427,7 +436,7 @@ class SettingsDAO extends DAO {
 		if (!isset($settingCache[$id])) {
 			$cacheManager = CacheManager::getManager();
 			$settingCache[$id] = $cacheManager->getCache(
-				$this->_getCacheName(), $id,
+				$cacheName, $id,
 				array($this, '_cacheMiss')
 			);
 		}
@@ -451,9 +460,10 @@ class SettingsDAO extends DAO {
 
 	/**
 	 * Get the cache name.
+	 * @return string|null Null disables caching.
 	 */
 	protected function _getCacheName() {
-		assert(false); // Must be implemented by subclasses
+		return null;
 	}
 }
 

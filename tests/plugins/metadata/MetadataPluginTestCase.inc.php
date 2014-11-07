@@ -52,10 +52,6 @@ class MetadataPluginTestCase extends PluginTestCase {
 			if ($controlledVocab) $controlledVocabDao->deleteObject($controlledVocab);
 		}
 
-		// Reset the plug-in setting indicating that vocabs have already been installed.
-		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /* @var $pluginSettingsDao PluginSettingsDAO */
-		$pluginSettingsDao->updateSetting(0, $pluginName, METADATA_PLUGIN_VOCAB_INSTALLED_SETTING, false);
-
 		// Unregister the plug-in so that we're sure it will be registered again.
 		$plugins =& PluginRegistry::getPlugins();
 		unset($plugins['metadata'][$pluginName]);

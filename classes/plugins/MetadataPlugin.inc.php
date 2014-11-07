@@ -19,10 +19,6 @@ import('lib.pkp.classes.plugins.Plugin');
 // Define the well-known file name for controlled vocabulary data.
 define('METADATA_PLUGIN_VOCAB_DATAFILE', 'controlledVocabs.xml');
 
-// Define the sitewide plug-in setting that saves the state of the
-// controlled vocabulary data.
-define('METADATA_PLUGIN_VOCAB_INSTALLED_SETTING', 'metadataPluginControlledVocabInstalled');
-
 abstract class MetadataPlugin extends Plugin {
 	/**
 	 * Constructor
@@ -50,11 +46,7 @@ abstract class MetadataPlugin extends Plugin {
 	 * @see Plugin::getInstallDataFile()
 	 * @return array|null
 	 */
-	function getInstallDataFile() {
-		// Check whether the vocabulary has already
-		// been installed.
-		if($this->getSetting(0, METADATA_PLUGIN_VOCAB_INSTALLED_SETTING)) return null;
-
+	function getInstallControlledVocabFiles() {
 		// Search the well-known locations for vocabulary data files. If
 		// one is found then return it.
 		$pluginPath = $this->getPluginPath();
@@ -63,33 +55,11 @@ abstract class MetadataPlugin extends Plugin {
 			'./lib/pkp/'.$pluginPath.'/schema/'.METADATA_PLUGIN_VOCAB_DATAFILE
 		);
 
-		$dataFiles = array();
+		$controlledVocabFiles = parent::getInstallControlledVocabFiles();
 		foreach ($wellKnownVocabLocations as $wellKnownVocabLocation) {
-			if (file_exists($wellKnownVocabLocation)) $dataFiles[] = $wellKnownVocabLocation;
+			if (file_exists($wellKnownVocabLocation)) $controlledVocabFiles[] = $wellKnownVocabLocation;
 		}
-
-		if(empty($dataFiles)) {
-			return null;
-		} else {
-			return $dataFiles;
-		}
-	}
-
-	/**
-	 * This implementation marks the vocabulary data as installed.
-	 * @see Plugin::installData()
-	 */
-	function installData($hookName, $args) {
-		parent::installData($hookName, $args);
-		$success =& $args[1];
-
-		if ($success) {
-			// Mark the controlled vocab as installed.
-			$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /* @var $pluginSettingsDao PluginSettingsDAO */
-			$success = $pluginSettingsDao->updateSetting(0, $this->getName(), METADATA_PLUGIN_VOCAB_INSTALLED_SETTING, true, 'bool');
-		}
-
-		return false;
+		return $controlledVocabFiles;
 	}
 }
 

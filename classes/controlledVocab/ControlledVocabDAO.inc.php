@@ -257,7 +257,7 @@ class ControlledVocabDAO extends DAO {
 	 * @param $filename string Filename (including path) of XML file to install.
 	 * @return array Array of parsed controlled vocabularies
 	 */
-	function parseXML($filename) {
+	function installXML($filename) {
 		$controlledVocabs = array();
 		$controlledVocabEntryDao = $this->getEntryDAO();
 		$controlledVocabEntrySettingsDao = $controlledVocabEntryDao->getSettingsDAO();

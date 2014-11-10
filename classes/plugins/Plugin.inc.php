@@ -90,6 +90,9 @@ class Plugin {
 		if ($this->getInstallSitePluginSettingsFile()) {
 			HookRegistry::register ('Installer::postInstall', array($this, 'installSiteSettings'));
 		}
+		if ($this->getInstallControlledVocabFiles()) {
+			HookRegistry::register ('Installer::postInstall', array($this, 'installControlledVocabs'));
+		}
 		if ($this->getInstallEmailTemplatesFile()) {
 			HookRegistry::register ('Installer::postInstall', array($this, 'installEmailTemplates'));
 		}
@@ -241,6 +244,15 @@ class Plugin {
 	 */
 	function getInstallSitePluginSettingsFile() {
 		return null;
+	}
+
+	/**
+	 * Get the filename of the controlled vocabulary for this plugin to
+	 * install when the system is installed. Null if none included.
+	 * @return array|null Filename of controlled vocabs XML file.
+	 */
+	function getInstallControlledVocabFiles() {
+		return array();
 	}
 
 	/**
@@ -536,6 +548,21 @@ class Plugin {
 		return false;
 	}
 
+	/**
+	 * Callback used to install controlled vocabularies on system install.
+	 *
+	 * @param $hookName string
+	 * @param $args array
+	 * @return boolean
+	 */
+	function installControlledVocabs($hookName, $args) {
+		// All contexts are set to zero for site-wide plug-in settings
+		$controlledVocabDao = DAORegistry::getDAO('ControlledVocabDAO');
+		foreach ($this->getInstallControlledVocabFiles() as $file) {
+			$controlledVocabDao->parseXML($file);
+		}
+		return false;
+	}
 	/**
 	 * Callback used to install settings on new context
 	 * (e.g. journal, conference or press) creation.

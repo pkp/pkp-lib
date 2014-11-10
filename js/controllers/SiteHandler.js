@@ -632,6 +632,7 @@
 		}
 	};
 
+
 	/**
 	 * Fixes modal stacking overlay issue where stacked modal overlays don't
 	 * get layered directly below the modal
@@ -646,9 +647,9 @@
 	$.pkp.controllers.SiteHandler.prototype.stackModal_ =
 			function(siteHandlerElement, sourceElement, event, handledElement) {
 		var $dialogElement = $(handledElement).parent(),
-			$dialogElementOverlay = $dialogElement.next('.ui-widget-overlay');
+				$dialogElementOverlay = $dialogElement.next('.ui-widget-overlay');
 
-		$dialogElementOverlay.css('z-index',$dialogElement.css('z-index') - 1);
+		$dialogElementOverlay.css('z-index', $dialogElement.css('z-index') - 1);
 	};
 
 /** @param {jQuery} $ jQuery closure. */

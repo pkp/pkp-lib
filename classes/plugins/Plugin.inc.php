@@ -544,7 +544,6 @@ abstract class Plugin {
 
 	/**
 	 * Callback used to install controlled vocabularies on system install.
-	 *
 	 * @param $hookName string
 	 * @param $args array
 	 * @return boolean
@@ -553,7 +552,7 @@ abstract class Plugin {
 		// All contexts are set to zero for site-wide plug-in settings
 		$controlledVocabDao = DAORegistry::getDAO('ControlledVocabDAO');
 		foreach ($this->getInstallControlledVocabFiles() as $file) {
-			$controlledVocabDao->parseXML($file);
+			$controlledVocabDao->installXML($file);
 		}
 		return false;
 	}

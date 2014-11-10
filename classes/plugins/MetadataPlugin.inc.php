@@ -43,7 +43,7 @@ abstract class MetadataPlugin extends Plugin {
 	/**
 	 * This implementation looks for files that contain controlled
 	 * vocabulary data. It can discover and return more than one file.
-	 * @see Plugin::getInstallDataFile()
+	 * @see Plugin::getInstallControlledVocabFiles()
 	 * @return array|null
 	 */
 	function getInstallControlledVocabFiles() {

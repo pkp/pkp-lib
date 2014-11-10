@@ -19,13 +19,13 @@ import('lib.pkp.tests.DatabaseTestCase');
 class ControlledVocabTest extends DatabaseTestCase {
 	/**
 	 * Test parsing controlled vocab data from an XML descriptor.
-	 * @covers ControlledVocabDAO::parseXML
+	 * @covers ControlledVocabDAO::installXML
 	 */
 	public function testParseXML() {
 		$controlledVocabDao = DAORegistry::getDAO('ControlledVocabDAO');
 
 		// Parse a controlled vocabulary
-		$controlledVocabs = $controlledVocabDao->parseXML(dirname(__FILE__) . '/controlledVocab.xml');
+		$controlledVocabs = $controlledVocabDao->installXML(dirname(__FILE__) . '/controlledVocab.xml');
 		$controlledVocab = array_shift($controlledVocabs);
 		$this->assertEquals($controlledVocabs, array()); // Should just have been one CV
 		$this->assertTrue(is_a($controlledVocab, 'ControlledVocab'));
@@ -39,7 +39,7 @@ class ControlledVocabTest extends DatabaseTestCase {
 		);
 
 		// Re-parse the controlled vocabulary
-		$controlledVocabsReparsed = $controlledVocabDao->parseXML(dirname(__FILE__) . '/controlledVocab.xml');
+		$controlledVocabsReparsed = $controlledVocabDao->installXML(dirname(__FILE__) . '/controlledVocab.xml');
 		$controlledVocabReparsed = array_shift($controlledVocabsReparsed);
 		$this->assertEquals($controlledVocabsReparsed, array()); // Should just have been one CV
 		$this->assertTrue(is_a($controlledVocabReparsed, 'ControlledVocab'));

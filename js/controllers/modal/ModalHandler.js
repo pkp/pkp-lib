@@ -87,7 +87,7 @@
 		// Bind notify user event.
 		this.bind('notifyUser', this.redirectNotifyUserEventHandler_);
 
-		this.trigger('modalOpen', $handledElement);
+		this.trigger('modalOpen', [$handledElement]);
 
 		// Click outside to close.
 		canClose = options.canClose || '1';

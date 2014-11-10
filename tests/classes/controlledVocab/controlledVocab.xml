@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE data SYSTEM "../../../dtd/controlledVocab.dtd">
+
+<!--
+  * tests/classes/db/data-sql.xml
+  *
+  * Copyright (c) 2014 Simon Fraser University Library
+  * Copyright (c) 2003-2014 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * XML data test file.
+  -->
+<controlled_vocabs>
+	<controlled_vocab symbolic="TEST_CV">
+		<entry seq="1" id_setting_name="name">
+			<setting name="name" type="string">name_one</setting>
+		</entry>
+		<entry seq="2" id_setting_name="name">
+			<setting name="name" type="string">name_two</setting>
+		</entry>
+	</controlled_vocab>
+</controlled_vocabs>

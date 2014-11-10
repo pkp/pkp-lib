@@ -25,6 +25,14 @@ class ControlledVocabEntryDAO extends DAO {
 	}
 
 	/**
+	 * Return the entry settings DAO.
+	 * Can be subclassed to provide extended DAOs.
+	 */
+	function getSettingsDAO() {
+		return DAORegistry::getDAO('ControlledVocabEntrySettingsDAO');
+	}
+
+	/**
 	 * Retrieve a controlled vocab entry by controlled vocab entry ID.
 	 * @param $controlledVocabEntryId int
 	 * @param $controlledVocabEntry int optional
@@ -119,7 +127,7 @@ class ControlledVocabEntryDAO extends DAO {
 	 * Update the localized fields for this table
 	 * @param $controlledVocabEntry object
 	 */
-	function updateLocaleFields(&$controlledVocabEntry) {
+	function updateLocaleFields($controlledVocabEntry) {
 		$this->updateDataObjectSettings('controlled_vocab_entry_settings', $controlledVocabEntry, array(
 			'controlled_vocab_entry_id' => $controlledVocabEntry->getId()
 		));
@@ -128,9 +136,9 @@ class ControlledVocabEntryDAO extends DAO {
 	/**
 	 * Insert a new ControlledVocabEntry.
 	 * @param $controlledVocabEntry ControlledVocabEntry
-	 * @return int
+	 * @return int Inserted controlled vocabulary entry ID
 	 */
-	function insertObject(&$controlledVocabEntry) {
+	function insertObject($controlledVocabEntry) {
 		$this->update(
 			sprintf('INSERT INTO controlled_vocab_entries
 				(controlled_vocab_id, seq)
@@ -149,21 +157,19 @@ class ControlledVocabEntryDAO extends DAO {
 	/**
 	 * Delete a controlled vocab entry.
 	 * @param $controlledVocabEntry ControlledVocabEntry
-	 * @return boolean
 	 */
 	function deleteObject($controlledVocabEntry) {
-		return $this->deleteObjectById($controlledVocabEntry->getId());
+		$this->deleteObjectById($controlledVocabEntry->getId());
 	}
 
 	/**
 	 * Delete a controlled vocab entry by controlled vocab entry ID.
 	 * @param $controlledVocabEntryId int
-	 * @return boolean
 	 */
 	function deleteObjectById($controlledVocabEntryId) {
 		$params = array((int) $controlledVocabEntryId);
 		$this->update('DELETE FROM controlled_vocab_entry_settings WHERE controlled_vocab_entry_id = ?', $params);
-		return $this->update('DELETE FROM controlled_vocab_entries WHERE controlled_vocab_entry_id = ?', $params);
+		$this->update('DELETE FROM controlled_vocab_entries WHERE controlled_vocab_entry_id = ?', $params);
 	}
 
 	/**
@@ -187,15 +193,14 @@ class ControlledVocabEntryDAO extends DAO {
 			$rangeInfo
 		);
 
-		$returner = new DAOResultFactory($result, $this, '_fromRow');
-		return $returner;
+		return new DAOResultFactory($result, $this, '_fromRow');
 	}
 
 	/**
 	 * Update an existing review form element.
 	 * @param $controlledVocabEntry ControlledVocabEntry
 	 */
-	function updateObject(&$controlledVocabEntry) {
+	function updateObject($controlledVocabEntry) {
 		$this->update(
 			'UPDATE	controlled_vocab_entries
 			SET	controlled_vocab_id = ?,
@@ -212,6 +217,7 @@ class ControlledVocabEntryDAO extends DAO {
 
 	/**
 	 * Sequentially renumber entries in their sequence order.
+	 * @param $controlledVocabId int Controlled vocabulary ID
 	 */
 	function resequence($controlledVocabId) {
 		$result = $this->retrieve(

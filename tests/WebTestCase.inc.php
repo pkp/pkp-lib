@@ -309,7 +309,7 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	 */
 	protected function typeTinyMCE($controlPrefix, $value) {
 		sleep(2); // Give TinyMCE a chance to load/init
-		$this->runScript("tinyMCE.get($('textarea[id^=\\'" . htmlspecialchars($controlPrefix) . "\\']').attr('id')).setContent('" . htmlspecialchars($value) . "');");
+		$this->runScript("tinyMCE.get($('textarea[id^=\\'" . htmlspecialchars($controlPrefix) . "\\']').attr('id')).setContent('" . htmlspecialchars($value, ENT_QUOTES) . "');");
 	}
 
 	/**

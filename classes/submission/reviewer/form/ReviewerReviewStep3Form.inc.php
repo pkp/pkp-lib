@@ -165,12 +165,24 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 
 			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
 			$stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), $submission->getStageId());
+			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+			$router = $request->getRouter();
+			$context = $router->getContext($request);
+			$receivedList = array(); // Avoid sending twice to the same user. 
 
 			while ($stageAssignment = $stageAssignments->next()) {
+				$userId = $stageAssignment->getUserId();
+				$userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId(), $submission->getContextId());
+				
+				// Never send reviewer comment notification to authors.
+				if ($userGroup->getRoleId() == ROLE_ID_AUTHOR || in_array($userId, $receivedList)) continue;
+
 				$notificationMgr->createNotification(
-					$request, $stageAssignment->getUserId(), NOTIFICATION_TYPE_REVIEWER_COMMENT,
+					$request, $userId, NOTIFICATION_TYPE_REVIEWER_COMMENT,
 					$submission->getContextId(), ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment->getId()
 				);
+
+				$receivedList[] = $userId;
 			}
 		}
 

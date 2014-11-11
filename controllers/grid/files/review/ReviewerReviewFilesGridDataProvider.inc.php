@@ -75,7 +75,7 @@ class ReviewerReviewFilesGridDataProvider extends ReviewGridDataProvider {
 	function getRequestArgs() {
 		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
 		return array_merge(parent::getRequestArgs(), array(
-			'reviewAssignment' => $reviewAssignment->getId()
+			'reviewAssignmentId' => $reviewAssignment->getId()
 		));
 	}
 }

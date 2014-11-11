@@ -31,7 +31,8 @@ to the current files directory, inside the UsageStatsPlugin stage directory. Mus
 This tool will only copy files that aren't already inside the usageStats file\n loader directories (stage, processing, archive, reject).
 
 Usage: {$scriptName} path/to/apache/log/file.log
-Usage (processing all files inside a directory): {$scriptName} path/to/apache/directory 
+Usage (process all files inside a directory): {$scriptName} path/to/apache/directory
+Usage (process all files inside a directory that starts with the passed string): {$scriptName} path/to/apache/directory starts_with_string 
 	</message>
 	<message key="admin.copyAccessLogFileTool.error.creatingFolder">Error: can't create temporary folder {$tmpDir}</message>
 	<message key="admin.copyAccessLogFileTool.error.acessingFile">Error: File {$filePath} don't exists or can't be accessed.</message>
@@ -63,6 +64,12 @@ Usage (processing all files inside a directory): {$scriptName} path/to/apache/di
 	<message key="admin.languages.uninstall">Uninstall Locale</message>
 	<message key="admin.phpInfo">Extended PHP Information</message>
 	<message key="admin.scheduledTask">Scheduled task</message>
+	<message key="admin.scheduledTask.startTime">Task process started.</message>
+	<message key="admin.scheduledTask.stopTime">Task process stopped.</message>
+	<message key="admin.scheduledTask.noLog">Task produced no log.</message>
+	<message key="admin.scheduledTask.openAccessNotification">Open access notification</message>
+	<message key="admin.scheduledTask.reviewReminder">Review reminder</message>
+	<message key="admin.scheduledTask.subscriptionExpiryReminder">Subscription expiry reminder</message>
 	<message key="admin.server.apacheVersion">Apache version</message>
 	<message key="admin.server.dbDriver">Database driver</message>
 	<message key="admin.server.dbVersion">Database server version</message>
@@ -117,6 +124,7 @@ Usage (processing all files inside a directory): {$scriptName} path/to/apache/di
 	<message key="admin.fileLoader.wrongBasePathLocation">Base path {$path} must be inside the public files directory.</message>
 	<message key="admin.fileLoader.pathNotAccessible">Folder {$path} is not a directory or is not readable.</message>
 	<message key="admin.fileLoader.moveFileFailed">File {$filename} could not be moved from {$currentFilePath} to {$destinationPath}</message>
+	<message key="admin.fileLoader.fileProcessed">File {$filename} was processed and archived.</message>
 	<message key="admin.fileLoader.emailSubject">File loader</message>
 	
 	<message key="admin.copyAccessLogFileTool.usage">Copy the passed apache access log file(s), filtering the entries related with this installation,

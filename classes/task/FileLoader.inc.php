@@ -25,9 +25,6 @@ define('FILE_LOADER_PATH_ARCHIVE', 'archive');
 
 abstract class FileLoader extends ScheduledTask {
 
-	/** @var string This process id. */
-	private $_processId = null;
-
 	/** @var string The current claimed filename that the script is working on. */
 	private $_claimedFilename;
 
@@ -65,7 +62,6 @@ abstract class FileLoader extends ScheduledTask {
 		// Set an initial process id and load translations (required
 		// for email notifications).
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_ADMIN);
-		$this->_newProcessId();
 
 		// Canonicalize the base path.
 		$basePath = rtrim($args[0], DIRECTORY_SEPARATOR);
@@ -136,14 +132,9 @@ abstract class FileLoader extends ScheduledTask {
 	// Public methods
 	//
 	/**
-	 * Execute the specified command.
-	 *
-	 * @return boolean True if no errors, otherwise false.
+	 * @copydoc ScheduledTask::executeActions()
 	 */
-	public function execute() {
-		// Create a new process id to identify individual execution instances.
-		$this->_newProcessId();
-
+	protected function executeActions() {
 		if (!$this->checkFolderStructure()) return false;
 
 		$foundErrors = false;
@@ -153,7 +144,7 @@ abstract class FileLoader extends ScheduledTask {
 			} catch(Exception $e) {
 				$foundErrors = true;
 				$this->_rejectFile();
-				$this->_notify($e->getMessage(), FILE_LOADER_WARNING_MESSAGE_TYPE);
+				$this->addExecutionLogEntry($e->getMessage(), SCHEDULED_TASK_MESSAGE_TYPE_ERROR);
 				continue;
 			}
 
@@ -165,6 +156,11 @@ abstract class FileLoader extends ScheduledTask {
 				$this->_stagedBackFiles[] = $this->_claimedFilename;
 			} else {
 				$this->_archiveFile();
+			}
+
+			if ($result) {
+				$this->addExecutionLogEntry(__('admin.fileLoader.fileProcessed',
+					array('filename' => $filePath)), SCHEDULED_TASK_MESSAGE_TYPE_NOTICE);
 			}
 		}
 		return !$foundErrors;
@@ -186,8 +182,8 @@ abstract class FileLoader extends ScheduledTask {
 		// to be protected against information leak and symlink attacks.
 		$filesDir = realpath(Config::getVar('files', 'files_dir'));
 		if (is_null($this->_basePath) || strpos($this->_basePath, $filesDir) !== 0) {
-			$this->_notify(__('admin.fileLoader.wrongBasePathLocation', array('path' => $this->_basePath)),
-					FILE_LOADER_ERROR_MESSAGE_TYPE);
+			$this->addExecutionLogEntry(__('admin.fileLoader.wrongBasePathLocation', array('path' => $this->_basePath)),
+					SCHEDULED_TASK_MESSAGE_TYPE_ERROR);
 			return false;
 		}
 
@@ -213,8 +209,8 @@ abstract class FileLoader extends ScheduledTask {
 				// Try again.
 				if (!(is_dir($path) && is_readable($path))) {
 					// Give up...
-					$this->_notify(__('admin.fileLoader.pathNotAccessible', array('path' => $path)),
-							FILE_LOADER_ERROR_MESSAGE_TYPE);
+					$this->addExecutionLogEntry(__('admin.fileLoader.pathNotAccessible', array('path' => $path)),
+							SCHEDULED_TASK_MESSAGE_TYPE_ERROR);
 					return false;
 				}
 			}
@@ -239,13 +235,6 @@ abstract class FileLoader extends ScheduledTask {
 	//
 	// Private helper methods.
 	//
-	/**
-	 * Set a new process id.
-	 */
-	private function _newProcessId() {
-		$this->_processId = uniqid();
-	}
-
 	/**
 	 * Claim the first file that's inside the staging folder.
 	 * @return mixed The claimed file path or false if
@@ -306,7 +295,7 @@ abstract class FileLoader extends ScheduledTask {
 		if (!rename($currentFilePath, $destinationPath)) {
 			$message = __('admin.fileLoader.moveFileFailed', array('filename' => $filename,
 				'currentFilePath' => $currentFilePath, 'destinationPath' => $destinationPath));
-			$this->_notify($message, FILE_LOADER_ERROR_MESSAGE_TYPE);
+			$this->addExecutionLogEntry($message, SCHEDULED_TASK_MESSAGE_TYPE_ERROR);
 
 			// Script shoudl always stop if it can't manipulate files inside
 			// its own directory system.
@@ -329,7 +318,7 @@ abstract class FileLoader extends ScheduledTask {
 		$mail->addRecipient($this->_adminEmail, $this->_adminName);
 
 		// The message
-		$mail->setSubject(__('admin.fileLoader.emailSubject', array('processId' => $this->_processId)) .
+		$mail->setSubject(__('admin.fileLoader.emailSubject', array('processId' => $this->getProcessId())) .
 			' - ' . __($messageType));
 		$mail->setBody($message);
 

@@ -40,7 +40,9 @@ class CopyAccessLogFileTool extends CommandLineTool {
 	function CopyAccessLogFileTool($argv = array()) {
 		parent::CommandLineTool($argv);
 
-		if (sizeof($this->argv) !== 1) {
+		AppLocale::requireComponents(LOCALE_COMPONENT_OJS_ADMIN);
+
+		if (count($this->argv) < 1 || count($this->argv) > 2) {
 			$this->usage();
 			exit(1);
 		}
@@ -49,8 +51,6 @@ class CopyAccessLogFileTool extends CommandLineTool {
 
 		$this->_usageStatsDir = $plugin->getFilesPath();
 		$this->_tmpDir = $this->_usageStatsDir . DIRECTORY_SEPARATOR . 'tmp';
-
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_ADMIN);
 
 		// This tool needs egrep and gunzip path configured.
 		$this->_egrepPath = escapeshellarg(Config::getVar('cli', 'egrep'));
@@ -131,6 +131,14 @@ class CopyAccessLogFileTool extends CommandLineTool {
 			// Directory.
 			$filesToCopy = glob($filePath . DIRECTORY_SEPARATOR . '*');
 			foreach ($filesToCopy as $file) {
+				// If a base filename is given as a parameter, check it.
+				if (count($this->argv) == 2) {
+					$baseFilename = $this->argv[1];
+					if (strpos(pathinfo($file, PATHINFO_BASENAME), $baseFilename) !== 0) {
+						continue;
+					}
+				}
+
 				$this->_copyFile($file);
 			}
 		} else {

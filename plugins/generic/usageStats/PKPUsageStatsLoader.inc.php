@@ -34,12 +34,6 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 	/** @var $_contextsByPath array */
 	var $_contextsByPath;
 
-	/** @var $_baseSystemUrl string */
-	var $_baseSystemUrl;
-
-	/** @var $_baseSystemEscapedPath string */
-	var $_baseSystemEscapedPath;
-
 	/** @var $_autoStage string */
 	var $_autoStage;
 
@@ -73,63 +67,91 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 
 		parent::FileLoader($args);
 
-		$this->_baseSystemUrl = Config::getVar('general', 'base_url');
-		$this->_baseSystemEscapedPath = str_replace('/', '\/', parse_url($this->_baseSystemUrl, PHP_URL_PATH));
+		if ($plugin->getEnabled()) {
+			// Load the metric type constant.
+			PluginRegistry::loadCategory('reports');
 
-		// Load the metric type constant.
-		PluginRegistry::loadCategory('reports');
+			import('classes.statistics.StatisticsHelper');
+			$statsHelper = new StatisticsHelper();
+			$geoLocationTool = $statsHelper->getGeoLocationTool();
+			$this->_geoLocationTool = $geoLocationTool;
 
-		import('classes.statistics.StatisticsHelper');
-		$statsHelper = new StatisticsHelper();
-		$geoLocationTool = $statsHelper->getGeoLocationTool();
-		$this->_geoLocationTool = $geoLocationTool;
+			$plugin->import('UsageStatsTemporaryRecordDAO');
+			$statsDao = new UsageStatsTemporaryRecordDAO();
+			DAORegistry::registerDAO('UsageStatsTemporaryRecordDAO', $statsDao);
 
-		$plugin->import('UsageStatsTemporaryRecordDAO');
-		$statsDao = new UsageStatsTemporaryRecordDAO();
-		DAORegistry::registerDAO('UsageStatsTemporaryRecordDAO', $statsDao);
+			$this->_counterRobotsListFile = $this->_getCounterRobotListFile();
 
-		$this->_counterRobotsListFile = $this->_getCounterRobotListFile();
+			$contextDao = Application::getContextDAO(); /* @var $contextDao ContextDAO */
+			$contextFactory = $contextDao->getAll(); /* @var $contextFactory DAOResultFactory */
+			$contextsByPath = array();
+			while ($context = $contextFactory->next()) { /* @var $context Context */
+				$contextsByPath[$context->getPath()] = $context;
+			}
+			$this->_contextsByPath = $contextsByPath;
 
-		$contextDao = Application::getContextDAO(); /* @var $contextDao ContextDAO */
-		$contextFactory = $contextDao->getAll(); /* @var $contextFactory DAOResultFactory */
-		$contextsByPath = array();
-		while ($context = $contextFactory->next()) { /* @var $context Context */
-			$contextsByPath[$context->getPath()] = $context;
-		}
-		$this->_contextsByPath = $contextsByPath;
+			$this->checkFolderStructure(true);
 
-		$this->checkFolderStructure(true);
-
-		if ($this->_autoStage) {
-			// Copy all log files to stage directory, except the current day one.
-			$fileMgr = new FileManager();
-			$logsDirFiles =  glob($plugin->getUsageEventLogsPath() . DIRECTORY_SEPARATOR . '*');
-			$processingDirFiles = glob($this->getProcessingPath() . DIRECTORY_SEPARATOR . '*');
-
-			if (is_array($logsDirFiles) && is_array($processingDirFiles)) {
+			if ($this->_autoStage) {
+				// Copy all log files to stage directory, except the current day one.
+				$fileMgr = new FileManager();
+				$logFiles = array();
+				$logsDirFiles =  glob($plugin->getUsageEventLogsPath() . DIRECTORY_SEPARATOR . '*');
 				// It's possible that the processing directory have files that
 				// were being processed but the php process was stopped before
 				// finishing the processing. Just copy them to the stage directory too.
-				$dirFiles = array_merge($logsDirFiles, $processingDirFiles);
-				foreach ($dirFiles as $filePath) {
+				$processingDirFiles = glob($this->getProcessingPath() . DIRECTORY_SEPARATOR . '*');
+				if (is_array($logsDirFiles)) {
+					$logFiles = array_merge($logFiles, $logsDirFiles);
+				}
+				
+				if (is_array($processingDirFiles)) {
+					$logFiles = array_merge($logFiles, $processingDirFiles);
+				}
+				
+				foreach ($logFiles as $filePath) {
 					// Make sure it's a file.
 					if ($fileMgr->fileExists($filePath)) {
 						// Avoid current day file.
 						$filename = pathinfo($filePath, PATHINFO_BASENAME);
 						$currentDayFilename = $plugin->getUsageEventCurrentDayLogName();
 						if ($filename == $currentDayFilename) continue;
-
 						if ($fileMgr->copyFile($filePath, $this->getStagePath() . DIRECTORY_SEPARATOR . $filename)) {
 							$fileMgr->deleteFile($filePath);
 						}
 					}
 				}
-			}
+			}	
 		}
 	}
 
 	/**
-	 * @see FileLoader::processFile()
+	 * @copydoc FileLoader::getName()
+	 */
+	function getName() {
+		return __('plugins.generic.usageStats.usageStatsLoaderName');
+	}
+
+	/**
+	* @copydoc FileLoader::executeActions()
+	*/
+	protected function executeActions() {
+		$plugin = $this->_plugin;
+		if (!$plugin->getEnabled()) {
+			$this->addExecutionLogEntry(__('plugins.generic.usageStats.pluginNotEnabled'), SCHEDULED_TASK_MESSAGE_TYPE_WARNING);
+			return false;
+		}
+
+		if (!$this->_counterRobotsListFile || !file_exists($this->_counterRobotsListFile)) {
+			$this->addExecutionLogEntry(__('plugins.generic.usageStats.noCounterBotList', array('botlist' => $this->_counterRobotsListFile)), SCHEDULED_TASK_MESSAGE_TYPE_WARNING);
+			return false;
+		}
+
+		parent::executeActions();
+	}
+
+	/**
+	 * @copydoc FileLoader::processFile()
 	 */
 	protected function processFile($filePath) {
 		$fhandle = fopen($filePath, 'r');
@@ -172,7 +194,7 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 			// Avoid bots.
 			if (Core::isUserAgentBot($entryData['userAgent'], $this->_counterRobotsListFile)) continue;
 
-			list($assocType, $contextPaths, $page, $op, $args) = $this->_getUrlMatches($entryData['url']);
+			list($assocType, $contextPaths, $page, $op, $args) = $this->_getUrlMatches($entryData['url'], $filePath, $lineNumber);
 			if ($assocType && $contextPaths && $page && $op) {
 				list($assocId, $assocType) = $this->getAssoc($assocType, $contextPaths, $page, $op, $args);
 			} else {
@@ -224,6 +246,10 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 		$statsDao->deleteByLoadId($loadId);
 
 		if (!$loadResult) {
+			// Improve the error message.
+			$errorMsg = __('plugins.generic.usageStats.loadDataError',
+				array('file' => $filePath, 'error' => $errorMsg));
+			
 			return FILE_LOADER_RETURN_TO_STAGING;
 		} else {
 			return true;
@@ -426,36 +452,40 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 	 * the passed url, if it matches anyone that's defined
 	 * in UsageStatsLoader::getExpectedPageAndOp().
 	 * @param $url string
+	 * @param $filePath string
+	 * @param $lineNumber int
 	 * @return array
 	 * @see UsageStatsLoader::getExpectedPageAndOp()
 	 */
-	private function _getUrlMatches($url) {
+	private function _getUrlMatches($url, $filePath, $lineNumber) {
+		$noMatchesReturner = array(null, null, null, null, null);
 		// Check the passed url.
 		$expectedPageAndOp = $this->getExpectedPageAndOp();
 
-		// Remove base system url from url, if any.
-		$url = str_replace($this->_baseSystemUrl, '', $url);
+		$pathInfoDisabled = Config::getVar('general', 'disable_path_info');
 
-		// If url don't have the entire protocol and host part,
-		// remove any possible base url path from url.
-		$url = preg_replace('/^' . $this->_baseSystemEscapedPath . '/', '', $url);
-
-		// Remove possible index.php page from url.
-		$url = str_replace('/index.php', '', $url);
-
-		// Check whether it's path info or not.
-		$pathInfo = parse_url($url, PHP_URL_PATH);
-		$isPathInfo = false;
-		if ($pathInfo) {
-			$isPathInfo = true;
+		// Apache and usage stats plugin log files comes with complete or partial
+		// base url, remove it so system can retrieve path, page,
+		// operation and args.
+		$url = Core::removeBaseUrl($url);
+		if ($url) {
+			$contextPaths = Core::getContextPaths($url, !$pathInfoDisabled);
+			$page = Core::getPage($url, !$pathInfoDisabled);
+			$operation = Core::getOp($url, !$pathInfoDisabled);
+			$args = Core::getArgs($url, !$pathInfoDisabled);
+		} else {
+			// Could not remove the base url, can't go on.
+			$this->addExecutionLogEntry( __('plugins.generic.usageStats.removeUrlError',
+				array('file' => $filePath, 'lineNumber' => $lineNumber)), SCHEDULED_TASK_MESSAGE_TYPE_WARNING);
+			return $noMatchesReturner;
 		}
 
-		$contextPaths = Core::getContextPaths($url, $isPathInfo);
-		$page = Core::getPage($url, $isPathInfo);
-		$operation = Core::getOp($url, $isPathInfo);
-		$args = Core::getArgs($url, $isPathInfo);
-
-		if (empty($contextPaths) || !$page || !$operation) return array(false, false);
+		// See bug #8698#.
+		if (is_array($contextPaths) && !$page && $operation == 'index') {
+			$page = 'index';
+		}
+	
+		if (empty($contextPaths) || !$page || !$operation) return $noMatchesReturner;
 
 		$pageAndOperation = $page . '/' . $operation;
 
@@ -474,7 +504,7 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 		if ($pageAndOpMatch) {
 			return array($workingAssocType, $contextPaths, $page, $operation, $args);
 		} else {
-			return array(null, null, null, null, null);
+			return $noMatchesReturner;
 		}
 	}
 
@@ -509,7 +539,7 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 
 		// We only expect one file inside the directory.
 		$fileCount = 0;
-		foreach (glob($dir . DIRECTORY_SEPARATOR . "*.*") as $file) {
+		foreach (glob($dir . DIRECTORY_SEPARATOR . "*") as $file) {
 			$fileCount++;
 		}
 		if (!$file || $fileCount !== 1) {

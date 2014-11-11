@@ -291,11 +291,11 @@ class FileManager {
 	 */
 	function deleteFile($filePath) {
 		if ($this->fileExists($filePath)) {
-			HookRegistry::call('FileManager::deleteFile', array($filePath));
+			$result = null;
+			if (HookRegistry::call('FileManager::deleteFile', array($filePath, &$result))) return $result;
 			return unlink($filePath);
-		} else {
-			return false;
 		}
+		return false;
 	}
 
 	/**

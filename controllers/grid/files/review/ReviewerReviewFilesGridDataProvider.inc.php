@@ -68,6 +68,16 @@ class ReviewerReviewFilesGridDataProvider extends ReviewGridDataProvider {
 		}
 		return $submissionFileData;
 	}
+
+	/**
+	 * @copydoc GridDataProvider::getRequestArgs()
+	 */
+	function getRequestArgs() {
+		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
+		return array_merge(parent::getRequestArgs(), array(
+			'reviewAssignment' => $reviewAssignment->getId()
+		));
+	}
 }
 
 ?>

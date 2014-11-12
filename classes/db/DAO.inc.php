@@ -35,7 +35,7 @@ class DAO {
 	 * Get db conn.
 	 * @return ADONewConnection
 	 */
-	function &getDataSource() {
+	function getDataSource() {
 		return $this->_dataSource;
 	}
 
@@ -43,8 +43,8 @@ class DAO {
 	 * Set db conn.
 	 * @param $dataSource ADONewConnection
 	 */
-	function setDataSource(&$dataSource) {
-		$this->_dataSource =& $dataSource;
+	function setDataSource($dataSource) {
+		$this->_dataSource = $dataSource;
 	}
 
 	/**
@@ -471,7 +471,7 @@ class DAO {
 	 * @param $dataObject DataObject
 	 * @param $idArray array
 	 */
-	function updateDataObjectSettings($tableName, &$dataObject, $idArray) {
+	function updateDataObjectSettings($tableName, $dataObject, $idArray) {
 		// Initialize variables
 		$idFields = array_keys($idArray);
 		$idFields[] = 'locale';
@@ -564,7 +564,7 @@ class DAO {
 	 * @param $idFieldName string Name of ID column
 	 * @param $dataObject DataObject Object in which to store retrieved values
 	 */
-	function getDataObjectSettings($tableName, $idFieldName, $idFieldValue, &$dataObject) {
+	function getDataObjectSettings($tableName, $idFieldName, $idFieldValue, $dataObject) {
 		if ($idFieldName !== null) {
 			$sql = "SELECT * FROM $tableName WHERE $idFieldName = ?";
 			$params = array($idFieldValue);
@@ -594,7 +594,7 @@ class DAO {
 	 * @return string
 	 */
 	function getDriver() {
-		$conn =& DBConnection::getInstance();
+		$conn = DBConnection::getInstance();
 		return $conn->getDriver();
 	}
 

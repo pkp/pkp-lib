@@ -163,7 +163,7 @@ class PKPInstall extends Installer {
 		}
 
 		// Get database creation sql
-		$dbdict =& NewDataDictionary($this->dbconn);
+		$dbdict = NewDataDictionary($this->dbconn);
 
 		if ($this->getParam('databaseCharset')) {
 				$dbdict->SetCharSet($this->getParam('databaseCharset'));

@@ -7,12 +7,13 @@
  *
  * Include the submission progress bar and the tab structure for the workflow.
  *}
-
-{if $stageId > $smarty.const.WORKFLOW_STAGE_ID_INTERNAL_REVIEW}
-	{assign var=selectedTabIndex value=$stageId-2}
-{else}
-	{assign var=selectedTabIndex value=$stageId-1}
-{/if}
+{* Calculate the selected tab index for the current stage *}
+{assign var=selectedTabIndex value=0}
+{foreach from=$workflowStages item=stage}
+	{if $stage.id < $stageId}
+		{assign var=selectedTabIndex value=$selectedTabIndex+1}
+	{/if}
+{/foreach}
 
 <script type="text/javascript">
 	// Attach the JS file tab handler.

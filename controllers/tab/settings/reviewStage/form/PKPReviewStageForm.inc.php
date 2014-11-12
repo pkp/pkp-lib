@@ -33,6 +33,7 @@ class PKPReviewStageForm extends ContextSettingsForm {
 					'numDaysBeforeSubmitReminder' => 'int',
 					'rateReviewerOnQuality' => 'bool',
 					'showEnsuringLink' => 'bool',
+					'blockReviewCommentNoticationToAuthors' => 'bool',
 				)
 			),
 			$template,

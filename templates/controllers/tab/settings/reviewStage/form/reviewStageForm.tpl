@@ -19,7 +19,7 @@
 <form class="pkp_form" id="reviewStageForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="tab.settings.PublicationSettingsTabHandler" op="saveFormData" tab="reviewStage"}">
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="reviewStageFormNotification"}
 	{include file="controllers/tab/settings/wizardMode.tpl" wizardMode=$wizardMode}
-
+	
 	<div {if $wizardMode}class="pkp_form_hidden"{/if}>
 		{fbvFormArea id="reviewOptions" title="manager.setup.reviewOptions" class="border"}
 			<!-- FIXME: also, fbvStyles.size.SMALL needs to be switched to TINY once there's a TINY option available -->
@@ -52,6 +52,9 @@
 			{capture assign="ensureLink"}{include file="linkAction/linkAction.tpl" action=$ensuringLink contextId="uploadForm"}{/capture}
 			{fbvFormSection title="manager.setup.reviewOptions.blindReview" list=true}
 				{fbvElement type="checkbox" id="showEnsuringLink" value="1" checked=$showEnsuringLink label=$ensureLink translate=false keepLabelHtml=true}
+			{/fbvFormSection}
+			{fbvFormSection title="manager.setup.blockReviewCommentNotification" list=true}
+				{fbvElement type="checkbox" id="blockReviewCommentNoticationToAuthors" value="1" checked=$blockReviewCommentNoticationToAuthors label="manager.setup.blockReviewCommentNotification.label"}
 			{/fbvFormSection}
 		{/fbvFormArea}
 

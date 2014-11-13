@@ -220,7 +220,7 @@
 		// supported.
 		objectNameParts = objectName.split('.');
 		if (objectNameParts.shift() != '$') {
-			throw new Error(['Namespace "', objectNameParts[0], '" for object"',
+			throw new Error(['Namespace "', objectNameParts[0], '" for object "',
 				objectName, '" is currently not supported!'].join(''));
 		}
 

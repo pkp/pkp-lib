@@ -34,30 +34,34 @@ class ReviewerSelectGridCellProvider extends DataObjectGridCellProvider {
 	 * @return array
 	 */
 	function getTemplateVarsFromRowColumn($row, $column) {
-		$element =& $row->getData();
-		$columnId = $column->getId();
-		$reviewerStats = $row->getReviewerStats($row->getId());
-
-		assert(is_a($element, 'User') && !empty($columnId));
-		switch ($columnId) {
+		$element = $row->getData();
+		assert(is_a($element, 'User'));
+		switch ($column->getId()) {
 			case 'select': // Displays the radio option
 				return array('rowId' => $row->getId());
+
 			case 'name': // Reviewer's name
 				return array('label' => $element->getFullName());
+
 			case 'done': // # of reviews completed
-				return array('label' => isset($reviewerStats['completed_review_count']) ? $reviewerStats['completed_review_count'] : '--');
+				return array('label' => $element->getData('completeCount'));
+
 			case 'avg': // Average period of time in days to complete a review
-				return array('label' => isset($reviewerStats['average_span']) ? round($reviewerStats['average_span']) : '--');
+				return array('label' => round($element->getData('averageTime')));
+
 			case 'last': // Days since most recently completed review
-				if (isset($reviewerStats['last_notified'])) {
-					$formattedDate = strftime('%b %e', strtotime($reviewerStats['last_notified']));
-					return array('label' => $formattedDate);
-				} else return array('label' => '--');
+				$lastAssigned = $element->getData('lastAssigned');
+				if (!$lastAssigned) return array('label' => '--');
+				$formattedDate = strftime('%b %e', strtotime($lastAssigned));
+				return array('label' => $formattedDate);
+
 			case 'active': // How many reviews are currently being considered or underway
-				return array('label' => isset($reviewerStats['incomplete']) ? $reviewerStats['incomplete'] : '--');
+				return array('label' => $element->getData('incompleteCount'));
+
 			case 'interests': // Reviewing interests
 				return array('label' => $element->getInterestString());
 		}
+		assert(false);
 	}
 }
 

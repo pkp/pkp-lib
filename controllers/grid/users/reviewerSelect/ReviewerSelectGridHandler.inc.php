@@ -19,7 +19,6 @@ import('lib.pkp.classes.controllers.grid.GridHandler');
 
 // import author grid specific classes
 import('lib.pkp.controllers.grid.users.reviewerSelect.ReviewerSelectGridCellProvider');
-import('lib.pkp.controllers.grid.users.reviewerSelect.ReviewerSelectGridRow');
 
 class ReviewerSelectGridHandler extends GridHandler {
 	/**
@@ -145,14 +144,6 @@ class ReviewerSelectGridHandler extends GridHandler {
 	// Overridden methods from GridHandler
 	//
 	/**
-	 * @copydoc GridHandler::getRowInstance()
-	 * @return ReviewerSelectGridRow
-	 */
-	function getRowInstance() {
-		return new ReviewerSelectGridRow();
-	}
-
-	/**
 	 * @copydoc GridHandler::renderFilter()
 	 */
 	function renderFilter($request) {
@@ -163,7 +154,7 @@ class ReviewerSelectGridHandler extends GridHandler {
 	 * @copydoc GridHandler::loadData()
 	 */
 	function loadData($request, $filter) {
-		$interests = $filter['interestSearchKeywords'];
+		$interests = (array) $filter['interestSearchKeywords'];
 		$reviewerValues = $filter['reviewerValues'];
 
 		// Retrieve the authors associated with this submission to be displayed in the grid
@@ -180,7 +171,8 @@ class ReviewerSelectGridHandler extends GridHandler {
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$reviewRound = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND);
 		return $userDao->getFilteredReviewers(
-			$submission->getContextId(), $doneMin, $doneMax, $avgMin, $avgMax,
+			$submission->getContextId(), $reviewRound->getStageId(),
+			$doneMin, $doneMax, $avgMin, $avgMax,
 			$lastMin, $lastMax, $activeMin, $activeMax, $interests,
 			$submission->getId(), $reviewRound->getId()
 		);
@@ -197,11 +189,22 @@ class ReviewerSelectGridHandler extends GridHandler {
 		$clientSubmit = (boolean) $request->getUserVar('clientSubmit');
 
 		$form->readInputData();
-		if($clientSubmit && $form->validate()) {
+		if ($clientSubmit && $form->validate()) {
 			return $form->getFilterSelectionData();
 		} else {
-			// Load defaults
-			return $this->_getFilterData();
+			return array(
+				'reviewerValues' => array(
+					'doneMin' => null,
+					'doneMax' => null,
+					'avgMin' => null,
+					'avgMax' => null,
+					'lastMin' => null,
+					'lastMax' => null,
+					'activeMin' => null,
+					'activeMax' => null,
+				),
+				'interestSearchKeywords' => array(),
+			);
 		}
 	}
 
@@ -215,22 +218,6 @@ class ReviewerSelectGridHandler extends GridHandler {
 		$reviewRound = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND);
 		import('lib.pkp.controllers.grid.users.reviewerSelect.form.AdvancedSearchReviewerFilterForm');
 		return new AdvancedSearchReviewerFilterForm($submission, $stageId, $reviewRound->getId());
-	}
-
-	/**
-	 * Get the default filter data for this grid
-	 * @return array
-	 */
-	function _getFilterData() {
-		$filterData = array();
-
-		$filterData['interestSearchKeywords'] = null;
-
-		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
-		$reviewerValues = $reviewAssignmentDao->getAnonymousReviewerStatistics();
-		$filterData['reviewerValues'] = $reviewerValues;
-
-		return $filterData;
 	}
 }
 

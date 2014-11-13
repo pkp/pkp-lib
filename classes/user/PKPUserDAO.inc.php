@@ -230,86 +230,92 @@ class PKPUserDAO extends DAO {
 	/**
 	 * Given the ranges selected by the editor, produce a filtered list of reviewers
 	 * @param $contextId int
-	 * @param $doneMin int # of reviews completed int
-	 * @param $doneMax int
-	 * @param $avgMin int Average period of time in days to complete a review int
-	 * @param $avgMax int
-	 * @param $lastMin int Days since most recently completed review int
-	 * @param $lastMax int
-	 * @param $activeMin int How many reviews are currently being considered or underway int
-	 * @param $activeMax int
+	 * @param $doneMin int|null # of reviews completed int
+	 * @param $doneMax int|null
+	 * @param $avgMin int|null Average period of time in days to complete a review int
+	 * @param $avgMax int|null
+	 * @param $lastMin int|null Days since most recently completed review int
+	 * @param $lastMax int|null
+	 * @param $activeMin int|null How many reviews are currently being considered or underway int
+	 * @param $activeMax int|null
 	 * @param $interests array
 	 * @param $submissionId int Filter out reviewers assigned to this submission
 	 * @param $reviewRoundId int Also filter users assigned to this round of the given submission
 	 * @return array Users
 	 */
-	function getFilteredReviewers($contextId, $doneMin, $doneMax, $avgMin, $avgMax, $lastMin, $lastMax, $activeMin, $activeMax, $interests, $submissionId = null, $reviewRoundId = null) {
-		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
-		$interestDao = DAORegistry::getDAO('InterestDAO'); /* @var $interestDao InterestDAO */
-		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
-		$reviewerStats = $reviewAssignmentDao->getReviewerStatistics($contextId);
+	function getFilteredReviewers($contextId, $stageId, $doneMin = null, $doneMax = null, $avgMin = null, $avgMax = null, $lastMin = null, $lastMax = null, $activeMin = null, $activeMax = null, $interests = array(), $submissionId = null, $reviewRoundId = null) {
+		$result = $this->retrieve(
+			'SELECT	u.*,
+				COALESCE(COUNT(DISTINCT rac.review_id), 0) AS complete_count,
+				AVG(rac.date_completed - rac.date_notified) AS average_time,
+				MAX(raf.date_assigned) AS last_assigned,
+				COALESCE(COUNT(DISTINCT rai.review_id), 0) AS incomplete_count
+			FROM	users u
+				JOIN user_user_groups uug ON (uug.user_id = u.user_id)
+				JOIN user_groups ug ON (ug.user_group_id = uug.user_group_id AND ug.role_id = ? AND ug.context_id = ?)
+				JOIN user_group_stage ugs ON (ugs.user_group_id = ug.user_group_id AND ugs.stage_id = ?)
+				LEFT JOIN review_assignments ras ON (ras.submission_id = ? AND ras.reviewer_id=u.user_id)
+				LEFT JOIN review_assignments rac ON (rac.reviewer_id = u.user_id AND rac.date_notified IS NOT NULL AND rac.date_completed IS NOT NULL)
+				LEFT JOIN review_assignments raf ON (raf.reviewer_id = u.user_id)
+				LEFT JOIN review_assignments ran ON (ran.reviewer_id = u.user_id AND ran.review_id > raf.review_id)
+				LEFT JOIN review_assignments rai ON (rai.reviewer_id = u.user_id AND rai.date_notified IS NOT NULL AND rai.date_completed IS NULL AND rai.cancelled = 0 AND rai.declined = 0 AND rai.replaced = 0)
+			WHERE	ras.review_id IS NULL
+				AND ran.review_id IS NULL' .
+				str_repeat(' AND u.user_id IN (SELECT ui.user_id FROM user_interests ui JOIN controlled_vocab_entry_settings cves ON (ui.controlled_vocab_entry_id = cves.controlled_vocab_entry_id) WHERE cves.setting_name = \'interest\' AND LOWER(cves.setting_value) = ?)', count($interests)) . '
+			GROUP BY u.user_id
+			HAVING 1=1' .
+				($doneMin !== null?' AND COUNT(DISTINCT rac.review_id) >= ?':'') .
+				($doneMax !== null?' AND COUNT(DISTINCT rac.review_id) <= ?':'') .
+				($avgMin !== null?' AND (AVG(rac.date_completed - rac.date_notified) >= ? OR AVG(rac.date_completed - rac.date_notified) IS NULL)':'') .
+				($avgMax !== null?' AND (AVG(rac.date_completed - rac.date_notified) <= ? OR AVG(rac.date_completed - rac.date_notified) IS NULL)':'') .
+				($activeMin !== null?' AND COUNT(DISTINCT rai.review_id) >= ?':'') .
+				($activeMax !== null?' AND COUNT(DISTINCT rai.review_id) <= ?':'') .
+				($lastMin !== null?' AND MAX(raf.date_assigned) <= ' . ($this->datetimeToDB(time() - ((int) $lastMin * 86400))):'') .
+				($lastMax !== null?' AND MAX(raf.date_assigned) >= ' . ($this->datetimeToDB(time() - ((int) $lastMax * 86400))):'') .
+			' ORDER BY last_name, first_name',
+			array_merge(
+				array(
+					ROLE_ID_REVIEWER,
+					(int) $contextId,
+					(int) $stageId,
+					(int) $submissionId, // null gets cast to 0 which doesn't exist
+				),
+				array_map(array('String', 'strtolower'), $interests),
+				$doneMin !== null?array((int) $doneMin):array(),
+				$doneMax !== null?array((int) $doneMax):array(),
+				$avgMin !== null?array((int) $avgMin):array(),
+				$avgMax !== null?array((int) $avgMax):array(),
+				$activeMin !== null?array((int) $activeMin):array(),
+				$activeMax !== null?array((int) $activeMax):array()
+			)
+		);
 
-		// Get the IDs of the interests searched for
-		$allInterestIds = array();
-		if(isset($interests)) {
-			$key = 0;
-			foreach ($interests as $interest) {
-				$interestIds = $interestDao->getUserIdsByInterest($interest);
-				if (!$interestIds) {
-					// The interest searched for does not exist -- go to next interest
-					continue;
-				}
-				if ($key == 0) $allInterestIds = $interestIds; // First interest, nothing to intersect with
-				else $allInterestIds = array_intersect($allInterestIds, $interestIds);
-				$key++;
-			}
-		}
+		return new DAOResultFactory($result, $this, '_returnUserFromRowWithReviewerStats');
+	}
 
-		// If submissionId is set, get the list of available reviewers to the submission
-		if ($submissionId) {
-			$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
-			$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-			$reviewRound = $reviewRoundDao->getById($reviewRoundId);
-			$userDao = DAORegistry::getDAO('UserDAO');
-			$availableReviewerFactory = $userDao->getReviewersNotAssignedToSubmission($contextId, $submissionId, $reviewRound);
-			$availableReviewers = $availableReviewerFactory->toAssociativeArray();
-		}
+	/**
+	 * Return a user object from a DB row, including dependent data and reviewer stats.
+	 * @param $row array
+	 * @return User
+	 */
+	function _returnUserFromRowWithReviewerStats($row) {
+		$user = $this->_returnUserFromRowWithData($row, false);
+		$user->setData('lastAssigned', $row['last_assigned']);
+		$user->setData('incompleteCount', $row['incomplete_count']);
+		$user->setData('completeCount', $row['complete_count']);
+		$user->setData('averageTime', $row['average_time']);
+		HookRegistry::call('UserDAO::_returnUserFromRowWithReviewerStats', array(&$user, &$row));
 
-		$filteredReviewers = array();
-		foreach ($reviewerStats as $userId => $reviewerStat) {
-			// Get the days since the user was last notified for a review
-			if(!isset($reviewerStat['last_notified'])) {
-				$lastNotifiedInDays = 0;
-			} else {
-				$lastNotifiedInDays = round((time() - strtotime($reviewerStat['last_notified'])) / 86400);
-			}
-
-			// If there are interests to check, make sure user is in allInterestIds array
-			if(!empty($allInterestIds)) {
-				$interestCheck = in_array($userId, $allInterestIds);
-			} else $interestCheck = true;
-
-			if ($interestCheck && $reviewerStat['completed_review_count'] <= $doneMax && $reviewerStat['completed_review_count'] >= $doneMin &&
-					$reviewerStat['average_span'] <= $avgMax && $reviewerStat['average_span'] >= $avgMin && $lastNotifiedInDays <= $lastMax  &&
-					$lastNotifiedInDays >= $lastMin && $reviewerStat['incomplete'] <= $activeMax && $reviewerStat['incomplete'] >= $activeMin
-			) {
-				if($submissionId && !array_key_exists($userId, $availableReviewers)) {
-					continue;
-				} else {
-					$filteredReviewers[] = $userDao->getById($userId);
-				}
-			}
-		}
-
-		return $filteredReviewers;
+		return $user;
 	}
 
 	/**
 	 * Create and return a complete PKPUser object from a given row.
 	 * @param $row array
+	 * @param $callHook boolean
 	 * @return PKPUser
 	 */
-	function &_returnUserFromRowWithData($row) {
+	function &_returnUserFromRowWithData($row, $callHook = true) {
 		$user =& $this->_returnUserFromRow($row, false);
 		$this->getDataObjectSettings('user_settings', 'user_id', $row['user_id'], $user);
 

@@ -10,6 +10,10 @@
  * @brief Classes for the page structural elements
  */
 
+html, body {
+	height: 100%;
+}
+
 a {
 	color: #569bbe;
 }
@@ -101,6 +105,17 @@ body {
 .pkp_structure_page {
 	margin: 0 auto;
 	_text-align: left;
+	position: relative;
+	padding-bottom: 150px;
+	min-height: 100%;
+}
+
+.pkp_structure_page,
+.pkp_structure_page:before,
+.pkp_structure_page:after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 .pkp_structure_body:after, .pkp_structure_main:after {
@@ -116,7 +131,6 @@ body {
 
 .pkp_structure_body {
 	*zoom: 1;
-	border-bottom: 1px dotted #999;
 	margin-bottom: 3px;
 	padding-bottom: 15px;
 
@@ -125,7 +139,7 @@ body {
 		padding-top: 10px;
 		padding-bottom: 80px;
 		border-top: 1px dotted #999;
-		overflow: hidden;
+		float: right;
 	}
 }
 

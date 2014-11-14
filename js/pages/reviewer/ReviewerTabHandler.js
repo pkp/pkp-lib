@@ -54,7 +54,7 @@
 	/**
 	 * Review steps completed so far (read-only).
 	 * @private
-	 * @type {int}
+	 * @type {number}
 	 */
 	$.pkp.pages.reviewer.ReviewerTabHandler.
 			prototype.reviewStep_ = null;

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
+
+<!--
+ * plugins/generic/usageEvent/locale/en_US/locale.xml
+ *
+ * Copyright (c) 2013-2014 Simon Fraser University Library
+ * Copyright (c) 2003-2014 John Willinsky
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ *
+ * Localization strings.
+  -->
+
+<locale name="en_US" full_name="U.S. English">
+	<message key="plugins.generic.emailLogger.displayName">Email Logger</message>
+	<message key="plugins.generic.emailLogger.description">Log all emails sent by the system. On top of being enabled, you need to setup an environment variable called PKP_EMAIL_LOGGER_ON and set it's value to 1 in order to make this plugin working. Once working, you can retrieve all emails using the EmailLogDAO and the event type EMAIL_LOGGER_PLUGIN_ANY_EVENT. The main purpose of this plugin is to help functional tests to check whether or not the system sent an email.</message>
+</locale>
+

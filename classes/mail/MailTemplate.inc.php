@@ -228,29 +228,6 @@ class MailTemplate extends Mail {
 	}
 
 	/**
-	 * Processes form-submitted addresses for inclusion in
-	 * the recipient list
-	 * @param $currentList array Current recipient/cc/bcc list
-	 * @param $newAddresses array "Raw" form parameter for additional addresses
-	 */
-	function &processAddresses($currentList, &$newAddresses) {
-		foreach ($newAddresses as $newAddress) {
-			$regs = array();
-			// Match the form "My Name <my_email@my.domain.com>"
-			if (String::regexp_match_get('/^([^<>' . "\n" . ']*[^<> ' . "\n" . '])[ ]*<(?P<email>' . PCRE_EMAIL_ADDRESS . ')>$/i', $newAddress, $regs)) {
-				$currentList[] = array('name' => $regs[1], 'email' => $regs['email']);
-
-			} elseif (String::regexp_match_get('/^<?(?P<email>' . PCRE_EMAIL_ADDRESS . ')>?$/i', $newAddress, $regs)) {
-				$currentList[] = array('name' => '', 'email' => $regs['email']);
-
-			} elseif ($newAddress != '') {
-				$this->errorMessages[] = array('type' => MAIL_ERROR_INVALID_EMAIL, 'address' => $newAddress);
-			}
-		}
-		return $currentList;
-	}
-
-	/**
 	 * Displays an edit form to customize the email.
 	 * @param $formActionUrl string
 	 * @param $hiddenFormParams array

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE version SYSTEM "../../../dtd/pluginVersion.dtd">
+
+<!--
+  * plugins/generic/emailLogger/version.xml
+  *
+  * Copyright (c) 2014 Simon Fraser University Library
+  * Copyright (c) 2003-2014 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Plugin version information.
+  -->
+<version>
+	<application>emailLogger</application>
+	<type>plugins.generic</type>
+	<release>1.0.0.0</release>
+	<date>2014-11-10</date>
+	<sitewide>1</sitewide>
+	<class>EmailLoggerPlugin</class>
+</version>

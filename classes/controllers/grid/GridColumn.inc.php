@@ -10,10 +10,12 @@
  * @class GridColumn
  * @ingroup controllers_grid
  *
- * @brief Represents a column within a grid. It is used to configure the way
- *  cells within a column are displayed (cell provider) and can also be used
- *  to configure a editing strategy (not yet implemented). Contains all column-
- *  specific configuration (e.g. column title).
+ * @brief The GridColumn class represents a column within a grid. It is used to
+ *  format the data presented in a particular column, which is provided by the
+ *  GridRow implementation, and to handle user operations on that column (such
+ *  as clicking a checkbox).
+ *
+ * For general information on grids, see GridHandler.
  */
 
 define('COLUMN_ALIGNMENT_LEFT', 'left');
@@ -34,9 +36,18 @@ class GridColumn extends GridBodyElement {
 
 	/**
 	 * Constructor
+	 * @param $id string Grid column identifier
+	 * @param $title string Locale key for grid column title
+	 * @param $titleTranslated string Optional translated grid title
+	 * @param $template string Optional template filename for grid column, including path
+	 * @param $cellProvider GridCellProvider Optional grid cell provider for this column
+	 * @param $flags array Optional set of flags for this grid column
 	 */
 	function GridColumn($id = '', $title = null, $titleTranslated = null,
-			$template = 'controllers/grid/gridCell.tpl', $cellProvider = null, $flags = array()) {
+			$template = null, $cellProvider = null, $flags = array()) {
+
+		// Use default template if none specified
+		if ($template === null) $template = 'controllers/grid/gridCell.tpl';
 
 		parent::GridBodyElement($id, $cellProvider, $flags);
 
@@ -124,8 +135,7 @@ class GridColumn extends GridBodyElement {
 	 */
 	function getCellActions($request, $row, $position = GRID_ACTION_POSITION_DEFAULT) {
 		// The default implementation returns an empty array
-		$actions = array();
-		return $actions;
+		return array();
 	}
 }
 

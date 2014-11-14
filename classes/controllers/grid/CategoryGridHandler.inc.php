@@ -35,7 +35,7 @@ class CategoryGridHandler extends GridHandler {
 		parent::GridHandler($dataProvider);
 
 		import('lib.pkp.classes.controllers.grid.NullGridCellProvider');
-		$this->addColumn(new GridColumn('indent', null, null, 'controllers/grid/gridCell.tpl',
+		$this->addColumn(new GridColumn('indent', null, null, null,
 			new NullGridCellProvider(), array('indent' => true)));
 	}
 
@@ -210,7 +210,7 @@ class CategoryGridHandler extends GridHandler {
 	}
 
 	/**
-	 * @see GridHandler::getRowDataElement()
+	 * @copydoc GridHandler::getRowDataElement()
 	 */
 	protected function getRowDataElement($request, &$rowId) {
 		$rowData = parent::getRowDataElement($request, $rowId);

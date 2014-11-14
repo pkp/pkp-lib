@@ -70,11 +70,6 @@
 			disabled: options.disabled,
 			active: options.selected
 		});
-
-
-		if ($tabs.find('.stTabsInnerWrapper').length == 0 && !options.notScrollable) {
-			$tabs.tabs().scrollabletab();
-		}
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.TabHandler, $.pkp.classes.Handler);

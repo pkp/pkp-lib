@@ -10,9 +10,8 @@
 <script type="text/javascript">
 	// Attach the JS file tab handler.
 	$(function() {ldelim}
-		$('#viewPluginTabs').pkpHandler('$.pkp.controllers.TabHandler', {ldelim}
-				notScrollable: true
-		{rdelim});
+		$('#viewPluginTabs').pkpHandler('$.pkp.controllers.TabHandler');
+
 		// This isn't enough to justify a separate JS controller
 		$('#pluginOverviewContainer').find('.pluginActions a').button();
 	{rdelim});

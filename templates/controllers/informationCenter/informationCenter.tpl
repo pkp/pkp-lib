@@ -13,8 +13,7 @@
 	$(function() {ldelim}
 		$('#informationCenter').pkpHandler(
 			'$.pkp.controllers.TabHandler', {ldelim}
-				selected: {$selectedTabIndex|escape:"javascript"},
-				notScrollable: true
+				selected: {$selectedTabIndex|escape:"javascript"}
 			{rdelim}
 		);
 	{rdelim});

@@ -22,7 +22,6 @@
 			'$.pkp.controllers.tab.workflow.WorkflowTabHandler',
 			{ldelim}
 				selected: {$selectedTabIndex},
-				notScrollable: true,
 				emptyLastTab: true
 			{rdelim}
 		);

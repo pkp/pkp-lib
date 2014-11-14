@@ -30,7 +30,6 @@
 	 * @param {Object} options Wizard options.
 	 */
 	$.pkp.controllers.wizard.WizardHandler = function($wizard, options) {
-		options.notScrollable = true;
 		this.parent($wizard, options);
 
 		// Add the wizard buttons

@@ -506,11 +506,12 @@ class GridHandler extends PKPHandler {
 				$nullVar = null;
 				return $nullVar;
 			}
-		} elseif ( $isModified ) {
+		} elseif ($isModified) {
 			// The row is modified. The client may be asking
 			// for a formatted new entry, to be saved later, or
 			// for a representation of a modified row.
-			$dataElement = $this->getRowDataElement($request, null);
+			$nullVar = null;
+			$dataElement = $this->getRowDataElement($request, $nullVar);
 			if ( isset($args['rowId']) ) {
 				// the rowId holds the elementId being modified
 				$elementId = $args['rowId'];
@@ -759,7 +760,7 @@ class GridHandler extends PKPHandler {
 	 * @param $rowId
 	 * @return mixed
 	 */
-	protected function getRowDataElement($request, $rowId) {
+	protected function getRowDataElement($request, &$rowId) {
 		$elements =& $this->getGridDataElements($request);
 
 		assert(is_array($elements));

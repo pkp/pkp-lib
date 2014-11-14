@@ -215,6 +215,11 @@ else
 		$CLOSURE_EXTERNS --js_output_file "$JS_OUTPUT" 2>&1
 	echo >&2
 
+	echo "Compiling third-party libraries..." >&2
+	echo "Pines Notify..." >&2
+	sh lib/pkp/js/lib/pnotify/build-tools/minify.sh
+	echo >&2
+
 	echo "Please don't forget to set enable_minified=On in your config.inc.php." >&2
 	echo >&2
 	echo "Done!" >&2

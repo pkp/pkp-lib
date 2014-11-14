@@ -10,3 +10,6 @@
 [submodule "lib/lessphp"]
 	path = lib/lessphp
 	url = https://github.com/leafo/lessphp
+[submodule "js/lib/pnotify"]
+	path = js/lib/pnotify
+	url = https://github.com/sciactive/pnotify.git

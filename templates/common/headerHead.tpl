@@ -51,6 +51,9 @@
 		{include file="common/minifiedScripts.tpl"}
 	{/if}
 
+	<!-- Pines Notify build/cache -->
+	<script src="{$baseUrl}/lib/pkp/js/lib/pnotify/buildcustom.php?mode=js{if !$useMinifiedJavaScript}&min=1{/if}&modules="></script>
+
 	{$deprecatedJavascript}
 
 	{$deprecatedThemeStyles}

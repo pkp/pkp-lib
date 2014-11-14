@@ -233,10 +233,9 @@ class PluginGridHandler extends CategoryGridHandler {
 		$this->setupTemplate($request, true);
 
 		$plugin = $this->getAuthorizedContextObject(ASSOC_TYPE_PLUGIN); /* @var $plugin Plugin */
-		$message = null;
-		$pluginModalContent = null;
+		$message = $messageParams = $pluginModalContent = null;
 		if (!is_a($plugin, 'Plugin') || !$plugin->manage($verb, $args, $message, $messageParams, $pluginModalContent)) {
-			HookRegistry::call('PluginGridHandler::plugin', array($verb, $args, $message, $messageParams, $plugins[$plugin]));
+			HookRegistry::call('PluginGridHandler::plugin', array($verb, $args, $message, $messageParams, $plugin));
 			if ($message) {
 				$notificationManager = new NotificationManager();
 				$user = $request->getUser();

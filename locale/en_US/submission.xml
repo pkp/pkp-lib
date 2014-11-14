@@ -13,7 +13,7 @@
 
 <locale name="en_US" full_name="U.S. English">
 	<!-- Author Submission -->
-	<message key="author.submit.userGroupRequired">Your account does not currently have a role permittiong new submissions, such as Author. Please double-check your account; you may be able to add a suitable role yourself by editing your profile.</message>
+	<message key="author.submit.userGroupRequired">Your account does not currently have a role permitting new submissions, such as Author. Please double-check your account; you may be able to add a suitable role yourself by editing your profile.</message>
 	<message key="author.submit.submissionCitations">Provide a formatted list of references for works cited in this submission. Please separate individual references with a blank line.</message>
 	<message key="submission.submit.submissionComplete">Submission complete</message>
 	<message key="submission.submit.submissionCompleteThanks">Thank you for your interest in publishing with {$contextName}.</message>

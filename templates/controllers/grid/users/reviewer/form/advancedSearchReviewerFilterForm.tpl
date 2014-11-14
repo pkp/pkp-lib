@@ -12,7 +12,7 @@
 <script type="text/javascript">
 	$(function() {ldelim}
 		// Handle filter form submission
-		$('#reviewerFilterForm').pkpHandler('$.pkp.controllers.form.ClientFormHandler',
+		$('#reviewerFilterForm').pkpHandler('$.pkp.controllers.grid.users.reviewer.form.AdvancedSearchReviewerFilterFormHandler',
 			{ldelim}
 				trackFormChanges: false
 			{rdelim}
@@ -27,17 +27,32 @@
 		<input type="hidden" id="submissionId" name="submissionId" value="{$submissionId|escape}" />
 		<input type="hidden" id="stageId" name="stageId" value="{$stageId|escape}" />
 		<input type="hidden" id="reviewRoundId" name="reviewRoundId" value="{$reviewRoundId|escape}" />
-		<input type="hidden" name="doneMin" value="0" />
-		<input type="hidden" name="avgMin" value="0" />
-		<input type="hidden" name="lastMin" value="0" />
-		<input type="hidden" name="activeMin" value="0" />
 		<input type="hidden" name="clientSubmit" value="1" />
-		{fbvFormSection description="manager.reviewerSearch.form.instructions"}
-			{fbvElement type="text" id="doneMax" value=$reviewerValues.doneMax label="manager.reviewerSearch.doneAmount" inline=true size=$fbvStyles.size.SMALL}
-			{fbvElement type="text" id="avgMax" value=$reviewerValues.avgMax label="manager.reviewerSearch.avgAmount" inline=true size=$fbvStyles.size.SMALL}
-			{fbvElement type="text" id="lastMax" value=$reviewerValues.lastMax label="manager.reviewerSearch.lastAmount" inline=true size=$fbvStyles.size.SMALL}
-			{fbvElement type="text" id="activeMax" value=$reviewerValues.activeMax label="manager.reviewerSearch.activeAmount" inline=true size=$fbvStyles.size.SMALL}
+
+		{fbvFormSection description="manager.reviewerSearch.doneAmount" inline=true size=$fbvStyles.size.SMALL}
+			<div id="completeRange"></div>
+			{fbvElement type="text" id="doneMin" value=$reviewerValues.doneMin|default:0 label="search.dateFrom" inline=true size=$fbvStyles.size.MEDIUM}
+			{fbvElement type="text" id="doneMax" value=$reviewerValues.doneMax|default:100 label="search.dateTo" inline=true size=$fbvStyles.size.MEDIUM}
 		{/fbvFormSection}
+
+		{fbvFormSection description="manager.reviewerSearch.avgAmount" inline=true size=$fbvStyles.size.SMALL}
+			<div id="averageRange"></div>
+			{fbvElement type="text" id="avgMin" value=$reviewerValues.avgMin|default:0 label="search.dateFrom" inline=true size=$fbvStyles.size.MEDIUM}
+			{fbvElement type="text" id="avgMax" value=$reviewerValues.avgMax|default:365 label="search.dateTo" inline=true size=$fbvStyles.size.MEDIUM}
+		{/fbvFormSection}
+
+		{fbvFormSection description="manager.reviewerSearch.lastAmount" inline=true size=$fbvStyles.size.SMALL}
+			<div id="lastRange"></div>
+			{fbvElement type="text" id="lastMin" value=$reviewerValues.lastMin|default:0 label="search.dateFrom" inline=true size=$fbvStyles.size.MEDIUM}
+			{fbvElement type="text" id="lastMax" value=$reviewerValues.lastMax|default:365 label="search.dateTo" inline=true size=$fbvStyles.size.MEDIUM}
+		{/fbvFormSection}
+
+		{fbvFormSection description="manager.reviewerSearch.activeAmount" inline=true size=$fbvStyles.size.SMALL}
+			<div id="activeRange"></div>
+			{fbvElement type="text" id="activeMin" value=$reviewerValues.activeMin|default:0 label="search.dateFrom" inline=true size=$fbvStyles.size.MEDIUM}
+			{fbvElement type="text" id="activeMax" value=$reviewerValues.activeMax|default:100 label="search.dateTo" inline=true size=$fbvStyles.size.MEDIUM}
+		{/fbvFormSection}
+
 		{fbvFormSection description="manager.reviewerSearch.form.interests.instructions"}
 			{fbvElement type="interests" id="interests" interestsKeywords=$interestSearchKeywords}
 		{/fbvFormSection}

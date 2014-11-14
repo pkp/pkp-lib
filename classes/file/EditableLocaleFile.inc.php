@@ -31,9 +31,10 @@ class EditableLocaleFile extends LocaleFile {
 
 	/**
 	 * Write the modified contents back to disk.
+	 * @return boolean True indicates success
 	 */
 	function write() {
-		$this->editableFile->write();
+		return $this->editableFile->write();
 	}
 
 	/**

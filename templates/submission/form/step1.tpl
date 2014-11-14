@@ -26,9 +26,13 @@
 		{fbvFormSection label="submission.submit.userGroup" description="submission.submit.userGroupDescription" inline=true size=$fbvStyles.size.MEDIUM}
 			{fbvElement type="select" id="authorUserGroupId" from=$authorUserGroupOptions translate=false}
 		{/fbvFormSection}
-	{else}
+	{elseif count($authorUserGroupOptions) == 1}
 		{foreach from=$authorUserGroupOptions key="key" item="authorUserGroupName"}{assign var=authorUserGroupId value=$key}{/foreach}
 		{fbvElement type="hidden" id="authorUserGroupId" value=$authorUserGroupId}
+	{else}
+		<div class="pkp_notification">
+			{include file="controllers/notification/inPlaceNotificationContent.tpl" notificationId=submit notificationStyleClass=notifyError notificationTitle="common.warning"|translate notificationContents="author.submit.userGroupRequired"|translate}
+		</div>
 	{/if}
 
 	{if $copyrightNoticeAgree}

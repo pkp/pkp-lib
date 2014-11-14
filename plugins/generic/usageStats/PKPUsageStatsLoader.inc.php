@@ -147,7 +147,7 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 			return false;
 		}
 
-		parent::executeActions();
+		return parent::executeActions();
 	}
 
 	/**

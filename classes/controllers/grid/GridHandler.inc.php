@@ -515,9 +515,6 @@ class GridHandler extends PKPHandler {
 			if ( isset($args['rowId']) ) {
 				// the rowId holds the elementId being modified
 				$elementId = $args['rowId'];
-			} else {
-				// no rowId means that there is no element being modified.
-				$elementId = null;
 			}
 		}
 

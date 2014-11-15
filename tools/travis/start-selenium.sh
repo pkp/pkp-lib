@@ -17,7 +17,7 @@ mkdir screenshots
 
 # Start Selenium server.
 wget http://selenium-release.storage.googleapis.com/2.42/selenium-server-standalone-2.42.2.jar
-nohup java -jar selenium-server-standalone-2.42.2.jar -browserSessionReuse >> selenium-output &
+nohup java -jar selenium-server-standalone-2.42.2.jar -browserSessionReuse -firefoxProfileTemplate ~/.mozilla/firefox/selenium/ >> selenium-output &
 
 # Wait for Selenium to start
 until wget -O - -q "http://localhost:4444/selenium-server/driver/?cmd=testComplete" | grep -e "^OK$"; do sleep 1; done

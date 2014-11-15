@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<!--
+  * tests/browserProfiles/firefox/mimeTypes.rdf
+  *
+  * Copyright (c) 2014 Simon Fraser University Library
+  * Copyright (c) 2000-2014 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Stores information about which action is to be performed when downloading certain types of files.
+  * @see http://kb.mozillazine.org/MimeTypes.rdf
+  -->
+
+<RDF:RDF xmlns:NC="http://home.netscape.com/NC-rdf#"
+	 xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<RDF:Seq RDF:about="urn:mimetypes:root">
+		<RDF:li RDF:resource="urn:mimetype:application/x-download"/>
+	</RDF:Seq>
+	<RDF:Description RDF:about="urn:mimetype:application/x-download"
+			 NC:fileExtensions="pdf"
+			 NC:value="application/x-download"
+			 NC:editable="true">
+		<NC:handlerProp RDF:resource="urn:mimetype:handler:application/x-download"/>
+	</RDF:Description>
+	<RDF:Description RDF:about="urn:mimetype:handler:application/x-download"
+			 NC:saveToDisk="true"
+			 NC:alwaysAsk="false" />
+</RDF:RDF>

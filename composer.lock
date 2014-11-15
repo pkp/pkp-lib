@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "63ef5529f769c489567ca36db27671e1",
+    "hash": "1f665d3b2c7e8626fdd4a1ebe76c6351",
     "packages": [
         {
             "name": "components/jquery",
@@ -296,6 +296,42 @@
             "description": "lessphp is a compiler for LESS written in PHP.",
             "homepage": "http://leafo.net/lessphp/",
             "time": "2013-08-09 17:09:19"
+        },
+        {
+            "name": "moxiecode/plupload",
+            "version": "v2.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/moxiecode/plupload.git",
+                "reference": "764bb47f136a3e427a9f3e2ce2319516aded8e7f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/moxiecode/plupload/zipball/764bb47f136a3e427a9f3e2ce2319516aded8e7f",
+                "reference": "764bb47f136a3e427a9f3e2ce2319516aded8e7f",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "(GPL-2.0 or OEM)"
+            ],
+            "authors": [
+                {
+                    "name": "Davit Barbakadze",
+                    "email": "david@moxiecode.com",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Plupload is a JavaScript API for dealing with file uploads it supports features like multiple file selection, file type filtering, request chunking, client side image scaling and it uses different runtimes to achieve this such as HTML 5, Silverlight and Flash.",
+            "homepage": "http://plupload.com",
+            "keywords": [
+                "file upload",
+                "legacy browser support",
+                "multi-runtime",
+                "plupload"
+            ],
+            "time": "2014-05-16 13:22:33"
         },
         {
             "name": "phpmailer/phpmailer",

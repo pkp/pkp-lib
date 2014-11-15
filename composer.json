@@ -5,7 +5,8 @@
 		"leafo/lessphp": "0.4.0",
 		"phpmailer/phpmailer": "5.2.8",
 		"smarty/smarty": "v2.6.28",
-		"ezyang/htmlpurifier": "v4.6.0"
+		"ezyang/htmlpurifier": "v4.6.0",
+		"moxiecode/plupload": "v2.1.2"
 	},
 	"config": {
 		"component-dir": "lib/components",

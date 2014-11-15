@@ -46,7 +46,11 @@ mkdir ${FILESDIR}
 sudo chown -R travis:www-data .
 
 # Run data build suite
-./lib/pkp/tools/runAllTests.sh -b
+if [[ "$TEST" == "mysql" ]]; then
+	./lib/pkp/tools/runAllTests.sh -bH
+else
+	./lib/pkp/tools/runAllTests.sh -b
+fi
 
 # Dump the completed database.
 if [[ "$TEST" == "pgsql" ]]; then
@@ -58,7 +62,12 @@ fi
 
 # Run unit test suite.
 # (Permissions will need to be fixed; web tests run w/different user than unit)
+# Code coverage reports only need to be created for one database (MySQL)
 sudo chown -R travis:www-data ${FILESDIR}
 sudo chmod -R 775 ${FILESDIR}
 sudo rm -f cache/*.php
-./lib/pkp/tools/runAllTests.sh -CcPpf
+if [[ "$TEST" == "mysql" ]]; then
+	./lib/pkp/tools/runAllTests.sh -CcPpfH
+else
+	./lib/pkp/tools/runAllTests.sh -CcPpf
+fi

@@ -1,4 +1,4 @@
 error.log
 testdox.txt
-coverage/
+coverage*.php
 *.png

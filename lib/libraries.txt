@@ -1,14 +1,11 @@
+See also composer.json in the repository root.
+
 Third party libraries used:
 
 ADOdb Database Library
  * URL: <http://adodb.sourceforge.net/>
  * Version: 4.90 (June 8, 2006)
  * License: LGPL (see lib/adodb/license.txt)
-
-Smarty Template Engine
- * URL: <http://www.smarty.net/>
- * Version: 2.6.28
- * License: LGPL (see lib/smarty/COPYING.lib)
 
 TinyMCE WYSIWYG JS HTML Editor
  * URL: <http://tinymce.moxiecode.com>
@@ -23,21 +20,6 @@ PHPUTF8 UTF-8 Character Handling Library
 SWORD PHP API Library
  * URL: <https://github.com/swordapp/swordappv2-php-library>
  * License: Modified BSD
-
-lessphp PHP LESS CSS Compiler
- * URL: <http://leafo.net/lessphp>
- * Version: 0.4.0
- * License: GPLv3 or MIT
-
-HTML Purifier 
- * URL: <http://htmlpurifier.org>
- * Version: 4.4.0
- * License: GPLv2.1
-
-PHPMailer
- * URL: https://github.com/PHPMailer/PHPMailer
- * Version: 5.2.8
- * License: GPLv2.1
 
 PDFObject
  * URL: <http://pdfobject.com>

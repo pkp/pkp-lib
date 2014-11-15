@@ -2,7 +2,8 @@
 	"require": {
 		"components/jqueryui": "1.11.2",
 		"components/jquery": "2.1.1",
-		"leafo/lessphp": "0.4.0"
+		"leafo/lessphp": "0.4.0",
+		"phpmailer/phpmailer": "5.2.8"
 	},
 	"config": {
 		"component-dir": "lib/components",

@@ -1,0 +1,11 @@
+{
+	"require": {
+		"components/jqueryui": "1.11.2",
+		"components/jquery": "2.1.1",
+		"leafo/lessphp": "0.4.0"
+	},
+	"config": {
+		"component-dir": "lib/components",
+		"vendor-dir": "lib/vendor"
+	}
+}

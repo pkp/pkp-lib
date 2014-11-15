@@ -100,7 +100,7 @@ class ThemePlugin extends LazyLoadPlugin {
 				$lastModified = time();
 
 				// Compile this theme's styles
-				require_once('lib/pkp/lib/lessphp/lessc.inc.php');
+				require_once('lib/pkp/lib/vendor/leafo/lessphp/lessc.inc.php');
 				$less = new lessc($lessFile);
 				$less->importDir = $this->getPluginPath(); // @see PKPTemplateManager::compileStylesheet
 				$themeStyles = $less->parse();

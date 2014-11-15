@@ -316,5 +316,19 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	protected function waitJQuery() {
 		$this->waitForCondition('window.jQuery.active == 0');
 	}
+
+	/**
+	 * Get escaped XPath expression to select a link with the
+	 * passed text on it.
+	 * Use an xpath concat to permit apostrophes to appear in titles
+	 * http://kushalm.com/the-perils-of-xpath-expressions-specifically-escaping-quotes
+	 */
+	protected function getEscapedXPathForLink($text) {
+		return '//a[contains(text(), concat(\'' . strtr($this->escapeJS($text),
+                        array(
+                                '\\\'' => '\', "\'", \''
+                        )
+                ) . '\',\'\'))]';
+	}
 }
 ?>

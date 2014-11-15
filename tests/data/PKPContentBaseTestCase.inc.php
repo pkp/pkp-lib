@@ -72,7 +72,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		// Permit the subclass to handle any extra step 1 actions
 		$this->_handleStep1($data);
 
-		$this->click('css=[id^=submitFormButton-]');
+		$this->clickAndWait('css=[id^=submitFormButton-]');
 
 		// Page 2: File wizard
 		sleep(1); // Occasional race conditions in travis
@@ -110,11 +110,15 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 	 * Upload a file via the file wizard.
 	 * @param $fileTitle string
 	 * @param $file string (Null to use dummy file)
+	 * @param $selectGenre boolean 
 	 */
-	protected function uploadWizardFile($fileTitle, $file = null) {
+	protected function uploadWizardFile($fileTitle, $file = null, $selectGenre = true) {
 		if (!$file) $file = getenv('DUMMYFILE');
-		$this->waitForElementPresent('id=genreId');
-		$this->select('id=genreId', 'label=' . $this->_getSubmissionElementName());
+		$this->waitForElementPresent('id=plupload');
+		if ($selectGenre) {
+			$this->waitForElementPresent('id=genreId');
+			$this->select('id=genreId', 'label=' . $this->_getSubmissionElementName());
+		}
 		$this->uploadFile($file);
 		$this->click('id=continueButton');
 		$this->waitForElementPresent('css=[id^=name-]');
@@ -160,21 +164,20 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 	 * @param $username string
 	 * @param $password string (null to presume twice-username)
 	 * @param $title string
+	 * @return int The submission id.
 	 */
 	protected function findSubmissionAsEditor($username, $password = null, $title) {
 		if ($password === null) $password = $username . $username;
 		$this->logIn($username, $password);
 		$this->waitForElementPresent('xpath=(//a[contains(text(),\'Submissions\')])[2]');
 		$this->click('xpath=(//a[contains(text(),\'Submissions\')])[2]');
-		// Use an xpath concat to permit apostrophes to appear in titles
-		// http://kushalm.com/the-perils-of-xpath-expressions-specifically-escaping-quotes
-		$xpath = '//a[text()=concat(\'' . strtr($this->escapeJS($title),
-			array(
-				'\\\'' => '\', "\'", \''
-			)
-		) . '\',\'\')]';
+		$xpath = $this->getEscapedXPathForLink($title);
 		$this->waitForElementPresent($xpath);
+		$linkId = $this->getAttribute($xpath . '/@id');
+		$explodedId = explode('-', $linkId);
+		$submissionId = $explodedId[1];
 		$this->click($xpath);
+		return $submissionId;
 	}
 
 	/**
@@ -232,31 +235,45 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 	 * @param $recommendation string Optional recommendation label
 	 * @param $comments string optional Optional comment text
 	 */
-	function performReview($username, $password, $title, $recommendation = null, $comments = 'Here are my review comments.') {
+	function performReview($username, $password, $title, $recommendation = null, $comments = 'Here are my review comments.', $reviewFilename = null, $uploadFile = false) {
 		if ($password===null) $password = $username . $username;
 		$this->logIn($username, $password);
 		$this->waitForElementPresent('//div[@id=\'dashboardTabs\']//a[text()=\'Submissions\']');
 		$this->click('//div[@id=\'dashboardTabs\']//a[text()=\'Submissions\']');
-		// Use an xpath concat to permit apostrophes to appear in titles
-		// http://kushalm.com/the-perils-of-xpath-expressions-specifically-escaping-quotes
-		$xpath = '//a[contains(text(), concat(\'' . strtr($this->escapeJS($title),
-			array(
-				'\\\'' => '\', "\'", \''
-			)
-		) . '\',\'\'))]';
+		$xpath = $this->getEscapedXPathForLink($title); 
 		$this->waitForElementPresent($xpath);
 		$this->click($xpath);
 
+		// Step 1.
 		$this->waitForElementPresent('//span[text()=\'Accept Review, Continue to Step #2\']/..');
 		$this->click('//span[text()=\'Accept Review, Continue to Step #2\']/..');
 
+		// Step 2.	
 		$this->waitForElementPresent('//span[text()=\'Continue to Step #3\']/..');
 		$this->click('//span[text()=\'Continue to Step #3\']/..');
+
+		// Step 3.
+		if ($reviewFilename) {
+			// Test downloading the review file.
+			$fileXPath = $this->getEscapedXPathForLink($reviewFilename);
+			$this->waitForElementPresent($fileXPath);
+			$this->click($fileXPath);
+			$this->waitJQuery();
+			$this->assertAlertNotPresent(); // An authentication failure will lead to a js alert.
+		}
+
 		$this->waitForElementPresent('css=[id^=comments-]');
 		$this->type('css=[id^=comments-]', $comments);
 
 		if ($recommendation !== null) {
 			$this->select('id=recommendation', 'label=' . $this->escapeJS($recommendation));
+		}
+
+		if ($uploadFile) {
+			$this->waitForElementPresent($uploadFileSelector = 'css=[id^=component-grid-files-attachment-reviewerreviewattachmentsgrid-addFile-button-]');
+			$this->click($uploadFileSelector);
+			$this->uploadWizardFile($reviewerFileTitle = 'Revised file', null, false);
+			$this->waitForElementPresent($this->getEscapedXPathForLink($reviewerFileTitle)); // Confirm that the uploaded file link appears on the page. 
 		}
 
 		$this->waitForElementPresent('//span[text()=\'Submit Review\']/..');

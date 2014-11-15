@@ -4,7 +4,8 @@
 		"components/jquery": "2.1.1",
 		"leafo/lessphp": "0.4.0",
 		"phpmailer/phpmailer": "5.2.8",
-		"smarty/smarty": "v2.6.28"
+		"smarty/smarty": "v2.6.28",
+		"ezyang/htmlpurifier": "v4.6.0"
 	},
 	"config": {
 		"component-dir": "lib/components",

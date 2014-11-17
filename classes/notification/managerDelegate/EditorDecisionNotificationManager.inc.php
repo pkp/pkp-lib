@@ -26,7 +26,7 @@ class EditorDecisionNotificationManager extends NotificationManagerDelegate {
 	}
 
 	/**
-	 * @copydoc NotificationManagerDelegate::getNotificationMessage()
+	 * @copydoc PKPNotificationOperationManager::getNotificationMessage()
 	 */
 	function getNotificationMessage($request, $notification) {
 		switch ($notification->getType()) {
@@ -50,14 +50,14 @@ class EditorDecisionNotificationManager extends NotificationManagerDelegate {
 	}
 
 	/**
-	 * @copydoc NotificationManagerDelegate::getStyleClass()
+	 * @copydoc PKPNotificationOperationManager::getStyleClass()
 	 */
 	function getStyleClass($notification) {
 		return NOTIFICATION_STYLE_CLASS_INFORMATION;
 	}
 
 	/**
-	 * @copydoc NotificationManagerDelegate::getNotificationTitle()
+	 * @copydoc PKPNotificationOperationManager::getNotificationTitle()
 	 */
 	function getNotificationTitle($notification) {
 		return __('notification.type.editorDecisionTitle');

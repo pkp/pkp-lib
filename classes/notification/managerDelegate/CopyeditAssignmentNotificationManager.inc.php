@@ -13,20 +13,21 @@
  * @brief Copyedit assignment notification types manager delegate.
  */
 
-import('lib.pkp.classes.notification.NotificationManagerDelegate');
+import('lib.pkp.classes.notification.managerDelegate.signoff.SignoffNotificationManager');
 
-class CopyeditAssignmentNotificationManager extends NotificationManagerDelegate {
+class CopyeditAssignmentNotificationManager extends SignoffNotificationManager {
+
 
 	/**
 	 * Constructor.
 	 * @param $notificationType int NOTIFICATION_TYPE_...
 	 */
 	function CopyeditAssignmentNotificationManager($notificationType) {
-		parent::NotificationManagerDelegate($notificationType);
+		parent::SignoffNotificationManager($notificationType);
 	}
 
 	/**
-	 * @copydoc NotificationManagerDelegate::getNotificationMessage()
+	 * @copydoc PKPNotificationOperationManager::getNotificationMessage()
 	 */
 	function getNotificationMessage($request, $notification) {
 		$signoffDao = DAORegistry::getDAO('SignoffDAO'); /* @var $signoffDao SignoffDAO */

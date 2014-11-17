@@ -30,7 +30,7 @@ class SignoffNotificationManager extends NotificationManagerDelegate {
 	}
 
 	/**
-	 * @copydoc NotificationManagerDelegate::getNotificationMessage($notification)
+	 * @copydoc PKPNotificationOperationManager::getNotificationMessage($notification)
 	 */
 	public function getNotificationMessage($request, $notification) {
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_SUBMISSION);
@@ -38,7 +38,7 @@ class SignoffNotificationManager extends NotificationManagerDelegate {
 	}
 
 	/**
-	 * @copydoc NotificationManagerDelegate::getNotificationContents()
+	 * @copydoc PKPNotificationOperationManager::getNotificationContents()
 	 */
 	public function getNotificationContents($request, $notification) {
 		$notificationMessage = $this->getNotificationMessage($request, $notification);

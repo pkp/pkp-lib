@@ -13,16 +13,16 @@
  * @brief All revisions in notification types manager delegate.
  */
 
-import('lib.pkp.classes.notification.managerDelegate.RevisionsNotificationManager');
+import('lib.pkp.classes.notification.managerDelegate.review.ReviewRoundNotificationManager');
 
-class AllRevisionsInNotificationManager extends RevisionsNotificationManager {
+class AllRevisionsInNotificationManager extends ReviewRoundNotificationManager{
 
 	/**
 	 * Constructor.
 	 * @param $notificationType int NOTIFICATION_TYPE_...
 	 */
 	function AllRevisionsInNotificationManager($notificationType) {
-		parent::RevisionsNotificationManager($notificationType);
+		parent::ReviewRoundNotificationManager($notificationType);
 	}
 
 	/**
@@ -33,11 +33,12 @@ class AllRevisionsInNotificationManager extends RevisionsNotificationManager {
 		$reviewRound = $reviewRoundDao->getById($assocId);
 		$submissionId = $reviewRound->getSubmissionId();
 
-		$pendingRevisionDecision = $this->findValidPendingRevisionsDecision($submissionId, $reviewRound->getStageId());
+		$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO');
+		$pendingRevisionDecision = $editDecisionDao->findValidPendingRevisionsDecision($submissionId, $reviewRound->getStageId());
 		$removeNotifications = false;
 
 		if ($pendingRevisionDecision) {
-			if ($this->responseExists($pendingRevisionDecision, $submissionId)) {
+			if ($editDecisionDao->responseExists($pendingRevisionDecision, $submissionId)) {
 				// Some user already uploaded a revision.
 				$this->_addAllRevisionsIn($request, $reviewRound);
 			} else {
@@ -53,6 +54,17 @@ class AllRevisionsInNotificationManager extends RevisionsNotificationManager {
 		}
 	}
 
+
+	//
+	// Protected methods.
+	//
+	/**
+	 * @copydoc ReviewRoundNotificationManager::getMessageLocaleKey()
+	 */
+	protected function getMessageLocaleKey() {
+		return 'notification.type.allRevisionsIn';
+	}
+	
 
 	//
 	// Private helper methods.

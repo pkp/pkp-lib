@@ -13,20 +13,20 @@
  * @brief Auditor request notification types manager delegate.
  */
 
-import('lib.pkp.classes.notification.NotificationManagerDelegate');
+import('lib.pkp.classes.notification.managerDelegate.signoff.SignoffNotificationManager');
 
-class AuditorRequestNotificationManager extends NotificationManagerDelegate {
+class AuditorRequestNotificationManager extends SignoffNotificationManager {
 
 	/**
 	 * Constructor.
 	 * @param $notificationType int NOTIFICATION_TYPE_...
-	 */
-	function AuditorRequestNotificationManagerDelegate($notificationType) {
-		parent::NotificationManagerDelegate($notificationType);
+	*/
+	function AuditorRequestNotificationManager($notificationType) {
+		parent::SignoffNotificationManager($notificationType);
 	}
 
 	/**
-	 * @copydoc NotificationManagerDelegate::getNotificationMessage()
+	 * @copydoc PKPNotificationOperationManager::getNotificationMessage()
 	 */
 	function getNotificationMessage($request, $notification) {
 		$signoffDao = DAORegistry::getDAO('SignoffDAO'); /* @var $signoffDao SignoffDAO */
@@ -39,7 +39,7 @@ class AuditorRequestNotificationManager extends NotificationManagerDelegate {
 	}
 
 	/**
-	 * @copydoc NotificationManagerDelegate::getStyleClass()
+	 * @copydoc PKPNotificationOperationManager::getStyleClass()
 	 */
 	function getStyleClass($notification) {
 		return NOTIFICATION_STYLE_CLASS_WARNING;

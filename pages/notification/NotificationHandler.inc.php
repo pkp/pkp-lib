@@ -309,6 +309,8 @@ class NotificationHandler extends Handler {
 	function fetchNotification($args, $request) {
 		$this->setupTemplate($request);
 		$user = $request->getUser();
+		$userId = null;
+		if ($user) $userId = $user->getId();
 		$context = $request->getContext();
 		$notificationDao = DAORegistry::getDAO('NotificationDAO');
 		$notifications = array();
@@ -318,10 +320,10 @@ class NotificationHandler extends Handler {
 
 		if (is_array($notificationOptions)) {
 			// Retrieve the notifications.
-			$notifications = $this->_getNotificationsByOptions($notificationOptions, $context->getId(), $user->getId());
+			$notifications = $this->_getNotificationsByOptions($notificationOptions, $context->getId(), $userId);
 		} else {
 			// No options, get only TRIVIAL notifications.
-			$notifications = $notificationDao->getByUserId($user->getId(), NOTIFICATION_LEVEL_TRIVIAL);
+			$notifications = $notificationDao->getByUserId($userId, NOTIFICATION_LEVEL_TRIVIAL);
 			$notifications = $notifications->toArray();
 		}
 

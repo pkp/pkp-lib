@@ -17,6 +17,9 @@
 import('lib.pkp.classes.validation.ValidatorRegExp');
 
 define('DATE_FORMAT_ISO', 0x01);
+define('VALIDATOR_DATE_SCOPE_DAY', 1);
+define('VALIDATOR_DATE_SCOPE_MONTH', 2);
+define('VALIDATOR_DATE_SCOPE_YEAR', 4);
 
 class ValidatorDate extends ValidatorRegExp {
 	/**
@@ -33,24 +36,28 @@ class ValidatorDate extends ValidatorRegExp {
 	/**
 	 * @see Validator::isValid()
 	 * @param $value mixed
+	 * @param $minScope int The minimum date resolution allowed, e.g. VALIDATOR_DATE_SCOPE_MONTH will allow YYYY-MM or YYYY-MM-DD, but not YYYY
+	 * @param $maxScope int The maximum date resolution allowed, e.g. VALIDATOR_DATE_SCOPE_MONTH will allow YYYY or YYYY-MM, but not YYYY-MM-DD
 	 * @return boolean
 	 */
-	function isValid($value) {
+	function isValid($value, $minScope = VALIDATOR_DATE_SCOPE_YEAR, $maxScope = VALIDATOR_DATE_SCOPE_DAY) {
 		if (!parent::isValid($value)) return false;
+		
+		if ($minScope < $maxScope) return false;
 
 		$dateMatches = $this->getMatches();
 		if (isset($dateMatches['month'])) {
-			if ($dateMatches['month'] >= 1 && $dateMatches['month'] <= 12) {
+			if (($dateMatches['month'] >= 1 && $dateMatches['month'] <= 12) || $maxScope == VALIDATOR_DATE_SCOPE_YEAR ) {
 				if (isset($dateMatches['day'])) {
-					return checkdate($dateMatches['month'], $dateMatches['day'], $dateMatches['year']);
+					return (checkdate($dateMatches['month'], $dateMatches['day'], $dateMatches['year']) && $maxScope == VALIDATOR_DATE_SCOPE_DAY);
 				} else {
-					return true;
+					return $maxScope < VALIDATOR_DATE_SCOPE_YEAR && $minScope > VALIDATOR_DATE_SCOPE_DAY;
 				}
 			} else {
 				return false;
 			}
 		} else {
-			return true;
+			return ($minScope == VALIDATOR_DATE_SCOPE_YEAR);
 		}
 	}
 

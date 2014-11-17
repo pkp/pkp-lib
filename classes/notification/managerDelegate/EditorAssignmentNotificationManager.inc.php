@@ -26,7 +26,7 @@ class EditorAssignmentNotificationManager extends NotificationManagerDelegate {
 	}
 
 	/**
-	 * @copydoc NotificationManagerDelegate::getNotificationMessage($notification)
+	 * @copydoc PKPNotificationOperationManager::getNotificationMessage($notification)
 	 */
 	public function getNotificationMessage($request, $notification) {
 		switch ($notification->getType()) {
@@ -42,14 +42,14 @@ class EditorAssignmentNotificationManager extends NotificationManagerDelegate {
 	}
 
 	/**
-	 * @copydoc NotificationManagerDelegate::getStyleClass()
+	 * @copydoc PKPNotificationOperationManager::getStyleClass()
 	 */
 	public function getStyleClass($notification) {
 		return NOTIFICATION_STYLE_CLASS_WARNING;
 	}
 
 	/**
-	 * @copydoc NotificationManagerDelegate::isVisibleToAllUsers()
+	 * @copydoc PKPNotificationOperationManager::isVisibleToAllUsers()
 	 */
 	public function isVisibleToAllUsers($notificationType, $assocType, $assocId) {
 		return true;

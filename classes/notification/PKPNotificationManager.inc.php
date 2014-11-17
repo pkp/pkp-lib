@@ -27,28 +27,17 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 
 	/**
 	 * Construct a URL for the notification based on its type and associated object
-	 * @copydoc INotificationInfoProvider::getNotificationContents()
+	 * @copydoc PKPNotificationOperationManager::getNotificationContents()
 	 */
 	public function getNotificationUrl($request, $notification) {
+		$url = parent::getNotificationUrl($request, $notification);
 		$dispatcher = Application::getDispatcher();
 		$contextDao = Application::getContextDAO();
 		$context = $contextDao->getById($notification->getContextId());
 
 		switch ($notification->getType()) {
-			case NOTIFICATION_TYPE_ALL_REVIEWS_IN:
-			case NOTIFICATION_TYPE_ALL_REVISIONS_IN:
-				assert($notification->getAssocType() == ASSOC_TYPE_REVIEW_ROUND && is_numeric($notification->getAssocId()));
-				$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-				$reviewRound = $reviewRoundDao->getById($notification->getAssocId());
-				assert(is_a($reviewRound, 'ReviewRound'));
-
-				$submissionDao = Application::getSubmissionDAO();
-				$submission = $submissionDao->getById($reviewRound->getSubmissionId());
-				import('lib.pkp.controllers.grid.submissions.SubmissionsListGridCellProvider');
-				return SubmissionsListGridCellProvider::getUrlByUserRoles($request, $submission, null, WorkflowStageDAO::getPathFromId($reviewRound->getStageId()));
 			case NOTIFICATION_TYPE_LAYOUT_ASSIGNMENT:
 			case NOTIFICATION_TYPE_INDEX_ASSIGNMENT:
-			case NOTIFICATION_TYPE_APPROVE_SUBMISSION:
 				assert($notification->getAssocType() == ASSOC_TYPE_SUBMISSION && is_numeric($notification->getAssocId()));
 				return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'workflow', 'access', $notification->getAssocId());
 			case NOTIFICATION_TYPE_REVIEWER_COMMENT:
@@ -70,23 +59,28 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 				return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'announcement', 'view', array($notification->getAssocId()));
 			case NOTIFICATION_TYPE_CONFIGURE_PAYMENT_METHOD:
 				return __('notification.type.configurePaymentMethod');
-		}
+			default:
+				$delegateResult = $this->getByDelegate(
+					$notification->getType(),
+					$notification->getAssocType(),
+					$notification->getAssocId(),
+					__FUNCTION__,
+					array($request, $notification)
+				);
 
-		return $this->getByDelegate(
-			$notification->getType(),
-			$notification->getAssocType(),
-			$notification->getAssocId(),
-			__FUNCTION__,
-			array($request, $notification)
-		);
+				if ($delegateResult) $url = $delegateResult;
+
+				return $url;
+		}
 	}
 
 	/**
 	 * Return a message string for the notification based on its type
 	 * and associated object.
-	 * @copydoc INotificationInfoProvider::getNotificationContents()
+	 * @copydoc PKPNotificationOperationManager::getNotificationContents()
 	 */
 	public function getNotificationMessage($request, $notification) {
+		$message = parent::getNotificationMessage($request, $notification);
 		$type = $notification->getType();
 		assert(isset($type));
 		$submissionDao = Application::getSubmissionDAO();
@@ -115,23 +109,6 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 			case NOTIFICATION_TYPE_NEW_ANNOUNCEMENT:
 				assert($notification->getAssocType() == ASSOC_TYPE_ANNOUNCEMENT);
 				return __('notification.type.newAnnouncement');
-			case NOTIFICATION_TYPE_ALL_REVIEWS_IN:
-			case NOTIFICATION_TYPE_ALL_REVISIONS_IN:
-				if ($notification->getType() == NOTIFICATION_TYPE_ALL_REVIEWS_IN) {
-					$localeKey = 'notification.type.allReviewsIn';
-				} else {
-					$localeKey = 'notification.type.allRevisionsIn';
-				}
-
-				assert($notification->getAssocType() == ASSOC_TYPE_REVIEW_ROUND && is_numeric($notification->getAssocId()));
-				$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-				$reviewRound = $reviewRoundDao->getById($notification->getAssocId());
-				assert(is_a($reviewRound, 'ReviewRound'));
-				$stagesData = WorkflowStageDAO::getWorkflowStageKeysAndPaths();
-				return __($localeKey, array('stage' => __($stagesData[$reviewRound->getStageId()]['translationKey'])));
-			case NOTIFICATION_TYPE_APPROVE_SUBMISSION:
-				assert($notification->getAssocType() == ASSOC_TYPE_SUBMISSION && is_numeric($notification->getAssocId()));
-				return __('notification.type.approveSubmission');
 			case NOTIFICATION_TYPE_REVIEWER_COMMENT:
 				assert($notification->getAssocType() == ASSOC_TYPE_REVIEW_ASSIGNMENT && is_numeric($notification->getAssocId()));
 				$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
@@ -156,95 +133,90 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 				AppLocale::requireComponents(LOCALE_COMPONENT_APP_EDITOR); // load review round status keys.
 				return __($reviewRound->getStatusKey());
 			default:
-				return $this->getByDelegate(
+				$delegateResult = $this->getByDelegate(
 					$notification->getType(),
 					$notification->getAssocType(),
 					$notification->getAssocId(),
 					__FUNCTION__,
 					array($request, $notification)
 				);
+
+				if ($delegateResult) $message = $delegateResult;
+
+				return $message;
 		}
 	}
 
 	/**
 	 * Using the notification message, construct, if needed, any additional
 	 * content for the notification body. If a specific notification type
-	 * is not defined, it will return the string from getNotificationMessage
-	 * method for that type.
+	 * is not defined, it will return the parent method return value.
 	 * Define a notification type case on this method only if you need to
 	 * present more than just text in notification. If you need to define
 	 * just a locale key, use the getNotificationMessage method only.
-	 * @copydoc INotificationInfoProvider::getNotificationContents()
+	 * @copydoc PKPNotificationOperationManager::getNotificationContents()
 	 */
 	public function getNotificationContents($request, $notification) {
+		$content = parent::getNotificationContents($request, $notification);
 		$type = $notification->getType();
 		assert(isset($type));
-		$notificationMessage = $this->getNotificationMessage($request, $notification);
-		$notificationContent = null;
 
 		switch ($type) {
 			case NOTIFICATION_TYPE_FORM_ERROR:
 				$templateMgr = TemplateManager::getManager($request);
-				$templateMgr->assign('errors', $notificationMessage);
+				$templateMgr->assign('errors', $content);
 				return $templateMgr->fetch('controllers/notification/formErrorNotificationContent.tpl');
 			case NOTIFICATION_TYPE_ERROR:
-				if (is_array($notificationMessage)) {
-					$templateMgr->assign('errors', $notificationMessage);
+				if (is_array($content)) {
+					$templateMgr->assign('errors', $content);
 					return $templateMgr->fetch('controllers/notification/errorNotificationContent.tpl');
 				} else {
-					return $notificationMessage;
+					return $content;
 				}
 			default:
-				$notificationContent = $this->getByDelegate(
+				$delegateResult = $this->getByDelegate(
 					$notification->getType(),
 					$notification->getAssocType(),
 					$notification->getAssocId(),
 					__FUNCTION__,
 					array($request, $notification)
 				);
-				break;
-		}
-
-		if ($notificationContent) {
-			return $notificationContent;
-		} else {
-			return $notificationMessage;
+				
+				if ($delegateResult) $content = $delegateResult;
+				return $content;
 		}
 	}
 
 	/**
-	 * @copydoc INotificationInfoProvider::getNotificationContents()
+	 * @copydoc PKPNotificationOperationManager::getNotificationContents()
 	 */
 	public function getNotificationTitle($notification) {
+		$title = parent::getNotificationTitle($notification);
 		$type = $notification->getType();
 		assert(isset($type));
-		$notificationTitle = null;
 
 		switch ($type) {
 			case NOTIFICATION_TYPE_FORM_ERROR:
 				return __('form.errorsOccurred');
 			default:
-				$notificationTitle = $this->getByDelegate(
+				$delegateResult = $this->getByDelegate(
 					$notification->getType(),
 					$notification->getAssocType(),
 					$notification->getAssocId(),
 					__FUNCTION__,
 					array($notification)
 				);
-				break;
-		}
-
-		if ($notificationTitle) {
-			return $notificationTitle;
-		} else {
-			return '';
+				
+				if ($delegateResult) $title = $delegateResult;
+				return $title;
 		}
 	}
 
 	/**
-	 * @copydoc INotificationInfoProvider::getNotificationContents()
+	 * @copydoc PKPNotificationOperationManager::getNotificationContents()
 	 */
 	public function getStyleClass($notification) {
+		$styleClass = parent::getStyleClass($notification);
 		switch ($notification->getType()) {
 			case NOTIFICATION_TYPE_SUCCESS: return NOTIFICATION_STYLE_CLASS_SUCCESS;
 			case NOTIFICATION_TYPE_WARNING: return NOTIFICATION_STYLE_CLASS_WARNING;
@@ -254,27 +226,23 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 			case NOTIFICATION_TYPE_HELP: return NOTIFICATION_STYLE_CLASS_HELP;
 			case NOTIFICATION_TYPE_FORM_ERROR: return NOTIFICATION_STYLE_CLASS_FORM_ERROR;
 			default:
-				$notificationStyleClass = $this->getByDelegate(
+				$delegateResult = $this->getByDelegate(
 					$notification->getType(),
 					$notification->getAssocType(),
 					$notification->getAssocId(),
 					__FUNCTION__,
 					array($notification)
 				);
-				break;
-		}
-
-		if ($notificationStyleClass) {
-			return $notificationStyleClass;
-		} else {
-			return '';
+				if ($delegateResult) $styleClass = $delegateResult;
+				return $styleClass;
 		}
 	}
 
 	/**
-	 * @copydoc INotificationInfoProvider::getNotificationContents()
+	 * @copydoc PKPNotificationOperationManager::getNotificationContents()
 	 */
 	public function getIconClass($notification) {
+		$iconClass = parent::getIconClass($notification);
 		switch ($notification->getType()) {
 			case NOTIFICATION_TYPE_SUCCESS: return 'notifyIconSuccess';
 			case NOTIFICATION_TYPE_WARNING: return 'notifyIconWarning';
@@ -283,26 +251,23 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 			case NOTIFICATION_TYPE_FORBIDDEN: return 'notifyIconForbidden';
 			case NOTIFICATION_TYPE_HELP: return 'notifyIconHelp';
 			default:
-				$notificationIconClass = $this->getByDelegate(
+				$delegateResult = $this->getByDelegate(
 					$notification->getType(),
 					$notification->getAssocType(),
 					$notification->getAssocId(),
 					__FUNCTION__,
 					array($notification)
 				);
-				break;
-		}
-		if ($notificationIconClass) {
-			return $notificationIconClass;
-		} else {
-			return 'notifyIconPageAlert';
+				if ($delegateResult) $iconClass = $delegateResult;
+				return $iconClass;
 		}
 	}
 
 	/**
-	 * @copydoc INotificationInfoProvider::isVisibleToAllUsers()
+	 * @copydoc PKPNotificationOperationManager::isVisibleToAllUsers()
 	 */
 	public function isVisibleToAllUsers($notificationType, $assocType, $assocId) {
+		$isVisible = parent::isVisibleToAllUsers($notificationType, $assocType, $assocId);
 		switch ($notificationType) {
 			case NOTIFICATION_TYPE_REVIEW_ROUND_STATUS:
 			case NOTIFICATION_TYPE_APPROVE_SUBMISSION:
@@ -311,20 +276,15 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 				$isVisible = true;
 				break;
 			default:
-				$isVisible = $this->getByDelegate(
+				$delegateResult = $this->getByDelegate(
 					$notificationType,
 					$assocType,
 					$assocId,
 					__FUNCTION__,
 					array($notificationType, $assocType, $assocId)
 				);
-				break;
-		}
-
-		if (!is_null($isVisible)) {
-			return $isVisible;
-		} else {
-			return false;
+				if (!is_null($delegateResult)) $isVisible = $delegateResult;
+				return $isVisible;
 		}
 	}
 
@@ -400,16 +360,12 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 				return new PendingRevisionsNotificationManager($notificationType);
 			case NOTIFICATION_TYPE_ALL_REVISIONS_IN:
 				assert($assocType == ASSOC_TYPE_REVIEW_ROUND && is_numeric($assocId));
-				import('lib.pkp.classes.notification.managerDelegate.AllRevisionsInNotificationManager');
+				import('lib.pkp.classes.notification.managerDelegate.review.AllRevisionsInNotificationManager');
 				return new AllRevisionsInNotificationManager($notificationType);
 			case NOTIFICATION_TYPE_ALL_REVIEWS_IN:
 				assert($assocType == ASSOC_TYPE_REVIEW_ROUND && is_numeric($assocId));
-				import('lib.pkp.classes.notification.managerDelegate.AllReviewsInNotificationManager');
+				import('lib.pkp.classes.notification.managerDelegate.review.AllReviewsInNotificationManager');
 				return new AllReviewsInNotificationManager($notificationType);
-			case NOTIFICATION_TYPE_APPROVE_SUBMISSION:
-				assert($assocType == ASSOC_TYPE_SUBMISSION && is_numeric($assocId));
-				import('lib.pkp.classes.notification.managerDelegate.ApproveSubmissionNotificationManager');
-				return new ApproveSubmissionNotificationManager($notificationType);
 		}
 		return null; // No delegate required, let calling context handle null.
 	}

@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file classes/notification/managerDelegate/ApproveSubmissionNotificationManager.inc.php
+ * @file classes/notification/managerDelegate/PKPApproveSubmissionNotificationManager.inc.php
  *
  * Copyright (c) 2014-2016 Simon Fraser University Library
  * Copyright (c) 2003-2016 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class ApproveSubmissionNotificationManager
+ * @class PKPApproveSubmissionNotificationManager
  * @ingroup managerDelegate
  *
  * @brief Approve submission notification type manager delegate.
@@ -15,21 +15,37 @@
 
 import('lib.pkp.classes.notification.NotificationManagerDelegate');
 
-class ApproveSubmissionNotificationManager extends NotificationManagerDelegate {
+class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegate {
 
 	/**
 	 * Constructor.
 	 * @param $notificationType int NOTIFICATION_TYPE_...
 	 */
-	function ApproveSubmissionNotificationManager($notificationType) {
+	function PKPApproveSubmissionNotificationManager($notificationType) {
 		parent::NotificationManagerDelegate($notificationType);
 	}
 
+	/** 
+	 * @copydoc PKPNotificationOperationManager::getNotificationUrl()
+	 */
+	public function getNotificationUrl($request, $notification) {
+		$dispatcher = Application::getDispatcher();
+		$context = $request->getContext();
+		return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'workflow', 'access', $notification->getAssocId());	
+	}
+
 	/**
-	 * @copydoc NotificationManagerDelegate::getStyleClass()
+	 * @copydoc PKPNotificationOperationManager::getStyleClass()
 	 */
 	public function getStyleClass($notification) {
-		return NOTIFICATION_STYLE_CLASS_WARNING;
+		return NOTIFICATION_STYLE_CLASS_INFORMATION;
+	}
+
+	/**
+	 * @copydoc PKPNotificationOperationManager::isVisibleToAllUsers()
+	 */
+	public function isVisibleToAllUsers($notificationType, $assocType, $assocId) {
+		return true;
 	}
 
 	/**

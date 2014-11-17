@@ -12,8 +12,8 @@
  * @see NotificationDAO
  * @see Notification
  * @brief Base class for notification manager that implements
- * basic notification operations. Subclasses must implement the
- * NotificationInfoProvider interface.
+ * basic notification operations and default notifications info. 
+ * Subclasses can implement specific information.
  */
 
 
@@ -27,6 +27,64 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	function PKPNotificationOperationManager() {
 	}
 
+
+	//
+	// Implement INotificationInfoProvider with default values.
+	//
+	/**
+	 * @copydoc INotificationInfoProvider::getNotificationUrl()
+	 */
+	function getNotificationUrl($request, $notification) {
+		return null;
+	}
+
+	/**
+	 * @copydoc INotificationInfoProvider::getNotificationMessage()
+	 */
+	function getNotificationMessage($request, $notification) {
+		return null;
+	}
+
+	/**
+	 * Provide the notification message as default content.
+	 * @copydoc INotificationInfoProvider::getNotificationContents()
+	 */
+	function getNotificationContents($request, $notification) {
+		return $this->getNotificationMessage($request, $notification);
+	}
+
+	/**
+	 * @copydoc INotificationInfoProvider::getNotificationTitle()
+	 */
+	function getNotificationTitle($notification) {
+		return __('notification.notification');
+	}
+
+	/**
+	 * @copydoc INotificationInfoProvider::getStyleClass()
+	 */
+	function getStyleClass($notification) {
+		return '';
+	}
+
+	/**
+	 * @copydoc INotificationInfoProvider::getIconClass()
+	 */
+	function getIconClass($notification) {
+		return '';
+	}
+
+	/**
+	 * @copydoc INotificationInfoProvider::isVisibleToAllUsers()
+	 */
+	function isVisibleToAllUsers($notificationType, $assocType, $assocId) {
+		return false;
+	}
+
+
+	//
+	// Notification manager operations.
+	//
 	/**
 	 * Construct a set of notifications and return them as a formatted string
 	 * @param $request PKPRequest

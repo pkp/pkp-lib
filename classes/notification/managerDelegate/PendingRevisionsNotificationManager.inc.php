@@ -13,21 +13,28 @@
  * @brief Pending revision notification types manager delegate.
  */
 
-import('lib.pkp.classes.notification.managerDelegate.RevisionsNotificationManager');
+import('lib.pkp.classes.notification.NotificationManagerDelegate');
 import('lib.pkp.classes.workflow.WorkflowStageDAO');
 
-class PendingRevisionsNotificationManager extends RevisionsNotificationManager {
+class PendingRevisionsNotificationManager extends NotificationManagerDelegate {
 
 	/**
 	 * Constructor.
 	 * @param $notificationType int NOTIFICATION_TYPE_...
 	 */
 	function PendingRevisionsNotificationManager($notificationType) {
-		parent::RevisionsNotificationManager($notificationType);
+		parent::NotificationManagerDelegate($notificationType);
 	}
 
 	/**
-	 * @copydoc NotificationManagerDelegate::getNotificationUrl()
+	 * @copydoc PKPNotificationOperationManager::getStyleClass()
+	 */
+	public function getStyleClass($notification) {
+		return NOTIFICATION_STYLE_CLASS_WARNING;
+	}
+
+	/**
+	 * @copydoc PKPNotificationOperationManager::getNotificationUrl()
 	 */
 	public function getNotificationUrl($request, $notification) {
 		$submissionDao = Application::getSubmissionDAO();
@@ -41,7 +48,7 @@ class PendingRevisionsNotificationManager extends RevisionsNotificationManager {
 	}
 
 	/**
-	 * @copydoc NotificationManagerDelegate::getNotificationMessage()
+	 * @copydoc PKPNotificationOperationManager::getNotificationMessage()
 	 */
 	public function getNotificationMessage($request, $notification) {
 		$stageData = $this->_getStageDataByType();
@@ -52,7 +59,7 @@ class PendingRevisionsNotificationManager extends RevisionsNotificationManager {
 	}
 
 	/**
-	 * @copydoc NotificationManagerDelegate::getNotificationContents()
+	 * @copydoc PKPNotificationOperationManager::getNotificationContents()
 	 */
 	public function getNotificationContents($request, $notification) {
 		$stageData = $this->_getStageDataByType();
@@ -75,7 +82,7 @@ class PendingRevisionsNotificationManager extends RevisionsNotificationManager {
 	}
 
 	/**
-	 * @copydoc NotificationManagerDelegate::getNotificationTitle()
+	 * @copydoc PKPNotificationOperationManager::getNotificationTitle()
 	 */
 	public function getNotificationTitle($notification) {
 		$stageData = $this->_getStageDataByType();
@@ -92,11 +99,12 @@ class PendingRevisionsNotificationManager extends RevisionsNotificationManager {
 		$stageData = $this->_getStageDataByType();
 		$expectedStageId = $stageData['id'];
 
-		$pendingRevisionDecision = $this->findValidPendingRevisionsDecision($submissionId, $expectedStageId);
+		$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO');
+		$pendingRevisionDecision = $editDecisionDao->findValidPendingRevisionsDecision($submissionId, $expectedStageId);
 		$removeNotifications = false;
 
 		if ($pendingRevisionDecision) {
-			if ($this->responseExists($pendingRevisionDecision, $submissionId)) {
+			if ($editDecisionDao->responseExists($pendingRevisionDecision, $submissionId)) {
 				// Some user already uploaded a revision. Flag to delete any existing notification.
 				$removeNotifications = true;
 			} else {

@@ -26,6 +26,6 @@
 			<field name="normal_col">MY_VALUE_2</field>
 			<field name="default_col">DEFAULT_OVERRIDDEN</field>
 		</row>
-	</sql>
+	</table>
 </data>
 

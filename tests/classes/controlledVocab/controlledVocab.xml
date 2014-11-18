@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE data SYSTEM "../../../dtd/controlledVocab.dtd">
+<!DOCTYPE controlled_vocabs SYSTEM "../../../dtd/controlledVocab.dtd">
 
 <!--
   * tests/classes/db/data-sql.xml
@@ -12,10 +12,10 @@
   -->
 <controlled_vocabs>
 	<controlled_vocab symbolic="TEST_CV">
-		<entry seq="1" id_setting_name="name">
+		<entry seq="1">
 			<setting name="name" type="string">name_one</setting>
 		</entry>
-		<entry seq="2" id_setting_name="name">
+		<entry seq="2">
 			<setting name="name" type="string">name_two</setting>
 		</entry>
 	</controlled_vocab>

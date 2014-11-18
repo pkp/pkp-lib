@@ -268,7 +268,7 @@
 			opt_$context = this.gridHandler.getHtmlElement();
 		}
 		$('.row_controls :visible', opt_$context).closest('tr').prev().
-			find('.row_actions > a:first').click();
+				find('.row_actions > a:first').click();
 	};
 
 

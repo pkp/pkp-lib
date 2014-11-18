@@ -99,7 +99,7 @@
 	/**
 	 * Search grid link element.
 	 * @private
-	 * @type {jQuery}
+	 * @type {jQueryObject}
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.$searchLink_ = null;
 
@@ -499,16 +499,17 @@
 
 		// Control grid row hover background change.
 		this.getHtmlElement().find('tr.gridRow').not('.category').hover(
-				function(){$(this).toggleClass('mouse_over');});
+				function() {$(this).toggleClass('mouse_over'); });
 
 		// Search control.
 		this.getHtmlElement().find('.pkp_form').hide();
-		this.$searchLink_ = this.getHtmlElement().find('a[class^="sprite search_extras_"]');
+		this.$searchLink_ = this.getHtmlElement().
+				find('a[class^="sprite search_extras_"]');
 		this.$searchLink_.click(
-				this.callbackWrapper(function(){
+				this.callbackWrapper(function() {
 					this.getHtmlElement().find('.pkp_form').toggle();
 					this.$searchLink_.toggleClass('search_extras_expand').
-						toggleClass('search_extras_collapse');
+							toggleClass('search_extras_collapse');
 				}));
 
 		this.trigger('gridInitialized');

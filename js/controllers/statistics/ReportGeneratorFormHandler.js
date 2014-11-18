@@ -26,13 +26,27 @@
 	 * @extends $.pkp.controllers.form.AjaxFormHandler
 	 *
 	 * @param {jQueryObject} $form The wrapped HTML form element.
-	 * @param {Object} options Configuration of the form handler.
+	 * @param {{
+	 *  metricTypeSelectSelector: string,
+	 *  reportTemplateSelectSelector: string,
+	 *  aggregationOptionsSelector: string,
+	 *  currentMonthSelector: string,
+	 *  currentDaySelector: string,
+	 *  rangeByMonthSelector: string,
+	 *  rangeByDaySelector: string,
+	 *  dateRangeWrapperSelector: string,
+	 *  fileTypeSelectSelector: string,
+	 *  objectTypeSelectSelector: string,
+	 *  regionSelectSelector: string,
+	 *  countrySelectSelector: string
+	 *  }} options Configuration of the form handler.
 	 */
 	$.pkp.controllers.statistics.ReportGeneratorFormHandler =
 			function($form, options) {
 		var $objectTypeSelectElement, $countrySelectElement,
 				$metricTypeSelectElement, $reportTemplateSelectElement,
-				$currentTimeElements, $rangeTimeElements, $aggregationOptions;
+				$currentTimeElements, $rangeTimeElements,
+				$aggregationOptions;
 
 		// Configure the form handler.
 		options.trackFormChanges = false;
@@ -78,7 +92,7 @@
 		// Add click handler to current time filter selectors.
 		$currentTimeElements = $(options.currentMonthSelector,
 				this.getHtmlElement()).add(options.currentDaySelector,
-				this.getHtmlElement());
+				this.getHtmlElement()[0]);
 		if ($currentTimeElements.length == 2) {
 			$currentTimeElements.click(this.callbackWrapper(
 					this.currentTimeElementsClickHandler_));
@@ -87,7 +101,7 @@
 		// Add click handler to range time filter selectors.
 		$rangeTimeElements = $(options.rangeByMonthSelector,
 				this.getHtmlElement()).add(options.rangeByDaySelector,
-				this.getHtmlElement());
+				this.getHtmlElement()[0]);
 		if ($rangeTimeElements.length == 2) {
 			$rangeTimeElements.click(this.callbackWrapper(
 					this.rangeTimeElementsClickHandler_));
@@ -111,7 +125,7 @@
 		$objectTypeSelectElement = $(options.objectTypeSelectSelector,
 				this.getHtmlElement());
 		if (this.$fileTypeSelectElement_.length == 1) {
-			this.$fileTypeSelectElement_.attr('disabled', true);
+			this.$fileTypeSelectElement_.attr('disabled', 'disabled');
 			$objectTypeSelectElement.change(this.callbackWrapper(
 					this.updateFileTypeSelectHandler_));
 		}
@@ -264,7 +278,8 @@
 	 */
 	$.pkp.controllers.statistics.ReportGeneratorFormHandler.prototype.
 			handleResponse = function(formElement, jsonData) {
-		var data = this.handleJson(jsonData);
+		var data = /** @type {{reportUrl: string}|boolean|undefined} */
+				(this.handleJson(jsonData));
 		if (data !== false && data.reportUrl !== undefined) {
 			$('#reportUrlFormArea', this.getHtmlElement()).show().
 					find(':input').val(data.reportUrl);
@@ -273,6 +288,7 @@
 		}
 
 		this.parent('handleResponse', formElement, jsonData);
+		return false;
 	};
 
 
@@ -283,8 +299,8 @@
 	 * Callback called by components that needs to
 	 * refresh the form when changed (metric type and report
 	 * template selectors).
-	 *
 	 * @private
+	 *
 	 * @param {Object} callingContext The calling element or object.
 	 * @param {Event=} opt_event The triggering event (e.g. a click on
 	 *  a button.
@@ -329,8 +345,8 @@
 
 	/**
 	 * Callback called after object type select is changed.
-	 *
 	 * @private
+	 *
 	 * @param {Object} callingContext The calling element or object.
 	 * @param {Event=} opt_event The triggering event (e.g. a click on
 	 *  a button.
@@ -346,13 +362,13 @@
 			assocType = $objectTypeSelectedOptions[0].value;
 			for (i in this.fileAssocTypes_) {
 				if (this.fileAssocTypes_[i] == assocType) {
-					this.$fileTypeSelectElement_.attr('disabled', false);
+					this.$fileTypeSelectElement_.removeAttr('disabled');
 					return false;
 				}
 			}
 		}
 
-		this.$fileTypeSelectElement_.attr('disabled', true);
+		this.$fileTypeSelectElement_.attr('disabled', 'disabled');
 		return false;
 	};
 
@@ -360,8 +376,8 @@
 	/**
 	 * Callback called after country select is changed to fetch
 	 * related region info.
-	 *
 	 * @private
+	 *
 	 * @param {Object} callingContext The calling element or object.
 	 * @param {Event=} opt_event The triggering event (e.g. a click on
 	 *  a button.
@@ -397,14 +413,14 @@
 	 */
 	$.pkp.controllers.statistics.ReportGeneratorFormHandler.prototype.
 			updateRegionSelectCallback_ = function(ajaxContext, jsonData) {
-		var $regionSelectElement, limit, content, i;
+		var $regionSelectElement, limit, content, i, processedJsonData;
 		$regionSelectElement = this.$regionSelectElement_;
 
 		$regionSelectElement.empty();
 
-		jsonData = this.handleJson(jsonData);
-		if (jsonData !== false) {
-			content = jsonData.content;
+		processedJsonData = this.handleJson(jsonData);
+		if (processedJsonData !== false) {
+			content = processedJsonData.content;
 			for (i = 0, limit = content.length; i < limit; i++) {
 				$regionSelectElement.append(
 						$('<option />').val(content[i].id).text(content[i].name));
@@ -417,8 +433,8 @@
 
 	/**
 	 * Callback called when current time selectors are clicked.
-	 *
 	 * @private
+	 *
 	 * @param {Object} callingContext The calling element or object.
 	 * @param {Event=} opt_event The triggering event (e.g. a click on
 	 *  a button.
@@ -434,16 +450,15 @@
 
 	/**
 	 * Callback called when range time selectors are clicked.
-	 *
 	 * @private
+	 *
 	 * @param {Object} callingContext The calling element or object.
 	 * @param {Event=} opt_event The triggering event (e.g. a click on
 	 *  a button.
 	 * @return {boolean} Should return true to continue event processing.
 	 */
 	$.pkp.controllers.statistics.ReportGeneratorFormHandler.prototype.
-			rangeTimeElementsClickHandler_ =
-			function(callingContext, opt_event) {
+			rangeTimeElementsClickHandler_ = function(callingContext, opt_event) {
 		var $dayElements = $(this.startDayElementSelector_).
 				add(this.endDayElementSelector_);
 
@@ -455,14 +470,15 @@
 		if ('#' + $(callingContext).attr('id') == this.rangeByMonthSelector_) {
 			$dayElements.hide();
 		}
+
 		return true;
 	};
 
 
 	/**
 	 * Callback called when aggregation options are changed.
-	 *
 	 * @private
+	 *
 	 * @param {Object} callingContext The calling element or object.
 	 * @param {Event=} opt_event The triggering event (e.g. a click on
 	 *  a button.

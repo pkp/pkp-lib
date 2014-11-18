@@ -17,8 +17,7 @@
  * @brief Base class for all Nlm30CitationSchemaFilter tests for parser filters.
  */
 
-
-import('lib.pkp.tests.plugins.metadata.nlm30.filter.Nlm30CitationSchemaFilterTestCase');
+import('lib.pkp.plugins.metadata.nlm30.tests.filter.Nlm30CitationSchemaFilterTestCase');
 
 abstract class Nlm30CitationSchemaParserFilterTestCase extends Nlm30CitationSchemaFilterTestCase {
 	const TEST_ALL_CITATIONS = false;

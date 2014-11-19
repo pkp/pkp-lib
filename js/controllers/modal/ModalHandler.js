@@ -69,7 +69,8 @@
 			$handledElement.dialog({width: 710});
 		}
 
-		$handledElement.dialog('option', 'position', {my: "center", at: "center center-10%", of: window});
+		$handledElement.dialog('option', 'position',
+				{my: 'center', at: 'center center-10%', of: window});
 
 		// Bind the close event.
 		this.bind('dialogclose', this.dialogClose);

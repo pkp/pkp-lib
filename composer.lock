@@ -4,20 +4,20 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1f665d3b2c7e8626fdd4a1ebe76c6351",
+    "hash": "3b5743fd83c36b5d95a7ff8ecc4252fe",
     "packages": [
         {
             "name": "components/jquery",
-            "version": "2.1.1",
+            "version": "1.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/components/jquery.git",
-                "reference": "9e2c56ed9f17e6b55de97ae64a3ed0cf17cd30d4"
+                "reference": "c20fd94f83db26dfdce5f37ce5d6cbe0e907a05b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/components/jquery/zipball/9e2c56ed9f17e6b55de97ae64a3ed0cf17cd30d4",
-                "reference": "9e2c56ed9f17e6b55de97ae64a3ed0cf17cd30d4",
+                "url": "https://api.github.com/repos/components/jquery/zipball/c20fd94f83db26dfdce5f37ce5d6cbe0e907a05b",
+                "reference": "c20fd94f83db26dfdce5f37ce5d6cbe0e907a05b",
                 "shasum": ""
             },
             "require": {
@@ -31,7 +31,6 @@
                     ],
                     "files": [
                         "jquery.min.js",
-                        "jquery.min.map",
                         "jquery-migrate.js",
                         "jquery-migrate.min.js"
                     ]
@@ -50,24 +49,24 @@
             ],
             "description": "jQuery JavaScript Library",
             "homepage": "http://jquery.com",
-            "time": "2014-07-02 11:52:43"
+            "time": "2014-01-24 21:17:36"
         },
         {
             "name": "components/jqueryui",
-            "version": "1.11.2",
+            "version": "1.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/components/jqueryui.git",
-                "reference": "396781474d936959061271505f506b78398fe6a2"
+                "reference": "a024ef6de51ccd4bc0cfeea470cde113d33a59a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/components/jqueryui/zipball/396781474d936959061271505f506b78398fe6a2",
-                "reference": "396781474d936959061271505f506b78398fe6a2",
+                "url": "https://api.github.com/repos/components/jqueryui/zipball/a024ef6de51ccd4bc0cfeea470cde113d33a59a8",
+                "reference": "a024ef6de51ccd4bc0cfeea470cde113d33a59a8",
                 "shasum": ""
             },
             "require": {
-                "components/jquery": ">=1.6"
+                "components/jquery": ">=1.8"
             },
             "type": "component",
             "extra": {
@@ -114,6 +113,12 @@
                     "homepage": "http://krisborchers.com"
                 },
                 {
+                    "name": "Corey Frang",
+                    "email": "gnarf37@gmail.com",
+                    "homepage": "http://gnarf.net",
+                    "role": "Developer"
+                },
+                {
                     "name": "Mike Sherov",
                     "email": "mike.sherov@gmail.com",
                     "homepage": "http://mike.sherov.com"
@@ -122,20 +127,10 @@
                     "name": "TJ VanToll",
                     "email": "tj.vantoll@gmail.com",
                     "homepage": "http://tjvantoll.com"
-                },
-                {
-                    "name": "Corey Frang",
-                    "email": "gnarf37@gmail.com",
-                    "homepage": "http://gnarf.net"
-                },
-                {
-                    "name": "Felix Nagel",
-                    "email": "info@felixnagel.com",
-                    "homepage": "http://www.felixnagel.com"
                 }
             ],
             "description": "jQuery UI is a curated set of user interface interactions, effects, widgets, and themes built on top of the jQuery JavaScript Library. Whether you're building highly interactive web applications or you just need to add a date picker to a form control, jQuery UI is the perfect choice.",
-            "time": "2014-10-17 06:40:12"
+            "time": "2014-07-19 12:11:30"
         },
         {
             "name": "ezyang/htmlpurifier",

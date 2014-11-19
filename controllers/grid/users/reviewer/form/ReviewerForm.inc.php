@@ -289,18 +289,12 @@ class ReviewerForm extends Form {
 			'reviewMethod',
 			'skipEmail',
 			'keywords',
-			'interestsTextOnly',
+			'interests',
 			'reviewRoundId',
 			'stageId',
 			'selectedFiles',
 			'reviewFormId',
 		));
-
-		$keywords = $this->getData('keywords');
-		if ($keywords != null && is_array($keywords['interests'])) {
-			// The interests are coming in encoded -- Decode them for DB storage
-			$this->setData('interestsKeywords', array_map('urldecode', $keywords['interests']));
-		}
 	}
 
 	/**

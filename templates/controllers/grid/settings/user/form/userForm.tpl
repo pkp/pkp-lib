@@ -45,7 +45,6 @@
 			disableAuthSourceSection=!$authSourceOptions
 			disablePasswordSection=$implicitAuth
 			disableSendNotifySection=$disableSendNotifySection
-			disableInterestsSection=!$allowRegReviewer
 		}
 
 		{if $userId}

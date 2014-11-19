@@ -95,8 +95,7 @@ class UserDetailsForm extends UserForm {
 				'mailingAddress' => $user->getMailingAddress(),
 				'country' => $user->getCountry(),
 				'biography' => $user->getBiography(null), // Localized
-				'interestsKeywords' => $interestManager->getInterestsForUser($user),
-				'interestsTextOnly' => $interestManager->getInterestsString($user),
+				'interests' => $interestManager->getInterestsForUser($user),
 				'userLocales' => $user->getLocales()
 			);
 		} else if (isset($this->author)) {
@@ -185,8 +184,7 @@ class UserDetailsForm extends UserForm {
 			'mailingAddress',
 			'country',
 			'biography',
-			'keywords',
-			'interestsTextOnly',
+			'interests',
 			'userLocales',
 			'generatePassword',
 			'sendNotify',
@@ -203,12 +201,6 @@ class UserDetailsForm extends UserForm {
 		if ($this->getData('username') != null) {
 			// Usernames must be lowercase
 			$this->setData('username', strtolower($this->getData('username')));
-		}
-
-		$keywords = $this->getData('keywords');
-		if ($keywords != null && is_array($keywords['interests'])) {
-			// The interests are coming in encoded -- Decode them for DB storage
-			$this->setData('interestsKeywords', array_map('urldecode', $keywords['interests']));
 		}
 	}
 
@@ -327,10 +319,9 @@ class UserDetailsForm extends UserForm {
 			}
 		}
 
-		$interests = $this->getData('interestsKeywords') ? $this->getData('interestsKeywords') : $this->getData('interestsTextOnly');
 		import('lib.pkp.classes.user.InterestManager');
 		$interestManager = new InterestManager();
-		$interestManager->setInterestsForUser($user, $interests);
+		$interestManager->setInterestsForUser($user, $this->getData('interests'));
 
 		return $user;
 	}

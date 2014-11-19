@@ -105,20 +105,14 @@ class PKPUserForm extends Form {
 			'country',
 			'biography',
 			'keywords',
-			'interestsTextOnly',
 			'userLocales',
 			'authorGroup',
 			'reviewerGroup',
+			'interests',
 		));
 
 		if ($this->getData('userLocales') == null || !is_array($this->getData('userLocales'))) {
 			$this->setData('userLocales', array());
-		}
-
-		$keywords = $this->getData('keywords');
-		if ($keywords != null && is_array($keywords['interests'])) {
-			// The interests are coming in encoded -- Decode them for DB storage
-			$this->setData('interestsKeywords', array_map('urldecode', $keywords['interests']));
 		}
 	}
 
@@ -163,10 +157,9 @@ class PKPUserForm extends Form {
 	 */
 	function _updateUserInterests($user) {
 		// Insert the user interests
-		$interests = $this->getData('interestsKeywords') ? $this->getData('interestsKeywords') : $this->getData('interestsTextOnly');
 		import('lib.pkp.classes.user.InterestManager');
 		$interestManager = new InterestManager();
-		$interestManager->setInterestsForUser($user, $interests);
+		$interestManager->setInterestsForUser($user, $this->getData('interests'));
 	}
 
 	/**

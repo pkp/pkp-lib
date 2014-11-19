@@ -149,8 +149,7 @@ class PKPProfileForm extends PKPUserForm {
 			'country' => $user->getCountry(),
 			'biography' => $user->getBiography(null), // Localized
 			'userLocales' => $user->getLocales(),
-			'interestsKeywords' => $interestManager->getInterestsForUser($user),
-			'interestsTextOnly' => $interestManager->getInterestsString($user)
+			'interests' => $interestManager->getInterestsForUser($user),
 		);
 	}
 

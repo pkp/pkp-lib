@@ -752,18 +752,17 @@ class FormBuilderVocabulary {
 
 	/**
 	 * Reviewing interests input.
-	 * parameters: interestsKeywords - current users's keywords (array); interestsTextOnly - user's current keywords (comma separated string)
+	 * parameters: interests - current users's keywords (array)
 	 * @param $params array
 	 * @param $smarty object
 	 */
 	function _smartyFBVInterestsInput($params, &$smarty) {
-		$smarty->clear_assign(array('FBV_id', 'FBV_label', 'FBV_label_content', 'FBV_interestsKeywords', 'FBV_interestsTextOnly'));
+		$smarty->clear_assign(array('FBV_id', 'FBV_label', 'FBV_label_content', 'FBV_interests'));
 		foreach ($params as $key => $value) {
 			switch ($key) {
 				case 'type': break;
 				case 'id':
-				case 'interestsKeywords':
-				case 'interestsTextOnly':
+				case 'interests':
 					$smarty->assign('FBV_' . $key, $value);
 					break;
 				case 'label': $smarty->assign('FBV_label_content', $this->_smartyFBVSubLabel($params, $smarty)); break;

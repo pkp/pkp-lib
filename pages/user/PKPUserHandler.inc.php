@@ -56,7 +56,7 @@ class PKPUserHandler extends Handler {
 	}
 
 	/**
-	 * Get keywords for reviewer interests autocomplete.
+	 * Get interests for reviewer interests autocomplete.
 	 * @param $args array
 	 * @param $request PKPRequest
 	 * @return string Serialized JSON object

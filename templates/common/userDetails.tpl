@@ -195,7 +195,7 @@
 
 				{if !$disableInterestsSection}
 					{fbvFormSection for="interests"}
-						{fbvElement type="interests" id="interests" interestsKeywords=$interestsKeywords interestsTextOnly=$interestsTextOnly label="user.interests"}
+						{fbvElement type="interests" id="interests" interests=$interests label="user.interests"}
 					{/fbvFormSection}
 				{/if}
 

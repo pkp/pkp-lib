@@ -133,7 +133,8 @@ class PKPRegistrationForm extends PKPUserForm {
 			'password2',
 			'confirmEmail',
 			'existingUser',
-			'sendPassword'
+			'sendPassword',
+			'interests',
 		));
 
 		if ($this->captchaEnabled) {

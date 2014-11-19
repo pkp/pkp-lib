@@ -116,7 +116,7 @@
 		modal: true,
 		draggable: false,
 		resizable: false,
-		position: {my: "center", at: "center center-10%", of: window}
+		position: {my: 'center', at: 'center center-10%', of: window}
 	};
 
 

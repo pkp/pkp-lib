@@ -37,12 +37,16 @@
 		{fbvFormSection title="user.group"}
 			{fbvElement type="select" name="userGroupId" id="userGroupId" from=$userGroups translate=false label="editor.review.userGroupSelect" required="true"}
 		{/fbvFormSection}
+	{elseif count($userGroups)==1}
+		{foreach from=$userGroups key=userGroupId item=userGroupName}
+			{fbvElement type="hidden" id="userGroupId" value=$userGroupId}
+		{/foreach}
 	{/if}
 
 	{fbvFormSection title="common.name"}
-		{fbvElement type="text" label="user.firstName" id="firstName" value=$firstname required="true" inline=true size=$fbvStyles.size.SMALL}
-		{fbvElement type="text" label="user.middleName" id="middleName" value=$middlename inline=true size=$fbvStyles.size.SMALL}
-		{fbvElement type="text" label="user.lastName" id="lastName" value=$lastname required="true" inline=true size=$fbvStyles.size.SMALL}
+		{fbvElement type="text" label="user.firstName" id="firstName" value=$firstName required="true" inline=true size=$fbvStyles.size.SMALL}
+		{fbvElement type="text" label="user.middleName" id="middleName" value=$middleName inline=true size=$fbvStyles.size.SMALL}
+		{fbvElement type="text" label="user.lastName" id="lastName" value=$lastName required="true" inline=true size=$fbvStyles.size.SMALL}
 	{/fbvFormSection}
 
 	{fbvFormSection description="user.register.usernameRestriction"}
@@ -55,7 +59,7 @@
 	{/fbvFormSection}
 
 	{fbvFormSection title="manager.reviewerSearch.interests" for="interests"}
-		{fbvElement type="interests" id="interests" interestsKeywords=$interestsKeywords interestsTextOnly=$interestsTextOnly}
+		{fbvElement type="interests" id="interests" interests=$interests}
 	{/fbvFormSection}
 
 	{fbvFormSection}

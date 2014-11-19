@@ -36,8 +36,8 @@ define('STYLE_SEQUENCE_NORMAL', 10);
 define('STYLE_SEQUENCE_LATE', 15);
 define('STYLE_SEQUENCE_LAST', 20);
 
-define('CDN_JQUERY_VERSION', '1.11.1');
-define('CDN_JQUERY_UI_VERSION', '1.10.4');
+define('CDN_JQUERY_VERSION', '1.11.0');
+define('CDN_JQUERY_UI_VERSION', '1.11.0');
 
 class PKPTemplateManager extends Smarty {
 	/** @var array of URLs to stylesheets */

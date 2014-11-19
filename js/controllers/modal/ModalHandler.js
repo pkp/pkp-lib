@@ -60,16 +60,16 @@
 		// if our modal is too narrow ('auto' width, with small amounts
 		// of content), resize to prevent title wrapping.
 		if ($handledElement.width() < 400) {
-			$handledElement.dialog('option', 'width', '400');
+			$handledElement.dialog({width: 400});
 		}
 
 		// if the modal is too wide ('auto' width with large amounts
 		// of content), resize to prevent modals that are too wide.
 		if ($handledElement.width() > 710) {
-			$handledElement.dialog('option', 'width', '710');
+			$handledElement.dialog({width: 710});
 		}
 
-		$handledElement.dialog('option', 'position', ['center', 100]);
+		$handledElement.dialog('option', 'position', {my: "center", at: "center center-10%", of: window});
 
 		// Bind the close event.
 		this.bind('dialogclose', this.dialogClose);
@@ -115,7 +115,7 @@
 		modal: true,
 		draggable: false,
 		resizable: false,
-		position: ['center', 100]
+		position: {my: "center", at: "center center-10%", of: window}
 	};
 
 

@@ -36,32 +36,13 @@ class FormValidatorListbuilder extends FormValidator {
 	// Public methods
 	//
 	/**
-	 * Check the number of lisbuilder rows. If it's equal to 0, return false.
-	 *
+	 * Check the number of listbuilder rows and ensure that at least one exists.
 	 * @see FormValidator::isValid()
 	 * @return boolean
 	 */
 	function isValid() {
-		$value = $this->getFieldValue();
-		import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
-		$request =& Application::getRequest();
-		ListbuilderHandler::unpack($request, $value);
-		if ($this->_valid) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	function deleteEntry($request, $rowId) {
-		return true;
-	}
-
-	function insertEntry($request, $rowId) {
-		// At least one entry has been created; flag as valid.
-		$this->_valid = true;
-
-		return true;
+		$value = json_decode($this->getFieldValue());
+		return ($value->numberOfRows>0);
 	}
 }
 

@@ -100,7 +100,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->waitForText('css=div.pkp_controllers_modal_titleBar > h2', 'Confirm');
 		$this->waitForElementPresent("//span[text()='OK']/..");
 		$this->click("//span[text()='OK']/..");
-		$this->waitForText('css=#ui-tabs-4 > h2', 'Submission complete');
+		$this->waitForElementPresent('//h2[contains(text(), \'Submission complete\')]');
 		$this->waitJQuery();
 	}
 
@@ -215,9 +215,11 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->waitForElementPresent('css=[id^=reviewerId_input-]');
 		$this->type('css=[id^=reviewerId_input-]', $username);
 		$this->typeKeys('css=[id^=reviewerId_input-]', $username);
-		$this->waitForElementPresent('//a[text()=\'' . $this->escapeJS($name) . '\']');
-		$this->mouseOver('//a[text()=\'' . $this->escapeJS($name) . '\']');
-		$this->click('//a[text()=\'' . $this->escapeJS($name) . '\']');
+
+		$this->waitForElementPresent($selector = '//li[text()=\'' . $this->escapeJS($name) . '\']');
+		$this->mouseOver($selector);
+		$this->click($selector);
+
 		$this->click('//span[text()=\'Add Reviewer\']/..');
 		$this->waitForElementNotPresent('css=.ui-widget-overlay');
 	}
@@ -260,7 +262,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->click('//span[text()=\'Submit Review\']/..');
 		$this->waitForElementPresent('//span[text()=\'OK\']/..');
 		$this->click('//span[text()=\'OK\']/..');
-		$this->waitForText('css=#ui-tabs-4 > h2', 'Review Submitted');
+		$this->waitForElementPresent('//h2[contains(text(), \'Review Submitted\')]');
 		$this->waitJQuery();
 		$this->logOut();
 	}

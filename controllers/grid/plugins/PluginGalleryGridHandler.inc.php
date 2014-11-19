@@ -267,7 +267,6 @@ class PluginGalleryGridHandler extends GridHandler {
 			$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('manager.plugins.upgradeSuccessful', array('versionString' => $pluginVersion->getVersionString(false)))));
 		}
 
-		// ui-tabs-5 is (currently) the plugins tab.
 		return $request->redirectUrlJson($dispatcher->url($request, ROUTE_PAGE, null, 'management', 'settings', array('website'), null, 'plugins'));
 	}
 

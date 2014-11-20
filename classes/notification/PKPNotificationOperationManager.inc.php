@@ -371,6 +371,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	 * @param $notification object Notification
 	 */
 	private function sendNotificationEmail($request, $notification) {
+		
 		$userId = $notification->getUserId();
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$user = $userDao->getById($userId);
@@ -386,7 +387,9 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 				'siteTitle' => $site->getLocalizedTitle()
 			));
 			$mail->addRecipient($user->getEmail(), $user->getFullName());
-			$mail->send();
+			if (!HookRegistry::call('PKPNotificationOperationManager::sendNotificationEmail', array($notification))) { 
+				$mail->send();
+			}
 		}
 	}
 }

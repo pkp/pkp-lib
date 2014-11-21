@@ -20,8 +20,10 @@ export DBPASSWORD=ojs-ci
 export FILESDIR=files
 export DATABASEDUMP=~/database.sql.gz
 
+# Install required software
+sudo apt-get install a2ps libbiblio-citation-parser-perl
+
 # Generate a sample PDF file to use for testing.
-sudo apt-get install a2ps
 echo "This is a test" | a2ps -o - | ps2pdf - ~/dummy.pdf
 
 # Create the database.

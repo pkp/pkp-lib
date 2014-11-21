@@ -1,21 +1,21 @@
 <?php
 
 /**
- * @file tests/functional/workflow/ReviewTest.php
+ * @file tests/functional/workflow/PKPReviewBaseTestCase.inc.php
  *
  * Copyright (c) 2014 Simon Fraser University Library
  * Copyright (c) 2000-2014 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class ReviewTest
+ * @class PKPReviewBaseTestCase
  * @ingroup tests_functional_workflow
  *
- * @brief Test review process.
+ * @brief Base class for testing the review process.
  */
 
 import('lib.pkp.tests.functional.workflow.WorkflowBaseTestCase');
 
-class ReviewTest extends WorkflowBaseTestCase {
+class PKPReviewBaseTestCase extends WorkflowBaseTestCase {
 
 	/**
 	 * Test performing a review.

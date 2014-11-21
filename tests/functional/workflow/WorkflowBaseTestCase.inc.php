@@ -14,8 +14,16 @@
  */
 
 import('tests.data.ContentBaseTestCase');
+import('classes.notification.Notification');
 
 class WorkflowBaseTestCase extends ContentBaseTestCase {
+
+	/**
+	 * @copydoc WebTestCase::getAffectedTables()
+	 */
+	protected function getAffectedTables() {
+		return PKP_TEST_ENTIRE_DB;
+	}
 
 	/**
 	 * @copydoc ContentBaseTestCase::setUp()

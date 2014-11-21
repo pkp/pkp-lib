@@ -159,7 +159,7 @@ class TinyMCE_Compressor {
 		}
 
 		// Generate hash for all files
-		$hash = md5(implode('', $allFiles));
+		$hash = md5(implode('', $allFiles).dirname($_SERVER["SCRIPT_NAME"]));
 
 		// Check if it supports gzip
 		$zlibOn = ini_get('zlib.output_compression') || (ini_set('zlib.output_compression', 0) === false);

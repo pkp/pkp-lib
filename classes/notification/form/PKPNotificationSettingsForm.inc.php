@@ -47,7 +47,31 @@ class PKPNotificationSettingsForm extends Form {
 		$templateMgr->assign('emailSettings', $emailSettings);
 		$templateMgr->assign('titleVar', __('common.title'));
 		$templateMgr->assign('userVar', __('common.user'));
-		return parent::fetch();
+		return parent::fetch($request);
+	}
+
+	/**
+	 * Get all notification settings form names and their setting type values.
+	 * @return array
+	 */
+	protected function getNotificationSettingsMap() {
+		return array(
+			NOTIFICATION_TYPE_ALL_REVISIONS_IN => array('settingName' => 'notificationAllRevisionsIn',
+				'emailSettingName' => 'emailNotificationAllRevisionsIn',
+				'settingKey' => 'notification.type.allRevisionsIn')
+		);
+	}
+
+	/**
+	 * Get a list of notification category names (to display as headers)
+	 * and the notification types under each category.
+	 * @return array
+	 */
+	protected function getNotificationSettingsCategories() {
+		return array(array(
+			'categoryKey' => 'notification.type.reviewing',
+			'settings' => array(NOTIFICATION_TYPE_ALL_REVISIONS_IN)
+		));
 	}
 }
 

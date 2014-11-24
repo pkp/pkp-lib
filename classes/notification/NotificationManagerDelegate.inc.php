@@ -37,7 +37,7 @@ abstract class NotificationManagerDelegate extends PKPNotificationOperationManag
 	 * Get the current notification type this manager is handling.
 	 * @return int NOTIFICATION_TYPE_...
 	 */
-	protected function getNotificationType() {
+	function getNotificationType() {
 		return $this->_notificationType;
 	}
 
@@ -49,7 +49,7 @@ abstract class NotificationManagerDelegate extends PKPNotificationOperationManag
 	 * @param $assocId int ID corresponding to $assocType
 	 * @return boolean True iff success
 	 */
-	public function updateNotification($request, $userIds, $assocType, $assocId) {
+	function updateNotification($request, $userIds, $assocType, $assocId) {
 		return false;
 	}
 	
@@ -58,8 +58,8 @@ abstract class NotificationManagerDelegate extends PKPNotificationOperationManag
 	 * creation of the passed notification type.
 	 * @copydoc PKPNotificationOperationManager::createNotification()
 	 */
-	public function createNotification($request, $userId = null, $notificationType, $contextId = null, $assocType = null, $assocId = null, $level = NOTIFICATION_LEVEL_NORMAL, $params = null) {
-		if ($notificationType != $this->getNotificationType()) assert(false);
+	function createNotification($request, $userId = null, $notificationType, $contextId = null, $assocType = null, $assocId = null, $level = NOTIFICATION_LEVEL_NORMAL, $params = null) {
+		assert($notificationType == $this->getNotificationType() || $this->multipleTypesUpdate());
 		return parent::createNotification($request, $userId, $notificationType, $contextId, $assocType, $assocId, $level, $params);
 	}
 
@@ -68,9 +68,21 @@ abstract class NotificationManagerDelegate extends PKPNotificationOperationManag
 	 * the passed type of notification.
 	 * @copydoc PKPNotificationOperationManager::sendToMailingList()
 	 */
-	public function sendToMailingList($request, $notification) {
-		if ($notification->getType() !== $this->getNotificationType()) assert(false);
+	function sendToMailingList($request, $notification) {
+		assert($notification->getType() !== $this->getNotificationType() || $this->multipleTypesUpdate());
 		parent::sendToMailingList($request, $notification);
+	}
+
+	/**
+	 * Flag a notification manager that handles multiple notification
+	 * types inside the update method within the same call. Only set
+	 * this to true if you're sure the notification manager provides
+	 * all information for all notification types you're handling (via
+	 * the getNotification... methods).
+	 * @return boolean
+	 */
+	protected function multipleTypesUpdate() {
+		return false;
 	}
 }
 

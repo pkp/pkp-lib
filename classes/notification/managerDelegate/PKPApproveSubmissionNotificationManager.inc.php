@@ -28,7 +28,7 @@ class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegat
 	/** 
 	 * @copydoc PKPNotificationOperationManager::getNotificationUrl()
 	 */
-	public function getNotificationUrl($request, $notification) {
+	function getNotificationUrl($request, $notification) {
 		$dispatcher = Application::getDispatcher();
 		$context = $request->getContext();
 		return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'workflow', 'access', $notification->getAssocId());	
@@ -37,21 +37,21 @@ class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegat
 	/**
 	 * @copydoc PKPNotificationOperationManager::getStyleClass()
 	 */
-	public function getStyleClass($notification) {
+	function getStyleClass($notification) {
 		return NOTIFICATION_STYLE_CLASS_INFORMATION;
 	}
 
 	/**
 	 * @copydoc PKPNotificationOperationManager::isVisibleToAllUsers()
 	 */
-	public function isVisibleToAllUsers($notificationType, $assocType, $assocId) {
+	function isVisibleToAllUsers($notificationType, $assocType, $assocId) {
 		return true;
 	}
 
 	/**
 	 * @copydoc NotificationManagerDelegate::updateNotification()
 	 */
-	public function updateNotification($request, $userIds, $assocType, $assocId) {
+	function updateNotification($request, $userIds, $assocType, $assocId) {
 		$submissionId = $assocId;
 		$submissionDao = Application::getSubmissionDAO();
 		$submission = $submissionDao->getById($submissionId);
@@ -95,6 +95,13 @@ class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegat
 			}
 		}
 	}
+
+	/**
+	 * @copydoc NotificationManagerDelegate.inc.php
+	 */
+	protected function multipleTypesUpdate() {
+		return true;
+	} 
 }
 
 ?>

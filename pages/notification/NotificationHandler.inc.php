@@ -352,8 +352,7 @@ class NotificationHandler extends Handler {
 	function fetchNotification($args, $request) {
 		$this->setupTemplate($request);
 		$user = $request->getUser();
-		$userId = null;
-		if ($user) $userId = $user->getId();
+		$userId = $user?$user->getId():null;
 		$context = $request->getContext();
 		$notificationDao = DAORegistry::getDAO('NotificationDAO');
 		$notifications = array();

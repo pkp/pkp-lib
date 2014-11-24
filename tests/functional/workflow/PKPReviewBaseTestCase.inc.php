@@ -29,8 +29,13 @@ class PKPReviewBaseTestCase extends WorkflowBaseTestCase {
 
 		$this->sendToReview('External');
 		$this->waitForElementPresent('css=a#participantToggle');
+		// Check NOTIFICATION_TYPE_REVIEW_ROUND_STATUS
+		$this->waitForInPlaceNotification($reviewRoundNotificationId = 'reviewRoundNotification_', 'Awaiting reviewers.'); 
+
 		$this->assignParticipant('Author', 'Bob Barnetson');
 		$this->assignReviewer('agallego', 'Adela Gallego');
+		$this->waitForInPlaceNotification($reviewRoundNotificationId, 'Awaiting responses from reviewers.');
+
 		$this->assertTrue($emailLog->exists(NOTIFICATION_TYPE_REVIEW_ASSIGNMENT, 'agallego@mailinator.com'), 
 			'The reviewer did not received the review assignment notification email');
 		$this->assertTrue($emailLog->existsByAssoc(ASSOC_TYPE_SUBMISSION, $submissionId, 'agallego@mailinator.com', 
@@ -78,5 +83,26 @@ class PKPReviewBaseTestCase extends WorkflowBaseTestCase {
 		$this->open(self::$baseUrl . '/index.php/publicknowledge/workflow/access/' . $submissionId);
 		$this->waitForElementPresent('css=[id^=reviewRoundNotification_]');
 		$this->assertTextPresent($allReviewsInText, 'The all reviews in notification is not present in review round page.');
+		$this->waitForInPlaceNotification($reviewRoundNotificationId, 'New reviews ready.');
+
+		// Request revision.
+		$this->click('css=[id^=requestRevisions-button-]');
+		$this->waitForElementPresent('css=[id^=component-grid-files-attachment-editorselectablereviewattachmentsgrid-]');
+		$this->submitAjaxForm('sendReviews');
+		$this->waitForInPlaceNotification($reviewRoundNotificationId, $revisionsRequestedText = 'Revisions have been requested.');
+		$this->logout();
+
+		// Test author dashboard page.
+		$this->logIn('jbrower', 'jbrowerjbrower');
+		$this->waitForElementPresent('css=[id^=component-grid-notifications-notificationsgrid-]');
+		$this->open(self::$baseUrl . '/index.php/publicknowledge/authorDashboard/submission/' . $submissionId);
+		$this->waitForInPlaceNotification($reviewRoundNotificationId, $revisionsRequestedText);
+		$this->waitForElementPresent($addRevisionSelector = 'css=[id^=component-grid-files-review-authorreviewrevisionsgrid-addFile-button-]');
+		$this->click($addRevisionSelector);
+		$this->uploadWizardFile($fileTitle = 'Revision from author', null, false);
+		$this->logout();
+
+		// Check all revisions in notification email.
+		$this->assertTrue($emailLog->exists(NOTIFICATION_TYPE_ALL_REVISIONS_IN, 'dbarnes@mailinator.com'), 'All revisions in notification email was not sent to the editor');
 	}
 }

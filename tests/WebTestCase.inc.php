@@ -338,5 +338,14 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
                         )
                 ) . '\',\'\'))]';
 	}
+
+	/**
+	 * Wait for the presence of an in place notification with the passed paramenters.
+	 * @param $partialId string The id without the unique part.
+	 * @param $message string
+	 */
+	protected function waitForInPlaceNotification($partialId, $message) {
+		$this->waitForText('css=[id^=' . $partialId . '] > div.notification_block > span.description > p', $message);
+	}
 }
 ?>

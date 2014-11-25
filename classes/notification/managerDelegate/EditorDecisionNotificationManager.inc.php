@@ -114,17 +114,20 @@ class EditorDecisionNotificationManager extends NotificationManagerDelegate {
 			case NOTIFICATION_TYPE_EDITOR_DECISION_RESUBMIT:
 			case NOTIFICATION_TYPE_EDITOR_DECISION_DECLINE:
 			case NOTIFICATION_TYPE_EDITOR_DECISION_SEND_TO_PRODUCTION:
-		$submissionDao = Application::getSubmissionDAO();
-		$submission = $submissionDao->getById($notification->getAssocId());
-		import('lib.pkp.controllers.grid.submissions.SubmissionsListGridCellProvider');
-		list($page, $operation) = SubmissionsListGridCellProvider::getPageAndOperationByUserRoles($request, $submission);
-		$router = $request->getRouter();
-		$dispatcher = $router->getDispatcher();
-		$contextDao = Application::getContextDAO();
-		$context = $contextDao->getById($submission->getContextId());
-		// this will probably be authorDashboard/submission, but the possibility exists that an editor is
-		// revising a submission without being an author in the stage assignments.
-		return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), $page, $operation, $submission->getId());
+				$submissionDao = Application::getSubmissionDAO();
+				$submission = $submissionDao->getById($notification->getAssocId());
+				import('lib.pkp.controllers.grid.submissions.SubmissionsListGridCellProvider');
+				list($page, $operation) = SubmissionsListGridCellProvider::getPageAndOperationByUserRoles($request, $submission);
+				$router = $request->getRouter();
+				$dispatcher = $router->getDispatcher();
+				$contextDao = Application::getContextDAO();
+				$context = $contextDao->getById($submission->getContextId());
+				// this will probably be authorDashboard/submission, but the possibility exists that an editor is
+				// revising a submission without being an author in the stage assignments.
+				return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), $page, $operation, $submission->getId());
+			default:
+				return '';
+		}
 	}
 
 	//

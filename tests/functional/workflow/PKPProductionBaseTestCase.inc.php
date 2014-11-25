@@ -45,7 +45,7 @@ class PKPProductionBaseTestCase extends WorkflowBaseTestCase {
 		$this->waitForElementPresent($selector = 'css=input#confirm');
 		$this->click($selector);
 		$this->click('css=#submission button[id^=submitFormButton-]');
-		$this->waitForText('css=#submission div.notification_block p', 'Submission metadata saved.');
+		$this->waitForInPlaceNotification('submissionMetadataViewFormNotification-', 'Submission metadata saved.');
 		$this->click('css=.pkp_controllers_modal_titleBar span.xIcon');
 
 		// This is necessary to handle bug #9023, when fixed remove it.

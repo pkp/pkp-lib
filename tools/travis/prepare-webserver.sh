@@ -13,7 +13,7 @@ set -xe
 
 # Start apache and configure a virtual host.
 sudo apt-get update > /dev/null
-sudo apt-get install -y --force-yes apache2 libapache2-mod-php5 php5-curl php5-mysql php5-pgsql php5-intl
+sudo apt-get install -y --force-yes apache2 libapache2-mod-php5 php5-curl php5-mysql php5-pgsql php5-intl php5-xsl
 sudo sed -i -e "s,/var/www,$(pwd)/,g" /etc/apache2/sites-available/default
 sudo sed -i -e "s,\${APACHE_LOG_DIR},$(pwd),g" /etc/apache2/sites-available/default
 sudo /etc/init.d/apache2 restart

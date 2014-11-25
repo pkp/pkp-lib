@@ -106,8 +106,14 @@ class EditorDecisionNotificationManager extends NotificationManagerDelegate {
 	 * @copydoc INotificationInfoProvider::getNotificationUrl()
 	 */
 	public function getNotificationUrl($request, $notification) {
-			switch ($notification->getType()) {
+		switch ($notification->getType()) {
+			case NOTIFICATION_TYPE_EDITOR_DECISION_INTERNAL_REVIEW:
+			case NOTIFICATION_TYPE_EDITOR_DECISION_ACCEPT:
+			case NOTIFICATION_TYPE_EDITOR_DECISION_EXTERNAL_REVIEW:
 			case NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS:
+			case NOTIFICATION_TYPE_EDITOR_DECISION_RESUBMIT:
+			case NOTIFICATION_TYPE_EDITOR_DECISION_DECLINE:
+			case NOTIFICATION_TYPE_EDITOR_DECISION_SEND_TO_PRODUCTION:
 				$submissionDao = Application::getSubmissionDAO();
 				$submission = $submissionDao->getById($notification->getAssocId());
 				import('lib.pkp.controllers.grid.submissions.SubmissionsListGridCellProvider');
@@ -119,7 +125,6 @@ class EditorDecisionNotificationManager extends NotificationManagerDelegate {
 				// this will probably be authorDashboard/submission, but the possibility exists that an editor is
 				// revising a submission without being an author in the stage assignments.
 				return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), $page, $operation, $submission->getId());
-
 			default:
 				return '';
 		}

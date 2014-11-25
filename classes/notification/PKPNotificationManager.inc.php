@@ -63,7 +63,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 				$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 				$reviewAssignment = $reviewAssignmentDao->getById($notification->getAssocId());
 				$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-				$operation = $userGroupDao->getPathFromId($reviewAssignment->getStageId());
+				$operation = $reviewAssignment->getStageId()==WORKFLOW_STAGE_ID_INTERNAL_REVIEW?WORKFLOW_STAGE_PATH_INTERNAL_REVIEW:WORKFLOW_STAGE_PATH_EXTERNAL_REVIEW;
 				return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'workflow', $operation, $reviewAssignment->getSubmissionId());
 			case NOTIFICATION_TYPE_AUDITOR_REQUEST:
 			case NOTIFICATION_TYPE_COPYEDIT_ASSIGNMENT:

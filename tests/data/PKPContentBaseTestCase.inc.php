@@ -288,6 +288,33 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 	protected function escapeJS($value) {
 		return str_replace('\'', '\\\'', $value);
 	}
+
+	/**
+	 * Add a publication format. The production workflow page
+	 * must be opened.
+	 * @param $title string
+	 */
+	protected function addPublicationFormat($title) {
+		$this->waitForElementPresent($addFormatButtonSelector = 'css=[id^=component-grid-catalogentry-publicationformatgrid-addFormat-button-]');
+		$this->click($addFormatButtonSelector);
+		$this->waitForElementPresent($selector = 'css=#addPublicationFormatForm input[id^=name-]');
+		$this->type($selector, $title);
+		$this->submitAjaxForm('addPublicationFormatForm');
+		$this->assertTextPresent($title);
+	}
+
+	/**
+	 * Open a catalog modal and select the passed publication format tab.
+	 * The production workflow page must be opened.
+	 * @param $formatTitle string
+	 */
+	protected function openPublicationFormatTab($formatTitle) {
+		$this->waitForElementPresent($catalogButtonSelector = 'css=[id^=catalogEntry-button-]');
+		$this->click($catalogButtonSelector);
+		$this->waitForElementPresent($xpath = 'xpath=(//a[contains(text(),\'' . $formatTitle  . '\')])[2]');
+		$this->click($xpath);
+		$this->waitForElementPresent('css=[id^=component-grid-files-proof-approvedprooffilesgrid-]');	
+	}
 }
 
 ?>

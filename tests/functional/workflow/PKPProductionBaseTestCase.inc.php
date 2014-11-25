@@ -30,12 +30,7 @@ class PKPProductionBaseTestCase extends WorkflowBaseTestCase {
 		$this->waitForElementPresent('css=[id^=component-grid-catalogentry-publicationformatgrid-]');
 		$this->assertTextPresent($notificationMessages[NOTIFICATION_TYPE_APPROVE_SUBMISSION]);
 
-		// Add publication format.
-		$this->click('css=[id^=component-grid-catalogentry-publicationformatgrid-addFormat-button-]');
-		$this->waitForElementPresent($selector = 'css=#addPublicationFormatForm input[id^=name-]');
-		$this->type($selector, $formatTitle = 'PDF production test');
-		$this->submitAjaxForm('addPublicationFormatForm');
-		$this->assertTextPresent($formatTitle);
+		$this->addPublicationFormat($formatTitle = 'PDF production test');
 
 		$this->openPublicationFormatTab($formatTitle);
 		$this->assertTextPresent($notificationMessages[NOTIFICATION_TYPE_FORMAT_NEEDS_APPROVED_SUBMISSION]);
@@ -45,7 +40,7 @@ class PKPProductionBaseTestCase extends WorkflowBaseTestCase {
 		$this->waitForElementPresent($selector = 'css=input#confirm');
 		$this->click($selector);
 		$this->click('css=#submission button[id^=submitFormButton-]');
-		$this->waitForInPlaceNotification('submissionMetadataViewFormNotification-', 'Submission metadata saved.');
+		$this->waitJQuery();
 		$this->click('css=.pkp_controllers_modal_titleBar span.xIcon');
 
 		// This is necessary to handle bug #9023, when fixed remove it.
@@ -58,18 +53,7 @@ class PKPProductionBaseTestCase extends WorkflowBaseTestCase {
 		$this->assertTextNotPresent($notificationMessages[NOTIFICATION_TYPE_FORMAT_NEEDS_APPROVED_SUBMISSION]);
 		$this->logOut();
 	}
-
-	/**
-	 * Open a catalog modal and select the passed publication format tab.
-	 * @param $formatTitle string
-	 */
-	protected function openPublicationFormatTab($formatTitle) {
-		$this->click('css=[id^=catalogEntry-button-]');
-		$this->waitForElementPresent($xpath = 'xpath=(//a[contains(text(),\'' . $formatTitle  . '\')])[2]');
-		$this->click($xpath);
-		$this->waitForElementPresent('css=[id^=component-grid-files-proof-approvedprooffilesgrid-]');	
-	}
-
+	
 	/**
 	 * Get notification message texts indexed by notification type.
 	 * @return array

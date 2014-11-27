@@ -43,7 +43,6 @@ fi
 # Prep files
 cp config.TEMPLATE.inc.php config.inc.php
 mkdir ${FILESDIR}
-sudo chown -R travis:www-data .
 
 # Run data build suite
 ./lib/pkp/tools/runAllTests.sh -b
@@ -55,10 +54,6 @@ elif [[ "$TEST" == "mysql" ]]; then
 	mysqldump --user=$DBUSERNAME --password=$DBPASSWORD --host=$DBHOST $DBNAME | gzip -9 > $DATABASEDUMP
 fi
 
-
-# Run unit test suite.
-# (Permissions will need to be fixed; web tests run w/different user than unit)
-sudo chown -R travis:www-data ${FILESDIR}
-sudo chmod -R 775 ${FILESDIR}
+# Run test suite.
 sudo rm -f cache/*.php
 ./lib/pkp/tools/runAllTests.sh -CcPpf

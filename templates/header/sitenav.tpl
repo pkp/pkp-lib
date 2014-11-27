@@ -18,12 +18,6 @@
 			<li>{include file="header/contextSwitcher.tpl"}</li>
 		{/if}
 	</ul>
-	{if $isUserLoggedIn}
-		<div id="notificationsPopover" style="display: none;">
-			{url|assign:notificationsGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.notifications.NotificationsGridHandler" op="fetchGrid" escape=false}
-			{load_url_in_div id="notificationsGrid" url=$notificationsGridUrl}
-		</div>
-	{/if}
 	<ul class="pkp_helpers_flatlist pkp_helpers_align_right">
 		{if $isUserLoggedIn}
 			<li class="profile">{translate key="user.hello"}&nbsp;<a href="{url router=$smarty.const.ROUTE_PAGE page="user" op="profile"}">{$loggedInUsername|escape}</a></li>
@@ -34,6 +28,10 @@
 				 * called updateUnreadNotificationsCount.
 				 *}
 				<a href="#" id="notificationsToggle">{translate key="common.tasks"} (<span id="unreadNotificationCount">{$unreadNotificationCount}</span>)</a>
+				<div id="notificationsPopover" style="display: none;">
+					{url|assign:notificationsGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.notifications.NotificationsGridHandler" op="fetchGrid" escape=false}
+					{load_url_in_div id="notificationsGrid" url=$notificationsGridUrl}
+				</div>
 			</li>
 			<li>{null_link_action id="toggleHelp" key="help.toggleInlineHelpOn"}</li>
 			<li><a href="{url router=$smarty.const.ROUTE_PAGE page="login" op="signOut"}">{translate key="user.logOut"}</a></li>

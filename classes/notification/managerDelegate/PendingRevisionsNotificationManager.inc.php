@@ -34,7 +34,7 @@ class PendingRevisionsNotificationManager extends RevisionsNotificationManager {
 		$submission = $submissionDao->getById($notification->getAssocId());
 
 		import('lib.pkp.controllers.grid.submissions.SubmissionsListGridCellProvider');
-		list($page, $operation) = SubmissionsListGridCellProvider::getPageAndOperationByUserRoles($request, $submission);
+		list($page, $operation) = SubmissionsListGridCellProvider::getPageAndOperationByUserRoles($request, $submission, $notification->getUserId());
 
 		if ($page == 'workflow') {
 			$stageData = $this->_getStageDataByType();

@@ -48,6 +48,7 @@ class PKPUserAccessibleWorkflowStageRequiredPolicy extends AuthorizationPolicy {
 		$workflowStages = $userGroupDao->getWorkflowStageTranslationKeys();
 
 		$accessibleWorkflowStages = array();
+
 		foreach ($workflowStages as $stageId => $translationKey) {
 			$accessibleStageRoles = $this->_getAccessibleStageRoles($userId, $contextId, $submission, $stageId);
 			if (!empty($accessibleStageRoles)) {
@@ -88,6 +89,7 @@ class PKPUserAccessibleWorkflowStageRequiredPolicy extends AuthorizationPolicy {
 					break;
 
 				case ROLE_ID_ASSISTANT:
+				case ROLE_ID_SUB_EDITOR:
 				case ROLE_ID_AUTHOR:
 					// The requested workflow stage has been assigned to them
 					// in the requested submission.

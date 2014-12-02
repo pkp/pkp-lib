@@ -64,8 +64,8 @@
 	</table>
 
 	<p>
-		{if !$hideRegisterLink}&#187; <a href="{url page="user" op=$registerOp}">{translate key=$registerLocaleKey}</a><br />{/if}
-		&#187; <a href="{url page="login" op="lostPassword"}">{translate key="user.login.forgotPassword"}</a>
+		{if !$hideRegisterLink}<a href="{url page="user" op=$registerOp}">{translate key=$registerLocaleKey}</a><br />{/if}
+		<a href="{url page="login" op="lostPassword"}">{translate key="user.login.forgotPassword"}</a>
 	</p>
 {/if}{* !$implicitAuth *}
 

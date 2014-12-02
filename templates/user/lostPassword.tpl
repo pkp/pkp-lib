@@ -33,7 +33,7 @@
 <p><input type="submit" value="{translate key="user.login.resetPassword"}" class="button defaultButton" /></p>
 
 {if !$hideRegisterLink}
-	&#187; <a href="{url page="user" op=$registerOp}">{translate key=$registerLocaleKey}</a>
+	<a href="{url page="user" op=$registerOp}">{translate key=$registerLocaleKey}</a>
 {/if}
 
 <script type="text/javascript">

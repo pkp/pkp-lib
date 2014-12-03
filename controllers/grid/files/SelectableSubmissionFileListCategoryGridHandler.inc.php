@@ -216,8 +216,7 @@ class SelectableSubmissionFileListCategoryGridHandler extends CategoryGridHandle
 	 * @copydoc GridHandler::getRowInstance()
 	 */
 	function getRowInstance() {
-		$capabilities = $this->getCapabilities();
-		return new SubmissionFilesGridRow($capabilities->canDelete(), $capabilities->canViewNotes(), $this->getStageId());
+		return new SubmissionFilesGridRow($this->getCapabilities(), $this->getStageId());
 	}
 
 

@@ -26,7 +26,6 @@ class SubmissionFilesMetadataForm extends Form {
 	/** @var ReviewRound */
 	var $_reviewRound;
 
-
 	/**
 	 * Constructor.
 	 * @param $submissionFile SubmissionFile
@@ -35,6 +34,7 @@ class SubmissionFilesMetadataForm extends Form {
 	 */
 	function SubmissionFilesMetadataForm(&$submissionFile, $stageId, $reviewRound = null) {
 		parent::Form('controllers/wizard/fileUpload/form/metadataForm.tpl');
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
 
 		// Initialize the object.
 		$this->_submissionFile =& $submissionFile;
@@ -76,6 +76,22 @@ class SubmissionFilesMetadataForm extends Form {
 		return $this->_reviewRound;
 	}
 
+	/**
+	 * Set the "show buttons" flag
+	 * @param $showButtons boolean
+	 */
+	function setShowButtons($showButtons) {
+		$this->setData('showButtons', $showButtons);
+	}
+
+	/**
+	 * Get the "show buttons" flag
+	 * @return boolean
+	 */
+	function getShowButtons() {
+		return $this->getData('showButtons');
+	}
+
 
 	//
 	// Implement template methods from Form
@@ -91,7 +107,7 @@ class SubmissionFilesMetadataForm extends Form {
 	 * @copydoc Form::readInputData()
 	 */
 	function readInputData() {
-		$this->readUserVars(array('name', 'note'));
+		$this->readUserVars(array('name', 'note', 'showButtons'));
 	}
 
 	/**
@@ -99,20 +115,12 @@ class SubmissionFilesMetadataForm extends Form {
 	 */
 	function fetch($request) {
 		$templateMgr = TemplateManager::getManager($request);
-
-		// Submission file.
-		$submissionFile = $this->getSubmissionFile();
-		$templateMgr->assign('submissionFile', $submissionFile);
-
-		// Workflow stage.
-		$templateMgr->assign('stageId', $this->getStageId());
-
-		// Review round if we are in review stage.
 		$reviewRound = $this->getReviewRound();
-		if (is_a($reviewRound, 'ReviewRound')) {
-			$templateMgr->assign('reviewRoundId', $reviewRound->getId());
-		}
-
+		$templateMgr->assign(array(
+			'submissionFile' => $this->getSubmissionFile(),
+			'stageId' => $this->getStageId(),
+			'reviewRoundId' => $reviewRound?$reviewRound->getId():null
+		));
 		return parent::fetch($request);
 	}
 

@@ -26,7 +26,7 @@ class SubmissionWizardFilesGridHandler extends FileListGridHandler {
 		parent::FileListGridHandler(
 			new SubmissionFilesGridDataProvider(SUBMISSION_FILE_SUBMISSION),
 			WORKFLOW_STAGE_ID_SUBMISSION,
-			FILE_GRID_ADD|FILE_GRID_DELETE|FILE_GRID_VIEW_NOTES
+			FILE_GRID_ADD|FILE_GRID_DELETE|FILE_GRID_VIEW_NOTES|FILE_GRID_EDIT
 		);
 		$this->addRoleAssignment(
 			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR),

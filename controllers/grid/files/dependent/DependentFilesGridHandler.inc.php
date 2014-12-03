@@ -26,7 +26,11 @@ class DependentFilesGridHandler extends FileListGridHandler {
 		$request = Application::getRequest();
 		$fileId = $request->getUservar('fileId'); // authorized in authorize() method.
 		import('lib.pkp.controllers.grid.files.dependent.DependentFilesGridDataProvider');
-		parent::FileListGridHandler(new DependentFilesGridDataProvider($fileId), WORKFLOW_STAGE_ID_PRODUCTION, FILE_GRID_ADD|FILE_GRID_DELETE|FILE_GRID_VIEW_NOTES);
+		parent::FileListGridHandler(
+			new DependentFilesGridDataProvider($fileId),
+			WORKFLOW_STAGE_ID_PRODUCTION,
+			FILE_GRID_ADD|FILE_GRID_DELETE|FILE_GRID_VIEW_NOTES|FILE_GRID_EDIT
+		);
 
 		$this->addRoleAssignment(
 			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR),

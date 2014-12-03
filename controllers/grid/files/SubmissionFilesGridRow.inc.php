@@ -17,12 +17,8 @@
 import('lib.pkp.classes.controllers.grid.GridRow');
 
 class SubmissionFilesGridRow extends GridRow {
-
-	/** @var boolean */
-	var $_canDelete;
-
-	/** @var boolean */
-	var $_canViewNotes;
+	/** @var FilesGridCapabilities */
+	var $_capabilities;
 
 	/** @var int */
 	var $_stageId;
@@ -33,9 +29,8 @@ class SubmissionFilesGridRow extends GridRow {
 	 * $canViewNotes boolean
 	 * $stageId int (optional)
 	 */
-	function SubmissionFilesGridRow($canDelete, $canViewNotes, $stageId = null) {
-		$this->_canDelete = $canDelete;
-		$this->_canViewNotes = $canViewNotes;
+	function SubmissionFilesGridRow($capabilities, $stageId = null) {
+		$this->_capabilities = $capabilities;
 		$this->_stageId = $stageId;
 		parent::GridRow();
 	}
@@ -49,7 +44,7 @@ class SubmissionFilesGridRow extends GridRow {
 	 * @return boolean
 	 */
 	function canDelete() {
-		return $this->_canDelete;
+		return $this->_capabilities->canDelete();
 	}
 
 	/**
@@ -57,7 +52,15 @@ class SubmissionFilesGridRow extends GridRow {
 	 * @return boolean
 	 */
 	function canViewNotes() {
-		return $this->_canViewNotes;
+		return $this->_capabilities->canViewNotes();
+	}
+
+	/**
+	 * Can the user manage files in this grid?
+	 * @return boolean
+	 */
+	function canEdit() {
+		return $this->_capabilities->canEdit();
 	}
 
 	/**
@@ -94,6 +97,12 @@ class SubmissionFilesGridRow extends GridRow {
 		if ($this->canViewNotes()) {
 			import('lib.pkp.controllers.informationCenter.linkAction.FileInfoCenterLinkAction');
 			$this->addAction(new FileInfoCenterLinkAction($request, $submissionFile, $this->getStageId()));
+		}
+
+		// 3) Edit metadata action.
+		if ($this->canEdit()) {
+			import('lib.pkp.controllers.api.file.linkAction.EditFileLinkAction');
+			$this->addAction(new EditFileLinkAction($request, $submissionFile, $this->getStageId()));
 		}
 	}
 }

@@ -71,6 +71,9 @@ class SignoffFilesGridCategoryRow extends GridCategoryRow {
 
 			import('lib.pkp.controllers.api.file.linkAction.DeleteFileLinkAction');
 			$this->addAction(new DeleteFileLinkAction($request, $submissionFile, $this->_getStageId()));
+
+			import('lib.pkp.controllers.api.file.linkAction.EditFileLinkAction');
+			$this->addAction(new EditFileLinkAction($request, $submissionFile, $this->_getStageId()));
 		}
 
 		// Set the no-row locale key

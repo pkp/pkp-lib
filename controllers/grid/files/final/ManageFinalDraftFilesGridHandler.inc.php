@@ -24,7 +24,7 @@ class ManageFinalDraftFilesGridHandler extends SelectableSubmissionFileListCateg
 		parent::SelectableSubmissionFileListCategoryGridHandler(
 			new SubmissionFilesCategoryGridDataProvider(SUBMISSION_FILE_FINAL),
 			WORKFLOW_STAGE_ID_EDITING,
-			FILE_GRID_ADD|FILE_GRID_DELETE|FILE_GRID_VIEW_NOTES
+			FILE_GRID_ADD|FILE_GRID_DELETE|FILE_GRID_VIEW_NOTES|FILE_GRID_EDIT
 		);
 
 		$this->addRoleAssignment(

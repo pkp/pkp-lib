@@ -20,6 +20,7 @@ define('FILE_GRID_DOWNLOAD_ALL',	0x00000002);
 define('FILE_GRID_DELETE',		0x00000004);
 define('FILE_GRID_VIEW_NOTES',		0x00000008);
 define('FILE_GRID_MANAGE',		0x00000010);
+define('FILE_GRID_EDIT',		0x00000020);
 
 class FilesGridCapabilities {
 
@@ -38,6 +39,8 @@ class FilesGridCapabilities {
 	/** @var boolean */
 	var $_canManage;
 
+	/** @var boolean */
+	var $_canEdit;
 
 	/**
 	 * Constructor
@@ -50,6 +53,7 @@ class FilesGridCapabilities {
 		$this->setCanDelete($capabilities & FILE_GRID_DELETE);
 		$this->setCanViewNotes($capabilities & FILE_GRID_VIEW_NOTES);
 		$this->setCanManage($capabilities & FILE_GRID_MANAGE);
+		$this->setCanEdit($capabilities & FILE_GRID_EDIT);
 	}
 
 
@@ -135,6 +139,22 @@ class FilesGridCapabilities {
 	 */
 	function setCanManage($canManage) {
 		$this->_canManage = $canManage;
+	}
+
+	/**
+	 * Whether the grid allows file metadata editing
+	 * @return boolean
+	 */
+	function canEdit() {
+		return $this->_canEdit;
+	}
+
+	/**
+	 * Set whether the grid allows file metadata editing
+	 * @return boolean
+	 */
+	function setCanEdit($canEdit) {
+		$this->_canEdit = $canEdit;
 	}
 
 	/**

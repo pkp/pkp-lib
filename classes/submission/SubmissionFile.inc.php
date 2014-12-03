@@ -560,6 +560,17 @@ class SubmissionFile extends PKPFile {
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 		return $submissionFileDao->isInlineable($this);
 	}
+
+	/**
+	 * Get the metadata form for this submission file.
+	 * @param $stageId int FILE_STAGE_...
+	 * @param $reviewRound ReviewRound
+	 * @return Form
+	 */
+	function getMetadataForm($stageId, $reviewRound) {
+		import('lib.pkp.controllers.wizard.fileUpload.form.SubmissionFilesMetadataForm');
+		return new SubmissionFilesMetadataForm($this, $stageId, $reviewRound);
+	}
 }
 
 ?>

@@ -61,7 +61,7 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 			array(
 				'startWizard', 'displayFileUploadForm',
 				'uploadFile', 'confirmRevision',
-				'editMetadata', 'saveMetadata',
+				'editMetadata',
 				'finishFileSubmission'
 			)
 		);
@@ -359,65 +359,6 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 	}
 
 	/**
-	 * Save the metadata of the latest revision of
-	 * the requested submission file
-	 * @param $args array
-	 * @param $request Request
-	 * @return JSONMessage JSON object
-	 */
-	function saveMetadata($args, $request) {
-		$submission = $this->getSubmission();
-		$metadataForm = $this->_getMetadataForm($request);
-		$metadataForm->readInputData();
-		if ($metadataForm->validate()) {
-			$metadataForm->execute($args, $request);
-			$submissionFile = $metadataForm->getSubmissionFile();
-
-			$notificationMgr = new NotificationManager(); /* @var $notificationMgr NotificationManager */
-			$submission = $this->getSubmission();
-			$notificationMgr->updateNotification(
-				$request,
-				$this->_getUpdateNotifications(),
-				array($submission->getUserId()),
-				ASSOC_TYPE_SUBMISSION,
-				$submission->getId()
-			);
-
-			$reviewRound = $this->getReviewRound();
-			if ($reviewRound) {
-				$notificationMgr->updateNotification(
-					$request,
-					array(NOTIFICATION_TYPE_ALL_REVISIONS_IN),
-					null,
-					ASSOC_TYPE_REVIEW_ROUND,
-					$reviewRound->getId()
-				);
-
-				// Delete any 'revision requested' notifications since all revisions are now in.
-				$context = $request->getContext();
-				$notificationDao = DAORegistry::getDAO('NotificationDAO');
-				$notificationDao->deleteByAssoc(ASSOC_TYPE_SUBMISSION, $submission->getId(), $submission->getUserId(), NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS, $context->getId());
-			}
-
-			// Log the upload event
-			import('lib.pkp.classes.log.SubmissionLog');
-			import('classes.log.SubmissionEventLogEntry');
-			import('lib.pkp.classes.log.SubmissionFileEventLogEntry'); // constants
-			$user = $request->getUser();
-			SubmissionLog::logEvent(
-				$request, $submission,
-				$submissionFile->getRevision()>1?SUBMISSION_LOG_FILE_REVISION_UPLOAD:SUBMISSION_LOG_FILE_UPLOAD,
-				$submissionFile->getRevision()>1?'submission.event.fileRevised':'submission.event.fileUploaded',
-				array('fileStage' => $submissionFile->getFileStage(), 'fileId' => $submissionFile->getFileId(), 'fileRevision' => $submissionFile->getRevision(), 'originalFileName' => $submissionFile->getOriginalFileName(), 'submissionId' => $submissionFile->getSubmissionId(), 'username' => $user->getUsername())
-			);
-
-			return DAO::getDataChangedEvent();
-		} else {
-			return new JSONMessage(false, $metadataForm->fetch($request));
-		}
-	}
-
-	/**
 	 * Display the final tab of the modal
 	 * @param $args array
 	 * @param $request Request
@@ -445,23 +386,9 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 	 * @param $request Request
 	 * @return SubmissionFilesMetadataForm
 	 */
-	function &_getMetadataForm($request) {
-		// Retrieve the authorized submission.
-		$submission = $this->getSubmission();
-
-		// Retrieve the submission file.
+	function _getMetadataForm($request) {
 		$submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
-
-		// Import the meta-data form based on the file implementation.
-		if (is_a($submissionFile, 'ArtworkFile')) {
-			import('lib.pkp.controllers.wizard.fileUpload.form.SubmissionFilesArtworkMetadataForm');
-			$metadataForm = new SubmissionFilesArtworkMetadataForm($submissionFile, $this->getStageId(), $this->getReviewRound());
-		} else {
-			import('lib.pkp.controllers.wizard.fileUpload.form.SubmissionFilesMetadataForm');
-			$metadataForm = new SubmissionFilesMetadataForm($submissionFile, $this->getStageId(), $this->getReviewRound());
-		}
-
-		return $metadataForm;
+		return $submissionFile->getMetadataForm($this->getStageId(), $this->getReviewRound());
 	}
 
 	/**
@@ -559,14 +486,6 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 				'revision' => $uploadedFile->getRevision()
 			)
 		);
-	}
-
-	/**
-	 * Get the list of notifications to be updated on metadata form submission.
-	 * @return array
-	 */
-	protected function _getUpdateNotifications() {
-		return array(NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS);
 	}
 }
 

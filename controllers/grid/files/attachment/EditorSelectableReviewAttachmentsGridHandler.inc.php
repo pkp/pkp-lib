@@ -24,7 +24,7 @@ class EditorSelectableReviewAttachmentsGridHandler extends SelectableFileListGri
 		parent::SelectableFileListGridHandler(
 			new ReviewGridDataProvider(SUBMISSION_FILE_REVIEW_ATTACHMENT),
 			null,
-			FILE_GRID_DELETE|FILE_GRID_VIEW_NOTES
+			FILE_GRID_DELETE|FILE_GRID_VIEW_NOTES|FILE_GRID_EDIT
 		);
 
 		$this->addRoleAssignment(

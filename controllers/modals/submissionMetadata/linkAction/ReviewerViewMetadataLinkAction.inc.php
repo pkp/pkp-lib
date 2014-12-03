@@ -32,7 +32,7 @@ class ReviewerViewMetadataLinkAction extends LinkAction {
 		import('lib.pkp.classes.linkAction.request.AjaxModal');
 		$modal = new AjaxModal(
 				$dispatcher->url($request, ROUTE_COMPONENT, null,
-						'modals.submissionMetadata.ReviewerSubmissionMetadataHandler',
+						'api.file.ManageFileApiHandler',
 						'fetch', null, array('submissionId' => $submissionId, 'reviewAssignmentId' => $reviewAssignmentId)),
 				__('reviewer.step1.viewAllDetails'), 'modal_information');
 

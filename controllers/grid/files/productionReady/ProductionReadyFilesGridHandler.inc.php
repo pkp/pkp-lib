@@ -25,7 +25,7 @@ class ProductionReadyFilesGridHandler extends SubmissionFilesGridHandler {
 		parent::SubmissionFilesGridHandler(
 			new SubmissionFilesGridDataProvider(SUBMISSION_FILE_PRODUCTION_READY),
 			WORKFLOW_STAGE_ID_PRODUCTION,
-			FILE_GRID_ADD|FILE_GRID_DELETE|FILE_GRID_VIEW_NOTES
+			FILE_GRID_ADD|FILE_GRID_DELETE|FILE_GRID_VIEW_NOTES|FILE_GRID_EDIT
 		);
 
 		$this->addRoleAssignment(

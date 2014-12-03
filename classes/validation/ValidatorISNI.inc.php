@@ -1,26 +1,26 @@
 <?php
 
 /**
- * @file classes/validation/ValidatorORCID.inc.php
+ * @file classes/validation/ValidatorISNI.inc.php
  *
  * Copyright (c) 2013-2014 Simon Fraser University Library
  * Copyright (c) 2000-2014 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class ValidatorORCID
+ * @class ValidatorISNI
  * @ingroup validation
  * @see Validator
  *
- * @brief Validation check for ORCID iDs.
+ * @brief Validation check for ISNIs.
  */
 
 import('lib.pkp.classes.validation.ValidatorRegExp');
 
-class ValidatorORCID extends ValidatorRegExp {
+class ValidatorISNI extends ValidatorRegExp {
 	/**
 	 * Constructor.
 	 */
-	function ValidatorORCID() {
+	function ValidatorISNI() {
 		parent::ValidatorRegExp(self::getRegexp());
 	}
 
@@ -36,27 +36,30 @@ class ValidatorORCID extends ValidatorRegExp {
 	function isValid($value) {
 		if (!parent::isValid($value)) return false;
 
-		// Test the check digit
-		// ORCID is an extension of ISNI
-		// http://support.orcid.org/knowledgebase/articles/116780-structure-of-the-orcid-identifier
 		$matches = $this->getMatches();
-		$orcid = $matches[1] . $matches[2] . $matches[3] . $matches[4];
+		$match = $matches[0];
 
-		import('lib.pkp.classes.validation.ValidatorISNI');
-		$validator = new ValidatorISNI();
-		return $validator->isValid($orcid);
+		$total = 0;
+		for ($i=0; $i<15; $i++) {
+			$total = ($total + $match[$i]) *2;
+		}
+		
+		$remainder = $total % 11;
+		$result = (12 - $remainder) % 11;
+
+		return ($match[15] == ($result==10 ? 'X' : $result));
 	}
 
 	//
 	// Public static methods
 	//
 	/**
-	 * Return the regex for an ORCID check. This can be called
+	 * Return the regex for an ISNI check. This can be called
 	 * statically.
 	 * @return string
 	 */
 	static function getRegexp() {
-		return '/^http:\/\/orcid.org\/(\d{4})-(\d{4})-(\d{4})-(\d{3}[0-9X])$/';
+		return '/^(\d{15}[0-9X])$/';
 	}
 }
 

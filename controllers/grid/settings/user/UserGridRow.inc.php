@@ -124,10 +124,11 @@ class UserGridRow extends GridRow {
 
 			$sessionManager = SessionManager::getManager();
 			$session = $sessionManager->getUserSession();
+			$canAdminister = Validation::canAdminister($this->getId(), $session->user->getId());
 			if (
 				!Validation::isLoggedInAs() and
 				$session->user->getId() != $this->getId() and
-				Validation::canAdminister($this->getId(), $session->user->getId())
+				$canAdminister
 			) {
 				$dispatcher = $router->getDispatcher();
 				$this->addAction(
@@ -170,7 +171,8 @@ class UserGridRow extends GridRow {
 				}
 
 			} else {
-				if ($rowId > 1) {  // do not allow the deletion of the admin account.
+				// do not allow the deletion of the admin account.
+				if ($rowId > 1 && $canAdminister) {
 					$this->addAction(
 						new LinkAction(
 							'mergeUser',

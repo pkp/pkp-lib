@@ -32,10 +32,8 @@ class UserGridHandler extends GridHandler {
 			ROLE_ID_MANAGER),
 			array('fetchGrid', 'fetchRow', 'editUser', 'updateUser', 'updateUserRoles',
 				'editDisableUser', 'disableUser', 'removeUser', 'addUser',
-				'editEmail', 'sendEmail')
+				'editEmail', 'sendEmail', 'mergeUsers')
 		);
-
-		$this->addRoleAssignment(array(ROLE_ID_SITE_ADMIN), array('mergeUsers'));
 	}
 
 
@@ -531,14 +529,15 @@ class UserGridHandler extends GridHandler {
 		// if there is a $newUserId, this is the second time through, so merge the users.
 		$newUserId =  (int) $request->getUserVar('newUserId');
 		$oldUserId = (int) $request->getUserVar('oldUserId');
-		if ($newUserId > 0 && $oldUserId > 0) {
+		$user = $request->getUser();
+		if ($newUserId > 0 && $oldUserId > 0 && Validation::canAdminister($oldUserId, $user->getId())) {
 			import('classes.user.UserAction');
 			$userAction = new UserAction();
 			$userAction->mergeUsers($oldUserId, $newUserId);
 			return DAO::getDataChangedEvent();
 		} else {
-			// this shouldn't happen since the first time this action is
-			// selected on the grid there is no call to the handler.
+			// The grid shouldn't have presented an action in this
+			// case.
 			$json = new JSONMessage(false, __('grid.user.cannotAdminister'));
 			return $json->getString();
 		}

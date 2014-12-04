@@ -204,7 +204,7 @@
 	<message key="grid.user.enableReason">Reason for enabling user</message>
 	<message key="grid.user.error">An error was encountered administrating this user. Please try again.</message>
 	<message key="grid.user.errorEmail">An error was encountered sending this email. Please ensure that your email server configuration is working and/or contact your system administrator.</message>
-	<message key="grid.user.cannotAdminister">You do not have sufficient permissions to edit this user.</message>
+	<message key="grid.user.cannotAdminister">You do not have sufficient permissions to administer this user. In order to administer a user, you must either be site administrator, or administer all contexts that this user is enrolled in.</message>
 	<message key="grid.user.authSource">Authentication source</message>
 	<message key="grid.user.mustProvideName">Please provide at least a last name for the user first.</message>
 	<message key="grid.user.generatePassword">Generate Password</message>

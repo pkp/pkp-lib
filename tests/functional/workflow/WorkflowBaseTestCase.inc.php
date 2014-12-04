@@ -18,6 +18,10 @@ import('classes.notification.Notification');
 
 class WorkflowBaseTestCase extends ContentBaseTestCase {
 
+	/** @var $emailLog EmailLoggerPlugin */
+	protected $emailLog;
+
+
 	/**
 	 * @copydoc WebTestCase::getAffectedTables()
 	 */
@@ -32,6 +36,7 @@ class WorkflowBaseTestCase extends ContentBaseTestCase {
 		parent::setUp();
 		$plugin = PluginRegistry::loadPlugin('generic', 'emailLogger');
 		if (!$plugin) $this->markTestSkipped('This test needs the Email Logger Plugin installed.');
+		$this->emailLog = $plugin;
 
 		$plugin->setEnabled(true);	
 	}

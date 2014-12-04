@@ -110,9 +110,15 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 	 * Upload a file via the file wizard.
 	 * @param $fileTitle string
 	 * @param $file string (Null to use dummy file)
-	 * @param $selectGenre boolean 
+	 * @param $selectGenre booleani
+	 * @param $openWizardLinkId string Optionally pass the
+	 * link id to open the wizard modal.
 	 */
-	protected function uploadWizardFile($fileTitle, $file = null, $selectGenre = true) {
+	protected function uploadWizardFile($fileTitle, $file = null, $selectGenre = true, $openWizardLinkId = null) {
+		if ($openWizardLinkId) {
+			$this->waitForElementPresent($openWizardLinkLocator = 'css=[id^=' . $openWizardLinkId  . ']');
+			$this->click($openWizardLinkLocator);
+		}
 		if (!$file) $file = getenv('DUMMYFILE');
 		$this->waitForElementPresent('id=plupload');
 		if ($selectGenre) {
@@ -193,19 +199,50 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 	}
 
 	/**
-	 * Assign a participant
+	 * Assign a participant.
 	 * @param $role string
 	 * @param $name string
+	 * @param $templateValue string
 	 */
-	protected function assignParticipant($role, $name) {
+	protected function assignParticipant($role, $name, $templateValue = null) {
 		$this->waitForElementPresent('css=[id^=component-grid-users-stageparticipant-stageparticipantgrid-requestAccount-button-]');
 		$this->click('css=[id^=component-grid-users-stageparticipant-stageparticipantgrid-requestAccount-button-]');
 		$this->waitJQuery();
 		$this->select('id=userGroupId', 'label=' . $this->escapeJS($role));
 		$this->waitForElementPresent('//select[@name=\'userId\']//option[text()=\'' . $this->escapeJS($name) . '\']');
 		$this->select('id=userId', 'label=' . $this->escapeJS($name));
+
+		if ($templateValue) {
+			$this->select('id=template', 'value=' . $templateValue);
+			$this->waitJQuery();
+		}
+
 		$this->click('//span[text()=\'OK\']/..');
-		$this->waitForText('css=div.ui-pnotify-text', 'User added as a stage participant.');
+		$this->waitForGeneralNotification('User added as a stage participant.');
+		$this->waitJQuery();
+	}
+
+	/**
+	 * Send message to an stage participant.
+	 * @param $name string
+	 * @param $templateValue string
+	 * @param $message string
+	 */
+	protected function notifyParticipant($name, $templateValue = null, $message = null) {
+		$this->waitForElementPresent('css=[id^=component-grid-users-stageparticipant-stageparticipantgrid-]');
+		$this->click('//span[@class=\'gridCellContainer\']/span[contains(text(), \'' . $name . '\')]
+				/../../../../../following-sibling::tr//a[@class=\'sprite notify pkp_controllers_linkAction\']');
+		$this->waitJQuery();
+		if ($templateValue) {
+			$this->select('id=template', 'value=' . $templateValue);
+			$this->waitJQuery();
+		}
+		if ($message) {
+			$this->type('css=[id^=message-]', $message);
+		}
+
+		$this->submitAjaxForm('notifyForm');
+		$this->waitForGeneralNotification('Notification sent to users.');
 		$this->waitJQuery();
 	}
 
@@ -290,31 +327,17 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 	}
 
 	/**
-	 * Add a publication format. The production workflow page
-	 * must be opened.
-	 * @param $title string
+	 * Clicks on the passed task text as the passed user.
+	 * @param $user string
+	 * @param $taskLinkText string
 	 */
-	protected function addPublicationFormat($title) {
-		$this->waitForElementPresent($addFormatButtonSelector = 'css=[id^=component-grid-catalogentry-publicationformatgrid-addFormat-button-]');
-		$this->click($addFormatButtonSelector);
-		$this->waitForElementPresent($selector = 'css=#addPublicationFormatForm input[id^=name-]');
-		$this->type($selector, $title);
-		$this->submitAjaxForm('addPublicationFormatForm');
-		$this->assertTextPresent($title);
-	}
-
-	/**
-	 * Open a catalog modal and select the passed publication format tab.
-	 * The production workflow page must be opened.
-	 * @param $formatTitle string
-	 */
-	protected function openPublicationFormatTab($formatTitle) {
-		$this->waitForElementPresent($catalogButtonSelector = 'css=[id^=catalogEntry-button-]');
-		$this->click($catalogButtonSelector);
-		$this->waitForElementPresent($xpath = 'xpath=(//a[contains(text(),\'' . $formatTitle  . '\')])[2]');
-		$this->click($xpath);
-		$this->waitForElementPresent('css=[id^=component-grid-files-proof-approvedprooffilesgrid-]');	
+	protected function openTaskAsUser($user, $taskLinkText) {
+		$this->logIn($user, $user . $user);
+		// Click on the task.	
+		$xpath = $this->getEscapedXPathForLink($taskLinkText);
+		$this->waitForElementPresent($xpath);
+		$this->clickAndWait($xpath);
+		$this->waitJQuery();		
 	}
 }
-
 ?>

@@ -18,40 +18,39 @@ import('lib.pkp.tests.functional.workflow.WorkflowBaseTestCase');
 class PKPProductionBaseTestCase extends WorkflowBaseTestCase {
 
 	/**
-	 * Test production.
+	 * Request a layout task to the passed user and check
+	 * if the task notification email was sent.
+	 * @param $name string First and last names.
+	 * @param $userEmail string
+	 * @param $submissionFullTitle string
 	 */
-	public function testProduction() {
-		$this->open(self::$baseUrl);
+	protected function requestLayoutTask($name, $userEmail, $submissionFullTitle) {
+		$this->assignParticipant('Layout Editor', $name, 'LAYOUT_REQUEST');
+		$this->assertTrue($this->emailLog->exists(NOTIFICATION_TYPE_LAYOUT_ASSIGNMENT, $userEmail, $submissionFullTitle));
+	}
 
-		$emailLog = PluginRegistry::getPlugin('generic', 'emailloggerplugin'); 
-		$submissionId = $this->findSubmissionAsEditor('dbarnes', null, $fullTitle = 'Wild Words: Essays on Alberta Literature');
+	/**
+	 * Complete the layout task requested by the passed
+	 * editor for the passed submission and check if the
+	 * layout complete email was sent.
+	 * @param $editorName string
+	 * @param $editorEmail string
+	 * @param $submissionId int
+	 * @param $bodyText string Part of the text that can identify
+	 * the layout complete email.
+	 */
+	protected function completeLayoutTask($editorName, $editorEmail, $submissionId, $bodyText) {
+		$this->notifyParticipant($editorName, 'LAYOUT_COMPLETE');
+		$this->assertTrue($this->emailLog->existsByAssoc(ASSOC_TYPE_SUBMISSION, $submissionId, $editorEmail, null, $bodyText));
+	}
 
+	/**
+	 * Check the approve submission notification.
+	 */
+	protected function checkApproveSubmissionNotification() {
 		$notificationMessages = $this->getNotificationMessages();
-		$this->waitForElementPresent('css=[id^=component-grid-catalogentry-publicationformatgrid-]');
+		$this->waitForElementPresent('css=[id^=component-grid-files-productionready-productionreadyfilesgrid-]');
 		$this->assertTextPresent($notificationMessages[NOTIFICATION_TYPE_APPROVE_SUBMISSION]);
-
-		$this->addPublicationFormat($formatTitle = 'PDF production test');
-
-		$this->openPublicationFormatTab($formatTitle);
-		$this->assertTextPresent($notificationMessages[NOTIFICATION_TYPE_FORMAT_NEEDS_APPROVED_SUBMISSION]);
-
-		// Approve submission.
-		$this->click('css=a[href=#submission]');
-		$this->waitForElementPresent($selector = 'css=input#confirm');
-		$this->click($selector);
-		$this->click('css=#submission button[id^=submitFormButton-]');
-		$this->waitJQuery();
-		$this->click('css=.pkp_controllers_modal_titleBar span.xIcon');
-
-		// This is necessary to handle bug #9023, when fixed remove it.
-		$this->open(self::$baseUrl . '/index.php/publicknowledge/workflow/access/' . $submissionId);
-
-		$this->assertTextPresent($notificationMessages[NOTIFICATION_TYPE_VISIT_CATALOG]);
-		$this->assertTextNotPresent($notificationMessages[NOTIFICATION_TYPE_APPROVE_SUBMISSION]);
-
-		$this->openPublicationFormatTab($formatTitle);
-		$this->assertTextNotPresent($notificationMessages[NOTIFICATION_TYPE_FORMAT_NEEDS_APPROVED_SUBMISSION]);
-		$this->logOut();
 	}
 	
 	/**

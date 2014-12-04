@@ -367,5 +367,25 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 			$this->waitForText('css=[id^=' . $partialId . '] > div.notification_block > h4', $title);
 		}
 	}
+
+	/**
+	 * Wait for the presence of a general notification with the passed message.
+	 * @param $message string
+	 */
+	protected function waitForGeneralNotification($message) {
+		$this->waitForText('css=div.ui-pnotify-text', $message);
+	}
+
+	/**
+	 * Download the passed file. The filename must be
+	 * a link and it must be exactly the same in interface
+	 * as passed here.
+	 * @param $filename string
+	 */
+	protected function downloadFile($filename) {
+		$this->waitForElementPresent($fileXPath = $this->getEscapedXPathForLink($filename));
+		$this->click($fileXPath);
+		$this->waitJQuery();
+	}
 }
 ?>

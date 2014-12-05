@@ -45,7 +45,7 @@ class SubmissionMetadataHandler extends Handler {
 	 * Display the submission's metadata
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function fetch($args, $request, $params = null) {
 		// Identify the submission
@@ -67,8 +67,7 @@ class SubmissionMetadataHandler extends Handler {
 
 		$submissionMetadataViewForm->initData($args, $request);
 
-		$json = new JSONMessage(true, $submissionMetadataViewForm->fetch($request));
-		return $json->getString();
+		return new JSONMessage(true, $submissionMetadataViewForm->fetch($request));
 	}
 
 	/**
@@ -82,8 +81,6 @@ class SubmissionMetadataHandler extends Handler {
 		// Form handling
 		$submissionMetadataViewForm = $this->getFormInstance($submissionId);
 
-		$json = new JSONMessage();
-
 		// Try to save the form data.
 		$submissionMetadataViewForm->readInputData($request);
 		if($submissionMetadataViewForm->validate()) {
@@ -92,11 +89,10 @@ class SubmissionMetadataHandler extends Handler {
 			$notificationManager = new NotificationManager();
 			$user = $request->getUser();
 			$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.savedSubmissionMetadata')));
+			return new JSONMessage();
 		} else {
-			$json->setStatus(false);
+			return new JSONMessage(false);
 		}
-
-		return $json->getString();
 	}
 
 	/**

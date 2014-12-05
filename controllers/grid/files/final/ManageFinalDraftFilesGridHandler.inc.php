@@ -54,7 +54,7 @@ class ManageFinalDraftFilesGridHandler extends SelectableSubmissionFileListCateg
 	 * Save 'manage final draft files' form
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function updateFinalDraftFiles($args, $request) {
 		$submission = $this->getSubmission();
@@ -70,8 +70,7 @@ class ManageFinalDraftFilesGridHandler extends SelectableSubmissionFileListCateg
 			// Let the calling grid reload itself
 			return DAO::getDataChangedEvent();
 		} else {
-			$json = new JSONMessage(false);
-			return $json->getString();
+			return new JSONMessage(false);
 		}
 	}
 }

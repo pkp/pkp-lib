@@ -163,7 +163,7 @@ class PluginGalleryGridHandler extends GridHandler {
 	 * View a plugin's details
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string
+	 * @return JSONMessage JSON object
 	 */
 	function viewPlugin($args, $request) {
 		$plugin = $this->_getSpecifiedPlugin($request);
@@ -218,8 +218,7 @@ class PluginGalleryGridHandler extends GridHandler {
 			__($installActionKey),
 			null
 		));
-		$json = new JSONMessage(true, $templateMgr->fetch('controllers/grid/plugins/viewPlugin.tpl'));
-		return $json->getString();
+		return new JSONMessage(true, $templateMgr->fetch('controllers/grid/plugins/viewPlugin.tpl'));
 	}
 
 	/**

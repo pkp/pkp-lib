@@ -260,21 +260,21 @@ class UserGroupGridHandler extends GridHandler {
 	/**
 	 * Handle the edit user group operation.
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
 	 */
 	function editUserGroup($args, $request) {
 		$userGroupForm = $this->_getUserGroupForm($request);
 
 		$userGroupForm->initData();
 
-		$json = new JSONMessage(true, $userGroupForm->fetch($request));
-		return $json->getString();
+		return new JSONMessage(true, $userGroupForm->fetch($request));
 	}
 
 	/**
 	 * Update user group data on database and grid.
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
 	 */
 	function updateUserGroup($args, $request) {
 		$userGroupForm = $this->_getUserGroupForm($request);
@@ -284,8 +284,7 @@ class UserGroupGridHandler extends GridHandler {
 			$userGroupForm->execute($request);
 			return DAO::getDataChangedEvent();
 		} else {
-			$json = new JSONMessage(true, $userGroupForm->fetch($request));
-			return $json->getString();
+			return new JSONMessage(true, $userGroupForm->fetch($request));
 		}
 	}
 
@@ -293,6 +292,7 @@ class UserGroupGridHandler extends GridHandler {
 	 * Remove user group.
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
 	 */
 	function removeUserGroup($args, $request) {
 		$user = $request->getUser();
@@ -356,6 +356,7 @@ class UserGroupGridHandler extends GridHandler {
 	 * Toggle user group stage assignment.
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
 	 */
 	private function _toggleAssignment($args, $request) {
 		$userGroup = $this->_userGroup;

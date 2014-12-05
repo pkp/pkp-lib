@@ -176,7 +176,7 @@ class GenreGridHandler extends SetupGridHandler {
 	 * An action to edit a Genre
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function editGenre($args, $request) {
 		$genreId = isset($args['genreId']) ? (int) $args['genreId'] : null;
@@ -188,15 +188,14 @@ class GenreGridHandler extends SetupGridHandler {
 
 		$genreForm->initData($args, $request);
 
-		$json = new JSONMessage(true, $genreForm->fetch($request));
-		return $json->getString();
+		return new JSONMessage(true, $genreForm->fetch($request));
 	}
 
 	/**
 	 * Update a Genre
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function updateGenre($args, $request) {
 		$genreId = isset($args['genreId']) ? (int) $args['genreId'] : null;
@@ -212,8 +211,7 @@ class GenreGridHandler extends SetupGridHandler {
 			$genreForm->execute($args, $request);
 			return DAO::getDataChangedEvent($genreForm->getGenreId());
 		} else {
-			$json = new JSONMessage(false);
-			return $json->getString();
+			return new JSONMessage(false);
 		}
 	}
 
@@ -221,7 +219,7 @@ class GenreGridHandler extends SetupGridHandler {
 	 * Delete a Genre.
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function deleteGenre($args, $request) {
 		// Identify the Genre to be deleted
@@ -233,9 +231,8 @@ class GenreGridHandler extends SetupGridHandler {
 		if ($result) {
 			return DAO::getDataChangedEvent($genre->getId());
 		} else {
-			$json = new JSONMessage(false, __('manager.setup.errorDeletingItem'));
+			return new JSONMessage(false, __('manager.setup.errorDeletingItem'));
 		}
-		return $json->getString();
 	}
 
 	/**
@@ -243,7 +240,7 @@ class GenreGridHandler extends SetupGridHandler {
 	 * All default settings that were available when the context instance was created will be restored.
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string
+	 * @return JSONMessage JSON object
 	 */
 	function restoreGenres($args, $request) {
 		$context = $request->getContext();

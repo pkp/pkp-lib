@@ -54,7 +54,7 @@ class ContextSettingsWizardHandler extends Handler {
 	 * Displays the context settings wizard.
 	 * @param $args array
 	 * @param $request Request
-	 * @return string a serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function startWizard($args, $request) {
 		$templateMgr = TemplateManager::getManager($request);

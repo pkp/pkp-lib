@@ -187,6 +187,7 @@ abstract class PKPWorkflowHandler extends Handler {
 	 * Fetch JSON-encoded editor decision options.
 	 * @param $args array
 	 * @param $request Request
+	 * @return JSONMessage JSON object
 	 */
 	function editorDecisionActions($args, $request) {
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_EDITOR);
@@ -257,20 +258,22 @@ abstract class PKPWorkflowHandler extends Handler {
 	}
 
 	/**
-	* Fetch the JSON-encoded submission header.
-	* @param $args array
-	* @param $request Request
-	*/
+	 * Fetch the JSON-encoded submission header.
+	 * @param $args array
+	 * @param $request Request
+	 * @return JSONMessage JSON object
+	 */
 	function submissionHeader($args, $request) {
 		$templateMgr = TemplateManager::getManager($request);
 		return $templateMgr->fetchJson('workflow/submissionHeader.tpl');
 	}
 
 	/**
-	* Fetch the JSON-encoded submission progress bar.
-	* @param $args array
-	* @param $request Request
-	*/
+	 * Fetch the JSON-encoded submission progress bar.
+	 * @param $args array
+	 * @param $request Request
+	 * @return JSONMessage JSON object
+	 */
 	function submissionProgressBar($args, $request) {
 		$templateMgr = TemplateManager::getManager($request);
 		$context = $request->getContext();

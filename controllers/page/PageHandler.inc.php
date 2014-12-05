@@ -49,6 +49,7 @@ class PageHandler extends Handler {
 	 * Display the header.
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
 	 */
 	function header($args, $request) {
 		$this->setupTemplate($request);
@@ -118,6 +119,7 @@ class PageHandler extends Handler {
 	 * Display the sidebar.
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
 	 */
 	function sidebar($args, $request) {
 		$this->setupTemplate($request);

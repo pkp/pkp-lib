@@ -204,7 +204,7 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 	 * Displays the file upload wizard.
 	 * @param $args array
 	 * @param $request Request
-	 * @return string a serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function startWizard($args, $request) {
 		$templateMgr = TemplateManager::getManager($request);
@@ -249,7 +249,7 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 	 * Render the file upload form in its initial state.
 	 * @param $args array
 	 * @param $request Request
-	 * @return string a serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function displayFileUploadForm($args, $request) {
 		// Instantiate, configure and initialize the form.
@@ -263,15 +263,14 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 		$fileForm->initData($args, $request);
 
 		// Render the form.
-		$json = new JSONMessage(true, $fileForm->fetch($request));
-		return $json->getString();
+		return new JSONMessage(true, $fileForm->fetch($request));
 	}
 
 	/**
 	 * Upload a file and render the modified upload wizard.
 	 * @param $args array
 	 * @param $request Request
-	 * @return string a serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function uploadFile($args, $request, $fileModifyCallback = null) {
 		// Instantiate the file upload form.
@@ -301,20 +300,18 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 						$confirmationForm->initData($args, $request);
 
 						// Render the revision confirmation form.
-						$json = new JSONMessage(true, $confirmationForm->fetch($request), '0', $uploadedFileInfo);
-						return $json->getString();
+						return new JSONMessage(true, $confirmationForm->fetch($request), '0', $uploadedFileInfo);
 					}
 				}
 
 				// Advance to the next step (i.e. meta-data editing).
-				$json = new JSONMessage(true, '', '0', $uploadedFileInfo);
+				return new JSONMessage(true, '', '0', $uploadedFileInfo);
 			} else {
-				$json = new JSONMessage(false, __('common.uploadFailed'));
+				return new JSONMessage(false, __('common.uploadFailed'));
 			}
 		} else {
-			$json = new JSONMessage(false, array_pop($uploadForm->getErrorsArray()));
+			return new JSONMessage(false, array_pop($uploadForm->getErrorsArray()));
 		}
-		return $json->getString();
 	}
 
 	/**
@@ -322,7 +319,7 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 	 * earlier uploaded file.
 	 * @param $args array
 	 * @param $request Request
-	 * @return string a serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function confirmRevision($args, $request) {
 		// Instantiate the revision confirmation form.
@@ -339,14 +336,13 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 		if ($confirmationForm->validate($request)) {
 			if (is_a($uploadedFile = $confirmationForm->execute($request), 'SubmissionFile')) {
 				// Go to the meta-data editing step.
-				$json = new JSONMessage(true, '', '0', $this->_getUploadedFileInfo($uploadedFile));
+				return new JSONMessage(true, '', '0', $this->_getUploadedFileInfo($uploadedFile));
 			} else {
-				$json = new JSONMessage(false, __('common.uploadFailed'));
+				return new JSONMessage(false, __('common.uploadFailed'));
 			}
 		} else {
-			$json = new JSONMessage(false, array_pop($confirmationForm->getErrorsArray()));
+			return new JSONMessage(false, array_pop($confirmationForm->getErrorsArray()));
 		}
-		return $json->getString();
 	}
 
 	/**
@@ -354,13 +350,12 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 	 * the requested submission file.
 	 * @param $args array
 	 * @param $request Request
-	 * @return string a serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function editMetadata($args, $request) {
 		$metadataForm = $this->_getMetadataForm($request);
 		$metadataForm->initData($args, $request);
-		$json = new JSONMessage(true, $metadataForm->fetch($request));
-		return $json->getString();
+		return new JSONMessage(true, $metadataForm->fetch($request));
 	}
 
 	/**
@@ -368,7 +363,7 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 	 * the requested submission file
 	 * @param $args array
 	 * @param $request Request
-	 * @return string a serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function saveMetadata($args, $request) {
 		$submission = $this->getSubmission();
@@ -418,16 +413,15 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 
 			return DAO::getDataChangedEvent();
 		} else {
-			$json = new JSONMessage(false, $metadataForm->fetch($request));
+			return new JSONMessage(false, $metadataForm->fetch($request));
 		}
-		return $json->getString();
 	}
 
 	/**
 	 * Display the final tab of the modal
 	 * @param $args array
 	 * @param $request Request
-	 * @return string a serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function finishFileSubmission($args, $request) {
 		$submission = $this->getSubmission();

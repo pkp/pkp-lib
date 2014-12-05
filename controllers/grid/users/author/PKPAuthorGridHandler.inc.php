@@ -273,7 +273,7 @@ class PKPAuthorGridHandler extends GridHandler {
 	 * Edit a author
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function editAuthor($args, $request) {
 		// Identify the author to be updated
@@ -288,15 +288,14 @@ class PKPAuthorGridHandler extends GridHandler {
 		$authorForm = new AuthorForm($submission, $author, 'submissionId');
 		$authorForm->initData();
 
-		$json = new JSONMessage(true, $authorForm->fetch($request));
-		return $json->getString();
+		return new JSONMessage(true, $authorForm->fetch($request));
 	}
 
 	/**
 	 * Edit a author
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function updateAuthor($args, $request) {
 		// Identify the author to be updated
@@ -344,8 +343,7 @@ class PKPAuthorGridHandler extends GridHandler {
 				return DAO::getDataChangedEvent($authorId);
 			}
 		} else {
-			$json = new JSONMessage(true, $authorForm->fetch($request));
-			return $json->getString();
+			return new JSONMessage(true, $authorForm->fetch($request));
 		}
 	}
 
@@ -353,7 +351,7 @@ class PKPAuthorGridHandler extends GridHandler {
 	 * Delete a author
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function deleteAuthor($args, $request) {
 		// Identify the submission Id
@@ -367,8 +365,7 @@ class PKPAuthorGridHandler extends GridHandler {
 		if ($result) {
 			return DAO::getDataChangedEvent($authorId);
 		} else {
-			$json = new JSONMessage(false, __('submission.submit.errorDeletingAuthor'));
-			return $json->getString();
+			return new JSONMessage(false, __('submission.submit.errorDeletingAuthor'));
 		}
 	}
 
@@ -376,7 +373,7 @@ class PKPAuthorGridHandler extends GridHandler {
 	 * Add a user with data initialized from an existing author.
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function addUser($args, $request) {
 		// Identify the author Id.
@@ -388,16 +385,15 @@ class PKPAuthorGridHandler extends GridHandler {
 
 		if ($author !== null && $userDao->userExistsByEmail($author->getEmail())) {
 			// We don't have administrative rights over this user.
-			$json = new JSONMessage(false, __('grid.user.cannotAdminister'));
+			return new JSONMessage(false, __('grid.user.cannotAdminister'));
 		} else {
 			// Form handling.
 			import('lib.pkp.controllers.grid.settings.user.form.UserDetailsForm');
 			$userForm = new UserDetailsForm($request, null, $author);
 			$userForm->initData($args, $request);
 
-			$json = new JSONMessage(true, $userForm->display($args, $request));
+			return new JSONMessage(true, $userForm->display($args, $request));
 		}
-		return $json->getString();
 	}
 }
 

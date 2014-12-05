@@ -103,7 +103,7 @@ class PKPAuthorDashboardHandler extends Handler {
 	 * Fetches information about a specific email and returns it.
 	 * @param $args array
 	 * @param $request Request
-	 * @return string
+	 * @return JSONMessage JSON object
 	 */
 	function readSubmissionEmail($args, $request) {
 		$submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO');

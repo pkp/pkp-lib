@@ -133,7 +133,7 @@ class SubmissionsListGridHandler extends GridHandler {
 	 * Delete a submission
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function deleteSubmission($args, $request) {
 		$submissionDao = Application::getSubmissionDAO();
@@ -149,8 +149,7 @@ class SubmissionsListGridHandler extends GridHandler {
 			NotificationManager::createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.removedSubmission')));
 			return DAO::getDataChangedEvent($submission->getId());
 		} else {
-			$json = new JSONMessage(false);
-			return $json->getString();
+			return new JSONMessage(false);
 		}
 	}
 

@@ -29,6 +29,7 @@ class PKPSubmissionInformationCenterHandler extends InformationCenterHandler {
 	 * Display the metadata tab.
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
 	 */
 	function metadata($args, $request) {
 		$this->setupTemplate($request);
@@ -44,8 +45,7 @@ class PKPSubmissionInformationCenterHandler extends InformationCenterHandler {
 		$submissionMetadataViewForm = new SubmissionMetadataViewForm($this->_submission->getId(), null, $params);
 		$submissionMetadataViewForm->initData($args, $request);
 
-		$json = new JSONMessage(true, $submissionMetadataViewForm->fetch($request));
-		return $json->getString();
+		return new JSONMessage(true, $submissionMetadataViewForm->fetch($request));
 	}
 
 	/**
@@ -59,8 +59,6 @@ class PKPSubmissionInformationCenterHandler extends InformationCenterHandler {
 		import('controllers.modals.submissionMetadata.form.SubmissionMetadataViewForm');
 		$submissionMetadataViewForm = new SubmissionMetadataViewForm($this->_submission->getId());
 
-		$json = new JSONMessage();
-
 		// Try to save the form data.
 		$submissionMetadataViewForm->readInputData($request);
 		if($submissionMetadataViewForm->validate()) {
@@ -69,11 +67,9 @@ class PKPSubmissionInformationCenterHandler extends InformationCenterHandler {
 			$notificationManager = new NotificationManager();
 			$user = $request->getUser();
 			$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.savedSubmissionMetadata')));
-		} else {
-			$json->setStatus(false);
+			return new JSONMessage(true);
 		}
-
-		return $json->getString();
+		return new JSONMessage(false);
 	}
 
 	/**
@@ -98,13 +94,14 @@ class PKPSubmissionInformationCenterHandler extends InformationCenterHandler {
 			$templateMgr->assign('lastEventUser', $user);
 		}
 
-		return parent::viewInformationCenter($request);
+		return parent::viewInformationCenter($args, $request);
 	}
 
 	/**
 	 * Display the notes tab.
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
 	 */
 	function viewNotes($args, $request) {
 		$this->setupTemplate($request);
@@ -113,8 +110,7 @@ class PKPSubmissionInformationCenterHandler extends InformationCenterHandler {
 		$notesForm = new NewSubmissionNoteForm($this->_submission->getId());
 		$notesForm->initData();
 
-		$json = new JSONMessage(true, $notesForm->fetch($request));
-		return $json->getString();
+		return new JSONMessage(true, $notesForm->fetch($request));
 	}
 
 	/**
@@ -131,24 +127,24 @@ class PKPSubmissionInformationCenterHandler extends InformationCenterHandler {
 
 		if ($notesForm->validate()) {
 			$notesForm->execute($request);
-			$json = new JSONMessage(true);
 
 			// Save to event log
 			$user = $request->getUser();
 			$userId = $user->getId();
 			$this->_logEvent($request, SUBMISSION_LOG_NOTE_POSTED);
+
+			return new JSONMessage(true);
 		} else {
 			// Return a JSON string indicating failure
-			$json = new JSONMessage(false);
+			return new JSONMessage(false);
 		}
-
-		return $json->getString();
 	}
 
 	/**
 	 * Fetch the contents of the event log.
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
 	 */
 	function viewHistory($args, $request) {
 		$this->setupTemplate($request);

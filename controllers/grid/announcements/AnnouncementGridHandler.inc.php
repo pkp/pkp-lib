@@ -127,7 +127,7 @@ class AnnouncementGridHandler extends GridHandler {
 	 * Load and fetch the announcement form in read-only mode.
 	 * @param $args array
 	 * @param $request Request
-	 * @return string
+	 * @return JSONMessage JSON object
 	 */
 	function moreInformation($args, $request) {
 		$announcementId = (int)$request->getUserVar('announcementId');
@@ -139,8 +139,7 @@ class AnnouncementGridHandler extends GridHandler {
 
 		$announcementForm->initData($args, $request);
 
-		$json = new JSONMessage(true, $announcementForm->fetch($request));
-		return $json->getString();
+		return new JSONMessage(true, $announcementForm->fetch($request));
 	}
 }
 

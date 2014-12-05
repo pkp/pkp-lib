@@ -235,6 +235,7 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 	 * Perform plugin-specific management functions.
 	 * @param $args array
 	 * @param $request object
+	 * @return JSONMessage JSON object
 	 */
 	function plugin($args, $request) {
 		$verb = (string) $request->getUserVar('verb');
@@ -252,7 +253,7 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 		if ($pluginModalContent) {
 			$json = new JSONMessage(true, $pluginModalContent);
 			$json->setEvent('refreshForm', $pluginModalContent);
-			return $json->getString();
+			return $json;
 		}
 
 		return DAO::getDataChangedEvent($request->getUserVar('plugin'), $request->getUserVar($this->getCategoryRowIdParameterName()));
@@ -282,6 +283,7 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 	 * Upload a plugin file.
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
 	 */
 	function uploadPluginFile($args, $request) {
 		import('lib.pkp.classes.file.TemporaryFileManager');
@@ -294,18 +296,17 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 			$json->setAdditionalAttributes(array(
 				'temporaryFileId' => $temporaryFile->getId()
 			));
+			return $json;
 		} else {
-			$json = new JSONMessage(false, __('manager.plugins.uploadError'));
+			return new JSONMessage(false, __('manager.plugins.uploadError'));
 		}
-
-		return $json->getString();
 	}
 
 	/**
 	 * Save upload plugin file form.
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string
+	 * @return JSONMessage JSON object
 	 */
 	function saveUploadPlugin($args, $request) {
 		$function = $request->getUserVar('function');
@@ -318,14 +319,14 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 			}
 		}
 
-		$json = new JSONMessage(false);
-		return $json->getString();
+		return new JSONMessage(false);
 	}
 
 	/**
 	 * Delete plugin.
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
 	 */
 	function deletePlugin($args, $request) {
 		$plugin =& $this->getAuthorizedContextObject(ASSOC_TYPE_PLUGIN);
@@ -367,15 +368,14 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 	 * Fetch upload plugin form.
 	 * @param $function string
 	 * @param $request PKPRequest Request object
-	 * @return string
+	 * @return JSONMessage JSON object
 	 */
 	function _showUploadPluginForm($function, $request) {
 		import('lib.pkp.controllers.grid.plugins.form.UploadPluginForm');
 		$uploadPluginForm = new UploadPluginForm($function);
 		$uploadPluginForm->initData();
 
-		$json = new JSONMessage(true, $uploadPluginForm->fetch($request));
-		return $json->getString();
+		return new JSONMessage(true, $uploadPluginForm->fetch($request));
 	}
 }
 

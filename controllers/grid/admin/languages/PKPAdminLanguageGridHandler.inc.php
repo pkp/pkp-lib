@@ -186,20 +186,21 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 	 * Open a form to select locales for installation.
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
 	 */
 	function installLocale($args, $request) {
 		// Form handling.
 		$installLanguageForm = new InstallLanguageForm();
 		$installLanguageForm->initData($request);
-		$json = new JSONMessage(true, $installLanguageForm->fetch($request));
+		return new JSONMessage(true, $installLanguageForm->fetch($request));
 
-		return $json->getString();
 	}
 
 	/**
 	 * Save the install language form.
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
 	 */
 	function saveInstallLocale($args, $request) {
 		$installLanguageForm = new InstallLanguageForm();
@@ -223,6 +224,7 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 	 * Download a locale from the PKP web site.
 	 * @param $args array
 	 * @param $request object
+	 * @return JSONMessage JSON object
 	 */
 	function downloadLocale($args, $request) {
 		$this->setupTemplate($request, true);
@@ -258,13 +260,14 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 		$installLanguageForm = new InstallLanguageForm();
 		$installLanguageForm->initData($request);
 		$json->setEvent('refreshForm', $installLanguageForm->fetch($request));
-		return $json->getString();
+		return $json;
 	}
 
 	/**
 	 * Uninstall a locale.
 	 * @param $args array
 	 * @param $request Request
+	 * @return JSONMessage JSON object
 	 */
 	function uninstallLocale($args, $request) {
 		$site = $request->getSite();
@@ -306,6 +309,7 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 	 * Enable an existing locale.
 	 * @param $args array
 	 * @param $request Request
+	 * @return JSONMessage JSON object
 	 */
 	function enableLocale($args, $request) {
 		$rowId = $request->getUserVar('rowId');
@@ -329,6 +333,7 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 	 * Disable an existing locale.
 	 * @param $args array
 	 * @param $request Request
+	 * @return JSONMessage JSON object
 	 */
 	function disableLocale($args, $request) {
 		$rowId = $request->getUserVar('rowId');
@@ -361,6 +366,7 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 	 * Reload locale.
 	 * @param $args array
 	 * @param $request Request
+	 * @return JSONMessage JSON object
 	 */
 	function reloadLocale($args, $request) {
 		$site = $request->getSite();
@@ -385,6 +391,7 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 	 * Set primary locale.
 	 * @param $args array
 	 * @param $request Request
+	 * @return JSONMessage JSON object
 	 */
 	function setPrimaryLocale($args, $request) {
 		$rowId = $request->getUserVar('rowId');

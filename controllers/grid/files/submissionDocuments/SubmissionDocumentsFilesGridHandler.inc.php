@@ -115,7 +115,7 @@ class SubmissionDocumentsFilesGridHandler extends LibraryFileGridHandler {
 	 * Load the (read only) context file library.
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function viewLibrary($args, $request) {
 		$templateMgr = TemplateManager::getManager($request);

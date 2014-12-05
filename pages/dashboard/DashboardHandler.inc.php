@@ -49,6 +49,7 @@ class DashboardHandler extends Handler {
 	 * View tasks tab
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
 	 */
 	function tasks($args, $request) {
 		$templateMgr = TemplateManager::getManager($request);
@@ -62,6 +63,7 @@ class DashboardHandler extends Handler {
 	 * View submissions tab
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
 	 */
 	function submissions($args, $request) {
 		$templateMgr = TemplateManager::getManager($request);
@@ -107,6 +109,7 @@ class DashboardHandler extends Handler {
 	 * View archives tab
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
 	 */
 	function archives($args, $request) {
 		$templateMgr = TemplateManager::getManager($request);

@@ -627,7 +627,7 @@ class DAO {
 	 *  element ID here.
 	 * @param $content mixed (Optional) Additional content to pass back
 	 *  to the handler of the JSON message.
-	 * @return string A rendered JSON message.
+	 * @return JSONMessage
 	 */
 	static function getDataChangedEvent($elementId = null, $parentElementId = null, $content = '') {
 		// Create the event data.
@@ -644,7 +644,7 @@ class DAO {
 		import('lib.pkp.classes.core.JSONMessage');
 		$json = new JSONMessage(true, $content);
 		$json->setEvent('dataChanged', $eventData);
-		return $json->getString();
+		return $json;
 	}
 
 	/**

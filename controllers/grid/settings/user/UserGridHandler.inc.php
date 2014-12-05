@@ -261,7 +261,7 @@ class UserGridHandler extends GridHandler {
 	 * Edit an existing user.
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function editUser($args, $request) {
 		// Identify the user Id.
@@ -271,22 +271,21 @@ class UserGridHandler extends GridHandler {
 		$user = $request->getUser();
 		if ($userId !== null && !Validation::canAdminister($userId, $user->getId())) {
 			// We don't have administrative rights over this user.
-			$json = new JSONMessage(false, __('grid.user.cannotAdminister'));
+			return new JSONMessage(false, __('grid.user.cannotAdminister'));
 		} else {
 			// Form handling.
 			$userForm = new UserDetailsForm($request, $userId);
 			$userForm->initData($args, $request);
 
-			$json = new JSONMessage(true, $userForm->display($args, $request));
+			return new JSONMessage(true, $userForm->display($args, $request));
 		}
-		return $json->getString();
 	}
 
 	/**
 	 * Update an existing user.
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function updateUser($args, $request) {
 		$user = $request->getUser();
@@ -296,43 +295,42 @@ class UserGridHandler extends GridHandler {
 
 		if ($userId !== null && !Validation::canAdminister($userId, $user->getId())) {
 			// We don't have administrative rights over this user.
-			$json = new JSONMessage(false, __('grid.user.cannotAdminister'));
-		} else {
-			// Form handling.
-			$userForm = new UserDetailsForm($request, $userId);
-			$userForm->readInputData();
-
-			if ($userForm->validate()) {
-				$user = $userForm->execute($args, $request);
-
-				// If this is a newly created user, show role management form.
-				if (!$userId) {
-					import('lib.pkp.controllers.grid.settings.user.form.UserRoleForm');
-					$userRoleForm = new UserRoleForm($user->getId(), $user->getFullName());
-					$userRoleForm->initData($args, $request);
-					$json = new JSONMessage(true, $userRoleForm->display($args, $request));
-				} else {
-
-					// Successful edit of an existing user.
-					$notificationManager = new NotificationManager();
-					$user = $request->getUser();
-					$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.editedUser')));
-
-					// Prepare the grid row data.
-					return DAO::getDataChangedEvent($userId);
-				}
-			} else {
-				$json = new JSONMessage(false);
-			}
+			return new JSONMessage(false, __('grid.user.cannotAdminister'));
 		}
-		return $json->getString();
+
+		// Form handling.
+		$userForm = new UserDetailsForm($request, $userId);
+		$userForm->readInputData();
+
+		if ($userForm->validate()) {
+			$user = $userForm->execute($args, $request);
+
+			// If this is a newly created user, show role management form.
+			if (!$userId) {
+				import('lib.pkp.controllers.grid.settings.user.form.UserRoleForm');
+				$userRoleForm = new UserRoleForm($user->getId(), $user->getFullName());
+				$userRoleForm->initData($args, $request);
+				return new JSONMessage(true, $userRoleForm->display($args, $request));
+			} else {
+
+				// Successful edit of an existing user.
+				$notificationManager = new NotificationManager();
+				$user = $request->getUser();
+				$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.editedUser')));
+
+				// Prepare the grid row data.
+				return DAO::getDataChangedEvent($userId);
+			}
+		} else {
+			return new JSONMessage(false);
+		}
 	}
 
 	/**
 	 * Update a newly created user's roles
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function updateUserRoles($args, $request) {
 		$user = $request->getUser();
@@ -342,23 +340,22 @@ class UserGridHandler extends GridHandler {
 
 		if ($userId !== null && !Validation::canAdminister($userId, $user->getId())) {
 			// We don't have administrative rights over this user.
-			$json = new JSONMessage(false, __('grid.user.cannotAdminister'));
-		} else {
-			// Form handling.
-			import('lib.pkp.controllers.grid.settings.user.form.UserRoleForm');
-			$userRoleForm = new UserRoleForm($userId, $user->getFullName());
-			$userRoleForm->readInputData();
-
-			if ($userRoleForm->validate()) {
-				$userRoleForm->execute($args, $request);
-
-				// Successfully managed newly created user's roles.
-				return DAO::getDataChangedEvent($userId);
-			} else {
-				$json = new JSONMessage(false);
-			}
+			return new JSONMessage(false, __('grid.user.cannotAdminister'));
 		}
-		return $json->getString();
+
+		// Form handling.
+		import('lib.pkp.controllers.grid.settings.user.form.UserRoleForm');
+		$userRoleForm = new UserRoleForm($userId, $user->getFullName());
+		$userRoleForm->readInputData();
+
+		if ($userRoleForm->validate()) {
+			$userRoleForm->execute($args, $request);
+
+			// Successfully managed newly created user's roles.
+			return DAO::getDataChangedEvent($userId);
+		} else {
+			return new JSONMessage(false);
+		}
 	}
 
 	/**
@@ -379,7 +376,7 @@ class UserGridHandler extends GridHandler {
 
 		if ($userId !== null && !Validation::canAdminister($userId, $user->getId())) {
 			// We don't have administrative rights over this user.
-			$json = new JSONMessage(false, __('grid.user.cannotAdminister'));
+			return new JSONMessage(false, __('grid.user.cannotAdminister'));
 		} else {
 			// Form handling
 			import('lib.pkp.controllers.grid.settings.user.form.UserDisableForm');
@@ -387,16 +384,15 @@ class UserGridHandler extends GridHandler {
 
 			$userForm->initData($args, $request);
 
-			$json = new JSONMessage(true, $userForm->display($args, $request));
+			return new JSONMessage(true, $userForm->display($args, $request));
 		}
-		return $json->getString();
 	}
 
 	/**
 	 * Enable/Disable an existing user
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function disableUser($args, $request) {
 		$user = $request->getUser();
@@ -409,33 +405,32 @@ class UserGridHandler extends GridHandler {
 
 		if ($userId !== null && !Validation::canAdminister($userId, $user->getId())) {
 			// We don't have administrative rights over this user.
-			$json = new JSONMessage(false, __('grid.user.cannotAdminister'));
-		} else {
-			// Form handling.
-			import('lib.pkp.controllers.grid.settings.user.form.UserDisableForm');
-			$userForm = new UserDisableForm($userId, $enable);
-
-			$userForm->readInputData();
-
-			if ($userForm->validate()) {
-				$user = $userForm->execute($args, $request);
-
-				// Successful enable/disable of an existing user.
-				// Update grid data.
-				return DAO::getDataChangedEvent($userId);
-
-			} else {
-				$json = new JSONMessage(false, $userForm->display($args, $request));
-			}
+			return new JSONMessage(false, __('grid.user.cannotAdminister'));
 		}
-		return $json->getString();
+
+		// Form handling.
+		import('lib.pkp.controllers.grid.settings.user.form.UserDisableForm');
+		$userForm = new UserDisableForm($userId, $enable);
+
+		$userForm->readInputData();
+
+		if ($userForm->validate()) {
+			$user = $userForm->execute($args, $request);
+
+			// Successful enable/disable of an existing user.
+			// Update grid data.
+			return DAO::getDataChangedEvent($userId);
+
+		} else {
+			return new JSONMessage(false, $userForm->display($args, $request));
+		}
 	}
 
 	/**
 	 * Remove all user group assignments for a context for a given user.
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function removeUser($args, $request) {
 		$context = $request->getContext();
@@ -446,20 +441,19 @@ class UserGridHandler extends GridHandler {
 
 		if ($userId !== null && !Validation::canAdminister($userId, $user->getId())) {
 			// We don't have administrative rights over this user.
-			$json = new JSONMessage(false, __('grid.user.cannotAdminister'));
-		} else {
-			// Remove user from all user group assignments for this context.
-			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-
-			// Check if this user has any user group assignments for this context.
-			if (!$userGroupDao->userInAnyGroup($userId, $context->getId())) {
-				$json = new JSONMessage(false, __('grid.user.userNoRoles'));
-			} else {
-				$userGroupDao->deleteAssignmentsByContextId($context->getId(), $userId);
-				return DAO::getDataChangedEvent($userId);
-			}
+			return new JSONMessage(false, __('grid.user.cannotAdminister'));
 		}
-		return $json->getString();
+
+		// Remove user from all user group assignments for this context.
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+
+		// Check if this user has any user group assignments for this context.
+		if (!$userGroupDao->userInAnyGroup($userId, $context->getId())) {
+			return new JSONMessage(false, __('grid.user.userNoRoles'));
+		} else {
+			$userGroupDao->deleteAssignmentsByContextId($context->getId(), $userId);
+			return DAO::getDataChangedEvent($userId);
+		}
 	}
 
 	/**
@@ -476,23 +470,22 @@ class UserGridHandler extends GridHandler {
 
 		if ($userId !== null && !Validation::canAdminister($userId, $user->getId())) {
 			// We don't have administrative rights over this user.
-			$json = new JSONMessage(false, __('grid.user.cannotAdminister'));
+			return new JSONMessage(false, __('grid.user.cannotAdminister'));
 		} else {
 			// Form handling.
 			import('lib.pkp.controllers.grid.settings.user.form.UserEmailForm');
 			$userEmailForm = new UserEmailForm($userId);
 			$userEmailForm->initData($args, $request);
 
-			$json = new JSONMessage(true, $userEmailForm->display($args, $request));
+			return new JSONMessage(true, $userEmailForm->display($args, $request));
 		}
-		return $json->getString();
 	}
 
 	/**
 	 * Send the user email and close the modal.
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function sendEmail($args, $request) {
 		$user = $request->getUser();
@@ -502,27 +495,26 @@ class UserGridHandler extends GridHandler {
 
 		if ($userId !== null && !Validation::canAdminister($userId, $user->getId())) {
 			// We don't have administrative rights over this user.
-			$json = new JSONMessage(false, __('grid.user.cannotAdminister'));
-		} else {
-			// Form handling.
-			import('lib.pkp.controllers.grid.settings.user.form.UserEmailForm');
-			$userEmailForm = new UserEmailForm($userId);
-			$userEmailForm->readInputData();
-
-			if ($userEmailForm->validate()) {
-				$userEmailForm->execute($args, $request);
-				$json = new JSONMessage(true);
-			} else {
-				$json = new JSONMessage(false, $userEmailForm->display($args, $request));
-			}
+			return new JSONMessage(false, __('grid.user.cannotAdminister'));
 		}
-		return $json->getString();
+		// Form handling.
+		import('lib.pkp.controllers.grid.settings.user.form.UserEmailForm');
+		$userEmailForm = new UserEmailForm($userId);
+		$userEmailForm->readInputData();
+
+		if ($userEmailForm->validate()) {
+			$userEmailForm->execute($args, $request);
+			return new JSONMessage(true);
+		} else {
+			return new JSONMessage(false, $userEmailForm->display($args, $request));
+		}
 	}
 
 	/**
-	 * Allow the Site Administrator to merge user accounts, including attributed submissions etc.
+	 * Allow user account merging, including attributed submissions etc.
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
 	 */
 	function mergeUsers($args, $request) {
 
@@ -538,8 +530,7 @@ class UserGridHandler extends GridHandler {
 		} else {
 			// The grid shouldn't have presented an action in this
 			// case.
-			$json = new JSONMessage(false, __('grid.user.cannotAdminister'));
-			return $json->getString();
+			return new JSONMessage(false, __('grid.user.cannotAdminister'));
 		}
 	}
 

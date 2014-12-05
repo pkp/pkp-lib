@@ -125,6 +125,7 @@ class FileSignoffGridHandler extends SubmissionFilesGridHandler {
 	 * Sign off the given file revision.
 	 * @param $args array
 	 * @param $request Request
+	 * @return JSONMessage JSON object
 	 */
 	function signOffFile($args, $request) {
 		// Retrieve the file to be signed off.

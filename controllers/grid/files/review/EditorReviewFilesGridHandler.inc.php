@@ -49,7 +49,7 @@ class EditorReviewFilesGridHandler extends FileListGridHandler {
 	 *
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function selectFiles($args, $request) {
 		$submission = $this->getSubmission();
@@ -58,8 +58,7 @@ class EditorReviewFilesGridHandler extends FileListGridHandler {
 		$manageReviewFilesForm = new ManageReviewFilesForm($submission->getId(), $this->getRequestArg('stageId'), $this->getRequestArg('reviewRoundId'));
 
 		$manageReviewFilesForm->initData($args, $request);
-		$json = new JSONMessage(true, $manageReviewFilesForm->fetch($request));
-		return $json->getString();
+		return new JSONMessage(true, $manageReviewFilesForm->fetch($request));
 	}
 }
 

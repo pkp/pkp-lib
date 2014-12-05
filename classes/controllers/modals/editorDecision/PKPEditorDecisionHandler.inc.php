@@ -190,7 +190,7 @@ class PKPEditorDecisionHandler extends Handler {
 	 * Import all free-text/review form reviews to paste into message
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function importPeerReviews($args, $request) {
 		// Retrieve the authorized submission.
@@ -273,11 +273,10 @@ class PKPEditorDecisionHandler extends Handler {
 		}
 
 		if(empty($body)) {
-			$json = new JSONMessage(false, __('editor.review.noReviews'));
+			return new JSONMessage(false, __('editor.review.noReviews'));
 		} else {
-			$json = new JSONMessage(true, $body);
+			return new JSONMessage(true, $body);
 		}
-		return $json->getString();
 	}
 
 
@@ -349,7 +348,7 @@ class PKPEditorDecisionHandler extends Handler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 * @param $formName string Name of form to call
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	protected function _initiateEditorDecision($args, $request, $formName) {
 		// Retrieve the decision
@@ -359,8 +358,7 @@ class PKPEditorDecisionHandler extends Handler {
 		$editorDecisionForm = $this->_getEditorDecisionForm($formName, $decision);
 		$editorDecisionForm->initData($args, $request);
 
-		$json = new JSONMessage(true, $editorDecisionForm->fetch($request));
-		return $json->getString();
+		return new JSONMessage(true, $editorDecisionForm->fetch($request));
 	}
 
 	/**
@@ -370,7 +368,7 @@ class PKPEditorDecisionHandler extends Handler {
 	 * @param $formName string Name of form to call
 	 * @param $redirectOp string A workflow stage operation to
 	 *  redirect to if successful (if any).
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	protected function _saveEditorDecision($args, $request, $formName, $redirectOp = null, $decision = null) {
 		// Retrieve the authorized submission.
@@ -426,9 +424,8 @@ class PKPEditorDecisionHandler extends Handler {
 				return DAO::getDataChangedEvent();
 			}
 		} else {
-			$json = new JSONMessage(false);
+			return new JSONMessage(false);
 		}
-		return $json->getString();
 	}
 
 	/**

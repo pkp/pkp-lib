@@ -183,13 +183,12 @@ class SubmissionEventLogGridHandler extends GridHandler {
 	 * Get the contents of the email
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function viewEmail($args, $request) {
 		$submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
 		$emailLogEntry = $submissionEmailLogDao->getById((int) $args['emailLogEntryId']);
-		$json = new JSONMessage(true, $this->_formatEmail($emailLogEntry));
-		return $json->getString();
+		return new JSONMessage(true, $this->_formatEmail($emailLogEntry));
 	}
 
 	/**

@@ -174,7 +174,7 @@ class NotificationsGridHandler extends GridHandler {
 	 * Mark notifications unread
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string JSON-encoded response
+	 * @return JSONMessage JSON object
 	 */
 	function markNew($args, $request) {
 		$notificationDao = DAORegistry::getDAO('NotificationDAO');
@@ -193,7 +193,7 @@ class NotificationsGridHandler extends GridHandler {
 	 * Mark notifications unread
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string JSON-encoded response
+	 * @return JSONMessage JSON object
 	 */
 	function markRead($args, $request) {
 		$notificationDao = DAORegistry::getDAO('NotificationDAO');
@@ -221,7 +221,7 @@ class NotificationsGridHandler extends GridHandler {
 	 * Delete notifications
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string JSON-encoded response
+	 * @return JSONMessage JSON object
 	 */
 	function deleteNotifications($args, $request) {
 		$notificationDao = DAORegistry::getDAO('NotificationDAO');
@@ -240,13 +240,12 @@ class NotificationsGridHandler extends GridHandler {
 	 * Get unread notifications count
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string JSON-encoded response
+	 * @return JSONMessage JSON object
 	 */
 	function getUnreadNotificationsCount($args, $request) {
 		$notificationDao = DAORegistry::getDAO('NotificationDAO');
 		$user = $request->getUser();
-		$json = new JSONMessage(true, $notificationDao->getNotificationCount(false, $user->getId(), null, NOTIFICATION_LEVEL_TASK, $this->getNotListableTaskTypes()));
-		return $json->getString();
+		return new JSONMessage(true, $notificationDao->getNotificationCount(false, $user->getId(), null, NOTIFICATION_LEVEL_TASK, $this->getNotListableTaskTypes()));
 	}
 
 	/**

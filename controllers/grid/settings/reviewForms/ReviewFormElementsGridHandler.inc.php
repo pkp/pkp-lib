@@ -169,22 +169,22 @@ class ReviewFormElementsGridHandler extends GridHandler {
 	//
 	/**
 	 * Add a new review form element.
-	* @param $args array
+	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
 	 */
 	function createReviewFormElement($args, $request) {
 		// Form handling
 		$reviewFormElementForm = new ReviewFormElementForm($this->reviewFormId);
 		$reviewFormElementForm->initData($request);
-		$json = new JSONMessage(true, $reviewFormElementForm->fetch($args, $request));
-
-		return $json->getString();
+		return new JSONMessage(true, $reviewFormElementForm->fetch($args, $request));
 	}
 
 	/**
 	 * Edit an existing review form element.
-	* @param $args array
+	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
 	 */
 	function editReviewFormElement($args, $request) {
 		// Identify the review form element Id
@@ -193,13 +193,14 @@ class ReviewFormElementsGridHandler extends GridHandler {
 		// Display form
 		$reviewFormElementForm = new ReviewFormElementForm($this->reviewFormId, $reviewFormElementId);
 		$reviewFormElementForm->initData($request);
-		$json = new JSONMessage(true, $reviewFormElementForm->fetch($args, $request));
-
-		return $json->getString();
+		return new JSONMessage(true, $reviewFormElementForm->fetch($args, $request));
 	}
 
 	/**
 	 * Save changes to a review form element.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
 	 */
 	function updateReviewFormElement($args, $request) {
 		$reviewFormElementId = (int) $request->getUserVar('reviewFormElementId');
@@ -229,13 +230,14 @@ class ReviewFormElementsGridHandler extends GridHandler {
 			return DAO::getDataChangedEvent($reviewFormElementId);
 		}
 
-		$json = new JSONMessage(false);
-		return $json->getString();
+		return new JSONMessage(false);
 	}
 
 	/**
 	 * Delete a review form element.
 	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
 	 */
 	function deleteReviewFormElement($args, $request) {
 		$reviewFormElementId = (int) $request->getUserVar('rowId');
@@ -249,8 +251,7 @@ class ReviewFormElementsGridHandler extends GridHandler {
 			return DAO::getDataChangedEvent($reviewFormElementId);
 		}
 
-		$json = new JSONMessage(false);
-		return $json->getString();
+		return new JSONMessage(false);
 	}
 }
 

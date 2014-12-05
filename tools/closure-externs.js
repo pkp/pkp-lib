@@ -119,7 +119,12 @@ jQueryObject.prototype.dialog = function(param1, param2, param3) {};
  * @param {string|Object=} param1
  * @param {string|Object|number=} param2
  */
-jQueryObject.prototype.roundabout = function(param1, param2) {};
+jQueryObject.prototype.slick = function(param1, param2) {};
+
+/**
+ * @param {number} param1
+ */
+jQueryObject.prototype.slickGoTo = function(param1) {};
 
 /**
  * @constructor

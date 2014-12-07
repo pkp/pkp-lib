@@ -53,7 +53,7 @@ class WorkflowTabHandler extends Handler {
 	 * Fetch the specified workflow tab.
 	 * @param $args array
 	 * @param $request Request
-	 * @return string
+	 * @return JSONMessage JSON object
 	 */
 	function fetchTab($args, $request) {
 

@@ -59,7 +59,7 @@ class PKPUserHandler extends Handler {
 	 * Get interests for reviewer interests autocomplete.
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function getInterests($args, $request) {
 		// Get the input text used to filter on
@@ -71,15 +71,14 @@ class PKPUserHandler extends Handler {
 		$interests = $interestManager->getAllInterests($filter);
 
 		import('lib.pkp.classes.core.JSONMessage');
-		$json = new JSONMessage(true, $interests);
-		return $json->getString();
+		return new JSONMessage(true, $interests);
 	}
 
 	/**
 	 * Persist the status for a user's preference to see inline help.
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function toggleHelp($args, $request) {
 
@@ -90,8 +89,7 @@ class PKPUserHandler extends Handler {
 		$userDao->updateObject($user);
 
 		import('lib.pkp.classes.core.JSONMessage');
-		$json = new JSONMessage(true);
-		return $json->getString();
+		return new JSONMessage(true);
 	}
 
 	/**

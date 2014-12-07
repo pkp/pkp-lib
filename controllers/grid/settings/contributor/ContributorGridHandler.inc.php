@@ -116,7 +116,7 @@ class ContributorGridHandler extends SetupGridHandler {
 	 * An action to edit a contributor
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function editContributor($args, $request) {
 		$contributorId = isset($args['rowId']) ? $args['rowId'] : null;
@@ -129,15 +129,14 @@ class ContributorGridHandler extends SetupGridHandler {
 			$contributorForm->initData($args, $request);
 		}
 
-		$json = new JSONMessage(true, $contributorForm->fetch($request));
-		return $json->getString();
+		return new JSONMessage(true, $contributorForm->fetch($request));
 	}
 
 	/**
 	 * Update a contributor
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function updateContributor($args, $request) {
 		// -> contributorId must be present and valid
@@ -169,7 +168,7 @@ class ContributorGridHandler extends SetupGridHandler {
 	 * Delete a contributor
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function deleteContributor($args, $request) {
 		$contributorId = isset($args['rowId']) ? $args['rowId'] : null;

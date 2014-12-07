@@ -309,12 +309,11 @@ class ListbuilderHandler extends GridHandler {
 	 * Load the set of options for a select list type listbuilder.
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string JSON-encoded set of options
+	 * @return JSONMessage JSON object
 	 */
 	function fetchOptions($args, $request) {
 		$options = $this->getOptions($request);
-		$json = new JSONMessage(true, $options);
-		return $json->getString();
+		return new JSONMessage(true, $options);
 	}
 
 	//

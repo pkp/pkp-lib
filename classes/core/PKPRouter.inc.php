@@ -385,6 +385,7 @@ class PKPRouter {
 
 		// Return the result of the operation to the client.
 		if (is_string($result)) echo $result;
+		elseif (is_a($result, 'JSONMessage')) echo $result->getString();
 	}
 
 	/**

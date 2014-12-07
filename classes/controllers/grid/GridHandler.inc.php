@@ -632,7 +632,7 @@ class GridHandler extends PKPHandler {
 	 * it to the client.
 	 * @param $args array
 	 * @param $request Request
-	 * @return string the serialized grid JSON message
+	 * @return JSONMessage JSON object
 	 */
 	function fetchGrid($args, $request) {
 		$this->setUrls($request);
@@ -663,8 +663,7 @@ class GridHandler extends PKPHandler {
 		$templateMgr->assign('features', $this->getFeatures());
 
 		// Let the view render the grid.
-		$json = new JSONMessage(true, $templateMgr->fetch($this->getTemplate()));
-		return $json->getString();
+		return new JSONMessage(true, $templateMgr->fetch($this->getTemplate()));
 	}
 
 	/**
@@ -697,14 +696,14 @@ class GridHandler extends PKPHandler {
 		$this->callFeaturesHook('fetchRow', array('request' => &$request, 'grid' => &$this, 'row' => &$row, 'jsonMessage' => &$json));
 
 		// Render and return the JSON message.
-		return $json->getString();
+		return $json;
 	}
 
 	/**
 	 * Render a cell and send it to the client
 	 * @param $args array
 	 * @param $request Request
-	 * @return string the serialized cell JSON message
+	 * @return JSONMessage JSON object
 	 */
 	function fetchCell(&$args, $request) {
 		// Check the requested column
@@ -718,8 +717,7 @@ class GridHandler extends PKPHandler {
 		if (is_null($row)) fatalError('Row not found!');
 
 		// Render the cell
-		$json = new JSONMessage(true, $this->_renderCellInternally($request, $row, $column));
-		return $json->getString();
+		return new JSONMessage(true, $this->_renderCellInternally($request, $row, $column));
 	}
 
 	/**
@@ -729,6 +727,7 @@ class GridHandler extends PKPHandler {
 	 * the data changed event json message.
 	 * @param $args array
 	 * @param $request Request
+	 * @return JSONMessage JSON object
 	 */
 	function saveSequence($args, $request) {
 		$this->callFeaturesHook('saveSequence', array('request' => &$request, 'grid' => &$this));
@@ -885,14 +884,13 @@ class GridHandler extends PKPHandler {
 	/**
 	 * Returns a common 'no matches' result when subclasses find no results for
 	 * AJAX autocomplete requests.
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	protected function noAutocompleteResults() {
 		$returner = array();
 		$returner[] = array('label' => __('common.noMatches'), 'value' => '');
 
-		$json = new JSONMessage(true, $returner);
-		return $json->getString();
+		return new JSONMessage(true, $returner);
 	}
 
 	/**

@@ -47,7 +47,7 @@ class PKPManageFileApiHandler extends Handler {
 	 * Delete a file or revision
 	 * @param $args array
 	 * @param $request Request
-	 * @return string a serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function deleteFile($args, $request) {
 		$submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
@@ -134,8 +134,7 @@ class PKPManageFileApiHandler extends Handler {
 
 			return DAO::getDataChangedEvent();
 		} else {
-			$json = new JSONMessage(false);
-			return $json->getString();
+			return new JSONMessage(false);
 		}
 	}
 

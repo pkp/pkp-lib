@@ -45,6 +45,7 @@ class PKPReviewRoundTabHandler extends Handler {
 	 * JSON fetch the external review round info (tab).
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
 	 */
 	function externalReviewRound($args, $request) {
 		return $this->_reviewRound($args, $request);
@@ -67,6 +68,7 @@ class PKPReviewRoundTabHandler extends Handler {
 	 * Internal function to handle both internal and external reviews round info (tab content).
 	 * @param $request PKPRequest
 	 * @param $args array
+	 * @return JSONMessage JSON object
 	 */
 	protected function _reviewRound($args, $request) {
 		$this->setupTemplate($request);

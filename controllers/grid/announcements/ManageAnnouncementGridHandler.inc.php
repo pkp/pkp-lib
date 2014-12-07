@@ -109,7 +109,7 @@ class ManageAnnouncementGridHandler extends AnnouncementGridHandler {
 	 * Display form to edit an announcement.
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string
+	 * @return JSONMessage JSON object
 	 */
 	function editAnnouncement($args, $request) {
 		$announcementId = (int)$request->getUserVar('announcementId');
@@ -119,15 +119,14 @@ class ManageAnnouncementGridHandler extends AnnouncementGridHandler {
 		$announcementForm = new AnnouncementForm($contextId, $announcementId);
 		$announcementForm->initData($args, $request);
 
-		$json = new JSONMessage(true, $announcementForm->fetch($request));
-		return $json->getString();
+		return new JSONMessage(true, $announcementForm->fetch($request));
 	}
 
 	/**
 	 * Save an edited/inserted announcement.
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string
+	 * @return JSONMessage JSON object
 	 */
 	function updateAnnouncement($args, $request) {
 
@@ -159,15 +158,15 @@ class ManageAnnouncementGridHandler extends AnnouncementGridHandler {
 			// Prepare the grid row data.
 			return DAO::getDataChangedEvent($announcementId);
 		} else {
-			$json = new JSONMessage(false);
+			return new JSONMessage(false);
 		}
-		return $json->getString();
 	}
 
 	/**
 	 * Delete an announcement.
 	 * @param $args array
 	 * @param $request
+	 * @return JSONMessage JSON object
 	 */
 	function deleteAnnouncement($args, $request) {
 		$announcementId = (int) $request->getUserVar('announcementId');

@@ -209,7 +209,7 @@ class FileApiHandler extends Handler {
 	 *  different context.
 	 * @param $args aray
 	 * @param $request Request
-	 * @return string
+	 * @return JSONMessage JSON object
 	 */
 	function enableLinkAction($args, $request) {
 		return DAO::getDataChangedEvent();

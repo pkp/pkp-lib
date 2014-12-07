@@ -56,7 +56,7 @@ class AuthorDashboardReviewRoundTabHandler extends AuthorDashboardHandler {
 	 * Fetch information for the author on the specified review round
 	 * @param $args array
 	 * @param $request Request
-	 * @return string
+	 * @return JSONMessage JSON object
 	 */
 	function fetchReviewRoundInfo($args, $request) {
 		$this->setupTemplate($request);

@@ -207,23 +207,22 @@ class PKPReviewerGridHandler extends GridHandler {
 	 * Add a reviewer.
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function showReviewerForm($args, $request) {
-		$json = new JSONMessage(true, $this->_fetchReviewerForm($args, $request));
-		return $json->getString();
+		return new JSONMessage(true, $this->_fetchReviewerForm($args, $request));
 	}
 
 	/**
 	 * Load the contents of the reviewer form
 	 * @param $args array
 	 * @param $request Request
-	 * @return string JSON
+	 * @return JSONMessage JSON object
 	 */
 	function reloadReviewerForm($args, $request) {
 		$json = new JSONMessage(true);
 		$json->setEvent('refreshForm', $this->_fetchReviewerForm($args, $request));
-		return $json->getString();
+		return $json;
 	}
 
 	/**
@@ -250,7 +249,7 @@ class PKPReviewerGridHandler extends GridHandler {
 	 * Edit a reviewer
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function updateReviewer($args, $request) {
 		$selectionType = $request->getUserVar('selectionType');
@@ -265,31 +264,29 @@ class PKPReviewerGridHandler extends GridHandler {
 			return DAO::getDataChangedEvent($reviewAssignment->getId());
 		} else {
 			// There was an error, redisplay the form
-			$json = new JSONMessage(true, $reviewerForm->fetch($request));
+			return new JSONMessage(true, $reviewerForm->fetch($request));
 		}
-		return $json->getString();
 	}
 
 	/**
 	 * Manage reviewer access to files
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function limitFiles($args, $request) {
 		import('lib.pkp.controllers.grid.users.reviewer.form.LimitFilesForm');
 		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
 		$limitFilesForm = new LimitFilesForm($reviewAssignment);
 		$limitFilesForm->initData();
-		$json = new JSONMessage(true, $limitFilesForm->fetch($request));
-		return $json->getString();
+		return new JSONMessage(true, $limitFilesForm->fetch($request));
 	}
 
 	/**
 	 * Save a change to reviewer access to files
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function updateLimitFiles($args, $request) {
 		import('lib.pkp.controllers.grid.users.reviewer.form.LimitFilesForm');
@@ -298,18 +295,17 @@ class PKPReviewerGridHandler extends GridHandler {
 		$limitFilesForm->readInputData();
 		if ($limitFilesForm->validate()) {
 			$limitFilesForm->execute();
-			$json = new JSONMessage(true);
+			return new JSONMessage(true);
 		} else {
-			$json = new JSONMessage(false);
+			return new JSONMessage(false);
 		}
-		return $json->getString();
 	}
 
 	/**
 	 * Get potential reviewers for editor's reviewer selection autocomplete.
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function getReviewersNotAssignedToSubmission($args, $request) {
 		$context = $request->getContext();
@@ -329,15 +325,14 @@ class PKPReviewerGridHandler extends GridHandler {
 			$reviewerList[] = array('label' => __('common.noMatches'), 'value' => '');
 		}
 
-		$json = new JSONMessage(true, $reviewerList);
-		return $json->getString();
+		return new JSONMessage(true, $reviewerList);
 	}
 
 	/**
 	 * Get a list of all non-reviewer users in the system to populate the reviewer role assignment autocomplete.
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function getUsersNotAssignedAsReviewers($args, $request) {
 		$context = $request->getContext();
@@ -355,15 +350,14 @@ class PKPReviewerGridHandler extends GridHandler {
 			return $this->noAutocompleteResults();
 		}
 
-		$json = new JSONMessage(true, $userList);
-		return $json->getString();
+		return new JSONMessage(true, $userList);
 	}
 
 	/**
 	 * Unassign a reviewer
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function unassignReviewer($args, $request) {
 		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
@@ -374,8 +368,7 @@ class PKPReviewerGridHandler extends GridHandler {
 		$unassignReviewerForm = new UnassignReviewerForm($reviewAssignment, $reviewRound, $submission);
 		$unassignReviewerForm->initData($args, $request);
 
-		$json = new JSONMessage(true, $unassignReviewerForm->fetch($request));
-		return $json->getString();
+		return new JSONMessage(true, $unassignReviewerForm->fetch($request));
 	}
 
 	/**
@@ -383,7 +376,7 @@ class PKPReviewerGridHandler extends GridHandler {
 	 *
 	 * @param mixed $args
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function updateUnassignReviewer($args, $request) {
 		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
@@ -399,8 +392,7 @@ class PKPReviewerGridHandler extends GridHandler {
 			if ($unassignReviewerForm->execute($args, $request)) {
 				return DAO::getDataChangedEvent($reviewAssignment->getId());
 			} else {
-				$json = new JSONMessage(false, __('editor.review.errorDeletingReviewer'));
-				return $json->getString();
+				return new JSONMessage(false, __('editor.review.errorDeletingReviewer'));
 			}
 		}
 
@@ -410,7 +402,7 @@ class PKPReviewerGridHandler extends GridHandler {
 	 * An action triggered by a confirmation modal to allow an editor to unconsider a review.
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function unconsiderReview($args, $request) {
 
@@ -450,8 +442,7 @@ class PKPReviewerGridHandler extends GridHandler {
 		if ($result) {
 			return DAO::getDataChangedEvent($reviewAssignment->getId());
 		} else {
-			$json = new JSONMessage(false, __('editor.review.errorUnconsideringReview'));
-			return $json->getString();
+			return new JSONMessage(false, __('editor.review.errorUnconsideringReview'));
 		}
 	}
 
@@ -459,7 +450,7 @@ class PKPReviewerGridHandler extends GridHandler {
 	 * Mark the review as read and trigger a rewrite of the row.
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function reviewRead($args, $request) {
 		// Retrieve review assignment.
@@ -486,7 +477,7 @@ class PKPReviewerGridHandler extends GridHandler {
 	 * Displays a modal to allow the editor to enter a message to send to the reviewer as a thank you.
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function editThankReviewer($args, $request) {
 		// Identify the review assignment being updated.
@@ -498,8 +489,7 @@ class PKPReviewerGridHandler extends GridHandler {
 		$thankReviewerForm->initData($args, $request);
 
 		// Render form.
-		$json = new JSONMessage(true, $thankReviewerForm->fetch($request));
-		return $json->getString();
+		return new JSONMessage(true, $thankReviewerForm->fetch($request));
 	}
 
 	/**
@@ -507,7 +497,7 @@ class PKPReviewerGridHandler extends GridHandler {
 	 * download any files they may have uploaded
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function readReview($args, $request) {
 		$templateMgr = TemplateManager::getManager($request);
@@ -549,7 +539,7 @@ class PKPReviewerGridHandler extends GridHandler {
 	 * Send the acknowledgement email, if desired, and trigger a row refresh action.
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function thankReviewer($args, $request) {
 		// Identify the review assignment being updated.
@@ -591,15 +581,14 @@ class PKPReviewerGridHandler extends GridHandler {
 		$reviewReminderForm->initData($args, $request);
 
 		// Render form.
-		$json = new JSONMessage(true, $reviewReminderForm->fetch($request));
-		return $json->getString();
+		return new JSONMessage(true, $reviewReminderForm->fetch($request));
 	}
 
 	/**
 	 * Send the reviewer reminder and close the modal
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function sendReminder($args, $request) {
 		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
@@ -610,22 +599,21 @@ class PKPReviewerGridHandler extends GridHandler {
 		$reviewReminderForm->readInputData();
 		if ($reviewReminderForm->validate()) {
 			$reviewReminderForm->execute($args, $request);
-			$json = new JSONMessage(true);
 			// Insert a trivial notification to indicate the reviewer was reminded successfully.
 			$currentUser = $request->getUser();
 			$notificationMgr = new NotificationManager();
 			$notificationMgr->createTrivialNotification($currentUser->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.sentNotification')));
+			return new JSONMessage(true);
 		} else {
-			$json = new JSONMessage(false, __('editor.review.reminderError'));
+			return new JSONMessage(false, __('editor.review.reminderError'));
 		}
-		return $json->getString();
 	}
 
 	/**
 	 * Displays a modal to send an email message to the user.
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function sendEmail($args, $request) {
 		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
@@ -635,8 +623,7 @@ class PKPReviewerGridHandler extends GridHandler {
 		$userEmailForm = new UserEmailForm($reviewAssignment->getReviewerId());
 		$userEmailForm->initData($args, $request);
 
-		$json = new JSONMessage(true, $userEmailForm->display($args, $request));
-		return $json->getString();
+		return new JSONMessage(true, $userEmailForm->display($args, $request));
 	}
 
 
@@ -644,7 +631,7 @@ class PKPReviewerGridHandler extends GridHandler {
 	 * Displays a modal containing history for the review assignment.
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function reviewHistory($args, $request) {
 		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
@@ -659,6 +646,7 @@ class PKPReviewerGridHandler extends GridHandler {
 	 * Fetches an email template's message body and returns it via AJAX.
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
 	 */
 	function fetchTemplateBody($args, $request) {
 		$templateId = $request->getUserVar('template');
@@ -674,8 +662,7 @@ class PKPReviewerGridHandler extends GridHandler {
 					'signatureFullName' => $user->getFullname(),
 			));
 
-			$json = new JSONMessage(true, $template->getBody() . "\n" . $context->getSetting('emailSignature'));
-			return $json->getString();
+			return new JSONMessage(true, $template->getBody() . "\n" . $context->getSetting('emailSignature'));
 		}
 	}
 

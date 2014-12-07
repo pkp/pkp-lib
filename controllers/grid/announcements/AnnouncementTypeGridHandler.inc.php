@@ -141,7 +141,7 @@ class AnnouncementTypeGridHandler extends GridHandler {
 	 * Display form to edit an announcement type.
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string
+	 * @return JSONMessage JSON object
 	 */
 	function editAnnouncementType($args, $request) {
 		$announcementTypeId = (int)$request->getUserVar('announcementTypeId');
@@ -151,15 +151,14 @@ class AnnouncementTypeGridHandler extends GridHandler {
 		$announcementTypeForm = new AnnouncementTypeForm($contextId, $announcementTypeId);
 		$announcementTypeForm->initData($args, $request);
 
-		$json = new JSONMessage(true, $announcementTypeForm->fetch($request));
-		return $json->getString();
+		return new JSONMessage(true, $announcementTypeForm->fetch($request));
 	}
 
 	/**
 	 * Save an edited/inserted announcement type.
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string
+	 * @return JSONMessage JSON object
 	 */
 	function updateAnnouncementType($args, $request) {
 
@@ -191,15 +190,15 @@ class AnnouncementTypeGridHandler extends GridHandler {
 			// Prepare the grid row data.
 			return DAO::getDataChangedEvent($announcementTypeId);
 		} else {
-			$json = new JSONMessage(false);
+			return new JSONMessage(false);
 		}
-		return $json->getString();
 	}
 
 	/**
 	 * Delete an announcement type.
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
 	 */
 	function deleteAnnouncementType($args, $request) {
 		$announcementTypeId = (int) $request->getUserVar('announcementTypeId');

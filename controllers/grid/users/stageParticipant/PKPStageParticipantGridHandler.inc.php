@@ -214,7 +214,7 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 	 * Add a participant to the stages
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function addParticipant($args, $request) {
 		$submission = $this->getSubmission();
@@ -225,8 +225,7 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 		$form = new AddParticipantForm($submission, $stageId, $userGroups);
 		$form->initData();
 
-		$json = new JSONMessage(true, $form->fetch($request));
-		return $json->getString();
+		return new JSONMessage(true, $form->fetch($request));
 	}
 
 
@@ -234,7 +233,7 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 	 * Update the row for the current userGroup's stage participant list.
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function saveParticipant($args, $request) {
 		$submission = $this->getSubmission();
@@ -291,8 +290,7 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 
 			return DAO::getDataChangedEvent($userGroupId);
 		} else {
-			$json = new JSONMessage(true, $form->fetch($request));
-			return $json->getString();
+			return new JSONMessage(true, $form->fetch($request));
 		}
 	}
 
@@ -300,7 +298,7 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 	 * Delete the participant from the user groups
 	 * @param $args
 	 * @param $request
-	 * @return void
+	 * @return JSONMessage JSON object
 	 */
 	function deleteParticipant($args, $request) {
 		$submission = $this->getSubmission();
@@ -369,7 +367,7 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 	 * Get the list of users for the specified user group
 	 * @param $args array
 	 * @param $request Request
-	 * @return JSON string
+	 * @return JSONMessage JSON object
 	 */
 	function fetchUserList($args, $request) {
 		$submission = $this->getSubmission();
@@ -406,8 +404,7 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 			$userList[0] = __('common.noMatches');
 		}
 
-		$json = new JSONMessage(true, $userList);
-		return $json->getString();
+		return new JSONMessage(true, $userList);
 	}
 
 	function _getIdForSubEditorFilter($submission) {
@@ -418,6 +415,7 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 	 * Display the notify tab.
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
 	 */
 	function viewNotify($args, $request) {
 		$this->setupTemplate($request);
@@ -426,14 +424,14 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 		$notifyForm = new StageParticipantNotifyForm($this->getSubmission()->getId(), ASSOC_TYPE_SUBMISSION, $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE));
 		$notifyForm->initData();
 
-		$json = new JSONMessage(true, $notifyForm->fetch($request));
-		return $json->getString();
+		return new JSONMessage(true, $notifyForm->fetch($request));
 	}
 
 	/**
 	 * Send a notification from the notify tab.
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
 	 */
 	function sendNotification($args, $request) {
 		$this->setupTemplate($request);
@@ -446,14 +444,12 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 			$noteId = $notifyForm->execute($request);
 			// Return a JSON string indicating success
 			// (will clear the form on return)
-			$json = new JSONMessage(true);
 			$this->_logEventAndCreateNotification($request);
+			return new JSONMessage(true);
 		} else {
 			// Return a JSON string indicating failure
-			$json = new JSONMessage(false);
+			return new JSONMessage(false);
 		}
-
-		return $json->getString();
 	}
 
 	/**
@@ -472,6 +468,7 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 	 * Fetches an email template's message body and returns it via AJAX.
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
 	 */
 	function fetchTemplateBody($args, $request) {
 		$templateId = $request->getUserVar('template');
@@ -486,8 +483,7 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 					'signatureFullName' => $user->getFullname(),
 			));
 
-			$json = new JSONMessage(true, $template->getBody() . "\n" . $context->getSetting('emailSignature'));
-			return $json->getString();
+			return new JSONMessage(true, $template->getBody() . "\n" . $context->getSetting('emailSignature'));
 		}
 	}
 

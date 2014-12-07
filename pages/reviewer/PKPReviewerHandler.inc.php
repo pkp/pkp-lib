@@ -51,6 +51,7 @@ class PKPReviewerHandler extends Handler {
 	 * Display a step tab contents in the submission review page.
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
 	 */
 	function step($args, $request) {
 		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT); /* @var $reviewAssignment ReviewAssignment */
@@ -80,8 +81,7 @@ class PKPReviewerHandler extends Handler {
 			} else {
 				$reviewerForm->initData();
 			}
-			$json = new JSONMessage(true, $reviewerForm->fetch($request));
-			return $json->getString();
+			return new JSONMessage(true, $reviewerForm->fetch($request));
 		} else {
 			$templateMgr = TemplateManager::getManager($request);
 			$templateMgr->assign('submission', $reviewerSubmission);
@@ -94,6 +94,7 @@ class PKPReviewerHandler extends Handler {
 	 * Save a review step.
 	 * @param $args array first parameter is the step being saved
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
 	 */
 	function saveStep($args, $request) {
 		$step = (int)$request->getUserVar('step');
@@ -116,16 +117,17 @@ class PKPReviewerHandler extends Handler {
 			$reviewerForm->execute($request);
 			$json = new JSONMessage(true);
 			$json->setEvent('setStep', $step+1);
+			return $json;
 		} else {
-			$json = new JSONMessage(true, $reviewerForm->fetch($request));
+			return new JSONMessage(true, $reviewerForm->fetch($request));
 		}
-		return $json->getString();
 	}
 
 	/**
 	 * Show a form for the reviewer to enter regrets into.
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
 	 */
 	function showDeclineReview($args, $request) {
 		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT); /* @var $reviewAssignment ReviewAssignment */

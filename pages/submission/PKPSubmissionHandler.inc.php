@@ -110,6 +110,7 @@ class PKPSubmissionHandler extends Handler {
 	 * Displays submission index page if a valid step is not specified.
 	 * @param $args array
 	 * @param $request Request
+	 * @return JSONMessage JSON object
 	 */
 	function step($args, $request) {
 		$step = isset($args[0]) ? (int) $args[0] : 1;
@@ -129,9 +130,7 @@ class PKPSubmissionHandler extends Handler {
 			} else {
 				$submitForm->initData();
 			}
-			$json = new JSONMessage(true, $submitForm->fetch($request));
-			return $json->getString();
-			$submitForm->display($request);
+			return new JSONMessage(true, $submitForm->fetch($request));
 		} elseif($step == $this->_getStepCount()) {
 			$templateMgr = TemplateManager::getManager($request);
 			$templateMgr->assign('context', $context);
@@ -155,8 +154,7 @@ class PKPSubmissionHandler extends Handler {
 				$templateMgr->assign('expediteLinkAction', new ExpediteSubmissionLinkAction($request, $submission->getId()));
 			}
 
-			$json = new JSONMessage(true, $templateMgr->fetch('submission/form/complete.tpl'));
-			return $json->getString();
+			return new JSONMessage(true, $templateMgr->fetch('submission/form/complete.tpl'));
 		}
 	}
 
@@ -164,6 +162,7 @@ class PKPSubmissionHandler extends Handler {
 	 * Save a submission step.
 	 * @param $args array first parameter is the step being saved
 	 * @param $request Request
+	 * @return JSONMessage JSON object
 	 */
 	function saveStep($args, $request) {
 		$step = isset($args[0]) ? (int) $args[0] : 1;
@@ -188,10 +187,10 @@ class PKPSubmissionHandler extends Handler {
 				}
 				$json = new JSONMessage(true);
 				$json->setEvent('setStep', max($step+1, $submission->getSubmissionProgress()));
+				return $json;
 			} else {
-				$json = new JSONMessage(true, $submitForm->fetch($request));
+				return new JSONMessage(true, $submitForm->fetch($request));
 			}
-			return $json->getString();
 		}
 	}
 

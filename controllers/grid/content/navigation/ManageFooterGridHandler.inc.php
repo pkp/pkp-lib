@@ -215,7 +215,7 @@ class ManageFooterGridHandler extends CategoryGridHandler {
 	 * Edit a footer category entry
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function editFooterCategory($args, $request) {
 		$footerCategoryId = $request->getUserVar('footerCategoryId');
@@ -226,15 +226,14 @@ class ManageFooterGridHandler extends CategoryGridHandler {
 		$footerCategoryForm = new FooterCategoryForm($context->getId(), $footerCategory);
 		$footerCategoryForm->initData($args, $request);
 
-		$json = new JSONMessage(true, $footerCategoryForm->fetch($request));
-		return $json->getString();
+		return new JSONMessage(true, $footerCategoryForm->fetch($request));
 	}
 
 	/**
 	 * Update a footer category entry
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function updateFooterCategory($args, $request) {
 		// Identify the footerLink entry to be updated
@@ -275,8 +274,7 @@ class ManageFooterGridHandler extends CategoryGridHandler {
 			return DAO::getDataChangedEvent($footerCategoryId);
 
 		} else {
-			$json = new JSONMessage(true, $footerCategoryForm->fetch($request));
-			return $json->getString();
+			return new JSONMessage(true, $footerCategoryForm->fetch($request));
 		}
 	}
 
@@ -284,7 +282,7 @@ class ManageFooterGridHandler extends CategoryGridHandler {
 	 * Delete a footer category entry
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function deleteFooterCategory($args, $request) {
 
@@ -311,8 +309,7 @@ class ManageFooterGridHandler extends CategoryGridHandler {
 				$notificationMgr->createTrivialNotification($currentUser->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.removedFooterCategory')));
 				return DAO::getDataChangedEvent($footerCategoryId);
 			} else {
-				$json = new JSONMessage(false, __('manager.setup.errorDeletingItem'));
-				return $json->getString();
+				return new JSONMessage(false, __('manager.setup.errorDeletingItem'));
 			}
 		}
 	}

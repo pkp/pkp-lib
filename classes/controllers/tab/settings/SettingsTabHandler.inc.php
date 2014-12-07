@@ -88,6 +88,9 @@ class SettingsTabHandler extends Handler {
 	//
 	/**
 	 * Show a tab.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
 	 */
 	function showTab($args, $request) {
 		$this->setupTemplate($request);
@@ -105,18 +108,18 @@ class SettingsTabHandler extends Handler {
 			} else {
 				$tabForm = $this->getTabForm();
 				$tabForm->initData($request);
-				$json = new JSONMessage(true, $tabForm->fetch($request));
-				return $json->getString();
+				return new JSONMessage(true, $tabForm->fetch($request));
 			}
 		}
 	}
 
 	/**
 	 * Handle forms data (save or edit).
+	 * @param $args array
 	 * @param $request Request
+	 * @return JSONMessage JSON object
 	 */
 	function saveFormData($args, $request) {
-		$json = new JSONMessage();
 
 		if ($this->_isValidTab()) {
 			$tabForm = $this->getTabForm();
@@ -132,11 +135,10 @@ class SettingsTabHandler extends Handler {
 					$notificationManager->createTrivialNotification($user->getId());
 				}
 			} else {
-				$json = new JSONMessage(true);
+				return new JSONMessage(true);
 			}
 		}
-
-		return $json->getString();
+		return new JSONMessage();
 	}
 
 	/**

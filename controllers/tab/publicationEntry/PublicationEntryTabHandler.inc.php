@@ -103,15 +103,14 @@ class PublicationEntryTabHandler extends Handler {
 	 * Show the original submission metadata form.
 	 * @param $request Request
 	 * @param $args array
-	 * @return string JSON message
+	 * @return JSONMessage JSON object
 	 */
 	function submissionMetadata($args, $request) {
 
 		$publicationEntrySubmissionReviewForm = $this->_getPublicationEntrySubmissionReviewForm();
 
 		$publicationEntrySubmissionReviewForm->initData($args, $request);
-		$json = new JSONMessage(true, $publicationEntrySubmissionReviewForm->fetch($request));
-		return $json->getString();
+		return new JSONMessage(true, $publicationEntrySubmissionReviewForm->fetch($request));
 	}
 
 	/**
@@ -172,10 +171,8 @@ class PublicationEntryTabHandler extends Handler {
 				$url = $dispatcher->url($request, ROUTE_COMPONENT, null, $this->_getHandlerClassPath(), 'fetch', null, array('submissionId' => $submission->getId(), 'stageId' => $stageId, 'tabPos' => $this->getTabPosition(), 'hideHelp' => true));
 				$json->setAdditionalAttributes(array('reloadContainer' => true, 'tabsUrl' => $url));
 				$json->setContent(true); // prevents modal closure
-				return $json->getString();
-			} else {
-				return $json->getString(); // closes the modal
 			}
+			return $json;
 		} else {
 			fatalError('Unknown or unassigned format id!');
 		}

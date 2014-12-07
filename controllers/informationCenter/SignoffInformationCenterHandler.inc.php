@@ -83,7 +83,7 @@ class SignoffInformationCenterHandler extends Handler {
 	 * Display a modal containing history for the signoff.
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function viewSignoffHistory($args, $request) {
 		$this->setupTemplate($request);
@@ -98,7 +98,7 @@ class SignoffInformationCenterHandler extends Handler {
 	 * Fetch the signoff notes modal content.
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function viewNotes($args, $request) {
 		$this->setupTemplate($request);
@@ -117,7 +117,7 @@ class SignoffInformationCenterHandler extends Handler {
 	 * Get the available signoffs associated with the user in request.
 	 * @param $args
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function getUserSignoffs($args, $request) {
 		$user = $request->getUser();
@@ -141,15 +141,14 @@ class SignoffInformationCenterHandler extends Handler {
 			}
 		}
 
-		$json = new JSONMessage(true, $signoffs);
-		return $json->getString();
+		return new JSONMessage(true, $signoffs);
 	}
 
 	/**
 	 * Fetch the signoff notes form.
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function fetchNotesForm($args, $request) {
 		$this->setupTemplate($request);
@@ -158,14 +157,14 @@ class SignoffInformationCenterHandler extends Handler {
 		$notesForm = new NewSignoffNoteForm($this->_signoff->getId(), $this->_submission->getId(), $this->_signoff->getSymbolic(), $this->_stageId);
 		$notesForm->initData();
 
-		$json = new JSONMessage(true, $notesForm->fetch($request));
-		return $json->getString();
+		return new JSONMessage(true, $notesForm->fetch($request));
 	}
 
 	/**
 	 * Save a signoff note.
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
 	 */
 	function saveNote($args, $request) {
 		$this->setupTemplate($request);
@@ -177,20 +176,16 @@ class SignoffInformationCenterHandler extends Handler {
 
 		if ($notesForm->validate()) {
 			$notesForm->execute($request, $userRoles);
-			$json = new JSONMessage(true);
-		} else {
-			// Return a JSON string indicating failure
-			$json = new JSONMessage(false);
+			return new JSONMessage(true);
 		}
-
-		return $json->getString();
+		return new JSONMessage(false);
 	}
 
 	/**
 	 * List signoff notes.
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function listNotes($args, $request) {
 		$this->setupTemplate($request);
@@ -225,7 +220,7 @@ class SignoffInformationCenterHandler extends Handler {
 
 		$json = new JSONMessage(true, $templateMgr->fetch('controllers/informationCenter/notesList.tpl'));
 		$json->setEvent('dataChanged');
-		return $json->getString();
+		return $json;
 	}
 
 	/**
@@ -245,11 +240,9 @@ class SignoffInformationCenterHandler extends Handler {
 			$json->setAdditionalAttributes(array(
 				'temporaryFileId' => $temporaryFile->getId()
 			));
-		} else {
-			$json = new JSONMessage(false, __('common.uploadFailed'));
+			return $json;
 		}
-
-		return $json->getString();
+		return new JSONMessage(false, __('common.uploadFailed'));
 	}
 
 

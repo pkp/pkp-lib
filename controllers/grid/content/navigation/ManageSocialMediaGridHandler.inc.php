@@ -182,7 +182,7 @@ class ManageSocialMediaGridHandler extends GridHandler {
 	 * Edit a social media entry
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function editMedia($args, $request) {
 		// Identify the object to be updated
@@ -197,15 +197,14 @@ class ManageSocialMediaGridHandler extends GridHandler {
 		$socialMediaForm = new SocialMediaForm($context->getId(), $socialMedia);
 		$socialMediaForm->initData();
 
-		$json = new JSONMessage(true, $socialMediaForm->fetch($request));
-		return $json->getString();
+		return new JSONMessage(true, $socialMediaForm->fetch($request));
 	}
 
 	/**
 	 * Edit a social media entry
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function updateMedia($args, $request) {
 		// Identify the object to be updated
@@ -248,8 +247,7 @@ class ManageSocialMediaGridHandler extends GridHandler {
 			return DAO::getDataChangedEvent();
 
 		} else {
-			$json = new JSONMessage(true, $socialMediaForm->fetch($request));
-			return $json->getString();
+			return new JSONMessage(true, $socialMediaForm->fetch($request));
 		}
 	}
 
@@ -257,7 +255,7 @@ class ManageSocialMediaGridHandler extends GridHandler {
 	 * Delete a media entry
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function deleteMedia($args, $request) {
 
@@ -276,8 +274,7 @@ class ManageSocialMediaGridHandler extends GridHandler {
 				$notificationMgr->createTrivialNotification($currentUser->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.removedSocialMedia')));
 				return DAO::getDataChangedEvent();
 			} else {
-				$json = new JSONMessage(false, __('manager.setup.errorDeletingItem'));
-				return $json->getString();
+				return new JSONMessage(false, __('manager.setup.errorDeletingItem'));
 			}
 		} else {
 			fatalError('Social Media not in current context context.');

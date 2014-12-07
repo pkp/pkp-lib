@@ -176,6 +176,7 @@ class LibraryFileGridHandler extends CategoryGridHandler {
 	 * An action to add a new file
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
 	 */
 	function addFile($args, $request) {
 		$this->initialize($request);
@@ -185,15 +186,14 @@ class LibraryFileGridHandler extends CategoryGridHandler {
 		$fileForm = $this->_getNewFileForm($context);
 		$fileForm->initData();
 
-		$json = new JSONMessage(true, $fileForm->fetch($request));
-		return $json->getString();
+		return new JSONMessage(true, $fileForm->fetch($request));
 	}
 
 	/**
 	 * Save a new library file.
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string
+	 * @return JSONMessage JSON object
 	 */
 	function saveFile($args, $request) {
 		$router = $request->getRouter();
@@ -210,15 +210,14 @@ class LibraryFileGridHandler extends CategoryGridHandler {
 			return DAO::getDataChangedEvent();
 		}
 
-		$json = new JSONMessage(false);
-		return $json->getString();
+		return new JSONMessage(false);
 	}
 
 	/**
 	 * An action to add a new file
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function editFile($args, $request) {
 		$this->initialize($request);
@@ -231,15 +230,14 @@ class LibraryFileGridHandler extends CategoryGridHandler {
 		$fileForm = $this->_getEditFileForm($context, $fileId);
 		$fileForm->initData();
 
-		$json = new JSONMessage(true, $fileForm->fetch($request));
-		return $json->getString();
+		return new JSONMessage(true, $fileForm->fetch($request));
 	}
 
 	/**
 	 * Save changes to an existing library file.
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string
+	 * @return JSONMessage JSON object
 	 */
 	function updateFile($args, $request) {
 		assert(isset($args['fileId']));
@@ -258,15 +256,14 @@ class LibraryFileGridHandler extends CategoryGridHandler {
 			return DAO::getDataChangedEvent();
 		}
 
-		$json = new JSONMessage(false);
-		return $json->getString();
+		return new JSONMessage(false);
 	}
 
 	/**
 	 * Delete a file
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function deleteFile($args, $request) {
 		$fileId = isset($args['fileId']) ? $args['fileId'] : null;
@@ -280,15 +277,14 @@ class LibraryFileGridHandler extends CategoryGridHandler {
 			return DAO::getDataChangedEvent();
 		}
 
-		$json = new JSONMessage(false);
-		return $json->getString();
+		return new JSONMessage(false);
 	}
 
 	/**
 	 * Upload a new library file.
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string
+	 * @return JSONMessage JSON object
 	 */
 	function uploadFile($args, $request) {
 		$router = $request->getRouter();
@@ -303,11 +299,10 @@ class LibraryFileGridHandler extends CategoryGridHandler {
 			$json->setAdditionalAttributes(array(
 				'temporaryFileId' => $temporaryFile->getId()
 			));
+			return $json;
 		} else {
-			$json = new JSONMessage(false, __('common.uploadFailed'));
+			return new JSONMessage(false, __('common.uploadFailed'));
 		}
-
-		return $json->getString();
 	}
 
 	/**

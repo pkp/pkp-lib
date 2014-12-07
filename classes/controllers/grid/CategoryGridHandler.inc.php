@@ -208,9 +208,7 @@ class CategoryGridHandler extends GridHandler {
 			$this->setFirstDataColumn();
 			$json->setContent($this->_renderCategoryInternally($request, $row));
 		}
-
-		// Render and return the JSON message.
-		return $json->getString();
+		return $json;
 	}
 
 

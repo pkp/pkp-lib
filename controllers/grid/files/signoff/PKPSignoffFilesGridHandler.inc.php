@@ -369,7 +369,7 @@ class PKPSignoffFilesGridHandler extends CategoryGridHandler {
 	 * Adds an auditor (signoff) to a file
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function addAuditor($args, $request) {
 		// Identify the submission being worked on
@@ -388,8 +388,7 @@ class PKPSignoffFilesGridHandler extends CategoryGridHandler {
 			$auditorForm->initData($args, $request);
 		}
 
-		$json = new JSONMessage(true, $auditorForm->fetch($request));
-		return $json->getString();
+		return new JSONMessage(true, $auditorForm->fetch($request));
 	}
 
 
@@ -397,7 +396,7 @@ class PKPSignoffFilesGridHandler extends CategoryGridHandler {
 	 * Save the form for adding an auditor to a copyediting file
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function saveAddAuditor($args, $request) {
 		// Identify the submission being worked on
@@ -417,8 +416,7 @@ class PKPSignoffFilesGridHandler extends CategoryGridHandler {
 			return DAO::getDataChangedEvent();
 		}
 
-		$json = new JSONMessage(false);
-		return $json->getString();
+		return new JSONMessage(false);
 	}
 
 
@@ -426,7 +424,7 @@ class PKPSignoffFilesGridHandler extends CategoryGridHandler {
 	 * Get users for copyediting autocomplete.
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function getAuditorAutocomplete($args, $request) {
 		// Identify the submission we are working with
@@ -456,8 +454,7 @@ class PKPSignoffFilesGridHandler extends CategoryGridHandler {
 			return $this->noAutocompleteResults();
 		}
 
-		$json = new JSONMessage(true, $itemList);
-		return $json->getString();
+		return new JSONMessage(true, $itemList);
 	}
 
 
@@ -465,7 +462,7 @@ class PKPSignoffFilesGridHandler extends CategoryGridHandler {
 	 * Return a grid row with for the copyediting grid
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function returnSignoffRow($args, $request) {
 		$signoff = $this->getAuthorizedContextObject(ASSOC_TYPE_SIGNOFF);
@@ -473,8 +470,7 @@ class PKPSignoffFilesGridHandler extends CategoryGridHandler {
 		if($signoff) {
 			return DAO::getDataChangedEvent();
 		} else {
-			$json = new JSONMessage(false, __('common.uploadFailed'));
-			return $json->getString();
+			return new JSONMessage(false, __('common.uploadFailed'));
 		}
 	}
 
@@ -483,7 +479,7 @@ class PKPSignoffFilesGridHandler extends CategoryGridHandler {
 	 * Delete a user's signoff
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string
+	 * @return JSONMessage JSON object
 	 */
 	function deleteSignoff($args, $request) {
 		$signoff = $this->getAuthorizedContextObject(ASSOC_TYPE_SIGNOFF);
@@ -542,8 +538,7 @@ class PKPSignoffFilesGridHandler extends CategoryGridHandler {
 			}
 			return DAO::getDataChangedEvent($signoff->getId(), $signoff->getAssocId());
 		} else {
-			$json = new JSONMessage(false, 'manager.setup.errorDeletingItem');
-			return $json->getString();
+			return new JSONMessage(false, 'manager.setup.errorDeletingItem');
 		}
 	}
 
@@ -552,6 +547,7 @@ class PKPSignoffFilesGridHandler extends CategoryGridHandler {
 	 * Let the user signoff on the signoff
 	 * @param $args array
 	 * @param $request Request
+	 * @return JSONMessage JSON object
 	 */
 	function signOffsignOff($args, $request) {
 		$rowSignoff = $this->getAuthorizedContextObject(ASSOC_TYPE_SIGNOFF);
@@ -589,7 +585,7 @@ class PKPSignoffFilesGridHandler extends CategoryGridHandler {
 	 * Delete the signoff on the signoff in request.
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function deleteSignOffSignOff($args, $request) {
 		$rowSignoff = $this->getAuthorizedContextObject(ASSOC_TYPE_SIGNOFF);
@@ -611,7 +607,7 @@ class PKPSignoffFilesGridHandler extends CategoryGridHandler {
 	 * Load the (read only) file library.
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function viewLibrary($args, $request) {
 
@@ -624,7 +620,7 @@ class PKPSignoffFilesGridHandler extends CategoryGridHandler {
 	 * Displays a modal to allow the editor to enter a message to send to the auditor as a reminder.
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function editReminder($args, $request) {
 		// Identify the signoff.
@@ -636,8 +632,7 @@ class PKPSignoffFilesGridHandler extends CategoryGridHandler {
 		$auditorReminderForm->initData($args, $request);
 
 		// Render form.
-		$json = new JSONMessage(true, $auditorReminderForm->fetch($request));
-		return $json->getString();
+		return new JSONMessage(true, $auditorReminderForm->fetch($request));
 	}
 
 	/**
@@ -655,16 +650,15 @@ class PKPSignoffFilesGridHandler extends CategoryGridHandler {
 		$auditorReminderForm->readInputData();
 		if ($auditorReminderForm->validate()) {
 			$auditorReminderForm->execute($args, $request);
-			$json = new JSONMessage(true);
 
 			// Insert a trivial notification to indicate the auditor was reminded successfully.
 			$currentUser = $request->getUser();
 			$notificationMgr = new NotificationManager();
 			$notificationMgr->createTrivialNotification($currentUser->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.sentNotification')));
+			return new JSONMessage(true);
 		} else {
-			$json = new JSONMessage(false, __('editor.review.reminderError'));
+			return new JSONMessage(false, __('editor.review.reminderError'));
 		}
-		return $json->getString();
 	}
 
 

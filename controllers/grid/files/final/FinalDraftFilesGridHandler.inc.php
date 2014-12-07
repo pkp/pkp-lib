@@ -54,7 +54,7 @@ class FinalDraftFilesGridHandler extends FileListGridHandler {
 	 *
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function selectFiles($args, $request) {
 		$submission = $this->getSubmission();
@@ -63,8 +63,7 @@ class FinalDraftFilesGridHandler extends FileListGridHandler {
 		$manageFinalDraftFilesForm = new ManageFinalDraftFilesForm($submission->getId());
 
 		$manageFinalDraftFilesForm->initData($args, $request);
-		$json = new JSONMessage(true, $manageFinalDraftFilesForm->fetch($request));
-		return $json->getString();
+		return new JSONMessage(true, $manageFinalDraftFilesForm->fetch($request));
 	}
 }
 

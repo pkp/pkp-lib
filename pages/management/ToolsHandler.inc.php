@@ -318,7 +318,9 @@ class ToolsHandler extends ManagementHandler {
 
 	/**
 	 * Save statistics settings.
-	 * @
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
 	 */
 	function saveStatisticsSettings($args, $request) {
 		$router = $request->getRouter();
@@ -331,9 +333,7 @@ class ToolsHandler extends ManagementHandler {
 		$user = $request->getUser();
 		$notificationManager->createTrivialNotification($user->getId());
 
-		('classes.core.JSONMessage');
-		$json = new JSONMessage();
-		return $json->getString();
+		return new JSONMessage();
 	}
 
 

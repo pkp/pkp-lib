@@ -79,7 +79,7 @@ class CopyeditingFilesGridHandler extends SignoffFilesGridHandler {
 	 * Approve/disapprove the copyediting file, changing its visibility.
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function approveCopyedit($args, $request) {
 		$submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);

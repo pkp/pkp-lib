@@ -200,7 +200,7 @@ class ReviewFormGridHandler extends GridHandler {
 	 * Preview a review form.
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function reviewFormPreview($args, $request) {
 		// Identify the review form ID.
@@ -215,29 +215,27 @@ class ReviewFormGridHandler extends GridHandler {
 
 		$previewReviewForm = new PreviewReviewForm($reviewFormId);
 		$previewReviewForm->initData($request);
-		$json = new JSONMessage(true, $previewReviewForm->fetch($args, $request));
-
-		return $json->getString();
+		return new JSONMessage(true, $previewReviewForm->fetch($args, $request));
 	}
 
 	/**
 	 * Add a new review form.
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
 	 */
 	function createReviewForm($args, $request) {
 		// Form handling.
 		$reviewFormForm = new ReviewFormForm(null);
 		$reviewFormForm->initData($request);
-		$json = new JSONMessage(true, $reviewFormForm->fetch($args, $request));
-
-		return $json->getString();
+		return new JSONMessage(true, $reviewFormForm->fetch($args, $request));
 	}
 
 	/**
 	 * Edit an existing review form.
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
 	 */
 	function editReviewForm($args, $request) {
 		// Identify the review form ID
@@ -251,14 +249,14 @@ class ReviewFormGridHandler extends GridHandler {
 		$templateMgr->assign('preview', $request->getUserVar('preview'));
 		$templateMgr->assign('reviewFormId', $reviewFormId);
 		$templateMgr->assign('canEdit', $reviewForm->getIncompleteCount() == 0 && $reviewForm->getCompleteCount() == 0);
-		$json = new JSONMessage(true, $templateMgr->fetch('controllers/grid/settings/reviewForms/editReviewForm.tpl'));
-		return $json->getString();
+		return new JSONMessage(true, $templateMgr->fetch('controllers/grid/settings/reviewForms/editReviewForm.tpl'));
 	}
 
 	/**
 	 * Edit an existing review form's basics (title, description)
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
 	 */
 	function reviewFormBasics($args, $request) {
 		// Identify the review form Id
@@ -267,9 +265,7 @@ class ReviewFormGridHandler extends GridHandler {
 		// Form handling
 		$reviewFormForm = new ReviewFormForm($reviewFormId);
 		$reviewFormForm->initData($request);
-		$json = new JSONMessage(true, $reviewFormForm->fetch($args, $request));
-
-		return $json->getString();
+		return new JSONMessage(true, $reviewFormForm->fetch($args, $request));
 	}
 
 
@@ -277,6 +273,7 @@ class ReviewFormGridHandler extends GridHandler {
 	 * Display a list of the review form elements within a review form.
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
 	 */
 	function reviewFormElements($args, $request) {
 		// Identify the review form ID
@@ -285,15 +282,14 @@ class ReviewFormGridHandler extends GridHandler {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('reviewFormId', $reviewFormId);
 
-		$json = new JSONMessage(true, $templateMgr->fetch('controllers/grid/settings/reviewForms/reviewFormElements.tpl'));
-		return $json->getString();
+		return new JSONMessage(true, $templateMgr->fetch('controllers/grid/settings/reviewForms/reviewFormElements.tpl'));
 	}
 
 	/**
 	 * Update an existing review form.
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON message
 	 */
 	function updateReviewForm($args, $request) {
 		// Identify the review form Id.
@@ -322,15 +318,14 @@ class ReviewFormGridHandler extends GridHandler {
 
 		}
 
-		$json = new JSONMessage(false);
-		return $json->getString();
+		return new JSONMessage(false);
 	}
 
 	/**
 	 * Copy a review form.
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function copyReviewForm($args, $request) {
 		// Identify the current review form
@@ -366,15 +361,14 @@ class ReviewFormGridHandler extends GridHandler {
 			return DAO::getDataChangedEvent($newReviewFormId);
 		}
 
-		$json = new JSONMessage(false);
-		return $json->getString();
+		return new JSONMessage(false);
 	}
 
 	/**
 	 * Activate a review form.
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function activateReviewForm($args, $request) {
 		// Identify the current review form
@@ -399,8 +393,7 @@ class ReviewFormGridHandler extends GridHandler {
 			return DAO::getDataChangedEvent($reviewFormId);
 		}
 
-		$json = new JSONMessage(false);
-		return $json->getString();
+		return new JSONMessage(false);
 	}
 
 
@@ -408,7 +401,7 @@ class ReviewFormGridHandler extends GridHandler {
 	 * Deactivate a review form.
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function deactivateReviewForm($args, $request) {
 
@@ -434,15 +427,14 @@ class ReviewFormGridHandler extends GridHandler {
 			return DAO::getDataChangedEvent($reviewFormId);
 		}
 
-		$json = new JSONMessage(false);
-		return $json->getString();
+		return new JSONMessage(false);
 	}
 
 	/**
 	 * Delete a review form.
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function deleteReviewForm($args, $request) {
 		// Identify the current review form
@@ -477,8 +469,7 @@ class ReviewFormGridHandler extends GridHandler {
 			return DAO::getDataChangedEvent($reviewFormId);
 		}
 
-		$json = new JSONMessage(false);
-		return $json->getString();
+		return new JSONMessage(false);
 	}
 }
 

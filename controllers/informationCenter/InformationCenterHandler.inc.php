@@ -81,9 +81,11 @@ class InformationCenterHandler extends Handler {
 	//
 	/**
 	 * Display the main information center modal.
+	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
 	 */
-	function viewInformationCenter($request) {
+	function viewInformationCenter($args, $request) {
 		$this->setupTemplate($request);
 		$templateMgr = TemplateManager::getManager($request);
 		return $templateMgr->fetchJson('controllers/informationCenter/informationCenter.tpl');
@@ -129,6 +131,7 @@ class InformationCenterHandler extends Handler {
 	 * Display the list of existing notes.
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
 	 */
 	function listNotes($args, $request) {
 		$this->setupTemplate($request);
@@ -144,13 +147,14 @@ class InformationCenterHandler extends Handler {
 		$templateMgr->assign('notesListId', 'notesList');
 		$json = new JSONMessage(true, $templateMgr->fetch('controllers/informationCenter/notesList.tpl'));
 		$json->setEvent('dataChanged');
-		return $json->getString();
+		return $json;
 	}
 
 	/**
 	 * Delete a note.
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
 	 */
 	function deleteNote($args, $request) {
 		$this->setupTemplate($request);
@@ -164,8 +168,7 @@ class InformationCenterHandler extends Handler {
 		$user = $request->getUser();
 		NotificationManager::createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.removedNote')));
 
-		$json = new JSONMessage(true);
-		return $json->getString();
+		return new JSONMessage(true);
 	}
 
 	/**

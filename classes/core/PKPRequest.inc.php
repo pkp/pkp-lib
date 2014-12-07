@@ -106,12 +106,13 @@ class PKPRequest {
 	/**
 	 * Request an HTTP redirect via JSON to be used from components.
 	 * @param $url string
+	 * @return JSONMessage
 	 */
 	function redirectUrlJson($url) {
 		import('lib.pkp.classes.core.JSONMessage');
 		$json = new JSONMessage(true);
 		$json->setEvent('redirectRequested', $url);
-		return $json->getString();
+		return $json;
 	}
 
 	/**

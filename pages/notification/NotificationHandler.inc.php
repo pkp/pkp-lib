@@ -347,8 +347,7 @@ class NotificationHandler extends Handler {
 	 * Return formatted notification data using Json.
 	 * @param $args array
 	 * @param $request Request
-	 *
-	 * @return JSONMessage
+	 * @return JSONMessage JSON object
 	 */
 	function fetchNotification($args, $request) {
 		$this->setupTemplate($request);
@@ -388,7 +387,7 @@ class NotificationHandler extends Handler {
 			$json->setContent($formattedNotificationsData);
 		}
 
-		return $json->getString();
+		return $json;
 	}
 
 	/**

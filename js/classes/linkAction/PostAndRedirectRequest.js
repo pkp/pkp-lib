@@ -42,7 +42,7 @@
 	/**
 	 * Post request response data.
 	 * @private
-	 * @type {?object}
+	 * @type {?Object}
 	 */
 	$.pkp.classes.linkAction.PostAndRedirectRequest.prototype.
 			postJsonData_ = null;
@@ -67,7 +67,6 @@
 		$.post(/** @type {{postUrl: string}} */ (options).postUrl,
 				responseHandler, 'json');
 
-		
 		return /** @type {boolean} */ (returner);
 	};
 
@@ -102,26 +101,26 @@
 		// Save return data to be handled at the finish callback. If
 		// the redirect action loads another page, then the interface
 		// will be updated anyway and any events that could be triggered
-		// by the post response will be useless, so that's ok that the 
+		// by the post response will be useless, so that's ok that the
 		// finish callback is not called in that case, and that the post
-		// json answer is never handled. 
-		// If a new page is not loaded, then we have to wait for the redirect 
+		// json answer is never handled.
+		// If a new page is not loaded, then we have to wait for the redirect
 		// action to start (probably a file download) and only then handle the post
-		// answer, avoiding triggering events that could replace the current link 
-		// action element before the redirect request starts. 
-		// In a download action, it avoids the activation of the download link 
+		// answer, avoiding triggering events that could replace the current link
+		// action element before the redirect request starts.
+		// In a download action, it avoids the activation of the download link
 		// action before the download triggered by the first click starts.
 		this.postJsonData_ = jsonData;
-		
+
 		// Redirect, making sure there is no ajax request in progress,
 		// to avoid stoping them.
-		timer = setInterval(function(){
-			if($.active==0){
+		timer = setInterval(function() {
+			if (/** @type {{active: number}} */ ($).active == 0) {
 				clearInterval(timer);
 				window.location = /** @type {{url: string}} */ (options).url;
 			}
 		},100);
-		
+
 		// When it's a download action, try to avoid double execution.
 		// Not ideal, see issue #247.
 		finishCallback = $.pkp.classes.Helper.curry(

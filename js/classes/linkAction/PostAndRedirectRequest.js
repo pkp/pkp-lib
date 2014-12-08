@@ -97,7 +97,7 @@
 	 */
 	$.pkp.classes.linkAction.PostAndRedirectRequest.prototype.handleResponse_ =
 			function(jsonData) {
-		var options = this.getOptions(), timer = null;
+		var options = this.getOptions(), timer = null, finishCallback = null;
 
 		// Save return data to be handled at the finish callback. If
 		// the redirect action loads another page, then the interface

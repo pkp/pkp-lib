@@ -255,11 +255,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		// Step 3.
 		if ($reviewFilename) {
 			// Test downloading the review file.
-			$fileXPath = $this->getEscapedXPathForLink($reviewFilename);
-			$this->waitForElementPresent($fileXPath);
-			$this->click($fileXPath);
-			$this->waitJQuery();
-			$this->assertAlertNotPresent(); // An authentication failure will lead to a js alert.
+			$this->downloadFile($reviewFilename);
 		}
 
 		$this->waitForElementPresent('css=[id^=comments-]');

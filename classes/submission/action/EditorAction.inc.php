@@ -201,7 +201,9 @@ class EditorAction extends PKPAction {
 				$submission->getContextId(),
 				ASSOC_TYPE_REVIEW_ASSIGNMENT,
 				$reviewAssignment->getId(),
-				NOTIFICATION_LEVEL_TASK
+				NOTIFICATION_LEVEL_TASK,
+				null,
+				true
 			);
 
 			// Insert a trivial notification to indicate the reviewer was added successfully.

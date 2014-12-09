@@ -1,15 +1,6 @@
 [submodule "lib/swordappv2"]
 	path = lib/swordappv2
 	url = git://github.com/swordapp/swordappv2-php-library.git
-[submodule "lib/phpmailer"]
-	path = lib/phpmailer
-	url = git://github.com/PHPMailer/PHPMailer.git
-[submodule "js/lib/plupload"]
-	path = js/lib/plupload
-	url = git://github.com/moxiecode/plupload.git
-[submodule "lib/lessphp"]
-	path = lib/lessphp
-	url = https://github.com/leafo/lessphp
 [submodule "js/lib/pnotify"]
 	path = js/lib/pnotify
 	url = https://github.com/sciactive/pnotify.git

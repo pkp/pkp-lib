@@ -12,34 +12,48 @@
 //
 // Hide unwanted elements
 //
-div.plupload div.plupload_header {
-	display:none;
-}
-.plupload .plupload_filelist_header {
-	display:none;
-}
+div.plupload_wrapper {
+	#plupload_container {
+		min-height: 100px;
+	}
 
-.plupload_header_content {
-	background-image: none;
-	display: none;
-}
-.plupload_header_content_bw {
-    background-image: none;
-}
-.plupload_header_title {
-	display:none;
-}
+	div.plupload_header {
+		display:none;
+	}
 
-//
-// Shrink the upload widget
-//
-.plupload_scroll {
-	max-height: 25px;
-	min-height: 25px;
-	_height: 25px;
-}
+	.plupload_filelist_header {
+		display:none;
+	}
 
-.plupload_hidden {display: none;}
-.plupload_droptext {
-	line-height: 25px;
+	.plupload_header_content {
+		background-image: none;
+		display: none;
+	}
+
+	.plupload_header_content_bw {
+		background-image: none;
+	}
+
+	.plupload_header_title {
+		display:none;
+	}
+
+	//
+	// Shrink the upload widget
+	//
+	.plupload_scroll {
+		max-height: 25px;
+		min-height: 25px;
+		_height: 25px;
+	}
+
+	.plupload_hidden {display: none;}
+
+	.plupload_dropbox {
+		top: 10px;
+
+		.plupload_droptext {
+			line-height: 25px;
+		}
+	}
 }

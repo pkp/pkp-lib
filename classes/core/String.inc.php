@@ -439,7 +439,7 @@ class String {
 	 * @return string
 	 */
 	static function stripUnsafeHtml($input) {
-		require_once('lib/pkp/lib/htmlpurifier/library/HTMLPurifier.path.php');
+		require_once('lib/pkp/lib/vendor/ezyang/htmlpurifier/library/HTMLPurifier.path.php');
 		require_once('HTMLPurifier.includes.php');
 		static $purifier;
 		if (!isset($purifier)) {

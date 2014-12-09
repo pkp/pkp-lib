@@ -143,7 +143,7 @@ class PageHandler extends Handler {
 				$compiledStylesheetFile = $cacheDirectory . '/compiled.css';
 				if (!file_exists($compiledStylesheetFile)) {
 					// Generate the stylesheet file
-					require_once('lib/pkp/lib/lessphp/lessc.inc.php');
+					require_once('lib/pkp/lib/vendor/leafo/lessphp/lessc.inc.php');
 					$less = new lessc('styles/index.less');
 					$less->importDir = './';
 					$compiledStyles = $less->parse();

@@ -442,7 +442,7 @@ class Mail extends DataObject {
 			}
 		}
 
-		require_once('lib/pkp/lib/phpmailer/class.phpmailer.php');
+		require_once('lib/pkp/lib/vendor/phpmailer/phpmailer/class.phpmailer.php');
 		$mailer = new PHPMailer();
 		if (Config::getVar('email', 'smtp')) {
 			$mailer->IsSMTP();

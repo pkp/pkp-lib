@@ -42,6 +42,7 @@ fi
 
 # Prep files
 cp config.TEMPLATE.inc.php config.inc.php
+sed -i -e "s/enable_cdn = On/enable_cdn = Off/" config.inc.php # Disable CDN use
 mkdir ${FILESDIR}
 
 # Run data build suite

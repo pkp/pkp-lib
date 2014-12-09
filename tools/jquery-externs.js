@@ -398,6 +398,9 @@ jQuery.type = function(obj) {};
  */
 jQuery.unique = function(arr) {};
 
+/** @type {number} */
+jQuery.active;
+
 /**
  * @constructor
  * @private

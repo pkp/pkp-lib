@@ -178,42 +178,41 @@ class Submission extends DataObject {
 	 * @param $preferredLocale string
 	 * @return string
 	 */
-  function getLocalizedTitle($preferredLocale = null) {
-    $localeDisplay = AppLocale::getLocaleDisplayTitle();
-    $originalLang = &$this->getLocale();
+	function getLocalizedTitle($preferredLocale = null) {
+		$localeDisplay = AppLocale::getLocaleDisplayTitle();
+		$originalLang = &$this->getLocale();
 
-    switch ($localeDisplay) {
-      case 'original':
-        $localizedTitle .= $this->getLocalizedData('title', $originalLang);
-        break;
-      case 'both':
-        if ($preferredLocale) {
-          $originalTitle = $this->getLocalizedData('title', $originalLang);
-          $preferredTitle = $this->getLocalizedData('title', $preferredLocale);
-          
-          if (($preferredLocale != $originalLang) && ($preferredTitle != $originalTitle)) {
-            //FIXME: As far as html will be escaped, we can not include spans and CSS classes.
-            $localizedTitle .= $originalTitle . '<br />';
-            $localizedTitle .= $preferredTitle;
-          }
-          else {
-            // (OriginalLang == CurrentLang) OR (OritinalTitle == CurrentTitle) OR (OriginalTitle missing in metadata).
-            $localizedTitle .= $preferredTitle;
-          }
-        }
-        else {
-          // Title not avaliable in current lang (so we show preferred instead)
-          $localizedTitle .= $this->getLocalizedData('title', $preferredLang);
-        }
-        break;
-      case 'legacy':
-        default:
-        $localizedTitle .= $this->getLocalizedData('title', $preferredLocale);
-        break;
-    }
+		switch ($localeDisplay) {
+			case 'original':
+				$localizedTitle .= $this->getLocalizedData('title', $originalLang);
+				break;
+			case 'both':
+				if ($preferredLocale) {
+					$originalTitle = $this->getLocalizedData('title', $originalLang);
+					$preferredTitle = $this->getLocalizedData('title', $preferredLocale);
+					if (($preferredLocale != $originalLang) && ($preferredTitle != $originalTitle)) {
+						//FIXME: As far as html will be escaped, we can not include spans and CSS classes.
+						$localizedTitle .= $originalTitle . '<br />';
+						$localizedTitle .= $preferredTitle;
+					}
+					else {
+						// (OriginalLang == CurrentLang) OR (OritinalTitle == CurrentTitle) OR (OriginalTitle missing in metadata).
+						$localizedTitle .= $preferredTitle;
+					}
+				}
+				else {
+					// Title not avaliable in current lang (so we show preferred instead)
+					$localizedTitle .= $this->getLocalizedData('title', $preferredLang);
+				}
+				break;
+			case 'legacy':
+				default:
+				$localizedTitle .= $this->getLocalizedData('title', $preferredLocale);
+				break;
+		}
 
-    return ($localizedTitle);
-  }
+		return ($localizedTitle);
+	}
 
 	/**
 	 * Get title.

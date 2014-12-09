@@ -287,10 +287,24 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 		$fileName = basename($testFile);
 
 		$this->waitForElementPresent('//input[@type="file"]');
-		$this->attachFile('//input[@type="file"]', "file://$testFile");
-		$this->waitForTextPresent($fileName);
+		$this->type('css=input[type="file"]', $testFile);
+		$this->waitForText('css=td.plupload_file_name > span', $fileName);
 		$this->click('css=a[id=plupload_start]');
 		$this->waitForTextPresent('100%');
+	}
+
+	/**
+	 * Download the passed file.
+	 * @param $filename string
+	 */
+	protected function downloadFile($filename) {
+		$fileXPath = $this->getEscapedXPathForLink($filename);
+		$this->waitForElementPresent($fileXPath);
+		$this->click($fileXPath);
+		$this->waitJQuery();
+		$this->assertAlertNotPresent(); // An authentication failure will lead to a js alert.
+		$downloadLinkId = $this->getAttribute($fileXPath . '/@id');
+		$this->waitForCondition("window.jQuery('#" . htmlspecialchars($downloadLinkId) . "').hasClass('ui-state-disabled') == false");
 	}
 
 	/**

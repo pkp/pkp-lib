@@ -149,9 +149,10 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	 * @param $assocId int
 	 * @param $level int
 	 * @param $params array
+	 * @param $suppressEmail boolean Whether or not to suppress the notification email.
 	 * @return Notification object
 	 */
-	public function createNotification($request, $userId = null, $notificationType, $contextId = null, $assocType = null, $assocId = null, $level = NOTIFICATION_LEVEL_NORMAL, $params = null) {
+	public function createNotification($request, $userId = null, $notificationType, $contextId = null, $assocType = null, $assocId = null, $level = NOTIFICATION_LEVEL_NORMAL, $params = null, $suppressEmail = false) {
 		$blockedNotifications = $this->getUserBlockedNotifications($userId, $contextId);
 
 		if(!in_array($notificationType, $blockedNotifications)) {
@@ -167,7 +168,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 			$notificationId = $notificationDao->insertObject($notification);
 
 			// Send notification emails
-			if ($notification->getLevel() != NOTIFICATION_LEVEL_TRIVIAL) {
+			if ($notification->getLevel() != NOTIFICATION_LEVEL_TRIVIAL && !$suppressEmail) {
 				$blockedEmailedNotifications = $this->getUserBlockedEmailedNotifications($userId, $contextId);
 
 				if(!in_array($notificationType, $blockedEmailedNotifications)) {

@@ -115,7 +115,7 @@
 		// Redirect, making sure there is no ajax request in progress,
 		// to avoid stoping them.
 		timer = setInterval(function() {
-			if (/** @type {{active: number}} */ ($).active == 0) {
+			if ($.active == 0) {
 				clearInterval(timer);
 				window.location = /** @type {{url: string}} */ (options).url;
 			}

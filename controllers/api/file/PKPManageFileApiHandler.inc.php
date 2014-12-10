@@ -142,7 +142,7 @@ abstract class PKPManageFileApiHandler extends Handler {
 	 * Edit submission file metadata.
 	 * @param $args array
 	 * @param $request Request
-	 * @return string a serialized JSON object representing the form to present.
+	 * @return JSONMessage JSON object
 	 */
 	function editMetadata($args, $request) {
 		$submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
@@ -150,8 +150,7 @@ abstract class PKPManageFileApiHandler extends Handler {
 		$stageId = $request->getUserVar('stageId');
 		$metadataForm = $submissionFile->getMetadataForm($stageId, $reviewRound);
 		$metadataForm->setShowButtons(true);
-		$json = new JSONMessage(true, $metadataForm->fetch($request));
-		return $json->getString();
+		return new JSONMessage(true, $metadataForm->fetch($request));
 	}
 
 	/**
@@ -159,7 +158,7 @@ abstract class PKPManageFileApiHandler extends Handler {
 	 * the requested submission file
 	 * @param $args array
 	 * @param $request Request
-	 * @return string a serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function saveMetadata($args, $request) {
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
@@ -210,9 +209,8 @@ abstract class PKPManageFileApiHandler extends Handler {
 
 			return DAO::getDataChangedEvent();
 		} else {
-			$json = new JSONMessage(false, $metadataForm->fetch($request));
+			return new JSONMessage(false, $metadataForm->fetch($request));
 		}
-		return $json->getString();
 	}
 
 	/**

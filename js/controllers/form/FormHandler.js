@@ -463,35 +463,6 @@
 	// Private Methods
 	//
 	/**
-	 * Initialize TinyMCE instances.
-	 *
-	 * There are instances where TinyMCE is not initialized with the call to
-	 * init(). These occur when content is loaded after the fact (via AJAX).
-	 *
-	 * In these cases, search for richContent fields and initialize them.
-	 *
-	 * @private
-	 */
-	$.pkp.controllers.form.FormHandler.prototype.initializeTinyMCE_ =
-			function() {
-
-		if (typeof tinyMCE !== 'undefined') {
-			var $element, elementId;
-			$element = this.getHtmlElement();
-			elementId = $element.attr('id');
-			setTimeout(function() {
-				// re-select the original element, to prevent closure memory leaks
-				// in (older?) versions of IE.
-				$('#' + elementId).find('.richContent').each(function(index) {
-					tinyMCE.execCommand('mceAddControl', false,
-							$(this).attr('id').toString());
-				});
-			}, 500);
-		}
-	};
-
-
-	/**
 	 * Internal callback called after form validation to handle form
 	 * submission.
 	 *

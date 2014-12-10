@@ -175,7 +175,7 @@ abstract class PKPManageFileApiHandler extends Handler {
 			$notificationMgr = new NotificationManager(); /* @var $notificationMgr NotificationManager */
 			$notificationMgr->updateNotification(
 				$request,
-				$this->_getUpdateNotifications(),
+				$this->getUpdateNotifications(),
 				array($submission->getUserId()),
 				ASSOC_TYPE_SUBMISSION,
 				$submission->getId()
@@ -248,7 +248,7 @@ abstract class PKPManageFileApiHandler extends Handler {
 	 * Get the list of notifications to be updated on metadata form submission.
 	 * @return array
 	 */
-	protected function _getUpdateNotifications() {
+	protected function getUpdateNotifications() {
 		return array(NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS);
 	}
 }

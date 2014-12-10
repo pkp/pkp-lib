@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3b5743fd83c36b5d95a7ff8ecc4252fe",
+    "hash": "0eb2bc9f77ccea53217d070c7be17e7f",
     "packages": [
         {
             "name": "components/jquery",
@@ -522,6 +522,37 @@
             "description": "Symfony Process Component",
             "homepage": "http://symfony.com",
             "time": "2014-12-02 20:19:20"
+        },
+        {
+            "name": "tinymce/tinymce",
+            "version": "4.1.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tinymce/tinymce-dist.git",
+                "reference": "555fcfa1a09e93732a51950ba3d731050f31d39a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tinymce/tinymce-dist/zipball/555fcfa1a09e93732a51950ba3d731050f31d39a",
+                "reference": "555fcfa1a09e93732a51950ba3d731050f31d39a",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-2.1"
+            ],
+            "description": "Web based JavaScript HTML WYSIWYG editor control.",
+            "homepage": "http://www.tinymce.com",
+            "keywords": [
+                "editor",
+                "html",
+                "javascript",
+                "richtext",
+                "tinymce",
+                "wysiwyg"
+            ],
+            "time": "2014-11-27 13:24:16"
         }
     ],
     "packages-dev": [],

@@ -164,50 +164,41 @@ jQueryObject.prototype.ajaxSettings = null;
  */
 function tinyMCEObject() {};
 
-tinyMCEObject.prototype.triggerSave = function() {};
+tinyMCEObject.prototype.EditorManager = {};
+
+tinyMCEObject.prototype.EditorManager.triggerSave = function() {};
 
 /**
- * @param {string} c
- * @param {boolean} u
- * @param {string} v
+ * @param {string} param1
+ * @param {Object} param2
+ * @return {tinyMCEObject}
  */
-tinyMCEObject.prototype.execCommand = function(c, u, v) {};
+tinyMCEObject.prototype.EditorManager.createEditor = function(param1, param2) {};
 
-tinyMCEObject.prototype.activeEditor = { dom: {}, id: '' };
+tinyMCEObject.prototype.target = {dom: {}};
 
 /**
  * @param {string} param1
  */
-tinyMCEObject.prototype.activeEditor.dom.get = function(param1) {};
+tinyMCEObject.prototype.target.dom.get = function(param1) {};
 
-tinyMCEObject.prototype.activeEditor.dom.getRoot = function() {};
+tinyMCEObject.prototype.target.getContent = function() {};
 
-tinyMCEObject.prototype.onActivate = {};
+tinyMCEObject.prototype.render = function() {};
 
-tinyMCEObject.prototype.onDeactivate = {};
+/**
+ * @param {string} param1
+ * @param {Object} param2
+ */
+tinyMCEObject.prototype.on = function(param1, param2) {};
 
-tinyMCEObject.prototype.onActive = {};
-
-tinyMCEObject.prototype.onInit = {};
+tinyMCEObject.prototype.off = function() {};
 
 tinyMCEObject.prototype.editor = { dom: {}, id: '' };
-
-tinyMCEObject.prototype.editor.getContent = function() {};
-
-tinyMCEObject.prototype.editor.getRoot = function() {};
 
 tinyMCEObject.prototype.dom = {};
 
 tinyMCEObject.prototype.editor.dom.getRoot = function() {};
-
-tinyMCEObject.prototype.dom.Event = {};
-
-/**
- * @param {Object} param1
- * @param {string} param2
- * @param {Object} param3
- */
-tinyMCEObject.prototype.dom.Event.add = function(param1, param2, param3) {};
 
 /**
  * @type {string} c

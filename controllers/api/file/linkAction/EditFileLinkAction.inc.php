@@ -22,7 +22,7 @@ class EditFileLinkAction extends FileLinkAction {
 	 * @param $stageId int Stage ID
 	 */
 	function EditFileLinkAction($request, $submissionFile, $stageId) {
-		// Instantiate the redirect action request.
+		// Instantiate the AJAX modal request.
 		$router = $request->getRouter();
 		$dispatcher = $router->getDispatcher();
 		import('lib.pkp.classes.linkAction.request.AjaxModal');

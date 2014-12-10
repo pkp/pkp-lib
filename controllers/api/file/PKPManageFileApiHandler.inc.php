@@ -155,7 +155,7 @@ abstract class PKPManageFileApiHandler extends Handler {
 
 	/**
 	 * Save the metadata of the latest revision of
-	 * the requested submission file
+	 * the requested submission file.
 	 * @param $args array
 	 * @param $request Request
 	 * @return JSONMessage JSON object

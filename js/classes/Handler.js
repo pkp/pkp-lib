@@ -570,67 +570,41 @@
 
 		if (typeof tinyMCE !== 'undefined') {
 			var $element = this.getHtmlElement(),
-					elementId = $element.attr('id'),
-					handleScrollBar;
+					elementId = $element.attr('id');
 
-			// Make sure the localization icon is re-positioned when the scroll bar
-			// is added
-			handleScrollBar = function() {
-				var editor = tinyMCE.activeEditor,
-						root = editor.dom.getRoot();
-				if (root.scrollHeight > root.clientHeight) {
-					$('#mceLocalizationIcon-' + editor.id)
-							.addClass('mceLocalizationIconScroll');
-				} else {
-					$('#mceLocalizationIcon-' + editor.id)
-							.removeClass('mceLocalizationIconScroll');
-				}
-			};
+			$('#' + elementId).find('.richContent').each(function() {
+				var id = /** @type {string} */ ($(this).attr('id')),
+						icon = $('<div></div>'),
+						iconParent = $('<div></div>'),
+						classes, i,
+						editor = tinyMCE.EditorManager.createEditor(
+								id, tinyMCE.EditorManager.settings).render();
 
-			setTimeout(function() {
-				// Re-select the original element, to prevent closure memory leaks
-				// in (older?) versions of IE.
-				$('#' + elementId).find('.richContent').each(function(index) {
-					var id = /** @type {string} */ ($(this).attr('id')),
-							icon = $('<div></div>'),
-							iconParent = $('<div></div>'),
-							classes, i;
-					tinyMCE.execCommand('mceAddControl', false, id);
+				// For localizable text fields add globe and flag icons
+				if ($(this).hasClass('localizable') || $(this).hasClass('flag')) {
+					icon.addClass('mceLocalizationIcon localizable');
+					icon.attr('id', 'mceLocalizationIcon-' + id);
+					iconParent.addClass('mceLocalizationIconParent');
+					$(this).wrap(iconParent);
+					$(this).parent().append(icon);
 
-					// For localizable text fields add globe and flag icons
-					if ($(this).hasClass('localizable') || $(this).hasClass('flag')) {
-						icon.addClass('mceLocalizationIcon localizable');
-						icon.attr('id', 'mceLocalizationIcon-' + id);
-						iconParent.addClass('mceLocalizationIconParent');
-						$(this).wrap(iconParent);
-						$(this).parent().append(icon);
-
-						if ($(this).hasClass('localizable')) {
-							// Add a globe icon to localizable TinyMCE textareas
-							icon.addClass('mceGlobe');
-						} else if ($(this).hasClass('flag')) {
-							// Add country flag icon to localizable TinyMCE textareas
-							classes = $(this).attr('class').split(' ');
-							if (classes.length) {
-								for (i = 0; i < classes.length; i++) {
-									if (classes[i].match(/^flag_[a-z]{2}_[A-Z]{2}$/)) {
-										icon.addClass(classes[i]);
-										break;
-									}
+					if ($(this).hasClass('localizable')) {
+						// Add a globe icon to localizable TinyMCE textareas
+						icon.addClass('mceGlobe');
+					} else if ($(this).hasClass('flag')) {
+						// Add country flag icon to localizable TinyMCE textareas
+						classes = $(this).attr('class').split(' ');
+						if (classes.length) {
+							for (i = 0; i < classes.length; i++) {
+								if (classes[i].match(/^flag_[a-z]{2}_[A-Z]{2}$/)) {
+									icon.addClass(classes[i]);
+									break;
 								}
 							}
 						}
-
-						// Reposition the localization icons when a scroll bar is added
-						handleScrollBar();
-						tinyMCE.dom.Event.add(
-								tinyMCE.activeEditor.dom.get('tinymce'),
-								'keyup',
-								function() { handleScrollBar(); }
-						);
 					}
-				});
-			}, 500);
+				}
+			});
 		}
 	};
 

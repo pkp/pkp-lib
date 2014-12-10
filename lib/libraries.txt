@@ -7,11 +7,6 @@ ADOdb Database Library
  * Version: 4.90 (June 8, 2006)
  * License: LGPL (see lib/adodb/license.txt)
 
-TinyMCE WYSIWYG JS HTML Editor
- * URL: <http://tinymce.moxiecode.com>
- * Version: 3.4.9
- * License: LGPL
-
 PHPUTF8 UTF-8 Character Handling Library
  * URL: <http://phputf8.sourceforge.net/>
  * Version: 0.5 (Aug 12, 2007)

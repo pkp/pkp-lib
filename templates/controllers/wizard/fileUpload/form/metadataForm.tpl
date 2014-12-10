@@ -11,6 +11,7 @@
  *  $submissionFile: The submission or artwork file.
  *  $stageId: The workflow stage id from which the upload
  *   wizard was called.
+ *  $showButtons: True iff form buttons should be presented.
  *}
 <script type="text/javascript">
 	$(function() {ldelim}
@@ -19,7 +20,7 @@
 	{rdelim});
 </script>
 
-<form class="pkp_form" id="metadataForm" action="{url op="saveMetadata" submissionId=$submissionFile->getSubmissionId() stageId=$stageId reviewRoundId=$reviewRoundId fileStage=$submissionFile->getFileStage() fileId=$submissionFile->getFileId() escape=false}" method="post">
+<form class="pkp_form" id="metadataForm" action="{url component="api.file.ManageFileApiHandler" op="saveMetadata" submissionId=$submissionFile->getSubmissionId() stageId=$stageId reviewRoundId=$reviewRoundId fileStage=$submissionFile->getFileStage() fileId=$submissionFile->getFileId() escape=false}" method="post">
 
 	{* Editable metadata *}
 	{fbvFormArea id="fileMetaData"}
@@ -77,5 +78,9 @@
 			{/fbvFormSection}
 		{/if}
 	{/fbvFormArea}
+	{if $showButtons}
+		{fbvElement type="hidden" id="showButtons" value=$showButtons}
+		{fbvFormButtons submitText="common.save"}
+	{/if}
 	<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 </form>

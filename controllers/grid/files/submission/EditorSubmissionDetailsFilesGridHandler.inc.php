@@ -25,7 +25,7 @@ class EditorSubmissionDetailsFilesGridHandler extends FileListGridHandler {
 		parent::FileListGridHandler(
 			$dataProvider,
 			WORKFLOW_STAGE_ID_SUBMISSION,
-			FILE_GRID_ADD|FILE_GRID_DELETE|FILE_GRID_VIEW_NOTES|FILE_GRID_DOWNLOAD_ALL
+			FILE_GRID_ADD|FILE_GRID_DELETE|FILE_GRID_VIEW_NOTES|FILE_GRID_DOWNLOAD_ALL|FILE_GRID_EDIT
 		);
 
 		$this->addRoleAssignment(

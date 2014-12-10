@@ -15,6 +15,7 @@
 
 // Import grid base classes.
 import('lib.pkp.controllers.grid.files.SubmissionFilesGridRow');
+import('lib.pkp.classes.controllers.grid.files.FilesGridCapabilities');
 
 class AuthorSignoffFilesGridRow extends SubmissionFilesGridRow {
 
@@ -23,7 +24,7 @@ class AuthorSignoffFilesGridRow extends SubmissionFilesGridRow {
 	 * @param $stageId int
 	 */
 	function AuthorSignoffFilesGridRow($stageId) {
-		parent::SubmissionFilesGridRow(false, false, $stageId);
+		parent::SubmissionFilesGridRow(new FilesGridCapabilities(), $stageId);
 	}
 
 

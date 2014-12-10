@@ -33,7 +33,7 @@
 import('lib.pkp.classes.file.PKPFileDAO');
 import('lib.pkp.classes.submission.Genre'); // GENRE_CATEGORY_... constants
 
-class PKPSubmissionFileDAO extends PKPFileDAO {
+abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 	/**
 	 * @var array a private list of delegates that provide operations for
 	 *  different SubmissionFile implementations.
@@ -522,9 +522,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 *  without offending foreign key constraints, i.e.
 	 *  place the sub-classes before the super-classes.
 	 */
-	function getDelegateClassNames() {
-		assert(false);
-	}
+	abstract function getDelegateClassNames();
 
 	/**
 	 * Return the mapping of genre categories to the lower
@@ -532,17 +530,13 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @return array a list of lower case class names of
 	 *  file implementations.
 	 */
-	function getGenreCategoryMapping() {
-		assert(false);
-	}
+	abstract function getGenreCategoryMapping();
 
 	/**
 	 * Return the basic join over all file class tables.
 	 * @return string
 	 */
-	function baseQueryForFileSelection() {
-		assert(false);
-	}
+	abstract function baseQueryForFileSelection();
 
 
 	//

@@ -616,4 +616,5 @@
 	<message key="submission.reviewForm">Review Form</message>
 	<message key="submission.reviewFormResponse">Review Form Response</message>
 	<message key="grid.action.createReviewFormElement">Create a new review form element</message>
+	<message key="grid.action.editMetadata">Edit Metadata</message>
 </locale>

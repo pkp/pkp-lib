@@ -17,7 +17,7 @@
 import('classes.handler.Handler');
 import('lib.pkp.classes.core.JSONMessage');
 
-class PKPManageFileApiHandler extends Handler {
+abstract class PKPManageFileApiHandler extends Handler {
 
 	/**
 	 * Constructor.
@@ -26,7 +26,7 @@ class PKPManageFileApiHandler extends Handler {
 		parent::Handler();
 		$this->addRoleAssignment(
 			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR),
-			array('deleteFile')
+			array('deleteFile', 'editMetadata', 'saveMetadata')
 		);
 	}
 
@@ -139,14 +139,87 @@ class PKPManageFileApiHandler extends Handler {
 	}
 
 	/**
-	 * indexes the files associated with a submission.
-	 * must be overridden by sub classes.
+	 * Edit submission file metadata.
+	 * @param $args array
+	 * @param $request Request
+	 * @return JSONMessage JSON object
+	 */
+	function editMetadata($args, $request) {
+		$submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
+		$reviewRound = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND);
+		$stageId = $request->getUserVar('stageId');
+		$metadataForm = $submissionFile->getMetadataForm($stageId, $reviewRound);
+		$metadataForm->setShowButtons(true);
+		return new JSONMessage(true, $metadataForm->fetch($request));
+	}
+
+	/**
+	 * Save the metadata of the latest revision of
+	 * the requested submission file.
+	 * @param $args array
+	 * @param $request Request
+	 * @return JSONMessage JSON object
+	 */
+	function saveMetadata($args, $request) {
+		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+		$submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
+		$reviewRound = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND);
+		$stageId = $request->getUserVar('stageId');
+		$metadataForm = $submissionFile->getMetadataForm($stageId, $reviewRound);
+		$metadataForm->readInputData();
+		if ($metadataForm->validate()) {
+			$metadataForm->execute($args, $request);
+			$submissionFile = $metadataForm->getSubmissionFile();
+
+			$notificationMgr = new NotificationManager(); /* @var $notificationMgr NotificationManager */
+			$notificationMgr->updateNotification(
+				$request,
+				$this->getUpdateNotifications(),
+				array($submission->getUserId()),
+				ASSOC_TYPE_SUBMISSION,
+				$submission->getId()
+			);
+
+			if ($reviewRound) {
+				$notificationMgr->updateNotification(
+					$request,
+					array(NOTIFICATION_TYPE_ALL_REVISIONS_IN),
+					null,
+					ASSOC_TYPE_REVIEW_ROUND,
+					$reviewRound->getId()
+				);
+
+				// Delete any 'revision requested' notifications since all revisions are now in.
+				$context = $request->getContext();
+				$notificationDao = DAORegistry::getDAO('NotificationDAO');
+				$notificationDao->deleteByAssoc(ASSOC_TYPE_SUBMISSION, $submission->getId(), $submission->getUserId(), NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS, $context->getId());
+			}
+
+			// Log the upload event
+			import('lib.pkp.classes.log.SubmissionLog');
+			import('classes.log.SubmissionEventLogEntry');
+			import('lib.pkp.classes.log.SubmissionFileEventLogEntry'); // constants
+			$user = $request->getUser();
+			SubmissionLog::logEvent(
+				$request, $submission,
+				$submissionFile->getRevision()>1?SUBMISSION_LOG_FILE_REVISION_UPLOAD:SUBMISSION_LOG_FILE_UPLOAD,
+				$submissionFile->getRevision()>1?'submission.event.fileRevised':'submission.event.fileUploaded',
+				array('fileStage' => $submissionFile->getFileStage(), 'fileId' => $submissionFile->getFileId(), 'fileRevision' => $submissionFile->getRevision(), 'originalFileName' => $submissionFile->getOriginalFileName(), 'submissionId' => $submissionFile->getSubmissionId(), 'username' => $user->getUsername())
+			);
+
+			return DAO::getDataChangedEvent();
+		} else {
+			return new JSONMessage(false, $metadataForm->fetch($request));
+		}
+	}
+
+	/**
+	 * Indexes the files associated with a submission.
+	 * Must be implemented by sub classes.
 	 * @param $submission Submission
 	 * @param $submissionFile SubmissionFile
 	 */
-	function indexSubmissionFiles($submission, $submissionFile) {
-		assert(false);
-	}
+	abstract function indexSubmissionFiles($submission, $submissionFile);
 
 	/**
 	 * indexes the files associated with a submission.
@@ -160,15 +233,21 @@ class PKPManageFileApiHandler extends Handler {
 	}
 
 	/**
-	 * logs the deletion event using app-specific logging classes.
-	 * Must be overridden by sub classes.
+	 * Logs the deletion event using app-specific logging classes.
+	 * Must be implemented by subclasses.
 	 * @param $request PKPRequest
 	 * @param $submission Submission
 	 * @param $submissionFile SubmissionFile
 	 * @param $user PKPUser
 	 */
-	function logDeletionEvent($request, $submission, $submissionFile, $user) {
-		assert(false);
+	abstract function logDeletionEvent($request, $submission, $submissionFile, $user);
+
+	/**
+	 * Get the list of notifications to be updated on metadata form submission.
+	 * @return array
+	 */
+	protected function getUpdateNotifications() {
+		return array(NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS);
 	}
 }
 

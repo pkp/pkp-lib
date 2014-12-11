@@ -21,8 +21,8 @@
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/{$smarty.const.CDN_JQUERY_VERSION}/jquery.min.js"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/{$smarty.const.CDN_JQUERY_UI_VERSION}/jquery-ui.min.js"></script>
 	{else}
-		<script src="{$baseUrl}/lib/pkp/js/lib/jquery/jquery.min.js"></script>
-		<script src="{$baseUrl}/lib/pkp/js/lib/jquery/plugins/jqueryUi.min.js"></script>
+		<script src="{$baseUrl}/lib/pkp/lib/vendor/components/jquery/jquery.min.js"></script>
+		<script src="{$baseUrl}/lib/pkp/lib/vendor/components/jqueryui/jquery-ui.min.js"></script>
 	{/if}
 
 	<!-- UI elements (menus, forms, etc) -->

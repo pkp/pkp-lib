@@ -36,8 +36,8 @@ class PKPReviewBaseTestCase extends WorkflowBaseTestCase {
 		$this->assignReviewer('agallego', 'Adela Gallego');
 		$this->waitForInPlaceNotification($reviewRoundNotificationId, 'Awaiting responses from reviewers.');
 
-		$this->assertTrue($emailLog->exists(NOTIFICATION_TYPE_REVIEW_ASSIGNMENT, 'agallego@mailinator.com'), 
-			'The reviewer did not received the review assignment notification email');
+		$this->assertFalse($emailLog->exists(NOTIFICATION_TYPE_REVIEW_ASSIGNMENT, 'agallego@mailinator.com'), 
+			'The reviewer received the review assignment notification email, but it shouldnt.');
 		$this->assertTrue($emailLog->existsByAssoc(ASSOC_TYPE_SUBMISSION, $submissionId, 'agallego@mailinator.com', 
 			null, 'You have been selected as a potential reviewer of the following submission.'));
 

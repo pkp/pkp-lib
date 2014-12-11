@@ -157,7 +157,7 @@
 	$.pkp.controllers.form.MultilingualInputHandler.prototype.tinyMCEInitHandler_ =
 			function(input, event, tinyMCEObject) {
 
-		var editorId = tinyMCEObject.editorId,
+		var editorId = tinyMCEObject.id,
 				// This hack is needed so the focus event is triggered correctly in IE8.
 				// We just adjust the body element height inside the tinyMCE editor
 				// instance to a percent of the original text area height, so when users

@@ -203,7 +203,7 @@ tinyMCEObject.prototype.editor.dom.getRoot = function() {};
 /**
  * @type {string} c
  */
-tinyMCEObject.prototype.editorId = '';
+tinyMCEObject.prototype.id = '';
 
 tinyMCEObject.prototype.getWin = function() {};
 

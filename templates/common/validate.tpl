@@ -7,7 +7,7 @@
  *
  * Header components for the JQuery Validate plugin
  *}
-	<script src="{$baseUrl}/lib/pkp/js/lib/jquery/plugins/validate/jquery.validate.min.js"></script>
+	<script src="{$baseUrl}/lib/pkp/js/lib/jquery/plugins/validate/{if $useMinifiedJavaScript}jquery.validate.js{else}jquery.validate.min.js{/if}"></script>
 
 	{if in_array($currentLocale, array('pt_PT', 'pt_BR'))}
 		<script src="{$baseUrl}/lib/pkp/js/lib/jquery/plugins/validate/localization/messages_{$currentLocale|regex_replace:"/(.*)_(.*)/":"\\1\\2"|strtolower}.js"></script>

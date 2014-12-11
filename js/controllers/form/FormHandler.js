@@ -565,7 +565,7 @@
 	$.pkp.controllers.form.FormHandler.prototype.tinyMCEInitHandler_ =
 			function(input, event, tinyMCEObject) {
 
-		var editorId = tinyMCEObject.editorId;
+		var editorId = tinyMCEObject.id;
 
 		tinyMCEObject.on('blur', this.callbackWrapper(function(tinyMCEObject) {
 			// Save the current tinyMCE value to the form element.

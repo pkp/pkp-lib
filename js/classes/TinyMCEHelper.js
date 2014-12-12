@@ -13,7 +13,6 @@
 (function($) {
 
 
-
 	/**
 	 * Helper singleton
 	 * @constructor
@@ -31,17 +30,18 @@
 	/**
 	 * Get the list of variables and their descriptions for a specified field.
 	 * @param {string} selector The textarea field's selector.
-	 * @return {Object} Map of variableName: variableDisplayName entries.
+	 * @return {?Object} Map of variableName: variableDisplayName entries.
 	 */
 	$.pkp.classes.TinyMCEHelper.prototype.getVariableMap =
-                        function(selector) {
+			function(selector) {
 
 		var variablesEncoded = $(selector).attr('data-variables'),
 				variablesParsed;
 
 		// If we found the data attribute, decode and return it.
 		if (variablesEncoded !== undefined) {
-			return $.parseJSON(decodeURIComponent(variablesEncoded));
+			return $.parseJSON(decodeURIComponent(
+					/** @type {string} */ (variablesEncoded)));
 		}
 
 		// If we could not find the data attribute, return an empty list.
@@ -54,10 +54,10 @@
 	 * in setup) within the TinyMCE editor.
 	 * @param {string} variableSymbolic The variable symbolic name.
 	 * @param {string} variableName The human-readable name for the variable.
-	 * @return {JQueryObject} JQuery DOM representing the PKP variable.
+	 * @return {jQueryObject} JQuery DOM representing the PKP variable.
 	 */
 	$.pkp.classes.TinyMCEHelper.prototype.getVariableElement =
-                        function(variableSymbolic, variableName) {
+			function(variableSymbolic, variableName) {
 
 		return $('<div/>').append($('<span/>')
 				.addClass('pkpTag mceNonEditable')

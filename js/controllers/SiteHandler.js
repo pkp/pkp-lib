@@ -193,17 +193,17 @@
 		});
 
 		tinyMCEObject.on('BeforeSetContent', function(e) {
-			var variablesParsed = $.pkp.classes.TinyMCEHelper.prototype.getVariableMap('#' + tinyMCEObject.id);
-			if (variablesParsed === undefined) return;
+			var variablesParsed = $.pkp.classes.TinyMCEHelper.prototype.getVariableMap(
+					'#' + tinyMCEObject.id);
 
 			e.content = e.content.replace(
-					/{\$([^}]+)}/g, function(match, contents, offset, s) {
-				if (variablesParsed[contents] !== undefined) {
-					return $.pkp.classes.TinyMCEHelper.prototype.getVariableElement(
-							contents, variablesParsed[contents]).html();
-				}
-				return match;
-			});
+					/\{\$([a-zA-Z]+)\}/g, function(match, contents, offset, s) {
+						if (variablesParsed[contents] !== undefined) {
+							return $.pkp.classes.TinyMCEHelper.prototype.getVariableElement(
+									contents, variablesParsed[contents]).html();
+						}
+						return match;
+					});
 		});
 
 		// When the field is being saved, replace any tag placeholders

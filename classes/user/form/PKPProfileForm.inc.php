@@ -108,8 +108,6 @@ class PKPProfileForm extends PKPUserForm {
 		$templateMgr->assign('username', $user->getUsername());
 		$templateMgr->assign('profileImage', $user->getSetting('profileImage'));
 
-		$templateMgr = TemplateManager::getManager($request);
-
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$userGroupAssignmentDao = DAORegistry::getDAO('UserGroupAssignmentDAO');
 		$userGroupAssignments = $userGroupAssignmentDao->getByUserId($user->getId());

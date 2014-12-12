@@ -191,6 +191,31 @@
 			tinyMCEObject.target.dom.addClass(
 					tinyMCEObject.target.dom.select('li'), 'show');
 		});
+
+		tinyMCEObject.on('BeforeSetContent', function(tinyMCEObject, o) {
+			var variablesParsed = $.pkp.classes.TinyMCEHelper.prototype.getVariableMap('#' + tinyMCEObject.id);
+			if (variablesParsed === undefined) return;
+
+			o.content = o.content.replace(
+					/{\$([^}]+)}/g, function(match, contents, offset, s) {
+				if (variablesParsed[contents] !== undefined) {
+					return $.pkp.classes.TinyMCEHelper.prototype.getVariableElement(
+							contents, variablesParsed[contents]).html();
+				}
+				return match;
+			});
+		});
+
+		// When the field is being saved, replace any tag placeholders
+		tinyMCEObject.on('SaveContent', function(e) {
+			var $content = $(e.content);
+
+			// Replace tag span elements with the raw tags
+			$content.find('.pkpTag').replaceWith(function() {
+				return '{$' + $(this).attr('data-symbolic') + '}';
+			});
+			e.content = $content.html();
+		});
 	};
 
 

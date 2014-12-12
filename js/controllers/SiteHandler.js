@@ -192,11 +192,11 @@
 					tinyMCEObject.target.dom.select('li'), 'show');
 		});
 
-		tinyMCEObject.on('BeforeSetContent', function(tinyMCEObject, o) {
+		tinyMCEObject.on('BeforeSetContent', function(e) {
 			var variablesParsed = $.pkp.classes.TinyMCEHelper.prototype.getVariableMap('#' + tinyMCEObject.id);
 			if (variablesParsed === undefined) return;
 
-			o.content = o.content.replace(
+			e.content = e.content.replace(
 					/{\$([^}]+)}/g, function(match, contents, offset, s) {
 				if (variablesParsed[contents] !== undefined) {
 					return $.pkp.classes.TinyMCEHelper.prototype.getVariableElement(

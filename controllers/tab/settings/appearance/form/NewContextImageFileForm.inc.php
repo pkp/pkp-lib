@@ -61,6 +61,7 @@ class NewContextImageFileForm extends SettingsFileUploadForm {
 
 		$supportedLocales = AppLocale::getSupportedLocales();
 		foreach ($supportedLocales as $key => $locale) {
+			if (!isset($image[$key]['altText'])) continue;
 			$imageAltText[$key] = $image[$key]['altText'];
 		}
 

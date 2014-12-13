@@ -208,7 +208,7 @@
 
 		// When the field is being saved, replace any tag placeholders
 		tinyMCEObject.on('SaveContent', function(e) {
-			var $content = $(e.content);
+			var $content = $('<div>' + e.content + '</div>');
 
 			// Replace tag span elements with the raw tags
 			$content.find('.pkpTag').replaceWith(function() {

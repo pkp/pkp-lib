@@ -444,6 +444,7 @@ class Mail extends DataObject {
 
 		require_once('lib/pkp/lib/vendor/phpmailer/phpmailer/class.phpmailer.php');
 		$mailer = new PHPMailer();
+		$mailer->IsHTML(true);
 		if (Config::getVar('email', 'smtp')) {
 			$mailer->IsSMTP();
 			$mailer->Port = Config::getVar('email', 'smtp_port');
@@ -480,6 +481,7 @@ class Mail extends DataObject {
 		}
 		$mailer->Subject = $this->getSubject();
 		$mailer->Body = $mailBody;
+		$mailer->AltBody = String::html2text($mailBody);
 
 		$remoteAddr = $mailer->SecureHeader(Request::getRemoteAddr());
 		if ($remoteAddr != '') $mailer->AddCustomHeader("X-Originating-IP: $remoteAddr");

@@ -38,8 +38,8 @@
 	{/if}
 
 	<!-- Message to reviewer textarea -->
-	{fbvFormSection title="editor.review.personalMessageToAuthor" for="personalMessage"}
-		{fbvElement type="textarea" name="personalMessage" id="personalMessage" value=$personalMessage}
+	{fbvFormSection title="editor.review.personalMessageToAuthor" for="personalMessage" size=$fbvStyles.size.LARGE}
+		{fbvElement type="textarea" name="personalMessage" id="personalMessage" value=$personalMessage rich=true}
 	{/fbvFormSection}
 
 	<!-- option to skip sending this email -->

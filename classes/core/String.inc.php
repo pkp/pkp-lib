@@ -445,7 +445,7 @@ class String {
 		if (!isset($purifier)) {
 			$config = HTMLPurifier_Config::createDefault();
 			$config->set('Core.Encoding', Config::getVar('i18n', 'client_charset'));
-			$config->set('HTML.Doctype', 'XHTML 1.0 Transitional');
+			$config->set('HTML.Doctype', 'HTML 4.01 Transitional');
 			$config->set('HTML.Allowed', Config::getVar('security', 'allowed_html'));
 			$config->set('Cache.SerializerPath', 'cache');
 			$purifier = new HTMLPurifier($config);

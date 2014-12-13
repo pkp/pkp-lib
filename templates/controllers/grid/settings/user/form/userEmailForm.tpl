@@ -17,16 +17,16 @@
 
 	<input type="hidden" name="userId" value="{$userId|escape}" />
 
-	{fbvFormSection title="email.to"}
-		{fbvElement type="text" id="user" value=$userFullName|concat:" <":$userEmail:">" disabled="true" size=$fbvStyles.size.MEDIUM}
+	{fbvFormSection title="email.subject" for="subject" required="true" size=$fbvStyles.size.MEDIUM inline=true}
+		{fbvElement type="text" id="subject" value=$subject}
 	{/fbvFormSection}
 
-	{fbvFormSection title="email.subject" for="subject" required="true"}
-		{fbvElement type="text" id="subject" value=$subject size=$fbvStyles.size.MEDIUM}
+	{fbvFormSection title="email.to" size=$fbvStyles.size.MEDIUM inline=true}
+		{fbvElement type="text" id="user" value=$userFullName|concat:" <":$userEmail:">" disabled="true"}
 	{/fbvFormSection}
 
 	{fbvFormSection title="email.body" for="message" required="true"}
-		{fbvElement type="textarea" id="message" value=$message size=$fbvStyles.size.LARGE}
+		{fbvElement type="textarea" id="message" value=$message rich=true}
 	{/fbvFormSection}
 
 	{fbvFormButtons submitText="common.sendEmail"}

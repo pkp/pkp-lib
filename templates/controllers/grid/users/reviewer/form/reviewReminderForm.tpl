@@ -26,7 +26,7 @@
 		{/fbvFormSection}
 
 		{fbvFormSection title="editor.review.personalMessageToReviewer" for="message"}
-			{fbvElement type="textarea" id="message" value=$message}
+			{fbvElement type="textarea" id="message" value=$message rich=true}
 		{/fbvFormSection}
 		{fbvFormSection title="reviewer.submission.reviewSchedule"}
 			{fbvElement type="text" id="dateNotified" label="reviewer.submission.reviewRequestDate" value=$reviewAssignment->getDateNotified()|date_format:$dateFormatShort disabled=true inline=true size=$fbvStyles.size.SMALL}

@@ -37,8 +37,8 @@
 		<span style="float:right;line-height: 24px;"><a id="importPeerReviews" href="#" class="sprite import">{translate key="submission.comments.addReviews"}</a></span>
 	{/if}
 
-	{fbvFormSection title="editor.review.personalMessageToAuthor" for="personalMessage"}
-		{fbvElement type="textarea" name="personalMessage" id="personalMessage" value=$personalMessage}
+	{fbvFormSection title="editor.review.personalMessageToAuthor" for="personalMessage" size=$fbvStyles.size.LARGE}
+		{fbvElement type="textarea" name="personalMessage" id="personalMessage" value=$personalMessage rich=true}
 	{/fbvFormSection}
 
 	{fbvFormSection for="skipEmail" size=$fbvStyles.size.MEDIUM list=true}

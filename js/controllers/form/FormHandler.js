@@ -120,7 +120,7 @@
 		this.initializeTinyMCE();
 
 		// bind a handler to make sure tinyMCE fields are populated.
-		$('#submitFormButton', $form).click(this.callbackWrapper(
+		$('[id^=\'submitFormButton\']', $form).click(this.callbackWrapper(
 				this.pushTinyMCEChanges_));
 
 		// bind a handler to handle change events on input fields.

@@ -45,6 +45,10 @@ class MySubmissionsListGridHandler extends SubmissionsListGridHandler {
 		$titleColumn->setCellProvider(new MySubmissionsListGridCellProvider());
 	}
 
+	function getIsSubcomponent() {
+		return true;
+	}
+
 
 	//
 	// Implement template methods from SubmissionListGridHandler

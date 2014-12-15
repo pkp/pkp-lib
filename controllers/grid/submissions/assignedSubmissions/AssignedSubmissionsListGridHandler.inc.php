@@ -33,6 +33,9 @@ class AssignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 		);
 	}
 
+	function getIsSubcomponent() {
+		return true;
+	}
 
 	//
 	// Implement template methods from PKPHandler

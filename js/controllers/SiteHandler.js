@@ -129,7 +129,8 @@
 	 */
 	$.pkp.controllers.SiteHandler.prototype.triggerTinyMCEInitialized =
 			function(tinyMCEObject) {
-		var $inputElement = $('#' + tinyMCEObject.editorId);
+
+		var $inputElement = $('#' + tinyMCEObject.id);
 		$inputElement.trigger('tinyMCEInitialized', [tinyMCEObject]);
 	};
 
@@ -148,7 +149,7 @@
 		}
 
 		// Add a fake HTML5 placeholder when the editor is intitialized
-		tinyMCEObject.onInit.add(function(tinyMCEObject) {
+		tinyMCEObject.on('init', function(tinyMCEObject) {
 			var $element = $('#' + tinyMCEObject.id),
 					placeholderText,
 					$placeholder,
@@ -165,7 +166,8 @@
 					.html(/** @type {string} */ (placeholderText)));
 			$placeholder.addClass('mcePlaceholder');
 			$placeholder.attr('id', 'mcePlaceholder-' + tinyMCEObject.id);
-			if (tinyMCEObject.getContent().length) {
+
+			if (tinyMCEObject.target.getContent().length) {
 				$placeholder.hide();
 			}
 
@@ -176,18 +178,18 @@
 			$element.parent().append($placeholder);
 		});
 
-		tinyMCEObject.onActivate.add(function(tinyMCEObject) {
+		tinyMCEObject.on('activate', function(tinyMCEObject) {
 			// Hide the placeholder when the editor is activated
 			$('#mcePlaceholder-' + tinyMCEObject.id).hide();
 		});
 
-		tinyMCEObject.onDeactivate.add(function(tinyMCEObject) {
+		tinyMCEObject.on('deactivate', function(tinyMCEObject) {
 			// Show the placholder when the editor is deactivated
-			if (!tinyMCEObject.getContent().length) {
+			if (!tinyMCEObject.target.getContent().length) {
 				$('#mcePlaceholder-' + tinyMCEObject.id).show();
 			}
-
-			tinyMCEObject.dom.addClass(tinyMCEObject.dom.select('li'), 'show');
+			tinyMCEObject.target.dom.addClass(
+					tinyMCEObject.target.dom.select('li'), 'show');
 		});
 	};
 

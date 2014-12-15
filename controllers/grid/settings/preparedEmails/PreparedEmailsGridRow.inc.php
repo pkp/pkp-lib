@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file classes/controllers/grid/settings/preparedEmails/PKPPreparedEmailsGridRow.inc.php
+ * @file classes/controllers/grid/settings/preparedEmails/PreparedEmailsGridRow.inc.php
  *
  * Copyright (c) 2014 Simon Fraser University Library
  * Copyright (c) 2000-2014 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPPreparedEmailsGridRow
+ * @class PreparedEmailsGridRow
  * @ingroup controllers_grid_settings_PreparedEmails
  *
  * @brief Handle PreparedEmails grid row requests.
@@ -15,11 +15,11 @@
 
 import('lib.pkp.classes.controllers.grid.GridRow');
 
-class PKPPreparedEmailsGridRow extends GridRow {
+class PreparedEmailsGridRow extends GridRow {
 	/**
 	 * Constructor
 	 */
-	function PKPPreparedEmailsGridRow() {
+	function PreparedEmailsGridRow() {
 		parent::GridRow();
 	}
 
@@ -37,7 +37,7 @@ class PKPPreparedEmailsGridRow extends GridRow {
 		// add Grid Row Actions
 		$rowId = $this->getId();
 		if (isset($rowId) && is_string($rowId)) {
-			$contextId = $this->getContextId($request);
+			$context = $request->getContext();
 			$router = $request->getRouter();
 
 			// Row action to edit the email template
@@ -46,7 +46,7 @@ class PKPPreparedEmailsGridRow extends GridRow {
 
 			// Row action to disable/delete the email template
 			$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
-			$emailTemplate = $emailTemplateDao->getLocaleEmailTemplate($rowId, $contextId);
+			$emailTemplate = $emailTemplateDao->getLocaleEmailTemplate($rowId, $context->getId());
 			if (isset($emailTemplate) && $emailTemplate->isCustomTemplate()) {
 				$this->addAction(
 					new LinkAction(
@@ -78,15 +78,6 @@ class PKPPreparedEmailsGridRow extends GridRow {
 				);
 			}
 		}
-	}
-
-	/**
-	 * Return the context ID.
-	 * @param $request PKPRequest
-	 * @return int Context ID.
-	 */
-	function getContextId($request) {
-		assert(false); // Needs to be implemented by subclasses
 	}
 }
 

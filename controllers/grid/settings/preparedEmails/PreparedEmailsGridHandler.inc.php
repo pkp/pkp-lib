@@ -17,13 +17,13 @@
 import('lib.pkp.classes.controllers.grid.GridHandler');
 
 // Import classes specific to this grid handler
-import('controllers.grid.settings.preparedEmails.PreparedEmailsGridRow');
+import('lib.pkp.controllers.grid.settings.preparedEmails.PreparedEmailsGridRow');
 
-class PKPPreparedEmailsGridHandler extends GridHandler {
+class PreparedEmailsGridHandler extends GridHandler {
 	/**
 	 * Constructor
 	 */
-	function PKPPreparedEmailsGridHandler() {
+	function PreparedEmailsGridHandler() {
 		$this->addRoleAssignment(
 			array(ROLE_ID_MANAGER),
 			array(
@@ -122,7 +122,7 @@ class PKPPreparedEmailsGridHandler extends GridHandler {
 	 * @return PreparedEmailsGridRow
 	 */
 	function getRowInstance() {
-		assert(false); // Should be implemented by subclasses
+		return new PreparedEmailsGridRow();
 	}
 
 
@@ -144,30 +144,66 @@ class PKPPreparedEmailsGridHandler extends GridHandler {
 	 * Will create a new prepared email if their is no emailKey in the request
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function editPreparedEmail($args, $request) {
-		assert(false); // Should be implemented by subclasses
+		$context = $request->getContext();
+		$emailKey = $request->getUserVar('emailKey');
+
+		import('lib.pkp.controllers.grid.settings.preparedEmails.form.PreparedEmailForm');
+		$preparedEmailForm = new PreparedEmailForm($emailKey, $context);
+		$preparedEmailForm->initData($request);
+
+		return new JSONMessage(true, $preparedEmailForm->fetch($request));
 	}
 
 	/**
 	 * Save the email editing form
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string Serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function updatePreparedEmail($args, $request) {
-		assert(false); // Should be implemented by subclasses
+		$context = $request->getContext();
+		$emailKey = $request->getUserVar('emailKey');
+
+		import('lib.pkp.controllers.grid.settings.preparedEmails.form.PreparedEmailForm');
+		$preparedEmailForm = new PreparedEmailForm($emailKey, $context);
+		$preparedEmailForm->readInputData();
+
+		if ($preparedEmailForm->validate()) {
+			$preparedEmailForm->execute();
+
+			// Create notification.
+			$notificationMgr = new NotificationManager();
+			$user = $request->getUser();
+			$notificationMgr->createTrivialNotification($user->getId());
+
+			// Let the calling grid reload itself
+			return DAO::getDataChangedEvent($emailKey);
+		} else {
+			return new JSONMessage(false);
+		}
 	}
 
 	/**
 	 * Reset a single email
 	 * @param $args array
 	 * @param $request Request
-	 * @return string a serialized JSON object
+	 * @return JSONMessage JSON object
 	 */
 	function resetEmail($args, $request) {
-		assert(false); // Should be implemented by subclasses
+		$emailKey = $request->getUserVar('emailKey');
+		assert(is_string($emailKey));
+
+		$context = $request->getContext();
+
+		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
+		if ($emailTemplateDao->templateExistsByKey($emailKey, $context->getId())) {
+			$emailTemplateDao->deleteEmailTemplateByKey($emailKey, $context->getId());
+			return DAO::getDataChangedEvent($emailKey);
+		}
+		return new JSONMessage(false);
 	}
 
 	/**
@@ -176,16 +212,46 @@ class PKPPreparedEmailsGridHandler extends GridHandler {
 	 * @param $request Request
 	 */
 	function resetAllEmails($args, $request) {
-		assert(false); // Should be implemented by subclasses
+		$context = $request->getContext();
+		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
+		$emailTemplateDao->deleteEmailTemplatesByAssoc(ASSOC_TYPE_CONTEXT, $context->getId());
+		return DAO::getDataChangedEvent();
 	}
 
 	/**
 	 * Disables an email template.
 	 * @param $args array
 	 * @param $request Request
+	 * @return JSONMessage JSON object
 	 */
 	function disableEmail($args, $request) {
-		assert(false); // Should be implemented by subclasses
+		$emailKey = $request->getUserVar('emailKey');
+		assert(is_string($emailKey));
+
+		$context = $request->getContext();
+
+		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
+		$emailTemplate = $emailTemplateDao->getBaseEmailTemplate($emailKey, $context->getId());
+
+		if (isset($emailTemplate)) {
+			if ($emailTemplate->getCanDisable()) {
+				$emailTemplate->setEnabled(0);
+
+				if ($emailTemplate->getAssocId() == null) {
+					$emailTemplate->setAssocId($context->getId());
+					$emailTemplate->setAssocType(ASSOC_TYPE_JOURNAL);
+				}
+
+				if ($emailTemplate->getEmailId() != null) {
+					$emailTemplateDao->updateBaseEmailTemplate($emailTemplate);
+				} else {
+					$emailTemplateDao->insertBaseEmailTemplate($emailTemplate);
+				}
+
+				return DAO::getDataChangedEvent($emailKey);
+			}
+		}
+		return new JSONMessage(false);
 	}
 
 
@@ -193,18 +259,49 @@ class PKPPreparedEmailsGridHandler extends GridHandler {
 	 * Enables an email template.
 	 * @param $args array
 	 * @param $request Request
+	 * @return JSONMessage JSON object
 	 */
 	function enableEmail($args, $request) {
-		assert(false); // Should be implemented by subclasses
+		$emailKey = $request->getUserVar('emailKey');
+		assert(is_string($emailKey));
+
+		$context = $request->getContext();
+
+		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
+		$emailTemplate = $emailTemplateDao->getBaseEmailTemplate($emailKey, $context->getId());
+
+		if (isset($emailTemplate)) {
+			if ($emailTemplate->getCanDisable()) {
+				$emailTemplate->setEnabled(1);
+
+				if ($emailTemplate->getEmailId() != null) {
+					$emailTemplateDao->updateBaseEmailTemplate($emailTemplate);
+				} else {
+					$emailTemplateDao->insertBaseEmailTemplate($emailTemplate);
+				}
+
+				return DAO::getDataChangedEvent($emailKey);
+			}
+		}
+		return new JSONMessage(false);
 	}
 
 	/**
 	 * Delete a custom email.
 	 * @param $args array
 	 * @param $request Request
+	 * @return JSONMessage JSON object
 	 */
 	function deleteCustomEmail($args, $request) {
-		assert(false); // Should be implemented by subclasses
+		$emailKey = $request->getUserVar('emailKey');
+		$context = $request->getContext();
+
+		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
+		if ($emailTemplateDao->customTemplateExistsByKey($emailKey, $context->getId())) {
+			$emailTemplateDao->deleteEmailTemplateByKey($emailKey, $context->getId());
+			return DAO::getDataChangedEvent($emailKey);
+		}
+		return new JSONMessage(false);
 	}
 }
 

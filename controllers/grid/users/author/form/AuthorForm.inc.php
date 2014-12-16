@@ -112,7 +112,7 @@ class AuthorForm extends Form {
 				'middleName' => $author->getMiddleName(),
 				'lastName' => $author->getLastName(),
 				'suffix' => $author->getSuffix(),
-				'affiliation' => $author->getAffiliation(AppLocale::getLocale()),
+				'affiliation' => $author->getAffiliation(null), // Localized
 				'country' => $author->getCountry(),
 				'email' => $author->getEmail(),
 				'url' => $author->getUrl(),

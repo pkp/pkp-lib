@@ -73,23 +73,6 @@ class SubmissionMailTemplate extends MailTemplate {
 	}
 
 	/**
-	 * @copydoc parent::sendWithParams()
-	 */
-	function sendWithParams($paramArray) {
-		$savedSubject = $this->getSubject();
-		$savedBody = $this->getBody();
-
-		$this->assignParams($paramArray);
-
-		$ret = $this->send();
-
-		$this->setSubject($savedSubject);
-		$this->setBody($savedBody);
-
-		return $ret;
-	}
-
-	/**
 	 * Add logging properties to this email.
 	 * @param $eventType int
 	 */

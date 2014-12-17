@@ -214,7 +214,7 @@ class PreparedEmailsGridHandler extends GridHandler {
 	function resetAllEmails($args, $request) {
 		$context = $request->getContext();
 		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
-		$emailTemplateDao->deleteEmailTemplatesByAssoc(ASSOC_TYPE_CONTEXT, $context->getId());
+		$emailTemplateDao->deleteEmailTemplatesByContext($context->getId());
 		return DAO::getDataChangedEvent();
 	}
 

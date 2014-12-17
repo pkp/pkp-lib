@@ -38,9 +38,7 @@
 	{if !$grid->getIsSubcomponent()}<div class="wrapper">{/if}
 		{include file="controllers/grid/gridHeader.tpl"}
 		<table id="{$gridTableId|escape}">
-			<colgroup>
-				{foreach from=$columns item=column}<col {if $column->hasFlag('indent')}class="indent_col"{/if}/>{/foreach}
-			</colgroup>
+			{include file="controllers/grid/columnGroup.tpl" columns=$columns}
 			<thead>
 				{** build the column headers **}
 				<tr>
@@ -50,7 +48,7 @@
 						{else}
 							{assign var=alignment value=$smarty.const.COLUMN_ALIGNMENT_LEFT}
 						{/if}
-						<th scope="col" style="text-align: {$alignment};{if $column->hasFlag('width')} width: {$column->getFlag('width')}%{/if}">
+						<th scope="col" style="text-align: {$alignment};">
 							{$column->getLocalizedTitle()}
 							{* TODO: Remove this stuff.  Actions should not ever appear in the TH of a grid. *}
 							{if $smarty.foreach.columns.last && $grid->getActions($smarty.const.GRID_ACTION_POSITION_LASTCOL)}
@@ -71,6 +69,7 @@
 				</table>
 				<div class="scrollable">
 				<table>
+					{include file="controllers/grid/columnGroup.tpl" columns=$columns}
 			{/if}
 			{foreach from=$gridBodyParts item=bodyPart}
 				{$bodyPart}

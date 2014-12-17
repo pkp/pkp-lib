@@ -13,7 +13,6 @@
 		$('#submitStep3Form').pkpHandler(
 			'$.pkp.pages.submission.SubmissionStep3FormHandler',
 			{ldelim}
-				isEditedVolume: {if $isEditedVolume}true{else}false{/if},
 				chaptersGridContainer: 'chaptersGridContainer',
 				authorsGridContainer: 'authorsGridContainer',
 				canExpedite: {if $canExpedite}true{else}false{/if},

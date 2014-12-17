@@ -62,7 +62,7 @@ class MailTemplate extends Mail {
 	 */
 	function MailTemplate($emailKey = null, $locale = null, $enableAttachments = null, $context = null, $includeSignature = true) {
 		parent::Mail();
-		$this->emailKey = $emailKey;
+		$this->emailKey = isset($emailKey) ? $emailKey : null;
 
 		// If a context wasn't specified, use the current request.
 		$application = PKPApplication::getApplication();
@@ -102,7 +102,7 @@ class MailTemplate extends Mail {
 			if (!empty($userSig)) $userSig = "<br/>" . $userSig;
 		}
 
-		if ($emailTemplate && $request->getUserVar('subject')==null && $request->getUserVar('body')==null) {
+		if (isset($emailTemplate) && $request->getUserVar('subject')==null && $request->getUserVar('body')==null) {
 			$this->setSubject($emailTemplate->getSubject());
 			$this->setBody(nl2br($emailTemplate->getBody() . $userSig));
 			$this->enabled = $emailTemplate->getEnabled();
@@ -130,7 +130,7 @@ class MailTemplate extends Mail {
 			$this->enabled = true;
 
 			if (is_array($toEmails = $request->getUserVar('to'))) {
-				$this->setRecipients($this->processAddresses($this->getRecipients(), $toEmails));
+				$this->setRecipients($this->processAddresses ($this->getRecipients(), $toEmails));
 			}
 			if (is_array($ccEmails = $request->getUserVar('cc'))) {
 				$this->setCcs($this->processAddresses ($this->getCcs(), $ccEmails));
@@ -186,56 +186,26 @@ class MailTemplate extends Mail {
 	}
 
 	/**
-	 * Get a list of parameters with descriptions.
-	 * @return array(paramName => description)
-	 */
-	function getParameterList() {
-		if ($this->context) {
-			return array(
-				'principalContactSignature' => __('about.contact.principalContact'),
-				'contextName' => __('manager.setup.contextName'),
-				'contextUrl' => __('common.url'),
-			);
-		} else {
-			return array(
-				'principalContactSignature' => __('about.contact.principalContact'),
-			);
-		}
-	}
-
-	/**
-	 * Get a list of parameters with values.
-	 * @return array(paramName => value)
-	 */
-	function getParameterValues() {
-		if ($this->context) {
-			$application = PKPApplication::getApplication();
-			$request = $application->getRequest();
-			$router = $request->getRouter();
-			$dispatcher = $request->getDispatcher();
-			return array(
-				'principalContactSignature' => $this->context->getSetting('contactName'),
-				'contextName' => $this->context->getLocalizedName(),
-				'contextUrl' => $dispatcher->url($request, ROUTE_PAGE, $router->getRequestedContextPath($request)),
-			);
-		} else {
-			$site = Request::getSite();
-			return array(
-				'principalContactSignature' => $site->getLocalizedContactName()
-			);
-		}
-	}
-
-	/**
 	 * Assigns values to e-mail parameters.
-	 * @param $paramArray array Optional list of parameters to supply to the mail template
+	 * @param $paramArray array
 	 * @return void
 	 */
 	function assignParams($paramArray = array()) {
 		$subject = $this->getSubject();
 		$body = $this->getBody();
 
-		$paramArray = array_merge($paramArray, $this->getParameterValues());
+		if (isset($this->context)) {
+			$paramArray['principalContactSignature'] = $this->context->getSetting('contactName');
+			$paramArray['contextName'] = $this->context->getLocalizedName();
+			$application = PKPApplication::getApplication();
+			$request = $application->getRequest();
+			$router = $request->getRouter();
+			$dispatcher = $request->getDispatcher();
+			if (!isset($paramArray['contextUrl'])) $paramArray['contextUrl'] = $dispatcher->url($request, ROUTE_PAGE, $router->getRequestedContextPath($request));
+		} else {
+			$site = Request::getSite();
+			$paramArray['principalContactSignature'] = $site->getLocalizedContactName();
+		}
 
 		// Replace variables in message with values
 		foreach ($paramArray as $key => $value) {
@@ -263,7 +233,7 @@ class MailTemplate extends Mail {
 	 * @param $currentList array Current recipient/cc/bcc list
 	 * @param $newAddresses array "Raw" form parameter for additional addresses
 	 */
-	function processAddresses($currentList, $newAddresses) {
+	function &processAddresses($currentList, &$newAddresses) {
 		foreach ($newAddresses as $newAddress) {
 			$regs = array();
 			// Match the form "My Name <my_email@my.domain.com>"
@@ -341,6 +311,42 @@ class MailTemplate extends Mail {
 	}
 
 	/**
+	 * Assigns user-specific values to email parameters, sends
+	 * the email, then clears those values.
+	 * @param $paramArray array
+	 * @return void
+	 */
+	function sendWithParams($paramArray) {
+		$savedHeaders = $this->getHeaders();
+		$savedSubject = $this->getSubject();
+		$savedBody = $this->getBody();
+
+		$this->assignParams($paramArray);
+
+		$ret = $this->send();
+
+		$this->setHeaders($savedHeaders);
+		$this->setSubject($savedSubject);
+		$this->setBody($savedBody);
+
+		return $ret;
+	}
+
+	/**
+	 * Clears the recipient, cc, and bcc lists.
+	 * @param $clearHeaders boolean if true, also clear headers
+	 * @return void
+	 */
+	function clearRecipients($clearHeaders = true) {
+		$this->setData('recipients', null);
+		$this->setData('ccs', null);
+		$this->setData('bccs', null);
+		if ($clearHeaders) {
+			$this->setData('headers', null);
+		}
+	}
+
+	/**
 	 * Adds a persistent attachment to the current list.
 	 * Persistent attachments MUST be previously initialized
 	 * with handleAttachments.
@@ -382,10 +388,6 @@ class MailTemplate extends Mail {
 		}
 	}
 
-	/**
-	 * Get the attachment list.
-	 * @return array Set of attachment objects.
-	 */
 	function getAttachmentFiles() {
 		if ($this->attachmentsEnabled) return $this->persistAttachments;
 		return array();

@@ -14,6 +14,7 @@
  * @brief Form for creating and modifying prepared emails.
  */
 
+
 import('lib.pkp.classes.form.Form');
 
 class PreparedEmailForm extends Form {
@@ -29,10 +30,10 @@ class PreparedEmailForm extends Form {
 	 * @param $emailKey string
 	 * @param $context Context
 	 */
-	function PreparedEmailForm($emailKey = null, $context) {
+	function PreparedEmailForm($emailKey = null, &$context) {
 		parent::Form('controllers/grid/settings/preparedEmails/form/emailTemplateForm.tpl');
 
-		$this->_context = $context;
+		$this->_context =& $context;
 		$this->setEmailKey($emailKey);
 
 		// Validation checks for this form
@@ -62,7 +63,7 @@ class PreparedEmailForm extends Form {
 	 * Get the context
 	 * @return Context
 	 */
-	function getContext() {
+	function &getContext() {
 		return $this->_context;
 	}
 

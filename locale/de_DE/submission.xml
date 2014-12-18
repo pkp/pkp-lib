@@ -13,15 +13,16 @@
 
 <locale name="de_DE" full_name = "Deutsch (Deutschland)">
 	<!-- Author Submission -->
+	<message key="author.submit.userGroupRequired">Ihr Account ist momentan keiner Rolle zugeordnet, die neue Beiträge einreichen kann (z.B. Autor/in). Bitte überprüfen Sie Ihren Account, Sie könnten evtl. eine entsprechende Rolle selbst hinzufügen, wenn Sie Ihr Profil bearbeiten.</message>
 	<message key="author.submit.submissionCitations">Stellen Sie bitte ein formatiertes Literaturverzeichnis für die Werke zur Verfügung, die Sie in Ihrem Beitrag zitiert haben. Bitte trennen Sie die einzelnen Verweise durch Leerzeilen.</message>
 	<message key="submission.submit.submissionComplete">Die Einreichung ist abgeschlossen.</message>
 	<message key="submission.submit.submissionCompleteThanks">Vielen Dank für Ihr Interesse an einer Veröffentlichung bei {$contextName}.</message>
-	<message key="submission.submit.whatNext">Was passiert als Nächstes?</message>
-	<message key="submission.submit.whatNext.forNow">Für jetzt, Sie können:</message>
+	<message key="submission.submit.whatNext">Was passiert als nächstes?</message>
+	<message key="submission.submit.whatNext.forNow">Sie können jetzt:</message>
 	<message key="submission.submit.whatNext.review">Die Einreichung begutachten</message>
 	<message key="submission.submit.whatNext.create">Eine neue Einreichung erstellen</message>
 	<message key="submission.submit.whatNext.return">Zum Dashboard zurückkehren</message>
-	<message key="submission.submit.uploadExpeditedFiles">Als Redakteur/in können Sie jetzt PDF hochladen und auswählen, diese Einreichung in die Produktion zum letzten Schritt zu beschleunigen.</message>
+	<message key="submission.submit.uploadExpeditedFiles">Als Redakteur/in können Sie jetzt ein PDF hochladen und es im letzten Schritt gleich in die Herstellungsphase geben.</message>
 	<message key="submission.submit.extendedMetadata">Erweiterte Metadaten</message>
 	<message key="submission.submit.expediteSubmission">Diesen Beitrag beschleunigen</message>
 
@@ -30,7 +31,7 @@
 	<message key="metadata.filters.crossref.settings.email.displayName">Bei CrossRef registrierte E-Mail-Adresse</message>
 	<message key="metadata.filters.crossref.settings.email.validationMessage">Bitte geben Sie eine gültige bei CrossRef registrierte E-Mail-Adresse ein. Sie können Ihre E-Mail-Adresse kostenlos auf der CrossRef-Webseite registrieren.</message>
 	<message key="metadata.filters.isbndb.settings.apiKey.displayName">ISBNdb API Key</message>
-	<message key="metadata.filters.isbndb.settings.apiKey.validationMessage">Bitte geben Sie Ihren ISBNdb API key ein. Wenn Sie bisher keinen Schlüssel haben, können sie beim ISBNdb-Projekt kostenlos einen beantragen.</message>
+	<message key="metadata.filters.isbndb.settings.apiKey.validationMessage">Bitte geben Sie Ihren ISBNdb API key ein. Wenn Sie bisher keinen Schlüssel haben, können Sie beim ISBNdb-Projekt kostenlos einen beantragen.</message>
 	<message key="metadata.filters.pubmed.settings.email.displayName">Bei PubMed registrierte E-Mail-Adresse</message>
 	<message key="metadata.filters.pubmed.settings.email.validationMessage">Bitte geben Sie eine gültige bei PubMed registrierte E-Mail-Adresse ein, wenn Sie eine besitzen.</message>
 	<message key="metadata.filters.worldcat.settings.apiKey.displayName">WorldCat API Key</message>
@@ -291,7 +292,7 @@
 	<message key="submission.event.fileRevised">Revisionsdatei "{$name}" (Datei-ID {$fileId}-{$revision}) wurde hochgeladen.</message>
 	<message key="submission.event.general.metadataUpdated">Metadaten des Beitrags aktualisiert</message>
 	<message key="submission.event.general.suppFileUpdated">Anlagedatei aktualisiert</message>
-	<message key="submission.event.reviewer.reviewAcceptedByProxy">Gutachter/innenzuteilung in Vetretung akzeptiert</message>
+	<message key="submission.event.reviewer.reviewAcceptedByProxy">Gutachter/innenzuteilung in Vertretung akzeptiert</message>
 	<message key="submission.event.reviewer.reviewAccepted">Gutachter/innenzuteilung akzeptiert</message>
 	<message key="submission.event.reviewer.reviewCancelled">Gutachter/innenzuteilung aufgehoben</message>
 	<message key="submission.event.reviewer.reviewDeclined">Begutachtung abgelehnt</message>
@@ -426,6 +427,7 @@
 	<message key="submission.submit.selectFile">Datei auswählen</message>
 	<message key="submission.submit.fileInformation">Dateiinformation</message>
 	<message key="submission.submit.fileAdded">Datei hinzugefügt</message>
+	<message key="submission.submit.includeInBrowse">Include this contributor in browse lists?</message>
 	<message key="submission.submit.newFile">Neue Datei einreichen</message>
 	<message key="submission.submit.errorDeletingAuthor">Es gab einen Fehler beim Löschen der Autorin/des Autors.</message>
 	<message key="submission.submit.metadataForm">Zusätzliche Verfeinerung</message>
@@ -443,7 +445,7 @@
 	<message key="submission.currentAgencies">Aktuelle Organisationen</message>
 	<message key="submission.indexingInformation">Indizierungsinformationen</message>
 	<message key="submission.titleAndAbstract">Titel und Abstract</message>
-	<message key="submission.type.tip"><![CDATA[The submission type is usually one of 'image', 'text', or other multimedia types including 'software' or 'interactive'.  Please choose the one most relevant for your submission.  Examples may be found at <a target="_blank" href="http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>]]></message>
+	<message key="submission.type.tip"><![CDATA[Der Einreichungstyp ist normalerweise 'image', 'text' oder ein anderer multimedialer Typ inklusive 'software' oder 'interactive'.  Bitte wählen Sie den passendsten Typ für Ihre Einreichung aus. Beispiele können Sie unter <a target="_blank" href="http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a> finden.]]></message>
 	<message key="submission.underway">In Arbeit</message>
 	<message key="submission.uploadFileTo">Datei hochladen nach/zu</message>
 	<message key="submission.createRemote">Entlegenen Ort anlegen</message>
@@ -489,16 +491,16 @@
 	<message key="submission.upload.noGenre">Genre fehlt oder ist ungültig!</message>
 	<message key="submission.upload.invalidUserGroup">Benutzer/innengruppe fehlt oder ist ungültig!</message>
 	<message key="submission.upload.possibleRevision">Mögliche Dublette oder Überarbeitung entdeckt</message>
-	<message key="submission.upload.possibleRevisionDescription"><![CDATA[<p>The name of the uploaded file resembles the name of the previously uploaded file "{$revisedFileName}." If the file just uploaded is to replace the earlier file, then select the file to be replaced in the pulldown. If the uploaded file is not to replace an earlier file, then set the pulldown at "Select file (to preserve history)."</p>]]></message>
+	<message key="submission.upload.possibleRevisionDescription"><![CDATA[<p>Der Name der hochgeladenen Datei ähnelt dem Namen der zuvor hochgeladenen Datei "{$revisedFileName}". Wenn die jetzt hochgeladene Datei die frühere ersetzen soll, wählen Sie bitte die zu ersetzende Datei im Pulldown-Menü aus. Wenn die hochgeladene Datei keine frühere Datei ersetzen soll, wählen Sie bitte "Datei auswählen (um Historie intakt zu lassen)."</p>]]></message>
 	<message key="submission.upload.selectMandatoryFileToRevise">Bitte wählen Sie die Datei aus, die Sie überarbeiten/ersetzen wollen.</message>
-	<message key="submission.upload.selectOptionalFileToRevise">If you are uploading a revision of an existing file, please indicate which file.</message>
-	<message key="submission.upload.uploadNewFile">Select file (to preserve history)</message>
+	<message key="submission.upload.selectOptionalFileToRevise">Wenn Sie eine überarbeitete Fassung einer existierenden Datei hochladen, geben Sie bitte an, welche Datei.</message>
+	<message key="submission.upload.uploadNewFile">Datei auswählen (um Historie intakt zu lassen)</message>
 	<message key="submission.upload.fileContents">Dateiinhalt</message>
 	<message key="submission.upload.userGroup">Diese Datei hochladen in meiner 
 	Rolle als ...</message>
-	<message key="submission.upload.userGroupDescription">If you are submitting an Edited Volume, you should upload all volume chapters individually, under your role as volume editor.</message>
-	<message key="submission.upload.uploadLibraryFile">Upload a Library File</message>
-	<message key="submission.upload.libraryCategory">Submission Document Category</message>
+	<message key="submission.upload.userGroupDescription">Wenn Sie einen Sammelband einreichen, sollten Sie alle Kapitel individuell in Ihrer Rolle als Sammelbandherausgeber/in hochladen.</message>
+	<message key="submission.upload.uploadLibraryFile">Eine Bibliotheksdatei hochladen</message>
+	<message key="submission.upload.libraryCategory">Dokumentkategorie der Einreichung</message>
 
 	<!-- File uploads -->
 	<message key="submission.upload.finalDraft">Datei hochladen</message>
@@ -506,8 +508,8 @@
 	<message key="submission.upload.fairCopy">Reinschrift hochladen</message>
 	<message key="submission.upload.uploadFiles">Dateien hochladen</message>
 	<message key="submission.upload.signoff">Eine Antwort hochladen</message>
-	<message key="submission.upload.response.description">After reviewing the assigned file, record any comments on the file below, and/or upload an annotated copy of the file (or another file).</message>
-	<message key="submission.upload.productionReady">Eine produktionsreife Datei hochladen</message>
+	<message key="submission.upload.response.description">Nach der Durchsicht der zugeordneten Datei geben Sie bitte alle Kommentare zu der Datei unten ein und/oder laden Sie eine kommentierte Version der Datei (oder eine andere Datei) hoch.</message>
+	<message key="submission.upload.productionReady">Eine druckreife Datei hochladen</message>
 	<message key="submission.upload.proof">Korrekturfahne hochladen</message>
 	<message key="submission.upload.noAvailableReviewFiles">Momentan liegen keine Dateien für Sie zur Überarbeitung vor.</message>
 
@@ -529,11 +531,11 @@
 	<message key="editor.submission.noneAssigned">Nicht zugewiesen</message>
 	<message key="editor.submission.participant">Beteiligte/r</message>
 	<message key="editor.submission.addStageParticipant">Beteiligte/n hinzufügen</message>
-	<message key="editor.submission.addStageParticipant.description"><![CDATA[To add a participant to this stage of the submission, select a user group from the drop-down menu, then add a user.<br /><br />Note: The user will be added to all stages for which this user group is assigned.]]></message>
+	<message key="editor.submission.addStageParticipant.description"><![CDATA[Um eine/n Beteiligte/n an dieser Phase der Einreichung hinzuzufügen, wählen Sie eine Nutzer/innengruppe aus dem Drop-Down-Menü und fügen dann eine/n Benutzer/in hinzu.<br /><br />Hinweis: Der/die Benutzer/in wird zu allen Phasen hinzugefügt, denen diese Gruppe zugeordnet ist.]]></message>
 	<message key="editor.submission.removeStageParticipant">Beteiligte/n löschen</message>
-	<message key="editor.submission.removeStageParticipant.description"><![CDATA[You are about to remove this participant from <strong>all</strong> stages. If the user also have pending auditor tasks, they will be removed too.]]></message>
+	<message key="editor.submission.removeStageParticipant.description"><![CDATA[Sie werden diese Person aus <strong>allen</strong> Phasen entfernen. Wenn der/die Benutzer/in auch ausstehende Prüfaufgaben hat, werden diese ebenfalls entfernt.]]></message>
 	<message key="editor.submission.addStageParticipant.form.userGroupRequired">Sie müssen eine Benutzer/innengruppe auswählen.</message>
-	<message key="editor.submission.addStageParticipant.form.userRequired">Sie müssen eie/n Benutzer/in für die angegebene Benutzer/innengruppe auswählen.</message>
+	<message key="editor.submission.addStageParticipant.form.userRequired">Sie müssen eine/n Benutzer/in für die angegebene Benutzer/innengruppe auswählen.</message>
 
 	<!--  editor decisions -->
 	<message key="editor.submission.decision">Entscheidung</message>
@@ -545,8 +547,8 @@
 	<message key="editor.submission.decision.sendInternalReview">Zur internen Begutachtung senden</message>
 	<message key="editor.submission.decision.sendExternalReview">Zur externen Begutachtung senden</message>
 	<message key="editor.submission.decision.approveProofs">Korrekturfahne akzeptieren</message>
-	<message key="editor.submission.decision.approveProofsDescription">The page proof file must be checked as approved to be made Available. Do you want to approve it?</message>
-	<message key="editor.submission.decision.disapproveProofsDescription">This file proof will no longer be publicly available for download or purchase. Do you want to disapprove it?</message>
+	<message key="editor.submission.decision.approveProofsDescription">Die Datei der Korrekturfahne muss angenommen werden, um verfügbar gemacht werden zu können. Wollen Sie sie annehmen?</message>
+	<message key="editor.submission.decision.disapproveProofsDescription">Diese Korrekturfahne wird nicht weiter zum Download oder Erwerb zur Verfügung stehen. Wollen Sie sie ablehnen?</message>
 
 	<!-- workflow navigation keys -->
 	<message key="submission.currentStage">Aktueller Arbeitsschritt</message>
@@ -555,45 +557,45 @@
 
 	<message key="reviewer.submission.reviewFiles">Review Files</message>
 	<message key="submission.submit.currentFile">Aktuelle Datei</message>
-	<message key="submission.finalDraft">Final Draft Files</message>
+	<message key="submission.finalDraft">Endfassung</message>
 
 	<!-- Auditor keys -->
-	<message key="editor.submission.addAuditorError">There was an error trying to assign the auditor. Please Try again.</message>
+	<message key="editor.submission.addAuditorError">Es gab einen Fehler beim Hinzufügen des/der Prüfer/in. Bitte versuchen Sie es erneut.</message>
 
 	<!-- Submission event log -->
-	<message key="submission.event.fileUploaded">A file "{$originalFileName}" was uploaded for submission {$submissionId} by {$username}.</message>
-	<message key="submission.event.fileDeleted">A file "{$originalFileName}" was deleted for submission {$submissionId} by {$username}.</message>
-	<message key="submission.event.revisionUploaded">A file revision "{$originalFileName}" was uploaded for submission {$submissionId} by {$username}.</message>
-	<message key="submission.event.revisionDeleted">A file revision "{$originalFileName}" was deleted for submission {$submissionId} by {$username}.</message>
-	<message key="submission.event.lastRevisionDeleted">A file "{$title}" had its last revision removed by {$username}.</message>
-	<message key="submission.event.fileAuditorAdded">"{$name}" ({$username}) was added as an auditor for the file "{$file}."</message>
-	<message key="submission.event.fileAuditorCleared">"{$name}" ({$username}) was removed as an auditor for the file "{$file}."</message>
-	<message key="submission.event.fileAuditUploaded">"{$name}" ({$username}) has completed an audit and uploaded "{$file}."</message>
-	<message key="submission.event.signoffSignoff">"{$name}" ({$username}) has signed off on the signoff for "{$file}."</message>
-	<message key="submission.event.proofsApproved">"{$name}" ({$username}) has approved the proofs for "{$formatName}."</message>
-	<message key="submission.overview">Submission Overview</message>
+	<message key="submission.event.fileUploaded">Eine Datei "{$originalFileName}" wurde von {$username} für die Einreichung {$submissionId} hochgeladen.</message>
+	<message key="submission.event.fileDeleted">Eine Datei "{$originalFileName}" wurde von {$username} für die Einreichung {$submissionId} gelöscht.</message>
+	<message key="submission.event.revisionUploaded">Eine überarbeitete Datei "{$originalFileName}" wurde von {$username} für die Einreichung {$submissionId} hochgeladen.</message>
+	<message key="submission.event.revisionDeleted">Eine überarbeitete Datei "{$originalFileName}" wurde von {$username} für die Einreichung {$submissionId} gelöscht.</message>
+	<message key="submission.event.lastRevisionDeleted">Die letzte Überarbeitung der Datei "{$title}" wurde von {$username} entfernt.</message>
+	<message key="submission.event.fileAuditorAdded">"{$name}" ({$username}) wurde als Prüfer/in für die Datei "{$file}" hinzugefügt.</message>
+	<message key="submission.event.fileAuditorCleared">"{$name}" ({$username}) wurde als Prüfer/in für die Datei "{$file}" entfernt.</message>
+	<message key="submission.event.fileAuditUploaded">"{$name}" ({$username}) hat eine Prüfung abgeschlossen und "{$file}" hochgeladen.</message>
+	<message key="submission.event.signoffSignoff">"{$name}" ({$username}) hat die Datei "{$file}" freigegeben.</message>
+	<message key="submission.event.proofsApproved">"{$name}" ({$username}) hat die Korrekturfahnen für "{$formatName}" angenommen.</message>
+	<message key="submission.overview">Überblick über die Einreichung</message>
 	<message key="submission.description">Beschreibung</message>
 	<message key="submission.stageNotInitiated">Arbeitsschritt nicht veranlasst.</message>
-	<message key="submission.documents">Submission Documents</message>
-	<message key="notification.type.editorDecisionTitle">Latest editor decision.</message>
+	<message key="submission.documents">Dokumente der Einreichung</message>
+	<message key="notification.type.editorDecisionTitle">Letzte Entscheidung des/der Redakteur/in.</message>
 	<message key="notification.type.editorDecisionAccept">Beitrag akzeptiert.</message>
 	<message key="notification.type.editorDecisionExternalReview">Externer Begutachtungsprozess gestartet.</message>
 	<message key="notification.type.editorDecisionPendingRevisions">Überarbeitung angefordert.</message>
 	<message key="notification.type.editorDecisionResubmit">Erneut zur Begutachtung einreichen.</message>
 	<message key="notification.type.editorDecisionDecline">Beitrag abgelehnt.</message>
 	<message key="notification.type.editorDecisionSendToProduction">Produktionsprozess gestartet.</message>
-	<message key="notification.type.signoff">You have an audit pending.</message>
+	<message key="notification.type.signoff">Sie haben eine ausstehende Prüfung.</message>
 	<message key="notification.uploadedResponse">Antwort hochgeladen.</message>
-	<message key="submission.authorDashboard.description">In each initiated workflow stage listed below you will find information on the stage's status, as well as any associated submission files and correspondence associated with that stage. You may be asked to upload a revised file to a particular stage, or audit a file that has been previously uploaded, both actions which can be completed within the stage section specified.</message>
+	<message key="submission.authorDashboard.description">In jeder eingeleiteten unten aufgelisteten Phase des Workflows werden Sie Informationen über den Status der Phase und alle zugeordneten Dateien sowie zugehörige Korrespondenz finden. Sie könnten gebeten werden, eine überarbeitete Datei zu einer speziellen Phase hochzuladen oder eine Datei, die bereits hochgeladen worden ist, zu prüfen. Beide Aktionen können jeweils in der angegebenen Phase erledigt werden.</message>
 
  	<!-- Read/Upload/Perform Signoff -->
  	<message key="submission.signoff.selectFile">Wählen Sie die Datei, die Sie freigeben möchten, aus</message>
  	<message key="submission.signoff.signoffOnFile">Diese Datei freigeben</message>
 	<message key="submission.signoff.signedOffOnFile">Diese Datei wurde freigegeben</message>
 	<message key="submission.signoff.noAvailableSignoffs">Es gibt gerade keine Dateien, die Sie freigeben müssen.</message>
-	<message key="submission.signoff.fileResponse">Rückmeldung zur 	Datei</message>
+	<message key="submission.signoff.fileResponse">Rückmeldung zur Datei</message>
 	<message key="grid.copyediting.deleteSignoff">Zuweisung an Benutzer/in zurücknehmen</message>
-	<message key="notification.type.editorAssignment">Ein/e Redakteur/in muss hinzugefügt werden, bevor die Begutachtung veranlasst wird. Verwenden Sie bitte den obigen Beteiligten-Link um Redakteur/in hinzuzufügen.</message>
+	<message key="notification.type.editorAssignment">Ein/e Redakteur/in muss hinzugefügt werden, bevor die Begutachtung veranlasst wird. Verwenden Sie bitte den obigen Beteiligten-Link, um eine/n Redakteur/in hinzuzufügen.</message>
 	<message key="grid.reviewAttachments.title">Gutachter/innen-Anlagen</message>
 	<message key="submission.productionReady">Buch verfügbar</message>
 	<message key="submission.review.uploadRevisionToRound">Überarbeitete Datei hochladen</message>

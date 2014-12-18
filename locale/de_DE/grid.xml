@@ -21,7 +21,7 @@
 	<message key="grid.action.sort">Sortieren</message>
 	<message key="grid.action.addItem">Eintrag hinzufügen</message>
 	<message key="grid.action.addUser">Benutzer/in hinzufügen</message>
-	<message key="grid.action.approveCopyedit">Approve this copyedit file for sending it to the next stage</message>
+	<message key="grid.action.approveCopyedit">Diese Lektoratsdatei für die nächste Phase akzeptieren</message>
 	<message key="grid.action.reload">Neu laden</message>
 	<message key="grid.action.delete">Löschen</message>
 	<message key="grid.action.deleteFile">Datei löschen</message>
@@ -104,7 +104,7 @@
 	<message key="grid.action.history">Verlauf ansehen</message>
 	<message key="grid.action.unconsiderReview">Dieses Gutachten ist komplett, aber sie können es unberücksichtigt lassen.</message>
 	<message key="grid.action.enable">Einschalten</message>
-	<message key="grid.action.bookInfo">Submission Info</message>
+	<message key="grid.action.bookInfo">Informationen zur Einreichung</message>
 	<message key="grid.action.logInAs">Einloggen als</message>
 	<message key="grid.action.exportAllUsers">Alle Benutzer/innen exportieren</message>
 	<message key="grid.users.confirmExportAllUsers">Sind Sie sicher, dass Sie alle Benutzer/innen exportieren möchten?</message>
@@ -237,26 +237,26 @@
 	<message key="grid.plugin.disable">Sind Sie sicher, dass Sie dieses Plug-In deaktivieren wollen?</message>
 
 	<!-- signoffs -->
-	<message key="grid.action.viewSignoffNotes">View signoff notes</message>
-	<message key="grid.action.fileUnconsider">Proofing corrections made. You may unconsider this task</message>
+	<message key="grid.action.viewSignoffNotes">Anmerkungen zur Freigabe anzeigen</message>
+	<message key="grid.action.fileUnconsider">Korrekturen gemacht. Sie müssen diese Aufgabe nicht länger berücksichtigen.</message>
 
 	<!-- Artwork Files Grid -->
-	<message key="grid.artworkFile.caption">Caption</message>
-	<message key="grid.artworkFile.credit">Credit</message>
-	<message key="grid.artworkFile.copyrightOwner">Copyright Owner</message>
-	<message key="grid.artworkFile.copyrightContact">Contact Info (if not author/publisher)</message>
-	<message key="grid.artworkFile.permissionTerms">Permission Terms</message>
-	<message key="grid.artworkFile.placement">Placement in submission</message>
+	<message key="grid.artworkFile.caption">Bildunterschrift</message>
+	<message key="grid.artworkFile.credit">Nachweis</message>
+	<message key="grid.artworkFile.copyrightOwner">Urheber/in</message>
+	<message key="grid.artworkFile.copyrightContact">Kontakt (sofern nicht Autor/in oder Verlag)</message>
+	<message key="grid.artworkFile.permissionTerms">Nutzungsbedingungen</message>
+	<message key="grid.artworkFile.placement">Platzierung in der Einreichung</message>
 	
 	<!-- User Group Grid -->
-	<message key="grid.userGroup.assignStage">Assign stage</message>
-	<message key="grid.userGroup.unassignStage">Unassign stage</message>
-	<message key="grid.userGroup.allStages">All Workflow Stages</message>
-	<message key="grid.userGroup.filter.listRoles">List roles assigned to</message>
-	<message key="grid.userGroup.filter.permissionLevel">With permission level set to</message>
-	<message key="grid.userGroup.cantRemoveDefaultUserGroup">The role {$userGroupName} is a default one and can't be removed.</message>
-	<message key="grid.userGroup.cantRemoveUserGroup">Can't remove {$userGroupName} role. Currently {$usersCount} user(s) is/are assigned to it.</message>
-	<message key="grid.userGroup.removed">{$userGroupName} role removed.</message>
-	<message key="grid.userGroup.assignedStage">{$userGroupName} role assigned to {$stageName} stage.</message>
-	<message key="grid.userGroup.unassignedStage">{$userGroupName} role unassigned from {$stageName} stage.</message>
+	<message key="grid.userGroup.assignStage">Phase zuweisen</message>
+	<message key="grid.userGroup.unassignStage">Phasenzuordnung aufheben</message>
+	<message key="grid.userGroup.allStages">Alle Workflow-Phasen</message>
+	<message key="grid.userGroup.filter.listRoles">Rollen auflisten, denen dies zugeordnet ist</message>
+	<message key="grid.userGroup.filter.permissionLevel">Mit Berechtigungsebene</message>
+	<message key="grid.userGroup.cantRemoveDefaultUserGroup">Die Rolle {$userGroupName} ist eine Standardrolle und kann nicht entfernt werden.</message>
+	<message key="grid.userGroup.cantRemoveUserGroup">Kann Rolle {$userGroupName} nicht entfernen. Momentan gehören {$usersCount} Nutzer/inn(en) zu dieser Rolle.</message>
+	<message key="grid.userGroup.removed">Rolle {$userGroupName} entfernt.</message>
+	<message key="grid.userGroup.assignedStage">Rolle {$userGroupName} der Phase {$stageName} zugeordnet.</message>
+	<message key="grid.userGroup.unassignedStage">Rolle {$userGroupName} nicht länger der Phase {$stageName} zugeordnet.</message>
 </locale>

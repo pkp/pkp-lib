@@ -393,12 +393,12 @@ class PKPUser extends Identity {
 	}
 
 	function getContactSignature() {
-		$signature = $this->getFullName();
+		$signature = htmlspecialchars($this->getFullName());
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_USER);
-		if ($a = $this->getLocalizedAffiliation()) $signature .= "\n" . $a;
-		if ($p = $this->getPhone()) $signature .= "\n" . __('user.phone') . ' ' . $p;
-		if ($f = $this->getFax()) $signature .= "\n" . __('user.fax') . ' ' . $f;
-		$signature .= "\n" . $this->getEmail();
+		if ($a = $this->getLocalizedAffiliation()) $signature .= '<br/>' . htmlspecialchars($a);
+		if ($p = $this->getPhone()) $signature .= '<br/>' . __('user.phone') . ' ' . htmlspecialchars($p);
+		if ($f = $this->getFax()) $signature .= '<br/>' . __('user.fax') . ' ' . htmlspecialchars($f);
+		$signature .= '<br/>' . htmlspecialchars($this->getEmail());
 		return $signature;
 	}
 }

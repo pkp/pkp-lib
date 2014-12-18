@@ -33,7 +33,7 @@
 			{/fbvFormSection}
 
 			{fbvFormSection title="stageParticipants.notify.message" for="message" required="true"}
-				{fbvElement type="textarea" id="message"}
+				{fbvElement type="textarea" id="message" rich=true}
 			{/fbvFormSection}
 			{fbvFormButtons id="notifyButton" hideCancel=true submitText="submission.stageParticipants.notify"}
 		{/fbvFormArea}

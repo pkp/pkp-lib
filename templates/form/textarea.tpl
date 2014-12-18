@@ -27,6 +27,7 @@
 				class="localizable {$FBV_class} {$FBV_height}{if $FBV_validation} {$FBV_validation|escape}{/if}{if $formLocale != $currentLocale} locale_{$formLocale|escape}{/if}{if $FBV_rich && !$FBV_disabled} richContent{/if}"
 				{if $FBV_disabled} disabled="disabled"{/if}
 				{if $FBV_readonly} readonly="readonly"{/if}
+				{if $FBV_variables} data-variables="{$FBV_variables|@json_encode|escape:"url"}"{/if}
 				name="{$FBV_name|escape}[{$formLocale|escape}]">{$FBV_value[$formLocale]|escape}
 			</textarea>
 		{/strip}
@@ -42,6 +43,7 @@
 						class="flag flag_{$thisFormLocale|escape} {$FBV_class} {$FBV_height}{if $FBV_rich && !$FBV_disabled} richContent{/if}"
 						{if $FBV_disabled} disabled="disabled"{/if}
 						{if $FBV_readonly} readonly="readonly"{/if}
+						{if $FBV_variables} data-variables="{$FBV_variables|@json_encode|escape:"url"}"{/if}
 						name="{$FBV_name|escape}[{$thisFormLocale|escape}]">{$FBV_value[$thisFormLocale]|escape}
 					</textarea>
 					{/strip}
@@ -59,6 +61,7 @@
 			class="{$FBV_class} {$FBV_height}{if $FBV_validation} {$FBV_validation|escape}{/if}{if $FBV_rich && !$FBV_disabled} richContent{/if}"
 			{if $FBV_disabled} disabled="disabled"{/if}
 			{if $FBV_readonly} readonly="readonly"{/if}
+			{if $FBV_variables} data-variables="{$FBV_variables|@json_encode|escape:"url"}"{/if}
 			name="{$FBV_name|escape}{if $FBV_multilingual}[{$formLocale|escape}]{/if}"
 			rows="{$FBV_rows|escape}"
 			cols="{$FBV_cols|escape}"

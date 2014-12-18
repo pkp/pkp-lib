@@ -6,7 +6,8 @@
 		"phpmailer/phpmailer": "5.2.8",
 		"smarty/smarty": "v2.6.28",
 		"ezyang/htmlpurifier": "v4.6.0",
-		"moxiecode/plupload": "v2.1.2"
+		"moxiecode/plupload": "v2.1.2",
+		"tinymce/tinymce": "4.1.7"
 	},
 	"config": {
 		"component-dir": "lib/components",

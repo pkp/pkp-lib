@@ -157,7 +157,7 @@
 	$.pkp.controllers.form.MultilingualInputHandler.prototype.tinyMCEInitHandler_ =
 			function(input, event, tinyMCEObject) {
 
-		var editorId = tinyMCEObject.editorId,
+		var editorId = tinyMCEObject.id,
 				// This hack is needed so the focus event is triggered correctly in IE8.
 				// We just adjust the body element height inside the tinyMCE editor
 				// instance to a percent of the original text area height, so when users
@@ -166,69 +166,46 @@
 				textAreaHeight = $('#' + editorId).height();
 
 		$(tinyMCEObject.getBody()).height((textAreaHeight / 100) * 78);
+		tinyMCEObject.on('focus', this.callbackWrapper(function() {
+			// We need also to close the multilingual popover when user clicks
+			// outside the popover element. The blur event is not enough because
+			// sometimes (with text selected in editor) Chrome will consider the
+			// tinyMCE editor as still active and that will avoid the popover to
+			// close (see the first check of the blur handler, just above).
+			//
+			// Firefox will also not completely focus on tinyMCE editors after
+			// coming back from fullscreen mode (the callback to focus the
+			// editor when set content will only trigger the focus handler that
+			// we attach here, but will not move the cursor inside the tinyMCE
+			// editor). Then, if user clicks outside the popover, it will not
+			// close because no blur event will be triggered.
+			this.trigger('callWhenClickOutside', {
+				container: this.getHtmlElement(),
+				callback: this.callbackWrapper(this.hidePopover_),
+				skipWhenVisibleModals: false
+			});
 
-		$(tinyMCEObject.getWin()).focus(
-				this.callbackWrapper(function() {
+			this.showPopover_();
+		}));
 
-					// We need also to close the multilingual popover when user clicks
-					// outside the popover element. The blur event is not enough because
-					// sometimes (with text selected in editor) Chrome will consider the
-					// tinyMCE editor as still active and that will avoid the popover to
-					// close (see the first check of the blur handler, just above).
-					//
-					// Firefox will also not completely focus on tinyMCE editors after
-					// coming back from fullscreen mode (the callback to focus the
-					// editor when set content will only trigger the focus handler that
-					// we attach here, but will not move the cursor inside the tinyMCE
-					// editor). Then, if user clicks outside the popover, it will not
-					// close because no blur event will be triggered.
-					this.trigger('callWhenClickOutside', {
-						container: this.getHtmlElement(),
-						callback: this.callbackWrapper(this.hidePopover_),
-						skipWhenVisibleModals: false
-					});
+		tinyMCEObject.on('blur', this.callbackWrapper(function() {
+			// Check if the active document element is still the tinyMCE
+			// editor. If true, return false. This will avoid closing the
+			// popover if user is just inserting an image or editing the
+			// html source, for example (both actions open a new window).
+			if ($(tinyMCEObject.getContainer()).find('iframe').attr('id') ==
+					$(document.activeElement).attr('id')) {
+				return false;
+			}
 
-					// Create a callback for the set content event, so we can
-					// still show the multilingual input if user is back from
-					// fullscreen mode.
-					var setContentCallback = this.callbackWrapper(
-							function(tinyMCEObject) {
-								var $tinyWindow = $(tinyMCEObject.getWin());
-								if (!this.getHtmlElement().
-										hasClass('localization_popover_container_focus')) {
-									$tinyWindow.focus();
-								}
-							});
-
-					// Make sure we don't have more than one set content handler.
-					tinyMCEObject.onSetContent.remove(setContentCallback);
-
-					// Add the set content callback.
-					tinyMCEObject.onSetContent.add(setContentCallback);
-
-					this.showPopover_();
-				}));
-
-		$(tinyMCEObject.getWin()).blur(
-				this.callbackWrapper(function() {
-
-					// Check if the active document element is still the tinyMCE
-					// editor. If true, return false. This will avoid closing the
-					// popover if user is just inserting an image or editing the
-					// html source, for example (both actions open a new window).
-					if ($(tinyMCEObject.getContainer()).find('iframe').attr('id') ==
-							$(document.activeElement).attr('id')) {
-						return false;
-					}
-
-					// Use a timeout to give the other element a chance to acquire the
-					// focus.
-					setTimeout(this.callbackWrapper(function() {
-						if (!this.hasElementInFocus_()) {
-							this.hidePopover_();
-						}
-					}), 0);
-				}));
+			// Use a timeout to give the other element a chance to acquire the
+			// focus.
+			setTimeout(this.callbackWrapper(function() {
+				if (!this.hasElementInFocus_()) {
+					this.hidePopover_();
+				}
+			}), 0);
+		}));
 	};
 
 

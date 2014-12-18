@@ -220,7 +220,7 @@
 
 				{if !$disableSignatureSection}
 					{fbvFormSection}
-						{fbvElement type="textarea" label="user.signature" multilingual="true" name="signature" id="signature" value=$signature size=$fbvStyles.size.MEDIUM}
+						{fbvElement type="textarea" label="user.signature" multilingual="true" name="signature" id="signature" value=$signature rich=true size=$fbvStyles.size.MEDIUM}
 					{/fbvFormSection}
 				{/if}
 			{/fbvFormArea}

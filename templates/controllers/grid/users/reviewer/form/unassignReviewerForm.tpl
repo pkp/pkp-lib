@@ -25,7 +25,7 @@
 
 	<!--  Message to reviewer textarea -->
 	{fbvFormSection title="editor.review.personalMessageToReviewer" for="personalMessage"}
-		{fbvElement type="textarea" name="personalMessage" id="personalMessage" value=$personalMessage}
+		{fbvElement type="textarea" name="personalMessage" id="personalMessage" value=$personalMessage rich=true}
 	{/fbvFormSection}
 
 	<!-- Skip email checkbox -->

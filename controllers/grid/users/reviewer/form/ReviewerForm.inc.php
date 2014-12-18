@@ -205,16 +205,14 @@ class ReviewerForm extends Form {
 				'messageToReviewer' => __('reviewer.step1.requestBoilerplate'),
 			));
 		}
-		$this->setData('personalMessage', $template->getBody() . "\n" . $context->getSetting('emailSignature'));
+		$this->setData('personalMessage', $template->getBody() . "<br/>" . $context->getSetting('emailSignature'));
 		$this->setData('responseDueDate', $responseDueDate);
 		$this->setData('reviewDueDate', $reviewDueDate);
 		$this->setData('selectionType', $selectionType);
 	}
 
 	/**
-	 * Fetch
-	 * @param $request PKPRequest
-	 * @see Form::fetch()
+	 * @copydoc Form::fetch()
 	 */
 	function fetch($request) {
 		$context = $request->getContext();
@@ -234,7 +232,13 @@ class ReviewerForm extends Form {
 			$reviewForms[$reviewForm->getId()] = $reviewForm->getLocalizedTitle();
 		}
 		$templateMgr->assign('reviewForms', $reviewForms);
-
+		$templateMgr->assign('emailVariables', array(
+			'reviewerName' => __('user.name'),
+			'responseDueDate' => __('reviewer.submission.responseDueDate'),
+			'reviewDueDate' => __('reviewer.submission.reviewDueDate'),
+			'submissionReviewUrl' => __('common.url'),
+			'reviewerUserName' => __('user.username'),
+		));
 		// Allow the default template
 		$templateKeys[] = $this->_getMailTemplateKey($request->getContext());
 

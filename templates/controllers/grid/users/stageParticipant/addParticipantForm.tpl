@@ -41,7 +41,7 @@
 		{/fbvFormSection}
 
 		{fbvFormSection title="stageParticipants.notify.message" for="message"}
-			{fbvElement type="textarea" id="message"}
+			{fbvElement type="textarea" id="message" rich=true}
 		{/fbvFormSection}
 		{fbvFormButtons}
 	{/fbvFormArea}

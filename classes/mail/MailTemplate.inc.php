@@ -99,12 +99,12 @@ class MailTemplate extends Mail {
 		$userSig = '';
 		if ($user && $this->includeSignature) {
 			$userSig = $user->getLocalizedSignature();
-			if (!empty($userSig)) $userSig = "\n" . $userSig;
+			if (!empty($userSig)) $userSig = "<br/>" . $userSig;
 		}
 
 		if (isset($emailTemplate) && $request->getUserVar('subject')==null && $request->getUserVar('body')==null) {
 			$this->setSubject($emailTemplate->getSubject());
-			$this->setBody($emailTemplate->getBody() . $userSig);
+			$this->setBody(nl2br($emailTemplate->getBody() . $userSig));
 			$this->enabled = $emailTemplate->getEnabled();
 
 			if ($request->getUserVar('usePostedAddresses')) {
@@ -266,14 +266,14 @@ class MailTemplate extends Mail {
 			// just be appended.
 			$header = $this->context->getSetting('emailHeader');
 			if (strstr($this->getBody(), '{$templateHeader}') === false) {
-				$this->setBody($header . "\n" . $this->getBody());
+				$this->setBody($header . "<br/>" . $this->getBody());
 			} else {
 				$this->setBody(str_replace('{$templateHeader}', $header, $this->getBody()));
 			}
 
 			$signature = $this->context->getSetting('emailSignature');
 			if (strstr($this->getBody(), '{$templateSignature}') === false) {
-				$this->setBody($this->getBody() . "\n" . $signature);
+				$this->setBody($this->getBody() . "<br/>" . $signature);
 			} else {
 				$this->setBody(str_replace('{$templateSignature}', $signature, $this->getBody()));
 			}

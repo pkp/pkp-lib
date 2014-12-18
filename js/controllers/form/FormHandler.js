@@ -120,7 +120,7 @@
 		this.initializeTinyMCE();
 
 		// bind a handler to make sure tinyMCE fields are populated.
-		$('#submitFormButton', $form).click(this.callbackWrapper(
+		$('[id^=\'submitFormButton\']', $form).click(this.callbackWrapper(
 				this.pushTinyMCEChanges_));
 
 		// bind a handler to handle change events on input fields.
@@ -233,7 +233,7 @@
 		// ensure that rich content elements have their
 		// values stored before validation.
 		if (typeof tinyMCE !== 'undefined') {
-			tinyMCE.triggerSave();
+			tinyMCE.EditorManager.triggerSave();
 		}
 
 		// Clone the form validator before checking the entire form.
@@ -463,35 +463,6 @@
 	// Private Methods
 	//
 	/**
-	 * Initialize TinyMCE instances.
-	 *
-	 * There are instances where TinyMCE is not initialized with the call to
-	 * init(). These occur when content is loaded after the fact (via AJAX).
-	 *
-	 * In these cases, search for richContent fields and initialize them.
-	 *
-	 * @private
-	 */
-	$.pkp.controllers.form.FormHandler.prototype.initializeTinyMCE_ =
-			function() {
-
-		if (typeof tinyMCE !== 'undefined') {
-			var $element, elementId;
-			$element = this.getHtmlElement();
-			elementId = $element.attr('id');
-			setTimeout(function() {
-				// re-select the original element, to prevent closure memory leaks
-				// in (older?) versions of IE.
-				$('#' + elementId).find('.richContent').each(function(index) {
-					tinyMCE.execCommand('mceAddControl', false,
-							$(this).attr('id').toString());
-				});
-			}, 500);
-		}
-	};
-
-
-	/**
 	 * Internal callback called after form validation to handle form
 	 * submission.
 	 *
@@ -547,7 +518,7 @@
 		// ensure that rich content elements have their
 		// values stored before validation.
 		if (typeof tinyMCE !== 'undefined') {
-			tinyMCE.triggerSave();
+			tinyMCE.EditorManager.triggerSave();
 		}
 		return true;
 	};
@@ -594,21 +565,20 @@
 	$.pkp.controllers.form.FormHandler.prototype.tinyMCEInitHandler_ =
 			function(input, event, tinyMCEObject) {
 
-		var editorId = tinyMCEObject.editorId;
+		var editorId = tinyMCEObject.id;
 
-		$(tinyMCEObject.getWin()).blur(
-				this.callbackWrapper(function() {
-					// Save the current tinyMCE value to the form element.
-					tinyMCEObject.save();
+		tinyMCEObject.on('blur', this.callbackWrapper(function(tinyMCEObject) {
+			// Save the current tinyMCE value to the form element.
+			tinyMCEObject.save();
 
-					// Get the form element that stores the tinyMCE data.
-					var $form = this.getHtmlElement(),
-							formElement = $('#' + editorId, $form),
-							// Validate only this element.
-							validator = $form.validate();
+			// Get the form element that stores the tinyMCE data.
+			var $form = this.getHtmlElement(),
+					formElement = $('#' + editorId, $form),
+					// Validate only this element.
+					validator = $form.validate();
 
-					validator.element(formElement);
-				}));
+			validator.element(formElement);
+		}));
 	};
 
 

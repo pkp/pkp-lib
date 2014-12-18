@@ -67,6 +67,7 @@
 	<message key="common.cancelled">Abgebrochen</message>
 	<message key="common.warning">Warnung</message>
 	<message key="common.error">Fehler</message>
+	<message key="common.notice">Anmerkung</message>
 	<message key="common.captchaField.altText">Bild zur Überprüfung</message>
 	<message key="common.captchaField.badCaptcha">Die Zeichen, die Sie eingegeben haben, entsprechen nicht den Zeichen im Bild. Bitte überprüfen Sie Ihre Eingabe und versuchen Sie es erneut.</message>
 	<message key="common.captchaField.description">Geben Sie bitte die Zeichen so ein, wie Sie in der obigen Grafik erscheinen.</message>
@@ -357,10 +358,11 @@
 	<message key="stageParticipants.notify.warning">Bitte stellen Sie sicher, dass Sie das Nachrichtenfeld ausgefüllt und mindestens eine/n Empfänger/in ausgewählt haben.</message>
 	<message key="locale.primary">Primäre Regionaleinstellung</message>
 	<message key="locale.supported">Unterstützte Regionaleinstellungen</message>
+	<message key="navigation.management">Verwaltung</message>
 	<message key="navigation.access"><![CDATA[Benutzer/innen &amp; Rollen]]></message>
 	<message key="navigation.about">Über uns</message>
+	<message key="navigation.admin">Leitung</message>
 	<message key="navigation.admin">Verwaltung</message>
-	<message key="navigation.admin">Administration</message>
 	<message key="navigation.tools">Werkzeuge</message>
 	<message key="navigation.tools.importExport">Import/Export</message>
 	<message key="navigation.tools.statistics">Statistiken</message>

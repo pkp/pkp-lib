@@ -25,21 +25,6 @@
 	<message key="admin.confirmClearTemplateCache">Are you sure you want to clear the cache of compiled templates?</message>
 	<message key="admin.confirmExpireSessions">Are you sure you want to expire all user sessions? All users who are currently logged into the system will be forced to log in again (yourself included).</message>
 	<message key="admin.contentsOfConfigFile">Contents of configuration file</message>
-	<message key="admin.copyAccessLogFileTool.usage">Copy the passed apache access log file(s), filtering the entries related with this installation,
-to the current files directory, inside the UsageStatsPlugin stage directory. Must run under user with enough privilegies to read access apache log files.
-
-This tool will only copy files that aren't already inside the usageStats file\n loader directories (stage, processing, archive, reject).
-
-Usage: {$scriptName} path/to/apache/log/file.log
-Usage (process all files inside a directory): {$scriptName} path/to/apache/directory
-Usage (process all files inside a directory that starts with the passed string): {$scriptName} path/to/apache/directory starts_with_string 
-	</message>
-	<message key="admin.copyAccessLogFileTool.error.creatingFolder">Error: can't create temporary folder {$tmpDir}</message>
-	<message key="admin.copyAccessLogFileTool.error.acessingFile">Error: File {$filePath} don't exists or can't be accessed.</message>
-	<message key="admin.copyAccessLogFileTool.error.copyingFile">Error: can't copy file from {$filePath} to {$tmpFilePath}</message>
-	<message key="admin.copyAccessLogFileTool.error.deletingFile">Error: can't delete file {$tmpFilePath}</message>
-	<message key="admin.copyAccessLogFileTool.warning.fileAlreadyExists">Warning: file {$filePath} already exists inside the usage stats directory.</message>
-	<message key="admin.copyAccessLogFileTool.success">Success: {$filePath} to {$destinationPath}</message>
 	<message key="admin.currentVersion">Current version</message>
 	<message key="admin.dateInstalled">Date installed</message>
 	<message key="admin.displayConfigFileInstructions"><![CDATA[The contents of your updated configuration are displayed below. To apply the configuration changes you must open <tt>config.inc.php</tt> in a suitable text editor and replace its contents with the contents of the text field below.]]></message>

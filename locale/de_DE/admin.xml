@@ -49,6 +49,12 @@
 	<message key="admin.languages.uninstall">Regionaleinstellung deinstallieren</message>
 	<message key="admin.phpInfo">Ausführliche Informationen zu PHP</message>
 	<message key="admin.scheduledTask">Geplante Aufgabe</message>
+	<message key="admin.scheduledTask.startTime">Aufgabe gestartet.</message>
+	<message key="admin.scheduledTask.stopTime">Aufgabe beendet.</message>
+	<message key="admin.scheduledTask.noLog">Aufgabe hat kein Protokoll produziert.</message>
+	<message key="admin.scheduledTask.openAccessNotification">Open-Access-Benachrichtigung</message>
+	<message key="admin.scheduledTask.reviewReminder">Erinnerung an Begutachtung</message>
+	<message key="admin.scheduledTask.subscriptionExpiryReminder">Erinnerung an Ende des Abonnements</message>
 	<message key="admin.server.apacheVersion">Apache-Version</message>
 	<message key="admin.server.dbDriver">Datenbanktreiber</message>
 	<message key="admin.server.dbVersion">Version des Datenbankservers</message>
@@ -103,6 +109,7 @@
 	<message key="admin.fileLoader.wrongBasePathLocation">Der Basispfad {$path} muss im Verzeichnis der öffentlichen Dateien liegen.</message>
 	<message key="admin.fileLoader.pathNotAccessible">Der Ordner {$path} ist kein Verzeichnis oder ist nicht lesbar.</message>
 	<message key="admin.fileLoader.moveFileFailed">Die Datei {$filename} konnte nicht von {$currentFilePath} nach {$destinationPath} verschoben werden</message>
+	<message key="admin.fileLoader.fileProcessed">Datei {$filename} wurde verarbeitet und archiviert.</message>
 	<message key="admin.fileLoader.emailSubject">Fileloader</message>
 	
 	<message key="admin.copyAccessLogFileTool.usage">Kopiere die übergebenen Apache-Zugriffsdatei(en), woraus die mit dieser Installation zusammenhängenden Einträge ausgewählt werden,

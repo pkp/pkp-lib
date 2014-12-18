@@ -28,10 +28,10 @@ class ReviewFormGridRow extends GridRow {
 	// Overridden methods from GridRow
 	//
 	/**
-	 * @see GridRow::initialize()
+	 * @copydoc GridRow::initialize()
 	 */
-	function initialize($request) {
-		parent::initialize($request);
+	function initialize($request, $template = null) {
+		parent::initialize($request, $template);
 
 		// Is this a new row or an existing row?
 		$element = $this->getData();

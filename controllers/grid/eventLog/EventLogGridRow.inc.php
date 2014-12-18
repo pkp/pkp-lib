@@ -37,10 +37,10 @@ class EventLogGridRow extends GridRow {
 	// Overridden methods from GridRow
 	//
 	/**
-	 * @see GridRow::initialize()
+	 * @copydoc GridRow::initialize()
 	 */
-	function initialize($request) {
-		parent::initialize($request);
+	function initialize($request, $template = null) {
+		parent::initialize($request, $template);
 
 		$logEntry = $this->getData(); // a Category object
 		assert($logEntry != null && (is_a($logEntry, 'EventLogEntry') || is_a($logEntry, 'EmailLogEntry')));

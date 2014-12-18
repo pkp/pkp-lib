@@ -32,10 +32,10 @@ class AuthorSignoffFilesGridRow extends SubmissionFilesGridRow {
 	// Overridden template methods from GridRow
 	//
 	/**
-	 * @see GridRow::initialize
+	 * @copydoc GridRow::initialize
 	 */
-	function initialize($request) {
-		parent::initialize($request);
+	function initialize($request, $template = null) {
+		parent::initialize($request, $template);
 
 		// Get this row's signoff
 		$rowData = $this->getData();

@@ -43,9 +43,9 @@ class StageParticipantGridRow extends GridRow {
 	/**
 	 * @copydoc GridRow::initialize()
 	 */
-	function initialize($request) {
+	function initialize($request, $template = null) {
 		// Do the default initialization
-		parent::initialize($request);
+		parent::initialize($request, $template);
 
 		// Is this a new row or an existing row?
 		$rowId = $this->getId();

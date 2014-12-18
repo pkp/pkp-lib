@@ -70,11 +70,11 @@ class PKPCitationGridRow extends GridRow {
 	// Overridden methods from GridRow
 	//
 	/**
-	 * @see GridRow::initialize()
+	 * @copydoc GridRow::initialize()
 	 */
-	function initialize($request) {
+	function initialize($request, $template = null) {
 		// Do the default initialization
-		parent::initialize($request);
+		parent::initialize($request, $template);
 
 		// Retrieve the assoc id from the request
 		$assocId = $request->getUserVar('assocId');

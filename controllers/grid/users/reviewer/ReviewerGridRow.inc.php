@@ -27,11 +27,10 @@ class ReviewerGridRow extends GridRow {
 	// Overridden methods from GridRow
 	//
 	/**
-	 * @see GridRow::initialize()
-	 * @param $request PKPRequest
+	 * @copydoc GridRow::initialize()
 	 */
-	function initialize($request) {
-		parent::initialize($request);
+	function initialize($request, $template = null) {
+		parent::initialize($request, $template);
 
 		// Retrieve the submission id from the request
 		// These parameters need not be validated as we're just

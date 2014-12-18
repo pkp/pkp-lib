@@ -37,10 +37,18 @@ class SubmissionFileEventLogEntry extends EventLogEntry {
 		parent::EventLogEntry();
 	}
 
+	/**
+	 * Set the associated file ID.
+	 * @param $fileId int File ID
+	 */
 	function setFileId($fileId) {
 		return $this->setAssocId($fileId);
 	}
 
+	/**
+	 * Get the associated file ID.
+	 * @return int File ID
+	 */
 	function getFileId() {
 		return $this->getAssocId();
 	}

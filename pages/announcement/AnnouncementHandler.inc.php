@@ -16,6 +16,9 @@
 import('classes.handler.Handler');
 
 class AnnouncementHandler extends Handler {
+	/**
+	 * Constructor
+	 */
 	function AnnouncementHandler() {
 		parent::Handler();
 	}
@@ -23,6 +26,9 @@ class AnnouncementHandler extends Handler {
 	//
 	// Implement methods from Handler.
 	//
+	/**
+	 * @copydoc Handler::authorize()
+	 */
 	function authorize($request, &$args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.ContextRequiredPolicy');
 		$this->addPolicy(new ContextRequiredPolicy($request));

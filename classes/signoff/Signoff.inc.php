@@ -19,7 +19,6 @@
  * @brief Basic class describing a signoff.
  */
 
-
 class Signoff extends DataObject {
 	/**
 	 * Constructor
@@ -31,9 +30,8 @@ class Signoff extends DataObject {
 	//
 	// Get/set methods
 	//
-
 	/**
-	 * get assoc id
+	 * Get assoc id
 	 * @return int
 	 */
 	function getAssocId() {
@@ -41,7 +39,7 @@ class Signoff extends DataObject {
 	}
 
 	/**
-	 * set assoc id
+	 * Set assoc id
 	 * @param $assocId int
 	 */
 	function setAssocId($assocId) {
@@ -50,7 +48,7 @@ class Signoff extends DataObject {
 
 	/**
 	 * Get associated type.
-	 * @return int
+	 * @return int ASSOC_TYPE_...
 	 */
 	function getAssocType() {
 		return $this->getData('assocType');
@@ -58,7 +56,7 @@ class Signoff extends DataObject {
 
 	/**
 	 * Set associated type.
-	 * @param $assocType int
+	 * @param $assocType int ASSOC_TYPE_...
 	 */
 	function setAssocType($assocType) {
 		return $this->setData('assocType', $assocType);

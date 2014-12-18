@@ -170,7 +170,7 @@ class PKPFilterGridHandler extends GridHandler {
 	// Overridden methods from GridHandler
 	//
 	/**
-	 * @see GridHandler::getRowInstance()
+	 * @copydoc GridHandler::getRowInstance()
 	 */
 	function getRowInstance() {
 		// Return a filter row

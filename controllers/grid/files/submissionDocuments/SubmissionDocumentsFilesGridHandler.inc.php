@@ -37,8 +37,7 @@ class SubmissionDocumentsFilesGridHandler extends LibraryFileGridHandler {
 	//
 	// Overridden template methods
 	//
-
-	/*
+	/**
 	 * Configure the grid
 	 * @param $request PKPRequest
 	 */

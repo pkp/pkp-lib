@@ -215,6 +215,9 @@ class CategoryGridHandler extends GridHandler {
 	//
 	// Extended methods from GridHandler
 	//
+	/**
+	 * @copydoc GridHandler::initialize()
+	 */
 	function initialize($request) {
 		parent::initialize($request);
 

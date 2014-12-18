@@ -10,6 +10,12 @@
 {assign var=categoryId value="component-"|concat:$categoryRow->getGridId():"-category-":$categoryRow->getId()|escape}
 <tbody id="{$categoryId|escape}" class="element{$categoryRow->getId()|escape} category_grid_body">
 	{$renderedCategoryRow}
+	{if $grid->getIsSubcomponent()}
+		</tbody></table>
+		<div class="scrollable"><table>
+			{include file="controllers/grid/columnGroup.tpl" columns=$grid->getColumns()}
+			<tbody>
+	{/if}
 	{** the regular data rows **}
 	{foreach from=$rows item=row}
 		{$row}
@@ -25,4 +31,7 @@
 		<td colspan="{$grid->getColumnsCount('indent')}">{translate key=$grid->getEmptyCategoryRowText()}</td>
 	</tr>
 </tbody>
-
+{if $grid->getIsSubcomponent()}
+	</table></div><table>
+		{include file="controllers/grid/columnGroup.tpl" columns=$grid->getColumns()}
+{/if}

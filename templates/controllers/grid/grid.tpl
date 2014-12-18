@@ -62,7 +62,7 @@
 					{/foreach}
 				</tr>
 			</thead>
-			{if $grid->getIsSubcomponent()}
+			{if $grid->getIsSubcomponent() && !is_a($grid, 'CategoryGridHandler')}
 				{* Create two separate tables so that the body part
 				   can be scrolled independently from the header in a
 				   cross-browser compatible way using only CSS. *}
@@ -86,7 +86,7 @@
 				</tr>
 			</tbody>
 		</table>
-		{if $grid->getIsSubcomponent()}
+		{if $grid->getIsSubcomponent() && !is_a($grid, 'CategoryGridHandler')}
 			</div>
 		{/if}
 		{include file="controllers/grid/gridActionsBelow.tpl" actions=$grid->getActions($smarty.const.GRID_ACTION_POSITION_BELOW) gridId=$staticId}

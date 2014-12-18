@@ -650,6 +650,8 @@ class GridHandler extends PKPHandler {
 		$this->setFirstDataColumn();
 		$columns = $this->getColumns();
 		$templateMgr->assign('columns', $columns);
+		
+		$this->_fixColumnWidths();
 
 		// Do specific actions to fetch this grid.
 		$this->doSpecificFetchGridActions($args, $request, $templateMgr);
@@ -901,8 +903,6 @@ class GridHandler extends PKPHandler {
 	 * @param $request Request
 	 */
 	protected function doSpecificFetchGridActions($args, $request, $templateMgr) {
-		$this->_fixColumnWidths();
-
 		// Render the body elements.
 		$gridBodyParts = $this->renderGridBodyPartsInternally($request);
 		$templateMgr->assign('gridBodyParts', $gridBodyParts);
@@ -1102,7 +1102,7 @@ class GridHandler extends PKPHandler {
 		}
 
 		// Four cases: we have to add or remove some width, and either we have wiggle room or not.
-		// We will try just correcting the first case, width less than 100 and some unspecified columns to add it to.
+		// First case, width less than 100 and some unspecified columns to add it to.
 		if ($width < 100) {
 			if ($noSpecifiedWidthCount > 0) {
 				// We need to add width to columns that did not specify it.
@@ -1112,6 +1112,37 @@ class GridHandler extends PKPHandler {
 						$modifyColumn->addFlag('width', round((100 - $width)/$noSpecifiedWidthCount));
 						unset($modifyColumn);
 					}
+				}
+			}
+		}
+
+		// Second case, width higher than 100 and all columns width specified.
+		if ($width > 100) {
+			if ($noSpecifiedWidthCount == 0) {
+				// We need to remove width from all columns equally.
+				$columnsToModify = $columns;
+				foreach ($columns as $key => $column) {
+					// We don't want to change the indent column widht, so avoid it.
+					if ($column->getId() == 'indent') {
+						unset($columnsToModify[$key]);
+					}
+				}
+
+				// Calculate the value to remove from all columns.
+				$difference = $width - 100;
+				$columnsCount = count($columnsToModify);
+				$removeValue = round($difference/$columnsCount);
+				foreach ($columnsToModify as $column) {
+					$modifyColumn = $this->getColumn($column->getId());
+					if (end($columnsToModify) === $column) {
+						// Handle rounding problems.
+						$totalWidth = $width - ($removeValue * $columnsCount);
+						if ($totalWidth < 100) {
+							$removeValue -= 100 - $totalWidth;
+						}
+					} 
+
+					$modifyColumn->addFlag('width', $modifyColumn->getFlag('width') - $removeValue);
 				}
 			}
 		}

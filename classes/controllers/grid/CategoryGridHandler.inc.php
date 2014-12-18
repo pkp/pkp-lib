@@ -40,7 +40,7 @@ class CategoryGridHandler extends GridHandler {
 
 		import('lib.pkp.classes.controllers.grid.NullGridCellProvider');
 		$this->addColumn(new GridColumn('indent', null, null, null,
-			new NullGridCellProvider(), array('indent' => true)));
+			new NullGridCellProvider(), array('indent' => true, 'width' => 2)));
 	}
 
 

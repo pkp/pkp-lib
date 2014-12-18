@@ -13,6 +13,47 @@
 
 <locale name="de_DE" full_name="Deutsch (Deutschland)">
 	<!-- Group defaults -->
+	<message key="default.groups.name.siteAdmin">Website-Administrator/in</message>
+	<message key="default.groups.plural.siteAdmin">Website-Administrator/innen</message>
+	<message key="default.groups.name.productionEditor">Production editor</message>
+	<message key="default.groups.plural.productionEditor">Herstellungsleiter/in</message>
+	<message key="default.groups.abbrev.productionEditor">ProdE</message>
+	<message key="default.groups.name.copyeditor">Lektor/in</message>
+	<message key="default.groups.plural.copyeditor">Lektor/innen</message>
+	<message key="default.groups.abbrev.copyeditor">CE</message>
+	<message key="default.groups.name.proofreader">Korrektor/in</message>
+	<message key="default.groups.plural.proofreader">Korrektor/innen</message>
+	<message key="default.groups.abbrev.proofreader">PR</message>
+	<message key="default.groups.name.designer">Designer/in</message>
+	<message key="default.groups.plural.designer">Designer/innen</message>
+	<message key="default.groups.abbrev.designer">Design</message>
+	<message key="default.groups.name.internalReviewer">Interne/r Gutachter/in</message>
+	<message key="default.groups.plural.internalReviewer">Interne Gutachter/innen</message>
+	<message key="default.groups.abbrev.internalReviewer">IR</message>
+	<message key="default.groups.name.externalReviewer">Externe/r Gutachter/in</message>
+	<message key="default.groups.plural.externalReviewer">Externe Gutachter/innen</message>
+	<message key="default.groups.abbrev.externalReviewer">ER</message>
+	<message key="default.groups.name.marketing">Marketing- und Vertriebkoordinator/in</message>
+	<message key="default.groups.plural.marketing">Marketing- und Vertriebkoordinator/innen</message>
+	<message key="default.groups.abbrev.marketing">MS</message>
+	<message key="default.groups.name.funding">Finanzierungskoordinator/in</message>
+	<message key="default.groups.plural.funding">Finanzierungskoordinator/innen</message>
+	<message key="default.groups.abbrev.funding">FC</message>
+	<message key="default.groups.name.indexer">Indizierer/in</message>
+	<message key="default.groups.plural.indexer">Indizierer/innen</message>
+	<message key="default.groups.abbrev.indexer">IND</message>
+	<message key="default.groups.name.layoutEditor">Layout-Leiter/in</message>
+	<message key="default.groups.plural.layoutEditor">Layout-Leiter/innen</message>
+	<message key="default.groups.abbrev.layoutEditor">LE</message>
+	<message key="default.groups.name.author">Autor/in</message>
+	<message key="default.groups.plural.author">Autor/innen</message>
+	<message key="default.groups.abbrev.author">AU</message>
+	<message key="default.groups.name.translator">Übersetzer/in</message>
+	<message key="default.groups.plural.translator">Übersetzer/innen</message>
+	<message key="default.groups.abbrev.translator">Trans</message>
+	<message key="default.groups.name.reader">Leser/in</message>
+	<message key="default.groups.plural.reader">Leser/innen</message>
+	<message key="default.groups.abbrev.reader">Read</message>
 
 	<!--  common app genre defaults -->
 	<message key="default.genres.submission">Einreichung</message>

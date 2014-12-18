@@ -15,19 +15,28 @@
 	<!-- Common -->
 	<message key="grid.noItems">Keine Einträge</message>
 	<message key="grid.settings">Einstellungen</message>
+	<message key="grid.noAuditors">Kein/e Prüfer/in</message>
 
+	<message key="grid.action.manageAccess">Zugriff verwalten</message>
 	<message key="grid.action.sort">Sortieren</message>
 	<message key="grid.action.addItem">Eintrag hinzufügen</message>
 	<message key="grid.action.addUser">Benutzer/in hinzufügen</message>
+	<message key="grid.action.approveCopyedit">Approve this copyedit file for sending it to the next stage</message>
+	<message key="grid.action.reload">Neu laden</message>
 	<message key="grid.action.delete">Löschen</message>
 	<message key="grid.action.deleteFile">Datei löschen</message>
 	<message key="grid.action.deleteMedia">Medium löschen</message>
 	<message key="grid.action.editMedia">Medium bearbeiten</message>
+	<message key="grid.action.editSection">Rubrik bearbeiten</message>
+	<message key="grid.action.export">Exportieren</message>
+	<message key="grid.action.deleteSection">Rubrik löschen</message>
+	<message key="grid.action.editorialHistory">Redaktioneller Verlauf</message>
 	<message key="grid.action.remove">Entfernen</message>
 	<message key="grid.action.edit">Bearbeiten</message>
 	<message key="grid.action.approve">Akzeptieren</message>
 	<message key="grid.action.moreInformation">Mehr Informationen</message>
-	<message key="grid.action.restoreDefaults">Standard wiederherstellen</message>
+	<message key="grid.action.restoreDefaults">Standardeinstellungen wiederherstellen</message>
+	<message key="grid.action.restoreDefaults.confirm">Sind Sie sicher, dass Sie Standardeinstellungen wiederherstellen möchten?</message>
 	<message key="grid.action.addAuthor">Autor/in hinzufügen</message>
 	<message key="grid.action.editAuthor">Autor/in bearbeiten</message>
 	<message key="grid.action.deleteAuthor">Autor/in löschen</message>
@@ -80,6 +89,7 @@
 	<message key="grid.action.enrolExisting">Eine/n existierende Benutzer/in als Gutachter/in eintragen</message>
 	<message key="grid.action.selectCreate">Neue/n Gutachter/in anlegen</message>
 	<message key="grid.action.advancedSearch">Erweiterte Suche</message>
+	<message key="grid.action.viewLibrary">Dokumentbibliothek ansehen</message>
 	<message key="grid.action.viewMetadata">Die Metadaten zu dieser Einreichung ansehen</message>
 	<message key="grid.action.sendReminder">Dieser Benutzerin/diesem Benutzer eine Erinnerung an die Aufgabe senden</message>
 	<message key="grid.action.newRound">Eine neue Runde anlegen</message>
@@ -93,6 +103,11 @@
 	<message key="grid.action.unassignUser">Zuweisung an Benutzer/in zurücknehmen</message>
 	<message key="grid.action.history">Verlauf ansehen</message>
 	<message key="grid.action.unconsiderReview">Dieses Gutachten ist komplett, aber sie können es unberücksichtigt lassen.</message>
+	<message key="grid.action.enable">Einschalten</message>
+	<message key="grid.action.bookInfo">Submission Info</message>
+	<message key="grid.action.logInAs">Einloggen als</message>
+	<message key="grid.action.exportAllUsers">Alle Benutzer/innen exportieren</message>
+	<message key="grid.users.confirmExportAllUsers">Sind Sie sicher, dass Sie alle Benutzer/innen exportieren möchten?</message>
 	
 	<!--  grid task status -->
 	<message key="grid.task.status.completed">Diese Aufgabe ist erledigt.</message>
@@ -158,6 +173,7 @@
 	<message key="author.users.contributor.email">E-Mail</message>
 	<message key="author.users.contributor.role">Rolle</message>
 	<message key="author.users.contributor.principalContact">Hauptkontakt</message>
+	<message key="author.users.contributor.includeInBrowse">In Browse Lists</message>
 
 	<!-- Rollen -->
 	<message key="grid.roles.currentRoles">Aktuelle Rollen</message>
@@ -168,6 +184,7 @@
 	<message key="grid.user.currentUsers">Aktuelle Benutzer/innen</message>
 	<message key="grid.user.currentEnrollment">Aktuelle Registrierung</message>
 	<message key="grid.user.allRoles">Alle Rollen</message>
+	<message key="grid.user.allPermissionLevels">All Permission Levels</message>
 	<message key="grid.user.add">Benutzer/in hinzufügen</message>
 	<message key="grid.user.enroll">Benutzer/in eintragen</message>
 	<message key="grid.user.edit">Benutzer/in bearbeiten</message>
@@ -196,8 +213,19 @@
 	<message key="grid.user.step1">Schritt #1: Benutzer/innen-Details ausfüllen</message>
 	<message key="grid.user.step2">Schritt #2: Rollen hinzufügen für Benutzer/in {$userFullName}</message>
 	<message key="grid.user.addRoles">Rollen hinzufügen</message>
+	<message key="grid.user.addRole">Rolle hinzufügen</message>
 	<message key="grid.user.selectUser">Benutzer/in auswählen</message>
 	<message key="grid.user.pleaseSelectUser">Bitte wählen Sie eine/n Benutzer/in aus.</message>
+	<message key="grid.user.confirmLogInAs">Log in as this user? All actions you perform will be attributed to this user.</message>
+	<message key="grid.user.mergeUsers">Benutzer/innen zusammenführen</message>
+	<message key="grid.user.mergeUsers.mergeUser">Benutzer/in zusammenführen</message>
+	<message key="grid.user.mergeUsers.mergeIntoUser">Merge into this User</message>
+	<message key="grid.user.mergeUsers.into.description">Wählen Sie jetzt ein Benutzer/innen-Konto, dem die Autor/innenschaft, die Aufgaben usw. der/des vorherigen Benutzer/in zugeschrieben werden sollen.</message>
+	<message key="grid.user.mergeUsers.from.description">Wählen Sie eine/n Benutzer/in aus, deren/dessen Daten in einem anderen Konto zusammengeführt werden sollen (wenn jemand z.B. zwei Konten hat). Das zuerst ausgewählte Konto wird gelöscht, seine Beiträge, Aufgaben usw. werden dem zweiten Konto zugeschrieben.</message>
+	<message key="grid.user.mergeUsers.allUsers">Alle eingetragenen Benutzer/innen</message>
+	<message key="grid.user.mergeUsers.mergeUserSelect.confirm">Are you sure you wish to merge this user with another one?  You will choose the next user on the following screen.</message>
+	<message key="grid.user.mergeUsers.confirm">Sind Sie sicher, dass Sie das Konto mit dem Benutzer/innen-Namen {$oldUsername} in dem Konto mit dem Benutzer/innen-Namen "{$newUsername}" aufgehen lassen wollen? Das Konto mit dem Benutzer/innen-Namen {$oldUsername} wird dann nicht mehr existieren. Der Vorgang kann nicht rückgängig gemacht werden.</message>
+	<message key="grid.user.mergeUsers.noneEnrolled">Es existiert kein/e Benutzer/in mit dieser Rolle.</message>
 	
 	<!-- Prepared emails -->
 	<message key="grid.preparedEmails.title">Vorbereitete E-Mail-Vorlagen</message>
@@ -208,4 +236,27 @@
 	<message key="grid.plugin.allCategories">Alle Kategorien</message>
 	<message key="grid.plugin.disable">Sind Sie sicher, dass Sie dieses Plug-In deaktivieren wollen?</message>
 
+	<!-- signoffs -->
+	<message key="grid.action.viewSignoffNotes">View signoff notes</message>
+	<message key="grid.action.fileUnconsider">Proofing corrections made. You may unconsider this task</message>
+
+	<!-- Artwork Files Grid -->
+	<message key="grid.artworkFile.caption">Caption</message>
+	<message key="grid.artworkFile.credit">Credit</message>
+	<message key="grid.artworkFile.copyrightOwner">Copyright Owner</message>
+	<message key="grid.artworkFile.copyrightContact">Contact Info (if not author/publisher)</message>
+	<message key="grid.artworkFile.permissionTerms">Permission Terms</message>
+	<message key="grid.artworkFile.placement">Placement in submission</message>
+	
+	<!-- User Group Grid -->
+	<message key="grid.userGroup.assignStage">Assign stage</message>
+	<message key="grid.userGroup.unassignStage">Unassign stage</message>
+	<message key="grid.userGroup.allStages">All Workflow Stages</message>
+	<message key="grid.userGroup.filter.listRoles">List roles assigned to</message>
+	<message key="grid.userGroup.filter.permissionLevel">With permission level set to</message>
+	<message key="grid.userGroup.cantRemoveDefaultUserGroup">The role {$userGroupName} is a default one and can't be removed.</message>
+	<message key="grid.userGroup.cantRemoveUserGroup">Can't remove {$userGroupName} role. Currently {$usersCount} user(s) is/are assigned to it.</message>
+	<message key="grid.userGroup.removed">{$userGroupName} role removed.</message>
+	<message key="grid.userGroup.assignedStage">{$userGroupName} role assigned to {$stageName} stage.</message>
+	<message key="grid.userGroup.unassignedStage">{$userGroupName} role unassigned from {$stageName} stage.</message>
 </locale>

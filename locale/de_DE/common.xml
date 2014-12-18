@@ -4,7 +4,7 @@
 <!--
   * locale/de_DE/common.xml
   *
-  * Copyright (c) 2014 Simon Fraser University Library
+  * Copyright (c) 2013-2014 Simon Fraser University Library
   * Copyright (c) 2000-2014 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Localization strings for the de_DE (Deutsch (Deutschland)) locale.
@@ -12,6 +12,10 @@
   -->
 
 <locale name="de_DE" full_name = "Deutsch (Deutschland)">
+	<message key="common.publicKnowledgeProject">Public Knowledge Project</message>
+	<message key="common.currentStyleSheet">Aktuelle Formatvorlage</message>
+	<message key="about.description">Beschreibung</message>
+	<message key="about.guidelines">Richtlinien</message>
 	<message key="about.aboutSite">Über uns</message>
 	<message key="about.contact">Kontakt</message>
 	<message key="about.contact.email">E-Mail</message>
@@ -31,6 +35,13 @@
 	<message key="announcement.postedOn">Veröffentlicht am {$postDate}</message>
 	<message key="announcement.viewLink">Weiter…</message>
 	<message key="announcement.view">Mitteilungen ansehen</message>
+	<message key="common.navigation">Navigation</message>
+	<message key="common.tasks">Aufgaben</message>
+	<message key="common.list">Liste</message>
+	<message key="common.grid">Grid</message>
+	<message key="common.takeMeThere">Bring mich dahin</message>
+	<message key="common.confirmDelete">Sind Sie sicher, dass Sie diesen Eintrag löschen wollen? Der Vorgang kann nicht rückgängig gemacht werden.</message>
+	<message key="common.abstract">Zusammenfassung</message>
 	<message key="common.accepted">Akzeptiert</message>
 	<message key="common.acknowledged">Bestätigt</message>
 	<message key="common.action">Aktion</message>
@@ -38,6 +49,7 @@
 	<message key="common.active">Aktiv</message>
 	<message key="common.add">Hinzufügen</message>
 	<message key="common.addSelf">Sich selbst hinzufügen</message>
+	<message key="common.name">Name</message>
 	<message key="common.all">Alle(s)</message>
 	<message key="common.alphaList">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</message>
 	<message key="common.titleSmallWords">von ein eine einer eines der die das und oder weder aber ist wenn als dann sonst durch in aus über zu zum zur mit</message>
@@ -48,11 +60,13 @@
 	<message key="common.applyAction">Anwenden</message>
 	<message key="common.assign">Zuweisen</message>
 	<message key="common.assigned">Zugewiesen</message>
+	<message key="common.available">Verfügbar</message>
 	<message key="common.back">Zurück</message>
 	<message key="common.between">zwischen</message>
 	<message key="common.cancel">Abbrechen</message>
 	<message key="common.cancelled">Abgebrochen</message>
 	<message key="common.warning">Warnung</message>
+	<message key="common.error">Fehler</message>
 	<message key="common.captchaField.altText">Bild zur Überprüfung</message>
 	<message key="common.captchaField.badCaptcha">Die Zeichen, die Sie eingegeben haben, entsprechen nicht den Zeichen im Bild. Bitte überprüfen Sie Ihre Eingabe und versuchen Sie es erneut.</message>
 	<message key="common.captchaField.description">Geben Sie bitte die Zeichen so ein, wie Sie in der obigen Grafik erscheinen.</message>
@@ -81,6 +95,7 @@
 	<message key="common.completed">Beendet</message>
 	<message key="common.confirm">Bestätigen</message>
 	<message key="common.content">Inhalt</message>
+	<message key="common.contents">Inhalte</message>
 	<message key="common.considered">Zugestimmt</message>
 	<message key="common.continue">Fortfahren</message>
 	<message key="common.copy">Kopieren</message>
@@ -92,13 +107,17 @@
 	<message key="common.dateRequested">Angefordert am</message>
 	<message key="common.dateSubmitted">Eingegangen am</message>
 	<message key="common.dateUploaded">Hochgeladen am</message>
+	<message key="common.dateHijri">Hidschra-Kalender</message>
 	<message key="common.day">Tag</message>
 	<message key="common.deactivate">Deaktivieren</message>
 	<message key="common.default">Standard</message>
 	<message key="common.declined">Abgelehnt</message>
 	<message key="common.delete">Löschen</message>
 	<message key="common.deleteSelection">Auswahl löschen</message>
+	<message key="common.designation">Bezeichnung</message>
 	<message key="common.description">Beschreibung</message>
+	<message key="common.dimensionsInches"><![CDATA[{$width}"&nbsp;x&nbsp;{$height}" @ {$dpi} DPI/PPI]]></message>
+	<message key="common.dimensionsPixels">{$width} x {$height} Pixel</message>
 	<message key="common.disable">Ausschalten</message>
 	<message key="common.disabled">Deaktiviert</message>
 	<message key="common.discipline">Disziplin</message>
@@ -120,6 +139,7 @@
 	<message key="common.fileName">Dateiname</message>
 	<message key="common.fileSize">Dateigröße</message>
 	<message key="common.fileType">Dateityp</message>
+	<message key="common.fileUploaderError">Der Dateiuploader des Systems wird gestartet. Wenn er nicht erschient, liegt dies vermutlich daran, dass seine Laufzeiten nicht von diesem Browser unterstützt werden. Bitte kontaktieren Sie die Administrator/innen.</message>
 	<message key="common.go">Los</message>
 	<message key="common.height">Höhe</message>
 	<message key="common.homePageHeaderLogo.altText">Logo in der Kopfzeile der Startseite</message>
@@ -128,6 +148,7 @@
 	<message key="common.import">Importieren</message>
 	<message key="common.initiate">Beginnen</message>
 	<message key="common.inProgress">In Arbeit</message>
+	<message key="common.itemsPerPage">Einträge pro Seite</message>
 	<message key="common.keywords">Schlagworte</message>
 	<message key="common.language">Sprache</message>
 	<message key="common.languages">Sprachen</message>
@@ -148,6 +169,7 @@
 	<message key="common.notAvailable">Nicht bekannt</message>
 	<message key="common.note">Anmerkung</message>
 	<message key="common.notes">Anmerkungen</message>
+	<message key="common.notes.tooltip">Anmerkungen (gelb: neue; blau: gesehene; grau: keine)</message>
 	<message key="common.notified">Benachrichtigt</message>
 	<message key="common.noMatches">Keine Treffer</message>
 	<message key="common.off">Aus</message>
@@ -161,10 +183,14 @@
 	<message key="common.overdue">Verspätet</message>
 	<message key="common.pageHeaderLogo.altText">Logo in der Kopfzeile</message>
 	<message key="common.plugin">Plug-In</message>
-	<message key="common.pluginDisabled">Das Plug-In "{$pluginName}" ist deaktiviert worden.</message>
 	<message key="common.pluginEnabled">Das Plug-In "{$pluginName}" ist aktiviert worden.</message>
+	<message key="common.pluginDisabled">Das Plug-In "{$pluginName}" ist deaktiviert worden.</message>
+	<message key="common.prefix">Präfix</message>
+	<message key="common.prefixAndTitle.tip">Wenn der Buchtitel mit "Ein(e)" oder "Die" (oder etwas ähnlichem in Bezug auf alphabetische Sortierung) beginnt, geben Sie dieses Wort bei Präfix ein.</message>
+	<message key="common.subtitle.tip">Der optionale Untertitel erscheint nach dem Doppelpunkt (:), nach dem Titel.</message>
 	<message key="common.preview">Vorschau</message>
 	<message key="common.publisher">Verlag, Organisation</message>
+	<message key="common.quality">Qualität</message>
 	<message key="common.re">Re:</message>
 	<message key="common.record">Protokollieren</message>
 	<message key="common.refresh">Aktualisieren</message>
@@ -177,8 +203,8 @@
 	<message key="common.replaced">Ersetzt</message>
 	<message key="common.replaceFile">Datei ersetzen</message>
 	<message key="common.requiredField">Mit * gekennzeichnete Eingabefelder sind Pflichtfelder.</message>
-	<message key="common.reset">Zurücksetzen</message>
 	<message key="common.required">Erforderlich</message>
+	<message key="common.reset">Zurücksetzen</message>
 	<message key="common.saveAndContinue">Speichern und fortfahren</message>
 	<message key="common.saveAndEmail">Speichern und versenden</message>
 	<message key="common.save">Speichern</message>
@@ -187,11 +213,15 @@
 	<message key="common.selectAll">Alle auswählen</message>
 	<message key="common.selectNone">Auswahl aufheben</message>
 	<message key="common.select">Auswählen</message>
+	<message key="common.sendEmail">E-Mail senden</message>
 	<message key="common.signoff">Abschließen</message>
 	<message key="common.size">Größe</message>
 	<message key="common.source">Quelle</message>
 	<message key="common.status">Status</message>
+	<message key="common.startTyping">Eingabe beginnen</message>
 	<message key="common.subject">Gegenstand</message>
+	<message key="common.subjects">Gegenstände</message>
+	<message key="common.subtitle">Untertitel</message>
 	<message key="common.suggest">Vorschlagen</message>
 	<message key="common.title">Titel</message>
 	<message key="common.top">Zum Seitenanfang</message>
@@ -207,6 +237,8 @@
 	<message key="common.uploadFailed">Die Datei konnte nicht hochgeladen werden. Bitte probieren Sie es erneut oder benachrichtigen Sie den/die Administrator/in, wenn das Problem weiter besteht.</message>
 	<message key="common.fileUpload.maxFileSizeStatus"><![CDATA[Dieser Server erlaubt beim Hochladen von Dateien eine maximale Dateigröße von {$fileSize}.  Wenn Sie Unterstützung benötigen, wenden Sie sich bitte an <a href="mailto:{$supportEmail}">{$supportName}</a>.]]></message>
 	<message key="common.invalidFileType">Keine Datei hochgeladen oder ungültiger Dateityp!</message>
+	<message key="common.pageHeader.altText">Kopfzeile</message>
+	<message key="common.homepageImage.altText">Bild auf der Startseite</message>
 	<message key="common.up">Aufwärts</message>
 	<message key="common.url">URL</message>
 	<message key="common.user">Benutzer/in</message>
@@ -217,6 +249,8 @@
 	<message key="common.yes">Ja</message>
 	<message key="common.loading">Laden …</message>
 	<message key="common.plugins">Plug-Ins</message>
+	<message key="common.metric">Metrik</message>
+	<message key="common.count">Anzahl</message>
 	<message key="debug.databaseQueries">Anzahl der Datenbankanfragen</message>
 	<message key="debug.executionTime">Seite erstellt am</message>
 	<message key="debug.memoryUsage">Speicherbelegung:</message>
@@ -224,6 +258,10 @@
 	<message key="debug.notes.localeLoad">Regionaleinstellung "{$localeFile}" aus XML geladen</message>
 	<message key="debug.notes.missingLocaleKey">Regionaleinstellungsschlüssel "{$key}" fehlt.</message>
 	<message key="debug.notes">Anmerkungen:</message>
+	<message key="defaultMetric.title">Standard-Metrik</message>
+	<message key="defaultMetric.availableMetrics">Verfügbare Metriken</message>
+	<message key="editor.submissionReview.uploadFile">Begutachtungsdatei hochladen</message>
+	<message key="editor.submissionReview.uploadAttachment">Datei hochladen</message>
 	<message key="email.addAttachment">Anlage hinzufügen</message>
 	<message key="email.addBccRecipient">Blindkopieempfänger/in hinzufügen</message>
 	<message key="email.addCcRecipient">Kopieempfänger/in hinzufügen</message>
@@ -239,7 +277,7 @@
 	<message key="email.email">E-Mail</message>
 	<message key="email.from">Von</message>
 	<message key="email.invalid">Die E-Mail-Adresse {$email} ist ungültig.</message>
-	<message key="email.multipart">Dies ist eine mehrteilige Nachricht im Format MIME.</message>
+	<message key="email.multipart">Dies ist eine mehrteilige Nachricht im MIME-Format.</message>
 	<message key="email.recipient">Empfänger/in</message>
 	<message key="email.recipients">Empfänger/innen</message>
 	<message key="email.sender">Absender/in</message>
@@ -251,8 +289,8 @@
 	<message key="email.to">An</message>
 	<message key="form.confirmSubmit">Sind Sie sicher, dass Sie dieses Formular übermitteln möchten?</message>
 	<message key="form.confirmSubmit.title">Bestätigen</message>
-	<message key="form.dataHasChanged">Die Daten in diesem Formular haben sich geändert. Trotzdem fortfahren?</message>
 	<message key="form.emailRequired">Eine E-Mail-Adresse wird benötigt.</message>
+	<message key="form.dataHasChanged">Die Daten in diesem Formular haben sich geändert. Trotzdem fortfahren?</message>
 	<message key="form.errorsOccurred">Es sind Fehler bei der Bearbeitung des Formulars aufgetreten.</message>
 	<message key="form.formLanguage.description">Um die unten stehenden Angaben in einer weiteren Sprache einzugeben, wählen Sie bitte zunächst die gewünschte Sprache aus.</message>
 	<message key="form.formLanguage">Formularsprache</message>
@@ -260,6 +298,7 @@
 	<message key="form.is">ist</message>
 	<message key="form.startsWith">beginnt mit</message>
 	<message key="form.postRequired">Das Formular wurde nicht ordnungsgemäß ausgefüllt.</message>
+	<message key="form.fileRequired">Dateiupload ist erforderlich.</message>
 	<message key="form.required">Mit * gekennzeichnete Angaben sind Pflichtangaben.</message>
 	<message key="form.resubmit">Erneut abschicken</message>
 	<message key="form.saveToUpload">Verwenden Sie Speichern zum Hochladen der Datei.</message>
@@ -293,11 +332,39 @@
 	<message key="icon.mail.alt">E-Mail</message>
 	<message key="icon.unchecked.alt">Nicht auswählen</message>
 	<message key="icon.view.alt">Anzeigen</message>
+
+	<!-- Information Center -->
+	<message key="informationCenter.informationCenter">Information Center</message>
+	<message key="informationCenter.editorialHistory">Redaktionsverlauf</message>
+	<message key="informationCenter.composeNote">Anmerkung verfassen</message>
+	<message key="informationCenter.addFileNote">Der Datei hinzufügen</message>
+	<message key="informationCenter.addSubmissionNote">Der Einreichung hinzufügen</message>
+	<message key="informationCenter.noNotes">Es gibt keine anzuzeigenden Anmerkungen.</message>
+	<message key="informationCenter.currentNotes">Aktuelle Anmerkungen</message>
+	<message key="informationCenter.pastNotes">Frühere Anmerkungen</message>
+	<message key="informationCenter.lastUpdated">Zuletzt aktualisiert</message>
+	<message key="informationCenter.deleteConfirm">Sind Sie sicher, dass Sie diese Anmerkung löschen wollen?</message>
+	<message key="informationCenter.currentHistory">Aktuelle Version</message>
+	<message key="informationCenter.pastHistory">Frühere Versionen</message>
+	<message key="informationCenter.history.noItems">Es gibt keine protokollierten Ereignisse.</message>
+	<message key="informationCenter.history.notePosted">Neue Anmerkung veröffentlicht.</message>
+	<message key="informationCenter.history.messageSent">Benachrichtung an Nutzer/innen geschickt.</message>
+
+	<!-- Stage Participants -->
+	<message key="stageParticipants.history.messageSent">Benachrichtung an Nutzer/innen geschickt.</message>
+	<message key="stageParticipants.notify.chooseMessage">Bitte wählen Sie eine vordefinierte Nachricht aus oder füllen Sie das Formular unten aus.</message>
+	<message key="stageParticipants.notify.message">Nachricht</message>
+	<message key="stageParticipants.notify.warning">Bitte stellen Sie sicher, dass Sie das Nachrichtenfeld ausgefüllt und mindestens eine/n Empfänger/in ausgewählt haben.</message>
+
 	<message key="locale.primary">Primäre Regionaleinstellung</message>
 	<message key="locale.supported">Unterstützte Regionaleinstellungen</message>
 	<message key="navigation.access"><![CDATA[Benutzer/innen &amp; Rollen]]></message>
 	<message key="navigation.about">Über uns</message>
 	<message key="navigation.admin">Verwaltung</message>
+	<message key="navigation.admin">Administration</message>
+	<message key="navigation.tools">Werkzeuge</message>
+	<message key="navigation.tools.importExport">Import/Export</message>
+	<message key="navigation.tools.statistics">Statistiken</message>
 	<message key="navigation.browse">Durchblättern</message>
 	<message key="navigation.browseByAuthor">Nach Autor/in</message>
 	<message key="navigation.browseByTitle">Nach Titel</message>
@@ -324,58 +391,123 @@
 	<message key="navigation.userHome">Persönliche Startseite</message>
 	<message key="navigation.user">Benutzer/in</message>
 	<message key="navigation.userManagement">Nutzer/innenverwaltung</message>
+	<message key="notification.addedAuditor">Prüfer/in hinzugefügt.</message>
+	<message key="notification.removedAuditor">Prüfer/in entfernt.</message>
+	<message key="notification.reviewAcknowledged">Begutachtung als bestätigt markiert. E-Mail nicht gesendet.</message>
+	<message key="notification.updatedReviewFiles">Begutachtungsdateien hochgeladen.</message>
+	<message key="notification.allow">Diese Arten von Benachrichtigungen dürfen in meinem Benachrichtigungs-Feed erscheinen.</message>
+	<message key="notification.addedAnnouncementType">Mitteilungstyp hinzugefügt.</message>
+	<message key="notification.editedAnnouncementType">Mitteilungstyp bearbeitet.</message>
+	<message key="notification.removedAnnouncementType">Mitteilungstyp gelöscht.</message>
+	<message key="notification.addedAnnouncement">Mitteilung hinzugefügt.</message>
+	<message key="notification.editedAnnouncement">Mitteilung bearbeitet.</message>
+	<message key="notification.removedAnnouncement">Mitteilung gelöscht.</message>
+	<message key="notification.addedAuthor">Autor/in hinzugefügt.</message>
+	<message key="notification.editedAuthor">Autor/in bearbeitet.</message>
 	<message key="notification.confirmError">Es gab einen Fehler beim Bestätigen Ihrer Registrierung.</message>
 	<message key="notification.confirmSuccess">Sie haben sich erfolreich registriert.</message>
-	<message key="notification.location">Gehe zu URL</message>
-	<message key="notification.mailList.emailInvalid">Bitte geben Sie eine gültige E-Mail-Adresse ein.</message>
-	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Beitrag einreichen</a>]]></message>
-	<message key="notification.notificationsNew">({$numNew} neu)</message>
-	<message key="notification.subscribe">Registrieren</message>
-	<message key="notification.subscribeSuccess">An die angegebene E-Mail-Adresse wurde eine Mail geschickt. Klicken Sie bitte auf den Bestätigungs-Link, damit Ihre Adresse zur Mailingliste hinzugefügt wird.</message>
-	<message key="notification.reminderSent">Ihr neues Passwort wurde an die angegebene E-Mail-Adresse geschickt</message>
-	<message key="notification.allow">Diese Arten von Benachrichtigungen dürfen in meinem Benachrichtigungs-Feed erscheinen.</message>
 	<message key="notification.email">Bitte eine E-Mail über diese Arten von Benachrichtigungen zuschicken.</message>
+	<message key="notification.location">Gehe zu URL</message>
 	<message key="notification.mailList">Benachrichtigungs-Mailingliste</message>
-	<message key="notification.mailList.privacyProtection">Verfahren zum Schutz persönlicher Daten</message>
+	<message key="notification.mailList.emailInvalid">Bitte geben Sie eine gültige E-Mail-Adresse ein.</message>
+	<message key="notification.mailList.privacyProtection">Schutz persönlicher Daten</message>
 	<message key="notification.mailList.protectedContent"><![CDATA[Geschützten Inhalt <a href="{$subscribeUrl}">abonnieren</a>.]]></message>
+	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Beitrag einreichen</a>]]></message>
 	<message key="notification.mailList.register">Sie können sich hier registrieren für ...</message>
 	<message key="notification.mailList.review"><![CDATA[Nehmen Sie am <a href="{$reviewUrl}">Begutachtungsprozess</a> teil]]></message>
 	<message key="notification.noneExist">Sie haben zurzeit keine Benachrichtungen.</message>
-	<message key="notification.notification">Benachrichtung</message>
-	<message key="notification.notifications">Benachrichtungen</message>
+	<message key="notification.addedNote">Anmerkung veröffentlicht.</message>
+	<message key="notification.removedNote">Anmerkung gelöscht.</message>
+	<message key="notification.removedFile">Datei entfernt.</message>
+	<message key="notification.notification">Benachrichtigung</message>
+	<message key="notification.notifications">Benachrichtigungen</message>
+	<message key="notification.notificationsNew">({$numNew} neu)</message>
 	<message key="notification.notificationsDescription"><![CDATA[Sie haben {$unreadCount} ungelesene und {$readCount} gelesene Benachrichtungen.  <a href="{$settingsUrl}">Klicken Sie hier</a>, um Ihre Benachrichtungseinstellungen zu verändern.]]></message>
-	<message key="notification.settings">Benachrichtungseinstellungen</message>
+	<message key="notification.sentNotification">Benachrichtigung gesendet.</message>
+	<message key="notification.settings">Benachrichtigungseinstellungen</message>
 	<message key="notification.settingsDescription">Wählen Sie die System-Ereignisse aus, über die Sie benachrichtigt werden wollen. Nicht gewählte Elemente führen dazu, dass die jeweiligen Ereignisse nicht in Ihrem Benachrichtigungs-Feed angezeigt werden.</message>
+	<message key="notification.subscribe">Registrieren</message>
 	<message key="notification.subscribeError">Ihre Mailadresse ist für die Benachrichtigungen bereits registriert.</message>
+	<message key="notification.subscribeSuccess">An die angegebene E-Mail-Adresse wurde eine Mail geschickt. Klicken Sie bitte auf den Bestätigungs-Link, damit Ihre Adresse zur Mailingliste hinzugefügt wird.</message>
 	<message key="notification.reminderError">Das Zusenden des Passworts verursachte einen Fehler; stellen Sie bitte sicher, dass Sie die E-Mail-Adresse richtig eingegeben haben.</message>
+	<message key="notification.reminderSent">Ihr neues Passwort wurde an die angegebene E-Mail-Adresse geschickt</message>
 	<message key="notification.unsubscribe">Austragen</message>
 	<message key="notification.unsubscribeError">Beim Versuch, Sie auzutragen, ist ein Fehler aufgetreten. Bitte stellen Sie sicher, dass Sie die richtige URL wie in Ihrer Benachrichtigungs-E-Mail angegeben benutzen.</message>
 	<message key="notification.unsubscribeSuccess">Sie wurden erfolgreich ausgetragen.</message>
+	<message key="notification.savedSubmissionMetadata">Metadaten gespeichert.</message>
 	<message key="search.abstract">Abstract</message>
+	<message key="search.activeFilters">Erweiterte Filter</message>
+	<message key="search.advancedSearchMore">Zusätzliche Suchoptionen (klicken zum Einblenden)</message>
+	<message key="search.advancedSearchLess">Zusätzliche Suchoptionen (klicken zum Verbergen)</message>
 	<message key="search.allFields">Alle</message>
+	<message key="search.cli.rebuildIndex.clearingIndex">Index löschen</message>
+	<message key="search.cli.rebuildIndex.done">erledigt</message>
+	<message key="search.cli.rebuildIndex.error">Fehler</message>
+	<message key="search.cli.rebuildIndex.indexing">Indiziere "{$journalName}"</message>
+	<message key="search.cli.rebuildIndex.indexingByJournalNotSupported">Diese Implementierung der Suche erlaubt keine Neuindizierung auf Zeitschriftenebene.</message>
+	<message key="search.cli.rebuildIndex.result">{$numIndexed} Artikel indiziert</message>
+	<message key="search.cli.rebuildIndex.unknownJournal">Der angegebene Pfad "{$journalPath}" führt nicht zu einer Zeitschrift.</message>
 	<message key="search.coverage">Bereich</message>
-	<message key="search.date">Datum</message>
+	<message key="search.date">Publikationsdatum</message>
 	<message key="search.dateFrom">von</message>
 	<message key="search.dateTo">bis</message>
+	<message key="search.deleteFilter">Löschen</message>
 	<message key="search.discipline">Fachgebiet(e)</message>
 	<message key="search.fullText">Volltext</message>
 	<message key="search.indexTerms">Schlagworte</message>
+	<message key="search.indexTermsLong">Alle Indexfelder</message>
 	<message key="search.matchAll">In allen Kategorien übereinstimmen</message>
 	<message key="search.noKeywordError">Geben Sie mindestens einen Suchbegriff ein.</message>
 	<message key="search.noResults">Kein Ergebnis</message>
 	<message key="search.operator.and">UND</message>
 	<message key="search.operator.not">NICHT</message>
 	<message key="search.operator.or">ODER</message>
-	<message key="search.reviseSearch">Suche bearbeiten</message>
-	<message key="search.searchAllCategories">Alle Kategorien durchsuchen nach</message>
+	<message key="search.searchAllCategories">Suchen nach</message>
 	<message key="search.searchCategories">Suchkategorien</message>
-	<message key="search.searchResults"> Ergebnis der Suche</message>
+	<message key="search.searchResults">Ergebnis der Suche</message>
 	<message key="search.subject">Thema</message>
 	<message key="search.titleIndex">Titelverzeichnis durchsuchen</message>
 	<message key="search.title">Titel</message>
 	<message key="search.typeMethodApproach">Forschungsansatz, -methode und -verfahren</message>
-	
+
 	<!-- Common -->
+	<message key="grid.action.toggleHelp">Anzeige der internen Hilfe umschalten</message>
 	<message key="grid.action.downloadFile">Diese Datei herunterladen</message>
-	
+
+	<message key="context.path">Zugangspfad</message>
+	<message key="review.ensuringBlindReview">Eine anonyme Begutachtung sicherstellen</message>
+	<message key="grid.action.showReviewPolicy">Lesen Sie aktuelle Begutachtungsgrundsätze</message>
+
+	<message key="dashboard.tasks">Aufgaben</message>
+	<message key="dashboard.submissions">Beiträge</message>
+
+	<message key="review.blindPeerReview">
+		<![CDATA[<p>Um die Integrität des Blind Peer Review sicherzustellen, sollte bei Einreichungen gewährleistet werden, dass die Identitäten von Autor/innen und Gutachter/innen voreinander zu verbergen. Autor/innen, Redakteur/innen und Gutachter/innen (die Dokumente im Rahmen ihrer Begutachtung hochladen) sollten die Einhaltung der folgenden Schritte in Bezug auf den jeweiligen Text und die Dateieigenschaften erledigt worden sind:</p>
+			<ul><li>Die Autor/innen des Dokuments haben ihre Namen aus dem Text entfernt und haben "Autor/in" und das Jahr in Zitaten und Fußnoten verwendet an Stelle von Autor/innennamen, Artikeltitel etc.</li>
+			<li>In Microsoft-Word-Dokumenten sollten die Informationen, die Autor/innen identifizieren könnten, aus den Dokumenteigenschaften der Datei (im Menü "Datei" in Word) entfernt werden. Dazu klicken Sie, beginnend mit dem Punkt "Datei" im Hauptmenü der Microsoft-Anwendungen: Datei &gt; Speichern unter &gt; Einstellungen (oder Optionen bei einem Mac) &gt; Sicherheit &gt; Persönliche Informationen aus den Dateieigenschaften beim Speichern entfernen &gt; Speichern.</li>
+			<li>In PDF-Dateien sollten die Autor/innennamen aus den Dokumenteigenschaften, die unter "Datei" im Hauptmenü von Adobe Acrobat gefunden werden können, entfernt werden.</li>
+		</ul>]]>
+	</message>
+	<message key="reviewer.submission.reviewSchedule">Zeitplan der Begutachtung</message>
+	<message key="reviewer.submission.reviewRequestDate">Anfrage der Redakteurin/des Redakteurs</message>
+	<message key="reviewer.submission.responseDueDate">Antwort fällig am</message>
+	<message key="reviewer.submission.reviewDueDate">Gutachten fällig am</message>
+	<message key="submission.task.responseDueDate">Antwort fällig am</message>
+	<message key="navigation.goBack">Zurück</message>
+
+	<message key="notification.addedReviewer">Gutachter/in hinzugefügt.</message>
+	<message key="notification.removedReviewer">Gutachter/in entfernt.</message>
+	<message key="notification.addedStageParticipant">Benutzer/in als Teilnehmer/in dieser Phase hinzugefügt.</message>
+	<message key="notification.type.reviewAssignment">Sie haben ein ausstehendes Gutachten.</message>
+	<message key="notification.type.auditorRequest">Sie sind gebeten worden, die Datei "{$file}" zu prüfen.</message>
+	<message key="notification.type.allReviewsIn">Alle Gutachten liegen vor, und eine Entscheidung wird in Phase {$stage} benötigt.</message>
+	<message key="notification.type.allRevisionsIn">Eine überarbeitete Datei ist hochgeladen worden und muss von Ihnen in Phase {$stage} akzeptiert werden.</message>
+	<message key="notification.type.pendingRevisions">Sie sollen Überarbeitungen in Phase {$stage} akzeptieren.</message>
+	<message key="notification.type.pendingRevisions.title">Überarbeitungen zu Phase {$stage} hinzugefügt.</message>
+	<message key="notification.signedFile">Datei akzeptiert.</message>
+	<message key="user.authorization.submissionFile">Der/die aktuelle Nutzer/in ist nicht berechtigt, auf die angegebene eingereichte Datei zuzugreifen.</message>
+	<message key="user.authorization.invalidSubmission">Ungültige Einreichung.</message>
+	<message key="navigation.archives">Archiv</message>
+	<message key="user.authorization.authorRoleMissing">Sie verfügen nicht über ausreichende Rechte, um die Einreichung anzusehen. Bitte überarbeiten Sie Ihr Profil, um zu gewährleisten, dass Sie für die entsprechenden Rollen registriert sind.</message>
+	<message key="user.authorization.submissionAuthor">Der/die aktuelle Nutzer/in ist nicht Autor/in der entsprechenden Einreichung. Bitte stellen Sie sicher, dass Sie mit dem richtigen Benutzer/innenkonto angemeldet sind.</message>
 </locale>

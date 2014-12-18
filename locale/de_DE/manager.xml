@@ -12,6 +12,11 @@
   -->
 
 <locale name="de_DE" full_name = "Deutsch (Deutschland)">
+	<!-- Website settings -->
+	<message key="manager.website.information">Information</message>
+	<message key="manager.website.appearance">Aussehen</message>
+	<message key="manager.website.imageFileRequired">Eine Bilddatei wird benötigt. Bitte stellen Sie sicher, dass Sie eine Datei ausgewählt und hochgeladen haben.</message>
+
 	<message key="manager.announcements">Mitteilungen</message>
 	<message key="manager.announcements.confirmDelete">Sind Sie sicher dass Sie diese Mitteilung endgültig löschen möchten?</message>
 	<message key="manager.announcements.create">Neue Mitteilung erstellen</message>
@@ -52,6 +57,14 @@
 	<message key="manager.announcementTypes.form.typeNameRequired">Ein Name für den Mitteilungstyp ist erforderlich.</message>
 	<message key="manager.announcementTypes.noneCreated">Es wurde kein Mitteilungstyp erstellt.</message>
 	<message key="manager.announcementTypes.typeName">Mitteilungstyp</message>
+
+	<!-- Publication Process settings -->
+	<message key="manager.publication.submissionStage">Einreichung</message>
+	<message key="manager.publication.reviewStage">Begutachtung</message>
+	<message key="manager.publication.editorialStage">Redaktionsphase</message>
+	<message key="manager.publication.productionStage">Herstellung</message>
+	<message key="manager.publication.emails">E-Mails</message>
+	<message key="manager.publication.libraryDescription"><![CDATA[Diese Dateien sind vorbereitet worden als Vorlagen und Handreichungen als Teil der <span class="pkp_help_title">Einreichungs-Dokumente</span>.]]></message> 
 	<message key="manager.emails.confirmDelete">Sind Sie sicher, dass Sie diese E-Mail-Vorlage löschen wollen?</message>
 	<message key="manager.emails.confirmReset">Sind Sie sicher, dass Sie diese E-Mail-Vorlage auf die Standardform zurücksetzen wollen?</message>
 	<message key="manager.emails.addEmail">E-Mail-Vorlage hinzufügen</message>
@@ -97,6 +110,10 @@
 	<message key="manager.groups.membership.noUsers">Es wurden keine Benutzer/innen gefunden.</message>
 	<message key="manager.groups.title">Name der Position</message>
 	<message key="manager.importExport">Daten importieren/exportieren</message>
+	<message key="manager.language.ui">UI</message>
+	<message key="manager.language.submissions">Einreichungen</message>
+	<message key="manager.language.forms">Formulare</message>
+	<message key="manager.language.reloadLocalizedDefaultSettings">Standard wiederherstellen</message>
 	<message key="manager.languages.alternateLocaleInstructions">Dieses System bietet die Möglichkeit, wichtige Informationen in verschiedenen zusätzlichen Sprachen einzutragen. Dazu wählen Sie bitte aus der nachstehenden Liste eine andere Regionaleinstellung aus.</message>
 	<message key="manager.languages.supportedLocalesInstructions">Wählen Sie alle Regionaleinstellungen aus, die von der Website unterstützt werden sollen und die über ein Sprachenmenü auf jeder Seite ausgewählt werden können. Dieses Menü erscheint nur dann, wenn mehr als eine Regionaleinstellung ausgewählt wird.</message>
 	<message key="manager.masthead.title">Impressum</message>
@@ -129,12 +146,12 @@
 	<message key="manager.people.mergeUsers.confirm">Sind Sie sicher, dass Sie die ausgewählten {$oldAccountCount} Benutzer/innenkonten in dem Konto mit dem Benutzer/innen-Namen "{$newUsername}" aufgehen lassen wollen? Die ausgewählten {$oldAccountCount} Konten werden dann nicht mehr existieren. Der Vorgang kann nicht rückgängig gemacht werden.</message>
 	<message key="manager.people.mergeUsers">Benutzer/innen zusammenführen</message>
 	<message key="manager.people.mustChooseRole">Wählen Sie am Seitenanfang bitte eine Funktion aus, bevor Sie "Benutzer/in eintragen" anklicken.</message>
-	<message key="manager.people.mustProvideName">Bitte stellen Sie zunächst zumindest einen Nachnamen für die Benutzerin/den Benutzer zur Verfügung.</message>
+	<message key="manager.people.mustProvideName">Bitte geben Sie zumindest einen Nachnamen für die Benutzerin/den Benutzer an.</message>
 	<message key="manager.people.noMatchingUsers">Keine passenden Benutzer/innen.</message>
 	<message key="manager.people.noneEnrolled">Keine eingetragenen Benutzer/innen.</message>
 	<message key="manager.people">Personen</message>
 	<message key="manager.people.remove">Entfernen</message>
-	<message key="manager.people.saveAndCreateAnotherUser">Speichern und eine/n weitere/n Benutzer/in erstellen</message>
+	<message key="manager.people.saveAndCreateAnotherUser">Speichern und eine/n weitere/n Benutzer/in anlegen</message>
 	<message key="manager.people.signInAs">Einloggen als</message>
 	<message key="manager.people.signInAsUser">Als Benutzer/in einloggen</message>
 	<message key="manager.people.syncUsers">Benutzer/innen-Einträge synchronisieren</message>
@@ -159,7 +176,62 @@
 	<message key="manager.reviewerSearch.interests">Begutachtungsinteressen</message>
 	<message key="manager.reviewerSearch.form.instructions">Benutzen Sie bitte das Formular unten, um Maximalwerte für die geplanten Suchen anzugeben. Das Formular ist vorausgefüllt mit den berechneten Durchschnittswerten dieser Felder.</message>
 	<message key="manager.reviewerSearch.form.interests.instructions">Geben Sie Begutachtungsinteressen ein, durch Kommata getrennt…</message>
-	<message key="manager.roles">Funktionen</message>
+	<message key="manager.roles">Rollen</message>
+	<message key="manager.statistics"><![CDATA[Statistiken &amp; Berichte]]></message>
+	<message key="manager.statistics.defaultMetricDescription">
+		Ihr {$contextObjectName} ist so eingestellt, dass sie mehr als eine Nutzungsstatistik aufzeichnet. Nutzungsstatistiken werden in verschiedenen Kontexten angezeigt.
+		Es gibt Fälle, in denen eine einzige Nutzungsstatistik benutzt werden muss, z.B. wenn eine sortierte Liste der am häufigsten genutzten Artikel angezeigt werden soll oder um Suchergebnisse zu gewichten. Bitte wählen Sie eine der Nutzungsmetriken als Standard aus.
+	</message>
+	<message key="manager.statistics.city">Stadt</message>	
+	<message key="manager.statistics.region">Region</message>
+	<message key="manager.statistics.reports">Berichtserstellung</message>
+	<message key="manager.statistics.reports.description">Das System erstellt Berichte, die die Details der Verarbeitung von Beiträgen aus der Perspektive von Beiträgen, Redakteur/innen, Gutachter/innen sowie Rubriken über einen festgelegten Zeitraum nachzeichnen. Die Berichte werden im CSV-Format erstellt, die mit einer Tabellenkalkulation betrachtet werden können.</message>
+	<message key="manager.statistics.reports.aggregationColumns">Erzeuge Statistiken nach:</message>
+	<message key="manager.statistics.reports.defaultReportTemplates">Standard-Berichtsvorlagen</message>
+	<message key="manager.statistics.reports.generateReport">Benutzerdefinierten Bericht erzeugen</message>
+	<message key="manager.statistics.reports.advancedOptions">Erweiterte Einstellungen</message>
+	<message key="manager.statistics.reports.advancedOptions.label">Spalten, Filter und Sortierung anpassen. Änderungen an diesen Einstellungen könnte das erwartete Ergebnis der Berichtsvorlage verändern.</message>
+	<message key="manager.statistics.reports.columns">Spalten</message>
+	<message key="manager.statistics.reports.columns.description">Definieren Sie die Spalten, die zum Erzeugen des Berichts benutzt werden. Die Spalten, die Sie auswählen legen nicht nur fest, welche Daten im Bericht angzeigt werden, sondern definieren auch die Aggregationsstufe der Statistik. Wenn Sie zum Beispiel die Spalten ID, Typ und Monat auswählen, wird der Repurt alle Aufrufe eines Objekts in einem Monat summieren und diese Information in einer Zeile anzeigen. Wenn Sie stattdessen Tag statt Monat auswählen, wird jedes Objekt eine Zeile für jeden Tag erhalten.</message>
+	<message key="manager.statistics.reports.filters">Filter</message>
+	<message key="manager.statistics.reports.objectType">Objekttyp</message>
+	<message key="manager.statistics.reports.objectId">Objekt-ID</message>
+	<message key="manager.statistics.reports.objectId.label">Definieren Sie eine oder mehrere Objekt-ID, jeweils mit Komma getrennt (z.B. 1,2,3,4,5).</message>
+	<message key="manager.statistics.reports.today">Heute</message>
+	<message key="manager.statistics.reports.currentMonth">Aktueller Monat</message>
+	<message key="manager.statistics.reports.orderBy">Sortieren nach</message>
+	<message key="manager.statistics.reports.orderDir">Richtung</message>
+	<message key="manager.statistics.reports.orderDir.asc">Aufsteigend</message>
+	<message key="manager.statistics.reports.orderDir.desc">Absteigend</message>
+	<message key="manager.statistics.reports.month.label">Benutzen Sie das YYYYMM-Format.</message>
+	<message key="manager.statistics.reports.day.label">Benutzen Sie das YYYYMMDD-Format.</message>
+	<message key="manager.statistics.reports.cities.label">Ein oder mehrere Städtenamen, jeweils mit Komma getrennt (z.B. Stadt 1,Stadt 2)</message>
+	<message key="manager.statistics.reports.form.columnsRequired">Sie müssen mindestens eine Spalte auswählen, um den Bericht zu erzeugen.</message>
+	<message key="manager.statistics.reports.reportUrl">Bericht-URL</message>
+	<message key="manager.statistics.reports.reportUrl.label">Die folgende URL kann benutzt werden, um den Bericht mit diesen aktuellen Einstellungen zu erzeugen. Kopieren Sie ihn einfach und geben Sie ihn in Ihren Browser ein. Sie können die URL zur Berichterzeugung in Ihren Bookmarks speichern.</message>
+	<message key="manager.statistics.reports.filters.byContext">Nach Kontext</message>
+	<message key="manager.statistics.reports.filters.byObject">Nach Objekttyp oder Objekt-ID</message>
+	<message key="manager.statistics.reports.filters.byTime">Wähle Berichtszeitraum</message>
+	<message key="manager.statistics.reports.filters.byTime.dimensionSelector">Oder wähle Zeitraum nach:</message>
+	<message key="manager.statistics.reports.filters.byLocation">Nach Standort</message>
+	<message key="manager.statistics.reports.filters.byLocation.description">Ergebnisse nach Land, Region und/oder Stadt filtern..</message>
+	<message key="manager.affiliationAndSupport">Sponsor</message>
+	<message key="manager.setup.authorGuidelines">Autor/innen-Richtlinien</message>
+	<message key="manager.setup.competingInterests">Interessenkonflikte</message>
+	<message key="manager.setup.competingInterestsDescription">Gutachter/innen werden aufgefordert, den Richtlinien zur Offenlegung von Interessenkonflikten zu entsprechen, die Sie unten angeben.</message> <!-- FIXME #6843 (JM): should this just reference reviewers? -->
+	<message key="manager.setup.groupType">Dateitypgruppierung</message>
+	<message key="manager.setup.reviewOptions.numWeeksPerResponse">Zeit für Antwort auf Begutachtungsanfrage (Wochen)</message>
+	<message key="manager.setup.reviewOptions.numWeeksPerReview">Zeit für Abschluss des Gutachtens (Wochen)</message>
+	<message key="manager.setup.reviewOptions.neverSendReminder">Nie erinnern</message>
+	<message key="manager.setup.reviewOptions.remindForInvite">Eine Erinnerung schicken, wenn ein/e Gutachter/in auf die Anfrage nicht innerhalb der genannten Zeit geantwortet hat (Tage):</message>
+	<message key="manager.setup.reviewOptions.remindForSubmit">Eine Erinnerung schicken, wenn ein/e Gutachter/in nicht innerhalb der genannten Zeit eine Empfehlung eingereicht hat (Tage):</message>
+	<message key="manager.setup.sortableByComponent">Nach Komponenten sortierbar</message>
+	<message key="manager.setup.dependentGenre">Abhängige Genres</message>
+	<message key="manager.setup.sponsors">Finanzielle Unterstützung</message>
+	<message key="manager.setup.sponsors.note">Sie können einen Hinweis hinzufügen, wie Ihr Verhältnis zu Ihren Sponsoren ist; dieser Hinweis wird in der Sponsorenliste auf Ihrer "Über uns"-Seite erscheinen.</message>
+	<message key="manager.setup.contributors.note">Sie können einen Hinweis hinzufügen, wie Ihr Verhältnis zu den Sie unterstützenden Einrichtungen ist; dieser Hinweis wird in der Unterstützerliste auf Ihrer "Über uns"-Seite erscheinen.</message>
+	<message key="manager.setup.styleSheetDescription">Sie können eine zusätzliche CSS-Datei hochlade, um das Aussehen anzupassen.</message>
+	<message key="manager.setup.citations">Zitationen</message>
 	<message key="manager.setup.citationAssistant">Zitationsauszeichnungsassistent</message>
 	<message key="manager.setup.citationFilterParser">Zitationsextraktion</message>
 	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>Um Zitationen in Zitationsdatenbanken zu finden und zu überprüfen, müssen Sie erstens in maschinenlesbare Metadaten aufgetrennt werden: Titel, Verlag, Veröffentlichungsdatum etc. müssen aus dem originalen Zitationstext, den der/die Autor/in geliefert hat, entnommen werden. Verknüpfungen zu externen Webdiensten können in diesem Prozess hilfreich sein. Eine oder mehrere Verknüpfungen können durch Klicken des "Eintrag hinzufügen"-Knopfes unten. Einige dieser Verknüpfungen könnten konfiguriert werden müssen; Sie werden in diesem Fall dazu aufgefordert werden.</p>
@@ -180,13 +252,13 @@
 	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">Sie haben sich dafür entschieden, die {$filterDisplayName}-Datenbank hinzuzufügen. Bitte klicken Sie auf 'OK' zur Bestätigung.</message>
 	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Bitte wählen Sie eine Nachschlagedatenbank aus.</message>
 	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>Dieser Filter ist mit der  <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a> Buch-und-ISBN-Datenbank verknüpft.</p>
-	<p>Ein ISBNdb API key wird benötigt. Vgl. die <a href="http://isbndb.com/api/v1/docs/keys" target="_blank">Online-Dokumentation</a> für Informationen zum Erzeugen eines Schlüssels.</p>]]></message>
+	<p>Ein ISBNdb API key wird benötigt. Vgl. die <a href="http://isbndb.com/docs/api/30-keys.html" target="_blank">Online-Dokumentation</a> für Informationen zum Erzeugen eines Schlüssels.</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Dieser Filter ist mit der CrossRef-Zitationsdatenbenk über CrossRefs <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">OpenURL Query Interface</a> verknüpft.</p> 
 	<p>Um diesen Filter zu benutzen, können Sie Ihren CrossRef-Account benutzen, oder Sie registrieren eine gültige E-Mail-Adresse bei CrossRef <a href="http://www.crossref.org/requestaccount/" target="_blank">hier</a>.</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>Dieser Filter ist mit PubMeds <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">Entrez</a> Metasuchmaschine verknüpft.</p>
 	<p>Eine Registrierungs-E-Mail ist nicht unbedingt erforderlich, könnte aber nötig werden, wenn Sie auf Verbindungsprobleme stoßen. Vgl. für weitere Informationen den Abschnitt <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">Usage Guidelines and Requirements</a> in der Entrez-Dokumentation.</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.worldCat"><![CDATA[<p>Dieser Filter ist mit den OCLC-Diensten <a href="http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp" target="_blank">xISBN</a> und <a href="http://www.worldcat.org/" target="_blank">Worldcat</a> (optional) verknüpft.</p>
-	<p>Wenn Sie einen Worldcat <a href="http://oclc.org/developer/develop/web-services.html" target="_blank">API key</a> besitzen, können Sie auf Worldcat zugreifen, in dem Sie den Schlüssel unten eingeben.</p>]]></message>
+	<p>Wenn Sie einen Worldcat <a href="http://www.worldcat.org/devnet/wiki/SearchAPIWhoCanUse" target="_blank">API key</a> besitzen, können Sie auf Worldcat zugreifen, in dem Sie den Schlüssel unten eingeben.</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.loadMessage">Bitte warten Sie, bis das Raster zur Konfiguration der Zitationsdatenbank geladen worden ist…</message>
 	<message key="manager.setup.filter.lookup.grid.title">Verknüpfungen zu Zitationsdatenbanken</message>
 	<message key="manager.setup.filter.noMoreTemplates">Alle verfügbaren Transformationen sind bereits hinzugefügt worden. Bitte klicken Sie 'Abbrechen' um zur Setupseite zurückzukehren.</message>
@@ -203,6 +275,8 @@
 	<message key="manager.setup.homeHeaderImageInvalid">Das Format des Logos in der Kopfzeile der Startseite ist ungültig. Gültige Formate sind .gif, .jpg und .png.</message>
 	<message key="manager.setup.homepageImageInvalid">Das Format des Bildes auf der Startseite ist ungültig. Gültige Formate sind .gif, .jpg und .png.</message>
 	<message key="manager.setup.homeTitleImageInvalid">Das Format des Titelbildes in der Kopfzeile der Startseite ist ungültig. Gültige Formate sind .gif, .jpg und .png.</message>
+	<message key="manager.setup.layout.theme">Grafisches Thema</message>
+	<message key="manager.setup.layout.themeDescription">Wählen Sie ein Grafikthema aus den verfügbaren Thema-Plug-Ins aus.</message>
 	<message key="manager.setup.layout.blockManagement">Verwaltung der Sidebar</message>
 	<message key="manager.setup.layout.leftSidebar">Linke Seitenleiste</message>
 	<message key="manager.setup.layout.rightSidebar">Rechte Seitenleiste</message>
@@ -235,12 +309,14 @@
 	<message key="plugins.categories.importexport">Import-/Export-Plug-Ins</message>
 	<message key="plugins.categories.paymethod.description">Plug-Ins für Zahlungsweisen bieten Unterstützung für unterschiedliche Formen des Online-Zahlungsverkehrs.</message>
 	<message key="plugins.categories.paymethod">Plug-Ins für Zahlungsweisen</message>
-	<message key="plugins.categories.reports.description">Bericht-Plug-Ins stellen verschiedene Arten von Berichten und Datenauszügen für Konferenzveranstalter/innen bereit.</message>
+	<message key="plugins.categories.reports.description">Bericht-Plug-Ins stellen verschiedene Arten von Berichten und Datenauszügen bereit.</message>
 	<message key="plugins.categories.reports">Bericht-Plug-Ins</message>
 	<message key="plugins.categories.themes.description">Designvorlagen-Plug-Ins können verwendet werden, um das Aussehen des Systems zu verändern.</message>
 	<message key="plugins.categories.themes">Designvorlagen-Plug-Ins</message>
 	<message key="plugins.categories.oaiMetadataFormats">Plug-In für OAI-Metadaten-Format</message>
 	<message key="plugins.categories.oaiMetadataFormats.description">Diese Format-Plug-Ins beziehen sich auf Metadaten für die OAI-Kommunikation</message>
+	<message key="plugins.categories.pubIds">Plug-Ins für öffentliche Kennungen</message>
+	<message key="plugins.categories.pubIds.description">Diese Plug-Ins liefern Unterstützung für öffentliche Kennungen (public identifiers).</message>
 
 	<!-- Plugin management -->
 	<message key="manager.plugins.copyError">Das Plug-In wurde nicht erfolgreich kopiert</message>
@@ -252,6 +328,8 @@
 	<message key="manager.plugins.description">Diese Seite ermöglicht es der/dem Zeitschriftenverwalter/in, die aktuell installierten Plug-Ins zu überprüfen und ggf. zu konfigurieren. Plug-Ins sind nach ihren Funktionen in Kategorien eingeteilt. Die entsprechenden Ordnungskategorien sind unten aufgeführt, darunter jeweils die derzeitig eingesetzten Plug-Ins.</message>
 	<message key="manager.plugins.doesNotExist">Plug-In nicht verfügbar.</message>
 	<message key="manager.plugins.fileSelectError">Bitte wählen Sie zuerst eine Datei aus</message>
+	<message key="manager.plugins.install">Ein neues Plug-In installieren</message>
+	<message key="manager.plugins.installDescription">Mit diesem Formular können Sie ein neues Plug-In hochladen und installieren. Bitte stellen Sie sicher, das das Plug-In als .tar.gz-Datei komprimiert ist.</message>
 	<message key="manager.plugins.installedVersionNewer">Das Plug-In existiert bereits und ist neuer als oder genauso alt wie die installierte Version.</message>
 	<message key="manager.plugins.installedVersionOlder">Das Plug-In existiert bereits, ist aber älter als oder genauso alt wie die installierte Version.</message>
 	<message key="manager.plugins.installFailed">Installation gescheitert</message>
@@ -261,6 +339,7 @@
 	<message key="manager.plugins.wrongName">Die version.xml in dem hochgeladenen Plug-In enthält einen Plug-In-Namen, der nicht zu dem Namen des aktualisierten Plug-Ins passt.</message>
 	<message key="manager.plugins.pleaseInstall">Plug-In nicht verfügbar. Bitte wählen Sie installieren</message>
 	<message key="manager.plugins.pleaseUpgrade">Das Plug-In existiert bereits, ist aber neuer als die installierte Version. Bitte wählen Sie Upgrade</message>
+	<message key="manager.plugins.settings">Einstellungen</message>
 	<message key="manager.plugins.tarCommandNotFound">Der tar-Befehl ist nicht verfügbar. Bitte konfigurieren Sie ihn in Ihrer "config.inc.php".</message>
 	<message key="manager.plugins.upgrade">Upgrade Plug-In</message>
 	<message key="manager.plugins.upgradeDescription">Dieses Formular ermöglicht ein Upgrade für ein Plug-In. Bitte stellen Sie sicher, das das Plug-In als .tar.gz-Datei komprimiert ist.</message>
@@ -271,19 +350,102 @@
 	<message key="manager.plugins.versionFileInvalid">version.xml im Plug-In-Verzeichnis enthält ungültige Daten.</message>
 	<message key="manager.plugins.versionFileNotFound">version.xml wurde im Plug-In-Verzeichnis nicht gefunden</message>
 
-	<message key="manager.website">Website</message>
+	<message key="notification.localeEnabled">Regionaleinstellung aktiviert.</message>
+	<message key="notification.localeDisabled">Regionaleinstellung deaktiviert.</message>
+	<message key="notification.primaryLocaleDefined">{$locale} als primäre Regionaleinstellung definiert.</message>
+	<message key="notification.localeInstalled">Alle ausgewählten Regionaleinstellungen installiert und aktiviert.</message>
+	<message key="notification.localeUninstalled">Regionaleinstellung {$locale} deinstalliert.</message>
+	<message key="notification.localeReloaded">Regionaleinstellung {$locale} neu geladen.</message>
+	<message key="notification.localeSettingsSaved">Einstellungen zur Regionaleinstellung gespeichert.</message>
+	<message key="notification.editedUser">Benutzer/in bearbeitet.</message>
 
-	<!-- Review forms -->
-	<message key="manager.reviewForms">Begutachtungsformulare</message>
-	<message key="manager.reviewForms.completed">Beendet</message>
-	<message key="manager.reviewForms.create">Begutachtungsformular erstellen</message>
-	<message key="manager.reviewForms.description">Beschreibung und Anweisungen</message>
-	<message key="manager.reviewForms.edit">Review Begutachtungsformular</message>
-	<message key="manager.reviewForms.form.titleRequired">Die Angabe eines Titels für das Begutachtungsformular ist erforderlich.</message>
-	<message key="manager.reviewForms.inReview">In Begutachtung</message>
-	<message key="manager.reviewForms.list.description">Die Peer-Review-Formulare, die hier erzeugt werden, werden Gutachter/innen zum Vervollständigen gezeigt (statt der Voreinstellung, die zwei leere Textfelder vorsieht, das erste "für Autor/in und Redakteur/in", das zweite "für Redakteur/in"). Peer-Review-Formulare können spezifischen Zeitschriftenrubriken zugewiesen werden, und Redakteur/innen können wählen, welches Formular benutzt werden soll, wenn sie einen Text zur Begutachtung zuweisen. In jedem Fall haben Redakteur/innen die Möglichkeit, bei der Korrespondenz mit Autor/innen die Gutachten anzufügen.</message>
-	<message key="manager.reviewForms.noneChosen">Kein bzw. freies Formular</message>
-	<message key="manager.reviewForms.noneCreated">Es wurde kein Peer-Review-Formular erzeugt.</message>
-	<message key="manager.reviewForms.preview">Vorschau des Formulars</message>
-	<message key="manager.reviewForms.title">Titel</message>
+	<!-- Distribution Process settings -->
+	<message key="manager.distribution.indexing">Indizierung</message>
+
+	<!-- Payment Method settings -->
+	<message key="manager.paymentMethod">Zahlungen</message>
+	<message key="manager.paymentMethod.title">Zahlungsmethoden</message>
+	<message key="manager.paymentMethod.description">Wählen Sie aus der Liste verfügbarer Zahlungsmethoden aus. Der Bereich unten wird entsprechend angepasst.</message>
+	<message key="manager.paymentMethod.none">Keine Zahlungsmethode ausgewählt</message>
+	<message key="manager.paymentMethod.method">Zahlungsmethode</message>
+	<message key="manager.paymentMethod.currency">Währung</message>
+	<message key="manager.paymentMethod.currency.description">Zahlungen, die direkt über diese Website abgewickelt werden, werden in der ausgewählten Währung ausgewiesen.</message>
+
+	<!-- Roles grid settings -->
+	<message key="settings.roles.roleOptions">Rollen-Einstellungen</message>
+	<message key="settings.roles.showTitles">Zeige Name der Rolle in Beiträger/innen-Liste an</message>
+	<message key="settings.roles.permitSelfRegistration">Erlaube Selbstregistrierung von Benutzer/innen</message>
+	<message key="settings.roles.roleName">Name der Rolle</message>
+	<message key="settings.roles.roleAbbrev">Abkürzung</message>
+	<message key="settings.roles.assignedStages">Zugeteilte Phasen</message>
+	<message key="settings.roles.stages">Phasen</message>
+	<message key="settings.roles.roleDetails">Details der Rolle</message>
+	<message key="settings.roles.from">Berechtigungsstufe</message>
+	<message key="settings.roles.removeText">Sie werden diese Rolle aus diesem Kontext enfernen. Dies wird auch verknüpfte Einstellungen und alle Zuordnungen von Benutzer/innen zu dieser Rolle löschen. Wollen Sie weitermachen?</message>
+	<message key="settings.roles.nameRequired">Sie müssen den Namen für die Rolle festlegen.</message>
+	<message key="settings.roles.abbrevRequired">Sie müssen eine Abkürzung für die Rolle festlegen.</message>
+	<message key="settings.roles.uniqueName">Sie müssen einen eindeutigen Namen für die Rolle festlegen.</message>
+	<message key="settings.roles.uniqueAbbrev">Sie müssen eine eindeutige Abkürzung für die Rolle festlegen.</message>
+	<message key="settings.roles.roleIdRequired">Sie müssen eine Berechtigungsstufe für die Rolle festlegen.</message>
+	<message key="settings.roles.stageIdRequired">Sie müssen eine Phase festlegen, der die Rolle zugeordnet werden soll.</message>
+
+	<!-- Content Management - Footer grid keys -->
+	<message key="grid.content.navigation.footer">Footer</message>
+	<message key="grid.content.navigation.footer.noneExist">Es gibt momentan keine Footer.</message>
+	<message key="grid.content.navigation.footer.addCategory">Kategorie hinzufügen</message>
+	<message key="grid.action.deleteFooterCategory">Footerkategorie entfernen</message>
+	<message key="grid.content.navigation.footer.FooterLink">Footer-Links</message>
+	<message key="grid.content.navigation.footer.editCategory">Kategorie bearbeiten</message>
+	<message key="grid.content.navigation.footer.deleteCategory">Kategorie löschen</message>
+	<message key="grid.content.navigation.footer.deleteCategoryConfirm">Sind Sie sicher, dass Sie diese Kategorie löschen wollen? Die Aktion kann nicht rückgängig gemacht werden, und Links in dieser Kategorie werden ebenfalls entfernt werden.</message>
+	<message key="grid.content.navigation.footer.titleRequired">Die Angabe eines Titels ist erforderlich.</message>
+	<message key="grid.content.navigation.footer.descriptionRequired">Die Angabe einer Beschreibung ist erforderlich.</message>
+	<message key="grid.content.navigation.footer.pathRequired">Die Angabe eines eindeutigen Pfads ist erforderlich.</message>
+	<message key="grid.content.navigation.footer.pathInUse">Dieser Pfad wird momentan von einer anderen Kategorie benutzt.</message>
+	<message key="grid.action.addFooterCategoryLink">Eine neue Footer-Kategorie hinzufügen</message>
+	<message key="grid.action.editFooterCategory">Diese Footer-Kategorie bearbeiten</message>
+
+	<!-- Content Management - Social Media keys -->
+	<message key="grid.content.navigation.socialMedia">Social Media</message>
+	<message key="grid.content.navigation.socialMedia.platform">Plattform</message>
+	<message key="grid.content.navigation.socialMedia.code">Block zum Teilen</message>
+	<message key="grid.content.navigation.socialMedia.platformRequired">Sie müssen einen Titel der Plattform angeben (Facebook, Google+ etc).</message>
+	<message key="grid.content.navigation.socialMedia.codeRequired">Sie müssen den Code, den Sie benutzten möchten, um dieses soziale Netzwerk anzuzeigen.</message>
+	<message key="grid.content.navigation.socialMedia.addSocialLink">Social Link hinzufügen</message>
+	<message key="grid.content.navigation.socialMedia.includeInCatalog">Für jedes veröffentlichte Objekt im Katalog benutzen?</message>
+	<message key="grid.content.navigation.socialMedia.inCatalog">Im Katalog benutzt</message>
+	<message key="grid.action.addMedia">Einen neuen Social-Media-Typ hinzufügen</message>
+
+	<message key="notification.addedFooterCategory">Kategorie hinzugefügt.</message>
+	<message key="notification.editedFooterCategory">Kategorie bearbeitet.</message>
+	<message key="notification.removedFooterCategory">Kategorie entfernt.</message>
+	<message key="notification.addedSocialMedia">Soziales Netzwerk hinzugefügt.</message>
+	<message key="notification.editedSocialMedia">Soziales Netzwerk bearbeitet.</message>
+	<message key="notification.removedSocialMedia">Soziales Netzwerk entfernt.</message>
+
+	<!-- Library Files -->
+	<message key="settings.libraryFiles.fileRequired">Die Angabe einer Bibliotheksdatei ist erforderlich. Bitte stellen Sie sicher, dass Sie eine Datei ausgewählt und hochgeladen haben.</message>
+	<message key="settings.libraryFiles.nameRequired">Die Angabe eines Namens für diese Bibliotheksdatei ist erforderlich.</message>
+	<message key="settings.libraryFiles.typeRequired">Die Angabe eines Typs für diese Bibliotheksdatei ist erforderlich.</message>
+	<message key="settings.libraryFiles.category.contracts">Verträge</message>
+	<message key="settings.libraryFiles.category.marketing">Marketing</message>
+	<message key="settings.libraryFiles.category.permissions">Rechte</message>
+	<message key="settings.libraryFiles.category.reports">Berichte</message>
+	<message key="settings.libraryFiles.category.other">Anderes</message>
+
+	<!--  Genre grid settings -->
+	<message key="grid.action.addGenre">Ein Genre hinzufügen</message>
+	<message key="grid.action.editGenre">Dieses Genre bearbeiten</message>
+	<message key="grid.action.deleteGenre">Dieses Genre entfernen</message>
+	<message key="grid.action.restoreGenres">Genres auf Standard zurücksetzen</message>
+	<message key="manager.setup.genres.sortable">Dateien dieses Typs können nach Komponenten sortiert werden (z.B. nach Kapitel)</message>
+	<message key="manager.setup.genres.dependent">Dateien dieses Typs als abhängige Dateien markieren (z.B. nicht Primärveröffentlichungen)</message>
+	<message key="manager.settings.wizard">Einstellungswizard</message>
+	<message key="manager.users.roleRequired">Sie müssen wenigstens eine Rolle auswählen, die mit dieser Benutzerin/diesem Benutzer verknüpft wird.</message>
+	<message key="manager.website">Website</message>
+	<message key="manager.website.title">Website-Einstellungen</message>
+	<message key="manager.workflow">Workflow</message>
+	<message key="manager.workflow.title">Workflow-Einstellungen</message>
+	<message key="manager.distribution">Vertrieb</message>
+	<message key="manager.distribution.title">Vertriebs-Einstellungen</message>
 </locale>

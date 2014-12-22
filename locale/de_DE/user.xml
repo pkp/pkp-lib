@@ -45,6 +45,7 @@
 	<message key="user.gossip">Private Notizen</message>
 	<message key="user.group">Benutzer/innen-Gruppe</message>
 	<message key="user.lastName">Familienname</message>
+	<message key="user.login.activated">Vielen Dank für das Aktivieren Ihres Accounts. Sie können sich nun mit den Zugangsdaten, die Sie beim Anlegen des Accounts ausgewählt haben, einloggen.</message>
 	<message key="user.profile.form.profileImageInvalid">Ungültiges oder zu großes Bildformat für das Nutzer/innenprofil. Gültige Formate sind .gif, .jpg oder .png, und das Bild darf eine Größe von 150x150 Pixel nicht überschreiten.</message>
 	<message key="user.login.accountDisabledWithReason">Ihr Konto wurde aus folgenden Gründen deaktiviert: {$reason}</message>
 	<message key="user.login.accountDisabled">Ihr Konto wurde deaktiviert. Für nähere Informationen setzen Sie sich bitte mit der/dem Website-Administrator/in in Verbindung.</message>
@@ -54,7 +55,7 @@
 	<message key="user.login.changePasswordInstructions"><![CDATA[Damit Sie sich auf dieser Seite einloggen können, müssen Sie ein neues Passwort auswählen.<br /><br />Sie ändern das Passwort für Ihr Konto, indem Sie unten Ihren Benutzer/innennamen und das aktuelle sowie das neue Passwort eintragen.]]></message>
 	<message key="user.login.forgotPassword">Passwort vergessen?</message>
 	<message key="user.login.loginError">Benutzer/innen-Name oder Passwort ungültig. Versuchen Sie es erneut.</message>
-	<message key="user.login">Einloggen</message>
+	<message key="user.login">Benutzer/innen-Name</message>
 	<message key="user.login.lostPassword.confirmationSent">Eine Bestätigung wurde an Ihre E-Mail-Adresse versandt. Zur Wiederherstellung Ihres Passwortes folgen Sie bitte den Anweisungen aus der E-Mail.</message>
 	<message key="user.login.lostPassword.invalidHash">Leider ist der Link, den Sie angeklickt haben, abgelaufen oder ungültig. Versuchen Sie bitte erneut, Ihr Passwort wiederherzustellen.</message>
 	<message key="user.login.lostPassword.invalidUser">Zu der angegebenen E-Mail-Adresse existiert kein/e Benutzer/in.</message>
@@ -63,6 +64,7 @@
 	<message key="user.login.rememberUsernameAndPassword">Benutzer/innen-Namen und Passwort speichern</message>
 	<message key="user.login.resetPassword">Passwort zurücksetzen</message>
 	<message key="user.logOut">Ausloggen</message>
+	<message key="user.logOutAs">Ausloggen als</message>
 	<message key="user.hello">Hallo, </message>
 	<message key="user.mailingAddress">Adresse</message>
 	<message key="user.masculine">M</message>
@@ -97,6 +99,11 @@
 	<message key="user.profile">Profil</message>
 	<message key="user.profile.publicProfile">Profil</message>
 	<message key="user.profile.repeatNewPassword">Neues Passwort wiederholen</message>
+	<!-- Login -->
+	<message key="user.login.registerNewAccount">Noch kein/e Benutzer/in? Registrieren Sie sich.</message>
+	<message key="user.login.resetPasswordInstructions"><![CDATA[Aus Sicherheitsgründen schickt das System den registrierten Benutzer/innen ein neues Passwort statt des aktuellen Passworts per E-Mail. <br /><br />
+Tragen Sie zur Wiederherstellung des Passwortes unten Ihre E-Mail-Adresse ein. Eine Bestätigung geht an diese E-Mail-Adresse.]]></message>
+
 	<message key="user.register.form.emailExists">Die ausgewählte E-Mail-Adresse wird bereits von einer anderen Benutzerin/einem anderen Benutzer verwendet.</message>
 	<message key="user.register.form.passwordsDoNotMatch">Die Passwörter stimmen nicht überein.</message>
 	<message key="user.register.form.emailsDoNotMatch">Die E-Mail-Adressen stimmen nicht überein.</message>
@@ -106,12 +113,23 @@
 	<message key="user.register.registerAs">Sich registrieren als</message>
 	<message key="user.register">Registrieren</message>
 	<message key="user.register.usernameRestriction">Der Benutzer/innen-Name darf nur Kleinbuchstaben, Zahlen, Bindestriche und Unterstriche enthalten.</message>
+	<message key="user.role.author">Autor/in</message>
+	<message key="user.role.author_s">Autor/innen</message>
+	<message key="user.role.authors">Autor/innen</message>
+	<message key="user.role.editor">Redakteur/in</message>
+	<message key="user.role.editors">Redakteur/innen</message>
 	<message key="user.role.reader">Leser/in</message>
 	<message key="user.role.readers">Leser/innen</message>
 	<message key="user.role.reviewer">Gutachter/in</message>
 	<message key="user.role.reviewers">Gutachter/innen</message>
 	<message key="user.role.siteAdmin">Website-Administrator/in</message>
 	<message key="user.role.siteAdmins">Website-Administrator/innen</message>
+	<message key="user.role.copyeditor">Lektor/in</message>
+	<message key="user.role.copyeditors">Lektor/innen</message>
+	<message key="user.role.proofreader">Korrekturlektor/in</message>
+	<message key="user.role.proofreaders">Korrekturlektor/innen</message>
+	<message key="user.role.layoutEditor">Layouter/in</message>
+	<message key="user.role.layoutEditors">Layouter/innen</message>
 	<message key="user.roles">Funktion</message>
 	<message key="user.salutation">Anrede</message>
 	<message key="user.sendPassword">Bestätigung</message>

@@ -25,7 +25,6 @@
 	<message key="installer.createDatabase">Datenbank anlegen</message>
 	<message key="installer.createDatabaseInstructions">Zur Benutzung dieser Option muss Ihr Datenbanksystem das Anlegen von Datenbanken aus der Entfernung unterstützten und muss Ihr Benutzer/innen-Name die Rechte haben, Datenbanken anzulegen. Wenn die Installation unter Verwendung dieser Option scheitert, legen Sie die Datenbank manuell auf dem Server an und führen dann den Installer ohne diese Option aus.</message>
 	<message key="installer.databaseCharset">Zeichensatz für Datenbanken</message>
-	<message key="installer.databaseCharsetInstructions">Die Codierung, die für die in der Datenbank gespeicherten Daten verwendet werden soll.</message>
 	<message key="installer.databaseDriver">Datenbank-Treiber</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Zu den Datenbank-Treibern in Klammern scheinen nicht die nötigen PHP-Erweiterungen installiert zu sein, so dass die Installation vermutlich scheitern wird.</strong><br />Alle nicht unterstützten Datenbank-Treiber, die oben aufgeführt sind, sind ausschließlich aus Vollständigkeitsgründen erfasst und werden voraussichtlich nicht funktionieren.]]></message>
 	<message key="installer.databaseHost">Server</message>
@@ -34,6 +33,7 @@
 	<message key="installer.databasePassword">Passwort</message>
 	<message key="installer.databaseSettings">Datenbank-Einstellungen</message>
 	<message key="installer.databaseUsername">Benutzer/innen-Name</message>
+	<message key="installer.encryptionInstructions">SHA1 ist empfohlen.</message>
 	<message key="installer.encryption">Verschlüsselungsalgorithmus für Passwörter</message>
 	<message key="installer.filesDir">Verzeichnis für hochgeladene Dateien</message>
 	<message key="installer.fileSettings">Dateieinstellungen</message>
@@ -57,6 +57,7 @@
 	<message key="installer.installParseDBFileError"><![CDATA[Paring-Fehler bei der Verarbeitung der Datenbank-Installationsdatei <tt>{$file}</tt>.]]></message>
 	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Parsing-Fehler bei der Verarbeitung der E-Mail-Vorlagen-Datei <tt>{$file}</tt>.]]></message>
 	<message key="installer.installParseFilterConfigFileError"><![CDATA[Parsing-Fehler bei der Verarbeitung der Filterkonfigurationsdatei <tt>{$file}</tt>.]]></message>
+	<message key="installer.unsupportedUpgradeError">Upgrade nicht unterstützt. Siehe docs/UPGRADE-UNSUPPORTED für Details.</message>
 	<message key="installer.locale">Regionaleinstellungen</message>
 	<message key="installer.locale.maybeIncomplete">Die markierten Regionaleinstellungen sind möglicherweise unvollständig.</message>
 	<message key="installer.localeSettings">Regionaleinstellungen</message>
@@ -66,4 +67,19 @@
 	<message key="installer.publicFilesDirError">Das öffentliche Verzeichnis existiert nicht oder erlaubt keine Schreibzugriffe.</message>
 	<message key="installer.releaseNotes">Versionsinformationen</message>
 	<message key="installer.securitySettings">Sicherheitseinstellungen</message>
+	<message key="installer.preInstallationInstructionsTitle">Vor der Installation</message>
+	<message key="installer.preInstallationInstructions"><![CDATA[
+		<p>1. Die folgenden Dateien und Verzeichnisse (mit ihren Inhalten) müssen beschreibbar sein:</p>
+		<ul>
+			<li><tt>config.inc.php</tt> ist beschreibbar (optional): {$writable_config}</li>
+			<li><tt>public/</tt> ist beschreibbar: {$writable_public}</li>
+			<li><tt>cache/</tt> ist beschreibbar: {$writable_cache}</li>
+			<li><tt>cache/t_cache/</tt> ist beschreibbar: {$writable_templates_cache}</li>
+			<li><tt>cache/t_compile/</tt> ist beschreibbar: {$writable_templates_compile}</li>
+			<li><tt>cache/_db</tt> ist beschreibbar: {$writable_db_cache}</li>
+		</ul>
+
+		<p>2. Ein Verzeichnis für die Ablage hochgeladener Dateien muss angelegt und beschreibbar gemacht werden (siehe "Datei-Einstellungen" unten).</p>]]>
+	</message>
+	<message key="installer.configureXSLMessage"><![CDATA[<p>In Ihrer PHP-Installation ist das XSL-Modul nicht freigeschaltet. Entweder schalten Sie es frei, oder konfigurieren Sie das Parameter xsl_command in Ihrer Datei config.inc.php.</p>]]></message>
 </locale>

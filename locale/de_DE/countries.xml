@@ -9,7 +9,6 @@
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Regionalisierte Länderliste (vgl. http://de.wikipedia.org/wiki/ISO-3166-1-Kodierliste).
-  * Please contact Marco Tullney, marco.tullney@fu-berlin.de, with any questions regarding this translation.
   -->
 <countries>
 	<country name="Afghanistan" code="AF"/>

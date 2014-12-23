@@ -193,14 +193,10 @@ if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_APP_CLASSES" -eq 1 \) ]; then
 fi
 
 if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_APP_PLUGINS" -eq 1 \) ]; then
-<<<<<<< HEAD
-	phpunit $DEBUG $TEST_CONF2 plugins
-=======
 	if [ \( "$DO_COVERAGE" -eq 1 \) ]; then
 		REPORT_SWITCH="--coverage-php $REPORT_TMP/coverage-APP_PLUGINS.php"
 	fi
-	phpunit $DEBUG $TEST_CONF2 $REPORT_SWITCH tests/plugins
->>>>>>> *8876* Implemented coverage reports
+	phpunit $DEBUG $TEST_CONF2 $REPORT_SWITCH plugins
 fi
 
 if [ \( "$DO_ALL" -eq 1 \) -o \( "$DO_APP_FUNCTIONAL" -eq 1 \) ]; then

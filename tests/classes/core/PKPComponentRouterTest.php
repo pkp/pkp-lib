@@ -36,7 +36,6 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 	 * @covers PKPComponentRouter::_getValidatedServiceEndpointParts
 	 * @covers PKPComponentRouter::_retrieveServiceEndpointParts
 	 * @covers PKPComponentRouter::_validateServiceEndpointParts
-	 * @covers PKPComponentRouter::_camelize
 	 */
 	public function testSupportsWithPathinfoSuccessful() {
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
@@ -53,7 +52,6 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 	 * @covers PKPComponentRouter::_getValidatedServiceEndpointParts
 	 * @covers PKPComponentRouter::_retrieveServiceEndpointParts
 	 * @covers PKPComponentRouter::_validateServiceEndpointParts
-	 * @covers PKPComponentRouter::_camelize
 	 */
 	public function testSupportsWithPathinfoUnsuccessfulNoComponentNotEnoughPathElements() {
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
@@ -71,7 +69,6 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 	 * @covers PKPComponentRouter::_getValidatedServiceEndpointParts
 	 * @covers PKPComponentRouter::_retrieveServiceEndpointParts
 	 * @covers PKPComponentRouter::_validateServiceEndpointParts
-	 * @covers PKPComponentRouter::_camelize
 	 */
 	public function testSupportsWithPathinfoUnsuccessfulNoComponentNoMarker() {
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
@@ -89,7 +86,6 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 	 * @covers PKPComponentRouter::_getValidatedServiceEndpointParts
 	 * @covers PKPComponentRouter::_retrieveServiceEndpointParts
 	 * @covers PKPComponentRouter::_validateServiceEndpointParts
-	 * @covers PKPComponentRouter::_camelize
 	 */
 	public function testSupportsWithPathinfoUnsuccessfulComponentFileDoesNotExist() {
 		$this->markTestSkipped();
@@ -108,7 +104,6 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 	 * @covers PKPComponentRouter::_getValidatedServiceEndpointParts
 	 * @covers PKPComponentRouter::_retrieveServiceEndpointParts
 	 * @covers PKPComponentRouter::_validateServiceEndpointParts
-	 * @covers PKPComponentRouter::_camelize
 	 */
 	public function testSupportsWithPathinfoUnsuccessfulOperationDoesNotExist() {
 		$this->markTestSkipped();
@@ -130,7 +125,6 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 	 * @covers PKPComponentRouter::_getValidatedServiceEndpointParts
 	 * @covers PKPComponentRouter::_retrieveServiceEndpointParts
 	 * @covers PKPComponentRouter::_validateServiceEndpointParts
-	 * @covers PKPComponentRouter::_camelize
 	 */
 	public function testSupportsWithPathinfoUnsuccessfulComponentIsNotAHandler() {
 		$this->markTestSkipped();
@@ -153,7 +147,6 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 	 * @covers PKPComponentRouter::_getValidatedServiceEndpointParts
 	 * @covers PKPComponentRouter::_retrieveServiceEndpointParts
 	 * @covers PKPComponentRouter::_validateServiceEndpointParts
-	 * @covers PKPComponentRouter::_camelize
 	 */
 	public function testGetRequestedComponentWithPathinfo() {
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
@@ -169,7 +162,6 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 	 * @covers PKPComponentRouter::_getValidatedServiceEndpointParts
 	 * @covers PKPComponentRouter::_retrieveServiceEndpointParts
 	 * @covers PKPComponentRouter::_validateServiceEndpointParts
-	 * @covers PKPComponentRouter::_camelize
 	 */
 	public function testGetRequestedComponentWithPathinfoAndMalformedComponentString() {
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
@@ -185,7 +177,6 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 	 * @covers PKPComponentRouter::_getValidatedServiceEndpointParts
 	 * @covers PKPComponentRouter::_retrieveServiceEndpointParts
 	 * @covers PKPComponentRouter::_validateServiceEndpointParts
-	 * @covers PKPComponentRouter::_camelize
 	 */
 	public function testGetRequestedComponentWithPathinfoDisabled() {
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_DISABLED);
@@ -202,7 +193,6 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 	 * @covers PKPComponentRouter::_getValidatedServiceEndpointParts
 	 * @covers PKPComponentRouter::_retrieveServiceEndpointParts
 	 * @covers PKPComponentRouter::_validateServiceEndpointParts
-	 * @covers PKPComponentRouter::_camelize
 	 */
 	public function testGetRequestedOpWithPathinfo() {
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
@@ -218,7 +208,6 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 	 * @covers PKPComponentRouter::_getValidatedServiceEndpointParts
 	 * @covers PKPComponentRouter::_retrieveServiceEndpointParts
 	 * @covers PKPComponentRouter::_validateServiceEndpointParts
-	 * @covers PKPComponentRouter::_camelize
 	 */
 	public function testGetRequestedOpWithPathinfoDisabled() {
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_DISABLED);
@@ -235,7 +224,6 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 	 * @covers PKPComponentRouter::_getValidatedServiceEndpointParts
 	 * @covers PKPComponentRouter::_retrieveServiceEndpointParts
 	 * @covers PKPComponentRouter::_validateServiceEndpointParts
-	 * @covers PKPComponentRouter::_camelize
 	 */
 	public function testGetRequestedOpWithPathinfoDisabledAndMissingComponent() {
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_DISABLED);
@@ -251,7 +239,6 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 	 * @covers PKPComponentRouter::_getValidatedServiceEndpointParts
 	 * @covers PKPComponentRouter::_retrieveServiceEndpointParts
 	 * @covers PKPComponentRouter::_validateServiceEndpointParts
-	 * @covers PKPComponentRouter::_camelize
 	 */
 	public function testGetRequestedOpWithPathinfoAndMalformedOpString() {
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
@@ -268,7 +255,6 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 	 * @covers PKPComponentRouter::_getValidatedServiceEndpointParts
 	 * @covers PKPComponentRouter::_retrieveServiceEndpointParts
 	 * @covers PKPComponentRouter::_validateServiceEndpointParts
-	 * @covers PKPComponentRouter::_camelize
 	 */
 	public function testRoute() {
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
@@ -305,7 +291,6 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 
 	/**
 	 * @covers PKPComponentRouter::url
-	 * @covers PKPComponentRouter::_uncamelize
 	 * @covers PKPComponentRouter::_urlCanonicalizeNewContext
 	 * @covers PKPComponentRouter::_urlGetBaseAndContext
 	 * @covers PKPComponentRouter::_urlGetAdditionalParameters
@@ -372,7 +357,6 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 
 	/**
 	 * @covers PKPComponentRouter::url
-	 * @covers PKPComponentRouter::_uncamelize
 	 * @covers PKPComponentRouter::_urlCanonicalizeNewContext
 	 * @covers PKPComponentRouter::_urlGetBaseAndContext
 	 * @covers PKPComponentRouter::_urlGetAdditionalParameters
@@ -396,7 +380,6 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 
 	/**
 	 * @covers PKPComponentRouter::url
-	 * @covers PKPComponentRouter::_uncamelize
 	 * @covers PKPComponentRouter::_urlCanonicalizeNewContext
 	 * @covers PKPComponentRouter::_urlGetBaseAndContext
 	 * @covers PKPComponentRouter::_urlGetAdditionalParameters
@@ -419,7 +402,6 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 
 	/**
 	 * @covers PKPComponentRouter::url
-	 * @covers PKPComponentRouter::_uncamelize
 	 * @covers PKPComponentRouter::_urlCanonicalizeNewContext
 	 * @covers PKPComponentRouter::_urlGetBaseAndContext
 	 * @covers PKPComponentRouter::_urlGetAdditionalParameters
@@ -487,7 +469,6 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 
 	/**
 	 * @covers PKPComponentRouter::url
-	 * @covers PKPComponentRouter::_uncamelize
 	 * @covers PKPComponentRouter::_urlCanonicalizeNewContext
 	 * @covers PKPComponentRouter::_urlGetBaseAndContext
 	 * @covers PKPComponentRouter::_urlGetAdditionalParameters
@@ -518,7 +499,6 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 
 	/**
 	 * @covers PKPComponentRouter::url
-	 * @covers PKPComponentRouter::_uncamelize
 	 * @covers PKPComponentRouter::_urlCanonicalizeNewContext
 	 * @covers PKPComponentRouter::_urlGetBaseAndContext
 	 * @covers PKPComponentRouter::_urlGetAdditionalParameters

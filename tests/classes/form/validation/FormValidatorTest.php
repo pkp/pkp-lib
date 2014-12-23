@@ -35,7 +35,6 @@ class FormValidatorTest extends PKPTestCase {
 	 * @covers FormValidator::getForm
 	 * @covers FormValidator::getValidator
 	 * @covers FormValidator::getType
-	 * @covers FormValidator::setForm
 	 */
 	public function testConstructor() {
 		// Instantiate a test validator

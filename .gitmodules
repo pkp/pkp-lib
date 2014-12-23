@@ -4,3 +4,6 @@
 [submodule "js/lib/pnotify"]
 	path = js/lib/pnotify
 	url = https://github.com/sciactive/pnotify.git
+[submodule "lib/phpunit-selenium"]
+	path = lib/phpunit-selenium
+	url = https://github.com/giorgiosironi/phpunit-selenium.git

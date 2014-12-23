@@ -25,6 +25,8 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	protected $captureScreenshotOnFailure = true;
 	protected $screenshotPath, $screenshotUrl;
 
+	protected $coverageScriptPath = 'lib/pkp/lib/phpunit-selenium/PHPUnit/Extensions/SeleniumCommon/phpunit_coverage.php';
+	protected $coverageScriptUrl = '';
 
 	/**
 	 * Override this method if you want to backup/restore
@@ -54,11 +56,15 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 		$this->screenshotPath = BASE_SYS_DIR . '/' . $screenshotsFolder;
 		$this->screenshotUrl = Config::getVar('general', 'base_url') . '/' . $screenshotsFolder;
 
+
 		if (empty(self::$baseUrl)) {
 			$this->markTestSkipped(
 				'Please set BASEURL as an environment variable.'
 			);
 		}
+
+		// Set the URL for the script that generates the selenium coverage reports
+		$this->coverageScriptUrl = self::$baseUrl . '/' .  $this->coverageScriptPath;
 
 		$this->setTimeout(self::$timeout);
 

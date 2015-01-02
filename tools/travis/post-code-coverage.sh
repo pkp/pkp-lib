@@ -21,8 +21,8 @@ php lib/pkp/tests/mergeCoverageReportTool.php $COVERAGE_HTML $COVERAGE_REPORTS >
 
 # Copy the coverage reports to pkp-www.lib.sfu.ca
 if [[ -n "$COVERAGE_UPLOAD_SECRET" ]]; then
-	echo "Uploading coverage reports to https://pkp.sfu.ca/test-coverage"
+	echo "Uploading coverage reports to https://pkp.sfu.ca/test-coverage/${TRAVIS_REPO_SLUG}/${TRAVIS_BRANCH}"
 	sudo apt-get install -y --force-yes sshpass
 	export SSHPASS=$COVERAGE_UPLOAD_SECRET
-	rsync -av --rsh='sshpass -e ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -l pkp_testing' $COVERAGE_HTML/ pkp-www.lib.sfu.ca:html
+	rsync -av --rsh='sshpass -e ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -l pkp_testing' $COVERAGE_HTML/ pkp-www.lib.sfu.ca:html/${TRAVIS_REPO_SLUG}/${TRAVIS_BRANCH}/
 fi

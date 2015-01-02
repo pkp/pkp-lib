@@ -54,6 +54,11 @@
 			<col>metric_type</col>
 			<col>journal_id</col>
 		</index>
+		<index name="metrics_metric_type_assoc_type_submission_id">
+			<col>metric_type</col>
+			<col>assoc_type</col>
+			<col>submission_id</col>
+		</index>
 		<!-- TODO: more indexes, depending on use cases. -->
 	</table>
 	

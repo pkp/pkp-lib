@@ -26,7 +26,3 @@ echo "auto_append_file = ${LIB_PATH}/lib/phpunit-selenium/PHPUnit/Extensions/Sel
 echo "auto_prepend_file = ${LIB_PATH}/tests/prependCoverageReport.php" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 echo "selenium_coverage_prepend_file = ${LIB_PATH}/lib/phpunit-selenium/PHPUnit/Extensions/SeleniumCommon/prepend.php" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 echo "phpunit_coverage_data_directory = ${LIB_PATH}/tests/results/coverage-tmp" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
-
-# Make sure the temporary and output dirs are writable by the web server
-chmod a+w lib/pkp/tests/results/coverage-tmp
-chmod a+w lib/pkp/tests/results/coverage-html

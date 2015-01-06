@@ -15,4 +15,4 @@
 <locale name="ca_ES" full_name="Català">
 	<message key="plugins.citationLookup.worldcat.displayName">Mòdul de la base de dades de WorldCat</message>
 	<message key="plugins.citationLookup.worldcat.description">Connecta amb la base de dades bibliogràfica de WorldCat.</message>
-</locale> 
+</locale>

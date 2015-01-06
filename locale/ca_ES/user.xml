@@ -126,4 +126,4 @@
 	<message key="user.workingLanguages">Llengües de treball</message>
 	<message key="user.register.completeForm">Ompliu aquest formulari per registrar-vos en aquest lloc web.</message>
 	<message key="user.profile.form.hashInvalid">El reinici del hash de la paraula de pas que intenteu utilitzar no es vàlid.</message>
-</locale> 
+</locale>

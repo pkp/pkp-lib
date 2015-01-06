@@ -14,4 +14,4 @@
 
 <locale name="es_ES" full_name="Español (España)">	<message key="plugins.citationOutput.mla.displayName">Estilo de cita MLA</message>
 	<message key="plugins.citationOutput.mla.description">Introduce el estilo de cita MLA.</message>
-</locale> 
+</locale>

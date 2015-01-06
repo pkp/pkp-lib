@@ -16,4 +16,4 @@
 <locale name="ca_ES" full_name="Català">
 	<message key="plugins.oaiMetadata.dc.displayName">Format de metadades DC</message>
 	<message key="plugins.oaiMetadata.dc.description">Estructura les metadades segons el format Dublin Core.</message>
-</locale> 
+</locale>

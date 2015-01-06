@@ -70,4 +70,4 @@
 	<message key="installer.publicFilesDirError">El directori per als fitxers públics no existeix o no té permís d’escriptura.</message>
 	<message key="installer.releaseNotes">Notes de la versió</message>
 	<message key="installer.securitySettings">Paràmetres de seguretat</message>
-</locale> 
+</locale>

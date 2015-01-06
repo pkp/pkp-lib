@@ -15,4 +15,4 @@
 <locale name="ca_ES" full_name="Català">
 	<message key="plugins.metadata.openurl10.displayName">Metadades OpenURL 1.0</message>
 	<message key="plugins.metadata.openurl10.description">Contribueix als esquemes i adaptadors d'aplicacions OpenURL 1.0.</message>
-</locale> 
+</locale>

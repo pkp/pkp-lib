@@ -14,4 +14,4 @@
 
 <locale name="es_ES" full_name="Español (España)">	<message key="plugins.citationLookup.pubmed.displayName">Conector de bases de datos PubMed</message>
 	<message key="plugins.citationLookup.pubmed.description">Conecta con la base de datos bibliográfica PubMed.</message>
-</locale> 
+</locale>

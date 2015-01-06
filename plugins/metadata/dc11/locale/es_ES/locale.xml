@@ -15,4 +15,4 @@
 <locale name="es_ES" full_name="Español (España)">	<!-- plug-in -->
 	<message key="plugins.metadata.dc11.displayName">Metadatos Dublin Core 1.1</message>
 	<message key="plugins.metadata.dc11.description">Contribuye con los esquemas y adaptadores de aplicación de Dublin Core 1.1.</message>
-</locale> 
+</locale>

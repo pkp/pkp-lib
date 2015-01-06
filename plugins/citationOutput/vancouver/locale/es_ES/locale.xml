@@ -14,4 +14,4 @@
 
 <locale name="es_ES" full_name="Español (España)">	<message key="plugins.citationOutput.vancouver.displayName">Estilo de cita Vancouver</message>
 	<message key="plugins.citationOutput.vancouver.description">Introduce el estilo de cita Vancouver.</message>
-</locale> 
+</locale>

@@ -50,4 +50,4 @@
 	<!-- Plain text reference list output -->
 	<message key="plugins.metadata.nlm30.refList.displayName">Generació d'una llista de referències en text net</message>
 	<message key="plugins.metadata.nlm30.refList.description">Genera una llista de referències formatada en text net des d'una tramesa de referències OJS, OCS o OMP</message>
-</locale> 
+</locale>

@@ -15,4 +15,4 @@
 <locale name="ca_ES" full_name="Català">
 	<message key="plugins.citationLookup.pubmed.displayName">Mòdul de la base de dades de PubMed</message>
 	<message key="plugins.citationLookup.pubmed.description">Connecta amb la base de dades bibliogràfica de PubMed.</message>
-</locale> 
+</locale>

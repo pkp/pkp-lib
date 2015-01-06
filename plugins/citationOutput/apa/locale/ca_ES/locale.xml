@@ -15,4 +15,4 @@
 <locale name="ca_ES" full_name="Català">
 	<message key="plugins.citationOutput.apa.displayName">Estil de citacions APA</message>
 	<message key="plugins.citationOutput.apa.description">Implementa l'estil de citacions APA.</message>
-</locale> 
+</locale>

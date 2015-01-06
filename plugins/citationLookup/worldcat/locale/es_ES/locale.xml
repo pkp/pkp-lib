@@ -14,4 +14,4 @@
 
 <locale name="es_ES" full_name="Español (España)">	<message key="plugins.citationLookup.worldcat.displayName">Conector de bases de datos WorldCat</message>
 	<message key="plugins.citationLookup.worldcat.description">Conecta con la base de datos bibliográfica WorldCat.</message>
-</locale> 
+</locale>

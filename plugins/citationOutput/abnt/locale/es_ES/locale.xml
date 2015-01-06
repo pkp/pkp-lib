@@ -14,4 +14,4 @@
 
 <locale name="es_ES" full_name="Español (España)">	<message key="plugins.citationOutput.abnt.displayName">Estilo de cita ABNT</message>
 	<message key="plugins.citationOutput.abnt.description">Introduce el estilo de cita ABNT.</message>
-</locale> 
+</locale>

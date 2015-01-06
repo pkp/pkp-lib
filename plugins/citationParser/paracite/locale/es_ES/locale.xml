@@ -14,4 +14,4 @@
 
 <locale name="es_ES" full_name="Español (España)">	<message key="plugins.citationParser.paracite.displayName">Extractor de cita ParaCite</message>
 	<message key="plugins.citationParser.paracite.description">Extrae campos de citas de texto sin formato a través de ParaCite.</message>
-</locale> 
+</locale>

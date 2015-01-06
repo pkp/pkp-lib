@@ -14,4 +14,4 @@
 
 <locale name="es_ES" full_name="Español (España)">	<message key="plugins.citationParser.freecite.displayName">Extractor de cita FreeCite</message>
 	<message key="plugins.citationParser.freecite.description">Extrae campos de citas de texto sin formato a través de FreeCite.</message>
-</locale> 
+</locale>

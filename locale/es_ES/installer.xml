@@ -70,4 +70,4 @@
 	<message key="installer.publicFilesDirError">El directorio de archivos públicos no existe o no se puede escribir.</message>
 	<message key="installer.releaseNotes">Notas de la versión</message>
 	<message key="installer.securitySettings">Configuración de seguridad</message>
-</locale> 
+</locale>

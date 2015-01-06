@@ -100,4 +100,4 @@
 	<message key="admin.scheduledTask.subscriptionExpiryReminder">Recordatorio de caducidad de subscripción</message>
 	<message key="admin.settings.oneStepReset">Utilitzar reinicio de palabras clave en un solo paso?</message>
 	<message key="admin.fileLoader.fileProcessed">El fitxero {$filename} se ha procesado y archivado.</message>
-</locale> 
+</locale>

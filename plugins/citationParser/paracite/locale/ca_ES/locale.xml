@@ -15,4 +15,4 @@
 <locale name="ca_ES" full_name="Català">
 	<message key="plugins.citationParser.paracite.displayName">Extractor de citacions ParaCite</message>
 	<message key="plugins.citationParser.paracite.description">Extreu camps des de citacions en text net mitjançant el servei ParaCite.</message>
-</locale> 
+</locale>

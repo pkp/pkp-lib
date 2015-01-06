@@ -19,4 +19,4 @@
 	<!-- MODS 3.4 XML output -->
 	<message key="plugins.metadata.mods34.mods34XmlOutput.displayName">Salida MODS 3.4</message>
 	<message key="plugins.metadata.mods34.mods34XmlOutput.description">Convierte una descripción de metadatos MODS 3.4 a su enlace XML.</message>
-</locale> 
+</locale>

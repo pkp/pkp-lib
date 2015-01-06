@@ -15,4 +15,4 @@
 <locale name="ca_ES" full_name="Català">
 	<message key="plugins.citationParser.parscit.displayName">Extractor de citacions ParsCit</message>
 	<message key="plugins.citationParser.parscit.description">Extreu camps des de citacions en text net mitjançant el servei PasrCit.</message>
-</locale> 
+</locale>

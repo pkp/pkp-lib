@@ -14,4 +14,4 @@
 
 <locale name="es_ES" full_name="Español (España)">	<message key="plugins.citationOutput.apa.displayName">Estilo de cita APA</message>
 	<message key="plugins.citationOutput.apa.description">Introduce el estilo de cita APA.</message>
-</locale> 
+</locale>

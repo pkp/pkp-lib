@@ -15,4 +15,4 @@
 <locale name="ca_ES" full_name="Català">
 	<message key="plugins.citationOutput.abnt.displayName">Estil de citació ABNT</message>
 	<message key="plugins.citationOutput.abnt.description">Implementa l'estil de citació ABNT.</message>
-</locale> 
+</locale>

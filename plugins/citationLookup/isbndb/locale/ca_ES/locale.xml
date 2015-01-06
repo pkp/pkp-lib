@@ -22,4 +22,4 @@
 	<message key="plugins.citationLookup.isbndbExtraction.description">Troba un ISBN per a una descripció «element-citation» NLM 3.0 donada.</message>
 	<message key="plugins.citationLookup.isbndbLookup.displayName">Servei de cerca de ISBN</message>
 	<message key="plugins.citationLookup.isbndbLookup.description">Cerca una descripció «element-citation» NLM 3.0 sencera amb un ISBN donat.</message>
-</locale> 
+</locale>

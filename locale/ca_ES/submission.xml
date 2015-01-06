@@ -374,4 +374,4 @@
 	<!-- Submission file upload form elements -->
 	<message key="submission.form.name">Doneu a aquest fitxer un nom útil</message>
 	<message key="submission.form.replaceExisting">Voleu substituir un fitxer existent?</message>
-</locale> 
+</locale>

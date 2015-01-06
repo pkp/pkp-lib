@@ -15,4 +15,4 @@
 <locale name="ca_ES" full_name="Català">
 	<message key="plugins.citationParser.regex.displayName">Extractor de citacions amb expressions regulars</message>
 	<message key="plugins.citationParser.regex.description">Extreu camps des de citacions en text net mitjançant expressions regulars.</message>
-</locale> 
+</locale>

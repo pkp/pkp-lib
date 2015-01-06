@@ -49,4 +49,4 @@
 	<!-- Plain text reference list output -->
 	<message key="plugins.metadata.nlm30.refList.displayName">Creación de una lista de referencia de texto sin formato</message>
 	<message key="plugins.metadata.nlm30.refList.description">Crea una lista de referencia de texto sin formato desde referencias de envío de OJS/OCS/OMP</message>
-</locale> 
+</locale>

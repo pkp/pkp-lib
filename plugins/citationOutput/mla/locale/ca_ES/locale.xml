@@ -15,4 +15,4 @@
 <locale name="ca_ES" full_name="Català">
 	<message key="plugins.citationOutput.mla.displayName">Estil de citació MLA</message>
 	<message key="plugins.citationOutput.mla.description">Implementa l'estil de citació MLA.</message>
-</locale> 
+</locale>

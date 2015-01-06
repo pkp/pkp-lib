@@ -14,4 +14,4 @@
 
 <locale name="es_ES" full_name="Español (España)">	<message key="plugins.citationLookup.crossref.displayName">Conector de bases de datos CrossRef</message>
 	<message key="plugins.citationLookup.crossref.description">Conecta con la base de datos bibliográfica CrossRef.</message>
-</locale> 
+</locale>

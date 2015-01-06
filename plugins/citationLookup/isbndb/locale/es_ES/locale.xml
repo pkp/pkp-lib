@@ -21,4 +21,4 @@
 	<message key="plugins.citationLookup.isbndbExtraction.description">Encuentra el ISBN de una descripción de un elemento de cita NLM 3.0.</message>
 	<message key="plugins.citationLookup.isbndbLookup.displayName">Servicio de búsqueda de ISBN</message>
 	<message key="plugins.citationLookup.isbndbLookup.description">Busca una descripción completa de un elemento de cita NLM 3.0 con el ISBN introducido.</message>
-</locale> 
+</locale>

@@ -16,9 +16,9 @@
 <span class="errorText">{translate key=$errorMsg params=$errorParams}</span>
 
 {if $backLink}
-<br /><br />
-&#187; <a id="backLink" href="{$backLink}">{translate key="$backLinkLabel"}</a>
+<ul>
+	<li><a id="backLink" href="{$backLink}">{translate key="$backLinkLabel"}</li>
+</ul>
 {/if}
 
 {include file="common/footer.tpl"}
-

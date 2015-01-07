@@ -19,6 +19,3 @@
 
 	{$formattedNotifications}
 </feed>
-
-
-

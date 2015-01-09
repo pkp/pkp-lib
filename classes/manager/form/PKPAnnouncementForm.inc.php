@@ -31,7 +31,7 @@ class PKPAnnouncementForm extends Form {
 	function PKPAnnouncementForm($contextId, $announcementId = null) {
 
 		$this->_contextId = $contextId;
-		$this->announcementId = isset($announcementId) ? (int) $announcementId : null;
+		$this->announcementId = $announcementId?(int)$announcementId:null;
 		parent::Form('manager/announcement/announcementForm.tpl');
 
 		// Title is provided
@@ -105,23 +105,21 @@ class PKPAnnouncementForm extends Form {
 	 * Initialize form data from current announcement.
 	 */
 	function initData() {
-		if (isset($this->announcementId)) {
-			$announcementDao = DAORegistry::getDAO('AnnouncementDAO');
-			$announcement = $announcementDao->getById($this->announcementId);
+		$announcementDao = DAORegistry::getDAO('AnnouncementDAO');
+		$announcement = $announcementDao->getById($this->announcementId);
 
-			if ($announcement != null) {
-				$this->_data = array(
-					'typeId' => $announcement->getTypeId(),
-					'assocType' => $announcement->getAssocType(),
-					'assocId' => $announcement->getAssocId(),
-					'title' => $announcement->getTitle(null), // Localized
-					'descriptionShort' => $announcement->getDescriptionShort(null), // Localized
-					'description' => $announcement->getDescription(null), // Localized
-					'dateExpire' => $announcement->getDateExpire()
-				);
-			} else {
-				$this->announcementId = null;
-			}
+		if ($announcement) {
+			$this->_data = array(
+				'typeId' => $announcement->getTypeId(),
+				'assocType' => $announcement->getAssocType(),
+				'assocId' => $announcement->getAssocId(),
+				'title' => $announcement->getTitle(null), // Localized
+				'descriptionShort' => $announcement->getDescriptionShort(null), // Localized
+				'description' => $announcement->getDescription(null), // Localized
+				'dateExpire' => $announcement->getDateExpire()
+			);
+		} else {
+			$this->announcementId = null;
 		}
 	}
 
@@ -138,12 +136,9 @@ class PKPAnnouncementForm extends Form {
 	 */
 	function execute() {
 		$announcementDao = DAORegistry::getDAO('AnnouncementDAO');
+		$announcement = $announcementDao->getById($this->announcementId);
 
-		if (isset($this->announcementId)) {
-			$announcement = $announcementDao->getById($this->announcementId);
-		}
-
-		if (!isset($announcement)) {
+		if (!$announcement) {
 			$announcement = $announcementDao->newDataObject();
 		}
 
@@ -154,7 +149,7 @@ class PKPAnnouncementForm extends Form {
 		$announcement->setDescriptionShort($this->getData('descriptionShort'), null); // Localized
 		$announcement->setDescription($this->getData('description'), null); // Localized
 
-		if ($this->getData('typeId') != null) {
+		if ($this->getData('typeId')) {
 			$announcement->setTypeId($this->getData('typeId'));
 		} else {
 			$announcement->setTypeId(null);
@@ -171,7 +166,7 @@ class PKPAnnouncementForm extends Form {
 		}
 
 		// Update or insert announcement
-		if ($announcement->getId() != null) {
+		if ($announcement->getId()) {
 			$announcementDao->updateObject($announcement);
 		} else {
 			$announcement->setDatetimePosted(Core::getCurrentDate());

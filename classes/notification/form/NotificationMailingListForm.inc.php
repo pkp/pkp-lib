@@ -70,12 +70,6 @@ class NotificationMailingListForm extends Form {
 			$templateMgr->assign('captchaEnabled', true);
 		}
 
-		$context = $request->getContext();
-		if ($context) {
-			$templateMgr->assign('allowRegReviewer', $context->getSetting('allowRegReviewer'));
-			$templateMgr->assign('allowRegAuthor', $context->getSetting('allowRegAuthor'));
-		}
-
 		return parent::display();
 	}
 

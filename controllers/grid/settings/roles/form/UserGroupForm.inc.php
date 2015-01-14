@@ -38,7 +38,6 @@ class UserGroupForm extends Form {
 		// Validation checks for this form
 		$this->addCheck(new FormValidatorLocale($this, 'name', 'required', 'settings.roles.nameRequired'));
 		$this->addCheck(new FormValidatorLocale($this, 'abbrev', 'required', 'settings.roles.abbrevRequired'));
-		$this->addCheck(new FormValidatorArray($this, 'assignedStages', 'required', 'settings.roles.stageIdRequired'));
 		if ($this->getUserGroupId() == null) {
 			$this->addCheck(new FormValidator($this, 'roleId', 'required', 'settings.roles.roleIdRequired'));
 		}
@@ -139,7 +138,7 @@ class UserGroupForm extends Form {
 	 * @return array
 	 */
 	function getPermitSelfRegistrationRoles() {
-		return array(ROLE_ID_REVIEWER, ROLE_ID_AUTHOR);
+		return array(ROLE_ID_REVIEWER, ROLE_ID_AUTHOR, ROLE_ID_READER);
 	}
 
 	/**
@@ -156,7 +155,7 @@ class UserGroupForm extends Form {
 			$userGroup->setContextId($this->getContextId());
 			$userGroup->setDefault(false);
 			$userGroup->setShowTitle($this->getData('showTitle'));
-			$userGroup->setPermitSelfRegistration($this->getData('permitSelfRegistration') && in_array($role->getId(), $this->getPermitSelfRegistrationRoles()));
+			$userGroup->setPermitSelfRegistration($this->getData('permitSelfRegistration') && in_array($userGroup->getRoleId(), $this->getPermitSelfRegistrationRoles()));
 			$userGroup = $this->_setUserGroupLocaleFields($userGroup, $request);
 			$userGroupId = $userGroupDao->insertObject($userGroup);
 		} else {

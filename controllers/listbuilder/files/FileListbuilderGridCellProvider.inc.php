@@ -45,6 +45,6 @@ class FileListbuilderGridCellProvider extends GridCellProvider {
 		// we got an unexpected column
 		assert(false);
 	}
-	}
+}
 
 ?>

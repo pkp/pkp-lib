@@ -53,3 +53,7 @@
 <!-- Assigned submissions grid: Show all submissions the user is assigned to (besides their own) -->
 {url|assign:assignedSubmissionsListGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.submissions.assignedSubmissions.AssignedSubmissionsListGridHandler" op="fetchGrid" escape=false}
 {load_url_in_div id="assignedSubmissionsListGridContainer" url=$assignedSubmissionsListGridUrl}
+
+<!-- Active submissions grid -->
+{url|assign:activeSubmissionsListGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.submissions.activeSubmissions.ActiveSubmissionsListGridHandler" op="fetchGrid" escape=false}
+{load_url_in_div id="activeSubmissionsListGridContainer" url=$activeSubmissionsListGridUrl}

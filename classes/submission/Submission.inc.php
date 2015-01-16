@@ -352,6 +352,24 @@ abstract class Submission extends DataObject {
 	}
 
 	/**
+	 * Return short author names string.
+	 */
+	function getShortAuthorString() {
+		$primaryAuthor = $this->getPrimaryAuthor();
+		$authors = $this->getAuthors();
+		if (!isset($primaryAuthor)) {
+			if (sizeof($authors) > 0) {
+				$primaryAuthor = $authors[0];
+			}
+		}
+
+		$authorString = $primaryAuthor->getLastName();
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
+		if (count($authors) > 1) $authorString = __('submission.shortAuthor', array('author' => $authorString));
+		return $authorString;
+	}
+
+	/**
 	 * Return a list of author email addresses.
 	 * @return array
 	 */

@@ -16,10 +16,18 @@ div.pkp_controllers_grid {
 	
 	.scrollable {
 		max-height: 150px;
-		overflow: auto; 
+		overflow: auto;
+		position: relative; 
 
 		tr.gridRow td:last-child {
 			padding-right: 10px !important;
+		}
+	
+		.loading_container {
+			background-color: white;
+			position: absolute;
+			width: 100%;
+			padding-top: 0px;
 		}
 	}
 
@@ -37,6 +45,10 @@ div.pkp_controllers_grid {
 
 	thead, tr.gridRow td, tr.row_controls td, .empty td {
 		border-bottom: 1px solid #dedede;
+	}
+
+	tr.gridRow:last-child td {
+		border-bottom: none !important;
 	}
 	
 	tr.gridRow td {
@@ -121,23 +133,35 @@ div.pkp_controllers_grid {
 		margin-bottom: 10px;
 	}
 	
-	.grid_header .pkp_grid_description {
-		font-family: Arial, Helvetica, sans-serif;
-		padding:10px;
-		color:#999;
-		font-weight:normal;
-		font-size:80%;
-		line-height: 14px;
+	.grid_header { 
+		.pkp_form { 
+			div.formButtons {
+				margin-bottom: 0px;
+				float: right;
+			}			
+
+			fieldset {
+				margin-bottom: 0px;
+			}
+		}
+
+		.pkp_grid_description {
+			font-family: Arial, Helvetica, sans-serif;
+			padding:10px;
+			color:#999;
+			font-weight:normal;
+			font-size:80%;
+			line-height: 14px;
+		}
 	}
 	
 	.grid_header_bar {
 		background-color: #d5e7f4;
-		padding: 3px 10px 3px 0px;
+		padding: 3px 10px 3px 10px;
 	}
 	
 	.grid_header_bar h3 {
 		display:inline;
-		padding: 0px 0px 0px 10px;
 		vertical-align:middle;
 		line-height: 24px;
 	}
@@ -331,6 +355,14 @@ div.pkp_controllers_grid {
 	div.gridPaging select.itemsPerPage {
 		width: auto;
 		margin-left: 5px;
+	}
+
+	span.gridPagingScrolling {
+		font-size: 85%;
+		margin-left: 10px;
+		color: #888;
+		position: relative;
+		top: 3px;
 	}
 }
 

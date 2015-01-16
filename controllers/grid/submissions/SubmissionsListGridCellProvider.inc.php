@@ -64,20 +64,52 @@ class SubmissionsListGridCellProvider extends DataObjectGridCellProvider {
 	 * @return array an array of LinkAction instances
 	 */
 	function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
-		if ( $column->getId() == 'title' ) {
-			$submission = $row->getData();
+		$submission = $row->getData();
+		if ($column->getId() == 'editor') {
+			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
+			$editorAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submission->getId(), $submission->getStageId());
+			$assignment = current($editorAssignments);
+			if (!$assignment) return array();
+			$user = $request->getUser();
+			$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
+			$editor = $userDao->getById($assignment->getUserId());
+
+			import('lib.pkp.classes.linkAction.request.NullAction');
+			$linkAction = new LinkAction('editor', new NullAction(), $editor->getInitials(), null, $editor->getFullName());
+			return array($linkAction);
+		}
+		
+		if ($column->getId() == 'stage') {
+			$stageId = $submission->getStageId();
+			$stage = null;
+
+			if ($submission->getSubmissionProgress() > 0) {
+				// Submission process not completed.
+				$stage = __('submissions.incomplete');
+			}
+			switch ($submission->getStatus()) {
+				case STATUS_DECLINED:
+					$stage = __('submission.status.declined');
+					break;
+				case STATUS_PUBLISHED:
+					$stage = __('submission.status.published');
+					break;
+			}
+
+			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+			if (!$stage) $stage = __(WorkflowStageDAO::getTranslationKeyFromId($stageId));
 
 			if (is_a($submission, 'ReviewerSubmission')) {
 				// Reviewer: Add a review link action.
-				return array($this->_getCellLinkAction($request, 'reviewer', 'submission', $submission));
+				return array($this->_getCellLinkAction($request, 'reviewer', 'submission', $submission, $stage));
 			} else {
 				// Get the right page and operation (authordashboard or workflow).
 				list($page, $operation) = SubmissionsListGridCellProvider::getPageAndOperationByUserRoles($request, $submission);
 
 				// Return redirect link action.
-				return array($this->_getCellLinkAction($request, $page, $operation, $submission));
+				return array($this->_getCellLinkAction($request, $page, $operation, $submission, $stage));
 			}
-
+			
 			// This should be unreachable code.
 			assert(false);
 		}
@@ -104,12 +136,15 @@ class SubmissionsListGridCellProvider extends DataObjectGridCellProvider {
 		$context = $contextDao->getById($contextId);
 
 		switch ($columnId) {
+			case 'id':
+				return array('label' => $submission->getId());
 			case 'title':
-				return array('label' => '');
-				break;
-			case 'context':
-				return array('label' => $context->getLocalizedName());
-				break;
+				$this->_titleColumn = $column;
+				$title = $submission->getLocalizedTitle();
+				if ( empty($title) ) $title = __('common.untitled');
+				$authorsInTitle = $submission->getShortAuthorString();
+				$title = $authorsInTitle . '; ' . $title;
+				return array('label' => $title);
 			case 'author':
 				if (is_a($submission, 'ReviewerSubmission') && $submission->getReviewMethod() == SUBMISSION_REVIEW_METHOD_DOUBLEBLIND) return array('label' => '—');
 				return array('label' => $submission->getAuthorString(true));
@@ -124,49 +159,9 @@ class SubmissionsListGridCellProvider extends DataObjectGridCellProvider {
 				$dateDue = strftime(Config::getVar('general', 'date_format_short'), strtotime($submission->getDateDue()));
 				if ( empty($dateDue) ) $dateDue = '--';
 				return array('label' => $dateDue);
-				break;
-			case 'status':
-				$stageId = $submission->getStageId();
-
-				switch ($stageId) {
-					case WORKFLOW_STAGE_ID_SUBMISSION: default:
-						$returner = array('label' => __('submission.status.submission'));
-						break;
-					case WORKFLOW_STAGE_ID_INTERNAL_REVIEW:
-						$returner = array('label' => __('submission.status.review'));
-						break;
-					case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
-						$returner = array('label' => __('submission.status.review'));
-						break;
-					case WORKFLOW_STAGE_ID_EDITING:
-						$returner = array('label' => __('submission.status.editorial'));
-						break;
-					case WORKFLOW_STAGE_ID_PRODUCTION:
-						$returner = array('label' => __('submission.status.production'));
-						break;
-				}
-
-				// Handle special cases.
-				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-				if ($submission->getSubmissionProgress() > 0) {
-					// Submission process not completed.
-					$returner = array('label' => __('submissions.incomplete'));
-				} elseif (!$stageAssignmentDao->editorAssignedToStage($submission->getId())) {
-					// No editor assigned to any submission stages.
-					$returner = array('label' => __('submission.status.unassigned'));
-				}
-
-				// Handle declined and published submissions
-				switch ($submission->getStatus()) {
-					case STATUS_DECLINED:
-						$returner = array('label' => __('submission.status.declined'));
-						break;
-					case STATUS_PUBLISHED:
-						$returner = array('label' => __('submission.status.published'));
-						break;
-				}
-
-				return $returner;
+			case 'stage':
+			case 'editor':
+				return array('label' => '');
 		}
 	}
 
@@ -241,14 +236,12 @@ class SubmissionsListGridCellProvider extends DataObjectGridCellProvider {
 	 * @param $page string
 	 * @param $operation string
 	 * @param $submission Submission
+	 * @param $title string
 	 * @return LinkAction
 	 */
-	function _getCellLinkAction($request, $page, $operation, $submission) {
+	function _getCellLinkAction($request, $page, $operation, $submission, $title) {
 		$router = $request->getRouter();
 		$dispatcher = $router->getDispatcher();
-
-		$title = $submission->getLocalizedTitle();
-		if ( empty($title) ) $title = __('common.untitled');
 
 		$contextId = $submission->getContextId();
 		$contextDao = Application::getContextDAO();

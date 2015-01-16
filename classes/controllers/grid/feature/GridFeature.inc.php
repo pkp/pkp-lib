@@ -217,6 +217,17 @@ class GridFeature {
 	}
 
 	/**
+	 * Hook called after a group of rows is fetched.
+	 * @param $args array
+	 * 'request' => PKPRequest
+	 * 'grid' => GridHandler
+	 * 'jsonMessage' => JSONMessage
+	 */
+	function fetchRows($args) {
+		return null;
+	}
+
+	/**
 	 * Hook called after a row is fetched.
 	 * @param $args array
 	 * 'request' => PKPRequest

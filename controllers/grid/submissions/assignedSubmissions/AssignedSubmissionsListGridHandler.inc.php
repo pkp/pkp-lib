@@ -29,14 +29,11 @@ class AssignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 		parent::SubmissionsListGridHandler();
 		$this->addRoleAssignment(
 			array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_REVIEWER, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR),
-			array('fetchGrid', 'fetchRow', 'deleteSubmission')
+			array('fetchGrid', 'fetchRows', 'fetchRow', 'deleteSubmission')
 		);
 	}
 
-	function getIsSubcomponent() {
-		return true;
-	}
-
+	
 	//
 	// Implement template methods from PKPHandler
 	//
@@ -52,62 +49,33 @@ class AssignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 
 
 	//
-	// Implement template methods from SubmissionListGridHandler
+	// Implement methods from GridHandler 
 	//
 	/**
-	 * @copydoc SubmissionListGridHandler::getSubmissions()
+	 * @copydoc GridHandler::loadData()
 	 */
-	function getSubmissions($request, $userId) {
+	function loadData($request, $filter) {
+		$user = $request->getUser();
+		$userId = $user->getId();
+
 		$submissionDao = Application::getSubmissionDAO();
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$signoffDao = DAORegistry::getDAO('SignoffDAO');
 		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
 
-		// Get submissions the user is a stage participant for
-		$signoffs = $signoffDao->getByUserId($userId);
-
-		$authorUserGroupIds = $userGroupDao->getUserGroupIdsByRoleId(ROLE_ID_AUTHOR);
-
-		$data = array();
-
-		// get signoffs and stage assignments
-		$stageAssignments = $stageAssignmentDao->getByUserId($userId);
-		while($stageAssignment = $stageAssignments->next()) {
-			$submission = $submissionDao->getAssignedById($stageAssignment->getSubmissionId(), $userId);
-			if (!$submission) continue;
-
-			$submissionId = $submission->getId();
-			$data[$submissionId] = $submission;
+		list($search, $column, $stageId) = $this->getFilterValues($filter);
+		$title = $author = null;
+		if ($column == 'title') {
+			$title = $search;
+		} else {
+			$author = $search;
 		}
+	
+		$rangeInfo = $this->getGridRangeInfo($request, $this->getId());
+		$context = $request->getContext();
 
-		while($signoff = $signoffs->next()) {
-			// If it is a submission signoff (and not, say, a file signoff) and
-			// If this is an author signoff, do not include (it will be in the 'my submissions' grid)
-			if( $signoff->getAssocType() == ASSOC_TYPE_SUBMISSION &&
-				!in_array($signoff->getUserGroupId(), $authorUserGroupIds)) {
-				$submission = $submissionDao->getById($signoff->getAssocId());
-				$submissionId = $submission->getId();
-				if ($submission->getStatus() != STATUS_DECLINED) {
-					$data[$submissionId] = $submission;
-				}
-			}
-		}
-
-		// Get submissions the user is reviewing
-		$reviewerSubmissionDao = DAORegistry::getDAO('ReviewerSubmissionDAO'); /* @var $reviewerSubmissionDao ReviewerSubmissionDAO */
-		$reviewerSubmissions = $reviewerSubmissionDao->getReviewerSubmissionsByReviewerId($userId);
-		while($reviewerSubmission = $reviewerSubmissions->next()) {
-			$submissionId = $reviewerSubmission->getId();
-			if (!isset($data[$submissionId])) {
-				// Only add if not already provided above --
-				// otherwise reviewer workflow link may
-				// clobber editorial workflow link
-				$data[$submissionId] = $reviewerSubmission;
-			}
-		}
-
-		return $data;
+		return $submissionDao->getAssignedToUser($userId, $context->getId(), $title, $author, $stageId, $rangeInfo);
 	}
 }
 

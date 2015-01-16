@@ -136,10 +136,11 @@
 	/**
 	 * Hook into the refresh grid functionality. Called just before
 	 * the fetch (grid or row) call is done.
+	 * @param {number|Object=} opt_elementId
 	 * @return {boolean} Always returns false.
 	 */
 	$.pkp.classes.features.Feature.prototype.refreshGrid =
-			function() {
+			function(opt_elementId) {
 		return false;
 	};
 

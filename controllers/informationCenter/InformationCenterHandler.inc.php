@@ -146,7 +146,7 @@ class InformationCenterHandler extends Handler {
 
 		$templateMgr->assign('notesListId', 'notesList');
 		$json = new JSONMessage(true, $templateMgr->fetch('controllers/informationCenter/notesList.tpl'));
-		$json->setEvent('dataChanged');
+		$json->setEvent('dataChanged', $this->_getAssocId());
 		return $json;
 	}
 

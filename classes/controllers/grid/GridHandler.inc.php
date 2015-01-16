@@ -409,6 +409,7 @@ class GridHandler extends PKPHandler {
 		$router = $request->getRouter();
 		$urls = array(
 			'fetchGridUrl' => $router->url($request, null, null, 'fetchGrid', null, $this->getRequestArgs()),
+			'fetchRowsUrl' => $router->url($request, null, null, 'fetchRows', null, $this->getRequestArgs()),
 			'fetchRowUrl' => $router->url($request, null, null, 'fetchRow', null, $this->getRequestArgs())
 		);
 		$this->_urls = array_merge($urls, $extraUrls);
@@ -669,12 +670,40 @@ class GridHandler extends PKPHandler {
 	}
 
 	/**
+	 * Fetch all grid rows from loaded data.
+	 * @param $args Array
+	 * @param $request Request
+	 * @return JSONMessage JSON object.
+	 */
+	function fetchRows($args, $request) {
+		// Render the rows.
+		$this->setFirstDataColumn();
+		$elements = $this->getGridDataElements($request);
+		$renderedRows = $this->renderRowsInternally($request, $elements);
+
+		$json = new JSONMessage();
+		$json->setStatus(false);
+
+		if ($renderedRows) {
+			$renderedRowsString = null;
+			foreach ($renderedRows as $rowString) {
+				$renderedRowsString .= $rowString;
+			}
+			$json->setStatus(true);
+			$json->setContent($renderedRowsString);
+		}
+
+		$this->callFeaturesHook('fetchRows', array('request' => &$request, 'grid' => &$this, 'jsonMessage' => &$json));
+
+		return $json;
+	}
+
+	/**
 	 * Render a row and send it to the client. If the row no
 	 * longer exists then inform the client.
 	 * @param $args array
 	 * @param $request Request
-	 * @return string the serialized row JSON message or a flag
-	 *  that indicates that the row has not been found.
+	 * @return JSONMessage JSON object.
 	 */
 	function fetchRow(&$args, $request) {
 		// Instantiate the requested row (includes a

@@ -135,11 +135,12 @@
 	<message key="metadata.property.validationMessage.name-type">Please make sure that you set a valid name type. Supported values are 'personal', 'corporate' and 'conference'.</message>
 	<!-- FIXME: end -->
 
-	<message key="common.queue.long.submissionsUnassigned">Unassigned Submissions</message>
-	<message key="common.queue.long.myAssigned">My Assigned Submissions</message>
+	<message key="common.queue.long.submissionsUnassigned">Unassigned</message>
+	<message key="common.queue.long.myAssigned">My Assigned</message>
 	<message key="common.queue.long.submissionsArchived">Archived Submissions</message>
 	<message key="submission.authors">Authors</message>
-	<message key="submission.mySubmissions">My Authored Submissions</message>
+	<message key="submission.shortAuthor">{$author} et al.</message>
+	<message key="submission.mySubmissions">My Authored</message>
 	<message key="submission.addFile">Upload File</message>
 	<message key="submission.agencies">Agencies</message>
 	<message key="submission.abstractViews">Abstract Views</message>
@@ -473,6 +474,9 @@
 
 	<!-- Workflow keys -->
 	<message key="workflow.review.internalReview">Internal Review</message>
+	<message key="workflow.stage.any">Any Stage</message>
+	<message key="workflow.stage">Stage</message>
+	
 
 	<!-- Submission status -->
 	<message key="submission.status.editorial">In Copyediting</message>

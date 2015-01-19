@@ -478,11 +478,17 @@
 			function(validator, formElement) {
 
 		// Notify any nested formWidgets of the submit action.
-		var formSubmitEvent = new $.Event('formSubmitRequested');
-		$(formElement).find('.formWidget').trigger(formSubmitEvent);
+		var defaultPrevented = false;
+		$(formElement).find('.formWidget').each(function() {
+			var formSubmitEvent = new $.Event('formSubmitRequested');
+			if (!defaultPrevented) {
+				$(this).trigger(formSubmitEvent);
+				defaultPrevented = formSubmitEvent.isDefaultPrevented();
+			}
+		});
 
 		// If the default behavior was prevented for any reason, stop.
-		if (formSubmitEvent.isDefaultPrevented()) {
+		if (defaultPrevented) {
 			return;
 		}
 

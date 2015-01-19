@@ -496,7 +496,8 @@ class DAO {
 		// Loop over all fields and update them in the settings table
 		$updateArray = $idArray;
 		$noLocale = 0;
-		$staleMetadataSettings = array();
+		$staleSettings = array();
+
 		foreach ($settingFields as $isTranslated => $fieldTypes) {
 			foreach ($fieldTypes as $isMetadata => $fieldNames) {
 				foreach ($fieldNames as $fieldName) {
@@ -532,17 +533,17 @@ class DAO {
 							$this->replace($tableName, $updateArray, $idFields);
 						}
 					} else {
-						// Meta-data fields are maintained "sparsly". Only set fields will be
+						// Data is maintained "sparsely". Only set fields will be
 						// recorded in the settings table. Fields that are not explicity set
 						// in the data object will be deleted.
-						if ($isMetadata) $staleMetadataSettings[] = $fieldName;
+						$staleSettings[] = $fieldName;
 					}
 				}
 			}
 		}
 
-		// Remove stale meta-data
-		if (count($staleMetadataSettings)) {
+		// Remove stale data
+		if (count($staleSettings)) {
 			$removeWhere = '';
 			$removeParams = array();
 			foreach ($idArray as $idField => $idValue) {
@@ -550,8 +551,8 @@ class DAO {
 				$removeWhere .= $idField.' = ?';
 				$removeParams[] = $idValue;
 			}
-			$removeWhere .= rtrim(' AND setting_name IN ( '.str_repeat('? ,', count($staleMetadataSettings)), ',').')';
-			$removeParams = array_merge($removeParams, $staleMetadataSettings);
+			$removeWhere .= rtrim(' AND setting_name IN ( '.str_repeat('? ,', count($staleSettings)), ',').')';
+			$removeParams = array_merge($removeParams, $staleSettings);
 			$removeSql = 'DELETE FROM '.$tableName.' WHERE '.$removeWhere;
 			$this->update($removeSql, $removeParams);
 		}

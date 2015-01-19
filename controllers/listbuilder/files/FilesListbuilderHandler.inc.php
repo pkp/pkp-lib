@@ -17,13 +17,14 @@ import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
 
 class FilesListbuilderHandler extends ListbuilderHandler {
 
-	/** File stage **/
+	/** @var int|null File stage **/
 	var $_fileStage;
 
 	/**
 	 * Constructor
+	 * @param $fileStage int File stage (or null for any)
 	 */
-	function FilesListbuilderHandler($fileStage) {
+	function FilesListbuilderHandler($fileStage = null) {
 		parent::ListbuilderHandler();
 
 		$this->_fileStage = $fileStage;
@@ -36,7 +37,7 @@ class FilesListbuilderHandler extends ListbuilderHandler {
 
 	/**
 	 * Get file stage.
-	 * @return int
+	 * @return int|null
 	 */
 	function getFileStage() {
 		return $this->_fileStage;
@@ -49,9 +50,12 @@ class FilesListbuilderHandler extends ListbuilderHandler {
 	/**
 	 * @copydoc PKPHandler::authorize()
 	 */
-	function authorize($request, &$args, $roleAssignments, $stageId) {
+	function authorize($request, &$args, $roleAssignments, $stageId = null) {
 		import('classes.security.authorization.WorkflowStageAccessPolicy'); // context-specific.
-		$this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId), true);
+		import('classes.security.authorization.SubmissionAccessPolicy'); // context-specific.
+		if ($stageId !== null) $this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId), true);
+		else $this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments));
+
 		return parent::authorize($request, $args, $roleAssignments);
 	}
 

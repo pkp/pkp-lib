@@ -81,12 +81,12 @@ class DataObject {
 	 */
 	function &getData($key, $locale = null) {
 		if (is_null($locale)) {
-			if (isset($this->_data[$key])) {
+			if (array_key_exists($key, $this->_data)) {
 				return $this->_data[$key];
 			}
 		} else {
 			// see http://bugs.php.net/bug.php?id=29848
-			if (isset($this->_data[$key]) && is_array($this->_data[$key]) && isset($this->_data[$key][$locale])) {
+			if (array_key_exists($key, $this->_data) && is_array($this->_data[$key]) && array_key_exists($locale, $this->_data[$key])) {
 				return $this->_data[$key][$locale];
 			}
 		}
@@ -116,7 +116,7 @@ class DataObject {
 			// This is either a non-localized value or we're
 			// passing in all locales at once.
 			if (is_null($value)) {
-				if (isset($this->_data[$key])) unset($this->_data[$key]);
+				if (array_key_exists($key, $this->_data)) unset($this->_data[$key]);
 			} else {
 				$this->_data[$key] = $value;
 			}
@@ -124,8 +124,8 @@ class DataObject {
 			// (Un-)set a single localized value.
 			if (is_null($value)) {
 				// see http://bugs.php.net/bug.php?id=29848
-				if (isset($this->_data[$key])) {
-					if (is_array($this->_data[$key]) && isset($this->_data[$key][$locale])) unset($this->_data[$key][$locale]);
+				if (array_key_exists($key, $this->_data)) {
+					if (is_array($this->_data[$key]) && array_key_exists($locale, $this->_data[$key])) unset($this->_data[$key][$locale]);
 					// Was this the last entry for the data variable?
 					if (empty($this->_data[$key])) unset($this->_data[$key]);
 				}
@@ -143,10 +143,10 @@ class DataObject {
 	 */
 	function hasData($key, $locale = null) {
 		if (is_null($locale)) {
-			return isset($this->_data[$key]);
+			return array_key_exists($key, $this->_data);
 		} else {
 			// see http://bugs.php.net/bug.php?id=29848
-			return isset($this->_data[$key]) && is_array($this->_data[$key]) && isset($this->_data[$key][$locale]);
+			return array_key_exists($key, $this->_data) && is_array($this->_data[$key]) && array_key_exists($locale, $this->_data[$key]);
 		}
 	}
 

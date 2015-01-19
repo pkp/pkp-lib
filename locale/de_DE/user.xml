@@ -53,6 +53,7 @@
 	<message key="user.login.activate">Aktiviere Konto</message>
 	<message key="user.login.activated">Danke, dass Sie Ihr Konto aktiviert haben. Sie können sich nun unter Verwendung der von Ihnen bei der Erstellung Ihres Kontos gemachten Angaben einloggen.</message>
 	<message key="user.login.changePasswordInstructions"><![CDATA[Damit Sie sich auf dieser Seite einloggen können, müssen Sie ein neues Passwort auswählen.<br /><br />Sie ändern das Passwort für Ihr Konto, indem Sie unten Ihren Benutzer/innennamen und das aktuelle sowie das neue Passwort eintragen.]]></message>
+	<message key="user.login.changePasswordInstructionsOneStep"><![CDATA[Sie müssen ein neues Passwort wählen, bevor Sie sich bei dieser Website einloggen können.<br /><br />Bitte geben Sie Ihren Benutzer/innennamen und Ihr neues Passwort unten ein, um das Passwort für Ihr Konto zu ändern.]]></message>
 	<message key="user.login.forgotPassword">Passwort vergessen?</message>
 	<message key="user.login.loginError">Benutzer/innen-Name oder Passwort ungültig. Versuchen Sie es erneut.</message>
 	<message key="user.login">Benutzer/innen-Name</message>

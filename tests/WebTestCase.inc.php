@@ -54,8 +54,7 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	protected function setUp() {
 		$screenshotsFolder = 'lib/pkp/tests/results';
 		$this->screenshotPath = BASE_SYS_DIR . '/' . $screenshotsFolder;
-		$this->screenshotUrl = Config::getVar('general', 'base_url') . '/' . $screenshotsFolder;
-
+		$this->screenshotUrl = getenv('BASEURL') . '/' . $screenshotsFolder;
 
 		if (empty(self::$baseUrl)) {
 			$this->markTestSkipped(
@@ -296,6 +295,7 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 		$this->type('css=input[type="file"]', $testFile);
 		$this->waitForText('css=span.plupload_file_name_wrapper', $fileName);
 		$this->click('css=a[id=plupload_start]');
+		$this->waitJQuery();
 		$this->waitForTextPresent('100%');
 	}
 

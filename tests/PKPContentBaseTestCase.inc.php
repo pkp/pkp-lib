@@ -55,8 +55,12 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		}
 
 		$data = array_merge(array(
-			'file' => null,
-			'fileTitle' => $data['title'],
+			'files' => array(
+				array(
+					'file' => null,
+					'fileTitle' => $data['title']
+				)
+			),
 			'keywords' => array(),
 			'additionalAuthors' => array(),
 		), $data);
@@ -75,8 +79,13 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->click('css=[id^=submitFormButton-]');
 
 		// Page 2: File wizard
-		sleep(1); // Occasional race conditions in travis
-		$this->uploadWizardFile($data['fileTitle'], $data['file']);
+		$this->waitForElementPresent($selector = 'id=cancelButton');
+		$this->click($selector); // Thanks but no thanks
+		foreach ($data['files'] as $file) {
+			if (!isset($file['file'])) $file['file'] = null;
+			$this->click('css=[id^=component-grid-files-submission-submissionwizardfilesgrid-addFile-button-]');
+			$this->uploadWizardFile($file['fileTitle'], $file['file']);
+		}
 		sleep(1); // Occasional race conditions in travis
 		$this->waitForElementPresent('//span[text()=\'Save and continue\']/..');
 		$this->click('//span[text()=\'Save and continue\']/..');
@@ -110,7 +119,12 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 	 * @param $file string (Null to use dummy file)
 	 */
 	protected function uploadWizardFile($fileTitle, $file = null) {
-		if (!$file) $file = getenv('DUMMYFILE');
+		if (!$file) {
+			// Generate a file to use using the DUMMYFILE env var.
+			$dummyfile = getenv('DUMMYFILE');
+			$file = sys_get_temp_dir() . '/' . preg_replace('/[^a-z0-9\.]/', '', strtolower($fileTitle)) . '.pdf';
+			copy($dummyfile, $file);
+		}
 		$this->waitForElementPresent('id=genreId');
 		$this->select('id=genreId', 'label=' . $this->_getSubmissionElementName());
 		$this->uploadFile($file);
@@ -120,8 +134,8 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->runScript('$(\'#metadataForm\').valid();');
 		$this->click('//span[text()=\'Continue\']/..');
 		$this->waitJQuery();
-		$this->waitForElementPresent('//span[text()=\'Complete\']/..');
-		$this->click('//span[text()=\'Complete\']/..');
+		$this->waitForElementPresent($selector = '//span[text()=\'Complete\']/..');
+		$this->click($selector);
 		$this->waitJQuery();
 	}
 	/**

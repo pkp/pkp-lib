@@ -178,15 +178,19 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->logIn($username, $password);
 		$this->waitForElementPresent('xpath=(//a[contains(text(),\'Submissions\')])[2]');
 		$this->click('xpath=(//a[contains(text(),\'Submissions\')])[2]');
-		// Use an xpath concat to permit apostrophes to appear in titles
+		$xpath = '//a[text()=' . $this->quoteXpath($title) . ']';
+		$this->waitForElementPresent($xpath);
+		$this->click($xpath);
+	}
+
+	protected function quoteXpath($string) {
+		// Use an xpath concat to escape quotes in literals.
 		// http://kushalm.com/the-perils-of-xpath-expressions-specifically-escaping-quotes
-		$xpath = '//a[text()=concat(\'' . strtr($this->escapeJS($title),
+		return 'concat(\'' . strtr($this->escapeJS($string),
 			array(
 				'\\\'' => '\', "\'", \''
 			)
-		) . '\',\'\')]';
-		$this->waitForElementPresent($xpath);
-		$this->click($xpath);
+		) . '\',\'\')';
 	}
 
 	/**

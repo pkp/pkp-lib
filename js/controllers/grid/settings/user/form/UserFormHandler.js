@@ -80,7 +80,7 @@
 				passwordValue = '',
 				activeAndCheck = 0;
 
-		if ($checkbox.prop('checked')) {
+		if ($checkbox.attr('checked')) {
 			passwordValue = '********';
 			activeAndCheck = 'disabled';
 		} else {
@@ -88,9 +88,9 @@
 			activeAndCheck = '';
 		}
 		$(':password', $form).
-				prop('disabled', activeAndCheck).val(passwordValue);
+				attr('disabled', activeAndCheck).val(passwordValue);
 		$('[id^="sendNotify"]', $form).attr('disabled', activeAndCheck).
-				prop('checked', activeAndCheck);
+				attr('checked', activeAndCheck);
 	};
 
 

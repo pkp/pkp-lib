@@ -20,7 +20,7 @@
 <form class="pkp_form" id="uploadForm" action="{url op="updateFile" fileId=$libraryFile->getId()}" method="post">
 	{fbvFormArea id="name"}
 		{fbvFormSection title="common.name" required=true}
-			{fbvElement type="text" id="libraryFileName" value=$libraryFileName maxlength="120" multilingual=true}
+			{fbvElement type="text" id="libraryFileName" value=$libraryFileName maxlength="255" multilingual=true}
 		{/fbvFormSection}
 	{/fbvFormArea}
 

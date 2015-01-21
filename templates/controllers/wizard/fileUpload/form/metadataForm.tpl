@@ -25,7 +25,7 @@
 	{* Editable metadata *}
 	{fbvFormArea id="fileMetaData"}
 		{fbvFormSection title="submission.form.name" required=true}
-			{fbvElement type="text" id="name" value=$submissionFile->getLocalizedName() maxlength="120"}
+			{fbvElement type="text" id="name" value=$submissionFile->getLocalizedName() maxlength="255"}
 		{/fbvFormSection}
 		{if is_a($submissionFile, 'ArtworkFile')}
 			{fbvFormSection title="grid.artworkFile.caption" inline=true size=$fbvStyles.size.MEDIUM}

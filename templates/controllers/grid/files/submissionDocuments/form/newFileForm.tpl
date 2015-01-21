@@ -31,7 +31,7 @@
 
 	{fbvFormArea id="name"}
 		{fbvFormSection title="common.name" required=true}
-			{fbvElement type="text" multilingual="true" id="libraryFileName" value=$libraryFileName maxlength="120"}
+			{fbvElement type="text" multilingual="true" id="libraryFileName" value=$libraryFileName maxlength="255"}
 		{/fbvFormSection}
 	{/fbvFormArea}
 

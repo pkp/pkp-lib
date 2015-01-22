@@ -193,14 +193,21 @@ class PKPRoleDAO extends DAO {
 	}
 
 	/**
-	* Get role forbidden stages.
-	* @param $roleId int
-	* @return array
-	*/
+	 * Get role forbidden stages.
+	 * @param $roleId int Specific role ID to fetch stages for, if any
+	 * @return array With $roleId, array(WORKFLOW_STAGE_ID_...); without,
+	 *  array(ROLE_ID_... => array(WORKFLOW_STAGE_ID_...))
+	 */
 	function getForbiddenStages($roleId = null) {
-		$forbiddenStages = array(ROLE_ID_REVIEWER =>
-				// User groups with reviewer roles should only have review stage assignments.
-				array(WORKFLOW_STAGE_ID_SUBMISSION, WORKFLOW_STAGE_ID_EDITING, WORKFLOW_STAGE_ID_PRODUCTION)
+		$forbiddenStages = array(
+			ROLE_ID_REVIEWER => array(
+				// Reviewer user groups should only have review stage assignments.
+				WORKFLOW_STAGE_ID_SUBMISSION, WORKFLOW_STAGE_ID_EDITING, WORKFLOW_STAGE_ID_PRODUCTION,
+			),
+			ROLE_ID_READER => array(
+				// Reader user groups should have no stage assignments.
+				WORKFLOW_STAGE_ID_SUBMISSION, WORKFLOW_STAGE_ID_INTERNAL_REVIEW, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW, WORKFLOW_STAGE_ID_EDITING, WORKFLOW_STAGE_ID_PRODUCTION,
+			),
 		);
 
 		if ($roleId) {

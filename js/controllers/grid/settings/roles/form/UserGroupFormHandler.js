@@ -154,8 +154,9 @@
 			updateStageOptions = function(roleId) {
 
 		// JQuerify the element
-		var $stageOptions = $(this.stagesSelector_, this.getHtmlElement()).
-				filter('input'),
+		var $htmlElement = this.getHtmlElement(),
+				$stageContainer = $htmlElement.find('#userGroupStageContainer'),
+				$stageOptions = $(this.stagesSelector_, $htmlElement).filter('input'),
 				i,
 				stageId = null;
 
@@ -167,6 +168,15 @@
 				$stageOptions.filter('input[value="' + stageId + '"]').
 						attr('disabled', 'disabled');
 			}
+		}
+
+		if ($htmlElement.find(
+				'input[id^=\'assignedStages-\']:enabled').length == 0) {
+			$stageContainer.hide('slow');
+			$('#showTitle').attr('disabled', 'disabled');
+		} else {
+			$stageContainer.show('slow');
+			$('#showTitle').removeAttr('disabled');
 		}
 	};
 

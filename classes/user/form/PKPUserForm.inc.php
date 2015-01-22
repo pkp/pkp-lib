@@ -62,14 +62,16 @@ class PKPUserForm extends Form {
 		}
 
 		// Expose potential self-registration user groups to template
-		$authorUserGroups = $reviewerUserGroups = array();
+		$authorUserGroups = $reviewerUserGroups = $readerUserGroups = array();
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		foreach ($contexts as $context) {
 			$reviewerUserGroups[$context->getId()] = $userGroupDao->getByRoleId($context->getId(), ROLE_ID_REVIEWER)->toArray();
 			$authorUserGroups[$context->getId()] = $userGroupDao->getByRoleId($context->getId(), ROLE_ID_AUTHOR)->toArray();
+			$readerUserGroups[$context->getId()] = $userGroupDao->getByRoleId($context->getId(), ROLE_ID_READER)->toArray();
 		}
 		$templateMgr->assign('reviewerUserGroups', $reviewerUserGroups);
 		$templateMgr->assign('authorUserGroups', $authorUserGroups);
+		$templateMgr->assign('readerUserGroups', $readerUserGroups);
 
 		return parent::display($request);
 	}
@@ -108,6 +110,7 @@ class PKPUserForm extends Form {
 			'userLocales',
 			'authorGroup',
 			'reviewerGroup',
+			'readerGroup',
 			'interests',
 		));
 
@@ -173,18 +176,19 @@ class PKPUserForm extends Form {
 		while ($context = $contexts->next()) {
 			foreach (array(
 				array(
-					'setting' => 'allowRegReviewer',
 					'roleId' => ROLE_ID_REVIEWER,
 					'formElement' => 'reviewerGroup'
 				),
 				array(
-					'setting' => 'allowRegAuthor',
 					'roleId' => ROLE_ID_AUTHOR,
 					'formElement' => 'authorGroup'
 				),
+				array(
+					'roleId' => ROLE_ID_READER,
+					'formElement' => 'readerGroup'
+				),
 			) as $groupData) {
 				$groupFormData = (array) $this->getData($groupData['formElement']);
-				if (!$context->getSetting($groupData['setting'])) continue;
 				$userGroups = $userGroupDao->getByRoleId($context->getId(), $groupData['roleId']);
 				while ($userGroup = $userGroups->next()) {
 					if (!$userGroup->getPermitSelfRegistration()) continue;

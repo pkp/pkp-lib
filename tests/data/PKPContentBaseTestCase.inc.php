@@ -195,7 +195,12 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->click('//span[text()=\'' . $this->escapeJS($decision) . '\']/..');
 		$this->waitForElementPresent('//span[text()=\'Record Editorial Decision\']/..');
 		$this->click('//span[text()=\'Record Editorial Decision\']/..');
-		$this->waitForElementNotPresent('css=.ui-widget-overlay');
+		$decisionsThatRedirect = array('Accept Submission', 'Send To Production');
+		if (in_array($decision, $decisionsThatRedirect)) {
+			$this->waitForPageToLoad();
+		} else {
+			$this->waitForElementNotPresent('css=.ui-widget-overlay');
+		}
 	}
 
 	/**
@@ -205,10 +210,13 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 	 * @param $templateValue string
 	 */
 	protected function assignParticipant($role, $name, $templateValue = null) {
-		$this->waitForElementPresent('css=[id^=component-grid-users-stageparticipant-stageparticipantgrid-requestAccount-button-]');
-		$this->click('css=[id^=component-grid-users-stageparticipant-stageparticipantgrid-requestAccount-button-]');
+		$this->waitForElementPresent($participantsToggleSelector = 'id=participantToggle');
+		$this->click($participantsToggleSelector);
+		$this->waitForElementPresent($addUserLinkSelector = 'css=[id^=component-grid-users-stageparticipant-stageparticipantgrid-requestAccount-button-]');
+		$this->click($addUserLinkSelector);
 		$this->waitJQuery();
-		$this->select('id=userGroupId', 'label=' . $this->escapeJS($role));
+		$this->waitForElementPresent($userGroupSelector = 'id=userGroupId');
+		$this->select($userGroupSelector, 'label=' . $this->escapeJS($role));
 		$this->waitForElementPresent('//select[@name=\'userId\']//option[text()=\'' . $this->escapeJS($name) . '\']');
 		$this->select('id=userId', 'label=' . $this->escapeJS($name));
 

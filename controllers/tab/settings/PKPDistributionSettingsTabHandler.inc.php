@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file controllers/tab/settings/DistributionSettingsTabHandler.inc.php
+ * @file controllers/tab/settings/PKPDistributionSettingsTabHandler.inc.php
  *
  * Copyright (c) 2014 Simon Fraser University Library
  * Copyright (c) 2003-2014 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class DistributionSettingsTabHandler
+ * @class PKPDistributionSettingsTabHandler
  * @ingroup controllers_tab_settings
  *
  * @brief Handle AJAX operations for tabs on Distribution Process page.
@@ -16,11 +16,11 @@
 // Import the base Handler.
 import('lib.pkp.controllers.tab.settings.ManagerSettingsTabHandler');
 
-class DistributionSettingsTabHandler extends ManagerSettingsTabHandler {
+class PKPDistributionSettingsTabHandler extends ManagerSettingsTabHandler {
 	/**
 	 * Constructor
 	 */
-	function DistributionSettingsTabHandler() {
+	function PKPDistributionSettingsTabHandler() {
 		parent::ManagerSettingsTabHandler();
 		// In addition to the operations permitted by the parent
 		// class, allow Payment AJAX extras.

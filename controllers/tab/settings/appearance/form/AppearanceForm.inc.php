@@ -40,11 +40,16 @@ class AppearanceForm extends ContextSettingsForm {
 			'displayNewReleases' => 'bool',
 			'displayFeaturedBooks' => 'bool',
 			'displayInSpotlight' => 'bool',
+			'coverThumbnailsMaxWidth' => 'int',
+			'coverThumbnailsMaxHeight' => 'int'
 		));
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON);
 
 		parent::ContextSettingsForm($settings, 'controllers/tab/settings/appearance/form/appearanceForm.tpl', $wizardMode);
+
+		$this->addCheck(new FormValidator($this, 'coverThumbnailsMaxWidth', 'required', 'manager.setup.coverThumbnailsMaxWidthRequired'));
+		$this->addCheck(new FormValidator($this, 'coverThumbnailsMaxHeight', 'required', 'manager.setup.coverThumbnailsMaxHeightRequired'));
 	}
 
 
@@ -230,6 +235,11 @@ class AppearanceForm extends ContextSettingsForm {
 		} else {
 			assert(false); // Couldn't identify the selected theme plugin
 		}
+
+		if ($coverThumbnailsResize) {
+			// TO-DO: resize all cover thumbnails
+		}
+
 	}
 
 	/**

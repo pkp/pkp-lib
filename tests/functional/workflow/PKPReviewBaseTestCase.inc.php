@@ -82,8 +82,8 @@ class PKPReviewBaseTestCase extends WorkflowBaseTestCase {
 		// Check the review workflow page.
 		$this->open(self::$baseUrl . '/index.php/publicknowledge/workflow/access/' . $submissionId);
 		$this->waitForElementPresent('css=[id^=reviewRoundNotification_]');
-		$this->assertTextPresent($allReviewsInText, 'The all reviews in notification is not present in review round page.');
 		$this->waitForInPlaceNotification($reviewRoundNotificationId, 'New reviews ready.');
+		$this->assertTextPresent($allReviewsInText, 'The all reviews in notification is not present in review round page.');
 
 		// Request revision.
 		$this->click('css=[id^=requestRevisions-button-]');

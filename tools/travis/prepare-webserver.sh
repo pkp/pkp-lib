@@ -13,7 +13,7 @@ set -xe
 
 # Start apache and configure a virtual host.
 sudo apt-get update > /dev/null
-sudo apt-get install -y --force-yes apache2 php5-cgi libapache2-mod-fastcgi apache2-suexec-custom apache2-mpm-prefork php5-curl php5-mysql php5-pgsql php5-intl
+sudo apt-get install -y --force-yes apache2 php5-cgi libapache2-mod-fastcgi apache2-suexec-custom apache2-mpm-prefork php5-curl php5-mysql php5-pgsql php5-intl php5-xsl
 sudo a2enmod actions fastcgi suexec
 
 # Prepare FastCGI/suEXEC environment: Apache2 config for FastCGI/suEXEC

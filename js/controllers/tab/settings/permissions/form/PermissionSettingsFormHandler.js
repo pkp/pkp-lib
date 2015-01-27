@@ -61,9 +61,9 @@
 			PermissionSettingsFormHandler.prototype.
 					licenseURLSelectChange = function(element) {
 		var $htmlElement = this.getHtmlElement(),
-				$licenseUrlSelect = $htmlElement.find('#licenseURLSelect'),
+				$licenseURLSelect = $htmlElement.find('#licenseURLSelect'),
 				$otherField = $htmlElement.find('input[id^="licenseURL-"]');
-		$otherField.val($licenseUrlSelect.val());
+		$otherField.val($licenseURLSelect.val());
 	};
 
 
@@ -74,10 +74,10 @@
 	$.pkp.controllers.tab.settings.permissions.form.
 			PermissionSettingsFormHandler.prototype.
 					licenseURLOtherChange = function(element) {
-		var $licenseUrlSelect = this.getHtmlElement().find('#licenseURLSelect');
+		var $licenseURLSelect = this.getHtmlElement().find('#licenseURLSelect');
 
 		// Select the "other" option in the dropdown.
-		$licenseUrlSelect.val('');
+		$licenseURLSelect.val('');
 	};
 
 

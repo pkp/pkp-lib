@@ -44,7 +44,7 @@ class PKPTemplateManager extends Smarty {
 	private $_styleSheets = array();
 
 	/** @var array of URLs to javascript files */
-	private $javaScripts = array();
+	private $_javaScripts = array();
 
 	/** @var string Type of cacheability (Cache-Control). */
 	private $_cacheability;

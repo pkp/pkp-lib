@@ -43,11 +43,37 @@
 		// Handle events on copyright holder type controls
 		$('input[id^="copyrightHolderType-"]', $form).change(
 				this.callbackWrapper(this.copyrightHolderRadioSelect));
+
+		// Handle events on copyright holder type controls
+		$('#resetPermissionsButton', $form).button().click(
+				this.callbackWrapper(this.resetPermissionsHandler));
+
+
+		this.resetPermissionsUrl = options.resetPermissionsUrl;
+		this.resetPermissionsConfirmText = options.resetPermissionsConfirmText;
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.tab.settings.permissions.form.
 					PermissionSettingsFormHandler,
 			$.pkp.controllers.form.AjaxFormHandler);
+
+
+	/**
+	 * Reset permissions post URL
+	 * @protected
+	 * @type {string?}
+	 */
+	$.pkp.controllers.tab.settings.permissions.form.PermissionSettingsFormHandler.
+			prototype.resetPermissionsUrl = null;
+
+
+	/**
+	 * Reset permissions confirmation message
+	 * @protected
+	 * @type {string?}
+	 */
+	$.pkp.controllers.tab.settings.permissions.form.PermissionSettingsFormHandler.
+			prototype.resetPermissionsConfirmText = null;
 
 
 	//
@@ -95,6 +121,22 @@
 			$copyrightHolderOther.removeAttr('disabled');
 		} else {
 			$copyrightHolderOther.attr('disabled', 'disabled');
+		}
+	};
+
+
+	/**
+	 * Event handler that is called when the "reset permissions" button is clicked.
+	 * @param {HTMLElement} element The input element.
+	 */
+	$.pkp.controllers.tab.settings.permissions.form.
+			PermissionSettingsFormHandler.prototype.
+					resetPermissionsHandler = function(element) {
+		if (confirm(this.resetPermissionsConfirmText)) {
+			$.post(this.resetPermissionsUrl, {}, function() {
+				// A notification was posted; display it.
+				$('body').trigger('notifyUser');	
+			});
 		}
 	};
 

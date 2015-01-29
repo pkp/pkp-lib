@@ -26,7 +26,7 @@ class PKPDistributionSettingsTabHandler extends ManagerSettingsTabHandler {
 		// class, allow Payment AJAX extras.
 		$this->addRoleAssignment(
 			ROLE_ID_MANAGER,
-			array('getPaymentMethods', 'getPaymentFormContents')
+			array('getPaymentMethods', 'getPaymentFormContents', 'resetPermissions')
 		);
 		$this->setPageTabs(array(
 			'indexing' => 'lib.pkp.controllers.tab.settings.contextIndexing.form.ContextIndexingForm',
@@ -38,6 +38,7 @@ class PKPDistributionSettingsTabHandler extends ManagerSettingsTabHandler {
 	 * Expose payment methods via AHAX for selection on the payment tab.
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON response.
 	 */
 	function getPaymentMethods($args, $request) {
 		// Expose names of payment plugins to template.
@@ -46,21 +47,21 @@ class PKPDistributionSettingsTabHandler extends ManagerSettingsTabHandler {
 			create_function('$a', 'return $a->getDisplayName();'),
 			PluginRegistry::loadCategory('paymethod')
 		);
-		$jsonMessage = new JSONMessage(true, $pluginNames);
-		return $jsonMessage->getString();
+		return new JSONMessage(true, $pluginNames);
 	}
 
 	/**
 	 * Get the form contents for the given payment method.
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON response.
 	 */
 	function getPaymentFormContents($args, $request) {
 		$paymentPluginName = $request->getUserVar('paymentPluginName');
 		$plugins =& PluginRegistry::loadCategory('paymethod');
 		if (!isset($plugins[$paymentPluginName])) {
 			// Invalid plugin name
-			$jsonMessage = new JSONMessage(false);
+			return new JSONMessage(false);
 		} else {
 			// Fetch and return the JSON-encoded form contents
 			$plugin =& $plugins[$paymentPluginName];
@@ -73,9 +74,26 @@ class PKPDistributionSettingsTabHandler extends ManagerSettingsTabHandler {
 				$templateMgr->assign($fieldName, $plugin->getSetting($context->getId(), $fieldName));
 			}
 
-			$jsonMessage = new JSONMessage(true, $plugin->displayPaymentSettingsForm($params, $templateMgr));
+			return new JSONMessage(true, $plugin->displayPaymentSettingsForm($params, $templateMgr));
 		}
-		return $jsonMessage->getString();
+	}
+
+	/**
+	 * Reset permissions data assigned to existing submissions.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return JSONMessage JSON response.
+	 */
+	function resetPermissions($args, $request) {
+		$context = $request->getContext();
+		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao->deletePermissions($context->getId());
+
+		$notificationManager = new NotificationManager();
+		$user = $request->getUser();
+		$notificationManager->createTrivialNotification($user->getId());
+
+		return new JSONMessage(true);
 	}
 }
 

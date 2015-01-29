@@ -11,7 +11,13 @@
 <script type="text/javascript">
 	$(function() {ldelim}
 		// Attach the form handler.
-		$('#permissionSettingsForm').pkpHandler('$.pkp.controllers.tab.settings.permissions.form.PermissionSettingsFormHandler');
+		$('#permissionSettingsForm').pkpHandler(
+			'$.pkp.controllers.tab.settings.permissions.form.PermissionSettingsFormHandler',
+			{ldelim}
+				resetPermissionsUrl: '{url|escape:"javascript" op="resetPermissions" escape=false}',
+				resetPermissionsConfirmText: '{translate|escape:"javascript" key="manager.setup.resetPermissions.confirm"}',
+			{rdelim}
+		);
 	{rdelim});
 </script>
 

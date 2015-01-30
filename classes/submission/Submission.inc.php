@@ -1247,11 +1247,11 @@ abstract class Submission extends DataObject {
 	}
 
 	/**
-	 * Initialize the copyright and license metadata for an article.
+	 * Initialize the copyright and license metadata for a submission.
 	 * This should be called at creation and at publication, to setup
 	 * license/copyright holder and copyright year, respectively.
 	 * This depends on the permissions configuration in Setup, and
-	 * (potentially) on the authors of a article being populated.
+	 * (potentially) on the authors of a submission being populated.
 	 * Only initializes empty fields because of the getDefault...()
 	 * behaviour, so subsequent calls are safe.
 	 */
@@ -1264,7 +1264,7 @@ abstract class Submission extends DataObject {
 	}
 
 	/**
-	 * Determines whether or not the license for copyright on this Article is
+	 * Determines whether or not the license for copyright on this submission is
 	 * a Creative Commons license or not.
 	 * @return boolean
 	 */

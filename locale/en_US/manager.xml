@@ -521,4 +521,8 @@
 	<message key="grid.action.createReviewForm">Create a new Review Form</message>
 	<message key="manager.setup.reviewerCompetingInterestsRequired.description">Reviewer Competing Interest statement</message>
 	<message key="manager.setup.competingInterests.required">Accept a Competing Interest statement</message>
+
+	<message key="manager.setup.includeCopyrightStatement">Display the copyright statement with content (advisable for asserting an author-held copyright).</message>
+	<message key="manager.setup.includeLicense">Display the license with published work.</message>
+	<message key="manager.setup.licenseURLDescription">Provide URL for license webpage, if available.</message>
 </locale>

@@ -145,6 +145,7 @@
 			{/fbvFormSection}
 		{/if}
 	{/fbvFormArea}
+	{call_hook name="Common::UserDetails::AdditionalItems"}
 </div>
 {if !$disableExtraContentSection}
 	{capture assign="extraContent"}

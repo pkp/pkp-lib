@@ -444,7 +444,7 @@ class SubmissionDAO extends DAO {
 	 * @param $userId int optional User to require an assignment for
 	 * @param $contextId mixed optional Context(s) to fetch submissions for
 	 * @param $rangeInfo DBResultRange optional
-	 * @return array Submissions
+	 * @return DAOResultFactory
 	 */
 	function getByStatus($status, $userId = null, $contextId = null, $rangeInfo = null) {
 		$params = array();
@@ -484,6 +484,78 @@ class SubmissionDAO extends DAO {
 		return new DAOResultFactory($result, $this, '_fromRow');
 	}
 
+	/**
+	 * Get all submissions that are considered assigned to the passed user.
+	 * @param $userId int
+	 * @param $contextId int optional
+	 * @param $rangeInfo DBResultRange optional
+	 * @return DAOResultFactory
+	 */
+	function getAssignedToUser($userId, $contextId = null, $rangeInfo = null) {
+		$params = $this->_getFetchParameters();
+		$userId = (int) $userId;
+		array_push($params, $userId, STATUS_DECLINED, $userId, $userId, ROLE_ID_AUTHOR, $userId);
+		if ($contextId) $params[] = $contextId;
+
+		$result = $this->retrieveRange($sql =
+			'SELECT s.*, ps.date_published,
+				' . $this->_getFetchColumns() . '
+			FROM submissions s
+				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id)
+				LEFT JOIN stage_assignments sa ON (s.submission_id = sa.submission_id)
+				LEFT JOIN submission_files sf ON (s.submission_id = sf.submission_id)
+				LEFT JOIN signoffs so ON (sf.file_id = so.assoc_id) 
+				LEFT JOIN user_groups g ON (g.user_group_id = so.user_group_id)
+				LEFT JOIN review_assignments ra ON (s.submission_id = ra.submission_id) '
+				. $this->_getFetchJoins() .
+			' WHERE s.date_submitted IS NOT NULL AND ps.date_published IS NULL AND s.user_id <> ? AND s.status <> ?
+				AND (sa.user_id = ? OR (so.user_id = ? AND g.role_id <> ? ) 
+				OR ra.reviewer_id = ?)'
+				. (($contextId)?' AND s.context_id = ?':'') .
+			' GROUP BY s.submission_id',
+			$params,
+			$rangeInfo				
+		);
+
+		return new DAOResultFactory($result, $this, '_fromRow');
+	}
+
+	/**
+	 * Get all submissions that are assigned to users other than the passed one.
+	 * @param $userId int
+	 * @param $contextId int optional
+	 * @param $rangeInfo DBResultRange optional
+	 * @return DAOResultFactory
+	 */
+	function getAssignedToOthers($userId, $contextId = null, $rangeInfo = null) {
+		$params = $this->_getFetchParameters();
+		$userId = (int) $userId;
+		array_push($params, $userId, STATUS_DECLINED, $userId, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR);
+		if ($contextId) $params[] = $contextId;
+
+		$result = $this->retrieveRange($sql =
+			'SELECT s.*, ps.date_published,
+				' . $this->_getFetchColumns() . '
+			FROM submissions s
+				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id)
+				LEFT JOIN submission_files sf ON (s.submission_id = sf.submission_id)
+				LEFT JOIN signoffs so ON (sf.file_id = so.assoc_id) 
+				LEFT JOIN review_assignments ra ON (s.submission_id = ra.submission_id) '
+				. $this->_getFetchJoins() .
+			' WHERE s.date_submitted IS NOT NULL AND ps.date_published IS NULL AND s.user_id <> ? AND s.status <> ?
+				AND (SELECT COUNT(sa.stage_assignment_id) FROM stage_assignments sa 
+					WHERE sa.submission_id = s.submission_id AND sa.user_id = ?) = 0
+				AND (SELECT COUNT(sa.stage_assignment_id) FROM stage_assignments sa LEFT JOIN user_groups g ON sa.user_group_id = g.user_group_id 
+					WHERE sa.submission_id = s.submission_id AND (g.role_id = ? OR g.role_id = ?)) > 0' 
+				. (($contextId)?' AND s.context_id = ?':'') .
+			' GROUP BY s.submission_id',
+			$params,
+			$rangeInfo				
+		);
+
+		return new DAOResultFactory($result, $this, '_fromRow');
+	}	
+	
 	/**
 	 * Delete all submissions by context ID.
 	 * @param $contextId int

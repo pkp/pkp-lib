@@ -25,7 +25,7 @@
 				{/fbvFormSection}
 
 				{fbvFormSection title="user.password"}
-					<a href="{url op='changePassword'}">{translate key="user.changePassword"}</a>
+					<a href="{url router=$smarty.const.ROUTE_PAGE page="user" op="changePassword"}">{translate key="user.changePassword"}</a>
 				{/fbvFormSection}
 			{/fbvFormArea}
 	</div>
@@ -83,7 +83,7 @@
 
 	{$additionalProfileFormContent}
 
-	{url|assign:cancelUrl page="dashboard"}
+	{url|assign:cancelUrl router=$smarty.const.ROUTE_PAGE page="dashboard"}
 	{fbvFormButtons submitText="common.save" cancelUrl=$cancelUrl}
 </form>
 

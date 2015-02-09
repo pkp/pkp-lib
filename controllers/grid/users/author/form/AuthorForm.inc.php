@@ -125,6 +125,8 @@ class AuthorForm extends Form {
 			// assume authors should be listed unless otherwise specified.
 			$this->_data = array('includeInBrowse' => true);
 		}
+		// in order to be able to use the hook
+		return parent::initData();
 	}
 
 	/**
@@ -207,6 +209,9 @@ class AuthorForm extends Form {
 		$author->setBiography($this->getData('biography'), null); // localized
 		$author->setPrimaryContact(($this->getData('primaryContact') ? true : false));
 		$author->setIncludeInBrowse(($this->getData('includeInBrowse') ? true : false));
+
+		// in order to be able to use the hook
+		parent::execute();
 
 		if ($existingAuthor) {
 			$authorDao->updateObject($author);

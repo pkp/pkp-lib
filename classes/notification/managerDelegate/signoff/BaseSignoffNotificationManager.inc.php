@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file classes/notification/managerDelegate/signoff/SignoffNotificationManager.inc.php
+ * @file classes/notification/managerDelegate/signoff/BaseSignoffNotificationManager.inc.php
  *
  * Copyright (c) 2014 Simon Fraser University Library
  * Copyright (c) 2003-2014 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class SignoffNotificationManager
+ * @class BaseSignoffNotificationManager
  * @ingroup classes_notification_managerDelegate_signoff
  *
  * @brief Base notification manager delegate class that handles with notifications associated with signoffs.
@@ -15,13 +15,13 @@
 
 import('lib.pkp.classes.notification.NotificationManagerDelegate');
 
-class SignoffNotificationManager extends NotificationManagerDelegate {
+class BaseSignoffNotificationManager extends NotificationManagerDelegate {
 
 	/**
 	 * Constructor.
 	 * @param $notificationType int NOTIFICATION_TYPE_...
 	 */
-	function SignoffNotificationManager($notificationType) {
+	function BaseSignoffNotificationManager($notificationType) {
 		parent::NotificationManagerDelegate($notificationType);
 	}
 

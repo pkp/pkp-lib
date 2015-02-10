@@ -75,10 +75,12 @@ class AuditorRequestNotificationManager extends NotificationManagerDelegate {
 		}
 
 		// Decide if we have to create or delete a notification.
-		if (($signoffCompleted || $removed) && !$notificationFactory->wasEmpty()) {
-			$notification = $notificationFactory->next();
-			$notificationDao->deleteObject($notification);
-		}  else if (!$signoffCompleted && $notificationFactory->wasEmpty()) {
+		if ($signoffCompleted || $removed) {
+			if (!$notificationFactory->wasEmpty()) {
+				$notification = $notificationFactory->next();
+				$notificationDao->deleteObject($notification);
+			}
+		} else if (!$signoffCompleted && $notificationFactory->wasEmpty()) {
 			$context = $request->getContext();
 			$this->createNotification(
 				$request,

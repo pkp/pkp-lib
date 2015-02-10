@@ -13,16 +13,16 @@
  * @brief Auditor request notification types manager delegate.
  */
 
-import('lib.pkp.classes.notification.managerDelegate.signoff.SignoffNotificationManager');
+import('lib.pkp.classes.notification.managerDelegate.signoff.BaseSignoffNotificationManager');
 
-class AuditorRequestNotificationManager extends SignoffNotificationManager {
+class AuditorRequestNotificationManager extends BaseSignoffNotificationManager {
 
 	/**
 	 * Constructor.
 	 * @param $notificationType int NOTIFICATION_TYPE_...
 	*/
 	function AuditorRequestNotificationManager($notificationType) {
-		parent::SignoffNotificationManager($notificationType);
+		parent::BaseSignoffNotificationManager($notificationType);
 	}
 
 	/**

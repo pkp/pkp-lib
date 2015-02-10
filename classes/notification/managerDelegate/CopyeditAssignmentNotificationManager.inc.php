@@ -13,9 +13,9 @@
  * @brief Copyedit assignment notification types manager delegate.
  */
 
-import('lib.pkp.classes.notification.managerDelegate.signoff.SignoffNotificationManager');
+import('lib.pkp.classes.notification.managerDelegate.signoff.BaseSignoffNotificationManager');
 
-class CopyeditAssignmentNotificationManager extends SignoffNotificationManager {
+class CopyeditAssignmentNotificationManager extends BaseSignoffNotificationManager {
 
 
 	/**
@@ -23,7 +23,7 @@ class CopyeditAssignmentNotificationManager extends SignoffNotificationManager {
 	 * @param $notificationType int NOTIFICATION_TYPE_...
 	 */
 	function CopyeditAssignmentNotificationManager($notificationType) {
-		parent::SignoffNotificationManager($notificationType);
+		parent::BaseSignoffNotificationManager($notificationType);
 	}
 
 	/**

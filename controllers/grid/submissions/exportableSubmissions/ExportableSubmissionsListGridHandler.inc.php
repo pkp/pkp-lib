@@ -43,7 +43,6 @@ class ExportableSubmissionsListGridHandler extends SubmissionsListGridHandler {
 		return $submissionDao->getByStatus(
 			array(STATUS_DECLINED, STATUS_PUBLISHED, STATUS_QUEUED, STATUS_ARCHIVED),
 			null,
-			null,
 			$context?$context->getId():null,
 			$this->getGridRangeInfo($request, $this->getId())
 		);

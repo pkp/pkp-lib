@@ -62,49 +62,15 @@ class ArchivedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 	 * @copydoc SubmissionListGridHandler::getSubmissions()
 	 */
 	function getSubmissions($request) {
-		// Get all contexts that user is enrolled in as manager, series editor
-		// reviewer or assistant
-		$user = $request->getUser();
-		$roleDao = DAORegistry::getDAO('RoleDAO');
-		$contextDao = Application::getContextDAO();
-		$contexts = $contextDao->getAll()->toArray();
-		$accessibleRoles = array(
-			ROLE_ID_MANAGER,
-			ROLE_ID_SUB_EDITOR,
-			ROLE_ID_REVIEWER,
-			ROLE_ID_ASSISTANT
-		);
+		$context = $request->getContext();
+		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+		$canSeeAllSubmissions = in_array(ROLE_ID_MANAGER, $userRoles);
 
-		$accessibleContexts = array();
-		$stageUserId = null;
-		$reviewUserId = null;
-		foreach ($accessibleRoles as $role) {
-			foreach ($contexts as $context) {
-				if ($roleDao->userHasRole($context->getId(), $user->getId(), $role)) {
-					$accessibleContexts[] = $context->getId();
-
-					if ($role == ROLE_ID_ASSISTANT) {
-						$stageUserId = $user->getId();
-					} elseif ($role == ROLE_ID_REVIEWER) {
-						$reviewUserId = $user->getId();
-					}
-				}
-			}
-		}
-		$accessibleContexts = array_unique($accessibleContexts);
-		if (count($accessibleContexts) == 1) {
-			$accessibleContexts = array_pop($accessibleContexts);
-		}
-
-		// Fetch all submissions for contexts the user can access. If the user
-		// is a reviewer or assistant only show submissions that have been
-		// assigned to the user
 		$submissionDao = Application::getSubmissionDAO();
 		return $submissionDao->getByStatus(
 			array(STATUS_DECLINED, STATUS_PUBLISHED),
-			$stageUserId,
-			$reviewUserId,
-			$accessibleContexts,
+			$canSeeAllSubmissions?null:$user->getId(),
+			$context->getId(),
 			$this->getGridRangeInfo($request, $this->getId())
 		);
 	}

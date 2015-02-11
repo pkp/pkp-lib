@@ -417,33 +417,42 @@ class SubmissionDAO extends DAO {
 	/**
 	 * Get all submissions for a status.
 	 * @param $status int Status to get submissions for
-	 * @param $stageUserId int optional Only get submissions where this user was assigned to a stage
-	 * @param $reviewUserId int optional Only get submissions where this user was a reviewer
+	 * @param $userId int optional User to require an assignment for
 	 * @param $contextId mixed optional Context(s) to fetch submissions for
 	 * @param $rangeInfo DBResultRange optional
 	 * @return array Submissions
 	 */
-	function getByStatus($status, $stageUserId = null, $reviewUserId, $contextId = null, $rangeInfo = null) {
-		$params = $this->_getFetchParameters();
+	function getByStatus($status, $userId = null, $contextId = null, $rangeInfo = null) {
+		$params = array();
 
-		if ($stageUserId) $params[] = (int) $stageUserId;
-		if ($reviewUserId) $params[] = (int) $reviewUserId;
+		if ($userId) $params = array_merge(
+			$params,
+			array(
+				(int) $userId, // Stage assignments
+				(int) $userId, // sa2 to prevent dupes
+				(int) $userId, // Review assignments
+				(int) $userId, // ra2 to prevent dupes
+			)
+		);
+
+		$params = array_merge($params, $this->_getFetchParameters());
 
 		$result = $this->retrieveRange(
 			'SELECT	s.*, ps.date_published,
 				' . $this->_getFetchColumns() . '
 			FROM	submissions s
-				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id) '
-				. (($stageUserId)?'LEFT JOIN stage_assignments sa ON (s.submission_id = sa.submission_id) ':'')
-				. (($reviewUserId)?'LEFT JOIN review_assignments ra ON (s.submission_id = ra.submission_id) ':'')
-				. $this->_getFetchJoins() .
-			'WHERE	'
-			. (!is_array($status)?'s.status = ' . ((int) $status):'')
-			. (is_array($status)?'s.status IN  (' . join(',', array_map(array($this,'_arrayWalkIntCast'), $status)) . ')':'')
-			. ($contextId && !is_array($contextId)?' AND s.context_id = ' . ((int) $contextId):'')
-			. ($contextId && is_array($contextId)?' AND s.context_id IN  (' . join(',', array_map(array($this,'_arrayWalkIntCast'), $contextId)) . ')':'')
-			. (($stageUserId)?' AND sa.user_id = ?':'')
-			. (($reviewUserId)?' AND ra.reviewer_id = ?':''),
+				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id)
+				' . ($userId?
+					'LEFT JOIN stage_assignments sa ON (s.submission_id = sa.submission_id AND sa.user_id = ?)
+					LEFT JOIN stage_assignments sa2 ON (s.submission_id = sa2.submission_id AND sa2.user_id = ? AND sa2.stage_assignment_id > sa.stage_assignment_id)
+					LEFT JOIN review_assignments ra ON (s.submission_id = ra.submission_id AND ra.reviewer_id = ?)
+					LEFT JOIN review_assignments ra2 ON (s.submission_id = ra2.submission_id AND ra2.reviewer_id = ? AND ra2.review_id > ra.review_id)'
+				:'') .
+				$this->_getFetchJoins() .
+			'WHERE
+				s.status IN  (' . join(',', array_map(array($this,'_arrayWalkIntCast'), (array) $status)) . ')
+			' . ($contextId?' AND s.context_id IN  (' . join(',', array_map(array($this,'_arrayWalkIntCast'), (array) $contextId)) . ')':'')
+			. ($userId?' AND sa2.stage_assignment_id IS NULL AND ra2.review_id IS NULL AND (sa.stage_assignment_id IS NOT NULL OR ra.review_id IS NOT NULL)':''),
 			$params,
 			$rangeInfo
 		);

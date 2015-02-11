@@ -17,6 +17,9 @@
 	{url|assign:finalDraftGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.final.FinalDraftFilesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId escape=false}
 	{load_url_in_div id="finalDraftGrid" url=$finalDraftGridUrl}
 
+	{url|assign:queriesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.queries.QueriesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId escape=false}
+	{load_url_in_div id="queriesGrid" url=$queriesGridUrl}
+
 	{url|assign:copyeditingGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.copyedit.CopyeditingFilesGridHandler" op="fetchGrid" submissionId=$submission->getId() escape=false}
 	{load_url_in_div id="copyeditingGrid" url=$copyeditingGridUrl}
 

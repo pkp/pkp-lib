@@ -20,6 +20,10 @@
 	<message key="grid.action.manageAccess">Manage Access</message>
 	<message key="grid.action.sort">Sort</message>
 	<message key="grid.action.addItem">Add Item</message>
+	<message key="grid.action.addQuery">Add Query</message>
+	<message key="grid.action.readQuery">Read Query</message>
+	<message key="grid.action.deleteQuery">Delete Query</message>
+	<message key="grid.action.updateQuery">Update Query</message>
 	<message key="grid.action.addUser">Add User</message>
 	<message key="grid.action.approveCopyedit">Approve this copyedit file for sending it to the next stage</message>
 	<message key="grid.action.reload">Reload</message>

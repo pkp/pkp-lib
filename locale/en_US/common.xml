@@ -397,6 +397,8 @@
 	<message key="navigation.userManagement">User Management</message>
 	<message key="notification.addedAuditor">Auditor added.</message>
 	<message key="notification.removedAuditor">Auditor removed.</message>
+	<message key="notification.addedQuery">Added Query</message>
+	<message key="notification.editedQuery">Edited Query</message>
 	<message key="notification.reviewAcknowledged">Review marked as acknowledged. Email not sent.</message>
 	<message key="notification.updatedReviewFiles">Review files updated.</message>
 	<message key="notification.allow">Enable these types of notifications.</message>

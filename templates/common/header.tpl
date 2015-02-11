@@ -109,7 +109,6 @@
 						if (notifications && notifications.general) {ldelim}
 							$.each(notifications.general, function(notificationLevel, notificationList) {ldelim}
 								$.each(notificationList, function(notificationId, notification) {ldelim}
-									console.log(notification);
 									$.pnotify(notification);
 								{rdelim});
 							{rdelim});

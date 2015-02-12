@@ -1272,8 +1272,8 @@ jQueryObject.prototype.unload = function(arg1, handler) {};
 jQueryObject.prototype.unwrap = function() {};
 
 /**
- * @param {(string|function(number,*))=} arg1
- * @return {(string|Array|jQueryObject)}
+ * @param {(string|Array.<string>|function(number,*))=} arg1
+ * @return {(string|number|Array.<string>|!jQueryObject)}
  */
 jQueryObject.prototype.val = function(arg1) {};
 

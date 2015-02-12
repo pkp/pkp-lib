@@ -89,7 +89,7 @@
 		var $htmlElement = this.getHtmlElement(),
 				$licenseURLSelect = $htmlElement.find('#licenseURLSelect'),
 				$otherField = $htmlElement.find('input[id^="licenseURL-"]');
-		$otherField.val($licenseURLSelect.val());
+		$otherField.val(/** @type {string} */ ($licenseURLSelect.val()));
 	};
 
 
@@ -115,7 +115,8 @@
 			PermissionSettingsFormHandler.prototype.
 					copyrightHolderRadioSelect = function(element) {
 		var $htmlElement = this.getHtmlElement(), $element = $(element),
-				$copyrightHolderOther = $htmlElement.find('input[id^="copyrightHolderOther-"]');
+				$copyrightHolderOther = $htmlElement.find(
+				'input[id^="copyrightHolderOther-"]');
 
 		if ($element.val() === 'other') {
 			$copyrightHolderOther.removeAttr('disabled');
@@ -135,7 +136,7 @@
 		if (confirm(this.resetPermissionsConfirmText)) {
 			$.post(this.resetPermissionsUrl, {}, function() {
 				// A notification was posted; display it.
-				$('body').trigger('notifyUser');	
+				$('body').trigger('notifyUser');
 			});
 		}
 	};

@@ -299,18 +299,19 @@ class PKPAcronPlugin extends GenericPlugin {
 				// Tasks without a frequency defined, or defined to zero, will run on every request.
 				// To avoid that happening (may cause performance problems) we
 				// setup a default period of time.
-				$frequencyAttributes = $frequency->getAttributes();
 				$setDefaultFrequency = true;
 				$minHoursRunPeriod = 24;
-				if (is_array($frequencyAttributes)) {
-					foreach($frequencyAttributes as $key => $value) {
-						if ($value != 0) {
-							$setDefaultFrequency = false;
-							break;
+				if ($frequency) { 
+					$frequencyAttributes = $frequency->getAttributes();
+					if (is_array($frequencyAttributes)) {
+						foreach($frequencyAttributes as $key => $value) {
+							if ($value != 0) {
+								$setDefaultFrequency = false;
+								break;
+							}
 						}
 					}
 				}
-
 				$tasks[] = array(
 					'className' => $task->getAttribute('class'),
 					'frequency' => $setDefaultFrequency ? array('hour' => $minHoursRunPeriod) : $frequencyAttributes,

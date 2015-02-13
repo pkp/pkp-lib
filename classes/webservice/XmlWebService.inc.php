@@ -67,7 +67,7 @@ class XmlWebService extends WebService {
 		// Catch web service errors
 		if (is_null($xmlResult)) return $xmlResult;
 
-		if ($this->_lastResponseStatus >= 400 || $this->_lastResponseStatus <= 599) {
+		if ($this->_lastResponseStatus >= 400 && $this->_lastResponseStatus <= 599) {
 			$nullVar = null;
 			return $nullVar;
 		}

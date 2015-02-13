@@ -453,7 +453,9 @@ class PKPNotificationManager {
 			'siteTitle' => $site->getLocalizedTitle()
 		));
 		$mail->addRecipient($user->getEmail(), $user->getFullName());
-		$mail->send();
+		if (!HookRegistry::call('PKPNotificationManager::sendNotificationEmail', array($notification))) {
+			$mail->send();
+		}
 	}
 
 	/**

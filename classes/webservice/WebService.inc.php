@@ -91,7 +91,7 @@ class WebService {
 		$nullVar = null;
 		if (!$result) return $nullVar;
 
-		if ($this->_lastResponseStatus >= 400 || $this->_lastResponseStatus <= 599) {
+		if ($this->_lastResponseStatus >= 400 && $this->_lastResponseStatus <= 599) {
 			return $nullVar;
 		}
 

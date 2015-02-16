@@ -124,7 +124,6 @@ class PKPSubmissionMetadataViewForm extends Form {
 		$templateMgr->assign('submissionId', $submission->getId());
 		$templateMgr->assign('stageId', $this->getStageId());
 		$templateMgr->assign('formParams', $this->getFormParams());
-		$templateMgr->assign('isPublished', $submission->getDatePublished() != null ? true : false);
 
 		return parent::fetch($request);
 	}

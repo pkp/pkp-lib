@@ -20,16 +20,7 @@
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="policiesFormNotification"}
 	{include file="controllers/tab/settings/wizardMode.tpl" wizardMode=$wizardMode}
 
-	{url|assign:"sampleCopyrightWordingUrl" router=$smarty.const.ROUTE_PAGE page="information" op="sampleCopyrightWording"}
-	{translate|assign:"authorCopyrightNoticeDescription" key="manager.setup.authorCopyrightNotice.description" sampleCopyrightWordingUrl=$sampleCopyrightWordingUrl}
-
 	{fbvFormArea id="policiesFormArea"}
-		{fbvFormSection label="manager.setup.authorCopyrightNotice"|translate description=$authorCopyrightNoticeDescription translate=false}
-			{fbvElement type="textarea" multilingual=true name="copyrightNotice" id="copyrightNotice" value=$copyrightNotice rich=true}
-		{/fbvFormSection}
-		{fbvFormSection list=true}
-			{fbvElement type="checkbox" id="copyrightNoticeAgree" value="1" checked=$copyrightNoticeAgree label="manager.setup.authorCopyrightNoticeAgree"}
-		{/fbvFormSection}
 		{fbvFormSection label="manager.setup.privacyStatement" description="manager.setup.privacyStatement.description"}
 			{fbvElement type="textarea" multilingual="true" name="privacyStatement" id="privacyStatement" value=$privacyStatement}
 		{/fbvFormSection}
@@ -44,7 +35,7 @@
 				{fbvElement type="textarea" multilingual="true" name="openAccessPolicy" id="openAccessPolicy" value=$openAccessPolicy rich=true}
 			{/fbvFormSection}
 			{fbvFormSection label="manager.setup.reviewPolicy" description="manager.setup.peerReview.description"}
-				{fbvElement type="textarea" multilingual="true" name="reviewPolicy" id="reviewPolicy" value=$reviewPolicy}
+				{fbvElement type="textarea" multilingual=true name="reviewPolicy" id="reviewPolicy" value=$reviewPolicy rich=true}
 			{/fbvFormSection}
 			{fbvFormSection label="manager.setup.competingInterests" description="manager.setup.competingInterestsDescription"}
 				{fbvElement type="textarea" multilingual="true" id="competingInterestsPolicy" value=$competingInterestsPolicy}

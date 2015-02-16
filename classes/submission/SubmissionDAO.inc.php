@@ -61,7 +61,8 @@ class SubmissionDAO extends DAO {
 			'title', 'cleanTitle', 'abstract', 'prefix', 'subtitle',
 			'discipline', 'subjectClass', 'subject',
 			'coverageGeo', 'coverageChron', 'coverageSample',
-			'type', 'sponsor', 'source', 'rights'
+			'type', 'sponsor', 'source', 'rights',
+			'copyrightHolder',
 		);
 	}
 
@@ -71,10 +72,14 @@ class SubmissionDAO extends DAO {
 	 * @return array
 	 */
 	function getAdditionalFieldNames() {
-		$additionalFields = parent::getAdditionalFieldNames();
-		// FIXME: Move this to a PID plug-in.
-		$additionalFields[] = 'pub-id::publisher-id';
-		return $additionalFields;
+		return array_merge(
+			parent::getAdditionalFieldNames(),
+			array(
+				'pub-id::publisher-id', // FIXME: Move this to a PID plug-in.
+				'copyrightYear',
+				'licenseURL',
+			)
+		);
 	}
 
 	/**
@@ -469,6 +474,26 @@ class SubmissionDAO extends DAO {
 		while ($submission = $submissions->next()) {
 			$this->deleteById($submission->getId());
 		}
+	}
+
+	/**
+	 * Delete the attached licenses of all submissions in a context.
+	 * @param $submissionId int
+	 */
+	function deletePermissions($contextId) {
+		$submissions = $this->getByContextId($contextId);
+		while ($submission = $submissions->next()) {
+			$this->update(
+				'DELETE FROM submission_settings WHERE (setting_name = ? OR setting_name = ? OR setting_name = ?) AND submission_id = ?',
+				array(
+					'licenseURL',
+					'copyrightHolder',
+					'copyrightYear',
+					(int) $submission->getId()
+				)
+			);
+		}
+		$this->flushCache();
 	}
 
 

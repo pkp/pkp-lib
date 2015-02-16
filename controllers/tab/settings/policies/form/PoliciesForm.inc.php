@@ -27,8 +27,6 @@ class PoliciesForm extends ContextSettingsForm {
 			'focusScopeDesc' => 'string',
 			'openAccessPolicy' => 'string',
 			'reviewPolicy' => 'string',
-			'copyrightNotice' => 'string',
-			'copyrightNoticeAgree' => 'bool',
 			'competingInterestsPolicy' => 'string',
 			'privacyStatement' => 'string'
 		));
@@ -46,7 +44,7 @@ class PoliciesForm extends ContextSettingsForm {
 	 * @copydoc Form::getLocaleFieldNames()
 	 */
 	function getLocaleFieldNames() {
-		return array('focusScopeDesc', 'openAccessPolicy', 'reviewPolicy', 'copyrightNotice', 'privacyStatement', 'competingInterestsPolicy');
+		return array('focusScopeDesc', 'openAccessPolicy', 'reviewPolicy', 'privacyStatement', 'competingInterestsPolicy');
 	}
 }
 

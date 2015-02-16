@@ -28,6 +28,11 @@ define('STATUS_QUEUED', 1);
 define('STATUS_PUBLISHED', 3);
 define('STATUS_DECLINED', 4);
 
+// License settings (internal use only)
+define ('PERMISSIONS_FIELD_LICENSE_URL', 1);
+define ('PERMISSIONS_FIELD_COPYRIGHT_HOLDER', 2);
+define ('PERMISSIONS_FIELD_COPYRIGHT_YEAR', 3);
+
 abstract class Submission extends DataObject {
 	/**
 	 * Constructor.
@@ -37,6 +42,77 @@ abstract class Submission extends DataObject {
 		$this->setHasLoadableAdapters(true);
 
 		parent::DataObject();
+	}
+
+	/**
+	 * Get the localized copyright holder for this submission.
+	 * @return string Localized copyright holder.
+	 */
+	function getLocalizedCopyrightHolder() {
+		$copyrightHolders = (array) $this->getCopyrightHolder(null);
+		foreach (AppLocale::getLocalePrecedence() as $locale) {
+			if (isset($copyrightHolders[$locale])) return $copyrightHolders[$locale];
+		}
+
+		// Fallback: return anything available
+		return array_shift($copyrightHolders);
+	}
+
+	/**
+	 * Get the license URL for this submission.
+	 * @return string License URL.
+	 */
+	function getDefaultLicenseUrl() {
+		return $this->_getDefaultLicenseFieldValue(null, PERMISSIONS_FIELD_LICENSE_URL);
+	}
+
+	/**
+	 * Get the copyright holder for this submission.
+	 * @param $locale string Locale
+	 * @return string Copyright holder.
+	 */
+	function getDefaultCopyrightHolder($locale) {
+		return $this->_getDefaultLicenseFieldValue($locale, PERMISSIONS_FIELD_COPYRIGHT_HOLDER);
+	}
+
+	/**
+	 * Get the copyright year for this submission.
+	 * @return string Copyright year.
+	 */
+	function getDefaultCopyrightYear() {
+		return $this->_getDefaultLicenseFieldValue(null, PERMISSIONS_FIELD_COPYRIGHT_YEAR);
+	}
+
+	/**
+	 * Get the best guess license field for this submission.
+	 * Return the existing value if the field is already set,
+	 * otherwise calculate a best value based on the context settings.
+	 * @param $locale string Locale
+	 * @param $field int PERMISSIONS_FIELD_... Which to return
+	 * @return string|null Field value.
+	 */
+	function _getDefaultLicenseFieldValue($locale, $field) {
+		// If already set, use the stored permissions info
+		switch ($field) {
+			case PERMISSIONS_FIELD_LICENSE_URL:
+				$fieldValue = $this->getLicenseURL();
+				break;
+			case PERMISSIONS_FIELD_COPYRIGHT_HOLDER:
+				$fieldValue = $this->getCopyrightHolder($locale);
+				break;
+			case PERMISSIONS_FIELD_COPYRIGHT_YEAR:
+				$fieldValue = $this->getCopyrightYear();
+				break;
+			default: assert(false);
+		}
+
+		if (!empty($fieldValue)) {
+			if ($locale === null || !is_array($fieldValue)) return $fieldValue;
+			if (isset($fieldValue[$locale])) return $fieldValue[$locale];
+		}
+
+		// Otherwise, get the permissions info from context settings.
+		return $this->_getContextLicenseFieldValue($locale, $field);
 	}
 
 	/**
@@ -53,7 +129,7 @@ abstract class Submission extends DataObject {
 			return ($pubId ? $pubId : null);
 		}
 
-		$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $this->getJournalId());
+		$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $this->getContextId());
 
 		if (is_array($pubIdPlugins)) {
 			foreach ($pubIdPlugins as $pubIdPlugin) {
@@ -140,6 +216,56 @@ abstract class Submission extends DataObject {
 	 */
 	function setStoredPubId($pubIdType, $pubId) {
 		return $this->setData('pub-id::'.$pubIdType, $pubId);
+	}
+
+	/**
+	 * Get stored copyright holder for the submission.
+	 * @param $locale string locale
+	 * @return string
+	 */
+	function getCopyrightHolder($locale) {
+		return $this->getData('copyrightHolder', $locale);
+	}
+
+	/**
+	 * Set the stored copyright holder for the submission.
+	 * @param $copyrightHolder string Copyright holder
+	 * @param $locale string locale
+	 */
+	function setCopyrightHolder($copyrightHolder, $locale) {
+		return $this->setData('copyrightHolder', $copyrightHolder, $locale);
+	}
+
+	/**
+	 * Get stored copyright year for the submission.
+	 * @return string
+	 */
+	function getCopyrightYear() {
+		return $this->getData('copyrightYear');
+	}
+
+	/**
+	 * Set the stored copyright year for the submission.
+	 * @param $copyrightYear string Copyright holder
+	 */
+	function setCopyrightYear($copyrightYear) {
+		return $this->setData('copyrightYear', $copyrightYear);
+	}
+
+	/**
+	 * Get stored license URL for the submission content.
+	 * @return string
+	 */
+	function getLicenseURL() {
+		return $this->getData('licenseURL');
+	}
+
+	/**
+	 * Set the stored license URL for the submission content.
+	 * @param $license string License of submission content
+	 */
+	function setLicenseURL($licenseURL) {
+		return $this->setData('licenseURL', $licenseURL);
 	}
 
 	/**
@@ -1120,6 +1246,32 @@ abstract class Submission extends DataObject {
 		return $this->SetData('datePublished', $datePublished);
 	}
 
+	/**
+	 * Initialize the copyright and license metadata for a submission.
+	 * This should be called at creation and at publication, to setup
+	 * license/copyright holder and copyright year, respectively.
+	 * This depends on the permissions configuration in Setup, and
+	 * (potentially) on the authors of a submission being populated.
+	 * Only initializes empty fields because of the getDefault...()
+	 * behaviour, so subsequent calls are safe.
+	 */
+	function initializePermissions() {
+		$this->setLicenseURL($this->getDefaultLicenseURL());
+		$this->setCopyrightHolder($this->getDefaultCopyrightHolder(null), null);
+		if ($this->getStatus() == STATUS_PUBLISHED) {
+			$this->setCopyrightYear($this->getDefaultCopyrightYear());
+		}
+	}
+
+	/**
+	 * Determines whether or not the license for copyright on this submission is
+	 * a Creative Commons license or not.
+	 * @return boolean
+	 */
+	function isCCLicense() {
+		return preg_match('/creativecommons\.org/i', $this->getLicenseURL());
+	}
+
 
 	//
 	// Abstract methods.
@@ -1129,6 +1281,14 @@ abstract class Submission extends DataObject {
 	 * @return int
 	 */
 	abstract function getSectionId();
+
+	/**
+	 * Get the value of a license field from the containing context.
+	 * @param $locale string Locale code
+	 * @param $field PERMISSIONS_FIELD_...
+	 * @return string|null
+	 */
+	abstract function _getContextLicenseFieldValue($locale, $field);
 }
 
 ?>

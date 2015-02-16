@@ -288,6 +288,7 @@
 	<message key="email.subjectRequired">Please provide an email subject.</message>
 	<message key="email.bodyRequired">Please provide the email body text.</message>
 	<message key="email.to">To</message>
+	<message key="form.url.invalid">The specified URL is invalid. Please check it and try again.</message>
 	<message key="form.confirmSubmit">Are you sure you want to submit this form?</message>
 	<message key="form.confirmSubmit.title">Confirm</message>
 	<message key="form.emailRequired">An email address is required.</message>

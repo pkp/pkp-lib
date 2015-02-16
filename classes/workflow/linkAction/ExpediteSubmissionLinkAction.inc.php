@@ -13,7 +13,7 @@
  */
 
 import('lib.pkp.classes.linkAction.LinkAction');
-import('lib.pkp.classes.linkAction.request.AjaxModal');
+import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
 
 class ExpediteSubmissionLinkAction extends LinkAction {
 
@@ -26,11 +26,11 @@ class ExpediteSubmissionLinkAction extends LinkAction {
 		$router = $request->getRouter();
 		parent::LinkAction(
 			'expedite',
-			new AjaxModal(
+			new RemoteActionConfirmationModal(
+				__('submission.submit.expediteSubmission.description'),
+				__('submission.submit.expediteSubmission'),
 				$router->url($request, null, 'workflow', 'expedite', $submissionId),
-				__('submission.submit.confirmExpedite'),
-				'modal_edit',
-				true
+				'modal_edit'
 			),
 			__('submission.submit.expediteSubmission')
 		);

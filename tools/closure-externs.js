@@ -147,7 +147,7 @@ jQueryObject.prototype.imgPreview = function(userDefinedSettings) {};
 
 /**
  * @param {string} param1
- * @param {string|Object=} param2
+ * @param {string|boolean|Object=} param2
  */
 jQueryObject.prototype.prop = function(param1, param2) {};
 

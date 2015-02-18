@@ -349,10 +349,10 @@
 	<message key="informationCenter.pastHistory">Frühere Versionen</message>
 	<message key="informationCenter.history.noItems">Es gibt keine protokollierten Ereignisse.</message>
 	<message key="informationCenter.history.notePosted">Neue Anmerkung veröffentlicht.</message>
-	<message key="informationCenter.history.messageSent">Benachrichtung an Nutzer/innen geschickt.</message>
+	<message key="informationCenter.history.messageSent">Benachrichtigung an Nutzer/innen geschickt.</message>
 
 	<!-- Stage Participants -->
-	<message key="stageParticipants.history.messageSent">Benachrichtung an Nutzer/innen geschickt.</message>
+	<message key="stageParticipants.history.messageSent">Benachrichtigung an Nutzer/innen geschickt.</message>
 	<message key="stageParticipants.notify.chooseMessage">Bitte wählen Sie eine vordefinierte Nachricht aus oder füllen Sie das Formular unten aus.</message>
 	<message key="stageParticipants.notify.message">Nachricht</message>
 	<message key="stageParticipants.notify.warning">Bitte stellen Sie sicher, dass Sie das Nachrichtenfeld ausgefüllt und mindestens eine/n Empfänger/in ausgewählt haben.</message>
@@ -416,14 +416,14 @@
 	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Beitrag einreichen</a>]]></message>
 	<message key="notification.mailList.register">Sie können sich hier registrieren für ...</message>
 	<message key="notification.mailList.review"><![CDATA[Nehmen Sie am <a href="{$reviewUrl}">Begutachtungsprozess</a> teil]]></message>
-	<message key="notification.noneExist">Sie haben zurzeit keine Benachrichtungen.</message>
+	<message key="notification.noneExist">Sie haben zurzeit keine Benachrichtigungen.</message>
 	<message key="notification.addedNote">Anmerkung veröffentlicht.</message>
 	<message key="notification.removedNote">Anmerkung gelöscht.</message>
 	<message key="notification.removedFile">Datei entfernt.</message>
 	<message key="notification.notification">Benachrichtigung</message>
 	<message key="notification.notifications">Benachrichtigungen</message>
 	<message key="notification.notificationsNew">({$numNew} neu)</message>
-	<message key="notification.notificationsDescription"><![CDATA[Sie haben {$unreadCount} ungelesene und {$readCount} gelesene Benachrichtungen.  <a href="{$settingsUrl}">Klicken Sie hier</a>, um Ihre Benachrichtungseinstellungen zu verändern.]]></message>
+	<message key="notification.notificationsDescription"><![CDATA[Sie haben {$unreadCount} ungelesene und {$readCount} gelesene Benachrichtigungen.  <a href="{$settingsUrl}">Klicken Sie hier</a>, um Ihre Benachrichtigungseinstellungen zu verändern.]]></message>
 	<message key="notification.sentNotification">Benachrichtigung gesendet.</message>
 	<message key="notification.settings">Benachrichtigungseinstellungen</message>
 	<message key="notification.settingsDescription">Wählen Sie die System-Ereignisse aus, über die Sie benachrichtigt werden wollen. Nicht gewählte Elemente führen dazu, dass die jeweiligen Ereignisse nicht in Ihrem Benachrichtigungs-Feed angezeigt werden.</message>

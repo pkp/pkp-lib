@@ -3,8 +3,8 @@
 #
 # buildjs.sh
 #
-# Copyright (c) 2013-2014 Simon Fraser University Library
-# Copyright (c) 2010-2014 John Willinsky
+# Copyright (c) 2013-2015 Simon Fraser University Library
+# Copyright (c) 2010-2015 John Willinsky
 # Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
 #
 # Script to check and minimize JavaScript for distribution.
@@ -68,7 +68,7 @@ shift $((OPTIND-1))
 ### Start Processing ###
 echo >&2
 echo "Starting PKP JavaScript builder." >&2
-echo "Copyright (c) 2010-2014 John Willinsky" >&2
+echo "Copyright (c) 2010-2015 John Willinsky" >&2
 
 
 ### Checking Requirements ###

@@ -217,6 +217,8 @@ class PKPAcronPlugin extends GenericPlugin {
 		ob_end_flush();
 		flush();
 
+		set_time_limit(0);
+
 		// Fix the current working directory. See
 		// http://www.php.net/manual/en/function.register-shutdown-function.php#92657
 		chdir($this->_workingDir);

@@ -203,7 +203,7 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 
 			if(!$assocId || !$assocType) continue;
 
-			list($countryCode, $cityName, $region) = $geoTool->getGeoLocation($entryData['ip']);
+			list($countryCode, $cityName, $region) = $geoTool ? $geoTool->getGeoLocation($entryData['ip']) : array();
 			$day = date('Ymd', $entryData['date']);
 
 			$type = $this->getFileType($assocType, $assocId);

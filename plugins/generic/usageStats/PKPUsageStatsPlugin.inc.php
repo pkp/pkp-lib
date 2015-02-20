@@ -243,7 +243,7 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 	/**
 	 * Get the geolocation tool to process geo localization
 	 * data.
-	 * @return GeoLocationTool
+	 * @return mixed GeoLocationTool object or null
 	 */
 	function &getGeoLocationTool() {
 		/** Geo location tool wrapper class. If changing the geo location tool
@@ -252,7 +252,7 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 		$this->import('GeoLocationTool');
 
 		$tool = new GeoLocationTool();
-		return $tool;
+		return $tool->isPresent() ? $tool : null;
 	}
 
 	/**

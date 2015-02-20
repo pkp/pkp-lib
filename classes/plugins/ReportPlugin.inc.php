@@ -136,8 +136,9 @@ abstract class ReportPlugin extends Plugin {
 	/**
 	 * Display the import/export plugin UI.
 	 * @param $args Array The array of arguments the user supplied.
+	 * @param $request PKPRequest
 	 */
-	function display($args) {
+	function display($args, $request) {
 		$templateManager = TemplateManager::getManager();
 		$templateManager->register_function('plugin_url', array(&$this, 'smartyPluginUrl'));
 	}

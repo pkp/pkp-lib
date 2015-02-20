@@ -149,7 +149,7 @@ class ReviewFormDAO extends DAO {
 	 * @return array
 	 */
 	function getLocaleFieldNames() {
-		return parent::getLocaleFieldNames() + array('title', 'description');
+		return array_merge(parent::getLocaleFieldNames(), array('title', 'description'));
 	}
 
 	/**

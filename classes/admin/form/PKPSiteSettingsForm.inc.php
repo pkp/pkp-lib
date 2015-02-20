@@ -89,7 +89,7 @@ class PKPSiteSettingsForm extends Form {
 	}
 
 	function getLocaleFieldNames() {
-		return parent::getLocaleFieldNames() + array('title', 'pageHeaderTitleType', 'intro', 'about', 'contactName', 'contactEmail');
+		return array_merge(parent::getLocaleFieldNames(), array('title', 'pageHeaderTitleType', 'intro', 'about', 'contactName', 'contactEmail'));
 	}
 
 	/**

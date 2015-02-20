@@ -84,7 +84,7 @@ class PKPAnnouncementDAO extends DAO {
 	 * @return array
 	 */
 	function getLocaleFieldNames() {
-		return parent::getLocaleFieldNames() + array('title', 'descriptionShort', 'description');
+		return array_merge(parent::getLocaleFieldNames(), array('title', 'descriptionShort', 'description'));
 	}
 
 	/**

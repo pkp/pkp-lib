@@ -25,8 +25,8 @@ class ScheduledTask {
 	/** @var string? This process id. */
 	var $_processId = null;
 
-	/** @var array Messages log about the execution process */
-	var $_executionLog;
+	/** @var string File path in which execution log messages will be written. */
+	var $_executionLogFile;
 
 	/** @var ScheduledTaskHelper */
 	var $_helper;
@@ -39,7 +39,22 @@ class ScheduledTask {
 	function ScheduledTask($args = array()) {
 		$this->_args = $args;
 		$this->_processId = uniqid();
-		$this->_executionLog = array();
+		
+		// Check the scheduled task execution log folder.
+		import('lib.pkp.classes.file.PrivateFileManager');
+		$fileMgr = new PrivateFileManager();
+
+		$scheduledTaskFilesPath = realpath($fileMgr->getBasePath()) . DIRECTORY_SEPARATOR . SCHEDULED_TASK_EXECUTION_LOG_DIR;
+		$this->_executionLogFile = $scheduledTaskFilesPath . DIRECTORY_SEPARATOR . str_replace(' ', '', $this->getName()) . 
+			'-' . $this->getProcessId() . '-' . date('Ymd') . '.log';
+		if (!$fileMgr->fileExists($scheduledTaskFilesPath, 'dir')) {
+			$success = $fileMgr->mkdirtree($scheduledTaskFilesPath);
+			if (!$success) {
+				// files directory wrong configuration?
+				assert(false);
+				$this->_executionLogFile = null;
+			}
+		}
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_ADMIN, LOCALE_COMPONENT_PKP_COMMON);
 	}
@@ -81,17 +96,24 @@ class ScheduledTask {
 	 * SCHEDULED_TASK_MESSAGE_TYPE... constants.
 	 */
 	function addExecutionLogEntry($message, $type = null) {
-		$log = $this->_executionLog;
+		$logFile = $this->_executionLogFile;
 
 		if (!$message) return;
 
 		if ($type) {
-			$log[] = '[' . Core::getCurrentDate() . '] ' . '[' . __($type) . '] ' . $message;
+			$log = '[' . Core::getCurrentDate() . '] ' . '[' . __($type) . '] ' . $message;
 		} else {
-			$log[] = $message;
+			$log = $message;
 		}
 
-		$this->_executionLog = $log;
+		$fp = fopen($logFile, 'ab');
+		if (flock($fp, LOCK_EX)) {
+			fwrite($fp, $log . PHP_EOL);
+			flock($fp, LOCK_UN);
+		} else {
+			fatalError("Couldn't lock the file.");
+		}
+		fclose($fp);	
 	}
 
 
@@ -129,24 +151,9 @@ class ScheduledTask {
 		$this->addExecutionLogEntry(__('admin.scheduledTask.stopTime'), SCHEDULED_TASK_MESSAGE_TYPE_NOTICE);
 
 		$helper =& $this->getHelper();
-		$helper->notifyExecutionResult($this->_processId, $this->getName(), $result, $this->_getLogMessage());
+		$helper->notifyExecutionResult($this->_processId, $this->getName(), $result, $this->_executionLogFile);
 
 		return $result;
-	}
-
-
-	//
-	// Private helper methods.
-	//
-	/**
-	 * Get the execution log as string.
-	 * @return string
-	 */
-	function _getLogMessage() {
-		$log = $this->_executionLog;
-		$logString = implode(PHP_EOL . PHP_EOL, $log);
-
-		return $logString;
 	}
 }
 

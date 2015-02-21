@@ -17,6 +17,7 @@ define('SCHEDULED_TASK_MESSAGE_TYPE_COMPLETED', 'common.completed');
 define('SCHEDULED_TASK_MESSAGE_TYPE_ERROR', 'common.error');
 define('SCHEDULED_TASK_MESSAGE_TYPE_WARNING', 'common.warning');
 define('SCHEDULED_TASK_MESSAGE_TYPE_NOTICE', 'common.notice');
+define('SCHEDULED_TASK_EXECUTION_LOG_DIR', 'scheduledTaskLogs');
 
 class ScheduledTaskHelper {
 
@@ -131,13 +132,18 @@ class ScheduledTaskHelper {
 	 * @param $name string Task name.
 	 * @param $result boolean Whether or not the task
 	 * execution was successful.
-	 * @param $message string Message.
+	 * @param $executionLogFile string Task execution log file path.
 	 */
-	function notifyExecutionResult($id, $name, $result, $message = '') {
+	function notifyExecutionResult($id, $name, $result, $executionLogFile = '') {
 		$reportErrorOnly = Config::getVar('general', 'scheduled_tasks_report_error_only', true);
 
 		if (!$result || !$reportErrorOnly) {
-			if (!$message) {
+			$application =& Application::getApplication();
+			$request =& $application->getRequest();
+			$router =& $request->getRouter();
+			$downloadLogUrl = $router->url($request, 'index', 'admin', 'downloadScheduledTaskLogFile', null, array('file' => basename($executionLogFile)));
+			$message = __('admin.scheduledTask.downloadLog', array('url' => $downloadLogUrl));
+			if (!$executionLogFile) {
 				$message = __('admin.scheduledTask.noLog');
 			}
 
@@ -156,6 +162,35 @@ class ScheduledTaskHelper {
 		return false;
 	}
 
+
+	//
+	// Static methods.
+	//
+	/**
+	 * Clear tasks execution log files.
+	 */
+	function clearExecutionLogs() {
+		import('lib.pkp.classes.file.PrivateFileManager');
+		$fileMgr = new PrivateFileManager();
+	
+		$fileMgr->rmtree($fileMgr->getBasePath() . DIRECTORY_SEPARATOR . SCHEDULED_TASK_EXECUTION_LOG_DIR);	
+	}
+
+	/**
+	 * Download execution log file.
+	 * @param $file string
+	 */
+	function downloadExecutionLog($file) {
+		import('lib.pkp.classes.file.PrivateFileManager');
+		$fileMgr = new PrivateFileManager();
+
+		$fileMgr->downloadFile($fileMgr->getBasePath() . DIRECTORY_SEPARATOR . SCHEDULED_TASK_EXECUTION_LOG_DIR . DIRECTORY_SEPARATOR . $file);	
+	}
+
+
+	//
+	// Private helper methods.
+	//
 	/**
 	 * Send email to the site administrator.
 	 * @param $message string
@@ -165,6 +200,7 @@ class ScheduledTaskHelper {
 	function _sendEmail($message, $subject) {
 		$mail = $this->getMail();
 		$mail->addRecipient($this->_contactEmail, $this->_contactName);
+		$mail->setFrom('bruno.beghelli@gmail.com', 'Bruno Beghelli');
 		$mail->setSubject($subject);
 		$mail->setBody($message);
 

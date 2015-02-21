@@ -79,8 +79,16 @@ abstract class GatewayPlugin extends Plugin {
 		$templateManager = TemplateManager::getManager($this->getRequest());
 		$templateManager->register_function('plugin_url', array($this, 'smartyPluginUrl'));
 		switch ($verb) {
-			case 'enable': $this->setEnabled(true); break;
-			case 'disable': $this->setEnabled(false); break;
+			case 'enable':
+				$this->setEnabled(true);
+				$message = NOTIFICATION_TYPE_PLUGIN_ENABLED;
+				$messageParams = array('pluginName' => $this->getDisplayName());
+				return false;
+			case 'disable':
+				$this->setEnabled(false);
+				$message = NOTIFICATION_TYPE_PLUGIN_DISABLED;
+				$messageParams = array('pluginName' => $this->getDisplayName());
+				return false;
 		}
 		return false;
 	}

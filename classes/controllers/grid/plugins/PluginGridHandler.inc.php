@@ -158,7 +158,7 @@ class PluginGridHandler extends CategoryGridHandler {
 		$fileManager = new FileManager();
 
 		$notHiddenPlugins = array();
-		foreach ($plugins as $plugin) {
+		foreach ((array) $plugins as $plugin) {
 			if (!$plugin->getHideManagement()) {
 				$notHiddenPlugins[$plugin->getName()] = $plugin;
 			}

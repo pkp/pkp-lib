@@ -251,8 +251,13 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 		* interface. */
 		$this->import('GeoLocationTool');
 
+		$null = null;
 		$tool = new GeoLocationTool();
-		return $tool->isPresent() ? $tool : null;
+		if ($tool->isPresent()) {
+			return $tool;
+		} else {
+			return $null;
+		}
 	}
 
 	/**

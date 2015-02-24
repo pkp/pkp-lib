@@ -26,7 +26,7 @@ class ScheduledTaskHelperTest extends PKPTestCase {
 	 * @param $taskName string
 	 * @param $message string
 	 * @dataProvider notifyExecutionResultTestsDataProvider
-	 * @covers notifyExecutionResult
+	 * @covers ScheduledTaskHelper::notifyExecutionResult
 	 */
 	function testNotifyExecutionResultError($taskId, $taskName, $message) {
 		$taskResult = false;
@@ -53,7 +53,7 @@ class ScheduledTaskHelperTest extends PKPTestCase {
 	 * @param $taskName string
 	 * @param $message string
 	 * @dataProvider notifyExecutionResultTestsDataProvider
-	 * @covers notifyExecutionResult
+	 * @covers ScheduledTaskHelper::notifyExecutionResult
 	 */
 	function testNotifyExecutionResultSuccess($taskId, $taskName, $message) {
 		$taskResult = true;

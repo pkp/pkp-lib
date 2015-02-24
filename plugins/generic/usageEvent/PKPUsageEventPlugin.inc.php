@@ -197,7 +197,7 @@ abstract class PKPUsageEventPlugin extends GenericPlugin {
 					$requestBaseUrl !== Config::getVar('general', 'base_url[index]')) {
 				// Alias found, replace it by base_url from config file.
 				// Make sure we use the correct base url override value for the context, if any.
-				$baseUrlReplacement = Config::getVar('general', 'base_url['.$journal->getPath().']');
+				$baseUrlReplacement = Config::getVar('general', 'base_url['.$context->getPath().']');
 				if (!$baseUrlReplacement) $baseUrlReplacement = $configBaseUrl;
 				$canonicalUrl = str_replace($requestBaseUrl, $baseUrlReplacement, $canonicalUrl);
 			}

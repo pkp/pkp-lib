@@ -138,15 +138,8 @@ class ScheduledTaskHelper {
 		$reportErrorOnly = Config::getVar('general', 'scheduled_tasks_report_error_only', true);
 
 		if (!$result || !$reportErrorOnly) {
-			$application =& Application::getApplication();
-			$request =& $application->getRequest();
-			$router =& $request->getRouter();
-			$downloadLogUrl = $router->url($request, 'index', 'admin', 'downloadScheduledTaskLogFile', null, array('file' => basename($executionLogFile)));
-			$message = __('admin.scheduledTask.downloadLog', array('url' => $downloadLogUrl));
-			if (!$executionLogFile) {
-				$message = __('admin.scheduledTask.noLog');
-			}
-
+			$message = $this->getMessage($executionLogFile);
+			
 			if ($result) {
 				// Success.
 				$type = SCHEDULED_TASK_MESSAGE_TYPE_COMPLETED;
@@ -162,6 +155,22 @@ class ScheduledTaskHelper {
 		return false;
 	}
 
+	/**
+	 * Get execution log email message.
+	 * @param $executionLogFile string
+	 * @return string
+	 */
+	function getMessage($executionLogFile) {
+		if (!$executionLogFile) {
+			return __('admin.scheduledTask.noLog');
+		}
+		
+		$application =& Application::getApplication();
+		$request =& $application->getRequest();
+		$router =& $request->getRouter();
+		$downloadLogUrl = $router->url($request, 'index', 'admin', 'downloadScheduledTaskLogFile', null, array('file' => basename($executionLogFile)));
+		return __('admin.scheduledTask.downloadLog', array('url' => $downloadLogUrl));
+	}
 
 	//
 	// Static methods.

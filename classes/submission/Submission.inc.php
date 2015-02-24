@@ -23,7 +23,6 @@
  */
 
 // Submission status constants
-define('STATUS_ARCHIVED', 0);
 define('STATUS_QUEUED', 1);
 define('STATUS_PUBLISHED', 3);
 define('STATUS_DECLINED', 4);
@@ -1147,7 +1146,6 @@ abstract class Submission extends DataObject {
 		static $statusMap;
 		if (!isset($statusMap)) {
 			$statusMap = array(
-				STATUS_ARCHIVED => 'submissions.archived',
 				STATUS_QUEUED => 'submissions.queued',
 				STATUS_PUBLISHED => 'submissions.published',
 				STATUS_DECLINED => 'submissions.declined',

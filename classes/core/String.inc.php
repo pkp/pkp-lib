@@ -417,6 +417,7 @@ class String {
 			'sldx:application/zip' => 'application/vnd.openxmlformats-officedocument.presentationml.slide',
 			'docx:application/zip' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
 			'dotx:application/zip' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.template',
+			'epub:application/zip' => 'application/epub+zip',
 		);
 		if (isset($ambiguities[strtolower($ext.':'.$result)])) {
 			$result = $ambiguities[strtolower($ext.':'.$result)];

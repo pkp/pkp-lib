@@ -65,6 +65,7 @@ class ArchivedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 		$context = $request->getContext();
 		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
 		$canSeeAllSubmissions = in_array(ROLE_ID_MANAGER, $userRoles);
+		$user = $request->getUser();
 
 		$submissionDao = Application::getSubmissionDAO();
 		return $submissionDao->getByStatus(

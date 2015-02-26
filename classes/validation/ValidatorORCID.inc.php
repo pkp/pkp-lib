@@ -37,19 +37,14 @@ class ValidatorORCID extends ValidatorRegExp {
 		if (!parent::isValid($value)) return false;
 
 		// Test the check digit
-		// Based on the ORCID checksum at: 
+		// ORCID is an extension of ISNI
 		// http://support.orcid.org/knowledgebase/articles/116780-structure-of-the-orcid-identifier
 		$matches = $this->getMatches();
 		$orcid = $matches[1] . $matches[2] . $matches[3] . $matches[4];
 
-		$total = 0;
-		for ($i=0; $i<15; $i++) {
-			$total = ($total + $orcid[$i]) * 2;
-		}
-		
-		$remainder = $total % 11;
-		$result = (12 - $remainder) % 11;
-		return ($orcid[15] == ($result==10 ? 'X' : $result));
+		import('lib.pkp.classes.validation.ValidatorISNI');
+		$validator = new ValidatorISNI();
+		return $validator->isValid($orcid);
 	}
 
 	//

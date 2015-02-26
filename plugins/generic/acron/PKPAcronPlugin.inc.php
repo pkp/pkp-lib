@@ -29,7 +29,7 @@ class PKPAcronPlugin extends GenericPlugin {
 	var $_tasksToRun;
 
 	/**
-	 * @see LazyLoadPlugin::register()
+	 * @copydoc LazyLoadPlugin::register()
 	 */
 	function register($category, $path) {
 		$success = parent::register($category, $path);
@@ -46,7 +46,7 @@ class PKPAcronPlugin extends GenericPlugin {
 	}
 
 	/**
-	* @see PKPPlugin::isSitePlugin()
+	* @copydoc PKPPlugin::isSitePlugin()
 	*/
 	function isSitePlugin() {
 		// This is a site-wide plugin.
@@ -54,35 +54,35 @@ class PKPAcronPlugin extends GenericPlugin {
 	}
 
 	/**
-	 * @see LazyLoadPlugin::getName()
+	 * @copydoc LazyLoadPlugin::getName()
 	 */
 	function getName() {
 		return 'acronPlugin';
 	}
 
 	/**
-	 * @see PKPPlugin::getDisplayName()
+	 * @copydoc PKPPlugin::getDisplayName()
 	 */
 	function getDisplayName() {
 		return __('plugins.generic.acron.name');
 	}
 
 	/**
-	 * @see PKPPlugin::getDescription()
+	 * @copydoc PKPPlugin::getDescription()
 	 */
 	function getDescription() {
 		return __('plugins.generic.acron.description');
 	}
 
 	/**
-	* @see PKPPlugin::getInstallSitePluginSettingsFile()
+	* @copydoc PKPPlugin::getInstallSitePluginSettingsFile()
 	*/
 	function getInstallSitePluginSettingsFile() {
 		return PKP_LIB_PATH . DIRECTORY_SEPARATOR . $this->getPluginPath() . '/settings.xml';
 	}
 
 	/**
-	 * @see GenericPlugin::getManagementVerbs()
+	 * @copydoc GenericPlugin::getManagementVerbs()
 	 */
 	function getManagementVerbs() {
 		$isEnabled = $this->getSetting(0, 'enabled');
@@ -99,22 +99,38 @@ class PKPAcronPlugin extends GenericPlugin {
 	}
 
 	/**
-	 * @see GenericPlugin::manage()
+	 * @copydoc Plugin::getManagementVerbLinkAction()
 	 */
-	function manage($verb, $args, &$message) {
-		switch ($verb) {
-			case 'enable':
-				$this->updateSetting(0, 'enabled', true);
-				$message = __('plugins.generic.acron.enabled');
-				break;
-			case 'disable':
-				$this->updateSetting(0, 'enabled', false);
-				$message = __('plugins.generic.acron.disabled');
-				break;
-			case 'reload':
-				$this->_parseCrontab();
-				$message = __('plugins.generic.acron.reloadedCronTab');
+	function getManagementVerbLinkAction($request, $verb) {
+		$router = $request->getRouter();
+
+		list($verbName, $verbLocalized) = $verb;
+
+		if ($verbName === 'reload') {
+			import('lib.pkp.classes.linkAction.request.AjaxAction');
+			$actionRequest = new AjaxAction(
+				$router->url($request, null, null, 'plugin', null, array('verb' => 'reload', 'plugin' => $this->getName(), 'category' => 'generic'))
+			);
+			return new LinkAction($verbName, $actionRequest, $verbLocalized, null);
+                }
+
+                return null;
+	}
+
+	/**
+	 * @copydoc GenericPlugin::manage()
+	 */
+	function manage($verb, $args, &$message, &$messageParams, &$pluginModalContent = null) {
+		if (parent::manage($verb, $args, $message, $messageParams, $pluginModalContent)) {
+			switch ($verb) {
+				case 'reload':
+					$this->_parseCrontab();
+					$message = NOTIFICATION_TYPE_SUCCESS;
+					$messageParams = array('contents' => __('plugins.generic.acron.tasksReloaded'));
+					return false;
+			}
 		}
+
 		return false;
 	}
 

@@ -18,6 +18,7 @@
 	<message key="plugins.generic.acron.enabled">The Acron Plugin has been enabled.</message>
 	<message key="plugins.generic.acron.disabled">The Acron Plugin has been disabled.</message>
 	<message key="plugins.generic.acron.reloadedCronTab">Cron tab successfully reloaded.</message>
-
+	
 	<message key="plugins.generic.acron.reload">Reload Scheduled Tasks</message>
+	<message key="plugins.generic.acron.tasksReloaded">Scheduled Tasks were reloaded.</message>
 </locale>

@@ -41,7 +41,7 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 	*/
 	function register($category, $path) {
 		$success = parent::register($category, $path);
-		
+
 		HookRegistry::register('AcronPlugin::parseCronTab', array($this, 'callbackParseCronTab'));
 
 		if ($this->getEnabled() && $success) {
@@ -202,8 +202,10 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 	 * @see AcronPlugin::parseCronTab()
 	 */
 	function callbackParseCronTab($hookName, $args) {
-		$taskFilesPath =& $args[0]; // Reference needed.
-		$taskFilesPath[] = PKP_LIB_PATH . DIRECTORY_SEPARATOR . $this->getPluginPath() . DIRECTORY_SEPARATOR . 'scheduledTasksAutoStage.xml';
+		if ($this->getEnabled()) {
+			$taskFilesPath =& $args[0]; // Reference needed.
+			$taskFilesPath[] = PKP_LIB_PATH . DIRECTORY_SEPARATOR . $this->getPluginPath() . DIRECTORY_SEPARATOR . 'scheduledTasksAutoStage.xml';
+		}
 
 		return false;
 	}

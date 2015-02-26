@@ -64,7 +64,7 @@ class PKPAnnouncementHandler extends Handler {
 			if ($announcement->getDateExpire() == null || strtotime($announcement->getDateExpire()) > time()) {
 				$templateMgr =& TemplateManager::getManager();
 				$templateMgr->assign('announcement', $announcement);
-				if ($announcement->getTypeId() == null) {
+				if (!$announcement->getTypeId()) {
 					$templateMgr->assign('announcementTitle', $announcement->getLocalizedTitle());
 				} else {
 					$templateMgr->assign('announcementTitle', $announcement->getAnnouncementTypeName() . ": " . $announcement->getLocalizedTitle());

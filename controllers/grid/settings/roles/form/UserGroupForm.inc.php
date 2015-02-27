@@ -32,6 +32,7 @@ class UserGroupForm extends Form {
 	 */
 	function UserGroupForm($contextId, $userGroupId = null) {
 		parent::Form('controllers/grid/settings/roles/form/userGroupForm.tpl');
+		AppLocale::requireComponents(LOCALE_COMPONENT_APP_SUBMISSION);
 		$this->_contextId = $contextId;
 		$this->_userGroupId = $userGroupId;
 

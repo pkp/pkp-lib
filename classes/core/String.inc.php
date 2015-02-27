@@ -373,6 +373,7 @@ class String {
 	 * @see http://ca.php.net/manual/en/function.mime_content_type.php
 	 */
 	function mime_content_type($filename, $suggestedExtension = '') {
+		$result = null;
 		if (function_exists('mime_content_type')) {
 			$result = mime_content_type($filename);
 			// mime_content_type appears to return a charset

@@ -411,6 +411,7 @@ class String {
 	 * @return string Detected MIME type
 	 */
 	static function mime_content_type($filename) {
+		$result = null;
 		if (function_exists('finfo_open')) {
 			$fi =& Registry::get('fileInfo', true, null);
 			if ($fi === null) {

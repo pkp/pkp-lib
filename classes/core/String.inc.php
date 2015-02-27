@@ -29,15 +29,15 @@
  * Originally published under the "New BSD License"
  * http://www.opensource.org/licenses/bsd-license.php
  */
-define('PCRE_URI', '(?:([a-z][-+.a-z0-9]*):)?' .                                         // Scheme
-                   '(?://' .
-                   '(?:((?:%[0-9a-f]{2}|[-a-z0-9_.!~*\'();:\&=+$,])*)@)?' .              // User
-                   '(?:((?:[a-z0-9](?:[-a-z0-9]*[a-z0-9])?\.)*[a-z](?:[a-z0-9]+)?\.?)' . // Hostname
-                   '|([0-9]{1,3}(?:\.[0-9]{1,3}){3}))' .                                 // IP Address
-                   '(?::([0-9]*))?)' .                                                   // Port
-                   '((?:/(?:%[0-9a-f]{2}|[-a-z0-9_.!~*\'():@\&=+$,;])*)*/?)?' .          // Path
-                   '(?:\?([^#]*))?' .                                                    // Query String
-                   '(?:\#((?:%[0-9a-f]{2}|[-a-z0-9_.!~*\'();/?:@\&=+$,])*))?');          // Fragment
+define('PCRE_URI', '(?:([a-z][-+.a-z0-9]*):)?' .						// Scheme
+		   '(?://' .
+		   '(?:((?:%[0-9a-f]{2}|[-a-z0-9_.!~*\'();:\&=+$,])*)@)?' .			// User
+		   '(?:((?:[a-z0-9](?:[-a-z0-9]*[a-z0-9])?\.)*[a-z](?:[a-z0-9]+)?\.?)' .	// Hostname
+		   '|([0-9]{1,3}(?:\.[0-9]{1,3}){3}))' .					// IP Address
+		   '(?::([0-9]*))?)' .								// Port
+		   '((?:/(?:%[0-9a-f]{2}|[-a-z0-9_.!~*\'():@\&=+$,;])*)*/?)?' .			// Path
+		   '(?:\?([^#]*))?' .								// Query String
+		   '(?:\#((?:%[0-9a-f]{2}|[-a-z0-9_.!~*\'();/?:@\&=+$,])*))?');			// Fragment
 
 // RFC-2822 email addresses
 define('PCRE_EMAIL_ADDRESS',
@@ -408,9 +408,10 @@ class String {
 	/**
 	 * @see http://ca.php.net/manual/en/function.mime_content_type.php
 	 * @param $filename string Filename to test.
+	 * @param $suggestedExtension string Suggested file extension (used for common misconfigurations)
 	 * @return string Detected MIME type
 	 */
-	static function mime_content_type($filename) {
+	static function mime_content_type($filename, $suggestedExtension = '') {
 		$result = null;
 		if (function_exists('finfo_open')) {
 			$fi =& Registry::get('fileInfo', true, null);
@@ -429,9 +430,31 @@ class String {
 		if (($i = strpos($result, ';')) !== false) {
 			$result = trim(substr($result, 0, $i));
 		}
+
+		// Check ambiguous mimetypes against extension
+		$ext = array_pop(explode('.',$filename));
+		if ($suggestedExtension) {
+			$ext = $suggestedExtension;
+		}
+		// SUGGESTED_EXTENSION:DETECTED_MIME_TYPE => OVERRIDE_MIME_TYPE
+		$ambiguities = array(
+			'css:text/x-c' => 'text/css',
+			'css:text/plain' => 'text/css',
+			'xlsx:application/zip' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+			'xltx:application/zip' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.template',
+			'potx:application/zip' => 'application/vnd.openxmlformats-officedocument.presentationml.template',
+			'ppsx:application/zip' => 'application/vnd.openxmlformats-officedocument.presentationml.slideshow',
+			'pptx:application/zip' => 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+			'sldx:application/zip' => 'application/vnd.openxmlformats-officedocument.presentationml.slide',
+			'docx:application/zip' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+			'dotx:application/zip' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.template',
+		);
+		if (isset($ambiguities[strtolower($ext.':'.$result)])) {
+			$result = $ambiguities[strtolower($ext.':'.$result)];
+		}
+
 		return $result;
 	}
-
 
 	/**
 	 * Strip unsafe HTML from the input text. Covers XSS attacks like scripts,

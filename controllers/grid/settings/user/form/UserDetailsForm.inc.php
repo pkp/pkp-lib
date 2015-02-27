@@ -57,6 +57,7 @@ class UserDetailsForm extends UserForm {
 		$this->addCheck(new FormValidatorUrl($this, 'userUrl', 'optional', 'user.profile.form.urlInvalid'));
 		$this->addCheck(new FormValidatorEmail($this, 'email', 'required', 'user.profile.form.emailRequired'));
 		$this->addCheck(new FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailExists', array(DAORegistry::getDAO('UserDAO'), 'userExistsByEmail'), array($this->userId, true), true));
+		$this->addCheck(new FormValidatorORCID($this, 'orcid', 'optional', 'user.orcid.orcidInvalid'));
 		$this->addCheck(new FormValidatorPost($this));
 	}
 
@@ -92,6 +93,7 @@ class UserDetailsForm extends UserForm {
 				'userUrl' => $user->getUrl(),
 				'phone' => $user->getPhone(),
 				'fax' => $user->getFax(),
+				'orcid' => $user->getOrcid(),
 				'mailingAddress' => $user->getMailingAddress(),
 				'country' => $user->getCountry(),
 				'biography' => $user->getBiography(null), // Localized
@@ -108,6 +110,7 @@ class UserDetailsForm extends UserForm {
 				'affiliation' => $author->getAffiliation(null), // Localized
 				'email' => $author->getEmail(),
 				'userUrl' => $author->getUrl(),
+				'orcid' => $author->getOrcid(),
 				'country' => $author->getCountry(),
 				'biography' => $author->getBiography(null), // Localized
 			);
@@ -181,6 +184,7 @@ class UserDetailsForm extends UserForm {
 			'userUrl',
 			'phone',
 			'fax',
+			'orcid',
 			'mailingAddress',
 			'country',
 			'biography',
@@ -246,6 +250,7 @@ class UserDetailsForm extends UserForm {
 		$user->setUrl($this->getData('userUrl'));
 		$user->setPhone($this->getData('phone'));
 		$user->setFax($this->getData('fax'));
+		$user->setOrcid($this->getData('orcid'));
 		$user->setMailingAddress($this->getData('mailingAddress'));
 		$user->setCountry($this->getData('country'));
 		$user->setBiography($this->getData('biography'), null); // Localized

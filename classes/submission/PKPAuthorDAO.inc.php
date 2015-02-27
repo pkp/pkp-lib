@@ -195,6 +195,15 @@ class PKPAuthorDAO extends DAO {
 	}
 
 	/**
+	 * @copydoc DAO::getAdditionalFieldNames()
+	 */
+	function getAdditionalFieldNames() {
+		return array_merge(parent::getAdditionalFieldNames(), array(
+			'orcid',
+		));
+	}
+
+	/**
 	 * Insert a new Author.
 	 * @param $author Author
 	 */

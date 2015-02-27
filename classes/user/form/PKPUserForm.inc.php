@@ -32,6 +32,7 @@ class PKPUserForm extends Form {
 		$this->addCheck(new FormValidator($this, 'lastName', 'required', 'user.profile.form.lastNameRequired'));
 		$this->addCheck(new FormValidatorUrl($this, 'userUrl', 'optional', 'user.profile.form.urlInvalid'));
 		$this->addCheck(new FormValidator($this, 'country', 'required', 'user.profile.form.countryRequired'));
+		$this->addCheck(new FormValidatorORCID($this, 'orcid', 'optional', 'user.orcid.orcidInvalid'));
 		$this->addCheck(new FormValidatorPost($this));
 	}
 
@@ -103,6 +104,7 @@ class PKPUserForm extends Form {
 			'userUrl',
 			'phone',
 			'fax',
+			'orcid',
 			'mailingAddress',
 			'country',
 			'biography',
@@ -138,6 +140,7 @@ class PKPUserForm extends Form {
 		$user->setUrl($this->getData('userUrl'));
 		$user->setPhone($this->getData('phone'));
 		$user->setFax($this->getData('fax'));
+		$user->setOrcid($this->getData('orcid'));
 		$user->setMailingAddress($this->getData('mailingAddress'));
 		$user->setBiography($this->getData('biography'), null); // Localized
 		$user->setCountry($this->getData('country'));

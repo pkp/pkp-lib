@@ -60,7 +60,7 @@ class Identity extends DataObject {
 	 * @param $firstName string
 	 */
 	function setFirstName($firstName) {
-		return $this->setData('firstName', $firstName);
+		$this->setData('firstName', $firstName);
 	}
 
 
@@ -77,7 +77,7 @@ class Identity extends DataObject {
 	 * @param $middleName string
 	 */
 	function setMiddleName($middleName) {
-		return $this->setData('middleName', $middleName);
+		$this->setData('middleName', $middleName);
 	}
 
 	/**
@@ -93,7 +93,7 @@ class Identity extends DataObject {
 	 * @param $lastName string
 	 */
 	function setLastName($lastName) {
-		return $this->setData('lastName', $lastName);
+		$this->setData('lastName', $lastName);
 	}
 
 	/**
@@ -109,7 +109,7 @@ class Identity extends DataObject {
 	 * @param $initials string
 	 */
 	function setInitials($initials) {
-		return $this->setData('initials', $initials);
+		$this->setData('initials', $initials);
 	}
 
 	/**
@@ -125,7 +125,7 @@ class Identity extends DataObject {
 	 * @param $salutation string
 	 */
 	function setSalutation($salutation) {
-		return $this->setData('salutation', $salutation);
+		$this->setData('salutation', $salutation);
 	}
 
 	/**
@@ -143,7 +143,7 @@ class Identity extends DataObject {
 	 * @param $locale string
 	 */
 	function setAffiliation($affiliation, $locale) {
-		return $this->setData('affiliation', $affiliation, $locale);
+		$this->setData('affiliation', $affiliation, $locale);
 	}
 
 	/**
@@ -166,7 +166,23 @@ class Identity extends DataObject {
 	 * @param $email string
 	 */
 	function setEmail($email) {
-		return $this->setData('email', $email);
+		$this->setData('email', $email);
+	}
+
+	/**
+	 * Get ORCID identifier
+	 * @return string
+	 */
+	function getOrcid() {
+		return $this->getData('orcid');
+	}
+
+	/**
+	 * Set ORCID identifier.
+	 * @param $orcid string
+	 */
+	function setOrcid($orcid) {
+		$this->setData('orcid', $orcid);
 	}
 
 	/**
@@ -182,10 +198,11 @@ class Identity extends DataObject {
 	 * @param $suffix string
 	 */
 	function setSuffix($suffix) {
-		return $this->setData('suffix', $suffix);
+		$this->setData('suffix', $suffix);
 	}
+
 	/**
-	 * Get country code
+	 * Get country code (ISO 3166-1 two-letter codes)
 	 * @return string
 	 */
 	function getCountry() {
@@ -206,11 +223,11 @@ class Identity extends DataObject {
 	}
 
 	/**
-	 * Set country code.
+	 * Set country code (ISO 3166-1 two-letter codes)
 	 * @param $country string
 	 */
 	function setCountry($country) {
-		return $this->setData('country', $country);
+		$this->setData('country', $country);
 	}
 
 	/**
@@ -226,11 +243,12 @@ class Identity extends DataObject {
 	 * @param $url string
 	 */
 	function setUrl($url) {
-		return $this->setData('url', $url);
+		$this->setData('url', $url);
 	}
 
 	/**
 	 * Get the localized biography for this author
+	 * @return string
 	 */
 	function getLocalizedBiography() {
 		return $this->getLocalizedData('biography');
@@ -251,7 +269,7 @@ class Identity extends DataObject {
 	 * @param $locale string
 	 */
 	function setBiography($biography, $locale) {
-		return $this->setData('biography', $biography, $locale);
+		$this->setData('biography', $biography, $locale);
 	}
 }
 

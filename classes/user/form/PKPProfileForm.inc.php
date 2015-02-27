@@ -143,6 +143,7 @@ class PKPProfileForm extends PKPUserForm {
 			'userUrl' => $user->getUrl(),
 			'phone' => $user->getPhone(),
 			'fax' => $user->getFax(),
+			'orcid' => $user->getOrcid(),
 			'mailingAddress' => $user->getMailingAddress(),
 			'country' => $user->getCountry(),
 			'biography' => $user->getBiography(null), // Localized

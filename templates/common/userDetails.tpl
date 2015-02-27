@@ -29,6 +29,7 @@
  *   $disableUrlSection: Disable Url section
  *   $disablePhoneSection: Disable Phone section
  *   $disableFaxSection: Disable Fax section
+ *   $disableOrcidSection: Disable ORCID section
  *   $disableLocaleSection: Disable Locale section
  *   $disableInterestsSection: Disable Interests section
  *   $disableAffiliationSection: Disable Affiliation section
@@ -177,6 +178,9 @@
 						{/if}
 						{if !$disableFaxSection}
 							{fbvElement type="text" label="user.fax" name="fax" id="fax" value=$fax maxlength="24" inline=true size=$fbvStyles.size.SMALL}
+						{/if}
+						{if !$disableOrcidSection}
+							{fbvElement type="text" label="user.orcid" name="orcid" id="orcid" value=$orcid maxlength="36" inline=true size=$fbvStyles.size.SMALL}
 						{/if}
 					{/fbvFormSection}
 				{/if}

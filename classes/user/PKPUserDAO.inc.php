@@ -424,6 +424,15 @@ class PKPUserDAO extends DAO {
 	}
 
 	/**
+	 * @copydoc DAO::getAdditionalFieldNames()
+	 */
+	function getAdditionalFieldNames() {
+		return array_merge(parent::getAdditionalFieldNames(), array(
+			'orcid',
+		));
+	}
+
+	/**
 	 * @copydoc DAO::updateLocaleFields
 	 */
 	function updateLocaleFields($user) {

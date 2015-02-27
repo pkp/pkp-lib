@@ -142,4 +142,6 @@ current password.<br /><br />Enter your email address below to reset your passwo
 	<message key="user.username">Username</message>
 	<message key="user.workingLanguages">Working Languages</message>
 	<message key="user.register.completeForm">Fill in this form to register with this site.</message>
+	<message key="user.orcid">ORCID iD</message>
+	<message key="user.orcid.orcidInvalid">The ORCID iD you specified is invalid. Please include the full URI (e.g. "http://orcid.org/0000-0002-1825-0097").</message>
 </locale>

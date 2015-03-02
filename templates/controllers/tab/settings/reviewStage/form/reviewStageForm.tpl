@@ -21,16 +21,15 @@
 	{include file="controllers/tab/settings/wizardMode.tpl" wizardMode=$wizardMode}
 
 	<div {if $wizardMode}class="pkp_form_hidden"{/if}>
-		{fbvFormArea id="reviewOptions" title="manager.setup.reviewOptions" class="border"}
+		{fbvFormArea id="reviewOptions" title="manager.setup.reviewOptions.reviewTime" class="border"}
 			<!-- FIXME: also, fbvStyles.size.SMALL needs to be switched to TINY once there's a TINY option available -->
-			{fbvFormSection label="manager.setup.reviewOptions.reviewTime" description="manager.setup.reviewOptions.noteOnModification"}
+			{fbvFormSection description="manager.setup.reviewOptions.noteOnModification"}
 				{fbvElement type="text" label="manager.setup.reviewOptions.numWeeksPerResponse" name="numWeeksPerResponse" id="numWeeksPerResponse" value=$numWeeksPerResponse size=$fbvStyles.size.SMALL inline=true}
 				{fbvElement type="text" label="manager.setup.reviewOptions.numWeeksPerReview" name="numWeeksPerReview" id="numWeeksPerReview" value=$numWeeksPerReview size=$fbvStyles.size.SMALL inline=true}
 			{/fbvFormSection}
-		{/fbvFormArea}
-		{fbvFormArea id="reviewReminderOptions" title="manager.setup.reviewOptions.reviewerReminders" class="border"}
+
 			{capture assign="reviewReminderNote"}{translate key="manager.setup.reviewOptions.automatedReminders"} {translate key="manager.setup.reviewOptions.automatedRemindersDisabled"}{/capture}
-			{fbvFormSection description=$reviewReminderNote translate=false}{/fbvFormSection}
+			{fbvFormSection label="manager.setup.reviewOptions.reviewerReminders"|translate description=$reviewReminderNote translate=false}{/fbvFormSection}
 
 			{translate|assign:"reminderDefault" key="manager.setup.reviewOptions.neverSendReminder"}
 

@@ -20,6 +20,7 @@ define('FILE_LOADER_PATH_STAGING', 'stage');
 define('FILE_LOADER_PATH_PROCESSING', 'processing');
 define('FILE_LOADER_PATH_REJECT', 'reject');
 define('FILE_LOADER_PATH_ARCHIVE', 'archive');
+define('FILE_LOADER_MEMORY_TOLERANCE', 0.90);
 
 class FileLoader extends ScheduledTask {
 
@@ -126,7 +127,39 @@ class FileLoader extends ScheduledTask {
 		if (!$this->checkFolderStructure()) return false;
 
 		$foundErrors = false;
+		// get setting value
+		$memoryLimit = ini_get('memory_limit');
+		// multiply for shorthand notation
+		switch (strtolower($memoryLimit[strlen($memoryLimit)-1])) {
+			case 'g':
+				$memoryLimit *= 1024;
+			case 'm':
+				$memoryLimit *= 1024;
+			case 'k':
+				$memoryLimit *= 1024;
+		}
+		$baseMemoryUsage = memory_get_usage();
+		$largestMemoryIncrease = 0;
+		$logSize = strlen(serialize($this->_executionLog));
 		while($filePath = $this->_claimNextFile()) {
+			// This execution log will likely be mailed to the administrator.  This will involve:
+			//  1) The array form of the log in this object
+			//  2) A string form of the log returned from this object
+			//  3) A string form of this log which is preprocessed by the mailer (e.g. CR -> CRLF)
+			//  4) A string or array form of this log as it is sent in the mailer object
+			// Since this is a serial process operating on potentially large files, keep track of the log size
+			// and this process's own memory increase to preempt out-of-memory errors
+			if (memory_get_usage() - $baseMemoryUsage > $largestMemoryIncrease) {
+				$largestMemoryIncrease = memory_get_usage() - $baseMemoryUsage;
+			}
+			$baseMemoryUsage = memory_get_usage();
+			// if the largest known memory increase were added in again, and if the logsize were quadrupled as described above, and if this would exceed our memory tolerance, break out of processing early.
+			if ($memoryLimit > 0 && memory_get_usage() + $logSize * 4 + $largestMemoryIncrease > $memoryLimit * FILE_LOADER_MEMORY_TOLERANCE) {
+				$this->addExecutionLogEntry(__('admin.fileLoader.memoryToleranceExceeded'), SCHEDULED_TASK_MESSAGE_TYPE_ERROR);
+				$this->_stageFile();
+				$foundErrors = true;
+				break;
+			}
 			$errorMsg = null;
 			$result = $this->processFile($filePath, $errorMsg);
 			if ($result === false) {

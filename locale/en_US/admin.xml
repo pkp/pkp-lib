@@ -99,5 +99,6 @@
 	<message key="admin.fileLoader.pathNotAccessible">Folder {$path} is not a directory or is not readable.</message>
 	<message key="admin.fileLoader.moveFileFailed">File {$filename} could not be moved from {$currentFilePath} to {$destinationPath}</message>
 	<message key="admin.fileLoader.fileProcessed">File {$filename} was processed and archived.</message>
+	<message key="admin.fileLoader.memoryToleranceExceeded">The loader process consumed memory too close to PHP's memory limit and was terminated early.</message>
 	<message key="admin.fileLoader">File loader</message>
 </locale>

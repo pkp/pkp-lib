@@ -229,7 +229,9 @@ class SubmissionDAO extends DAO {
 	 * @param $pubId string
 	 */
 	function changePubId($submissionId, $pubIdType, $pubId) {
-		$this->updateSetting($submissionId, 'pub-id::'.$pubIdType, $pubId, 'string');
+		$submission = $this->getById($submissionId);
+		$submission->setData('pub-id::'.$pubIdType, $pubId);
+		$this->updateObject($submission);
 	}
 
 	/**

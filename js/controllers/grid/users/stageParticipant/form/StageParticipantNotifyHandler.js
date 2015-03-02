@@ -100,7 +100,9 @@
 
 		if (processedJsonData !== false) {
 			if (processedJsonData.content !== '') {
-				$form.find('textarea[name="message"]').val(processedJsonData.content);
+				tinyMCE.EditorManager.get(/** @type {string} */
+						($form.find('textarea[name="message"]').attr('id')))
+						.setContent(processedJsonData.content);
 			}
 		}
 		return processedJsonData.status;

@@ -136,6 +136,7 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 	function addPubIdentifier($doc, $submissionNode, $submission, $pubIdPlugin) {
 		$pubId = $pubIdPlugin->getPubId($submission);
 		if ($pubId) {
+			$deployment = $this->getDeployment();
 			$submissionNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'id', $pubId));
 			$node->setAttribute('type', $pubIdPlugin->getPubIdType());
 			return $node;

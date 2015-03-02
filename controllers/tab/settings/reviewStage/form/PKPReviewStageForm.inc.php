@@ -66,7 +66,7 @@ class PKPReviewStageForm extends ContextSettingsForm {
 			new ConfirmationModal(
 				__('review.blindPeerReview'),
 				__('review.ensuringBlindReview'), 'modal_information', null, null, true, MODAL_WIDTH_DEFAULT),
-			__('review.ensuringBlindReview')
+			__('manager.setup.reviewOptions.showBlindReviewLink')
 		);
 
 		$params['scheduledTasksDisabled'] = (Config::getVar('general', 'scheduled_tasks')) ? false : true;

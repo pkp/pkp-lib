@@ -227,6 +227,7 @@
 	<message key="manager.setup.reviewOptions.neverSendReminder">Never Remind</message>
 	<message key="manager.setup.reviewOptions.remindForInvite">Send a reminder if a reviewer has not responded to a review request within the following time (days):</message>
 	<message key="manager.setup.reviewOptions.remindForSubmit">Send a reminder if a reviewer has not submitted a recommendation within the following time (days):</message>
+	<message key="manager.setup.reviewOptions.showBlindReviewLink">Present a link to "Ensuring a Blind Review" during upload</message>
 	<message key="manager.setup.sortableByComponent">Sortable by component</message>
 	<message key="manager.setup.dependentGenre">Dependent Genres</message>
 	<message key="manager.setup.sponsors">Sponsoring Organizations</message>

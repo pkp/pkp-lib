@@ -614,6 +614,7 @@ class ReviewAssignmentDAO extends DAO {
 	 * @return array
 	 */
 	function getReviewMethodsTranslationKeys() {
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_EDITOR);
 		return array(
 			SUBMISSION_REVIEW_METHOD_DOUBLEBLIND => 'editor.submissionReview.doubleBlind',
 			SUBMISSION_REVIEW_METHOD_BLIND => 'editor.submissionReview.blind',

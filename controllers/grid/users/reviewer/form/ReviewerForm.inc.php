@@ -156,7 +156,8 @@ class ReviewerForm extends Form {
 			$reviewFormId = $reviewAssignment->getReviewFormId();
 		} else {
 			// Set default review method.
-			$reviewMethod = SUBMISSION_REVIEW_METHOD_BLIND;
+			$reviewMethod = $context->getSetting('defaultReviewMode');
+			if (!$reviewMethod) $reviewMethod = SUBMISSION_REVIEW_METHOD_BLIND;
 
 			// If there is a section/series and it has a default
 			// review form designated, use it.

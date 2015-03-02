@@ -70,7 +70,13 @@
 		{/fbvFormArea}
 	</div>
 
-	{$additionalReviewFormContents}
+	{fbvFormArea id="reviewOptions" title="manager.setup.reviewOptions" class="border"}
+		{fbvFormSection description="manager.setup.reviewOptions.defaultReviewMethod"}
+			{fbvElement type="select" from=$reviewMethodOptions selected=$defaultReviewMode defaultValue="" defaultLabel="" id="defaultReviewMode" size=$fbvStyles.size.SMALL inline=true}
+		{/fbvFormSection}
+
+		{$additionalReviewFormOptions}
+	{/fbvFormArea}
 
 	{if !$wizardMode}
 		{fbvFormButtons id="reviewStageFormSubmit" submitText="common.save" hideCancel=true}

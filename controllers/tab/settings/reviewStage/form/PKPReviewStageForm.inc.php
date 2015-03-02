@@ -34,6 +34,7 @@ class PKPReviewStageForm extends ContextSettingsForm {
 					'rateReviewerOnQuality' => 'bool',
 					'showEnsuringLink' => 'bool',
 					'reviewerCompetingInterestsRequired' => 'bool',
+					'defaultReviewMode' => 'int',
 				)
 			),
 			$template,
@@ -72,9 +73,13 @@ class PKPReviewStageForm extends ContextSettingsForm {
 		$params['scheduledTasksDisabled'] = (Config::getVar('general', 'scheduled_tasks')) ? false : true;
 
 		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign(array(
+			'numDaysBeforeInviteReminderValues' => range(3, 10),
+			'numDaysBeforeSubmitReminderValues' => range(0, 10)
+		));
 
-		$templateMgr->assign('numDaysBeforeInviteReminderValues', range(3, 10));
-		$templateMgr->assign('numDaysBeforeSubmitReminderValues', range(0, 10));
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+		$templateMgr->assign('reviewMethodOptions', $reviewAssignmentDao->getReviewMethodsTranslationKeys());
 
 		return parent::fetch($request, $params);
 	}

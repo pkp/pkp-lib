@@ -203,6 +203,36 @@ class PKPStageParticipantNotifyForm extends Form {
 	}
 
 	/**
+	 * Get the available email template variable names for the given template name.
+	 * @param $emailKey string Email template key
+	 * @return array
+	 */
+	function getEmailVariableNames($emailKey) {
+		switch ($emailKey) {
+			case 'COPYEDIT_REQUEST': return array(
+				'copyeditorName' => __('user.name'),
+				'copyeditorUsername' => __('user.username'),
+			);
+			case 'LAYOUT_REQUEST': return array(
+				'layoutEditorName' => __('user.name'),
+				'layoutEditorUsername' => __('user.username'),
+			);
+			case 'LAYOUT_COMPLETE':
+			case 'INDEX_COMPLETE': return array(
+				'editorialContactName' => __('user.role.editor'),
+			);
+			case 'EDITOR_ASSIGN': return array(
+				'editorUsername' => __('user.username'),
+				'editorialContactName' => __('user.role.editor'),
+			);
+			case 'INDEX_REQUEST': return array(
+				'indexerName' => __('user.name'),
+				'indexerUsername' => __('user.username'),
+			);
+		}
+	}
+
+	/**
 	 * Delete a signoff
 	 */
 	function deleteEntry($request, $rowId) {

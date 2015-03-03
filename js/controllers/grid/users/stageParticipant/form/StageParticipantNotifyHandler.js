@@ -96,15 +96,14 @@
 					function(formElement, jsonData) {
 
 		var $form = this.getHtmlElement(),
-				processedJsonData = this.handleJson(jsonData);
+				processedJsonData = this.handleJson(jsonData),
+				jsonDataContent = /** @type {{variables: Object, body: string}} */ (jsonData.content),
+				$textarea = $form.find('textarea[name="message"]'),
+				editor = tinyMCE.EditorManager.get(/** @type {string} */ ($textarea.attr('id')));
 
-		if (processedJsonData !== false) {
-			if (processedJsonData.content !== '') {
-				tinyMCE.EditorManager.get(/** @type {string} */
-						($form.find('textarea[name="message"]').attr('id')))
-						.setContent(processedJsonData.content);
-			}
-		}
+		$textarea.attr('data-variables', JSON.stringify(jsonDataContent.variables));
+		editor.setContent(jsonDataContent.body);
+
 		return processedJsonData.status;
 	};
 

@@ -192,8 +192,10 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 		$submission = $this->getSubmission();
 		return array_merge(
 			parent::getRequestArgs(),
-			array('submissionId' => $submission->getId(),
-			'stageId' => $this->getStageId())
+			array(
+				'submissionId' => $submission->getId(),
+				'stageId' => $this->getStageId(),
+			)
 		);
 	}
 
@@ -483,7 +485,15 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 					'signatureFullName' => $user->getFullname(),
 			));
 
-			return new JSONMessage(true, $template->getBody() . "\n" . $context->getSetting('emailSignature'));
+			import('controllers.grid.users.stageParticipant.form.StageParticipantNotifyForm'); // exists in each app.
+			$notifyForm = new StageParticipantNotifyForm($this->getSubmission()->getId(), ASSOC_TYPE_SUBMISSION, $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE));
+			return new JSONMessage(
+				true,
+				array(
+					'body' => $template->getBody() . "<br/>\n" . $context->getSetting('emailSignature'),
+					'variables' => $notifyForm->getEmailVariableNames($templateId),
+				)
+			);
 		}
 	}
 

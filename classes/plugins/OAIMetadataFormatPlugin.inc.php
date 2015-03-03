@@ -16,7 +16,7 @@
 import('lib.pkp.classes.plugins.Plugin');
 import('lib.pkp.classes.oai.OAIStruct');
 
-class OAIMetadataFormatPlugin extends Plugin {
+abstract class OAIMetadataFormatPlugin extends Plugin {
 	function OAIMetadataFormatPlugin() {
 		parent::Plugin();
 	}
@@ -34,30 +34,6 @@ class OAIMetadataFormatPlugin extends Plugin {
 			return true;
 		}
 		return false;
-	}
-
-	/**
-	 * Get the name of this plugin. The name must be unique within
-	 * its category, and should be suitable for part of a filename
-	 * (ie short, no spaces, and no dependencies on cases being unique).
-	 * @return String name of plugin
-	 */
-	function getName() {
-		assert(false); // Should always be overridden
-	}
-
-	/**
-	 * Get the display name for this plugin.
-	 */
-	function getDisplayName() {
-		assert(false); // Should always be overridden
-	}
-
-	/**
-	 * Get a description of this plugin.
-	 */
-	function getDescription() {
-		assert(false); // Should always be overridden
 	}
 
 	/**

@@ -90,43 +90,50 @@ class PKPTemplateManager extends Smarty {
 	 * Initialize the template manager.
 	 */
 	function initialize() {
-		// Retrieve the router
+		$locale = AppLocale::getLocale();
+		$application = PKPApplication::getApplication();
 		$router = $this->_request->getRouter();
 		assert(is_a($router, 'PKPRouter'));
 
-		$this->assign('defaultCharset', Config::getVar('i18n', 'client_charset'));
-		$this->assign('basePath', $this->_request->getBasePath());
-		$this->assign('baseUrl', $this->_request->getBaseUrl());
-		$this->assign('requiresFormRequest', $this->_request->isPost());
-		if (is_a($router, 'PKPPageRouter')) $this->assign('requestedPage', $router->getRequestedPage($this->_request));
-		$this->assign('currentUrl', $this->_request->getCompleteUrl());
-		$this->assign('dateFormatTrunc', Config::getVar('general', 'date_format_trunc'));
-		$this->assign('dateFormatShort', Config::getVar('general', 'date_format_short'));
-		$this->assign('dateFormatLong', Config::getVar('general', 'date_format_long'));
-		$this->assign('datetimeFormatShort', Config::getVar('general', 'datetime_format_short'));
-		$this->assign('datetimeFormatLong', Config::getVar('general', 'datetime_format_long'));
-		$this->assign('timeFormat', Config::getVar('general', 'time_format'));
-		$this->assign('allowCDN', Config::getVar('general', 'enable_cdn'));
-		$this->assign('useMinifiedJavaScript', Config::getVar('general', 'enable_minified'));
-		$this->assign('toggleHelpOnText', __('help.toggleInlineHelpOn'));
-		$this->assign('toggleHelpOffText', __('help.toggleInlineHelpOff'));
-		$this->assign('currentContext', $this->_request->getContext());
+		$this->assign(array(
+			'defaultCharset' => Config::getVar('i18n', 'client_charset'),
+			'basePath' => $this->_request->getBasePath(),
+			'baseUrl' => $this->_request->getBaseUrl(),
+			'requiresFormRequest' => $this->_request->isPost(),
+			'currentUrl' => $this->_request->getCompleteUrl(),
+			'dateFormatTrunc' => Config::getVar('general', 'date_format_trunc'),
+			'dateFormatShort' => Config::getVar('general', 'date_format_short'),
+			'dateFormatLong' => Config::getVar('general', 'date_format_long'),
+			'datetimeFormatShort' => Config::getVar('general', 'datetime_format_short'),
+			'datetimeFormatLong' => Config::getVar('general', 'datetime_format_long'),
+			'timeFormat' => Config::getVar('general', 'time_format'),
+			'allowCDN' => Config::getVar('general', 'enable_cdn'),
+			'useMinifiedJavaScript' => Config::getVar('general', 'enable_minified'),
+			'toggleHelpOnText' => __('help.toggleInlineHelpOn'),
+			'toggleHelpOffText' => __('help.toggleInlineHelpOff'),
+			'currentContext' => $this->_request->getContext(),
+			'currentLocale' => $locale,
+			'pageTitle' => $application->getNameKey(),
+			'applicationName' => __($application->getNameKey()),
+			'exposedConstants' => $application->getExposedConstants(),
+			'jsLocaleKeys' => $application->getJSLocaleKeys(),
+		));
 
-		$locale = AppLocale::getLocale();
-		$this->assign('currentLocale', $locale);
+		if (is_a($router, 'PKPPageRouter')) {
+			$this->assign(array(
+				'requestedPage' => $router->getRequestedPage($this->_request),
+				'requestedOp' => $router->getRequestedOp($this->_request),
+			));
+		}
 
 		// Add uncompilable styles
 		$this->addStyleSheet($this->_request->getBaseUrl() . '/styles/lib.css', STYLE_SEQUENCE_CORE);
-		$dispatcher = $this->_request->getDispatcher();
-		if ($dispatcher) $this->addStyleSheet($dispatcher->url($this->_request, ROUTE_COMPONENT, null, 'page.PageHandler', 'css'), STYLE_SEQUENCE_CORE);
+		if ($dispatcher = $this->_request->getDispatcher()) {
+			$this->addStyleSheet($dispatcher->url($this->_request, ROUTE_COMPONENT, null, 'page.PageHandler', 'css'), STYLE_SEQUENCE_CORE);
+		}
+
 		// If there's a locale-specific stylesheet, add it.
 		if (($localeStyleSheet = AppLocale::getLocaleStyleSheet($locale)) != null) $this->addStyleSheet($this->_request->getBaseUrl() . '/' . $localeStyleSheet);
-
-		$application = PKPApplication::getApplication();
-		$this->assign('pageTitle', $application->getNameKey());
-		$this->assign('applicationName', __($application->getNameKey()));
-		$this->assign('exposedConstants', $application->getExposedConstants());
-		$this->assign('jsLocaleKeys', $application->getJSLocaleKeys());
 
 		// Register custom functions
 		$this->register_modifier('translate', array('AppLocale', 'translate'));
@@ -160,7 +167,6 @@ class PKPTemplateManager extends Smarty {
 
 		$this->register_function('fieldLabel', array($fbv, 'smartyFieldLabel'));
 
-
 		// register the resource name "core"
 		$this->register_resource('core', array(
 			array($this, 'smartyResourceCoreGetTemplate'),
@@ -173,43 +179,40 @@ class PKPTemplateManager extends Smarty {
 		// ajax load into a div
 		$this->register_function('load_url_in_div', array($this, 'smartyLoadUrlInDiv'));
 
+		/**
+		 * Kludge to make sure no code that tries to connect to the
+		 * database is executed (e.g., when loading installer pages).
+		 */
 		if (!defined('SESSION_DISABLE_INIT')) {
-			/**
-			 * Kludge to make sure no code that tries to connect to
-			 * the database is executed (e.g., when loading
-			 * installer pages).
-			 */
-			$this->assign('isUserLoggedIn', Validation::isLoggedIn());
-			$this->assign('isUserLoggedInAs', Validation::isLoggedInAs());
-
 			$application = PKPApplication::getApplication();
 			$currentVersion = $application->getCurrentVersion();
-			$this->assign('currentVersionString', $currentVersion->getVersionString(false));
+			$this->assign(array(
+				'isUserLoggedIn' => Validation::isLoggedIn(),
+				'isUserLoggedInAs' => Validation::isLoggedInAs(),
+				'currentVersionString' => $currentVersion->getVersionString(false),
+				'itemsPerPage' => Config::getVar('interface', 'items_per_page'),
+				'numPageLinks' => Config::getVar('interface', 'page_links'),
+			));
 
-			$this->assign('itemsPerPage', Config::getVar('interface', 'items_per_page'));
-			$this->assign('numPageLinks', Config::getVar('interface', 'page_links'));
+			$user = $this->_request->getUser();
+			$hasSystemNotifications = false;
+			if ($user) {
+				$notificationDao = DAORegistry::getDAO('NotificationDAO');
+				$notifications = $notificationDao->getByUserId($user->getId(), NOTIFICATION_LEVEL_TRIVIAL);
+				if ($notifications->getCount() > 0) {
+					$this->assign('hasSystemNotifications', true);
+				}
+
+				// Assign the user name to be used in the sitenav
+				$this->assign(array(
+					'loggedInUsername' => $user->getUserName(),
+					'initialHelpState' => (int) $user->getInlineHelp(),
+				));
+			}
 		}
 
 		// Load enabled block plugins.
 		PluginRegistry::loadCategory('blocks', true);
-
-		if (!defined('SESSION_DISABLE_INIT')) {
-			$user = $this->_request->getUser();
-			$hasSystemNotifications = false;
-			if ($user) {
-				// Assign the user name to be used in the sitenav
-				$this->assign('loggedInUsername', $user->getUserName());
-				$notificationDao = DAORegistry::getDAO('NotificationDAO');
-				$notifications = $notificationDao->getByUserId($user->getId(), NOTIFICATION_LEVEL_TRIVIAL);
-
-				if ($notifications->getCount() > 0) {
-					$hasSystemNotifications = true;
-				}
-
-				$this->assign('initialHelpState', (int) $user->getInlineHelp());
-			}
-			$this->assign('hasSystemNotifications', $hasSystemNotifications);
-		}
 	}
 
 	/**
@@ -1123,12 +1126,12 @@ class PKPTemplateManager extends Smarty {
 		if (!isset($params['id'])) {
 			$smarty->trigger_error("id parameter is missing from load_url_in_div");
 		}
-		// clear this variable, since it appears to carry over from previous load_url_in_div template assignments.
-		$this->clear_assign(array('inDivClass'));
 
-		$this->assign('inDivUrl', $params['url']);
-		$this->assign('inDivDivId', $params['id']);
-		if (isset($params['class'])) $this->assign('inDivClass', $params['class']);
+		$this->assign(array(
+			'inDivUrl' => $params['url'],
+			'inDivDivId' => $params['id'],
+			'inDivClass' => isset($params['class'])?$params['class']:null,
+		));
 
 		if (isset($params['loadMessageId'])) {
 			$loadMessageId = $params['loadMessageId'];

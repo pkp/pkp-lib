@@ -120,7 +120,8 @@ class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm {
 
 		// Author roles
 		// Assign only the submitter in whatever ROLE_ID_AUTHOR capacity they were assigned previously
-		$submitterAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), null, null, $submission->getUserId());
+		$user = $request->getUser();
+		$submitterAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), null, null, $user->getId());
 		while ($assignment = $submitterAssignments->next()) {
 			$userGroup = $userGroupDao->getById($assignment->getUserGroupId());
 			if ($userGroup->getRoleId() == ROLE_ID_AUTHOR) {

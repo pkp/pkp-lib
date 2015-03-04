@@ -103,10 +103,19 @@ abstract class PKPManageFileApiHandler extends Handler {
 
 		if ($success) {
 			if ($submissionFile->getFileStage() == SUBMISSION_FILE_REVIEW_REVISION) {
+				// Get a list of author user IDs
+				$authorUserIds = array();
+				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+				$submitterAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), ROLE_ID_AUTHOR);
+				while ($assignment = $submitterAssignments->next()) {
+					$authorUserIds[] = $assignment->getUserId();
+				}
+
+				// Update the notifications
 				$notificationMgr->updateNotification(
 					$request,
 					array(NOTIFICATION_TYPE_PENDING_INTERNAL_REVISIONS, NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS),
-					array($submission->getUserId()),
+					$authorUserIds,
 					ASSOC_TYPE_SUBMISSION,
 					$submission->getId()
 				);
@@ -171,11 +180,20 @@ abstract class PKPManageFileApiHandler extends Handler {
 			$metadataForm->execute($args, $request);
 			$submissionFile = $metadataForm->getSubmissionFile();
 
+			// Get a list of author user IDs
+			$authorUserIds = array();
+			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+			$submitterAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), ROLE_ID_AUTHOR);
+			while ($assignment = $submitterAssignments->next()) {
+				$authorUserIds[] = $assignment->getUserId();
+			}
+
+			// Update the notifications
 			$notificationMgr = new NotificationManager(); /* @var $notificationMgr NotificationManager */
 			$notificationMgr->updateNotification(
 				$request,
 				$this->getUpdateNotifications(),
-				array($submission->getUserId()),
+				$authorUserIds,
 				ASSOC_TYPE_SUBMISSION,
 				$submission->getId()
 			);
@@ -192,7 +210,11 @@ abstract class PKPManageFileApiHandler extends Handler {
 				// Delete any 'revision requested' notifications since all revisions are now in.
 				$context = $request->getContext();
 				$notificationDao = DAORegistry::getDAO('NotificationDAO');
-				$notificationDao->deleteByAssoc(ASSOC_TYPE_SUBMISSION, $submission->getId(), $submission->getUserId(), NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS, $context->getId());
+				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+				$submitterAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), ROLE_ID_AUTHOR);
+				while ($assignment = $submitterAssignments->next()) {
+					$notificationDao->deleteByAssoc(ASSOC_TYPE_SUBMISSION, $submission->getId(), $assignment->getUserId(), NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS, $context->getId());
+				}
 			}
 
 			// Log the upload event

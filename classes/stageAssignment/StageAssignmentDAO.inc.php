@@ -52,8 +52,8 @@ class StageAssignmentDAO extends DAO {
 
 	/**
 	 * Retrieve StageAssignments by submission and role IDs.
-	 * @param $submissionId int
-	 * @param $roleId int
+	 * @param $submissionId int Submission ID
+	 * @param $roleId int ROLE_ID_...
 	 * @param $stageId int (optional)
 	 * @param $userId int (optional)
 	 * @return DAOResultFactory StageAssignment

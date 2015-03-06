@@ -344,12 +344,12 @@
 	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Beitrag einreichen</a>]]></message>
 	<message key="notification.mailList.register">Sie können sich hier registrieren für ...</message>
 	<message key="notification.mailList.review"><![CDATA[Nehmen Sie am <a href="{$reviewUrl}">Begutachtungsprozess</a> teil]]></message>
-	<message key="notification.noneExist">Sie haben zurzeit keine Benachrichtungen.</message>
-	<message key="notification.notification">Benachrichtung</message>
-	<message key="notification.notifications">Benachrichtungen</message>
+	<message key="notification.noneExist">Sie haben zurzeit keine Benachrichtigungen.</message>
+	<message key="notification.notification">Benachrichtigung</message>
+	<message key="notification.notifications">Benachrichtigungen</message>
 	<message key="notification.notificationsNew">({$numNew} neu)</message>
-	<message key="notification.notificationsDescription"><![CDATA[Sie haben {$unreadCount} ungelesene und {$readCount} gelesene Benachrichtungen.  <a href="{$settingsUrl}">Klicken Sie hier</a>, um Ihre Benachrichtungseinstellungen zu verändern.]]></message>
-	<message key="notification.settings">Benachrichtungseinstellungen</message>
+	<message key="notification.notificationsDescription"><![CDATA[Sie haben {$unreadCount} ungelesene und {$readCount} gelesene Benachrichtigungen.  <a href="{$settingsUrl}">Klicken Sie hier</a>, um Ihre Benachrichtungseinstellungen zu verändern.]]></message>
+	<message key="notification.settings">Benachrichtigungseinstellungen</message>
 	<message key="notification.settingsDescription">Wählen Sie die System-Ereignisse aus, über die Sie benachrichtigt werden wollen. Nicht gewählte Elemente führen dazu, dass die jeweiligen Ereignisse nicht in Ihrem Benachrichtigungs-Feed angezeigt werden.</message>
 	<message key="notification.subscribe">Registrieren</message>
 	<message key="notification.subscribeError">Ihre Mailadresse ist für die Benachrichtigungen bereits registriert.</message>

@@ -11,7 +11,7 @@
 <html lang="{$currentLocale|replace:"_":"-"}" xml:lang="{$currentLocale|replace:"_":"-"}">
 {if !$pageTitleTranslated}{translate|assign:"pageTitleTranslated" key=$pageTitle}{/if}
 {include file="core:common/headerHead.tpl"}
-<body>
+<body class="pkp_page_{$requestedPage|escape} pkp_op_{$requestedOp|escape}">
 	<script type="text/javascript">
 		// Initialise JS handler.
 		$(function() {ldelim}

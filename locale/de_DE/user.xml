@@ -55,7 +55,7 @@
 	<message key="user.login.changePasswordInstructions"><![CDATA[Damit Sie sich auf dieser Seite einloggen können, müssen Sie ein neues Passwort auswählen.<br /><br />Sie ändern das Passwort für Ihr Konto, indem Sie unten Ihren Benutzer/innennamen und das aktuelle sowie das neue Passwort eintragen.]]></message>
 	<message key="user.login.forgotPassword">Passwort vergessen?</message>
 	<message key="user.login.loginError">Benutzer/innen-Name oder Passwort ungültig. Versuchen Sie es erneut.</message>
-	<message key="user.login">Benutzer/innen-Name</message>
+	<message key="user.login">Einloggen</message>
 	<message key="user.login.lostPassword.confirmationSent">Eine Bestätigung wurde an Ihre E-Mail-Adresse versandt. Zur Wiederherstellung Ihres Passwortes folgen Sie bitte den Anweisungen aus der E-Mail.</message>
 	<message key="user.login.lostPassword.invalidHash">Leider ist der Link, den Sie angeklickt haben, abgelaufen oder ungültig. Versuchen Sie bitte erneut, Ihr Passwort wiederherzustellen.</message>
 	<message key="user.login.lostPassword.invalidUser">Zu der angegebenen E-Mail-Adresse existiert kein/e Benutzer/in.</message>
@@ -91,8 +91,8 @@
 	<message key="user.profile.form.profileImage">Profilbild</message>
 	<message key="user.profile.form.publishedNotifications">E-Mail-Benachrichtigung: Neue Ausgabe erschienen</message>
 	<message key="user.profile.form.urlInvalid">Die angegebene URL ist ungültig. Bitte überprüfen Sie die URL nochmals und versuchen es erneut. (Hinweis: Fügen Sie http:// an den Anfang der URL an.)</message>
-	<message key="user.profile.form.usergroupRequired">Eine Benutzer/innen-Gruppe ist notwendig.</message>
-	<message key="user.profile.form.usernameRequired">Ein Benutzer/innen-Name ist erforderlich.</message>
+	<message key="user.profile.form.usergroupRequired">Die Angabe einer Benutzer/innen-Gruppe ist erforderlich.</message>
+	<message key="user.profile.form.usernameRequired">Die Angabe eines Benutzer/innen-Namens ist erforderlich.</message>
 	<message key="user.profile.leavePasswordBlank">Wenn Sie Ihr aktuelles Passwort beibehalten wollen, lassen Sie die Passwortfelder frei.</message>
 	<message key="user.profile.newPassword">Neues Passwort</message>
 	<message key="user.profile.oldPassword">Aktuelles Passwort</message>

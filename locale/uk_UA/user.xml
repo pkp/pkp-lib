@@ -2,105 +2,92 @@
 <!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
 
 <!--
-  * locale/uk_UA/user.xml
+  * locale/en_US/user.xml
   *
-  * Copyright (c) 2014-2015 Simon Fraser University Library
-  * Copyright (c) 2000-2015 John Willinsky
+  * Copyright (c) 2000-2012 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the uk_UA (Ukrainian) locale.
+  * Localization strings for the en_US (English) locale.
   *
-  * Translated by Denys Solovianenko, 2011
-  * V. I. Vernadsky National Library of Ukraine
+  * $Id$
   -->
 
-<locale name="uk_UA" full_name = "Ukrainian">
-	<message key="user.affiliation">Місце роботи</message>
-	<message key="user.affiliation.description">(Ваше місце роботи, наприклад, "Київський національний університет імені Тараса Шевченка")</message>
-	<message key="user.affiliations">Місця роботи</message>
-	<message key="user.authorization.accessDenied">Доступ заборонений.</message>
-	<message key="user.authorization.processAuthenticationTokenRequired">Помилковий або неприпустимий маркер аутентифікації.</message>
-	<message key="user.authorization.contextRequired">Не можна викликати цей об'єкт без контексту (видавництво, журнал, конференція тощо).</message>
-	<message key="user.authorization.loginRequired">Необхідно вказати ім'я користувача.</message>
-	<message key="user.authorization.privateOperation">Об'єкт, до якого ви намагаєтеся отримати доступ, приватний або не існує.</message>
-	<message key="user.authorization.restrictedSiteAccess">Вам було відмовлено у доступі. Наразі доступ до цього сайту обмежений.</message>
-	<message key="user.authorization.roleBasedAccessDenied">Ваша поточна роль не передбачає прав на виконання цієї дії.</message>
-	<message key="user.authorization.userGroupRequired">Для виконання цієї дії вам необхідно коректно вказати групу користувачів.</message>
-	<message key="user.biography">Біографічна довідка</message>
-	<message key="user.biography.description">(наприклад, відділ та посада)</message>
+<locale name="en_US" full_name = "English">
+	<message key="user.affiliation">Установа</message>
+	<message key="user.affiliation.description">(Ваша установа, наприклад: "Київський національний університет ім. Тараса Шевченка")</message>
+	<message key="user.affiliations">Установи</message>
+	<message key="user.biography">Біографічні дані</message>
+	<message key="user.biography.description">(Наприклад, відділ та посада)</message>
 	<message key="user.changeMyPassword">Змінити мій пароль</message>
 	<message key="user.changePassword">Змінити пароль</message>
-	<message key="user.dateLastLogin">Останній доступ</message>
+	<message key="user.dateLastLogin">Останній вхід</message>
 	<message key="user.dateRegistered">Дата реєстрації</message>
-	<message key="user.editMyProfile">Редагувати мій профіль</message>
-	<message key="user.email">Email</message>
-	<message key="user.confirmEmail">Підтвердити Email</message>
+	<message key="user.editMyProfile">Правити мої персональні дані</message>
+	<message key="user.email">Поштова скринька</message>
 	<message key="user.fax">Факс</message>
 	<message key="user.feminine">Ж</message>
 	<message key="user.firstName">Ім'я</message>
 	<message key="user.gender">Стать</message>
-	<message key="user.initialsExample">Іван Васильович Петренко = ІВП</message>
+	<message key="user.initialsExample">Сергій Миколайович Коваленко = СМК</message>
 	<message key="user.initials">Ініціали</message>
-	<message key="user.interests">Наукові інтереси</message>
-	<message key="user.interests.description">(вказуйте кожний інтерес з нового рядку або розділяйте їх комами)</message>
+	<message key="user.interests">Інтереси</message>
 	<message key="user.gossip">Приватні нотатки</message>
 	<message key="user.lastName">Прізвище</message>
-	<message key="user.profile.form.profileImageInvalid">Неприпустимий формат фото або зображення занадто великого розміру. Припустимими форматами є .gif, .jpg, або .png, розмір зображення не повинен бути більшим 150x150 пікселів.</message>
-	<message key="user.login.accountDisabledWithReason">Ваш обліковий запис був відключений через таку причину: {$reason}</message>
-	<message key="user.login.accountDisabled">Ваш обліковий запис був відключений. Будь ласка, контактуйте з адміністратором для додаткової інформації.</message>
-	<message key="user.login.accountNotValidated">Ваша адреса email не була підтверджена. Будь ласка, перевірте свою пошту та виконайте вказані у листі інструкції. Якщо ви не отримали листа, можливо, необхідно звернутися за допомогою до адміністратора сайту.</message>
+	<message key="user.profile.form.profileImageInvalid">Неправильний формат фото, або файл завеликий. Дозволені формати: .gif, .jpg, or .png, зображення не повинно перевищувати розміри у 150x150 пікселів.</message>
+	<message key="user.login.accountDisabledWithReason">Ваш обліковий запис був відключений з наступних підстав: {$reason}</message>
+	<message key="user.login.accountDisabled">Ваш обліковий запис було відключено. Будь ласка, зверніться до адміністратора за додатковою інформацією.</message>
+	<message key="user.login.accountNotValidated">Адресу Вашої електронної поштової скриньки не було підтверджено. Будь ласка, перевірте скриньку і виконайте надіслані інструкції. Якщо Ви не отримували листа, зверніться до адміністратора сайту за допомогою.</message>
 	<message key="user.login.activate">Активувати обліковий запис</message>
-	<message key="user.login.activated">Дякуємо за активацію вашого облікового запису. Тепер ви можете увійти до системи, використовуючи дані, вказані під час реєстрації.</message>
-	<message key="user.login.changePasswordInstructions"><![CDATA[Перш ніж ви зможете зайти на сайт, ви повинні обрати новий пароль.<br /><br />Для того, щоб змінити пароль для вашого облікового запису, будь ласка, введіть нижче ім'я користувача, старий та новий паролі.]]></message>
-	<message key="user.login.forgotPassword">Забули пароль?</message>
-	<message key="user.login.loginError">Невірне ім'я користувача або пароль. Будь ласка, спробуйте знову.</message>
-	<message key="user.login">Увійти</message>
-	<message key="user.login.lostPassword.confirmationSent">На вашу адресу email було надіслане підтвердження. Виконайте вказані у листі інструкції, щоб змінити ваш пароль.</message>
-	<message key="user.login.lostPassword.invalidHash">Вибачте, посилання застаріле або некоректне. Будь ласка, спробуйте знову змінити свій пароль.</message>
-	<message key="user.login.lostPassword.invalidUser">Не існує користувача зі вказаною адресою email.</message>
-	<message key="user.login.lostPassword.passwordSent">На вашу адресу email був надісланий новий пароль. Тепер ви можете увійти на сайт зі своїм новим паролем.</message>
-	<message key="user.login.registeredEmail">Адреса email користувача</message>
-	<message key="user.login.rememberUsernameAndPassword">Пам'ятати моє ім'я та пароль</message>
-	<message key="user.login.resetPassword">Скинути пароль</message>
+	<message key="user.login.activated">Дякуємо за активацію Вашого облікового запису. Тепер Ви можете увійти до сайту, користуючись логіном та паролем, які Ви вказали при створенні облікового запису.</message>
+	<message key="user.login.changePasswordInstructions"><![CDATA[Ви повинні вибрати новий пароль.<br /><br />Будь ласка, введіть Ваше ім'я користувача, Ваш поточний та новий пароль нижче для заміни пароля вашого облікового запису.]]></message>
+	<message key="user.login.forgotPassword">Забули свій пароль?</message>
+	<message key="user.login.loginError">Неправильні ім'я користувача або пароль. Будь ласка, спробуйте ще раз.</message>
+	<message key="user.login">Вхід</message>
+	<message key="user.logIn">Вхід</message>
+	<message key="user.login.lostPassword.confirmationSent">На Вашу електронну поштову скриньку було надіслане підтвердження. Будь ласка, дотримуйтесь інструкцій, наданих в листі для того, щоб відновити Ваш пароль.</message>
+	<message key="user.login.lostPassword.invalidHash">Нажаль, посиланя, на яке Ви натиснули, застаріло або недійсне. Будь ласка, спробуйте відновити свій пароль ще раз.</message>
+	<message key="user.login.lostPassword.invalidUser">Немає користувачів із зазначеною адресою електронної пошти.</message>
+	<message key="user.login.lostPassword.passwordSent">Новий пароль був висланий на Вашу електронну пошту. Тепер Ви можете увійти до сайту із Вашим новим паролем.</message>
+	<message key="user.login.registeredEmail">Зареєстрована електронна пошта користувача</message>
+	<message key="user.login.rememberUsernameAndPassword">Запам'ятати мої ім'я користувача та пароль</message>
+	<message key="user.login.resetPassword">Відновити пароль</message>
 	<message key="user.logOut">Вийти</message>
-	<message key="user.mailingAddress">Поштова адреса</message>
+	<message key="user.mailingAddress">Адреса для листування</message>
 	<message key="user.masculine">Ч</message>
-	<message key="user.middleName">По батькові</message>
+	<message key="user.middleName">По-батькові</message>
 	<message key="user.myAccount">Мій обліковий запис</message>
 	<message key="user.name">Ім'я</message>
 	<message key="user.other">Інше</message>
 	<message key="user.password">Пароль</message>
-	<message key="user.repeatPassword">Повторіть пароль</message>
 	<message key="user.phone">Телефон</message>
-	<message key="user.profile.changePasswordInstructions">Щоб змінити пароль для вашого облікового запису, введіть нижче старий і новий паролі.</message>
-	<message key="user.profile.editProfile">Редагування профілю</message>
-	<message key="user.profile.form.emailRequired">Необхідно вказати коректну адресу email.</message>
-	<message key="user.profile.form.affiliationRequired">Необхідно вказати місце роботи.</message>
+	<message key="user.profile.changePasswordInstructions">Нижче введіть Ваш поточний та Ваш новий пароль для того, щоб змінити пароль Вашого облікового запису.</message>
+	<message key="user.profile.editProfile">Редагувати профіль</message>
+	<message key="user.profile.form.emailRequired">Необхідно вказати дійсну електронну поштову адресу.</message>
+	<message key="user.profile.form.affiliationRequired">Необхідно вказати установу.</message>
 	<message key="user.profile.form.firstNameRequired">Необхідно вказати ім'я.</message>
 	<message key="user.profile.form.lastNameRequired">Необхідно вказати прізвище.</message>
-	<message key="user.profile.form.newPasswordRequired">Вам необхідно ввести новий пароль.</message>
-	<message key="user.profile.form.oldPasswordInvalid">Ви вказали невірний старий пароль.</message>
-	<message key="user.profile.form.openAccessNotifications">Поштове сповіщення про нові випуски відкритого доступу</message>
-	<message key="user.profile.form.passwordRequired">Необхідно вказати пароль.</message>
-	<message key="user.profile.form.profileImage">Фото користувача</message>
-	<message key="user.profile.form.publishedNotifications">Поштове сповіщення про вихід нових випусків</message>
-	<message key="user.profile.form.urlInvalid">Вказана адреса URL некоректна. Будь ласка, перевірте URL та спробуйте знову. (підказка: Спробуйте додати http:// перед адресою URL.)</message>
-	<message key="user.profile.form.usernameRequired">Необхідно вказати ім'я користувача.</message>
-	<message key="user.profile.leavePasswordBlank">Залиште поле паролю пустим, щоб зберегти старий пароль.</message>
+	<message key="user.profile.form.newPasswordRequired">Ви повинні ввести Ваш новий пароль.</message>
+	<message key="user.profile.form.oldPasswordInvalid">Ви ввели неправильний діючий пароль.</message>
+	<message key="user.profile.form.openAccessNotifications">Електронні повідомлення про видання з відкритим доступом</message>
+	<message key="user.profile.form.passwordRequired">Необхідно ввести пароль.</message>
+	<message key="user.profile.form.profileImage">Зображення профілю</message>
+	<message key="user.profile.form.publishedNotifications">Електронні повідомлення про публікацію нового видання</message>
+	<message key="user.profile.form.urlInvalid">Вказане посилання є недійсним. Будь ласка, перевірте посилання і спробуйте знов. (Порада: Спробуйте додати http:// на початку посилання.)</message>
+	<message key="user.profile.form.usernameRequired">Необхідно ввести ім'я користувача.</message>
+	<message key="user.profile.leavePasswordBlank">Залиште поля для вводу пароля порожніми, щоб зберегти діючий пароль.</message>
 	<message key="user.profile.newPassword">Новий пароль</message>
-	<message key="user.profile.oldPassword">Старий пароль</message>
+	<message key="user.profile.oldPassword">Діючий пароль</message>
 	<message key="user.profile">Профіль</message>
 	<message key="user.profile.publicProfile">Профіль користувача</message>
 	<message key="user.profile.repeatNewPassword">Повторіть новий пароль</message>
-	<message key="user.register.form.emailExists">Вказана адреса email вже використовується іншим користувачем.</message>
-	<message key="user.register.form.passwordsDoNotMatch">Введені паролі не збігаються.</message>
-	<message key="user.register.form.emailsDoNotMatch">Поля адрес email не збігаються.</message>
-	<message key="user.register.form.usernameAlphaNumeric">Ім'я користувача може складатися лише з літер, цифр, символів підкреслення, тире, і обов'язково повинно починатись та закінчуватись літерою або цифрою.</message>
-	<message key="user.register.form.usernameExists">Вказане ім'я користувача вже використовується в іншому обліковому записі.</message>
-	<message key="user.register.passwordLengthRestriction">Пароль повинен бути не менше {$length} символів.</message>
+	<message key="user.register.form.emailExists">Обрана електронна поштова адреса вже використовується іншим користувачем.</message>
+	<message key="user.register.form.passwordsDoNotMatch">Паролі не збігаються.</message>
+	<message key="user.register.form.usernameAlphaNumeric">Ім'я користувача може містити лише літери, числові знаки, підкреслювання, дефіси і повинно починатися і закінчуватися літерою або числовим знаком.</message>
+	<message key="user.register.form.usernameExists">Обране ім'я користувача вже використовується іншим користувачем.</message>
+	<message key="user.register.passwordLengthRestriction">Пароль повинен складатися щонайменше з {$length} знаків.</message>
 	<message key="user.register.registerAs">Зареєструватися як</message>
 	<message key="user.register">Зареєструватися</message>
-	<message key="user.register.usernameRestriction">Ім'я користувача може складатися лише з рядкових літер, цифр та тире/символів підкреслення.</message>
+	<message key="user.register.usernameRestriction">Ім'я користувача повинно складатися лише з літер у нижньому регістрі, числових знаків та дефісів/підкреслювань.</message>
 	<message key="user.role.reader">Читач</message>
 	<message key="user.role.readers">Читачі</message>
 	<message key="user.role.reviewer">Рецензент</message>
@@ -108,23 +95,14 @@
 	<message key="user.role.siteAdmin">Адміністратор сайту</message>
 	<message key="user.role.siteAdmins">Адміністратори сайту</message>
 	<message key="user.roles">Ролі</message>
-	<message key="user.salutation">Звернення</message>
+	<message key="user.salutation">Привітання</message>
 	<message key="user.sendPassword">Підтвердження</message>
-	<message key="user.sendPassword.description">Надішліть мені листа з іменем користувача та паролем для доступу</message>
+	<message key="user.sendPassword.description">Вишліть мені лист підтвердження, що містить мої ім'я користувача та пароль</message>
 	<message key="user.signature">Підпис</message>
-	<message key="user.title">Посада</message>
-	<message key="user.url">URL</message>
-	<message key="user.userHome">Тека користувача</message>
+	<message key="user.title">Звертання</message>
+	<message key="user.url">Посилання</message>
+	<message key="user.userHome">Сторінка користувача</message>
 	<message key="user.username">Ім'я користувача</message>
 	<message key="user.workingLanguages">Робочі мови</message>
-	<message key="user.register.completeForm">Щоб зареєструватися у цьому журналі заповніть форму нижче.</message>
-	<message key="user.accountInformation">Інформація облікового запису</message>
-	<message key="user.group">Група користувачів</message>
-	<message key="user.hello">ВІтаємо,</message>
-	<message key="user.profile.form.countryRequired">Необхідно вказати країну.</message>
-	<message key="user.profile.form.mailingAddressRequired">Необхідно вказати поштову адресу</message>
-	<message key="user.profile.form.passwordSameAsOld">Новий і старий паролі однакові.</message>
-	<message key="user.profile.form.usergroupRequired">Необхідно вказати групу користувачів.</message>
-	<message key="user.suffix">Суфікс</message>
-	<message key="user.authorization.managerRequired">Перед тим, як продовжити, Вам необхідно вказати користувача, який виконуватиме роль менеджера видавництва (тобто видавця або шеф-редактора).</message>
+	<message key="user.register.completeForm">Заповніть цю форму, щоб зареєструватися в цьому журналі.</message>
 </locale>

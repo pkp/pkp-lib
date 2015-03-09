@@ -2,88 +2,83 @@
 <!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
 
 <!--
-  * locale/uk_UA/admin.xml
+  * locale/en_US/admin.xml
   *
-  * Copyright (c) 2014-2015 Simon Fraser University Library
-  * Copyright (c) 2000-2015 John Willinsky
+  * Copyright (c) 2000-2012 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the uk_UA (Ukrainian) locale.
+  * Localization strings for the en_US (English) locale.
   *
-  * Translated by Denys Solovianenko, 2011
-  * V. I. Vernadsky National Library of Ukraine
+  * $Id$
   -->
 
-<locale name="uk_UA" full_name = "Ukrainian">
-	<message key="admin.adminFunctions">Адміністративні функції</message>
-	<message key="admin.auth.confirmDelete">Ви впевнені, що бажаєте видалити назавжди це джерело аутентифікації?</message>
-	<message key="admin.auth.create">Створити джерело аутентифікації</message>
-	<message key="admin.auth.noneCreated">Жодних джерел аутентифікації не було визначено.</message>
-	<message key="admin.authSources">Джерела аутентифікації</message>
-	<message key="admin.clearDataCache">Очистити кеш даних</message>
+<locale name="en_US" full_name = "English">
+	<message key="admin.adminFunctions">Функції адміністратора</message>
+	<message key="admin.auth.confirmDelete">Are you sure you want to permanently delete this authentication source?</message>
+	<message key="admin.auth.create">Create authentication source</message>
+	<message key="admin.auth.noneCreated">No authentication sources have been defined.</message>
+	<message key="admin.authSources">Authentication Sources</message>
+	<message key="admin.clearDataCache">Очистити кеші даних</message>
 	<message key="admin.clearTemplateCache">Очистити кеш шаблонів</message>
-	<message key="admin.configFileUpdatedInstructions"><![CDATA[Ваш файл конфігурації успішно оновлений. Будь ласка, зауважте, що у разі, якщо Ваш сайт тепер не функціонує коректно, можливо, потрібно вручну виправити Вашу конфігурацію шляхом безпосереднього редагування файлу <tt>config.inc.php</tt>.]]></message>
-	<message key="admin.confirmClearTemplateCache">Ви впевнені, що бажаєте очистити кеш скомпільованих шаблонів?</message>
-	<message key="admin.confirmExpireSessions">Ви впевнені, що бажаєте припинити всі користувацькі сесії? Всі користувачі, які зараз знаходяться у системі (і ви, в тому числі), будуть вимушені заходити знову.</message>
-	<message key="admin.contentsOfConfigFile">Зміст файлу конфігурації</message>
+	<message key="admin.configFileUpdatedInstructions"><![CDATA[Ваші файли конфігурації були успішно оновлені. Будь ласка, зазначте, що якщо Ваш сайт більше не працює коректно, Вам потрібно буде виправити Вашу конфігурацію в ручному режимі шляхом прямоо редагування <tt>config.inc.php</tt>.]]></message>
+	<message key="admin.confirmClearTemplateCache">Ви впевнені, що хочете очистити кеш із створеними шаблонами?</message>
+	<message key="admin.confirmExpireSessions">Ви впевнені, що хочете завершити усі сесії користувача? Всі користувачі, хто на даний час увійшов у систему буде змушений увійти ще раз (включно із Вами).</message>
+	<message key="admin.contentsOfConfigFile">Вміст файла конфігурації</message>
 	<message key="admin.currentVersion">Поточна версія</message>
 	<message key="admin.dateInstalled">Дата встановлення</message>
-	<message key="admin.displayConfigFileInstructions"><![CDATA[Зміст вашої оновленої конфігурації наведено нижче. Для застосування змін конфігурації ви повинні відкрити <tt>config.inc.php</tt> у текстовому редакторі та замінити його зміст змістом текстового поля, наведеного нижче.]]></message>
+	<message key="admin.displayConfigFileInstructions"><![CDATA[Вміст Вашої оновленої конфігурації показаний нижче. Для того, щоб застосувати зміни конфігурації, Ви повинні відкрити <tt>config.inc.php</tt> у зручному текстовому редакторі і замінити його вміст вмістом текстових полів, розміщених нижче.]]></message>
 	<message key="admin.displayNewSystemConfig">Показати нову конфігурацію</message>
-	<message key="admin.expireSessions">Припинити користувацькі сесії</message>
-	<message key="admin.languages.confirmReload">Ви впевнені, що бажаєте перезавантажити локалізацію? Це призведе до знищення всіх існуючих мовних даних, таких як шаблони листів.</message>
-	<message key="admin.languages.installedLocales">Встановлені локалізації</message>
-	<message key="admin.languages.installLanguages">Керування локалізаціями</message>
+	<message key="admin.expireSessions">Завершені сесії користувача</message>
+	<message key="admin.languages.confirmReload">Ви впевнені, що хочете перезавантажити цю локалізацію? Це призведе до знищення будь-яких існуючих даних, пов'язаних із локалізацією, таких як оформлених шаблоні електронних повідомлень.</message>
+	<message key="admin.languages.installedLocales">Встновити локалізації</message>
+	<message key="admin.languages.installLanguages">Управляти локалізаціяи</message>
 	<message key="admin.languages.installLocales">Встановити</message>
 	<message key="admin.languages.installNewLocales">Встановити нові локалізації</message>
-	<message key="admin.languages.languageSettings">Мовні налаштування</message>
-	<message key="admin.languages.noLocalesAvailable">Жодних локалізацій не доступно для встановлення.</message>
+	<message key="admin.languages.languageSettings">Налаштування мови</message>
+	<message key="admin.languages.noLocalesAvailable">Немає наявних додаткових локалізацій для встановлення.</message>
 	<message key="admin.languages.reload">Перезавантажити локалізацію</message>
-	<message key="admin.languages.uninstall">Демонтувати локалізацію</message>
-	<message key="admin.phpInfo">Розширена інформація про PHP</message>
+	<message key="admin.languages.uninstall">Видалити локалізацію</message>
+	<message key="admin.phpInfo">Розширена інформація щод PHP</message>
 	<message key="admin.server.apacheVersion">Версія Apache</message>
 	<message key="admin.server.dbDriver">Драйвер бази даних</message>
-	<message key="admin.server.dbVersion">Версія серверу баз даних</message>
-	<message key="admin.serverInformationDescription"><![CDATA[Базова операційна система та версії серверного програмного забезпечення. Посилання <span class="highlight">Розширена інформація про PHP</span> дає змогу переглянути деталізовані дані щодо конфігурації PHP на даному сервері.]]></message>
+	<message key="admin.server.dbVersion">Версія серверу бази даних</message>
+	<message key="admin.serverInformationDescription"><![CDATA[Версія основної операційної системи та програмного забезпечення сервера. Натисніть <span class="highlight">Розширена інформація щод PHP</span> щоб передивитись розширену інформацію про конфігурацію PHP на цьому сервері.]]></message>
 	<message key="admin.serverInformation">Інформація про сервер</message>
 	<message key="admin.server.phpVersion">Версія PHP</message>
-	<message key="admin.server.platform">Операційна платформа</message>
-	<message key="admin.settings.aboutDescription">Інформація про сайт</message>
-	<message key="admin.settings.contactEmail">Email основної контактної особи</message>
-	<message key="admin.settings.contactName">Ім'я основної контактної особи</message>
-	<message key="admin.settings.form.contactEmailRequired">Необхідно вказати адресу електронної пошти основної контактної особи.</message>
-	<message key="admin.settings.form.contactNameRequired">Необхідно вказати ім'я основної контактної особи.</message>
-	<message key="admin.settings.form.minPasswordLengthRequired">Необхідно вказати мінімальну довжину пароля (не менше 4 символів).</message>
-	<message key="admin.settings.form.titleRequired">Необхідно вказати назву.</message>
+	<message key="admin.server.platform">Операційна система</message>
+	<message key="admin.settings.aboutDescription">опис Про сайт</message>
+	<message key="admin.settings.contactEmail">Електронна пошта головного контакту</message>
+	<message key="admin.settings.contactName">Ім'я головного контакту</message>
+	<message key="admin.settings.form.contactEmailRequired">Потрібна адреса електронної пошти головного контакту.</message>
+	<message key="admin.settings.form.contactNameRequired">Потрібне ім'я головного контакту.</message>
+	<message key="admin.settings.form.minPasswordLengthRequired">Ви повинні ввести найменшу довжину пароля - щонайменше 4 знаки.</message>
+	<message key="admin.settings.form.titleRequired">Потрібна назва.</message>
 	<message key="admin.settings.homeHeaderImage.altText">Логотип сайту</message>
-	<message key="admin.settings.homeHeaderImageInvalid">Неприпустимий формат зображення логотипу. Припустимі формати .gif, .jpg, або .png.</message>
+	<message key="admin.settings.homeHeaderImageInvalid">Неправильний формат логотипу сайту. Прийнятними форматами є .gif, .jpg, or .png.</message>
 	<message key="admin.settings.introduction">Вступ</message>
-	<message key="admin.settings.minPasswordLength">Мінімальна довжина пароля</message>
-	<message key="admin.settings.oaiRegistration">Реєстрація сайту для індексації (збору метаданих)</message>
-	<message key="admin.settings.passwordCharacters">символів</message>
+	<message key="admin.settings.minPasswordLength">Найменша довжина пароля</message>
+	<message key="admin.settings.oaiRegistration">Зареєструйте сайт для індексації (Збір метаданних)</message>
+	<message key="admin.settings.passwordCharacters">знаки</message>
 	<message key="admin.settings.siteLanguage">Мова сайту</message>
-	<message key="admin.settings.siteStyleSheetInvalid">Неприпустимий формат таблиці стилю сайту. Припустимий формат .css.</message>
-	<message key="admin.settings.siteStyleSheet">Таблиця стилю сайту</message>
-	<message key="admin.settings.siteTitle">Заголовок сайту</message>
+	<message key="admin.settings.siteStyleSheetInvalid">Неправильний формат таблиці стилей сайту. Прийнятним форматом є .css.</message>
+	<message key="admin.settings.siteStyleSheet">Таблиця стилей сайту</message>
+	<message key="admin.settings.siteTitle">Назва сайту</message>
 	<message key="admin.siteAdmin">Адміністрування сайту</message>
-	<message key="admin.siteManagement">Керування сайтом</message>
+	<message key="admin.siteManagement">Управління сайтом</message>
 	<message key="admin.siteSettings">Налаштування сайту</message>
-	<message key="admin.systemConfigFileReadError"><![CDATA[Файл конфігурації <tt>config.inc.php</tt> не існує, не доступний для читання або пошкоджений.]]></message>
-	<message key="admin.systemInformation">Інформація про систему</message>
-	<message key="admin.versionBuild">Збірка</message>
-	<message key="admin.version.checkForUpdates">Перевірити наявність оновлень</message>
+	<message key="admin.systemConfigFileReadError"><![CDATA[Файл конфігурації <tt>config.inc.php</tt> не існує, не може бути прочитаний або працює некоректно.]]></message>
+	<message key="admin.systemInformation">Інфомація про систему</message>
+	<message key="admin.versionBuild">Зборка</message>
+	<message key="admin.version.checkForUpdates">Перевірити на наявність оновлень</message>
 	<message key="admin.version.downloadPackage">Завантажити</message>
-	<message key="admin.version.downloadPatch">Завантажити виправлення</message>
+	<message key="admin.version.downloadPatch">Завантажити патч</message>
 	<message key="admin.versionHistory">Історія версій</message>
 	<message key="admin.version.latest">Остання версія</message>
-	<message key="admin.versionMajor">Базова</message>
-	<message key="admin.versionMinor">Додаткова</message>
+	<message key="admin.versionMajor">Найстарша</message>
+	<message key="admin.versionMinor">Найменша</message>
 	<message key="admin.version.moreInfo">Більше інформації</message>
 	<message key="admin.versionRevision">Ревізія</message>
-	<message key="admin.version.updateAvailable">Доступна оновлена версія</message>
-	<message key="admin.version.upToDate">Ваша система використовує поточну версію</message>
+	<message key="admin.version.updateAvailable">Наявна оновлена версія</message>
+	<message key="admin.version.upToDate">Ваша система не потребує оновлень</message>
 	<message key="admin.version">Версія</message>
-	<message key="admin.settings">Налаштування</message>
-	<message key="admin.settings.siteTheme">Тема сайту</message>
-	<message key="admin.siteSetup">Налаштування сайту</message>
 </locale>

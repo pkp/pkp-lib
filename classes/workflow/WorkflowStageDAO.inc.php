@@ -79,7 +79,7 @@ class WorkflowStageDAO extends DAO {
 	 */
 	static function getWorkflowStageTranslationKeys() {
 		$applicationStages = Application::getApplicationStages();
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_SUBMISSION);
 		static $stageMapping = array(
 			WORKFLOW_STAGE_ID_SUBMISSION => 'submission.submission',
 			WORKFLOW_STAGE_ID_INTERNAL_REVIEW => 'workflow.review.internalReview',

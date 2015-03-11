@@ -40,8 +40,6 @@
 	<message key="editor.submissionReview.doubleBlind">Doble ciego</message>
 	<message key="editor.submissionReview.restrictFiles">Restringir archivos disponibles</message>
 	<message key="editor.submissionReview.restrictFiles.gridTitle">Archivos de revisión disponibles</message>
-	<message key="editor.submissionReview.limitFiles">Gestionar archivos disponibles</message>
-	<message key="editor.submissionReview.limitFiles.link">Archivos</message>
 	<message key="editor.submissionReview.restrictFiles.gridDescription">Si este revisor no debe tener acceso a todos los archivos de revisión listados, asegúrate de que se comprueben solo los archivos más importantes.</message>
 	<message key="editor.review.personalMessageToReviewer">Envío del correo electrónico al revisor</message>
 	<message key="editor.review.importantDates">Fechas importantes</message>

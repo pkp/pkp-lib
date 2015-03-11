@@ -274,12 +274,12 @@ class PKPReviewerGridHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 * @return JSONMessage JSON object
 	 */
-	function limitFiles($args, $request) {
-		import('lib.pkp.controllers.grid.users.reviewer.form.LimitFilesForm');
+	function editReview($args, $request) {
+		import('lib.pkp.controllers.grid.users.reviewer.form.EditReviewForm');
 		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
-		$limitFilesForm = new LimitFilesForm($reviewAssignment);
-		$limitFilesForm->initData();
-		return new JSONMessage(true, $limitFilesForm->fetch($request));
+		$editReviewForm = new EditReviewForm($reviewAssignment);
+		$editReviewForm->initData();
+		return new JSONMessage(true, $editReviewForm->fetch($request));
 	}
 
 	/**
@@ -288,13 +288,13 @@ class PKPReviewerGridHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 * @return JSONMessage JSON object
 	 */
-	function updateLimitFiles($args, $request) {
-		import('lib.pkp.controllers.grid.users.reviewer.form.LimitFilesForm');
+	function updateReview($args, $request) {
+		import('lib.pkp.controllers.grid.users.reviewer.form.EditReviewForm');
 		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
-		$limitFilesForm = new LimitFilesForm($reviewAssignment);
-		$limitFilesForm->readInputData();
-		if ($limitFilesForm->validate()) {
-			$limitFilesForm->execute();
+		$editReviewForm = new EditReviewForm($reviewAssignment);
+		$editReviewForm->readInputData();
+		if ($editReviewForm->validate()) {
+			$editReviewForm->execute();
 			return new JSONMessage(true);
 		} else {
 			return new JSONMessage(false);
@@ -715,7 +715,7 @@ class PKPReviewerGridHandler extends GridHandler {
 	 */
 	function _getReviewAssignmentOps() {
 		// Define operations that need a review assignment policy.
-		return array('readReview', 'reviewHistory', 'reviewRead', 'editThankReviewer', 'thankReviewer', 'editReminder', 'sendReminder', 'unassignReviewer', 'updateUnassignReviewer', 'sendEmail', 'unconsiderReview', 'limitFiles', 'updateLimitFiles');
+		return array('readReview', 'reviewHistory', 'reviewRead', 'editThankReviewer', 'thankReviewer', 'editReminder', 'sendReminder', 'unassignReviewer', 'updateUnassignReviewer', 'sendEmail', 'unconsiderReview', 'editReview', 'updateReview');
 
 	}
 

@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file controllers/grid/users/reviewer/form/LimitFilesForm.inc.php
+ * @file controllers/grid/users/reviewer/form/EditReviewForm.inc.php
  *
  * Copyright (c) 2014-2015 Simon Fraser University Library
  * Copyright (c) 2003-2015 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class LimitFilesForm
+ * @class EditReviewForm
  * @ingroup controllers_grid_users_reviewer_form
  *
  * @brief Allow the editor to limit the available files to an assigned
@@ -16,7 +16,7 @@
 
 import('lib.pkp.classes.form.Form');
 
-class LimitFilesForm extends Form {
+class EditReviewForm extends Form {
 	/** @var ReviewAssignment */
 	var $_reviewAssignment;
 
@@ -27,7 +27,7 @@ class LimitFilesForm extends Form {
 	 * Constructor.
 	 * @param $reviewAssignment ReviewAssignment
 	 */
-	function LimitFilesForm($reviewAssignment) {
+	function EditReviewForm($reviewAssignment) {
 		$this->_reviewAssignment = $reviewAssignment;
 		assert(is_a($this->_reviewAssignment, 'ReviewAssignment'));
 
@@ -35,7 +35,11 @@ class LimitFilesForm extends Form {
 		$this->_reviewRound = $reviewRoundDao->getById($reviewAssignment->getReviewRoundId());
 		assert(is_a($this->_reviewRound, 'ReviewRound'));
 
-		parent::Form('controllers/grid/users/reviewer/form/limitFilesForm.tpl');
+		parent::Form('controllers/grid/users/reviewer/form/editReviewForm.tpl');
+
+		// Validation checks for this form
+		$this->addCheck(new FormValidator($this, 'responseDueDate', 'required', 'editor.review.errorAddingReviewer'));
+		$this->addCheck(new FormValidator($this, 'reviewDueDate', 'required', 'editor.review.errorAddingReviewer'));
 		$this->addCheck(new FormValidatorPost($this));
 	}
 
@@ -43,7 +47,16 @@ class LimitFilesForm extends Form {
 	// Overridden template methods
 	//
 	/**
-	 * Fetch
+	 * Initialize form data from the associated author.
+	 */
+	function initData() {
+		$this->setData('responseDueDate', $this->_reviewAssignment->getDateResponseDue());
+		$this->setData('reviewDueDate', $this->_reviewAssignment->getDateDue());
+		return parent::initData();
+	}
+
+	/**
+	 * Fetch the Edit Review Form form
 	 * @param $request PKPRequest
 	 * @see Form::fetch()
 	 */
@@ -66,6 +79,8 @@ class LimitFilesForm extends Form {
 	function readInputData() {
 		$this->readUserVars(array(
 			'selectedFiles',
+			'responseDueDate',
+			'reviewDueDate',
 		));
 	}
 
@@ -88,6 +103,12 @@ class LimitFilesForm extends Form {
 				$reviewFilesDao->grant($this->_reviewAssignment->getId(), $submissionFile->getFileId());
 			}
 		}
+
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+		$reviewAssignment = $reviewAssignmentDao->getReviewAssignment($this->_reviewRound->getId(), $this->_reviewAssignment->getReviewerId(), $this->_reviewRound->getRound(), $this->_reviewRound->getStageId());
+		$reviewAssignment->setDateDue($this->getData('reviewDueDate'));
+		$reviewAssignment->setDateResponseDue($this->getData('responseDueDate'));
+		$reviewAssignmentDao->updateObject($reviewAssignment);
 	}
 }
 

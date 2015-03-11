@@ -1,5 +1,5 @@
 {**
- * templates/controllers/grid/user/reviewer/form/limitFilesForm.tpl
+ * templates/controllers/grid/user/reviewer/form/editReviewForm.tpl
  *
  * Copyright (c) 2014-2015 Simon Fraser University Library
  * Copyright (c) 2003-2015 John Willinsky
@@ -12,20 +12,26 @@
 <script type="text/javascript">
 	$(function() {ldelim}
 		// Attach the form handler.
-		$('#limitFilesForm').pkpHandler('$.pkp.controllers.grid.users.reviewer.form.LimitFilesFormHandler');
+		$('#editReviewForm').pkpHandler('$.pkp.controllers.grid.users.reviewer.form.EditReviewFormHandler');
 	{rdelim});
 </script>
 
-<form class="pkp_form" id="limitFilesForm" method="post" action="{url op="updateLimitFiles"}">
+<form class="pkp_form" id="editReviewForm" method="post" action="{url op="updateReview"}">
 	<input type="hidden" name="reviewAssignmentId" value="{$reviewAssignmentId|escape}" />
 	<input type="hidden" name="stageId" value="{$stageId|escape}" />
 	<input type="hidden" name="submissionId" value="{$submissionId|escape}" />
 	<input type="hidden" name="reviewRoundId" value="{$reviewRoundId|escape}" />
+
+	<!--  Reviewer due dates (see http://jqueryui.com/demos/datepicker/) -->
+	{fbvFormSection title="editor.review.importantDates"}
+		{fbvElement type="text" id="responseDueDate" name="responseDueDate" label="submission.task.responseDueDate" value=$responseDueDate|date_format:$dateFormatShort inline=true size=$fbvStyles.size.MEDIUM}
+		{fbvElement type="text" id="reviewDueDate" name="reviewDueDate" label="editor.review.reviewDueDate" value=$reviewDueDate|date_format:$dateFormatShort inline=true size=$fbvStyles.size.MEDIUM}
+	{/fbvFormSection}
 
 	{include file="controllers/grid/users/reviewer/form/noFilesWarning.tpl"}
 
 	{url|assign:limitReviewFilesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.review.LimitReviewFilesGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId reviewRoundId=$reviewRoundId reviewAssignmentId=$reviewAssignmentId escape=false}
 	{load_url_in_div id="limitReviewFilesGrid" url=$limitReviewFilesGridUrl}
 
-	{fbvFormButtons submitText="editor.submissionReview.restrictFiles"}
+	{fbvFormButtons}
 </form>

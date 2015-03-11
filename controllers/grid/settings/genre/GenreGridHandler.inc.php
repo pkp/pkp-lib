@@ -247,7 +247,7 @@ class GenreGridHandler extends SetupGridHandler {
 
 		// Restore all the genres in this context form the registry XML file
 		$genreDao = DAORegistry::getDAO('GenreDAO');
-		$genreDao->restoreByContextId($context->getId());
+		$genreDao->installDefaults($context->getId(), $context->getSupportedLocales());
 		return DAO::getDataChangedEvent();
 	}
 

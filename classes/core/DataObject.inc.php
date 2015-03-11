@@ -60,7 +60,9 @@ class DataObject {
 
 		// Fallback: Get the first available piece of data.
 		$data =& $this->getData($key, null);
-		if (!empty($data)) {
+		if (is_string($data)) {
+			return $data;
+		} else if (is_array($data)) {
 			// WARNING: Collapsing the following into a single line causes PHP 5.0.5 to die.
 			$locales = array_keys($data);
 			$firstLocale = array_shift($locales);

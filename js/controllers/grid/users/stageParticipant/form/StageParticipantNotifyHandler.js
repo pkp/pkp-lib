@@ -97,9 +97,11 @@
 
 		var $form = this.getHtmlElement(),
 				processedJsonData = this.handleJson(jsonData),
-				jsonDataContent = /** @type {{variables: Object, body: string}} */ (jsonData.content),
+				jsonDataContent =
+				/** @type {{variables: Object, body: string}} */ (jsonData.content),
 				$textarea = $form.find('textarea[name="message"]'),
-				editor = tinyMCE.EditorManager.get(/** @type {string} */ ($textarea.attr('id')));
+				editor =
+				tinyMCE.EditorManager.get(/** @type {string} */ ($textarea.attr('id')));
 
 		$textarea.attr('data-variables', JSON.stringify(jsonDataContent.variables));
 		editor.setContent(jsonDataContent.body);

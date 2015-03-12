@@ -285,7 +285,7 @@ class PKPSubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 	 * @param $request Request
 	 * @return array
 	 */
-	function &_retrieveGenreList($request) {
+	function _retrieveGenreList($request) {
 		$context = $request->getContext();
 		$genreDao = DAORegistry::getDAO('GenreDAO'); /* @var $genreDao GenreDAO */
 		$dependentFilesOnly = $request->getUserVar('dependentFilesOnly') ? true : false;
@@ -294,9 +294,8 @@ class PKPSubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 		// Transform the genres into an array and
 		// assign them to the form.
 		$genreList = array();
-		while($genre = $genres->next()){
-			$genreId = $genre->getId();
-			$genreList[$genreId] = $genre->getLocalizedName();
+		while ($genre = $genres->next()) {
+			$genreList[$genre->getId()] = $genre->getLocalizedName();
 		}
 		return $genreList;
 	}

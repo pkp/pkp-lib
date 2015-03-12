@@ -180,6 +180,22 @@ class Genre extends DataObject {
 	function setDependent($dependent) {
 		return $this->setData('dependent', $dependent);
 	}
+
+	/**
+	 * Get supplementary flag
+	 * @return bool
+	 */
+	function getSupplementary() {
+		return $this->getData('supplementary');
+	}
+
+	/**
+	 * Set supplementary flag
+	 * @param $supplementary bool
+	 */
+	function setSupplementary($supplementary) {
+		return $this->setData('supplementary', $supplementary);
+	}
 }
 
 ?>

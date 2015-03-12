@@ -16,7 +16,7 @@
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.controllers.grid.users.reviewer.form.LimitFilesFormHandler
+	 * @extends $.pkp.controllers.grid.users.reviewer.form.EditReviewFormHandler
 	 *
 	 * @param {jQueryObject} $form the wrapped HTML form element.
 	 * @param {Object} options form options.
@@ -39,7 +39,7 @@
 			$.pkp.controllers.grid.users.reviewer.form.
 					AddReviewerFormHandler,
 			$.pkp.controllers.grid.users.reviewer.form.
-					LimitFilesFormHandler);
+					EditReviewFormHandler);
 
 
 	//

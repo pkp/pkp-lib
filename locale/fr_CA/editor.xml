@@ -73,8 +73,6 @@
 	<message key="editor.review.unassignReviewer">Retirer le privilège de l'examinateur.</message>
 	<message key="editor.submissionReview.restrictFiles">Restreindre les fichiers disponibles.</message>
 	<message key="editor.submissionReview.restrictFiles.gridTitle">Fichiers à réviser disponibles.</message>
-	<message key="editor.submissionReview.limitFiles">Gestion des fichiers disponibles.</message>
-	<message key="editor.submissionReview.limitFiles.link">Fichiers</message>
 	<message key="editor.submissionReview.restrictFiles.gridDescription">Si cet examinateur ne devrait pas avoir le droit de réviser tous les fichiers apparaissant dans cette liste, assurez-vous de cocher uniquement les fichiers pertinents.</message>
 	<message key="editor.review.uploadRevision">Télécharger la révision</message>
 	<message key="editor.review.NotifyAuthorAccept">Avertir l'auteur de l'acceptation:</message>

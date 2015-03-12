@@ -2,13 +2,13 @@
  * @defgroup js_controllers_grid_users_reviewer_form
  */
 /**
- * @file js/controllers/grid/users/reviewer/form/LimitFilesFormHandler.js
+ * @file js/controllers/grid/users/reviewer/form/EditReviewFormHandler.js
  *
  * Copyright (c) 2014-2015 Simon Fraser University Library
  * Copyright (c) 2000-2015 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class LimitFilesFormHandler
+ * @class EditReviewFormHandler
  * @ingroup js_controllers_grid_users_reviewer_form
  *
  * @brief Handle the limit reviewer files form. Also used as a base class
@@ -32,7 +32,7 @@
 	 * @param {Object} options form options.
 	 */
 	$.pkp.controllers.grid.users.reviewer.form.
-			LimitFilesFormHandler = function($form, options) {
+			EditReviewFormHandler = function($form, options) {
 
 		this.parent($form, options);
 
@@ -42,10 +42,13 @@
 
 		// When the reviewer files list loads, trigger the above check
 		this.bind('urlInDivLoaded', this.handleFileListLoad_);
+
+		$('input[id^=\'responseDueDate\']').datepicker({dateFormat: 'yy-mm-dd'});
+		$('input[id^=\'reviewDueDate\']').datepicker({dateFormat: 'yy-mm-dd'});
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.grid.users.reviewer.form.
-					LimitFilesFormHandler,
+					EditReviewFormHandler,
 			$.pkp.controllers.form.AjaxFormHandler);
 
 
@@ -56,7 +59,7 @@
 	 * Handle a form change event.
 	 * @protected
 	 */
-	$.pkp.controllers.grid.users.reviewer.form.LimitFilesFormHandler.
+	$.pkp.controllers.grid.users.reviewer.form.EditReviewFormHandler.
 			prototype.handleFormChange = function() {
 		if (this.getHtmlElement()
 				.find('input[name="selectedFiles[]"]:checked').length) {
@@ -71,7 +74,7 @@
 	 * Hide the "no files" warning.
 	 * @protected
 	 */
-	$.pkp.controllers.grid.users.reviewer.form.LimitFilesFormHandler.
+	$.pkp.controllers.grid.users.reviewer.form.EditReviewFormHandler.
 			prototype.hideWarning = function() {
 		this.getHtmlElement().find('#noFilesWarning').hide(250);
 	};
@@ -81,7 +84,7 @@
 	 * Show the "no files" warning.
 	 * @protected
 	 */
-	$.pkp.controllers.grid.users.reviewer.form.LimitFilesFormHandler.
+	$.pkp.controllers.grid.users.reviewer.form.EditReviewFormHandler.
 			prototype.showWarning = function() {
 		this.getHtmlElement().find('#noFilesWarning').show(250);
 	};
@@ -98,7 +101,7 @@
 	 * @param {Event} event The triggering event.
 	 * @param {?string} data additional event data.
 	 */
-	$.pkp.controllers.grid.users.reviewer.form.LimitFilesFormHandler.
+	$.pkp.controllers.grid.users.reviewer.form.EditReviewFormHandler.
 			prototype.handleFileListLoad_ =
 			function(sourceElement, event, data) {
 

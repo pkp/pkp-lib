@@ -40,8 +40,6 @@
 	<message key="editor.submissionReview.doubleBlind">Double-blind</message>
 	<message key="editor.submissionReview.restrictFiles">Verfügbare Dateien beschränken</message>
 	<message key="editor.submissionReview.restrictFiles.gridTitle">Verfügbare Begutachtungsdateien</message>
-	<message key="editor.submissionReview.limitFiles">Verfügbare Dateien verwalten</message>
-	<message key="editor.submissionReview.limitFiles.link">Dateien</message>
 	<message key="editor.submissionReview.restrictFiles.gridDescription">Wenn diese/r Gutachter/in nicht Zugriff auf sämtliche aufgelisteten Begutachtungsadateien haben soll, stellen Sie sicher, dass nur die relevanten Dateien ausgewählt sind.</message>
 	<message key="editor.review.personalMessageToReviewer">E-Mail, die an Gutachter/in geschickt wird</message>
 	<message key="editor.review.importantDates">Wichtige Daten</message>

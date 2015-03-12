@@ -82,11 +82,11 @@ class ReviewerGridRow extends GridRow {
 				new LinkAction(
 					'manageAccess',
 					new AjaxModal(
-						$router->url($request, null, null, 'limitFiles', null, $actionArgs),
-						__('editor.submissionReview.limitFiles'),
+						$router->url($request, null, null, 'editReview', null, $actionArgs),
+						__('editor.submissionReview.editReview'),
 						'modal_add_file'
 					),
-					__('editor.submissionReview.limitFiles.link'),
+					__('common.edit'),
 					'edit'
 				)
 			);

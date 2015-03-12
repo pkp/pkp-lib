@@ -26,9 +26,6 @@
 
 		this.parent($footerElement, options);
 
-		$('input[id^=\'responseDueDate\']').datepicker({dateFormat: 'yy-mm-dd'});
-		$('input[id^=\'reviewDueDate\']').datepicker({dateFormat: 'yy-mm-dd'});
-
 		$('#filesAccordion').accordion({
 			collapsible: true,
 			active: false,

@@ -17,6 +17,7 @@
 	<message key="author.submit.submissionCitations">Provide a formatted list of references for works cited in this submission. Please separate individual references with a blank line.</message>
 	<message key="submission.submit.submissionComplete">Submission complete</message>
 	<message key="submission.submit.submissionCompleteThanks">Thank you for your interest in publishing with {$contextName}.</message>
+	<message key="submission.submit.copyrightNoticeAgree">I agree to abide by the terms of the copyright statement.</message>
 	<message key="submission.submit.whatNext">What Happens Next?</message>
 	<message key="submission.submit.whatNext.forNow">For now, you can:</message>
 	<message key="submission.submit.whatNext.review">Review this submission</message>

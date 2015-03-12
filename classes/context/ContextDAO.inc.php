@@ -78,6 +78,52 @@ class ContextDAO extends DAO {
 	}
 
 	/**
+	 * Insert a new context.
+	 * @param $context Context
+	 * @return int Inserted context ID
+	 */
+	function insertObject($context) {
+		$this->update(
+			'INSERT INTO ' . $this->_getTableName() . '
+				(path, seq, enabled, primary_locale)
+				VALUES
+				(?, ?, ?, ?)',
+			array(
+				$context->getPath(),
+				(int) $context->getSequence(),
+				(int) $context->getEnabled(),
+				$context->getPrimaryLocale()
+			)
+		);
+
+		$context->setId($this->getInsertId());
+		return $context->getId();
+	}
+
+	/**
+	 * Update an existing context.
+	 * @param $press Press
+	 */
+	function updateObject($context) {
+		return $this->update(
+			'UPDATE ' . $this->_getTableName() . '
+				SET
+					path = ?,
+					seq = ?,
+					enabled = ?,
+					primary_locale = ?
+				WHERE ' . $this->_getPrimaryKeyColumn() . ' = ?',
+			array(
+				$context->getPath(),
+				(int) $context->getSequence(),
+				(int) $context->getEnabled(),
+				$context->getPrimaryLocale(),
+				(int) $context->getId()
+			)
+		);
+	}
+
+	/**
 	 * Check if a context exists with a specified path.
 	 * @param $path string the path for the context
 	 * @return boolean

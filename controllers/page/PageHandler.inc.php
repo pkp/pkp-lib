@@ -57,21 +57,9 @@ class PageHandler extends Handler {
 		$templateMgr = TemplateManager::getManager($request);
 
 		$workingContexts = $this->getWorkingContexts($request);
+		$context = $request->getContext();
 
-		$multipleContexts = false;
 		if ($workingContexts && $workingContexts->getCount() > 1) {
-			$templateMgr->assign('multipleContexts', true);
-			$multipleContexts = true;
-		} else {
-			if (!$workingContexts) {
-				$templateMgr->assign('noContextsConfigured', true);
-				$templateMgr->assign('notInstalled', true);
-			} elseif ($workingContexts->getCount() == 0) { // no contexts configured or installing
-				$templateMgr->assign('noContextsConfigured', true);
-			}
-		}
-
-		if ($multipleContexts) {
 			$dispatcher = $request->getDispatcher();
 			$contextsNameAndUrl = array();
 			while ($workingContext = $workingContexts->next()) {
@@ -83,17 +71,25 @@ class PageHandler extends Handler {
 			// value when there is no current context, because then the switcher will not
 			// be visible.
 			$currentContextUrl = null;
-			if ($currentContext = $request->getContext()) {
-				$currentContextUrl = $dispatcher->url($request, ROUTE_PAGE, $currentContext->getPath());
+			if ($context) {
+				$currentContextUrl = $dispatcher->url($request, ROUTE_PAGE, $context->getPath());
 			} else {
 				$contextsNameAndUrl = array(__('context.select')) + $contextsNameAndUrl;
 			}
 
-			$templateMgr->assign('currentContextUrl', $currentContextUrl);
-			$templateMgr->assign('contextsNameAndUrl', $contextsNameAndUrl);
+			$templateMgr->assign(array(
+				'currentContextUrl' => $currentContextUrl,
+				'contextsNameAndUrl' => $contextsNameAndUrl,
+				'multipleContexts' => true
+			));
+		} else {
+			$templateMgr->assign('noContextsConfigured', true);
+			if (!$workingContexts) {
+				$templateMgr->assign('notInstalled', true);
+			}
 		}
 
-		if ($context = $request->getContext()) {
+		if ($context) {
 			import('pages.about.AboutContextHandler');
 			if (in_array('IAboutContextInfoProvider', class_implements('AboutContextHandler'))) {
 				$templateMgr->assign('contextInfo', AboutContextHandler::getAboutInfo($context));
@@ -107,7 +103,7 @@ class PageHandler extends Handler {
 			// Get a count of unread tasks.
 			$notificationDao = DAORegistry::getDAO('NotificationDAO');
 
-			// Don't include certain tasks, defined in the notifications grid handler
+			// Exclude certain tasks, defined in the notifications grid handler
 			import('lib.pkp.controllers.grid.notifications.NotificationsGridHandler');
 			$templateMgr->assign('unreadNotificationCount', $notificationDao->getNotificationCount(false, $user->getId(), null, NOTIFICATION_LEVEL_TASK, NotificationsGridHandler::getNotListableTaskTypes()));
 		}

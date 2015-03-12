@@ -14,7 +14,7 @@
  * @brief Operations for retrieving and modifying context objects.
  */
 
-class ContextDAO extends DAO {
+abstract class ContextDAO extends DAO {
 	/**
 	 * Constructor
 	 */
@@ -174,6 +174,34 @@ class ContextDAO extends DAO {
 	}
 
 	/**
+	 * Retrieve available contexts.
+	 * @param $userId int Optional user ID to find available contexts for
+	 * @param $rangeInfo Object optional
+	 * @return DAOResultFactory containing matching Contexts
+	 */
+	function getAvailable($userId = null, $rangeInfo = null) {
+		$params = array();
+		if ($userId) $params = array_merge(
+			$params,
+			array((int) $userId, (int) $userId, (int) ROLE_ID_SITE_ADMIN)
+		);
+
+		$result = $this->retrieveRange(
+			'SELECT c.* FROM ' . $this->_getTableName() . ' c
+			WHERE	c.enabled = 1 ' .
+				($userId?
+					'OR c.' . $this->_getPrimaryKeyColumn() . ' IN (SELECT DISTINCT ug.context_id FROM user_groups ug JOIN user_user_groups uug ON (ug.user_group_id = uug.user_group_id) WHERE uug.user_id = ?)
+					OR ? IN (SELECT user_id FROM user_groups ug JOIN user_user_groups uug ON (ug.user_group_id = uug.user_group_id) WHERE ug.role_id = ?) '
+				:'') .
+			'ORDER BY seq',
+			$params,
+			$rangeInfo
+		);
+
+		return new DAOResultFactory($result, $this, '_fromRow');
+	}
+
+	/**
 	 * Get journals by setting.
 	 * @param $settingName string
 	 * @param $settingValue mixed
@@ -261,25 +289,19 @@ class ContextDAO extends DAO {
 	 * Get the table name for this context.
 	 * @return string
 	 */
-	protected function _getTableName() {
-		assert(false); // Must be overridden by subclasses.
-	}
+	abstract protected function _getTableName();
 
 	/**
 	 * Get the table name for this context's settings table.
 	 * @return string
 	 */
-	protected function _getSettingsTableName() {
-		assert(false); // Must be overridden by subclasses.
-	}
+	abstract protected function _getSettingsTableName();
 
 	/**
 	 * Get the name of the primary key column for this context.
 	 * @return string
 	 */
-	protected function _getPrimaryKeyColumn() {
-		assert(false); // Must be overridden by subclasses
-	}
+	abstract protected function _getPrimaryKeyColumn();
 }
 
 ?>

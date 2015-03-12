@@ -182,7 +182,7 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 		$this->waitJQuery();
 
 		if (in_array('Author', $data['roles'])) {
-			$this->waitForText('css=h3', 'My Authored Submissions');
+			$this->waitForText('css=h3', 'My Authored');
 		}
 	}
 

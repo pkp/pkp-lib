@@ -8,7 +8,6 @@
  * Website appearance management form.
  *
  *}
-
 <script type="text/javascript">
 	$(function() {ldelim}
 		// Attach the form handler.
@@ -32,9 +31,9 @@
 		{fbvFormArea id="homePageContent" title="manager.setup.homepageContent" class="border"}
 			{fbvFormSection description="manager.setup.homepageContentDescription"}
 			{/fbvFormSection}
-			{fbvFormSection list="true" label="manager.setup.newReleases"}
-				{fbvElement type="checkbox" label="manager.setup.displayNewReleases" id="displayNewReleases" checked=$displayNewReleases}
-			{/fbvFormSection}
+
+			{$newContentFormContent}
+
 			{fbvFormSection label="manager.setup.homepageImage" description="manager.setup.homepageImageDescription"}
 				<div id="{$uploadImageLinkActions.homepageImage->getId()}" class="pkp_linkActions">
 					{include file="linkAction/linkAction.tpl" action=$uploadImageLinkActions.homepageImage contextId="appearanceForm"}
@@ -46,12 +45,8 @@
 			{fbvFormSection label="manager.setup.additionalContent" description="manager.setup.additionalContentDescription"}
 				{fbvElement type="textarea" multilingual=true name="additionalHomeContent" id="additionalHomeContent" value=$additionalHomeContent rich=true}
 			{/fbvFormSection}
-			{fbvFormSection list="true" label="manager.setup.featuredBooks"}
-				{fbvElement type="checkbox" label="manager.setup.displayFeaturedBooks" id="displayFeaturedBooks" checked=$displayFeaturedBooks}
-			{/fbvFormSection}
-			{fbvFormSection list="true" label="manager.setup.inSpotlight"}
-				{fbvElement type="checkbox" label="manager.setup.displayInSpotlight" id="displayInSpotlight" checked=$displayInSpotlight}
-			{/fbvFormSection}
+
+			{$featuredContentFormContent}
 		{/fbvFormArea}
 	</div>
 	{* end Homepage Content *}

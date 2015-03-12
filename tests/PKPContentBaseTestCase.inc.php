@@ -176,9 +176,8 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 	protected function findSubmissionAsEditor($username, $password = null, $title) {
 		if ($password === null) $password = $username . $username;
 		$this->logIn($username, $password);
-		$this->waitForElementPresent('xpath=(//a[contains(text(),\'Submissions\')])[2]');
-		$this->click('xpath=(//a[contains(text(),\'Submissions\')])[2]');
-		$xpath = '//a[text()=' . $this->quoteXpath($title) . ']';
+		$this->waitForElementPresent('css=#dashboardTabs');
+		$xpath = '//span[contains(text(),' . $this->quoteXpath($title) .')]/../../..//a[contains(@id, "-stage-itemWorkflow-button-")]';
 		$this->waitForElementPresent($xpath);
 		$this->click($xpath);
 	}
@@ -256,11 +255,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 
 		// Use an xpath concat to permit apostrophes to appear in titles
 		// http://kushalm.com/the-perils-of-xpath-expressions-specifically-escaping-quotes
-		$xpath = '//a[contains(text(), concat(\'' . strtr($this->escapeJS($title),
-			array(
-				'\\\'' => '\', "\'", \''
-			)
-		) . '\',\'\'))]';
+		$xpath = '//span[contains(text(),' . $this->quoteXpath($title) .')]/../../..//a[contains(@id, "-stage-itemWorkflow-button-")]';
 		$this->waitForElementPresent($xpath);
 		$this->click($xpath);
 

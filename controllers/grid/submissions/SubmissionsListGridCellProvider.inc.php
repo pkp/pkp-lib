@@ -65,12 +65,12 @@ class SubmissionsListGridCellProvider extends DataObjectGridCellProvider {
 	 */
 	function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
 		$submission = $row->getData();
+		$user = $request->getUser();
 		if ($column->getId() == 'editor') {
 			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
 			$editorAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submission->getId(), $submission->getStageId());
 			$assignment = current($editorAssignments);
 			if (!$assignment) return array();
-			$user = $request->getUser();
 			$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 			$editor = $userDao->getById($assignment->getUserId());
 
@@ -99,7 +99,9 @@ class SubmissionsListGridCellProvider extends DataObjectGridCellProvider {
 			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 			if (!$stage) $stage = __(WorkflowStageDAO::getTranslationKeyFromId($stageId));
 
-			if (is_a($submission, 'ReviewerSubmission')) {
+			$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+			$reviewAssignment = $reviewAssignmentDao->getLastReviewRoundReviewAssignmentByReviewer($submission->getId(), $user->getId());
+			if (is_a($reviewAssignment, 'ReviewAssignment')) {
 				// Reviewer: Add a review link action.
 				return array($this->_getCellLinkAction($request, 'reviewer', 'submission', $submission, $stage));
 			} else {

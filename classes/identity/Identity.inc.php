@@ -101,7 +101,11 @@ class Identity extends DataObject {
 	 * @return string
 	 */
 	function getInitials() {
-		return $this->getData('initials');
+		$initials = $this->getData('initials');
+		if (!$initials) {
+			$initials = substr($this->getFirstName(), 0, 1) . substr($this->getLastName(), 0, 1);
+		}
+		return $initials;
 	}
 
 	/**

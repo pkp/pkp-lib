@@ -25,11 +25,10 @@
 {fbvFormSection title="common.designation" for="designation" required="true"}
 	{fbvElement type="text" id="designation" value=$designation maxlength="80"}
 {/fbvFormSection}
-{fbvFormSection list="true" title="manager.setup.sortableByComponent"}
+{fbvFormSection list="true" title="common.options"}
 	{fbvElement type="checkbox" id="sortable" checked=$sortable label="manager.setup.genres.sortable"}
-{/fbvFormSection}
-{fbvFormSection list="true" title="manager.setup.dependentGenre"}
 	{fbvElement type="checkbox" id="dependent" checked=$dependent label="manager.setup.genres.dependent"}
+	{fbvElement type="checkbox" id="supplementary" checked=$supplementary label="manager.setup.genres.supplementary"}
 {/fbvFormSection}
 {fbvFormSection title="manager.setup.groupType" for="category"}
 	{fbvElement type="select" id="category" from=$submissionFileCategories selected=$category translate=false}

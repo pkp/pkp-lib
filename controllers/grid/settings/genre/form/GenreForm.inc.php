@@ -70,6 +70,7 @@ class GenreForm extends Form {
 				'sortable' => $genre->getSortable(),
 				'category' => $genre->getCategory(),
 				'dependent' => $genre->getDependent(),
+				'supplementary' => $genre->getSupplementary(),
 			);
 		} else {
 			$this->_data = array(
@@ -102,8 +103,7 @@ class GenreForm extends Form {
 	 * @see Form::readInputData()
 	 */
 	function readInputData() {
-		$this->readUserVars(array('genreId', 'name', 'designation', 'sortable', 'category', 'dependent'));
-		$this->readUserVars(array('gridId', 'rowId'));
+		$this->readUserVars(array('genreId', 'name', 'designation', 'sortable', 'category', 'dependent', 'supplementary', 'gridId', 'rowId'));
 	}
 
 	/**
@@ -128,6 +128,7 @@ class GenreForm extends Form {
 		$genre->setSortable($this->getData('sortable'));
 		$genre->setCategory($this->getData('category'));
 		$genre->setDependent($this->getData('dependent'));
+		$genre->setSupplementary($this->getData('supplementary'));
 
 		if (!$this->getGenreId()) {
 			$this->setGenreId($genreDao->insertObject($genre));

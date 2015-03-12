@@ -44,6 +44,10 @@
 			<NOTNULL/>
 			<DEFAULT VALUE="0"/>
 		</field>
+		<field name="supplementary" type="I1">
+			<!-- NOTNULL/ --><!-- Commented for upgrade purposes -->
+			<DEFAULT VALUE="0"/>
+		</field>
 		<field name="entry_key" type="C2" size="30"/>
 		<descr>A context's submission file genres.</descr>
 	</table>

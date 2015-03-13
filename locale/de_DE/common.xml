@@ -58,7 +58,7 @@
 	<message key="common.notice">Hinweis</message>
 	<message key="common.captchaField.altText">Bild zur Überprüfung</message>
 	<message key="common.captchaField.badCaptcha">Die Zeichen, die Sie eingegeben haben, entsprechen nicht den Zeichen im Bild. Bitte überprüfen Sie Ihre Eingabe und versuchen Sie es erneut.</message>
-	<message key="common.captchaField.description">Geben Sie bitte die Zeichen so ein, wie Sie in der obigen Grafik erscheinen.</message>
+	<message key="common.captchaField.description">Geben Sie bitte die Zeichen so ein, wie sie in der obigen Grafik erscheinen.</message>
 	<message key="common.captchaField">Überprüfung</message>
 	<message key="common.ccLicense"><![CDATA[
 		<br /><br />
@@ -194,7 +194,7 @@
 	<message key="common.size">Größe</message>
 	<message key="common.source">Quelle</message>
 	<message key="common.status">Status</message>
-	<message key="common.subject">Gegenstand</message>
+	<message key="common.subject">Schlagwort</message>
 	<message key="common.suggest">Vorschlagen</message>
 	<message key="common.title">Titel</message>
 	<message key="common.top">Zum Seitenanfang</message>

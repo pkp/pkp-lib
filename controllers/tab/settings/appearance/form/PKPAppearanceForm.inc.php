@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file controllers/tab/settings/appearance/form/AppearanceForm.inc.php
+ * @file controllers/tab/settings/appearance/form/PKPAppearanceForm.inc.php
  *
  * Copyright (c) 2014-2015 Simon Fraser University Library
  * Copyright (c) 2003-2015 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class AppearanceForm
+ * @class PKPAppearanceForm
  * @ingroup controllers_tab_settings_appearance_form
  *
  * @brief Form to edit appearance settings.
@@ -15,7 +15,7 @@
 
 import('lib.pkp.classes.controllers.tab.settings.form.ContextSettingsForm');
 
-class AppearanceForm extends ContextSettingsForm {
+class PKPAppearanceForm extends ContextSettingsForm {
 
 	/** @var array */
 	var $_imagesSettingsName;
@@ -25,7 +25,7 @@ class AppearanceForm extends ContextSettingsForm {
 	 * @param $wizardMode bool True IFF this form is to be opened in wizard mode
 	 * @param $additionalSettings array Additional settings to add, if any
 	 */
-	function AppearanceForm($wizardMode = false, $additionalSettings = array()) {
+	function PKPAppearanceForm($wizardMode = false, $additionalSettings = array()) {
 
 		$settings = array_merge($additionalSettings, array(
 			'pageHeaderTitleType' => 'int',
@@ -37,9 +37,6 @@ class AppearanceForm extends ContextSettingsForm {
 			'itemsPerPage' => 'int',
 			'numPageLinks' => 'int',
 			'themePluginPath' => 'string',
-			'displayNewReleases' => 'bool',
-			'displayFeaturedBooks' => 'bool',
-			'displayInSpotlight' => 'bool',
 		));
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON);

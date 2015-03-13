@@ -34,7 +34,7 @@
 	<message key="grid.action.deleteAuthor">Autor/in löschen</message>
 	<message key="grid.action.addAuditor">Prüfer/in hinzufügen</message>
 	<message key="grid.action.upgrade">Upgrade</message>
-	<message key="grid.action.order">Bestellen</message>
+	<message key="grid.action.order">Sortieren</message>
 	<message key="grid.action.cancelOrdering">Bestellung abbrechen</message>
 	<message key="grid.action.extendAll">Alles ausdehnen</message>
 	<message key="grid.action.collapse">Einklappen</message>
@@ -93,7 +93,7 @@
 	<message key="grid.action.mergeUser">Benutzer/in zusammenführen</message>
 	<message key="grid.action.unassignUser">Zuweisung an Benutzer/in zurücknehmen</message>
 	<message key="grid.action.history">Verlauf ansehen</message>
-	<message key="grid.action.unconsiderReview">Dieses Gutachten ist komplett, aber sie können es unberücksichtigt lassen.</message>
+	<message key="grid.action.unconsiderReview">Dieses Gutachten ist komplett, aber Sie können es unberücksichtigt lassen.</message>
 	
 	<!--  grid task status -->
 	<message key="grid.task.status.completed">Diese Aufgabe ist erledigt.</message>

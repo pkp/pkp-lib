@@ -137,7 +137,7 @@
 	<message key="submission.citations.editor.citationlist.newCitation">Neue Zitation</message>
 	<message key="submission.citations.editor.citationlist.notApproved">Nicht bestätigt</message>
 	<message key="submission.citations.editor.citationlist.title">Zitationen bearbeiten</message>
-	<message key="submission.citations.editor.clickToEdit">Klicken zum bearbeiten.</message>
+	<message key="submission.citations.editor.clickToEdit">Zum Bearbeiten klicken.</message>
 	<message key="submission.citations.editor.details.authorQuery">Autor/in fragen</message>
 	<message key="submission.citations.editor.details.authorQueryBody">Ihre Nachricht an den/die Autor/in</message>
 	<message key="submission.citations.editor.details.authorQueryExplanation">Sie können den/die Autor/in nach weiteren Informationen über die aktuelle Zitation fragen. Durch Klicken des "Senden"-Knopfs unten wird Ihre Nachricht per E-Mail an den/die Autor/in geschickt.</message>

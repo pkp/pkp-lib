@@ -28,9 +28,8 @@ class ControlledVocabDAO extends DAO {
 	 * Return the Controlled Vocab Entry DAO for this Controlled Vocab.
 	 * Can be subclassed to provide extended DAOs.
 	 */
-	function &getEntryDAO() {
-		$entryDao = DAORegistry::getDAO('ControlledVocabEntryDAO');
-		return $entryDao;
+	function getEntryDAO() {
+		return DAORegistry::getDAO('ControlledVocabEntryDAO');
 	}
 
 	/**

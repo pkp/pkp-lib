@@ -6,7 +6,7 @@ The PKP Web Application Library (PKP-WAL) is a library shared by [Open Journal S
 Issues (bugs) for all of those applications should be [created against this repository](https://github.com/pkp/pkp-lib/issues).
 
 ## Issues
-Issues (bugs) for any of the PKP applications should be created here. If you're not sure whether you're encountering a bug or not, consider posting in the [PKP Support Forum](http://pkp.sfu.ca/support/forum).
+Issues (bugs) for any of the PKP applications should be created here. If you're not sure whether you're encountering a bug or not, consider posting in the [PKP Community Forum](http://forum.pkp.sfu.ca/).
 
 * [Create a new OMP issue](https://github.com/pkp/pkp-lib/issues/new?title=[OMP]) or [see existing](https://github.com/pkp/pkp-lib/labels/Open%20Monograph%20Press)
 * [Create a new OJS issue](https://github.com/pkp/pkp-lib/issues/new?title=[OJS]) or [see existing](https://github.com/pkp/pkp-lib/labels/Open%20Journal%20Systems)

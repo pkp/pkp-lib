@@ -78,4 +78,18 @@
 	<message key="grid.reviewAttachments.title">Atașamentele evaluatorilor</message>
 	<message key="grid.reviewAttachments.add">Adaugă atașament pentru evaluare</message>
 	<message key="grid.chapters.title">Capitole</message>
+	<message key="grid.action.addUser">Adaugă utilizator</message>
+	<message key="grid.action.deleteFile">Șterge fișier</message>
+	<message key="grid.action.deleteMedia">Șterge media</message>
+	<message key="grid.action.editMedia">Editează media</message>
+	<message key="grid.action.editAuthor">Editează autorul</message>
+	<message key="grid.action.deleteAuthor">Șterge autor</message>
+	<message key="grid.action.addAuditor">Adaugă un auditor</message>
+	<message key="grid.action.upgrade">Actualizează</message>
+	<message key="grid.action.order">Ordonează</message>
+	<message key="grid.action.cancelOrdering">Anulează ordonarea</message>
+	<message key="grid.action.extendAll">Extinde tot</message>
+	<message key="grid.action.collapse">Strânge</message>
+	<message key="grid.action.collapseAll">Strânge-le pe toate</message>
+	<message key="grid.action.moveItem">Mută element</message>
 </locale>

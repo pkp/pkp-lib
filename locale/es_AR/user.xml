@@ -126,4 +126,5 @@
 	<message key="user.profile.form.usergroupRequired">Un  grupo de usuario es requerido</message>
 	<message key="user.suffix">Subfijo</message>
 	<message key="user.profile.form.hashInvalid">El hash de reseteo de claves que esta intentando utilizar no es válido.</message>
+	<message key="user.login.changePasswordInstructionsOneStep"><![CDATA[Debe escoger una nueva contraseña antes de poder entrar al sitio.<br /><br /> Por favor ingrese su nombre de usuario y su nueva contraseña debajo, para cambiar la constraseña de su cuenta.]]></message>
 </locale>

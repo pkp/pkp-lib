@@ -240,4 +240,8 @@
 	<message key="plugins.categories.citationOutput.description">Les plugiciels [Citation Output] permettent d'implanter des normes de citation/référence. Ils remplacent les plugiciels de format de citation/référence.</message>
 	<message key="plugins.categories.citationParser">Plugiciels d'extraction de citations/références</message>
 	<message key="plugins.categories.citationParser.description">Les plugiciels d'extraction de citations/références permettent d'extraire des données locales à partir de citations/références brutes (ex. : auteur, titre, etc.).</message>
+	<message key="manager.announcements.form.notificationToggle">Envoyer une notification</message>
+	<message key="manager.announcements.form.notificationToggleInstructions">Créer une nouvelle notification lors de l'enregistrement de cette annonce.</message>
+	<message key="manager.statistics.city">Ville</message>
+	<message key="manager.statistics.region">Région</message>
 </locale>

@@ -127,4 +127,5 @@
 	<message key="user.suffix">Suffiks</message>
 	<message key="user.authorization.pressManagerRequired">En bruger med rollen som pressechef (f.eks. presse- eller produktionsredaktør) skal være knyttet til forløbet, førend du kan fortsætte</message>
 	<message key="user.profile.form.hashInvalid">Det tegn du anvendte i dit nye password er ikke gyldigt.</message>
+	<message key="user.login.changePasswordInstructionsOneStep"><![CDATA[Du skal vælge nyt password før du logger ind på dette sted.<br /><br />Indtast dit brugernavn og dit nye password nedenfor for at ændre passwordet til din konto.]]></message>
 </locale>

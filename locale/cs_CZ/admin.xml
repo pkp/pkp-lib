@@ -41,7 +41,6 @@
 	<message key="admin.languages.reload">Znovu načíst lokalizace</message>
 	<message key="admin.languages.uninstall">Odinstalovat lokalizaci</message>
 	<message key="admin.phpInfo">Rozšířené informace o PHP</message>
-	<message key="admin.saveSystemConfig">Uložit konfiguraci</message>
 	<message key="admin.server.apacheVersion">Verze Apache</message>
 	<message key="admin.server.dbDriver">Ovladač databáze</message>
 	<message key="admin.server.dbVersion">Verze databázového serveru</message>
@@ -84,4 +83,20 @@
 	<message key="admin.version.updateAvailable">Je dostupná aktualizovaná verze systému</message>
 	<message key="admin.version.upToDate">Používáte nejaktuálnější verzi systému</message>
 	<message key="admin.version">Verze</message>
+	<message key="admin.scheduledTask">Naplánovaná úloha</message>
+	<message key="admin.scheduledTask.startTime">Zpracování úlohy započalo.</message>
+	<message key="admin.scheduledTask.stopTime">Zpracování úlohy bylo ukončeno.</message>
+	<message key="admin.scheduledTask.noLog">Úloha neprovedla žádný záznam do logu.</message>
+	<message key="admin.scheduledTask.openAccessNotification">Upozornění na otevřený přístup</message>
+	<message key="admin.scheduledTask.reviewReminder">Připomínka recenze</message>
+	<message key="admin.scheduledTask.subscriptionExpiryReminder">Připomínka vypršení předplatného</message>
+	<message key="admin.settings">Nastavení</message>
+	<message key="admin.settings.oneStepReset">Použít reset hesla jedním krokem?</message>
+	<message key="admin.settings.siteTheme">Grafické téma stránek</message>
+	<message key="admin.siteSetup">Nastavení stránek</message>
+	<message key="admin.fileLoader.wrongBasePathLocation">Je třeba, aby základní cesta {$path} ukazovala do veřejně přístupného adresáře</message>
+	<message key="admin.fileLoader.pathNotAccessible">Složka {$path} není knihovna, nebo v ní není povolené čtení.</message>
+	<message key="admin.fileLoader.moveFileFailed">Soubor {$filename} nelze přesunout z {$currentFilePath} do {$destinationPath}</message>
+	<message key="admin.fileLoader.fileProcessed">Soubor {$filename} byl zpracován a archivován.</message>
+	<message key="admin.fileLoader">Nahrávání souborů</message>
 </locale>

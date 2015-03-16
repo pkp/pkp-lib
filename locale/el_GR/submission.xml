@@ -369,11 +369,21 @@
 	<message key="submission.currentAgencies">Υφιστάμενες Υπηρεσίες</message>
 	<message key="submission.indexingInformation">Πληροφορίες Ευρετηρίασης</message>
 	<message key="submission.uploadSuccessful">Το αρχείο σας μεταφορτώθηκε.</message>
-	<message key="submission.uploadSuccessfulContinue">Το αρχείο σας μεταφορτώθηκε. Πατήστε "Συνέχεια" για να επεξεργαστείτε τα μεταδεδομένα του αρχείου.</message>
 	<message key="submission.loadMessage">Σας παρακαλούμε περιμένετε μέχρι να μεταφορτωθεί το αρχείο σας.</message>
 	<message key="submission.artworkFileDetails">Λεπτομέρειες αρχείου artwork</message>
 	<message key="submission.fileDetails">Λεπτομέρειες αρχείου</message>
 	<message key="submission.nameRequired">Απαιτείται όνομα για αυτό το αντικείμενο.</message>
 	<message key="submission.date.mmdd">MM-HH</message>
 	<message key="submission.date.yyyymmdd">EEEE-MM-HH</message>
+	<message key="submission.addFile">Ανεβάστε αρχείο</message>
+	<message key="submission.citations.editor.citationlist.approved">Εγκεκριμένο</message>
+	<message key="submission.citations.editor.citationlist.notApproved">Μη εγκεκριμένο</message>
+	<message key="submission.comments.addReviews">Προσθέστε Αξιολογήσεις στο email</message>
+	<message key="submission.layout.galleyRemoteURL">Απομακρυσμένο URL</message>
+	<message key="submission.layout.galleyRemoteURLValid">Σας παρακαλούμε συμπληρώστε ένα έγκυρο απομακρυσμένο URL (συμπεριλάβετε και το πρόθεμα http://)</message>
+	<message key="submission.reviewed">Αξιολογήθηκε</message>
+	<message key="submission.createRemote">Δημιουργήστε απομακρυσμένο</message>
+	<message key="submission.form.name">Δώστε σε αυτό το αρχείο ένα χρήσιμο όνομα</message>
+	<message key="submission.form.replaceExisting">Θέλετε να αντικαταστήσετε ένα υφιστάμενο αρχείο;</message>
+	<message key="submission.copyedited">Το κείμενο επιμελήθηκε</message>
 </locale>

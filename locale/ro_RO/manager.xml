@@ -220,4 +220,17 @@
 	<message key="manager.setup.filter.parser.grid.title">Servicii pentru extragerea referințelor bibliografice</message>
 	<message key="manager.setup.filter.pleaseSelect">Selectează...</message>
 	<message key="manager.setup.metaCitationsDescription">Bifează pentru a activa editarea citărilor și a referințelor bibliografice. Acest lucru va permite autorilor să includă citări bibliografice brute. Redactorilor li se va permite accesul la asistentul pentru markup care poate verifica referințele brute pentru a vedea dacă există în baze de date externe precum WorldCat, ISBNdb, PubMed și altele și pentru acuratețe. Referințele bibliografice aprobate pot fi exportate în fișierele finale de asamblare.</message>
+	<message key="manager.announcements.datePublish">Publicat</message>
+	<message key="manager.emails.addEmail">Adaugă șablon de email</message>
+	<message key="manager.emails.data">Date șablon pentru mesaje</message>
+	<message key="manager.emails.details">Detaliile șablonului</message>
+	<message key="manager.navigation">Navigare</message>
+	<message key="manager.reviewerSearch.advancedSearch.short">Căutare avansată</message>
+	<message key="manager.reviewerSearch.searchByName.short">Căutare după nume</message>
+	<message key="manager.setup.layout.blockManagement">Managementul bărilor laterale</message>
+	<message key="manager.statistics.city">Oraș</message>
+	<message key="manager.statistics.region">Regiune</message>
+	<message key="plugins.categories.metadata">Pluginuri de metadate</message>
+	<message key="plugins.categories.citationOutput">Pluginuri pentru citări</message>
+	<message key="plugins.categories.citationParser">Pluginuri pentru extragerea citărilor</message>
 </locale>

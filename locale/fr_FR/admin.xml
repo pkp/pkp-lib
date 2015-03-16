@@ -90,4 +90,11 @@
 	<message key="admin.scheduledTask">Tâche programmée</message>
 	<message key="admin.settings.oneStepReset">Effectuer la réinitialisation de mot de passe en une étape?</message>
 	<message key="admin.fileLoader">Chargeur de fichier</message>
+	<message key="admin.scheduledTask.startTime">Le traitement de la tâche a commencé.</message>
+	<message key="admin.scheduledTask.stopTime">Le traitement de la tâche a été interrompu.</message>
+	<message key="admin.scheduledTask.noLog">Pas d’enregistrement pour cette tâche.</message>
+	<message key="admin.scheduledTask.openAccessNotification">Notification d’accès ouvert</message>
+	<message key="admin.scheduledTask.reviewReminder">Rappel d’évaluation</message>
+	<message key="admin.scheduledTask.subscriptionExpiryReminder">Rappel d’expiration d’une inscription</message>
+	<message key="admin.fileLoader.fileProcessed">Le fichier {$filename} a été traité et archivé.</message>
 </locale>

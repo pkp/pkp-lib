@@ -388,4 +388,5 @@
 	<message key="search.cli.rebuildIndex.error">fout</message>
 	<message key="search.cli.rebuildIndex.unknownJournal">Het tijdschriftpad "{$journalPath}" kan niet herleid worden tot een tijdschrift.</message>
 	<message key="search.indexTermsLong">Alle indexvelden</message>
+	<message key="common.notice">Kennisgeving</message>
 </locale>

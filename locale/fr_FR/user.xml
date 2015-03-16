@@ -127,4 +127,5 @@
 	<message key="user.profile.form.usergroupRequired">Groupe d'utilisateurs requis.</message>
 	<message key="user.suffix">Suffixe</message>
 	<message key="user.profile.form.hashInvalid">Votre demande de réinitialisation de mot de passe n'est pas valide.</message>
+	<message key="user.login.changePasswordInstructionsOneStep"><![CDATA[Vous devez choisir un nouveau mot de passe pour vous connecter à ce site.<br /><br />Veuillez saisir votre nom d’utilisateur et définir un nouveau mot de passe ci-dessous.]]></message>
 </locale>

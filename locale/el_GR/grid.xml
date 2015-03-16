@@ -23,8 +23,6 @@
 	<message key="grid.action.remove">Αφαίρεση</message>
 	<message key="grid.action.edit">Επεξεργασία</message>
 	<message key="grid.action.approve">Έγκριση</message>
-	<message key="grid.action.approveForReview">Υποβολή στο στάδιο Αξιολόγησης</message>
-	<message key="grid.action.approveForPub">Έγκριση για Δημοσίευση</message>
 	<message key="grid.action.decline">Άρνηση</message>
 	<message key="grid.action.moreInformation">Περισσότερες πληροφορίες</message>
 	<message key="grid.action.restoreDefaults">Επαναφορά προκαθορισμένων τιμών</message>
@@ -38,9 +36,6 @@
 	<message key="grid.sponsor.title">Χορηγοί</message>
 
 	<!-- Masthead Grid -->
-	<message key="grid.masthead.title">Masthead</message>
-	<message key="grid.masthead.column.groups">Ομάδες</message>
-
 	<!-- Contributor Grid -->
 	<message key="grid.contributor.title">Contributor</message>
 	<message key="grid.action.addAuthor">Προσθήκη Συγγραφέα</message>
@@ -49,27 +44,7 @@
 	<message key="grid.reviewForm.title">Φόρμες Αξιολόγησης</message>
 
 	<!-- Book File Types Grid -->
-	<message key="grid.bookFileType.form.sortable">Επιτρέπεται σε αρχεία αυτού του τύπου να ταξινομούνται βάσει των συστατικών (π.χ βάσει κεφαλαίου)</message>
-
 	<!-- Artwork Files Grid -->
-	<message key="grid.artworkFile.title">Artwork w/Permissions</message>
-	<message key="grid.artworkFile.file">Αρχείο</message>
-	<message key="grid.artworkFile.form.title">Add Artwork w/Permissions</message>
-	<message key="grid.artworkFile.form.metadata">Μεταδεδομένα Artwork</message>
-	<message key="grid.artworkFile.caption">Caption</message>
-	<message key="grid.artworkFile.credit">Credit</message>
-	<message key="grid.artworkFile.captionAndCredit">Caption and Credit (If Not Included in the File)</message>
-	<message key="grid.artworkFile.copyrightOwner">Copyright Owner</message>
-	<message key="grid.artworkFile.copyrightContact">Πληροφορίες επικοινωνίας (αν όχι συγγραφέας/εκδότης)</message>
-	<message key="grid.artworkFile.permissionTerms">Όροι άδειας</message>
-	<message key="grid.artworkFile.permissionForm">Φόρμα άδειας</message>
-	<message key="grid.artworkFile.type">Τύπος</message>
-	<message key="grid.artworkFile.type.table">Πίνακας</message>
-	<message key="grid.artworkFile.type.figure">Figure</message>
-	<message key="grid.artworkFile.placement">Placement in book</message>
-	<message key="grid.artworkFile.placementDetail">Table/Fig. No.</message>
-	<message key="grid.artworkFile.contactAuthor">Επικοινωνήστε με τον Συγγραφέα</message>
-
 	<!-- Library Files -->
 	<message key="grid.libraryFiles.column.files">Αρχεία</message>
 	<message key="grid.libraryFiles.submission.title">Submission Library</message>
@@ -89,9 +64,134 @@
 	<message key="author.users.contributor.principalContact">Κύρια επαφή</message>
 
 	<!-- Review Attachments -->
-	<message key="grid.reviewAttachments.title">Συνημμένα Αξιολογητή</message>
-	<message key="grid.reviewAttachments.add">Προσθήκη συνημμένου στην αξιολόγηση</message>
-
 	<!-- Chapters -->
-	<message key="grid.chapters.title">Κεφάλαια</message>
+	<message key="grid.action.addUser">Προσθέστε χρήστη</message>
+	<message key="grid.action.deleteFile">Διαγράψτε το Αρχείο</message>
+	<message key="grid.action.deleteMedia">Διαγράψτε το Μέσο</message>
+	<message key="grid.action.editMedia">Επιμεληθείτα το Μέσο</message>
+	<message key="grid.action.editAuthor">Επεξεργαστείτε τον Συγγραφέα</message>
+	<message key="grid.action.deleteAuthor">Διαγράψτε τον Συγγραφέα</message>
+	<message key="grid.action.addAuditor">Προσθέστε έναν Συγγραφέα</message>
+	<message key="grid.action.upgrade">Αναβάθμιση</message>
+	<message key="grid.action.order">Παραγγελία</message>
+	<message key="grid.action.cancelOrdering">Ακυρώστε την παραγγελία</message>
+	<message key="grid.action.extendAll">Επέκταση όλων</message>
+	<message key="grid.action.collapse">Συμπτήξτε</message>
+	<message key="grid.action.collapseAll">Συμπτήξτε όλα</message>
+	<message key="grid.action.wizard">Οδηγόες ρυθμίσεων</message>
+	<message key="grid.action.moveItem">Μετακίνηση Αντικειμένου</message>
+	<message key="grid.action.downloadAll">Κατεβάστε όλα τα αρχεία σαν ένα αρχείο</message>
+	<message key="grid.action.readReview">Διαβάστε αυτή την αξιολόγηση</message>
+	<message key="grid.action.email">Στείλτε email</message>
+	<message key="grid.action.addReviewer">Προσθέστε έναν αξιολογητή</message>
+	<message key="grid.action.addFile">Προσθέστε ένα αρχείο</message>
+	<message key="grid.action.editFile">Επεξεεργαστείτε ένα αρχείο</message>
+	<message key="grid.action.selectFiles">ΕΠιλέξτε αρχεία για να διαχειριστείτε</message>
+	<message key="grid.action.requestRevisions">Ζητήστε αναθεωρημένη έκδοση αυτής της υποβολής</message>
+	<message key="grid.action.resubmit">Ζητήστε να επανα-υποβληθεί αυτή η υποβολή</message>
+	<message key="grid.action.accept">Αποδεχτείτε αυτήν την υποβολή</message>
+	<message key="grid.action.internalReview">Στείλετε αυτή την υποβολή για εσωτερική αξιολόγηση</message>
+	<message key="grid.action.externalReview">Στείλετε αυτή την υποβολή για εξωτερική αξιολόγηση</message>
+	<message key="grid.action.sendToProduction">Στείλετε αυτή την υποβολή για παραγωγή</message>
+	<message key="grid.action.settings">Ρυθμίσεις</message>
+	<message key="grid.action.importexport">Εισάγετε ή εξάγετε περιεχόμενο ή δεδομένα του ιστοτόπου</message>
+	<message key="grid.action.orderItems">Ενεργοποιήστε τη λειτουργία παραγγελιών</message>
+	<message key="grid.action.editSubmissionChecklist">Επεξεργαστείτε αυτό το αντικείμενο της λίστας</message>
+	<message key="grid.action.deleteSubmissionChecklist">Διαγράψτε αυτό το αντικείμενο της λίστας</message>
+	<message key="grid.action.resetAll">Επαναφέρετε όλα τα αντικείμενα στις προκαθορισμένες τιμές</message>
+	<message key="grid.action.addPreparedEmail">Προσθέστε ένα νέο πρότυπο email</message>
+	<message key="grid.action.editPreparedEmail">Επεξεργαστείτε αυτό το πρότυπο email</message>
+	<message key="grid.action.disableEmail">Απενεργοποιείστε αυτό το πρότυπο email</message>
+	<message key="grid.action.resetEmail">Επαναφέρετε αυτό το πρότυπο email στην προκαθορισμένη μορφή</message>
+	<message key="grid.action.addSignoff">Προσθέστε μια απάντηση ελέγχου για αυτό το αρχείο</message>
+	<message key="grid.action.deleteSignoff">Διαγραφή αυτής της προσυπογραφή</message>
+	<message key="grid.action.fileSignoff">Προσυπογραφή για αυτό το αρχείο</message>
+	<message key="grid.action.readSignoff">Διαβάσε αυτή την προσυπογραφή</message>
+	<message key="grid.action.expandAll">Ανάπτυξη όλων</message>
+	<message key="grid.action.requestAccount">Προσθέστε ένα συμμετέχοντα</message>
+	<message key="grid.action.expand">Ανάπτυξη</message>
+	<message key="grid.action.notify">Ενημερώστε τον χρήστη</message>
+	<message key="grid.action.addUserGroup">Προσθέστε μια νέα Ομάδα Χρηστών</message>
+	<message key="grid.action.editUserGroup">Επεξεργαστείτε αυτή την ομάδα χρηστών</message>
+	<message key="grid.action.disable">Απενεργοποιήστε</message>
+	<message key="grid.action.details">Δείτε αυτό το αντικείμενο</message>
+	<message key="grid.action.enrolExisting">Ανάθεση ρόλου αξιολογητή σε χρήστη του ιστοτόπου</message>
+	<message key="grid.action.selectCreate">Δημιουργήστε ένα νέο αξιολογητή</message>
+	<message key="grid.action.advancedSearch">Σύνθετη Αναζήτηση</message>
+	<message key="grid.action.viewMetadata">Δείτε τα μεταδεδομένα αυτής της υποβολής</message>
+	<message key="grid.action.sendReminder">Στείλτε μια υπενθύμιση ενέργειας σε αυτόν τον χρήστη</message>
+	<message key="grid.action.newRound">Δημιουργήστε ένα νέο γύρο</message>
+	<message key="grid.action.viewReviewGuidelines">Δείτε τις οδηγίες αξιολόγησης</message>
+	<message key="grid.action.viewCompetingInterestGuidelines">Δείτε τις οδηγίες της πολιτικές συγκρουόμενων συμφερόντων</message>
+	<message key="grid.action.thankReviewer">Στείλτε ένα ευχαριστήριο μήνυμα σε αυτόν τον αξιολογητή</message>
+	<message key="grid.action.uploadFile">Ανεβάστε ένα αρχείο</message>
+	<message key="grid.action.addAnnouncementType">Προσθέστε ένα Τύπο Ανακοίνωσης</message>
+	<message key="grid.action.addAnnouncement">Προσθέστε Ανακοίνωση</message>
+	<message key="grid.action.mergeUser">Συγχώνευση χρήστη</message>
+	<message key="grid.action.unassignUser">Απαλλαγή χρήστη</message>
+	<message key="grid.action.history">Προβολή Ιστορικού</message>
+	<message key="grid.action.unconsiderReview">Αυτή η αξιολόγηση είναι έχει ολοκληρωθεί, αλλά μπορείτε να αναθεωρήσετε</message>
+	<message key="grid.task.status.completed">Αυτή η ενέργεια έχει ολοκληρωθεί</message>
+	<message key="grid.task.status.new">Αυτό είναι ένα νέο αντικείμενο και απαιτεί προσοχή</message>
+	<message key="grid.task.status.uploaded">Ο τίτλος της στήλης δείχνει ποιος ανέβασε αυτό το αρχείο</message>
+	<message key="grid.task.status.unfinished">Η ενέργεια δεν έχει ολοκληρωθεί</message>
+	<message key="grid.task.status.reviewReady">Αυτή η αξιολόγηση είναι έτοιμη. Πατήστε το εικονίδιο στα αριστερά για να το διαβάσετε.</message>
+	<message key="grid.columns.auditor">Εδλεγκτής</message>
+	<message key="grid.columns.locale">Τοπικό αρχείο</message>
+	<message key="grid.action.addSponsor">Προσθήκη Χορηγού</message>
+	<message key="grid.action.deleteSponsor">Διαγραφή Χορηγού</message>
+	<message key="grid.action.editSponsor">Επεξεργασία Χορηγού</message>
+	<message key="grid.action.addSeries">Προσθήκη σειράς</message>
+	<message key="grid.action.editSeries">Επεξεργασία σειράς</message>
+	<message key="grid.action.deleteSeries">Διαγραφή σειράς</message>
+	<message key="grid.action.addCategory">Προσθήκη κατηγορίας</message>
+	<message key="grid.action.editCategory">Επεξεργασία Κατηγορίας</message>
+	<message key="grid.action.deleteCategory">Διαγραφή Κατηγορίας</message>
+	<message key="grid.action.addContributor">Προσθήκη συνεισφέροντος</message>
+	<message key="grid.action.editContributor">Επεξεργασία συνεισφέροντος</message>
+	<message key="grid.action.deleteContributor">Διαγραφή συνεισφέροντος</message>
+	<message key="grid.genres.title">Δείγμα</message>
+	<message key="grid.genres.description">Αυτά τα είδη που χρησιμοποιούνται για τους σκοπούς της ονομασίας των αρχείων και παρουσιάζονται σε ένα pull-down μενού για την αποστολή αρχείων. Τα είδη που ορίζονται ## επιτρέπει στο χρήστη να συνδέσει το αρχείο με είτε ολόκληρο το βιβλίο 99Z ή ένα συγκεκριμένο κεφάλαιο με αριθμό (π.χ. 02).</message>
+	<message key="grid.noFiles">Κανένα αρχείο</message>
+	<message key="grid.roles.currentRoles">Υφιστάμενοι ρόλοι</message>
+	<message key="grid.roles.add">Δημιουργήστε νέο ρόλο</message>
+	<message key="grid.roles.stageAssignment">Ανάθεση σταδίου</message>
+	<message key="grid.user.currentUsers">Υφιστάμενοι χρήστες</message>
+	<message key="grid.user.currentEnrollment">Υφιστάμενες αναθέσεις</message>
+	<message key="grid.user.allRoles">Ολοι οι ρόλοι</message>
+	<message key="grid.user.add">Προσθήκη Χρήστη</message>
+	<message key="grid.user.enroll">Ανάθεση σε χρήστη</message>
+	<message key="grid.user.edit">Επεξεργασία Χρήστη</message>
+	<message key="grid.user.email">Email</message>
+	<message key="grid.user.enable">Ενεργοποιήστε</message>
+	<message key="grid.user.disable">Απενεργοποιήστε</message>
+	<message key="grid.user.disableReason">Λόγος για απενεργοποίηση χρήστη</message>
+	<message key="grid.user.enableReason">Λόγοις για ενεργοποίηση χρήστη</message>
+	<message key="grid.user.error">Παρουσιάστηκε σφάλμα κατά τη διαχείριση αυτού του χρήστη. Παρακαλώ δοκιμάστε ξανά.</message>
+	<message key="grid.user.errorEmail">Παρουσιάστηκε σφάλμα κατά την αποστολή αυτού του μηνύματος ηλεκτρονικού ταχυδρομείου. Παρακαλώ βεβαιωθείτε ότι ο email server λειτουργεί και / ή επικοινωνήστε με τον διαχειριστή του συστήματός σας.</message>
+	<message key="grid.user.cannotAdminister">Δεν έχετε επαρκή δικαιώματα για να επεξεργαστείτε αυτό το χρήστη.</message>
+	<message key="grid.user.authSource">Πηγή ταυτοποίησης</message>
+	<message key="grid.user.mustProvideName">Παρακαλούμε πρώτα δώστε τουλάχιστον ένα επίθετο για το χρήστη.</message>
+	<message key="grid.user.generatePassword">Δημιουργία Κωδικού</message>
+	<message key="grid.user.generatePasswordDescription">Δημιουργία τυχαίου κωδικούγια αυτόν τον χρήστη</message>
+	<message key="grid.user.notifyUser">Ενημέρωση χρήστη</message>
+	<message key="grid.user.notifyUserDescription">Στείλτε στον χρήση ένα email καλωσορίσματος</message>
+	<message key="grid.user.mustChangePassword">Αλλαγή κωδικού</message>
+	<message key="grid.user.mustChangePasswordDescription">Ο χρήστη πρέπει να αλλάξει τον κωδικό στην επόμενη σύνδεσή του</message>
+	<message key="grid.user.mustChangePasswordDescriptionOld">Απαιτεί από τον χρήστη να αλλαξει τον κωδικό του την επόμενη φορά που θα συνδεθεί στο σύστημα</message>
+	<message key="grid.user.moreDetails">Περισσότερες Λεπτομέρειες Χρήστη</message>
+	<message key="grid.user.lessDetails">Λιγότερες Λεπτομέρειες Χρήστη</message>
+	<message key="grid.user.userDetails">Λεπτομέρειες Χρήστη</message>
+	<message key="grid.user.userRoles">Ρόλοι χρήστη</message>
+	<message key="grid.user.userNoRoles">Αυτός ο χρήσης δεν έχει κανένα ρόλο.</message>
+	<message key="grid.user.step1">Βήμα #1: Συμπληρώστε τις λεπτομέρειες χρήστη</message>
+	<message key="grid.user.step2">Βήμα #2: Προσθέστε Ρόλους στον χρήστη {$userFullName}</message>
+	<message key="grid.user.addRoles">Προσθέσετε ρόλους</message>
+	<message key="grid.user.selectUser">Επιλέξτε Χρήστη</message>
+	<message key="grid.user.pleaseSelectUser">Σας παρακαλούμε επιλέξτε έναν χρήστη</message>
+	<message key="grid.preparedEmails.title">Έτοιμα πρότυπα email</message>
+	<message key="grid.preparedEmails.description">Ο τύπος διευκολύνει την επικοινωνία της ροής εργασίας μέσω της χρήσης των έτοιμων μηνυμάτων ηλεκτρονικού ταχυδρομείου. Η προεπιλεγμένη διατύπωση από αυτά τα πρότυπα ηλεκτρονικού ταχυδρομείου μπορεί εύκολα να τροποποιηθεί παρακάτω.</message>
+	<message key="grid.preparedEmails.currentList">Τρέχουσα λίστα</message>
+	<message key="grid.plugin.allCategories">Όλες οι κατηγορίες</message>
+	<message key="grid.plugin.disable">Είστε σίγουροι ότι θέλετε να απενεργοπιήσετε αυτό το plugin;</message>
 </locale>

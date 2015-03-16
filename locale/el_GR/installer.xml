@@ -60,13 +60,13 @@
 	<message key="installer.installParseDBFileError"><![CDATA[Σφάλμα κατά την ανάλυση (parsing) του αρχείου εγκατάστασης της βάσης δεδομένων <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale">Γλώσσες</message>
 	<message key="installer.localeSettings">Ρυθμίσεις Γλωσσών</message>
-	<message key="installer.miscSettings">Λοιπές Ρυθμίσεις</message>
 	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Ένα μοναδικό αναγνωριστικό χρησιμοποιείται για την ταυτοποίηση των εγγραφών μεταδεδομένων των ευρετηρίων του συγκεκριμένου ιστότοπου με χρήση του <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protocol for Metadata Harvesting.]]></message>
 	<message key="installer.oaiRepositoryId">Αναγνωριστικό OAI καταθετηρίου</message>
 	<message key="installer.publicFilesDirError">Ο κατάλογος των δημόσιων αρχείων δεν υπάρχει ή δεν είναι εγγράψιμος.</message>
 	<message key="installer.releaseNotes">Σημειώσεις έκδοσης</message>
 	<message key="installer.securitySettings">Ρυθμίσεις ασφαλείας</message>
-	<message key="installer.skipFilesDir">Μη δημιουργείτε τους απαιτούμενος υποκαταλόγους (είναι χρήσιμο μόνο για μη αυτόματη εγκατάσταση)</message>
 	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Σφάλμα κατά την ανάλυση του πρότυπου αρχείου για email <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale.maybeIncomplete">Οι επιλεγμένες γλώσσες μπορεί να μην είναι ολοκληρωμένες.</message>
+	<message key="installer.installParseFilterConfigFileError"><![CDATA[Σφάλμα ανάλυσης αρχείου ρύθμισης φίλτρου <tt>{$file}</tt>.]]></message>
+	<message key="installer.oaiSettings">Ρυθμίσεις OAI</message>
 </locale>

@@ -69,4 +69,6 @@
 	<message key="installer.publicFilesDirError">Directorul public pentru încărcarea fișierelor nu există sau nu poate fi inscripționat.</message>
 	<message key="installer.releaseNotes">Note de versiune</message>
 	<message key="installer.securitySettings">Setări de securitate</message>
+	<message key="installer.installParseFilterConfigFileError"><![CDATA[Eroare la parcurgerea fișierului de configurare a filtrelor <tt>{$file}</tt>.]]></message>
+	<message key="installer.oaiSettings">Setări OAI</message>
 </locale>

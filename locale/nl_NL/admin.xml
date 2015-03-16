@@ -90,4 +90,11 @@
 	<message key="admin.fileLoader.wrongBasePathLocation">Het basispad {$path} moet in de public colliers map zijn.</message>
 	<message key="admin.fileLoader.moveFileFailed">Bestand {$filename} kon niet verplaatst worden van {$currentFilePath} naar {$destinationPath}</message>
 	<message key="admin.fileLoader">Bestandslader</message>
+	<message key="admin.scheduledTask.startTime">Taak-proces gestart.</message>
+	<message key="admin.scheduledTask.stopTime">Taak-proces gestopt</message>
+	<message key="admin.scheduledTask.noLog">Taak heeft geen log geproduceerd.</message>
+	<message key="admin.scheduledTask.openAccessNotification">Open Access kennisgeving</message>
+	<message key="admin.scheduledTask.reviewReminder">Review herinnering</message>
+	<message key="admin.scheduledTask.subscriptionExpiryReminder">Abonnement-einde herinnering</message>
+	<message key="admin.fileLoader.fileProcessed">Bestand {$filename} is verwerkt en gearchiveerd.</message>
 </locale>

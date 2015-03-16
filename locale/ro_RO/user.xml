@@ -108,4 +108,10 @@
 	<message key="user.profile.form.affiliationRequired">Menționarea afilierii este necesară.</message>
 	<message key="user.register.form.emailsDoNotMatch">Câmpurile cu adresa de email nu se potrivesc.</message>
 	<message key="user.repeatPassword">Repetă parola</message>
+	<message key="user.accountInformation">Informații la cont</message>
+	<message key="user.authorization.accessDenied">Acces refuzat.</message>
+	<message key="user.group">Grup de utilizatori</message>
+	<message key="user.hello">Bună ziua,</message>
+	<message key="user.profile.form.countryRequired">Introdu o țară.</message>
+	<message key="user.suffix">Sufix</message>
 </locale>

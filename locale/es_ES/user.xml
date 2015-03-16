@@ -127,4 +127,5 @@
 	<message key="user.workingLanguages">Idiomas de trabajo</message>
 	<message key="user.register.completeForm">Rellene el formulario para registrarse en el sitio.</message>
 	<message key="user.profile.form.hashInvalid">El reinicio del hash de la palabra de paso que intentas usar no es válido.</message>
+	<message key="user.login.changePasswordInstructionsOneStep"><![CDATA[Tiene que escoger una nueva contraseña antes de poder entrar a este sitio.<br /><br />Introduzca su usuario y su nueva contraseña tras cambiar la contraseña de su cuenta.]]></message>
 </locale>

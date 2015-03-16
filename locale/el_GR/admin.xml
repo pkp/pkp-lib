@@ -81,4 +81,20 @@
 	<message key="admin.version.updateAvailable">Μια νεώτερη έκδοση είναι διαθέσιμη</message>
 	<message key="admin.version.upToDate">Το σύστημά σας είναι  ενημερωμένο με την τελευταία έκδοση</message>
 	<message key="admin.version">Έκδοση</message>
+	<message key="admin.scheduledTask">Προγραμματισμένη ενέργεια</message>
+	<message key="admin.scheduledTask.startTime">Η ενέργεια άρχισε</message>
+	<message key="admin.scheduledTask.stopTime">Η ενέργεια σταμάτησε.</message>
+	<message key="admin.scheduledTask.noLog">Η ενέργεια δεν δημιούργησε κανένα αρχείο καταγραφής</message>
+	<message key="admin.scheduledTask.openAccessNotification">Ειδοποίηση Ανοικτής Πρόσβασης</message>
+	<message key="admin.scheduledTask.reviewReminder">Υπενθύμισης αξιολόγησης</message>
+	<message key="admin.scheduledTask.subscriptionExpiryReminder">Υπενθύμιση λήξης συνδρομής</message>
+	<message key="admin.settings">Ρυθμίσεις</message>
+	<message key="admin.settings.oneStepReset">Χρήση ενός βήματος για την επαναφορά του password;</message>
+	<message key="admin.settings.siteTheme">Θέμα ιστοτόπου</message>
+	<message key="admin.siteSetup">Στήσιμο ιστοτόπου</message>
+	<message key="admin.fileLoader.wrongBasePathLocation">Η βασική διαδρομή {$path} θα πρέπει να είναι μέσα στον φάκελλο των δημοσίων αρχείων.</message>
+	<message key="admin.fileLoader.pathNotAccessible">Ο {$path} δεν είναι φάκελλος  ή δεν είναι αναγνώσιμος.</message>
+	<message key="admin.fileLoader.moveFileFailed">Το αρχείο {$filename} δεν μπόρεσε να μετακινηθεί από {$currentFilePath} στο {$destinationPath}</message>
+	<message key="admin.fileLoader.fileProcessed">Το αρχείο {$filename} επεξεργάστηκε και αρχειοθετήθηκε.</message>
+	<message key="admin.fileLoader">Φορτωτής αρχείων</message>
 </locale>

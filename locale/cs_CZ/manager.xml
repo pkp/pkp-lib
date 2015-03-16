@@ -121,7 +121,7 @@
 	<message key="manager.people.enrollUserAs">Zapsat uživatele jako</message>
 	<message key="manager.people.invalidUser">Promiňte, požadovaný uživatel neexistuje.</message>
 	<message key="manager.people.mergeUser">Sloučit uživatele</message>
-	<message key="manager.people.mergeUsers.confirm">Jste si jistý, že chcete sloučit účet s uživatelským jménem "{$oldUsername}" do účtu s uživatelský jménem "{$newUsername}"? Účet s uživatelským jménem "{$oldUsername}" poté přestane existovat. Tato akce je nevratná.</message>
+	<message key="manager.people.mergeUsers.confirm">Jste si jistý, že chcete sloučit účet s uživatelským jménem "{$oldAccountCount}" do účtu s uživatelský jménem "{$newUsername}"? Účet s uživatelským jménem "{$oldAccountCount}" poté přestane existovat. Tato akce je nevratná.</message>
 	<message key="manager.people.mergeUsers">Sloučit více uživatelů</message>
 	<message key="manager.people.mustChooseRole">Zvolte prosím roli v horní části stránky předtím, než kliknete na "Zapsat uživatele".</message>
 	<message key="manager.people.mustProvideName">Prosím, uveďte nejprve alespoň příjmení uživatele.</message>
@@ -174,4 +174,76 @@
 	<message key="plugins.categories.reports">Doplňky pro generování výkazů</message>
 	<message key="plugins.categories.themes.description">Doplňky témat vzhledu mohou být využity ke změně vzhledu systému.</message>
 	<message key="plugins.categories.themes">Doplňky témat vzhledu</message>
+	<message key="manager.announcements.datePublish">Publikováno</message>
+	<message key="manager.emails.addEmail">Přidat šablonu e-mailu</message>
+	<message key="manager.emails.data">Šablona dat zprávy</message>
+	<message key="manager.emails.details">Podrobnosti šablony</message>
+	<message key="manager.emails.disable.message">Chystáte se zakázat tuto šablonu e-mailu. Pokud byly systémové procesy, které používaly tuto šablonu, nebudou ji v budoucnu moci používat. Chcete potvrdit tuto operaci?</message>
+	<message key="manager.emails.enable.message">Chystáte se povolit tento e-mail. Chcete potvrdit tuto operaci?</message>
+	<message key="manager.emails.resetAll.message">Pokud zresetujete všechny šablony, všechny změny v šablonách e-mailů budou ztraceny. Chcete potvrdit tuto operaci?</message>
+	<message key="manager.emails.reset.message">Pokud zresetujete tuto šablonu, všechna data zprávy budou resetována na původní hodnoty, všechny úpravy se ztratí. Chcete potvrdit tuto operaci?</message>
+	<message key="manager.masthead.title">Hlavička titulní strany</message>
+	<message key="manager.navigation">Navigace</message>
+	<message key="manager.reviewerSearch.advancedSearch">Pokročilé hledání recenzentů</message>
+	<message key="manager.reviewerSearch.advancedSearch.short">Pokročilé vyhledávání</message>
+	<message key="manager.reviewerSearch.searchByName">Hledání recenzentů podle jména</message>
+	<message key="manager.reviewerSearch.searchByName.short">Hledání podle jména</message>
+	<message key="manager.reviewerSearch.doneAmount">Recenze jsou ukončené</message>
+	<message key="manager.reviewerSearch.avgAmount">Průměrná doba ukončení</message>
+	<message key="manager.reviewerSearch.lastAmount">Počet dnů od poslední recenze</message>
+	<message key="manager.reviewerSearch.activeAmount">Recenzenti, kteří jsou v současnosti aktivní</message>
+	<message key="manager.reviewerSearch.interests">Zájmové oblasti pro recenze</message>
+	<message key="manager.reviewerSearch.form.interests.instructions">Vložte zájmové oblasti recenzenta, oddělené čárkami...</message>
+	<message key="manager.reviewerSearch.form.instructions">Použijte následující formulář na nastavení maximální hodnoty pro výrazy, které chcete hledat. Formulář je předvyplněný průměrnými hodnotami pro tato pole.</message>
+	<message key="manager.setup.citationAssistant">Nástroj na rozbor citací</message>
+	<message key="manager.setup.citationFilterParser">Rozbor citací</message>
+	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>Pro nalezení a kontrolu citací v citačních databázích je musíte nejprve rozdělit na strojově čitelná metadata: název, vydavatel, datum vydání atd., která musí být rozpoznána z původního textu citace, poskytnutého autorem. Propojení k externím webovým službám může usnadnit procesu. Kliknutím na tlačítko "Přidat položka" můžete přidat jeden, či více konektorů. Některé z těchto konektorů je třeba nastavit; budete k tomu vyzváni.</p>
+<p>Můžete editovat či smazat existující konektor tím, že kliknete na ikonu vedle něho.</p>]]></message>
+	<message key="manager.setup.citationFilterLookup">Kontrola citací</message>
+	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>Musíte také povolit a konfigurovat konektory k externím citačním databázím. To vám umožní najít chyby v autorových citacích a přidat dodatečné informace (např. DOI, nebo PubMed ID), které požaduje elektronické publikování či ukládání</p>
+<p>Poskytujeme konektory k několika externím databázím, ve kterých můžete hledat citace. Některé z těchto databází požadují registraci nebo konfiguraci vložených informací. Více informací o tom, jak se zaregistrovat najdete na veřejných stránkách příslušných databází. Můžete přidat jednu, nebo více databází kliknutím na tlačítko "Přidat položku" níže</p>
+<p>Můžete editovat či odstranit konektor na externí databázi kliknutím na ikonu ozubeného kola vedle názvu tohoto konektoru.</p>
+<p><strong>Poznámka:</strong> Pokud máte zájem, aby byl proces kontroly citací ukončen v rozumném čase, je třeba nastavit hodnotu <tt>citation_checking_max_processes</tt> ve vašem konfiguračním souboru. Více informací najdete v sekci General Setting v souboru <tt>config.inc.php</tt>]]></message>
+	<message key="manager.setup.citationOutput">Výstup citací</message>
+	<message key="manager.setup.citationOutputStyleDescription">Zvolte si citační styl, který bude používán ve vašich článcích. Pomocník pro rozbor citací vás nechá porovnat autorovu verzi s verzí generovanou z XML dat, takže můžete lehce identifikovat chyby:</message>
+	<message key="manager.setup.filter.grid.errorDeletingFilter">Při snaze o odstranění tohoto filtru došlo k chybě. Nahlaste to, prosím, jako chybu.</message>
+	<message key="manager.setup.filter.grid.filterDisplayName">Konektor</message>
+	<message key="manager.setup.filter.grid.filterSettings">Informace pro registraci a nastavení konektoru</message>
+	<message key="manager.setup.filter.grid.filterTemplateRequired">Zvolte, prosím, jednu z transformací z rozbalovacího menu</message>
+	<message key="manager.setup.filter.grid.confirmDelete">Chcete skutečně smazat filtr {$filterName}?</message>
+	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">Rozhodli jste se přidat databázi {$filterDisplayName}. Klikněte na "OK" pro potvrzení.</message>
+	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Zvolte, prosím, vyhledávací databázi.</message>
+	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>Tento filtr připojuje databázi knih a ISBN databázi <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a> 
+<p>Klíč ISBNdb API je povinný. Pro informaci, jak vygenerovat klíč si prohlédněte <a href="http://isbndb.com/api/v1/docs/keys" target="_blank">online dokumentaci</a>.</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Tento filtr připojuje databázi CrossRef a použití CrossRef <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">OpenURL Query Interface</a>.</p>
+<p>K používání tohoto filtru můžete použít buď váš platný účet u CrossRef, nebo u CrossRef <a href="http://www.crossref.org/requestaccount/" target="_blank">zde</a>.</p> zaregistrovat platnou e-mailovou adresu.]]></message>
+	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>Tento filtr připojuje k vyhledávacímu stroji PubMed <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">Entrez</a></p>
+<p>Registrační e-mail není striktně povinný, ale může být nezbytný, pokud máte problémy s připojením. Více informací najdete v sekci <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">Usage Guidelines and Requirements</a> v rámci dokumentace Entrez</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.description.worldCat"><![CDATA[<p>Tento filtr připojuje ke službám OCLC <a href="http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp" target="_blank">xISBN</a> a <a href="http://www.worldcat.org/" target="_blank">Worldcat</a> (volitelně)</p>
+<p>Pokud máte Worldcat <a href="http://oclc.org/developer/develop/web-services.html" target="_blank">API klíč</a>, můžete se připojit k Worldcat vložením klíče do následujícího pole.</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.loadMessage">Vyčkejte, prosám, dokud se nenahraje konfigurační matice citační databáze...</message>
+	<message key="manager.setup.filter.lookup.grid.title">Konektory citační databáze</message>
+	<message key="manager.setup.filter.noMoreTemplates">Všechny dostupné transformace již byly přidány. Klikněte, prosím, na "Zrušit" pro návrat na stránku nastavení.</message>
+	<message key="manager.setup.filter.parser.grid.descriptionConfirm">Rozhodli jste se přidat analyzátor {$filterDisplayName}. Potvrďte rozhodnutí kliknutím na "OK".</message>
+	<message key="manager.setup.filter.parser.grid.descriptionTemplate">Vyberte, prosím, citační analyzátor.</message>
+	<message key="manager.setup.filter.parser.grid.description.freeCite"><![CDATA[<p>Tento extrakční filtr připojuje k webové službě <a href="http://freecite.library.brown.edu/" target="_blank">FreeCite</a> web service.</p>]]></message>
+	<message key="manager.setup.filter.parser.grid.description.paraCite"><![CDATA[<p>Tento extrakční filtr používá moduly <a href="http://paracite.eprints.org/developers/" target="_blank">ParaTools</a> k poskytnutí <a href="http://paracite.eprints.org" target="_blank">ParaCite</a> citační analýzy. Aby fungoval správně, musíte mít nainstalovaný Perl spolu s moduly <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/" target="_blank">Biblio::Citation::Parser</a> a <a href="http://search.cpan.org/~sburke/Text-Unidecode-0.04/" target="_blank">Text::Unidecode</a> CPAN. Musíte také nakonfigurovat příkaz <tt>perl</tt> ve vašem konfiguračním souboru. Tento příkaz najdete v sekci External Commands section souboru <tt>config.inc.php</tt>.</p>
+	<p>You can also choose which parser module ParaTools should use. You can choose between the standard, <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Jiao.pm" target="_blank">Jiao</a>, and <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Citebase.pm" target="_blank">Citebase</a> parser modules.</p>]]></message>
+	<message key="manager.setup.filter.parser.grid.description.parsCit"><![CDATA[<p>Tento extrakční filtr připojuje k webové službě <a href="http://aye.comp.nus.edu.sg/parsCit/" target="_blank">ParsCit</a>.</p>]]></message>
+	<message key="manager.setup.filter.parser.grid.description.regEx">Extrakční filtr RegEx používá k rozboru citací řadu regulárních výrazů.</message>
+	<message key="manager.setup.filter.parser.grid.loadMessage">Vyčkejte, prosám, dokud se nenahraje konfigurační matice citační databáze...</message>
+	<message key="manager.setup.filter.parser.grid.title">Služby pro extrakci citací</message>
+	<message key="manager.setup.filter.pleaseSelect">Zvolte, prosím...</message>
+	<message key="manager.setup.layout.blockManagement">Ovládání postranního sloupce</message>
+	<message key="manager.setup.metaCitationsDescription">Pomocí zatržení následujícího zaškrtávacího políčka povolte editaci citací a referencí. To umožní autorům při vkládání příspěvků vložit také neupravené citace. Editoři budou poté mít přístup k pomocníku na zpracování citací, který jim umožní zkontrolovat přesnost neupravených citací proti externím databázím, jako jsou WorldCat, ISBNdb, PubMed a jiné. Schválené citace mohou být exportovány do finálních sazebnic.</message>
+	<message key="manager.statistics.city">Město</message>
+	<message key="manager.statistics.region">Oblast/region</message>
+	<message key="plugins.categories.metadata">Pluginy metadat</message>
+	<message key="plugins.categories.metadata.description">Pluginy metadat implementují další standardy metadat.</message>
+	<message key="plugins.categories.citationLookup">Pluginy konektorů citačních databází</message>
+	<message key="plugins.categories.citationLookup.description">Pluginy konektorů citačních databází zajišťují propojení k citačním databázím a umožňují kontrolu citací, např. během editace citací.</message>
+	<message key="plugins.categories.citationOutput">Pluginy pro citační výstupy</message>
+	<message key="plugins.categories.citationOutput.description">Pluginy pro citační výstupy implementují citační standardy. Nahrazují Pluginy citačních formátů.</message>
+	<message key="plugins.categories.citationParser">Pluginy pro extrakci citací</message>
+	<message key="plugins.categories.citationParser.description">Pluginy pro extrakci citací extrahují z nezpracovaných citací jednotlivé položky (např. autora, název, atd.)</message>
 </locale>

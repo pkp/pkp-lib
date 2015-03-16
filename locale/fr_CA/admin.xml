@@ -84,4 +84,17 @@
 	<message key="admin.settings">Paramètres</message>
 	<message key="admin.settings.siteTheme">Thème du site</message>
 	<message key="admin.siteSetup">Configuration du site</message>
+	<message key="admin.scheduledTask">Tâche planifiée</message>
+	<message key="admin.scheduledTask.startTime">Tâche commencée.</message>
+	<message key="admin.scheduledTask.stopTime">Tâche arrêtée.</message>
+	<message key="admin.scheduledTask.noLog">La tâche n'a produit aucun log.</message>
+	<message key="admin.scheduledTask.reviewReminder">Rappel d'évaluation</message>
+	<message key="admin.scheduledTask.subscriptionExpiryReminder">Rappel de l'expiration de l'abonnement</message>
+	<message key="admin.settings.oneStepReset">Utiliser une seule étape pour la réinitialisation du mot de passe ?</message>
+	<message key="admin.fileLoader.wrongBasePathLocation">L'adresse de base {$path} doit être à l'intérieur du répertoire de fichiers publics.</message>
+	<message key="admin.fileLoader.pathNotAccessible">Le dossier {$path} n'est pas un répertoire et n'est pas en lecture.</message>
+	<message key="admin.fileLoader.moveFileFailed">Le fichier {$filename} n'a pu être déplacé de {$currentFilePath} à {$destinationPath}</message>
+	<message key="admin.fileLoader.fileProcessed">Le fichier {$filename} a été traité et archivé.</message>
+	<message key="admin.fileLoader">Chargement du fichier</message>
+	<message key="admin.scheduledTask.openAccessNotification">Notification d'accès libre</message>
 </locale>

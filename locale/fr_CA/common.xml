@@ -113,7 +113,6 @@
 	<message key="common.notAvailable">Non disponible</message>
 	<message key="common.note">Note</message>
 	<message key="common.notes">Notes</message>
-	<message key="common.notify">Aviser</message>
 	<message key="common.off">Arrêté</message>
 	<message key="common.on">Démarré</message>
 	<message key="common.options">Options</message>
@@ -261,10 +260,8 @@
 	<message key="search.operator.and">et</message>
 	<message key="search.operator.not">sauf</message>
 	<message key="search.operator.or">ou</message>
-	<message key="search.reviseSearch">Modifier la recherche</message>
 	<message key="search.searchAllCategories">Rechercher dans toutes les catégories pour</message>
 	<message key="search.searchCategories">Catégories de recherche</message>
-	<message key="search.searchResults">Résultats de recherche</message>
 	<message key="search.subject">Mot(s)-clé(s)</message>
 	<message key="search.titleIndex">Explorer l'index des titres</message>
 	<message key="search.title">Titre</message>
@@ -374,4 +371,22 @@
 	<message key="navigation.system">Système</message>
 	<message key="navigation.userManagement">Gestion des utilisateurs</message>
 	<message key="grid.action.downloadFile">Télécharger ce fichier</message>
+	<message key="common.error">Erreur</message>
+	<message key="search.activeFilters">Filtres avancés</message>
+	<message key="search.advancedSearchMore">Options de recherche supplémentaires (cliquer pour voir)</message>
+	<message key="search.advancedSearchLess">Options de recherche supplémentaires (cliquer pour masquer)</message>
+	<message key="search.cli.rebuildIndex.clearingIndex">Effacer l'index</message>
+	<message key="search.cli.rebuildIndex.done">terminé</message>
+	<message key="search.cli.rebuildIndex.error">erreur</message>
+	<message key="search.cli.rebuildIndex.indexing">Indexation "{$journalName}"</message>
+	<message key="search.cli.rebuildIndex.indexingByJournalNotSupported">L'exécution de cette recherche ne permet pas la réindexation par revue.</message>
+	<message key="search.cli.rebuildIndex.result">{$numIndexed} articles indexés</message>
+	<message key="search.cli.rebuildIndex.unknownJournal">L'adresse de revue donné : "{$journalPath}" n'a pu mener à une revue.</message>
+	<message key="search.deleteFilter">Supprimer</message>
+	<message key="search.indexTermsLong">index term fields</message>
+	<message key="common.notice">Notice</message>
+	<message key="common.metric">Mesure</message>
+	<message key="common.count">Compte</message>
+	<message key="defaultMetric.title">Mesure par défaut</message>
+	<message key="defaultMetric.availableMetrics">Mesures disponibles</message>
 </locale>

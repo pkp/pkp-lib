@@ -124,4 +124,5 @@
 	<message key="user.accountInformation">Hesap Bilgisi</message>
 	<message key="user.profile.form.passwordSameAsOld">Yeni şifreniz eski şifrenizle aynıdır.</message>
 	<message key="user.profile.form.hashInvalid">Sıfırlama için verdiğiniz şifre karması geçerli değil.</message>
+	<message key="user.login.changePasswordInstructionsOneStep"><![CDATA[Bu siteye giriş yapmadan önce yeni bir şifre belirlemelisiniz. <br /><br />Hesap şifrenizi değiştirmek için lütfen kullanıcı adınızı ve yeni hesap şifrenizi aşağıya giriniz.]]></message>
 </locale>

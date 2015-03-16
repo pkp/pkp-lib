@@ -127,4 +127,5 @@
 	<message key="user.profile.form.usergroupRequired">Een gebruikersgroep is verplicht.</message>
 	<message key="user.authorization.pressManagerRequired">Een gebruiker met de rol Perscontact  (zoals Pers of Productieredacteur) moet aan dit stadium toegekend zijn voor u verder kunt gaan.</message>
 	<message key="user.profile.form.hashInvalid">De hash voor het terugzetten van het wachtwoord die u probeerde te gebruiken is niet geldig.</message>
+	<message key="user.login.changePasswordInstructionsOneStep"><![CDATA[U moet een nieuw wachtwoord kiezen voor u in kunt loggen.<br /><br />Geef uw gebruikersnaam en wachtwoord om uw wachtwoord te kunnen veranderen.]]></message>
 </locale>

@@ -180,4 +180,5 @@
 	<message key="rt.version.title">Název</message>
 	<message key="rt.version">Verze</message>
 	<message key="rt.viewMetadata">Metadata pro indexaci</message>
+	<message key="rt.admin.settings.viewReviewPolicy">Zobrazit zásady recenzí</message>
 </locale>

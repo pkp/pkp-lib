@@ -40,7 +40,6 @@
 	<message key="user.login.forgotPassword">Ξεχάσατε τον προσωπικό σας Κωδικό Πρόσβασης;</message>
 	<message key="user.login.loginError">Μη έγκυρο Όνομα Χρήστη ή Κωδικος Πρόσβασης. Παρακαλούμε προσπαθήστε  ξανά.</message>
 	<message key="user.login">Συνδεθείτε</message>
-	<message key="user.logIn">Συνδεθείτε</message>
 	<message key="user.login.lostPassword.confirmationSent">Ένα μήνυμα επιβεβαίωσης έχει σταλεί στο email σας. Παρακαλούμε ακολουθήστε τις οδηγίες του μηνύματος για να αλλάξετε τον προσωπικό σας κωδικό πρόσβασης.</message>
 	<message key="user.login.lostPassword.invalidHash">Η  σύνδεση που επιλέξατε έχει λήξει ή δεν είναι έγκυρη. Σας παρακαλούμε προσπαθήστε να αλλάξετε τον προσωπικό σας κωδικό πρόσβασης ξανά.</message>
 	<message key="user.login.lostPassword.invalidUser">Κανένας χρήστης δεν υπάρχει με το συγκεκριμένο email.</message>
@@ -116,4 +115,16 @@
 	<message key="user.repeatPassword">Επανάληψη Κωδικού</message>
 	<message key="user.profile.form.affiliationRequired">Θα πρέπει να δηλώσετε την σχέση σας με έναν φορέα/οργανισμό/ίδρυμα.</message>
 	<message key="user.register.form.emailsDoNotMatch">Τα πεδία διευθύνσεων του email δεν ταιριάζουν.</message>
+	<message key="user.accountInformation">Πληροφορίες Λογαριασμού</message>
+	<message key="user.authorization.pressManagerRequired">Ένας χρήστης με ρόλο Διαχειριστή Έκδοσης (π.χ. Επιμελητής Έκδοσης ή Παραγωγής) θα πρέπει να δημιουργηθεί πριν προχωρήσετε</message>
+	<message key="user.interests.description">(Διαχωρίστε τα ενδιαφέροντα πατώντας enter ή κόμμα</message>
+	<message key="user.group">Ομάδα Χρηστών</message>
+	<message key="user.hello">Γειά σας</message>
+	<message key="user.profile.form.countryRequired">Απαιτείται η χώρα</message>
+	<message key="user.profile.form.mailingAddressRequired">Απαιτείται μια διεύθυνση ηλεκτρονικού ταχυδρομείου</message>
+	<message key="user.profile.form.passwordSameAsOld">Το νέο σας password είναι το ίδιο με το παλιό</message>
+	<message key="user.profile.form.usergroupRequired">Απαιτείται μια ομάδα χρηστών</message>
+	<message key="user.suffix">Suffix</message>
+	<message key="user.profile.form.hashInvalid">Το hash επαναφοράς κωδικού πρόσβασης που προσπαθήσατε να χρησιμοποιήσετε δεν είναι έγκυρο.</message>
+	<message key="user.login.changePasswordInstructionsOneStep"><![CDATA[Μπορείτε να επιλέξετε ένα νέο κωδικό πρόσβασης για να μπορέσετε να συνδεθείτε σε αυτόν τον ιστότοπο. <br /> <br /> Παρακαλώ εισάγετε το όνομα χρήστη σας και τον νέο κωδικό πρόσβασης σας παρακάτω, για να αλλάξετε τον κωδικό πρόσβασης για το λογαριασμό σας.]]></message>
 </locale>

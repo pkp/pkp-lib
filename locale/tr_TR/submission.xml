@@ -20,7 +20,7 @@
 	<message key="metadata.filters.crossref.settings.email.validationMessage">Lütfen geçerli bir CrossRef e-postas adresi kaydediniz. E-postanızı CrossRef web sayfasında ücretsiz olarak kayıt edebilirsiniz.</message>
 	<message key="metadata.filters.isbndb.settings.apiKey.displayName">ISBNdb API Anahtarı</message>
 	<message key="metadata.filters.isbndb.settings.apiKey.validationMessage">Lütfen ISBNdb API anahtarınız giriniz. Henüz bir anahtarınız yok ise ISBNdb projesinden ücretsiz olarak talep edebilirsiniz.</message>
-	<message key="metadata.filters.pubmed.settings.email.displayName">PubMed kayıt e-postası</message>
+	<message key="metadata.filters.pubmed.settings.email.displayName">PubMed Kayıt e-Postası</message>
 	<message key="metadata.filters.pubmed.settings.email.validationMessage">Eğer varsa geçerli bir PubMed kayıt e-postası giriniz.</message>
 	<message key="metadata.filters.worldcat.settings.apiKey.displayName">WorldCat API Anahtarı</message>
 	<message key="metadata.filters.worldcat.settings.apiKey.validationMessage">Eğer varsa geçerli bir WorldCat API anahtarı giriniz.</message>

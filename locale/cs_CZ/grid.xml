@@ -33,9 +33,6 @@
 	<message key="grid.sponsor.title">Sponzoři</message>
 
 	<!-- Masthead Grid -->
-	<message key="grid.masthead.title">Tiráž</message>
-	<message key="grid.masthead.column.groups">Skupiny</message>
-
 	<!-- Contributor Grid -->
 	<message key="grid.contributor.title">Spolupracovník</message>
 
@@ -43,26 +40,7 @@
 	<message key="grid.reviewForm.title">Recenzní formuláře</message>
 
 	<!-- Book File Types Grid -->
-  <message key="grid.bookFileType.form.sortable">Povolit třídění souborů dle jednotlivých položek (např. dle kapitol)</message>
-
 	<!-- Artwork Files Grid -->
-	<message key="grid.artworkFile.title">Grafické dílo včetně oprávnění k jeho užití</message>
-	<message key="grid.artworkFile.file">Soubor</message>
-	<message key="grid.artworkFile.form.title">Vložit grafické dílo včetně oprávnění k jeho užití</message>
-	<message key="grid.artworkFile.form.metadata">Metadata ke grafickému dílu</message>
-	<message key="grid.artworkFile.caption">Titulek</message>
-	<message key="grid.artworkFile.credit">Autor</message>
-	<message key="grid.artworkFile.copyrightOwner">Vlastník autorských práv</message>
-	<message key="grid.artworkFile.copyrightContact">Kontaktní informace (nejedná-li se o autora nebo vydavatele)</message>
-	<message key="grid.artworkFile.permissionTerms">Podmínky oprávnění k užití díla</message>
-	<message key="grid.artworkFile.permissionForm">Formulář oprávnění k užití díla</message>
-	<message key="grid.artworkFile.type">Typ</message>
-	<message key="grid.artworkFile.type.table">Tabulka</message>
-	<message key="grid.artworkFile.type.figure">Obrázek</message>
-	<message key="grid.artworkFile.placement">Umístění v knize</message>
-	<message key="grid.artworkFile.placementDetail">Tabulka/Obr. č.</message>
-	<message key="grid.artworkFile.contactAuthor">Kontaktovat autora</message>
-
 	<!-- Library Files -->
 	<message key="grid.libraryFiles.column.files">Soubory</message>
 	<message key="grid.libraryFiles.submission.title">Knihovna příspěvků</message>
@@ -82,5 +60,138 @@
 	<message key="author.users.contributor.principalContact">Hlavní kontakt</message>
 
 	<!-- Chapters -->
-	<message key="grid.chapters.title">Kapitoly</message>
+	<message key="grid.action.addUser">Přidat uživatele</message>
+	<message key="grid.action.deleteFile">Smazat soubor</message>
+	<message key="grid.action.deleteMedia">Smazat média</message>
+	<message key="grid.action.editMedia">Editovat média</message>
+	<message key="grid.action.remove">Odebrat</message>
+	<message key="grid.action.approve">Schválit</message>
+	<message key="grid.action.moreInformation">Více informací</message>
+	<message key="grid.action.addAuthor">Přidat autora</message>
+	<message key="grid.action.editAuthor">Editovat autora</message>
+	<message key="grid.action.deleteAuthor">Smazat autora</message>
+	<message key="grid.action.addAuditor">Přidat auditora</message>
+	<message key="grid.action.upgrade">Aktualizovat</message>
+	<message key="grid.action.order">Objednat</message>
+	<message key="grid.action.cancelOrdering">Zrušit objednávku</message>
+	<message key="grid.action.extendAll">Vše rozbalit</message>
+	<message key="grid.action.collapse">Sbalit</message>
+	<message key="grid.action.collapseAll">Sbalit vše</message>
+	<message key="grid.action.wizard">Pomocník pro nastavení</message>
+	<message key="grid.action.moveItem">Přesunout položku</message>
+	<message key="grid.action.downloadAll">Stáhnout všechny soubory v archivu</message>
+	<message key="grid.action.readReview">Čtěte tuto recenzi</message>
+	<message key="grid.action.email">Poslat e-mail</message>
+	<message key="grid.action.addReviewer">Přidat recenzenta</message>
+	<message key="grid.action.addFile">Přidat soubor</message>
+	<message key="grid.action.editFile">Editovat soubor</message>
+	<message key="grid.action.selectFiles">Zvolte soubor, které chcete používat</message>
+	<message key="grid.action.requestRevisions">Požadovat recenze pro tento příspěvek</message>
+	<message key="grid.action.resubmit">Požadovat, aby byl tento příspěvek znovu vložen</message>
+	<message key="grid.action.accept">Přijmout tento příspěvek</message>
+	<message key="grid.action.decline">Odmítnout tento příspěvek</message>
+	<message key="grid.action.internalReview">Poslat tento příspěvek k interní recenzi</message>
+	<message key="grid.action.externalReview">Poslat tento příspěvek k externí recenzi</message>
+	<message key="grid.action.sendToProduction">Poslat tento příspěvek k dalšímu zpracování</message>
+	<message key="grid.action.settings">Nastavení</message>
+	<message key="grid.action.importexport">Importovat či exportovat data tohoto místa</message>
+	<message key="grid.action.orderItems">Povolit mód řazení</message>
+	<message key="grid.action.editSubmissionChecklist">Editovat položku tohoto kontrolního seznamu</message>
+	<message key="grid.action.deleteSubmissionChecklist">Smazat tuto položku kontrolního seznamu</message>
+	<message key="grid.action.resetAll">Resetovat všechny položky na původní hodnoty</message>
+	<message key="grid.action.addPreparedEmail">Přidat novou šablonu e-mailu</message>
+	<message key="grid.action.editPreparedEmail">Editovat tuto šablonu e-mailu</message>
+	<message key="grid.action.disableEmail">Zakázat tuto šablonu e-mailu</message>
+	<message key="grid.action.resetEmail">Resetovat všechny šablony e-mailů na původní hodnoty.</message>
+	<message key="grid.action.addSignoff">Připojte reakci auditu pro tento soubor</message>
+	<message key="grid.action.deleteSignoff">Smažte toto schválení</message>
+	<message key="grid.action.fileSignoff">Schvalte tento soubor</message>
+	<message key="grid.action.readSignoff">Čtěte toto schválení</message>
+	<message key="grid.action.expandAll">Rozbalit vše</message>
+	<message key="grid.action.requestAccount">Přidat účastníka</message>
+	<message key="grid.action.expand">Rozbalit</message>
+	<message key="grid.action.notify">Upozornit tohoto uživatele</message>
+	<message key="grid.action.addUserGroup">Přidat novou skupinu uživatelů</message>
+	<message key="grid.action.editUserGroup">Editovat tuto skupinu uživatelů</message>
+	<message key="grid.action.disable">Zakázat</message>
+	<message key="grid.action.details">Zobrazit tuto položku</message>
+	<message key="grid.action.enrolExisting">Odebrat tomuto uživateli roli recenzenta</message>
+	<message key="grid.action.selectCreate">Vytvořit nového recenzenta</message>
+	<message key="grid.action.advancedSearch">Pokročilé vyhledávání</message>
+	<message key="grid.action.viewMetadata">Zobrazit metadata tohoto příspěvku</message>
+	<message key="grid.action.sendReminder">Poslat tomuto uživateli připomenutí</message>
+	<message key="grid.action.newRound">Vytovřit nové kolo</message>
+	<message key="grid.action.viewReviewGuidelines">Prohlédnout si pokyni pro recenzenty</message>
+	<message key="grid.action.viewCompetingInterestGuidelines">Prohlédnout si zásady střetu zájmů</message>
+	<message key="grid.action.thankReviewer">Poslat zprávu s poděkováním tomuto recenzentovi</message>
+	<message key="grid.action.uploadFile">Nahrát soubor</message>
+	<message key="grid.action.addAnnouncementType">Přidat typ oznámení</message>
+	<message key="grid.action.addAnnouncement">Přidat oznámení</message>
+	<message key="grid.action.mergeUser">Sloučit uživatele</message>
+	<message key="grid.action.unassignUser">Odebrat roli uživateli</message>
+	<message key="grid.action.history">Zobrazit historii</message>
+	<message key="grid.action.unconsiderReview">Tato recenze je hotová, můžete ale změnit zpět její stav.</message>
+	<message key="grid.task.status.completed">Úloha byla ukončena</message>
+	<message key="grid.task.status.new">Toto je nová položka a vyžaduje pozornot</message>
+	<message key="grid.task.status.uploaded">Název sloupce ukazuje, kdo nahrál tento soubor</message>
+	<message key="grid.task.status.unfinished">Úloha není ukončená</message>
+	<message key="grid.task.status.reviewReady">Tato recenze je hotová. Kliknutím na ikonu poznámky vlevo si ji můžete přečíst.</message>
+	<message key="grid.columns.auditor">Auditor</message>
+	<message key="grid.columns.locale">Jazyková lokalizace</message>
+	<message key="grid.action.addSponsor">Přidat sponzora</message>
+	<message key="grid.action.deleteSponsor">Smazat sponzora</message>
+	<message key="grid.action.editSponsor">Editovat sponzora</message>
+	<message key="grid.action.addSeries">Přidat řadu</message>
+	<message key="grid.action.editSeries">Editovat řadu</message>
+	<message key="grid.action.deleteSeries">Smazat řadu</message>
+	<message key="grid.action.addCategory">Přidat kategorii</message>
+	<message key="grid.action.editCategory">Editovat kategorii</message>
+	<message key="grid.action.deleteCategory">Smazat kategorii</message>
+	<message key="grid.action.addContributor">Přidat přispěvatele</message>
+	<message key="grid.action.editContributor">Editovat přispěvatele</message>
+	<message key="grid.action.deleteContributor">Smazat přispěvatele</message>
+	<message key="grid.genres.title">Žánry</message>
+	<message key="grid.genres.description">Tyto žánry jsou používány pro pojmenovávání souborů a jsou zobrazovány v rozbalovacím menu při nahrávání souborů. Žánr označení # # umožňuje uživatel přiřadit soubor buď celé knize 99Z, či určité kapitole dle čísla (např. 02)</message>
+	<message key="grid.noFiles">Žádné soubory</message>
+	<message key="grid.roles.currentRoles">Současné role</message>
+	<message key="grid.roles.add">Vytvořit novou roli</message>
+	<message key="grid.roles.stageAssignment">Přiřazení etapy</message>
+	<message key="grid.user.currentUsers">Současní uživatelé</message>
+	<message key="grid.user.currentEnrollment">Současné role</message>
+	<message key="grid.user.allRoles">Všechny role</message>
+	<message key="grid.user.add">Přidat uživatele</message>
+	<message key="grid.user.enroll">Přidat uživateli roli</message>
+	<message key="grid.user.edit">Editovat uživatele</message>
+	<message key="grid.user.email">E-mail</message>
+	<message key="grid.user.enable">Povolit</message>
+	<message key="grid.user.disable">Zakázat</message>
+	<message key="grid.user.disableReason">Důvod zakázu uživatele</message>
+	<message key="grid.user.enableReason">Důvod povolení uživatele</message>
+	<message key="grid.user.error">Při administraci tohoto uživatele vznikla chyba. Zkuste to, prosím, ještě jednou.</message>
+	<message key="grid.user.errorEmail">Při posílání tohoto e-mailu došlo k chybě. Ujistěte se, prosím, že nastavení vašeho e-mailového serveru je správné a/nebo kontaktujte vašeho systémového administrátora.</message>
+	<message key="grid.user.cannotAdminister">Nemáte dostatečná práva k editování tohoto uživatele.</message>
+	<message key="grid.user.authSource">Zdroje ověřování</message>
+	<message key="grid.user.mustProvideName">Vložte nejprve alespoň příjmení uživatele.</message>
+	<message key="grid.user.generatePassword">Vytvořit heslo</message>
+	<message key="grid.user.generatePasswordDescription">Vytvořit pro tohoto uživatele náhodné heslo.</message>
+	<message key="grid.user.notifyUser">Upozornit uživatele.</message>
+	<message key="grid.user.notifyUserDescription">Poslat uživateli uvítací e-mail.</message>
+	<message key="grid.user.mustChangePassword">Změnit heslo</message>
+	<message key="grid.user.mustChangePasswordDescription">Uživatel si musí změnit heslo při prvním přihlášení.</message>
+	<message key="grid.user.mustChangePasswordDescriptionOld">Požadovat, aby si uživatel změnil heslo při dalším přihlášení.</message>
+	<message key="grid.user.moreDetails">Více detailů o tomto uživateli</message>
+	<message key="grid.user.lessDetails">Méně uživatelských detailů</message>
+	<message key="grid.user.userDetails">Detail uživatele</message>
+	<message key="grid.user.userRoles">Role uživatele</message>
+	<message key="grid.user.userNoRoles">Tento uživatel nemá zatím žádné role.</message>
+	<message key="grid.user.step1">Krok 1: Zadejte detaily o uživateli</message>
+	<message key="grid.user.step2">Krok 2: Přidejte uživatelské role pro {$userFullName}</message>
+	<message key="grid.user.addRoles">Přidat role</message>
+	<message key="grid.user.selectUser">Vybrat uživatele</message>
+	<message key="grid.user.pleaseSelectUser">Zvolte, prosím, uživatele</message>
+	<message key="grid.preparedEmails.title">Připravené šablony e-mailů</message>
+	<message key="grid.preparedEmails.description">Proces příprava příspěvku do tisku používá v pracovním procesu různé předpřipravené e-maily. Standardní znění těchto e-mailů lze lehce upravit.</message>
+	<message key="grid.preparedEmails.currentList">Současný seznam</message>
+	<message key="grid.plugin.allCategories">Všechny kategorie</message>
+	<message key="grid.plugin.disable">Jste si jisti, že chcete zakázat tento plugin?</message>
 </locale>

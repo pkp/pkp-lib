@@ -360,4 +360,19 @@
 	<message key="submission.citations.editor.details.citationServices">Servicii pentru referințe bibliografice</message>
 	<message key="submission.citations.editor.details.googleScholar">Google Scholar</message>
 	<message key="submission.citations.editor.details.manualEditing">Redactare manuală</message>
+	<message key="metadata.property.displayName.title-type">Tip de titlu</message>
+	<message key="metadata.property.displayName.title">Titlu</message>
+	<message key="metadata.property.displayName.subTitle">Legendă</message>
+	<message key="metadata.property.validationMessage.subTitle">Introdu o legendă validă.</message>
+	<message key="metadata.property.displayName.partNumber">Numărul părții</message>
+	<message key="metadata.property.displayName.partName">Numărul părții</message>
+	<message key="metadata.property.validationMessage.partName">Introdu un nume valid de parte.</message>
+	<message key="metadata.property.displayName.name-type">Nume de tip</message>
+	<message key="submission.addFile">Încarcă fișier</message>
+	<message key="submission.citations.editor.citationlist.approved">Aprobat</message>
+	<message key="submission.citations.editor.citationlist.notApproved">Neaprobat</message>
+	<message key="submission.reviewed">Evaluat</message>
+	<message key="submission.supportingAgencies">Agenții care sprijină</message>
+	<message key="submission.form.name">Introdu un nume relevant pentru fișier</message>
+	<message key="submission.form.replaceExisting">Înlocuiești un fișier existent?</message>
 </locale>

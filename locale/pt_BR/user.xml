@@ -126,4 +126,5 @@
 	<message key="user.profile.form.usergroupRequired">Um grupo de usuários é obrigatório.</message>
 	<message key="user.suffix">Sufixo</message>
 	<message key="user.profile.form.hashInvalid">O codigo de redefinição de senha que você usou é inválido.</message>
+	<message key="user.login.changePasswordInstructionsOneStep"><![CDATA[Você deve escolher uma nova senha para poder entrar neste site. <br /> <br /> Por favor, insira seu nome de usuário e sua nova senha abaixo para alterar a senha de sua conta.]]></message>
 </locale>

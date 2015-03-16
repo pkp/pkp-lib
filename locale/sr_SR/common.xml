@@ -372,4 +372,14 @@
 	<message key="navigation.submissions">Predaja</message>
 	<message key="navigation.system">Sistem</message>
 	<message key="navigation.userManagement">Menadžment korisnika</message>
+	<message key="common.error">Greška</message>
+	<message key="common.notice">Napomena</message>
+	<message key="search.activeFilters">Napredni filteri</message>
+	<message key="search.advancedSearchMore">Dodatne opcije pretrage (prikaži)</message>
+	<message key="search.advancedSearchLess">Dodatne opcije pretrage (sakrij)</message>
+	<message key="search.cli.rebuildIndex.done">gotovo</message>
+	<message key="search.cli.rebuildIndex.error">greška</message>
+	<message key="search.cli.rebuildIndex.indexing">Indeksiranje "{$journalName}"</message>
+	<message key="search.cli.rebuildIndex.result">{$numIndexed} članaka indeksirano</message>
+	<message key="search.deleteFilter">Obriši</message>
 </locale>

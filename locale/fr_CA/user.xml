@@ -126,4 +126,6 @@
 	<message key="user.profile.form.passwordSameAsOld">Votre nouveau mot de passe est identique à l'ancien.</message>
 	<message key="user.profile.form.usergroupRequired">Groupe d'utilisateurs requis.</message>
 	<message key="user.suffix">Suffixe</message>
+	<message key="user.profile.form.hashInvalid">La réinitialisation cryptée du mot de passe que vous avez tenté d'effectuer n'est pas valide.</message>
+	<message key="user.login.changePasswordInstructionsOneStep"><![CDATA[Vous devez choisir un nouveau mot de passe avant de pouvoir vous connecter à ce site.<br /><br />Veuillez entrer votre nom d'utilisateur et votre nouveau mot de passe ci-dessous pour changer le mot de passe de votre compte.]]></message>
 </locale>

@@ -45,7 +45,6 @@
 	<message key="user.login.forgotPassword">Zapomenuté heslo?</message>
 	<message key="user.login.loginError">Neplatné uživatelské jméno nebo heslo. Zkuste to prosím znovu.</message>
 	<message key="user.login">Přihlášení</message>
-	<message key="user.logIn">Přihlásit</message>
 	<message key="user.login.lostPassword.confirmationSent">Na Vaši emailovou adresu bylo odesláno potvrzení. Následujte prosím instrukce pro resetování Vašeho hesla uvedené v emailu.</message>
 	<message key="user.login.lostPassword.invalidHash">Promiňte, odkaz, na který jste kliknul, vypršel nebo není platný. Pokuste se prosím znovu resetovat heslo.</message>
 	<message key="user.login.lostPassword.invalidUser">Neexistuje žádný uživatel s uvedenou emailovou adresou.</message>
@@ -107,4 +106,27 @@
 	<message key="user.username">Uživatelské jméno</message>
 	<message key="user.workingLanguages">Pracovní jazyky</message>
 	<message key="user.register.completeForm">Pro zaregistrování do tohoto systému vyplňte tento formulář.</message>
+	<message key="user.accountInformation">Informace o účtu</message>
+	<message key="user.authorization.accessDenied">Přístup je zakázán.</message>
+	<message key="user.authorization.processAuthenticationTokenRequired">Ověřovací token procesu chybí či je neplatný.</message>
+	<message key="user.authorization.contextRequired">Tuto operaci nemůžete volat bez obsahu (tisk, časopis, konference atd.)</message>
+	<message key="user.authorization.loginRequired">Je vyžadováno přihlášení</message>
+	<message key="user.authorization.privateOperation">Operace, kterou jste se snažili použít je buď soukromá, nebo neexistuje.</message>
+	<message key="user.authorization.restrictedSiteAccess">Máte zakázaný přístup. Přístup k tomuto místu je v současnousti omezený.</message>
+	<message key="user.authorization.roleBasedAccessDenied">Současná role neumožňuje přístup k této operaci</message>
+	<message key="user.authorization.userGroupRequired">K přístupu k této operaci musíte nastavit správnou uživatelskou skupinu.</message>
+	<message key="user.confirmEmail">Potrvdit e-mail</message>
+	<message key="user.group">Uživatelská skupina</message>
+	<message key="user.hello">Zdravíme,</message>
+	<message key="user.repeatPassword">Opakovat heslo</message>
+	<message key="user.profile.form.countryRequired">Je vyžadována země.</message>
+	<message key="user.profile.form.mailingAddressRequired">Je vyžadována e-mailová adresa.</message>
+	<message key="user.authorization.pressManagerRequired">Než bude moci pokračovat, musí mít některý uživatel přiřazenou rolí Tiskový manažer (např. tiskový či výrobní editor).</message>
+	<message key="user.interests.description">(Oddělte oblasti zájmu pomocí klávesy Enter, nebo čárkou)</message>
+	<message key="user.profile.form.hashInvalid">Reset heslo, které jste se snažili provést, není platný.</message>
+	<message key="user.login.changePasswordInstructionsOneStep"><![CDATA[Než se přihlásíte do tohoto místa, musíte si vybrat nové heslo.<br /><br />Vložte, prosím uživatelské jméno a nové heslo ke změně hesla k vašemu účtu.]]></message>
+	<message key="user.profile.form.passwordSameAsOld">Vaše nové heslo je stejné, jako bylo vaše staré heslo.</message>
+	<message key="user.profile.form.usergroupRequired">Je vyžadována uživatelská skupina.</message>
+	<message key="user.register.form.emailsDoNotMatch">Pole uživatelského e-mailu se neshodují.</message>
+	<message key="user.suffix">Suffix</message>
 </locale>

@@ -113,7 +113,6 @@
 	<message key="common.notAvailable">Non disponible</message>
 	<message key="common.note">Note</message>
 	<message key="common.notes">Notes</message>
-	<message key="common.notify">Aviser</message>
 	<message key="common.off">Arrêté</message>
 	<message key="common.on">Démarré</message>
 	<message key="common.options">Options</message>
@@ -261,10 +260,8 @@
 	<message key="search.operator.and">et</message>
 	<message key="search.operator.not">sauf</message>
 	<message key="search.operator.or">ou</message>
-	<message key="search.reviseSearch">Modifier la recherche</message>
 	<message key="search.searchAllCategories">Rechercher dans toutes les catégories pour</message>
 	<message key="search.searchCategories">Catégories de recherche</message>
-	<message key="search.searchResults">Résultats de recherche</message>
 	<message key="search.subject">Mot(s)-clé(s)</message>
 	<message key="search.titleIndex">Explorer l'index des titres</message>
 	<message key="search.title">Titre</message>
@@ -391,4 +388,5 @@
 	<message key="common.count">Décompte</message>
 	<message key="defaultMetric.title">Métrique (par défaut)</message>
 	<message key="defaultMetric.availableMetrics">Métriques</message>
+	<message key="common.notice">Avis</message>
 </locale>

@@ -15,7 +15,7 @@
 <locale name="tr_TR" full_name = "Türkçe">
 	<message key="admin.adminFunctions">Yönetsel İşlevler</message>
 	<message key="admin.auth.confirmDelete">Bu yetkilendirme kaynağını kalıcı olarak silmek istediğinizden emin misiniz?</message>
-	<message key="admin.auth.create">Yetkilendirme kaynağı yarat</message>
+	<message key="admin.auth.create">Yetkilendirme kaynağı oluştur</message>
 	<message key="admin.auth.noneCreated">Herhangi bir yetkilendirme kaynağı tanımlanmamış.</message>
 	<message key="admin.authSources">Yetkilendirme Kaynakları</message>
 	<message key="admin.clearDataCache">Önbellekteki Verileri Temizle</message>

@@ -126,4 +126,5 @@
 	<message key="user.profile.form.passwordSameAsOld">您的新密码同旧密码相同</message>
 	<message key="user.profile.form.usergroupRequired">要求用户群</message>
 	<message key="user.profile.form.hashInvalid">您尝试的密码哈希值无效</message>
+	<message key="user.login.changePasswordInstructionsOneStep"><![CDATA[登录到这个网站前请选择一个新密码。<br /> <br />请输入你的用户名和新密码更改您的帐户密码。]]></message>
 </locale>

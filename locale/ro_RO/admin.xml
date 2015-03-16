@@ -82,4 +82,20 @@
 	<message key="admin.version.updateAvailable">Este disponibilă o versiune actualizată</message>
 	<message key="admin.version.upToDate">Sistemul dumneavoastră este la zi</message>
 	<message key="admin.version">Versiune</message>
+	<message key="admin.scheduledTask">Activitate programată</message>
+	<message key="admin.scheduledTask.startTime">Proces pornit.</message>
+	<message key="admin.scheduledTask.stopTime">Proces oprit.</message>
+	<message key="admin.scheduledTask.noLog">Procesul nu aprodus fișiere jurnal.</message>
+	<message key="admin.scheduledTask.openAccessNotification">Notificări privind accesul deschis</message>
+	<message key="admin.scheduledTask.reviewReminder">Vezi mesajul de readucere aminte</message>
+	<message key="admin.scheduledTask.subscriptionExpiryReminder">Notificare privind exirarea abonamentului</message>
+	<message key="admin.settings">Setări</message>
+	<message key="admin.settings.oneStepReset">Traducere</message>
+	<message key="admin.settings.siteTheme">Tema siteului</message>
+	<message key="admin.siteSetup">Setarea siteului</message>
+	<message key="admin.fileLoader.wrongBasePathLocation">Traducere</message>
+	<message key="admin.fileLoader.pathNotAccessible">Calea {$path} nu este un director sau nu poate fi scris.</message>
+	<message key="admin.fileLoader.moveFileFailed">Fișierul {$filename} nu a putut fi mutat din {$currentFilePath} în {$destinationPath}</message>
+	<message key="admin.fileLoader.fileProcessed">Fișierul {$filename} a fost procesat și arhivat.</message>
+	<message key="admin.fileLoader">Încărcare fișier</message>
 </locale>

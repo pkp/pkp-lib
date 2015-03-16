@@ -13,5 +13,5 @@
 
 <locale name="fr_FR" full_name="Français">
 	<message key="plugins.citationOutput.mla.displayName">Style de citation MLA</message>
-	<message key="plugins.citationOutput.mla.description">Implante le style de citation MLA.</message>
+	<message key="plugins.citationOutput.mla.description">Applique le style de citation MLA.</message>
 </locale>

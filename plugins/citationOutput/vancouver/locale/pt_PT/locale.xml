@@ -2,16 +2,16 @@
 <!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
 
 <!--
-  * plugins/citationOutput/vancouver/locale/en_US/locale.xml
+  * plugins/citationOutput/vancouver/locale/pt_PT/locale.xml
   *
   * Copyright (c) 2013-2015 Simon Fraser University Library
   * Copyright (c) 2003-2015 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the en_US (U.S. English) locale.
+  * Localization strings for the pt_PT (Português) locale.
   -->
 
-<locale name="en_US" full_name="U.S. English">
+<locale name="pt_PT" full_name="Português">
 	<message key="plugins.citationOutput.vancouver.displayName">Vancouver Citation Style</message>
 	<message key="plugins.citationOutput.vancouver.description">Implements the Vancouver citation style.</message>
 </locale>

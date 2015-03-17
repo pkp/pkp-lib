@@ -12,6 +12,4 @@
   -->
 
 <locale name="pt_PT" full_name="Português">
-	<message key="plugins.citationParser.paracite.displayName">ParaCite Citation Extractor</message>
-	<message key="plugins.citationParser.paracite.description">Extracts fields from plain text citations via the ParaCite service.</message>
 </locale>

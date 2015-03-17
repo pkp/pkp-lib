@@ -12,6 +12,4 @@
   -->
 
 <locale name="pt_PT" full_name="Português">
-	<message key="plugins.citationParser.parscit.displayName">ParsCit Citation Extractor</message>
-	<message key="plugins.citationParser.parscit.description">Extracts fields from plain text citations via the ParsCit service.</message>
 </locale>

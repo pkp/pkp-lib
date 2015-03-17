@@ -12,6 +12,5 @@
   -->
 
 <locale name="pt_PT" full_name="Português">
-	<message key="plugins.citationLookup.worldcat.displayName">WorldCat Database Connector</message>
-	<message key="plugins.citationLookup.worldcat.description">Connects to the WorldCat bibliographic database.</message>
+
 </locale>

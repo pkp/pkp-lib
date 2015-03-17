@@ -12,6 +12,5 @@
   -->
 
 <locale name="pt_PT" full_name="Português">
-	<message key="plugins.citationParser.regex.displayName">Regular Expressions Citation Extractor</message>
-	<message key="plugins.citationParser.regex.description">Extracts fields from plain text citations via regular expressions.</message>
+
 </locale>

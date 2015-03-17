@@ -12,6 +12,5 @@
   -->
 
 <locale name="pt_PT" full_name="Português">
-	<message key="plugins.citationOutput.vancouver.displayName">Vancouver Citation Style</message>
-	<message key="plugins.citationOutput.vancouver.description">Implements the Vancouver citation style.</message>
+
 </locale>

@@ -12,6 +12,4 @@
   -->
 
 <locale name="pt_PT" full_name="Português">
-	<message key="plugins.metadata.openurl10.displayName">OpenURL 1.0 meta-data</message>
-	<message key="plugins.metadata.openurl10.description">Contributes OpenURL 1.0 schemas and application adapters.</message>
 </locale>

@@ -12,6 +12,5 @@
   -->
 
 <locale name="pt_PT" full_name="Português">
-	<message key="plugins.citationOutput.apa.displayName">APA Citation Style</message>
-	<message key="plugins.citationOutput.apa.description">Implements the APA citation style.</message>
+
 </locale>

@@ -12,6 +12,5 @@
   -->
 
 <locale name="pt_PT" full_name="Português">
-	<message key="plugins.citationOutput.abnt.displayName">ABNT Citation Style</message>
-	<message key="plugins.citationOutput.abnt.description">Implements the ABNT citation style.</message>
+
 </locale>

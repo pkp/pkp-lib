@@ -13,10 +13,4 @@
 
 <locale name="pt_PT" full_name="Português">
 	<!-- plug-in -->
-	<message key="plugins.metadata.mods34.displayName">MODS 3.4 meta-data</message>
-	<message key="plugins.metadata.mods34.description">Contributes MODS 3.4 schemas and application adapters.</message>
-
-	<!-- MODS 3.4 XML output -->
-	<message key="plugins.metadata.mods34.mods34XmlOutput.displayName">MODS 3.4 Output</message>
-	<message key="plugins.metadata.mods34.mods34XmlOutput.description">Convert a MODS 3.4 meta-data description to its XML binding.</message>
 </locale>

@@ -12,6 +12,4 @@
   -->
 
 <locale name="pt_PT" full_name="Português">
-	<message key="plugins.citationLookup.crossref.displayName">CrossRef Database Connector</message>
-	<message key="plugins.citationLookup.crossref.description">Connects to the CrossRef bibliographic database.</message>
 </locale>

@@ -13,12 +13,5 @@
 
 <locale name="pt_PT" full_name="Português">
 	<!-- plug-in -->
-	<message key="plugins.citationLookup.isbndb.displayName">ISBNdb Database Connector</message>
-	<message key="plugins.citationLookup.isbndb.description">Connects to the ISBNdb bibliographic database.</message>
 
-	<!-- ISBN lookup and extraction services -->
-	<message key="plugins.citationLookup.isbndbExtraction.displayName">ISBN extraction service</message>
-	<message key="plugins.citationLookup.isbndbExtraction.description">Find an ISBN for a given NLM 3.0 element-citation description.</message>
-	<message key="plugins.citationLookup.isbndbLookup.displayName">ISBN lookup service</message>
-	<message key="plugins.citationLookup.isbndbLookup.description">Look up a full NLM 3.0 element-citation description with a given ISBN.</message>
 </locale>

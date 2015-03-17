@@ -8,13 +8,13 @@
   * Copyright (c) 2000-2015 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the cs_CZ (Czech) locale.
+  * Localization strings for the cs_CZ (Čeština) locale.
   * Translated by František Chmelik, frantisek.chmelik 'at' upol.cz
   * Corrections, migration to the OCS 2.3.x by Ivo Vesely and Petr Petyovsky (petyovsky 'at' feec.vutbr.cz)
   *
   -->
 
-<locale name="cs_CZ" full_name = "Čeština">
+<locale name="cs_CZ" full_name="Čeština">
 	<message key="user.affiliation">Pracoviště</message>
 	<message key="user.affiliation.description">(Vaše instituce, např. "Simon Fraser University")</message>
 	<message key="user.affiliations">Pracoviště</message>

@@ -2,16 +2,14 @@
 <!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
 
 <!--
-  * plugins/citationParser/paracite/locale/en_US/locale.xml
+  * plugins/citationParser/paracite/locale/pt_PT/locale.xml
   *
   * Copyright (c) 2013-2015 Simon Fraser University Library
   * Copyright (c) 2003-2015 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the en_US (U.S. English) locale.
+  * Localization strings for the pt_PT (Português) locale.
   -->
 
-<locale name="en_US" full_name="U.S. English">
-	<message key="plugins.citationParser.paracite.displayName">ParaCite Citation Extractor</message>
-	<message key="plugins.citationParser.paracite.description">Extracts fields from plain text citations via the ParaCite service.</message>
+<locale name="pt_PT" full_name="Português">
 </locale>

@@ -7,11 +7,9 @@
   * Copyright (c) 2013-2015 Simon Fraser University Library
   * Copyright (c) 2000-2015 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
-  *
-  * Localization strings for the cs_CZ (Czech) locale.
+  * Localization strings for the cs_CZ (Čeština) locale.
   * Translated by František Chmelik, frantisek.chmelik 'at' upol.cz
   * Corrections, migration to the OCS 2.3.x by Ivo Vesely and Petr Petyovsky (petyovsky 'at' feec.vutbr.cz)
-  *
   -->
 
 <locale name="cs_CZ" full_name="Čeština">
@@ -73,6 +71,7 @@
 	<message key="rt.admin.searches.edit.editSearch">Upravit vyhledávání</message>
 	<message key="rt.admin.selectedVersion">Související položky</message>
 	<message key="rt.admin.settings.abstract">Abstrakt (představuje abstrakt položky).</message>
+	<message key="rt.admin.settings.viewReviewPolicy">Zobrazit zásady recenzí</message>
 	<message key="rt.admin.settings.authorBio">O autorovi (zobrazí biografické údaje, které o sobě poskytl autor).</message>
 	<message key="rt.admin.settings.captureCite">Jak citovat položku (poskytuje bibliografické podrobnosti pro položku).</message>
 	<message key="rt.admin.settings.defineTerms">Vyhledat pojmy (umožňuje čtenáři odeslat dvojklikem jakékoliv slovo v položce do slovníku).</message>
@@ -180,5 +179,4 @@
 	<message key="rt.version.title">Název</message>
 	<message key="rt.version">Verze</message>
 	<message key="rt.viewMetadata">Metadata pro indexaci</message>
-	<message key="rt.admin.settings.viewReviewPolicy">Zobrazit zásady recenzí</message>
 </locale>

@@ -14,7 +14,7 @@
   *
   -->
 
-<locale name="cs_CZ" full_name = "Čeština">
+<locale name="cs_CZ" full_name="Čeština">
 	<message key="installer.additionalLocales">Doplňkové lokalizace</message>
 	<message key="installer.administratorAccount">Účet administrátora</message>
 	<message key="installer.administratorAccountInstructions">Tento uživatelský účet se stane administrátorem stránek a bude mít kompletní přístup do systému. Další uživatelské účty mohou být vytvořeny po instalaci.</message>

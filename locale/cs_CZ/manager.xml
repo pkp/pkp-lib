@@ -14,7 +14,7 @@
   *
   -->
 
-<locale name="cs_CZ" full_name = "Čeština">
+<locale name="cs_CZ" full_name="Čeština">
 	<message key="manager.announcements">Oznámení</message>
 	<message key="manager.announcements.confirmDelete">Jste si jistý, že chcete trvale odstranit toto oznámení?</message>
 	<message key="manager.announcements.create">Vytvořit nové oznámení</message>

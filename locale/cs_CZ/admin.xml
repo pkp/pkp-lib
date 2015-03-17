@@ -14,7 +14,7 @@
   *
   -->
 
-<locale name="cs_CZ" full_name = "Čeština">
+<locale name="cs_CZ" full_name="Čeština">
 	<message key="admin.adminFunctions">Administrátorské funkce</message>
 	<message key="admin.auth.confirmDelete">Jste si jistý, že chcete trvale odstranit tento zdroj ověření?</message>
 	<message key="admin.auth.create">Vytvořit zdroj ověření</message>

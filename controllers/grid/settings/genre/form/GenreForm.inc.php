@@ -74,7 +74,7 @@ class GenreForm extends Form {
 			);
 		} else {
 			$this->_data = array(
-				'name' => '',
+				'name' => array(),
 				'designation' => ''
 			);
 		}

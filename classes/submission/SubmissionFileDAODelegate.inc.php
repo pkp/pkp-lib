@@ -16,6 +16,7 @@
  */
 
 import('lib.pkp.classes.db.DAO');
+import('lib.pkp.classes.submission.SubmissionFile');
 
 class SubmissionFileDAODelegate extends DAO {
 	/**
@@ -275,7 +276,7 @@ class SubmissionFileDAODelegate extends DAO {
 	 * @return SubmissionFile
 	 */
 	function newDataObject() {
-		assert(false);
+		return new SubmissionFile();
 	}
 
 

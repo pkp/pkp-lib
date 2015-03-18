@@ -368,13 +368,13 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 	 * @param $request PKPRequest
 	 * @param $notificationTypes array The type(s) of the notification(s) to
 	 * be updated.
-	 * @param $userIds array The notification user(s) id(s).
-	 * @param $assocType int The notification associated object type.
+	 * @param $userIds array|null The notification user(s) id(s), or null for all.
+	 * @param $assocType int ASSOC_TYPE_... The notification associated object type.
 	 * @param $assocId int The notification associated object id.
 	 * @return mixed Return false if no operation is executed or the last operation
 	 * returned value.
 	 */
-	final public function updateNotification($request, $notificationTypes = array(), $userIds = array(), $assocType, $assocId) {
+	final public function updateNotification($request, $notificationTypes, $userIds, $assocType, $assocId) {
 		$returner = false;
 		foreach ($notificationTypes as $type) {
 			$managerDelegate = $this->getMgrDelegate($type, $assocType, $assocId);

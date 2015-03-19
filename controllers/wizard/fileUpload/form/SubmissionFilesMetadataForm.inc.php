@@ -32,15 +32,15 @@ class SubmissionFilesMetadataForm extends Form {
 	 * @param $stageId integer One of the WORKFLOW_STAGE_ID_* constants.
 	 * @param $reviewRound ReviewRound (optional) Current review round, if any.
 	 */
-	function SubmissionFilesMetadataForm(&$submissionFile, $stageId, $reviewRound = null) {
+	function SubmissionFilesMetadataForm($submissionFile, $stageId, $reviewRound = null) {
 		parent::Form('controllers/wizard/fileUpload/form/metadataForm.tpl');
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
 
 		// Initialize the object.
-		$this->_submissionFile =& $submissionFile;
+		$this->_submissionFile = $submissionFile;
 		$this->_stageId = $stageId;
 		if (is_a($reviewRound, 'ReviewRound')) {
-			$this->_reviewRound =& $reviewRound;
+			$this->_reviewRound = $reviewRound;
 		}
 
 		// Add validation checks.

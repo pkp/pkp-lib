@@ -525,6 +525,7 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 	function getDelegateClassNames() {
 		return array(
 			'submissionfile' => 'lib.pkp.classes.submission.SubmissionFileDAODelegate',
+			'submissionartworkfile' => 'lib.pkp.classes.submission.SubmissionArtworkFileDAODelegate',
 		);
 	}
 
@@ -538,6 +539,7 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 	function getGenreCategoryMapping() {
 		return array(
 			GENRE_CATEGORY_DOCUMENT => 'submissionfile',
+			GENRE_CATEGORY_ARTWORK => 'submissionartworkfile',
 		);
 	}
 

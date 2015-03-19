@@ -389,31 +389,6 @@ abstract class Submission extends DataObject {
 	}
 
 	/**
-	 * Get user ID of the submitter.
-	 * @return int
-	 */
-	function getUserId() {
-		return $this->getData('userId');
-	}
-
-	/**
-	 * Set user ID of the submitter.
-	 * @param $userId int
-	 */
-	function setUserId($userId) {
-		return $this->setData('userId', $userId);
-	}
-
-	/**
-	 * Return the user of the submitter.
-	 * @return User
-	 */
-	function getUser() {
-		$userDao = DAORegistry::getDAO('UserDAO');
-		return $userDao->getById($this->getUserId(), true);
-	}
-
-	/**
 	 * Get the locale of the submission.
 	 * @return string
 	 */

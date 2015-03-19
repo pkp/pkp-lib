@@ -52,8 +52,8 @@ class StageAssignmentDAO extends DAO {
 
 	/**
 	 * Retrieve StageAssignments by submission and role IDs.
-	 * @param $submissionId int
-	 * @param $roleId int
+	 * @param $submissionId int Submission ID
+	 * @param $roleId int ROLE_ID_...
 	 * @param $stageId int (optional)
 	 * @param $userId int (optional)
 	 * @return DAOResultFactory StageAssignment
@@ -63,6 +63,7 @@ class StageAssignmentDAO extends DAO {
 	}
 
 	/**
+	 * Get by user ID
 	 * @param $userId int
 	 * @return StageAssignment
 	 */
@@ -161,10 +162,9 @@ class StageAssignmentDAO extends DAO {
 	/**
 	 * Insert a new StageAssignment.
 	 * @param $stageAssignment StageAssignment
-	 * @return bool
 	 */
 	function insertObject($stageAssignment) {
-		return $this->update(
+		$this->update(
 			sprintf(
 				'INSERT INTO stage_assignments
 					(submission_id, user_group_id, user_id, date_assigned)
@@ -181,12 +181,35 @@ class StageAssignmentDAO extends DAO {
 	}
 
 	/**
+	 * Update a new StageAssignment.
+	 * @param $stageAssignment StageAssignment
+	 */
+	function updateObject($stageAssignment) {
+		$this->update(
+			sprintf(
+				'UPDATE stage_assignments SET
+					submission_id = ?,
+					user_group_id = ?,
+					user_id = ?,
+					date_assigned = %s
+				WHERE	stage_assignment_id = ?',
+				$this->datetimeToDB(Core::getCurrentDate())
+			),
+			array(
+				(int) $stageAssignment->getSubmissionId(),
+				$this->nullOrInt($stageAssignment->getUserGroupId()),
+				$this->nullOrInt($stageAssignment->getUserId()),
+				(int) $stageAssignment->getId(),
+			)
+		);
+	}
+
+	/**
 	 * Delete a StageAssignment.
 	 * @param $stageAssignment StageAssignment
-	 * @return int
 	 */
 	function deleteObject($stageAssignment) {
-		return $this->deleteByAll(
+		$this->deleteByAll(
 			$stageAssignment->getSubmissionId(),
 			$stageAssignment->getUserGroupId(),
 			$stageAssignment->getUserId()
@@ -195,13 +218,12 @@ class StageAssignmentDAO extends DAO {
 
 	/**
 	 * Delete a stageAssignment by matching on all fields.
-	 * @param $submissionId int
-	 * @param $userGroupId int
-	 * @param $userId int
-	 * @return boolean
+	 * @param $submissionId int Submission ID
+	 * @param $userGroupId int User group ID
+	 * @param $userId int User ID
 	 */
 	function deleteByAll($submissionId, $userGroupId, $userId) {
-		return $this->update(
+		$this->update(
 			'DELETE FROM stage_assignments
 			WHERE	submission_id = ?
 				AND user_group_id = ?
@@ -228,7 +250,7 @@ class StageAssignmentDAO extends DAO {
 	 * @param $userGroupId int optional
 	 * @param $userId int optional
 	 * @param $single bool specify if only one stage assignment (default is a ResultFactory)
-	 * @return StageAssignment or ResultFactory
+	 * @return StageAssignment|ResultFactory Mixed, depending on $single
 	 */
 	function _getByIds($submissionId = null, $stageId = null, $userGroupId = null, $userId = null, $roleId = null, $single = false) {
 		$conditions = array();
@@ -262,19 +284,18 @@ class StageAssignmentDAO extends DAO {
 			$params
 		);
 
-		$returner = null;
-		if ( $single ) {
-				// all four parameters must be specified for a single record to be returned
-				if (!$submissionId && !$stageId && !$userGroupId && !$userId) return false;
-				// no matches were found.
-				if ($result->RecordCount() == 0) return false;
-				$returner = $this->_fromRow($result->GetRowAssoc(false));
-				$result->Close();
+		if ($single) {
+			// all four parameters must be specified for a single record to be returned
+			if (!$submissionId && !$stageId && !$userGroupId && !$userId) return false;
+			// no matches were found.
+			if ($result->RecordCount() == 0) return false;
+			$returner = $this->_fromRow($result->GetRowAssoc(false));
+			$result->Close();
+			return $returner;
 		} else {
 			// In any other case, return a list of all assignments
-			$returner = new DAOResultFactory($result, $this, '_fromRow');
+			return new DAOResultFactory($result, $this, '_fromRow');
 		}
-		return $returner;
 	}
 
 	/**

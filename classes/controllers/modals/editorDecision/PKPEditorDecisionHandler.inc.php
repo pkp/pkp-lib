@@ -383,6 +383,14 @@ class PKPEditorDecisionHandler extends Handler {
 		if ($editorDecisionForm->validate()) {
 			$editorDecisionForm->execute($args, $request);
 
+			// Get a list of author user IDs
+			$authorUserIds = array();
+			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+			$submitterAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), ROLE_ID_AUTHOR);
+			while ($assignment = $submitterAssignments->next()) {
+				$authorUserIds[] = $assignment->getUserId();
+			}
+
 			// Update editor decision and pending revisions notifications.
 			$notificationMgr = new NotificationManager();
 			$editorDecisionNotificationType = $this->_getNotificationTypeByEditorDecision($decision);
@@ -391,7 +399,7 @@ class PKPEditorDecisionHandler extends Handler {
 			$notificationMgr->updateNotification(
 				$request,
 				$notificationTypes,
-				array($submission->getUserId()),
+				$authorUserIds,
 				ASSOC_TYPE_SUBMISSION,
 				$submission->getId()
 			);

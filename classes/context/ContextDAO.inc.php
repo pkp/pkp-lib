@@ -14,7 +14,7 @@
  * @brief Operations for retrieving and modifying context objects.
  */
 
-class ContextDAO extends DAO {
+abstract class ContextDAO extends DAO {
 	/**
 	 * Constructor
 	 */
@@ -78,6 +78,52 @@ class ContextDAO extends DAO {
 	}
 
 	/**
+	 * Insert a new context.
+	 * @param $context Context
+	 * @return int Inserted context ID
+	 */
+	function insertObject($context) {
+		$this->update(
+			'INSERT INTO ' . $this->_getTableName() . '
+				(path, seq, enabled, primary_locale)
+				VALUES
+				(?, ?, ?, ?)',
+			array(
+				$context->getPath(),
+				(int) $context->getSequence(),
+				(int) $context->getEnabled(),
+				$context->getPrimaryLocale()
+			)
+		);
+
+		$context->setId($this->getInsertId());
+		return $context->getId();
+	}
+
+	/**
+	 * Update an existing context.
+	 * @param $press Press
+	 */
+	function updateObject($context) {
+		return $this->update(
+			'UPDATE ' . $this->_getTableName() . '
+				SET
+					path = ?,
+					seq = ?,
+					enabled = ?,
+					primary_locale = ?
+				WHERE ' . $this->_getPrimaryKeyColumn() . ' = ?',
+			array(
+				$context->getPath(),
+				(int) $context->getSequence(),
+				(int) $context->getEnabled(),
+				$context->getPrimaryLocale(),
+				(int) $context->getId()
+			)
+		);
+	}
+
+	/**
 	 * Check if a context exists with a specified path.
 	 * @param $path string the path for the context
 	 * @return boolean
@@ -121,6 +167,34 @@ class ContextDAO extends DAO {
 			($enabledOnly?' WHERE enabled = 1':'') .
 			' ORDER BY seq',
 			false,
+			$rangeInfo
+		);
+
+		return new DAOResultFactory($result, $this, '_fromRow');
+	}
+
+	/**
+	 * Retrieve available contexts.
+	 * @param $userId int Optional user ID to find available contexts for
+	 * @param $rangeInfo Object optional
+	 * @return DAOResultFactory containing matching Contexts
+	 */
+	function getAvailable($userId = null, $rangeInfo = null) {
+		$params = array();
+		if ($userId) $params = array_merge(
+			$params,
+			array((int) $userId, (int) $userId, (int) ROLE_ID_SITE_ADMIN)
+		);
+
+		$result = $this->retrieveRange(
+			'SELECT c.* FROM ' . $this->_getTableName() . ' c
+			WHERE	c.enabled = 1 ' .
+				($userId?
+					'OR c.' . $this->_getPrimaryKeyColumn() . ' IN (SELECT DISTINCT ug.context_id FROM user_groups ug JOIN user_user_groups uug ON (ug.user_group_id = uug.user_group_id) WHERE uug.user_id = ?)
+					OR ? IN (SELECT user_id FROM user_groups ug JOIN user_user_groups uug ON (ug.user_group_id = uug.user_group_id) WHERE ug.role_id = ?) '
+				:'') .
+			'ORDER BY seq',
+			$params,
 			$rangeInfo
 		);
 
@@ -215,25 +289,19 @@ class ContextDAO extends DAO {
 	 * Get the table name for this context.
 	 * @return string
 	 */
-	protected function _getTableName() {
-		assert(false); // Must be overridden by subclasses.
-	}
+	abstract protected function _getTableName();
 
 	/**
 	 * Get the table name for this context's settings table.
 	 * @return string
 	 */
-	protected function _getSettingsTableName() {
-		assert(false); // Must be overridden by subclasses.
-	}
+	abstract protected function _getSettingsTableName();
 
 	/**
 	 * Get the name of the primary key column for this context.
 	 * @return string
 	 */
-	protected function _getPrimaryKeyColumn() {
-		assert(false); // Must be overridden by subclasses
-	}
+	abstract protected function _getPrimaryKeyColumn();
 }
 
 ?>

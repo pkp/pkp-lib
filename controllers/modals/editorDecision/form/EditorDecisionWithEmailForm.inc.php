@@ -63,7 +63,6 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 		$dispatcher = $router->getDispatcher();
 
 		$submission = $this->getSubmission();
-		$submitter = $submission->getUser();
 		$user = $request->getUser();
 
 		import('lib.pkp.classes.mail.SubmissionMailTemplate');
@@ -79,9 +78,8 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 		$email = new SubmissionMailTemplate($submission, $emailKeys[$this->getDecision()]);
 
 		$paramArray = array(
-			'authorName' => $submitter->getFullName(),
+			'authorName' => $submission->getAuthorString(),
 			'editorialContactSignature' => $user->getContactSignature(),
-			'authorUsername' => $submitter->getUsername(),
 			'submissionUrl' => $dispatcher->url($request, ROUTE_PAGE, null, 'authorDashboard', 'submission', $submission->getId()),
 		);
 		$email->assignParams($paramArray);
@@ -186,23 +184,20 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 	 */
 	function _sendReviewMailToAuthor($submission, $emailKey, $request) {
 		// Send personal message to author.
-		$submitter = $submission->getUser();
 		import('lib.pkp.classes.mail.SubmissionMailTemplate');
 		$email = new SubmissionMailTemplate($submission, $emailKey, null, null, null, false);
 		$email->setBody($this->getData('personalMessage'));
-		$email->addRecipient($submitter->getEmail(), $submitter->getFullName());
+
+		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+		$userDao = DAORegistry::getDAO('UserDAO');
+		$submitterAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), ROLE_ID_AUTHOR);
+		while ($submitterAssignment = $submitterAssignments->next()) {
+			$submitterUser = $userDao->getById($submitterAssignment->getUserId());
+			$email->addRecipient($submitterUser->getEmail(), $submitterUser->getFullName());
+		}
+
 		DAORegistry::getDAO('SubmissionEmailLogDAO'); // Load constants
 		$email->setEventType(SUBMISSION_EMAIL_EDITOR_NOTIFY_AUTHOR);
-
-		$userStageAssignmentDao = DAORegistry::getDAO('UserStageAssignmentDAO');
-		$authorStageParticipants = $userStageAssignmentDao->getUsersBySubmissionAndStageId($submission->getId(), $submission->getStageId(), null, ROLE_ID_AUTHOR);
-		while ($author = $authorStageParticipants->next()) {
-			if (preg_match('{^' . quotemeta($submitter->getEmail()) . '$}', $author->getEmail())) {
-				$email->addRecipient($author->getEmail(), $author->getFullName());
-			} else {
-				$email->addCc($author->getEmail(), $author->getFullName());
-			}
-		}
 
 		// Get review round.
 		$reviewRound = $this->getReviewRound();
@@ -262,7 +257,6 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 			$router = $request->getRouter();
 			$dispatcher = $router->getDispatcher();
 			$paramArray = array(
-				'authorUsername' => $submitter->getUsername(),
 				'submissionUrl' => $dispatcher->url($request, ROUTE_PAGE, null, 'authorDashboard', 'submission', $submission->getId()),
 			);
 			$email->assignParams($paramArray);

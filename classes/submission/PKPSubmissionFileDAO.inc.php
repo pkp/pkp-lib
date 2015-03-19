@@ -535,7 +535,11 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @return array a list of lower case class names of
 	 *  file implementations.
 	 */
-	abstract function getGenreCategoryMapping();
+	function getGenreCategoryMapping() {
+		return array(
+			GENRE_CATEGORY_DOCUMENT => 'submissionfile',
+		);
+	}
 
 	/**
 	 * Return the basic join over all file class tables.

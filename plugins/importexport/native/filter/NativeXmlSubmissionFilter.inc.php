@@ -71,7 +71,6 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 		$submissionDao = Application::getSubmissionDAO();
 		$submission = $submissionDao->newDataObject();
 		$submission->setContextId($context->getId());
-		$submission->setUserId($user->getId());
 		$submission->setStatus(STATUS_QUEUED);
 		$submission->setLocale($node->getAttribute('locale'));
 		$submission->setSubmissionProgress(0);

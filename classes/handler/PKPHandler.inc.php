@@ -483,7 +483,28 @@ class PKPHandler {
 	 * @return ItemIterator
 	 */
 	function getWorkingContexts($request) {
-		assert(false); // Must be implemented by subclasses
+		// For installation process
+		if (defined('SESSION_DISABLE_INIT') || !Config::getVar('general', 'installed')) {
+			return null;
+		}
+
+		$user = $request->getUser();
+		$contextDao = Application::getContextDAO();
+		return $contextDao->getAvailable($user?$user->getId():null);
+	}
+
+	/**
+	 * Return the context that is configured in site redirect setting.
+	 * @param $request Request
+	 * @return mixed Either Context or null
+	 */
+	function getSiteRedirectContext($request) {
+		$site = $request->getSite();
+		if ($site && ($contextId = $site->getRedirect())) {
+			$contextDao = Application::getContextDAO(); /* @var $contextDao ContextDAO */
+			return $contextDao->getById($contextId);
+		}
+		return null;
 	}
 
 	/**

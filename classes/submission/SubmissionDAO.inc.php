@@ -101,7 +101,6 @@ class SubmissionDAO extends DAO {
 		$submission->setId($row['submission_id']);
 		$submission->setContextId($row['context_id']);
 		$submission->setLocale($row['locale']);
-		$submission->setUserId($row['user_id']);
 		$submission->setStageId($row['stage_id']);
 		$submission->setStatus($row['status']);
 		$submission->setSubmissionProgress($row['submission_progress']);
@@ -322,21 +321,28 @@ class SubmissionDAO extends DAO {
 			unset($submission);
 		}
 
-		$params = $this->_getFetchParameters();
-		$params[] = (int) $submissionId;
-		$params[] = (int) $userId;
+		$params = array_merge(
+			array((int) ROLE_ID_AUTHOR),
+			$this->_getFetchParameters(),
+			array((int) $submissionId)
+		);
 		if ($contextId) $params[] = (int) $contextId;
 
 		$result = $this->retrieve(
-				'SELECT	s.*, ps.date_published,
+			'SELECT	s.*, ps.date_published,
 				' . $this->_getFetchColumns() . '
-				FROM	submissions s
+			FROM	submissions s
 				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id)
+				LEFT JOIN stage_assignments asa ON (asa.submission_id = s.submission_id)
+				LEFT JOIN user_groups aug ON (asa.user_group_id = aug.user_group_id AND aug.role_id = ?)
 				' . $this->_getFetchJoins() . '
-				WHERE	s.submission_id = ?
-				AND s.date_submitted IS NOT NULL AND ps.date_published IS NULL AND s.user_id <> ? AND s.status <> ' .  STATUS_DECLINED .
+			WHERE	s.submission_id = ?
+				AND aug.user_group_id IS NULL
+				AND s.date_submitted IS NOT NULL
+				AND ps.date_published IS NULL
+				AND s.status <> ' .  STATUS_DECLINED .
 				($contextId?' AND s.context_id = ?':''),
-				$params
+			$params
 		);
 
 		$returner = null;
@@ -377,8 +383,10 @@ class SubmissionDAO extends DAO {
 	 * @return array Submissions
 	 */
 	function getByUserId($userId, $contextId = null) {
-		$params = $this->_getFetchParameters();
-		$params[] = (int) $userId;
+		$params = array_merge(
+			$this->_getFetchParameters(),
+			array((int) ROLE_ID_AUTHOR, (int) $userId)
+		);
 		if ($contextId) $params[] = (int) $contextId;
 
 		$result = $this->retrieve(
@@ -387,7 +395,7 @@ class SubmissionDAO extends DAO {
 			FROM	submissions s
 				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id)
 				' . $this->_getFetchJoins() . '
-			WHERE	s.user_id = ?' .
+			WHERE	s.submission_id IN (SELECT asa.submission_id FROM stage_assignments asa, user_groups aug WHERE asa.user_group_id = aug.user_group_id AND aug.role_id = ? AND asa.user_id = ?)' .
 				($contextId?' AND s.context_id = ?':''),
 			$params
 		);
@@ -402,20 +410,22 @@ class SubmissionDAO extends DAO {
 	 * @return array Submissions
 	 */
 	function getUnpublishedByUserId($userId, $contextId = null, $rangeInfo = null) {
-		$params = $this->_getFetchParameters();
-		$params[] = (int) $userId;
-
+		$params = array_merge(
+			$this->_getFetchParameters(),
+			array((int) ROLE_ID_AUTHOR, (int) $userId)
+		);
 		if ($contextId) $params[] = (int) $contextId;
 
 		$result = $this->retrieveRange(
-				'SELECT	s.*, ps.date_published,
+			'SELECT	s.*, ps.date_published,
 				' . $this->_getFetchColumns() . '
-				FROM	submissions s
+			FROM	submissions s
 				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id)
 				' . $this->_getFetchJoins() . '
-				WHERE	ps.date_published IS NULL AND s.user_id = ?' .
+			WHERE	ps.date_published IS NULL
+				AND s.submission_id IN (SELECT asa.submission_id FROM stage_assignments asa, user_groups aug WHERE asa.user_group_id = aug.user_group_id AND aug.role_id = ? AND asa.user_id = ?)' .
 				($contextId?' AND s.context_id = ?':''),
-				$params, $rangeInfo
+			$params, $rangeInfo
 		);
 
 		return new DAOResultFactory($result, $this, '_fromRow');

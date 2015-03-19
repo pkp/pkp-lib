@@ -34,11 +34,7 @@ class AllReviewsInNotificationManager extends NotificationManagerDelegate {
 	}
 
 	/**
-	 * @see NotificationManagerDelegate::updateNotification()
-	 * @param $request PKPRequest
-	 * @param $userIds array
-	 * @param $assocType int ASSOC_TYPE_...
-	 * @param $assocId int Numerical ID to correspond to $assocType
+	 * @copydoc NotificationManagerDelegate::updateNotification()
 	 */
 	public function updateNotification($request, $userIds, $assocType, $assocId) {
 		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');

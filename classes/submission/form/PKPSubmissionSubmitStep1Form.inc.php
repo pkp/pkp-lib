@@ -181,7 +181,6 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 			// Create new submission
 			$this->submission = $submissionDao->newDataObject();
 			$user = $request->getUser();
-			$this->submission->setUserId($user->getId());
 			$this->submission->setContextId($this->context->getId());
 
 			$this->setSubmissionData($this->submission);

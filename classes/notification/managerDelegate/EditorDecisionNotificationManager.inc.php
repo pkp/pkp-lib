@@ -69,29 +69,30 @@ class EditorDecisionNotificationManager extends NotificationManagerDelegate {
 	public function updateNotification($request, $userIds, $assocType, $assocId) {
 		$context = $request->getContext();
 
-		// Get the submitter id.
-		$userId = current($userIds);
-
 		// Remove any existing editor decision notifications.
 		$notificationDao = DAORegistry::getDAO('NotificationDAO');
 		$notificationFactory = $notificationDao->getByAssoc(
 			ASSOC_TYPE_SUBMISSION,
 			$assocId,
-			$userId,
+			null,
 			null,
 			$context->getId()
 		);
 
+		// Delete old notifications.
 		$editorDecisionNotificationTypes = $this->_getAllEditorDecisionNotificationTypes();
-		while(!$notificationFactory->eof()) {
-			$notification = $notificationFactory->next();
-			if (in_array($notification->getType(), $editorDecisionNotificationTypes)) {
-				$notificationDao->deleteObject($notification);
-			}
+		while ($notification = $notificationFactory->next()) {
+			// If a list of user IDs was specified, make sure we're respecting it.
+			if ($userIds !== null && !in_array($notification->getUserId(), $userIds)) continue;
+
+			// Check that the notification type is in the specified list.
+			if (!in_array($notification->getType(), $editorDecisionNotificationTypes)) continue;
+
+			$notificationDao->deleteObject($notification);
 		}
 
-		// Create the notification.
-		$this->createNotification(
+		// (Re)create notifications.
+		foreach ((array) $userIds as $userId) $this->createNotification(
 			$request,
 			$userId,
 			$this->getNotificationType(),

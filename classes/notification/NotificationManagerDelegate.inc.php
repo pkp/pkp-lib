@@ -20,12 +20,12 @@ import('lib.pkp.classes.notification.PKPNotificationOperationManager');
 
 abstract class NotificationManagerDelegate extends PKPNotificationOperationManager {
 
+	/** @var int NOTIFICATION_TYPE_... */
 	private $_notificationType;
 
 	/**
 	 * Constructor.
-	 * @param $request PKPRequest
-	 * @param $notificationType int
+	 * @param $notificationType int NOTIFICATION_TYPE_...
 	 */
 	function NotificationManagerDelegate($notificationType) {
 		$this->_notificationType = $notificationType;
@@ -34,9 +34,8 @@ abstract class NotificationManagerDelegate extends PKPNotificationOperationManag
 	}
 
 	/**
-	 * Get the current notification type this
-	 * manager is handling.
-	 * @return int
+	 * Get the current notification type this manager is handling.
+	 * @return int NOTIFICATION_TYPE_...
 	 */
 	protected function getNotificationType() {
 		return $this->_notificationType;
@@ -97,10 +96,11 @@ abstract class NotificationManagerDelegate extends PKPNotificationOperationManag
 
 	/**
 	 * Define operations to update notifications.
-	 * @param $request PKPRequest
-	 * @param $userIds array
-	 * @param $assocType int
-	 * @param $assocId int
+	 * @param $request PKPRequest Request object
+	 * @param $userIds array List of user IDs to notify
+	 * @param $assocType int ASSOC_TYPE_...
+	 * @param $assocId int ID corresponding to $assocType
+	 * @return boolean True iff success
 	 */
 	public function updateNotification($request, $userIds, $assocType, $assocId) {
 		return false;

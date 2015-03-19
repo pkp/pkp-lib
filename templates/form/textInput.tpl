@@ -20,7 +20,6 @@
 	</script>
 	{* This is a multilingual control. Enable popover display. *}
 	<span id="{$FBV_id|escape}-localization-popover-container{$uniqId}" class="localization_popover_container">
-		{strip}
 		<input type="{if $FBV_isPassword}password{else}text{/if}"
 			{$FBV_textInputParams}
 			class="localizable {if $FBV_class}{$FBV_class|escape}{/if}{if $FBV_validation} {$FBV_validation}{/if}{if $formLocale != $currentLocale} locale_{$formLocale|escape}{/if}"
@@ -30,14 +29,12 @@
 			name="{$FBV_name|escape}[{$formLocale|escape}]"
 			id="{$FBV_id|escape}-{$formLocale|escape}{$uniqId}"
 		/>
-		{/strip}
 
 		{$FBV_label_content}
 
 		<span>
 			<div class="localization_popover">
 				{foreach from=$formLocales key=thisFormLocale item=thisFormLocaleName}{if $formLocale != $thisFormLocale}
-					{strip}
 					<input	type="{if $FBV_isPassword}password{else}text{/if}"
 						{$FBV_textInputParams}
 						placeholder="{$thisFormLocaleName|escape}"
@@ -49,7 +46,6 @@
 						id="{$FBV_id|escape}-{$thisFormLocale|escape}{$uniqId}"
 						{if $FBV_tabIndex} tabindex="{$FBV_tabIndex|escape}"{/if}
 					/>
-					{/strip}
 					<label for="{$FBV_id|escape}-{$thisFormLocale|escape}{$uniqId}" class="locale">({$thisFormLocaleName|escape})</label>
 				{/if}{/foreach}
 			</div>

@@ -1,14 +1,14 @@
 {**
- * templates/controllers/wizard/fileUpload/form/metadataForm.tpl
+ * templates/controllers/wizard/fileUpload/form/submissionArtworkFileMetadataForm.tpl
  *
  * Copyright (c) 2014-2015 Simon Fraser University Library
  * Copyright (c) 2003-2015 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * File metadata form.
+ * Artwork file metadata form.
  *
  * Parameters:
- *  $submissionFile: The submission or artwork file.
+ *  $submissionFile: The submission artwork file.
  *  $stageId: The workflow stage id from which the upload
  *   wizard was called.
  *  $showButtons: True iff form buttons should be presented.
@@ -27,29 +27,25 @@
 		{fbvFormSection title="submission.form.name" required=true}
 			{fbvElement type="text" id="name" value=$submissionFile->getLocalizedName() maxlength="255"}
 		{/fbvFormSection}
-		{if is_a($submissionFile, 'ArtworkFile')}
-			{fbvFormSection title="grid.artworkFile.caption" inline=true size=$fbvStyles.size.MEDIUM}
-				{fbvElement type="textarea" id="artworkCaption" height=$fbvStyles.height.SHORT value=$submissionFile->getCaption()}
-			{/fbvFormSection}
-			{fbvFormSection title="grid.artworkFile.credit" inline=true size=$fbvStyles.size.MEDIUM}
-				{fbvElement type="textarea" id="artworkCredit" height=$fbvStyles.height.SHORT value=$submissionFile->getCredit()}
-			{/fbvFormSection}
-			{fbvFormSection title="grid.artworkFile.copyrightOwner" inline=true size=$fbvStyles.size.MEDIUM}
-				{fbvElement type="textarea" id="artworkCopyrightOwner" height=$fbvStyles.height.SHORT value=$submissionFile->getCopyrightOwner()}
-			{/fbvFormSection}
-			{fbvFormSection title="grid.artworkFile.permissionTerms" inline=true size=$fbvStyles.size.MEDIUM}
-				{fbvElement type="textarea" id="artworkPermissionTerms" height=$fbvStyles.height.SHORT value=$submissionFile->getPermissionTerms()}
-			{/fbvFormSection}
-		{/if}
+		{fbvFormSection title="grid.artworkFile.caption" inline=true size=$fbvStyles.size.MEDIUM}
+			{fbvElement type="textarea" id="artworkCaption" height=$fbvStyles.height.SHORT value=$submissionFile->getCaption()}
+		{/fbvFormSection}
+		{fbvFormSection title="grid.artworkFile.credit" inline=true size=$fbvStyles.size.MEDIUM}
+			{fbvElement type="textarea" id="artworkCredit" height=$fbvStyles.height.SHORT value=$submissionFile->getCredit()}
+		{/fbvFormSection}
+		{fbvFormSection title="grid.artworkFile.copyrightOwner" inline=true size=$fbvStyles.size.MEDIUM}
+			{fbvElement type="textarea" id="artworkCopyrightOwner" height=$fbvStyles.height.SHORT value=$submissionFile->getCopyrightOwner()}
+		{/fbvFormSection}
+		{fbvFormSection title="grid.artworkFile.permissionTerms" inline=true size=$fbvStyles.size.MEDIUM}
+			{fbvElement type="textarea" id="artworkPermissionTerms" height=$fbvStyles.height.SHORT value=$submissionFile->getPermissionTerms()}
+		{/fbvFormSection}
 		{fbvFormSection title="submission.upload.noteToAccompanyFile"}
 			{fbvElement type="textarea" id="note" height=$fbvStyles.height.SHORT}
 		{/fbvFormSection}
 	{/fbvFormArea}
 
 	{* Read-only meta-data *}
-
 	{fbvFormArea id="fileInfo" title="submission.submit.fileInformation" class="border"}
-
 		{fbvFormSection title="common.fileName" inline=true size=$fbvStyles.size.MEDIUM}
 			{$submissionFile->getClientFileName()|escape}
 		{/fbvFormSection}
@@ -60,7 +56,7 @@
 			{$submissionFile->getNiceFileSize()}
 		{/fbvFormSection}
 
-		{if is_a($submissionFile, 'ArtworkFile') && $submissionFile->getWidth() > 0 && $submissionFile->getHeight() > 0}
+		{if $submissionFile->getWidth() > 0 && $submissionFile->getHeight() > 0}
 			{assign var=dpi value=300}
 			{math assign="imageWidthOnDevice" equation="w/dpi" w=$submissionFile->getWidth() dpi=$dpi format="%.2f"}
 			{math assign="imageHeightOnDevice" equation="h/dpi" h=$submissionFile->getHeight() dpi=$dpi format="%.2f"}
@@ -78,6 +74,7 @@
 			{/fbvFormSection}
 		{/if}
 	{/fbvFormArea}
+
 	{if $showButtons}
 		{fbvElement type="hidden" id="showButtons" value=$showButtons}
 		{fbvFormButtons submitText="common.save"}

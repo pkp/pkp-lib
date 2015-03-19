@@ -29,11 +29,13 @@ class SubmissionFilesMetadataForm extends Form {
 	/**
 	 * Constructor.
 	 * @param $submissionFile SubmissionFile
-	 * @param $stageId integer One of the WORKFLOW_STAGE_ID_* constants.
+	 * @param $stageId int One of the WORKFLOW_STAGE_ID_* constants.
 	 * @param $reviewRound ReviewRound (optional) Current review round, if any.
+	 * @param $template string Path and filename to template file (optional).
 	 */
-	function SubmissionFilesMetadataForm($submissionFile, $stageId, $reviewRound = null) {
-		parent::Form('controllers/wizard/fileUpload/form/metadataForm.tpl');
+	function SubmissionFilesMetadataForm($submissionFile, $stageId, $reviewRound = null, $template = null) {
+		if ($template === null) $template = 'controllers/wizard/fileUpload/form/submissionFileMetadataForm.tpl';
+		parent::Form($template);
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
 
 		// Initialize the object.

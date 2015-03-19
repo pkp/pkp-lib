@@ -18,6 +18,7 @@
  */
 
 import('lib.pkp.classes.submission.SubmissionFileDAODelegate');
+import('lib.pkp.classes.submission.SubmissionArtworkFile');
 
 class SubmissionArtworkFileDAODelegate extends SubmissionFileDAODelegate {
 	/**
@@ -146,7 +147,7 @@ class SubmissionArtworkFileDAODelegate extends SubmissionFileDAODelegate {
 	 *  Must be implemented by subclasses.
 	 */
 	function newDataObject() {
-		assert(false);
+		return new SubmissionArtworkFile();
 	}
 }
 

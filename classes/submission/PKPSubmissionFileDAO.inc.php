@@ -905,9 +905,10 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @return SubmissionFile
 	 */
 	function _castToDatabase($submissionFile) {
-		$fileId = $submissionFile->getFileId();
-		$revision = $submissionFile->getRevision();
-		return $this->getRevision($fileId, $revision);
+		return $this->getRevision(
+			$submissionFile->getFileId(),
+			$submissionFile->getRevision()
+		);
 	}
 
 	/**

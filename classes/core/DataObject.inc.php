@@ -196,9 +196,6 @@ class DataObject {
 	 * then objects that need more complicated casting behavior
 	 * must override these methods.
 	 *
-	 * Our implementation also implies that the target has to inherit
-	 * from the source object and thereby implicitly from DataObject.
-	 *
 	 * Note: Data in the target object will be overwritten. We do not
 	 * clone the target object before we upcast.
 	 *
@@ -207,10 +204,6 @@ class DataObject {
 	 * @return DataObject The upcast target object.
 	 */
 	function upcastTo($targetObject) {
-		// Make sure that target is really inheriting
-		// from this class.
-		assert(is_a($targetObject, get_class($this)));
-
 		// Copy data from the source to the target.
 		$targetObject->setAllData($this->getAllData());
 

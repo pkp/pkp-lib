@@ -73,7 +73,7 @@ class SubmissionFileDAODelegate extends DAO {
 		);
 
 		if ($fileId) {
-			array_unshift($params, $fileId);
+			array_unshift($params, (int) $fileId);
 		}
 
 		$this->update(

@@ -41,7 +41,8 @@ class AppearanceForm extends ContextSettingsForm {
 			'displayFeaturedBooks' => 'bool',
 			'displayInSpotlight' => 'bool',
 			'coverThumbnailsMaxWidth' => 'int',
-			'coverThumbnailsMaxHeight' => 'int'
+			'coverThumbnailsMaxHeight' => 'int',
+			'coverThumbnailsResize' => 'bool'
 		));
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON);
@@ -236,8 +237,27 @@ class AppearanceForm extends ContextSettingsForm {
 			assert(false); // Couldn't identify the selected theme plugin
 		}
 
+		$coverThumbnailsResize = $this->getData('coverThumbnailsResize');
 		if ($coverThumbnailsResize) {
-			// TO-DO: resize all cover thumbnails
+			// new thumbnails max width and max height
+			$coverThumbnailsMaxWidth = $this->getData('coverThumbnailsMaxWidth');
+			$coverThumbnailsMaxHeight = $this->getData('coverThumbnailsMaxHeight');
+
+			// resize cover thumbainls for all press categories
+			import('lib.pkp.classes.file.ContextFileManager');
+			$pressFileManager = new ContextFileManager($context->getId());
+			$categoryBasePath = $pressFileManager->getBasePath() . 'categories/';
+			$categoryDao = DAORegistry::getDAO('CategoryDAO');
+			$this->_resizeCoverThumbnails($context, $categoryDao, $coverThumbnailsMaxWidth, $coverThumbnailsMaxHeight, $categoryBasePath);
+
+			// resize cover thumbainls for all press series
+			$seriesBasePath = $pressFileManager->getBasePath() . 'series/';
+			$seriesDao = DAORegistry::getDAO('SeriesDAO');
+			$this->_resizeCoverThumbnails($context, $seriesDao, $coverThumbnailsMaxWidth, $coverThumbnailsMaxHeight, $categoryBasePath);
+
+			// resize cover thumbnails for all press published monographs
+			$publishedMonographDao = DAORegistry::getDAO('PublishedMonographDAO');
+			$this->_resizeCoverThumbnails($context, $publishedMonographDao, $coverThumbnailsMaxWidth, $coverThumbnailsMaxHeight, $categoryBasePath);
 		}
 
 	}
@@ -356,6 +376,98 @@ class AppearanceForm extends ContextSettingsForm {
 			null
 		);
 	}
+
+	/**
+	 * Resize cover thumnails for all given press objects (categories, series and published monographs).
+	 * @param $context Context
+	 * @param $objectDao CategoriesDAO, SeriesDAO or PublishedMonographsDAO
+	 * @param $coverThumbnailsMaxWidth int
+	 * @param $coverThumbnailsMaxHeight int
+	 * @param $basePath string Base path for the given object
+	 */
+	function _resizeCoverThumbnails($context, $objectDao, $coverThumbnailsMaxWidth, $coverThumbnailsMaxHeight, $basePath) {
+		import('classes.file.SimpleMonographFileManager');
+		import('lib.pkp.classes.file.FileManager');
+		$fileManager = new FileManager();
+
+		$objects = $objectDao->getByPressId($context->getId());
+		while ($object = $objects->next()) {
+			if (is_a($object, 'PublishedMonograph')) {
+				$cover = $object->getCoverImage();
+				$simpleMonographFileManager = new SimpleMonographFileManager($context->getId(), $object->getId());
+				$basePath = $simpleMonographFileManager->getBasePath();
+			} else {
+				$cover = $object->getImage();
+			}
+			if ($cover) {
+				// delete old cover thumbnail
+				$fileManager->deleteFile($basePath . $cover['thumbnailName']);
+
+				// get settings necessary for the new thumbnail
+				$coverExtension = $fileManager->getExtension($cover['name']);
+				$xRatio = min(1, $coverThumbnailsMaxWidth / $cover['width']);
+				$yRatio = min(1, $coverThumbnailsMaxHeight / $cover['height']);
+				$ratio = min($xRatio, $yRatio);
+				$thumbnailWidth = round($ratio * $cover['width']);
+				$thumbnailHeight = round($ratio * $cover['height']);
+
+				// create a thumbnail image of the defined size
+				$thumbnail = imagecreatetruecolor($thumbnailWidth, $thumbnailHeight);
+
+				// generate the image of the original cover
+				switch ($coverExtension) {
+					case 'jpg': $coverImage = imagecreatefromjpeg($basePath . $cover['name']); break;
+					case 'png': $coverImage = imagecreatefrompng($basePath . $cover['name']); break;
+					case 'gif': $coverImage = imagecreatefromgif($basePath . $cover['name']); break;
+					default: $coverImage = null; // Suppress warn
+				}
+				assert($coverImage);
+
+				// copy the cover image to the thumbnail
+				imagecopyresampled($thumbnail, $coverImage, 0, 0, 0, 0, $thumbnailWidth, $thumbnailHeight, $cover['width'], $cover['height']);
+
+				// create the thumbnail file
+				switch ($coverExtension) {
+					case 'jpg': imagejpeg($thumbnail, $basePath . $cover['thumbnailName']); break;
+					case 'png': imagepng($thumbnail, $basePath . $cover['thumbnailName']); break;
+					case 'gif': imagegif($thumbnail, $basePath . $cover['thumbnailName']); break;
+				}
+				imagedestroy($thumbnail);
+
+				if (is_a($object, 'PublishedMonograph')) {
+					$object->setCoverImage(array(
+						'name' => $cover['name'],
+						'width' => $cover['width'],
+						'height' => $cover['height'],
+						'thumbnailName' => $cover['thumbnailName'],
+						'thumbnailWidth' => $thumbnailWidth,
+						'thumbnailHeight' => $thumbnailHeight,
+						'catalogName' => $cover['catalogName'],
+						'catalogWidth' => $cover['v'],
+						'catalogHeight' => $cover['catalogHeight'],
+						'uploadName' => $cover['uploadName'],
+						'dateUploaded' => $cover['dateUploaded'],
+					));
+				} else {
+					$object->setImage(array(
+						'name' => $cover['name'],
+						'width' => $cover['width'],
+						'height' => $cover['height'],
+						'thumbnailName' => $cover['thumbnailName'],
+						'thumbnailWidth' => $thumbnailWidth,
+						'thumbnailHeight' => $thumbnailHeight,
+						'uploadName' => $cover['uploadName'],
+						'dateUploaded' => $cover['dateUploaded'],
+					));
+				}
+				// Update category object to store new thumbnail information.
+				$objectDao->updateObject($object);
+			}
+			unset($object);
+		}
+	}
+
+
 }
 
 ?>

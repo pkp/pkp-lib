@@ -2,17 +2,17 @@
 <!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
 
 <!--
-  * locale/en_US/user.xml
+  * locale/uk_UA/user.xml
   *
   * Copyright (c) 2000-2012 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the en_US (English) locale.
+  * Localization strings for the uk_UA (Український) locale.
   *
   * $Id$
   -->
 
-<locale name="en_US" full_name = "English">
+<locale name="uk_UA" full_name = "Український">
 	<message key="user.affiliation">Установа</message>
 	<message key="user.affiliation.description">(Ваша установа, наприклад: "Київський національний університет ім. Тараса Шевченка")</message>
 	<message key="user.affiliations">Установи</message>

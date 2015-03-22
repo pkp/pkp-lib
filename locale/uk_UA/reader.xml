@@ -2,17 +2,17 @@
 <!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
 
 <!--
-  * locale/en_US/reader.xml
+  * locale/uk_UA/reader.xml
   *
   * Copyright (c) 2000-2012 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the en_US (English) locale.
+  * Localization strings for the uk_UA (Український) locale.
   *
   * $Id$
   -->
 
-<locale name="en_US" full_name = "English">
+<locale name="uk_UA" full_name = "Український">
 	<message key="comments.anonymous">Анонімний користувач</message>
 	<message key="comments.anonymousNamed">"{$userName}"</message>
 	<message key="comments.body">Тіло</message>

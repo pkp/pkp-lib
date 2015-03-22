@@ -2,17 +2,17 @@
 <!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
 
 <!--
-  * locale/en_US/admin.xml
+  * locale/uk_UA/admin.xml
   *
   * Copyright (c) 2000-2012 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the en_US (English) locale.
+  * Localization strings for the uk_UA (Український) locale.
   *
   * $Id$
   -->
 
-<locale name="en_US" full_name = "English">
+<locale name="uk_UA" full_name = "Український">
 	<message key="admin.adminFunctions">Функції адміністратора</message>
 	<message key="admin.auth.confirmDelete">Are you sure you want to permanently delete this authentication source?</message>
 	<message key="admin.auth.create">Create authentication source</message>

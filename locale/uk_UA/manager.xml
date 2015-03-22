@@ -2,17 +2,17 @@
 <!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
 
 <!--
-  * locale/en_US/manager.xml
+  * locale/uk_UA/manager.xml
   *
   * Copyright (c) 2000-2012 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the en_US (English) locale.
+  * Localization strings for the uk_UA (Український) locale.
   *
   * $Id$
   -->
 
-<locale name="en_US" full_name = "English">
+<locale name="uk_UA" full_name = "Український">
 	<message key="manager.announcements">Оголошення</message>
 	<message key="manager.announcements.confirmDelete">Ви впевнені, що хочете назавжди видалити це оголошення?</message>
 	<message key="manager.announcements.create">Створити нове оголошення</message>

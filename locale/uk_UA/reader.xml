@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/en_US/reader.xml
+  *
+  * Copyright (c) 2000-2012 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the en_US (English) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="en_US" full_name = "English">
+	<message key="comments.anonymous">Анонімний користувач</message>
+	<message key="comments.anonymousNamed">"{$userName}"</message>
+	<message key="comments.body">Тіло</message>
+	<message key="comments.titleRequired">Потрібно вказати назву коментаря.</message>
+	<message key="comments.confirmDeleteChildren">Видалення цього коментаря також призведе і до видалення відповідей на нього. Ви впевнені, що хочете зробити це?</message>
+	<message key="comments.delete">Видалити цей коментар</message>
+	<message key="comments.email">Email відправника</message>
+	<message key="comments.emailReply">Email відповідь</message>
+	<message key="comments.enterComment">Ввести коментар</message>
+	<message key="comments.inResponseTo"><![CDATA[У відповідь до <a href="{$url}">{$title}</a>]]></message>
+	<message key="comments.name">Ім'я відправника</message>
+	<message key="comments.noComments">Жодних коментарів читача не було опубліковано.</message>
+	<message key="comments.nReplies">({$num} Відповідей)</message>
+	<message key="comments.oneReply">(1 Відповідь)</message>
+	<message key="comments.postAnonymously">Опублікувати цей коментар анонімно</message>
+	<message key="comments.postReply">Опублікувати відповідь</message>
+	<message key="comments.readerComments">Коментарі читача</message>
+	<message key="comments.readMore">Читати більше</message>
+	<message key="comments.replies">Відповіді</message>
+	<message key="comments.title">Назва</message>
+	<message key="comments.viewAllComments">Переглянути всі коментарі</message>
+	<message key="reader.fullText">Повний текст:</message>
+	<message key="rt.addComment">Додати коментар</message>
+	<message key="rt.admin.configuration">Конфігурація</message>
+	<message key="rt.admin.contexts.confirmDelete">Ви впевнені, що хочете видалити цей зміст та усі пов'язані пошуки?</message>
+	<message key="rt.admin.contexts.createContext">Створити зміст</message>
+	<message key="rt.admin.contexts.edit.editContext">Редагувати зміст</message>
+	<message key="rt.admin.contexts.metadata">Метадані</message>
+	<message key="rt.admin.contexts.options.authorTerms">Використовуйте імена авторів як типові ключові слова пошуку для того, щоб користувачі могли знайти інші роботи цих авторів для цього елементу (наприклад, для значення "Інші Роботи")</message>
+	<message key="rt.admin.contexts.options.citedBy">Використовуйте імена авторів як типові ключові слова пошуку та опишіть значення як пошук для цитат до статті.</message>
+	<message key="rt.admin.contexts.options.defineTerms"><![CDATA[Використовуйте слово, яке виділив читач як типове ключове слово пошуку, або залишіть порожнім, якщо жодного не було обрано для цього елемента (наприклад, для значення "Визначення ключових слів"). Опція "Визначеня ключових слів" повина бути активована у <a href="{$settingsUrl}">RST Налаштування</a> для того, щоб дозволити подвійне натискання на слова для відкриття цього змісту.]]></message>
+	<message key="rt.admin.contexts.options.geoTerms">Використовуйте географічну індексацію даних як типове ключове слово пошуку.</message>
+	<message key="rt.admin.contexts.options">Опції</message>
+	<message key="rt.admin.management">Управління</message>
+
+	<message key="rt.admin.sharing">Поділитися</message>
+	<message key="rt.admin.sharing.enabled">Функція "Поділитися" активована</message>
+	<message key="rt.admin.sharing.description"><![CDATA[Для того, щоб дозволити Вашим читачам ділитися статтями, підпишіться на <a href="http://addthis.com">addthis.com</a>, та скопіюйте/вставте код кнопки Поділитися, який розташований нижче.]]></message>
+
+	<message key="rt.admin.sharing.basic">Основні налаштування</message>
+	<message key="rt.admin.sharing.userNameLabel">AddThis.com ім'я користувача</message>
+	<message key="rt.admin.sharing.buttonStyleLabel">Стиль кнопок</message>
+	<message key="rt.admin.sharing.dropDownMenuLabel">Використовувати випадаюче меню</message>
+	<message key="rt.admin.sharing.advanced">Просунуті налаштування (опційно)</message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[Дивіться <a href="http://www.addthis.com/help/customize/custom-button/">документацію по налаштуванню AddThis.com </a> для отримання необхідної інформації.]]></message>
+	<message key="rt.admin.sharing.brandLabel">Бренд</message>
+	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Опції випадаючого списку <br /> (елементи розділені комами)]]></message>
+	<message key="rt.admin.sharing.languageLabel">Мова</message>
+	<message key="rt.admin.sharing.logolabel">Логотип</message>
+	<message key="rt.admin.sharing.logoBackgroundLabel">Фон логотипу</message>
+	<message key="rt.admin.sharing.logoColorLabel">Колір логотипу</message>
+
+	<message key="rt.admin.readingToolsEnabled">Засоби читання</message>
+	<message key="rt.admin.searches.confirmDelete">Ви впевнені, що хочете видалити цей пошук?</message>
+	<message key="rt.admin.searches.createSearch">Створити пошук</message>
+	<message key="rt.admin.searches.edit.editSearch">Редагувати пошук</message>
+	<message key="rt.admin.selectedVersion">Пов'язані елементи</message>
+	<message key="rt.admin.settings.abstract">Тези (представляє тези елементу).</message>
+	<message key="rt.admin.settings.authorBio">Про автора (показує біографічні дані, введені автором).</message>
+	<message key="rt.admin.settings.captureCite">Як цитувати елемент (забезпечує бібліографічні деталі для елементу).</message>
+	<message key="rt.admin.settings.defineTerms">Ключові слова пошуку (надає можливість читачам зробити подвійне натискання на будь-якому слові в елементі та занести слово у словник).</message>
+	<message key="rt.admin.settings.disableRelatedItems">Деактивувати пов'язані елементи</message>
+	<message key="rt.admin.settings.emailAuthor">Відправити електронне повідомлення автору (відкриється шаблон електронного повідомлення з внесеною електронною адресою автора).</message>
+	<message key="rt.admin.settings.emailOthers">Повідомити колегу (відкриється шаблон електронного повідомлення з посиланням на елемент).</message>
+	<message key="rt.admin.settings.findingReferences">Знайти посилання</message>
+	<message key="rt.admin.settings.printerFriendly">Друкована версія (надає підготовлену до друку версію елемента).</message>
+	<message key="rt.admin.settings.supplementaryFiles">Додаткові файли (показує список файлів, які автор додав до подання).</message>
+	<message key="rt.admin.settings.viewMetadata">Метадані індексації (показує метадані індексації елемента, надані автором та системою).</message>
+	<message key="rt.admin.status">Статус</message>
+	<message key="rt.admin.configureSharing">Налаштувати ДодатиЦе</message>
+	<message key="rt.admin.validateUrls.complete">Перевірка завершена.</message>
+	<message key="rt.admin.validateUrls.ok">OK</message>
+	<message key="rt.admin.validateUrls.urlIsInvalid">{$url} не дійсний.</message>
+	<message key="rt.admin.validateUrls">Перевірити URL-и для інструментів читання</message>
+	<message key="rt.admin.validateUrls.validate">Перевірити</message>
+	<message key="rt.admin.versions.confirmDelete">Ви впевнені, що хочете видалити цю версію і усі пов'язані із нею змісти та пошуки?</message>
+	<message key="rt.admin.versions.confirmRestore">Ви впевнені, що хочете безповоротньо відновити усі версії до їх типових значень? Якщо так, Ви повинні обрати активну версію на сторінці налаштувань.</message>
+	<message key="rt.admin.versions.createVersion">Створити версію</message>
+	<message key="rt.admin.versions.edit.editVersion">Редагувати версію</message>
+	<message key="rt.admin.versions.export">Експортувати</message>
+	<message key="rt.admin.versions.importVersion">Імпортувати версію</message>
+	<message key="rt.admin.versions.metadata">Метадані</message>
+	<message key="rt.admin.versions.restoreVersions">Відновити типові версії</message>
+	<message key="rt.authorBio">Про автора</message>
+	<message key="rt.captureCite.format">Формат цитування</message>
+	<message key="rt.captureCite">Як цитувати елемент</message>
+	<message key="rt.captureCite.online">Онлайн</message>
+	<message key="rt.captureCite.web">Веб</message>	
+	<message key="rt.colleague">Повідомити колегу</message>
+	<message key="rt.context.abbrev">Скорочено</message>
+	<message key="rt.context.and">ТА</message>
+	<message key="rt.context.citesContextDescription">Якщо стаття проіндексована у Академії Google, вона може супроводжуватись посиланням "Cited by X" , яке веде до списку робіт, які її цитують. Зазвичай, Google Scholar надасть перелік усіх випадків цитування назва та автора. Щоб отримати доступ до онлайн-ресурсів, які доступні через Вашу дослідницьку бібліотеку, Ви можете перейти до Налаштувань Академії у Академії Google і активувати Посилання на Бібліотеку для вашої установи.</message>
+	<message key="rt.context">Зміст</message>
+	<message key="rt.context.defineTermsDescription">Якщо елемент є HTML-файлом (а не PDF), подвійний клік на будь-якому слові в тексті, призведе до появи цього слова у полі Визначити Слово. В іншому випадку, слова можуть бути надруковані або вставлені у полі. Для того, щоб дізнатися більше про ресурс, який Ви шукали, натисніть ПРО. Ці ресурси були обрані за релевантністю та наявністю відкритого (вільного) доступу до їх часткового або повного змісту.</message>
+	<message key="rt.context.description">Опис</message>
+	<message key="rt.context.order">Порядок</message>
+	<message key="rt.contexts">Зміст</message>
+	<message key="rt.context.searchDescription">Ключові слова пошуку були обрані автором(ами). Вони можуть бути змінені або видалені читачем, як дві або три короткі, точні ключові слова або фрази, що були створені за допомогою булевого (AND) пошуку. Для того, щоб дізнатися більше про ресурс, який Ви шукали, натисніть ПРО. Ці ресурси були обрані за релевантністю та наявністю відкритого (вільного) доступу до їх часткового або повного змісту.</message>
+	<message key="rt.context.searchTerms">Ключові слова пошуку</message>
+	<message key="rt.context.termToDefine">Слово, яке потрібно визначити</message>
+	<message key="rt.context.title">Назва</message>
+	<message key="rt.emailAuthor">Надіслати електронне повідомлення автору</message>
+	<message key="rt.email.needLogin"><![CDATA[* Потребує <a target="_parent" href="{$loginUrl}">реєстрації</a>]]></message>
+	<message key="rt.email.sent">Ваше повідомлення було надіслано.</message>
+	<message key="rt.findingReferences">Пошук посилань</message>
+	<message key="rt.findingReferences.googleScholar">Академія Google</message>
+	<message key="rt.findingReferences.windowsLiveAcademic">Windows Live Academic</message>
+	<message key="rt.lookUp">Пошук ключових слів</message>
+	<message key="rt.metadata.dublinCore.contributor">Доповідач</message>
+	<message key="rt.metadata.dublinCore.coverage">Обсяг</message>
+	<message key="rt.metadata.dublinCore.date">Дата</message>
+	<message key="rt.metadata.dublinCore.description">Опис</message>
+	<message key="rt.metadata.dublinCore">Dublin Core</message>
+	<message key="rt.metadata.dublinCore.format">Формат</message>
+	<message key="rt.metadata.dublinCore.identifier">Ідентифікатор</message>
+	<message key="rt.metadata.dublinCore.language">Мова</message>
+	<message key="rt.metadata.dublinCore.publisher">Видавець</message>
+	<message key="rt.metadata.dublinCore.relation">Відношення</message>
+	<message key="rt.metadata.dublinCore.rights">Права</message>
+	<message key="rt.metadata.dublinCore.source">Джерело</message>
+	<message key="rt.metadata.dublinCore.subject">Тема</message>
+	<message key="rt.metadata.dublinCore.title">Назва</message>
+	<message key="rt.metadata.dublinCore.type">Тип</message>
+	<message key="rt.metadata.forThisDocument">Метадані для цього документу</message>
+	<message key="rt.metadata.pkp.abstract">Тези</message>
+	<message key="rt.metadata.pkp.copyright">Авторське право та дозволи</message>
+	<message key="rt.metadata.pkp.coverage">Геопросторова локація, хронологічний період, вибірка/зразок дослідження (стать, вік, інше)</message>
+	<message key="rt.metadata.pkp.date">(РРРР-ММ-ДД)</message>
+	<message key="rt.metadata.pkp.discipline">Дисципліна(и)</message>
+	<message key="rt.metadata.pkp.format">Формат файла</message>
+	<message key="rt.metadata.pkp.genre"><![CDATA[Статус & жанр]]></message>
+	<message key="rt.metadata.pkpItem">PKP елементи метаданих</message>
+	<message key="rt.metadata.pkp.language">English=en</message>
+	<message key="rt.metadata.pkp.publisher">Установа, місцезнаходження</message>
+	<message key="rt.metadata.pkp.source">Журнал/назва конференції; Т., №. (рік)</message>
+	<message key="rt.metadata.pkp.sponsors">Спонсор(и)</message>
+	<message key="rt.metadata.pkp.subjectClass">Класифікація теми</message>
+	<message key="rt.metadata.pkp.subject">Ключові слова</message>
+	<message key="rt.metadata.pkp.suppFiles">Дод. файли</message>
+	<message key="rt.metadata.pkp.title">Назва документа</message>
+	<message key="rt.metadata.pkp.type">Тип</message>
+	<message key="rt.metadata.pkp.uri">Універсальний Покажчик Ресурсу (URI)</message>
+	<message key="rt.printVersion">Друкована версія</message>
+	<message key="rt.readingTools">Засоби читання</message>
+	<message key="rt.relatedItems">Пов'язані елементи</message>
+	<message key="rt.reviewPolicy">Політика рецензування</message>
+	<message key="rt.search.description">Опис</message>
+	<message key="rt.searches">Пошуки</message>
+	<message key="rt.search.order">Порядок</message>
+	<message key="rt.search">Пошук</message>
+	<message key="rt.search.searchPost">Дата публікації</message>
+	<message key="rt.search.searchUrl">URL пошуку</message>
+	<message key="rt.search.suggest">Запропонувати джерело</message>
+	<message key="rt.search.title">Назва</message>
+	<message key="rt.search.url">URL</message>
+	<message key="rt.suppFiles.download">Завантажити</message>
+	<message key="rt.suppFiles">Додаткові файли</message>
+	<message key="rt.suppFiles.viewMetadata">Метадані для індексуваня</message>
+	<message key="rt.version.description">Опис</message>
+	<message key="rt.version.key">Ключ</message>
+	<message key="rt.version.locale">Локалізація</message>
+	<message key="rt.versions">Пов'язані набори елементів</message>
+	<message key="rt.version.title">Назва</message>
+	<message key="rt.version">Версія</message>
+	<message key="rt.viewMetadata">Метадані для індексуваня</message>
+</locale>

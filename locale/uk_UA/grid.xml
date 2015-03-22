@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/en_US/grid.xml
+  *
+  * Copyright (c) 2000-2012 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the en_US (English) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="en_US" full_name = "English">
+	<!-- Common -->
+	<message key="grid.noItems">Немає елементів</message>
+	<message key="grid.settings">Налаштування</message>
+
+	<message key="grid.action.sort">Сортувати</message>
+	<message key="grid.action.addItem">Додати елемент</message>
+	<message key="grid.action.delete">Видалити</message>
+	<message key="grid.action.edit">Редагувати</message>
+	<message key="grid.action.restoreDefaults">Відновити типові значення</message>
+
+	<!-- Common Grid Column Titles -->
+	<message key="grid.columns.actions">Дії</message>
+	<message key="grid.columns.institution">Заклад</message>
+	<message key="grid.columns.url">URL</message>
+
+	<!-- Sponsors Grid -->
+	<message key="grid.sponsor.title">Спонсори</message>
+
+	<!-- Masthead Grid -->
+	<message key="grid.masthead.title">Відомості про редколегію</message>
+	<message key="grid.masthead.column.groups">Групи</message>
+
+	<!-- Contributor Grid -->
+	<message key="grid.contributor.title">Доповідач</message>
+
+	<!-- Review Forms Grid -->
+	<message key="grid.reviewForm.title">Форми рецензій</message>
+
+	<!-- Book File Types Grid -->
+	<message key="grid.bookFileType.form.sortable">Дозволити сортувати файли цього типу за компонентами (напр. за розділом)</message>
+
+	<!-- Artwork Files Grid -->
+	<message key="grid.artworkFile.title">Зображення без/Дозволом</message>
+	<message key="grid.artworkFile.file">Файл</message>
+	<message key="grid.artworkFile.form.title">Додати зображення без/Дозволом</message>
+	<message key="grid.artworkFile.form.metadata">Метадані зображення</message>
+	<message key="grid.artworkFile.caption">Заголовок</message>
+	<message key="grid.artworkFile.credit">Автор</message>
+	<message key="grid.artworkFile.copyrightOwner">Власник авторського права</message>
+	<message key="grid.artworkFile.copyrightContact">Контактні дані (якщо не автор/преса)</message>
+	<message key="grid.artworkFile.permissionTerms">Дозвіл</message>
+	<message key="grid.artworkFile.permissionForm">Форма дозволів</message>
+	<message key="grid.artworkFile.type">Тип</message>
+	<message key="grid.artworkFile.type.table">Таблиця</message>
+	<message key="grid.artworkFile.type.figure">Рисунок</message>
+	<message key="grid.artworkFile.placement">Розміщення в книзі</message>
+	<message key="grid.artworkFile.placementDetail">Таблиця/Рис. №.</message>
+	<message key="grid.artworkFile.contactAuthor">Контактні дані автора</message>
+
+	<!-- Library Files -->
+	<message key="grid.libraryFiles.column.files">Файли</message>
+	<message key="grid.libraryFiles.submission.title">Бібліотека подання</message>
+	<message key="grid.libraryFiles.editorial.title">Бібліотека редакції</message>
+	<message key="grid.libraryFiles.review.title">Бібліотека рецензування</message>
+	<message key="grid.libraryFiles.production.title">Бібліотека публікації</message>
+	<message key="grid.libraryFiles.productionTemplate.title">Бібліотека публікації шаблонів</message>
+
+	<!-- SubmissionChecklist -->
+	<message key="grid.submissionChecklist.title">Перелік подань</message>
+	<message key="grid.submissionChecklist.column.checklistItem">Елемент у переліку</message>
+
+	<!-- Submission Contributors -->
+	<message key="author.users.contributor.name">Ім'я</message>
+	<message key="author.users.contributor.email">E-mail</message>
+	<message key="author.users.contributor.role">Роль</message>
+	<message key="author.users.contributor.principalContact">Головний контакт</message>
+
+	<!-- Chapters -->
+	<message key="grid.chapters.title">Розділи</message>
+</locale>

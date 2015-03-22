@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/en_US/common.xml
+  *
+  * Copyright (c) 2000-2012 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the en_US (English) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="en_US" full_name = "English">
+	<message key="about.aboutSite">Про сайт</message>
+	<message key="about.contact">Контакти</message>
+	<message key="about.contact.email">Поштова скринька</message>
+	<message key="about.contact.fax">Факс</message>
+	<message key="about.contact.phone">Телефон</message>
+	<message key="about.contact.principalContact">Контактні дані адміністратора</message>
+	<message key="about.contact.supportContact">Контактні дані підтримки</message>
+	<message key="about.other">Інше</message>
+	<message key="about.people">Персонал</message>
+	<message key="about.policies">Політики</message>
+	<message key="about.siteMap">Мапа сайту</message>
+	<message key="announcement.announcements">Оголошення</message>
+	<message key="announcement.announcementsHome">Оголошення</message>
+	<message key="announcement.moreAnnouncements">Більше оголошень...</message>
+	<message key="announcement.noneExist">Оголошення не публікувалися.</message>
+	<message key="announcement.posted">Опубліковано</message>
+	<message key="announcement.viewLink">Більше...</message>
+	<message key="announcement.view">Передивитись оголошення</message>
+	<message key="common.refresh">Оновити</message>
+	<message key="common.action">Дія</message>
+	<message key="common.active">Активна</message>
+	<message key="common.add">Додати</message>
+	<message key="common.addSelf">Додати себе</message>
+	<message key="common.all">Все</message>
+	<message key="common.alphaList">А Б В Г Ґ Д Е Є Ж З И І Ї Й К Л М Н О П Р С Т У Ф Х Ц Ч Ш Щ Ь Ю Я</message>
+	<message key="common.alreadyAssigned">Призначено</message>
+	<message key="common.altText">Альтернативний текст</message>
+	<message key="common.altTextInstructions">Будь ласка, забезпечте це зображення альтернативним текстом для того, щоб користувачі із текстовими браузерами або допоміжними засобами мали доступ.</message>
+	<message key="common.and">та</message>
+	<message key="common.applyAction">Застосувати дію</message>
+	<message key="common.assign">Призначити</message>
+	<message key="common.assigned">Призначено</message>
+	<message key="common.back">Назад</message>
+	<message key="common.between">між</message>
+	<message key="common.cancel">Скасувати</message>
+	<message key="common.cancelled">Скасовано</message>
+	<message key="common.captchaField.altText">Зображення для перевірки</message>
+	<message key="common.captchaField.badCaptcha">Літери, які Ви ввели, не відповідають літерам на зображенні. Будь ласка, перевірте літери та спробуйте знову.</message>
+	<message key="common.captchaField.description">Будь ласка, введіть літери так само, як вони представлені на зображенні вище.</message>
+	<message key="common.captchaField">Перевірка</message>
+	<message key="common.ccLicense"><![CDATA[<br /><br />
+		<a target="_new" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
+			<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"/>
+		</a>
+		<br/>
+		Ця робота ліцензована відповідо до <a rel="license" target="_new" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0  License</a>.]]></message>
+	<message key="common.ccLicense.rt"><![CDATA[<div class="rtBlock">
+		<br />
+		<a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
+		<br />
+		Ця робота ліцензована відповідо до <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new">Creative Commons Attribution 3.0 License</a>.
+	</div>]]></message>
+	<message key="common.changesSaved">Ваші зміни збережено</message>
+	<message key="common.chooseOne">Оберіть варіант</message>
+	<message key="common.close">Закрити</message>
+	<message key="common.closeWindow">Закрити вікно</message>
+	<message key="common.complete">Завершено</message>
+	<message key="common.completed">Завершено</message>
+	<message key="common.continue">Продовжити</message>
+	<message key="common.country">Країна</message>
+	<message key="common.create">Створити</message>
+	<message key="common.dateCompleted">Дата завершення</message>
+	<message key="common.date">Дата</message>
+	<message key="common.dateModified">Дата зміни</message>
+	<message key="common.dateRequested">Дата запиту</message>
+	<message key="common.dateSubmitted">Дата надіслання</message>
+	<message key="common.dateUploaded">Дата завантаження</message>
+	<message key="common.day">День</message>
+	<message key="common.default">Типові значення</message>
+	<message key="common.delete">Видалити</message>
+	<message key="common.deleteSelection">Видалити розділ</message>
+	<message key="common.description">Опис</message>
+	<message key="common.disabled">Вимкнено</message>
+	<message key="common.discipline">Дисципліна</message>
+	<message key="common.done">Завершено</message>
+	<message key="common.download">Завантажити</message>
+	<message key="common.edit">Редагувати</message>
+	<message key="common.enabled">Ввімкнено</message>
+	<message key="common.error.databaseError">Помилка бази даних: {$error}</message>
+	<message key="common.error.databaseErrorUnknown">Невідома помилка підключення до бази даних.</message>
+	<message key="common.error.framesRequired"><![CDATA[Ця сторінка вимагає наявності фреймів. <a href="{$url}">Натисніть сюди </a> для версії без фреймів.]]></message>
+	<message key="common.event">Подія</message>
+	<message key="common.export">Експортувати</message>
+	<message key="common.re">Re:</message>
+	<message key="common.false">Невірно</message>
+	<message key="common.file">Файл</message>
+	<message key="common.fileName">Ім'я файлу</message>
+	<message key="common.fileSize">Розмір файлу</message>
+	<message key="common.fileType">Тип файлу</message>
+	<message key="common.height">Висота</message>
+	<message key="common.homePageHeaderLogo.altText">Логотип верхньої частини головної сторінки</message>
+	<message key="common.hour">Час</message>
+	<message key="common.id">ID</message>
+	<message key="common.import">Імпортувати</message>
+	<message key="common.initiate">Ініціювати</message>
+	<message key="common.inProgress">Виконується</message>
+	<message key="common.keywords">Ключові слова</message>
+	<message key="common.language">Мова</message>
+	<message key="common.languages">Мови</message>
+	<message key="common.manage">Управляти</message>
+	<message key="common.mailingAddress">Адреса для листування</message>
+	<message key="common.minute">Хвилина(и)</message>
+	<message key="common.modify">Змінити</message>
+	<message key="common.month">Місяць</message>
+	<message key="common.noneAssigned">Не призначено</message>
+	<message key="common.none">Жодного</message>
+	<message key="common.no">Ні</message>
+	<message key="common.noComments">Коментарі відсутні</message>
+	<message key="common.notApplicable">Неможливо застосувати</message>
+	<message key="common.notApplicableShort">N/A</message>
+	<message key="common.notAvailable">Відсутній</message>
+	<message key="common.note">Нотатка</message>
+	<message key="common.notes">Нотатки</message>
+	<message key="common.notify">Сповістити</message>
+	<message key="common.off">Вимкнено</message>
+	<message key="common.on">Ввімкнено</message>
+	<message key="common.ok">OK</message>
+	<message key="common.options">Опції</message>
+	<message key="common.order">Черга</message>
+	<message key="common.originalFileName">Початкова назва файлу</message>
+	<message key="common.or">або</message>
+	<message key="common.other">Інше</message>
+	<message key="common.pageHeaderLogo.altText">Логотип верхньої частини сторінки</message>
+	<message key="common.plugin">Плагін</message>
+	<message key="common.publisher">Видавець</message>
+	<message key="common.record">Запис</message>
+	<message key="common.related">Пов'язаний елемент</message>
+	<message key="common.remove">Видалити</message>
+	<message key="common.removeSelection">Зняти виділення</message>
+	<message key="common.replaced">Замінено</message>
+	<message key="common.replaceFile">Замінити файл</message>
+	<message key="common.requiredField">* обов'язкове поле</message>
+	<message key="common.required">Обов'язковий</message>
+	<message key="common.saveAndContinue">Зберегти та продовжити</message>
+	<message key="common.saveAndEmail">Зберегти та відіслати</message>
+	<message key="common.save">Зберегти</message>
+	<message key="common.search">Пошук</message>
+	<message key="common.second">Секунда(и)</message>
+	<message key="common.selectAll">Вибрати все</message>
+	<message key="common.selectNone">Не вибирати нічого</message>
+	<message key="common.select">Вибрати</message>
+	<message key="common.size">Розмір</message>
+	<message key="common.source">Джерело</message>
+	<message key="common.status">Статус</message>
+	<message key="common.subject">Тема</message>
+	<message key="common.suggest">Запропонувати</message>
+	<message key="common.title">Назва</message>
+	<message key="common.top">Верхня частина</message>
+	<message key="common.true">Правильно</message>
+	<message key="common.type">Тип</message>
+	<message key="common.uninitiated">Не ініційований</message>
+	<message key="common.untitled">Без назви</message>
+	<message key="common.updated">Оновлений</message>
+	<message key="common.uploadedFile">Завантажений файл</message>
+	<message key="common.upload">Завантажити</message>
+	<message key="common.uploadFailed">Неможливо завантажити файл. Будь-ласка, спробуйте ще раз або зверніться до аміністратора, якщо проблема буде виникати надалі.</message>
+	<message key="common.up">На верх</message>
+	<message key="common.url">URL</message>
+	<message key="common.user">Користувач</message>
+	<message key="common.view">Вид</message>
+	<message key="common.weeks">тижні</message>
+	<message key="common.width">Ширина</message>
+	<message key="common.year">Рік</message>
+	<message key="common.yes">Так</message>
+	<message key="debug.databaseQueries">Кількість запитів до бази даних</message>
+	<message key="debug.executionTime">Сторінка створена у</message>
+	<message key="debug.memoryUsage">Використана пам'ять</message>
+	<message key="debug.notes.localeListLoad">Завантажено перелік мов "{$localeList}" з XML</message>
+	<message key="debug.notes.localeLoad">Завантажено мовний файл "{$localeFile}" з XML</message>
+	<message key="debug.notes.missingLocaleKey">Відсутній мовний файл "{$key}".</message>
+	<message key="debug.notes">Нотатки:</message>
+	<message key="email.addAttachment">Додати вкладення</message>
+	<message key="email.addBccRecipient">Додати BCC</message>
+	<message key="email.addCcRecipient">Додати CC</message>
+	<message key="email.addToRecipient">Додати отримувача</message>
+	<message key="email.attachments">Вкладення</message>
+	<message key="email.bcc">BCC</message>
+	<message key="email.bccSender">Відіслати копію цього повідомлення до моєї поштової скриньки ({$address})</message>
+	<message key="email.body">Тіло</message>
+	<message key="email.cc">CC</message>
+	<message key="email.compose">Відіслати лист</message>
+	<message key="email.compose.tooManyRecipients">Повідомлення, яке ви намагаєтесь надіслати, має дуже багато отримувачів.</message>
+	<message key="email.compose.tooSoon">Ви намагаєтесь відіслати повідомлення занадто швидко після попереднього повідомлення. Будь ласка, зачекайте перед надсиланням наступного повідомлення.</message>
+	<message key="email.email">Email</message>
+	<message key="email.from">Від</message>
+	<message key="email.invalid">Адреса {$email} неправильна.</message>
+	<message key="email.multipart">Це повідомлення з декількох частин у форматі MIME.</message>
+	<message key="email.recipient">Отримувач</message>
+	<message key="email.recipients">Отримувачі</message>
+	<message key="email.sender">Відправник</message>
+	<message key="email.send">Відіслати</message>
+	<message key="email.skip">Не надсилати повідомлення</message>
+	<message key="email.subject">Тема</message>
+	<message key="email.to">Кому</message>
+	<message key="form.errorsOccurred">При обробці цієї форми виникли помилки</message>
+	<message key="form.formLanguage.description">Для того, щоб ввести інформацію далі на додаткових мовах, спочатку оберіть мову</message>
+	<message key="form.formLanguage">З мови</message>
+	<message key="form.contains">містить</message>
+	<message key="form.is">є</message>
+	<message key="form.startsWith">починається</message>
+	<message key="form.postRequired">Форма не була відправлена правильно.</message>
+	<message key="form.required">(* Обов'язково)</message>
+	<message key="form.resubmit">Відправити ще раз</message>
+	<message key="form.saveToUpload">Використовуйте "Зберегти" щоб надіслати файл.</message>
+	<message key="form.send">Надіслати</message>
+	<message key="form.submit">Відправити</message>
+	<message key="help.contents">Зміст</message>
+	<message key="help.help">Допомога</message>
+	<message key="help.helpIndex">Індекс допомоги</message>
+	<message key="help.matchesFound">{$matches} збігів знайдено</message>
+	<message key="help.noMatchingTopics">Не знайдено відповідних тем довідки.</message>
+	<message key="help.relatedTopics">Пов'язані теми</message>
+	<message key="help.searchFor">Шукати теми довідки для</message>
+	<message key="help.searchResultsFor">Результати для</message>
+	<message key="help.searchResults">Результати пошуку</message>
+	<message key="help.search">Пошук довідки</message>
+	<message key="help.toc">Зміст</message>
+	<message key="help.upALevel">На вищий рівень</message>
+	<message key="icon.checked.alt">Відзначено</message>
+	<message key="icon.comment.alt">Коментар</message>
+	<message key="icon.delete.alt">Видалити</message>
+	<message key="icon.edit.alt">Редагувати</message>
+	<message key="icon.folder.alt">Тека</message>
+	<message key="icon.font_large.alt">Великий</message>
+	<message key="icon.font_medium.alt">Середній</message>
+	<message key="icon.font_small.alt">Малий</message>
+	<message key="icon.info.alt">Інформація</message>
+	<message key="icon.letter.alt">Лист</message>
+	<message key="icon.mail.alt">Пошта</message>
+	<message key="icon.unchecked.alt">Не позначено</message>
+	<message key="icon.view.alt">Вигляд</message>
+	<message key="locale.primary">Основна мова</message>
+	<message key="locale.supported">Мови, які підтримуються</message>
+	<message key="navigation.about">Основні відомості</message>
+	<message key="navigation.browse">Перегляд</message>
+	<message key="navigation.browseByTitle">За назвою</message>
+	<message key="navigation.dashboard">Панель керування</message>
+	<message key="navigation.home">На головну</message>
+	<message key="navigation.infoForReaders">Для читачів</message>
+	<message key="navigation.infoForReaders.long">Інформація для читачів</message>
+	<message key="navigation.items">{$from} - {$to} з {$total} елементів</message>
+	<message key="navigation.login">Вхід</message>
+	<message key="navigation.nextPage"><![CDATA[&gt;&gt;]]></message>
+	<message key="navigation.nextStep">Наступний крок</message>
+	<message key="navigation.previousPage"><![CDATA[&lt;&lt;]]></message>
+	<message key="navigation.previousStep">Попередній крок</message>
+	<message key="navigation.register">Зареєструватися</message>
+	<message key="navigation.search">Шукати</message>
+	<message key="navigation.stepNumber">Крок {$step}</message>
+	<message key="navigation.userHome">Головна сторінка користувача</message>
+	<message key="navigation.user">Користувач</message>
+	<message key="notification.allow">Дозволити цим типам попереджень відображатися у моїй стрічці повідомлень.</message>
+	<message key="notification.confirmError">При підтвердженні Вашої підписки виникла помилка.</message>
+	<message key="notification.confirmSuccess">Ви були успішно підписані.</message>
+	<message key="notification.email">Відсилати мені лист на пошту для цього типу повідомлень.</message>
+	<message key="notification.location">Перейти до адреси</message>
+	<message key="notification.mailList">Перелік розсилки повідомлень</message>
+	<message key="notification.mailList.emailInvalid">Будь ласка, введить дійсну поштову адресу .</message>
+	<message key="notification.mailList.privacyProtection">Політика захисту приватності</message>
+	<message key="notification.mailList.protectedContent"><![CDATA[<a href="{$subscribeUrl}">Оформіть підписку </a> для захисту змісту.]]></message>
+	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Відіслати</a> статтю]]></message>
+	<message key="notification.mailList.register">Ви можете зареєструватись на цьому сайті на...</message>
+	<message key="notification.mailList.review"><![CDATA[Візьміть участь у процесі <a href="{$reviewUrl}">рецензування</a>]]></message>
+	<message key="notification.noneExist">У Вас немає повідомлень на даний момент.</message>
+	<message key="notification.notification">Повідомлення</message>
+	<message key="notification.notifications">Повідомлення</message>
+	<message key="notification.notificationsNew">({$numNew} нове)</message>
+	<message key="notification.notificationsDescription"><![CDATA[Ви маєте {$unreadCount} непрочитаних повідомлень та {$readCount} прочитаних повідомлень.  <a href="{$settingsUrl}">Натисніть тут</a> щоб змінити налаштування повідомлень.]]></message>
+	<message key="notification.settings">Налаштування повідомлень</message>
+	<message key="notification.settingsDescription">Оберіть ті системні події, про які Ви би хотіли отримати повідомлення. Зняття позначок з елементу призведе до того, що повідомлення про подію не будуть відображатися у Вашій стрічці повідомлень.</message>
+	<message key="notification.subscribe">Підписатися</message>
+	<message key="notification.subscribeError">За Вашою поштовою адресою вже є підписка на повідомлення.</message>
+	<message key="notification.subscribeSuccess">Лист був надісланий за адресою електронної пошти, яку Ви вказали. Будь ласка, натисніть на посилання підтвердження у листі, щоб додати себе до списку розсилки.</message>
+	<message key="notification.reminderError">Виникла помилка при спробі надіслати Ваш пароль, будь ласка, переконайтеся, що Ви правильно ввели адресу Вашої електронної пошти.</message>
+	<message key="notification.reminderSent">Ваш новий пароль був надісланий на вказану Вами адресу електронної пошти.</message>
+	<message key="notification.unsubscribe">Скасувати підписку.</message>
+	<message key="notification.unsubscribeDescription">Введіть Ваші адресу електронної пошти та пароль, щоб скасувати підписку на повідомлення. Якщо Ви не пам'ятаєте Ваш пароль, залишіть поле для пароля порожнім - новий пароль буде надісланий Вам на вказану адресу електронної пошти.</message>
+	<message key="notification.unsubscribeError">При спробі скасувати Вашу підписку, виникла помилка. Будь ласка, переконайтеся, що адреса Вашої електронної пошти та пароль вказані правильно.</message>
+	<message key="notification.unsubscribeSuccess">Ваша підписка була успішно скасована.</message>
+	<message key="search.abstract">Тези</message>
+	<message key="search.allFields">Всі</message>
+	<message key="search.coverage">Огляд</message>
+	<message key="search.date">Дата</message>
+	<message key="search.dateFrom">Від</message>
+	<message key="search.dateTo">До</message>
+	<message key="search.discipline">Дисципліна(и)</message>
+	<message key="search.fullText">Повний текст</message>
+	<message key="search.indexTerms">Ключові слова</message>
+	<message key="search.matchAll">Підходить до всіх категорій</message>
+	<message key="search.noKeywordError">Ви повинні вказати принаймні одне ключове слово для пошуку.</message>
+	<message key="search.noResults">Немає результатів</message>
+	<message key="search.operator.and">і</message>
+	<message key="search.operator.not">ні</message>
+	<message key="search.operator.or">або</message>
+	<message key="search.reviseSearch">Переглянути пошук</message>
+	<message key="search.searchAllCategories">Шукати по всіх категоріях</message>
+	<message key="search.searchCategories">Категорії пошуку</message>
+	<message key="search.searchResults">Результати пошуку</message>
+	<message key="search.subject">Ключові слова</message>
+	<message key="search.titleIndex">Передивитись покажчик заголовків</message>
+	<message key="search.title">Заголовок</message>
+	<message key="search.typeMethodApproach">Тип (метод/підхід)</message>
+	<message key="common.copy">Копіювати</message>
+	<message key="common.preview">Попередній перегляд</message>
+	<message key="common.activate">Активувати</message>
+	<message key="common.deactivate">Деактивувати</message>
+</locale>

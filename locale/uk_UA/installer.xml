@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/en_US/installer.xml
+  *
+  * Copyright (c) 2000-2012 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the en_US (English) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="en_US" full_name = "English">
+	<message key="installer.additionalLocales">Додаткові локалізації</message>
+	<message key="installer.administratorAccount">Обліковий запис адміністратора</message>
+	<message key="installer.administratorAccountInstructions">Цей обліковий запис користувача отримає статус адміністратора сайту і буде мати повний доступ до системи. Додаткові облікові записи користувачів можуть бути створені після встановленя системи.</message>
+	<message key="installer.checkNo"><![CDATA[<span class="formError">НІ</span>]]></message>
+	<message key="installer.checkYes">Так</message>
+	<message key="installer.clientCharset">Комплект шрифта клієнта</message>
+	<message key="installer.clientCharsetInstructions">Кодова сторінка, яка буде використана для надісланих та отриманих браузером даних.</message>
+	<message key="installer.configFileError"><![CDATA[Файл конфігурації <tt>config.inc.php</tt> не існує або недоступний для зчитування.]]></message>
+	<message key="installer.connectionCharset">Комплект шрифта для з'єднання</message>
+	<message key="installer.connectionCharsetInstructions"><![CDATA[Кодова сторінка, яка буде використовуватися для даних, надісланих та отриманиз з бази даних. Має відповідати кодовій сторінці клієнта. Зауважте, що ця можливість підтримується при версіях MySQL >= 4.1.1 та PostgreSQL >= 7.1. Оберіть "Не можливо застосувати", якщо сервер бази даних не відповідає цим умовам.]]></message>
+	<message key="installer.contentsOfConfigFile">Зміст файла конфігурації</message>
+	<message key="installer.createDatabase">Створити нову базу даних</message>
+	<message key="installer.createDatabaseInstructions">Для того, щоб Ви могли скористатися цією опцією, Ваша система бази даних повинна підтримувати віддалене створення бази даних та Ваш обілковий запис повинен має відпвідні права для створення нової бази даних. Якщо встановлення відбувається із помилко при обраній цій опції, створіть базу даних власноруч на Вашому сервері і запустіть програму встановлення ще раз, з відключеною цією опцією.</message>
+	<message key="installer.databaseCharset">Кодова сторінка бази даних</message>
+	<message key="installer.databaseCharsetInstructions"><![CDATA[Кодування, яке буде використовуватись для даних в базі даних. Зауважте, що ця можливість підтримується при версіях MySQL >= 4.1.1 та PostgreSQL >= 7.1. Оберіть "Не можливо застосувати", якщо сервер бази даних не відповідає цим умовам.]]></message>
+	<message key="installer.databaseDriver">Драйвер бази даних</message>
+	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Схоже, що драйвери бази даних, які перелічені у дужках, не мають завантаженого необхідного PHP розширення і встановлення, вірогідно, не буде вдалим, якщо буде обране.</strong><br />Будь-які драйвери баз даних, які не підтримуються і які наведені вище, наводяться лише для озайомлення і навряд чи будуть працювати.]]></message>
+	<message key="installer.databaseHost">Host</message>
+	<message key="installer.databaseHostInstructions">Залиште поле для назви хоста порожнім для того, щоб з'єднання відбулось за допомогою Domain Sockets замість використання TCP/IP. Це не є необхідним за наявності MySQL, який автоматично буде використовувати Sockets якщо в полі назви вказати "localhost", але це потрібно при використанні деяких інших баз даних, як-от PostgreSQL.</message>
+	<message key="installer.databaseName">Назва бази даних</message>
+	<message key="installer.databasePassword">Пароль</message>
+	<message key="installer.databaseSettings">Налаштування бази даних</message>
+	<message key="installer.databaseUsername">Ім' користувача</message>
+	<message key="installer.encryptionInstructions"><![CDATA[SHA1 рекомендований, якщо Ваша система підтримує його (requires PHP >= 4.3.0).]]></message>
+	<message key="installer.encryption">Алгоритм шифрування пароля</message>
+	<message key="installer.filesDir">Тека для завантажень</message>
+	<message key="installer.fileSettings">Налаштування файлів</message>
+	<message key="installer.form.clientCharsetRequired">Потрібно обрати кодову сторінку для клієнта.</message>
+	<message key="installer.form.databaseDriverRequired">Потрібно обрати драйвер бази даних.</message>
+	<message key="installer.form.databaseNameRequired">Потрібно обрати ім'я бази даних.</message>
+	<message key="installer.form.emailRequired">Необхідно вказати дійсну електрону поштову адресу для облікового запису адміністратора.</message>
+	<message key="installer.form.encryptionRequired">Потрібно обрати алгоритм для шифрування пароля користувача.</message>
+	<message key="installer.form.filesDirRequired">Необхідно вказати теку, в якій будуть зберігатися завантажені файли.</message>
+	<message key="installer.form.localeRequired">Потрібно обрати локалізацію.</message>
+	<message key="installer.form.passwordRequired">Необхідно вказати пароль для облікового запису адміністратора.</message>
+	<message key="installer.form.passwordsDoNotMatch">Паролі адміністратора не збігаються.</message>
+	<message key="installer.form.separateMultiple">У випадку, якщо значень багато, розділяйте їх комами</message>
+	<message key="installer.form.usernameAlphaNumeric">Ім'я адміністратора може містити літери латинського алфавіту, підкреслення, тире та повинне починатися та закінчуватися на літеру латинського алфавіту.</message>
+	<message key="installer.form.usernameRequired">Необхідно вказати ім'я користувача для облікового запису адміністратора.</message>
+	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>ПОПЕРЕДЖЕННЯ: Ваша поточна версія PHP не відповідає мінімальним вимогам щодо встановлення. Рекомендовано повновити систему до останньої версії PHP.</strong>]]></message>
+	<message key="installer.installErrorsOccurred">Під час встановлення виникла помилка</message>
+	<message key="installer.installerSQLStatements">SQL вирази для встановлення</message>
+	<message key="installer.installFileError"><![CDATA[Файл встановлення <tt>dbscripts/xml/install.xml</tt> не існує, або недоступний для зчитування.]]></message>
+	<message key="installer.installFilesDirError">Тека, яка була обрана для завантаження файлів, не існує, або є недоступною для запису.</message>
+	<message key="installer.installParseDBFileError"><![CDATA[Помилка при обробці файлу встановлення бази даних <tt>{$file}</tt>.]]></message>
+	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Помилка при обробці файлу шаблону електронної пошти <tt>{$file}</tt>.]]></message>
+	<message key="installer.locale">Локалізація</message>
+	<message key="installer.locale.maybeIncomplete">Відмічені локалізації можуть бути неповними.</message>
+	<message key="installer.localeSettings">Налаштування локалізації</message>
+	<message key="installer.miscSettings">Різні налаштування</message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Унікальний покажчик, який використовується для ідентифікації записів із метаданими, проіндексованих на цьому сайті із використанням<a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Протоколу для Збору Метаданих.]]></message>
+	<message key="installer.oaiRepositoryId">Ідентифікатор сховища OAI</message>
+	<message key="installer.publicFilesDirError">Тека для публічних файлів не існує, або є недоступною для запису.</message>
+	<message key="installer.releaseNotes">Нотатки до видання</message>
+	<message key="installer.securitySettings">Налаштування безпеки</message>
+	<message key="installer.skipFilesDir">Не створювати необхідних підтек (може використовуватися тільки при встановленні власноруч)</message>
+</locale>

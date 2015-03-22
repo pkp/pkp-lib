@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/en_US/manager.xml
+  *
+  * Copyright (c) 2000-2012 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the en_US (English) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="en_US" full_name = "English">
+	<message key="manager.announcements">Оголошення</message>
+	<message key="manager.announcements.confirmDelete">Ви впевнені, що хочете назавжди видалити це оголошення?</message>
+	<message key="manager.announcements.create">Створити нове оголошення</message>
+	<message key="manager.announcements.createTitle">Створити</message>
+	<message key="manager.announcements.dateExpire">Закінчення терміну</message>
+	<message key="manager.announcements.edit">Редагувати оголошення</message>
+	<message key="manager.announcements.editTitle">Редагувати</message>
+	<message key="manager.announcements.form.dateExpireDayIncompleteDate">Будь ласка, оберіть рік та/або місяць додатково до дати закінчення терміну.</message>
+	<message key="manager.announcements.form.dateExpire">Дата закінчення терміну</message>
+	<message key="manager.announcements.form.dateExpireInstructions">Читачі будуть бачити це оголошення до вказаної дати. Будь ласка, залишіть це поле порожнім, якщо оголошення будуть показані необмежену кількість часу.</message>
+	<message key="manager.announcements.form.dateExpireMonthIncompleteDate">Будь ласка, оберіть рік та/або дату додатково до місяця дати закінчення.</message>
+	<message key="manager.announcements.form.dateExpireValid">Будь ласка, оберіть дійсну дату закінчення оголошення.</message>
+	<message key="manager.announcements.form.dateExpireYearIncompleteDate">Будь ласка, оберіть місяць та/або дату додатково до року дати закінчення.</message>
+	<message key="manager.announcements.form.description">Опис</message>
+	<message key="manager.announcements.form.descriptionInstructions">Повний текст оголошення.</message>
+	<message key="manager.announcements.form.descriptionRequired">Потрібно ввести опис оголошення.</message>
+	<message key="manager.announcements.form.descriptionShortInstructions">Скорочений опис, який буде показано разом із назвою оголошення.</message>
+	<message key="manager.announcements.form.descriptionShortRequired">Потрібно ввести скорочений опис оголошення.</message>
+	<message key="manager.announcements.form.descriptionShort">Скорочений опис</message>
+	<message key="manager.announcements.form.saveAndCreateAnother">Зберегти і створити інший</message>
+	<message key="manager.announcements.form.titleRequired">Потрібно вказати назву оголошення.</message>
+	<message key="manager.announcements.form.title">Назва</message>
+	<message key="manager.announcements.form.typeId">Тип</message>
+	<message key="manager.announcements.form.typeIdValid">Будь ласка, оберіть правильний тип оголошення.</message>
+	<message key="manager.announcements.noneCreated">Не було створено жодного оголошення.</message>
+	<message key="manager.announcements.title">Назва</message>
+	<message key="manager.announcements.type">Тип</message>
+	<message key="manager.announcementTypes">Типи оголошень</message>
+	<message key="manager.announcementTypes.confirmDelete">Попередження! Всі оголошення разом із цим типом оголошення також будуть видалені. Ви впевнені, що хочете продовжити та видалити цей тип оголошення?</message>
+	<message key="manager.announcementTypes.create">Створити тип оголошення</message>
+	<message key="manager.announcementTypes.createTitle">Створити</message>
+	<message key="manager.announcementTypes.edit">Редагувати тип оголошення</message>
+	<message key="manager.announcementTypes.editTitle">Редагувати</message>
+	<message key="manager.announcementTypes.form.saveAndCreateAnother">Зберегти і створити автора</message>
+	<message key="manager.announcementTypes.form.typeNameExists">Тип оголошення із такою назвою вже існує.</message>
+	<message key="manager.announcementTypes.form.typeName">Назва</message>
+	<message key="manager.announcementTypes.form.typeNameRequired">Потрібно вказати назву типу оголошення.</message>
+	<message key="manager.announcementTypes.noneCreated">Жодного типу оголошення не було створено.</message>
+	<message key="manager.announcementTypes.typeName">Тип оголошеня</message>
+	<message key="manager.emails.confirmDelete">Ви впевнені, що хочете видалити цей шаблон електронного повідомлення?</message>
+	<message key="manager.emails.confirmReset">Ви впевнені, що хочете відновити типові значення у цьому шаблоні електронного повідомлення?</message>
+	<message key="manager.emails.createEmail">Створити e-mail</message>
+	<message key="manager.emails.disable">Деактивувати</message>
+	<message key="manager.emails.editEmail">Редагувати e-mail</message>
+	<message key="manager.emails.editTestExample">Редагувати тестовий приклад e-mail</message>
+	<message key="manager.emails.emailKey">Ключ e-mail</message>
+	<message key="manager.emails.emailKeyExists">E-mail з вказаним ключем вже існує. Ключі e-mail повинні бути унікальними.</message>
+	<message key="manager.emails.emailTemplate">Шаблон електронного повідомлення</message>
+	<message key="manager.emails.emailTemplates">Шаблон електронного повідомлення</message>
+	<message key="manager.emails.enabled">Активувати цей шаблон електронного повідомлення</message>
+	<message key="manager.emails.enable">Активувати</message>
+	<message key="manager.emails.form.emailKeyRequired">Потрібно вказати унікальне значення ключа електронного повідомлення для цього повідомлення.</message>
+	<message key="manager.emails.form.bodyRequired">Потрібно заповнити тіло для цього електронного повідомлення.</message>
+	<message key="manager.emails.form.subjectRequired">Потрібно вказати тему для цього електронного повідомлення.</message>
+	<message key="manager.emails">Підготовлені електронні повідомлення</message>
+	<message key="manager.emails.resetAll">Перезавантажити усі шаблони</message>
+	<message key="manager.emails.reset">Перезавантажити</message>
+	<message key="manager.emails.resetToDefault">Повернути до типових</message>
+	<message key="manager.filesBrowser">Перегляд файлів</message>
+	<message key="manager.files.confirmDelete">Видалити цей файл або теку? Зауважте, що тека повинна бути порожня перед її видаленням.</message>
+	<message key="manager.files.createDir">Створити теку</message>
+	<message key="manager.files.emptyDir">Жодних файлів не знайдено у цій теці.</message>
+	<message key="manager.files.indexOfDir">Індекс {$dir}</message>
+	<message key="manager.files.parentDir">Батьківська тека</message>
+	<message key="manager.files.uploadedFiles">Завантажені файли</message>
+	<message key="manager.files.uploadFile">Завантажити файл</message>
+	<message key="manager.groups.confirmDelete">Ви впевенені, що хочете видалити цю групу?</message>
+	<message key="manager.groups.createTitle">Створити назву</message>
+	<message key="manager.groups.editTitle">Редагувати назву</message>
+	<message key="manager.groups.form.groupTitleRequired">Потрібно вказати назву групи.</message>
+	<message key="manager.groups.membership.addMember">Додати учасника</message>
+	<message key="manager.groups.membership.confirmDelete">Ви впевнені, що хочете видалити членство у цій групі?</message>
+	<message key="manager.groups.membership">Членство</message>
+	<message key="manager.groups.membership.noneCreated">В цій групі немає учасників.</message>
+	<message key="manager.groups.membership.noUsers">Не було знайдено жодного користувача.</message>
+	<message key="manager.groups.title">Назва</message>
+	<message key="manager.importExport">Імпортувати/Експортувати дані</message>
+	<message key="manager.languages.alternateLocaleInstructions">Ця система опціонально дозволяє певній критичній інформації бути введеній на декількох додаткових мовах. Для використання цієї опції, оберіть альтернативні локалізації та оберіть із опцій, перелічених нижче.</message>
+	<message key="manager.languages.supportedLocalesInstructions">Оберіть усі локалізації, які будуть підтримуватися на сайті шляхом появи меню вибора мови на кожній сторінці. Меню з'явить тільки якщо більше ніж одна локалізація обрана.</message>
+	<message key="manager.payment.timestamp">Час</message>
+	<message key="manager.people.authSource">Джерело індентифікації</message>
+	<message key="manager.people.confirmUnenroll">Вилучити цього користувача?</message>
+	<message key="manager.people.createUser">Створити нового користувача</message>
+	<message key="manager.people.createUserGeneratePassword">Згенерувати випадковий пароль.</message>
+	<message key="manager.people.createUserSendNotify">Надіслати користувачу провітальне електронне повідомлення, що буде містити його логін та пароль.</message>
+	<message key="manager.people.disable">Деактивувати</message>
+	<message key="manager.people.doNotEnroll">Без ролі</message>
+	<message key="manager.people.editProfile">Редагувати профіль</message>
+	<message key="manager.people.editUser">Редагувати користувача</message>
+	<message key="manager.people.emailUsers.emailSelectedUsers">Надіслати електронне повідомлення обраним користувачам</message>
+	<message key="manager.people.emailUsers.emailUsersEnrolledAs">Надіслати електронне повідомленн користувачам, залученим в якості</message>
+	<message key="manager.people.emailUsers">Надіслати електронне повідомлення користувачам</message>
+	<message key="manager.people.emailUsers.selectLocale">Обрати локалізацію</message>
+	<message key="manager.people.emailUsers.selectUsers">Оберіть користувачів, яким Ви хочете надіслати електронне повідомлення, шляхом встановлення позначок навпроти їх імен</message>
+	<message key="manager.people.enable">Активувати</message>
+	<message key="manager.people.enroll">Залучити користувача</message>
+	<message key="manager.people.enrollment">Залучення</message>
+	<message key="manager.people.enrollSelected">Залучити обраних користувачів</message>
+	<message key="manager.people.enrollSyncRole">Синхронізувати ролі</message>
+	<message key="manager.people.enrollSync">Синхронізувати залучення</message>
+	<message key="manager.people.enrollUserAsDescription">Користувачі можуть бути призначені або звільнені з будь-якої ролі.</message>
+	<message key="manager.people.enrollUserAs">Залучити користувача як</message>
+	<message key="manager.people.invalidUser">Нажаль, користувач, якого Ви шукали, не існує.</message>
+	<message key="manager.people.mergeUser">Об'єднати користувача</message>
+	<message key="manager.people.mergeUsers.confirm">Ви впевнені, що хочете об'єднати обраний {$oldAccountCount} обліковий запис(и) із обліковим записом користувача "{$newUsername}"? Обраний обліковий запис {$oldAccountCount} буде недоступний. Цю дію неможливо скасувати після її виконання.</message>
+	<message key="manager.people.mergeUsers">Об'єднати користувачів</message>
+	<message key="manager.people.mustChooseRole">Будь ласка, оберіть роль на верху сторіни перед натисканням "Залучити Користувача"</message>
+	<message key="manager.people.mustProvideName">Будь ласка, спочатку забезпечте принаймні прізвище для користувача.</message>
+	<message key="manager.people.noMatchingUsers">Відсутні подібні користувачі.</message>
+	<message key="manager.people.noneEnrolled">Залучені користувачі відсутні.</message>
+	<message key="manager.people">Особи</message>
+	<message key="manager.people.remove">Видалити</message>
+	<message key="manager.people.saveAndCreateAnotherUser">Зберегти і створити іншого</message>
+	<message key="manager.people.signInAs">Зайти як</message>
+	<message key="manager.people.signInAsUser">Зайти як користувач</message>
+	<message key="manager.people.syncUsers">Синхронізувати залучення користувачів</message>
+	<message key="manager.people.unenroll">Звільнити</message>
+	<message key="manager.people.userCreatedSuccessfully">Користувач був успішно створений.</message>
+	<message key="manager.people.userMustChangePassword">Вимагає від користувача змінити пароль в разі наступної спроби авторизуватися на сайті.</message>
+	<message key="manager.plugins.action">Дія:</message>
+	<message key="manager.plugins.disable">Деактивувати</message>
+	<message key="manager.plugins.enable">Активувати</message>
+	<message key="manager.plugins.pluginManagement">Управління плагінами</message>
+	<message key="manager.plugins.sitePlugin">Це плагін, дія якого поширюється на весь сайт. Тільки адміністратор сайту може управляти цим плагіном.</message>
+	<message key="manager.plugins">Системні плагіни</message>
+	<message key="manager.readingTools">Засоби читання</message>
+	<message key="manager.roles">Ролі</message>
+	<message key="manager.setup.errorDeletingItem">Виникла помилка при видаленні цього елемента.</message>
+	<message key="manager.setup.homeHeaderImageInvalid">Неправильний формат зображення логотипу для верхньої частини домашньої сторінки або виникла помилка при завантаженні. Формати, які приймаються: .gif, .jpg, або .png.</message>
+	<message key="manager.setup.homepageImageInvalid">Неправильний формат зображення домашньої сторінки або виникла помилка при завантаженні. Формати, які приймаються: .gif, .jpg, або .png.</message>
+	<message key="manager.setup.homeTitleImageInvalid">Неправильний формат зображення заголовку для верхньої частини домашньої сторінки або виникла помилка при завантаженні. Формати, які приймаються: .gif, .jpg, або .png.</message>
+	<message key="manager.setup.layout.leftSidebar">Лівий бічний блок</message>
+	<message key="manager.setup.layout.rightSidebar">Правий бічний блок</message>
+	<message key="manager.setup.layout.unselected">Необраний</message>
+	<message key="manager.setup.loggingAndAuditing">Вхід та перевірка</message>
+	<message key="manager.setup.pageHeaderLogoImageInvalid">Неправильний формат зображення логотипу для верхньої частини сторінки або виникла помилка при завантаженні. Формати, які приймаються: .gif, .jpg, або .png.</message>
+	<message key="manager.setup.pageHeaderTitleImageInvalid">Неправильний формат зображення заголовку для верхньої частини сторінки або виникла помилка при завантаженні. Формати, які приймаються: .gif, .jpg, або .png.</message>
+	<message key="manager.setup.selectOne">Обрати один</message>
+	<message key="manager.statistics"><![CDATA[Статистика &amp; Звіти]]></message>
+	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>
+	<message key="manager.statistics.statistics.totalNewValue">{$numTotal} ({$numNew} new)</message>
+	<message key="manager.users">Користувачі</message>
+	<message key="plugins.categories.auth">Плагіни авторизації</message>
+	<message key="plugins.categories.blocks">Плагіни блоків</message>
+	<message key="plugins.categories.blocks.description">Плагіни блоків - це компоненти інтерфейсу користувача, які можна підключити - такі як різноманітні засоби керування бічними блоками</message>
+	<message key="plugins.categories.citationFormats">Плагіни форматів цитування</message>
+	<message key="plugins.categories.gateways.description">Плагіни зв'язку із зовнішніми сервісами забеспечують передачу даних зовнішнім системам.</message>
+	<message key="plugins.categories.gateways">Плагіни зв'язку із зовнішніми сервісами</message>
+	<message key="plugins.categories.generic">Загальні плагіни</message>
+	<message key="plugins.categories.importexport.description">Плагіни імпроту/експорту можуть бути використані для передачі змісту до та від інших систем.</message>
+	<message key="plugins.categories.importexport">Плагіни імпорту/експорту</message>
+	<message key="plugins.categories.paymethod.description">Плагіни методів оплати забезпечують підтримку різноманітних шляхів обробки онлайн-оплати.</message>
+	<message key="plugins.categories.paymethod">Плагіни оплати</message>
+	<message key="plugins.categories.reports.description">Плагіни звітів використовуються для того, щоб забезпечити різноманітні типи звітів та витягів з даних.</message>
+	<message key="plugins.categories.reports">Плагіни звітів</message>
+	<message key="plugins.categories.themes.description">Плагіни тем можуть використовуватися для зміни зовнішнього вигляду системи.</message>
+	<message key="plugins.categories.themes">Плагіни тем</message>
+</locale>

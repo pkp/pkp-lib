@@ -83,7 +83,19 @@ class SupplementaryFileDAODelegate extends SubmissionFileDAODelegate {
 		return array_merge(
 			parent::getLocaleFieldNames(),
 			array(
-				'creator',
+				'creator', 'subject', 'description', 'publisher', 'sponsor', 'source',
+			)
+		);
+	}
+
+	/**
+	 * @copydoc DAO::getAdditionalFieldNames()
+	 */
+	function getAdditionalFieldNames() {
+		return array_merge(
+			parent::getAdditionalFieldNames(),
+			array(
+				'dateCreated', 'language',
 			)
 		);
 	}

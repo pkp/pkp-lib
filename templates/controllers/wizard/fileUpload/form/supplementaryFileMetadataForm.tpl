@@ -17,6 +17,7 @@
 	$(function() {ldelim}
 		// Attach the form handler.
 		$('#metadataForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler');
+		$('input[id^=\'dateCreated\']').datepicker();
 	{rdelim});
 </script>
 
@@ -28,8 +29,15 @@
 			{fbvElement type="text" id="name" value=$submissionFile->getName(null) multilingual=true maxlength="255"}
 		{/fbvFormSection}
 
-		{fbvFormSection class="border"}
-			{fbvElement label="submission.supplementary.creator" type="text" id="creator" value=$submissionFile->getCreator(null) multilingual=true maxlength="255"}
+		{fbvFormSection}
+			{fbvElement label="common.description" type="textarea" id="description" value=$submissionFile->getDescription(null) multilingual=true maxlength="255"}
+			{fbvElement label="submission.supplementary.creator" inline=true size=$fbvStyles.size.MEDIUM type="text" id="creator" value=$submissionFile->getCreator(null) multilingual=true maxlength="255"}
+			{fbvElement label="submission.supplementary.publisher" inline=true size=$fbvStyles.size.MEDIUM type="text" id="publisher" value=$submissionFile->getPublisher(null) multilingual=true maxlength="255"}
+			{fbvElement label="common.source" inline=true size=$fbvStyles.size.MEDIUM type="text" id="source" value=$submissionFile->getSource(null) multilingual=true maxlength="255"}
+			{fbvElement label="submission.supplementary.subject" inline=true size=$fbvStyles.size.MEDIUM type="text" id="subject" value=$submissionFile->getSubject(null) multilingual=true maxlength="255"}
+			{fbvElement label="submission.supplementary.sponsor" inline=true size=$fbvStyles.size.MEDIUM type="text" id="sponsor" value=$submissionFile->getSponsor(null) multilingual=true maxlength="255"}
+			{fbvElement label="common.date" inline=true size=$fbvStyles.size.SMALL type="text" id="dateCreated" value=$submissionFile->getDateCreated(null)}
+			{fbvElement label="common.language" inline=true size=$fbvStyles.size.SMALL type="text" id="language" value=$submissionFile->getLanguage() maxlength="255"}
 		{/fbvFormSection}
 	{/fbvFormArea}
 

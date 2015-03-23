@@ -608,7 +608,7 @@
 	<message key="submission.supplementary.creator">Creator (or owner) of file</message>
 	<message key="submission.supplementary.subject">Subject</message>
 	<message key="submission.supplementary.publisher">Publisher</message>
-	<message key="submission.supplementary.contributor">Contributor or sponsoring agency</message>
+	<message key="submission.supplementary.sponsor">Contributor or sponsoring agency</message>
 	<message key="grid.action.itemWorkflow">Go to this submission's workflow</message>
 	<message key="editor.review.personalMessageFromEditor">Message from the editor</message>
 	<message key="submission.previousAuthorMessages">Previous Messages</message>

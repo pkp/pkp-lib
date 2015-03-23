@@ -39,7 +39,7 @@ class SupplementaryFileMetadataForm extends SubmissionFilesMetadataForm {
 	 */
 	function readInputData() {
 		$this->readUserVars(array(
-			'creator',
+			'creator', 'subject', 'description', 'publisher', 'sponsor', 'source', 'language', 'dateCreated',
 		));
 		parent::readInputData();
 	}
@@ -48,9 +48,15 @@ class SupplementaryFileMetadataForm extends SubmissionFilesMetadataForm {
 	 * @copydoc Form::execute()
 	 */
 	function execute($args, $request) {
-		// Update the sumbission file by reference.
+		// Update the submission file from form data.
 		$submissionFile = $this->getSubmissionFile();
-		$submissionFile->setCreator($this->getData('creator'), null); // Localized
+		$submissionFile->setSubject($this->getData('subject'), null); // Localized
+		$submissionFile->setDescription($this->getData('description'), null); // Localized
+		$submissionFile->setPublisher($this->getData('publisher'), null); // Localized
+		$submissionFile->setSponsor($this->getData('sponsor'), null); // Localized
+		$submissionFile->setSource($this->getData('source'), null); // Localized
+		$submissionFile->setLanguage($this->getData('language'));
+		$submissionFile->setDateCreated($this->getData('dateCreated'));
 
 		// Persist the submission file.
 		parent::execute($args, $request);

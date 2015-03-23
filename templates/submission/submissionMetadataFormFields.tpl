@@ -62,3 +62,5 @@
 		{fbvElement type="keyword" id="agencies" multilingual=true subLabelTranslate=true current=$agencies disabled=$readOnly}
 	{/fbvFormSection}
 {/fbvFormArea}
+
+{call_hook name="Templates::Submission::SubmissionMetadataForm::AdditionalMetadata"}

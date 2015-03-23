@@ -223,8 +223,8 @@ class GenreDAO extends DAO {
 				seq = ?,
 				sortable = ?,
 				dependent = ?,
-				supplementary = ?
-				enabled = ?,
+				supplementary = ?,
+				enabled = ?
 			WHERE	genre_id = ?',
 			array(
 				$genre->getKey(),

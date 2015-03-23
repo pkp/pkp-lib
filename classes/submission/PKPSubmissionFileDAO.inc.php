@@ -13,7 +13,7 @@
  * @see SubmissionFileDAODelegate
  *
  * @brief Abstract base class for retrieving and modifying SubmissionFile
- * objects and their decendents (e.g. SubmissionFile, ArtworkFile).
+ * objects and their decendents (e.g. SubmissionFile, SubmissionArtworkFile).
  *
  * This class provides access to all SubmissionFile implementations. It
  * instantiates and uses delegates internally to provide the right database
@@ -522,7 +522,13 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 	 *  without offending foreign key constraints, i.e.
 	 *  place the sub-classes before the super-classes.
 	 */
-	abstract function getDelegateClassNames();
+	function getDelegateClassNames() {
+		return array(
+			'submissionfile' => 'lib.pkp.classes.submission.SubmissionFileDAODelegate',
+			'submissionartworkfile' => 'lib.pkp.classes.submission.SubmissionArtworkFileDAODelegate',
+		);
+	}
+
 
 	/**
 	 * Return the mapping of genre categories to the lower
@@ -530,13 +536,28 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @return array a list of lower case class names of
 	 *  file implementations.
 	 */
-	abstract function getGenreCategoryMapping();
+	function getGenreCategoryMapping() {
+		return array(
+			GENRE_CATEGORY_DOCUMENT => 'submissionfile',
+			GENRE_CATEGORY_ARTWORK => 'submissionartworkfile',
+		);
+	}
 
 	/**
 	 * Return the basic join over all file class tables.
 	 * @return string
 	 */
-	abstract function baseQueryForFileSelection();
+	function baseQueryForFileSelection() {
+		// Build the basic query that joins the class tables.
+		// The DISTINCT is required to de-dupe the review_round_files join in
+		// PKPSubmissionFileDAO.
+		return 'SELECT DISTINCT
+				sf.file_id AS submission_file_id, sf.revision AS submission_revision,
+				af.file_id AS artwork_file_id, af.revision AS artwork_revision,
+				sf.*, af.*
+			FROM	submission_files sf
+				LEFT JOIN submission_artwork_files af ON sf.file_id = af.file_id AND sf.revision = af.revision ';
+	}
 
 
 	//
@@ -884,9 +905,10 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @return SubmissionFile
 	 */
 	function _castToDatabase($submissionFile) {
-		$fileId = $submissionFile->getFileId();
-		$revision = $submissionFile->getRevision();
-		return $this->getRevision($fileId, $revision);
+		return $this->getRevision(
+			$submissionFile->getFileId(),
+			$submissionFile->getRevision()
+		);
 	}
 
 	/**

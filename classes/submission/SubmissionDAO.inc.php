@@ -129,6 +129,13 @@ class SubmissionDAO extends DAO {
 	 * @param $submissionId int
 	 */
 	function deleteById($submissionId) {
+		// Delete submission files.
+		$submission = $this->getById($submissionId);
+		assert(is_a($submission, 'Submission'));
+		import('lib.pkp.classes.file.SubmissionFileManager');
+		$submissionFileManager = new SubmissionFileManager($submission->getContextId(), $submission->getId());
+		$submissionFileManager->rmtree($submissionFileManager->getBasePath());
+
 		$this->authorDao->deleteBySubmissionId($submissionId);
 
 		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');

@@ -25,7 +25,7 @@
 	{* Editable metadata *}
 	{fbvFormArea id="fileMetaData"}
 		{fbvFormSection title="submission.form.name" required=true}
-			{fbvElement type="text" id="name" value=$submissionFile->getLocalizedName() maxlength="255"}
+			{fbvElement type="text" id="name" value=$submissionFile->getName(null) multilingual=true maxlength="255"}
 		{/fbvFormSection}
 		{fbvFormSection title="submission.upload.noteToAccompanyFile"}
 			{fbvElement type="textarea" id="note" height=$fbvStyles.height.SHORT}

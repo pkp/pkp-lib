@@ -25,11 +25,11 @@
 	{* Editable metadata *}
 	{fbvFormArea id="fileMetaData"}
 		{fbvFormSection title="submission.form.name" required=true}
-			{fbvElement type="text" id="name" value=$submissionFile->getLocalizedName() maxlength="255"}
+			{fbvElement type="text" id="name" value=$submissionFile->getName(null) multilingual=true maxlength="255"}
 		{/fbvFormSection}
 
 		{fbvFormSection class="border"}
-			{fbvElement label="submission.supplementary.creator" type="text" id="name" value=$submissionFile->getLocalizedCreator() maxlength="255"}
+			{fbvElement label="submission.supplementary.creator" type="text" id="creator" value=$submissionFile->getCreator(null) multilingual=true maxlength="255"}
 		{/fbvFormSection}
 	{/fbvFormArea}
 

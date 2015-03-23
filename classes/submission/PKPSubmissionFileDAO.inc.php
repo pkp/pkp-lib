@@ -474,15 +474,22 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 	 */
 	function deleteReviewRoundAssignment($submissionId, $stageId, $fileId, $revision) {
 		// Remove currently assigned review files.
-		return $this->update('DELETE FROM review_round_files
-				WHERE submission_id = ? AND stage_id = ? AND file_id = ? AND revision = ?',
-				array((int)$submissionId, (int)$stageId, (int)$fileId, (int)$revision));
+		return $this->update(
+			'DELETE FROM review_round_files
+			WHERE submission_id = ? AND stage_id = ? AND file_id = ? AND revision = ?',
+			array(
+				(int) $submissionId,
+				(int) $stageId,
+				(int) $fileId,
+				(int) $revision
+			)
+		);
 	}
 
 	/**
 	 * Transfer the ownership of the submission files of one user to another.
-	 * @param $oldUserId int
-	 * @param $newUserId int
+	 * @param $oldUserId int User ID of old user (to be deleted)
+	 * @param $newUserId int User ID of new user (to receive assets belonging to old user)
 	 */
 	function transferOwnership($oldUserId, $newUserId) {
 		$submissionFiles = $this->_getInternally(null, null, null, null, null, null, null, $oldUserId, null);
@@ -526,6 +533,7 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 		return array(
 			'submissionfile' => 'lib.pkp.classes.submission.SubmissionFileDAODelegate',
 			'submissionartworkfile' => 'lib.pkp.classes.submission.SubmissionArtworkFileDAODelegate',
+			'supplementaryfile' => 'lib.pkp.classes.submission.SupplementaryFileDAODelegate',
 		);
 	}
 
@@ -540,6 +548,7 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 		return array(
 			GENRE_CATEGORY_DOCUMENT => 'submissionfile',
 			GENRE_CATEGORY_ARTWORK => 'submissionartworkfile',
+			GENRE_CATEGORY_SUPPLEMENTARY => 'supplementaryfile',
 		);
 	}
 
@@ -554,9 +563,11 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 		return 'SELECT DISTINCT
 				sf.file_id AS submission_file_id, sf.revision AS submission_revision,
 				af.file_id AS artwork_file_id, af.revision AS artwork_revision,
-				sf.*, af.*
+				suf.file_id AS supplementary_file_id, suf.revision AS supplementary_revision,
+				sf.*, af.*, suf.*
 			FROM	submission_files sf
-				LEFT JOIN submission_artwork_files af ON sf.file_id = af.file_id AND sf.revision = af.revision ';
+				LEFT JOIN submission_artwork_files af ON sf.file_id = af.file_id AND sf.revision = af.revision
+				LEFT JOIN submission_supplementary_files suf ON sf.file_id = suf.file_id AND sf.revision = suf.revision ';
 	}
 
 

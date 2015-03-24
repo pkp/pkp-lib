@@ -36,6 +36,7 @@
 		this.getGridHtmlElement().find('div.loading_container').hide();
 		this.addScrollHandler_();
 		this.fixGridWidth_();
+		this.fixGridHeight_();
 		this.addPagingDataToRows_();
 	};
 
@@ -178,6 +179,33 @@
 						$div = $($scrollableDivs[index]);
 						if ($div.get(0).scrollHeight > $div.height()) {
 							$div.width('102%');
+						}
+					}
+				}
+			},300);
+		}
+	};
+
+
+	/**
+	 * Fix the grid height to acomodate the number of initial visible rows.
+	 *
+	 * @private
+	 */
+	$.pkp.classes.features.InfiniteScrollingFeature.prototype.fixGridHeight_ =
+			function() {
+		var $scrollableDivs = $('div.scrollable', this.getGridHtmlElement()),
+				index, limit, $div, timer, length;
+
+		if ($scrollableDivs.length > 0) {
+			timer = setInterval(function() {
+				if ($scrollableDivs.is(':visible')) {
+					clearInterval(timer);
+					length = $scrollableDivs.length;
+					for (index = 0, limit = length; index < limit; index++) {
+						$div = $($scrollableDivs[index]);
+						if ($div.get(0).scrollHeight > $div.height()) {
+							$div.css('max-height', $div.get(0).scrollHeight - 10);
 						}
 					}
 				}

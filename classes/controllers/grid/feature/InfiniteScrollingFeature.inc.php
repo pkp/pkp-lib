@@ -23,8 +23,8 @@ class InfiniteScrollingFeature extends GeneralPagingFeature {
 	 * @copydoc GeneralPagingFeature::GeneralPagingFeature()
 	 * Constructor.
 	 */
-	function InfiniteScrollingFeature($id = 'infiniteScrolling') {
-		parent::GeneralPagingFeature($id);
+	function InfiniteScrollingFeature($id = 'infiniteScrolling', $itemsPerPage = null) {
+		parent::GeneralPagingFeature($id, $itemsPerPage);
 	}
 
 
@@ -37,7 +37,7 @@ class InfiniteScrollingFeature extends GeneralPagingFeature {
 	function getJSClass() {
 		return '$.pkp.classes.features.InfiniteScrollingFeature';
 	}
-	
+
 	/**
 	 * @copydoc GridFeature::fetchUIElements()
 	 */

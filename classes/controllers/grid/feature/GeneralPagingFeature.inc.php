@@ -22,11 +22,18 @@ class GeneralPagingFeature extends GridFeature {
 	/** @var ItemIterator */
 	private $_itemIterator;
 
+	/** @var itemsPerPage */
+	private $_itemsPerPage;
+
 	/**
-	 * @copydoc GridFeature::GridFeature()
+	 * @see GridFeature::GridFeature()
+	 * @param $id string Feature identifier.
+	 * @param $itemsPerPage null|int Optional Number of items to show at
+	 * the first time. 
 	 * Constructor.
 	 */
-	function GeneralPagingFeature($id) {
+	function GeneralPagingFeature($id, $itemsPerPage = null) {
+		$this->_itemsPerPage = $itemsPerPage;
 		parent::GridFeature($id);
 	}
 
@@ -52,17 +59,18 @@ class GeneralPagingFeature extends GridFeature {
 	function setOptions($request, $grid) {
 		// Get the default items per page setting value.
 		$rangeInfo = PKPHandler::getRangeInfo($request, $grid->getId());
+		$iterator = $this->getItemIterator();
 		$defaultItemsPerPage = $rangeInfo->getCount();
 
 		// Check for a component level items per page setting.
 		$componentItemsPerPage = $request->getUserVar($this->_getItemsPerPageParamName($grid->getId()));
+		if (!$componentItemsPerPage) $componentItemsPerPage = $this->_itemsPerPage;
+ 
 		if ($componentItemsPerPage) {
 			$currentItemsPerPage = $componentItemsPerPage;
 		} else {
 			$currentItemsPerPage = $defaultItemsPerPage;
 		}
-
-		$iterator = $this->getItemIterator();
 
 		$options = array(
 			'itemsPerPageParamName' => $this->_getItemsPerPageParamName($grid->getId()),
@@ -142,6 +150,7 @@ class GeneralPagingFeature extends GridFeature {
 
 		// Add grid level items per page setting, if any.
 		$itemsPerPage = $request->getUserVar($this->_getItemsPerPageParamName($grid->getId()));
+		if ($this->_itemsPerPage) $itemsPerPage = $this->_itemsPerPage; // Feature config overrides. 
 		if ($itemsPerPage) {
 			$rangeInfo->setCount($itemsPerPage);
 		}

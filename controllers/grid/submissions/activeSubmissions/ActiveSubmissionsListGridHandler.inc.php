@@ -76,8 +76,6 @@ class ActiveSubmissionsListGridHandler extends SubmissionsListGridHandler {
 	function loadData($request, $filter) {
 		$submissionDao = Application::getSubmissionDAO();
 		$context = $request->getContext();
-		$user = $request->getUser();
-		$userId = $user->getId();
 		$rangeInfo = $this->getGridRangeInfo($request, $this->getId());
 	
 		list($search, $column, $stageId) = $this->getFilterValues($filter);
@@ -90,13 +88,21 @@ class ActiveSubmissionsListGridHandler extends SubmissionsListGridHandler {
 			$editor = $search;
 		}
 
-		return $submissionDao->getAssignedToOthers($userId, $context->getId(), $title, $author, $editor, $stageId, $rangeInfo);
+		$nonExistingUserId = 0;
+		return $submissionDao->getActiveSubmissions($context->getId(), $title, $author, $editor, $stageId, $rangeInfo);
 	}
 
 
 	//
 	// Extend methods from SubmissionsListGridHandler
 	//
+	/**
+	 * @copydoc SubmissionsListGridHandler::getItemsNumber()
+	 */
+	protected function getItemsNumber() {
+		return 15;
+	}
+
 	/**
 	 * @copyDoc SubmissionsListGridHandler::getFilterColumns()
 	 */

@@ -473,11 +473,11 @@ abstract class SubmissionDAO extends DAO {
 	 */
 	function getUnpublishedByUserId($userId, $contextId = null, $title = null, $stageId = null, $rangeInfo = null) {
 		$params = array_merge(
-			$this->_getFetchParameters(),
+			$this->getFetchParameters(),
 			array((int) ROLE_ID_AUTHOR, (int) $userId)
 		);
 			$params[] = '%' . $title . '%';
-		}
+
 		if ($stageId) {
 			$params[] = (int) $stageId;
 		}
@@ -488,8 +488,9 @@ abstract class SubmissionDAO extends DAO {
 				' . $this->getFetchColumns() . '
 			FROM	submissions s
 				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id)' .
-				($title?' LEFT JOIN submission_settings ss ON (s.submission_id = ss.submission_id)':'')
-			WHERE	ps.date_published IS NULL
+				($title?' LEFT JOIN submission_settings ss ON (s.submission_id = ss.submission_id)':'') .
+				$this->getFetchJoins() .
+			'WHERE	ps.date_published IS NULL
 				AND s.submission_id IN (SELECT asa.submission_id FROM stage_assignments asa, user_groups aug WHERE asa.user_group_id = aug.user_group_id AND aug.role_id = ? AND asa.user_id = ?)' .
 				($contextId?' AND s.context_id = ?':'') .
 				($title?' AND (ss.setting_name = ? AND ss.setting_value LIKE ?)':'') .
@@ -535,6 +536,8 @@ abstract class SubmissionDAO extends DAO {
 					LEFT JOIN review_assignments ra ON (s.submission_id = ra.submission_id AND ra.reviewer_id = ?)
 					LEFT JOIN review_assignments ra2 ON (s.submission_id = ra2.submission_id AND ra2.reviewer_id = ? AND ra2.review_id > ra.review_id)'
 				:'') .
+				($title?' LEFT JOIN submission_settings ss ON (s.submission_id = ss.submission_id)':'') . '
+				' . ($author?' LEFT JOIN authors au ON (s.submission_id = au.submission_id)':'') .
 				$this->getFetchJoins() .
 			'WHERE
 				s.status IN  (' . join(',', array_map(array($this,'_arrayWalkIntCast'), (array) $status)) . ')
@@ -560,7 +563,7 @@ abstract class SubmissionDAO extends DAO {
 	function getAssignedToUser($userId, $contextId = null, $title = null, $author = null, $stageId = null, $rangeInfo = null) {
 		$params = $this->getFetchParameters();
 		$userId = (int) $userId;
-		array_push($params, $userId, (int) STATUS_DECLINED, $userId, $userId, (int) ROLE_ID_AUTHOR, $userId);
+		array_push($params, (int) STATUS_DECLINED, $userId, $userId, (int) ROLE_ID_AUTHOR, $userId);
 		if ($contextId) $params[] = (int) $contextId;
 
 		if ($title) {
@@ -583,7 +586,7 @@ abstract class SubmissionDAO extends DAO {
 				' . ($title?' LEFT JOIN submission_settings ss ON (s.submission_id = ss.submission_id)':'') . '
 				' . ($author?' LEFT JOIN authors au ON (s.submission_id = au.submission_id)':'')
 				. $this->getFetchJoins() .
-			' WHERE s.date_submitted IS NOT NULL AND ps.date_published IS NULL AND s.user_id <> ? AND s.status <> ?
+			' WHERE s.date_submitted IS NOT NULL AND ps.date_published IS NULL AND s.status <> ?
 				AND (sa.user_id = ? OR (so.user_id = ? AND g.role_id <> ? ) 
 				OR ra.reviewer_id = ?)'
 				. ($contextId?' AND s.context_id = ?':'')
@@ -612,8 +615,8 @@ abstract class SubmissionDAO extends DAO {
 	function getAssignedToOthers($userId, $contextId = null, $title = null, $author = null, $editor = null, $stageId = null, $rangeInfo = null) {
 		$params = $this->getFetchParameters();
 		$userId = (int) $userId;
-		array_push($params, $userId, (int) STATUS_DECLINED, $userId, (int) ROLE_ID_MANAGER, (int) ROLE_ID_SUB_EDITOR);
-		if ($editor) array_push($params, $editorQuery = '%' . $editor . '%', $editorQuery, $editorQuery);
+		array_push($params, (int) STATUS_DECLINED, $userId, (int) ROLE_ID_MANAGER, (int) ROLE_ID_SUB_EDITOR);
+		if ($editor) array_push($params, $editorQuery = '%' . $editor . '%', $editorQuery);
 		if ($contextId) $params[] = (int) $contextId;
 		
 		if ($title) {
@@ -634,13 +637,13 @@ abstract class SubmissionDAO extends DAO {
 				' . ($title?' LEFT JOIN submission_settings ss ON (s.submission_id = ss.submission_id)':'') . '
 				' . ($author?' LEFT JOIN authors au ON (s.submission_id = au.submission_id)':'')
 				. $this->getFetchJoins() .
-			' WHERE s.date_submitted IS NOT NULL AND ps.date_published IS NULL AND s.user_id <> ? AND s.status <> ?
+			' WHERE s.date_submitted IS NOT NULL AND ps.date_published IS NULL AND s.status <> ?
 				AND (SELECT COUNT(sa.stage_assignment_id) FROM stage_assignments sa 
 					WHERE sa.submission_id = s.submission_id AND sa.user_id = ?) = 0
 				AND (SELECT COUNT(sa.stage_assignment_id) FROM stage_assignments sa LEFT JOIN user_groups g ON sa.user_group_id = g.user_group_id'
 					. ($editor?' LEFT JOIN users u ON (sa.user_id = u.user_id)':'')	
 					. ' WHERE sa.submission_id = s.submission_id AND (g.role_id = ? OR g.role_id = ?)'
-					. ($editor?' AND (u.first_name LIKE ? OR u.middle_name LIKE ? OR u.last_name LIKE ?)':'') . ') > 0' 
+					. ($editor?' AND ' . $this->_getEditorSearchQuery():'') . ') > 0' 
 				. ($contextId?' AND s.context_id = ?':'')
 				. ($title?' AND (ss.setting_name = ? AND ss.setting_value LIKE ?)':'') 
 				. ($author?' AND (au.first_name LIKE ? OR au.middle_name LIKE ? OR au.last_name LIKE ?)':'')
@@ -651,7 +654,57 @@ abstract class SubmissionDAO extends DAO {
 		);
 
 		return new DAOResultFactory($result, $this, '_fromRow');
-	}	
+	}
+
+	/**
+	 * Get all active submissions for a context.
+	 * @param $contextId int optional
+	 * @param $title string|null optional Filter by title.
+	 * @param $author string|null optional Filter by author.
+	 * @param $editor int|null optional Filter by editor name.
+	 * @param $stageId int|null optional Filter by stage id.
+	 * @param $rangeInfo DBResultRange optional
+	 * @return DAOResultFactory
+	 */
+	function getActiveSubmissions($contextId = null, $title = null, $author = null, $editor = null, $stageId = null, $rangeInfo = null) {
+		$params = $this->getFetchParameters();
+		$params[] = (int) STATUS_DECLINED;
+
+		if ($contextId) $params[] = (int) $contextId;
+		
+		if ($title) {
+			$params[] = 'title';
+			$params[] = '%' . $title . '%';
+		}
+		if ($author) array_push($params, $authorQuery = '%' . $author . '%', $authorQuery, $authorQuery);
+		if ($stageId) $params[] = (int) $stageId;
+		if ($editor) array_push($params, (int) ROLE_ID_MANAGER, (int) ROLE_ID_SUB_EDITOR, $editorQuery = '%' . $editor . '%', $editorQuery);
+
+		$result = $this->retrieveRange(
+			'SELECT	s.*, ps.date_published,
+				' . $this->getFetchColumns() . '
+			FROM	submissions s
+				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id)
+				' . ($title?' LEFT JOIN submission_settings ss ON (s.submission_id = ss.submission_id)':'') . '
+				' . ($author?' LEFT JOIN authors au ON (s.submission_id = au.submission_id)':'') . '
+				' . ($editor?' LEFT JOIN stage_assignments sa ON (s.submission_id = sa.submission_id) 
+						LEFT JOIN user_groups g ON (sa.user_group_id = g.user_group_id) 
+						LEFT JOIN users u ON (sa.user_id = u.user_id)':'') . '
+				' . $this->getFetchJoins() . '
+			WHERE	s.date_submitted IS NOT NULL AND ps.date_published IS NULL AND s.status <> ?' . '
+				' . ($contextId?' AND s.context_id = ?':'') . '
+				' . ($title?' AND (ss.setting_name = ? AND ss.setting_value LIKE ?)':'') . '
+				' . ($author?' AND (au.first_name LIKE ? OR au.middle_name LIKE ? OR au.last_name LIKE ?)':'') . '
+				' . ($stageId?' AND s.stage_id = ?':'') . '
+				' . ($editor?' AND (g.role_id = ? OR g.role_id = ?) AND' . $this->_getEditorSearchQuery():'') .
+			' GROUP BY ' . $this->getGroupByColumns(),
+			$params,
+			$rangeInfo
+		);
+
+		return new DAOResultFactory($result, $this, '_fromRow');
+	}
+
 	
 	/**
 	 * Delete all submissions by context ID.
@@ -727,6 +780,18 @@ abstract class SubmissionDAO extends DAO {
 	 */
 	protected function _arrayWalkIntCast($value) {
 		return (int) $value;
+	}
+
+
+	//
+	// Private helper methods.
+	//
+	/**
+	 * Get the editor search query for submissions.
+	 * @return string
+	 */
+	private function _getEditorSearchQuery() {
+		return '(CONCAT_WS(" ", u.first_name, u.middle_name, u.last_name) LIKE ? OR CONCAT_WS(" ", u.first_name, u.last_name) LIKE ?)';
 	}
 }
 

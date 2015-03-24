@@ -207,17 +207,17 @@ class SubmissionsListGridHandler extends GridHandler {
 	/**
 	 * @copydoc GridHandler::initFeatures()
 	 */
-	function initFeatures($request, $args) {
+	protected function initFeatures($request, $args) {
 		import('lib.pkp.classes.controllers.grid.feature.InfiniteScrollingFeature');
 		import('lib.pkp.classes.controllers.grid.feature.CollapsibleGridFeature');
-		return array(new InfiniteScrollingFeature(), new CollapsibleGridFeature());
+		return array(new InfiniteScrollingFeature('infiniteScrolling', $this->getItemsNumber()), new CollapsibleGridFeature());
 	}
 
 	/**
 	 * @copydoc GridHandler::getRowInstance()
 	 * @return SubmissionsListGridRow
 	 */
-	function getRowInstance() {
+	protected function getRowInstance() {
 		return new SubmissionsListGridRow($this->_isManager);
 	}
 
@@ -225,7 +225,7 @@ class SubmissionsListGridHandler extends GridHandler {
 	 * Get which columns can be used by users to filter data.
 	 * @return Array
 	 */
-	function getFilterColumns() {
+	protected function getFilterColumns() {
 		return array(
 			'title' => __('submission.title'),
 			'author' => __('submission.authors'));		
@@ -236,7 +236,7 @@ class SubmissionsListGridHandler extends GridHandler {
 	 * none was set.
 	 * @return Array
 	 */
-	function getFilterValues($filter) {
+	protected function getFilterValues($filter) {
 		if (isset($filter['search']) && $filter['search']) {
 			$search = $filter['search'];
 		} else {
@@ -256,6 +256,14 @@ class SubmissionsListGridHandler extends GridHandler {
 		}
 
 		return array($search, $column, $stageId);
+	}
+	
+	/**
+	 * Define how many items this grid will start loading.
+	 * @return int 
+	 */
+	protected function getItemsNumber() {
+		return 5;
 	}
 }
 

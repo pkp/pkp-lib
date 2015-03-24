@@ -19,11 +19,12 @@ import('lib.pkp.classes.controllers.grid.feature.GeneralPagingFeature');
 class PagingFeature extends GeneralPagingFeature {
 
 	/**
-	 * @copydoc GridFeature::GridFeature()
+	 * @see GridFeature::GridFeature()
 	 * Constructor.
+	 * @param $id string Feature identifier.
 	 */
 	function PagingFeature($id = 'paging') {
-		parent::GridFeature($id);
+		parent::GeneralPagingFeature($id);
 	}
 
 

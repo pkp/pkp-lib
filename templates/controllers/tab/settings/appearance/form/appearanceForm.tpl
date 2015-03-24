@@ -114,6 +114,8 @@
 	{/fbvFormArea}
 	{* end Layout *}
 
+	{$thumbnailsSizeSettings}
+
 	{* Lists *}
 	{fbvFormArea id="advancedAppearanceSettings" title="manager.setup.lists" class="border"}
 		{fbvFormSection description="manager.setup.listsDescription"}

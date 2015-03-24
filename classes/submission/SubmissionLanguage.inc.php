@@ -38,6 +38,9 @@ class SubmissionLanguage extends ControlledVocabEntry {
 		$this->setData('submissionLanguage', $language, $locale);
 	}
 
+	/**
+	 * @copydoc ControlledVocabEntry::getLocaleMetadataFieldNames
+	 */
 	function getLocaleMetadataFieldNames() {
 		return array('submissionLanguage');
 	}

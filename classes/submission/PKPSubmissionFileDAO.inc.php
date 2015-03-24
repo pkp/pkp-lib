@@ -53,12 +53,11 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 	//
 	/**
 	 * Retrieve a specific revision of a file.
-	 * @param $fileId int
-	 * @param $revision int
-	 * @param $fileStage int (optional) further restricts
-	 *  the selection to a given file stage.
-	 * @param $submissionId int (optional) for validation
-	 *  purposes only
+	 * @param $fileId int File ID.
+	 * @param $revision int File revision number.
+	 * @param $fileStage int (optional) further restricts the selection to
+	 *  a given file stage.
+	 * @param $submissionId|null int (optional) for validation purposes only
 	 */
 	function getRevision($fileId, $revision, $fileStage = null, $submissionId = null) {
 		if (!($fileId && $revision)) return null;
@@ -69,12 +68,11 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 
 	/**
 	 * Retrieve the latest revision of a file.
-	 * @param $fileId int
-	 * @param $fileStage int (optional) further restricts
-	 *  the selection to a given file stage.
-	 * @param $submissionId int (optional) for validation
-	 *  purposes only
-	 * @return SubmissionFile
+	 * @param $fileId int File ID.
+	 * @param $fileStage int (optional) further restricts the selection to
+	 *  a given file stage.
+	 * @param $submissionId int (optional) for validation purposes only
+	 * @return SubmissionFile|null
 	 */
 	function getLatestRevision($fileId, $fileStage = null, $submissionId = null) {
 		if (!$fileId) return null;
@@ -85,11 +83,11 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 
 	/**
 	 * Retrieve a list of current revisions.
-	 * @param $submissionId int
-	 * @param $fileStage int (optional) further restricts
-	 *  the selection to a given file stage.
+	 * @param $submissionId int Submission ID.
+	 * @param $fileStage int (optional) further restricts the selection to
+	 *  a given file stage.
 	 * @param $rangeInfo DBResultRange (optional)
-	 * @return array a list of SubmissionFile instances
+	 * @return array|null a list of SubmissionFile instances
 	 */
 	function getLatestRevisions($submissionId, $fileStage = null, $rangeInfo = null) {
 		if (!$submissionId) return null;
@@ -98,13 +96,13 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 
 	/**
 	 * Retrieve all revisions of a submission file.
-	 * @param $fileId int
-	 * @param $fileStage int (optional) further restricts
-	 *  the selection to a given file stage.
-	 * @param $submissionId int (optional) for validation
+	 * @param $fileId int File ID.
+	 * @param $fileStage int (optional) further restricts the selection to
+	 *  a given file stage.
+	 * @param $submissionId int Optional submission ID for validation
 	 *  purposes only
 	 * @param $rangeInfo DBResultRange (optional)
-	 * @return array a list of SubmissionFile instances
+	 * @return array|null a list of SubmissionFile instances
 	 */
 	function getAllRevisions($fileId, $fileStage = null, $submissionId = null, $rangeInfo = null) {
 		if (!$fileId) return null;
@@ -113,7 +111,7 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 
 	/**
 	 * Retrieve all submission files & revisions for a submission.
-	 * @param $submissionId int
+	 * @param $submissionId int Submission ID.
 	 * @param $rangeInfo DBResultRange (optional)
 	 * @return array a list of SubmissionFile instances
 	 */
@@ -125,12 +123,12 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 	/**
 	 * Retrieve the latest revision of all files associated
 	 * to a certain object.
-	 * @param $assocType int
-	 * @param $assocId int
-	 * @param $fileStage int (optional) further restricts
-	 *  the selection to a given file stage.
+	 * @param $assocType int ASSOC_TYPE_...
+	 * @param $assocId int ID corresponding to specified assocType.
+	 * @param $fileStage int (optional) further restricts the selection to
+	 *  a given file stage.
 	 * @param $rangeInfo DBResultRange (optional)
-	 * @return array a list of SubmissionFile instances
+	 * @return array|null a list of SubmissionFile instances
 	 */
 	function getLatestRevisionsByAssocId($assocType, $assocId, $submissionId = null, $fileStage = null, $rangeInfo = null) {
 		if (!($assocType && $assocId)) return null;
@@ -139,12 +137,12 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 
 	/**
 	 * Retrieve all files associated to a certain object.
-	 * @param $assocType int
-	 * @param $assocId int
-	 * @param $fileStage int (optional) further restricts
-	 *  the selection to a given file stage.
+	 * @param $assocType int ASSOC_TYPE_...
+	 * @param $assocId int ID corresponding to specified assocType.
+	 * @param $fileStage int (optional) further restricts the selection to
+	 *  a given file stage.
 	 * @param $rangeInfo DBResultRange (optional)
-	 * @return array a list of SubmissionFile instances
+	 * @return array|null a list of SubmissionFile instances
 	 */
 	function getAllRevisionsByAssocId($assocType, $assocId, $fileStage = null, $rangeInfo = null) {
 		if (!($assocType && $assocId)) return null;
@@ -157,7 +155,7 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @param $fileStage int SUBMISSION_FILE_...
 	 * @param $uploaderUserId int Uploader's user ID
 	 * @param $uploaderUserGroupId int Uploader's user group ID
-	 * @return array A list of SubmissionFiles.
+	 * @return array|null A list of SubmissionFiles.
 	 */
 	function getRevisionsByReviewRound($reviewRound, $fileStage = null,
 			$uploaderUserId = null, $uploaderUserGroupId = null) {
@@ -185,8 +183,8 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 
 	/**
 	 * Retrieve the current revision number for a file.
-	 * @param $fileId int
-	 * @return int
+	 * @param $fileId int File ID.
+	 * @return int|null
 	 */
 	function getLatestRevisionNumber($fileId) {
 		assert(!is_null($fileId));
@@ -368,7 +366,8 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 	 */
 	function assignRevisionToReviewRound($fileId, $revision, $reviewRound) {
 		if (!is_numeric($fileId) || !is_numeric($revision)) fatalError('Invalid file!');
-		return $this->update('INSERT INTO review_round_files
+		return $this->update(
+			'INSERT INTO review_round_files
 				(submission_id, review_round_id, stage_id, file_id, revision)
 			VALUES (?, ?, ?, ?, ?)',
 			array(
@@ -392,8 +391,8 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 
 	/**
 	 * Delete a specific revision of a submission file by id.
-	 * @param $fileId int
-	 * @param $revision int
+	 * @param $fileId int File ID.
+	 * @param $revision int File revision number.
 	 * @param $fileStage int (optional) further restricts
 	 *  the selection to a given file stage.
 	 * @param $submissionId int (optional) for validation
@@ -406,7 +405,7 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 
 	/**
 	 * Delete the latest revision of a submission file by id.
-	 * @param $fileId int
+	 * @param $fileId int File ID.
 	 * @param $fileStage int (optional) further restricts
 	 *  the selection to a given file stage.
 	 * @param $submissionId int (optional) for validation
@@ -420,7 +419,7 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 	/**
 	 * Delete all revisions of a file, optionally
 	 * restricted to a given file stage.
-	 * @param $fileId int
+	 * @param $fileId int File ID.
 	 * @param $fileStage int (optional) further restricts
 	 *  the selection to a given file stage.
 	 * @param $submissionId int (optional) for validation
@@ -434,7 +433,7 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 	/**
 	 * Delete all revisions of all files of a submission,
 	 * optionally restricted to a given file stage.
-	 * @param $submissionId int
+	 * @param $submissionId int Submission ID.
 	 * @param $fileStage int (optional) further restricts
 	 *  the selection to a given file stage.
 	 * @return integer the number of deleted file revisions
@@ -445,8 +444,8 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 
 	/**
 	 * Retrieve all files associated to a certain object.
-	 * @param $assocType int
-	 * @param $assocId int
+	 * @param $assocType int ASSOC_TYPE_...
+	 * @param $assocId int ID corresponding to specified assocType.
 	 * @param $fileStage int (optional) further restricts
 	 *  the selection to a given file stage.
 	 * @return integer the number of deleted file revisions
@@ -466,10 +465,9 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 
 	/**
 	 * Remove a specific file assignment from a review round.
-	 * @param $submissionId int The submission id of
-	 *  the file
+	 * @param $submissionId int The submission id of the file
 	 * @param $stageId int The review round type.
-	 * @param $fileId int The file id
+	 * @param $fileId int The file id.
 	 * @param $revision int The file revision
 	 */
 	function deleteReviewRoundAssignment($submissionId, $stageId, $fileId, $revision) {
@@ -698,18 +696,18 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 	/**
 	 * Private method to retrieve submission file revisions
 	 * according to the given filters.
-	 * @param $submissionId int
-	 * @param $fileStage int
-	 * @param $fileId int
-	 * @param $revision int
-	 * @param $assocType int
-	 * @param $assocId int
-	 * @param $stageId int
-	 * @param $uploaderUserId int
-	 * @param $uploaderUserGroupId int
-	 * @param $reviewRoundId int
-	 * @param $latestOnly boolean
-	 * @param $rangeInfo DBResultRange
+	 * @param $submissionId int Optional submission ID.
+	 * @param $fileStage int Optional FILE_STAGE_...
+	 * @param $fileId int Optional file ID.
+	 * @param $revision int Optional file revision number.
+	 * @param $assocType int Optional ASSOC_TYPE_...
+	 * @param $assocId int Optional ID corresponding to assocType
+	 * @param $stageId int Optional stage ID
+	 * @param $uploaderUserId int Optional uploader's user ID
+	 * @param $uploaderUserGroupId int Optional uploader's user group ID
+	 * @param $reviewRoundId int Optional review round ID
+	 * @param $latestOnly boolean True iff only the latest revisions should be returned.
+	 * @param $rangeInfo DBResultRange Optional range info for returned data.
 	 * @return array a list of SubmissionFile instances
 	 */
 	function _getInternally($submissionId = null, $fileStage = null, $fileId = null, $revision = null,
@@ -785,16 +783,16 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 	/**
 	 * Private method to delete submission file revisions
 	 * according to the given filters.
-	 * @param $submissionId int
-	 * @param $fileStage int
-	 * @param $fileId int
-	 * @param $revision int
-	 * @param $assocType int
-	 * @param $assocId int
-	 * @param $stageId int
-	 * @param $uploaderUserId int
-	 * @param $uploaderUserGroupId int
-	 * @param $latestOnly boolean
+	 * @param $submissionId int Optional submission ID.
+	 * @param $fileStage int Optional FILE_STAGE_...
+	 * @param $fileId int Optional file ID.
+	 * @param $revision int Optional file revision number.
+	 * @param $assocType int Optional ASSOC_TYPE_...
+	 * @param $assocId int Optional ID corresponding to specified assocType.
+	 * @param $stageId int Optional stage ID.
+	 * @param $uploaderUserId int Optional uploader user ID.
+	 * @param $uploaderUserGroupId int Optional uploader user group ID.
+	 * @param $latestOnly boolean True iff only the latest revision should be deleted.
 	 * @return boolean|integer Returns boolean false if an error occurs, otherwise the number
 	 *  of deleted files.
 	 */
@@ -825,16 +823,16 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 	/**
 	 * Build an SQL where clause to select
 	 * submissions based on the given filter information.
-	 * @param $submissionId int
-	 * @param $fileStage int
-	 * @param $fileId int
-	 * @param $revision int
-	 * @param $assocType int
-	 * @param $assocId int
-	 * @param $stageId int
-	 * @param $uploaderUserId int
-	 * @param $uploaderUserGroupId int
-	 * @param $reviewRoundId int
+	 * @param $submissionId int Submission ID
+	 * @param $fileStage int File stage ID
+	 * @param $fileId int File ID
+	 * @param $revision int File revision number
+	 * @param $assocType int ASSOC_TYPE_...
+	 * @param $assocId int ID corresponding to specified assocType
+	 * @param $stageId int Stage ID
+	 * @param $uploaderUserId int Uploader user ID
+	 * @param $uploaderUserGroupId int Uploader user group ID
+	 * @param $reviewRoundId int Review round ID
 	 * @return array an array that contains the generated SQL
 	 *  filter clause and the corresponding parameters.
 	 */

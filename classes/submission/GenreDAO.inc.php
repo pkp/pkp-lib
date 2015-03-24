@@ -106,7 +106,7 @@ class GenreDAO extends DAO {
 	/**
 	 * Retrieves the genre associated with a key.
 	 * @param $key String the entry key
-	 * @param $contextId int optional
+	 * @param $contextId int Optional context ID
 	 * @return Genre
 	 */
 	function getByKey($key, $contextId = null) {

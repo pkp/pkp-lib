@@ -90,7 +90,7 @@ class SubmissionSubjectDAO extends ControlledVocabDAO {
 
 	/**
 	 * Get an array of submissionIds that have a given subject
-	 * @param $content string
+	 * @param $subject string
 	 * @return array
 	 */
 	function getSubmissionIdsBySubject($subject) {

@@ -90,7 +90,7 @@ class SubmissionAgencyDAO extends ControlledVocabDAO {
 
 	/**
 	 * Get an array of submissionIds that have a given agency
-	 * @param $content string
+	 * @param $agency string
 	 * @return array
 	 */
 	function getSubmissionIdsByAgency($agency) {
@@ -115,9 +115,9 @@ class SubmissionAgencyDAO extends ControlledVocabDAO {
 
 	/**
 	 * Add an array of agencies
-	 * @param $agencies array
-	 * @param $submissionId int
-	 * @param $deleteFirst boolean
+	 * @param $agencies array List of agencies.
+	 * @param $submissionId int Submission ID.
+	 * @param $deleteFirst boolean True iff existing agencies should be removed first.
 	 * @return int
 	 */
 	function insertAgencies($agencies, $submissionId, $deleteFirst = true) {

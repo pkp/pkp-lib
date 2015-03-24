@@ -26,36 +26,31 @@ class SubmissionCommentDAO extends DAO {
 
 	/**
 	 * Retrieve SubmissionComments by submission id
-	 * @param $submissionId int
-	 * @param $commentType int
-	 * @param $assocId int
+	 * @param $submissionId int Submission ID
+	 * @param $commentType int Comment type
+	 * @param $assocId int Assoc ID
 	 * @return DAOResultFactory
 	 */
 	function getSubmissionComments($submissionId, $commentType = null, $assocId = null) {
-		if ($commentType == null) {
-			$result = $this->retrieve(
-				'SELECT a.* FROM submission_comments a WHERE submission_id = ? ORDER BY date_posted', (int) $submissionId
-			);
-		} else {
-			if ($assocId == null) {
-				$result = $this->retrieve(
-					'SELECT a.* FROM submission_comments a WHERE submission_id = ? AND comment_type = ? ORDER BY date_posted',
-					array((int) $submissionId, (int) $commentType)
-				);
-			} else {
-				$result = $this->retrieve(
-					'SELECT a.* FROM submission_comments a WHERE submission_id = ? AND comment_type = ? AND assoc_id = ? ORDER BY date_posted',
-					array((int) $submissionId, (int) $commentType, (int) $assocId)
-				);
-			}
-		}
+		$params = array((int) $submissionId);
+		if ($commentType) $params[] = (int) $commentType;
+		if ($assocId) $params[] = (int) $assocId;
+		$result = $this->retrieve(
+			'SELECT	a.*
+			FROM	submission_comments a
+			WHERE	submission_id = ?'
+				. ($commentType?' AND comment_type = ?':'')
+				. ($assocId?' AND assoc_id = ?':'')
+				. ' ORDER BY date_posted',
+			$params
+		);
 
 		return new DAOResultFactory($result, $this, '_fromRow');
 	}
 
 	/**
 	 * Retrieve SubmissionComments by user id
-	 * @param $userId int
+	 * @param $userId int User ID.
 	 * @return DAOResultFactory
 	 */
 	function getByUserId($userId) {
@@ -93,27 +88,18 @@ class SubmissionCommentDAO extends DAO {
 	 * @return SubmissionComment
 	 */
 	function getMostRecentSubmissionComment($submissionId, $commentType = null, $assocId = null) {
-		if ($commentType == null) {
-			$result = $this->retrieveLimit(
-				'SELECT a.* FROM submission_comments a WHERE submission_id = ? ORDER BY date_posted DESC',
-				(int) $submissionId,
-				1
-			);
-		} else {
-			if ($assocId == null) {
-				$result = $this->retrieveLimit(
-					'SELECT a.* FROM submission_comments a WHERE submission_id = ? AND comment_type = ? ORDER BY date_posted DESC',
-					array((int) $submissionId, (int) $commentType),
-					1
-				);
-			} else {
-				$result = $this->retrieveLimit(
-					'SELECT a.* FROM submission_comments a WHERE submission_id = ? AND comment_type = ? AND assoc_id = ? ORDER BY date_posted DESC',
-					array((int) $submissionId, (int) $commentType, (int) $assocId),
-					1
-				);
-			}
-		}
+		$params = array((int) $submissionId);
+		if ($commentType) $params[] = (int) $commentType;
+		if ($assocId) $params[] = (int) $assocId;
+
+		$result = $this->retrieveLimit(
+			'SELECT a.* FROM submission_comments a WHERE submission_id = ?'
+			. ($commentType?' AND comment_type = ?':'')
+			. ($assocId?' AND assoc_id = ?':'')
+			. ' ORDER BY date_posted DESC',
+			array((int) $submissionId, (int) $commentType, (int) $assocId),
+			1
+		);
 
 		$returner = null;
 		if (isset($result) && $result->RecordCount() != 0) {
@@ -126,7 +112,7 @@ class SubmissionCommentDAO extends DAO {
 
 	/**
 	 * Retrieve submission comment by id
-	 * @param $commentId int
+	 * @param $commentId int Comment ID.
 	 * @return SubmissionComment object
 	 */
 	function getById($commentId) {

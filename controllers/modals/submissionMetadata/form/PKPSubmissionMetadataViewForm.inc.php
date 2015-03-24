@@ -111,6 +111,7 @@ class PKPSubmissionMetadataViewForm extends Form {
 		);
 
 		$this->_metadataFormImplem->initData($this->getSubmission());
+		parent::initData();
 	}
 
 	/**
@@ -141,6 +142,7 @@ class PKPSubmissionMetadataViewForm extends Form {
 	 */
 	function execute($request) {
 		$submission = $this->getSubmission();
+		parent::execute($submission);
 		// Execute submission metadata related operations.
 		$this->_metadataFormImplem->execute($submission, $request);
 	}

@@ -44,19 +44,19 @@ class PKPReviewerGridHandler extends GridHandler {
 		$allOperations = array_merge($this->_getReviewAssignmentOps(), $this->_getReviewRoundOps());
 
 		$this->addRoleAssignment(
-			array(ROLE_ID_MANAGER),
+			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR),
 			$allOperations
 		);
 
 		// Remove operations related to creation and enrollment of users.
-		$nonManagerOperations = array_flip($allOperations);
-		unset($nonManagerOperations['createReviewer']);
-		unset($nonManagerOperations['enrollReviewer']);
-		$nonManagerOperations = array_flip($nonManagerOperations);
+		$assistantOperations = array_flip($allOperations);
+		unset($assistantOperations['createReviewer']);
+		unset($assistantOperations['enrollReviewer']);
+		$assistantOperations = array_flip($assistantOperations);
 
 		$this->addRoleAssignment(
-			array(ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT),
-			$nonManagerOperations
+			array(ROLE_ID_ASSISTANT),
+			$assistantOperations
 		);
 	}
 

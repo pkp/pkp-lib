@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+	<title>{#publicfileuploader_dlg.title}</title>
+	<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+	<script type='text/javascript' src='../../tiny_mce_popup.js'></script>
+	<script type='text/javascript' src='js/dialog.js'></script>
+	
+	<link href='css/style.css' rel='stylesheet' type='text/css' />
+</head>
+<body>
+<div class='container_upload'>
+	<div id='upload_in_progress' class='upload_infobar'><img src='img/spinner.gif' width='16' height='16' class='spinner' />{#publicfileuploader_dlg.upload_in_progress}&hellip; <div id='upload_additional_info'></div></div>
+	<div id='upload_infobar' class='upload_infobar'></div>
+
+	<div id='upload_form_container'>
+
+		<form id='upload_form' name='upload_form' action='upload.php' method='post' enctype='multipart/form-data'>
+			<h1>{#publicfileuploader_dlg.select_a_file}:</h1>
+			<p><input id='uploader' name='public_file' type='file' onChange='jbImagesDialog.inProgress();' /></p>
+			
+			<input type='submit' value='{#publicfileuploader_dlg.upload}' />
+		</form>
+		<a id='link_filemanager' href='filemanager.php'>{#publicfileuploader_dlg.manage}</a>
+	</div>
+	
+</div>
+</body>
+</html>

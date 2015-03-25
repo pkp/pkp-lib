@@ -30,7 +30,7 @@
 	<link rel="stylesheet" href="{$baseUrl}/styles/common.css" type="text/css" />
 	
 	<!-- Base Jquery -->
-	{if $allowCDN}<script src="http://www.google.com/jsapi"></script>
+	{if $allowCDN}<script src="//www.google.com/jsapi"></script>
 	<script>
 		google.load("jquery", "1");
 		google.load("jqueryui", "1");

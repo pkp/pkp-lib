@@ -108,6 +108,7 @@ current password.<br /><br />Enter your email address below to reset your passwo
 	<message key="user.register.form.passwordsDoNotMatch">The passwords do not match.</message>
 	<message key="user.register.form.emailsDoNotMatch">The email address fields do not match.</message>
 	<message key="user.register.form.usernameAlphaNumeric">The username can contain only alphanumeric characters, underscores, and hyphens, and must begin and end with an alphanumeric character.</message>
+	<message key="user.register.form.userGroupRequired">At least one role must be selected.</message>
 	<message key="user.register.form.usernameExists">The selected username is already in use by another user.</message>
 	<message key="user.register.passwordLengthRestriction">The password must be at least {$length} characters.</message>
 	<message key="user.register.registerAs">Register in {$contextName} as...</message>

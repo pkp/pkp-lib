@@ -47,6 +47,8 @@
 	<input type="hidden" name="source" value="{$source|escape}" />
 {/if}
 
+{include file="common/formErrors.tpl"}
+
 {fbvFormArea id="registration"}
 
 	{if !$implicitAuth}

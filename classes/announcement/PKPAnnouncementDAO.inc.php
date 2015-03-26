@@ -339,6 +339,7 @@ class PKPAnnouncementDAO extends DAO {
 			WHERE assoc_type = ?
 				AND assoc_id = ?
 				AND (date_expire IS NULL OR date_expire > CURRENT_DATE)
+				AND (date_posted < CURRENT_DATE)
 			ORDER BY announcement_id DESC',
 			array((int) $assocType, (int) $assocId),
 			$rangeInfo
@@ -360,6 +361,7 @@ class PKPAnnouncementDAO extends DAO {
 			WHERE assoc_type = ?
 				AND assoc_id = ?
 				AND (date_expire IS NULL OR date_expire > CURRENT_DATE)
+				AND (date_posted < CURRENT_DATE)
 			ORDER BY announcement_id DESC LIMIT ?',
 			array((int) $assocType, (int) $assocId, (int) $numAnnouncements),
 			$rangeInfo
@@ -370,16 +372,18 @@ class PKPAnnouncementDAO extends DAO {
 	}
 
 	/**
-	 * Retrieve most recent announcement by Assoc ID.
+	 * Retrieve most recent published announcement by Assoc ID.
 	 * @param $assocType int
 	 * @return Announcement
 	 */
-	function &getMostRecentAnnouncementByAssocId($assocType, $assocId) {
+	function &getMostRecentPublishedAnnouncementByAssocId($assocType, $assocId) {
 		$result =& $this->retrieve(
-			'SELECT *
-			FROM announcements
-			WHERE assoc_type = ?
+			'SELECT	*
+			FROM	announcements
+			WHERE	assoc_type = ?
 				AND assoc_id = ?
+				AND (date_expire IS NULL OR date_expire > CURRENT_DATE)
+				AND (date_posted < CURRENT_DATE)
 			ORDER BY announcement_id DESC LIMIT 1',
 			array((int) $assocType, (int) $assocId)
 		);

@@ -135,6 +135,9 @@ class PKPRegistrationForm extends PKPUserForm {
 			'existingUser',
 			'sendPassword',
 			'interests',
+			'reviewerGroup',
+			'authorGroup',
+			'readerGroup',
 		));
 
 		if ($this->captchaEnabled) {
@@ -148,8 +151,26 @@ class PKPRegistrationForm extends PKPUserForm {
 			// Usernames must be lowercase
 			$this->setData('username', strtolower($this->getData('username')));
 		}
+
+		// Collect the specified user group IDs into a single piece of data
+		$this->setData('userGroupIds', array_merge(
+			array_keys((array) $this->getData('reviewerGroup')),
+			array_keys((array) $this->getData('authorGroup')),
+			array_keys((array) $this->getData('readerGroup'))
+		));
 	}
 
+	/**
+	 * Validate the form
+	 */
+	function validate() {
+		if (empty($this->getData('authorGroup')) && empty($this->getData('authorGroup')) && empty($this->getData('authorGroup'))) {
+			$this->addError('userGroups', __('user.register.form.userGroupRequired'));
+
+		}
+
+		return parent::validate();
+	}
 	/**
 	 * Register a new user.
 	 * @return int|null User ID, or false on failure

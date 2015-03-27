@@ -19,7 +19,7 @@
 	</p>
 	<ul>
 		{foreach from=$links item=link}
-			<li><a href="{$link->getUrl()}">{$link->getLocalizedTitle()|strip_unsafe_html}</a></li>
+			<li><a href="{$link->getLocalizedUrl()}">{$link->getLocalizedTitle()|strip_unsafe_html}</a></li>
 		{/foreach}
 	</ul>
 </div>

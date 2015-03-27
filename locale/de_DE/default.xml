@@ -56,7 +56,6 @@
 	<message key="default.groups.abbrev.reader">Read</message>
 
 	<!--  common app genre defaults -->
-	<message key="default.genres.submission">Einreichung</message>
 	<message key="default.genres.other">Andere/s</message>
 	<message key="default.genres.multimedia">Multimedia</message>
 	<message key="default.genres.image">Bild</message>

@@ -132,7 +132,7 @@
 	<message key="manager.people.emailUsers.emailUsersEnrolledAs">E-Mail an alle Benutzer/innen senden, die eingetragen sind als</message>
 	<message key="manager.people.emailUsers">E-Mail an die Benutzer/innen senden</message>
 	<message key="manager.people.emailUsers.selectLocale">Eine Regionaleinstellung auswählen</message>
-	<message key="manager.people.emailUsers.selectUsers">Wählen Sie die Benutzer/innen, denen Sie eine E-Mail senden wollen, dadurch aus, dass Sie die Kästchen neben ihren Namen anklicken.</message>
+	<message key="manager.people.emailUsers.selectUsers">Wählen Sie die Benutzer/innen, denen Sie eine E-Mail senden wollen, indem Sie die Kästchen neben dem Namen anklicken.</message>
 	<message key="manager.people.enable">Aktivieren</message>
 	<message key="manager.people.enroll">Benutzer/in eintragen</message>
 	<message key="manager.people.enrollment">Eintragen</message>

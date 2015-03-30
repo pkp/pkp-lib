@@ -230,7 +230,6 @@
 	<message key="manager.setup.reviewOptions.showBlindReviewLink">Present a link to "Ensuring a Blind Review" during upload</message>
 	<message key="manager.setup.reviewOptions.defaultReviewMethod">Default Review Type</message>
 	<message key="manager.setup.sortableByComponent">Sortable by component</message>
-	<message key="manager.setup.dependentGenre">Dependent Genres</message>
 	<message key="manager.setup.sponsors">Sponsoring Organizations</message>
 	<message key="manager.setup.sponsors.note">You may add a note describing your sponsor relationship and policy; this will appear with the sponsor list on your About page.</message>
 	<message key="manager.setup.contributors.note">You may add a note describing the relationship and policy between you and your sources of support; this will appear with the Sources of Support list on your About page.</message>
@@ -463,11 +462,11 @@
 	<message key="settings.libraryFiles.category.other">Other</message>
 
 	<!--  Genre grid settings -->
-	<message key="grid.action.addGenre">Add a Genre</message>
-	<message key="grid.action.editGenre">Edit this Genre</message>
-	<message key="grid.action.deleteGenre">Delete this Genre</message>
-	<message key="grid.action.restoreGenres">Restore the Genres to the default settings</message>
-	<message key="manager.setup.genres.sortable">Allow files of this type to be sorted by component (e.g. by chapter)</message>
+	<message key="grid.action.addGenre">Add a Component</message>
+	<message key="grid.action.editGenre">Edit this Component</message>
+	<message key="grid.action.deleteGenre">Delete this Component</message>
+	<message key="grid.action.restoreGenres">Restore the components to the default settings</message>
+	<message key="manager.setup.genres.sortable">Allow files of this type to be sorted by by chapter</message>
 	<message key="manager.setup.genres.dependent">Mark files of this type as dependent files (e.g. not to be listed with published content)</message>
 	<message key="manager.setup.genres.supplementary">Mark files of this type as supplementary files (e.g. not primary submission content)</message>
 	<message key="manager.settings.wizard">Settings Wizard</message>

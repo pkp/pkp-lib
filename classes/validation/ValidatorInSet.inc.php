@@ -42,7 +42,7 @@ class ValidatorInSet extends Validator {
 		if (!is_array($this->_acceptedValues)) {
 			return false;
 		}
-		return in_array($value, $this->_acceptedValues, true);
+		return in_array($value, $this->_acceptedValues);
 	}
 
 }

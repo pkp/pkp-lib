@@ -171,13 +171,15 @@ class ReviewerForm extends Form {
 		if (isset($reviewAssignment) && $reviewAssignment->getDueDate() != null) {
 			$reviewDueDate = strftime(Config::getVar('general', 'date_format_short'), strtotime($reviewAssignment->getDueDate()));
 		} else {
-			$numWeeks = max((int) $context->getSetting('numWeeksPerReview'), 4);
+			$numWeeks = (int) $context->getSetting('numWeeksPerReview');
+			if ($numWeeks<=0) $numWeeks=4;
 			$reviewDueDate = strftime(Config::getVar('general', 'date_format_short'), strtotime('+' . $numWeeks . ' week'));
 		}
 		if (isset($reviewAssignment) && $reviewAssignment->getResponseDueDate() != null) {
 			$responseDueDate = strftime(Config::getVar('general', 'date_format_short'), strtotime($reviewAssignment->getResponseDueDate()));
 		} else {
-			$numWeeks = max((int) $context->getSetting('numWeeksPerResponse'), 3);
+			$numWeeks = (int) $context->getSetting('numWeeksPerResponse');
+			if ($numWeeks<=0) $numWeeks=3;
 			$responseDueDate = strftime(Config::getVar('general', 'date_format_short'), strtotime('+' . $numWeeks . ' week'));
 		}
 

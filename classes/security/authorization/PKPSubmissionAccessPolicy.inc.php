@@ -14,6 +14,7 @@
  */
 
 import('lib.pkp.classes.security.authorization.internal.ContextPolicy');
+import('lib.pkp.classes.security.authorization.RoleBasedHandlerOperationPolicy');
 
 class PKPSubmissionAccessPolicy extends ContextPolicy {
 

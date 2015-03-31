@@ -25,6 +25,19 @@ class PKPLoginHandler extends Handler {
 	}
 
 	/**
+	 * @copydoc PKPHandler::authorize()
+	 */
+	function authorize($request, &$args, $roleAssignments) {
+		switch ($op = $request->getRequestedOp()) {
+			case 'signInAsUser':
+				import('lib.pkp.classes.security.authorization.RoleBasedHandlerOperationPolicy');
+				$this->addPolicy(new RoleBasedHandlerOperationPolicy($request, array(ROLE_ID_MANAGER, ROLE_ID_SITE_ADMIN), array('signInAsUser')));
+				break;
+		}
+		return parent::authorize($request, $args, $roleAssignments);
+	}
+
+	/**
 	 * Display user login form.
 	 * Redirect to user index page if user is already validated.
 	 */
@@ -322,9 +335,6 @@ class PKPLoginHandler extends Handler {
 	 * @param $request PKPRequest
 	 */
 	function signInAsUser($args, $request) {
-		$this->addCheck(new HandlerValidatorRoles($this, true, null, null, array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER)));
-		$this->validate();
-
 		if (isset($args[0]) && !empty($args[0])) {
 			$userId = (int)$args[0];
 			$session = $request->getSession();
@@ -362,8 +372,6 @@ class PKPLoginHandler extends Handler {
 	 * @param $request PKPRequest
 	 */
 	function signOutAsUser($args, $request) {
-		$this->validate();
-
 		$session = $request->getSession();
 		$signedInAs = $session->getSessionVar('signedInAs');
 

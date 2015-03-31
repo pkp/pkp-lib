@@ -14,11 +14,6 @@
  *
  */
 
-// FIXME: remove these import statements - handler validators are deprecated.
-import('lib.pkp.classes.handler.validation.HandlerValidator');
-import('lib.pkp.classes.handler.validation.HandlerValidatorRoles');
-import('lib.pkp.classes.handler.validation.HandlerValidatorCustom');
-
 class PKPHandler {
 	/**
 	 * @var string identifier of the controller instance - must be unique
@@ -101,19 +96,6 @@ class PKPHandler {
 		$dispatcher = $this->getDispatcher();
 		if (isset($dispatcher)) $dispatcher->handle404();
 		else Dispatcher::handle404(); // For old-style handlers
-	}
-
-	/**
-	 * Add a validation check to the handler.
-	 *
-	 * NB: deprecated!
-	 *
-	 * @param $handlerValidator HandlerValidator
-	 */
-	function addCheck(&$handlerValidator) {
-		// FIXME: Add a deprecation warning once we've refactored
-		// all HandlerValidator occurrences.
-		$this->_checks[] =& $handlerValidator;
 	}
 
 	/**

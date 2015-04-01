@@ -179,7 +179,7 @@ class DataObject {
 	 * @param $id int
 	 */
 	function setId($id) {
-		return $this->setData('id', $id);
+		$this->setData('id', $id);
 	}
 
 

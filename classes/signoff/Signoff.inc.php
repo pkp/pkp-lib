@@ -43,7 +43,7 @@ class Signoff extends DataObject {
 	 * @param $assocId int
 	 */
 	function setAssocId($assocId) {
-		return $this->setData('assocId', $assocId);
+		$this->setData('assocId', $assocId);
 	}
 
 	/**
@@ -59,7 +59,7 @@ class Signoff extends DataObject {
 	 * @param $assocType int ASSOC_TYPE_...
 	 */
 	function setAssocType($assocType) {
-		return $this->setData('assocType', $assocType);
+		$this->setData('assocType', $assocType);
 	}
 
 	/**
@@ -75,7 +75,7 @@ class Signoff extends DataObject {
 	 * @param $symbolic string
 	 */
 	function setSymbolic($symbolic) {
-		return $this->setData('symbolic', $symbolic);
+		$this->setData('symbolic', $symbolic);
 	}
 
 	/**
@@ -91,7 +91,7 @@ class Signoff extends DataObject {
 	 * @param $userId int
 	 */
 	function setUserId($userId) {
-		return $this->setData('userId', $userId);
+		$this->setData('userId', $userId);
 	}
 
 	/**
@@ -107,7 +107,7 @@ class Signoff extends DataObject {
 	 * @param $fileId int
 	 */
 	function setFileId($fileId) {
-		return $this->setData('fileId', $fileId);
+		$this->setData('fileId', $fileId);
 	}
 
 	/**
@@ -123,7 +123,7 @@ class Signoff extends DataObject {
 	 * @param $fileRevision int
 	 */
 	function setFileRevision($fileRevision) {
-		return $this->setData('fileRevision', $fileRevision);
+		$this->setData('fileRevision', $fileRevision);
 	}
 
 	/**
@@ -139,7 +139,7 @@ class Signoff extends DataObject {
 	 * @param $dateNotified string
 	 */
 	function setDateNotified($dateNotified) {
-		return $this->setData('dateNotified', $dateNotified);
+		$this->setData('dateNotified', $dateNotified);
 	}
 
 	/**
@@ -155,7 +155,7 @@ class Signoff extends DataObject {
 	 * @param $dateUnderway string
 	 */
 	function setDateUnderway($dateUnderway) {
-		return $this->setData('dateUnderway', $dateUnderway);
+		$this->setData('dateUnderway', $dateUnderway);
 	}
 
 	/**
@@ -171,7 +171,7 @@ class Signoff extends DataObject {
 	 * @param $dateCompleted string
 	 */
 	function setDateCompleted($dateCompleted) {
-		return $this->setData('dateCompleted', $dateCompleted);
+		$this->setData('dateCompleted', $dateCompleted);
 	}
 
 	/**
@@ -187,7 +187,7 @@ class Signoff extends DataObject {
 	 * @param $dateAcknowledged string
 	 */
 	function setDateAcknowledged($dateAcknowledged) {
-		return $this->setData('dateAcknowledged', $dateAcknowledged);
+		$this->setData('dateAcknowledged', $dateAcknowledged);
 	}
 
 	/**
@@ -203,7 +203,7 @@ class Signoff extends DataObject {
 	 * @param $userGroupId string
 	 */
 	function setUserGroupId($userGroupId) {
-		return $this->setData('userGroupId', $userGroupId);
+		$this->setData('userGroupId', $userGroupId);
 	}
 }
 

@@ -45,7 +45,7 @@ class PKPUser extends Identity {
 	 * @param $username string
 	 */
 	function setUsername($username) {
-		return $this->setData('username', $username);
+		$this->setData('username', $username);
 	}
 
 	/**
@@ -61,7 +61,7 @@ class PKPUser extends Identity {
 	 * @param $authStr string
 	 */
 	function setAuthStr($authStr) {
-		return $this->setData('authStr', $authStr);
+		$this->setData('authStr', $authStr);
 	}
 
 	/**
@@ -86,7 +86,7 @@ class PKPUser extends Identity {
 	 * @param $locale string
 	 */
 	function setSignature($signature, $locale) {
-		return $this->setData('signature', $signature, $locale);
+		$this->setData('signature', $signature, $locale);
 	}
 
 	/**
@@ -102,7 +102,7 @@ class PKPUser extends Identity {
 	 * @param $password string
 	 */
 	function setPassword($password) {
-		return $this->setData('password', $password);
+		$this->setData('password', $password);
 	}
 
 	/**
@@ -118,7 +118,7 @@ class PKPUser extends Identity {
 	 * @param $gender string
 	 */
 	function setGender($gender) {
-		return $this->setData('gender', $gender);
+		$this->setData('gender', $gender);
 	}
 
 	/**
@@ -134,7 +134,7 @@ class PKPUser extends Identity {
 	 * @param $phone string
 	 */
 	function setPhone($phone) {
-		return $this->setData('phone', $phone);
+		$this->setData('phone', $phone);
 	}
 
 	/**
@@ -150,7 +150,7 @@ class PKPUser extends Identity {
 	 * @param $fax string
 	 */
 	function setFax($fax) {
-		return $this->setData('fax', $fax);
+		$this->setData('fax', $fax);
 	}
 
 	/**
@@ -166,7 +166,7 @@ class PKPUser extends Identity {
 	 * @param $mailingAddress string
 	 */
 	function setMailingAddress($mailingAddress) {
-		return $this->setData('mailingAddress', $mailingAddress);
+		$this->setData('mailingAddress', $mailingAddress);
 	}
 
 	/**
@@ -182,7 +182,7 @@ class PKPUser extends Identity {
 	 * @param $billingAddress string
 	 */
 	function setBillingAddress($billingAddress) {
-		return $this->setData('billingAddress', $billingAddress);
+		$this->setData('billingAddress', $billingAddress);
 	}
 
 	/**
@@ -228,7 +228,7 @@ class PKPUser extends Identity {
 	 * @param $locale string
 	 */
 	function setGossip($gossip, $locale) {
-		return $this->setData('gossip', $gossip, $locale);
+		$this->setData('gossip', $gossip, $locale);
 	}
 
 	/**
@@ -245,7 +245,7 @@ class PKPUser extends Identity {
 	 * @param $locales array
 	 */
 	function setLocales($locales) {
-		return $this->setData('locales', $locales);
+		$this->setData('locales', $locales);
 	}
 
 	/**
@@ -261,7 +261,7 @@ class PKPUser extends Identity {
 	 * @param $dateLastEmail datestamp (YYYY-MM-DD HH:MM:SS)
 	 */
 	function setDateLastEmail($dateLastEmail) {
-		return $this->setData('dateLastEmail', $dateLastEmail);
+		$this->setData('dateLastEmail', $dateLastEmail);
 	}
 
 	/**
@@ -277,7 +277,7 @@ class PKPUser extends Identity {
 	 * @param $dateRegistered datestamp (YYYY-MM-DD HH:MM:SS)
 	 */
 	function setDateRegistered($dateRegistered) {
-		return $this->setData('dateRegistered', $dateRegistered);
+		$this->setData('dateRegistered', $dateRegistered);
 	}
 
 	/**
@@ -293,7 +293,7 @@ class PKPUser extends Identity {
 	 * @param $dateValidated datestamp (YYYY-MM-DD HH:MM:SS)
 	 */
 	function setDateValidated($dateValidated) {
-		return $this->setData('dateValidated', $dateValidated);
+		$this->setData('dateValidated', $dateValidated);
 	}
 
 	/**
@@ -309,7 +309,7 @@ class PKPUser extends Identity {
 	 * @param $dateLastLogin datestamp
 	 */
 	function setDateLastLogin($dateLastLogin) {
-		return $this->setData('dateLastLogin', $dateLastLogin);
+		$this->setData('dateLastLogin', $dateLastLogin);
 	}
 
 	/**
@@ -325,7 +325,7 @@ class PKPUser extends Identity {
 	 * @param $mustChangePassword boolean
 	 */
 	function setMustChangePassword($mustChangePassword) {
-		return $this->setData('mustChangePassword', $mustChangePassword);
+		$this->setData('mustChangePassword', $mustChangePassword);
 	}
 
 	/**
@@ -341,7 +341,7 @@ class PKPUser extends Identity {
 	 * @param $disabled boolean
 	 */
 	function setDisabled($disabled) {
-		return $this->setData('disabled', $disabled);
+		$this->setData('disabled', $disabled);
 	}
 
 	/**
@@ -357,7 +357,7 @@ class PKPUser extends Identity {
 	 * @param $reasonDisabled string
 	 */
 	function setDisabledReason($reasonDisabled) {
-		return $this->setData('disabled_reason', $reasonDisabled);
+		$this->setData('disabled_reason', $reasonDisabled);
 	}
 
 	/**
@@ -373,7 +373,7 @@ class PKPUser extends Identity {
 	 * @param $authId int
 	 */
 	function setAuthId($authId) {
-		return $this->setData('authId', $authId);
+		$this->setData('authId', $authId);
 	}
 
 	/**
@@ -389,7 +389,7 @@ class PKPUser extends Identity {
 	 * @param $inlineHelp int
 	 */
 	function setInlineHelp($inlineHelp) {
-		return $this->setData('inlineHelp', $inlineHelp);
+		$this->setData('inlineHelp', $inlineHelp);
 	}
 
 	function getContactSignature() {

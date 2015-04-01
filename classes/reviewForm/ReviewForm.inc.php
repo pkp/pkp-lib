@@ -62,7 +62,7 @@ class ReviewForm extends DataObject {
 	 * @param $completeCount int
 	 */
 	function setCompleteCount($completeCount) {
-		return $this->setData('completeCount', $completeCount);
+		$this->setData('completeCount', $completeCount);
 	}
 
 	/**
@@ -78,7 +78,7 @@ class ReviewForm extends DataObject {
 	 * @param $incompleteCount int
 	 */
 	function setIncompleteCount($incompleteCount) {
-		return $this->setData('incompleteCount', $incompleteCount);
+		$this->setData('incompleteCount', $incompleteCount);
 	}
 
 	/**
@@ -94,7 +94,7 @@ class ReviewForm extends DataObject {
 	 * @param $assocType int
 	 */
 	function setAssocType($assocType) {
-		return $this->setData('assocType', $assocType);
+		$this->setData('assocType', $assocType);
 	}
 
 	/**
@@ -110,7 +110,7 @@ class ReviewForm extends DataObject {
 	 * @param $assocId int
 	 */
 	function setAssocId($assocId) {
-		return $this->setData('assocId', $assocId);
+		$this->setData('assocId', $assocId);
 	}
 
 	/**
@@ -126,7 +126,7 @@ class ReviewForm extends DataObject {
 	 * @param $sequence float
 	 */
 	function setSequence($sequence) {
-		return $this->setData('sequence', $sequence);
+		$this->setData('sequence', $sequence);
 	}
 
 	/**
@@ -142,7 +142,7 @@ class ReviewForm extends DataObject {
 	 * @param $active int
 	 */
 	function setActive($active) {
-		return $this->setData('active', $active);
+		$this->setData('active', $active);
 	}
 
 	/**
@@ -160,7 +160,7 @@ class ReviewForm extends DataObject {
 	 * @param $locale string
 	 */
 	function setTitle($title, $locale) {
-		return $this->setData('title', $title, $locale);
+		$this->setData('title', $title, $locale);
 	}
 
 	/**
@@ -178,7 +178,7 @@ class ReviewForm extends DataObject {
 	 * @param $locale string
 	 */
 	function setDescription($description, $locale) {
-		return $this->setData('description', $description, $locale);
+		$this->setData('description', $description, $locale);
 	}
 }
 

@@ -89,7 +89,7 @@ class Session extends DataObject {
 				$userId = null;
 			}
 		}
-		return $this->setData('userId', $userId);
+		$this->setData('userId', $userId);
 	}
 
 	/**
@@ -105,7 +105,7 @@ class Session extends DataObject {
 	 * @param $ipAddress string
 	 */
 	function setIpAddress($ipAddress) {
-		return $this->setData('ipAddress', $ipAddress);
+		$this->setData('ipAddress', $ipAddress);
 	}
 
 	/**
@@ -121,7 +121,7 @@ class Session extends DataObject {
 	 * @param $userAgent string
 	 */
 	function setUserAgent($userAgent) {
-		return $this->setData('userAgent', $userAgent);
+		$this->setData('userAgent', $userAgent);
 	}
 
 	/**
@@ -137,7 +137,7 @@ class Session extends DataObject {
 	 * @param $created int
 	 */
 	function setSecondsCreated($created) {
-		return $this->setData('created', $created);
+		$this->setData('created', $created);
 	}
 
 	/**
@@ -153,7 +153,7 @@ class Session extends DataObject {
 	 * @param $lastUsed int
 	 */
 	function setSecondsLastUsed($lastUsed) {
-		return $this->setData('lastUsed', $lastUsed);
+		$this->setData('lastUsed', $lastUsed);
 	}
 
 	/**
@@ -169,7 +169,7 @@ class Session extends DataObject {
 	 * @param $remember boolean
 	 */
 	function setRemember($remember) {
-		return $this->setData('remember', $remember);
+		$this->setData('remember', $remember);
 	}
 
 	/**
@@ -185,7 +185,7 @@ class Session extends DataObject {
 	 * @param $data array
 	 */
 	function setSessionData($data) {
-		return $this->setData('data', $data);
+		$this->setData('data', $data);
 	}
 
 	/**
@@ -201,7 +201,7 @@ class Session extends DataObject {
 	 * @param $data array
 	 */
 	function setDomain($data) {
-		return $this->setData('domain', $data);
+		$this->setData('domain', $data);
 	}
 
 	/**

@@ -35,7 +35,7 @@ class PKPSocialMedia extends DataObject {
 	 * @param $contextId int
 	 */
 	function setContextId($contextId) {
-		return $this->setData('contextId', $contextId);
+		$this->setData('contextId', $contextId);
 	}
 
 	/**
@@ -51,7 +51,7 @@ class PKPSocialMedia extends DataObject {
 	 * @param $path string
 	 */
 	function setCode($code) {
-		return $this->setData('code', $code);
+		$this->setData('code', $code);
 	}
 
 	/**
@@ -67,7 +67,7 @@ class PKPSocialMedia extends DataObject {
 	 * @param $path string
 	 */
 	function setIncludeInCatalog($includeInCatalog) {
-		return $this->setData('includeInCatalog', $includeInCatalog);
+		$this->setData('includeInCatalog', $includeInCatalog);
 	}
 
 	/**
@@ -93,7 +93,7 @@ class PKPSocialMedia extends DataObject {
 	 * @param $locale string
 	 */
 	function setPlatform($platform, $locale) {
-		return $this->setData('platform', $platform, $locale);
+		$this->setData('platform', $platform, $locale);
 	}
 
 	/**

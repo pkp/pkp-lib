@@ -11,14 +11,15 @@
  * @ingroup submission
  * @see SubmissionFileDAO
  *
- * @brief Supplementary file class.
+ * @brief Supplementary file class. This represents submission files that
+ *  support a complete Dublin Core metadata set, and are typically indexed
+ *  separately from the submission document itself (e.g. the article). This
+ *  typically would be used for genres such as data sets etc.
  */
 
 import('lib.pkp.classes.submission.SubmissionFile');
 
 class SupplementaryFile extends SubmissionFile {
-	/** @var array image file information */
-	var $_imageInfo;
 
 	/**
 	 * Constructor
@@ -55,7 +56,7 @@ class SupplementaryFile extends SubmissionFile {
 	 * @param $locale
 	 */
 	function setCreator($creator, $locale) {
-		return $this->setData('creator', $creator, $locale);
+		$this->setData('creator', $creator, $locale);
 	}
 
 	/**
@@ -81,7 +82,7 @@ class SupplementaryFile extends SubmissionFile {
 	 * @param $locale string
 	 */
 	function setSubject($subject, $locale) {
-		return $this->setData('subject', $subject, $locale);
+		$this->setData('subject', $subject, $locale);
 	}
 
 	/**
@@ -107,7 +108,7 @@ class SupplementaryFile extends SubmissionFile {
 	 * @param $locale string
 	 */
 	function setDescription($description, $locale) {
-		return $this->setData('description', $description, $locale);
+		$this->setData('description', $description, $locale);
 	}
 
 	/**
@@ -133,7 +134,7 @@ class SupplementaryFile extends SubmissionFile {
 	 * @param $locale string
 	 */
 	function setPublisher($publisher, $locale) {
-		return $this->setData('publisher', $publisher, $locale);
+		$this->setData('publisher', $publisher, $locale);
 	}
 
 	/**
@@ -159,7 +160,7 @@ class SupplementaryFile extends SubmissionFile {
 	 * @param $locale string
 	 */
 	function setSponsor($sponsor, $locale) {
-		return $this->setData('sponsor', $sponsor, $locale);
+		$this->setData('sponsor', $sponsor, $locale);
 	}
 
 	/**
@@ -175,7 +176,7 @@ class SupplementaryFile extends SubmissionFile {
 	 * @param $dateCreated date
 	 */
 	function setDateCreated($dateCreated) {
-		return $this->setData('dateCreated', $dateCreated);
+		$this->setData('dateCreated', $dateCreated);
 	}
 
 	/**
@@ -201,7 +202,7 @@ class SupplementaryFile extends SubmissionFile {
 	 * @param $locale string
 	 */
 	function setSource($source, $locale) {
-		return $this->setData('source', $source, $locale);
+		$this->setData('source', $source, $locale);
 	}
 
 	/**
@@ -217,7 +218,7 @@ class SupplementaryFile extends SubmissionFile {
 	 * @param $language string
 	 */
 	function setLanguage($language) {
-		return $this->setData('language', $language);
+		$this->setData('language', $language);
 	}
 
 	/**
@@ -227,6 +228,14 @@ class SupplementaryFile extends SubmissionFile {
 	 */
 	function copyEditableMetadataFrom($submissionFile) {
 		if (is_a($submissionFile, 'SupplementaryFile')) {
+			$this->setCreator($submissionFile->getCreator(null), null);
+			$this->setSubject($submissionFile->getSubject(null), null);
+			$this->setDescription($submissionFile->getDescription(null), null);
+			$this->setPublisher($submissionFile->getPublisher(null), null);
+			$this->setSponsor($submissionFile->getSponsor(null), null);
+			$this->setDateCreated($submissionFile->getDateCreated());
+			$this->setSource($submissionFile->getSource(null), null);
+			$this->setLanguage($submissionFile->getLanguage());
 		}
 
 		parent::copyEditableMetadataFrom($submissionFile);

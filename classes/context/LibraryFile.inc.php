@@ -56,7 +56,7 @@ class LibraryFile extends DataObject {
 	 * @param $contextId int
 	 */
 	function setContextId($contextId) {
-		return $this->setData('contextId', $contextId);
+		$this->setData('contextId', $contextId);
 	}
 
 	/**
@@ -72,7 +72,7 @@ class LibraryFile extends DataObject {
 	 * @param $submission int
 	 */
 	function setSubmissionId($submissionId) {
-		return $this->setData('submissionId', $submissionId);
+		$this->setData('submissionId', $submissionId);
 	}
 
 	/**
@@ -88,7 +88,7 @@ class LibraryFile extends DataObject {
 	 * @param $fileName string
 	 */
 	function setServerFileName($fileName) {
-		return $this->setData('fileName', $fileName);
+		$this->setData('fileName', $fileName);
 	}
 
 	/**
@@ -104,7 +104,7 @@ class LibraryFile extends DataObject {
 	 * @param $originalFileName string
 	 */
 	function setOriginalFileName($originalFileName) {
-		return $this->setData('originalFileName', $originalFileName);
+		$this->setData('originalFileName', $originalFileName);
 	}
 
 	/**
@@ -146,7 +146,7 @@ class LibraryFile extends DataObject {
 	 * @param $fileType string
 	 */
 	function setFileType($fileType) {
-		return $this->setData('fileType', $fileType);
+		$this->setData('fileType', $fileType);
 	}
 
 	/**
@@ -162,7 +162,7 @@ class LibraryFile extends DataObject {
 	 * @param $type string
 	 */
 	function setType($type) {
-		return $this->setData('type', $type);
+		$this->setData('type', $type);
 	}
 
 	/**

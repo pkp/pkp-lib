@@ -148,7 +148,7 @@ class UserGroup extends DataObject {
 	 * @param $locale string
 	 */
 	function setName($name, $locale) {
-		return $this->setData('name', $name, $locale);
+		$this->setData('name', $name, $locale);
 	}
 
 	/**
@@ -174,7 +174,7 @@ class UserGroup extends DataObject {
 	 * @param $locale string
 	 */
 	function setAbbrev($abbrev, $locale) {
-		return $this->setData('abbrev', $abbrev, $locale);
+		$this->setData('abbrev', $abbrev, $locale);
 	}
 }
 

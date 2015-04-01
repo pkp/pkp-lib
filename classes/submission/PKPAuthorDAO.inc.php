@@ -314,7 +314,7 @@ abstract class PKPAuthorDAO extends DAO {
 
 	/**
 	 * Sequentially renumber a submission's authors in their sequence order.
-	 * @param $submissionId int Optional submission ID.
+	 * @param $submissionId int Submission ID.
 	 */
 	function resequenceAuthors($submissionId) {
 		$result = $this->retrieve(

@@ -57,7 +57,7 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @param $revision int File revision number.
 	 * @param $fileStage int (optional) further restricts the selection to
 	 *  a given file stage.
-	 * @param $submissionId|null int (optional) for validation purposes only
+	 * @param $submissionId int|null (optional) for validation purposes only
 	 */
 	function getRevision($fileId, $revision, $fileStage = null, $submissionId = null) {
 		if (!($fileId && $revision)) return null;
@@ -448,7 +448,7 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @param $assocId int ID corresponding to specified assocType.
 	 * @param $fileStage int (optional) further restricts
 	 *  the selection to a given file stage.
-	 * @return integer the number of deleted file revisions
+	 * @return integer the number of deleted file revisions.
 	 */
 	function deleteAllRevisionsByAssocId($assocType, $assocId, $fileStage = null) {
 		return $this->_deleteInternally(null, $fileStage, null, null, $assocType, $assocId);
@@ -456,7 +456,7 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 
 	/**
 	 * Remove all file assignements for the given review round.
-	 * @param $reviewRoundId int The review round ID
+	 * @param $reviewRoundId int The review round ID.
 	 */
 	function deleteAllRevisionsByReviewRound($reviewRoundId) {
 		// Remove currently assigned review files.
@@ -468,11 +468,11 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @param $submissionId int The submission id of the file
 	 * @param $stageId int The review round type.
 	 * @param $fileId int The file id.
-	 * @param $revision int The file revision
+	 * @param $revision int The file revision.
 	 */
 	function deleteReviewRoundAssignment($submissionId, $stageId, $fileId, $revision) {
 		// Remove currently assigned review files.
-		return $this->update(
+		$this->update(
 			'DELETE FROM review_round_files
 			WHERE submission_id = ? AND stage_id = ? AND file_id = ? AND revision = ?',
 			array(
@@ -620,7 +620,7 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @param $genreId integer
 	 * @return string The class name of the file implementation.
 	 */
-	function _getFileImplementationForGenreId($genreId) {
+	private function _getFileImplementationForGenreId($genreId) {
 		static $genreCache = array();
 
 		if (!isset($genreCache[$genreId])) {
@@ -651,7 +651,7 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @param $genreId integer
 	 * @return SubmissionFileDAODelegate
 	 */
-	function _getDaoDelegateForGenreId($genreId) {
+	private function _getDaoDelegateForGenreId($genreId) {
 		// Find the required file implementation.
 		$fileImplementation = $this->_getFileImplementationForGenreId($genreId);
 
@@ -665,7 +665,7 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @param $object SubmissionFile
 	 * @return SubmissionFileDAODelegate
 	 */
-	function _getDaoDelegateForObject($object) {
+	private function _getDaoDelegateForObject($object) {
 		return $this->_getDaoDelegate(get_class($object));
 	}
 
@@ -676,7 +676,7 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 	 *  should serve.
 	 * @return SubmissionFileDAODelegate
 	 */
-	function _getDaoDelegate($fileImplementation) {
+	private function _getDaoDelegate($fileImplementation) {
 		// Normalize the file implementation name.
 		$fileImplementation = strtolower_codesafe($fileImplementation);
 
@@ -710,7 +710,7 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @param $rangeInfo DBResultRange Optional range info for returned data.
 	 * @return array a list of SubmissionFile instances
 	 */
-	function _getInternally($submissionId = null, $fileStage = null, $fileId = null, $revision = null,
+	private function _getInternally($submissionId = null, $fileStage = null, $fileId = null, $revision = null,
 			$assocType = null, $assocId = null, $stageId = null, $uploaderUserId = null, $uploaderUserGroupId = null,
 			$reviewRoundId = null, $latestOnly = false, $rangeInfo = null) {
 		// Retrieve the base query.
@@ -796,7 +796,7 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @return boolean|integer Returns boolean false if an error occurs, otherwise the number
 	 *  of deleted files.
 	 */
-	function _deleteInternally($submissionId = null, $fileStage = null, $fileId = null, $revision = null,
+	private function _deleteInternally($submissionId = null, $fileStage = null, $fileId = null, $revision = null,
 			$assocType = null, $assocId = null, $stageId = null, $uploaderUserId = null, $uploaderUserGroupId = null,
 			$latestOnly = false) {
 
@@ -836,7 +836,7 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @return array an array that contains the generated SQL
 	 *  filter clause and the corresponding parameters.
 	 */
-	function _buildFileSelectionFilter($submissionId, $fileStage,
+	private function _buildFileSelectionFilter($submissionId, $fileStage,
 			$fileId, $revision, $assocType, $assocId, $stageId, $uploaderUserId, $uploaderUserGroupId, $reviewRoundId) {
 
 		// Make sure that at least one entity filter has been set.
@@ -887,7 +887,7 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @param $submissionFile SubmissionFile
 	 * @return SubmissionFile The same file in a compatible implementation.
 	 */
-	function _castToGenre($submissionFile) {
+	private function _castToGenre($submissionFile) {
 		// Find the required target implementation.
 		$targetImplementation = strtolower_codesafe(
 			$this->_getFileImplementationForGenreId(
@@ -913,7 +913,7 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @param $submissionFile SubmissionFile
 	 * @return SubmissionFile
 	 */
-	function _castToDatabase($submissionFile) {
+	private function _castToDatabase($submissionFile) {
 		return $this->getRevision(
 			$submissionFile->getFileId(),
 			$submissionFile->getRevision()
@@ -926,7 +926,7 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @param $revisions array
 	 * @return SubmissionFile
 	 */
-	function _checkAndReturnRevision($revisions) {
+	private function _checkAndReturnRevision($revisions) {
 		assert(count($revisions) <= 1);
 		if (empty($revisions)) return null;
 

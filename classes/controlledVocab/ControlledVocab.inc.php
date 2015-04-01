@@ -42,7 +42,7 @@ class ControlledVocab extends DataObject {
 	 * @param $assocId int
 	 */
 	function setAssocId($assocId) {
-		return $this->setData('assocId', $assocId);
+		$this->setData('assocId', $assocId);
 	}
 
 	/**
@@ -58,7 +58,7 @@ class ControlledVocab extends DataObject {
 	 * @param $assocType int
 	 */
 	function setAssocType($assocType) {
-		return $this->setData('assocType', $assocType);
+		$this->setData('assocType', $assocType);
 	}
 
 	/**
@@ -74,7 +74,7 @@ class ControlledVocab extends DataObject {
 	 * @param $symbolic string
 	 */
 	function setSymbolic($symbolic) {
-		return $this->setData('symbolic', $symbolic);
+		$this->setData('symbolic', $symbolic);
 	}
 
 	/**

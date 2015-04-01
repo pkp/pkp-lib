@@ -35,12 +35,12 @@ class SupplementaryFileDAODelegate extends SubmissionFileDAODelegate {
 	/**
 	 * @see SubmissionFileDAODelegate::insert()
 	 * @param $supplementaryFile SupplementaryFile
-	 * @return SupplementaryFile
+	 * @return SupplementaryFile|null
 	 */
 	function insertObject($supplementaryFile, $sourceFile, $isUpload = false) {
 		// First insert the data for the super-class.
 		$supplementaryFile = parent::insertObject($supplementaryFile, $sourceFile, $isUpload);
-		if (is_null($supplementaryFile)) return $supplementaryFile;
+		if (!$supplementaryFile) return null;
 
 		// Now insert the supplementary-specific data.
 		$this->update(

@@ -61,7 +61,7 @@ class ReviewAssignment extends DataObject {
 	 * @param $submissionId int
 	 */
 	function setSubmissionId($submissionId) {
-		return $this->setData('submissionId', $submissionId);
+		$this->setData('submissionId', $submissionId);
 	}
 
 	/**
@@ -77,7 +77,7 @@ class ReviewAssignment extends DataObject {
 	 * @param $reviewerId int
 	 */
 	function setReviewerId($reviewerId) {
-		return $this->setData('reviewerId', $reviewerId);
+		$this->setData('reviewerId', $reviewerId);
 	}
 
 	/**
@@ -93,7 +93,7 @@ class ReviewAssignment extends DataObject {
 	 * @param $reviewerFullName string
 	 */
 	function setReviewerFullName($reviewerFullName) {
-		return $this->setData('reviewerFullName', $reviewerFullName);
+		$this->setData('reviewerFullName', $reviewerFullName);
 	}
 
 	/**
@@ -109,7 +109,7 @@ class ReviewAssignment extends DataObject {
 	 * @param $comments string
 	 */
 	function setComments($comments) {
-		return $this->setData('comments', $comments);
+		$this->setData('comments', $comments);
 	}
 
 	/**
@@ -125,7 +125,7 @@ class ReviewAssignment extends DataObject {
 	 * @param $competingInterests string
 	 */
 	function setCompetingInterests($competingInterests) {
-		return $this->setData('competingInterests', $competingInterests);
+		$this->setData('competingInterests', $competingInterests);
 	}
 
 	/**
@@ -141,7 +141,7 @@ class ReviewAssignment extends DataObject {
 	 * @param $stageId int
 	 */
 	function setStageId($stageId) {
-		return $this->setData('stageId', $stageId);
+		$this->setData('stageId', $stageId);
 	}
 
 	/**
@@ -157,7 +157,7 @@ class ReviewAssignment extends DataObject {
 	 * @param $method int
 	 */
 	function setReviewMethod($method) {
-		return $this->setData('reviewMethod', $method);
+		$this->setData('reviewMethod', $method);
 	}
 
 	/**
@@ -189,7 +189,7 @@ class ReviewAssignment extends DataObject {
 	 * @param $recommendation string
 	 */
 	function setRecommendation($recommendation) {
-		return $this->setData('recommendation', $recommendation);
+		$this->setData('recommendation', $recommendation);
 	}
 
 	/**
@@ -205,7 +205,7 @@ class ReviewAssignment extends DataObject {
 	 * @param $unconsidered int
 	 */
 	function setUnconsidered($unconsidered) {
-		return $this->setData('unconsidered', $unconsidered);
+		$this->setData('unconsidered', $unconsidered);
 	}
 
 	/**
@@ -221,7 +221,7 @@ class ReviewAssignment extends DataObject {
 	 * @param $dateRated string
 	 */
 	function setDateRated($dateRated) {
-		return $this->setData('dateRated', $dateRated);
+		$this->setData('dateRated', $dateRated);
 	}
 
 	/**
@@ -237,7 +237,7 @@ class ReviewAssignment extends DataObject {
 	 * @param $dateModified date
 	 */
 	function setLastModified($dateModified) {
-		return $this->setData('lastModified', $dateModified);
+		$this->setData('lastModified', $dateModified);
 	}
 
 	/**
@@ -260,7 +260,7 @@ class ReviewAssignment extends DataObject {
 	 * @param $dateAssigned string
 	 */
 	function setDateAssigned($dateAssigned) {
-		return $this->setData('dateAssigned', $dateAssigned);
+		$this->setData('dateAssigned', $dateAssigned);
 	}
 
 	/**
@@ -276,7 +276,7 @@ class ReviewAssignment extends DataObject {
 	 * @param $dateNotified string
 	 */
 	function setDateNotified($dateNotified) {
-		return $this->setData('dateNotified', $dateNotified);
+		$this->setData('dateNotified', $dateNotified);
 	}
 
 	/**
@@ -292,7 +292,7 @@ class ReviewAssignment extends DataObject {
 	 * @param $dateConfirmed string
 	 */
 	function setDateConfirmed($dateConfirmed) {
-		return $this->setData('dateConfirmed', $dateConfirmed);
+		$this->setData('dateConfirmed', $dateConfirmed);
 	}
 
 	/**
@@ -308,7 +308,7 @@ class ReviewAssignment extends DataObject {
 	 * @param $dateCompleted string
 	 */
 	function setDateCompleted($dateCompleted) {
-		return $this->setData('dateCompleted', $dateCompleted);
+		$this->setData('dateCompleted', $dateCompleted);
 	}
 
 	/**
@@ -324,7 +324,7 @@ class ReviewAssignment extends DataObject {
 	 * @param $dateAcknowledged string
 	 */
 	function setDateAcknowledged($dateAcknowledged) {
-		return $this->setData('dateAcknowledged', $dateAcknowledged);
+		$this->setData('dateAcknowledged', $dateAcknowledged);
 	}
 
 	/**
@@ -340,7 +340,7 @@ class ReviewAssignment extends DataObject {
 	 * @param $dateReminded string
 	 */
 	function setDateReminded($dateReminded) {
-		return $this->setData('dateReminded', $dateReminded);
+		$this->setData('dateReminded', $dateReminded);
 	}
 
 	/**
@@ -356,7 +356,7 @@ class ReviewAssignment extends DataObject {
 	 * @param $dateDue string
 	 */
 	function setDateDue($dateDue) {
-		return $this->setData('dateDue', $dateDue);
+		$this->setData('dateDue', $dateDue);
 	}
 
 	/**
@@ -372,7 +372,7 @@ class ReviewAssignment extends DataObject {
 	 * @param $dateResponseDue string
 	 */
 	function setDateResponseDue($dateResponseDue) {
-		return $this->setData('dateResponseDue', $dateResponseDue);
+		$this->setData('dateResponseDue', $dateResponseDue);
 	}
 
 	/**
@@ -388,7 +388,7 @@ class ReviewAssignment extends DataObject {
 	 * @param $declined boolean
 	 */
 	function setDeclined($declined) {
-		return $this->setData('declined', $declined);
+		$this->setData('declined', $declined);
 	}
 
 	/**
@@ -404,7 +404,7 @@ class ReviewAssignment extends DataObject {
 	 * @param $replaced boolean
 	 */
 	function setReplaced($replaced) {
-		return $this->setData('replaced', $replaced);
+		$this->setData('replaced', $replaced);
 	}
 
 	/**
@@ -420,7 +420,7 @@ class ReviewAssignment extends DataObject {
 	 * @param $wasAutomatic boolean
 	 */
 	function setReminderWasAutomatic($wasAutomatic) {
-		return $this->setData('reminderWasAutomatic', $wasAutomatic);
+		$this->setData('reminderWasAutomatic', $wasAutomatic);
 	}
 
 	/**
@@ -436,7 +436,7 @@ class ReviewAssignment extends DataObject {
 	 * @param $cancelled boolean
 	 */
 	function setCancelled($cancelled) {
-		return $this->setData('cancelled', $cancelled);
+		$this->setData('cancelled', $cancelled);
 	}
 
 	/**
@@ -452,7 +452,7 @@ class ReviewAssignment extends DataObject {
 	 * @param $quality int
 	 */
 	function setQuality($quality) {
-		return $this->setData('quality', $quality);
+		$this->setData('quality', $quality);
 	}
 
 	/**
@@ -468,7 +468,7 @@ class ReviewAssignment extends DataObject {
 	 * @param $round int
 	 */
 	function setRound($round) {
-		return $this->setData('round', $round);
+		$this->setData('round', $round);
 	}
 
 	/**
@@ -484,7 +484,7 @@ class ReviewAssignment extends DataObject {
 	 * @param $reviewFormId int
 	 */
 	function setReviewFormId($reviewFormId) {
-		return $this->setData('reviewFormId', $reviewFormId);
+		$this->setData('reviewFormId', $reviewFormId);
 	}
 
 	//

@@ -44,7 +44,7 @@ class EventLogEntry extends DataObject {
 	 * @param $userId int
 	 */
 	function setUserId($userId) {
-		return $this->setData('userId', $userId);
+		$this->setData('userId', $userId);
 	}
 
 	/**
@@ -60,7 +60,7 @@ class EventLogEntry extends DataObject {
 	 * @param $dateLogged datestamp
 	 */
 	function setDateLogged($dateLogged) {
-		return $this->setData('dateLogged', $dateLogged);
+		$this->setData('dateLogged', $dateLogged);
 	}
 
 	/**
@@ -76,7 +76,7 @@ class EventLogEntry extends DataObject {
 	 * @param $ipAddress string
 	 */
 	function setIPAddress($ipAddress) {
-		return $this->setData('ipAddress', $ipAddress);
+		$this->setData('ipAddress', $ipAddress);
 	}
 
 	/**
@@ -92,7 +92,7 @@ class EventLogEntry extends DataObject {
 	 * @param $eventType int
 	 */
 	function setEventType($eventType) {
-		return $this->setData('eventType', $eventType);
+		$this->setData('eventType', $eventType);
 	}
 
 	/**
@@ -108,7 +108,7 @@ class EventLogEntry extends DataObject {
 	 * @param $assocType int
 	 */
 	function setAssocType($assocType) {
-		return $this->setData('assocType', $assocType);
+		$this->setData('assocType', $assocType);
 	}
 
 	/**
@@ -124,7 +124,7 @@ class EventLogEntry extends DataObject {
 	 * @param $assocId int
 	 */
 	function setAssocId($assocId) {
-		return $this->setData('assocId', $assocId);
+		$this->setData('assocId', $assocId);
 	}
 
 	/**
@@ -140,7 +140,7 @@ class EventLogEntry extends DataObject {
 	 * @param $message string
 	 */
 	function setMessage($message) {
-		return $this->setData('message', $message);
+		$this->setData('message', $message);
 	}
 
 	/**
@@ -156,7 +156,7 @@ class EventLogEntry extends DataObject {
 	 * @param $isTranslated int
 	 */
 	function setIsTranslated($isTranslated) {
-		return $this->setData('isTranslated', $isTranslated);
+		$this->setData('isTranslated', $isTranslated);
 	}
 
 	/**
@@ -189,7 +189,7 @@ class EventLogEntry extends DataObject {
 	 * @param $params array
 	 */
 	function setParams($params) {
-		return $this->setData('params', $params);
+		$this->setData('params', $params);
 	}
 
 	/**

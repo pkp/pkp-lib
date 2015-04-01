@@ -56,7 +56,7 @@ class PKPFile extends DataObject {
 	 * @param $fileName string
 	 */
 	function setServerFileName($fileName) {
-		return $this->setData('fileName', $fileName);
+		$this->setData('fileName', $fileName);
 	}
 
 	/**
@@ -72,7 +72,7 @@ class PKPFile extends DataObject {
 	 * @param $originalFileName string
 	 */
 	function setOriginalFileName($originalFileName) {
-		return $this->setData('originalFileName', $originalFileName);
+		$this->setData('originalFileName', $originalFileName);
 	}
 
 	/**
@@ -88,7 +88,7 @@ class PKPFile extends DataObject {
 	 * @param $type string
 	 */
 	function setFileType($fileType) {
-		return $this->setData('filetype', $fileType);
+		$this->setData('filetype', $fileType);
 	}
 
 	/**

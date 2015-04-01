@@ -107,7 +107,7 @@ class Version extends DataObject {
 	 * @param $major int
 	 */
 	function setMajor($major) {
-		return $this->setData('major', $major);
+		$this->setData('major', $major);
 	}
 
 	/**
@@ -123,7 +123,7 @@ class Version extends DataObject {
 	 * @param $minor int
 	 */
 	function setMinor($minor) {
-		return $this->setData('minor', $minor);
+		$this->setData('minor', $minor);
 	}
 
 	/**
@@ -139,7 +139,7 @@ class Version extends DataObject {
 	 * @param $revision int
 	 */
 	function setRevision($revision) {
-		return $this->setData('revision', $revision);
+		$this->setData('revision', $revision);
 	}
 
 	/**
@@ -155,7 +155,7 @@ class Version extends DataObject {
 	 * @param $build int
 	 */
 	function setBuild($build) {
-		return $this->setData('build', $build);
+		$this->setData('build', $build);
 	}
 
 	/**
@@ -171,7 +171,7 @@ class Version extends DataObject {
 	 * @param $dateInstalled date
 	 */
 	function setDateInstalled($dateInstalled) {
-		return $this->setData('dateInstalled', $dateInstalled);
+		$this->setData('dateInstalled', $dateInstalled);
 	}
 
 	/**
@@ -187,7 +187,7 @@ class Version extends DataObject {
 	 * @param $current int
 	 */
 	function setCurrent($current) {
-		return $this->setData('current', $current);
+		$this->setData('current', $current);
 	}
 
 	/**
@@ -203,7 +203,7 @@ class Version extends DataObject {
 	 * @param $productType string
 	 */
 	function setProductType($productType) {
-		return $this->setData('productType', $productType);
+		$this->setData('productType', $productType);
 	}
 
 	/**
@@ -219,7 +219,7 @@ class Version extends DataObject {
 	 * @param $product string
 	 */
 	function setProduct($product) {
-		return $this->setData('product', $product);
+		$this->setData('product', $product);
 	}
 
 	/**
@@ -251,7 +251,7 @@ class Version extends DataObject {
 	 * @param $lazyLoad boolean
 	 */
 	function setLazyLoad($lazyLoad) {
-		return $this->setData('lazyLoad', $lazyLoad);
+		$this->setData('lazyLoad', $lazyLoad);
 	}
 
 	/**
@@ -267,7 +267,7 @@ class Version extends DataObject {
 	 * @param $sitewide boolean
 	 */
 	function setSitewide($sitewide) {
-		return $this->setData('sitewide', $sitewide);
+		$this->setData('sitewide', $sitewide);
 	}
 
 	/**

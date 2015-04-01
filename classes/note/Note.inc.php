@@ -35,7 +35,7 @@ class Note extends DataObject {
 	 * @param $userId int
 	 */
 	function setUserId($userId) {
-		return $this->setData('userId', $userId);
+		$this->setData('userId', $userId);
 	}
 
 	/**
@@ -60,7 +60,7 @@ class Note extends DataObject {
 	 * @param $dateCreated date (YYYY-MM-DD HH:MM:SS)
 	 */
 	function setDateCreated($dateCreated) {
-		return $this->setData('dateCreated', $dateCreated);
+		$this->setData('dateCreated', $dateCreated);
 	}
 
 	/**
@@ -76,7 +76,7 @@ class Note extends DataObject {
 	 * @param $dateModified date (YYYY-MM-DD HH:MM:SS)
 	 */
 	function setDateModified($dateModified) {
-		return $this->setData('dateModified', $dateModified);
+		$this->setData('dateModified', $dateModified);
 	}
 
 	/**
@@ -92,7 +92,7 @@ class Note extends DataObject {
 	 * @param $contents string
 	 */
 	function setContents($contents) {
-		return $this->setData('contents', $contents);
+		$this->setData('contents', $contents);
 	}
 
 	/**
@@ -108,7 +108,7 @@ class Note extends DataObject {
 	 * @param $title string
 	 */
 	function setTitle($title) {
-		return $this->setData('title', $title);
+		$this->setData('title', $title);
 	}
 
 	/**
@@ -124,7 +124,7 @@ class Note extends DataObject {
 	 * @param $assocType int
 	 */
 	function setAssocType($assocType) {
-		return $this->setData('assocType', $assocType);
+		$this->setData('assocType', $assocType);
 	}
 
 	/**
@@ -140,7 +140,7 @@ class Note extends DataObject {
 	 * @param $assocId int
 	 */
 	function setAssocId($assocId) {
-		return $this->setData('assocId', $assocId);
+		$this->setData('assocId', $assocId);
 	}
 
 	/**

@@ -62,7 +62,7 @@ class SubmissionFile extends PKPFile {
 	function setFileId($fileId) {
 		// WARNING: Do not modernize getter/setters without considering
 		// ID clash with subclasses ArticleGalley and ArticleNote!
-		return $this->setData('fileId', $fileId);
+		$this->setData('fileId', $fileId);
 	}
 
 	/**
@@ -78,7 +78,7 @@ class SubmissionFile extends PKPFile {
 	 * @param $sourceFileId int
 	 */
 	function setSourceFileId($sourceFileId) {
-		return $this->setData('sourceFileId', $sourceFileId);
+		$this->setData('sourceFileId', $sourceFileId);
 	}
 
 	/**
@@ -94,7 +94,7 @@ class SubmissionFile extends PKPFile {
 	 * @param $sourceRevision int
 	 */
 	function setSourceRevision($sourceRevision) {
-		return $this->setData('sourceRevision', $sourceRevision);
+		$this->setData('sourceRevision', $sourceRevision);
 	}
 
 	/**
@@ -110,7 +110,7 @@ class SubmissionFile extends PKPFile {
 	 * @param $assocId int
 	 */
 	function setAssocId($assocId) {
-		return $this->setData('assocId', $assocId);
+		$this->setData('assocId', $assocId);
 	}
 
 	/**
@@ -128,7 +128,7 @@ class SubmissionFile extends PKPFile {
 	 * @param $directSalesPrice numeric|null
 	 */
 	function setDirectSalesPrice($directSalesPrice) {
-		return $this->setData('directSalesPrice', $directSalesPrice);
+		$this->setData('directSalesPrice', $directSalesPrice);
 	}
 
 	/**
@@ -144,7 +144,7 @@ class SubmissionFile extends PKPFile {
 	 * @param $salesType string
 	 */
 	function setSalesType($salesType) {
-		return $this->setData('salesType', $salesType);
+		$this->setData('salesType', $salesType);
 	}
 
 	/**
@@ -239,7 +239,7 @@ class SubmissionFile extends PKPFile {
 	 * @param $revision int
 	 */
 	function setRevision($revision) {
-		return $this->setData('revision', $revision);
+		$this->setData('revision', $revision);
 	}
 
 	/**
@@ -255,7 +255,7 @@ class SubmissionFile extends PKPFile {
 	 * @param $submissionId int
 	 */
 	function setSubmissionId($submissionId) {
-		return $this->setData('submissionId', $submissionId);
+		$this->setData('submissionId', $submissionId);
 	}
 
 	/**
@@ -289,7 +289,7 @@ class SubmissionFile extends PKPFile {
 	 * @param $fileStage int SUBMISSION_FILE_...
 	 */
 	function setFileStage($fileStage) {
-		return $this->setData('fileStage', $fileStage);
+		$this->setData('fileStage', $fileStage);
 	}
 
 	/**
@@ -389,7 +389,7 @@ class SubmissionFile extends PKPFile {
 	 * @param $assocType int
 	 */
 	function setAssocType($assocType) {
-		return $this->setData('assocType', $assocType);
+		$this->setData('assocType', $assocType);
 	}
 
 	/**

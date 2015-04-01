@@ -39,7 +39,7 @@ class SubmissionSubject extends ControlledVocabEntry {
 	}
 
 	/**
-	 * @copydoc ControlledVocabEntry::getLocaleMetadataFieldNames
+	 * @copydoc ControlledVocabEntry::getLocaleMetadataFieldNames()
 	 */
 	function getLocaleMetadataFieldNames() {
 		return array('submissionSubject');

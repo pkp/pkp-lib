@@ -97,7 +97,7 @@ class SubmissionCommentDAO extends DAO {
 			. ($commentType?' AND comment_type = ?':'')
 			. ($assocId?' AND assoc_id = ?':'')
 			. ' ORDER BY date_posted DESC',
-			array((int) $submissionId, (int) $commentType, (int) $assocId),
+			$params,
 			1
 		);
 

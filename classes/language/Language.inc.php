@@ -45,7 +45,7 @@ class Language extends DataObject {
 	 * @param $name string
 	 */
 	function setName($name) {
-		return $this->setData('name', $name);
+		$this->setData('name', $name);
 	}
 
 	/**
@@ -61,7 +61,7 @@ class Language extends DataObject {
 	 * @param $code string
 	 */
 	function setCode($code) {
-		return $this->setData('code', $code);
+		$this->setData('code', $code);
 	}
 
 }

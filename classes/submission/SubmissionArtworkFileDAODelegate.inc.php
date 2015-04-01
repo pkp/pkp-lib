@@ -37,12 +37,12 @@ class SubmissionArtworkFileDAODelegate extends SubmissionFileDAODelegate {
 	 * @param $artworkFile ArtworkFile
 	 * @param $sourceFile object Source file
 	 * @param $isUpload boolean True iff this is a new upload.
-	 * @return ArtworkFile
+	 * @return ArtworkFile|null
 	 */
 	function insertObject($artworkFile, $sourceFile, $isUpload = false) {
 		// First insert the data for the super-class.
 		$artworkFile = parent::insertObject($artworkFile, $sourceFile, $isUpload);
-		if (is_null($artworkFile)) return $artworkFile;
+		if (!$artworkFile) return null;
 
 		// Now insert the artwork-specific data.
 		$this->update(

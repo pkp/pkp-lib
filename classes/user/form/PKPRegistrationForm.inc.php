@@ -164,9 +164,11 @@ class PKPRegistrationForm extends PKPUserForm {
 	 * Validate the form
 	 */
 	function validate() {
-		if (empty($this->getData('authorGroup')) && empty($this->getData('authorGroup')) && empty($this->getData('authorGroup'))) {
+		if (	count((array) $this->getData('reviewerGroup')) == 0 &&
+			count((array) $this->getData('authorGroup')) == 0 &&
+			count((array) $this->getData('readerGroup')) == 0
+		) {
 			$this->addError('userGroups', __('user.register.form.userGroupRequired'));
-
 		}
 
 		return parent::validate();

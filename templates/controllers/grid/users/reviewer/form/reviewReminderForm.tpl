@@ -29,13 +29,13 @@
 			{fbvElement type="textarea" id="message" value=$message rich=true}
 		{/fbvFormSection}
 		{fbvFormSection title="reviewer.submission.reviewSchedule"}
-			{fbvElement type="text" id="dateNotified" label="reviewer.submission.reviewRequestDate" value=$reviewAssignment->getDateNotified()|date_format:$dateFormatShort disabled=true inline=true size=$fbvStyles.size.SMALL}
+			{fbvElement type="text" id="dateNotified" label="reviewer.submission.reviewRequestDate" value=$reviewAssignment->getDateNotified()|date_format:$dateFormatShort disabled=true inline=true size=$fbvStyles.size.SMALL class="datepicker"}
 			{if $reviewAssignment->getDateConfirmed()}
-				{fbvElement type="text" id="dateConfirmed" label="editor.review.dateAccepted" value=$reviewAssignment->getDateConfirmed()|date_format:$dateFormatShort disabled=true inline=true size=$fbvStyles.size.SMALL}
+				{fbvElement type="text" id="dateConfirmed" label="editor.review.dateAccepted" value=$reviewAssignment->getDateConfirmed()|date_format:$dateFormatShort disabled=true inline=true size=$fbvStyles.size.SMALL class="datepicker"}
 			{else}
-				{fbvElement type="text" id="responseDue" label="reviewer.submission.responseDueDate" value=$reviewAssignment->getDateResponseDue()|date_format:$dateFormatShort disabled=true inline=true size=$fbvStyles.size.SMALL}
+				{fbvElement type="text" id="responseDue" label="reviewer.submission.responseDueDate" value=$reviewAssignment->getDateResponseDue()|date_format:$dateFormatShort disabled=true inline=true size=$fbvStyles.size.SMALL class="datepicker"}
 			{/if}
-			{fbvElement type="text" id="dateDue" label="reviewer.submission.reviewDueDate" value=$reviewAssignment->getDateDue()|date_format:$dateFormatShort disabled=true inline=true size=$fbvStyles.size.SMALL}
+			{fbvElement type="text" id="dateDue" label="reviewer.submission.reviewDueDate" value=$reviewAssignment->getDateDue()|date_format:$dateFormatShort disabled=true inline=true size=$fbvStyles.size.SMALL class="datepicker"}
 		{/fbvFormSection}
 		{fbvFormButtons submitText="editor.review.sendReminder"}
 	{/fbvFormArea}

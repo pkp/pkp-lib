@@ -22,10 +22,9 @@
 	<input type="hidden" name="submissionId" value="{$submissionId|escape}" />
 	<input type="hidden" name="reviewRoundId" value="{$reviewRoundId|escape}" />
 
-	<!--  Reviewer due dates (see http://jqueryui.com/demos/datepicker/) -->
 	{fbvFormSection title="editor.review.importantDates"}
-		{fbvElement type="text" id="responseDueDate" name="responseDueDate" label="submission.task.responseDueDate" value=$responseDueDate|date_format:$dateFormatShort inline=true size=$fbvStyles.size.MEDIUM}
-		{fbvElement type="text" id="reviewDueDate" name="reviewDueDate" label="editor.review.reviewDueDate" value=$reviewDueDate|date_format:$dateFormatShort inline=true size=$fbvStyles.size.MEDIUM}
+		{fbvElement type="text" id="responseDueDate" name="responseDueDate" label="submission.task.responseDueDate" value=$responseDueDate|date_format:$dateFormatShort inline=true size=$fbvStyles.size.MEDIUM class="datepicker"}
+		{fbvElement type="text" id="reviewDueDate" name="reviewDueDate" label="editor.review.reviewDueDate" value=$reviewDueDate|date_format:$dateFormatShort inline=true size=$fbvStyles.size.MEDIUM class="datepicker"}
 	{/fbvFormSection}
 
 	{include file="controllers/grid/users/reviewer/form/noFilesWarning.tpl"}

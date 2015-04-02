@@ -177,6 +177,9 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		if ($password === null) $password = $username . $username;
 		$this->logIn($username, $password);
 		$this->waitForElementPresent('css=#dashboardTabs');
+		$this->click('css=[name=active]');
+		$this->waitForElementPresent('css=[id^=component-grid-submissions-activesubmissions-activesubmissionslistgrid-]');
+		$this->scrollGridDown('activeSubmissionsListGridContainer');
 		$xpath = '//span[contains(text(),' . $this->quoteXpath($title) .')]/../../..//a[contains(@id, "-stage-itemWorkflow-button-")]';
 		$this->waitForElementPresent($xpath);
 		$this->click($xpath);
@@ -255,6 +258,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 
 		// Use an xpath concat to permit apostrophes to appear in titles
 		// http://kushalm.com/the-perils-of-xpath-expressions-specifically-escaping-quotes
+		$this->scrollGridDown('assignedSubmissionsListGridContainer');
 		$xpath = '//span[contains(text(),' . $this->quoteXpath($title) .')]/../../..//a[contains(@id, "-stage-itemWorkflow-button-")]';
 		$this->waitForElementPresent($xpath);
 		$this->click($xpath);

@@ -156,6 +156,8 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 
 		// Find registration page
 		$this->open(self::$baseUrl);
+		$this->waitForElementPresent('css=.pkp_structure_head_siteNav');
+		if ($this->isElementPresent('link=Logout')) $this->logOut();
 		$this->waitForElementPresent('link=Register');
 		$this->click('link=Register');
 
@@ -177,7 +179,8 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 		}
 
 		// Save the new user
-		$this->click('//span[text()=\'Register\']/..');
+		$this->waitForElementPresent($formButtonSelector = '//span[text()=\'Register\']/..');
+		$this->click($formButtonSelector);
 		$this->waitForElementPresent('link=Logout');
 		$this->waitJQuery();
 
@@ -367,6 +370,26 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	 */
 	protected function escapeJS($value) {
 		return str_replace('\'', '\\\'', $value);
+	}
+
+	/**
+	 * Scroll a grid down until it loads all elements.
+	 * @param $gridContainerId string The grid container id.
+	 */
+	protected function scrollGridDown($gridContainerId) {
+		$this->waitForElementPresent('css=#' . $gridContainerId . ' .scrollable');
+		$loadedItems = 0;
+		$totalItems = 1; // Just to start.
+		while($loadedItems < $totalItems) {
+			$this->runScript('$(\'.scrollable\', \'#' . $gridContainerId . '\').find(\'tr:visible\').last()[0].scrollIntoView()');
+			$this->waitJQuery();
+			$pagingInfo = $this->getText('css=#' . $gridContainerId . ' .gridPagingScrolling');
+			if (!$pagingInfo) break;
+
+			$pagingInfo = explode(' ', $pagingInfo);
+			$loadedItems = $pagingInfo[1];
+			$totalItems = $pagingInfo[3];
+		}
 	}
 }
 ?>

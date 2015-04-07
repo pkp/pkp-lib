@@ -10,7 +10,12 @@
 
 
 <div {if $FBV_id}id="{$FBV_id|escape}" {/if}class="section {$FBV_class|escape} {$FBV_layoutInfo|escape}">
-	{if $FBV_label}<label>{if $FBV_translate}{translate key=$FBV_label|escape}{else}{$FBV_label}{/if}</label>{/if}
+	{if $FBV_label}
+		{if $FBV_translate}{translate|assign:"FBV_labelTranslated" key=$FBV_label|escape}
+		{else}{assign var="FBV_labelTranslated" value=$FBV_Label}{/if}
+		{if $FBV_labelFor}<label for="{$FBV_labelFor|escape}">{$FBV_labelTranslated}</label>
+		{else}<span class="label">{$FBV_labelTranslated}</span>{/if}
+	{/if}
 	{if $FBV_description}<span><label class="sub_label">{if $FBV_translate}{translate key=$FBV_description}{else}{$FBV_description}{/if}</label></span>{/if}
 	{if $FBV_listSection}<ul class="checkbox_and_radiobutton">{/if}
 		{if $FBV_title}<label {if $FBV_labelFor} for="{$FBV_labelFor|escape}"{/if}>{if $FBV_translate}{translate key=$FBV_title}{else}{$FBV_title}{/if}{if $FBV_required}<span class="req">*</span>{/if}</label>{/if}

@@ -55,6 +55,8 @@
 			this.callerSubmitHandler_ = options.submitHandler;
 		}
 
+		$('.datepicker').datepicker({dateFormat: 'yy-mm-dd'});
+
 		// Set the redirect-to URL for the cancel button (if there is one).
 		if (options.cancelRedirectUrl) {
 			this.cancelRedirectUrl_ = options.cancelRedirectUrl;

@@ -35,7 +35,7 @@ class FooterCategory extends DataObject {
 	 * @param $contextId int
 	 */
 	function setContextId($contextId) {
-		return $this->setData('contextId', $contextId);
+		$this->setData('contextId', $contextId);
 	}
 
 	/**
@@ -51,7 +51,7 @@ class FooterCategory extends DataObject {
 	 * @param $path string
 	 */
 	function setPath($path) {
-		return $this->setData('path', $path);
+		$this->setData('path', $path);
 	}
 
 	/**
@@ -77,7 +77,7 @@ class FooterCategory extends DataObject {
 	 * @param $locale string
 	 */
 	function setTitle($title, $locale) {
-		return $this->setData('title', $title, $locale);
+		$this->setData('title', $title, $locale);
 	}
 
 	/**
@@ -103,7 +103,7 @@ class FooterCategory extends DataObject {
 	 * @param $locale string
 	 */
 	function setDescription($description, $locale) {
-		return $this->setData('description', $description, $locale);
+		$this->setData('description', $description, $locale);
 	}
 
 	/**

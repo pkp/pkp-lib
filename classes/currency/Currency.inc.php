@@ -45,7 +45,7 @@ class Currency extends DataObject {
 	 * @param $name string
 	 */
 	function setName($name) {
-		return $this->setData('name', $name);
+		$this->setData('name', $name);
 	}
 
 	/**
@@ -61,7 +61,7 @@ class Currency extends DataObject {
 	 * @param $alphaCode string
 	 */
 	function setCodeAlpha($codeAlpha) {
-		return $this->setData('codeAlpha', $codeAlpha);
+		$this->setData('codeAlpha', $codeAlpha);
 	}
 
 	/**
@@ -77,7 +77,7 @@ class Currency extends DataObject {
 	 * @param $codeNumeric string
 	 */
 	function setCodeNumeric($codeNumeric) {
-		return $this->setData('codeNumeric', $codeNumeric);
+		$this->setData('codeNumeric', $codeNumeric);
 	}
 }
 

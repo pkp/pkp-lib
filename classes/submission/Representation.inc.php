@@ -39,7 +39,7 @@ class Representation extends DataObject {
 	 * @param $sequence float
 	 */
 	function setSeq($seq) {
-		return $this->setData('seq', $seq);
+		$this->setData('seq', $seq);
 	}
 
 	/**
@@ -65,7 +65,7 @@ class Representation extends DataObject {
 	 * @param $locale
 	 */
 	function setName($name, $locale = null) {
-		return $this->setData('name', $name, $locale);
+		$this->setData('name', $name, $locale);
 	}
 
 	/**
@@ -73,7 +73,7 @@ class Representation extends DataObject {
 	 * @param $submissionId int
 	 */
 	function setSubmissionId($submissionId) {
-		return $this->setData('submissionId', $submissionId);
+		$this->setData('submissionId', $submissionId);
 	}
 
 	/**
@@ -103,7 +103,7 @@ class Representation extends DataObject {
 	 * @param $pubId string
 	 */
 	function setStoredPubId($pubIdType, $pubId) {
-		return $this->setData('pub-id::'.$pubIdType, $pubId);
+		$this->setData('pub-id::'.$pubIdType, $pubId);
 	}
 
 	/**

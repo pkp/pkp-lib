@@ -162,7 +162,7 @@ abstract class Submission extends DataObject {
 	 * @param $contextId int
 	 */
 	function setContextId($contextId) {
-		return $this->setData('contextId', $contextId);
+		$this->setData('contextId', $contextId);
 	}
 
 	/**
@@ -214,7 +214,7 @@ abstract class Submission extends DataObject {
 	 * @param $pubId string
 	 */
 	function setStoredPubId($pubIdType, $pubId) {
-		return $this->setData('pub-id::'.$pubIdType, $pubId);
+		$this->setData('pub-id::'.$pubIdType, $pubId);
 	}
 
 	/**
@@ -232,7 +232,7 @@ abstract class Submission extends DataObject {
 	 * @param $locale string locale
 	 */
 	function setCopyrightHolder($copyrightHolder, $locale) {
-		return $this->setData('copyrightHolder', $copyrightHolder, $locale);
+		$this->setData('copyrightHolder', $copyrightHolder, $locale);
 	}
 
 	/**
@@ -248,7 +248,7 @@ abstract class Submission extends DataObject {
 	 * @param $copyrightYear string Copyright holder
 	 */
 	function setCopyrightYear($copyrightYear) {
-		return $this->setData('copyrightYear', $copyrightYear);
+		$this->setData('copyrightYear', $copyrightYear);
 	}
 
 	/**
@@ -264,7 +264,7 @@ abstract class Submission extends DataObject {
 	 * @param $license string License of submission content
 	 */
 	function setLicenseURL($licenseURL) {
-		return $this->setData('licenseURL', $licenseURL);
+		$this->setData('licenseURL', $licenseURL);
 	}
 
 	/**
@@ -288,7 +288,7 @@ abstract class Submission extends DataObject {
 	 * @param $hideAuthor int AUTHOR_TOC_...
 	 */
 	function setHideAuthor($hideAuthor) {
-		return $this->setData('hideAuthor', $hideAuthor);
+		$this->setData('hideAuthor', $hideAuthor);
 	}
 
 	/**
@@ -296,7 +296,7 @@ abstract class Submission extends DataObject {
 	 * @param $commentsToEditor string
 	 */
 	function setCommentsToEditor($commentsToEditor) {
-		return $this->setData('commentsToEditor', $commentsToEditor);
+		$this->setData('commentsToEditor', $commentsToEditor);
 	}
 
 	/**
@@ -401,7 +401,7 @@ abstract class Submission extends DataObject {
 	 * @param $locale string
 	 */
 	function setLocale($locale) {
-		return $this->setData('locale', $locale);
+		$this->setData('locale', $locale);
 	}
 
 	/**
@@ -429,7 +429,7 @@ abstract class Submission extends DataObject {
 	 */
 	function setTitle($title, $locale) {
 		$this->setCleanTitle($title, $locale);
-		return $this->setData('title', $title, $locale);
+		$this->setData('title', $title, $locale);
 	}
 
 	/**
@@ -440,7 +440,7 @@ abstract class Submission extends DataObject {
 	function setCleanTitle($cleanTitle, $locale) {
 		$punctuation = array ('"', '\'', ',', '.', '!', '?', '-', '$', '(', ')');
 		$cleanTitle = str_replace($punctuation, '', $cleanTitle);
-		return $this->setData('cleanTitle', $cleanTitle, $locale);
+		$this->setData('cleanTitle', $cleanTitle, $locale);
 	}
 
 	/**
@@ -466,7 +466,7 @@ abstract class Submission extends DataObject {
 	 * @param $locale string
 	 */
 	function setSubtitle($subtitle, $locale) {
-		return $this->setData('subtitle', $subtitle, $locale);
+		$this->setData('subtitle', $subtitle, $locale);
 	}
 
 	/**
@@ -512,7 +512,7 @@ abstract class Submission extends DataObject {
 	 * @param $locale
 	 */
 	function setPrefix($prefix, $locale) {
-		return $this->setData('prefix', $prefix, $locale);
+		$this->setData('prefix', $prefix, $locale);
 	}
 
 	/**
@@ -538,7 +538,7 @@ abstract class Submission extends DataObject {
 	 * @param $locale
 	 */
 	function setAbstract($abstract, $locale) {
-		return $this->setData('abstract', $abstract, $locale);
+		$this->setData('abstract', $abstract, $locale);
 	}
 
 	/**
@@ -564,7 +564,7 @@ abstract class Submission extends DataObject {
 	 * @param $locale
 	 */
 	function setDiscipline($discipline, $locale) {
-		return $this->setData('discipline', $discipline, $locale);
+		$this->setData('discipline', $discipline, $locale);
 	}
 
 	/**
@@ -590,7 +590,7 @@ abstract class Submission extends DataObject {
 	 * @param $locale
 	 */
 	function setSubjectClass($subjectClass, $locale) {
-		return $this->setData('subjectClass', $subjectClass, $locale);
+		$this->setData('subjectClass', $subjectClass, $locale);
 	}
 
 	/**
@@ -616,7 +616,7 @@ abstract class Submission extends DataObject {
 	 * @param $locale
 	 */
 	function setSubject($subject, $locale) {
-		return $this->setData('subject', $subject, $locale);
+		$this->setData('subject', $subject, $locale);
 	}
 
 	/**
@@ -642,7 +642,7 @@ abstract class Submission extends DataObject {
 	 * @param $locale
 	 */
 	function setCoverageGeo($coverageGeo, $locale) {
-		return $this->setData('coverageGeo', $coverageGeo, $locale);
+		$this->setData('coverageGeo', $coverageGeo, $locale);
 	}
 
 	/**
@@ -668,7 +668,7 @@ abstract class Submission extends DataObject {
 	 * @param $locale
 	 */
 	function setCoverageChron($coverageChron, $locale) {
-		return $this->setData('coverageChron', $coverageChron, $locale);
+		$this->setData('coverageChron', $coverageChron, $locale);
 	}
 
 	/**
@@ -694,7 +694,7 @@ abstract class Submission extends DataObject {
 	 * @param $locale
 	 */
 	function setCoverageSample($coverageSample, $locale) {
-		return $this->setData('coverageSample', $coverageSample, $locale);
+		$this->setData('coverageSample', $coverageSample, $locale);
 	}
 
 	/**
@@ -720,7 +720,7 @@ abstract class Submission extends DataObject {
 	 * @param $locale
 	 */
 	function setType($type, $locale) {
-		return $this->setData('type', $type, $locale);
+		$this->setData('type', $type, $locale);
 	}
 
 	/**
@@ -738,7 +738,7 @@ abstract class Submission extends DataObject {
 	 * @param $locale
 	 */
 	function setRights($rights, $locale) {
-		return $this->setData('rights', $rights, $locale);
+		$this->setData('rights', $rights, $locale);
 	}
 
 	/**
@@ -756,7 +756,7 @@ abstract class Submission extends DataObject {
 	 * @param $locale
 	 */
 	function setSource($source, $locale) {
-		return $this->setData('source', $source, $locale);
+		$this->setData('source', $source, $locale);
 	}
 
 	/**
@@ -772,7 +772,7 @@ abstract class Submission extends DataObject {
 	 * @param $language string
 	 */
 	function setLanguage($language) {
-		return $this->setData('language', $language);
+		$this->setData('language', $language);
 	}
 
 	/**
@@ -798,7 +798,7 @@ abstract class Submission extends DataObject {
 	 * @param $locale
 	 */
 	function setSponsor($sponsor, $locale) {
-		return $this->setData('sponsor', $sponsor, $locale);
+		$this->setData('sponsor', $sponsor, $locale);
 	}
 
 	/**
@@ -816,7 +816,7 @@ abstract class Submission extends DataObject {
 	 * @param $locale string
 	 */
 	function setCopyrightNotice($copyrightNotice, $locale) {
-		return $this->setData('copyrightNotice', $copyrightNotice, $locale);
+		$this->setData('copyrightNotice', $copyrightNotice, $locale);
 	}
 
 	/**
@@ -832,7 +832,7 @@ abstract class Submission extends DataObject {
 	 * @param $citations string
 	 */
 	function setCitations($citations) {
-		return $this->setData('citations', $citations);
+		$this->setData('citations', $citations);
 	}
 
 	/**
@@ -858,7 +858,7 @@ abstract class Submission extends DataObject {
 	 * @param $locale string
 	 */
 	function setFileName($fileName, $locale) {
-		return $this->setData('fileName', $fileName, $locale);
+		$this->setData('fileName', $fileName, $locale);
 	}
 
 	/**
@@ -884,7 +884,7 @@ abstract class Submission extends DataObject {
 	 * @param $width int
 	 */
 	function setWidth($width, $locale) {
-		return $this->setData('width', $width, $locale);
+		$this->setData('width', $width, $locale);
 	}
 
 	/**
@@ -910,7 +910,7 @@ abstract class Submission extends DataObject {
 	 * @param $height int
 	 */
 	function setHeight($height, $locale) {
-		return $this->setData('height', $height, $locale);
+		$this->setData('height', $height, $locale);
 	}
 
 	/**
@@ -936,7 +936,7 @@ abstract class Submission extends DataObject {
 	 * @param $locale string
 	 */
 	function setOriginalFileName($originalFileName, $locale) {
-		return $this->setData('originalFileName', $originalFileName, $locale);
+		$this->setData('originalFileName', $originalFileName, $locale);
 	}
 
 	/**
@@ -962,7 +962,7 @@ abstract class Submission extends DataObject {
 	 * @param $locale string
 	 */
 	function setCoverPageAltText($coverPageAltText, $locale) {
-		return $this->setData('coverPageAltText', $coverPageAltText, $locale);
+		$this->setData('coverPageAltText', $coverPageAltText, $locale);
 	}
 
 	/**
@@ -989,7 +989,7 @@ abstract class Submission extends DataObject {
 	 * @param $locale string
 	 */
 	function setShowCoverPage($showCoverPage, $locale) {
-		return $this->setData('showCoverPage', $showCoverPage, $locale);
+		$this->setData('showCoverPage', $showCoverPage, $locale);
 	}
 
 	/**
@@ -1007,7 +1007,7 @@ abstract class Submission extends DataObject {
 	 * @param $locale string
 	 */
 	function setHideCoverPageToc($hideCoverPageToc, $locale) {
-		return $this->setData('hideCoverPageToc', $hideCoverPageToc, $locale);
+		$this->setData('hideCoverPageToc', $hideCoverPageToc, $locale);
 	}
 
 	/**
@@ -1025,7 +1025,7 @@ abstract class Submission extends DataObject {
 	 * @param $locale string
 	 */
 	function setHideCoverPageAbstract($hideCoverPageAbstract, $locale) {
-		return $this->setData('hideCoverPageAbstract', $hideCoverPageAbstract, $locale);
+		$this->setData('hideCoverPageAbstract', $hideCoverPageAbstract, $locale);
 	}
 
 	/**
@@ -1048,7 +1048,7 @@ abstract class Submission extends DataObject {
 	 * @param $dateSubmitted date
 	 */
 	function setDateSubmitted($dateSubmitted) {
-		return $this->setData('dateSubmitted', $dateSubmitted);
+		$this->setData('dateSubmitted', $dateSubmitted);
 	}
 
 	/**
@@ -1064,7 +1064,7 @@ abstract class Submission extends DataObject {
 	 * @param $dateModified date
 	 */
 	function setDateStatusModified($dateModified) {
-		return $this->setData('dateStatusModified', $dateModified);
+		$this->setData('dateStatusModified', $dateModified);
 	}
 
 	/**
@@ -1080,7 +1080,7 @@ abstract class Submission extends DataObject {
 	 * @param $dateModified date
 	 */
 	function setLastModified($dateModified) {
-		return $this->setData('lastModified', $dateModified);
+		$this->setData('lastModified', $dateModified);
 	}
 
 	/**
@@ -1110,7 +1110,7 @@ abstract class Submission extends DataObject {
 	 * @param $status int
 	 */
 	function setStatus($status) {
-		return $this->setData('status', $status);
+		$this->setData('status', $status);
 	}
 
 	/**
@@ -1152,7 +1152,7 @@ abstract class Submission extends DataObject {
 	 * @param $submissionProgress int
 	 */
 	function setSubmissionProgress($submissionProgress) {
-		return $this->setData('submissionProgress', $submissionProgress);
+		$this->setData('submissionProgress', $submissionProgress);
 	}
 
 	/**
@@ -1168,7 +1168,7 @@ abstract class Submission extends DataObject {
 	 * @param $pages string
 	 */
 	function setPages($pages) {
-		return $this->setData('pages',$pages);
+		$this->setData('pages',$pages);
 	}
 
 	/**
@@ -1184,7 +1184,7 @@ abstract class Submission extends DataObject {
 	 * @param $commentsStatus boolean
 	 */
 	function setCommentsStatus($commentsStatus) {
-		return $this->setData('commentsStatus', $commentsStatus);
+		$this->setData('commentsStatus', $commentsStatus);
 	}
 
 	/**
@@ -1200,7 +1200,7 @@ abstract class Submission extends DataObject {
 	 * @param $stageId int
 	 */
 	function setStageId($stageId) {
-		return $this->setData('stageId', $stageId);
+		$this->setData('stageId', $stageId);
 	}
 
 	/**

@@ -1,14 +1,14 @@
 {**
- * templates/controllers/wizard/fileUpload/form/submissionFileMetadataForm.tpl
+ * templates/controllers/wizard/fileUpload/form/supplementaryFileMetadataForm.tpl
  *
  * Copyright (c) 2014-2015 Simon Fraser University Library
  * Copyright (c) 2003-2015 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * File metadata form.
+ * Supplementary file metadata form.
  *
  * Parameters:
- *  $submissionFile: The submission file.
+ *  $submissionFile: The submission artwork file.
  *  $stageId: The workflow stage id from which the upload
  *   wizard was called.
  *  $showButtons: True iff form buttons should be presented.
@@ -27,8 +27,16 @@
 		{fbvFormSection title="submission.form.name" required=true}
 			{fbvElement type="text" id="name" value=$submissionFile->getName(null) multilingual=true maxlength="255"}
 		{/fbvFormSection}
-		{fbvFormSection title="submission.upload.noteToAccompanyFile"}
-			{fbvElement type="textarea" id="note" height=$fbvStyles.height.SHORT}
+
+		{fbvFormSection}
+			{fbvElement label="common.description" type="textarea" id="description" value=$submissionFile->getDescription(null) multilingual=true maxlength="255"}
+			{fbvElement label="submission.supplementary.creator" inline=true size=$fbvStyles.size.MEDIUM type="text" id="creator" value=$submissionFile->getCreator(null) multilingual=true maxlength="255"}
+			{fbvElement label="submission.supplementary.publisher" inline=true size=$fbvStyles.size.MEDIUM type="text" id="publisher" value=$submissionFile->getPublisher(null) multilingual=true maxlength="255"}
+			{fbvElement label="common.source" inline=true size=$fbvStyles.size.MEDIUM type="text" id="source" value=$submissionFile->getSource(null) multilingual=true maxlength="255"}
+			{fbvElement label="submission.supplementary.subject" inline=true size=$fbvStyles.size.MEDIUM type="text" id="subject" value=$submissionFile->getSubject(null) multilingual=true maxlength="255"}
+			{fbvElement label="submission.supplementary.sponsor" inline=true size=$fbvStyles.size.MEDIUM type="text" id="sponsor" value=$submissionFile->getSponsor(null) multilingual=true maxlength="255"}
+			{fbvElement label="common.date" inline=true size=$fbvStyles.size.SMALL type="text" id="dateCreated" value=$submissionFile->getDateCreated(null) class="datepicker"}
+			{fbvElement label="common.language" inline=true size=$fbvStyles.size.SMALL type="text" id="language" value=$submissionFile->getLanguage() maxlength="255"}
 		{/fbvFormSection}
 	{/fbvFormArea}
 

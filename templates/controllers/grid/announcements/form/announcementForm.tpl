@@ -50,11 +50,8 @@
 			{fbvFormSection title="manager.announcements.form.description" for="description"}
 				{fbvElement type="textarea" multilingual="true" id="description" value=$description label="manager.announcements.form.descriptionInstructions" rich=true}
 			{/fbvFormSection}
-			<script>
-				$('input[id^="dateExpire"]').datepicker({ldelim} dateFormat: 'yy-mm-dd' {rdelim});
-			</script>
 			{fbvFormSection title="manager.announcements.form.dateExpire" for="dataExpire"}
-				{fbvElement type="text" id="dateExpire" value=$dateExpire|date_format:"%y-%m-%d" label="manager.announcements.form.dateExpireInstructions" size=$fbvStyles.size.MEDIUM}
+				{fbvElement type="text" id="dateExpire" value=$dateExpire|date_format:"%y-%m-%d" label="manager.announcements.form.dateExpireInstructions" size=$fbvStyles.size.MEDIUM class="datepicker"}
 			{/fbvFormSection}
 		{/fbvFormArea}
 		{fbvFormButtons id="announcementFormSubmit" submitText="common.save"}

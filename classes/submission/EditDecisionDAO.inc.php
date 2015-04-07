@@ -29,6 +29,7 @@ class EditDecisionDAO extends DAO {
 	 * Update the editor decision table.
 	 * @param $submissionId int
 	 * @param $editorDecision array
+	 * @param $stageId int Optional STAGE_ID_...
 	 * @param $reviewRound ReviewRound (optional)
 	 */
 	function updateEditorDecision($submissionId, $editorDecision, $stageId = null, $reviewRound = null) {
@@ -65,9 +66,11 @@ class EditDecisionDAO extends DAO {
 
 	/**
 	 * Get the editor decisions for a review round of a submission.
-	 * @param $submissionId int
-	 * @param $stageId int optional
-	 * @param $round int optional
+	 * @param $submissionId int Submission ID
+	 * @param $stageId int Optional STAGE_ID_...
+	 * @param $round int Optional review round number
+	 * @return array List of information on the editor decisions:
+	 * 	editDecisionId, reviewRoundId, stageId, round, editorId, decision, dateDecided
 	 */
 	function getEditorDecisions($submissionId, $stageId = null, $round = null) {
 		$params = array((int) $submissionId);

@@ -17,7 +17,7 @@
 
 import('lib.pkp.classes.submission.PKPAuthor');
 
-class PKPAuthorDAO extends DAO {
+abstract class PKPAuthorDAO extends DAO {
 	/**
 	 * Constructor
 	 */
@@ -28,7 +28,7 @@ class PKPAuthorDAO extends DAO {
 	/**
 	 * Retrieve an author by ID.
 	 * @param $authorId int Author ID
-	 * @param $submissionId int optional
+	 * @param $submissionId int Optional submission ID to correlate the author against.
 	 * @return Author
 	 */
 	function getById($authorId, $submissionId = null) {
@@ -55,7 +55,7 @@ class PKPAuthorDAO extends DAO {
 
 	/**
 	 * Retrieve all authors for a submission.
-	 * @param $submissionId int
+	 * @param $submissionId int Submission ID.
 	 * @param $sortByAuthorId bool Use author Ids as indexes in the array
 	 * @param $useIncludeInBrowse bool Whether to limit to just include_in_browse authors
 	 * @return array Authors ordered by sequence
@@ -92,7 +92,7 @@ class PKPAuthorDAO extends DAO {
 
 	/**
 	 * Retrieve the number of authors assigned to a submission
-	 * @param $submissionId int
+	 * @param $submissionId int Submission ID.
 	 * @return int
 	 */
 	function getAuthorCountBySubmissionId($submissionId) {
@@ -182,9 +182,7 @@ class PKPAuthorDAO extends DAO {
 	 * Get a new data object
 	 * @return DataObject
 	 */
-	function newDataObject() {
-		assert(false); // Should be overridden by child classes
-	}
+	abstract function newDataObject();
 
 	/**
 	 * Get field names for which data is localized.
@@ -219,10 +217,13 @@ class PKPAuthorDAO extends DAO {
 		}
 
 		$this->update(
-				'INSERT INTO authors
-				(submission_id, first_name, middle_name, last_name, suffix, country, email, url, user_group_id, primary_contact, seq, include_in_browse)
-				VALUES
-				(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+			'INSERT INTO authors (
+				submission_id, first_name, middle_name, last_name, suffix, country,
+				email, url, user_group_id, primary_contact, seq, include_in_browse
+			) VALUES (
+				?, ?, ?, ?, ?, ?,
+				?, ?, ?, ?, ?, ?
+			)',
 				array(
 						(int) $author->getSubmissionId(),
 						$author->getFirstName(),
@@ -255,33 +256,33 @@ class PKPAuthorDAO extends DAO {
 			$this->resetPrimaryContact($author->getId(), $author->getSubmissionId());
 		}
 		$returner = $this->update(
-				'UPDATE	authors
-				SET	first_name = ?,
-					middle_name = ?,
-					last_name = ?,
-					suffix = ?,
-					country = ?,
-					email = ?,
-					url = ?,
-					user_group_id = ?,
-					primary_contact = ?,
-					seq = ?,
-					include_in_browse = ?
-				WHERE	author_id = ?',
-				array(
-						$author->getFirstName(),
-						$author->getMiddleName() . '', // make non-null
-						$author->getLastName(),
-						$author->getSuffix() . '',
-						$author->getCountry(),
-						$author->getEmail(),
-						$author->getUrl(),
-						(int) $author->getUserGroupId(),
-						(int) $author->getPrimaryContact(),
-						(float) $author->getSequence(),
-						(int) $author->getIncludeInBrowse() ? 1 : 0,
-						(int) $author->getId()
-				)
+			'UPDATE	authors
+			SET	first_name = ?,
+				middle_name = ?,
+				last_name = ?,
+				suffix = ?,
+				country = ?,
+				email = ?,
+				url = ?,
+				user_group_id = ?,
+				primary_contact = ?,
+				seq = ?,
+				include_in_browse = ?
+			WHERE	author_id = ?',
+			array(
+				$author->getFirstName(),
+				$author->getMiddleName() . '', // make non-null
+				$author->getLastName(),
+				$author->getSuffix() . '',
+				$author->getCountry(),
+				$author->getEmail(),
+				$author->getUrl(),
+				(int) $author->getUserGroupId(),
+				(int) $author->getPrimaryContact(),
+				(float) $author->getSequence(),
+				(int) $author->getIncludeInBrowse() ? 1 : 0,
+				(int) $author->getId()
+			)
 		);
 		$this->updateLocaleFields($author);
 		return $returner;
@@ -289,7 +290,7 @@ class PKPAuthorDAO extends DAO {
 
 	/**
 	 * Delete an Author.
-	 * @param $author Author
+	 * @param $author Author Author object to delete.
 	 */
 	function deleteObject($author) {
 		return $this->deleteById($author->getId());
@@ -297,25 +298,23 @@ class PKPAuthorDAO extends DAO {
 
 	/**
 	 * Delete an author by ID.
-	 * @param $authorId int
-	 * @param $submissionId int optional
+	 * @param $authorId int Author ID
+	 * @param $submissionId int Optional submission ID.
 	 */
 	function deleteById($authorId, $submissionId = null) {
 		$params = array((int) $authorId);
 		if ($submissionId) $params[] = (int) $submissionId;
-		$returner = $this->update(
+		$this->update(
 			'DELETE FROM authors WHERE author_id = ?' .
 			($submissionId?' AND submission_id = ?':''),
 			$params
 		);
-		if ($returner) $this->update('DELETE FROM author_settings WHERE author_id = ?', array((int) $authorId));
-
-		return $returner;
+		$this->update('DELETE FROM author_settings WHERE author_id = ?', array((int) $authorId));
 	}
 
 	/**
 	 * Sequentially renumber a submission's authors in their sequence order.
-	 * @param $submissionId int
+	 * @param $submissionId int Submission ID.
 	 */
 	function resequenceAuthors($submissionId) {
 		$result = $this->retrieve(
@@ -340,7 +339,7 @@ class PKPAuthorDAO extends DAO {
 
 	/**
 	 * Retrieve the primary author for a submission.
-	 * @param $submissionId int
+	 * @param $submissionId int Submission ID.
 	 * @return Author
 	 */
 	function getPrimaryContact($submissionId) {
@@ -362,8 +361,8 @@ class PKPAuthorDAO extends DAO {
 
 	/**
 	 * Remove other primary contacts from a submission and set to authorId
-	 * @param $authorId int
-	 * @param $submissionId int
+	 * @param $authorId int Author ID.
+	 * @param $submissionId int Submission ID.
 	 */
 	function resetPrimaryContact($authorId, $submissionId) {
 		$this->update(

@@ -115,4 +115,19 @@
 		<field name="contact_author" type="I8"/>
 		<descr>Submission visuals.</descr>
 	</table>
+
+	<!--
+	  *
+	  * TABLE submission_supplementary_files
+	  *
+	  -->
+	<table name="submission_supplementary_files">
+		<field name="file_id" type="I8">
+			<KEY />
+		</field>
+		<field name="revision" type="I8">
+			<KEY />
+		</field>
+		<descr>Submission supplementary content.</descr>
+	</table>
 </schema>

@@ -16,6 +16,7 @@
 
 define('GENRE_CATEGORY_DOCUMENT', 1);
 define('GENRE_CATEGORY_ARTWORK', 2);
+define('GENRE_CATEGORY_SUPPLEMENTARY', 3);
 
 define('GENRE_SORTABLE_DESIGNATION', '##');
 
@@ -40,7 +41,7 @@ class Genre extends DataObject {
 	 * @param $contextId int
 	 */
 	function setContextId($contextId) {
-		return $this->setData('contextId', $contextId);
+		$this->setData('contextId', $contextId);
 	}
 
 	/**
@@ -56,7 +57,7 @@ class Genre extends DataObject {
 	 * @param $sequence float
 	 */
 	function setSequence($sequence) {
-		return $this->setData('sequence', $sequence);
+		$this->setData('sequence', $sequence);
 	}
 
 	/**
@@ -72,7 +73,7 @@ class Genre extends DataObject {
 	 * @param $key string
 	 */
 	function setKey($key) {
-		return $this->setData('key', $key);
+		$this->setData('key', $key);
 	}
 
 	/**
@@ -88,7 +89,7 @@ class Genre extends DataObject {
 	 * @param $enabled boolean
 	 */
 	function setEnabled($enabled) {
-		return $this->setData('enabled', $enabled);
+		$this->setData('enabled', $enabled);
 	}
 
 	/**
@@ -146,7 +147,7 @@ class Genre extends DataObject {
 	 * @param $sortable bool
 	 */
 	function setSortable($sortable) {
-		return $this->setData('sortable', $sortable);
+		$this->setData('sortable', $sortable);
 	}
 
 	/**
@@ -162,7 +163,7 @@ class Genre extends DataObject {
 	 * @param $category int GENRE_CATEGORY_...
 	 */
 	function setCategory($category) {
-		return $this->setData('category', $category);
+		$this->setData('category', $category);
 	}
 
 	/**
@@ -178,7 +179,7 @@ class Genre extends DataObject {
 	 * @param $dependent bool
 	 */
 	function setDependent($dependent) {
-		return $this->setData('dependent', $dependent);
+		$this->setData('dependent', $dependent);
 	}
 
 	/**
@@ -194,7 +195,7 @@ class Genre extends DataObject {
 	 * @param $supplementary bool
 	 */
 	function setSupplementary($supplementary) {
-		return $this->setData('supplementary', $supplementary);
+		$this->setData('supplementary', $supplementary);
 	}
 }
 

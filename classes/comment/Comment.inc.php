@@ -41,7 +41,7 @@ class Comment extends DataObject {
 	 * @param $childCommentCount int
 	 */
 	function setChildCommentCount($childCommentCount) {
-		return $this->setData('childCommentCount', $childCommentCount);
+		$this->setData('childCommentCount', $childCommentCount);
 	}
 
 	/**
@@ -57,7 +57,7 @@ class Comment extends DataObject {
 	 * @param $parentCommentId int
 	 */
 	function setParentCommentId($parentCommentId) {
-		return $this->setData('parentCommentId', $parentCommentId);
+		$this->setData('parentCommentId', $parentCommentId);
 	}
 
 	/**
@@ -73,7 +73,7 @@ class Comment extends DataObject {
 	 * @param $submissionId int
 	 */
 	function setSubmissionId($submissionId) {
-		return $this->setData('submissionId', $submissionId);
+		$this->setData('submissionId', $submissionId);
 	}
 
 	/**
@@ -89,7 +89,7 @@ class Comment extends DataObject {
 	 * @param $user object
 	 */
 	function setUser($user) {
-		return $this->setData('user', $user);
+		$this->setData('user', $user);
 	}
 
 	/**
@@ -104,7 +104,7 @@ class Comment extends DataObject {
 	 * @param $posterName string
 	 */
 	function setPosterName($posterName) {
-		return $this->setData('posterName', $posterName);
+		$this->setData('posterName', $posterName);
 	}
 
 	/**
@@ -119,7 +119,7 @@ class Comment extends DataObject {
 	 * @param $posterEmail string
 	 */
 	function setPosterEmail($posterEmail) {
-		return $this->setData('posterEmail', $posterEmail);
+		$this->setData('posterEmail', $posterEmail);
 	}
 
 	/**
@@ -135,7 +135,7 @@ class Comment extends DataObject {
 	 * @param $posterIP string
 	 */
 	function setPosterIP($posterIP) {
-		return $this->setData('posterIP', $posterIP);
+		$this->setData('posterIP', $posterIP);
 	}
 
 	/**
@@ -151,7 +151,7 @@ class Comment extends DataObject {
 	 * @param $title string
 	 */
 	function setTitle($title) {
-		return $this->setData('title', $title);
+		$this->setData('title', $title);
 	}
 
 	/**
@@ -167,7 +167,7 @@ class Comment extends DataObject {
 	 * @param $body string
 	 */
 	function setBody($body) {
-		return $this->setData('body', $body);
+		$this->setData('body', $body);
 	}
 
 	/**
@@ -183,7 +183,7 @@ class Comment extends DataObject {
 	 * @param $datePosted date
 	 */
 	function setDatePosted($datePosted) {
-		return $this->setData('datePosted', $datePosted);
+		$this->setData('datePosted', $datePosted);
 	}
 
 	/**
@@ -199,7 +199,7 @@ class Comment extends DataObject {
 	 * @param $dateModified date
 	 */
 	function setDateModified($dateModified) {
-		return $this->setData('dateModified', $dateModified);
+		$this->setData('dateModified', $dateModified);
 	}
 
 	/**

@@ -44,7 +44,7 @@ class SubmissionArtworkFile extends SubmissionFile {
 	 * @param $caption string
 	 */
 	function setCaption($caption) {
-		return $this->setData('caption', $caption);
+		$this->setData('caption', $caption);
 	}
 
 	/**
@@ -60,7 +60,7 @@ class SubmissionArtworkFile extends SubmissionFile {
 	 * @param $credit string
 	 */
 	function setCredit($credit) {
-		return $this->setData('credit', $credit);
+		$this->setData('credit', $credit);
 	}
 
 	/**
@@ -76,7 +76,7 @@ class SubmissionArtworkFile extends SubmissionFile {
 	 * @param $owner string
 	 */
 	function setCopyrightOwner($owner) {
-		return $this->setData('copyrightOwner', $owner);
+		$this->setData('copyrightOwner', $owner);
 	}
 
 	/**
@@ -92,7 +92,7 @@ class SubmissionArtworkFile extends SubmissionFile {
 	 * @param $contactDetails string
 	 */
 	function setCopyrightOwnerContactDetails($contactDetails) {
-		return $this->setData('copyrightOwnerContact', $contactDetails);
+		$this->setData('copyrightOwnerContact', $contactDetails);
 	}
 
 	/**
@@ -108,7 +108,7 @@ class SubmissionArtworkFile extends SubmissionFile {
 	 * @param $terms string
 	 */
 	function setPermissionTerms($terms) {
-		return $this->setData('terms', $terms);
+		$this->setData('terms', $terms);
 	}
 
 	/**
@@ -124,7 +124,7 @@ class SubmissionArtworkFile extends SubmissionFile {
 	 * @param $fileId int
 	 */
 	function setPermissionFileId($fileId) {
-		return $this->setData('permissionFileId', $fileId);
+		$this->setData('permissionFileId', $fileId);
 	}
 
 	/**
@@ -140,7 +140,7 @@ class SubmissionArtworkFile extends SubmissionFile {
 	 * @param $authorId int
 	 */
 	function setContactAuthor($authorId) {
-		return $this->setData('contactAuthor', $authorId);
+		$this->setData('contactAuthor', $authorId);
 	}
 
 	/**
@@ -156,7 +156,7 @@ class SubmissionArtworkFile extends SubmissionFile {
 	 * @param $chapterId int
 	 */
 	function setChapterId($chapterId) {
-		return $this->setData('chapterId', $chapterId);
+		$this->setData('chapterId', $chapterId);
 	}
 
 	/**

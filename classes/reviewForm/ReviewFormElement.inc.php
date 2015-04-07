@@ -63,7 +63,7 @@ class ReviewFormElement extends DataObject {
 	 * @param $reviewFormId int
 	 */
 	function setReviewFormId($reviewFormId) {
-		return $this->setData('reviewFormId', $reviewFormId);
+		$this->setData('reviewFormId', $reviewFormId);
 	}
 
 	/**
@@ -79,7 +79,7 @@ class ReviewFormElement extends DataObject {
 	 * @param $sequence float
 	 */
 	function setSequence($sequence) {
-		return $this->setData('sequence', $sequence);
+		$this->setData('sequence', $sequence);
 	}
 
 	/**
@@ -95,7 +95,7 @@ class ReviewFormElement extends DataObject {
 	 * @param $reviewFormElementType string
 	 */
 	function setElementType($reviewFormElementType) {
-		return $this->setData('reviewFormElementType', $reviewFormElementType);
+		$this->setData('reviewFormElementType', $reviewFormElementType);
 	}
 
 	/**
@@ -111,7 +111,7 @@ class ReviewFormElement extends DataObject {
 	 * @param $viewable boolean
 	 */
 	function setRequired($required) {
-		return $this->setData('required', $required);
+		$this->setData('required', $required);
 	}
 
 	/**
@@ -127,7 +127,7 @@ class ReviewFormElement extends DataObject {
 	 * @param $included boolean
 	 */
 	function setIncluded($included) {
-		return $this->setData('included', $included);
+		$this->setData('included', $included);
 	}
 
 	/**
@@ -145,7 +145,7 @@ class ReviewFormElement extends DataObject {
 	 * @param $locale string
 	 */
 	function setQuestion($question, $locale) {
-		return $this->setData('question', $question, $locale);
+		$this->setData('question', $question, $locale);
 	}
 
 	/**
@@ -163,7 +163,7 @@ class ReviewFormElement extends DataObject {
 	 * @param $locale string
 	 */
 	function setPossibleResponses($possibleResponses, $locale) {
-		return $this->setData('possibleResponses', $possibleResponses, $locale);
+		$this->setData('possibleResponses', $possibleResponses, $locale);
 	}
 
 	/**

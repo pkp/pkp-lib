@@ -43,7 +43,7 @@ class Announcement extends DataObject {
 	 * @param $assocId int
 	 */
 	function setAssocId($assocId) {
-		return $this->setData('assocId', $assocId);
+		$this->setData('assocId', $assocId);
 	}
 
 	/**
@@ -59,7 +59,7 @@ class Announcement extends DataObject {
 	 * @param $assocType int
 	 */
 	function setAssocType($assocType) {
-		return $this->setData('assocType', $assocType);
+		$this->setData('assocType', $assocType);
 	}
 
 	/**
@@ -75,7 +75,7 @@ class Announcement extends DataObject {
 	 * @param $typeId int
 	 */
 	function setTypeId($typeId) {
-		return $this->setData('typeId', $typeId);
+		$this->setData('typeId', $typeId);
 	}
 
 	/**
@@ -125,7 +125,7 @@ class Announcement extends DataObject {
 	 * @param $locale string
 	 */
 	function setTitle($title, $locale) {
-		return $this->setData('title', $title, $locale);
+		$this->setData('title', $title, $locale);
 	}
 
 	/**
@@ -151,7 +151,7 @@ class Announcement extends DataObject {
 	 * @param $locale string
 	 */
 	function setDescriptionShort($descriptionShort, $locale) {
-		return $this->setData('descriptionShort', $descriptionShort, $locale);
+		$this->setData('descriptionShort', $descriptionShort, $locale);
 	}
 
 	/**
@@ -177,7 +177,7 @@ class Announcement extends DataObject {
 	 * @param $locale string
 	 */
 	function setDescription($description, $locale) {
-		return $this->setData('description', $description, $locale);
+		$this->setData('description', $description, $locale);
 	}
 
 	/**
@@ -193,7 +193,7 @@ class Announcement extends DataObject {
 	 * @param $dateExpire date (YYYY-MM-DD)
 	 */
 	function setDateExpire($dateExpire) {
-		return $this->setData('dateExpire', $dateExpire);
+		$this->setData('dateExpire', $dateExpire);
 	}
 
 	/**
@@ -217,7 +217,7 @@ class Announcement extends DataObject {
 	 * @param $datePosted date (YYYY-MM-DD)
 	 */
 	function setDatePosted($datePosted) {
-		return $this->setData('datePosted', $datePosted);
+		$this->setData('datePosted', $datePosted);
 	}
 
 	/**
@@ -225,7 +225,7 @@ class Announcement extends DataObject {
 	 * @param $datetimePosted date (YYYY-MM-DD HH:MM:SS)
 	 */
 	function setDatetimePosted($datetimePosted) {
-		return $this->setData('datePosted', $datetimePosted);
+		$this->setData('datePosted', $datetimePosted);
 	}
 }
 

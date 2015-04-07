@@ -35,7 +35,7 @@ class FooterLink extends DataObject {
 	 * @param $contextId int
 	 */
 	function setContextId($contextId) {
-		return $this->setData('contextId', $contextId);
+		$this->setData('contextId', $contextId);
 	}
 
 	/**
@@ -51,7 +51,7 @@ class FooterLink extends DataObject {
 	 * @param $parentId int
 	 */
 	function setCategoryId($footerCategoryId) {
-		return $this->setData('footerCategoryId', $footerCategoryId);
+		$this->setData('footerCategoryId', $footerCategoryId);
 	}
 
 	/**
@@ -76,7 +76,7 @@ class FooterLink extends DataObject {
 	 * @param $locale string
 	 */
 	function setUrl($url, $locale) {
-		return $this->setData('url', $url, $locale);
+		$this->setData('url', $url, $locale);
 	}
 
 	/**
@@ -102,7 +102,7 @@ class FooterLink extends DataObject {
 	 * @param $locale string
 	 */
 	function setTitle($title, $locale) {
-		return $this->setData('title', $title, $locale);
+		$this->setData('title', $title, $locale);
 	}
 }
 

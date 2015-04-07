@@ -35,7 +35,7 @@ class PKPSection extends DataObject {
 	 * @param $contextId int
 	 */
 	function setContextId($contextId) {
-		return $this->setData('contextId', $contextId);
+		$this->setData('contextId', $contextId);
 	}
 
 	/**
@@ -51,7 +51,7 @@ class PKPSection extends DataObject {
 	 * @param $sequence float
 	 */
 	function setSequence($sequence) {
-		return $this->setData('sequence', $sequence);
+		$this->setData('sequence', $sequence);
 	}
 
 	/**
@@ -77,7 +77,7 @@ class PKPSection extends DataObject {
 	 * @param $locale string
 	 */
 	function setTitle($title, $locale) {
-		return $this->setData('title', $title, $locale);
+		$this->setData('title', $title, $locale);
 	}
 
 	/**
@@ -93,7 +93,7 @@ class PKPSection extends DataObject {
 	 * @param $editorRestricted boolean
 	 */
 	function setEditorRestricted($editorRestricted) {
-		return $this->setData('editorRestricted', $editorRestricted);
+		$this->setData('editorRestricted', $editorRestricted);
 	}
 
 	/**
@@ -109,7 +109,7 @@ class PKPSection extends DataObject {
 	 * @param $reviewFormId int
 	 */
 	function setReviewFormId($reviewFormId) {
-		return $this->setData('reviewFormId', $reviewFormId);
+		$this->setData('reviewFormId', $reviewFormId);
 	}
 
 	/**

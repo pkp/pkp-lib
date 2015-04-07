@@ -22,7 +22,7 @@ class SubmissionLanguageDAO extends ControlledVocabDAO {
 	/**
 	 * Constructor
 	 */
-	function submissionLanguageDAO() {
+	function SubmissionLanguageDAO() {
 		parent::ControlledVocabDAO();
 	}
 
@@ -91,7 +91,7 @@ class SubmissionLanguageDAO extends ControlledVocabDAO {
 
 	/**
 	 * Get an array of submissionIds that have a given language
-	 * @param $content string
+	 * @param $language string
 	 * @return array
 	 */
 	function getSubmissionIdsByLanguage($language) {

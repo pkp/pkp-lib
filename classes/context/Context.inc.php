@@ -108,7 +108,7 @@ class Context extends DataObject {
 	 * @param $path string
 	 */
 	function setPath($path) {
-		return $this->setData('path', $path);
+		$this->setData('path', $path);
 	}
 
 	/**
@@ -124,7 +124,7 @@ class Context extends DataObject {
 	 * @param $enabled int
 	 */
 	function setEnabled($enabled) {
-		return $this->setData('enabled', $enabled);
+		$this->setData('enabled', $enabled);
 	}
 
 	/**
@@ -140,7 +140,7 @@ class Context extends DataObject {
 	 * @param $locale string
 	 */
 	function setPrimaryLocale($primaryLocale) {
-		return $this->setData('primaryLocale', $primaryLocale);
+		$this->setData('primaryLocale', $primaryLocale);
 	}
 	/**
 	 * Get sequence of context in site-wide list.
@@ -155,7 +155,7 @@ class Context extends DataObject {
 	 * @param $sequence float
 	 */
 	function setSequence($sequence) {
-		return $this->setData('sequence', $sequence);
+		$this->setData('sequence', $sequence);
 	}
 
 	/**

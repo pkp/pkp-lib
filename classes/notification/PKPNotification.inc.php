@@ -95,7 +95,7 @@ class PKPNotification extends DataObject {
 	 * @param $userId int
 	 */
 	function setUserId($userId) {
-		return $this->setData('userId', $userId);
+		$this->setData('userId', $userId);
 	}
 
 	/**
@@ -111,7 +111,7 @@ class PKPNotification extends DataObject {
 	 * @param $level int
 	 */
 	function setLevel($level) {
-		return $this->setData('level', $level);
+		$this->setData('level', $level);
 	}
 
 	/**
@@ -127,7 +127,7 @@ class PKPNotification extends DataObject {
 	 * @param $dateCreated date (YYYY-MM-DD HH:MM:SS)
 	 */
 	function setDateCreated($dateCreated) {
-		return $this->setData('dateCreated', $dateCreated);
+		$this->setData('dateCreated', $dateCreated);
 	}
 
 	/**
@@ -143,7 +143,7 @@ class PKPNotification extends DataObject {
 	 * @param $dateRead date (YYYY-MM-DD HH:MM:SS)
 	 */
 	function setDateRead($dateRead) {
-		return $this->setData('dateRead', $dateRead);
+		$this->setData('dateRead', $dateRead);
 	}
 
 	/**
@@ -159,7 +159,7 @@ class PKPNotification extends DataObject {
 	 * @param $type int
 	 */
 	function setType($type) {
-		return $this->setData('type', $type);
+		$this->setData('type', $type);
 	}
 
 	/**
@@ -175,7 +175,7 @@ class PKPNotification extends DataObject {
 	 * @param $assocType int
 	 */
 	function setAssocType($assocType) {
-		return $this->setData('assocType', $assocType);
+		$this->setData('assocType', $assocType);
 	}
 
 	/**
@@ -191,7 +191,7 @@ class PKPNotification extends DataObject {
 	 * @param $assocId int
 	 */
 	function setAssocId($assocId) {
-		return $this->setData('assocId', $assocId);
+		$this->setData('assocId', $assocId);
 	}
 
 	/**
@@ -207,7 +207,7 @@ class PKPNotification extends DataObject {
 	 * @param $context int
 	 */
 	function setContextId($contextId) {
-		return $this->setData('context_id', $contextId);
+		$this->setData('context_id', $contextId);
 	}
 }
 

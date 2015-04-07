@@ -104,7 +104,7 @@ class Site extends DataObject {
 	 * @param $originalStyleFilename string
 	 */
 	function setOriginalStyleFilename($originalStyleFilename) {
-		return $this->setData('originalStyleFilename', $originalStyleFilename);
+		$this->setData('originalStyleFilename', $originalStyleFilename);
 	}
 
 	/**
@@ -127,7 +127,7 @@ class Site extends DataObject {
 	 * @param $redirect int
 	 */
 	function setRedirect($redirect) {
-		return $this->setData('redirect', (int)$redirect);
+		$this->setData('redirect', (int)$redirect);
 	}
 
 	/**
@@ -164,7 +164,7 @@ class Site extends DataObject {
 	 * @param $minPasswordLength int
 	 */
 	function setMinPasswordLength($minPasswordLength) {
-		return $this->setData('minPasswordLength', $minPasswordLength);
+		$this->setData('minPasswordLength', $minPasswordLength);
 	}
 
 	/**
@@ -180,7 +180,7 @@ class Site extends DataObject {
 	 * @param $primaryLocale string
 	 */
 	function setPrimaryLocale($primaryLocale) {
-		return $this->setData('primaryLocale', $primaryLocale);
+		$this->setData('primaryLocale', $primaryLocale);
 	}
 
 	/**
@@ -197,7 +197,7 @@ class Site extends DataObject {
 	 * @param $installedLocales array
 	 */
 	function setInstalledLocales($installedLocales) {
-		return $this->setData('installedLocales', $installedLocales);
+		$this->setData('installedLocales', $installedLocales);
 	}
 
 	/**
@@ -214,7 +214,7 @@ class Site extends DataObject {
 	 * @param $supportedLocales array
 	 */
 	function setSupportedLocales($supportedLocales) {
-		return $this->setData('supportedLocales', $supportedLocales);
+		$this->setData('supportedLocales', $supportedLocales);
 	}
 
 	/**

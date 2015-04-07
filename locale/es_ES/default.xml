@@ -56,8 +56,6 @@
 	<message key="default.groups.abbrev.reader">Lect</message>
 
 	<!--  common app genre defaults -->
-	<message key="default.genres.submission">Propuesta</message>
-	<message key="default.genres.submission.designation">##</message>
 	<message key="default.genres.other">Otros</message>
 	<message key="default.genres.other.designation">##</message>
 	<message key="default.genres.multimedia">Multimedia</message>

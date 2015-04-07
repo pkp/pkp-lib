@@ -46,7 +46,7 @@ class SubmissionFilesMetadataForm extends Form {
 		}
 
 		// Add validation checks.
-		$this->addCheck(new FormValidator($this, 'name', 'required', 'submission.submit.fileNameRequired'));
+		$this->addCheck(new FormValidatorLocale($this, 'name', 'required', 'submission.submit.fileNameRequired'));
 		$this->addCheck(new FormValidatorPost($this));
 	}
 
@@ -132,7 +132,7 @@ class SubmissionFilesMetadataForm extends Form {
 	function execute($args, $request) {
 		// Update the submission file with data from the form.
 		$submissionFile = $this->getSubmissionFile();
-		$submissionFile->setName($this->getData('name'), AppLocale::getLocale());
+		$submissionFile->setName($this->getData('name'), null); // Localized
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 		$submissionFileDao->updateObject($submissionFile);
 

@@ -42,9 +42,6 @@
 
 		// When the reviewer files list loads, trigger the above check
 		this.bind('urlInDivLoaded', this.handleFileListLoad_);
-
-		$('input[id^=\'responseDueDate\']').datepicker({dateFormat: 'yy-mm-dd'});
-		$('input[id^=\'reviewDueDate\']').datepicker({dateFormat: 'yy-mm-dd'});
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.grid.users.reviewer.form.

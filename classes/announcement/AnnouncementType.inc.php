@@ -38,7 +38,7 @@ class AnnouncementType extends DataObject {
 	 * @param $assocId int
 	 */
 	function setAssocId($assocId) {
-		return $this->setData('assocId', $assocId);
+		$this->setData('assocId', $assocId);
 	}
 
 	/**
@@ -54,7 +54,7 @@ class AnnouncementType extends DataObject {
 	 * @param $assocType int
 	 */
 	function setAssocType($assocType) {
-		return $this->setData('assocType', $assocType);
+		$this->setData('assocType', $assocType);
 	}
 
 	/**
@@ -80,7 +80,7 @@ class AnnouncementType extends DataObject {
 	 * @param $locale string
 	 */
 	function setName($name, $locale) {
-		return $this->setData('name', $name, $locale);
+		$this->setData('name', $name, $locale);
 	}
 }
 

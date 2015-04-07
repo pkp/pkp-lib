@@ -18,7 +18,6 @@
  * @brief Class defining basic operations for handling and sending emails.
  */
 
-
 define('MAIL_WRAP', 76);
 
 class Mail extends DataObject {
@@ -64,7 +63,7 @@ class Mail extends DataObject {
 		}
 		array_push($recipients, array('name' => $name, 'email' => $email));
 
-		return $this->setData('recipients', $recipients);
+		$this->setData('recipients', $recipients);
 	}
 
 	/**
@@ -97,7 +96,7 @@ class Mail extends DataObject {
 	 * @param $contentType string
 	 */
 	function setContentType($contentType) {
-		return $this->setData('content_type', $contentType);
+		$this->setData('content_type', $contentType);
 	}
 
 	/**
@@ -113,7 +112,7 @@ class Mail extends DataObject {
 	 * @param $recipients array
 	 */
 	function setRecipients($recipients) {
-		return $this->setData('recipients', $recipients);
+		$this->setData('recipients', $recipients);
 	}
 
 	/**
@@ -127,7 +126,7 @@ class Mail extends DataObject {
 		}
 		array_push($ccs, array('name' => $name, 'email' => $email));
 
-		return $this->setData('ccs', $ccs);
+		$this->setData('ccs', $ccs);
 	}
 
 	/**
@@ -143,7 +142,7 @@ class Mail extends DataObject {
 	 * @param $ccs array
 	 */
 	function setCcs($ccs) {
-		return $this->setData('ccs', $ccs);
+		$this->setData('ccs', $ccs);
 	}
 
 	/**
@@ -157,7 +156,7 @@ class Mail extends DataObject {
 		}
 		array_push($bccs, array('name' => $name, 'email' => $email));
 
-		return $this->setData('bccs', $bccs);
+		$this->setData('bccs', $bccs);
 	}
 
 	/**
@@ -173,7 +172,7 @@ class Mail extends DataObject {
 	 * @param $bccs array
 	 */
 	function setBccs($bccs) {
-		return $this->setData('bccs', $bccs);
+		$this->setData('bccs', $bccs);
 	}
 
 	/**
@@ -224,7 +223,7 @@ class Mail extends DataObject {
 			array_push($headers, array('name' => $name,'content' => $content));
 		}
 
-		return $this->setData('headers', $headers);
+		$this->setData('headers', $headers);
 	}
 
 	/**
@@ -240,7 +239,7 @@ class Mail extends DataObject {
 	 * @param $headers array
 	 */
 	function setHeaders(&$headers) {
-		return $this->setData('headers', $headers);
+		$this->setData('headers', $headers);
 	}
 
 	/**
@@ -272,7 +271,7 @@ class Mail extends DataObject {
 			'content-type' => $contentType
 		));
 
-		return $this->setData('attachments', $attachments);
+		$this->setData('attachments', $attachments);
 	}
 
 	/**
@@ -299,7 +298,7 @@ class Mail extends DataObject {
 	 * @param $name string optional
 	 */
 	function setFrom($email, $name = '') {
-		return $this->setData('from', array('name' => $name, 'email' => $email));
+		$this->setData('from', array('name' => $name, 'email' => $email));
 	}
 
 	/**
@@ -317,7 +316,7 @@ class Mail extends DataObject {
 	 */
 	function setReplyTo($email, $name = '') {
 		if ($email === null) $this->setData('replyTo', null);
-		return $this->setData('replyTo', array('name' => $name, 'email' => $email));
+		$this->setData('replyTo', array('name' => $name, 'email' => $email));
 	}
 
 	/**
@@ -333,7 +332,7 @@ class Mail extends DataObject {
 	 * @param $subject string
 	 */
 	function setSubject($subject) {
-		return $this->setData('subject', $subject);
+		$this->setData('subject', $subject);
 	}
 
 	/**
@@ -349,7 +348,7 @@ class Mail extends DataObject {
 	 * @param $body string
 	 */
 	function setBody($body) {
-		return $this->setData('body', $body);
+		$this->setData('body', $body);
 	}
 
 	/**

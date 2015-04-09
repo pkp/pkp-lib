@@ -16,7 +16,7 @@
 
 <div class="pkp_structure_subfoot">
 	{if $footerCategories|@count > 0}{* include a section if there are footer link categories defined *}
-		<div class="pkp_structure_content">
+		<div class="pkp_structure_content footerCategories">
 			{foreach from=$footerCategories item=category name=loop}
 				{assign var=links value=$category->getLinks()}
 				<div class="unit size1of{$footerCategories|@count} {if $smarty.foreach.loop.last}lastUnit{/if}">
@@ -33,16 +33,16 @@
 					</ul>
 				</div>
 			{/foreach}
-		</div><!-- pkp_structure_content -->
+		</div><!-- pkp_structure_content footerCategories -->
 	{/if}
-	<div class="pkp_structure_content">
+	<div class="pkp_structure_content footerAboutPKPLink">
 		<a href="{url page="about" op="aboutThisPublishingSystem"}"><img class="pkp_helpers_align_right" alt="{translate key=$packageKey}" src="{$baseUrl}/{$brandImage}"/></a>
 		<a href="{$pkpLink}"><img class="pkp_helpers_align_right pkp_helpers_clear" alt="{translate key="common.publicKnowledgeProject"}" src="{$baseUrl}/lib/pkp/templates/images/pkp_brand.png"/></a>
-	</div><!-- pkp_structure_content -->
-	<div class="pkp_structure_content">
+	</div><!-- pkp_structure_content footerAboutPKPLink -->
+	<div class="pkp_structure_content pageFooter">
 		{if $pageFooter}{$pageFooter}{/if}
 		{call_hook name="Templates::Common::Footer::PageFooter"}
-	</div><!-- pkp_structure_content -->
+	</div><!-- pkp_structure_content pageFooter -->
 </div><!-- pkp_structure_subfoot -->
 
 </div><!-- pkp_structure_foot -->

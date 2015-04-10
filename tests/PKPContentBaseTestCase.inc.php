@@ -15,6 +15,9 @@
 
 import('lib.pkp.tests.WebTestCase');
 
+define('DUMMY_PDF', 0);
+define('DUMMY_ZIP', 1);
+
 abstract class PKPContentBaseTestCase extends WebTestCase {
 	/**
 	 * Handle any section information on submission step 1
@@ -57,7 +60,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$data = array_merge(array(
 			'files' => array(
 				array(
-					'file' => null,
+					'file' => DUMMY_PDF,
 					'fileTitle' => $data['title']
 				)
 			),
@@ -82,9 +85,10 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->waitForElementPresent($selector = 'id=cancelButton');
 		$this->click($selector); // Thanks but no thanks
 		foreach ($data['files'] as $file) {
-			if (!isset($file['file'])) $file['file'] = null;
+			if (!isset($file['file'])) $file['file'] = DUMMY_PDF;
 			$this->click('css=[id^=component-grid-files-submission-submissionwizardfilesgrid-addFile-button-]');
-			$this->uploadWizardFile($file['fileTitle'], $file['file']);
+			$metadata = isset($file['metadata'])?$file['metadata']:array();
+			$this->uploadWizardFile($file['fileTitle'], $file['file'], $metadata);
 		}
 		sleep(1); // Occasional race conditions in travis
 		$this->waitForElementPresent('//span[text()=\'Save and continue\']/..');
@@ -116,21 +120,56 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 	/**
 	 * Upload a file via the file wizard.
 	 * @param $fileTitle string
-	 * @param $file string (Null to use dummy file)
+	 * @param $file string|int Path to file to upload, or one of the DUMMY_ constants (default DUMMY_PDF)
+	 * @param $metadata array Optional set of metadata for the upload
 	 */
-	protected function uploadWizardFile($fileTitle, $file = null) {
-		if (!$file) {
-			// Generate a file to use using the DUMMY_PDF env var.
-			$dummyfile = getenv('DUMMY_PDF');
-			$file = sys_get_temp_dir() . '/' . preg_replace('/[^a-z0-9\.]/', '', strtolower($fileTitle)) . '.pdf';
+	protected function uploadWizardFile($fileTitle, $file = DUMMY_PDF, $metadata = array()) {
+		if (is_numeric($file)) {
+			// Determine which dummy file to use.
+			switch($file) {
+				case DUMMY_ZIP:
+					$dummyfile = getenv('DUMMY_ZIP');
+					$extension = 'zip';
+					break;
+				case DUMMY_PDF:
+				default:
+					$dummyfile = getenv('DUMMY_PDF');
+					$extension = 'pdf';
+			}
+			$file = sys_get_temp_dir() . '/' . preg_replace('/[^a-z0-9\.]/', '', strtolower($fileTitle)) . '.' . $extension;
+
+			// Generate a copy of the file to use with a unique-ish filename.
 			copy($dummyfile, $file);
 		}
+
+		// Provide defaults for metadata
+		$metadata = array_merge(
+			array(
+				'genre' => $this->_getSubmissionElementName(),
+			),
+			$metadata
+		);
+
+		// Unpack pieces for later use outside $metadata
+		$genreName = $metadata['genre'];
+		unset($metadata['genre']);
+
+		// Pick the genre and upload the file
 		$this->waitForElementPresent('id=genreId');
-		$this->select('id=genreId', 'label=' . $this->_getSubmissionElementName());
+		$this->select('id=genreId', "label=$genreName");
 		$this->uploadFile($file);
 		$this->click('id=continueButton');
+
+		// Enter the title into the metadata form
 		$this->waitForElementPresent('css=[id^=name-]');
 		$this->type('css=[id^=name-]', $fileTitle);
+
+		// Enter remaining metadata into the form fields
+		foreach ($metadata as $name => $value) {
+			$this->type('css=[id^=' . $name . '-]', $value);
+		}
+
+		// Validate the form and finish
 		$this->runScript('$(\'#metadataForm\').valid();');
 		$this->click('//span[text()=\'Continue\']/..');
 		$this->waitJQuery();
@@ -138,6 +177,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->click($selector);
 		$this->waitJQuery();
 	}
+
 	/**
 	 * Add an author to the submission's author list.
 	 * @param $data array

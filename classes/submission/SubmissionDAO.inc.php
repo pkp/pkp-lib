@@ -476,7 +476,7 @@ abstract class SubmissionDAO extends DAO {
 			$this->getFetchParameters(),
 			array((int) ROLE_ID_AUTHOR, (int) $userId)
 		);
-			$params[] = '%' . $title . '%';
+		if ($title) $params[] = '%' . $title . '%';
 
 		if ($stageId) {
 			$params[] = (int) $stageId;

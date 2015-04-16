@@ -45,16 +45,11 @@ abstract class Submission extends DataObject {
 
 	/**
 	 * Get the localized copyright holder for this submission.
+	 * @param $preferredLocale string Preferred locale code
 	 * @return string Localized copyright holder.
 	 */
-	function getLocalizedCopyrightHolder() {
-		$copyrightHolders = (array) $this->getCopyrightHolder(null);
-		foreach (AppLocale::getLocalePrecedence() as $locale) {
-			if (isset($copyrightHolders[$locale])) return $copyrightHolders[$locale];
-		}
-
-		// Fallback: return anything available
-		return array_shift($copyrightHolders);
+	function getLocalizedCopyrightHolder($preferredLocale = null) {
+		return $this->getLocalizedData('copyrightHolder', $preferredLocale);
 	}
 
 	/**

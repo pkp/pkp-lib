@@ -51,6 +51,7 @@ class SupplementaryFileMetadataForm extends SubmissionFilesMetadataForm {
 		// Update the submission file from form data.
 		$submissionFile = $this->getSubmissionFile();
 		$submissionFile->setSubject($this->getData('subject'), null); // Localized
+		$submissionFile->setCreator($this->getData('creator'), null); // Localized
 		$submissionFile->setDescription($this->getData('description'), null); // Localized
 		$submissionFile->setPublisher($this->getData('publisher'), null); // Localized
 		$submissionFile->setSponsor($this->getData('sponsor'), null); // Localized

@@ -39,6 +39,8 @@ define('STYLE_SEQUENCE_LAST', 20);
 define('CDN_JQUERY_VERSION', '1.11.0');
 define('CDN_JQUERY_UI_VERSION', '1.11.0');
 
+import('lib.pkp.classes.template.PKPTemplateResource');
+
 class PKPTemplateManager extends Smarty {
 	/** @var array of URLs to stylesheets */
 	private $_styleSheets = array();
@@ -168,11 +170,20 @@ class PKPTemplateManager extends Smarty {
 		$this->register_function('fieldLabel', array($fbv, 'smartyFieldLabel'));
 
 		// register the resource name "core"
+		$coreResource = new PKPTemplateResource($this->core_template_dir);
 		$this->register_resource('core', array(
-			array($this, 'smartyResourceCoreGetTemplate'),
-			array($this, 'smartyResourceCoreGetTimestamp'),
-			array($this, 'smartyResourceCoreGetSecure'),
-			array($this, 'smartyResourceCoreGetTrusted')
+			array($coreResource, 'fetch'),
+			array($coreResource, 'fetchTimestamp'),
+			array($coreResource, 'getSecure'),
+			array($coreResource, 'getTrusted')
+		));
+
+		$appResource = new PKPTemplateResource($this->app_template_dir);
+		$this->register_resource('app', array(
+			array($appResource, 'fetch'),
+			array($appResource, 'fetchTimestamp'),
+			array($appResource, 'getSecure'),
+			array($appResource, 'getTrusted')
 		));
 
 		$this->register_function('url', array($this, 'smartyUrl'));
@@ -372,60 +383,6 @@ class PKPTemplateManager extends Smarty {
 			$this->_fbv = new FormBuilderVocabulary();
 		}
 		return $this->_fbv;
-	}
-
-	//
-	// Custom Template Resource "Core"
-	// The Core Template Resource is points to the fallback template_dir in
-	// the core.
-	//
-
-	/**
-	 * Resource function to get a "core" (pkp-lib) template.
-	 * @param $template string
-	 * @param $templateSource string reference
-	 * @param $smarty Smarty
-	 * @return boolean
-	 */
-	function smartyResourceCoreGetTemplate($template, &$templateSource, $smarty) {
-		$templateSource = file_get_contents($this->core_template_dir . DIRECTORY_SEPARATOR . $template);
-		return ($templateSource !== false);
-	}
-
-	/**
-	 * Resource function to get the timestamp of a "core" (pkp-lib)
-	 * template.
-	 * @param $template string
-	 * @param $templateTimestamp int reference
-	 * @return boolean
-	 */
-	function smartyResourceCoreGetTimestamp($template, &$templateTimestamp, $smarty) {
-		$templateSource = $this->core_template_dir . DIRECTORY_SEPARATOR . $template;
-		if (!file_exists($templateSource)) return false;
-		$templateTimestamp = filemtime($templateSource);
-		return true;
-	}
-
-	/**
-	 * Resource function to determine whether a "core" (pkp-lib) template
-	 * is secure.
-	 * @return boolean
-	 */
-	function smartyResourceCoreGetSecure($template, $smarty) {
-		return true;
-	}
-
-	/**
-	 * Resource function to determine whether a "core" (pkp-lib) template
-	 * is trusted.
-	 */
-	function smartyResourceCoreGetTrusted($template, $smarty) {
-		// From <http://www.smarty.net/docsv2/en/plugins.resources.tpl>:
-		// "This function is used for only for PHP script components
-		// requested by {include_php} tag or {insert} tag with the src
-		// attribute. However, it should still be defined even for
-		// template resources."
-		// a.k.a. OK not to implement.
 	}
 
 

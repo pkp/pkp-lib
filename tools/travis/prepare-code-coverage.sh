@@ -11,18 +11,9 @@
 
 set -xe
 
-# Save the current working directory
-CWD=$(pwd)
-
-# Install selenium dependencies
-cd lib/pkp/lib/phpunit-selenium
-curl -sS https://getcomposer.org/installer | php
-php composer.phar install
-cd $CWD
-
 # Set the php auto append/prepend scripts up
 LIB_PATH="${TRAVIS_BUILD_DIR}/lib/pkp";
-echo "auto_append_file = ${LIB_PATH}/lib/phpunit-selenium/PHPUnit/Extensions/SeleniumCommon/append.php" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+echo "auto_append_file = ${LIB_PATH}/lib/vendor/phpunit/phpunit-selenium/PHPUnit/Extensions/SeleniumCommon/append.php" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 echo "auto_prepend_file = ${LIB_PATH}/tests/prependCoverageReport.php" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
-echo "selenium_coverage_prepend_file = ${LIB_PATH}/lib/phpunit-selenium/PHPUnit/Extensions/SeleniumCommon/prepend.php" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+echo "selenium_coverage_prepend_file = ${LIB_PATH}/lib/vendor/phpunit/phpunit-selenium/PHPUnit/Extensions/SeleniumCommon/prepend.php" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 echo "phpunit_coverage_data_directory = ${LIB_PATH}/tests/results/coverage-tmp" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini

@@ -48,7 +48,11 @@ class IsbndbNlm30CitationSchemaIsbnFilterTest extends IsbndbNlm30CitationSchemaF
 		$filter = new IsbndbNlm30CitationSchemaIsbnFilter(PersistableFilter::tempGroup(
 				'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)',
 				'primitive::string'));
-		$filter->setData('apiKey', self::ISBNDB_TEST_APIKEY);
+
+		$apiKey = $this->_getIsbndbApiKey();
+		if (!$apiKey) $this->markTestSkipped('ISBNDB API key not available.');
+
+		$filter->setData('apiKey', $apiKey);
 		$this->assertNlm30CitationSchemaFilter($citationFilterTests, $filter);
 	}
 }

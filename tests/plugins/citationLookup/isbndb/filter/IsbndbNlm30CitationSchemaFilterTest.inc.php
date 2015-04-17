@@ -17,6 +17,11 @@
 import('lib.pkp.tests.plugins.metadata.nlm30.filter.Nlm30CitationSchemaFilterTestCase');
 
 class IsbndbNlm30CitationSchemaFilterTest extends Nlm30CitationSchemaFilterTestCase {
-	const ISBNDB_TEST_APIKEY = 'K6WLK8YW';
+	/**
+	 * Get the ISBNDB API key
+	 */
+	protected function _getIsbndbApiKey() {
+		return getenv('ISBNDB_TEST_APIKEY');
+	}
 }
 ?>

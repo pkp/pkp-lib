@@ -85,17 +85,13 @@ set -e # Fail on first error
 #
 #	- To get code coverage reports for selenium tests working you need to
 #	  install the dependencies for phpunit-selenium:
-#		- cd lib/pkp/lib/phpunit-selenium/
-#		- curl -sS https://getcomposer.org/installer | php
-#		- php composer.phar install
-#
-#		and configure php auto_prepend/append
+#		configure php auto_prepend/append
 #
 #	  	- sudo vi /etc/php5/mods-available/selenium-coverage.ini
 #	  	- insert:
-#			auto_append_file=[path_to_ojs]/lib/pkp/lib/phpunit-selenium/PHPUnit/Extensions/SeleniumCommon/append.php
+#			auto_append_file=[path_to_ojs]/lib/pkp/lib/vendor/phpunit/phpunit-selenium/PHPUnit/Extensions/SeleniumCommon/append.php
 #			auto_prepend_file=[path_to_ojs]/lib/pkp/tests/prependCoverageReport.php
-#			selenium_coverage_prepend_file=[path_to_ojs]/lib/pkp/lib/phpunit-selenium/PHPUnit/Extensions/SeleniumCommon/prepend.php
+#			selenium_coverage_prepend_file=[path_to_ojs]/lib/pkp/lib/vendor/phpunit/phpunit-selenium/PHPUnit/Extensions/SeleniumCommon/prepend.php
 #			phpunit_coverage_data_directory=[path_to_ojs]/lib/pkp/tests/results/coverage-tmp
 #		- cd /etc/php5/apache2/conf.d/
 #		- sudo ln -s ../../mods-available/selenium-coverage.ini 99-selenium-coverage.ini

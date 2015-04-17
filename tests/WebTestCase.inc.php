@@ -25,7 +25,7 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	protected $captureScreenshotOnFailure = true;
 	protected $screenshotPath, $screenshotUrl;
 
-	protected $coverageScriptPath = 'lib/pkp/lib/phpunit-selenium/PHPUnit/Extensions/SeleniumCommon/phpunit_coverage.php';
+	protected $coverageScriptPath = 'lib/pkp/lib/vendor/phpunit/phpunit-selenium/PHPUnit/Extensions/SeleniumCommon/phpunit_coverage.php';
 	protected $coverageScriptUrl = '';
 
 	/**

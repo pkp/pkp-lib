@@ -109,7 +109,7 @@ class RegistrationHandler extends UserHandler {
 			if($source = $request->getUserVar('source'))
 				$request->redirectUrl($source);
 
-			else $request->redirect(null, 'login');
+			else $request->redirectHome();
 
 		} else {
 			$regForm->display($request);

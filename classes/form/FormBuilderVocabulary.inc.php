@@ -759,6 +759,7 @@ class FormBuilderVocabulary {
 	 */
 	function _smartyFBVInterestsInput($params, &$smarty) {
 		$smarty->clear_assign(array('FBV_id', 'FBV_label', 'FBV_label_content', 'FBV_interests'));
+		$params['subLabelTranslate'] = isset($params['subLabelTranslate']) ? (boolean) $params['subLabelTranslate'] : true;
 		foreach ($params as $key => $value) {
 			switch ($key) {
 				case 'type': break;

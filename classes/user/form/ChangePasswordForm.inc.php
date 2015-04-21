@@ -58,15 +58,16 @@ class ChangePasswordForm extends Form {
 	}
 
 	/**
-	 * Display the form.
+	 * Fetch the form.
+	 * @param $request PKPRequest
 	 */
-	function display() {
-		$user = $this->getUser();
+	function fetch($request) {
 		$templateMgr = TemplateManager::getManager();
-		$site = $this->getSite();
-		$templateMgr->assign('minPasswordLength', $site->getMinPasswordLength());
-		$templateMgr->assign('username', $user->getUsername());
-		parent::display();
+		$templateMgr->assign(array(
+			'minPasswordLength' => $this->getSite()->getMinPasswordLength(),
+			'username' =>  $this->getUser()->getUsername(),
+		));
+		return parent::fetch($request);
 	}
 
 	/**

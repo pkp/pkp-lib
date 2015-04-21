@@ -39,7 +39,7 @@ class RegistrationHandler extends UserHandler {
 	 */
 	function register($args, $request) {
 		$this->validate($request);
-		$this->setupTemplate($request, true);
+		$this->setupTemplate($request);
 
 		$context = $request->getContext();
 		$site = $request->getSite();
@@ -71,7 +71,7 @@ class RegistrationHandler extends UserHandler {
 	 */
 	function registerUser($args, $request) {
 		$this->validate($request);
-		$this->setupTemplate($request, true);
+		$this->setupTemplate($request);
 		import('classes.user.form.RegistrationForm');
 
 		$existingUser = $request->getUserVar('existingUser') ? 1 : 0;
@@ -97,7 +97,7 @@ class RegistrationHandler extends UserHandler {
 			}
 
 			if ($reason !== null) {
-				$this->setupTemplate($request, true);
+				$this->setupTemplate($request);
 				$templateMgr = TemplateManager::getManager($request);
 				$templateMgr->assign('pageTitle', 'user.login');
 				$templateMgr->assign('errorMsg', $reason==''?'user.login.accountDisabled':'user.login.accountDisabledWithReason');
@@ -122,7 +122,7 @@ class RegistrationHandler extends UserHandler {
 	 * @param $request PKPRequest
 	 */
 	function registrationDisabled($args, $request) {
-		$this->setupTemplate($request, true);
+		$this->setupTemplate($request);
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('pageTitle', 'user.register');
 		$templateMgr->assign('errorMsg', 'user.register.registrationDisabled');

@@ -1,11 +1,11 @@
 {**
- * templates/form/radioButton.tpl
+ * templates/form/fileInput.tpl
  *
  * Copyright (c) 2013-2015 Simon Fraser University Library
  * Copyright (c) 2000-2015 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * form radio button
+ * File upload control.
  *}
 
 <div class="pkp_form_file_input_container">

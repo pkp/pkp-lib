@@ -120,8 +120,8 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 	 */
 	protected function uploadWizardFile($fileTitle, $file = null) {
 		if (!$file) {
-			// Generate a file to use using the DUMMYFILE env var.
-			$dummyfile = getenv('DUMMYFILE');
+			// Generate a file to use using the DUMMY_PDF env var.
+			$dummyfile = getenv('DUMMY_PDF');
 			$file = sys_get_temp_dir() . '/' . preg_replace('/[^a-z0-9\.]/', '', strtolower($fileTitle)) . '.pdf';
 			copy($dummyfile, $file);
 		}

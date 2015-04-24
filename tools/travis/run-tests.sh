@@ -11,7 +11,8 @@
 
 set -xe
 
-export DUMMYFILE=~/dummy.pdf
+export DUMMY_PDF=~/dummy.pdf
+export DUMMY_ZIP=~/dummy.zip
 export BASEURL="http://localhost"
 export DBHOST=localhost
 export DBNAME=ojs-ci
@@ -23,8 +24,9 @@ export DATABASEDUMP=~/database.sql.gz
 # Install required software
 sudo apt-get install a2ps libbiblio-citation-parser-perl libhtml-parser-perl
 
-# Generate a sample PDF file to use for testing.
+# Generate sample files to use for testing.
 echo "This is a test" | a2ps -o - | ps2pdf - ~/dummy.pdf
+zip ${DUMMY_ZIP} ${DUMMY_PDF}
 
 # Create the database.
 if [[ "$TEST" == "pgsql" ]]; then

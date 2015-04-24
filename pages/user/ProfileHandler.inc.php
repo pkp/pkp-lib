@@ -52,6 +52,12 @@ class ProfileHandler extends UserHandler {
 	 * @param $request PKPRequest
 	 */
 	function profile($args, $request) {
+		if ($anchor = array_shift($args)) {
+			// Some requests will try to specify a tab name in the args. Redirect
+			// to use this as an anchor name instead.
+			$request->redirect(null, null, null, null, null, $anchor);
+		}
+
 		$this->setupTemplate($request);
 
 		$templateMgr = TemplateManager::getManager($request);

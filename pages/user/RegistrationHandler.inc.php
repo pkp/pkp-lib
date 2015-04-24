@@ -41,25 +41,18 @@ class RegistrationHandler extends UserHandler {
 		$this->validate($request);
 		$this->setupTemplate($request);
 
-		$context = $request->getContext();
-		$site = $request->getSite();
-
-		if ($context != null) {
-			import('classes.user.form.RegistrationForm');
-
-			$existingUser = $request->getUserVar('existingUser') ? 1 : 0;
-
-			$regForm = new RegistrationForm($site, $existingUser);
-
+		if ($request->getContext()) {
+			import('lib.pkp.classes.user.form.RegistrationForm');
+			$regForm = new RegistrationForm($request->getSite());
 			$regForm->initData();
 			$regForm->display($request);
 		} else {
-			$contextDao = Application::getContextDAO();
-			$contexts = $contextDao->getAll(true);
-
 			$templateMgr = TemplateManager::getManager($request);
-			$templateMgr->assign('source', $request->getUserVar('source'));
-			$templateMgr->assign('contexts', $contexts);
+			$contextDao = Application::getContextDAO();
+			$templateMgr->assign(array(
+				'source' => $request->getUserVar('source'),
+				'contexts' => $contextDao->getAll(true),
+			));
 			$templateMgr->display('user/registerSite.tpl');
 		}
 	}
@@ -72,74 +65,55 @@ class RegistrationHandler extends UserHandler {
 	function registerUser($args, $request) {
 		$this->validate($request);
 		$this->setupTemplate($request);
-		import('classes.user.form.RegistrationForm');
 
-		$existingUser = $request->getUserVar('existingUser') ? 1 : 0;
-		$site = $request->getSite();
-
-		$regForm = new RegistrationForm($site, $existingUser);
+		import('lib.pkp.classes.user.form.RegistrationForm');
+		$regForm = new RegistrationForm($request->getSite());
 		$regForm->readInputData();
-
-		if ($regForm->validate()) {
-			$regForm->execute($request);
-			if (Config::getVar('email', 'require_validation')) {
-				// Send them home; they need to deal with the
-				// registration email.
-				$request->redirect(null, 'index');
-			}
-
-			$reason = null;
-
-			if (Config::getVar('security', 'implicit_auth')) {
-				Validation::login('', '', $reason);
-			} else {
-				Validation::login($regForm->getData('username'), $regForm->getData('password'), $reason);
-			}
-
-			if ($reason !== null) {
-				$this->setupTemplate($request);
-				$templateMgr = TemplateManager::getManager($request);
-				$templateMgr->assign('pageTitle', 'user.login');
-				$templateMgr->assign('errorMsg', $reason==''?'user.login.accountDisabled':'user.login.accountDisabledWithReason');
-				$templateMgr->assign('errorParams', array('reason' => $reason));
-				$templateMgr->assign('backLink', $request->url(null, 'login'));
-				$templateMgr->assign('backLinkLabel', 'user.login');
-				return $templateMgr->display('common/error.tpl');
-			}
-			if($source = $request->getUserVar('source'))
-				$request->redirectUrl($source);
-
-			else $request->redirectHome();
-
-		} else {
+		if (!$regForm->validate()) {
 			$regForm->display($request);
+			return;
 		}
-	}
 
-	/**
-	 * Show error message if user registration is not allowed.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 */
-	function registrationDisabled($args, $request) {
-		$this->setupTemplate($request);
-		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('pageTitle', 'user.register');
-		$templateMgr->assign('errorMsg', 'user.register.registrationDisabled');
-		$templateMgr->assign('backLink', $request->url(null, 'login'));
-		$templateMgr->assign('backLinkLabel', 'user.login');
-		$templateMgr->display('common/error.tpl');
+		$regForm->execute($request);
+
+		if (Config::getVar('email', 'require_validation')) {
+			// Send them home; they need to deal with the
+			// registration email.
+			$request->redirect(null, 'index');
+		}
+
+		$reason = null;
+		if (Config::getVar('security', 'implicit_auth')) {
+			Validation::login('', '', $reason);
+		} else {
+			Validation::login($regForm->getData('username'), $regForm->getData('password'), $reason);
+		}
+
+		if ($reason !== null) {
+			$this->setupTemplate($request);
+			$templateMgr = TemplateManager::getManager($request);
+			$templateMgr->assign('pageTitle', 'user.login');
+			$templateMgr->assign('errorMsg', $reason==''?'user.login.accountDisabled':'user.login.accountDisabledWithReason');
+			$templateMgr->assign('errorParams', array('reason' => $reason));
+			$templateMgr->assign('backLink', $request->url(null, 'login'));
+			$templateMgr->assign('backLinkLabel', 'user.login');
+			$templateMgr->display('common/error.tpl');
+			return;
+		}
+
+		if ($source = $request->getUserVar('source')) $request->redirectUrl($source);
+		$request->redirectHome();
 	}
 
 	/**
 	 * Check credentials and activate a new user
-	 * @author Marc Bria <marc.bria@uab.es>
+	 * @param $args array
+	 * @param $request PKPRequest
 	 */
 	function activateUser($args, $request) {
 		$username = array_shift($args);
 		$accessKeyCode = array_shift($args);
 
-		$context = $request->getContext();
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$user = $userDao->getByUsername($username);
 		if (!$user) $request->redirect(null, 'login');
@@ -171,14 +145,20 @@ class RegistrationHandler extends UserHandler {
 	/**
 	 * Validation check.
 	 * Checks if context allows user registration.
+	 * @param $request PKPRequest
 	 */
 	function validate($request) {
 		$context = $request->getContext();
-		if ($context != null) {
-			$contextSettingsDao = $context->getSettingsDAO();
-			if ($contextSettingsDao->getSetting($context->getId(), 'disableUserReg')) {
+		if ($context) {
+			if ($context->getSetting('disableUserReg')) {
 				// Users cannot register themselves for this context
-				$this->registrationDisabled();
+				$this->setupTemplate($request);
+				$templateMgr = TemplateManager::getManager($request);
+				$templateMgr->assign('pageTitle', 'user.register');
+				$templateMgr->assign('errorMsg', 'user.register.registrationDisabled');
+				$templateMgr->assign('backLink', $request->url(null, 'login'));
+				$templateMgr->assign('backLinkLabel', 'user.login');
+				$templateMgr->display('common/error.tpl');
 				exit;
 			}
 		}

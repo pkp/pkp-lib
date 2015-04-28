@@ -80,7 +80,7 @@ class ReviewFormElementDAO extends DAO {
 	 * @return array
 	 */
 	function getLocaleFieldNames() {
-		return parent::getLocaleFieldNames() + array('question', 'possibleResponses');
+		return array_merge(parent::getLocaleFieldNames(), array('question', 'possibleResponses'));
 	}
 
 	/**

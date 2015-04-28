@@ -147,7 +147,7 @@ class PKPUserGroupDAO extends DAO {
 	 * @return array
 	 */
 	function getLocaleFieldNames() {
-		return parent::getLocaleFieldNames() + array('name', 'abbrev');
+		return array_merge(parent::getLocaleFieldNames(), array('name', 'abbrev'));
 	}
 
 	/**

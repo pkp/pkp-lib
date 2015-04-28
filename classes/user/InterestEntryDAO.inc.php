@@ -39,7 +39,7 @@ class InterestEntryDAO extends ControlledVocabEntryDAO {
 	 * @return array
 	 */
 	function getAdditionalFieldNames() {
-		return parent::getAdditionalFieldNames() + array('interest');
+		return array_merge(parent::getAdditionalFieldNames(), array('interest'));
 	}
 
 	/**

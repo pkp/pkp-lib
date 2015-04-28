@@ -111,10 +111,10 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	 */
 	function initData($data = array()) {
 		if (isset($this->submission)) {
-			$this->_data = $data + array(
+			$this->_data = array_merge($data, array(
 				'locale' => $this->submission->getLocale(),
 				'commentsToEditor' => $this->submission->getCommentsToEditor(),
-			);
+			));
 		} else {
 			$supportedSubmissionLocales = $this->context->getSupportedSubmissionLocales();
 			// Try these locales in order until we find one that's

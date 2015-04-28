@@ -57,13 +57,13 @@ abstract class SubmissionDAO extends DAO {
 	 * @return array
 	 */
 	function getLocaleFieldNames() {
-		return parent::getLocaleFieldNames() + array(
+		return array_merge(parent::getLocaleFieldNames(), array(
 			'title', 'cleanTitle', 'abstract', 'prefix', 'subtitle',
 			'discipline', 'subjectClass', 'subject',
 			'coverageGeo', 'coverageChron', 'coverageSample',
 			'type', 'sponsor', 'source', 'rights',
 			'copyrightHolder',
-		);
+		));
 	}
 
 	/**

@@ -36,11 +36,11 @@ class AdminSettingsTabHandler extends SettingsTabHandler {
 		);
 
 		parent::SettingsTabHandler($role);
-		$this->setPageTabs($additionalTabs + array(
+		$this->setPageTabs(array_merge($additionalTabs, array(
 			'siteSetup' => 'lib.pkp.controllers.tab.settings.siteSetup.form.SiteSetupForm',
 			'languages' => 'controllers/tab/admin/languages/languages.tpl',
 			'plugins' => 'controllers/tab/admin/plugins/sitePlugins.tpl',
-		));
+		)));
 	}
 
 

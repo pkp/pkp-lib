@@ -7,10 +7,7 @@
  *
  * User registration form.
  *}
-{strip}
-{assign var="pageTitle" value="user.register"}
-{include file="common/header.tpl"}
-{/strip}
+{include file="common/header.tpl" pageTitle="user.register"}
 
 <script type="text/javascript">
 	$(function() {ldelim}
@@ -29,18 +26,9 @@
 <p>{translate key="user.register.completeForm"}</p>
 
 {if !$implicitAuth}
-	{if !$existingUser}
-		{url|assign:"url" page="user" op="register" existingUser=1}
-		<p>{translate key="user.register.alreadyRegisteredOtherContext" registerUrl=$url}</p>
-	{else}
-		{url|assign:"url" page="user" op="register"}
-		<p>{translate key="user.register.notAlreadyRegisteredOtherContext" registerUrl=$url}</p>
-		<input type="hidden" name="existingUser" value="1"/>
-	{/if}
-
-	{if $existingUser}
-		<p>{translate key="user.register.loginToRegister"}</p>
-	{/if}
+	{url|assign:"rolesProfileUrl" page="user" op="profile" path="roles"}
+	{url|assign:"loginUrl" page="login" source=$rolesProfileUrl}
+	<p>{translate key="user.register.alreadyRegisteredOtherContext" registerUrl=$loginUrl}</p>
 {/if}{* !$implicitAuth *}
 
 {if $source}
@@ -50,38 +38,44 @@
 {include file="common/formErrors.tpl"}
 
 {fbvFormArea id="registration"}
+	{fbvFormArea id="userFormCompactLeft"}
+		{fbvFormSection title="user.name"}
+			{fbvElement type="text" label="user.firstName" required="true" id="firstName" value=$firstName maxlength="40" inline=true size=$fbvStyles.size.SMALL}
+			{fbvElement type="text" label="user.middleName" id="middleName" value=$middleName maxlength="40" inline=true size=$fbvStyles.size.SMALL}
+			{fbvElement type="text" label="user.lastName" required="true" id="lastName" value=$lastName maxlength="40" inline=true size=$fbvStyles.size.SMALL}
+			{fbvElement type="text" label="user.affiliation" multilingual="true" name="affiliation" id="affiliation" value=$affiliation size=$fbvStyles.size.LARGE}
+		{/fbvFormSection}
 
-	{if !$implicitAuth}
-		{include
-			file="common/userDetails.tpl"
-			disableEmailSection=true
-			disableAuthSourceSection=true
-			disableGeneratePasswordSection=true
-			disableSendNotifySection=true
-			extraContentSectionUnfolded=true
-			countryRequired=true
-			disableNameSection=$existingUser
-			disableUserNameSuggestSection=$existingUser
-			disableEmailWithConfirmSection=$existingUser
-			disablePasswordRepeatSection=$existingUser
-			disableCountrySection=$existingUser
-			disableExtraContentSection=$existingUser
-		}
-	{/if}
+		{fbvFormSection for="username" description="user.register.usernameRestriction"}
+			{fbvElement type="text" label="user.username" id="username" required="true" value=$username maxlength="32" inline=true size=$fbvStyles.size.MEDIUM}
+			{fbvElement type="button" label="common.suggest" id="suggestUsernameButton" inline=true class="default"}
+		{/fbvFormSection}
+
+		{fbvFormArea id="emailArea" class="border" title="user.email"}
+			{fbvFormSection}
+				{fbvElement type="text" label="user.email" id="email" value=$email size=$fbvStyles.size.MEDIUM required=true inline=true}
+				{fbvElement type="text" label="user.confirmEmail" id="confirmEmail" value=$confirmEmail required=true size=$fbvStyles.size.MEDIUM inline=true}
+			{/fbvFormSection}
+			{if $privacyStatement}<a class="action" href="#privacyStatement">{translate key="user.register.privacyStatement"}</a>{/if}
+		{/fbvFormArea}
+
+		{fbvFormArea id="passwordSection" class="border" title="user.password"}
+			{fbvFormSection for="password" class="border"}
+				{fbvElement type="text" label="user.password" required=$passwordRequired name="password" id="password" password="true" value=$password maxlength="32" inline=true size=$fbvStyles.size.MEDIUM}
+				{fbvElement type="text" label="user.repeatPassword" required=$passwordRequired name="password2" id="password2" password="true" value=$password2 maxlength="32" inline=true size=$fbvStyles.size.MEDIUM}
+			{/fbvFormSection}
+
+		{/fbvFormArea}
+
+		{fbvFormSection for="country" title="common.country"}
+			{fbvElement type="select" label="common.country" name="country" id="country" required=true defaultLabel="" defaultValue="" from=$countries selected=$country translate="0" size=$fbvStyles.size.MEDIUM}
+		{/fbvFormSection}
+
+	{/fbvFormArea}
 
 	{include file="user/userGroups.tpl"}
 
-	{if !$implicitAuth && !$existingUser}
-		{fbvFormSection label="user.sendPassword" list=true}
-			{if $sendPassword}
-				{fbvElement type="checkbox" id="sendPassword" value="1" label="user.sendPassword.description" checked="checked"}
-			{else}
-				{fbvElement type="checkbox" id="sendPassword" value="1" label="user.sendPassword.description"}
-			{/if}
-		{/fbvFormSection}
-	{/if}
-
-	{if !$implicitAuth && !$existingUser && $captchaEnabled}
+	{if $reCaptchaHtml}
 		<li>
 		{fieldLabel name="captcha" required=true key="common.captchaField" class="desc"}
 		<span>

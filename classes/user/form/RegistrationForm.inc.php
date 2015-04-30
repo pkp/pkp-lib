@@ -1,0 +1,297 @@
+<?php
+/**
+ * @defgroup user_form User Forms
+ */
+
+/**
+ * @file classes/user/form/RegistrationForm.inc.php
+ *
+ * Copyright (c) 2014-2015 Simon Fraser University Library
+ * Copyright (c) 2003-2015 John Willinsky
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ *
+ * @class RegistrationForm
+ * @ingroup user_form
+ *
+ * @brief Form for user registration.
+ */
+
+import('lib.pkp.classes.form.Form');
+
+class RegistrationForm extends Form {
+
+	/** @var boolean user is already registered with another context */
+	var $existingUser;
+
+	/** @var AuthPlugin default authentication source, if specified */
+	var $defaultAuth;
+
+	/** @var boolean whether or not captcha is enabled for this form */
+	var $captchaEnabled;
+
+	/** @var boolean whether or not implicit authentication is used */
+	var $implicitAuth;
+
+	/**
+	 * Constructor.
+	 */
+	function RegistrationForm($site) {
+		parent::Form('user/register.tpl');
+		$this->implicitAuth = Config::getVar('security', 'implicit_auth');
+
+		// Validation checks for this form
+		$this->addCheck(new FormValidatorCustom($this, 'username', 'required', 'user.register.form.usernameExists', array(DAORegistry::getDAO('UserDAO'), 'userExistsByUsername'), array(), true));
+		$this->addCheck(new FormValidator($this, 'username', 'required', 'user.profile.form.usernameRequired'));
+		$this->addCheck(new FormValidator($this, 'password', 'required', 'user.profile.form.passwordRequired'));
+		$this->addCheck(new FormValidatorAlphaNum($this, 'username', 'required', 'user.register.form.usernameAlphaNumeric'));
+		$this->addCheck(new FormValidatorLength($this, 'password', 'required', 'user.register.form.passwordLengthTooShort', '>=', $site->getMinPasswordLength()));
+		$this->addCheck(new FormValidatorCustom($this, 'password', 'required', 'user.register.form.passwordsDoNotMatch', create_function('$password,$form', 'return $password == $form->getData(\'password2\');'), array(&$this)));
+
+		$this->addCheck(new FormValidator($this, 'firstName', 'required', 'user.profile.form.firstNameRequired'));
+		$this->addCheck(new FormValidator($this, 'lastName', 'required', 'user.profile.form.lastNameRequired'));
+		$this->addCheck(new FormValidator($this, 'country', 'required', 'user.profile.form.countryRequired'));
+
+		// Email checks
+		$this->addCheck(new FormValidatorEmail($this, 'email', 'required', 'user.profile.form.emailRequired'));
+		$this->addCheck(new FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailsDoNotMatch', create_function('$email,$form', 'return $email == $form->getData(\'confirmEmail\');'), array(&$this)));
+		$this->addCheck(new FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailExists', array(DAORegistry::getDAO('UserDAO'), 'userExistsByEmail'), array(), true));
+
+		$this->captchaEnabled = Config::getVar('captcha', 'captcha_on_register') && Config::getVar('captcha', 'recaptcha');
+		if ($this->captchaEnabled) {
+			$this->addCheck(new FormValidatorReCaptcha($this, 'recaptcha_challenge_field', 'recaptcha_response_field', Request::getRemoteAddr(), 'common.captchaField.badCaptcha'));
+		}
+
+		$authDao = DAORegistry::getDAO('AuthSourceDAO');
+		$this->defaultAuth = $authDao->getDefaultPlugin();
+		if (isset($this->defaultAuth)) {
+			$this->addCheck(new FormValidatorCustom($this, 'username', 'required', 'user.register.form.usernameExists', create_function('$username,$form,$auth', 'return (!$auth->userExists($username) || $auth->authenticate($username, $form->getData(\'password\')));'), array(&$this, $this->defaultAuth)));
+		}
+
+		$this->addCheck(new FormValidatorPost($this));
+	}
+
+	/**
+	 * Display the form.
+	 * @param $request PKPRequest
+	 */
+	function display($request) {
+		$templateMgr = TemplateManager::getManager($request);
+		$site = $request->getSite();
+		$templateMgr->assign('minPasswordLength', $site->getMinPasswordLength());
+		$context = $request->getContext();
+
+		if ($this->captchaEnabled) {
+			import('lib.pkp.lib.recaptcha.recaptchalib');
+			$publicKey = Config::getVar('captcha', 'recaptcha_public_key');
+			$useSSL = Config::getVar('security', 'force_ssl')?true:false;
+			$reCaptchaHtml = recaptcha_get_html($publicKey, null, $useSSL);
+			$templateMgr->assign('reCaptchaHtml', $reCaptchaHtml);
+			$templateMgr->assign('captchaEnabled', true);
+		}
+
+		$templateMgr->assign('privacyStatement', $context->getLocalizedSetting('privacyStatement'));
+
+		$countryDao = DAORegistry::getDAO('CountryDAO');
+		$countries = $countryDao->getCountries();
+		$templateMgr->assign('countries', $countries);
+
+		$userDao = DAORegistry::getDAO('UserDAO');
+		$templateMgr->assign('genderOptions', $userDao->getGenderOptions());
+
+		$site = $request->getSite();
+		$templateMgr->assign('availableLocales', $site->getSupportedLocaleNames());
+
+		import('lib.pkp.classes.user.form.UserFormHelper');
+		$userFormHelper = new UserFormHelper();
+		$userFormHelper->assignRoleContent($templateMgr, $request);
+
+		$templateMgr->assign('source', $request->getUserVar('source'));
+
+		parent::display($request);
+	}
+
+	/**
+	 * @copydoc Form::initData()
+	 */
+	function initData() {
+		$this->_data = array(
+			'userLocales' => array(),
+			'sendPassword' => false,
+			'userGroupIds' => array(),
+		);
+	}
+
+	/**
+	 * Assign form data to user-submitted data.
+	 */
+	function readInputData() {
+		parent::readInputData();
+
+		$this->readUserVars(array(
+			'username',
+			'password',
+			'password2',
+			'firstName',
+			'middleName',
+			'lastName',
+			'affiliation',
+			'email',
+			'confirmEmail',
+			'country',
+			'sendPassword',
+			'interests',
+			'reviewerGroup',
+			'authorGroup',
+			'readerGroup',
+		));
+
+		if ($this->captchaEnabled) {
+			$this->readUserVars(array(
+				'recaptcha_challenge_field',
+				'recaptcha_response_field',
+			));
+		}
+
+		if ($this->getData('username') != null) {
+			// Usernames must be lowercase
+			$this->setData('username', strtolower($this->getData('username')));
+		}
+
+		// Collect the specified user group IDs into a single piece of data
+		$this->setData('userGroupIds', array_merge(
+			array_keys((array) $this->getData('reviewerGroup')),
+			array_keys((array) $this->getData('authorGroup')),
+			array_keys((array) $this->getData('readerGroup'))
+		));
+	}
+
+	/**
+	 * Validate the form
+	 */
+	function validate() {
+		if (	count((array) $this->getData('reviewerGroup')) == 0 &&
+			count((array) $this->getData('authorGroup')) == 0 &&
+			count((array) $this->getData('readerGroup')) == 0
+		) {
+			$this->addError('userGroups', __('user.register.form.userGroupRequired'));
+		}
+
+		return parent::validate();
+	}
+
+	/**
+	 * Register a new user.
+	 * @param $request PKPRequest
+	 * @return int|null User ID, or false on failure
+	 */
+	function execute($request) {
+		$requireValidation = Config::getVar('email', 'require_validation');
+		$userDao = DAORegistry::getDAO('UserDAO');
+
+		// New user
+		$user = $userDao->newDataObject();
+
+		$user->setUsername($this->getData('username'));
+
+		// Set the base user fields (name, etc.)
+		$user->setFirstName($this->getData('firstName'));
+		$user->setMiddleName($this->getData('middleName'));
+		$user->setLastName($this->getData('lastName'));
+		$user->setInitials($this->getData('initials'));
+		$user->setEmail($this->getData('email'));
+		$user->setCountry($this->getData('country'));
+		$user->setAffiliation($this->getData('affiliation'), null); // Localized
+
+		$user->setDateRegistered(Core::getCurrentDate());
+		$user->setInlineHelp(1); // default new users to having inline help visible.
+
+		if (isset($this->defaultAuth)) {
+			$user->setPassword($this->getData('password'));
+			// FIXME Check result and handle failures
+			$this->defaultAuth->doCreateUser($user);
+			$user->setAuthId($this->defaultAuth->authId);
+		}
+		$user->setPassword(Validation::encryptCredentials($this->getData('username'), $this->getData('password')));
+
+		if ($requireValidation) {
+			// The account should be created in a disabled
+			// state.
+			$user->setDisabled(true);
+			$user->setDisabledReason(__('user.login.accountNotValidated'));
+		}
+
+		$userDao->insertObject($user);
+		$userId = $user->getId();
+		if (!$userId) {
+			return false;
+		}
+
+		// Associate the new user with the existing session
+		$sessionManager = SessionManager::getManager();
+		$session = $sessionManager->getUserSession();
+		$session->setSessionVar('username', $user->getUsername());
+
+		// Save the roles
+		import('lib.pkp.classes.user.form.UserFormHelper');
+		$userFormHelper = new UserFormHelper();
+		$userFormHelper->saveRoleContent($this, $user);
+
+		// Insert the user interests
+		import('lib.pkp.classes.user.InterestManager');
+		$interestManager = new InterestManager();
+		$interestManager->setInterestsForUser($user, $this->getData('interests'));
+
+		import('lib.pkp.classes.mail.MailTemplate');
+		if ($requireValidation) {
+			// Create an access key
+			import('lib.pkp.classes.security.AccessKeyManager');
+			$accessKeyManager = new AccessKeyManager();
+			$accessKey = $accessKeyManager->createKey('RegisterContext', $user->getId(), null, Config::getVar('email', 'validation_timeout'));
+
+			// Send email validation request to user
+			$mail = new MailTemplate('USER_VALIDATE');
+			$this->_setMailFrom($request, $mail);
+			$context = $request->getContext();
+			$mail->assignParams(array(
+				'userFullName' => $user->getFullName(),
+				'activateUrl' => $request->url($context->getPath(), 'user', 'activateUser', array($this->getData('username'), $accessKey))
+			));
+			$mail->addRecipient($user->getEmail(), $user->getFullName());
+			$mail->send();
+			unset($mail);
+		}
+		if ($this->getData('sendPassword')) {
+			// Send welcome email to user
+			$mail = new MailTemplate('USER_REGISTER');
+			$this->_setMailFrom($request, $mail);
+			$mail->assignParams(array(
+				'username' => $this->getData('username'),
+				'password' => String::substr($this->getData('password'), 0, 30), // Prevent mailer abuse via long passwords
+				'userFullName' => $user->getFullName()
+			));
+			$mail->addRecipient($user->getEmail(), $user->getFullName());
+			$mail->send();
+			unset($mail);
+		}
+		return $userId;
+	}
+
+	/**
+	 * Set mail from address
+	 * @param $request PKPRequest
+	 * @param MailTemplate $mail
+	 */
+	function _setMailFrom($request, $mail) {
+		$site = $request->getSite();
+		$context = $request->getContext();
+
+		// Set the sender based on the current context
+		if ($context && $context->getSetting('supportEmail')) {
+			$mail->setReplyTo($context->getSetting('supportEmail'), $context->getSetting('supportName'));
+		} else {
+			$mail->setReplyTo($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
+		}
+	}
+}
+
+?>

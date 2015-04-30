@@ -5,61 +5,25 @@
  * Copyright (c) 2003-2015 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * User profile form.
+ * User profile tabset.
  *}
-{include file="common/header.tpl" pageTitle="user.profile.editProfile"}
+{include file="common/header.tpl" pageTitle="user.profile"}
 
 <script type="text/javascript">
+	// Attach the JS file tab handler.
 	$(function() {ldelim}
-		// Attach the form handler.
-		$('#profile').pkpHandler('$.pkp.controllers.form.FormHandler');
+		$('#profileTabs').pkpHandler('$.pkp.controllers.TabHandler');
 	{rdelim});
 </script>
-
-<form class="pkp_form" id="profile" method="post" action="{url op="saveProfile"}" enctype="multipart/form-data">
-	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="userProfileNotification"}
-
-	<div id="userFormContainer">
-		<div id="userDetails" class="full left">
-			{fbvFormArea id="userNameInfo"}
-				{fbvFormSection title="user.username"}
-					{$username|escape}
-				{/fbvFormSection}
-
-				{fbvFormSection title="user.password"}
-					<a href="{url op='changePassword'}">{translate key="user.changePassword"}</a>
-				{/fbvFormSection}
-			{/fbvFormArea}
-	</div>
-
-	{include
-		file="common/userDetails.tpl"
-		disableUserNameSection=true
-		disableEmailWithConfirmSection=true
-		disableAuthSourceSection=true
-		disablePasswordSection=true
-		disableSendNotifySection=true
-		countryRequired=true
-	}
-
-	{include file="user/userGroups.tpl"}
-
-	{** FIXME 6760: Fix profile image uploads
-	{fbvFormSection id="profileImage" label="user.profile.form.profileImage"}
-		{fbvFileInput id="profileImage" submit="uploadProfileImage"}
-		{if $profileImage}
-			{translate key="common.fileName"}: {$profileImage.name|escape} {$profileImage.dateUploaded|date_format:$datetimeFormatShort} <input type="submit" name="deleteProfileImage" value="{translate key="common.delete"}" class="button" />
-			<br />
-			<img src="{$sitePublicFilesDir}/{$profileImage.uploadName|escape:"url"}" width="{$profileImage.width|escape}" height="{$profileImage.height|escape}" style="border: 0;" alt="{translate key="user.profile.form.profileImage"}" />
-		{/if}
-	{/fbvFormSection}**}
-
-	{$additionalProfileFormContent}
-
-	{url|assign:cancelUrl page="dashboard"}
-	{fbvFormButtons submitText="common.save" cancelUrl=$cancelUrl}
-</form>
-
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
+<div id="profileTabs" class="pkp_controllers_tab">
+	<ul>
+		<li><a name="identity" href="{url router=$smarty.const.ROUTE_COMPONENT component="tab.user.ProfileTabHandler" op="identity"}">{translate key="user.profile.identity"}</a></li>
+		<li><a name="contact" href="{url router=$smarty.const.ROUTE_COMPONENT component="tab.user.ProfileTabHandler" op="contact"}">{translate key="user.profile.contact"}</a></li>
+		<li><a name="roles" href="{url router=$smarty.const.ROUTE_COMPONENT component="tab.user.ProfileTabHandler" op="roles"}">{translate key="user.roles"}</a></li>
+		<li><a name="publicProfile" href="{url router=$smarty.const.ROUTE_COMPONENT component="tab.user.ProfileTabHandler" op="publicProfile"}">{translate key="user.profile.public"}</a></li>
+		<li><a name="changePassword" href="{url router=$smarty.const.ROUTE_COMPONENT component="tab.user.ProfileTabHandler" op="changePassword"}">{translate key="user.password"}</a></li>
+		{$additionalProfileTabs}
+	</ul>
+</div>
 
 {include file="common/footer.tpl"}

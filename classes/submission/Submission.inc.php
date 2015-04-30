@@ -1185,22 +1185,6 @@ abstract class Submission extends DataObject {
 	}
 
 	/**
-	 * Return submission RT comments status.
-	 * @return int
-	 */
-	function getCommentsStatus() {
-		return $this->getData('commentsStatus');
-	}
-
-	/**
-	 * Set submission RT comments status.
-	 * @param $commentsStatus boolean
-	 */
-	function setCommentsStatus($commentsStatus) {
-		$this->setData('commentsStatus', $commentsStatus);
-	}
-
-	/**
 	 * Get the submission's current publication stage ID
 	 * @return int
 	 */

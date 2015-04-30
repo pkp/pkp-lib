@@ -24,7 +24,7 @@ class PKPNotificationSettingsForm extends Form {
 	 * Constructor.
 	 */
 	function PKPNotificationSettingsForm() {
-		parent::Form('notification/settings.tpl');
+		parent::Form('user/notificationSettingsForm.tpl');
 
 		// Validation checks for this form
 		$this->addCheck(new FormValidatorPost($this));

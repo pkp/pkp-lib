@@ -10,7 +10,7 @@
  * @class PKPProfileForm
  * @ingroup user_form
  *
- * @brief Form to edit user profile.
+ * @brief Form to edit user's identity information.
  */
 
 import('lib.pkp.classes.user.form.BaseProfileForm');
@@ -49,7 +49,7 @@ class IdentityForm extends BaseProfileForm {
 	}
 
 	/**
-	 * Initialize form data from current settings.
+	 * @copydoc Form::initData()
 	 */
 	function initData() {
 		$user = $this->getUser();

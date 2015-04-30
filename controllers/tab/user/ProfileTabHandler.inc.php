@@ -47,6 +47,7 @@ class ProfileTabHandler extends Handler {
 	 * Display form to edit user's identity.
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON-formatted response
 	 */
 	function identity($args, $request) {
 		$this->setupTemplate($request);
@@ -60,6 +61,7 @@ class ProfileTabHandler extends Handler {
 	 * Validate and save changes to user's identity info.
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON-formatted response
 	 */
 	function saveIdentity($args, $request) {
 		$this->setupTemplate($request);
@@ -78,6 +80,7 @@ class ProfileTabHandler extends Handler {
 	 * Display form to edit user's contact information.
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON-formatted response
 	 */
 	function contact($args, $request) {
 		$this->setupTemplate($request);
@@ -91,6 +94,7 @@ class ProfileTabHandler extends Handler {
 	 * Validate and save changes to user's contact info.
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON-formatted response
 	 */
 	function saveContact($args, $request) {
 		$this->setupTemplate($request);
@@ -109,6 +113,7 @@ class ProfileTabHandler extends Handler {
 	 * Display form to edit user's roles information.
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON-formatted response
 	 */
 	function roles($args, $request) {
 		$this->setupTemplate($request);
@@ -122,6 +127,7 @@ class ProfileTabHandler extends Handler {
 	 * Validate and save changes to user's roles info.
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON-formatted response
 	 */
 	function saveRoles($args, $request) {
 		$this->setupTemplate($request);
@@ -140,6 +146,7 @@ class ProfileTabHandler extends Handler {
 	 * Display form to edit user's publicProfile information.
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON-formatted response
 	 */
 	function publicProfile($args, $request) {
 		$this->setupTemplate($request);
@@ -153,6 +160,7 @@ class ProfileTabHandler extends Handler {
 	 * Upload a public profile image.
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON-formatted response
 	 */
 	function uploadProfileImage($args, $request) {
 		import('lib.pkp.classes.user.form.PublicProfileForm');
@@ -177,6 +185,7 @@ class ProfileTabHandler extends Handler {
 	 * Validate and save changes to user's publicProfile info.
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON-formatted response
 	 */
 	function savePublicProfile($args, $request) {
 		$this->setupTemplate($request);
@@ -195,6 +204,7 @@ class ProfileTabHandler extends Handler {
 	 * Display form to change user's password.
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON-formatted response
 	 */
 	function changePassword($args, $request) {
 		$this->setupTemplate($request);
@@ -208,6 +218,7 @@ class ProfileTabHandler extends Handler {
 	 * Save user's new password.
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return JSONMessage JSON-formatted response
 	 */
 	function savePassword($args, $request) {
 		$this->setupTemplate($request);

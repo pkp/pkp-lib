@@ -7,10 +7,10 @@
  * Copyright (c) 2003-2015 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPProfileForm
+ * @class PublicProfileForm
  * @ingroup user_form
  *
- * @brief Form to edit user profile.
+ * @brief Form to edit user's public profile.
  */
 
 import('lib.pkp.classes.user.form.BaseProfileForm');
@@ -32,7 +32,7 @@ class PublicProfileForm extends BaseProfileForm {
 	}
 
 	/**
-	 * Initialize form data from current settings.
+	 * @copydoc Form::initData()
 	 */
 	function initData() {
 		$user = $this->getUser();

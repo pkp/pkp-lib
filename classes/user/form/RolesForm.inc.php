@@ -55,7 +55,7 @@ class RolesForm extends BaseProfileForm {
 	}
 
 	/**
-	 * Initialize form data from current settings.
+	 * @copydoc Form::initData()
 	 */
 	function initData() {
 		import('lib.pkp.classes.user.InterestManager');

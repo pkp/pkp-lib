@@ -111,7 +111,7 @@ class RegistrationForm extends Form {
 	}
 
 	/**
-	 * Initialize default data.
+	 * @copydoc Form::initData()
 	 */
 	function initData() {
 		$this->_data = array(
@@ -178,8 +178,10 @@ class RegistrationForm extends Form {
 
 		return parent::validate();
 	}
+
 	/**
 	 * Register a new user.
+	 * @param $request PKPRequest
 	 * @return int|null User ID, or false on failure
 	 */
 	function execute($request) {
@@ -279,7 +281,7 @@ class RegistrationForm extends Form {
 	 * @param $request PKPRequest
 	 * @param MailTemplate $mail
 	 */
-	function _setMailFrom($request, &$mail) {
+	function _setMailFrom($request, $mail) {
 		$site = $request->getSite();
 		$context = $request->getContext();
 

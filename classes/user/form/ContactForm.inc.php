@@ -7,10 +7,10 @@
  * Copyright (c) 2003-2015 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPProfileForm
+ * @class ContactForm
  * @ingroup user_form
  *
- * @brief Form to edit user profile.
+ * @brief Form to edit user's contact information.
  */
 
 import('lib.pkp.classes.user.form.BaseProfileForm');
@@ -36,17 +36,18 @@ class ContactForm extends BaseProfileForm {
 	 */
 	function fetch($request) {
 		$templateMgr = TemplateManager::getManager($request);
-
+		$site = $request->getSite();
 		$countryDao = DAORegistry::getDAO('CountryDAO');
 		$templateMgr->assign(array(
 			'countries' => $countryDao->getCountries(),
+			'availableLocales' => $site->getSupportedLocaleNames(),
 		));
 
 		return parent::fetch($request);
 	}
 
 	/**
-	 * Initialize form data from current settings.
+	 * @copydoc Form::initData()
 	 */
 	function initData() {
 		$user = $this->getUser();
@@ -58,6 +59,7 @@ class ContactForm extends BaseProfileForm {
 			'fax' => $user->getFax(),
 			'mailingAddress' => $user->getMailingAddress(),
 			'affiliation' => $user->getAffiliation(null), // Localized
+			'userLocales' => $user->getLocales(),
 		);
 	}
 
@@ -68,8 +70,13 @@ class ContactForm extends BaseProfileForm {
 		parent::readInputData();
 
 		$this->readUserVars(array(
-			'country', 'email', 'phone', 'fax', 'mailingAddress', 'affiliation',
+			'country', 'email', 'phone', 'fax', 'mailingAddress', 'affiliation', 'userLocales',
 		));
+
+		if ($this->getData('userLocales') == null || !is_array($this->getData('userLocales'))) {
+			$this->setData('userLocales', array());
+		}
+
 	}
 
 	/**
@@ -77,7 +84,7 @@ class ContactForm extends BaseProfileForm {
 	 * @param $request PKPRequest
 	 */
 	function execute($request) {
-		$user = $request->getUser();
+		$user = $this->getUser();
 
 		$user->setCountry($this->getData('country'));
 		$user->setEmail($this->getData('email'));
@@ -85,6 +92,16 @@ class ContactForm extends BaseProfileForm {
 		$user->setFax($this->getData('fax'));
 		$user->setMailingAddress($this->getData('mailingAddress'));
 		$user->setAffiliation($this->getData('affiliation'), null); // Localized
+
+		$site = $request->getSite();
+		$availableLocales = $site->getSupportedLocales();
+		$locales = array();
+		foreach ($this->getData('userLocales') as $locale) {
+			if (AppLocale::isLocaleValid($locale) && in_array($locale, $availableLocales)) {
+				array_push($locales, $locale);
+			}
+		}
+		$user->setLocales($locales);
 
 		parent::execute($request, $user);
 	}

@@ -37,7 +37,7 @@
 	 *  }} options options to configure the form handler.
 	 */
 	$.pkp.controllers.form.FormHandler = function($form, options) {
-		var key;
+		var key, validator;
 
 		this.parent($form, options);
 
@@ -92,7 +92,7 @@
 			this.usernameSuggestionTextAlert_ = options.usernameSuggestionTextAlert;
 		}
 
-		var validator = $form.validate({
+		validator = $form.validate({
 			onfocusout: this.callbackWrapper(this.onFocusOutValidation_),
 			errorClass: 'error',
 			highlight: function(element, errorClass) {
@@ -554,7 +554,7 @@
 		elementId = $(sourceElement).attr('id');
 		targetElement = $(formElement).find(
 				"[id^='" + this.enableDisablePairs_[elementId] + "']");
-		
+	
 		if ($(sourceElement).is(':checked')) {
 			$(targetElement).prop('disabled', false);
 		} else {

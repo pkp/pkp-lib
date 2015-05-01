@@ -246,7 +246,7 @@ class ProfileTabHandler extends Handler {
 		$user = $request->getUser();
 		import('classes.notification.form.NotificationSettingsForm');
 		$notificationSettingsForm = new NotificationSettingsForm();
-		return new JSONMessage(tnue, $notificationSettingsForm->fetch($request));
+		return new JSONMessage(true, $notificationSettingsForm->fetch($request));
 	}
 
 	/**

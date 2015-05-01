@@ -554,11 +554,11 @@
 		elementId = $(sourceElement).attr('id');
 		targetElement = $(formElement).find(
 				"[id^='" + this.enableDisablePairs_[elementId] + "']");
-
+		
 		if ($(sourceElement).is(':checked')) {
-			$(targetElement).attr('disabled', '');
+			$(targetElement).prop('disabled', false);
 		} else {
-			$(targetElement).attr('disabled', 'disabled');
+			$(targetElement).prop('disabled', true);
 		}
 
 		return true;

@@ -31,23 +31,23 @@ class PKPNotificationSettingsForm extends Form {
 	}
 
 	/**
-	 * Display the form.
+	 * @copydoc
 	 */
-	function display($request) {
+	function fetch($request) {
 		$context = $request->getContext();
 		$user = $request->getUser();
 		$userId = $user->getId();
 
 		$notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
 		$blockedNotifications = $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings('blocked_notification', $userId, $context->getId());
-		$emailSettings = $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings('emailed_notification', $userId, $context->getId());
+		$emailSettings = $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings('blocked_emailed_notification', $userId, $context->getId());
 
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('blockedNotifications', $blockedNotifications);
 		$templateMgr->assign('emailSettings', $emailSettings);
 		$templateMgr->assign('titleVar', __('common.title'));
 		$templateMgr->assign('userVar', __('common.user'));
-		return parent::display();
+		return parent::fetch();
 	}
 }
 

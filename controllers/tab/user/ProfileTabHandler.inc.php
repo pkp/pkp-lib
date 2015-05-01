@@ -233,6 +233,48 @@ class ProfileTabHandler extends Handler {
 		}
 		return new JSONMessage(true, $passwordForm->fetch($request));
 	}
+
+	/**
+	 * Fetch notifications tab content.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return JSONMessage JSON-formatted response
+	 */
+	function notificationSettings($args, $request) {
+		$this->setupTemplate($request);
+
+		$user = $request->getUser();
+		import('classes.notification.form.NotificationSettingsForm');
+		$notificationSettingsForm = new NotificationSettingsForm();
+		return new JSONMessage(tnue, $notificationSettingsForm->fetch($request));
+	}
+
+	/**
+	 * Save user notification settings.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return JSONMessage JSON-formatted response
+	 */
+	function saveNotificationSettings($args, $request) {
+		$this->setupTemplate($request);
+
+		import('classes.notification.form.NotificationSettingsForm');
+
+		$notificationSettingsForm = new NotificationSettingsForm();
+		$notificationSettingsForm->readInputData();
+
+		$json = new JSONMessage();
+		if ($notificationSettingsForm->validate()) {
+			$notificationSettingsForm->execute($request);
+			$user = $request->getUser();
+			$notificationMgr = new NotificationManager();
+			$notificationMgr->createTrivialNotification($user->getId());
+		} else {
+			$json->setStatus(false);
+		}
+
+		return $json;
+	}
 }
 
 ?>

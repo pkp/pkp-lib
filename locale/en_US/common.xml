@@ -399,7 +399,7 @@
 	<message key="notification.removedAuditor">Auditor removed.</message>
 	<message key="notification.reviewAcknowledged">Review marked as acknowledged. Email not sent.</message>
 	<message key="notification.updatedReviewFiles">Review files updated.</message>
-	<message key="notification.allow">Allow these types of notifications to appear in my notification feed.</message>
+	<message key="notification.allow">Enable these types of notifications.</message>
 	<message key="notification.addedAnnouncementType">Announcement type added.</message>
 	<message key="notification.editedAnnouncementType">Announcement type edited.</message>
 	<message key="notification.removedAnnouncementType">Announcement type removed.</message>
@@ -410,7 +410,7 @@
 	<message key="notification.editedAuthor">Author edited.</message>
 	<message key="notification.confirmError">There was an error confirming your subscription.</message>
 	<message key="notification.confirmSuccess">You have been successfully subscribed.</message>
-	<message key="notification.email">Send me an email for these types of notifications.</message>
+	<message key="notification.email">Do not send me an email for these types of notifications.</message>
 	<message key="notification.location">Go To URL</message>
 	<message key="notification.mailList">Notification mailing list</message>
 	<message key="notification.mailList.emailInvalid">Please enter a valid email address.</message>
@@ -429,7 +429,7 @@
 	<message key="notification.notificationsDescription">You have {$unreadCount} unread notifications and {$readCount} read notifications.<![CDATA[  <a href="{$settingsUrl}">Click here</a> to change your notification settings.]]></message>
 	<message key="notification.sentNotification">Notification sent.</message>
 	<message key="notification.settings">Notification Settings</message>
-	<message key="notification.settingsDescription">Select the system events that you wish to be notified about.  Unchecking an item will prevent notifications of the event from showing up in your notification feed.</message>
+	<message key="notification.settingsDescription">Select the system events that you wish to be notified about. Unchecking an item will prevent notifications of the event from showing up in the system and also from being emailed to you. Checked events will appear in the system and you have an extra option to receive or not the same notification by email.</message>
 	<message key="notification.subscribe">Subscribe</message>
 	<message key="notification.subscribeError">Your email address is already subscribed to notifications.</message>
 	<message key="notification.subscribeSuccess">An email has been sent to the address you specified.  Please click on the confirmation link in the email to add yourself to the mailing list.</message>

@@ -283,9 +283,9 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	 * Get set of notification types user will also be notified by email.
 	 * @return array
 	 */
-	protected function getEmailedNotifications($userId, $contextId) {
+	protected function getUserBlockedEmailedNotifications($userId, $contextId) {
 		$notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
-		return $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings('emailed_notification', $userId, (int) $contextId);
+		return $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings('blocked_emailed_notification', $userId, (int) $contextId);
 	}
 
 	/**

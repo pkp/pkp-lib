@@ -468,7 +468,12 @@ class FormBuilderVocabulary {
 
 	/**
 	 * Form text area.
-	 * parameters: value, id, name (optional - assigned value of 'id' by default), disabled (optional), multilingual (optional)
+	 * parameters:
+	 *  - value: string for single language inputs, array (xx_YY => language_value) for multilingual
+	 *  - name: string (optional - assigned value based on ID by default)
+	 *  - disabled: boolean (default false)
+	 *  - multilingual: boolean (default false)
+	 *  - rich: false (default), true, or 'extended'
 	 * @param $params array
 	 * @param $smarty object
 	 */

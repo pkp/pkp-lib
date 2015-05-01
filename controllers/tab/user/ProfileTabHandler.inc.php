@@ -166,7 +166,7 @@ class ProfileTabHandler extends Handler {
 		import('lib.pkp.classes.user.form.PublicProfileForm');
 		$publicProfileForm = new PublicProfileForm($request->getUser());
 		$publicProfileForm->uploadProfileImage();
-		return $request->redirectUrlJson($request->url(null, 'user', 'profile', uniqid(), null, 'publicProfile'));
+		return $request->redirectUrlJson($request->getDispatcher()->url($request, ROUTE_PAGE, null, 'user', 'profile', null, array('uniq' => uniqid()), 'publicProfile'));
 	}
 
 	/**
@@ -178,7 +178,7 @@ class ProfileTabHandler extends Handler {
 		import('lib.pkp.classes.user.form.PublicProfileForm');
 		$publicProfileForm = new PublicProfileForm($request->getUser());
 		$publicProfileForm->deleteProfileImage();
-		$request->redirect(null, 'user', 'profile', uniqid(), null, 'publicProfile');
+		$request->redirectUrl($request->getDispatcher()->url($request, ROUTE_PAGE, null, 'user', 'profile', null, array('uniq' => uniqid()), 'publicProfile'));
 	}
 
 	/**

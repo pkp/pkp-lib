@@ -19,10 +19,6 @@
 
 	{include file="user/userGroups.tpl"}
 
-	{fbvFormSection for="interests"}
-		{fbvElement type="interests" id="interests" interests=$interests label="user.interests"}
-	{/fbvFormSection}
-
 	{fbvFormButtons hideCancel=true submitText="common.save"}
 </form>
 

@@ -17,8 +17,9 @@ if [[ -n "$COVERAGE_UPLOAD_SECRET" ]]; then
 
 	# Prepare a directory with the contents of the dump
 	mkdir dump
-	cp ${DATABASEDUMP} dump/db-${TRAVIS_REPO_SLUG}-${TRAVIS_BRANCH}.sql.gz
-	tar czf dump/files-${TRAVIS_REPO_SLUG}-${TRAVIS_BRANCH}.tar.gz ${FILES}
+	mkdir dump/${DBTYPE}
+	cp ${DATABASEDUMP} dump/${DBTYPE}/db-${TRAVIS_REPO_SLUG}-${TRAVIS_BRANCH}.sql.gz
+	tar czf dump/${DBTYPE}/files-${TRAVIS_REPO_SLUG}-${TRAVIS_BRANCH}.tar.gz ${FILES}
 	
 	rsync -av --rsh='sshpass -e ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -l pkp_testing' dump/ pkp-www.lib.sfu.ca:builds/${TRAVIS_REPO_SLUG}
 fi

@@ -570,15 +570,22 @@
 
 		if (typeof tinyMCE !== 'undefined') {
 			var $element = this.getHtmlElement(),
-					elementId = $element.attr('id');
+					elementId = $element.attr('id'),
+					settings = tinyMCE.EditorManager.settings;
 
 			$('#' + elementId).find('.richContent').each(function() {
 				var id = /** @type {string} */ ($(this).attr('id')),
 						icon = $('<div></div>'),
 						iconParent = $('<div></div>'),
-						classes, i,
-						editor = tinyMCE.EditorManager.createEditor(
-								id, tinyMCE.EditorManager.settings).render();
+						classes, i, editor,
+						settings = tinyMCE.EditorManager.settings;
+
+				// Set the extended toolbar, if requested
+				if ($(this).hasClass('extendedRichContent')) {
+					settings.toolbar = settings.richToolbar;
+				}
+
+				editor = tinyMCE.EditorManager.createEditor(id, settings).render();
 
 				// For localizable text fields add globe and flag icons
 				if ($(this).hasClass('localizable') || $(this).hasClass('flag')) {

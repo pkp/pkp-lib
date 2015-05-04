@@ -21,6 +21,6 @@
 	{/fbvFormSection}
 	{fbvFormSection description="common.subtitle.tip"}{/fbvFormSection}
 	{fbvFormSection title="common.abstract" for="abstract" required=$abstractsRequired}
-		{fbvElement type="textarea" multilingual=true name="abstract" id="abstract" value=$abstract rich=true readonly=$readOnly}
+		{fbvElement type="textarea" multilingual=true name="abstract" id="abstract" value=$abstract rich="extended" readonly=$readOnly}
 	{/fbvFormSection}
 {/fbvFormArea}

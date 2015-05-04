@@ -216,6 +216,18 @@
 			});
 			e.content = $content.html();
 		});
+
+		// In fullscreen mode, also present the toolbar.
+		tinyMCEObject.on('FullscreenStateChanged init', function(e) {
+			var target = e.target, $container=$(target.editorContainer);
+			if (target.plugins.fullscreen) {
+				if (target.plugins.fullscreen.isFullscreen()) {
+					$container.find('.mce-toolbar[role=\'menubar\']').show();
+				} else {
+					$container.find('.mce-toolbar[role=\'menubar\']').hide();
+				}
+			}
+		});
 	};
 
 

@@ -16,10 +16,10 @@ if [[ -n "$COVERAGE_UPLOAD_SECRET" ]]; then
 	export SSHPASS=$COVERAGE_UPLOAD_SECRET
 
 	# Prepare a directory with the contents of the dump
-	mkdir dump
-	mkdir dump/${DBTYPE}
-	cp ${DATABASEDUMP} dump/${DBTYPE}/db-${TRAVIS_REPO_SLUG}-${TRAVIS_BRANCH}.sql.gz
-	tar czf dump/${DBTYPE}/files-${TRAVIS_REPO_SLUG}-${TRAVIS_BRANCH}.tar.gz ${FILES}
+	mkdir builddump
+	mkdir builddump/${DBTYPE}
+	cp ${DATABASEDUMP} builddump/${DBTYPE}/db-${TRAVIS_REPO_SLUG}-${TRAVIS_BRANCH}.sql.gz
+	tar czf builddump/${DBTYPE}/files-${TRAVIS_REPO_SLUG}-${TRAVIS_BRANCH}.tar.gz ${FILES}
 	
-	rsync -av --rsh='sshpass -e ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -l pkp_testing' dump/ pkp-www.lib.sfu.ca:builds/${TRAVIS_REPO_SLUG}
+	rsync -av --rsh='sshpass -e ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -l pkp_testing' builddump/ pkp-www.lib.sfu.ca:builds/${TRAVIS_REPO_SLUG}
 fi

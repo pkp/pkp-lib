@@ -49,7 +49,7 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 	 * Get the Submission
 	 * @return Submission
 	 */
-	function &getSubmission() {
+	function getSubmission() {
 		return $this->_submission;
 	}
 

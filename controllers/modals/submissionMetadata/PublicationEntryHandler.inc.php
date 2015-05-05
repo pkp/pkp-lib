@@ -74,7 +74,7 @@ class PublicationEntryHandler extends Handler {
 	 * Get the Submission
 	 * @return Submission
 	 */
-	function &getSubmission() {
+	function getSubmission() {
 		return $this->_submission;
 	}
 

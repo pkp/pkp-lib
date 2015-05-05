@@ -47,7 +47,7 @@ class FilesGridCapabilities {
 	 * @param $capabilities integer A bit map with zero or more
 	 *  FILE_GRID_* capabilities set.
 	 */
-	function FilesGridCapabilities($capabilities) {
+	function FilesGridCapabilities($capabilities = 0) {
 		$this->setCanAdd($capabilities & FILE_GRID_ADD);
 		$this->setCanDownloadAll($capabilities & FILE_GRID_DOWNLOAD_ALL);
 		$this->setCanDelete($capabilities & FILE_GRID_DELETE);

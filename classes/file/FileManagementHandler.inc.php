@@ -54,7 +54,7 @@ class FileManagementHandler extends Handler {
 	 * The submission to which we upload files.
 	 * @return Submission
 	 */
-	function &getSubmission() {
+	function getSubmission() {
 		return $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 	}
 

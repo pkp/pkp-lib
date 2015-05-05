@@ -41,7 +41,7 @@ class SubmissionFilesGridHandler extends GridHandler {
 	 * @param $capabilities integer A bit map with zero or more
 	 *  FILE_GRID_* capabilities set.
 	 */
-	function SubmissionFilesGridHandler(&$dataProvider, $stageId, $capabilities) {
+	function SubmissionFilesGridHandler($dataProvider, $stageId, $capabilities = 0) {
 		parent::GridHandler($dataProvider);
 
 		if ($stageId) {
@@ -74,7 +74,7 @@ class SubmissionFilesGridHandler extends GridHandler {
 	 * Get the authorized submission.
 	 * @return Submission
 	 */
-	function &getSubmission() {
+	function getSubmission() {
 		// We assume proper authentication by the data provider.
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		assert(is_a($submission, 'Submission'));

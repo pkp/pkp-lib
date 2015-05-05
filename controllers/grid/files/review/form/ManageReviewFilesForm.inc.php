@@ -90,6 +90,16 @@ class ManageReviewFilesForm extends ManageSubmissionFilesForm {
 	function execute($args, $request, $stageSubmissionFiles) {
 		parent::execute($args, $request, $stageSubmissionFiles, SUBMISSION_FILE_REVIEW_FILE);
 	}
+
+	/**
+	 * @copydoc ManageSubmissionFilesForm::_importFile()
+	 */
+	protected function _importFile($context, $submissionFile, $fileStage) {
+		parent::_importFile($context, $submissionFile, $fileStage);
+
+		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+		$submissionFileDao->assignRevisionToReviewRound($newFileId, $newRevision, $this->getReviewRound());
+	}
 }
 
 ?>

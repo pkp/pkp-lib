@@ -67,7 +67,7 @@ class PKPSubmissionMetadataViewForm extends Form {
 	 * Get the Submission
 	 * @return Submission
 	 */
-	function &getSubmission() {
+	function getSubmission() {
 		return $this->_submission;
 	}
 

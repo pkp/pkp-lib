@@ -84,7 +84,7 @@ class StageParticipantGridRow extends GridRow {
 	 * Get the submission for this row (already authorized)
 	 * @return Submission
 	 */
-	function &getSubmission() {
+	function getSubmission() {
 		return $this->_submission;
 	}
 

@@ -68,8 +68,9 @@ class ManageSubmissionFilesForm extends Form {
 	 * Save review round files
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @stageSubmissionFiles array The files that belongs to a file stage
+	 * @param @stageSubmissionFiles array The files that belongs to a file stage
 	 * that is currently being used by a grid inside this form.
+	 * @param $fileStage int SUBMISSION_FILE_...
 	 */
 	function execute($args, $request, $stageSubmissionFiles, $fileStage) {
 		$selectedFiles = (array)$this->getData('selectedFiles');
@@ -80,31 +81,47 @@ class ManageSubmissionFilesForm extends Form {
 			// Get the viewable flag value.
 			$isViewable = in_array(
 				$submissionFile->getFileId(),
-				$selectedFiles);
+				$selectedFiles
+			);
 
 			// If this is a submission file that belongs to the current stage id...
-			if (array_key_exists($submissionFile->getFileId(), $stageSubmissionFiles)) {
+			if ($this->_fileExistsInStage($submissionFile, $stageSubmissionFiles)) {
 				// ...update the "viewable" flag accordingly.
 				$submissionFile->setViewable($isViewable);
-			} else {
-				// If the viewable flag is set to true...
-				if ($isViewable) {
-					// Make a copy of the file to the current file stage.
-					import('lib.pkp.classes.file.SubmissionFileManager');
-					$context = $request->getContext();
-					$submissionFileManager = new SubmissionFileManager($context->getId(), $submissionFile->getSubmissionId());
-					// Split the file into file id and file revision.
-					$fileId = $submissionFile->getFileId();
-					$revision = $submissionFile->getRevision();
-					list($newFileId, $newRevision) = $submissionFileManager->copyFileToFileStage($fileId, $revision, $fileStage, null, true);
-					if ($fileStage == SUBMISSION_FILE_REVIEW_FILE) {
-						$submissionFileDao->assignRevisionToReviewRound($newFileId, $newRevision, $this->getReviewRound());
-					}
-					$submissionFile = $submissionFileDao->getRevision($newFileId, $newRevision);
-				}
+				$submissionFileDao->updateObject($submissionFile);
+			} elseif ($isViewable) {
+				// Import a file from a previous stage.
+				$context = $request->getContext();
+				$submissionFile = $this->_importFile($context, $submissionFile, $fileStage);
 			}
-			$submissionFileDao->updateObject($submissionFile);
 		}
+	}
+
+	/**
+	 * Determine if a file is already present in the stage.
+	 * @param $submissionFile SubmissionFile The submission file
+	 * @param $stageSubmissionFiles array The list of submission files in the stage.
+	 */
+	protected function _fileExistsInStage($submissionFile, $stageSubmissionFiles) {
+		return array_key_exists($submissionFile->getFileId(), $stageSubmissionFiles);
+	}
+
+	/**
+	 * Make a copy of the file to the specified file stage.
+	 * @param $context Context
+	 * @param $submissionFile SubmissionFile
+	 * @param $fileStage int SUBMISSION_FILE_...
+	 * @return SubmissionFile Resultant new submission file
+	 */
+	protected function _importFile($context, $submissionFile, $fileStage) {
+		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+		import('lib.pkp.classes.file.SubmissionFileManager');
+		$submissionFileManager = new SubmissionFileManager($context->getId(), $submissionFile->getSubmissionId());
+		// Split the file into file id and file revision.
+		$fileId = $submissionFile->getFileId();
+		$revision = $submissionFile->getRevision();
+		list($newFileId, $newRevision) = $submissionFileManager->copyFileToFileStage($fileId, $revision, $fileStage, null, true);
+		return $submissionFileDao->getRevision($newFileId, $newRevision);
 	}
 }
 

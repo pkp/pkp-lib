@@ -21,5 +21,5 @@ if [[ -n "$COVERAGE_UPLOAD_SECRET" ]]; then
 	cp ~/database.sql.gz dump/${TEST}/db.sql.gz
 	tar czf dump/${TEST}/files.tar.gz files/*
 	
-	rsync -av --rsh='sshpass -e ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -l pkp_testing' dump/ pkp-www.lib.sfu.ca:builds/${TRAVIS_REPO_SLUG}
+	rsync -av --rsh='sshpass -e ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -l pkp_testing' dump/ pkp-www.lib.sfu.ca:builds/${TRAVIS_REPO_SLUG}/${BRANCH}
 fi

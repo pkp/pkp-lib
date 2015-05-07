@@ -42,8 +42,14 @@ class PKPFileAuditorForm extends Form {
 
 	/**
 	 * Constructor.
+	 * @param $submission Submission
+	 * @param $fileStage int SUBMISSION_FILE_...
+	 * @param $stageId int WORKFLOW_STAGE_...
+	 * @param $symbolic string Symbolic name of signoff
+	 * @param $eventType int
+	 * @param $assocId int Optional
 	 */
-	function PKPFileAuditorForm($submission, $fileStage, $stageId, $symbolic, $eventType, $assocId = null, $publicationFormatId = null) {
+	function PKPFileAuditorForm($submission, $fileStage, $stageId, $symbolic, $eventType, $assocId = null) {
 		parent::Form('controllers/grid/files/signoff/form/addAuditor.tpl');
 		$this->_submission = $submission;
 		$this->_fileStage = $fileStage;

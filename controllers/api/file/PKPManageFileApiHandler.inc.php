@@ -131,7 +131,7 @@ abstract class PKPManageFileApiHandler extends Handler {
 				);
 			}
 
-			$this->indexSubmissionFiles($submission, $submissionFile);
+			$this->removeFileIndex($submission, $submissionFile);
 			$fileManager = $this->getFileManager($submission->getContextId(), $submission->getId());
 			$fileManager->deleteFile($submissionFile->getFileId(), $submissionFile->getRevision());
 
@@ -236,15 +236,14 @@ abstract class PKPManageFileApiHandler extends Handler {
 	}
 
 	/**
-	 * Indexes the files associated with a submission.
-	 * Must be implemented by sub classes.
+	 * Remove the submission file index.
 	 * @param $submission Submission
 	 * @param $submissionFile SubmissionFile
 	 */
-	abstract function indexSubmissionFiles($submission, $submissionFile);
+	abstract function removeFileIndex($submission, $submissionFile);
 
 	/**
-	 * indexes the files associated with a submission.
+	 * Get the submission file manager.
 	 * @param $contextId int the context id.
 	 * @param $submissionId int the submission id.
 	 * @return SubmissionFileManager

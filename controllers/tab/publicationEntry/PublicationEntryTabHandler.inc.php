@@ -77,8 +77,8 @@ class PublicationEntryTabHandler extends Handler {
 	 */
 	function initialize($request) {
 		$this->setCurrentTab($request->getUserVar('tab'));
-		$this->_submission =& $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-		$this->_stageId =& $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+		$this->_submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+		$this->_stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
 		$this->_tabPosition = (int) $request->getUserVar('tabPos');
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_APP_SUBMISSION);

@@ -47,8 +47,8 @@ class PublicationEntryHandler extends Handler {
 	function initialize($request, $args = null) {
 		parent::initialize($request, $args);
 
-		$this->_submission =& $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-		$this->_stageId =& $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+		$this->_submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+		$this->_stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
 		$this->_tabPosition = (int) $request->getUserVar('tabPos');
 
 		// Load grid-specific translations

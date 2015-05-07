@@ -40,7 +40,7 @@ class SubmissionFileMatchesSubmissionPolicy extends SubmissionFileBaseAccessPoli
 		if (!is_a($submissionFile, 'SubmissionFile')) return AUTHORIZATION_DENY;
 
 		// Get the submission
-		$submission =& $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		if (!is_a($submission, 'Submission')) return AUTHORIZATION_DENY;
 
 		// Check if the submission file belongs to the submission.

@@ -65,6 +65,7 @@ class ManageProofFilesForm extends ManageSubmissionFilesForm {
 		$newSubmissionFile->setAssocType(ASSOC_TYPE_REPRESENTATION);
 		$newSubmissionFile->setAssocId($representation->getId());
 		$newSubmissionFile->setFileStage(SUBMISSION_FILE_PROOF);
+		$newSubmissionFile->setVisible(false); // Not approved by default
 
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
 		$submissionFileDao->updateObject($newSubmissionFile);

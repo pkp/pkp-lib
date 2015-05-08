@@ -18,7 +18,6 @@ import('lib.pkp.controllers.grid.files.fileList.FileListGridHandler');
 class FinalDraftFilesGridHandler extends FileListGridHandler {
 	/**
 	 * Constructor
-	 * @param $capabilities integer A bit map with zero or more
 	 *  FILE_GRID_* capabilities set.
 	 */
 	function FinalDraftFilesGridHandler() {
@@ -47,21 +46,14 @@ class FinalDraftFilesGridHandler extends FileListGridHandler {
 	// Public handler methods
 	//
 	/**
-	 * Show the form to allow the user to select review files
-	 * (bring in/take out files from submission stage to review stage)
-	 *
-	 * FIXME: Move to it's own handler so that it can be re-used among grids.
-	 *
+	 * Show the form to allow the user to select files from previous stages
 	 * @param $args array
 	 * @param $request PKPRequest
 	 * @return JSONMessage JSON object
 	 */
 	function selectFiles($args, $request) {
-		$submission = $this->getSubmission();
-
 		import('lib.pkp.controllers.grid.files.final.form.ManageFinalDraftFilesForm');
-		$manageFinalDraftFilesForm = new ManageFinalDraftFilesForm($submission->getId());
-
+		$manageFinalDraftFilesForm = new ManageFinalDraftFilesForm($this->getSubmission()->getId());
 		$manageFinalDraftFilesForm->initData($args, $request);
 		return new JSONMessage(true, $manageFinalDraftFilesForm->fetch($request));
 	}

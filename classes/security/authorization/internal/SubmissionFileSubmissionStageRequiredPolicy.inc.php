@@ -42,7 +42,7 @@ class SubmissionFileSubmissionStageRequiredPolicy extends SubmissionFileBaseAcce
 		if ($submissionFile->getFileStage() != SUBMISSION_FILE_SUBMISSION) return AUTHORIZATION_DENY;
 
 		// Make sure the file belongs to the submission in request.
-		$submission =& $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		if (!is_a($submission, 'Submission')) return AUTHORIZATION_DENY;
 		if ($submission->getId() != $submissionFile->getSubmissionId()) return AUTHORIZATION_DENY;
 

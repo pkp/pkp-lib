@@ -329,7 +329,7 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function deletePlugin($args, $request) {
-		$plugin =& $this->getAuthorizedContextObject(ASSOC_TYPE_PLUGIN);
+		$plugin = $this->getAuthorizedContextObject(ASSOC_TYPE_PLUGIN);
 		$category = $plugin->getCategory();
 		$productName = basename($plugin->getPluginPath());
 

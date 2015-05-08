@@ -42,7 +42,7 @@ class SelectableSubmissionFileListCategoryGridHandler extends CategoryGridHandle
 	 * @param $capabilities integer A bit map with zero or more
 	 *  FILE_GRID_* capabilities set.
 	 */
-	function SelectableSubmissionFileListCategoryGridHandler($dataProvider, $stageId, $capabilities) {
+	function SelectableSubmissionFileListCategoryGridHandler($dataProvider, $stageId, $capabilities = 0) {
 		// the StageId can be set later if necessary.
 		if ($stageId) {
 			$this->_stageId = (int)$stageId;
@@ -235,7 +235,10 @@ class SelectableSubmissionFileListCategoryGridHandler extends CategoryGridHandle
 		// Get the submission files to be downloaded.
 		$submissionFiles = array();
 		foreach ($workflowStages as $stageId) {
-			$submissionFiles = array_merge($submissionFiles, $dataProvider->loadCategoryData($request, $stageId));
+			$submissionFiles = array_merge(
+				$submissionFiles,
+				$this->getGridCategoryDataElements($request, $stageId)
+			);
 		}
 		return $submissionFiles;
 	}

@@ -44,7 +44,7 @@ class PKPUserAccessibleWorkflowStageRequiredPolicy extends AuthorizationPolicy {
 		if (!is_a($user, 'User')) return AUTHORIZATION_DENY;
 
 		$userId = $user->getId();
-		$submission =& $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 
 		$workflowStages = WorkflowStageDAO::getWorkflowStageTranslationKeys();
 

@@ -13,7 +13,7 @@
  * @brief Abstract DAO for fetching/working with DB storage of Representation objects
  */
 
-class RepresentationDAO extends DAO {
+abstract class RepresentationDAO extends DAO {
 	/**
 	 * Constructor
 	 */
@@ -22,13 +22,20 @@ class RepresentationDAO extends DAO {
 	}
 
 	/**
-	 * Retrieves an iterator of representations for a submission
-	 * @param int $submissionId int
+	 * Retrieves a representation by ID.
+	 * @param $representationId int Representation ID.
+	 * @param $submissionId int Optional submission ID.
+	 * @param $contextId int Optional context ID.
 	 * @return DAOResultFactory
 	 */
-	function getBySubmissionId($submissionId) {
-		assert(false); // To be implemented by subclasses
-	}
+	abstract function getById($representationId, $submissionId = null, $contextId = null);
+
+	/**
+	 * Retrieves an iterator of representations for a submission
+	 * @param $submissionId int
+	 * @return DAOResultFactory
+	 */
+	abstract function getBySubmissionId($submissionId);
 }
 
 ?>

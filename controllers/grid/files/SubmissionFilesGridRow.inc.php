@@ -25,11 +25,10 @@ class SubmissionFilesGridRow extends GridRow {
 
 	/**
 	 * Constructor
-	 * $canDelete boolean
-	 * $canViewNotes boolean
-	 * $stageId int (optional)
+	 * @param $capabilities int Bitfield of FILE_GRID_... constants
+	 * @param $stageId int Stage ID (optional)
 	 */
-	function SubmissionFilesGridRow($capabilities, $stageId = null) {
+	function SubmissionFilesGridRow($capabilities = 0, $stageId = null) {
 		$this->_capabilities = $capabilities;
 		$this->_stageId = $stageId;
 		parent::GridRow();
@@ -65,7 +64,7 @@ class SubmissionFilesGridRow extends GridRow {
 
 	/**
 	 * Get the stage id, if any.
-	 * @return int
+	 * @return int Stage ID
 	 */
 	function getStageId() {
 		return $this->_stageId;

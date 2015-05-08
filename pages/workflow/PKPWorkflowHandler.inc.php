@@ -313,7 +313,7 @@ abstract class PKPWorkflowHandler extends Handler {
 
 		$router = $request->getRouter();
 
-		$submission =& $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
 
 		// Construct array with workflow stages data.

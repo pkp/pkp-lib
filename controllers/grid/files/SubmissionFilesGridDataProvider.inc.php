@@ -27,6 +27,7 @@ class SubmissionFilesGridDataProvider extends FilesGridDataProvider {
 	/**
 	 * Constructor
 	 * @param $fileStage integer One of the SUBMISSION_FILE_* constants.
+	 * @param $viewableOnly boolean True iff only viewable files should be included.
 	 */
 	function SubmissionFilesGridDataProvider($fileStage, $viewableOnly = false) {
 		assert(is_numeric($fileStage) && $fileStage > 0);
@@ -42,6 +43,7 @@ class SubmissionFilesGridDataProvider extends FilesGridDataProvider {
 	//
 	/**
 	 * Set the workflow stage.
+	 * @param $stageId int WORKFLOW_STAGE_ID_...
 	 */
 	function setStageId($stageId) {
 		$this->_stageId = $stageId;
@@ -49,7 +51,7 @@ class SubmissionFilesGridDataProvider extends FilesGridDataProvider {
 
 	/**
 	 * Get the workflow stage.
-	 * @return integer
+	 * @return integer WORKFLOW_STAGE_ID_...
 	 */
 	function getStageId() {
 		return $this->_stageId;
@@ -73,7 +75,7 @@ class SubmissionFilesGridDataProvider extends FilesGridDataProvider {
 
 	/**
 	 * Get the file stage.
-	 * @return integer
+	 * @return integer SUBMISSION_FILE_...
 	 */
 	function getFileStage() {
 		return $this->_fileStage;

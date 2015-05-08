@@ -28,8 +28,7 @@ class SubmissionDocumentsFilesGridDataProvider extends CategoryGridDataProvider 
 	 */
 	function getAuthorizationPolicy($request, $args, $roleAssignments) {
 		import('classes.security.authorization.SubmissionAccessPolicy');
-		$policy = new SubmissionAccessPolicy($request, $args, $roleAssignments, 'submissionId');
-		return $policy;
+		return new SubmissionAccessPolicy($request, $args, $roleAssignments, 'submissionId');
 	}
 
 	//
@@ -40,7 +39,7 @@ class SubmissionDocumentsFilesGridDataProvider extends CategoryGridDataProvider 
 	 * Get the authorized submission.
 	 * @return Submission
 	 */
-	function &getSubmission() {
+	function getSubmission() {
 		return $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 	}
 

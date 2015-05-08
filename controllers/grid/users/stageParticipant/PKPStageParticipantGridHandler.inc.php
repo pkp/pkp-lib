@@ -47,7 +47,7 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 	 * Get the authorized submission.
 	 * @return Submission
 	 */
-	function &getSubmission() {
+	function getSubmission() {
 		return $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 	}
 

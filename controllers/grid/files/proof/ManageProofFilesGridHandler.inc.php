@@ -20,9 +20,9 @@ class ManageProofFilesGridHandler extends SelectableSubmissionFileListCategoryGr
 	 * Constructor
 	 */
 	function ManageProofFilesGridHandler() {
-		import('controllers.grid.files.proof.ProofFilesCategoryGridDataProvider');
+		import('lib.pkp.controllers.grid.files.SubmissionFilesCategoryGridDataProvider');
 		parent::SelectableSubmissionFileListCategoryGridHandler(
-			new ProofFilesCategoryGridDataProvider(),
+			new SubmissionFilesCategoryGridDataProvider(SUBMISSION_FILE_PROOF),
 			WORKFLOW_STAGE_ID_PRODUCTION
 		);
 

@@ -51,6 +51,17 @@ class ManageProofFilesGridHandler extends SelectableSubmissionFileListCategoryGr
 		return parent::authorize($request, $args, $roleAssignments);
 	}
 
+	/**
+	 * Get the grid request parameters.
+	 * @return array
+	 */
+	function getRequestArgs() {
+		$representation = $this->getAuthorizedContextObject(ASSOC_TYPE_REPRESENTATION);
+		return array_merge(
+			parent::getRequestArgs(),
+			array('representationId' => $representation->getId())
+		);
+	}
 
 	//
 	// Public handler methods

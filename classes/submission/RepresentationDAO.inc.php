@@ -22,8 +22,17 @@ abstract class RepresentationDAO extends DAO {
 	}
 
 	/**
+	 * Retrieves a representation by ID.
+	 * @param $representationId int Representation ID.
+	 * @param $submissionId int Optional submission ID.
+	 * @param $contextId int Optional context ID.
+	 * @return DAOResultFactory
+	 */
+	abstract function getById($representationId, $submissionId = null, $contextId = null);
+
+	/**
 	 * Retrieves an iterator of representations for a submission
-	 * @param int $submissionId int
+	 * @param $submissionId int
 	 * @return DAOResultFactory
 	 */
 	abstract function getBySubmissionId($submissionId);

@@ -108,18 +108,16 @@ class AnnouncementTypeGridHandler extends GridHandler {
 	/**
 	 * @copydoc GridHandler::loadData()
 	 */
-	function loadData($request, $filter) {
+	protected function loadData($request, $filter) {
 		$context = $request->getContext();
 		$announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO');
-		$announcementTypes = $announcementTypeDao->getByAssoc($context->getAssocType(), $context->getId());
-
-		return $announcementTypes;
+		return $announcementTypeDao->getByAssoc($context->getAssocType(), $context->getId());
 	}
 
 	/**
 	 * @copydoc GridHandler::getRowInstance()
 	 */
-	function getRowInstance() {
+	protected function getRowInstance() {
 		import('lib.pkp.controllers.grid.announcements.AnnouncementTypeGridRow');
 		return new AnnouncementTypeGridRow();
 	}

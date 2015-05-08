@@ -44,7 +44,7 @@ class ManageLanguageGridHandler extends LanguageGridHandler {
 	/**
 	 * @copydoc GridHandler::loadData()
 	 */
-	function loadData($request, $filter) {
+	protected function loadData($request, $filter) {
 		$site = $request->getSite();
 		$context = $request->getContext();
 

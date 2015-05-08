@@ -95,7 +95,7 @@ class SubmissionFileEventLogGridHandler extends SubmissionEventLogGridHandler {
 	/**
 	 * @copydoc GridHandler::loadData
 	 */
-	function loadData($request, $filter = null) {
+	protected function loadData($request, $filter = null) {
 		$submissionFile = $this->getSubmissionFile();
 		$submissionFileEventLogDao = DAORegistry::getDAO('SubmissionFileEventLogDAO');
 		$eventLogEntries = $submissionFileEventLogDao->getByFileId(
@@ -122,7 +122,7 @@ class SubmissionFileEventLogGridHandler extends SubmissionEventLogGridHandler {
 	 * @copydoc GridHandler::getFilterForm()
 	 * @return string Filter template.
 	 */
-	function getFilterForm() {
+	protected function getFilterForm() {
 		// If the user only has an author role, do not permit access
 		// to earlier stages.
 		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);

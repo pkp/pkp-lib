@@ -172,7 +172,7 @@ class PKPFilterGridHandler extends GridHandler {
 	/**
 	 * @copydoc GridHandler::getRowInstance()
 	 */
-	function getRowInstance() {
+	protected function getRowInstance() {
 		// Return a filter row
 		return new PKPFilterGridRow();
 	}

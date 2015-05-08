@@ -143,7 +143,7 @@ class ManageSocialMediaGridHandler extends GridHandler {
 	 * @copydoc GridHandler::getRowInstance()
 	 * @return SocialMediaGridRow
 	 */
-	function getRowInstance() {
+	protected function getRowInstance() {
 		$context = $this->getContext();
 		return new SocialMediaGridRow($context);
 	}
@@ -162,7 +162,7 @@ class ManageSocialMediaGridHandler extends GridHandler {
 	/**
 	 * @copydoc GridHandler::loadData()
 	 */
-	function loadData($request, $filter = null) {
+	protected function loadData($request, $filter = null) {
 		$context = $this->getContext();
 		$socialMediaDao = DAORegistry::getDAO('SocialMediaDAO');
 		$data = $socialMediaDao->getByContextId($context->getId());

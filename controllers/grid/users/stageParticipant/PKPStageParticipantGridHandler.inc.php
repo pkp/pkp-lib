@@ -165,15 +165,14 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 	/**
 	 * @copydoc GridHandler::getRowInstance()
 	 */
-	function getRowInstance() {
-		$submission = $this->getSubmission();
-		return new StageParticipantGridRow($submission, $this->getStageId(), $this->_canAdminister());
+	protected function getRowInstance() {
+		return new StageParticipantGridRow($this->getSubmission(), $this->getStageId(), $this->_canAdminister());
 	}
 
 	/**
 	 * @copydoc CategoryGridHandler::getCategoryRowInstance()
 	 */
-	function getCategoryRowInstance() {
+	protected function getCategoryRowInstance() {
 		$submission = $this->getSubmission();
 		return new StageParticipantGridCategoryRow($submission, $this->getStageId());
 	}
@@ -202,7 +201,7 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 	/**
 	 * @copydoc GridHandler::loadData()
 	 */
-	function loadData($request, $filter) {
+	protected function loadData($request, $filter) {
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$context = $request->getContext();
 		return $userGroupDao->getUserGroupsByStage($context->getId(), $this->getStageId(), false, true);

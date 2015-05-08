@@ -51,7 +51,7 @@ class MySubmissionsListGridHandler extends SubmissionsListGridHandler {
 	/**
 	 * @copydoc GridHandler::loadData()
 	 */
-	function loadData($request, $filter) {
+	protected function loadData($request, $filter) {
 		$user = $request->getUser();
 		$context = $request->getContext();
 		$userId = $user->getId();

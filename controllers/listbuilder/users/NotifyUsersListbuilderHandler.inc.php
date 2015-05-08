@@ -108,7 +108,7 @@ class NotifyUsersListbuilderHandler extends ListbuilderHandler {
 	/**
 	 * @copydoc GridHandler::getRowDataElement
 	 */
-	function getRowDataElement($request, &$rowId) {
+	protected function getRowDataElement($request, &$rowId) {
 		// fallback on the parent if a rowId is found
 		if ( !empty($rowId) ) {
 			return parent::getRowDataElement($request, $rowId);
@@ -145,7 +145,7 @@ class NotifyUsersListbuilderHandler extends ListbuilderHandler {
 	/**
 	 * @copydoc GridHandler::loadData($request, $filter)
 	 */
-	function loadData($request) {
+	protected function loadData($request) {
 		$userId = (int) $request->getUserVar('userId');
 		$userStageAssignmentDao = DAORegistry::getDAO('UserStageAssignmentDAO');
 		$submission = $this->getSubmission();

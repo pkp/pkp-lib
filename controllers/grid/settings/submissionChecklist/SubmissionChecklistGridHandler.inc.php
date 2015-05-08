@@ -85,14 +85,14 @@ class SubmissionChecklistGridHandler extends SetupGridHandler {
 	/**
 	 * @copydoc GridHandler::getRowInstance()
 	 */
-	function getRowInstance() {
+	protected function getRowInstance() {
 		return new SubmissionChecklistGridRow();
 	}
 
 	/**
 	 * @copydoc GridHandler::loadData()
 	 */
-	function loadData($request, $filter) {
+	protected function loadData($request, $filter) {
 		// Elements to be displayed in the grid
 		$router = $request->getRouter();
 		$context = $router->getContext($request);

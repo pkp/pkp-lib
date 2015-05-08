@@ -93,7 +93,7 @@ class ContributorGridHandler extends SetupGridHandler {
 	 * Get the row handler - override the default row handler
 	 * @return ContributorGridRow
 	 */
-	function getRowInstance() {
+	protected function getRowInstance() {
 		return new ContributorGridRow();
 	}
 

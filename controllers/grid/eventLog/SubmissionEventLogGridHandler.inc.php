@@ -135,7 +135,7 @@ class SubmissionEventLogGridHandler extends GridHandler {
 	 * @see GridHandler::getRowInstance()
 	 * @return EventLogGridRow
 	 */
-	function getRowInstance() {
+	protected function getRowInstance() {
 		return new EventLogGridRow($this->getSubmission());
 	}
 
@@ -155,7 +155,7 @@ class SubmissionEventLogGridHandler extends GridHandler {
 	/**
 	 * @copydoc GridHandler::loadData
 	 */
-	function loadData($request, $filter = null) {
+	protected function loadData($request, $filter = null) {
 		$submissionEventLogDao = DAORegistry::getDAO('SubmissionEventLogDAO');
 		$submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
 

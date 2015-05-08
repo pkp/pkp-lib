@@ -172,7 +172,7 @@ class PKPReviewerGridHandler extends GridHandler {
 	 * @see GridHandler::getRowInstance()
 	 * @return ReviewerGridRow
 	 */
-	function getRowInstance() {
+	protected function getRowInstance() {
 		return new ReviewerGridRow();
 	}
 
@@ -192,7 +192,7 @@ class PKPReviewerGridHandler extends GridHandler {
 	/**
 	 * @see GridHandler::loadData()
 	 */
-	function loadData($request, $filter) {
+	protected function loadData($request, $filter) {
 		// Get the existing review assignments for this submission
 		$reviewRound = $this->getReviewRound();
 		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');

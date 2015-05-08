@@ -211,7 +211,7 @@ class PKPAuthorGridHandler extends GridHandler {
 	 * @copydoc GridHandler::getRowInstance()
 	 * @return AuthorGridRow
 	 */
-	function getRowInstance() {
+	protected function getRowInstance() {
 		return new AuthorGridRow($this->getSubmission(), $this->getReadOnly());
 	}
 
@@ -249,7 +249,7 @@ class PKPAuthorGridHandler extends GridHandler {
 	/**
 	 * @copydoc GridHandler::loadData()
 	 */
-	function loadData($request, $filter = null) {
+	protected function loadData($request, $filter = null) {
 		$submission = $this->getSubmission();
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
 		return $authorDao->getBySubmissionId($submission->getId(), true);

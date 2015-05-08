@@ -115,7 +115,7 @@ class GenreGridHandler extends SetupGridHandler {
 	/**
 	 * @copydoc GridHandler::loadData()
 	 */
-	function loadData($request, $filter) {
+	protected function loadData($request, $filter) {
 		// Elements to be displayed in the grid
 		$context = $request->getContext();
 		$genreDao = DAORegistry::getDAO('GenreDAO');
@@ -137,7 +137,7 @@ class GenreGridHandler extends SetupGridHandler {
 	 * @copydoc GridHandler::getRowInstance()
 	 * @return GenreGridRow
 	 */
-	function getRowInstance() {
+	protected function getRowInstance() {
 		return new GenreGridRow();
 	}
 

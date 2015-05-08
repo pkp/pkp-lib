@@ -140,7 +140,7 @@ class UserUserGroupListbuilderHandler extends ListbuilderHandler {
 	/**
 	 * Initialize the grid with the currently selected set of user groups.
 	 */
-	function loadData() {
+	protected function loadData() {
 		$context = $this->getContext();
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		return $userGroupDao->getByUserId($this->getUserId(), $context->getId());
@@ -202,7 +202,7 @@ class UserUserGroupListbuilderHandler extends ListbuilderHandler {
 	/**
 	 * @copydoc GridHandler::getRowDataElement
 	 */
-	function getRowDataElement($request, &$rowId) {
+	protected function getRowDataElement($request, &$rowId) {
 		// fallback on the parent if a rowId is found
 		if ( !empty($rowId) ) {
 			return parent::getRowDataElement($request, $rowId);

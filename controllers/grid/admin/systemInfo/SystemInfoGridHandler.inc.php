@@ -109,7 +109,7 @@ class SystemInfoGridHandler extends CategoryGridHandler {
 	/**
 	 * @copydoc CategoryGridHandler::getCategoryRowInstance()
 	 */
-	function getCategoryRowInstance() {
+	protected function getCategoryRowInstance() {
 		return new SystemInfoGridCategoryRow();
 	}
 
@@ -123,7 +123,7 @@ class SystemInfoGridHandler extends CategoryGridHandler {
 	/**
 	 * @copydoc GridHandler::loadData()
 	 */
-	function loadData($request, $filter) {
+	protected function loadData($request, $filter) {
 		return array_keys($this->_configData);
 	}
 }

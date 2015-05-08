@@ -102,7 +102,7 @@ class PreparedEmailsGridHandler extends GridHandler {
 	/**
 	 * @see GridHandler::loadData()
 	 */
-	function loadData($request, $filter) {
+	protected function loadData($request, $filter) {
 		// Elements to be displayed in the grid
 		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
 		$context = $request->getContext();
@@ -121,7 +121,7 @@ class PreparedEmailsGridHandler extends GridHandler {
 	 * Get the row handler - override the default row handler
 	 * @return PreparedEmailsGridRow
 	 */
-	function getRowInstance() {
+	protected function getRowInstance() {
 		return new PreparedEmailsGridRow();
 	}
 

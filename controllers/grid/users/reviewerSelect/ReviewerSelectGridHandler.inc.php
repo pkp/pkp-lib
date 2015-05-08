@@ -153,7 +153,7 @@ class ReviewerSelectGridHandler extends GridHandler {
 	/**
 	 * @copydoc GridHandler::loadData()
 	 */
-	function loadData($request, $filter) {
+	protected function loadData($request, $filter) {
 		$interests = (array) $filter['interestSearchKeywords'];
 		$reviewerValues = $filter['reviewerValues'];
 
@@ -212,7 +212,7 @@ class ReviewerSelectGridHandler extends GridHandler {
 	 * @copydoc GridHandler::getFilterForm()
 	 * @return Form
 	 */
-	function getFilterForm() {
+	protected function getFilterForm() {
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
 		$reviewRound = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND);

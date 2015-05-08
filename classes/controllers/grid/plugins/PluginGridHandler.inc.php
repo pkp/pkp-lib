@@ -116,7 +116,7 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 	/**
 	 * @copydoc GridHandler::getFilterForm()
 	 */
-	function getFilterForm() {
+	protected function getFilterForm() {
 		return 'controllers/grid/plugins/pluginGridFilter.tpl';
 	}
 
@@ -151,7 +151,7 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 	/**
 	 * @copydoc CategoryGridHandler::getCategoryRowInstance()
 	 */
-	function getCategoryRowInstance() {
+	protected function getCategoryRowInstance() {
 		import('lib.pkp.controllers.grid.plugins.PluginCategoryGridRow');
 		return new PluginCategoryGridRow();
 	}
@@ -218,7 +218,7 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 	/**
 	 * @copydoc GridHandler::loadData()
 	 */
-	function loadData($request, $filter) {
+	protected function loadData($request, $filter) {
 		$categories = PluginRegistry::getCategories();
 		if (is_array($filter) && isset($filter['category']) && array_search($filter['category'], $categories) !== false) {
 			return array($filter['category'] => $filter['category']);

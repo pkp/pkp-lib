@@ -129,7 +129,7 @@ class ReviewFormElementsGridHandler extends GridHandler {
 	 * @see GridHandler::getRowInstance()
 	 * @return UserGridRow
 	 */
-	function getRowInstance() {
+	protected function getRowInstance() {
 		return new ReviewFormElementGridRow();
 	}
 
@@ -138,7 +138,7 @@ class ReviewFormElementsGridHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 * @return array Grid data.
 	 */
-	function loadData($request) {
+	protected function loadData($request) {
 		// Get review form elements.
 		//$rangeInfo = $this->getRangeInfo('reviewFormElements');
 		$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');

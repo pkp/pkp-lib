@@ -74,7 +74,7 @@ class FooterLinkListbuilderHandler extends SetupListbuilderHandler {
 	/**
 	 * @copydoc GridHandler::loadData()
 	 */
-	function loadData($request) {
+	protected function loadData($request) {
 		$context = $this->getContext();
 		$footerLinkDao = DAORegistry::getDAO('FooterLinkDAO');
 		return $footerLinkDao->getByCategoryId($this->_getFooterCategoryId(), $context->getId());
@@ -83,7 +83,7 @@ class FooterLinkListbuilderHandler extends SetupListbuilderHandler {
 	/**
 	 * @copydoc GridHandler::getRowDataElement
 	 */
-	function getRowDataElement($request, &$rowId) {
+	protected function getRowDataElement($request, &$rowId) {
 		// fallback on the parent if a rowId is found
 		if ( !empty($rowId) ) {
 			return parent::getRowDataElement($request, $rowId);

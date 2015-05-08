@@ -89,7 +89,7 @@ class SponsorGridHandler extends SetupGridHandler {
 	 * Get the row handler - override the default row handler
 	 * @return SponsorGridRow
 	 */
-	function getRowInstance() {
+	protected function getRowInstance() {
 		return new SponsorGridRow();
 	}
 

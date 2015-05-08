@@ -117,7 +117,7 @@ class ContextGridHandler extends GridHandler {
 	 * @copydoc GridHandler::getRowInstance()
 	 * @return UserGridRow
 	 */
-	function getRowInstance() {
+	protected function getRowInstance() {
 		return new ContextGridRow();
 	}
 
@@ -126,7 +126,7 @@ class ContextGridHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 * @return array Grid data.
 	 */
-	function loadData($request) {
+	protected function loadData($request) {
 		// Get all contexts.
 		$contextDao = Application::getContextDAO();
 		$contexts = $contextDao->getAll();

@@ -135,7 +135,7 @@ class SubmissionsListGridHandler extends GridHandler {
 	/**
 	 * @copyDoc GridHandler::getFilterForm()
 	 */
-	function getFilterForm() {
+	protected function getFilterForm() {
 		return 'controllers/grid/submissions/submissionsGridFilter.tpl';
 	}
 

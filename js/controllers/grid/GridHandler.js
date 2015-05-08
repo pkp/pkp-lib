@@ -115,14 +115,6 @@
 	$.pkp.controllers.grid.GridHandler.prototype.fetchExtraParams_ = null;
 
 
-	/**
-	 * Search grid link element.
-	 * @private
-	 * @type {jQueryObject}
-	 */
-	$.pkp.controllers.grid.GridHandler.prototype.$searchLink_ = null;
-
-
 	//
 	// Public methods
 	//
@@ -519,6 +511,8 @@
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.initialize =
 			function(options) {
+		var $searchLink;
+
 		// Bind the handler for the "elements changed" event.
 		this.bind('dataChanged', this.refreshGridHandler);
 
@@ -554,14 +548,20 @@
 
 		// Search control.
 		this.getHtmlElement().find('.pkp_form').hide();
-		this.$searchLink_ = this.getHtmlElement().
+		$searchLink_ = this.getHtmlElement().
 				find('a[class^="sprite search_extras_"]');
-		this.$searchLink_.click(
-				this.callbackWrapper(function() {
-					this.getHtmlElement().find('.pkp_form').toggle();
-					this.$searchLink_.toggleClass('search_extras_expand').
-							toggleClass('search_extras_collapse');
-				}));
+		if ($searchLink_.length !== 0) {
+			$searchLink_.click(
+					this.callbackWrapper(function() {
+						this.getHtmlElement().find('.pkp_form').toggle();
+						$searchLink_.toggleClass('search_extras_expand').
+								toggleClass('search_extras_collapse');
+					}));
+		} else {
+			// This grid doesn't have an expand/collapse control. If there is
+			// a form, expand it.
+			this.getHtmlElement().find('.pkp_form').toggle();
+		}
 
 		this.trigger('gridInitialized');
 	};

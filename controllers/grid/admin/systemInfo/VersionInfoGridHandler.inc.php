@@ -148,7 +148,7 @@ class VersionInfoGridHandler extends GridHandler {
 	/**
 	 * @copydoc GridHandler::loadData()
 	 */
-	function loadData($request, $filter) {
+	protected function loadData($request, $filter) {
 		$versionDao = DAORegistry::getDAO('VersionDAO');
 		return $versionDao->getVersionHistory();
 	}

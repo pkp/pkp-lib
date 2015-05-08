@@ -287,7 +287,7 @@ class PKPSignoffFilesGridHandler extends CategoryGridHandler {
 	/**
 	 * @copydoc GridHandler::loadData()
 	 */
-	function loadData($request, $filter) {
+	protected function loadData($request, $filter) {
 		// Grab the files to display as categories
 		$submission = $this->getSubmission();
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
@@ -317,7 +317,7 @@ class PKPSignoffFilesGridHandler extends CategoryGridHandler {
 	 * @copydoc CategoryGridHandler::getCategoryRowInstance()
 	 * @return CopyeditingFilesGridCategoryRow
 	 */
-	function getCategoryRowInstance() {
+	protected function getCategoryRowInstance() {
 		$row = new SignoffFilesGridCategoryRow($this->getStageId());
 		$submission = $this->getSubmission();
 		$row->setCellProvider(new SignoffFilesGridCellProvider($submission->getId(), $this->getStageId()));
@@ -357,7 +357,7 @@ class PKPSignoffFilesGridHandler extends CategoryGridHandler {
 	 * Get the row handler - override the default row handler
 	 * @return CopyeditingFilesGridRow
 	 */
-	function getRowInstance() {
+	protected function getRowInstance() {
 		return new SignoffGridRow($this->getStageId());
 	}
 

@@ -105,7 +105,7 @@ class ServerInfoGridHandler extends GridHandler {
 	/**
 	 * @copydoc GridHandler::loadData()
 	 */
-	function loadData($request, $filter) {
+	protected function loadData($request, $filter) {
 
 		$dbconn = DBConnection::getConn();
 		$dbServerInfo = $dbconn->ServerInfo();

@@ -606,7 +606,7 @@ class GridHandler extends PKPHandler {
 		// Load grid-specific translations
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_GRID, LOCALE_COMPONENT_APP_COMMON);
 
-		if ($this->getFilterForm()) {
+		if ($this->getFilterForm() && $this->isFilterFormCollapsible()) {
 			import('lib.pkp.classes.linkAction.request.NullAction');
 			$this->addAction(
 				new LinkAction(
@@ -862,6 +862,14 @@ class GridHandler extends PKPHandler {
 	}
 
 	/**
+	 * Determine whether a filter form should be collapsible.
+	 * @return boolean
+	 */
+	protected function isFilterFormCollapsible() {
+		return true;
+	}
+
+	/**
 	 * Method that extracts the user's filter selection from the request either
 	 * by instantiating the filter's Form object or by reading the request directly
 	 * (if using a simple filter template only).
@@ -880,11 +888,10 @@ class GridHandler extends PKPHandler {
 	 */
 	protected function renderFilter($request, $filterData = array()) {
 		$form = $this->getFilterForm();
-		assert(is_null($form) || is_a($form, 'Form') || is_string($form));
-
-		$renderedForm = '';
 		switch(true) {
-			case is_a($form, 'Form'):
+			case $form === null: // No filter form.
+				return '';
+			case is_a($form, 'Form'): // Form object subclass
 				// Only read form data if the clientSubmit flag has been checked
 				$clientSubmit = (boolean) $request->getUserVar('clientSubmit');
 				if($clientSubmit) {
@@ -893,9 +900,8 @@ class GridHandler extends PKPHandler {
 				}
 
 				$form->initData($filterData, $request);
-				$renderedForm = $form->fetch($request);
-				break;
-			case is_string($form):
+				return $form->fetch($request);
+			case is_string($form): // HTML mark-up
 				$templateMgr = TemplateManager::getManager($request);
 
 				// Assign data to the filter.
@@ -905,11 +911,10 @@ class GridHandler extends PKPHandler {
 				$filterSelectionData = $this->getFilterSelectionData($request);
 				$templateMgr->assign('filterSelectionData', $filterSelectionData);
 
-				$renderedForm = $templateMgr->fetch($form);
+				return $templateMgr->fetch($form);
 				break;
 		}
-
-		return $renderedForm;
+		assert(false);
 	}
 
 	/**

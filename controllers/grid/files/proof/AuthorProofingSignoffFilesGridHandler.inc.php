@@ -77,7 +77,7 @@ class AuthorProofingSignoffFilesGridHandler extends CategoryGridHandler {
 	/**
 	 * @see GridHandler::getRowInstance()
 	 */
-	function getRowInstance() {
+	protected function getRowInstance() {
 		import('lib.pkp.controllers.grid.files.fileSignoff.AuthorSignoffFilesGridRow');
 		return new AuthorSignoffFilesGridRow(WORKFLOW_STAGE_ID_PRODUCTION);
 	}
@@ -85,7 +85,7 @@ class AuthorProofingSignoffFilesGridHandler extends CategoryGridHandler {
 	/**
 	 * @see CategoryGridHandler::getCategoryRowInstance()
 	 */
-	function getCategoryRowInstance() {
+	protected function getCategoryRowInstance() {
 		import('lib.pkp.controllers.grid.files.proof.AuthorProofingGridCategoryRow');
 		return new AuthorProofingGridCategoryRow();
 	}

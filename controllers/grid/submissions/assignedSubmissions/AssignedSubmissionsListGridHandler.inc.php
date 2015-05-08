@@ -54,7 +54,7 @@ class AssignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 	/**
 	 * @copydoc GridHandler::loadData()
 	 */
-	function loadData($request, $filter) {
+	protected function loadData($request, $filter) {
 		$user = $request->getUser();
 		$userId = $user->getId();
 

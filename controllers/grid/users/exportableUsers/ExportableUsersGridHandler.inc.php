@@ -171,7 +171,7 @@ class ExportableUsersGridHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 * @return array Grid data.
 	 */
-	function loadData($request, $filter) {
+	protected function loadData($request, $filter) {
 		// Get the context.
 		$context = $request->getContext();
 
@@ -247,7 +247,7 @@ class ExportableUsersGridHandler extends GridHandler {
 	 * @copydoc GridHandler::getFilterForm()
 	 * @return string Filter template.
 	 */
-	function getFilterForm() {
+	protected function getFilterForm() {
 		return 'controllers/grid/users/exportableUsers/userGridFilter.tpl';
 	}
 

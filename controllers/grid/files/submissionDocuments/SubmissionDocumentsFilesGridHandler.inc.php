@@ -101,7 +101,7 @@ class SubmissionDocumentsFilesGridHandler extends LibraryFileGridHandler {
 	 * Get the row handler - override the default row handler
 	 * @return LibraryFileGridRow
 	 */
-	function getRowInstance() {
+	protected function getRowInstance() {
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		return new LibraryFileGridRow($this->canEdit(), $submission);
 	}

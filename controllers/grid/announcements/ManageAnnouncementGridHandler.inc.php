@@ -77,7 +77,7 @@ class ManageAnnouncementGridHandler extends AnnouncementGridHandler {
 	/**
 	 * @copydoc GridHandler::getRowInstance()
 	 */
-	function getRowInstance() {
+	protected function getRowInstance() {
 		import('lib.pkp.controllers.grid.announcements.AnnouncementGridRow');
 		return new AnnouncementGridRow();
 	}

@@ -151,7 +151,7 @@ class UserGroupGridHandler extends GridHandler {
 	/**
 	 * @copydoc GridHandler::loadData()
 	 */
-	function loadData($request, $filter) {
+	protected function loadData($request, $filter) {
 		$contextId = $this->_getContextId();
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 
@@ -173,21 +173,19 @@ class UserGroupGridHandler extends GridHandler {
 		$rangeInfo = $this->getGridRangeInfo($request, $this->getId());
 
 		if ($stageIdFilter && $stageIdFilter != 0) {
-			$userGroups = $userGroupDao->getUserGroupsByStage($contextId, $stageIdFilter, false, false, $roleIdFilter, $rangeInfo);
+			return $userGroupDao->getUserGroupsByStage($contextId, $stageIdFilter, false, false, $roleIdFilter, $rangeInfo);
 		} else if ($roleIdFilter && $roleIdFilter != 0) {
-			$userGroups = $userGroupDao->getByRoleId($contextId, $roleIdFilter, false, $rangeInfo);
+			return $userGroupDao->getByRoleId($contextId, $roleIdFilter, false, $rangeInfo);
 		} else {
-			$userGroups = $userGroupDao->getByContextId($contextId, $rangeInfo);
+			return $userGroupDao->getByContextId($contextId, $rangeInfo);
 		}
-
-		return $userGroups;
 	}
 
 	/**
 	 * @copydoc GridHandler::getRowInstance()
 	 * @return UserGroupGridRow
 	 */
-	function getRowInstance() {
+	protected function getRowInstance() {
 		import('lib.pkp.controllers.grid.settings.roles.UserGroupGridRow');
 		return new UserGroupGridRow();
 	}
@@ -232,7 +230,7 @@ class UserGroupGridHandler extends GridHandler {
 	 * @see GridHandler::getFilterForm()
 	 * @return string Filter template.
 	 */
-	function getFilterForm() {
+	protected function getFilterForm() {
 		return 'controllers/grid/settings/roles/userGroupsGridFilter.tpl';
 	}
 

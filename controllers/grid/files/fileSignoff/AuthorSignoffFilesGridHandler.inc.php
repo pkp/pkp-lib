@@ -97,7 +97,7 @@ class AuthorSignoffFilesGridHandler extends GridHandler {
 	/**
 	 * @see GridHandler::getRowInstance()
 	 */
-	function getRowInstance() {
+	protected function getRowInstance() {
 		return new AuthorSignoffFilesGridRow($this->getStageId());
 	}
 }

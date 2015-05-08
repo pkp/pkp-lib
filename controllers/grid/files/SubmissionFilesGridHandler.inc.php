@@ -151,7 +151,7 @@ class SubmissionFilesGridHandler extends GridHandler {
 	/**
 	 * @copydoc GridHandler::getRowInstance()
 	 */
-	function getRowInstance() {
+	protected function getRowInstance() {
 		return new SubmissionFilesGridRow($this->getCapabilities(), $this->getStageId());
 	}
 

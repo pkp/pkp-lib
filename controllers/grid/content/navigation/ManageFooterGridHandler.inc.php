@@ -145,7 +145,7 @@ class ManageFooterGridHandler extends CategoryGridHandler {
 	 * @copydoc CategoryGridHandler::getCategoryRowInstance()
 	 * @return FooterGridCategoryRow
 	 */
-	function getCategoryRowInstance() {
+	protected function getCategoryRowInstance() {
 		return new FooterGridCategoryRow();
 	}
 
@@ -183,7 +183,7 @@ class ManageFooterGridHandler extends CategoryGridHandler {
 	/**
 	 * @copydoc GridHandler::loadData()
 	 */
-	function loadData($request, $filter = null) {
+	protected function loadData($request, $filter = null) {
 		// set our labels for the FooterLink categories.
 		$footerCategoryDao = DAORegistry::getDAO('FooterCategoryDAO');
 		$context = $this->getContext();

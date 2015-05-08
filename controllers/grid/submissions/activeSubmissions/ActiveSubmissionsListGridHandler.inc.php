@@ -73,7 +73,7 @@ class ActiveSubmissionsListGridHandler extends SubmissionsListGridHandler {
 	/**
 	 * @copydoc GridHandler::loadData()
 	 */
-	function loadData($request, $filter) {
+	protected function loadData($request, $filter) {
 		$submissionDao = Application::getSubmissionDAO();
 		$context = $request->getContext();
 		$rangeInfo = $this->getGridRangeInfo($request, $this->getId());

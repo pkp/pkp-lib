@@ -111,7 +111,7 @@ class PluginGalleryGridHandler extends GridHandler {
 	 * @param $filter array Filter parameters
 	 * @return array Grid data.
 	 */
-	function loadData($request, $filter) {
+	protected function loadData($request, $filter) {
 		// Get all plugins.
 		$pluginGalleryDao = DAORegistry::getDAO('PluginGalleryDAO');
 		return $pluginGalleryDao->getNewestCompatible(
@@ -124,7 +124,7 @@ class PluginGalleryGridHandler extends GridHandler {
 	/**
 	 * @see GridHandler::getFilterForm()
 	 */
-	function getFilterForm() {
+	protected function getFilterForm() {
 		return 'controllers/grid/plugins/pluginGalleryGridFilter.tpl';
 	}
 

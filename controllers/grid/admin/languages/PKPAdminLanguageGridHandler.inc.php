@@ -131,14 +131,14 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 	/**
 	 * @copydoc GridHandler::getRowInstance()
 	 */
-	function getRowInstance() {
+	protected function getRowInstance() {
 		return new LanguageGridRow();
 	}
 
 	/**
 	 * @copydoc GridHandler::loadData()
 	 */
-	function loadData($request, $filter) {
+	protected function loadData($request, $filter) {
 		$site = $request->getSite();
 		$data = array();
 

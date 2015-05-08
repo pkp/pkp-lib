@@ -125,14 +125,14 @@ class LibraryFileGridHandler extends CategoryGridHandler {
 	/**
 	 * @copydoc CategoryGridHandler::getCategoryRowInstance()
 	 */
-	function getCategoryRowInstance() {
+	protected function getCategoryRowInstance() {
 		return new LibraryFileGridCategoryRow($this->getContext());
 	}
 
 	/**
 	 * @copydoc GridHandler::loadData()
 	 */
-	function loadData($request, $filter) {
+	protected function loadData($request, $filter) {
 
 		$context = $this->getContext();
 		$libraryFileManager = new LibraryFileManager($context->getId());
@@ -150,7 +150,7 @@ class LibraryFileGridHandler extends CategoryGridHandler {
 	 * Get the row handler - override the default row handler
 	 * @return LibraryFileGridRow
 	 */
-	function getRowInstance() {
+	protected function getRowInstance() {
 		return new LibraryFileGridRow($this->canEdit());
 	}
 

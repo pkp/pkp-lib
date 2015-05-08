@@ -78,7 +78,7 @@ class MultipleListsListbuilderHandler extends ListbuilderHandler {
 	 * All the data loading for this component is done
 	 * using ListbuilderList objects.
 	 */
-	function loadData($request, $filter) {
+	protected function loadData($request, $filter) {
 		// Give a chance to subclasses set data
 		// on their lists.
 		$this->setListsData($request, $filter);

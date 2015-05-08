@@ -144,7 +144,7 @@ class UserGridHandler extends GridHandler {
 	 * @copydoc GridHandler::getRowInstance()
 	 * @return UserGridRow
 	 */
-	function getRowInstance() {
+	protected function getRowInstance() {
 		return new UserGridRow($this->_oldUserId);
 	}
 
@@ -161,7 +161,7 @@ class UserGridHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 * @return array Grid data.
 	 */
-	function loadData($request, $filter) {
+	protected function loadData($request, $filter) {
 		// Get the context.
 		$context = $request->getContext();
 
@@ -169,7 +169,7 @@ class UserGridHandler extends GridHandler {
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$rangeInfo = $this->getGridRangeInfo($request, $this->getId());
 
-		return $users = $userGroupDao->getUsersById(
+		return $userGroupDao->getUsersById(
 			$filter['userGroup'],
 			$filter['includeNoRole']?null:$context->getId(),
 			$filter['searchField'],
@@ -239,7 +239,7 @@ class UserGridHandler extends GridHandler {
 	 * @copydoc GridHandler::getFilterForm()
 	 * @return string Filter template.
 	 */
-	function getFilterForm() {
+	protected function getFilterForm() {
 		return 'controllers/grid/settings/user/userGridFilter.tpl';
 	}
 

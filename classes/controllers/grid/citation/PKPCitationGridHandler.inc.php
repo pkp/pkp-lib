@@ -168,7 +168,7 @@ class PKPCitationGridHandler extends GridHandler {
 	/**
 	 * @see GridHandler::getRowInstance()
 	 */
-	function getRowInstance() {
+	protected function getRowInstance() {
 		// Return a citation row
 		return new PKPCitationGridRow();
 	}

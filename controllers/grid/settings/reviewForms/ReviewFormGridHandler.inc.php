@@ -150,7 +150,7 @@ class ReviewFormGridHandler extends GridHandler {
 	 * @see GridHandler::getRowInstance()
 	 * @return UserGridRow
 	 */
-	function getRowInstance() {
+	protected function getRowInstance() {
 		return new ReviewFormGridRow();
 	}
 
@@ -159,7 +159,7 @@ class ReviewFormGridHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 * @return array Grid data.
 	 */
-	function loadData($request) {
+	protected function loadData($request) {
 		// Get all review forms.
 		$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
 		$context = $request->getContext();

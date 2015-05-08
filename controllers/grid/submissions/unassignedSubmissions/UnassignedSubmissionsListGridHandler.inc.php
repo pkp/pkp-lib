@@ -58,7 +58,7 @@ class UnassignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 	/**
 	 * @copydoc GridHandler::loadData()
 	 */
-	function loadData($request, $filter) {
+	protected function loadData($request, $filter) {
 		$submissionDao = Application::getSubmissionDAO(); /* @var $submissionDao SubmissionDAO */
 
 		// Determine whether this is a Sub Editor or Manager.

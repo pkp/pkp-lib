@@ -548,13 +548,13 @@
 
 		// Search control.
 		this.getHtmlElement().find('.pkp_form').hide();
-		$searchLink_ = this.getHtmlElement().
+		$searchLink = this.getHtmlElement().
 				find('a[class^="sprite search_extras_"]');
-		if ($searchLink_.length !== 0) {
-			$searchLink_.click(
+		if ($searchLink.length !== 0) {
+			$searchLink.click(
 					this.callbackWrapper(function() {
 						this.getHtmlElement().find('.pkp_form').toggle();
-						$searchLink_.toggleClass('search_extras_expand').
+						$searchLink.toggleClass('search_extras_expand').
 								toggleClass('search_extras_collapse');
 					}));
 		} else {

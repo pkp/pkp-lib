@@ -27,6 +27,8 @@ class QueryForm extends Form {
 
 	/**
 	 * Constructor.
+	 * @param $stageId int
+	 * @param $query SubmissionFileQuery
 	 */
 	function QueryForm($submission, $stageId, $query = null) {
 		parent::Form('controllers/grid/queries/form/queryForm.tpl');
@@ -154,6 +156,7 @@ class QueryForm extends Form {
 	/**
 	 * Save query
 	 * @see Form::execute()
+	 * @return int|null Query ID if query already existed; null otherwise
 	 */
 	function execute() {
 		// in order to be able to use the hook
@@ -162,6 +165,7 @@ class QueryForm extends Form {
 		if ($query) {
 			return $query->getId();
 		}
+		return null;
 	}
 
 	/**

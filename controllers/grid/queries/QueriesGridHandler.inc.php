@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/queries/QueriesGridHandler.inc.php
  *
- * Copyright (c) 2014 Simon Fraser University Library
- * Copyright (c) 2000-2014 John Willinsky
+ * Copyright (c) 2015 Simon Fraser University Library
+ * Copyright (c) 2000-2015 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class QueriesGridHandler
@@ -32,7 +32,7 @@ class QueriesGridHandler extends GridHandler {
 	function QueriesGridHandler() {
 		parent::GridHandler();
 		$this->addRoleAssignment(
-			array(ROLE_ID_MANAGER, ROLE_ID_EDITOR, ROLE_ID_AUTHOR, ROLE_ID_SECTION_EDITOR),
+			array(ROLE_ID_MANAGER, ROLE_ID_AUTHOR, ROLE_ID_SECTION_EDITOR),
 			array('fetchGrid', 'fetchRow', 'addQuery', 'editQuery', 'updateQuery', 'readQuery', 'cancelQuery'));
 	}
 

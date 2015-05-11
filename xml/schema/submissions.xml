@@ -282,27 +282,4 @@
 			<UNIQUE/>
 		</index>
 	</table>
-	
-	<!--
-	  *
-	  * TABLE query_files
-	  *
-	  -->
-	<table name="query_files">
-		<field name="query_id" type="I8">
-			<NOTNULL/>
-		</field>
-		<field name="file_id" type="I8">
-			<NOTNULL/>
-		</field>
-		<descr>Associates submission files with queries</descr>
-		<index name="query_files_review_id">
-			<col>query_id</col>
-		</index>
-		<index name="query_files_pkey">
-			<col>query_id</col>
-			<col>file_id</col>
-			<UNIQUE/>
-		</index>
-	</table>
 </schema>

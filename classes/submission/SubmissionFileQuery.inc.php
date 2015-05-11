@@ -3,8 +3,8 @@
 /**
  * @file classes/submission/SubmissionFileQuery.inc.php
  *
- * Copyright (c) 2014 Simon Fraser University Library
- * Copyright (c) 2003-2014 John Willinsky
+ * Copyright (c) 2015 Simon Fraser University Library
+ * Copyright (c) 2003-2015 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFileQuery
@@ -53,22 +53,6 @@ class SubmissionFileQuery extends DataObject {
 	 */
 	function setParentQueryId($parentQueryId) {
 		return $this->setData('parentQueryId', $parentQueryId);
-	}
-
-	/**
-	 * get revision
-	 * @return int
-	 */
-	function getRevision() {
-		return $this->getData('revision');
-	}
-
-	/**
-	 * set revision
-	 * @param $revision int
-	 */
-	function setRevision($revision) {
-		return $this->setData('revision', $revision);
 	}
 
 	/**
@@ -125,8 +109,7 @@ class SubmissionFileQuery extends DataObject {
 	 */
 	function getUser() {
 		$userDao = DAORegistry::getDAO('UserDAO');
-		$user = $userDao->getById($this->getUserId());
-		return $user;
+		return $userDao->getById($this->getUserId());
 	}
 
 	/**

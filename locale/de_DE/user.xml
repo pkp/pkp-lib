@@ -33,7 +33,6 @@
 	<message key="user.dateRegistered">Angemeldet am</message>
 	<message key="user.editMyProfile">Mein Profil bearbeiten</message>
 	<message key="user.email">E-Mail</message>
-	<message key="user.confirmEmail">E-Mail bestätigen</message>
 	<message key="user.fax">Fax</message>
 	<message key="user.feminine">F</message>
 	<message key="user.firstName">Vorname</message>

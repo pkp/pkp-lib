@@ -107,7 +107,6 @@
 	<message key="user.affiliation.description">(Ваше место работы, например, Московский государственный университет имени М.В. Ломоносова)</message>
 	<message key="user.authorization.accessDenied">Доступ запрещен.</message>
 	<message key="user.authorization.loginRequired">Необходимо указать имя пользователя.</message>
-	<message key="user.confirmEmail">Подтвердите Email</message>
 	<message key="user.gossip">Личные примечания</message>
 	<message key="user.hello">Приветствуем,</message>
 	<message key="user.profile.form.countryRequired">Необходимо указать страну.</message>

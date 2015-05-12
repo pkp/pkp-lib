@@ -103,7 +103,6 @@
 	<message key="user.other">غیره</message>
 	<message key="user.profile.form.urlInvalid">آدرس وارد شده بی اعتبار است. پس از بررسی دوباره امتحان کنید. نکته: http:// را به ابتدای آدرس بیافزائید.</message>
 	<message key="user.affiliation.description">نام مؤسسه، مانند دانشکاه سایمون فریزر</message>
-	<message key="user.confirmEmail">تایید ایمیل</message>
 	<message key="user.gossip">یادداشت خصوصی</message>
 	<message key="user.profile.form.affiliationRequired">وابستیگی سازمانی لازم است</message>
 	<message key="user.register.form.emailsDoNotMatch">فیلدهای حاوی آدرس ایمیل مطابقت ندارند</message>

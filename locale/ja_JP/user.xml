@@ -103,7 +103,6 @@
 	<message key="user.login.changePasswordInstructions"><![CDATA[このサイトにログインする前に新しいパスワードを選んでください。<br /><br />あたらしいユーザ名と現在のパスワードと新しいパスワードを入力してアカウントのパスワードを変更してください。]]></message>
 	<message key="user.other">その他</message>
 	<message key="user.affiliation.description">(所属 例: サイモン・フレーザー大学)</message>
-	<message key="user.confirmEmail">メールアドレス(確認用)</message>
 	<message key="user.gossip">個人情報</message>
 	<message key="user.profile.form.affiliationRequired">所属は必須です。</message>
 	<message key="user.register.form.emailsDoNotMatch">メールアドレスが一致しません。</message>

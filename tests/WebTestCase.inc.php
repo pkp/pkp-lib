@@ -167,7 +167,6 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 		$this->type('css=[id^=lastName-]', $data['lastName']);
 		$this->type('css=[id^=username-]', $username);
 		$this->type('css=[id^=email-]', $data['email']);
-		$this->type('css=[id^=confirmEmail-]', $data['email']);
 		$this->type('css=[id^=password-]', $data['password']);
 		$this->type('css=[id^=password2-]', $data['password2']);
 		if (isset($data['affiliation'])) $this->type('css=[id^=affiliation-]', $data['affiliation']);

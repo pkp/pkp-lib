@@ -104,7 +104,6 @@
 	<message key="user.affiliation.description">(Sua instituição, por exemplo "Simon Fraser University")</message>
 	<message key="user.gossip">Notas privadas</message>
 	<message key="user.profile.form.affiliationRequired">A instituição/afiliação é obrigatória.</message>
-	<message key="user.confirmEmail">Confirmar e-mail</message>
 	<message key="user.register.form.emailsDoNotMatch">O e-mail informado nos campos não correspondem.</message>
 	<message key="user.repeatPassword">Repetir senha</message>
 	<message key="user.authorization.accessDenied">Acesso negado.</message>

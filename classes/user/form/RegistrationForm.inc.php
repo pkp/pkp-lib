@@ -53,7 +53,6 @@ class RegistrationForm extends Form {
 
 		// Email checks
 		$this->addCheck(new FormValidatorEmail($this, 'email', 'required', 'user.profile.form.emailRequired'));
-		$this->addCheck(new FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailsDoNotMatch', create_function('$email,$form', 'return $email == $form->getData(\'confirmEmail\');'), array(&$this)));
 		$this->addCheck(new FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailExists', array(DAORegistry::getDAO('UserDAO'), 'userExistsByEmail'), array(), true));
 
 		$this->captchaEnabled = Config::getVar('captcha', 'captcha_on_register') && Config::getVar('captcha', 'recaptcha');
@@ -136,7 +135,6 @@ class RegistrationForm extends Form {
 			'lastName',
 			'affiliation',
 			'email',
-			'confirmEmail',
 			'country',
 			'sendPassword',
 			'interests',

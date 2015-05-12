@@ -105,7 +105,6 @@
 	<message key="user.profile.form.profileImageInvalid">Irudi-formatu profil baliogabea edo irudi handiegia. Formatu onartuak .gif, .jpg, eta .png dira, eta irudiak ezin du 150x150 pixeleko tamaina gainditu.</message>
 	<message key="user.other">Beste batzuk</message>
 	<message key="user.profile.form.affiliationRequired">Afiliatzea behar da.</message>
-	<message key="user.confirmEmail">Berretsi helbide elektronikoa</message>
 	<message key="user.repeatPassword">Errepikatu pasahitza</message>
 	<message key="user.register.form.emailsDoNotMatch">Helbide elektronikoaren eremuak ez datoz bat.</message>
 	<message key="user.authorization.accessDenied">Sarbidea ukatuta.</message>

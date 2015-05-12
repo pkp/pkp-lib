@@ -104,7 +104,6 @@
 	<message key="user.profile.form.profileImageInvalid">Ongeldig formaat voor de profielafbeelding of te grote afbeelding. Geaccepteerde formaten zijn .gif, .jpg en .png. De afbeelding mag niet groter zijn dan 150x150 pixels.</message>
 	<message key="user.register.form.emailsDoNotMatch">De e-mailadresvelden komen niet overeen</message>
 	<message key="user.affiliation.description">(Uw instituut, bv. "Simon Fraser University")</message>
-	<message key="user.confirmEmail">Bevestig e-mail</message>
 	<message key="user.gossip">Prive notities</message>
 	<message key="user.profile.form.affiliationRequired">Een affiliatie is verplciht</message>
 	<message key="user.repeatPassword">Herhaal wachtwoord</message>

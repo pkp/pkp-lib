@@ -31,7 +31,6 @@
 	<message key="user.dateRegistered">Date registered</message>
 	<message key="user.editMyProfile">Edit My Profile</message>
 	<message key="user.email">Email</message>
-	<message key="user.confirmEmail">Confirm Email</message>
 	<message key="user.fax">Fax</message>
 	<message key="user.feminine">F</message>
 	<message key="user.firstName">First name</message>

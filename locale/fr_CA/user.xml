@@ -105,7 +105,6 @@
 	<message key="user.profile.form.affiliationRequired">L'affiliation est obligatoire.</message>
 	<message key="user.affiliation.description">(Votre institution, par ex., "Université de Montréal")</message>
 	<message key="user.gossip">Notes privées</message>
-	<message key="user.confirmEmail">Confirmer le courriel</message>
 	<message key="user.repeatPassword">Répéter le mot de passe</message>
 	<message key="user.register.form.emailsDoNotMatch">Les champs du courriel ne correspondent pas.</message>
 	<message key="user.accountInformation">Renseignements sur le compte</message>

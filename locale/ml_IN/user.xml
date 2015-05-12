@@ -31,7 +31,6 @@
 	<message key="user.dateRegistered">രജിസ്റ്റര്‍ ചെയ്ത ദിവസം</message>
 	<message key="user.editMyProfile">എന്റെ പ്രൊഫൈല്‍ ചിട്ടപ്പെടുത്തുക</message>
 	<message key="user.email">ഇ-മെയില്‍</message>
-	<message key="user.confirmEmail">ഇ-മെയില്‍ സ്ഥിരീകരിക്കുക</message>
 	<message key="user.fax">ഫാക്സ്</message>
 	<message key="user.feminine">എഫ്</message>
 	<message key="user.firstName">ആദ്യനാമം</message>

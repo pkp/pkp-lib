@@ -105,7 +105,6 @@
 	<message key="user.profile.form.affiliationRequired">Inserisci un'affiliazione</message>
 	<message key="user.register.form.emailsDoNotMatch">Le email inserite non corrispondono.</message>
 	<message key="user.affiliation.description"><![CDATA[(La tua istituzione, es. "Universit&#224; La Sapienza di Roma")]]></message>
-	<message key="user.confirmEmail">Ripeti l'email</message>
 	<message key="user.gossip">Note private</message>
 	<message key="user.repeatPassword">Ripeti la password</message>
 	<message key="user.authorization.processAuthenticationTokenRequired">Il token di autenticazione non è valido</message>

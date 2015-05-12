@@ -105,7 +105,6 @@
 	<message key="user.affiliation.description">(A túa institución, ej. "Universidade de Santiago de Compostela")</message>
 	<message key="user.gossip">Notas privadas</message>
 	<message key="user.profile.form.affiliationRequired">Compre ter unha afiliación</message>
-	<message key="user.confirmEmail">Confirmar correo electrónico</message>
 	<message key="user.repeatPassword">Repite o contrasinal</message>
 	<message key="user.register.form.emailsDoNotMatch">Os campos de correo electrónico non coinciden.</message>
 </locale>

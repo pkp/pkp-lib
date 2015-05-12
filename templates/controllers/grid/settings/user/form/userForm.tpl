@@ -41,7 +41,6 @@
 		{if $implicitAuth || $userId}{assign var="disableSendNotifySection" value=true}{/if}
 		{include
 			file="common/userDetails.tpl"
-			disableEmailWithConfirmSection=true
 			disableAuthSourceSection=!$authSourceOptions
 			disablePasswordSection=$implicitAuth
 			disableSendNotifySection=$disableSendNotifySection

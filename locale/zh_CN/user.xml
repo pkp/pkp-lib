@@ -101,7 +101,6 @@
 	<message key="user.username">用户名</message>
 	<message key="user.workingLanguages">工作语言</message>
 	<message key="user.register.completeForm">填写这个表格以注册到这个期刊.</message>
-	<message key="user.confirmEmail">确认邮件</message>
 	<message key="user.repeatPassword">重复密码</message>
 	<message key="user.profile.form.affiliationRequired">联系地址是必须的</message>
 	<message key="user.register.form.emailsDoNotMatch">电子邮件地址不匹配</message>

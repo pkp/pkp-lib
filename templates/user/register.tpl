@@ -43,7 +43,6 @@
 			{fbvElement type="text" label="user.firstName" required="true" id="firstName" value=$firstName maxlength="40" inline=true size=$fbvStyles.size.SMALL}
 			{fbvElement type="text" label="user.middleName" id="middleName" value=$middleName maxlength="40" inline=true size=$fbvStyles.size.SMALL}
 			{fbvElement type="text" label="user.lastName" required="true" id="lastName" value=$lastName maxlength="40" inline=true size=$fbvStyles.size.SMALL}
-			{fbvElement type="text" label="user.affiliation" multilingual="true" name="affiliation" id="affiliation" value=$affiliation size=$fbvStyles.size.LARGE}
 		{/fbvFormSection}
 
 		{fbvFormSection for="username" description="user.register.usernameRestriction"}
@@ -51,13 +50,15 @@
 			{fbvElement type="button" label="common.suggest" id="suggestUsernameButton" inline=true class="default"}
 		{/fbvFormSection}
 
-		{fbvFormArea id="emailArea" class="border" title="user.email"}
-			{fbvFormSection}
-				{fbvElement type="text" label="user.email" id="email" value=$email size=$fbvStyles.size.MEDIUM required=true inline=true}
-				{fbvElement type="text" label="user.confirmEmail" id="confirmEmail" value=$confirmEmail required=true size=$fbvStyles.size.MEDIUM inline=true}
-			{/fbvFormSection}
+		{fbvFormSection}
+			{fbvElement type="text" label="user.email" id="email" value=$email size=$fbvStyles.size.MEDIUM required=true}
 			{if $privacyStatement}<a class="action" href="#privacyStatement">{translate key="user.register.privacyStatement"}</a>{/if}
-		{/fbvFormArea}
+		{/fbvFormSection}
+
+		{fbvFormSection}
+			{fbvElement type="text" label="user.affiliation" multilingual="true" name="affiliation" id="affiliation" value=$affiliation size=$fbvStyles.size.MEDIUM inline=true}
+			{fbvElement type="select" label="common.country" name="country" id="country" required=true defaultLabel="" defaultValue="" from=$countries selected=$country translate="0" size=$fbvStyles.size.MEDIUM inline=true}
+		{/fbvFormSection}
 
 		{fbvFormArea id="passwordSection" class="border" title="user.password"}
 			{fbvFormSection for="password" class="border"}
@@ -66,11 +67,6 @@
 			{/fbvFormSection}
 
 		{/fbvFormArea}
-
-		{fbvFormSection for="country" title="common.country"}
-			{fbvElement type="select" label="common.country" name="country" id="country" required=true defaultLabel="" defaultValue="" from=$countries selected=$country translate="0" size=$fbvStyles.size.MEDIUM}
-		{/fbvFormSection}
-
 	{/fbvFormArea}
 
 	{include file="user/userGroups.tpl"}

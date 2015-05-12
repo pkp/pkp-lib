@@ -109,7 +109,6 @@
 	<message key="user.authorization.restrictedSiteAccess">Du er blevet nægtet adgang. Der er i øjeblikket begrænset adgang til dette websted.</message>
 	<message key="user.authorization.roleBasedAccessDenied">Den nuværende rolle har ikke adgang til denne handling.</message>
 	<message key="user.authorization.userGroupRequired">Du skal oprette en gyldig brugergruppe for at få adgang til denne handling.</message>
-	<message key="user.confirmEmail">Bekræft e-mail</message>
 	<message key="user.gossip">Private bemærkninger</message>
 	<message key="user.profile.form.profileImageInvalid">Profilbilledets format er ugyldigt, eller også er billedet for stort. De accepterede formater er .gif, .jpg og .png, og billedet må ikke overskrive 150 x 150 pixler.</message>
 	<message key="user.other">Andet</message>

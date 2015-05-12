@@ -111,7 +111,6 @@
 	<message key="user.authorization.restrictedSiteAccess">Η πρόσβασή σας δεν ήταν δυνατή. Η πρόσβαση στον ιστότοπο αυτό είναι προς το παρόν περιορισμένη.</message>
 	<message key="user.authorization.roleBasedAccessDenied">Ο υφιστάμενος ρόλος δεν έχει δικαίωμα πρόσβασης σε αυτή τη λειτουργία.</message>
 	<message key="user.authorization.userGroupRequired">Πρέπει να δημιουργήσετε μια έγκυρη ομάδα χρηστών για να προσπελάσετε αυτή τη λειτουργία.</message>
-	<message key="user.confirmEmail">Επιβεβαίωση email</message>
 	<message key="user.gossip">Ιδιωτικές σημειώσεις</message>
 	<message key="user.repeatPassword">Επανάληψη Κωδικού</message>
 	<message key="user.profile.form.affiliationRequired">Θα πρέπει να δηλώσετε την ισχέση σας με έναν φορέα.</message>

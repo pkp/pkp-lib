@@ -105,7 +105,6 @@
 	<message key="user.affiliation.description">(A sua instituição, e.g. "Instituto Superior de Psicologia Aplicada - Instituto Universitário")</message>
 	<message key="user.gossip">Notas Privadas</message>
 	<message key="user.profile.form.affiliationRequired">É requerido uma afiliação.</message>
-	<message key="user.confirmEmail">Confirmar Email</message>
 	<message key="user.repeatPassword">Repetir Senha</message>
 	<message key="user.register.form.emailsDoNotMatch">Os campos e-mail não coincidem.</message>
 </locale>

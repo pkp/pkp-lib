@@ -24,7 +24,6 @@
 	{include
 		file="common/userDetails.tpl"
 		disableUserNameSection=true
-		disableEmailWithConfirmSection=true
 		disableAuthSourceSection=true
 		disablePasswordSection=true
 		disableSendNotifySection=true

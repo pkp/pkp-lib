@@ -36,14 +36,13 @@ class NotificationMailingListForm extends Form {
 		}
 		$this->addCheck(new FormValidatorPost($this));
 		$this->addCheck(new FormValidatorEmail($this, 'email', 'required', 'notification.mailList.emailInvalid'));
-		$this->addCheck(new FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailsDoNotMatch', create_function('$email,$form', 'return $email == $form->getData(\'confirmEmail\');'), array($this)));
 	}
 
 	/**
 	 * Assign form data to user-submitted data.
 	 */
 	function readInputData() {
-		$userVars = array('email', 'confirmEmail');
+		$userVars = array('email');
 		
 		if ($this->captchaEnabled) {
 			$userVars[] = 'recaptcha_challenge_field';

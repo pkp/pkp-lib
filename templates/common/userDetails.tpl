@@ -10,7 +10,6 @@
  * Parameters:
  *   $disableUserNameSection: Disable UserName section
  *   $disableEmailSection: Disable Email section
- *   $disableEmailWithConfirmSection: Disable EmailWithConfirm section
  *   $disableAuthSourceSection: Disable Auth section
  *   $disablePasswordSection: Disable Password section
  *   $disableSendNotifySection: Disable SendNotify section
@@ -54,16 +53,6 @@
 			{fbvFormSection title="about.contact"}
 				{fbvElement type="text" label="user.email" id="email" required="true" value=$email maxlength="90" size=$fbvStyles.size.MEDIUM}
 			{/fbvFormSection}
-		{/if}
-
-		{if !$disableEmailWithConfirmSection}
-			{fbvFormArea id="emailArea" class="border" title="user.email"}
-				{fbvFormSection}
-					{fbvElement type="text" label="user.email" id="email" value=$email size=$fbvStyles.size.MEDIUM required=true inline=true}
-					{fbvElement type="text" label="user.confirmEmail" id="confirmEmail" value=$confirmEmail required=true size=$fbvStyles.size.MEDIUM inline=true}
-				{/fbvFormSection}
-				{if $privacyStatement}<a class="action" href="#privacyStatement">{translate key="user.register.privacyStatement"}</a>{/if}
-			{/fbvFormArea}
 		{/if}
 
 		{if !$disableAuthSourceSection}

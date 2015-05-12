@@ -257,6 +257,9 @@ class RegistrationForm extends Form {
 			$mail->addRecipient($user->getEmail(), $user->getFullName());
 			$mail->send();
 			unset($mail);
+		} else {
+			// Create a notification guiding the user to their profile.
+			NotificationManager::createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('user.register.registrationCompleted', array('profileUrl' => $request->url(null, 'user', 'profile')))));
 		}
 		if ($this->getData('sendPassword')) {
 			// Send welcome email to user

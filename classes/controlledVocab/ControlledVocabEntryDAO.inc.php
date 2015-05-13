@@ -140,10 +140,8 @@ class ControlledVocabEntryDAO extends DAO {
 	 */
 	function insertObject($controlledVocabEntry) {
 		$this->update(
-			sprintf('INSERT INTO controlled_vocab_entries
-				(controlled_vocab_id, seq)
-				VALUES
-				(?, ?)'),
+			'INSERT INTO controlled_vocab_entries (controlled_vocab_id, seq)
+			VALUES (?, ?)',
 			array(
 				(int) $controlledVocabEntry->getControlledVocabId(),
 				(float) $controlledVocabEntry->getSequence()

@@ -12,54 +12,43 @@
 <script>
 	// Attach the handler.
 	$(function() {ldelim}
-		$('#editQuery').pkpHandler(
+		$('#queryForm').pkpHandler(
 			'$.pkp.controllers.grid.queries.form.QueryFormHandler',
 			{ldelim}
-				deleteUrl: '{url|escape:javascript op="cancelQuery" submissionId=$submissionId stageId=$stageId queryId=$queryId escape=false}',
-				queryId: '{$queryId|escape}'
+				deleteUrl: {if $isNew}'{url|escape:javascript op="deleteQuery" submissionId=$submissionId stageId=$stageId queryId=$queryId escape=false}'{else}null{/if}
 			{rdelim}
 		);
 	{rdelim});
 </script>
 
-<form class="pkp_form" id="editQuery" method="post" action="{url op="updateQuery" queryId=$queryId">
+<form class="pkp_form" id="queryForm" method="post" action="{url op="updateQuery"}">
+	<input type="hidden" name="queryId" value="{$queryId|escape}" />
+	<input type="hidden" name="submissionId" value="{$submissionId|escape}" />
+	<input type="hidden" name="stageId" value="{$stageId|escape}" />
+
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="queryFormNotification"}
 
-		{fbvFormArea id="notifyFormArea"}
-			{url|assign:notifyUsersUrl router=$smarty.const.ROUTE_COMPONENT component="listbuilder.users.NotifyUsersListbuilderHandler" op="fetch" params=$linkParams submissionId=$submissionId userId=$userId escape=false}
-			{load_url_in_div id="notifyUsersContainer" url=$notifyUsersUrl}
+	{fbvFormArea id="queryUsersArea"}
+		{url|assign:notifyUsersUrl router=$smarty.const.ROUTE_COMPONENT component="listbuilder.users.StageUsersListbuilderHandler" op="fetch" params=$linkParams submissionId=$submissionId userIds=$userIds escape=false}
+		{load_url_in_div id="notifyUsersContainer" url=$notifyUsersUrl}
+	{/fbvFormArea}
 
-			{fbvFormSection title="common.subject" for="subject" required="true" size=$fbvStyles.size.medium}
-				{fbvElement type="text" id="subject" multilingual="true"}
-			{/fbvFormSection}
+	{fbvFormArea id="queryContentsArea"}
+		{fbvFormSection title="common.subject" for="subject" required="true"}
+			{fbvElement type="text" id="subject" multilingual="true" value=$subject}
+		{/fbvFormSection}
 
-			{fbvFormSection title="stageParticipants.notify.message" for="comment" required="true"}
-				{fbvElement type="textarea" id="comment" multilingual="true" rich=true}
-			{/fbvFormSection}
-			{fbvFormButtons id="addQueryButton"}
-		{/fbvFormArea}
+		{fbvFormSection title="stageParticipants.notify.message" for="comment" required="true"}
+			{fbvElement type="textarea" id="comment" multilingual="true" rich=true value=$comment}
+		{/fbvFormSection}
+	{/fbvFormArea}
 
-	<div id="filesAccordion">
-		<h3>{translate key="editor.submissionReview.restrictFiles"}</h3>
-		<div>
-			<!-- Files for this query -->
-			{url|assign:queryFilesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.query.QueryFilesGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId queryId=$queryId escape=false}
-			{load_url_in_div id="queryFilesGrid" url=$queryFilesGridUrl}
-		</div>
-	</div>
+	{fbvFormArea id="queryFilesArea"}
+		<!-- Files for this query -->
+		{url|assign:queryFilesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.query.QueryFilesGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId queryId=$queryId escape=false}
+		{load_url_in_div id="queryFilesGrid" url=$queryFilesGridUrl}
+	{/fbvFormArea}
 
-	{if $submissionId}
-		<input type="hidden" name="submissionId" value="{$submissionId|escape}" />
-	{/if}
-		{if $stageId}
-		<input type="hidden" name="stageId" value="{$stageId|escape}" />
-	{/if}
-	{if $gridId}
-		<input type="hidden" name="gridId" value="{$gridId|escape}" />
-	{/if}
-	{if $rowId}
-		<input type="hidden" name="rowId" value="{$rowId|escape}" />
-	{/if}
-
+	{fbvFormButtons id="addQueryButton"}
 </form>
 <p><span class="formRequired">{translate key="common.requiredField"}</span></p>

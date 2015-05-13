@@ -1,5 +1,5 @@
 /**
- * @file js/controllers/grid/queries/form/WizardModalHandler.js
+ * @file js/controllers/grid/queries/form/QueryFormHandler.js
  *
  * Copyright (c) 2014-2015 Simon Fraser University Library
  * Copyright (c) 2000-2015 John Willinsky
@@ -14,7 +14,10 @@
 
 	/** @type {Object} */
 	$.pkp.controllers.grid.queries =
-			$.pkp.controllers.grid.queries || { form: { } } ;
+			$.pkp.controllers.grid.queries || { form: { } };
+
+
+
 	/**
 	 * @constructor
 	 *
@@ -27,6 +30,7 @@
 	 *
 	 *  Options are:
 	 *  - all options documented for the AjaxModalHandler.
+	 *  - deleteUrl: The URL to POST to in order to delete the incomplete query.
 	 */
 	$.pkp.controllers.grid.queries.form.QueryFormHandler =
 			function($handledElement, options) {
@@ -35,60 +39,58 @@
 
 		// Store the options.
 		this.deleteUrl_ = options.deleteUrl;
-		this.queryId_ = options.queryId;
-
 	};
-	$.pkp.classes.Helper.inherits($.pkp.controllers.grid.queries.form.QueryFormHandler,
-			$.pkp.controllers.form.AjaxFormHandler);
+	$.pkp.classes.Helper.inherits($.pkp.controllers.grid.queries.form.
+			QueryFormHandler, $.pkp.controllers.form.AjaxFormHandler);
+
 
 	//
 	// Private properties
 	//
 	/**
-	 * The URL to be called when a cancel event occurs.
+	 * The URL to be called when a cancel event occurs to delete the
+	 * incomplete query.
 	 * @private
-	 * @type {string}
+	 * @type {string?}
 	 */
 	$.pkp.controllers.grid.queries.form.QueryFormHandler.
-			prototype.deleteUrl_ = '';
+			prototype.deleteUrl_ = null;
+
 
 	/**
-	 * The id of our query object
+	 * True iff the form is complete (i.e. a normal "Save" action is in progress).
 	 * @private
-	 * @type {int}
+	 * @type {boolean}
 	 */
 	$.pkp.controllers.grid.queries.form.QueryFormHandler.
-			prototype.queryId_ = '';
+			prototype.isComplete_ = false;
 
-	/** @inheritDoc */
-	$.pkp.controllers.grid.queries.form.QueryFormHandler.prototype.cancelForm =
-			function(cancelButton, event) {
 
-		$.post(this.deleteUrl_, this.queryId_,
-				$.pkp.classes.Helper.curry(this.formCancelSuccess, this,
-						cancelButton, event), 'json');
+	/**
+	 * @inheritDoc
+	 */
+	$.pkp.controllers.grid.queries.form.QueryFormHandler.prototype.
+			containerCloseHandler = function(input, event) {
+
+		// If the form wasn't completed, delete the created query.
+		if (!this.isComplete_ && this.deleteUrl_ !== null) {
+			$.post(this.deleteUrl_);
+		}
+
 		return /** @type {boolean} */ (
-				this.parent('cancelForm'));
+				this.parent('containerCloseHandler', input, event));
 	};
 
-	/**
-	 * Callback triggered when the deletion of a file after clicking
-	 * the cancel button was successful.
-	 *
-	 * @param {HTMLElement} htmlElement The form's HTMLElement on
-	 *  which the event was triggered.
-	 * @param {Event} event The original event.
-	 * @param {Object} jsonData The JSON data returned by the server on
-	 *  file deletion.
-	 */
-	$.pkp.controllers.grid.queries.form.QueryFormHandler.
-			prototype.formCancelSuccess = function(htmlElement, event, jsonData) {
 
-		var processedJsonData = this.handleJson(jsonData);
-		if (processedJsonData !== false) {
-			// Cancel the wizard.
-			this.trigger('wizardCancel');
-		}
+	/**
+	 * @inheritDoc
+	 */
+	$.pkp.controllers.grid.queries.form.QueryFormHandler.prototype.
+			submitForm = function(validator, formElement) {
+
+		// Flag the form as complete.
+		this.isComplete_ = true;
+		this.parent('submitForm', validator, formElement);
 	};
 
 /** @param {jQuery} $ jQuery closure. */

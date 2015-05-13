@@ -1,42 +1,42 @@
 <?php
 
 /**
- * @file classes/submission/SubmissionFileQueryDAO.inc.php
+ * @file classes/query/QueryDAO.inc.php
  *
  * Copyright (c) 2015 Simon Fraser University Library
  * Copyright (c) 2000-2015 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class SubmissionFileQueryDAO
+ * @class QueryDAO
  * @ingroup submission
- * @see SubmissionFileQuery
+ * @see Query
  *
- * @brief Operations for retrieving and modifying SubmissionFileQuery objects.
+ * @brief Operations for retrieving and modifying Query objects.
  */
 
 
-import('lib.pkp.classes.submission.SubmissionFileQuery');
+import('lib.pkp.classes.query.Query');
 
-class SubmissionFileQueryDAO extends DAO {
+class QueryDAO extends DAO {
 	/**
 	 * Constructor
 	 */
-	function SubmissionFileQueryDAO() {
+	function QueryDAO() {
 		parent::DAO();
 	}
 
 	/**
 	 * Retrieve a submission file query by ID.
-	 * @param $queryId int SubmissionFileQuery ID
+	 * @param $queryId int Query ID
 	 * @param $submissionId int optional
-	 * @return SubmissionFileQuery
+	 * @return Query
 	 */
 	function getById($queryId, $submissionId = null) {
 		$params = array((int) $queryId);
 		if ($submissionId) $params[] = (int) $submissionId;
 		$result = $this->retrieve(
 			'SELECT sfq.*
-			FROM	submission_file_queries sfq
+			FROM	queries sfq
 			WHERE	sfq.query_id = ?'
 				. ($submissionId?' AND sfq.submission_id = ?':''),
 			$params
@@ -56,60 +56,44 @@ class SubmissionFileQueryDAO extends DAO {
 	 * @param $submissionId int
 	 * @param $stageId int
 	 * @param $onlyParents boolean
-	 * @return array SubmissionFileQuery
+	 * @return array Query
 	 */
 	function getBySubmissionId($submissionId, $stageId = null, $onlyParents = false) {
 		$params = array((int) $submissionId);
 		if ($stageId) $params[] = $stageId;
-
-		$result = $this->retrieve(
-			'SELECT	sfq.*
-			FROM	submission_file_queries sfq
-			WHERE	sfq.submission_id = ? '
-			. ($stageId?' AND sfq.stage_id = ?':'')
-			. ($onlyParents?' AND sfq.parent_query_id = 0':''),
-			$params
+		return new DAOResultFactory(
+			$this->retrieve(
+				'SELECT	sfq.*
+				FROM	queries sfq
+				WHERE	sfq.submission_id = ? '
+				. ($stageId?' AND sfq.stage_id = ?':'')
+				. ($onlyParents?' AND sfq.parent_query_id = 0':''),
+				$params
+			),
+			$this, '_fromRow'
 		);
-
-		$queries = array();
-		while (!$result->EOF) {
-			$row = $result->getRowAssoc(false);
-			$queries[$row['query_id']] = $this->_fromRow($row);
-			$result->MoveNext();
-		}
-
-		$result->Close();
-		return $queries;
 	}
 
 	/**
 	 * Retrieves the replies to a query, ordered by increasing post date.
 	 * @param $queryId int
 	 * @param $submissionId int optional
-	 * @return array SubmissionFileQuery
+	 * @return array Query
 	 */
 	function getRepliesToQuery($queryId, $submissionId = null) {
 		$params = array((int) $queryId);
 		if ($submissionId) $params[] = (int) $submissionId;
-
-		$result = $this->retrieve(
-			'SELECT	sfq.*
-			FROM	submission_file_queries sfq
-			WHERE	sfq.parent_query_id = ? '
-			. ($submissionId?' AND sfq.submission_id = ?':'')
-			. ' ORDER BY date_posted ASC',
-			$params
+		return new DAOResultFactory(
+			$this->retrieve(
+				'SELECT	sfq.*
+				FROM	queries sfq
+				WHERE	sfq.parent_query_id = ? '
+				. ($submissionId?' AND sfq.submission_id = ?':'')
+				. ' ORDER BY date_posted ASC',
+				$params
+			),
+			$this, '_fromRow'
 		);
-
-		$queries = array();
-		while (!$result->EOF) {
-			$row = $result->getRowAssoc(false);
-			$queries[] = $this->_fromRow($row);
-			$result->MoveNext();
-		}
-
-		$result->Close();
-		return $queries;
 	}
 
 	/**
@@ -118,7 +102,7 @@ class SubmissionFileQueryDAO extends DAO {
 	 */
 	function updateLocaleFields($query) {
 		$this->updateDataObjectSettings(
-			'submission_file_query_settings',
+			'query_settings',
 			$query,
 			array('query_id' => $query->getId())
 		);
@@ -127,7 +111,7 @@ class SubmissionFileQueryDAO extends DAO {
 	/**
 	 * Internal function to return a submission file query object from a row.
 	 * @param $row array
-	 * @return SubmissionFileQuery
+	 * @return Query
 	 */
 	function _fromRow($row) {
 		$query = $this->newDataObject();
@@ -140,9 +124,9 @@ class SubmissionFileQueryDAO extends DAO {
 		$query->setDateModified($row['date_modified']);
 		$query->setThreadClosed($row['thread_closed']);
 
-		$this->getDataObjectSettings('submission_file_query_settings', 'query_id', $row['query_id'], $query);
+		$this->getDataObjectSettings('query_settings', 'query_id', $row['query_id'], $query);
 
-		HookRegistry::call('SubmissionFileQueryDAO::_fromRow', array(&$query, &$row));
+		HookRegistry::call('QueryDAO::_fromRow', array(&$query, &$row));
 		return $query;
 	}
 
@@ -151,7 +135,7 @@ class SubmissionFileQueryDAO extends DAO {
 	 * @return DataObject
 	 */
 	function newDataObject() {
-		return new SubmissionFileQuery();
+		return new Query();
 	}
 
 	/**
@@ -163,12 +147,12 @@ class SubmissionFileQueryDAO extends DAO {
 	}
 
 	/**
-	 * Insert a new SubmissionFileQuery.
-	 * @param $query SubmissionFileQuery
+	 * Insert a new Query.
+	 * @param $query Query
 	 */
 	function insertObject($query) {
 		$this->update(
-			sprintf('INSERT INTO submission_file_queries
+			sprintf('INSERT INTO queries
 				(submission_id, stage_id, parent_query_id, user_id, date_posted, date_modified, thread_closed)
 				VALUES
 				(?, ?, ?, ?, %s, %s, ?)',
@@ -196,7 +180,7 @@ class SubmissionFileQueryDAO extends DAO {
 	 */
 	function insertParticipant($queryId, $userId) {
 		$this->update(
-			'INSERT INTO submission_file_query_participants
+			'INSERT INTO query_participants
 			(query_id, user_id)
 			VALUES
 			(?, ?)',
@@ -214,8 +198,8 @@ class SubmissionFileQueryDAO extends DAO {
 	 */
 	function removeParticipant($queryId, $userId) {
 		$this->update(
-			'DELETE FROM submission_file_query_participants WHERE query_id = ? AND user_id = ?',
-			array((int) $queryId, (int) $userid)
+			'DELETE FROM query_participants WHERE query_id = ? AND user_id = ?',
+			array((int) $queryId, (int) $userId)
 		);
 	}
 
@@ -225,18 +209,39 @@ class SubmissionFileQueryDAO extends DAO {
 	 */
 	function removeAllParticipants($queryId) {
 		$this->update(
-			'DELETE FROM submission_file_query_participants WHERE query_id',
+			'DELETE FROM query_participants WHERE query_id = ?',
 			(int) $queryId
 		);
 	}
 
 	/**
-	 * Update an existing SubmissionFileQuery.
-	 * @param $query SubmissionFileQuery
+	 * Retrieve all participant user IDs for a query.
+	 * @param $queryid int
+	 * @return array
+	 */
+	function getParticipantIds($queryId) {
+		$result = $this->retrieve(
+			'SELECT	user_id
+			FROM	query_participants
+			WHERE	query_id = ?',
+			(int) $queryId
+		);
+		$userIds = array();
+		while (!$result->EOF) {
+			$row = $result->getRowAssoc(false);
+			$userIds[] = $row['user_id'];
+			$result->MoveNext();
+		}
+		return $userIds;
+	}
+
+	/**
+	 * Update an existing Query.
+	 * @param $query Query
 	 */
 	function updateObject($query) {
 		$this->update(
-			sprintf('UPDATE	submission_file_queries
+			sprintf('UPDATE	queries
 				SET	stage_id = ?,
 					parent_query_id = ?,
 					user_id = ?,
@@ -245,7 +250,7 @@ class SubmissionFileQueryDAO extends DAO {
 					thread_closed = ?
 				WHERE	query_id = ?',
 				$this->datetimeToDB($query->getDatePosted()),
-				$this->datetimeToDB($query->getDateModified()),
+				$this->datetimeToDB($query->getDateModified())
 			), array(
 				(int) $query->getStageId(),
 				(int) $query->getParentQueryId(),
@@ -259,7 +264,7 @@ class SubmissionFileQueryDAO extends DAO {
 
 	/**
 	 * Delete a submission file query.
-	 * @param $query SubmissionFileQuery
+	 * @param $query Query
 	 */
 	function deleteObject($query) {
 		$this->deleteById($query->getId());
@@ -274,11 +279,14 @@ class SubmissionFileQueryDAO extends DAO {
 		$params = array((int) $queryId);
 		if ($submissionId) $params[] = (int) $submissionId;
 		$this->update(
-			'DELETE FROM submission_file_queries WHERE query_id = ?' .
+			'DELETE FROM queries WHERE query_id = ?' .
 			($submissionId?' AND submission_id = ?':''),
 			$params
 		);
-		if ($this->getAffectedRows()) $this->update('DELETE FROM submission_file_query_settings WHERE query_id = ?', array((int) $queryId));
+		if ($this->getAffectedRows()) {
+			$this->update('DELETE FROM query_settings WHERE query_id = ?', array((int) $queryId));
+			$this->removeAllParticipants($queryId);
+		}
 	}
 
 	/**
@@ -286,7 +294,7 @@ class SubmissionFileQueryDAO extends DAO {
 	 * @return int
 	 */
 	function getInsertId() {
-		return $this->_getInsertId('submission_file_queries', 'query_id');
+		return $this->_getInsertId('queries', 'query_id');
 	}
 
 	/**

@@ -53,14 +53,13 @@ class QueriesGridRow extends GridRow {
 			$actionArgs = $this->getRequestArgs();
 			$actionArgs['queryId'] = $rowId;
 
-
 			// Add row-level actions
 			import('lib.pkp.classes.linkAction.request.AjaxModal');
 			$this->addAction(
 				new LinkAction(
-					'updateQuery',
+					'editQuery',
 					new AjaxModal(
-						$router->url($request, null, null, 'updateQuery', null, $actionArgs),
+						$router->url($request, null, null, 'editQuery', null, $actionArgs),
 						__('grid.action.updateQuery'),
 						'modal_edit'
 					),
@@ -68,6 +67,18 @@ class QueriesGridRow extends GridRow {
 					'edit'
 				)
 			);
+
+			import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
+                        $this->addAction(
+                                new LinkAction(
+                                        'deleteQuery',
+                                        new RemoteActionConfirmationModal(
+                                                __('common.confirmDelete'),
+                                                __('grid.action.delete'),
+                                                $router->url($request, null, null, 'deleteQuery', null, $actionArgs), 'modal_delete'),
+                                        __('grid.action.delete'),
+                                        'delete')
+                        );
 		}
 	}
 

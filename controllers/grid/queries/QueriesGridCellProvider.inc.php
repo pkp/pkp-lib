@@ -38,17 +38,17 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider {
 		$columnId = $column->getId();
 		assert(is_a($element, 'DataObject') && !empty($columnId));
 		$user = $element->getUser();
-		$submissionFileQueryDao = DAORegistry::getDAO('SubmissionFileQueryDAO');
+		$submissionFileQueryDao = DAORegistry::getDAO('QueryDAO');
 		$replies = $submissionFileQueryDao->getRepliesToQuery($element->getId(), $element->getSubmissionId());
 
 		switch ($columnId) {
 			case 'replies':
-				return array('label' => count($replies));
+				return array('label' => $replies->getCount());
 			case 'from':
-				return array('label' => $user->getUsername() . '<br />' . $element->getShortDatePosted());
+				return array('label' => ($user?$user->getUsername():'&mdash;') . '<br />' . $element->getShortDatePosted());
 			case 'lastReply':
-				if (count($replies) > 0) {
-					$latestReply = array_pop($replies);
+				if ($replies->getCount()) {
+					$latestReply = $replies->next();
 					$repliedUser = $latestReply->getUser();
 					return array('label' => $repliedUser->getUsername() . '<br />' . $latestReply->getShortDatePosted());
 				} else {

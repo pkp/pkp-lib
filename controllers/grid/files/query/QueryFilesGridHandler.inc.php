@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file controllers/grid/files/dependent/QueryFilesGridHandlerinc.php
+ * @file controllers/grid/files/dependent/QueryFilesGridHandler.inc.php
  *
  * Copyright (c) 2014-2015 Simon Fraser University Library
  * Copyright (c) 2003-2015 John Willinsky
@@ -23,10 +23,10 @@ class QueryFilesGridHandler extends FileListGridHandler {
 	function QueryFilesGridHandler() {
 		// import app-specific grid data provider for access policies.
 		$request = Application::getRequest();
-		$fileId = $request->getUservar('fileId'); // authorized in authorize() method.
+		$stageId = $request->getUservar('stageId'); // authorized in authorize() method.
 		import('lib.pkp.controllers.grid.files.dependent.DependentFilesGridDataProvider');
 		parent::FileListGridHandler(
-			new DependentFilesGridDataProvider($fileId),
+			new DependentFilesGridDataProvider($stageId),
 			WORKFLOW_STAGE_ID_PRODUCTION,
 			FILE_GRID_ADD|FILE_GRID_DELETE|FILE_GRID_VIEW_NOTES|FILE_GRID_EDIT
 		);
@@ -37,28 +37,21 @@ class QueryFilesGridHandler extends FileListGridHandler {
 		);
 
 		// Set grid title.
-		$this->setInstructions('submission.dependent.upload.description');
+		$this->setTitle('submission.queries.attachedFiles');
 	}
 
 	/**
 	 * @copydoc SubmissionFilesGridHandler::authorize()
 	 */
 	function authorize($request, $args, $roleAssignments) {
-		import('classes.security.authorization.SubmissionFileAccessPolicy');
-		$this->addPolicy(new SubmissionFileAccessPolicy($request, $args, $roleAssignments, SUBMISSION_FILE_ACCESS_MODIFY));
+		$stageId = $request->getUserVar('stageId'); // This is being validated in WorkflowStageAccessPolicy
+		$this->_stageId = (int)$stageId;
 
+		// Get the stage access policy
+		import('classes.security.authorization.WorkflowStageAccessPolicy');
+		$workflowStageAccessPolicy = new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId);
+		$this->addPolicy($workflowStageAccessPolicy);
 		return parent::authorize($request, $args, $roleAssignments);
-	}
-
-	/**
-	 * @copydoc GridHandler::getRequestArgs()
-	 */
-	function getRequestArgs() {
-		$submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
-		return array_merge(
-				parent::getRequestArgs(),
-				array('fileId' => $submissionFile->getFileId())
-		);
 	}
 }
 

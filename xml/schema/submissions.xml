@@ -199,10 +199,10 @@
 
 	<!--
 	  *
-	  * TABLE submission_file_queries
+	  * TABLE queries
 	  *
 	  -->
-	<table name="submission_file_queries">
+	<table name="queries">
 		<field name="query_id" type="I8">
 			<KEY />
 			<AUTOINCREMENT/>
@@ -226,17 +226,17 @@
 			<DEFAULT VALUE="0"/>
 		</field>
 		<descr>queries posted on submission workflow</descr>
-		<index name="submission_file_queries_submission_id">
+		<index name="queries_submission_id">
 			<col>submission_id</col>
 		</index>
 	</table>
 
 	<!--
 	  *
-	  * TABLE submission_file_query_participants
+	  * TABLE query_participants
 	  *
 	  -->
-	<table name="submission_file_query_participants">
+	<table name="query_participants">
 		<field name="query_id" type="I8">
 			<NOTNULL />
 		</field>
@@ -244,7 +244,7 @@
 			<NOTNULL/>
 		</field>
 		<descr>queries posted on submission workflow</descr>
-		<index name="submission_file_queries_participants_pkey">
+		<index name="query_participants_pkey">
 			<col>query_id</col>
 			<col>user_id</col>
 		</index>
@@ -252,10 +252,10 @@
 
 	<!--
 	  *
-	  * TABLE submission_file_query_settings
+	  * TABLE query_settings
 	  *
 	  -->
-	<table name="submission_file_query_settings">
+	<table name="query_settings">
 		<field name="query_id" type="I8">
 			<NOTNULL />
 		</field>
@@ -272,10 +272,10 @@
 			<descr>(bool|int|float|string|object)</descr>
 		</field>
 		<descr>Language dependent author metadata.</descr>
-		<index name="submission_file_query_settings_query_id">
+		<index name="query_settings_query_id">
 			<col>query_id</col>
 		</index>
-		<index name="submission_file_query_settings_pkey">
+		<index name="query_settings_pkey">
 			<col>query_id</col>
 			<col>locale</col>
 			<col>setting_name</col>

@@ -16,24 +16,46 @@
 import('lib.pkp.classes.form.Form');
 
 class QueryForm extends Form {
-	/** The submission associated with the query being edited **/
+	/** @var Submission The submission associated with the query being edited **/
 	var $_submission;
 
-	/** The stage id associated with the query being edited **/
+	/** @var int The stage id associated with the query being edited **/
 	var $_stageId;
 
-	/** Query the query being edited **/
+	/** @var Query Query the query being edited **/
 	var $_query;
+
+	/** @var boolean True iff this is a newly-created query */
+	var $_isNew;
 
 	/**
 	 * Constructor.
+	 * @param $request Request
+	 * @param $submission Submission
 	 * @param $stageId int
-	 * @param $query SubmissionFileQuery
+	 * @param $queryId int Optional query ID to edit. If none provided, a
+	 *  (potentially temporary) query will be created.
 	 */
-	function QueryForm($submission, $stageId, $query = null) {
+	function QueryForm($submission, $stageId, $queryId = null) {
 		parent::Form('controllers/grid/queries/form/queryForm.tpl');
 		$this->setSubmission($submission);
 		$this->setStageId($stageId);
+
+		$queryDao = DAORegistry::getDAO('QueryDAO');
+		if (!$queryId) {
+			$this->_isNew = true;
+
+			$query = $queryDao->newDataObject();
+			$query->setSubmissionId($submission->getId());
+			$query->setStageId($stageId);
+			$query->setDatePosted(Core::getCurrentDate());
+			$queryDao->insertObject($query);
+		} else {
+			$query = $queryDao->getById($queryId, $submission->getId());
+			assert($query);
+			// New queries will have an unset user ID.
+			$this->_isNew = !$query->getUserId();
+		}
 
 		$this->setQuery($query);
 
@@ -100,14 +122,16 @@ class QueryForm extends Form {
 	//
 	/**
 	 * Initialize form data from the associated author.
-	 * @param $query Query
 	 */
 	function initData() {
-		$query = $this->getQuery();
-
-		if ($query) {
+		$queryDao = DAORegistry::getDAO('QueryDAO');
+		if ($query = $this->getQuery()) {
 			$this->_data = array(
 				'queryId' => $query->getId(),
+				'subject' => $query->getSubject(null),
+				'comment' => $query->getComment(null),
+				'userId' => $query->getUserId(),
+				'userIds' => $queryDao->getParticipantIds($query->getId()),
 			);
 		} else {
 			// set intial defaults for queries.
@@ -121,16 +145,14 @@ class QueryForm extends Form {
 	 * @see Form::fetch()
 	 */
 	function fetch($request) {
-		$query = $this->getQuery();
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_EDITOR);
 
 		$templateMgr = TemplateManager::getManager($request);
-
-		$router = $request->getRouter();
-		$context = $router->getContext($request);
-
-		$submission = $this->getSubmission();
-		$templateMgr->assign('submissionId', $submission->getId());
-		$templateMgr->assign('stageId', $this->getStageId());
+		$templateMgr->assign(array(
+			'submissionId' => $this->getSubmission()->getId(),
+			'stageId' => $this->getStageId(),
+			'isNew' => $this->_isNew,
+		));
 
 		return parent::fetch($request);
 	}
@@ -148,67 +170,46 @@ class QueryForm extends Form {
 			'users',
 		));
 
-		import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
-		$userData = $this->getData('users');
-		ListbuilderHandler::unpack($request, $userData);
+		// For new queries, make the user ID available to set upon execute
+		$user = $request->getUser();
+		$this->setData('userId', $user->getId());
 	}
 
 	/**
-	 * Save query
-	 * @see Form::execute()
-	 * @return int|null Query ID if query already existed; null otherwise
+	 * @copydoc Form::execute()
+	 * @param $request PKPRequest
 	 */
-	function execute() {
-		// in order to be able to use the hook
-		parent::execute();
+	function execute($request) {
+		$queryDao = DAORegistry::getDAO('QueryDAO');
 		$query = $this->getQuery();
-		if ($query) {
-			return $query->getId();
-		}
-		return null;
+
+		if ($this->_isNew) $query->setUserId($this->getData('userId'));
+		$query->setSubject($this->getData('subject'), null); // localized
+		$query->setComment($this->getData('comment'), null); // localized
+		$query->setDateModified(Core::getCurrentDate());
+
+		import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
+		ListbuilderHandler::unpack($request, $this->getData('users'));
+
+		$queryDao->updateObject($query);
 	}
 
 	/**
 	 * @copydoc ListbuilderHandler::insertEntry()
 	 */
 	function insertEntry($request, $newRowId) {
-
-		$queryDao = DAORegistry::getDAO('SubmissionFileQueryDAO');
-		$submission = $this->getSubmission();
 		$query = $this->getQuery();
-		$user = $request->getUser();
+		$queryDao = DAORegistry::getDAO('QueryDAO');
+		$queryDao->insertParticipant($query->getId(), $newRowId['name']);
+	}
 
-		if (!$query) {
-			// this is a new submission query
-			$query = $queryDao->newDataObject();
-			$query->setSubmissionId($submission->getId());
-			$query->setStageId($this->getStageId());
-			$query->setUserId($user->getId());
-			$query->setDatePosted(Core::getCurrentDate());
-			$query->setParentQueryId(0);
-			$existingQuery = false;
-		} else {
-			$existingQuery = true;
-			$query->setDateModified(Core::getCurrentDate());
-			if ($submission->getId() !== $query->getSubmissionId()) fatalError('Invalid query!');
-		}
-
-		$query->setSubject($this->getData('subject'), null); // localized
-		$query->setComment($this->getData('comment'), null); // localized
-
-		if ($existingQuery) {
-			$queryDao->updateObject($query);
-			$queryId = $query->getId();
-		} else {
-			$queryId = $queryDao->insertObject($query);
-			$query->setId($queryId);
-		}
-
-		$this->setQuery($query);
-
-		foreach ($newRowId as $id) {
-			$queryDao->insertParticipant($queryId, $id);
-		}
+	/**
+	 * @copydoc ListbuilderHandler::deleteEntry()
+	 */
+	function deleteEntry($request, $rowId) {
+		$query = $this->getQuery();
+		$queryDao = DAORegistry::getDAO('QueryDAO');
+		$queryDao->removeParticipant($query->getId(), $rowId);
 	}
 }
 

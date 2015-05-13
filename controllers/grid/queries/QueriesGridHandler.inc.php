@@ -23,7 +23,7 @@ import('lib.pkp.classes.linkAction.request.AjaxModal');
 
 class QueriesGridHandler extends GridHandler {
 
-	/** @var integer */
+	/** @var integer WORKFLOW_STAGE_ID_... */
 	var $_stageId;
 
 	/**
@@ -32,8 +32,8 @@ class QueriesGridHandler extends GridHandler {
 	function QueriesGridHandler() {
 		parent::GridHandler();
 		$this->addRoleAssignment(
-			array(ROLE_ID_MANAGER, ROLE_ID_AUTHOR, ROLE_ID_SECTION_EDITOR),
-			array('fetchGrid', 'fetchRow', 'addQuery', 'editQuery', 'updateQuery', 'readQuery', 'cancelQuery'));
+			array(ROLE_ID_MANAGER, ROLE_ID_AUTHOR, ROLE_ID_SUB_EDITOR),
+			array('fetchGrid', 'fetchRow', 'addQuery', 'editQuery', 'updateQuery', 'readQuery', 'deleteQuery'));
 	}
 
 
@@ -49,7 +49,7 @@ class QueriesGridHandler extends GridHandler {
 	}
 
 	/**
-	 * Get the review stage id.
+	 * Get the stage id.
 	 * @return integer
 	 */
 	function getStageId() {
@@ -74,7 +74,7 @@ class QueriesGridHandler extends GridHandler {
 		return parent::authorize($request, $args, $roleAssignments);
 	}
 
-	/*
+	/**
 	 * Configure the grid
 	 * @param $request PKPRequest
 	 */
@@ -89,7 +89,7 @@ class QueriesGridHandler extends GridHandler {
 		AppLocale::requireComponents(
 			LOCALE_COMPONENT_PKP_SUBMISSION,
 			LOCALE_COMPONENT_PKP_USER,
-			LOCALE_COMPONENT_PKP_DEFAULT
+			LOCALE_COMPONENT_PKP_EDITOR
 		);
 
 		// Columns
@@ -192,21 +192,10 @@ class QueriesGridHandler extends GridHandler {
 	 * @return array
 	 */
 	function getRequestArgs() {
-		$submission = $this->getSubmission();
 		return array(
-			'submissionId' => $submission->getId(),
+			'submissionId' => $this->getSubmission()->getId(),
 			'stageId' => $this->getStageId(),
 		);
-	}
-
-	/**
-	 * Fetches the application-specific submission id from the request object.
-	 * Should be overridden by subclasses.
-	 * @param PKPRequest $request
-	 * @return int
-	 */
-	function getRequestedSubmissionId($request) {
-		return $request->getUserVar('submissionId');
 	}
 
 	/**
@@ -215,7 +204,7 @@ class QueriesGridHandler extends GridHandler {
 	function loadData($request, $filter = null) {
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$stage = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
-		$queryDao = DAORegistry::getDAO('SubmissionFileQueryDAO');
+		$queryDao = DAORegistry::getDAO('QueryDAO');
 		return $queryDao->getBySubmissionId($submission->getId(), $stage, true);
 	}
 
@@ -229,49 +218,31 @@ class QueriesGridHandler extends GridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function addQuery($args, $request) {
-		// Identify the query to be updated
-		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
-
-		// addQuery called, so initialize empty query and pass to form.
-		$submissionFileQueryDao = DAORegistry::getDAO('SubmissionFileQueryDAO');
-		$query = $submissionFileQueryDao->newDataObject();
-		$query->setSubmissionId($submission->getId());
-		$query->setStageId($stageId);
-		$user = $request->getUser();
-
-		$query->setUserId($user->getId());
-		$query->setDatePosted(Core::getCurrentDate());
-		$query->setParentQueryId(0);
-		$queryId = $submissionFileQueryDao->insertObject($query);
-		$query->setId($queryId);
-
-		// Form handling
 		import('lib.pkp.controllers.grid.queries.form.QueryForm');
-		$queryForm = new QueryForm($submission, $stageId, $query);
+		$queryForm = new QueryForm(
+			$this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION),
+			$this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE)
+		);
 		$queryForm->initData();
-
 		return new JSONMessage(true, $queryForm->fetch($request));
 	}
 
 	/**
-	 * Cancels a query, called via JS Handler callback.  Deletes the query.
+	 * Delete a query.
 	 * @param $args array
 	 * @param $request PKPRequest
 	 * @return JSONMessage JSON object
 	 */
-	function cancelQuery($args, $request) {
+	function deleteQuery($args, $request) {
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		// Identify the query to be read
-		$queryId = $request->getUserVar('queryId');
-		if ($queryId) {
-			$queryDao = DAORegistry::getDAO('SubmissionFileQueryDAO');
-			$query = $queryDao->getById($queryId, $submission->getId());
-			if ($query) {
-				$queryDao->deleteObject($query);
-				return new JSONMessage(true);
-			}
+		$queryDao = DAORegistry::getDAO('QueryDAO');
+		$query = $queryDao->getById($request->getUserVar('queryId'), $submission->getId());
+		if ($query) {
+			$queryDao->deleteObject($query);
+			return DAO::getDataChangedEvent($query->getId());
 		}
+		return new JSONMessage(false); // The query could not be found.
 	}
 
 	/**
@@ -283,20 +254,16 @@ class QueriesGridHandler extends GridHandler {
 	function readQuery($args, $request) {
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
-		// Identify the query to be read
-		$queryId = $request->getUserVar('queryId');
-		if ($queryId) {
-			$queryDao = DAORegistry::getDAO('SubmissionFileQueryDAO');
-			$query = $queryDao->getById($queryId, $submission->getId());
-		}
 
+		// Identify the query to be read
+		$queryDao = DAORegistry::getDAO('QueryDAO');
+		$query = $queryDao->getById($request->getUserVar('queryId'), $submission->getId());
 		if (!$query) {
 			fatalError('Invalid Query id.');
 		}
 
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('query', $query);
-
 		return new JSONMessage(true, $templateMgr->fetch('controllers/grid/queries/readQuery.tpl'));
 	}
 
@@ -306,26 +273,40 @@ class QueriesGridHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 * @return JSONMessage JSON object
 	 */
+	function editQuery($args, $request) {
+		// Form handling
+		import('lib.pkp.controllers.grid.queries.form.QueryForm');
+		$queryForm = new QueryForm(
+			$this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION),
+			$this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE),
+			$request->getUserVar('queryId')
+		);
+		$queryForm->initData();
+		return new JSONMessage(true, $queryForm->fetch($request));
+	}
+
+	/**
+	 * Save a query
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
+	 */
 	function updateQuery($args, $request) {
-		// Identify the query to be updated
-		$queryId = $request->getUserVar('queryId');
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
-
-
-		$queryDao = DAORegistry::getDAO('SubmissionFileQueryDAO');
-		$query = $queryDao->getById($queryId, $submission->getId());
+		$queryId = (int) $request->getUserVar('queryId');
 
 		// Form handling
 		import('lib.pkp.controllers.grid.queries.form.QueryForm');
-		$queryForm = new QueryForm($submission, $stageId, $query);
+		$queryForm = new QueryForm(
+			$submission,
+			$this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE),
+			$queryId
+		);
 		$queryForm->readInputData($request);
 		if ($queryForm->validate()) {
-			$queryId = $queryForm->execute();
+			$queryForm->execute($request);
 
 			if(!isset($query)) {
-				// This is a new query
-				$query = $queryDao->getById($queryId, $submission->getId());
 				// New added query action notification content.
 				$notificationContent = __('notification.addedQuery');
 			} else {
@@ -337,13 +318,6 @@ class QueriesGridHandler extends GridHandler {
 			$currentUser = $request->getUser();
 			$notificationMgr = new NotificationManager();
 			$notificationMgr->createTrivialNotification($currentUser->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => $notificationContent));
-
-			// Prepare the grid row data
-			$row = $this->getRowInstance();
-			$row->setGridId($this->getId());
-			$row->setId($queryId);
-			$row->setData($query);
-			$row->initialize($request);
 
 			// Render the row into a JSON response
 			return DAO::getDataChangedEvent($queryId);

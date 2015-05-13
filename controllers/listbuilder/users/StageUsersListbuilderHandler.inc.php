@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file controllers/listbuilder/users/NotifyUsersListbuilderHandler.inc.php
+ * @file controllers/listbuilder/users/StageUsersListbuilderHandler.inc.php
  *
  * Copyright (c) 2014-2015 Simon Fraser University Library
  * Copyright (c) 2003-2015 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class NotifyUsersListbuilderHandler
+ * @class StageUsersListbuilderHandler
  * @ingroup listbuilder
  *
  * @brief Class for adding participants to a stage.
@@ -15,11 +15,11 @@
 
 import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
 
-class NotifyUsersListbuilderHandler extends ListbuilderHandler {
+class StageUsersListbuilderHandler extends ListbuilderHandler {
 	/**
 	 * Constructor
 	 */
-	function NotifyUsersListbuilderHandler() {
+	function StageUsersListbuilderHandler() {
 		parent::ListbuilderHandler();
 		$this->addRoleAssignment(
 			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR),
@@ -146,17 +146,17 @@ class NotifyUsersListbuilderHandler extends ListbuilderHandler {
 	 * @copydoc GridHandler::loadData($request, $filter)
 	 */
 	protected function loadData($request) {
-		$userId = (int) $request->getUserVar('userId');
 		$userStageAssignmentDao = DAORegistry::getDAO('UserStageAssignmentDAO');
 		$submission = $this->getSubmission();
 
-		$users = $userStageAssignmentDao->getUsersBySubmissionAndStageId($submission->getId(), null, null, null, $userId);
-		$user = $users->next();
-
-		if ($user) {
-			$items[0] = $user;
-			return $items;
+		// A list of user IDs may be specified via request parameter; validate them.
+		$users = $userStageAssignmentDao->getUsersBySubmissionAndStageId($submission->getId());
+		$selectedUserIds = (array) $request->getUserVar('userIds');
+		$items = array();
+		while ($user = $users->next()) {
+			if (in_array($user->getId(), $selectedUserIds)) $items[$user->getId()] = $user;
 		}
+		return $items;
 	}
 }
 

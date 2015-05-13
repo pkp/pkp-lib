@@ -1,25 +1,25 @@
 <?php
 
 /**
- * @file classes/submission/SubmissionFileQuery.inc.php
+ * @file classes/submission/Query.inc.php
  *
  * Copyright (c) 2015 Simon Fraser University Library
  * Copyright (c) 2003-2015 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class SubmissionFileQuery
+ * @class Query
  * @ingroup submission
- * @see SubmissionFileQueryDAO
+ * @see QueryDAO
  *
- * @brief Class for SubmissionFileQuery.
+ * @brief Class for Query.
  */
 
 
-class SubmissionFileQuery extends DataObject {
+class Query extends DataObject {
 	/**
 	 * Constructor.
 	 */
-	function SubmissionFileQuery() {
+	function Query() {
 		parent::DataObject();
 	}
 

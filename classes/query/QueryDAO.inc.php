@@ -8,7 +8,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class QueryDAO
- * @ingroup submission
+ * @ingroup query
  * @see Query
  *
  * @brief Operations for retrieving and modifying Query objects.

@@ -10,7 +10,7 @@
  * @class ManageCopyeditedFilesForm
  * @ingroup controllers_grid_files_copyedit
  *
- * @brief Form to add files to the final draft files grid
+ * @brief Form to add files to the copyedited files grid
  */
 
 import('lib.pkp.controllers.grid.files.form.ManageSubmissionFilesForm');
@@ -30,10 +30,10 @@ class ManageCopyeditedFilesForm extends ManageSubmissionFilesForm {
 	// Overridden template methods
 	//
 	/**
-	 * Save Selection of Final Draft files
+	 * Save selection of copyedited files
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return array a list of all submission files marked as "final".
+	 * @return array a list of all submission files marked as copyedited.
 	 */
 	function execute($args, $request, $stageSubmissionFiles) {
 		parent::execute($args, $request, $stageSubmissionFiles, SUBMISSION_FILE_COPYEDIT);

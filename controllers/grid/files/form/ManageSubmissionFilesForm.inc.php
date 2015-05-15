@@ -68,7 +68,7 @@ class ManageSubmissionFilesForm extends Form {
 	 * Save review round files
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @param @stageSubmissionFiles array The files that belongs to a file stage
+	 * @param $stageSubmissionFiles array The files that belongs to a file stage
 	 * that is currently being used by a grid inside this form.
 	 * @param $fileStage int SUBMISSION_FILE_...
 	 */
@@ -85,7 +85,7 @@ class ManageSubmissionFilesForm extends Form {
 			);
 
 			// If this is a submission file that belongs to the current stage id...
-			if ($this->_fileExistsInStage($submissionFile, $stageSubmissionFiles)) {
+			if ($this->_fileExistsInStage($submissionFile, $stageSubmissionFiles, $fileStage)) {
 				// ...update the "viewable" flag accordingly.
 				$submissionFile->setViewable($isViewable);
 				$submissionFileDao->updateObject($submissionFile);
@@ -101,9 +101,14 @@ class ManageSubmissionFilesForm extends Form {
 	 * Determine if a file is already present in the stage.
 	 * @param $submissionFile SubmissionFile The submission file
 	 * @param $stageSubmissionFiles array The list of submission files in the stage.
+	 * @param $fileStage int FILE_STAGE_...
 	 */
-	protected function _fileExistsInStage($submissionFile, $stageSubmissionFiles) {
-		return array_key_exists($submissionFile->getFileId(), $stageSubmissionFiles);
+	protected function _fileExistsInStage($submissionFile, $stageSubmissionFiles, $fileStage) {
+		if (!isset($stageSubmissionFiles[$submissionFile->getFileId()])) return false;
+		foreach ($stageSubmissionFiles[$submissionFile->getFileId()] as $stageFile) {
+			if ($stageFile->getFileStage() == $submissionFile->getFileStage() && $stageFile->getFileStage() == $fileStage) return true;
+		}
+		return false;
 	}
 
 	/**

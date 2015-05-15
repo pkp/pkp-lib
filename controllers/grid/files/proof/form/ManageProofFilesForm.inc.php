@@ -48,7 +48,7 @@ class ManageProofFilesForm extends ManageSubmissionFilesForm {
 	/**
 	 * @copydoc ManageSubmissionFilesForm::_fileExistsInStage
 	 */
-	protected function _fileExistsInStage($submissionFile, $stageSubmissionFiles) {
+	protected function _fileExistsInStage($submissionFile, $stageSubmissionFiles, $fileStage) {
 		return false;
 	}
 

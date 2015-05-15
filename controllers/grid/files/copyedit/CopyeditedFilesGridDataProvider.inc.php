@@ -1,27 +1,27 @@
 <?php
 
 /**
- * @file controllers/grid/files/final/FinalDraftFilesGridDataProvider.inc.php
+ * @file controllers/grid/files/copyedit/CopyeditedFilesGridDataProvider.inc.php
  *
  * Copyright (c) 2014-2015 Simon Fraser University Library
  * Copyright (c) 2003-2015 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class FinalDraftFilesGridDataProvider
- * @ingroup controllers_grid_files_final
+ * @class CopyeditedFilesGridDataProvider
+ * @ingroup controllers_grid_files_copyedit
  *
- * @brief Provide access to final draft files management.
+ * @brief Provide access to copyedited files management.
  */
 
 
 import('lib.pkp.controllers.grid.files.SubmissionFilesGridDataProvider');
 
-class FinalDraftFilesGridDataProvider extends SubmissionFilesGridDataProvider {
+class CopyeditedFilesGridDataProvider extends SubmissionFilesGridDataProvider {
 	/**
 	 * Constructor
 	 */
-	function FinalDraftFilesGridDataProvider() {
-		parent::SubmissionFilesGridDataProvider(SUBMISSION_FILE_FINAL);
+	function CopyeditedFilesGridDataProvider() {
+		parent::SubmissionFilesGridDataProvider(SUBMISSION_FILE_COPYEDIT);
 		$this->setViewableOnly(true);
 	}
 

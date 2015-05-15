@@ -25,7 +25,7 @@ class FinalDraftFilesGridHandler extends FileListGridHandler {
 		parent::FileListGridHandler(
 			new FinalDraftFilesGridDataProvider(),
 			null,
-			FILE_GRID_MANAGE|FILE_GRID_VIEW_NOTES
+			FILE_GRID_EDIT|FILE_GRID_MANAGE|FILE_GRID_VIEW_NOTES
 		);
 		$this->addRoleAssignment(
 			array(

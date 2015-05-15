@@ -8,7 +8,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class AuthorSignoffFilesGridCellProvider
- * @ingroup controllers_grid_files_authorCopyeditingFiles
+ * @ingroup controllers_grid_files_fileSignoff
  *
  * @brief Cell provider for the response column of a file/signoff grid.
  */

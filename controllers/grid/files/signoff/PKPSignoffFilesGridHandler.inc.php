@@ -315,7 +315,7 @@ class PKPSignoffFilesGridHandler extends CategoryGridHandler {
 	//
 	/**
 	 * @copydoc CategoryGridHandler::getCategoryRowInstance()
-	 * @return CopyeditingFilesGridCategoryRow
+	 * @return SignoffFilesGridCategoryRow
 	 */
 	protected function getCategoryRowInstance() {
 		$row = new SignoffFilesGridCategoryRow($this->getStageId());
@@ -355,7 +355,7 @@ class PKPSignoffFilesGridHandler extends CategoryGridHandler {
 
 	/**
 	 * Get the row handler - override the default row handler
-	 * @return CopyeditingFilesGridRow
+	 * @return SignoffGridRow
 	 */
 	protected function getRowInstance() {
 		return new SignoffGridRow($this->getStageId());

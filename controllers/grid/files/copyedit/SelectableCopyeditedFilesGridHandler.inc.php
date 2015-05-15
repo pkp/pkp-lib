@@ -1,25 +1,25 @@
 <?php
 
 /**
- * @file controllers/grid/files/copyedit/SelectableCopyeditingFilesGridHandler.inc.php
+ * @file controllers/grid/files/copyedit/SelectableCopyeditedFilesGridHandler.inc.php
  *
  * Copyright (c) 2014-2015 Simon Fraser University Library
  * Copyright (c) 2000-2015 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class SelectableCopyeditingFilesGridHandler
+ * @class SelectableCopyeditedFilesGridHandler
  * @ingroup controllers_grid_files_copyedit
  *
- * @brief Handle copyediting files grid requests to promote to production stage.
+ * @brief Handle copyedited files grid requests to promote to production stage.
  */
 
 import('lib.pkp.controllers.grid.files.fileList.SelectableFileListGridHandler');
 
-class SelectableCopyeditingFilesGridHandler extends SelectableFileListGridHandler {
+class SelectableCopyeditedFilesGridHandler extends SelectableFileListGridHandler {
 	/**
 	 * Constructor
 	 */
-	function SelectableCopyeditingFilesGridHandler() {
+	function SelectableCopyeditedFilesGridHandler() {
 		import('lib.pkp.controllers.grid.files.SubmissionFilesGridDataProvider');
 		// Pass in null stageId to be set in initialize from request var.
 		parent::SelectableFileListGridHandler(
@@ -34,7 +34,7 @@ class SelectableCopyeditingFilesGridHandler extends SelectableFileListGridHandle
 		);
 
 		// Set the grid title.
-		$this->setTitle('submission.copyediting');
+		$this->setTitle('submission.copyedited');
 
 		$this->setInstructions('editor.submission.selectFairCopy');
 	}

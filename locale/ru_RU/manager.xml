@@ -81,8 +81,12 @@
 	<message key="manager.emails.reset">Сбросить</message>
 	<message key="manager.emails.reset.message">Если вы сбросите этот шаблон, все изменения, сделанные вами в шаблоне, будут потеряны. Вы хотите подтвердить эту операцию?</message>
 	<message key="manager.emails.resetToDefault">Сбросить в значение по умолчанию</message>
+	<message key="manager.emails.exportXML">Экспортировать выбранные шаблоны писем в XML</message>
+	<message key="manager.emails.uploadXML">Загрузить файл XML</message>
+	<message key="manager.emails.uploadSuccess">Выбранные шаблоны писем были успешно обновлены</message>
+	<message key="manager.emails.uploadError">Загрузка файла не удалась.</message>
 	<message key="manager.filesBrowser">Браузер файлов</message>
-	<message key="manager.files.confirmDelete">Удалить этот файл иои каталог? Обратите внимание, что удаляемый каталог должен быть пустым до того, как вы попытаетесь его удалить.</message>
+	<message key="manager.files.confirmDelete">Удалить этот файл или каталог? Обратите внимание, что удаляемый каталог должен быть пустым до того, как вы попытаетесь его удалить.</message>
 	<message key="manager.files.createDir">Создать каталог</message>
 	<message key="manager.files.emptyDir">Нет файлов в этом каталоге.</message>
 	<message key="manager.files.indexOfDir">Содержимое каталога {$dir}</message>

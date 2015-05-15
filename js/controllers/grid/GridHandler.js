@@ -897,7 +897,7 @@
 
 		rowId = $gridRow.attr('id');
 		controlRowId = rowId + '-control-row';
-		return $context.filter('#' + controlRowId);
+		return $('#' + controlRowId, $context);
 	};
 
 

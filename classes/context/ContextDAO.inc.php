@@ -213,10 +213,10 @@ abstract class ContextDAO extends DAO {
 		if ($contextId) $params[] = $contextId;
 
 		$result = $this->retrieve(
-			'SELECT * FROM ' . $this->_getTableName() . 'AS c
-			LEFT JOIN ' . $this->_getSettingsTableName() . 'AS cs
+			'SELECT * FROM ' . $this->_getTableName() . ' AS c
+			LEFT JOIN ' . $this->_getSettingsTableName() . ' AS cs
 			ON c.' . $this->_getPrimaryKeyColumn() . ' = cs.' . $this->_getPrimaryKeyColumn() .
-			'WHERE cs.setting_name = ? AND cs.setting_value = ?' .
+			' WHERE cs.setting_name = ? AND cs.setting_value = ?' .
 			($contextId?' AND c.' . $this->_getPrimaryKeyColumn() . ' = ?':''),
 			$params
 		);

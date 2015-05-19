@@ -271,7 +271,7 @@ class PKPRouter {
 			if ($request->isRestfulUrlsEnabled()) {
 				$this->_indexUrl = $request->getBaseUrl();
 			} else {
-				$this->_indexUrl = $request->getBaseUrl() . '/' . basename($_SERVER['SCRIPT_NAME']);
+				$this->_indexUrl = $request->getBaseUrl() . '/index.php';
 			}
 			HookRegistry::call('Router::getIndexUrl', array(&$this->_indexUrl));
 		}

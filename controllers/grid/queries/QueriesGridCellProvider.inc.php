@@ -37,20 +37,23 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider {
 		$element = $row->getData();
 		$columnId = $column->getId();
 		assert(is_a($element, 'DataObject') && !empty($columnId));
-		$user = $element->getUser();
-		$submissionFileQueryDao = DAORegistry::getDAO('QueryDAO');
-		$replies = $submissionFileQueryDao->getRepliesToQuery($element->getId(), $element->getSubmissionId());
+
+		$headNote = $element->getHeadNote();
+		$user = $headNote?$headNote->getUser():null;
+
+		$noteDao = DAORegistry::getDAO('NoteDAO');
+		$notes = $noteDao->getByAssoc(ASSOC_TYPE_QUERY, $element->getId(), null, NOTE_ORDER_ID, SORT_DIRECTION_DESC);
 
 		switch ($columnId) {
 			case 'replies':
-				return array('label' => $replies->getCount());
+				return array('label' => max(0,$notes->getCount()-1));
 			case 'from':
-				return array('label' => ($user?$user->getUsername():'&mdash;') . '<br />' . $element->getShortDatePosted());
+				return array('label' => ($user?$user->getUsername():'&mdash;') . '<br />' . ($headNote?date('M/d', strtotime($headNote->getDateCreated())):''));
 			case 'lastReply':
-				if ($replies->getCount()) {
-					$latestReply = $replies->next();
+				$latestReply = $notes->next();
+				if ($latestReply && $latestReply->getId() != $headNote->getId()) {
 					$repliedUser = $latestReply->getUser();
-					return array('label' => $repliedUser->getUsername() . '<br />' . $latestReply->getShortDatePosted());
+					return array('label' => $repliedUser->getUsername() . '<br />' . date('M/d', strtotime($latestReply->getDateCreated())));
 				} else {
 					return array('label' => '-');
 				}

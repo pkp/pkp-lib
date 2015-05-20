@@ -16,6 +16,9 @@
 
 import('lib.pkp.classes.note.Note');
 
+define('NOTE_ORDER_DATE_CREATED',	0x0001);
+define('NOTE_ORDER_ID',			0x0001);
+
 class NoteDAO extends DAO {
 	/**
 	 * Constructor.
@@ -66,14 +69,34 @@ class NoteDAO extends DAO {
 
 	/**
 	 * Retrieve Notes by assoc id/type
-	 * @param $assocId int
-	 * @param $assocType int
-	 * @param $userId int
+	 * @param $assocId int ASSOC_TYPE_...
+	 * @param $assocType int Assoc ID (per $assocType)
+	 * @param $userId int Optional user ID
+	 * @param $orderBy int Optional sorting field constant: NOTE_ORDER_...
+	 * @param $sortDirection int Optional sorting order constant: SORT_DIRECTION_...
 	 * @return object DAOResultFactory containing matching Note objects
 	 */
-	function getByAssoc($assocType, $assocId, $userId = null) {
+	function getByAssoc($assocType, $assocId, $userId = null, $orderBy = NOTE_ORDER_DATE_CREATED, $sortDirection = SORT_DIRECTION_DESC) {
 		$params = array((int) $assocId, (int) $assocType);
 		if ($userId) $params[] = (int) $userId;
+
+		// Sanitize sort ordering
+		switch ($orderBy) {
+			case NOTE_ORDER_ID:
+				$orderSanitized = 'note_id';
+				break;
+			case NOTE_ORDER_DATE_CREATED:
+			default:
+				$orderSanitized = 'date_created';
+		}
+		switch ($sortDirection) {
+			case SORT_DIRECTION_ASC:
+				$directionSanitized = 'ASC';
+				break;
+			case SORT_DIRECTION_DESC:
+			default:
+				$directionSanitized = 'DESC';
+		}
 
 		$result = $this->retrieve(
 			'SELECT	*
@@ -81,7 +104,7 @@ class NoteDAO extends DAO {
 			WHERE	assoc_id = ?
 				AND assoc_type = ?
 				' . ($userId?' AND user_id = ?':'') . '
-			ORDER BY date_created DESC',
+			ORDER BY ' . $orderSanitized . ' ' . $directionSanitized,
 			$params
 		);
 		return new DAOResultFactory($result, $this, '_fromRow');

@@ -35,10 +35,10 @@ class QueryDAO extends DAO {
 		$params = array((int) $queryId);
 		if ($submissionId) $params[] = (int) $submissionId;
 		$result = $this->retrieve(
-			'SELECT sfq.*
-			FROM	queries sfq
-			WHERE	sfq.query_id = ?'
-				. ($submissionId?' AND sfq.submission_id = ?':''),
+			'SELECT *
+			FROM	queries
+			WHERE	query_id = ?'
+				. ($submissionId?' AND submission_id = ?':''),
 			$params
 		);
 
@@ -55,56 +55,20 @@ class QueryDAO extends DAO {
 	 * Retrieve all queries for a submission.
 	 * @param $submissionId int
 	 * @param $stageId int
-	 * @param $onlyParents boolean
 	 * @return array Query
 	 */
-	function getBySubmissionId($submissionId, $stageId = null, $onlyParents = false) {
+	function getBySubmissionId($submissionId, $stageId = null) {
 		$params = array((int) $submissionId);
 		if ($stageId) $params[] = $stageId;
 		return new DAOResultFactory(
 			$this->retrieve(
-				'SELECT	sfq.*
-				FROM	queries sfq
-				WHERE	sfq.submission_id = ? '
-				. ($stageId?' AND sfq.stage_id = ?':'')
-				. ($onlyParents?' AND sfq.parent_query_id = 0':''),
+				'SELECT	*
+				FROM	queries
+				WHERE	submission_id = ? '
+				. ($stageId?' AND stage_id = ?':''),
 				$params
 			),
 			$this, '_fromRow'
-		);
-	}
-
-	/**
-	 * Retrieves the replies to a query, ordered by increasing post date.
-	 * @param $queryId int
-	 * @param $submissionId int optional
-	 * @return array Query
-	 */
-	function getRepliesToQuery($queryId, $submissionId = null) {
-		$params = array((int) $queryId);
-		if ($submissionId) $params[] = (int) $submissionId;
-		return new DAOResultFactory(
-			$this->retrieve(
-				'SELECT	sfq.*
-				FROM	queries sfq
-				WHERE	sfq.parent_query_id = ? '
-				. ($submissionId?' AND sfq.submission_id = ?':'')
-				. ' ORDER BY date_posted ASC',
-				$params
-			),
-			$this, '_fromRow'
-		);
-	}
-
-	/**
-	 * Update the localized data for this object
-	 * @param $query object
-	 */
-	function updateLocaleFields($query) {
-		$this->updateDataObjectSettings(
-			'query_settings',
-			$query,
-			array('query_id' => $query->getId())
 		);
 	}
 
@@ -118,13 +82,8 @@ class QueryDAO extends DAO {
 		$query->setId($row['query_id']);
 		$query->setSubmissionId($row['submission_id']);
 		$query->setStageId($row['stage_id']);
-		$query->setParentQueryId($row['parent_query_id']);
 		$query->setUserId($row['user_id']);
-		$query->setDatePosted($row['date_posted']);
-		$query->setDateModified($row['date_modified']);
 		$query->setThreadClosed($row['thread_closed']);
-
-		$this->getDataObjectSettings('query_settings', 'query_id', $row['query_id'], $query);
 
 		HookRegistry::call('QueryDAO::_fromRow', array(&$query, &$row));
 		return $query;
@@ -139,37 +98,20 @@ class QueryDAO extends DAO {
 	}
 
 	/**
-	 * Get field names for which data is localized.
-	 * @return array
-	 */
-	function getLocaleFieldNames() {
-		return array('comment', 'subject');
-	}
-
-	/**
 	 * Insert a new Query.
 	 * @param $query Query
 	 */
 	function insertObject($query) {
 		$this->update(
-			sprintf('INSERT INTO queries
-				(submission_id, stage_id, parent_query_id, user_id, date_posted, date_modified, thread_closed)
-				VALUES
-				(?, ?, ?, ?, %s, %s, ?)',
-				$this->datetimeToDB($query->getDatePosted()),
-				$this->datetimeToDB($query->getDateModified())
-			), array(
+			'INSERT INTO queries (submission_id, stage_id, thread_closed)
+			VALUES (?, ?, ?)',
+			array(
 				(int) $query->getSubmissionId(),
 				(int) $query->getStageId(),
-				(int) $query->getParentQueryId(),
-				(int) $query->getUserId(),
 				(int) $query->getThreadClosed(),
 			)
 		);
-
 		$query->setId($this->getInsertId());
-		$this->updateLocaleFields($query);
-
 		return $query->getId();
 	}
 
@@ -241,25 +183,16 @@ class QueryDAO extends DAO {
 	 */
 	function updateObject($query) {
 		$this->update(
-			sprintf('UPDATE	queries
-				SET	stage_id = ?,
-					parent_query_id = ?,
-					user_id = ?,
-					date_posted = %s,
-					date_modified = %s,
-					thread_closed = ?
-				WHERE	query_id = ?',
-				$this->datetimeToDB($query->getDatePosted()),
-				$this->datetimeToDB($query->getDateModified())
-			), array(
+			'UPDATE	queries
+			SET	stage_id = ?,
+				thread_closed = ?
+			WHERE	query_id = ?',
+			array(
 				(int) $query->getStageId(),
-				(int) $query->getParentQueryId(),
-				(int) $query->getUserId(),
 				(int) $query->getThreadClosed(),
 				(int) $query->getId()
 			)
 		);
-		$this->updateLocaleFields($query);
 	}
 
 	/**
@@ -284,8 +217,10 @@ class QueryDAO extends DAO {
 			$params
 		);
 		if ($this->getAffectedRows()) {
-			$this->update('DELETE FROM query_settings WHERE query_id = ?', array((int) $queryId));
-			$this->removeAllParticipants($queryId);
+			$this->update('DELETE FROM query_participants WHERE query_id = ?', (int) $queryId);
+
+			$noteDao = DAORegistry::getDAO('NoteDAO');
+			$noteDao->deleteByAssoc(ASSOC_TYPE_QUERY, $queryId);
 		}
 	}
 

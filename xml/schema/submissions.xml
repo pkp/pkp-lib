@@ -249,37 +249,4 @@
 			<col>user_id</col>
 		</index>
 	</table>
-
-	<!--
-	  *
-	  * TABLE query_settings
-	  *
-	  -->
-	<table name="query_settings">
-		<field name="query_id" type="I8">
-			<NOTNULL />
-		</field>
-		<field name="locale" type="C2" size="5">
-			<NOTNULL />
-			<DEFAULT VALUE=""/>
-		</field>
-		<field name="setting_name" type="C2" size="255">
-			<NOTNULL />
-		</field>
-		<field name="setting_value" type="X"/>
-		<field name="setting_type" type="C2" size="6">
-			<NOTNULL/>
-			<descr>(bool|int|float|string|object)</descr>
-		</field>
-		<descr>Language dependent author metadata.</descr>
-		<index name="query_settings_query_id">
-			<col>query_id</col>
-		</index>
-		<index name="query_settings_pkey">
-			<col>query_id</col>
-			<col>locale</col>
-			<col>setting_name</col>
-			<UNIQUE/>
-		</index>
-	</table>
 </schema>

@@ -8,12 +8,12 @@
  * Read a query.
  *
  *}
-
-<div id="readQuery">
-
-	<p>{$query->getLocalizedSubject()|escape}</p>
-
-	<p>
-	{$query->getLocalizedComment()|escape}
-	</p>
+<div class="readQuery">
+	<h3>{if $headNote}{$headNote->getTitle()|escape}{else}&mdash;{/if}</h3>
+	{iterate from=notes item=note}
+		<div id="note-{$note->getId()|escape}">{$note->getContents()|strip_unsafe_html}</div>
+	{/iterate}
+	{if $notes->wasEmpty()}
+		<div id="note-none">&nbsp;</div>
+	{/if}
 </div>

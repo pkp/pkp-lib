@@ -40,22 +40,6 @@ class Query extends DataObject {
 	}
 
 	/**
-	 * get parent query id
-	 * @return int
-	 */
-	function getParentQueryId() {
-		return $this->getData('parentQueryId');
-	}
-
-	/**
-	 * set parent query id
-	 * @param $parentQueryId int
-	 */
-	function setParentQueryId($parentQueryId) {
-		return $this->setData('parentQueryId', $parentQueryId);
-	}
-
-	/**
 	 * get stage id
 	 * @return int
 	 */
@@ -104,120 +88,15 @@ class Query extends DataObject {
 	}
 
 	/**
-	 * get user
-	 * @return PKPUser
+	 * Get the "head" (first) note for this query.
+	 * @return Note
 	 */
-	function getUser() {
-		$userDao = DAORegistry::getDAO('UserDAO');
-		return $userDao->getById($this->getUserId());
-	}
-
-	/**
-	 * get date posted
-	 * @return date
-	 */
-	function getDatePosted() {
-		return $this->getData('datePosted');
-	}
-
-	/**
-	 * Returns the date posted in short display form.
-	 * @return string
-	 */
-	function getShortDatePosted() {
-		return date('M/d', strtotime($this->getDatePosted()));
-	}
-
-	/**
-	 * set date posted
-	 * @param $datePosted date
-	 */
-	function setDatePosted($datePosted) {
-		return $this->setData('datePosted', $datePosted);
-	}
-
-	/**
-	 * get date modified
-	 * @return date
-	 */
-	function getDateModified() {
-		return $this->getData('dateModified');
-	}
-
-	/**
-	 * set date modified
-	 * @param $dateModified date
-	 */
-	function setDateModified($dateModified) {
-		return $this->setData('dateModified', $dateModified);
-	}
-
-	/**
-	 * get viewable
-	 * @return boolean
-	 */
-	function getViewable() {
-		return $this->getData('viewable');
-	}
-
-	/**
-	 * set viewable
-	 * @param $viewable boolean
-	 */
-	function setViewable($viewable) {
-		return $this->setData('viewable', $viewable);
-	}
-
-	/**
-	 * Set the comment
-	 * @param $comment string
-	 * @param $locale string
-	 */
-	function setComment($comment, $locale) {
-		$this->setData('comment', $comment, $locale);
-	}
-
-	/**
-	 * Get the comment
-	 * @param $locale string
-	 * @return string
-	 */
-	function getComment($locale) {
-		return $this->getData('comment', $locale);
-	}
-
-	/**
-	 * Get the localized comment
-	 * @return string
-	 */
-	function getLocalizedComment() {
-		return $this->getLocalizedData('comment');
-	}
-
-	/**
-	 * Set the subject
-	 * @param $subject string
-	 * @param $locale string
-	 */
-	function setSubject($subject, $locale) {
-		$this->setData('subject', $subject, $locale);
-	}
-
-	/**
-	 * Get the subject
-	 * @param $locale string
-	 * @return string
-	 */
-	function getSubject($locale) {
-		return $this->getData('subject', $locale);
-	}
-
-	/**
-	 * Get the localized subject
-	 * @return string
-	 */
-	function getLocalizedSubject() {
-		return $this->getLocalizedData('subject');
+	function getHeadNote() {
+		$noteDao = DAORegistry::getDAO('NoteDAO');
+		$notes = $noteDao->getByAssoc(ASSOC_TYPE_QUERY, $this->getId(), null, NOTE_ORDER_ID, SORT_DIRECTION_ASC);
+		$note = $notes->next();
+		$notes->close();
+		return $note;
 	}
 }
 

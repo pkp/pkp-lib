@@ -35,11 +35,11 @@
 
 	{fbvFormArea id="queryContentsArea"}
 		{fbvFormSection title="common.subject" for="subject" required="true"}
-			{fbvElement type="text" id="subject" multilingual="true" value=$subject}
+			{fbvElement type="text" id="subject" value=$subject}
 		{/fbvFormSection}
 
 		{fbvFormSection title="stageParticipants.notify.message" for="comment" required="true"}
-			{fbvElement type="textarea" id="comment" multilingual="true" rich=true value=$comment}
+			{fbvElement type="textarea" id="comment" rich=true value=$comment}
 		{/fbvFormSection}
 	{/fbvFormArea}
 

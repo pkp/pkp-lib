@@ -263,7 +263,12 @@ class QueriesGridHandler extends GridHandler {
 		}
 
 		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('query', $query);
+		$noteDao = DAORegistry::getDAO('NoteDAO');
+		$templateMgr->assign(array(
+			'query' => $query,
+			'headNote' => $query->getHeadNote(),
+			'notes' => $noteDao->getByAssoc(ASSOC_TYPE_QUERY, $query->getId(), null, NOTE_ORDER_DATE_CREATED, SORT_DIRECTION_ASC),
+		));
 		return new JSONMessage(true, $templateMgr->fetch('controllers/grid/queries/readQuery.tpl'));
 	}
 

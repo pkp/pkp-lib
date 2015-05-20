@@ -66,8 +66,8 @@ class QueryTitleGridColumn extends GridColumn {
 		$cellActions = parent::getCellActions($request, $row, $position);
 
 		// Retrieve the submission file.
-		$query =& $row->getData();
-		assert(isset($query));
+		$query = $row->getData();
+		$headNote = $query->getHeadNote();
 
 		// Create the cell action to download a file.
 		import('lib.pkp.classes.linkAction.request.AjaxModal');
@@ -80,7 +80,7 @@ class QueryTitleGridColumn extends GridColumn {
 						__('grid.action.readQuery'),
 						'modal_edit'
 					),
-				$query->getLocalizedSubject(),
+				$headNote?$headNote->getTitle():'&mdash;',
 				null
 			);
 

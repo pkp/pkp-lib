@@ -48,21 +48,20 @@ class QueryForm extends Form {
 			$query = $queryDao->newDataObject();
 			$query->setSubmissionId($submission->getId());
 			$query->setStageId($stageId);
-			$query->setDatePosted(Core::getCurrentDate());
 			$queryDao->insertObject($query);
 		} else {
 			$query = $queryDao->getById($queryId, $submission->getId());
 			assert($query);
-			// New queries will have an unset user ID.
-			$this->_isNew = !$query->getUserId();
+			// New queries will not have a head note.
+			$this->_isNew = !$query->getHeadNote();
 		}
 
 		$this->setQuery($query);
 
 		// Validation checks for this form
 		$this->addCheck(new FormValidatorListbuilder($this, 'users', 'stageParticipants.notify.warning'));
-		$this->addCheck(new FormValidatorLocale($this, 'subject', 'required', 'submission.queries.subjectRequired'));
-		$this->addCheck(new FormValidatorLocale($this, 'comment', 'required', 'submission.queries.messageRequired'));
+		$this->addCheck(new FormValidator($this, 'subject', 'required', 'submission.queries.subjectRequired'));
+		$this->addCheck(new FormValidator($this, 'comment', 'required', 'submission.queries.messageRequired'));
 		$this->addCheck(new FormValidatorPost($this));
 	}
 
@@ -126,11 +125,14 @@ class QueryForm extends Form {
 	function initData() {
 		$queryDao = DAORegistry::getDAO('QueryDAO');
 		if ($query = $this->getQuery()) {
+			$noteDao = DAORegistry::getDAO('NoteDAO');
+			$notes = $noteDao->getByAssoc(ASSOC_TYPE_QUERY, $query->getId(), null, NOTE_ORDER_ID, SORT_DIRECTION_ASC);
+			$firstNote = $notes->next();
 			$this->_data = array(
 				'queryId' => $query->getId(),
-				'subject' => $query->getSubject(null),
-				'comment' => $query->getComment(null),
-				'userId' => $query->getUserId(),
+				'subject' => $firstNote?$firstNote->getTitle():null,
+				'comment' => $firstNote?$firstNote->getContents():null,
+				'userId' => $firstNote?$firstNote->getUserId():null,
 				'userIds' => $queryDao->getParticipantIds($query->getId()),
 			);
 		} else {
@@ -183,10 +185,24 @@ class QueryForm extends Form {
 		$queryDao = DAORegistry::getDAO('QueryDAO');
 		$query = $this->getQuery();
 
-		if ($this->_isNew) $query->setUserId($this->getData('userId'));
-		$query->setSubject($this->getData('subject'), null); // localized
-		$query->setComment($this->getData('comment'), null); // localized
-		$query->setDateModified(Core::getCurrentDate());
+		$noteDao = DAORegistry::getDAO('NoteDAO');
+		if ($this->_isNew) {
+			$headNote = $noteDao->newDataObject();
+			$headNote->setUserId($request->getUser()->getId());
+			$headNote->setAssocType(ASSOC_TYPE_QUERY);
+			$headNote->setAssocId($query->getId());
+			$headNote->setDateCreated(Core::getCurrentDate());
+		} else {
+			$headNote = $query->getHeadNote();
+		}
+		$headNote->setDateModified(Core::getCurrentDate());
+		$headNote->setTitle($this->getData('subject'));
+		$headNote->setContents($this->getData('comment'));
+		if ($this->_isNew) {
+			$noteDao->insertObject($headNote);
+		} else {
+			$noteDao->updateObject($headNote);
+		}
 
 		import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
 		ListbuilderHandler::unpack($request, $this->getData('users'));

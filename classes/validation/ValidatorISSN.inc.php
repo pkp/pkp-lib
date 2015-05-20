@@ -44,7 +44,18 @@ class ValidatorISSN extends ValidatorRegExp {
 		for ($i=0; $i<7; $i++) {
 			$check += $issn[$i] * (8-$i);
 		}
-		return ((int) $issn[7] == 11 - ($check % 11));
+		$check = $check % 11;
+		switch ($check) {
+			case 0:
+				$check = '0';
+				break;
+			case 1:
+				$check = 'X';
+				break;
+			default:
+				$check = (string) (11 - $check);
+		}
+		return ($issn[7] === $check);
 	}
 
 	//

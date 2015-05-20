@@ -17,7 +17,7 @@
 import('lib.pkp.classes.note.Note');
 
 define('NOTE_ORDER_DATE_CREATED',	0x0001);
-define('NOTE_ORDER_ID',			0x0001);
+define('NOTE_ORDER_ID',			0x0002);
 
 class NoteDAO extends DAO {
 	/**
@@ -240,6 +240,14 @@ class NoteDAO extends DAO {
 				(int) $note->getId()
 			)
 		);
+	}
+
+	/**
+	 * Delete a note by note object.
+	 * @param $note Note
+	 */
+	function deleteObject($note) {
+		$this->deleteById($note->getId());
 	}
 
 	/**

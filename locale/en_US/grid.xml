@@ -20,6 +20,7 @@
 	<message key="grid.action.manageAccess">Manage Access</message>
 	<message key="grid.action.sort">Sort</message>
 	<message key="grid.action.addItem">Add Item</message>
+	<message key="grid.action.addNote">Add Note</message>
 	<message key="grid.action.addQuery">Add Query</message>
 	<message key="grid.action.readQuery">Read Query</message>
 	<message key="grid.action.deleteQuery">Delete Query</message>

@@ -19,13 +19,11 @@
 <p>{translate key="editor.submission.copyedit.manageCopyeditedFilesDescription"}</p>
 
 <div id="existingFilesContainer">
-	<form class="pkp_form" id="manageCopyeditedFilesForm" action="{url component="grid.files.copyedit.ManageCopyeditedFilesGridHandler" op="updateCopyeditedFiles" submissionId=$submissionId}" method="post">
+	<form class="pkp_form" id="manageCopyeditedFilesForm" action="{url component="grid.files.copyedit.ManageCopyeditedFilesGridHandler" op="updateCopyeditedFiles" submissionId=$submissionId stageId=$smarty.const.WORKFLOW_STAGE_ID_EDITING}" method="post">
 		{fbvFormArea id="manageCopyeditedFiles"}
 			{fbvFormSection}
-				<input type="hidden" name="submissionId" value="{$submissionId|escape}" />
-				<input type="hidden" name="stageId" value="{$smarty.const.WORKFLOW_STAGE_ID_EDITING}" />
-				{url|assign:availableReviewFilesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.copyedit.ManageCopyeditedFilesGridHandler" op="fetchGrid" submissionId=$submissionId escape=false}
-				{load_url_in_div id="availableReviewFilesGrid" url=$availableReviewFilesGridUrl}
+				{url|assign:manageCopyeditedFilesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.copyedit.ManageCopyeditedFilesGridHandler" op="fetchGrid" submissionId=$submissionId escape=false}
+				{load_url_in_div id="manageCopyeditedFilesGrid" url=$manageCopyeditedFilesGridUrl}
 			{/fbvFormSection}
 
 			{fbvFormButtons}

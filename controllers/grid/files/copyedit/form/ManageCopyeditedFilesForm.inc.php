@@ -25,10 +25,6 @@ class ManageCopyeditedFilesForm extends ManageSubmissionFilesForm {
 		parent::ManageSubmissionFilesForm($submissionId, 'controllers/grid/files/copyedit/manageCopyeditedFiles.tpl');
 	}
 
-
-	//
-	// Overridden template methods
-	//
 	/**
 	 * Save selection of copyedited files
 	 * @param $args array

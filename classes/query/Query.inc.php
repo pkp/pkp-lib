@@ -14,6 +14,7 @@
  * @brief Class for Query.
  */
 
+import('lib.pkp.classes.note.NoteDAO'); // Constants
 
 class Query extends DataObject {
 	/**
@@ -92,11 +93,22 @@ class Query extends DataObject {
 	 * @return Note
 	 */
 	function getHeadNote() {
-		$noteDao = DAORegistry::getDAO('NoteDAO');
-		$notes = $noteDao->getByAssoc(ASSOC_TYPE_QUERY, $this->getId(), null, NOTE_ORDER_ID, SORT_DIRECTION_ASC);
+		$notes = $this->getReplies();
 		$note = $notes->next();
 		$notes->close();
 		return $note;
+	}
+
+	/**
+	 * Get all notes on a query.
+	 * @param $userId int Optional user ID
+	 * @param $sortBy int Optional NOTE_ORDER_...
+	 * @param $sortOrder int Optional SORT_DIRECTION_...
+	 * @return DAOResultFactory
+	 */
+	function getReplies($userId = null, $sortBy = NOTE_ORDER_ID, $sortOrder = SORT_DIRECTION_ASC) {
+		$noteDao = DAORegistry::getDAO('NoteDAO');
+		return $noteDao->getByAssoc(ASSOC_TYPE_QUERY, $this->getId(), null, $sortBy, $sortOrder);
 	}
 }
 

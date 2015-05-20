@@ -607,11 +607,10 @@
 	 */
 	$.pkp.controllers.form.FormHandler.prototype.containerCloseHandler =
 			function(input, event) {
-		var handler, $form = $(this.getHtmlElement());
+		var $form = $(this.getHtmlElement());
 		// prevent orphaned date pickers that may be still open.
 		$form.find('.hasDatepicker').datepicker('hide');
-		handler = $.pkp.classes.Handler.getHandler($('#' + $form.attr('id')));
-		if (handler.formChangesTracked) {
+		if (this.formChangesTracked) {
 			if (!confirm($.pkp.locale.form_dataHasChanged)) {
 				return false;
 			} else {

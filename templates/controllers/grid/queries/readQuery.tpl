@@ -9,11 +9,22 @@
  *
  *}
 <div class="readQuery">
-	<h3>{if $headNote}{$headNote->getTitle()|escape}{else}&mdash;{/if}</h3>
-	{iterate from=notes item=note}
-		<div id="note-{$note->getId()|escape}">{$note->getContents()|strip_unsafe_html}</div>
-	{/iterate}
-	{if $notes->wasEmpty()}
-		<div id="note-none">&nbsp;</div>
-	{/if}
+	{url|assign:queryNotesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.queries.QueryNotesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId queryId=$query->getId() escape=false}
+	{load_url_in_div id="queryNotesGrid" url=$queryNotesGridUrl}
+
+	<script>
+		// Attach the handler.
+		$(function() {ldelim}
+			$('#noteForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler');
+		{rdelim});
+	</script>
+
+	<form class="pkp_form" id="noteForm" action="{url router=$smarty.const.ROUTE_COMPONENT component="grid.queries.QueryNotesGridHandler" op="insertNote" submissionId=$submission->getId() stageId=$stageId queryId=$query->getId() escape=false}" method="post">
+
+		{fbvFormSection title="stageParticipants.notify.message" for="comment" required="true"}
+			{fbvElement type="textarea" id="comment" rich=true value=$comment}
+		{/fbvFormSection}
+
+		{fbvFormButtons id="addNoteButton"}
+	</form>
 </div>

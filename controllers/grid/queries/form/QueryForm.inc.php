@@ -22,7 +22,7 @@ class QueryForm extends Form {
 	/** @var int The stage id associated with the query being edited **/
 	var $_stageId;
 
-	/** @var Query Query the query being edited **/
+	/** @var Query The query being edited **/
 	var $_query;
 
 	/** @var boolean True iff this is a newly-created query */
@@ -125,14 +125,11 @@ class QueryForm extends Form {
 	function initData() {
 		$queryDao = DAORegistry::getDAO('QueryDAO');
 		if ($query = $this->getQuery()) {
-			$noteDao = DAORegistry::getDAO('NoteDAO');
-			$notes = $noteDao->getByAssoc(ASSOC_TYPE_QUERY, $query->getId(), null, NOTE_ORDER_ID, SORT_DIRECTION_ASC);
-			$firstNote = $notes->next();
+			$headNote = $query->getHeadNote();
 			$this->_data = array(
 				'queryId' => $query->getId(),
-				'subject' => $firstNote?$firstNote->getTitle():null,
-				'comment' => $firstNote?$firstNote->getContents():null,
-				'userId' => $firstNote?$firstNote->getUserId():null,
+				'subject' => $headNote?$headNote->getTitle():null,
+				'comment' => $headNote?$headNote->getContents():null,
 				'userIds' => $queryDao->getParticipantIds($query->getId()),
 			);
 		} else {
@@ -163,7 +160,7 @@ class QueryForm extends Form {
 	 * Assign form data to user-submitted data.
 	 * @see Form::readInputData()
 	 */
-	function readInputData($request) {
+	function readInputData() {
 		$this->readUserVars(array(
 			'submissionId',
 			'stageId',
@@ -171,10 +168,6 @@ class QueryForm extends Form {
 			'comment',
 			'users',
 		));
-
-		// For new queries, make the user ID available to set upon execute
-		$user = $request->getUser();
-		$this->setData('userId', $user->getId());
 	}
 
 	/**

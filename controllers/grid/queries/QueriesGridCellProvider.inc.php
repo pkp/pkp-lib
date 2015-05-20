@@ -40,9 +40,7 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider {
 
 		$headNote = $element->getHeadNote();
 		$user = $headNote?$headNote->getUser():null;
-
-		$noteDao = DAORegistry::getDAO('NoteDAO');
-		$notes = $noteDao->getByAssoc(ASSOC_TYPE_QUERY, $element->getId(), null, NOTE_ORDER_ID, SORT_DIRECTION_DESC);
+		$notes = $element->getReplies(null, NOTE_ORDER_ID, SORT_DIRECTION_DESC);
 
 		switch ($columnId) {
 			case 'replies':

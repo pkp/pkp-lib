@@ -21,10 +21,7 @@
 	{rdelim});
 </script>
 
-<form class="pkp_form" id="queryForm" method="post" action="{url op="updateQuery"}">
-	<input type="hidden" name="queryId" value="{$queryId|escape}" />
-	<input type="hidden" name="submissionId" value="{$submissionId|escape}" />
-	<input type="hidden" name="stageId" value="{$stageId|escape}" />
+<form class="pkp_form" id="queryForm" method="post" action="{url op="updateQuery" queryId=$queryId submissionId=$submissionId stageId=$stageId}">
 
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="queryFormNotification"}
 

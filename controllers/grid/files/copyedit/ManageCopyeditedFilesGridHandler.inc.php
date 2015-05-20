@@ -10,7 +10,7 @@
  * @class ManageCopyeditedFilesGridHandler
  * @ingroup controllers_grid_files_copyedit
  *
- * @brief Handle the editor review file selection grid (selects which files to send to review or to next review round)
+ * @brief Handle the copyedited file selection grid
  */
 
 import('lib.pkp.controllers.grid.files.SelectableSubmissionFileListCategoryGridHandler');

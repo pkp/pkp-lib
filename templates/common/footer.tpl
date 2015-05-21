@@ -47,8 +47,6 @@
 
 </div><!-- pkp_structure_foot -->
 
-</div><!-- pkp_structure_page -->
-
 {$additionalFooterData}
 </body>
 </html>

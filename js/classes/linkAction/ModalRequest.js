@@ -91,7 +91,7 @@
 				this.getLinkActionElement());
 		linkActionHandler = $.pkp.classes.Handler.getHandler($linkActionElement);
 		handlerOptions = $.extend(true,
-				{$eventBridge: linkActionHandler.getStaticId()}, modalOptions);
+				{eventBridge: linkActionHandler.getStaticId()}, modalOptions);
 		this.$dialog_ = $('<div id=' + uuid + '></div>').pkpHandler(
 				modalOptions.modalHandler, handlerOptions);
 

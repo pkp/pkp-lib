@@ -202,7 +202,7 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 	 * @see AcronPlugin::parseCronTab()
 	 */
 	function callbackParseCronTab($hookName, $args) {
-		if ($this->getEnabled()) {
+		if ($this->getEnabled() || !Config::getVar('general', 'installed')) {
 			$taskFilesPath =& $args[0]; // Reference needed.
 			$taskFilesPath[] = PKP_LIB_PATH . DIRECTORY_SEPARATOR . $this->getPluginPath() . DIRECTORY_SEPARATOR . 'scheduledTasksAutoStage.xml';
 		}

@@ -18,7 +18,7 @@
 			{rdelim});
 	{rdelim});
 </script>
-<div class="pkp_structure_content" id="headerTemplateContainer">
+<div class="pkp_structure_head_wrapper" id="headerTemplateContainer">
 	<div class="pkp_structure_masthead">
         {if $displayPageHeaderLogo && is_array($displayPageHeaderLogo)}
             <h1>
@@ -50,4 +50,4 @@
 		{include file="header/sitenav.tpl"}
 		{include file="header/localnav.tpl"}
 	</div>
-</div><!-- pkp_structure_content -->
+</div><!-- pkp_structure_head_wrapper -->

@@ -187,7 +187,8 @@ class PKPTemplateManager extends Smarty {
 		));
 
 		$this->register_function('url', array($this, 'smartyUrl'));
-		// ajax load into a div
+		// ajax load into a div or any element
+		$this->register_function('load_url_in_el', array($this, 'smartyLoadUrlInEl'));
 		$this->register_function('load_url_in_div', array($this, 'smartyLoadUrlInDiv'));
 
 		/**
@@ -1068,37 +1069,55 @@ class PKPTemplateManager extends Smarty {
 	}
 
 	/**
-	 * Smarty usage: {load_url_in_div id="someHtmlId" url="http://the.url.to.be.loaded.into.the.grid"}
+	 * Smarty usage: {load_url_in_el el="htmlElement" id="someHtmlId" url="http://the.url.to.be.loaded.into.the.grid"}
 	 *
-	 * Custom Smarty function for loading a URL via AJAX into a DIV
+	 * Custom Smarty function for loading a URL via AJAX into any HTML element
 	 * @param $params array associative array
 	 * @param $smarty Smarty
 	 * @return string of HTML/Javascript
 	 */
-	function smartyLoadUrlInDiv($params, $smarty) {
+	function smartyLoadUrlInEl($params, $smarty) {
 		// Required Params
+		if (!isset($params['el'])) {
+			$smarty->trigger_error("el parameter is missing from load_url_in_el");
+		}
 		if (!isset($params['url'])) {
-			$smarty->trigger_error("url parameter is missing from load_url_in_div");
+			$smarty->trigger_error("url parameter is missing from load_url_in_el");
 		}
 		if (!isset($params['id'])) {
-			$smarty->trigger_error("id parameter is missing from load_url_in_div");
+			$smarty->trigger_error("id parameter is missing from load_url_in_el");
 		}
 
 		$this->assign(array(
-			'inDivUrl' => $params['url'],
-			'inDivDivId' => $params['id'],
-			'inDivClass' => isset($params['class'])?$params['class']:null,
+			'inEl' => $params['el'],
+			'inElUrl' => $params['url'],
+			'inElElId' => $params['id'],
+			'inElClass' => isset($params['class'])?$params['class']:null,
 		));
 
 		if (isset($params['loadMessageId'])) {
 			$loadMessageId = $params['loadMessageId'];
 			unset($params['url'], $params['id'], $params['loadMessageId'], $params['class']);
-			$this->assign('inDivLoadMessage', __($loadMessageId, $params));
+			$this->assign('inElLoadMessage', __($loadMessageId, $params));
 		} else {
-			$this->assign('inDivLoadMessage', $this->fetch('common/loadingContainer.tpl'));
+			$this->assign('inElLoadMessage', $this->fetch('common/loadingContainer.tpl'));
 		}
 
-		return $this->fetch('common/urlInDiv.tpl');
+		return $this->fetch('common/urlInEl.tpl');
+	}
+
+	/**
+	 * Smarty usage: {load_url_in_div id="someHtmlId" url="http://the.url.to.be.loaded.into.the.grid"}
+	 *
+	 * Custom Smarty function for loading a URL via AJAX into a DIV. Convenience
+	 * wrapper for smartyLoadUrlInEl.
+	 * @param $params array associative array
+	 * @param $smarty Smarty
+	 * @return string of HTML/Javascript
+	 */
+	function smartyLoadUrlInDiv($params, $smarty) {
+		$params['el'] = 'div';
+		return $this->smartyLoadUrlInEl( $params, $smary );
 	}
 }
 

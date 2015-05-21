@@ -12,13 +12,13 @@
 <script>
 	// Initialise JS handler.
 	$(function() {ldelim}
-		$('#{$inDivDivId|escape:"js"}').pkpHandler(
+		$('#{$inElElId|escape:"js"}').pkpHandler(
 			'$.pkp.controllers.UrlInDivHandler',
 			{ldelim}
-				sourceUrl: '{$inDivUrl|escape:"javascript"}'
+				sourceUrl: '{$inElUrl|escape:"javascript"}'
 			{rdelim}
 		);
 	{rdelim});
 </script>
 
-<div id="{$inDivDivId|escape}"{if $inDivClass} class="{$inDivClass|escape}"{/if}>{$inDivLoadMessage}</div>
+<{$inEl} id="{$inElElId|escape}"{if $inElClass} class="{$inElClass|escape}"{/if}>{$inElLoadMessage}</{$inEl}>

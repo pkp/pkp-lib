@@ -29,7 +29,7 @@
 		{rdelim});
 	</script>
 		{url|assign:fetchHeaderUrl router=$smarty.const.ROUTE_COMPONENT component="page.PageHandler" op="header" escape=false}
-		{load_url_in_div class="pkp_structure_head" id="headerContainer" url=$fetchHeaderUrl}
+		{load_url_in_el el="header" class="pkp_structure_head" id="headerContainer" url=$fetchHeaderUrl}
 		<div class="pkp_structure_body">
 			<div class="pkp_structure_content">
 				<div class="line">

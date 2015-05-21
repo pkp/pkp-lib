@@ -7,42 +7,36 @@
  *
  * Site-Wide Navigation Bar
  *}
-<div class="pkp_structure_head_siteNav">
-	<ul class="pkp_helpers_flatlist pkp_helpers_align_left">
-		{if $isUserLoggedIn}
-			{if array_intersect(array(ROLE_ID_SITE_ADMIN), $userRoles)}
-				<li><a href="{if $multipleContexts}{url router=$smarty.const.ROUTE_PAGE context="index" page="admin" op="index"}{else}{url router=$smarty.const.ROUTE_PAGE page="admin" op="index"}{/if}">{translate key="navigation.admin"}</a></li>
-			{/if}
+<ul class="pkp_navigation_user">
+	{if $isUserLoggedIn}
+		<li class="profile">{translate key="user.hello"}&nbsp;<a href="{url router=$smarty.const.ROUTE_PAGE page="user" op="profile"}">{$loggedInUsername|escape}</a></li>
+		<li class="notificationsLinkContainer">
+			{**
+			 * Unread notifications count is set here on header load, but
+			 * can also be updated dynamically via the javascript event
+			 * called updateUnreadNotificationsCount.
+			 *}
+			<a href="#" id="notificationsToggle">{translate key="common.tasks"} (<span id="unreadNotificationCount">{$unreadNotificationCount}</span>)</a>
+			<div id="notificationsPopover" style="display: none;">
+				{url|assign:notificationsGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.notifications.NotificationsGridHandler" op="fetchGrid" escape=false}
+				{load_url_in_div id="notificationsGrid" url=$notificationsGridUrl}
+			</div>
+		</li>
+		<li>{null_link_action id="toggleHelp" key="help.toggleInlineHelpOn"}</li>
+		{if array_intersect(array(ROLE_ID_SITE_ADMIN), $userRoles)}
+			<li><a href="{if $multipleContexts}{url router=$smarty.const.ROUTE_PAGE context="index" page="admin" op="index"}{else}{url router=$smarty.const.ROUTE_PAGE page="admin" op="index"}{/if}">{translate key="navigation.admin"}</a></li>
 		{/if}
-		{if $multipleContexts}
-			<li>{include file="header/contextSwitcher.tpl"}</li>
+		<li><a href="{url router=$smarty.const.ROUTE_PAGE page="login" op="signOut"}">{translate key="user.logOut"}</a></li>
+		{if $isUserLoggedInAs}
+			<li><a href="{url router=$smarty.const.ROUTE_PAGE page="login" op="signOutAsUser"}">{translate key="user.logOutAs"} {$loggedInUsername|escape}</a></li>
 		{/if}
-	</ul>
-	<ul class="pkp_helpers_flatlist pkp_helpers_align_right">
-		{if $isUserLoggedIn}
-			<li class="profile">{translate key="user.hello"}&nbsp;<a href="{url router=$smarty.const.ROUTE_PAGE page="user" op="profile"}">{$loggedInUsername|escape}</a></li>
-			<li class="notificationsLinkContainer">
-				{**
-				 * Unread notifications count is set here on header load, but
-				 * can also be updated dynamically via the javascript event
-				 * called updateUnreadNotificationsCount.
-				 *}
-				<a href="#" id="notificationsToggle">{translate key="common.tasks"} (<span id="unreadNotificationCount">{$unreadNotificationCount}</span>)</a>
-				<div id="notificationsPopover" style="display: none;">
-					{url|assign:notificationsGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.notifications.NotificationsGridHandler" op="fetchGrid" escape=false}
-					{load_url_in_div id="notificationsGrid" url=$notificationsGridUrl}
-				</div>
-			</li>
-			<li>{null_link_action id="toggleHelp" key="help.toggleInlineHelpOn"}</li>
-			<li><a href="{url router=$smarty.const.ROUTE_PAGE page="login" op="signOut"}">{translate key="user.logOut"}</a></li>
-			{if $isUserLoggedInAs}
-				<li><a href="{url router=$smarty.const.ROUTE_PAGE page="login" op="signOutAsUser"}">{translate key="user.logOutAs"} {$loggedInUsername|escape}</a></li>
-			{/if}
-		{elseif !$notInstalled}
-			{if !$hideRegisterLink}
-				<li><a href="{url router=$smarty.const.ROUTE_PAGE page="user" op="register"}">{translate key="navigation.register"}</a></li>
-			{/if}
-			<li><a href="{url router=$smarty.const.ROUTE_PAGE page="login"}">{translate key="navigation.login"}</a></li>
+	{elseif !$notInstalled}
+		{if !$hideRegisterLink}
+			<li><a href="{url router=$smarty.const.ROUTE_PAGE page="user" op="register"}">{translate key="navigation.register"}</a></li>
 		{/if}
-	</ul>
-</div>
+		<li><a href="{url router=$smarty.const.ROUTE_PAGE page="login"}">{translate key="navigation.login"}</a></li>
+	{/if}
+	{if $multipleContexts}
+		<li>{include file="header/contextSwitcher.tpl"}</li>
+	{/if}
+</ul>

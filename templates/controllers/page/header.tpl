@@ -18,7 +18,7 @@
 			{rdelim});
 	{rdelim});
 </script>
-<nav class="pkp_structure_navigation" id="headerNavigationContainer">
+<nav class="pkp_navigation" id="headerNavigationContainer">
     <h1>
 	{if $displayPageHeaderLogo && is_array($displayPageHeaderLogo)}
 		<a href="{$homeUrl}">

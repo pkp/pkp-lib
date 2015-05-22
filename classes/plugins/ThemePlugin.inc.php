@@ -100,11 +100,16 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 				$lastModified = time();
 
 				// Compile this theme's styles
-				require_once('lib/pkp/lib/vendor/leafo/lessphp/lessc.inc.php');
-				$less = new lessc($lessFile);
-				$less->importDir = $this->getPluginPath(); // @see PKPTemplateManager::compileStylesheet
-				$themeStyles = $less->parse();
-				$compiledStyles = str_replace('{$baseUrl}', $request->getBaseUrl(), $themeStyles);
+				require_once('lib/pkp/lib/vendor/oyejorge/less.php/Less.php');
+				$less = new Less_Parser();
+				$directories = array(
+					'/var/www/html/ojs/styles/' => '/styles/',
+					'/var/www/html/ojs/styles/pages/' => '/styles/pages/',
+					'/var/www/html/ojs/plugins/themes/default/' => '/plugins/themes/default/',
+				);
+				$less->SetImportDirs( $directories );
+				$less->parseFile ( '/var/www/html/ojs/styles/index.less');
+				$compiledStyles = str_replace('{$baseUrl}', $request->getBaseUrl(), $less->getCss());
 
 				// Give other plugins the chance to intervene
 				HookRegistry::call('ThemePlugin::compileCss', array($request, $less, &$compiledStylesheetFile, &$compiledStyles));

@@ -139,12 +139,10 @@ class PageHandler extends Handler {
 				$compiledStylesheetFile = $cacheDirectory . '/compiled.css';
 				if (!file_exists($compiledStylesheetFile)) {
 					// Generate the stylesheet file
-					require_once('lib/pkp/lib/vendor/leafo/lessphp/lessc.inc.php');
-					$less = new lessc('styles/index.less');
-					$less->importDir = './';
-					$compiledStyles = $less->parse();
-
-					$compiledStyles = str_replace('{$baseUrl}', $request->getBaseUrl(), $compiledStyles);
+					require_once('lib/pkp/lib/vendor/oyejorge/less.php/Less.php');
+					$less = new Less_Parser();
+					$less->parseFile('lib/pkp/styles/index.less');
+					$compiledStyles = str_replace('{$baseUrl}', $request->getBaseUrl(), $less->getCss());
 
 					// Allow plugins to intervene in stylesheet compilation
 					HookRegistry::call('PageHandler::compileCss', array($request, $less, &$compiledStylesheetFile, &$compiledStyles));

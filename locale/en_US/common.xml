@@ -245,6 +245,7 @@
 	<message key="common.url">URL</message>
 	<message key="common.user">User</message>
 	<message key="common.view">View</message>
+	<message key="common.viewProfile">View Profile</message>
 	<message key="common.weeks">weeks</message>
 	<message key="common.width">Width</message>
 	<message key="common.year">Year</message>

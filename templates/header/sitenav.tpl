@@ -9,7 +9,7 @@
  *}
 <ul class="pkp_navigation_user">
 	{if $isUserLoggedIn}
-		<li class="profile">{translate key="user.hello"}&nbsp;<a href="{url router=$smarty.const.ROUTE_PAGE page="user" op="profile"}">{$loggedInUsername|escape}</a></li>
+		<li class="profile"><a href="{url router=$smarty.const.ROUTE_PAGE page="user" op="profile"}">{$loggedInUsername|escape}</a></li>
 		<li class="notificationsLinkContainer">
 			{**
 			 * Unread notifications count is set here on header load, but

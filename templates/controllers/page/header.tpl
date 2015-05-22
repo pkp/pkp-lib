@@ -40,4 +40,4 @@
     </h1>
 	{include file="header/localnav.tpl"}
 	{include file="header/sitenav.tpl"}
-</nav><!-- pkp_structure_head_wrapper -->
+</nav><!-- pkp_navigation -->

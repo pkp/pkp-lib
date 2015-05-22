@@ -4,34 +4,28 @@
  * Copyright (c) 2014-2015 Simon Fraser University Library
  * Copyright (c) 2003-2015 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
- * 
+ *
  * @ingroup pkp_structure_head
  *
  * @brief Classes for the page header structural elements
  */
 
-@head_height: 96px;
-
 .pkp_structure_head {
-	height: @head_height;
-	background-color: #a2c6dc;
+	.pkp_helpers_clear;
+	position: relative;
+	background-color: @primary;
+	font-size: 16px;
+	line-height: 20px;
 
-	.pkp_structure_masthead {
-		background-color: #fff;
-		height: @head_height;
-	}
-	
-	.pkp_structure_masthead h1 {
-		padding: 0px;
+	h1 {
+		float: left;
+		padding: 20px 0;
+		max-width: 160px;
 
 		img {
-			margin: 0px auto 0px auto;
-			padding: 0px;
-
-			max-width: 100%;
-			max-height: @head_height;
 			width: auto;
 			height: auto;
+			max-width: 100%;
 		}
 	}
 
@@ -64,22 +58,93 @@
 			}
 		}
 	}
+}
 
-	li.notificationsLinkContainer {
-		margin-right: 10px;
-		padding-top: 5px;
-		margin-top: -5px;
+.pkp_navigation {
+	// @todo container for site width is temporary until we figure out the
+	//   best way to manage the site grids
+	.pkp_structure_content;
+	.pkp_helpers_clear;
+	position: relative;
+}
 
-		&.expandedIndicator, &:hover {
-			z-index: 1002;
-			border: 1px solid #999;
-			border-bottom: 1px solid #fff;
-			padding: 5px 10px 3px 10px !important;
-			margin: -5px 0px 0px 10px !important;
-			background-color: #fff;
-			a {
-				color: #000;
-			}
+.pkp_navigation_primary,
+.pkp_navigation_user {
+	&:extend(.pkp_nav_list);
+	padding: 0;
+
+	li {
+		&:extend( .pkp_nav_list li );
+	}
+
+	a {
+		color: #fff;
+		&:extend( .pkp_nav_list a );
+		padding-top: 10px;
+		padding-bottom: 10px;
+
+		&:hover,
+		&:focus {
+			background: @primary-lift;
+			color: @text;
+			color: @text-rgba;
 		}
 	}
+
+	ul {
+		&:extend( .pkp_nav_list ul );
+		z-index: 1000;
+		background: @primary;
+
+		li {
+			&:extend( .pkp_nav_list ul li );
+		}
+
+		ul {
+			&:extend( .pkp_nav_list ul ul );
+			background: @primary-lift;
+
+			a {
+				color: @text;
+				color: @text-rgba;
+
+				&:hover,
+				&:focus {
+					background: @primary;
+					color: #fff;
+				}
+			}
+		}
+
+		li:hover > ul,
+		li:focus > ul {
+			&:extend( .pkp_nav_list ul li:hover > ul );
+		}
+	}
+
+	li:hover > ul,
+	li:focus > ul {
+		&:extend( .pkp_nav_list li:hover > ul );
+	}
+
+	.has-submenu > a:after {
+		&:extend( .pkp_nav_list .has-submenu > a:after );
+	}
+
+	ul .has-submenu > a:after {
+		&:extend( .pkp_nav_list ul .has-submenu > a:after );
+	}
+}
+
+.pkp_navigation_primary {
+	position: absolute;
+	bottom: 0;
+	left: 180px; // logo + 20
+}
+
+.pkp_navigation_user {
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 12px;
 }

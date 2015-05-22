@@ -4,7 +4,7 @@
  * Copyright (c) 2014-2015 Simon Fraser University Library
  * Copyright (c) 2003-2015 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
- * 
+ *
  * @brief Helper classes
  *
  */
@@ -17,8 +17,18 @@
 	display: none !important;
 }
 
+// @todo Set this to .pkp_helpers_clear() with parentheses once the class is no
+// longer used anywhere in the markup, so it doesn't print into the rendered
+// stylesheet.
 .pkp_helpers_clear {
-	clear: both;
+	&:before,
+	&:after {
+		content: " ";
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
 }
 
 .pkp_helpers_align_left {
@@ -151,4 +161,88 @@ div.pkp_helpers_progressIndicator {
 li.show {
 	list-style: disc;
 	margin-left: 1px;
+}
+
+//
+// A horizontal navigation list
+//
+// This component can be applied to a hierarchical unordered list with support
+// for nested lists. It will lay out the elements in a horizontal list and sub-
+// menus will be displayed on hover/focus.
+//
+// <ul class="pkp_nav_list">
+//   <li class="has-submenu">
+//     <a href="#">1</a>
+//     <ul>
+//       <li>
+//         <a href="#">1-a</a>
+//       </li>
+//     </ul>
+//   </li>
+// </ul>
+//
+.pkp_nav_list {
+	margin-left: 0;
+	padding-left: 0;
+	list-style: none;
+
+	li {
+		position: relative;
+		display: inline-block;
+	}
+
+	a {
+		display: block;
+		padding-left: 1em;
+		padding-right: 1em;
+		text-decoration: none;
+	}
+
+	ul {
+		position: absolute;
+		top: 100%;
+		left: -9999px;
+		width: 10em;
+
+		li {
+			display: block;
+		}
+
+		// third-tier of menu
+		ul {
+			top: 0;
+		}
+
+		li:hover > ul,
+		li:focus > ul {
+			left: 100%;
+		}
+	}
+
+	li:hover > ul,
+	li:focus > ul {
+		left: 0;
+	}
+
+	// Dropdown caret indicating submenus
+	// @todo these can probably abstracted into reusable components
+	.has-submenu > a:after {
+		content: ' ';
+		border-top: 4px solid;
+		border-right: 4px solid transparent;
+		border-left: 4px solid transparent;
+		width: 0;
+		height: 0;
+		display: inline-block;
+		margin-left: 0.5em;
+		vertical-align: middle;
+	}
+
+	// Dropdown caret indicating submenus that open up to the side
+	ul .has-submenu > a:after {
+		border-left: 4px solid;
+		border-top: 4px solid transparent;
+		border-bottom: 4px solid transparent;
+		border-right: 4px solid transparent;
+	}
 }

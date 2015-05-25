@@ -45,7 +45,7 @@ class DependentFilesGridHandler extends FileListGridHandler {
 	 * @copydoc SubmissionFilesGridHandler::authorize()
 	 */
 	function authorize($request, $args, $roleAssignments) {
-		import('classes.security.authorization.SubmissionFileAccessPolicy');
+		import('lib.pkp.classes.security.authorization.SubmissionFileAccessPolicy');
 		$this->addPolicy(new SubmissionFileAccessPolicy($request, $args, $roleAssignments, SUBMISSION_FILE_ACCESS_MODIFY));
 
 		return parent::authorize($request, $args, $roleAssignments);

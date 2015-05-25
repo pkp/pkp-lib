@@ -28,6 +28,20 @@ class PKPAuthorDashboardHandler extends Handler {
 
 
 	//
+	// Implement template methods from PKPHandler
+	//
+	/**
+	 * @copydoc PKPHandler::authorize()
+	 */
+	function authorize($request, &$args, $roleAssignments) {
+		import('lib.pkp.classes.security.authorization.AuthorDashboardAccessPolicy');
+		$this->addPolicy(new AuthorDashboardAccessPolicy($request, $args, $roleAssignments), true);
+
+		return parent::authorize($request, $args, $roleAssignments);
+	}
+
+
+	//
 	// Public handler operations
 	//
 	/**

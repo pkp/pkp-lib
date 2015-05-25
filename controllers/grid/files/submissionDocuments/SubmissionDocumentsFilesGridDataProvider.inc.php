@@ -27,7 +27,7 @@ class SubmissionDocumentsFilesGridDataProvider extends CategoryGridDataProvider 
 	 * @copydoc GridDataProvider::getAuthorizationPolicy()
 	 */
 	function getAuthorizationPolicy($request, $args, $roleAssignments) {
-		import('classes.security.authorization.SubmissionAccessPolicy');
+		import('lib.pkp.classes.security.authorization.SubmissionAccessPolicy');
 		return new SubmissionAccessPolicy($request, $args, $roleAssignments, 'submissionId');
 	}
 

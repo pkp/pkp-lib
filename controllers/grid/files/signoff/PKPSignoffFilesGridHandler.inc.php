@@ -76,7 +76,7 @@ class PKPSignoffFilesGridHandler extends CategoryGridHandler {
 	 */
 	function authorize($request, &$args, $roleAssignments) {
 
-		import('classes.security.authorization.WorkflowStageAccessPolicy');
+		import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
 		// push this policy to the top of the stack since policies in sub-classes depend on a valid submission object.
 		$this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $this->getStageId()), true);
 

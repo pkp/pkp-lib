@@ -1,12 +1,12 @@
 <?php
 /**
- * @file classes/security/authorization/PKPSubmissionAccessPolicy.inc.php
+ * @file classes/security/authorization/SubmissionAccessPolicy.inc.php
  *
  * Copyright (c) 2014-2015 Simon Fraser University Library
  * Copyright (c) 2000-2015 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPSubmissionAccessPolicy
+ * @class SubmissionAccessPolicy
  * @ingroup security_authorization
  *
  * @brief Base class to control (write) access to submissions and (read) access to
@@ -16,11 +16,7 @@
 import('lib.pkp.classes.security.authorization.internal.ContextPolicy');
 import('lib.pkp.classes.security.authorization.RoleBasedHandlerOperationPolicy');
 
-class PKPSubmissionAccessPolicy extends ContextPolicy {
-
-	/** var $_submissionAccessPolicy the base policy for the submission before _SUB_EDITOR is considered */
-
-	var $_baseSubmissionAccessPolicy;
+class SubmissionAccessPolicy extends ContextPolicy {
 
 	/**
 	 * Constructor
@@ -30,19 +26,9 @@ class PKPSubmissionAccessPolicy extends ContextPolicy {
 	 * @param $submissionParameterName string the request parameter we
 	 *  expect the submission id in.
 	 */
-	function PKPSubmissionAccessPolicy($request, $args, $roleAssignments, $submissionParameterName = 'submissionId') {
+	function SubmissionAccessPolicy($request, $args, $roleAssignments, $submissionParameterName = 'submissionId') {
 		parent::ContextPolicy($request);
-		$this->_baseSubmissionAccessPolicy = $this->buildSubmissionAccessPolicy($request, $args, $roleAssignments, $submissionParameterName);
-	}
 
-	/**
-	 *
-	 * @param PKPRequest $request
-	 * @param array $args
-	 * @param array $roleAssignments
-	 * @param string $submissionParameterName
-	 */
-	function buildSubmissionAccessPolicy($request, $args, $roleAssignments, $submissionParameterName) {
 		// We need a submission in the request.
 		import('lib.pkp.classes.security.authorization.internal.SubmissionRequiredPolicy');
 		$this->addPolicy(new SubmissionRequiredPolicy($request, $args, $submissionParameterName));
@@ -76,7 +62,7 @@ class PKPSubmissionAccessPolicy extends ContextPolicy {
 			$authorSubmissionAccessOptionsPolicy->addPolicy(new SubmissionAuthorPolicy($request));
 
 			// 2b) ...OR, at least one workflow stage has been assigned to them in the requested submission.
-			import('classes.security.authorization.internal.UserAccessibleWorkflowStageRequiredPolicy');
+			import('lib.pkp.classes.security.authorization.internal.UserAccessibleWorkflowStageRequiredPolicy');
 			$authorSubmissionAccessOptionsPolicy->addPolicy(new UserAccessibleWorkflowStageRequiredPolicy($request));
 
 			$authorSubmissionAccessPolicy->addPolicy($authorSubmissionAccessOptionsPolicy);
@@ -107,10 +93,36 @@ class PKPSubmissionAccessPolicy extends ContextPolicy {
 			$contextSubmissionAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_ASSISTANT, $roleAssignments[ROLE_ID_ASSISTANT]));
 
 			// 2) ... but only if they have been assigned to the submission workflow.
-			import('classes.security.authorization.internal.UserAccessibleWorkflowStageRequiredPolicy');
+			import('lib.pkp.classes.security.authorization.internal.UserAccessibleWorkflowStageRequiredPolicy');
 			$contextSubmissionAccessPolicy->addPolicy(new UserAccessibleWorkflowStageRequiredPolicy($request));
 			$submissionAccessPolicy->addPolicy($contextSubmissionAccessPolicy);
 		}
+
+		//
+		// Sub editor role
+		//
+		if (isset($roleAssignments[ROLE_ID_SUB_EDITOR])) {
+			// 1) Series editors can access all operations on submissions ...
+			$subEditorSubmissionAccessPolicy = new PolicySet(COMBINING_DENY_OVERRIDES);
+			$subEditorSubmissionAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_SUB_EDITOR, $roleAssignments[ROLE_ID_SUB_EDITOR]));
+
+			// 2) ... but only if the requested submission is part of their series.
+			// but only if ...
+			$subEditorAssignmentOrSeriesPolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
+
+			// 2a) ... the requested submission is part of their series ...
+			import('lib.pkp.classes.security.authorization.internal.SectionAssignmentPolicy');
+			$subEditorAssignmentOrSeriesPolicy->addPolicy(new SectionAssignmentPolicy($request));
+
+			// 2b) ... or they have been assigned to the requested submission.
+			import('lib.pkp.classes.security.authorization.internal.UserAccessibleWorkflowStageRequiredPolicy');
+			$subEditorAssignmentOrSeriesPolicy->addPolicy(new UserAccessibleWorkflowStageRequiredPolicy($request));
+
+			$subEditorSubmissionAccessPolicy->addPolicy($subEditorAssignmentOrSeriesPolicy);
+			$submissionAccessPolicy->addPolicy($subEditorSubmissionAccessPolicy);
+		}
+
+		$this->addPolicy($submissionAccessPolicy);
 
 		return $submissionAccessPolicy;
 	}

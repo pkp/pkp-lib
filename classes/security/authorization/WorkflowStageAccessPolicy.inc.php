@@ -16,7 +16,7 @@ import('lib.pkp.classes.security.authorization.internal.ContextPolicy');
 import('lib.pkp.classes.security.authorization.PolicySet');
 import('lib.pkp.classes.security.authorization.RoleBasedHandlerOperationPolicy');
 
-abstract class PKPWorkflowStageAccessPolicy extends ContextPolicy {
+class WorkflowStageAccessPolicy extends ContextPolicy {
 	/**
 	 * Constructor
 	 * @param $request PKPRequest
@@ -25,7 +25,7 @@ abstract class PKPWorkflowStageAccessPolicy extends ContextPolicy {
 	 * @param $submissionParameterName string
 	 * @param $stageId integer One of the WORKFLOW_STAGE_ID_* constants.
 	 */
-	function PKPWorkflowStageAccessPolicy($request, &$args, $roleAssignments, $submissionParameterName = 'submissionId', $stageId) {
+	function WorkflowStageAccessPolicy($request, &$args, $roleAssignments, $submissionParameterName = 'submissionId', $stageId) {
 		parent::ContextPolicy($request);
 
 		// A workflow stage component requires a valid workflow stage.
@@ -37,7 +37,8 @@ abstract class PKPWorkflowStageAccessPolicy extends ContextPolicy {
 		import('lib.pkp.classes.security.authorization.internal.SubmissionRequiredPolicy');
 		$this->addPolicy(new SubmissionRequiredPolicy($request, $args, $submissionParameterName));
 
-		$this->_addUserAccessibleWorkflowStageRequiredPolicy($request);
+		import('lib.pkp.classes.security.authorization.internal.UserAccessibleWorkflowStageRequiredPolicy');
+		$this->addPolicy(new UserAccessibleWorkflowStageRequiredPolicy($request));
 
 		// Users can access all whitelisted operations for submissions and workflow stages...
 		$roleBasedPolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
@@ -50,12 +51,6 @@ abstract class PKPWorkflowStageAccessPolicy extends ContextPolicy {
 		import('lib.pkp.classes.security.authorization.internal.UserAccessibleWorkflowStagePolicy');
 		$this->addPolicy(new UserAccessibleWorkflowStagePolicy($stageId));
 	}
-
-	/**
-	 * Get the user-accessible workflow stage policy for this application
-	 * @param $request PKPRequest
-	 */
-	abstract protected function _addUserAccessibleWorkflowStageRequiredPolicy($request);
 }
 
 ?>

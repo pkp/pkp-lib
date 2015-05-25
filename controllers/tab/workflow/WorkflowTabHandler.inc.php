@@ -39,7 +39,7 @@ class WorkflowTabHandler extends Handler {
 	 */
 	function authorize($request, &$args, $roleAssignments) {
 		// Authorize stage id.
-		import('classes.security.authorization.WorkflowStageAccessPolicy');
+		import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
 		$this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $this->_identifyStageId($request)));
 
 		return parent::authorize($request, $args, $roleAssignments);

@@ -1,12 +1,12 @@
 <?php
 /**
- * @file classes/security/authorization/PKPSignoffAccessPolicy.inc.php
+ * @file classes/security/authorization/SignoffAccessPolicy.inc.php
  *
  * Copyright (c) 2014-2015 Simon Fraser University Library
  * Copyright (c) 2000-2015 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPSignoffAccessPolicy
+ * @class SignoffAccessPolicy
  * @ingroup security_authorization
  *
  * @brief Class to control access to signoffs.
@@ -18,11 +18,7 @@ import('lib.pkp.classes.security.authorization.RoleBasedHandlerOperationPolicy')
 define('SIGNOFF_ACCESS_READ', 1);
 define('SIGNOFF_ACCESS_MODIFY', 2);
 
-class PKPSignoffAccessPolicy extends ContextPolicy {
-
-	/** var $_baseSignoffAccessPolicy the base policy for the signoff before _SUB_EDITOR is considered */
-	var $_baseSignoffAccessPolicy;
-
+class SignoffAccessPolicy extends ContextPolicy {
 	/**
 	 * Constructor
 	 * @param $request PKPRequest
@@ -31,20 +27,9 @@ class PKPSignoffAccessPolicy extends ContextPolicy {
 	 * @param $mode int bitfield SIGNOFF_ACCESS_...
 	 * @param $stageId int
 	 */
-	function PKPSignoffAccessPolicy($request, $args, $roleAssignments, $mode, $stageId) {
+	function SignoffAccessPolicy($request, $args, $roleAssignments, $mode, $stageId) {
 		parent::ContextPolicy($request);
-		$this->_baseSignoffAccessPolicy = $this->buildSignoffAccessPolicy($request, $args, $roleAssignments,$mode, $stageId);
-	}
 
-	/**
-	 *
-	 * @param PKPRequest $request
-	 * @param array $args
-	 * @param array $roleAssignments
-	 * @param $mode int bitfield SIGNOFF_ACCESS_...
-	 * @param $stageId int
-	 */
-	function buildSignoffAccessPolicy($request, $args, $roleAssignments, $mode, $stageId) {
 		// We need a submission matching the file in the request.
 		import('lib.pkp.classes.security.authorization.internal.SignoffExistsAccessPolicy');
 		$this->addPolicy(new SignoffExistsAccessPolicy($request, $args));
@@ -75,7 +60,7 @@ class PKPSignoffAccessPolicy extends ContextPolicy {
 			$assistantSignoffAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_ASSISTANT, $roleAssignments[ROLE_ID_ASSISTANT]));
 
 			// 2) ... but only if they have access to the workflow stage.
-			import('classes.security.authorization.WorkflowStageAccessPolicy'); // pulled from context-specific class path.
+			import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy'); // pulled from context-specific class path.
 			$assistantSignoffAccessPolicy->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId));
 			$signoffAccessPolicy->addPolicy($assistantSignoffAccessPolicy);
 		}
@@ -91,10 +76,24 @@ class PKPSignoffAccessPolicy extends ContextPolicy {
 				$authorSignoffAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_AUTHOR, $roleAssignments[ROLE_ID_AUTHOR]));
 
 				// 2) ... but only if they are assigned to the workflow stage as an stage participant.
-				import('classes.security.authorization.WorkflowStageAccessPolicy');
+				import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
 				$authorSignoffAccessPolicy->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId));
 				$signoffAccessPolicy->addPolicy($authorSignoffAccessPolicy);
 			}
+		}
+
+		//
+		// Sub editor role
+		//
+		if (isset($roleAssignments[ROLE_ID_SUB_EDITOR])) {
+			// 1) Section editors can access all operations on signoffs ...
+			$sectionEditorFileAccessPolicy = new PolicySet(COMBINING_DENY_OVERRIDES);
+			$sectionEditorFileAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_SUB_EDITOR, $roleAssignments[ROLE_ID_SUB_EDITOR]));
+
+			// 2) ... but only if the requested signoff submission is part of their section.
+			import('lib.pkp.classes.security.authorization.internal.SectionAssignmentPolicy');
+			$sectionEditorFileAccessPolicy->addPolicy(new SectionAssignmentPolicy($request));
+			$signoffAccessPolicy->addPolicy($sectionEditorFileAccessPolicy);
 		}
 
 		//

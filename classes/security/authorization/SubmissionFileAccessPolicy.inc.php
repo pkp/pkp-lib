@@ -1,16 +1,16 @@
 <?php
 /**
- * @file classes/security/authorization/PKPSubmissionFileAccessPolicy.inc.php
+ * @file classes/security/authorization/SubmissionFileAccessPolicy.inc.php
  *
  * Copyright (c) 2014-2015 Simon Fraser University Library
  * Copyright (c) 2000-2015 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPSubmissionFileAccessPolicy
+ * @class SubmissionFileAccessPolicy
  * @ingroup security_authorization
  *
  * @brief Base class to control (write) access to submissions and (read) access to
- * submission details in OMP.
+ * submission files.
  */
 
 import('lib.pkp.classes.security.authorization.internal.ContextPolicy');
@@ -20,7 +20,7 @@ import('lib.pkp.classes.security.authorization.RoleBasedHandlerOperationPolicy')
 define('SUBMISSION_FILE_ACCESS_READ', 1);
 define('SUBMISSION_FILE_ACCESS_MODIFY', 2);
 
-class PKPSubmissionFileAccessPolicy extends ContextPolicy {
+class SubmissionFileAccessPolicy extends ContextPolicy {
 
 	/** var $_baseFileAccessPolicy the base file file policy before _SUB_EDITOR is considered */
 	var $_baseFileAccessPolicy;
@@ -35,7 +35,7 @@ class PKPSubmissionFileAccessPolicy extends ContextPolicy {
 	 * @param $submissionParameterName string the request parameter we expect
 	 *  the submission id in.
 	 */
-	function PKPSubmissionFileAccessPolicy($request, $args, $roleAssignments, $mode, $fileIdAndRevision = null, $submissionParameterName = 'submissionId') {
+	function SubmissionFileAccessPolicy($request, $args, $roleAssignments, $mode, $fileIdAndRevision = null, $submissionParameterName = 'submissionId') {
 		// TODO: Refine file access policies. Differentiate between
 		// read and modify access using bitfield:
 		// $mode & SUBMISSION_FILE_ACCESS_...
@@ -84,7 +84,7 @@ class PKPSubmissionFileAccessPolicy extends ContextPolicy {
 			$authorFileAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_AUTHOR, $roleAssignments[ROLE_ID_AUTHOR]));
 
 			// 2) ...if they are assigned to the workflow stage.  Note: This loads the application-specific policy class.
-			import('classes.security.authorization.WorkflowStageAccessPolicy');
+			import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
 			$authorFileAccessPolicy->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $request->getUserVar('stageId')));
 
 			// 3) ...and if they meet one of the following requirements:
@@ -96,7 +96,7 @@ class PKPSubmissionFileAccessPolicy extends ContextPolicy {
 
 			// 3b) ...or if the file is a file in a review round with requested revision decision, allow...
 			// Note: This loads the application-specific policy class
-			import('classes.security.authorization.internal.SubmissionFileRequestedRevisionRequiredPolicy');
+			import('lib.pkp.classes.security.authorization.internal.SubmissionFileRequestedRevisionRequiredPolicy');
 			$authorFileAccessOptionsPolicy->addPolicy(new SubmissionFileRequestedRevisionRequiredPolicy($request, $fileIdAndRevision));
 
 			// ...or if we don't want to modify the file...
@@ -162,11 +162,26 @@ class PKPSubmissionFileAccessPolicy extends ContextPolicy {
 
 			// 2) ... but only if they have been assigned to the submission workflow.
 			// Note: This loads the application-specific policy class
-			import('classes.security.authorization.WorkflowStageAccessPolicy');
+			import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
 			$contextAssistantFileAccessPolicy->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $request->getUserVar('stageId')));
 			$fileAccessPolicy->addPolicy($contextAssistantFileAccessPolicy);
 		}
 
+		//
+		// Sub editor role
+		//
+		if (isset($roleAssignments[ROLE_ID_SUB_EDITOR])) {
+			// 1) Sub editors can access all operations on submissions ...
+			$subEditorFileAccessPolicy = new PolicySet(COMBINING_DENY_OVERRIDES);
+			$subEditorFileAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_SUB_EDITOR, $roleAssignments[ROLE_ID_SUB_EDITOR]));
+
+			// 2) ... but only if the requested submission is part of their section.
+			import('lib.pkp.classes.security.authorization.internal.SectionAssignmentPolicy');
+			$subEditorFileAccessPolicy->addPolicy(new SectionAssignmentPolicy($request));
+			$fileAccessPolicy->addPolicy($subEditorFileAccessPolicy);
+		}
+
+		$this->addPolicy($fileAccessPolicy);
 		return $fileAccessPolicy;
 	}
 }

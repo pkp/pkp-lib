@@ -42,7 +42,7 @@ class ReviewerSelectGridHandler extends GridHandler {
 	function authorize($request, &$args, $roleAssignments) {
 		$stageId = (int)$request->getUserVar('stageId');
 
-		import('classes.security.authorization.WorkflowStageAccessPolicy');
+		import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
 		$this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId));
 
 		import('lib.pkp.classes.security.authorization.internal.ReviewRoundRequiredPolicy');

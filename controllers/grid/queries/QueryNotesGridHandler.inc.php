@@ -69,14 +69,9 @@ class QueryNotesGridHandler extends GridHandler {
 	function authorize($request, &$args, $roleAssignments) {
 		$stageId = $request->getUserVar('stageId'); // This is being validated in WorkflowStageAccessPolicy
 
-		// Get the stage access policy
-		import('classes.security.authorization.WorkflowStageAccessPolicy');
-		$workflowStageAccessPolicy = new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId);
-		$this->addPolicy($workflowStageAccessPolicy);
-
-		import('lib.pkp.classes.security.authorization.internal.QueryRequiredPolicy');
-		$this->addPolicy(new QueryRequiredPolicy($request, $args));
-
+		// Get the access policy
+		import('lib.pkp.classes.security.authorization.QueryAccessPolicy');
+		$this->addPolicy(new QueryAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId));
 		return parent::authorize($request, $args, $roleAssignments);
 	}
 

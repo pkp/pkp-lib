@@ -20,7 +20,7 @@
 import('classes.handler.Handler');
 import('lib.pkp.classes.core.JSONMessage');
 import('lib.pkp.classes.file.SubmissionFileManager');
-import('classes.security.authorization.SubmissionFileAccessPolicy');
+import('lib.pkp.classes.security.authorization.SubmissionFileAccessPolicy');
 
 class FileApiHandler extends Handler {
 
@@ -231,7 +231,7 @@ class FileApiHandler extends Handler {
 	 * @param $args
 	 * @param $roleAssignments array
 	 * @param $fileIdAndRevision array optional
-	 * @return SubmissionAccessPolicy
+	 * @return SubmissionFileAccessPolicy
 	 */
 	function _getAccessPolicy($request, $args, $roleAssignments, $fileIdAndRevision = null) {
 		return new SubmissionFileAccessPolicy($request, $args, $roleAssignments, SUBMISSION_FILE_ACCESS_READ, $fileIdAndRevision);

@@ -85,7 +85,7 @@ class SubmissionFilesGridDataProvider extends FilesGridDataProvider {
 	 * @copydoc GridDataProvider::loadData()
 	 */
 	function loadData() {
-		// Retrieve all subission files for the given file stage.
+		// Retrieve all submission files for the given file stage.
 		$submission = $this->getSubmission();
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 		$submissionFiles = $submissionFileDao->getLatestRevisions($submission->getId(), $this->getFileStage());
@@ -101,7 +101,7 @@ class SubmissionFilesGridDataProvider extends FilesGridDataProvider {
 	function getAuthorizationPolicy($request, $args, $roleAssignments) {
 		$this->setUploaderRoles($roleAssignments);
 
-		import('classes.security.authorization.WorkflowStageAccessPolicy');
+		import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
 		return new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $this->getStageId());
 	}
 

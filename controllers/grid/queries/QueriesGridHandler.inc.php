@@ -76,7 +76,7 @@ class QueriesGridHandler extends GridHandler {
 		$this->_stageId = (int)$stageId;
 
 		// Get the stage access policy
-		import('classes.security.authorization.WorkflowStageAccessPolicy');
+		import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
 		$workflowStageAccessPolicy = new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId);
 		$this->addPolicy($workflowStageAccessPolicy);
 

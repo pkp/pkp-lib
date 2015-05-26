@@ -115,6 +115,10 @@ class AddFileLinkAction extends BaseAddFileLinkAction {
 				'wizardTitle' => 'submission.upload.dependent',
 				'buttonLabel' => 'submission.addFile'
 			),
+			SUBMISSION_FILE_QUERY => array(
+				'wizardTitle' => 'submission.upload.query',
+				'buttonLabel' => 'submission.addFile'
+			),
 		);
 
 		assert(isset($textLabels[$fileStage]));

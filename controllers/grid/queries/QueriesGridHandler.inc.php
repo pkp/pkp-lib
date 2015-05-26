@@ -72,17 +72,14 @@ class QueriesGridHandler extends GridHandler {
 	 * @copydoc PKPHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
-		$stageId = $request->getUserVar('stageId'); // This is being validated in WorkflowStageAccessPolicy
-		$this->_stageId = (int)$stageId;
-
-		// Get the stage access policy
-		import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
-		$workflowStageAccessPolicy = new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId);
-		$this->addPolicy($workflowStageAccessPolicy);
+		$this->_stageId = (int) $request->getUserVar('stageId'); // This is being validated in WorkflowStageAccessPolicy
 
 		if ($request->getUserVar('queryId')) {
-			import('lib.pkp.classes.security.authorization.internal.QueryRequiredPolicy');
-			$this->addPolicy(new QueryRequiredPolicy($request, $args));
+			import('lib.pkp.classes.security.authorization.QueryAccessPolicy');
+			$this->addPolicy(new QueryAccessPolicy($request, $args, $roleAssignments, 'submissionId', $this->_stageId));
+		} else {
+			import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
+			$this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $this->_stageId));
 		}
 
 		return parent::authorize($request, $args, $roleAssignments);

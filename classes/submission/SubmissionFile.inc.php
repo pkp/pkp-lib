@@ -32,6 +32,7 @@ define('SUBMISSION_FILE_ATTACHMENT', 13);
 define('SUBMISSION_FILE_SIGNOFF', 14);
 define('SUBMISSION_FILE_REVIEW_REVISION', 15);
 define('SUBMISSION_FILE_DEPENDENT', 17);
+define('SUBMISSION_FILE_QUERY', 18);
 
 class SubmissionFile extends PKPFile {
 	/**
@@ -541,6 +542,7 @@ class SubmissionFile extends PKPFile {
 				SUBMISSION_FILE_PRODUCTION_READY => 'submission/productionReady',
 				SUBMISSION_FILE_ATTACHMENT => 'attachment',
 				SUBMISSION_FILE_SIGNOFF => 'submission/signoff',
+				SUBMISSION_FILE_QUERY => 'submission/query',
 		);
 
 		assert(isset($fileStageToPath[$fileStage]));

@@ -110,4 +110,5 @@
 	<message key="submission.queries.messageRequired">A query message is required.</message>
 	<message key="submission.queries.attachedFiles">Attached Files</message>
 	<message key="grid.action.editQuery">Edit Query</message>
+	<message key="editor.submission.query.manageQueryFilesDescription">Files can be attached for inclusion in this query from the list below.</message>
 </locale>

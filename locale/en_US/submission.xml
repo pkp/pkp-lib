@@ -271,6 +271,7 @@
 	<message key="submission.contributorsDescription">The list of contributors associated with this submission may include other authors; individual chapter authors of an edited volume; volume editors; and/or translators. One contributor from the list may be assigned as the primary contact for editorial correspondence; this does not necessarily have to be the submitting author.</message>
 	<message key="submission.copyedited">Copyedited</message>
 	<message key="submission.copyediting">Copyediting</message>
+	<message key="submission.queryFiles">Query Files</message>
 	<message key="submission.coverage">Coverage Information</message>
 	<message key="submission.coverage.tip">The following fields provide information about your submission's coverage.  Coverage may include chronologcal periods (1920-1940, 17th century), and geographical locations ('Boston, MA', or 'Northern England').  If you wish, you may use the sample coverage field to include a relevant example from your own work.</message>
 	<message key="submission.coverage.chron">Chronological or historical coverage</message>
@@ -445,6 +446,7 @@
 	<message key="submission.manageDependentFiles">Manage Dependent Files</message>
 	<message key="submission.upload.dependent">Upload a Dependent File</message>
 	<message key="submission.dependent.upload.description">Upload files that this production file requires in order to display correctly (HTML, CSS, etc.)</message>
+	<message key="submission.upload.query">Upload a Query File</message>
 	<message key="submission.summary">Summary</message>
 	<message key="submission.supplementaryFiles">Supplementary Files</message>
 	<message key="submission.supportingAgencies">Supporting Agencies</message>
@@ -563,7 +565,7 @@
 
 	<message key="reviewer.submission.reviewFiles">Review Files</message>
 	<message key="submission.submit.currentFile">Current file</message>
-	<message key="submission.finalDraft">Final Draft Files</message>
+	<message key="submission.finalDraft">Draft Files</message>
 
 	<!-- Auditor keys -->
 	<message key="editor.submission.addAuditorError">There was an error trying to assign the auditor. Please Try again.</message>

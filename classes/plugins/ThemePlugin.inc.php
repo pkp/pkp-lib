@@ -102,12 +102,6 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 				// Compile this theme's styles
 				require_once('lib/pkp/lib/vendor/oyejorge/less.php/Less.php');
 				$less = new Less_Parser(array( 'relativeUrls' => false ));
-				$directories = array(
-					'/var/www/html/ojs/styles/' => '/styles/',
-					'/var/www/html/ojs/styles/pages/' => '/styles/pages/',
-					'/var/www/html/ojs/plugins/themes/default/' => '/plugins/themes/default/',
-				);
-				$less->SetImportDirs( $directories );
 				$less->parseFile ('/var/www/html/ojs/styles/index.less');
 				$compiledStyles = str_replace('{$baseUrl}', $request->getBaseUrl(), $less->getCss());
 

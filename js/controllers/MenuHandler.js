@@ -39,7 +39,7 @@
 
 
 	//
-	// Public methods
+	// Protected methods
 	//
 	/**
 	 * Event handler that is called when a link within the menu gets focus.

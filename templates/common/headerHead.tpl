@@ -25,10 +25,6 @@
 		<script src="{$baseUrl}/lib/pkp/lib/vendor/components/jqueryui/{if $useMinifiedJavaScript}jquery-ui.min.js{else}jquery-ui.js{/if}"></script>
 	{/if}
 
-	<!-- UI elements (menus, forms, etc) -->
-	<script src="{$baseUrl}/lib/pkp/js/lib/superfish/hoverIntent.js"></script>
-	<script src="{$baseUrl}/lib/pkp/js/lib/superfish/superfish.js"></script>
-
 	{include file="common/validate.tpl"}
 	{include file="common/plupload.tpl"}
 

@@ -1117,7 +1117,7 @@ class PKPTemplateManager extends Smarty {
 	 */
 	function smartyLoadUrlInDiv($params, $smarty) {
 		$params['el'] = 'div';
-		return $this->smartyLoadUrlInEl( $params, $smary );
+		return $this->smartyLoadUrlInEl( $params, $smarty );
 	}
 }
 

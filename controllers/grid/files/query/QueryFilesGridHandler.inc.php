@@ -49,7 +49,7 @@ class QueryFilesGridHandler extends FileListGridHandler {
 
 		// Get the stage access policy
 		import('lib.pkp.classes.security.authorization.QueryAccessPolicy');
-		$queryAccessPolicy = new QueryAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId);
+		$queryAccessPolicy = new QueryAccessPolicy($request, $args, $roleAssignments, $stageId);
 		$this->addPolicy($queryAccessPolicy);
 		return parent::authorize($request, $args, $roleAssignments);
 	}

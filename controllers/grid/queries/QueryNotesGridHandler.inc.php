@@ -71,7 +71,7 @@ class QueryNotesGridHandler extends GridHandler {
 
 		// Get the access policy
 		import('lib.pkp.classes.security.authorization.QueryAccessPolicy');
-		$this->addPolicy(new QueryAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId));
+		$this->addPolicy(new QueryAccessPolicy($request, $args, $roleAssignments, $stageId));
 		return parent::authorize($request, $args, $roleAssignments);
 	}
 

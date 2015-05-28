@@ -54,18 +54,23 @@ class QueryDAO extends DAO {
 	/**
 	 * Retrieve all queries for a submission.
 	 * @param $submissionId int
-	 * @param $stageId int
+	 * @param $stageId int Optional stage ID
+	 * @param $userId int Optional user ID; when set, show only assigned queries
 	 * @return array Query
 	 */
-	function getBySubmissionId($submissionId, $stageId = null) {
-		$params = array((int) $submissionId);
-		if ($stageId) $params[] = $stageId;
+	function getBySubmissionId($submissionId, $stageId = null, $userId = null) {
+		$params = array();
+		if ($userId) $params[] = (int) $userId;
+		$params[] = (int) $submissionId;
+		if ($stageId) $params[] = (int) $stageId;
+
 		return new DAOResultFactory(
 			$this->retrieve(
-				'SELECT	*
-				FROM	queries
-				WHERE	submission_id = ? '
-				. ($stageId?' AND stage_id = ?':''),
+				'SELECT	q.*
+				FROM	queries q
+				' . ($userId?'INNER JOIN query_participants qp ON (q.query_id = qp.query_id AND qp.user_id = ?)':'') . '
+				WHERE	q.submission_id = ? '
+				. ($stageId?' AND q.stage_id = ?':''),
 				$params
 			),
 			$this, '_fromRow'
@@ -158,15 +163,19 @@ class QueryDAO extends DAO {
 
 	/**
 	 * Retrieve all participant user IDs for a query.
-	 * @param $queryid int
+	 * @param $queryId int Query ID
+	 * @param $userId int User ID to restrict results to
 	 * @return array
 	 */
-	function getParticipantIds($queryId) {
+	function getParticipantIds($queryId, $userId = null) {
+		$params = array((int) $queryId);
+		if ($userId) $params[] = (int) $userId;
 		$result = $this->retrieve(
 			'SELECT	user_id
 			FROM	query_participants
-			WHERE	query_id = ?',
-			(int) $queryId
+			WHERE	query_id = ?' .
+			($userId?' AND user_id = ?':''),
+			$params
 		);
 		$userIds = array();
 		while (!$result->EOF) {

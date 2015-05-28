@@ -32,8 +32,11 @@ class QueriesGridHandler extends GridHandler {
 	function QueriesGridHandler() {
 		parent::GridHandler();
 		$this->addRoleAssignment(
-			array(ROLE_ID_MANAGER, ROLE_ID_AUTHOR, ROLE_ID_SUB_EDITOR),
-			array('fetchGrid', 'fetchRow', 'addQuery', 'editQuery', 'updateQuery', 'readQuery', 'deleteQuery'));
+			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR),
+			array('fetchGrid', 'fetchRow', 'readQuery'));
+		$this->addRoleAssignment(
+			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT),
+			array('addQuery', 'updateQuery', 'editQuery', 'deleteQuery'));
 	}
 
 
@@ -64,6 +67,18 @@ class QueriesGridHandler extends GridHandler {
 		return $this->_stageId;
 	}
 
+	/**
+	 * Determine whether the current user can manage this grid's contents.
+	 * @return boolean True iff the user is allowed to manage the contents.
+	 */
+	protected function getCanManage() {
+		return (count(array_intersect(
+			$this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES),
+			array(ROLE_ID_MANAGER, ROLE_ID_ASSISTANT, ROLE_ID_SUB_EDITOR)
+		))>0);
+	}
+
+
 	//
 	// Overridden methods from PKPHandler.
 	// Note: this is subclassed in application-specific grids.
@@ -76,7 +91,7 @@ class QueriesGridHandler extends GridHandler {
 
 		if ($request->getUserVar('queryId')) {
 			import('lib.pkp.classes.security.authorization.QueryAccessPolicy');
-			$this->addPolicy(new QueryAccessPolicy($request, $args, $roleAssignments, 'submissionId', $this->_stageId));
+			$this->addPolicy(new QueryAccessPolicy($request, $args, $roleAssignments, $this->_stageId));
 		} else {
 			import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
 			$this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $this->_stageId));
@@ -108,36 +123,30 @@ class QueriesGridHandler extends GridHandler {
 		$cellProvider = new QueriesGridCellProvider();
 		$this->addColumn(new QueryTitleGridColumn($this->getSubmission(), $this->getStageId()));
 
-		$this->addColumn(
-			new GridColumn(
-				'replies',
-				'submission.query.replies',
-				null,
-				null,
-				$cellProvider,
-				array('width' => 10, 'alignment' => COLUMN_ALIGNMENT_CENTER)
-			)
-		);
-		$this->addColumn(
-			new GridColumn(
-				'from',
-				'submission.query.from',
-				null,
-				null,
-				$cellProvider,
-				array('html' => TRUE)
-			)
-		);
-		$this->addColumn(
-			new GridColumn(
-				'lastReply',
-				'submission.query.lastReply',
-				null,
-				null,
-				$cellProvider,
-				array('html' => TRUE)
-			)
-		);
+		$this->addColumn(new GridColumn(
+			'replies',
+			'submission.query.replies',
+			null,
+			null,
+			$cellProvider,
+			array('width' => 10, 'alignment' => COLUMN_ALIGNMENT_CENTER)
+		));
+		$this->addColumn(new GridColumn(
+			'from',
+			'submission.query.from',
+			null,
+			null,
+			$cellProvider,
+			array('html' => TRUE)
+		));
+		$this->addColumn(new GridColumn(
+			'lastReply',
+			'submission.query.lastReply',
+			null,
+			null,
+			$cellProvider,
+			array('html' => TRUE)
+		));
 
 		$this->addColumn(
 			new GridColumn(
@@ -151,19 +160,16 @@ class QueriesGridHandler extends GridHandler {
 		);
 
 		$router = $request->getRouter();
-		$actionArgs = $this->getRequestArgs();
-		$this->addAction(
-				new LinkAction(
-					'addQuery',
-					new AjaxModal(
-						$router->url($request, null, null, 'addQuery', null, $actionArgs),
-						__('grid.action.addQuery'),
-						'modal_add_item'
-					),
+		if ($this->getCanManage()) $this->addAction(new LinkAction(
+			'addQuery',
+			new AjaxModal(
+				$router->url($request, null, null, 'addQuery', null, $this->getRequestArgs()),
 				__('grid.action.addQuery'),
-				'add_item'
-			)
-		);
+				'modal_add_item'
+			),
+			__('grid.action.addQuery'),
+			'add_item'
+		));
 	}
 
 
@@ -171,13 +177,14 @@ class QueriesGridHandler extends GridHandler {
 	// Overridden methods from GridHandler
 	//
 	/**
-	 * @see GridHandler::initFeatures()
+	 * @copydoc GridHandler::initFeatures()
 	 */
 	function initFeatures($request, $args) {
 		$features = parent::initFeatures($request, $args);
-		import('lib.pkp.classes.controllers.grid.feature.OrderGridItemsFeature');
-		$features[] = new OrderGridItemsFeature();
-
+		if ($this->getCanManage()) {
+			import('lib.pkp.classes.controllers.grid.feature.OrderGridItemsFeature');
+			$features[] = new OrderGridItemsFeature();
+		}
 		return $features;
 	}
 
@@ -214,7 +221,11 @@ class QueriesGridHandler extends GridHandler {
 	 */
 	function loadData($request, $filter = null) {
 		$queryDao = DAORegistry::getDAO('QueryDAO');
-		return $queryDao->getBySubmissionId($this->getSubmission()->getId(), $this->getStageId(), true);
+		return $queryDao->getBySubmissionId(
+			$this->getSubmission()->getId(),
+			$this->getStageId(),
+			$this->getCanManage()?null:$request->getUser()->getId()
+		);
 	}
 
 	//

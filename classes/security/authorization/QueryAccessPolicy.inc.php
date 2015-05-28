@@ -15,19 +15,15 @@
 import('lib.pkp.classes.security.authorization.internal.ContextPolicy');
 import('lib.pkp.classes.security.authorization.RoleBasedHandlerOperationPolicy');
 
-define('QUERY_ACCESS_READ', 1);
-define('QUERY_ACCESS_MODIFY', 2);
-
 class QueryAccessPolicy extends ContextPolicy {
 	/**
 	 * Constructor
 	 * @param $request PKPRequest
 	 * @param $args array request parameters
 	 * @param $roleAssignments array
-	 * @param $mode int bitfield QUERY_ACCESS_...
 	 * @param $stageId int
 	 */
-	function QueryAccessPolicy($request, $args, $roleAssignments, $mode, $stageId) {
+	function QueryAccessPolicy($request, $args, $roleAssignments, $stageId) {
 		parent::ContextPolicy($request);
 
 		// We need a valid workflow stage.
@@ -51,7 +47,7 @@ class QueryAccessPolicy extends ContextPolicy {
 			$queryAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_MANAGER, $roleAssignments[ROLE_ID_MANAGER]));
 		}
 
-/* FIXME FIXME FIXME
+
 		//
 		// Assistants
 		//
@@ -72,24 +68,25 @@ class QueryAccessPolicy extends ContextPolicy {
 		// Authors
 		//
 		if (isset($roleAssignments[ROLE_ID_AUTHOR])) {
-fatalError('FIXME');
-			if ($mode & QUERY_ACCESS_READ) {
-				// 1) Authors can access read operations on queries...
-				$authorQueryAccessPolicy = new PolicySet(COMBINING_DENY_OVERRIDES);
-				$authorQueryAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_AUTHOR, $roleAssignments[ROLE_ID_AUTHOR]));
+			// 1) Authors can access read operations on queries...
+			$authorQueryAccessPolicy = new PolicySet(COMBINING_DENY_OVERRIDES);
+			$authorQueryAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_AUTHOR, $roleAssignments[ROLE_ID_AUTHOR]));
 
-				// 2) ... but only if they are assigned to the workflow stage as an stage participant.
-				import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
-				$authorQueryAccessPolicy->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId));
-				$queryAccessPolicy->addPolicy($authorQueryAccessPolicy);
-			}
+			// 2) ... but only if they are assigned to the workflow stage as an stage participant...
+			import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
+			$authorQueryAccessPolicy->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId));
+
+			// 3) ... and the author is assigned to the query.
+			import('lib.pkp.classes.security.authorization.internal.QueryAssignedToUserAccessPolicy');
+			$authorQueryAccessPolicy->addPolicy(new QueryAssignedToUserAccessPolicy($request));
+
+			$queryAccessPolicy->addPolicy($authorQueryAccessPolicy);
 		}
 
 		//
 		// Sub editor role
 		//
 		if (isset($roleAssignments[ROLE_ID_SUB_EDITOR])) {
-fatalError('FIXME');
 			// 1) Section editors can access all operations on queries ...
 			$sectionEditorFileAccessPolicy = new PolicySet(COMBINING_DENY_OVERRIDES);
 			$sectionEditorFileAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_SUB_EDITOR, $roleAssignments[ROLE_ID_SUB_EDITOR]));
@@ -99,7 +96,6 @@ fatalError('FIXME');
 			$sectionEditorFileAccessPolicy->addPolicy(new SectionAssignmentPolicy($request));
 			$queryAccessPolicy->addPolicy($sectionEditorFileAccessPolicy);
 		}
-FIXME FIXME FIXME */
 		$this->addPolicy($queryAccessPolicy);
 
 		return $queryAccessPolicy;

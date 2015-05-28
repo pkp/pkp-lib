@@ -37,7 +37,7 @@ class QueryFilesGridDataProvider extends SubmissionFilesGridDataProvider {
 		$this->setUploaderRoles($roleAssignments);
 
 		import('lib.pkp.classes.security.authorization.QueryAccessPolicy');
-		return new QueryAccessPolicy($request, $args, $roleAssignments, 'submissionId', $this->getStageId());
+		return new QueryAccessPolicy($request, $args, $roleAssignments, $this->getStageId());
 	}
 
 	/**

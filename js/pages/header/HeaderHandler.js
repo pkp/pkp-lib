@@ -30,8 +30,6 @@
 		this.options_ = options;
 		this.parent($headerElement, options);
 
-		this.initializeMenu_();
-
 		// Bind to the link action for toggling inline help.
 		$headerElement.find('[id^="toggleHelp"]').click(
 				this.callbackWrapper(this.toggleInlineHelpHandler_));
@@ -102,45 +100,6 @@
 			function(sourceElement, event) {
 		this.trigger('toggleInlineHelp');
 		return false;
-	};
-
-
-	/**
-	 * Initialize navigation menu.
-	 * @private
-	 */
-	$.pkp.pages.header.HeaderHandler.prototype.initializeMenu_ =
-			function() {
-		var $header = this.getHtmlElement(),
-				$menu = $('ul.sf-menu', $header),
-				requestedPage = this.options_.requestedPage,
-				currentUrl = window.location.href,
-				$linkInMenu = $('a[href="' + currentUrl + '"]', $menu).
-						parentsUntil('ul.sf-menu').last();
-		$menu.superfish();
-
-		if ($linkInMenu.length === 0 && requestedPage !== '') {
-			// Search for the current url inside the menu links. If not present,
-			// remove part of the url and try again until we've removed the
-			// page handler part.
-			while (true) {
-				// Make the url less specific.
-				currentUrl = currentUrl.substr(0, currentUrl.lastIndexOf('/'));
-
-				// Make sure we still have the page handler part in url.
-				if (currentUrl.indexOf(requestedPage) === -1) {
-					break;
-				}
-
-				$linkInMenu = $linkInMenu.add($('a[href="' + currentUrl + '"]',
-						$menu).parentsUntil('ul.sf-menu').last());
-			}
-		}
-
-		if ($linkInMenu.length === 1) {
-			// Add the current page style.
-			$('a', $linkInMenu).first().addClass('pkp_helpers_underline');
-		}
 	};
 
 

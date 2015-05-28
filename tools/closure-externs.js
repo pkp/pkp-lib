@@ -54,8 +54,6 @@ jQueryObject.prototype.jLabel = function(options) {};
  */
 jQueryObject.prototype.selectBox = function(options) {};
 
-jQueryObject.prototype.superfish = function() {};
-
 /**
  * @param {Object|string=} param1
  */

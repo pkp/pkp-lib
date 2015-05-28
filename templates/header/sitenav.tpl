@@ -14,7 +14,7 @@
 				'$.pkp.controllers.MenuHandler');
 	{rdelim});
  </script>
-<ul id="navigationUser" class="pkp_navigation_user">
+<ul id="navigationUser" class="pkp_navigation_user pkp_nav_list">
 	{if $isUserLoggedIn}
         <li class="notificationsLinkContainer">
             {**

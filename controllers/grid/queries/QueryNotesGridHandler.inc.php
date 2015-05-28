@@ -21,13 +21,16 @@ import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 import('lib.pkp.classes.linkAction.request.AjaxModal');
 
 class QueryNotesGridHandler extends GridHandler {
+	/** @var User */
+	var $_user;
+
 	/**
 	 * Constructor
 	 */
 	function QueryNotesGridHandler() {
 		parent::GridHandler();
 		$this->addRoleAssignment(
-			array(ROLE_ID_MANAGER, ROLE_ID_AUTHOR, ROLE_ID_SUB_EDITOR),
+			array(ROLE_ID_MANAGER, ROLE_ID_AUTHOR, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT),
 			array('fetchGrid', 'fetchRow', 'insertNote', 'deleteNote'));
 	}
 
@@ -114,6 +117,8 @@ class QueryNotesGridHandler extends GridHandler {
 				array('html' => true)
 			)
 		);
+
+		$this->_user = $request->getUser();
 	}
 
 
@@ -126,7 +131,7 @@ class QueryNotesGridHandler extends GridHandler {
 	 */
 	function getRowInstance() {
 		import('lib.pkp.controllers.grid.queries.QueryNotesGridRow');
-		return new QueryNotesGridRow($this->getSubmission(), $this->getStageId(), $this->getQuery());
+		return new QueryNotesGridRow($this->getSubmission(), $this->getStageId(), $this->getQuery(), $this);
 	}
 
 	/**
@@ -171,6 +176,18 @@ class QueryNotesGridHandler extends GridHandler {
 	}
 
 	/**
+	 * Determine whether the current user can manage (delete) a note.
+	 * @param $note Note
+	 * @return boolean
+	 */
+	function getCanManage($note) {
+		return ($note->getUserId() == $this->_user->getId() || 0 != count(array_intersect(
+                        $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES),
+                        array(ROLE_ID_MANAGER, ROLE_ID_ASSISTANT, ROLE_ID_SUB_EDITOR)
+		)));
+	}
+
+	/**
 	 * Delete a query note.
 	 * @param $args array
 	 * @param $request PKPRequest
@@ -180,11 +197,20 @@ class QueryNotesGridHandler extends GridHandler {
 		$query = $this->getQuery();
 		$noteDao = DAORegistry::getDAO('NoteDAO');
 		$note = $noteDao->getById($request->getUserVar('noteId'));
-		if ($note->getAssocType()==ASSOC_TYPE_QUERY && $note->getAssocId()==$query->getId()) {
-			$noteDao->deleteObject($note);
-			return DAO::getDataChangedEvent($note->getId());
+		$user = $request->getUser();
+
+		if (!$note || $note->getAssocType() != ASSOC_TYPE_QUERY || $note->getAssocId() !=$query->getId()) {
+			// The note didn't exist or has the wrong assoc info.
+			return new JSONMessage(false);
 		}
-		return new JSONMessage(false); // The query note could not be found.
+
+		if (!$this->getCanManage($note)) {
+			// The user doesn't own the note and isn't priveleged enough to delete it.
+			return new JSONMessage(false);
+		}
+
+		$noteDao->deleteObject($note);
+		return DAO::getDataChangedEvent($note->getId());
 	}
 
 }

@@ -25,16 +25,21 @@ class QueryNotesGridRow extends GridRow {
 	/** @var Query */
 	var $_query;
 
+	/** @var QueryNotesGridHandler */
+	var $_queryNotesGrid;
+
 	/**
 	 * Constructor
 	 * @param $submission Submission
 	 * @param $stageId int WORKFLOW_STAGE_...
 	 * @param $query Query
+	 * @param $queryNotesGrid The notes grid containing this row
 	 */
-	function QueryNotesGridRow($submission, $stageId, $query) {
+	function QueryNotesGridRow($submission, $stageId, $query, $queryNotesGrid) {
 		$this->_submission = $submission;
 		$this->_stageId = $stageId;
 		$this->_query = $query;
+		$this->_queryNotesGrid = $queryNotesGrid;
 
 		parent::GridRow();
 	}
@@ -62,17 +67,19 @@ class QueryNotesGridRow extends GridRow {
 			$actionArgs['noteId'] = $rowId;
 
 			// Add row-level actions
-			import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
-                        $this->addAction(
-                                new LinkAction(
-                                        'deleteNote',
-                                        new RemoteActionConfirmationModal(
-                                                __('common.confirmDelete'),
-                                                __('grid.action.delete'),
-                                                $router->url($request, null, null, 'deleteNote', null, $actionArgs), 'modal_delete'),
-                                        __('grid.action.delete'),
-                                        'delete')
-                        );
+			if ($this->_queryNotesGrid->getCanManage($this->getData())) {
+				import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
+	                        $this->addAction(
+	                                new LinkAction(
+	                                        'deleteNote',
+	                                        new RemoteActionConfirmationModal(
+	                                                __('common.confirmDelete'),
+	                                                __('grid.action.delete'),
+	                                                $router->url($request, null, null, 'deleteNote', null, $actionArgs), 'modal_delete'),
+	                                        __('grid.action.delete'),
+	                                        'delete')
+	                        );
+			}
 		}
 	}
 

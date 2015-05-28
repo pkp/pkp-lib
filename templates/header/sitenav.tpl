@@ -7,7 +7,14 @@
  *
  * Site-Wide Navigation Bar
  *}
-<ul class="pkp_navigation_user">
+<script type="text/javascript">
+	// Attach the JS file tab handler.
+	$(function() {ldelim}
+		$('#navigationUser').pkpHandler(
+				'$.pkp.controllers.MenuHandler');
+	{rdelim});
+ </script>
+<ul id="navigationUser" class="pkp_navigation_user">
 	{if $isUserLoggedIn}
         <li class="notificationsLinkContainer">
             {**

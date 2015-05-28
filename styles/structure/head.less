@@ -117,13 +117,15 @@
 		}
 
 		li:hover > ul,
-		li:focus > ul {
+		li:focus > ul,
+		li.in_focus > ul {
 			&:extend( .pkp_nav_list ul li:hover > ul );
 		}
 	}
 
 	li:hover > ul,
-	li:focus > ul {
+	li:focus > ul,
+	li.in_focus > ul {
 		&:extend( .pkp_nav_list li:hover > ul );
 	}
 
@@ -149,7 +151,8 @@
 	font-size: 12px;
 
 	li:hover > ul,
-	li:focus > ul {
+	li:focus > ul,
+	li.in_focus > ul {
 		left: auto;
 		right: 0;
 	}

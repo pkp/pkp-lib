@@ -10,7 +10,82 @@
  * @brief Classes for the page header structural elements
  */
 
-/**
- * @todo header styles have been moved to the default theme plugin. This
- *     file will eventually contain header rules specific to the control panel
- */
+// @todo front/back wrapper
+// @note the front/back wrapper tag represents LESS code that is temporarily
+// targeted only at the dashboard. This is just for the development phase, to
+// start laying out the site architecture before we have a proper way of
+// distinguishing between reader interface and control panel. Eventually, when
+// we have separate CSS files, we should be able to drop the prefix.
+.pkp_page_dashboard {
+
+    .pkp_structure_head {
+        width: 192px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 3;
+
+        .pkp_navigation {
+            width: 100%;
+        }
+
+        h1 {
+            float: none;
+            width: 100%;
+            max-width: 100%;
+            padding: 0;
+
+            a {
+                display: block;
+                padding: 20px 0;
+            }
+
+            img {
+                margin: 0 auto;
+                padding: 0;
+            }
+        }
+    }
+
+    .pkp_nav_list {
+
+        li {
+            display: block;
+        }
+
+        ul {
+            top: 0;
+        }
+
+        li:hover > ul,
+        li:focus > ul,
+        li.in_focus > ul {
+            left: 100%;
+        }
+
+        .has-submenu > a:after {
+            border-left: 4px solid;
+            border-top: 4px solid transparent;
+            border-bottom: 4px solid transparent;
+            border-right: 4px solid transparent;
+        }
+
+    }
+
+    .pkp_navigation_primary {
+        position: relative;
+        bottom: auto;
+        left: auto;
+    }
+
+    .pkp_navigation_user {
+        position: fixed;
+        bottom: 0;
+        top: auto;
+        left: 0;
+        width: 192px;
+    }
+
+}

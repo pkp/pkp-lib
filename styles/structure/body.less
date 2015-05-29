@@ -16,12 +16,33 @@ html {
 
 // @todo front/back wrapper
 .pkp_page_dashboard {
+	position: relative;
 	height: auto;
 	min-height: 100%;
-	position: relative;
+	background: @bg;
 
+	.pkp_structure_foot,
 	.pkp_structure_body {
-		margin: 0;
+		margin: 0 @double 0 192px;
+		padding: @double;
+	}
+
+	// @todo kill the fixed width
+	.pkp_structure_body,
+	.pkp_structure_content {
+		width: auto;
+	}
+
+	// @todo temporary!
+	#sidebarContainer {
+		// @note UrlInDivHandler.js is calling .fadeIn() on the elements after
+		// they're loaded in, which leaves a display: block style element
+		display: none !important;
+	}
+
+	// @todo temporary!
+	.pkp_structure_foot {
+		display: none;
 	}
 }
 

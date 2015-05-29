@@ -20,6 +20,15 @@ html {
 	height: auto;
 	min-height: 100%;
 	background: @bg;
+	font-family: @font;
+	font-size: @font-base;
+	line-height: @line-base;
+	color: @text;
+	color: @text-rgba;
+
+	a {
+		color: @primary;
+	}
 
 	.pkp_structure_foot,
 	.pkp_structure_body {
@@ -51,126 +60,9 @@ html {
 	}
 }
 
-a {
-	color: #569bbe;
-}
-
-img {
-	display: block;
-	padding: 2px;
-}
-
-strong {
-	font-weight: bold;
-}
-
-hr {
-	border: 5px solid #e2e2e2;
-	border-width: 0 0 5px 0;
-	margin-top: 20px;
-	margin-bottom: 10px;
-}
-
-ul, ol,dl, blockquote {
-	padding: 10px;
-}
-
-p {
-	padding: 0.5em 0;
-}
-
-h1, h2, h3, h4, h5, h6 {
-	padding-top: 0.5em;
-}
-
-img {
-	padding-bottom: 0px;
-}
-
-pre {
-	margin: 10px;
-}
-
-table h1,table h2,table h3, table h4, table h5, table h6, table p, table ul, table ol, table dl,
-ul h1,ul h2,ul h3, ul h4, ul h5, ul h6, ul p, ul ul, ul ol, ul dl,
-ol h1,ol h2,ol h3, ol h4, ol h5, ol h6, ol p, ol ul, ol ol, ol dl {
-	padding: 0;
-}
-.pkp_structure_body_normal_font {
-	font-weight: normal;
-	font-style: normal;
-}
-
-h1, .h1 {
-	font-size: 196%;
-	.pkp_structure_body_normal_font;
-}
-
-h2, .h2 {
-	font-size: 167%;
-	.pkp_structure_body_normal_font;
-}
-
-h3, .h3 {
-	font-size: 120%;
-	.pkp_structure_body_normal_font;
-}
-
-h4, .h4 {
-	font-size: 105%;
-	.pkp_structure_body_normal_font;
-}
-
-
-body {
-	font-family: Arial, Helvetica, sans-serif;
-	_text-align: center;
-	color: #333;
-}
-
+// @todo temporary to keep the UI workable until better system in place
 .pkp_structure_content,
 .pkp_structure_subfoot {
 	margin: 0 auto;
 	width: 960px;
-}
-
-.pkp_structure_page {
-	margin: 0 auto;
-	_text-align: left;
-	position: relative;
-	padding-bottom: 150px;
-	min-height: 100%;
-}
-
-.pkp_structure_page,
-.pkp_structure_page:before,
-.pkp_structure_page:after {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-}
-
-.pkp_structure_body:after, .pkp_structure_main:after {
-	clear: both;
-	display: block;
-	visibility: hidden;
-	overflow: hidden;
-	height: 0 !important;
-	line-height: 0;
-	font-size: xx-large;
-	content: " x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x ";
-}
-
-.pkp_structure_body {
-	*zoom: 1;
-	margin: 20px 0;
-	padding-bottom: 15px;
-
-	.pkp_structure_main {
-		*zoom: 1;
-		padding-top: 10px;
-		padding-bottom: 80px;
-		border-top: 1px dotted #999;
-		float: right;
-	}
 }

@@ -16,10 +16,10 @@
 
 <div class="pkp_structure_subfoot">
 	{if $footerCategories|@count > 0}{* include a section if there are footer link categories defined *}
-		<div class="pkp_structure_content footerCategories">
+		<div class="pkp_structure_content footerCategories pkp_helpers_clear">
 			{foreach from=$footerCategories item=category name=loop}
 				{assign var=links value=$category->getLinks()}
-				<div class="unit size1of{$footerCategories|@count} {if $smarty.foreach.loop.last}lastUnit{/if}">
+				<div class="size1of{$footerCategories|@count}">
 					<h4><a href="{url page="links" op="link" path=$category->getPath()|escape}">{$category->getLocalizedTitle()|strip_unsafe_html}</a></h4>
 					<ul>
 						{foreach from=$links item=link}

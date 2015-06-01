@@ -7,7 +7,7 @@
  *
  * User registration form.
  *}
-{include file="common/header.tpl" pageTitle="user.register"}
+{include file="common/frontend/header.tpl" pageTitle="user.register"}
 
 <script type="text/javascript">
 	$(function() {ldelim}
@@ -95,4 +95,4 @@
 </div>
 
 </form>
-{include file="common/footer.tpl"}
+{include file="common/frontend/footer.tpl"}

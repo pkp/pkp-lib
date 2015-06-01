@@ -5,7 +5,7 @@
  * Copyright (c) 2000-2015 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * Common site frontend header <head> tag and contents.
+ * Common site header <head> tag and contents.
  *}
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset={$defaultCharset|escape}" />
@@ -24,6 +24,10 @@
 		<script src="{$baseUrl}/lib/pkp/lib/vendor/components/jquery/{if $useMinifiedJavaScript}jquery.min.js{else}jquery.js{/if}"></script>
 		<script src="{$baseUrl}/lib/pkp/lib/vendor/components/jqueryui/{if $useMinifiedJavaScript}jquery-ui.min.js{else}jquery-ui.js{/if}"></script>
 	{/if}
+
+	<!-- UI elements (menus, forms, etc) -->
+	<script src="{$baseUrl}/lib/pkp/js/lib/superfish/hoverIntent.js"></script>
+	<script src="{$baseUrl}/lib/pkp/js/lib/superfish/superfish.js"></script>
 
 	{include file="common/validate.tpl"}
 	{include file="common/plupload.tpl"}

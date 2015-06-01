@@ -11,7 +11,7 @@
 {strip}
 {assign var="pageTitleTranslated" value=$announcementTitle}
 {assign var="pageId" value="announcement.view"}
-{include file="common/header.tpl"}
+{include file="common/frontend/header.tpl"}
 {/strip}
 
 <table id="announcementDescription" width="100%">
@@ -20,4 +20,4 @@
 	</tr>
 </table>
 
-{include file="common/footer.tpl"}
+{include file="common/frontend/footer.tpl"}

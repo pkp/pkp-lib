@@ -10,7 +10,7 @@
  *}
 {strip}
 {assign var="pageTitle" value="user.login"}
-{include file="common/header.tpl"}
+{include file="common/frontend/header.tpl"}
 {/strip}
 
 {if $loginMessage}
@@ -78,4 +78,4 @@
 </script>
 </form>
 
-{include file="common/footer.tpl"}
+{include file="common/frontend/footer.tpl"}

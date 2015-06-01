@@ -8,7 +8,7 @@
  * Site registration.
  *}
 {strip}
-{include file="common/header.tpl"}
+{include file="common/frontend/header.tpl"}
 {/strip}
 <div id="contexts">
 {iterate from=contexts item=context}
@@ -25,4 +25,4 @@
 	</ul>
 {/if}
 </div>
-{include file="common/footer.tpl"}
+{include file="common/frontend/footer.tpl"}

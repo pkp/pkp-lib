@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file controllers/grid/files/dependent/QueryFilesGridHandler.inc.php
+ * @file controllers/grid/files/dependent/QueryNoteFilesGridHandler.inc.php
  *
  * Copyright (c) 2014-2015 Simon Fraser University Library
  * Copyright (c) 2003-2015 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class QueryFilesGridHandler
+ * @class QueryNoteFilesGridHandler
  * @ingroup controllers_grid_files_query
  *
  * @brief Handle query files that are associated with a query
@@ -16,17 +16,17 @@
 
 import('lib.pkp.controllers.grid.files.fileList.FileListGridHandler');
 
-class QueryFilesGridHandler extends FileListGridHandler {
+class QueryNoteFilesGridHandler extends FileListGridHandler {
 	/**
 	 * Constructor
 	 */
-	function QueryFilesGridHandler() {
+	function QueryNoteFilesGridHandler() {
 		// import app-specific grid data provider for access policies.
 		$request = Application::getRequest();
 		$stageId = $request->getUservar('stageId'); // authorized in authorize() method.
-		import('lib.pkp.controllers.grid.files.query.QueryFilesGridDataProvider');
+		import('lib.pkp.controllers.grid.files.query.QueryNoteFilesGridDataProvider');
 		parent::FileListGridHandler(
-			new QueryFilesGridDataProvider(),
+			new QueryNoteFilesGridDataProvider($request->getUserVar('noteId')),
 			$stageId,
 			FILE_GRID_MANAGE|FILE_GRID_DELETE|FILE_GRID_VIEW_NOTES|FILE_GRID_EDIT
 		);
@@ -68,10 +68,10 @@ class QueryFilesGridHandler extends FileListGridHandler {
 		$submission = $this->getSubmission();
 		$query = $this->getAuthorizedContextObject(ASSOC_TYPE_QUERY);
 
-		import('lib.pkp.controllers.grid.files.query.form.ManageQueryFilesForm');
-		$manageQueryFilesForm = new ManageQueryFilesForm($submission->getId(), $query->getId());
-		$manageQueryFilesForm->initData($args, $request);
-		return new JSONMessage(true, $manageQueryFilesForm->fetch($request));
+		import('lib.pkp.controllers.grid.files.query.form.ManageQueryNoteFilesForm');
+		$manageQueryNoteFilesForm = new ManageQueryNoteFilesForm($submission->getId(), $query->getId(), $request->getUserVar('noteId'));
+		$manageQueryNoteFilesForm->initData($args, $request);
+		return new JSONMessage(true, $manageQueryNoteFilesForm->fetch($request));
 	}
 }
 

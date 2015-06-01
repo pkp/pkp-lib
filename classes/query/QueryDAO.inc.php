@@ -122,8 +122,8 @@ class QueryDAO extends DAO {
 
 	/**
 	 * Adds a participant to a query.
-	 * @param int $queryId
-	 * @param int $userId
+	 * @param $queryId int Query ID
+	 * @param $userId int User ID
 	 */
 	function insertParticipant($queryId, $userId) {
 		$this->update(
@@ -140,8 +140,8 @@ class QueryDAO extends DAO {
 
 	/**
 	 * Removes a participant from a query.
-	 * @param int $queryId
-	 * @param int $userId
+	 * @param $queryId int Query ID
+	 * @param $userId int User ID
 	 */
 	function removeParticipant($queryId, $userId) {
 		$this->update(
@@ -152,7 +152,7 @@ class QueryDAO extends DAO {
 
 	/**
 	 * Removes all participants from a query.
-	 * @param int $queryId
+	 * @param $queryId int Query ID
 	 */
 	function removeAllParticipants($queryId) {
 		$this->update(

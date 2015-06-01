@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file controllers/grid/files/query/ManageQueryFilesGridHandler.inc.php
+ * @file controllers/grid/files/query/ManageQueryNoteFilesGridHandler.inc.php
  *
  * Copyright (c) 2014-2015 Simon Fraser University Library
  * Copyright (c) 2003-2015 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class ManageQueryFilesGridHandler
+ * @class ManageQueryNoteFilesGridHandler
  * @ingroup controllers_grid_files_query
  *
  * @brief Handle the query file selection grid
@@ -15,14 +15,14 @@
 
 import('lib.pkp.controllers.grid.files.SelectableSubmissionFileListCategoryGridHandler');
 
-class ManageQueryFilesGridHandler extends SelectableSubmissionFileListCategoryGridHandler {
+class ManageQueryNoteFilesGridHandler extends SelectableSubmissionFileListCategoryGridHandler {
 	/**
 	 * Constructor
 	 */
-	function ManageQueryFilesGridHandler() {
-		import('lib.pkp.controllers.grid.files.query.QueryFilesCategoryGridDataProvider');
+	function ManageQueryNoteFilesGridHandler() {
+		import('lib.pkp.controllers.grid.files.query.QueryNoteFilesCategoryGridDataProvider');
 		parent::SelectableSubmissionFileListCategoryGridHandler(
-			new QueryFilesCategoryGridDataProvider(),
+			new QueryNoteFilesCategoryGridDataProvider(),
 			WORKFLOW_STAGE_ID_EDITING,
 			FILE_GRID_ADD|FILE_GRID_DELETE|FILE_GRID_VIEW_NOTES|FILE_GRID_EDIT
 		);
@@ -38,12 +38,12 @@ class ManageQueryFilesGridHandler extends SelectableSubmissionFileListCategoryGr
 				'addFile',
 				'downloadFile',
 				'deleteFile',
-				'updateQueryFiles'
+				'updateQueryNoteFiles'
 			)
 		);
 
 		// Set the grid title.
-		$this->setTitle('submission.queryFiles');
+		$this->setTitle('submission.queryNoteFiles');
 	}
 
 
@@ -62,7 +62,8 @@ class ManageQueryFilesGridHandler extends SelectableSubmissionFileListCategoryGr
 
 		// Passed the checks above. If it's part of the current query, mark selected.
 		$query = $this->getAuthorizedContextObject(ASSOC_TYPE_QUERY);
-		return ($submissionFile->getAssocType() == ASSOC_TYPE_QUERY && $submissionFile->getAssocId() == $query->getId());
+		$headNote = $query->getHeadNote();
+		return ($submissionFile->getAssocType() == ASSOC_TYPE_NOTE && $submissionFile->getAssocId() == $headNote->getId());
 	}
 
 	//
@@ -74,16 +75,16 @@ class ManageQueryFilesGridHandler extends SelectableSubmissionFileListCategoryGr
 	 * @param $request PKPRequest
 	 * @return JSONMessage JSON object
 	 */
-	function updateQueryFiles($args, $request) {
+	function updateQueryNoteFiles($args, $request) {
 		$submission = $this->getSubmission();
 		$query = $this->getAuthorizedContextObject(ASSOC_TYPE_QUERY);
 
-		import('lib.pkp.controllers.grid.files.query.form.ManageQueryFilesForm');
-		$manageQueryFilesForm = new ManageQueryFilesForm($submission->getId(), $query->getId());
-		$manageQueryFilesForm->readInputData();
+		import('lib.pkp.controllers.grid.files.query.form.ManageQueryNoteFilesForm');
+		$manageQueryNoteFilesForm = new ManageQueryNoteFilesForm($submission->getId(), $query->getId(), $request->getUserVar('noteId'));
+		$manageQueryNoteFilesForm->readInputData();
 
-		if ($manageQueryFilesForm->validate()) {
-			$manageQueryFilesForm->execute(
+		if ($manageQueryNoteFilesForm->validate()) {
+			$manageQueryNoteFilesForm->execute(
 				$args, $request,
 				$this->getGridCategoryDataElements($request, $this->getStageId())
 			);

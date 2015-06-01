@@ -240,6 +240,7 @@ class QueriesGridHandler extends GridHandler {
 	function addQuery($args, $request) {
 		import('lib.pkp.controllers.grid.queries.form.QueryForm');
 		$queryForm = new QueryForm(
+			$request,
 			$this->getSubmission(),
 			$this->getStageId()
 		);
@@ -288,6 +289,7 @@ class QueriesGridHandler extends GridHandler {
 		// Form handling
 		import('lib.pkp.controllers.grid.queries.form.QueryForm');
 		$queryForm = new QueryForm(
+			$request,
 			$this->getSubmission(),
 			$this->getStageId(),
 			$request->getUserVar('queryId')
@@ -306,6 +308,7 @@ class QueriesGridHandler extends GridHandler {
 		$query = $this->getQuery();
 		import('lib.pkp.controllers.grid.queries.form.QueryForm');
 		$queryForm = new QueryForm(
+			$request,
 			$this->getSubmission(),
 			$this->getStageId(),
 			$query->getId()

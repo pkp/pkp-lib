@@ -40,10 +40,10 @@
 		{/fbvFormSection}
 	{/fbvFormArea}
 
-	{fbvFormArea id="queryFilesArea"}
+	{fbvFormArea id="queryNoteFilesArea"}
 		<!-- Files for this query -->
-		{url|assign:queryFilesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.query.QueryFilesGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId queryId=$queryId escape=false}
-		{load_url_in_div id="queryFilesGrid" url=$queryFilesGridUrl}
+		{url|assign:queryNoteFilesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.query.QueryNoteFilesGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId queryId=$queryId noteId=$noteId escape=false}
+		{load_url_in_div id="queryNoteFilesGrid" url=$queryNoteFilesGridUrl}
 	{/fbvFormArea}
 
 	{fbvFormButtons id="addQueryButton"}

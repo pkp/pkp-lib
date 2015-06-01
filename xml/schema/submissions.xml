@@ -247,6 +247,31 @@
 		<index name="query_participants_pkey">
 			<col>query_id</col>
 			<col>user_id</col>
+			<UNIQUE />
+		</index>
+	</table>
+
+	<!--
+	  *
+	  * TABLE note_files
+	  *
+	  -->
+	<table name="note_files">
+		<field name="note_id" type="I8">
+			<NOTNULL />
+		</field>
+		<field name="file_id" type="I8">
+			<NOTNULL/>
+		</field>
+		<field name="revision" type="I8">
+			<NOTNULL/>
+		</field>
+		<descr>Associates notes with submission files</descr>
+		<index name="note_files_pkey">
+			<col>note_id</col>
+			<col>file_id</col>
+			<col>revision</col>
+			<UNIQUE />
 		</index>
 	</table>
 </schema>

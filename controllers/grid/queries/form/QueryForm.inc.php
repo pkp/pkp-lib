@@ -36,7 +36,7 @@ class QueryForm extends Form {
 	 * @param $queryId int Optional query ID to edit. If none provided, a
 	 *  (potentially temporary) query will be created.
 	 */
-	function QueryForm($submission, $stageId, $queryId = null) {
+	function QueryForm($request, $submission, $stageId, $queryId = null) {
 		parent::Form('controllers/grid/queries/form/queryForm.tpl');
 		$this->setSubmission($submission);
 		$this->setStageId($stageId);
@@ -45,10 +45,20 @@ class QueryForm extends Form {
 		if (!$queryId) {
 			$this->_isNew = true;
 
+			// Create a query
 			$query = $queryDao->newDataObject();
 			$query->setSubmissionId($submission->getId());
 			$query->setStageId($stageId);
 			$queryDao->insertObject($query);
+
+			// Create a head note
+			$noteDao = DAORegistry::getDAO('NoteDAO');
+			$headNote = $noteDao->newDataObject();
+			$headNote->setUserId($request->getUser()->getId());
+			$headNote->setAssocType(ASSOC_TYPE_QUERY);
+			$headNote->setAssocId($query->getId());
+			$headNote->setDateCreated(Core::getCurrentDate());
+			$noteDao->insertObject($headNote);
 		} else {
 			$query = $queryDao->getById($queryId, $submission->getId());
 			assert($query);
@@ -146,11 +156,15 @@ class QueryForm extends Form {
 	function fetch($request) {
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_EDITOR);
 
+		$query = $this->getQuery();
+		$headNote = $query->getHeadNote();
+
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign(array(
 			'submissionId' => $this->getSubmission()->getId(),
 			'stageId' => $this->getStageId(),
 			'isNew' => $this->_isNew,
+			'noteId' => $headNote->getId(),
 		));
 
 		return parent::fetch($request);
@@ -178,24 +192,13 @@ class QueryForm extends Form {
 		$queryDao = DAORegistry::getDAO('QueryDAO');
 		$query = $this->getQuery();
 
-		$noteDao = DAORegistry::getDAO('NoteDAO');
-		if ($this->_isNew) {
-			$headNote = $noteDao->newDataObject();
-			$headNote->setUserId($request->getUser()->getId());
-			$headNote->setAssocType(ASSOC_TYPE_QUERY);
-			$headNote->setAssocId($query->getId());
-			$headNote->setDateCreated(Core::getCurrentDate());
-		} else {
-			$headNote = $query->getHeadNote();
-		}
+		$headNote = $query->getHeadNote();
 		$headNote->setDateModified(Core::getCurrentDate());
 		$headNote->setTitle($this->getData('subject'));
 		$headNote->setContents($this->getData('comment'));
-		if ($this->_isNew) {
-			$noteDao->insertObject($headNote);
-		} else {
-			$noteDao->updateObject($headNote);
-		}
+
+		$noteDao = DAORegistry::getDAO('NoteDAO');
+		$noteDao->updateObject($headNote);
 
 		import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
 		ListbuilderHandler::unpack($request, $this->getData('users'));

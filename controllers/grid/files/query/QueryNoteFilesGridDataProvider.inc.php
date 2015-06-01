@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file controllers/grid/files/query/QueryFilesGridDataProvider.inc.php
+ * @file controllers/grid/files/query/QueryNoteFilesGridDataProvider.inc.php
  *
  * Copyright (c) 2014-2015 Simon Fraser University Library
  * Copyright (c) 2003-2015 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class QueryFilesGridDataProvider
+ * @class QueryNoteFilesGridDataProvider
  * @ingroup controllers_grid_files_query
  *
  * @brief Provide access to query files management.
@@ -16,15 +16,17 @@
 
 import('lib.pkp.controllers.grid.files.SubmissionFilesGridDataProvider');
 
-class QueryFilesGridDataProvider extends SubmissionFilesGridDataProvider {
-	/** @var integer Query ID */
-	var $_queryId;
+class QueryNoteFilesGridDataProvider extends SubmissionFilesGridDataProvider {
+	/** @var int Note ID */
+	var $_noteId;
 
 	/**
 	 * Constructor
+	 * @param $noteId int Note ID
 	 */
-	function QueryFilesGridDataProvider() {
+	function QueryNoteFilesGridDataProvider($noteId) {
 		parent::SubmissionFilesGridDataProvider(SUBMISSION_FILE_QUERY);
+		$this->_noteId = $noteId;
 	}
 
 	//
@@ -52,6 +54,7 @@ class QueryFilesGridDataProvider extends SubmissionFilesGridDataProvider {
 				'submissionId' => $this->getSubmission()->getId(),
 				'stageId' => $this->getStageId(),
 				'queryId' => $query->getId(),
+				'noteId' => $this->_noteId,
 			),
 			__('editor.submission.uploadSelectFiles')
 		);
@@ -64,8 +67,15 @@ class QueryFilesGridDataProvider extends SubmissionFilesGridDataProvider {
 		// Retrieve all submission files for the given file query.
 		$submission = $this->getSubmission();
 		$query = $this->getAuthorizedContextObject(ASSOC_TYPE_QUERY);
+
+		$noteDao = DAORegistry::getDAO('NoteDAO');
+		$note = $noteDao->getById($this->_noteId);
+		if ($note->getAssocType() != ASSOC_TYPE_QUERY || $note->getAssocId() != $query->getId()) {
+			fatalError('Invalid note ID specified!');
+		}
+
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-		$submissionFiles = $submissionFileDao->getLatestRevisionsByAssocId(ASSOC_TYPE_QUERY, $query->getId(), $submission->getId(), $this->getFileStage());
+		$submissionFiles = $submissionFileDao->getLatestRevisionsByAssocId(ASSOC_TYPE_NOTE, $this->_noteId, $submission->getId(), $this->getFileStage());
 		return $this->prepareSubmissionFileData($submissionFiles, $this->_viewableOnly);
 	}
 
@@ -77,9 +87,10 @@ class QueryFilesGridDataProvider extends SubmissionFilesGridDataProvider {
 		return array_merge(
 			parent::getRequestArgs(),
 			array(
-				'assocType' => ASSOC_TYPE_QUERY,
-				'assocId' => $query->getId(),
+				'assocType' => ASSOC_TYPE_NOTE,
+				'assocId' => $this->_noteId,
 				'queryId' => $query->getId(),
+				'noteId' => $this->_noteId,
 			)
 		);
 	}
@@ -94,7 +105,7 @@ class QueryFilesGridDataProvider extends SubmissionFilesGridDataProvider {
 		return new AddFileLinkAction(
 			$request, $submission->getId(), $this->getStageId(),
 			$this->getUploaderRoles(), null, $this->getFileStage(),
-			ASSOC_TYPE_QUERY, $query->getId()
+			ASSOC_TYPE_NOTE, $this->_noteId
 		);
 	}
 }

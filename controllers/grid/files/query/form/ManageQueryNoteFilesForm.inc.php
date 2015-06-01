@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file controllers/grid/files/query/form/ManageQueryFilesForm.inc.php
+ * @file controllers/grid/files/query/form/ManageQueryNoteFilesForm.inc.php
  *
  * Copyright (c) 2014-2015 Simon Fraser University Library
  * Copyright (c) 2003-2015 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class ManageQueryFilesForm
+ * @class ManageQueryNoteFilesForm
  * @ingroup controllers_grid_files_query
  *
  * @brief Form to add files to the query files grid
@@ -15,18 +15,23 @@
 
 import('lib.pkp.controllers.grid.files.form.ManageSubmissionFilesForm');
 
-class ManageQueryFilesForm extends ManageSubmissionFilesForm {
+class ManageQueryNoteFilesForm extends ManageSubmissionFilesForm {
 	/** @var int Query ID */
 	var $_queryId;
+
+	/** @var int Note ID */
+	var $_noteId;
 
 	/**
 	 * Constructor.
 	 * @param $submissionId int Submission ID.
 	 * @param $queryId int Query ID.
+	 * @param $noteId int Note ID.
 	 */
-	function ManageQueryFilesForm($submissionId, $queryId) {
-		parent::ManageSubmissionFilesForm($submissionId, 'controllers/grid/files/query/manageQueryFiles.tpl');
+	function ManageQueryNoteFilesForm($submissionId, $queryId, $noteId) {
+		parent::ManageSubmissionFilesForm($submissionId, 'controllers/grid/files/query/manageQueryNoteFiles.tpl');
 		$this->_queryId = $queryId;
+		$this->_noteId = $noteId;
 	}
 
 	/**
@@ -34,7 +39,10 @@ class ManageQueryFilesForm extends ManageSubmissionFilesForm {
 	 */
 	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('queryId', $this->_queryId);
+		$templateMgr->assign(array(
+			'queryId' => $this->_queryId,
+			'noteId' => $this->_noteId,
+		));
 		return parent::fetch($request, $template, $display);
 	}
 
@@ -46,6 +54,18 @@ class ManageQueryFilesForm extends ManageSubmissionFilesForm {
 	 */
 	function execute($args, $request, $stageSubmissionFiles) {
 		parent::execute($args, $request, $stageSubmissionFiles, SUBMISSION_FILE_QUERY);
+	}
+
+	/**
+	 * @copydoc ManageSubmissionFilesForm::_importFile()
+	 */
+	protected function _importFile($context, $submissionFile, $fileStage) {
+		$submissionFile = parent::_importFile($context, $submissionFile, $fileStage);
+		$submissionFile->setAssocType(ASSOC_TYPE_NOTE);
+		$submissionFile->setAssocId($this->_noteId);
+		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+		$submissionFileDao->updateObject($submissionFile);
+		return $submissionFile;
 	}
 }
 

@@ -87,8 +87,10 @@ class ManageSubmissionFilesForm extends Form {
 			// If this is a submission file that belongs to the current stage id...
 			if ($this->_fileExistsInStage($submissionFile, $stageSubmissionFiles, $fileStage)) {
 				// ...update the "viewable" flag accordingly.
-				$submissionFile->setViewable($isViewable);
-				$submissionFileDao->updateObject($submissionFile);
+				if ($isViewable != $submissionFile->getViewable()) {
+					$submissionFile->setViewable($isViewable);
+					$submissionFileDao->updateObject($submissionFile);
+				}
 			} elseif ($isViewable) {
 				// Import a file from a previous stage.
 				$context = $request->getContext();

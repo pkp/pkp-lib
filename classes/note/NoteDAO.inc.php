@@ -264,18 +264,97 @@ class NoteDAO extends DAO {
 			($userId?' AND user_id = ?':''),
 			$params
 		);
+		if ($this->getAffectedRows()) {
+			$this->removeFilesByNoteId($noteId);
+		}
 	}
 
 	/**
-	 * Delete Note by association
+	 * Delete notes by association
 	 * @param $assocType int ASSOC_TYPE_...
 	 * @param $assocId int Foreign key, depending on $assocType
 	 */
 	function deleteByAssoc($assocType, $assocId) {
+		$notes = $this->getByAssoc($assocType, $assocId);
+		while ($note = $notes->next()) {
+			$this->deleteObject($note);
+		}
+	}
+
+	/**
+	 * Adds a file association to a note.
+	 * @param $noteId int Note ID
+	 * @param $fileId int File ID
+	 * @param $revision int File revision
+	 */
+	function addFile($noteId, $fileId, $revision) {
 		$this->update(
-			'DELETE FROM notes WHERE assoc_type = ? AND assoc_id = ?',
-			array((int) $assocType, (int) $assocId)
+			'INSERT INTO note_files
+			(note_id, file_id, revision)
+			VALUES
+			(?, ?, ?)',
+			array(
+				(int) $noteId,
+				(int) $fileId,
+				(int) $revision
+			)
 		);
+	}
+
+	/**
+	 * Removes a file association from a note.
+	 * @param $noteId int Note ID
+	 * @param $fileId int File ID
+	 * @param $revision int File revision
+	 */
+	function removeFile($noteId, $fileId, $revision) {
+		$this->update(
+			'DELETE FROM note_files WHERE note_id = ? AND file_id = ? AND revision = ?',
+			array((int) $noteId, (int) $fileId, (int) $revision)
+		);
+	}
+
+	/**
+	 * Removes all files from a note.
+	 * @param int $noteId
+	 */
+	function removeFilesByNoteId($noteId) {
+		$this->update(
+			'DELETE FROM note_files WHERE note_id = ?',
+			(int) $noteId
+		);
+	}
+
+	/**
+	 * Removes all files from notes by file ID.
+	 * @param int $noteId
+	 */
+	function removeFilesByFileId($fileId, $revision) {
+		$this->update(
+			'DELETE FROM note_files WHERE file_id=? AND revision=?',
+			array((int) $fileId, (int) $revision)
+		);
+	}
+
+	/**
+	 * Retrieve all file IDs for a note.
+	 * @param $noteId int Note ID
+	 * @return array array(array(fileId1, revision1), array(fileId2, revision2), ...)
+	 */
+	function getFileIds($noteId) {
+		$result = $this->retrieve(
+			'SELECT	file_id, revision
+			FROM	note_files
+			WHERE	note_id = ?',
+			(int) $noteId
+		);
+		$fileIds = array();
+		while (!$result->EOF) {
+			$row = $result->getRowAssoc(false);
+			$fileIds[] = array($row['file_id'], $row['revision']);
+			$result->MoveNext();
+		}
+		return $fileIds;
 	}
 
 	/**

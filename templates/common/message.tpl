@@ -10,7 +10,7 @@
  *
  *}
 {strip}
-{include file="common/header.tpl"}
+{include file="common/frontend/header.tpl"}
 {/strip}
 
 {if $message}{translate|assign:"messageTranslated" key=$message}{/if}
@@ -21,5 +21,5 @@
 <p>&#187; <a href="{$backLink}">{translate key=$backLinkLabel}</a></p>
 {/if}
 
-{include file="common/footer.tpl"}
+{include file="common/frontend/footer.tpl"}
 

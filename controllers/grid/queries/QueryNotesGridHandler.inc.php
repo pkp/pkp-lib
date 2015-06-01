@@ -31,7 +31,7 @@ class QueryNotesGridHandler extends GridHandler {
 		parent::GridHandler();
 		$this->addRoleAssignment(
 			array(ROLE_ID_MANAGER, ROLE_ID_AUTHOR, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT),
-			array('fetchGrid', 'fetchRow', 'insertNote', 'deleteNote'));
+			array('fetchGrid', 'fetchRow', 'addNote', 'insertNote', 'deleteNote'));
 	}
 
 
@@ -158,20 +158,31 @@ class QueryNotesGridHandler extends GridHandler {
 	// Public Query Notes Grid Actions
 	//
 	/**
+	 * Present the form to add a new note.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 */
+	function addNote($args, $request) {
+		import('lib.pkp.controllers.grid.queries.form.QueryNoteForm');
+		$queryNoteForm = new QueryNoteForm($this->getSubmission(), $this->getQuery(), $this->getStageId());
+		$queryNoteForm->initData();
+		return new JSONMessage(true, $queryNoteForm->fetch($request));
+	}
+
+	/**
 	 * Insert a new note.
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
 	function insertNote($args, $request) {
-		// Form handling
 		import('lib.pkp.controllers.grid.queries.form.QueryNoteForm');
-		$queryNoteForm = new QueryNoteForm($this->getQuery());
+		$queryNoteForm = new QueryNoteForm($this->getSubmission(), $this->getQuery(), $this->getStageId());
 		$queryNoteForm->readInputData();
 		if ($queryNoteForm->validate()) {
 			$note = $queryNoteForm->execute($request);
 			return DAO::getDataChangedEvent($note->getId());
 		} else {
-			return new JSONMessage(true, $queryForm->fetch($request));
+			return new JSONMessage(true, $queryNoteForm->fetch($request));
 		}
 	}
 
@@ -182,8 +193,8 @@ class QueryNotesGridHandler extends GridHandler {
 	 */
 	function getCanManage($note) {
 		return ($note->getUserId() == $this->_user->getId() || 0 != count(array_intersect(
-                        $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES),
-                        array(ROLE_ID_MANAGER, ROLE_ID_ASSISTANT, ROLE_ID_SUB_EDITOR)
+			$this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES),
+			array(ROLE_ID_MANAGER, ROLE_ID_ASSISTANT, ROLE_ID_SUB_EDITOR)
 		)));
 	}
 

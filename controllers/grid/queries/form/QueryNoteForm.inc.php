@@ -16,16 +16,26 @@
 import('lib.pkp.classes.form.Form');
 
 class QueryNoteForm extends Form {
+	/** @var Submission The submission */
+	var $_submission;
+
 	/** @var Query The query to attach the note to */
 	var $_query;
 
+	/** @var int Stage ID */
+	var $_stageId;
+
 	/**
 	 * Constructor.
+	 * @param $submission Submission The submission to attach the note to
 	 * @param $query Query The query to attach the note to
+	 * @param $stageId int The current stage ID
 	 */
-	function QueryNoteForm($query) {
+	function QueryNoteForm($submission, $query, $stageId) {
 		parent::Form('controllers/grid/queries/form/queryNoteForm.tpl');
 		$this->setQuery($query);
+		$this->setSubmission($submission);
+		$this->setStageId($stageId);
 
 		// Validation checks for this form
 		$this->addCheck(new FormValidator($this, 'comment', 'required', 'submission.queries.messageRequired'));
@@ -52,6 +62,38 @@ class QueryNoteForm extends Form {
 	}
 
 	/**
+	 * Get the submission
+	 * @return Submission
+	 */
+	function getSubmission() {
+		return $this->_submission;
+	}
+
+	/**
+	 * Set the submission
+	 * @param @submission Submission
+	 */
+	function setSubmission($submission) {
+		$this->_submission = $submission;
+	}
+
+	/**
+	 * Set the stage ID
+	 * @param $stageId int
+	 */
+	function setStageId($stageId) {
+		$this->_stageId = $stageId;
+	}
+
+	/**
+	 * Get the stage ID
+	 * @return int Stage ID
+	 */
+	function getStageId() {
+		return $this->_stageId;
+	}
+
+	/**
 	 * Assign form data to user-submitted data.
 	 * @see Form::readInputData()
 	 */
@@ -59,6 +101,19 @@ class QueryNoteForm extends Form {
 		$this->readUserVars(array(
 			'comment',
 		));
+	}
+
+	/**
+	 * @copydoc Form::fetch
+	 */
+	function fetch($request, $template = null, $display = false) {
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign(array(
+			'query' => $this->getQuery(),
+			'submission' => $this->getSubmission(),
+			'stageId' => $this->getStageId(),
+		));
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**

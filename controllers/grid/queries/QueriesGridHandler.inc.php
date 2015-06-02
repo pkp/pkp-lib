@@ -36,7 +36,7 @@ class QueriesGridHandler extends GridHandler {
 			array('fetchGrid', 'fetchRow', 'readQuery'));
 		$this->addRoleAssignment(
 			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT),
-			array('addQuery', 'updateQuery', 'editQuery', 'deleteQuery'));
+			array('addQuery', 'updateQuery', 'editQuery', 'deleteQuery', 'openQuery', 'closeQuery'));
 	}
 
 
@@ -120,7 +120,7 @@ class QueriesGridHandler extends GridHandler {
 
 		// Columns
 		import('lib.pkp.controllers.grid.queries.QueryTitleGridColumn');
-		$cellProvider = new QueriesGridCellProvider();
+		$cellProvider = new QueriesGridCellProvider($this->getSubmission(), $this->getStageId(), $this->getCanManage());
 		$this->addColumn(new QueryTitleGridColumn($this->getSubmission(), $this->getStageId()));
 
 		$this->addColumn(new GridColumn(
@@ -153,9 +153,9 @@ class QueriesGridHandler extends GridHandler {
 				'closed',
 				'submission.query.closed',
 				null,
-				'controllers/grid/queries/threadClosed.tpl',
+				'controllers/grid/common/cell/selectStatusCell.tpl',
 				$cellProvider,
-				array('width' => 40, 'alignment' => COLUMN_ALIGNMENT_CENTER)
+				array('width' => 20, 'alignment' => COLUMN_ALIGNMENT_CENTER)
 			)
 		);
 
@@ -201,7 +201,7 @@ class QueriesGridHandler extends GridHandler {
 	 */
 	function getRowInstance() {
 		import('lib.pkp.controllers.grid.queries.QueriesGridRow');
-		return new QueriesGridRow($this->getSubmission(), $this->getStageId());
+		return new QueriesGridRow($this->getSubmission(), $this->getStageId(), $this->getCanManage());
 	}
 
 	/**
@@ -258,6 +258,38 @@ class QueriesGridHandler extends GridHandler {
 		if ($query = $this->getQuery()) {
 			$queryDao = DAORegistry::getDAO('QueryDAO');
 			$queryDao->deleteObject($query);
+			return DAO::getDataChangedEvent($query->getId());
+		}
+		return new JSONMessage(false); // The query could not be found.
+	}
+
+	/**
+	 * Open a closed query.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
+	 */
+	function openQuery($args, $request) {
+		if ($query = $this->getQuery()) {
+			$queryDao = DAORegistry::getDAO('QueryDAO');
+			$query->setIsClosed(false);
+			$queryDao->updateObject($query);
+			return DAO::getDataChangedEvent($query->getId());
+		}
+		return new JSONMessage(false); // The query could not be found.
+	}
+
+	/**
+	 * Close an open query.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
+	 */
+	function closeQuery($args, $request) {
+		if ($query = $this->getQuery()) {
+			$queryDao = DAORegistry::getDAO('QueryDAO');
+			$query->setIsClosed(true);
+			$queryDao->updateObject($query);
 			return DAO::getDataChangedEvent($query->getId());
 		}
 		return new JSONMessage(false); // The query could not be found.

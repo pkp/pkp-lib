@@ -73,19 +73,19 @@ class Query extends DataObject {
 	}
 
 	/**
-	 * get thread closed
-	 * @return int
+	 * Get closed flag
+	 * @return boolean
 	 */
-	function getThreadClosed() {
-		return $this->getData('threadClosed');
+	function getIsClosed() {
+		return $this->getData('closed');
 	}
 
 	/**
-	 * set thread closed
-	 * @param $threadClosed int
+	 * Set closed flag
+	 * @param $isClosed boolean
 	 */
-	function setThreadClosed($threadClosed) {
-		return $this->setData('threadClosed', $threadClosed);
+	function setIsClosed($isClosed) {
+		return $this->setData('closed', $isClosed);
 	}
 
 	/**

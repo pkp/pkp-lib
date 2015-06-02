@@ -88,7 +88,7 @@ class QueryDAO extends DAO {
 		$query->setSubmissionId($row['submission_id']);
 		$query->setStageId($row['stage_id']);
 		$query->setUserId($row['user_id']);
-		$query->setThreadClosed($row['thread_closed']);
+		$query->setIsClosed($row['closed']);
 
 		HookRegistry::call('QueryDAO::_fromRow', array(&$query, &$row));
 		return $query;
@@ -108,12 +108,12 @@ class QueryDAO extends DAO {
 	 */
 	function insertObject($query) {
 		$this->update(
-			'INSERT INTO queries (submission_id, stage_id, thread_closed)
+			'INSERT INTO queries (submission_id, stage_id, closed)
 			VALUES (?, ?, ?)',
 			array(
 				(int) $query->getSubmissionId(),
 				(int) $query->getStageId(),
-				(int) $query->getThreadClosed(),
+				(int) $query->getIsClosed(),
 			)
 		);
 		$query->setId($this->getInsertId());
@@ -194,11 +194,11 @@ class QueryDAO extends DAO {
 		$this->update(
 			'UPDATE	queries
 			SET	stage_id = ?,
-				thread_closed = ?
+				closed = ?
 			WHERE	query_id = ?',
 			array(
 				(int) $query->getStageId(),
-				(int) $query->getThreadClosed(),
+				(int) $query->getIsClosed(),
 				(int) $query->getId()
 			)
 		);

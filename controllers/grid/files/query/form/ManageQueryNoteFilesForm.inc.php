@@ -57,6 +57,24 @@ class ManageQueryNoteFilesForm extends ManageSubmissionFilesForm {
 	}
 
 	/**
+	 * Determine if a file is already present in the stage.
+	 * @param $submissionFile SubmissionFile The submission file
+	 * @param $stageSubmissionFiles array The list of submission files in the stage.
+	 * @param $fileStage int FILE_STAGE_...
+	 */
+	protected function _fileExistsInStage($submissionFile, $stageSubmissionFiles, $fileStage) {
+		if (!parent::_fileExistsInStage($submissionFile, $stageSubmissionFiles, $fileStage)) return false;
+		foreach ($stageSubmissionFiles[$submissionFile->getFileId()] as $stageFile) {
+			if (
+				$stageFile->getFileStage() == $submissionFile->getFileStage() &&
+				$stageFile->getFileStage() == $fileStage &&
+				($stageFile->getAssocType() != ASSOC_TYPE_NOTE || $stageFile->getAssocId() == $this->_noteId)
+			) return true;
+		}
+		return false;
+	}
+
+	/**
 	 * @copydoc ManageSubmissionFilesForm::_importFile()
 	 */
 	protected function _importFile($context, $submissionFile, $fileStage) {

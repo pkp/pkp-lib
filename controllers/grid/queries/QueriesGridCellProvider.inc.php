@@ -16,11 +16,26 @@
 import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 
 class QueriesGridCellProvider extends DataObjectGridCellProvider {
+	/** @var Submission **/
+	var $_submission;
+
+	/** @var int **/
+	var $_stageId;
+
+	/** @var boolean True iff the user can manage the query. */
+	var $_canManage;
+
 	/**
 	 * Constructor
+	 * @param $submission Submission
+	 * @param $stageId int
+	 * @param $canManage boolean True iff the user can manage the query.
 	 */
-	function QueriesGridCellProvider() {
+	function QueriesGridCellProvider($submission, $stageId, $canManage) {
 		parent::DataObjectGridCellProvider();
+		$this->_submission = $submission;
+		$this->_stageId = $stageId;
+		$this->_canManage = $canManage;
 	}
 
 	//
@@ -56,8 +71,46 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider {
 					return array('label' => '-');
 				}
 			case 'closed':
-				return array('threadClosed' => $element->getThreadClosed());
+				return array('selected' => $element->getIsClosed(), 'disabled' => false);
 		}
+	}
+
+	/**
+	 * @copydoc GridCellProvider::getCellActions()
+	 */
+	function getCellActions($request, $row, $column) {
+		import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
+		import('lib.pkp.classes.linkAction.request.AjaxAction');
+
+		$element = $row->getData();
+		$router = $request->getRouter();
+		$actionArgs = array(
+			'submissionId' => $this->_submission->getId(),
+			'stageId' => $this->_stageId,
+			'queryId' => $row->getId(),
+		);
+
+		switch ($column->getId()) {
+			case 'closed':
+				if ($this->_canManage) {
+					$enabled = !$element->getIsClosed();
+					if ($enabled) {
+						return array(new LinkAction(
+							'close-' . $row->getId(),
+							new AjaxAction($router->url($request, null, null, 'closeQuery', null, $actionArgs)),
+							null, null
+						));
+					} else {
+						return array(new LinkAction(
+							'open-' . $row->getId(),
+							new AjaxAction($router->url($request, null, null, 'openQuery', null, $actionArgs)),
+							null, null
+						));
+					}
+				}
+				break;
+		}
+		return parent::getCellActions($request, $row, $column);
 	}
 }
 

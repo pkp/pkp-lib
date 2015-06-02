@@ -221,7 +221,7 @@
 		</field>
 		<field name="date_posted" type="T"/>
 		<field name="date_modified" type="T"/>
-		<field name="thread_closed" type="I2">
+		<field name="closed" type="I2">
 			<NOTNULL/>
 			<DEFAULT VALUE="0"/>
 		</field>

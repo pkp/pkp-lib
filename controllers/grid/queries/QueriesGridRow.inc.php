@@ -22,12 +22,19 @@ class QueriesGridRow extends GridRow {
 	/** @var int **/
 	var $_stageId;
 
+	/** @var boolean True IFF the user can manage the query */
+	var $_canManage;
+
 	/**
 	 * Constructor
+	 * @param $submission Submission
+	 * @param $stageId int
+	 * @param $canManage boolean True iff the user can manage the query.
 	 */
-	function QueriesGridRow($submission, $stageId) {
+	function QueriesGridRow($submission, $stageId, $canManage) {
 		$this->_submission = $submission;
 		$this->_stageId = $stageId;
+		$this->_canManage = $canManage;
 
 		parent::GridRow();
 	}
@@ -54,31 +61,33 @@ class QueriesGridRow extends GridRow {
 			$actionArgs['queryId'] = $rowId;
 
 			// Add row-level actions
-			import('lib.pkp.classes.linkAction.request.AjaxModal');
-			$this->addAction(
-				new LinkAction(
-					'editQuery',
-					new AjaxModal(
-						$router->url($request, null, null, 'editQuery', null, $actionArgs),
-						__('grid.action.updateQuery'),
-						'modal_edit'
-					),
-					__('grid.action.edit'),
-					'edit'
-				)
-			);
+			if ($this->_canManage) {
+				import('lib.pkp.classes.linkAction.request.AjaxModal');
+				$this->addAction(
+					new LinkAction(
+						'editQuery',
+						new AjaxModal(
+							$router->url($request, null, null, 'editQuery', null, $actionArgs),
+							__('grid.action.updateQuery'),
+							'modal_edit'
+						),
+						__('grid.action.edit'),
+						'edit'
+					)
+				);
 
-			import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
-                        $this->addAction(
-                                new LinkAction(
-                                        'deleteQuery',
-                                        new RemoteActionConfirmationModal(
-                                                __('common.confirmDelete'),
-                                                __('grid.action.delete'),
-                                                $router->url($request, null, null, 'deleteQuery', null, $actionArgs), 'modal_delete'),
-                                        __('grid.action.delete'),
-                                        'delete')
-                        );
+				import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
+	                        $this->addAction(
+	                                new LinkAction(
+	                                        'deleteQuery',
+	                                        new RemoteActionConfirmationModal(
+	                                                __('common.confirmDelete'),
+	                                                __('grid.action.delete'),
+	                                                $router->url($request, null, null, 'deleteQuery', null, $actionArgs), 'modal_delete'),
+	                                        __('grid.action.delete'),
+	                                        'delete')
+	                        );
+			}
 		}
 	}
 

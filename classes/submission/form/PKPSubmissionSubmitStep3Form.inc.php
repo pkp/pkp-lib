@@ -77,6 +77,8 @@ class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm {
 			$submission->setSubmissionProgress(0);
 		}
 
+		parent::execute($submission);
+
 		// Save the submission.
 		$submissionDao->updateObject($submission);
 

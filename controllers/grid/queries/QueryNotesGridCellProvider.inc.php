@@ -16,11 +16,16 @@
 import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 
 class QueryNotesGridCellProvider extends DataObjectGridCellProvider {
+	/** @var Submission */
+	var $_submission;
+
 	/**
 	 * Constructor
+	 * @param $submission Submission
 	 */
-	function QueryNotesGridCellProvider() {
+	function QueryNotesGridCellProvider($submission) {
 		parent::DataObjectGridCellProvider();
+		$this->_submission = $submission;
 	}
 
 	//
@@ -45,6 +50,30 @@ class QueryNotesGridCellProvider extends DataObjectGridCellProvider {
 		}
 
 		return parent::getTemplateVarsFromRowColumn($row, $column);
+	}
+
+	/**
+	 * @copydoc GridCellProvider::getCellActions()
+	 */
+	function getCellActions($request, $row, $column) {
+		switch ($column->getId()) {
+			case 'contents':
+				$element = $row->getData();
+				$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+				import('lib.pkp.classes.submission.SubmissionFile');
+				$submissionFiles = $submissionFileDao->getLatestRevisionsByAssocId(
+					ASSOC_TYPE_NOTE, $element->getId(),
+					$this->_submission->getId(),
+					SUBMISSION_FILE_QUERY
+				);
+				import('lib.pkp.controllers.api.file.linkAction.DownloadFileLinkAction');
+				$actions = array();
+				foreach ($submissionFiles as $submissionFile) {
+					$actions[] = new DownloadFileLinkAction($request, $submissionFile, $submissionFile->getFileStage());
+				}
+				return $actions;
+		}
+		return parent::getCellActions($request, $row, $column);
 	}
 }
 

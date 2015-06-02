@@ -26,5 +26,10 @@
 		{fbvElement type="textarea" id="comment" rich=true value=$comment}
 	{/fbvFormSection}
 
+	{fbvFormArea id="queryNoteFilesArea"}
+		{url|assign:queryNoteFilesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.query.QueryNoteFilesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId queryId=$query->getId() noteId=$noteId escape=false}
+		{load_url_in_div id="queryNoteFilesGrid" url=$queryNoteFilesGridUrl}
+	{/fbvFormArea}
+
 	{fbvFormButtons id="addNoteButton"}
 </form>

@@ -94,7 +94,7 @@ class QueryNotesGridHandler extends GridHandler {
 		);
 
 		import('lib.pkp.controllers.grid.queries.QueryNotesGridCellProvider');
-		$cellProvider = new QueryNotesGridCellProvider();
+		$cellProvider = new QueryNotesGridCellProvider($this->getSubmission());
 
 		// Columns
 		$this->addColumn(

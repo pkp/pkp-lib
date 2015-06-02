@@ -41,7 +41,6 @@
 	{/fbvFormArea}
 
 	{fbvFormArea id="queryNoteFilesArea"}
-		<!-- Files for this query -->
 		{url|assign:queryNoteFilesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.query.QueryNoteFilesGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId queryId=$queryId noteId=$noteId escape=false}
 		{load_url_in_div id="queryNoteFilesGrid" url=$queryNoteFilesGridUrl}
 	{/fbvFormArea}

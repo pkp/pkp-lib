@@ -13,9 +13,9 @@
 	// Attach the handler.
 	$(function() {ldelim}
 		$('#queryForm').pkpHandler(
-			'$.pkp.controllers.grid.queries.form.QueryFormHandler',
+			'$.pkp.controllers.form.CancelActionAjaxFormHandler',
 			{ldelim}
-				deleteUrl: {if $isNew}'{url|escape:javascript op="deleteQuery" submissionId=$submissionId stageId=$stageId queryId=$queryId escape=false}'{else}null{/if}
+				cancelUrl: {if $isNew}'{url|escape:javascript op="deleteQuery" submissionId=$submissionId stageId=$stageId queryId=$queryId escape=false}'{else}null{/if}
 			{rdelim}
 		);
 	{rdelim});

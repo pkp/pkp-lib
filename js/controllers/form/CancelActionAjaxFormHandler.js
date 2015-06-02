@@ -1,21 +1,16 @@
 /**
- * @file js/controllers/grid/queries/form/QueryFormHandler.js
+ * @file js/controllers/form/CancelActionAjaxFormHandler.js
  *
  * Copyright (c) 2014-2015 Simon Fraser University Library
  * Copyright (c) 2000-2015 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class QueryFormHandler
- * @ingroup js_controllers_grid_queries_form
+ * @class CancelActionAjaxFormHandler
+ * @ingroup js_controllers_form
  *
  * @brief A Handler for controlling the Query form
  */
 (function($) {
-
-	/** @type {Object} */
-	$.pkp.controllers.grid.queries =
-			$.pkp.controllers.grid.queries || { form: { } };
-
 
 
 	/**
@@ -30,31 +25,30 @@
 	 *
 	 *  Options are:
 	 *  - all options documented for the AjaxModalHandler.
-	 *  - deleteUrl: The URL to POST to in order to delete the incomplete query.
+	 *  - cancelUrl: The URL to POST to in case of cancel.
 	 */
-	$.pkp.controllers.grid.queries.form.QueryFormHandler =
+	$.pkp.controllers.form.CancelActionAjaxFormHandler =
 			function($handledElement, options) {
 
 		this.parent($handledElement, options);
 
 		// Store the options.
-		this.deleteUrl_ = options.deleteUrl;
+		this.cancelUrl_ = options.cancelUrl;
 	};
-	$.pkp.classes.Helper.inherits($.pkp.controllers.grid.queries.form.
-			QueryFormHandler, $.pkp.controllers.form.AjaxFormHandler);
+	$.pkp.classes.Helper.inherits($.pkp.controllers.form.
+			CancelActionAjaxFormHandler, $.pkp.controllers.form.AjaxFormHandler);
 
 
 	//
 	// Private properties
 	//
 	/**
-	 * The URL to be called when a cancel event occurs to delete the
-	 * incomplete query.
+	 * The URL to be called when a cancel event occurs.
 	 * @private
 	 * @type {string?}
 	 */
-	$.pkp.controllers.grid.queries.form.QueryFormHandler.
-			prototype.deleteUrl_ = null;
+	$.pkp.controllers.form.CancelActionAjaxFormHandler.
+			prototype.cancelUrl_ = null;
 
 
 	/**
@@ -62,19 +56,19 @@
 	 * @private
 	 * @type {boolean}
 	 */
-	$.pkp.controllers.grid.queries.form.QueryFormHandler.
+	$.pkp.controllers.form.CancelActionAjaxFormHandler.
 			prototype.isComplete_ = false;
 
 
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.controllers.grid.queries.form.QueryFormHandler.prototype.
+	$.pkp.controllers.form.CancelActionAjaxFormHandler.prototype.
 			containerCloseHandler = function(input, event) {
 
-		// If the form wasn't completed, delete the created query.
-		if (!this.isComplete_ && this.deleteUrl_ !== null) {
-			$.post(this.deleteUrl_);
+		// If the form wasn't completed, post a cancel.
+		if (!this.isComplete_ && this.cancelUrl_ !== null) {
+			$.post(this.cancelUrl_);
 		}
 
 		return /** @type {boolean} */ (
@@ -85,7 +79,7 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.controllers.grid.queries.form.QueryFormHandler.prototype.
+	$.pkp.controllers.form.CancelActionAjaxFormHandler.prototype.
 			submitForm = function(validator, formElement) {
 
 		// Flag the form as complete.

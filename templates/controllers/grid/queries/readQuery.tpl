@@ -8,10 +8,22 @@
  * Read a query.
  *
  *}
-<div class="readQuery">
+<script>
+        $(function() {ldelim}
+                $('#readQueryContainer').pkpHandler(
+                        '$.pkp.controllers.grid.queries.ReadQueryHandler',
+                        {ldelim}
+				fetchNoteFormUrl: '{url|escape:"javascript" router=$smarty.const.ROUTE_COMPONENT component="grid.queries.QueryNotesGridHandler" op="addNote" submissionId=$submission->getId() stageId=$stageId queryId=$query->getId() escape=false}'
+			{rdelim}
+		);
+	{rdelim});
+</script>
+
+<div id="readQueryContainer">
 	{url|assign:queryNotesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.queries.QueryNotesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId queryId=$query->getId() escape=false}
 	{load_url_in_div id="queryNotesGrid" url=$queryNotesGridUrl}
 
-	{url|assign:queryNoteFormUrl router=$smarty.const.ROUTE_COMPONENT component="grid.queries.QueryNotesGridHandler" op="addNote" submissionId=$submission->getId() stageId=$stageId queryId=$query->getId() escape=false}
-	{load_url_in_div id="queryNoteForm" url=$queryNoteFormUrl}
+	{null_link_action id="openNoteForm" key="submission.query.addNote" image="add"}
+
+	<div id="newNotePlaceholder"></div>
 </div>

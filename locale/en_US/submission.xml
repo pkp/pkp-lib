@@ -659,4 +659,6 @@
 	<message key="submission.query.from">From</message>
 	<message key="submission.query.lastReply">Last Reply</message>
 	<message key="submission.query.closed">Closed</message>
+	<message key="submission.query.addNote">Add Note</message>
+	<message key="submission.query.openNoteForm">Add a new note to the query</message>
 </locale>

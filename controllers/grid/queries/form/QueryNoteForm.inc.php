@@ -25,17 +25,40 @@ class QueryNoteForm extends Form {
 	/** @var int Stage ID */
 	var $_stageId;
 
+	/** @var int Note ID */
+	var $_noteId;
+
+	/** @var boolean Whether or not this is a new note */
+	var $_isNew;
+
 	/**
 	 * Constructor.
 	 * @param $submission Submission The submission to attach the note to
 	 * @param $query Query The query to attach the note to
 	 * @param $stageId int The current stage ID
+	 * @param $user User The current user ID
+	 * @param $noteId int The note ID to edit, or null for new.
 	 */
-	function QueryNoteForm($submission, $query, $stageId) {
+	function QueryNoteForm($submission, $query, $stageId, $user, $noteId = null) {
 		parent::Form('controllers/grid/queries/form/queryNoteForm.tpl');
 		$this->setQuery($query);
 		$this->setSubmission($submission);
 		$this->setStageId($stageId);
+
+		if ($noteId === null) {
+			// Create a new (placeholder) note.
+			$noteDao = DAORegistry::getDAO('NoteDAO');
+			$note = $noteDao->newDataObject();
+			$note->setAssocType(ASSOC_TYPE_QUERY);
+			$note->setAssocId($query->getId());
+			$note->setUserId($user->getId());
+			$note->setDateCreated(Core::getCurrentDate());
+			$this->_noteId = $noteDao->insertObject($note);
+			$this->_isNew = true;
+		} else {
+			$this->_noteId = $noteId;
+			$this->_isNew = false;
+		}
 
 		// Validation checks for this form
 		$this->addCheck(new FormValidator($this, 'comment', 'required', 'submission.queries.messageRequired'));
@@ -112,6 +135,7 @@ class QueryNoteForm extends Form {
 			'query' => $this->getQuery(),
 			'submission' => $this->getSubmission(),
 			'stageId' => $this->getStageId(),
+			'noteId' => $this->_noteId,
 		));
 		return parent::fetch($request, $template, $display);
 	}
@@ -123,14 +147,11 @@ class QueryNoteForm extends Form {
 	 */
 	function execute($request) {
 		$noteDao = DAORegistry::getDAO('NoteDAO');
-		$note = $noteDao->newDataObject();
+		$note = $noteDao->getById($this->_noteId);
 		$note->setUserId($request->getUser()->getId());
-		$note->setAssocType(ASSOC_TYPE_QUERY);
-		$note->setAssocId($this->getQuery()->getId());
-		$note->setDateCreated(Core::getCurrentDate());
 		$note->setDateModified(Core::getCurrentDate());
 		$note->setContents($this->getData('comment'));
-		$noteDao->insertObject($note);
+		$noteDao->updateObject($note);
 		return $note;
 	}
 }

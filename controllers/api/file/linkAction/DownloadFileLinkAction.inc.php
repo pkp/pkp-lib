@@ -43,7 +43,8 @@ class DownloadFileLinkAction extends FileLinkAction {
 		// Configure the file link action.
 		parent::FileLinkAction(
 			'downloadFile', $redirectRequest, $this->getLabel($submissionFile),
-			$submissionFile->getDocumentType()
+			$submissionFile->getDocumentType(),
+			$submissionFile->getFileId() . '-' . $submissionFile->getRevision()
 		);
 	}
 

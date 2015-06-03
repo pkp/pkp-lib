@@ -71,7 +71,7 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider {
 					return array('label' => '-');
 				}
 			case 'closed':
-				return array('selected' => $element->getIsClosed(), 'disabled' => false);
+				return array('selected' => $element->getIsClosed(), 'disabled' => !$this->_canManage);
 		}
 	}
 

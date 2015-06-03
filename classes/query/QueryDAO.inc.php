@@ -69,8 +69,9 @@ class QueryDAO extends DAO {
 				'SELECT	q.*
 				FROM	queries q
 				' . ($userId?'INNER JOIN query_participants qp ON (q.query_id = qp.query_id AND qp.user_id = ?)':'') . '
-				WHERE	q.submission_id = ? '
-				. ($stageId?' AND q.stage_id = ?':''),
+				WHERE	q.submission_id = ?
+				' . ($stageId?' AND q.stage_id = ?':'') . '
+				ORDER BY q.seq',
 				$params
 			),
 			$this, '_fromRow'
@@ -89,6 +90,7 @@ class QueryDAO extends DAO {
 		$query->setStageId($row['stage_id']);
 		$query->setUserId($row['user_id']);
 		$query->setIsClosed($row['closed']);
+		$query->setSequence($row['seq']);
 
 		HookRegistry::call('QueryDAO::_fromRow', array(&$query, &$row));
 		return $query;
@@ -108,12 +110,13 @@ class QueryDAO extends DAO {
 	 */
 	function insertObject($query) {
 		$this->update(
-			'INSERT INTO queries (submission_id, stage_id, closed)
-			VALUES (?, ?, ?)',
+			'INSERT INTO queries (submission_id, stage_id, closed, seq)
+			VALUES (?, ?, ?, ?)',
 			array(
 				(int) $query->getSubmissionId(),
 				(int) $query->getStageId(),
 				(int) $query->getIsClosed(),
+				(float) $query->getSequence(),
 			)
 		);
 		$query->setId($this->getInsertId());
@@ -194,11 +197,13 @@ class QueryDAO extends DAO {
 		$this->update(
 			'UPDATE	queries
 			SET	stage_id = ?,
-				closed = ?
+				closed = ?,
+				seq = ?
 			WHERE	query_id = ?',
 			array(
 				(int) $query->getStageId(),
 				(int) $query->getIsClosed(),
+				(float) $query->getSequence(),
 				(int) $query->getId()
 			)
 		);
@@ -231,6 +236,32 @@ class QueryDAO extends DAO {
 			$noteDao = DAORegistry::getDAO('NoteDAO');
 			$noteDao->deleteByAssoc(ASSOC_TYPE_QUERY, $queryId);
 		}
+	}
+
+	/**
+	 * Sequentially renumber queries in their sequence order.
+	 * @param $assocType int
+	 * @param $assocId int
+	 */
+	function resequence($submissionId) {
+		$result = $this->retrieve(
+			'SELECT query_id FROM queries WHERE submission_id = ? ORDER BY seq',
+			(int) $queryId
+		);
+
+		for ($i=1; !$result->EOF; $i++) {
+			list($queryId) = $result->fields;
+			$this->update(
+				'UPDATE queries SET seq = ? WHERE query_id = ?',
+				array(
+					$i,
+					$queryId
+				)
+			);
+
+			$result->MoveNext();
+		}
+		$result->Close();
 	}
 
 	/**

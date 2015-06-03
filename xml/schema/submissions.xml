@@ -219,6 +219,10 @@
 		<field name="user_id" type="I8">
 			<NOTNULL/>
 		</field>
+		<field name="seq" type="F">
+			<NOTNULL/>
+			<DEFAULT VALUE="0"/>
+		</field>
 		<field name="date_posted" type="T"/>
 		<field name="date_modified" type="T"/>
 		<field name="closed" type="I2">

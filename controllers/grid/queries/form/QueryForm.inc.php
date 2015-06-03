@@ -49,7 +49,9 @@ class QueryForm extends Form {
 			$query = $queryDao->newDataObject();
 			$query->setSubmissionId($submission->getId());
 			$query->setStageId($stageId);
+			$query->setSequence(REALLY_BIG_NUMBER);
 			$queryDao->insertObject($query);
+			$queryDao->resequence($submission->getId());
 
 			// Create a head note
 			$noteDao = DAORegistry::getDAO('NoteDAO');

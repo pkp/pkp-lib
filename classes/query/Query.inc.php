@@ -57,6 +57,22 @@ class Query extends DataObject {
 	}
 
 	/**
+	 * Get sequence of query.
+	 * @return float
+	 */
+	function getSequence() {
+		return $this->getData('sequence');
+	}
+
+	/**
+	 * Set sequence of query.
+	 * @param $sequence float
+	 */
+	function setSequence($sequence) {
+		$this->setData('sequence', $sequence);
+	}
+
+	/**
 	 * get user id
 	 * @return int
 	 */

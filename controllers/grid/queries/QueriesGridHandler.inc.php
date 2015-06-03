@@ -36,7 +36,7 @@ class QueriesGridHandler extends GridHandler {
 			array('fetchGrid', 'fetchRow', 'readQuery'));
 		$this->addRoleAssignment(
 			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT),
-			array('addQuery', 'updateQuery', 'editQuery', 'deleteQuery', 'openQuery', 'closeQuery'));
+			array('addQuery', 'updateQuery', 'editQuery', 'deleteQuery', 'openQuery', 'closeQuery', 'saveSequence'));
 	}
 
 
@@ -193,6 +193,16 @@ class QueriesGridHandler extends GridHandler {
 	 */
 	function getDataElementSequence($row) {
 		return $row->getSequence();
+	}
+
+	/**
+	 * @copydoc GridHandler::setDataElementSequence()
+	 */
+	function setDataElementSequence($request, $rowId, $gridDataElement, $newSequence) {
+		$queryDao = DAORegistry::getDAO('QueryDAO');
+		$query = $queryDao->getById($rowId, $this->getSubmission()->getId());
+		$query->setSequence($newSequence);
+		$queryDao->updateObject($query);
 	}
 
 	/**

@@ -11,9 +11,12 @@
 
 /**
  * To minimize specificity battles, styles should be loaded in the following
- * order: browser reset, variables, helpers, structure, components, library
+ * order: fonts, browser reset, variables, helpers, structure, components, lib
  * overides, particular page styling and one-off exceptions.
  */
+
+// Fonts first - get the files loading as quick as possible
+@import "lib/pkp/styles/fonts.less";
 
 // Normalize.css - Browser reset styles
 @import "lib/pkp/styles/lib/normalize.less";

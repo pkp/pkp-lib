@@ -73,22 +73,6 @@ class Query extends DataObject {
 	}
 
 	/**
-	 * get user id
-	 * @return int
-	 */
-	function getUserId() {
-		return $this->getData('userId');
-	}
-
-	/**
-	 * set user id
-	 * @param $userId int
-	 */
-	function setUserId($userId) {
-		return $this->setData('userId', $userId);
-	}
-
-	/**
 	 * Get closed flag
 	 * @return boolean
 	 */

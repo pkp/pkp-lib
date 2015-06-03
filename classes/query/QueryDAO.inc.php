@@ -88,7 +88,6 @@ class QueryDAO extends DAO {
 		$query->setId($row['query_id']);
 		$query->setSubmissionId($row['submission_id']);
 		$query->setStageId($row['stage_id']);
-		$query->setUserId($row['user_id']);
 		$query->setIsClosed($row['closed']);
 		$query->setSequence($row['seq']);
 

@@ -146,12 +146,27 @@ class QueryNoteForm extends Form {
 	 * @return Note The created note object.
 	 */
 	function execute($request) {
+		// Create a new note.
 		$noteDao = DAORegistry::getDAO('NoteDAO');
 		$note = $noteDao->getById($this->_noteId);
 		$note->setUserId($request->getUser()->getId());
 		$note->setDateModified(Core::getCurrentDate());
 		$note->setContents($this->getData('comment'));
 		$noteDao->updateObject($note);
+
+		// Check whether the query needs re-opening
+		$query = $this->getQuery();
+		if ($query->getIsClosed()) {
+			$headNote = $query->getHeadNote();
+			$user = $request->getUser();
+			if ($user->getId() != $headNote->getUserId()) {
+				// Re-open the query.
+				$query->setIsClosed(false);
+				$queryDao = DAORegistry::getDAO('QueryDAO');
+				$queryDao->updateObject($query);
+			}
+		}
+
 		return $note;
 	}
 }

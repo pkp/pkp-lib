@@ -57,7 +57,6 @@
 	<message key="grid.action.sendToProduction">أرسل طلب النشر هذا لمرحلة الإنتاج</message>
 	<message key="grid.action.settings">الإعدادات</message>
 	<message key="grid.action.importexport">استيراد أو تصدير محتوى أو بيانات الموقع</message>
-	<message key="grid.action.restoreDefaults">استعادة الإفتراضات</message>
 	<message key="grid.action.orderItems">تمكين نمط الفرز</message>
 	<message key="grid.action.editSubmissionChecklist">تعديل فقرة التأشير هذه</message>
 	<message key="grid.action.deleteSubmissionChecklist">حذف فقرة التأشير هذه</message>

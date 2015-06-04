@@ -55,5 +55,8 @@
 					{if !$suppressPageTitle}
                         <div class="pkp_page_title">
                             <h2>{$pageTitleTranslated}</h2>
+                            {if $currentJournal}
+                                <h3>{$currentJournal->getLocalizedName()}</h3>
+                            {/if}
                         </div>
 					{/if}

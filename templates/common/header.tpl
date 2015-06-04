@@ -53,5 +53,7 @@
 				<div class="pkp_structure_main">
 					{** allow pages to provide their own titles **}
 					{if !$suppressPageTitle}
-						<h2 class="pkp_page_title">{$pageTitleTranslated}</h2>
+                        <div class="pkp_page_title">
+                            <h2>{$pageTitleTranslated}</h2>
+                        </div>
 					{/if}

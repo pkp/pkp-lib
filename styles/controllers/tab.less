@@ -16,6 +16,7 @@
 	list-style: none;
 
 	li {
+		z-index: 1; // Lift above .ui-tabs-panel
 		position: relative;
 		top: 1px;
 		display: inline-block;
@@ -49,6 +50,7 @@
 }
 
 .ui-tabs-panel {
+	position: relative;
 	padding: @double;
 	border: @bg-border;
 	border-radius: 0;

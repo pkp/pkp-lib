@@ -35,12 +35,26 @@ html {
 		}
 	}
 
-	.pkp_page_title h2 {
-		margin-top: 0;
-		margin-bottom: @double;
-		font-size: @font-lead;
+	.pkp_page_title {
 		color: @text-light;
 		color: @text-light-rgba;
+
+		h2 {
+			font-size: @font-lead;
+		}
+
+		h3 {
+			font-size: @font-sml;
+			font-weight: @normal;
+		}
+
+		* {
+			margin: 0;
+
+			&:last-child {
+				margin-bottom: @double;
+			}
+		}
 	}
 
 	.pkp_structure_foot,

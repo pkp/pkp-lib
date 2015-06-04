@@ -9,6 +9,50 @@
  *
  */
 
+// Buttons
+.pkp_button {
+	display: inline-block;
+	padding: 0 @base;
+	font-size: @font-base;
+	line-height: @double;
+	color: @text;
+	color: @text-rgba;
+	white-space: nowrap;
+	vertical-align: middle;
+	cursor: pointer;
+	background-color: #eee;
+	background-image: linear-gradient(#fcfcfc, #eee);
+	border: @bg-border;
+	border-radius: @radius;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-appearance: none;
+
+	&:hover,
+	&:focus {
+		background-color: #ccc;
+		background-image: linear-gradient(#fcfcfc, #ccc);
+		text-decoration: none;
+	}
+}
+
+.pkp_button_primary {
+	&:extend( .pkp_button );
+	background-color: @primary;
+	background-image: linear-gradient( lighten( @primary, 10% ), @primary );
+	color: #fff;
+	border-color: @primary;
+
+	&:hover,
+	&:focus {
+		text-decoration: none;
+		background-color: darken( @primary, 5% );
+		background-image: linear-gradient( lighten( @primary, 7% ), darken( @primary, 5% ) );
+	}
+}
+
 .pkp_helpers_invisible {
 	visibility: hidden;
 }

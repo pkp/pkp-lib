@@ -80,7 +80,11 @@
 	<message key="manager.emails.resetAll.message">Wenn Sie alle Vorlagen zurücksetzen, gehen alle Veränderungen an den E-Mail-Vorlagen verloren. Möchten Sie diese Aktion bestätigen?</message>
 	<message key="manager.emails.reset">Zurücksetzen</message>
 	<message key="manager.emails.reset.message">Wenn Sie diese Vorlage zurücksetzen, werden alle Daten dieser Vorlage auf ihre Standardwerte zurückgesetzt, alle Veränderungen gehen verloren. Möchten Sie diese Aktion bestätigen?</message>
-	<message key="manager.emails.resetToDefault">Auf Standard zurücksetzen </message>
+	<message key="manager.emails.resetToDefault">Auf Standard zurücksetzen</message>
+	<message key="manager.emails.exportXML">Ausgewählte E-Mail-Vorlagen als XML exportieren</message>
+	<message key="manager.emails.uploadXML">XML-Datei hochladen</message>
+	<message key="manager.emails.uploadSuccess">Die ausgewählten E-Mail-Vorlagen wurden aktualisiert.</message>
+	<message key="manager.emails.uploadError">Beim Hochladen der Datei ist ein Fehler aufgetreten.</message>
 	<message key="manager.filesBrowser">Dateinavigator</message>
 	<message key="manager.files.confirmDelete">Datei oder Verzeichnis löschen? Beachten Sie, dass nur ein leeres Verzeichnis gelöscht werden kann.</message>
 	<message key="manager.files.createDir">Verzeichnis anlegen</message>

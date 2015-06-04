@@ -10,12 +10,42 @@
  * @brief Styles for pkp_controllers_tab
  */
 
-.pkp_controllers_tab {
-	.ui-tabs-nav {
-		.ui-icon-close {
-			float: left;
-			cursor: pointer;
-			margin: 0.4em 0.2em 0 0;
+.ui-tabs-nav {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	li {
+		position: relative;
+		top: 1px;
+		display: inline-block;
+		border: 1px solid transparent;
+		border-bottom: none;
+
+		a {
+			display: block;
+			padding: 0 @base;
+			border-bottom: 2px solid transparent;
+			font-weight: @normal;
+			line-height: @line-base + @base - 3; // account for border
+			text-decoration: none;
+
+			&:hover,
+			&:focus {
+				border-color: @primary-lift;
+			}
 		}
 	}
+
+	.ui-state-active {
+		background: @lift;
+		border-color: @bg-border-color;
+	}
+}
+
+.ui-tabs-panel {
+	padding: @double;
+	border: @bg-border;
+	border-radius: 0;
+	background: @lift;
 }

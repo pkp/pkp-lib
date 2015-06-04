@@ -27,7 +27,12 @@ html {
 	color: @text-rgba;
 
 	a {
-		color: @primary;
+		color: @primary-lift;
+
+		&:hover,
+		&:focus {
+			color: @primary;
+		}
 	}
 
 	.pkp_page_title {

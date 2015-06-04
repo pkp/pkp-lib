@@ -58,7 +58,6 @@
 	<message key="grid.action.sendToProduction">Enviar el envío para producción</message>
 	<message key="grid.action.settings">Configuración</message>
 	<message key="grid.action.importexport">Importar o exportar contenido o datos del sitio</message>
-	<message key="grid.action.restoreDefaults">Restaurar valores predeterminados</message>
 	<message key="grid.action.orderItems">Habilitar modo pedido</message>
 	<message key="grid.action.editSubmissionChecklist">Editar elemento de la lista de comprobación</message>
 	<message key="grid.action.deleteSubmissionChecklist">Eliminar elemento de la lista de comprobación</message>

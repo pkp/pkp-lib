@@ -20,7 +20,6 @@
 		);
 	{rdelim});
 </script>
-<br />
 <form class="pkp_form" id="contextSubmissionForm">
 <!-- New Submission entry point -->
 	{if $contextCount > 1}
@@ -53,5 +52,3 @@
 <!-- Assigned submissions grid: Show all submissions the user is assigned to (besides their own) -->
 {url|assign:assignedSubmissionsListGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.submissions.assignedSubmissions.AssignedSubmissionsListGridHandler" op="fetchGrid" escape=false}
 {load_url_in_div id="assignedSubmissionsListGridContainer" url=$assignedSubmissionsListGridUrl}
-
-

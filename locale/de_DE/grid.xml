@@ -28,7 +28,7 @@
 	<message key="grid.action.edit">Bearbeiten</message>
 	<message key="grid.action.approve">Akzeptieren</message>
 	<message key="grid.action.moreInformation">Mehr Informationen</message>
-	<message key="grid.action.restoreDefaults">Standard wiederherstellen</message>
+	<message key="grid.action.restoreDefaults">Standardeinstellungen wiederherstellen</message>
 	<message key="grid.action.addAuthor">Autor/in hinzufügen</message>
 	<message key="grid.action.editAuthor">Autor/in bearbeiten</message>
 	<message key="grid.action.deleteAuthor">Autor/in löschen</message>
@@ -57,7 +57,6 @@
 	<message key="grid.action.sendToProduction">Diese Einreichung in die Produktion schicken</message>
 	<message key="grid.action.settings">Einstellungen</message>
 	<message key="grid.action.importexport">Inhalte oder Einstellungen importieren oder exportieren</message>
-	<message key="grid.action.restoreDefaults">Standardeinstellungen wiederherstellen</message>
 	<message key="grid.action.orderItems">Sortiermodus aktivieren</message>
 	<message key="grid.action.editSubmissionChecklist">Dieses Element der Checkliste bearbeiten</message>
 	<message key="grid.action.deleteSubmissionChecklist">Dieses Element der Checkliste löschen</message>

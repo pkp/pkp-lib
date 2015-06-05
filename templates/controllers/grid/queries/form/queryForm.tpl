@@ -26,8 +26,8 @@
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="queryFormNotification"}
 
 	{fbvFormArea id="queryUsersArea"}
-		{url|assign:notifyUsersUrl router=$smarty.const.ROUTE_COMPONENT component="listbuilder.users.StageUsersListbuilderHandler" op="fetch" params=$linkParams submissionId=$submissionId userIds=$userIds escape=false}
-		{load_url_in_div id="notifyUsersContainer" url=$notifyUsersUrl}
+		{url|assign:queryUsersUrl router=$smarty.const.ROUTE_COMPONENT component="listbuilder.users.QueryUsersListbuilderHandler" op="fetch" submissionId=$submissionId queryId=$queryId stageId=$stageId escape=false}
+		{load_url_in_div id="queryUsersContainer" url=$queryUsersUrl}
 	{/fbvFormArea}
 
 	{fbvFormArea id="queryContentsArea"}

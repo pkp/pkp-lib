@@ -9,10 +9,10 @@
  *
  *}
 <script>
-        $(function() {ldelim}
-                $('#readQueryContainer').pkpHandler(
-                        '$.pkp.controllers.grid.queries.ReadQueryHandler',
-                        {ldelim}
+	$(function() {ldelim}
+		$('#readQueryContainer').pkpHandler(
+			'$.pkp.controllers.grid.queries.ReadQueryHandler',
+			{ldelim}
 				fetchNoteFormUrl: '{url|escape:"javascript" router=$smarty.const.ROUTE_COMPONENT component="grid.queries.QueryNotesGridHandler" op="addNote" submissionId=$submission->getId() stageId=$stageId queryId=$query->getId() escape=false}'
 			{rdelim}
 		);

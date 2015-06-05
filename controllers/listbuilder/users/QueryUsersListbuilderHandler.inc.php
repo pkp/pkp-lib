@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file controllers/listbuilder/users/StageUsersListbuilderHandler.inc.php
+ * @file controllers/listbuilder/users/QueryUsersListbuilderHandler.inc.php
  *
  * Copyright (c) 2014-2015 Simon Fraser University Library
  * Copyright (c) 2003-2015 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class StageUsersListbuilderHandler
+ * @class QueryUsersListbuilderHandler
  * @ingroup listbuilder
  *
  * @brief Class for adding participants to a stage.
@@ -15,11 +15,11 @@
 
 import('lib.pkp.controllers.listbuilder.users.UsersListbuilderHandler');
 
-class StageUsersListbuilderHandler extends UsersListbuilderHandler {
+class QueryUsersListbuilderHandler extends UsersListbuilderHandler {
 	/**
 	 * Constructor
 	 */
-	function StageUsersListbuilderHandler() {
+	function QueryUsersListbuilderHandler() {
 		parent::UsersListbuilderHandler();
 		$this->addRoleAssignment(
 			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR),
@@ -36,6 +36,14 @@ class StageUsersListbuilderHandler extends UsersListbuilderHandler {
 	 */
 	function getSubmission() {
 		return $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+	}
+
+	/**
+	 * Get the authorized query.
+	 * @return Submission
+	 */
+	function getQuery() {
+		return $this->getAuthorizedContextObject(ASSOC_TYPE_QUERY);
 	}
 
 	/**
@@ -56,7 +64,8 @@ class StageUsersListbuilderHandler extends UsersListbuilderHandler {
 		$submission = $this->getSubmission();
 		return array(
 			'submissionId' => $submission->getId(),
-			'stageId' => $this->getStageId()
+			'stageId' => $this->getStageId(),
+			'queryId' => $this->getQuery()->getId(),
 		);
 	}
 
@@ -67,8 +76,8 @@ class StageUsersListbuilderHandler extends UsersListbuilderHandler {
 	 * @copydoc PKPHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
-		import('lib.pkp.classes.security.authorization.SubmissionAccessPolicy');
-		$this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments, 'submissionId'));
+		import('lib.pkp.classes.security.authorization.QueryAccessPolicy');
+		$this->addPolicy(new QueryAccessPolicy($request, $args, $roleAssignments, $request->getUserVar('stageId')));
 		return parent::authorize($request, $args, $roleAssignments);
 	}
 
@@ -79,16 +88,9 @@ class StageUsersListbuilderHandler extends UsersListbuilderHandler {
 	 * @copydoc ListbuilderHandler::getOptions
 	 */
 	function getOptions() {
-		// Initialize the object to return
-		$items = array(
-			array()
-		);
-
 		$userStageAssignmentDao = DAORegistry::getDAO('UserStageAssignmentDAO');
-		$submission = $this->getSubmission();
-
-		// FIXME: add stage id?
-		$users = $userStageAssignmentDao->getUsersBySubmissionAndStageId($submission->getId());
+		$users = $userStageAssignmentDao->getUsersBySubmissionAndStageId($this->getSubmission()->getId());
+		$items = array(array());
 		while ($user = $users->next()) {
 			$items[0][$user->getId()] = $user->getFullName() . ' <' . $user->getEmail() . '>';
 		}
@@ -104,10 +106,11 @@ class StageUsersListbuilderHandler extends UsersListbuilderHandler {
 
 		// A list of user IDs may be specified via request parameter; validate them.
 		$users = $userStageAssignmentDao->getUsersBySubmissionAndStageId($submission->getId());
-		$selectedUserIds = (array) $request->getUserVar('userIds');
+		$queryDao = DAORegistry::getDAO('QueryDAO');
+		$userIds = $queryDao->getParticipantIds($this->getQuery()->getId());
 		$items = array();
 		while ($user = $users->next()) {
-			if (in_array($user->getId(), $selectedUserIds)) $items[$user->getId()] = $user;
+			if (in_array($user->getId(), $userIds)) $items[$user->getId()] = $user;
 		}
 		return $items;
 	}

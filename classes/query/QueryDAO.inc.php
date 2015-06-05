@@ -242,7 +242,7 @@ class QueryDAO extends DAO {
 	 * @param $assocType int
 	 * @param $assocId int
 	 */
-	function resequence($submissionId) {
+	function resequence($queryId) {
 		$result = $this->retrieve(
 			'SELECT query_id FROM queries WHERE submission_id = ? ORDER BY seq',
 			(int) $queryId

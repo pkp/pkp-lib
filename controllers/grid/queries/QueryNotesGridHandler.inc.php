@@ -84,7 +84,7 @@ class QueryNotesGridHandler extends GridHandler {
 	 */
 	function initialize($request) {
 		parent::initialize($request);
-		$this->setTitle('common.notes');
+		$this->setTitle('submission.query.messages');
 
 		// Load pkp-lib translations
 		AppLocale::requireComponents(

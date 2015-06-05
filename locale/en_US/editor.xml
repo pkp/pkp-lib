@@ -85,7 +85,7 @@
 	<message key="editor.submission.editorial.disapproveCopyeditDescription">Disapproving this copyedited file will make it unavailable to send to production stage. Do you want to disapprove this file?</message>
 	<message key="editor.submission.editorial.approveCopyeditFile">Approve copyedited file</message>
 	<message key="editor.submission.addAuditor">Assign Auditor</message>
-	<message key="editor.submission.editorial.copyeditedDescription"><![CDATA[Files in this list have been successfully copyedited via the <span class="pkp_help_title">Queries</span> process above.]]></message>
+	<message key="editor.submission.editorial.copyeditedDescription"><![CDATA[Files in this list have been successfully copyedited via the <span class="pkp_help_title">Discussions</span> process above.]]></message>
 	<message key="editor.submission.final.manageFinalDraftFilesDescription">Any files that have already been uploaded to any submission stage can be added to the Final Draft Files listing by checking the Include checkbox below and clicking Search: all available files will be listed and can be chosen for inclusion. Additional files not already uploaded to a stage can be added to the listing by clicking the Upload File link.</message>
 	<message key="editor.submission.copyedit.manageCopyeditedFilesDescription">Any files that have already been uploaded to any submission stage can be added to the Copyedited Files listing by checking the Include checkbox below and clicking Search: all available files will be listed and can be chosen for inclusion. Additional files not already uploaded to a stage can be added to the listing by clicking the Upload File link.</message>
 	<message key="editor.review">Review</message>
@@ -106,9 +106,9 @@
 	<message key="editor.submission.noReviewerFilesSelected">No Files Selected</message>
 	<message key="editor.submission.noReviewerFilesSelected.details">You have not selected any files for the reviewer to review.</message>
 	<message key="editor.submission.selectedReviewer">Selected Reviewer</message>
-	<message key="submission.queries.subjectRequired">A query subject is required.</message>
-	<message key="submission.queries.messageRequired">A query message is required.</message>
+	<message key="submission.queries.subjectRequired">A discussion subject is required.</message>
+	<message key="submission.queries.messageRequired">A discussion message is required.</message>
 	<message key="submission.queries.attachedFiles">Attached Files</message>
-	<message key="grid.action.editQuery">Edit Query</message>
-	<message key="editor.submission.query.manageQueryNoteFilesDescription">Files can be attached for inclusion in this query from the list below.</message>
+	<message key="grid.action.editQuery">Edit Discussion</message>
+	<message key="editor.submission.query.manageQueryNoteFilesDescription">Files can be attached for inclusion in this discussion from the list below.</message>
 </locale>

@@ -180,7 +180,7 @@ class QueryNoteForm extends Form {
 			);
 
 			// No need to additionally notify the posting user.
-			if ($userId = $user->getId()) continue;
+			if ($userId == $user->getId()) continue;
 
 			// Notify the user of a new query.
 			$notificationManager->createNotification(

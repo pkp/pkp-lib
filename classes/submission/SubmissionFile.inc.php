@@ -99,7 +99,7 @@ class SubmissionFile extends PKPFile {
 	}
 
 	/**
-	 * Get associated ID of file. (Used, e.g., for email log attachments.)
+	 * Get associated ID of file.
 	 * @return int
 	 */
 	function getAssocId() {
@@ -107,7 +107,7 @@ class SubmissionFile extends PKPFile {
 	}
 
 	/**
-	 * Set associated ID of file. (Used, e.g., for email log attachments.)
+	 * Set associated ID of file.
 	 * @param $assocId int
 	 */
 	function setAssocId($assocId) {

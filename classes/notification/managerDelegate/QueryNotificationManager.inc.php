@@ -58,8 +58,11 @@ class QueryNotificationManager extends NotificationManagerDelegate {
 	 */
 	public function getNotificationUrl($request, $notification) {
 		assert($notification->getAssocType() == ASSOC_TYPE_QUERY);
+		$queryDao = DAORegistry::getDAO('QueryDAO');
+		$query = $queryDao->getById($notification->getAssocId());
+
 		$submissionDao = Application::getSubmissionDAO();
-		$submission = $submissionDao->getById($notification->getAssocId());
+		$submission = $submissionDao->getById($query->getSubmissionId());
 
 		import('lib.pkp.controllers.grid.submissions.SubmissionsListGridCellProvider');
 		list($page, $operation) = SubmissionsListGridCellProvider::getPageAndOperationByUserRoles($request, $submission, $notification->getUserId());
@@ -110,96 +113,6 @@ class QueryNotificationManager extends NotificationManagerDelegate {
 	 */
 	public function getStyleClass($notification) {
 		return NOTIFICATION_STYLE_CLASS_WARNING;
-	}
-
-	/**
-	 * @copydoc NotificationManagerDelegate::updateNotification()
-	 */
-	public function updateNotification($request, $userIds, $assocType, $assocId) {
-		$notificationType = $this->getNotificationType();
-		if (is_null($notificationType)) {
-			return false;
-		}
-
-		$context = $request->getContext();
-		$contextId = $context->getId();
-		assert($userIds == null); // This will handle all users affected.
-		$notificationDao = DAORegistry::getDAO('NotificationDAO');
-		$queryDao = DAORegistry::getDAO('QueryDAO');
-		assert($assocType == ASSOC_TYPE_QUERY);
-		$query = $queryDao->getById($assocId);
-		$noteDao = DAORegistry::getDAO('NoteDAO');
-		$notes = $noteDao->getByAssoc(ASSOC_TYPE_QUERY, $query->getId());
-		switch ($notificationType) {
-			case NOTIFICATION_TYPE_NEW_QUERY:
-				// Check for an existing notification...
-				$notificationFactory = $notificationDao->getByAssoc(
-					ASSOC_TYPE_QUERY,
-					$query->getId(),
-					null, // All users
-					$notificationType,
-					$contextId
-				);
-				$notifiedUserIds = array();
-				$queryParticipants = $queryDao->getParticipantIds($query->getId());
-				while ($notification = $notificationFactory->next()) {
-					if ($query->getIsClosed() || !in_array($notification->getUserId(), $queryParticipants)) {
-						// Notification exists but query is closed or not assigned; delete notification.
-						$notificationDao->deleteObject($notification);
-					}
-					$notifiedUserIds[] = $notification->getUserId();
-				}
-				if (!$query->getIsClosed() && $notes->getCount() == 1) {
-					foreach (array_diff($queryParticipants, $notifiedUserIds) as $userId) {
-						// User needs new notification.
-						$this->createNotification(
-							$request,
-							$userId,
-							$notificationType,
-							$contextId,
-							ASSOC_TYPE_QUERY,
-							$query->getId(),
-							NOTIFICATION_LEVEL_TASK
-						);
-					}
-				}
-				break;
-			case NOTIFICATION_TYPE_QUERY_ACTIVITY:
-				// Check for an existing notification...
-				$notificationFactory = $notificationDao->getByAssoc(
-					ASSOC_TYPE_QUERY,
-					$query->getId(),
-					null, // All users
-					$notificationType,
-					$contextId
-				);
-				$notifiedUserIds = array();
-				$queryParticipants = $queryDao->getParticipantIds($query->getId());
-				while ($notification = $notificationFactory->next()) {
-					if ($notification && $query->getIsClosed()) {
-						// Notification exists but query is closed; delete notification.
-						$notificationDao->deleteObject($notification);
-					}
-					$notifiedUserIds[] = $notification->getUserId();
-				}
-				if (!$query->getIsClosed() && $notes->getCount() > 1) {
-					foreach (array_diff($queryParticipants, $notifiedUserIds) as $userId) {
-						// No notification but query is open; create notification.
-						// (Exclude notifications on the head note as a special case.)
-						$this->createNotification(
-							$request,
-							$userId,
-							$notificationType,
-							$contextId,
-							ASSOC_TYPE_QUERY,
-							$query->getId(),
-							NOTIFICATION_LEVEL_TASK
-						);
-					}
-				}
-				break;
-			default: assert(false);
-		}
 	}
 }
 

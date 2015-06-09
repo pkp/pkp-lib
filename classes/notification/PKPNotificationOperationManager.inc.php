@@ -298,7 +298,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	 */
 	protected function getMailTemplate($emailKey = null) {
 		import('lib.pkp.classes.mail.MailTemplate');
-		return new MailTemplate($emailKey, null, null, null, false);
+		return new MailTemplate($emailKey, null, null, false);
 	}
 
 	/**

@@ -662,4 +662,8 @@
 	<message key="submission.query.closed">Closed</message>
 	<message key="submission.query.addNote">Add Message</message>
 	<message key="grid.action.openNoteForm">Add a new reply to the discussion</message>
+	<message key="submission.query.activity">There is new activity in a conversation.</message>
+	<message key="submission.query.new">There is a new query to respond to.</message>
+	<message key="submission.query.activity.contents">There is new activity in the conversation titled "{$queryTitle}" regarding the submission "{$submissionTitle}".</message>
+	<message key="submission.query.new.contents">You have been added to a conversation titled "{$queryTitle}" regarding the submission "{$submissionTitle}".</message>
 </locale>

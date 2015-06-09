@@ -232,8 +232,17 @@ class QueryDAO extends DAO {
 		if ($this->getAffectedRows()) {
 			$this->update('DELETE FROM query_participants WHERE query_id = ?', (int) $queryId);
 
+			// Remove associated notes
 			$noteDao = DAORegistry::getDAO('NoteDAO');
 			$noteDao->deleteByAssoc(ASSOC_TYPE_QUERY, $queryId);
+
+			// Remove associated notifications
+			$notificationDao = DAORegistry::getDAO('NotificationDAO');
+			$notifications = $notificationDao->getByAssoc(ASSOC_TYPE_QUERY, $queryId);
+			while ($notification = $notifications->next()) {
+				$notificationDao->deleteObject($notification);
+			}
+
 		}
 	}
 

@@ -157,6 +157,13 @@ abstract class SubmissionDAO extends DAO {
 			$signoffDao->deleteObject($signoff);
 		}
 
+		// Delete the queries associated with a submission
+		$queryDao = DAORegistry::getDAO('QueryDAO');
+		$queries = $queryDao->getBySubmissionId($submissionId);
+		while ($query = $queries->next()) {
+			$queryDao->deleteObject();
+		}
+
 		// Delete the Signoffs associated with the submission itself.
 		$submissionSignoffs = $signoffDao->getAllByAssocType(ASSOC_TYPE_SUBMISSION, $submissionId);
 		while ($signoff = $submissionSignoffs->next()) {

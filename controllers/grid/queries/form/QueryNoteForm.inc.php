@@ -146,6 +146,8 @@ class QueryNoteForm extends Form {
 	 * @return Note The created note object.
 	 */
 	function execute($request) {
+		$user = $request->getUser();
+
 		// Create a new note.
 		$noteDao = DAORegistry::getDAO('NoteDAO');
 		$note = $noteDao->getById($this->_noteId);
@@ -158,13 +160,38 @@ class QueryNoteForm extends Form {
 		$query = $this->getQuery();
 		if ($query->getIsClosed()) {
 			$headNote = $query->getHeadNote();
-			$user = $request->getUser();
 			if ($user->getId() != $headNote->getUserId()) {
 				// Re-open the query.
 				$query->setIsClosed(false);
 				$queryDao = DAORegistry::getDAO('QueryDAO');
 				$queryDao->updateObject($query);
 			}
+		}
+
+		$notificationDao = DAORegistry::getDAO('NotificationDAO');
+		$queryDao = DAORegistry::getDAO('QueryDAO');
+		$notificationManager = new NotificationManager();
+		foreach ($queryDao->getParticipantIds($query->getId()) as $userId) {
+			// Delete any prior notifications of the same type (e.g. prior "new" comments)
+			$notificationDao->deleteByAssoc(
+				ASSOC_TYPE_QUERY, $query->getId(),
+				$userId, NOTIFICATION_TYPE_QUERY_ACTIVITY,
+				$request->getContext()->getId()
+			);
+
+			// No need to additionally notify the posting user.
+			if ($userId = $user->getId()) continue;
+
+			// Notify the user of a new query.
+			$notificationManager->createNotification(
+				$request,
+				$userId,
+				NOTIFICATION_TYPE_QUERY_ACTIVITY,
+				$request->getContext()->getId(),
+				ASSOC_TYPE_QUERY,
+				$query->getId(),
+				NOTIFICATION_LEVEL_TASK
+			);
 		}
 
 		return $note;

@@ -215,6 +215,18 @@ class QueryForm extends Form {
 		$query = $this->getQuery();
 		$queryDao = DAORegistry::getDAO('QueryDAO');
 		$queryDao->insertParticipant($query->getId(), $newRowId['name']);
+
+		// Notify the user of a new query.
+		$notificationManager = new NotificationManager();
+		$notificationManager->createNotification(
+			$request,
+			$newRowId['name'],
+			NOTIFICATION_TYPE_NEW_QUERY,
+			$request->getContext()->getId(),
+			ASSOC_TYPE_QUERY,
+			$query->getId(),
+			NOTIFICATION_LEVEL_TASK
+		);
 	}
 
 	/**
@@ -224,6 +236,10 @@ class QueryForm extends Form {
 		$query = $this->getQuery();
 		$queryDao = DAORegistry::getDAO('QueryDAO');
 		$queryDao->removeParticipant($query->getId(), $rowId);
+
+		// This user should have any notifications relating to the query deleted.
+		$notificationDao = DAORegistry::getDAO('NotificationDAO');
+		$notificationDao->deleteByAssoc(ASSOC_TYPE_QUERY, $query->getId(), $rowId);
 	}
 }
 

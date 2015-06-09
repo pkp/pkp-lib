@@ -110,6 +110,12 @@ class NotificationsGridCellProvider extends GridCellProvider {
 				assert(is_a($reviewRound, 'ReviewRound'));
 				$submissionId = $reviewRound->getSubmissionId();
 				break;
+			case ASSOC_TYPE_QUERY:
+				$queryDao = DAORegistry::getDAO('QueryDAO');
+				$query = $queryDao->getById($notification->getAssocId());
+				assert(is_a($query, 'Query'));
+				$submissionId = $query->getSubmissionId();
+				break;
 			default:
 				// Don't know of other ASSOC_TYPEs for TASK notifications
 				assert(false);

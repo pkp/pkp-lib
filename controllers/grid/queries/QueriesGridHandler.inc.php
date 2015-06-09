@@ -268,6 +268,10 @@ class QueriesGridHandler extends GridHandler {
 		if ($query = $this->getQuery()) {
 			$queryDao = DAORegistry::getDAO('QueryDAO');
 			$queryDao->deleteObject($query);
+
+			$notificationDao = DAORegistry::getDAO('NotificationDAO');
+			$notificationDao->deleteByAssoc(ASSOC_TYPE_QUERY, $query->getId());
+
 			return DAO::getDataChangedEvent($query->getId());
 		}
 		return new JSONMessage(false); // The query could not be found.

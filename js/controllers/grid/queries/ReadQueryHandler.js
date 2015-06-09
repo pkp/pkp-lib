@@ -21,6 +21,7 @@
 			$.pkp.controllers.grid.queries || { };
 
 
+
 	/**
 	 * @constructor
 	 *
@@ -71,13 +72,13 @@
 
 
 	//
-	// Protected methods
+	// Private methods
 	//
 	/**
 	 * Event handler that is called when the suggest username button is clicked.
 	 * @param {Object} ajaxContext The AJAX request context.
 	 * @param {Object} jsonData A parsed JSON response object.
-	 * @protected
+	 * @private
 	 */
 	$.pkp.controllers.grid.queries.ReadQueryHandler.prototype.
 			showFetchedNoteForm_ = function(ajaxContext, jsonData) {

@@ -68,10 +68,10 @@ class SubmissionsListGridHandler extends GridHandler {
 		$contexts = $contextDao->getAll();
 		$cellProvider = new SubmissionsListGridCellProvider($authorizedRoles);
 		if($contexts->getCount() > 1) {
-
 			$hasRoleCount = 0;
 			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 
+			$user = $request->getUser();
 			while ($context = $contexts->next()) {
 				$userGroups = $userGroupDao->getByUserId($user->getId(), $context->getId());
 				if ($userGroups->getCount() > 0) $hasRoleCount ++;

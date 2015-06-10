@@ -27,10 +27,25 @@ class VersionCheck {
 	 * @return array
 	 */
 	function &getLatestVersion() {
-		$application =& PKPApplication::getApplication();
+		$application =& Application::getApplication();
+
+		$includeId = Config::getVar('general', 'installed') &&
+			!defined('RUNNING_UPGRADE') &&
+			Config::getVar('general', 'enable_beacon', true);
+
+		if ($includeId) {
+			$pluginSettingsDao =& DAORegistry::getDAO('PluginSettingsDAO');
+			$uniqueSiteId = $pluginSettingsDao->getSetting(CONTEXT_SITE, 'UsageEventPlugin', 'uniqueSiteId');
+		} else $uniqueSiteId = null;
+
+		$request =& $application->getRequest();
 		$returner =& VersionCheck::parseVersionXML(
-			$application->getVersionDescriptorUrl()
+			$application->getVersionDescriptorUrl() .
+			($includeId?'?id=' . urlencode($uniqueSiteId) .
+				'&oai=' . urlencode($request->url('index', 'oai'))
+			:'')
 		);
+
 		return $returner;
 	}
 

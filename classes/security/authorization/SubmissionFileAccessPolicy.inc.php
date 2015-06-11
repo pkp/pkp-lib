@@ -110,9 +110,13 @@ class SubmissionFileAccessPolicy extends ContextPolicy {
 				import('lib.pkp.classes.security.authorization.internal.SubmissionFileViewableReviewerResponseRequiredPolicy');
 				$authorFileAccessOptionsPolicy->addPolicy(new SubmissionFileViewableReviewerResponseRequiredPolicy($request, $fileIdAndRevision));
 
-				// 3e) ...or if the file is part of a signoff assigned to the user, allow.
+				// 3e) ...or if the file is part of a signoff assigned to the user...
 				import('lib.pkp.classes.security.authorization.internal.SubmissionFileAssignedAuditorAccessPolicy');
 				$authorFileAccessOptionsPolicy->addPolicy(new SubmissionFileAssignedAuditorAccessPolicy($request, $fileIdAndRevision));
+
+				// 3f) ...or if the file is part of a query assigned to the user, allow.
+				import('lib.pkp.classes.security.authorization.internal.SubmissionFileAssignedQueryAccessPolicy');
+				$authorFileAccessOptionsPolicy->addPolicy(new SubmissionFileAssignedQueryAccessPolicy($request, $fileIdAndRevision));
 			}
 
 			// Add the rules from 3)

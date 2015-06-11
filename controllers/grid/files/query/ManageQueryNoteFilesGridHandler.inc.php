@@ -24,7 +24,7 @@ class ManageQueryNoteFilesGridHandler extends SelectableSubmissionFileListCatego
 		parent::SelectableSubmissionFileListCategoryGridHandler(
 			new QueryNoteFilesCategoryGridDataProvider(),
 			WORKFLOW_STAGE_ID_EDITING,
-			FILE_GRID_ADD|FILE_GRID_DELETE|FILE_GRID_VIEW_NOTES|FILE_GRID_EDIT
+			FILE_GRID_DELETE|FILE_GRID_VIEW_NOTES|FILE_GRID_EDIT
 		);
 
 		$this->addRoleAssignment(

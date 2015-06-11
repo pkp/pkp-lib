@@ -56,7 +56,7 @@ class QueryNoteFilesGridDataProvider extends SubmissionFilesGridDataProvider {
 				'queryId' => $query->getId(),
 				'noteId' => $this->_noteId,
 			),
-			__('editor.submission.uploadSelectFiles')
+			__('editor.submission.selectFiles')
 		);
 	}
 

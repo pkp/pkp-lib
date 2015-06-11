@@ -28,7 +28,7 @@ class QueryNoteFilesGridHandler extends FileListGridHandler {
 		parent::FileListGridHandler(
 			new QueryNoteFilesGridDataProvider($request->getUserVar('noteId')),
 			$stageId,
-			FILE_GRID_MANAGE|FILE_GRID_DELETE|FILE_GRID_VIEW_NOTES|FILE_GRID_EDIT
+			FILE_GRID_ADD|FILE_GRID_DELETE|FILE_GRID_VIEW_NOTES|FILE_GRID_EDIT
 		);
 
 		$this->addRoleAssignment(
@@ -51,7 +51,16 @@ class QueryNoteFilesGridHandler extends FileListGridHandler {
 		import('lib.pkp.classes.security.authorization.QueryAccessPolicy');
 		$queryAccessPolicy = new QueryAccessPolicy($request, $args, $roleAssignments, $stageId);
 		$this->addPolicy($queryAccessPolicy);
-		return parent::authorize($request, $args, $roleAssignments);
+		$result = parent::authorize($request, $args, $roleAssignments);
+
+		if (0!=count(array_intersect(
+			$this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES),
+			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT)
+		))) {
+			$this->getCapabilities()->setCanManage(true);
+		}
+
+		return $result;
 	}
 
 

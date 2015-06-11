@@ -13,13 +13,22 @@
 		$('#readQueryContainer').pkpHandler(
 			'$.pkp.controllers.grid.queries.ReadQueryHandler',
 			{ldelim}
-				fetchNoteFormUrl: '{url|escape:"javascript" router=$smarty.const.ROUTE_COMPONENT component="grid.queries.QueryNotesGridHandler" op="addNote" submissionId=$submission->getId() stageId=$stageId queryId=$query->getId() escape=false}'
+				fetchNoteFormUrl: '{url|escape:"javascript" router=$smarty.const.ROUTE_COMPONENT component="grid.queries.QueryNotesGridHandler" op="addNote" submissionId=$submission->getId() stageId=$stageId queryId=$query->getId() escape=false}',
+				fetchParticipantsListUrl: '{url|escape:"javascript" router=$smarty.const.ROUTE_COMPONENT component="grid.queries.QueriesGridHandler" op="participants" submissionId=$submission->getId() stageId=$stageId queryId=$query->getId() escape=false}'
 			{rdelim}
 		);
 	{rdelim});
 </script>
 
 <div id="readQueryContainer">
+	<div id="queryParticipantsContainer">
+		<h2 class="pkp_helpers_align_left">{translate key="editor.submission.stageParticipants"}</h2>
+		{if $editAction}
+			{include file="linkAction/linkAction.tpl" action=$editAction contextId="editQuery"}
+		{/if}
+		<ul class="pkp_helpers_clear" id="participantsListPlaceholder"></ul>
+	</div>
+
 	{url|assign:queryNotesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.queries.QueryNotesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId queryId=$query->getId() escape=false}
 	{load_url_in_div id="queryNotesGrid" url=$queryNotesGridUrl}
 

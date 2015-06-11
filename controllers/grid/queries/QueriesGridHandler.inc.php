@@ -33,7 +33,7 @@ class QueriesGridHandler extends GridHandler {
 		parent::GridHandler();
 		$this->addRoleAssignment(
 			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR),
-			array('fetchGrid', 'fetchRow', 'readQuery'));
+			array('fetchGrid', 'fetchRow', 'readQuery', 'participants'));
 		$this->addRoleAssignment(
 			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT),
 			array('addQuery', 'updateQuery', 'editQuery', 'deleteQuery', 'openQuery', 'closeQuery', 'saveSequence'));
@@ -316,13 +316,58 @@ class QueriesGridHandler extends GridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function readQuery($args, $request) {
+		$query = $this->getQuery();
+
+		// If appropriate, create an Edit action for the participants list
+		if ($this->getCanManage()) {
+			import('lib.pkp.classes.linkAction.request.AjaxModal');
+			$router = $request->getRouter();
+			$editAction = new LinkAction(
+				'editQuery',
+				new AjaxModal(
+					$router->url($request, null, null, 'editQuery', null, array(
+						'queryId' => $query->getId(),
+						'stageId' => $request->getUserVar('stageId'),
+						'submissionId' => $request->getUserVar('submissionId'),
+					)),
+					__('grid.action.updateQuery'),
+					'modal_edit'
+				),
+				__('grid.action.edit'),
+				'edit'
+			);
+		} else {
+			$editAction = null;
+		}
+
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign(array(
 			'submission' => $this->getSubmission(),
 			'stageId' => $this->getStageId(),
-			'query' => $this->getQuery(),
+			'query' => $query,
+			'editAction' => $editAction,
 		));
 		return new JSONMessage(true, $templateMgr->fetch('controllers/grid/queries/readQuery.tpl'));
+	}
+
+	/**
+	 * Fetch the list of participants for a query
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
+	 */
+	function participants($args, $request) {
+		$query = $this->getQuery();
+		$queryDao = DAORegistry::getDAO('QueryDAO');
+		$userDao = DAORegistry::getDAO('UserDAO');
+		$participants = array();
+		foreach ($queryDao->getParticipantIds($query->getId()) as $userId) {
+			$participants[] = $userDao->getById($userId);
+		}
+
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign('participants', $participants);
+		return new JSONMessage(true, $templateMgr->fetch('controllers/grid/queries/participants.tpl'));
 	}
 
 	/**

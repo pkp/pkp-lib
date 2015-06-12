@@ -16,8 +16,11 @@
 import('lib.pkp.classes.form.Form');
 
 class QueryForm extends Form {
-	/** @var Submission The submission associated with the query being edited **/
-	var $_submission;
+	/** @var int ASSOC_TYPE_... */
+	var $_assocType;
+
+	/** @var int Assoc ID (per _assocType) */
+	var $_assocId;
 
 	/** @var int The stage id associated with the query being edited **/
 	var $_stageId;
@@ -31,14 +34,14 @@ class QueryForm extends Form {
 	/**
 	 * Constructor.
 	 * @param $request Request
-	 * @param $submission Submission
-	 * @param $stageId int
+	 * @param $assocType int ASSOC_TYPE_...
+	 * @param $assocId int Assoc ID (per assocType)
+	 * @param $stageId int WORKFLOW_STAGE_...
 	 * @param $queryId int Optional query ID to edit. If none provided, a
 	 *  (potentially temporary) query will be created.
 	 */
-	function QueryForm($request, $submission, $stageId, $queryId = null) {
+	function QueryForm($request, $assocType, $assocId, $stageId, $queryId = null) {
 		parent::Form('controllers/grid/queries/form/queryForm.tpl');
-		$this->setSubmission($submission);
 		$this->setStageId($stageId);
 
 		$queryDao = DAORegistry::getDAO('QueryDAO');
@@ -47,11 +50,12 @@ class QueryForm extends Form {
 
 			// Create a query
 			$query = $queryDao->newDataObject();
-			$query->setSubmissionId($submission->getId());
+			$query->setAssocType($assocType);
+			$query->setAssocId($assocId);
 			$query->setStageId($stageId);
 			$query->setSequence(REALLY_BIG_NUMBER);
 			$queryDao->insertObject($query);
-			$queryDao->resequence($submission->getId());
+			$queryDao->resequence($assocType, $assocId);
 
 			// Create a head note
 			$noteDao = DAORegistry::getDAO('NoteDAO');
@@ -62,7 +66,7 @@ class QueryForm extends Form {
 			$headNote->setDateCreated(Core::getCurrentDate());
 			$noteDao->insertObject($headNote);
 		} else {
-			$query = $queryDao->getById($queryId, $submission->getId());
+			$query = $queryDao->getById($queryId, $assocType, $assocId);
 			assert($query);
 			// New queries will not have a head note.
 			$this->_isNew = !$query->getHeadNote();
@@ -103,7 +107,7 @@ class QueryForm extends Form {
 	function getStageId() {
 		return $this->_stageId;
 	}
-
+ 
 	/**
 	 * Set the stage id
 	 * @param int
@@ -113,20 +117,37 @@ class QueryForm extends Form {
 	}
 
 	/**
-	 * Get the Submission
-	 * @return Submission
+	 * Get assoc type
+	 * @return int ASSOC_TYPE_...
 	 */
-	function getSubmission() {
-		return $this->_submission;
+	function getAssocType() {
+		return $this->getData('assocType');
 	}
 
 	/**
-	 * Set the Submission
-	 * @param Submission
+	 * Set assoc type
+	 * @param $assocType int ASSOC_TYPE_...
 	 */
-	function setSubmission($submission) {
-		$this->_submission = $submission;
+	function setAssocType($assocType) {
+		$this->setData('assocType', $assocType);
 	}
+
+	/**
+	 * Get assoc id
+	 * @return int
+	 */
+	function getAssocId() {
+		return $this->getData('assocId');
+	}
+
+	/**
+	 * Set assoc id
+	 * @param $assocId int
+	 */
+	function setAssocId($assocId) {
+		$this->setData('assocId', $assocId);
+	}
+
 
 	//
 	// Overridden template methods
@@ -154,8 +175,10 @@ class QueryForm extends Form {
 	/**
 	 * Fetch the form.
 	 * @see Form::fetch()
+	 * @param $request PKPRequest
+	 * @param $actionArgs array Optional list of additional arguments
 	 */
-	function fetch($request) {
+	function fetch($request, $actionArgs = array()) {
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_EDITOR);
 
 		$query = $this->getQuery();
@@ -163,10 +186,9 @@ class QueryForm extends Form {
 
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign(array(
-			'submissionId' => $this->getSubmission()->getId(),
-			'stageId' => $this->getStageId(),
 			'isNew' => $this->_isNew,
 			'noteId' => $headNote->getId(),
+			'actionArgs' => $actionArgs,
 		));
 
 		return parent::fetch($request);
@@ -178,8 +200,6 @@ class QueryForm extends Form {
 	 */
 	function readInputData() {
 		$this->readUserVars(array(
-			'submissionId',
-			'stageId',
 			'subject',
 			'comment',
 			'users',

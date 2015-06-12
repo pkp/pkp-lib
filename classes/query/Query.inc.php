@@ -25,19 +25,35 @@ class Query extends DataObject {
 	}
 
 	/**
-	 * get submission id
-	 * @return int
+	 * Get query assoc type
+	 * @return int ASSOC_TYPE_...
 	 */
-	function getSubmissionId() {
-		return $this->getData('submissionId');
+	function getAssocType() {
+		return $this->getData('assocType');
 	}
 
 	/**
-	 * set submission id
-	 * @param $submissionId int
+	 * Set query assoc type
+	 * @param $assocType int ASSOC_TYPE_...
 	 */
-	function setSubmissionId($submissionId) {
-		return $this->setData('submissionId', $submissionId);
+	function setAssocType($assocType) {
+		$this->setData('assocType', $assocType);
+	}
+
+	/**
+	 * Get query assoc id
+	 * @return int
+	 */
+	function getAssocId() {
+		return $this->getData('assocId');
+	}
+
+	/**
+	 * Set query assoc id
+	 * @param $assocId int
+	 */
+	function setAssocId($assocId) {
+		$this->setData('assocId', $assocId);
 	}
 
 	/**

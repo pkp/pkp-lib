@@ -28,17 +28,22 @@ class QueryDAO extends DAO {
 	/**
 	 * Retrieve a submission file query by ID.
 	 * @param $queryId int Query ID
+	 * @param $assocType int Optional ASSOC_TYPE_...
+	 * @param $assocId int Optional assoc ID per assocType
 	 * @param $submissionId int optional
 	 * @return Query
 	 */
-	function getById($queryId, $submissionId = null) {
+	function getById($queryId, $assocType = null, $assocId = null) {
 		$params = array((int) $queryId);
-		if ($submissionId) $params[] = (int) $submissionId;
+		if ($assocType) {
+			$params[] = (int) $assocType;
+			$params[] = (int) $assocId;
+		}
 		$result = $this->retrieve(
 			'SELECT *
 			FROM	queries
 			WHERE	query_id = ?'
-				. ($submissionId?' AND submission_id = ?':''),
+				. ($assocType?' AND assoc_type = ? AND assoc_id = ?':''),
 			$params
 		);
 
@@ -52,16 +57,18 @@ class QueryDAO extends DAO {
 	}
 
 	/**
-	 * Retrieve all queries for a submission.
-	 * @param $submissionId int
+	 * Retrieve all queries by association
+	 * @param $assocType int ASSOC_TYPE_...
+	 * @param $assocId int Assoc ID
 	 * @param $stageId int Optional stage ID
 	 * @param $userId int Optional user ID; when set, show only assigned queries
 	 * @return array Query
 	 */
-	function getBySubmissionId($submissionId, $stageId = null, $userId = null) {
+	function getByAssoc($assocType, $assocId, $stageId = null, $userId = null) {
 		$params = array();
 		if ($userId) $params[] = (int) $userId;
-		$params[] = (int) $submissionId;
+		$params[] = (int) $assocType;
+		$params[] = (int) $assocId;
 		if ($stageId) $params[] = (int) $stageId;
 
 		return new DAOResultFactory(
@@ -69,7 +76,7 @@ class QueryDAO extends DAO {
 				'SELECT	q.*
 				FROM	queries q
 				' . ($userId?'INNER JOIN query_participants qp ON (q.query_id = qp.query_id AND qp.user_id = ?)':'') . '
-				WHERE	q.submission_id = ?
+				WHERE	q.assoc_type = ? AND q.assoc_id = ?
 				' . ($stageId?' AND q.stage_id = ?':'') . '
 				ORDER BY q.seq',
 				$params
@@ -86,7 +93,8 @@ class QueryDAO extends DAO {
 	function _fromRow($row) {
 		$query = $this->newDataObject();
 		$query->setId($row['query_id']);
-		$query->setSubmissionId($row['submission_id']);
+		$query->setAssocType($row['assoc_type']);
+		$query->setAssocId($row['assoc_id']);
 		$query->setStageId($row['stage_id']);
 		$query->setIsClosed($row['closed']);
 		$query->setSequence($row['seq']);
@@ -109,10 +117,11 @@ class QueryDAO extends DAO {
 	 */
 	function insertObject($query) {
 		$this->update(
-			'INSERT INTO queries (submission_id, stage_id, closed, seq)
-			VALUES (?, ?, ?, ?)',
+			'INSERT INTO queries (assoc_type, assoc_id, stage_id, closed, seq)
+			VALUES (?, ?, ?, ?, ?)',
 			array(
-				(int) $query->getSubmissionId(),
+				(int) $query->getAssocType(),
+				(int) $query->getAssocId(),
 				(int) $query->getStageId(),
 				(int) $query->getIsClosed(),
 				(float) $query->getSequence(),
@@ -185,6 +194,7 @@ class QueryDAO extends DAO {
 			$userIds[] = $row['user_id'];
 			$result->MoveNext();
 		}
+		$result->Close();
 		return $userIds;
 	}
 
@@ -195,11 +205,15 @@ class QueryDAO extends DAO {
 	function updateObject($query) {
 		$this->update(
 			'UPDATE	queries
-			SET	stage_id = ?,
+			SET	assoc_type = ?,
+				assoc_id = ?,
+				stage_id = ?,
 				closed = ?,
 				seq = ?
 			WHERE	query_id = ?',
 			array(
+				(int) $query->getAssocType(),
+				(int) $query->getAssocId(),
 				(int) $query->getStageId(),
 				(int) $query->getIsClosed(),
 				(float) $query->getSequence(),
@@ -219,14 +233,18 @@ class QueryDAO extends DAO {
 	/**
 	 * Delete a submission file query by ID.
 	 * @param $queryId int Query ID
-	 * @param $submissionId int optional
+	 * @param $assocType int Optional ASSOC_TYPE_...
+	 * @param $assocId int Optional assoc ID per assocType
 	 */
-	function deleteById($queryId, $submissionId = null) {
+	function deleteById($queryId, $assocType = null, $assocId = null) {
 		$params = array((int) $queryId);
-		if ($submissionId) $params[] = (int) $submissionId;
+		if ($assocType) {
+			$params[] = (int) $assocType;
+			$params[] = (int) $assocId;
+		}
 		$this->update(
 			'DELETE FROM queries WHERE query_id = ?' .
-			($submissionId?' AND submission_id = ?':''),
+			($assocType?' AND assoc_type = ? AND assoc_id = ?':''),
 			$params
 		);
 		if ($this->getAffectedRows()) {
@@ -248,13 +266,13 @@ class QueryDAO extends DAO {
 
 	/**
 	 * Sequentially renumber queries in their sequence order.
-	 * @param $assocType int
-	 * @param $assocId int
+	 * @param $assocType int ASSOC_TYPE_...
+	 * @param $assocId int Assoc ID per assocType
 	 */
-	function resequence($queryId) {
+	function resequence($assocType, $assocId) {
 		$result = $this->retrieve(
-			'SELECT query_id FROM queries WHERE submission_id = ? ORDER BY seq',
-			(int) $queryId
+			'SELECT query_id FROM queries WHERE assoc_type = ? AND assoc_id = ? ORDER BY seq',
+			array((int) $assocType, (int) $assocId)
 		);
 
 		for ($i=1; !$result->EOF; $i++) {
@@ -281,12 +299,13 @@ class QueryDAO extends DAO {
 	}
 
 	/**
-	 * Delete queries by submission.
-	 * @param $submissionId int
+	 * Delete queries by assoc info.
+	 * @param $assocType int ASSOC_TYPE_...
+	 * @param $assocId int Assoc ID per assocType
 	 */
-	function deleteBySubmissionId($submissionId) {
-		$queries = $this->getBySubmissionId($submissionId);
-		foreach ($queries as $query) {
+	function deleteByAssoc($assocType, $assocId) {
+		$queries = $this->getByAssoc($assocType, $assocId);
+		while ($query = $queries->next()) {
 			$this->deleteObject($query);
 		}
 	}

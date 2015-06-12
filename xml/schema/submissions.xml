@@ -209,7 +209,10 @@
 		</field>
 		<field name="parent_query_id" type="I8" />
 		<field name="revision" type="I8" />
-		<field name="submission_id" type="I8">
+		<field name="assoc_type" type="I8">
+			<NOTNULL/>
+		</field>
+		<field name="assoc_id" type="I8">
 			<NOTNULL/>
 		</field>
 		<field name="stage_id" type="I1">
@@ -230,8 +233,9 @@
 			<DEFAULT VALUE="0"/>
 		</field>
 		<descr>queries posted on submission workflow</descr>
-		<index name="queries_submission_id">
-			<col>submission_id</col>
+		<index name="queries_assoc_id">
+			<col>assoc_type</col>
+			<col>assoc_id</col>
 		</index>
 	</table>
 

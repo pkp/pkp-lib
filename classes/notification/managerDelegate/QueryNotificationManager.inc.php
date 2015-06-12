@@ -54,15 +54,31 @@ class QueryNotificationManager extends NotificationManagerDelegate {
 	}
 
 	/**
+	 * Get the submission for a query.
+	 * @param $query Query
+	 * @return Submission
+	 */
+	protected function _getQuerySubmission($query) {
+		$submissionDao = Application::getSubmissionDAO();
+		switch ($query->getAssocType()) {
+			case ASSOC_TYPE_SUBMISSION:
+				return $submissionDao->getById($query->getAssocId());
+			case ASSOC_TYPE_REPRESENTATION:
+				$representationDao = Application::getRepresentationDAO();
+				$representation = $representationDao->getById($query->getAssocId());
+				return $submissionDao->getById($representation->getSubmissionId());
+		}
+		assert(false);
+	}
+
+	/**
 	 * @copydoc NotificationManagerDelegate::getNotificationUrl()
 	 */
 	public function getNotificationUrl($request, $notification) {
 		assert($notification->getAssocType() == ASSOC_TYPE_QUERY);
 		$queryDao = DAORegistry::getDAO('QueryDAO');
 		$query = $queryDao->getById($notification->getAssocId());
-
-		$submissionDao = Application::getSubmissionDAO();
-		$submission = $submissionDao->getById($query->getSubmissionId());
+		$submission = $this->_getQuerySubmission($query);
 
 		import('lib.pkp.controllers.grid.submissions.SubmissionsListGridCellProvider');
 		list($page, $operation) = SubmissionsListGridCellProvider::getPageAndOperationByUserRoles($request, $submission, $notification->getUserId());
@@ -83,8 +99,7 @@ class QueryNotificationManager extends NotificationManagerDelegate {
 		$query = $queryDao->getById($notification->getAssocId());
 		assert(is_a($query, 'Query'));
 
-		$submissionDao = Application::getSubmissionDAO();
-		$submission = $submissionDao->getById($query->getSubmissionId());
+		$submission = $this->_getQuerySubmission($query);
 		assert(is_a($submission, 'Submission'));
 
 		switch($notification->getType()) {

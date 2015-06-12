@@ -15,18 +15,18 @@
 		$('#queryForm').pkpHandler(
 			'$.pkp.controllers.form.CancelActionAjaxFormHandler',
 			{ldelim}
-				cancelUrl: {if $isNew}'{url|escape:javascript op="deleteQuery" submissionId=$submissionId stageId=$stageId queryId=$queryId escape=false}'{else}null{/if}
+				cancelUrl: {if $isNew}'{url|escape:javascript op="deleteQuery" queryId=$queryId params=$actionArgs escape=false}'{else}null{/if}
 			{rdelim}
 		);
 	{rdelim});
 </script>
 
-<form class="pkp_form" id="queryForm" method="post" action="{url op="updateQuery" queryId=$queryId submissionId=$submissionId stageId=$stageId}">
+<form class="pkp_form" id="queryForm" method="post" action="{url op="updateQuery" queryId=$queryId params=$actionArgs}">
 
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="queryFormNotification"}
 
 	{fbvFormArea id="queryUsersArea"}
-		{url|assign:queryUsersUrl router=$smarty.const.ROUTE_COMPONENT component="listbuilder.users.QueryUsersListbuilderHandler" op="fetch" submissionId=$submissionId queryId=$queryId stageId=$stageId escape=false}
+		{url|assign:queryUsersUrl router=$smarty.const.ROUTE_COMPONENT component="listbuilder.users.QueryUsersListbuilderHandler" op="fetch" queryId=$queryId params=$actionArgs escape=false}
 		{load_url_in_div id="queryUsersContainer" url=$queryUsersUrl}
 	{/fbvFormArea}
 
@@ -41,7 +41,7 @@
 	{/fbvFormArea}
 
 	{fbvFormArea id="queryNoteFilesArea"}
-		{url|assign:queryNoteFilesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.query.QueryNoteFilesGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId queryId=$queryId noteId=$noteId escape=false}
+		{url|assign:queryNoteFilesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.query.QueryNoteFilesGridHandler" op="fetchGrid" params=$actionArgs queryId=$queryId noteId=$noteId escape=false}
 		{load_url_in_div id="queryNoteFilesGrid" url=$queryNoteFilesGridUrl}
 	{/fbvFormArea}
 

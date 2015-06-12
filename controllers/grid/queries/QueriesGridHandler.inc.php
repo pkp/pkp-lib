@@ -78,6 +78,22 @@ class QueriesGridHandler extends GridHandler {
 		))>0);
 	}
 
+	/**
+	 * Get the query assoc type.
+	 * @return int ASSOC_TYPE_...
+	 */
+	function getAssocType() {
+		return ASSOC_TYPE_SUBMISSION;
+	}
+
+	/**
+	 * Get the query assoc ID.
+	 * @return int
+	 */
+	function getAssocId() {
+		return $this->getSubmission()->getId();
+	}
+
 
 	//
 	// Overridden methods from PKPHandler.
@@ -200,7 +216,7 @@ class QueriesGridHandler extends GridHandler {
 	 */
 	function setDataElementSequence($request, $rowId, $gridDataElement, $newSequence) {
 		$queryDao = DAORegistry::getDAO('QueryDAO');
-		$query = $queryDao->getById($rowId, $this->getSubmission()->getId());
+		$query = $queryDao->getById($rowId, $this->getAssocType(), $this->getAssocId());
 		$query->setSequence($newSequence);
 		$queryDao->updateObject($query);
 	}
@@ -231,8 +247,9 @@ class QueriesGridHandler extends GridHandler {
 	 */
 	function loadData($request, $filter = null) {
 		$queryDao = DAORegistry::getDAO('QueryDAO');
-		return $queryDao->getBySubmissionId(
-			$this->getSubmission()->getId(),
+		return $queryDao->getByAssoc(
+			$this->getAssocType(),
+			$this->getAssocId(),
 			$this->getStageId(),
 			$this->getCanManage()?null:$request->getUser()->getId()
 		);
@@ -251,11 +268,12 @@ class QueriesGridHandler extends GridHandler {
 		import('lib.pkp.controllers.grid.queries.form.QueryForm');
 		$queryForm = new QueryForm(
 			$request,
-			$this->getSubmission(),
+			$this->getAssocType(),
+			$this->getAssocId(),
 			$this->getStageId()
 		);
 		$queryForm->initData();
-		return new JSONMessage(true, $queryForm->fetch($request));
+		return new JSONMessage(true, $queryForm->fetch($request, $this->getRequestArgs()));
 	}
 
 	/**
@@ -381,7 +399,8 @@ class QueriesGridHandler extends GridHandler {
 		import('lib.pkp.controllers.grid.queries.form.QueryForm');
 		$queryForm = new QueryForm(
 			$request,
-			$this->getSubmission(),
+			$this->getAssocType(),
+			$this->getAssocId(),
 			$this->getStageId(),
 			$request->getUserVar('queryId')
 		);
@@ -400,7 +419,8 @@ class QueriesGridHandler extends GridHandler {
 		import('lib.pkp.controllers.grid.queries.form.QueryForm');
 		$queryForm = new QueryForm(
 			$request,
-			$this->getSubmission(),
+			$this->getAssocType(),
+			$this->getAssocId(),
 			$this->getStageId(),
 			$query->getId()
 		);

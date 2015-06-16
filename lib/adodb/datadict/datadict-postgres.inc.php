@@ -476,7 +476,7 @@ class ADODB2_postgres extends ADODB_DataDict {
 		$seq = false;
 		foreach($this->MetaColumns($tabname) as $fld) {
 			if (isset($fld->primary_key) && $fld->primary_key && $fld->has_default &&
-				preg_match("/nextval\('[\"]?(?:[^'\"]+\.)*([^'\"]+)[\"]?'::text\)/",$fld->default_value,$matches)) {
+				preg_match("/nextval\('[\"]?(?:[^'\"]+\.)*([^'\"]+)[\"]?'::(?:text|regclass)\)/",$fld->default_value,$matches)) {
 				$seq = $matches[1];
 			}
 		}
@@ -487,7 +487,7 @@ class ADODB2_postgres extends ADODB_DataDict {
 		if (!$seq || $this->connection->GetOne("SELECT relname FROM pg_class JOIN pg_depend ON pg_class.relfilenode=pg_depend.objid WHERE relname='$seq' AND relkind='S' AND deptype='i'")) {
 			return False;
 		}
-		return "DROP SEQUENCE ".$seq;
+		return "DROP SEQUENCE IF EXISTS ".$seq;
 	}
 
 	function RenameTableSQL($tabname,$newname)

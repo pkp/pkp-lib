@@ -17,19 +17,15 @@ import('lib.pkp.classes.controllers.grid.GridColumn');
 
 class QueryTitleGridColumn extends GridColumn {
 
-	/** @var int */
-	var $_stageId;
-
-	/** @var Submission */
-	var $_submission;
+	/** @var array Action args for link actions */
+	var $_actionArgs;
 
 	/**
 	 * Constructor
-	 * @param $stageId int
+	 * @param $actionArgs array Action args for link actions
 	 */
-	function QueryTitleGridColumn($submission, $stageId) {
-		$this->_submission = $submission;
-		$this->_stageId = $stageId;
+	function QueryTitleGridColumn($actionArgs) {
+		$this->_actionArgs = $actionArgs;
 
 		import('lib.pkp.classes.controllers.grid.ColumnBasedGridCellProvider');
 		$cellProvider = new ColumnBasedGridCellProvider();
@@ -72,7 +68,10 @@ class QueryTitleGridColumn extends GridColumn {
 		// Create the cell action to download a file.
 		import('lib.pkp.classes.linkAction.request.AjaxModal');
 		$router = $request->getRouter();
-		$actionArgs = array('queryId' => $query->getId(), 'stageId' => $this->_getStageId(), 'submissionId' => $this->_getSubmissionId());
+		$actionArgs = array_merge(
+			$this->_actionArgs,
+			array('queryId' => $query->getId())
+		);
 		$linkAction =  new LinkAction(
 					'readQuery',
 					new AjaxModal(
@@ -86,26 +85,6 @@ class QueryTitleGridColumn extends GridColumn {
 
 		$cellActions[] = $linkAction;
 		return $cellActions;
-	}
-
-	//
-	// Private methods
-	//
-
-	/**
-	 * Get submission id.
-	 * @return int
-	 */
-	function _getSubmissionId() {
-		return $this->_submission->getId();
-	}
-
-	/**
-	 * Get stage id
-	 * @return int
-	 */
-	function _getStageId() {
-		return $this->_stageId;
 	}
 }
 

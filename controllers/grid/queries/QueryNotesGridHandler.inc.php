@@ -131,7 +131,7 @@ class QueryNotesGridHandler extends GridHandler {
 	 */
 	function getRowInstance() {
 		import('lib.pkp.controllers.grid.queries.QueryNotesGridRow');
-		return new QueryNotesGridRow($this->getSubmission(), $this->getStageId(), $this->getQuery(), $this);
+		return new QueryNotesGridRow($this->getRequestArgs(), $this->getQuery(), $this);
 	}
 
 	/**
@@ -164,7 +164,7 @@ class QueryNotesGridHandler extends GridHandler {
 	 */
 	function addNote($args, $request) {
 		import('lib.pkp.controllers.grid.queries.form.QueryNoteForm');
-		$queryNoteForm = new QueryNoteForm($this->getSubmission(), $this->getQuery(), $this->getStageId(), $request->getUser());
+		$queryNoteForm = new QueryNoteForm($this->getRequestArgs(), $this->getQuery(), $request->getUser());
 		$queryNoteForm->initData();
 		return new JSONMessage(true, $queryNoteForm->fetch($request));
 	}
@@ -176,7 +176,7 @@ class QueryNotesGridHandler extends GridHandler {
 	 */
 	function insertNote($args, $request) {
 		import('lib.pkp.controllers.grid.queries.form.QueryNoteForm');
-		$queryNoteForm = new QueryNoteForm($this->getSubmission(), $this->getQuery(), $this->getStageId(), $request->getUser(), $request->getUserVar('noteId'));
+		$queryNoteForm = new QueryNoteForm($this->getRequestArgs(), $this->getQuery(), $request->getUser(), $request->getUserVar('noteId'));
 		$queryNoteForm->readInputData();
 		if ($queryNoteForm->validate()) {
 			$note = $queryNoteForm->execute($request);

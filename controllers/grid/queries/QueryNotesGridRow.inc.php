@@ -16,11 +16,8 @@
 import('lib.pkp.classes.controllers.grid.GridRow');
 
 class QueryNotesGridRow extends GridRow {
-	/** @var Submission **/
-	var $_submission;
-
-	/** @var int **/
-	var $_stageId;
+	/** @var array **/
+	var $_actionArgs;
 
 	/** @var Query */
 	var $_query;
@@ -30,14 +27,12 @@ class QueryNotesGridRow extends GridRow {
 
 	/**
 	 * Constructor
-	 * @param $submission Submission
-	 * @param $stageId int WORKFLOW_STAGE_...
+	 * @param $actionArgs array Action arguments
 	 * @param $query Query
 	 * @param $queryNotesGrid The notes grid containing this row
 	 */
-	function QueryNotesGridRow($submission, $stageId, $query, $queryNotesGrid) {
-		$this->_submission = $submission;
-		$this->_stageId = $stageId;
+	function QueryNotesGridRow($actionArgs, $query, $queryNotesGrid) {
+		$this->_actionArgs = $actionArgs;
 		$this->_query = $query;
 		$this->_queryNotesGrid = $queryNotesGrid;
 
@@ -54,17 +49,16 @@ class QueryNotesGridRow extends GridRow {
 		// Do the default initialization
 		parent::initialize($request, $template);
 
-		// Retrieve the submission from the request
-		$submission = $this->getSubmission();
-
 		// Is this a new row or an existing row?
 		$rowId = $this->getId();
 		$headNote = $this->getQuery()->getHeadNote();
 		if (!empty($rowId) && is_numeric($rowId) && (!$headNote || $headNote->getId() != $rowId)) {
 			// Only add row actions if this is an existing row
 			$router = $request->getRouter();
-			$actionArgs = $this->getRequestArgs();
-			$actionArgs['noteId'] = $rowId;
+			$actionArgs = array_merge(
+				$this->_actionArgs,
+				array('noteId' => $rowId)
+			);
 
 			// Add row-level actions
 			if ($this->_queryNotesGrid->getCanManage($this->getData())) {
@@ -84,22 +78,6 @@ class QueryNotesGridRow extends GridRow {
 	}
 
 	/**
-	 * Get the submission for this row (already authorized)
-	 * @return Submission
-	 */
-	function getSubmission() {
-		return $this->_submission;
-	}
-
-	/**
-	 * Get the stageId
-	 * @return int
-	 */
-	function getStageId() {
-		return $this->_stageId;
-	}
-
-	/**
 	 * Get the query
 	 * @return Query
 	 */
@@ -112,12 +90,7 @@ class QueryNotesGridRow extends GridRow {
 	 * @return array
 	 */
 	function getRequestArgs() {
-		$submission = $this->getSubmission();
-		return array(
-			'submissionId' => $submission->getId(),
-			'stageId' => $this->getStageId(),
-			'queryId' => $this->getQuery()->getId(),
-		);
+		return $this->_actionArgs;
 	}
 }
 

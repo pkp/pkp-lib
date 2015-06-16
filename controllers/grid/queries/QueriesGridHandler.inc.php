@@ -15,8 +15,6 @@
 
 // import grid base classes
 import('lib.pkp.classes.controllers.grid.GridHandler');
-import('lib.pkp.controllers.grid.queries.QueriesGridCellProvider');
-
 
 // Link action & modal classes
 import('lib.pkp.classes.linkAction.request.AjaxModal');
@@ -94,6 +92,15 @@ class QueriesGridHandler extends GridHandler {
 		return $this->getSubmission()->getId();
 	}
 
+	/**
+	 * Create and return a data provider for this grid.
+	 * @return GridCellProvider
+	 */
+	function getCellProvider() {
+		import('lib.pkp.controllers.grid.queries.QueriesGridCellProvider');
+		return new QueriesGridCellProvider($this->getSubmission(), $this->getStageId(), $this->getCanManage());
+	}
+
 
 	//
 	// Overridden methods from PKPHandler.
@@ -111,6 +118,11 @@ class QueriesGridHandler extends GridHandler {
 		} else {
 			import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
 			$this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $this->_stageId));
+
+			if ($request->getUserVar('representationId')) {
+				import('lib.pkp.classes.security.authorization.internal.RepresentationRequiredPolicy');
+				$this->addPolicy(new RepresentationRequiredPolicy($request, $args));
+			}
 		}
 
 		return parent::authorize($request, $args, $roleAssignments);
@@ -136,8 +148,8 @@ class QueriesGridHandler extends GridHandler {
 
 		// Columns
 		import('lib.pkp.controllers.grid.queries.QueryTitleGridColumn');
-		$cellProvider = new QueriesGridCellProvider($this->getSubmission(), $this->getStageId(), $this->getCanManage());
-		$this->addColumn(new QueryTitleGridColumn($this->getSubmission(), $this->getStageId()));
+		$cellProvider = $this->getCellProvider();
+		$this->addColumn(new QueryTitleGridColumn($this->getRequestArgs()));
 
 		$this->addColumn(new GridColumn(
 			'replies',
@@ -328,6 +340,14 @@ class QueriesGridHandler extends GridHandler {
 	}
 
 	/**
+	 * Get the name of the query notes grid handler.
+	 * @return string
+	 */
+	function getQueryNotesGridHandlerName() {
+		return 'grid.queries.QueryNotesGridHandler';
+	}
+
+	/**
 	 * Read a query
 	 * @param $args array
 	 * @param $request PKPRequest
@@ -343,10 +363,9 @@ class QueriesGridHandler extends GridHandler {
 			$editAction = new LinkAction(
 				'editQuery',
 				new AjaxModal(
-					$router->url($request, null, null, 'editQuery', null, array(
-						'queryId' => $query->getId(),
-						'stageId' => $request->getUserVar('stageId'),
-						'submissionId' => $request->getUserVar('submissionId'),
+					$router->url($request, null, null, 'editQuery', null, array_merge(
+						$this->getRequestArgs(),
+						array('queryId' => $query->getId())
 					)),
 					__('grid.action.updateQuery'),
 					'modal_edit'
@@ -360,8 +379,8 @@ class QueriesGridHandler extends GridHandler {
 
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign(array(
-			'submission' => $this->getSubmission(),
-			'stageId' => $this->getStageId(),
+			'queryNotesGridHandlerName' => $this->getQueryNotesGridHandlerName(),
+			'requestArgs' => $this->getRequestArgs(),
 			'query' => $query,
 			'editAction' => $editAction,
 		));
@@ -405,7 +424,7 @@ class QueriesGridHandler extends GridHandler {
 			$request->getUserVar('queryId')
 		);
 		$queryForm->initData();
-		return new JSONMessage(true, $queryForm->fetch($request));
+		return new JSONMessage(true, $queryForm->fetch($request, $this->getRequestArgs()));
 	}
 
 	/**
@@ -444,7 +463,7 @@ class QueriesGridHandler extends GridHandler {
 			// Render the row into a JSON response
 			return DAO::getDataChangedEvent($query->getId());
 		} else {
-			return new JSONMessage(true, $queryForm->fetch($request));
+			return new JSONMessage(true, $queryForm->fetch($request, $this->getRequestArgs()));
 		}
 	}
 }

@@ -19,10 +19,10 @@
 <p>{translate key="editor.submission.query.manageQueryNoteFilesDescription"}</p>
 
 <div id="existingFilesContainer">
-	<form class="pkp_form" id="manageQueryNoteFilesForm" action="{url component="grid.files.query.ManageQueryNoteFilesGridHandler" op="updateQueryNoteFiles" submissionId=$submissionId queryId=$queryId noteId=$noteId stageId=$smarty.const.WORKFLOW_STAGE_ID_EDITING}" method="post">
+	<form class="pkp_form" id="manageQueryNoteFilesForm" action="{url component="grid.files.query.ManageQueryNoteFilesGridHandler" op="updateQueryNoteFiles" params=$actionArgs submissionId=$submissionId queryId=$queryId noteId=$noteId stageId=$smarty.const.WORKFLOW_STAGE_ID_EDITING}" method="post">
 		{fbvFormArea id="manageQueryNoteFiles"}
 			{fbvFormSection}
-				{url|assign:manageQueryNoteFilesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.query.ManageQueryNoteFilesGridHandler" op="fetchGrid" submissionId=$submissionId queryId=$queryId noteId=$noteId escape=false}
+				{url|assign:manageQueryNoteFilesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.query.ManageQueryNoteFilesGridHandler" op="fetchGrid" params=$actionArgs submissionId=$submissionId queryId=$queryId noteId=$noteId escape=false}
 				{load_url_in_div id="manageQueryNoteFilesGrid" url=$manageQueryNoteFilesGridUrl}
 			{/fbvFormSection}
 

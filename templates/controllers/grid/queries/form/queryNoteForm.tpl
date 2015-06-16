@@ -14,20 +14,20 @@
 		$('#noteForm').pkpHandler(
 			'$.pkp.controllers.form.CancelActionAjaxFormHandler',
 			{ldelim}
-				cancelUrl: '{url|escape:javascript op="deleteNote" submissionId=$submission->getId() stageId=$stageId queryId=$query->getId() noteId=$noteId escape=false}'
+				cancelUrl: '{url|escape:javascript op="deleteNote" params=$actionArgs noteId=$noteId escape=false}'
 			{rdelim}
 		);
 	{rdelim});
 </script>
 
-<form class="pkp_form" id="noteForm" action="{url router=$smarty.const.ROUTE_COMPONENT component="grid.queries.QueryNotesGridHandler" op="insertNote" submissionId=$submission->getId() stageId=$stageId queryId=$query->getId() noteId=$noteId escape=false}" method="post">
+<form class="pkp_form" id="noteForm" action="{url op="insertNote" params=$actionArgs noteId=$noteId escape=false}" method="post">
 
 	{fbvFormSection title="stageParticipants.notify.message" for="comment" required="true"}
 		{fbvElement type="textarea" id="comment" rich=true value=$comment}
 	{/fbvFormSection}
 
 	{fbvFormArea id="queryNoteFilesArea"}
-		{url|assign:queryNoteFilesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.query.QueryNoteFilesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId queryId=$query->getId() noteId=$noteId escape=false}
+		{url|assign:queryNoteFilesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.query.QueryNoteFilesGridHandler" op="fetchGrid" params=$actionArgs noteId=$noteId escape=false}
 		{load_url_in_div id="queryNoteFilesGrid" url=$queryNoteFilesGridUrl}
 	{/fbvFormArea}
 

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file controllers/grid/files/dependent/QueryNoteFilesGridHandler.inc.php
+ * @file controllers/grid/files/query/QueryNoteFilesGridHandler.inc.php
  *
  * Copyright (c) 2014-2015 Simon Fraser University Library
  * Copyright (c) 2003-2015 John Willinsky
@@ -78,7 +78,7 @@ class QueryNoteFilesGridHandler extends FileListGridHandler {
 		$query = $this->getAuthorizedContextObject(ASSOC_TYPE_QUERY);
 
 		import('lib.pkp.controllers.grid.files.query.form.ManageQueryNoteFilesForm');
-		$manageQueryNoteFilesForm = new ManageQueryNoteFilesForm($submission->getId(), $query->getId(), $request->getUserVar('noteId'));
+		$manageQueryNoteFilesForm = new ManageQueryNoteFilesForm($submission->getId(), $query->getId(), $request->getUserVar('noteId'), $this->getRequestArgs());
 		$manageQueryNoteFilesForm->initData($args, $request);
 		return new JSONMessage(true, $manageQueryNoteFilesForm->fetch($request));
 	}

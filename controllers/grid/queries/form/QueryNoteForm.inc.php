@@ -16,14 +16,11 @@
 import('lib.pkp.classes.form.Form');
 
 class QueryNoteForm extends Form {
-	/** @var Submission The submission */
-	var $_submission;
+	/** @var array Action arguments */
+	var $_actionArgs;
 
-	/** @var Query The query to attach the note to */
+	/** @var Query */
 	var $_query;
-
-	/** @var int Stage ID */
-	var $_stageId;
 
 	/** @var int Note ID */
 	var $_noteId;
@@ -33,17 +30,15 @@ class QueryNoteForm extends Form {
 
 	/**
 	 * Constructor.
-	 * @param $submission Submission The submission to attach the note to
-	 * @param $query Query The query to attach the note to
-	 * @param $stageId int The current stage ID
+	 * @param $actionArgs array Action arguments
+	 * @param $query Query
 	 * @param $user User The current user ID
 	 * @param $noteId int The note ID to edit, or null for new.
 	 */
-	function QueryNoteForm($submission, $query, $stageId, $user, $noteId = null) {
+	function QueryNoteForm($actionArgs, $query, $user, $noteId = null) {
 		parent::Form('controllers/grid/queries/form/queryNoteForm.tpl');
+		$this->_actionArgs = $actionArgs;
 		$this->setQuery($query);
-		$this->setSubmission($submission);
-		$this->setStageId($stageId);
 
 		if ($noteId === null) {
 			// Create a new (placeholder) note.
@@ -85,38 +80,6 @@ class QueryNoteForm extends Form {
 	}
 
 	/**
-	 * Get the submission
-	 * @return Submission
-	 */
-	function getSubmission() {
-		return $this->_submission;
-	}
-
-	/**
-	 * Set the submission
-	 * @param @submission Submission
-	 */
-	function setSubmission($submission) {
-		$this->_submission = $submission;
-	}
-
-	/**
-	 * Set the stage ID
-	 * @param $stageId int
-	 */
-	function setStageId($stageId) {
-		$this->_stageId = $stageId;
-	}
-
-	/**
-	 * Get the stage ID
-	 * @return int Stage ID
-	 */
-	function getStageId() {
-		return $this->_stageId;
-	}
-
-	/**
 	 * Assign form data to user-submitted data.
 	 * @see Form::readInputData()
 	 */
@@ -132,9 +95,7 @@ class QueryNoteForm extends Form {
 	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign(array(
-			'query' => $this->getQuery(),
-			'submission' => $this->getSubmission(),
-			'stageId' => $this->getStageId(),
+			'actionArgs' => $this->_actionArgs,
 			'noteId' => $this->_noteId,
 		));
 		return parent::fetch($request, $template, $display);

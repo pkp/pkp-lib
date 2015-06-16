@@ -40,10 +40,18 @@ class QueryUsersListbuilderHandler extends UsersListbuilderHandler {
 
 	/**
 	 * Get the authorized query.
-	 * @return Submission
+	 * @return Query
 	 */
 	function getQuery() {
 		return $this->getAuthorizedContextObject(ASSOC_TYPE_QUERY);
+	}
+
+	/**
+	 * Get the d query.
+	 * @return Representation
+	 */
+	function getRepresentation() {
+		return $this->getAuthorizedContextObject(ASSOC_TYPE_REPRESENTATION);
 	}
 
 	/**
@@ -62,10 +70,12 @@ class QueryUsersListbuilderHandler extends UsersListbuilderHandler {
 	 */
 	function getRequestArgs() {
 		$submission = $this->getSubmission();
+		$representation = $this->getRepresentation();
 		return array(
 			'submissionId' => $submission->getId(),
 			'stageId' => $this->getStageId(),
 			'queryId' => $this->getQuery()->getId(),
+			'representationId' => $representation?$representation->getId():null,
 		);
 	}
 
@@ -78,6 +88,13 @@ class QueryUsersListbuilderHandler extends UsersListbuilderHandler {
 	function authorize($request, &$args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.QueryAccessPolicy');
 		$this->addPolicy(new QueryAccessPolicy($request, $args, $roleAssignments, $request->getUserVar('stageId')));
+
+		// If a representation was specified, authorize it.
+		if ($request->getUserVar('representationId')) {
+			import('lib.pkp.classes.security.authorization.internal.RepresentationRequiredPolicy');
+			$this->addPolicy(new RepresentationRequiredPolicy($request, $args));
+		}
+
 		return parent::authorize($request, $args, $roleAssignments);
 	}
 

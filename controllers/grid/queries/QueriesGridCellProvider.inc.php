@@ -84,12 +84,7 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider {
 
 		$element = $row->getData();
 		$router = $request->getRouter();
-		$actionArgs = array(
-			'submissionId' => $this->_submission->getId(),
-			'stageId' => $this->_stageId,
-			'queryId' => $row->getId(),
-		);
-
+		$actionArgs = $this->getRequestArgs($row);
 		switch ($column->getId()) {
 			case 'closed':
 				if ($this->_canManage) {
@@ -111,6 +106,19 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider {
 				break;
 		}
 		return parent::getCellActions($request, $row, $column);
+	}
+
+	/**
+	 * Get request arguments.
+	 * @param $row GridRow
+	 * @return array
+	 */
+	function getRequestArgs($row) {
+		return array(
+			'submissionId' => $this->_submission->getId(),
+			'stageId' => $this->_stageId,
+			'queryId' => $row->getId(),
+		);
 	}
 }
 

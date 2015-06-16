@@ -71,8 +71,7 @@ class PKPAuthorDashboardHandler extends Handler {
 		$templateMgr->assign('lastReviewRoundNumber', $this->_getLastReviewRoundNumbers($submission));
 
 		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-		$externalReviewRounds = $reviewRoundDao->getBySubmissionId($submission->getId(), WORKFLOW_STAGE_ID_EXTERNAL_REVIEW);
-		$templateMgr->assign('externalReviewRounds', $externalReviewRounds);
+		$templateMgr->assign('externalReviewRounds', $reviewRoundDao->getBySubmissionId($submission->getId(), WORKFLOW_STAGE_ID_EXTERNAL_REVIEW));
 
 		// Get the last review round.
 		$lastReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $currentStage);
@@ -80,10 +79,9 @@ class PKPAuthorDashboardHandler extends Handler {
 		// Create and assign add file link action.
 		if ($fileStage && is_a($lastReviewRound, 'ReviewRound')) {
 			import('lib.pkp.controllers.api.file.linkAction.AddFileLinkAction');
-			$uploadFileAction = new AddFileLinkAction(
+			$templateMgr->assign('uploadFileAction', new AddFileLinkAction(
 				$request, $submission->getId(), $currentStage,
-				array(ROLE_ID_AUTHOR), null, $fileStage, null, null, $lastReviewRound->getId());
-			$templateMgr->assign('uploadFileAction', $uploadFileAction);
+				array(ROLE_ID_AUTHOR), null, $fileStage, null, null, $lastReviewRound->getId()));
 		}
 
 
@@ -93,14 +91,16 @@ class PKPAuthorDashboardHandler extends Handler {
 		$user = $request->getUser();
 
 		if ($submission->getStageId() >= WORKFLOW_STAGE_ID_EDITING) {
-			$copyeditingEmails = $submissionEmailLogDao->getByEventType($submission->getId(), SUBMISSION_EMAIL_COPYEDIT_NOTIFY_AUTHOR, $user->getId());
-			$templateMgr->assign('copyeditingEmails', $copyeditingEmails);
+			$templateMgr->assign('copyeditingEmails', $submissionEmailLogDao->getByEventType($submission->getId(), SUBMISSION_EMAIL_COPYEDIT_NOTIFY_AUTHOR, $user->getId()));
 		}
 
 		// Same for production stage.
 		if ($submission->getStageId() == WORKFLOW_STAGE_ID_PRODUCTION) {
-			$productionEmails = $submissionEmailLogDao->getByEventType($submission->getId(), SUBMISSION_EMAIL_PROOFREAD_NOTIFY_AUTHOR, $user->getId());
-			$templateMgr->assign('productionEmails', $productionEmails);
+			$representationDao = Application::getRepresentationDAO();
+			$templateMgr->assign(array(
+				'productionEmails' => $submissionEmailLogDao->getByEventType($submission->getId(), SUBMISSION_EMAIL_PROOFREAD_NOTIFY_AUTHOR, $user->getId()),
+				'representations' => $representationDao->getBySubmissionId($submission->getId())->toArray(),
+			));
 		}
 
 		// Define the notification options.

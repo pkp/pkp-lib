@@ -50,12 +50,7 @@ class QueryNoteFilesGridDataProvider extends SubmissionFilesGridDataProvider {
 		import('lib.pkp.controllers.grid.files.fileList.linkAction.SelectFilesLinkAction');
 		return new SelectFilesLinkAction(
 			$request,
-			array(
-				'submissionId' => $this->getSubmission()->getId(),
-				'stageId' => $this->getStageId(),
-				'queryId' => $query->getId(),
-				'noteId' => $this->_noteId,
-			),
+			$this->getRequestArgs(),
 			__('editor.submission.selectFiles')
 		);
 	}
@@ -84,6 +79,7 @@ class QueryNoteFilesGridDataProvider extends SubmissionFilesGridDataProvider {
 	 */
 	function getRequestArgs() {
 		$query = $this->getAuthorizedContextObject(ASSOC_TYPE_QUERY);
+		$representation = $this->getAuthorizedContextObject(ASSOC_TYPE_REPRESENTATION);
 		return array_merge(
 			parent::getRequestArgs(),
 			array(
@@ -91,6 +87,7 @@ class QueryNoteFilesGridDataProvider extends SubmissionFilesGridDataProvider {
 				'assocId' => $this->_noteId,
 				'queryId' => $query->getId(),
 				'noteId' => $this->_noteId,
+				'representationId' => $representation?$representation->getId():null,
 			)
 		);
 	}

@@ -13,8 +13,8 @@
 		$('#readQueryContainer').pkpHandler(
 			'$.pkp.controllers.grid.queries.ReadQueryHandler',
 			{ldelim}
-				fetchNoteFormUrl: '{url|escape:"javascript" router=$smarty.const.ROUTE_COMPONENT component="grid.queries.QueryNotesGridHandler" op="addNote" submissionId=$submission->getId() stageId=$stageId queryId=$query->getId() escape=false}',
-				fetchParticipantsListUrl: '{url|escape:"javascript" router=$smarty.const.ROUTE_COMPONENT component="grid.queries.QueriesGridHandler" op="participants" submissionId=$submission->getId() stageId=$stageId queryId=$query->getId() escape=false}'
+				fetchNoteFormUrl: '{url|escape:"javascript" router=$smarty.const.ROUTE_COMPONENT component=$queryNotesGridHandlerName op="addNote" params=$requestArgs queryId=$query->getId() escape=false}',
+				fetchParticipantsListUrl: '{url|escape:"javascript" router=$smarty.const.ROUTE_COMPONENT component="grid.queries.QueriesGridHandler" op="participants" params=$requestArgs queryId=$query->getId() escape=false}'
 			{rdelim}
 		);
 	{rdelim});
@@ -29,7 +29,7 @@
 		<ul class="pkp_helpers_clear" id="participantsListPlaceholder"></ul>
 	</div>
 
-	{url|assign:queryNotesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.queries.QueryNotesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId queryId=$query->getId() escape=false}
+	{url|assign:queryNotesGridUrl router=$smarty.const.ROUTE_COMPONENT component=$queryNotesGridHandlerName op="fetchGrid" params=$requestArgs queryId=$query->getId() escape=false}
 	{load_url_in_div id="queryNotesGrid" url=$queryNotesGridUrl}
 
 	{null_link_action id="openNoteForm" key="submission.query.addNote" image="add"}

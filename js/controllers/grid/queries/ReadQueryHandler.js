@@ -133,18 +133,18 @@
 
 
 	/**
-         * Handler to redirect to the correct notification widget the
-         * notify user event.
-         * @param {HTMLElement} sourceElement The element that issued the
-         * "notifyUser" event.
-         * @param {Event} event The "notify user" event.
-         * @param {HTMLElement} triggerElement The element that triggered
-         * the "notifyUser" event.
-         * @private
-         */
-        $.pkp.controllers.grid.queries.ReadQueryHandler.prototype.tester_ = 
-                        function(sourceElement, event, triggerElement) {
+	 * Handler to redirect to the correct notification widget the
+	 * notify user event.
+	 * @param {HTMLElement} sourceElement The element that issued the
+	 * "notifyUser" event.
+	 * @param {Event} event The "notify user" event.
+	 * @param {HTMLElement} triggerElement The element that triggered
+	 * the "notifyUser" event.
+	 * @private
+	 */
+	$.pkp.controllers.grid.queries.ReadQueryHandler.prototype.tester_ =
+			function(sourceElement, event, triggerElement) {
 		this.loadParticipantsList();
-        };
+	};
 /** @param {jQuery} $ jQuery closure. */
 }(jQuery));

@@ -26,7 +26,7 @@ class DependentFilesGridDataProvider extends SubmissionFilesGridDataProvider {
 
 	/**
 	 * Constructor
-	 * @param $fileStage integer One of the SUBMISSION_FILE_* constants.
+	 * @param $assocId int Association ID
 	 */
 	function DependentFilesGridDataProvider($assocId) {
 		assert(is_numeric($assocId));

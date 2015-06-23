@@ -36,10 +36,6 @@
 						</div>
 					{/foreach}
 				</div>
-
-				<!-- Display production files grid -->
-				{url|assign:productionFilesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.proof.AuthorProofingSignoffFilesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$smarty.const.WORKFLOW_STAGE_ID_EDITING escape=false}
-				{load_url_in_div id="productionFilesGridDiv" url=$productionFilesGridUrl}
 			{else}
 				{translate key="submission.stageNotInitiated"}
 			{/if}

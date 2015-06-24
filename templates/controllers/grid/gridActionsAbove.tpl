@@ -8,8 +8,10 @@
  * Actions markup for upper grid actions
  *}
 
-<span class="options">
+<ul class="actions">
 	{foreach from=$actions item=action}
-		{include file="linkAction/linkAction.tpl" action=$action contextId=$gridId}
+        <li>
+		    {include file="linkAction/linkAction.tpl" action=$action contextId=$gridId}
+        </li>
 	{/foreach}
-</span>
+</ul>

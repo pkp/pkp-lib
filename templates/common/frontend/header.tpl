@@ -56,6 +56,13 @@
 				</h1>
 
 				{* Primary site navigation *}
+                <script type="text/javascript">
+                    // Attach the JS file tab handler.
+                    $(function() {ldelim}
+                        $('#navigationPrimary').pkpHandler(
+                                '$.pkp.controllers.MenuHandler');
+                    {rdelim});
+                 </script>
 				<ul id="navigationPrimary" class="pkp_navigation_primary pkp_nav_list">
 
 					{if $enableAnnouncements}

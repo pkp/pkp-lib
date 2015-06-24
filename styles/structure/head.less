@@ -43,13 +43,24 @@
 }
 
 .pkp_nav_list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+    font-size: @font-sml;
 
     li {
+        position: relative;
         display: block;
     }
 
     ul {
-        top: 0;
+		position: absolute;
+		top: 0;
+		left: -9999px;
+		z-index: 1000;
+		width: 192px;
+		padding: 0;
+		background: @primary-lift;
     }
 
     li:hover > ul,
@@ -65,6 +76,26 @@
         border-right: 4px solid transparent;
     }
 
+	a {
+		display: block;
+        padding: 12px @half 12px @base; // 48 height with line height
+        line-height: 24px;
+        border-left: @half solid transparent;
+		color: #fff;
+		text-decoration: none;
+
+		&:hover,
+		&:focus {
+            border-color: @bg;
+			background: @primary-lift;
+			color: #fff;
+		}
+	}
+
+    ul a:hover,
+    ul a:focus {
+        background: @primary;
+    }
 }
 
 .pkp_navigation_primary {

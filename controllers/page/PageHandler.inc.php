@@ -89,13 +89,11 @@ class PageHandler extends Handler {
 			}
 		}
 
+		// OMP only
 		if ($context) {
 			import('pages.about.AboutContextHandler');
 			if (in_array('IAboutContextInfoProvider', class_implements('AboutContextHandler'))) {
 				$templateMgr->assign('contextInfo', AboutContextHandler::getAboutInfo($context));
-			} else {
-				$settingsDao = $context->getSettingsDAO();
-				$templateMgr->assign('contextSettings', $settingsDao->getSettings($context->getId()));
 			}
 		}
 

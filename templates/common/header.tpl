@@ -39,6 +39,13 @@
 
 					{* Primary navigation menu *}
 					{if $isUserLoggedIn}
+                        <script type="text/javascript">
+                            // Attach the JS file tab handler.
+                            $(function() {ldelim}
+                                $('#navigationPrimary').pkpHandler(
+                                        '$.pkp.controllers.MenuHandler');
+                            {rdelim});
+                         </script>
 						<ul id="navigationPrimary" class="pkp_navigation_primary pkp_nav_list">
 
 							{if array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR), $userRoles)}

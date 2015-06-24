@@ -129,13 +129,13 @@ class PKPTemplateManager extends Smarty {
 		}
 
 		// Add uncompilable styles
-		$this->addStyleSheet($this->_request->getBaseUrl() . '/styles/lib.css', STYLE_SEQUENCE_CORE);
+		$this->addStyleSheet($this->_request->getBaseUrl() . '/styles/lib.css', STYLE_SEQUENCE_CORE, 'backend');
 		if ($dispatcher = $this->_request->getDispatcher()) {
-			$this->addStyleSheet($dispatcher->url($this->_request, ROUTE_COMPONENT, null, 'page.PageHandler', 'css'), STYLE_SEQUENCE_CORE);
+			$this->addStyleSheet($dispatcher->url($this->_request, ROUTE_COMPONENT, null, 'page.PageHandler', 'css'), STYLE_SEQUENCE_CORE, 'backend');
 		}
 
 		// If there's a locale-specific stylesheet, add it.
-		if (($localeStyleSheet = AppLocale::getLocaleStyleSheet($locale)) != null) $this->addStyleSheet($this->_request->getBaseUrl() . '/' . $localeStyleSheet);
+		if (($localeStyleSheet = AppLocale::getLocaleStyleSheet($locale)) != null) $this->addStyleSheet($this->_request->getBaseUrl() . '/' . $localeStyleSheet, 'backend');
 
 		// Register custom functions
 		$this->register_modifier('translate', array('AppLocale', 'translate'));
@@ -190,6 +190,9 @@ class PKPTemplateManager extends Smarty {
 		// ajax load into a div or any element
 		$this->register_function('load_url_in_el', array($this, 'smartyLoadUrlInEl'));
 		$this->register_function('load_url_in_div', array($this, 'smartyLoadUrlInDiv'));
+
+		// load stylesheets from a given context
+		$this->register_function('load_stylesheet', array($this, 'smartyLoadStylesheet'));
 
 		/**
 		 * Kludge to make sure no code that tries to connect to the
@@ -250,9 +253,10 @@ class PKPTemplateManager extends Smarty {
 	 * Add a page-specific style sheet.
 	 * @param $url string the URL to the style sheet
 	 * @param $priority int STYLE_SEQUENCE_...
+	 * @param $context string where stylesheet should be used
 	 */
-	function addStyleSheet($url, $priority = STYLE_SEQUENCE_NORMAL) {
-		$this->_styleSheets[$priority][] = $url;
+	function addStyleSheet($url, $priority = STYLE_SEQUENCE_NORMAL, $context = 'frontend') {
+		$this->_styleSheets[$context][$priority][] = $url;
 	}
 
 	/**
@@ -281,7 +285,9 @@ class PKPTemplateManager extends Smarty {
 			$this->assign('additionalHeadData', $additionalHeadData."\n".$javaScript);
 		}
 
-		ksort($this->_styleSheets);
+		foreach( $this->_styleSheets as &$list ) {
+			ksort( $list );
+		}
 		$this->assign('stylesheets', $this->_styleSheets);
 
 		$result = null;
@@ -1118,6 +1124,39 @@ class PKPTemplateManager extends Smarty {
 	function smartyLoadUrlInDiv($params, $smarty) {
 		$params['el'] = 'div';
 		return $this->smartyLoadUrlInEl( $params, $smarty );
+	}
+
+	/**
+	 * Smarty usage: {load_stylesheet context="frontend"}
+	 *
+	 * Custom Smarty function for printing stylesheets attached to a context.
+	 * @param $params array associative array
+	 * @param $smarty Smarty
+	 * @return string of HTML/Javascript
+	 */
+	function smartyLoadStylesheet($params, $smarty) {
+
+		if (empty($params['stylesheets'])) {
+			return;
+		}
+
+		if (empty($params['context'])) {
+			$context = 'frontend';
+		}
+
+		$output = '';
+		foreach($params['stylesheets'] as $context => $priorityList) {
+			if ($context != $params['context']) {
+				continue;
+			}
+			foreach($priorityList as $files) {
+				foreach($files as $url) {
+					$output .= '<link rel="stylesheet" href="' . $url . '" type="text/css" />';
+				}
+			}
+		}
+
+		return $output;
 	}
 }
 

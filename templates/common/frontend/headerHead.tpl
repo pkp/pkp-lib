@@ -28,11 +28,7 @@
 	{include file="common/validate.tpl"}
 	{include file="common/plupload.tpl"}
 
-	{foreach from=$stylesheets item=styleSheetList}{* For all priority sets STYLE_PRIORITY_... *}
-		{foreach from=$styleSheetList item=cssUrl}{* For all stylesheet URLs within this priority set *}
-			<link rel="stylesheet" href="{$cssUrl}" type="text/css" />
-		{/foreach}
-	{/foreach}
+    {load_stylesheet context="frontend" stylesheets=$stylesheets}
 
 	<!-- Constants for JavaScript -->
 	{include file="common/jsConstants.tpl"}

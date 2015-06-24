@@ -253,10 +253,13 @@ class PKPTemplateManager extends Smarty {
 	 * Add a page-specific style sheet.
 	 * @param $url string the URL to the style sheet
 	 * @param $priority int STYLE_SEQUENCE_...
-	 * @param $context string where stylesheet should be used
+	 * @param $contexts string|array where stylesheet should be used
 	 */
-	function addStyleSheet($url, $priority = STYLE_SEQUENCE_NORMAL, $context = 'frontend') {
-		$this->_styleSheets[$context][$priority][] = $url;
+	function addStyleSheet($url, $priority = STYLE_SEQUENCE_NORMAL, $contexts = array('frontend') ) {
+		$contexts = (array) $contexts;
+		foreach($contexts as $context) {
+			$this->_styleSheets[$context][$priority][] = $url;
+		}
 	}
 
 	/**

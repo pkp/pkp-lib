@@ -14,8 +14,7 @@ html {
 	height: 100%;
 }
 
-// @todo front/back wrapper
-.pkp_page_dashboard {
+body {
 	position: relative;
 	height: auto;
 	min-height: 100%;
@@ -25,112 +24,112 @@ html {
 	line-height: @line-base;
 	color: @text;
 	color: @text-rgba;
+}
 
-	a {
-		color: @primary-lift;
+a {
+	color: @primary-lift;
 
-		&:hover,
-		&:focus {
-			color: @primary;
+	&:hover,
+	&:focus {
+		color: @primary;
+	}
+}
+
+.pkp_page_title {
+	color: @text-light;
+	color: @text-light-rgba;
+
+	h2 {
+		font-size: @font-lead;
+	}
+
+	h3 {
+		font-size: @font-sml;
+		font-weight: @normal;
+	}
+
+	* {
+		margin: 0;
+
+		&:last-child {
+			margin-bottom: @double;
+		}
+	}
+}
+
+.pkp_structure_foot,
+.pkp_structure_body {
+	margin: 0 @double 0 192px;
+	padding: @double;
+}
+
+// @todo kill the fixed width
+.pkp_structure_body,
+.pkp_structure_content {
+	width: auto;
+}
+
+// Context panel
+@pkp_context_panel_width: 192px;
+.pkp_context_panel {
+	position: absolute;
+	top: @double;
+	right: @double;
+	width: @pkp_context_panel_width;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	> li {
+		margin-bottom: @double;
+
+		&:last-child {
+			margin-bottom: 0;
 		}
 	}
 
-	.pkp_page_title {
-		color: @text-light;
-		color: @text-light-rgba;
-
-		h2 {
-			font-size: @font-lead;
-		}
-
-		h3 {
-			font-size: @font-sml;
-			font-weight: @normal;
-		}
-
-		* {
-			margin: 0;
-
-			&:last-child {
-				margin-bottom: @double;
-			}
-		}
-	}
-
-	.pkp_structure_foot,
-	.pkp_structure_body {
-		margin: 0 @double 0 192px;
-		padding: @double;
-	}
-
-	// @todo kill the fixed width
-	.pkp_structure_body,
-	.pkp_structure_content {
-		width: auto;
-	}
-
-	// Context panel
-	@pkp_context_panel_width: 192px;
-	.pkp_context_panel {
-		position: absolute;
-		top: @double;
-		right: @double;
-		width: @pkp_context_panel_width;
+	ul {
 		margin: 0;
 		padding: 0;
 		list-style: none;
+	}
 
-		> li {
-			margin-bottom: @double;
+	.pkp_context_actions {
+
+		li {
+			margin-bottom: @base;
 
 			&:last-child {
 				margin-bottom: 0;
 			}
 		}
 
-		ul {
-			margin: 0;
-			padding: 0;
-			list-style: none;
-		}
-
-		.pkp_context_actions {
-
-			li {
-				margin-bottom: @base;
-
-				&:last-child {
-					margin-bottom: 0;
-				}
-			}
-
-			button {
-				width: 100%;
-			}
+		button {
+			width: 100%;
 		}
 	}
+}
 
-	// Content panel {
-	.pkp_content_panel {
-		margin-right: @pkp_context_panel_width + @double;
-	}
+// Content panel {
+.pkp_content_panel {
+	margin-right: @pkp_context_panel_width + @double;
+}
 
-	// @todo temporary!
-	#sidebarContainer {
-		// @note UrlInDivHandler.js is calling .fadeIn() on the elements after
-		// they're loaded in, which leaves a display: block style element
-		display: none !important;
-	}
+// @todo temporary!
+#sidebarContainer {
+	// @note UrlInDivHandler.js is calling .fadeIn() on the elements after
+	// they're loaded in, which leaves a display: block style element
+	display: none !important;
+}
 
-	// @todo temporary!
-	.pkp_structure_foot {
-		display: none;
-	}
+// @todo temporary!
+.pkp_structure_foot {
+	display: none;
+}
 
-	// @todo temporary! no search on backend
-	.pkp_structure_search {
-		display: none;
-	}
+// @todo temporary! no search on backend
+.pkp_structure_search {
+	display: none;
 }
 
 // @todo temporary to keep the UI workable until better system in place

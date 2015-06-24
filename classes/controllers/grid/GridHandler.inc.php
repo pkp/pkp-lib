@@ -614,7 +614,8 @@ class GridHandler extends PKPHandler {
 					new NullAction(),
 					'',
 					'search_extras_expand'
-				));
+				)
+			);
 		}
 
 		// Give a chance to grid add features before calling hooks.
@@ -651,7 +652,7 @@ class GridHandler extends PKPHandler {
 		$this->setFirstDataColumn();
 		$columns = $this->getColumns();
 		$templateMgr->assign('columns', $columns);
-		
+
 		$this->_fixColumnWidths();
 
 		// Do specific actions to fetch this grid.
@@ -1174,7 +1175,7 @@ class GridHandler extends PKPHandler {
 						if ($totalWidth < 100) {
 							$removeValue -= 100 - $totalWidth;
 						}
-					} 
+					}
 
 					$modifyColumn->addFlag('width', $modifyColumn->getFlag('width') - $removeValue);
 				}

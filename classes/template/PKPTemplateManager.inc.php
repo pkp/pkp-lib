@@ -1127,7 +1127,7 @@ class PKPTemplateManager extends Smarty {
 	}
 
 	/**
-	 * Smarty usage: {load_stylesheet context="frontend"}
+	 * Smarty usage: {load_stylesheet context="frontend" stylesheets=$stylesheets}
 	 *
 	 * Custom Smarty function for printing stylesheets attached to a context.
 	 * @param $params array associative array

@@ -13,13 +13,27 @@
 * can also be updated dynamically via the javascript event
 * called updateUnreadNotificationsCount.
 *}
-<a href="#" id="notificationsToggle">
-	{translate key="common.tasks"}
-    <span id="unreadNotificationCount" class="task-count">
-        {$unreadNotificationCount}
-    </span>
-</a>
-<div id="notificationsPopover" style="display: none;">
-	{url|assign:notificationsGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.notifications.NotificationsGridHandler" op="fetchGrid" escape=false}
-	{load_url_in_div id="notificationsGrid" url=$notificationsGridUrl}
+<script type="text/javascript">
+    // Initialise JS handler.
+    $(function() {ldelim}
+        $('#userTasks').pkpHandler(
+            '$.pkp.pages.header.TasksHandler',
+            {ldelim}
+                requestedPage: '{$requestedPage|escape:"javascript"}',
+                fetchUnreadNotificationsCountUrl: '{url|escape:javascript router=$smarty.const.ROUTE_COMPONENT component="grid.notifications.NotificationsGridHandler" op="getUnreadNotificationsCount"}'
+            {rdelim}
+        );
+    {rdelim});
+</script>
+<div id="userTasks">
+    <a href="#" id="notificationsToggle">
+    	{translate key="common.tasks"}
+        <span id="unreadNotificationCount" class="task-count">
+            {$unreadNotificationCount}
+        </span>
+    </a>
+    <div id="notificationsPopover">
+    	{url|assign:notificationsGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.notifications.NotificationsGridHandler" op="fetchGrid" escape=false}
+    	{load_url_in_div id="notificationsGrid" url=$notificationsGridUrl}
+    </div>
 </div>

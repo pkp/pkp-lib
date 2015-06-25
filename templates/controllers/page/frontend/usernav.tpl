@@ -1,11 +1,11 @@
 {**
- * templates/controllers/page/header.tpl
+ * templates/controllers/page/frontend/userMenu.tpl
  *
  * Copyright (c) 2014-2015 Simon Fraser University Library
  * Copyright (c) 2003-2015 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * Common site header div contents.
+ * User-context menu for the frontend
  *}
 <script type="text/javascript">
 	// Initialise JS handler.
@@ -18,4 +18,4 @@
 			{rdelim});
 	{rdelim});
 </script>
-{include file="header/sitenav.tpl"}
+{include file="header/frontend/usernav.tpl"}

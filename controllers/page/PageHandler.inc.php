@@ -34,7 +34,7 @@ class PageHandler extends Handler {
 		import('lib.pkp.classes.security.authorization.PKPSiteAccessPolicy');
 		$this->addPolicy(new PKPSiteAccessPolicy(
 			$request,
-			array('header', 'sidebar', 'css'),
+			array('userNav', 'userNavBackend', 'tasks', 'sidebar', 'css'),
 			SITE_ACCESS_ALL_ROLES
 		));
 		if (!Config::getVar('general', 'installed')) define('SESSION_DISABLE_INIT', true);
@@ -46,67 +46,50 @@ class PageHandler extends Handler {
 	// Public operations
 	//
 	/**
-	 * Display the header.
+	 * Display the frontend user-context menu.
 	 * @param $args array
 	 * @param $request PKPRequest
 	 * @return JSONMessage JSON object
 	 */
-	function header($args, $request) {
+	function userNav($args, $request) {
 		$this->setupTemplate($request);
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER); // Management menu items
 		$templateMgr = TemplateManager::getManager($request);
 
-		$workingContexts = $this->getWorkingContexts($request);
-		$context = $request->getContext();
+		$this->setupHeader($args, $request);
 
-		if ($workingContexts && $workingContexts->getCount() > 1) {
-			$dispatcher = $request->getDispatcher();
-			$contextsNameAndUrl = array();
-			while ($workingContext = $workingContexts->next()) {
-				$contextUrl = $dispatcher->url($request, ROUTE_PAGE, $workingContext->getPath());
-				$contextsNameAndUrl[$contextUrl] = $workingContext->getLocalizedName();
-			}
+		return $templateMgr->fetchJson('controllers/page/frontend/usernav.tpl');
+	}
 
-			// Get the current context switcher value. We don´t need to worry about the
-			// value when there is no current context, because then the switcher will not
-			// be visible.
-			$currentContextUrl = null;
-			if ($context) {
-				$currentContextUrl = $dispatcher->url($request, ROUTE_PAGE, $context->getPath());
-			} else {
-				$contextsNameAndUrl = array(__('context.select')) + $contextsNameAndUrl;
-			}
+	/**
+	 * Display the backend user-context menu.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
+	 */
+	function userNavBackend($args, $request) {
+		$this->setupTemplate($request);
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER); // Management menu items
+		$templateMgr = TemplateManager::getManager($request);
 
-			$templateMgr->assign(array(
-				'currentContextUrl' => $currentContextUrl,
-				'contextsNameAndUrl' => $contextsNameAndUrl,
-				'multipleContexts' => true
-			));
-		} else {
-			$templateMgr->assign('noContextsConfigured', true);
-			if (!$workingContexts) {
-				$templateMgr->assign('notInstalled', true);
-			}
-		}
+		$this->setupHeader($args, $request);
 
-		// OMP only
-		if ($context) {
-			import('pages.about.AboutContextHandler');
-			if (in_array('IAboutContextInfoProvider', class_implements('AboutContextHandler'))) {
-				$templateMgr->assign('contextInfo', AboutContextHandler::getAboutInfo($context));
-			}
-		}
+		return $templateMgr->fetchJson('controllers/page/usernav.tpl');
+	}
 
-		if (!defined('SESSION_DISABLE_INIT') && $user = $request->getUser()) {
-			// Get a count of unread tasks.
-			$notificationDao = DAORegistry::getDAO('NotificationDAO');
+	/**
+	 * Display the tasks component
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
+	 */
+	function tasks($args, $request) {
+		$this->setupTemplate($request);
+		$templateMgr = TemplateManager::getManager($request);
 
-			// Exclude certain tasks, defined in the notifications grid handler
-			import('lib.pkp.controllers.grid.notifications.NotificationsGridHandler');
-			$templateMgr->assign('unreadNotificationCount', $notificationDao->getNotificationCount(false, $user->getId(), null, NOTIFICATION_LEVEL_TASK, NotificationsGridHandler::getNotListableTaskTypes()));
-		}
+		$this->setupTasks($args, $request);
 
-		return $templateMgr->fetchJson('controllers/page/header.tpl');
+		return $templateMgr->fetchJson('controllers/page/tasks.tpl');
 	}
 
 	/**
@@ -172,6 +155,81 @@ class PageHandler extends Handler {
 					header('Content-Length: ' . strlen($result));
 					echo $result;
 				}
+		}
+	}
+	/**
+	 * Setup and assign variables for any templates that want the overall header
+	 * context.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
+	 */
+	private function setupHeader($args, $request) {
+
+		$templateMgr = TemplateManager::getManager($request);
+
+		$workingContexts = $this->getWorkingContexts($request);
+		$context = $request->getContext();
+
+		if ($workingContexts && $workingContexts->getCount() > 1) {
+			$dispatcher = $request->getDispatcher();
+			$contextsNameAndUrl = array();
+			while ($workingContext = $workingContexts->next()) {
+				$contextUrl = $dispatcher->url($request, ROUTE_PAGE, $workingContext->getPath());
+				$contextsNameAndUrl[$contextUrl] = $workingContext->getLocalizedName();
+			}
+
+			// Get the current context switcher value. We don´t need to worry about the
+			// value when there is no current context, because then the switcher will not
+			// be visible.
+			$currentContextUrl = null;
+			if ($context) {
+				$currentContextUrl = $dispatcher->url($request, ROUTE_PAGE, $context->getPath());
+			} else {
+				$contextsNameAndUrl = array(__('context.select')) + $contextsNameAndUrl;
+			}
+
+			$templateMgr->assign(array(
+				'currentContextUrl' => $currentContextUrl,
+				'contextsNameAndUrl' => $contextsNameAndUrl,
+				'multipleContexts' => true
+			));
+		} else {
+			$templateMgr->assign('noContextsConfigured', true);
+			if (!$workingContexts) {
+				$templateMgr->assign('notInstalled', true);
+			}
+		}
+
+		// OMP only
+		if ($context) {
+			import('pages.about.AboutContextHandler');
+			if (in_array('IAboutContextInfoProvider', class_implements('AboutContextHandler'))) {
+				$templateMgr->assign('contextInfo', AboutContextHandler::getAboutInfo($context));
+			}
+		}
+
+		$this->setupTasks($args, $request);
+	}
+
+	/**
+	 * Setup and assign variables for the tasks component.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @param $templateMgr TemplateManager
+	 * @return TemplateManager
+	 */
+	private function setupTasks($args, $request) {
+
+		$templateMgr = TemplateManager::getManager($request);
+
+		if (!defined('SESSION_DISABLE_INIT') && $user = $request->getUser()) {
+			// Get a count of unread tasks.
+			$notificationDao = DAORegistry::getDAO('NotificationDAO');
+
+			// Exclude certain tasks, defined in the notifications grid handler
+			import('lib.pkp.controllers.grid.notifications.NotificationsGridHandler');
+			$templateMgr->assign('unreadNotificationCount', $notificationDao->getNotificationCount(false, $user->getId(), null, NOTIFICATION_LEVEL_TASK, NotificationsGridHandler::getNotListableTaskTypes()));
 		}
 	}
 }

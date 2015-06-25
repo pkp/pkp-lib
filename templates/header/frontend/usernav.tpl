@@ -1,5 +1,5 @@
 {**
- * templates/header/sitenav.tpl
+ * templates/header/frontend/usernav.tpl
  *
  * Copyright (c) 2014-2015 Simon Fraser University Library
  * Copyright (c) 2003-2015 John Willinsky
@@ -16,18 +16,9 @@
  </script>
 <ul id="navigationUser" class="pkp_navigation_user pkp_nav_list">
 	{if $isUserLoggedIn}
-		<li class="notificationsLinkContainer">
-			{**
-			 * Unread notifications count is set here on header load, but
-			 * can also be updated dynamically via the javascript event
-			 * called updateUnreadNotificationsCount.
-			 *}
-			<a href="#" id="notificationsToggle">{translate key="common.tasks"} (<span id="unreadNotificationCount">{$unreadNotificationCount}</span>)</a>
-			<div id="notificationsPopover" style="display: none;">
-				{url|assign:notificationsGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.notifications.NotificationsGridHandler" op="fetchGrid" escape=false}
-				{load_url_in_div id="notificationsGrid" url=$notificationsGridUrl}
-			</div>
-		</li>
+        <li>
+            {include file="controllers/page/tasks.tpl"}
+        </li>
 		<li class="profile has-submenu">
 			<a href="{url router=$smarty.const.ROUTE_PAGE page="dashboard"}">{$loggedInUsername|escape}</a>
 			<ul>
@@ -72,8 +63,5 @@
 			<li><a href="{url router=$smarty.const.ROUTE_PAGE page="user" op="register"}">{translate key="navigation.register"}</a></li>
 		{/if}
 		<li><a href="{url router=$smarty.const.ROUTE_PAGE page="login"}">{translate key="navigation.login"}</a></li>
-	{/if}
-	{if $multipleContexts}
-		<li>{include file="header/contextSwitcher.tpl"}</li>
 	{/if}
 </ul>

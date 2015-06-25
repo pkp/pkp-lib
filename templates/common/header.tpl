@@ -32,21 +32,24 @@
 			<header class="pkp_structure_head">
 				<nav class="pkp_navigation" id="headerNavigationContainer">
 					<h1>
-						<a href="{$homeUrl}">
+						<a href="{url router=$smarty.const.ROUTE_PAGE page="dashboard"}">
 							<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" width="{$displayPageHeaderLogo.width|escape}" height="{$displayPageHeaderLogo.height|escape}" {if $displayPageHeaderLogoAltText != ''}alt="{$displayPageHeaderLogoAltText|escape}"{else}alt="{translate key="common.pageHeaderLogo.altText"}"{/if} />
 						</a>
 					</h1>
 
 					{* Primary navigation menu *}
 					{if $isUserLoggedIn}
-                        <script type="text/javascript">
-                            // Attach the JS file tab handler.
-                            $(function() {ldelim}
-                                $('#navigationPrimary').pkpHandler(
-                                        '$.pkp.controllers.MenuHandler');
-                            {rdelim});
-                         </script>
+						<script type="text/javascript">
+							// Attach the JS file tab handler.
+							$(function() {ldelim}
+								$('#navigationPrimary').pkpHandler(
+										'$.pkp.controllers.MenuHandler');
+							{rdelim});
+						 </script>
 						<ul id="navigationPrimary" class="pkp_navigation_primary pkp_nav_list">
+
+							{url|assign:fetchTaskUrl router=$smarty.const.ROUTE_COMPONENT component="page.PageHandler" op="tasks" escape=false}
+							{load_url_in_el el="li" class="pkp_tasks" id="userTasks" url=$fetchTaskUrl}
 
 							{if array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR), $userRoles)}
 								<li>
@@ -78,7 +81,7 @@
 						</ul>
 					{/if}
 
-					{url|assign:fetchHeaderUrl router=$smarty.const.ROUTE_COMPONENT component="page.PageHandler" op="header" escape=false}
+					{url|assign:fetchHeaderUrl router=$smarty.const.ROUTE_COMPONENT component="page.PageHandler" op="userNavBackend" escape=false}
 					{load_url_in_div class="pkp_structure_nav_wrapper" id="userNavContainer" url=$fetchHeaderUrl}
 				</nav><!-- pkp_navigation -->
 			</header>

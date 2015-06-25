@@ -36,6 +36,11 @@
 
 				{* Logo or site title *}
 				<h1>
+                    {if $currentJournal && $multipleContexts}
+                        {url|assign:"homeUrl" journal="index" router=$smarty.const.ROUTE_PAGE}
+                    {else}
+                        {url|assign:"homeUrl" page="index" router=$smarty.const.ROUTE_PAGE}
+                    {/if}
 					{if $displayPageHeaderLogo && is_array($displayPageHeaderLogo)}
 						<a href="{$homeUrl}">
 							<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" width="{$displayPageHeaderLogo.width|escape}" height="{$displayPageHeaderLogo.height|escape}" {if $displayPageHeaderLogoAltText != ''}alt="{$displayPageHeaderLogoAltText|escape}"{else}alt="{translate key="common.pageHeaderLogo.altText"}"{/if} />
@@ -50,7 +55,7 @@
 						<a href="{$homeUrl}">{$alternatePageHeader}</a>
 					{else}
 						<a href="{$homeUrl}">
-							<img src="{$baseUrl}/{$logoImage}" alt="{$applicationName|escape}" title="{$applicationName|escape}" width="180" height="90" />
+							<img src="{$baseUrl}/templates/images/structure/ojs_logo.png" alt="{$applicationName|escape}" title="{$applicationName|escape}" width="180" height="90" />
 						</a>
 					{/if}
 				</h1>
@@ -130,7 +135,7 @@
 				</ul>
 
 				{* User-specific login, settings and task management *}
-				{url|assign:fetchHeaderUrl router=$smarty.const.ROUTE_COMPONENT component="page.PageHandler" op="header" escape=false}
+				{url|assign:fetchHeaderUrl router=$smarty.const.ROUTE_COMPONENT component="page.PageHandler" op="userNav" escape=false}
 				{load_url_in_div class="pkp_wrapper_user_nav" id="userNavContainer" url=$fetchHeaderUrl}
 
 			</nav><!-- pkp_navigation -->

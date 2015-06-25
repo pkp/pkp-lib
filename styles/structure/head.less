@@ -10,6 +10,7 @@
  * @brief Classes for the page header structural elements
  */
 
+// Left navigation panel
 .pkp_structure_head {
     width: 192px;
     height: 100%;
@@ -46,6 +47,7 @@
     }
 }
 
+// Shared vertical navigation menu with support for nested hierarchy
 .pkp_nav_list {
 	margin: 0;
 	padding: 0;
@@ -119,12 +121,13 @@
     }
 }
 
+// Primary navigation menu
 .pkp_navigation_primary {
     position: relative;
     bottom: auto;
     left: auto;
 
-    .tasks {
+    .pkp_tasks {
 
         a {
             background: @offset;
@@ -135,25 +138,9 @@
             }
         }
     }
-
-    .task-count {
-        display: inline-block;
-        width: 22px;
-        height: 22px;
-        line-height: 22px;
-        border-radius: 50%;
-        background: #fff;
-        color: @primary;
-        vertical-align: middle;
-        text-align: center;
-    }
-
-    .pkp_spinner,
-    .task-count {
-        margin-left: 0.25em;
-    }
 }
 
+// User-specific navigation menu
 .pkp_navigation_user {
     position: fixed;
     bottom: 0;
@@ -186,7 +173,34 @@
     }
 }
 
-// Hide tasks panel until requested
-#notificationsPopover {
-    display: none;
+// Tasks panel
+.pkp_tasks {
+    position: relative;
+
+    .task-count {
+        display: inline-block;
+        width: 22px;
+        height: 22px;
+        line-height: 22px;
+        border-radius: 50%;
+        background: #fff;
+        color: @primary;
+        vertical-align: middle;
+        text-align: center;
+    }
+
+    .pkp_spinner,
+    .task-count {
+        margin-left: 0.25em;
+    }
+
+    .panel {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 100%;
+        width: 384px - @double;
+        padding: @base;
+        background: @offset-shade;
+    }
 }

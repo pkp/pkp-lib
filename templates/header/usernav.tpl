@@ -16,8 +16,9 @@
  </script>
 <ul id="navigationUser" class="pkp_navigation_user pkp_nav_list">
     {if $multipleContexts}
-        <li class="journals has-submenu">
+        <li class="has-submenu">
             <a href="#">
+                <span class="fa fa-sitemap"></span>
                 {translate key="navigation.switchJournals"}
             </a>
             <ul>
@@ -37,8 +38,9 @@
         {url|assign:"homeUrl" journal="index" router=$smarty.const.ROUTE_PAGE}
     {/if}
     {if $homeUrl}
-        <li class="view-frontend">
+        <li>
             <a href="{$homeUrl}">
+                <span class="fa fa-eye"></span>
                 {translate key="navigation.viewFrontend"}
             </a>
         </li>
@@ -47,19 +49,22 @@
 		{if array_intersect(array(ROLE_ID_SITE_ADMIN), $userRoles)}
 		<li>
 			<a href="{if $multipleContexts}{url router=$smarty.const.ROUTE_PAGE context="index" page="admin" op="index"}{else}{url router=$smarty.const.ROUTE_PAGE page="admin" op="index"}{/if}">
+                <span class="fa fa-cog"></span>
 				{translate key="navigation.admin"}
 			</a>
 		</li>
 		{/if}
 		{if $isUserLoggedInAs}
-			<li>
+			<li class="logout">
 				<a href="{url router=$smarty.const.ROUTE_PAGE page="login" op="signOutAsUser"}">
+                    <span class="fa fa-sign-out"></span>
 					{translate key="user.logOutAs"} {$loggedInUsername|escape}
 				</a>
 			</li>
         {else}
-		<li>
+		    <li class="logout">
 				<a href="{url router=$smarty.const.ROUTE_PAGE page="login" op="signOut"}">
+                    <span class="fa fa-sign-out"></span>
 					{translate key="user.logOut"}
 				</a>
 			</li>

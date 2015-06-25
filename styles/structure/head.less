@@ -93,6 +93,10 @@
             border-color: @bg;
 			background: @primary-lift;
 			color: #fff;
+
+            .fa {
+                color: #fff;
+            }
 		}
 
         &:focus {
@@ -103,6 +107,15 @@
     ul a:hover,
     ul a:focus {
         background: @primary;
+    }
+
+    .fa {
+        margin-right: 0.5em;
+        color: @primary-lift;
+    }
+
+    .logout .fa {
+        color: @offset;
     }
 }
 

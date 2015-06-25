@@ -33,13 +33,15 @@
 
         a {
             display: block;
-            padding: 20px 0;
+            padding: @base 0;
+            min-height: 96px;
         }
 
         img {
             display: block;
             margin: 0 auto;
             padding: 0;
+            max-height: 96px;
         }
     }
 }
@@ -80,7 +82,7 @@
 
 	a {
 		display: block;
-        padding: 12px @half 12px @base; // 48 height with line height
+        padding: 12px @base 12px @half; // 48 height with line height
         line-height: 24px;
         border-left: @half solid transparent;
 		color: #fff;
@@ -92,6 +94,10 @@
 			background: @primary-lift;
 			color: #fff;
 		}
+
+        &:focus {
+            outline: none;
+        }
 	}
 
     ul a:hover,
@@ -112,4 +118,16 @@
     top: auto;
     left: 0;
     width: 192px;
+
+    a {
+        padding: @half @base @half @half;
+    }
+
+    > li > a {
+        padding-bottom: @half - 1; // border
+        background: @lift;
+        color: @text-light;
+        color: @text-light-rgba;
+        border-bottom: 1px solid @bg;
+    }
 }

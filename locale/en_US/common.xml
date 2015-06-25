@@ -250,7 +250,7 @@
 	<message key="common.width">Width</message>
 	<message key="common.year">Year</message>
 	<message key="common.yes">Yes</message>
-	<message key="common.loading">Loading ...</message>
+	<message key="common.loading">Loading</message>
 	<message key="common.plugins">Plugins</message>
 	<message key="common.metric">Metric</message>
 	<message key="common.count">Count</message>

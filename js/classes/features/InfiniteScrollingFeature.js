@@ -33,14 +33,14 @@
 	 */
 	$.pkp.classes.features.InfiniteScrollingFeature.prototype.init =
 			function() {
-		this.getGridHtmlElement().find('div.loading_container').hide();
+		this.getGridHtmlElement().find('div.pkp_loading').hide();
 		this.addScrollHandler_();
 		this.fixGridWidth_();
 		this.fixGridHeight_();
 		this.addPagingDataToRows_();
 	};
 
-	
+
 	/**
 	 * @inheritDoc
 	 */
@@ -76,7 +76,7 @@
 				params[options.pageParamName] = Number($gridRow.attr('data-paging'));
 			}
 		}
-	
+
 		params[options.itemsPerPageParamName] = options.currentItemsPerPage;
 
 		this.setGridParams(params);
@@ -95,7 +95,7 @@
 		castJsonData = /** @type {{pagingInfo: Object,
 				deletedRowReplacement: string}} */
 				handledJsonData;
-	
+
 		if (castJsonData.deletedRowReplacement != undefined) {
 			rowMarkup = handledJsonData.deletedRowReplacement;
 			this.gridHandler.insertOrReplaceElement(rowMarkup);
@@ -144,7 +144,7 @@
 				$(sourceElement).height()) {
 			// Avoid multiple rows requests.
 			$('div.scrollable', this.getGridHtmlElement()).unbind('scroll');
-	
+
 			// Show the loading icon.
 			this.toggleLoadingContainer_(true);
 
@@ -156,7 +156,7 @@
 
 		return false;
 	};
-	
+
 
 	/**
 	 * Fix the grid width to acomodate the scroll bar.
@@ -260,7 +260,7 @@
 		$('div.scrollable', this.getGridHtmlElement()).
 				scroll(this.gridHandler.callbackWrapper(this.observeScroll_, this));
 	};
-	
+
 
 	/**
 	 * Toggle the scrolling loading element.
@@ -272,7 +272,7 @@
 	$.pkp.classes.features.InfiniteScrollingFeature.prototype.
 			toggleLoadingContainer_ = function(opt_show) {
 		var $loadingElement =
-				this.getGridHtmlElement().find('div.scrollable div.loading_container'),
+				this.getGridHtmlElement().find('div.scrollable div.pkp_loading'),
 						$scrollableElement = this.getGridHtmlElement().find('div.scrollable'),
 						scrollTop,
 						loadingHeight = $loadingElement.height(),

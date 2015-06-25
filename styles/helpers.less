@@ -75,6 +75,16 @@
 	}
 }
 
+// Loading component
+.pkp_loading {
+	font-size: @font-sml;
+	line-height: @line-sml;
+
+	.pkp_spinner {
+		margin-right: 0.25em;
+	}
+}
+
 .pkp_helpers_invisible {
 	visibility: hidden;
 }
@@ -237,6 +247,7 @@
 	background-color: black;
 }
 
+/* deprecreated in favor of .pkp_spinner. Remove throbber.gif once it's all gone */
 div.pkp_helpers_progressIndicator {
 	width:24px;
 	height:24px;

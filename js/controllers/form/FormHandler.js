@@ -500,7 +500,7 @@
 			return;
 		}
 
-		$(formElement).find('.pkp_helpers_progressIndicator').show();
+		$(formElement).find('.pkp_spinner').show();
 
 		this.trigger('unregisterChangedForm');
 
@@ -554,7 +554,7 @@
 		elementId = $(sourceElement).attr('id');
 		targetElement = $(formElement).find(
 				"[id^='" + this.enableDisablePairs_[elementId] + "']");
-	
+
 		if ($(sourceElement).is(':checked')) {
 			$(targetElement).prop('disabled', false);
 		} else {

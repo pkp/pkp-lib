@@ -14,7 +14,7 @@
 				'$.pkp.controllers.MenuHandler');
 	{rdelim});
  </script>
-<ul id="navigationUser" class="pkp_navigation_user pkp_nav_list">
+<ul id="navigationUser" class="pkp_nav_list">
     {if $multipleContexts}
         <li class="has-submenu">
             <a href="#">

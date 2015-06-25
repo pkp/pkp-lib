@@ -88,7 +88,7 @@
 				{/if}
 
 				{url|assign:fetchHeaderUrl router=$smarty.const.ROUTE_COMPONENT component="page.PageHandler" op="userNavBackend" escape=false}
-				{load_url_in_div class="pkp_structure_nav_wrapper" id="userNavContainer" url=$fetchHeaderUrl}
+				{load_url_in_div class="pkp_navigation_user" id="navigationUserWrapper" url=$fetchHeaderUrl}
 			</nav><!-- pkp_navigation -->
 		</header>
 

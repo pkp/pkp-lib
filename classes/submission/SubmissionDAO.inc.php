@@ -551,7 +551,7 @@ abstract class SubmissionDAO extends DAO {
 	}
 
 	/**
-	 * Get all submissions that are considered assigned to the passed user.
+	 * Get all submissions that are considered assigned to the passed user, excluding author participation.
 	 * @param $userId int
 	 * @param $contextId int optional
 	 * @param $title string|null optional Filter by title.
@@ -561,9 +561,17 @@ abstract class SubmissionDAO extends DAO {
 	 * @return DAOResultFactory
 	 */
 	function getAssignedToUser($userId, $contextId = null, $title = null, $author = null, $stageId = null, $rangeInfo = null) {
-		$params = $this->getFetchParameters();
-		$userId = (int) $userId;
-		array_push($params, (int) STATUS_DECLINED, $userId, $userId, (int) ROLE_ID_AUTHOR, $userId);
+		$params = array_merge(
+			array(ROLE_ID_AUTHOR),
+			$this->getFetchParameters(),
+			array(
+				(int) STATUS_DECLINED,
+				(int) $userId,
+				(int) $userId,
+				(int) ROLE_ID_AUTHOR,
+				(int) $userId
+			)
+		);
 		if ($contextId) $params[] = (int) $contextId;
 
 		if ($title) {
@@ -579,6 +587,7 @@ abstract class SubmissionDAO extends DAO {
 			FROM submissions s
 				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id)
 				LEFT JOIN stage_assignments sa ON (s.submission_id = sa.submission_id)
+				LEFT JOIN user_groups aug ON (sa.user_group_id = aug.user_group_id AND aug.role_id = ?)
 				LEFT JOIN submission_files sf ON (s.submission_id = sf.submission_id)
 				LEFT JOIN signoffs so ON (sf.file_id = so.assoc_id) 
 				LEFT JOIN user_groups g ON (g.user_group_id = so.user_group_id)
@@ -587,6 +596,7 @@ abstract class SubmissionDAO extends DAO {
 				' . ($author?' LEFT JOIN authors au ON (s.submission_id = au.submission_id)':'')
 				. $this->getFetchJoins() .
 			' WHERE s.date_submitted IS NOT NULL AND ps.date_published IS NULL AND s.status <> ?
+				AND aug.user_group_id IS NULL
 				AND (sa.user_id = ? OR (so.user_id = ? AND g.role_id <> ? ) 
 				OR ra.reviewer_id = ?)'
 				. ($contextId?' AND s.context_id = ?':'')

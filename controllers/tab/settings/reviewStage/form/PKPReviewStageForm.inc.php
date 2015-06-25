@@ -31,7 +31,7 @@ class PKPReviewStageForm extends ContextSettingsForm {
 					'numWeeksPerReview' => 'int',
 					'numDaysBeforeInviteReminder' => 'int',
 					'numDaysBeforeSubmitReminder' => 'int',
-					'rateReviewerOnQuality' => 'bool',
+					// 'rateReviewerOnQuality' => 'bool', /* http://github.com/pkp/pkp-lib/issues/372 */
 					'showEnsuringLink' => 'bool',
 					'reviewerCompetingInterestsRequired' => 'bool',
 					'defaultReviewMode' => 'int',

@@ -28,6 +28,7 @@
 				{rdelim});
 		{rdelim});
 	</script>
+	<div class="pkp_structure_page>
 		<div class="pkp_structure_body">
 			<header class="pkp_structure_head">
 				<nav class="pkp_navigation" id="headerNavigationContainer">

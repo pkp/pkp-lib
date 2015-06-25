@@ -33,9 +33,9 @@
 		{foreach from=$notificationSettingCategory.settings item=settingId}
 			{assign var="settingName" value=$notificationSettings.$settingId.settingName}
 			{assign var="emailSettingName" value=$notificationSettings.$settingId.emailSettingName}
-			{assign var="settingKey" value=$notificationSettings.$settingId.settingKey}
+			{translate|assign:"settingKey" key=$notificationSettings.$settingId.settingKey title="common.title"|translate}
 
-			{fbvFormSection title=$settingKey list="true"}
+			{fbvFormSection title=$settingKey list=true translate=false}
 				{if $settingId|in_array:$blockedNotifications}
 					{assign var="checked" value="0"}
 				{else}

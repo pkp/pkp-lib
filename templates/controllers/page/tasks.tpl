@@ -15,7 +15,9 @@
 *}
 <a href="#" id="notificationsToggle">
 	{translate key="common.tasks"}
-	(<span id="unreadNotificationCount">{$unreadNotificationCount}</span>)
+    <span id="unreadNotificationCount" class="task-count">
+        {$unreadNotificationCount}
+    </span>
 </a>
 <div id="notificationsPopover" style="display: none;">
 	{url|assign:notificationsGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.notifications.NotificationsGridHandler" op="fetchGrid" escape=false}

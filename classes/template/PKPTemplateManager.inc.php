@@ -1104,12 +1104,13 @@ class PKPTemplateManager extends Smarty {
 			'inElClass' => isset($params['class'])?$params['class']:null,
 		));
 
-		if (isset($params['loadMessageId'])) {
+		if (isset($params['placeholder'])) {
+			$this->assign('inElPlaceholder', $params['placeholder']);
+		} elseif (isset($params['loadMessageId'])) {
 			$loadMessageId = $params['loadMessageId'];
-			unset($params['url'], $params['id'], $params['loadMessageId'], $params['class']);
-			$this->assign('inElLoadMessage', __($loadMessageId, $params));
+			$this->assign('inElPlaceholder', __($loadMessageId, $params));
 		} else {
-			$this->assign('inElLoadMessage', $this->fetch('common/loadingContainer.tpl'));
+			$this->assign('inElPlaceholder', $this->fetch('common/loadingContainer.tpl'));
 		}
 
 		return $this->fetch('common/urlInEl.tpl');

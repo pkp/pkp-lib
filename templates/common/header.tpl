@@ -49,7 +49,13 @@
 					<ul id="navigationPrimary" class="pkp_navigation_primary pkp_nav_list">
 
 						{url|assign:fetchTaskUrl router=$smarty.const.ROUTE_COMPONENT component="page.PageHandler" op="tasks" escape=false}
-						{load_url_in_el el="li" class="pkp_tasks" id="userTasks" url=$fetchTaskUrl}
+                        {capture assign="tasksNavPlaceholder"}
+                            <a href="#">
+                                {translate key="common.tasks"}
+                                <span class="pkp_spinner"></span>
+                            </a>
+                        {/capture}
+						{load_url_in_el el="li" class="tasks" id="userTasks" url=$fetchTaskUrl placeholder=$tasksNavPlaceholder}
 
 						{if array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR), $userRoles)}
 							<li>

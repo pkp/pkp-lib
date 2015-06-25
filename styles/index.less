@@ -11,8 +11,8 @@
 
 /**
  * To minimize specificity battles, styles should be loaded in the following
- * order: fonts, browser reset, variables, helpers, structure, components, lib
- * overides, particular page styling and one-off exceptions.
+ * order: fonts, browser reset, variables, mix-ins, helpers, structure,
+ * components, library overrides, particular page styling and one-off exceptions
  */
 
 // Fonts first - get the files loading as quick as possible
@@ -23,6 +23,9 @@
 
 // Variables
 @import "lib/pkp/styles/variables.less";
+
+// Mix-ins, animations, etc
+@import "lib/pkp/styles/utils.less";
 
 // Helpers etc.
 @import "lib/pkp/styles/helpers.less";

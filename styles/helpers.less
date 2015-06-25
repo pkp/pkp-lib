@@ -53,6 +53,28 @@
 	}
 }
 
+// Spinner
+.pkp_spinner {
+
+	&:after {
+		display: inline-block;
+		position: relative;
+		width: 20px;
+		height: 20px;
+		vertical-align: middle;
+		.animation( pkp_spin .6s linear infinite );
+		border-radius: 100%;
+		border-top: 1px solid @shade;
+		border-bottom: 1px solid transparent;
+		border-left: 1px solid @shade;
+		border-right: 1px solid transparent;
+		border-top-color: rgba(0,0,0,0.5);
+		border-left-color: rgba(0,0,0,0.5);
+		content: '';
+		opacity: 0.5;
+	}
+}
+
 .pkp_helpers_invisible {
 	visibility: hidden;
 }

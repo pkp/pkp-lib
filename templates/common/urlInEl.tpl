@@ -21,4 +21,4 @@
 	{rdelim});
 </script>
 
-<{$inEl} id="{$inElElId|escape}"{if $inElClass} class="{$inElClass|escape}"{/if}>{$inElLoadMessage}</{$inEl}>
+<{$inEl} id="{$inElElId|escape}"{if $inElClass} class="{$inElClass|escape}"{/if}>{$inElPlaceholder}</{$inEl}>

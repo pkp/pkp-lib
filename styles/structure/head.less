@@ -123,6 +123,36 @@
     position: relative;
     bottom: auto;
     left: auto;
+
+    .tasks {
+
+        a {
+            background: @offset;
+
+            &:hover,
+            &:focus {
+                background: @offset-shade;
+            }
+        }
+    }
+
+    .task-count {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+        border-radius: 50%;
+        background: #fff;
+        color: @primary;
+        vertical-align: middle;
+        text-align: center;
+        margin-left: 0.25em;
+    }
+
+    .pkp_spinner,
+    .task-count {
+        margin-left: 0.25em;
+    }
 }
 
 .pkp_navigation_user {

@@ -109,8 +109,7 @@
 	$.pkp.pages.header.TasksHandler.prototype.
 			updateUnreadNotificationsCountHandler_ = function(ajaxContext, jsonData) {
 
-		this.getHtmlElement().find('#unreadNotificationCount').replaceWith(
-				'<span id="unreadNotificationCount">' + jsonData.content + '</span>');
+		this.getHtmlElement().find('#unreadNotificationCount').html( jsonData.content );
 	};
 
 

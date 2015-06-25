@@ -179,9 +179,7 @@ abstract class PKPWorkflowHandler extends Handler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function expedite($args, $request) {
-		assert(false);
-	}
+	abstract function expedite($args, $request);
 
 	/**
 	 * Fetch JSON-encoded editor decision options.
@@ -390,6 +388,7 @@ abstract class PKPWorkflowHandler extends Handler {
 	 * @param $user PKPUser
 	 * @param $stageId integer
 	 * @param $contextId integer
+	 * @return boolean
 	 */
 	protected function notificationOptionsByStage($user, $stageId, $contextId) {
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);

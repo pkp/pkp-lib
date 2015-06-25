@@ -23,7 +23,13 @@ class PKPAuthorDashboardHandler extends Handler {
 	 */
 	function PKPAuthorDashboardHandler() {
 		parent::Handler();
-		$this->addRoleAssignment($this->_getAssignmentRoles(), array('submission', 'readSubmissionEmail'));
+		$this->addRoleAssignment(
+			array(ROLE_ID_AUTHOR),
+			array(
+				'submission',
+				'readSubmissionEmail',
+			)
+		);
 	}
 
 
@@ -61,55 +67,23 @@ class PKPAuthorDashboardHandler extends Handler {
 		$viewMetadataAction = new AuthorViewMetadataLinkAction($request, $submission->getId());
 		$templateMgr->assign('viewMetadataAction', $viewMetadataAction);
 
-		// Import submission file to define file stages.
-		import('lib.pkp.classes.submission.SubmissionFile');
+		$workflowStages = WorkflowStageDAO::getWorkflowStageKeysAndPaths();
+		$stageNotifications = array();
+		foreach (array_keys($workflowStages) as $stageId) {
+			$stageNotifications[$stageId] = false;
+		}
+		$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /* @var $editDecisionDao EditDecisionDAO */
+		$stageDecisions = $editDecisionDao->getEditorDecisions($submission->getId());
 
-		// Workflow-stage specific "upload file" action.
-		$currentStage = $submission->getStageId();
-		$fileStage = $this->_fileStageFromWorkflowStage($currentStage);
-
-		$templateMgr->assign('lastReviewRoundNumber', $this->_getLastReviewRoundNumbers($submission));
-
-		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-		$templateMgr->assign('externalReviewRounds', $reviewRoundDao->getBySubmissionId($submission->getId(), WORKFLOW_STAGE_ID_EXTERNAL_REVIEW));
-
-		// Get the last review round.
-		$lastReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $currentStage);
-
-		// Create and assign add file link action.
-		if ($fileStage && is_a($lastReviewRound, 'ReviewRound')) {
-			import('lib.pkp.controllers.api.file.linkAction.AddFileLinkAction');
-			$templateMgr->assign('uploadFileAction', new AddFileLinkAction(
-				$request, $submission->getId(), $currentStage,
-				array(ROLE_ID_AUTHOR), null, $fileStage, null, null, $lastReviewRound->getId()));
+		$stagesWithDecisions = array();
+		foreach ($stageDecisions as $decision) {
+			$stagesWithDecisions[$decision['stageId']] = $decision['stageId'];
 		}
 
+		$workflowStages = WorkflowStageDAO::getStageStatusesBySubmission($submission, $stagesWithDecisions, $stageNotifications);
+		$templateMgr->assign('workflowStages', $workflowStages);
 
-		// If the submission is in or past the editorial stage,
-		// assign the editor's copyediting emails to the template
-		$submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
-		$user = $request->getUser();
-
-		if ($submission->getStageId() >= WORKFLOW_STAGE_ID_EDITING) {
-			$templateMgr->assign('copyeditingEmails', $submissionEmailLogDao->getByEventType($submission->getId(), SUBMISSION_EMAIL_COPYEDIT_NOTIFY_AUTHOR, $user->getId()));
-		}
-
-		// Same for production stage.
-		if ($submission->getStageId() == WORKFLOW_STAGE_ID_PRODUCTION) {
-			$representationDao = Application::getRepresentationDAO();
-			$templateMgr->assign(array(
-				'productionEmails' => $submissionEmailLogDao->getByEventType($submission->getId(), SUBMISSION_EMAIL_PROOFREAD_NOTIFY_AUTHOR, $user->getId()),
-				'representations' => $representationDao->getBySubmissionId($submission->getId())->toArray(),
-			));
-		}
-
-		// Define the notification options.
-		$templateMgr->assign(
-			'authorDashboardNotificationRequestOptions',
-			$this->_getNotificationRequestOptions($submission)
-		);
-
-		$templateMgr->display('authorDashboard/authorDashboard.tpl');
+		return $templateMgr->display('authorDashboard/authorDashboard.tpl');
 	}
 
 
@@ -152,73 +126,6 @@ class PKPAuthorDashboardHandler extends Handler {
 		);
 	}
 
-	/**
-	 * Get roles to assign to operations in this handler.
-	 * @return array
-	 */
-	protected function _getAssignmentRoles() {
-		return array(ROLE_ID_AUTHOR);
-	}
-
-	/**
-	 * Get the SUBMISSION_FILE_... file stage based on the current
-	 * WORKFLOW_STAGE_... workflow stage.
-	 * @param $currentStage int WORKFLOW_STAGE_...
-	 * @return int SUBMISSION_FILE_...
-	 */
-	protected function _fileStageFromWorkflowStage($currentStage) {
-		switch ($currentStage) {
-			case WORKFLOW_STAGE_ID_SUBMISSION:
-				return SUBMISSION_FILE_SUBMISSION;
-			case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
-				return SUBMISSION_FILE_REVIEW_REVISION;
-			case WORKFLOW_STAGE_ID_EDITING:
-				return SUBMISSION_FILE_FINAL;
-			default:
-				return null;
-		}
-	}
-
-	/**
-	 * Get the last review round numbers in an array by stage name.
-	 * @param $submission Submission
-	 * @return array(stageName => lastReviewRoundNumber, 0 iff none)
-	 */
-	protected function _getLastReviewRoundNumbers($submission) {
-		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-		$lastExternalReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), WORKFLOW_STAGE_ID_EXTERNAL_REVIEW);
-		if ($lastExternalReviewRound) {
-			$lastExternalReviewRoundNumber = $lastExternalReviewRound->getRound();
-		} else {
-			$lastExternalReviewRoundNumber = 0;
-		}
-		return array(
-			'externalReview' => $lastExternalReviewRoundNumber
-		);
-	}
-
-	/**
-	 * Get the notification request options.
-	 * @param $submission Submission
-	 * @return array
-	 */
-	protected function _getNotificationRequestOptions($submission) {
-		$submissionAssocTypeAndIdArray = array(ASSOC_TYPE_SUBMISSION, $submission->getId());
-		return array(
-			NOTIFICATION_LEVEL_TASK => array(
-				NOTIFICATION_TYPE_SIGNOFF_COPYEDIT => $submissionAssocTypeAndIdArray,
-				NOTIFICATION_TYPE_SIGNOFF_PROOF => $submissionAssocTypeAndIdArray,
-				NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS => $submissionAssocTypeAndIdArray),
-			NOTIFICATION_LEVEL_NORMAL => array(
-				NOTIFICATION_TYPE_EDITOR_DECISION_ACCEPT => $submissionAssocTypeAndIdArray,
-				NOTIFICATION_TYPE_EDITOR_DECISION_EXTERNAL_REVIEW => $submissionAssocTypeAndIdArray,
-				NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS => $submissionAssocTypeAndIdArray,
-				NOTIFICATION_TYPE_EDITOR_DECISION_RESUBMIT => $submissionAssocTypeAndIdArray,
-				NOTIFICATION_TYPE_EDITOR_DECISION_DECLINE => $submissionAssocTypeAndIdArray,
-				NOTIFICATION_TYPE_EDITOR_DECISION_SEND_TO_PRODUCTION => $submissionAssocTypeAndIdArray),
-			NOTIFICATION_LEVEL_TRIVIAL => array()
-		);
-	}
 }
 
 ?>

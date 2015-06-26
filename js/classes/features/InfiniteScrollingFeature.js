@@ -168,8 +168,6 @@
 		var $scrollableDivs = $('div.scrollable', this.getGridHtmlElement()),
 				index, limit, $div, timer, length;
 
-		this.getGridHtmlElement().width('98%');
-
 		if ($scrollableDivs.length > 0) {
 			timer = setInterval(function() {
 				if ($scrollableDivs.is(':visible')) {

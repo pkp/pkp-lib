@@ -10,26 +10,75 @@
  * @brief Classes for grid structure
  */
 
-div.pkp_controllers_grid {
+.pkp_controllers_grid {
+	position: relative;
+	margin-bottom: @double * 2;
 
-	margin-top: 20px;
-
-	.scrollable {
-		max-height: 150px;
-		overflow: auto;
+	// Header
+	.header {
 		position: relative;
 
-		tr.gridRow td:last-child {
-			padding-right: 10px !important;
+		h4 {
+			font-size: @font-base;
+			margin: 0;
+		}
+
+		.actions {
+			position: absolute;
+			top: 0;
+			right: 0;
+			margin: 0;
+			padding: 0;
+			list-style: none;
+
+			li {
+				display: inline-block;
+				margin-right: 1em;
+
+				&:last-child {
+					margin-right: 0;
+				}
+			}
+
+			a {
+				display: inline-block;
+				line-height: @line-base;
+				font-size: @font-sml;
+				text-decoration: none;
+			}
 		}
 	}
 
-	a.search_extras_expand, a.search_extras_collapse {
-		float: right !important;
+	.search_extras_expand,
+	.search_extras_collapse {
+		&:extend( .fa );
+
+		&:before {
+			margin-right: 0.25em;
+
+			// @todo temporary overrides until we can completely replace the
+			//     .sprite system or remove the class from the grid action
+			background: none;
+			width: inherit;
+			height: inherit;
+		}
 	}
 
-	div.actions {
-		margin-top: 10px;
+	.search_extras_expand:before {
+		content: @fa-var-search-plus;
+	}
+
+	.search_extras_collapse:before {
+		content: @fa-var-search-minus;
+	}
+
+	// Search filter
+
+	// Infinite scroll
+	.scrollable {
+		position: relative;
+		max-height: 20em;
+		overflow: auto;
 	}
 
 	table {

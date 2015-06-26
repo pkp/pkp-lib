@@ -52,6 +52,9 @@
 	.search_extras_expand,
 	.search_extras_collapse {
 		&:extend( .fa );
+		padding: 0 1px; // 1px prevents aliased icon from getting clipped at the edge
+		background: transparent;
+		transition: all 0.3s ease;
 
 		&:before {
 			margin-right: 0.25em;
@@ -68,11 +71,25 @@
 		content: @fa-var-search-plus;
 	}
 
+	.search_extras_collapse {
+		padding: 0 1em;
+		background: @bg;
+	}
+
 	.search_extras_collapse:before {
 		content: @fa-var-search-minus;
 	}
 
 	// Search filter
+	.filter {
+		padding: @base;
+		background: @bg;
+		font-size: @font-sml;
+
+		.section {
+			margin-bottom: @half;
+		}
+	}
 
 	// Infinite scroll
 	.scrollable {

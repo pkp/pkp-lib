@@ -48,7 +48,9 @@ span.pkp_form_error {
 	}
 
 	fieldset {
-		margin: 10px 5px;
+		margin: 0;
+		padding: 0;
+		border: none;
 	}
 
 	fieldset.border {
@@ -67,7 +69,11 @@ span.pkp_form_error {
 
 	div.section {
 		clear: left;
-		margin-bottom: 10px;
+		margin-bottom: @double;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
 	}
 
 	div.section:after {
@@ -96,22 +102,25 @@ span.pkp_form_error {
 		padding: 2px 0 4px 0;
 	}
 
-	input, textarea, select {
-
-		:focus {
-			outline: none;
-		}
-
-		font-size: 90%;
-		width: 99%;
-		border: 1px solid #ccc;
-		padding: 2px;
-		margin-top: 4px;
-	}
-
+	input[type="date"],
+	input[type="email"],
+	input[type="file"],
+	input[type="month"],
+	input[type="number"],
+	input[type="password"],
+	input[type="search"],
+	input[type="tel"],
+	input[type="text"],
+	input[type="url"],
+	input[type="week"],
+	textarea,
 	select {
-		padding:3px;
+		display: block;
 		width: 100%;
+		padding: 0 0.25em;
+		height: @line-base; // browser-compatibility for select fields
+		line-height: @line-base;
+		border: @bg-border;
 	}
 
 	textarea {
@@ -139,8 +148,12 @@ span.pkp_form_error {
 	.inline {
 		float: left;
 		clear: none !important;
-		padding-right: 2%;
+		padding-right: 1em;
 		margin-bottom: 0;
+
+		&:last-child {
+			padding-right: 0;
+		}
 	}
 
 	ul.checkbox_and_radiobutton
@@ -319,11 +332,6 @@ span.pkp_form_error {
 	}
 
 	.formButtons {
-		line-height: 30px;
-		margin: 0 0 15px;
-		overflow: hidden;
-		padding: 10px 20px;
-		vertical-align: middle;
 
 		.submitFormButton {
 			float: right;

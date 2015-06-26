@@ -62,7 +62,6 @@
 	$.pkp.pages.header.TasksHandler.prototype.appendToggleIndicator_ =
 			function(callingElement, event) {
 
-		console.log( 'click called' );
 		var $header = this.getHtmlElement(),
 				$popover = $header.find('#notificationsPopover'),
 				$listElement = $header.find('li.notificationsLinkContainer'),

@@ -71,7 +71,7 @@
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.fetchRowUrl = null;
 
-	
+
 	/**
 	 * The URL to fetch all loaded grid rows.
 	 * @protected
@@ -565,7 +565,7 @@
 
 		this.trigger('gridInitialized');
 	};
-	
+
 
 	/**
 	 * Call features hooks.
@@ -610,6 +610,7 @@
 		this.callFeaturesHook('refreshGrid', opt_elementId);
 
 		params = this.getFetchExtraParams();
+
 
 		// Check if subclasses already handled the fetch of new elements.
 		if (!opt_fetchedAlready) {
@@ -911,10 +912,6 @@
 
 		var $grid = this.getHtmlElement(),
 						$gridRows = this.getHtmlElement().find('tr.gridRow').not('.category');
-
-		// Control grid row hover background change.
-		$gridRows.unbind('mouseenter').unbind('mouseleave').
-				hover(function() {$(this).toggleClass('mouse_over'); });
 
 		$grid.find('a.show_extras').unbind('click').bind('click',
 				this.callbackWrapper(this.toggleRowActions));

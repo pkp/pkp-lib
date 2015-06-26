@@ -95,6 +95,45 @@
 		}
 	}
 
+	// Grid rows
+	table {
+		width: 100%;
+	}
+
+	th,
+	td {
+		padding: 0;
+		padding-left: 1em;
+		vertical-align: top;
+	}
+
+	tbody:not(.empty) tr:hover,
+	tbody:not(.empty) tr:focus {
+		background-color: @bg;
+	}
+
+	thead {
+		background: @bg;
+		font-size: @font-sml;
+		line-height: @line-sml;
+		color: @text-light;
+		color: @text-light-rgba;
+		border-top: 1px solid #fff; // divider between form when form opened
+
+		th {
+			font-weight: @normal;
+		}
+	}
+
+	.empty td {
+		display: block;
+		padding: 0;
+		font-size: @font-sml;
+		color: @text-light;
+		color: @text-light-rgba;
+		text-align: center;
+	}
+
 	// Infinite scroll
 	.scrollable {
 		position: relative;
@@ -102,28 +141,7 @@
 		overflow: auto;
 	}
 
-	table {
-		width: 100%;
-	}
-
-	thead, tr.gridRow td, tr.row_controls td, .empty td {
-		border-bottom: 1px solid #dedede;
-	}
-
-	tr.gridRow:last-child td {
-		border-bottom: none !important;
-	}
-
-	tr.gridRow td {
-		vertical-align: top;
-		padding: 6px 0 6px 12px;
-	}
-
-	tr:hover,
-	tr:focus {
-		background-color: #F7F5F4;
-	}
-
+	// @todo
 	tr.category {
 		background-color: #f2f2f2;
 		border-top: 1px solid #dedede;
@@ -134,40 +152,6 @@
 			font-size: 90%;
 			color: #6d6d6d;
 		}
-	}
-
-	.empty td {
-		padding-left: 10px;
-		text-align: left;
-		height: 30px;
-	}
-
-	thead tr {
-		height: 30px; /* Must be set for tr rather than th for Chromium. */
-		padding: 4px 0;
-	}
-
-	thead th {
-		padding: 0 12px; /* Padding top/bottom must be 0 for IE7 compatibility. */
-		vertical-align: middle;
-		text-align: center;
-		font-size: 80%;
-		color:#888;
-	}
-
-	thead th:first-child {
-		padding-left: 35px;
-	}
-
-	td {
-		color: #777777;
-		text-align: center;
-		font-size: 100%;
-		padding: 0px;
-	}
-
-	th:first-child, td:first-child, td.first_column, .category_grid_body td:first-child + td {
-		text-align: left !important;
 	}
 
 	td.first_column {
@@ -330,29 +314,6 @@
 		font-size: 90%;
 	}
 
-	/* Below was taken from the theme */
-
-	table {
-		background-color: #fff;
-	}
-
-	tr.alternate_row, tr.alternate_row .row_file {
-		background-color: #f5f5f5;
-	}
-
-	th {
-		color: #20538d;
-	}
-
-	/* FIXME: This should go somewhere else. */
-	a.task:hover {
-		background-color: #efefef;
-	}
-
-	.ui-widget {
-		font-size: 90%;
-	}
-
 
 	/* @group More/Less Detail Toggle */
 	.toggleDetailContainer {
@@ -388,10 +349,6 @@
 
 	.ordering:hover {
 		background: #EAF3F8 !important;
-	}
-
-	tr.gridRow td.indent_row, .row_controls td.indent_row {
-		padding: 0 !important;
 	}
 
 	tbody .ui-sortable-placeholder {

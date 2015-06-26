@@ -33,6 +33,4 @@
 	</ul>
 </div>
 
-{strip}
 {include file="common/footer.tpl"}
-{/strip}

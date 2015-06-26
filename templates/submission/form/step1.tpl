@@ -95,7 +95,7 @@
 	<!-- Buttons -->
 	{fbvFormButtons id="step1Buttons" submitText="common.saveAndContinue" confirmCancel=$confirmCancelMessage}
 
+	<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 {/fbvFormArea}
 
 </form>
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>

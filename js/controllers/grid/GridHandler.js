@@ -839,7 +839,7 @@
 			$grid = this.getHtmlElement();
 			$gridParent = $grid.parent();
 
-			isFilterVisible = $grid.find('.grid_header .pkp_form').is(':visible');
+			isFilterVisible = $grid.find('.filter').is(':visible');
 
 			// Replace the grid content
 			$grid.replaceWith(handledJsonData.content);
@@ -853,7 +853,7 @@
 
 			if (isFilterVisible) {
 				// Open search control again.
-				$newGrid.find('span.options a.search_extras_expand').click();
+				$newGrid.find('.actions .search_extras_expand').click();
 			}
 		}
 	};

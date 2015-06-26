@@ -27,36 +27,33 @@
 <form class="pkp_form" id="notificationSettingsForm" method="post" action="{url op="saveNotificationSettings"}" enctype="multipart/form-data">
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="notificationSettingsFormNotification"}
 
-{fbvFormArea id="notificationSettings"}
-	{foreach from=$notificationSettingCategories item=notificationSettingCategory}
-		<h4>{translate key=$notificationSettingCategory.categoryKey}</h4>
-		{foreach from=$notificationSettingCategory.settings item=settingId}
-			{assign var="settingName" value=$notificationSettings.$settingId.settingName}
-			{assign var="emailSettingName" value=$notificationSettings.$settingId.emailSettingName}
-			{translate|assign:"settingKey" key=$notificationSettings.$settingId.settingKey title="common.title"|translate}
+	{fbvFormArea id="notificationSettings"}
+		{foreach from=$notificationSettingCategories item=notificationSettingCategory}
+			<h4>{translate key=$notificationSettingCategory.categoryKey}</h4>
+			{foreach from=$notificationSettingCategory.settings item=settingId}
+				{assign var="settingName" value=$notificationSettings.$settingId.settingName}
+				{assign var="emailSettingName" value=$notificationSettings.$settingId.emailSettingName}
+				{translate|assign:"settingKey" key=$notificationSettings.$settingId.settingKey title="common.title"|translate}
 
-			{fbvFormSection title=$settingKey list=true translate=false}
-				{if $settingId|in_array:$blockedNotifications}
-					{assign var="checked" value="0"}
-				{else}
-					{assign var="checked" value="1"}
-				{/if}
-				{if $settingId|in_array:$emailSettings}
-					{assign var="emailChecked" value="1"}
-				{else}
-					{assign var="emailChecked" value="0"}
-				{/if}
-				{fbvElement type="checkbox" id=$settingName checked=$checked label="notification.allow"}
-				{fbvElement type="checkbox" id=$emailSettingName checked=$emailChecked label="notification.email"}
-			{/fbvFormSection}
+				{fbvFormSection title=$settingKey list=true translate=false}
+					{if $settingId|in_array:$blockedNotifications}
+						{assign var="checked" value="0"}
+					{else}
+						{assign var="checked" value="1"}
+					{/if}
+					{if $settingId|in_array:$emailSettings}
+						{assign var="emailChecked" value="1"}
+					{else}
+						{assign var="emailChecked" value="0"}
+					{/if}
+					{fbvElement type="checkbox" id=$settingName checked=$checked label="notification.allow"}
+					{fbvElement type="checkbox" id=$emailSettingName checked=$emailChecked label="notification.email"}
+				{/fbvFormSection}
+			{/foreach}
 		{/foreach}
-	{/foreach}
+		<br />
+		{fbvFormButtons hideCancel=true submitText="common.save"}
+	{/fbvFormArea}
 
-<br />
-
-{fbvFormButtons hideCancel=true submitText="common.save"}
-
-{/fbvFormArea}
+	<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 </form>
-
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>

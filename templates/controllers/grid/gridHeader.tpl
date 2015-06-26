@@ -20,9 +20,10 @@
 			{include file="controllers/grid/gridActionsAbove.tpl" actions=$grid->getActions($smarty.const.GRID_ACTION_POSITION_ABOVE) gridId=$staticId}
 		{/if}
 	{/if}
-
-	{$gridFilterForm}
 </div>
+
+{$gridFilterForm}
+
 {if $grid->getInstructions()}
     <div class="description">{translate key=$grid->getInstructions()}</p>
 {/if}

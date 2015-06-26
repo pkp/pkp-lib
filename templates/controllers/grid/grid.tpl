@@ -92,8 +92,6 @@
 
 	{include file="controllers/grid/gridActionsBelow.tpl" actions=$grid->getActions($smarty.const.GRID_ACTION_POSITION_BELOW) gridId=$staticId}
 
-	{$gridFilterForm}
-
     {if $grid->getFootNote()}
     <div class="footnote">
 		{translate key=$grid->getFootNote()}

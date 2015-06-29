@@ -390,6 +390,8 @@ class PKPEditorDecisionHandler extends Handler {
 			while ($assignment = $submitterAssignments->next()) {
 				$authorUserIds[] = $assignment->getUserId();
 			}
+			// De-duplicate assignments
+			$authorUserIds = array_unique($authorUserIds);
 
 			// Update editor decision and pending revisions notifications.
 			$notificationMgr = new NotificationManager();

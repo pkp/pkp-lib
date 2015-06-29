@@ -38,7 +38,7 @@
 	{/if}
 
 	{fbvFormSection title="editor.review.personalMessageToAuthor" for="personalMessage" size=$fbvStyles.size.LARGE}
-		{fbvElement type="textarea" name="personalMessage" id="personalMessage" value=$personalMessage rich=true}
+		{fbvElement type="textarea" name="personalMessage" id="personalMessage" value=$personalMessage rich=true variables=$allowedVariables}
 	{/fbvFormSection}
 
 	{fbvFormSection for="skipEmail" size=$fbvStyles.size.MEDIUM list=true}

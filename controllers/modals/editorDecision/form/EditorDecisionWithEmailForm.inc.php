@@ -148,6 +148,8 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 			$templateMgr->assign('saveFormOperation', $this->getSaveFormOperation());
 		}
 
+		$templateMgr->assign('allowedVariables', $this->_getAllowedVariables($request));
+
 		return parent::fetch($request);
 	}
 
@@ -256,12 +258,25 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 		if (!$this->getData('skipEmail')) {
 			$router = $request->getRouter();
 			$dispatcher = $router->getDispatcher();
-			$paramArray = array(
+			$context = $request->getContext();
+			$email->assignParams(array(
 				'submissionUrl' => $dispatcher->url($request, ROUTE_PAGE, null, 'authorDashboard', 'submission', $submission->getId()),
-			);
-			$email->assignParams($paramArray);
+				'contextName' => $context->getLocalizedName(),
+			));
 			$email->send($request);
 		}
+	}
+
+	/**
+	 * Get a list of allowed email template variables.
+	 * @param $request PKPRequest Request object
+	 * @return array
+	 */
+	function _getAllowedVariables($request) {
+		return array(
+			'submissionUrl' => __('common.url'),
+			'contextName' => $request->getContext()->getLocalizedName(),
+		);
 	}
 }
 

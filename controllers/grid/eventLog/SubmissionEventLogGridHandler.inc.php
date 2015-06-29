@@ -200,12 +200,12 @@ class SubmissionEventLogGridHandler extends GridHandler {
 		assert(is_a($emailLogEntry, 'EmailLogEntry'));
 
 		$text = array();
-		$text[] = __('email.from') . ': ' . $emailLogEntry->getFrom();
-		$text[] =  __('email.to') . ': ' . $emailLogEntry->getRecipients();
-		$text[] =  __('email.subject') . ': ' . $emailLogEntry->getSubject();
+		$text[] = __('email.from') . ': ' . htmlspecialchars($emailLogEntry->getFrom());
+		$text[] =  __('email.to') . ': ' . htmlspecialchars($emailLogEntry->getRecipients());
+		$text[] =  __('email.subject') . ': ' . htmlspecialchars($emailLogEntry->getSubject());
 		$text[] = $emailLogEntry->getBody();
 
-		return nl2br(htmlentities(implode(PHP_EOL . PHP_EOL, $text)));
+		return nl2br(String::stripUnsafeHtml(implode(PHP_EOL . PHP_EOL, $text)));
 	}
 }
 

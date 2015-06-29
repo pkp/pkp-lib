@@ -283,9 +283,21 @@ class PKPTemplateManager extends Smarty {
 		ksort($this->_styleSheets);
 		$this->assign('stylesheets', $this->_styleSheets);
 
+		// If no compile ID was assigned, get one.
+		if (!$compile_id) $compile_id = $this->getCompileId($resource_name);
+
 		$result = null;
 		if ($display == false && HookRegistry::call('TemplateManager::fetch', array($this, $resource_name, $cache_id, $compile_id, &$result))) return $result;
 		return parent::fetch($resource_name, $cache_id, $compile_id, $display);
+	}
+
+	/**
+	 * Calculate a compile ID for a resource.
+	 * @param $resourceName string Resource name.
+	 * @return string
+	 */
+	function getCompileId($resourceName) {
+		return sha1($resourceName);
 	}
 
 	/**

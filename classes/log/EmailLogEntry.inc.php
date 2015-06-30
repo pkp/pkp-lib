@@ -205,6 +205,14 @@ class EmailLogEntry extends DataObject {
 	function setBody($body) {
 		return $this->setData('body', $body);
 	}
+
+	/**
+	 * Returns the subject of the message with a prefix explaining the event type
+	 * @return string Prefixed subject
+	 */
+	function getPrefixedSubject() {
+		return __('submission.event.subjectPrefix') . ' ' . $this->getSubject();
+	}
 }
 
 ?>

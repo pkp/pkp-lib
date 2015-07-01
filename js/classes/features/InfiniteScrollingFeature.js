@@ -35,7 +35,6 @@
 			function() {
 		this.getGridHtmlElement().find('div.pkp_loading').hide();
 		this.addScrollHandler_();
-		this.fixGridWidth_();
 		this.fixGridHeight_();
 		this.addPagingDataToRows_();
 	};
@@ -155,33 +154,6 @@
 		}
 
 		return false;
-	};
-
-
-	/**
-	 * Fix the grid width to acomodate the scroll bar.
-	 *
-	 * @private
-	 */
-	$.pkp.classes.features.InfiniteScrollingFeature.prototype.fixGridWidth_ =
-			function() {
-		var $scrollableDivs = $('div.scrollable', this.getGridHtmlElement()),
-				index, limit, $div, timer, length;
-
-		if ($scrollableDivs.length > 0) {
-			timer = setInterval(function() {
-				if ($scrollableDivs.is(':visible')) {
-					clearInterval(timer);
-					length = $scrollableDivs.length;
-					for (index = 0, limit = length; index < limit; index++) {
-						$div = $($scrollableDivs[index]);
-						if ($div.get(0).scrollHeight > $div.height()) {
-							$div.width('102%');
-						}
-					}
-				}
-			},300);
-		}
 	};
 
 

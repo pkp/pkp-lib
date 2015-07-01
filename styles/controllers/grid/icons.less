@@ -57,3 +57,13 @@ a.request_review {
 		width: 15px;
 	}
 }
+
+// @todo temporary overrides until we can completely replace the
+//     .sprite system or remove the class from the grid action
+.pkp_controllers_grid .search_extras_expand:before,
+.pkp_controllers_grid .search_extras_collapse:before,
+.pkp_controllers_grid .row_controls .sprite:before {
+	background: none;
+	width: inherit;
+	height: inherit;
+}

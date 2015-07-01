@@ -58,12 +58,6 @@
 
 		&:before {
 			margin-right: 0.25em;
-
-			// @todo temporary overrides until we can completely replace the
-			//     .sprite system or remove the class from the grid action
-			background: none;
-			width: inherit;
-			height: inherit;
 		}
 	}
 
@@ -174,6 +168,48 @@
 		overflow: auto;
 	}
 
+	// Row actions
+	.row_controls {
+
+		td {
+			padding-top: 0;
+			padding-bottom: 0;
+			line-height: 24px;
+		}
+
+		a {
+			display: inline-block;
+			margin-right: 1em;
+			text-decoration: none;
+
+			&:hover,
+			&:focus {
+				text-decoration: underline;
+			}
+		}
+
+		.sprite {
+			&:extend( .fa );
+		}
+
+		.disable,
+		.delete,
+		.remove_item {
+			color: @offset;
+
+			&:before {
+				content: @fa-var-trash;
+				margin-right: 0.5em;
+			}
+		}
+
+		.more_info:before {
+			content: @fa-var-info-circle;
+			margin-right: 0.5em;
+		}
+	}
+
+
 	// @todo
 	tr.category {
 		background-color: #f2f2f2;
@@ -271,34 +307,6 @@
 
 	.row_controls {
 		display: none;
-	}
-
-	.row_controls td {
-		padding-left: 48px;
-		padding-top: 5px;
-		line-height: 25px;
-		height: 25px;
-	}
-
-	.category_controls td {
-		padding-left: 9px;
-	}
-
-	.row_controls td.indent_row {
-		padding-left: 0px;
-	}
-
-	.row_controls a {
-		float:left;
-		margin-right: 20px;
-		text-decoration: none;
-		color: #777;
-		font-size: 90%;
-	}
-
-
-	.row_controls a:hover {
-		text-decoration: underline;
 	}
 
 	a.focus {
@@ -417,4 +425,10 @@ div.pkp_controllers_category_grid {
 // Hacky workaroung to target actions in main grid row
 .pkp_page_dashboard .pkp_controllers_grid .gridRow .pkp_controllers_linkAction {
 	font-size: @font-sml;
+}
+
+// Hacky workaround since we can't align the controls with the item they're
+// controlling
+.pkp_page_dashboard .pkp_controllers_grid .row_controls td {
+	padding-left: 15%;
 }

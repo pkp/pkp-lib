@@ -85,6 +85,28 @@
 	}
 }
 
+// CSS triangle
+// To use, extend .pkp_caret and a direction, like .pkp_caret_down
+.pkp_caret {
+	content: ' ';
+	display: inline-block;
+	width: 0;
+	height: 0;
+	vertical-align: middle;
+}
+
+.pkp_caret_down {
+	border-top: 4px solid;
+	border-right: 4px solid transparent;
+	border-left: 4px solid transparent;
+}
+
+.pkp_caret_right {
+	border-left: 4px solid;
+	border-top: 4px solid transparent;
+	border-bottom: 4px solid transparent;
+}
+
 .pkp_helpers_invisible {
 	visibility: hidden;
 }

@@ -100,16 +100,15 @@
 		width: 100%;
 	}
 
+	tr {
+		position: static;
+	}
+
 	th,
 	td {
 		padding: 0;
 		padding-left: 1em;
 		vertical-align: top;
-	}
-
-	tbody:not(.empty) tr:hover,
-	tbody:not(.empty) tr:focus {
-		background-color: @bg;
 	}
 
 	thead {
@@ -125,6 +124,14 @@
 		}
 	}
 
+	td {
+		position: relative;
+		padding-top: @half;
+		padding-bottom: @half;
+		line-height: 24px;
+	}
+
+	// Empty row
 	.empty td {
 		display: block;
 		padding: 0;
@@ -134,10 +141,36 @@
 		text-align: center;
 	}
 
+	// Expand/collapse row actions
+	.sprite.show_extras,
+	.sprite.hide_extras {
+		position: absolute;
+		top: @half; // matches td padding
+		left: 0;
+		width: @double;
+		height: 24px; // matches td line-height
+		line-height: 24px;
+		text-align: center;
+		cursor: pointer;
+	}
+
+	.sprite.show_extras:before {
+		&:extend( .pkp_caret );
+		&:extend( .pkp_caret_right );
+		margin-top: -4px;
+	}
+
+	.sprite.hide_extras:before {
+		&:extend( .pkp_caret );
+		&:extend( .pkp_caret_down );
+		margin-top: -2px;
+	}
+
+
 	// Infinite scroll
 	.scrollable {
 		position: relative;
-		max-height: 20em;
+		max-height: 15em;
 		overflow: auto;
 	}
 
@@ -232,34 +265,7 @@
 		display:none;
 	}
 
-	.row_container {
-		display: table;
-		overflow: hidden;
-	}
-
-	.row_actions {
-		display: block;
-	}
-
-	.row_actions a {
-		display: block;
-		cursor: pointer;
-		width: 24px;
-		float: right;
-	}
-
-	.row_file {
-		display: table-cell;
-		padding: 0 10px 0 5px;
-		vertical-align:top;
-	}
-
-	.row_file a.pkp_controllers_linkAction {
-		margin-right: 10px;
-	}
-
 	.multiline {
-		line-height: 125%; /* IE7 doesn't support "inherit", all other browsers will ignore this. */
 		line-height: inherit;
 	}
 
@@ -391,4 +397,24 @@ div.pkp_controllers_category_grid {
 	thead th:nth-child(2) {
 		padding-left: 35px;
 	}
+}
+
+// Hacky workaround for targetting table rows with links to open more
+// row-specific actions. This just provides some extra padding for the caret
+// that's clicked to open the actions row.
+.pkp_page_dashboard .pkp_controllers_grid th:first-child,
+.pkp_page_dashboard .pkp_controllers_grid td:first-child {
+	padding-left: @double;
+}
+
+// Hacky workaround to target ID columns
+.pkp_page_dashboard .pkp_controllers_grid td:first-child {
+	font-size: @font-sml;
+	color: @text-light;
+	color: @text-light-rgba;
+}
+
+// Hacky workaroung to target actions in main grid row
+.pkp_page_dashboard .pkp_controllers_grid .gridRow .pkp_controllers_linkAction {
+	font-size: @font-sml;
 }

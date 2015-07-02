@@ -132,8 +132,9 @@
 	// Empty row
 	.empty td {
 		display: block;
-		padding: 0;
+		padding: 8px 0;
 		font-size: @font-sml;
+		line-height: 24px;
 		color: @text-light;
 		color: @text-light-rgba;
 		text-align: center;
@@ -176,14 +177,13 @@
 	.row_controls {
 
 		td {
-			padding-top: 0;
-			padding-bottom: 0;
 			line-height: 24px;
 		}
 
 		a {
 			display: inline-block;
 			margin-right: 1em;
+			font-size: @font-sml;
 			text-decoration: none;
 
 			&:hover,
@@ -192,48 +192,40 @@
 			}
 		}
 
-		.disable,
-		.delete,
-		.remove_item {
+
+		.pkp_linkaction_disable,
+		.pkp_linkaction_delete,
+		.pkp_linkaction_remove_item {
 			color: @offset;
 		}
 	}
+}
 
+// Categorized grids
+.pkp_grid_category {
 
-	// @todo
-	tr.category {
-		background-color: #f2f2f2;
-		border-top: 1px solid #dedede;
-		border-bottom: 1px solid #dedede;
-		height: 32px;
-
-		span.category_items_number {
-			font-size: 90%;
-			color: #6d6d6d;
-		}
+	.gridRow {
+		border: none;
 	}
 
-	td.first_column {
-		color: #333333;
+	.gridRow.category {
+		background: @bg;
+		font-size: @font-sml;
+		color: @text-light;
+		color: @text-light-rgba;
 	}
 
-	td.category {
-		display: table-row;
+	.gridRow:not(.category) td {
+		border-bottom: 1px solid @bg;
+		padding-left: @double; // make room for the drop-down caret
 	}
+}
+
+// @todo
+.pkp_controllers_grid {
 
 	tr.no_border, td.no_border {
 		border-bottom: none !important;
-	}
-
-	.default_category_style td {
-		font-size: 90%;
-		text-transform: uppercase;
-	}
-
-	tr.category td.no_actions {
-		vertical-align: middle;
-		top: 0;
-		padding-left: 10px !important;
 	}
 
 	.grid_header {

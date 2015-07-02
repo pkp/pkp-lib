@@ -20,7 +20,6 @@
 	{foreach name=columnLoop from=$columns key=columnId item=column}
 		{if $column->hasFlag('indent')}
 			{if !is_a($row, 'GridCategoryRow')}
-				<td class="no_border indent_row"></td>
 				{assign var=columnSpan value=0}
 			{else}
 				{assign var=columnSpan value=2}
@@ -46,7 +45,7 @@
 						</div>
 						<div class="row_file {if $column->hasFlag('multiline')}multiline{/if}">
 							{$cells[$smarty.foreach.columnLoop.index]}
-							{if is_a($row, 'GridCategoryRow') && $column->hasFlag('showTotalItemsNumber')}	
+							{if is_a($row, 'GridCategoryRow') && $column->hasFlag('showTotalItemsNumber')}
 								<span class="category_items_number">({$grid->getCategoryItemsCount($categoryRow->getData(), $request)})</span>
 							{/if}
 						</div>
@@ -67,9 +66,6 @@
 </tr>
 {if $row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT) || $row->getNoActionMessage()}
 	<tr id="{$rowId|escape}-control-row" class="row_controls{if is_a($row, 'GridCategoryRow')} category_controls{/if}">
-		{if $grid->getColumnsByFlag('indent')}
-			<td class="{if !is_a($row, 'GridCategoryRow')}no_border {/if}indent_row"></td>
-		{/if}
 		<td colspan="{$grid->getColumnsCount('indent')}">
 			{if $row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT)}
 				{foreach from=$row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT) item=action}

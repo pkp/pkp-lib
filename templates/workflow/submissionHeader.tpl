@@ -40,7 +40,7 @@
         </li>
     </ul>
 
-	{url|assign:submissionProgressBarUrl op="submissionProgressBar" submissionId=$submission->getId() stageId=$stageId contextId="submission" escape=false}
-	{load_url_in_div id="submissionProgressBarDiv" url=$submissionProgressBarUrl class="submissionProgressBar"}
-
 </div>
+
+{url|assign:submissionProgressBarUrl op="submissionProgressBar" submissionId=$submission->getId() stageId=$stageId contextId="submission" escape=false}
+{load_url_in_div id="submissionProgressBarDiv" url=$submissionProgressBarUrl class="submissionProgressBar"}

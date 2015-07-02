@@ -27,19 +27,19 @@
 		);
 	{rdelim});
 </script>
-<div style="clear:both">
-	<div id="stageTabs" class="pkp_controllers_tab">
-		<ul>
-			{foreach from=$workflowStages item=stage}
-				<li class="workflowStage">
-					<a class="{$stage.path} stageId{$stage.id}" href="{url router=$smarty.const.ROUTE_COMPONENT component="tab.workflow.WorkflowTabHandler" op="fetchTab" submissionId=$submission->getId() stageId=$stage.id escape=false}">
-					{translate key=$stage.translationKey}
-					<div class="stageState">
-							{translate key=$stage.statusKey}
-						</div>
-					</a>
-				</li>
-			{/foreach}
-		</ul>
-	</div>
+<div id="stageTabs" class="pkp_controllers_tab">
+	<ul>
+		{foreach from=$workflowStages item=stage}
+			<li class="pkp_workflow_{$stage.path} stageId{$stage.id}{if $stage.statusKey} initiated{/if}">
+				<a href="{url router=$smarty.const.ROUTE_COMPONENT component="tab.workflow.WorkflowTabHandler" op="fetchTab" submissionId=$submission->getId() stageId=$stage.id escape=false}">
+                    {translate key=$stage.translationKey}
+                    {if $stage.statusKey}
+                    <span class="pkp_screen_reader">
+                        {translate key=$stage.statusKey}
+                    </span>
+                    {/if}
+				</a>
+			</li>
+		{/foreach}
+	</ul>
 </div>

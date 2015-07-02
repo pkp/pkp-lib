@@ -52,6 +52,26 @@
 	}
 }
 
+.pkp_page_workflow {
+
+	.ui-tabs-nav {
+
+		// Stage currently initiated
+		.initiated a:before {
+			content: ' ';
+			position: absolute;
+			bottom: -@half;
+			left: 50%;
+			margin-left: -@half;
+			width: @base;
+			height: @base;
+			margin-right: 0.25em;
+			background: @offset;
+			border-radius: 50%;
+		}
+	}
+}
+
 .pkp_page_header {
 
 	.submission_progress {

@@ -39,7 +39,7 @@
 		{/fbvFormSection}
 	{/fbvFormArea}
 
-	{fbvFormButtons hideCancel=true submitText="common.save"}a
+	{fbvFormButtons hideCancel=true submitText="common.save"}
 
 	<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 </form>

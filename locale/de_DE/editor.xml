@@ -98,4 +98,5 @@
 	<message key="editor.submission.selectPromoteRevisions">Überarbeitungen auswählen, die in der nächsten Phase benutzt werden sollen</message>
 	<message key="editor.submission.noReviewerFilesSelected">Keine Dateien ausgewählt</message>
 	<message key="editor.submission.noReviewerFilesSelected.details">Sie haben keine Dateien ausgewählt, die der/die Gutachter/in begutachten soll.</message>
+	<message key="editor.submission.selectedReviewer">Ausgewählte Gutachter/innen</message>
 </locale>

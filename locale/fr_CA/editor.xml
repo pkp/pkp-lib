@@ -100,4 +100,5 @@
 	<message key="editor.article.reviewForms">Formulaires d'évaluation</message>
 	<message key="editor.article.selectReviewForm">Sélectionner un formulaire d'évaluation</message>
 	<message key="editor.article.clearReviewForm">Réinitialiser le formulaire d'évaluation</message>
+	<message key="editor.submission.selectedReviewer">Evaluateur sélectionné</message>
 </locale>

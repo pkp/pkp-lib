@@ -99,4 +99,5 @@
 	<message key="editor.article.reviewForms">Formulários de avaliação</message>
 	<message key="editor.article.selectReviewForm">Escolher formulário de avaliação</message>
 	<message key="editor.article.clearReviewForm">Retirar formulário designado</message>
+	<message key="editor.submission.selectedReviewer">Revisor Selecionado</message>
 </locale>

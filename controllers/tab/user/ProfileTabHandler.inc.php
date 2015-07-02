@@ -71,6 +71,8 @@ class ProfileTabHandler extends Handler {
 		$identityForm->readInputData();
 		if ($identityForm->validate()) {
 			$identityForm->execute($request);
+			$notificationMgr = new NotificationManager();
+			$notificationMgr->createTrivialNotification($request->getUser()->getId());
 			return new JSONMessage(true);
 		}
 		return new JSONMessage(false, $identityForm->fetch($request));
@@ -104,6 +106,8 @@ class ProfileTabHandler extends Handler {
 		$contactForm->readInputData();
 		if ($contactForm->validate()) {
 			$contactForm->execute($request);
+			$notificationMgr = new NotificationManager();
+			$notificationMgr->createTrivialNotification($request->getUser()->getId());
 			return new JSONMessage(true);
 		}
 		return new JSONMessage(false, $contactForm->fetch($request));
@@ -137,6 +141,8 @@ class ProfileTabHandler extends Handler {
 		$rolesForm->readInputData();
 		if ($rolesForm->validate()) {
 			$rolesForm->execute($request);
+			$notificationMgr = new NotificationManager();
+			$notificationMgr->createTrivialNotification($request->getUser()->getId());
 			return new JSONMessage(true);
 		}
 		return new JSONMessage(false, $rolesForm->fetch($request));
@@ -195,6 +201,8 @@ class ProfileTabHandler extends Handler {
 		$publicProfileForm->readInputData();
 		if ($publicProfileForm->validate()) {
 			$publicProfileForm->execute($request);
+			$notificationMgr = new NotificationManager();
+			$notificationMgr->createTrivialNotification($request->getUser()->getId());
 			return new JSONMessage(true);
 		}
 		return new JSONMessage(true, $publicProfileForm->fetch($request));
@@ -228,6 +236,8 @@ class ProfileTabHandler extends Handler {
 
 		if ($passwordForm->validate()) {
 			$passwordForm->execute($request);
+			$notificationMgr = new NotificationManager();
+			$notificationMgr->createTrivialNotification($request->getUser()->getId());
 			return new JSONMessage(true);
 
 		}
@@ -266,9 +276,8 @@ class ProfileTabHandler extends Handler {
 		$json = new JSONMessage();
 		if ($notificationSettingsForm->validate()) {
 			$notificationSettingsForm->execute($request);
-			$user = $request->getUser();
 			$notificationMgr = new NotificationManager();
-			$notificationMgr->createTrivialNotification($user->getId());
+			$notificationMgr->createTrivialNotification($request->getUser()->getId());
 		} else {
 			$json->setStatus(false);
 		}

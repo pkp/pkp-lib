@@ -24,6 +24,8 @@
 	background-image: linear-gradient(#fcfcfc, #eee);
 	border: @bg-border;
 	border-radius: @radius;
+	text-decoration: none;
+	text-align: center;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
@@ -34,7 +36,6 @@
 	&:focus {
 		background-color: #ccc;
 		background-image: linear-gradient(#fcfcfc, #ccc);
-		text-decoration: none;
 	}
 }
 
@@ -50,6 +51,21 @@
 		text-decoration: none;
 		background-color: darken( @primary, 5% );
 		background-image: linear-gradient( lighten( @primary, 7% ), darken( @primary, 5% ) );
+	}
+}
+
+.pkp_button_offset {
+	&:extend( .pkp_button );
+	background-color: @offset;
+	background-image: linear-gradient( lighten( @offset, 10% ), @offset );
+	color: #fff;
+	border-color: @offset;
+
+	&:hover,
+	&:focus {
+		text-decoration: none;
+		background-color: darken( @offset, 5% );
+		background-image: linear-gradient( lighten( @offset, 7% ), darken( @offset, 5% ) );
 	}
 }
 

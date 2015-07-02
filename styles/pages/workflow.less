@@ -9,6 +9,7 @@
  *
  */
 
+// Title and author
 .pkp_page_header {
 
 	.pkp_submission_author {
@@ -24,6 +25,7 @@
 	}
 }
 
+// Action links alongside author
 .pkp_submission_actions {
 	display: inline-block;
 	margin: 0;
@@ -40,18 +42,44 @@
 		}
 	}
 
-	// @todo workaround until sprites are fully removed
-	.sprite:before {
-		content: none;
-	}
+	.participants {
 
-	.participants a:before {
-		&:extend( .fa );
-		content: @fa-var-users;
-		margin-right: 0.25em;
+		a:before {
+			&:extend( .fa );
+			content: @fa-var-users;
+			margin-right: 0.25em;
+		}
 	}
 }
 
+// Participant panel
+.pkp_page_title {
+	// anchor the panel to the header. This could use a better element to
+	// attach to.
+	position: relative;
+}
+.participant_popover {
+	z-index: 1;
+	position: absolute;
+	top: 0;
+	right: 0;
+	transform: translateX(100%);
+	max-width: 24em;
+	background: @lift;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+	transition: transform 0.3s;
+
+	&.is_visible {
+		transform: translateX(0);
+	}
+
+	.pkp_controllers_grid {
+		padding: @base;
+		margin-bottom: 0;
+	}
+}
+
+// Tabs
 .pkp_page_workflow {
 
 	.ui-tabs-nav {
@@ -68,6 +96,35 @@
 			margin-right: 0.25em;
 			background: @offset;
 			border-radius: 50%;
+		}
+	}
+}
+
+// Decision buttons (on the right)
+.pkp_workflow_decisions a {
+	&:extend( .pkp_button );
+	width: 100%;
+
+	&:hover,
+	&:focus {
+		&:extend( .pkp_button:hover );
+	}
+
+	&.pkp_linkaction_accept {
+		&:extend( .pkp_button_primary );
+
+		&:hover,
+		&:focus {
+			&:extend( .pkp_button_primary:hover );
+		}
+	}
+
+	&.pkp_linkaction_decline {
+		&:extend( .pkp_button_offset );
+
+		&:hover,
+		&:focus {
+			&:extend( .pkp_button_offset:hover );
 		}
 	}
 }
@@ -153,13 +210,5 @@
 		top: 0;
 		height: 37px;
 		position: absolute;
-	}
-}
-
-#reviewTabs {
-	.ui-tabs-nav {
-		a.pkp_controllers_linkAction {
-			line-height:0px;
-		}
 	}
 }

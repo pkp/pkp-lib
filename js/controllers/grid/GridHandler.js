@@ -549,13 +549,12 @@
 		// Search control.
 		this.getHtmlElement().find('.pkp_form').hide();
 		$searchLink = this.getHtmlElement().
-				find('a[class^="sprite search_extras_"]');
+				find('.pkp_linkaction_search');
 		if ($searchLink.length !== 0) {
 			$searchLink.click(
 					this.callbackWrapper(function() {
 						this.getHtmlElement().find('.pkp_form').toggle();
-						$searchLink.toggleClass('search_extras_expand').
-								toggleClass('search_extras_collapse');
+						$searchLink.toggleClass('is_open');
 					}));
 		} else {
 			// This grid doesn't have an expand/collapse control. If there is
@@ -853,7 +852,7 @@
 
 			if (isFilterVisible) {
 				// Open search control again.
-				$newGrid.find('.actions .search_extras_expand').click();
+				$newGrid.find('.pkp_linkaction_search').click();
 			}
 		}
 	};

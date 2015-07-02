@@ -49,8 +49,7 @@
 		}
 	}
 
-	.search_extras_expand,
-	.search_extras_collapse {
+	.pkp_linkaction_search {
 		&:extend( .fa );
 		padding: 0 1px; // 1px prevents aliased icon from getting clipped at the edge
 		background: transparent;
@@ -61,16 +60,16 @@
 		}
 	}
 
-	.search_extras_expand:before {
+	.pkp_linkaction_search:before {
 		content: @fa-var-search-plus;
 	}
 
-	.search_extras_collapse {
+	.pkp_linkaction_search.is_open {
 		padding: 0 1em;
 		background: @bg;
 	}
 
-	.search_extras_collapse:before {
+	.pkp_linkaction_search.is_open:before {
 		content: @fa-var-search-minus;
 	}
 

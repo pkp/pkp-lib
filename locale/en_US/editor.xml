@@ -111,4 +111,5 @@
 	<message key="submission.queries.attachedFiles">Attached Files</message>
 	<message key="grid.action.editQuery">Edit Discussion</message>
 	<message key="editor.submission.query.manageQueryNoteFilesDescription">Files can be attached for inclusion in this discussion from the list below.</message>
+	<message key="editor.submission.selectedReviewer">Selected Reviewer</message>
 </locale>

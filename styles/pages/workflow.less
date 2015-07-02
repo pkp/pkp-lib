@@ -10,50 +10,49 @@
  */
 
 .pkp_page_header {
-	position: relative;
 
-	ul.submission_actions {
-		position: relative;
-		z-index: 20;
+	.pkp_submission_author {
+		display: inline-block;
+		margin-right: 1em;
+		max-width: 50%; // @todo We can work out a more responsive width system when we improve tablet/phone support
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		// This ensures the author will align horizontally with the actions
+		// which follow it. It's complicated: http://stackoverflow.com/a/20566810/1723499
+		vertical-align: bottom;
+	}
+}
+
+.pkp_submission_actions {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-size: @font-sml;
+
+	li {
+		display: inline-block;
+		padding-right: 1em;
+
+		&:last-child {
+			padding-right: 0;
+		}
 	}
 
-	ul.submission_actions li {
-		line-height: 24px;
-		margin-left: 20px;
-		padding: 5px 1px 4px 1px;
+	// @todo workaround until sprites are fully removed
+	.sprite:before {
+		content: none;
 	}
 
-	li.participants {
-		margin-right: 10px;
+	.participants a:before {
+		&:extend( .fa );
+		content: @fa-var-users;
+		margin-right: 0.25em;
 	}
+}
 
-	li.participants:hover, li.expandedIndicator {
-		background: #fff;
-		border: 1px solid #999;
-		border-bottom: 1px solid #fff;
-		padding: 4px 10px 3px 10px !important;
-		margin: 0px 0px 0px 10px !important;
-	}
-
-	.participant_popover {
-		border: 1px solid #999;
-		width: 300px;
-		right: 0px;
-		top: 0px;
-		margin-top: -2px;
-		position:absolute;
-		background-color: #fff;
-		z-index: 10;
-	}
-
-	ul.submission_actions a {
-		text-decoration: underline;
-	}
-
-	.submission_progress_wrapper {
-		clear: both;
-		padding-top: 28px;
-	}
+.pkp_page_header {
 
 	.submission_progress {
 		overflow: hidden;

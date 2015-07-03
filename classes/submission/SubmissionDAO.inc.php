@@ -491,7 +491,7 @@ abstract class SubmissionDAO extends DAO {
 				($title?' LEFT JOIN submission_settings ss ON (s.submission_id = ss.submission_id)':'') .
 				$this->getFetchJoins() .
 			'WHERE	s.submission_id IN (SELECT asa.submission_id FROM stage_assignments asa, user_groups aug WHERE asa.user_group_id = aug.user_group_id AND aug.role_id = ? AND asa.user_id = ?)' .
-				$this->getCompletionConditions(false) . 'AND' .
+				' AND ' . $this->getCompletionConditions(false) .
 				($contextId?' AND s.context_id = ?':'') .
 				($title?' AND (ss.setting_name = ? AND ss.setting_value LIKE ?)':'') .
 				($stageId?' AND s.stage_id = ?':'') .

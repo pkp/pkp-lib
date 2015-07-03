@@ -17,4 +17,4 @@
 		{rdelim});
 	{rdelim});
 </script>
-<div id="{$notificationId|escape}" class="pkp_notification"></div>
+<div id="{$notificationId|escape}" class="pkp_notification {$notificationStyleClass}"></div>

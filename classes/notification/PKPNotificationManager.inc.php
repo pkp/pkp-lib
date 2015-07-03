@@ -270,7 +270,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 		if ($notificationTitle) {
 			return $notificationTitle;
 		} else {
-			return __('notification.notification');
+			return '';
 		}
 	}
 

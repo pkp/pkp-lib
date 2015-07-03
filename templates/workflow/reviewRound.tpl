@@ -14,13 +14,14 @@
 </ul>
 
 <div class="pkp_content_panel">
+
+    {include file="controllers/notification/inPlaceNotification.tpl" notificationId="reviewRoundNotification_"|concat:$reviewRoundId requestOptions=$reviewRoundNotificationRequestOptions}
+
     {if $stageId == $smarty.const.WORKFLOW_STAGE_ID_INTERNAL_REVIEW}
     	<p class="pkp_help">{translate key="editor.internalReview.introduction"}</p>
     {elseif $stageId == $smarty.const.WORKFLOW_STAGE_ID_EXTERNAL_REVIEW}
     	<p class="pkp_help">{translate key="editor.externalReview.introduction"}</p>
     {/if}
-
-    {include file="controllers/notification/inPlaceNotification.tpl" notificationId="reviewRoundNotification_"|concat:$reviewRoundId requestOptions=$reviewRoundNotificationRequestOptions}
 
     {* Review files grid *}
     {url|assign:reviewFileSelectionGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.review.EditorReviewFilesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId reviewRoundId=$reviewRoundId escape=false}

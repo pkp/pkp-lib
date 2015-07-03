@@ -14,6 +14,7 @@
  */
 
 import('lib.pkp.classes.form.Form');
+import('classes.plugins.PubIdPluginHelper');
 
 class SubmissionFilesMetadataForm extends Form {
 
@@ -44,6 +45,8 @@ class SubmissionFilesMetadataForm extends Form {
 		if (is_a($reviewRound, 'ReviewRound')) {
 			$this->_reviewRound = $reviewRound;
 		}
+
+		$this->_pubIdPluginHelper = new PubIdPluginHelper();
 
 		// Add validation checks.
 		$this->addCheck(new FormValidatorLocale($this, 'name', 'required', 'submission.submit.fileNameRequired'));
@@ -110,6 +113,10 @@ class SubmissionFilesMetadataForm extends Form {
 	 */
 	function readInputData() {
 		$this->readUserVars(array('name', 'note', 'showButtons'));
+
+		// consider the additional field names from the public identifer plugins
+		$pubIdPluginHelper = $this->_getPubIdPluginHelper();
+		$pubIdPluginHelper->readInputData($this);
 	}
 
 	/**
@@ -123,7 +130,21 @@ class SubmissionFilesMetadataForm extends Form {
 			'stageId' => $this->getStageId(),
 			'reviewRoundId' => $reviewRound?$reviewRound->getId():null
 		));
+
+		// consider public identifiers
+		$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true);
+		$templateMgr->assign('pubIdPlugins', $pubIdPlugins);
+
 		return parent::fetch($request);
+	}
+
+	/**
+	 * @copydoc Form::initData()
+	 */
+	function initData() {
+		// initialize the pubId fields.
+		$pubIdPluginHelper = $this->_getPubIdPluginHelper();
+		$pubIdPluginHelper->init($this, $this->getSubmissionFile());
 	}
 
 	/**
@@ -133,6 +154,11 @@ class SubmissionFilesMetadataForm extends Form {
 		// Update the submission file with data from the form.
 		$submissionFile = $this->getSubmissionFile();
 		$submissionFile->setName($this->getData('name'), null); // Localized
+
+		// consider the additional field names from the public identifer plugins
+		$pubIdPluginHelper = $this->_getPubIdPluginHelper();
+		$pubIdPluginHelper->execute($this, $submissionFile);
+
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 		$submissionFileDao->updateObject($submissionFile);
 
@@ -155,6 +181,14 @@ class SubmissionFilesMetadataForm extends Form {
 			$viewsDao = DAORegistry::getDAO('ViewsDAO');
 			$viewsDao->recordView(ASSOC_TYPE_NOTE, $noteId, $user->getId());
 		}
+	}
+
+	/**
+	 * returns the PubIdPluginHelper associated with this form.
+	 * @return PubIdPluginHelper
+	 */
+	function _getPubIdPluginHelper() {
+		return $this->_pubIdPluginHelper;
 	}
 }
 

@@ -32,6 +32,11 @@
 		{/fbvFormSection}
 	{/fbvFormArea}
 
+	{foreach from=$pubIdPlugins item=pubIdPlugin}
+		{assign var=pubIdMetadataFile value=$pubIdPlugin->getPubIdMetadataFile()}
+		{include file=$pubIdMetadataFile pubObject=$submissionFile}
+	{/foreach}
+
 	{* Read-only meta-data *}
 	{fbvFormArea id="fileInfo" title="submission.submit.fileInformation" class="border"}
 		{fbvFormSection title="common.fileName" inline=true size=$fbvStyles.size.MEDIUM}

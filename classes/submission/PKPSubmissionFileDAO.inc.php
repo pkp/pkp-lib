@@ -612,6 +612,20 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 		);
 	}
 
+	/**
+	 * Change the public ID of a file.
+	 * @param $fileId int
+	 * @param $pubIdType string One of the NLM pub-id-type values or
+	 * 'other::something' if not part of the official NLM list
+	 * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
+	 * @param $pubId string
+	 */
+	function changePubId($fileId, $pubIdType, $pubId) {
+		$file = $this->getLatestRevision($fileId);
+		$file->setData('pub-id::'.$pubIdType, $pubId);
+		$this->updateObject($file);
+	}
+
 	//
 	// Private helper methods
 	//

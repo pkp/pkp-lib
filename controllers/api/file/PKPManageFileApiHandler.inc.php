@@ -159,6 +159,7 @@ abstract class PKPManageFileApiHandler extends Handler {
 		$stageId = $request->getUserVar('stageId');
 		$metadataForm = $submissionFile->getMetadataForm($stageId, $reviewRound);
 		$metadataForm->setShowButtons(true);
+		$metadataForm->initData();
 		return new JSONMessage(true, $metadataForm->fetch($request));
 	}
 

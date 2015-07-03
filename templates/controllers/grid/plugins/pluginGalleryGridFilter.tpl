@@ -15,12 +15,13 @@
 		{rdelim}
 	);
 </script>
-<form class="pkp_form" id="pluginGallerySearchForm" action="{url router=$smarty.const.ROUTE_COMPONENT op="fetchGrid"}" method="post">
+<form class="pkp_form filter" id="pluginGallerySearchForm" action="{url router=$smarty.const.ROUTE_COMPONENT op="fetchGrid"}" method="post">
 	{fbvFormArea id="userSearchFormArea"}
-		{fbvFormSection title="common.search" for="search"}
-			{fbvElement type="text" id="pluginText" value=$filterSelectionData.pluginText size=$fbvStyles.size.LARGE inline=true}
+		{fbvFormSection}
 			{fbvElement type="select" id="category" from=$filterData.categories selected=$filterSelectionData.category translate=false size=$fbvStyles.size.SMALL inline=true}
-			{fbvFormButtons hideCancel=true submitText="common.search"}
+			{fbvElement type="text" id="pluginText" value=$filterSelectionData.pluginText size=$fbvStyles.size.LARGE inline=true}
 		{/fbvFormSection}
+        {* Buttons generate their own section *}
+        {fbvFormButtons hideCancel=true submitText="common.search"}
 	{/fbvFormArea}
 </form>

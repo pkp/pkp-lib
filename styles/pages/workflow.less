@@ -58,6 +58,7 @@
 	// attach to.
 	position: relative;
 }
+
 .participant_popover {
 	z-index: 1;
 	position: absolute;
@@ -80,6 +81,10 @@
 		.header {
 			min-height: @double; // has actions but no title
 		}
+	}
+
+	.gridRow:not(.category) td {
+		padding-left: @double; // make room for the drop-down caret
 	}
 }
 

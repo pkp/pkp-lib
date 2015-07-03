@@ -85,7 +85,7 @@
 				so that we can restore it if the user deletes all rows.
 			**}
 			<tr>
-				<td colspan="{$columns|@count}">{translate key=$grid->getEmptyRowText()}</td>
+				<td colspan="{$grid->getColumnsCount('indent')|@count}">{translate key=$grid->getEmptyRowText()}</td>
 			</tr>
 		</tbody>
 	</table>

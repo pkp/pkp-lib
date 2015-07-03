@@ -1,0 +1,29 @@
+/**
+ * @file styles/pages/settings.less
+ *
+ * Copyright (c) 2014-2015 Simon Fraser University Library
+ * Copyright (c) 2003-2015 John Willinsky
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ *
+ * @brief Styles for the settings pages
+ *
+ */
+
+//
+// Hacky workarounds for targetting specific things that aren't that well
+// marked up, or otherwise cause complications
+//
+
+// Make room for the open/close caret
+#pluginGridContainer tbody:not(.empty) .gridRow:not(.category) td:first-child,
+#pluginGridContainer .row_controls td:first-child {
+  padding-left: @double;
+}
+
+// Reduce prominence of plugin description
+#pluginGridContainer tbody:not(.empty) .gridRow:not(.category) td:nth-child(2) {
+	font-size: @font-sml;
+	line-height: @line-sml;
+	color: @text-light;
+	color: @text-light-rgba;
+}

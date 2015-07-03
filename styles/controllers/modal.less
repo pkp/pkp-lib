@@ -15,21 +15,10 @@
  */
 
 .pkp_controllers_modal_titleBar {
-	height: 48px;
-	width: 100%;
-	margin-top: 10px;
-	margin-right: 10px;
-	padding-bottom: 10px;
-	border-bottom: 1px solid #efefef;
-
-	h2 {
-		margin-left: 20px;
-		font-style: italic;
-	}
+	background: @bg;
 
 	.close {
 		float: right;
-		padding-right: 10px;
 	}
 }
 .xIcon {
@@ -51,10 +40,6 @@
 	line-height: 30px;
 }
 
-.ui-dialog .ui-tabs-panel {
-	padding: 0px;
-}
-
 .ui-widget-overlay {
 	background: #333333 50% 50% repeat-x;
 	opacity: 0.8;
@@ -62,14 +47,12 @@
 }
 
 .ui-dialog {
-	background-color: #f7f5f4;
 	z-index: 1002;
+	background: @lift;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
+.pkp_controllers_modal_titleBar,
 .ui-dialog-content {
-	background-color: #ffffff !important;
-}
-
-.ui-dialog-buttonpane {
-	border-color: #f7f5f4;
+	padding: @base;
 }

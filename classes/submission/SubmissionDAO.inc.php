@@ -708,8 +708,8 @@ abstract class SubmissionDAO extends DAO {
 						LEFT JOIN user_groups g ON (sa.user_group_id = g.user_group_id) 
 						LEFT JOIN users u ON (sa.user_id = u.user_id)':'') . '
 				' . $this->getFetchJoins() . '
-			WHERE	s.date_submitted IS NOT NULL AND
-				' . $this->getCompletionConditions(false) . ' AND
+			WHERE	s.date_submitted IS NOT NULL
+				AND ' . $this->getCompletionConditions(false) . '
 				AND s.status <> ?
 				' . ($contextId?' AND s.context_id = ?':'') . '
 				' . ($title?' AND (ss.setting_name = ? AND ss.setting_value LIKE ?)':'') . '

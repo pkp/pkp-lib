@@ -477,10 +477,7 @@ abstract class SubmissionDAO extends DAO {
 			array((int) ROLE_ID_AUTHOR, (int) $userId)
 		);
 		if ($title) $params[] = '%' . $title . '%';
-
-		if ($stageId) {
-			$params[] = (int) $stageId;
-		}
+		if ($stageId) $params[] = (int) $stageId;
 		if ($contextId) $params[] = (int) $contextId;
 
 		$result = $this->retrieveRange(

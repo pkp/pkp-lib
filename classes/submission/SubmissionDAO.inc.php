@@ -453,7 +453,7 @@ abstract class SubmissionDAO extends DAO {
 				(SELECT COUNT(sa.stage_assignment_id) FROM stage_assignments sa LEFT JOIN user_groups g ON sa.user_group_id = g.user_group_id WHERE 
 					sa.submission_id = s.submission_id AND (g.role_id = ? OR g.role_id = ?)) = 0' 
 			. (!$includeDeclined?' AND s.status <> ' . STATUS_DECLINED : '' )
-			. (!$includePublished?$this->getCompletionConditions(false) . 'AND ':'')
+			. (!$includePublished?' AND ' . $this->getCompletionConditions(false):'')
 			. ($contextId && !is_array($contextId)?' AND s.context_id = ?':'')
 			. ($contextId && is_array($contextId)?' AND s.context_id IN  (' . join(',', array_map(array($this,'_arrayWalkIntCast'), $contextId)) . ')':'')
 			. ($title?' AND (ss.setting_name = ? AND ss.setting_value LIKE ?)':'') 

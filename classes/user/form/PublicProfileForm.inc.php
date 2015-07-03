@@ -16,6 +16,9 @@
 import('lib.pkp.classes.user.form.BaseProfileForm');
 import('classes.file.PublicFileManager');
 
+define('PROFILE_IMAGE_MAX_WIDTH', 150);
+define('PROFILE_IMAGE_MAX_HEIGHT', 150);
+
 class PublicProfileForm extends BaseProfileForm {
 
 	/**
@@ -73,22 +76,20 @@ class PublicProfileForm extends BaseProfileForm {
 		$filePath = $publicFileManager->getSiteFilesPath();
 		list($width, $height) = getimagesize($filePath . '/' . $uploadName);
 
-		if ($width > 150 || $height > 150 || $width <= 0 || $height <= 0) {
+		if ($width > PROFILE_IMAGE_MAX_WIDTH || $height > PROFILE_IMAGE_MAX_HEIGHT || $width <= 0 || $height <= 0) {
 			$userSetting = null;
 			$user->updateSetting('profileImage', $userSetting);
 			$publicFileManager->removeSiteFile($filePath);
 			return false;
 		}
 
-		$userSetting = array(
+		$user->updateSetting('profileImage', array(
 			'name' => $publicFileManager->getUploadedFileName('uploadedFile'),
 			'uploadName' => $uploadName,
 			'width' => $width,
 			'height' => $height,
-			'dateUploaded' => Core::getCurrentDate()
-		);
-
-		$user->updateSetting('profileImage', $userSetting);
+			'dateUploaded' => Core::getCurrentDate(),
+		));
 		return true;
 	}
 

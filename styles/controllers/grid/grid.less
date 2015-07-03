@@ -102,6 +102,14 @@
 		}
 	}
 
+	// Description
+	> .description {
+		font-size: @font-sml;
+		line-height:  @line-sml;
+		color: @text-light;
+		color: @text-light-rgba;
+	}
+
 	// Grid rows
 	table {
 		width: 100%;
@@ -218,6 +226,11 @@
 
 // Categorized grids
 .pkp_grid_category {
+
+	thead {
+		background: @shade;
+		color: #fff;
+	}
 
 	.gridRow {
 		border: none;

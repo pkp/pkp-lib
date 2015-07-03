@@ -144,8 +144,11 @@
 //
 
 // Adds padding to column with the toggle that opens and closes grid row actions
-#submissionFilesGridDiv .gridRow td:first-child,
-#documentsGridDiv .gridRow:not(.category) td:first-child {
+#submissionFilesGridDiv tbody:not(.empty) td:first-child,
+#documentsGridDiv .gridRow:not(.category) td:first-child,
+#documentsGridDiv .row_controls td:first-child,
+#reviewTabs tbody:not(.empty) td:first-child // All grids on the review screen
+{
 	padding-left: @double;
 }
 

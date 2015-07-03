@@ -74,7 +74,7 @@
 
 	{fbvFormArea id="reviewOptions" title="manager.setup.reviewOptions" class="border"}
 		{fbvFormSection description="manager.setup.reviewOptions.defaultReviewMethod"}
-			{fbvElement type="select" from=$reviewMethodOptions selected=$defaultReviewMode defaultValue="" defaultLabel="" id="defaultReviewMode" size=$fbvStyles.size.SMALL inline=true}
+			{fbvElement type="select" from=$reviewMethodOptions selected=$defaultReviewMode id="defaultReviewMode" size=$fbvStyles.size.SMALL inline=true}
 		{/fbvFormSection}
 
 		{$additionalReviewFormOptions}

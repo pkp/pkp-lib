@@ -15,8 +15,3 @@ PHPUTF8 UTF-8 Character Handling Library
 SWORD PHP API Library
  * URL: <https://github.com/swordapp/swordappv2-php-library>
  * License: Modified BSD
-
-PDFObject
- * URL: <http://pdfobject.com>
- * Version: 1.2
- * License: MIT style

@@ -25,5 +25,5 @@
 {$gridFilterForm}
 
 {if $grid->getInstructions()}
-    <div class="description">{translate key=$grid->getInstructions()}</p>
+    <p class="description">{translate key=$grid->getInstructions()}</p>
 {/if}

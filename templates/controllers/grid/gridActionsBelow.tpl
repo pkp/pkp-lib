@@ -8,9 +8,10 @@
  * Grid actions in bottom position
  *}
 
-<div class="actions pkp_linkActions grid_link_actions_below">
+<ul class="actions btm">
 	{foreach from=$grid->getActions($smarty.const.GRID_ACTION_POSITION_BELOW) item=action}
-		{include file="linkAction/linkAction.tpl" action=$action contextId=$gridId}
+        <li>
+            {include file="linkAction/linkAction.tpl" action=$action contextId=$gridId}
+        </li>
 	{/foreach}
-	<div class="pkp_helpers_clear"></div>
-</div>
+</ul>

@@ -14,41 +14,55 @@
 	position: relative;
 	margin-bottom: @double * 2;
 
+	.header,
+	.footer {
+		.pkp_helpers_clear;
+	}
+
 	// Header
 	.header {
 		position: relative;
 
 		h4 {
+			display: inline-block;
 			font-size: @font-base;
 			margin: 0;
 		}
+	}
 
-		.actions {
-			position: absolute;
-			top: 0;
-			right: 0;
-			margin: 0;
-			padding: 0;
-			list-style: none;
+	// Footer
+	.footer {
+		background: @bg;
+		padding-left: 1em;
+		padding-right: 1em;
+	}
 
-			li {
-				display: inline-block;
-				margin-right: 1em;
+	// Actions (header + footer )
+	.actions {
+		display: inline-block;
+		float: right;
+		margin: 0;
+		padding: 0;
+		list-style: none;
 
-				&:last-child {
-					margin-right: 0;
-				}
+		li {
+			display: inline-block;
+			margin-right: 1em;
+
+			&:last-child {
+				margin-right: 0;
 			}
+		}
 
-			a {
-				display: inline-block;
-				line-height: @line-base;
-				font-size: @font-sml;
-				text-decoration: none;
-			}
+		a {
+			display: inline-block;
+			line-height: @line-base;
+			font-size: @font-sml;
+			text-decoration: none;
 		}
 	}
 
+	// Search filter
 	.pkp_linkaction_search {
 		&:extend( .fa );
 		padding: 0 1px; // 1px prevents aliased icon from getting clipped at the edge
@@ -305,11 +319,6 @@
 		margin: 0;
 		height: 24px;
 	}
-
-	.grid_link_actions_below a {
-		font-size: 90%;
-	}
-
 
 	/* @group More/Less Detail Toggle */
 	.toggleDetailContainer {

@@ -138,6 +138,17 @@
 	}
 }
 
+//
+// Hacky workarounds for targetting specific things that aren't that well
+// marked up, or otherwise cause complications
+//
+
+// Add's padding to column with the toggle that opens and closes grid row actions
+#submissionFilesGridDiv tbody:not(.empty) td:first-child {
+	padding-left: @double;
+}
+
+// @todo
 .pkp_page_header {
 
 	.submission_progress {

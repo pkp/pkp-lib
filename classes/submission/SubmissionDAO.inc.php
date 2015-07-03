@@ -340,13 +340,14 @@ abstract class SubmissionDAO extends DAO {
 				' . $this->getFetchColumns() . '
 			FROM	submissions s
 				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id)
+				' . $this->getCompletionJoins() . '
 				LEFT JOIN stage_assignments asa ON (asa.submission_id = s.submission_id)
 				LEFT JOIN user_groups aug ON (asa.user_group_id = aug.user_group_id AND aug.role_id = ?)
 				' . $this->_getFetchJoins() . '
 			WHERE	s.submission_id = ?
+				' . $this->getCompletionConditions(false) . ' AND
 				AND aug.user_group_id IS NULL
 				AND s.date_submitted IS NOT NULL
-				AND ps.date_published IS NULL
 				AND s.status <> ' .  STATUS_DECLINED .
 				($contextId?' AND s.context_id = ?':''),
 			$params
@@ -443,6 +444,7 @@ abstract class SubmissionDAO extends DAO {
 				' . $this->getFetchColumns() . '
 			FROM	submissions s
 				LEFT JOIN published_submissions ps ON s.submission_id = ps.submission_id
+				' . $this->getCompletionJoins() . '
 				' . ($title?' LEFT JOIN submission_settings ss ON (s.submission_id = ss.submission_id)':'') . '
 				' . ($author?' LEFT JOIN authors au ON (s.submission_id = au.submission_id)':'') . '
 				' . $this->getFetchJoins() . '
@@ -451,7 +453,7 @@ abstract class SubmissionDAO extends DAO {
 				(SELECT COUNT(sa.stage_assignment_id) FROM stage_assignments sa LEFT JOIN user_groups g ON sa.user_group_id = g.user_group_id WHERE 
 					sa.submission_id = s.submission_id AND (g.role_id = ? OR g.role_id = ?)) = 0' 
 			. (!$includeDeclined?' AND s.status <> ' . STATUS_DECLINED : '' )
-			. (!$includePublished?' AND ps.date_published IS NULL' : '' )
+			. (!$includePublished?$this->getCompletionConditions(false) . 'AND ':'')
 			. ($contextId && !is_array($contextId)?' AND s.context_id = ?':'')
 			. ($contextId && is_array($contextId)?' AND s.context_id IN  (' . join(',', array_map(array($this,'_arrayWalkIntCast'), $contextId)) . ')':'')
 			. ($title?' AND (ss.setting_name = ? AND ss.setting_value LIKE ?)':'') 
@@ -485,10 +487,11 @@ abstract class SubmissionDAO extends DAO {
 				' . $this->getFetchColumns() . '
 			FROM	submissions s
 				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id)' .
+				$this->getCompletionJoins() .
 				($title?' LEFT JOIN submission_settings ss ON (s.submission_id = ss.submission_id)':'') .
 				$this->getFetchJoins() .
-			'WHERE	ps.date_published IS NULL
-				AND s.submission_id IN (SELECT asa.submission_id FROM stage_assignments asa, user_groups aug WHERE asa.user_group_id = aug.user_group_id AND aug.role_id = ? AND asa.user_id = ?)' .
+			'WHERE	s.submission_id IN (SELECT asa.submission_id FROM stage_assignments asa, user_groups aug WHERE asa.user_group_id = aug.user_group_id AND aug.role_id = ? AND asa.user_id = ?)' .
+				$this->getCompletionConditions(false) . 'AND' .
 				($contextId?' AND s.context_id = ?':'') .
 				($title?' AND (ss.setting_name = ? AND ss.setting_value LIKE ?)':'') .
 				($stageId?' AND s.stage_id = ?':'') .
@@ -583,6 +586,7 @@ abstract class SubmissionDAO extends DAO {
 				' . $this->getFetchColumns() . '
 			FROM submissions s
 				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id)
+				' . $this->getCompletionJoins() . '
 				LEFT JOIN stage_assignments sa ON (s.submission_id = sa.submission_id)
 				LEFT JOIN user_groups aug ON (sa.user_group_id = aug.user_group_id AND aug.role_id = ?)
 				LEFT JOIN submission_files sf ON (s.submission_id = sf.submission_id)
@@ -592,7 +596,9 @@ abstract class SubmissionDAO extends DAO {
 				' . ($title?' LEFT JOIN submission_settings ss ON (s.submission_id = ss.submission_id)':'') . '
 				' . ($author?' LEFT JOIN authors au ON (s.submission_id = au.submission_id)':'')
 				. $this->getFetchJoins() .
-			' WHERE s.date_submitted IS NOT NULL AND ps.date_published IS NULL AND s.status <> ?
+			' WHERE s.date_submitted IS NOT NULL 
+				AND ' . $this->getCompletionConditions(false) . '
+				AND s.status <> ?
 				AND aug.user_group_id IS NULL
 				AND (sa.user_id = ? OR (so.user_id = ? AND g.role_id <> ? ) 
 				OR ra.reviewer_id = ?)'
@@ -638,13 +644,16 @@ abstract class SubmissionDAO extends DAO {
 				' . $this->getFetchColumns() . '
 			FROM submissions s
 				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id)
+				' . $this->getCompletionJoins() . '
 				LEFT JOIN submission_files sf ON (s.submission_id = sf.submission_id)
 				LEFT JOIN signoffs so ON (sf.file_id = so.assoc_id) 
 				LEFT JOIN review_assignments ra ON (s.submission_id = ra.submission_id)
 				' . ($title?' LEFT JOIN submission_settings ss ON (s.submission_id = ss.submission_id)':'') . '
 				' . ($author?' LEFT JOIN authors au ON (s.submission_id = au.submission_id)':'')
 				. $this->getFetchJoins() .
-			' WHERE s.date_submitted IS NOT NULL AND ps.date_published IS NULL AND s.status <> ?
+			' WHERE s.date_submitted IS NOT NULL AND
+				' . $this->getCompletionConditions(false) . ' AND
+				AND s.status <> ?
 				AND (SELECT COUNT(sa.stage_assignment_id) FROM stage_assignments sa 
 					WHERE sa.submission_id = s.submission_id AND sa.user_id = ?) = 0
 				AND (SELECT COUNT(sa.stage_assignment_id) FROM stage_assignments sa LEFT JOIN user_groups g ON sa.user_group_id = g.user_group_id'
@@ -692,13 +701,16 @@ abstract class SubmissionDAO extends DAO {
 				' . $this->getFetchColumns() . '
 			FROM	submissions s
 				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id)
+				' . $this->getCompletionJoins() . '
 				' . ($title?' LEFT JOIN submission_settings ss ON (s.submission_id = ss.submission_id)':'') . '
 				' . ($author?' LEFT JOIN authors au ON (s.submission_id = au.submission_id)':'') . '
 				' . ($editor?' LEFT JOIN stage_assignments sa ON (s.submission_id = sa.submission_id) 
 						LEFT JOIN user_groups g ON (sa.user_group_id = g.user_group_id) 
 						LEFT JOIN users u ON (sa.user_id = u.user_id)':'') . '
 				' . $this->getFetchJoins() . '
-			WHERE	s.date_submitted IS NOT NULL AND ps.date_published IS NULL AND s.status <> ?' . '
+			WHERE	s.date_submitted IS NOT NULL AND
+				' . $this->getCompletionConditions(false) . ' AND
+				AND s.status <> ?
 				' . ($contextId?' AND s.context_id = ?':'') . '
 				' . ($title?' AND (ss.setting_name = ? AND ss.setting_value LIKE ?)':'') . '
 				' . ($author?' AND (au.first_name LIKE ? OR au.middle_name LIKE ? OR au.last_name LIKE ?)':'') . '
@@ -789,6 +801,20 @@ abstract class SubmissionDAO extends DAO {
 		return (int) $value;
 	}
 
+	/**
+	 * Get additional joins required to establish whether the submission is "completed".
+	 * @return string
+	 */
+	protected function getCompletionJoins() {
+		return '';
+	}
+
+	/**
+	 * Get conditions required to establish whether the submission is "completed".
+	 * @param $completed boolean True for completed submissions; false for incomplete
+	 * @return string
+	 */
+	abstract protected function getCompletionConditions($completed);
 
 	//
 	// Private helper methods.

@@ -143,8 +143,9 @@
 // marked up, or otherwise cause complications
 //
 
-// Add's padding to column with the toggle that opens and closes grid row actions
-#submissionFilesGridDiv tbody:not(.empty) td:first-child {
+// Adds padding to column with the toggle that opens and closes grid row actions
+#submissionFilesGridDiv .gridRow td:first-child,
+#documentsGridDiv .gridRow:not(.category) td:first-child {
 	padding-left: @double;
 }
 

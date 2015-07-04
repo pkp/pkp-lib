@@ -223,6 +223,22 @@
 			color: @offset;
 		}
 	}
+
+	// Icons
+	.checked,
+	.notChecked {
+		&:extend(.fa);
+	}
+
+	.checked:after {
+		content: @fa-var-check-square-o;
+		color: @yes;
+	}
+
+	.notChecked:after {
+		content: @fa-var-ban;
+		color: @no;
+	}
 }
 
 // Categorized grids

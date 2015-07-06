@@ -125,7 +125,7 @@ class FileWrapper {
 			}
 
 			$application =& Application::getApplication();
-			if (!Config::getVar('general', 'installed') || defined('RUNNING_UPGRADE')) {
+			if (!Config::getVar('general', 'installed') || defined('RUNNING_UPGRADE') || defined('PHPUNIT_CURRENT_MOCK_ENV')) {
 				$userAgent = $application->getName() . '/?';
 			} else {
 				$currentVersion =& $application->getCurrentVersion();

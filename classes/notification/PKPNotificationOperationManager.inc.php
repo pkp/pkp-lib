@@ -184,7 +184,8 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 				'title' => $this->getNotificationTitle($notification),
 				'text' => $this->getNotificationContents($request, $notification),
 				'addclass' => $this->getStyleClass($notification),
-				'notice_icon' => $this->getIconClass($notification)
+				'notice_icon' => $this->getIconClass($notification),
+				'styling' => 'jqueryui',
 			);
 		}
 

@@ -331,7 +331,6 @@
 	<message key="common.warning">Advarsel</message>
 	<message key="common.confirm">Bekræft</message>
 	<message key="common.content">Tilfreds</message>
-	<message key="common.considered">Overvejet</message>
 	<message key="common.declined">Afslået</message>
 	<message key="common.finish">Afslut</message>
 	<message key="common.go">Start</message>

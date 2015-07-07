@@ -26,7 +26,7 @@
 	<message key="editor.submission.selectFiles">Select Files</message>
 	<message key="editor.submission.revisions">Revisions</message>
 	<message key="editor.submission.revisionsDescription">Revised submission files appear here, with the open folder icon indicating who uploaded the file.</message>
-	<message key="editor.submission.review.reviewersDescription"><![CDATA[Use <em>+Add Reviewer</em> to invite readers to review the submission files. The notebook icon indicates that a review has been submitted, which is then checked <em>Considered</em> after it has been consulted. When reviews are overdue, a red envelope icon appears for reminding reviewers.]]></message>
+	<message key="editor.submission.review.reviewersDescription"><![CDATA[Use <em>+Add Reviewer</em> to invite readers to review the submission files. The notebook icon indicates that a review has been submitted, which is then checked <em>Acknowledged</em> after it has been consulted. When reviews are overdue, a red envelope icon appears for reminding reviewers.]]></message>
 	<message key="editor.submission.addReviewer">Add Reviewer</message>
 	<message key="editor.submission.fileList.includeAllStages">Include all files from all accessible workflow stages.</message>
 	<message key="editor.submission.review.currentFiles">Current Review Files For Round {$round}</message>

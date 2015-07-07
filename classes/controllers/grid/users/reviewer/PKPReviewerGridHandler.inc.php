@@ -155,7 +155,7 @@ class PKPReviewerGridHandler extends GridHandler {
 		$this->addColumn(
 			new GridColumn(
 				'considered',
-				'common.considered',
+				'common.acknowledged',
 				null,
 				'controllers/grid/common/cell/statusCell.tpl',
 				$cellProvider,

@@ -369,7 +369,6 @@
 	<message key="form.dataHasChanged">I dati nel formulario sono cambiati. Continui ugualmente?</message>
 	<message key="navigation.sitemap">Mappa del sito</message>
 	<message key="common.acknowledged">Riconosciuto</message>
-	<message key="common.considered">Considerato</message>
 	<message key="common.notified">Notificato</message>
 	<message key="common.reset">Reset</message>
 </locale>

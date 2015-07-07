@@ -420,7 +420,6 @@
 	<message key="common.available">Disponível</message>
 	<message key="common.error">Erro</message>
 	<message key="common.contents">Conteúdo</message>
-	<message key="common.considered">Considerado</message>
 	<message key="common.dateHijri">Calendário Islâmico</message>
 	<message key="common.dimensionsInches"><![CDATA[{$width}"&nbsp;x&nbsp;{$height}" @ {$dpi} DPI/PPI]]></message>
 	<message key="common.dimensionsPixels">{$width} x {$height} pixels</message>

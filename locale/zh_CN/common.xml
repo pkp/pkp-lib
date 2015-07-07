@@ -366,7 +366,6 @@
 	<message key="navigation.admin">管理</message>
 	<message key="navigation.browseByAuthor">按作者</message>
 	<message key="common.declined">拒绝</message>
-	<message key="common.considered">予以考虑的</message>
 	<message key="common.notified">通知的</message>
 	<message key="common.reset">重置</message>
 	<message key="common.acknowledged">已确认</message>

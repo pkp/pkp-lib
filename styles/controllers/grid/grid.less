@@ -219,7 +219,8 @@
 		.pkp_linkaction_disable,
 		.pkp_linkaction_delete,
 		.pkp_linkaction_remove_item ,
-		.pkp_linkaction_deleteFile {
+		.pkp_linkaction_deleteFile,
+		.pkp_linkaction_remove {
 			color: @offset;
 		}
 	}
@@ -238,6 +239,14 @@
 	.notChecked:after {
 		content: @fa-var-ban;
 		color: @no;
+	}
+
+	// Pagination
+	.gridPaging {
+		font-size: @font-sml;
+		color: @text-light;
+		color: @text-light-rgba;
+		border-top: 1px solid @bg;
 	}
 }
 

@@ -266,7 +266,7 @@
 			removeDisabledAttribute_ = function() {
 
 		var $linkActionElement = $(this.getHtmlElement());
-		$linkActionElement.attr('disabled','');
+		$linkActionElement.removeAttr('disabled');
 	};
 
 

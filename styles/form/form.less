@@ -162,6 +162,14 @@
 			height: 16px;
 			background-position: initial;
 		}
+
+		// Nested so that the padding overrides input field defaults
+		.localizable {
+			background-repeat: no-repeat;
+			background-image: url({$baseUrl}/lib/pkp/templates/images/structure/icon_globe.png);
+			background-position: top @half right @half;
+			padding-right: @double; // makes room for the background image
+		}
 	}
 
 	.localization_popover_container_focus {
@@ -183,12 +191,6 @@
 		z-index: 999;
 		padding: @half;
 		background-color: @bg;
-	}
-
-	.localizable {
-		background-repeat: no-repeat;
-		background: url({$baseUrl}/lib/pkp/templates/images/structure/icon_globe.png) no-repeat;
-		background-position: top @half right @half;
 	}
 
 	// Position locale label off-screen but accessible to screen readers

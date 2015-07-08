@@ -25,7 +25,7 @@
 			function(gridHandler, options) {
 		this.parent(gridHandler, options);
 
-		this.$orderButton_ = $('a.order_items:first',
+		this.$orderButton_ = $('a.pkp_linkaction_orderItems:first',
 				this.getGridHtmlElement()).not('table a');
 		this.$finishControl_ = $('.order_finish_controls', this.getGridHtmlElement());
 

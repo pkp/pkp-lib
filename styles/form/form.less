@@ -20,11 +20,17 @@
 .pkp_form {
 
 	fieldset {
-		margin-bottom: @double;
+		margin: 0 0 @double 0;
+		padding: 0;
+		border: none;
 
 		&:last-child {
 			margin-bottom: 0;
 		}
+	}
+
+	legend {
+		font-size: @base;
 	}
 
 	// error
@@ -32,70 +38,31 @@
 		color: @no;
 	}
 
-	.pkp_formArea {
-		p {
-			margin: 0px;
-			padding: 0px;
-		}
-	}
-
-	.debug div, .debug label {
-		border: 1px solid orange;
-	}
-
-	fieldset {
-		margin: 0;
-		padding: 0;
-		border: none;
-	}
-
-	fieldset.border {
-		border: 1px solid #CCC;
-		padding: 5px;
-	}
-
-	fieldset.inline {
-		margin: 0px 0px;
-	}
-
-	legend {
-		font-size: 110%;
-		padding: 10px 0 10px 0;
-	}
-
-	div.section {
-		clear: left;
+	.section {
 		margin-bottom: @double;
 
 		&:last-child {
 			margin-bottom: 0;
 		}
+
+		&:not(.inline) {
+			.pkp_helpers_clear;
+		}
 	}
 
-	div.section:after {
-		clear: both;
-		content: "";
-		display: block;
+	// Inline sections
+	.inline {
+		float: left;
+		padding-right: @base;
+
+		&:last-child {
+			padding-right: 0;
+		}
 	}
 
 	label {
 		display: block;
-		font-weight: bold;
-		padding: 3px 0 3px 0;
-	}
-
-
- 	span.pkp_form_success {
- 		color: #090;
- 		font-weight: bold;
- 		font-size: 100%;
- 	}
-
-	span label.sub_label {
-		font-size: 80%;
-		color: #999;
-		font-weight: normal;
-		padding: 2px 0 4px 0;
+		font-weight: @bold;
 	}
 
 	input[type="date"],
@@ -116,14 +83,17 @@
 		height: @line-base; // browser-compatibility for select fields
 		background-color: @lift;
 		padding: 0 0.25em;
+		font-size: @font-sml;
 		line-height: @line-base;
 		border: @bg-border;
 	}
 
 	textarea {
 		height: 10em;
+		line-height: @line-sml;
 	}
 
+	// Textarea size modifiers
 	.short {
 		height: 6em;
 	}
@@ -136,71 +106,49 @@
 		height: 18em;
 	}
 
-	.req {
-		font-weight: bold;
-		color: #cc0000;
-		padding-left: 3px;
-	}
+	// Checkbox and radio lists
+	.checkbox_and_radiobutton {
+		margin: 0;
+		padding: 0;
+		list-style: none;
 
-	.inline {
-		float: left;
-		clear: none !important;
-		padding-right: 1em;
-		margin-bottom: 0;
+		input,
+		label {
+			display: inline-block;
+		}
 
-		&:last-child {
-			padding-right: 0;
+		label {
+			margin-left: 0.5em;
+			font-weight: @normal;
 		}
 	}
 
-	ul.checkbox_and_radiobutton
-	{
-		margin-bottom: 0;
-		padding-bottom: 0;
-		padding-left: 0;
+	// Required feilds
+	.req {
+		font-weight: @bold;
+		color: @no;
+		padding-left: 0.25em;
 	}
 
-	.checkbox_and_radiobutton li {
-		padding-right: 35px;
-		float: left;
-		display: inline;
-		list-style: none;
+	// Field descriptions and labels beneath fields
+	.description,
+	.sub_label {
+		font-size: @font-sml;
+		line-height: @line-sml;
+		font-weight: @normal;
+		color: @text-light;
+		color: @text-light-rgba;
 	}
 
-	.checkbox_and_radiobutton input {
-		display: block;
-		margin: 4px 0 0 0;
-		padding: 0;
-		width: 13px;
-		height: 13px;
+	.description {
+		margin-bottom: @half;
 	}
 
-	.checkbox_and_radiobutton li label {
-		line-height: 150%;
-		margin: -17px 0 0 20px;
-		padding: 0 0 5px 0;
-		font-weight: normal;
+	.sub_label {
+		font-style: italic;
 	}
 
-	ul.checkbox_and_radiobutton:after {
-		content: ".";
-		display: block;
-		clear: both;
-		visibility: hidden;
-		height: 0;
-		overflow: hidden;
-	}
-
-	// Fake HTML5 placeholder behavior for TinyMCE
-	.mcePlaceholderParent { position: relative; }
-	.mcePlaceholder {
-		color: #AAA;
-		position: absolute;
-		top: 5px;
-		left: 5px;
-		z-index: 2;
-	}
-
+	// Localization popovers
 	.localization_popover_container {
 		position: relative;
 
@@ -232,9 +180,15 @@
 		display: none;
 		position: absolute;
 		left: 0;
-		z-index: 15000;
+		z-index: 999;
 		padding: @half;
 		background-color: @bg;
+	}
+
+	.localizable {
+		background-repeat: no-repeat;
+		background: url({$baseUrl}/lib/pkp/templates/images/structure/icon_globe.png) no-repeat;
+		background-position: top @half right @half;
 	}
 
 	// Position locale label off-screen but accessible to screen readers
@@ -246,18 +200,19 @@
 		}
 	}
 
-	.localizable {
-		background-repeat: no-repeat;
-		background: url({$baseUrl}/lib/pkp/templates/images/structure/icon_globe.png) no-repeat;
-		background-position: top @half right @half;
-	}
-
+	// @todo all below
 	input.spinner {
 		background-color: #ffffff !important;
 		background-repeat:no-repeat;
 		background:url({$baseUrl}/lib/pkp/templates/images/throbber.gif) no-repeat;
 		background-position:100% 50%;
 	}
+
+ 	span.pkp_form_success {
+ 		color: #090;
+ 		font-weight: bold;
+ 		font-size: 100%;
+ 	}
 
 	.pkp_form_file_input_container {
 		height: 30px;

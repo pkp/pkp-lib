@@ -34,23 +34,21 @@
 
 		{$FBV_label_content}
 
-		<span>
-			<div class="localization_popover">
-				{foreach from=$formLocales key=thisFormLocale item=thisFormLocaleName}{if $formLocale != $thisFormLocale}
-					{strip}
-					<textarea id="{$FBV_id|escape}-{$thisFormLocale|escape}{$uniqId}" {$FBV_textAreaParams}
-						placeholder="{$thisFormLocaleName|escape}"
-						class="flag flag_{$thisFormLocale|escape} {$FBV_class} {$FBV_height}{if $FBV_rich && !$FBV_disabled} richContent{if $FBV_rich==="extended"} extendedRichContent{/if}{/if}"
-						{if $FBV_disabled} disabled="disabled"{/if}
-						{if $FBV_readonly} readonly="readonly"{/if}
-						{if $FBV_variables} data-variables="{$FBV_variables|@json_encode|escape:"url"}"{/if}
-						name="{$FBV_name|escape}[{$thisFormLocale|escape}]">{$FBV_value[$thisFormLocale]|escape}
-					</textarea>
-					{/strip}
-					<label for="{$FBV_id|escape}-{$thisFormLocale|escape}{$uniqId}" class="locale">({$thisFormLocaleName|escape})</label>
-				{/if}{/foreach}
-			</div>
-		</span>
+		<div class="localization_popover">
+			{foreach from=$formLocales key=thisFormLocale item=thisFormLocaleName}{if $formLocale != $thisFormLocale}
+				{strip}
+				<textarea id="{$FBV_id|escape}-{$thisFormLocale|escape}{$uniqId}" {$FBV_textAreaParams}
+					placeholder="{$thisFormLocaleName|escape}"
+					class="flag flag_{$thisFormLocale|escape} {$FBV_class} {$FBV_height}{if $FBV_rich && !$FBV_disabled} richContent{if $FBV_rich==="extended"} extendedRichContent{/if}{/if}"
+					{if $FBV_disabled} disabled="disabled"{/if}
+					{if $FBV_readonly} readonly="readonly"{/if}
+					{if $FBV_variables} data-variables="{$FBV_variables|@json_encode|escape:"url"}"{/if}
+					name="{$FBV_name|escape}[{$thisFormLocale|escape}]">{$FBV_value[$thisFormLocale]|escape}
+				</textarea>
+				{/strip}
+				<label for="{$FBV_id|escape}-{$thisFormLocale|escape}{$uniqId}" class="locale">({$thisFormLocaleName|escape})</label>
+			{/if}{/foreach}
+		</div>
 	</span>
 {else}
 	{* This is not a multilingual control or there is only one locale available *}

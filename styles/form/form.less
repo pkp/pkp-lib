@@ -29,8 +29,13 @@
 		}
 	}
 
-	legend {
+	// At the moment we don't really differentiate in the way we use these
+	// elements
+	legend,
+	label {
+		display: block;
 		font-size: @base;
+		font-weight: @bold;
 	}
 
 	// error
@@ -61,8 +66,6 @@
 	}
 
 	label {
-		display: block;
-		font-weight: @bold;
 		cursor: pointer;
 	}
 
@@ -213,6 +216,11 @@
 		&.is_visible {
 			opacity: 1;
 		}
+	}
+
+	// Hide form elements when in wizard mode
+	.is_wizard_mode {
+		display: none;
 	}
 
 	// @todo all below

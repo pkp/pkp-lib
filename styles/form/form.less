@@ -15,27 +15,23 @@
  */
 
 /**
- * The following styles are moved outside pkp_form until all forms are
- * refactored/made compatible with the FBV styles.
- */
-.error {
-	color: #900;
-}
-
-span.pkp_form_error {
-	color: #900;
-	font-weight: bold;
-	font-size: 100%;
-}
-
-.pkp_form_error_list a {
-	color: #900;
-}
-
-/**
  * FBV styles
  */
 .pkp_form {
+
+	fieldset {
+		margin-bottom: @double;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	// error
+	.error {
+		color: @no;
+	}
+
 	.pkp_formArea {
 		p {
 			margin: 0px;
@@ -118,7 +114,7 @@ span.pkp_form_error {
 		display: block;
 		width: 100%;
 		height: @line-base; // browser-compatibility for select fields
-		background: @lift;
+		background-color: @lift;
 		padding: 0 0.25em;
 		line-height: @line-base;
 		border: @bg-border;
@@ -206,71 +202,55 @@ span.pkp_form_error {
 	}
 
 	.localization_popover_container {
-		td.mceFirst iframe {
-			position: relative;
-			z-index: 1;
-		}
+		position: relative;
 
 		// Localization globe icon within TinyMce
 		div.mceLocalizationIcon {
 			position: absolute;
-			top: 2px;
-			right: 5px;
+			top: @half;
+			right: @half;
 			z-index: 2;
 			width: 16px;
 			height: 16px;
+			background-position: initial;
 		}
-
-		div.mceLocalizationIconScroll {
-			right: 20px;
-		}
-	}
-
-	// Makes it posible to display the localization globe icon within TinyMce
-	div.mceLocalizationIconParent {
-		position: relative;
 	}
 
 	.localization_popover_container_focus {
-		margin-top: -2px;
-		background-color: #eee;
 		display: block;
-		padding: 2px 5px 0px 5px;
-	}
+		padding: @half;
+		background-color: @bg;
 
-	.localization_popover_container_focus,
-	.localization_popover {
-		input:first-child, textarea:first-child, select:first-child {
-			background-image: none;
+		// Compensate for extra padding on parent element
+		div.mceLocalizationIcon {
+			top: @base;
+			right: @base;
 		}
-
-		div.mceGlobe { display: none; }
-
-		box-shadow: 3px 3px 6px #999999;
 	}
 
 	.localization_popover {
-		background-color: #eee;
-		margin-left: -5px;
-		padding:10px 5px 5px 5px;
-		position: absolute;
-		z-index: 15000;
 		display: none;
+		position: absolute;
+		left: 0;
+		z-index: 15000;
+		padding: @half;
+		background-color: @bg;
 	}
 
+	// Position locale label off-screen but accessible to screen readers
 	label.locale {
-		font-size: 1px;
-		text-indent: -9999px;
+		&:extend(.pkp_screen_reader);
+
+		&:focus {
+			&:extend(.pkp_screen_reader:focus);
+		}
 	}
 
-	.localizable
-	{
-		background-color: #fff !important;
+	.localizable {
 		background-repeat: no-repeat;
 		background: url({$baseUrl}/lib/pkp/templates/images/structure/icon_globe.png) no-repeat;
-		background-position: 99.5% 50%;
+		background-position: top @half right @half;
 	}
-	textarea.localizable { background-position: 99.5% 1px; }
 
 	input.spinner {
 		background-color: #ffffff !important;

@@ -518,12 +518,12 @@
 			function() {
 		if (this.isOrdering) {
 			this.$orderButton_.unbind('click');
-			this.$orderButton_.addClass('ui-state-disabled');
+			this.$orderButton_.attr('disabled', 'disabled');
 		} else {
 			var clickHandler = this.gridHandler.callbackWrapper(
 					this.clickOrderHandler, this);
 			this.$orderButton_.click(clickHandler);
-			this.$orderButton_.removeClass('ui-state-disabled');
+			this.$orderButton_.removeAttr('disabled');
 		}
 	};
 

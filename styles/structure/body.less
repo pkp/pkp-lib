@@ -33,6 +33,12 @@ a {
 	&:focus {
 		color: @primary;
 	}
+
+	&[disabled] {
+		color: @text-light;
+		color: @text-light-rgba;
+		cursor: not-allowed;
+	}
 }
 
 .pkp_page_title {

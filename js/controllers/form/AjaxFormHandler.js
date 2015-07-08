@@ -141,7 +141,7 @@
 			this.enableFormControls();
 		}
 
-		$(this.getHtmlElement()).find('.pkp_spinner').hide();
+		this.hideSpinner_();
 		this.getHtmlElement().find(':submit').button();
 
 		// Trigger the notify user event, passing this

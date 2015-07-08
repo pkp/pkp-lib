@@ -202,14 +202,19 @@
 		}
 	}
 
-	// @todo all below
-	input.spinner {
-		background-color: #ffffff !important;
-		background-repeat:no-repeat;
-		background:url({$baseUrl}/lib/pkp/templates/images/throbber.gif) no-repeat;
-		background-position:100% 50%;
+	// Loading indicator
+	.pkp_spinner {
+		opacity: 0;
+		float: right;
+		margin-right: 0.5em;
+		.transition(opacity 0.3s ease-in-out);
+
+		&.is_visible {
+			opacity: 1;
+		}
 	}
 
+	// @todo all below
  	span.pkp_form_success {
  		color: #090;
  		font-weight: bold;

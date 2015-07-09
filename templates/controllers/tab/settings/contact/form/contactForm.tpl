@@ -42,11 +42,11 @@
 
 	{* In wizard mode, these fields should be hidden *}
 	{if $wizardMode}
-		{assign var="tech_classes" value="is_wizard_mode"}
+		{assign var="wizard_class" value="is_wizard_mode"}
 	{else}
-		{assign var="tech_classes" value=""}
+		{assign var="wizard_class" value=""}
 	{/if}
-	{fbvFormArea id="contactFormArea" title="manager.setup.technicalSupportContact" class=$tech_classes}
+	{fbvFormArea id="contactFormArea" title="manager.setup.technicalSupportContact" class=$wizard_class}
 		{fbvFormSection description="manager.setup.technicalSupportContactDescription"}
 			{fbvElement type="text" label="user.name" id="supportName" value=$supportName maxlength="60" inline=true size=$fbvStyles.size.MEDIUM}
 			{fbvElement type="text" label="user.email" id="supportEmail" value=$supportEmail maxlength="60" inline=true size=$fbvStyles.size.MEDIUM}

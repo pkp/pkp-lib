@@ -9,12 +9,11 @@
  *}
 
 <div class="gridPaging">
-	<div class="gridItemsPerPage pkp_helpers_align_left pkp_form">
+	<div class="gridItemsPerPage">
 		{translate key=common.itemsPerPage}:<select class="itemsPerPage"></select>
 	</div>
-	<div class="pkp_helpers_align_right">
+	<div class="gridPages">
 		{page_info iterator=$iterator itemsPerPage=$currentItemsPerPage}
 		{page_links name=$grid->getId() iterator=$iterator}
 	</div>
 </div>
-<div class="pkp_helpers_clear"></div>

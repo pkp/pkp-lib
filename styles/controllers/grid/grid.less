@@ -249,10 +249,33 @@
 
 	// Pagination
 	.gridPaging {
+		.pkp_helpers_clear;
 		font-size: @font-sml;
 		color: @text-light;
 		color: @text-light-rgba;
 		border-top: 1px solid @bg;
+
+		.gridItemsPerPage {
+			float: left;
+
+			select {
+				display: inline-block;
+				width: auto;
+				height: @line-sml;
+				margin-left: 0.5em;
+			}
+		}
+
+		.gridPages {
+			float: right;
+
+			a {
+				padding: 0 0.5em;
+				background: @bg;
+				border-radius: 0.25em;
+				text-decoration: none;
+			}
+		}
 	}
 }
 
@@ -413,11 +436,6 @@
 		.gridLabelBeforeActions {
 			margin-right: 20px;
 		}
-	}
-
-	div.gridPaging select.itemsPerPage {
-		width: auto;
-		margin-left: 5px;
 	}
 
 	span.gridPagingScrolling {

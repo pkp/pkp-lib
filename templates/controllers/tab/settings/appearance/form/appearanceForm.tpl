@@ -91,7 +91,7 @@
 	{* end Page Header *}
 
 	{* Page Footer *}
-	{fbvFormArea id="pageFooterContainer" title="manager.setup.pageFooter" class="border"}
+	{fbvFormArea id="pageFooterContainer" title="manager.setup.pageFooter"}
 		{fbvFormSection description="manager.setup.pageFooterDescription"}
 			{fbvElement type="textarea" multilingual=true name="pageFooter" id="pageFooter" value=$pageFooter rich=true}
 		{/fbvFormSection}
@@ -99,7 +99,7 @@
 	{* end Page Footer *}
 
 	{* Layout *}
-	{fbvFormArea id="layout" class="border"}
+	{fbvFormArea id="layout"}
 		{assign var="stylesheet_field_id" value=$uploadCssLinkAction->getId()}
 		{fbvFormSection label="manager.setup.useStyleSheet" for=$stylesheet_field_id description="manager.setup.styleSheetDescription"}
 			<div id={$stylesheet_field_id} class="pkp_linkActions">
@@ -121,7 +121,7 @@
 	{$additionalAppearanceSettings}
 
 	{* Lists *}
-	{fbvFormArea id="advancedAppearanceSettings" title="manager.setup.lists" class="border"}
+	{fbvFormArea id="advancedAppearanceSettings" title="manager.setup.lists"}
 		{fbvFormSection description="manager.setup.listsDescription"}
 			{fbvElement type="text" id="itemsPerPage" value=$itemsPerPage size=$fbvStyles.size.SMALL label="common.itemsPerPage"}
 		{/fbvFormSection}

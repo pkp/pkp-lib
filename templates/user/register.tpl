@@ -60,8 +60,8 @@
 			{fbvElement type="select" label="common.country" name="country" id="country" required=true defaultLabel="" defaultValue="" from=$countries selected=$country translate="0" size=$fbvStyles.size.MEDIUM inline=true}
 		{/fbvFormSection}
 
-		{fbvFormArea id="passwordSection" class="border" title="user.password"}
-			{fbvFormSection for="password" class="border"}
+		{fbvFormArea id="passwordSection" title="user.password"}
+			{fbvFormSection for="password"}
 				{fbvElement type="text" label="user.password" required=$passwordRequired name="password" id="password" password="true" value=$password maxlength="32" inline=true size=$fbvStyles.size.MEDIUM}
 				{fbvElement type="text" label="user.repeatPassword" required=$passwordRequired name="password2" id="password2" password="true" value=$password2 maxlength="32" inline=true size=$fbvStyles.size.MEDIUM}
 			{/fbvFormSection}

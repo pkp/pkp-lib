@@ -21,7 +21,7 @@
 <form id="archivingForm" class="pkp_form" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="tab.settings.WebsiteSettingsTabHandler" op="saveFormData" tab="archiving"}">
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="archivingFormNotification"}
 
-	{fbvFormArea id="archivingLockss" class="border"}
+	{fbvFormArea id="archivingLockss"}
 		{fbvFormSection description="manager.setup.lockssDescription"}
 		{/fbvFormSection}
 
@@ -39,7 +39,7 @@
 		{/fbvFormSection}
 	{/fbvFormArea}
 
-	{fbvFormArea id="archivingClockss" class="border"}
+	{fbvFormArea id="archivingClockss"}
 		{fbvFormSection description="manager.setup.clockssDescription"}
 		{/fbvFormSection}
 

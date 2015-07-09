@@ -9,7 +9,7 @@
  * submission metadata.
  *}
 {if $submissionSettings.all || $submissionSettings.metaCoverage}
-	{fbvFormArea id="coverageInformation" title="submission.coverage" class="border"}
+	{fbvFormArea id="coverageInformation" title="submission.coverage"}
 		{fbvFormSection title="submission.coverage.chron" for="coverageChron" description="submission.coverage.tip"}
 			{fbvElement type="text" multilingual=true name="coverageChron" id="coverageChron" value=$coverageChron maxlength="255" readonly=$readOnly}
 		{/fbvFormSection}
@@ -21,7 +21,7 @@
 		{/fbvFormSection}
 	{/fbvFormArea}
 {/if}
-{fbvFormArea id="additionalDublinCore" title="common.type" class="border"}
+{fbvFormArea id="additionalDublinCore" title="common.type"}
 	{if $submissionSettings.all || $submissionSettings.metaType}
 		{fbvFormSection for="type" title="common.type" description="submission.type.tip"}
 			{fbvElement type="text" multilingual=true name="type" id="type" value=$type maxlength="255" readonly=$readOnly}
@@ -40,7 +40,7 @@
 	{/fbvFormSection}
 {/fbvFormArea}
 
-{fbvFormArea id="tagitFields" title="submission.submit.metadataForm" class="border"}
+{fbvFormArea id="tagitFields" title="submission.submit.metadataForm"}
 	{fbvFormSection description="submission.submit.metadataForm.tip" title="common.languages"}
 		{url|assign:languagesSourceUrl router=$smarty.const.ROUTE_PAGE page="submission" op="fetchChoices" codeList="74"}
 		{fbvElement type="keyword" id="languages" subLabelTranslate=true multilingual=true current=$languages source=$languagesSourceUrl disabled=$readOnly}

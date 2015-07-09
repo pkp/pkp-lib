@@ -21,7 +21,7 @@
 	{include file="controllers/tab/settings/wizardMode.tpl" wizardMode=$wizardMode}
 
 	<div {if $wizardMode}class="pkp_form_hidden"{/if}>
-		{fbvFormArea id="reviewOptions" title="manager.setup.reviewOptions.reviewTime" class="border"}
+		{fbvFormArea id="reviewOptions" title="manager.setup.reviewOptions.reviewTime"}
 			<!-- FIXME: also, fbvStyles.size.SMALL needs to be switched to TINY once there's a TINY option available -->
 			{fbvFormSection description="manager.setup.reviewOptions.noteOnModification"}
 				{fbvElement type="text" label="manager.setup.reviewOptions.numWeeksPerResponse" name="numWeeksPerResponse" id="numWeeksPerResponse" value=$numWeeksPerResponse size=$fbvStyles.size.SMALL inline=true}
@@ -70,7 +70,7 @@
 		{/fbvFormArea}
 	</div>
 
-	{fbvFormArea id="reviewOptions" title="manager.setup.reviewOptions" class="border"}
+	{fbvFormArea id="reviewOptions" title="manager.setup.reviewOptions"}
 		{fbvFormSection description="manager.setup.reviewOptions.defaultReviewMethod"}
 			{fbvElement type="select" from=$reviewMethodOptions selected=$defaultReviewMode defaultValue="" defaultLabel="" id="defaultReviewMode" size=$fbvStyles.size.SMALL inline=true}
 		{/fbvFormSection}

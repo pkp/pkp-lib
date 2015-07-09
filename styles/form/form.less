@@ -152,6 +152,12 @@
 		font-style: italic;
 	}
 
+	// For when a .description element is attached to a fieldset and followed
+	// by a section
+	.description + .section {
+		margin-top: @double;
+	}
+
 	// Localization popovers
 	.localization_popover_container {
 		position: relative;
@@ -222,13 +228,75 @@
 	.is_wizard_mode {
 		display: none;
 	}
+}
+
+// Form file view
+.pkp_form_file_view {
+	.pkp_helpers_clear;
+	margin-top: @double;
+	padding: @double;
+	background: @bg;
+
+	.data {
+
+		span {
+			display: block;
+			font-size: @font-sml;
+			line-height: @line-sml;
+		}
+
+		.title {
+			font-weight: @bold;
+		}
+
+		.value {
+			margin-bottom: @base;
+			color: @text-light;
+			color: @text-light-rgba;
+		}
+	}
+}
+
+// To be used alongside .pkp_form_file_view (both classes assigned)
+.pkp_form_image_view {
+
+	.img {
+		text-align: center;
+
+		img {
+			max-width: 100%;
+		}
+	}
+
+	// @todo use common breakpoints
+	@media(min-width: 767px) {
+
+		> div {
+			width: 50%;
+			float: right;
+		}
+
+		.data {
+			float: left;
+		}
+	}
+}
+
+// Link action links that should have a warning color
+.pkp_linkaction_deleteFile-homepageImage,
+.pkp_linkaction_deleteFile-journalThumbnail,
+.pkp_linkaction_deleteFile-styleSheet {
+	color: @no;
+}
+
+.pkp_form {
 
 	// @todo all below
- 	span.pkp_form_success {
- 		color: #090;
- 		font-weight: bold;
- 		font-size: 100%;
- 	}
+	span.pkp_form_success {
+		color: #090;
+		font-weight: bold;
+		font-size: 100%;
+	}
 
 	.pkp_form_file_input_container {
 		height: 30px;

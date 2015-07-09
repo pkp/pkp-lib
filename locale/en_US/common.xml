@@ -234,6 +234,7 @@
 	<message key="common.unread">Unread</message>
 	<message key="common.untitled">Untitled</message>
 	<message key="common.updated">Updated</message>
+	<message key="common.uploadedDate">Uploaded date</message>
 	<message key="common.uploadedFile">Uploaded file</message>
 	<message key="common.upload">Upload</message>
 	<message key="common.uploadFailed">The file could not be uploaded or revised.</message>

@@ -136,7 +136,7 @@
 
 				{* User-specific login, settings and task management *}
 				{url|assign:fetchHeaderUrl router=$smarty.const.ROUTE_COMPONENT component="page.PageHandler" op="userNav" escape=false}
-				{load_url_in_div class="pkp_wrapper_user_nav" id="userNavContainer" url=$fetchHeaderUrl}
+				{load_url_in_div class="pkp_wrapper_user_nav" id="navigationUserWrapper" url=$fetchHeaderUrl}
 
 			</nav><!-- pkp_navigation -->
 		</header><!-- .pkp_structure_head -->

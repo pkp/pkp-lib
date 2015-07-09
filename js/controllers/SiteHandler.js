@@ -397,7 +397,7 @@
 	 */
 	$.pkp.controllers.SiteHandler.prototype.updateHeaderHandler_ =
 			function(sourceElement, event) {
-		var handler = $.pkp.classes.Handler.getHandler($('#userNavContainer'));
+		var handler = $.pkp.classes.Handler.getHandler($('#navigationUserWrapper'));
 		handler.reload();
 	};
 

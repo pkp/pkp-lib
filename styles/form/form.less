@@ -133,6 +133,15 @@
 		padding-left: 0.25em;
 	}
 
+	// Disabled fields
+	input[disabled],
+	textarea[disabled],
+	select[disabled] {
+		background: @bg;
+		color: @text-light;
+		color: @text-light-rgba;
+	}
+
 	// Field descriptions and labels beneath fields
 	.description,
 	.sub_label {

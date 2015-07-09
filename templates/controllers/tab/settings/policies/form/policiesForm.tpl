@@ -25,7 +25,7 @@
 			{fbvElement type="textarea" multilingual="true" name="privacyStatement" id="privacyStatement" value=$privacyStatement}
 		{/fbvFormSection}
 
-		<div {if $wizardMode}class="pkp_form_hidden"{/if}>
+		<div {if $wizardMode}class="is_wizard_mode"{/if}>
 			{fbvFormSection label="manager.setup.focusAndScope" description="manager.setup.focusAndScope.description"}
 				{fbvElement type="textarea" multilingual=true name="focusScopeDesc" id="focusScopeDesc" value=$focusScopeDesc rich=true}
 			{/fbvFormSection}

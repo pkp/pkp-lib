@@ -22,15 +22,14 @@
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="informationFormNotification"}
 
 	{fbvFormArea id="information" class="border"}
-		{fbvFormSection description="manager.setup.information.description"}
-		{/fbvFormSection}
-		{fbvFormSection label="manager.setup.information.forReaders"}
+		{fbvFormSection label="manager.setup.information.journalDescriptions" for="readerInformation" description="manager.setup.information.description"}{/fbvFormSection}
+		{fbvFormSection label="manager.setup.information.forReaders" for="readerInformation"}
 			{fbvElement type="textarea" multilingual=true id="readerInformation" value=$readerInformation rich=true}
 		{/fbvFormSection}
-		{fbvFormSection label="manager.setup.information.forAuthors"}
+		{fbvFormSection label="manager.setup.information.forAuthors" for="authorInformation"}
 			{fbvElement type="textarea" multilingual=true id="authorInformation" value=$authorInformation rich=true}
 		{/fbvFormSection}
-		{fbvFormSection label="manager.setup.information.forLibrarians"}
+		{fbvFormSection label="manager.setup.information.forLibrarians" for="librarianInformation"}
 			{fbvElement type="textarea" multilingual=true id="librarianInformation" value=$librarianInformation rich=true}
 		{/fbvFormSection}
 	{/fbvFormArea}

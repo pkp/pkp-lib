@@ -22,7 +22,7 @@
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="informationFormNotification"}
 
 	{fbvFormArea id="information" class="border"}
-		{fbvFormSection label="manager.setup.information.journalDescriptions" for="readerInformation" description="manager.setup.information.description"}{/fbvFormSection}
+		{fbvFormSection label="manager.setup.information.descriptionTitle" for="readerInformation" description="manager.setup.information.description"}{/fbvFormSection}
 		{fbvFormSection label="manager.setup.information.forReaders" for="readerInformation"}
 			{fbvElement type="textarea" multilingual=true id="readerInformation" value=$readerInformation rich=true}
 		{/fbvFormSection}

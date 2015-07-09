@@ -40,7 +40,7 @@
 	{/fbvFormArea}
 
 	{fbvFormArea id="copyrightHolderSettings" title="submission.copyrightHolder"}
-		{fbvFormSection list=true size=$fbvStyles.size.MEDIUM inline=true}
+		{fbvFormSection list=true}
 			{fbvElement type="radio" id="copyrightHolderType-author" name="copyrightHolderType" value="author" checked=$copyrightHolderType|compare:"author" label="user.role.author"}
 			{fbvElement type="radio" id="copyrightHolderType-context" name="copyrightHolderType" value="context" checked=$copyrightHolderType|compare:"context" label="context.context"}
 			{fbvElement type="radio" id="copyrightHolderType-author" name="copyrightHolderType" value="other" checked=$copyrightHolderType|compare:"other" label="common.other"}

@@ -22,13 +22,16 @@
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="archivingFormNotification"}
 
 	{fbvFormArea id="archivingLockss"}
-		{fbvFormSection description="manager.setup.lockssDescription"}
-		{/fbvFormSection}
+		<div class="description">
+			{translate key="manager.setup.lockssDescription"}
+		</div>
+		<div class="description">
+			{url|assign:"lockssExistingArchiveUrl" router=$smarty.const.ROUTE_PAGE page="user" op="email" template="LOCKSS_EXISTING_ARCHIVE"}
+			{url|assign:"lockssNewArchiveUrl" router=$smarty.const.ROUTE_PAGE page="user" op="email" template="LOCKSS_NEW_ARCHIVE"}
+			{translate key="manager.setup.lockssRegister" lockssExistingArchiveUrl=$lockssExistingArchiveUrl lockssNewArchiveUrl=$lockssNewArchiveUrl}
+		</div>
 
-		{url|assign:"lockssExistingArchiveUrl" router=$smarty.const.ROUTE_PAGE page="user" op="email" template="LOCKSS_EXISTING_ARCHIVE"}
-		{url|assign:"lockssNewArchiveUrl" router=$smarty.const.ROUTE_PAGE page="user" op="email" template="LOCKSS_NEW_ARCHIVE"}
-		{translate|assign:"lockssRegisterDescription" key="manager.setup.lockssRegister" lockssExistingArchiveUrl=$lockssExistingArchiveUrl lockssNewArchiveUrl=$lockssNewArchiveUrl}
-		{fbvFormSection list="true" description=$lockssRegisterDescription translate=false}
+		{fbvFormSection list="true" translate=false}
 			{url|assign:"lockssUrl" router=$smarty.const.ROUTE_PAGE page="gateway" op="lockss"}
 			{translate|assign:"enableLockssLabel" key="manager.setup.lockssEnable" lockssUrl=$lockssUrl}
 			{fbvElement type="checkbox" id="enableLockss" value="1" checked=$enableLockss label=$enableLockssLabel translate=false}

@@ -116,13 +116,12 @@
 		padding: 0;
 		list-style: none;
 
-		input,
-		label {
+		input {
 			display: inline-block;
+			margin-right: 0.5em;
 		}
 
 		label {
-			margin-left: 0.5em;
 			font-weight: @normal;
 		}
 	}
@@ -152,7 +151,9 @@
 		font-style: italic;
 	}
 
-	// For when a .description element is attached to a fieldset and followed
+	// When a .description element is followed by another .description
+	.description + .description,
+	// When a .description element is attached to a fieldset and followed
 	// by a section
 	.description + .section {
 		margin-top: @double;

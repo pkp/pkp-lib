@@ -199,7 +199,13 @@
 		}
 	}
 
+	.ordering:hover {
+		background: @bg;
+	}
+
 	.order_finish_controls {
+		margin-top: @base;
+		text-align: right;
 
 		.saveButton {
 			&:extend( .pkp_button );
@@ -443,15 +449,6 @@
 
 	.visible {
 		display: block;
-	}
-
-	.grid_controls {
-  		padding: 5px;
-  		height:26px;
-	}
-
-	.ordering:hover {
-		background: #EAF3F8 !important;
 	}
 
 	tbody .ui-sortable-placeholder {

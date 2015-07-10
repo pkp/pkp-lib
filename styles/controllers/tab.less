@@ -47,6 +47,40 @@
 			cursor: default;
 		}
 	}
+
+	// Close button
+	.close {
+		&:extend(.fa);
+		position: absolute;
+		top: 50%;
+		left: 100%;
+		width: @double;
+		height: @double;
+		overflow: hidden;
+		margin-top: -@base;
+		padding: 0;
+		line-height: @double;
+		color: @no;
+		text-decoration: none;
+
+		&:before {
+			content: @fa-var-minus-circle;
+			display: block;
+			width: @double;
+			height: @double;
+			text-align: center;
+		}
+
+		&:hover {
+			border: none;
+		}
+	}
+
+	// Win a specificity battle
+	.ui-state-active .close {
+		color: @no;
+		cursor: pointer;
+	}
 }
 
 .ui-tabs-panel {

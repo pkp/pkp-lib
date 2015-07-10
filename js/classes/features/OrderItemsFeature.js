@@ -25,8 +25,8 @@
 			function(gridHandler, options) {
 		this.parent(gridHandler, options);
 
-		this.$orderButton_ = $('a.pkp_linkaction_orderItems:first',
-				this.getGridHtmlElement()).not('table a');
+		this.$orderButton_ = $('.pkp_linkaction_orderItems',
+				this.getGridHtmlElement());
 		this.$finishControl_ = $('.order_finish_controls', this.getGridHtmlElement());
 
 		if (this.$orderButton_.length === 0) {
@@ -146,7 +146,7 @@
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.
 			getMoveItemRowActionSelector = function() {
-		return '.orderable a.order_items';
+		return '.orderable .pkp_linkaction_moveItem';
 	};
 
 

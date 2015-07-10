@@ -165,7 +165,8 @@
 
 	// Expand/collapse row actions
 	.sprite.show_extras,
-	.sprite.hide_extras {
+	.sprite.hide_extras,
+	.pkp_linkaction_moveItem {
 		position: absolute;
 		top: @half; // matches td padding
 		left: 0;
@@ -174,6 +175,7 @@
 		line-height: 24px;
 		text-align: center;
 		cursor: pointer;
+		text-decoration: none;
 	}
 
 	.sprite.show_extras:before {
@@ -186,6 +188,32 @@
 		&:extend( .pkp_caret );
 		&:extend( .pkp_caret_down );
 		margin-top: -2px;
+	}
+
+	// Ordering items
+	.pkp_linkaction_moveItem {
+		&:extend( .fa );
+
+		&:before {
+			content: @fa-var-sort;
+		}
+	}
+
+	.order_finish_controls {
+
+		.saveButton {
+			&:extend( .pkp_button );
+
+			&:hover,
+			&:focus {
+				&:extend( .pkp_button:hover );
+			}
+		}
+
+		.cancelFormButton {
+			margin-left: 1em;
+			color: @no;
+		}
 	}
 
 

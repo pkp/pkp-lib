@@ -25,8 +25,8 @@ export DATABASEDUMP=~/database.sql.gz
 sudo apt-get install a2ps libbiblio-citation-parser-perl libhtml-parser-perl
 
 # Generate sample files to use for testing.
-echo "This is a test" | a2ps -o - | ps2pdf - ~/dummy.pdf
-zip ${DUMMY_ZIP} ${DUMMY_PDF}
+echo "This is a test" | a2ps -o - | ps2pdf - ${DUMMY_PDF} # PDF format
+zip ${DUMMY_ZIP} ${DUMMY_PDF} # Zip format; add PDF dummy as contents
 
 # Create the database.
 if [[ "$TEST" == "pgsql" ]]; then

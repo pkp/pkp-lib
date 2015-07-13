@@ -68,4 +68,7 @@
 	<message key="installer.publicFilesDirError">Каталог public для файлов не существует или не доступен для записи.</message>
 	<message key="installer.releaseNotes">Примечания к выпуску</message>
 	<message key="installer.securitySettings">Настройки безопасности</message>
+
+	<message key="installer.beacon">Маяк</message>
+	<message key="installer.beacon.enable">Задать уникальный ID сайта и базовый URL OAI для PKP, которые будут использоваться только для сбора статистики и предупреждений о безопасности.</message>
 </locale>

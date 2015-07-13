@@ -180,7 +180,7 @@ class QueryNotesGridHandler extends GridHandler {
 		$queryNoteForm->readInputData();
 		if ($queryNoteForm->validate()) {
 			$note = $queryNoteForm->execute($request);
-			return DAO::getDataChangedEvent($note->getId());
+			return DAO::getDataChangedEvent($this->getQuery()->getId());
 		} else {
 			return new JSONMessage(true, $queryNoteForm->fetch($request));
 		}

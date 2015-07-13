@@ -106,7 +106,7 @@ class QueryUsersListbuilderHandler extends UsersListbuilderHandler {
 	 */
 	function getOptions() {
 		$userStageAssignmentDao = DAORegistry::getDAO('UserStageAssignmentDAO');
-		$users = $userStageAssignmentDao->getUsersBySubmissionAndStageId($this->getSubmission()->getId());
+		$users = $userStageAssignmentDao->getUsersBySubmissionAndStageId($this->getSubmission()->getId(), $this->getStageId());
 		$items = array(array());
 		while ($user = $users->next()) {
 			$items[0][$user->getId()] = $user->getFullName() . ' <' . $user->getEmail() . '>';

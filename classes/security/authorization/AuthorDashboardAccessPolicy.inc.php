@@ -9,7 +9,7 @@
  * @class AuthorDashboardAccessPolicy
  * @ingroup security_authorization
  *
- * @brief Class to control access to OMP author dashboard.
+ * @brief Class to control access to author dashboard.
  */
 
 import('lib.pkp.classes.security.authorization.internal.ContextPolicy');

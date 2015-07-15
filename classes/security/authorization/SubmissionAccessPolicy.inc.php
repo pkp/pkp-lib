@@ -33,7 +33,7 @@ class SubmissionAccessPolicy extends ContextPolicy {
 		import('lib.pkp.classes.security.authorization.internal.SubmissionRequiredPolicy');
 		$this->addPolicy(new SubmissionRequiredPolicy($request, $args, $submissionParameterName));
 
-		// Authors, managers and series editors potentially have
+		// Authors, managers and sub editors potentially have
 		// access to submissions. We'll have to define differentiated
 		// policies for those roles in a policy set.
 		$submissionAccessPolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
@@ -102,23 +102,23 @@ class SubmissionAccessPolicy extends ContextPolicy {
 		// Sub editor role
 		//
 		if (isset($roleAssignments[ROLE_ID_SUB_EDITOR])) {
-			// 1) Series editors can access all operations on submissions ...
+			// 1) Sub editors can access all operations on submissions ...
 			$subEditorSubmissionAccessPolicy = new PolicySet(COMBINING_DENY_OVERRIDES);
 			$subEditorSubmissionAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_SUB_EDITOR, $roleAssignments[ROLE_ID_SUB_EDITOR]));
 
-			// 2) ... but only if the requested submission is part of their series.
+			// 2) ... but only if the requested submission is part of their series/section.
 			// but only if ...
-			$subEditorAssignmentOrSeriesPolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
+			$subEditorAssignmentOrSectionPolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
 
-			// 2a) ... the requested submission is part of their series ...
+			// 2a) ... the requested submission is part of their series/sectoin...
 			import('lib.pkp.classes.security.authorization.internal.SectionAssignmentPolicy');
-			$subEditorAssignmentOrSeriesPolicy->addPolicy(new SectionAssignmentPolicy($request));
+			$subEditorAssignmentOrSectionPolicy->addPolicy(new SectionAssignmentPolicy($request));
 
 			// 2b) ... or they have been assigned to the requested submission.
 			import('lib.pkp.classes.security.authorization.internal.UserAccessibleWorkflowStageRequiredPolicy');
-			$subEditorAssignmentOrSeriesPolicy->addPolicy(new UserAccessibleWorkflowStageRequiredPolicy($request));
+			$subEditorAssignmentOrSectionPolicy->addPolicy(new UserAccessibleWorkflowStageRequiredPolicy($request));
 
-			$subEditorSubmissionAccessPolicy->addPolicy($subEditorAssignmentOrSeriesPolicy);
+			$subEditorSubmissionAccessPolicy->addPolicy($subEditorAssignmentOrSectionPolicy);
 			$submissionAccessPolicy->addPolicy($subEditorSubmissionAccessPolicy);
 		}
 

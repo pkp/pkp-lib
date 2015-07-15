@@ -41,7 +41,7 @@ class Query extends DataObject {
 	}
 
 	/**
-	 * Get query assoc id
+	 * Get query assoc ID
 	 * @return int
 	 */
 	function getAssocId() {
@@ -49,7 +49,7 @@ class Query extends DataObject {
 	}
 
 	/**
-	 * Set query assoc id
+	 * Set query assoc ID
 	 * @param $assocId int
 	 */
 	function setAssocId($assocId) {
@@ -57,7 +57,7 @@ class Query extends DataObject {
 	}
 
 	/**
-	 * get stage id
+	 * Get stage ID
 	 * @return int
 	 */
 	function getStageId() {
@@ -65,7 +65,7 @@ class Query extends DataObject {
 	}
 
 	/**
-	 * set stage id
+	 * Set stage ID
 	 * @param $stageId int
 	 */
 	function setStageId($stageId) {

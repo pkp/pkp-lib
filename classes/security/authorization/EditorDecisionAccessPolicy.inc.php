@@ -9,7 +9,7 @@
  * @class EditorDecisionAccessPolicy
  * @ingroup security_authorization
  *
- * @brief Class to control access to OJS's submission workflow stage components
+ * @brief Class to control access to submission workflow stage components
  */
 
 import('lib.pkp.classes.security.authorization.internal.ContextPolicy');

@@ -42,7 +42,7 @@ class FormValidatorListbuilder extends FormValidator {
 	 */
 	function isValid() {
 		$value = json_decode($this->getFieldValue());
-		return (is_object($value) && isset($value->numberOfRows) && $value->numberOfRows>0);
+		return (is_object($value) && isset($value->numberOfRows) && $value->numberOfRows > 0);
 	}
 }
 

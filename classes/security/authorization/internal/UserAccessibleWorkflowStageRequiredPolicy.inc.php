@@ -99,7 +99,7 @@ class UserAccessibleWorkflowStageRequiredPolicy extends AuthorizationPolicy {
 					}
 
 					if ($roleId == ROLE_ID_SUB_EDITOR) {
-						// The requested submission must be part of their series...
+						// The requested submission must be part of their section/series...
 						// and the requested workflow stage must be assigned to
 						// them in the journal settings.
 						import('lib.pkp.classes.security.authorization.internal.SectionAssignmentRule');

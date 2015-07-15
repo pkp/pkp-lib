@@ -26,11 +26,10 @@ class QueryDAO extends DAO {
 	}
 
 	/**
-	 * Retrieve a submission file query by ID.
+	 * Retrieve a submission query by ID.
 	 * @param $queryId int Query ID
 	 * @param $assocType int Optional ASSOC_TYPE_...
 	 * @param $assocId int Optional assoc ID per assocType
-	 * @param $submissionId int optional
 	 * @return Query
 	 */
 	function getById($queryId, $assocType = null, $assocId = null) {
@@ -86,7 +85,7 @@ class QueryDAO extends DAO {
 	}
 
 	/**
-	 * Internal function to return a submission file query object from a row.
+	 * Internal function to return a submission query object from a row.
 	 * @param $row array
 	 * @return Query
 	 */
@@ -114,6 +113,7 @@ class QueryDAO extends DAO {
 	/**
 	 * Insert a new Query.
 	 * @param $query Query
+	 * @return int New query ID
 	 */
 	function insertObject($query) {
 		$this->update(
@@ -223,7 +223,7 @@ class QueryDAO extends DAO {
 	}
 
 	/**
-	 * Delete a submission file query.
+	 * Delete a submission query.
 	 * @param $query Query
 	 */
 	function deleteObject($query) {
@@ -231,7 +231,7 @@ class QueryDAO extends DAO {
 	}
 
 	/**
-	 * Delete a submission file query by ID.
+	 * Delete a submission query by ID.
 	 * @param $queryId int Query ID
 	 * @param $assocType int Optional ASSOC_TYPE_...
 	 * @param $assocId int Optional assoc ID per assocType
@@ -291,7 +291,7 @@ class QueryDAO extends DAO {
 	}
 
 	/**
-	 * Get the ID of the last inserted submission file query.
+	 * Get the ID of the last inserted submission query.
 	 * @return int
 	 */
 	function getInsertId() {

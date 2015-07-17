@@ -214,6 +214,10 @@
 			&:focus {
 				&:extend( .pkp_button:hover );
 			}
+
+			&[disabled] {
+				&:extend(.pkp_button[disabled]);
+			}
 		}
 
 		.cancelFormButton {

@@ -37,6 +37,11 @@
 		background-color: #ccc;
 		background-image: linear-gradient(#fcfcfc, #ccc);
 	}
+
+	&[disabled] {
+		opacity: 0.5;
+		cursor: default;
+	}
 }
 
 .pkp_button_primary {
@@ -53,6 +58,10 @@
 		background-image: linear-gradient( lighten( @primary, 7% ), darken( @primary, 5% ) );
 		color: #fff;
 	}
+
+	&[disabled] {
+		&:extend(.pkp_button[disabled]);
+	}
 }
 
 .pkp_button_offset {
@@ -68,6 +77,10 @@
 		background-color: darken( @offset, 5% );
 		background-image: linear-gradient( lighten( @offset, 7% ), darken( @offset, 5% ) );
 		color: #fff;
+	}
+
+	&[disabled] {
+		&:extend(.pkp_button[disabled]);
 	}
 }
 

@@ -91,6 +91,7 @@
 	<message key="common.changesSaved">Your changes have been saved.</message>
 	<message key="common.chooseOne">Choose One</message>
 	<message key="common.close">Close</message>
+	<message key="common.closePanel">Close Panel</message>
 	<message key="common.closeWindow">Close Window</message>
 	<message key="common.complete">Complete</message>
 	<message key="common.completed">Completed</message>

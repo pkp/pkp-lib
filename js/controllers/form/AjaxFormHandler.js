@@ -141,9 +141,6 @@
 			this.enableFormControls();
 		}
 
-		this.hideSpinner_();
-		this.getHtmlElement().find(':submit').button();
-
 		// Trigger the notify user event, passing this
 		// html element as data.
 		this.trigger('notifyUser', [this.getHtmlElement()]);

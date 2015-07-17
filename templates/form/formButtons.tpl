@@ -47,5 +47,4 @@
 	{/if}
 	{fbvElement type="submit" class="submitFormButton" id=$submitButtonId label=$FBV_submitText translate=$FBV_translate disabled=$FBV_submitDisabled}
 	<span class="pkp_spinner"></span>
-	<div class="clear"></div>
 {/fbvFormSection}

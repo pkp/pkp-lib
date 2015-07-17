@@ -78,9 +78,9 @@
 		this.bind('unregisterAllForms', this.callbackWrapper(
 				this.unregisterAllFormElements_));
 
-		// Add event handler to the modal open event that fixes stacking ui issues
-		this.bind('modalOpen', this.callbackWrapper(
-				this.stackModal_));
+		// React to a modal events
+		this.bind('pkpModalOpen', this.callbackWrapper(this.openModal_));
+		this.bind('pkpModalClose', this.callbackWrapper(this.closeModal_));
 
 		this.outsideClickChecks_ = {};
 	};
@@ -623,22 +623,37 @@
 
 
 	/**
-	 * Fixes modal stacking overlay issue where stacked modal overlays don't
-	 * get layered directly below the modal
+	 * Reacts to a modal being opened. Adds a class to the body representing
+	 * a modal open state.
 	 * @private
-	 * @param {HTMLElement} siteHandlerElement The html element
-	 * attached to this handler.
-	 * @param {HTMLElement} sourceElement The element that
-	 *  issued the event.
+	 * @param {SiteHandler} siteHandler This handler
+	 * @param {HTMLElement} siteHandlerElement Element this handler is
+	 *    attached to.
 	 * @param {Event} event The triggering event.
-	 * @param {HTMLElement} handledElement The modal that is being added
+	 * @param {HTMLElement} handledElement The modal that has been added
 	 */
-	$.pkp.controllers.SiteHandler.prototype.stackModal_ =
-			function(siteHandlerElement, sourceElement, event, handledElement) {
-		var $dialogElement = $(handledElement).parent(),
-				$dialogElementOverlay = $dialogElement.next('.ui-widget-overlay');
+	$.pkp.controllers.SiteHandler.prototype.openModal_ =
+			function(siteHandler, siteHandlerElement, event, handledElement) {
+		this.getHtmlElement().addClass('modal_is_visible');
+	};
 
-		$dialogElementOverlay.css('z-index', $dialogElement.css('z-index') - 1);
+
+	/**
+	 * Reacts to a modal being closed. Removes a class from the body
+	 * representing a modal closed state, after checking if no other modals are
+	 * open.
+	 * @private
+	 * @param {SiteHandler} siteHandler This handler
+	 * @param {HTMLElement} siteHandlerElement Element this handler is
+	 *    attached to.
+	 * @param {Event} event The triggering event.
+	 * @param {HTMLElement} handledElement The modal that has been added
+	 */
+	$.pkp.controllers.SiteHandler.prototype.closeModal_ =
+			function(siteHandler, siteHandlerElement, event, handledElement) {
+		if ( !this.getHtmlElement().find( '.pkp_modal' ).length ) {
+			this.getHtmlElement().removeClass('modal_is_visible');
+		}
 	};
 
 /** @param {jQuery} $ jQuery closure. */

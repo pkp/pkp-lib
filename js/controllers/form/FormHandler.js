@@ -47,11 +47,6 @@
 				' to an HTML form element!'].join(''));
 		}
 
-		// Transform all form buttons with jQueryUI.
-		if (options.transformButtons !== false) {
-			$('.button', $form).button();
-		}
-
 		// Activate and configure the validation plug-in.
 		if (options.submitHandler) {
 			this.callerSubmitHandler_ = options.submitHandler;
@@ -116,7 +111,6 @@
 		// Attach handler to suggest username button (if present)
 		$('[id^="suggestUsernameButton"]', $form).click(
 				this.callbackWrapper(this.generateUsername));
-
 
 		// Initial form validation.
 		if (validator.checkForm()) {
@@ -237,7 +231,6 @@
 	 */
 	$.pkp.controllers.form.FormHandler.prototype.showErrors =
 			function(validator, errorMap, errorList) {
-
 		// ensure that rich content elements have their
 		// values stored before validation.
 		if (typeof tinyMCE !== 'undefined') {

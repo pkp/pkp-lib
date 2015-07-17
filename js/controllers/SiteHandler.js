@@ -651,8 +651,10 @@
 	 */
 	$.pkp.controllers.SiteHandler.prototype.closeModal_ =
 			function(siteHandler, siteHandlerElement, event, handledElement) {
-		if ( !this.getHtmlElement().find( '.pkp_modal' ).length ) {
-			this.getHtmlElement().removeClass('modal_is_visible');
+
+		$htmlElement = this.getHtmlElement();
+		if ( !$htmlElement.find( '.pkp_modal.is_visible' ).length ) {
+			$htmlElement.removeClass('modal_is_visible');
 		}
 	};
 

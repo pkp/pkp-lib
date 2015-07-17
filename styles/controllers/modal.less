@@ -115,6 +115,35 @@
 			color: @offset;
 		}
 	}
+
+	> .footer {
+		padding: @base;
+		background: @bg;
+		border-bottom-left-radius: @radius;
+		border-bottom-right-radius: @radius;
+
+		.ok {
+			&:extend(.pkp_button);
+
+			&:hover,
+			&:focus {
+				&:extend(.pkp_button:hover);
+			}
+
+			&[disabled] {
+				&:extend(.pkp_button[disabled]);
+			}
+		}
+
+		.cancel {
+			margin-left: 1em;
+		}
+	}
+}
+
+// Confirmation modals
+.pkp_modal_confirmation {
+	max-width: 30em;
 }
 
 // Tabs

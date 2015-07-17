@@ -157,6 +157,7 @@
 	 */
 	$.pkp.controllers.modal.ModalHandler.prototype.modalBuild =
 			function() {
+
 		var $modal = $( '<div class="pkp_modal_panel"></div>' );
 
 		// Title bar

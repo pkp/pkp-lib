@@ -43,7 +43,9 @@
 #libraryGridDiv tbody:not(.empty) td:first-child,
 #preparedEmailsGridDiv tbody:not(.empty) td:first-child,
 #userGridContainer tbody:not(.empty) td:first-child,
-#roleGridContainer tbody:not(.empty) td:first-child {
+#roleGridContainer tbody:not(.empty) td:first-child,
+#ReviewFormElementsGridContainer tbody:not(.empty) td:first-child
+{
   padding-left: @double;
 }
 
@@ -95,5 +97,11 @@
 // Settings > Journal > Sponsor
 // Collapses unnecessary grid bottom margins
 #affiliationForm .pkp_controllers_grid {
+    margin-bottom: 0;
+}
+
+// Settings > Workflow > Publication > Review Form Item > Form Items
+#ReviewFormElementsGridContainer tbody:not(.empty) td:first-child p {
+    margin-top: 0;
     margin-bottom: 0;
 }

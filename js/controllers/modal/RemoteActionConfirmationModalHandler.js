@@ -91,7 +91,8 @@
 	 *  dialog was created on.
 	 */
 	$.pkp.controllers.modal.RemoteActionConfirmationModalHandler.prototype.
-			modalConfirm = function(dialogElement) {
+			modalConfirm = function(dialogElement, event) {
+		event.preventDefault();
 
 		$.post(this.remoteAction_,
 				this.callbackWrapper(this.remoteResponse), 'json');

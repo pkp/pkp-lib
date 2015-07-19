@@ -18,7 +18,7 @@
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.controllers.modal.CallbackConfirmationModalHandler
+	 * @extends $.pkp.controllers.modal.ConfirmationModalHandler
 	 *
 	 * @param {jQueryObject} $handledElement The modal.
 	 * @param {Object} options Non-default options to configure

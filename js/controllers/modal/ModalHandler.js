@@ -62,7 +62,6 @@
 		this.publishEvent('redirectRequested');
 		this.publishEvent('dataChanged');
 		this.publishEvent('containerReloadRequested');
-		this.publishEvent('modalCanceled');
 		this.publishEvent('updateHeader');
 		this.publishEvent('updateSidebar');
 
@@ -223,10 +222,6 @@
 				$modalElement = this.getHtmlElement(),
 				$form = $modalElement.find('form').first(),
 				handler;
-
-		if (opt_event && opt_event.currentTarget.id == 'cancelFormButton') {
-			this.trigger('modalCanceled');
-		}
 
 		// Unregister a form if attached to this modalElement
 		// modalClose is called on both 'cancel' and 'close' events.  With

@@ -73,8 +73,6 @@
 				this.registerUnsavedFormElement_));
 		this.bind('unregisterChangedForm', this.callbackWrapper(
 				this.unregisterUnsavedFormElement_));
-		this.bind('modalCanceled', this.callbackWrapper(
-				this.unregisterUnsavedFormElement_));
 		this.bind('unregisterAllForms', this.callbackWrapper(
 				this.unregisterAllFormElements_));
 

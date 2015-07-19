@@ -51,7 +51,7 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.controllers.modal.ConfirmationModalHandler.prototype.checkOptions =
+	$.pkp.controllers.modal.ButtonConfirmationModalHandler.prototype.checkOptions =
 			function(options) {
 		// Check inherited options
 		if (!this.parent('checkOptions', options)) {
@@ -68,7 +68,7 @@
 	 * @param {HTMLElement} dialogElement The element the
 	 *  dialog was created on.
 	 */
-	$.pkp.controllers.modal.ConfirmationModalHandler.prototype.modalConfirm =
+	$.pkp.controllers.modal.ButtonConfirmationModalHandler.prototype.modalConfirm =
 			function(dialogElement) {
 
 		// Close the modal first so that the linkaction is no longer disabled

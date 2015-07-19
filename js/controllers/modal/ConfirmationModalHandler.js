@@ -30,8 +30,6 @@
 	 *    (or false for no button).
 	 *  - dialogText string the text to be displayed in the modal.
 	 *  - All options from the ModalHandler widget.
-	 *  - All options documented for the jQueryUI dialog widget,
-	 *    except for the buttons parameter which is not supported.
 	 */
 	$.pkp.controllers.modal.ConfirmationModalHandler =
 			function($handledElement, options) {

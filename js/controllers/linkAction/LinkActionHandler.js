@@ -93,8 +93,8 @@
 		// the notify user event.
 		this.bind('dataChanged', this.dataChangedHandler_);
 
-		// Bind the 'modalCanceled' event, so we can re-enable submit buttons
-		this.bind('modalCanceled', this.removeDisabledAttribute_);
+		// Re-enable submit buttons when a modal is closed
+		this.bind('pkpModalClose', this.removeDisabledAttribute_);
 
 		if (options.selfActivate) {
 			this.trigger('click');

@@ -20,7 +20,7 @@
 	{url|assign:queriesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.queries.QueriesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId escape=false}
 	{load_url_in_div id="queriesGrid" url=$queriesGridUrl}
 
-	{url|assign:copyeditedFilesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.copyedit.CopyeditedFilesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId escape=false}
+	{url|assign:copyeditedFilesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.copyedit.CopyeditFilesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId escape=false}
 	{load_url_in_div id="copyeditedFilesGrid" url=$copyeditedFilesGridUrl}
 
 </div>

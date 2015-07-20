@@ -10,7 +10,7 @@
  * @class ProofFilesGridDataProvider
  * @ingroup controllers_grid_files_final
  *
- * @brief Provide access to final draft files management.
+ * @brief Provide access to proof files management.
  */
 
 
@@ -44,7 +44,7 @@ class ProofFilesGridDataProvider extends SubmissionFilesGridDataProvider {
 	 * @copydoc GridHandler::getRequestArgs()
 	 */
 	function getRequestArgs() {
-		$representation = $this->getAuthorizedContextObject(ASSOC_TYPE_REPRESENTATION);
+		$representation = $this->getRepresentation();
 		return array_merge(
 			parent::getRequestArgs(),
 			array(
@@ -89,7 +89,6 @@ class ProofFilesGridDataProvider extends SubmissionFilesGridDataProvider {
 	 */
 	function getAddFileAction($request) {
 		$submission = $this->getSubmission();
-		$query = $this->getAuthorizedContextObject(ASSOC_TYPE_QUERY);
 		import('lib.pkp.controllers.api.file.linkAction.AddFileLinkAction');
 		return new AddFileLinkAction(
 			$request, $submission->getId(), $this->getStageId(),

@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file controllers/grid/files/copyedit/ManageCopyeditedFilesGridHandler.inc.php
+ * @file controllers/grid/files/copyedit/ManageCopyeditFilesGridHandler.inc.php
  *
  * Copyright (c) 2014-2015 Simon Fraser University Library
  * Copyright (c) 2003-2015 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class ManageCopyeditedFilesGridHandler
+ * @class ManageCopyeditFilesGridHandler
  * @ingroup controllers_grid_files_copyedit
  *
  * @brief Handle the copyedited file selection grid
@@ -15,11 +15,11 @@
 
 import('lib.pkp.controllers.grid.files.SelectableSubmissionFileListCategoryGridHandler');
 
-class ManageCopyeditedFilesGridHandler extends SelectableSubmissionFileListCategoryGridHandler {
+class ManageCopyeditFilesGridHandler extends SelectableSubmissionFileListCategoryGridHandler {
 	/**
 	 * Constructor
 	 */
-	function ManageCopyeditedFilesGridHandler() {
+	function ManageCopyeditFilesGridHandler() {
 		import('lib.pkp.controllers.grid.files.SubmissionFilesCategoryGridDataProvider');
 		parent::SelectableSubmissionFileListCategoryGridHandler(
 			new SubmissionFilesCategoryGridDataProvider(SUBMISSION_FILE_COPYEDIT),
@@ -38,7 +38,7 @@ class ManageCopyeditedFilesGridHandler extends SelectableSubmissionFileListCateg
 				'addFile',
 				'downloadFile',
 				'deleteFile',
-				'updateCopyeditedFiles'
+				'updateCopyeditFiles'
 			)
 		);
 
@@ -56,15 +56,15 @@ class ManageCopyeditedFilesGridHandler extends SelectableSubmissionFileListCateg
 	 * @param $request PKPRequest
 	 * @return JSONMessage JSON object
 	 */
-	function updateCopyeditedFiles($args, $request) {
+	function updateCopyeditFiles($args, $request) {
 		$submission = $this->getSubmission();
 
-		import('lib.pkp.controllers.grid.files.copyedit.form.ManageCopyeditedFilesForm');
-		$manageCopyeditedFilesForm = new ManageCopyeditedFilesForm($submission->getId());
-		$manageCopyeditedFilesForm->readInputData();
+		import('lib.pkp.controllers.grid.files.copyedit.form.ManageCopyeditFilesForm');
+		$manageCopyeditFilesForm = new ManageCopyeditFilesForm($submission->getId());
+		$manageCopyeditFilesForm->readInputData();
 
-		if ($manageCopyeditedFilesForm->validate()) {
-			$manageCopyeditedFilesForm->execute(
+		if ($manageCopyeditFilesForm->validate()) {
+			$manageCopyeditFilesForm->execute(
 				$args, $request,
 				$this->getGridCategoryDataElements($request, $this->getStageId())
 			);

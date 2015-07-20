@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file controllers/grid/files/copyedit/SelectableCopyeditedFilesGridHandler.inc.php
+ * @file controllers/grid/files/copyedit/SelectableCopyeditFilesGridHandler.inc.php
  *
  * Copyright (c) 2014-2015 Simon Fraser University Library
  * Copyright (c) 2000-2015 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class SelectableCopyeditedFilesGridHandler
+ * @class SelectableCopyeditFilesGridHandler
  * @ingroup controllers_grid_files_copyedit
  *
  * @brief Handle copyedited files grid requests to promote to production stage.
@@ -15,11 +15,11 @@
 
 import('lib.pkp.controllers.grid.files.fileList.SelectableFileListGridHandler');
 
-class SelectableCopyeditedFilesGridHandler extends SelectableFileListGridHandler {
+class SelectableCopyeditFilesGridHandler extends SelectableFileListGridHandler {
 	/**
 	 * Constructor
 	 */
-	function SelectableCopyeditedFilesGridHandler() {
+	function SelectableCopyeditFilesGridHandler() {
 		import('lib.pkp.controllers.grid.files.SubmissionFilesGridDataProvider');
 		// Pass in null stageId to be set in initialize from request var.
 		parent::SelectableFileListGridHandler(

@@ -55,7 +55,7 @@ class SubmissionFileAssignedQueryAccessPolicy extends SubmissionFileBaseAccessPo
 		$query = $queryDao->getById($note->getAssocId());
 		if (!$query) return AUTHORIZATION_DENY;
 
-		if (in_array($user->getId(), $queryDao->getParticipantIds($note->getAssocId()))) {
+		if ($queryDao->getParticipantIds($note->getAssocId(), $user->getId())) {
 			return AUTHORIZATION_PERMIT;
 		}
 

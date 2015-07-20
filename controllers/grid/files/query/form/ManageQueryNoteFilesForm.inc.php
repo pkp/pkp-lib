@@ -56,7 +56,7 @@ class ManageQueryNoteFilesForm extends ManageSubmissionFilesForm {
 	 * Save selection of query files
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return array a list of all submission files marked as available to queries.
+	 * @param $stageSubmissionFiles array The list of submission files in the stage.
 	 */
 	function execute($args, $request, $stageSubmissionFiles) {
 		parent::execute($args, $request, $stageSubmissionFiles, SUBMISSION_FILE_QUERY);
@@ -68,8 +68,8 @@ class ManageQueryNoteFilesForm extends ManageSubmissionFilesForm {
 	 * @param $stageSubmissionFiles array The list of submission files in the stage.
 	 * @param $fileStage int FILE_STAGE_...
 	 */
-	protected function _fileExistsInStage($submissionFile, $stageSubmissionFiles, $fileStage) {
-		if (!parent::_fileExistsInStage($submissionFile, $stageSubmissionFiles, $fileStage)) return false;
+	protected function fileExistsInStage($submissionFile, $stageSubmissionFiles, $fileStage) {
+		if (!parent::fileExistsInStage($submissionFile, $stageSubmissionFiles, $fileStage)) return false;
 		foreach ($stageSubmissionFiles[$submissionFile->getFileId()] as $stageFile) {
 			if (
 				$stageFile->getFileStage() == $submissionFile->getFileStage() &&

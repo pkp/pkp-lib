@@ -65,7 +65,7 @@ class ManageSubmissionFilesForm extends Form {
 	}
 
 	/**
-	 * Save review round files
+	 * Save selection of submission files
 	 * @param $args array
 	 * @param $request PKPRequest
 	 * @param $stageSubmissionFiles array The files that belongs to a file stage
@@ -84,15 +84,15 @@ class ManageSubmissionFilesForm extends Form {
 				$selectedFiles
 			);
 
-			// If this is a submission file that belongs to the current stage id...
-			if ($this->_fileExistsInStage($submissionFile, $stageSubmissionFiles, $fileStage)) {
+			// If this is a submission file that's already in this listing...
+			if ($this->fileExistsInStage($submissionFile, $stageSubmissionFiles, $fileStage)) {
 				// ...update the "viewable" flag accordingly.
 				if ($isViewable != $submissionFile->getViewable()) {
 					$submissionFile->setViewable($isViewable);
 					$submissionFileDao->updateObject($submissionFile);
 				}
 			} elseif ($isViewable) {
-				// Import a file from a previous stage.
+				// Import a file from a different workflow area
 				$context = $request->getContext();
 				$submissionFile = $this->_importFile($context, $submissionFile, $fileStage);
 			}
@@ -105,7 +105,7 @@ class ManageSubmissionFilesForm extends Form {
 	 * @param $stageSubmissionFiles array The list of submission files in the stage.
 	 * @param $fileStage int FILE_STAGE_...
 	 */
-	protected function _fileExistsInStage($submissionFile, $stageSubmissionFiles, $fileStage) {
+	protected function fileExistsInStage($submissionFile, $stageSubmissionFiles, $fileStage) {
 		if (!isset($stageSubmissionFiles[$submissionFile->getFileId()])) return false;
 		foreach ($stageSubmissionFiles[$submissionFile->getFileId()] as $stageFile) {
 			if ($stageFile->getFileStage() == $submissionFile->getFileStage() && $stageFile->getFileStage() == $fileStage) return true;

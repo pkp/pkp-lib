@@ -92,10 +92,10 @@ class ManageReviewFilesForm extends ManageSubmissionFilesForm {
 	}
 
 	/**
-	 * @copydoc ManageSubmissionFilesForm::_importFile()
+	 * @copydoc ManageSubmissionFilesForm::importFile()
 	 */
-	protected function _importFile($context, $submissionFile, $fileStage) {
-		parent::_importFile($context, $submissionFile, $fileStage);
+	protected function importFile($context, $submissionFile, $fileStage) {
+		parent::importFile($context, $submissionFile, $fileStage);
 
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
 		$submissionFileDao->assignRevisionToReviewRound($newFileId, $newRevision, $this->getReviewRound());

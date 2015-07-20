@@ -1,17 +1,17 @@
 /**
- * @defgroup js_controllers_grid_query
+ * @defgroup js_controllers_grid_queries
  */
 /**
- * @file js/controllers/grid/query/ReadQueryHandler.js
+ * @file js/controllers/grid/queries/ReadQueryHandler.js
  *
  * Copyright (c) 2014-2015 Simon Fraser University Library
  * Copyright (c) 2000-2015 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ReadQueryHandler
- * @ingroup js_controllers_grid_query
+ * @ingroup js_controllers_grid_queries
  *
- * @brief Catalog carousel handler.
+ * @brief Handler for a "read query" modal
  *
  */
 (function($) {
@@ -38,9 +38,10 @@
 		this.fetchParticipantsListUrl_ = options.fetchParticipantsListUrl;
 
 		$containerElement.find('.sprite.add').click(
-				this.callbackWrapper(this.showNoteFormHandler));
+				this.callbackWrapper(this.showNoteFormHandler_));
 
-		$containerElement.bind('dataChanged', this.callbackWrapper(this.tester_));
+		$containerElement.bind('dataChanged',
+				this.callbackWrapper(this.reloadParticipantsList_));
 
 		this.loadParticipantsList();
 	};
@@ -53,7 +54,7 @@
 	// Private properties
 	//
 	/**
-	 * The URL to be called to fetch a spotlight item via autocomplete.
+	 * The URL to be called to fetch a new note form for a query.
 	 * @private
 	 * @type {string?}
 	 */
@@ -74,18 +75,6 @@
 	// Public methods
 	//
 	/**
-	 * Event handler that is called when the suggest username button is clicked.
-	 * @param {HTMLElement} element The checkbox input element.
-	 */
-	$.pkp.controllers.grid.queries.ReadQueryHandler.prototype.
-			showNoteFormHandler = function(element) {
-		$(element).hide();
-		$.get(this.fetchNoteFormUrl_,
-				this.callbackWrapper(this.showFetchedNoteForm_), 'json');
-	};
-
-
-	/**
 	 * Load the participants list.
 	 */
 	$.pkp.controllers.grid.queries.ReadQueryHandler.prototype.
@@ -99,7 +88,20 @@
 	// Private methods
 	//
 	/**
-	 * Event handler that is called when the suggest username button is clicked.
+	 * Event handler that is called when the "new note" button is clicked.
+	 * @param {HTMLElement} element The checkbox input element.
+	 * @private
+	 */
+	$.pkp.controllers.grid.queries.ReadQueryHandler.prototype.
+			showNoteFormHandler_ = function(element) {
+		$(element).hide();
+		$.get(this.fetchNoteFormUrl_,
+				this.callbackWrapper(this.showFetchedNoteForm_), 'json');
+	};
+
+
+	/**
+	 * Event handler that is called when the new note form is ready.
 	 * @param {Object} ajaxContext The AJAX request context.
 	 * @param {Object} jsonData A parsed JSON response object.
 	 * @private
@@ -108,7 +110,7 @@
 			showFetchedNoteForm_ = function(ajaxContext, jsonData) {
 
 		var processedJsonData = this.handleJson(jsonData),
-				$noteFormContainer = $('#newNotePlaceholder');
+				$noteFormContainer = $('#newNotePlaceholder', this.getHtmlElement());
 
 		$noteFormContainer.children().remove();
 		$noteFormContainer.append(processedJsonData.content);
@@ -125,7 +127,8 @@
 			showFetchedParticipantsList_ = function(ajaxContext, jsonData) {
 
 		var processedJsonData = this.handleJson(jsonData),
-				$participantsListContainer = $('#participantsListPlaceholder');
+				$participantsListContainer = $(
+				'#participantsListPlaceholder', this.getHtmlElement());
 
 		$participantsListContainer.children().remove();
 		$participantsListContainer.append(processedJsonData.content);
@@ -133,17 +136,16 @@
 
 
 	/**
-	 * Handler to redirect to the correct notification widget the
-	 * notify user event.
+	 * Handler to update the participants list on change.
 	 * @param {HTMLElement} sourceElement The element that issued the
-	 * "notifyUser" event.
-	 * @param {Event} event The "notify user" event.
+	 * "dataChanged" event.
+	 * @param {Event} event The "dataChanged" event.
 	 * @param {HTMLElement} triggerElement The element that triggered
-	 * the "notifyUser" event.
+	 * the "dataChanged" event.
 	 * @private
 	 */
-	$.pkp.controllers.grid.queries.ReadQueryHandler.prototype.tester_ =
-			function(sourceElement, event, triggerElement) {
+	$.pkp.controllers.grid.queries.ReadQueryHandler.prototype.
+			reloadParticipantsList_ = function(sourceElement, event, triggerElement) {
 		this.loadParticipantsList();
 	};
 /** @param {jQuery} $ jQuery closure. */

@@ -5,7 +5,7 @@
  * Copyright (c) 2003-2015 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * Allows editor to add more file to the review (that weren't added when the submission was sent to review)
+ * Allows users to manage the list of copyedit files, potentially adding more
  *}
 
 <script type="text/javascript">

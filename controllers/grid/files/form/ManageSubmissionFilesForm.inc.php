@@ -94,7 +94,7 @@ class ManageSubmissionFilesForm extends Form {
 			} elseif ($isViewable) {
 				// Import a file from a different workflow area
 				$context = $request->getContext();
-				$submissionFile = $this->_importFile($context, $submissionFile, $fileStage);
+				$submissionFile = $this->importFile($context, $submissionFile, $fileStage);
 			}
 		}
 	}
@@ -120,7 +120,7 @@ class ManageSubmissionFilesForm extends Form {
 	 * @param $fileStage int SUBMISSION_FILE_...
 	 * @return SubmissionFile Resultant new submission file
 	 */
-	protected function _importFile($context, $submissionFile, $fileStage) {
+	protected function importFile($context, $submissionFile, $fileStage) {
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
 		import('lib.pkp.classes.file.SubmissionFileManager');
 		$submissionFileManager = new SubmissionFileManager($context->getId(), $submissionFile->getSubmissionId());

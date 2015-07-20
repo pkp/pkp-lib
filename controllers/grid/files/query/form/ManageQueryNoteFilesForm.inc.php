@@ -63,10 +63,7 @@ class ManageQueryNoteFilesForm extends ManageSubmissionFilesForm {
 	}
 
 	/**
-	 * Determine if a file is already present in the stage.
-	 * @param $submissionFile SubmissionFile The submission file
-	 * @param $stageSubmissionFiles array The list of submission files in the stage.
-	 * @param $fileStage int FILE_STAGE_...
+	 * @copydoc ManageSubmissionFilesForm::fileExistsInStage 
 	 */
 	protected function fileExistsInStage($submissionFile, $stageSubmissionFiles, $fileStage) {
 		if (!parent::fileExistsInStage($submissionFile, $stageSubmissionFiles, $fileStage)) return false;
@@ -81,10 +78,10 @@ class ManageQueryNoteFilesForm extends ManageSubmissionFilesForm {
 	}
 
 	/**
-	 * @copydoc ManageSubmissionFilesForm::_importFile()
+	 * @copydoc ManageSubmissionFilesForm::importFile()
 	 */
-	protected function _importFile($context, $submissionFile, $fileStage) {
-		$submissionFile = parent::_importFile($context, $submissionFile, $fileStage);
+	protected function importFile($context, $submissionFile, $fileStage) {
+		$submissionFile = parent::importFile($context, $submissionFile, $fileStage);
 		$submissionFile->setAssocType(ASSOC_TYPE_NOTE);
 		$submissionFile->setAssocId($this->_noteId);
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');

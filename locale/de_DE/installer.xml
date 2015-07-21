@@ -69,4 +69,7 @@
 	<message key="installer.publicFilesDirError">Das öffentliche Verzeichnis existiert nicht oder erlaubt keine Schreibzugriffe.</message>
 	<message key="installer.releaseNotes">Versionsinformationen</message>
 	<message key="installer.securitySettings">Sicherheitseinstellungen</message>
+
+	<message key="installer.beacon">Identifikationssignal</message>
+	<message key="installer.beacon.enable">Eine eindeutige Identifikation und die OAI base URL an PKP übermitteln (nur für Statistiken und Sicherheitsbenachrichtigungen).</message>
 </locale>

@@ -53,7 +53,7 @@ class FileManager {
 	}
 
 	/**
-	 * Return true iff an error occurred when trying to upload a file.
+	 * Return true if an error occurred when trying to upload a file.
 	 * @param $fileName string the name of the file used in the POST form
 	 * @return boolean
 	 */

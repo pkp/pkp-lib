@@ -25,7 +25,7 @@
         width: 100%;
     }
 
-    h1 {
+    .pkp_site_name {
         width: 100%;
         max-width: 100%;
         margin: 0;
@@ -34,8 +34,20 @@
 
         a {
             display: block;
-            padding: @base 0;
-            min-height: 96px;
+
+            &.is_img {
+                padding: @base 0;
+                min-height: 96px;
+            }
+
+            &.is_text {
+                padding: @base;
+                font-size: @font-sml;
+                line-height: @line-sml;
+                font-weight: @bold;
+                text-align: center;
+                text-decoration: none;
+            }
         }
 
         img {

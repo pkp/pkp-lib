@@ -31,11 +31,32 @@
 	<div class="pkp_structure_page">
 		<header class="pkp_structure_head">
 			<nav class="pkp_navigation" id="headerNavigationContainer">
-				<h1>
-					<a href="{url router=$smarty.const.ROUTE_PAGE page="dashboard"}">
-						<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" width="{$displayPageHeaderLogo.width|escape}" height="{$displayPageHeaderLogo.height|escape}" {if $displayPageHeaderLogoAltText != ''}alt="{$displayPageHeaderLogoAltText|escape}"{else}alt="{translate key="common.pageHeaderLogo.altText"}"{/if} />
-					</a>
-				</h1>
+
+				{* Logo or site title *}
+				<div class="pkp_site_name">
+					{if $currentJournal && $multipleContexts}
+						{url|assign:"homeUrl" journal="index" router=$smarty.const.ROUTE_PAGE}
+					{else}
+						{url|assign:"homeUrl" page="index" router=$smarty.const.ROUTE_PAGE}
+					{/if}
+					{if $displayPageHeaderLogo && is_array($displayPageHeaderLogo)}
+						<a href="{$homeUrl}" class="is_img">
+							<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" {if $displayPageHeaderLogoAltText != ''}alt="{$displayPageHeaderLogoAltText|escape}"{else}alt="{translate key="common.pageHeaderLogo.altText"}"{/if} />
+						</a>
+					{elseif $displayPageHeaderTitle && is_array($displayPageHeaderTitle)}
+						<a href="{$homeUrl}" class="is_img">
+							<img src="{$publicFilesDir}/{$displayPageHeaderTitle.uploadName|escape:"url"}" {if $displayPageHeaderTitleAltText != ''}alt="{$displayPageHeaderTitleAltText|escape}"{else}alt="{translate key="common.pageHeader.altText"}"{/if} />
+						</a>
+					{elseif $displayPageHeaderTitle}
+						<a href="{$homeUrl}" class="is_text">{$displayPageHeaderTitle}</a>
+					{elseif $alternatePageHeader}
+						<a href="{$homeUrl}" class="is_text">{$alternatePageHeader}</a>
+					{else}
+						<a href="{$homeUrl}" class="is_img">
+							<img src="{$baseUrl}/templates/images/structure/ojs_logo.png" alt="{$applicationName|escape}" title="{$applicationName|escape}" width="180" height="90" />
+						</a>
+					{/if}
+				</div>
 
 				{* Primary navigation menu *}
 				{if $isUserLoggedIn}

@@ -108,7 +108,14 @@
 	$.pkp.pages.header.TasksHandler.prototype.
 			updateUnreadNotificationsCountHandler_ = function(ajaxContext, jsonData) {
 
-		this.getHtmlElement().find('#unreadNotificationCount').html( jsonData.content );
+		var el = this.getHtmlElement().find('#unreadNotificationCount');
+		el.html( jsonData.content );
+
+		if ( jsonData.content == '0' ) {
+			el.removeClass( 'hasTasks' );
+		} else {
+			el.addClass( 'hasTasks' );
+		}
 	};
 
 

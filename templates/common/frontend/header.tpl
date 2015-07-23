@@ -168,10 +168,6 @@
 				</div><!-- pkp_sidebar.right -->
 			{/if}
 
-			{* {url|assign:fetchSidebarUrl router=$smarty.const.ROUTE_COMPONENT component="page.PageHandler" op="sidebar" params=$additionalArgs escape=false}
-
-			{load_url_in_div id="sidebarContainer" url=$fetchSidebarUrl} *}
-
 			<script type="text/javascript">
 				// Attach the JS page handler to the main content wrapper.
 				$(function() {ldelim}

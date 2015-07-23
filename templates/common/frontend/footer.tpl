@@ -10,7 +10,6 @@
 
 </div><!-- pkp_structure_main -->
 </div><!-- pkp_structure_content -->
-</div><!-- pkp_structure_body -->
 
 <div class="pkp_structure_foot">
 

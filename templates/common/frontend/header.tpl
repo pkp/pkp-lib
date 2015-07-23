@@ -141,54 +141,51 @@
 			</nav><!-- pkp_navigation -->
 		</header><!-- .pkp_structure_head -->
 
-		{* Main page body wrapper *}
-		<div class="pkp_structure_body">
+		{* Load sidebar code early enough to be able to add a wrapper class
+		   indicating visibile sidebars *}
+		{call_hook|assign:"leftSidebarCode" name="Templates::Common::LeftSidebar"}
+		{call_hook|assign:"rightSidebarCode" name="Templates::Common::RightSidebar"}
+		{assign var="content_classes" value=""}
+		{if $leftSidebarCode}
+			{assign var="content_classes" value=$content_classes|cat:' has_left_sidebar'}
+		{/if}
+		{if $rightSidebarCode}
+			{assign var="content_classes" value=$content_classes|cat:' has_right_sidebar'}
+		{/if}
 
-			{* Load sidebar code early enough to be able to add a wrapper class
-			   indicating visibile sidebars *}
-			{call_hook|assign:"leftSidebarCode" name="Templates::Common::LeftSidebar"}
-			{call_hook|assign:"rightSidebarCode" name="Templates::Common::RightSidebar"}
-			{assign var="content_classes" value=""}
+		<div class="pkp_structure_content{$content_classes}">
+			<div class="line">
+				{if !$noContextsConfigured}
+					{include file="header/search.tpl"}
+				{/if}
+			</div>
+
+			{* @todo sidebars should appear after the main content, in
+			   footer.tpl *}
 			{if $leftSidebarCode}
-				{assign var="content_classes" value=$content_classes|cat:' has_left_sidebar'}
+				<div class="pkp_structure_sidebar left mod simple">
+					{$leftSidebarCode}
+				</div><!-- pkp_sidebar.left -->
 			{/if}
 			{if $rightSidebarCode}
-				{assign var="content_classes" value=$content_classes|cat:' has_right_sidebar'}
+				<div class="pkp_structure_sidebar right mod simple">
+					{$rightSidebarCode}
+				</div><!-- pkp_sidebar.right -->
 			{/if}
 
-			<div class="pkp_structure_content{$content_classes}">
-				<div class="line">
-					{if !$noContextsConfigured}
-						{include file="header/search.tpl"}
-					{/if}
-				</div>
+			{* {url|assign:fetchSidebarUrl router=$smarty.const.ROUTE_COMPONENT component="page.PageHandler" op="sidebar" params=$additionalArgs escape=false}
 
-				{* @todo sidebars should appear after the main content, in
-				   footer.tpl *}
-				{if $leftSidebarCode}
-					<div class="pkp_structure_sidebar left mod simple">
-						{$leftSidebarCode}
-					</div><!-- pkp_sidebar.left -->
+			{load_url_in_div id="sidebarContainer" url=$fetchSidebarUrl} *}
+
+			<script type="text/javascript">
+				// Attach the JS page handler to the main content wrapper.
+				$(function() {ldelim}
+					$('div.pkp_structure_main').pkpHandler('$.pkp.controllers.PageHandler');
+				{rdelim});
+			</script>
+
+			<div class="pkp_structure_main">
+				{** allow pages to provide their own titles **}
+				{if !$suppressPageTitle}
+					<h2 class="title_left">{$pageTitleTranslated}</h2>
 				{/if}
-				{if $rightSidebarCode}
-					<div class="pkp_structure_sidebar right mod simple">
-						{$rightSidebarCode}
-					</div><!-- pkp_sidebar.right -->
-				{/if}
-
-				{* {url|assign:fetchSidebarUrl router=$smarty.const.ROUTE_COMPONENT component="page.PageHandler" op="sidebar" params=$additionalArgs escape=false}
-
-				{load_url_in_div id="sidebarContainer" url=$fetchSidebarUrl} *}
-
-				<script type="text/javascript">
-					// Attach the JS page handler to the main content wrapper.
-					$(function() {ldelim}
-						$('div.pkp_structure_main').pkpHandler('$.pkp.controllers.PageHandler');
-					{rdelim});
-				</script>
-
-				<div class="pkp_structure_main">
-					{** allow pages to provide their own titles **}
-					{if !$suppressPageTitle}
-						<h2 class="title_left">{$pageTitleTranslated}</h2>
-					{/if}

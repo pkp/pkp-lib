@@ -10,7 +10,8 @@
  * @class PageHandler
  * @ingroup controllers_page
  *
- * @brief Handler for requests for page components such as the header, sidebar, and CSS.
+ * @brief Handler for requests for page components such as the header, tasks,
+ *  usernav, and CSS.
  */
 
 import('classes.handler.Handler');
@@ -34,7 +35,7 @@ class PageHandler extends Handler {
 		import('lib.pkp.classes.security.authorization.PKPSiteAccessPolicy');
 		$this->addPolicy(new PKPSiteAccessPolicy(
 			$request,
-			array('userNav', 'userNavBackend', 'tasks', 'sidebar', 'css'),
+			array('userNav', 'userNavBackend', 'tasks', 'css'),
 			SITE_ACCESS_ALL_ROLES
 		));
 		if (!Config::getVar('general', 'installed')) define('SESSION_DISABLE_INIT', true);
@@ -90,18 +91,6 @@ class PageHandler extends Handler {
 		$this->setupTasks($args, $request);
 
 		return $templateMgr->fetchJson('controllers/page/tasks.tpl');
-	}
-
-	/**
-	 * Display the sidebar.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function sidebar($args, $request) {
-		$this->setupTemplate($request);
-		$templateMgr = TemplateManager::getManager($request);
-		return $templateMgr->fetchJson('controllers/page/sidebar.tpl');
 	}
 
 	/**

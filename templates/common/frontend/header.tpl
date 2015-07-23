@@ -154,11 +154,6 @@
 		{/if}
 
 		<div class="pkp_structure_content{$content_classes}">
-			<div class="line">
-				{if !$noContextsConfigured}
-					{include file="header/search.tpl"}
-				{/if}
-			</div>
 
 			{* @todo sidebars should appear after the main content, in
 			   footer.tpl *}
@@ -185,6 +180,12 @@
 			</script>
 
 			<div class="pkp_structure_main">
+
+				{* Search form *}
+				{if !$noContextsConfigured}
+					{include file="header/search.tpl"}
+				{/if}
+
 				{** allow pages to provide their own titles **}
 				{if !$suppressPageTitle}
 					<h2 class="title_left">{$pageTitleTranslated}</h2>

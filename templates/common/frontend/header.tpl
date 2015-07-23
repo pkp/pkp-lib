@@ -34,8 +34,13 @@
 		<header class="pkp_structure_head">
 			<nav class="pkp_navigation" id="headerNavigationContainer">
 
-				{* Logo or site title *}
-				<h1>
+				{* Logo or site title. Only use <h1> heading on the homepage.
+				   Otherwise that should go to the page title. *}
+				{if $requestedOp == 'index'}
+					<h1 class="pkp_site_name">
+				{else}
+					<div class="pkp_site_name">
+				{/if}
                     {if $currentJournal && $multipleContexts}
                         {url|assign:"homeUrl" journal="index" router=$smarty.const.ROUTE_PAGE}
                     {else}
@@ -58,7 +63,11 @@
 							<img src="{$baseUrl}/templates/images/structure/ojs_logo.png" alt="{$applicationName|escape}" title="{$applicationName|escape}" width="180" height="90" />
 						</a>
 					{/if}
-				</h1>
+				{if $requestedOp == 'index'}
+					</h1>
+				{else}
+					</div>
+				{/if}
 
 				{* Primary site navigation *}
                 <script type="text/javascript">

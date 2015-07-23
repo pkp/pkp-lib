@@ -28,7 +28,7 @@
 <div id="userTasks">
     <a href="#" id="notificationsToggle">
     	{translate key="common.tasks"}
-        <span id="unreadNotificationCount" class="task-count">
+        <span id="unreadNotificationCount" class="task-count{if $unreadNotificationCount} has_tasks{/if}">
             {$unreadNotificationCount}
         </span>
     </a>

@@ -78,73 +78,80 @@
 						'$.pkp.controllers.MenuHandler');
 				{rdelim});
 			</script>
-			<div class="pkp_navigation_primary_wrapper">
-				<nav id="navigationPrimary" class="pkp_navigation_primary pkp_nav_list">
+			<nav class="pkp_navigation_primary_row">
+				<div class="pkp_navigation_primary_wrapper">
+					<ul id="navigationPrimary" class="pkp_navigation_primary pkp_nav_list">
 
-					{if $enableAnnouncements}
-						<li>
-							<a href="{url router=$smarty.const.ROUTE_PAGE page="announcement"}">
-								{translate key="announcement.announcements"}
-							</a>
-						</li>
-					{/if}
-
-					{if $currentJournal}
-
-						{if $currentJournal->getSetting('publishingMode') != $smarty.const.PUBLISHING_MODE_NONE}
+						{if $enableAnnouncements}
 							<li>
-								<a href="{url router=$smarty.const.ROUTE_PAGE page="issue" op="current"}">
-									{translate key="navigation.current"}
-								</a>
-							</li>
-							<li>
-								<a href="{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive"}">
-									{translate key="navigation.archives"}
+								<a href="{url router=$smarty.const.ROUTE_PAGE page="announcement"}">
+									{translate key="announcement.announcements"}
 								</a>
 							</li>
 						{/if}
 
-						<li class="has-submenu"><a href="#">{translate key="navigation.about"}</a>
-							<ul>
-								{if not (empty($contextSettings.mailingAddress) && empty($contextSettings.contactName) && empty($contextSettings.contactAffiliation) && empty($contextSettings.contactMailingAddress) && empty($contextSettings.contactPhone) && empty($contextSettings.contactFax) && empty($contextSettings.contactEmail) && empty($contextSettings.supportName) && empty($contextSettings.supportPhone) && empty($contextSettings.supportEmail))}
+						{if $currentJournal}
+
+							{if $currentJournal->getSetting('publishingMode') != $smarty.const.PUBLISHING_MODE_NONE}
+								<li>
+									<a href="{url router=$smarty.const.ROUTE_PAGE page="issue" op="current"}">
+										{translate key="navigation.current"}
+									</a>
+								</li>
+								<li>
+									<a href="{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive"}">
+										{translate key="navigation.archives"}
+									</a>
+								</li>
+							{/if}
+
+							<li class="has-submenu"><a href="#">{translate key="navigation.about"}</a>
+								<ul>
+									{if not (empty($contextSettings.mailingAddress) && empty($contextSettings.contactName) && empty($contextSettings.contactAffiliation) && empty($contextSettings.contactMailingAddress) && empty($contextSettings.contactPhone) && empty($contextSettings.contactFax) && empty($contextSettings.contactEmail) && empty($contextSettings.supportName) && empty($contextSettings.supportPhone) && empty($contextSettings.supportEmail))}
+										<li>
+											<a href="{url router=$smarty.const.ROUTE_PAGE page="about" op="contact"}">
+												{translate key="about.contact"}
+											</a>
+										</li>
+									{/if}
 									<li>
-										<a href="{url router=$smarty.const.ROUTE_PAGE page="about" op="contact"}">
-											{translate key="about.contact"}
+										<a href="{url router=$smarty.const.ROUTE_PAGE page="about" op="description"}">
+											{translate key="about.description"}
 										</a>
 									</li>
-								{/if}
-								<li>
-									<a href="{url router=$smarty.const.ROUTE_PAGE page="about" op="description"}">
-										{translate key="about.description"}
-									</a>
-								</li>
-								<li>
-									<a href="{url router=$smarty.const.ROUTE_PAGE page="about" op="editorialTeam"}">
-										{translate key="about.editorialTeam"}
-									</a>
-								</li>
-								<li>
-									<a href="{url router=$smarty.const.ROUTE_PAGE page="about" op="editorialPolicies"}">
-										{translate key="about.policies"}
-									</a>
-								</li>
-								<li>
-									<a href="{url router=$smarty.const.ROUTE_PAGE page="about" op="submissions"}">
-										{translate key="about.submissions"}
-									</a>
-								</li>
-								{if not ($currentJournal->getLocalizedSetting('contributorNote') == '' && empty($contextSettings.contributors) && $currentJournal->getLocalizedSetting('sponsorNote') == '' && empty($contextSettings.sponsors))}
 									<li>
-										<a href="{url router=$smarty.const.ROUTE_PAGE page="about" op="sponsorship"}">
-											{translate key="about.journalSponsorship"}
+										<a href="{url router=$smarty.const.ROUTE_PAGE page="about" op="editorialTeam"}">
+											{translate key="about.editorialTeam"}
 										</a>
 									</li>
-								{/if}
-							</ul>
-						</li>
+									<li>
+										<a href="{url router=$smarty.const.ROUTE_PAGE page="about" op="editorialPolicies"}">
+											{translate key="about.policies"}
+										</a>
+									</li>
+									<li>
+										<a href="{url router=$smarty.const.ROUTE_PAGE page="about" op="submissions"}">
+											{translate key="about.submissions"}
+										</a>
+									</li>
+									{if not ($currentJournal->getLocalizedSetting('contributorNote') == '' && empty($contextSettings.contributors) && $currentJournal->getLocalizedSetting('sponsorNote') == '' && empty($contextSettings.sponsors))}
+										<li>
+											<a href="{url router=$smarty.const.ROUTE_PAGE page="about" op="sponsorship"}">
+												{translate key="about.journalSponsorship"}
+											</a>
+										</li>
+									{/if}
+								</ul>
+							</li>
+						{/if}
+					</ul>
+
+					{* Search form *}
+					{if !$noContextsConfigured}
+						{include file="header/search.tpl"}
 					{/if}
-				</ul>
-			</div>
+				</div>
+			</nav>
 
 			{* User-specific login, settings and task management *}
 			{url|assign:fetchHeaderUrl router=$smarty.const.ROUTE_COMPONENT component="page.PageHandler" op="userNav" escape=false}
@@ -187,11 +194,6 @@
 			</script>
 
 			<div class="pkp_structure_main">
-
-				{* Search form *}
-				{if !$noContextsConfigured}
-					{include file="header/search.tpl"}
-				{/if}
 
 				{** allow pages to provide their own titles **}
 				{if !$suppressPageTitle}

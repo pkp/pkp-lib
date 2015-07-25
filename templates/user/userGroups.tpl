@@ -20,7 +20,7 @@
 		{capture assign="otherContextContent"}
 			{foreach from=$contexts item=context}
 				{if !$currentContext || $context->getId() != $currentContext->getId()}
-				{fbvFormSection label=$context->getLocalizedName() list=true translate=false}
+				{fbvFormSection title=$context->getLocalizedName() list=true translate=false}
 					{include file="user/userGroupSelfRegistration.tpl" context=$context authorUserGroups=$authorUserGroups reviewerUserGroups=$reviewerUserGroups}
 				{/fbvFormSection}
 				{/if}

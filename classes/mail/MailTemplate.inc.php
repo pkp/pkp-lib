@@ -43,6 +43,9 @@ class MailTemplate extends Mail {
 	/** @var boolean Whether or not email fields are disabled */
 	var $addressFieldsEnabled;
 
+	/** @var array The list of parameters to be assigned to the template. */
+	var $params;
+
 	/**
 	 * Constructor.
 	 * @param $emailKey string unique identifier for the template
@@ -104,6 +107,7 @@ class MailTemplate extends Mail {
 		}
 
 		$this->context = $context;
+		$this->params = array();
 	}
 
 	/**
@@ -135,36 +139,42 @@ class MailTemplate extends Mail {
 
 	/**
 	 * Assigns values to e-mail parameters.
-	 * @param $paramArray array
-	 * @return void
+	 * @param $params array Associative array of variables to supply to the email template
 	 */
-	function assignParams($paramArray = array()) {
-		$subject = $this->getSubject();
-		$body = $this->getBody();
+	function assignParams($params = array()) {
+		$application = PKPApplication::getApplication();
+		$request = $application->getRequest();
+		$site = $request->getSite();
 
-		if (isset($this->context)) {
-			$paramArray['principalContactSignature'] = $this->context->getSetting('contactName');
-			$paramArray['contextName'] = $this->context->getLocalizedName();
-			$application = PKPApplication::getApplication();
-			$request = $application->getRequest();
+		if ($this->context) {
+			// Add context-specific variables
 			$router = $request->getRouter();
 			$dispatcher = $request->getDispatcher();
-			if (!isset($paramArray['contextUrl'])) $paramArray['contextUrl'] = $dispatcher->url($request, ROUTE_PAGE, $router->getRequestedContextPath($request));
+			$params = array_merge(array(
+				'principalContactSignature' => $this->context->getSetting('contactName'),
+				'contextName' => $this->context->getLocalizedName(),
+				'contextUrl' => $dispatcher->url($request, ROUTE_PAGE, $router->getRequestedContextPath($request)),
+			), $params);
 		} else {
-			$site = Request::getSite();
-			$paramArray['principalContactSignature'] = $site->getLocalizedContactName();
+			// No context available
+			$params = array_merge(array(
+				'principalContactSignature' => $site->getLocalizedContactName(),
+			), $params);
 		}
 
-		// Replace variables in message with values
-		foreach ($paramArray as $key => $value) {
-			if (!is_object($value)) {
-				$subject = str_replace('{$' . $key . '}', $value, $subject);
-				$body = str_replace('{$' . $key . '}', $value, $body);
-			}
-		}
+		// Add user-specific variables
+		$user = $request->getUser();
+		if ($user) $params = array_merge(array(
+			'senderEmail' => $user->getEmail(),
+			'senderName' => $user->getFullName(),
+		), $params);
 
-		$this->setSubject($subject);
-		$this->setBody($body);
+		// Add some general variables
+		$params = array_merge(array(
+			'siteTitle' => $site->getLocalizedTitle(),
+		), $params);
+
+		$this->params = $params;
 	}
 
 	/**
@@ -200,6 +210,7 @@ class MailTemplate extends Mail {
 
 	/**
 	 * Send the email.
+	 * @return boolean false if there was a problem sending the email
 	 */
 	function send() {
 		if (isset($this->context)) {
@@ -233,22 +244,33 @@ class MailTemplate extends Mail {
 			$this->addBcc($user->getEmail(), $user->getFullName());
 		}
 
+		// Replace variables in message with values
+		$subject = $this->getSubject();
+		$body = $this->getBody();
+		foreach ($this->params as $key => $value) {
+			if (!is_object($value)) {
+				$subject = str_replace('{$' . $key . '}', $value, $subject);
+				$body = str_replace('{$' . $key . '}', $value, $body);
+			}
+		}
+		$this->setSubject($subject);
+		$this->setBody($body);
+
 		return parent::send();
 	}
 
 	/**
 	 * Assigns user-specific values to email parameters, sends
 	 * the email, then clears those values.
-	 * @param $paramArray array
-	 * @return void
+	 * @param $params array Associative array of variables to supply to the email template
+	 * @return boolean false if there was a problem sending the email
 	 */
-	function sendWithParams($paramArray) {
+	function sendWithParams($params) {
 		$savedHeaders = $this->getHeaders();
 		$savedSubject = $this->getSubject();
 		$savedBody = $this->getBody();
 
-		$this->assignParams($paramArray);
-
+		$this->assignParams($params);
 		$ret = $this->send();
 
 		$this->setHeaders($savedHeaders);

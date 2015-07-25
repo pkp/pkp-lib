@@ -20,10 +20,10 @@
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="emailTemplatesFormNotification"}
 
 	{fbvFormSection label="manager.setup.emailHeader" for="emailHeader" description="manager.setup.emailHeaderDescription"}
-		{fbvElement type="textarea" id="emailHeader" value=$emailHeader size=$fbvStyles.size.LARGE rich=true}
+		{fbvElement type="textarea" id="emailHeader" value=$emailHeader size=$fbvStyles.size.LARGE rich=true variables=$emailVariables}
 	{/fbvFormSection}
 	{fbvFormSection label="manager.setup.emailSignature" for="emailSignature" description="manager.setup.emailSignatureDescription"}
-		{fbvElement type="textarea" id="emailSignature" value=$emailSignature size=$fbvStyles.size.LARGE rich=true}
+		{fbvElement type="textarea" id="emailSignature" value=$emailSignature size=$fbvStyles.size.LARGE rich=true variables=$emailVariables}
 	{/fbvFormSection}
 	{fbvFormSection label="manager.setup.emailBounceAddress" for="envelopeSender" description="manager.setup.emailBounceAddressDescription"}
 		<!-- FIXME: There may be a better way to do this if statement within the fbvElement itself -->

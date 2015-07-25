@@ -44,7 +44,7 @@ class UserFormHelper {
 			$readerUserGroups[$context->getId()] = $userGroupDao->getByRoleId($context->getId(), ROLE_ID_READER)->toArray();
 		}
 		$templateMgr->assign(array(
-			'reviewerUserGroups' =>$reviewerUserGroups,
+			'reviewerUserGroups' => $reviewerUserGroups,
 			'authorUserGroups' => $authorUserGroups,
 			'readerUserGroups' => $readerUserGroups,
 		));

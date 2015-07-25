@@ -100,7 +100,7 @@ class ManageSubmissionFilesForm extends Form {
 	}
 
 	/**
-	 * Determine if a file is already present in the stage.
+	 * Determine if a file with the same file stage is already present in the workflow stage.
 	 * @param $submissionFile SubmissionFile The submission file
 	 * @param $stageSubmissionFiles array The list of submission files in the stage.
 	 * @param $fileStage int FILE_STAGE_...

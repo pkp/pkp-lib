@@ -21,9 +21,11 @@ class ManageQueryNoteFilesGridHandler extends SelectableSubmissionFileListCatego
 	 */
 	function ManageQueryNoteFilesGridHandler() {
 		import('lib.pkp.controllers.grid.files.query.QueryNoteFilesCategoryGridDataProvider');
+		$request = Application::getRequest();
+		$stageId = $request->getUservar('stageId'); // authorized by data provider.
 		parent::SelectableSubmissionFileListCategoryGridHandler(
 			new QueryNoteFilesCategoryGridDataProvider(),
-			WORKFLOW_STAGE_ID_EDITING,
+			$stageId,
 			FILE_GRID_DELETE|FILE_GRID_VIEW_NOTES|FILE_GRID_EDIT
 		);
 

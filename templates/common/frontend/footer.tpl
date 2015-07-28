@@ -14,51 +14,54 @@
 	{call_hook|assign:"leftSidebarCode" name="Templates::Common::LeftSidebar"}
 	{call_hook|assign:"rightSidebarCode" name="Templates::Common::RightSidebar"}
 	{if $leftSidebarCode}
-		<div class="pkp_structure_sidebar left mod simple">
+		<div class="pkp_structure_sidebar left">
 			{$leftSidebarCode}
 		</div><!-- pkp_sidebar.left -->
 	{/if}
 	{if $rightSidebarCode}
-		<div class="pkp_structure_sidebar right mod simple">
+		<div class="pkp_structure_sidebar right">
 			{$rightSidebarCode}
 		</div><!-- pkp_sidebar.right -->
 	{/if}
 </div><!-- pkp_structure_content -->
 
-<div class="pkp_structure_foot">
+<div class="pkp_structure_footer_wrapper">
 
-<div class="pkp_structure_subfoot">
-	{if $footerCategories|@count > 0}{* include a section if there are footer link categories defined *}
-		<div class="pkp_structure_content footerCategories">
-			{foreach from=$footerCategories item=category name=loop}
-				{assign var=links value=$category->getLinks()}
-				<div class="unit size1of{$footerCategories|@count} {if $smarty.foreach.loop.last}lastUnit{/if}">
-					<h4><a href="{url page="links" op="link" path=$category->getPath()|escape}">{$category->getLocalizedTitle()|strip_unsafe_html}</a></h4>
-					<ul>
-						{foreach from=$links item=link}
-							<li><a href="{$link->getLocalizedUrl()}">{$link->getLocalizedTitle()|strip_unsafe_html}</a></li>
-						{/foreach}
-						{if $links|@count < $maxLinks}
-							{section name=padding start=$links|@count loop=$maxLinks step=1}
-								<li class="pkp_helpers_invisible">&nbsp;</li>
-							{/section}
-						{/if}
-					</ul>
-				</div>
-			{/foreach}
-		</div><!-- pkp_structure_content footerCategories -->
-	{/if}
-	<div class="pkp_structure_content footerAboutPKPLink">
-		<a href="{url page="about" op="aboutThisPublishingSystem"}"><img class="pkp_helpers_align_right" alt="{translate key=$packageKey}" src="{$baseUrl}/{$brandImage}"/></a>
-		<a href="{$pkpLink}"><img class="pkp_helpers_align_right pkp_helpers_clear" alt="{translate key="common.publicKnowledgeProject"}" src="{$baseUrl}/lib/pkp/templates/images/pkp_brand.png"/></a>
-	</div><!-- pkp_structure_content footerAboutPKPLink -->
-	<div class="pkp_structure_content pageFooter">
-		{if $pageFooter}{$pageFooter}{/if}
-		{call_hook name="Templates::Common::Footer::PageFooter"}
-	</div><!-- pkp_structure_content pageFooter -->
-</div><!-- pkp_structure_subfoot -->
+	<div class="pkp_structure_footer">
 
-</div><!-- pkp_structure_foot -->
+		{* include a section if there are footer link categories defined *}
+		{if $footerCategories|@count > 0}
+			<div class="categories categories_{$footerCategories|@count}">
+				{foreach from=$footerCategories item=category name=loop}
+					{assign var=links value=$category->getLinks()}
+					<div class="category category_{$loop.index}">
+						<h4><a href="{url page="links" op="link" path=$category->getPath()|escape}">{$category->getLocalizedTitle()|strip_unsafe_html}</a></h4>
+						<ul>
+							{foreach from=$links item=link}
+								<li><a href="{$link->getLocalizedUrl()}">{$link->getLocalizedTitle()|strip_unsafe_html}</a></li>
+							{/foreach}
+						</ul>
+					</div>
+				{/foreach}
+			</div><!-- pkp_structure_footer categories -->
+		{/if}
+		
+		<div class="page_footer">
+			{if $pageFooter}{$pageFooter}{/if}
+			{call_hook name="Templates::Common::Footer::PageFooter"}
+		</div><!-- pkp_structure_footer page_footer -->
+	</div><!-- pkp_structure_footer -->
+
+</div><!-- pkp_structure_footer_wrapper -->
+
+<div class="pkp_brand_footer">
+	<a href="{url page="about" op="aboutThisPublishingSystem"}">
+		<img alt="{translate key=$packageKey}" src="{$baseUrl}/{$brandImage}">
+	</a>
+	<a href="{$pkpLink}">
+		<img alt="{translate key="common.publicKnowledgeProject"}" src="{$baseUrl}/lib/pkp/templates/images/pkp_brand.png">
+	</a>
+</div>
 
 </div><!-- pkp_structure_page -->
 

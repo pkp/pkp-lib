@@ -22,6 +22,8 @@
 
 <form class="pkp_form" id="metadataForm" action="{url component="api.file.ManageFileApiHandler" op="saveMetadata" submissionId=$submissionFile->getSubmissionId() stageId=$stageId reviewRoundId=$reviewRoundId fileStage=$submissionFile->getFileStage() fileId=$submissionFile->getFileId() escape=false}" method="post">
 
+	{include file="common/formErrors.tpl"}
+
 	{* Editable metadata *}
 	{fbvFormArea id="fileMetaData"}
 		{fbvFormSection title="submission.form.name" required=true}

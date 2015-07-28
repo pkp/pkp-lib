@@ -232,7 +232,7 @@ abstract class PKPManageFileApiHandler extends Handler {
 
 			return DAO::getDataChangedEvent();
 		} else {
-			return new JSONMessage(false, $metadataForm->fetch($request));
+			return new JSONMessage(true, $metadataForm->fetch($request));
 		}
 	}
 

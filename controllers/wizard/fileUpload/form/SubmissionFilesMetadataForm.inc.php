@@ -27,6 +27,9 @@ class SubmissionFilesMetadataForm extends Form {
 	/** @var ReviewRound */
 	var $_reviewRound;
 
+	/** @var PubIdPluginHelper */
+	var $_pubIdPluginHelper;
+
 	/**
 	 * Constructor.
 	 * @param $submissionFile SubmissionFile
@@ -181,6 +184,21 @@ class SubmissionFilesMetadataForm extends Form {
 			$viewsDao = DAORegistry::getDAO('ViewsDAO');
 			$viewsDao->recordView(ASSOC_TYPE_NOTE, $noteId, $user->getId());
 		}
+	}
+
+	/**
+	 * @copydoc Form::validate()
+	 */
+	function validate($callHooks = true) {
+		// consider the additional field names from the public identifer plugins
+		$pubIdPluginHelper = $this->_getPubIdPluginHelper();
+		$submissionFile = $this->getSubmissionFile();
+		$submissionId = $submissionFile->getSubmissionId();
+		$submissionDao = Application::getSubmissionDAO();
+		$submission = $submissionDao->getById($submissionId);
+		$pressId = $submission->getContextId();
+		$pubIdPluginHelper->validate($pressId, $this, $submissionFile);
+		return parent::validate($callHooks);
 	}
 
 	/**

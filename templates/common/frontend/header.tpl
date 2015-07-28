@@ -159,32 +159,8 @@
 
 		</header><!-- .pkp_structure_head -->
 
-		{* Load sidebar code early enough to be able to add a wrapper class
-		   indicating visibile sidebars *}
-		{call_hook|assign:"leftSidebarCode" name="Templates::Common::LeftSidebar"}
-		{call_hook|assign:"rightSidebarCode" name="Templates::Common::RightSidebar"}
-		{assign var="content_classes" value=""}
-		{if $leftSidebarCode}
-			{assign var="content_classes" value=$content_classes|cat:' has_left_sidebar'}
-		{/if}
-		{if $rightSidebarCode}
-			{assign var="content_classes" value=$content_classes|cat:' has_right_sidebar'}
-		{/if}
-
-		<div class="pkp_structure_content{$content_classes}">
-
-			{* @todo sidebars should appear after the main content, in
-			   footer.tpl *}
-			{if $leftSidebarCode}
-				<div class="pkp_structure_sidebar left mod simple">
-					{$leftSidebarCode}
-				</div><!-- pkp_sidebar.left -->
-			{/if}
-			{if $rightSidebarCode}
-				<div class="pkp_structure_sidebar right mod simple">
-					{$rightSidebarCode}
-				</div><!-- pkp_sidebar.right -->
-			{/if}
+		{* Wrapper for page content and sidebars *}
+		<div class="pkp_structure_content{if $hasLeftSidebar} has_left_sidebar{/if}{if $hasRightSidebar} has_right_sidebar{/if}">
 
 			<script type="text/javascript">
 				// Attach the JS page handler to the main content wrapper.

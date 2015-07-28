@@ -8,7 +8,21 @@
  * Common site frontend footer.
  *}
 
-</div><!-- pkp_structure_main -->
+	</div><!-- pkp_structure_main -->
+
+	{* Sidebars *}
+	{call_hook|assign:"leftSidebarCode" name="Templates::Common::LeftSidebar"}
+	{call_hook|assign:"rightSidebarCode" name="Templates::Common::RightSidebar"}
+	{if $leftSidebarCode}
+		<div class="pkp_structure_sidebar left mod simple">
+			{$leftSidebarCode}
+		</div><!-- pkp_sidebar.left -->
+	{/if}
+	{if $rightSidebarCode}
+		<div class="pkp_structure_sidebar right mod simple">
+			{$rightSidebarCode}
+		</div><!-- pkp_sidebar.right -->
+	{/if}
 </div><!-- pkp_structure_content -->
 
 <div class="pkp_structure_foot">

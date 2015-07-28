@@ -17,9 +17,22 @@
 class HookRegistry {
 	/**
 	 * Get the current set of hook registrations.
+	 * @param $hookName string Name of hook to optionally return
+	 * @return mixed Array of all hooks or just those attached to $hookName, or
+	 *   null if nothing has been attached to $hookName
 	 */
-	static function &getHooks() {
+	static function &getHooks($hookName = null) {
 		$hooks =& Registry::get('hooks', true, array());
+
+		if ($hookName) {
+			if (isset($hooks[$hookName])) {
+				$hook =& $hooks[$hookName];
+			} else {
+				$hook = null;
+			}
+			return $hook;
+		}
+
 		return $hooks;
 	}
 

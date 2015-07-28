@@ -74,7 +74,7 @@
 .pkp_modal_panel {
 
 	// Height and width of the close button (matches height of header)
-	@pkp_modal_panel_close_box_len: @double + @line-base;
+	@pkp_modal_panel_close_box_len: @double * 2;
 
 	> .header,
 	> .content {
@@ -105,7 +105,7 @@
 		&:before {
 			&:extend(.fa);
 			content: @fa-var-times;
-			font-size: @line-base;
+			font-size: @double;
 			line-height: @pkp_modal_panel_close_box_len;
 		}
 

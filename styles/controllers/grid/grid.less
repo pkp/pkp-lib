@@ -56,7 +56,7 @@
 
 		a {
 			display: inline-block;
-			line-height: @line-base;
+			line-height: @double;
 			font-size: @font-sml;
 			text-decoration: none;
 		}
@@ -150,14 +150,14 @@
 		position: relative;
 		padding-top: @half;
 		padding-bottom: @half;
-		line-height: 24px;
+		line-height: @line-base;
 	}
 
 	// Empty row
 	.empty td {
 		padding: 8px 0;
 		font-size: @font-sml;
-		line-height: 24px;
+		line-height: @line-base;
 		color: @text-light;
 		color: @text-light-rgba;
 		text-align: center;
@@ -171,8 +171,8 @@
 		top: @half; // matches td padding
 		left: 0;
 		width: @double;
-		height: 24px; // matches td line-height
-		line-height: 24px;
+		height: @line-base; // matches td line-height
+		line-height: @line-base;
 		text-align: center;
 		cursor: pointer;
 		text-decoration: none;
@@ -238,7 +238,7 @@
 	.row_controls {
 
 		td {
-			line-height: 24px;
+			line-height: @line-base;
 		}
 
 		a {

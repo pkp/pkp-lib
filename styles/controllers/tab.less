@@ -27,7 +27,7 @@
 			display: block;
 			padding: 0 @base;
 			border-bottom: 2px solid transparent;
-			line-height: @line-base + @base - 3; // account for border
+			line-height: @double + @base - 3; // account for border
 			text-decoration: none;
 
 			&:hover,
@@ -98,7 +98,7 @@
  * If tabs appear inside of a tab panel, use a different visual paradigm to
  * better distinguish the hierarchy.
  */
-@pkp_nested_tab_line_height: @line-base + @base - 2; // account for border
+@pkp_nested_tab_line_height: @double + @base - 2; // account for border
 .ui-tabs-panel {
 
 	.ui-tabs-nav {

@@ -62,6 +62,5 @@
 
 </div><!-- pkp_structure_page -->
 
-{$additionalFooterData}
 </body>
 </html>

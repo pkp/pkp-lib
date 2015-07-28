@@ -49,8 +49,6 @@
 						</a>
 					{elseif $displayPageHeaderTitle}
 						<a href="{$homeUrl}" class="is_text">{$displayPageHeaderTitle}</a>
-					{elseif $alternatePageHeader}
-						<a href="{$homeUrl}" class="is_text">{$alternatePageHeader}</a>
 					{else}
 						<a href="{$homeUrl}" class="is_img">
 							<img src="{$baseUrl}/templates/images/structure/ojs_logo.png" alt="{$applicationName|escape}" title="{$applicationName|escape}" width="180" height="90" />

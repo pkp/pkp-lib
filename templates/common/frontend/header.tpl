@@ -173,5 +173,11 @@
 
 				{** allow pages to provide their own titles **}
 				{if !$suppressPageTitle}
-					<h2 class="title_left">{$pageTitleTranslated}</h2>
+
+					{* Use h1 unless we're on the index page *}
+					{if $requestedOp == 'index'}
+						<h2 class="page_title">{$pageTitleTranslated}</h2>
+					{else}
+						<h1 class="page_title">{$pageTitleTranslated}</h1>
+					{/if}
 				{/if}

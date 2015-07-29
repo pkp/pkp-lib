@@ -129,11 +129,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 
 		import('lib.pkp.classes.config.Config');
 
-		if (Config::getVar('debug', 'display_errors')) {
-			// Try to switch off normal error display when error display
-			// is being managed by us.
-			ini_set('display_errors', false);
-		}
+		ini_set('display_errors', Config::getVar('debug', 'display_errors', ini_get('display_errors')));
 
 		Registry::set('application', $this);
 

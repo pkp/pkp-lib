@@ -90,7 +90,11 @@ class NotificationDAO extends DAO {
 		if ($type) $params[] = (int) $type;
 
 		$result = $this->retrieveRange(
-			'SELECT * FROM notifications WHERE assoc_type = ? AND assoc_id = ?' . (isset($userId) ?' AND user_id = ?' : '') . (isset($contextId) ?' AND context_id = ?' : '') . (isset($type) ?' AND type = ?' : '') . ' ORDER BY date_created DESC',
+			'SELECT * FROM notifications WHERE assoc_type = ? AND assoc_id = ?' .
+			($userId?' AND user_id = ?':'') .
+			($contextId?' AND context_id = ?':'') .
+			($type?' AND type = ?':'') .
+			' ORDER BY date_created DESC',
 			$params
 		);
 

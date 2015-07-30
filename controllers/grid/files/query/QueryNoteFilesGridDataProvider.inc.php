@@ -58,7 +58,7 @@ class QueryNoteFilesGridDataProvider extends SubmissionFilesGridDataProvider {
 	/**
 	 * @copydoc GridDataProvider::loadData()
 	 */
-	function loadData() {
+	function loadData($filter = array()) {
 		// Retrieve all submission files for the given file query.
 		$submission = $this->getSubmission();
 		$query = $this->getAuthorizedContextObject(ASSOC_TYPE_QUERY);
@@ -71,7 +71,7 @@ class QueryNoteFilesGridDataProvider extends SubmissionFilesGridDataProvider {
 
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 		$submissionFiles = $submissionFileDao->getLatestRevisionsByAssocId(ASSOC_TYPE_NOTE, $this->_noteId, $submission->getId(), $this->getFileStage());
-		return $this->prepareSubmissionFileData($submissionFiles, $this->_viewableOnly);
+		return $this->prepareSubmissionFileData($submissionFiles, $this->_viewableOnly, $filter);
 	}
 
 	/**

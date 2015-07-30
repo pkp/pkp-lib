@@ -1,5 +1,5 @@
 {**
- * controllers/grid/settings/user/submissionsGridFilter.tpl
+ * templates/controllers/grid/submissions/submissionsGridFilter.tpl
  *
  * Copyright (c) 2015 Simon Fraser University Library
  * Copyright (c) 2000-2015 John Willinsky

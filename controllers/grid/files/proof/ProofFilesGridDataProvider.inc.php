@@ -58,7 +58,7 @@ class ProofFilesGridDataProvider extends SubmissionFilesGridDataProvider {
 	/**
 	 * @copydoc GridDataProvider::loadData()
 	 */
-	function loadData() {
+	function loadData($filter = array()) {
 		// Retrieve all submission files for the given file stage.
 		$submission = $this->getSubmission();
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
@@ -69,7 +69,7 @@ class ProofFilesGridDataProvider extends SubmissionFilesGridDataProvider {
 			$this->getFileStage()
 		);
 
-		return $this->prepareSubmissionFileData($submissionFiles, $this->_viewableOnly);
+		return $this->prepareSubmissionFileData($submissionFiles, $this->_viewableOnly, $filter);
 	}
 
 	/**

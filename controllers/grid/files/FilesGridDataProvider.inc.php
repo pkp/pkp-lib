@@ -121,30 +121,8 @@ class FilesGridDataProvider extends GridDataProvider {
 	 * Get the authorized submission.
 	 * @return Submission
 	 */
-	function getSubmission() {
+	protected function getSubmission() {
 		return $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-	}
-
-	/**
-	 * Rearrange file revisions by file id and return the file
-	 * data wrapped into an array so that grid implementations
-	 * can add further data.
-	 * @param $revisions array
-	 * @param $viewableOnly boolean optional
-	 * @return array
-	 */
-	function &prepareSubmissionFileData(&$revisions, $viewableOnly = false) {
-		// Rearrange the files as required by submission file grids.
-		$submissionFileData = array();
-		foreach ($revisions as $revision) {
-			if ($viewableOnly && !$revision->getViewable()) continue;
-
-			$submissionFileData[$revision->getFileId()] = array(
-				'submissionFile' => $revision
-			);
-			unset($revision);
-		}
-		return $submissionFileData;
 	}
 }
 

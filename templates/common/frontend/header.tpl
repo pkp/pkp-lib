@@ -170,14 +170,3 @@
 			</script>
 
 			<div class="pkp_structure_main">
-
-				{** allow pages to provide their own titles **}
-				{if !$suppressPageTitle}
-
-					{* Use h1 unless we're on the index page *}
-					{if $requestedOp == 'index'}
-						<h2 class="page_title">{$pageTitleTranslated}</h2>
-					{else}
-						<h1 class="page_title">{$pageTitleTranslated}</h1>
-					{/if}
-				{/if}

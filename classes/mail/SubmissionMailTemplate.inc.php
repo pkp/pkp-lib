@@ -33,13 +33,12 @@ class SubmissionMailTemplate extends MailTemplate {
 	 * @param $submission Submission
 	 * @param $emailKey string optional
 	 * @param $locale string optional
-	 * @param $enableAttachments boolean optional
 	 * @param $context object optional
 	 * @param $includeSignature boolean optional
 	 * @see MailTemplate::MailTemplate()
 	 */
-	function SubmissionMailTemplate($submission, $emailKey = null, $locale = null, $enableAttachments = null, $context = null, $includeSignature = true) {
-		parent::MailTemplate($emailKey, $locale, $enableAttachments, $context, $includeSignature);
+	function SubmissionMailTemplate($submission, $emailKey = null, $locale = null, $context = null, $includeSignature = true) {
+		parent::MailTemplate($emailKey, $locale, $context, $includeSignature);
 		$this->submission = $submission;
 	}
 
@@ -63,9 +62,7 @@ class SubmissionMailTemplate extends MailTemplate {
 	 */
 	function send($request = null) {
 		if (parent::send(false)) {
-			if (!isset($this->skip) || !$this->skip) $this->log($request);
-			$user = Request::getUser();
-			if ($this->attachmentsEnabled) $this->_clearAttachments($user->getId());
+			$this->log($request);
 			return true;
 		} else {
 			return false;
@@ -140,18 +137,6 @@ class SubmissionMailTemplate extends MailTemplate {
 		// Add log entry
 		$logDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
 		$logEntryId = $logDao->insertObject($entry);
-
-		// Add attachments
-		import('lib.pkp.classes.file.SubmissionFileManager');
-		$submissionFileManager = new SubmissionFileManager($submission->getContextId(), $submission->getId());
-		foreach ($this->getAttachmentFiles() as $attachment) {
-			$submissionFileManager->temporaryFileToSubmissionFile(
-				$attachment,
-				SUBMISSION_FILE_ATTACHMENT,
-				ASSOC_TYPE_SUBMISSION_EMAIL_LOG_ENTRY,
-				$logEntryId
-			);
-		}
 	}
 
 	/**

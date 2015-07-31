@@ -362,7 +362,6 @@
 	<message key="navigation.publicMenu">Загальне меню</message>
 	<message key="navigation.userManagement">Керування користувачами</message>
 	<message key="common.billingAddress">Адреса платника (якщо відмінна)</message>
-	<message key="common.considered">Розглядається</message>
 	<message key="common.finish">Завершити</message>
 	<message key="common.reset">Скинути</message>
 	<message key="common.unread">Непрочитане</message>

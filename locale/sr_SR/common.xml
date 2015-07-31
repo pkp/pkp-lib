@@ -331,7 +331,6 @@
 	<message key="common.warning">Upozorenje</message>
 	<message key="common.confirm">Potvrdi</message>
 	<message key="common.content">Sadržaj</message>
-	<message key="common.considered">Smatran</message>
 	<message key="common.declined">Odbijen</message>
 	<message key="common.finish">Završi</message>
 	<message key="common.go">Idi</message>

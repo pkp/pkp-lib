@@ -5,7 +5,7 @@
  * Copyright (c) 2003-2015 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * Copyediting workflow stage
+ * Editorial workflow stage
  *}
 {include file="controllers/tab/workflow/stageParticipants.tpl"}
 <div id="editorial">
@@ -14,10 +14,13 @@
 
 	<p class="pkp_help">{translate key="editor.submission.editorial.introduction"}</p>
 
-	{url|assign:finalDraftGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.final.FinalDraftFilesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId escape=false}
-	{load_url_in_div id="finalDraftGrid" url=$finalDraftGridUrl}
+	{url|assign:finalDraftFilesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.final.FinalDraftFilesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId escape=false}
+	{load_url_in_div id="finalDraftFilesGrid" url=$finalDraftFilesGridUrl}
 
-	{url|assign:copyeditingGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.copyedit.CopyeditingFilesGridHandler" op="fetchGrid" submissionId=$submission->getId() escape=false}
-	{load_url_in_div id="copyeditingGrid" url=$copyeditingGridUrl}
+	{url|assign:queriesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.queries.QueriesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId escape=false}
+	{load_url_in_div id="queriesGrid" url=$queriesGridUrl}
+
+	{url|assign:copyeditedFilesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.copyedit.CopyeditFilesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId escape=false}
+	{load_url_in_div id="copyeditedFilesGrid" url=$copyeditedFilesGridUrl}
 
 </div>

@@ -142,6 +142,7 @@
 
 		this.publishEvent('tinyMCEInitialized');
 		this.bind('tinyMCEInitialized', this.tinyMCEInitHandler_);
+		this.bind('containerClose', this.containerCloseHandler);
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.form.FormHandler,
@@ -593,6 +594,31 @@
 
 			validator.element(formElement);
 		}));
+	};
+
+
+	/**
+	 * Bind a handler for container (e.g. modal) close events to permit forms
+	 * to clean up.blur handler on tinyMCE instances inside this form
+	 * @param {HTMLElement} input The input element that triggered the
+	 * event.
+	 * @param {Event} event The initialized event.
+	 * @return {boolean} Event handling success.
+	 */
+	$.pkp.controllers.form.FormHandler.prototype.containerCloseHandler =
+			function(input, event) {
+		var $form = $(this.getHtmlElement());
+		// prevent orphaned date pickers that may be still open.
+		$form.find('.hasDatepicker').datepicker('hide');
+		if (this.formChangesTracked) {
+			if (!confirm($.pkp.locale.form_dataHasChanged)) {
+				return false;
+			} else {
+				this.trigger('unregisterAllForms');
+			}
+		}
+
+		return true;
 	};
 
 

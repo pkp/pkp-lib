@@ -65,10 +65,10 @@ class ManageSubmissionFilesForm extends Form {
 	}
 
 	/**
-	 * Save review round files
+	 * Save selection of submission files
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @param @stageSubmissionFiles array The files that belongs to a file stage
+	 * @param $stageSubmissionFiles array The files that belongs to a file stage
 	 * that is currently being used by a grid inside this form.
 	 * @param $fileStage int SUBMISSION_FILE_...
 	 */
@@ -84,26 +84,33 @@ class ManageSubmissionFilesForm extends Form {
 				$selectedFiles
 			);
 
-			// If this is a submission file that belongs to the current stage id...
-			if ($this->_fileExistsInStage($submissionFile, $stageSubmissionFiles)) {
+			// If this is a submission file that's already in this listing...
+			if ($this->fileExistsInStage($submissionFile, $stageSubmissionFiles, $fileStage)) {
 				// ...update the "viewable" flag accordingly.
-				$submissionFile->setViewable($isViewable);
-				$submissionFileDao->updateObject($submissionFile);
+				if ($isViewable != $submissionFile->getViewable()) {
+					$submissionFile->setViewable($isViewable);
+					$submissionFileDao->updateObject($submissionFile);
+				}
 			} elseif ($isViewable) {
-				// Import a file from a previous stage.
+				// Import a file from a different workflow area
 				$context = $request->getContext();
-				$submissionFile = $this->_importFile($context, $submissionFile, $fileStage);
+				$submissionFile = $this->importFile($context, $submissionFile, $fileStage);
 			}
 		}
 	}
 
 	/**
-	 * Determine if a file is already present in the stage.
+	 * Determine if a file with the same file stage is already present in the workflow stage.
 	 * @param $submissionFile SubmissionFile The submission file
 	 * @param $stageSubmissionFiles array The list of submission files in the stage.
+	 * @param $fileStage int FILE_STAGE_...
 	 */
-	protected function _fileExistsInStage($submissionFile, $stageSubmissionFiles) {
-		return array_key_exists($submissionFile->getFileId(), $stageSubmissionFiles);
+	protected function fileExistsInStage($submissionFile, $stageSubmissionFiles, $fileStage) {
+		if (!isset($stageSubmissionFiles[$submissionFile->getFileId()])) return false;
+		foreach ($stageSubmissionFiles[$submissionFile->getFileId()] as $stageFile) {
+			if ($stageFile->getFileStage() == $submissionFile->getFileStage() && $stageFile->getFileStage() == $fileStage) return true;
+		}
+		return false;
 	}
 
 	/**
@@ -113,7 +120,7 @@ class ManageSubmissionFilesForm extends Form {
 	 * @param $fileStage int SUBMISSION_FILE_...
 	 * @return SubmissionFile Resultant new submission file
 	 */
-	protected function _importFile($context, $submissionFile, $fileStage) {
+	protected function importFile($context, $submissionFile, $fileStage) {
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
 		import('lib.pkp.classes.file.SubmissionFileManager');
 		$submissionFileManager = new SubmissionFileManager($context->getId(), $submissionFile->getSubmissionId());

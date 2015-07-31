@@ -48,10 +48,10 @@ abstract class PKPWorkflowHandler extends Handler {
 			// This policy will deny access if user has no accessible workflow stage.
 			// Otherwise it will build an authorized object with all accessible
 			// workflow stages and authorize user operation access.
-			import('classes.security.authorization.internal.UserAccessibleWorkflowStageRequiredPolicy');
+			import('lib.pkp.classes.security.authorization.internal.UserAccessibleWorkflowStageRequiredPolicy');
 			$this->addPolicy(new UserAccessibleWorkflowStageRequiredPolicy($request));
 		} else {
-			import('classes.security.authorization.WorkflowStageAccessPolicy');
+			import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
 			$this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $this->identifyStageId($request, $args)));
 		}
 
@@ -179,9 +179,7 @@ abstract class PKPWorkflowHandler extends Handler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function expedite($args, $request) {
-		assert(false);
-	}
+	abstract function expedite($args, $request);
 
 	/**
 	 * Fetch JSON-encoded editor decision options.
@@ -390,6 +388,7 @@ abstract class PKPWorkflowHandler extends Handler {
 	 * @param $user PKPUser
 	 * @param $stageId integer
 	 * @param $contextId integer
+	 * @return boolean
 	 */
 	protected function notificationOptionsByStage($user, $stageId, $contextId) {
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);

@@ -54,7 +54,7 @@ class ReviewCategoryGridDataProvider extends SubmissionFilesCategoryGridDataProv
 	/**
 	 * @copydoc SubmissionFilesCategoryGridDataProvider::initGridDataProvider()
 	 */
-	function initGridDataProvider($fileStage, $initParams) {
+	function initGridDataProvider($fileStage, $initParams = null) {
 		// This category grid data provider will use almost all the
 		// same implementation of the ReviewGridDataProvider.
 		import('lib.pkp.controllers.grid.files.review.ReviewGridDataProvider');

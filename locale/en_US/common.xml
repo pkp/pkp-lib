@@ -97,7 +97,6 @@
 	<message key="common.confirm">Confirm</message>
 	<message key="common.content">Content</message>
 	<message key="common.contents">Contents</message>
-	<message key="common.considered">Considered</message>
 	<message key="common.continue">Continue</message>
 	<message key="common.copy">Copy</message>
 	<message key="common.country">Country</message>
@@ -397,6 +396,8 @@
 	<message key="navigation.userManagement">User Management</message>
 	<message key="notification.addedAuditor">Auditor added.</message>
 	<message key="notification.removedAuditor">Auditor removed.</message>
+	<message key="notification.addedQuery">Added Discussion</message>
+	<message key="notification.editedQuery">Edited Discussion</message>
 	<message key="notification.reviewAcknowledged">Review marked as acknowledged. Email not sent.</message>
 	<message key="notification.updatedReviewFiles">Review files updated.</message>
 	<message key="notification.allow">Enable these types of notifications.</message>
@@ -522,4 +523,6 @@
 	<message key="navigation.archives">Archives</message>
 	<message key="user.authorization.authorRoleMissing">You do not currently have sufficient privileges to view the submission. Please edit your profile to ensure that you have been granted the appropriate roles under "Register As".</message>
 	<message key="user.authorization.submissionAuthor">The current user is not the author of the requested submission. Please verify that you are logged in with the correct user account.</message>
+	<message key="notification.type.queryActivity">Conversation activity.</message>
+	<message key="notification.type.queryAdded">Conversation added.</message>
 </locale>

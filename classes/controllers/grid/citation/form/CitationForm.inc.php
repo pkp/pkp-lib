@@ -435,7 +435,7 @@ class CitationForm extends Form {
 				'rawCitation' => strip_tags($citation->getRawCitation())
 			);
 			import('lib.pkp.classes.mail.MailTemplate');
-			$mail = new MailTemplate('CITATION_EDITOR_AUTHOR_QUERY', null, false, null, true, true);
+			$mail = new MailTemplate('CITATION_EDITOR_AUTHOR_QUERY', null, null, true, true);
 			$mail->assignParams($emailParams);
 			$templateMgr->assign('authorQuerySubject', $mail->getSubject());
 			$templateMgr->assign('authorQueryBody', $mail->getBody());

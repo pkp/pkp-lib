@@ -37,16 +37,6 @@ class MailTemplate extends Mail {
 	/** @var array List of errors to display to the user */
 	var $errorMessages;
 
-	/** @var array List of temporary files belonging to
-	    email; these are maintained between requests and only sent to the
-	    attachment handling functions in Mail.inc.php at time of send. */
-	var $persistAttachments;
-	var $attachmentsEnabled;
-
-	/** @var boolean If set to true, this message has been skipped
-	    during the editing process by the user. */
-	var $skip;
-
 	/** @var boolean whether or not to bcc the sender */
 	var $bccSender;
 
@@ -57,10 +47,9 @@ class MailTemplate extends Mail {
 	 * Constructor.
 	 * @param $emailKey string unique identifier for the template
 	 * @param $locale string locale of the template
-	 * @param $enableAttachments boolean optional Whether or not to enable article attachments in the template
 	 * @param $includeSignature boolean optional
 	 */
-	function MailTemplate($emailKey = null, $locale = null, $enableAttachments = null, $context = null, $includeSignature = true) {
+	function MailTemplate($emailKey = null, $locale = null, $context = null, $includeSignature = true) {
 		parent::Mail();
 		$this->emailKey = isset($emailKey) ? $emailKey : null;
 
@@ -76,19 +65,6 @@ class MailTemplate extends Mail {
 		// Record whether or not to BCC the sender when sending message
 		$this->bccSender = $request->getUserVar('bccSender');
 
-		// If enableAttachments is null, use the default value from the
-		// configuration file
-		if ($enableAttachments === null) {
-			$enableAttachments = Config::getVar('email', 'enable_attachments')?true:false;
-		}
-
-		$user = $request->getUser();
-		if ($enableAttachments && $user) {
-			$this->_handleAttachments($user->getId());
-		} else {
-			$this->attachmentsEnabled = false;
-		}
-
 		$this->addressFieldsEnabled = true;
 
 		if (isset($this->emailKey)) {
@@ -97,47 +73,19 @@ class MailTemplate extends Mail {
 		}
 
 		$userSig = '';
+		$user = $request->getUser();
 		if ($user && $this->includeSignature) {
 			$userSig = $user->getLocalizedSignature();
 			if (!empty($userSig)) $userSig = "<br/>" . $userSig;
 		}
 
-		if (isset($emailTemplate) && $request->getUserVar('subject')==null && $request->getUserVar('body')==null) {
+		if (isset($emailTemplate)) {
 			$this->setSubject($emailTemplate->getSubject());
 			$this->setBody(nl2br($emailTemplate->getBody() . $userSig));
 			$this->enabled = $emailTemplate->getEnabled();
-
-			if ($request->getUserVar('usePostedAddresses')) {
-				$to = $request->getUserVar('to');
-				if (is_array($to)) {
-					$this->setRecipients($this->processAddresses ($this->getRecipients(), $to));
-				}
-				$cc = $request->getUserVar('cc');
-				if (is_array($cc)) {
-					$this->setCcs($this->processAddresses ($this->getCcs(), $cc));
-				}
-				$bcc = $request->getUserVar('bcc');
-				if (is_array($bcc)) {
-					$this->setBccs($this->processAddresses ($this->getBccs(), $bcc));
-				}
-			}
 		} else {
-			$this->setSubject($request->getUserVar('subject'));
-			$body = $request->getUserVar('body');
-			if (empty($body)) $this->setBody($userSig);
-			else $this->setBody($body);
-			$this->skip = (($tmp = $request->getUserVar('send')) && is_array($tmp) && isset($tmp['skip']));
+			$this->setBody($userSig);
 			$this->enabled = true;
-
-			if (is_array($toEmails = $request->getUserVar('to'))) {
-				$this->setRecipients($this->processAddresses ($this->getRecipients(), $toEmails));
-			}
-			if (is_array($ccEmails = $request->getUserVar('cc'))) {
-				$this->setCcs($this->processAddresses ($this->getCcs(), $ccEmails));
-			}
-			if (is_array($bccEmails = $request->getUserVar('bcc'))) {
-				$this->setBccs($this->processAddresses ($this->getBccs(), $bccEmails));
-			}
 		}
 
 		// Default "From" to user if available, otherwise site/context principal contact
@@ -151,7 +99,7 @@ class MailTemplate extends Mail {
 			$this->setFrom($context->getSetting('contactEmail'), $context->getSetting('contactName'));
 		}
 
-		if ($context && !$request->getUserVar('continued')) {
+		if ($context) {
 			$this->setSubject('[' . $context->getLocalizedAcronym() . '] ' . $this->getSubject());
 		}
 
@@ -252,11 +200,8 @@ class MailTemplate extends Mail {
 
 	/**
 	 * Send the email.
-	 * Aside from calling the parent method, this actually attaches
-	 * the persistent attachments if they are used.
-	 * @param $clearAttachments boolean Whether to delete attachments after
 	 */
-	function send($clearAttachments = true) {
+	function send() {
 		if (isset($this->context)) {
 			//If {$templateSignature} and/or {$templateHeader}
 			// exist in the body of the message, replace them with
@@ -281,15 +226,6 @@ class MailTemplate extends Mail {
 			$envelopeSender = $this->context->getSetting('envelopeSender');
 			if (!empty($envelopeSender) && Config::getVar('email', 'allow_envelope_sender')) $this->setEnvelopeSender($envelopeSender);
 		}
-		if ($this->attachmentsEnabled) {
-			foreach ($this->persistAttachments as $persistentAttachment) {
-				$this->addAttachment(
-					$persistentAttachment->getFilePath(),
-					$persistentAttachment->getOriginalFileName(),
-					$persistentAttachment->getFileType()
-				);
-			}
-		}
 
 		$user = Request::getUser();
 
@@ -297,17 +233,7 @@ class MailTemplate extends Mail {
 			$this->addBcc($user->getEmail(), $user->getFullName());
 		}
 
-		if (isset($this->skip) && $this->skip) {
-			$result = true;
-		} else {
-			$result = parent::send();
-		}
-
-		if ($clearAttachments && $this->attachmentsEnabled) {
-			$this->_clearAttachments($user->getId());
-		}
-
-		return $result;
+		return parent::send();
 	}
 
 	/**
@@ -343,71 +269,6 @@ class MailTemplate extends Mail {
 		$this->setData('bccs', null);
 		if ($clearHeaders) {
 			$this->setData('headers', null);
-		}
-	}
-
-	/**
-	 * Adds a persistent attachment to the current list.
-	 * Persistent attachments MUST be previously initialized
-	 * with handleAttachments.
-	 */
-	function addPersistAttachment($temporaryFile) {
-		$this->persistAttachments[] = $temporaryFile;
-	}
-
-	/**
-	 * Handles attachments in a generalized manner in situations where
-	 * an email message must span several requests. Called from the
-	 * constructor when attachments are enabled.
-	 */
-	function _handleAttachments($userId) {
-		import('lib.pkp.classes.file.TemporaryFileManager');
-		$temporaryFileManager = new TemporaryFileManager();
-
-		$this->attachmentsEnabled = true;
-		$this->persistAttachments = array();
-
-		$deleteAttachment = Request::getUserVar('deleteAttachment');
-
-		if (Request::getUserVar('persistAttachments') != null) foreach (Request::getUserVar('persistAttachments') as $fileId) {
-			$temporaryFile = $temporaryFileManager->getFile($fileId, $userId);
-			if (!empty($temporaryFile)) {
-				if ($deleteAttachment != $temporaryFile->getId()) {
-					$this->persistAttachments[] = $temporaryFile;
-				} else {
-					// This file is being deleted.
-					$temporaryFileManager->deleteFile($temporaryFile->getId(), $userId);
-				}
-			}
-		}
-
-		if (Request::getUserVar('addAttachment') && $temporaryFileManager->uploadedFileExists('newAttachment')) {
-			$user = Request::getUser();
-
-			$this->persistAttachments[] = $temporaryFileManager->handleUpload('newAttachment', $user->getId());
-		}
-	}
-
-	function getAttachmentFiles() {
-		if ($this->attachmentsEnabled) return $this->persistAttachments;
-		return array();
-	}
-
-	/**
-	 * Delete all attachments associated with this message.
-	 * Called from send().
-	 * @param $userId int
-	 */
-	function _clearAttachments($userId) {
-		import('lib.pkp.classes.file.TemporaryFileManager');
-		$temporaryFileManager = new TemporaryFileManager();
-
-		$persistAttachments = Request::getUserVar('persistAttachments');
-		if (is_array($persistAttachments)) foreach ($persistAttachments as $fileId) {
-			$temporaryFile = $temporaryFileManager->getFile($fileId, $userId);
-			if (!empty($temporaryFile)) {
-				$temporaryFileManager->deleteFile($temporaryFile->getId(), $userId);
-			}
 		}
 	}
 }

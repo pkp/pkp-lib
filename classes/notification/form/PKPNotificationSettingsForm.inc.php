@@ -57,7 +57,13 @@ class PKPNotificationSettingsForm extends Form {
 				'settingKey' => 'notification.type.metadataModified'),
 			NOTIFICATION_TYPE_REVIEWER_COMMENT => array('settingName' => 'notificationReviewerComment',
 				'emailSettingName' => 'emailNotificationReviewerComment',
-				'settingKey' => 'notification.type.reviewerComment')
+				'settingKey' => 'notification.type.reviewerComment'),
+			NOTIFICATION_TYPE_NEW_QUERY => array('settingName' => 'notificationNewQuery',
+				'emailSettingName' => 'emailNotificationNewQuery',
+				'settingKey' => 'notification.type.queryAdded'),
+			NOTIFICATION_TYPE_QUERY_ACTIVITY => array('settingName' => 'notificationQueryActivity',
+				'emailSettingName' => 'emailNotificationQueryActivity',
+				'settingKey' => 'notification.type.queryActivity'),
 		);
 	}
 
@@ -69,7 +75,13 @@ class PKPNotificationSettingsForm extends Form {
 	protected function getNotificationSettingCategories() {
 		return array(
 			array('categoryKey' => 'notification.type.submissions',
-				'settings' => array(NOTIFICATION_TYPE_SUBMISSION_SUBMITTED, NOTIFICATION_TYPE_METADATA_MODIFIED)),
+				'settings' => array(
+					NOTIFICATION_TYPE_SUBMISSION_SUBMITTED,
+					NOTIFICATION_TYPE_METADATA_MODIFIED,
+					NOTIFICATION_TYPE_NEW_QUERY,
+					NOTIFICATION_TYPE_QUERY_ACTIVITY,
+				)
+			),
 			array('categoryKey' => 'notification.type.reviewing',
 				'settings' => array(NOTIFICATION_TYPE_REVIEWER_COMMENT))
 		);

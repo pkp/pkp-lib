@@ -26,7 +26,7 @@
 	<message key="editor.submission.selectFiles">Select Files</message>
 	<message key="editor.submission.revisions">Revisions</message>
 	<message key="editor.submission.revisionsDescription">Revised submission files appear here, with the open folder icon indicating who uploaded the file.</message>
-	<message key="editor.submission.review.reviewersDescription"><![CDATA[Use <em>+Add Reviewer</em> to invite readers to review the submission files. The notebook icon indicates that a review has been submitted, which is then checked <em>Considered</em> after it has been consulted. When reviews are overdue, a red envelope icon appears for reminding reviewers.]]></message>
+	<message key="editor.submission.review.reviewersDescription"><![CDATA[Use <em>+Add Reviewer</em> to invite readers to review the submission files. The notebook icon indicates that a review has been submitted, which is then checked <em>Acknowledged</em> after it has been consulted. When reviews are overdue, a red envelope icon appears for reminding reviewers.]]></message>
 	<message key="editor.submission.addReviewer">Add Reviewer</message>
 	<message key="editor.submission.fileList.includeAllStages">Include all files from all accessible workflow stages.</message>
 	<message key="editor.submission.review.currentFiles">Current Review Files For Round {$round}</message>
@@ -85,8 +85,9 @@
 	<message key="editor.submission.editorial.disapproveCopyeditDescription">Disapproving this copyedited file will make it unavailable to send to production stage. Do you want to disapprove this file?</message>
 	<message key="editor.submission.editorial.approveCopyeditFile">Approve copyedited file</message>
 	<message key="editor.submission.addAuditor">Assign Auditor</message>
-	<message key="editor.submission.editorial.copyeditingDescription"><![CDATA[Assign the copyedited files to authors (and others as needed) to review changes and answer queries, with their responses and uploaded files appearing in the notebook icon. These are marked <em>Considered</em> by the copyeditor, who then prepares a final copyedited fair copy to upload to <span class="pkp_help_title">Copyediting</span>, which the editor checks Approved, before sending to the Production stage.]]></message>
-	<message key="editor.submission.final.manageFinalDraftFilesDescription">Any files that have already been uploaded to any submission stage can be added to the Final Draft Files listing by checking the Include checkbox below and clicking Search: all available files will be listed and can be chosen for inclusion. Additional files not already uploaded to a stage can be added to the listing by clicking the Upload A Final Draft link.</message>
+	<message key="editor.submission.editorial.copyeditedDescription"><![CDATA[Files in this list have been successfully copyedited via the <span class="pkp_help_title">Discussions</span> process above.]]></message>
+	<message key="editor.submission.final.manageFinalDraftFilesDescription">Any files that have already been uploaded to any submission stage can be added to the Final Draft Files listing by checking the Include checkbox below and clicking Search: all available files will be listed and can be chosen for inclusion. Additional files not already uploaded to a stage can be added to the listing by clicking the Upload File link.</message>
+	<message key="editor.submission.copyedit.manageCopyeditFilesDescription">Any files that have already been uploaded to any submission stage can be added to the Copyedit Files listing by checking the Include checkbox below and clicking Search: all available files will be listed and can be chosen for inclusion. Additional files not already uploaded to a stage can be added to the listing by clicking the Upload File link.</message>
 	<message key="editor.review">Review</message>
 	<message key="editor.signoff.approved">Approved</message>
 	<message key="editor.submission.production.productionReadyFiles">Production Ready Files</message>
@@ -104,5 +105,11 @@
 	<message key="editor.article.confirmChangeReviewForm">Warning: Changing the review form will affect any answers reviewers have made using this form. Are you sure you wish to continue?</message>
 	<message key="editor.submission.noReviewerFilesSelected">No Files Selected</message>
 	<message key="editor.submission.noReviewerFilesSelected.details">You have not selected any files for the reviewer to review.</message>
+	<message key="editor.submission.selectedReviewer">Selected Reviewer</message>
+	<message key="submission.queries.subjectRequired">A discussion subject is required.</message>
+	<message key="submission.queries.messageRequired">A discussion message is required.</message>
+	<message key="submission.queries.attachedFiles">Attached Files</message>
+	<message key="grid.action.editQuery">Edit Discussion</message>
+	<message key="editor.submission.query.manageQueryNoteFilesDescription">Files can be attached for inclusion in this discussion from the list below.</message>
 	<message key="editor.submission.selectedReviewer">Selected Reviewer</message>
 </locale>

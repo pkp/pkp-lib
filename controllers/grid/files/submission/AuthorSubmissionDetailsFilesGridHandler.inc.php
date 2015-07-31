@@ -29,6 +29,9 @@ class AuthorSubmissionDetailsFilesGridHandler extends FileListGridHandler {
 			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR),
 			array('fetchGrid', 'fetchRow')
 		);
+
+		// Grid title.
+		$this->setTitle('submission.submit.submissionFiles');
 	}
 }
 

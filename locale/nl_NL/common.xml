@@ -368,7 +368,6 @@
 	<message key="navigation.setup">Instellen</message>
 	<message key="navigation.sitemap">Site Map</message>
 	<message key="common.acknowledged">Erkend</message>
-	<message key="common.considered">Overwogen</message>
 	<message key="common.notified">Bericht gegeven</message>
 	<message key="common.reset">Herstel</message>
 </locale>

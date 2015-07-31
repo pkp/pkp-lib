@@ -37,7 +37,7 @@
 		<field name="date_uploaded" type="T">
 			<NOTNULL/>
 		</field>
-		<descr>Temporary file storage; used to keep attachments across multiple email composition requests</descr>
+		<descr>Temporary file storage</descr>
 		<index name="temporary_files_user_id">
 			<col>user_id</col>
 		</index>

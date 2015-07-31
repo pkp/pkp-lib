@@ -33,7 +33,7 @@ class ReviewerReviewFilesGridDataProvider extends ReviewGridDataProvider {
 	 * reviewer access to this grid.
 	 */
 	function getAuthorizationPolicy($request, $args, $roleAssignments) {
-		import('classes.security.authorization.SubmissionAccessPolicy');
+		import('lib.pkp.classes.security.authorization.SubmissionAccessPolicy');
 		$policy = new SubmissionAccessPolicy($request, $args, $roleAssignments);
 
 		$stageId = $request->getUserVar('stageId');

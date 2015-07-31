@@ -51,8 +51,8 @@ class FilesListbuilderHandler extends ListbuilderHandler {
 	 * @copydoc PKPHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments, $stageId = null) {
-		import('classes.security.authorization.WorkflowStageAccessPolicy'); // context-specific.
-		import('classes.security.authorization.SubmissionAccessPolicy'); // context-specific.
+		import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy'); // context-specific.
+		import('lib.pkp.classes.security.authorization.SubmissionAccessPolicy'); // context-specific.
 		if ($stageId !== null) $this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId), true);
 		else $this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments));
 

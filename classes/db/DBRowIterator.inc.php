@@ -75,10 +75,10 @@ class DBRowIterator extends ItemIterator {
 		if ($this->records == null) return $this->records;
 		if (!$this->records->EOF) {
 			$row = $this->records->getRowAssoc(false);
-			if (!$this->records->MoveNext()) $this->_cleanup();
+			if (!$this->records->MoveNext()) $this->close();
 			return $row;
 		} else {
-			$this->_cleanup();
+			$this->close();
 			$nullVar = null;
 			return $nullVar;
 		}
@@ -152,7 +152,7 @@ class DBRowIterator extends ItemIterator {
 	function eof() {
 		if ($this->records == null) return true;
 		if ($this->records->EOF) {
-			$this->_cleanup();
+			$this->close();
 			return true;
 		}
 		return false;
@@ -167,10 +167,10 @@ class DBRowIterator extends ItemIterator {
 	}
 
 	/**
-	 * PRIVATE function used internally to clean up the record set.
+	 * Clean up the record set.
 	 * This is called aggressively because it can free resources.
 	 */
-	function _cleanup() {
+	function close() {
 		$this->records->close();
 		unset($this->records);
 		$this->records = null;

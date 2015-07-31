@@ -43,7 +43,7 @@ class ManageProofFilesGridHandler extends SelectableSubmissionFileListCategoryGr
 	 * @copydoc PKPHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
-		import('classes.security.authorization.SubmissionAccessPolicy');
+		import('lib.pkp.classes.security.authorization.SubmissionAccessPolicy');
 		$this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments));
 
 		import('lib.pkp.classes.security.authorization.internal.RepresentationRequiredPolicy');

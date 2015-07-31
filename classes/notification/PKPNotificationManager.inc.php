@@ -412,6 +412,10 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 				assert($assocType == ASSOC_TYPE_SUBMISSION && is_numeric($assocId));
 				import('lib.pkp.classes.notification.managerDelegate.SignoffNotificationManager');
 				return new SignoffNotificationManager($notificationType);
+			case NOTIFICATION_TYPE_NEW_QUERY:
+			case NOTIFICATION_TYPE_QUERY_ACTIVITY:
+				import('lib.pkp.classes.notification.managerDelegate.QueryNotificationManager');
+				return new QueryNotificationManager($notificationType);
 			case NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_SUBMISSION:
 			case NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EXTERNAL_REVIEW:
 			case NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EDITING:

@@ -24,7 +24,7 @@
 		{fbvFormArea id="notifyFormArea"}
 			{if $lastEventUser}{assign var="userId" value=$lastEventUser->getId()}{/if}
 			{if $includeNotifyUsersListbuilder}
-				{url|assign:notifyUsersUrl router=$smarty.const.ROUTE_COMPONENT component="listbuilder.users.NotifyUsersListbuilderHandler" op="fetch" params=$linkParams submissionId=$submissionId userId=$userId escape=false}
+				{url|assign:notifyUsersUrl router=$smarty.const.ROUTE_COMPONENT component="listbuilder.users.StageUsersListbuilderHandler" op="fetch" params=$linkParams submissionId=$submissionId userIds=$userId|to_array escape=false}
 				{load_url_in_div id="notifyUsersContainer" url=$notifyUsersUrl}
 			{/if}
 

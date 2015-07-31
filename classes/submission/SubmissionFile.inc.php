@@ -32,6 +32,7 @@ define('SUBMISSION_FILE_ATTACHMENT', 13);
 define('SUBMISSION_FILE_SIGNOFF', 14);
 define('SUBMISSION_FILE_REVIEW_REVISION', 15);
 define('SUBMISSION_FILE_DEPENDENT', 17);
+define('SUBMISSION_FILE_QUERY', 18);
 
 class SubmissionFile extends PKPFile {
 	/**
@@ -98,7 +99,7 @@ class SubmissionFile extends PKPFile {
 	}
 
 	/**
-	 * Get associated ID of file. (Used, e.g., for email log attachments.)
+	 * Get associated ID of file.
 	 * @return int
 	 */
 	function getAssocId() {
@@ -106,7 +107,7 @@ class SubmissionFile extends PKPFile {
 	}
 
 	/**
-	 * Set associated ID of file. (Used, e.g., for email log attachments.)
+	 * Set associated ID of file.
 	 * @param $assocId int
 	 */
 	function setAssocId($assocId) {
@@ -541,6 +542,7 @@ class SubmissionFile extends PKPFile {
 				SUBMISSION_FILE_PRODUCTION_READY => 'submission/productionReady',
 				SUBMISSION_FILE_ATTACHMENT => 'attachment',
 				SUBMISSION_FILE_SIGNOFF => 'submission/signoff',
+				SUBMISSION_FILE_QUERY => 'submission/query',
 		);
 
 		assert(isset($fileStageToPath[$fileStage]));

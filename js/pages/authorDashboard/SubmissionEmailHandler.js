@@ -17,6 +17,10 @@
  */
 (function($) {
 
+	/** @type {Object} */
+	$.pkp.pages.authorDashboard = $.pkp.pages.authorDashboard || {};
+
+
 
 	/**
 	 * @constructor

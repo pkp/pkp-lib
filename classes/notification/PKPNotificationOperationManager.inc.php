@@ -232,7 +232,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 			$mail->assignParams(array(
 				'notificationContents' => $this->getNotificationContents($request, $notification),
 				'url' => $this->getNotificationUrl($request, $notification),
-				'siteTitle' => $context->getLocalizedTitle(),
+				'siteTitle' => $context->getLocalizedName(),
 				'unsubscribeLink' => $dispatcher->url($request, ROUTE_PAGE, null, 'notification', 'unsubscribeMailList')
 			));
 			$mail->addRecipient($email);
@@ -249,17 +249,18 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	 */
 	public function sendMailingListEmail($request, $email, $token, $template) {
 		$site = $request->getSite();
+		$context = $request->getContext();
 		$router = $request->getRouter();
 		$dispatcher = $router->getDispatcher();
 
 		$params = array(
-			'siteTitle' => $site->getLocalizedTitle(),
+			'siteTitle' => $context?$context->getLocalizedName():$site->getLocalizedTitle(),
 			'unsubscribeLink' => $dispatcher->url($request, ROUTE_PAGE, null, 'notification', 'unsubscribeMailList', array($token))
 		);
 
 		if ($template == 'NOTIFICATION_MAILLIST_WELCOME') {
 			$confirmLink = $dispatcher->url($request, ROUTE_PAGE, null, 'notification', 'confirmMailListSubscription', array($token));
-			$params["confirmLink"] = $confirmLink;
+			$params['confirmLink'] = $confirmLink;
 		}
 
 		$mail = $this->getMailTemplate($template);
@@ -297,7 +298,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	 */
 	protected function getMailTemplate($emailKey = null) {
 		import('lib.pkp.classes.mail.MailTemplate');
-		return new MailTemplate($emailKey, null, null, null, false);
+		return new MailTemplate($emailKey, null, null, false);
 	}
 
 	/**
@@ -379,13 +380,14 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 		if ($user) {
 			AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON);
 
+			$context = $request->getContext();
 			$site = $request->getSite();
 			$mail = $this->getMailTemplate('NOTIFICATION');
 			$mail->setReplyTo($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
 			$mail->assignParams(array(
 				'notificationContents' => $this->getNotificationContents($request, $notification),
 				'url' => $this->getNotificationUrl($request, $notification),
-				'siteTitle' => $site->getLocalizedTitle()
+				'siteTitle' => $context?$context->getLocalizedName():$site->getLocalizedTitle()
 			));
 			$mail->addRecipient($user->getEmail(), $user->getFullName());
 			$mail->send();

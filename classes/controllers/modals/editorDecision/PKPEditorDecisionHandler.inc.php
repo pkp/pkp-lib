@@ -42,7 +42,7 @@ class PKPEditorDecisionHandler extends Handler {
 		// Approve proof need submission access policy.
 		$router = $request->getRouter();
 		if ($router->getRequestedOp($request) == 'saveApproveProof') {
-			import('classes.security.authorization.SubmissionFileAccessPolicy');
+			import('lib.pkp.classes.security.authorization.SubmissionFileAccessPolicy');
 			$this->addPolicy(new SubmissionFileAccessPolicy($request, $args, $roleAssignments, SUBMISSION_FILE_ACCESS_MODIFY));
 		}
 

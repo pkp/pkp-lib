@@ -46,18 +46,18 @@ class ManageProofFilesForm extends ManageSubmissionFilesForm {
 	}
 
 	/**
-	 * @copydoc ManageSubmissionFilesForm::_fileExistsInStage
+	 * @copydoc ManageSubmissionFilesForm::fileExistsInStage
 	 */
-	protected function _fileExistsInStage($submissionFile, $stageSubmissionFiles) {
+	protected function fileExistsInStage($submissionFile, $stageSubmissionFiles, $fileStage) {
 		return false;
 	}
 
 
 	/**
-	 * @copydoc ManageSubmissionFilesForm::_importFile()
+	 * @copydoc ManageSubmissionFilesForm::importFile()
 	 */
-	protected function _importFile($context, $submissionFile, $fileStage) {
-		$newSubmissionFile = parent::_importFile($context, $submissionFile, $fileStage);
+	protected function importFile($context, $submissionFile, $fileStage) {
+		$newSubmissionFile = parent::importFile($context, $submissionFile, $fileStage);
 
 		$representationDao = Application::getRepresentationDAO();
 		$representation = $representationDao->getById($this->_representationId, $this->getSubmissionId(), $context->getId());

@@ -110,12 +110,11 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider {
 			$submissionFiles = $this->_submissionFiles;
 			$stageSubmissionFiles = array();
 			foreach ($submissionFiles as $key => $submissionFile) {
-				if ($submissionFile->getFileStage() == $fileStage) {
+				if (in_array($submissionFile->getFileStage(), (array) $fileStage)) {
 					$stageSubmissionFiles[$key] = $submissionFile;
 				}
 			}
 		}
-
 		return $dataProvider->prepareSubmissionFileData($stageSubmissionFiles);
 	}
 
@@ -174,7 +173,7 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider {
 	 * which file stage will be present on each workflow stage category
 	 * of the grid.
 	 * @param $stageId int
-	 * @return int
+	 * @return int|array
 	 */
 	function _getFileStageByStageId($stageId) {
 		switch($stageId) {
@@ -186,7 +185,7 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider {
 				return SUBMISSION_FILE_REVIEW_FILE;
 				break;
 			case WORKFLOW_STAGE_ID_EDITING:
-				return SUBMISSION_FILE_FINAL;
+				return array(SUBMISSION_FILE_FINAL, SUBMISSION_FILE_COPYEDIT, SUBMISSION_FILE_QUERY);
 				break;
 			case WORKFLOW_STAGE_ID_PRODUCTION:
 				return SUBMISSION_FILE_PRODUCTION_READY;

@@ -76,7 +76,6 @@ allowed_html = "<a> <em> <strong> <cite> <code> <ul> <ol> <li> <dl> <dt> <dd> <b
 ; smtp_password = password
 ; allow_envelope_sender = Off
 ; default_envelope_sender = my_address@my_host.com
-enable_attachments = On
 time_between_emails = 3600
 max_recipients = 10
 require_validation = Off

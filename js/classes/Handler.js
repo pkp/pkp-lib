@@ -44,9 +44,9 @@
 		this.dataItems_ = { };
 		this.publishedEvents_ = { };
 
-		if (options.$eventBridge) {
+		if (options.eventBridge) {
 			// Configure the event bridge.
-			this.$eventBridge_ = options.$eventBridge;
+			this.eventBridge_ = options.eventBridge;
 		}
 
 		// The "publishChangeEvents" option can be used to specify
@@ -116,7 +116,7 @@
 	 * @private
 	 * @type {?string}
 	 */
-	$.pkp.classes.Handler.prototype.$eventBridge_ = null;
+	$.pkp.classes.Handler.prototype.eventBridge_ = null;
 
 
 	//
@@ -639,8 +639,8 @@
 
 		// If we have an event bridge configured then re-trigger
 		// the event on the target object.
-		if (this.$eventBridge_) {
-			$('[id^="' + this.$eventBridge_ + '"]').trigger(eventName, opt_data);
+		if (this.eventBridge_) {
+			$('[id^="' + this.eventBridge_ + '"]').trigger(eventName, opt_data);
 		}
 	};
 

@@ -22,7 +22,6 @@ class FinalDraftFilesGridDataProvider extends SubmissionFilesGridDataProvider {
 	 */
 	function FinalDraftFilesGridDataProvider() {
 		parent::SubmissionFilesGridDataProvider(SUBMISSION_FILE_FINAL);
-
 		$this->setViewableOnly(true);
 	}
 
@@ -34,16 +33,14 @@ class FinalDraftFilesGridDataProvider extends SubmissionFilesGridDataProvider {
 	 */
 	function getSelectAction($request) {
 		import('lib.pkp.controllers.grid.files.fileList.linkAction.SelectFilesLinkAction');
-		$submission = $this->getSubmission();
-		$actionArgs = array(
-			'submissionId' => $submission->getId(),
-			'stageId' => $this->getStageId()
-		);
-		$selectAction = new SelectFilesLinkAction(
-			$request, $actionArgs,
+		return new SelectFilesLinkAction(
+			$request,
+			array(
+				'submissionId' => $this->getSubmission()->getId(),
+				'stageId' => $this->getStageId()
+			),
 			__('editor.submission.uploadSelectFiles')
 		);
-		return $selectAction;
 	}
 }
 

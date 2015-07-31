@@ -371,7 +371,6 @@
 	<message key="navigation.system">sistem</message>
 	<message key="navigation.userManagement">Üye Yönetimi</message>
 	<message key="common.acknowledged">Kabul Edilen</message>
-	<message key="common.considered">Dikkate Alınmış</message>
 	<message key="common.notified">Bildirilmiş</message>
 	<message key="common.reset">Yeniden Ayarlamak</message>
 </locale>

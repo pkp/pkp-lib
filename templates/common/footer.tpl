@@ -40,12 +40,12 @@
 	</div><!-- footerAboutPKPLink -->
 	<div class="pageFooter">
 		{if $pageFooter}{$pageFooter}{/if}
-		{call_hook name="Templates::Common::Footer::PageFooter"}
 	</div><!-- pageFooter -->
 </div><!-- pkp_structure_subfoot -->
 
 </div><!-- pkp_structure_foot -->
 
 {$additionalFooterData}
+{call_hook name="Templates::Common::Footer::PageFooter"}
 </body>
 </html>

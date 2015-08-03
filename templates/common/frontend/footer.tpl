@@ -45,10 +45,9 @@
 				{/foreach}
 			</div><!-- pkp_structure_footer categories -->
 		{/if}
-		
+
 		<div class="page_footer">
 			{if $pageFooter}{$pageFooter}{/if}
-			{call_hook name="Templates::Common::Footer::PageFooter"}
 		</div><!-- pkp_structure_footer page_footer -->
 	</div><!-- pkp_structure_footer -->
 
@@ -65,5 +64,6 @@
 
 </div><!-- pkp_structure_page -->
 
+{call_hook name="Templates::Common::Footer::PageFooter"}
 </body>
 </html>

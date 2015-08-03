@@ -26,9 +26,6 @@
 		<script src="{$baseUrl}/lib/pkp/lib/vendor/components/jqueryui/{if $useMinifiedJavaScript}jquery-ui.min.js{else}jquery-ui.js{/if}"></script>
 	{/if}
 
-	{include file="common/validate.tpl"}
-	{include file="common/plupload.tpl"}
-
     {load_stylesheet context="frontend" stylesheets=$stylesheets}
 
 	<!-- Constants for JavaScript -->
@@ -46,10 +43,6 @@
 
 	<!-- Pines Notify build/cache -->
 	<script src="{$baseUrl}/lib/pkp/js/lib/pnotify/buildcustom.php?mode=js{if $useMinifiedJavaScript}&amp;min=1{/if}&amp;modules="></script>
-
-	{$deprecatedJavascript}
-
-	{$deprecatedThemeStyles}
 
 	{$additionalHeadData}
 </head>

@@ -105,28 +105,14 @@
 								</li>
 							{/if}
 
-							<li class="has-submenu"><a href="#">{translate key="navigation.about"}</a>
+							<li class="has-submenu">
+								<a href="{url router=$smarty.const.ROUTE_PAGE page="about" op="about"}">
+									{translate key="navigation.about"}
+								</a>
 								<ul>
-									{if not (empty($contextSettings.mailingAddress) && empty($contextSettings.contactName) && empty($contextSettings.contactAffiliation) && empty($contextSettings.contactMailingAddress) && empty($contextSettings.contactPhone) && empty($contextSettings.contactFax) && empty($contextSettings.contactEmail) && empty($contextSettings.supportName) && empty($contextSettings.supportPhone) && empty($contextSettings.supportEmail))}
-										<li>
-											<a href="{url router=$smarty.const.ROUTE_PAGE page="about" op="contact"}">
-												{translate key="about.contact"}
-											</a>
-										</li>
-									{/if}
-									<li>
-										<a href="{url router=$smarty.const.ROUTE_PAGE page="about" op="description"}">
-											{translate key="about.description"}
-										</a>
-									</li>
 									<li>
 										<a href="{url router=$smarty.const.ROUTE_PAGE page="about" op="editorialTeam"}">
 											{translate key="about.editorialTeam"}
-										</a>
-									</li>
-									<li>
-										<a href="{url router=$smarty.const.ROUTE_PAGE page="about" op="editorialPolicies"}">
-											{translate key="about.policies"}
 										</a>
 									</li>
 									<li>
@@ -134,13 +120,6 @@
 											{translate key="about.submissions"}
 										</a>
 									</li>
-									{if not ($currentJournal->getLocalizedSetting('contributorNote') == '' && empty($contextSettings.contributors) && $currentJournal->getLocalizedSetting('sponsorNote') == '' && empty($contextSettings.sponsors))}
-										<li>
-											<a href="{url router=$smarty.const.ROUTE_PAGE page="about" op="sponsorship"}">
-												{translate key="about.journalSponsorship"}
-											</a>
-										</li>
-									{/if}
 								</ul>
 							</li>
 						{/if}

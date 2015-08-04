@@ -890,14 +890,14 @@
 		var rowId, controlRowId, $context;
 
 		if (opt_$context === undefined || opt_$context === null) {
-			$context = this.getHtmlElement();
+			$context = this.getHtmlElement().find('tr');
 		} else {
 			$context = opt_$context;
 		}
 
 		rowId = $gridRow.attr('id');
 		controlRowId = rowId + '-control-row';
-		return $('#' + controlRowId, $context);
+		return $context.filter('#' + controlRowId);
 	};
 
 

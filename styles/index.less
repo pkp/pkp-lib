@@ -4,60 +4,63 @@
  * Copyright (c) 2014-2015 Simon Fraser University Library
  * Copyright (c) 2003-2015 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
- * 
+ *
  * @brief Main OMP stylesheet wrapper
  *
  */
 
 /**
- * Helpers etc.
+ * To minimize specificity battles, styles should be loaded in the following
+ * order: fonts, browser reset, variables, mix-ins, helpers, structure,
+ * components, library overrides, particular page styling and one-off exceptions
  */
-@import url("lib/pkp/styles/helpers.less");
 
-/**
- * Library CSS overrides
- */
-@import url("lib/pkp/styles/plupload.less");
-@import url("lib/pkp/styles/jlabel.less");
+// Fonts first - get the files loading as quick as possible
+@import "lib/pkp/styles/fonts.less";
+
+// Normalize.css - Browser reset styles
+@import "lib/pkp/styles/lib/normalize.less";
+
+// Variables
+@import "lib/pkp/styles/variables.less";
+
+// Mix-ins, animations, etc
+@import "lib/pkp/styles/utils.less";
+
+// Helpers etc.
+@import "lib/pkp/styles/helpers.less";
+
+// Structure
+@import "lib/pkp/styles/structure/index.less";
+
+// Controllers
+@import "lib/pkp/styles/controllers/index.less";
+
+// Override styles from imported libraries
+@import "lib/pkp/styles/jlabel.less";
+
+// Link Actions
+@import "lib/pkp/styles/linkActions.less";
+
+// Listing tables
+@import "lib/pkp/styles/listing.less";
 
 /**
  * Legacy styles needing refactoring
  */
 
 /* Content Elements */
-@import url("lib/pkp/styles/content.less");
+@import "lib/pkp/styles/content.less";
 
-@import url("lib/pkp/styles/sprites.less");
+@import "lib/pkp/styles/sprites.less";
 
 /* Page Elements */
-@import url("lib/pkp/styles/pages/index.less");
-
-/* Make sure the active tab doesn't have a line below */
-.ui-tabs .ui-tabs-nav li.ui-state-active { border-bottom: 1px solid #FFF !important; }
-.ui-tabs-nav { overflow: visible !important; }
-.ui-tabs-nav .ui-state-disabled {
-	opacity: 1;
-	a { opacity: .35; }
-}
-.ui-tabs-nav .ui-state-disabled a:hover { color: #1c94c4; }
-
-/* Additional styles: clean up? */
-.loading_container {
-	text-align: center;
-	padding-top: 10px;
- 
-	.pkp_helpers_progressIndicator {
-		margin-right: auto;
-		margin-left: auto;
-		float: none;
-		display: block;
-	}
-}
+@import "lib/pkp/styles/pages/index.less";
 
 .grid_actions {
 	padding: 22px 0 22px 0;
 	overflow: hidden;
-	
+
 	a {
 		padding:0;
 		/**
@@ -75,14 +78,14 @@
 		-webkit-border-radius: 0px;
 		border-radius: 0px;
 	}
-	
+
 	a:first-child {
 		-webkit-top-left-border-radius: 5px;
 		-webkit-bottom-left-border-radius: 5px;
 		border-top-left-radius: 5px;
 		border-bottom-left-radius: 5px;
 	}
-	
+
 	a:last-child {
 		-webkit-top-right-border-radius: 5px;
 		-webkit-bottom-right-border-radius: 5px;
@@ -103,8 +106,4 @@
 	font-size: 90%;
 	margin-right: 20px;
 	float: left;
-}
-
-.pkp_help {
-	line-height: 14px;
 }

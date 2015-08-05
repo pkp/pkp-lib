@@ -9,9 +9,9 @@
  *}
 {strip}
 {assign var="pageTitle" value="announcement.announcements"}
-{include file="common/header.tpl"}
+{include file="common/frontend/header.tpl"}
 {/strip}
 
 {include file="announcements/announcements.tpl"}
 
-{include file="common/footer.tpl"}
+{include file="common/frontend/footer.tpl"}

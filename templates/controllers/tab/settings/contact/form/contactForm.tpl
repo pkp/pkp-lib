@@ -20,29 +20,17 @@
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="contactFormNotification"}
 	{include file="controllers/tab/settings/wizardMode.tpl" wizardMode=$wizardMode}
 
-	{fbvFormArea id="contactFormArea" title="manager.setup.principalContact" class="border"}
+	{fbvFormArea id="contactFormArea" title="manager.setup.principalContact"}
 		{fbvFormSection description="manager.setup.principalContactDescription"}
+			{fbvElement type="text" label="user.name" required=true id="contactName" value=$contactName maxlength="60" inline=true size=$fbvStyles.size.MEDIUM}
+			{fbvElement type="text" label="user.title" multilingual=true name="contactTitle" id="contactTitle" value=$contactTitle maxlength="90" inline=true size=$fbvStyles.size.MEDIUM}
 		{/fbvFormSection}
 		{fbvFormSection}
-			{fbvFormSection for="contactName" inline=true size=$fbvStyles.size.MEDIUM}
-				{fbvElement type="text" label="user.name" required=true id="contactName" value=$contactName maxlength="60"}
-			{/fbvFormSection}
-			{fbvFormSection for="contactTitle" inline=true size=$fbvStyles.size.MEDIUM}
-				{fbvElement type="text" label="user.title" multilingual=true name="contactTitle" id="contactTitle" value=$contactTitle maxlength="90"}
-			{/fbvFormSection}
+			{fbvElement type="text" label="user.email" required=true id="contactEmail" value=$contactEmail maxlength="90" inline=true size=$fbvStyles.size.MEDIUM}
+			{fbvElement type="text" label="user.phone" id="contactPhone" value=$contactPhone maxlength="24" inline=true size=$fbvStyles.size.MEDIUM}
 		{/fbvFormSection}
 		{fbvFormSection}
-			{fbvFormSection for="contactEmail" size=$fbvStyles.size.MEDIUM inline="true"}
-				{fbvElement type="text" label="user.email" required=true id="contactEmail" value=$contactEmail maxlength="90"}
-			{/fbvFormSection}
-			{fbvFormSection for="contactPhone" inline=true size=$fbvStyles.size.MEDIUM}
-				{fbvElement type="text" label="user.phone" id="contactPhone" value=$contactPhone maxlength="24"}
-			{/fbvFormSection}
-		{/fbvFormSection}
-		{fbvFormSection}
-			{fbvFormSection for="contactFax" inline=true size=$fbvStyles.size.MEDIUM}
-				{fbvElement type="text" label="user.fax" id="contactFax" value=$contactFax maxlength="24"}
-			{/fbvFormSection}
+			{fbvElement type="text" label="user.fax" id="contactFax" value=$contactFax maxlength="24" inline=true size=$fbvStyles.size.MEDIUM}
 		{/fbvFormSection}
 		{fbvFormSection title="user.affiliation" for="contactAffiliation"}
 			{fbvElement type="text" multilingual=true name="contactAffiliation" id="contactAffiliation" value=$contactAffiliation maxlength="90"}
@@ -52,24 +40,23 @@
 		{/fbvFormSection}
 	{/fbvFormArea}
 
-	<div {if $wizardMode}class="pkp_form_hidden"{/if}>
-		{fbvFormArea id="contactFormArea" title="manager.setup.technicalSupportContact" class="border"}
-			{fbvFormSection description="manager.setup.technicalSupportContactDescription"}
-			{/fbvFormSection}
-			{fbvFormSection title="user.name" for="supportName" required=true inline=true size=$fbvStyles.size.MEDIUM}
-				{fbvElement type="text" id="supportName" value=$supportName maxlength="60"}
-			{/fbvFormSection}
-			{fbvFormSection title="user.email" for="supportEmail" required=true inline=true size=$fbvStyles.size.MEDIUM}
-				{fbvElement type="text" id="supportEmail" value=$supportEmail maxlength="90"}
-			{/fbvFormSection}
-			{fbvFormSection title="user.phone" for="supportPhone" inline=true size=$fbvStyles.size.MEDIUM}
-				{fbvElement type="text" id="supportPhone" value=$supportPhone maxlength="24"}
-			{/fbvFormSection}
-		{/fbvFormArea}
-	</div>
+	{* In wizard mode, these fields should be hidden *}
+	{if $wizardMode}
+		{assign var="wizard_class" value="is_wizard_mode"}
+	{else}
+		{assign var="wizard_class" value=""}
+	{/if}
+	{fbvFormArea id="contactFormArea" title="manager.setup.technicalSupportContact" class=$wizard_class}
+		{fbvFormSection description="manager.setup.technicalSupportContactDescription"}
+			{fbvElement type="text" label="user.name" id="supportName" value=$supportName maxlength="60" inline=true size=$fbvStyles.size.MEDIUM}
+			{fbvElement type="text" label="user.email" id="supportEmail" value=$supportEmail maxlength="60" inline=true size=$fbvStyles.size.MEDIUM}
+		{/fbvFormSection}
+		{fbvFormSection}
+			{fbvElement type="text" label="user.phone" id="supportPhone" value=$supportPhone maxlength="24" inline=true size=$fbvStyles.size.MEDIUM}
+		{/fbvFormSection}
+	{/fbvFormArea}
 
 	{if !$wizardMode}
 		{fbvFormButtons id="contactFormSubmit" submitText="common.save" hideCancel=true}
 	{/if}
-	<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 </form>

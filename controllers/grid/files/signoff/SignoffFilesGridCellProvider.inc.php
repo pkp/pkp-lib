@@ -123,6 +123,12 @@ class SignoffFilesGridCellProvider extends GridCellProvider {
 		import('lib.pkp.classes.linkAction.LinkAction');
 		import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
 
+		if ($cellState == 'new') {
+			$approveLabel = __('grid.action.approve');
+		} else {
+			$approveLabel = __('grid.action.disapprove');
+		}
+
 		switch ($this->getStageId()) {
 			case WORKFLOW_STAGE_ID_PRODUCTION:
 				$remoteActionUrl = $router->url(
@@ -136,12 +142,12 @@ class SignoffFilesGridCellProvider extends GridCellProvider {
 					$approveText = __('editor.submission.decision.disapproveProofsDescription');
 				}
 
-				$modal = new RemoteActionConfirmationModal($approveText, __('editor.submission.decision.approveProofs'),
+				$modal = new RemoteActionConfirmationModal($approveText, $approveLabel,
 					$remoteActionUrl, 'modal_approve_file');
 
 				$toolTip = ($cellState == 'completed') ? __('grid.action.pageProofApproved') : null;
 				return new LinkAction('approveProof-' . $submissionFile->getFileId(),
-					$modal, __('editor.submission.decision.approveProofs'), 'task ' . $cellState, $toolTip);
+					$modal, $approveLabel, 'task ' . $cellState);
 			default:
 				assert(false);
 		}

@@ -10,9 +10,31 @@
  * @brief Styles for dashboard page.
  */
 
-div#dashboardTabs {
-	#activeSubmissionsListGridContainer tr.gridRow > td:nth-child(3) a {
-		text-decoration: none;
-		color: #777777;
-	}
+//
+// Hacky workarounds for targetting specific things that aren't that well
+// marked up, or otherwise cause complications
+//
+
+// Add's padding to column with the toggle that opens and closes grid row actions
+.pkp_page_dashboard .pkp_controllers_grid tbody:not(.empty) th:first-child,
+.pkp_page_dashboard .pkp_controllers_grid tbody:not(.empty) td:first-child {
+	padding-left: @double;
+}
+
+// Target ID columns with typography styles to lessen their focus
+.pkp_page_dashboard .pkp_controllers_grid tbody:not(.empty) td:first-child {
+	font-size: @font-sml;
+	color: @text-light;
+	color: @text-light-rgba;
+}
+
+// Reduce visual prominence of actions in a grid row
+.pkp_page_dashboard .pkp_controllers_grid .gridRow .pkp_controllers_linkAction {
+	font-size: @font-sml;
+}
+
+// Increase visual prominence of issue names in Dashboard > Issues
+// @note must override the link action font above
+#issuesTabs .pkp_controllers_grid .gridRow td:first-child .row_file a {
+	font-size: @font-base;
 }

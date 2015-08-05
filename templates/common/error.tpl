@@ -9,7 +9,7 @@
  * Displays a simple error message and (optionally) a return link.
  *}
 {strip}
-{include file="common/header.tpl"}
+{include file="common/frontend/header.tpl"}
 {/strip}
 
 <span class="errorText">{translate key=$errorMsg params=$errorParams}</span>
@@ -19,4 +19,4 @@
 &#187; <a id="backLink" href="{$backLink}">{translate key=$backLinkLabel}</a>
 {/if}
 
-{include file="common/footer.tpl"}
+{include file="common/frontend/footer.tpl"}

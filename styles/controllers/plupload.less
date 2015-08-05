@@ -1,0 +1,173 @@
+/**
+ * @file styles/plupload.less
+ *
+ * Copyright (c) 2014-2015 Simon Fraser University Library
+ * Copyright (c) 2003-2015 John Willinsky
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ *
+ * @brief Styles for the plupload plugin used in the file upload handler
+ */
+
+.plupload_header_title {
+	display: none;
+}
+
+.plupload_header_text {
+	font-size: @font-sml;
+	color: @text-light;
+	color: @text-light-rgba;
+}
+
+.plupload_filelist td {
+	padding: 0 0.5em;
+}
+
+.plupload_filelist_header {
+	background: @shade;
+	color: #fff;
+}
+
+.plupload_droptext {
+	width: 100%;
+	height: @double * 4;
+	line-height: @double * 4;
+	background: @bg;
+	border: 2px dashed @shade;
+	text-align: center;
+	cursor: pointer;
+}
+
+.plupload_filelist_content {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	> li {
+		position: relative;
+		display: block;
+		width: 100% !important; // plupload attaches a width to the style attr!
+		padding: @half 0;
+	}
+
+	.plupload_file_thumb {
+		display: none;
+	}
+
+	.plupload_action_icon.ui-icon-circle-minus,
+	.plupload_action_icon.ui-icon-circle-check {
+		&:extend(.fa);
+		cursor: pointer;
+	}
+
+	.plupload_action_icon.ui-icon-circle-minus:before {
+		content: @fa-var-minus-circle;
+		color: @no;
+	}
+
+	.plupload_action_icon.ui-icon-circle-check:before {
+		content:  @fa-var-check;
+		color: @yes;
+	}
+}
+
+.plupload_button {
+	&:extend(.pkp_button);
+
+	&:hover,
+	&:focus {
+		&:extend(.pkp_button:hover);
+	}
+
+	&[disabled] {
+		&:extend(.pkp_button[disabled]);
+	}
+}
+
+.plupload_start {
+	&:extend(.pkp_button_primary);
+
+	&:hover,
+	&:focus {
+		&:extend(.pkp_button_primary:hover);
+	}
+
+	&[disabled] {
+		&:extend(.pkp_button[disabled]);
+	}
+}
+
+.plupload_stop {
+	&:extend(.pkp_button_offset);
+
+	&:hover,
+	&:focus {
+		&:extend(.pkp_button_offset:hover);
+	}
+
+	&[disabled] {
+		&:extend(.pkp_button[disabled]);
+	}
+}
+
+.plupload_filelist_footer {
+	font-size: @font-sml;
+	color: @text-light;
+	color: @text-light-rgba;
+
+	td {
+		vertical-align: bottom;
+	}
+
+	.plupload_file_name {
+		padding-left: 0;
+	}
+
+	.plupload_file_size {
+		padding-right: 0;
+	}
+
+	.plupload_clearer {
+		display: none;
+	}
+}
+
+//
+// The following declarations seek to sync the column widths with the file list
+// components... not very pretty.
+//
+.plupload_file_name {
+	width: 100%;
+}
+
+.plupload_file_status,
+.plupload_file_size {
+	white-space: nowrap;
+	min-width: 5em;
+}
+
+.plupload_file_action {
+	min-width: 32px;
+}
+
+.plupload_filelist_content {
+
+	.plupload_file_size,
+	.plupload_file_fields,
+	.plupload_file_status,
+	.plupload_file_action {
+		position: absolute;
+		top: @half;
+		right: 0;
+		height: 100%;
+		width: auto;
+	}
+
+	.plupload_file_size {
+		right: 40px; // 32px + 0.5em (em=16px)
+	}
+
+	.plupload_file_status {
+		right: 120px; // 32px + 0.5em (em=16px)
+	}
+}

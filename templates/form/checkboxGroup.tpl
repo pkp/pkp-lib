@@ -18,7 +18,7 @@
 	{/if}
 <li{if $FBV_layoutInfo} class="{$FBV_layoutInfo}"{/if}>
 	<input type="checkbox" id="{$FBV_id|escape}-{$smarty.foreach.checkbox.index}" name="{$FBV_id|escape}[]"{$FBV_checkboxParams} class="field checkbox{if $FBV_required} required{/if}"{if $FBV_checked} checked="checked"{/if}{if $FBV_validation}{/if} value="{$FBV_value|escape}"{if $FBV_disabled} disabled="disabled"{/if}/>
-	{if $FBV_label}<label for="{$FBV_id|escape}-{$smarty.foreach.checkbox.index}" class="choice">{if $FBV_translate}{translate key=$FBV_label}{else}{$FBV_label|strip_unsafe_html}{/if}</label>{/if}
+	{if $FBV_label}<label for="{$FBV_id|escape}-{$smarty.foreach.checkbox.index}">{if $FBV_translate}{translate key=$FBV_label}{else}{$FBV_label|strip_unsafe_html}{/if}</label>{/if}
 </li>
 
 {/foreach}

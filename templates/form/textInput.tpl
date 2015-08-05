@@ -32,24 +32,22 @@
 
 		{$FBV_label_content}
 
-		<span>
-			<div class="localization_popover">
-				{foreach from=$formLocales key=thisFormLocale item=thisFormLocaleName}{if $formLocale != $thisFormLocale}
-					<input	type="{if $FBV_isPassword}password{else}text{/if}"
-						{$FBV_textInputParams}
-						placeholder="{$thisFormLocaleName|escape}"
-						class="multilingual_extra flag flag_{$thisFormLocale|escape}{if $FBV_sizeInfo} {$FBV_sizeInfo|escape}{/if}"
-						{if $FBV_disabled} disabled="disabled"{/if}
-						{if $FBV_readonly} readonly="readonly"{/if}
-						value="{$FBV_value[$thisFormLocale]|escape}"
-						name="{$FBV_name|escape}[{$thisFormLocale|escape}]"
-						id="{$FBV_id|escape}-{$thisFormLocale|escape}{$uniqId}"
-						{if $FBV_tabIndex} tabindex="{$FBV_tabIndex|escape}"{/if}
-					/>
-					<label for="{$FBV_id|escape}-{$thisFormLocale|escape}{$uniqId}" class="locale">({$thisFormLocaleName|escape})</label>
-				{/if}{/foreach}
-			</div>
-		</span>
+		<div class="localization_popover">
+			{foreach from=$formLocales key=thisFormLocale item=thisFormLocaleName}{if $formLocale != $thisFormLocale}
+				<input	type="{if $FBV_isPassword}password{else}text{/if}"
+					{$FBV_textInputParams}
+					placeholder="{$thisFormLocaleName|escape}"
+					class="multilingual_extra flag flag_{$thisFormLocale|escape}{if $FBV_sizeInfo} {$FBV_sizeInfo|escape}{/if}"
+					{if $FBV_disabled} disabled="disabled"{/if}
+					{if $FBV_readonly} readonly="readonly"{/if}
+					value="{$FBV_value[$thisFormLocale]|escape}"
+					name="{$FBV_name|escape}[{$thisFormLocale|escape}]"
+					id="{$FBV_id|escape}-{$thisFormLocale|escape}{$uniqId}"
+					{if $FBV_tabIndex} tabindex="{$FBV_tabIndex|escape}"{/if}
+				/>
+				<label for="{$FBV_id|escape}-{$thisFormLocale|escape}{$uniqId}" class="locale">({$thisFormLocaleName|escape})</label>
+			{/if}{/foreach}
+		</div>
 	</span>
 {else}
 	{* This is not a multilingual control or there is only one locale available *}

@@ -14,4 +14,3 @@
 	{/if}
 	{$FBV_content}
 </fieldset>
-<div class="pkp_helpers_clear"></div>

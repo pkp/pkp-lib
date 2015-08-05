@@ -20,42 +20,48 @@
 	{rdelim});
 </script>
 
+{* In wizard mode, these fields should be hidden *}
+{if $wizardMode}
+	{assign var="wizard_class" value="is_wizard_mode"}
+{else}
+	{assign var="wizard_class" value=""}
+{/if}
+
 <form id="appearanceForm" class="pkp_form" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="tab.settings.WebsiteSettingsTabHandler" op="saveFormData" tab="appearance"}">
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="appearanceFormNotification"}
 	{include file="controllers/tab/settings/wizardMode.tpl" wizardMode=$wizardMode}
 
-	<p>{translate key="manager.setup.appearanceDescription"}</p>
-
 	{* Homepage Content *}
-	<div {if $wizardMode}class="pkp_form_hidden"{/if}>
-		{fbvFormArea id="homePageContent" title="manager.setup.homepageContent" class="border"}
-			{fbvFormSection description="manager.setup.homepageContentDescription"}
-			{/fbvFormSection}
+	{fbvFormArea id="homePageContent" title="manager.setup.homepageContent" class=$wizard_class}
+		<div class="description">
+			{translate key="manager.setup.homepageContentDescription"}
+		</div>
 
-			{$newContentFormContent}
+		{$newContentFormContent}
 
-			{fbvFormSection label="manager.setup.homepageImage" description="manager.setup.homepageImageDescription"}
-				<div id="{$uploadImageLinkActions.homepageImage->getId()}" class="pkp_linkActions">
-					{include file="linkAction/linkAction.tpl" action=$uploadImageLinkActions.homepageImage contextId="appearanceForm"}
-				</div>
-				<div id="homepageImage">
-					{$imagesViews.homepageImage}
-				</div>
-			{/fbvFormSection}
-			{fbvFormSection label="manager.setup.additionalContent" description="manager.setup.additionalContentDescription"}
-				{fbvElement type="textarea" multilingual=true name="additionalHomeContent" id="additionalHomeContent" value=$additionalHomeContent rich=true}
-			{/fbvFormSection}
+		{assign var="upload_image_field_id" value=$uploadImageLinkActions.homepageImage->getId()}
+		{fbvFormSection for="$upload_image_field_id" label="manager.setup.homepageImage" description="manager.setup.homepageImageDescription"}
+			<div id="$upload_image_field_id" class="pkp_linkActions">
+				{include file="linkAction/linkAction.tpl" action=$uploadImageLinkActions.homepageImage contextId="appearanceForm"}
+			</div>
+			<div id="homepageImage">
+				{$imagesViews.homepageImage}
+			</div>
+		{/fbvFormSection}
+		{fbvFormSection for="additionalHomeContent" label="manager.setup.additionalContent" description="manager.setup.additionalContentDescription"}
+			{fbvElement type="textarea" multilingual=true name="additionalHomeContent" id="additionalHomeContent" value=$additionalHomeContent rich=true}
+		{/fbvFormSection}
 
-			{$featuredContentFormContent}
-		{/fbvFormArea}
-	</div>
-	{* end Homepage Content *}
+		{$featuredContentFormContent}
+	{/fbvFormArea}
 
 	{$additionalHomepageContent}
 
+	{* end Homepage Content *}
+
 	{* Page Header *}
-	{fbvFormArea id="pageHeader" title="manager.setup.pageHeader" class="border"}
-		{fbvFormSection list=true description="manager.setup.pageHeaderDescription" title="manager.setup.contextName"}
+	{fbvFormArea id="pageHeader" title="manager.setup.pageHeader"}
+		{fbvFormSection list=true description="manager.setup.pageHeaderDescription" label="manager.setup.contextName"}
 			{fbvElement type="radio" name="pageHeaderTitleType[$locale]" id="pageHeaderTitleType-0" value=0 checked=!$pageHeaderTitleType[$locale] label="manager.setup.useTextTitle"}
 		{/fbvFormSection}
 		{fbvFormSection}
@@ -70,24 +76,22 @@
 				{$imagesViews.pageHeaderTitleImage}
 			</div>
 		{/fbvFormSection}
-		<div {if $wizardMode}class="pkp_form_hidden"{/if}>
-			{fbvFormSection label="manager.setup.logo" description="manager.setup.useImageLogoDescription"}
-			<div id="{$uploadImageLinkActions.pageHeaderLogoImage->getId()}" class="pkp_linkActions">
-				{include file="linkAction/linkAction.tpl" action=$uploadImageLinkActions.pageHeaderLogoImage contextId="appearanceForm"}
-			</div>
-			<div id="pageHeaderLogoImage">
-				{$imagesViews.pageHeaderLogoImage}
-			</div>
-			{/fbvFormSection}
-			{fbvFormSection label="manager.setup.alternateHeader" description="manager.setup.alternateHeaderDescription"}
-				{fbvElement type="textarea" multilingual=true name="pageHeader" id="pageHeader" value=$pageHeader rich=true}
-			{/fbvFormSection}
+		{fbvFormSection label="manager.setup.logo" description="manager.setup.useImageLogoDescription" class=$wizard_class}
+		<div id="{$uploadImageLinkActions.pageHeaderLogoImage->getId()}" class="pkp_linkActions">
+			{include file="linkAction/linkAction.tpl" action=$uploadImageLinkActions.pageHeaderLogoImage contextId="appearanceForm"}
 		</div>
+		<div id="pageHeaderLogoImage">
+			{$imagesViews.pageHeaderLogoImage}
+		</div>
+		{/fbvFormSection}
+		{fbvFormSection label="manager.setup.alternateHeader" description="manager.setup.alternateHeaderDescription" class=$wizard_class}
+			{fbvElement type="textarea" multilingual=true name="pageHeader" id="pageHeader" value=$pageHeader rich=true}
+		{/fbvFormSection}
 	{/fbvFormArea}
 	{* end Page Header *}
 
 	{* Page Footer *}
-	{fbvFormArea id="pageFooterContainer" title="manager.setup.pageFooter" class="border"}
+	{fbvFormArea id="pageFooterContainer" title="manager.setup.pageFooter"}
 		{fbvFormSection description="manager.setup.pageFooterDescription"}
 			{fbvElement type="textarea" multilingual=true name="pageFooter" id="pageFooter" value=$pageFooter rich=true}
 		{/fbvFormSection}
@@ -95,19 +99,19 @@
 	{* end Page Footer *}
 
 	{* Layout *}
-	{fbvFormArea id="layout" title="manager.setup.layout" class="border"}
-		{fbvFormSection title="manager.setup.useStyleSheet" description="manager.setup.styleSheetDescription" size=$fbvStyles.size.MEDIUM inline=true}
-			<div id="{$uploadCssLinkAction->getId()}" class="pkp_linkActions">
+	{fbvFormArea id="layout"}
+		{assign var="stylesheet_field_id" value=$uploadCssLinkAction->getId()}
+		{fbvFormSection label="manager.setup.useStyleSheet" for=$stylesheet_field_id description="manager.setup.styleSheetDescription"}
+			<div id={$stylesheet_field_id} class="pkp_linkActions">
 				{include file="linkAction/linkAction.tpl" action=$uploadCssLinkAction contextId="appearanceForm"}
 			</div>
 			<div id="styleSheet">
 				{$styleSheetView}
 			</div>
 		{/fbvFormSection}
-		{fbvFormSection title="manager.setup.layout.theme" description="manager.setup.layout.themeDescription" size=$fbvStyles.size.MEDIUM inline=true}
-			{fbvElement type="select" id="themePluginPath" from=$themePluginOptions selected=$themePluginPath translate=false size=$fbvStyles.size.MEDIUM}
+		{fbvFormSection label="manager.setup.layout.theme" for="themePluginPath" description="manager.setup.layout.themeDescription"}
+			{fbvElement type="select" id="themePluginPath" from=$themePluginOptions selected=$themePluginPath translate=false}
 		{/fbvFormSection}
-		{fbvFormSection}{/fbvFormSection}{* FIXME: Clear inline *}
 
 		{url|assign:blockPluginsUrl router=$smarty.const.ROUTE_COMPONENT component="listbuilder.settings.BlockPluginsListbuilderHandler" op="fetch" escape=false}
 		{load_url_in_div id="blockPluginsContainer" url=$blockPluginsUrl}
@@ -117,7 +121,7 @@
 	{$additionalAppearanceSettings}
 
 	{* Lists *}
-	{fbvFormArea id="advancedAppearanceSettings" title="manager.setup.lists" class="border"}
+	{fbvFormArea id="advancedAppearanceSettings" title="manager.setup.lists"}
 		{fbvFormSection description="manager.setup.listsDescription"}
 			{fbvElement type="text" id="itemsPerPage" value=$itemsPerPage size=$fbvStyles.size.SMALL label="common.itemsPerPage"}
 		{/fbvFormSection}

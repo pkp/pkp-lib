@@ -4,142 +4,133 @@
  * Copyright (c) 2014-2015 Simon Fraser University Library
  * Copyright (c) 2003-2015 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
- * 
+ *
  * @ingroup pkp_structure_page
  *
  * @brief Classes for the page structural elements
  */
 
-html, body {
+html {
 	height: 100%;
 }
 
-a {
-	color: #569bbe;
-}
-
-img {
-	display: block;
-	padding: 2px;
-}
-
-strong {
-	font-weight: bold;
-}
-
-hr {
-	border: 5px solid #e2e2e2;
-	border-width: 0 0 5px 0;
-	margin-top: 20px;
-	margin-bottom: 10px;
-}
-
-ul, ol,dl, blockquote {
-	padding: 10px;
-}
-
-p {
-	padding: 0.5em 0;
-}
-
-h1, h2, h3, h4, h5, h6 {
-	padding-top: 0.5em;
-}
-
-img {
-	padding-bottom: 0px;
-}
-
-pre {
-	margin: 10px;
-}
-
-table h1,table h2,table h3, table h4, table h5, table h6, table p, table ul, table ol, table dl,
-ul h1,ul h2,ul h3, ul h4, ul h5, ul h6, ul p, ul ul, ul ol, ul dl,
-ol h1,ol h2,ol h3, ol h4, ol h5, ol h6, ol p, ol ul, ol ol, ol dl {
-	padding: 0;
-}
-
-@pkp_structure_body_normal_font {
-	font-weight: normal;
-	font-style: normal;
-}
-
-h1, .h1 {
-	font-size: 196%;
-	@pkp_structure_body_normal_font;
-}
-
-h2, .h2 {
-	font-size: 167%;
-	@pkp_structure_body_normal_font;
-}
-
-h3, .h3 {
-	font-size: 120%;
-	@pkp_structure_body_normal_font;
-}
-
-h4, .h4 {
-	font-size: 105%;
-	@pkp_structure_body_normal_font;
-}
-
 body {
-	font-family: Arial, Helvetica, sans-serif;
-	_text-align: center;
-	color: #333;
-}
-
-.pkp_structure_content {
-	margin: 0 auto;
-	width: 960px;
-}
-
-/* Liquid width (full browser width) */
-.liquid .pkp_structure_content {
-	margin: 0;
-	width: auto;
-}
-
-.pkp_structure_page {
-	margin: 0 auto;
-	_text-align: left;
 	position: relative;
-	padding-bottom: 150px;
+	height: auto;
 	min-height: 100%;
+	background: @bg;
+	font-family: @font;
+	font-size: @font-base;
+	line-height: @double;
+	color: @text;
+	color: @text-rgba;
 }
 
-.pkp_structure_page,
-.pkp_structure_page:before,
-.pkp_structure_page:after {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-}
+a {
+	color: @primary-lift;
 
-.pkp_structure_body:after, .pkp_structure_main:after {
-	clear: both;
-	display: block;
-	visibility: hidden;
-	overflow: hidden;
-	height: 0 !important;
-	line-height: 0;
-	font-size: xx-large;
-	content: " x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x ";
-}
+	&:hover,
+	&:focus {
+		color: @primary;
+	}
 
-.pkp_structure_body {
-	*zoom: 1;
-	margin-bottom: 3px;
-	padding-bottom: 15px;
-
-	.pkp_structure_main {
-		*zoom: 1;
-		padding-top: 10px;
-		padding-bottom: 80px;
-		border-top: 1px dotted #999;
-		float: right;
+	&[disabled] {
+		color: @text-light;
+		color: @text-light-rgba;
+		cursor: not-allowed;
 	}
 }
 
+.pkp_page_title {
+	color: @text-light;
+	color: @text-light-rgba;
+	margin-bottom: @double;
+
+	h2 {
+		font-size: @font-lead;
+	}
+
+	h3 {
+		font-size: @font-sml;
+		font-weight: @normal;
+	}
+
+	h2,
+	h3 {
+		margin: 0;
+	}
+}
+
+.pkp_structure_page {
+	margin: 0 @double 0 192px;
+	padding: @double;
+}
+
+// Context panel
+@pkp_context_panel_width: 192px;
+.pkp_context_panel {
+	position: absolute;
+	top: @double;
+	right: @double;
+	width: @pkp_context_panel_width;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	> li {
+		margin-bottom: @double;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.pkp_context_actions {
+
+		li {
+			margin-bottom: @base;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		button {
+			width: 100%;
+		}
+	}
+}
+
+// Collapse spacing when the panel is with nested tab panels
+.ui-tabs-panel .ui-tabs-panel .pkp_context_panel {
+	top: 0;
+	right: 0;
+}
+
+// Content panel {
+.pkp_content_panel {
+	margin-right: @pkp_context_panel_width + @double;
+}
+
+// @todo temporary!
+#sidebarContainer {
+	// @note UrlInDivHandler.js is calling .fadeIn() on the elements after
+	// they're loaded in, which leaves a display: block style element
+	display: none !important;
+}
+
+// @todo temporary!
+.pkp_structure_foot {
+	display: none;
+}
+
+// @todo temporary! no search on backend
+.pkp_structure_search {
+	display: none;
+}

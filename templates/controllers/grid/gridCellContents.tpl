@@ -32,7 +32,7 @@
 {/if}
 
 {if $_label != ''}
-	<span{if count($actions) gt 0} class="pkp_helpers_align_left gridLabelBeforeActions"{/if}>
+	<span{if count($actions) gt 0} class="gridLabelBeforeActions"{/if}>
 		{if $column->hasFlag('maxLength')}
 			{assign var="maxLength" value=$column->getFlag('maxLength')}
 			{$_label|truncate:$maxLength}

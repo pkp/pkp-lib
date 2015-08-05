@@ -11,41 +11,39 @@
  */
 
 .pkp_form .localization_popover_container {
-	@pkp_form_flag_mixin {
-		margin: 0;
+
+	.pkp_form_flag_mixin() {
+		background-position: top @half right @half;
 		background-repeat: no-repeat;
-		background-color: #fff !important;
-		background-repeat: no-repeat;
-		background-position: 99.5% 3px;
 	}
 
-	.flag_en_US {
-		@pkp_form_flag_mixin;
-		background-image: url({$baseUrl}/lib/pkp/templates/images/structure/flags/en_US.png) !important;
+	.flag_en_US:after {
+		.pkp_form_flag_mixin();
+		background-image: url({$baseUrl}/lib/pkp/templates/images/structure/flags/en_US.png);
 	}
 
 	.flag_fr_CA {
-		@pkp_form_flag_mixin;
-		background-image: url({$baseUrl}/lib/pkp/templates/images/structure/flags/fr_CA.png) !important;
+		.pkp_form_flag_mixin();
+		background-image: url({$baseUrl}/lib/pkp/templates/images/structure/flags/fr_CA.png);
 	}
 
 	.flag_te_ST {
-		@pkp_form_flag_mixin;
-		background-image: url({$baseUrl}/lib/pkp/templates/images/structure/flags/te_ST.png) !important;
+		.pkp_form_flag_mixin();
+		background-image: url({$baseUrl}/lib/pkp/templates/images/structure/flags/te_ST.png);
 	}
 
 	.flag_el_GR {
-		@pkp_form_flag_mixin;
-		background-image: url({$baseUrl}/lib/pkp/templates/images/structure/flags/el_GR.png) !important;
+		.pkp_form_flag_mixin();
+		background-image: url({$baseUrl}/lib/pkp/templates/images/structure/flags/el_GR.png);
 	}
 
 	.flag_es_ES {
-		@pkp_form_flag_mixin;
-		background-image: url({$baseUrl}/lib/pkp/templates/images/structure/flags/es_ES.png) !important;
+		.pkp_form_flag_mixin();
+		background-image: url({$baseUrl}/lib/pkp/templates/images/structure/flags/es_ES.png);
 	}
 
 	.flag_pt_BR {
-		@pkp_form_flag_mixin;
-		background-image: url({$baseUrl}/lib/pkp/templates/images/structure/flags/pt_BR.png) !important;
+		.pkp_form_flag_mixin();
+		background-image: url({$baseUrl}/lib/pkp/templates/images/structure/flags/pt_BR.png);
 	}
 }

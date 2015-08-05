@@ -542,7 +542,7 @@
 			$wizardButtons.append($continueButton);
 
 			$progressIndicator = $(
-					'<div class="pkp_helpers_progressIndicator"></div>');
+					'<span class="pkp_spinner"></span>');
 			$wizardButtons.append($progressIndicator);
 
 			$continueButton.

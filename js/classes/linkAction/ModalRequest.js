@@ -39,11 +39,11 @@
 	// Private properties
 	//
 	/**
-	 * A pointer to the dialog HTML element.
+	 * A pointer to the modal HTML element.
 	 * @private
 	 * @type {jQueryObject}
 	 */
-	$.pkp.classes.linkAction.ModalRequest.prototype.$dialog_ = null;
+	$.pkp.classes.linkAction.ModalRequest.prototype.$modal_ = null;
 
 
 	//
@@ -64,7 +64,7 @@
 				$linkActionElement,
 				linkActionHandler,
 				handlerOptions,
-				dialogHandler;
+				modalHandler;
 
 		if (modalOptions.title === undefined) {
 			if (title === '') {
@@ -92,13 +92,13 @@
 		linkActionHandler = $.pkp.classes.Handler.getHandler($linkActionElement);
 		handlerOptions = $.extend(true,
 				{eventBridge: linkActionHandler.getStaticId()}, modalOptions);
-		this.$dialog_ = $('<div id=' + uuid + '></div>').pkpHandler(
+		this.$modal_ = $('<div id="' + uuid + '" class="pkp_modal pkpModalWrapper" tabindex="-1"></div>').pkpHandler(
 				modalOptions.modalHandler, handlerOptions);
 
-		// Subscribe to the dialog handler's 'removed' event so that
+		// Subscribe to the modal handler's 'removed' event so that
 		// we can clean up.
-		dialogHandler = $.pkp.classes.Handler.getHandler(this.$dialog_);
-		dialogHandler.bind('pkpRemoveHandler',
+		modalHandler = $.pkp.classes.Handler.getHandler(this.$modal_);
+		modalHandler.bind('pkpRemoveHandler',
 				$.pkp.classes.Helper.curry(this.finish, this));
 
 		return /** @type {boolean} */ (this.parent('activate', element, event));
@@ -111,7 +111,10 @@
 	$.pkp.classes.linkAction.ModalRequest.prototype.finish =
 			function() {
 
-		this.$dialog_.remove();
+		// Put the focus back on the linkAction which launched the modal
+		this.$linkActionElement.focus();
+
+		this.$modal_.remove();
 		return /** @type {boolean} */ (this.parent('finish'));
 	};
 

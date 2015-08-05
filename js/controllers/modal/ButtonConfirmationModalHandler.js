@@ -18,7 +18,7 @@
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.controllers.modal.CallbackConfirmationModalHandler
+	 * @extends $.pkp.controllers.modal.ConfirmationModalHandler
 	 *
 	 * @param {jQueryObject} $handledElement The modal.
 	 * @param {Object} options Non-default options to configure
@@ -34,54 +34,51 @@
 	$.pkp.controllers.modal.ButtonConfirmationModalHandler =
 			function($handledElement, options) {
 
-		// Bind our own handler to the parent's confirmation callback.
-		options.confirmationCallback = this.callbackWrapper(this.clickButton);
-
 		this.parent($handledElement, options);
 
-		// Save the button.
-		this.$button_ = options.$button;
+		// Bind to the confirmation button
+		$handledElement.find('.pkpModalConfirmButton').on('click',this.callbackWrapper(this.modalConfirm));
 
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.modal.ButtonConfirmationModalHandler,
-			$.pkp.controllers.modal.CallbackConfirmationModalHandler);
-
-
-	//
-	// Private properties
-	//
-	/**
-	 * The button we'll click on when activated.
-	 * @private
-	 * @type {jQueryObject}
-	 */
-	$.pkp.controllers.modal.CallbackConfirmationModalHandler.prototype.
-			$button_ = null;
+			$.pkp.controllers.modal.ConfirmationModalHandler);
 
 
 	//
 	// Protected methods
 	//
 	/**
-	 * Callback that clicks the handling element.
-	 * @protected
+	 * @inheritDoc
 	 */
-	$.pkp.controllers.modal.ButtonConfirmationModalHandler.prototype.
-			clickButton = function() {
+	$.pkp.controllers.modal.ButtonConfirmationModalHandler.prototype.checkOptions =
+			function(options) {
+		// Check inherited options
+		if (!this.parent('checkOptions', options)) {
+			return false;
+		}
 
-		var $button = this.$button_;
-		if ($button.attr('type') == 'submit') {
-			// Trigger a submit event when the calling element is of the
-			// "submit" type. Otherwise the no submit event will be triggered
-			// when clicking a submit button. Use trigger() to let the event
-			// bubble in all browsers.
-			// FIXME: Test this in IE. According to the jQuery doc the event
-			// should bubble there, too. But who knows...
-			$button.trigger('submit');
+
+		return typeof options.$button == 'object' && options.$button.length == 1;
+	};
+
+	/**
+	 * Callback that will be activated when the modal is confirmed
+	 *
+	 * @param {HTMLElement} dialogElement The element the
+	 *  dialog was created on.
+	 */
+	$.pkp.controllers.modal.ButtonConfirmationModalHandler.prototype.modalConfirm =
+			function(dialogElement) {
+
+		// Close the modal first so that the linkaction is no longer disabled
+		this.modalClose(dialogElement);
+
+		// Trigger the link/button action
+		if ( this.options.$button.attr('type') == 'submit' ) {
+			this.options.$button.trigger('submit');
 		} else {
-			// Click the calling element.
-			$button.click();
+			this.options.$button.click();
 		}
 	};
 

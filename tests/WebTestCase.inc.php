@@ -274,7 +274,7 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 		$this->assertElementPresent($formId, 'The passed form locator do not point to any form element at the current page.');
 		$this->click('css=#' . $formId . ' #submitFormButton');
 
-		$progressIndicatorSelector = '#' . $formId . ' .formButtons .pkp_helpers_progressIndicator';
+		$progressIndicatorSelector = '#' . $formId . ' .formButtons .pkp_spinner';
 
 		// First make sure that the progress indicator is visible.
 		$this->waitForCondition("selenium.browserbot.getUserWindow().jQuery('$progressIndicatorSelector:visible').length == 1", 2000);

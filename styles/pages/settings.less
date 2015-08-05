@@ -1,0 +1,107 @@
+/**
+ * @file styles/pages/settings.less
+ *
+ * Copyright (c) 2014-2015 Simon Fraser University Library
+ * Copyright (c) 2003-2015 John Willinsky
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ *
+ * @brief Styles for the settings pages
+ *
+ */
+
+.pkp_settings_navigation > div {
+    width: 50%;
+    float: left;
+    padding-right: @base;
+}
+
+// 4th child because of extra <script> tags...
+.pkp_settings_navigation > div:nth-child(4) {
+    padding-left: @base;
+    padding-right: 0;
+}
+
+//
+// Hacky workarounds for targetting specific things that aren't that well
+// marked up, or otherwise cause complications
+//
+
+// Make room for the open/close caret
+#pluginGridContainer tbody:not(.empty) .gridRow:not(.category) td:first-child,
+#pluginGridContainer .row_controls td:first-child,
+#socialMediaGridContainer .gridRow td:first-child,
+#announcementTypeGridContainer .gridRow td:first-child,
+#announcementGridContainer .gridRow td:first-child,
+#announcementTypeGridContainer .row_controls td:first-child,
+#announcementGridContainer .row_controls td:first-child,
+#sponsorGridDiv tbody:not(.empty) td:first-child,
+#contributorGridDiv tbody:not(.empty) td:first-child,
+#sectionsGridContainer tbody:not(.empty) td:first-child,
+#genresContainer tbody:not(.empty) td:first-child,
+#submissionChecklistGridDiv tbody:not(.empty) td:first-child,
+#reviewFormGridContainer tbody:not(.empty) td:first-child,
+#libraryGridDiv tbody:not(.empty) td:first-child,
+#preparedEmailsGridDiv tbody:not(.empty) td:first-child,
+#userGridContainer tbody:not(.empty) td:first-child,
+#roleGridContainer tbody:not(.empty) td:first-child,
+#ReviewFormElementsGridContainer tbody:not(.empty) td:first-child
+{
+  padding-left: @double;
+}
+
+// Reduce prominence of plugin description
+#pluginsTabs .pkp_controllers_grid tbody:not(.empty) .gridRow:not(.category) td:nth-child(2) {
+	font-size: @font-sml;
+	line-height: @line-sml;
+	color: @text-light;
+	color: @text-light-rgba;
+}
+
+// Hide the extra title row in the website > navigation > footer grid
+#footerGridContainer .pkp_controllers_grid thead {
+    display: none;
+}
+
+// Edit/Trash icons in website > navigation > footer grid
+#footerGridContainer .gridRow.category .row_actions {
+    position: absolute;
+    right: 1em;
+}
+
+#footerGridContainer .pkp_linkaction_editFooterCategory:after {
+    &:extend(.fa);
+    content: @fa-var-pencil;
+    float: right;
+    width: 24px;
+    line-height: 24px;
+    margin-right: 48px;
+}
+
+#footerGridContainer .pkp_linkaction_deleteFooterCategory:after {
+    &:extend(.fa);
+    content: @fa-var-trash;
+    width: 24px;
+    line-height: 24px;
+    color: @no;
+}
+
+// Makes height similar to footer grid category rows which sit next to it
+#socialMediaGridContainer th {
+    line-height: 40px; // long story...
+}
+
+#announcementTypeGridContainer {
+    margin-top: @double;
+}
+
+// Settings > Journal > Sponsor
+// Collapses unnecessary grid bottom margins
+#affiliationForm .pkp_controllers_grid {
+    margin-bottom: 0;
+}
+
+// Settings > Workflow > Publication > Review Form Item > Form Items
+#ReviewFormElementsGridContainer tbody:not(.empty) td:first-child p {
+    margin-top: 0;
+    margin-bottom: 0;
+}

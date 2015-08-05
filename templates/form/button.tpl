@@ -8,6 +8,6 @@
  * form button
  *}
 
-<div{if $FBV_layoutInfo} class="{$FBV_layoutInfo}"{/if}>
-	<button class="{$FBV_class} button" type="{$FBV_type}" {if $FBV_disabled} disabled="disabled"{/if} {$FBV_buttonParams}>{if $FBV_translate}{translate key=$FBV_label}{else}{$FBV_label}{/if}</button>
-</div>
+<button class="pkp_button {$FBV_class}" type="{$FBV_type}" {if $FBV_disabled} disabled="disabled"{/if} {$FBV_buttonParams}>
+    {if $FBV_translate}{translate key=$FBV_label}{else}{$FBV_label}{/if}
+</button>

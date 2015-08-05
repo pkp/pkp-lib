@@ -16,11 +16,11 @@
 		{if $FBV_labelFor}<label for="{$FBV_labelFor|escape}">{$FBV_labelTranslated}</label>
 		{else}<span class="label">{$FBV_labelTranslated}</span>{/if}
 	{/if}
-	{if $FBV_description}<span><label class="sub_label">{if $FBV_translate}{translate key=$FBV_description}{else}{$FBV_description}{/if}</label></span>{/if}
+	{if $FBV_description}<label class="description">{if $FBV_translate}{translate key=$FBV_description}{else}{$FBV_description}{/if}</label>{/if}
 	{if $FBV_listSection}<ul class="checkbox_and_radiobutton">{/if}
 		{if $FBV_title}<label {if $FBV_labelFor} for="{$FBV_labelFor|escape}"{/if}>{if $FBV_translate}{translate key=$FBV_title}{else}{$FBV_title}{/if}{if $FBV_required}<span class="req">*</span>{/if}</label>{/if}
 			{foreach from=$FBV_sectionErrors item=FBV_error}
-				<p class="error">{$FBV_error|escape}</p>
+				<span class="error">{$FBV_error|escape}</span>
 			{/foreach}
 
 			{$FBV_content}

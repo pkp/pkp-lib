@@ -71,7 +71,7 @@
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.fetchRowUrl = null;
 
-	
+
 	/**
 	 * The URL to fetch all loaded grid rows.
 	 * @protected
@@ -549,13 +549,12 @@
 		// Search control.
 		this.getHtmlElement().find('.pkp_form').hide();
 		$searchLink = this.getHtmlElement().
-				find('a[class^="sprite search_extras_"]');
+				find('.pkp_linkaction_search');
 		if ($searchLink.length !== 0) {
 			$searchLink.click(
 					this.callbackWrapper(function() {
 						this.getHtmlElement().find('.pkp_form').toggle();
-						$searchLink.toggleClass('search_extras_expand').
-								toggleClass('search_extras_collapse');
+						$searchLink.toggleClass('is_open');
 					}));
 		} else {
 			// This grid doesn't have an expand/collapse control. If there is
@@ -565,7 +564,7 @@
 
 		this.trigger('gridInitialized');
 	};
-	
+
 
 	/**
 	 * Call features hooks.
@@ -610,6 +609,7 @@
 		this.callFeaturesHook('refreshGrid', opt_elementId);
 
 		params = this.getFetchExtraParams();
+
 
 		// Check if subclasses already handled the fetch of new elements.
 		if (!opt_fetchedAlready) {
@@ -838,7 +838,7 @@
 			$grid = this.getHtmlElement();
 			$gridParent = $grid.parent();
 
-			isFilterVisible = $grid.find('.grid_header .pkp_form').is(':visible');
+			isFilterVisible = $grid.find('.filter').is(':visible');
 
 			// Replace the grid content
 			$grid.replaceWith(handledJsonData.content);
@@ -852,7 +852,7 @@
 
 			if (isFilterVisible) {
 				// Open search control again.
-				$newGrid.find('span.options a.search_extras_expand').click();
+				$newGrid.find('.pkp_linkaction_search').click();
 			}
 		}
 	};
@@ -911,10 +911,6 @@
 
 		var $grid = this.getHtmlElement(),
 						$gridRows = this.getHtmlElement().find('tr.gridRow').not('.category');
-
-		// Control grid row hover background change.
-		$gridRows.unbind('mouseenter').unbind('mouseleave').
-				hover(function() {$(this).toggleClass('mouse_over'); });
 
 		$grid.find('a.show_extras').unbind('click').bind('click',
 				this.callbackWrapper(this.toggleRowActions));

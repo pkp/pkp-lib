@@ -9,6 +9,20 @@
  *}
 
 <li{if $FBV_layoutInfo} class="{$FBV_layoutInfo}"{/if}>
+	{if $FBV_label}
+		<label>
+	{/if}
 	<input type="checkbox" id="{$FBV_id|escape}" {$FBV_checkboxParams} class="field checkbox{if $FBV_validation} {$FBV_validation|escape}{/if}{if $FBV_required} required{/if}"{if $FBV_checked} checked="checked"{/if}{if $FBV_disabled} disabled="disabled"{/if}/>
-	{if $FBV_label}<label for="{$FBV_id|escape}" class="choice">{if $FBV_translate}{translate key=$FBV_label}{else}{if $FBV_keepLabelHtml}{$FBV_label}{else}{$FBV_label}{/if}{/if}</label>{/if}
+	{if $FBV_translate}
+		{translate key=$FBV_label}
+	{else}
+		{if $FBV_keepLabelHtml}
+			{$FBV_label}
+		{else}
+			{$FBV_label}
+		{/if}
+	{/if}
+	{if $FBV_label}
+		</label>
+	{/if}
 </li>

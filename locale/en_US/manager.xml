@@ -64,7 +64,7 @@
 	<message key="manager.publication.editorialStage">Editorial</message>
 	<message key="manager.publication.productionStage">Production</message>
 	<message key="manager.publication.emails">Emails</message>
-	<message key="manager.publication.libraryDescription"><![CDATA[These files have been prepared as templates and guides for use as part of the <span class="pkp_help_title">Submission Documents</span>.]]></message> 
+	<message key="manager.publication.libraryDescription"><![CDATA[These files have been prepared as templates and guides for use as part of the <span class="pkp_help_title">Submission Documents</span>.]]></message>
 	<message key="manager.emails.confirmDelete">Are you sure you want to delete this email template?</message>
 	<message key="manager.emails.confirmReset">Are you sure you want to reset this email template to its default values?</message>
 	<message key="manager.emails.addEmail">Add Email Template</message>
@@ -183,7 +183,7 @@
 		There are cases where a single usage statistic must be used, e.g. to display an ordered list of most-used submissions or to rank
 		search results. Please select one of the configured metrics as a default.
 	</message>
-	<message key="manager.statistics.city">City</message>	
+	<message key="manager.statistics.city">City</message>
 	<message key="manager.statistics.region">Region</message>
 	<message key="manager.statistics.reports">Report Generator</message>
 	<message key="manager.statistics.reports.description">The system generates reports that track the details associated with site usage and submissions over a given period of time. Reports are generated in CSV format which requires a spreadsheet application to view.</message>
@@ -222,6 +222,7 @@
 	<message key="manager.setup.competingInterests">Competing Interests</message>
 	<message key="manager.setup.competingInterestsDescription">Reviewers will be asked to comply with the competing interests disclosure policy you specify below.</message> <!-- FIXME #6843 (JM): should this just reference reviewers? -->
 	<message key="manager.setup.groupType">File type grouping</message>
+	<message key="manager.setup.information.descriptionTitle">Descriptions</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerResponse">Time allowed for review responses (weeks)</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerReview">Time allowed for review completion (weeks)</message>
 	<message key="manager.setup.reviewOptions.neverSendReminder">Never Remind</message>

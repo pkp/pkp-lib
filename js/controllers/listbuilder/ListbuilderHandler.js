@@ -110,7 +110,7 @@
 		// That and a syncronous ajax call triggered by those events
 		// handlers, was leading to an error in IE8 and it was freezing
 		// Firefox 13.0).
-		$listbuilder.find('span[class="options"] > a[id*="addItem"]').mousedown(
+		$listbuilder.find('.actions .pkp_linkaction_addItem').mousedown(
 				this.callbackWrapper(this.addItemHandler_));
 
 		// Attach the content manipulation handlers

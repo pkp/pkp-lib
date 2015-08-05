@@ -37,7 +37,8 @@
 		this.parent($handledElement, options);
 
 		// Bind to the confirmation button
-		$handledElement.find('.pkpModalConfirmButton').on('click',this.callbackWrapper(this.modalConfirm));
+		$handledElement.find('.pkpModalConfirmButton')
+				.on('click', this.callbackWrapper(this.modalConfirm));
 
 	};
 	$.pkp.classes.Helper.inherits(
@@ -62,23 +63,28 @@
 		return typeof options.$button == 'object' && options.$button.length == 1;
 	};
 
+
 	/**
 	 * Callback that will be activated when the modal is confirmed
 	 *
 	 * @param {HTMLElement} dialogElement The element the
 	 *  dialog was created on.
+	 * @param {Event} event The click event.
 	 */
 	$.pkp.controllers.modal.ButtonConfirmationModalHandler.prototype.modalConfirm =
-			function(dialogElement) {
+			function(dialogElement, event) {
+
+		var $button = (/** @type {{ $button: jQueryObject }} */ (this.options))
+				.$button;
 
 		// Close the modal first so that the linkaction is no longer disabled
 		this.modalClose(dialogElement);
 
 		// Trigger the link/button action
-		if ( this.options.$button.attr('type') == 'submit' ) {
-			this.options.$button.trigger('submit');
+		if ($button.attr('type') == 'submit') {
+			$button.trigger('submit');
 		} else {
-			this.options.$button.click();
+			$button.click();
 		}
 	};
 

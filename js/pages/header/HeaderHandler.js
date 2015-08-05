@@ -16,6 +16,8 @@
 	/** @type {Object} */
 	$.pkp.pages = $.pkp.pages || { header: { } };
 
+
+
 	/**
 	 * @constructor
 	 *

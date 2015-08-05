@@ -69,19 +69,25 @@
 
 	/**
 	 * Open the modal and fetch content via ajax
+	 * @param {jQueryObject} $handledElement The clickable element
+	 *  the modal will be attached to.
 	 * @protected
 	 */
 	$.pkp.controllers.modal.AjaxModalHandler.prototype.modalOpen =
 			function($handledElement) {
-		this.parent('modalOpen',$handledElement);
+		this.parent('modalOpen', $handledElement);
 
 		// Retrieve remote modal content.
-		$handledElement.find( '.content' ).pkpAjaxHtml(this.options.url);
+		$handledElement.find('.content')
+				.pkpAjaxHtml(/** @type {{ url: string }} */ (this.options).url);
 	};
 
 
 	/**
 	 * Close the modal when a form submission is complete
+	 * @param {Object} callingContext The calling element or object.
+	 * @param {Event} event The triggering event (e.g. a click on
+	 *  a button.
 	 * @protected
 	 */
 	$.pkp.controllers.modal.AjaxModalHandler.prototype.formSubmitted =

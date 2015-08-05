@@ -92,8 +92,10 @@
 		linkActionHandler = $.pkp.classes.Handler.getHandler($linkActionElement);
 		handlerOptions = $.extend(true,
 				{eventBridge: linkActionHandler.getStaticId()}, modalOptions);
-		this.$modal_ = $('<div id="' + uuid + '" class="pkp_modal pkpModalWrapper" tabindex="-1"></div>').pkpHandler(
-				modalOptions.modalHandler, handlerOptions);
+		this.$modal_ = $(
+				'<div id="' + uuid + '" ' +
+				'class="pkp_modal pkpModalWrapper" tabindex="-1"></div>')
+				.pkpHandler(modalOptions.modalHandler, handlerOptions);
 
 		// Subscribe to the modal handler's 'removed' event so that
 		// we can clean up.

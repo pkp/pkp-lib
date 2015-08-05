@@ -624,14 +624,15 @@
 	 * Reacts to a modal being opened. Adds a class to the body representing
 	 * a modal open state.
 	 * @private
-	 * @param {SiteHandler} siteHandler This handler
-	 * @param {HTMLElement} siteHandlerElement Element this handler is
-	 *    attached to.
-	 * @param {Event} event The triggering event.
 	 * @param {HTMLElement} handledElement The modal that has been added
+	 * @param {HTMLElement} siteHandlerElement The html element
+	 * attached to this handler.
+	 * @param {HTMLElement} sourceElement The element wishes to
+	 * register.
+	 * @param {Event} event The formChanged event.
 	 */
 	$.pkp.controllers.SiteHandler.prototype.openModal_ =
-			function(siteHandler, siteHandlerElement, event, handledElement) {
+			function(handledElement, siteHandlerElement, sourceElement, event) {
 		this.getHtmlElement().addClass('modal_is_visible');
 	};
 
@@ -641,17 +642,18 @@
 	 * representing a modal closed state, after checking if no other modals are
 	 * open.
 	 * @private
-	 * @param {SiteHandler} siteHandler This handler
-	 * @param {HTMLElement} siteHandlerElement Element this handler is
-	 *    attached to.
-	 * @param {Event} event The triggering event.
 	 * @param {HTMLElement} handledElement The modal that has been added
+	 * @param {HTMLElement} siteHandlerElement The html element
+	 * attached to this handler.
+	 * @param {HTMLElement} sourceElement The element wishes to
+	 * register.
+	 * @param {Event} event The formChanged event.
 	 */
 	$.pkp.controllers.SiteHandler.prototype.closeModal_ =
-			function(siteHandler, siteHandlerElement, event, handledElement) {
+			function(handledElement, siteHandlerElement, sourceElement, event) {
 
-		$htmlElement = this.getHtmlElement();
-		if ( !$htmlElement.find( '.pkp_modal.is_visible' ).length ) {
+		var $htmlElement = this.getHtmlElement();
+		if (!$htmlElement.find('.pkp_modal.is_visible').length) {
 			$htmlElement.removeClass('modal_is_visible');
 		}
 	};

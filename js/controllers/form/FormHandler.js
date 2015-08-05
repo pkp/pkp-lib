@@ -666,6 +666,7 @@
 		}
 	};
 
+
 	/**
 	 * Add a class to the spinner to indicate it should be visible
 	 *
@@ -673,8 +674,10 @@
 	 */
 	$.pkp.controllers.form.FormHandler.prototype.showSpinner_ =
 			function() {
-		this.getHtmlElement().find( '.formButtons .pkp_spinner' ).addClass('is_visible');
+		this.getHtmlElement()
+				.find('.formButtons .pkp_spinner').addClass('is_visible');
 	};
+
 
 	/**
 	 * Add a class to the spinner to indicate it should be visible
@@ -683,7 +686,8 @@
 	 */
 	$.pkp.controllers.form.FormHandler.prototype.hideSpinner_ =
 			function() {
-		this.getHtmlElement().find( '.formButtons .pkp_spinner' ).removeClass('is_visible');
+		this.getHtmlElement()
+				.find('.formButtons .pkp_spinner').removeClass('is_visible');
 	};
 
 /** @param {jQuery} $ jQuery closure. */

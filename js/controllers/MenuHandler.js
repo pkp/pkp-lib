@@ -28,7 +28,7 @@
 		this.parent($menu, options);
 
 		// Reference to all links within the menu
-		this.$links_ = this.$htmlElement_.find( 'a' );
+		this.$links_ = this.getHtmlElement().find('a');
 
 		// Attach event handlers
 		this.$links_.bind('focus', this.onFocus);
@@ -47,7 +47,7 @@
 	 * @param {Event} event The triggered event.
 	 */
 	$.pkp.controllers.MenuHandler.prototype.onFocus = function(event) {
-		var parent = $(event.target).parents( 'li' );
+		var parent = $(event.target).parents('li');
 		if (!parent.length) {
 			return;
 		}
@@ -62,7 +62,7 @@
 	 * @param {Event} event The triggered event.
 	 */
 	$.pkp.controllers.MenuHandler.prototype.onBlur = function(event) {
-		var parent = $(event.target).parents( 'li' );
+		var parent = $(event.target).parents('li');
 		if (!parent.length) {
 			return;
 		}

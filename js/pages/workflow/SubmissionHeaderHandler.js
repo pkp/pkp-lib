@@ -95,7 +95,8 @@
 
 		var $submissionHeader = this.getHtmlElement(),
 				$participantsPopover = $submissionHeader.find('.participant_popover'),
-				$participantsListElement = $submissionHeader.find('.pkp_submission_actions .participants');
+				$participantsListElement = $submissionHeader.find(
+				'.pkp_submission_actions .participants');
 
 		$participantsPopover.toggleClass('is_visible');
 		$participantsListElement.toggleClass('is_open');

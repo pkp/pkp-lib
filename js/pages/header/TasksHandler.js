@@ -13,6 +13,7 @@
  */
 (function($) {
 
+
 	/**
 	 * @constructor
 	 *
@@ -109,12 +110,12 @@
 			updateUnreadNotificationsCountHandler_ = function(ajaxContext, jsonData) {
 
 		var el = this.getHtmlElement().find('#unreadNotificationCount');
-		el.html( jsonData.content );
+		el.html(jsonData.content);
 
-		if ( jsonData.content == '0' ) {
-			el.removeClass( 'hasTasks' );
+		if (jsonData.content == '0') {
+			el.removeClass('hasTasks');
 		} else {
-			el.addClass( 'hasTasks' );
+			el.addClass('hasTasks');
 		}
 	};
 

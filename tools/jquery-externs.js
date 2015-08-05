@@ -703,6 +703,13 @@ jQueryObject.prototype.filter = function(arg1) {};
 jQueryObject.prototype.find = function(selector) {};
 
 /**
+ * @param {string} arg1
+ * @param {Function} arg2
+ * @returns {jQueryObject}
+ */
+jQueryObject.prototype.on = function(arg1, arg2) {};
+
+/**
  * @return {jQueryObject}
  * @nosideeffects
  */

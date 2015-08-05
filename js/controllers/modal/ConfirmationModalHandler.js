@@ -71,24 +71,29 @@
 	/**
 	 * Add content to modal
 	 *
-	 * @return {Object} jQuery object representing modal content
+	 * @return {jQueryObject} jQuery object representing modal content
 	 */
 	$.pkp.controllers.modal.ConfirmationModalHandler.prototype.modalBuild =
 			function() {
 
-		var $modal = this.parent('modalBuild');
+		var $modal = this.parent('modalBuild'),
+				buttons = '<a href="#" class="ok pkpModalConfirmButton">' +
+				(/** @type {{ okButton: string }} */ (this.options)).okButton +
+				'</a>';
 
-		$modal.addClass( 'pkp_modal_confirmation' )
-			.find( '.content' ).append('<div class="message">' + this.options.dialogText + '</div>');
+		$modal.addClass('pkp_modal_confirmation').find('.content')
+				.append('<div class="message">' +
+				(/** @type {{ dialogText: string }} */ (this.options)).dialogText +
+				'</div>');
 
-		var buttons = '<a href="#" class="ok pkpModalConfirmButton">' + this.options.okButton + '</a>';
 		if (this.options.cancelButton) {
-			buttons += '<a href="#" class="cancel pkpModalCloseButton">' + this.options.cancelButton + '</a>';
+			buttons += '<a href="#" class="cancel pkpModalCloseButton">' +
+					this.options.cancelButton + '</a>';
 		}
 
-		$modal.append( '<div class="footer">' + buttons + '</div>' );
+		$modal.append('<div class="footer">' + buttons + '</div>');
 
-		return $modal;
+		return /** @type {jQueryObject} */ $modal;
 	};
 
 
@@ -98,9 +103,10 @@
 	 *
 	 * @param {HTMLElement} dialogElement The element the
 	 *  dialog was created on.
+	 * @param {Event} event The click event.
 	 */
 	$.pkp.controllers.modal.ConfirmationModalHandler.prototype.modalConfirm =
-			function(dialogElement) {
+			function(dialogElement, event) {
 
 		// The default implementation will simply close the modal.
 		this.modalClose(dialogElement);

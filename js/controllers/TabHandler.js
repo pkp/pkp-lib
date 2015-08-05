@@ -296,7 +296,7 @@
 				$closeSpanElement = $('<a/>')
 					.addClass('close')
 					.text($.pkp.locale.common_close)
-					.attr('href','#'),
+					.attr('href', '#'),
 				$liElement = $('<li/>')
 					.append($anchorElement)
 					.append($closeSpanElement);

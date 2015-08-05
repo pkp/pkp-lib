@@ -47,14 +47,16 @@
 				titleIcon: string }} */ (this.mergeOptions(internalOptions));
 
 		// Attach content to the modal
-		$handledElement.html(this.modalBuild());
+		$handledElement.html(this.modalBuild().html());
 
 		// Open the modal
 		this.modalOpen($handledElement);
 
 		// Set up close controls
-		$handledElement.find('.pkpModalCloseButton').click(this.callbackWrapper(this.modalClose));
-		$handledElement.on('click keyup', this.callbackWrapper(this.handleWrapperEvents));
+		$handledElement.find(
+				'.pkpModalCloseButton').click(this.callbackWrapper(this.modalClose));
+		$handledElement.on(
+				'click keyup', this.callbackWrapper(this.handleWrapperEvents));
 
 		// Publish some otherwise private events triggered
 		// by nested widgets so that they can be handled by
@@ -100,7 +102,6 @@
 	 *
 	 * After passed options are merged with defaults.
 	 *
-	 * @private
 	 * @type {Object}
 	 */
 	$.pkp.controllers.modal.ModalHandler.options = null;
@@ -121,7 +122,7 @@
 
 		// Check for basic configuration requirements.
 		return typeof options === 'object' &&
-				options.buttons === undefined;
+				(/** @type {{ buttons: Object }} */ options).buttons === undefined;
 	};
 
 
@@ -149,28 +150,32 @@
 	/**
 	 * Build the markup for a modal container, including the header, close
 	 * button and a container for the content to be placed in.
+	 * TODO: This kind of markup probably shouldn't be embedded within the JS...
 	 *
 	 * @protected
-	 * @todo This kind of markup probably shouldn't be embedded within the JS...
 	 * @return {Object} jQuery object representing modal content
 	 */
 	$.pkp.controllers.modal.ModalHandler.prototype.modalBuild =
 			function() {
 
-		var $modal = $( '<div class="pkp_modal_panel"></div>' );
+		var $modal = $('<div class="pkp_modal_panel"></div>');
 
 		// Title bar
-		if ( this.options.title !== 'undefined' ) {
-			$modal.append( '<div class="header">' + this.options.title + '</div>' );
+		if (this.options.title !== 'undefined') {
+			$modal.append('<div class="header">' + this.options.title + '</div>');
 		}
 
 		// Close button
-		if ( this.options.canClose ) {
-			$modal.append( '<a href="#" class="close pkpModalCloseButton"><span class="pkp_screen_reader">' + this.options.closeButtonText + '</span></a>' );
+		if (this.options.canClose) {
+			$modal.append(
+					'<a href="#" class="close pkpModalCloseButton">' +
+					'<span class="pkp_screen_reader">' +
+					(/** @type {{ closeButtonText: string }} */ (this.options))
+					.closeButtonText + '</span></a>');
 		}
 
 		// Content
-		$modal.append( '<div class="content"></div>' );
+		$modal.append('<div class="content"></div>');
 
 		return $modal;
 	};
@@ -178,8 +183,7 @@
 
 	/**
 	 * Attach a modal to the dom and make it visible
-	 *
-	 * @return {Object} jQuery object representing modal content
+	 * @param {jQueryObject} $handledElement The modal.
 	 */
 	$.pkp.controllers.modal.ModalHandler.prototype.modalOpen =
 			function($handledElement) {
@@ -199,10 +203,10 @@
 		// element can be added to the dom first
 		setTimeout(function() {
 			$handledElement.focus();
-		}, 300 );
+		}, 300);
 
 		// Trigger events
-		$handledElement.trigger( 'pkpModalOpen', $handledElement );
+		$handledElement.trigger('pkpModalOpen', [$handledElement]);
 	};
 
 
@@ -245,26 +249,26 @@
 
 
 	/**
-	 * Process events that reach the wrapper element
+	 * Process events that reach the wrapper element.
+	 * Should NOT block other events from bubbling up. Doing so
+	 * can disable submit buttons in nested forms.
 	 *
 	 * @param {Object=} opt_callingContext The calling element or object.
 	 * @param {Event=} opt_event The triggering event (e.g. a click on
 	 *  a close button. Not set if called via callback.
-	 * @return {null} Should NOT block other events from bubbling up. Doing so
-	 *  can disable submit buttons in nested forms.
 	 */
 	$.pkp.controllers.modal.ModalHandler.prototype.handleWrapperEvents =
 			function(opt_callingContext, opt_event) {
 
 		// Close click events directly on modal (background screen)
-		if( opt_event.type == 'click' && opt_callingContext == opt_event.target ) {
+		if (opt_event.type == 'click' && opt_callingContext == opt_event.target) {
 			$.pkp.classes.Handler.getHandler($(opt_callingContext))
 					.modalClose();
 			return;
 		}
 
 		// Close for ESC keypresses (27) that have bubbled up
-		if ( opt_event.type == 'keyup' && opt_event.which == 27 ) {
+		if (opt_event.type == 'keyup' && opt_event.which == 27) {
 			$.pkp.classes.Handler.getHandler($(opt_callingContext))
 					.modalClose();
 			return;

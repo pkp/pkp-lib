@@ -61,6 +61,9 @@
 	{fbvFormSection label="submission.supportingAgencies"}
 		{fbvElement type="keyword" id="agencies" multilingual=true subLabelTranslate=true current=$agencies disabled=$readOnly}
 	{/fbvFormSection}
+	{fbvFormSection label="submission.citations"}
+		{fbvElement type="textarea" id="citations" subLabelTranslate=true value=$citations}
+	{/fbvFormSection}
 {/fbvFormArea}
 
 {call_hook name="Templates::Submission::SubmissionMetadataForm::AdditionalMetadata"}

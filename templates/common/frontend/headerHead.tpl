@@ -33,6 +33,9 @@
 
     {load_stylesheet context="frontend" stylesheets=$stylesheets}
 
+	{* Form validator used on search form *}
+	{include file="common/validate.tpl"}
+
 	<!-- Constants for JavaScript -->
 	{include file="common/jsConstants.tpl"}
 

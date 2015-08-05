@@ -112,9 +112,9 @@ class PKPAcronPlugin extends GenericPlugin {
 				$router->url($request, null, null, 'plugin', null, array('verb' => 'reload', 'plugin' => $this->getName(), 'category' => 'generic'))
 			);
 			return new LinkAction($verbName, $actionRequest, $verbLocalized, null);
-                }
+		}
 
-                return null;
+		return null;
 	}
 
 	/**

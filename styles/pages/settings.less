@@ -10,15 +10,15 @@
  */
 
 .pkp_settings_navigation > div {
-    width: 50%;
-    float: left;
-    padding-right: @base;
+	width: 50%;
+	float: left;
+	padding-right: @base;
 }
 
 // 4th child because of extra <script> tags...
 .pkp_settings_navigation > div:nth-child(4) {
-    padding-left: @base;
-    padding-right: 0;
+	padding-left: @base;
+	padding-right: 0;
 }
 
 //
@@ -59,49 +59,49 @@
 
 // Hide the extra title row in the website > navigation > footer grid
 #footerGridContainer .pkp_controllers_grid thead {
-    display: none;
+	display: none;
 }
 
 // Edit/Trash icons in website > navigation > footer grid
 #footerGridContainer .gridRow.category .row_actions {
-    position: absolute;
-    right: 1em;
+	position: absolute;
+	right: 1em;
 }
 
 #footerGridContainer .pkp_linkaction_editFooterCategory:after {
-    &:extend(.fa);
-    content: @fa-var-pencil;
-    float: right;
-    width: 24px;
-    line-height: 24px;
-    margin-right: 48px;
+	&:extend(.fa);
+	content: @fa-var-pencil;
+	float: right;
+	width: 24px;
+	line-height: 24px;
+	margin-right: 48px;
 }
 
 #footerGridContainer .pkp_linkaction_deleteFooterCategory:after {
-    &:extend(.fa);
-    content: @fa-var-trash;
-    width: 24px;
-    line-height: 24px;
-    color: @no;
+	&:extend(.fa);
+	content: @fa-var-trash;
+	width: 24px;
+	line-height: 24px;
+	color: @no;
 }
 
 // Makes height similar to footer grid category rows which sit next to it
 #socialMediaGridContainer th {
-    line-height: 40px; // long story...
+	line-height: 40px; // long story...
 }
 
 #announcementTypeGridContainer {
-    margin-top: @double;
+	margin-top: @double;
 }
 
 // Settings > Journal > Sponsor
 // Collapses unnecessary grid bottom margins
 #affiliationForm .pkp_controllers_grid {
-    margin-bottom: 0;
+	margin-bottom: 0;
 }
 
 // Settings > Workflow > Publication > Review Form Item > Form Items
 #ReviewFormElementsGridContainer tbody:not(.empty) td:first-child p {
-    margin-top: 0;
-    margin-bottom: 0;
+	margin-top: 0;
+	margin-bottom: 0;
 }

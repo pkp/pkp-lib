@@ -9,5 +9,5 @@
  *}
 
 <button class="pkp_button {$FBV_class}" type="{$FBV_type}" {if $FBV_disabled} disabled="disabled"{/if} {$FBV_buttonParams}>
-    {if $FBV_translate}{translate key=$FBV_label}{else}{$FBV_label}{/if}
+	{if $FBV_translate}{translate key=$FBV_label}{else}{$FBV_label}{/if}
 </button>

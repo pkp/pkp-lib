@@ -9,11 +9,11 @@
  *}
 <div class="header">
 
-    {if $grid->getTitle()}
-        <h4>
-            {$grid->getTitle()|translate}
-        </h4>
-    {/if}
+	{if $grid->getTitle()}
+		<h4>
+			{$grid->getTitle()|translate}
+		</h4>
+	{/if}
 
 	{if $grid->getActions($smarty.const.GRID_ACTION_POSITION_ABOVE)}
 		{if $grid->getActions($smarty.const.GRID_ACTION_POSITION_ABOVE)}
@@ -25,5 +25,5 @@
 {$gridFilterForm}
 
 {if $grid->getInstructions()}
-    <p class="description">{translate key=$grid->getInstructions()}</p>
+	<p class="description">{translate key=$grid->getInstructions()}</p>
 {/if}

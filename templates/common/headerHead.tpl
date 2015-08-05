@@ -29,7 +29,7 @@
 	{include file="common/validate.tpl"}
 	{include file="common/plupload.tpl"}
 
-    {load_stylesheet context="backend" stylesheets=$stylesheets}
+	{load_stylesheet context="backend" stylesheets=$stylesheets}
 
 	<!-- Constants for JavaScript -->
 	{include file="common/jsConstants.tpl"}

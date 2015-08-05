@@ -21,7 +21,7 @@
 			{fbvElement type="select" id="category" from=$filterData.categories selected=$filterSelectionData.category translate=false size=$fbvStyles.size.SMALL inline=true}
 			{fbvElement type="text" id="pluginText" value=$filterSelectionData.pluginText size=$fbvStyles.size.LARGE inline=true}
 		{/fbvFormSection}
-        {* Buttons generate their own section *}
-        {fbvFormButtons hideCancel=true submitText="common.search"}
+		{* Buttons generate their own section *}
+		{fbvFormButtons hideCancel=true submitText="common.search"}
 	{/fbvFormArea}
 </form>

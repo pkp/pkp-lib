@@ -41,11 +41,11 @@
 				{else}
 					<div class="pkp_site_name">
 				{/if}
-                    {if $currentJournal && $multipleContexts}
-                        {url|assign:"homeUrl" journal="index" router=$smarty.const.ROUTE_PAGE}
-                    {else}
-                        {url|assign:"homeUrl" page="index" router=$smarty.const.ROUTE_PAGE}
-                    {/if}
+					{if $currentJournal && $multipleContexts}
+						{url|assign:"homeUrl" journal="index" router=$smarty.const.ROUTE_PAGE}
+					{else}
+						{url|assign:"homeUrl" page="index" router=$smarty.const.ROUTE_PAGE}
+					{/if}
 					{if $displayPageHeaderLogo && is_array($displayPageHeaderLogo)}
 						<a href="{$homeUrl}" class="is_img">
 							<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" width="{$displayPageHeaderLogo.width|escape}" height="{$displayPageHeaderLogo.height|escape}" {if $displayPageHeaderLogoAltText != ''}alt="{$displayPageHeaderLogoAltText|escape}"{else}alt="{translate key="common.pageHeaderLogo.altText"}"{/if} />

@@ -16,9 +16,9 @@
  </script>
 <ul id="navigationUser" class="pkp_navigation_user pkp_nav_list">
 	{if $isUserLoggedIn}
-        <li>
-            {include file="controllers/page/tasks.tpl"}
-        </li>
+		<li>
+			{include file="controllers/page/tasks.tpl"}
+		</li>
 		<li class="profile has-submenu">
 			<a href="{url router=$smarty.const.ROUTE_PAGE page="dashboard"}">{$loggedInUsername|escape}</a>
 			<ul>

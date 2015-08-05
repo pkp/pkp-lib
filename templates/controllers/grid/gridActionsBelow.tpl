@@ -10,8 +10,8 @@
 
 <ul class="actions btm">
 	{foreach from=$grid->getActions($smarty.const.GRID_ACTION_POSITION_BELOW) item=action}
-        <li>
-            {include file="linkAction/linkAction.tpl" action=$action contextId=$gridId}
-        </li>
+		<li>
+			{include file="linkAction/linkAction.tpl" action=$action contextId=$gridId}
+		</li>
 	{/foreach}
 </ul>

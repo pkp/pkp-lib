@@ -20,10 +20,10 @@
 	{fbvFormArea id="submissionSearchFormArea"|concat:$filterData.gridId}
 		{fbvFormSection}
 			{fbvElement type="select" name="column" id="column"|concat:$filterData.gridId from=$filterData.columns selected=$filterSelectionData.column size=$fbvStyles.size.SMALL translate=false inline="true"}
-            {fbvElement type="select" name="stageId" id="stageId"|concat:$filterData.gridId from=$filterData.workflowStages selected=$filterSelectionData.stageId size=$fbvStyles.size.SMALL translate=true inline="true"}
-            {fbvElement type="text" name="search" id="search"|concat:$filterData.gridId value=$filterSelectionData.search size=$fbvStyles.size.MEDIUM inline="true"}
+			{fbvElement type="select" name="stageId" id="stageId"|concat:$filterData.gridId from=$filterData.workflowStages selected=$filterSelectionData.stageId size=$fbvStyles.size.SMALL translate=true inline="true"}
+			{fbvElement type="text" name="search" id="search"|concat:$filterData.gridId value=$filterSelectionData.search size=$fbvStyles.size.MEDIUM inline="true"}
 		{/fbvFormSection}
-        {* Buttons generate their own section *}
-        {fbvFormButtons hideCancel=true submitText="common.search"}
+		{* Buttons generate their own section *}
+		{fbvFormButtons hideCancel=true submitText="common.search"}
 	{/fbvFormArea}
 </form>

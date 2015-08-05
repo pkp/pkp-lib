@@ -15,41 +15,41 @@
 	{rdelim});
  </script>
 <ul id="navigationUser" class="pkp_nav_list">
-    {if $multipleContexts}
-        <li class="has-submenu">
-            <a href="#">
-                <span class="fa fa-sitemap"></span>
-                {translate key="navigation.switchJournals"}
-            </a>
-            <ul>
-                {foreach from=$contextsNameAndUrl key=url item=name}
-                    <li>
-                        <a href="{$url}">
-                            {$name}
-                        </a>
-                    </li>
-                {/foreach}
-            </ul>
-        </li>
-    {/if}
-    {if $currentJournal}
-        {url|assign:"homeUrl" page="index" router=$smarty.const.ROUTE_PAGE}
-    {elseif $multipleContexts}
-        {url|assign:"homeUrl" journal="index" router=$smarty.const.ROUTE_PAGE}
-    {/if}
-    {if $homeUrl}
-        <li>
-            <a href="{$homeUrl}">
-                <span class="fa fa-eye"></span>
-                {translate key="navigation.viewFrontend"}
-            </a>
-        </li>
-    {/if}
+	{if $multipleContexts}
+		<li class="has-submenu">
+			<a href="#">
+				<span class="fa fa-sitemap"></span>
+				{translate key="navigation.switchJournals"}
+			</a>
+			<ul>
+				{foreach from=$contextsNameAndUrl key=url item=name}
+					<li>
+						<a href="{$url}">
+							{$name}
+						</a>
+					</li>
+				{/foreach}
+			</ul>
+		</li>
+	{/if}
+	{if $currentJournal}
+		{url|assign:"homeUrl" page="index" router=$smarty.const.ROUTE_PAGE}
+	{elseif $multipleContexts}
+		{url|assign:"homeUrl" journal="index" router=$smarty.const.ROUTE_PAGE}
+	{/if}
+	{if $homeUrl}
+		<li>
+			<a href="{$homeUrl}">
+				<span class="fa fa-eye"></span>
+				{translate key="navigation.viewFrontend"}
+			</a>
+		</li>
+	{/if}
 	{if $isUserLoggedIn}
 		{if array_intersect(array(ROLE_ID_SITE_ADMIN), $userRoles)}
 		<li>
 			<a href="{if $multipleContexts}{url router=$smarty.const.ROUTE_PAGE context="index" page="admin" op="index"}{else}{url router=$smarty.const.ROUTE_PAGE page="admin" op="index"}{/if}">
-                <span class="fa fa-cog"></span>
+				<span class="fa fa-cog"></span>
 				{translate key="navigation.admin"}
 			</a>
 		</li>
@@ -57,14 +57,14 @@
 		{if $isUserLoggedInAs}
 			<li class="logout">
 				<a href="{url router=$smarty.const.ROUTE_PAGE page="login" op="signOutAsUser"}">
-                    <span class="fa fa-sign-out"></span>
+					<span class="fa fa-sign-out"></span>
 					{translate key="user.logOutAs"} {$loggedInUsername|escape}
 				</a>
 			</li>
-        {else}
-		    <li class="logout">
+		{else}
+			<li class="logout">
 				<a href="{url router=$smarty.const.ROUTE_PAGE page="login" op="signOut"}">
-                    <span class="fa fa-sign-out"></span>
+					<span class="fa fa-sign-out"></span>
 					{translate key="user.logOut"}
 				</a>
 			</li>

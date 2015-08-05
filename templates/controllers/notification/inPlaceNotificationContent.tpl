@@ -9,14 +9,14 @@
  *}
 
 <div id="pkp_notification_{$notificationId|escape}"{if $notificationStyleClass} class="{$notificationStyleClass}"{/if}>
-    {if $notificationTitle}
-        <span class="title">
-            {$notificationTitle}
-        </span>
-    {/if}
-    {if $notificationContents}
-        <span class="description">
-            {$notificationContents}
-        </span>
-    {/if}
+	{if $notificationTitle}
+		<span class="title">
+			{$notificationTitle}
+		</span>
+	{/if}
+	{if $notificationContents}
+		<span class="description">
+			{$notificationContents}
+		</span>
+	{/if}
 </div>

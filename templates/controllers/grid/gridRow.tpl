@@ -19,10 +19,10 @@
 <tr {if $rowId}id="{$rowId|escape}" {/if}class="{if $rowId}element{$row->getId()|escape} {/if}gridRow{if is_a($row, 'GridCategoryRow')} category{if !$row->hasFlag('gridRowStyle')} default_category_style{/if}{/if}">
 	{foreach name=columnLoop from=$columns key=columnId item=column}
 
-        {* @todo indent columns should be killed at their source *}
-        {if $column->hasFlag('indent')}
-            {php}continue;{/php}
-        {/if}
+		{* @todo indent columns should be killed at their source *}
+		{if $column->hasFlag('indent')}
+			{php}continue;{/php}
+		{/if}
 
 		<td
 		{if $column->hasFlag('firstColumn')} class="first_column{if !$row->hasActions() && !$row->getNoActionMessage()} no_actions{/if}"{/if}

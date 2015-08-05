@@ -32,12 +32,12 @@
 		{foreach from=$workflowStages item=stage}
 			<li class="pkp_workflow_{$stage.path} stageId{$stage.id}{if $stage.statusKey} initiated{/if}">
 				<a href="{url router=$smarty.const.ROUTE_COMPONENT component="tab.workflow.WorkflowTabHandler" op="fetchTab" submissionId=$submission->getId() stageId=$stage.id escape=false}">
-                    {translate key=$stage.translationKey}
-                    {if $stage.statusKey}
-                    <span class="pkp_screen_reader">
-                        {translate key=$stage.statusKey}
-                    </span>
-                    {/if}
+					{translate key=$stage.translationKey}
+					{if $stage.statusKey}
+					<span class="pkp_screen_reader">
+						{translate key=$stage.statusKey}
+					</span>
+					{/if}
 				</a>
 			</li>
 		{/foreach}

@@ -31,7 +31,7 @@
 		<script src="{$baseUrl}/lib/pkp/lib/vendor/components/jqueryui/{if $useMinifiedJavaScript}jquery-ui.min.js{else}jquery-ui.js{/if}"></script>
 	{/if}
 
-    {load_stylesheet context="frontend" stylesheets=$stylesheets}
+	{load_stylesheet context="frontend" stylesheets=$stylesheets}
 
 	{* Form validator used on search form *}
 	{include file="common/validate.tpl"}

@@ -42,10 +42,10 @@
 			{** build the column headers **}
 			<tr>
 				{foreach name=columns from=$columns item=column}
-                    {* @todo indent columns should be killed at their source *}
-                    {if $column->hasFlag('indent')}
-                        {php}continue;{/php}
-                    {/if}
+					{* @todo indent columns should be killed at their source *}
+					{if $column->hasFlag('indent')}
+						{php}continue;{/php}
+					{/if}
 					{if $column->hasFlag('alignment')}
 						{assign var=alignment value=$column->getFlag('alignment')}
 					{else}
@@ -94,19 +94,19 @@
 		</div>
 	{/if}
 
-    {if !empty($grid->getActions($smarty.const.GRID_ACTION_POSITION_BELOW)) || !empty($grid->getFootNote())}
-    <div class="footer">
+	{if !empty($grid->getActions($smarty.const.GRID_ACTION_POSITION_BELOW)) || !empty($grid->getFootNote())}
+	<div class="footer">
 
-        {if !empty($grid->getActions($smarty.const.GRID_ACTION_POSITION_BELOW))}
-            {include file="controllers/grid/gridActionsBelow.tpl" actions=$grid->getActions($smarty.const.GRID_ACTION_POSITION_BELOW) gridId=$staticId}
-        {/if}
+		{if !empty($grid->getActions($smarty.const.GRID_ACTION_POSITION_BELOW))}
+			{include file="controllers/grid/gridActionsBelow.tpl" actions=$grid->getActions($smarty.const.GRID_ACTION_POSITION_BELOW) gridId=$staticId}
+		{/if}
 
-        {if !empty($grid->getFootNote())}
-            <div class="footnote">
-        		{translate key=$grid->getFootNote()}
-            </div>
-    	{/if}
-    </div>
-    {/if}
+		{if !empty($grid->getFootNote())}
+			<div class="footnote">
+				{translate key=$grid->getFootNote()}
+			</div>
+		{/if}
+	</div>
+	{/if}
 
 </div>

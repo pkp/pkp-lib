@@ -20,9 +20,9 @@
 		</script>
 		<ul id="{$editorDecisionActionsId}" class="pkp_workflow_decisions">
 			{foreach from=$editorActions item=action}
-                <li>
-                    {include file="linkAction/linkAction.tpl" action=$action contextId=$contextId}
-                </li>
+				<li>
+					{include file="linkAction/linkAction.tpl" action=$action contextId=$contextId}
+				</li>
 			{/foreach}
 		</ul>
 	{/if}

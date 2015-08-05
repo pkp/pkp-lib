@@ -14,26 +14,26 @@
 * called updateUnreadNotificationsCount.
 *}
 <script type="text/javascript">
-    // Initialise JS handler.
-    $(function() {ldelim}
-        $('#userTasks').pkpHandler(
-            '$.pkp.pages.header.TasksHandler',
-            {ldelim}
-                requestedPage: '{$requestedPage|escape:"javascript"}',
-                fetchUnreadNotificationsCountUrl: '{url|escape:javascript router=$smarty.const.ROUTE_COMPONENT component="grid.notifications.NotificationsGridHandler" op="getUnreadNotificationsCount"}'
-            {rdelim}
-        );
-    {rdelim});
+	// Initialise JS handler.
+	$(function() {ldelim}
+		$('#userTasks').pkpHandler(
+			'$.pkp.pages.header.TasksHandler',
+			{ldelim}
+				requestedPage: '{$requestedPage|escape:"javascript"}',
+				fetchUnreadNotificationsCountUrl: '{url|escape:javascript router=$smarty.const.ROUTE_COMPONENT component="grid.notifications.NotificationsGridHandler" op="getUnreadNotificationsCount"}'
+			{rdelim}
+		);
+	{rdelim});
 </script>
 <div id="userTasks">
-    <a href="#" id="notificationsToggle">
-    	{translate key="common.tasks"}
-        <span id="unreadNotificationCount" class="task-count{if $unreadNotificationCount} hasTasks{/if}">
-            {$unreadNotificationCount}
-        </span>
-    </a>
-    <div id="notificationsPopover" class="panel">
-    	{url|assign:notificationsGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.notifications.NotificationsGridHandler" op="fetchGrid" escape=false}
-    	{load_url_in_div id="notificationsGrid" url=$notificationsGridUrl}
-    </div>
+	<a href="#" id="notificationsToggle">
+		{translate key="common.tasks"}
+		<span id="unreadNotificationCount" class="task-count{if $unreadNotificationCount} hasTasks{/if}">
+			{$unreadNotificationCount}
+		</span>
+	</a>
+	<div id="notificationsPopover" class="panel">
+		{url|assign:notificationsGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.notifications.NotificationsGridHandler" op="fetchGrid" escape=false}
+		{load_url_in_div id="notificationsGrid" url=$notificationsGridUrl}
+	</div>
 </div>

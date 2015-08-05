@@ -12,51 +12,51 @@
 
 // Left navigation panel
 .pkp_structure_head {
-    width: 192px;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 3;
-    background: @primary;
+	width: 192px;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 3;
+	background: @primary;
 
-    .pkp_navigation {
-        width: 100%;
-    }
+	.pkp_navigation {
+		width: 100%;
+	}
 
-    .pkp_site_name {
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-        padding: 0;
-        background: @lift;
+	.pkp_site_name {
+		width: 100%;
+		max-width: 100%;
+		margin: 0;
+		padding: 0;
+		background: @lift;
 
-        a {
-            display: block;
+		a {
+			display: block;
 
-            &.is_img {
-                padding: @base 0;
-                min-height: 96px;
-            }
+			&.is_img {
+				padding: @base 0;
+				min-height: 96px;
+			}
 
-            &.is_text {
-                padding: @base;
-                font-size: @font-sml;
-                line-height: @line-sml;
-                font-weight: @bold;
-                text-align: center;
-                text-decoration: none;
-            }
-        }
+			&.is_text {
+				padding: @base;
+				font-size: @font-sml;
+				line-height: @line-sml;
+				font-weight: @bold;
+				text-align: center;
+				text-decoration: none;
+			}
+		}
 
-        img {
-            display: block;
-            margin: 0 auto;
-            padding: 0;
-            max-height: 96px;
-        }
-    }
+		img {
+			display: block;
+			margin: 0 auto;
+			padding: 0;
+			max-height: 96px;
+		}
+	}
 }
 
 // Shared vertical navigation menu with support for nested hierarchy
@@ -64,14 +64,14 @@
 	margin: 0;
 	padding: 0;
 	list-style: none;
-    font-size: @font-sml;
+	font-size: @font-sml;
 
-    li {
-        position: relative;
-        display: block;
-    }
+	li {
+		position: relative;
+		display: block;
+	}
 
-    ul {
+	ul {
 		position: absolute;
 		top: 0;
 		left: -9999px;
@@ -79,195 +79,195 @@
 		width: 192px;
 		padding: 0;
 		background: @primary-lift;
-    }
+	}
 
-    li:hover > ul,
-    li:focus > ul,
-    li.in_focus > ul {
-        left: 100%;
-    }
+	li:hover > ul,
+	li:focus > ul,
+	li.in_focus > ul {
+		left: 100%;
+	}
 
-    .has-submenu > a:after {
-        border-left: 4px solid;
-        border-top: 4px solid transparent;
-        border-bottom: 4px solid transparent;
-        border-right: 4px solid transparent;
-    }
+	.has-submenu > a:after {
+		border-left: 4px solid;
+		border-top: 4px solid transparent;
+		border-bottom: 4px solid transparent;
+		border-right: 4px solid transparent;
+	}
 
 	a {
 		display: block;
-        padding: 12px @base 12px @half; // 48 height with line height
-        line-height: @line-base;
-        border-left: @half solid transparent;
+		padding: 12px @base 12px @half; // 48 height with line height
+		line-height: @line-base;
+		border-left: @half solid transparent;
 		color: #fff;
 		text-decoration: none;
 
 		&:hover,
 		&:focus {
-            border-color: @bg;
+			border-color: @bg;
 			background: @primary-lift;
 			color: #fff;
 
-            .fa {
-                color: #fff;
-            }
+			.fa {
+				color: #fff;
+			}
 		}
 
-        &:focus {
-            outline: none;
-        }
+		&:focus {
+			outline: none;
+		}
 	}
 
-    ul a:hover,
-    ul a:focus {
-        background: @primary;
-    }
+	ul a:hover,
+	ul a:focus {
+		background: @primary;
+	}
 
-    .fa {
-        margin-right: 0.5em;
-        color: @primary-lift;
-    }
+	.fa {
+		margin-right: 0.5em;
+		color: @primary-lift;
+	}
 
-    .logout .fa {
-        color: @offset;
-    }
+	.logout .fa {
+		color: @offset;
+	}
 }
 
 // Primary navigation menu
 .pkp_navigation_primary {
-    position: relative;
-    bottom: auto;
-    left: auto;
+	position: relative;
+	bottom: auto;
+	left: auto;
 
-    .pkp_tasks {
+	.pkp_tasks {
 
-        a {
-            background: @offset;
+		a {
+			background: @offset;
 
-            &:hover,
-            &:focus {
-                background: @offset-shade;
-            }
-        }
-    }
+			&:hover,
+			&:focus {
+				background: @offset-shade;
+			}
+		}
+	}
 }
 
 // User-specific navigation menu
 .pkp_navigation_user {
-    position: fixed;
-    bottom: 0;
-    top: auto;
-    left: 0;
-    width: 192px;
+	position: fixed;
+	bottom: 0;
+	top: auto;
+	left: 0;
+	width: 192px;
 
-    a {
-        padding: @half @base @half @half;
-    }
+	a {
+		padding: @half @base @half @half;
+	}
 
-    // This is the first-level links: .pkp_navigation_user is not attached to
-    // the parent <ul> but wraps it.
-    > ul > li > a {
-        padding-bottom: @half - 1; // border
-        background: @lift;
-        color: @text-light;
-        color: @text-light-rgba;
-        border-bottom: 1px solid @bg;
-    }
+	// This is the first-level links: .pkp_navigation_user is not attached to
+	// the parent <ul> but wraps it.
+	> ul > li > a {
+		padding-bottom: @half - 1; // border
+		background: @lift;
+		color: @text-light;
+		color: @text-light-rgba;
+		border-bottom: 1px solid @bg;
+	}
 
-    // Loading placeholder
-    .pkp_loading {
-        background: @lift;
-        padding: @half @base;
-        font-size: @font-sml;
-        line-height: @line-base;
-        color: @text-light;
-        color: @text-light-rgba;
-    }
+	// Loading placeholder
+	.pkp_loading {
+		background: @lift;
+		padding: @half @base;
+		font-size: @font-sml;
+		line-height: @line-base;
+		color: @text-light;
+		color: @text-light-rgba;
+	}
 }
 
 // Tasks panel
 .pkp_tasks {
-    position: relative;
+	position: relative;
 
-    .task-count {
-        display: inline-block;
-        width: 22px;
-        height: 22px;
-        line-height: 22px;
-        border-radius: 50%;
-        background: #fff;
-        color: @primary;
-        vertical-align: middle;
-        text-align: center;
-    }
+	.task-count {
+		display: inline-block;
+		width: 22px;
+		height: 22px;
+		line-height: 22px;
+		border-radius: 50%;
+		background: #fff;
+		color: @primary;
+		vertical-align: middle;
+		text-align: center;
+	}
 
-    .pkp_spinner,
-    .task-count {
-        margin-left: 0.25em;
-    }
+	.pkp_spinner,
+	.task-count {
+		margin-left: 0.25em;
+	}
 
-    .panel {
-        display: none;
-        position: absolute;
-        top: 0;
-        left: 100%;
-        width: 384px - @double;
-        padding: @base;
-        background: @lift;
-        box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+	.panel {
+		display: none;
+		position: absolute;
+		top: 0;
+		left: 100%;
+		width: 384px - @double;
+		padding: @base;
+		background: @lift;
+		box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
 
-        a {
-            padding: 0;
-            border: none;
-            background: transparent;
-            color: @primary-lift;
+		a {
+			padding: 0;
+			border: none;
+			background: transparent;
+			color: @primary-lift;
 
-            &:hover,
-            &:focus {
-                background: transparent;
-                color: @primary;
-            }
-        }
-    }
+			&:hover,
+			&:focus {
+				background: transparent;
+				color: @primary;
+			}
+		}
+	}
 
-    // Leave the header for screen readers but don't show it
-    thead {
-        position: absolute;
-        top: 0;
-        left: -9999px;
-    }
+	// Leave the header for screen readers but don't show it
+	thead {
+		position: absolute;
+		top: 0;
+		left: -9999px;
+	}
 
-    // No top border on the first task
-    .gridRow:first-child {
-        border-top: none;
-    }
+	// No top border on the first task
+	.gridRow:first-child {
+		border-top: none;
+	}
 
-    // Vertically center the checkbox
-    // Extra specifity ftw
-    .panel td {
-        vertical-align: middle;
-    }
+	// Vertically center the checkbox
+	// Extra specifity ftw
+	.panel td {
+		vertical-align: middle;
+	}
 
-    // @todo hack on top of a hack. Overrides the padding-left: 32px attached to
-    // .pkp_page_dashboard .pkp_controllers_grid tbody:not(.empty) td:first-child
-    #notificationsGrid .gridRow td:first-child {
-        padding-left: 0;
-    }
+	// @todo hack on top of a hack. Overrides the padding-left: 32px attached to
+	// .pkp_page_dashboard .pkp_controllers_grid tbody:not(.empty) td:first-child
+	#notificationsGrid .gridRow td:first-child {
+		padding-left: 0;
+	}
 
-    .pkp_controllers_grid {
-        margin-bottom: 0;
-    }
+	.pkp_controllers_grid {
+		margin-bottom: 0;
+	}
 
-    // Override <ul> styles attached to navigation menu
-    .actions.btm {
-        position: relative;
-        top: auto;
-        left: auto;
-        background: transparent;
-        width: auto;
+	// Override <ul> styles attached to navigation menu
+	.actions.btm {
+		position: relative;
+		top: auto;
+		left: auto;
+		background: transparent;
+		width: auto;
 
-        .pkp_linkaction_deleteNotifications {
-            color: @offset;
-        }
-    }
+		.pkp_linkaction_deleteNotifications {
+			color: @offset;
+		}
+	}
 }

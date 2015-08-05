@@ -495,10 +495,10 @@ class Mail extends DataObject {
 		}
 
 		try {
-		    $mailer->Send();
+			$mailer->Send();
 		} catch (phpmailerException $e) {
-		    error_log($mailer->ErrorInfo);
-		    return false;
+			error_log($mailer->ErrorInfo);
+			return false;
 		}
 		return true;
 	}

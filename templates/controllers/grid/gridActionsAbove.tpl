@@ -10,8 +10,8 @@
 
 <ul class="actions">
 	{foreach from=$actions item=action}
-        <li>
-		    {include file="linkAction/linkAction.tpl" action=$action contextId=$gridId}
-        </li>
+		<li>
+			{include file="linkAction/linkAction.tpl" action=$action contextId=$gridId}
+		</li>
 	{/foreach}
 </ul>

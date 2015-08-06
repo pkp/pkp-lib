@@ -36,7 +36,7 @@ class AuthorDashboardTabHandler extends Handler {
 	 */
 	function authorize($request, &$args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.AuthorDashboardAccessPolicy');
-                $this->addPolicy(new AuthorDashboardAccessPolicy($request, $args, $roleAssignments), true);
+		$this->addPolicy(new AuthorDashboardAccessPolicy($request, $args, $roleAssignments), true);
 
 		return parent::authorize($request, $args, $roleAssignments);
 	}

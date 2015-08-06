@@ -77,16 +77,16 @@ class QueriesGridRow extends GridRow {
 				);
 
 				import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
-	                        $this->addAction(
-	                                new LinkAction(
-	                                        'deleteQuery',
-	                                        new RemoteActionConfirmationModal(
-	                                                __('common.confirmDelete'),
-	                                                __('grid.action.delete'),
-	                                                $router->url($request, null, null, 'deleteQuery', null, $actionArgs), 'modal_delete'),
-	                                        __('grid.action.delete'),
-	                                        'delete')
-	                        );
+				$this->addAction(
+					new LinkAction(
+						'deleteQuery',
+						new RemoteActionConfirmationModal(
+							__('common.confirmDelete'),
+							__('grid.action.delete'),
+							$router->url($request, null, null, 'deleteQuery', null, $actionArgs), 'modal_delete'),
+						__('grid.action.delete'),
+						'delete')
+				);
 			}
 		}
 	}

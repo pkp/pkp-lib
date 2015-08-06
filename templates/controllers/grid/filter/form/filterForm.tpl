@@ -10,10 +10,10 @@
 
 {assign var="uid" value="-"|uniqid}
 <script>
-        $(function() {ldelim}
-                // Attach the form handler.
-                $('#editFilterForm{$uid|escape:"javascript"}').pkpHandler(
-                        '$.pkp.controllers.grid.filter.form.FilterFormHandler',
+		$(function() {ldelim}
+				// Attach the form handler.
+				$('#editFilterForm{$uid|escape:"javascript"}').pkpHandler(
+						'$.pkp.controllers.grid.filter.form.FilterFormHandler',
 			{ldelim}
 				noMoreTemplates: {if $noMoreTemplates}true{else}false{/if},
 				filterTemplates: {if $filterTemplates}true{else}false{/if},
@@ -21,7 +21,7 @@
 				pulldownSelector: '#filterTemplateSelect{$uid|escape:"javascript"}',
 			{rdelim}
 		);
-        {rdelim});
+		{rdelim});
 </script>
 
 <form class="pkp_form" id="editFilterForm{$uid|escape}" method="post" action="{url op="updateFilter"}" >

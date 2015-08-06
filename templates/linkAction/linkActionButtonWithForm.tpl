@@ -13,6 +13,6 @@
  *}
 <div id="{$buttonId|escape}">
 	{include file="linkAction/linkActionButton.tpl" buttonId=$buttonId|concat:"-link" action=$action}
-	<form action="#" method="post">		
+	<form action="#" method="post">
 	</form>
 </div>

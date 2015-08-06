@@ -109,7 +109,7 @@ class SubmissionsListGridHandler extends GridHandler {
 				null,
 				$cellProvider,
 				array('html' => true,
-				      'alignment' => COLUMN_ALIGNMENT_LEFT)
+					'alignment' => COLUMN_ALIGNMENT_LEFT)
 			)
 		);
 		$this->addColumn(

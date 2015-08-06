@@ -30,10 +30,8 @@
 <div id="submissionWorkflow">
 
 {url|assign:submissionHeaderUrl op="submissionHeader" submissionId=$submission->getId() stageId=$stageId contextId="submission" escape=false}
-{load_url_in_div id="submissionHeaderDiv" url=$submissionHeaderUrl class="submissionHeader"}
+{load_url_in_div id="submissionHeaderDiv" url=$submissionHeaderUrl class="pkp_page_header"}
 
 {include file="controllers/notification/inPlaceNotification.tpl" notificationId="workflowNotification" requestOptions=$workflowNotificationRequestOptions}
-<br />
-<div class="pkp_helpers_clear"></div>
 
 {include file="common/footer.tpl"}

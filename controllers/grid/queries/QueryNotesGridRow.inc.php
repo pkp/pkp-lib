@@ -63,16 +63,16 @@ class QueryNotesGridRow extends GridRow {
 			// Add row-level actions
 			if ($this->_queryNotesGrid->getCanManage($this->getData())) {
 				import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
-	                        $this->addAction(
-	                                new LinkAction(
-	                                        'deleteNote',
-	                                        new RemoteActionConfirmationModal(
-	                                                __('common.confirmDelete'),
-	                                                __('grid.action.delete'),
-	                                                $router->url($request, null, null, 'deleteNote', null, $actionArgs), 'modal_delete'),
-	                                        __('grid.action.delete'),
-	                                        'delete')
-	                        );
+				$this->addAction(
+					new LinkAction(
+						'deleteNote',
+						new RemoteActionConfirmationModal(
+							__('common.confirmDelete'),
+							__('grid.action.delete'),
+							$router->url($request, null, null, 'deleteNote', null, $actionArgs), 'modal_delete'),
+						__('grid.action.delete'),
+						'delete')
+				);
 			}
 		}
 	}

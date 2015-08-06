@@ -95,14 +95,13 @@
 
 		var $submissionHeader = this.getHtmlElement(),
 				$participantsPopover = $submissionHeader.find('.participant_popover'),
-				$participantsListElement = $submissionHeader.find('li.participants'),
-				$participantsToggle = $submissionHeader.find('#participantToggle');
+				$participantsListElement = $submissionHeader.find(
+				'.pkp_submission_actions .participants');
 
-		$participantsPopover.toggle();
-		$participantsListElement.toggleClass('expandedIndicator');
-		$participantsToggle.toggleClass('expandedIndicator');
+		$participantsPopover.toggleClass('is_visible');
+		$participantsListElement.toggleClass('is_open');
 
-		if ($participantsListElement.hasClass('expandedIndicator')) {
+		if ($participantsListElement.hasClass('is_open')) {
 			this.trigger('callWhenClickOutside', [{
 				container: $participantsPopover.add($participantsListElement),
 				callback: this.callbackWrapper(this.appendToggleIndicator_),

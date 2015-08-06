@@ -505,11 +505,11 @@
 
 							// Get the next unapproved citation:
 							// 1) First try to find an unapproved citation
-							//    after the current citation.
+							//	after the current citation.
 							$nextUnapproved = $('#component-grid-citation-citationgrid-row-{$citation->getId()} ~ .unapproved-citation')
 								.first();
 							// 2) If that wasn't successful then try to find
-							//    an unapproved citation from the top of the list.
+							//	an unapproved citation from the top of the list.
 							if (!$nextUnapproved.length) {ldelim}
 								$nextUnapproved = $('.unapproved-citation:not(#component-grid-citation-citationgrid-row-{$citation->getId()})')
 									.first();
@@ -546,10 +546,10 @@
 							if ($('#citationFormMessages').length == 0) {ldelim}
 								var formErrorHtml =
 									'<div id="citationFormMessages" title="{translate key="submission.citations.editor.details.clickToDismissMessage"}" class="help-message">'+
-									'    <div id="pkp_form_errors">'+
-									'        <p><span class="pkp_form_error">{translate key="submission.citations.editor.details.messages"}:</span></p>'+
-									'        <ul class="pkp_form_error_list"></ul>'+
-									'    </div>'+
+									'	<div id="pkp_form_errors">'+
+									'		<p><span class="pkp_form_error">{translate key="submission.citations.editor.details.messages"}:</span></p>'+
+									'		<ul class="pkp_form_error_list"></ul>'+
+									'	</div>'+
 									'</div>';
 								$('#citationFormErrorsAndComparison').prepend(formErrorHtml);
 							{rdelim}

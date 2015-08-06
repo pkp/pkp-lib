@@ -8,11 +8,15 @@
  * Display a single notification for in place notifications data.
  *}
 
-<div id="pkp_notification_{$notificationId|escape}" class="notification_block {$notificationStyleClass}">
-	<h4>{$notificationTitle}{if substr($notificationTitle,-1)!='.'}:{/if}</h4>
-	<span class="description">
-		{if $notificationContents}
-			<p>{$notificationContents}</p>
-		{/if}
-	</span>
+<div id="pkp_notification_{$notificationId|escape}"{if $notificationStyleClass} class="{$notificationStyleClass}"{/if}>
+	{if $notificationTitle}
+		<span class="title">
+			{$notificationTitle}
+		</span>
+	{/if}
+	{if $notificationContents}
+		<span class="description">
+			{$notificationContents}
+		</span>
+	{/if}
 </div>

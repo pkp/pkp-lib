@@ -1,0 +1,75 @@
+//
+// Common variables
+//
+// These variables set common standards to be used throughout pkp-lib and its
+// associated projects. Unless a particular project is deliberately supposed
+// to be distinguished in style, such as a custom theme, it should make use of
+// these variables to define common sizing, colors and typography.
+//
+
+//
+// Colors
+//
+
+// Background
+@bg:			#ddd;
+@shade:			#888;
+@lift:			#fff;
+
+// Primary "anchor" color for backgrounds and links
+@primary:		#113241;
+@primary-lift:		#007ab2;
+
+// Offset "highlight" color
+@offset:		#D00A6C;
+@offset-shade:		#B50E61;
+
+// Yes/no, success/error, on/off, go/stop, etc
+@yes:			#00B24E;
+@no:			@offset;
+@warn:			@offset;
+
+// Text
+@text:			#222;
+@text-rgba:		rgba(0, 0, 0, 0.84);
+@text-light:		#777;
+@text-light-rgba:	rgba(0, 0, 0, 0.54);
+
+// Border colors
+@bg-border-color:	#bbb;
+
+//
+// Spacing
+//
+// The baseline size should be used to achieve consistent vertical rhythm. All
+// vertical margins, padding, line-height and block heights should use a
+// multiple of this baseline (or half/quarter). Where appropriate, horizontal
+// spacings should also use this baseline. However, in some cases with inline
+// elements it is more appropriate to use an `em` spacing.
+//
+@base:			16px;
+@half:			@base / 2;
+@double:		@base * 2;
+
+//
+// Typography
+//
+@font:                   "Noto Sans", Arial, Helvetica, sans-serif;
+@font-sml:		14px;
+@line-sml:		24px;
+@font-base:		16px;
+@line-base:		24px;
+@font-lead:		24px;
+@line-lead:		@double;
+@font-header:		36px;
+@line-header:		@double + @base;
+
+// Font weights
+@normal:		400;
+@bold:			700;
+
+//
+// Borders
+//
+@bg-border:		1px solid @bg-border-color;
+@radius:		5px;

@@ -47,11 +47,6 @@
 				' to an HTML form element!'].join(''));
 		}
 
-		// Transform all form buttons with jQueryUI.
-		if (options.transformButtons !== false) {
-			$('.button', $form).button();
-		}
-
 		// Activate and configure the validation plug-in.
 		if (options.submitHandler) {
 			this.callerSubmitHandler_ = options.submitHandler;
@@ -116,7 +111,6 @@
 		// Attach handler to suggest username button (if present)
 		$('[id^="suggestUsernameButton"]', $form).click(
 				this.callbackWrapper(this.generateUsername));
-
 
 		// Initial form validation.
 		if (validator.checkForm()) {
@@ -238,7 +232,6 @@
 	 */
 	$.pkp.controllers.form.FormHandler.prototype.showErrors =
 			function(validator, errorMap, errorList) {
-
 		// ensure that rich content elements have their
 		// values stored before validation.
 		if (typeof tinyMCE !== 'undefined') {
@@ -501,7 +494,7 @@
 			return;
 		}
 
-		$(formElement).find('.pkp_helpers_progressIndicator').show();
+		this.showSpinner_();
 
 		this.trigger('unregisterChangedForm');
 
@@ -555,7 +548,7 @@
 		elementId = $(sourceElement).attr('id');
 		targetElement = $(formElement).find(
 				"[id^='" + this.enableDisablePairs_[elementId] + "']");
-	
+
 		if ($(sourceElement).is(':checked')) {
 			$(targetElement).prop('disabled', false);
 		} else {
@@ -671,6 +664,30 @@
 				!$(ele).parent().parents('.ui-datepicker').length) {
 			$(form).find('.hasDatepicker').datepicker('hide');
 		}
+	};
+
+
+	/**
+	 * Add a class to the spinner to indicate it should be visible
+	 *
+	 * @private
+	 */
+	$.pkp.controllers.form.FormHandler.prototype.showSpinner_ =
+			function() {
+		this.getHtmlElement()
+				.find('.formButtons .pkp_spinner').addClass('is_visible');
+	};
+
+
+	/**
+	 * Add a class to the spinner to indicate it should be visible
+	 *
+	 * @private
+	 */
+	$.pkp.controllers.form.FormHandler.prototype.hideSpinner_ =
+			function() {
+		this.getHtmlElement()
+				.find('.formButtons .pkp_spinner').removeClass('is_visible');
 	};
 
 /** @param {jQuery} $ jQuery closure. */

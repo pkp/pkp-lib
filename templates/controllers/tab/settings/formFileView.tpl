@@ -9,10 +9,24 @@
  *
  *}
 
-<div class="inline">
-	{translate key="common.fileName"}: <a href="{$publicFilesDir}/{$file.uploadName|escape:"url"}?{$file.dateUploaded}" class="file">{$file.name|escape}</a>
-	{$file.dateUploaded|date_format:$datetimeFormatShort}
-</div>
-<div id="{$deleteLinkAction->getId()}" class="pkp_linkActions inline">
-	{include file="linkAction/linkAction.tpl" action=$deleteLinkAction contextId=$fileSettingName}
+<div class="pkp_form_file_view">
+
+	<div class="data">
+		<span class="title">
+			{translate key="common.fileName"}
+		</span>
+		<span class="value">
+			<a href="{$publicFilesDir}/{$file.uploadName|escape:"url"}?{$file.dateUploaded}" class="file">{$file.name|escape}</a>
+		</span>
+		<span class="title">
+			{translate key="common.uploadedDate"}
+		</span>
+		<span class="value">
+			{$file.dateUploaded|date_format:$datetimeFormatShort}
+		</span>
+
+		<div id="{$deleteLinkAction->getId()}" class="actions">
+			{include file="linkAction/linkAction.tpl" action=$deleteLinkAction contextId=$fileSettingName}
+		</div>
+	</div>
 </div>

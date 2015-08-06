@@ -32,10 +32,9 @@
 
 	<div class="wrapper">
 		{include file="controllers/grid/gridHeader.tpl"}
-		{include file="controllers/listbuilder/listbuilderTable.tpl}
+		{include file="controllers/listbuilder/listbuilderTable.tpl"}
 		{if $hasOrderLink}
 			{include file="controllers/grid/gridOrderFinishControls.tpl" gridId=$staticId}
 		{/if}
 	</div>
 </div>
-

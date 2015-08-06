@@ -56,7 +56,7 @@ abstract class PKPInstallationTest extends WebTestCase {
 
 		// Execute
 		$this->clickAndWait('css=[id^=submitFormButton-]');
-		$this->waitForElementPresent('link=Login');
+		$this->waitForElementPresent('link=login');
 		$this->waitJQuery();
 	}
 }

@@ -494,10 +494,10 @@ class Mail extends DataObject {
 			);
 		}
 
-		if (!$mailer->Send()) {
-			if (Config::getVar('debug', 'display_errors')) {
-				fatalError($mailer->ErrorInfo);
-			}
+		try {
+			$mailer->Send();
+		} catch (phpmailerException $e) {
+			error_log($mailer->ErrorInfo);
 			return false;
 		}
 		return true;

@@ -336,6 +336,7 @@ class FormBuilderVocabulary {
 		foreach ($params as $key => $value) {
 			switch ($key) {
 				case 'inline':
+				case 'translate':
 					break;
 				case 'label':
 				case 'type':

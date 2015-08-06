@@ -10,135 +10,353 @@
  * @brief Classes for grid structure
  */
 
-div.pkp_controllers_grid {
-	
-	margin-top: 20px;
-	
-	.scrollable {
-		max-height: 150px;
-		overflow: auto;
-		position: relative; 
+.pkp_controllers_grid {
+	position: relative;
+	margin-bottom: @double * 2;
 
-		tr.gridRow td:last-child {
-			padding-right: 10px !important;
+	.header,
+	.footer {
+		.pkp_helpers_clear;
+	}
+
+	// Header
+	.header {
+		position: relative;
+
+		h4 {
+			display: inline-block;
+			font-size: @font-base;
+			margin: 0;
 		}
-	
-		.loading_container {
-			background-color: white;
-			position: absolute;
-			width: 100%;
-			padding-top: 0px;
+	}
+
+	// Footer
+	.footer {
+		background: @bg;
+		padding-left: 1em;
+		padding-right: 1em;
+	}
+
+	// Actions (header + footer )
+	.actions {
+		display: inline-block;
+		float: right;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
+		li {
+			display: inline-block;
+			margin-right: 1em;
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+
+		a {
+			display: inline-block;
+			line-height: @double;
+			font-size: @font-sml;
+			text-decoration: none;
 		}
 	}
 
-	a.search_extras_expand, a.search_extras_collapse {
-		float: right !important;
+	// Search filter
+	.pkp_linkaction_search {
+		&:extend( .fa );
+		padding: 0 1px; // 1px prevents aliased icon from getting clipped at the edge
+		background: transparent;
+		transition: all 0.3s ease;
+
+		&:before {
+			margin-right: 0.25em;
+		}
 	}
 
-	div.actions {
-		margin-top: 10px;
+	.pkp_linkaction_search:before {
+		content: @fa-var-search-plus;
 	}
 
+	.pkp_linkaction_search.is_open {
+		padding: 0 1em;
+		background: @bg;
+	}
+
+	.pkp_linkaction_search.is_open:before {
+		content: @fa-var-search-minus;
+	}
+
+	// Search filter
+	.filter {
+		padding: @base;
+		background: @bg;
+		font-size: @font-sml;
+
+		.section {
+			margin-bottom: @half;
+		}
+
+		.pkp_spinner {
+			display: none;
+		}
+	}
+
+	// Description
+	> .description {
+		margin-top: @half / 2; // but single-line description heights to 32px
+		margin-bottom: @half / 2;
+		font-size: @font-sml;
+		line-height:  @line-sml;
+		color: @text-light;
+		color: @text-light-rgba;
+	}
+
+	// Grid rows
 	table {
 		width: 100%;
 	}
 
-	thead, tr.gridRow td, tr.row_controls td, .empty td {
-		border-bottom: 1px solid #dedede;
+	tr {
+		position: static;
 	}
 
-	tr.gridRow:last-child td {
-		border-bottom: none !important;
+	// Content rows only
+	.gridRow {
+		border-top: 1px solid @bg;
 	}
-	
-	tr.gridRow td {
+
+	th,
+	td {
+		padding: 0;
+		padding-left: 1em;
 		vertical-align: top;
-		padding: 6px 0 6px 12px;
 	}
 
-	tr.mouse_over {
-		background-color: #F7F5F4;
-	}
-	
-	tr.category {
-		background-color: #f2f2f2;
-		border-top: 1px solid #dedede;
-		border-bottom: 1px solid #dedede;
-		height: 32px;
-		
-		span.category_items_number {
-			font-size: 90%;
-			color: #6d6d6d;
-		}	
-	}
-	
-	.empty td {
-		padding-left: 10px;
-		text-align: left;
-		height: 30px;
-	}
-	
-	thead tr {
-		height: 30px; /* Must be set for tr rather than th for Chromium. */
-		padding: 4px 0;
-	}
+	thead {
+		background: @bg;
+		font-size: @font-sml;
+		line-height: @double;
+		color: @text-light;
+		color: @text-light-rgba;
+		border-top: 1px solid #fff; // divider between form when form opened
 
-	thead th {
-		padding: 0 12px; /* Padding top/bottom must be 0 for IE7 compatibility. */
-		vertical-align: middle;
-		text-align: center;
-		font-size: 80%;
-		color:#888;
-	}
-
-	thead th:first-child {
-		padding-left: 35px;
+		th {
+			font-weight: @normal;
+		}
 	}
 
 	td {
-		color: #777777;
+		position: relative;
+		padding-top: @half;
+		padding-bottom: @half;
+		line-height: @line-base;
+	}
+
+	// Empty row
+	.empty td {
+		padding: 8px 0;
+		font-size: @font-sml;
+		line-height: @line-base;
+		color: @text-light;
+		color: @text-light-rgba;
 		text-align: center;
-		font-size: 100%;
-		padding: 0px;
 	}
 
-	th:first-child, td:first-child, td.first_column, .category_grid_body td:first-child + td {
-		text-align: left !important;
+	// Expand/collapse row actions
+	.sprite.show_extras,
+	.sprite.hide_extras,
+	.pkp_linkaction_moveItem {
+		position: absolute;
+		top: @half; // matches td padding
+		left: 0;
+		width: @double;
+		height: @line-base; // matches td line-height
+		line-height: @line-base;
+		text-align: center;
+		cursor: pointer;
+		text-decoration: none;
 	}
 
-	td.first_column {
-		color: #333333;
+	.sprite.show_extras:before {
+		&:extend( .pkp_caret );
+		&:extend( .pkp_caret_right );
+		margin-top: -4px;
 	}
 
-	td.category {
-		display: table-row;
+	.sprite.hide_extras:before {
+		&:extend( .pkp_caret );
+		&:extend( .pkp_caret_down );
+		margin-top: -2px;
 	}
-	
+
+	// Ordering items
+	.pkp_linkaction_moveItem {
+		&:extend( .fa );
+
+		&:before {
+			content: @fa-var-sort;
+		}
+	}
+
+	.ordering:hover {
+		background: @bg;
+	}
+
+	.order_finish_controls {
+		margin-top: @base;
+		text-align: right;
+
+		.saveButton {
+			&:extend( .pkp_button );
+
+			&:hover,
+			&:focus {
+				&:extend( .pkp_button:hover );
+			}
+
+			&[disabled] {
+				&:extend(.pkp_button[disabled]);
+			}
+		}
+
+		.cancelFormButton {
+			margin-left: 1em;
+			color: @no;
+		}
+	}
+
+
+	// Infinite scroll
+	.scrollable {
+		position: relative;
+		max-height: 15em;
+		overflow: auto;
+	}
+
+	// Row actions
+	.row_controls {
+
+		td {
+			line-height: @line-base;
+		}
+
+		a {
+			display: inline-block;
+			margin-right: 1em;
+			font-size: @font-sml;
+			text-decoration: none;
+
+			&:hover,
+			&:focus {
+				text-decoration: underline;
+			}
+		}
+	}
+
+	.pkp_linkaction_disable,
+	.pkp_linkaction_delete,
+	.pkp_linkaction_remove_item ,
+	.pkp_linkaction_deleteFile,
+	.pkp_linkaction_remove,
+	.pkp_linkaction_deleteContributor,
+	.pkp_linkaction_deleteSponsor,
+	.pkp_linkaction_deleteSection,
+	.pkp_linkaction_deleteGenre,
+	.pkp_linkaction_deleteSubmissionChecklist,
+	.pkp_linkaction_resetAll,
+	.pkp_linkaction_resetEmail,
+	.pkp_linkaction_removeUserGroup,
+	.pkp_linkaction_deleteAuthor {
+		color: @offset;
+	}
+
+	// Icons
+	.checked,
+	.notChecked {
+		&:extend(.fa);
+	}
+
+	.checked:after {
+		content: @fa-var-check-square-o;
+		color: @yes;
+	}
+
+	.notChecked:after {
+		content: @fa-var-ban;
+		color: @no;
+	}
+
+	// Pagination
+	.gridPaging {
+		.pkp_helpers_clear;
+		padding-top: @half;
+		padding-bottom: @half;
+		font-size: @font-sml;
+		color: @text-light;
+		color: @text-light-rgba;
+		border-top: 1px solid @bg;
+
+		.gridItemsPerPage {
+			float: left;
+
+			select {
+				display: inline-block;
+				width: auto;
+				height: @line-sml;
+				margin-left: 0.5em;
+			}
+		}
+
+		.gridPages {
+			float: right;
+
+			a {
+				display: inline-block;
+				padding: 0 0.5em;
+				background: @bg;
+				border-radius: 0.25em;
+				line-height: @double;
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+// Categorized grids
+.pkp_grid_category {
+
+	thead {
+		background: @shade;
+		color: #fff;
+	}
+
+	.gridRow.category,
+	.category_controls {
+		background: @bg;
+		font-size: @font-sml;
+		color: @text-light;
+		color: @text-light-rgba;
+	}
+
+	.gridRow:not(.category) td {
+		border-bottom: 1px solid @bg;
+	}
+}
+
+// @todo
+.pkp_controllers_grid {
+
 	tr.no_border, td.no_border {
 		border-bottom: none !important;
 	}
-	
-	.default_category_style td {
-		font-size: 90%;
-		text-transform: uppercase;
-	}
 
-	tr.category td.no_actions {
-		vertical-align: middle;
-		top: 0;
-		padding-left: 10px !important;
-	}
-	
-	.wrapper {
-		margin-bottom: 10px;
-	}
-	
-	.grid_header { 
-		.pkp_form { 
+	.grid_header {
+		.pkp_form {
 			div.formButtons {
 				margin-bottom: 0px;
 				float: right;
-			}			
+			}
 
 			fieldset {
 				margin-bottom: 0px;
@@ -146,7 +364,6 @@ div.pkp_controllers_grid {
 		}
 
 		.pkp_grid_description {
-			font-family: Arial, Helvetica, sans-serif;
 			padding:10px;
 			color:#999;
 			font-weight:normal;
@@ -154,18 +371,18 @@ div.pkp_controllers_grid {
 			line-height: 14px;
 		}
 	}
-	
+
 	.grid_header_bar {
 		background-color: #d5e7f4;
 		padding: 3px 10px 3px 10px;
 	}
-	
+
 	.grid_header_bar h3 {
 		display:inline;
 		vertical-align:middle;
 		line-height: 24px;
 	}
-	
+
 	.grid_header_bar a {
 		float:left;
 	}
@@ -189,67 +406,12 @@ div.pkp_controllers_grid {
 		display:none;
 	}
 
-	.row_container {
-		display: table;
-		overflow: hidden;
-	}
-
-	.row_actions {
-		display: block;
-	}
-	
-	.row_actions a {
-		display: block;
-		cursor: pointer;
-		width: 24px;
-		float: right;
-	}
-
-	.row_file {
-		display: table-cell;
-		padding: 0 10px 0 5px;
-		vertical-align:top;
-	}
-
-	.row_file a.pkp_controllers_linkAction {
-		margin-right: 10px;
-	}
-
 	.multiline {
-		line-height: 125%; /* IE7 doesn't support "inherit", all other browsers will ignore this. */
 		line-height: inherit;
 	}
 
 	.row_controls {
 		display: none;
-	}
-
-	.row_controls td {
-		padding-left: 48px;
-		padding-top: 5px; 
-		line-height: 25px;
-		height: 25px;
-	}
-	
-	.category_controls td {
-		padding-left: 9px;
-	}
-	
-	.row_controls td.indent_row {
-		padding-left: 0px;
-	}
-
-	.row_controls a {
-		float:left;
-		margin-right: 20px;
-		text-decoration: none;
-		color: #777;
-		font-size: 90%;
-	}
-	
-	
-	.row_controls a:hover {
-		text-decoration: underline;
 	}
 
 	a.focus {
@@ -266,34 +428,6 @@ div.pkp_controllers_grid {
 		margin: 0;
 		height: 24px;
 	}
-	
-	.grid_link_actions_below a {
-		font-size: 90%;
-	}
-
-	/* Below was taken from the theme */
-
-	table {
-		background-color: #fff;
-	}
-
-	tr.alternate_row, tr.alternate_row .row_file {
-		background-color: #f5f5f5;
-	}
-
-	th {
-		color: #20538d;
-	}
-
-	/* FIXME: This should go somewhere else. */
-	a.task:hover {
-		background-color: #efefef;
-	}
-
-	.ui-widget {
-		font-size: 90%;
-	}
-
 
 	/* @group More/Less Detail Toggle */
 	.toggleDetailContainer {
@@ -321,40 +455,22 @@ div.pkp_controllers_grid {
 	.visible {
 		display: block;
 	}
-	
-	.grid_controls {
-  		padding: 5px;
-  		height:26px;
-	}
-	
-	.ordering:hover {
-		background: #EAF3F8 !important;  
-	}
-	
-	tr.gridRow td.indent_row, .row_controls td.indent_row {
-		padding: 0 !important;
-	}
-	
+
 	tbody .ui-sortable-placeholder {
 		display: block;
 		visibility: visible !important;
 		height: 40px;
 		background-color: #EAF3F8 !important;
 	}
-	
+
 	tbody.ui-sortable-helper {
 		display:table;
 	}
-	
+
 	.gridCellContainer {
 		.gridLabelBeforeActions {
 			margin-right: 20px;
 		}
-	}
-	
-	div.gridPaging select.itemsPerPage {
-		width: auto;
-		margin-left: 5px;
 	}
 
 	span.gridPagingScrolling {
@@ -367,11 +483,11 @@ div.pkp_controllers_grid {
 }
 
 div.pkp_controllers_category_grid {
-	
+
 	thead th:first-child {
 		padding-left: 5px;
 	}
-	
+
 	thead th:nth-child(2) {
 		padding-left: 35px;
 	}

@@ -9,51 +9,179 @@
  *
  */
 
+// Title and author
 .pkp_page_header {
+
+	.pkp_submission_author {
+		display: inline-block;
+		margin-right: 1em;
+		max-width: 50%; // @todo We can work out a more responsive width system when we improve tablet/phone support
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		// This ensures the author will align horizontally with the actions
+		// which follow it. It's complicated: http://stackoverflow.com/a/20566810/1723499
+		vertical-align: bottom;
+	}
+}
+
+// Action links alongside author
+.pkp_submission_actions {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-size: @font-sml;
+
+	li {
+		display: inline-block;
+		padding-right: 1em;
+
+		&:last-child {
+			padding-right: 0;
+		}
+	}
+
+	.participants {
+
+		a:before {
+			&:extend( .fa );
+			content: @fa-var-users;
+			margin-right: 0.25em;
+		}
+	}
+}
+
+// Participant panel
+.pkp_page_title {
+	// anchor the panel to the header. This could use a better element to
+	// attach to.
 	position: relative;
+}
 
-	ul.submission_actions {
-		position: relative;
-		z-index: 20;
+.participant_popover {
+	z-index: 1;
+	position: absolute;
+	top: 0;
+	right: 0;
+	transform: translateX(110%);
+	width: 24em;
+	background: @lift;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+	transition: transform 0.3s;
+
+	&.is_visible {
+		transform: translateX(0);
 	}
 
-	ul.submission_actions li {
-		line-height: 24px;
-		margin-left: 20px;
-		padding: 5px 1px 4px 1px;
+	.pkp_controllers_grid {
+		padding: @base;
+		margin-bottom: 0;
+
+		.header {
+			min-height: @double; // has actions but no title
+		}
 	}
 
-	li.participants {
-		margin-right: 10px;
+	.gridRow:not(.category) td {
+		padding-left: @double; // make room for the drop-down caret
+	}
+}
+
+// Tabs
+.pkp_page_workflow {
+
+	.ui-tabs-nav {
+
+		// Stage currently initiated
+		.initiated a:before {
+			content: ' ';
+			position: absolute;
+			bottom: -@half;
+			left: 50%;
+			margin-left: -@half;
+			width: @base;
+			height: @base;
+			margin-right: 0.25em;
+			background: @offset;
+			border-radius: 50%;
+		}
+	}
+}
+
+// Decision buttons (on the right)
+.pkp_workflow_decisions a {
+	&:extend(.pkp_button);
+	width: 100%;
+
+	&:hover,
+	&:focus {
+		&:extend(.pkp_button:hover);
 	}
 
-	li.participants:hover, li.expandedIndicator {
-		background: #fff;
-		border: 1px solid #999;
-		border-bottom: 1px solid #fff;
-		padding: 4px 10px 3px 10px !important;
-		margin: 0px 0px 0px 10px !important;
+	&[disabled] {
+		&:extend(.pkp_button[disabled]);
 	}
 
-	.participant_popover {
-		border: 1px solid #999;
-		width: 300px;
-		right: 0px;
-		top: 0px;
-		margin-top: -2px;
-		position:absolute;
-		background-color: #fff;
-		z-index: 10;
+	&.pkp_linkaction_accept {
+		&:extend(.pkp_button_primary);
+
+		&:hover,
+		&:focus {
+			&:extend(.pkp_button_primary:hover);
+		}
+
+		&[disabled] {
+			&:extend(.pkp_button[disabled]);
+		}
 	}
 
-	ul.submission_actions a {
-		text-decoration: underline;
-	}
+	&.pkp_linkaction_decline {
+		&:extend(.pkp_button_offset);
 
-	.submission_progress_wrapper {
-		clear: both;
-		padding-top: 28px;
+		&:hover,
+		&:focus {
+			&:extend(.pkp_button_offset:hover);
+		}
+
+		&[disabled] {
+			&:extend(.pkp_button[disabled]);
+		}
 	}
+}
+
+//
+// Hacky workarounds for targetting specific things that aren't that well
+// marked up, or otherwise cause complications
+//
+
+// Adds padding to column with the toggle that opens and closes grid row actions
+#submissionFilesGridDiv tbody:not(.empty) td:first-child,
+#documentsGridDiv .gridRow:not(.category) td:first-child,
+#documentsGridDiv .row_controls td:first-child,
+#reviewTabs tbody:not(.empty) td:first-child, // All grids on the review screen
+#productionReadyFilesGridDiv tbody:not(.empty) td:first-child,
+#representationTabs tbody:not(.empty) td:first-child,
+div[id^=formatsGridContainer] tbody:not(.empty) td:first-child,
+#eventLogGrid tbody:not(.empty) td:first-child,
+#filesForReviewGrid tbody:not(.empty) td:first-child,
+#filesToPromoteGrid tbody:not(.empty) td:first-child,
+[id^=authorsGridContainer] tbody:not(.empty) td:first-child,
+#availableReviewFilesGrid tbody:not(.empty) td:first-child,
+#availableReviewFilesGrid tbody:not(.empty) td:first-child,
+#finalDraftGrid tbody:not(.empty) td:first-child,
+#copyeditingGrid tbody:not(.empty) td:first-child
+{
+	padding-left: @double;
+}
+
+// Removes top margin from notifications
+#reviewTabs .pkp_notification {
+	margin-top: 0;
+}
+
+// @todo
+.pkp_page_header {
 
 	.submission_progress {
 		overflow: hidden;
@@ -76,14 +204,13 @@
 
 	.submission_progress li a {
 		text-decoration:none;
-		font-family: "Courier New",Courier,mono;
 		font-size: 12px;
 		text-transform: uppercase;
 		color:#ffffff;
 		padding-left: 5px;
 		padding-right: 5px;
 	}
- 
+
 	.submission_progress li.actionNeeded {
 		background-image:url('{$baseUrl}/lib/pkp/templates/images/structure/workflow_actionNeeded.png');
 	}
@@ -100,10 +227,10 @@
 	.submission_progress li.productionReady {
 		background-image:url('{$baseUrl}/lib/pkp/templates/images/structure/workflow_productionReady.png');
 	}
-	
+
 	.submission_progress li.current {
  		background-image:url('{$baseUrl}/lib/pkp/templates/images/structure/workflow_current.png');
- 		
+
  		a {
  			font-size: 13px;
  		}
@@ -126,7 +253,7 @@
 		left: 100%;
 		z-index: 1;
 	}
-	
+
 	.submission_progress li a:after {
 		background-color: white;
 		content: " ";
@@ -134,14 +261,6 @@
 		width: 1px;
 		top: 0;
 		height: 37px;
-		position: absolute;		
-	}
-}
-
-#reviewTabs {
-	.ui-tabs-nav {
-		a.pkp_controllers_linkAction {
-			line-height:0px;
-		}
+		position: absolute;
 	}
 }

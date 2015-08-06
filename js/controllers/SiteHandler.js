@@ -45,7 +45,6 @@
 		this.bind('updateSidebar', this.updateSidebarHandler_);
 		this.bind('callWhenClickOutside', this.callWhenClickOutsideHandler_);
 		this.bind('mousedown', this.mouseDownHandler_);
-		this.bind('urlInDivLoaded', this.setMainMaxWidth_);
 
 		// Listen for grid initialized events so the inline help
 		// can be shown or hidden.
@@ -74,14 +73,12 @@
 				this.registerUnsavedFormElement_));
 		this.bind('unregisterChangedForm', this.callbackWrapper(
 				this.unregisterUnsavedFormElement_));
-		this.bind('modalCanceled', this.callbackWrapper(
-				this.unregisterUnsavedFormElement_));
 		this.bind('unregisterAllForms', this.callbackWrapper(
 				this.unregisterAllFormElements_));
 
-		// Add event handler to the modal open event that fixes stacking ui issues
-		this.bind('modalOpen', this.callbackWrapper(
-				this.stackModal_));
+		// React to a modal events
+		this.bind('pkpModalOpen', this.callbackWrapper(this.openModal_));
+		this.bind('pkpModalClose', this.callbackWrapper(this.closeModal_));
 
 		this.outsideClickChecks_ = {};
 	};
@@ -398,7 +395,7 @@
 	 */
 	$.pkp.controllers.SiteHandler.prototype.updateHeaderHandler_ =
 			function(sourceElement, event) {
-		var handler = $.pkp.classes.Handler.getHandler($('#headerContainer'));
+		var handler = $.pkp.classes.Handler.getHandler($('#navigationUserWrapper'));
 		handler.reload();
 	};
 
@@ -624,71 +621,41 @@
 
 
 	/**
-	 * Set the maximum width for the pkp_structure_main div.
-	 * This will prevent content with larger widths (like photos)
-	 * messing up with layout.
+	 * Reacts to a modal being opened. Adds a class to the body representing
+	 * a modal open state.
 	 * @private
-	 * @param {HTMLElement} sourceElement The element that
-	 *  issued the event.
-	 * @param {Event} event The triggering event.
-	 * @param {?string} data additional event data.
+	 * @param {HTMLElement} handledElement The modal that has been added
+	 * @param {HTMLElement} siteHandlerElement The html element
+	 * attached to this handler.
+	 * @param {HTMLElement} sourceElement The element wishes to
+	 * register.
+	 * @param {Event} event The formChanged event.
 	 */
-	$.pkp.controllers.SiteHandler.prototype.setMainMaxWidth_ =
-			function(sourceElement, event, data) {
-
-		var $site = this.getHtmlElement(), structureContentWidth, leftSideBarWidth,
-				rightSideBarWidth, $mainDiv = $('.pkp_structure_main', $site),
-				mainExtraWidth, mainMaxWidth, lastTabOffset, tabsContainerOffset,
-				$lastTab, $allTabs = $mainDiv.find('.ui-tabs').tabs();
-
-		if (data == 'sidebarContainer') {
-			structureContentWidth = $('.pkp_structure_content', $site).width();
-
-			leftSideBarWidth = $('.pkp_structure_sidebar_left', $site).
-					outerWidth(true);
-			rightSideBarWidth = $('.pkp_structure_sidebar_right', $site).
-					outerWidth(true);
-
-			// Check for padding, margin or border.
-			mainExtraWidth = $mainDiv.outerWidth(true) - $mainDiv.width();
-			mainMaxWidth = structureContentWidth - (
-					leftSideBarWidth + rightSideBarWidth + mainExtraWidth);
-
-			$mainDiv.css('max-width', mainMaxWidth);
-
-			if ($mainDiv.find('.stTabsInnerWrapper').length == 1) {
-				$mainDiv.find('.stTabsMainWrapper').width($mainDiv.outerWidth(true));
-				tabsContainerOffset = $mainDiv.find('.ui-tabs-nav').offset().left +
-						$mainDiv.find('.ui-tabs-nav').outerWidth(true);
-				$lastTab = $mainDiv.find('.ui-tabs-nav').find('li').last();
-				lastTabOffset = $lastTab.offset().left + $lastTab.outerWidth(true);
-				if (lastTabOffset <= tabsContainerOffset) {
-					$mainDiv.find('.stTabsMainWrapper').find('div').first().hide();
-				} else {
-					$mainDiv.find('.stTabsMainWrapper').find('div').first().show();
-				}
-			}
-		}
+	$.pkp.controllers.SiteHandler.prototype.openModal_ =
+			function(handledElement, siteHandlerElement, sourceElement, event) {
+		this.getHtmlElement().addClass('modal_is_visible');
 	};
 
 
 	/**
-	 * Fixes modal stacking overlay issue where stacked modal overlays don't
-	 * get layered directly below the modal
+	 * Reacts to a modal being closed. Removes a class from the body
+	 * representing a modal closed state, after checking if no other modals are
+	 * open.
 	 * @private
+	 * @param {HTMLElement} handledElement The modal that has been added
 	 * @param {HTMLElement} siteHandlerElement The html element
 	 * attached to this handler.
-	 * @param {HTMLElement} sourceElement The element that
-	 *  issued the event.
-	 * @param {Event} event The triggering event.
-	 * @param {HTMLElement} handledElement The modal that is being added
+	 * @param {HTMLElement} sourceElement The element wishes to
+	 * register.
+	 * @param {Event} event The formChanged event.
 	 */
-	$.pkp.controllers.SiteHandler.prototype.stackModal_ =
-			function(siteHandlerElement, sourceElement, event, handledElement) {
-		var $dialogElement = $(handledElement).parent(),
-				$dialogElementOverlay = $dialogElement.next('.ui-widget-overlay');
+	$.pkp.controllers.SiteHandler.prototype.closeModal_ =
+			function(handledElement, siteHandlerElement, sourceElement, event) {
 
-		$dialogElementOverlay.css('z-index', $dialogElement.css('z-index') - 1);
+		var $htmlElement = this.getHtmlElement();
+		if (!$htmlElement.find('.pkp_modal.is_visible').length) {
+			$htmlElement.removeClass('modal_is_visible');
+		}
 	};
 
 /** @param {jQuery} $ jQuery closure. */

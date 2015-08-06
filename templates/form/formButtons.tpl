@@ -46,6 +46,5 @@
 				 dialogText="$FBV_confirmSubmit"}
 	{/if}
 	{fbvElement type="submit" class="submitFormButton" id=$submitButtonId label=$FBV_submitText translate=$FBV_translate disabled=$FBV_submitDisabled}
-	<div class="pkp_helpers_progressIndicator"></div>
-	<div class="clear"></div>
+	<span class="pkp_spinner"></span>
 {/fbvFormSection}

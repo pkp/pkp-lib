@@ -591,7 +591,6 @@
 				if ($(this).hasClass('localizable') || $(this).hasClass('flag')) {
 					icon.addClass('mceLocalizationIcon localizable');
 					icon.attr('id', 'mceLocalizationIcon-' + id);
-					iconParent.addClass('mceLocalizationIconParent');
 					$(this).wrap(iconParent);
 					$(this).parent().append(icon);
 

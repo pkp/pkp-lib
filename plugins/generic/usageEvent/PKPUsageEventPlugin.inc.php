@@ -53,7 +53,7 @@ abstract class PKPUsageEventPlugin extends GenericPlugin {
 	 * @see Plugin::getInstallSitePluginSettingsFile()
 	 */
 	function getInstallSitePluginSettingsFile() {
-		return PKP_LIB_PATH . DIRECTORY_SEPARATOR . $this->getPluginPath() .  DIRECTORY_SEPARATOR . 'settings.xml';
+		return PKP_LIB_PATH . DIRECTORY_SEPARATOR . $this->getPluginPath() . DIRECTORY_SEPARATOR . 'settings.xml';
 	}
 
 	/**

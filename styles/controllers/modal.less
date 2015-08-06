@@ -1,5 +1,5 @@
 /**
- * @defgroup pkp_controllers_modal
+ * @defgroup pkp_modal
  */
 
 /**
@@ -9,67 +9,159 @@
  * Copyright (c) 2003-2015 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @ingroup pkp_controllers_modal
+ * @ingroup pkp_modal
  *
- * @brief Styles for pkp_controllers_modal
+ * @brief Styles for pkp_modal
  */
 
-.pkp_controllers_modal_titleBar {
-	height: 48px;
+// Hides the outer scrollbar when a modal is visible
+// Assigned to the <body> when a modal is visible
+.modal_is_visible {
+	overflow: hidden !important;
+}
+
+// Screen behind modal
+.pkp_modal {
+	position: fixed;
+	top: 0;
+	left: 0;
 	width: 100%;
-	margin-top: 10px;
-	margin-right: 10px;
-	padding-bottom: 10px;
-	border-bottom: 1px solid #efefef;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.8);
+	z-index: 1000;
+	overflow-y: auto;
+	cursor: pointer;
+	visibility: hidden;
+	opacity: 0;
+	-webkit-transition: opacity 0.3s, visibility 0.3s;
+	-moz-transition: opacity 0.3s, visibility 0.3s;
+	transition: opacity 0.3s, visibility 0.3s;
 
-	h2 {
-		margin-left: 20px;
-		font-style: italic;
-	}
-
-	.close {
-		float: right;
-		padding-right: 10px;
+	&.is_visible {
+		visibility: visible;
+		opacity: 1;
 	}
 }
-.xIcon {
-	background-image: url({$baseUrl}/lib/pkp/templates/images/structure/modal_close_icon.png);
-	height: 23px;
-	width: 23px !important;
-	background-repeat: no-repeat;
-	display: block;
-	overflow: hidden;
-	text-indent: -99999px;
-	border: none !important;
+
+// Modal
+.pkp_modal_panel {
+	position: relative;
+	width: 90%;
+	max-width: 50em;
+	background: @lift;
+	margin: @base auto;
+	cursor: auto;
+	border-radius: @radius;
+	.transform(translateY(-30px));
+	-webkit-transition-property: -webkit-transform;
+	-moz-transition-property: -moz-transform;
+	transition-property: transform;
+	-webkit-transition-duration: 0.3s;
+	-moz-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+
 }
 
+// Modal when visible
+.is_visible .pkp_modal_panel {
+	-webkit-transform: translateY(0);
+	-moz-transform: translateY(0);
+	-ms-transform: translateY(0);
+	-o-transform: translateY(0);
+	transform: translateY(0);
+}
+
+.pkp_modal_panel {
+
+	// Height and width of the close button (matches height of header)
+	@pkp_modal_panel_close_box_len: @double * 2;
+
+	> .header,
+	> .content {
+		padding: @base;
+	}
+
+	> .header {
+		background: @primary-lift;
+		border-top-left-radius: @radius;
+		border-top-right-radius: @radius;
+		font-weight: @bold;
+		color: @lift;
+		padding-right: @pkp_modal_panel_close_box_len;
+	}
+
+	> .close {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: @pkp_modal_panel_close_box_len;
+		height: @pkp_modal_panel_close_box_len; // matches height of .header
+		line-height: @pkp_modal_panel_close_box_len;
+		border-top-right-radius: @radius;
+		color: rgba(255,255,255,0.7);
+		color: @bg;
+		text-align: center;
+
+		&:before {
+			&:extend(.fa);
+			content: @fa-var-times;
+			font-size: @double;
+			line-height: @pkp_modal_panel_close_box_len;
+		}
+
+		&:hover,
+		&:focus {
+			background: @bg;
+			color: @offset;
+		}
+	}
+
+	> .footer {
+		padding: @base;
+		background: @bg;
+		border-bottom-left-radius: @radius;
+		border-bottom-right-radius: @radius;
+
+		.ok {
+			&:extend(.pkp_button);
+
+			&:hover,
+			&:focus {
+				&:extend(.pkp_button:hover);
+			}
+
+			&[disabled] {
+				&:extend(.pkp_button[disabled]);
+			}
+		}
+
+		.cancel {
+			margin-left: 1em;
+		}
+	}
+}
+
+// Confirmation modals
+.pkp_modal_confirmation {
+	max-width: 30em;
+}
+
+// Tabs
+.pkp_modal .ui-tabs-panel {
+	padding: @double 0 0;
+	border: none;
+	border-top: @bg-border;
+}
+
+// Form buttons
+// @todo this only handles the modal buttons in a wizard for now because the
+//  markup on the forms inside tabs doesn't allow us to "reach out" with the
+//  negative margin trick.
 .modal-buttons {
-	margin: 0px 0px 15px 0px;
-	padding: 0px 20px 0px 20px;
-	overflow: hidden;
-	vertical-align: middle;
-	line-height: 30px;
-}
-
-.ui-dialog .ui-tabs-panel {
-	padding: 0px;
-}
-
-.ui-widget-overlay {
-	background: #333333 50% 50% repeat-x;
-	opacity: 0.8;
-	z-index: 1001;
-}
-
-.ui-dialog {
-	background-color: #f7f5f4;
-	z-index: 1002;
-}
-
-.ui-dialog-content {
-	background-color: #ffffff !important;
-}
-
-.ui-dialog-buttonpane {
-	border-color: #f7f5f4;
+	.pkp_helpers_clear;
+	margin: 0 -@base -@base; // pull to edge of modal
+	padding: @base;
+	background: @bg;
+	border-bottom-left-radius: @radius;
+	border-bottom-right-radius: @radius;
 }

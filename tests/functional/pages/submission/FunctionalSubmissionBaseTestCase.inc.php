@@ -92,8 +92,8 @@ abstract class FunctionalSubmissionBaseTestCase extends WebTestCase {
 		if ($this->verified()) {
 			// TinyMCE hack.
 			$jsScript = "selenium.browserbot.getCurrentWindow().document".
-			            ".querySelector('iframe[id^=abstract]').contentDocument.body.innerHTML = ".
-			            "'$title abstract'";
+				".querySelector('iframe[id^=abstract]').contentDocument.body.innerHTML = ".
+				"'$title abstract'";
 			$this->getEval($jsScript);
 		} else {
 			$this->type('css=[id^=abstract]', $title . ' abstract');

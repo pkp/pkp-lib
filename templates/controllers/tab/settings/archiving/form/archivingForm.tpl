@@ -21,35 +21,42 @@
 <form id="archivingForm" class="pkp_form" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="tab.settings.WebsiteSettingsTabHandler" op="saveFormData" tab="archiving"}">
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="archivingFormNotification"}
 
-	{fbvFormArea id="archivingLockss" class="border"}
-		{fbvFormSection description="manager.setup.lockssDescription"}
-		{/fbvFormSection}
+	{fbvFormArea id="archivingLockss" title="manager.setup.lockssTitle"}
+		<div class="description">
+			{translate key="manager.setup.lockssDescription"}
+		</div>
+		<div class="description">
+			{url|assign:"lockssExistingArchiveUrl" router=$smarty.const.ROUTE_PAGE page="user" op="email" template="LOCKSS_EXISTING_ARCHIVE"}
+			{url|assign:"lockssNewArchiveUrl" router=$smarty.const.ROUTE_PAGE page="user" op="email" template="LOCKSS_NEW_ARCHIVE"}
+			{translate key="manager.setup.lockssRegister" lockssExistingArchiveUrl=$lockssExistingArchiveUrl lockssNewArchiveUrl=$lockssNewArchiveUrl}
+		</div>
 
-		{url|assign:"lockssExistingArchiveUrl" router=$smarty.const.ROUTE_PAGE page="user" op="email" template="LOCKSS_EXISTING_ARCHIVE"}
-		{url|assign:"lockssNewArchiveUrl" router=$smarty.const.ROUTE_PAGE page="user" op="email" template="LOCKSS_NEW_ARCHIVE"}
-		{translate|assign:"lockssRegisterDescription" key="manager.setup.lockssRegister" lockssExistingArchiveUrl=$lockssExistingArchiveUrl lockssNewArchiveUrl=$lockssNewArchiveUrl}
-		{fbvFormSection list="true" description=$lockssRegisterDescription translate=false}
+		{fbvFormSection list="true" translate=false}
 			{url|assign:"lockssUrl" router=$smarty.const.ROUTE_PAGE page="gateway" op="lockss"}
 			{translate|assign:"enableLockssLabel" key="manager.setup.lockssEnable" lockssUrl=$lockssUrl}
 			{fbvElement type="checkbox" id="enableLockss" value="1" checked=$enableLockss label=$enableLockssLabel translate=false}
 		{/fbvFormSection}
 
-		{fbvFormSection label="manager.setup.lockssLicenses"}
+		{fbvFormSection for="lockssLicense" label="manager.setup.lockssLicenseLabel" description="manager.setup.lockssLicenseDescription"}
 			{fbvElement type="textarea" multilingual=true id="lockssLicense" value=$lockssLicense rich=true}
 		{/fbvFormSection}
 	{/fbvFormArea}
 
-	{fbvFormArea id="archivingClockss" class="border"}
-		{fbvFormSection description="manager.setup.clockssDescription"}
-		{/fbvFormSection}
+	{fbvFormArea id="archivingClockss" title="manager.setup.clockssTitle"}
+		<div class="description">
+			{translate key="manager.setup.clockssDescription"}
+		</div>
+		<div class="description">
+			{translate key="manager.setup.clockssRegister"}
+		</div>
 
-		{fbvFormSection list="true" description="manager.setup.clockssRegister"}
+		{fbvFormSection list="true"}
 			{url|assign:"clockssUrl" router=$smarty.const.ROUTE_PAGE page="gateway" op="clockss"}
 			{translate|assign:"enableClockssLabel" key="manager.setup.clockssEnable" clockssUrl=$clockssUrl}
 			{fbvElement type="checkbox" id="enableClockss" value="1" checked=$enableClockss label=$enableClockssLabel translate=false}
 		{/fbvFormSection}
 
-		{fbvFormSection label="manager.setup.clockssLicenses"}
+		{fbvFormSection for="clockssLicense" label="manager.setup.clockssLicenseLabel" description="manager.setup.clockssLicenseDescription"}
 			{fbvElement type="textarea" multilingual=true id="clockssLicense" value=$clockssLicense rich=true}
 		{/fbvFormSection}
 	{/fbvFormArea}

@@ -51,16 +51,13 @@
 				{if $FBV_currentKeywords}{foreach from=$FBV_currentKeywords.$formLocale item=currentKeyword}<li>{$currentKeyword|escape}</li>{/foreach}{/if}
 			</ul>
 			{if $FBV_label_content}<span>{$FBV_label_content}</span>{/if}
-			<br />
-			<span>
-				<div class="localization_popover">
-					{foreach from=$formLocales key=thisFormLocale item=thisFormLocaleName}{if $formLocale != $thisFormLocale}
-						<ul class="multilingual_extra flag flag_{$thisFormLocale|escape}" id="{$thisFormLocale|escape}-{$FBV_id|escape}{$uniqId}">
-							{if $FBV_currentKeywords}{foreach from=$FBV_currentKeywords.$thisFormLocale item=currentKeyword}<li>{$currentKeyword|escape}</li>{/foreach}{/if}
-						</ul>
-					{/if}{/foreach}
-				</div>
-			</span>
+			<div class="localization_popover">
+				{foreach from=$formLocales key=thisFormLocale item=thisFormLocaleName}{if $formLocale != $thisFormLocale}
+					<ul class="multilingual_extra flag flag_{$thisFormLocale|escape}" id="{$thisFormLocale|escape}-{$FBV_id|escape}{$uniqId}">
+						{if $FBV_currentKeywords}{foreach from=$FBV_currentKeywords.$thisFormLocale item=currentKeyword}<li>{$currentKeyword|escape}</li>{/foreach}{/if}
+					</ul>
+				{/if}{/foreach}
+			</div>
 		</span>
 
 {else} {* this is not a multilingual keyword field or there is only one locale available *}

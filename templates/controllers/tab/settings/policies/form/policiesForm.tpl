@@ -25,25 +25,29 @@
 			{fbvElement type="textarea" multilingual="true" name="privacyStatement" id="privacyStatement" value=$privacyStatement}
 		{/fbvFormSection}
 
-		<div {if $wizardMode}class="pkp_form_hidden"{/if}>
-			{fbvFormSection label="manager.setup.focusAndScope" description="manager.setup.focusAndScope.description"}
-				{fbvElement type="textarea" multilingual=true name="focusScopeDesc" id="focusScopeDesc" value=$focusScopeDesc rich=true}
-			{/fbvFormSection}
-			{fbvFormSection label="manager.setup.openAccessPolicy" description="manager.setup.openAccessPolicy.description"}
-				{url|assign:"accessAndSecurityUrl" page="settings" op="access"}
-				{translate|assign:"securitySettingsNote" key="manager.setup.securitySettings.note" accessAndSecurityUrl=$accessAndSecurityUrl}
-				{fbvElement type="textarea" multilingual="true" name="openAccessPolicy" id="openAccessPolicy" value=$openAccessPolicy rich=true}
-			{/fbvFormSection}
-			{fbvFormSection label="manager.setup.reviewPolicy" description="manager.setup.peerReview.description"}
-				{fbvElement type="textarea" multilingual=true name="reviewPolicy" id="reviewPolicy" value=$reviewPolicy rich=true}
-			{/fbvFormSection}
-			{fbvFormSection label="manager.setup.competingInterests" description="manager.setup.competingInterestsDescription"}
-				{fbvElement type="textarea" multilingual="true" id="competingInterestsPolicy" value=$competingInterestsPolicy}
-			{/fbvFormSection}
-		</div>
-	{/fbvFormArea}
+		{* In wizard mode, these fields should be hidden *}
+		{if $wizardMode}
+			{assign var="wizard_classes" value="is_wizard_mode"}
+		{else}
+			{assign var="wizard_classes" value=""}
+		{/if}
+		{fbvFormSection label="manager.setup.focusAndScope" description="manager.setup.focusAndScope.description" class=$wizard_classes}
+			{fbvElement type="textarea" multilingual=true name="focusScopeDesc" id="focusScopeDesc" value=$focusScopeDesc rich=true}
+		{/fbvFormSection}
+		{fbvFormSection label="manager.setup.openAccessPolicy" description="manager.setup.openAccessPolicy.description" class=$wizard_classes}
+			{url|assign:"accessAndSecurityUrl" page="settings" op="access"}
+			{translate|assign:"securitySettingsNote" key="manager.setup.securitySettings.note" accessAndSecurityUrl=$accessAndSecurityUrl}
+			{fbvElement type="textarea" multilingual="true" name="openAccessPolicy" id="openAccessPolicy" value=$openAccessPolicy rich=true}
+		{/fbvFormSection}
+		{fbvFormSection label="manager.setup.reviewPolicy" description="manager.setup.peerReview.description" class=$wizard_classes}
+			{fbvElement type="textarea" multilingual=true name="reviewPolicy" id="reviewPolicy" value=$reviewPolicy rich=true}
+		{/fbvFormSection}
+		{fbvFormSection label="manager.setup.competingInterests" description="manager.setup.competingInterestsDescription" class=$wizard_classes}
+			{fbvElement type="textarea" multilingual="true" id="competingInterestsPolicy" value=$competingInterestsPolicy}
+		{/fbvFormSection}
 
-	{$additionalFormContent}
+		{$additionalFormContent}
+	{/fbvFormArea}
 
 	{if !$wizardMode}
 		{fbvFormButtons id="policiesFormSubmit" submitText="common.save" hideCancel=true}

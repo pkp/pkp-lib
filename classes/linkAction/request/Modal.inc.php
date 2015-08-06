@@ -46,6 +46,8 @@ class Modal extends LinkActionRequest {
 		$this->_titleIcon = $titleIcon;
 		$this->_canClose = $canClose;
 		$this->_width = $width;
+		// @todo this should be customizable via an option
+		$this->_closeButtonText = __('common.closePanel');
 	}
 
 
@@ -83,6 +85,13 @@ class Modal extends LinkActionRequest {
 		return $this->_width;
 	}
 
+	/**
+	 * Get the text to be displayed on the close button for screen readers
+	 */
+	function getCloseButtonText() {
+		return $this->_closeButtonText;
+	}
+
 
 	//
 	// Overridden methods from LinkActionRequest
@@ -103,6 +112,7 @@ class Modal extends LinkActionRequest {
 			'titleIcon' => $this->getTitleIcon(),
 			'canClose' => ($this->getCanClose() ? '1' : '0'),
 			'width' => $this->getWidth(),
+			'closeButtonText' => $this->getCloseButtonText(),
 		);
 	}
 }

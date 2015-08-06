@@ -8,18 +8,17 @@
  * Information page.
  *
  *}
-{strip}
-	{if !$contentOnly}
-		{include file="common/header.tpl"}
-	{/if}
-{/strip}
+{if !$contentOnly}
+	{include file="common/frontend/header.tpl" pageTitle=$pageTitle}
+{/if}
 
-<div id="information">
-	<p>{$content|nl2br}</p>
+<div class="page page_information">
+	<h1 class="page_title">
+		{translate key=$pageTitle}
+	</h1>
+	{$content|nl2br}
 </div>
 
-{strip}
-	{if !$contentOnly}
-		{include file="common/footer.tpl"}
-	{/if}
-{/strip}
+{if !$contentOnly}
+	{include file="common/frontend/footer.tpl"}
+{/if}

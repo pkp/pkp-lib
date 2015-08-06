@@ -91,6 +91,7 @@
 	<message key="common.changesSaved">Your changes have been saved.</message>
 	<message key="common.chooseOne">Choose One</message>
 	<message key="common.close">Close</message>
+	<message key="common.closePanel">Close Panel</message>
 	<message key="common.closeWindow">Close Window</message>
 	<message key="common.complete">Complete</message>
 	<message key="common.completed">Completed</message>
@@ -181,6 +182,7 @@
 	<message key="common.or">or</message>
 	<message key="common.other">Other</message>
 	<message key="common.overdue">Overdue</message>
+	<message key="common.pageNumber">Page {$pageNumber}</message>
 	<message key="common.pageHeaderLogo.altText">Page Header Logo</message>
 	<message key="common.plugin">Plugin</message>
 	<message key="common.pluginEnabled">The plugin "{$pluginName}" has been enabled.</message>
@@ -233,6 +235,7 @@
 	<message key="common.unread">Unread</message>
 	<message key="common.untitled">Untitled</message>
 	<message key="common.updated">Updated</message>
+	<message key="common.uploadedDate">Uploaded date</message>
 	<message key="common.uploadedFile">Uploaded file</message>
 	<message key="common.upload">Upload</message>
 	<message key="common.uploadFailed">The file could not be uploaded or revised.</message>
@@ -244,11 +247,12 @@
 	<message key="common.url">URL</message>
 	<message key="common.user">User</message>
 	<message key="common.view">View</message>
+	<message key="common.viewProfile">View Profile</message>
 	<message key="common.weeks">weeks</message>
 	<message key="common.width">Width</message>
 	<message key="common.year">Year</message>
 	<message key="common.yes">Yes</message>
-	<message key="common.loading">Loading ...</message>
+	<message key="common.loading">Loading</message>
 	<message key="common.plugins">Plugins</message>
 	<message key="common.metric">Metric</message>
 	<message key="common.count">Count</message>
@@ -360,7 +364,6 @@
 
 	<message key="locale.primary">Primary locale</message>
 	<message key="locale.supported">Supported locales</message>
-	<message key="navigation.management">Management</message>
 	<message key="navigation.access"><![CDATA[Users &amp; Roles]]></message>
 	<message key="navigation.about">About</message>
 	<message key="navigation.admin">Administration</message>
@@ -390,10 +393,12 @@
 	<message key="navigation.sitemap">Site Map</message>
 	<message key="navigation.stepNumber">Step {$step}</message>
 	<message key="navigation.submissions">Submissions</message>
+	<message key="navigation.switchJournals">Switch Journals</message>
 	<message key="navigation.system">System</message>
 	<message key="navigation.userHome">User Home</message>
 	<message key="navigation.user">User</message>
 	<message key="navigation.userManagement">User Management</message>
+	<message key="navigation.viewFrontend">View Site</message>
 	<message key="notification.addedAuditor">Auditor added.</message>
 	<message key="notification.removedAuditor">Auditor removed.</message>
 	<message key="notification.addedQuery">Added Discussion</message>

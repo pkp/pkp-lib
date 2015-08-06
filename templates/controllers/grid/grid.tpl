@@ -34,65 +34,79 @@
 	{rdelim});
 </script>
 
-<div id="{$gridId|escape}" class="pkp_controllers_grid{if is_a($grid, 'CategoryGridHandler')} pkp_controllers_category_grid{/if}">
-	{if !$grid->getIsSubcomponent()}<div class="wrapper">{/if}
-		{include file="controllers/grid/gridHeader.tpl"}
-		<table id="{$gridTableId|escape}">
-			{include file="controllers/grid/columnGroup.tpl" columns=$columns}
-			<thead>
-				{** build the column headers **}
-				<tr>
-					{foreach name=columns from=$columns item=column}
-						{if $column->hasFlag('alignment')}
-							{assign var=alignment value=$column->getFlag('alignment')}
-						{else}
-							{assign var=alignment value=$smarty.const.COLUMN_ALIGNMENT_LEFT}
+<div id="{$gridId|escape}" class="pkp_controllers_grid{if is_a($grid, 'CategoryGridHandler')} pkp_grid_category{/if}">
+	{include file="controllers/grid/gridHeader.tpl"}
+	<table id="{$gridTableId|escape}">
+		{include file="controllers/grid/columnGroup.tpl" columns=$columns}
+		<thead>
+			{** build the column headers **}
+			<tr>
+				{foreach name=columns from=$columns item=column}
+					{* @todo indent columns should be killed at their source *}
+					{if $column->hasFlag('indent')}
+						{php}continue;{/php}
+					{/if}
+					{if $column->hasFlag('alignment')}
+						{assign var=alignment value=$column->getFlag('alignment')}
+					{else}
+						{assign var=alignment value=$smarty.const.COLUMN_ALIGNMENT_LEFT}
+					{/if}
+					<th scope="col" style="text-align: {$alignment};">
+						{$column->getLocalizedTitle()}
+						{* TODO: Remove this stuff.  Actions should not ever appear in the TH of a grid. *}
+						{if $smarty.foreach.columns.last && $grid->getActions($smarty.const.GRID_ACTION_POSITION_LASTCOL)}
+							<span class="options pkp_linkActions">
+								{foreach from=$grid->getActions($smarty.const.GRID_ACTION_POSITION_LASTCOL) item=action}
+									{include file="linkAction/linkAction.tpl" action=$action contextId=$staticId}
+								{/foreach}
+							</span>
 						{/if}
-						<th scope="col" style="text-align: {$alignment};">
-							{$column->getLocalizedTitle()}
-							{* TODO: Remove this stuff.  Actions should not ever appear in the TH of a grid. *}
-							{if $smarty.foreach.columns.last && $grid->getActions($smarty.const.GRID_ACTION_POSITION_LASTCOL)}
-								<span class="options pkp_linkActions">
-									{foreach from=$grid->getActions($smarty.const.GRID_ACTION_POSITION_LASTCOL) item=action}
-										{include file="linkAction/linkAction.tpl" action=$action contextId=$staticId}
-									{/foreach}
-								</span>
-							{/if}
-						</th>
-					{/foreach}
-				</tr>
-			</thead>
-			{if $grid->getIsSubcomponent() && !is_a($grid, 'CategoryGridHandler')}
-				{* Create two separate tables so that the body part
-				   can be scrolled independently from the header in a
-				   cross-browser compatible way using only CSS. *}
-				</table>
-				<div class="scrollable">
-				<table>
-					{include file="controllers/grid/columnGroup.tpl" columns=$columns}
-			{/if}
-			{foreach from=$gridBodyParts item=bodyPart}
-				{$bodyPart}
-			{foreachelse}
-				<tbody><tr></tr></tbody>
-			{/foreach}
-			<tbody class="empty"{if count($gridBodyParts) > 0} style="display: none;"{/if}>
-				{**
-					We need the last (=empty) line even if we have rows
-					so that we can restore it if the user deletes all rows.
-				**}
-				<tr>
-					<td colspan="{$columns|@count}">{translate key=$grid->getEmptyRowText()}</td>
-				</tr>
-			</tbody>
-		</table>
+					</th>
+				{/foreach}
+			</tr>
+		</thead>
 		{if $grid->getIsSubcomponent() && !is_a($grid, 'CategoryGridHandler')}
+			{* Create two separate tables so that the body part
+			   can be scrolled independently from the header in a
+			   cross-browser compatible way using only CSS. *}
+			</table>
+			<div class="scrollable">
+			<table>
+				{include file="controllers/grid/columnGroup.tpl" columns=$columns}
+		{/if}
+		{foreach from=$gridBodyParts item=bodyPart}
+			{$bodyPart}
+		{foreachelse}
+			<tbody><tr></tr></tbody>
+		{/foreach}
+		<tbody class="empty"{if count($gridBodyParts) > 0} style="display: none;"{/if}>
+			{**
+				We need the last (=empty) line even if we have rows
+				so that we can restore it if the user deletes all rows.
+			**}
+			<tr>
+				<td colspan="{$grid->getColumnsCount('indent')|@count}">{translate key=$grid->getEmptyRowText()}</td>
+			</tr>
+		</tbody>
+	</table>
+
+	{if $grid->getIsSubcomponent() && !is_a($grid, 'CategoryGridHandler')}
+		</div>
+	{/if}
+
+	{if !empty($grid->getActions($smarty.const.GRID_ACTION_POSITION_BELOW)) || !empty($grid->getFootNote())}
+	<div class="footer">
+
+		{if !empty($grid->getActions($smarty.const.GRID_ACTION_POSITION_BELOW))}
+			{include file="controllers/grid/gridActionsBelow.tpl" actions=$grid->getActions($smarty.const.GRID_ACTION_POSITION_BELOW) gridId=$staticId}
+		{/if}
+
+		{if !empty($grid->getFootNote())}
+			<div class="footnote">
+				{translate key=$grid->getFootNote()}
 			</div>
 		{/if}
-		{include file="controllers/grid/gridActionsBelow.tpl" actions=$grid->getActions($smarty.const.GRID_ACTION_POSITION_BELOW) gridId=$staticId}
-		{if $grid->getFootNote()}
-			<p class="pkp_grid_description">{translate key=$grid->getFootNote()}</p>
-		{/if}
-	{if !$grid->getIsSubcomponent()}</div>{/if}
-	<div class="pkp_helpers_clear"></div>
+	</div>
+	{/if}
+
 </div>

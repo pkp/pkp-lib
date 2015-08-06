@@ -268,7 +268,7 @@ class ReviewFormDAO extends DAO {
 				rf.is_active,
 				COUNT(rac.review_id) AS complete_count,
 				COUNT(rai.review_id) AS incomplete_count
-			FROM    review_forms rf
+			FROM	review_forms rf
 				LEFT JOIN review_assignments rac ON (
 					rac.review_form_id = rf.review_form_id AND
 					rac.date_confirmed IS NOT NULL

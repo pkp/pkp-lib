@@ -8,9 +8,9 @@
  * Markup for file uploader widget.
  *}
 
-<div id="{$id}" class="pkp_notification">
+<div id="{$id}">
 	{translate|assign:"warningMessage" key="common.fileUploaderError"}
 	{translate|assign:"warningTitle" key="common.warning"}
-	{include file="controllers/notification/inPlaceNotificationContent.tpl" notificationId=$id 
-		notificationStyleClass="notifyWarning" notificationContents=$warningMessage notificationTitle=$warningTitle}	
+	{include file="controllers/notification/inPlaceNotificationContent.tpl" notificationId=$id
+		notificationStyleClass="notifyWarning" notificationContents=$warningMessage notificationTitle=$warningTitle}
 </div>

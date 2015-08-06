@@ -14,6 +14,74 @@
  * @brief Styles for pkp_controllers_notification
  */
 
+.pkp_notification {
+	position: relative;
+ 	margin: @double 0;
+	padding: @base;
+	background: @bg;
+	font-size: @font-sml;
+	line-height: @line-sml;
+
+	&:first-child {
+		margin-top: 0;
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+	.title {
+		font-weight: @bold;
+	}
+
+	> div {
+		padding-top: @half;
+		padding-bottom: @half;
+		padding-left: @double + @base + @half;
+
+		&:before {
+			&:extend(.fa);
+			content: @fa-var-info-circle;
+			position: absolute;
+			top: 50%; // vertically center
+			transform: translateY(-50%); // vertically center
+			left: @base;
+			width: @double + @base;
+			height: @double + @base;
+			font-size: @double + @base;
+			color: @primary-lift;
+		}
+	}
+
+	> .notifySuccess:before {
+		content: @fa-var-check;
+		color: @yes;
+	}
+
+	> .notifyWarning:before {
+		content: @fa-var-exclamation-triangle;
+		color: @warn;
+	}
+
+	> .notifyError:before,
+	> .notifyFormError:before {
+		content: @fa-var-exclamation-triangle;
+		color: @no;
+	}
+
+	> .notifyForbidden:before {
+		content: @fa-var-ban;
+		color: @no;
+	}
+
+	// Uses default @fa-var-info-circle for now
+	/*
+	> .notifyInformation:before {}
+	> .notifyHelp:before {}
+	*/
+}
+
+// @todo evaluate and clean up as necessary
 .ui-widget.ui-pnotify {
 	width: 320px !important;
 }
@@ -63,56 +131,4 @@ div.ui-pnotify-container {
 
 .notifyHelp .ui-pnotify-icon {
 	background-image: url({$baseUrl}/lib/pkp/templates/images/structure/response_help.png);
-}
-
-.pkp_notification {
- 	margin-top: 10px;
-	text-align: left;
-
- 	.notification_block {
- 		background-position: 7px 5px !important;
-		background-repeat: no-repeat !important;
-		padding: 5px 20px 5px 30px;
-		min-height: 20px;
-	}
-
-	p {
-		display: inline;
-		padding: 0px;
-		font-size: 80%;
-	}
-
-	h4 {
-		display: inline;
-		padding-right: 0px;
-	}
-
-	.pkp_linkActions {
-		line-height: 24px;
-	}
-
- 	/* -- Iconography: http://www.jankoatwarpspeed.com/post/2009/09/17/sixpack-status-icons.aspx --*/
-	.notifySuccess {
-		background: #c9e3f8 url({$baseUrl}/lib/pkp/templates/images/structure/response_success.png);
-	}
-
-	.notifyWarning {
-		background: #c9e3f8 url({$baseUrl}/lib/pkp/templates/images/structure/response_warning.png);
-	}
-
-	.notifyError, .notifyFormError {
-		background: #f8dada url({$baseUrl}/lib/pkp/templates/images/structure/response_error.png);
-	}
-
-	.notifyForbidden {
-		background: #f8dada url({$baseUrl}/lib/pkp/templates/images/structure/response_forbidden.png);
-	}
-
-	.notifyInformation {
-		background: #c9e3f8 url({$baseUrl}/lib/pkp/templates/images/structure/response_info.png);
-	}
-
-	.notifyHelp {
-		background: #c9e3f8 url({$baseUrl}/lib/pkp/templates/images/structure/response_help.png);
-	}
 }

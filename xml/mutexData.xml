@@ -12,9 +12,7 @@
   -->
 <data>
 	<sql>
-		<query>
-          DELETE FROM mutex
-		</query>
+		<query>DELETE FROM mutex</query>
 	</sql> 
 	<table name="mutex">
 		<row>

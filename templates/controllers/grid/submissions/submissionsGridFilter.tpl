@@ -16,13 +16,14 @@
 		{rdelim}
 	);
 </script>
-<form class="pkp_form" id="{$formId}" action="{url op="fetchGrid"}" method="post">
+<form class="pkp_form filter" id="{$formId}" action="{url op="fetchGrid"}" method="post">
 	{fbvFormArea id="submissionSearchFormArea"|concat:$filterData.gridId}
 		{fbvFormSection}
-			{fbvElement type="text" name="search" id="search"|concat:$filterData.gridId value=$filterSelectionData.search size=$fbvStyles.size.MEDIUM inline="true"}
 			{fbvElement type="select" name="column" id="column"|concat:$filterData.gridId from=$filterData.columns selected=$filterSelectionData.column size=$fbvStyles.size.SMALL translate=false inline="true"}
 			{fbvElement type="select" name="stageId" id="stageId"|concat:$filterData.gridId from=$filterData.workflowStages selected=$filterSelectionData.stageId size=$fbvStyles.size.SMALL translate=true inline="true"}
-			{fbvFormButtons hideCancel=true submitText="common.search"}
+			{fbvElement type="text" name="search" id="search"|concat:$filterData.gridId value=$filterSelectionData.search size=$fbvStyles.size.MEDIUM inline="true"}
 		{/fbvFormSection}
+		{* Buttons generate their own section *}
+		{fbvFormButtons hideCancel=true submitText="common.search"}
 	{/fbvFormArea}
 </form>

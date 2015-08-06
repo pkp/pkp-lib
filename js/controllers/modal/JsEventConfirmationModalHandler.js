@@ -97,9 +97,10 @@
 	 *
 	 * @param {HTMLElement} dialogElement The element the
 	 *  dialog was created on.
+	 * @param {Event} event The click event.
 	 */
 	$.pkp.controllers.modal.JsEventConfirmationModalHandler.prototype.
-			modalConfirm = function(dialogElement) {
+			modalConfirm = function(dialogElement, event) {
 
 		this.trigger(/** @type {string} */ (this.jsEvent_),
 				/** @type {Array} */ (this.extraArguments_));

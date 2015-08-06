@@ -293,11 +293,10 @@
 				$anchorElement = $('<a/>')
 					.text(jsonContent.title)
 					.attr('href', jsonContent.url),
-				$closeSpanElement = $('<span/>')
-					.addClass('ui-icon')
-					.addClass('ui-icon-close')
+				$closeSpanElement = $('<a/>')
+					.addClass('close')
 					.text($.pkp.locale.common_close)
-					.attr('role', 'presentation'),
+					.attr('href', '#'),
 				$liElement = $('<li/>')
 					.append($anchorElement)
 					.append($closeSpanElement);

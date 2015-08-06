@@ -39,6 +39,7 @@
 	<message key="grid.action.remove">Remove</message>
 	<message key="grid.action.edit">Edit</message>
 	<message key="grid.action.approve">Approve</message>
+	<message key="grid.action.disapprove">Disapprove</message>
 	<message key="grid.action.moreInformation">More Information</message>
 	<message key="grid.action.restoreDefaults">Restore Defaults</message>
 	<message key="grid.action.restoreDefaults.confirm">Are you sure you wish to restore the defaults?</message>
@@ -240,7 +241,7 @@
 	<message key="grid.preparedEmails.title">Prepared Email Templates</message>
 	<message key="grid.preparedEmails.description">The press facilitates work flow communication through the use of prepared email messages. The default wording of these email templates can be easily modified below.</message>
 	<message key="grid.preparedEmails.currentList">Current List</message>
-	
+
 	<!-- Plugins -->
 	<message key="grid.plugin.allCategories">All Categories</message>
 	<message key="grid.plugin.disable">Are you sure you want to disable this plugin?</message>
@@ -256,7 +257,7 @@
 	<message key="grid.artworkFile.copyrightContact">Contact Info (if not author/publisher)</message>
 	<message key="grid.artworkFile.permissionTerms">Permission Terms</message>
 	<message key="grid.artworkFile.placement">Placement in submission</message>
-	
+
 	<!-- User Group Grid -->
 	<message key="grid.userGroup.assignStage">Assign stage</message>
 	<message key="grid.userGroup.unassignStage">Unassign stage</message>

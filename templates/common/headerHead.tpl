@@ -5,10 +5,11 @@
  * Copyright (c) 2000-2015 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * Common site header <head> tag and contents.
+ * Common site frontend header <head> tag and contents.
  *}
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset={$defaultCharset|escape}" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>{$pageTitleTranslated|strip_tags}</title>
 	<meta name="description" content="{$metaSearchDescription|escape}" />
 	<meta name="keywords" content="{$metaSearchKeywords|escape}" />
@@ -25,18 +26,10 @@
 		<script src="{$baseUrl}/lib/pkp/lib/vendor/components/jqueryui/{if $useMinifiedJavaScript}jquery-ui.min.js{else}jquery-ui.js{/if}"></script>
 	{/if}
 
-	<!-- UI elements (menus, forms, etc) -->
-	<script src="{$baseUrl}/lib/pkp/js/lib/superfish/hoverIntent.js"></script>
-	<script src="{$baseUrl}/lib/pkp/js/lib/superfish/superfish.js"></script>
-
 	{include file="common/validate.tpl"}
 	{include file="common/plupload.tpl"}
 
-	{foreach from=$stylesheets item=styleSheetList}{* For all priority sets STYLE_PRIORITY_... *}
-		{foreach from=$styleSheetList item=cssUrl}{* For all stylesheet URLs within this priority set *}
-			<link rel="stylesheet" href="{$cssUrl}" type="text/css" />
-		{/foreach}
-	{/foreach}
+	{load_stylesheet context="backend" stylesheets=$stylesheets}
 
 	<!-- Constants for JavaScript -->
 	{include file="common/jsConstants.tpl"}

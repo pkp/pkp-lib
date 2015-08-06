@@ -18,10 +18,12 @@
 			);
 		{rdelim});
 		</script>
-		<div id="{$editorDecisionActionsId}" class="grid_actions editor_decision_actions">
+		<ul id="{$editorDecisionActionsId}" class="pkp_workflow_decisions">
 			{foreach from=$editorActions item=action}
-				{include file="linkAction/linkAction.tpl" action=$action contextId=$contextId}
+				<li>
+					{include file="linkAction/linkAction.tpl" action=$action contextId=$contextId}
+				</li>
 			{/foreach}
-		</div>
+		</ul>
 	{/if}
 {/if}

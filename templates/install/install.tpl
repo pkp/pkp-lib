@@ -55,12 +55,12 @@
 		</div>
 	{/if}
 
-	{fbvFormArea id="preInstallationFormArea" class="border" title="installer.preInstallationInstructionsTitle"}
+	{fbvFormArea id="preInstallationFormArea" title="installer.preInstallationInstructionsTitle"}
 		{translate key="installer.preInstallationInstructions" upgradeUrl=$upgradeUrl baseUrl=$baseUrl writable_config=$writable_config writable_db_cache=$writable_db_cache writable_cache=$writable_cache writable_public=$writable_public writable_templates_cache=$writable_templates_cache writable_templates_compile=$writable_templates_compile phpRequiredVersion=$phpRequiredVersion wrongPhpText=$wrongPhpText phpVersion=$phpVersion}
 	{/fbvFormArea}
 
 	<!-- Administrator username, password, and email -->
-	{fbvFormArea id="administratorAccountFormArea" title="installer.administratorAccount" class="border"}
+	{fbvFormArea id="administratorAccountFormArea" title="installer.administratorAccount"}
 		<p>{translate key="installer.administratorAccountInstructions"}</p>
 		{fbvFormSection label="user.username"}
 			{fbvElement type="text" id="adminUsername" value=$adminUsername maxlength="32" size=$fbvStyles.size.MEDIUM}
@@ -77,7 +77,7 @@
 	{/fbvFormArea}
 
 	<!-- Locale configuration -->
-	{fbvFormArea id="localeSettingsFormArea" class="border" title="installer.localeSettings" title="installer.localeSettings"}
+	{fbvFormArea id="localeSettingsFormArea" title="installer.localeSettings" title="installer.localeSettings"}
 		<p>{translate key="installer.localeSettingsInstructions" supportsMBString=$supportsMBString}</p>
 		{fbvFormSection label="locale.primary" description="installer.localeInstructions" for="locale"}
 			{fbvElement type="select" name="locale" id="localeOptions" from=$localeOptions selected=$locale translate=false size=$fbvStyles.size.SMALL subLabelTranslate=true}
@@ -112,7 +112,7 @@
 
 	<!-- Files directory configuration -->
 	{if !$skipFilesDirSection}
-		{fbvFormArea id="fileSettingsFormArea" class="border" title="installer.fileSettings"}
+		{fbvFormArea id="fileSettingsFormArea" title="installer.fileSettings"}
 			{fbvFormSection label="installer.filesDir" description="installer.filesDirInstructions"}
 				{fbvElement type="text" id="filesDir" value=$filesDir maxlength="255" size=$fbvStyles.size.LARGE}
 			{/fbvFormSection}
@@ -122,14 +122,14 @@
 	{/if}{* !$skipFilesDirSection *}
 
 	<!-- Security configuration -->
-	{fbvFormArea id="securityFormArea" title="installer.securitySettings" class="border"}
+	{fbvFormArea id="securityFormArea" title="installer.securitySettings"}
 		{fbvFormSection label="installer.encryption" description="installer.encryptionInstructions"}
 			{fbvElement type="select" id="encryption" from=$encryptionOptions selected=$encryption translate=false size=$fbvStyles.size.SMALL}
 		{/fbvFormSection}
 	{/fbvFormArea}
 
 	<!-- Database configuration -->
-	{fbvFormArea id="databaseSettingsFormArea" class="border" title="installer.databaseSettings"}
+	{fbvFormArea id="databaseSettingsFormArea" title="installer.databaseSettings"}
 		<p>{translate key="installer.databaseSettingsInstructions"}</p>
 		{fbvFormSection label="installer.databaseDriver" description="installer.databaseDriverInstructions"}
 			{fbvElement type="select" id="databaseDriver" from=$databaseDriverOptions selected=$databaseDriver translate=false size=$fbvStyles.size.SMALL}
@@ -151,7 +151,7 @@
 		{/fbvFormSection}
 	{/fbvFormArea}
 
-	{fbvFormArea id="oaiSettingsFormArea" class="border" title="installer.oaiSettings"}
+	{fbvFormArea id="oaiSettingsFormArea" title="installer.oaiSettings"}
 		{fbvFormSection label="installer.oaiRepositoryId" description="installer.oaiRepositoryIdInstructions"}
 			{fbvElement type="text" id="oaiRepositoryId" value=$oaiRepositoryId maxlength="60" size=$fbvStyles.size.LARGE}
 		{/fbvFormSection}

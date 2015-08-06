@@ -129,13 +129,13 @@ class PKPTemplateManager extends Smarty {
 		}
 
 		// Add uncompilable styles
-		$this->addStyleSheet($this->_request->getBaseUrl() . '/styles/lib.css', STYLE_SEQUENCE_CORE);
+		$this->addStyleSheet($this->_request->getBaseUrl() . '/styles/lib.css', STYLE_SEQUENCE_CORE, 'backend');
 		if ($dispatcher = $this->_request->getDispatcher()) {
-			$this->addStyleSheet($dispatcher->url($this->_request, ROUTE_COMPONENT, null, 'page.PageHandler', 'css'), STYLE_SEQUENCE_CORE);
+			$this->addStyleSheet($dispatcher->url($this->_request, ROUTE_COMPONENT, null, 'page.PageHandler', 'css'), STYLE_SEQUENCE_CORE, 'backend');
 		}
 
 		// If there's a locale-specific stylesheet, add it.
-		if (($localeStyleSheet = AppLocale::getLocaleStyleSheet($locale)) != null) $this->addStyleSheet($this->_request->getBaseUrl() . '/' . $localeStyleSheet);
+		if (($localeStyleSheet = AppLocale::getLocaleStyleSheet($locale)) != null) $this->addStyleSheet($this->_request->getBaseUrl() . '/' . $localeStyleSheet, 'backend');
 
 		// Register custom functions
 		$this->register_modifier('translate', array('AppLocale', 'translate'));
@@ -187,8 +187,12 @@ class PKPTemplateManager extends Smarty {
 		));
 
 		$this->register_function('url', array($this, 'smartyUrl'));
-		// ajax load into a div
+		// ajax load into a div or any element
+		$this->register_function('load_url_in_el', array($this, 'smartyLoadUrlInEl'));
 		$this->register_function('load_url_in_div', array($this, 'smartyLoadUrlInDiv'));
+
+		// load stylesheets from a given context
+		$this->register_function('load_stylesheet', array($this, 'smartyLoadStylesheet'));
 
 		/**
 		 * Kludge to make sure no code that tries to connect to the
@@ -222,8 +226,14 @@ class PKPTemplateManager extends Smarty {
 			}
 		}
 
-		// Load enabled block plugins.
+		// Load enabled block plugins and setup active sidebar variables
 		PluginRegistry::loadCategory('blocks', true);
+		$hasLeftSidebar = !empty(HookRegistry::getHooks('Templates::Common::LeftSidebar'));
+		$hasRightSidebar = !empty(HookRegistry::getHooks('Templates::Common::RightSidebar'));
+		$this->assign(array(
+			'hasLeftSidebar' => $hasLeftSidebar,
+			'hasRightSidebar' => $hasRightSidebar
+		));
 	}
 
 	/**
@@ -249,9 +259,13 @@ class PKPTemplateManager extends Smarty {
 	 * Add a page-specific style sheet.
 	 * @param $url string the URL to the style sheet
 	 * @param $priority int STYLE_SEQUENCE_...
+	 * @param $contexts string|array where stylesheet should be used
 	 */
-	function addStyleSheet($url, $priority = STYLE_SEQUENCE_NORMAL) {
-		$this->_styleSheets[$priority][] = $url;
+	function addStyleSheet($url, $priority = STYLE_SEQUENCE_NORMAL, $contexts = array('frontend') ) {
+		$contexts = (array) $contexts;
+		foreach($contexts as $context) {
+			$this->_styleSheets[$context][$priority][] = $url;
+		}
 	}
 
 	/**
@@ -280,7 +294,9 @@ class PKPTemplateManager extends Smarty {
 			$this->assign('additionalHeadData', $additionalHeadData."\n".$javaScript);
 		}
 
-		ksort($this->_styleSheets);
+		foreach( $this->_styleSheets as &$list ) {
+			ksort( $list );
+		}
 		$this->assign('stylesheets', $this->_styleSheets);
 
 		// If no compile ID was assigned, get one.
@@ -1080,37 +1096,89 @@ class PKPTemplateManager extends Smarty {
 	}
 
 	/**
+	 * Smarty usage: {load_url_in_el el="htmlElement" id="someHtmlId" url="http://the.url.to.be.loaded.into.the.grid"}
+	 *
+	 * Custom Smarty function for loading a URL via AJAX into any HTML element
+	 * @param $params array associative array
+	 * @param $smarty Smarty
+	 * @return string of HTML/Javascript
+	 */
+	function smartyLoadUrlInEl($params, $smarty) {
+		// Required Params
+		if (!isset($params['el'])) {
+			$smarty->trigger_error("el parameter is missing from load_url_in_el");
+		}
+		if (!isset($params['url'])) {
+			$smarty->trigger_error("url parameter is missing from load_url_in_el");
+		}
+		if (!isset($params['id'])) {
+			$smarty->trigger_error("id parameter is missing from load_url_in_el");
+		}
+
+		$this->assign(array(
+			'inEl' => $params['el'],
+			'inElUrl' => $params['url'],
+			'inElElId' => $params['id'],
+			'inElClass' => isset($params['class'])?$params['class']:null,
+		));
+
+		if (isset($params['placeholder'])) {
+			$this->assign('inElPlaceholder', $params['placeholder']);
+		} elseif (isset($params['loadMessageId'])) {
+			$loadMessageId = $params['loadMessageId'];
+			$this->assign('inElPlaceholder', __($loadMessageId, $params));
+		} else {
+			$this->assign('inElPlaceholder', $this->fetch('common/loadingContainer.tpl'));
+		}
+
+		return $this->fetch('common/urlInEl.tpl');
+	}
+
+	/**
 	 * Smarty usage: {load_url_in_div id="someHtmlId" url="http://the.url.to.be.loaded.into.the.grid"}
 	 *
-	 * Custom Smarty function for loading a URL via AJAX into a DIV
+	 * Custom Smarty function for loading a URL via AJAX into a DIV. Convenience
+	 * wrapper for smartyLoadUrlInEl.
 	 * @param $params array associative array
 	 * @param $smarty Smarty
 	 * @return string of HTML/Javascript
 	 */
 	function smartyLoadUrlInDiv($params, $smarty) {
-		// Required Params
-		if (!isset($params['url'])) {
-			$smarty->trigger_error("url parameter is missing from load_url_in_div");
-		}
-		if (!isset($params['id'])) {
-			$smarty->trigger_error("id parameter is missing from load_url_in_div");
-		}
+		$params['el'] = 'div';
+		return $this->smartyLoadUrlInEl( $params, $smarty );
+	}
 
-		$this->assign(array(
-			'inDivUrl' => $params['url'],
-			'inDivDivId' => $params['id'],
-			'inDivClass' => isset($params['class'])?$params['class']:null,
-		));
+	/**
+	 * Smarty usage: {load_stylesheet context="frontend" stylesheets=$stylesheets}
+	 *
+	 * Custom Smarty function for printing stylesheets attached to a context.
+	 * @param $params array associative array
+	 * @param $smarty Smarty
+	 * @return string of HTML/Javascript
+	 */
+	function smartyLoadStylesheet($params, $smarty) {
 
-		if (isset($params['loadMessageId'])) {
-			$loadMessageId = $params['loadMessageId'];
-			unset($params['url'], $params['id'], $params['loadMessageId'], $params['class']);
-			$this->assign('inDivLoadMessage', __($loadMessageId, $params));
-		} else {
-			$this->assign('inDivLoadMessage', $this->fetch('common/loadingContainer.tpl'));
+		if (empty($params['stylesheets'])) {
+			return;
 		}
 
-		return $this->fetch('common/urlInDiv.tpl');
+		if (empty($params['context'])) {
+			$context = 'frontend';
+		}
+
+		$output = '';
+		foreach($params['stylesheets'] as $context => $priorityList) {
+			if ($context != $params['context']) {
+				continue;
+			}
+			foreach($priorityList as $files) {
+				foreach($files as $url) {
+					$output .= '<link rel="stylesheet" href="' . $url . '" type="text/css" />';
+				}
+			}
+		}
+
+		return $output;
 	}
 }
 

@@ -478,7 +478,7 @@
 	<message key="workflow.review.internalReview">Internal Review</message>
 	<message key="workflow.stage.any">Any Stage</message>
 	<message key="workflow.stage">Stage</message>
-	
+
 
 	<!-- Submission status -->
 	<message key="submission.status.editorial">In Copyediting</message>
@@ -535,7 +535,7 @@
 
 	<!-- Participants -->
 	<message key="editor.submission.stageParticipants">Participants</message>
-	
+
 	<!-- Stage Participants grid -->
 	<message key="editor.submission.noneAssigned">None Assigned</message>
 	<message key="editor.submission.participant">Participant</message>
@@ -554,7 +554,6 @@
 	<message key="editor.submission.decision.decline">Decline Submission</message>
 	<message key="editor.submission.decision.sendToProduction">Send To Production</message>
 	<message key="editor.submission.decision.sendInternalReview">Send to Internal Review</message>
-	<message key="editor.submission.decision.approveProofs">Approve Proofs</message>
 	<message key="editor.submission.decision.approveProofsDescription">The page proof file must be checked as approved to be made Available. Do you want to approve it?</message>
 	<message key="editor.submission.decision.disapproveProofsDescription">This file proof will no longer be publicly available for download or purchase. Do you want to disapprove it?</message>
 

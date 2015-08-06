@@ -15,113 +15,89 @@
  */
 
 /**
- * The following styles are moved outside pkp_form until all forms are
- * refactored/made compatible with the FBV styles.
- */
-.error {
-	color: #900;
-}
-
-li label.error {
-	float: right;
-}
-
-span.pkp_form_error {
-	color: #900;
-	font-weight: bold;
-	font-size: 100%;
-}
-
-.pkp_form_error_list a {
-	color: #900;
-}
-
-/**
  * FBV styles
  */
 .pkp_form {
-	.pkp_formArea {
-		p {
-			margin: 0px;
-			padding: 0px;
+
+	fieldset {
+		margin: 0 0 @double 0;
+		padding: 0;
+		border: none;
+
+		&:last-child {
+			margin-bottom: 0;
 		}
 	}
 
-	.debug div, .debug label {
-		border: 1px solid orange;
-	}
-
-	fieldset {
-		margin: 10px 5px;
-	}
-
-	fieldset.border {
-		border: 1px solid #CCC;
-		padding: 5px;
-	}
-
-	fieldset.inline {
-		margin: 0px 0px;
-	}
-
-	legend {
-		font-size: 110%;
-		padding: 10px 0 10px 0;
-	}
-
-	div.section {
-		clear: left;
-		margin-bottom: 10px;
-	}
-
-	div.section:after {
-		clear: both;
-		content: "";
+	// At the moment we don't really differentiate in the way we use these
+	// elements
+	legend,
+	label {
 		display: block;
+		font-size: @base;
+		font-weight: @bold;
+	}
+
+	// error
+	.error {
+		color: @no;
+	}
+
+	.section {
+		margin-bottom: @double;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		&:not(.inline) {
+			.pkp_helpers_clear;
+		}
+	}
+
+	// Inline sections
+	.inline {
+		float: left;
+		padding-right: @base;
+
+		&:last-child {
+			padding-right: 0;
+		}
 	}
 
 	label {
-		display: block;
-		font-weight: bold;
-		padding: 3px 0 3px 0;
+		cursor: pointer;
 	}
 
-
- 	span.pkp_form_success {
- 		color: #090;
- 		font-weight: bold;
- 		font-size: 100%;
- 	}
-
-	span label.sub_label {
-		font-size: 80%;
-		color: #999;
-		font-weight: normal;
-		padding: 2px 0 4px 0;
-	}
-
-	input, textarea, select {
-
-		:focus {
-			outline: none;
-		}
-
-		font-size: 90%;
-		width: 99%;
-		border: 1px solid #ccc;
-		padding: 2px;
-		margin-top: 4px;
-	}
-
+	input[type="date"],
+	input[type="email"],
+	input[type="file"],
+	input[type="month"],
+	input[type="number"],
+	input[type="password"],
+	input[type="search"],
+	input[type="tel"],
+	input[type="text"],
+	input[type="url"],
+	input[type="week"],
+	textarea,
 	select {
-		padding:3px;
+		display: block;
 		width: 100%;
+		height: @double; // browser-compatibility for select fields
+		background-color: @lift;
+		padding: 0 0.25em;
+		font-size: @font-sml;
+		line-height: @double;
+		border: @bg-border;
 	}
 
 	textarea {
 		height: 10em;
+		line-height: @line-sml;
 	}
 
+	// Textarea size modifiers
 	.short {
 		height: 6em;
 	}
@@ -134,139 +110,202 @@ span.pkp_form_error {
 		height: 18em;
 	}
 
-	.req {
-		font-weight: bold;
-		color: #cc0000;
-		padding-left: 3px;
-	}
-
-	.inline {
-		float: left;
-		clear: none !important;
-		padding-right: 2%;
-		margin-bottom: 0;
-	}
-
-	ul.checkbox_and_radiobutton
-	{
-		margin-bottom: 0;
-		padding-bottom: 0;
-		padding-left: 0;
-	}
-
-	.checkbox_and_radiobutton li {
-		padding-right: 35px;
-		float: left;
-		display: inline;
-		list-style: none;
-	}
-
-	.checkbox_and_radiobutton input {
-		display: block;
-		margin: 4px 0 0 0;
+	// Checkbox and radio lists
+	.checkbox_and_radiobutton {
+		margin: 0;
 		padding: 0;
-		width: 13px;
-		height: 13px;
-	}
+		list-style: none;
 
-	.checkbox_and_radiobutton li label {
-		line-height: 150%;
-		margin: -17px 0 0 20px;
-		padding: 0 0 5px 0;
-		font-weight: normal;
-	}
-
-	ul.checkbox_and_radiobutton:after {
-		content: ".";
-		display: block;
-		clear: both;
-		visibility: hidden;
-		height: 0;
-		overflow: hidden;
-	}
-
-	// Fake HTML5 placeholder behavior for TinyMCE
-	.mcePlaceholderParent { position: relative; }
-	.mcePlaceholder {
-		color: #AAA;
-		position: absolute;
-		top: 5px;
-		left: 5px;
-		z-index: 2;
-	}
-
-	.localization_popover_container {
-		td.mceFirst iframe {
-			position: relative;
-			z-index: 1;
+		input {
+			display: inline-block;
+			margin-right: 0.5em;
 		}
+
+		label {
+			font-weight: @normal;
+		}
+	}
+
+	// Required feilds
+	.req {
+		font-weight: @bold;
+		color: @no;
+		padding-left: 0.25em;
+	}
+
+	// Disabled fields
+	input[disabled],
+	textarea[disabled],
+	select[disabled] {
+		background: @bg;
+		color: @text-light;
+		color: @text-light-rgba;
+	}
+
+	// Field descriptions and labels beneath fields
+	.description,
+	.sub_label {
+		font-size: @font-sml;
+		line-height: @line-sml;
+		font-weight: @normal;
+		color: @text-light;
+		color: @text-light-rgba;
+	}
+
+	.description {
+		margin-bottom: @half;
+	}
+
+	.sub_label {
+		font-style: italic;
+	}
+
+	// When a .description element is followed by another .description
+	.description + .description,
+	// When a .description element is attached to a fieldset and followed
+	// by a section
+	.description + .section {
+		margin-top: @double;
+	}
+
+	// Localization popovers
+	.localization_popover_container {
+		position: relative;
 
 		// Localization globe icon within TinyMce
 		div.mceLocalizationIcon {
 			position: absolute;
-			top: 2px;
-			right: 5px;
+			top: @half;
+			right: @half;
 			z-index: 2;
 			width: 16px;
 			height: 16px;
+			background-position: initial;
 		}
 
-		div.mceLocalizationIconScroll {
-			right: 20px;
+		// Nested so that the padding overrides input field defaults
+		.localizable {
+			background-repeat: no-repeat;
+			background-image: url({$baseUrl}/lib/pkp/templates/images/structure/icon_globe.png);
+			background-position: top @half right @half;
+			padding-right: @double; // makes room for the background image
 		}
-	}
-
-	// Makes it posible to display the localization globe icon within TinyMce
-	div.mceLocalizationIconParent {
-		position: relative;
 	}
 
 	.localization_popover_container_focus {
-		margin-top: -2px;
-		background-color: #eee;
 		display: block;
-		padding: 2px 5px 0px 5px;
-	}
+		padding: @half;
+		background-color: @bg;
 
-	.localization_popover_container_focus,
-	.localization_popover {
-		input:first-child, textarea:first-child, select:first-child {
-			background-image: none;
+		// Compensate for extra padding on parent element
+		div.mceLocalizationIcon {
+			top: @base;
+			right: @base;
 		}
-
-		div.mceGlobe { display: none; }
-
-		box-shadow: 3px 3px 6px #999999;
 	}
 
 	.localization_popover {
-		background-color: #eee;
-		margin-left: -5px;
-		padding:10px 5px 5px 5px;
+		display: none;
 		position: absolute;
-		z-index: 15000;
+		left: 0;
+		z-index: 999;
+		padding: @half;
+		background-color: @bg;
+	}
+
+	// Position locale label off-screen but accessible to screen readers
+	label.locale {
+		&:extend(.pkp_screen_reader);
+
+		&:focus {
+			&:extend(.pkp_screen_reader:focus);
+		}
+	}
+
+	// Loading indicator
+	.pkp_spinner {
+		opacity: 0;
+		float: right;
+		margin-right: 0.5em;
+		.transition(opacity 0.3s ease-in-out);
+
+		&.is_visible {
+			opacity: 1;
+		}
+	}
+
+	// Hide form elements when in wizard mode
+	.is_wizard_mode {
 		display: none;
 	}
+}
 
-	label.locale {
-		font-size: 1px;
-		text-indent: -9999px;
+// Form file view
+.pkp_form_file_view {
+	.pkp_helpers_clear;
+	margin-top: @double;
+	padding: @double;
+	background: @bg;
+
+	.data {
+
+		span {
+			display: block;
+			font-size: @font-sml;
+			line-height: @line-sml;
+		}
+
+		.title {
+			font-weight: @bold;
+		}
+
+		.value {
+			margin-bottom: @base;
+			color: @text-light;
+			color: @text-light-rgba;
+		}
+	}
+}
+
+// To be used alongside .pkp_form_file_view (both classes assigned)
+.pkp_form_image_view {
+
+	.img {
+		text-align: center;
+
+		img {
+			max-width: 100%;
+		}
 	}
 
-	.localizable
-	{
-		background-color: #fff !important;
-		background-repeat: no-repeat;
-		background: url({$baseUrl}/lib/pkp/templates/images/structure/icon_globe.png) no-repeat;
-		background-position: 99.5% 50%;
-	}
-	textarea.localizable { background-position: 99.5% 1px; }
+	// @todo use common breakpoints
+	@media(min-width: 767px) {
 
-	input.spinner {
-		background-color: #ffffff !important;
-		background-repeat:no-repeat;
-		background:url({$baseUrl}/lib/pkp/templates/images/throbber.gif) no-repeat;
-		background-position:100% 50%;
+		> div {
+			width: 50%;
+			float: right;
+		}
+
+		.data {
+			float: left;
+		}
+	}
+}
+
+// Link action links that should have a warning color
+.pkp_linkaction_deleteFile-homepageImage,
+.pkp_linkaction_deleteFile-journalThumbnail,
+.pkp_linkaction_deleteFile-styleSheet {
+	color: @no;
+}
+
+.pkp_form {
+
+	// @todo all below
+	span.pkp_form_success {
+		color: #090;
+		font-weight: bold;
+		font-size: 100%;
 	}
 
 	.pkp_form_file_input_container {
@@ -323,11 +362,6 @@ span.pkp_form_error {
 	}
 
 	.formButtons {
-		line-height: 30px;
-		margin: 0 0 15px;
-		overflow: hidden;
-		padding: 10px 20px;
-		vertical-align: middle;
 
 		.submitFormButton {
 			float: right;

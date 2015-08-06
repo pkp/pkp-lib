@@ -22,10 +22,9 @@
 	{url|assign:submissionChecklistGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.settings.submissionChecklist.SubmissionChecklistGridHandler" op="fetchGrid" escape=false}
 	{load_url_in_div id="submissionChecklistGridDiv" url=$submissionChecklistGridUrl}
 
-	<h4>{translate key="manager.setup.notifications"}</h4>
 	{fbvFormArea id="notificationSettings"}
-		{fbvFormSection description="manager.setup.notifications.description" list=true}
-			{fbvElement type="checkbox" id="copySubmissionAckPrimaryContact" disabled=$submissionAckDisabled checked=$copySubmissionAckPrimaryContact label="manager.setup.notifications.copyPrimaryContact" inline=true}
+		{fbvFormSection label="manager.setup.notifications" for="copySubmissionAckPrimaryContact" description="manager.setup.notifications.description" list=true}
+			{fbvElement type="checkbox" id="copySubmissionAckPrimaryContact" disabled=$submissionAckDisabled checked=$copySubmissionAckPrimaryContact label="manager.setup.notifications.copyPrimaryContact"}
 		{/fbvFormSection}
 		{fbvFormSection}
 			{fbvElement type="text" disabled=$submissionAckDisabled id="copySubmissionAckAddress" value=$copySubmissionAckAddress size=$fbvStyles.size.MEDIUM label="manager.setup.notifications.copySpecifiedAddress"}

@@ -53,7 +53,7 @@
 	// Protected methods.
 	//
 	/** @inheritDoc */
-	$.pkp.controllers.modal.AjaxLegacyPluginModalHandler.prototype.dialogOpen =
+	$.pkp.controllers.modal.AjaxLegacyPluginModalHandler.prototype.modalOpen =
 			function(dialogElement) {
 		// Make sure that the modal will remain on screen.
 		var $dialogElement = $(dialogElement),

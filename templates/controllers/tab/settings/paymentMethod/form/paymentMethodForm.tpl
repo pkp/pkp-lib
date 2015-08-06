@@ -39,19 +39,19 @@
 	{include file="controllers/tab/settings/wizardMode.tpl" wizardMode=$wizardMode}
 
 		{fbvFormArea id="paymentMethod"}
+			{fbvFormSection label="manager.paymentMethod.currency" description="manager.paymentMethod.currency.description"}
+				{fbvElement required="true" type="select" id="currency" from=$currencies selected=$currency translate=false}
+			{/fbvFormSection}
 			<div id="paymentMethodSelector">
-				{fbvFormSection label="manager.paymentMethod.method" description="manager.paymentMethod.description" inline=true size=$fbvStyles.size.MEDIUM}
+				{fbvFormSection label="manager.paymentMethod.method" description="manager.paymentMethod.description"}
 					{fbvElement type="select" id="pluginSelect" from=$pluginNames translate=false}
 				{/fbvFormSection}
 			</div>
-			{fbvFormSection label="manager.paymentMethod.currency" description="manager.paymentMethod.currency.description" inline=true size=$fbvStyles.size.MEDIUM}
-				{fbvElement required="true" type="select" id="currency" from=$currencies selected=$currency translate=false}
-			{/fbvFormSection}
 		{/fbvFormArea}
 
-	<div id="paymentMethodFormContainer">
+	{fbvFormArea id="paymentMethodFormContainer"}
 		{* The form will be loaded into this container *}
-	</div>
+	{/fbvFormArea}
 
 	<div class="separator"></div>
 

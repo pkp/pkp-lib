@@ -8,8 +8,7 @@
  * @class AjaxModalHandler
  * @ingroup js_controllers_modal
  *
- * @brief A modal that retrieves content from
- *  a remote AJAX endpoint.
+ * @brief A modal that retrieves content from a remote AJAX endpoint.
  */
 (function($) {
 
@@ -35,7 +34,7 @@
 
 		// We assume that AJAX modals usually contain forms and
 		// therefore bind to form events by default.
-		this.bind('formSubmitted', this.modalClose);
+		this.bind('formSubmitted', this.formSubmitted);
 		this.bind('formCanceled', this.modalClose);
 		this.bind('ajaxHtmlError', this.modalClose);
 	};
@@ -62,46 +61,40 @@
 	/** @inheritDoc */
 	$.pkp.controllers.modal.AjaxModalHandler.prototype.mergeOptions =
 			function(options) {
-		// Bind open event.
-		this.bind('dialogopen', this.dialogOpen);
 
 		// Call parent.
 		return /** @type {Object} */ (this.parent('mergeOptions', options));
 	};
 
 
-	/** @inheritDoc */
-	$.pkp.controllers.modal.AjaxModalHandler.prototype.modalClose =
-			function(callingContext, event) {
+	/**
+	 * Open the modal and fetch content via ajax
+	 * @param {jQueryObject} $handledElement The clickable element
+	 *  the modal will be attached to.
+	 * @protected
+	 */
+	$.pkp.controllers.modal.AjaxModalHandler.prototype.modalOpen =
+			function($handledElement) {
+		this.parent('modalOpen', $handledElement);
 
-		if (event.type == 'formSubmitted') {
-			// Trigger the notify user event.
-			this.getHtmlElement().parent().trigger('notifyUser');
-		}
-
-		return /** @type {boolean} */ (
-				this.parent('modalClose'));
+		// Retrieve remote modal content.
+		$handledElement.find('.content')
+				.pkpAjaxHtml(/** @type {{ url: string }} */ (this.options).url);
 	};
 
 
 	/**
-	 * Callback that will be bound to the open event
-	 * triggered when the dialog is opened.
+	 * Close the modal when a form submission is complete
+	 * @param {Object} callingContext The calling element or object.
+	 * @param {Event} event The triggering event (e.g. a click on
+	 *  a button.
 	 * @protected
-	 * @param {HTMLElement} dialogElement The element the
-	 *  dialog was created on.
 	 */
-	$.pkp.controllers.modal.AjaxModalHandler.prototype.dialogOpen =
-			function(dialogElement) {
-		// Make sure that the modal will remain on screen.
-		var $dialogElement = $(dialogElement), url;
+	$.pkp.controllers.modal.AjaxModalHandler.prototype.formSubmitted =
+			function(callingContext, event) {
 
-		$dialogElement.css({'max-height': 600, 'overflow-y': 'auto',
-			'z-index': '10000'});
-
-		// Retrieve remote modal content.
-		url = $dialogElement.dialog('option' , 'url');
-		$dialogElement.pkpAjaxHtml(url);
+		this.getHtmlElement().parent().trigger('notifyUser');
+		this.modalClose();
 	};
 
 /** @param {jQuery} $ jQuery closure. */

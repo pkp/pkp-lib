@@ -8,7 +8,7 @@
  * Submission's metadata form title fields. To be included in any form that wants to handle
  * submission metadata.
  *}
-{fbvFormArea id="generalInformation" title="submission.submit.titleAndSummary" class="border"}
+{fbvFormArea id="generalInformation" title="submission.submit.titleAndSummary"}
 	{fbvFormSection for="title" title="common.prefix" inline="true" size=$fbvStyles.size.SMALL}
 		{fbvElement type="text" multilingual=true name="prefix" id="prefix" value=$prefix readonly=$readOnly maxlength="32"}
 	{/fbvFormSection}

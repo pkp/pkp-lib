@@ -13,8 +13,7 @@
 		// Attach the form handler.
 		$('#appearanceForm').pkpHandler('$.pkp.controllers.tab.settings.form.FileViewFormHandler',
 			{ldelim}
-				fetchFileUrl: '{url|escape:javascript op='fetchFile' tab='appearance' escape=false}',
-				publishChangeEvents: ['updateHeader', 'updateSidebar']
+				fetchFileUrl: '{url|escape:javascript op='fetchFile' tab='appearance' escape=false}'
 			{rdelim}
 		);
 	{rdelim});

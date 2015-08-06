@@ -178,7 +178,7 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 		}
 
 		// Save the new user
-		$this->waitForElementPresent($formButtonSelector = '//span[text()=\'Register\']/..');
+		$this->waitForElementPresent($formButtonSelector = '//button[text()=\'Register\']');
 		$this->click($formButtonSelector);
 		$this->waitForElementPresent('link=Logout');
 		$this->waitJQuery();
@@ -349,7 +349,7 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	 * @param $waitFirst boolean True (default) to wait for the element first.
 	 */
 	protected function clickLinkActionNamed($name, $waitFirst = true) {
-		$selector = '//span[text()=\'' . $this->escapeJS($name) . '\']/..';
+		$selector = '//button[text()=\'' . $this->escapeJS($name) . '\']';
 		$this->waitForElementPresent($selector);
 		$this->click($selector);
 	}

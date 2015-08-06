@@ -32,7 +32,7 @@
 {/if}
 
 {if $_label != ''}
-	<span{if count($actions) gt 0} class="gridLabelBeforeActions"{/if}>
+	<span class="label{if count($actions) gt 0} before_actions{/if}">
 		{if $column->hasFlag('maxLength')}
 			{assign var="maxLength" value=$column->getFlag('maxLength')}
 			{$_label|truncate:$maxLength}

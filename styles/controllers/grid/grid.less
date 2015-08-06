@@ -226,6 +226,17 @@
 		}
 	}
 
+	// Labels within a grid cell which appear before a link action in the cell
+	// @todo This is designed for file IDs. If used elsewhere, we'll need to check
+	//  how this styling impacts on other uses
+	.gridCellContainer .label.before_actions {
+		display: inline-block;
+		margin-right: 0.5em;
+		padding: 0 0.5em;
+		background: @bg;
+		border-radius: 0.25em;
+		font-size: 12px; // extra small
+	}
 
 	// Infinite scroll
 	.scrollable {
@@ -465,12 +476,6 @@
 
 	tbody.ui-sortable-helper {
 		display:table;
-	}
-
-	.gridCellContainer {
-		.gridLabelBeforeActions {
-			margin-right: 20px;
-		}
 	}
 
 	span.gridPagingScrolling {

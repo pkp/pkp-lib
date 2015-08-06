@@ -299,6 +299,85 @@
 	color: @no;
 }
 
+// jQuery UI datepicker
+.ui-datepicker {
+	width: 25em;
+	padding: @base;
+	max-width: 100%;
+	background: @bg;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.ui-datepicker-prev,
+.ui-datepicker-next {
+	display: block;
+	position: absolute;
+	top: @base;
+	left: @base;
+	width: @double;
+	height: @double;
+	text-align: center;
+	cursor: pointer;
+
+	&:before {
+		&:extend(.fa);
+		content: @fa-var-arrow-left;
+	}
+
+
+	> span {
+		&:extend(.pkp_screen_reader);
+	}
+}
+
+.ui-datepicker-next {
+	left: auto;
+	right: @base;
+
+	&:before {
+		content: @fa-var-arrow-right;
+	}
+}
+
+.ui-datepicker-title {
+	margin-bottom: @base;
+	font-size: @font-sml;
+	font-weight: @bold;
+	text-align: center;
+}
+
+.ui-datepicker-calendar {
+	width: 100%;
+	text-align: center;
+
+	thead {
+		font-size: @font-sml;
+	}
+
+	tbody {
+		background: @lift;
+
+		tr {
+			border-top: 1px solid @bg;
+
+			&:first-child {
+				border-top: none;
+			}
+		}
+	}
+
+	a {
+		display: block;
+		text-decoration: none;
+
+		&:hover,
+		&:focus {
+			background: @primary-lift;
+			color: #fff;
+		}
+	}
+}
+
 // Autocomplete fields
 // @todo the UI could probably be improved. When several results appear, you
 //  can loop through them with up and down keys, but that's not really intuitive

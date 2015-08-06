@@ -299,6 +299,34 @@
 	color: @no;
 }
 
+// Autocomplete fields
+// @todo the UI could probably be improved. When several results appear, you
+//  can loop through them with up and down keys, but that's not really intuitive
+//  with the UI pattern that's been implemented. Also, the suggestions panel
+//  could be absolutely positioned. Right now it causes a lot of jankiness when
+//  it comes in and out.
+.pkp_form input.ui-autocomplete-input {
+	display: inline-block; // Allow the label to sit on top
+}
+
+.ui-autocomplete {
+	&:extend(.pkp_unstyled_list);
+	font-size: @font-sml;
+
+	> li {
+		display: inline-block;
+		margin-top: @half;
+		margin-right: 0.5em;
+		padding: 0 0.5em;
+		background: @bg;
+		border-radius: @radius;
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+}
+
 .pkp_form {
 
 	// @todo all below

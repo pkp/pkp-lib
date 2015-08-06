@@ -81,54 +81,74 @@
 	*/
 }
 
-// @todo evaluate and clean up as necessary
-.ui-widget.ui-pnotify {
-	width: 320px !important;
+// Small notification panels that float above the screen
+.ui-pnotify {
+	position: fixed;
+	top: @base;
+	right: @base;
+	width: 20em;
+	max-width: 80%;
+	background: @primary;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+	border-bottom: 2px solid @primary;
+	font-size: @font-sml;
+	line-height: @line-sml;
+	color: #fff;
 }
 
-div.ui-pnotify-container {
-	background: #c9e3f8;
-	border: 1px solid #559abd;
+.ui-pnotify-sticker span,
+.ui-pnotify-closer span {
+	&:extend(.fa);
+	visibility: visible !important; // override inline styles from lib...
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: @double;
+	height: @double;
+	line-height: @double;
+	color: rgba(255,255,255,0.5);
+	text-align: center;
+	cursor: pointer;
+
+	&:hover,
+	&:focus,
+	// pinned
+	&.ui-icon-pin-s {
+		color: #fff;
+	}
 }
 
-.ui-pnotify-icon {
-	background-repeat: no-repeat !important;
-	padding-right: 16px;
-	height: 18px;
+.ui-pnotify-closer span:before {
+	content: @fa-var-times-circle;
+}
+
+.ui-pnotify-sticker span {
+	right: @double;
+
+	&:before {
+		content: @fa-var-thumb-tack;
+	}
 }
 
 .ui-pnotify-title {
-	margin-top: -.4em;
+	min-height: @double; // most titles will be empty but we want the title bar
+	margin: 0;
+	padding: 0 (@double * 2) 0 @base;
+	line-height: @double;
 }
 
-
-.notifyError div.ui-pnotify-container,
-.notifyFormError div.ui-pnotify-container {
-	background: #f8dada;
-	border: 1px solid #9a0000;
+.ui-pnotify-text {
+	padding: @base;
+	background: @primary-lift;
 }
 
-.notifyError .ui-pnotify-icon,
-.notifyFormError .ui-pnotify-icon {
-	background-image: url({$baseUrl}/lib/pkp/templates/images/structure/response_error.png);
+.notifyError .ui-pnotify-text,
+.notifyFormError .ui-pnotify-text,
+.notifyWarning .ui-pnotify-text,
+.notifyForbidden .ui-pnotify-text {
+	background: @no;
 }
 
-.notifySuccess .ui-pnotify-icon {
-	background-image: url({$baseUrl}/lib/pkp/templates/images/structure/response_success.png);
-}
-
-.notifyWarning .ui-pnotify-icon {
-	background-image: url({$baseUrl}/lib/pkp/templates/images/structure/response_warning.png);
-}
-
-.notifyForbidden .ui-pnotify-icon {
-	background-image: url({$baseUrl}/lib/pkp/templates/images/structure/response_forbidden.png);
-}
-
-.notifyInformation .ui-pnotify-icon {
-	background-image: url({$baseUrl}/lib/pkp/templates/images/structure/response_info.png);
-}
-
-.notifyHelp .ui-pnotify-icon {
-	background-image: url({$baseUrl}/lib/pkp/templates/images/structure/response_help.png);
+.notifySuccess .ui-pnotify-text {
+	background: @yes;
 }

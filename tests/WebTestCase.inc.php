@@ -156,10 +156,8 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 
 		// Find registration page
 		$this->open(self::$baseUrl);
-		$this->waitForElementPresent('css=.pkp_structure_head_siteNav');
-		if ($this->isElementPresent('link=Logout')) $this->logOut();
-		$this->waitForElementPresent('link=Register');
-		$this->click('link=Register');
+		$this->waitForElementPresent($selector='link=Register');
+		$this->click($selector);
 
 		// Fill in user data
 		$this->waitForElementPresent('css=[id^=firstName-]');
@@ -174,7 +172,7 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 
 		// Select the specified roles
 		foreach ($data['roles'] as $role) {
-			$this->click('//label[text()=\'' . htmlspecialchars($role) . '\']');
+			$this->click('//label[contains(., \'' . htmlspecialchars($role) . '\')]');
 		}
 
 		// Save the new user
@@ -184,7 +182,7 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 		$this->waitJQuery();
 
 		if (in_array('Author', $data['roles'])) {
-			$this->waitForText('css=h3', 'My Authored');
+			$this->waitForText('css=h4', 'My Authored');
 		}
 	}
 

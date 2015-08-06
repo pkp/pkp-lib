@@ -21,9 +21,9 @@
 	<h3>{translate key="manager.statistics.reports"}</h3>
 	<p>{translate key="manager.statistics.reports.description"}</p>
 	
-	<ul class="plain">
+	<ul>
 	{foreach from=$reportPlugins key=key item=plugin}
-		<li>&#187; <a href="{url op="tools" path="report" pluginName=$plugin->getName()|escape}">{$plugin->getDisplayName()|escape}</a></li>
+		<li><a href="{url op="tools" path="report" pluginName=$plugin->getName()|escape}">{$plugin->getDisplayName()|escape}</a></li>
 	{/foreach}
 	</ul>
 	

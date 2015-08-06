@@ -420,14 +420,18 @@ class PKPHandler {
 
 		AppLocale::requireComponents(
 			LOCALE_COMPONENT_PKP_COMMON,
-			LOCALE_COMPONENT_PKP_USER
+			LOCALE_COMPONENT_PKP_USER,
+			LOCALE_COMPONENT_APP_COMMON
 		);
-		if (defined('LOCALE_COMPONENT_APP_COMMON')) {
-			AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON);
+
+		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+		if (array_intersect(array(ROLE_ID_MANAGER), $userRoles)) {
+			AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER);
 		}
 
 		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('userRoles', $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES));
+		$templateMgr->assign('userRoles', $userRoles);
+
 		$accessibleWorkflowStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
 		if ($accessibleWorkflowStages) $templateMgr->assign('accessibleWorkflowStages', $accessibleWorkflowStages);
 	}

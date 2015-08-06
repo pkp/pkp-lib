@@ -653,7 +653,7 @@
 		var originalEvent, ele, form;
 
 		originalEvent = event.originalEvent;
-		ele = originalEvent.relatedTarget;
+		ele = originalEvent.target;
 
 		form = this.getHtmlElement();
 		if (!$(ele).hasClass('hasDatepicker') &&

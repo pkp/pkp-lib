@@ -124,14 +124,14 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 		if ($password === null) $password = $username . $username;
 
 		$this->open(self::$baseUrl);
-		$this->waitForElementPresent('link=Login');
-		$this->clickAndWait('link=Login');
-		$this->waitForElementPresent('css=[id^=username]');
-		$this->type('css=[id^=username-]', $username);
+		$this->waitForElementPresent($selector='link=Login');
+		$this->clickAndWait($selector);
+		$this->waitForElementPresent($selector='css=[id^=username]');
+		$this->type($selector, $username);
 		$this->type('css=[id^=password-]', $password);
-		$this->waitForElementPresent('//span[text()=\'Login\']/..');
-		$this->click('//span[text()=\'Login\']/..');
-		$this->waitForTextPresent('Hello,');
+		$this->waitForElementPresent($selector='css=#signinForm [id^=submitFormButton]');
+		$this->click($selector);
+		$this->waitForElementPresent('link=Logout');
 	}
 
 	/**

@@ -10,61 +10,6 @@
  */
 
 /**
- * The various font file types are served to different browsers depending on
- * compatibility. If the fonts need to be updated, you'll need to spoof browser
- * user-agents to get the font files from Google. There's a useful bash script
- * to do that here: https://neverpanic.de/blog/2014/03/19/downloading-google-web-fonts-for-local-hosting/
- */
-@font-face {
-	font-family: 'Noto Sans';
-	font-style: normal;
-	font-weight: 400;
-	src:
-		local('Noto Sans'),
-		local('NotoSans'),
-		url('{$baseUrl}/lib/pkp/fonts/notosans/Noto_Sans_400.eot?#iefix') format('embedded-opentype'),
-		url('{$baseUrl}/lib/pkp/fonts/notosans/Noto_Sans_400.woff') format('woff'),
-		url('{$baseUrl}/lib/pkp/fonts/notosans/Noto_Sans_400.ttf') format('truetype'),
-		url('{$baseUrl}/lib/pkp/fonts/notosans/Noto_Sans_400.svg#NotoSans') format('svg');
-}
-@font-face {
-	font-family: 'Noto Sans';
-	font-style: normal;
-	font-weight: 700;
-	src:
-		local('Noto Sans Bold'),
-		local('NotoSans-Bold'),
-		url('{$baseUrl}/lib/pkp/fonts/notosans/Noto_Sans_700.eot?#iefix') format('embedded-opentype'),
-		url('{$baseUrl}/lib/pkp/fonts/notosans/Noto_Sans_700.woff') format('woff'),
-		url('{$baseUrl}/lib/pkp/fonts/notosans/Noto_Sans_700.ttf') format('truetype'),
-		url('{$baseUrl}/lib/pkp/fonts/notosans/Noto_Sans_700.svg#NotoSans') format('svg');
-}
-@font-face {
-	font-family: 'Noto Sans';
-	font-style: italic;
-	font-weight: 400;
-	src:
-		local('Noto Sans Italic'),
-		local('NotoSans-Italic'),
-		url('{$baseUrl}/lib/pkp/fonts/notosans/Noto_Sans_400italic.eot?#iefix') format('embedded-opentype'),
-		url('{$baseUrl}/lib/pkp/fonts/notosans/Noto_Sans_400italic.woff') format('woff'),
-		url('{$baseUrl}/lib/pkp/fonts/notosans/Noto_Sans_400italic.ttf') format('truetype'),
-		url('{$baseUrl}/lib/pkp/fonts/notosans/Noto_Sans_400italic.svg#NotoSans') format('svg');
-}
-@font-face {
-	font-family: 'Noto Sans';
-	font-style: italic;
-	font-weight: 700;
-	src:
-		local('Noto Sans Bold Italic'),
-		local('NotoSans-BoldItalic'),
-		url('{$baseUrl}/lib/pkp/fonts/notosans/Noto_Sans_700italic.eot?#iefix') format('embedded-opentype'),
-		url('{$baseUrl}/lib/pkp/fonts/notosans/Noto_Sans_700italic.woff') format('woff'),
-		url('{$baseUrl}/lib/pkp/fonts/notosans/Noto_Sans_700italic.ttf') format('truetype'),
-		url('{$baseUrl}/lib/pkp/fonts/notosans/Noto_Sans_700italic.svg#NotoSans') format('svg');
-}
-
-/**
  * Font Awesome - icon font
  *
  * The full font awesome styles can be found in /styles/fontawesome

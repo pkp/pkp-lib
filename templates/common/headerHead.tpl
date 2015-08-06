@@ -29,6 +29,10 @@
 	{include file="common/validate.tpl"}
 	{include file="common/plupload.tpl"}
 
+	{* Load Noto Sans font from Google Font CDN *}
+	{* To load extended latin or other character sets, see https://www.google.com/fonts#UsePlace:use/Collection:Noto+Sans *}
+	<link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+
 	{load_stylesheet context="backend" stylesheets=$stylesheets}
 
 	<!-- Constants for JavaScript -->

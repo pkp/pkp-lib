@@ -47,7 +47,7 @@
 				titleIcon: string }} */ (this.mergeOptions(internalOptions));
 
 		// Attach content to the modal
-		$handledElement.html(this.modalBuild().html());
+		$handledElement.html(this.modalBuild()[0].outerHTML);
 
 		// Open the modal
 		this.modalOpen($handledElement);

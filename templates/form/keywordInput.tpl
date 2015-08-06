@@ -93,5 +93,4 @@
 	<!-- The container which will be processed by tag-it.js as the interests widget -->
 	<ul id="{$FBV_id|escape}{$uniqId}">{if $FBV_currentKeywords}{foreach from=$FBV_currentKeywords.$formLocale item=currentKeyword}<li>{$currentKeyword|escape}</li>{/foreach}{/if}</ul>
 	{if $FBV_label_content}<span>{$FBV_label_content}</span>{/if}
-	<br />
 {/if}

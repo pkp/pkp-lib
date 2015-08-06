@@ -424,8 +424,8 @@ class PKPHandler {
 			LOCALE_COMPONENT_APP_COMMON
 		);
 
-		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
-		if (is_array($userRoles) && array_intersect(array(ROLE_ID_MANAGER), $userRoles)) {
+		$userRoles = (array) $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+		if (array_intersect(array(ROLE_ID_MANAGER), $userRoles)) {
 			AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER);
 		}
 

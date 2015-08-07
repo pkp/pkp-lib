@@ -60,7 +60,7 @@
 								{translate key="common.required"}
 							</span>
 						</span>
-						<input type="text" name="firstName" value="{$firstName|escape}" maxlength="40" required>
+						<input type="text" name="firstName" id="firstName" value="{$firstName|escape}" maxlength="40" required>
 					</label>
 				</li>
 				<li class="middle_name">
@@ -80,7 +80,7 @@
 								{translate key="common.required"}
 							</span>
 						</span>
-						<input type="text" name="lastName" value="{$lastName|escape}" maxlength="40" required>
+						<input type="text" name="lastName" id="lastName" value="{$lastName|escape}" maxlength="40" required>
 					</label>
 				</li>
 				<li class="affiliation">
@@ -92,7 +92,7 @@
 								{translate key="common.required"}
 							</span>
 						</span>
-						<input type="text" name="affiliation" value="{$affiliation|escape}" required>
+						<input type="text" name="affiliation" id="affiliation" value="{$affiliation|escape}" required>
 					</label>
 				</li>
 				<li class="country">
@@ -104,7 +104,7 @@
 								{translate key="common.required"}
 							</span>
 						</span>
-						<select name="country" required>
+						<select name="country" id="country" required>
 							<option></option>
 							{html_options options=$countries selected=$country}
 						</select>
@@ -127,7 +127,7 @@
 								{translate key="common.required"}
 							</span>
 						</span>
-						<input type="text" name="email" value="{$email|escape}" maxlength="32" required>
+						<input type="text" name="email" id="email" value="{$email|escape}" maxlength="32" required>
 					</label>
 				</li>
 				<li class="username">
@@ -154,7 +154,7 @@
 								{translate key="common.required"}
 							</span>
 						</span>
-						<input type="password" name="password" value="{$password|escape}" password="true" maxlength="32" required="$passwordRequired">
+						<input type="password" name="password" id="password" value="{$password|escape}" password="true" maxlength="32" required="$passwordRequired">
 					</label>
 				</li>
 				<li class="password">
@@ -166,7 +166,7 @@
 								{translate key="common.required"}
 							</span>
 						</span>
-						<input type="password" name="password2" value="{$password2|escape}" password="true" maxlength="32" required="$passwordRequired">
+						<input type="password" name="password2" id="password2" value="{$password2|escape}" password="true" maxlength="32" required="$passwordRequired">
 					</label>
 				</li>
 			</ul>

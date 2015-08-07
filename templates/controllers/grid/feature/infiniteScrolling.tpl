@@ -8,6 +8,6 @@
  * Grid infinite scrolling markup.
  *}
 
-<span class="gridPagingScrolling">
+<div class="gridPagingScrolling">
 		{translate key="navigation.items.shownTotal" shown=$shown total=$iterator->getCount()}
-</span>
+</div>

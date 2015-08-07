@@ -463,9 +463,9 @@
 			throw new Error('JSON response must be set to true!');
 		}
 
+		// Re-validate the field
 		$('[id^="username"]', $form).val(processedJsonData.content)
-			// Re-validate the field
-			.trigger('blur');
+				.trigger('blur');
 	};
 
 

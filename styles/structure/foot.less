@@ -10,47 +10,15 @@
  * @brief Classes for the page footer structural elements
  */
 
-.pkp_structure_foot {
-	border-top: 1px dotted #999;
-	clear: both;
-	min-height: 150px;
-	background-color: #A2C6DC;
-	font-color: #ffffff;
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	h4 {
-		color: #000000;
-	}
+.pkp_structure_footer {
+	margin-top: @double * 2;
+	text-align: right;
+}
 
-	.pkp_structure_subfoot {
-		min-height: 45px;
-		clear: both;
+.pkp_brand_footer {
+	display: inline-block;
+
+	> a {
 		display: block;
-		position: absolute;
-		bottom: 0;
-		right: 0;
-
-		ul li {
-			list-style: square;
-			margin: 0px 0px 8px 15px;
-			text-transform: uppercase;
-			color: #ffffff;
-			a {
-				color: #ffffff;
-				text-decoration: none;
-			}
-		}
-
-		h4 a {
-			text-decoration: none;
-			color: #ffffff;
-		}
-
-		.div {
-			height: 100%;
-			vertical-align: bottom;
-		}
 	}
 }

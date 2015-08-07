@@ -125,19 +125,26 @@ img {
 	margin-right: @pkp_context_panel_width + @double;
 }
 
-// @todo temporary!
-#sidebarContainer {
-	// @note UrlInDivHandler.js is calling .fadeIn() on the elements after
-	// they're loaded in, which leaves a display: block style element
-	display: none !important;
-}
+// Page content wrapper for pages without tabs
+.pkp_page_content {
+	padding: @double;
+	background: @lift;
+	border: @bg-border;
 
-// @todo temporary!
-.pkp_structure_foot {
-	display: none;
-}
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		margin: @double 0 @base;
 
-// @todo temporary! no search on backend
-.pkp_structure_search {
-	display: none;
+		&:first-child {
+			margin-top: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
 }

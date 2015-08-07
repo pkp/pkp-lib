@@ -765,7 +765,7 @@
 				.blur(this.callbackWrapper(this.inputBlurHandler_));
 
 		// Attach deletion handler
-		$context.find('.remove_item').click(
+		$context.find('.pkp_linkaction_delete').click(
 				this.callbackWrapper(this.deleteItemHandler_));
 	};
 

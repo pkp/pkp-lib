@@ -47,8 +47,8 @@
 			function($gridElement, options) {
 		var castOptions = /** @type {{pagingMarkup: string?,
 					loadingContainer: string?}} */ (options);
-		$gridElement.find('div.grid_header_bar h3').after(castOptions.pagingMarkup);
-		$gridElement.find('div.scrollable').append(castOptions.loadingContainer);
+		$gridElement.find('div.scrollable').append(castOptions.loadingContainer)
+			.after(castOptions.pagingMarkup);
 	};
 
 

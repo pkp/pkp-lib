@@ -126,10 +126,10 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 		$this->open(self::$baseUrl);
 		$this->waitForElementPresent($selector='link=Login');
 		$this->clickAndWait($selector);
-		$this->waitForElementPresent($selector='css=[id^=username]');
+		$this->waitForElementPresent($selector='css=[id=username]');
 		$this->type($selector, $username);
-		$this->type('css=[id^=password-]', $password);
-		$this->waitForElementPresent($selector='css=#signinForm [id^=submitFormButton]');
+		$this->type('css=[id=password]', $password);
+		$this->waitForElementPresent($selector='css=#login button.submit');
 		$this->click($selector);
 		$this->waitForElementPresent('link=Logout');
 	}
@@ -160,14 +160,14 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 		$this->click($selector);
 
 		// Fill in user data
-		$this->waitForElementPresent('css=[id^=firstName-]');
-		$this->type('css=[id^=firstName-]', $data['firstName']);
-		$this->type('css=[id^=lastName-]', $data['lastName']);
-		$this->type('css=[id^=username-]', $username);
-		$this->type('css=[id^=email-]', $data['email']);
-		$this->type('css=[id^=password-]', $data['password']);
-		$this->type('css=[id^=password2-]', $data['password2']);
-		if (isset($data['affiliation'])) $this->type('css=[id^=affiliation-]', $data['affiliation']);
+		$this->waitForElementPresent('css=[id=firstName]');
+		$this->type('css=[id=firstName]', $data['firstName']);
+		$this->type('css=[id=lastName]', $data['lastName']);
+		$this->type('css=[id=username]', $username);
+		$this->type('css=[id=email]', $data['email']);
+		$this->type('css=[id=password]', $data['password']);
+		$this->type('css=[id=password2]', $data['password2']);
+		if (isset($data['affiliation'])) $this->type('css=[id=affiliation]', $data['affiliation']);
 		if (isset($data['country'])) $this->select('id=country', $data['country']);
 
 		// Select the specified roles
@@ -176,7 +176,7 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 		}
 
 		// Save the new user
-		$this->waitForElementPresent($formButtonSelector = '//button[text()=\'Register\']');
+		$this->waitForElementPresent($formButtonSelector = '//button[contains(.,\'Register\')]');
 		$this->click($formButtonSelector);
 		$this->waitForElementPresent('link=Logout');
 		$this->waitJQuery();

@@ -9,14 +9,12 @@
  *}
 {if $isError}
 	<div id="formErrors">
-		<p>
 		<span class="pkp_form_error">{translate key="form.errorsOccurred"}:</span>
 		<ul class="pkp_form_error_list">
 		{foreach key=field item=message from=$errors}
 			<li><a href="#{$field|escape}">{$message}</a></li>
 		{/foreach}
 		</ul>
-		</p>
 	</div>
 	<script>{literal}
 		<!--

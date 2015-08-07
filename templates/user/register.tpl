@@ -9,88 +9,204 @@
  *}
 {include file="common/frontend/header.tpl" pageTitle="user.register"}
 
-<script type="text/javascript">
-	$(function() {ldelim}
-		// Attach the form handler.
-		$('#register').pkpHandler('$.pkp.controllers.form.FormHandler',
-			{ldelim}
-				fetchUsernameSuggestionUrl: '{url|escape:"javascript" router=$smarty.const.ROUTE_COMPONENT component="api.user.UserApiHandler" op="suggestUsername" firstName="FIRST_NAME_DUMMY" lastName="LAST_NAME_DUMMY" escape=false}',
-				usernameSuggestionTextAlert: '{translate key="grid.user.mustProvideName"}'
-			{rdelim}
-		);
-	{rdelim});
-</script>
+<div class="page page_register">
+	<h1 class="page_title">
+		{translate key="user.register"}
+	</h1>
 
-<form class="pkp_form" id="register" method="post" action="{url op="registerUser"}">
-	<p>{translate key="user.register.completeForm"}</p>
+	<p>
+		{translate key="user.register.completeForm"}
+	</p>
 
 	{if !$implicitAuth}
 		{url|assign:"rolesProfileUrl" page="user" op="profile" path="roles"}
 		{url|assign:"loginUrl" page="login" source=$rolesProfileUrl}
-		<p>{translate key="user.register.alreadyRegisteredOtherContext" registerUrl=$loginUrl}</p>
+		<p>
+			{translate key="user.register.alreadyRegisteredOtherContext" registerUrl=$loginUrl}
+		</p>
 	{/if}
 
-	{if $source}
-		<input type="hidden" name="source" value="{$source|escape}" />
-	{/if}
+	<script type="text/javascript">
+		$(function() {ldelim}
+			// Attach the form handler.
+			$('#register').pkpHandler('$.pkp.controllers.form.FormHandler',
+				{ldelim}
+					fetchUsernameSuggestionUrl: '{url|escape:"javascript" router=$smarty.const.ROUTE_COMPONENT component="api.user.UserApiHandler" op="suggestUsername" firstName="FIRST_NAME_DUMMY" lastName="LAST_NAME_DUMMY" escape=false}',
+					usernameSuggestionTextAlert: '{translate key="grid.user.mustProvideName"}'
+				{rdelim}
+			);
+		{rdelim});
+	</script>
 
-	{include file="common/formErrors.tpl"}
+	<form class="pkp_form register" id="register" method="post" action="{url op="registerUser"}">
 
-	{fbvFormArea id="registration"}
-		{fbvFormArea id="userFormCompactLeft"}
-			{fbvFormSection title="user.name"}
-				{fbvElement type="text" label="user.firstName" required="true" id="firstName" value=$firstName maxlength="40" inline=true size=$fbvStyles.size.SMALL}
-				{fbvElement type="text" label="user.middleName" id="middleName" value=$middleName maxlength="40" inline=true size=$fbvStyles.size.SMALL}
-				{fbvElement type="text" label="user.lastName" required="true" id="lastName" value=$lastName maxlength="40" inline=true size=$fbvStyles.size.SMALL}
-			{/fbvFormSection}
+		{if $source}
+			<input type="hidden" name="source" value="{$source|escape}" />
+		{/if}
 
-			{fbvFormSection for="username" description="user.register.usernameRestriction"}
-				{fbvElement type="text" label="user.username" id="username" required="true" value=$username maxlength="32" inline=true size=$fbvStyles.size.MEDIUM}
-				{fbvElement type="button" label="common.suggest" id="suggestUsernameButton" inline=true class="default"}
-			{/fbvFormSection}
+		{include file="common/formErrors.tpl"}
 
-			{fbvFormSection}
-				{fbvElement type="text" label="user.email" id="email" value=$email size=$fbvStyles.size.MEDIUM required=true}
-				{if $privacyStatement}<a class="action" href="#privacyStatement">{translate key="user.register.privacyStatement"}</a>{/if}
-			{/fbvFormSection}
+		<fieldset class="identity">
+			<legend>
+				{translate key="user.profile"}
+			</legend>
+			<ul class="fields">
+				<li class="first_name">
+					<label>
+						<span class="label">
+							{translate key="user.firstName"}
+							<span class="required">*</span>
+							<span class="pkp_screen_reader">
+								{translate key="common.required"}
+							</span>
+						</span>
+						<input type="text" name="firstName" id="firstName" value="{$firstName|escape}" maxlength="40" required>
+					</label>
+				</li>
+				<li class="middle_name">
+					<label>
+						<span class="label">
+							{translate key="user.middleName"}
+						</span>
+						<input type="text" name="middleName" value="{$middleName|escape}" maxlength="40">
+					</label>
+				</li>
+				<li class="last_name">
+					<label>
+						<span class="label">
+							{translate key="user.lastName"}
+							<span class="required">*</span>
+							<span class="pkp_screen_reader">
+								{translate key="common.required"}
+							</span>
+						</span>
+						<input type="text" name="lastName" id="lastName" value="{$lastName|escape}" maxlength="40" required>
+					</label>
+				</li>
+				<li class="affiliation">
+					<label>
+						<span class="label">
+							{translate key="user.affiliation"}
+							<span class="required">*</span>
+							<span class="pkp_screen_reader">
+								{translate key="common.required"}
+							</span>
+						</span>
+						<input type="text" name="affiliation" id="affiliation" value="{$affiliation|escape}" required>
+					</label>
+				</li>
+				<li class="country">
+					<label>
+						<span class="label">
+							{translate key="common.country"}
+							<span class="required">*</span>
+							<span class="pkp_screen_reader">
+								{translate key="common.required"}
+							</span>
+						</span>
+						<select name="country" id="country" required>
+							<option></option>
+							{html_options options=$countries selected=$country}
+						</select>
+					</label>
+				</li>
+			</ul>
+		</fieldset>
 
-			{fbvFormSection}
-				{fbvElement type="text" label="user.affiliation" multilingual="true" name="affiliation" id="affiliation" value=$affiliation size=$fbvStyles.size.MEDIUM inline=true}
-				{fbvElement type="select" label="common.country" name="country" id="country" required=true defaultLabel="" defaultValue="" from=$countries selected=$country translate="0" size=$fbvStyles.size.MEDIUM inline=true}
-			{/fbvFormSection}
+		<fieldset class="login">
+			<legend>
+				{translate key="user.login"}
+			</legend>
+			<ul class="fields">
+				<li class="email">
+					<label>
+						<span class="label">
+							{translate key="user.email"}
+							<span class="required">*</span>
+							<span class="pkp_screen_reader">
+								{translate key="common.required"}
+							</span>
+						</span>
+						<input type="text" name="email" id="email" value="{$email|escape}" maxlength="32" required>
+					</label>
+				</li>
+				<li class="username">
+					<label>
+						<span class="label">
+							{translate key="user.username"}
+							<span class="required">*</span>
+							<span class="pkp_screen_reader">
+								{translate key="common.required"}
+							</span>
+						</span>
+						<input type="text" name="username" id="username" value="{$username|escape}" maxlength="32" required>
+					</label>
+					<button id="suggestUsernameButton" class="suggest_username">
+						{translate key="common.suggest"}
+					</button>
+				</li>
+				<li class="password">
+					<label>
+						<span class="label">
+							{translate key="user.password"}
+							<span class="required">*</span>
+							<span class="pkp_screen_reader">
+								{translate key="common.required"}
+							</span>
+						</span>
+						<input type="password" name="password" id="password" value="{$password|escape}" password="true" maxlength="32" required="$passwordRequired">
+					</label>
+				</li>
+				<li class="password">
+					<label>
+						<span class="label">
+							{translate key="user.repeatPassword"}
+							<span class="required">*</span>
+							<span class="pkp_screen_reader">
+								{translate key="common.required"}
+							</span>
+						</span>
+						<input type="password" name="password2" id="password2" value="{$password2|escape}" password="true" maxlength="32" required="$passwordRequired">
+					</label>
+				</li>
+			</ul>
+		</fieldset>
 
-			{fbvFormArea id="passwordSection" title="user.password"}
-				{fbvFormSection for="password"}
-					{fbvElement type="text" label="user.password" required=$passwordRequired name="password" id="password" password="true" value=$password maxlength="32" inline=true size=$fbvStyles.size.MEDIUM}
-					{fbvElement type="text" label="user.repeatPassword" required=$passwordRequired name="password2" id="password2" password="true" value=$password2 maxlength="32" inline=true size=$fbvStyles.size.MEDIUM}
-				{/fbvFormSection}
-
-			{/fbvFormArea}
-		{/fbvFormArea}
-
+		{* @todo Implement this without recourse to the Form Builder Vocab,
+		    so we don't force themers to dip into FBV at all *}
 		{include file="user/userGroups.tpl"}
 
+		{* @todo recaptcha display is untested *}
 		{if $reCaptchaHtml}
-			<li>
-			{fieldLabel name="captcha" required=true key="common.captchaField" class="desc"}
-			<span>
+			<div class="recaptcha">
+				{fieldLabel name="captcha" required=true key="common.captchaField" class="desc"}
 				{$reCaptchaHtml}
-			</span>
-			</li>
+			</div>
 		{/if}
-	{/fbvFormArea}
-	{url|assign:"url" page="index" escape=false}
-	{fbvFormButtons submitText="user.register" cancelUrl=$url}
 
-	{if !$implicitAuth}
-		<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
-	{/if}
+		<fieldset class="buttons">
+			<button class="submit" type="submit">
+				{translate key="user.register"}
+			</button>
+		</fieldset>
 
-	<div id="privacyStatement">
+		{if !$implicitAuth}
+			<div class="required_label">
+				{translate key="common.requiredField"}
+			</div>
+		{/if}
+
 		{if $privacyStatement}
-			<h3>{translate key="user.register.privacyStatement"}</h3>
-			<p>{$privacyStatement|nl2br}</p>
+			<div class="privacy">
+				<h3>
+					{translate key="user.register.privacyStatement"}
+				</h3>
+				<p>
+					{$privacyStatement|nl2br}
+				</p>
+			</div>
 		{/if}
-	</div>
-</form>
+	</form>
+</div><!-- .page -->
+
 {include file="common/frontend/footer.tpl"}

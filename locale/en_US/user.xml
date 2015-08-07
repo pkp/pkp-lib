@@ -99,7 +99,7 @@
 	<message key="user.profile.publicProfile">User Profile</message>
 	<message key="user.profile.repeatNewPassword">Repeat new password</message>
 	<!-- Login -->
-	<message key="user.login.registerNewAccount">Not a user? Register with this site</message>
+	<message key="user.login.registerNewAccount">Register</message>
 	<message key="user.login.resetPasswordInstructions"><![CDATA[For security reasons, this system emails a reset password to registered users, rather than recalling the
 current password.<br /><br />Enter your email address below to reset your password. A confirmation will be sent to this email address.]]></message>
 

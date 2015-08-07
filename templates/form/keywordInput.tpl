@@ -13,8 +13,7 @@
 		<script>
 			$(document).ready(function(){ldelim}
 				$("#{$thisFormLocale|escape}-{$FBV_id}{$uniqId}").tagit({ldelim}
-					itemName: "keywords",
-					fieldName: "{$thisFormLocale|escape}-{$FBV_id|escape}",
+					fieldName: "keywords[{$thisFormLocale|escape}-{$FBV_id|escape}][]",
 					allowSpaces: true,
 					{if $FBV_sourceUrl && !$FBV_disabled}
 						tagSource: function(search, showChoices) {ldelim}
@@ -64,8 +63,7 @@
 	<script>
 		$(document).ready(function(){ldelim}
 			$("#{$FBV_id}{$uniqId}").tagit({ldelim}
-				itemName: "keywords",
-				fieldName: "{if $FBV_multilingual}{$formLocale|escape}-{/if}{$FBV_id|escape}",
+				fieldName: "keywords[{if $FBV_multilingual}{$formLocale|escape}-{/if}{$FBV_id|escape}][]",
 				allowSpaces: true,
 				{if $FBV_sourceUrl && !$FBV_disabled}
 					tagSource: function(search, showChoices) {ldelim}

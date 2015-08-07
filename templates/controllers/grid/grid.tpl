@@ -94,14 +94,14 @@
 		</div>
 	{/if}
 
-	{if !empty($grid->getActions($smarty.const.GRID_ACTION_POSITION_BELOW)) || !empty($grid->getFootNote())}
+	{if $grid->getActions($smarty.const.GRID_ACTION_POSITION_BELOW) || $grid->getFootNote()}
 	<div class="footer">
 
-		{if !empty($grid->getActions($smarty.const.GRID_ACTION_POSITION_BELOW))}
+		{if $grid->getActions($smarty.const.GRID_ACTION_POSITION_BELOW)}
 			{include file="controllers/grid/gridActionsBelow.tpl" actions=$grid->getActions($smarty.const.GRID_ACTION_POSITION_BELOW) gridId=$staticId}
 		{/if}
 
-		{if !empty($grid->getFootNote())}
+		{if $grid->getFootNote()}
 			<div class="footnote">
 				{translate key=$grid->getFootNote()}
 			</div>

@@ -84,7 +84,8 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		// Page 2: File wizard
 		$this->waitForElementPresent($selector = 'id=cancelButton');
 		$this->click($selector); // Thanks but no thanks
-		$this->pause(500);
+		$this->waitForElementNotPresent('css=div.pkp_modal_panel'); // pkp/pkp-lib#655
+
 		foreach ($data['files'] as $file) {
 			if (!isset($file['file'])) $file['file'] = DUMMY_PDF;
 			$this->click('css=[id^=component-grid-files-submission-submissionwizardfilesgrid-addFile-button-]');
@@ -201,9 +202,9 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->select('id=country', $data['country']);
 		$this->type('css=[id^=email-]', $data['email']);
 		if (isset($data['affiliation'])) $this->type('css=[id^=affiliation-]', $data['affiliation']);
-		$this->click('//label[text()=\'' . $this->escapeJS($data['role']) . '\']');
+		$this->click('//label[contains(.,\'' . $this->escapeJS($data['role']) . '\')]');
 		$this->click('//button[text()=\'Save\']');
-		$this->waitForElementNotPresent('css=.ui-widget-overlay');
+		$this->waitForElementNotPresent('css=div.pkp_modal_panel'); // pkp/pkp-lib#655
 		$this->waitJQuery();
 	}
 
@@ -244,7 +245,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->click($selector);
 		$this->waitForElementPresent($selector='//button[text()=\'Record Editorial Decision\']');
 		$this->click($selector);
-		$this->waitForElementNotPresent('css=.ui-widget-overlay');
+		$this->waitForElementNotPresent('css=div.pkp_modal_panel'); // pkp/pkp-lib#655
 	}
 
 	/**
@@ -281,7 +282,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->click($selector);
 
 		$this->click('//button[text()=\'Add Reviewer\']');
-		$this->waitForElementNotPresent('css=.ui-widget-overlay');
+		$this->waitForElementNotPresent('css=div.pkp_modal_panel'); // pkp/pkp-lib#655
 	}
 
 	/**

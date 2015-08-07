@@ -417,8 +417,8 @@
 	/**
 	 * Event handler that is called when the suggest username button is clicked.
 	 *
-	 * @param {Object} Button clicked by this event
-	 * @param {Object} Event triggered
+	 * @param {HTMLElement} el clicked by this event
+	 * @param {Event} e triggered
 	 */
 	$.pkp.controllers.form.FormHandler.prototype.
 			generateUsername = function(el, e) {

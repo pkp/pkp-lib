@@ -8,10 +8,7 @@
  * User login form.
  *
  *}
-{strip}
-{assign var="pageTitle" value="user.login"}
-{include file="common/frontend/header.tpl"}
-{/strip}
+{include file="common/frontend/header.tpl" pageTitle="user.login"}
 
 {if $loginMessage}
 	<span class="instruct">{translate key=$loginMessage}</span>

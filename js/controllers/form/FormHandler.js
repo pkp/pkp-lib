@@ -416,22 +416,28 @@
 
 	/**
 	 * Event handler that is called when the suggest username button is clicked.
+	 *
+	 * @param {Object} Button clicked by this event
+	 * @param {Object} Event triggered
 	 */
 	$.pkp.controllers.form.FormHandler.prototype.
-			generateUsername = function() {
+			generateUsername = function(el, e) {
+
+		// Don't submit the form!
+		e.preventDefault();
 
 		var $form = this.getHtmlElement(),
 				firstName, lastName, fetchUrl;
 
-		if ($('[id^="lastName"]', $form).val() === '') {
+		if ($('[name="lastName"]', $form).val() === '') {
 			// No last name entered; cannot suggest. Complain.
 			alert(this.usernameSuggestionTextAlert_);
 			return;
 		}
 
 		// Fetch entered names
-		firstName = /** @type {string} */ $('[id^="firstName"]', $form).val();
-		lastName = /** @type {string} */ $('[id^="lastName"]', $form).val();
+		firstName = /** @type {string} */ $('[name="firstName"]', $form).val();
+		lastName = /** @type {string} */ $('[name="lastName"]', $form).val();
 
 		// Replace dummy values in the URL with entered values
 		fetchUrl = this.fetchUsernameSuggestionUrl_.
@@ -457,7 +463,9 @@
 			throw new Error('JSON response must be set to true!');
 		}
 
-		$('[id^="username"]', $form).val(processedJsonData.content);
+		$('[id^="username"]', $form).val(processedJsonData.content)
+			// Re-validate the field
+			.trigger('blur');
 	};
 
 

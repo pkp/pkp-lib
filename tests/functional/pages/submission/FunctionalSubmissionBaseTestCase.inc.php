@@ -100,7 +100,7 @@ abstract class FunctionalSubmissionBaseTestCase extends WebTestCase {
 		}
 
 		$this->click("css=#submitStep3Form .submitFormButton");
-		$this->waitForElementPresent($selector = '//span[text()=\'OK\']/..');
+		$this->waitForElementPresent($selector = '//button[text()=\'OK\']');
 		$this->click($selector);
 
 		$authorDashboardLink = self::$baseUrl . '/index.php/publicknowledge/authorDashboard/submission/' . $submissionId;

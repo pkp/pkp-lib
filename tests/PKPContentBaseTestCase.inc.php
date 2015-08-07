@@ -69,8 +69,8 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		), $data);
 
 		// Find the "start a submission" button
-		$this->waitForElementPresent('//span[starts-with(., \'Start a New Submission\')]/..');
-		$this->click('//span[starts-with(., \'Start a New Submission\')]/..');
+		$this->waitForElementPresent($selector='//button[starts-with(., \'New Submission\')]');
+		$this->click($selector);
 
 		// Check the default checklist items.
 		$this->waitForElementPresent('id=checklist-0');
@@ -84,6 +84,8 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		// Page 2: File wizard
 		$this->waitForElementPresent($selector = 'id=cancelButton');
 		$this->click($selector); // Thanks but no thanks
+		$this->waitForElementNotPresent('css=div.pkp_modal_panel'); // pkp/pkp-lib#655
+
 		foreach ($data['files'] as $file) {
 			if (!isset($file['file'])) $file['file'] = DUMMY_PDF;
 			$this->click('css=[id^=component-grid-files-submission-submissionwizardfilesgrid-addFile-button-]');
@@ -91,8 +93,8 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 			$this->uploadWizardFile($file['fileTitle'], $file['file'], $metadata);
 		}
 		sleep(1); // Occasional race conditions in travis
-		$this->waitForElementPresent('//span[text()=\'Save and continue\']/..');
-		$this->click('//span[text()=\'Save and continue\']/..');
+		$this->waitForElementPresent($selector='//button[text()=\'Save and continue\']');
+		$this->click($selector);
 
 		// Page 3
 		sleep(1); // Occasional race conditions in travis
@@ -108,11 +110,10 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->_handleStep3($data);
 
 		// Finish
-		$this->waitForElementPresent('//span[text()=\'Finish Submission\']/..');
-		$this->click('//span[text()=\'Finish Submission\']/..');
-		$this->waitForText('css=div.pkp_controllers_modal_titleBar > h2', 'Confirm');
-		$this->waitForElementPresent("//span[text()='OK']/..");
-		$this->click("//span[text()='OK']/..");
+		$this->waitForElementPresent($selector='//button[text()=\'Finish Submission\']');
+		$this->click($selector);
+		$this->waitForElementPresent($selector="//a[text()='OK']");
+		$this->click($selector);
 		$this->waitForElementPresent('//h2[contains(text(), \'Submission complete\')]');
 		$this->waitJQuery();
 	}
@@ -171,9 +172,9 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 
 		// Validate the form and finish
 		$this->runScript('$(\'#metadataForm\').valid();');
-		$this->click('//span[text()=\'Continue\']/..');
+		$this->click('css=[id=continueButton]');
 		$this->waitJQuery();
-		$this->waitForElementPresent($selector = '//span[text()=\'Complete\']/..');
+		$this->waitForElementPresent($selector = 'css=[id=continueButton]');
 		$this->click($selector);
 		$this->waitJQuery();
 	}
@@ -201,9 +202,9 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->select('id=country', $data['country']);
 		$this->type('css=[id^=email-]', $data['email']);
 		if (isset($data['affiliation'])) $this->type('css=[id^=affiliation-]', $data['affiliation']);
-		$this->click('//label[text()=\'' . $this->escapeJS($data['role']) . '\']');
-		$this->click('//span[text()=\'Save\']/..');
-		$this->waitForElementNotPresent('css=.ui-widget-overlay');
+		$this->click('//label[contains(.,\'' . $this->escapeJS($data['role']) . '\')]');
+		$this->click('//button[text()=\'Save\']');
+		$this->waitForElementNotPresent('css=div.pkp_modal_panel'); // pkp/pkp-lib#655
 		$this->waitJQuery();
 	}
 
@@ -240,11 +241,11 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 	 * @param $decision string
 	 */
 	protected function recordEditorialDecision($decision) {
-		$this->waitForElementPresent('//span[text()=\'' . $this->escapeJS($decision) . '\']/..');
-		$this->click('//span[text()=\'' . $this->escapeJS($decision) . '\']/..');
-		$this->waitForElementPresent('//span[text()=\'Record Editorial Decision\']/..');
-		$this->click('//span[text()=\'Record Editorial Decision\']/..');
-		$this->waitForElementNotPresent('css=.ui-widget-overlay');
+		$this->waitForElementPresent($selector='//a/span[contains(.,\'' . $this->escapeJS($decision) . '\')]/..');
+		$this->click($selector);
+		$this->waitForElementPresent($selector='//button[contains(.,\'Record Editorial Decision\')]');
+		$this->click($selector);
+		$this->waitForElementNotPresent('css=div.pkp_modal_panel'); // pkp/pkp-lib#655
 	}
 
 	/**
@@ -259,7 +260,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->select('id=userGroupId', 'label=' . $this->escapeJS($role));
 		$this->waitForElementPresent('//select[@name=\'userId\']//option[text()=\'' . $this->escapeJS($name) . '\']');
 		$this->select('id=userId', 'label=' . $this->escapeJS($name));
-		$this->click('//span[text()=\'OK\']/..');
+		$this->click('//button[text()=\'OK\']');
 		$this->waitForText('css=div.ui-pnotify-text', 'User added as a stage participant.');
 		$this->waitJQuery();
 	}
@@ -280,8 +281,8 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->mouseOver($selector);
 		$this->click($selector);
 
-		$this->click('//span[text()=\'Add Reviewer\']/..');
-		$this->waitForElementNotPresent('css=.ui-widget-overlay');
+		$this->click('//button[text()=\'Add Reviewer\']');
+		$this->waitForElementNotPresent('css=div.pkp_modal_panel'); // pkp/pkp-lib#655
 	}
 
 	/**
@@ -303,11 +304,11 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->waitForElementPresent($xpath);
 		$this->click($xpath);
 
-		$this->waitForElementPresent('//span[text()=\'Accept Review, Continue to Step #2\']/..');
-		$this->click('//span[text()=\'Accept Review, Continue to Step #2\']/..');
+		$this->waitForElementPresent($selector='//button[text()=\'Accept Review, Continue to Step #2\']');
+		$this->click($selector);
 
-		$this->waitForElementPresent('//span[text()=\'Continue to Step #3\']/..');
-		$this->click('//span[text()=\'Continue to Step #3\']/..');
+		$this->waitForElementPresent($selector='//button[text()=\'Continue to Step #3\']');
+		$this->click($selector);
 		$this->waitForElementPresent('css=[id^=comments-]');
 		$this->type('css=[id^=comments-]', $comments);
 
@@ -315,10 +316,10 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 			$this->select('id=recommendation', 'label=' . $this->escapeJS($recommendation));
 		}
 
-		$this->waitForElementPresent('//span[text()=\'Submit Review\']/..');
-		$this->click('//span[text()=\'Submit Review\']/..');
-		$this->waitForElementPresent('//span[text()=\'OK\']/..');
-		$this->click('//span[text()=\'OK\']/..');
+		$this->waitForElementPresent($selector='//button[text()=\'Submit Review\']');
+		$this->click($selector);
+		$this->waitForElementPresent($selector='link=OK');
+		$this->click($selector);
 		$this->waitForElementPresent('//h2[contains(text(), \'Review Submitted\')]');
 		$this->waitJQuery();
 		$this->logOut();

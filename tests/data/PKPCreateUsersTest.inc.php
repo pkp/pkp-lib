@@ -31,10 +31,12 @@ class PKPCreateUsersTest extends WebTestCase {
 		), $data);
 
 		$this->open(self::$baseUrl);
-		$this->waitForElementPresent('link=Users & Roles');
-		$this->click('link=Users & Roles');
-		$this->waitForElementPresent('css=[id^=component-grid-settings-user-usergrid-addUser-button-]');
-		$this->click('css=[id^=component-grid-settings-user-usergrid-addUser-button-]');
+		$this->waitForElementPresent($selector='link=Dashboard');
+		$this->clickAndWait($selector);
+		$this->waitForElementPresent($selector='link=Users & Roles');
+		$this->click($selector);
+		$this->waitForElementPresent($selector='css=[id^=component-grid-settings-user-usergrid-addUser-button-]');
+		$this->click($selector);
 		$this->waitForElementPresent('css=[id^=firstName-]');
 
 		// Fill in user data
@@ -46,7 +48,7 @@ class PKPCreateUsersTest extends WebTestCase {
 		$this->type('css=[id^=password2-]', $data['password2']);
 		if (isset($data['country'])) $this->select('id=country', $data['country']);
 		if (isset($data['affiliation'])) $this->type('css=[id^=affiliation-]', $data['affiliation']);
-		$this->click('//span[text()=\'OK\']/..');
+		$this->click('//button[text()=\'OK\']');
 		$this->waitJQuery();
 
 		// Roles
@@ -58,7 +60,7 @@ class PKPCreateUsersTest extends WebTestCase {
 			$this->waitJQuery();
 		}
 
-		$this->click('//span[text()=\'Save\']/..');
+		$this->click('//button[text()=\'Save\']');
 		$this->waitJQuery();
 	}
 }

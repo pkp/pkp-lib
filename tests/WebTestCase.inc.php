@@ -124,14 +124,14 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 		if ($password === null) $password = $username . $username;
 
 		$this->open(self::$baseUrl);
-		$this->waitForElementPresent('link=Login');
-		$this->clickAndWait('link=Login');
-		$this->waitForElementPresent('css=[id^=username]');
-		$this->type('css=[id^=username-]', $username);
-		$this->type('css=[id^=password-]', $password);
-		$this->waitForElementPresent('//span[text()=\'Login\']/..');
-		$this->click('//span[text()=\'Login\']/..');
-		$this->waitForTextPresent('Hello,');
+		$this->waitForElementPresent($selector='link=Login');
+		$this->clickAndWait($selector);
+		$this->waitForElementPresent($selector='css=[id=username]');
+		$this->type($selector, $username);
+		$this->type('css=[id=password]', $password);
+		$this->waitForElementPresent($selector='css=#login button.submit');
+		$this->click($selector);
+		$this->waitForElementPresent('link=Logout');
 	}
 
 	/**
@@ -156,35 +156,33 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 
 		// Find registration page
 		$this->open(self::$baseUrl);
-		$this->waitForElementPresent('css=.pkp_structure_head_siteNav');
-		if ($this->isElementPresent('link=Logout')) $this->logOut();
-		$this->waitForElementPresent('link=Register');
-		$this->click('link=Register');
+		$this->waitForElementPresent($selector='link=Register');
+		$this->click($selector);
 
 		// Fill in user data
-		$this->waitForElementPresent('css=[id^=firstName-]');
-		$this->type('css=[id^=firstName-]', $data['firstName']);
-		$this->type('css=[id^=lastName-]', $data['lastName']);
-		$this->type('css=[id^=username-]', $username);
-		$this->type('css=[id^=email-]', $data['email']);
-		$this->type('css=[id^=password-]', $data['password']);
-		$this->type('css=[id^=password2-]', $data['password2']);
-		if (isset($data['affiliation'])) $this->type('css=[id^=affiliation-]', $data['affiliation']);
+		$this->waitForElementPresent('css=[id=firstName]');
+		$this->type('css=[id=firstName]', $data['firstName']);
+		$this->type('css=[id=lastName]', $data['lastName']);
+		$this->type('css=[id=username]', $username);
+		$this->type('css=[id=email]', $data['email']);
+		$this->type('css=[id=password]', $data['password']);
+		$this->type('css=[id=password2]', $data['password2']);
+		if (isset($data['affiliation'])) $this->type('css=[id=affiliation]', $data['affiliation']);
 		if (isset($data['country'])) $this->select('id=country', $data['country']);
 
 		// Select the specified roles
 		foreach ($data['roles'] as $role) {
-			$this->click('//label[text()=\'' . htmlspecialchars($role) . '\']');
+			$this->click('//label[contains(., \'' . htmlspecialchars($role) . '\')]');
 		}
 
 		// Save the new user
-		$this->waitForElementPresent($formButtonSelector = '//span[text()=\'Register\']/..');
+		$this->waitForElementPresent($formButtonSelector = '//button[contains(.,\'Register\')]');
 		$this->click($formButtonSelector);
 		$this->waitForElementPresent('link=Logout');
 		$this->waitJQuery();
 
 		if (in_array('Author', $data['roles'])) {
-			$this->waitForText('css=h3', 'My Authored');
+			$this->waitForText('css=h4', 'My Authored');
 		}
 	}
 
@@ -296,7 +294,7 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 		$this->waitForElementPresent('//input[@type="file"]');
 		$this->type('css=input[type="file"]', $testFile);
 		$this->waitForText('css=span.plupload_file_name_wrapper', $fileName);
-		$this->click('css=a[id=plupload_start]');
+		$this->click('//span[text()=\'Start Upload\']');
 		$this->waitJQuery();
 		$this->waitForTextPresent('100%');
 	}
@@ -349,7 +347,7 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	 * @param $waitFirst boolean True (default) to wait for the element first.
 	 */
 	protected function clickLinkActionNamed($name, $waitFirst = true) {
-		$selector = '//span[text()=\'' . $this->escapeJS($name) . '\']/..';
+		$selector = '//button[text()=\'' . $this->escapeJS($name) . '\']';
 		$this->waitForElementPresent($selector);
 		$this->click($selector);
 	}

@@ -364,6 +364,38 @@
 	}
 }
 
+// Listbuilder grids
+.pkp_controllers_listbuilder {
+
+	.gridRow {
+
+		.row_actions,
+		.row_file {
+			display: inline-block;
+		}
+
+		.pkp_linkaction_delete {
+			position: absolute;
+			top: 4px;
+			left: 0;
+			width: @double;
+			height: @double;
+			text-align: center;
+			color: @no;
+
+			&:before {
+				&:extend(.fa);
+				content: @fa-var-trash;
+				line-height: @double;
+			}
+		}
+
+		.first_column {
+			padding-left: @double;
+		}
+	}
+}
+
 // @todo
 .pkp_controllers_grid {
 

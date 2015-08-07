@@ -100,7 +100,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 				$lastModified = time();
 
 				// Compile this theme's styles
-				require_once('lib/pkp/lib/vendor/oyejorge/less.php/Less.php');
+				require_once('lib/pkp/lib/vendor/oyejorge/less.php/lessc.php');
 				$less = new Less_Parser(array( 'relativeUrls' => false ));
 				$less->parseFile ($lessFile);
 				$compiledStyles = str_replace('{$baseUrl}', $request->getBaseUrl(), $less->getCss());

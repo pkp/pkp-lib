@@ -406,6 +406,41 @@
 	}
 }
 
+// Tag-it component
+.tagit {
+	&:extend(.pkp_unstyled_list);
+	&:extend(.pkp_form input[type="text"]);
+	.pkp_helpers_clear();
+	height: auto; // overwrite text field styles
+
+	> li {
+		display: inline-block;
+
+		&.tagit-choice {
+			margin-right: 0.5em;
+			padding-left: 0.5em;
+			background: @bg;
+			border-radius: @radius;
+			line-height: @double - @half;
+		}
+	}
+
+	input[type="text"] {
+		display: inline-block;
+		border: none;
+		width: inherit;
+		line-height: 30px;
+		height: 30px;
+		vertical-align: top;
+		padding: 0 0.5em;
+	}
+}
+
+.tagit-close {
+	padding: 0 0.5em;
+	color: @no;
+}
+
 .pkp_form {
 
 	// @todo all below

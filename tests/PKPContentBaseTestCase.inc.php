@@ -84,6 +84,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		// Page 2: File wizard
 		$this->waitForElementPresent($selector = 'id=cancelButton');
 		$this->click($selector); // Thanks but no thanks
+		$this->pause(500);
 		foreach ($data['files'] as $file) {
 			if (!isset($file['file'])) $file['file'] = DUMMY_PDF;
 			$this->click('css=[id^=component-grid-files-submission-submissionwizardfilesgrid-addFile-button-]');
@@ -110,8 +111,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		// Finish
 		$this->waitForElementPresent($selector='//button[text()=\'Finish Submission\']');
 		$this->click($selector);
-		$this->waitForText('css=div.pkp_controllers_modal_titleBar > h2', 'Confirm');
-		$this->waitForElementPresent($selector="//button[text()='OK']");
+		$this->waitForElementPresent($selector="//a[text()='OK']");
 		$this->click($selector);
 		$this->waitForElementPresent('//h2[contains(text(), \'Submission complete\')]');
 		$this->waitJQuery();
@@ -171,9 +171,9 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 
 		// Validate the form and finish
 		$this->runScript('$(\'#metadataForm\').valid();');
-		$this->click('//button[text()=\'Continue\']');
+		$this->click('css=[id=continueButton]');
 		$this->waitJQuery();
-		$this->waitForElementPresent($selector = '//button[text()=\'Complete\']');
+		$this->waitForElementPresent($selector = 'css=[id=continueButton]');
 		$this->click($selector);
 		$this->waitJQuery();
 	}

@@ -31,19 +31,31 @@ class ExportableSubmissionsListGridHandler extends SubmissionsListGridHandler {
 
 
 	//
-	// Implement template methods from SubmissionListGridHandler
+	// Implement template methods from GridHandler
 	//
 	/**
-	 * @copydoc SubmissionListGridHandler::getSubmissions()
+	 * @copydoc GridHandler::loadData()
 	 */
-	function getSubmissions($request) {
+	function loadData($request, $filter) {
 		// Default implementation fetches all submissions.
 		$submissionDao = Application::getSubmissionDAO();
 		$context = $request->getContext();
+
+		list($search, $column, $stageId) = $this->getFilterValues($filter);
+		$title = $author = null;
+		if ($column == 'title') {
+			$title = $search;
+		} elseif ($column == 'author') {
+			$author = $search;
+		}
+
 		return $submissionDao->getByStatus(
 			array(STATUS_DECLINED, STATUS_PUBLISHED, STATUS_QUEUED),
 			null,
 			$context?$context->getId():null,
+			$title,
+			$author,
+			$stageId,
 			$this->getGridRangeInfo($request, $this->getId())
 		);
 	}

@@ -29,11 +29,51 @@ class ArchivedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 		parent::SubmissionsListGridHandler();
 		$this->addRoleAssignment(
 			array(ROLE_ID_REVIEWER, ROLE_ID_ASSISTANT, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR),
-			array('fetchGrid', 'fetchRow', 'deleteSubmission')
+			array('fetchGrid', 'fetchRow')
 		);
 		$this->addRoleAssignment(
 			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR),
 			array('deleteSubmission')
+		);
+	}
+
+	
+	//
+	// Implement template methods from GridHandler
+	//
+	/**
+	 * @copydoc GridHandler::loadData()
+	 */
+	function loadData($request, $filter) {
+		$context = $request->getContext();
+		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+		$submissionDao = Application::getSubmissionDAO();
+		$user = $request->getUser();
+		$rangeInfo = $this->getGridRangeInfo($request, $this->getId());
+
+		list($search, $column, $stageId) = $this->getFilterValues($filter);
+		$title = $author = null;
+		if ($column == 'title') {
+			$title = $search;
+		} elseif ($column == 'author') {
+			$author = $search;
+		}
+
+		if ($userRoles == array(ROLE_ID_REVIEWER)) {
+			// Just a reviewer, get the rejected reviews submissions only.
+			return $submissionDao->getReviewerArchived($user->getId(), $context->getId(), $title, $author, $stageId, $rangeInfo);
+		}
+
+		$canSeeAllSubmissions = in_array(ROLE_ID_MANAGER, $userRoles);
+
+		return $submissionDao->getByStatus(
+			array(STATUS_DECLINED, STATUS_PUBLISHED),
+			$canSeeAllSubmissions?null:$user->getId(),
+			$context->getId(),
+			$title,
+			$author,
+			$stageId,
+			$rangeInfo
 		);
 	}
 
@@ -55,26 +95,6 @@ class ArchivedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 	}
 
 
-	//
-	// Implement template methods from SubmissionListGridHandler
-	//
-	/**
-	 * @copydoc SubmissionListGridHandler::getSubmissions()
-	 */
-	function getSubmissions($request) {
-		$context = $request->getContext();
-		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
-		$canSeeAllSubmissions = in_array(ROLE_ID_MANAGER, $userRoles);
-		$user = $request->getUser();
-
-		$submissionDao = Application::getSubmissionDAO();
-		return $submissionDao->getByStatus(
-			array(STATUS_DECLINED, STATUS_PUBLISHED),
-			$canSeeAllSubmissions?null:$user->getId(),
-			$context->getId(),
-			$this->getGridRangeInfo($request, $this->getId())
-		);
-	}
 }
 
 ?>

@@ -108,7 +108,7 @@
 			this.setOptions(pagingInfo);
 
 			if (pagingInfo.pagingMarkup != undefined) {
-				$('span.gridPagingScrolling', this.getGridHtmlElement()).
+				$('div.gridPagingScrolling', this.getGridHtmlElement()).
 						replaceWith(pagingInfo.pagingMarkup);
 			}
 		}

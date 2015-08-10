@@ -106,7 +106,7 @@
 							{/if}
 
 							<li class="has-submenu">
-								<a href="{url router=$smarty.const.ROUTE_PAGE page="about" op="about"}">
+								<a href="{url router=$smarty.const.ROUTE_PAGE page="about"}">
 									{translate key="navigation.about"}
 								</a>
 								<ul>

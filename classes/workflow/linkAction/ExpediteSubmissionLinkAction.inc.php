@@ -24,14 +24,19 @@ class ExpediteSubmissionLinkAction extends LinkAction {
 	 */
 	function ExpediteSubmissionLinkAction($request, $submissionId) {
 		$router = $request->getRouter();
+		$dispatcher = $router->getDispatcher();
+		import('lib.pkp.classes.linkAction.request.AjaxModal');
 		parent::LinkAction(
 			'expedite',
-			new RemoteActionConfirmationModal(
-				__('submission.submit.expediteSubmission.description'),
-				__('submission.submit.expediteSubmission'),
-				$router->url($request, null, 'workflow', 'expedite', $submissionId),
-				'modal_edit'
-			),
+			new AjaxModal(
+	                        $dispatcher->url(
+	                                $request, ROUTE_PAGE, null,
+	                                'workflow',
+	                                'expedite', (int) $submissionId
+	                        ),
+	                        __('submission.submit.expediteSubmission'),
+	                        'modal_information'
+	                ),
 			__('submission.submit.expediteSubmission')
 		);
 	}

@@ -128,8 +128,6 @@ class PKPTemplateManager extends Smarty {
 			));
 		}
 
-		// Add uncompilable styles
-		$this->addStyleSheet($this->_request->getBaseUrl() . '/styles/lib.css', STYLE_SEQUENCE_CORE, 'backend');
 		if ($dispatcher = $this->_request->getDispatcher()) {
 			$this->addStyleSheet($dispatcher->url($this->_request, ROUTE_COMPONENT, null, 'page.PageHandler', 'css'), STYLE_SEQUENCE_CORE, 'backend');
 		}

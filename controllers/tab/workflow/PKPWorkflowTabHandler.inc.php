@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file controllers/tab/workflow/WorkflowTabHandler.inc.php
+ * @file controllers/tab/workflow/PKPWorkflowTabHandler.inc.php
  *
  * Copyright (c) 2014-2015 Simon Fraser University Library
  * Copyright (c) 2003-2015 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class WorkflowTabHandler
+ * @class PKPWorkflowTabHandler
  * @ingroup controllers_tab_workflow
  *
  * @brief Handle AJAX operations for workflow tabs.
@@ -20,12 +20,12 @@ import('lib.pkp.classes.core.JSONMessage');
 // Access decision actions constants.
 import('classes.workflow.EditorDecisionActionsManager');
 
-class WorkflowTabHandler extends Handler {
+abstract class PKPWorkflowTabHandler extends Handler {
 
 	/**
 	 * Constructor
 	 */
-	function WorkflowTabHandler() {
+	function PKPWorkflowTabHandler() {
 		parent::Handler();
 		$this->addRoleAssignment(array(ROLE_ID_SUB_EDITOR, ROLE_ID_MANAGER, ROLE_ID_ASSISTANT), array('fetchTab'));
 	}
@@ -124,14 +124,7 @@ class WorkflowTabHandler extends Handler {
 				return $templateMgr->fetchJson('controllers/tab/workflow/editorial.tpl');
 			case WORKFLOW_STAGE_ID_PRODUCTION:
 				$templateMgr = TemplateManager::getManager($request);
-				$notificationRequestOptions = array(
-					NOTIFICATION_LEVEL_NORMAL => array(
-						NOTIFICATION_TYPE_VISIT_CATALOG => array(ASSOC_TYPE_SUBMISSION, $submission->getId()),
-						NOTIFICATION_TYPE_APPROVE_SUBMISSION => array(ASSOC_TYPE_SUBMISSION, $submission->getId()),
-					),
-					NOTIFICATION_LEVEL_TRIVIAL => array()
-				);
-
+				$notificationRequestOptions = $this->getProductionNotificationOptions($submission->getId()); 
 				$representationDao = Application::getRepresentationDAO();
 				$representations = $representationDao->getBySubmissionId($submission->getId());
 				$templateMgr->assign('representations', $representations->toAssociativeArray());
@@ -199,6 +192,13 @@ class WorkflowTabHandler extends Handler {
 		}
 		return null;
 	}
+
+	/**
+	 * Get all production notification options to be used in the production stage tab.
+	 * @param $submissionId int
+	 * @return array
+	 */
+	abstract protected function getProductionNotificationOptions($submissionId);
 
 	/**
 	 * Return the signoff notification type based on stage id.

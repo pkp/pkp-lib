@@ -14,7 +14,8 @@
 			'$.pkp.controllers.TabHandler',
 			{ldelim}
 				{assign var=roundIndex value=$lastReviewRoundNumber-1}
-				selected: {$roundIndex}
+				selected: {$roundIndex},
+				disabled: [{$lastReviewRoundNumber}]
 			{rdelim}
 		);
 	{rdelim});

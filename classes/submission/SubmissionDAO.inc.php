@@ -542,7 +542,7 @@ abstract class SubmissionDAO extends DAO {
 				. $this->getFetchJoins() .
 			' WHERE ra2.review_id IS NULL AND ra.review_id IS NOT NULL
 				AND (SELECT COUNT(ra3.review_id) FROM review_assignments ra3 
-					WHERE s.submission_id = ra3.submission_id AND ra3.reviewer_id = ? AND ra3.declined = false) = 0
+					WHERE s.submission_id = ra3.submission_id AND ra3.reviewer_id = ? AND ra3.declined = 0) = 0
 				' . ($contextId?' AND s.context_id IN  (' . join(',', array_map(array($this,'_arrayWalkIntCast'), (array) $contextId)) . ')':'')
 				. ($title?' AND (ss.setting_name = ? AND ss.setting_value LIKE ?)':'')
 				. ($author?' AND (au.first_name LIKE ? OR au.middle_name LIKE ? OR au.last_name LIKE ?)':'')
@@ -657,7 +657,7 @@ abstract class SubmissionDAO extends DAO {
 				LEFT JOIN submission_files sf ON (s.submission_id = sf.submission_id)
 				LEFT JOIN signoffs so ON (sf.file_id = so.assoc_id) 
 				LEFT JOIN user_groups g ON (g.user_group_id = so.user_group_id)
-				LEFT JOIN review_assignments ra ON (s.submission_id = ra.submission_id AND ra.declined = false)
+				LEFT JOIN review_assignments ra ON (s.submission_id = ra.submission_id AND ra.declined = 0)
 				' . ($title?' LEFT JOIN submission_settings ss ON (s.submission_id = ss.submission_id)':'') . '
 				' . ($author?' LEFT JOIN authors au ON (s.submission_id = au.submission_id)':'')
 				. $this->getFetchJoins() .

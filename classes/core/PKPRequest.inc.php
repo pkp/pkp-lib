@@ -669,7 +669,10 @@ class PKPRequest {
 	function setCookieVar($key, $value) {
 		$_this =& PKPRequest::_checkThis();
 
-		setcookie($key, $value, 0, $_this->getBasePath());
+		$basePath = $_this->getBasePath();
+		if (!$basePath) $basePath = '/';
+
+		setcookie($key, $value, 0, $basePath);
 		$_COOKIE[$key] = $value;
 	}
 

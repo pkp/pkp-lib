@@ -150,12 +150,13 @@
 	$.pkp.controllers.form.MultilingualInputHandler.prototype.tinyMCEInitHandler_ =
 			function() {
 
-		if ( !this.getHtmlElement().find('.richContent').length) {
+		if (!this.getHtmlElement().find('.richContent').length) {
 			return;
 		}
 
 		var htmlElement = this.getHtmlElement(),
-			tinyMCEObject = tinymce.EditorManager.get(htmlElement.find('textarea').first().attr('id'));
+				tinyMCEObject = tinyMCE.EditorManager.get(
+				htmlElement.find('textarea').first().attr('id'));
 
 		tinyMCEObject.on('focus', this.callbackWrapper(function() {
 			// We need also to close the multilingual popover when user clicks

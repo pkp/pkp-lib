@@ -171,6 +171,9 @@
 	// Localization popovers
 	.localization_popover_container {
 		position: relative;
+		// fix collapsed div in firefox, which caused the translation icon to
+		// appear in the wrong space
+		display: block;
 
 		// Localization globe icon within TinyMce
 		div.mceLocalizationIcon {
@@ -188,7 +191,6 @@
 			background-repeat: no-repeat;
 			background-image: url({$baseUrl}/lib/pkp/templates/images/structure/icon_globe.png);
 			background-position: top @half right @half;
-			padding-right: @double; // makes room for the background image
 		}
 	}
 

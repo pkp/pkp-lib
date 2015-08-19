@@ -150,7 +150,7 @@ class SubmissionFilesGridDataProvider extends FilesGridDataProvider {
 	 * can add further data.
 	 * @param $revisions array List of SubmissionFiles
 	 * @param $viewableOnly boolean optional True iff only viewable files should be listed
-	 * @param $filter array Associative array of filter conditions
+	 * @param $filter array optional Associative array of filter conditions
 	 * @return array
 	 */
 	protected function prepareSubmissionFileData($revisions, $viewableOnly = false, $filter = array()) {

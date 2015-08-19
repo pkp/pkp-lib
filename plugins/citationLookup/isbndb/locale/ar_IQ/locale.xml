@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
+
+<!--
+  * plugins/citationLookup/isbndb/locale/ar_IQ/locale.xml
+  *
+  * Copyright (c) 2013-2015 Simon Fraser University Library
+  * Copyright (c) 2003-2015 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the ar_IQ (العربية) locale.
+  -->
+
+<locale name="ar_IQ" full_name="العربية">
+	<!-- plug-in -->
+	<message key="plugins.citationLookup.isbndb.displayName">توصيلة قاعدة البيانات ISBNdb</message>
+	<message key="plugins.citationLookup.isbndb.description">تتصل بقاعدة البيانات المرجعية ISBNdb.</message>
+
+	<!-- ISBN lookup and extraction services -->
+	<message key="plugins.citationLookup.isbndbExtraction.displayName">خدمة الاستقطاع ISBN</message>
+	<message key="plugins.citationLookup.isbndbExtraction.description">يبحث عن ISBN لوصف عنصر اقتباس من نوع NLM 3.0.</message>
+	<message key="plugins.citationLookup.isbndbLookup.displayName">خدمة البحث ISBN</message>
+	<message key="plugins.citationLookup.isbndbLookup.description">يبحث عن وصف عنصر اقتباس كامل من نوع NLM 3.0 عبر معرفة ISBN له.</message>
+</locale>

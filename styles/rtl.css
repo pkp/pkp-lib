@@ -1,0 +1,20 @@
+/**
+ * styles/rtl.css
+ *
+ * Copyright (c) 2014-2015 Simon Fraser University Library
+ * Copyright (c) 2000-2015 John Willinsky
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ *
+ * Stylesheet for flipping content to RTL (e.g. for Arabic, Persian)
+ *
+ */
+
+body {
+	direction:rtl;
+	text-align: right; 
+	unicode-bidi:embed;
+}
+
+#headerTitle {
+	text-align: center !important;
+}

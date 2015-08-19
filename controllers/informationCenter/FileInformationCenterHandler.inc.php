@@ -217,7 +217,11 @@ class FileInformationCenterHandler extends InformationCenterHandler {
 	function viewHistory($args, $request) {
 		$this->setupTemplate($request);
 		$templateMgr = TemplateManager::getManager($request);
-		return $templateMgr->fetchJson('controllers/informationCenter/fileHistory.tpl');
+		$dispatcher = $request->getDispatcher();
+		return $templateMgr->fetchAjax(
+			'eventLogGrid',
+			$dispatcher->url($request, ROUTE_COMPONENT, null, 'grid.eventLog.SubmissionFileEventLogGridHandler', 'fetchGrid', null, $this->_getLinkParams())
+		);
 	}
 
 	/**

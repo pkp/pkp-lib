@@ -276,13 +276,16 @@ class ReviewFormGridHandler extends GridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function reviewFormElements($args, $request) {
-		// Identify the review form ID
-		$reviewFormId = (int) $request->getUserVar('reviewFormId');
-
 		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('reviewFormId', $reviewFormId);
-
-		return new JSONMessage(true, $templateMgr->fetch('controllers/grid/settings/reviewForms/reviewFormElements.tpl'));
+		$dispatcher = $request->getDispatcher();
+		return $templateMgr->fetchAjax(
+			'reviewFormElementsGridContainer',
+			$dispatcher->url(
+				$request, ROUTE_COMPONENT, null,
+				'grid.settings.reviewForms.ReviewFormElementsGridHandler', 'fetchGrid', null,
+				array('reviewFormId' => (int) $request->getUserVar('reviewFormId'))
+			)
+		);
 	}
 
 	/**

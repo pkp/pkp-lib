@@ -114,10 +114,12 @@ class DashboardHandler extends Handler {
 	function active($args, $request) {
 		$templateMgr = TemplateManager::getManager($request);
 		$this->setupTemplate($request);
-
-		return $templateMgr->fetchJson('dashboard/active.tpl');
+		$dispatcher = $request->getDispatcher();
+		return $templateMgr->fetchAjax(
+			'activeSubmissionsListGridContainer',
+			$dispatcher->url($request, ROUTE_COMPONENT, null, 'grid.submissions.activeSubmissions.ActiveSubmissionsListGridHandler', 'fetchGrid')
+		);
 	}
-
 	/**
 	 * View archives tab
 	 * @param $args array

@@ -306,6 +306,24 @@ class PKPTemplateManager extends Smarty {
 	}
 
 	/**
+	 * Fetch content via AJAX and add it to the DOM, wrapped in a container element.
+	 * @param $id string ID to use for the generated container element.
+	 * @param $url string URL to fetch the contents from.
+	 * @param $element string Element to use for container.
+	 * @return JSONMessage The JSON-encoded result.
+	 */
+	function fetchAjax($id, $url, $element = 'div') {
+		return new JSONMessage(true, $this->smartyLoadUrlInEl(
+			array(
+				'url' => $url,
+				'id' => $id,
+				'el' => $element,
+			),
+			$this
+		));
+	}
+
+	/**
 	 * Calculate a compile ID for a resource.
 	 * @param $resourceName string Resource name.
 	 * @return string

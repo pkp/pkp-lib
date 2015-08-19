@@ -44,11 +44,8 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider {
 	 * @copydoc CategoryGridDataProvider::setDataProvider()
 	 */
 	function setDataProvider($gridDataProvider) {
-		if (is_a($gridDataProvider, 'SubmissionFilesGridDataProvider')) {
-			parent::setDataProvider($gridDataProvider);
-		} else {
-			assert(false);
-		}
+		assert(is_a($gridDataProvider, 'SubmissionFilesGridDataProvider'));
+		parent::setDataProvider($gridDataProvider);
 	}
 
 
@@ -115,7 +112,7 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider {
 				}
 			}
 		}
-		return $dataProvider->prepareSubmissionFileData($stageSubmissionFiles);
+		return $dataProvider->prepareSubmissionFileData($stageSubmissionFiles, false, $filter);
 	}
 
 

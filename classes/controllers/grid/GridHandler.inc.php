@@ -846,7 +846,7 @@ class GridHandler extends PKPHandler {
 		if (is_a($dataProvider, 'GridDataProvider')) {
 			// Populate the grid with data from the
 			// data provider.
-			$gridData = $dataProvider->loadData();
+			$gridData = $dataProvider->loadData($filter);
 		}
 
 		$this->callFeaturesHook('loadData', array('request' => &$request, 'grid' => &$this, 'gridData' => &$gridData));

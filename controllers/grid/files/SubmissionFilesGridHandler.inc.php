@@ -144,6 +144,46 @@ class SubmissionFilesGridHandler extends GridHandler {
 		$this->setEmptyRowText('grid.noFiles');
 	}
 
+	/**
+	 * @copyDoc GridHandler::getFilterForm()
+	 */
+	protected function getFilterForm() {
+		return 'controllers/grid/files/filesGridFilter.tpl';
+	}
+
+	/**
+	 * @copyDoc GridHandler::renderFilter()
+	 */
+	function renderFilter($request, $filterData = array()) {
+		return parent::renderFilter(
+			$request,
+			array(
+				'columns' => $this->getFilterColumns(),
+				'gridId' => $this->getId()
+			)
+		);
+	}
+
+	/**
+	 * @copyDoc GridHandler::getFilterSelectionData()
+	 */
+	function getFilterSelectionData($request) {
+		return array(
+			'search' => (string) $request->getUserVar('search'),
+			'column' => (string) $request->getUserVar('column'),
+		);
+	}
+
+	/**
+	 * Get which columns can be used by users to filter data.
+	 * @return Array
+	 */
+	protected function getFilterColumns() {
+		return array(
+			'name' => __('common.name'),
+		);
+	}
+
 
 	//
 	// Overridden methods from GridHandler

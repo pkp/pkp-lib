@@ -73,11 +73,12 @@ abstract class FunctionalSubmissionBaseTestCase extends WebTestCase {
 		$submissionId = (integer)$submissionId;
 
 		// Close the upload file modal.
-		$this->click("id=cancelButton");
+		$this->click('id=cancelButton');
 
 		// Save the second step without uploading a file.
 		$this->waitForElementNotPresent('css=div.plupload_buttons');
-		$this->click('css=button.submitFormButton');
+		$this->waitForElementPresent($selector = '//button[contains(., \'Save and continue\')]');
+		$this->click($selector);
 
 		//
 		// Third submission page.

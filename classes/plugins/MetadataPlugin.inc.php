@@ -35,9 +35,9 @@ abstract class MetadataPlugin extends Plugin {
 	 * @see Plugin::register()
 	 */
 	function register($category, $path) {
-		$success = parent::register($category, $path);
+		if (!parent::register($category, $path)) return false;
 		$this->addLocaleData();
-		return $success;
+		return true;
 	}
 
 	/**

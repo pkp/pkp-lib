@@ -141,7 +141,7 @@ abstract class BlockPlugin extends LazyLoadPlugin {
 	 * @param $request PKPRequest (Optional for legacy plugins)
 	 * @return string
 	 */
-	function getContents(&$templateMgr, $request = null) {
+	function getContents($templateMgr, $request = null) {
 		$blockTemplateFilename = $this->getBlockTemplateFilename();
 		if ($blockTemplateFilename === null) return '';
 		return $templateMgr->fetch($this->getTemplatePath() . $blockTemplateFilename);

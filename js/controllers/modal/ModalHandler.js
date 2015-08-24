@@ -65,7 +65,6 @@
 		this.publishEvent('dataChanged');
 		this.publishEvent('containerReloadRequested');
 		this.publishEvent('updateHeader');
-		this.publishEvent('updateSidebar');
 
 		// Bind notify user event.
 		this.bind('notifyUser', this.redirectNotifyUserEventHandler_);

@@ -13,7 +13,7 @@
  * @brief User XML import/export plugin
  */
 
-import('classes.plugins.ImportExportPlugin');
+import('lib.pkp.classes.plugins.ImportExportPlugin');
 
 abstract class PKPUserImportExportPlugin extends ImportExportPlugin {
 	/**

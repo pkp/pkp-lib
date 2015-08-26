@@ -69,4 +69,7 @@
 	<message key="installer.publicFilesDirError">The public files directory does not exist or is not writable.</message>
 	<message key="installer.releaseNotes">Release Notes</message>
 	<message key="installer.securitySettings">Security Settings</message>
+
+	<message key="installer.beacon">Beacon</message>
+	<message key="installer.beacon.enable">Provide a unique site ID and OAI base URL to PKP for statistics and security alert purposes only.</message>
 </locale>

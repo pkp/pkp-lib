@@ -4,8 +4,8 @@
 <!--
   * locale/ar_IQ/grid.xml
   *
-  * Copyright (c) 2013-2014 Simon Fraser University Library
-  * Copyright (c) 2000-2014 John Willinsky
+  * Copyright (c) 2013-2015 Simon Fraser University Library
+  * Copyright (c) 2000-2015 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the ar_IQ (العربية) locale.
@@ -57,7 +57,6 @@
 	<message key="grid.action.sendToProduction">أرسل طلب النشر هذا لمرحلة الإنتاج</message>
 	<message key="grid.action.settings">الإعدادات</message>
 	<message key="grid.action.importexport">استيراد أو تصدير محتوى أو بيانات الموقع</message>
-	<message key="grid.action.restoreDefaults">استعادة الإفتراضات</message>
 	<message key="grid.action.orderItems">تمكين نمط الفرز</message>
 	<message key="grid.action.editSubmissionChecklist">تعديل فقرة التأشير هذه</message>
 	<message key="grid.action.deleteSubmissionChecklist">حذف فقرة التأشير هذه</message>

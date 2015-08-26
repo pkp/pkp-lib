@@ -57,7 +57,6 @@
 	<message key="grid.action.sendToProduction">Send this submission to production</message>
 	<message key="grid.action.settings">Settings</message>
 	<message key="grid.action.importexport">Import or export content or site data</message>
-	<message key="grid.action.restoreDefaults">Restore defaults</message>
 	<message key="grid.action.orderItems">Enable ordering mode</message>
 	<message key="grid.action.editSubmissionChecklist">Edit this checklist item</message>
 	<message key="grid.action.deleteSubmissionChecklist">Delete this checklist item</message>

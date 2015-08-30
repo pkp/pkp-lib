@@ -194,7 +194,7 @@
 	<message key="common.size">Größe</message>
 	<message key="common.source">Quelle</message>
 	<message key="common.status">Status</message>
-	<message key="common.subject">Schlagwort</message>
+	<message key="common.subject">Thema</message>
 	<message key="common.suggest">Vorschlagen</message>
 	<message key="common.title">Titel</message>
 	<message key="common.top">Zum Seitenanfang</message>
@@ -378,7 +378,7 @@
 	<message key="search.deleteFilter">Löschen</message>
 	<message key="search.discipline">Fachgebiet(e)</message>
 	<message key="search.fullText">Volltext</message>
-	<message key="search.indexTerms">Schlagworte</message>
+	<message key="search.indexTerms">Indexfelder</message>
 	<message key="search.indexTermsLong">Alle Indexfelder</message>
 	<message key="search.matchAll">In allen Kategorien übereinstimmen</message>
 	<message key="search.noKeywordError">Geben Sie mindestens einen Suchbegriff ein.</message>
@@ -388,7 +388,7 @@
 	<message key="search.operator.or">ODER</message>
 	<message key="search.searchAllCategories">Suchen nach</message>
 	<message key="search.searchCategories">Suchkategorien</message>
-	<message key="search.subject">Thema</message>
+	<message key="search.subject">Schlagworte</message>
 	<message key="search.titleIndex">Titelverzeichnis durchsuchen</message>
 	<message key="search.title">Titel</message>
 	<message key="search.typeMethodApproach">Forschungsansatz, -methode und -verfahren</message>

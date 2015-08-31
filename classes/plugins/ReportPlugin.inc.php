@@ -125,7 +125,7 @@ abstract class ReportPlugin extends Plugin {
 		$dispatcher = $request->getDispatcher();
 		import('lib.pkp.classes.linkAction.request.RedirectAction');
 		return array_merge(
-			array(
+			$this->getEnabled()?array(
 				new LinkAction(
 					'settings',
 					new RedirectAction($dispatcher->url(
@@ -135,7 +135,7 @@ abstract class ReportPlugin extends Plugin {
 					__('manager.statistics.reports'),
 					null
 				)
-			),
+			):array(),
 			parent::getActions($request, $actionArgs)
 		);
 	}

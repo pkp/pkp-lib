@@ -104,9 +104,9 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 	/**
 	 * @see PKPPlugin::manage()
 	 */
-	function manage($request, $verb, $args) {
+	function manage($args, $request) {
 		$this->import('UsageStatsSettingsForm');
-		switch($verb) {
+		switch($request->getUserVar('verb')) {
 			case 'settings':
 				$settingsForm = new UsageStatsSettingsForm($this);
 				$settingsForm->initData();
@@ -122,7 +122,7 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 				}
 				return new JSONMessage(true, $settingsForm->fetch($request));
 		}
-		return parent::manage($request, $verb, $args);
+		return parent::manage($args, $request);
 	}
 
 
@@ -136,9 +136,9 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 		$router = $request->getRouter();
 		import('lib.pkp.classes.linkAction.request.AjaxModal');
 		return array_merge(
-			array(
+			$this->getEnabled()?array(
 				new LinkAction(
-					$verbName,
+					'settings',
 					new AjaxModal(
 						$router->url($request, null, null, 'plugin', null, array('verb' => 'settings', 'plugin' => $this->getName(), 'category' => 'generic')),
 						$this->getDisplayName()
@@ -146,7 +146,7 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 					__('common.settings'),
 					null
 				),
-			),
+			):array(),
 			parent::getActions($request, $verb)
 		);
 	}

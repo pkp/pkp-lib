@@ -23,7 +23,7 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 	 */
 	function PluginGridHandler($roles) {
 		$this->addRoleAssignment($roles,
-			array('fetchGrid, fetchCategory', 'fetchRow'));
+			array('enable', 'disable', 'manage', 'fetchGrid, fetchCategory', 'fetchRow'));
 
 		$this->addRoleAssignment(ROLE_ID_SITE_ADMIN,
 			array('uploadPlugin', 'upgradePlugin', 'deletePlugin'));
@@ -232,30 +232,47 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 	// Public handler methods.
 	//
 	/**
-	 * Perform plugin-specific management functions.
+	 * Manage a plugin.
 	 * @param $args array
-	 * @param $request object
+	 * @param $request PKPRequest
 	 * @return JSONMessage JSON object
 	 */
-	function plugin($args, $request) {
-		$verb = (string) $request->getUserVar('verb');
-
+	function manage($args, $request) {
 		$plugin = $this->getAuthorizedContextObject(ASSOC_TYPE_PLUGIN); /* @var $plugin Plugin */
-		$message = $messageParams = $pluginModalContent = null;
-		if (!is_a($plugin, 'Plugin') || !$plugin->manage($verb, $args, $message, $messageParams, $pluginModalContent)) {
-			HookRegistry::call('PluginGridHandler::plugin', array($verb, $args, $message, $messageParams, $plugin));
-			if ($message) {
-				$notificationManager = new NotificationManager();
-				$user = $request->getUser();
-				$notificationManager->createTrivialNotification($user->getId(), $message, $messageParams);
-			}
-		}
-		if ($pluginModalContent) {
-			$json = new JSONMessage(true, $pluginModalContent);
-			$json->setEvent('refreshForm', $pluginModalContent);
-			return $json;
-		}
+		return $plugin->manage($args, $request);
+	}
 
+	/**
+	 * Enable a plugin.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
+	 */
+	function enable($args, $request) {
+		$plugin = $this->getAuthorizedContextObject(ASSOC_TYPE_PLUGIN); /* @var $plugin Plugin */
+		if ($plugin->getCanEnable()) {
+			$plugin->setEnabled(true);
+			$user = $request->getUser();
+			$notificationManager = new NotificationManager();
+			$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_PLUGIN_ENABLED, array('pluginName' => $this->getDisplayName()));
+		}
+		return DAO::getDataChangedEvent($request->getUserVar('plugin'), $request->getUserVar($this->getCategoryRowIdParameterName()));
+	}
+
+	/**
+	 * Disable a plugin.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
+	 */
+	function disable($args, $request) {
+		$plugin = $this->getAuthorizedContextObject(ASSOC_TYPE_PLUGIN); /* @var $plugin Plugin */
+		if ($plugin->getCanDisable()) {
+			$plugin->setEnabled(false);
+			$user = $request->getUser();
+			$notificationManager = new NotificationManager();
+			$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_PLUGIN_DISABLED, array('pluginName' => $this->getDisplayName()));
+		}
 		return DAO::getDataChangedEvent($request->getUserVar('plugin'), $request->getUserVar($this->getCategoryRowIdParameterName()));
 	}
 

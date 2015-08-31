@@ -24,28 +24,23 @@ abstract class LazyLoadPlugin extends Plugin {
 		parent::Plugin();
 	}
 
-	/*
-	 * Override public methods from Plugin
-	 */
+
+	//
+	// Override public methods from Plugin
+	//
 	/**
-	 * Extends the definition of Plugin's register()
-	 * method to support lazy load.
-	 *
-	 * @see Plugin::register()
-	 *
-	 * @param lazyLoad
+	 * @copydoc Plugin::register()
 	 */
 	function register($category, $path) {
-		$success = parent::register($category, $path);
-		if ($success) {
-			$this->addLocaleData();
-		}
-		return $success;
+		if (!parent::register($category, $path)) return false;
+		$this->addLocaleData();
+		return true;
 	}
 
-	/*
-	 * Override protected methods from Plugin
-	 */
+
+	//
+	// Override protected methods from Plugin
+	//
 	/**
 	 * @see Plugin::getName()
 	 */
@@ -57,12 +52,12 @@ abstract class LazyLoadPlugin extends Plugin {
 		return strtolower_codesafe(get_class($this));
 	}
 
-	/*
-	 * Protected methods required to support lazy load.
-	 */
+
+	//
+	// Public methods required to support lazy load.
+	//
 	/**
 	 * Determine whether or not this plugin is currently enabled.
-	 *
 	 * @return boolean
 	 */
 	function getEnabled() {
@@ -71,11 +66,24 @@ abstract class LazyLoadPlugin extends Plugin {
 
 	/**
 	 * Set whether or not this plugin is currently enabled.
-	 *
 	 * @param $enabled boolean
 	 */
 	function setEnabled($enabled) {
-		return $this->updateContextSpecificSetting($this->getSettingMainContext(), 'enabled', $enabled, 'bool');
+		$this->updateContextSpecificSetting($this->getSettingMainContext(), 'enabled', $enabled, 'bool');
+	}
+
+	/**
+	 * @copydoc Plugin::getCanEnable()
+	 */
+	function getCanEnable() {
+		return true;
+	}
+
+	/**
+	 * @copydoc Plugin::getCanDisable()
+	 */
+	function getCanDisable() {
+		return true;
 	}
 }
 

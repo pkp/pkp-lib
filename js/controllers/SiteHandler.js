@@ -42,7 +42,6 @@
 		this.bind('redirectRequested', this.redirectToUrl);
 		this.bind('notifyUser', this.fetchNotificationHandler_);
 		this.bind('updateHeader', this.updateHeaderHandler_);
-		this.bind('updateSidebar', this.updateSidebarHandler_);
 		this.bind('callWhenClickOutside', this.callWhenClickOutsideHandler_);
 		this.bind('mousedown', this.mouseDownHandler_);
 
@@ -396,20 +395,6 @@
 	$.pkp.controllers.SiteHandler.prototype.updateHeaderHandler_ =
 			function(sourceElement, event) {
 		var handler = $.pkp.classes.Handler.getHandler($('#navigationUserWrapper'));
-		handler.reload();
-	};
-
-
-	/**
-	 * Fetch the sidebar (e.g. on sidebar configuration change).
-	 * @param {HTMLElement} sourceElement The element that issued the
-	 *  update sidebar event.
-	 * @param {Event} event The "fetch sidebar" event.
-	 * @private
-	 */
-	$.pkp.controllers.SiteHandler.prototype.updateSidebarHandler_ =
-			function(sourceElement, event) {
-		var handler = $.pkp.classes.Handler.getHandler($('#sidebarContainer'));
 		handler.reload();
 	};
 

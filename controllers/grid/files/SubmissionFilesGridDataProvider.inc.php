@@ -132,7 +132,7 @@ class SubmissionFilesGridDataProvider extends FilesGridDataProvider {
 	 * @return array
 	 */
 	protected function applyFilter($revisions, $filter) {
-		if (isset($filter['search'])) switch ($filter['column']) {
+		if (!empty($filter['search'])) switch ($filter['column']) {
 			case 'name':
 				foreach ($revisions as $key => $submissionFile) {
 					if (!stristr($submissionFile->getName(AppLocale::getLocale()), $filter['search'])) {

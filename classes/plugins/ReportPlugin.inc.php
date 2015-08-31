@@ -16,7 +16,9 @@
 import('lib.pkp.classes.plugins.Plugin');
 
 abstract class ReportPlugin extends Plugin {
-
+	/**
+	 * Constructor
+	 */
 	function ReportPlugin() {
 		parent::Plugin();
 	}
@@ -117,81 +119,25 @@ abstract class ReportPlugin extends Plugin {
 	// Public methods.
 	//
 	/**
-	 * Set the page's breadcrumbs, given the plugin's tree of items
-	 * to append.
-	 * @param $crumbs Array ($url, $name, $isTranslated)
-	 * @param $subclass boolean
+	 * @copydoc Plugin::getActions()
 	 */
-	function setBreadcrumbs($crumbs = array(), $isSubclass = false) {
-		$templateMgr = TemplateManager::getManager();
-		$pageCrumbs = array(
-			array(
-				Request::url(null, 'user'),
-				'navigation.user'
-			),
-			array(
-				Request::url(null, 'manager'),
-				'user.role.manager'
-			),
-			array (
-				Request::url(null, 'manager', 'reports'),
-				'manager.statistics.reports'
-			)
+	function getActions($request, $actionArgs) {
+		$dispatcher = $request->getDispatcher();
+		import('lib.pkp.classes.linkAction.request.RedirectAction');
+		return array_merge(
+			$this->getEnabled()?array(
+				new LinkAction(
+					'settings',
+					new RedirectAction($dispatcher->url(
+						$request, ROUTE_PAGE,
+						null, 'manager', 'reports', array('plugin' => $this->getName())
+					)),
+					__('manager.statistics.reports'),
+					null
+				)
+			):array(),
+			parent::getActions($request, $actionArgs)
 		);
-		if ($isSubclass) $pageCrumbs[] = array(
-			Request::url(null, 'manager', 'reports', array('plugin', $this->getName())),
-			$this->getDisplayName(),
-			true
-		);
-
-		$templateMgr->assign('pageHierarchy', array_merge($pageCrumbs, $crumbs));
-	}
-
-	/**
-	 * Display the import/export plugin UI.
-	 * @param $args Array The array of arguments the user supplied.
-	 * @param $request PKPRequest
-	 */
-	function display($args, $request) {
-		$templateManager = TemplateManager::getManager();
-		$templateManager->register_function('plugin_url', array(&$this, 'smartyPluginUrl'));
-	}
-
-	/**
-	 * Display verbs for the management interface.
-	 */
-	function getManagementVerbs() {
-		return array(
-			array(
-				'reports',
-				__('manager.statistics.reports')
-			)
-		);
-	}
-
-	/**
-	 * Perform management functions
-	 */
-	function manage($verb, $args) {
-		if ($verb === 'reports') {
-			Request::redirect(null, 'manager', 'report', $this->getName());
-		}
-		return false;
-	}
-
-	/**
-	 * Extend the {url ...} smarty to support reporting plugins.
-	 */
-	function smartyPluginUrl($params, &$smarty) {
-		$path = array('plugin', $this->getName());
-		if (is_array($params['path'])) {
-			$params['path'] = array_merge($path, $params['path']);
-		} elseif (!empty($params['path'])) {
-			$params['path'] = array_merge($path, array($params['path']));
-		} else {
-			$params['path'] = $path;
-		}
-		return $smarty->smartyUrl($params, $smarty);
 	}
 }
 

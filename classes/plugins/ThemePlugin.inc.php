@@ -27,12 +27,9 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	 * @copydoc Plugin::register
 	 */
 	function register($category, $path) {
-		$this->pluginPath = $path;
-
-		$result = parent::register($category, $path);
-
+		if (!parent::register($category, $path)) return false;
 		$request = $this->getRequest();
-		if ($result && $this->getEnabled() && !defined('SESSION_DISABLE_INIT')) {
+		if ($this->getEnabled() && !defined('SESSION_DISABLE_INIT')) {
 			$templateManager = TemplateManager::getManager($request);
 			HookRegistry::register('PageHandler::displayCss', array($this, '_displayCssCallback'));
 
@@ -46,7 +43,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 				$path = Core::getBaseDir() . DIRECTORY_SEPARATOR . $this->getPluginPath() . '/templates'
 			);
 		}
-		return $result;
+		return true;
 	}
 
 	/**

@@ -15,7 +15,7 @@
 
 import('lib.pkp.classes.controllers.grid.GridRow');
 
-class PKPPluginGridRow extends GridRow {
+abstract class PKPPluginGridRow extends GridRow {
 
 	/** @var Array */
 	var $_userRoles;
@@ -61,65 +61,8 @@ class PKPPluginGridRow extends GridRow {
 			);
 
 			if ($this->_canEdit($plugin)) {
-
-				$managementVerbs = $plugin->getManagementVerbs();
-
-				// If plugin has not management verbs, we receive
-				// null. Check for it before foreach.
-				if (!is_null($managementVerbs)) {
-					foreach ($managementVerbs as $verb) {
-						list($verbName, $verbLocaleKey) = $verb;
-
-						$linkAction = null;
-						$actionRequest = null;
-						$image = null;
-
-						switch ($verbName) {
-							case 'enable':
-							case 'disable':
-								// Do nothing. User interact with those verbs via enabled grid column.
-								break;
-							default:
-								// Check if verb has a link action defined.
-								$verbLinkAction = $plugin->getManagementVerbLinkAction($request, $verb);
-								if (is_a($verbLinkAction, 'LinkAction')) {
-									$linkAction = $verbLinkAction;
-								} else {
-									// Legacy plugin behavior. Define a default redirect request.
-									import('lib.pkp.classes.linkAction.request.AjaxAction');
-									$dispatcher = PKPApplication::getDispatcher();
-									$context = $request->getContext();
-									$actionRequest = new AjaxAction(
-										$router->url(
-											$request, null, null, 'plugin', null,
-											array(
-												'category' => $plugin->getCategory(),
-												'plugin' => $plugin->getName(),
-												'verb' => $verbName
-											))
-										);
-								}
-								break;
-						}
-
-						// Build link action for those verbs who don't define one.
-						if (!$linkAction && $actionRequest) {
-							$linkAction = new LinkAction(
-								$verbName,
-								$actionRequest,
-								$verbLocaleKey,
-								$image
-							);
-						}
-
-						if ($linkAction) {
-							// Insert row link action.
-							$this->addAction($linkAction);
-
-							unset($linkAction);
-							unset($actionRequest);
-						}
-					}
+				foreach ($plugin->getActions($request, $actionArgs) as $action) {
+					$this->addAction($action);
 				}
 			}
 
@@ -127,21 +70,23 @@ class PKPPluginGridRow extends GridRow {
 			if (in_array(ROLE_ID_SITE_ADMIN, $this->_userRoles)) {
 				import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
 				$this->addAction(new LinkAction(
-						'delete',
-						new RemoteActionConfirmationModal(
-							__('manager.plugins.deleteConfirm'),
-							__('common.delete'),
-							$router->url($request, null, null, 'deletePlugin', null, $actionArgs), 'modal_delete'),
+					'delete',
+					new RemoteActionConfirmationModal(
+						__('manager.plugins.deleteConfirm'),
 						__('common.delete'),
-						'delete'));
+						$router->url($request, null, null, 'deletePlugin', null, $actionArgs), 'modal_delete'),
+					__('common.delete'),
+					'delete'
+				));
 
 				$this->addAction(new LinkAction(
-						'upgrade',
-						new AjaxModal(
-							$router->url($request, null, null, 'upgradePlugin', null, $actionArgs),
-							__('manager.plugins.upgrade'), 'modal_upgrade'),
-						__('grid.action.upgrade'),
-						'upgrade'));
+					'upgrade',
+					new AjaxModal(
+						$router->url($request, null, null, 'upgradePlugin', null, $actionArgs),
+						__('manager.plugins.upgrade'), 'modal_upgrade'),
+					__('grid.action.upgrade'),
+					'upgrade'
+				));
 			}
 		}
 	}
@@ -155,9 +100,7 @@ class PKPPluginGridRow extends GridRow {
 	 * @param $plugin Plugin
 	 * @return boolean
 	 */
-	function canEdit(&$plugin) {
-		assert(false); // Must be overridden by subclasses
-	}
+	protected abstract function _canEdit($plugin);
 }
 
 ?>

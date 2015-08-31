@@ -178,20 +178,12 @@ abstract class Plugin {
 
 	/**
 	 * Perform a management function.
-	 *
-	 * @param $verb string
 	 * @param $args array
-	 * @param $message string If a message is returned from this by-ref argument then
-	 *  it will be displayed as a notification if (and only if) the method returns
-	 *  false.
-	 * @param $messageParams array additional notification settings
-	 * @param $pluginModalContent array Reference to string that will receive new
-	 *  content for the plugin modal
-	 * @return boolean will redirect to the plugin category page if false, otherwise
-	 *  will remain on the same page
+	 * @param $request PKPRequest
+	 * @return JSONMessage A JSON-encoded response
 	 */
-	function manage($verb, $args, &$message, &$messageParams, &$pluginModalContent = null) {
-		return false;
+	function manage($args, $request) {
+		assert(false); // Unhandled case; this shouldn't happen.
 	}
 
 	/**
@@ -788,15 +780,37 @@ abstract class Plugin {
 	}
 
 	/**
-	 * Get a link action to be used in plugin's grid row action for
-	 * the passed verb.
-	 *
-	 * @param $request Request
-	 * @param $verb array The verb name and locale key.
-	 * @return LinkAction or null
+	 * Get a list of link actions for plugin management.
+	 * @param request PKPRequest
+	 * @param $actionArgs array The list of action args to be included in request URLs.
+	 * @return array List of LinkActions
 	 */
-	function getManagementVerbLinkAction($request, $verb) {
-		return null;
+	function getActions($request, $actionArgs) {
+		return array();
+	}
+
+	/**
+	 * Determine whether the plugin can be enabled.
+	 * @return boolean
+	 */
+	function getCanEnable() {
+		return false;
+	}
+
+	/**
+	 * Determine whether the plugin can be disabled.
+	 * @return boolean
+	 */
+	function getCanDisable() {
+		return false;
+	}
+
+	/**
+	 * Determine whether the plugin is enabled.
+	 * @return boolean
+	 */
+	function getEnabled() {
+		return true;
 	}
 }
 

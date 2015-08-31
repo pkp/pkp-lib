@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/plugins/PKPImportExportPlugin.inc.php
+ * @file classes/plugins/ImportExportPlugin.inc.php
  *
  * Copyright (c) 2014-2015 Simon Fraser University Library
  * Copyright (c) 2003-2015 John Willinsky
@@ -15,22 +15,12 @@
 
 import('lib.pkp.classes.plugins.Plugin');
 
-abstract class PKPImportExportPlugin extends Plugin {
+abstract class ImportExportPlugin extends Plugin {
 	/**
 	 * Constructor
 	 */
-	function PKPImportExportPlugin() {
+	function ImportExportPlugin() {
 		parent::Plugin();
-	}
-
-	/**
-	 * Display the import/export plugin UI.
-	 * @param $args array The array of arguments the user supplied.
-	 * @param $request Request
-	 */
-	function display($args, $request) {
-		$templateManager = TemplateManager::getManager($request);
-		$templateManager->register_function('plugin_url', array($this, 'smartyPluginUrl'));
 	}
 
 	/**
@@ -47,15 +37,24 @@ abstract class PKPImportExportPlugin extends Plugin {
 	abstract function usage($scriptName);
 
 	/**
-	 * Display verbs for the management interface.
-	 * @return array
+	 * @copydoc Plugin::getActions()
 	 */
-	function getManagementVerbs() {
-		return array(
+	function getActions($request, $actionArgs) {
+		$dispatcher = $request->getDispatcher();
+		import('lib.pkp.classes.linkAction.request.RedirectAction');
+		return array_merge(
 			array(
-				'importexport',
-				__('manager.importExport')
-			)
+				new LinkAction(
+					'settings',
+					new RedirectAction($dispatcher->url(
+						$request, ROUTE_PAGE,
+						null, 'management', 'importexport', array('plugin', $this->getName())
+					)),
+					__('manager.importexport'),
+					null
+				),
+			),
+			parent::getActions($request, $actionArgs)
 		);
 	}
 }

@@ -13,7 +13,6 @@
  * @brief Provide usage statistics to data objects.
  */
 
-
 import('lib.pkp.classes.plugins.GenericPlugin');
 
 class PKPUsageStatsPlugin extends GenericPlugin {
@@ -22,8 +21,8 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 	var $_currentUsageEvent;
 
 	/**
-	* Constructor.
-	*/
+	 * Constructor.
+	 */
 	function PKPUsageStatsPlugin() {
 		parent::GenericPlugin();
 
@@ -37,8 +36,8 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 	// Implement methods from PKPPlugin.
 	//
 	/**
-	* @see LazyLoadPlugin::register()
-	*/
+	 * @see LazyLoadPlugin::register()
+	 */
 	function register($category, $path) {
 		$success = parent::register($category, $path);
 
@@ -59,8 +58,8 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 	}
 
 	/**
-	* @see PKPPlugin::getDisplayName()
-	*/
+	 * @see PKPPlugin::getDisplayName()
+	 */
 	function getDisplayName() {
 		return __('plugins.generic.usageStats.displayName');
 	}
@@ -73,15 +72,15 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 	}
 
 	/**
-	* @see PKPPlugin::isSitePlugin()
-	*/
+	 * @see PKPPlugin::isSitePlugin()
+	 */
 	function isSitePlugin() {
 		return true;
 	}
 
 	/**
-	* @see PKPPlugin::getInstallSitePluginSettingsFile()
-	*/
+	 * @see PKPPlugin::getInstallSitePluginSettingsFile()
+	 */
 	function getInstallSitePluginSettingsFile() {
 		return PKP_LIB_PATH . DIRECTORY_SEPARATOR . $this->getPluginPath() . DIRECTORY_SEPARATOR . 'settings.xml';
 	}
@@ -95,7 +94,7 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 
 	/**
 	 * @see Plugin::getTemplatePath($inCore)
-	*/
+	 */
 	function getTemplatePath($inCore = false) {
 		// This plugin have no application level templates.
 		$inCore = true;
@@ -103,39 +102,27 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 	}
 
 	/**
-	* @see PKPPlugin::manage()
-	*/
-	function manage($verb, $args, &$message, &$messageParams, &$pluginModalContent = null) {
-		$returner = parent::manage($verb, $args, $message, $messageParams);
-		if (!$returner) return false;
-
-		$request = $this->getRequest();
+	 * @see PKPPlugin::manage()
+	 */
+	function manage($args, $request) {
 		$this->import('UsageStatsSettingsForm');
-
-		switch($verb) {
+		switch($request->getUserVar('verb')) {
 			case 'settings':
-				$templateMgr = TemplateManager::getManager();
-				$templateMgr->register_function('plugin_url', array(&$this, 'smartyPluginUrl'));
 				$settingsForm = new UsageStatsSettingsForm($this);
 				$settingsForm->initData();
-				$pluginModalContent = $settingsForm->fetch($request);
-				break;
+				return new JSONMessage(true, $settingsForm->fetch($request));
 			case 'save':
 				$settingsForm = new UsageStatsSettingsForm($this);
 				$settingsForm->readInputData();
 				if ($settingsForm->validate()) {
 					$settingsForm->execute();
-					$message = NOTIFICATION_TYPE_SUCCESS;
-					$messageParams = array('contents' => __('plugins.generic.usageStats.settings.saved'));
-					return false;
-				} else {
-					$pluginModalContent = $settingsForm->fetch($request);
+					$notificationManager = new NotificationManager();
+					$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('plugins.generic.usageStats.settings.saved')));
+					return true;
 				}
-				break;
-			default:
-				return $returner;
+				return new JSONMessage(true, $settingsForm->fetch($request));
 		}
-		return true;
+		return parent::manage($args, $request);
 	}
 
 
@@ -143,32 +130,25 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 	// Implement template methods from GenericPlugin.
 	//
 	/**
-	* @see GenericPlugin::getManagementVerbs()
-	*/
-	function getManagementVerbs() {
-		$verbs = parent::getManagementVerbs();
-		if ($this->getEnabled()) {
-			$verbs[] = array('settings', __('manager.plugins.settings'));
-		}
-		return $verbs;
-	}
-
-	/**
-	 * @see Plugin::getManagementVerbLinkAction()
+	 * @see Plugin::getActions()
 	 */
-	function getManagementVerbLinkAction($request, $verb) {
+	function getActions($request, $verb) {
 		$router = $request->getRouter();
-
-		list($verbName, $verbLocalized) = $verb;
-
-		if ($verbName === 'settings') {
-			import('lib.pkp.classes.linkAction.request.AjaxModal');
-			$actionRequest = new AjaxModal(
-				$router->url($request, null, null, 'plugin', null, array('verb' => 'settings', 'plugin' => $this->getName(), 'category' => 'generic')),
-				$this->getDisplayName()
-			);
-			return new LinkAction($verbName, $actionRequest, $verbLocalized, null);
-		}
+		import('lib.pkp.classes.linkAction.request.AjaxModal');
+		return array_merge(
+			$this->getEnabled()?array(
+				new LinkAction(
+					'settings',
+					new AjaxModal(
+						$router->url($request, null, null, 'plugin', null, array('verb' => 'settings', 'plugin' => $this->getName(), 'category' => 'generic')),
+						$this->getDisplayName()
+					),
+					__('common.settings'),
+					null
+				),
+			):array(),
+			parent::getActions($request, $verb)
+		);
 	}
 
 
@@ -176,8 +156,8 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 	// Hook implementations.
 	//
 	/**
-	* @see PluginRegistry::loadCategory()
-	*/
+	 * @see PluginRegistry::loadCategory()
+	 */
 	function callbackLoadCategory($hookName, $args) {
 		// Instantiate report plugin.
 		$plugin = null;
@@ -263,9 +243,9 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 	}
 
 	/**
-	* Get the plugin's files path.
-	* @return string
-	*/
+	 * Get the plugin's files path.
+	 * @return string
+	 */
 	function getFilesPath() {
 		import('lib.pkp.classes.file.PrivateFileManager');
 		$fileMgr = new PrivateFileManager();

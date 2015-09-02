@@ -127,7 +127,7 @@
 
 					{* Search form *}
 					{if !$noContextsConfigured}
-						{include file="header/search.tpl"}
+						{include file="frontend/components/searchForm_simple.tpl"}
 					{/if}
 				</div>
 			</nav>

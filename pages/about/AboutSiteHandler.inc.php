@@ -42,7 +42,7 @@ class AboutSiteHandler extends Handler {
 		}
 		$templateMgr->assign('pubProcessFile', $pubProcessFile);
 
-		$templateMgr->display('about/aboutThisPublishingSystem.tpl');
+		$templateMgr->display('frontend/pages/aboutThisPublishingSystem.tpl');
 	}
 }
 

@@ -88,7 +88,7 @@
 							<li class="has-submenu">
 								<a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="settings" path="index"}">{translate key="navigation.settings"}</a>
 								<ul>
-									<li><a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="settings" path="journal"}">{translate key="context.context"}</a></li>
+									<li><a href="{$contextSettingsUrl}">{translate key="context.context"}</a></li>
 									<li><a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="settings" path="website"}">{translate key="manager.website"}</a></li>
 									<li><a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="settings" path="publication"}">{translate key="manager.workflow"}</a></li>
 									<li><a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="settings" path="distribution"}">{translate key="manager.distribution"}</a></li>

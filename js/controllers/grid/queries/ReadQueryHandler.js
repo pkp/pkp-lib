@@ -37,7 +37,7 @@
 		this.fetchNoteFormUrl_ = options.fetchNoteFormUrl;
 		this.fetchParticipantsListUrl_ = options.fetchParticipantsListUrl;
 
-		$containerElement.find('.sprite.add').click(
+		$containerElement.find('a[id^=\'openNoteForm-\']').click(
 				this.callbackWrapper(this.showNoteFormHandler_));
 
 		$containerElement.bind('dataChanged',

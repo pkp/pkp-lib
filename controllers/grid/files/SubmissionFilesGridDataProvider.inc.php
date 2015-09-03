@@ -153,7 +153,7 @@ class SubmissionFilesGridDataProvider extends FilesGridDataProvider {
 	 * @param $filter array optional Associative array of filter conditions
 	 * @return array
 	 */
-	protected function prepareSubmissionFileData($revisions, $viewableOnly = false, $filter = array()) {
+	function prepareSubmissionFileData($revisions, $viewableOnly = false, $filter = array()) {
 		$revisions = $this->applyFilter($revisions, $filter);
 
 		// Rearrange the files as required by submission file grids.

@@ -9,6 +9,10 @@
  *}
 {if $submission->getStageId() >= $smarty.const.WORKFLOW_STAGE_ID_EXTERNAL_REVIEW && !$externalReviewRounds->wasEmpty()}
 	{include file="authorDashboard/reviewRoundTab.tpl" reviewRounds=$externalReviewRounds reviewRoundTabsId="externalReviewRoundTabs" lastReviewRoundNumber=$lastReviewRoundNumber.externalReview}
+
+	<!-- Display queries grid -->
+	{url|assign:queriesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.queries.QueriesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$smarty.const.WORKFLOW_STAGE_ID_EXTERNAL_REVIEW escape=false}
+	{load_url_in_div id="queriesGridDiv" url=$queriesGridUrl}
 {else}
 	{translate key="submission.stageNotInitiated"}
 {/if}

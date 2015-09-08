@@ -675,6 +675,7 @@ class PKPRequest {
 	 * Set a cookie variable.
 	 * @param $key string
 	 * @param $value mixed
+	 * @param $expire int (optional)
 	 */
 	function setCookieVar($key, $value, $expire = 0) {
 		$_this =& PKPRequest::_checkThis();

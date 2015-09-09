@@ -67,6 +67,13 @@
 			this.trigger('notifyUser');
 		}
 
+		// Initialize the help panel
+		if ( typeof $.pkp.controllers.HelpPanelHandler !== 'undefined' ) {
+			$('#pkpHelpPanel').pkpHandler(
+				'$.pkp.controllers.HelpPanelHandler'
+			);
+		}
+
 		// bind event handlers for form status change events.
 		this.bind('formChanged', this.callbackWrapper(
 				this.registerUnsavedFormElement_));

@@ -49,6 +49,7 @@ class SubmissionDocumentsFilesGridHandler extends LibraryFileGridHandler {
 
 		// Set instructions
 		$this->setInstructions('editor.submissionLibrary.description');
+		$this->setTitle(null);
 
 		$router = $request->getRouter();
 

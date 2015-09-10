@@ -15,6 +15,9 @@
 					{include file="linkAction/linkAction.tpl" action=$uploadFileAction contextId="authorDashboard"}
 				</li>
 			{/if}
+			<li id="{$submissionLibraryAction->getId()}">
+				{include file="linkAction/linkAction.tpl" action=$submissionLibraryAction contextId="authorDashboard"}
+			</li>
 			<li id="{$viewMetadataAction->getId()}">
 				{include file="linkAction/linkAction.tpl" action=$viewMetadataAction contextId="authorDashboard"}
 			</li>

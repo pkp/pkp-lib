@@ -12,6 +12,7 @@
   -->
 
 <locale name="en_US" full_name="U.S. English">
+	<message key="editor.submissionLibrary">Submission Library</message>
 	<message key="editor.submissionLibrary.description"><![CDATA[Upload documents that pertain to the review and publication of this submission. Templates for many of these documents are found by clicking on <em>View Document Library</em>.]]></message>
 	<message key="editor.review.notInitiated">The review process has not yet been initiated.</message>
 	<message key="editor.submission.copyediting.personalMessageToUser">Message to user</message>

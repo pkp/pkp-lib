@@ -14,7 +14,4 @@
 	<!-- Display queries grid -->
 	{url|assign:queriesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.queries.QueriesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$smarty.const.WORKFLOW_STAGE_ID_SUBMISSION escape=false}
 	{load_url_in_div id="queriesGridDiv" url=$queriesGridUrl}
-
-	{url|assign:documentsGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.submissionDocuments.SubmissionDocumentsFilesGridHandler" op="fetchGrid" submissionId=$submission->getId() escape=false}
-	{load_url_in_div id="documentsGridDiv" url=$documentsGridUrl}
 </div>

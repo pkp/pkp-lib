@@ -62,10 +62,15 @@ class PKPAuthorDashboardHandler extends Handler {
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$templateMgr->assign('submission', $submission);
 
-		// "View metadata" action.
+		// Link actions.
 		import('lib.pkp.controllers.modals.submissionMetadata.linkAction.AuthorViewMetadataLinkAction');
-		$viewMetadataAction = new AuthorViewMetadataLinkAction($request, $submission->getId());
-		$templateMgr->assign('viewMetadataAction', $viewMetadataAction);
+		$templateMgr->assign('viewMetadataAction', new AuthorViewMetadataLinkAction($request, $submission->getId()));
+
+		import('lib.pkp.controllers.modals.documentLibrary.linkAction.SubmissionLibraryLinkAction');
+		$templateMgr->assign(
+			'submissionLibraryAction',
+			new SubmissionLibraryLinkAction($request, $submission->getId())
+		);
 
 		$workflowStages = WorkflowStageDAO::getWorkflowStageKeysAndPaths();
 		$stageNotifications = array();

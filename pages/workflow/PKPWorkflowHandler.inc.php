@@ -338,6 +338,12 @@ abstract class PKPWorkflowHandler extends Handler {
 			'submissionInformationCenterAction',
 			new SubmissionInfoCenterLinkAction($request, $submission->getId())
 		);
+
+		import('lib.pkp.controllers.modals.documentLibrary.linkAction.SubmissionLibraryLinkAction');
+		$templateMgr->assign(
+			'submissionLibraryAction',
+			new SubmissionLibraryLinkAction($request, $submission->getId())
+		);
 	}
 
 	//

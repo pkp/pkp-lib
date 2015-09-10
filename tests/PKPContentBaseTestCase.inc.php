@@ -74,7 +74,10 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 
 		// Check the default checklist items.
 		$this->waitForElementPresent('id=checklist-0');
-		for ($i=0; $i<$this->_getChecklistLength(); $i++) $this->click('id=checklist-' . $i);
+		for ($i=0; $i<$this->_getChecklistLength(); $i++) {
+			$id = 'checklist-' . $i;
+			if ($this->getXpathCount("//input[@id='$id' and not(@checked)]")==1) $this->click("id=$id");
+		}
 
 		// Permit the subclass to handle any series/section data
 		$this->_handleStep1($data);
@@ -177,6 +180,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->waitForElementPresent($selector = 'css=[id=continueButton]');
 		$this->click($selector);
 		$this->waitJQuery();
+		$this->waitForElementNotPresent('css=div.pkp_modal_panel'); // pkp/pkp-lib#655
 	}
 
 	/**

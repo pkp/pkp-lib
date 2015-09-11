@@ -116,9 +116,7 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 						$filename = pathinfo($filePath, PATHINFO_BASENAME);
 						$currentDayFilename = $plugin->getUsageEventCurrentDayLogName();
 						if ($filename == $currentDayFilename) continue;
-						if ($fileMgr->copyFile($filePath, $this->getStagePath() . DIRECTORY_SEPARATOR . $filename)) {
-							$fileMgr->deleteFile($filePath);
-						}
+						$this->moveFile(pathinfo($filePath, PATHINFO_DIRNAME), $this->getStagePath(), $filename);
 					}
 				}
 			}	

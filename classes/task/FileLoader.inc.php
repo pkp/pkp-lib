@@ -231,6 +231,29 @@ abstract class FileLoader extends ScheduledTask {
 	 */
 	abstract protected function processFile($filePath);
 
+	/**
+	 * Move file between filesystem directories.
+	 * @param $sourceDir string
+	 * @param $destDir string
+	 * @param $filename string
+	 * @return string The destination path of the moved file.
+	 */
+	protected function moveFile($sourceDir, $destDir, $filename) {
+		$currentFilePath = $sourceDir . DIRECTORY_SEPARATOR . $filename;
+		$destinationPath = $destDir . DIRECTORY_SEPARATOR . $filename;
+
+		if (!rename($currentFilePath, $destinationPath)) {
+			$message = __('admin.fileLoader.moveFileFailed', array('filename' => $filename,
+				'currentFilePath' => $currentFilePath, 'destinationPath' => $destinationPath));
+			$this->addExecutionLogEntry($message, SCHEDULED_TASK_MESSAGE_TYPE_ERROR);
+
+			// Script shoudl always stop if it can't manipulate files inside
+			// its own directory system.
+			fatalError($message);
+		}
+
+		return $destinationPath;
+	}
 
 	//
 	// Private helper methods.
@@ -248,7 +271,7 @@ abstract class FileLoader extends ScheduledTask {
 			if ($filename == '..' || $filename == '.' ||
 				in_array($filename, $this->_stagedBackFiles)) continue;
 
-			$processingFilePath = $this->_moveFile($this->_stagePath, $this->_processingPath, $filename);
+			$processingFilePath = $this->moveFile($this->_stagePath, $this->_processingPath, $filename);
 			break;
 		}
 
@@ -264,45 +287,21 @@ abstract class FileLoader extends ScheduledTask {
 	 * Reject the current claimed file.
 	 */
 	private function _rejectFile() {
-		$this->_moveFile($this->_processingPath, $this->_rejectPath, $this->_claimedFilename);
+		$this->moveFile($this->_processingPath, $this->_rejectPath, $this->_claimedFilename);
 	}
 
 	/**
 	 * Archive the current claimed file.
 	 */
 	private function _archiveFile() {
-		$this->_moveFile($this->_processingPath, $this->_archivePath, $this->_claimedFilename);
+		$this->moveFile($this->_processingPath, $this->_archivePath, $this->_claimedFilename);
 	}
 
 	/**
 	 * Stage the current claimed file.
 	 */
 	private function _stageFile() {
-		$this->_moveFile($this->_processingPath, $this->_stagePath, $this->_claimedFilename);
-	}
-
-	/**
-	 * Move file between filesystem directories.
-	 * @param $sourceDir string
-	 * @param $destDir string
-	 * @param $filename string
-	 * @return string The destination path of the moved file.
-	 */
-	private function _moveFile($sourceDir, $destDir, $filename) {
-		$currentFilePath = $sourceDir . DIRECTORY_SEPARATOR . $filename;
-		$destinationPath = $destDir . DIRECTORY_SEPARATOR . $filename;
-
-		if (!rename($currentFilePath, $destinationPath)) {
-			$message = __('admin.fileLoader.moveFileFailed', array('filename' => $filename,
-				'currentFilePath' => $currentFilePath, 'destinationPath' => $destinationPath));
-			$this->addExecutionLogEntry($message, SCHEDULED_TASK_MESSAGE_TYPE_ERROR);
-
-			// Script shoudl always stop if it can't manipulate files inside
-			// its own directory system.
-			fatalError($message);
-		}
-
-		return $destinationPath;
+		$this->moveFile($this->_processingPath, $this->_stagePath, $this->_claimedFilename);
 	}
 
 	/**

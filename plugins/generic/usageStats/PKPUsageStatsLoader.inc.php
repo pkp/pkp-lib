@@ -104,11 +104,11 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 				if (is_array($logsDirFiles)) {
 					$logFiles = array_merge($logFiles, $logsDirFiles);
 				}
-				
+
 				if (is_array($processingDirFiles)) {
 					$logFiles = array_merge($logFiles, $processingDirFiles);
 				}
-				
+
 				foreach ($logFiles as $filePath) {
 					// Make sure it's a file.
 					if ($fileMgr->fileExists($filePath)) {
@@ -121,7 +121,7 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
 
@@ -203,7 +203,11 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 
 			if(!$assocId || !$assocType) continue;
 
-			list($countryCode, $cityName, $region) = $geoTool->getGeoLocation($entryData['ip']);
+			$countryCode = $cityName = $region = null;
+			$plugin = $this->_plugin;
+			if (!$plugin->getSetting(CONTEXT_ID_NONE, 'dataPrivacyOption')) {
+				list($countryCode, $cityName, $region) = $geoTool ? $geoTool->getGeoLocation($entryData['ip']) : array(null, null, null);
+			}
 			$day = date('Ymd', $entryData['date']);
 
 			$type = $this->getFileType($assocType, $assocId);
@@ -249,7 +253,7 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 			// Improve the error message.
 			$errorMsg = __('plugins.generic.usageStats.loadDataError',
 				array('file' => $filePath, 'error' => $errorMsg));
-			
+
 			return FILE_LOADER_RETURN_TO_STAGING;
 		} else {
 			return true;
@@ -484,7 +488,7 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 		if (is_array($contextPaths) && !$page && $operation == 'index') {
 			$page = 'index';
 		}
-	
+
 		if (empty($contextPaths) || !$page || !$operation) return $noMatchesReturner;
 
 		$pageAndOperation = $page . '/' . $operation;

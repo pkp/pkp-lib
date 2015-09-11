@@ -182,7 +182,11 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 
 			if(!$assocId || !$assocType) continue;
 
-			list($countryCode, $cityName, $region) = $geoTool ? $geoTool->getGeoLocation($entryData['ip']) : array(null, null, null);
+			$countryCode = $cityName = $region = null;
+			$plugin = $this->_plugin;
+			if (!$plugin->getSetting(CONTEXT_ID_NONE, 'dataPrivacyOption')) {
+				list($countryCode, $cityName, $region) = $geoTool ? $geoTool->getGeoLocation($entryData['ip']) : array(null, null, null);
+			}
 			$day = date('Ymd', $entryData['date']);
 
 			$type = $this->getFileType($assocType, $assocId);
@@ -496,7 +500,7 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 		if (is_array($contextPaths) && !$page && $operation == 'index') {
 			$page = 'index';
 		}
-	
+
 		if (empty($contextPaths) || !$page || !$operation) return $noMatchesReturner;
 
 		$pageAndOperation = $page . '/' . $operation;

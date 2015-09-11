@@ -27,7 +27,7 @@ class UsageStatsSettingsForm extends Form {
 	function UsageStatsSettingsForm($plugin) {
 		$this->plugin = $plugin;
 
-		parent::Form($plugin->getTemplatePath() . 'usageStatsSettingsForm.tpl');
+		parent::Form($plugin->getTemplatePath(true) . 'usageStatsSettingsForm.tpl');
 		$this->addCheck(new FormValidatorPost($this));
 	}
 
@@ -37,15 +37,16 @@ class UsageStatsSettingsForm extends Form {
 	function initData() {
 		$plugin = $this->plugin;
 
-		$this->setData('createLogFiles', $plugin->getSetting(CONTEXT_SITE, 'createLogFiles'));
-		$this->setData('accessLogFileParseRegex', $plugin->getSetting(0, 'accessLogFileParseRegex'));
+		$this->setData('createLogFiles', $plugin->getSetting(CONTEXT_ID_NONE, 'createLogFiles'));
+		$this->setData('accessLogFileParseRegex', $plugin->getSetting(CONTEXT_ID_NONE, 'accessLogFileParseRegex'));
+		$this->setData('dataPrivacyOption', $plugin->getSetting(CONTEXT_ID_NONE, 'dataPrivacyOption'));
 	}
 
 	/**
 	 * Assign form data to user-submitted data.
 	 */
 	function readInputData() {
-		$this->readUserVars(array('createLogFiles','accessLogFileParseRegex'));
+		$this->readUserVars(array('createLogFiles','accessLogFileParseRegex', 'dataPrivacyOption'));
 	}
 
 	/**
@@ -54,6 +55,8 @@ class UsageStatsSettingsForm extends Form {
 	function fetch($request) {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('pluginName', $this->plugin->getName());
+		$saltFilepath = Config::getVar('usageStats', 'salt_filepath');
+		$templateMgr->assign('saltFilepath', $saltFilepath && file_exists($saltFilepath) && is_writable($saltFilepath));
 		return parent::fetch($request);
 	}
 
@@ -63,8 +66,9 @@ class UsageStatsSettingsForm extends Form {
 	function execute() {
 		$plugin = $this->plugin;
 
-		$plugin->updateSetting(0, 'createLogFiles', $this->getData('createLogFiles'));
-		$plugin->updateSetting(0, 'accessLogFileParseRegex', $this->getData('accessLogFileParseRegex'));
+		$plugin->updateSetting(CONTEXT_ID_NONE, 'createLogFiles', $this->getData('createLogFiles'));
+		$plugin->updateSetting(CONTEXT_ID_NONE, 'accessLogFileParseRegex', $this->getData('accessLogFileParseRegex'));
+		$plugin->updateSetting(CONTEXT_ID_NONE, 'dataPrivacyOption', $this->getData('dataPrivacyOption'));
 	}
 
 }

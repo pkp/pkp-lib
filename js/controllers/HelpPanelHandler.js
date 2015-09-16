@@ -69,7 +69,7 @@
 	 * @private
 	 * @type {jQueryObject}
 	 */
-	$.pkp.controllers.HelpPanelHandler.prototype.caller = null;
+	$.pkp.controllers.HelpPanelHandler.prototype._caller = null;
 
 
 
@@ -90,7 +90,7 @@
 
 		// Save the calling element
 		if (typeof options.caller !== 'undefined') {
-			helpPanelHandler.caller = options.caller;
+			helpPanelHandler._caller = options.caller;
 		}
 
 		// Show the help panel
@@ -130,8 +130,8 @@
 		helpPanelHandler.getHtmlElement().find('.content').empty();
 
 		// Set focus back to the calling element
-		if (helpPanelHandler.caller !== null) {
-			helpPanelHandler.caller.focus();
+		if (helpPanelHandler._caller !== null) {
+			helpPanelHandler._caller.focus();
 		}
 	};
 

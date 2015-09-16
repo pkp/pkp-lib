@@ -43,7 +43,8 @@
 		// Search dom for calling elements and register click handlers
 		$('body').find('.requestHelpPanel').click(function(e) {
 			e.preventDefault();
-			var options = $.extend({}, $(this).data(), { caller: $(this) } );
+			var $self = $(this);
+			var options = $.extend({}, $self.data(), { caller: $self } );
 			$element.trigger('pkp.HelpPanel.Open', options);
 		});
 
@@ -54,8 +55,8 @@
 		});
 
 		// Register listeners
-		$element.on('pkp.HelpPanel.Open', this.openPanel)
-		        .on('pkp.HelpPanel.Close', this.closePanel);
+		$element.on('pkp.HelpPanel.Open', this.callbackWrapper(this.openPanel))
+		        .on('pkp.HelpPanel.Close', this.callbackWrapper(this.closePanel));
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.HelpPanelHandler, $.pkp.classes.Handler);
@@ -79,26 +80,26 @@
 	/**
 	 * Open the helper panel
 	 *
+	 * @param {HTMLElement} context The context in which this function was called
 	 * @param {Event} event The event triggered on this handler
 	 * @param {object} options The options with which to open this handler
-	 *  triggered this event if one exists. Usually a link.
 	 */
-	$.pkp.controllers.HelpPanelHandler.prototype.openPanel = function(event, options) {
+	$.pkp.controllers.HelpPanelHandler.prototype.openPanel = function(context, event, options) {
 
-		// Get a reference to this handler
-		var helpPanelHandler = $.pkp.classes.Handler.getHandler($(this));
+		// Get a reference to this handler's element as a jQuery objet
+		var $element = this.getHtmlElement();
 
 		// Save the calling element
 		if (typeof options.caller !== 'undefined') {
-			helpPanelHandler._caller = options.caller;
+			this._caller = options.caller;
 		}
 
 		// Show the help panel
-		$(this).addClass('is_visible');
+		$element.addClass('is_visible');
 		$('body').addClass('help_panel_is_visible'); // manage scrollbars
 
 		// Listen to close interaction events
-		$(this).on('click keyup', helpPanelHandler.handleWrapperEvents);
+		$element.on('click.pkp.HelpPanel keyup.pkp.HelpPanel', this.callbackWrapper(this.handleWrapperEvents));
 
 		// Load the appropriate help content
 		// @todo Use options.topic to retrieve the content and place it into
@@ -108,7 +109,7 @@
 		// visible when jQuery tries to focus on it)
 		// @todo This should only happen once content is loaded in
 		setTimeout(function() {
-			helpPanelHandler.getHtmlElement().focus();
+			$element.focus();
 		}, 300);
 
 	};
@@ -119,40 +120,48 @@
 	 */
 	$.pkp.controllers.HelpPanelHandler.prototype.closePanel = function() {
 
-		// Get a reference to this handler
-		var helpPanelHandler = $.pkp.classes.Handler.getHandler($(this));
+		// Get a reference to this handler's element as a jQuery object
+		var $element = this.getHtmlElement();
 
 		// Show the help panel
-		$(this).removeClass('is_visible');
+		$element.removeClass('is_visible');
 		$('body').removeClass('help_panel_is_visible'); // manage scrollbars
 
 		// Clear the help content
-		helpPanelHandler.getHtmlElement().find('.content').empty();
+		$element.find('.content').empty();
 
 		// Set focus back to the calling element
-		if (helpPanelHandler._caller !== null) {
-			helpPanelHandler._caller.focus();
+		if (this._caller !== null) {
+			this._caller.focus();
 		}
+
+		// Unbind wrapper events from element and reset vars
+		$element.off('click.pkp.HelpPanel keyup.pkp.HelpPanel');
+		this._caller = null;
 	};
 
 
 	/**
 	 * Process events that reach the wrapper element.
 	 *
+	 * @param {HTMLElement} context The context in which this function was called
 	 * @param {Event} event The event triggered on this handler
 	 */
 	$.pkp.controllers.HelpPanelHandler.prototype.handleWrapperEvents =
-			function(event) {
+			function(context, event) {
+
+		// Get a reference to this handler's element as a jQuery object
+		var $element = this.getHtmlElement();
 
 		// Close click events directly on modal (background screen)
-		if (event.type == 'click' && $(this).is(event.target)) {
-			$(this).trigger('pkp.HelpPanel.Close');
+		if (event.type == 'click' && $element.is(event.target)) {
+			$element.trigger('pkp.HelpPanel.Close');
 			return;
 		}
 
 		// Close for ESC keypresses (27)
 		if (event.type == 'keyup' && event.which == 27) {
-			$(this).trigger('pkp.HelpPanel.Close');
+			$element.trigger('pkp.HelpPanel.Close');
 			return;
 		}
 	};

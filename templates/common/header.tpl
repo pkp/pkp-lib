@@ -76,7 +76,7 @@
 						{/capture}
 						{load_url_in_el el="li" class="pkp_tasks" id="userTasksWrapper" url=$fetchTaskUrl placeholder=$tasksNavPlaceholder}
 
-						{if array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR), $userRoles)}
+						{if array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR), (array)$userRoles)}
 							<li>
 								<a href="{url router=$smarty.const.ROUTE_PAGE page="dashboard"}">
 									{translate key="navigation.dashboard"}
@@ -84,7 +84,7 @@
 							</li>
 						{/if}
 
-						{if array_intersect(array(ROLE_ID_MANAGER), $userRoles)}
+						{if array_intersect(array(ROLE_ID_MANAGER), (array)$userRoles)}
 							<li class="has-submenu">
 								<a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="settings" path="index"}">{translate key="navigation.settings"}</a>
 								<ul>

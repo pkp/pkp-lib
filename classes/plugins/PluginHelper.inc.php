@@ -45,7 +45,13 @@ class PluginHelper {
 		// equal plugin directory name and plugin files must be in a
 		// directory named after the plug-in (potentially with version)
 		$matches = array();
-		String::regexp_match_get('/^[a-zA-Z0-9]+/', basename($originalFileName, '.tar.gz'), $matches);
+		$path_parts = pathinfo($originalFileName);
+		switch($path_parts['extension']) {
+		  case "gz":
+		  String::regexp_match_get('/^[a-zA-Z0-9]+/', basename($originalFileName, '.tar.gz'), $matches);
+		  case "xz":
+		  String::regexp_match_get('/^[a-zA-Z0-9]+/', basename($originalFileName, '.tar.xz'), $matches);
+		}
 		$pluginShortName = array_pop($matches);
 		if (!$pluginShortName) {
 			$errorMsg = __('manager.plugins.invalidPluginArchive');
@@ -59,7 +65,7 @@ class PluginHelper {
 		// Test whether the tar binary is available for the export to work
 		$tarBinary = Config::getVar('cli', 'tar');
 		if (!empty($tarBinary) && file_exists($tarBinary)) {
-			exec($tarBinary.' -xzf ' . escapeshellarg($filePath) . ' -C ' . escapeshellarg($pluginExtractDir));
+			exec($tarBinary.' -xf ' . escapeshellarg($filePath) . ' -C ' . escapeshellarg($pluginExtractDir));
 		} else {
 			$errorMsg = __('manager.plugins.tarCommandNotFound');
 		}
@@ -74,7 +80,12 @@ class PluginHelper {
 			// Failing that, look for a directory named after the
 			// archive. (Typically also contains the version number
 			// e.g. with github generated release archives.)
-			String::regexp_match_get('/^[a-zA-Z0-9.-]+/', basename($originalFileName, '.tar.gz'), $matches);
+			switch($path_parts['extension']) {
+			  case "gz":
+			  String::regexp_match_get('/^[a-zA-Z0-9.-]+/', basename($originalFileName, '.tar.gz'), $matches);
+			  case "xz":
+			  String::regexp_match_get('/^[a-zA-Z0-9.-]+/', basename($originalFileName, '.tar.xz'), $matches);
+			}
 			if (is_dir($tryDir = $pluginExtractDir . '/' . array_pop($matches))) {
 				// We found a directory named after the archive
 				// within the extracted archive. (Typically also

@@ -20,19 +20,24 @@
 	{rdelim});
 </script>
 
-<div id="readQueryContainer">
-	<div id="queryParticipantsContainer">
-		<h2 class="pkp_helpers_align_left">{translate key="editor.submission.stageParticipants"}</h2>
+<div id="readQueryContainer" class="pkp_controllers_query">
+    <h4>
+        {translate key="editor.submission.stageParticipants"}
 		{if $editAction}
 			{include file="linkAction/linkAction.tpl" action=$editAction contextId="editQuery"}
 		{/if}
-		<ul class="pkp_helpers_clear" id="participantsListPlaceholder"></ul>
-	</div>
+    </h4>
+    <ul id="participantsListPlaceholder" class="participants"></ul>
 
 	{url|assign:queryNotesGridUrl router=$smarty.const.ROUTE_COMPONENT component=$queryNotesGridHandlerName op="fetchGrid" params=$requestArgs queryId=$query->getId() escape=false}
 	{load_url_in_div id="queryNotesGrid" url=$queryNotesGridUrl}
 
-	{null_link_action id="openNoteForm" key="submission.query.addNote" image="add"}
+    <div class="openNoteForm add_note">
+        <span class="pkp_spinner"></span>
+        <a href="#">
+            {translate key="submission.query.addNote"}
+        </a>
+    </div>
 
 	<div id="newNotePlaceholder"></div>
 </div>

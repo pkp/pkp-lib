@@ -37,7 +37,7 @@
 		this.fetchNoteFormUrl_ = options.fetchNoteFormUrl;
 		this.fetchParticipantsListUrl_ = options.fetchParticipantsListUrl;
 
-		$containerElement.find('a[id^=\'openNoteForm-\']').click(
+		$containerElement.find('.openNoteForm a').click(
 				this.callbackWrapper(this.showNoteFormHandler_));
 
 		$containerElement.bind('dataChanged',
@@ -94,7 +94,7 @@
 	 */
 	$.pkp.controllers.grid.queries.ReadQueryHandler.prototype.
 			showNoteFormHandler_ = function(element) {
-		$(element).hide();
+		$(element).parents('.openNoteForm').addClass('is_loading');
 		$.get(this.fetchNoteFormUrl_,
 				this.callbackWrapper(this.showFetchedNoteForm_), 'json');
 	};
@@ -112,8 +112,8 @@
 		var processedJsonData = this.handleJson(jsonData),
 				$noteFormContainer = $('#newNotePlaceholder', this.getHtmlElement());
 
-		$noteFormContainer.children().remove();
-		$noteFormContainer.append(processedJsonData.content);
+		$('.openNoteForm.is_loading', this.getHtmlElement()).remove();
+		$noteFormContainer.html(processedJsonData.content);
 	};
 
 

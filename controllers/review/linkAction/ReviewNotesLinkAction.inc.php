@@ -24,9 +24,9 @@ class ReviewNotesLinkAction extends LinkAction {
 	 * to show information about.
 	 * @param $submission Submission The reviewed submission.
 	 * @param $user User The user.
-	 * @param $icon String the icon to use
+	 * @param status String Review's read status
 	 */
-	function ReviewNotesLinkAction($request, $reviewAssignment, $submission, $user, $icon = null) {
+	function ReviewNotesLinkAction($request, $reviewAssignment, $submission, $user, $status = null) {
 		// Instantiate the information center modal.
 		$router = $request->getRouter();
 		import('lib.pkp.classes.linkAction.request.AjaxModal');
@@ -49,13 +49,12 @@ class ReviewNotesLinkAction extends LinkAction {
 		$viewsDao = DAORegistry::getDAO('ViewsDAO');
 		$lastViewDate = $viewsDao->getLastViewDate(ASSOC_TYPE_REVIEW_RESPONSE, $reviewAssignment->getId(), $user->getId());
 
-		if (!$icon) {
-			$icon = ($lastViewDate) ? 'notes' : 'notes_new';
-		}
+		$label = !$lastViewDate || $status == 'new' ? __('editor.review.readNewReview') : __('editor.review.readReview');
+
 		// Configure the link action.
 		parent::LinkAction(
 			'readReview', $ajaxModal,
-			'', $icon
+			$label
 		);
 	}
 }

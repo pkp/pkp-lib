@@ -36,7 +36,7 @@ class SendThankYouLinkAction extends LinkAction {
 		// Configure the link action.
 		parent::LinkAction(
 			'thankReviewer', $ajaxModal,
-			__('common.accepted'),
+			__('editor.review.thankReviewer'),
 			'accepted'
 		);
 	}

@@ -37,7 +37,7 @@ class SendReminderLinkAction extends LinkAction {
 		parent::LinkAction(
 			'sendReminder',
 			$ajaxModal,
-			null,
+			__('editor.review.sendReminder'),
 			'overdue'
 		);
 	}

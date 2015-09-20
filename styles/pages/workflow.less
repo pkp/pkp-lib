@@ -184,6 +184,13 @@ div[id^=formatsGridContainer] tbody:not(.empty) td:first-child,
 	margin-top: 0;
 }
 
+// Removes file id styling from the reviewer's grid
+[id^="reviewersGrid"] .gridCellContainer .label.before_actions {
+	padding: 0;
+	background: transparent;
+	font-size: @font-base;
+}
+
 // @todo
 .pkp_page_header {
 

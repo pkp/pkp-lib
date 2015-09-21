@@ -86,7 +86,7 @@ class CategoryGridDataProvider extends GridDataProvider {
 	 * @param $filter mixed array or null
 	 * @return array
 	 */
-	function &loadCategoryData($request, $categoryDataElement, $filter = null) {
+	function loadCategoryData($request, $categoryDataElement, $filter = null) {
 		assert(false);
 	}
 }

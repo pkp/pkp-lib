@@ -84,7 +84,7 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider {
 	/**
 	 * @copydoc CategoryGridDataProvider::loadCategoryData()
 	 */
-	function &loadCategoryData($request, $categoryDataElement, $filter = null, $reviewRound = null) {
+	function loadCategoryData($request, $categoryDataElement, $filter = null, $reviewRound = null) {
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 		$dataProvider = $this->getDataProvider();
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);

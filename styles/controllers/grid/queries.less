@@ -1,0 +1,74 @@
+/**
+ * @file styles/controllers/gridd/queries.less
+ *
+ * Copyright (c) 2014-2015 Simon Fraser University Library
+ * Copyright (c) 2003-2015 John Willinsky
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ *
+ * @ingroup pkp_controllers_query
+ *
+ * @brief Classes for grid structure
+ */
+
+.pkp_controllers_query {
+
+    > h4 {
+        margin: 0;
+    }
+
+    .participants {
+        &:extend(.pkp_unstyled_list);
+        margin-bottom: @double;
+    }
+
+    .pkp_controllers_grid {
+        margin-bottom: @double;
+    }
+
+    .add_note {
+        text-align: right;
+
+        a {
+            &:extend(.pkp_button);
+        }
+
+        .pkp_spinner {
+            opacity: 0;
+            margin-right: 1em;
+        }
+
+        &.is_loading {
+
+            .pkp_spinner {
+                opacity: 1;
+            }
+        }
+    }
+
+    #queryNotesGrid {
+
+        .first_column:not(.no_actions) {
+            padding-left: 32px;
+        }
+    }
+
+    #queryNotesGrid {
+
+        tbody {
+
+            p:first-child {
+                margin-top: 0;
+            }
+
+            p:last-child {
+                margin-bottom: 0;
+            }
+
+            td:nth-child(2) {
+                font-size: @font-sml;
+                color: @text-light;
+            }
+        }
+    }
+
+}

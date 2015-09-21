@@ -104,7 +104,7 @@ class QueryNotesGridHandler extends GridHandler {
 				null,
 				null,
 				$cellProvider,
-				array('width' => 90, 'alignment' => COLUMN_ALIGNMENT_CENTER, 'html' => true)
+				array('width' => 80, 'html' => true)
 			)
 		);
 		$this->addColumn(

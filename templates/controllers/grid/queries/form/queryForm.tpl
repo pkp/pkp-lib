@@ -46,5 +46,6 @@
 	{/fbvFormArea}
 
 	{fbvFormButtons id="addQueryButton"}
+
+	<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 </form>
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>

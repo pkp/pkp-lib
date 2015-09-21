@@ -463,7 +463,16 @@ class QueriesGridHandler extends GridHandler {
 			// Render the row into a JSON response
 			return DAO::getDataChangedEvent($query->getId());
 		} else {
-			return new JSONMessage(true, $queryForm->fetch($request, $this->getRequestArgs()));
+			return new JSONMessage(
+				true,
+				$queryForm->fetch(
+					$request,
+					array_merge(
+						$this->getRequestArgs(),
+						array('queryId' => $query->getId())
+					)
+				)
+			);
 		}
 	}
 }

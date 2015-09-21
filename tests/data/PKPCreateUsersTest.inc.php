@@ -39,6 +39,11 @@ class PKPCreateUsersTest extends WebTestCase {
 		$this->clickAndWait('link=Create New User');
 		$this->waitForElementPresent('id=firstName');
 
+		// Password status
+		$this->click('id=generatePassword'); // Uncheck
+		$this->click('id=sendNotify'); // Uncheck
+		$this->click('id=mustChangePassword'); // Uncheck
+
 		// Fill in user data
 		$this->type('id=firstName', $data['firstName']);
 		$this->type('id=lastName', $data['lastName']);

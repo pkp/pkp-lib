@@ -11,11 +11,11 @@
 {if $displayCreativeCommons}
 	{translate key="common.ccLicense"}
 {/if}
+{call_hook name="Templates::Common::Footer::PageFooter"}
 {if $pageFooter}
 	<br /><br />
 	<div id="pageFooter">{$pageFooter}</div>
 {/if}
-{call_hook name="Templates::Common::Footer::PageFooter"}
 </div><!-- content -->
 </div><!-- main -->
 </div><!-- body -->

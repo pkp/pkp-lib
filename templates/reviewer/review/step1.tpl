@@ -68,7 +68,7 @@
 		{/fbvFormSection}
 
 		{fbvFormSection}
-			{fbvElement type="textarea" name="competingInterestsText" id="competingInterestsText" value=$competingInterestsText size=$fbvStyles.size.MEDIUM disabled=$reviewIsComplete}
+			{fbvElement type="textarea" name="competingInterestsText" id="competingInterestsText" value=$competingInterestsText size=$fbvStyles.size.MEDIUM disabled=$reviewIsComplete rich=true}
 		{/fbvFormSection}
 	{/if}
 

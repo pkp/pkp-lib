@@ -43,7 +43,7 @@
 			{fbvElement type="textarea" multilingual=true name="reviewPolicy" id="reviewPolicy" value=$reviewPolicy rich=true}
 		{/fbvFormSection}
 		{fbvFormSection label="manager.setup.competingInterests" description="manager.setup.competingInterestsDescription" class=$wizard_classes}
-			{fbvElement type="textarea" multilingual="true" id="competingInterestsPolicy" value=$competingInterestsPolicy}
+			{fbvElement type="textarea" multilingual="true" id="competingInterestsPolicy" rich=true value=$competingInterestsPolicy}
 		{/fbvFormSection}
 
 		{$additionalFormContent}

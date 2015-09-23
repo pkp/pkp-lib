@@ -145,6 +145,9 @@
 		// html element as data.
 		this.trigger('notifyUser', [this.getHtmlElement()]);
 
+		// Hide the form spinner.
+		this.hideSpinner_();
+
 		return processedJsonData.status;
 	};
 

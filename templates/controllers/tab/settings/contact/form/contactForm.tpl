@@ -29,9 +29,6 @@
 			{fbvElement type="text" label="user.email" required=true id="contactEmail" value=$contactEmail maxlength="90" inline=true size=$fbvStyles.size.MEDIUM}
 			{fbvElement type="text" label="user.phone" id="contactPhone" value=$contactPhone maxlength="24" inline=true size=$fbvStyles.size.MEDIUM}
 		{/fbvFormSection}
-		{fbvFormSection}
-			{fbvElement type="text" label="user.fax" id="contactFax" value=$contactFax maxlength="24" inline=true size=$fbvStyles.size.MEDIUM}
-		{/fbvFormSection}
 		{fbvFormSection title="user.affiliation" for="contactAffiliation"}
 			{fbvElement type="text" multilingual=true name="contactAffiliation" id="contactAffiliation" value=$contactAffiliation maxlength="90"}
 		{/fbvFormSection}

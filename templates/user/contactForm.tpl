@@ -20,7 +20,6 @@
 	{fbvFormSection}
 		{fbvElement type="text" label="user.email" id="email" value=$email size=$fbvStyles.size.LARGE required=true}
 		{fbvElement type="text" label="user.phone" name="phone" id="phone" value=$phone maxlength="24" inline=true size=$fbvStyles.size.SMALL}
-		{fbvElement type="text" label="user.fax" name="fax" id="fax" value=$fax maxlength="24" inline=true size=$fbvStyles.size.SMALL}
 		{fbvElement type="text" label="user.affiliation" multilingual="true" name="affiliation" id="affiliation" value=$affiliation size=$fbvStyles.size.LARGE}
 	{/fbvFormSection}
 	{fbvFormSection}

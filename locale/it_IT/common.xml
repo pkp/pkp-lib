@@ -16,7 +16,6 @@
 	<message key="about.aboutSite">Informazioni sul sito</message>
 	<message key="about.contact">Contatti</message>
 	<message key="about.contact.email">Email</message>
-	<message key="about.contact.fax">Fax</message>
 	<message key="about.contact.phone">Telefono</message>
 	<message key="about.contact.principalContact">Contatto principale</message>
 	<message key="about.contact.supportContact">Contatto tecnico</message>

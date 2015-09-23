@@ -16,7 +16,6 @@
 	<message key="about.aboutSite">关于本站</message>
 	<message key="about.contact">联系方式</message>
 	<message key="about.contact.email">电子邮件</message>
-	<message key="about.contact.fax">传真</message>
 	<message key="about.contact.phone">电话</message>
 	<message key="about.contact.principalContact">首要联系方式</message>
 	<message key="about.contact.supportContact">支持联系方式</message>

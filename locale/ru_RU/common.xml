@@ -16,7 +16,6 @@
 	<message key="about.aboutSite">О сайте</message>
 	<message key="about.contact">Контакты</message>
 	<message key="about.contact.email">E-mail адрес</message>
-	<message key="about.contact.fax">Факс</message>
 	<message key="about.contact.phone">Телефон</message>
 	<message key="about.contact.principalContact">Главный редактор</message>
 	<message key="about.contact.supportContact">Техподдержка</message>

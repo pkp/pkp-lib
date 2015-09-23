@@ -16,7 +16,6 @@
 	<message key="about.aboutSite">Sobre o Portal</message>
 	<message key="about.contact">Contato</message>
 	<message key="about.contact.email">E-mail</message>
-	<message key="about.contact.fax">Fax</message>
 	<message key="about.contact.phone">Telefone</message>
 	<message key="about.contact.principalContact">Contato Principal</message>
 	<message key="about.contact.supportContact">Contato para Suporte Técnico</message>

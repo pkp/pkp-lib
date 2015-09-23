@@ -23,7 +23,6 @@
 	<message key="user.dateRegistered">Fecha de registro</message>
 	<message key="user.editMyProfile">Editar mi perfil</message>
 	<message key="user.email">Correo electrónico</message>
-	<message key="user.fax">Fax</message>
 	<message key="user.feminine">F</message>
 	<message key="user.firstName">Nombre</message>
 	<message key="user.gender">Sexo</message>

@@ -346,7 +346,6 @@ class PKPUserDAO extends DAO {
 		$user->setEmail($row['email']);
 		$user->setUrl($row['url']);
 		$user->setPhone($row['phone']);
-		$user->setFax($row['fax']);
 		$user->setMailingAddress($row['mailing_address']);
 		$user->setBillingAddress($row['billing_address']);
 		$user->setCountry($row['country']);
@@ -380,9 +379,9 @@ class PKPUserDAO extends DAO {
 		}
 		$this->update(
 			sprintf('INSERT INTO users
-				(username, password, salutation, first_name, middle_name, initials, last_name, suffix, gender, email, url, phone, fax, mailing_address, billing_address, country, locales, date_last_email, date_registered, date_validated, date_last_login, must_change_password, disabled, disabled_reason, auth_id, auth_str, inline_help)
+				(username, password, salutation, first_name, middle_name, initials, last_name, suffix, gender, email, url, phone, mailing_address, billing_address, country, locales, date_last_email, date_registered, date_validated, date_last_login, must_change_password, disabled, disabled_reason, auth_id, auth_str, inline_help)
 				VALUES
-				(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, %s, %s, %s, %s, ?, ?, ?, ?, ?, ?)',
+				(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, %s, %s, %s, %s, ?, ?, ?, ?, ?)',
 				$this->datetimeToDB($user->getDateLastEmail()), $this->datetimeToDB($user->getDateRegistered()), $this->datetimeToDB($user->getDateValidated()), $this->datetimeToDB($user->getDateLastLogin())),
 			array(
 				$user->getUsername(),
@@ -397,7 +396,6 @@ class PKPUserDAO extends DAO {
 				$user->getEmail(),
 				$user->getUrl(),
 				$user->getPhone(),
-				$user->getFax(),
 				$user->getMailingAddress(),
 				$user->getBillingAddress(),
 				$user->getCountry(),
@@ -466,7 +464,6 @@ class PKPUserDAO extends DAO {
 					email = ?,
 					url = ?,
 					phone = ?,
-					fax = ?,
 					mailing_address = ?,
 					billing_address = ?,
 					country = ?,
@@ -495,7 +492,6 @@ class PKPUserDAO extends DAO {
 				$user->getEmail(),
 				$user->getUrl(),
 				$user->getPhone(),
-				$user->getFax(),
 				$user->getMailingAddress(),
 				$user->getBillingAddress(),
 				$user->getCountry(),

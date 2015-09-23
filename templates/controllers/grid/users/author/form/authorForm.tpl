@@ -31,7 +31,6 @@
 		disableSalutationSection=true
 		disableInitialsSection=true
 		disablePhoneSection=true
-		disableFaxSection=true
 		disableLocaleSection=true
 		disableInterestsSection=true
 		disableMailingSection=true

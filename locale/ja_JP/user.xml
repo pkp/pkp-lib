@@ -23,7 +23,6 @@
 	<message key="user.dateRegistered">登録日</message>
 	<message key="user.editMyProfile">ユーザ情報の変更</message>
 	<message key="user.email">メールアドレス</message>
-	<message key="user.fax">Fax</message>
 	<message key="user.feminine">女</message>
 	<message key="user.firstName">名</message>
 	<message key="user.gender">性別</message>

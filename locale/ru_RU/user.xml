@@ -23,7 +23,6 @@
 	<message key="user.dateRegistered">Дата регистрации</message>
 	<message key="user.editMyProfile">Изменить профиль</message>
 	<message key="user.email">E-mail адрес</message>
-	<message key="user.fax">Факс</message>
 	<message key="user.feminine">Ж</message>
 	<message key="user.firstName">Имя</message>
 	<message key="user.gender">Пол</message>

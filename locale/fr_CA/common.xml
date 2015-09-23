@@ -16,7 +16,6 @@
 	<message key="about.aboutSite">À propos du site</message>
 	<message key="about.contact">Contact</message>
 	<message key="about.contact.email">Courriel</message>
-	<message key="about.contact.fax">Télécopieur</message>
 	<message key="about.contact.phone">Téléphone</message>
 	<message key="about.contact.principalContact">Contact principal</message>
 	<message key="about.contact.supportContact">Contact de soutien</message>

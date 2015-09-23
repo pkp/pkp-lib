@@ -23,7 +23,6 @@
 	<message key="user.dateRegistered">註冊日期</message>
 	<message key="user.editMyProfile">編輯我的資料</message>
 	<message key="user.email">電子信箱(email)</message>
-	<message key="user.fax">傳真號碼</message>
 	<message key="user.firstName">中文姓名</message>
 	<message key="user.initialsExample">Joan Alice Smith = JAS</message>
 	<message key="user.initials">姓名簡寫</message>

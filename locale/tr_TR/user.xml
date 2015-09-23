@@ -30,7 +30,6 @@
 	<message key="user.dateRegistered">Kayıt tarihi</message>
 	<message key="user.editMyProfile">Profilimi Düzenle</message>
 	<message key="user.email">E-posta</message>
-	<message key="user.fax">GSM/Faks</message>
 	<message key="user.feminine">F</message>
 	<message key="user.firstName">İlk Adı</message>
 	<message key="user.gender">Cinsiyet</message>

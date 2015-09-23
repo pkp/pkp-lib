@@ -28,7 +28,6 @@ class ContactForm extends ContextSettingsForm {
 			'contactEmail' => 'string',
 			'contactPhone' => 'string',
 			'contactMailingAddress' => 'string',
-			'contactFax' => 'string',
 			'supportName' => 'string',
 			'supportEmail' => 'string',
 			'supportPhone' => 'string'

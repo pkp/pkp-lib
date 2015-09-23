@@ -16,7 +16,6 @@
 	<message key="about.aboutSite">Om webstedet</message>
 	<message key="about.contact">Kontaktperson</message>
 	<message key="about.contact.email">E-mail</message>
-	<message key="about.contact.fax">Fax</message>
 	<message key="about.contact.phone">Telefon</message>
 	<message key="about.contact.principalContact">Primær kontaktperson</message>
 	<message key="about.contact.supportContact">Kontaktperson for support</message>

@@ -18,7 +18,6 @@
 	<message key="about.aboutSite">Про сайт</message>
 	<message key="about.contact">Контактна інформація</message>
 	<message key="about.contact.email">Email</message>
-	<message key="about.contact.fax">Факс</message>
 	<message key="about.contact.phone">Телефон</message>
 	<message key="about.contact.principalContact">Основна контактна особа</message>
 	<message key="about.contact.supportContact">Супровід та підтримка</message>

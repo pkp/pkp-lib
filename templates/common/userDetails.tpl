@@ -17,7 +17,6 @@
  *   $disableSalutationSection: Disable Salutation section
  *   $disableInitialsSection: Disable Initials section
  *   $disablePhoneSection: Disable Phone section
- *   $disableFaxSection: Disable Fax section
  *   $disableLocaleSection: Disable Locale section
  *   $disableInterestsSection: Disable Interests section
  *   $disableMailingSection: Disable Mailing section
@@ -132,9 +131,6 @@
 				{fbvElement type="text" label="user.url" name="userUrl" id="userUrl" value=$userUrl maxlength="255" inline=true size=$fbvStyles.size.SMALL}
 				{if !$disablePhoneSection}
 					{fbvElement type="text" label="user.phone" name="phone" id="phone" value=$phone maxlength="24" inline=true size=$fbvStyles.size.SMALL}
-				{/if}
-				{if !$disableFaxSection}
-					{fbvElement type="text" label="user.fax" name="fax" id="fax" value=$fax maxlength="24" inline=true size=$fbvStyles.size.SMALL}
 				{/if}
 				{fbvElement type="text" label="user.orcid" name="orcid" id="orcid" value=$orcid maxlength="36" inline=true size=$fbvStyles.size.SMALL}
 			{/fbvFormSection}

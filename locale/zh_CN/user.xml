@@ -23,7 +23,6 @@
 	<message key="user.dateRegistered">注册时间</message>
 	<message key="user.editMyProfile">编辑我的信息</message>
 	<message key="user.email">电子邮件</message>
-	<message key="user.fax">传真</message>
 	<message key="user.feminine">F</message>
 	<message key="user.firstName">名</message>
 	<message key="user.gender">性别</message>

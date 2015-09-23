@@ -16,7 +16,6 @@
 	<message key="about.aboutSite">Σχετικά με τον ιστότοπο</message>
 	<message key="about.contact">Επικοινωνία</message>
 	<message key="about.contact.email">Διεύθυνση ηλεκτρονικού ταχυδρομείου</message>
-	<message key="about.contact.fax">Φαξ</message>
 	<message key="about.contact.phone">Τηλέφωνο</message>
 	<message key="about.contact.principalContact">Υπεύθυνος Επικοινωνίας</message>
 	<message key="about.contact.supportContact">Τεχνική Υποστήριξη</message>

@@ -16,7 +16,6 @@
 	<message key="about.aboutSite">Hakkında</message>
 	<message key="about.contact">İletişim</message>
 	<message key="about.contact.email">E-posta</message>
-	<message key="about.contact.fax">Faks</message>
 	<message key="about.contact.phone">Telefon</message>
 	<message key="about.contact.principalContact">Temel İletişim</message>
 	<message key="about.contact.supportContact">Destek İletişim</message>

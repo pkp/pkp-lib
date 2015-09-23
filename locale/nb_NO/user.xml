@@ -23,7 +23,6 @@
 	<message key="user.dateRegistered">Registrert dato</message>
 	<message key="user.editMyProfile">Rediger min profil</message>
 	<message key="user.email">E-post</message>
-	<message key="user.fax">Telefaks</message>
 	<message key="user.feminine">K</message>
 	<message key="user.firstName">Fornavn</message>
 	<message key="user.gender">Kjønn</message>

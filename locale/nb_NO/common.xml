@@ -16,7 +16,6 @@
 	<message key="about.aboutSite">Om nettstedet</message>
 	<message key="about.contact">Kontakt</message>
 	<message key="about.contact.email">E-post</message>
-	<message key="about.contact.fax">Telefaks</message>
 	<message key="about.contact.phone">Telefon</message>
 	<message key="about.contact.principalContact">Hovedkontakt</message>
 	<message key="about.contact.supportContact">Teknisk kontaktperson</message>

@@ -23,7 +23,6 @@
 	<message key="user.dateRegistered">Ημερομηνία εγγραφής</message>
 	<message key="user.editMyProfile">Επεξεργασία του Προφίλ μου</message>
 	<message key="user.email">Email</message>
-	<message key="user.fax">Φαξ</message>
 	<message key="user.feminine">Θ</message>
 	<message key="user.firstName">Όνομα</message>
 	<message key="user.gender">Φύλο</message>

@@ -92,7 +92,6 @@ class UserDetailsForm extends UserForm {
 				'email' => $user->getEmail(),
 				'userUrl' => $user->getUrl(),
 				'phone' => $user->getPhone(),
-				'fax' => $user->getFax(),
 				'orcid' => $user->getOrcid(),
 				'mailingAddress' => $user->getMailingAddress(),
 				'country' => $user->getCountry(),
@@ -183,7 +182,6 @@ class UserDetailsForm extends UserForm {
 			'email',
 			'userUrl',
 			'phone',
-			'fax',
 			'orcid',
 			'mailingAddress',
 			'country',
@@ -249,7 +247,6 @@ class UserDetailsForm extends UserForm {
 		$user->setEmail($this->getData('email'));
 		$user->setUrl($this->getData('userUrl'));
 		$user->setPhone($this->getData('phone'));
-		$user->setFax($this->getData('fax'));
 		$user->setOrcid($this->getData('orcid'));
 		$user->setMailingAddress($this->getData('mailingAddress'));
 		$user->setCountry($this->getData('country'));

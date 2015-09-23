@@ -138,22 +138,6 @@ class PKPUser extends Identity {
 	}
 
 	/**
-	 * Get fax number.
-	 * @return string
-	 */
-	function getFax() {
-		return $this->getData('fax');
-	}
-
-	/**
-	 * Set fax number.
-	 * @param $fax string
-	 */
-	function setFax($fax) {
-		$this->setData('fax', $fax);
-	}
-
-	/**
 	 * Get mailing address.
 	 * @return string
 	 */
@@ -397,7 +381,6 @@ class PKPUser extends Identity {
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_USER);
 		if ($a = $this->getLocalizedAffiliation()) $signature .= '<br/>' . htmlspecialchars($a);
 		if ($p = $this->getPhone()) $signature .= '<br/>' . __('user.phone') . ' ' . htmlspecialchars($p);
-		if ($f = $this->getFax()) $signature .= '<br/>' . __('user.fax') . ' ' . htmlspecialchars($f);
 		$signature .= '<br/>' . htmlspecialchars($this->getEmail());
 		return $signature;
 	}

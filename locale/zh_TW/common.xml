@@ -16,7 +16,6 @@
 	<message key="about.aboutSite">關於本站</message>
 	<message key="about.contact">聯絡資訊</message>
 	<message key="about.contact.email">Email</message>
-	<message key="about.contact.fax">傳真</message>
 	<message key="about.contact.phone">電話</message>
 	<message key="about.contact.principalContact">固定聯絡人</message>
 	<message key="about.contact.supportContact">技術支援聯絡人</message>

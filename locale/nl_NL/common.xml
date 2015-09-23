@@ -16,7 +16,6 @@
 	<message key="about.aboutSite">Over de site</message>
 	<message key="about.contact">Contactpersoon</message>
 	<message key="about.contact.email">E-mail</message>
-	<message key="about.contact.fax">Fax</message>
 	<message key="about.contact.phone">Telefoon</message>
 	<message key="about.contact.principalContact">Primaire contactpersoon</message>
 	<message key="about.contact.supportContact">Contactpersoon ondersteuning</message>

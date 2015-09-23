@@ -16,7 +16,6 @@
 	<message key="about.aboutSite">このサイトについて</message>
 	<message key="about.contact">連絡先</message>
 	<message key="about.contact.email">メールアドレス</message>
-	<message key="about.contact.fax">Fax</message>
 	<message key="about.contact.phone">電話</message>
 	<message key="about.contact.principalContact">連絡責任者</message>
 	<message key="about.contact.supportContact">技術支援担当者</message>

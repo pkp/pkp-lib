@@ -15,7 +15,6 @@
 <locale name="hr_HR" full_name = "Hrvatski">
 	<message key="about.contact">Kontakt</message>
 	<message key="about.contact.email">E-pošta</message>
-	<message key="about.contact.fax">Fax</message>
 	<message key="about.contact.phone">Telefon</message>
 	<message key="about.contact.principalContact">Glavni kontakt</message>
 	<message key="about.contact.supportContact">Pomoćni kontakt</message>

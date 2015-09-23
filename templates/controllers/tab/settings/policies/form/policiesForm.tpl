@@ -22,7 +22,7 @@
 
 	{fbvFormArea id="policiesFormArea"}
 		{fbvFormSection label="manager.setup.privacyStatement" description="manager.setup.privacyStatement.description"}
-			{fbvElement type="textarea" multilingual="true" name="privacyStatement" id="privacyStatement" value=$privacyStatement}
+			{fbvElement type="textarea" multilingual=true rich=true name="privacyStatement" id="privacyStatement" value=$privacyStatement}
 		{/fbvFormSection}
 
 		{* In wizard mode, these fields should be hidden *}

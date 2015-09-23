@@ -405,11 +405,7 @@ class Mail extends DataObject {
 			$display = $from['name'];
 			$address = $from['email'];
 			if (Config::getVar('email', 'force_default_envelope_sender') && Config::getVar('email', 'default_envelope_sender')) {
-				$address = Config::getVar('email', 'default_envelope_sender');
-				$replyTo = $this->getReplyTo();
-				if ($replyTo['name']) {
-					$display = $replyTo['name'];
-				}
+				return Config::getVar('email', 'default_envelope_sender');
 			}
 			return (Mail::encodeDisplayName($display, $send) . ' <'.$address.'>');
 		}

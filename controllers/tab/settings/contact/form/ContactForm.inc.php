@@ -27,7 +27,6 @@ class ContactForm extends ContextSettingsForm {
 			'contactAffiliation' => 'string',
 			'contactEmail' => 'string',
 			'contactPhone' => 'string',
-			'contactMailingAddress' => 'string',
 			'supportName' => 'string',
 			'supportEmail' => 'string',
 			'supportPhone' => 'string'
@@ -51,7 +50,7 @@ class ContactForm extends ContextSettingsForm {
 	 * @copydoc Form::getLocaleFieldNames()
 	 */
 	function getLocaleFieldNames() {
-		return array('contactTitle', 'contactAffiliation', 'contactMailingAddress');
+		return array('contactTitle', 'contactAffiliation');
 	}
 }
 

@@ -32,9 +32,6 @@
 		{fbvFormSection title="user.affiliation" for="contactAffiliation"}
 			{fbvElement type="text" multilingual=true name="contactAffiliation" id="contactAffiliation" value=$contactAffiliation maxlength="90"}
 		{/fbvFormSection}
-		{fbvFormSection title="common.mailingAddress" for="contactMailingAddress"}
-			{fbvElement type="textarea" multilingual=true name="contactMailingAddress" id="contactMailingAddress" value=$contactMailingAddress rich=true}
-		{/fbvFormSection}
 	{/fbvFormArea}
 
 	{* In wizard mode, these fields should be hidden *}

@@ -469,6 +469,18 @@
 	};
 
 
+	/**
+	 * Add a class to the spinner to indicate it should be hidden
+	 *
+	 * @protected
+	 */
+	$.pkp.controllers.form.FormHandler.prototype.hideSpinner =
+			function() {
+		this.getHtmlElement()
+				.find('.formButtons .pkp_spinner').removeClass('is_visible');
+	};
+
+
 	//
 	// Private Methods
 	//
@@ -684,18 +696,6 @@
 			function() {
 		this.getHtmlElement()
 				.find('.formButtons .pkp_spinner').addClass('is_visible');
-	};
-
-
-	/**
-	 * Add a class to the spinner to indicate it should be visible
-	 *
-	 * @private
-	 */
-	$.pkp.controllers.form.FormHandler.prototype.hideSpinner_ =
-			function() {
-		this.getHtmlElement()
-				.find('.formButtons .pkp_spinner').removeClass('is_visible');
 	};
 
 /** @param {jQuery} $ jQuery closure. */

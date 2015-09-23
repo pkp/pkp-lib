@@ -146,7 +146,7 @@
 		this.trigger('notifyUser', [this.getHtmlElement()]);
 
 		// Hide the form spinner.
-		this.hideSpinner_();
+		this.hideSpinner();
 
 		return processedJsonData.status;
 	};

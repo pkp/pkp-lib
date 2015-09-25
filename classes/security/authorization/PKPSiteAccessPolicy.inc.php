@@ -48,25 +48,6 @@ class PKPSiteAccessPolicy extends PolicySet {
 
 		$this->_request = $request;
 	}
-
-	//
-	// Implement template methods from AuthorizationPolicy
-	//
-	/**
-	 * @see AuthorizationPolicy::effect()
-	 */
-	function effect() {
-		// Retrieve the user from the session.
-		$request = $this->_request;
-		$user = $request->getUser();
-
-		if (!is_a($user, 'User')) {
-			return AUTHORIZATION_DENY;
-		}
-
-		// Execute handler operation checks.
-		return parent::effect();
-	}
 }
 
 ?>

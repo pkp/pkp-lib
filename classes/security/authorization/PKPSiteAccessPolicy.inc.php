@@ -18,6 +18,9 @@ define('SITE_ACCESS_ALL_ROLES', 0x01);
 import('lib.pkp.classes.security.authorization.PolicySet');
 
 class PKPSiteAccessPolicy extends PolicySet {
+	/** @var PKPRequest */
+	var $_request;
+
 	/**
 	 * Constructor
 	 *
@@ -42,6 +45,8 @@ class PKPSiteAccessPolicy extends PolicySet {
 			fatalError('Invalid role assignments!');
 		}
 		$this->addPolicy($siteRolePolicy);
+
+		$this->_request = $request;
 	}
 
 	//
@@ -52,7 +57,7 @@ class PKPSiteAccessPolicy extends PolicySet {
 	 */
 	function effect() {
 		// Retrieve the user from the session.
-		$request = $this->getRequest();
+		$request = $this->_request;
 		$user = $request->getUser();
 
 		if (!is_a($user, 'User')) {

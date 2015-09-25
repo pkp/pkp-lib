@@ -41,7 +41,7 @@ class AuthorizationPolicy {
 
 	/**
 	 * Constructor
-	 * @param $message string
+	 * @param $message string Optional
 	 */
 	function AuthorizationPolicy($message = null) {
 		if (!is_null($message)) $this->setAdvice(AUTHORIZATION_ADVICE_DENY_MESSAGE, $message);
@@ -119,7 +119,7 @@ class AuthorizationPolicy {
 
 	/**
 	 * Set the authorized context
-	 * @return array
+	 * @param $authorizedContext array Authorized context array
 	 */
 	function setAuthorizedContext(&$authorizedContext) {
 		$this->_authorizedContext =& $authorizedContext;

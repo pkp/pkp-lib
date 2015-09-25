@@ -154,6 +154,9 @@ class WebService {
 			// Wait for a short interval before trying again
 			usleep(WEBSERVICE_MICROSECONDS_BEFORE_RETRY);
 		}
+		if (curl_errno($ch)) {
+			trigger_error(curl_error($ch), E_USER_ERROR);
+		}
 
 		$this->_lastResponseStatus = (int)curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
@@ -202,6 +205,9 @@ class WebService {
 
 			// Wait for a short interval before trying again
 			usleep(WEBSERVICE_MICROSECONDS_BEFORE_RETRY);
+		}
+		if (curl_errno($ch)) {
+			trigger_error(curl_error($ch), E_USER_ERROR);
 		}
 
 		$this->_lastResponseStatus = (int)curl_getinfo($ch, CURLINFO_HTTP_CODE);

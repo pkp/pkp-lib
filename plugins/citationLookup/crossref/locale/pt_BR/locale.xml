@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="pt_BR" full_name="Português do Brasil">
+<locale name="pt_BR" full_name="Português (Brasil)">
 	<message key="plugins.citationLookup.crossref.displayName">Connector de base de dados CrossRef</message>
 	<message key="plugins.citationLookup.crossref.description">Conecta à base de dados bibliográfica CrossRef.</message>
 </locale>

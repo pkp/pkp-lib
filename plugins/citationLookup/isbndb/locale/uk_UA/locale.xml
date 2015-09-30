@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="uk_UA" full_name="Ukrainian">
+<locale name="uk_UA" full_name="Українська">
 	<!-- plug-in -->
 	<message key="plugins.citationLookup.isbndb.displayName">Шлюз бази даних ISBNdb</message>
 	<message key="plugins.citationLookup.isbndb.description">Забезпечує зв'язок з бібліографічною базою даних ISBNdb.</message>

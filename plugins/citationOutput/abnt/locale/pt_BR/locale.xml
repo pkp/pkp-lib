@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="pt_BR" full_name="Português do Brasil">
+<locale name="pt_BR" full_name="Português (Brasil)">
 	<message key="plugins.citationOutput.abnt.displayName">Estilo de citação ABNT</message>
 	<message key="plugins.citationOutput.abnt.description">Implementa o estilo de citação ABNT.</message>
 </locale>

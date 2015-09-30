@@ -11,7 +11,7 @@
   * Localization strings for the en_US (U.S. English) locale.
   -->
  
-<locale name="id_ID" full_name="Indonesia">
+<locale name="id_ID" full_name="Bahasa Indonesia">
 	<!-- plug-in -->
 	<message key="plugins.metadata.dc11.displayName">Metadata Dublin Core 1.1</message>
 	<message key="plugins.metadata.dc11.description">Berkontribusi terhadap skema dan adapter aplikasi Dublin Core versi 1.1.</message>

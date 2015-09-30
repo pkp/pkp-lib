@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="uk_UA" full_name="Ukrainian">
+<locale name="uk_UA" full_name="Українська">
 	<message key="plugins.citationLookup.pubmed.displayName">Шлюз бази даних PubMed</message>
 	<message key="plugins.citationLookup.pubmed.description">Забезпечує зв'язок з бібліографічною базою даних PubMed.</message>
 </locale>

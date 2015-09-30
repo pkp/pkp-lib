@@ -11,7 +11,7 @@
   * Localization strings.
   -->
  
-<locale name="sr_SR" full_name="Srpski">
+<locale name="sr_SR" full_name="Cрпски">
 	<!-- plug-in -->
 	<message key="plugins.metadata.nlm30.displayName">NLM 3.0 meta-data</message>
 	<message key="plugins.metadata.nlm30.description">Dodaje NLM 3.0 šeme i adaptere aplikacije.</message>

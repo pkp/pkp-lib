@@ -11,7 +11,7 @@
   * Localization strings for the en_US (U.S. English) locale.
   -->
 
-<locale name="id_ID" full_name="Indonesia">
+<locale name="id_ID" full_name="Bahasa Indonesia">
 	<message key="plugins.citationLookup.pubmed.displayName">Konektor database PubMed</message>
 	<message key="plugins.citationLookup.pubmed.description">Koneksi ke database bibliografi PubMed.</message>
 </locale>

@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="pt_BR" full_name="Português do Brasil">
+<locale name="pt_BR" full_name="Português (Brasil)">
 	<message key="plugins.metadata.openurl10.displayName">Metadados OpenURL 1.0</message>
 	<message key="plugins.metadata.openurl10.description">Contribui com esquemas OpenURL 1.0 e adaptadores de aplicação.</message>
 </locale>

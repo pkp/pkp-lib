@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="es_ES" full_name="Español">
+<locale name="es_ES" full_name="Español (España)">
 	<!-- plug-in -->
 	<message key="plugins.metadata.mods34.displayName">Metadatos MODS 3.4</message>
 	<message key="plugins.metadata.mods34.description">Proporciona plantillas MODS 3.4 y compatibilidad de aplicaciones.</message>

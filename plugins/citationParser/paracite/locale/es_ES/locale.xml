@@ -12,6 +12,6 @@
   * Localization strings for the es_ES (Español (España)) locale.
   -->
 
-<locale name="es_ES" full_name="Español (España)">	<message key="plugins.citationParser.paracite.displayName">Extractor de cita ParaCite</message>
+<locale name="es_ES" full_name="Español (España)">Extractor de cita ParaCite</message>
 	<message key="plugins.citationParser.paracite.description">Extrae campos de citas de texto sin formato a través de ParaCite.</message>
 </locale>

@@ -12,6 +12,6 @@
   * Localization strings for the es_ES (Español (España)) locale.
   -->
 
-<locale name="es_ES" full_name="Español (España)">	<message key="plugins.metadata.openurl10.displayName">Metadatos OpenURL 1.0</message>
+<locale name="es_ES" full_name="Español (España)">Metadatos OpenURL 1.0</message>
 	<message key="plugins.metadata.openurl10.description">Contribuye con los esquemas y adaptadores de aplicación de OpenURL 1.0.</message>
 </locale>

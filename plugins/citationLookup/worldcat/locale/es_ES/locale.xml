@@ -12,6 +12,6 @@
   * Localization strings for the es_ES (Español (España)) locale.
   -->
 
-<locale name="es_ES" full_name="Español (España)">	<message key="plugins.citationLookup.worldcat.displayName">Conector de bases de datos WorldCat</message>
+<locale name="es_ES" full_name="Español (España)">Conector de bases de datos WorldCat</message>
 	<message key="plugins.citationLookup.worldcat.description">Conecta con la base de datos bibliográfica WorldCat.</message>
 </locale>

@@ -12,6 +12,6 @@
   * Localization strings for the es_ES (Español (España)) locale.
   -->
 
-<locale name="es_ES" full_name="Español (España)">	<message key="plugins.citationOutput.abnt.displayName">Estilo de cita ABNT</message>
+<locale name="es_ES" full_name="Español (España)">Estilo de cita ABNT</message>
 	<message key="plugins.citationOutput.abnt.description">Introduce el estilo de cita ABNT.</message>
 </locale>

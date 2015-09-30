@@ -12,6 +12,6 @@
   * Localization strings for the es_ES (Español (España)) locale.
   -->
 
-<locale name="es_ES" full_name="Español (España)">	<message key="plugins.citationParser.parscit.displayName">Extractor de cita ParsCit</message>
+<locale name="es_ES" full_name="Español (España)">Extractor de cita ParsCit</message>
 	<message key="plugins.citationParser.parscit.description">Extrae campos de citas de texto sin formato a través de ParsCit.</message>
 </locale>

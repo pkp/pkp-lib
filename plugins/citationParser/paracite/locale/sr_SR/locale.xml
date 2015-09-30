@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="sr_SR" full_name="Srpski">
+<locale name="sr_SR" full_name="Cрпски">
 	<message key="plugins.citationParser.paracite.displayName">ParaCite Citation Extractor</message>
 	<message key="plugins.citationParser.paracite.description">Izdvaja polja iz teksta citata putem ParaCite servisa.</message>
 </locale>

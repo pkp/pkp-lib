@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="sr_SR" full_name="Srpski">
+<locale name="sr_SR" full_name="Cрпски">
 	<message key="plugins.citationParser.regex.displayName">Regular Expressions Citation Extractor</message>
 	<message key="plugins.citationParser.regex.description">Izdvaja polja iz teksta citata preko ustaljenih izraza.</message>
 </locale>

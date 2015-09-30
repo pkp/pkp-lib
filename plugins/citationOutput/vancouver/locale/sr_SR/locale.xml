@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="sr_SR" full_name="Srpski">
+<locale name="sr_SR" full_name="Cрпски">
 	<message key="plugins.citationOutput.vancouver.displayName">Vancouver Citation Style</message>
 	<message key="plugins.citationOutput.vancouver.description">Uvodi Vancouver stil citiranja.</message>
 </locale>

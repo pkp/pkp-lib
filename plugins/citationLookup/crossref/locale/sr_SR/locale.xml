@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="sr_SR" full_name="Srpski">
+<locale name="sr_SR" full_name="Cрпски">
 	<message key="plugins.citationLookup.crossref.displayName">CrossRef Database Connector</message>
 	<message key="plugins.citationLookup.crossref.description">Povezuje CrossRef bibliografsku bazu podataka.</message>
 </locale>

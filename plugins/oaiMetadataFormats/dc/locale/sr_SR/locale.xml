@@ -12,7 +12,7 @@
   *
   -->
  
-<locale name="sr_SR" full_name="Srpski">
+<locale name="sr_SR" full_name="Cрпски">
 	<message key="plugins.oaiMetadata.dc.displayName">DC Metadata Format</message>
 	<message key="plugins.oaiMetadata.dc.description">Struktuira metapodatke tako da su u skladu sa Dublin Core formatom.</message>
 </locale>

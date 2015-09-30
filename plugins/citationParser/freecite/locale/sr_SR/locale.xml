@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="sr_SR" full_name="Srpski">
+<locale name="sr_SR" full_name="Cрпски">
 	<message key="plugins.citationParser.freecite.displayName">FreeCite Citation Extractor</message>
 	<message key="plugins.citationParser.freecite.description">Izdvaja polja iz teksta citata putem FreeCite servisa.</message>
 </locale>

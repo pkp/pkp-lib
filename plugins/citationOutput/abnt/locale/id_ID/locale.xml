@@ -11,7 +11,7 @@
   * Localization strings for the en_US (U.S. English) locale.
   -->
 
-<locale name="id_ID" full_name="Indonesia">
+<locale name="id_ID" full_name="Bahasa Indonesia">
 	<message key="plugins.citationOutput.abnt.displayName">Gaya sitiran ABNT</message>
 	<message key="plugins.citationOutput.abnt.description">Implementasikan gaya sitiran ABNT</message>
 </locale>

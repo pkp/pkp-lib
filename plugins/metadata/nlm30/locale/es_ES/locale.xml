@@ -11,7 +11,7 @@
   * Localization strings for the en_US (U.S. English) locale.
   -->
  
-<locale name="es_ES" full_name="Español">
+<locale name="es_ES" full_name="Español (España)">
 	<!-- plug-in -->
 	<message key="plugins.metadata.nlm30.displayName">NLM 3.0 meta-data</message>
 	<message key="plugins.metadata.nlm30.description">Contributes NLM 3.0 schemas and application adapters.</message>

@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="uk_UA" full_name="Ukrainian">
+<locale name="uk_UA" full_name="Українська">
 	<message key="plugins.citationParser.paracite.displayName">Синтаксичний аналізатор цитат ParaCite</message>
 	<message key="plugins.citationParser.paracite.description">Аналізує поля неструктурованих текстових цитат через службу ParaCite.</message>
 </locale>

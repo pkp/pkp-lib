@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="uk_UA" full_name="Ukrainian">
+<locale name="uk_UA" full_name="Українська">
 	<message key="plugins.citationOutput.abnt.displayName">Формат цитат ABNT</message>
 	<message key="plugins.citationOutput.abnt.description">Дозволяє використання формату цитат ABNT.</message>
 </locale>

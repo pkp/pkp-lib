@@ -11,7 +11,7 @@
   * Localization strings
   -->
 
-<locale name="id_ID" full_name="Indonesia">
+<locale name="id_ID" full_name="Bahasa Indonesia">
 	<message key="plugins.citationParser.parscit.displayName">Ekstraksi Sitiran ParsCit</message>
 	<message key="plugins.citationParser.parscit.description">Ekstrak field dari teks sitasi biasa melalui layanan ParsCit.</message>
 </locale>

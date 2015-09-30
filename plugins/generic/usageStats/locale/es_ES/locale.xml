@@ -11,7 +11,7 @@
   * Localization strings
   -->
 
-<locale name="es_ES" full_name="Español">
+<locale name="es_ES" full_name="Español (España)">
 	<message key="plugins.generic.usageStats.settings.logging">Opciones de acceso al registro</message>
 	<message key="plugins.generic.usageStats.settings.createLogFiles">Crear archivos de registro</message>
 	<message key="plugins.generic.usageStats.settings.createLogFiles.description">La activación de esta opción hará que el plugin crear archivos de registro de acceso dentro del directorio de archivos. Estos archivos deben ser utilizados para extraer los datos de las estadísticas de uso. Si no desea crear más archivos de registro de acceso se puede dejar esta opción desactivada y utilizar sus propios archivos de registro del servidor de acceso.</message>

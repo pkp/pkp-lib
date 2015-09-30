@@ -8,11 +8,11 @@
   * Copyright (c) 2000-2015 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the es_ES (Español) locale.
+  * Localization strings for the es_ES (Español (España)) locale.
   *
   -->
  
-<locale name="es_ES" full_name="España Castellano">
+<locale name="es_ES" full_name="Español (España)">
 	<message key="plugins.generic.acron.name">Acron Plugin</message>
 	<message key="plugins.generic.acron.description"><![CDATA[Este plugin pretende reducir la dependencia de OCS de las tareas periódicas de programación tales como 'cron.']]></message>
 

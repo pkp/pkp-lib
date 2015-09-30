@@ -11,7 +11,7 @@
   * Localization strings.
   -->
  
-<locale name="fr_FR" full_name="Français">
+<locale name="fr_FR" full_name="Français (France)">
 	<!-- plug-in -->
 	<message key="plugins.metadata.nlm30.displayName">Métadonnées NLM 3.0</message>
 	<message key="plugins.metadata.nlm30.description">Met à disposition des schémas et des logiciels d'adaptation NLM 3.0.</message>

@@ -12,6 +12,6 @@
   * Localization strings for the es_ES (Español (España)) locale.
   -->
 
-<locale name="es_ES" full_name="Español (España)">	<message key="plugins.citationOutput.vancouver.displayName">Estilo de cita Vancouver</message>
+<locale name="es_ES" full_name="Español (España)">Estilo de cita Vancouver</message>
 	<message key="plugins.citationOutput.vancouver.description">Introduce el estilo de cita Vancouver.</message>
 </locale>

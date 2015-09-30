@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="tr_TR" full_name="Türkiye Türkçesi">
+<locale name="tr_TR" full_name="Türkçe">
 	<message key="plugins.citationParser.paracite.displayName">ParaCite Atıf Ayırıcı</message>
 	<message key="plugins.citationParser.paracite.description">ParaCite servisi üzerinden düz metin atıf alanlarını ayıklar.</message>
 </locale>

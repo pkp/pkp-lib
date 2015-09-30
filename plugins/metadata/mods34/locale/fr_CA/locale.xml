@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="fr_CA" full_name="Français">
+<locale name="fr_CA" full_name="Français (Canada)">
 	<!-- plug-in -->
 	<message key="plugins.metadata.mods34.displayName">Métadonnées MODS 3.4</message>
 	<message key="plugins.metadata.mods34.description">Met à disposition des schémas et des logiciels d'adaptation MODS 3.4.</message>

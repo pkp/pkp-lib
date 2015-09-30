@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="uk_UA" full_name="Ukrainian">
+<locale name="uk_UA" full_name="Українська">
 	<message key="plugins.citationLookup.worldcat.displayName">Шлюз бази даних WorldCat</message>
 	<message key="plugins.citationLookup.worldcat.description">Забезпечує зв'язок з бібліографічною базою даних WorldCat.</message>
 </locale>

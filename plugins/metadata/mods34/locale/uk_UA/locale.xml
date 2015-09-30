@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="uk_UA" full_name="Ukrainian">
+<locale name="uk_UA" full_name="Українська">
 	<!-- plug-in -->
 	<message key="plugins.metadata.mods34.displayName">Метадані MODS 3.4</message>
 	<message key="plugins.metadata.mods34.description">Підтримка схем та шаблонів MODS 3.4.</message>

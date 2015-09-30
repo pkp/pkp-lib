@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="fr_FR" full_name="Français">
+<locale name="fr_FR" full_name="Français (France)">
 	<message key="plugins.citationOutput.apa.displayName">Style de citation APA</message>
 	<message key="plugins.citationOutput.apa.description">Implante le style de citation APA.</message>
 </locale>

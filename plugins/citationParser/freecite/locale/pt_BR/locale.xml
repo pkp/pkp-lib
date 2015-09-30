@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="pt_BR" full_name="Português do Brasil">
+<locale name="pt_BR" full_name="Português (Brasil)">
 	<message key="plugins.citationParser.freecite.displayName">Extrator de citação FreeCite</message>
 	<message key="plugins.citationParser.freecite.description">Extrai campos de citações em texto puro por meio do serviço FreeCite.</message>
 </locale>

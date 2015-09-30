@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="uk_UA" full_name="Ukrainian">
+<locale name="uk_UA" full_name="Українська">
 	<message key="plugins.metadata.openurl10.displayName">Метадані OpenURL 1.0</message>
 	<message key="plugins.metadata.openurl10.description">Підтримка схем та шаблонів OpenURL 1.0.</message>
 </locale>

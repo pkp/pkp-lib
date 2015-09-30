@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="tr_TR" full_name="Türkiye Türkçesi">
+<locale name="tr_TR" full_name="Türkçe">
 	<message key="plugins.citationParser.freecite.displayName">FreeCite Atıf Ayırıcı</message>
 	<message key="plugins.citationParser.freecite.description">FreeCite servisi üzerinden düz metin alıntıları alanlarını ayırır.</message>
 </locale>

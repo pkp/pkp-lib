@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="uk_UA" full_name="Ukrainian">
+<locale name="uk_UA" full_name="Українська">
 	<message key="plugins.citationOutput.vancouver.displayName">Формат цитат Vancouver</message>
 	<message key="plugins.citationOutput.vancouver.description">Дозволяє використання формату цитат Vancouver.</message>
 </locale>

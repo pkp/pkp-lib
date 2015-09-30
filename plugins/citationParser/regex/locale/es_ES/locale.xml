@@ -12,6 +12,6 @@
   * Localization strings for the es_ES (Español (España)) locale.
   -->
 
-<locale name="es_ES" full_name="Español (España)">	<message key="plugins.citationParser.regex.displayName">Extractor de citas de expresiones regulares</message>
+<locale name="es_ES" full_name="Español (España)">Extractor de citas de expresiones regulares</message>
 	<message key="plugins.citationParser.regex.description">Extrae campos de citas de texto sin formato a través de expresiones regulares.</message>
 </locale>

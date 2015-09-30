@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="fr_CA" full_name="Français">
+<locale name="fr_CA" full_name="Français (Canada)">
 	<message key="plugins.citationOutput.mla.displayName">Style de citation MLA</message>
 	<message key="plugins.citationOutput.mla.description">Implante le style de citation MLA.</message>
 </locale>

@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="sr_SR" full_name="Srpski">
+<locale name="sr_SR" full_name="Cрпски">
 	<!-- plug-in -->
 	<message key="plugins.metadata.mods34.displayName">MODS 3.4 meta-data</message>
 	<message key="plugins.metadata.mods34.description">Dodaje MODS 3.4 šeme i adaptere aplikacije.</message>

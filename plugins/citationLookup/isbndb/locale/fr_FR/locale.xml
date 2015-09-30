@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="fr_FR" full_name="Français">
+<locale name="fr_FR" full_name="Français (France)">
 	<!-- plug-in -->
 	<message key="plugins.citationLookup.isbndb.displayName">Connecteur aux bases de données CrossRef</message>
 	<message key="plugins.citationLookup.isbndb.description">Connecte aux bases de données bibliographiques CrossRef.</message>

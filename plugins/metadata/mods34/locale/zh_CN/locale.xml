@@ -8,10 +8,10 @@
   * Copyright (c) 2003-2015 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the zh_CN (China) locale.
+  * Localization strings for the zh_CN (简体中文) locale.
   -->
 
-<locale name="zh_CN" full_name="China">
+<locale name="zh_CN" full_name="简体中文">
 	<!-- plug-in -->
 	<message key="plugins.metadata.mods34.displayName">MODS 3.4 元数据</message>
 	<message key="plugins.metadata.mods34.description">有助于 MODS 3.4 模式和应用配适器。</message>

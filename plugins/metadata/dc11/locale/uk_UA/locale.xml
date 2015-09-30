@@ -11,7 +11,7 @@
   * Localization strings.
   -->
  
-<locale name="uk_UA" full_name="Ukrainian">
+<locale name="uk_UA" full_name="Українська">
 	<!-- plug-in -->
 	<message key="plugins.metadata.dc11.displayName">Метадані Dublin Core 1.1</message>
 	<message key="plugins.metadata.dc11.description">Підтримка схем та шаблонів Dublin Core версії 1.1.</message>

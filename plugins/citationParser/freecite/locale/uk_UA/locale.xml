@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="uk_UA" full_name="Ukrainian">
+<locale name="uk_UA" full_name="Українська">
 	<message key="plugins.citationParser.freecite.displayName">Синтаксичний аналізатор цитат FreeCite</message>
 	<message key="plugins.citationParser.freecite.description">Аналізує поля неструктурованих текстових цитат через службу FreeCite.</message>
 </locale>

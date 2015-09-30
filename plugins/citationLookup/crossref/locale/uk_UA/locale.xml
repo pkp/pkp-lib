@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="uk_UA" full_name="Ukrainian">
+<locale name="uk_UA" full_name="Українська">
 	<message key="plugins.citationLookup.crossref.displayName">Шлюз бази даних CrossRef</message>
 	<message key="plugins.citationLookup.crossref.description">Забезпечує зв'язок з бібліографічною базою даних CrossRef.</message>
 </locale>

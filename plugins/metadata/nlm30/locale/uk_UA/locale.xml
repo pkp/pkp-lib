@@ -11,7 +11,7 @@
   * Localization strings for the uk_UA locale.
   -->
  
-<locale name="uk_UA" full_name="Ukrainian">
+<locale name="uk_UA" full_name="Українська">
 	<!-- plug-in -->
 	<message key="plugins.metadata.nlm30.displayName">Метадані NLM 3.0</message>
 	<message key="plugins.metadata.nlm30.description">Підтримка схем та шаблонів NLM 3.0.</message>

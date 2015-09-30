@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="uk_UA" full_name="Ukrainian">
+<locale name="uk_UA" full_name="Українська">
 	<message key="plugins.citationParser.parscit.displayName">Синтаксичний аналізатор цитат ParsCit</message>
 	<message key="plugins.citationParser.parscit.description">Аналізує поля неструктурованих текстових цитат через службу ParsCit.</message>
 </locale>

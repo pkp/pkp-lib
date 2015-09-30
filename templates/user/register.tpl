@@ -92,7 +92,7 @@
 								{translate key="common.required"}
 							</span>
 						</span>
-						<input type="text" name="affiliation" id="affiliation" value="{$affiliation|escape}" required>
+						<input type="text" name="affiliation[{$currentContext->getPrimaryLocale()|escape}]" id="affiliation" value="{$affiliation|escape}" required>
 					</label>
 				</li>
 				<li class="country">

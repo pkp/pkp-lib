@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="fr_CA" full_name="Français">
+<locale name="fr_CA" full_name="Français (Canada)">
 	<message key="plugins.citationOutput.vancouver.displayName">Style de citation Vancouver</message>
 	<message key="plugins.citationOutput.vancouver.description">Implante le style de citation Vancouver.</message>
 </locale>

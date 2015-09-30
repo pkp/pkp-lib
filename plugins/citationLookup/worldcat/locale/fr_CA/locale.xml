@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="fr_CA" full_name="Français">
+<locale name="fr_CA" full_name="Français (Canada)">
 	<message key="plugins.citationLookup.worldcat.displayName">Connecteur aux bases de données Worldcat</message>
 	<message key="plugins.citationLookup.worldcat.description">Connecte aux bases de données bibliographiques WorldCat.</message>
 </locale>

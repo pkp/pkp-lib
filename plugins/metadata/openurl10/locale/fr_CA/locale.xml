@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="fr_CA" full_name="Français">
+<locale name="fr_CA" full_name="Français (Canada)">
 	<message key="plugins.metadata.openurl10.displayName">Métadonnées OpenURL 1.0</message>
 	<message key="plugins.metadata.openurl10.description">Met à disposition des schémas et des logiciels d'adaptation OpenURL 1.0</message>
 </locale>

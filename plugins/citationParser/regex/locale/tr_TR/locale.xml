@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="tr_TR" full_name="Türkiye Türkçesi">
+<locale name="tr_TR" full_name="Türkçe">
 	<message key="plugins.citationParser.regex.displayName">Düzenli İfadeler Atıf Ayırıcı</message>
 	<message key="plugins.citationParser.regex.description">Düzenli ifadeler yoluyla düz metin alıntıları alanlanlarınıı ayıklar.</message>
 </locale>

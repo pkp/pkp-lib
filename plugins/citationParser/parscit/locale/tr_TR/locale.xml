@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="tr_TR" full_name="Türkiye Türkçesi">
+<locale name="tr_TR" full_name="Türkçe">
 	<message key="plugins.citationParser.parscit.displayName">ParsCit Atıf Ayırıcı</message>
 	<message key="plugins.citationParser.parscit.description">ParsCit servisi üzerinden düz metin atıf alanlarını ayırır.</message>
 </locale>

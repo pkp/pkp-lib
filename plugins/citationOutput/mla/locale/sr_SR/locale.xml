@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="sr_SR" full_name="Srpski">
+<locale name="sr_SR" full_name="Cрпски">
 	<message key="plugins.citationOutput.mla.displayName">MLA Citation Style</message>
 	<message key="plugins.citationOutput.mla.description">Uvodi MLA stil citiranja.</message>
 </locale>

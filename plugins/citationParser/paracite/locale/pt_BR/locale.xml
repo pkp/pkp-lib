@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="pt_BR" full_name="Português do Brasil">
+<locale name="pt_BR" full_name="Português (Brasil)">
 	<message key="plugins.citationParser.paracite.displayName">Extrator de citação ParaCite</message>
 	<message key="plugins.citationParser.paracite.description">Extrai campos de citações em texto puro por meio do serviço ParaCite.</message>
 </locale>

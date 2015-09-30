@@ -11,7 +11,7 @@
   * Localization strings.
   -->
  
-<locale name="es_ES" full_name="Español">
+<locale name="es_ES" full_name="Español (España)">
 	<!-- plug-in -->
 	<message key="plugins.metadata.dc11.displayName">Metadatos Dublin Core 1.1</message>
 	<message key="plugins.metadata.dc11.description">Proporciona plantillas Dublin Core 1.1 y compatibilidad de aplicaciones.</message>

@@ -11,7 +11,7 @@
   * Localization strings.
   -->
  
-<locale name="es_ES" full_name="Español">
+<locale name="es_ES" full_name="Español (España)">
 	<message key="plugins.generic.usageEvent.displayName">Caso de uso</message>
 	<message key="plugins.generic.usageEvent.description">Crea un "hook" que proporciona el uso de eventos en un formato definido.</message>
 </locale>

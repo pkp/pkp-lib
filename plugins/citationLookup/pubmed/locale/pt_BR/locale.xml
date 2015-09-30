@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="pt_BR" full_name="Português do Brasil">
+<locale name="pt_BR" full_name="Português (Brasil)">
 	<message key="plugins.citationLookup.pubmed.displayName">Conector à base de dados PubMed</message>
 	<message key="plugins.citationLookup.pubmed.description">Conecta à base de dados bibliográfica do PubMed.</message>
 </locale>

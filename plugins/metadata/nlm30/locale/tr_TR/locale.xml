@@ -11,7 +11,7 @@
   * Localization strings.
   -->
  
-<locale name="tr_TR" full_name="Türkiye Türkçesi">
+<locale name="tr_TR" full_name="Türkçe">
 	<message key="plugins.metadata.nlm30.displayName">NLM 3.0 Üst Veri</message>
 	<message key="plugins.metadata.nlm30.citationAdapter.displayName">NLM 3.0 Atıf Adaptörü</message>
 </locale>

@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="sr_SR" full_name="Srpski">
+<locale name="sr_SR" full_name="Cрпски">
 	<message key="plugins.citationLookup.worldcat.displayName">WorldCat Database Connector</message>
 	<message key="plugins.citationLookup.worldcat.description">Povezuje se na  WorldCat bibliografsku bazu podataka.</message>
 </locale>

@@ -11,7 +11,7 @@
   * Localization strings for default settings for setup items.
   -->
 
-<locale name="es_ES" full_name="Español">
+<locale name="es_ES" full_name="Español (España)">
 	<!-- Group defaults -->
 	<message key="default.groups.name.siteAdmin">Administradores del sitio</message>
 	<message key="default.groups.plural.siteAdmin">Administradores del sitio</message>

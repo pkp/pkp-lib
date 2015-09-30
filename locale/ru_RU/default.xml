@@ -12,7 +12,7 @@
   * With updates from Pavel Pisklakov (revising translation). 
   -->
 
-<locale name="ru_RU" full_name="Russian">
+<locale name="ru_RU" full_name="Русский">
 	<!-- Группы по умолчанию -->
 	<message key="default.groups.name.siteAdmin">Администратор сайта</message>
 	<message key="default.groups.plural.siteAdmin">Администраторы сайта</message>

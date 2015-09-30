@@ -8,10 +8,10 @@
   * Copyright (c) 2003-2015 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the id_ID (Indonesia) locale.
+  * Localization strings for the id_ID (Bahasa Indonesia) locale.
   -->
  
-<locale name="id_ID" full_name="Indonesia">
+<locale name="id_ID" full_name="Bahasa Indonesia">
 	<!-- plug-in -->
 	<message key="plugins.metadata.dc11.displayName">Metadata Dublin Core 1.1</message>
 	<message key="plugins.metadata.dc11.description">Berkontribusi terhadap skema dan adapter aplikasi Dublin Core versi 1.1.</message>

@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="tr_TR" full_name="Türkiye Türkçesi">
+<locale name="tr_TR" full_name="Türkçe">
 	<message key="plugins.citationOutput.mla.displayName">MLA Atıf Biçimi</message>
 	<message key="plugins.citationOutput.mla.description">MLA atıf biçimini uygular.</message>
 </locale>

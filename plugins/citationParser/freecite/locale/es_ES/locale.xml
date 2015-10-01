@@ -8,10 +8,10 @@
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Credits: http://pkp.sfu.ca/wiki/index.php?title=OJS:_Spanish_%28es_ES%29
-  *
   * Localization strings for the es_ES (Español (España)) locale.
   -->
 
-<locale name="es_ES" full_name="Español (España)">Extractor de cita FreeCite</message>
+<locale name="es_ES" full_name="Español (España)">
+	<message key="plugins.citationParser.freecite.displayName">Extractor de cita FreeCite</message>
 	<message key="plugins.citationParser.freecite.description">Extrae campos de citas de texto sin formato a través de FreeCite.</message>
 </locale>

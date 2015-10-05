@@ -51,7 +51,7 @@
 		{/fbvFormSection}
 	{/fbvFormArea}
 
-	{url|assign:reviewFormsUrl router=$smarty.const.ROUTE_COMPONENT component="grid.settings.reviewForms.ReviewFormGridHandler" op="fetchGrid"}
+	{url|assign:reviewFormsUrl router=$smarty.const.ROUTE_COMPONENT component="grid.settings.reviewForms.ReviewFormGridHandler" op="fetchGrid" escape=false}
 	{load_url_in_div id="reviewFormGridContainer" url=$reviewFormsUrl}
 
 	{fbvFormArea id="reviewProcessDetails" class=$wizard_class}

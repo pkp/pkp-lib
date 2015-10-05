@@ -14,7 +14,7 @@
 			'enableDisablePairs': {ldelim}
 					{foreach from=$notificationSettingCategories item=notificationSettingCategory} 
 						{foreach name=notifications from=$notificationSettingCategory.settings item=settingId}
-						'{$notificationSettings.$settingId.settingName|escape:"javascript"}': '{$notificationSettings.$settingId.emailSettingName|escape:"javascript"}',
+						{$notificationSettings.$settingId.settingName|json_encode}: {$notificationSettings.$settingId.emailSettingName|json_encode},
 						{/foreach}
 					{/foreach}
 				{rdelim}

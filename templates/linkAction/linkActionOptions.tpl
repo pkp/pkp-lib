@@ -19,12 +19,12 @@
 	{if $selfActivate}
 		selfActivate: {$selfActivate},
 	{/if}
-	staticId: '{$staticId}',
+	staticId: {$staticId|json_encode},
 	{assign var="actionRequest" value=$action->getActionRequest()}
-	actionRequest: '{$actionRequest->getJSLinkActionRequest()}',
+	actionRequest: {$actionRequest->getJSLinkActionRequest()|json_encode},
 	actionRequestOptions: {ldelim}
 		{foreach name=actionRequestOptions from=$actionRequest->getLocalizedOptions() key=optionName item=optionValue}
-			{$optionName}: {if $optionValue}'{$optionValue|escape:javascript}'{else}false{/if}{if !$smarty.foreach.actionRequestOptions.last},{/if}
+			{$optionName|json_encode}: {$optionValue|json_encode},
 		{/foreach}
 	{rdelim}
 {rdelim}

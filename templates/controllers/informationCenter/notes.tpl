@@ -14,8 +14,8 @@
 		$('#informationCenterNotes').pkpHandler(
 			'$.pkp.controllers.informationCenter.NotesHandler',
 			{ldelim}
-				fetchNotesUrl: '{url|escape:"javascript" router=$smarty.const.ROUTE_COMPONENT op="listNotes" params=$linkParams escape=false}',
-				fetchPastNotesUrl: '{url|escape:"javascript" router=$smarty.const.ROUTE_COMPONENT op="listPastNotes" params=$linkParams escape=false}'
+				fetchNotesUrl: {url|json_encode router=$smarty.const.ROUTE_COMPONENT op="listNotes" params=$linkParams escape=false},
+				fetchPastNotesUrl: {url|json_encode router=$smarty.const.ROUTE_COMPONENT op="listPastNotes" params=$linkParams escape=false}
 			{rdelim}
 		);
 	{rdelim});

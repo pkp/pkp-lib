@@ -26,7 +26,7 @@
 							{rdelim});
 						{rdelim}
 					{else}
-						availableTags: [{foreach name=availableKeywords from=$FBV_availableKeywords.$thisFormLocale item=availableKeyword}"{$availableKeyword|escape|escape:'javascript'}"{if !$smarty.foreach.availableKeywords.last}, {/if}{/foreach}]
+						availableTags: {$FBV_availableKeywords.$thisFormLocale|@json_encode}
 					{/if}
 				{rdelim});
 
@@ -76,7 +76,7 @@
 						{rdelim});
 					{rdelim}
 				{else}
-					availableTags: [{foreach name=availableKeywords from=$FBV_availableKeywords.$formLocale item=availableKeyword}"{$availableKeyword|escape|escape:'javascript'}"{if !$smarty.foreach.availableKeywords.last}, {/if}{/foreach}]
+					availableTags: {$FBV_availableKeywords.$formLocale|@json_encode}
 				{/if}
 			{rdelim});
 

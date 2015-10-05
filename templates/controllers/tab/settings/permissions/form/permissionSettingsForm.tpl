@@ -14,8 +14,8 @@
 		$('#permissionSettingsForm').pkpHandler(
 			'$.pkp.controllers.tab.settings.permissions.form.PermissionSettingsFormHandler',
 			{ldelim}
-				resetPermissionsUrl: '{url|escape:"javascript" op="resetPermissions" escape=false}',
-				resetPermissionsConfirmText: '{translate|escape:"javascript" key="manager.setup.resetPermissions.confirm"}',
+				resetPermissionsUrl: {url|json_encode op="resetPermissions" escape=false},
+				resetPermissionsConfirmText: {translate|json_encode key="manager.setup.resetPermissions.confirm"},
 			{rdelim}
 		);
 	{rdelim});

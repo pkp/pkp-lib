@@ -39,9 +39,9 @@
 									actionRequest: '$.pkp.classes.linkAction.ModalRequest',
 									actionRequestOptions: {ldelim}
 										titleIcon: 'modal_information',
-										title: '{$submissionEmail->getSubject()|escape:"javascript"}',
+										title: {$submissionEmail->getSubject()|json_encode},
 										modalHandler: '$.pkp.controllers.modal.AjaxModalHandler',
-										url: '{url|escape:"javascript" router=$smarty.const.ROUTE_PAGE page="authorDashboard" op="readSubmissionEmail" submissionId=$submission->getId() stageId=$stageId reviewRoundId=$reviewRoundId submissionEmailId=$submissionEmail->getId() escape=false}'
+										url: {url|json_encode router=$smarty.const.ROUTE_PAGE page="authorDashboard" op="readSubmissionEmail" submissionId=$submission->getId() stageId=$stageId reviewRoundId=$reviewRoundId submissionEmailId=$submissionEmail->getId() escape=false}
 									{rdelim}
 								{rdelim}
 							);

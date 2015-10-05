@@ -15,15 +15,15 @@
 		$('#paymentMethodContainerDiv').pkpHandler(
 			'$.pkp.controllers.tab.settings.paymentMethod.PaymentMethodHandler',
 			{ldelim}
-				paymentMethodFormUrlTemplate: '{url|escape:"javascript" router=$smarty.const.ROUTE_COMPONENT op="getPaymentFormContents" paymentPluginName=PAYMENT_PLUGIN_NAME escape=false}'
+				paymentMethodFormUrlTemplate: {url|json_encode router=$smarty.const.ROUTE_COMPONENT op="getPaymentFormContents" paymentPluginName=PAYMENT_PLUGIN_NAME escape=false}
 			{rdelim}
 		);
 		// Attach the container handler. (Triggers e.g. selectMonograph event.)
 		$('#paymentMethodSelector').pkpHandler(
 			'$.pkp.controllers.form.DropdownHandler',
 			{ldelim}
-				getOptionsUrl: '{url|escape:"javascript" router=$smarty.const.ROUTE_COMPONENT op="getPaymentMethods" escape=false}',
-				defaultKey: '{$paymentPluginName|escape:"javascript"}',
+				getOptionsUrl: {url|json_encode router=$smarty.const.ROUTE_COMPONENT op="getPaymentMethods" escape=false},
+				defaultKey: {$paymentPluginName|json_encode},
 				eventName: 'selectPaymentMethod'
 			{rdelim}
 		);

@@ -13,7 +13,9 @@
 	$(function() {ldelim}
 		$('#sendReviews').pkpHandler(
 			'$.pkp.controllers.modals.editorDecision.form.EditorDecisionFormHandler',
-			{ldelim} peerReviewUrl: '{$peerReviewUrl|escape:javascript}' {rdelim}
+			{ldelim}
+				peerReviewUrl: {$peerReviewUrl|json_encode}
+			{rdelim}
 		);
 	{rdelim});
 </script>

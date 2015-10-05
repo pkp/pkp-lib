@@ -13,7 +13,7 @@
 	$(function() {ldelim}
 		// Attach the form handler.
 		$('#archivingForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler', {ldelim}
-			baseUrl: '{$baseUrl|escape:"javascript"}'
+			baseUrl: {$baseUrl|json_encode}
 		{rdelim});
 	{rdelim});
 </script>

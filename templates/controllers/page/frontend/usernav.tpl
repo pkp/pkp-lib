@@ -13,7 +13,7 @@
 		$('#headerNavigationContainer').pkpHandler(
 			'$.pkp.pages.header.HeaderHandler',
 			{ldelim}
-				requestedPage: '{$requestedPage|escape:"javascript"}',
+				requestedPage: {$requestedPage|json_encode},
 			{rdelim});
 	{rdelim});
 </script>

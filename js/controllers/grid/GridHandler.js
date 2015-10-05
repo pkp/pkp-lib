@@ -979,7 +979,7 @@
 		for (id in features) {
 			// Only initiate features that have a js handler.
 			jsClass = features[id].JSClass;
-			if (jsClass == '') {
+			if (jsClass === null) {
 				continue;
 			}
 

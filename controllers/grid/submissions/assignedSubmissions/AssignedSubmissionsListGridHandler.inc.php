@@ -60,7 +60,6 @@ class AssignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 
 		$submissionDao = Application::getSubmissionDAO();
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		$signoffDao = DAORegistry::getDAO('SignoffDAO');
 		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
 

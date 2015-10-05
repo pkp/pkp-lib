@@ -17,19 +17,19 @@
 <script>
 	$(function() {ldelim}
 		$('{$buttonSelector|escape:javascript}').pkpHandler(
-				'$.pkp.controllers.linkAction.LinkActionHandler',
-				{ldelim}
-					actionRequest: '$.pkp.classes.linkAction.ModalRequest',
-					actionRequestOptions: {ldelim}
-						modalHandler: '$.pkp.controllers.modal.ButtonConfirmationModalHandler',
-						title: '{translate|escape:javascript key="form.confirmSubmit.title"}',
-						okButton: '{translate|escape:javascript key="common.ok"}',
-						cancelButton: '{translate|escape:javascript key="common.cancel"}',
-						dialogText: '{translate|escape:javascript key=$dialogText}',
-						$button: $('{$buttonSelector|escape:javascript}'),
-						titleIcon: '{$titleIcon|escape:javascript}',
-						width: 'auto'
-					{rdelim},
-			{rdelim});
+			'$.pkp.controllers.linkAction.LinkActionHandler',
+			{ldelim}
+				actionRequest: '$.pkp.classes.linkAction.ModalRequest',
+				actionRequestOptions: {ldelim}
+					modalHandler: '$.pkp.controllers.modal.ButtonConfirmationModalHandler',
+					title: {translate|json_encode key="form.confirmSubmit.title"},
+					okButton: {translate|json_encode key="common.ok"},
+					cancelButton: {translate|json_encode key="common.cancel"},
+					dialogText: {translate|json_encode key=$dialogText},
+					$button: $({$buttonSelector|json_encode}),
+					titleIcon: {$titleIcon|json_encode},
+					width: 'auto'
+				{rdelim},
+		{rdelim});
 	{rdelim});
 </script>

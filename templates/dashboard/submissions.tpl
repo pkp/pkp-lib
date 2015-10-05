@@ -13,7 +13,7 @@
 		$('#contextSubmissionForm').pkpHandler('$.pkp.controllers.dashboard.form.DashboardTaskFormHandler',
 			{ldelim}
 				{if $contextCount == 1}
-					singleContextSubmissionUrl: '{url context=$context->getPath() page="submission" op="wizard"}',
+					singleContextSubmissionUrl: {url|json_encode context=$context->getPath() page="submission" op="wizard" escape=false},
 				{/if}
 				trackFormChanges: false
 			{rdelim}

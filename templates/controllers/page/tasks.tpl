@@ -19,8 +19,8 @@
 		$('#userTasks').pkpHandler(
 			'$.pkp.pages.header.TasksHandler',
 			{ldelim}
-				requestedPage: '{$requestedPage|escape:"javascript"}',
-				fetchUnreadNotificationsCountUrl: '{url|escape:javascript router=$smarty.const.ROUTE_COMPONENT component="grid.notifications.NotificationsGridHandler" op="getUnreadNotificationsCount"}'
+				requestedPage: {$requestedPage|json_encode},
+				fetchUnreadNotificationsCountUrl: {url|json_encode router=$smarty.const.ROUTE_COMPONENT component="grid.notifications.NotificationsGridHandler" op="getUnreadNotificationsCount" escape=false}
 			{rdelim}
 		);
 	{rdelim});

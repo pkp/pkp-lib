@@ -14,7 +14,7 @@
 		$('#noteForm').pkpHandler(
 			'$.pkp.controllers.form.CancelActionAjaxFormHandler',
 			{ldelim}
-				cancelUrl: '{url|escape:javascript op="deleteNote" params=$actionArgs noteId=$noteId escape=false}'
+				cancelUrl: {url|json_encode op="deleteNote" params=$actionArgs noteId=$noteId escape=false}
 			{rdelim}
 		);
 	{rdelim});

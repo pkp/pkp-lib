@@ -17,7 +17,7 @@
 			{ldelim}
 				noMoreTemplates: {if $noMoreTemplates}true{else}false{/if},
 				filterTemplates: {if $filterTemplates}true{else}false{/if},
-				editFilterUrlTemplate: '{url|escape:"javascript" op="editFilter" filterTemplateId="DUMMY_FILTER_TEMPLATE_ID"}',
+				editFilterUrlTemplate: {url|json_encode op="editFilter" filterTemplateId="DUMMY_FILTER_TEMPLATE_ID" escape=false},
 				pulldownSelector: '#filterTemplateSelect{$uid|escape:"javascript"}',
 			{rdelim}
 		);

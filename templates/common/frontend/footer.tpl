@@ -5,23 +5,29 @@
  * Copyright (c) 2003-2015 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * Common site frontend footer.
+ * @brief Common site frontend footer.
+ *
+ * @uses $isFullWidth bool Should this page be displayed without sidebars? This
+ *       represents a page-level override, and doesn't indicate whether or not
+ *       sidebars have been configured for thesite.
  *}
 
 	</div><!-- pkp_structure_main -->
 
 	{* Sidebars *}
-	{call_hook|assign:"leftSidebarCode" name="Templates::Common::LeftSidebar"}
-	{call_hook|assign:"rightSidebarCode" name="Templates::Common::RightSidebar"}
-	{if $leftSidebarCode}
-		<div class="pkp_structure_sidebar left">
-			{$leftSidebarCode}
-		</div><!-- pkp_sidebar.left -->
-	{/if}
-	{if $rightSidebarCode}
-		<div class="pkp_structure_sidebar right">
-			{$rightSidebarCode}
-		</div><!-- pkp_sidebar.right -->
+	{if empty($isFullWidth)}
+		{call_hook|assign:"leftSidebarCode" name="Templates::Common::LeftSidebar"}
+		{call_hook|assign:"rightSidebarCode" name="Templates::Common::RightSidebar"}
+		{if $leftSidebarCode}
+			<div class="pkp_structure_sidebar left">
+				{$leftSidebarCode}
+			</div><!-- pkp_sidebar.left -->
+		{/if}
+		{if $rightSidebarCode}
+			<div class="pkp_structure_sidebar right">
+				{$rightSidebarCode}
+			</div><!-- pkp_sidebar.right -->
+		{/if}
 	{/if}
 </div><!-- pkp_structure_content -->
 

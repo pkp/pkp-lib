@@ -41,7 +41,7 @@
 				{foreach from=$footerCategories item=category name=loop}
 					{assign var=links value=$category->getLinks()}
 					<div class="category category_{$loop.index}">
-						<h4><a href="{url page="links" op="link" path=$category->getPath()|escape}">{$category->getLocalizedTitle()|strip_unsafe_html}</a></h4>
+						<h4>{$category->getLocalizedTitle()|strip_unsafe_html}</h4>
 						<ul>
 							{foreach from=$links item=link}
 								<li><a href="{$link->getLocalizedUrl()}">{$link->getLocalizedTitle()|strip_unsafe_html}</a></li>

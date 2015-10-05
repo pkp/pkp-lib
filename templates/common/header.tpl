@@ -21,9 +21,9 @@
 					{if $isUserLoggedIn}
 						inlineHelpState: {$initialHelpState},
 					{/if}
-					toggleHelpUrl: '{url|escape:javascript page="user" op="toggleHelp"}',
-					toggleHelpOnText: '{$toggleHelpOnText|escape:"javascript"}',
-					toggleHelpOffText: '{$toggleHelpOffText|escape:"javascript"}',
+					toggleHelpUrl: {url|json_encode page="user" op="toggleHelp" escape=false},
+					toggleHelpOnText: {$toggleHelpOnText|json_encode},
+					toggleHelpOffText: {$toggleHelpOffText|json_encode},
 					{include file="core:controllers/notification/notificationOptions.tpl"}
 				{rdelim});
 		{rdelim});

@@ -129,19 +129,19 @@
 			{ldelim}
 				hasFileSelector: {if $showFileSelector}true{else}false{/if},
 				hasGenreSelector: {if $showGenreSelector}true{else}false{/if},
-				presetRevisedFileId: '{$revisedFileId}',
+				presetRevisedFileId: {$revisedFileId|json_encode},
 				// File genres currently assigned to submission files.
 				fileGenres: {ldelim}
 					{foreach name=currentSubmissionFileGenres from=$currentSubmissionFileGenres key=submissionFileId item=fileGenre}
 						{if !empty($fileGenre)}
-							{$submissionFileId}: {$fileGenre}{if !$smarty.foreach.currentSubmissionFileGenres.last},{/if}
+							{$submissionFileId|json_encode}: {$fileGenre|json_encode}{if !$smarty.foreach.currentSubmissionFileGenres.last},{/if}
 						{/if}
 					{/foreach}
 				{rdelim},
 				$uploader: $('#plupload'),
 				uploaderOptions: {ldelim}
-					uploadUrl: '{url|escape:javascript op="uploadFile" submissionId=$submissionId stageId=$stageId fileStage=$fileStage reviewRoundId=$reviewRoundId assocType=$assocType assocId=$assocId escape=false}',
-					baseUrl: '{$baseUrl|escape:javascript}',
+					uploadUrl: {url|json_encode op="uploadFile" submissionId=$submissionId stageId=$stageId fileStage=$fileStage reviewRoundId=$reviewRoundId assocType=$assocType assocId=$assocId escape=false},
+					baseUrl: {$baseUrl|json_encode},
 				{rdelim}
 			{rdelim});
 	{rdelim});

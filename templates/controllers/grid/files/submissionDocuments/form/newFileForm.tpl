@@ -16,8 +16,8 @@
 			{ldelim}
 				$uploader: $('#plupload'),
 				uploaderOptions: {ldelim}
-					uploadUrl: '{url|escape:javascript op="uploadFile" fileType=$fileType submissionId=$submissionId escape=false}',
-					baseUrl: '{$baseUrl|escape:javascript}'
+					uploadUrl: {url|json_encode op="uploadFile" fileType=$fileType submissionId=$submissionId escape=false},
+					baseUrl: {$baseUrl|json_encode}
 				{rdelim}
 			{rdelim}
 		);

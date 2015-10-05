@@ -107,7 +107,7 @@ class GridFeature {
 
 	/**
 	 * Return the java script feature class.
-	 * @return string
+	 * @return string|null
 	 */
 	function getJSClass() {
 		return null;

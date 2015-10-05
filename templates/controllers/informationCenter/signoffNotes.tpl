@@ -15,8 +15,8 @@
 		$('#signoffNotesContainer').pkpHandler(
 			'$.pkp.controllers.informationCenter.SignoffNotesHandler',
 			{ldelim}
-				signoffNotesFormUrl: '{url|escape:"javascript" router=$smarty.const.ROUTE_COMPONENT op="fetchNotesForm" submissionId=$submissionId stageId=$stageId escape=false}',
-				signoffId: '{$signoffId}'
+				signoffNotesFormUrl: {url|json_encode router=$smarty.const.ROUTE_COMPONENT op="fetchNotesForm" submissionId=$submissionId stageId=$stageId escape=false},
+				signoffId: {$signoffId|json_encode}
 			{rdelim}
 		);
 	{rdelim});
@@ -32,7 +32,7 @@
 				$('#selectSignoff').pkpHandler(
 					'$.pkp.controllers.form.DropdownHandler',
 					{ldelim}
-						getOptionsUrl: '{url|escape:"javascript" router=$smarty.const.ROUTE_COMPONENT op="getUserSignoffs" submissionId=$submissionId stageId=$stageId symbolic=$symbolic escape=false}',
+						getOptionsUrl: {url|json_encode router=$smarty.const.ROUTE_COMPONENT op="getUserSignoffs" submissionId=$submissionId stageId=$stageId symbolic=$symbolic escape=false},
 						eventName: 'selectSignoff'
 					{rdelim}
 				);

@@ -13,7 +13,7 @@
 		// Attach the form handler.
 		$('#reportGeneratorForm').pkpHandler('$.pkp.controllers.statistics.ReportGeneratorFormHandler',
 			{ldelim}
-				fetchFormUrl: '{url op=fetchReportGenerator}',
+				fetchFormUrl: {url|json_encode op=fetchReportGenerator escape=false},
 				metricTypeSelectSelector: '#metricType',
 				reportTemplateSelectSelector: '#reportTemplate',
 				aggregationOptionsSelector: "input[type='checkbox'], #aggregationColumns",
@@ -30,10 +30,10 @@
 				fileTypeSelectSelector: '#fileTypes',
 				fileAssocTypes: {ldelim}
 					{foreach from=$fileAssocTypes key=key item=assocType}
-						{$key|escape:"javascript"}: '{$assocType|escape:"javascript"}',
+						{$key|json_encode}: {$assocType|json_encode},
 					{/foreach}
 				{rdelim},
-				fetchRegionsUrl: '{url op=fetchRegions}',
+				fetchRegionsUrl: {url|json_encode op=fetchRegions escape=false},
 				regionSelectSelector: '#regions',
 				countrySelectSelector: '#countries'
 			{rdelim}

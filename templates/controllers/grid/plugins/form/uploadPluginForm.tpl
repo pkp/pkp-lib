@@ -15,8 +15,8 @@
 			{ldelim}
 				$uploader: $('#plupload'),
 				uploaderOptions: {ldelim}
-					uploadUrl: '{url|escape:javascript router=$smarty.const.ROUTE_COMPONENT op="uploadPluginFile" function=$function}',
-					baseUrl: '{$baseUrl|escape:javascript}'
+					uploadUrl: {url|json_encode router=$smarty.const.ROUTE_COMPONENT op="uploadPluginFile" function=$function escape=false},
+					baseUrl: {$baseUrl|json_encode}
 				{rdelim}
 			{rdelim});
 	{rdelim});

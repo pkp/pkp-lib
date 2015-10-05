@@ -17,15 +17,16 @@
 	// Attach the JS file upload wizard handler.
 	$(function() {ldelim}
 		$('#fileUploadWizard').pkpHandler(
-				'$.pkp.controllers.wizard.fileUpload.FileUploadWizardHandler',
-				{ldelim}
-					cancelButtonText: '{translate|escape:javascript key="common.cancel"}',
-					continueButtonText: '{translate|escape:javascript key="common.continue"}',
-					finishButtonText: '{translate|escape:javascript key="common.complete"}',
-					deleteUrl: '{url|escape:javascript component="api.file.ManageFileApiHandler" op="deleteFile" submissionId=$submissionId stageId=$stageId fileStage=$fileStage suppressNotification=true escape=false}',
-					metadataUrl: '{url|escape:javascript op="editMetadata" submissionId=$submissionId stageId=$stageId reviewRoundId=$reviewRoundId fileStage=$fileStage escape=false}',
-					finishUrl: '{url|escape:javascript op="finishFileSubmission" submissionId=$submissionId stageId=$stageId reviewRoundId=$reviewRoundId fileStage=$fileStage escape=false}'
-				{rdelim});
+			'$.pkp.controllers.wizard.fileUpload.FileUploadWizardHandler',
+			{ldelim}
+				cancelButtonText: {translate|json_encode key="common.cancel"},
+				continueButtonText: {translate|json_encode key="common.continue"},
+				finishButtonText: {translate|json_encode key="common.complete"},
+				deleteUrl: {url|json_encode component="api.file.ManageFileApiHandler" op="deleteFile" submissionId=$submissionId stageId=$stageId fileStage=$fileStage suppressNotification=true escape=false},
+				metadataUrl: {url|json_encode op="editMetadata" submissionId=$submissionId stageId=$stageId reviewRoundId=$reviewRoundId fileStage=$fileStage escape=false},
+				finishUrl: {url|json_encode op="finishFileSubmission" submissionId=$submissionId stageId=$stageId reviewRoundId=$reviewRoundId fileStage=$fileStage escape=false}
+			{rdelim}
+		);
 	{rdelim});
 </script>
 

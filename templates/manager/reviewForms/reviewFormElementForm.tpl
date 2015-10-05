@@ -16,20 +16,18 @@
 </script>
 
 <script type="text/javascript">
-{literal}
 <!--
-function togglePossibleResponses(newValue, multipleResponsesElementTypesString) {
-	if (multipleResponsesElementTypesString.indexOf(';'+newValue+';') != -1) {
+function togglePossibleResponses(newValue, multipleResponsesElementTypesString) {ldelim}
+	if (multipleResponsesElementTypesString.indexOf(';'+newValue+';') != -1) {ldelim}
 		document.getElementById('reviewFormElementForm').addResponse.disabled=false;
-	} else {
-		if (document.getElementById('reviewFormElementForm').addResponse.disabled == false) {
-			alert({/literal}'{translate|escape:"jsparam" key="manager.reviewFormElement.changeType"}'{literal});
-		}
+	{rdelim} else {ldelim}
+		if (document.getElementById('reviewFormElementForm').addResponse.disabled == false) {ldelim}
+			alert({translate|json_encode key="manager.reviewFormElement.changeType"});
+		{rdelim}
 		document.getElementById('reviewFormElementForm').addResponse.disabled=true;
-	}
-}
+	{rdelim}
+{rdelim}
 // -->
-{/literal}
 </script>
 
 <form class="pkp_form" id="reviewFormElementForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.reviewForms.ReviewFormElementsGridHandler" op="updateReviewFormElement" anchor="possibleResponses"}">

@@ -15,7 +15,7 @@
 		$('#{$inElElId|escape:"js"}').pkpHandler(
 			'$.pkp.controllers.UrlInDivHandler',
 			{ldelim}
-				sourceUrl: '{$inElUrl|escape:"javascript"}'
+				sourceUrl: {$inElUrl|json_encode}
 			{rdelim}
 		);
 	{rdelim});

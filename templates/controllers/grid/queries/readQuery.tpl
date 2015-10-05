@@ -13,8 +13,8 @@
 		$('#readQueryContainer').pkpHandler(
 			'$.pkp.controllers.grid.queries.ReadQueryHandler',
 			{ldelim}
-				fetchNoteFormUrl: '{url|escape:"javascript" router=$smarty.const.ROUTE_COMPONENT component=$queryNotesGridHandlerName op="addNote" params=$requestArgs queryId=$query->getId() escape=false}',
-				fetchParticipantsListUrl: '{url|escape:"javascript" router=$smarty.const.ROUTE_COMPONENT component="grid.queries.QueriesGridHandler" op="participants" params=$requestArgs queryId=$query->getId() escape=false}'
+				fetchNoteFormUrl: {url|json_encode router=$smarty.const.ROUTE_COMPONENT component=$queryNotesGridHandlerName op="addNote" params=$requestArgs queryId=$query->getId() escape=false},
+				fetchParticipantsListUrl: {url|json_encode router=$smarty.const.ROUTE_COMPONENT component="grid.queries.QueriesGridHandler" op="participants" params=$requestArgs queryId=$query->getId() escape=false}
 			{rdelim}
 		);
 	{rdelim});

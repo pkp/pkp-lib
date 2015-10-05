@@ -9,16 +9,16 @@
  *}
 
 
-gridId: '{$grid->getId()|escape:javascript}',
-fetchRowUrl: '{url|escape:javascript op='fetchRow' params=$gridRequestArgs escape=false}',
-fetchOptionsUrl: '{url|escape:javascript op='fetchOptions' params=$gridRequestArgs escape=false}',
+gridId: {$grid->getId()|json_encode},
+fetchRowUrl: {url|json_encode op='fetchRow' params=$gridRequestArgs escape=false},
+fetchOptionsUrl: {url|json_encode op='fetchOptions' params=$gridRequestArgs escape=false},
 {if $grid->getSaveType() == $smarty.const.LISTBUILDER_SAVE_TYPE_INTERNAL}
-	saveUrl: '{url|escape:javascript op='save' params=$gridRequestArgs escape=false}',
+	saveUrl: {url|json_encode op='save' params=$gridRequestArgs escape=false},
 	saveFieldName: null,
 {else}{* LISTBUILDER_SAVE_TYPE_EXTERNAL *}
 	saveUrl: null,
-	saveFieldName: '{$grid->getSaveFieldName()|escape:javascript}',
+	saveFieldName: {$grid->getSaveFieldName()|json_encode},
 {/if}
-sourceType: '{$grid->getSourceType()|escape:javascript}',
+sourceType: {$grid->getSourceType()|json_encode},
 bodySelector: '#{$gridActOnId|escape:javascript}',
 features: {include file='controllers/grid/feature/featuresOptions.tpl' features=$features},

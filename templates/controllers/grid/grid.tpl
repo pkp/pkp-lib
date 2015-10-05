@@ -18,15 +18,13 @@
 		$('#{$gridId|escape:javascript}').pkpHandler(
 			'{$grid->getJSHandler()|escape:javascript}',
 			{ldelim}
-				gridId: '{$grid->getId()|escape:javascript}',
+				gridId: {$grid->getId()|json_encode},
 				{foreach from=$grid->getUrls() key=key item=itemUrl name=gridUrls}
-					{$key|escape:"javascript"}: '{$itemUrl|escape:"javascript"}',
+					{$key|json_encode}: {$itemUrl|json_encode},
 				{/foreach}
 				bodySelector: '#{$gridActOnId|escape:javascript}',
 				{if $grid->getPublishChangeEvents()}
-					publishChangeEvents: [
-						{foreach from=$grid->getPublishChangeEvents() item=gridPublishChangeEvent name=gridPublishChangeEvents}{if $smarty.foreach.gridPublishChangeEvents.first}'{else}', '{/if}{$gridPublishChangeEvent|escape:"javascript"}{if $smarty.foreach.gridPublishChangeEvents.last}'{/if}{/foreach}
-					],
+					publishChangeEvents: {$grid->getPublishChangeEvents()|@json_encode},
 				{/if}
 				features: {include file='controllers/grid/feature/featuresOptions.tpl' features=$features}
 			{rdelim}

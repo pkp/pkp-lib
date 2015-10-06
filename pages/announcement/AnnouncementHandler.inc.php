@@ -55,7 +55,15 @@ class AnnouncementHandler extends Handler {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('announcementsIntroduction', $announcementsIntro);
 
-		$templateMgr->display('announcements/index.tpl');
+
+		$announcementDao = DAORegistry::getDAO('AnnouncementDAO');
+		// TODO the announcements list should support pagination
+		import('lib.pkp.classes.db.DBResultRange');
+		$rangeInfo = new DBResultRange(50, -1);
+		$announcements = $announcementDao->getAnnouncementsNotExpiredByAssocId($context->getAssocType(), $context->getId(), $rangeInfo);
+		$templateMgr->assign('announcements', $announcements->toArray());
+
+		$templateMgr->display('frontend/pages/announcements.tpl');
 	}
 
 	/**
@@ -75,7 +83,7 @@ class AnnouncementHandler extends Handler {
 			$templateMgr = TemplateManager::getManager($request);
 			$templateMgr->assign('announcement', $announcement);
 			$templateMgr->assign('announcementTitle', $announcement->getLocalizedTitleFull());
-			return $templateMgr->display('announcements/view.tpl');
+			return $templateMgr->display('frontend/pages/announcement.tpl');
 		}
 		$request->redirect(null, 'announcement');
 	}

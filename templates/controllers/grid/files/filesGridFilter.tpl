@@ -7,7 +7,7 @@
  *
  * Filter template for submission file lists.
  *}
-{assign var="formId" value="submissionFilesListFilter-"|concat:$filterData.gridId}
+{assign var="formId" value="submissionFilesListFilter-"|concat:$filterData.gridId:"-"|uniqid}
 <script type="text/javascript">
 	// Attach the form handler to the form.
 	$('#{$formId}').pkpHandler('$.pkp.controllers.form.ClientFormHandler',

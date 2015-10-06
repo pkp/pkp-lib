@@ -198,7 +198,9 @@ class XMLNode {
 				$value = XMLNode::xmlentities($value);
 				$out .= " $name=\"$value\"";
 			}
-			$out .= '>';
+			if ($this->name !== '!--') {
+				$out .= '>';
+			}
 		}
 		$out .= XMLNode::xmlentities($this->value, ENT_NOQUOTES);
 		foreach ($this->children as $child) {
@@ -209,7 +211,11 @@ class XMLNode {
 			}
 			$out .= $child->toXml($output);
 		}
-		if ($this->name !== null) $out .= '</' . $this->name . '>';
+		if ($this->name === '!--') {
+			$out .= '-->';
+		} else if ($this->name !== null) {
+			$out .= '</' . $this->name . '>';
+		}
 		if ($output !== null) {
 			if ($output === true) echo $out;
 			else fwrite ($output, $out);

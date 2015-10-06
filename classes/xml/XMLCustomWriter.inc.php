@@ -15,6 +15,7 @@
 
 
 import ('lib.pkp.classes.xml.XMLNode');
+import ('lib.pkp.classes.xml.XMLComment');
 
 class XMLCustomWriter {
 	/**
@@ -22,6 +23,10 @@ class XMLCustomWriter {
 	 * If $url is set, the DOCTYPE definition is treated as a PUBLIC
 	 * definition; $dtd should contain the ID, and $url should contain the
 	 * URL. Otherwise, $dtd should be the DTD name.
+	 * @param $type string
+	 * @param $dtd string
+	 * @param $url string
+	 * @return DOMDocument|XMLNode
 	 */
 	static function &createDocument($type = null, $dtd = null, $url = null) {
 		$version = '1.0';
@@ -48,6 +53,12 @@ class XMLCustomWriter {
 		return $doc;
 	}
 
+	/**
+	 * Create a new element.
+	 * @param $doc XMLNode|DOMDocument
+	 * @param $name string
+	 * @return XMLNode
+	 */
 	static function &createElement(&$doc, $name) {
 		if (is_callable(array($doc, 'createElement'))) $element = $doc->createElement($name);
 		else $element = new XMLNode($name);
@@ -55,6 +66,29 @@ class XMLCustomWriter {
 		return $element;
 	}
 
+	/**
+	 * Create a new comment.
+	 * @param $doc XMLNode|DOMDocument
+	 * @param $content string
+	 * @return XMLNode
+	 */
+	static function &createComment(&$doc, $content) {
+		if (is_callable(array($doc, 'createComment'))) {
+			$element =& $doc->createComment($content);
+		} else {
+			$element = new XMLComment();
+			$element->setValue($content);
+		}
+
+		return $element;
+	}
+
+	/**
+	 * Create a new text node.
+	 * @param $doc XMLNode|DOMDocument
+	 * @param $value string
+	 * @return XMLNode
+	 */
 	static function &createTextNode(&$doc, $value) {
 
 		$value = Core::cleanVar($value);
@@ -68,6 +102,12 @@ class XMLCustomWriter {
 		return $element;
 	}
 
+	/**
+	 * Add a child to the DOM tree.
+	 * @param $parentNode XMLNode
+	 * @param $child XMLNode $doc XMLNode
+	 * @return XMLNode
+	 */
 	static function &appendChild(&$parentNode, &$child) {
 		if (is_callable(array($parentNode, 'appendChild'))) $node = $parentNode->appendChild($child);
 		else {
@@ -79,10 +119,22 @@ class XMLCustomWriter {
 		return $node;
 	}
 
+	/**
+	 * Get the value of an attribute from a node.
+	 * @param $node XMLNode
+	 * @param $name string
+	 * @return string
+	 */
 	static function &getAttribute(&$node, $name) {
 		return $node->getAttribute($name);
 	}
 
+	/**
+	 * Determine whether a node has a named attribute.
+	 * @param $node XMLNode
+	 * @param $name string
+	 * @return boolean
+	 */
 	static function &hasAttribute(&$node, $name) {
 		if (is_callable(array($node, 'hasAttribute'))) $value =& $node->hasAttribute($name);
 		else {
@@ -92,11 +144,24 @@ class XMLCustomWriter {
 		return $value;
 	}
 
+	/**
+	 * Set an attribute on a node.
+	 * @param $node XMLNode
+	 * @param $name string
+	 * @param $value string
+	 * @param $appendIfEmpty boolean True iff empty attributes should be added anyway.
+	 * @return string
+	 */
 	static function setAttribute(&$node, $name, $value, $appendIfEmpty = true) {
 		if (!$appendIfEmpty && $value == '') return;
 		return $node->setAttribute($name, $value);
 	}
 
+	/**
+	 * Get the serialized XML for a document.
+	 * @param $doc DOMDocument|XMLNode
+	 * @return string
+	 */
 	static function &getXML(&$doc) {
 		if (is_callable(array($doc, 'saveXML'))) $xml = $doc->saveXML();
 		else {
@@ -105,11 +170,25 @@ class XMLCustomWriter {
 		return $xml;
 	}
 
+	/**
+	 * Print the serialized XML for a document.
+	 * @param $doc DOMDocument|XMLNode
+	 * @return string
+	 */
 	static function printXML(&$doc) {
 		if (is_callable(array($doc, 'saveXML'))) echo $doc->saveXML();
 		else $doc->toXml(true);
 	}
 
+	/**
+	 * Add a child node with the specified text contents.
+	 * @param $doc DOMDocument|XMLNode
+	 * @param $node XMLNode
+	 * @param $name string
+	 * @param $value string
+	 * @param $appendIfEmpty boolean True iff empty attributes should be added anyway.
+	 * @return XMLNode
+	 */
 	static function &createChildWithText(&$doc, &$node, $name, $value, $appendIfEmpty = true) {
 		$childNode = null;
 		if ($appendIfEmpty || $value != '') {
@@ -119,15 +198,6 @@ class XMLCustomWriter {
 			XMLCustomWriter::appendChild($node, $childNode);
 		}
 		return $childNode;
-	}
-
-	static function &createChildFromFile(&$doc, &$node, $name, $filename) {
-		$fileManager = new FileManager();
-		$contents = $fileManager->readFile($filename);
-		if ($contents === false) {
-			$nullVar = null;
-			return $nullVar;
-		}
 	}
 }
 

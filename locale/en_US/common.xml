@@ -32,7 +32,6 @@
 	<message key="announcement.noneExist">No announcements have been published.</message>
 	<message key="announcement.posted">Posted</message>
 	<message key="announcement.postedOn">Posted on {$postDate}</message>
-	<message key="announcement.viewLink">More...</message>
 	<message key="announcement.view">View Announcement</message>
 	<message key="common.navigation">Navigation</message>
 	<message key="common.tasks">Tasks</message>
@@ -194,6 +193,8 @@
 	<message key="common.quality">Quality</message>
 	<message key="common.queue.long.active">Active</message>
 	<message key="common.re">Re:</message>
+	<message key="common.readMore">Read More</message>
+	<message key="common.readMoreWithTitle">Read more about {$title}</message>
 	<message key="common.record">Record</message>
 	<message key="common.refresh">Refresh</message>
 	<message key="common.related">Related</message>

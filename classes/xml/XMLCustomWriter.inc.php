@@ -15,6 +15,7 @@
 
 
 import ('lib.pkp.classes.xml.XMLNode');
+import ('lib.pkp.classes.xml.XMLComment');
 
 class XMLCustomWriter {
 	/**
@@ -51,6 +52,17 @@ class XMLCustomWriter {
 	function &createElement(&$doc, $name) {
 		if (is_callable(array($doc, 'createElement'))) $element =& $doc->createElement($name);
 		else $element = new XMLNode($name);
+
+		return $element;
+	}
+
+	function &createComment(&$doc, $content) {
+		if (is_callable(array($doc, 'createComment'))) {
+			$element =& $doc->createComment($content);
+		} else {
+			$element = new XMLComment();
+			$element->setValue($content);
+		}
 
 		return $element;
 	}

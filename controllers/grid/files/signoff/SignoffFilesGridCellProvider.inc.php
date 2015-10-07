@@ -50,7 +50,6 @@ class SignoffFilesGridCellProvider extends GridCellProvider {
 	 * @copydoc GridCellProvider::getCellActions()
 	 */
 	function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
-		$actions = array();
 		$submissionFile = $row->getData();
 		assert(is_a($submissionFile, 'SubmissionFile'));
 
@@ -63,15 +62,13 @@ class SignoffFilesGridCellProvider extends GridCellProvider {
 				$rowData = array('submissionFile' => $submissionFile);
 				$row->setData($rowData);
 				$actions = $fileNameColumn->getCellActions($request, $row);
-
 				// Back the row data as expected by the signoff grid.
 				$row->setData($submissionFile);
-				break;
+				return $actions;
 			case 'approved';
-				$actions[] = $this->_getApprovedCellAction($request, $submissionFile, $this->getCellState($row, $column));
-				break;
+				return array($this->_getApprovedCellAction($request, $submissionFile, $this->getCellState($row, $column)));
 		}
-		return $actions;
+		return parent::getCellActions($request, $row, $column, $position);
 	}
 
 	/**

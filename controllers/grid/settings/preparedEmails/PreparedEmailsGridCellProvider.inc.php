@@ -61,37 +61,35 @@ class PreparedEmailsGridCellProvider extends DataObjectGridCellProvider {
 	 * @copydoc GridCellProvider::getCellActions()
 	 */
 	function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
-		if ($column->getId() == 'enabled') {
-			$element = $row->getData(); /* @var $element DataObject */
-
-			$router = $request->getRouter();
-			import('lib.pkp.classes.linkAction.LinkAction');
-
-			if($element->getCanDisable()) {
-				if ($element->getEnabled()) {
-					$linkAction = new LinkAction(
-						'disableEmail',
-						new RemoteActionConfirmationModal(
-							__('manager.emails.disable.message'), null,
-							$router->url($request, null, 'grid.settings.preparedEmails.PreparedEmailsGridHandler',
-								'disableEmail', null, array('emailKey' => $element->getEmailKey()))
-						),
-						__('manager.emails.disable'),
-						'disable'
-					);
-				} else {
-					$linkAction =  new LinkAction(
-						'enableEmail',
-						new RemoteActionConfirmationModal(
-							__('manager.emails.enable.message'), null,
-							$router->url($request, null, 'grid.settings.preparedEmails.PreparedEmailsGridHandler',
-								'enableEmail', null, array('emailKey' => $element->getEmailKey()))
-						),
-						__('manager.emails.enable'),
-						'enable'
-					);
-				}
-				return array($linkAction);
+		switch ($column->getId()) {
+			case 'enabled':
+				$element = $row->getData(); /* @var $element DataObject */
+				$router = $request->getRouter();
+				import('lib.pkp.classes.linkAction.LinkAction');
+				if ($element->getCanDisable()) {
+					if ($element->getEnabled()) {
+						return array(new LinkAction(
+							'disableEmail',
+							new RemoteActionConfirmationModal(
+								__('manager.emails.disable.message'), null,
+								$router->url($request, null, 'grid.settings.preparedEmails.PreparedEmailsGridHandler',
+									'disableEmail', null, array('emailKey' => $element->getEmailKey()))
+							),
+							__('manager.emails.disable'),
+							'disable'
+						));
+					} else {
+						return array(new LinkAction(
+							'enableEmail',
+							new RemoteActionConfirmationModal(
+								__('manager.emails.enable.message'), null,
+								$router->url($request, null, 'grid.settings.preparedEmails.PreparedEmailsGridHandler',
+									'enableEmail', null, array('emailKey' => $element->getEmailKey()))
+							),
+							__('manager.emails.enable'),
+							'enable'
+						));
+					}
 			}
 		}
 		return parent::getCellActions($request, $row, $column, $position);

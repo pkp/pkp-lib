@@ -85,7 +85,7 @@ class PluginGridCellProvider extends GridCellProvider {
 							null
 						));
 						break;
-					case  !$plugin->getEnabled() && $plugin->getCanEnable():
+					case !$plugin->getEnabled() && $plugin->getCanEnable():
 						// Create an action to enable the plugin
 						import('lib.pkp.classes.linkAction.request.AjaxAction');
 						return array(new LinkAction(

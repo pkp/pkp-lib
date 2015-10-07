@@ -75,10 +75,8 @@ class PluginGalleryGridCellProvider extends GridCellProvider {
 	 * @return array an array of LinkAction instances
 	 */
 	function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
-		$columnId = $column->getId();
 		$element = $row->getData();
-
-		switch ($columnId) {
+		switch ($column->getId()) {
 			case 'name':
 				$router = $request->getRouter();
 				return array(new LinkAction(
@@ -89,10 +87,11 @@ class PluginGalleryGridCellProvider extends GridCellProvider {
 						'modal_information',
 						true
 					),
-				$element->getLocalizedName(),
-				'details'));
+					$element->getLocalizedName(),
+					'details'
+				));
 		}
-		return array();
+		return parent::getCellActions($request, $row, $column, $position);
 	}
 }
 

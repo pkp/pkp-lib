@@ -59,8 +59,6 @@ class QueryTitleGridColumn extends GridColumn {
 	 * @copydoc GridColumn::getCellActions()
 	 */
 	function getCellActions($request, $row, $position = GRID_ACTION_POSITION_DEFAULT) {
-		$cellActions = parent::getCellActions($request, $row, $position);
-
 		// Retrieve the submission file.
 		$query = $row->getData();
 		$headNote = $query->getHeadNote();
@@ -72,19 +70,22 @@ class QueryTitleGridColumn extends GridColumn {
 			$this->_actionArgs,
 			array('queryId' => $query->getId())
 		);
-		$linkAction =  new LinkAction(
+
+		return array_merge(
+			parent::getCellActions($request, $row, $position),
+			array(
+				new LinkAction(
 					'readQuery',
 					new AjaxModal(
 						$router->url($request, null, null, 'readQuery', null, $actionArgs),
 						$headNote?$headNote->getTitle():'&mdash;',
 						'modal_edit'
 					),
-				$headNote?$headNote->getTitle():'&mdash;',
-				null
-			);
-
-		$cellActions[] = $linkAction;
-		return $cellActions;
+					$headNote?$headNote->getTitle():'&mdash;',
+					null
+				)
+			)
+		);
 	}
 }
 

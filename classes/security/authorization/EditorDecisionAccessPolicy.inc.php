@@ -23,7 +23,7 @@ class EditorDecisionAccessPolicy extends ContextPolicy {
 	 * @param $submissionParameterName string
 	 * @param $stageId integer One of the WORKFLOW_STAGE_ID_* constants.
 	 */
-	function EditorDecisionAccessPolicy($request, &$args, $roleAssignments, $submissionParameterName = 'submissionId', $stageId) {
+	function EditorDecisionAccessPolicy($request, &$args, $roleAssignments, $submissionParameterName, $stageId) {
 		parent::ContextPolicy($request);
 
 		// A decision can only be made if there is a valid workflow stage

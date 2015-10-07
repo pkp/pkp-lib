@@ -5,7 +5,11 @@
  * Copyright (c) 2003-2015 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * Common frontend site header.
+ * @brief Common frontend site header.
+ *
+ * @uses $isFullWidth bool Should this page be displayed without sidebars? This
+ *       represents a page-level override, and doesn't indicate whether or not
+ *       sidebars have been configured for thesite.
  *}
 <!DOCTYPE html>
 <html lang="{$currentLocale|replace:"_":"-"}" xml:lang="{$currentLocale|replace:"_":"-"}">
@@ -98,6 +102,10 @@
 		</header><!-- .pkp_structure_head -->
 
 		{* Wrapper for page content and sidebars *}
+		{if $isFullWidth}
+			{assign var=hasLeftSidebar value=0}
+			{assign var=hasRightSidebar value=0}
+		{/if}
 		<div class="pkp_structure_content{if $hasLeftSidebar} has_left_sidebar{/if}{if $hasRightSidebar} has_right_sidebar{/if}">
 
 			<script type="text/javascript">

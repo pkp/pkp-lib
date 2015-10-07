@@ -25,6 +25,9 @@
 	<message key="user.authorization.roleBasedAccessDenied">The current role does not have access to this operation.</message>
 	<message key="user.authorization.userGroupRequired">You have to set a valid user group to access this operation.</message>
 	<message key="user.authorization.managerRequired">A user with a Manager role (i.e. Production Editor) must be assigned to the stage before you can proceed.</message>
+	<message key="user.authorization.accessibleWorkflowStage">An accessible workflow stage was not specified.</message>
+	<message key="user.authorization.workflowStageRequired">A workflow stage was not specified.</message>
+	<message key="user.authorization.pluginRequired">A plugin was not specified and is required.</message>
 	<message key="user.biography">Bio Statement</message>
 	<message key="user.biography.description">(E.g., department and rank)</message>
 	<message key="user.changeMyPassword">Change My Password</message>

@@ -26,7 +26,7 @@ class UserAccessibleWorkflowStagePolicy extends AuthorizationPolicy {
 	 * user workflow stages.
 	 */
 	function UserAccessibleWorkflowStagePolicy($stageId) {
-		parent::AuthorizationPolicy();
+		parent::AuthorizationPolicy('user.authorization.accessibleWorkflowStage');
 		$this->_stageId = $stageId;
 	}
 

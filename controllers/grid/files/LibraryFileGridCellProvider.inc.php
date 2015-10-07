@@ -48,21 +48,15 @@ class LibraryFileGridCellProvider extends GridCellProvider {
 	 * @return array an array of LinkAction instances
 	 */
 	function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
-
-		$columnId = $column->getId();
-		$element = $row->getData();
-
-		$cellActions = array();
-
-		switch ($columnId) {
+		switch ($column->getId()) {
 			case 'files':
+				$element = $row->getData();
 				assert(is_a($element, 'LibraryFile'));
 				// Create the cell action to download a file.
 				import('lib.pkp.controllers.api.file.linkAction.DownloadLibraryFileLinkAction');
-				$cellActions[] = new DownloadLibraryFileLinkAction($request, $element);
+				return array(new DownloadLibraryFileLinkAction($request, $element));
 		}
-
-		return $cellActions;
+		return parent::getCellActions($request, $row, $column, $position);
 	}
 }
 

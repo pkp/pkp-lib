@@ -28,29 +28,25 @@ class AnnouncementGridCellProvider extends GridCellProvider {
 	 * @copydoc GridCellProvider::getCellActions()
 	 */
 	function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
-		if ($column->getId() == 'title') {
-			$announcement = $row->getData();
-			$label = $announcement->getLocalizedTitle();
+		switch ($column->getId()) {
+			case 'title':
+				$announcement = $row->getData();
+				$router = $request->getRouter();
+				$actionArgs = array('announcementId' => $row->getId());
 
-			$router = $request->getRouter();
-			$actionArgs = array('announcementId' => $row->getId());
-
-			import('lib.pkp.classes.linkAction.request.AjaxModal');
-			$moreInformationAction = new LinkAction(
-				'moreInformation',
-				new AjaxModal(
-					$router->url($request, null, null, 'moreInformation', null, $actionArgs),
-					$label,
-					null,
-					true
-				),
-				$label,
-				'moreInformation'
-			);
-
-			return array($moreInformationAction);
+				import('lib.pkp.classes.linkAction.request.AjaxModal');
+				return array(new LinkAction(
+					'moreInformation',
+					new AjaxModal(
+						$router->url($request, null, null, 'moreInformation', null, $actionArgs),
+						$label,
+						null,
+						true
+					),
+					$announcement->getLocalizedTitle(),
+					'moreInformation'
+				));
 		}
-
 		return parent::getCellActions($request, $row, $column, $position);
 	}
 

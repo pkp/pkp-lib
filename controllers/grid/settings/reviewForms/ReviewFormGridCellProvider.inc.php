@@ -59,14 +59,14 @@ class ReviewFormGridCellProvider extends GridCellProvider {
 	 * @see GridCellProvider::getCellActions()
 	 */
 	function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
-		if ($column->getId() == 'active') {
-			$element = $row->getData(); /* @var $element DataObject */
+		switch ($column->getId()) {
+			case 'active':
+				$element = $row->getData(); /* @var $element DataObject */
 
-			$router = $request->getRouter();
-			import('lib.pkp.classes.linkAction.LinkAction');
+				$router = $request->getRouter();
+				import('lib.pkp.classes.linkAction.LinkAction');
 
-			if($element->getActive()) {
-				$linkAction = new LinkAction(
+				if ($element->getActive()) return array(new LinkAction(
 					'deactivateReviewForm',
 					new RemoteActionConfirmationModal(
 						__('manager.reviewForms.confirmDeactivate'),
@@ -80,9 +80,8 @@ class ReviewFormGridCellProvider extends GridCellProvider {
 							array('reviewFormKey' => $element->getId())
 						)
 					)
-				);
-			} else {
-				$linkAction = new LinkAction(
+				));
+				else return array(new LinkAction(
 					'activateReviewForm',
 					new RemoteActionConfirmationModal(
 						__('manager.reviewForms.confirmActivate'),
@@ -96,9 +95,7 @@ class ReviewFormGridCellProvider extends GridCellProvider {
 							array('reviewFormKey' => $element->getId())
 						)
 					)
-				);
-			}
-			return array($linkAction);
+				));
 		}
 		return parent::getCellActions($request, $row, $column, $position);
 	}

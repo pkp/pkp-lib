@@ -66,54 +66,49 @@ class SubmissionsListGridCellProvider extends DataObjectGridCellProvider {
 	function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
 		$submission = $row->getData();
 		$user = $request->getUser();
-		if ($column->getId() == 'editor') {
-			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
-			$editorAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submission->getId(), $submission->getStageId());
-			$assignment = current($editorAssignments);
-			if (!$assignment) return array();
-			$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
-			$editor = $userDao->getById($assignment->getUserId());
+		switch ($column->getId()) {
+			case 'editor':
+				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
+				$editorAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submission->getId(), $submission->getStageId());
+				$assignment = current($editorAssignments);
+				if (!$assignment) return array();
+				$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
+				$editor = $userDao->getById($assignment->getUserId());
 
-			import('lib.pkp.classes.linkAction.request.NullAction');
-			$linkAction = new LinkAction('editor', new NullAction(), $editor->getInitials(), null, $editor->getFullName());
-			return array($linkAction);
-		}
-		
-		if ($column->getId() == 'stage') {
-			$stageId = $submission->getStageId();
-			$stage = null;
+				import('lib.pkp.classes.linkAction.request.NullAction');
+				return array(new LinkAction('editor', new NullAction(), $editor->getInitials(), null, $editor->getFullName()));
+			case 'stage':
+				$stageId = $submission->getStageId();
+				$stage = null;
 
-			if ($submission->getSubmissionProgress() > 0) {
-				// Submission process not completed.
-				$stage = __('submissions.incomplete');
-			}
-			switch ($submission->getStatus()) {
-				case STATUS_DECLINED:
-					$stage = __('submission.status.declined');
-					break;
-				case STATUS_PUBLISHED:
-					$stage = __('submission.status.published');
-					break;
-			}
+				if ($submission->getSubmissionProgress() > 0) {
+					// Submission process not completed.
+					$stage = __('submissions.incomplete');
+				}
+				switch ($submission->getStatus()) {
+					case STATUS_DECLINED:
+						$stage = __('submission.status.declined');
+						break;
+					case STATUS_PUBLISHED:
+						$stage = __('submission.status.published');
+						break;
+				}
 
-			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-			if (!$stage) $stage = __(WorkflowStageDAO::getTranslationKeyFromId($stageId));
+				$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+				if (!$stage) $stage = __(WorkflowStageDAO::getTranslationKeyFromId($stageId));
 
-			$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
-			$reviewAssignment = $reviewAssignmentDao->getLastReviewRoundReviewAssignmentByReviewer($submission->getId(), $user->getId());
-			if (is_a($reviewAssignment, 'ReviewAssignment')) {
-				// Reviewer: Add a review link action.
-				return array($this->_getCellLinkAction($request, 'reviewer', 'submission', $submission, $stage));
-			} else {
-				// Get the right page and operation (authordashboard or workflow).
-				list($page, $operation) = SubmissionsListGridCellProvider::getPageAndOperationByUserRoles($request, $submission);
+				$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+				$reviewAssignment = $reviewAssignmentDao->getLastReviewRoundReviewAssignmentByReviewer($submission->getId(), $user->getId());
+				if (is_a($reviewAssignment, 'ReviewAssignment')) {
+					// Reviewer: Add a review link action.
+					return array($this->_getCellLinkAction($request, 'reviewer', 'submission', $submission, $stage));
+				} else {
+					// Get the right page and operation (authordashboard or workflow).
+					list($page, $operation) = SubmissionsListGridCellProvider::getPageAndOperationByUserRoles($request, $submission);
 
-				// Return redirect link action.
-				return array($this->_getCellLinkAction($request, $page, $operation, $submission, $stage));
-			}
-			
-			// This should be unreachable code.
-			assert(false);
+					// Return redirect link action.
+					return array($this->_getCellLinkAction($request, $page, $operation, $submission, $stage));
+				}
 		}
 		return parent::getCellActions($request, $row, $column, $position);
 	}

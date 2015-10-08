@@ -25,6 +25,8 @@ class ParscitRawCitationNlm30CitationSchemaFilterTest extends Nlm30CitationSchem
 	 * @covers ParscitRawCitationNlm30CitationSchemaFilter
 	 */
 	public function testExecute() {
+		$this->markTestSkipped('Unreliable web service.');
+
 		$testCitations = array(
 			array(
 				'testInput' => 'Sheril, R. D. (1956). The terrifying future: Contemplating color television. San Diego: Halstead.',

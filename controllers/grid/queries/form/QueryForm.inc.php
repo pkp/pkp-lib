@@ -215,7 +215,6 @@ class QueryForm extends Form {
 		$query = $this->getQuery();
 
 		$headNote = $query->getHeadNote();
-		$headNote->setDateModified(Core::getCurrentDate());
 		$headNote->setTitle($this->getData('subject'));
 		$headNote->setContents($this->getData('comment'));
 

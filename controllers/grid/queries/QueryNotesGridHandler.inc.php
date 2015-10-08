@@ -151,7 +151,7 @@ class QueryNotesGridHandler extends GridHandler {
 	 * @copydoc GridHandler::loadData()
 	 */
 	function loadData($request, $filter = null) {
-		return $this->getQuery()->getReplies(null, NOTE_ORDER_ID, SORT_DIRECTION_ASC);
+		return $this->getQuery()->getReplies(null, NOTE_ORDER_DATE_CREATED, SORT_DIRECTION_ASC);
 	}
 
 	//

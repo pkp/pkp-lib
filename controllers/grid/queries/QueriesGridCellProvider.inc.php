@@ -66,13 +66,14 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider {
 				$latestReply = $notes->next();
 				if ($latestReply && $latestReply->getId() != $headNote->getId()) {
 					$repliedUser = $latestReply->getUser();
-					return array('label' => $repliedUser->getUsername() . '<br />' . date('M/d', strtotime($latestReply->getDateCreated())));
+					return array('label' => ($repliedUser?$repliedUser->getUsername():'&mdash;') . '<br />' . date('M/d', strtotime($latestReply->getDateCreated())));
 				} else {
 					return array('label' => '-');
 				}
 			case 'closed':
 				return array('selected' => $element->getIsClosed(), 'disabled' => !$this->_canManage);
 		}
+		return parent::getTemplateVarsFromRowColumn($row, $column);
 	}
 
 	/**

@@ -113,7 +113,6 @@ class QueryNoteForm extends Form {
 		$noteDao = DAORegistry::getDAO('NoteDAO');
 		$note = $noteDao->getById($this->_noteId);
 		$note->setUserId($request->getUser()->getId());
-		$note->setDateModified(Core::getCurrentDate());
 		$note->setContents($this->getData('comment'));
 		$noteDao->updateObject($note);
 

@@ -191,12 +191,13 @@ class NoteDAO extends DAO {
 	 * @return int Note Id
 	 */
 	function insertObject($note) {
+		if (!$note->getDateCreated()) $note->setDateCreated(Core::getCurrentDate());
 		$this->update(
 			sprintf('INSERT INTO notes
 				(user_id, date_created, date_modified, title, contents, assoc_type, assoc_id)
 				VALUES
 				(?, %s, %s, ?, ?, ?, ?)',
-				$this->datetimeToDB(Core::getCurrentDate()),
+				$this->datetimeToDB($note->getDateCreated()),
 				$this->datetimeToDB(Core::getCurrentDate())
 			),
 			array(
@@ -228,7 +229,7 @@ class NoteDAO extends DAO {
 					assoc_type = ?,
 					assoc_id = ?
 				WHERE	note_id = ?',
-				$this->datetimeToDB(Core::getCurrentDate()),
+				$this->datetimeToDB($note->getDateCreated()),
 				$this->datetimeToDB(Core::getCurrentDate())
 			),
 			array(

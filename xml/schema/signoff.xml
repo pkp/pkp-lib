@@ -36,13 +36,21 @@
 		<field name="user_id" type="I8">
 			<NOTNULL/>
 		</field>
-		<field name="file_id" type="I8" />
-		<field name="file_revision" type="I8" />
+		<field name="file_id" type="I8">
+			<!-- NOTE: This is no longer used since OJS 3.0a / OMP 1.2 -->
+		</field>
+		<field name="file_revision" type="I8">
+			<!-- NOTE: This is no longer used since OJS 3.0a / OMP 1.2 -->
+		</field>
 		<field name="date_notified" type="T"/>
 		<field name="date_underway" type="T"/>
 		<field name="date_completed" type="T"/>
-		<field name="date_acknowledged" type="T"/>
-		<field name="user_group_id" type="I8" />
+		<field name="date_acknowledged" type="T">
+			<!-- NOTE: This is no longer used since OJS 3.0a / OMP 1.2 -->
+		</field>
+		<field name="user_group_id" type="I8">
+			<!-- NOTE: This is no longer used since OJS 3.0a / OMP 1.2 -->
+		</field>
 		<descr>Signoffs</descr>
 		<index name="signoff_symbolic">
 			<col>assoc_type</col>

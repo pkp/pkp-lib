@@ -103,6 +103,7 @@ class UserAccessibleWorkflowStageRequiredPolicy extends AuthorizationPolicy {
 						// and the requested workflow stage must be assigned to
 						// them in the context settings.
 						import('lib.pkp.classes.security.authorization.internal.SectionAssignmentRule');
+						$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 						if (SectionAssignmentRule::effect($contextId, $submission->getSectionId(), $userId) &&
 						$userGroupDao->userAssignmentExists($contextId, $userId, $stageId)) {
 							$accessibleStageRoles[] = $roleId;

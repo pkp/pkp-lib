@@ -27,7 +27,7 @@
 		</ul>
 		{foreach from=$representations item=representation}
 			<div id="representation-{$representation->getId()|escape}">
-				{url|assign:queriesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.queries.RepresentationQueriesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId representationId=$representation->getId() escape=false}
+				{url|assign:queriesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.queries.QueriesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId escape=false}
 				{load_url_in_div id="queriesGrid-"|concat:$representation->getId() url=$queriesGridUrl}
 			</div>
 		{/foreach}

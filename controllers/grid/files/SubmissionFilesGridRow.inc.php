@@ -25,10 +25,10 @@ class SubmissionFilesGridRow extends GridRow {
 
 	/**
 	 * Constructor
-	 * @param $capabilities int Bitfield of FILE_GRID_... constants
+	 * @param $capabilities FilesGridCapabilities
 	 * @param $stageId int Stage ID (optional)
 	 */
-	function SubmissionFilesGridRow($capabilities = 0, $stageId = null) {
+	function SubmissionFilesGridRow($capabilities = null, $stageId = null) {
 		$this->_capabilities = $capabilities;
 		$this->_stageId = $stageId;
 		parent::GridRow();

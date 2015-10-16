@@ -444,36 +444,21 @@ class QueriesGridHandler extends GridHandler {
 			$query->getId()
 		);
 		$queryForm->readInputData();
+
 		if ($queryForm->validate()) {
 			$queryForm->execute($request);
-
-			if(!isset($query)) {
-				// New added query action notification content.
-				$notificationContent = __('notification.addedQuery');
-			} else {
-				// Query edit action notification content.
-				$notificationContent = __('notification.editedQuery');
-			}
-
-			// Create trivial notification.
-			$currentUser = $request->getUser();
-			$notificationMgr = new NotificationManager();
-			$notificationMgr->createTrivialNotification($currentUser->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => $notificationContent));
-
-			// Render the row into a JSON response
 			return DAO::getDataChangedEvent($query->getId());
-		} else {
-			return new JSONMessage(
-				true,
-				$queryForm->fetch(
-					$request,
-					array_merge(
-						$this->getRequestArgs(),
-						array('queryId' => $query->getId())
-					)
-				)
-			);
 		}
+		return new JSONMessage(
+			true,
+			$queryForm->fetch(
+				$request,
+				array_merge(
+					$this->getRequestArgs(),
+					array('queryId' => $query->getId())
+				)
+			)
+		);
 	}
 }
 

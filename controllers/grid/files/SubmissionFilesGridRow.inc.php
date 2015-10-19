@@ -86,22 +86,22 @@ class SubmissionFilesGridRow extends GridRow {
 		assert(is_a($submissionFile, 'SubmissionFile'));
 
 		// File grid row actions:
-		// 1) Delete file action.
-		if ($this->canDelete()) {
-			import('lib.pkp.controllers.api.file.linkAction.DeleteFileLinkAction');
-			$this->addAction(new DeleteFileLinkAction($request, $submissionFile, $this->getStageId()));
-		}
-
-		// 2) Information center action.
+		// 1) Information center action.
 		if ($this->canViewNotes()) {
 			import('lib.pkp.controllers.informationCenter.linkAction.FileInfoCenterLinkAction');
 			$this->addAction(new FileInfoCenterLinkAction($request, $submissionFile, $this->getStageId()));
 		}
 
-		// 3) Edit metadata action.
+		// 2) Edit metadata action.
 		if ($this->canEdit()) {
 			import('lib.pkp.controllers.api.file.linkAction.EditFileLinkAction');
 			$this->addAction(new EditFileLinkAction($request, $submissionFile, $this->getStageId()));
+		}
+
+		// 3) Delete file action.
+		if ($this->canDelete()) {
+			import('lib.pkp.controllers.api.file.linkAction.DeleteFileLinkAction');
+			$this->addAction(new DeleteFileLinkAction($request, $submissionFile, $this->getStageId()));
 		}
 	}
 }

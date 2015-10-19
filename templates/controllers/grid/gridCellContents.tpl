@@ -23,7 +23,9 @@
 {/if}
 
 {* Handle escaping as needed *}
-{if $column->hasFlag('html')}
+{if $column->hasFlag('anyhtml')}
+	{* Any HTML is allowed; do not escape anything *}
+{elseif $column->hasFlag('html')}
 	{* Limited HTML is allowed *}
 	{assign var=_label value=$_label|strip_unsafe_html}
 {else}

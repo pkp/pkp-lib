@@ -125,7 +125,7 @@
 	 */
 	$.pkp.controllers.UploaderHandler.DEFAULT_PROPERTIES_ = {
 		// General settings
-		runtimes: 'html5, flash, silverlight',
+		runtimes: 'html5,flash,silverlight,html4',
 		max_file_size: $.pkp.cons.UPLOAD_MAX_FILESIZE,
 		multi_selection: false,
 		file_data_name: 'uploadedFile',

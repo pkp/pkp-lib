@@ -244,8 +244,7 @@ class PKPLoginHandler extends Handler {
 
 		$templateMgr = TemplateManager::getManager($request);
 
-		$hash = Validation::generatePasswordResetHash($user->getId());
-		if ($hash == false || $confirmHash != $hash) {
+		if (!Validation::verifyPasswordResetHash($user->getId(), $confirmHash)) {
 			$templateMgr->assign('errorMsg', 'user.login.lostPassword.invalidHash');
 			$templateMgr->assign('backLink', $request->url(null, null, 'lostPassword'));
 			$templateMgr->assign('backLinkLabel',  'user.login.resetPassword');

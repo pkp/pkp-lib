@@ -50,6 +50,8 @@ class Validation {
 			if ($user->getAuthId()) {
 				$authDao = DAORegistry::getDAO('AuthSourceDAO');
 				$auth = $authDao->getPlugin($user->getAuthId());
+			} else {
+				$auth = null;
 			}
 
 			if ($auth) {

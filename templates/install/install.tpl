@@ -121,13 +121,6 @@
 		{/fbvFormArea}
 	{/if}{* !$skipFilesDirSection *}
 
-	<!-- Security configuration -->
-	{fbvFormArea id="securityFormArea" title="installer.securitySettings"}
-		{fbvFormSection label="installer.encryption" description="installer.encryptionInstructions"}
-			{fbvElement type="select" id="encryption" from=$encryptionOptions selected=$encryption translate=false size=$fbvStyles.size.SMALL}
-		{/fbvFormSection}
-	{/fbvFormArea}
-
 	<!-- Database configuration -->
 	{fbvFormArea id="databaseSettingsFormArea" title="installer.databaseSettings"}
 		<p>{translate key="installer.databaseSettingsInstructions"}</p>

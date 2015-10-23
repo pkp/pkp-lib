@@ -228,9 +228,6 @@ class PKPInstall extends Installer {
 				'files' => array(
 					'files_dir' => $this->getParam('filesDir')
 				),
-				'security' => array(
-					'encryption' => $this->getParam('encryption')
-				),
 				'oai' => array(
 					'repository_id' => $this->getParam('oaiRepositoryId')
 				)

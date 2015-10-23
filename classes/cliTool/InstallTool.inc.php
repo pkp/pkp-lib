@@ -100,10 +100,6 @@ class InstallTool extends CommandLineTool {
 		$this->printTitle('installer.fileSettings');
 		$this->readParam('filesDir', 'installer.filesDir');
 
-		// Security Settings
-		$this->printTitle('installer.securitySettings');
-		$this->readParamOptions('encryption', 'installer.encryption', $installForm->supportedEncryptionAlgorithms, 'md5');
-
 		// Administrator Account
 		$this->printTitle('installer.administratorAccount');
 		$this->readParam('adminUsername', 'user.username');

@@ -33,15 +33,12 @@
 	<message key="installer.databasePassword">Password</message>
 	<message key="installer.databaseSettings">Database Settings</message>
 	<message key="installer.databaseUsername">Username</message>
-	<message key="installer.encryptionInstructions">SHA1 is recommended.</message>
-	<message key="installer.encryption">Password encryption algorithm</message>
 	<message key="installer.filesDir">Directory for uploads</message>
 	<message key="installer.fileSettings">File Settings</message>
 	<message key="installer.form.clientCharsetRequired">A client character set must be selected.</message>
 	<message key="installer.form.databaseDriverRequired">A database driver must be selected.</message>
 	<message key="installer.form.databaseNameRequired">The database name is required.</message>
 	<message key="installer.form.emailRequired">A valid email address for the administrator account is required.</message>
-	<message key="installer.form.encryptionRequired">The algorithm to use for encrypting user passwords must be selected.</message>
 	<message key="installer.form.filesDirRequired">The directory to be used for storing uploaded files is required.</message>
 	<message key="installer.form.localeRequired">A locale must be selected.</message>
 	<message key="installer.form.passwordRequired">A password for the administrator account is required.</message>
@@ -66,7 +63,6 @@
 	<message key="installer.oaiRepositoryId">Repository Identifier</message>
 	<message key="installer.publicFilesDirError">The public files directory does not exist or is not writable.</message>
 	<message key="installer.releaseNotes">Release Notes</message>
-	<message key="installer.securitySettings">Security Settings</message>
 	<message key="installer.preInstallationInstructionsTitle">Pre-Installation Steps</message>
 	<message key="installer.preInstallationInstructions"><![CDATA[
 		<p>1. The following files and directories (and their contents) must be made writable:</p>

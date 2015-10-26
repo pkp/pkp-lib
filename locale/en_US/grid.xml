@@ -40,6 +40,7 @@
 	<message key="grid.action.edit">Edit</message>
 	<message key="grid.action.approve">Approve</message>
 	<message key="grid.action.disapprove">Disapprove</message>
+	<message key="grid.action.setApproval">Set Approval</message>
 	<message key="grid.action.moreInformation">More Information</message>
 	<message key="grid.action.restoreDefaults">Restore Defaults</message>
 	<message key="grid.action.restoreDefaults.confirm">Are you sure you wish to restore the defaults?</message>

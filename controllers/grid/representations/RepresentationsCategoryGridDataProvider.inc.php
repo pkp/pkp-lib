@@ -21,6 +21,7 @@ class RepresentationsCategoryGridDataProvider extends SubmissionFilesCategoryGri
 	 * Constructor
 	 */
 	function RepresentationsCategoryGridDataProvider() {
+		import('lib.pkp.classes.submission.SubmissionFile');
 		parent::SubmissionFilesCategoryGridDataProvider(SUBMISSION_FILE_PROOF);
 		$this->setStageId(WORKFLOW_STAGE_ID_PRODUCTION);
 	}
@@ -69,16 +70,16 @@ class RepresentationsCategoryGridDataProvider extends SubmissionFilesCategoryGri
 	 */
 	function loadData($request, $filter = null) {
 		$submission = $this->getSubmission();
-		$publicationFormatDao = DAORegistry::getDAO('PublicationFormatDAO');
-		$publicationFormats = $publicationFormatDao->getBySubmissionId($submission->getId());
-		return $publicationFormats->toAssociativeArray();
+		$representationDao = Application::getRepresentationDAO();
+		$representations = $representationDao->getBySubmissionId($submission->getId());
+		return $representations->toAssociativeArray();
 	}
 
 	/**
 	 * @copydoc GridDataProvider::loadData()
 	 */
 	function loadCategoryData($request, $categoryDataElement, $filter = null) {
-		assert(is_a($categoryDataElement, 'PublicationFormat'));
+		assert(is_a($categoryDataElement, 'Representation'));
 
 		// Retrieve all submission files for the given file stage.
 		$submission = $this->getSubmission();

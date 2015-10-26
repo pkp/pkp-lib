@@ -85,6 +85,22 @@ class Representation extends DataObject {
 	}
 
 	/**
+	 * Determines if a representation is approved or not.
+	 * @return boolean
+	 */
+	function getIsApproved() {
+		return (boolean) $this->getData('isApproved');
+	}
+
+	/**
+	 * Sets whether a representation is approved or not.
+	 * @param boolean $isApproved
+	 */
+	function setIsApproved($isApproved) {
+		return $this->setData('isApproved', $isApproved);
+	}
+
+	/**
 	 * Get stored public ID of the submission.
 	 * @param $pubIdType string One of the NLM pub-id-type values or
 	 * 'other::something' if not part of the official NLM list

@@ -82,7 +82,7 @@
 	 *
 	 * @param {HTMLElement} context The context in which this function was called
 	 * @param {Event} event The event triggered on this handler
-	 * @param {object} options The options with which to open this handler
+	 * @param {Object} options The options with which to open this handler
 	 */
 	$.pkp.controllers.HelpPanelHandler.prototype.openPanel = function(context, event, options) {
 

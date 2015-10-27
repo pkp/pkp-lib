@@ -114,4 +114,8 @@
 	<message key="grid.action.editQuery">Edit Discussion</message>
 	<message key="editor.submission.query.manageQueryNoteFilesDescription">Files can be attached for inclusion in this discussion from the list below.</message>
 	<message key="editor.submission.selectedReviewer">Selected Reviewer</message>
+	<message key="editor.submission.proofreading.approveProof">Approve Proof</message>
+	<message key="editor.submission.proofreading.revokeProofApproval">Revoke Proof Approval</message>
+	<message key="editor.submission.proofreading.confirmCompletion">Approve this proof to indicate proofreading is complete and the file is ready to be published.</message>
+	<message key="editor.submission.proofreading.confirmRemoveCompletion">Revoke approval for this proof to indicate proofreading is no longer complete and the file is not ready to be published.</message>
 </locale>

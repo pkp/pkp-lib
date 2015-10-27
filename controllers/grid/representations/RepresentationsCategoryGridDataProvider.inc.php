@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file controllers/grid/files/final/ProofFilesGridDataProvider.inc.php
+ * @file controllers/grid/representations/RepresentationsCategoryGridDataProvider.inc.php
  *
  * Copyright (c) 2014-2015 Simon Fraser University Library
  * Copyright (c) 2003-2015 John Willinsky
@@ -14,14 +14,16 @@
  */
 
 
-import('lib.pkp.controllers.grid.files.SubmissionFilesGridDataProvider');
+import('lib.pkp.controllers.grid.files.SubmissionFilesCategoryGridDataProvider');
 
-class ProofFilesGridDataProvider extends SubmissionFilesGridDataProvider {
+class RepresentationsCategoryGridDataProvider extends SubmissionFilesCategoryGridDataProvider {
 	/**
 	 * Constructor
 	 */
-	function ProofFilesGridDataProvider() {
-		parent::SubmissionFilesGridDataProvider(SUBMISSION_FILE_PROOF);
+	function RepresentationsCategoryGridDataProvider() {
+		import('lib.pkp.classes.submission.SubmissionFile');
+		parent::SubmissionFilesCategoryGridDataProvider(SUBMISSION_FILE_PROOF);
+		$this->setStageId(WORKFLOW_STAGE_ID_PRODUCTION);
 	}
 
 
@@ -34,6 +36,14 @@ class ProofFilesGridDataProvider extends SubmissionFilesGridDataProvider {
 	 */
 	function getRepresentation() {
 		return $this->getAuthorizedContextObject(ASSOC_TYPE_REPRESENTATION);
+	}
+
+	/**
+	 * Get the submission associated with this grid
+	 * @return Submission
+	 */
+	function getSubmission() {
+		return $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 	}
 
 
@@ -56,45 +66,32 @@ class ProofFilesGridDataProvider extends SubmissionFilesGridDataProvider {
 	}
 
 	/**
+	 * @see GridHandler::loadData
+	 */
+	function loadData($request, $filter = null) {
+		$submission = $this->getSubmission();
+		$representationDao = Application::getRepresentationDAO();
+		$representations = $representationDao->getBySubmissionId($submission->getId());
+		return $representations->toAssociativeArray();
+	}
+
+	/**
 	 * @copydoc GridDataProvider::loadData()
 	 */
-	function loadData($filter = array()) {
+	function loadCategoryData($request, $categoryDataElement, $filter = null) {
+		assert(is_a($categoryDataElement, 'Representation'));
+
 		// Retrieve all submission files for the given file stage.
 		$submission = $this->getSubmission();
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 		$submissionFiles = $submissionFileDao->getLatestRevisionsByAssocId(
 			ASSOC_TYPE_REPRESENTATION,
-			$this->getRepresentation()->getId(),
+			$categoryDataElement->getId(),
 			$submission->getId(),
 			$this->getFileStage()
 		);
 
-		return $this->prepareSubmissionFileData($submissionFiles, $this->_viewableOnly, $filter);
-	}
-
-	/**
-	 * @copydoc FilesGridDataProvider::getSelectAction()
-	 */
-	function getSelectAction($request) {
-		import('lib.pkp.controllers.grid.files.fileList.linkAction.SelectFilesLinkAction');
-		return new SelectFilesLinkAction(
-			$request,
-			$this->getRequestArgs(),
-			__('editor.submission.selectFiles')
-		);
-	}
-
-	/**
-	 * @copydoc FilesGridDataProvider::getAddFileAction()
-	 */
-	function getAddFileAction($request) {
-		$submission = $this->getSubmission();
-		import('lib.pkp.controllers.api.file.linkAction.AddFileLinkAction');
-		return new AddFileLinkAction(
-			$request, $submission->getId(), $this->getStageId(),
-			$this->getUploaderRoles(), null, $this->getFileStage(),
-			ASSOC_TYPE_REPRESENTATION, $this->getRepresentation()->getId()
-		);
+		return $this->getDataProvider()->prepareSubmissionFileData($submissionFiles, false, $filter);
 	}
 }
 

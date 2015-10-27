@@ -57,6 +57,9 @@ class QueryForm extends Form {
 			$queryDao->insertObject($query);
 			$queryDao->resequence($assocType, $assocId);
 
+			// Add the current user as a participant by default.
+			$queryDao->insertParticipant($query->getId(), $request->getUser()->getId());
+
 			// Create a head note
 			$noteDao = DAORegistry::getDAO('NoteDAO');
 			$headNote = $noteDao->newDataObject();

@@ -61,11 +61,6 @@
 				'settings are required in a LinkActionHandler'].join(''));
 		}
 
-		// Bind the handler for image preview.
-		if ($handledElement.hasClass('image')) {
-			this.bind('mouseover', this.imagePreviewHandler_);
-		}
-
 		// Configure the callback called when the link
 		// action request finishes.
 		options.actionRequestOptions.finishCallback =
@@ -147,32 +142,6 @@
 	$.pkp.controllers.linkAction.LinkActionHandler.prototype.
 			getUrl = function() {
 		return this.linkActionRequest_.getUrl();
-	};
-
-
-	//
-	// Private methods
-	//
-	/**
-	 * Preview an image when hovering over its link in the grid.
-	 *
-	 * @private
-	 *
-	 * @param {HTMLElement} sourceElement The element that
-	 *  issued the event.
-	 * @param {Event} event The triggering event.
-	 */
-	$.pkp.controllers.linkAction.LinkActionHandler.prototype.
-			imagePreviewHandler_ = function(sourceElement, event) {
-
-		// Use the jQuery imagepreview plug-in to show the image.
-		var $sourceElement = $(sourceElement);
-		$sourceElement.imgPreview({
-			preloadImages: false,
-			imgCSS: {
-				width: '300px'
-			}
-		});
 	};
 
 

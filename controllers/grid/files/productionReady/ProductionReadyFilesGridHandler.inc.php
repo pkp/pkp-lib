@@ -70,7 +70,7 @@ class ProductionReadyFilesGridHandler extends SubmissionFilesGridHandler {
 		foreach ($uploaderUserGroupIds as $userGroupId) {
 			$userGroup = $userGroupDao->getById($userGroupId);
 			assert(is_a($userGroup, 'UserGroup'));
-			$this->addColumn(new UploaderUserGroupGridColumn($userGroup));
+			$this->addColumn(new UploaderUserGroupGridColumn($userGroup, array('alignment' => COLUMN_ALIGNMENT_CENTER)));
 		}
 	}
 }

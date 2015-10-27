@@ -1307,3 +1307,9 @@ jQueryObject.prototype.wrapAll = function(wrappingElement) {};
  * @return {jQueryObject}
  */
 jQueryObject.prototype.wrapInner = function(arg1) {};
+
+var define = {amd: null};
+
+var exports = {};
+var module = {};
+var require = {};

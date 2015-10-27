@@ -138,12 +138,6 @@ jQuery.validator.prototype.defaultShowErrors = function() {};
 jQuery.validator.prototype.settings = {};
 
 /**
- * @param {Object=} userDefinedSettings
- * @return {jQueryObject}
- */
-jQueryObject.prototype.imgPreview = function(userDefinedSettings) {};
-
-/**
  * @param {string} param1
  * @param {string|boolean|Object=} param2
  */

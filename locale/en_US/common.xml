@@ -141,6 +141,7 @@
 	<message key="common.fileUploaderError">The system file uploader is loading. If it doesn't appear it is likely that none of its runtimes is supported by this browser. Please, contact administration for support.</message>
 	<message key="common.go">Go</message>
 	<message key="common.height">Height</message>
+	<message key="common.homepageNavigationLabel">Home</message>
 	<message key="common.homePageHeaderLogo.altText">Homepage Header Logo</message>
 	<message key="common.hour">Hour</message>
 	<message key="common.id">ID</message>

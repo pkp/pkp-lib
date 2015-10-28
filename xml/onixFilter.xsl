@@ -31,14 +31,16 @@
 						define the test you want to use. 
 					-->
 
-					<xsl:when test="$listName='List7'"> <!--  ONIX list for formats -->
+					<xsl:when test="$listName='List7'"><!--  ONIX list for formats -->
 						<xsl:if test="@value = 'AA' or @value = 'BC' or @value = 'BB' or @value = 'DA' or @value = 'EA'">
-							<xsl:call-template name="onixFilterOutput" />
+							<xsl:call-template name="onixFilterOutputWithCode" />
 						</xsl:if>
 					</xsl:when>
-
+					<xsl:when test="$listName='List55'"><!-- Don't include code number in dates -->
+						<xsl:call-template name="onixFilterOutputWithoutCode" />
+					</xsl:when>
 					<xsl:otherwise> <!-- define a case for all lists that are not filtered (yet) -->
-						<xsl:call-template name="onixFilterOutput" />
+						<xsl:call-template name="onixFilterOutputWithCode" />
 					</xsl:otherwise>
 				</xsl:choose>
 			</xsl:for-each>
@@ -46,10 +48,17 @@
 	</xsl:template>
 
 	<!-- recreate the ONIX node with the appropriate content.  Note: this removes the extraneous xs:documentation element -->
-	<xsl:template name="onixFilterOutput">
+	<xsl:template name="onixFilterOutputWithCode">
 		<xs:enumeration><xsl:attribute name="value"><xsl:value-of select="@value"/></xsl:attribute>
 			<xs:documentation>
 				<xsl:value-of select="xs:annotation/xs:documentation[position()=1]"/> (<xsl:value-of select="@value"/>)
+			</xs:documentation>
+		</xs:enumeration>
+	</xsl:template>
+	<xsl:template name="onixFilterOutputWithoutCode">
+		<xs:enumeration><xsl:attribute name="value"><xsl:value-of select="@value"/></xsl:attribute>
+			<xs:documentation>
+				<xsl:value-of select="xs:annotation/xs:documentation[position()=1]"/>
 			</xs:documentation>
 		</xs:enumeration>
 	</xsl:template>

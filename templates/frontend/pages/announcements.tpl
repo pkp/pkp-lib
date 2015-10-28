@@ -12,9 +12,7 @@
 {include file="common/frontend/header.tpl" pageTitle="announcement.announcements"}
 
 <div class="page page_announcements">
-	<h1 class="page_title">
-		{translate key="announcement.announcements"}
-	</h1>
+	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="announcement.announcements"}
 
 	<ul class="announcements">
 		{foreach from=$announcements item=announcement}

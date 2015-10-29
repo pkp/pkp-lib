@@ -218,7 +218,6 @@
 	<message key="manager.announcements.datePublish">Pubblicato</message>
 	<message key="manager.emails.details">Dettagli del template</message>
 	<message key="manager.masthead.title">Redazione</message>
-	<message key="manager.navigation">Navigazione</message>
 	<message key="manager.reviewerSearch.searchByName.short">Cerca per nome</message>
 	<message key="manager.emails.addEmail">Aggiungi un modello email</message>
 	<message key="manager.emails.data">Modello per i dati del messaggio</message>

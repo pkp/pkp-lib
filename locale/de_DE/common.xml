@@ -34,7 +34,6 @@
 	<message key="announcement.postedOn">Veröffentlicht am {$postDate}</message>
 	<message key="announcement.viewLink">Weiter…</message>
 	<message key="announcement.view">Mitteilungen ansehen</message>
-	<message key="common.navigation">Navigation</message>
 	<message key="common.tasks">Aufgaben</message>
 	<message key="common.list">Liste</message>
 	<message key="common.grid">Grid</message>

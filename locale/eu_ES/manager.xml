@@ -222,7 +222,6 @@
 	<message key="manager.emails.resetAll.message">Txantiloi guztiak berrezartzen badituzu, posta elektronikoaren txantiloi guztien aldaketak galduko dira. Eragiketa baieztatu nahi duzu?</message>
 	<message key="manager.emails.reset.message">Txantiloi hau berrezartzen baduzu, mezuko datu guztiak berrezarriko dira lehenetsitako balioetan, eta aldaketa guztiak galduko dira. Eragiketa baieztatu nahi duzu?</message>
 	<message key="manager.masthead.title">Idazpurua</message>
-	<message key="manager.navigation">Nabigazioa</message>
 	<message key="manager.reviewerSearch.searchByName.short">Izenaren araberako bilaketa</message>
 	<message key="manager.reviewerSearch.form.instructions">Erabili beheko inprimakia bilatu nahi dituzun hitzentzako gehienezko balioak ezartzeko. Inprimakiak eremu horietako batez besteko kalkulatuak ditu.</message>
 	<message key="manager.reviewerSearch.form.interests.instructions">Sartu berrikuslearen interesak, komek bananduta...</message>

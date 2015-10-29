@@ -405,7 +405,6 @@
 	<message key="common.currentStyleSheet">Folha de estilos atual</message>
 	<message key="about.description">Descrição</message>
 	<message key="about.guidelines">Diretrizes</message>
-	<message key="common.navigation">Navegação</message>
 	<message key="common.tasks">Tarefas</message>
 	<message key="common.list">Lista</message>
 	<message key="common.grid">Rede</message>

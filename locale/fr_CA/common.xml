@@ -375,7 +375,6 @@
 	<message key="about.description">Description</message>
 	<message key="about.guidelines">Guides</message>
 	<message key="announcement.postedOn">Publié le {$postDate}</message>
-	<message key="common.navigation">Navigation</message>
 	<message key="common.tasks">Tâches</message>
 	<message key="common.list">Liste</message>
 	<message key="common.grid">Grille</message>

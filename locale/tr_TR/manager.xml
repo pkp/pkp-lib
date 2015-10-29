@@ -227,7 +227,6 @@
 	<message key="manager.emails.resetAll.message">If you reset all templates, all modifications to the email templates will be lost.  Do you want to confirm this operation?</message>
 	<message key="manager.emails.reset.message">If you reset this template, all message data will be reset to its default value, losing all modifications.  Do you want to confirm this operation?</message>
 	<message key="manager.masthead.title">Yönetici Listesi</message>
-	<message key="manager.navigation">Yön Bulma</message>
 	<message key="manager.reviewerSearch.searchByName.short">Ada Göre Ara</message>
 	<message key="manager.reviewerSearch.form.instructions">Use the form below to set the maximum values for the terms you wish to search for.  The form is pre-populated with the calculated averages of those fields.</message>
 	<message key="manager.reviewerSearch.form.interests.instructions">Enter reviewer interests, separated by commas...</message>

@@ -34,45 +34,6 @@
 	color: @text-light-rgba;
 }
 
-// Hide the extra title row in the website > navigation > footer grid
-#footerGridContainer .pkp_controllers_grid thead {
-	display: none;
-}
-
-// Edit/Trash icons in website > navigation > footer grid
-#footerGridContainer .gridRow.category .row_actions {
-	position: absolute;
-	right: 1em;
-}
-
-#footerGridContainer .pkp_linkaction_editFooterCategory:after {
-	&:extend(.fa);
-	content: @fa-var-pencil;
-	float: right;
-	width: 24px;
-	line-height: 24px;
-	margin-right: 48px;
-}
-
-#footerGridContainer .pkp_linkaction_deleteFooterCategory {
-	color: @no;
-
-	&:hover,
-	&:focus {
-		color: @no-lift;
-	}
-
-	&:after {
-		content: @fa-var-times;
-	}
-}
-
-// Makes height similar to footer grid category rows which sit next to it
-#socialMediaGridContainer th {
-	padding-top: 12px;
-	padding-bottom: 12px;
-}
-
 #announcementTypeGridContainer {
 	margin-top: @double;
 }

@@ -287,6 +287,8 @@
 	<message key="email.recipient">Recipient</message>
 	<message key="email.recipients">Recipients</message>
 	<message key="email.sender">Sender</message>
+	<message key="email.senderName">Sender Name</message>
+	<message key="email.senderEmail">Sender Email</message>
 	<message key="email.send">Send</message>
 	<message key="email.skip">Skip Email</message>
 	<message key="email.subject">Subject</message>

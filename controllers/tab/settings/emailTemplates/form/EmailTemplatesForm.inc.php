@@ -43,7 +43,7 @@ class EmailTemplatesForm extends ContextSettingsForm {
 		$context = $request->getContext();
 		$dispatcher = $request->getDispatcher();
 		return parent::fetch($request, array(
-			'envelopeSenderDisabled' => !Config::getVar('email', 'allow_envelope_sender'),
+			'envelopeSenderDisabled' => !Config::getVar('email', 'allow_envelope_sender') || Config::getVar('email', 'force_default_envelope_sender') && Config::getVar('email', 'default_envelope_sender'),
 			'emailVariables' => array(
 				'contextName' => $context->getLocalizedName(),
 				'senderName' => __('email.senderName'),

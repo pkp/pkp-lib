@@ -110,7 +110,7 @@ abstract class RepresentationsGridHandler extends CategoryGridHandler {
 	 */
 	function getRowInstance() {
 		return new SubmissionFilesGridRow(
-			new FilesGridCapabilities(FILE_GRID_ADD | FILE_GRID_DELETE | FILE_GRID_MANAGE | FILE_GRID_EDIT),
+			new FilesGridCapabilities(FILE_GRID_ADD | FILE_GRID_DELETE | FILE_GRID_MANAGE | FILE_GRID_EDIT | FILE_GRID_VIEW_NOTES),
 			WORKFLOW_STAGE_ID_PRODUCTION
 		);
 	}

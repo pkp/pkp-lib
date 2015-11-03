@@ -13,10 +13,10 @@
 {/if}
 
 <div class="page page_information">
-	<h1 class="page_title">
-		{translate key=$pageTitle}
-	</h1>
-	{$content|nl2br}
+	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey=$pageTitle}
+	<div class="description">
+		{$content}
+	</div>
 </div>
 
 {if !$contentOnly}

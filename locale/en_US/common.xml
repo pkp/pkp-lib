@@ -370,6 +370,8 @@
 	<message key="navigation.access"><![CDATA[Users &amp; Roles]]></message>
 	<message key="navigation.about">About</message>
 	<message key="navigation.admin">Administration</message>
+	<message key="navigation.breadcrumbLabel">You are here:</message>
+	<message key="navigation.breadcrumbSeparator">/</message>
 	<message key="navigation.tools">Tools</message>
 	<message key="navigation.tools.importExport">Import/Export</message>
 	<message key="navigation.tools.statistics">Statistics</message>

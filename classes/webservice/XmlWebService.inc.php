@@ -63,7 +63,9 @@ class XmlWebService extends WebService {
 	function &call(&$webServiceRequest) {
 		// Call the web service
 		$xmlResult = parent::call($webServiceRequest);
-
+		if (Config::getVar('debug', 'log_web_service_info')) {
+			error_log('Time: ' . date('c') . "\nRequest: " . print_r($webServiceRequest, true) . "\nResponse: " . print__r($xmlResult, true) . "\nLast response status: " . $this->_lastResponseStatus . "\n", 0);
+		}
 		// Catch web service errors
 		if (is_null($xmlResult)) return $xmlResult;
 

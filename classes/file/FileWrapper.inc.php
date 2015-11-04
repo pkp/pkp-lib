@@ -124,7 +124,9 @@ class FileWrapper {
 			}
 
 			$application = Application::getApplication();
-			if (!Config::getVar('general', 'installed') || defined('RUNNING_UPGRADE')) {
+			$request = $application->getRequest();
+			$router = $request->getRouter();
+			if (!Config::getVar('general', 'installed') || defined('RUNNING_UPGRADE') || !$router) {
 				$userAgent = $application->getName() . '/?';
 			} else {
 				$currentVersion =& $application->getCurrentVersion();

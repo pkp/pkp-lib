@@ -135,6 +135,13 @@ class PKPLocale {
 		}
 
 		AppLocale::registerLocaleFile($locale, "lib/pkp/locale/$locale/common.xml");
+
+		// Set site time zone
+		// Starting from PHP 5.3.0 PHP will throw an E_WARNING if the default
+		// time zone is not set and date/time functions are used
+		// http://pl.php.net/manual/en/function.date-default-timezone-set.php
+		$timeZone = self::getTimeZone();
+		date_default_timezone_set($timeZone);
 	}
 
 	/**

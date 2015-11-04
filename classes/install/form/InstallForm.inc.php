@@ -144,6 +144,7 @@ class InstallForm extends MaintenanceForm {
 			'databaseName' => Application::getName(),
 			'createDatabase' => 1,
 			'oaiRepositoryId' => Application::getName() . '.' . $this->_request->getServerHost(),
+			'enableBeacon' => true,
 		);
 	}
 
@@ -168,7 +169,8 @@ class InstallForm extends MaintenanceForm {
 			'databasePassword',
 			'databaseName',
 			'createDatabase',
-			'oaiRepositoryId'
+			'oaiRepositoryId',
+			'enableBeacon',
 		));
 
 		if ($this->getData('additionalLocales') == null || !is_array($this->getData('additionalLocales'))) {

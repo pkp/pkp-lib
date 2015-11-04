@@ -122,16 +122,25 @@ class FileWrapper {
 			} else {
 				$scheme = null;
 			}
+
+			$application = Application::getApplication();
+			if (!Config::getVar('general', 'installed') || defined('RUNNING_UPGRADE')) {
+				$userAgent = $application->getName() . '/?';
+			} else {
+				$currentVersion =& $application->getCurrentVersion();
+				$userAgent = $application->getName() . '/' . $currentVersion->getVersionString();
+			}
+
 			switch ($scheme) {
 				case 'http':
 					import('lib.pkp.classes.file.wrappers.HTTPFileWrapper');
 					$wrapper = new HTTPFileWrapper($source, $info);
-					$wrapper->addHeader('User-Agent', 'PKP/2.x');
+					$wrapper->addHeader('User-Agent', $userAgent);
 					break;
 				case 'https':
 					import('lib.pkp.classes.file.wrappers.HTTPSFileWrapper');
 					$wrapper = new HTTPSFileWrapper($source, $info);
-					$wrapper->addHeader('User-Agent', 'PKP/2.x');
+					$wrapper->addHeader('User-Agent', $userAgent);
 					break;
 				case 'ftp':
 					import('lib.pkp.classes.file.wrappers.FTPFileWrapper');

@@ -126,6 +126,8 @@ class InstallTool extends CommandLineTool {
 		$this->printTitle('installer.miscSettings');
 		$this->readParam('oaiRepositoryId', 'installer.oaiRepositoryId');
 
+		$this->readParamBoolean('enableBeacon', 'installer.beacon.enable', 'Y');
+
 		printf("\n*** ");
 	}
 

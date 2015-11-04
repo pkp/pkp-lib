@@ -150,7 +150,13 @@
 		{/fbvFormSection}
 	{/fbvFormArea}
 
-	{fbvFormButtons id="appearanceFormSubmit" submitText="common.save" hideCancel=true submitText="installer.installApplication"}
+	{fbvFormArea id="beaconArea" title="installer.beacon"}
+		{fbvFormSection list=true}
+			{fbvElement type="checkbox" id="enableBeacon" value="1" checked=$enableBeacon label="installer.beacon.enable"}
+		{/fbvFormSection}
+	{/fbvFormArea}
+
+	{fbvFormButtons id="installFormSubmit" submitText="common.save" hideCancel=true submitText="installer.installApplication"}
 </form>
 
 {include file="common/footer.tpl"}

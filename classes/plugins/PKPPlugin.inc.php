@@ -311,6 +311,16 @@ class PKPPlugin {
 	}
 
 	/**
+	 * Return whether the plug-in path is writable by the webserver
+	 *
+	 * @return string
+	 */
+	function getPluginPathIsWritable() {
+		$basePath = dirname(dirname(dirname(dirname(dirname(__FILE__)))));
+		return is_writable($basePath . '/' . $this->getPluginPath() . '/');
+	}
+
+	/**
 	 * Return the canonical template path of this plug-in
 	 *
 	 * @return string

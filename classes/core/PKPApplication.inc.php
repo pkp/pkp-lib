@@ -151,13 +151,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 
 		import('classes.i18n.AppLocale');
 
-		// Set site time zone
-		// Starting from PHP 5.3.0 PHP will throw an E_WARNING if the default
-		// time zone is not set and date/time functions are used
-		// http://pl.php.net/manual/en/function.date-default-timezone-set.php
-		$timeZone = AppLocale::getTimeZone();
-		date_default_timezone_set($timeZone);
-
 		String::init();
 
 		$microTime = Core::microtime();

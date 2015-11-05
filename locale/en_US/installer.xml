@@ -78,4 +78,6 @@
 		<p>2. A directory to store uploaded files must be created and made writable (see "File Settings" below).</p>]]>
 	</message>
 	<message key="installer.configureXSLMessage"><![CDATA[<p>Your PHP installation does not have the XSL module enabled. Either enable it, or configure the xslt_command parameter in your config.inc.php file.</p>]]></message>
+	<message key="installer.beacon">Beacon</message>
+	<message key="installer.beacon.enable">Provide a unique site ID and OAI base URL to PKP for statistics and security alert purposes only.</message>
 </locale>

@@ -18,6 +18,10 @@
 	<message key="plugins.generic.usageStats.settings.logParseRegex">Parse log files regex</message>
 	<message key="plugins.generic.usageStats.settings.logParseRegex.description">The default regex used can parse apache access log files in combined format and also the plugin's log files. If your access log files are in a different format you will have to insert a regex capable of parsing them and giving the expected values. See UsageStatsLoader::_getDataFromLogEntry() for more information.</message>
 	<message key="plugins.generic.usageStats.settings.saved">Usage statistics plugin settings saved</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyOption">Data privacy option</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyOption.requirements">In order to be able to activate this option, the file where the salt will be saved has to be defined: insert the section '[usageSats]' in the config.inc.php and define the variable 'salt_filepath' there. The file must exist and it must be writable for the web user. For further information on the requirements for this plugin option please see the plugin README file.</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyOption.description">Activate this option to use a plugin version that respects privacy legislations, i.e. that is logging hashed IP addresses, informs the users about the tracking and provides an opt-out option for users. Note: when using this option you will not be able to use the geo features of the plugin.</message>
+	<message key="plugins.generic.usageStats.settings.dataPrivacyCheckbox">Respect data privacy</message>
 	
 	<message key="plugins.generic.usageStats.usageStatsLoaderName">Usage statistics file loader task</message>
 	<message key="plugins.generic.usageStats.openFileFailed">The file {$file} could not be opened and was rejected.</message>
@@ -31,6 +35,11 @@
 	
 	<message key="plugins.reports.usageStats.report.displayName">OMP usage statistics report</message>
 	<message key="plugins.reports.usageStats.report.description">OMP default usage statistics report (COUNTER ready)</message>
+
+	<message key="plugins.reports.usageStats.optout.displayName">Usage Statistics Privacy Information</message>
+	<message key="plugins.reports.usageStats.optout.description">Usage Statistics Privacy Information</message>
+	<message key="plugins.generic.usageStats.optout.title">Usage Statistics Information</message>
+	<message key="plugins.generic.usageStats.optout.shortDesc"><![CDATA[We log anonymous usage statistics. Please read the <a href="{$privacyInfo}">privacy information</a> for details.]]></message>	
 	
 	<message key="plugins.reports.usageStats.metricType">OMP/COUNTER</message>
 	<message key="plugins.reports.usageStats.metricType.full">Open Monograph Press statistics (COUNTER ready)</message>

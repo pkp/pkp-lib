@@ -65,32 +65,6 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 				$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 				$operation = $reviewAssignment->getStageId()==WORKFLOW_STAGE_ID_INTERNAL_REVIEW?WORKFLOW_STAGE_PATH_INTERNAL_REVIEW:WORKFLOW_STAGE_PATH_EXTERNAL_REVIEW;
 				return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'workflow', $operation, $reviewAssignment->getSubmissionId());
-			case NOTIFICATION_TYPE_AUDITOR_REQUEST:
-			case NOTIFICATION_TYPE_COPYEDIT_ASSIGNMENT:
-				assert($notification->getAssocType() == ASSOC_TYPE_SIGNOFF);
-				$signoffDao = DAORegistry::getDAO('SignoffDAO'); /* @var $signoffDao SignoffDAO */
-				$signoff = $signoffDao->getById($notification->getAssocId());
-				assert(is_a($signoff, 'Signoff') && $signoff->getAssocType() == ASSOC_TYPE_SUBMISSION_FILE);
-
-				$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-				$submissionFile = $submissionFileDao->getLatestRevision($signoff->getAssocId());
-				assert(is_a($submissionFile, 'SubmissionFile'));
-
-				$submissionDao = Application::getSubmissionDAO();
-				$submission = $submissionDao->getById($submissionFile->getSubmissionId());
-
-				// Get correct page (author dashboard or workflow), based
-				// on user roles (if only author, go to author dashboard).
-				import('lib.pkp.controllers.grid.submissions.SubmissionsListGridCellProvider');
-				list($page, $operation) = SubmissionsListGridCellProvider::getPageAndOperationByUserRoles($request, $submission);
-
-				// If workflow, get the correct operation (stage).
-				if ($page == 'workflow') {
-					$stageId = $signoffDao->getStageIdBySymbolic($signoff->getSymbolic());
-					$operation = WorkflowStageDAO::getPathFromId($stageId);
-				}
-
-				return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), $page, $operation, $submissionFile->getSubmissionId());
 			case NOTIFICATION_TYPE_REVIEW_ASSIGNMENT:
 				$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 				$reviewAssignment = $reviewAssignmentDao->getById($notification->getAssocId());
@@ -407,11 +381,6 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 				assert($assocType == ASSOC_TYPE_SUBMISSION && is_numeric($assocId));
 				import('lib.pkp.classes.notification.managerDelegate.SubmissionNotificationManager');
 				return new SubmissionNotificationManager($notificationType);
-			case NOTIFICATION_TYPE_SIGNOFF_COPYEDIT:
-			case NOTIFICATION_TYPE_SIGNOFF_PROOF:
-				assert($assocType == ASSOC_TYPE_SUBMISSION && is_numeric($assocId));
-				import('lib.pkp.classes.notification.managerDelegate.SignoffNotificationManager');
-				return new SignoffNotificationManager($notificationType);
 			case NOTIFICATION_TYPE_NEW_QUERY:
 			case NOTIFICATION_TYPE_QUERY_ACTIVITY:
 				import('lib.pkp.classes.notification.managerDelegate.QueryNotificationManager');
@@ -423,14 +392,6 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 				assert($assocType == ASSOC_TYPE_SUBMISSION && is_numeric($assocId));
 				import('lib.pkp.classes.notification.managerDelegate.EditorAssignmentNotificationManager');
 				return new EditorAssignmentNotificationManager($notificationType);
-			case NOTIFICATION_TYPE_AUDITOR_REQUEST:
-				assert($assocType == ASSOC_TYPE_SIGNOFF && is_numeric($assocId));
-				import('lib.pkp.classes.notification.managerDelegate.AuditorRequestNotificationManager');
-				return new AuditorRequestNotificationManager($notificationType);
-			case NOTIFICATION_TYPE_COPYEDIT_ASSIGNMENT:
-				assert($assocType == ASSOC_TYPE_SIGNOFF && is_numeric($assocId));
-				import('lib.pkp.classes.notification.managerDelegate.CopyeditAssignmentNotificationManager');
-				return new CopyeditAssignmentNotificationManager($notificationType);
 			case NOTIFICATION_TYPE_EDITOR_DECISION_ACCEPT:
 			case NOTIFICATION_TYPE_EDITOR_DECISION_EXTERNAL_REVIEW:
 			case NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS:

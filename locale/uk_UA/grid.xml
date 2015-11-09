@@ -172,10 +172,6 @@
 	<message key="grid.action.requestRevisions">Вимагати ревізії цього подання</message>
 	<message key="grid.action.resubmit">Вимагати, щоб це подання було повторно надіслане для додаткового рецензування</message>
 	<message key="grid.action.sendToProduction">Надіслати це подання у робочу чергу</message>
-	<message key="grid.action.addSignoff">Додати результат аудиту цього файлу</message>
-	<message key="grid.action.deleteSignoff">Видалити цей дозвіл</message>
-	<message key="grid.action.fileSignoff">Дозвіл для цього файлу</message>
-	<message key="grid.action.readSignoff">Читати цей дозвіл</message>
 	<message key="grid.action.details">Дивитися цей об'єкт</message>
 	<message key="grid.columns.auditor">Аудитор</message>
 	<message key="grid.action.addSeries">Додати серії</message>

@@ -104,10 +104,6 @@
 	<message key="grid.action.editPreparedEmail">Editar este modelo de mensagem</message>
 	<message key="grid.action.disableEmail">Desabilitar este modelo de mensagem</message>
 	<message key="grid.action.resetEmail">Restaurar este modelo de mensagem para o original</message>
-	<message key="grid.action.addSignoff">Incluir uma resposta de auditoria a este arquivo</message>
-	<message key="grid.action.deleteSignoff">Excluir esta aprovação</message>
-	<message key="grid.action.fileSignoff">Aprovar este arquivo</message>
-	<message key="grid.action.readSignoff">Ler esta aprovação</message>
 	<message key="grid.action.expandAll">Expandir todos</message>
 	<message key="grid.action.requestAccount">Incluir participante</message>
 	<message key="grid.action.expand">Expandir</message>

@@ -183,11 +183,7 @@
 	<message key="grid.preparedEmails.title">Modelli email</message>
 	<message key="grid.preparedEmails.description">Il workflow di comunicazione viene agevolato attraverso l'uso di modelli email già pronti. Il testo di tali modelli può essere facilmente modificato qui sotto.</message>
 	<message key="grid.action.resetEmail">Resetta questi modelli email al default</message>
-	<message key="grid.action.addSignoff">Aggiungi la risposta di un revisore esterno a questo file</message>
 	<message key="grid.roles.stageAssignment">Assegnazione del livello</message>
-	<message key="grid.action.fileSignoff">Approva questo file</message>
-	<message key="grid.action.deleteSignoff">Cancella questa approvazione</message>
-	<message key="grid.action.readSignoff">Leggi questa approvazione</message>
 	<message key="grid.action.mergeUser">Fondi utenti</message>
 	<message key="grid.action.history">Vedi registro</message>
 	<message key="grid.task.status.unfinished">Revisioni non completate</message>

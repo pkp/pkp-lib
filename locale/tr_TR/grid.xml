@@ -122,9 +122,6 @@
 	<message key="grid.action.sendReminder">Kullanıcıya görev hatırlatması gönder</message>
 	<message key="grid.action.newRound">Yeni tur oluştur</message>
 	<message key="grid.action.viewReviewGuidelines">Hakem rehberini göster</message>
-	<message key="grid.action.deleteSignoff">Bu çıkışı sil</message>
-	<message key="grid.action.fileSignoff">Bu dosyadan çık</message>
-	<message key="grid.action.readSignoff">Bu çıkışı oku</message>
 	<message key="grid.action.viewCompetingInterestGuidelines">Çıkar Çelişkisi Rehberleri Politikasını Görüntüle</message>
 	<message key="grid.action.thankReviewer">Bu hakeme bir teşekkür mesajı gönder</message>
 	<message key="grid.action.uploadFile">Dosya yükle</message>

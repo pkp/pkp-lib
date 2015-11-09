@@ -67,10 +67,6 @@
 	<message key="grid.action.editPreparedEmail">Sửa mẫu email này</message>
 	<message key="grid.action.disableEmail">Vô hiệu mẫu email này</message>
 	<message key="grid.action.resetEmail">Tái lập mẫu email này về trạng thái mặc định</message>
-	<message key="grid.action.addSignoff">Thêm một trả lời kiểm định cho file này</message>
-	<message key="grid.action.deleteSignoff">Xóa báo ngưng này</message>
-	<message key="grid.action.fileSignoff">Báo ngưng đối với file này</message>
-	<message key="grid.action.readSignoff">Đọc báo ngưng này</message>
 	<message key="grid.action.expandAll">Mở tất cả</message>
 	<message key="grid.action.requestAccount">Thêm người tham dự</message>
 	<message key="grid.action.expand">Mở</message>

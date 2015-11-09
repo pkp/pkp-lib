@@ -102,10 +102,6 @@
 	<message key="grid.action.editPreparedEmail">Edita aquesta plantilla de correu</message>
 	<message key="grid.action.disableEmail">Desactiva aquesta plantilla de correu</message>
 	<message key="grid.action.resetEmail">Restitueix aquesta plantilla de correu als valors per defecte</message>
-	<message key="grid.action.addSignoff">Afegeix una resposta auditada per a aquest fitxer</message>
-	<message key="grid.action.deleteSignoff">Elimina aquesta subscripció</message>
-	<message key="grid.action.fileSignoff">Subscriu aquest fitxer</message>
-	<message key="grid.action.readSignoff">Veure aquesta subscripció</message>
 	<message key="grid.action.expandAll">Expandir tot</message>
 	<message key="grid.action.requestAccount">Afegeix un participant</message>
 	<message key="grid.action.expand">Expandir</message>

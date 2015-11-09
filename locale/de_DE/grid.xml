@@ -74,10 +74,6 @@
 	<message key="grid.action.editPreparedEmail">Diese E-Mail-Vorlage bearbeiten</message>
 	<message key="grid.action.disableEmail">Diese E-Mail-Vorlage deaktivieren</message>
 	<message key="grid.action.resetEmail">Diese E-Mail-Vorlage auf den Standardtext zurücksetzen</message>
-	<message key="grid.action.addSignoff">Ein Prüfergebnis für diese Datei hinzufügen</message>
-	<message key="grid.action.deleteSignoff">Diese Freigabe löschen</message>
-	<message key="grid.action.fileSignoff">Diese Datei freigeben</message>
-	<message key="grid.action.readSignoff">Diese Freigabe lesen</message>
 	<message key="grid.action.expandAll">Alles ausklappen</message>
 	<message key="grid.action.requestAccount">Teilnehmer/in hinzufügen</message>
 	<message key="grid.action.expand">Ausklappen</message>

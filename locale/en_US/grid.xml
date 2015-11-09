@@ -81,10 +81,6 @@
 	<message key="grid.action.editPreparedEmail">Edit this email template</message>
 	<message key="grid.action.disableEmail">Disable this email template</message>
 	<message key="grid.action.resetEmail">Reset this email template to the default</message>
-	<message key="grid.action.addSignoff">Add an audit response for this file</message>
-	<message key="grid.action.deleteSignoff">Delete this signoff</message>
-	<message key="grid.action.fileSignoff">Signoff on this file</message>
-	<message key="grid.action.readSignoff">Read this signoff</message>
 	<message key="grid.action.expandAll">Expand All</message>
 	<message key="grid.action.requestAccount">Add a participant</message>
 	<message key="grid.action.expand">Expand</message>

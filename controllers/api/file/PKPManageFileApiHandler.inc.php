@@ -74,15 +74,6 @@ abstract class PKPManageFileApiHandler extends Handler {
 		foreach ($signoffs as $signoff) {
 			$signoffDao->deleteObject($signoff);
 
-			// Delete for all users.
-			$notificationMgr->updateNotification(
-				$request,
-				array(NOTIFICATION_TYPE_AUDITOR_REQUEST, NOTIFICATION_TYPE_COPYEDIT_ASSIGNMENT),
-				null,
-				ASSOC_TYPE_SIGNOFF,
-				$signoff->getId()
-			);
-
 			$notificationMgr->updateNotification(
 				$request,
 				array(NOTIFICATION_TYPE_SIGNOFF_COPYEDIT, NOTIFICATION_TYPE_SIGNOFF_PROOF),

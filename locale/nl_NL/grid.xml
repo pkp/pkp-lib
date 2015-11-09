@@ -136,10 +136,6 @@
 	<message key="grid.user.mustChangePasswordDescriptionOld">Verplicht de gebruiker een nieuw wachtwoord te kiezen bij de volgende login.</message>
 	<message key="grid.user.moreDetails">Meer gebruikersdetails</message>
 	<message key="grid.action.disableEmail">Schakel dit e-mail sjabloon uit</message>
-	<message key="grid.action.addSignoff">Geef een goedkeuring aan dit bestand</message>
-	<message key="grid.action.deleteSignoff">Verwijder de goedkeuring</message>
-	<message key="grid.action.fileSignoff">Keur dit bestand goed</message>
-	<message key="grid.action.readSignoff">Lees de goedkeuring</message>
 	<message key="grid.action.expandAll">Alles uitklappen</message>
 	<message key="grid.action.requestAccount">Deelnemer toevoegen</message>
 	<message key="grid.action.expand">Uitklappen</message>

@@ -445,7 +445,7 @@ class PKPNotificationManager {
 
 		import('classes.mail.MailTemplate');
 		$site =& $request->getSite();
-		$mail = new MailTemplate('NOTIFICATION', null, null, null, true, true);
+		$mail = new MailTemplate('NOTIFICATION', null, null, null, false, true);
 		$mail->setReplyTo($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
 		$mail->assignParams(array(
 			'notificationContents' => $this->getNotificationContents($request, $notification),

@@ -202,9 +202,32 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 	 * @copydoc GridHandler::loadData()
 	 */
 	protected function loadData($request, $filter) {
+		$submission = $this->getSubmission();
+		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+		$stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId(
+			$this->getSubmission()->getId(),
+			$this->getStageId()
+		);
+
+		// Make a list of the active (non-reviewer) user groups.
+		$userGroupIds = array();
+		while ($stageAssignment = $stageAssignments->next()) {
+			$userGroupIds[] = $stageAssignment->getUserGroupId();
+		}
+
+		// Fetch the desired user groups as objects.
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$context = $request->getContext();
-		return $userGroupDao->getUserGroupsByStage($context->getId(), $this->getStageId(), false, true);
+		$result = array();
+		$userGroups = $userGroupDao->getUserGroupsByStage(
+			$request->getContext()->getId(),
+			$this->getStageId(),
+			false, true // Exclude reviewers
+		);
+		while ($userGroup = $userGroups->next()) {
+			if (in_array($userGroup->getId(), $userGroupIds)) $result[$userGroup->getId()] = $userGroup;
+		}
+		return $result;
 	}
 
 
@@ -223,7 +246,7 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 		$userGroups = $this->getGridDataElements($request);
 
 		import('lib.pkp.controllers.grid.users.stageParticipant.form.AddParticipantForm');
-		$form = new AddParticipantForm($submission, $stageId, $userGroups);
+		$form = new AddParticipantForm($submission, $stageId);
 		$form->initData();
 
 		return new JSONMessage(true, $form->fetch($request));
@@ -242,7 +265,7 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 		$userGroups = $this->getGridDataElements($request);
 
 		import('lib.pkp.controllers.grid.users.stageParticipant.form.AddParticipantForm');
-		$form = new AddParticipantForm($submission, $stageId, $userGroups);
+		$form = new AddParticipantForm($submission, $stageId);
 		$form->readInputData();
 		if ($form->validate()) {
 			list($userGroupId, $userId, $stageAssignmentId) = $form->execute($request);

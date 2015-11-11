@@ -29,8 +29,8 @@ class Config {
 	 * Retrieve a specified configuration variable.
 	 * @param $section string
 	 * @param $key string
-	 * @param $default string optional
-	 * @return string
+	 * @param $default mixed Optional default if the var doesn't exist
+	 * @return mixed May return boolean (in case of "off"/"on"/etc), numeric, string, or null.
 	 */
 	static function getVar($section, $key, $default = null) {
 		$configData =& Config::getData();

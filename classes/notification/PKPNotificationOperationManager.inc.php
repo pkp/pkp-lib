@@ -382,7 +382,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 
 			$context = $request->getContext();
 			$site = $request->getSite();
-			$mail = $this->getMailTemplate('NOTIFICATION');
+			$mail = $this->getMailTemplate('NOTIFICATION', null, $context, false);
 			$mail->setReplyTo($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
 			$mail->assignParams(array(
 				'notificationContents' => $this->getNotificationContents($request, $notification),

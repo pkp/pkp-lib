@@ -56,6 +56,14 @@ class Site extends DataObject {
 	//
 
 	/**
+	 * Get site title.
+	 * @param $locale string Locale code to return, if desired.
+	 */
+	function getTitle($locale = null) {
+		return $this->getSetting('title', $locale);
+	}
+
+	/**
 	 * Get localized site title.
 	 */
 	function getLocalizedTitle() {
@@ -237,6 +245,11 @@ class Site extends DataObject {
 		return $setting;
 	}
 
+	/**
+	 * Get a localized setting using the current locale.
+	 * @param $name string Setting name
+	 * @return mixed
+	 */
 	function getLocalizedSetting($name) {
 		$returner = $this->getSetting($name, AppLocale::getLocale());
 		// If setting is defined for current locale, use it.

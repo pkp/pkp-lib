@@ -93,8 +93,10 @@
 	<message key="admin.scheduledTask.startTime">Tarefa iniciada.</message>
 	<message key="admin.scheduledTask.stopTime">Tarefa parada.</message>
 	<message key="admin.scheduledTask.noLog">Tarefa não produziu registros (logs).</message>
-	<message key="admin.scheduledTask.openAccessNotification">Notificação de acesso aberto</message>
 	<message key="admin.scheduledTask.reviewReminder">Lembrete de avaliador</message>
 	<message key="admin.scheduledTask.subscriptionExpiryReminder">Lembrete de expiração de assinatura.</message>
 	<message key="admin.fileLoader.fileProcessed">O arquivo {$filename} foi processado e arquivado.</message>
+	<message key="admin.scheduledTask.downloadLog">Sua instalação OJS automaticamente executou e finalizou esta tarefa, você pode baixar os registros (logs) aqui: {$url}</message>
+	<message key="admin.scheduledTask.confirmClearLogs">Você tem certeza de que deseja deletar todos os registros de execução de tarefas agendadas?</message>
+	<message key="admin.scheduledTask.clearLogs">Limpar Registros (logs) de Tarefas Agendadas</message>
 </locale>

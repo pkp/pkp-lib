@@ -240,7 +240,7 @@ abstract class SubmissionDAO extends DAO {
 	 */
 	function changePubId($submissionId, $pubIdType, $pubId) {
 		$submission = $this->getById($submissionId);
-		$submission->setData('pub-id::'.$pubIdType, $pubId);
+		$submission->setStoredPubId($pubIdType, $pubId);
 		$this->updateObject($submission);
 	}
 

@@ -26,9 +26,16 @@
 	<br />
 {/if}
 
+{if $implicitAuth === $smarty.const.IMPLICIT_AUTH_OPTIONAL}
+	<h3>{translate key="user.login.implicitAuth"}</h3>
+{/if}
 {if $implicitAuth}
-	<a id="implicitAuthLogin" href="{url page="login" op="implicitAuthLogin"}">Login</a>
-{else}
+	<a id="implicitAuthLogin" href="{url page="login" op="implicitAuthLogin"}">{translate key="user.login.implicitAuthLogin"}</a>
+{/if}
+{if $implicitAuth === $smarty.const.IMPLICIT_AUTH_OPTIONAL}
+	<h3>{translate key="user.login.localAuth"}</h3>
+{/if}
+{if !$implicitAuth || $implicitAuth === $smarty.const.IMPLICIT_AUTH_OPTIONAL}
 	<form id="signinForm" method="post" action="{$loginUrl}">
 {/if}
 
@@ -40,7 +47,7 @@
 
 <input type="hidden" name="source" value="{$source|strip_unsafe_html|escape}" />
 
-{if ! $implicitAuth}
+{if !$implicitAuth || $implicitAuth === $smarty.const.IMPLICIT_AUTH_OPTIONAL}
 	<table id="signinTable" class="data">
 	<tr>
 		<td class="label"><label for="loginUsername">{translate key="user.username"}</label></td>
@@ -73,8 +80,7 @@
 	document.getElementById('{if $username}loginPassword{else}loginUsername{/if}').focus();
 // -->
 </script>
-{/if}{* !$implicitAuth *}
-
 </form>
+{/if}{* !$implicitAuth || $implicitAuth === $smarty.const.IMPLICIT_AUTH_OPTIONAL *}
 
 {include file="common/footer.tpl"}

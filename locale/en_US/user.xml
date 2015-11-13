@@ -64,6 +64,9 @@
 	<message key="user.login.registeredEmail">Registered user's email</message>
 	<message key="user.login.rememberUsernameAndPassword">Remember my username and password</message>
 	<message key="user.login.resetPassword">Reset Password</message>
+	<message key="user.login.implicitAuth">Shibboleth Login</message>
+	<message key="user.login.implicitAuthLogin">Login via Shibboleth</message>
+	<message key="user.login.localAuth">Local Account Login</message>
 	<message key="user.logOut">Logout</message>
 	<message key="user.hello">Hello, </message>
 	<message key="user.mailingAddress">Mailing Address</message>

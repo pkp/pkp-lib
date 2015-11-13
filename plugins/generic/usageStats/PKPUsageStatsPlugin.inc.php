@@ -117,8 +117,12 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 				if ($settingsForm->validate()) {
 					$settingsForm->execute();
 					$notificationManager = new NotificationManager();
-					$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('plugins.generic.usageStats.settings.saved')));
-					return true;
+					$notificationManager->createTrivialNotification(
+						$request->getUser()->getId(),
+						NOTIFICATION_TYPE_SUCCESS,
+						array('contents' => __('plugins.generic.usageStats.settings.saved'))
+					);
+					return new JSONMessage(true);
 				}
 				return new JSONMessage(true, $settingsForm->fetch($request));
 		}
@@ -140,10 +144,10 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 				new LinkAction(
 					'settings',
 					new AjaxModal(
-						$router->url($request, null, null, 'plugin', null, array('verb' => 'settings', 'plugin' => $this->getName(), 'category' => 'generic')),
+						$router->url($request, null, null, 'manage', null, array('verb' => 'settings', 'plugin' => $this->getName(), 'category' => 'generic')),
 						$this->getDisplayName()
 					),
-					__('common.settings'),
+					__('manager.plugins.settings'),
 					null
 				),
 			):array(),

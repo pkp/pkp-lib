@@ -117,7 +117,7 @@ class AuthorForm extends Form {
 				'email' => $author->getEmail(),
 				'url' => $author->getUrl(),
 				'userGroupId' => $author->getUserGroupId(),
-				'biography' => $author->getBiography(AppLocale::getLocale()),
+				'biography' => $author->getBiography(null),
 				'primaryContact' => $author->getPrimaryContact(),
 				'includeInBrowse' => $author->getIncludeInBrowse(),
 			);

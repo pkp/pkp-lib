@@ -14,14 +14,7 @@
 <div class="page page_announcements">
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="announcement.announcements"}
 
-	<ul class="announcements">
-		{foreach from=$announcements item=announcement}
-			<li>
-				{include file="frontend/objects/announcement_summary.tpl"}
-			</li>
-		{/foreach}
-	</ul>
-
+	{include file="frontend/components/announcements.tpl"}
 </div><!-- .page -->
 
 {include file="common/frontend/footer.tpl"}

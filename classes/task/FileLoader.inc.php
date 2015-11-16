@@ -44,6 +44,9 @@ class FileLoader extends ScheduledTask {
 	/** @var array List of staged back files after processing. */
 	var $_stagedBackFiles = array();
 
+	/** @var boolean Whether to compress the archived files or not. */
+	var $_compressArchives = false;
+
 	/**
 	 * Constructor.
 	 * @param $args array script arguments
@@ -81,7 +84,7 @@ class FileLoader extends ScheduledTask {
 
 
 	//
-	// Getters
+	// Getters and setters.
 	//
 	/**
 	 * Return the staging path.
@@ -115,6 +118,22 @@ class FileLoader extends ScheduledTask {
 		return $this->_archivePath;
 	}
 
+	/**
+	 * Return whether the archives must be compressed or not.
+	 * @return boolean
+	 */
+	function getCompressArchives() {
+		return $this->_compressArchives;
+	}
+
+	/**
+	 * Set whether the archives must be compressed or not.
+	 * @param $compressArchives boolean
+	 */
+	function setCompressArchives($compressArchives) {
+		$this->_compressArchives = $compressArchives;
+	}
+
 
 	//
 	// Public methods
@@ -126,7 +145,12 @@ class FileLoader extends ScheduledTask {
 		if (!$this->checkFolderStructure()) return false;
 
 		$foundErrors = false;
-		while($filePath = $this->_claimNextFile()) {
+		while(!is_null($filePath = $this->_claimNextFile())) {
+			if ($filePath === false) {
+				// Problem claiming the file.
+				$foundErrors = true;
+				break;
+			}
 			$errorMsg = null;
 			$result = $this->processFile($filePath, $errorMsg);
 			if ($result === false) {
@@ -255,11 +279,23 @@ class FileLoader extends ScheduledTask {
 			break;
 		}
 
+		if (pathinfo($processingFilePath, PATHINFO_EXTENSION) == 'gz') {
+			$fileMgr = new FileManager();
+			$errorMsg = null;
+			if ($processingFilePath = $fileMgr->decompressFile($processingFilePath, $errorMsg)) {
+				$filename = pathinfo($processingFilePath, PATHINFO_BASENAME);
+			} else {
+				$this->moveFile($this->_processingPath, $this->_stagePath, $filename);
+				$this->addExecutionLogEntry($errorMsg, SCHEDULED_TASK_MESSAGE_TYPE_ERROR);
+				return false;
+			}
+		}
+
 		if ($processingFilePath) {
 			$this->_claimedFilename = $filename;
 			return $processingFilePath;
 		} else {
-			return false;
+			return null;
 		}
 	}
 
@@ -275,6 +311,16 @@ class FileLoader extends ScheduledTask {
 	 */
 	function _archiveFile() {
 		$this->moveFile($this->_processingPath, $this->_archivePath, $this->_claimedFilename);
+		$filePath = $this->_archivePath . DIRECTORY_SEPARATOR . $this->_claimedFilename;
+		$returner = true;
+		if ($this->getCompressArchives()) {
+			$fileMgr = new FileManager();
+			$errorMsg = null;
+			if (!$returner = $fileMgr->compressFile($filePath, $errorMsg)) {
+				$this->addExecutionLogEntry($errorMsg, SCHEDULED_TASK_MESSAGE_TYPE_ERROR);
+			}
+		}
+		return $returner;
 	}
 
 	/**

@@ -101,4 +101,6 @@
 	<message key="admin.fileLoader.moveFileFailed">File {$filename} could not be moved from {$currentFilePath} to {$destinationPath}</message>
 	<message key="admin.fileLoader.fileProcessed">File {$filename} was processed and archived.</message>
 	<message key="admin.fileLoader">File loader</message>
+	<message key="admin.error.utilExecutionProblem">The "{$utilPath}" program execution returned the following error: {$output}</message>
+	<message key="admin.error.executingUtil">Error: can't execute "{$utilPath}".  Check your {$utilVar} setting in config.inc.php.</message>
 </locale>

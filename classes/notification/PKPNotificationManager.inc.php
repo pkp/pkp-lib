@@ -117,6 +117,7 @@ class PKPNotificationManager {
 		switch ($type) {
 			case NOTIFICATION_TYPE_SUCCESS:
 			case NOTIFICATION_TYPE_ERROR:
+			case NOTIFICATION_TYPE_WARNING:
 				if (!is_null($this->getNotificationSettings($notification->getId()))) {
 					$notificationSettings = $this->getNotificationSettings($notification->getId());
 					return $notificationSettings['contents'];

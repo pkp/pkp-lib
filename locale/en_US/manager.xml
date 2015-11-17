@@ -336,7 +336,7 @@
 	<message key="manager.plugins.doesNotExist">Plugin "{$pluginName}" does not exist</message>
 	<message key="manager.plugins.fileSelectError">Please select a file first</message>
 	<message key="manager.plugins.upload">Upload A New Plugin</message>
-	<message key="manager.plugins.uploadDescription">This form allows you to upload and install a new plugin.  Please ensure the plugin is compressed as a .tar.gz file.</message>
+	<message key="manager.plugins.uploadDescription">This form allows you to upload and install a new plugin.  Please ensure the plugin is compressed either as a .tar.gz or a .tar.xz file.</message>
 	<message key="manager.plugins.uploadFailed">Please ensure a file was selected for upload.</message>
 	<message key="manager.plugins.installed">Installed Plugins</message>
 	<message key="manager.plugins.pluginGallery">Plugin Gallery</message>

@@ -335,7 +335,7 @@ Há casos em que uma única estatística de uso devem ser utilizada, por exemplo
 	<message key="manager.plugins.settings">Configurações</message>
 	<message key="manager.plugins.tarCommandNotFound">O comando tar não está disponível. Por favor, configure-o corretamente em seu "config.inc.php".</message>
 	<message key="manager.plugins.upgrade">Atualizar plugin</message>
-	<message key="manager.plugins.upgradeDescription">Este formulário permite a você atualizar um plugin. Certifique-se o plugin está compactado como um arquivo tar.gz..</message>
+	<message key="manager.plugins.upgradeDescription">Este formulário permite a você atualizar um plugin. Certifique-se o plugin está compactado como um arquivo tar.gz ou tar.xz.</message>
 	<message key="manager.plugins.upgradeFailed">Falha na atualização. {$errorString}</message>
 	<message key="manager.plugins.upgradeSuccessful">Atualizado com êxito para a versão {$versionString}</message>
 	<message key="manager.plugins.uploadError">Erro enviando arquivo</message>

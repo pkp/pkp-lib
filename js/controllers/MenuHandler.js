@@ -29,6 +29,14 @@
 
 		// Reference to all links within the menu
 		this.$links_ = this.getHtmlElement().find('a');
+		this.$parents_ = this.getHtmlElement().find('.has-submenu');
+
+		// Fix dropdown menus that may go off-screen and recalculate whenever
+		// the browser window is resized
+		this.setDropdownAlignment();
+		this.resize_check;
+		$( window ).resize(this.callbackWrapper(this.onResize));
+
 
 		// Attach event handlers
 		this.$links_.bind('focus', this.onFocus);
@@ -70,7 +78,36 @@
 		parent.removeClass('in_focus');
 	};
 
+	/**
+	 * Attach a class to any dropdown menus that will stray off-screen to align
+	 * them to the right edge of their parent
+	 *
+	 * @since 0.1
+	 */
+	$.pkp.controllers.MenuHandler.prototype.setDropdownAlignment = function() {
+		var width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+		this.$parents_.each(function() {
+			var right = $(this).offset().left + $(this).children('ul').outerWidth();
+			if(right > width) {
+				$(this).addClass('align_right');
+			} else {
+				$(this).removeClass('align_right');
+			}
+		});
+	};
 
+	/**
+	 * Throttle the dropdown alignment check during resize events. During
+	 * browser resizing this will fire off every single frame, causing lag
+	 * during the resize. So this just throttles the actual alignment check
+	 * function by only firing when resizing has stopped.
+	 *
+	 * @since 0.1
+	 */
+	$.pkp.controllers.MenuHandler.prototype.onResize = function() {
+		clearTimeout(this.resize_check);
+		this.resize_check = setTimeout(this.callbackWrapper(this.setDropdownAlignment), 1000);
+	};
 
 /** @param {jQuery} $ jQuery closure. */
 }(jQuery));

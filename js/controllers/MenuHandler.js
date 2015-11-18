@@ -34,7 +34,7 @@
 		// Fix dropdown menus that may go off-screen and recalculate whenever
 		// the browser window is resized
 		this.setDropdownAlignment();
-		this.resize_check;
+		this.resize_check();
 		$(window).resize(this.callbackWrapper(this.onResize));
 
 

@@ -52,7 +52,7 @@
 	<message key="admin.scheduledTask.startTime">Task process started.</message>
 	<message key="admin.scheduledTask.stopTime">Task process stopped.</message>
 	<message key="admin.scheduledTask.noLog">Task produced no log.</message>
-	<message key="admin.scheduledTask.downloadLog">You OJS installation automatically executed and finished this task and you can download the log file here: {$url}</message>
+	<message key="admin.scheduledTask.downloadLog">Your OJS installation automatically executed and finished this task and you can download the log file here: {$url}</message>
 	<message key="admin.scheduledTask.confirmClearLogs">Are you sure you want to delete all scheduled task execution logs?</message>
 	<message key="admin.scheduledTask.clearLogs">Clear Scheduled Task Execution Logs</message>
 	<message key="admin.scheduledTask.reviewReminder">Review reminder</message>

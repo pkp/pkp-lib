@@ -37,13 +37,15 @@
 	{* In wizard mode, these fields should be hidden *}
 	{if $wizardMode}
 		{assign var="wizard_class" value="is_wizard_mode"}
+		{assign var="wizard_required" value=false}
 	{else}
 		{assign var="wizard_class" value=""}
+		{assign var="wizard_required" value=true}
 	{/if}
 	{fbvFormArea id="contactFormArea" title="manager.setup.technicalSupportContact" class=$wizard_class}
 		{fbvFormSection description="manager.setup.technicalSupportContactDescription"}
-			{fbvElement type="text" label="user.name" id="supportName" value=$supportName maxlength="60" inline=true size=$fbvStyles.size.MEDIUM}
-			{fbvElement type="text" label="user.email" id="supportEmail" value=$supportEmail maxlength="60" inline=true size=$fbvStyles.size.MEDIUM}
+			{fbvElement type="text" label="user.name" required=$wizard_required id="supportName" value=$supportName maxlength="60" inline=true size=$fbvStyles.size.MEDIUM}
+			{fbvElement type="text" label="user.email" required=$wizard_required id="supportEmail" value=$supportEmail maxlength="60" inline=true size=$fbvStyles.size.MEDIUM}
 		{/fbvFormSection}
 		{fbvFormSection}
 			{fbvElement type="text" label="user.phone" id="supportPhone" value=$supportPhone maxlength="24" inline=true size=$fbvStyles.size.MEDIUM}

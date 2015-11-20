@@ -40,7 +40,8 @@
 		// Add the wizard buttons
 		this.addWizardButtons_($wizard, options);
 
-		this.enforceLinear_ = options.hasOwnProperty('enforceLinear')?options.enforceLinear:true;
+		this.enforceLinear_ = options.hasOwnProperty('enforceLinear') ?
+				options.enforceLinear : true;
 
 		// Start the wizard.
 		this.startWizard();

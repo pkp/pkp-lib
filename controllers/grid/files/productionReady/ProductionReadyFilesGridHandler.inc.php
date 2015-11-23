@@ -13,16 +13,15 @@
  * @brief Handle the fair copy files grid (displays copyedited files ready to move to proofreading)
  */
 
-import('lib.pkp.controllers.grid.files.SubmissionFilesGridHandler');
-import('lib.pkp.controllers.grid.files.UploaderUserGroupGridColumn');
+import('lib.pkp.controllers.grid.files.fileList.FileListGridHandler');
 
-class ProductionReadyFilesGridHandler extends SubmissionFilesGridHandler {
+class ProductionReadyFilesGridHandler extends FileListGridHandler {
 	/**
 	 * Constructor
 	 */
 	function ProductionReadyFilesGridHandler() {
 		import('lib.pkp.controllers.grid.files.SubmissionFilesGridDataProvider');
-		parent::SubmissionFilesGridHandler(
+		parent::FileListGridHandler(
 			new SubmissionFilesGridDataProvider(SUBMISSION_FILE_PRODUCTION_READY),
 			WORKFLOW_STAGE_ID_PRODUCTION,
 			FILE_GRID_ADD|FILE_GRID_DELETE|FILE_GRID_VIEW_NOTES|FILE_GRID_EDIT
@@ -52,26 +51,6 @@ class ProductionReadyFilesGridHandler extends SubmissionFilesGridHandler {
 
 		$this->setTitle('editor.submission.production.productionReadyFiles');
 		$this->setInstructions('editor.submission.production.productionReadyFilesDescription');
-
-		$currentUser = $request->getUser();
-
-		// Get all the uploader user group id's
-		$uploaderUserGroupIds = array();
-		$dataElements = $this->getGridDataElements($request);
-		foreach ($dataElements as $id => $rowElement) {
-			$submissionFile = $rowElement['submissionFile'];
-			$uploaderUserGroupIds[] = $submissionFile->getUserGroupId();
-		}
-		// Make sure each is only present once
-		$uploaderUserGroupIds = array_unique($uploaderUserGroupIds);
-
-		// Add a Uploader UserGroup column for each group
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		foreach ($uploaderUserGroupIds as $userGroupId) {
-			$userGroup = $userGroupDao->getById($userGroupId);
-			assert(is_a($userGroup, 'UserGroup'));
-			$this->addColumn(new UploaderUserGroupGridColumn($userGroup, array('alignment' => COLUMN_ALIGNMENT_CENTER)));
-		}
 	}
 }
 

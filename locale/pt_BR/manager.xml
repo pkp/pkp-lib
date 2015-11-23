@@ -116,7 +116,7 @@
 	<message key="manager.people.enrollUserAs">Cadastrar usuário como</message>
 	<message key="manager.people.invalidUser">Usuário não existe.</message>
 	<message key="manager.people.mergeUser">Mesclar cadastro</message>
-	<message key="manager.people.mergeUsers.confirm">Deseja realmente mesclar os "{$oldAccountCount}" cadastros com o cadastro do usuário "{$newUsername}"? Os "{$oldAccountCount}" cadastros serão excluídos permanentemente. Esta ação NÃO é reversível!</message>
+	<message key="manager.people.mergeUsers.confirm">Deseja realmente mesclar o(s) {$oldAccountCount} cadastro(s) com o cadastro do usuário "{$newUsername}"? O(s) {$oldAccountCount} cadastro(s) será(ão) excluído(s) permanentemente. Esta ação NÃO é reversível!</message>
 	<message key="manager.people.mergeUsers">Mesclar cadastros</message>
 	<message key="manager.people.mustChooseRole">Escolha um papel editorial antes de confirmar</message>
 	<message key="manager.people.mustProvideName">Informe pelo menos o sobrenome do usuário.</message>

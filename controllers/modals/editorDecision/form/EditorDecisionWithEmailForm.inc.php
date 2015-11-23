@@ -77,10 +77,11 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 
 		$email = new SubmissionMailTemplate($submission, $emailKeys[$this->getDecision()]);
 
+		$submissionUrl = $dispatcher->url($request, ROUTE_PAGE, null, 'authorDashboard', 'submission', $submission->getId());
 		$paramArray = array(
 			'authorName' => $submission->getAuthorString(),
 			'editorialContactSignature' => $user->getContactSignature(),
-			'submissionUrl' => $dispatcher->url($request, ROUTE_PAGE, null, 'authorDashboard', 'submission', $submission->getId()),
+			'submissionUrl' => "<a href=\"$submissionUrl\">$submissionUrl</a>",
 		);
 		$email->assignParams($paramArray);
 
@@ -276,6 +277,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 		return array(
 			'submissionUrl' => __('common.url'),
 			'contextName' => $request->getContext()->getLocalizedName(),
+			'editorialContactSignature' => __('user.signature'),
 		);
 	}
 }

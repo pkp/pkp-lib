@@ -234,7 +234,7 @@
 	<message key="manager.setup.sponsors">Sponsoring Organizations</message>
 	<message key="manager.setup.sponsors.note">You may add a note describing your sponsor relationship and policy; this will appear with the sponsor list on your About page.</message>
 	<message key="manager.setup.contributors.note">You may add a note describing the relationship and policy between you and your sources of support; this will appear with the Sources of Support list on your About page.</message>
-	<message key="manager.setup.styleSheetDescription">Experienced web developers can upload a CSS file to further customize the press's appearance.</message>
+	<message key="manager.setup.styleSheetDescription">Experienced web developers can upload a CSS file to further customize the journal's appearance.</message>
 	<message key="manager.setup.citations">Citations</message>
 	<message key="manager.setup.citationAssistant">Citation Markup Assistant</message>
 	<message key="manager.setup.citationFilterParser">Citation Extraction</message>

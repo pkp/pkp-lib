@@ -109,7 +109,8 @@ class InstallForm extends MaintenanceForm {
 		$templateMgr->assign('databaseDriverOptions', $this->checkDBDrivers());
 		$templateMgr->assign('supportsMBString', String::hasMBString() ? __('common.yes') : __('common.no'));
 		$templateMgr->assign('phpIsSupportedVersion', version_compare(PHP_REQUIRED_VERSION, PHP_VERSION) != 1);
-		$templateMgr->assign('xslEnabled', Core::checkGeneralPHPModule('xsl'));
+		import('lib.pkp.classes.xslt.XSLTransformer');
+		$templateMgr->assign('xslEnabled', XSLTransformer::checkSupport());
 		$templateMgr->assign('xslRequired', REQUIRES_XSL);
 		$templateMgr->assign('phpRequiredVersion', PHP_REQUIRED_VERSION);
 		$templateMgr->assign('phpVersion', PHP_VERSION);

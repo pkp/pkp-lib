@@ -1,5 +1,5 @@
 {**
- * controllers/tab/settings/appearance/form/header.tpl.tpl
+ * controllers/tab/settings/appearance/form/header.tpl
  *
  * Copyright (c) 2014-2015 Simon Fraser University Library
  * Copyright (c) 2003-2015 John Willinsky

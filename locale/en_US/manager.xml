@@ -280,7 +280,7 @@
 	<message key="manager.setup.homepageImageInvalid">Invalid homepage image format or upload failed. Accepted formats are .gif, .jpg, or .png.</message>
 	<message key="manager.setup.homeTitleImageInvalid">Invalid homepage header title image format or upload failed. Accepted formats are .gif, .jpg, or .png.</message>
 	<message key="manager.setup.layout.theme">Theme</message>
-	<message key="manager.setup.layout.themeDescription">Select a theme for your website. Only themes installed from the plugins settings are listed here.</message>
+	<message key="manager.setup.layout.themeDescription">Select a theme for your website. New themes may be added in the plugins setup area.</message>
 	<message key="manager.setup.layout.blockManagement">Sidebar management</message>
 	<message key="manager.setup.layout.leftSidebar">Left Sidebar</message>
 	<message key="manager.setup.layout.rightSidebar">Right Sidebar</message>

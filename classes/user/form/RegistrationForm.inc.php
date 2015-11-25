@@ -115,7 +115,6 @@ class RegistrationForm extends Form {
 	function initData() {
 		$this->_data = array(
 			'userLocales' => array(),
-			'sendPassword' => false,
 			'userGroupIds' => array(),
 		);
 	}
@@ -136,7 +135,6 @@ class RegistrationForm extends Form {
 			'affiliation',
 			'email',
 			'country',
-			'sendPassword',
 			'interests',
 			'reviewerGroup',
 			'authorGroup',
@@ -260,19 +258,6 @@ class RegistrationForm extends Form {
 		} else {
 			// Create a notification guiding the user to their profile.
 			NotificationManager::createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('user.register.registrationCompleted', array('profileUrl' => $request->url(null, 'user', 'profile')))));
-		}
-		if ($this->getData('sendPassword')) {
-			// Send welcome email to user
-			$mail = new MailTemplate('USER_REGISTER');
-			$this->_setMailFrom($request, $mail);
-			$mail->assignParams(array(
-				'username' => $this->getData('username'),
-				'password' => String::substr($this->getData('password'), 0, 30), // Prevent mailer abuse via long passwords
-				'userFullName' => $user->getFullName()
-			));
-			$mail->addRecipient($user->getEmail(), $user->getFullName());
-			$mail->send();
-			unset($mail);
 		}
 		return $userId;
 	}

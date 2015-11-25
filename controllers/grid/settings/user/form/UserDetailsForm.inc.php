@@ -97,10 +97,10 @@ class UserDetailsForm extends UserForm {
 				'country' => $user->getCountry(),
 				'biography' => $user->getBiography(null), // Localized
 				'interests' => $interestManager->getInterestsForUser($user),
-				'userLocales' => $user->getLocales()
+				'userLocales' => $user->getLocales(),
 			);
 		} else if (isset($this->author)) {
-			$author =& $this->author;
+			$author = $this->author;
 			$data = array(
 				'salutation' => $author->getSalutation(),
 				'firstName' => $author->getFirstName(),
@@ -112,6 +112,10 @@ class UserDetailsForm extends UserForm {
 				'orcid' => $author->getOrcid(),
 				'country' => $author->getCountry(),
 				'biography' => $author->getBiography(null), // Localized
+			);
+		} else {
+			$data = array(
+				'mustChangePassword' => true,
 			);
 		}
 		foreach($data as $key => $value) {

@@ -48,6 +48,7 @@ class PKPCreateUsersTest extends WebTestCase {
 		$this->type('css=[id^=password2-]', $data['password2']);
 		if (isset($data['country'])) $this->select('id=country', $data['country']);
 		if (isset($data['affiliation'])) $this->type('css=[id^=affiliation-]', $data['affiliation']);
+		$this->click('css=[id=mustChangePassword]'); // Uncheck the reset password requirement
 		$this->click('//button[text()=\'OK\']');
 		$this->waitJQuery();
 

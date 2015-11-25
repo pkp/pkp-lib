@@ -276,7 +276,7 @@ class PKPLoginHandler extends Handler {
 			$this->_setMailFrom($request, $mail, $site);
 			$mail->assignParams(array(
 				'username' => $user->getUsername(),
-				'password' => $newPassword,
+				'password' => $newPassword, // DEPRECATED: This should only exist in old templates
 				'siteTitle' => $site->getLocalizedTitle()
 			));
 			$mail->addRecipient($user->getEmail(), $user->getFullName());

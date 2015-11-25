@@ -97,6 +97,7 @@ class CreateReviewerForm extends ReviewerForm {
 		} else {
 			$user->setPassword(Validation::encryptCredentials($this->getData('username'), $password));
 		}
+		$user->setMustChangePassword(true); // Emailed P/W not safe
 
 		$user->setDateRegistered(Core::getCurrentDate());
 		$reviewerId = $userDao->insertObject($user);

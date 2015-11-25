@@ -8,12 +8,12 @@
  * @brief Form fields for uploading a frontend homepage image
  *
  *}
-{assign var="upload_image_field_id" value=$uploadImageLinkActions.homepageImage->getId()}
-{fbvFormSection for="$upload_image_field_id" label="manager.setup.homepageImage" description="manager.setup.homepageImageDescription"}
+{assign var="uploadImageFieldId" value=$uploadImageLinkActions.homepageImage->getId()}
+{fbvFormSection for="$uploadImageFieldId" label="manager.setup.homepageImage" description="manager.setup.homepageImageDescription"}
 	<div id="homepageImage">
 		{$imagesViews.homepageImage}
 	</div>
-	<div id="$upload_image_field_id" class="pkp_linkActions">
+	<div id="$uploadImageFieldId" class="pkp_linkActions">
 		{include file="linkAction/linkAction.tpl" action=$uploadImageLinkActions.homepageImage contextId="appearanceForm"}
 	</div>
 {/fbvFormSection}

@@ -43,6 +43,7 @@
 	<message key="admin.scheduledTask.startTime">Начато выполнение задачи.</message>
 	<message key="admin.scheduledTask.stopTime">Закончено выполнение задачи.</message>
 	<message key="admin.scheduledTask.noLog">Задача не создавала записей для журнала событий.</message>
+	<message key="admin.scheduledTask.openAccessNotification">Уведомление об открытом доступе</message>
 	<message key="admin.scheduledTask.downloadLog">Ваша инсталляция OJS автоматически выполнила и завершила эту задачу, вы можете скачать файл с журналом событий по этой ссылке: {$url}</message>
 	<message key="admin.scheduledTask.confirmClearLogs">Вы уверены, что хотите удалить все журналы событий, содержащие информацию о выполнении запланированных задач?</message>
 	<message key="admin.scheduledTask.clearLogs">Удалить журналы событий с информацией о выполнении запланированных задач</message>

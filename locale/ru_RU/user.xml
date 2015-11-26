@@ -65,6 +65,9 @@
 	<message key="user.login.registeredEmail">Адрес электронной почты зарегистрированного пользователя</message>
 	<message key="user.login.rememberUsernameAndPassword">Запомнить мои имя пользователя и пароль</message>
 	<message key="user.login.resetPassword">Сбросить пароль</message>
+	<message key="user.login.implicitAuth">Вход Shibboleth</message>
+	<message key="user.login.implicitAuthLogin">Вход через Shibboleth</message>
+	<message key="user.login.localAuth">Вход в локальную учетную запись</message>
 	<message key="user.logOut">Выйти из системы</message>
 	<message key="user.hello">Добро пожаловать, </message>
 	<message key="user.mailingAddress">Почтовый адрес</message>

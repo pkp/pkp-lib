@@ -38,7 +38,7 @@ class AuthorForm extends Form {
 		$this->addCheck(new FormValidator($this, 'firstName', 'required', 'submission.submit.form.authorRequiredFields'));
 		$this->addCheck(new FormValidator($this, 'lastName', 'required', 'submission.submit.form.authorRequiredFields'));
 		$this->addCheck(new FormValidatorEmail($this, 'email', 'required', 'form.emailRequired'));
-		$this->addCheck(new FormValidatorUrl($this, 'url', 'optional', 'user.profile.form.urlInvalid'));
+		$this->addCheck(new FormValidatorUrl($this, 'userUrl', 'optional', 'user.profile.form.urlInvalid'));
 		$this->addCheck(new FormValidator($this, 'userGroupId', 'required', 'submission.submit.form.contributorRoleRequired'));
 		$this->addCheck(new FormValidatorORCID($this, 'orcid', 'optional', 'user.orcid.orcidInvalid'));
 		$this->addCheck(new FormValidatorPost($this));
@@ -116,7 +116,7 @@ class AuthorForm extends Form {
 				'affiliation' => $author->getAffiliation(null), // Localized
 				'country' => $author->getCountry(),
 				'email' => $author->getEmail(),
-				'url' => $author->getUrl(),
+				'userUrl' => $author->getUrl(),
 				'orcid' => $author->getOrcid(),
 				'userGroupId' => $author->getUserGroupId(),
 				'biography' => $author->getBiography(null),
@@ -171,7 +171,7 @@ class AuthorForm extends Form {
 			'affiliation',
 			'country',
 			'email',
-			'url',
+			'userUrl',
 			'orcid',
 			'userGroupId',
 			'biography',
@@ -207,7 +207,7 @@ class AuthorForm extends Form {
 		$author->setAffiliation($this->getData('affiliation'), null); // localized
 		$author->setCountry($this->getData('country'));
 		$author->setEmail($this->getData('email'));
-		$author->setUrl($this->getData('url'));
+		$author->setUrl($this->getData('userUrl'));
 		$author->setOrcid($this->getData('orcid'));
 		$author->setUserGroupId($this->getData('userGroupId'));
 		$author->setBiography($this->getData('biography'), null); // localized

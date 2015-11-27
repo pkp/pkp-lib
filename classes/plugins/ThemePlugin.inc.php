@@ -33,15 +33,21 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 			$templateManager = TemplateManager::getManager($request);
 			HookRegistry::register('PageHandler::displayCss', array($this, '_displayCssCallback'));
 
-			// Add the stylesheet.
-			$dispatcher = $request->getDispatcher();
-			$templateManager->addStyleSheet($dispatcher->url($request, ROUTE_COMPONENT, null, 'page.PageHandler', 'css', null, array('name' => $this->getName())), STYLE_SEQUENCE_LATE);
+			$context = $request->getContext();
+			$site = $request->getSite();
+			$contextOrSite = $context?$context:$site;
 
-			// If this theme uses templates, ensure they're given priority.
-			array_unshift(
-				$templateManager->template_dir,
-				$path = Core::getBaseDir() . DIRECTORY_SEPARATOR . $this->getPluginPath() . '/templates'
-			);
+			// Add the stylesheet.
+			if ($contextOrSite->getSetting('themePluginPath') == basename($path)) {
+				$dispatcher = $request->getDispatcher();
+				$templateManager->addStyleSheet($dispatcher->url($request, ROUTE_COMPONENT, null, 'page.PageHandler', 'css', null, array('name' => $this->getName())), STYLE_SEQUENCE_LATE);
+
+				// If this theme uses templates, ensure they're given priority.
+				array_unshift(
+					$templateManager->template_dir,
+					$path = Core::getBaseDir() . DIRECTORY_SEPARATOR . $this->getPluginPath() . '/templates'
+				);
+			}
 		}
 		return true;
 	}

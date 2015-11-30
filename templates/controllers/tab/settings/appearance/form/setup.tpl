@@ -21,7 +21,7 @@
 
 {* In wizard mode, these fields should be hidden *}
 {if $wizardMode}
-	{assign var="wizard_class" value="is_wizard_mode"}
+	{assign var="wizardClass" value="is_wizard_mode"}
 {else}
-	{assign var="wizard_class" value=""}
+	{assign var="wizardClass" value=""}
 {/if}

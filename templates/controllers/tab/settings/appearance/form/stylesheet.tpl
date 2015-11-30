@@ -8,12 +8,12 @@
  * @brief Form fields for uploading a custom frontend stylesheet
  *
  *}
-{assign var="stylesheet_field_id" value=$uploadCssLinkAction->getId()}
-{fbvFormSection label="manager.setup.useStyleSheet" for=$stylesheet_field_id description="manager.setup.styleSheetDescription"}
+{assign var="stylesheetFieldId" value=$uploadCssLinkAction->getId()}
+{fbvFormSection label="manager.setup.useStyleSheet" for=$stylesheetFieldId description="manager.setup.styleSheetDescription"}
 	<div id="styleSheet">
 		{$styleSheetView}
 	</div>
-	<div id={$stylesheet_field_id} class="pkp_linkActions">
+	<div id={$stylesheetFieldId} class="pkp_linkActions">
 		{include file="linkAction/linkAction.tpl" action=$uploadCssLinkAction contextId="appearanceForm"}
 	</div>
 {/fbvFormSection}

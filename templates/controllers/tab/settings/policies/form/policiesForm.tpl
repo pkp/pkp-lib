@@ -27,22 +27,22 @@
 
 		{* In wizard mode, these fields should be hidden *}
 		{if $wizardMode}
-			{assign var="wizard_classes" value="is_wizard_mode"}
+			{assign var="wizardClasses" value="is_wizard_mode"}
 		{else}
-			{assign var="wizard_classes" value=""}
+			{assign var="wizardClasses" value=""}
 		{/if}
-		{fbvFormSection label="manager.setup.focusAndScope" description="manager.setup.focusAndScope.description" class=$wizard_classes}
+		{fbvFormSection label="manager.setup.focusAndScope" description="manager.setup.focusAndScope.description" class=$wizardClasses}
 			{fbvElement type="textarea" multilingual=true name="focusScopeDesc" id="focusScopeDesc" value=$focusScopeDesc rich=true}
 		{/fbvFormSection}
-		{fbvFormSection label="manager.setup.openAccessPolicy" description="manager.setup.openAccessPolicy.description" class=$wizard_classes}
+		{fbvFormSection label="manager.setup.openAccessPolicy" description="manager.setup.openAccessPolicy.description" class=$wizardClasses}
 			{url|assign:"accessAndSecurityUrl" page="settings" op="access"}
 			{translate|assign:"securitySettingsNote" key="manager.setup.securitySettings.note" accessAndSecurityUrl=$accessAndSecurityUrl}
 			{fbvElement type="textarea" multilingual="true" name="openAccessPolicy" id="openAccessPolicy" value=$openAccessPolicy rich=true}
 		{/fbvFormSection}
-		{fbvFormSection label="manager.setup.reviewPolicy" description="manager.setup.peerReview.description" class=$wizard_classes}
+		{fbvFormSection label="manager.setup.reviewPolicy" description="manager.setup.peerReview.description" class=$wizardClasses}
 			{fbvElement type="textarea" multilingual=true name="reviewPolicy" id="reviewPolicy" value=$reviewPolicy rich=true}
 		{/fbvFormSection}
-		{fbvFormSection label="manager.setup.competingInterests" description="manager.setup.competingInterestsDescription" class=$wizard_classes}
+		{fbvFormSection label="manager.setup.competingInterests" description="manager.setup.competingInterestsDescription" class=$wizardClasses}
 			{fbvElement type="textarea" multilingual="true" id="competingInterestsPolicy" rich=true value=$competingInterestsPolicy}
 		{/fbvFormSection}
 

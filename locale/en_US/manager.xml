@@ -234,7 +234,7 @@
 	<message key="manager.setup.sponsors">Sponsoring Organizations</message>
 	<message key="manager.setup.sponsors.note">You may add a note describing your sponsor relationship and policy; this will appear with the sponsor list on your About page.</message>
 	<message key="manager.setup.contributors.note">You may add a note describing the relationship and policy between you and your sources of support; this will appear with the Sources of Support list on your About page.</message>
-	<message key="manager.setup.styleSheetDescription">You may upload an additional Cascading Style Sheet (CSS) file to change the appearance.</message>
+	<message key="manager.setup.styleSheetDescription">Experienced web developers can upload a CSS file to further customize the website's appearance.</message>
 	<message key="manager.setup.citations">Citations</message>
 	<message key="manager.setup.citationAssistant">Citation Markup Assistant</message>
 	<message key="manager.setup.citationFilterParser">Citation Extraction</message>
@@ -280,7 +280,7 @@
 	<message key="manager.setup.homepageImageInvalid">Invalid homepage image format or upload failed. Accepted formats are .gif, .jpg, or .png.</message>
 	<message key="manager.setup.homeTitleImageInvalid">Invalid homepage header title image format or upload failed. Accepted formats are .gif, .jpg, or .png.</message>
 	<message key="manager.setup.layout.theme">Theme</message>
-	<message key="manager.setup.layout.themeDescription">Choose a theme from the available set of theme plugins.</message>
+	<message key="manager.setup.layout.themeDescription">Select a theme for your website. New themes may be added in the plugins setup area.</message>
 	<message key="manager.setup.layout.blockManagement">Sidebar management</message>
 	<message key="manager.setup.layout.leftSidebar">Left Sidebar</message>
 	<message key="manager.setup.layout.rightSidebar">Right Sidebar</message>

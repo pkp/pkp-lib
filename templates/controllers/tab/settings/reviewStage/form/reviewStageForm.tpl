@@ -23,12 +23,12 @@
 
 	{* In wizard mode, these fields should be hidden *}
 	{if $wizardMode}
-		{assign var="wizard_class" value="is_wizard_mode"}
+		{assign var="wizardClass" value="is_wizard_mode"}
 	{else}
-		{assign var="wizard_class" value=""}
+		{assign var="wizardClass" value=""}
 	{/if}
 
-	{fbvFormArea id="reviewOptions" title="manager.setup.reviewOptions.reviewTime" class=$wizard_class}
+	{fbvFormArea id="reviewOptions" title="manager.setup.reviewOptions.reviewTime" class=$wizardClass}
 		<!-- FIXME: also, fbvStyles.size.SMALL needs to be switched to TINY once there's a TINY option available -->
 		{fbvFormSection description="manager.setup.reviewOptions.noteOnModification"}
 			{fbvElement type="text" label="manager.setup.reviewOptions.numWeeksPerResponse" name="numWeeksPerResponse" id="numWeeksPerResponse" value=$numWeeksPerResponse size=$fbvStyles.size.SMALL inline=true}
@@ -54,7 +54,7 @@
 	{url|assign:reviewFormsUrl router=$smarty.const.ROUTE_COMPONENT component="grid.settings.reviewForms.ReviewFormGridHandler" op="fetchGrid" escape=false}
 	{load_url_in_div id="reviewFormGridContainer" url=$reviewFormsUrl}
 
-	{fbvFormArea id="reviewProcessDetails" class=$wizard_class}
+	{fbvFormArea id="reviewProcessDetails" class=$wizardClass}
 		{* https://github.com/pkp/pkp-lib/issues/372
 			{fbvFormSection for="rateReviewerOnQuality" label="manager.setup.reviewOptions.reviewerRatings" list=true}
 				{fbvElement type="checkbox" id="rateReviewerOnQuality" value="1" checked=$rateReviewerOnQuality label="manager.setup.reviewOptions.onQuality"}
@@ -66,7 +66,7 @@
 		{/fbvFormSection}
 	{/fbvFormArea}
 
-	{fbvFormArea id="review" class=$wizard_class}
+	{fbvFormArea id="review" class=$wizardClass}
 		{fbvFormSection label="manager.setup.competingInterests" for="competingInterests" description="manager.setup.competingInterestsDescription"}
 			{fbvElement type="textarea" multilingual="true" id="competingInterests" value=$competingInterests rich=true}
 		{/fbvFormSection}

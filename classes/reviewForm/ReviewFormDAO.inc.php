@@ -278,17 +278,7 @@ class ReviewFormDAO extends DAO {
 		$result =& $this->retrieveRange(
 			'SELECT	rf.*
 			FROM	review_forms rf
-				LEFT JOIN review_assignments rac ON (
-					rac.review_form_id = rf.review_form_id AND
-					rac.date_confirmed IS NOT NULL
-				)
-				LEFT JOIN review_assignments rai ON (
-					rai.review_form_id = rf.review_form_id AND
-					rai.date_notified IS NOT NULL AND
-					rai.date_confirmed IS NULL
-				)
 			WHERE	rf.assoc_type = ? AND assoc_id = ? AND rf.is_active = 1
-			GROUP BY rf.assoc_type, rf.assoc_id, rf.review_form_id, rf.seq, rf.is_active
 			ORDER BY rf.seq',
 			array((int) $assocType, (int) $assocId), $rangeInfo
 		);
@@ -308,18 +298,13 @@ class ReviewFormDAO extends DAO {
 		$result =& $this->retrieveRange(
 			'SELECT	rf.*
 			FROM	review_forms rf
-				LEFT JOIN review_assignments rac ON (
-					rac.review_form_id = rf.review_form_id AND
-					rac.date_confirmed IS NOT NULL
-				)
-				LEFT JOIN review_assignments rai ON (
-					rai.review_form_id = rf.review_form_id AND
-					rai.date_notified IS NOT NULL AND
-					rai.date_confirmed IS NULL
-				)
 			WHERE	rf.assoc_type = ? AND rf.assoc_id = ? AND rf.is_active = 1
-			GROUP BY rf.assoc_type, rf.assoc_id, rf.review_form_id, rf.seq, rf.is_active
-			HAVING COUNT(rac.review_id) > 0 OR COUNT(rai.review_id) > 0
+			  AND	EXISTS (
+				SELECT	ra.review_form_id
+				FROM	review_assignments ra
+				WHERE	rf.review_form_id = ra.review_form_id
+				  AND	((ra.date_confirmed IS NULL AND ra.date_notified IS NOT NULL) OR ra.date_confirmed IS NOT NULL)
+				)
 			ORDER BY rf.seq',
 			array((int) $assocType, (int) $assocId), $rangeInfo
 		);
@@ -339,18 +324,13 @@ class ReviewFormDAO extends DAO {
 		$result =& $this->retrieveRange(
 			'SELECT	rf.*
 			FROM	review_forms rf
-				LEFT JOIN review_assignments rac ON (
-					rac.review_form_id = rf.review_form_id AND
-					rac.date_confirmed IS NOT NULL
-				)
-				LEFT JOIN review_assignments rai ON (
-					rai.review_form_id = rf.review_form_id AND
-					rai.date_notified IS NOT NULL AND
-					rai.date_confirmed IS NULL
-				)
 			WHERE	rf.assoc_type = ? AND rf.assoc_id = ?
-			GROUP BY rf.assoc_type, rf.assoc_id, rf.review_form_id, rf.seq, rf.is_active
-			HAVING COUNT(rac.review_id) = 0 AND COUNT(rai.review_id) = 0
+			  AND	NOT EXISTS (
+				SELECT	ra.review_form_id
+				FROM	review_assignments ra
+				WHERE	rf.review_form_id = ra.review_form_id
+				  AND	((ra.date_confirmed IS NULL AND ra.date_notified IS NOT NULL) OR ra.date_confirmed IS NOT NULL)
+				)
 			ORDER BY rf.seq',
 			array((int) $assocType, (int) $assocId), $rangeInfo
 		);
@@ -399,22 +379,15 @@ class ReviewFormDAO extends DAO {
 		}
 
 		$result =& $this->retrieve (
-			'SELECT	rf.review_form_id,
-				COUNT(rac.review_id) AS complete_count,
-				COUNT(rai.review_id) AS incomplete_count
+			'SELECT	rf.review_form_id
 			FROM	review_forms rf
-				LEFT JOIN review_assignments rac ON (
-					rac.review_form_id = rf.review_form_id AND
-					rac.date_confirmed IS NOT NULL
-				)
-				LEFT JOIN review_assignments rai ON (
-					rai.review_form_id = rf.review_form_id AND
-					rai.date_notified IS NOT NULL AND
-					rai.date_confirmed IS NULL
-				)
 			WHERE	rf.review_form_id = ?' . ($assocType !== null ? ' AND rf.assoc_type = ? AND rf.assoc_id = ?':'') . '
-			GROUP BY rf.review_form_id
-			HAVING COUNT(rac.review_id) = 0 AND COUNT(rai.review_id) = 0',
+			  AND	NOT EXISTS (
+				SELECT	ra.review_form_id
+				FROM	review_assignments ra
+				WHERE	rf.review_form_id = ra.review_form_id
+				  AND	((ra.date_confirmed IS NULL AND ra.date_notified IS NOT NULL) OR ra.date_confirmed IS NOT NULL)
+				)',
 			$params
 		);
 

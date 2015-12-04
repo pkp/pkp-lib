@@ -24,7 +24,7 @@
 import('lib.pkp.classes.oai.OAIStruct');
 import('lib.pkp.classes.oai.OAIUtils');
 
-class OAI {
+abstract class OAI {
 	/** @var OAIConfig configuration parameters */
 	var $config;
 
@@ -40,7 +40,7 @@ class OAI {
 	 * Initializes object and parses user input.
 	 * @param $config OAIConfig repository configuration
 	 */
-	function OAI(&$config) {
+	function OAI($config) {
 		$this->config = $config;
 
 		// Initialize parameters from GET or POST variables
@@ -103,10 +103,7 @@ class OAI {
 	 * Return information about the repository.
 	 * @return OAIRepository
 	 */
-	function &repositoryInfo() {
-		$info = false;
-		return $info;
-	}
+	abstract function repositoryInfo();
 
 	/**
 	 * Check if identifier is in the valid format.
@@ -131,10 +128,7 @@ class OAI {
 	 * @param $identifier string
 	 * @return OAIRecord (or false, if identifier is invalid)
 	 */
-	function &record($identifier) {
-		$record = false;
-		return $record;
-	}
+	abstract function record($identifier);
 
 	/**
 	 * Return set of OAI records.
@@ -147,9 +141,8 @@ class OAI {
 	 * @param $total int output parameter, set to total number of records
 	 * @return array OAIRecord
 	 */
-	function &records($metadataPrefix, $from, $until, $set, $offset, $limit, &$total) {
-		$records = array();
-		return $records;
+	function records($metadataPrefix, $from, $until, $set, $offset, $limit, &$total) {
+		return array();
 	}
 
 	/**
@@ -157,9 +150,8 @@ class OAI {
 	 * @see getRecords
 	 * @return array OAIIdentifier
 	 */
-	function &identifiers($metadataPrefix, $from, $until, $set, $offset, $limit, &$total) {
-		$identifiers = array();
-		return $identifiers;
+	function identifiers($metadataPrefix, $from, $until, $set, $offset, $limit, &$total) {
+		return array();
 	}
 
 	/**
@@ -167,9 +159,8 @@ class OAI {
 	 * @param $offset int current set offset
 	 * @param $total int output parameter, set to total number of sets
 	 */
-	function &sets($offset, &$total) {
-		$sets = array();
-		return $sets;
+	function sets($offset, &$total) {
+		return array();
 	}
 
 	/**
@@ -177,10 +168,7 @@ class OAI {
 	 * @param $tokenId string
 	 * @return OAIResumptionToken (or false, if token invalid)
 	 */
-	function &resumptionToken($tokenId) {
-		$token = false;
-		return $token;
-	}
+	abstract function resumptionToken($tokenId);
 
 	/**
 	 * Save a resumption token.
@@ -188,10 +176,7 @@ class OAI {
 	 * @param $params array request parameters
 	 * @return OAIResumptionToken the saved token
 	 */
-	function &saveResumptionToken($offset, $params) {
-		$token = null;
-		return $token;
-	}
+	abstract function saveResumptionToken($offset, $params);
 
 	/**
 	 * Return array of supported metadata formats.
@@ -199,7 +184,7 @@ class OAI {
 	 * @param $identifier string return formats for specific identifier
 	 * @return array
 	 */
-	function &metadataFormats($namesOnly = false, $identifier = null) {
+	function metadataFormats($namesOnly = false, $identifier = null) {
 		$formats = array();
 		HookRegistry::call('OAI::metadataFormats', array($namesOnly, $identifier, &$formats));
 
@@ -230,7 +215,7 @@ class OAI {
 		}
 
 		// Get metadata for requested identifier
-		if (($record =& $this->record($identifier)) === false) {
+		if (($record = $this->record($identifier)) === false) {
 			$this->error('idDoesNotExist', 'No matching identifier in this repository');
 			return;
 		}
@@ -275,7 +260,7 @@ class OAI {
 			return;
 		}
 
-		$info =& $this->repositoryInfo();
+		$info = $this->repositoryInfo();
 
 		// Format body of response
 		$response = "\t<Identify>\n" .
@@ -337,7 +322,7 @@ class OAI {
 			}
 
 			// Get parameters from resumption token
-			if (($token =& $this->resumptionToken($this->getParam('resumptionToken'))) === false) {
+			if (($token = $this->resumptionToken($this->getParam('resumptionToken'))) === false) {
 				$this->error('badResumptionToken', 'The requested resumptionToken is invalid or has expired');
 				return;
 			}
@@ -376,7 +361,7 @@ class OAI {
 		$total = 0;
 
 		// Get list of matching identifiers
-		$records =& $this->identifiers($metadataPrefix, $from, $until, $set, $offset, $this->config->maxIdentifiers, $total);
+		$records = $this->identifiers($metadataPrefix, $from, $until, $set, $offset, $this->config->maxIdentifiers, $total);
 		if (empty($records)) {
 			$this->error('noRecordsMatch', 'No matching records in this repository');
 			return;
@@ -401,7 +386,7 @@ class OAI {
 
 		if ($offset != 0 && $offset < $total) {
 			// Partial result, save resumption token
-			$token =& $this->saveResumptionToken($offset, $this->getParams());
+			$token = $this->saveResumptionToken($offset, $this->getParams());
 
 			$response .= "\t\t<resumptionToken expirationDate=\"" . OAIUtils::UTCDate($token->expire) . "\"\n" .
 				"\t\t\tcompleteListSize=\"$total\"\n" .
@@ -434,11 +419,11 @@ class OAI {
 				return;
 
 			} else {
-				$formats =& $this->metadataFormats(false, $this->getParam('identifier'));
+				$formats = $this->metadataFormats(false, $this->getParam('identifier'));
 			}
 
 		} else {
-			$formats =& $this->metadataFormats();
+			$formats = $this->metadataFormats();
 		}
 
 		if (empty($formats) || !is_array($formats)) {
@@ -478,7 +463,7 @@ class OAI {
 			}
 
 			// get parameters from resumption token
-			if (($token =& $this->resumptionToken($this->getParam('resumptionToken'))) === false) {
+			if (($token = $this->resumptionToken($this->getParam('resumptionToken'))) === false) {
 				$this->error('badResumptionToken', 'The requested resumptionToken is invalid or has expired');
 				return;
 			}
@@ -518,7 +503,7 @@ class OAI {
 		$total = 0;
 
 		// Get list of matching records
-		$records =& $this->records($metadataPrefix, $from, $until, $set, $offset, $this->config->maxRecords, $total);
+		$records = $this->records($metadataPrefix, $from, $until, $set, $offset, $this->config->maxRecords, $total);
 		if (empty($records)) {
 			$this->error('noRecordsMatch', 'No matching records in this repository');
 			return;
@@ -551,7 +536,7 @@ class OAI {
 
 		if ($offset != 0 && $offset < $total) {
 			// Partial result, save resumption token
-			$token =& $this->saveResumptionToken($offset, $this->getParams());
+			$token = $this->saveResumptionToken($offset, $this->getParams());
 
 			$response .=	"\t\t<resumptionToken expirationDate=\"" . OAIUtils::UTCDate($token->expire) . "\"\n" .
 					"\t\t\tcompleteListSize=\"$total\"\n" .
@@ -582,7 +567,7 @@ class OAI {
 			}
 
 			// Get parameters from resumption token
-			if (($token =& $this->resumptionToken($this->getParam('resumptionToken'))) === false) {
+			if (($token = $this->resumptionToken($this->getParam('resumptionToken'))) === false) {
 				$this->error('badResumptionToken', 'The requested resumptionToken is invalid or has expired');
 				return;
 			}
@@ -602,7 +587,7 @@ class OAI {
 		$total = 0;
 
 		// Get list of matching sets
-		$sets =& $this->sets($offset, $this->config->maxRecords, $total);
+		$sets = $this->sets($offset, $this->config->maxRecords, $total);
 		if (empty($sets)) {
 			$this->error('noSetHierarchy', 'This repository does not support sets');
 			return;
@@ -637,7 +622,7 @@ class OAI {
 
 		if ($offset != 0 && $offset < $total) {
 			// Partial result, set resumption token
-			$token =& $this->saveResumptionToken($offset, $this->getParams());
+			$token = $this->saveResumptionToken($offset, $this->getParams());
 
 			$response .=	"\t\t<resumptionToken expirationDate=\"" . OAIUtils::UTCDate($token->expire) . "\"\n" .
 					"\t\t\tcompleteListSize=\"$total\"\n" .
@@ -722,7 +707,7 @@ class OAI {
 	 * Set the request parameters.
 	 * @param $params array
 	 */
-	function setParams(&$params) {
+	function setParams($params) {
 		$this->params = $params;
 	}
 
@@ -795,8 +780,8 @@ class OAI {
 	 * @param $metadata OAIMetadata
 	 * @return string
 	 */
-	function &formatMetadata($format, $record) {
-		$formats =& $this->metadataFormats();
+	function formatMetadata($format, $record) {
+		$formats = $this->metadataFormats();
 		$metadata = $formats[$format]->toXml($record);
 		return $metadata;
 	}

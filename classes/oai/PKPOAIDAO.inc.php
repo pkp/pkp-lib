@@ -16,7 +16,7 @@
 
 import('lib.pkp.classes.oai.OAI');
 
-class PKPOAIDAO extends DAO {
+abstract class PKPOAIDAO extends DAO {
 
  	/** @var OAI parent OAI object */
  	var $oai;
@@ -32,7 +32,7 @@ class PKPOAIDAO extends DAO {
 	 * Set parent OAI object.
 	 * @param JournalOAI
 	 */
-	function setOAI(&$oai) {
+	function setOAI($oai) {
 		$this->oai = $oai;
 	}
 
@@ -102,7 +102,7 @@ class PKPOAIDAO extends DAO {
 	 * only inside the specified set.
 	 * @return OAIRecord
 	 */
-	function &getRecord($dataObjectId, $setIds = array()) {
+	function getRecord($dataObjectId, $setIds = array()) {
 		$params = $this->getOrderedRecordParams($dataObjectId, $setIds);
 
 		$result = $this->retrieve(
@@ -115,7 +115,7 @@ class PKPOAIDAO extends DAO {
 		$returner = null;
 		if ($result->RecordCount() != 0) {
 			$row = $result->GetRowAssoc(false);
-			$returner =& $this->_returnRecordFromRow($row);
+			$returner = $this->_returnRecordFromRow($row);
 		}
 
 		$result->Close();
@@ -135,7 +135,7 @@ class PKPOAIDAO extends DAO {
 	 * @param $total int
 	 * @return array OAIRecord
 	 */
-	function &getRecords($setIds, $from, $until, $set, $offset, $limit, &$total) {
+	function getRecords($setIds, $from, $until, $set, $offset, $limit, &$total) {
 		$records = array();
 
 		$result = $this->_getRecordsRecordSet($setIds, $from, $until, $set);
@@ -166,7 +166,7 @@ class PKPOAIDAO extends DAO {
 	 * @param $total int
 	 * @return array OAIIdentifier
 	 */
-	function &getIdentifiers($setIds, $from, $until, $set, $offset, $limit, &$total) {
+	function getIdentifiers($setIds, $from, $until, $set, $offset, $limit, &$total) {
 		$records = array();
 
 		$result = $this->_getRecordsRecordSet($setIds, $from, $until, $set);
@@ -201,7 +201,7 @@ class PKPOAIDAO extends DAO {
 	 * Retrieve a resumption token.
 	 * @return OAIResumptionToken
 	 */
-	function &getToken($tokenId) {
+	function getToken($tokenId) {
 		$result = $this->retrieve(
 			'SELECT * FROM oai_resumption_tokens WHERE token = ?',
 			array($tokenId)
@@ -224,7 +224,7 @@ class PKPOAIDAO extends DAO {
 	 * @param $token OAIResumptionToken
 	 * @return OAIResumptionToken
 	 */
-	function &insertToken(&$token) {
+	function insertToken($token) {
 		do {
 			// Generate unique token ID
 			$token->id = md5(uniqid(mt_rand(), true));
@@ -345,9 +345,7 @@ class PKPOAIDAO extends DAO {
 	 * @param $until int/string *nix timestamp or ISO datetime string
 	 * @return string
 	 */
-	function getDateRangeWhereClause($from, $until) {
-		assert(false);
-	}
+	abstract function getDateRangeWhereClause($from, $until);
 
 	/**
 	 * Set application specific data to OAIRecord and OAIIdentifier objects.
@@ -359,9 +357,7 @@ class PKPOAIDAO extends DAO {
 	 * OAIRecord data can be set.
 	 * @return OAIIdentifier/OAIRecord
 	 */
-	function &setOAIData($record, $row, $isRecord) {
-		assert(false);
-	}
+	abstract function setOAIData($record, $row, $isRecord);
 
 
 	//
@@ -372,9 +368,9 @@ class PKPOAIDAO extends DAO {
 	 * @param $row array
 	 * @return OAIRecord
 	 */
-	function &_returnRecordFromRow($row) {
+	function _returnRecordFromRow($row) {
 		$record = new OAIRecord();
-		$record =& $this->_doCommonOAIFromRowOperations($record, $row);
+		$record = $this->_doCommonOAIFromRowOperations($record, $row);
 
 		HookRegistry::call('OAIDAO::_returnRecordFromRow', array(&$record, &$row));
 
@@ -386,9 +382,9 @@ class PKPOAIDAO extends DAO {
 	 * @param $row array
 	 * @return OAIIdentifier
 	 */
-	function &_returnIdentifierFromRow($row) {
+	function _returnIdentifierFromRow($row) {
 		$record = new OAIIdentifier();
-		$record =& $this->_doCommonOAIFromRowOperations($record, $row);
+		$record = $this->_doCommonOAIFromRowOperations($record, $row);
 
 		HookRegistry::call('OAIDAO::_returnIdentifierFromRow', array(&$record, &$row));
 
@@ -401,7 +397,7 @@ class PKPOAIDAO extends DAO {
 	 * @param $row array
 	 * @return OAIRecord/OAIIdentifier
 	 */
-	function &_doCommonOAIFromRowOperations(&$record, $row) {
+	function _doCommonOAIFromRowOperations($record, $row) {
 		$record->datestamp = OAIUtils::UTCDate(strtotime($this->datetimeFromDB($row['last_modified'])));
 
 		if (isset($row['tombstone_id'])) {
@@ -425,7 +421,7 @@ class PKPOAIDAO extends DAO {
 	 * @param $set string
 	 * @return ADORecordSet
 	 */
-	function &_getRecordsRecordSet($setIds, $from, $until, $set) {
+	function _getRecordsRecordSet($setIds, $from, $until, $set) {
 		$params = $this->getOrderedRecordParams(null, $setIds, $set);
 
 		$result = $this->retrieve(

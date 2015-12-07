@@ -207,8 +207,6 @@
 			<KEY />
 			<AUTOINCREMENT/>
 		</field>
-		<field name="parent_query_id" type="I8" />
-		<field name="revision" type="I8" />
 		<field name="assoc_type" type="I8">
 			<NOTNULL/>
 		</field>

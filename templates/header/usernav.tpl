@@ -15,6 +15,19 @@
 	{rdelim});
  </script>
 <ul id="navigationUser" class="pkp_nav_list">
+	{if $currentJournal || $currentPress}
+		{url|assign:"homeUrl" page="index" router=$smarty.const.ROUTE_PAGE}
+	{elseif $multipleContexts}
+		{url|assign:"homeUrl" journal="index" router=$smarty.const.ROUTE_PAGE}
+	{/if}
+	{if $homeUrl}
+		<li>
+			<a href="{$homeUrl}">
+				<span class="fa fa-eye"></span>
+				{translate key="navigation.viewFrontend"}
+			</a>
+		</li>
+	{/if}
 	{if $multipleContexts}
 		<li class="has-submenu">
 			<a href="#">
@@ -32,19 +45,6 @@
 			</ul>
 		</li>
 	{/if}
-	{if $currentJournal}
-		{url|assign:"homeUrl" page="index" router=$smarty.const.ROUTE_PAGE}
-	{elseif $multipleContexts}
-		{url|assign:"homeUrl" journal="index" router=$smarty.const.ROUTE_PAGE}
-	{/if}
-	{if $homeUrl}
-		<li>
-			<a href="{$homeUrl}">
-				<span class="fa fa-eye"></span>
-				{translate key="navigation.viewFrontend"}
-			</a>
-		</li>
-	{/if}
 	{if $isUserLoggedIn}
 		{if array_intersect(array(ROLE_ID_SITE_ADMIN), $userRoles)}
 		<li>
@@ -54,6 +54,12 @@
 			</a>
 		</li>
 		{/if}
+		<li>
+			<a href="{url router=$smarty.const.ROUTE_PAGE page="user" op="profile"}">
+				<span class="fa fa-user"></span>
+				{$loggedInUsername|escape}
+			</a>
+		</li>
 		{if $isUserLoggedInAs}
 			<li class="logout">
 				<a href="{url router=$smarty.const.ROUTE_PAGE page="login" op="signOutAsUser"}">

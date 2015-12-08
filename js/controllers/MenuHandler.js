@@ -33,9 +33,12 @@
 
 		// Fix dropdown menus that may go off-screen and recalculate whenever
 		// the browser window is resized
-		this.setDropdownAlignment();
+		// 1ms delay allows dom insertion to complete
+		var self = this;
+		setTimeout(function() {
+			self.callbackWrapper(self.setDropdownAlignment())
+		}, 1);
 		$(window).resize(this.callbackWrapper(this.onResize));
-
 
 		// Attach event handlers
 		this.$links_.bind('focus', this.onFocus);
@@ -79,18 +82,41 @@
 
 
 	/**
-	 * Attach a class to any dropdown menus that will stray off-screen to align
-	 * them to the right edge of their parent
+	 * Check if submenus are straying off-screen and adjust as needed
 	 */
 	$.pkp.controllers.MenuHandler.prototype.setDropdownAlignment = function() {
-		var width = Math.max(
-				document.documentElement.clientWidth, window.innerWidth || 0);
+		var $this = $(this),
+			width = Math.max(
+				document.documentElement.clientWidth, window.innerWidth || 0),
+			height = Math.max(
+				document.documentElement.clientHeight, window.innerHeight || 0);
+
 		this.$parents_.each(function() {
-			var right = $(this).offset().left + $(this).children('ul').outerWidth();
+			$parent = $(this);
+			$submenus = $parent.children('ul');
+
+			// Width
+			var right = $parent.offset().left + $submenus.outerWidth();
 			if (right > width) {
-				$(this).addClass('align_right');
+				$parent.addClass('align_right');
 			} else {
-				$(this).removeClass('align_right');
+				$parent.removeClass('align_right');
+			}
+
+			// Height
+			$submenus.attr( 'style', '' ); // reset
+			var pos_top = $parent.offset().top;
+			var pos_btm = pos_top + $submenus.outerHeight();
+			var needs_scrollbar = false;
+			if (pos_btm > height) {
+				var offset_top = pos_btm - height;
+				var new_top = pos_top - offset_top;
+				if (new_top < 0) {
+					offset_top += new_top;
+					$submenus.css('overflow-y', 'scroll');
+					$submenus.css('bottom', -Math.abs(height - pos_top - $parent.outerHeight()) + 'px' );
+				}
+				$submenus.css('top', -Math.abs(offset_top) + 'px');
 			}
 		});
 	};

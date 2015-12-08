@@ -15,6 +15,19 @@
 	{rdelim});
  </script>
 <ul id="navigationUser" class="pkp_nav_list">
+	{if $currentJournal || $currentPress}
+		{url|assign:"homeUrl" page="index" router=$smarty.const.ROUTE_PAGE}
+	{elseif $multipleContexts}
+		{url|assign:"homeUrl" journal="index" router=$smarty.const.ROUTE_PAGE}
+	{/if}
+	{if $homeUrl}
+		<li>
+			<a href="{$homeUrl}">
+				<span class="fa fa-eye"></span>
+				{translate key="navigation.viewFrontend"}
+			</a>
+		</li>
+	{/if}
 	{if $multipleContexts}
 		<li class="has-submenu">
 			<a href="#">
@@ -30,19 +43,6 @@
 					</li>
 				{/foreach}
 			</ul>
-		</li>
-	{/if}
-	{if $currentJournal || $currentPress}
-		{url|assign:"homeUrl" page="index" router=$smarty.const.ROUTE_PAGE}
-	{elseif $multipleContexts}
-		{url|assign:"homeUrl" journal="index" router=$smarty.const.ROUTE_PAGE}
-	{/if}
-	{if $homeUrl}
-		<li>
-			<a href="{$homeUrl}">
-				<span class="fa fa-eye"></span>
-				{translate key="navigation.viewFrontend"}
-			</a>
 		</li>
 	{/if}
 	{if $isUserLoggedIn}

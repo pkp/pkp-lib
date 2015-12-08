@@ -164,7 +164,7 @@ class PageHandler extends Handler {
 			$dispatcher = $request->getDispatcher();
 			$contextsNameAndUrl = array();
 			while ($workingContext = $workingContexts->next()) {
-				$contextUrl = $dispatcher->url($request, ROUTE_PAGE, $workingContext->getPath());
+				$contextUrl = $dispatcher->url($request, ROUTE_PAGE, $workingContext->getPath(), 'dashboard');
 				$contextsNameAndUrl[$contextUrl] = $workingContext->getLocalizedName();
 			}
 

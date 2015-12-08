@@ -54,6 +54,12 @@
 			</a>
 		</li>
 		{/if}
+		<li>
+			<a href="{url router=$smarty.const.ROUTE_PAGE page="user" op="profile"}">
+				<span class="fa fa-user"></span>
+				{$loggedInUsername|escape}
+			</a>
+		</li>
 		{if $isUserLoggedInAs}
 			<li class="logout">
 				<a href="{url router=$smarty.const.ROUTE_PAGE page="login" op="signOutAsUser"}">

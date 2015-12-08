@@ -26,29 +26,6 @@
 // marked up, or otherwise cause complications
 //
 
-// Make room for the open/close caret
-#pluginGridContainer tbody:not(.empty) .gridRow:not(.category) td:first-child,
-#pluginGridContainer .row_controls td:first-child,
-#socialMediaGridContainer .gridRow td:first-child,
-#announcementTypeGridContainer .gridRow td:first-child,
-#announcementGridContainer .gridRow td:first-child,
-#announcementTypeGridContainer .row_controls td:first-child,
-#announcementGridContainer .row_controls td:first-child,
-#sponsorGridDiv tbody:not(.empty) td:first-child,
-#contributorGridDiv tbody:not(.empty) td:first-child,
-#sectionsGridContainer tbody:not(.empty) td:first-child,
-#genresContainer tbody:not(.empty) td:first-child,
-#submissionChecklistGridDiv tbody:not(.empty) td:first-child,
-#reviewFormGridContainer tbody:not(.empty) td:first-child,
-#libraryGridDiv tbody:not(.empty) td:first-child,
-#preparedEmailsGridDiv tbody:not(.empty) td:first-child,
-#userGridContainer tbody:not(.empty) td:first-child,
-#roleGridContainer tbody:not(.empty) td:first-child,
-#ReviewFormElementsGridContainer tbody:not(.empty) td:first-child
-{
-  padding-left: @double;
-}
-
 // Reduce prominence of plugin description
 #pluginsTabs .pkp_controllers_grid tbody:not(.empty) .gridRow:not(.category) td:nth-child(2) {
 	font-size: @font-sml;
@@ -77,12 +54,17 @@
 	margin-right: 48px;
 }
 
-#footerGridContainer .pkp_linkaction_deleteFooterCategory:after {
-	&:extend(.fa);
-	content: @fa-var-trash;
-	width: 24px;
-	line-height: 24px;
+#footerGridContainer .pkp_linkaction_deleteFooterCategory {
 	color: @no;
+
+	&:hover,
+	&:focus {
+		color: @no-lift;
+	}
+
+	&:after {
+		content: @fa-var-trash;
+	}
 }
 
 // Makes height similar to footer grid category rows which sit next to it

@@ -106,7 +106,7 @@ class ReviewFormElementsGridHandler extends GridHandler {
 				null,
 				null,
 				$reviewFormElementGridCellProvider,
-				array('multiline' => true, 'html' => true, 'maxLength' => 220)
+				array('html' => true, 'maxLength' => 220)
 			)
 		);
 

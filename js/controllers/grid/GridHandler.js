@@ -280,7 +280,11 @@
 	 *  issued the event.
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.toggleRowActions =
-			function(sourceElement) {
+			function(sourceElement, event) {
+
+		// Don't follow the link
+		event.preventDefault();
+
 		// Toggle the extras link class.
 		$(sourceElement).toggleClass('show_extras');
 		$(sourceElement).toggleClass('hide_extras');
@@ -314,8 +318,6 @@
 		// hiding the row actions div.
 		for (index = 0, limit = $rowActionDivs.length; index < limit; index++) {
 			$div = $($rowActionDivs[index]);
-			$div.parents('.row_container:first').
-					attr('style', 'padding-left:0px !important');
 		}
 	};
 
@@ -329,14 +331,6 @@
 
 		$rowActionDivs = $('.gridRow div.row_actions', this.getHtmlElement());
 		$rowActionDivs.show();
-
-		// FIXME: This is a hack. It removes the inline style that grid handler
-		// inserts in the row container when it hides the row actions div.
-		// See $.pkp.controllers.grid.GridHandler.prototype.hideRowActionsDiv
-		for (index = 0, limit = $rowActionDivs.length; index < limit; index++) {
-			$div = $($rowActionDivs[index]);
-			$div.parents('.row_container:first').removeAttr('style');
-		}
 	};
 
 
@@ -926,23 +920,11 @@
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.applyToggleRowActionEffect_ =
 			function($controlRow) {
-		var delay, $row, timeoutId;
-
-		// FIXME #7582: IE8 and Safari don't work well with delay to show
-		// or hide the control grid rows.
-		delay = 0;
+		var $row;
 
 		$row = $controlRow.prev().find('td:not(.indent_row)');
 		$row = $row.add($controlRow.prev());
-		if ($controlRow.is(':visible')) {
-			timeoutId = setTimeout(function() {
-				$row.removeClass('no_border');
-			}, delay);
-			$controlRow.hide(delay);
-		} else {
-			$row.addClass('no_border');
-			$controlRow.show(delay);
-		}
+		$controlRow.toggle();
 	};
 
 

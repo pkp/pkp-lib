@@ -60,7 +60,6 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 				null,
 				$pluginCellProvider,
 				array(
-					'multiline' => true,
 					'showTotalItemsNumber' => true,
 					'collapseAllColumnsInCategories' => true
 				)
@@ -103,14 +102,6 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 					__('manager.plugins.upload'),
 					'add'));
 		}
-	}
-
-	/**
-	 * @copydoc GridHandler::initFeatures()
-	 */
-	function initFeatures($request, $args) {
-		import('lib.pkp.classes.controllers.grid.feature.GridCategoryAccordionFeature');
-		return array(new GridCategoryAccordionFeature());
 	}
 
 	/**

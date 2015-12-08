@@ -65,7 +65,7 @@ class SubmissionChecklistGridHandler extends SetupGridHandler {
 				null,
 				null,
 				null,
-				array('multiline' => true, 'html' => true, 'maxLength' => 220)
+				array('html' => true, 'maxLength' => 220)
 			)
 		);
 	}

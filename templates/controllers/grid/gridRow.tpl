@@ -16,7 +16,19 @@
 {else}
 	{assign var=rowId value=""}
 {/if}
-<tr {if $rowId}id="{$rowId|escape}" {/if}class="{if $rowId}element{$row->getId()|escape} {/if}gridRow{if is_a($row, 'GridCategoryRow')} category{if !$row->hasFlag('gridRowStyle')} default_category_style{/if}{/if}">
+
+{assign var="row_class" value="gridRow"}
+{if is_a($row, 'GridCategoryRow')}
+	{assign var="row_class" value=$row_class|cat:' category'}
+	{if !$row->hasFlag('gridRowStyle')}
+		{assign var="row_class" value=$row_class|cat:' default_category_style'}
+	{/if}
+{/if}
+{if $row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT) || $row->getNoActionMessage()}
+	{assign var="row_class" value=$row_class|cat:' has_extras'}
+{/if}
+
+<tr {if $rowId}id="{$rowId|escape}" {/if} class="{$row_class}">
 	{foreach name=columnLoop from=$columns key=columnId item=column}
 
 		{* @todo indent columns should be killed at their source *}
@@ -24,39 +36,41 @@
 			{php}continue;{/php}
 		{/if}
 
-		<td
-		{if $column->hasFlag('firstColumn')} class="first_column{if !$row->hasActions() && !$row->getNoActionMessage()} no_actions{/if}"{/if}
-		{if ($row->hasActions() || $row->getNoActionMessage()) && $column->hasFlag('firstColumn')}
-				>
-				<div class="row_container">
-					<div class="row_actions">
-						{if $row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT) || $row->getNoActionMessage()}
-							<a class="sprite show_extras" title="{translate key="grid.settings"}"><span class="hidetext">{translate key="grid.settings"}</span></a>
-						{/if}
-						{if $row->getActions($smarty.const.GRID_ACTION_POSITION_ROW_LEFT)}
-							{foreach from=$row->getActions($smarty.const.GRID_ACTION_POSITION_ROW_LEFT) item=action}
-								{include file="linkAction/linkAction.tpl" action=$action contextId=$rowId}
-							{/foreach}
-						{/if}
-					</div>
-					<div class="row_file {if $column->hasFlag('multiline')}multiline{/if}">
-						{$cells[$smarty.foreach.columnLoop.index]}
-						{if is_a($row, 'GridCategoryRow') && $column->hasFlag('showTotalItemsNumber')}
-							<span class="category_items_number">({$grid->getCategoryItemsCount($categoryRow->getData(), $request)})</span>
-						{/if}
-					</div>
-				</div>
-			</td>
-		{else}
-			{if $column->hasFlag('alignment')}
-				{assign var=alignment value=$column->getFlag('alignment')}
-			{else}
-				{assign var=alignment value=$smarty.const.COLUMN_ALIGNMENT_LEFT}
-			{/if}
-			style="text-align: {$alignment}">
-				{$cells[$smarty.foreach.columnLoop.index]}
-			</td>
+		{assign var=col_class value=""}
+		{if $column->hasFlag('firstColumn')}
+			{assign var="col_class" value=$col_class|cat:'first_column'}
 		{/if}
+
+		{if $column->hasFlag('alignment')}
+			{assign var="col_class" value=$col_class|cat:' pkp_helpers_text_'}
+			{assign var="col_class" value=$col_class|cat:$column->getFlag('alignment')}
+		{/if}
+
+		<td{if $col_class} class="{$col_class}"{/if}>
+			{if ($row->hasActions() || $row->getNoActionMessage()) && $column->hasFlag('firstColumn')}
+				{if $row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT) || $row->getNoActionMessage()}
+					<a href="#" class="show_extras">
+						<span class="pkp_screen_reader">{translate key="grid.settings"}</span>
+					</a>
+				{/if}
+				{$cells[$smarty.foreach.columnLoop.index]}
+				{if is_a($row, 'GridCategoryRow') && $column->hasFlag('showTotalItemsNumber')}
+					<span class="category_items_number">({$grid->getCategoryItemsCount($categoryRow->getData(), $request)})</span>
+				{/if}
+				<div class="row_actions">
+					{if $row->getActions($smarty.const.GRID_ACTION_POSITION_ROW_LEFT)}
+						{foreach from=$row->getActions($smarty.const.GRID_ACTION_POSITION_ROW_LEFT) item=action}
+							{include file="linkAction/linkAction.tpl" action=$action contextId=$rowId}
+						{/foreach}
+					{/if}
+				</div>
+			{else}
+				{$cells[$smarty.foreach.columnLoop.index]}
+				{if is_a($row, 'GridCategoryRow') && $column->hasFlag('showTotalItemsNumber')}
+					<span class="category_items_number">({$grid->getCategoryItemsCount($categoryRow->getData(), $request)})</span>
+				{/if}
+			{/if}
+		</td>
 	{/foreach}
 </tr>
 {if $row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT) || $row->getNoActionMessage()}

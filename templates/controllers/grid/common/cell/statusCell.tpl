@@ -11,10 +11,11 @@
 <span id="{$cellId}" class="pkp_linkActions">
 	{if count($actions) gt 0}
 		{assign var=defaultCellAction value=$actions[0]}
+		{* TODO imageClass doesn't appear to be used. Perhaps it should be image,
+		   or maybe it can be removed. *}
 		{include file="linkAction/linkAction.tpl" action=$defaultCellAction contextId=$cellId imageClass="task"}
 	{elseif $status}
 		{capture assign="statusTitle"}{translate key="grid.task.status."|concat:$status}{/capture}
 		<a title="{$statusTitle|escape}" class="task {$status|escape}">status</a>
 	{/if}
 </span>
-

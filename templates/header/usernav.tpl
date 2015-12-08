@@ -32,7 +32,7 @@
 			</ul>
 		</li>
 	{/if}
-	{if $currentJournal}
+	{if $currentJournal || $currentPress}
 		{url|assign:"homeUrl" page="index" router=$smarty.const.ROUTE_PAGE}
 	{elseif $multipleContexts}
 		{url|assign:"homeUrl" journal="index" router=$smarty.const.ROUTE_PAGE}

@@ -36,7 +36,8 @@
 		// 1ms delay allows dom insertion to complete
 		var self = this;
 		setTimeout(function() {
-			self.callbackWrapper( /** @type {Function} */ (self.setDropdownAlignment()));
+			self.callbackWrapper( /** @type {Function} */ (
+					self.setDropdownAlignment()));
 		}, 1);
 		$(window).resize(this.callbackWrapper(this.onResize));
 
@@ -115,7 +116,8 @@
 				if (new_top < 0) {
 					offset_top += new_top;
 					$submenus.css('overflow-y', 'scroll');
-					$submenus.css('bottom', -Math.abs(height - pos_top - $parent.outerHeight()) + 'px');
+					$submenus.css('bottom',
+							-Math.abs(height - pos_top - $parent.outerHeight()) + 'px');
 				}
 				$submenus.css('top', -Math.abs(offset_top) + 'px');
 			}

@@ -278,6 +278,7 @@
 	 *
 	 * @param {HTMLElement} sourceElement The element that
 	 *  issued the event.
+	 * @param {Event} event The triggering event.
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.toggleRowActions =
 			function(sourceElement, event) {

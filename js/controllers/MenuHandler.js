@@ -36,7 +36,7 @@
 		// 1ms delay allows dom insertion to complete
 		var self = this;
 		setTimeout(function() {
-			self.callbackWrapper(self.setDropdownAlignment())
+			self.callbackWrapper( /** @type {Function} */ (self.setDropdownAlignment()))
 		}, 1);
 		$(window).resize(this.callbackWrapper(this.onResize));
 
@@ -92,8 +92,8 @@
 				document.documentElement.clientHeight, window.innerHeight || 0);
 
 		this.$parents_.each(function() {
-			$parent = $(this);
-			$submenus = $parent.children('ul');
+			var $parent = $(this),
+					$submenus = $parent.children('ul');
 
 			// Width
 			var right = $parent.offset().left + $submenus.outerWidth();

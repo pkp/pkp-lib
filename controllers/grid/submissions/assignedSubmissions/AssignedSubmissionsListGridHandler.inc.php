@@ -74,7 +74,7 @@ class AssignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 		$rangeInfo = $this->getGridRangeInfo($request, $this->getId());
 		$context = $request->getContext();
 
-		return $submissionDao->getAssignedToUser($userId, $context->getId(), $title, $author, $stageId, $rangeInfo);
+		return $submissionDao->getAssignedToUser($userId, $context?$context->getId():null, $title, $author, $stageId, $rangeInfo);
 	}
 }
 

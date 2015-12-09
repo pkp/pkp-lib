@@ -22,20 +22,20 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider {
 	/** @var int **/
 	var $_stageId;
 
-	/** @var boolean True iff the user can manage the query. */
-	var $_canManage;
+	/** @var QueriesAccessHelper */
+	var $_queriesAccessHelper;
 
 	/**
 	 * Constructor
 	 * @param $submission Submission
 	 * @param $stageId int
-	 * @param $canManage boolean True iff the user can manage the query.
+	 * @param $queriesAccessHelper QueriesAccessHelper
 	 */
-	function QueriesGridCellProvider($submission, $stageId, $canManage) {
+	function QueriesGridCellProvider($submission, $stageId, $queriesAccessHelper) {
 		parent::DataObjectGridCellProvider();
 		$this->_submission = $submission;
 		$this->_stageId = $stageId;
-		$this->_canManage = $canManage;
+		$this->_queriesAccessHelper = $queriesAccessHelper;
 	}
 
 	//
@@ -71,7 +71,11 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider {
 					return array('label' => '-');
 				}
 			case 'closed':
-				return array('selected' => $element->getIsClosed(), 'disabled' => !$this->_canManage);
+				$queriesAccessHelper = new QueriesAccessHelper();
+				return array(
+					'selected' => $element->getIsClosed(),
+					'disabled' => !$queriesAccessHelper->getCanOpenClose($element->getId()),
+				);
 		}
 		return parent::getTemplateVarsFromRowColumn($row, $column);
 	}
@@ -88,7 +92,7 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider {
 		$actionArgs = $this->getRequestArgs($row);
 		switch ($column->getId()) {
 			case 'closed':
-				if ($this->_canManage) {
+				if ($this->_queriesAccessHelper->getCanOpenClose($row->getId())) {
 					$enabled = !$element->getIsClosed();
 					if ($enabled) {
 						return array(new LinkAction(

@@ -22,19 +22,18 @@ class QueriesGridRow extends GridRow {
 	/** @var int **/
 	var $_stageId;
 
-	/** @var boolean True IFF the user can manage the query */
-	var $_canManage;
+	/** @var QueriesAccessHelper */
 
 	/**
 	 * Constructor
 	 * @param $submission Submission
 	 * @param $stageId int
-	 * @param $canManage boolean True iff the user can manage the query.
+	 * @param $queriesAccessHelper QueriesAccessHelper
 	 */
-	function QueriesGridRow($submission, $stageId, $canManage) {
+	function QueriesGridRow($submission, $stageId, $queriesAccessHelper) {
 		$this->_submission = $submission;
 		$this->_stageId = $stageId;
-		$this->_canManage = $canManage;
+		$this->_queriesAccessHelper = $queriesAccessHelper;
 
 		parent::GridRow();
 	}
@@ -61,7 +60,7 @@ class QueriesGridRow extends GridRow {
 			$actionArgs['queryId'] = $rowId;
 
 			// Add row-level actions
-			if ($this->_canManage) {
+			if ($this->_queriesAccessHelper->getCanEdit($rowId)) {
 				import('lib.pkp.classes.linkAction.request.AjaxModal');
 				$this->addAction(
 					new LinkAction(
@@ -75,7 +74,9 @@ class QueriesGridRow extends GridRow {
 						'edit'
 					)
 				);
+			}
 
+			if ($this->_queriesAccessHelper->getCanDelete($rowId)) {
 				import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
 				$this->addAction(
 					new LinkAction(

@@ -24,6 +24,9 @@ class QueriesGridHandler extends GridHandler {
 	/** @var integer WORKFLOW_STAGE_ID_... */
 	var $_stageId;
 
+	/** @var PKPRequest */
+	var $_request;
+
 	/**
 	 * Constructor
 	 */
@@ -66,17 +69,6 @@ class QueriesGridHandler extends GridHandler {
 	}
 
 	/**
-	 * Determine whether the current user can manage this grid's contents.
-	 * @return boolean True iff the user is allowed to manage the contents.
-	 */
-	protected function getCanManage() {
-		return (count(array_intersect(
-			$this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES),
-			array(ROLE_ID_MANAGER, ROLE_ID_ASSISTANT, ROLE_ID_SUB_EDITOR)
-		))>0);
-	}
-
-	/**
 	 * Get the query assoc type.
 	 * @return int ASSOC_TYPE_...
 	 */
@@ -98,7 +90,11 @@ class QueriesGridHandler extends GridHandler {
 	 */
 	function getCellProvider() {
 		import('lib.pkp.controllers.grid.queries.QueriesGridCellProvider');
-		return new QueriesGridCellProvider($this->getSubmission(), $this->getStageId(), $this->getCanManage());
+		return new QueriesGridCellProvider(
+			$this->getSubmission(),
+			$this->getStageId(),
+			$this->getAccessHelper()
+		);
 	}
 
 
@@ -111,6 +107,8 @@ class QueriesGridHandler extends GridHandler {
 	 */
 	function authorize($request, &$args, $roleAssignments) {
 		$this->_stageId = (int) $request->getUserVar('stageId'); // This is being validated in WorkflowStageAccessPolicy
+
+		$this->_request = $request;
 
 		if ($request->getUserVar('queryId')) {
 			import('lib.pkp.classes.security.authorization.QueryAccessPolicy');
@@ -188,7 +186,7 @@ class QueriesGridHandler extends GridHandler {
 		);
 
 		$router = $request->getRouter();
-		if ($this->getCanManage()) $this->addAction(new LinkAction(
+		if ($this->getAccessHelper()->getCanCreate()) $this->addAction(new LinkAction(
 			'addQuery',
 			new AjaxModal(
 				$router->url($request, null, null, 'addQuery', null, $this->getRequestArgs()),
@@ -209,7 +207,7 @@ class QueriesGridHandler extends GridHandler {
 	 */
 	function initFeatures($request, $args) {
 		$features = parent::initFeatures($request, $args);
-		if ($this->getCanManage()) {
+		if ($this->getAccessHelper()->getCanOrder()) {
 			import('lib.pkp.classes.controllers.grid.feature.OrderGridItemsFeature');
 			$features[] = new OrderGridItemsFeature();
 		}
@@ -239,7 +237,20 @@ class QueriesGridHandler extends GridHandler {
 	 */
 	function getRowInstance() {
 		import('lib.pkp.controllers.grid.queries.QueriesGridRow');
-		return new QueriesGridRow($this->getSubmission(), $this->getStageId(), $this->getCanManage());
+		return new QueriesGridRow(
+			$this->getSubmission(),
+			$this->getStageId(),
+			$this->getAccessHelper()
+		);
+	}
+
+	/**
+	 * Get an instance of the queries grid access helper
+	 * @return QueriesGridAccessHelper
+	 */
+	function getAccessHelper() {
+		import('lib.pkp.controllers.grid.queries.QueriesAccessHelper');
+		return new QueriesAccessHelper($this->getAuthorizedContext(), $this->_request->getUser());
 	}
 
 	/**
@@ -263,7 +274,7 @@ class QueriesGridHandler extends GridHandler {
 			$this->getAssocType(),
 			$this->getAssocId(),
 			$this->getStageId(),
-			$this->getCanManage()?null:$request->getUser()->getId()
+			$this->getAccessHelper()->getCanListAll()?null:$request->getUser()->getId()
 		);
 	}
 
@@ -357,7 +368,7 @@ class QueriesGridHandler extends GridHandler {
 		$query = $this->getQuery();
 
 		// If appropriate, create an Edit action for the participants list
-		if ($this->getCanManage()) {
+		if ($this->getCanEdit($query->getId())) {
 			import('lib.pkp.classes.linkAction.request.AjaxModal');
 			$router = $request->getRouter();
 			$editAction = new LinkAction(

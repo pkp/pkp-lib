@@ -36,7 +36,7 @@
 		// 1ms delay allows dom insertion to complete
 		var self = this;
 		setTimeout(function() {
-			self.callbackWrapper( /** @type {Function} */ (self.setDropdownAlignment()))
+			self.callbackWrapper( /** @type {Function} */ (self.setDropdownAlignment()));
 		}, 1);
 		$(window).resize(this.callbackWrapper(this.onResize));
 
@@ -86,17 +86,18 @@
 	 */
 	$.pkp.controllers.MenuHandler.prototype.setDropdownAlignment = function() {
 		var $this = $(this),
-			width = Math.max(
-				document.documentElement.clientWidth, window.innerWidth || 0),
-			height = Math.max(
-				document.documentElement.clientHeight, window.innerHeight || 0);
+				width = Math.max(
+						document.documentElement.clientWidth, window.innerWidth || 0),
+				height = Math.max(
+						document.documentElement.clientHeight, window.innerHeight || 0);
 
 		this.$parents_.each(function() {
 			var $parent = $(this),
-					$submenus = $parent.children('ul');
+					$submenus = $parent.children('ul'),
+					right, pos_top, pos_btm, needs_scrollbar, offset_top, new_top;
 
 			// Width
-			var right = $parent.offset().left + $submenus.outerWidth();
+			right = $parent.offset().left + $submenus.outerWidth();
 			if (right > width) {
 				$parent.addClass('align_right');
 			} else {
@@ -104,17 +105,17 @@
 			}
 
 			// Height
-			$submenus.attr( 'style', '' ); // reset
-			var pos_top = $parent.offset().top;
-			var pos_btm = pos_top + $submenus.outerHeight();
-			var needs_scrollbar = false;
+			$submenus.attr('style', ''); // reset
+			pos_top = $parent.offset().top;
+			pos_btm = pos_top + $submenus.outerHeight();
+			needs_scrollbar = false;
 			if (pos_btm > height) {
-				var offset_top = pos_btm - height;
-				var new_top = pos_top - offset_top;
+				offset_top = pos_btm - height;
+				new_top = pos_top - offset_top;
 				if (new_top < 0) {
 					offset_top += new_top;
 					$submenus.css('overflow-y', 'scroll');
-					$submenus.css('bottom', -Math.abs(height - pos_top - $parent.outerHeight()) + 'px' );
+					$submenus.css('bottom', -Math.abs(height - pos_top - $parent.outerHeight()) + 'px');
 				}
 				$submenus.css('top', -Math.abs(offset_top) + 'px');
 			}

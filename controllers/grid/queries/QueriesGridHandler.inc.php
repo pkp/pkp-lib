@@ -368,7 +368,7 @@ class QueriesGridHandler extends GridHandler {
 		$query = $this->getQuery();
 
 		// If appropriate, create an Edit action for the participants list
-		if ($this->getCanEdit($query->getId())) {
+		if ($this->getAccessHelper()->getCanEdit($query->getId())) {
 			import('lib.pkp.classes.linkAction.request.AjaxModal');
 			$router = $request->getRouter();
 			$editAction = new LinkAction(
@@ -425,6 +425,9 @@ class QueriesGridHandler extends GridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function editQuery($args, $request) {
+		$query = $this->getQuery();
+		if (!$this->getAccessHelper()->getCanEdit($query->getId())) return new JSONMessage(false);
+
 		// Form handling
 		import('lib.pkp.controllers.grid.queries.form.QueryForm');
 		$queryForm = new QueryForm(
@@ -432,7 +435,7 @@ class QueriesGridHandler extends GridHandler {
 			$this->getAssocType(),
 			$this->getAssocId(),
 			$this->getStageId(),
-			$request->getUserVar('queryId')
+			$query->getId()
 		);
 		$queryForm->initData();
 		return new JSONMessage(true, $queryForm->fetch($request, $this->getRequestArgs()));
@@ -446,6 +449,8 @@ class QueriesGridHandler extends GridHandler {
 	 */
 	function updateQuery($args, $request) {
 		$query = $this->getQuery();
+		if (!$this->getAccessHelper()->getCanEdit($query->getId())) return new JSONMessage(false);
+
 		import('lib.pkp.controllers.grid.queries.form.QueryForm');
 		$queryForm = new QueryForm(
 			$request,

@@ -16,7 +16,7 @@
 		{rdelim}
 	);
 </script>
-<form class="pkp_form" id="{$formId}" action="{url op="fetchGrid"}" method="post">
+<form class="pkp_form filter" id="{$formId}" action="{url op="fetchGrid"}" method="post">
 	{fbvFormArea id="submissionFilesSearchFormArea"|concat:$filterData.gridId}
 		{fbvFormSection}
 			{fbvElement type="text" name="search" id="search"|concat:$filterData.gridId value=$filterSelectionData.search size=$fbvStyles.size.MEDIUM inline="true"}

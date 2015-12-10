@@ -62,6 +62,6 @@ class PKPCreateUsersTest extends WebTestCase {
 		}
 
 		$this->click('//button[text()=\'Save\']');
-		$this->waitJQuery();
+		$this->waitForElementNotPresent('css=div.pkp_modal_panel');
 	}
 }

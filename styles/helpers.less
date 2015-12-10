@@ -45,16 +45,16 @@
 
 .pkp_button_primary {
 	&:extend( .pkp_button );
-	background-color: @primary;
-	background-image: linear-gradient( lighten( @primary, 10% ), @primary );
+	background-color: @primary-lift;
+	background-image: linear-gradient( lighten( @primary-lift, 10% ), @primary-lift );
 	color: #fff;
-	border-color: @primary;
+	border-color: @primary-lift;
 
 	&:hover,
 	&:focus {
 		text-decoration: none;
-		background-color: darken( @primary, 5% );
-		background-image: linear-gradient( lighten( @primary, 7% ), darken( @primary, 5% ) );
+		background-color: darken( @primary-lift, 5% );
+		background-image: linear-gradient( lighten( @primary-lift, 7% ), darken( @primary-lift, 5% ) );
 		color: #fff;
 	}
 

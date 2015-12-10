@@ -208,8 +208,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		if (isset($data['affiliation'])) $this->type('css=[id^=affiliation-]', $data['affiliation']);
 		$this->click('//label[contains(.,\'' . $this->escapeJS($data['role']) . '\')]');
 		$this->click('//button[text()=\'Save\']');
-		$this->waitForElementNotPresent('css=div.pkp_modal_panel'); // pkp/pkp-lib#655
-		$this->waitJQuery();
+		$this->waitForElementNotPresent('css=div.pkp_modal_panel');
 	}
 
 	/**

@@ -30,12 +30,6 @@ class QueryAccessPolicy extends ContextPolicy {
 		import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
 		$this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId));
 
-		// If a representation was specified, authorize it.
-		if ($request->getUserVar('representationId')) {
-			import('lib.pkp.classes.security.authorization.internal.RepresentationRequiredPolicy');
-			$this->addPolicy(new RepresentationRequiredPolicy($request, $args));
-		}
-
 		// We need a query matching the submission in the request.
 		import('lib.pkp.classes.security.authorization.internal.QueryRequiredPolicy');
 		$this->addPolicy(new QueryRequiredPolicy($request, $args));
@@ -66,6 +60,11 @@ class QueryAccessPolicy extends ContextPolicy {
 			// 2) ... but only if they have access to the workflow stage.
 			import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy'); // pulled from context-specific class path.
 			$assistantQueryAccessPolicy->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId));
+
+			// 3) ... and the assistant is assigned to the query.
+			import('lib.pkp.classes.security.authorization.internal.QueryAssignedToUserAccessPolicy');
+			$assistantQueryAccessPolicy->addPolicy(new QueryAssignedToUserAccessPolicy($request));
+
 			$queryAccessPolicy->addPolicy($assistantQueryAccessPolicy);
 		}
 

@@ -288,6 +288,8 @@ class QueriesGridHandler extends GridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function addQuery($args, $request) {
+		if (!$this->getAccessHelper()->getCanCreate()) return new JSONMessage(false);
+
 		import('lib.pkp.controllers.grid.queries.form.QueryForm');
 		$queryForm = new QueryForm(
 			$request,
@@ -306,16 +308,16 @@ class QueriesGridHandler extends GridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function deleteQuery($args, $request) {
-		if ($query = $this->getQuery()) {
-			$queryDao = DAORegistry::getDAO('QueryDAO');
-			$queryDao->deleteObject($query);
+		$query = $this->getQuery();
+		if (!$query || !$this->getAccessHelper()->getCanDelete($query->getId())) return new JSONMessage(false);
 
-			$notificationDao = DAORegistry::getDAO('NotificationDAO');
-			$notificationDao->deleteByAssoc(ASSOC_TYPE_QUERY, $query->getId());
+		$queryDao = DAORegistry::getDAO('QueryDAO');
+		$queryDao->deleteObject($query);
 
-			return DAO::getDataChangedEvent($query->getId());
-		}
-		return new JSONMessage(false); // The query could not be found.
+		$notificationDao = DAORegistry::getDAO('NotificationDAO');
+		$notificationDao->deleteByAssoc(ASSOC_TYPE_QUERY, $query->getId());
+
+		return DAO::getDataChangedEvent($query->getId());
 	}
 
 	/**
@@ -325,13 +327,13 @@ class QueriesGridHandler extends GridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function openQuery($args, $request) {
-		if ($query = $this->getQuery()) {
-			$queryDao = DAORegistry::getDAO('QueryDAO');
-			$query->setIsClosed(false);
-			$queryDao->updateObject($query);
-			return DAO::getDataChangedEvent($query->getId());
-		}
-		return new JSONMessage(false); // The query could not be found.
+		$query = $this->getQuery();
+		if (!$query || !$this->getAccessHelper()->getCanOpenClose($query->getId())) return new JSONMessage(false);
+
+		$queryDao = DAORegistry::getDAO('QueryDAO');
+		$query->setIsClosed(false);
+		$queryDao->updateObject($query);
+		return DAO::getDataChangedEvent($query->getId());
 	}
 
 	/**
@@ -341,13 +343,13 @@ class QueriesGridHandler extends GridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function closeQuery($args, $request) {
-		if ($query = $this->getQuery()) {
-			$queryDao = DAORegistry::getDAO('QueryDAO');
-			$query->setIsClosed(true);
-			$queryDao->updateObject($query);
-			return DAO::getDataChangedEvent($query->getId());
-		}
-		return new JSONMessage(false); // The query could not be found.
+		$query = $this->getQuery();
+		if (!$query || !$this->getAccessHelper()->getCanOpenClose($query->getId())) return new JSONMessage(false);
+
+		$queryDao = DAORegistry::getDAO('QueryDAO');
+		$query->setIsClosed(true);
+		$queryDao->updateObject($query);
+		return DAO::getDataChangedEvent($query->getId());
 	}
 
 	/**

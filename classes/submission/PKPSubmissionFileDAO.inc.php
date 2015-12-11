@@ -58,6 +58,7 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @param $fileStage int (optional) further restricts the selection to
 	 *  a given file stage.
 	 * @param $submissionId int|null (optional) for validation purposes only
+	 * @return SubmissionFile|null
 	 */
 	function getRevision($fileId, $revision, $fileStage = null, $submissionId = null) {
 		if (!($fileId && $revision)) return null;
@@ -534,7 +535,6 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 			'supplementaryfile' => 'lib.pkp.classes.submission.SupplementaryFileDAODelegate',
 		);
 	}
-
 
 	/**
 	 * Return the mapping of genre categories to the lower

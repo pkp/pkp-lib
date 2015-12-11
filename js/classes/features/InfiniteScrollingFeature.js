@@ -48,9 +48,9 @@
 		var castOptions = /** @type {{pagingMarkup: string?,
 					loadingContainer: string?}} */ (options);
 		$gridElement.find('div.scrollable').append(castOptions.loadingContainer)
-			.after(castOptions.pagingMarkup);
-		$gridElement.find('.pkp_linkaction_moreItems').
-			click(this.gridHandler.callbackWrapper(this.loadMoreItems_, this));
+				.after(castOptions.pagingMarkup);
+		$gridElement.find('.pkp_linkaction_moreItems')
+				.click(this.gridHandler.callbackWrapper(this.loadMoreItems_, this));
 	};
 
 
@@ -118,9 +118,9 @@
 		this.addPagingDataToRows_();
 
 		this.toggleLoadingContainer_();
-		
+
 		this.getGridHtmlElement().find('.pkp_linkaction_moreItems').
-			click(this.gridHandler.callbackWrapper(this.loadMoreItems_, this));
+				click(this.gridHandler.callbackWrapper(this.loadMoreItems_, this));
 
 		return false;
 	};
@@ -259,7 +259,7 @@
 
 
 	/**
-	 * Trigger necessary actions for the grid to 
+	 * Trigger necessary actions for the grid to
 	 * load next page items.
 	 *
 	 * @private
@@ -267,15 +267,15 @@
 	 */
 	$.pkp.classes.features.InfiniteScrollingFeature.prototype.
 			loadMoreItems_ = function() {
-		var options = this.getOptions();		
+		var options = this.getOptions();
 
 		// Show the loading icon.
 		this.toggleLoadingContainer_(true);
 
 		options.currentPage = Number($('tr.gridRow',
-			this.getGridHtmlElement()).last().attr('data-paging')) + 1;
+				this.getGridHtmlElement()).last().attr('data-paging')) + 1;
 		this.getGridHtmlElement().trigger('dataChanged',
-			[$.pkp.controllers.grid.GridHandler.FETCH_ALL_ROWS_ID]);
+				[$.pkp.controllers.grid.GridHandler.FETCH_ALL_ROWS_ID]);
 	};
 
 

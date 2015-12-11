@@ -9,5 +9,8 @@
  *}
 
 <div class="gridPagingScrolling">
-		{translate key="navigation.items.shownTotal" shown=$shown total=$iterator->getCount()}
+	{translate key="navigation.items.shownTotal" shown=$shown total=$iterator->getCount()}
+	{if $moreItemsLinkAction}
+		{include file="linkAction/linkAction.tpl" action=$moreItemsLinkAction}
+	{/if}
 </div>

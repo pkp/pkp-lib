@@ -48,10 +48,22 @@ class InfiniteScrollingFeature extends GeneralPagingFeature {
 		$shown = $options['currentItemsPerPage'] * $options['currentPage'];
 		if ($shown > $options['itemsTotal']) $shown = $options['itemsTotal'];
 
+		$moreItemsLinkAction = false;
+		if ($shown < $options['itemsTotal']) {
+			import('lib.pkp.classes.linkAction.request.NullAction');
+			$moreItemsLinkAction = new LinkAction(
+				'moreItems',
+				new NullAction(),
+				__('common.more'),
+				'more_items'
+			);
+		}
+
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('iterator', $iterator);
 		$templateMgr->assign('shown', $shown);
 		$templateMgr->assign('grid', $grid);
+		$templateMgr->assign('moreItemsLinkAction', $moreItemsLinkAction);
 
 		return array(
 			'pagingMarkup' => $templateMgr->fetch('controllers/grid/feature/infiniteScrolling.tpl'),

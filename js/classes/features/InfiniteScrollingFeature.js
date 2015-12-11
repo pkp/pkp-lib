@@ -49,6 +49,8 @@
 					loadingContainer: string?}} */ (options);
 		$gridElement.find('div.scrollable').append(castOptions.loadingContainer)
 			.after(castOptions.pagingMarkup);
+		$gridElement.find('.pkp_linkaction_moreItems').
+			click(this.gridHandler.callbackWrapper(this.loadMoreItems_, this));
 	};
 
 
@@ -116,6 +118,9 @@
 		this.addPagingDataToRows_();
 
 		this.toggleLoadingContainer_();
+		
+		this.getGridHtmlElement().find('.pkp_linkaction_moreItems').
+			click(this.gridHandler.callbackWrapper(this.loadMoreItems_, this));
 
 		return false;
 	};
@@ -144,13 +149,7 @@
 			// Avoid multiple rows requests.
 			$('div.scrollable', this.getGridHtmlElement()).unbind('scroll');
 
-			// Show the loading icon.
-			this.toggleLoadingContainer_(true);
-
-			options.currentPage = Number($('tr.gridRow',
-					this.getGridHtmlElement()).last().attr('data-paging')) + 1;
-			this.getGridHtmlElement().trigger('dataChanged',
-					[$.pkp.controllers.grid.GridHandler.FETCH_ALL_ROWS_ID]);
+			this.loadMoreItems_();
 		}
 
 		return false;
@@ -256,6 +255,27 @@
 		} else {
 			$loadingElement.hide();
 		}
+	};
+
+
+	/**
+	 * Trigger necessary actions for the grid to 
+	 * load next page items.
+	 *
+	 * @private
+	 *
+	 */
+	$.pkp.classes.features.InfiniteScrollingFeature.prototype.
+			loadMoreItems_ = function() {
+		var options = this.getOptions();		
+
+		// Show the loading icon.
+		this.toggleLoadingContainer_(true);
+
+		options.currentPage = Number($('tr.gridRow',
+			this.getGridHtmlElement()).last().attr('data-paging')) + 1;
+		this.getGridHtmlElement().trigger('dataChanged',
+			[$.pkp.controllers.grid.GridHandler.FETCH_ALL_ROWS_ID]);
 	};
 
 

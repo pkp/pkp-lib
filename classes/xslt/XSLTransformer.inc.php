@@ -76,6 +76,7 @@ class XSLTransformer {
 			// no XSLT support
 			return false;
 		}
+		return true;
 	}
 
 	//

@@ -14,12 +14,12 @@
  * Permissions are intended as follows (per UI/UX group, 2015-12-01):
  *
  *	     ROLE
- *  TASK       MANAGER   SUB EDITOR    ASSISTANT AUTHOR
- *  Create Q   Yes       Yes	   Yes       No
- *  Edit Q     All       Yes	   Assigned  No
- *  List/View  All       All	   Assigned  Assigned
- *  Open/close All       All	   Assigned  No
- *  Delete Q   All       All	   No	No
+ *  TASK       MANAGER   SUB EDITOR  ASSISTANT  AUTHOR
+ *  Create Q   Yes       Yes	     Yes        No
+ *  Edit Q     All       All         If Creator No
+ *  List/View  All       All	     Assigned   Assigned
+ *  Open/close All       All	     Assigned   No
+ *  Delete Q   All       All	     No         No
  */
 
 class QueriesAccessHelper {
@@ -103,8 +103,12 @@ class QueriesAccessHelper {
 		// Managers and sub editors are always allowed
 		if (count(array_intersect($userRoles, array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR)))) return true;
 
-		// Assigned assistants are allowed
-		if (in_array(ROLE_ID_ASSISTANT, $userRoles) && $this->isAssigned($this->_user->getId(), $queryId)) return true;
+		// Assistants are allowed, if they created the query
+		if (in_array(ROLE_ID_ASSISTANT, $userRoles)) {
+			$queryDao = DAORegistry::getDAO('QueryDAO');
+			$query = $queryDao->getById($queryId);
+			if ($query && $query->getHeadNote()->getUserId() == $this->_user->getId()) return true;
+		}
 
 		// Otherwise, not allowed.
 		return false;

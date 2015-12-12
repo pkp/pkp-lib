@@ -60,7 +60,7 @@ class QueriesAccessHelper {
 		if (count(array_intersect($userRoles, array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR)))) return true;
 
 		// Assigned assistants are allowed
-		if (in_array(ROLE_ID_ASSISTANT, $userRoles) && $this->isAssigned($this->_user->getId(), $queryId)) return true;
+		if (in_array(ROLE_ID_ASSISTANT, (array) $userRoles) && $this->isAssigned($this->_user->getId(), $queryId)) return true;
 
 		// Otherwise, not allowed.
 		return false;

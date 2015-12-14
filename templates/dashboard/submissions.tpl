@@ -6,40 +6,18 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Dashboard user related submissions tab.
+ *
+ * @uses $context
  *}
-<script type="text/javascript">
-	$(function() {ldelim}
-		// Attach the form handler.
-		$('#contextSubmissionForm').pkpHandler('$.pkp.controllers.dashboard.form.DashboardTaskFormHandler',
-			{ldelim}
-				{if $contextCount == 1}
-					singleContextSubmissionUrl: {url|json_encode context=$context->getPath() page="submission" op="wizard" escape=false},
-				{/if}
-				trackFormChanges: false
-			{rdelim}
-		);
-	{rdelim});
-</script>
 <ul class="pkp_context_panel">
 	<li class="pkp_context_actions">
-		<form id="contextSubmissionForm">
-			<ul>
-				<li>
-					<!-- New Submission entry point -->
-					{**
-					 * @todo only the single journal context has been styled.
-					 *   a new UI pattern is needed for multi-journal context
-					 *}
-					{if $contextCount > 1}
-						{capture assign="defaultLabel"}{translate key="context.select"}{/capture}
-						{fbvElement type="select" id="multipleContext" from=$contexts defaultValue=0 defaultLabel=$defaultLabel translate=false size=$fbvStyles.size.MEDIUM}
-					{elseif $contextCount == 1}
-						{capture assign="singleLabel"}{translate key="submission.submit.newSubmissionSingle"}{/capture}
-						{fbvElement type="button" id="singleContext" label=$singleLabel translate=false}
-					{/if}
-				</li>
-			</ul>
-		</form>
+		<ul>
+			<li>
+				<a href="{url context=$context->getPath() page="submission" op="wizard" escape=false}" class="new_submission">
+					{translate key="submission.submit.newSubmissionSingle"}
+				</a>
+			</li>
+		</ul>
 	</li>
 </ul>
 

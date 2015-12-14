@@ -69,38 +69,8 @@ class DashboardHandler extends Handler {
 		$templateMgr = TemplateManager::getManager($request);
 		$this->setupTemplate($request);
 
-		// Get all the contexts in the system, to determine which 'new submission' entry point we display
-		$contextDao = Application::getContextDAO(); /* @var $contextDao ContextDAO */
-		$contexts = $contextDao->getAll();
-
-		// Check each context to see if user has access to it.
-		$user = $request->getUser();
-		$roleDao = DAORegistry::getDAO('RoleDAO');
-		$allContextsUserRoles = $roleDao->getByUserIdGroupedByContext($user->getId());
-		$userRolesThatCanSubmit = array(ROLE_ID_AUTHOR, ROLE_ID_ASSISTANT, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR);
-		$accessibleContexts = array();
-		while ($context = $contexts->next()) {
-			if (array_key_exists($context->getId(), $allContextsUserRoles)) {
-				$contextUserRoles = array_keys($allContextsUserRoles[$context->getId()]);
-				if (array_intersect($userRolesThatCanSubmit, $contextUserRoles)) {
-					$accessibleContexts[] = $context;
-				}
-			}
-		}
-
-		// Assign contexts to template.
-		$contextCount = count($accessibleContexts);
-		$templateMgr->assign('contextCount', $contextCount);
-		if ($contextCount == 1) {
-			$templateMgr->assign('context', $accessibleContexts[0]);
-		} elseif ($contextCount > 1) {
-			$contexts = array();
-			foreach ($accessibleContexts as $context) {
-				$url = $request->url($context->getPath(), 'submission');
-				$contexts[$url] = $context->getLocalizedName();
-			}
-			$templateMgr->assign('contexts', $contexts);
-		}
+		$context = $request->getContext();
+		$templateMgr->assign('context', $context);
 
 		return $templateMgr->fetchJson('dashboard/submissions.tpl');
 	}

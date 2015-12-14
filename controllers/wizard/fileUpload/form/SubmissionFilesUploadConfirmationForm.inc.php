@@ -62,14 +62,19 @@ class SubmissionFilesUploadConfirmationForm extends SubmissionFilesUploadBaseFor
 		// Retrieve the file ids of the revised and the uploaded files.
 		$revisedFileId = $this->getRevisedFileId();
 		$uploadedFileId = (int)$this->getData('uploadedFileId');
-		if (!($revisedFileId && $uploadedFileId)) fatalError('Invalid file ids!');
 		if ($revisedFileId == $uploadedFileId) fatalError('The revised file id and the uploaded file id cannot be the same!');
 
 		// Assign the new file as the latest revision of the old file.
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 		$submissionId = $this->getData('submissionId');
 		$fileStage = $this->getData('fileStage');
-		return $submissionFileDao->setAsLatestRevision($revisedFileId, $uploadedFileId, $submissionId, $fileStage);
+		if ($revisedFileId) {
+			// The file was revised; update revision information
+			return $submissionFileDao->setAsLatestRevision($revisedFileId, $uploadedFileId, $submissionId, $fileStage);
+		} else {
+			// This is a new upload, not a revision; don't do anything.
+			return $submissionFileDao->getLatestRevision($uploadedFileId, $fileStage, $submissionId);
+		}
 	}
 }
 

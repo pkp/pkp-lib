@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file controllers/wizard/fileUpload/form/PKPSubmissionFilesUploadForm.inc.php
+ * @file controllers/wizard/fileUpload/form/SubmissionFilesUploadForm.inc.php
  *
  * Copyright (c) 2014-2015 Simon Fraser University Library
  * Copyright (c) 2003-2015 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPSubmissionFilesUploadForm
+ * @class SubmissionFilesUploadForm
  * @ingroup controllers_wizard_fileUpload_form
  *
  * @brief Form for adding/editing a submission file
@@ -16,7 +16,7 @@
 
 import('controllers.wizard.fileUpload.form.SubmissionFilesUploadBaseForm');
 
-class PKPSubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
+class SubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 
 	/** @var array */
 	var $_uploaderRoles;
@@ -38,7 +38,7 @@ class PKPSubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 	 * @param $reviewRound ReviewRound
 	 * @param $revisedFileId integer
 	 */
-	function PKPSubmissionFilesUploadForm($request, $submissionId, $stageId, $uploaderRoles, $uploaderGroupIds, $fileStage,
+	function SubmissionFilesUploadForm($request, $submissionId, $stageId, $uploaderRoles, $uploaderGroupIds, $fileStage,
 			$revisionOnly = false, $reviewRound = null, $revisedFileId = null, $assocType = null, $assocId = null) {
 
 		// Initialize class.
@@ -236,7 +236,7 @@ class PKPSubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 	 * @param $request Request
 	 * @return SubmissionFile if successful, otherwise null
 	 */
-	function &execute($request) {
+	function execute($request) {
 		// Identify the file genre and category.
 		$revisedFileId = $this->getRevisedFileId();
 		if ($revisedFileId) {
@@ -257,11 +257,19 @@ class PKPSubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 
 		$assocType = $this->getData('assocType') ? (int) $this->getData('assocType') : null;
 		$assocId = $this->getData('assocId') ? (int) $this->getData('assocId') : null;
+		$fileStage = $this->getData('fileStage');
 
 		// Upload the file.
-		$submissionFile = $this->_uploadFile($request, $user, $uploaderUserGroupId, $revisedFileId, $fileGenre, $assocType, $assocId);
+		import('lib.pkp.classes.file.SubmissionFileManager');
+		$submissionFileManager = new SubmissionFileManager(
+			$request->getContext()->getId(),
+			$this->getData('submissionId')
+		);
+		$submissionFile = $submissionFileManager->uploadSubmissionFile(
+			'uploadedFile', $fileStage, $user->getId(),
+			$uploaderUserGroupId, $revisedFileId, $fileGenre, $assocType, $assocId
+		);
 
-		$fileStage = $this->getData('fileStage');
 		if ($submissionFile && ($fileStage == SUBMISSION_FILE_REVIEW_FILE || $fileStage == SUBMISSION_FILE_REVIEW_ATTACHMENT || $fileStage == SUBMISSION_FILE_REVIEW_REVISION)) {
 			// Add the uploaded review file to the review round.
 			$reviewRound = $this->getReviewRound();
@@ -270,7 +278,24 @@ class PKPSubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 		}
 
 		if ($submissionFile) {
-			$this->_logEvent($request, $user, $submissionFile, $assocType, $revisedFileId, $fileStage);
+			// Log the event.
+			import('lib.pkp.classes.log.SubmissionFileLog');
+			import('lib.pkp.classes.log.SubmissionFileEventLogEntry'); // constants
+			SubmissionFileLog::logEvent(
+				$request,
+				$submissionFile,
+				$revisedFileId?SUBMISSION_LOG_FILE_REVISION_UPLOAD:SUBMISSION_LOG_FILE_UPLOAD, // assocId
+				$revisedFileId?'submission.event.revisionUploaded':'submission.event.fileUploaded',
+				array(
+					'fileStage' => $fileStage,
+					'revisedFileId' => $revisedFileId,
+					'fileId' => $submissionFile->getFileId(),
+					'fileRevision' => $submissionFile->getRevision(),
+					'originalFileName' => $submissionFile->getOriginalFileName(),
+					'submissionId' => $this->getData('submissionId'),
+					'username' => $user->getUsername()
+				)
+			);
 		}
 
 		return $submissionFile;
@@ -298,36 +323,6 @@ class PKPSubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 			$genreList[$genre->getId()] = $genre->getLocalizedName();
 		}
 		return $genreList;
-	}
-
-	/**
-	 * Upload the file in an app-specific manner.
-	 * must be overridden in subclasses.
-	 * @param PKPRequest $request
-	 * @param PKPUser $user
-	 * @param $uploaderUserGroupId int
-	 * @param int  $revisedFileId
-	 * @param int $fileGenre
-	 * @param int $assocType
-	 * @param int $assocType
-	 * @return SubmissionFile
-	 */
-	function _uploadFile($request, $user, $uploaderUserGroupId, $revisedFileId, $fileGenre, $assocType, $assocId) {
-		assert(false);
-	}
-
-	/**
-	 * Log the upload event.
-	 * Must be overridden in subclasses.
-	 * @param PKPRequest $request
-	 * @param PKPUser $user
-	 * @param SubmissionFile $submissionFile
-	 * @param int $assocType
-	 * @param int $revisedFileId
-	 * @param int $fileStage
-	 */
-	function _logEvent($request, $user, $submissionFile, $assocType, $revisedFileId, $fileStage) {
-		assert(false);
 	}
 }
 

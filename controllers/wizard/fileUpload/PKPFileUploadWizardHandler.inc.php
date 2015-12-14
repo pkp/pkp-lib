@@ -253,7 +253,7 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 	 */
 	function displayFileUploadForm($args, $request) {
 		// Instantiate, configure and initialize the form.
-		import('controllers.wizard.fileUpload.form.SubmissionFilesUploadForm'); // app-specific
+		import('lib.pkp.controllers.wizard.fileUpload.form.SubmissionFilesUploadForm');
 		$submission = $this->getSubmission();
 		$fileForm = new SubmissionFilesUploadForm(
 			$request, $submission->getId(), $this->getStageId(), $this->getUploaderRoles(), $this->getUploaderGroupIds(), $this->getFileStage(),
@@ -275,7 +275,7 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 	function uploadFile($args, $request, $fileModifyCallback = null) {
 		// Instantiate the file upload form.
 		$submission = $this->getSubmission();
-		import('controllers.wizard.fileUpload.form.SubmissionFilesUploadForm'); // app-specific
+		import('lib.pkp.controllers.wizard.fileUpload.form.SubmissionFilesUploadForm');
 		$uploadForm = new SubmissionFilesUploadForm(
 			$request, $submission->getId(), $this->getStageId(), null, null, $this->getFileStage(),
 			$this->getRevisionOnly(), $this->getReviewRound(), null, $this->getAssocType(), $this->getAssocId()

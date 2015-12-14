@@ -40,9 +40,6 @@ class GridRow extends GridBodyElement {
 	/** @var boolean true if the row has been modified */
 	var $_isModified;
 
-	/** @var string an optional message to display as a 'grid action' in place of real grid actions */
-	var $_noActionMessage;
-
 	/**
 	 * @var array row actions, the first key represents
 	 *  the position of the action in the row template,
@@ -131,22 +128,6 @@ class GridRow extends GridBodyElement {
 	 */
 	function getIsModified() {
 		return $this->_isModified;
-	}
-
-	/**
-	 * Set the no action message for the row.
-	 * @param $message string
-	 */
-	function setNoActionMessage($message) {
-		$this->_noActionMessage = $message;
-	}
-
-	/**
-	 * Get the no action message for this row.
-	 * @return string
-	 */
-	function getNoActionMessage() {
-		return $this->_noActionMessage;
 	}
 
 	/**

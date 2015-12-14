@@ -55,6 +55,7 @@ class OrderGridItemsFeature extends OrderItemsFeature{
 		$data = json_decode($request->getUserVar('data'));
 
 		$gridElements = $grid->getGridDataElements($request);
+		if (empty($gridElements)) return;
 		$firstSeqValue = $grid->getDataElementSequence(reset($gridElements));
 		foreach ($gridElements as $rowId => $element) {
 			$rowPosition = array_search($rowId, $data);

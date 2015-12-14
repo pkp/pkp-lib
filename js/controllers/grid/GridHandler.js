@@ -198,7 +198,7 @@
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.getRowByDataId =
 			function(rowDataId) {
-		return $('tr.element' + rowDataId, this.getHtmlElement());
+		return $('#' + this.getRowIdPrefix + rowDataId, this.getHtmlElement());
 	};
 
 
@@ -209,21 +209,8 @@
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.getRowDataId =
 			function($gridRow) {
-
-		var gridRowHtmlClasses, rowDataIdPrefix, index, rowDataId,
-				startExtractPosition;
-
-		gridRowHtmlClasses = $gridRow.attr('class').split(' ');
-		rowDataIdPrefix = 'element';
-		for (index in gridRowHtmlClasses) {
-			startExtractPosition = gridRowHtmlClasses[index]
-					.indexOf(rowDataIdPrefix);
-			if (startExtractPosition != -1) {
-				rowDataId = gridRowHtmlClasses[index].slice(rowDataIdPrefix.length);
-				break;
-			}
-		}
-
+		var rowDataId;
+		rowDataId = $gridRow.attr('id').slice(this.getRowIdPrefix().length);
 		return rowDataId;
 	};
 

@@ -7,7 +7,6 @@
  *
  * Display the workflow tab structure.
  *}
-{strip}
 {assign var=primaryAuthor value=$submission->getPrimaryAuthor()}
 {if !$primaryAuthor}
 	{assign var=authors value=$submission->getAuthors()}
@@ -16,22 +15,21 @@
 {assign var=submissionTitleSafe value=$submission->getLocalizedTitle()|strip_unsafe_html}
 {assign var="pageTitleTranslated" value=$primaryAuthor->getLastName()|concat:", ":$submissionTitleSafe}
 {include file="common/header.tpl" suppressPageTitle=true}
-{/strip}
 
 <script type="text/javascript">
 	// Initialise JS handler.
 	$(function() {ldelim}
 		$('#submissionWorkflow').pkpHandler(
-			'$.pkp.pages.workflow.WorkflowHandler'
+			'$.pkp.pages.workflow.WorkflowHandler',
 		);
 	{rdelim});
 </script>
 
-<div id="submissionWorkflow">
+<div id="submissionWorkflow" class="pkp_submission_workflow">
 
-{url|assign:submissionHeaderUrl op="submissionHeader" submissionId=$submission->getId() stageId=$stageId contextId="submission" escape=false}
-{load_url_in_div id="submissionHeaderDiv" url=$submissionHeaderUrl class="pkp_page_header"}
+	{url|assign:submissionHeaderUrl op="submissionHeader" submissionId=$submission->getId() stageId=$stageId contextId="submission" escape=false}
+	{load_url_in_div id="submissionHeaderDiv" url=$submissionHeaderUrl class="pkp_page_header"}
 
-{include file="controllers/notification/inPlaceNotification.tpl" notificationId="workflowNotification" requestOptions=$workflowNotificationRequestOptions}
+</div>
 
 {include file="common/footer.tpl"}

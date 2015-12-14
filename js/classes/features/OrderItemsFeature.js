@@ -230,6 +230,8 @@
 			$gridElement.find('table').last().after($orderFinishControls);
 			$orderFinishControls.hide();
 		}
+		
+		this.updateOrderLinkVisibility_();
 	};
 
 
@@ -488,9 +490,34 @@
 	};
 
 
+	/**
+	 * @inheritDoc
+	 */
+	$.pkp.classes.features.OrderItemsFeature.prototype.
+			replaceElementResponseHandler = function(handledJsonData) {
+		this.updateOrderLinkVisibility_();
+		return false;
+	};
+
+
 	//
 	// Private helper methods.
 	//
+	/**
+	 * Make sure that the order action visibility state is correct,
+	 * based on the grid rows number.
+	 */
+	$.pkp.classes.features.OrderItemsFeature.prototype.
+			updateOrderLinkVisibility_ = function() {
+		var $orderLink = $('.pkp_linkaction_orderItems', this.getGridHtmlElement());
+		if (this.gridHandler.getRows().length == 0) {
+			$orderLink.hide();
+		} else {
+			$orderLink.show();
+		}
+	};
+
+
 	/**
 	 * Set the state of the grid link actions, based on current ordering state.
 	 * @private

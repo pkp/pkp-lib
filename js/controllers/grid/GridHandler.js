@@ -198,7 +198,7 @@
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.getRowByDataId =
 			function(rowDataId) {
-		return $('#' + this.getRowIdPrefix + rowDataId, this.getHtmlElement());
+		return $('#' + this.getRowIdPrefix() + rowDataId, this.getHtmlElement());
 	};
 
 
@@ -360,7 +360,7 @@
 			id = sequenceMap[index];
 			$row = $('#' + id);
 			if ($row.length == 0) {
-				$row = $('tr.element' + id, this.getHtmlElement());
+				$row = this.getRowByDataId(id);
 			}
 			if ($row.length == 0) {
 				throw new Error('Row with id ' + id + ' not found!');
@@ -723,8 +723,7 @@
 				// longer exists in the database so let's
 				// delete it.
 				elementId = handledJsonData.elementNotFound;
-				$element = this.getHtmlElement().
-						find('.element' + elementId);
+				$element = this.getRowByDataId(elementId);
 
 				// Sometimes we get a delete event before the
 				// element has actually been inserted (e.g. when deleting

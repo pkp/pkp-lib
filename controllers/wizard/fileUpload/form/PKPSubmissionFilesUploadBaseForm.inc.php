@@ -129,7 +129,7 @@ class PKPSubmissionFilesUploadBaseForm extends Form {
 	 * submission and to the file stage.
 	 * @return array a list of SubmissionFile instances.
 	 */
-	function &getSubmissionFiles() {
+	function getSubmissionFiles() {
 		if (is_null($this->_submissionFiles)) {
 			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 			if ($this->getStageId() == WORKFLOW_STAGE_ID_INTERNAL_REVIEW || $this->getStageId() == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW) {

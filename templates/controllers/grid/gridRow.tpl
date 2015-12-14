@@ -24,7 +24,7 @@
 		{assign var="row_class" value=$row_class|cat:' default_category_style'}
 	{/if}
 {/if}
-{if $row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT) || $row->getNoActionMessage()}
+{if $row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT)}
 	{assign var="row_class" value=$row_class|cat:' has_extras'}
 {/if}
 
@@ -47,8 +47,8 @@
 		{/if}
 
 		<td{if $col_class} class="{$col_class}"{/if}>
-			{if ($row->hasActions() || $row->getNoActionMessage()) && $column->hasFlag('firstColumn')}
-				{if $row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT) || $row->getNoActionMessage()}
+			{if $row->hasActions() && $column->hasFlag('firstColumn')}
+				{if $row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT)}
 					<a href="#" class="show_extras">
 						<span class="pkp_screen_reader">{translate key="grid.settings"}</span>
 					</a>
@@ -73,15 +73,13 @@
 		</td>
 	{/foreach}
 </tr>
-{if $row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT) || $row->getNoActionMessage()}
+{if $row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT)}
 	<tr id="{$rowId|escape}-control-row" class="row_controls{if is_a($row, 'GridCategoryRow')} category_controls{/if}">
 		<td colspan="{$grid->getColumnsCount('indent')}">
 			{if $row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT)}
 				{foreach from=$row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT) item=action}
 					{include file="linkAction/linkAction.tpl" action=$action contextId=$rowId}
 				{/foreach}
-			{else}
-				{$row->getNoActionMessage()}
 			{/if}
 		</td>
 	</tr>

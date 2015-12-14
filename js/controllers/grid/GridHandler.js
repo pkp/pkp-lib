@@ -205,12 +205,13 @@
 	/**
 	 * Get the data element id of the passed grid row.
 	 * @param {jQueryObject} $gridRow The grid row JQuery object.
-	 * @return {string|undefined} The data element id of the passed grid row.
+	 * @return {string} The data element id of the passed grid row.
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.getRowDataId =
 			function($gridRow) {
 		var rowDataId;
-		rowDataId = $gridRow.attr('id').slice(this.getRowIdPrefix().length);
+		rowDataId = /** @type {string} */ $gridRow.attr('id').
+				slice(this.getRowIdPrefix().length);
 		return rowDataId;
 	};
 

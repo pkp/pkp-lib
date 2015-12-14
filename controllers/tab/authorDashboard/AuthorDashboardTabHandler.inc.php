@@ -68,22 +68,23 @@ class AuthorDashboardTabHandler extends Handler {
 		$currentStage = $submission->getStageId();
 		$fileStage = $this->_fileStageFromWorkflowStage($currentStage);
 
-		$templateMgr->assign('lastReviewRoundNumber', $this->_getLastReviewRoundNumbers($submission));
+		$templateMgr->assign('lastReviewRoundNumber', $this->_getLastReviewRoundNumber($submission));
 
-		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-		$templateMgr->assign('externalReviewRounds', $reviewRoundDao->getBySubmissionId($submission->getId(), WORKFLOW_STAGE_ID_EXTERNAL_REVIEW));
+		if (in_array($stageId, array(WORKFLOW_STAGE_ID_INTERNAL_REVIEW, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW))) {
+			$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+			$templateMgr->assign('reviewRounds', $reviewRoundDao->getBySubmissionId($submission->getId(), $stageId));
 
-		// Get the last review round.
-		$lastReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $currentStage);
+			// Get the last review round.
+			$lastReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $currentStage);
 
-		// Create and assign add file link action.
-		if ($fileStage && is_a($lastReviewRound, 'ReviewRound')) {
-			import('lib.pkp.controllers.api.file.linkAction.AddFileLinkAction');
-			$templateMgr->assign('uploadFileAction', new AddFileLinkAction(
-				$request, $submission->getId(), $currentStage,
-				array(ROLE_ID_AUTHOR), null, $fileStage, null, null, $lastReviewRound->getId()));
+			// Create and assign add file link action.
+			if ($fileStage && is_a($lastReviewRound, 'ReviewRound')) {
+				import('lib.pkp.controllers.api.file.linkAction.AddFileLinkAction');
+				$templateMgr->assign('uploadFileAction', new AddFileLinkAction(
+					$request, $submission->getId(), $currentStage,
+					array(ROLE_ID_AUTHOR), null, $fileStage, null, null, $lastReviewRound->getId()));
+			}
 		}
-
 
 		// If the submission is in or past the editorial stage,
 		// assign the editor's copyediting emails to the template
@@ -119,19 +120,16 @@ class AuthorDashboardTabHandler extends Handler {
 	/**
 	 * Get the last review round numbers in an array by stage name.
 	 * @param $submission Submission
-	 * @return array(stageName => lastReviewRoundNumber, 0 iff none)
+	 * @param $stageId int WORKFLOW_STAGE_ID_...
+	 * @return int Round number, 0 if none.
 	 */
-	protected function _getLastReviewRoundNumbers($submission) {
+	protected function _getLastReviewRoundNumber($submission, $stageId) {
 		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-		$lastExternalReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), WORKFLOW_STAGE_ID_EXTERNAL_REVIEW);
+		$lastExternalReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
 		if ($lastExternalReviewRound) {
-			$lastExternalReviewRoundNumber = $lastExternalReviewRound->getRound();
-		} else {
-			$lastExternalReviewRoundNumber = 0;
+			return $lastExternalReviewRound->getRound();
 		}
-		return array(
-			'externalReview' => $lastExternalReviewRoundNumber
-		);
+		return 0;
 	}
 
 	/**

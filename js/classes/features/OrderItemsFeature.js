@@ -230,7 +230,7 @@
 			$gridElement.find('table').last().after($orderFinishControls);
 			$orderFinishControls.hide();
 		}
-		
+
 		this.updateOrderLinkVisibility_();
 	};
 
@@ -506,11 +506,12 @@
 	/**
 	 * Make sure that the order action visibility state is correct,
 	 * based on the grid rows number.
+	 * @private
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.
 			updateOrderLinkVisibility_ = function() {
 		var $orderLink = $('.pkp_linkaction_orderItems', this.getGridHtmlElement());
-		if (this.gridHandler.getRows().length == 0) {
+		if (this.gridHandler.getRows().length <= 1) {
 			$orderLink.hide();
 		} else {
 			$orderLink.show();

@@ -64,32 +64,7 @@ class SubmissionsListGridHandler extends GridHandler {
 		$this->_isManager = in_array(ROLE_ID_MANAGER, $authorizedRoles);
 
 		// If there is more than one context in the system, add a context column
-		$contextDao = Application::getContextDAO();
-		$contexts = $contextDao->getAll();
 		$cellProvider = new SubmissionsListGridCellProvider($authorizedRoles);
-		if($contexts->getCount() > 1) {
-			$hasRoleCount = 0;
-			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-
-			$user = $request->getUser();
-			while ($context = $contexts->next()) {
-				$userGroups = $userGroupDao->getByUserId($user->getId(), $context->getId());
-				if ($userGroups->getCount() > 0) $hasRoleCount ++;
-			}
-
-			if ($hasRoleCount > 1 || $request->getContext() == null) {
-				$this->addColumn(
-					new GridColumn(
-						'context',
-						'context.context',
-						null,
-						null,
-						$cellProvider
-					)
-				);
-			}
-		}
-
 		$this->addColumn(
 			new GridColumn(
 				'id',

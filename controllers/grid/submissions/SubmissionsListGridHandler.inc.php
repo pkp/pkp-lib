@@ -104,7 +104,7 @@ class SubmissionsListGridHandler extends GridHandler {
 		$this->addColumn(
 			new GridColumn(
 				'title',
-				'submission.grid.titleColumn',
+				'grid.submission.itemTitle',
 				null,
 				null,
 				$cellProvider,

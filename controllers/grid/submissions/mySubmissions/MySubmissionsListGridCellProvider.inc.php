@@ -42,18 +42,14 @@ class MySubmissionsListGridCellProvider extends SubmissionsListGridCellProvider 
 				$title = $submission->getLocalizedTitle();
 				if (empty($title)) $title = __('common.untitled');
 
-				$contextId = $submission->getContextId();
-				$contextDao = Application::getContextDAO();
-				$context = $contextDao->getById($contextId);
-
 				if ($submission->getSubmissionProgress() > 0) {
-					$url = $dispatcher->url($request, ROUTE_PAGE, $context->getPath(),
+					$url = $dispatcher->url($request, ROUTE_PAGE, null,
 						'submission', 'wizard', $submission->getSubmissionProgress(),
 						array('submissionId' => $submission->getId())
 					);
 				} else {
 					list($page, $operation) = SubmissionsListGridCellProvider::getPageAndOperationByUserRoles($request, $submission);
-					$url = $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), $page, $operation, $submission->getId());
+					$url = $dispatcher->url($request, ROUTE_PAGE, null, $page, $operation, $submission->getId());
 				}
 				import('lib.pkp.classes.linkAction.request.RedirectAction');
 				return array(new LinkAction(

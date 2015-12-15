@@ -128,10 +128,6 @@ class SubmissionsListGridCellProvider extends DataObjectGridCellProvider {
 		$columnId = $column->getId();
 		assert(is_a($submission, 'DataObject') && !empty($columnId));
 
-		$contextId = $submission->getContextId();
-		$contextDao = Application::getContextDAO();
-		$context = $contextDao->getById($contextId);
-
 		switch ($columnId) {
 			case 'id':
 				return array('label' => $submission->getId());
@@ -185,16 +181,10 @@ class SubmissionsListGridCellProvider extends DataObjectGridCellProvider {
 			}
 		}
 
-		// This method is used to build links in componentes that lists
-		// submissions from various contexts, sometimes. So we need to make sure
-		// that we are getting the right submission context (not necessarily the
-		// current context in request).
-		$contextId = $submission->getContextId();
-
 		// If user is enrolled with a context manager user group, let
 		// him access the workflow pages.
 		$roleDao = DAORegistry::getDAO('RoleDAO');
-		$isManager = $roleDao->userHasRole($contextId, $user->getId(), ROLE_ID_MANAGER);
+		$isManager = $roleDao->userHasRole($submission->getContextId(), $user->getId(), ROLE_ID_MANAGER);
 		if($isManager) {
 			return array('workflow', 'access');
 		}
@@ -240,18 +230,13 @@ class SubmissionsListGridCellProvider extends DataObjectGridCellProvider {
 		$router = $request->getRouter();
 		$dispatcher = $router->getDispatcher();
 
-		$contextId = $submission->getContextId();
-		$contextDao = Application::getContextDAO();
-		$context = $contextDao->getById($contextId);
-
 		import('lib.pkp.classes.linkAction.request.RedirectAction');
-
 		return new LinkAction(
 			'itemWorkflow',
 			new RedirectAction(
 				$dispatcher->url(
 					$request, ROUTE_PAGE,
-					$context->getPath(),
+					null,
 					$page, $operation,
 					$submission->getId()
 				)

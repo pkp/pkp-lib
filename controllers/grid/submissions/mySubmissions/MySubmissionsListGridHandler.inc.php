@@ -52,15 +52,16 @@ class MySubmissionsListGridHandler extends SubmissionsListGridHandler {
 	 * @copydoc GridHandler::loadData()
 	 */
 	protected function loadData($request, $filter) {
-		$user = $request->getUser();
-		$context = $request->getContext();
-		$userId = $user->getId();
 		list($search, $column, $stageId) = $this->getFilterValues($filter);
 
 		$submissionDao = Application::getSubmissionDAO();
-		$rangeInfo = $this->getGridRangeInfo($request, $this->getId());
-		$data = $submissionDao->getUnpublishedByUserId($userId, $context->getId(), $search, $stageId, $rangeInfo);
-		return $data;
+		return $submissionDao->getUnpublishedByUserId(
+			$request->getUser()->getId(),
+			$request->getContext()->getId(),
+			$search,
+			$stageId,
+			$this->getGridRangeInfo($request, $this->getId())
+		);
 	}
 
 	

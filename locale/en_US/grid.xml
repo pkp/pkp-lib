@@ -267,4 +267,7 @@
 	<message key="grid.userGroup.removed">{$userGroupName} role removed.</message>
 	<message key="grid.userGroup.assignedStage">{$userGroupName} role assigned to {$stageName} stage.</message>
 	<message key="grid.userGroup.unassignedStage">{$userGroupName} role unassigned from {$stageName} stage.</message>
+
+	<!-- Submission list grids -->
+	<message key="grid.submission.itemTitle">Author; Title</message>
 </locale>

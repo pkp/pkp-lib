@@ -192,7 +192,7 @@
 	<message key="common.preview">Preview</message>
 	<message key="common.publisher">Publisher</message>
 	<message key="common.quality">Quality</message>
-	<message key="common.queue.long.active">Active</message>
+	<message key="common.queue.long.active">All Active</message>
 	<message key="common.re">Re:</message>
 	<message key="common.readMore">Read More</message>
 	<message key="common.readMoreWithTitle">Read more about {$title}</message>
@@ -383,8 +383,8 @@
 	<message key="navigation.home">Home</message>
 	<message key="navigation.infoForReaders">For Readers</message>
 	<message key="navigation.infoForReaders.long">Information For Readers</message>
-	<message key="navigation.items">{$from} - {$to} of {$total} Items</message>
-	<message key="navigation.items.shownTotal">{$shown} of {$total} Items</message>
+	<message key="navigation.items">{$from} - {$to} of {$total} items</message>
+	<message key="navigation.items.shownTotal">{$shown} of {$total} items</message>
 	<message key="navigation.login">Login</message>
 	<message key="navigation.nextPage"><![CDATA[&gt;&gt;]]></message>
 	<message key="navigation.nextStep">Next Step</message>

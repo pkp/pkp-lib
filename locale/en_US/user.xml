@@ -28,8 +28,7 @@
 	<message key="user.authorization.accessibleWorkflowStage">You don't currently have access to that stage of the workflow.</message>
 	<message key="user.authorization.workflowStageRequired">A workflow stage was not specified.</message>
 	<message key="user.authorization.pluginRequired">A plugin was not specified and is required.</message>
-	<message key="user.biography">Bio Statement</message>
-	<message key="user.biography.description">(E.g., department and rank)</message>
+	<message key="user.biography">Bio Statement (e.g., department and rank)</message>
 	<message key="user.changeMyPassword">Change My Password</message>
 	<message key="user.changePassword">Change Password</message>
 	<message key="user.dateLastLogin">Last login</message>

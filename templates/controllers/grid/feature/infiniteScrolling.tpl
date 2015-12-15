@@ -7,10 +7,14 @@
  *
  * Grid infinite scrolling markup.
  *}
-
-<div class="gridPagingScrolling">
-	{translate key="navigation.items.shownTotal" shown=$shown total=$iterator->getCount()}
-	{if $moreItemsLinkAction}
-		{include file="linkAction/linkAction.tpl" action=$moreItemsLinkAction}
-	{/if}
-</div>
+{if $iterator->getCount()}
+	<div class="gridPagingScrolling">
+		{if $moreItemsLinkAction}
+			{include file="linkAction/linkAction.tpl" action=$moreItemsLinkAction}
+		{/if}
+		<span class="item_count">
+			{translate key="navigation.items.shownTotal" shown=$shown total=$iterator->getCount()}
+		</span>
+		{include file="common/loadingContainer.tpl"}
+	</div>
+{/if}

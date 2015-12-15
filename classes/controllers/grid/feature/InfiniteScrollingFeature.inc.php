@@ -54,7 +54,7 @@ class InfiniteScrollingFeature extends GeneralPagingFeature {
 			$moreItemsLinkAction = new LinkAction(
 				'moreItems',
 				new NullAction(),
-				__('common.more'),
+				__('grid.action.moreItems'),
 				'more_items'
 			);
 		}
@@ -67,7 +67,6 @@ class InfiniteScrollingFeature extends GeneralPagingFeature {
 
 		return array(
 			'pagingMarkup' => $templateMgr->fetch('controllers/grid/feature/infiniteScrolling.tpl'),
-			'loadingContainer' => $templateMgr->fetch('common/loadingContainer.tpl')
 		);
 	}
 
@@ -82,7 +81,7 @@ class InfiniteScrollingFeature extends GeneralPagingFeature {
 		$request = $args['request'];
 		$grid = $args['grid'];
 		$jsonMessage = $args['jsonMessage'];
-		
+
 		// Render the paging options, including updated markup.
 		$this->setOptions($request, $grid);
 		$pagingAttributes = array('pagingInfo' => $this->getOptions());
@@ -113,7 +112,7 @@ class InfiniteScrollingFeature extends GeneralPagingFeature {
 
 		if (is_null($row)) {
 			$gridData = $grid->getGridDataElements($request);
-			
+
 			// Get the last data element id of the current page.
 			end($gridData);
 			$lastRowId = key($gridData);
@@ -121,7 +120,7 @@ class InfiniteScrollingFeature extends GeneralPagingFeature {
 			// Get the row and render it.
 			$args = array('rowId' => $lastRowId);
 			$row = $grid->getRequestedRow($request, $args);
-			$pagingAttributes['deletedRowReplacement'] = $grid->renderRow($request, $row);		
+			$pagingAttributes['deletedRowReplacement'] = $grid->renderRow($request, $row);
 		} else {
 			// No need for paging markup.
 			unset($pagingAttributes['pagingInfo']['pagingMarkup']);

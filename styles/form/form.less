@@ -33,7 +33,8 @@
 	// elements
 	legend,
 	label,
-	.label {
+	.section > .label // Prevents it from effecting .label elements in grids
+	{
 		display: block;
 		font-size: @base;
 		font-weight: @bold;

@@ -42,8 +42,8 @@ class LibraryFileAdminGridDataProvider extends CategoryGridDataProvider {
 	 */
 	function getAuthorizationPolicy($request, $args, $roleAssignments) {
 		$this->_context = $request->getContext();
-		import('lib.pkp.classes.security.authorization.PkpContextAccessPolicy');
-		return new PkpContextAccessPolicy($request, $roleAssignments);
+		import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
+		return new ContextAccessPolicy($request, $roleAssignments);
 	}
 
 	/**

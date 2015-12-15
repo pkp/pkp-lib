@@ -63,8 +63,8 @@ class FileApiHandler extends Handler {
 			}
 			$this->addPolicy($multipleSubmissionFileAccessPolicy);
 		} else if (is_numeric($libraryFileId)) {
-			import('lib.pkp.classes.security.authorization.PkpContextAccessPolicy');
-			$this->addPolicy(new PkpContextAccessPolicy($request, $roleAssignments));
+			import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
+			$this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
 		} else {
 			// IDs will be specified using the default parameters.
 			$this->addPolicy($this->_getAccessPolicy($request, $args, $roleAssignments));

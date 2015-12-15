@@ -1,12 +1,12 @@
 <?php
 /**
- * @file classes/security/authorization/PkpContextAccessPolicy.inc.php
+ * @file classes/security/authorization/ContextAccessPolicy.inc.php
  *
  * Copyright (c) 2014-2015 Simon Fraser University Library
  * Copyright (c) 2000-2015 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PkpContextAccessPolicy
+ * @class ContextAccessPolicy
  * @ingroup security_authorization
  *
  * @brief Class to control access to PKP applications' setup components
@@ -14,13 +14,13 @@
 
 import('lib.pkp.classes.security.authorization.internal.ContextPolicy');
 
-class PkpContextAccessPolicy extends ContextPolicy {
+class ContextAccessPolicy extends ContextPolicy {
 	/**
 	 * Constructor
 	 * @param $request PKPRequest
 	 * @param $roleAssignments array
 	 */
-	function PkpContextAccessPolicy($request, $roleAssignments) {
+	function ContextAccessPolicy($request, $roleAssignments) {
 		parent::ContextPolicy($request);
 
 		// On context level we don't have role-specific conditions

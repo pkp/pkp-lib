@@ -39,8 +39,8 @@ class PKPSubmissionHandler extends Handler {
 		// Are we in step one without a submission present?
 		if ($step === 1 && $submissionId === 0) {
 			// Authorize submission creation.
-			import('lib.pkp.classes.security.authorization.PkpContextAccessPolicy');
-			$this->addPolicy(new PkpContextAccessPolicy($request, $roleAssignments));
+			import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
+			$this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
 		} else {
 			// Authorize editing of incomplete submissions.
 			import('lib.pkp.classes.security.authorization.SubmissionAccessPolicy');

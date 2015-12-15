@@ -176,8 +176,7 @@
 	}
 
 	.show_extras,
-	.hide_extras,
-	.pkp_linkaction_moveItem {
+	.hide_extras {
 		position: absolute;
 		top: @half; // matches td padding
 		left: 0;
@@ -218,6 +217,11 @@
 		.show_extras,
 		.hide_extras {
 			display: none;
+		}
+
+		.row_actions {
+			right: auto;
+			left: 0;
 		}
 	}
 
@@ -267,7 +271,7 @@
 	.row_actions {
 		position: absolute;
 		top: @half;
-		right: 1em;
+		right: 0;
 
 		> a {
 			&:extend(.fa);
@@ -402,23 +406,11 @@
 	.gridRow {
 
 		.pkp_linkaction_delete {
-			position: absolute;
-			top: 4px;
-			left: 0;
-			width: @double;
-			height: @double;
-			text-align: center;
-			color: @no;
 
 			&:before {
 				&:extend(.fa);
-				content: @fa-var-trash;
-				line-height: @double;
+				content: @fa-var-times;
 			}
-		}
-
-		.first_column {
-			padding-left: @double;
 		}
 	}
 }

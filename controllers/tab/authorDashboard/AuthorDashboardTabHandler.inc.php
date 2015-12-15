@@ -68,7 +68,7 @@ class AuthorDashboardTabHandler extends Handler {
 		$currentStage = $submission->getStageId();
 		$fileStage = $this->_fileStageFromWorkflowStage($currentStage);
 
-		$templateMgr->assign('lastReviewRoundNumber', $this->_getLastReviewRoundNumber($submission));
+		$templateMgr->assign('lastReviewRoundNumber', $this->_getLastReviewRoundNumber($submission, $currentStage));
 
 		if (in_array($stageId, array(WORKFLOW_STAGE_ID_INTERNAL_REVIEW, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW))) {
 			$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');

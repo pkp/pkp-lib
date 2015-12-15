@@ -104,7 +104,7 @@ class SubmissionsListGridHandler extends GridHandler {
 		$this->addColumn(
 			new GridColumn(
 				'title',
-				'submission.title',
+				'submission.grid.titleColumn',
 				null,
 				null,
 				$cellProvider,
@@ -124,7 +124,7 @@ class SubmissionsListGridHandler extends GridHandler {
 			)
 		);
 	}
-	
+
 	/**
 	 * @copyDoc GridHandler::getIsSubcomponent()
 	 */
@@ -164,10 +164,10 @@ class SubmissionsListGridHandler extends GridHandler {
 		$search = (string) $request->getUserVar('search');
 		$column = (string) $request->getUserVar('column');
 		$stageId = (int) $request->getUserVar('stageId');
-		
+
 		return array(
-			'search' => $search, 
-			'column' => $column, 
+			'search' => $search,
+			'column' => $column,
 			'stageId' => $stageId
 		);
 	}
@@ -228,7 +228,7 @@ class SubmissionsListGridHandler extends GridHandler {
 	protected function getFilterColumns() {
 		return array(
 			'title' => __('submission.title'),
-			'author' => __('submission.authors'));		
+			'author' => __('submission.authors'));
 	}
 
 	/**
@@ -257,10 +257,10 @@ class SubmissionsListGridHandler extends GridHandler {
 
 		return array($search, $column, $stageId);
 	}
-	
+
 	/**
 	 * Define how many items this grid will start loading.
-	 * @return int 
+	 * @return int
 	 */
 	protected function getItemsNumber() {
 		return 5;

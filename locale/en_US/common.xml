@@ -383,8 +383,8 @@
 	<message key="navigation.home">Home</message>
 	<message key="navigation.infoForReaders">For Readers</message>
 	<message key="navigation.infoForReaders.long">Information For Readers</message>
-	<message key="navigation.items">{$from} - {$to} of {$total} Items</message>
-	<message key="navigation.items.shownTotal">{$shown} of {$total} Items</message>
+	<message key="navigation.items">{$from} - {$to} of {$total} items</message>
+	<message key="navigation.items.shownTotal">{$shown} of {$total} items</message>
 	<message key="navigation.login">Login</message>
 	<message key="navigation.nextPage"><![CDATA[&gt;&gt;]]></message>
 	<message key="navigation.nextStep">Next Step</message>

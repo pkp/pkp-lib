@@ -63,5 +63,5 @@
 	{/if}
 
 	{fbvFormButtons id="step2Buttons" submitText="common.save"}
+	<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 </form>
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>

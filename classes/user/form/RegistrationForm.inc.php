@@ -216,6 +216,8 @@ class RegistrationForm extends Form {
 			$user->setDisabledReason(__('user.login.accountNotValidated'));
 		}
 
+		parent::execute($user);
+
 		$userDao->insertObject($user);
 		$userId = $user->getId();
 		if (!$userId) {

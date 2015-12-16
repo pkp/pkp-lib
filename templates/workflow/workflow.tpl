@@ -17,10 +17,10 @@
 {include file="common/header.tpl" suppressPageTitle=true}
 
 <script type="text/javascript">
-	// Initialise JS handler.
+	// Initialize JS handler.
 	$(function() {ldelim}
 		$('#submissionWorkflow').pkpHandler(
-			'$.pkp.pages.workflow.WorkflowHandler',
+			'$.pkp.pages.workflow.WorkflowHandler'
 		);
 	{rdelim});
 </script>

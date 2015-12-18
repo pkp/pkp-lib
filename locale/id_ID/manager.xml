@@ -138,7 +138,6 @@
 	<message key="manager.plugins.sitePlugin">Ini adalah site-wide plugin. Hanya Administrator bisa mengatur plugin ini.</message>
 	<message key="manager.plugins">Sistem Plugins</message>
 	<message key="manager.readingTools">Alat Membaca</message>
-	<message key="manager.reviewerSearch.advancedSearch">Pencarian Reviewer Tingkat Tinggi</message>
 	<message key="manager.reviewerSearch.searchByName">Cari Reviewer dengan Nama</message>
 	<message key="manager.reviewerSearch.doneAmount">Jumlah review yang selesai</message>
 	<message key="manager.reviewerSearch.avgAmount">Jumlah hari rata-rata per review</message>

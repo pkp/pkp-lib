@@ -170,7 +170,6 @@
 	<message key="plugins.categories.themes">Complementos de Aspecto</message>
 	<message key="manager.emails.form.emailKeyRequired">O ficheiro non se puido subir. Por favor tentao outra vez ou contacta co administrador se o problema persiste</message>
 	<message key="manager.setup.errorDeletingItem"> Produciuse un erro ao borrar este ítem</message>
-	<message key="manager.reviewerSearch.advancedSearch">Procura avanzada de Revisor</message>
 	<message key="manager.reviewerSearch.searchByName">Buscar Revisor por Nomee</message>
 	<message key="manager.reviewerSearch.doneAmount">Número de revisións completadas</message>
 	<message key="manager.reviewerSearch.avgAmount">Número estimado de días por revisión</message>

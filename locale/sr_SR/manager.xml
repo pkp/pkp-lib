@@ -139,7 +139,6 @@
 	<message key="manager.plugins.sitePlugin">Ovaj dodatak utiče na funkcionisanje celog sajta. Samo administrator sajta može upravljati ovim dodatkom.</message>
 	<message key="manager.plugins">Sistemski dodatci</message>
 	<message key="manager.readingTools">Alati za čitanje</message>
-	<message key="manager.reviewerSearch.advancedSearch">Napredna pretraga recenzenata</message>
 	<message key="manager.reviewerSearch.searchByName">Pronađi recenzenta preko imena</message>
 	<message key="manager.reviewerSearch.doneAmount">Broj završenih recenzija</message>
 	<message key="manager.reviewerSearch.avgAmount">Prosečan broj dana po recenziji</message>
@@ -227,7 +226,6 @@
 	<message key="manager.emails.reset.message">Ukoliko resetujete ovaj šablon, svi podaci biće vraćeni na osnovne vrednosti, a sve promene će biti izgubljene, da li želite da nastavite?</message>
 	<message key="manager.masthead.title">Uprava</message>
 	<message key="manager.navigation">Navigacija</message>
-	<message key="manager.reviewerSearch.advancedSearch.short">Napredna pretraga</message>
 	<message key="manager.reviewerSearch.searchByName.short">Pretraži po imenu</message>
 	<message key="manager.reviewerSearch.form.interests.instructions">Unesite interese recenzenta odvojene zarezom.</message>
 	<message key="manager.setup.layout.blockManagement">Menadžer bočnog menija</message>

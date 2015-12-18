@@ -140,7 +140,6 @@
 	<message key="manager.plugins.sitePlugin">Bu tüm siteyi ilgilendiren bir eklentidir. Yalnız site yöneticisi eklentiyi kullanabilir.</message>
 	<message key="manager.plugins">Sistem Eklentileri</message>
 	<message key="manager.readingTools">Okuma Araçları</message>
-	<message key="manager.reviewerSearch.advancedSearch">Gelişmiş Hakem Arama</message>
 	<message key="manager.reviewerSearch.searchByName">İsime Göre Hakem Arama</message>
 	<message key="manager.reviewerSearch.doneAmount">Tamamlanmış Değerlendirmeler</message>
 	<message key="manager.reviewerSearch.avgAmount">Değerlendirme gün ortalaması</message>
@@ -229,7 +228,6 @@
 	<message key="manager.emails.reset.message">If you reset this template, all message data will be reset to its default value, losing all modifications.  Do you want to confirm this operation?</message>
 	<message key="manager.masthead.title">Yönetici Listesi</message>
 	<message key="manager.navigation">Yön Bulma</message>
-	<message key="manager.reviewerSearch.advancedSearch.short">Gelişmiş Arama</message>
 	<message key="manager.reviewerSearch.searchByName.short">Ada Göre Ara</message>
 	<message key="manager.reviewerSearch.form.instructions">Use the form below to set the maximum values for the terms you wish to search for.  The form is pre-populated with the calculated averages of those fields.</message>
 	<message key="manager.reviewerSearch.form.interests.instructions">Enter reviewer interests, separated by commas...</message>

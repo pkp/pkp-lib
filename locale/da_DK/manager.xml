@@ -169,7 +169,6 @@
 	<message key="plugins.categories.themes.description">Plug-ins til temaer kan bruges til at ændre systemets udseende.</message>
 	<message key="plugins.categories.themes">Plug-ins til temaer</message>
 	<message key="manager.emails.form.emailKeyRequired">Denne e-mail kræver en unik e-mail-nøgle.</message>
-	<message key="manager.reviewerSearch.advancedSearch">Avanceret bedømmersøgning</message>
 	<message key="manager.reviewerSearch.searchByName">Søg efter bedømmer ud fra navn</message>
 	<message key="manager.reviewerSearch.doneAmount">Antal bedømmelser</message>
 	<message key="manager.reviewerSearch.avgAmount">Gennemsnitligt antal dage pr. bedømmelse</message>
@@ -227,7 +226,6 @@
 	<message key="manager.emails.reset.message">Hvis du nulstiller denne skabelon, vil alle data blive erstattet af standardinstillingerne, og evt. tilretninger vil gå tabt. Vil du bekræfte denne handling?</message>
 	<message key="manager.masthead.title">Kolofon</message>
 	<message key="manager.navigation">Navigation</message>
-	<message key="manager.reviewerSearch.advancedSearch.short">Udvidet søgning</message>
 	<message key="manager.reviewerSearch.searchByName.short">Søg efter navn</message>
 	<message key="manager.reviewerSearch.form.instructions">Brug nedenstående felt til at angive det maksimale antal ord, du ønsker at søge efter. Feltet er forudindstillet til at beregne et gennemsnit for formularens felter.</message>
 	<message key="manager.reviewerSearch.form.interests.instructions">Anfør bedømmelsesinteresser, adskilt med kommaer....</message>

@@ -165,8 +165,6 @@
 	<message key="manager.plugins.sitePlugin">Dies ist ein Plug-In für diese Website. Nur die/der Website-Administrator/in kann dieses Plug-In verwalten.</message>
 	<message key="manager.plugins">Plug-Ins</message>
 	<message key="manager.readingTools">Lesewerkzeuge</message>
-	<message key="manager.reviewerSearch.advancedSearch">Erweiterte Gutachter/innensuche</message>
-	<message key="manager.reviewerSearch.advancedSearch.short">Erweiterte Suche</message>
 	<message key="manager.reviewerSearch.searchByName">Nach Gutachter/in per Name suchen</message>
 	<message key="manager.reviewerSearch.searchByName.short">Suche nach Namen</message>
 	<message key="manager.reviewerSearch.doneAmount">Abgeschlossene Gutachten</message>

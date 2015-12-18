@@ -178,7 +178,6 @@
 	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">Hai scelto di aggiungere il database {$filterDisplayName}. Premi 'OK' per confermare.</message>
 	<message key="manager.reviewerSearch.searchByName">Cerca un Revisore per nome</message>
 	<message key="manager.reviewerSearch.doneAmount">Numero di revisioni completate</message>
-	<message key="manager.reviewerSearch.advancedSearch">Ricerca avanzata dei revisori</message>
 	<message key="manager.reviewerSearch.avgAmount">Giorni impiegati per la revisione</message>
 	<message key="manager.reviewerSearch.lastAmount">Giorni trascorsi dall'ultima revisione</message>
 	<message key="manager.reviewerSearch.interests">Interessi per la revisione</message>
@@ -221,7 +220,6 @@
 	<message key="manager.emails.details">Dettagli del template</message>
 	<message key="manager.masthead.title">Redazione</message>
 	<message key="manager.navigation">Navigazione</message>
-	<message key="manager.reviewerSearch.advancedSearch.short">Ricerca avanzata</message>
 	<message key="manager.reviewerSearch.searchByName.short">Cerca per nome</message>
 	<message key="manager.emails.addEmail">Aggiungi un modello email</message>
 	<message key="manager.emails.data">Modello per i dati del messaggio</message>

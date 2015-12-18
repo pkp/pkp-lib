@@ -169,7 +169,6 @@
 	<message key="plugins.categories.themes.description">Theme Plugins can be used to change the system's appearance.</message>
 	<message key="plugins.categories.themes">Programutvidelser for tema</message>
 	<message key="manager.emails.form.emailKeyRequired">En unik e-postnøkkel er påkrevd for e-posten.</message>
-	<message key="manager.reviewerSearch.advancedSearch">Avansert fagfelle-søk</message>
 	<message key="manager.reviewerSearch.searchByName">Søk etter fagfelle etter navn</message>
 	<message key="manager.reviewerSearch.doneAmount">Antall fullførte vurderinger</message>
 	<message key="manager.reviewerSearch.avgAmount">Gjennomsnittlig antall dager per vurdering</message>
@@ -183,7 +182,6 @@
 	<message key="manager.emails.addEmail">Legg til e-postmal</message>
 	<message key="manager.emails.details">Maldetaljer</message>
 	<message key="manager.navigation">Navigering</message>
-	<message key="manager.reviewerSearch.advancedSearch.short">Avansert søk</message>
 	<message key="manager.reviewerSearch.searchByName.short">Søk etter navn</message>
 	<message key="manager.masthead.title">Hode/kolofonside</message>
 	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">Du har valgt å legge til databasen {$filterDisplayName}. Klikk 'OK' for å bekrefte.</message>

@@ -172,7 +172,6 @@
 	<message key="plugins.categories.themes">Plugins de Visual</message>
 	<message key="manager.emails.form.emailKeyRequired">É necessária uma chave única para o e-mail.</message>
 	<message key="manager.setup.errorDeletingItem">Ocorreu um erro ao tentar excluir o item.</message>
-	<message key="manager.reviewerSearch.advancedSearch">Busca avançada de avaliadores</message>
 	<message key="manager.reviewerSearch.searchByName">Buscar por nome do avaliador</message>
 	<message key="manager.reviewerSearch.doneAmount">Total de avaliações concluídas</message>
 	<message key="manager.reviewerSearch.avgAmount">Média de dias para avaliar</message>
@@ -229,7 +228,6 @@
 	<message key="manager.emails.reset.message">Caso restaure este modelo, todos os dados da mensagem retornarão ao valor original, perdendo todas as alterações. Deseja confirmar esta operação?</message>
 	<message key="manager.masthead.title">Expediente</message>
 	<message key="manager.navigation">Navegação</message>
-	<message key="manager.reviewerSearch.advancedSearch.short">Busca avançada</message>
 	<message key="manager.reviewerSearch.searchByName.short">Buscar por nome</message>
 	<message key="manager.reviewerSearch.form.instructions">Use o formulário a seguir para definir os valores máximos para os termos pelos quais deseja buscar. O formulário está preenchido previamente com médias calculadas dos campos.</message>
 	<message key="manager.reviewerSearch.form.interests.instructions">Informe as áreas de interesse para avaliação, separadas por vírgula...</message>

@@ -169,7 +169,6 @@
 	<message key="plugins.categories.themes.description">システムの外観を変更することができます。</message>
 	<message key="plugins.categories.themes">テーマプラグイン</message>
 	<message key="manager.emails.form.emailKeyRequired">ユニークなメールテンプレート識別キーが必要です。</message>
-	<message key="manager.reviewerSearch.advancedSearch">詳細査読者検索</message>
 	<message key="manager.reviewerSearch.searchByName">者読者名で検索</message>
 	<message key="manager.reviewerSearch.doneAmount">完了した査読数</message>
 	<message key="manager.reviewerSearch.avgAmount">1論文あたりの平均査読所要日数</message>

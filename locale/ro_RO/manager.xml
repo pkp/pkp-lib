@@ -170,7 +170,6 @@
 	<message key="plugins.categories.reports">Module de raportare</message>
 	<message key="plugins.categories.themes.description">Modulele pentru şabloane pot fi utilizate pentru a modifica aspectul sistemului.</message>
 	<message key="plugins.categories.themes">Module pentru machetarea siteului</message>
-	<message key="manager.reviewerSearch.advancedSearch">Căutare avansată pentru evaluator</message>
 	<message key="manager.reviewerSearch.searchByName">Căutare după nume pentru evaluator</message>
 	<message key="manager.reviewerSearch.doneAmount">Numărul de evaluări încheiate</message>
 	<message key="manager.reviewerSearch.avgAmount">Numărul de zile în medie per evaluare</message>

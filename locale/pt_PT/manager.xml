@@ -172,7 +172,6 @@
 	<message key="plugins.categories.themes">Plugins de Visual</message>
 	<message key="manager.emails.form.emailKeyRequired">É requerida uma única chave para o email.</message>
 	<message key="manager.setup.errorDeletingItem">Ocorreu um erro ao eliminar este item.</message>
-	<message key="manager.reviewerSearch.advancedSearch">Busca avançada de avaliadores</message>
 	<message key="manager.reviewerSearch.searchByName">Buscar por nome do avaliador</message>
 	<message key="manager.reviewerSearch.doneAmount">Total de avaliações concluídas</message>
 	<message key="manager.reviewerSearch.avgAmount">Média de dias para avaliar</message>

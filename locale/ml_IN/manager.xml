@@ -139,7 +139,6 @@
 	<message key="manager.plugins.sitePlugin">ഇതൊരു സൈറ്റ്-വൈഡ് പ്ലഗിന്‍ ആകുന്നു.സിസ്റ്റം അഡ്മിനിസ്ട്രേറ്ററിനു മാത്രമേ ഈ പ്ലഗിന്‍ കൈകാര്യം ചെയ്യാന്‍ സാധിക്കൂ.</message>
 	<message key="manager.plugins">സിസ്റ്റം പ്ലഗിന്‍</message>
 	<message key="manager.readingTools">വായന സാമഗ്രികള്‍</message>
-	<message key="manager.reviewerSearch.advancedSearch">പുരോഗമിച്ച പുന:പരിശോധന</message>
 	<message key="manager.reviewerSearch.searchByName">പേരില്‍നിന്ന് പുന:പരിശോധകനുവേണ്ടി തിരയുക</message>
 	<message key="manager.reviewerSearch.doneAmount">പൂര്‍ണ്ണമായ അവലോകനങ്ങളുടെ എണ്ണം</message>
 	<message key="manager.reviewerSearch.avgAmount">അവലോകനത്തിന്റെ ശരാശരി ദിവസം</message>

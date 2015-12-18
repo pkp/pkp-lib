@@ -170,7 +170,6 @@
 	<message key="plugins.categories.themes">Модули Тем</message>
 	<message key="manager.emails.addEmail">Добавить шаблон письма</message>
 	<message key="manager.navigation">Навигация</message>
-	<message key="manager.reviewerSearch.advancedSearch">Расширенный поиск рецензентов</message>
 	<message key="manager.reviewerSearch.advancedSearch.short">Расширенный поиск</message>
 	<message key="manager.reviewerSearch.searchByName">Поиск рецензента по имени</message>
 	<message key="manager.reviewerSearch.searchByName.short">Поиск по имени</message>

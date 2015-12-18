@@ -174,7 +174,6 @@
 	<message key="plugins.categories.themes">Plugiciels de thème</message>
 	<message key="manager.emails.form.emailKeyRequired">Une clé de courriel unique est obligatoire pour le courriel.</message>
 	<message key="manager.setup.errorDeletingItem">Il s'est produit une erreur lors de la suppression de cet élément.</message>
-	<message key="manager.reviewerSearch.advancedSearch">Recherche avancée d'évaluateurs</message>
 	<message key="manager.reviewerSearch.searchByName">Chercher un évaluateur par nom</message>
 	<message key="manager.reviewerSearch.doneAmount">Nombre d'évaluations terminé</message>
 	<message key="manager.reviewerSearch.avgAmount">Nombre de jours moyen par évaluation</message>
@@ -245,7 +244,6 @@
 	<message key="manager.language.submissions">Soumissions</message>
 	<message key="manager.language.forms">Formulaires</message>
 	<message key="manager.language.reloadLocalizedDefaultSettings">Retélécharger les paramètres par défaut</message>
-	<message key="manager.reviewerSearch.advancedSearch.short">Recherche avancée</message>
 	<message key="manager.reviewerSearch.searchByName.short">Recherche pas nom</message>
 	<message key="manager.statistics.city">Ville</message>
 	<message key="manager.statistics.region">Région</message>

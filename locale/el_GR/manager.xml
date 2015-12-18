@@ -171,7 +171,6 @@
 	<message key="plugins.categories.themes.description">Τα Theme Plugins μπορούν να χρησιμοποιηθούν για να αλλάξει η εμφάνιση του συστήματος.</message>
 	<message key="plugins.categories.themes">Θεματικά (Theme) Plugins</message>
 	<message key="manager.emails.form.emailKeyRequired">Απαιτείτα ένα μοναδικό κλειδί email για το email.</message>
-	<message key="manager.reviewerSearch.advancedSearch">Προχωρημένη Αναζήτηση Αξιολογητή</message>
 	<message key="manager.reviewerSearch.searchByName">Αναζήτηση Αξιολογητή κατά Όνομα</message>
 	<message key="manager.reviewerSearch.doneAmount">Αριθμός ολοκληρωμένης αξιολογήσεων</message>
 	<message key="manager.reviewerSearch.avgAmount">Μέσος αριθμός ημερών ανά αξιολόγηση</message>

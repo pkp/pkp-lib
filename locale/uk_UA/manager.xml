@@ -141,7 +141,6 @@
 	<message key="manager.plugins.sitePlugin">Це загальносистемний модуль. Лише адміністратор сайту може керувати цим модулем.</message>
 	<message key="manager.plugins">Модулі системи</message>
 	<message key="manager.readingTools">Інструментарій для читання</message>
-	<message key="manager.reviewerSearch.advancedSearch">Складний пошук рецензента</message>
 	<message key="manager.reviewerSearch.searchByName">Пошук рецензента за іменем</message>
 	<message key="manager.reviewerSearch.doneAmount">Кількість завершених рецензій</message>
 	<message key="manager.reviewerSearch.avgAmount">Середня тривалість рецензування (діб)</message>
@@ -224,7 +223,6 @@
 	<message key="manager.emails.resetAll.message">Якщо Ви перевантажите всі шаблони, всі зміни шаблонів листів будуть втрачені. Ви підтверджуєте цю дію?</message>
 	<message key="manager.emails.reset.message">Якщо Ви перевантажите цей шаблон, всі фрагменти тексту будуть повернені до стандартних значень, а всі зміни втрачені. Ви підтверджуєте цю дію?</message>
 	<message key="manager.navigation">Навігація</message>
-	<message key="manager.reviewerSearch.advancedSearch.short">Розширений пошук</message>
 	<message key="manager.reviewerSearch.form.interests.instructions">Вкажіть наукові інтереси, розділені комами...</message>
 	<message key="plugins.categories.metadata">Модулі метаданих</message>
 	<message key="plugins.categories.metadata.description">Модулі метаданих дозволяють використання додаткових стандартів метаданих.</message>

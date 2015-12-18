@@ -169,7 +169,6 @@
 	<message key="plugins.categories.themes.description">پلاگین های چهره می توانند برای تغییر ظاهر سیستم استفاده شوند</message>
 	<message key="plugins.categories.themes">پلاگین های چهره</message>
 	<message key="manager.emails.form.emailKeyRequired">یک کلید منحصر به فرد ایمیل برای ایمیل لازم است</message>
-	<message key="manager.reviewerSearch.advancedSearch">جستجوی پیشرفته کارشناس</message>
 	<message key="manager.reviewerSearch.searchByName">جستجوی کارشناس بر اساس نام</message>
 	<message key="manager.reviewerSearch.doneAmount">تعداد کارشناسی های کامل شده</message>
 	<message key="manager.reviewerSearch.avgAmount">میانگین روزهای صرف شده برای کارشناسی</message>

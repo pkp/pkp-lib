@@ -101,4 +101,6 @@
 	<message key="admin.fileLoader.moveFileFailed">Файл {$filename} не может быть перемещен из {$currentFilePath} в {$destinationPath}</message>
 	<message key="admin.fileLoader.fileProcessed">Файл {$filename} был обработан и помещен в архив.</message>
 	<message key="admin.fileLoader">Загрузчик файлов</message>
+	<message key="admin.error.utilExecutionProblem">Выполнение программы «{$utilPath}» закончилось следующей ошибкой: {$output}</message>
+	<message key="admin.error.executingUtil">Ошибка: не могу выполнить «{$utilPath}».  Проверьте вашу настройку {$utilVar} в файле config.inc.php.</message>
 </locale>

@@ -134,7 +134,12 @@ class QueriesGridHandler extends GridHandler {
 		parent::initialize($request);
 		import('lib.pkp.controllers.grid.queries.QueriesGridCellProvider');
 
-		$this->setTitle('submission.queries');
+		switch ($this->getStageId()) {
+			case WORKFLOW_STAGE_ID_SUBMISSION: $this->setTitle('submission.queries.submission'); break;
+			case WORKFLOW_STAGE_ID_EDITING: $this->setTitle('submission.queries.editorial'); break;
+			case WORKFLOW_STAGE_ID_PRODUCTION: $this->setTitle('submission.queries.production'); break;
+			default: assert(false);
+		}
 		$this->setInstructions('submission.queriesDescription');
 
 		// Load pkp-lib translations

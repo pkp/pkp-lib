@@ -194,10 +194,11 @@
 	/**
 	 * Get the grid row by the passed data element id.
 	 * @param {number} rowDataId
+	 * @param {number=} opt_parentElementId
 	 * @return {jQueryObject}
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.getRowByDataId =
-			function(rowDataId) {
+			function(rowDataId, opt_parentElementId) {
 		return $('#' + this.getRowIdPrefix() + rowDataId, this.getHtmlElement());
 	};
 

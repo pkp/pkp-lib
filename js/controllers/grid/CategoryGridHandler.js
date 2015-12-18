@@ -135,6 +135,45 @@
 
 
 	/**
+         * Get the id prefix of the grid row inside a category.
+         * @return {string}
+         */
+	$.pkp.controllers.grid.CategoryGridHandler.prototype.getRowIdPrefix =
+			function() {
+		return this.getGridIdPrefix() + '-category-';
+	};
+
+
+	/**
+	 * Get the grid row by the passed data element id.
+	 * @param {number} rowDataId
+	 * @param {number=} opt_parentElementId
+	 * @return {jQueryObject}
+	 */
+	$.pkp.controllers.grid.CategoryGridHandler.prototype.getRowByDataId =
+			function(rowDataId, opt_parentElementId) {
+		this.parent('getRowByDataId', rowDataId, opt_parentElementId);
+		return $('#' + this.getRowIdPrefix() + opt_parentElementId +
+				'-row-' + rowDataId, this.getHtmlElement());
+	};
+
+
+	/**
+	 * Get the data element id of the passed grid row.
+	 * @param {jQueryObject} $gridRow The grid row JQuery object.
+	 * @return {string} The data element id of the passed grid row.
+	 */
+	$.pkp.controllers.grid.CategoryGridHandler.prototype.getRowDataId =
+			function($gridRow) {
+		var rowDataId;
+		rowDataId = $gridRow.attr('id').
+				slice(this.getRowIdPrefix().length);
+		rowDataId = rowDataId.match('-row-(.*)');
+		return /** @type {string} */ $.trim(rowDataId[1]);
+	};
+
+
+	/**
 	 * Append a category to the end of the list.
 	 * @param {jQueryObject} $category Category to append.
 	 */

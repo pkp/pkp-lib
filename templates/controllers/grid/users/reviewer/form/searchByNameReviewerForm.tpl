@@ -23,12 +23,13 @@
 	{fbvFormSection title="user.role.reviewer" for="reviewer"}
 		{url|assign:autocompleteUrl op="getReviewersNotAssignedToSubmission" submissionId=$submissionId stageId=$stageId reviewRoundId=$reviewRoundId escape=false}
 		{fbvElement type="autocomplete" autocompleteUrl=$autocompleteUrl id="reviewerId" name="reviewer" value=$userNameString disableSync=true}
+
+		<div class="action_links">
+			{foreach from=$reviewerActions item=action}
+				{include file="linkAction/linkAction.tpl" action=$action contextId="searchByNameReviewerForm"}
+			{/foreach}
+		</div>
 	{/fbvFormSection}
-	<div class="action_links">
-		{foreach from=$reviewerActions item=action}
-			{include file="linkAction/linkAction.tpl" action=$action contextId="searchByNameReviewerForm"}
-		{/foreach}
-	</div>
 
 	{include file="controllers/grid/users/reviewer/form/reviewerFormFooter.tpl"}
 

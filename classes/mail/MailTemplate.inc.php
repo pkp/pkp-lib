@@ -84,7 +84,7 @@ class MailTemplate extends Mail {
 
 		if (isset($emailTemplate)) {
 			$this->setSubject($emailTemplate->getSubject());
-			$this->setBody(nl2br($emailTemplate->getBody() . $userSig));
+			$this->setBody($emailTemplate->getBody() . $userSig);
 			$this->enabled = $emailTemplate->getEnabled();
 		} else {
 			$this->setBody($userSig);

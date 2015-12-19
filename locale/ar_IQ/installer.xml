@@ -69,4 +69,7 @@
 	<message key="installer.publicFilesDirError">حافظة الملفات العمومية غير موجودة أو أنها لا تقبل الكتابة عليها.</message>
 	<message key="installer.releaseNotes">ملاحظات الإطلاق</message>
 	<message key="installer.securitySettings">إعدادات الأمان</message>
+    <message key="installer.beacon">المرشد</message>
+    <message key="installer.beacon.enable">زود الموقع برمز تعريفي فريد ورابط أساسي لـ OAI فقط لأغراض إحصائية وما يتعلق بإشعارات الأمان لمشروع المعرفة العامة.</message>
+
 </locale>

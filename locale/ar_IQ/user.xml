@@ -53,7 +53,8 @@
 	<message key="user.login.activate">تفعيل الحساب</message>
 	<message key="user.login.activated">شكراً لقيامك بتفعيل الحساب. بإمكانك الآن الدخول إلى الموقع مستعملاً بيانات الدخول التي قدمتها عند تسجيلك في الموقع.</message>
 	<message key="user.login.changePasswordInstructions"><![CDATA[عليك أن تختار لنفسك كلمة مرور أخرى قبل أن يتسنى لك الدخول إلى الموقع.<br /><br />لطفاً، أدخل اسم دخولك مع كلمة مرورك الحالية وكلمة مرورك الجديدة التي تريدها لتكون بديلة عن الحالية أدناه.]]></message>
-	<message key="user.login.forgotPassword">أنسيت كلمة مرورك؟</message>
+    <message key="user.login.changePasswordInstructionsOneStep"><![CDATA[عليك أن تنتخب لنفسك كلمة مرور جديدة قبل أن يتسنى لك دخول هذا الموقع.<br /><br />لطفاً، أدخل اسم المستخدم الخاص بك مع كلمة مرورك الجديدة أدناه لتغير كلمة المرور الحالية لك.]]></message>
+    <message key="user.login.forgotPassword">أنسيت كلمة مرورك؟</message>
 	<message key="user.login.loginError">اسم الدخول أو كلمة المرور خاطئين. لطفاً، حاول مجدداً.</message>
 	<message key="user.login">الدخول</message>
 	<message key="user.login.lostPassword.confirmationSent">رسالة تأكيد أُرسلت إلى عنوان بريدك الالكتروني. لطفاً اتبع التعليمات التي تجدها في تلك الرسالة لإعادة تعيين كلمة مرورك.</message>

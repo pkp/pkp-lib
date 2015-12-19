@@ -81,7 +81,11 @@
 	<message key="manager.emails.reset">إعادة الضبط</message>
 	<message key="manager.emails.reset.message">إذا أعدت ضبط هذا القالب، فإن بيانات كل الرسائل المرتبطة به ستتغير إلى القيم الافتراضية، مما يزيل أية تعديلات. هل تريد تأكيد هذا الإجراء؟</message>
 	<message key="manager.emails.resetToDefault">إعادة الإفتراضات</message>
-	<message key="manager.filesBrowser">مستعرض الملفات</message>
+    <message key="manager.emails.exportXML">قم بتصدير قوالب الرسائل المنتخبة بشكل ملفات XML</message>
+    <message key="manager.emails.uploadXML">رفع ملف XML</message>
+    <message key="manager.emails.uploadSuccess">قوالب الرسائل المنتخبة تم تحديثها بنجاح</message>
+    <message key="manager.emails.uploadError">فشل رفع الملف</message>
+    <message key="manager.filesBrowser">مستعرض الملفات</message>
 	<message key="manager.files.confirmDelete">أتريد حذف هذا الملف أو الدليل؟ لاحظ أن الدليل ينبغي أن يكون فارغاً قبل أن يكون متاحاً للحذف.</message>
 	<message key="manager.files.createDir">إنشاء حافظة ملفات (دليل)</message>
 	<message key="manager.files.emptyDir">لا توجد ملفات في هذا الدليل.</message>
@@ -165,7 +169,7 @@
 	<message key="manager.roles">الأدوار</message>
 	<message key="manager.setup.citationAssistant">مساعد تأشير الاقتباسات</message>
 	<message key="manager.setup.citationFilterParser">استقطاع الاقتباس</message>
-	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>للعثور على الاقتباسات وتدقيقها في قواعد بيانات الاقتباسات، ينبغي أولاً تجزئتها إلى بيانات وصفية ممكننة قابلة للقراءة آلياً: العنوان، الناشر، تأريخ النشر... إلخ. وكل ذلك ينبغي استقطاعه من نص الاقتباس الأصلي الذي أدخله المؤلف. التوصيلات إلى خدمات الإنترنت الخارجية قد تساعد في هذه العملة. يمكنك إضافة واحد أو أكثر من هذه التوصيلات عبر النقر على زر "إضافة فقرة" أدناه. بعض هذه التوصيلات قد يكون بحاجة إلى ضبط إعداداته أولاً. ستتم مطالبتك بهذا لو كان يستدعي الحال ذلك.</p>
+	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>للعثور على الاقتباسات وتدقيقها في قواعد بيانات الاقتباسات، ينبغي أولاً تجزئتها إلى بيانات وصفية ممكننة قابلة للقراءة آلياً: العنوان، الناشر، تأريخ النشر... إلخ. وكل ذلك ينبغي استقطاعه من نص الاقتباس الأصلي الذي أدخله المؤلف. التوصيلات إلى خدمات الإنترنت الخارجية قد تساعد في هذه العملية. يمكنك إضافة واحد أو أكثر من هذه التوصيلات عبر النقر على زر "إضافة فقرة" أدناه. بعض هذه التوصيلات قد يكون بحاجة إلى ضبط إعداداته أولاً. ستتم مطالبتك بهذا لو كان يستدعي الحال ذلك.</p>
 		<p>بإمكانك تعديل أو حذف توصيلة موجودة عبر النقر على إيقونة التروس المجاورة لها.</p>]]></message>
 	<message key="manager.setup.citationFilterLookup">تدقيق الاقتباس</message>
 	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>عليك أيضاً تمكين وتضبيط التوصيلات إلى قواعد بيانات الاقتباسات الخارجية. هذا يساعد في العثور على الأخطاء المحتملة في اقتباسات المؤلف أو إضافة المزيد من المعلومات إليها (مثل: DOIs أو PubMed IDs) وهي مطلوبة للنشر أو الإيداع الالكتروني.</p>

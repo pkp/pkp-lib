@@ -59,7 +59,7 @@
 	<message key="editor.review.thankReviewer">Thank Reviewer</message>
 	<message key="editor.review.reminderError">Error sending review reminder</message>
 	<message key="editor.review.thankReviewerError">Error sending thank you to reviewer</message>
-	<message key="editor.review.skipEmail">Do not send Reviewer email</message>
+	<message key="editor.review.skipEmail">Do not send email to Reviewer.</message>
 	<message key="editor.review.sendReminder">Send Reminder</message>
 	<message key="editor.review.readReview">Read Review</message>
 	<message key="editor.review.readNewReview">Read New Review</message>

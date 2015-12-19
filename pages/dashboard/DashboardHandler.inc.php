@@ -88,20 +88,6 @@ class DashboardHandler extends Handler {
 			}
 		}
 
-		// Assign contexts to template.
-		$contextCount = count($accessibleContexts);
-		$templateMgr->assign('contextCount', $contextCount);
-		if ($contextCount == 1) {
-			$templateMgr->assign('context', $accessibleContexts[0]);
-		} elseif ($contextCount > 1) {
-			$contexts = array();
-			foreach ($accessibleContexts as $context) {
-				$url = $request->url($context->getPath(), 'submission');
-				$contexts[$url] = $context->getLocalizedName();
-			}
-			$templateMgr->assign('contexts', $contexts);
-		}
-
 		return $templateMgr->fetchJson('dashboard/submissions.tpl');
 	}
 

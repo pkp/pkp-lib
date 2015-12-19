@@ -12,9 +12,7 @@
 		// Attach the form handler.
 		$('#contextSubmissionForm').pkpHandler('$.pkp.controllers.dashboard.form.DashboardTaskFormHandler',
 			{ldelim}
-				{if $contextCount == 1}
-					singleContextSubmissionUrl: {url|json_encode context=$context->getPath() page="submission" op="wizard" escape=false},
-				{/if}
+				singleContextSubmissionUrl: {url|json_encode page="submission" op="wizard" escape=false},
 				trackFormChanges: false
 			{rdelim}
 		);
@@ -25,18 +23,7 @@
 		<form id="contextSubmissionForm">
 			<ul>
 				<li>
-					<!-- New Submission entry point -->
-					{**
-					 * @todo only the single journal context has been styled.
-					 *   a new UI pattern is needed for multi-journal context
-					 *}
-					{if $contextCount > 1}
-						{capture assign="defaultLabel"}{translate key="context.select"}{/capture}
-						{fbvElement type="select" id="multipleContext" from=$contexts defaultValue=0 defaultLabel=$defaultLabel translate=false size=$fbvStyles.size.MEDIUM}
-					{elseif $contextCount == 1}
-						{capture assign="singleLabel"}{translate key="submission.submit.newSubmissionSingle"}{/capture}
-						{fbvElement type="button" id="singleContext" label=$singleLabel translate=false}
-					{/if}
+					{fbvElement type="button" id="singleContext" label="submission.submit.newSubmissionSingle"}
 				</li>
 			</ul>
 		</form>

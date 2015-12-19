@@ -155,20 +155,12 @@ class QueriesGridHandler extends GridHandler {
 		$this->addColumn(new QueryTitleGridColumn($this->getRequestArgs()));
 
 		$this->addColumn(new GridColumn(
-			'replies',
-			'submission.query.replies',
-			null,
-			null,
-			$cellProvider,
-			array('width' => 10, 'alignment' => COLUMN_ALIGNMENT_CENTER)
-		));
-		$this->addColumn(new GridColumn(
 			'from',
 			'submission.query.from',
 			null,
 			null,
 			$cellProvider,
-			array('html' => TRUE)
+			array('html' => TRUE, 'width' => 20)
 		));
 		$this->addColumn(new GridColumn(
 			'lastReply',
@@ -176,7 +168,15 @@ class QueriesGridHandler extends GridHandler {
 			null,
 			null,
 			$cellProvider,
-			array('html' => TRUE)
+			array('html' => TRUE, 'width' => 20)
+		));
+		$this->addColumn(new GridColumn(
+			'replies',
+			'submission.query.replies',
+			null,
+			null,
+			$cellProvider,
+			array('width' => 10, 'alignment' => COLUMN_ALIGNMENT_CENTER)
 		));
 
 		$this->addColumn(
@@ -186,7 +186,7 @@ class QueriesGridHandler extends GridHandler {
 				null,
 				'controllers/grid/common/cell/selectStatusCell.tpl',
 				$cellProvider,
-				array('width' => 20, 'alignment' => COLUMN_ALIGNMENT_CENTER)
+				array('width' => 10, 'alignment' => COLUMN_ALIGNMENT_CENTER)
 			)
 		);
 

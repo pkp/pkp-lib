@@ -19,7 +19,7 @@
 			<tr valign="top">
 				{assign var="contents" value=$submissionEmail->getBody()}
 				<td><br />
-					{$submissionEmail->getBody()|nl2br|strip_unsafe_html}
+					{$submissionEmail->getBody()|strip_unsafe_html}
 				</td>
 			</tr>
 		</table>

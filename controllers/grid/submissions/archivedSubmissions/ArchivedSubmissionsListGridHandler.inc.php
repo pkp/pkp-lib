@@ -37,7 +37,7 @@ class ArchivedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 		);
 	}
 
-	
+
 	//
 	// Implement template methods from GridHandler
 	//
@@ -92,6 +92,17 @@ class ArchivedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 
 		// Add editor specific locale component.
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_EDITOR);
+	}
+
+
+	//
+	// Extend methods from SubmissionsListGridHandler
+	//
+	/**
+	 * @copydoc SubmissionsListGridHandler::getItemsNumber()
+	 */
+	protected function getItemsNumber() {
+		return 20;
 	}
 
 

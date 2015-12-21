@@ -47,12 +47,12 @@ class ActiveSubmissionsListGridHandler extends SubmissionsListGridHandler {
 
 		// Set title.
 		$this->setTitle('common.queue.long.active');
-		
+
 		// Fetch the authorized roles and determine if the user is a manager.
 		$authorizedRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
 		$this->_isManager = in_array(ROLE_ID_MANAGER, $authorizedRoles);
 		$cellProvider = new SubmissionsListGridCellProvider($authorizedRoles);
-		
+
 		$columns =& $this->getColumns();
 		$editorColumn = new GridColumn(
 			'editor',
@@ -77,7 +77,7 @@ class ActiveSubmissionsListGridHandler extends SubmissionsListGridHandler {
 		$submissionDao = Application::getSubmissionDAO();
 		$context = $request->getContext();
 		$rangeInfo = $this->getGridRangeInfo($request, $this->getId());
-	
+
 		list($search, $column, $stageId) = $this->getFilterValues($filter);
 		$title = $author = $editor = null;
 		if ($column == 'title') {
@@ -100,7 +100,7 @@ class ActiveSubmissionsListGridHandler extends SubmissionsListGridHandler {
 	 * @copydoc SubmissionsListGridHandler::getItemsNumber()
 	 */
 	protected function getItemsNumber() {
-		return 15;
+		return 20;
 	}
 
 	/**

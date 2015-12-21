@@ -10,7 +10,7 @@
  *}
 {strip}
 {assign var="pageTitle" value="notification.notifications"}
-{include file="common/frontend/header.tpl"}
+{include file="frontend/components/header.tpl"}
 {/strip}
 
 <table>
@@ -55,5 +55,5 @@
 
 </div>
 
-{include file="common/frontend/footer.tpl"}
+{include file="frontend/components/footer.tpl"}
 

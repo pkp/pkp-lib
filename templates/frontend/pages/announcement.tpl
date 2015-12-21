@@ -9,7 +9,7 @@
  *
  * @uses $announcement Announcement The announcement to display
  *}
-{include file="common/frontend/header.tpl" pageTitleTranslated=$announcement->getLocalizedTitle()}
+{include file="frontend/components/header.tpl" pageTitleTranslated=$announcement->getLocalizedTitle()}
 
 <div class="page page_announcement">
 
@@ -18,4 +18,4 @@
 
 </div><!-- .page -->
 
-{include file="common/frontend/footer.tpl"}
+{include file="frontend/components/footer.tpl"}

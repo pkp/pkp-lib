@@ -1,5 +1,5 @@
 {**
- * templates/user/login.tpl
+ * templates/frontend/pages/userLogin.tpl
  *
  * Copyright (c) 2014-2015 Simon Fraser University Library
  * Copyright (c) 2000-2015 John Willinsky
@@ -8,7 +8,7 @@
  * User login form.
  *
  *}
-{include file="common/frontend/header.tpl" pageTitle="user.login"}
+{include file="frontend/components/header.tpl" pageTitle="user.login"}
 
 <div class="page page_login">
 	<h1 class="page_title">
@@ -123,4 +123,4 @@
 
 </div><!-- .page -->
 
-{include file="common/frontend/footer.tpl"}
+{include file="frontend/components/footer.tpl"}

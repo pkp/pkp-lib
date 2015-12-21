@@ -375,10 +375,54 @@
 
 	// Items shown for infinite scrolling
 	.gridPagingScrolling {
+		position: relative;
+		border-top: @bg-border;
 		font-size: @font-sml;
 		color: @text-light;
 		color: @text-light-rgba;
-		text-align: right;
+		text-align: center;
+		height: @double;
+		line-height: @double;
+
+		.item_count {
+			position: absolute;
+			right: 0;
+		}
+
+		.pkp_linkaction_icon_more_items {
+			font-weight: @bold;
+			text-decoration: none;
+
+			&:before {
+				&:extend(.pkp_caret);
+				&:extend(.pkp_caret_down);
+				position: relative;
+				top: 1px;
+				margin-right: 0.5em;
+			}
+		}
+
+		.pkp_loading {
+			visibility: hidden;
+			position: absolute;
+			top: 0;
+			width: 100%;
+			line-height: @double;
+			background: @lift;
+			opacity: 0;
+			transition: 0.3s opacity, 0.3s visibility;
+		}
+	}
+
+	&.loading {
+
+		.gridPagingScrolling {
+
+			.pkp_loading {
+				visibility: visible;
+				opacity: 1;
+			}
+		}
 	}
 }
 

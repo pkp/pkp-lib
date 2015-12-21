@@ -117,7 +117,7 @@
 	<message key="grid.action.copy">Copy</message>
 	<message key="grid.action.preview">Preview</message>
 	<message key="grid.action.install">Install</message>
-	<message key="grid.action.moreItems">Load more items</message>
+	<message key="grid.action.moreItems">Load more</message>
 
 	<!--  grid task status -->
 	<message key="grid.task.status.completed">This task is completed</message>

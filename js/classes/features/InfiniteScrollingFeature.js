@@ -33,7 +33,6 @@
 	 */
 	$.pkp.classes.features.InfiniteScrollingFeature.prototype.init =
 			function() {
-		this.getGridHtmlElement().find('div.pkp_loading').hide();
 		this.addScrollHandler_();
 		this.fixGridHeight_();
 		this.addPagingDataToRows_();
@@ -47,8 +46,7 @@
 			function($gridElement, options) {
 		var castOptions = /** @type {{pagingMarkup: string?,
 					loadingContainer: string?}} */ (options);
-		$gridElement.find('div.scrollable').append(castOptions.loadingContainer)
-				.after(castOptions.pagingMarkup);
+		$gridElement.find('div.scrollable').after(castOptions.pagingMarkup);
 		$gridElement.find('.pkp_linkaction_moreItems')
 				.click(this.gridHandler.callbackWrapper(this.loadMoreItems_, this));
 	};
@@ -241,19 +239,19 @@
 	$.pkp.classes.features.InfiniteScrollingFeature.prototype.
 			toggleLoadingContainer_ = function(opt_show) {
 		var $loadingElement =
-				this.getGridHtmlElement().find('div.scrollable div.pkp_loading'),
+				this.getGridHtmlElement().find('div.gridPagingScrolling div.pkp_loading'),
 						$scrollableElement = this.getGridHtmlElement().find('div.scrollable'),
 						scrollTop,
 						loadingHeight = $loadingElement.height(),
 						scrollTarget;
 
 		if (opt_show) {
-			$loadingElement.show();
+			this.getGridHtmlElement().addClass('loading');
 			scrollTop = $scrollableElement.scrollTop();
 			scrollTarget = /** @type {number} */ scrollTop + loadingHeight;
 			$scrollableElement.scrollTop(scrollTarget);
 		} else {
-			$loadingElement.hide();
+			this.getGridHtmlElement().removeClass('loading');
 		}
 	};
 

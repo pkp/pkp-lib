@@ -41,6 +41,13 @@
 		}, 1);
 		$(window).resize(this.callbackWrapper(this.onResize));
 
+		this.$parents_.children('a').on('touchstart', function(event) {
+			if (!$(this).parent().hasClass('in_focus')) {
+				$(this).focus();
+				event.preventDefault();
+			}
+		});
+
 		// Attach event handlers
 		this.$links_.bind('focus', this.onFocus);
 		this.$links_.bind('blur', this.onBlur);

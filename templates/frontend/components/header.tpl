@@ -1,5 +1,5 @@
 {**
- * lib/pkp/templates/common/frontend/header.tpl
+ * lib/pkp/templates/frontend/components/header.tpl
  *
  * Copyright (c) 2014-2015 Simon Fraser University Library
  * Copyright (c) 2003-2015 John Willinsky
@@ -14,7 +14,7 @@
 <!DOCTYPE html>
 <html lang="{$currentLocale|replace:"_":"-"}" xml:lang="{$currentLocale|replace:"_":"-"}">
 {if !$pageTitleTranslated}{translate|assign:"pageTitleTranslated" key=$pageTitle}{/if}
-{include file="core:common/frontend/headerHead.tpl"}
+{include file="core:frontend/components/headerHead.tpl"}
 <body class="pkp_page_{$requestedPage|escape|default:"index"} pkp_op_{$requestedOp|escape|default:"index"}">
 	<script type="text/javascript">
 		// Initialise JS handler.
@@ -87,7 +87,7 @@
 					<div class="pkp_navigation_primary_wrapper">
 
 						{* Primary navigation menu for current application *}
-						{include file="header/primaryNavMenu.tpl"}
+						{include file="frontend/components/primaryNavMenu.tpl"}
 
 						{* Search form *}
 						{if !$noContextsConfigured}

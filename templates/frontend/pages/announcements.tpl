@@ -9,7 +9,7 @@
  *
  * @uses $announcements array List of announcements
  *}
-{include file="common/frontend/header.tpl" pageTitle="announcement.announcements"}
+{include file="frontend/components/header.tpl" pageTitle="announcement.announcements"}
 
 <div class="page page_announcements">
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="announcement.announcements"}
@@ -17,4 +17,4 @@
 	{include file="frontend/components/announcements.tpl"}
 </div><!-- .page -->
 
-{include file="common/frontend/footer.tpl"}
+{include file="frontend/components/footer.tpl"}

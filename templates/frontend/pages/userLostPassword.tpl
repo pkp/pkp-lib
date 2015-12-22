@@ -1,5 +1,5 @@
 {**
- * templates/user/lostPassword.tpl
+ * templates/frontend/pages/userLostPassword.tpl
  *
  * Copyright (c) 2014-2015 Simon Fraser University Library
  * Copyright (c) 2000-2015 John Willinsky
@@ -8,7 +8,7 @@
  * Password reset form.
  *
  *}
-{include file="common/frontend/header.tpl" pageTitle="user.login.resetPassword"}
+{include file="frontend/components/header.tpl" pageTitle="user.login.resetPassword"}
 
 <div class="page page_lost_password">
 	<h1 class="page_title">
@@ -60,4 +60,4 @@
 
 </div><!-- .page -->
 
-{include file="common/frontend/footer.tpl"}
+{include file="frontend/components/footer.tpl"}

@@ -1,5 +1,5 @@
 {**
- * templates/common/error.tpl
+ * templates/frontend/pages/error.tpl
  *
  * Copyright (c) 2014-2015 Simon Fraser University Library
  * Copyright (c) 2000-2015 John Willinsky
@@ -9,7 +9,7 @@
  * Displays a simple error message and (optionally) a return link.
  *}
 {strip}
-{include file="common/frontend/header.tpl"}
+{include file="frontend/components/header.tpl"}
 {/strip}
 
 <span class="errorText">{translate key=$errorMsg params=$errorParams}</span>
@@ -19,4 +19,4 @@
 &#187; <a id="backLink" href="{$backLink}">{translate key=$backLinkLabel}</a>
 {/if}
 
-{include file="common/frontend/footer.tpl"}
+{include file="frontend/components/footer.tpl"}

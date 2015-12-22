@@ -1,5 +1,5 @@
 {**
- * templates/user/registerSite.tpl
+ * templates/frontend/pages/userRegisterSite.tpl
  *
  * Copyright (c) 2014-2015 Simon Fraser University Library
  * Copyright (c) 2003-2015 John Willinsky
@@ -7,7 +7,7 @@
  *
  * Site registration.
  *}
-{include file="common/frontend/header.tpl"}
+{include file="frontend/components/header.tpl"}
 
 <div id="contexts">
 	{iterate from=contexts item=context}
@@ -25,4 +25,4 @@
 	{/if}
 </div>
 
-{include file="common/frontend/footer.tpl"}
+{include file="frontend/components/footer.tpl"}

@@ -112,7 +112,7 @@ class PKPUserHandler extends Handler {
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_USER);
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('message', $authorizationMessage);
-		return $templateMgr->display('common/message.tpl');
+		return $templateMgr->display('frontend/pages/message.tpl');
 	}
 }
 

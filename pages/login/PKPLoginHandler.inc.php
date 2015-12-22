@@ -75,7 +75,7 @@ class PKPLoginHandler extends Handler {
 		}
 		$templateMgr->assign('loginUrl', $loginUrl);
 
-		$templateMgr->display('user/login.tpl');
+		$templateMgr->display('frontend/pages/userLogin.tpl');
 	}
 
 	/**
@@ -161,7 +161,7 @@ class PKPLoginHandler extends Handler {
 			$templateMgr->assign('showRemember', Config::getVar('general', 'session_lifetime') > 0);
 			$templateMgr->assign('error', $reason===null?'user.login.loginError':($reason===''?'user.login.accountDisabled':'user.login.accountDisabledWithReason'));
 			$templateMgr->assign('reason', $reason);
-			$templateMgr->display('user/login.tpl');
+			$templateMgr->display('frontend/pages/userLogin.tpl');
 		}
 	}
 
@@ -188,7 +188,7 @@ class PKPLoginHandler extends Handler {
 	function lostPassword($args, $request) {
 		$this->setupTemplate($request);
 		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->display('user/lostPassword.tpl');
+		$templateMgr->display('frontend/pages/userLostPassword.tpl');
 	}
 
 	/**
@@ -204,7 +204,7 @@ class PKPLoginHandler extends Handler {
 
 		if ($user == null || ($hash = Validation::generatePasswordResetHash($user->getId())) == false) {
 			$templateMgr->assign('error', 'user.login.lostPassword.invalidUser');
-			$templateMgr->display('user/lostPassword.tpl');
+			$templateMgr->display('frontend/pages/userLostPassword.tpl');
 
 		} else {
 			$site = $request->getSite();
@@ -223,7 +223,7 @@ class PKPLoginHandler extends Handler {
 			$templateMgr->assign('message', 'user.login.lostPassword.confirmationSent');
 			$templateMgr->assign('backLink', $request->url(null, $request->getRequestedPage()));
 			$templateMgr->assign('backLinkLabel',  'user.login');
-			$templateMgr->display('common/message.tpl');
+			$templateMgr->display('frontend/pages/message.tpl');
 		}
 	}
 
@@ -248,7 +248,7 @@ class PKPLoginHandler extends Handler {
 			$templateMgr->assign('errorMsg', 'user.login.lostPassword.invalidHash');
 			$templateMgr->assign('backLink', $request->url(null, null, 'lostPassword'));
 			$templateMgr->assign('backLinkLabel',  'user.login.resetPassword');
-			$templateMgr->display('common/error.tpl');
+			$templateMgr->display('frontend/pages/error.tpl');
 
 		} else {
 			// Reset password
@@ -285,7 +285,7 @@ class PKPLoginHandler extends Handler {
 			$templateMgr->assign('message', 'user.login.lostPassword.passwordSent');
 			$templateMgr->assign('backLink', $request->url(null, $request->getRequestedPage()));
 			$templateMgr->assign('backLinkLabel',  'user.login');
-			$templateMgr->display('common/message.tpl');
+			$templateMgr->display('frontend/pages/message.tpl');
 		}
 	}
 
@@ -347,7 +347,7 @@ class PKPLoginHandler extends Handler {
 				$templateMgr->assign('errorMsg', 'manager.people.noAdministrativeRights');
 				$templateMgr->assign('backLink', $request->url(null, null, 'people', 'all'));
 				$templateMgr->assign('backLinkLabel', 'manager.people.allUsers');
-				return $templateMgr->display('common/error.tpl');
+				return $templateMgr->display('frontend/pages/error.tpl');
 			}
 
 			$userDao = DAORegistry::getDAO('UserDAO');

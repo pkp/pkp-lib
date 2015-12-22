@@ -1,5 +1,5 @@
 {**
- * templates/information/information.tpl
+ * templates/frontend/pages/information.tpl
  *
  * Copyright (c) 2014-2015 Simon Fraser University Library
  * Copyright (c) 2003-2015 John Willinsky
@@ -9,7 +9,7 @@
  *
  *}
 {if !$contentOnly}
-	{include file="common/frontend/header.tpl" pageTitle=$pageTitle}
+	{include file="frontend/components/header.tpl" pageTitle=$pageTitle}
 {/if}
 
 <div class="page page_information">
@@ -20,5 +20,5 @@
 </div>
 
 {if !$contentOnly}
-	{include file="common/frontend/footer.tpl"}
+	{include file="frontend/components/footer.tpl"}
 {/if}

@@ -53,7 +53,7 @@ class RegistrationHandler extends UserHandler {
 				'source' => $request->getUserVar('source'),
 				'contexts' => $contextDao->getAll(true),
 			));
-			$templateMgr->display('user/registerSite.tpl');
+			$templateMgr->display('frontend/pages/userRegisterSite.tpl');
 		}
 	}
 
@@ -97,7 +97,7 @@ class RegistrationHandler extends UserHandler {
 			$templateMgr->assign('errorParams', array('reason' => $reason));
 			$templateMgr->assign('backLink', $request->url(null, 'login'));
 			$templateMgr->assign('backLinkLabel', 'user.login');
-			$templateMgr->display('common/error.tpl');
+			$templateMgr->display('frontend/pages/error.tpl');
 			return;
 		}
 
@@ -137,7 +137,7 @@ class RegistrationHandler extends UserHandler {
 
 			$templateMgr = TemplateManager::getManager($request);
 			$templateMgr->assign('message', 'user.login.activated');
-			return $templateMgr->display('common/message.tpl');
+			return $templateMgr->display('frontend/pages/message.tpl');
 		}
 		$request->redirect(null, 'login');
 	}
@@ -158,7 +158,7 @@ class RegistrationHandler extends UserHandler {
 				$templateMgr->assign('errorMsg', 'user.register.registrationDisabled');
 				$templateMgr->assign('backLink', $request->url(null, 'login'));
 				$templateMgr->assign('backLinkLabel', 'user.login');
-				$templateMgr->display('common/error.tpl');
+				$templateMgr->display('frontend/pages/error.tpl');
 				exit;
 			}
 		}

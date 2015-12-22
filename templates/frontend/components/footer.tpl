@@ -1,5 +1,5 @@
 {**
- * templates/common/frontend/footer.tpl
+ * templates/frontend/components/footer.tpl
  *
  * Copyright (c) 2014-2015 Simon Fraser University Library
  * Copyright (c) 2003-2015 John Willinsky

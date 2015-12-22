@@ -1,5 +1,5 @@
 {**
- * templates/user/register.tpl
+ * templates/frontend/pages/userRegister.tpl
  *
  * Copyright (c) 2014-2015 Simon Fraser University Library
  * Copyright (c) 2003-2015 John Willinsky
@@ -7,7 +7,7 @@
  *
  * User registration form.
  *}
-{include file="common/frontend/header.tpl" pageTitle="user.register"}
+{include file="frontend/components/header.tpl" pageTitle="user.register"}
 
 <div class="page page_register">
 	<h1 class="page_title">
@@ -209,4 +209,4 @@
 	</form>
 </div><!-- .page -->
 
-{include file="common/frontend/footer.tpl"}
+{include file="frontend/components/footer.tpl"}

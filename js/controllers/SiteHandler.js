@@ -79,6 +79,11 @@
 		this.bind('pkpModalOpen', this.callbackWrapper(this.openModal_));
 		this.bind('pkpModalClose', this.callbackWrapper(this.closeModal_));
 
+		this.bind('pkpObserveScrolling', this.callbackWrapper(
+				this.registerScrollingObserver_));
+		this.bind('pkpRemoveScrollingObserver', this.callbackWrapper(
+				this.unregisterScrollingObserver_));
+
 		this.outsideClickChecks_ = {};
 	};
 	$.pkp.classes.Helper.inherits(
@@ -224,6 +229,20 @@
 				}
 			}
 		});
+	};
+
+
+	/**
+	 * Get the current window dimensions.
+	 * @return {Object} The current window dimensions (height and width)
+	 * in pixels.
+	 */
+	$.pkp.controllers.SiteHandler.prototype.getWindowDimensions =
+			function() {
+		var dimensions = {'height': $(window).height(),
+			'width': $(window).width()};
+
+		return dimensions;
 	};
 
 
@@ -641,6 +660,41 @@
 		if (!$htmlElement.find('.pkp_modal.is_visible').length) {
 			$htmlElement.removeClass('modal_is_visible');
 		}
+	};
+
+
+	/**
+	 * Register a function to observe the body scrolling event.
+	 * @private
+	 * @param {Object} siteHandler The site handler object.
+	 * @param {HTMLElement} siteHandlerElement The html element
+	 * attached to this handler.
+	 * @param {Object} event The pkpObserveScrolling event object.
+	 * @param {Function} observerFunction The observer function.
+	 * @return {boolean}
+	 */
+	$.pkp.controllers.SiteHandler.prototype.registerScrollingObserver_ =
+			function(siteHandler, siteHandlerElement, event, observerFunction) {
+		$(document).scroll(observerFunction);
+		return false;
+	};
+	
+	
+	/**
+	 * Unregister a function that was observing the body scrolling event.
+	 * @private
+	 * @param {Object} siteHandler The site handler object.
+	 * @param {HTMLElement} siteHandlerElement The html element
+	 * attached to this handler.
+	 * @param {Object} event The pkpRemoveScrollingObserver event object.
+	 * @param {Function} observerFunction The observer function.
+	 * @return {boolean}
+	 */
+	$.pkp.controllers.SiteHandler.prototype.unregisterScrollingObserver_ =
+			function(siteHandler, siteHandlerElement, event, observerFunction) {
+		var castObserverFunction = /** @type {function()} */ observerFunction;
+		$(document).unbind('scroll', castObserverFunction);
+		return false;
 	};
 
 /** @param {jQuery} $ jQuery closure. */

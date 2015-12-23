@@ -71,6 +71,13 @@ class ActiveSubmissionsListGridHandler extends SubmissionsListGridHandler {
 	// Implement methods from GridHandler
 	//
 	/**
+	 * @copyDoc GridHandler::getIsSubcomponent()
+	 */
+	function getIsSubcomponent() {
+		return false;
+	}
+
+	/**
 	 * @copydoc GridHandler::loadData()
 	 */
 	protected function loadData($request, $filter) {

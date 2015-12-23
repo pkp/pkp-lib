@@ -653,6 +653,7 @@
 
 	<!-- Submission Queries -->
 	<message key="submission.queries.submission">Pre-Review Discussions</message>
+	<message key="submission.queries.review">Review Discussions</message>
 	<message key="submission.queries.editorial">Copyediting Discussions</message>
 	<message key="submission.queries.production">Production Discussions</message>
 	<message key="submission.queriesDescription">Discussions with users participating in this stage of the submission.</message>

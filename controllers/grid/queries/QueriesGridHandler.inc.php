@@ -138,6 +138,10 @@ class QueriesGridHandler extends GridHandler {
 			case WORKFLOW_STAGE_ID_SUBMISSION: $this->setTitle('submission.queries.submission'); break;
 			case WORKFLOW_STAGE_ID_EDITING: $this->setTitle('submission.queries.editorial'); break;
 			case WORKFLOW_STAGE_ID_PRODUCTION: $this->setTitle('submission.queries.production'); break;
+			case WORKFLOW_STAGE_ID_INTERNAL_REVIEW:
+			case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
+				$this->setTitle('submission.queries.review');
+				break;
 			default: assert(false);
 		}
 		$this->setInstructions('submission.queriesDescription');

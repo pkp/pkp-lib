@@ -388,5 +388,13 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 			$totalItems = $pagingInfo[3];
 		}
 	}
+
+	/**
+	 * Scroll page down until the end.
+	 */
+	protected function scrollPageDown() {
+		$this->waitJQuery();
+		$this->runScript('scroll(0, document.body.scrollHeight()');	
+	}
 }
 ?>

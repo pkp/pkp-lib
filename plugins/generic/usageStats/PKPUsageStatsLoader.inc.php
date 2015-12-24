@@ -170,8 +170,8 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 
 		while(!feof($fhandle)) {
 			$lineNumber++;
-			$line = fgets($fhandle);
-			if ($line == '') continue;
+			$line = trim(fgets($fhandle));
+			if (empty($line) || substr($line, 0, 1) === "#") continue; // Spacing or comment lines.
 			$entryData = $this->_getDataFromLogEntry($line);
 			if (!$this->_isLogEntryValid($entryData, $lineNumber)) {
 				throw new Exception(__('plugins.generic.usageStats.invalidLogEntry',

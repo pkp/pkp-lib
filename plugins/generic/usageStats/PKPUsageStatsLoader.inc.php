@@ -240,10 +240,8 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 		$statsDao->deleteByLoadId($loadId);
 
 		if (!$loadResult) {
-			// Improve the error message.
-			$errorMsg = __('plugins.generic.usageStats.loadDataError',
-				array('file' => $filePath, 'error' => $errorMsg));
-			
+			$this->addExecutionLogEntry(__('plugins.generic.usageStats.loadDataError',
+				array('file' => $filePath)), SCHEDULED_TASK_MESSAGE_TYPE_ERROR);
 			return FILE_LOADER_RETURN_TO_STAGING;
 		} else {
 			return true;

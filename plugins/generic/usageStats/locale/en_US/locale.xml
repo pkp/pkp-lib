@@ -25,6 +25,7 @@
 	<message key="plugins.generic.usageStats.removeUrlError">The line number {$lineNumber} from the file {$file} contains an url that the system can't remove the base url from.</message>
 	<message key="plugins.generic.usageStats.loadDataError">Couldn't load data extracted from file {$file}. The file was moved to stage again.</message>
 	<message key="plugins.generic.usageStats.pluginNotEnabled">Usage statistics plugin is disabled. No log files processed.</message>
+	<message key="plugins.generic.usageStats.processingPathNotEmpty">The directory {$directory} is not empty. This could indicate a previously failed process, or a concurrently running process.</message>
 	<message key="plugins.generic.usageStats.noCounterBotList">The COUNTER bot list {$botlist} can't be used. There are a couple of reasons for that. Check if the list file is inside 'lib/pkp/plugins/generic/usageStats/lib/counter' folder. Also check this folder permissions and that there is only one file inside.</message>
 	<message key="plugins.generic.usageStats.displayName">Usage Statistics</message>
 	<message key="plugins.generic.usageStats.description">Present data objects usage statistics. Can use server access log files to extract statistics.</message>

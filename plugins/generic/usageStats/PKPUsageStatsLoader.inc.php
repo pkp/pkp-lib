@@ -92,34 +92,7 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 
 			$this->checkFolderStructure(true);
 
-			if ($this->_autoStage) {
-				// Copy all log files to stage directory, except the current day one.
-				$fileMgr = new FileManager();
-				$logFiles = array();
-				$logsDirFiles =  glob($plugin->getUsageEventLogsPath() . DIRECTORY_SEPARATOR . '*');
-				// It's possible that the processing directory have files that
-				// were being processed but the php process was stopped before
-				// finishing the processing. Just copy them to the stage directory too.
-				$processingDirFiles = glob($this->getProcessingPath() . DIRECTORY_SEPARATOR . '*');
-				if (is_array($logsDirFiles)) {
-					$logFiles = array_merge($logFiles, $logsDirFiles);
-				}
-				
-				if (is_array($processingDirFiles)) {
-					$logFiles = array_merge($logFiles, $processingDirFiles);
-				}
-				
-				foreach ($logFiles as $filePath) {
-					// Make sure it's a file.
-					if ($fileMgr->fileExists($filePath)) {
-						// Avoid current day file.
-						$filename = pathinfo($filePath, PATHINFO_BASENAME);
-						$currentDayFilename = $plugin->getUsageEventCurrentDayLogName();
-						if ($filename == $currentDayFilename) continue;
-						$this->moveFile(pathinfo($filePath, PATHINFO_DIRNAME), $this->getStagePath(), $filename);
-					}
-				}
-			}	
+		
 		}
 	}
 
@@ -144,8 +117,20 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 			$this->addExecutionLogEntry(__('plugins.generic.usageStats.noCounterBotList', array('botlist' => $this->_counterRobotsListFile)), SCHEDULED_TASK_MESSAGE_TYPE_WARNING);
 			return false;
 		}
+		
+		// It's possible that the processing directory has files that
+		// were being processed but the php process was stopped before
+		// finishing the processing, or there may be a concurrent process running.
+		// Warn the user if this is the case.
+		$processingDirFiles = glob($this->getProcessingPath() . DIRECTORY_SEPARATOR . '*');
+		$processingDirError = is_array($processingDirFiles) && count($processingDirFiles);
+		if ($processingDirError) {
+			$this->addExecutionLogEntry(__('plugins.generic.usageStats.processingPathNotEmpty', array('directory' => $this->getProcessingPath())), SCHEDULED_TASK_MESSAGE_TYPE_ERROR);
+		}
 
-		return parent::executeActions();
+		if ($this->_autoStage) $this->autoStage();
+		
+		return (parent::executeActions() && !$processingDirError);
 	}
 
 	/**
@@ -261,6 +246,41 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 	//
 	// Protected methods.
 	//
+	/**
+	 * Auto stage usage stats log files, also moving files that
+	 * might be in processing folder to stage folder.
+	 */
+	protected function autoStage() {
+		$plugin = $this->_plugin;
+		
+		// Copy all log files to stage directory, except the current day one.
+		$fileMgr = new FileManager();
+		$logFiles = array();
+		$logsDirFiles =  glob($plugin->getUsageEventLogsPath() . DIRECTORY_SEPARATOR . '*');
+		// It's possible that the processing directory have files that
+		// were being processed but the php process was stopped before
+		// finishing the processing. Just copy them to the stage directory too.
+		$processingDirFiles = glob($this->getProcessingPath() . DIRECTORY_SEPARATOR . '*');
+		if (is_array($logsDirFiles)) {
+			$logFiles = array_merge($logFiles, $logsDirFiles);
+		}
+		
+		if (is_array($processingDirFiles)) {
+			$logFiles = array_merge($logFiles, $processingDirFiles);
+		}
+		
+		foreach ($logFiles as $filePath) {
+			// Make sure it's a file.
+			if ($fileMgr->fileExists($filePath)) {
+				// Avoid current day file.
+				$filename = pathinfo($filePath, PATHINFO_BASENAME);
+				$currentDayFilename = $plugin->getUsageEventCurrentDayLogName();
+				if ($filename == $currentDayFilename) continue;
+				$this->moveFile(pathinfo($filePath, PATHINFO_DIRNAME), $this->getStagePath(), $filename);
+			}
+		}
+	}
+
 	/**
 	* Based on the passed object data, get the file type.
 	* @param $assocType int

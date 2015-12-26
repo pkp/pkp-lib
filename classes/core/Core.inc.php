@@ -147,10 +147,13 @@ class Core {
 	 */
 	static function isUserAgentBot($userAgent, $botRegexpsFile = USER_AGENTS_FILE) {
 		static $botRegexps;
+		Registry::set('currentUserAgentsFile', $botRegexpsFile);
 
 		if (!isset($botRegexps[$botRegexpsFile])) {
-			$botRegexps[$botRegexpsFile] = array_filter(file($botRegexpsFile),
-				array('Core', '_filterBotRegexps'));
+			$botFileCacheId = md5($botRegexpsFile);
+			$cacheManager = CacheManager::getManager();
+			$cache = $cacheManager->getCache('core', $botFileCacheId, array('Core', '_botFileListCacheMiss'), CACHE_TYPE_FILE);
+			$botRegexps[$botRegexpsFile] = $cache->getContents();
 		}
 
 		foreach ($botRegexps[$botRegexpsFile] as $regexp) {
@@ -336,7 +339,7 @@ class Core {
 			// We are just interested in context base urls, remove the index one.
 			if (isset($contextBaseUrls['index'])) {
 				unset($contextBaseUrls['index']);
-			} 
+			}
 
 			// Arrange them in length order, so we make sure
 			// we get the correct one, in case there's an overlaping
@@ -424,22 +427,35 @@ class Core {
 	}
 
 	/**
+	 * Bot list file cache miss fallback.
+	 * @param $cache FileCache
+	 * @return array:
+	 */
+	static function _botFileListCacheMiss($cache) {
+		$id = $cache->getCacheId();
+		$botRegexps = array_filter(file(Registry::get('currentUserAgentsFile')),
+			array('Core', '_filterBotRegexps'));
+		$cache->setEntireCache($botRegexps);
+		return $botRegexps;
+	}
+
+	/**
 	 * Filter the regular expressions to find bots, adding
 	 * delimiters if necessary.
 	 * @param $regexp string
 	 */
-	private static function _filterBotRegexps(&$regexp) {
+	static function _filterBotRegexps(&$regexp) {
 		$delimiter = '/';
 		$regexp = trim($regexp);
 		if (!empty($regexp) && $regexp[0] != '#') {
 			if(strpos($regexp, $delimiter) !== 0) {
 				// Make sure delimiters are in place.
 				$regexp = $delimiter . $regexp . $delimiter;
-				return true;
 			}
 		} else {
 			return false;
 		}
+		return true;
 	}
 
 	/**

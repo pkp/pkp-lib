@@ -96,7 +96,7 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 
 			$this->checkFolderStructure(true);
 
-		
+
 		}
 	}
 
@@ -121,7 +121,7 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 			$this->addExecutionLogEntry(__('plugins.generic.usageStats.noCounterBotList', array('botlist' => $this->_counterRobotsListFile)), SCHEDULED_TASK_MESSAGE_TYPE_WARNING);
 			return false;
 		}
-		
+
 		// It's possible that the processing directory has files that
 		// were being processed but the php process was stopped before
 		// finishing the processing, or there may be a concurrent process running.
@@ -133,7 +133,7 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 		}
 
 		if ($this->_autoStage) $this->autoStage();
-		
+
 		return (parent::executeActions() && !$processingDirError);
 	}
 
@@ -264,7 +264,7 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 	 */
 	protected function autoStage() {
 		$plugin = $this->_plugin;
-		
+
 		// Copy all log files to stage directory, except the current day one.
 		$fileMgr = new FileManager();
 		$logFiles = array();
@@ -276,11 +276,11 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 		if (is_array($logsDirFiles)) {
 			$logFiles = array_merge($logFiles, $logsDirFiles);
 		}
-		
+
 		if (is_array($processingDirFiles)) {
 			$logFiles = array_merge($logFiles, $processingDirFiles);
 		}
-		
+
 		foreach ($logFiles as $filePath) {
 			// Make sure it's a file.
 			if ($fileMgr->fileExists($filePath)) {

@@ -546,6 +546,68 @@ class FileManager {
 
 		return $fileExtension;
 	}
+
+	/**
+	 * Decompress passed gziped file.
+	 * @param $filePath string
+	 * @param $errorMsg string
+	 * @return boolean|string
+	 */
+	function decompressFile($filePath, &$errorMsg) {
+		return $this->_executeGzip($filePath, true, $errorMsg);
+	}
+
+	/**
+	 * Compress passed file.
+	 * @param $filePath string The file to be compressed.
+	 * @param $errorMsg string
+	 * @return boolean|string
+	 */
+	function compressFile($filePath, &$errorMsg) {
+		return $this->_executeGzip($filePath, false, $errorMsg);
+	}
+
+
+	//
+	// Private helper methods.
+	//
+	/**
+	 * Execute gzip to compress or extract files.
+	 * @param $filePath string file to be compressed or uncompressed.
+	 * @param $decompress boolean optional Set true if the passed file
+	 * needs to be decompressed.
+	 * @param $errorMsg string
+	 * @return false|string The file path that was created with the operation
+	 * or false in case of fail.
+	 */
+	private function _executeGzip($filePath, $decompress = false, &$errorMsg) {
+		PKPLocale::requireComponents(LOCALE_COMPONENT_PKP_ADMIN);
+		$gzipPath = Config::getVar('cli', 'gzip');
+		if (!is_executable($gzipPath)) {
+			$errorMsg = __('admin.error.executingUtil', array('utilPath' => $gzipPath, 'utilVar' => 'gzip'));
+			return false;
+		}
+		$gzipCmd = escapeshellarg($gzipPath);
+		if ($decompress) $gzipCmd .= ' -d';
+		// Make sure any output message will mention the file path.
+		$output = array($filePath);
+		$returnValue = 0;
+		$gzipCmd .= ' ' . $filePath;
+		if (!Core::isWindows()) {
+			// Get the output, redirecting stderr to stdout.
+			$gzipCmd .= ' 2>&1';
+		}
+		exec($gzipCmd, $output, $returnValue);
+		if ($returnValue > 0) {
+			$errorMsg = __('admin.error.utilExecutionProblem', array('utilPath' => $gzipPath, 'output' => implode(PHP_EOL, $output)));
+			return false;
+		}
+		if ($decompress) {
+			return substr($filePath, 0, -3);
+		} else {
+			return $filePath . '.gz';
+		}
+	}
 }
 
 ?>

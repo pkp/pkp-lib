@@ -48,6 +48,10 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 		$plugin = PluginRegistry::getPlugin('generic', 'usagestatsplugin'); /* @var $plugin UsageStatsPlugin */
 		$this->_plugin = $plugin;
 
+		if ($plugin->getSetting(CONTEXT_ID_NONE, 'compressArchives')) {
+			$this->setCompressArchives(true);
+		}
+
 		$arg = current($args);
 
 		switch ($arg) {

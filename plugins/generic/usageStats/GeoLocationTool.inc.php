@@ -30,7 +30,7 @@ class GeoLocationTool {
 	 * Use the method isPresent() to check if the database file is present before use.
 	 */
 	function GeoLocationTool() {
-		$geoLocationDbFile = dirname(__FILE__) . DIRECTORY_SEPARATOR . "GeoLiteCity.dat";
+		$geoLocationDbFile = str_replace(PKP_LIB_PATH . DIRECTORY_SEPARATOR, '', dirname(__FILE__)) . DIRECTORY_SEPARATOR . "GeoLiteCity.dat";
 		if (file_exists($geoLocationDbFile)) {
 			$isDbFilePresent = true;
 			$this->_geoLocationTool = geoip_open($geoLocationDbFile, GEOIP_STANDARD);

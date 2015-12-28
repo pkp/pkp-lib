@@ -26,6 +26,9 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 	/** @var $_optedOut boolean */
 	var $_optedOut;
 
+	/** @var $_saltpath string */
+	var $_saltpath;
+
 	/**
 	 * Constructor.
 	 */
@@ -61,6 +64,9 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 			}
 
 			$this->_dataPrivacyOn = $this->getSetting(CONTEXT_ID_NONE, 'dataPrivacyOption');
+			$this->_saltpath = $this->getSetting(CONTEXT_ID_NONE, 'saltFilepath');
+			// Check config for backward compatibility.
+			if (!$this->_saltpath) $this->_saltpath = Config::getVar('usageStats', 'salt_filepath');
 			$application = Application::getApplication();
 			$request = $application->getRequest();
 			$this->_optedOut = $request->getCookieVar('usageStats-opt-out');
@@ -71,6 +77,14 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 		}
 
 		return $success;
+	}
+
+	/**
+	 * Get the path to the salt file.
+	 * @return string
+	 */
+	function getSaltpath() {
+		return $this->_saltpath;
 	}
 
 	/**
@@ -231,6 +245,21 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 	}
 
 	/**
+	 * Validate that the path of the salt file exists and is writable.
+	 * @param $saltpath string
+	 * @return boolean
+	 */
+	function validateSaltpath($saltpath) {
+		if (!file_exists($saltpath)) {
+			touch($saltpath);
+		}
+		if (is_writable($saltpath)) {
+			return true;
+		}
+		return false;
+	}
+
+	/**
 	 * Log the usage event into a file.
 	 * @param $hookName string
 	 * @param $args array
@@ -323,8 +352,8 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 		$salt = null;
 		if ($this->_dataPrivacyOn) {
 			// Salt management.
-			if (!Config::getVar('usageStats', 'salt_filepath')) return false;
-			$saltFilename = Config::getVar('usageStats', 'salt_filepath');
+			$saltFilename = $this->getSaltpath();
+			if (!$this->validateSaltpath($saltFilename)) return false;
 			$currentDate = date("Ymd");
 			$saltFilenameLastModified = date("Ymd", filemtime($saltFilename));
 			$file = fopen($saltFilename, 'r');

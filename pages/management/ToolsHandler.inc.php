@@ -26,7 +26,7 @@ class ToolsHandler extends ManagementHandler {
 		parent::Handler();
 		$this->addRoleAssignment(
 			ROLE_ID_MANAGER,
-			array('tools', 'importexport')
+			array('tools', 'statistics', 'importexport')
 		);
 	}
 

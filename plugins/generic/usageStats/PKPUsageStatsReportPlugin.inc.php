@@ -52,7 +52,6 @@ abstract class PKPUsageStatsReportPlugin extends ReportPlugin {
 	 * @see ReportPlugin::display()
 	 */
 	function display($args, $request) {
-		parent::display($args);
 		$router = $request->getRouter();
 		$context = $router->getContext($request);
 

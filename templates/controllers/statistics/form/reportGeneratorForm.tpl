@@ -57,7 +57,9 @@
 			{fbvFormSection inline=true size=$fbvStyles.size.SMALL}
 				{fbvElement type="select" name="reportTemplate" id="reportTemplate" from=$reportTemplateOptions selected=$reportTemplate translate=false}
 			{/fbvFormSection}
-			{fbvFormSection for="aggregationColumns" title="manager.statistics.reports.aggregationColumns" list=true}
+		{/fbvFormArea}
+		{fbvFormArea id="aggregationColumnsFormArea" title="manager.statistics.reports.aggregationColumns"}
+			{fbvFormSection for="aggregationColumns" list=true}
 				{fbvElement type="checkboxgroup" name="aggregationColumns" id="aggregationColumns" from=$aggregationOptions selected=$selectedAggregationOptions translate=false}
 			{/fbvFormSection}
 		{/fbvFormArea}

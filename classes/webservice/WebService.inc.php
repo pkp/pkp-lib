@@ -202,6 +202,13 @@ class WebService {
 		$headers = $this->_buildHeaders($webServiceRequest);
 		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		if ($httpProxyHost = Config::getVar('proxy', 'http_host')) {
+			curl_setopt($ch, CURLOPT_PROXY, $httpProxyHost);
+			curl_setopt($ch, CURLOPT_PROXYPORT, Config::getVar('proxy', 'http_port', '80'));
+			if ($username = Config::getVar('proxy', 'username')) {
+				curl_setopt($ch, CURLOPT_PROXYUSERPWD, $username . ':' . Config::getVar('proxy', 'password'));
+			}
+		}
 
 		// Set up basic authentication if required.
 		$this->_authenticateRequest($ch);

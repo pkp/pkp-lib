@@ -31,7 +31,7 @@
 	 *  reportTemplateSelectSelector: string,
 	 *  aggregationOptionsSelector: string,
 	 *  currentMonthSelector: string,
-	 *  currentDaySelector: string,
+	 *  yesterdaySelector: string,
 	 *  rangeByMonthSelector: string,
 	 *  rangeByDaySelector: string,
 	 *  dateRangeWrapperSelector: string,
@@ -91,7 +91,7 @@
 
 		// Add click handler to current time filter selectors.
 		$currentTimeElements = $(options.currentMonthSelector,
-				this.getHtmlElement()).add(options.currentDaySelector,
+				this.getHtmlElement()).add(options.yesterdaySelector,
 				this.getHtmlElement()[0]);
 		if ($currentTimeElements.length == 2) {
 			$currentTimeElements.click(this.callbackWrapper(

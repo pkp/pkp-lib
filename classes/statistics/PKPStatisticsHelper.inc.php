@@ -55,7 +55,7 @@ define('STATISTICS_FILE_TYPE_DOC', 4);
 define('STATISTICS_UNKNOWN_COUNTRY_ID', 'ZZ');
 
 // Constants used to filter time dimension to current time.
-define('STATISTICS_CURRENT_DAY', 'currentDay');
+define('STATISTICS_YESTERDAY', 'yesterday');
 define('STATISTICS_CURRENT_MONTH', 'currentMonth');
 
 abstract class PKPStatisticsHelper {

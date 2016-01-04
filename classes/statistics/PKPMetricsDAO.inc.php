@@ -161,7 +161,7 @@ class PKPMetricsDAO extends DAO {
 		// Replace the current time constant by time values
 		// inside the parameters array.
 		$currentTime = array(
-			STATISTICS_CURRENT_DAY => date('Ymd', time()),
+			STATISTICS_YESTERDAY => date('Ymd', strtotime('-1 day', time())),
 			STATISTICS_CURRENT_MONTH => date('Ym', time()));
 		foreach ($currentTime as $constant => $time) {
 			$currentTimeKeys = array_keys($params, $constant);

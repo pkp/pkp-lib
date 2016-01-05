@@ -115,7 +115,7 @@
 
 				// Fire off any other optional events.
 				this.publishChangeEvents();
-				
+
 				// re-enable the form control if it was disabled previously.
 				if (this.disableControlsOnSubmit) {
 					this.enableFormControls();

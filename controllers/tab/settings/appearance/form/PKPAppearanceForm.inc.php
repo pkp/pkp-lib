@@ -248,9 +248,7 @@ class PKPAppearanceForm extends ContextSettingsForm {
 				$plugin->setSeq((int) $newRowId['sequence']);
 				break;
 			case 'rightContext':
-				$plugin->setEnabled(true);
-				$plugin->setBlockContext(BLOCK_CONTEXT_RIGHT_SIDEBAR);
-				$plugin->setSeq((int) $newRowId['sequence']);
+				// Deprecated
 				break;
 			default:
 				assert(false);

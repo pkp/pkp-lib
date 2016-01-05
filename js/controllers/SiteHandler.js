@@ -60,8 +60,6 @@
 		// grids will not refresh correctly.
 		$.ajaxSetup({cache: false});
 
-		$('select.applyPlugin', $widgetWrapper).selectBox();
-
 		// Check if we have notifications to show.
 		if (options.hasSystemNotifications) {
 			this.trigger('notifyUser');
@@ -678,8 +676,8 @@
 		$(document).scroll(observerFunction);
 		return false;
 	};
-	
-	
+
+
 	/**
 	 * Unregister a function that was observing the body scrolling event.
 	 * @private

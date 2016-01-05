@@ -43,6 +43,7 @@
 	<message key="admin.scheduledTask.startTime">Geplante Aufgabe wurde gestartet.</message>
 	<message key="admin.scheduledTask.stopTime">Geplante Aufgabe wurde beendet.</message>
 	<message key="admin.scheduledTask.noLog">Geplante Aufgabe hat keine Logdatei erzeugt.</message>
+	<message key="admin.scheduledTask.openAccessNotification">Open-Access-Benachrichtigung</message>
 	<message key="admin.scheduledTask.downloadLog">Ihre OJS-Installation hat diese Aufgabe automatisch ausgeführt und beendet. Sie können die Logdatei hier herunterladen: {$url}</message>
 	<message key="admin.scheduledTask.confirmClearLogs">Sind Sie sicher, dass Sie alle Logdateien zu geplanten Aufgaben löschen möchten?</message>
 	<message key="admin.scheduledTask.clearLogs">Logdateien zur Ausführung geplanter Aufgaben löschen</message>
@@ -100,4 +101,6 @@
 	<message key="admin.fileLoader.moveFileFailed">Die Datei {$filename} konnte nicht von {$currentFilePath} nach {$destinationPath} verschoben werden.</message>
 	<message key="admin.fileLoader.fileProcessed">Die Datei {$filename} wurde verarbeitet und archiviert.</message>
 	<message key="admin.fileLoader">Fileloader</message>
+	<message key="admin.error.utilExecutionProblem">Das Programm "{$utilPath}" hat den folgenden Fehler zurückgegeben: {$output}</message>
+	<message key="admin.error.executingUtil">Fehler: kann "{$utilPath}" nicht ausführen. Überprüfen Sie die Einstellungen zu {$utilVar} in config.inc.php.</message>
 </locale>

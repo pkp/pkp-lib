@@ -83,7 +83,7 @@ function fatalError($reason) {
 		$isErrorCondition = false;
 	}
 
-	echo "<h1>$reason</h1>";
+	echo "<h1>" . htmlspecialchars($reason) . "</h1>";
 
 	if ($showStackTrace && checkPhpVersion('4.3.0')) {
 		echo "<h4>Stack Trace:</h4>\n";

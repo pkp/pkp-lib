@@ -359,7 +359,7 @@
 	<message key="submission.citations.editor.unprocessedCitations">该文章引用仍然在服务器上进行处理。当前的引用列表只包含已经处理过的引用。请点击刷新按钮查看与此同时正在处理的引用。</message>
 	<message key="submission.citations.filter.invalidMetadata">在 {$filterName}中发生错误: 从数据资源（如web服务）中返回来的数据元素同内部元数据格式不符。因此，数据服务的结果被拒绝。请将其报告为错误。</message>
 	<message key="submission.citations.filter.noResultFromFilterError">一些引用服务未返回任何结果。您可以重新尝试手动编辑引用字段，然后再次检索引用服务来改善结果。如果没有作用，那么引用不存在于连接的数据库中。</message>
-	<message key="submission.citations.filter.unsupportedPublicationType">不支持或丢失的出版物类型。请手动编辑引用并输入出版物类型（允许的类型包括“书籍”、“期刊”、“论文”和“会议报告”）。</message>
+	<message key="submission.citations.filter.unsupportedPublicationType">不支持或丢失的出版物类型。</message>
 	<message key="submission.citations.filter.webserviceError">在呼叫下面的URL: {$webserviceUrl}时， {$filterName}web服务呼叫返回一个错误。可能是因为web服务暂时不可用。您仍然可以使用剩下的服务并保存您的结果。您还可以稍后重试。如果错误仍然存在，请询问期刊管理员来停用此服务并开启错误报告。</message>
 	<message key="submission.citations.filter.webserviceResultTransformationError">在{$filterName}中发生了一个错误: XML结果在（例如从web服务）转变到基于字段的元数据中时失败。原因可能是web服务返回了无效或不完整的数据。请将其报告为错误。</message>
 	<message key="submission.layout.galleyRemoteURL">远程URL</message>

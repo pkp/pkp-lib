@@ -174,7 +174,7 @@
 	<message key="submission.citations.editor.citationlist.errorDeletingCitation">Se ha producido un error al intentar borrar la cita. Por favor, notifica este fallo.</message>
 	<message key="submission.citations.editor.loadMessage">Espera a que cargue el editor de citas.</message>
 	<message key="submission.citations.editor.details.explainImprovementOptions">Si no obtienes resultados satisfactorios por defecto, tienes varias opciones para mejorar la cita. Edita manualmente los campos relevantes (p.ej. título y autor) e inténtalo de nuevo. Si esto no da resultado, puedes consultar Goggle Académico o al autor para más información.</message>
-	<message key="submission.citations.filter.unsupportedPublicationType">Tipo de publicación no permitido o no encontrado. Por favor, edita manualmente la cita e introduce un tipo de publicación ("libro", "revista", "tesis" o "conf-proc" son tipos válidos).</message>
+	<message key="submission.citations.filter.unsupportedPublicationType">Tipo de publicación no permitido o no encontrado. Por favor, edita manualmente la cita e introduce un tipo de publicación ("book", "journal", "thesis" o "conf-proc" son tipos válidos).</message>
 	<message key="submission.citations.editor.export.exportDescription"><![CDATA[<a id="markForExport" href="">Haz clic aquí</a> para seleccionar todos los resultados generados. Copia y pégalo después en tu documento.]]></message>
 	<message key="metadata.property.displayName.author">Autores</message>
 	<message key="metadata.property.displayName.editor">Editores</message>

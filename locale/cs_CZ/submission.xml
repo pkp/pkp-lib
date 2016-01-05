@@ -41,7 +41,7 @@
 	<message key="submission.citations.form.description">Pokud nejste spokojen(a) s obsahem citací, můžete citace ručně upravit editací jednotlivých položek a poté provést opětovnou kontrolu.</message>
 	<message key="submission.citations.form.unsavedChanges">Citace obsahuje data z externích databází, které nejsou dosud uloženy. Prosím přečtěte si a případně upravte datová pole. Poté zvolte "OK" pro uložení změn, nebo zvolte tlačítko "Zrušit", kterým provedené změny neuložíte.</message>
 	<message key="submission.citations.form.filterError">Analýza nebo vyhledávání nevrátily žádné výsledky. Úpravou textu citace pravděpodobně získáte lepší výsledek.</message>
-	<message key="submission.citations.output.unsupportedPublicationType">Nepodporovaný nebo chybějící typ publikace. Prosím upravte citaci ručně a zadejte typ publikace (buď "kniha" nebo "časopis").</message>
+	<message key="submission.citations.output.unsupportedPublicationType">Nepodporovaný nebo chybějící typ publikace. Prosím upravte citaci ručně a zadejte typ publikace (buď "book", "journal", "thesis" nebo "conf-proc").</message>
 	<message key="submission.citations.output.exportDescription">Prosím, zkopírujte obsah tohoto dialogového okna a vložte jej do dokumentu.</message>
 	<!-- FIXME: move to meta-data plug-in -->
 	<message key="metadata.property.displayName.author">Autoři</message>

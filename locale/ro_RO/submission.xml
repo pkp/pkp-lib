@@ -340,7 +340,7 @@
 	<message key="submission.citations.editor.unprocessedCitationsButtonTitle">Clic pentru a actualiza lista referințelor bibliografice.</message>
 	<message key="submission.citations.filter.invalidMetadata">A apărut o eroare în {$filterName}: Unu din elementele de date adus de la o sursă de date (de ex. un serviciu web) nu se conformează formatului de metadate intern. Astfel, rezultatele datelor sursă au fost respinse. Trimite ca fiind bug.</message>
 	<message key="submission.citations.filter.noResultFromFilterError">Câteva servicii pentru referințe bibliografice nu au adus rezultate. Poți încerca să editezi manual câmpurile pentru referințe bibliografice iar apoi poți interoga serviciile pentru referințe din nou pentru a îmbunătăți rezultatele. Dacă acest lucru nu este de ajutor, atunci citările nu există în niciuna din bazele de date conectate.</message>
-	<message key="submission.citations.filter.unsupportedPublicationType">Tip nesuportat sau lipsă. Editează manual referința și introduceți un tip de publicare (tipurile permise sunt „carte”, „revistă”, „teză” și „conf-proc”).</message>
+	<message key="submission.citations.filter.unsupportedPublicationType">Tip nesuportat sau lipsă. Editează manual referința și introduceți un tip de publicare (tipurile permise sunt „book”, „journal”, „thesis” și „conf-proc”).</message>
 	<message key="submission.page.citations">#{$id} Referințe bibliografice</message>
 	<message key="submission.currentAgencies">Agențiile existente</message>
 	<message key="submission.indexingInformation">Informații pentru indexare</message>

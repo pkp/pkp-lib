@@ -506,7 +506,6 @@
 	<message key="submission.coverage.chron">Couverture chronologique ou historique</message>
 	<message key="submission.coverage.geo">Couverture géo-spatiale</message>
 	<message key="submission.coverage.sample">Exemple de couverture</message>
-	<message key="submission.editorial">Editorial</message>
 	<message key="submission.event.submissionSubmitted">Soumission initiale complétée</message>
 	<message key="submission.event.fileRevised">La révision "{$name}" (file ID {$fileId}-{$revision}) a été téléchargée.</message>
 	<message key="submission.files.downloadAll">Télécharger tous les fichiers</message>

@@ -277,7 +277,6 @@
 	<message key="submission.due">Fällig</message>
 	<message key="submission.editing">Redaktion</message>
 	<message key="submission.editMetadata">Metadaten bearbeiten</message>
-	<message key="submission.editorial">Editorial</message>
 	<message key="submission.email.backToEmailLog">Zurück zum E-Mail-Protokoll </message>
 	<message key="submission.email.confirmClearLog">Sind Sie sicher, dass Sie das E-Mail-Protokoll zu diesem Beitrag löschen wollen?</message>
 	<message key="submission.email.confirmDeleteLogEntry">Sind Sie sicher, dass Sie diesen Eintrag im E-Mail-Protokoll löschen wollen?</message>

@@ -358,7 +358,7 @@ El marcado de citas está configurado por el Gestor de la Revista en <a href="{$
 	<message key="submission.citations.metadata.changeWarning">¿Está seguro de que desea actualizar su lista de referencias? Si hace clic en Aceptar, los cambios hechos por los editores serán sobrescritos. Si no está seguro de si debe hacer cambios a la lista de referencias, por favor póngase en contacto con el Editor a cargo de su presentación.</message>
 
 	<message key="submission.citations.editor.loadMessage">Por favor espere por el asistente de marcado de citas para cargar.</message>
-	<message key="submission.citations.filter.unsupportedPublicationType">Tipo de publicación no soportado o ausente. Por favor, edite manualmente la cita e ingrese un tipo permitido. (Los tipos permitidos son “libro”, “revista”, “tesis” y “conf-proc”.</message>
+	<message key="submission.citations.filter.unsupportedPublicationType">Tipo de publicación no soportado o ausente. Por favor, edite manualmente la cita e ingrese un tipo permitido. (Los tipos permitidos son “book”, “journal”, “thesis” y “conf-proc”.</message>
 	<message key="submission.page.citations">#{$id} Citas</message>
 	<message key="submission.currentAgencies">Agencias Actuales</message>
 	<message key="submission.indexingInformation">Informacion de indización</message>

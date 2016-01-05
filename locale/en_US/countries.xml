@@ -38,6 +38,7 @@
 	<country name="Bermuda" code="BM"/>
 	<country name="Bhutan" code="BT"/>
 	<country name="Bolivia, Plurinational State of" code="BO"/>
+	<country name="Bonaire, Sint Eustatius and Saba" code="BQ"/>
 	<country name="Bosnia and Herzegovina" code="BA"/>
 	<country name="Botswana" code="BW"/>
 	<country name="Bouvet Island" code="BV"/>
@@ -61,12 +62,13 @@
 	<country name="Colombia" code="CO"/>
 	<country name="Comoros" code="KM"/>
 	<country name="Congo" code="CG"/>
-	<country name="Congo, the Democratic Republic of the" code="CD"/>
+	<country name="Congo, The Democratic Republic of the" code="CD"/>
 	<country name="Cook Islands" code="CK"/>
 	<country name="Costa Rica" code="CR"/>
 	<country name="Côte d'Ivoire" code="CI"/>
 	<country name="Croatia" code="HR"/>
 	<country name="Cuba" code="CU"/>
+	<country name="Curaçao" code="CW"/>
 	<country name="Cyprus" code="CY"/>
 	<country name="Czech Republic" code="CZ"/>
 	<country name="Denmark" code="DK"/>
@@ -140,7 +142,7 @@
 	<country name="Lithuania" code="LT"/>
 	<country name="Luxembourg" code="LU"/>
 	<country name="Macao" code="MO"/>
-	<country name="Macedonia, the former Yugoslav Republic of" code="MK"/>
+	<country name="Macedonia, Republic of" code="MK"/>
 	<country name="Madagascar" code="MG"/>
 	<country name="Malawi" code="MW"/>
 	<country name="Malaysia" code="MY"/>
@@ -166,7 +168,6 @@
 	<country name="Nauru" code="NR"/>
 	<country name="Nepal" code="NP"/>
 	<country name="Netherlands" code="NL"/>
-	<country name="Netherlands Antilles" code="AN"/>
 	<country name="New Caledonia" code="NC"/>
 	<country name="New Zealand" code="NZ"/>
 	<country name="Nicaragua" code="NI"/>
@@ -179,7 +180,7 @@
 	<country name="Oman" code="OM"/>
 	<country name="Pakistan" code="PK"/>
 	<country name="Palau" code="PW"/>
-	<country name="Palestinian Territory, Occupied" code="PS"/>
+	<country name="Palestine, State of" code="PS"/>
 	<country name="Panama" code="PA"/>
 	<country name="Papua New Guinea" code="PG"/>
 	<country name="Paraguay" code="PY"/>
@@ -210,6 +211,7 @@
 	<country name="Seychelles" code="SC"/>
 	<country name="Sierra Leone" code="SL"/>
 	<country name="Singapore" code="SG"/>
+	<country name="Sint Maarten (Dutch part)" code="SX"/>
 	<country name="Slovakia" code="SK"/>
 	<country name="Slovenia" code="SI"/>
 	<country name="Solomon Islands" code="SB"/>
@@ -220,6 +222,7 @@
 	<country name="Sri Lanka" code="LK"/>
 	<country name="Sudan" code="SD"/>
 	<country name="Suriname" code="SR"/>
+	<country name="South Sudan" code="SS"/>
 	<country name="Svalbard and Jan Mayen" code="SJ"/>
 	<country name="Swaziland" code="SZ"/>
 	<country name="Sweden" code="SE"/>

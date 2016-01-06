@@ -19,7 +19,7 @@
 		<li>
 			{include file="controllers/page/tasks.tpl"}
 		</li>
-		<li class="profile has-submenu">
+		<li class="profile has_submenu">
 			<a href="{url router=$smarty.const.ROUTE_PAGE page="dashboard"}">{$loggedInUsername|escape}</a>
 			<ul>
 				{if array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR), $userRoles)}

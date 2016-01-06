@@ -11,6 +11,12 @@
  * @brief A basic handler for a hierarchical list of navigation items.
  *
  * Attach this handler to a <ul> with nested <li> and <ul> elements.
+ * <li> elements with submenu should have a has_submenu class:
+ *   <li class="has_submenu">
+ *
+ * <li> elements wiith a submenu that opens below the parent item should add a
+ * submenu_opens_below class to support scrolling in long lists when necessary.
+ *   <li class="has_submenu submenu_opens_below"></li>
  */
 (function($) {
 
@@ -29,7 +35,7 @@
 
 		// Reference to all links within the menu
 		this.$links_ = this.getHtmlElement().find('a');
-		this.$parents_ = this.getHtmlElement().find('.has-submenu');
+		this.$parents_ = this.getHtmlElement().find('.has_submenu');
 
 		// Fix dropdown menus that may go off-screen and recalculate whenever
 		// the browser window is resized
@@ -102,7 +108,7 @@
 		this.$parents_.each(function() {
 			var $parent = $(this),
 					$submenus = $parent.children('ul'),
-					right, pos_top, pos_btm, needs_scrollbar, offset_top, new_top;
+					right, pos_top, min_top, pos_btm, offset_top, new_top;
 
 			// Width
 			right = $parent.offset().left + $submenus.outerWidth();
@@ -115,18 +121,25 @@
 			// Height
 			$submenus.attr('style', ''); // reset
 			pos_top = $parent.offset().top;
+			min_top = 0;
+			if($parent.hasClass('submenu_opens_below')) {
+				min_top = pos_top + $parent.outerHeight();
+			}
 			pos_btm = pos_top + $submenus.outerHeight();
-			needs_scrollbar = false;
 			if (pos_btm > height) {
 				offset_top = pos_btm - height;
 				new_top = pos_top - offset_top;
-				if (new_top < 0) {
-					offset_top += new_top;
+				if (new_top < min_top ) {
+					if (min_top > 0) {
+						offset_top = min_top;
+					} else {
+						offset_top = -Math.abs(offset_top) - new_top;
+					}
 					$submenus.css('overflow-y', 'scroll');
 					$submenus.css('bottom',
 							-Math.abs(height - pos_top - $parent.outerHeight()) + 'px');
 				}
-				$submenus.css('top', -Math.abs(offset_top) + 'px');
+				$submenus.css('top', offset_top + 'px');
 			}
 		});
 	};

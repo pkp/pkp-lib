@@ -10,7 +10,7 @@
 {include file="controllers/tab/workflow/stageParticipants.tpl"}
 <div id="editorial">
 
-	<ul class="pkp_context_panel">
+	<ul class="pkp_tab_sidebar">
 		{url|assign:copyeditingEditorDecisionsUrl router=$smarty.const.ROUTE_PAGE page="workflow" op="editorDecisionActions" submissionId=$submission->getId() stageId=$stageId contextId="copyediting" escape=false}
 		{load_url_in_el el="li" id="copyeditingEditorDecisionsDiv" url=$copyeditingEditorDecisionsUrl class="editorDecisionActions"}
 	</ul>

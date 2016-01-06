@@ -172,12 +172,15 @@ class PageHandler extends Handler {
 			// value when there is no current context, because then the switcher will not
 			// be visible.
 			$currentContextUrl = null;
+			$currentContextName = null;
 			if ($context) {
 				$currentContextUrl = $dispatcher->url($request, ROUTE_PAGE, $context->getPath());
+				$currentContextName = $context->getLocalizedName();
 			}
 
 			$templateMgr->assign(array(
 				'currentContextUrl' => $currentContextUrl,
+				'currentContextName' => $currentContextName,
 				'contextsNameAndUrl' => $contextsNameAndUrl,
 				'multipleContexts' => true
 			));

@@ -69,17 +69,17 @@ img {
 }
 
 .pkp_structure_page {
-	margin: 0 @double 0 192px;
-	padding: @double;
+	margin-left: 192px;
+	padding: (@double * 2) @double @double;
 }
 
 // Context panel
-@pkp_context_panel_width: 192px;
-.pkp_context_panel {
+@pkp_tab_sidebar_width: 192px;
+.pkp_tab_sidebar {
 	position: absolute;
 	top: @double;
 	right: @double;
-	width: @pkp_context_panel_width;
+	width: @pkp_tab_sidebar_width;
 	margin: 0;
 	padding: 0;
 	list-style: none;
@@ -98,7 +98,7 @@ img {
 		list-style: none;
 	}
 
-	.pkp_context_actions {
+	.pkp_tab_actions {
 
 		li {
 			margin-bottom: @base;
@@ -115,14 +115,14 @@ img {
 }
 
 // Collapse spacing when the panel is with nested tab panels
-.ui-tabs-panel .ui-tabs-panel .pkp_context_panel {
+.ui-tabs-panel .ui-tabs-panel .pkp_tab_sidebar {
 	top: 0;
 	right: 0;
 }
 
 // Content panel {
 .pkp_content_panel {
-	margin-right: @pkp_context_panel_width + @double;
+	margin-right: @pkp_tab_sidebar_width + @double;
 }
 
 // Page content wrapper for pages without tabs

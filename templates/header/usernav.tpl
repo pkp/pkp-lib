@@ -22,7 +22,7 @@
 </script>
 <ul id="navigationContextMenu" class="pkp_nav_context pkp_nav_list">
 
-	<li {if $multipleContexts}class="has-submenu"{/if}>
+	<li {if $multipleContexts}class="has_submenu submenu_opens_below"{/if}>
 		<span class="pkp_screen_reader">
 			{translate key="context.current"}
 		</span>
@@ -72,7 +72,7 @@
 		</li>
 	{/if}
 	{if $isUserLoggedIn}
-		<li class="has-submenu">
+		<li class="has_submenu">
 			<a href="{url router=$smarty.const.ROUTE_PAGE page="user" op="profile"}">
 				<span class="fa fa-user"></span>
 				{$loggedInUsername|escape}

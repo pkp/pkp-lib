@@ -101,13 +101,9 @@ abstract class PKPUsageStatsReportPlugin extends ReportPlugin {
 	function getDefaultReportTemplates($metricTypes = null) {
 		$reports = array();
 		$pluginMetricTypes = $this->getMetricTypes();
-
 		if (is_null($metricTypes)) $metricTypes = $pluginMetricTypes;
-		if (!is_array($metricTypes)) $metricTypes = array($metricTypes);
 
-		// Check if the plugin supports the passed metric types.
-		$intersection = array_intersect($metricTypes, $pluginMetricTypes);
-		if (empty($intersection)) return $reports;
+		if (!$this->isMetricTypeValid($metricTypes)) return $reports;
 
 		// Context index page views.
 		$columns = array(STATISTICS_DIMENSION_ASSOC_TYPE,
@@ -126,6 +122,18 @@ abstract class PKPUsageStatsReportPlugin extends ReportPlugin {
 	}
 
 
+	/**
+	 * @see ReportPlugin::getOptionalColumns()
+	 */
+	function getOptionalColumns($metricType) {
+		if (!$this->isMetricTypeValid($metricType)) return array();
+		return array(
+			STATISTICS_DIMENSION_CITY,
+			STATISTICS_DIMENSION_REGION
+		);
+	}
+
+
 	//
 	// Protected methods.
 	//
@@ -141,6 +149,21 @@ abstract class PKPUsageStatsReportPlugin extends ReportPlugin {
 			STATISTICS_DIMENSION_CITY,
 			STATISTICS_DIMENSION_MONTH,
 			STATISTICS_DIMENSION_DAY);
+	}
+
+	/**
+	 * Check the passed metric type against the
+	 * metric types this plugin implements.
+	 * @param array|string $metricType
+	 * @return boolean
+	 */
+	protected function isMetricTypeValid($metricType) {
+		$pluginMetricTypes = $this->getMetricTypes();
+		if (!is_array($metricType)) $metricType = array($metricType);
+
+		// Check if the plugin supports the passed metric types.
+		$intersection = array_intersect($metricType, $pluginMetricTypes);
+		return !empty($intersection);
 	}
 }
 

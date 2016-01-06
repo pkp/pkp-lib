@@ -106,10 +106,15 @@ class UsageStatsSettingsForm extends Form {
 	function getOptionalColumnsList() {
 		import('classes.statistics.StatisticsHelper');
 		$statsHelper = new StatisticsHelper();
-		return array(
-			STATISTICS_DIMENSION_CITY => $statsHelper->getColumnNames(STATISTICS_DIMENSION_CITY),
-			STATISTICS_DIMENSION_REGION => $statsHelper->getColumnNames(STATISTICS_DIMENSION_REGION)
-		);
+		$plugin = $this->plugin;
+		$reportPlugin = $plugin->getReportPlugin();
+		$metricType = $reportPlugin->getMetricTypes();
+		$optionalColumns = $reportPlugin->getOptionalColumns($metricType);
+		$columnsList = array();
+		foreach ($optionalColumns as $column) {
+			$columnsList[$column] = $statsHelper->getColumnNames($column);
+		}
+		return $columnsList;
 	}
 
 	/**

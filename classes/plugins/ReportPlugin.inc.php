@@ -91,6 +91,17 @@ abstract class ReportPlugin extends Plugin {
 	}
 
 	/**
+	 * Get optional columns that are not required for this report
+	 * to implement the passed metric type.
+	 * @param $metricType string One of the values returned from getMetricTypes()
+	 * @return array Return an array with STATISTICS_DIMENSION_...
+	 * constants.
+	 */
+	function getOptionalColumns($metricType) {
+		return array();
+	}
+
+	/**
 	 * Get the object types that the passed metric type
 	 * counts statistics for.
 	 * @param $metricType string One of the values returned from getMetricTypes()

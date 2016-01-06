@@ -24,26 +24,30 @@ define('TIME_FILTER_OPTION_RANGE_MONTH', 3);
 abstract class PKPReportGeneratorForm extends Form {
 
 	/* @var $_columns array */
-	var $_columns;
+	private $_columns;
+
+	/* @var $_columns array */
+	private $_optionalColumns;
 
 	/* @var $_objects array */
-	var $_objects;
+	private $_objects;
 
 	/* @var $_fileTypes array */
-	var $_fileTypes;
+	private $_fileTypes;
 
 	/* @var $_metricType string */
-	var $_metricType;
+	private $_metricType;
 
 	/* @var $_defaultReportTemplates array */
-	var $_defaultReportTemplates;
+	private $_defaultReportTemplates;
 
 	/* @var $_reportTemplateIndex int */
-	var $_reportTemplateIndex;
+	private $_reportTemplateIndex;
 
 	/**
 	 * Constructor.
 	 * @param $columns array Report column names.
+	 * @param $optionalColumns array Report column names that are optional.
 	 * @param $objects array Object types.
 	 * @param $fileTypes array File types.
 	 * @param $metricType string The default report metric type.
@@ -54,10 +58,11 @@ abstract class PKPReportGeneratorForm extends Form {
 	 * @param $reportTemplateIndex int (optional) Current report template index
 	 * from the passed default report templates array.
 	 */
-	function PKPReportGeneratorForm($columns, $objects, $fileTypes, $metricType, $defaultReportTemplates, $reportTemplateIndex = null) {
+	function PKPReportGeneratorForm($columns, $optionalColumns, $objects, $fileTypes, $metricType, $defaultReportTemplates, $reportTemplateIndex = null) {
 		parent::Form('controllers/statistics/form/reportGeneratorForm.tpl');
 
 		$this->_columns = $columns;
+		$this->_optionalColumns = $optionalColumns;
 		$this->_objects = $objects;
 		$this->_fileTypes = $fileTypes;
 		$this->_metricType = $metricType;
@@ -195,6 +200,7 @@ abstract class PKPReportGeneratorForm extends Form {
 		// Reports will always include this column.
 		unset($columnsOptions[STATISTICS_METRIC]);
 		$this->setData('columnsOptions', $columnsOptions);
+		$this->setData('optionalColumns', $this->_optionalColumns);
 
 		return parent::fetch($request);
 	}

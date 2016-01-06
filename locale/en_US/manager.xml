@@ -187,6 +187,7 @@
 	<message key="manager.statistics.reports">Report Generator</message>
 	<message key="manager.statistics.reports.description">The system generates reports that track the details associated with site usage and submissions over a given period of time. Reports are generated in CSV format which requires a spreadsheet application to view.</message>
 	<message key="manager.statistics.reports.aggregationColumns">Aggregate stats by:</message>
+	<message key="manager.statistics.reports.optinoalColumns.description">Items in italic and marked with * represents data that is optional to the current way of counting statistics in the system (metric type). You might have that data or not, depending on your statistics plugin configuration.</message>
 	<message key="manager.statistics.reports.defaultReportTemplates">Default report templates</message>
 	<message key="manager.statistics.reports.generateReport">Generate custom report</message>
 	<message key="manager.statistics.reports.advancedOptions">Advanced Options</message>

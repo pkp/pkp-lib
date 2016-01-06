@@ -38,7 +38,8 @@
 	 *  fileTypeSelectSelector: string,
 	 *  objectTypeSelectSelector: string,
 	 *  regionSelectSelector: string,
-	 *  countrySelectSelector: string
+	 *  countrySelectSelector: string,
+	 *  optionalColumns: Object
 	 *  }} options Configuration of the form handler.
 	 */
 	$.pkp.controllers.statistics.ReportGeneratorFormHandler =
@@ -61,6 +62,8 @@
 		this.rangeByMonthSelector_ = options.rangeByMonthSelector;
 		this.startDayElementSelector_ = options.startDayElementSelector;
 		this.endDayElementSelector_ = options.endDayElementSelector;
+		this.optionalColumns_ = options.optionalColumns;
+		this.aggregationOptionsSelector_ = options.aggregationOptionsSelector;
 
 		// Update form when metric type is changed.
 		this.fetchFormUrl_ = options.fetchFormUrl;
@@ -144,6 +147,8 @@
 			$countrySelectElement.change(this.callbackWrapper(
 					this.fetchRegionHandler_));
 		}
+
+		this.addOptionalColumnsClass_();
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.statistics.ReportGeneratorFormHandler,
@@ -268,6 +273,24 @@
 	 */
 	$.pkp.controllers.statistics.ReportGeneratorFormHandler.prototype.
 			columnsSelector_ = null;
+
+
+	/**
+	 * Optional columns PHP constants values.
+	 * @private
+	 * @type {Object}
+	 */
+	$.pkp.controllers.statistics.ReportGeneratorFormHandler.prototype.
+			optionalColumns_ = {};
+
+
+	/**
+	 * Aggregation options elements selector.
+	 * @private
+	 * @type {?string}
+	 */
+	$.pkp.controllers.statistics.ReportGeneratorFormHandler.prototype.
+			aggregationOptionsSelector_ = null;
 
 
 	//
@@ -500,6 +523,31 @@
 		}
 
 		return false;
+	};
+
+
+	/**
+	 * Add optional class to elements that present optional columns
+	 * information.
+	 *
+	 * @private
+	 */
+	$.pkp.controllers.statistics.ReportGeneratorFormHandler.prototype.
+			addOptionalColumnsClass_ = function() {
+		var columnName, optionalColumns, $columns,
+				$aggregationOptions, $orderByColumns;
+
+		$columns = $(this.columnsSelector_);
+		$aggregationOptions = $(this.aggregationOptionsSelector_);
+		$orderByColumns = $('#orderByFormArea select', this.getHtmlElement());
+		$columns = $columns.add($orderByColumns);
+		optionalColumns = this.optionalColumns_;
+		for(columnName in optionalColumns) {
+			$columns.find('option[value="' + columnName + '"]').
+					addClass('optionalColumn');
+			$aggregationOptions.filter('input[value="' + columnName + '"]').
+					parent().addClass('optionalColumn');
+		}
 	};
 
 /** @param {jQuery} $ jQuery closure. */

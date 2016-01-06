@@ -41,6 +41,10 @@ class ArchivedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 	//
 	// Implement template methods from GridHandler
 	//
+	function getIsSubComponent() {
+		return false;
+	}
+
 	/**
 	 * @copydoc GridHandler::loadData()
 	 */
@@ -104,8 +108,6 @@ class ArchivedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 	protected function getItemsNumber() {
 		return 20;
 	}
-
-
 }
 
 ?>

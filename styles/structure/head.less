@@ -18,6 +18,7 @@
 	top: 0;
 	bottom: 0;
 	left: 0;
+	padding-top: @double;
 	z-index: 3;
 	background: @primary;
 
@@ -81,19 +82,6 @@
 		background: @primary-lift;
 	}
 
-	li:hover > ul,
-	li:focus > ul,
-	li.in_focus > ul {
-		left: 100%;
-	}
-
-	.has-submenu > a:after {
-		border-left: 4px solid;
-		border-top: 4px solid transparent;
-		border-bottom: 4px solid transparent;
-		border-right: 4px solid transparent;
-	}
-
 	a {
 		display: block;
 		padding: 12px @base 12px @half; // 48 height with line height
@@ -102,8 +90,15 @@
 		color: #fff;
 		text-decoration: none;
 
-		&:hover,
 		&:focus {
+			outline: none;
+		}
+	}
+
+	li:hover,
+	li.in_focus {
+
+		> a {
 			border-color: @bg;
 			background: @primary-lift;
 			color: #fff;
@@ -113,8 +108,8 @@
 			}
 		}
 
-		&:focus {
-			outline: none;
+		> ul {
+			left: 100%;
 		}
 	}
 
@@ -126,10 +121,6 @@
 	.fa {
 		margin-right: 0.5em;
 		color: @primary-lift;
-	}
-
-	.logout .fa {
-		color: @offset;
 	}
 }
 
@@ -155,33 +146,131 @@
 // User-specific navigation menu
 .pkp_navigation_user {
 	position: fixed;
-	bottom: 0;
-	top: auto;
+	top: 0;
 	left: 0;
-	width: 192px;
-
-	a {
-		padding: @half @base @half @half;
-	}
-
-	// This is the first-level links: .pkp_navigation_user is not attached to
-	// the parent <ul> but wraps it.
-	> ul > li > a {
-		padding-bottom: @half - 1; // border
-		background: @lift;
-		color: @text-light;
-		color: @text-light-rgba;
-		border-bottom: 1px solid @bg;
-	}
+	right: 0;
+	width: auto;
+	height: @double;
+	background: @primary;
+	line-height: @double;
 
 	// Loading placeholder
 	.pkp_loading {
-		background: @lift;
-		padding: @half @base;
-		font-size: @font-sml;
-		line-height: @line-base;
-		color: @text-light;
-		color: @text-light-rgba;
+		position: relative;
+		width: 100%;
+		height: @double;
+		line-height: @double;
+		text-align: center;
+		color: rgba(255,255,255,0.5);
+
+		.pkp_spinner:after {
+			border-color: #fff;
+			border-top-color: rgba(255,255,255,0.5);
+			border-left-color: rgba(255,255,255,0.5);
+		}
+	}
+
+	a {
+		padding: 0 @base;
+		border: none;
+		font-size: @font-tiny;
+		line-height: @double;
+	}
+}
+
+// Context-switcher
+.pkp_nav_context {
+	position: relative;
+	float: left;
+	min-width: 192px;
+	max-width: 192px * 2;
+	width: auto;
+	height: @double;
+	background: @primary;
+
+	.pkp_current_context {
+		display: block;
+		padding-right: @double;
+		text-overflow: ellipsis;
+		overflow-x: hidden;
+		white-space: nowrap;
+	}
+
+	.has-submenu .pkp_current_context:after {
+		&:extend(.pkp_caret);
+		border-top-color: #fff;
+		position: absolute;
+		top: @base - 2px;
+		right: @base;
+	}
+
+	.pkp_contexts {
+		position: absolute;
+		top: @double;
+		left: -(192px * 2) - @double;
+		right: 0;
+		max-width: (192px * 2) + @double;
+		background: @primary-lift;
+
+		ul {
+			&:extend(.pkp_unstyled_list);
+		}
+
+		a {
+			display: block;
+			text-overflow: ellipsis;
+			overflow-x: hidden;
+			white-space: nowrap;
+
+			&:hover,
+			&:focus {
+				background: @primary;
+			}
+		}
+	}
+
+	> li:hover,
+	> li.in_focus {
+
+		> a {
+			background: @primary-lift;
+		}
+
+		.pkp_contexts {
+			left: 0;
+		}
+	}
+}
+
+// User login menu
+.pkp_nav_user {
+	float: right;
+	font-size: @font-tiny;
+
+	> li {
+		display: inline-block;
+	}
+
+	.fa {
+		color: #fff;
+	}
+
+	ul {
+		width: 10em;
+	}
+
+	> .has-submenu:hover > ul,
+	> .has-submenu.in_focus > ul {
+		top: @double;
+		left: 0;
+	}
+
+	// Ensure a dropdown doesn't open beyond the edge of the screen by aligning
+	// such dropdowns to the right rather than the left.
+	li.align_right:hover > ul,
+	li.align_right.in_focus > ul {
+		left: auto;
+		right: 0;
 	}
 }
 

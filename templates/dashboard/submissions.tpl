@@ -18,8 +18,8 @@
 		);
 	{rdelim});
 </script>
-<ul class="pkp_context_panel">
-	<li class="pkp_context_actions">
+<ul class="pkp_tab_sidebar">
+	<li class="pkp_tab_actions">
 		<form id="contextSubmissionForm">
 			<ul>
 				<li>

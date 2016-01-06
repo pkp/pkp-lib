@@ -43,12 +43,6 @@
 						<a href="{$homeUrl}" class="is_img">
 							<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" {if $displayPageHeaderLogoAltText != ''}alt="{$displayPageHeaderLogoAltText|escape}"{else}alt="{translate key="common.pageHeaderLogo.altText"}"{/if} />
 						</a>
-					{elseif $displayPageHeaderTitle && !$displayPageHeaderLogo}
-						<a href="{$homeUrl}" class="is_text">{$displayPageHeaderTitle}</a>
-					{else}
-						<a href="{$homeUrl}" class="is_img">
-							<img src="{$baseUrl}/templates/images/structure/logo.png" alt="{$applicationName|escape}" title="{$applicationName|escape}" width="180" height="90" />
-						</a>
 					{/if}
 				</div>
 
@@ -97,6 +91,13 @@
 									<li><a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="importexport"}">{translate key="navigation.tools.importExport"}</a></li>
 									<li><a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="statistics"}">{translate key="navigation.tools.statistics"}</a></li>
 								</ul>
+							</li>
+						{/if}
+						{if array_intersect(array(ROLE_ID_SITE_ADMIN), $userRoles)}
+							<li>
+								<a href="{if $multipleContexts}{url router=$smarty.const.ROUTE_PAGE context="index" page="admin" op="index"}{else}{url router=$smarty.const.ROUTE_PAGE page="admin" op="index"}{/if}">
+									{translate key="navigation.admin"}
+								</a>
 							</li>
 						{/if}
 					</ul>

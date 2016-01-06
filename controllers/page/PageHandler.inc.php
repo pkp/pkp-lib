@@ -174,8 +174,6 @@ class PageHandler extends Handler {
 			$currentContextUrl = null;
 			if ($context) {
 				$currentContextUrl = $dispatcher->url($request, ROUTE_PAGE, $context->getPath());
-			} else {
-				$contextsNameAndUrl = array(__('context.select')) + $contextsNameAndUrl;
 			}
 
 			$templateMgr->assign(array(

@@ -44,6 +44,7 @@
 		this.bind('updateHeader', this.updateHeaderHandler_);
 		this.bind('callWhenClickOutside', this.callWhenClickOutsideHandler_);
 		this.bind('mousedown', this.mouseDownHandler_);
+		this.bind('setHelpContext', this.setHelpContextEventHandler_);
 
 		// Bind the pageUnloadHandler_ method to the DOM so it is
 		// called.
@@ -84,6 +85,14 @@
 	//
 	// Private properties
 	//
+	/**
+	 * Help context.
+	 * @private
+	 * @type {string?}
+	 */
+	$.pkp.controllers.SiteHandler.prototype.helpContext_ = null;
+
+
 	/**
 	 * Site handler options.
 	 * @private
@@ -314,6 +323,17 @@
 	$.pkp.controllers.SiteHandler.prototype.unregisterAllFormElements_ =
 			function() {
 		this.unsavedFormElements_ = [];
+	};
+
+
+	/**
+	 * Get the help context.
+	 * @return {string?} The help context, or NULL if none set.
+	 */
+	$.pkp.controllers.SiteHandler.prototype.getHelpContext =
+			function() {
+
+		return this.helpContext_;
 	};
 
 
@@ -623,6 +643,21 @@
 			function(siteHandler, siteHandlerElement, event, observerFunction) {
 		$(document).scroll(observerFunction);
 		return false;
+	};
+
+
+	/**
+	 * Handler to set the help context for the page.
+	 * @param {HTMLElement} sourceElement The element that issued the
+	 * event.
+	 * @param {Event} event The event.
+	 * @param {Object} params The event parameters. Expected: the help
+	 * context string.
+	 * @private
+	 */
+	$.pkp.controllers.SiteHandler.prototype.setHelpContextEventHandler_ =
+			function(sourceElement, event, params) {
+		this.helpContext_ = /** @type {string} */ params;
 	};
 
 

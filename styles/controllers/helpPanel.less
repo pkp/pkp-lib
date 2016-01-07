@@ -1,0 +1,52 @@
+/**
+ * @defgroup pkp_help_panel
+ */
+
+/**
+ * @file styles/controllers/helpPanel.less
+ *
+ * Copyright (c) 2014-2015 Simon Fraser University Library
+ * Copyright (c) 2003-2015 John Willinsky
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ *
+ * @ingroup pkp_help_panel
+ *
+ * @brief Styles for pkp_help_panel
+ */
+
+.pkp_help_panel {
+	&:extend(.pkp_modal);
+	background: rgba(0, 0, 0, 0.3);
+
+	&.is_visible {
+		&:extend(.pkp_modal.is_visible);
+
+		.panel {
+			.transform(translate3d(0,0,0));
+		}
+	}
+
+	.panel {
+		position: fixed;
+		right: 0;
+		width: 30em;
+		height: 100%;
+		max-width: 100%;
+		background: @lift;
+		cursor: auto;
+		overflow: scroll;
+		.transform(translate3d(100%,0,0));
+		-webkit-transition-property: -webkit-transform;
+		-moz-transition-property: -moz-transform;
+		transition-property: transform;
+		-webkit-transition-duration: 0.3s;
+		-moz-transition-duration: 0.3s;
+		transition-duration: 0.3s;
+	}
+
+	.close {
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+}

@@ -703,6 +703,14 @@ jQueryObject.prototype.filter = function(arg1) {};
 jQueryObject.prototype.find = function(selector) {};
 
 /**
+ * @param {(string|Object)=} arg1
+ * @param {(string|function(!jQuery.Event))=} selector
+ * @param {function(!jQuery.Event)=} handler
+ * @return {!jQueryObject}
+ */
+ jQueryObject.prototype.off = function(arg1, selector, handler) {};
+
+/**
  * @param {string} arg1
  * @param {Function} arg2
  * @returns {jQueryObject}
@@ -815,11 +823,10 @@ jQueryObject.prototype.insertAfter = function(target) {};
 jQueryObject.prototype.insertBefore = function(target) {};
 
 /**
- * @param {jQuerySelector} selector
+ * @param {(jQuerySelector|function(number)|jQueryObject|Element)} arg1
  * @return {boolean}
- * @nosideeffects
  */
-jQueryObject.prototype.is = function(selector) {};
+jQueryObject.prototype.is = function(arg1) {};
 
 /**
  * @param {(function(jQuery.Event)|Object)=} arg1

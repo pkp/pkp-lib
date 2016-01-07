@@ -22,5 +22,35 @@
 	</div>
 </div>
 
+<a href="#" class="requestHelpPanel" data-topic="hi">
+	Help
+</a>
+
+<script type="text/javascript">
+	// Initialize JS handler
+	$(function() {ldelim}
+		$('#pkpHelpPanel').pkpHandler(
+			'$.pkp.controllers.HelpPanelHandler',
+			{ldelim}
+				helpUrl: {url|json_encode page="help" path="HELP_CONTEXT_SLUG" escape=false},
+				helpContext: {$pageHelpContext|json_encode}
+			{rdelim}
+		);
+	{rdelim});
+</script>
+<div id="pkpHelpPanel" class="pkp_help_panel" tabindex="-1">
+	<div class="panel">
+		<div class="content">
+			{include file="common/loadingContainer.tpl"}
+		</div>
+		<a href="#" class="pkpHomeHelpPanel home">
+			{translate key="navigation.home"}
+		</a>
+		<a href="#" class="pkpCloseHelpPanel close">
+			{translate key="common.close"}
+		</a>
+	</div>
+</div>
+
 </body>
 </html>

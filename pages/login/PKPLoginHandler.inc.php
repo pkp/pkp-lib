@@ -44,7 +44,7 @@ class PKPLoginHandler extends Handler {
 	function index($args, $request) {
 		$this->setupTemplate($request);
 		if (Validation::isLoggedIn()) {
-			$request->redirect(null, 'dashboard');
+			$this->sendHome($request);
 		}
 
 		if (Config::getVar('security', 'force_login_ssl') && $request->getProtocol() != 'https') {
@@ -98,14 +98,12 @@ class PKPLoginHandler extends Handler {
 	 * This is the function that Shibboleth redirects to - after the user has authenticated.
 	 */
 	function implicitAuthReturn($args, $request) {
-		if (Validation::isLoggedIn()) {
-			$request->redirect(null, 'dashboard');
+		if (!Validation::isLoggedIn()) {
+			// Login - set remember to false
+			$user = Validation::login($request->getUserVar('username'), $request->getUserVar('password'), $reason, false);
 		}
 
-		// Login - set remember to false
-		$user = Validation::login($request->getUserVar('username'), $request->getUserVar('password'), $reason, false);
-
-		$request->redirect(null, 'dashboard');
+		$this->sendHome($request);
 	}
 
 	/**
@@ -122,9 +120,7 @@ class PKPLoginHandler extends Handler {
 	 */
 	function signIn($args, $request) {
 		$this->setupTemplate($request);
-		if (Validation::isLoggedIn()) {
-			$request->redirect(null, 'dashboard');
-		}
+		if (Validation::isLoggedIn()) $this->sendHome($request);
 
 		if (Config::getVar('security', 'force_login_ssl') && $request->getProtocol() != 'https') {
 			// Force SSL connections for login
@@ -321,8 +317,7 @@ class PKPLoginHandler extends Handler {
 			if ($passwordForm->execute()) {
 				$user = Validation::login($passwordForm->getData('username'), $passwordForm->getData('password'), $reason);
 			}
-			$request->redirect(null, 'dashboard');
-
+			$this->sendHome($request);
 		} else {
 			$passwordForm->display($request);
 		}
@@ -358,7 +353,7 @@ class PKPLoginHandler extends Handler {
 				$session->setSessionVar('userId', $userId);
 				$session->setUserId($userId);
 				$session->setSessionVar('username', $newUser->getUsername());
-				$request->redirect(null, 'dashboard');
+				$this->sendHome($request);
 			}
 		}
 
@@ -389,7 +384,7 @@ class PKPLoginHandler extends Handler {
 			}
 		}
 
-		$request->redirect(null, 'dashboard');
+		$this->sendHome($request);
 	}
 
 
@@ -403,6 +398,16 @@ class PKPLoginHandler extends Handler {
 	function _setMailFrom($request, $mail, $site) {
 		$mail->setReplyTo($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
 		return true;
+	}
+
+	/**
+	 * Send the user "home" (typically to the dashboard, but that may not
+	 * always be available).
+	 * @param $request PKPRequest
+	 */
+	protected function sendHome($request) {
+		if ($request->getContext()) $request->redirect(null, 'dashboard');
+		else $request->redirect(null, 'user');
 	}
 }
 

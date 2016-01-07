@@ -40,9 +40,12 @@ class DashboardHandler extends Handler {
 	 * @param $args array
 	 */
 	function index($args, $request) {
-		$templateMgr = TemplateManager::getManager($request);
-		$this->setupTemplate($request);
-		$templateMgr->display('dashboard/index.tpl');
+		if ($request->getContext()) {
+			$templateMgr = TemplateManager::getManager($request);
+			$this->setupTemplate($request);
+			$templateMgr->display('dashboard/index.tpl');
+		}
+		$request->redirect(null, 'user');
 	}
 
 	/**

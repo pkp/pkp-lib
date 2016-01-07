@@ -8,9 +8,9 @@
  * Review round info for a particular round
  *}
 {* Editorial decision actions, if available *}
-<ul class="pkp_context_panel">
+<ul class="pkp_tab_sidebar">
 	{url|assign:reviewDecisionsUrl router=$smarty.const.ROUTE_PAGE page="workflow" op="editorDecisionActions" submissionId=$submission->getId() stageId=$stageId reviewRoundId=$reviewRoundId contextId="reviewRoundTab-"|concat:$reviewRoundId escape=false}
-	{load_url_in_el el="li" id="reviewDecisionsDiv-"|concat:$reviewRoundId url=$reviewDecisionsUrl class="pkp_context_actions"}
+	{load_url_in_el el="li" id="reviewDecisionsDiv-"|concat:$reviewRoundId url=$reviewDecisionsUrl class="pkp_tab_actions"}
 </ul>
 
 <div class="pkp_content_panel">

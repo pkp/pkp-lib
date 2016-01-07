@@ -34,6 +34,7 @@ class AdminContextHandler extends AdminHandler {
 	 * @param $request PKPRequest
 	 */
 	function contexts($args, $request) {
+		$this->setupTemplate($request);
 		$templateMgr = TemplateManager::getManager($request);
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER);
 		if ($request->getUserVar('openWizard')) {

@@ -43,16 +43,6 @@
 						<a href="{$homeUrl}" class="is_img">
 							<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" {if $displayPageHeaderLogoAltText != ''}alt="{$displayPageHeaderLogoAltText|escape}"{else}alt="{translate key="common.pageHeaderLogo.altText"}"{/if} />
 						</a>
-					{elseif $displayPageHeaderTitle && is_array($displayPageHeaderTitle)}
-						<a href="{$homeUrl}" class="is_img">
-							<img src="{$publicFilesDir}/{$displayPageHeaderTitle.uploadName|escape:"url"}" {if $displayPageHeaderTitleAltText != ''}alt="{$displayPageHeaderTitleAltText|escape}"{else}alt="{translate key="common.pageHeader.altText"}"{/if} />
-						</a>
-					{elseif $displayPageHeaderTitle}
-						<a href="{$homeUrl}" class="is_text">{$displayPageHeaderTitle}</a>
-					{else}
-						<a href="{$homeUrl}" class="is_img">
-							<img src="{$baseUrl}/templates/images/structure/logo.png" alt="{$applicationName|escape}" title="{$applicationName|escape}" width="180" height="90" />
-						</a>
 					{/if}
 				</div>
 
@@ -85,7 +75,7 @@
 						{/if}
 
 						{if array_intersect(array(ROLE_ID_MANAGER), (array)$userRoles)}
-							<li class="has-submenu">
+							<li class="has_submenu">
 								<a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="settings" path="index"}">{translate key="navigation.settings"}</a>
 								<ul>
 									<li><a href="{$contextSettingsUrl}">{translate key="context.context"}</a></li>
@@ -95,12 +85,19 @@
 									<li><a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="settings" path="access"}">{translate key="navigation.access"}</a></li>
 								</ul>
 							</li>
-							<li class="has-submenu">
+							<li class="has_submenu">
 								<a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="tools" path="index"}">{translate key="navigation.tools"}</a>
 								<ul>
 									<li><a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="importexport"}">{translate key="navigation.tools.importExport"}</a></li>
 									<li><a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="statistics"}">{translate key="navigation.tools.statistics"}</a></li>
 								</ul>
+							</li>
+						{/if}
+						{if array_intersect(array(ROLE_ID_SITE_ADMIN), (array)$userRoles)}
+							<li>
+								<a href="{if $multipleContexts}{url router=$smarty.const.ROUTE_PAGE context="index" page="admin" op="index"}{else}{url router=$smarty.const.ROUTE_PAGE page="admin" op="index"}{/if}">
+									{translate key="navigation.admin"}
+								</a>
 							</li>
 						{/if}
 					</ul>

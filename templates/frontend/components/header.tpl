@@ -106,9 +106,8 @@
 		{* Wrapper for page content and sidebars *}
 		{if $isFullWidth}
 			{assign var=hasLeftSidebar value=0}
-			{assign var=hasRightSidebar value=0}
 		{/if}
-		<div class="pkp_structure_content{if $hasLeftSidebar} has_left_sidebar{/if}{if $hasRightSidebar} has_right_sidebar{/if}">
+		<div class="pkp_structure_content{if $hasLeftSidebar} has_left_sidebar{/if}">
 
 			<script type="text/javascript">
 				// Attach the JS page handler to the main content wrapper.

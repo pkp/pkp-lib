@@ -19,4 +19,4 @@
 &#187; <a id="backLink" href="{$backLink}">{translate key=$backLinkLabel}</a>
 {/if}
 
-{include file="frontend/components/footer.tpl"}
+{include file="common/frontend/footer.tpl"}

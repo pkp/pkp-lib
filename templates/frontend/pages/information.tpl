@@ -20,5 +20,5 @@
 </div>
 
 {if !$contentOnly}
-	{include file="frontend/components/footer.tpl"}
+	{include file="common/frontend/footer.tpl"}
 {/if}

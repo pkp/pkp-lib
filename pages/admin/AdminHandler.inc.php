@@ -61,6 +61,7 @@ class AdminHandler extends Handler {
 	 * @param $request PKPRequest
 	 */
 	function index($args, $request) {
+		$this->setupTemplate($request);
 		$templateMgr = TemplateManager::getManager($request);
 		$workingContexts = $this->getWorkingContexts($request);
 		$templateMgr->assign('multipleContexts', $workingContexts->getCount() > 1);
@@ -73,6 +74,7 @@ class AdminHandler extends Handler {
 	 * @param $request PKPRequest
 	 */
 	function settings($args, $request) {
+		$this->setupTemplate($request);
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->display('admin/settings.tpl');
 	}

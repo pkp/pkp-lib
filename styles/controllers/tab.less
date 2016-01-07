@@ -29,11 +29,17 @@
 			border-bottom: 2px solid transparent;
 			line-height: @double + @base - 3; // account for border
 			text-decoration: none;
+		}
 
-			&:hover,
-			&:focus {
-				border-color: @primary-lift;
-			}
+		&:focus {
+			outline: 0;
+		}
+
+		&:focus a,
+		a:hover,
+		a:focus {
+			border-color: @primary-lift;
+			outline: 0;
 		}
 	}
 

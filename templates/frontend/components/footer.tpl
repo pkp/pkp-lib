@@ -17,16 +17,10 @@
 	{* Sidebars *}
 	{if empty($isFullWidth)}
 		{call_hook|assign:"leftSidebarCode" name="Templates::Common::LeftSidebar"}
-		{call_hook|assign:"rightSidebarCode" name="Templates::Common::RightSidebar"}
 		{if $leftSidebarCode}
 			<div class="pkp_structure_sidebar left">
 				{$leftSidebarCode}
 			</div><!-- pkp_sidebar.left -->
-		{/if}
-		{if $rightSidebarCode}
-			<div class="pkp_structure_sidebar right">
-				{$rightSidebarCode}
-			</div><!-- pkp_sidebar.right -->
 		{/if}
 	{/if}
 </div><!-- pkp_structure_content -->

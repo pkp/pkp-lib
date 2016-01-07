@@ -122,14 +122,14 @@
 			$submenus.attr('style', ''); // reset
 			pos_top = $parent.offset().top;
 			min_top = 0;
-			if($parent.hasClass('submenu_opens_below')) {
+			if ($parent.hasClass('submenu_opens_below')) {
 				min_top = pos_top + $parent.outerHeight();
 			}
 			pos_btm = pos_top + $submenus.outerHeight();
 			if (pos_btm > height) {
 				offset_top = pos_btm - height;
 				new_top = pos_top - offset_top;
-				if (new_top < min_top ) {
+				if (new_top < min_top) {
 					if (min_top > 0) {
 						offset_top = min_top;
 					} else {

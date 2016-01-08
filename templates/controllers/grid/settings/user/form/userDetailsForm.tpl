@@ -1,5 +1,5 @@
 {**
- * controllers/grid/settings/user/form/userForm.tpl
+ * controllers/grid/settings/user/form/userDetailsForm.tpl
  *
  * Copyright (c) 2014-2015 Simon Fraser University Library
  * Copyright (c) 2003-2015 John Willinsky
@@ -11,7 +11,7 @@
 <script type="text/javascript">
 	$(function() {ldelim}
 		// Attach the form handler.
-		$('#userForm').pkpHandler('$.pkp.controllers.grid.settings.user.form.UserFormHandler',
+		$('#userDetailsForm').pkpHandler('$.pkp.controllers.grid.settings.user.form.UserDetailsFormHandler',
 			{ldelim}
 				fetchUsernameSuggestionUrl: {url|json_encode router=$smarty.const.ROUTE_COMPONENT component="api.user.UserApiHandler" op="suggestUsername" firstName="FIRST_NAME_DUMMY" lastName="LAST_NAME_DUMMY" escape=false},
 				usernameSuggestionTextAlert: {translate|json_encode key="grid.user.mustProvideName"}
@@ -24,8 +24,8 @@
 	{assign var="passwordRequired" value="true"}
 {/if}{* !$userId *}
 
-<form class="pkp_form" id="userForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.user.UserGridHandler" op="updateUser"}">
-	<div id="userFormContainer">
+<form class="pkp_form" id="userDetailsForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.user.UserGridHandler" op="updateUser"}">
+	<div id="userDetailsFormContainer">
 		<div id="userDetails" class="full left">
 			{if $userId}
 				<h3>{translate key="grid.user.userDetails"}</h3>
@@ -35,7 +35,7 @@
 			{if $userId}
 				<input type="hidden" id="userId" name="userId" value="{$userId|escape}" />
 			{/if}
-			{include file="controllers/notification/inPlaceNotification.tpl" notificationId="userFormNotification"}
+			{include file="controllers/notification/inPlaceNotification.tpl" notificationId="userDetailsFormNotification"}
 		</div>
 
 		{if $implicitAuth || $userId}{assign var="disableSendNotifySection" value=true}{/if}

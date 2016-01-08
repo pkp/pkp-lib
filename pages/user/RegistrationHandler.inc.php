@@ -44,7 +44,7 @@ class RegistrationHandler extends UserHandler {
 		if ($request->getContext()) {
 			import('lib.pkp.classes.user.form.RegistrationForm');
 			$regForm = new RegistrationForm($request->getSite());
-			$regForm->initData();
+			$regForm->initData($request->getContext());
 			$regForm->display($request);
 		} else {
 			$templateMgr = TemplateManager::getManager($request);

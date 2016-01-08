@@ -111,11 +111,21 @@ class RegistrationForm extends Form {
 
 	/**
 	 * @copydoc Form::initData()
+	 * @param $context Context
 	 */
-	function initData() {
+	function initData($context) {
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupIds = array();
+
+		// Register the user as a reader by default, if available.
+		$readerUserGroups = $userGroupDao->getByRoleId($context->getId(), ROLE_ID_READER);
+		while ($userGroup = $readerUserGroups->next()) {
+			if ($userGroup->getPermitSelfRegistration()) $userGroupIds[] = $userGroup->getId();
+		}
+
 		$this->_data = array(
 			'userLocales' => array(),
-			'userGroupIds' => array(),
+			'userGroupIds' => $userGroupIds,
 		);
 	}
 

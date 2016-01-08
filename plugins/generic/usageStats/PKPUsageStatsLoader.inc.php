@@ -197,7 +197,7 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 			}
 			$day = date('Ymd', $entryData['date']);
 
-			$type = $this->getFileType($assocType, $assocId);
+			$type = $this->getFileTypeFromAssoc($assocType, $assocId);
 
 			// Implement double click filtering.
 			$entryHash = $assocType . $assocId . $entryData['ip'];
@@ -301,7 +301,7 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 	* constants STATISTICS_FILE_TYPE... if the
 	* object is a file, if not, return null.
 	*/
-	protected function getFileType($assocType, $assocId) {
+	protected function getFileTypeFromAssoc($assocType, $assocId) {
 		// Check downloaded file type, if any.
 		$file = null;
 		$type = null;
@@ -310,39 +310,52 @@ abstract class PKPUsageStatsLoader extends FileLoader {
 			$file = $submissionFileDao->getLatestRevision($assocId);
 		}
 
-		if ($file) {
-			$fileType = $file->getFileType();
-			$fileExtension = pathinfo($file->getOriginalFileName(), PATHINFO_EXTENSION);
-			switch ($fileType) {
-				case 'application/pdf':
-				case 'application/x-pdf':
-				case 'text/pdf':
-				case 'text/x-pdf':
+		if ($file) $type = $this->getFileTypeFromFile($file);
+
+		return $type;
+	}
+
+	/**
+	 * Associate the passed file type with one of the file
+	 * type statistics constants.
+	 * @param $file PKPFile
+	 * @return int One of the file type constants STATISTICS_FILE_TYPE...
+	 */
+	protected function getFileTypeFromFile($file) {
+		if (!is_a($file, 'PKPFile')) {
+			throw new Exception('Wrong object type, expected PKPFile.');
+		}
+		$fileType = $file->getFileType();
+		$fileExtension = pathinfo($file->getOriginalFileName(), PATHINFO_EXTENSION);
+		switch ($fileType) {
+			case 'application/pdf':
+			case 'application/x-pdf':
+			case 'text/pdf':
+			case 'text/x-pdf':
+				$type = STATISTICS_FILE_TYPE_PDF;
+				break;
+			case 'application/octet-stream':
+				if ($fileExtension == 'pdf') {
 					$type = STATISTICS_FILE_TYPE_PDF;
-					break;
-				case 'application/octet-stream':
-					if ($fileExtension == 'pdf') {
-						$type = STATISTICS_FILE_TYPE_PDF;
-					} else {
-						$type = STATISTICS_FILE_TYPE_OTHER;
-					}
-					break;
-				case 'application/msword':
-					$type = STATISTICS_FILE_TYPE_DOC;
-					break;
-				case 'application/zip':
-					if ($fileExtension == 'docx') {
-						$type = STATISTICS_FILE_TYPE_DOC;
-					} else {
-						$type = STATISTICS_FILE_TYPE_OTHER;
-					}
-					break;
-				case 'text/html':
-					$type = STATISTICS_FILE_TYPE_HTML;
-					break;
-				default:
+				} else {
 					$type = STATISTICS_FILE_TYPE_OTHER;
-			}
+				}
+				break;
+			case 'application/msword':
+				$type = STATISTICS_FILE_TYPE_DOC;
+				break;
+			case 'application/zip':
+				if ($fileExtension == 'docx') {
+					$type = STATISTICS_FILE_TYPE_DOC;
+				} else {
+					$type = STATISTICS_FILE_TYPE_OTHER;
+				}
+				break;
+			case 'text/html':
+				$type = STATISTICS_FILE_TYPE_HTML;
+				break;
+			default:
+				$type = STATISTICS_FILE_TYPE_OTHER;
 		}
 
 		return $type;

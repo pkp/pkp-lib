@@ -32,7 +32,8 @@
 			$('#register').pkpHandler('$.pkp.controllers.form.UserFormHandler',
 				{ldelim}
 					fetchUsernameSuggestionUrl: {url|json_encode router=$smarty.const.ROUTE_COMPONENT component="api.user.UserApiHandler" op="suggestUsername" firstName="FIRST_NAME_DUMMY" lastName="LAST_NAME_DUMMY" escape=false},
-					usernameSuggestionTextAlert: {translate|json_encode key="grid.user.mustProvideName"}
+					usernameSuggestionTextAlert: {translate|json_encode key="grid.user.mustProvideName"},
+					hideNonReviewerInterests: true
 				{rdelim}
 			);
 		{rdelim});

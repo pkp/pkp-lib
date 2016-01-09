@@ -21,7 +21,8 @@
 	 * @param {jQueryObject} $form the wrapped HTML form element.
 	 * @param {{
 	 *  fetchUsernameSuggestionUrl: string,
-	 *  usernameSuggestionTextAlert: string
+	 *  usernameSuggestionTextAlert: string,
+	 *  hideNonReviewerInterests: boolean
 	 *  }} options options to configure the form handler.
 	 */
 	$.pkp.controllers.form.UserFormHandler = function($form, options) {
@@ -37,6 +38,12 @@
 		// Attach handler to suggest username button (if present)
 		$('[id^="suggestUsernameButton"]', $form).click(
 				this.callbackWrapper(this.generateUsername));
+
+		if (options.hideNonReviewerInterests) {
+			$('[id^="reviewerGroup-"]', $form).click(
+					this.callbackWrapper(this.setInterestsVisibility_));
+			this.setInterestsVisibility_();
+		}
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.form.UserFormHandler,
@@ -123,5 +130,23 @@
 	};
 
 
+	//
+	// Private methods
+	//
+	/**
+	 * Event handler that is called when a reviewer role checkbox is clicked.
+	 * @private
+	 */
+	$.pkp.controllers.form.UserFormHandler.prototype.
+			setInterestsVisibility_ = function() {
+		var $form = this.getHtmlElement(), $interestsElement = $('#interests', $form);
+		if ($('[id^="reviewerGroup-"]:checked', $form).size()) {
+			// At least one checked reviewer role was found; show interests
+			$interestsElement.show(300);
+		} else {
+			// No checked reviewer roles found; hide interests
+			$interestsElement.hide(300);
+		}
+	};
 /** @param {jQuery} $ jQuery closure. */
 }(jQuery));

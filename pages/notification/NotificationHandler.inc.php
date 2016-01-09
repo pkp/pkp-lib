@@ -359,7 +359,9 @@ class NotificationHandler extends Handler {
 		// Get the notification options from request.
 		$notificationOptions = $request->getUserVar('requestOptions');
 
-		if (is_array($notificationOptions)) {
+		if (!$user) {
+			$notifications = array();
+		} elseif (is_array($notificationOptions)) {
 			// Retrieve the notifications.
 			$notifications = $this->_getNotificationsByOptions($notificationOptions, $context->getId(), $user->getId());
 		} else {

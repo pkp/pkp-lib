@@ -144,7 +144,6 @@
 	<message key="manager.setup.layout.unselected">Deseleccionado</message>
 	<message key="manager.setup.loggingAndAuditing">Control de accesos (logs)</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Formato de imagen no válido para el logo de la cabecera de página. Los formatos permitidos son .gif, .jpg, or .png.</message>
-	<message key="manager.setup.pageHeaderTitleImageInvalid">Formato de imagen no válido para el título de la cabecera de página. Los formatos permitidos son .gif, .jpg, or .png.</message>
 	<message key="manager.setup.selectOne">Seleccione uno</message>
 	<message key="manager.statistics">Estadísticas e informes</message>
 	<message key="manager.statistics.reports">Generador de informes</message>

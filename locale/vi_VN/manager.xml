@@ -147,7 +147,6 @@
 	<message key="manager.setup.layout.unselected">Chưa chọn</message>
 	<message key="manager.setup.loggingAndAuditing">Lưu nhật ký và Kiểm tra</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Định dạng logo trên các trang trong không phù hợp. Chỉ hỗ trợ các định dạng .gif, .jpg, or .png.</message>
-	<message key="manager.setup.pageHeaderTitleImageInvalid">Định dạng ảnh măng séc trên các trang trong không phù hợp. Chỉ hỗ trợ các định dạng .gif, .jpg, or .png.</message>
 	<message key="manager.setup.selectOne">Chọn một</message>
 	<message key="manager.statistics"><![CDATA[Thống kê &amp; Báo cáo]]></message>
 	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>

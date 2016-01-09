@@ -194,7 +194,6 @@
 	<message key="manager.setup.loggingAndAuditing">Proses Login dan Audit</message>
 	<message key="manager.setup.metaCitationsDescription">Aktifkan checkbox berikut untuk memudahkan pengeditan referensi dan sitiran. Ini akan memudahkan penulis untuk memasukkan sitiran kasar dengan naskah. Editor juga akan mempunyai akses ke bantuan Koreksi sitiran yang dapat mengecek sitiran kasar terhadap database eksternal, seperti WorldCat, ISBNdb, PubMed dan lainnya, untuk keakuratan. Sitiran yang disetujui dapat diekspor ke file galley akhir.</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Format gambar logo header halaman invalid atau unggahan gagal. Format yang diterima adalah .gif, .jpg, or .png.</message>
-	<message key="manager.setup.pageHeaderTitleImageInvalid">Format gambar judul header halaman invalid atau unggahan gagal. Format yang diterima adalah .gif, .jpg, or .png.</message>
 	<message key="manager.setup.selectOne">Pilih satu</message>
 	<message key="manager.statistics"><![CDATA[Statistik &amp; Laporan]]></message>
 	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>

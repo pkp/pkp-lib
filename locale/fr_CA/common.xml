@@ -420,7 +420,6 @@
 	<message key="common.unread">Non lu</message>
 	<message key="common.fileUpload.maxFileSizeStatus"><![CDATA[Ce serveur permet de télécharger un fichier dont la taille maximale est {$fileSize}. Si nécessaire, contactez <a href="mailto:{$supportEmail}">{$supportName}</a> pour obtenir de l'aide.]]></message>
 	<message key="common.invalidFileType">Aucun fichier n'a été téléchargé ou type de fichier invalide!</message>
-	<message key="common.pageHeader.altText">Titre de haut de page</message>
 	<message key="common.homepageImage.altText">Image de la page d'accueil</message>
 	<message key="common.plugins">Modules externes</message>
 	<message key="common.metric">Métrique</message>

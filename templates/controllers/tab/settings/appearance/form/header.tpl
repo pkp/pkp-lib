@@ -8,9 +8,6 @@
  * @brief Form fields for configuring the frontend header
  *
  *}
-{fbvFormSection list=true description="manager.setup.pageHeaderDescription" for="pageHeaderTitle" label="manager.setup.contextName"}
-	{fbvElement type="text" name="pageHeaderTitle" id="pageHeaderTitle" value=$pageHeaderTitle multilingual=true}
-{/fbvFormSection}
 {fbvFormSection label="manager.setup.logo" description="manager.setup.useImageLogoDescription" class=$wizardClass}
 	<div id="pageHeaderLogoImage">
 		{$imagesViews.pageHeaderLogoImage}

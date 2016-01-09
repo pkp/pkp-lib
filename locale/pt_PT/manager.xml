@@ -147,7 +147,6 @@
 	<message key="manager.setup.layout.unselected">Não marcados</message>
 	<message key="manager.setup.loggingAndAuditing">Controle e Auditoria</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Formato de imagem inválido. Formatos aceitáveis são .gif, .jpg ou .png.</message>
-	<message key="manager.setup.pageHeaderTitleImageInvalid">Formato de imagem inválido. Formatos aceitáveis são .gif, .jpg ou .png.</message>
 	<message key="manager.setup.selectOne">Escolha uma opção</message>
 	<message key="manager.statistics"><![CDATA[Estatísticas &amp; Relatórios]]></message>
 	<message key="manager.statistics.reports">Gerador de Relatórios</message>

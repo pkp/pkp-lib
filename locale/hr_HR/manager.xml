@@ -140,7 +140,6 @@
 	<message key="manager.setup.layout.unselected">Neodabrano</message>
 	<message key="manager.setup.loggingAndAuditing">Bilježenje uređivačkog postupka</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Neispravan format slike logotipa zaglavlja. Prihvaćeni formati su .gif, .jpg, ili .png.</message>
-	<message key="manager.setup.pageHeaderTitleImageInvalid">Neispravan format naslova slike zaglavlja. Prihvaćeni formati su .gif, .jpg, ili .png.</message>
 	<message key="manager.setup.selectOne">Izaberite</message>
 	<message key="manager.statistics">Statistike i izvještaji</message>
 	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>

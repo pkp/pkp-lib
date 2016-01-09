@@ -282,7 +282,6 @@
 	<message key="manager.setup.loggingAndAuditing">Protokollieren und prüfen</message>
 	<message key="manager.setup.metaCitationsDescription">Aktivieren Sie die folgende Auswahlbox, um Zitationsbearbeitung zu ermöglichen. Dies wird es Autor/innen ermöglichen, unbearbeitete Zitationen mit ihren Beiträgen einzureichen. Redakteur/innen werden ebenfalls Zugriff auf einen Zitationsauszeichnungsassistenten haben, der unbearbeitete Zitationen mit externen Datenbanken wie WorldCat, ISBNdb, PubMed u.a. abgleichen kann. Bestätigte Zitationen können in die endgültigen Fahnendateien exportiert werden.</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Ungültiges Format des Logos in der Kopfzeile. Gültige Formate sind .gif, .jpg und .png.</message>
-	<message key="manager.setup.pageHeaderTitleImageInvalid">Ungültiges Format des Titelbilds. Gültige Formate sind .gif, .jpg und .png.</message>
 	<message key="manager.setup.selectOne">Auswählen</message>
 	<message key="manager.statistics"><![CDATA[Statistiken &amp; Berichte]]></message>
 	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>

@@ -55,14 +55,8 @@
 							<a href="{$homeUrl}" class="is_img">
 								<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" width="{$displayPageHeaderLogo.width|escape}" height="{$displayPageHeaderLogo.height|escape}" {if $displayPageHeaderLogoAltText != ''}alt="{$displayPageHeaderLogoAltText|escape}"{else}alt="{translate key="common.pageHeaderLogo.altText"}"{/if} />
 							</a>
-						{elseif $displayPageHeaderTitle && is_array($displayPageHeaderTitle)}
-							<a href="{$homeUrl}" class="is_img">
-								<img src="{$publicFilesDir}/{$displayPageHeaderTitle.uploadName|escape:"url"}" width="{$displayPageHeaderTitle.width|escape}" height="{$displayPageHeaderTitle.height|escape}" {if $displayPageHeaderTitleAltText != ''}alt="{$displayPageHeaderTitleAltText|escape}"{else}alt="{translate key="common.pageHeader.altText"}"{/if} />
-							</a>
-						{elseif $displayPageHeaderTitle}
+						{elseif $displayPageHeaderTitle && !$displayPageHeaderLogo}
 							<a href="{$homeUrl}" class="is_text">{$displayPageHeaderTitle}</a>
-						{elseif $alternatePageHeader}
-							{$alternatePageHeader}
 						{else}
 							<a href="{$homeUrl}" class="is_img">
 								<img src="{$baseUrl}/templates/images/structure/logo.png" alt="{$applicationName|escape}" title="{$applicationName|escape}" width="180" height="90" />

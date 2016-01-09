@@ -147,7 +147,6 @@
 	<message key="manager.setup.layout.unselected">Non selezionato</message>
 	<message key="manager.setup.loggingAndAuditing">Registrazione e certificazione</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Formato dell'immagine del logo per la testata non valido. I formati accettati sono .gif, .jpg, o .png.</message>
-	<message key="manager.setup.pageHeaderTitleImageInvalid">Formato dell'immagine-titolo per la testata non valido. I formati accettati sono .gif, .jpg, o .png.</message>
 	<message key="manager.setup.selectOne">Scegli</message>
 	<message key="manager.statistics"><![CDATA[Statistiche &amp; Report]]></message>
 	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>

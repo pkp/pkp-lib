@@ -197,7 +197,6 @@
 	<message key="manager.setup.loggingAndAuditing">Журналізація та аудит</message>
 	<message key="manager.setup.metaCitationsDescription">Для того, щоб включити функціональність для редагування пристатейної бібліографії, активуйте прапорець нижче. Це дозволить авторам включати до подань оригінальні списки пристатейної бібліографії. Крім того, редакторам буде надана можливість використовувати помічник розмітки цитат, який дає змогу перевіряти коректність і точність оригінальних цитат шляхом зв'язку з зовнішніми базами даних, такими як WorldCat, ISBNdb, PubMed та інші. Підтверджені цитати можуть експортуватися у файли фінальних гранок.</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Вивантаження невдале або неприпустимий формат зображення для логотипу заголовку сторінки. Припустимими форматами є .gif, .jpg або .png.</message>
-	<message key="manager.setup.pageHeaderTitleImageInvalid">Вивантаження невдале або неприпустимий формат зображення для заголовку сторінки. Припустимими форматами є .gif, .jpg або .png.</message>
 	<message key="manager.setup.selectOne">Оберіть одне з наступного</message>
 	<message key="manager.statistics">Статистика та звіти</message>
 	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>

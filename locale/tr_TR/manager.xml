@@ -233,7 +233,6 @@
 	<message key="manager.reviewerSearch.form.interests.instructions">Enter reviewer interests, separated by commas...</message>
 	<message key="manager.setup.layout.blockManagement">Yan Taraf Yönetimi</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Hatalı sayfa logo görseli veya hatalı yükleme. Kabul edilebilir biçimler: .gif, .jpg veya .png.</message>
-	<message key="manager.setup.pageHeaderTitleImageInvalid">Hatalı sayfa başlığı görseli biçimi veya hatalı yükleme. Kabul edilebilir biçimler: .gif, .jpg veya .png.</message>
 	<message key="plugins.categories.metadata">Üst Veri Eklentileri</message>
 	<message key="plugins.categories.metadata.description">Metadata Plugins implement additional meta-data standards.</message>
 	<message key="plugins.categories.citationLookup">Atıf Veri Tabanı Bağlantı Eklentileri</message>

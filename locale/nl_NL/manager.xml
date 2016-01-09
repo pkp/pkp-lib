@@ -147,7 +147,6 @@
 	<message key="manager.setup.layout.unselected">Niet geselecteerd</message>
 	<message key="manager.setup.loggingAndAuditing">Logboek en controle</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Onbruikbaar bestandsformaat voor het paginakop-logo. Bruikbaar zijn .gif, .jpg of .png.</message>
-	<message key="manager.setup.pageHeaderTitleImageInvalid">Onbruikbaar bestandsformaat voor de pagina-koptitel. Bruikbaar zijn .gif, .jpg of .png.</message>
 	<message key="manager.setup.selectOne">Kies er een</message>
 	<message key="manager.statistics"><![CDATA[Statistieken & rapporten]]></message>
 	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>

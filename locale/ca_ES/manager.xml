@@ -147,7 +147,6 @@
 	<message key="manager.setup.layout.unselected">No seleccionada</message>
 	<message key="manager.setup.loggingAndAuditing">Registre i control</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">El format de la imatge utilitzada com a logotip per a la capçalera de la pàgina no és vàlid. Els formats admesos són .gif, .jpg i .png.</message>
-	<message key="manager.setup.pageHeaderTitleImageInvalid">El format de la imatge utilitzada com a títol per a la capçalera de la pàgina no és vàlid. Els formats admesos són .gif, .jpg i .png.</message>
 	<message key="manager.setup.selectOne">Seleccioneu una de les opcions següents:</message>
 	<message key="manager.statistics">Estadístiques i informes</message>
 	<message key="manager.statistics.reports">Generador d’informes</message>

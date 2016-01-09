@@ -435,7 +435,6 @@
 	<message key="common.startTyping">Iniciar digitação</message>
 	<message key="common.subjects">Assuntos</message>
 	<message key="common.subtitle">Subtítulo</message>
-	<message key="common.pageHeader.altText">Cabeçalho</message>
 	<message key="common.homepageImage.altText">Imagem da Homepage</message>
 	<message key="common.metric">Métrico</message>
 	<message key="common.count">Contagem</message>

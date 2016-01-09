@@ -147,7 +147,6 @@
 	<message key="manager.setup.layout.unselected">Μη επιλεγμένο</message>
 	<message key="manager.setup.loggingAndAuditing">Σύνδεση και έλεγχος</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid"> Μη έγκυρη μορφή εικόνας λογοτύπου της κεφαλίδας της σελίδας. Έγκυρες μορφές είναι .gif, .jpg, ή .png.</message>
-	<message key="manager.setup.pageHeaderTitleImageInvalid"> Μη έγκυρη μορφή εικόνας τίτλου της κεφαλίδας της σελίδας. Έγκυρες μορφές είναι .gif, .jpg, ή .png.</message>
 	<message key="manager.setup.selectOne">Επιλέξτε ένα</message>
 	<message key="manager.statistics"><![CDATA[Στατιστικά &amp; Αναφορές]]></message>
 	<message key="manager.statistics.reports.description">Το σύστημα παράγει τις εκθέσεις που παρακολουθούν τις λεπτομέρειες που σχετίζονται με τη χρήση της ιστοσελίδας και οι παρατηρήσεις σε μια δεδομένη χρονική περίοδο. Οι εκθέσεις που δημιουργούνται σε μορφή CSV που απαιτεί μια εφαρμογή λογιστικών φύλλων για να το δείτε.</message>

@@ -147,7 +147,6 @@
 	<message key="manager.setup.layout.unselected">Ikke valgt</message>
 	<message key="manager.setup.loggingAndAuditing">Logging og revisjon</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Ugyldig sidetopptekst logobildeformat. Aksepterte format er .gif, .jpg, eller .png.</message>
-	<message key="manager.setup.pageHeaderTitleImageInvalid">Ugyldig sidetopptekst tittelbildeformat. Aksepterte format er .gif, .jpg, eller .png.</message>
 	<message key="manager.setup.selectOne">Velg en</message>
 	<message key="manager.statistics">Statistikk og rapporter</message>
 	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>

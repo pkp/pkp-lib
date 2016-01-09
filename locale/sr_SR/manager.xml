@@ -195,7 +195,6 @@
 	<message key="manager.setup.loggingAndAuditing">Evidentiranje i revizija</message>
 	<message key="manager.setup.metaCitationsDescription">Aktivirajte sledeće polje za potvrdu da biste omogućili uređivanje citata i referenci. Ovo će omogućiti da autori uključuju sirove citate prilikom predaje radova. Urednici će takođe imati pristup pomoćniku citata koji može da proveri sirove citate preko spoljnih baza podataka kao što su WorldCat, ISBNdb, PubMed i druge, za tačnost. Odobreni citati se mogu izvoziti u finalizovane fajlove za prikaz.</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Neispravan format logoa hedera strane ili slanje nije uspelo. Prihvatljivi formati su .gif, .jpg, ili .png.</message>
-	<message key="manager.setup.pageHeaderTitleImageInvalid">Neispravan format slike hedera naslova ili slanje nije uspelo. Prihvatljivi formati su .gif, .jpg, ili .png.</message>
 	<message key="manager.setup.selectOne">Odaberi jedan</message>
 	<message key="manager.statistics"><![CDATA[Statistike &amp; Izveštaji]]></message>
 	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>

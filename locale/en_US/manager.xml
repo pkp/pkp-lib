@@ -287,7 +287,6 @@
 	<message key="manager.setup.loggingAndAuditing">Logging and Auditing</message>
 	<message key="manager.setup.metaCitationsDescription">Activate the following checkbox to enable citation and reference editing. This will allow authors to include raw citations with submissions. Editors will also have access to a citation markup assistant which can check raw citations against external databases, such as WorldCat, ISBNdb, PubMed and others, for accuracy. Approved citations can be exported into final galley files.</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Invalid page header logo image format or upload failed. Accepted formats are .gif, .jpg, or .png.</message>
-	<message key="manager.setup.pageHeaderTitleImageInvalid">Invalid page header title image format or upload failed. Accepted formats are .gif, .jpg, or .png.</message>
 	<message key="manager.setup.selectOne">Select one</message>
 	<message key="manager.siteAccessOptions.siteAccessOptions">Site Access Options</message>
 	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>

@@ -147,7 +147,6 @@
 	<message key="manager.setup.layout.unselected">انتخاب نشده</message>
 	<message key="manager.setup.loggingAndAuditing">ورود و ممیزی</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">فرمات تصویر لوگوی هدر صفحات نامناسب است.  فرمات های قابل قبول عبارت است از .gif, .jpg, or .png.</message>
-	<message key="manager.setup.pageHeaderTitleImageInvalid">فرمات تصویر عنوان هدر صفحات نامناسب است. فزمات های قابل قبول عبارت است .gif, .jpg, or .png.</message>
 	<message key="manager.setup.selectOne">یکی را انتخاب کنید</message>
 	<message key="manager.statistics">آمار و گزارشات</message>
 	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>

@@ -149,7 +149,6 @@
 	<message key="manager.setup.layout.unselected">Unselected</message>
 	<message key="manager.setup.loggingAndAuditing">Înregistrări şi auditare</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Format de imagine necorespunzător pentru imaginea logo din colontitlu (header). Formatele acceptate sunt .gif, .jpg, sau .png.</message>
-	<message key="manager.setup.pageHeaderTitleImageInvalid">Format de imagine necorespunzător pentru titlul din colontitlu. Formatele acceptate sunt .gif, .jpg, sau .png.</message>
 	<message key="manager.setup.selectOne">Selectează din opțiunile</message>
 	<message key="manager.statistics"><![CDATA[Statistici &amp; Repoarte]]></message>
 	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>

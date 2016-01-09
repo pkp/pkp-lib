@@ -242,7 +242,6 @@
 	<message key="common.uploadFailed">The file could not be uploaded or revised.</message>
 	<message key="common.fileUpload.maxFileSizeStatus"><![CDATA[This server allows a file size upload maximum of {$fileSize}.  If required, please contact <a href="mailto:{$supportEmail}">{$supportName}</a> for assistance.]]></message>
 	<message key="common.invalidFileType">No file uploaded or invalid file type!</message>
-	<message key="common.pageHeader.altText">Page Header</message>
 	<message key="common.homepageImage.altText">Homepage Image</message>
 	<message key="common.up">Up</message>
 	<message key="common.url">URL</message>

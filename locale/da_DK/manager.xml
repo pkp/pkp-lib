@@ -147,7 +147,6 @@
 	<message key="manager.setup.layout.unselected">Ikke markeret</message>
 	<message key="manager.setup.loggingAndAuditing">Logføring og kontrol</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Ugyldigt billedformat til logoet i sidehovedet på side. De accepterede formater er .gif, .jpg eller .png.</message>
-	<message key="manager.setup.pageHeaderTitleImageInvalid">Ugyldigt billedformat til titlen i sidehovedet på side. De accepterede formater er .gif, .jpg eller .png.</message>
 	<message key="manager.setup.selectOne">Vælg én</message>
 	<message key="manager.statistics">Statistikker og rapporter</message>
 	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>

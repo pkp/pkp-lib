@@ -236,7 +236,6 @@
 	<message key="common.uploadFailed">Die Datei konnte nicht hochgeladen werden. Bitte probieren Sie es erneut oder benachrichtigen Sie den/die Administrator/in, wenn das Problem weiter besteht.</message>
 	<message key="common.fileUpload.maxFileSizeStatus"><![CDATA[Dieser Server erlaubt beim Hochladen von Dateien eine maximale Dateigröße von {$fileSize}.  Wenn Sie Unterstützung benötigen, wenden Sie sich bitte an <a href="mailto:{$supportEmail}">{$supportName}</a>.]]></message>
 	<message key="common.invalidFileType">Keine Datei hochgeladen oder ungültiger Dateityp!</message>
-	<message key="common.pageHeader.altText">Kopfzeile</message>
 	<message key="common.homepageImage.altText">Bild auf der Startseite</message>
 	<message key="common.up">Aufwärts</message>
 	<message key="common.url">URL</message>

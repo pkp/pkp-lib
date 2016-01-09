@@ -147,7 +147,6 @@
 	<message key="manager.setup.layout.unselected">未選択のコンポーネント</message>
 	<message key="manager.setup.loggingAndAuditing">ログ出力と監査</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">ページヘッダのロゴ画像フォーマットが不正です。利用できるフォーマットは、.gif、.jpg、.pngの3つです。</message>
-	<message key="manager.setup.pageHeaderTitleImageInvalid">ページヘッダの誌名画像フォーマットが不正です。利用できるフォーマットは、.gif、.jpg、.pngの3つです。</message>
 	<message key="manager.setup.selectOne">1つ選択してください</message>
 	<message key="manager.statistics">統計と報告書</message>
 	<message key="manager.statistics.statistics.count.value">{$count}（{$percentage}%）</message>

@@ -28,8 +28,6 @@ class PKPAppearanceForm extends ContextSettingsForm {
 	function PKPAppearanceForm($wizardMode = false, $additionalSettings = array()) {
 
 		$settings = array_merge($additionalSettings, array(
-			'pageHeaderTitleType' => 'int',
-			'pageHeaderTitle' => 'string',
 			'additionalHomeContent' => 'string',
 			'pageHeader' => 'string',
 			'pageFooter' => 'string',
@@ -55,7 +53,6 @@ class PKPAppearanceForm extends ContextSettingsForm {
 	function getImagesSettingsName() {
 		return array(
 			'homepageImage' => 'common.homepageImage.altText',
-			'pageHeaderTitleImage' => 'common.pageHeader.altText',
 			'pageHeaderLogoImage' => 'common.pageHeaderLogo.altText',
 		);
 	}
@@ -68,8 +65,6 @@ class PKPAppearanceForm extends ContextSettingsForm {
 	 */
 	function getLocaleFieldNames() {
 		return array(
-			'pageHeaderTitleType',
-			'pageHeaderTitle',
 			'additionalHomeContent',
 			'pageHeader',
 			'pageFooter',

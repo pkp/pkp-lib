@@ -147,7 +147,6 @@
 	<message key="manager.setup.layout.unselected">Sen seleccionar</message>
 	<message key="manager.setup.loggingAndAuditing">Rexistro e Auditoría</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Formato de imaxe non válido. Os formatos aceptados son .gif, .jpg, o .png.</message>
-	<message key="manager.setup.pageHeaderTitleImageInvalid">Formato de imaxe non válido. Os formatos aceptados son .gif, .jpg, o .png.</message>
 	<message key="manager.setup.selectOne">Seleccione unha</message>
 	<message key="manager.statistics">Estatísticas e informes</message>
 	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>

@@ -151,7 +151,6 @@
 	<message key="manager.setup.layout.unselected">Nevybráno</message>
 	<message key="manager.setup.loggingAndAuditing">Zaznamenávání údajů a kontrola</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Neplatný formát obrázku loga pro záhlaví stránky. Podporované formáty jsou .gif, .jpg, nebo .png.</message>
-	<message key="manager.setup.pageHeaderTitleImageInvalid">Neplatný formát obrázku názvu pro záhlaví stránky. Podporované formáty jsou .gif, .jpg, nebo .png.</message>
 	<message key="manager.setup.selectOne">Zvolte jeden</message>
 	<message key="manager.statistics"><![CDATA[Statistiky &amp; Výkazy]]></message>
 	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>

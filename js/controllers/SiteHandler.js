@@ -141,8 +141,7 @@
 	 */
 	$.pkp.controllers.SiteHandler.prototype.triggerTinyMCESetup =
 			function(tinyMCEObject) {
-		var target = $('#' + tinyMCEObject.id),
-			height;
+		var target = $('#' + tinyMCEObject.id), height;
 
 		// For read-only controls, set up TinyMCE read-only mode.
 		if (target.attr('readonly')) {

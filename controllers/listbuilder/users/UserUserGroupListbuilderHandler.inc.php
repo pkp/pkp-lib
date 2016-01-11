@@ -184,18 +184,27 @@ class UserUserGroupListbuilderHandler extends ListbuilderHandler {
 		$cellProvider = new UserGroupListbuilderGridCellProvider();
 
 		// Name column
-		$nameColumn = new ListbuilderGridColumn($this, 'name', 'common.name');
-		$nameColumn->setCellProvider($cellProvider);
+		$nameColumn = new ListbuilderGridColumn(
+			$this,
+			'name',
+			'common.name',
+			null,
+			null,
+			$cellProvider,
+			array('width' => 75, 'alignment' => COLUMN_ALIGNMENT_LEFT)
+		);
 		$this->addColumn($nameColumn);
 
 		// Designation column
-		$designationColumn = new ListbuilderGridColumn($this,
+		$designationColumn = new ListbuilderGridColumn(
+			$this,
 			'designation',
 			'common.designation',
 			null,
-			'controllers/listbuilder/listbuilderNonEditGridCell.tpl'
+			'controllers/listbuilder/listbuilderNonEditGridCell.tpl',
+			$cellProvider,
+			array('width' => 25, 'alignment' => COLUMN_ALIGNMENT_LEFT)
 		);
-		$designationColumn->setCellProvider($cellProvider);
 		$this->addColumn($designationColumn);
 	}
 

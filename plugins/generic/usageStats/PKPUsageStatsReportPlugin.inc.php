@@ -59,7 +59,10 @@ abstract class PKPUsageStatsReportPlugin extends ReportPlugin {
 
 		import('classes.statistics.StatisticsHelper');
 		$statsHelper = new StatisticsHelper();
-		$columns = array_keys($statsHelper->getColumnNames());
+		$columnNames = $statsHelper->getColumnNames();
+		// Make sure we aggregate by month instead of day.
+		unset($columnNames[STATISTICS_DIMENSION_DAY]);
+		$columns = array_keys($columnNames);
 
 		$reportArgs = array(
 			'metricType' => $metricType,

@@ -26,7 +26,7 @@
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.controllers.form.AjaxFormHandler
+	 * @extends $.pkp.controllers.form.UserFormHandler
 	 *
 	 * @param {jQueryObject} $form the wrapped HTML form element.
 	 * @param {Object} options form options.
@@ -46,7 +46,7 @@
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.grid.users.reviewer.form.
 					EditReviewFormHandler,
-			$.pkp.controllers.form.AjaxFormHandler);
+			$.pkp.controllers.form.UserFormHandler);
 
 
 	//

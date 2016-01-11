@@ -389,6 +389,14 @@ class PKPPageRouter extends PKPRouter {
 	 * @param $request PKPRequest the request to be routed
 	 */
 	function redirectHome($request) {
+		$request->redirectUrl($this->getHomeUrl($request));
+	}
+
+	/**
+	 * Get the user's "home" page URL (e.g. where they are sent after login).
+	 * @param $request PKPRequest the request to be routed
+	 */
+	function getHomeUrl($request) {
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$user = $request->getUser();
 		$userId = $user->getId();
@@ -398,9 +406,9 @@ class PKPPageRouter extends PKPRouter {
 			$userGroups = $userGroupDao->getByUserId($userId, $context->getId());
 			if($userGroups->getCount() <= 1) {
 				$userGroup = $userGroups->next();
-				if (!$userGroup || $userGroup->getRoleId() == ROLE_ID_READER) $request->redirect(null, 'index');
+				if (!$userGroup || $userGroup->getRoleId() == ROLE_ID_READER) return $request->url(null, 'index');
 			}
-			$request->redirect(null, 'dashboard');
+			return $request->url(null, 'dashboard');
 		} else {
 			// The user is at the site context, check to see if they are
 			// only registered in one place w/ one role
@@ -413,7 +421,7 @@ class PKPPageRouter extends PKPRouter {
 				if (!isset($context)) $request->redirect('index', 'index');
 				if ($userGroup->getRoleId() == ROLE_ID_READER) $request->redirect(null, 'index');
 			}
-			$request->redirect('index', 'index');
+			return $request->url('index', 'index');
 		}
 	}
 

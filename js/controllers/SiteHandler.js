@@ -141,11 +141,18 @@
 	 */
 	$.pkp.controllers.SiteHandler.prototype.triggerTinyMCESetup =
 			function(tinyMCEObject) {
+		var target = $('#' + tinyMCEObject.id),
+			height;
 
 		// For read-only controls, set up TinyMCE read-only mode.
-		if ($('#' + tinyMCEObject.id).attr('readonly')) {
+		if (target.attr('readonly')) {
 			tinyMCEObject.settings.readonly = true;
 		}
+
+		// Set height based on textarea rows
+		height = target.attr('rows') || 10; // default: 10
+		height *= 20; // 20 pixels per row
+		tinyMCEObject.settings.height = height.toString() + 'px';
 
 		// Add a fake HTML5 placeholder when the editor is intitialized
 		tinyMCEObject.on('init', function(tinyMCEObject) {

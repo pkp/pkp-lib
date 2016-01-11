@@ -10,11 +10,19 @@
 
 <table id="{$gridTableId|escape}">
 	{if $columns|@count > 1}{* include column titles as th elements if there is more than one column *}
+		{include file="controllers/grid/columnGroup.tpl" columns=$columns}
 		<thead>
 			<tr>
-			{foreach from=$columns item=column}
-				<th>{$column->getLocalizedTitle()|escape}</th>
-			{/foreach}
+				{foreach from=$columns item=column}
+					{if $column->hasFlag('alignment')}
+						{assign var=alignment value=$column->getFlag('alignment')}
+					{else}
+						{assign var=alignment value=$smarty.const.COLUMN_ALIGNMENT_LEFT}
+					{/if}
+					<th scope="col" style="text-align: {$alignment};">
+						{$column->getLocalizedTitle()|escape}
+					</th>
+				{/foreach}
 			</tr>
 		</thead>
 	{/if}

@@ -25,13 +25,6 @@
 					<input type="hidden" disabled="disabled" class="isModified" value="0" />
 				{/if}
 				<div class="row_container">
-					<div class="row_actions">
-						{if $row->getActions($smarty.const.GRID_ACTION_POSITION_ROW_LEFT)}
-							{foreach from=$row->getActions($smarty.const.GRID_ACTION_POSITION_ROW_LEFT) item=action}
-								{include file="linkAction/linkAction.tpl" action=$action contextId=$rowId}
-							{/foreach}
-						{/if}
-					</div>
 					<div class="gridCell row_file">{$cell}</div>
 				</div>
 			</td>
@@ -41,7 +34,16 @@
 			{else}
 				{assign var=alignment value=$smarty.const.COLUMN_ALIGNMENT_CENTER}
 			{/if}
-			<td style="text-align: {$alignment}" class="gridCell">{$cell}</td>
+			<td style="text-align: {$alignment}" class="gridCell">
+				{$cell}
+				{if $smarty.foreach.listbuilderCells.last && $row->getActions($smarty.const.GRID_ACTION_POSITION_ROW_LEFT)}
+					<div class="row_actions">
+						{foreach from=$row->getActions($smarty.const.GRID_ACTION_POSITION_ROW_LEFT) item=action}
+							{include file="linkAction/linkAction.tpl" action=$action contextId=$rowId}
+						{/foreach}
+					</div>
+				{/if}
+			</td>
 		{/if}
 	{/foreach}
 </tr>

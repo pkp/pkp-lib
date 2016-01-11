@@ -28,7 +28,7 @@
 		{/capture}
 
 		{if $currentContext}
-			<div id="userGroupExtraFormFields" class="left full">
+			<div id="userGroupExtraFormFields" class="pkp_user_group_other_contexts">
 				{include file="controllers/extrasOnDemand.tpl"
 					id="userGroupExtras"
 					widgetWrapper="#userGroupExtraFormFields"

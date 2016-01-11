@@ -15,13 +15,12 @@
 	{rdelim});
 </script>
 <div id="{$id}" class="pkp_controllers_extrasOnDemand">
-	<div class="toggleExtras">
-		<span class="ui-icon"></span>
+	<a href="#" class="toggleExtras">
 		<span class="toggleExtras-inactive">{translate key=$moreDetailsText}</span>
 		<span class="toggleExtras-active">{translate key=$lessDetailsText}</span>
-	</div>
-	<div style="clear:both;"></div>
-	<div class="extrasContainer">
+		<span class="fa fa-plus"></span>
+	</a>
+	<div class="extrasContainer container">
 		{$extraContent}
 	</div>
 </div>

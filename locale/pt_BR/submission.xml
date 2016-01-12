@@ -450,7 +450,6 @@
 	<message key="submission.submit.fileInformation">Informações do Arquivo</message>
 	<message key="submission.submit.fileAdded">Arquivo Adicionado</message>
 	<message key="submission.submit.newFile">Enviar um Novo Arquivo</message>
-	<message key="submission.submit.errorDeletingAuthor">Ocorreu um erro ao remover o autor.</message>
 	<message key="submission.submit.metadataForm">Refinamentos Adicionais</message>
 	<message key="submission.submit.metadataForm.tip">Adicione informações adicionais para sua submissão. Pressione 'Enter' depois de cada termo.</message>
 	<message key="submission.submit.submissionLocale">Idioma da Submissão</message>

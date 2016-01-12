@@ -428,7 +428,6 @@
 	<message key="submission.submit.fileAdded">Datei hinzugefügt</message>
 	<message key="submission.submit.includeInBrowse">Include this contributor in browse lists?</message>
 	<message key="submission.submit.newFile">Neue Datei einreichen</message>
-	<message key="submission.submit.errorDeletingAuthor">Es gab einen Fehler beim Löschen der Autorin/des Autors.</message>
 	<message key="submission.submit.metadataForm">Zusätzliche Verfeinerung</message>
 	<message key="submission.submit.metadataForm.tip">Fügen Sie zusätzliche Informationen für Ihre Einreichung hinzu. Drücken Sie 'Enter' nach jedem Begriff.</message>
 	<message key="submission.submit.submissionLocale">Beitragssprache</message>

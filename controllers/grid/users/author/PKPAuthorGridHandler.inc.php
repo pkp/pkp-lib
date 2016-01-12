@@ -360,13 +360,8 @@ class PKPAuthorGridHandler extends GridHandler {
 		$authorId = $request->getUserVar('authorId');
 
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
-		$result = $authorDao->deleteById($authorId, $submissionId);
-
-		if ($result) {
-			return DAO::getDataChangedEvent($authorId);
-		} else {
-			return new JSONMessage(false, __('submission.submit.errorDeletingAuthor'));
-		}
+		$authorDao->deleteById($authorId, $submissionId);
+		return DAO::getDataChangedEvent($authorId);
 	}
 
 	/**

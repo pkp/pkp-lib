@@ -338,8 +338,8 @@ class PKPAnnouncementDAO extends DAO {
 			FROM announcements
 			WHERE assoc_type = ?
 				AND assoc_id = ?
-				AND (date_expire IS NULL OR date_expire >= CURRENT_DATE)
-				AND (date_posted < CURRENT_DATE)
+				AND (date_expire IS NULL OR DATE(date_expire) > CURRENT_DATE)
+				AND (DATE(date_posted) <= CURRENT_DATE)
 			ORDER BY announcement_id DESC',
 			array((int) $assocType, (int) $assocId),
 			$rangeInfo
@@ -360,8 +360,8 @@ class PKPAnnouncementDAO extends DAO {
 			FROM announcements
 			WHERE assoc_type = ?
 				AND assoc_id = ?
-				AND (date_expire IS NULL OR date_expire >= CURRENT_DATE)
-				AND (date_posted < CURRENT_DATE)
+				AND (date_expire IS NULL OR DATE(date_expire) > CURRENT_DATE)
+				AND (DATE(date_posted) <= CURRENT_DATE)
 			ORDER BY announcement_id DESC LIMIT ?',
 			array((int) $assocType, (int) $assocId, (int) $numAnnouncements),
 			$rangeInfo
@@ -382,8 +382,8 @@ class PKPAnnouncementDAO extends DAO {
 			FROM	announcements
 			WHERE	assoc_type = ?
 				AND assoc_id = ?
-				AND (date_expire IS NULL OR date_expire >= CURRENT_DATE)
-				AND (date_posted < CURRENT_DATE)
+				AND (date_expire IS NULL OR DATE(date_expire) > CURRENT_DATE)
+				AND (DATE(date_posted) <= CURRENT_DATE)
 			ORDER BY announcement_id DESC LIMIT 1',
 			array((int) $assocType, (int) $assocId)
 		);

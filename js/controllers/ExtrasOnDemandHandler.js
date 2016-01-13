@@ -43,7 +43,7 @@
 	$.pkp.controllers.ExtrasOnDemandHandler.prototype.toggleExtras =
 			function(toggleExtras, event) {
 		var $widgetWrapper = this.getHtmlElement(),
-			scrollable;
+			$scrollable;
 
 		event.preventDefault();
 

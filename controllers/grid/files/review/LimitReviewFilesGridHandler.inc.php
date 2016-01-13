@@ -35,6 +35,7 @@ class LimitReviewFilesGridHandler extends SelectableFileListGridHandler {
 		);
 
 		// Set the grid information.
+		$this->setTitle('editor.submissionReview.restrictFiles');
 		$this->setInstructions('editor.submissionReview.restrictFiles.gridDescription');
 	}
 

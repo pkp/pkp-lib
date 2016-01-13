@@ -74,7 +74,7 @@ abstract class PKPReportGeneratorForm extends Form {
 	}
 
 	/**
-	 * Initialize the form from the current settings.
+	 * @copydoc Form::fetch()
 	 */
 	function fetch($request) {
 		$router = $request->getRouter();

@@ -41,7 +41,7 @@
 			id="filesAccordianController"
 			widgetWrapper="#filesAccordian"
 			moreDetailsText="editor.submissionReview.restrictFiles"
-			lessDetailsText="editor.submissionReview.restrictFiles"
+			lessDetailsText="editor.submissionReview.restrictFiles.hide"
 			extraContent=$extraContent
 		}
 	</div>

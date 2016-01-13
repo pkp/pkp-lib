@@ -17,7 +17,7 @@
 				metricTypeSelectSelector: '#metricType',
 				reportTemplateSelectSelector: '#reportTemplate',
 				aggregationOptionsSelector: "input[type='checkbox'], #aggregationColumns",
-				columnsSelector: '#columns', 
+				columnsSelector: '#columns',
 				timeFilterWrapperSelector: '#reportTimeFilterArea',
 				currentMonthSelector: '#currentMonth',
 				yesterdaySelector: '#yesterday',
@@ -56,7 +56,7 @@
 	{else}
 		{fbvElement type="hidden" name="metricType" id="metricType" value=$metricType}
 	{/if}
-	
+
 	{if $reportTemplateOptions}
 		{fbvFormArea id="reportTemplatesFormArea" title="manager.statistics.reports.defaultReportTemplates"}
 			{fbvFormSection inline=true size=$fbvStyles.size.SMALL}
@@ -70,7 +70,7 @@
 		{/fbvFormArea}
 	{/if}
 	{if $showMonthInputs || $showDayInputs}
-		{fbvFormArea id="reportTimeFilterArea" title="manager.statistics.reports.filters.byTime"}			
+		{fbvFormArea id="reportTimeFilterArea" title="manager.statistics.reports.filters.byTime"}
 			{fbvFormSection for="currentMonth" size=$fbvStyles.size.SMALL list=true}
 				{fbvElement type="radio" name="timeFilterOption" value=$smarty.const.TIME_FILTER_OPTION_YESTERDAY id="yesterday" checked=$yesterday label="manager.statistics.reports.yesterday"}
 				{fbvElement type="radio" name="timeFilterOption" value=$smarty.const.TIME_FILTER_OPTION_CURRENT_MONTH id="currentMonth" checked=$currentMonth label="manager.statistics.reports.currentMonth"}
@@ -89,7 +89,7 @@
 			</div>
 		{/fbvFormArea}
 	{/if}
-	
+
 	{capture assign="advancedOptionsContent"}
 		{fbvFormArea id="columnsFormArea" title="manager.statistics.reports.columns"}
 			<p>{translate key="manager.statistics.reports.columns.description"}</p>
@@ -97,8 +97,8 @@
 				{fbvElement type="select" name="columns[]" id="columns" from=$columnsOptions multiple="multiple" selected=$columns translate=false required=true}
 			{/fbvFormSection}
 		{/fbvFormArea}
-		
-		{fbvFormArea id="filterFormArea" title="manager.statistics.reports.filters"}			
+
+		{fbvFormArea id="filterFormArea" title="manager.statistics.reports.filters"}
 			{fbvFormSection label="manager.statistics.reports.filters.byObject"}
 				<p>{translate key="manager.statistics.reports.filters.byObject.description"}</p>
 				{fbvFormSection description="manager.statistics.reports.objectType" for="objectTypes" inline=true size=$fbvStyles.size.SMALL}
@@ -109,12 +109,12 @@
 						{fbvElement type="select" name="fileTypes[]" id="fileTypes" from=$fileTypesOptions multiple="multiple" selected=$fileTypes translate=false}
 					{/fbvFormSection}
 				{/if}
-				
+
 				{fbvFormSection description="manager.statistics.reports.objectId" for="objectIds" inline=true size=$fbvStyles.size.SMALL}
 					{fbvElement type="text" name="objectIds" id="objectIds" value=$objectIds label="manager.statistics.reports.objectId.label"}
 				{/fbvFormSection}
 			{/fbvFormSection}
-				
+
 			{if $countriesOptions}
 				{fbvFormSection label="manager.statistics.reports.filters.byLocation"}
 					<p>{translate key="manager.statistics.reports.filters.byLocation.description"}</p>
@@ -133,9 +133,9 @@
 					{/if}
 				{/fbvFormSection}
 			{/if}
-			
+
 		{/fbvFormArea}
-		
+
 		{fbvFormArea id="orderByFormArea" title="manager.statistics.reports.orderBy"}
 			{fbvFormSection description="manager.statistics.reports.optinoalColumns.description"}
 				<div style="clear:both"></div>
@@ -151,17 +151,17 @@
 			{/fbvFormSection}
 		{/fbvFormArea}
 	{/capture}
-	
+
 	<div id="advancedOptionsWrapper" class="left full">
 		{include file="controllers/extrasOnDemand.tpl"
 			id="advancedOptionsExtras"
 			widgetWrapper="#advancedOptionsWrapper"
 			moreDetailsText="manager.statistics.reports.advancedOptions"
-			moreDetailsLabel="manager.statistics.reports.advancedOptions.label"
+			lessDetailsText="manager.statistics.reports.advancedOptions.hide"
 			extraContent=$advancedOptionsContent
 		}
 	</div>
-	
+
 	{fbvFormArea id="reportUrlFormArea" title="manager.statistics.reports.reportUrl"}
 		{fbvFormSection}
 			{fbvElement type="text" name="reportUrl" id="reportUrl" value=$reportUrl label="manager.statistics.reports.reportUrl.label"}

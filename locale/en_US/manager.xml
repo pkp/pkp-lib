@@ -191,7 +191,7 @@
 	<message key="manager.statistics.reports.defaultReportTemplates">Default report templates</message>
 	<message key="manager.statistics.reports.generateReport">Generate custom report</message>
 	<message key="manager.statistics.reports.advancedOptions">Advanced Options</message>
-	<message key="manager.statistics.reports.advancedOptions.label">Customize columns, filter and ordering options. Changing any of these options might change the expected report template result.</message>
+	<message key="manager.statistics.reports.advancedOptions.hide">Hide Advanced Options</message>
 	<message key="manager.statistics.reports.columns">Columns</message>
 	<message key="manager.statistics.reports.columns.description">Define the columns that will be used to build the report. The columns you select here not only define which data will be presented inside the reports, but also defines the aggregation level of the statistics. For example, if you choose ID, Type and Month columns, the report will sum all views from an object from one month and will present that data in one row. If you choose Day instead of Month, each object will have a row for each day.</message>
 	<message key="manager.statistics.reports.filters">Filters</message>

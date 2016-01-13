@@ -8,13 +8,6 @@
  * The non-searching part of the add reviewer form
  *
  *}
-<script type="text/javascript">
-	$(function() {ldelim}
-		// Attach the form handler.
-		$('#reviewerFormFooter').pkpHandler('$.pkp.controllers.grid.users.reviewer.form.ReviewerFormFooterHandler');
-	{rdelim});
-</script>
-
 <div id="reviewerFormFooter" class="reviewerFormFooterContainer">
 	<!--  message template choice -->
 	{fbvFormSection title="stageParticipants.notify.chooseMessage" for="template" size=$fbvStyles.size.medium}
@@ -37,13 +30,20 @@
 	{/fbvFormSection}
 
 	{include file="controllers/grid/users/reviewer/form/noFilesWarning.tpl"}
-	<div id="filesAccordion">
-		<h3>{translate key="editor.submissionReview.restrictFiles"}</h3>
-		<div>
-			<!-- Available review files -->
-			{url|assign:limitReviewFilesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.review.LimitReviewFilesGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId reviewRoundId=$reviewRoundId escape=false}
-			{load_url_in_div id="limitReviewFilesGrid" url=$limitReviewFilesGridUrl}
-		</div>
+
+	{capture assign="extraContent"}
+		<!-- Available review files -->
+		{url|assign:limitReviewFilesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.review.LimitReviewFilesGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId reviewRoundId=$reviewRoundId escape=false}
+		{load_url_in_div id="limitReviewFilesGrid" url=$limitReviewFilesGridUrl}
+	{/capture}
+	<div id="filesAccordian" class="section">
+		{include file="controllers/extrasOnDemand.tpl"
+			id="filesAccordianController"
+			widgetWrapper="#filesAccordian"
+			moreDetailsText="editor.submissionReview.restrictFiles"
+			lessDetailsText="editor.submissionReview.restrictFiles"
+			extraContent=$extraContent
+		}
 	</div>
 
 	{fbvFormSection list=true title="editor.submissionReview.reviewType"}

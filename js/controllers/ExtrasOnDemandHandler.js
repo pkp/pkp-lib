@@ -39,11 +39,12 @@
 	 * Event handler that is called when toggle extras div is clicked.
 	 *
 	 * @param {HTMLElement} toggleExtras The div that is clicked to toggle extras.
+	 * @param {Event} event The triggering event.
 	 */
 	$.pkp.controllers.ExtrasOnDemandHandler.prototype.toggleExtras =
 			function(toggleExtras, event) {
 		var $widgetWrapper = this.getHtmlElement(),
-			$scrollable;
+				$scrollable;
 
 		event.preventDefault();
 

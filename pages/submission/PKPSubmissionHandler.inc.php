@@ -16,7 +16,7 @@
 import('classes.handler.Handler');
 import('lib.pkp.classes.core.JSONMessage');
 
-class PKPSubmissionHandler extends Handler {
+abstract class PKPSubmissionHandler extends Handler {
 	/**
 	 * Constructor
 	 */
@@ -31,7 +31,7 @@ class PKPSubmissionHandler extends Handler {
 		// The policy for the submission handler depends on the
 		// step currently requested.
 		$step = isset($args[0]) ? (int) $args[0] : 1;
-		if ($step<1 || $step>$this->_getStepCount()) return false;
+		if ($step<1 || $step>$this->getStepCount()) return false;
 
 		// Do we have a submission present in the request?
 		$submissionId = (int)$request->getUserVar('submissionId');
@@ -63,7 +63,7 @@ class PKPSubmissionHandler extends Handler {
 
 		// Deny if submission is complete (==0 means complete) and at
 		// any step other than the "complete" step (the last one)
-		if ($submission->getSubmissionProgress() == 0 && $step != $this->_getStepCount() ) return false;
+		if ($submission->getSubmissionProgress() == 0 && $step != $this->getStepCount() ) return false;
 
 		// Deny if trying to access a step greater than the current progress
 		if ($submission->getSubmissionProgress() != 0 && $step > $submission->getSubmissionProgress()) return false;
@@ -120,7 +120,7 @@ class PKPSubmissionHandler extends Handler {
 
 		$this->setupTemplate($request);
 
-		if ( $step < $this->_getStepCount() ) {
+		if ( $step < $this->getStepCount() ) {
 			$formClass = "SubmissionSubmitStep{$step}Form";
 			import("classes.submission.form.$formClass");
 
@@ -131,7 +131,7 @@ class PKPSubmissionHandler extends Handler {
 				$submitForm->initData();
 			}
 			return new JSONMessage(true, $submitForm->fetch($request));
-		} elseif($step == $this->_getStepCount()) {
+		} elseif($step == $this->getStepCount()) {
 			$templateMgr = TemplateManager::getManager($request);
 			$templateMgr->assign('context', $context);
 
@@ -207,25 +207,20 @@ class PKPSubmissionHandler extends Handler {
 
 		// Get steps information.
 		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('steps', $this->_getStepsNumberAndLocaleKeys());
+		$templateMgr->assign('steps', $this->getStepsNumberAndLocaleKeys());
 	}
 
 	/**
 	 * Get the step numbers and their corresponding title locale keys.
 	 * @return array
 	 */
-	protected function _getStepsNumberAndLocaleKeys() {
-		assert(false); // Subclasses to implement
-	}
+	abstract function getStepsNumberAndLocaleKeys();
 
 	/**
 	 * Get the number of submission steps.
 	 * @return int
 	 */
-	protected function _getStepCount() {
-		assert(false); // Subclasses to implement
-	}
-
+	abstract function getStepCount();
 }
 
 ?>

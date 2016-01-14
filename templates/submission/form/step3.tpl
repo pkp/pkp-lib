@@ -45,5 +45,6 @@
 			</div>
 		</div>
 	{/if}
-	{fbvFormButtons id="step3Buttons" submitText="submission.submit.finishSubmission" confirmSubmit="submission.confirmSubmit"}
+
+	{fbvFormButtons id="step3Buttons" submitText="common.saveAndContinue"}
 </form>

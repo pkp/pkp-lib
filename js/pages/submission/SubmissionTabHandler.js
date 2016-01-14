@@ -93,10 +93,11 @@
 
 		switch (parseInt(submissionProgress, 10)) {
 			case 0: return []; // Completed
-			case 1: return [1, 2, 3, 4];
-			case 2: return [2, 3, 4];
-			case 3: return [3, 4];
-			case 4: return [];
+			case 1: return [1, 2, 3, 4, 5];
+			case 2: return [2, 3, 4, 5];
+			case 3: return [3, 4, 5];
+			case 4: return [4, 5];
+			case 5: return [];
 		}
 		throw new Error('Illegal submission step number!');
 	};

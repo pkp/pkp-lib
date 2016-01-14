@@ -28,7 +28,7 @@
 		</span>
 
 		<a href="#" class="pkp_current_context">
-			{if $displayPageHeaderTitle}
+			{if $displayPageHeaderTitle && is_string($displayPageHeaderTitle)}
 				{$displayPageHeaderTitle}
 			{elseif $currentContextName}
 				{$currentContextName}

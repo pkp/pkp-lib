@@ -183,6 +183,7 @@ class ListbuilderHandler extends GridHandler {
 	 * Persist a new entry insert.
 	 * @param $request Request object
 	 * @param $newRowId mixed ID of row to modify
+	 * @return boolean
 	 */
 	function insertEntry($request, $newRowId) {
 		fatalError('ABSTRACT METHOD');

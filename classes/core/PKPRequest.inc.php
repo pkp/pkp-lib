@@ -182,7 +182,13 @@ class PKPRequest {
 		$_this =& PKPRequest::_checkThis();
 
 		if (!isset($_this->_basePath)) {
-			$path = preg_replace('#/[^/]*$#', '', $_SERVER['SCRIPT_NAME']);
+			// Strip the PHP filename off of the script's executed path
+			// We expect the SCRIPT_NAME to look like /path/to/file.php
+			// If the SCRIPT_NAME ends in /, assume this is the directory and the script's actual name
+			// is masked as the DirectoryIndex
+			// If the SCRIPT_NAME ends in neither / or .php, assume the the script's actual name is masked
+			// and we need to avoid stripping the terminal directory
+			$path = preg_replace('#/[^/]*$#', '', $_SERVER['SCRIPT_NAME'].(substr($_SERVER['SCRIPT_NAME'], -1) == '/' || preg_match('#.php$#i', $_SERVER['SCRIPT_NAME']) ? '' : '/'));
 
 			// Encode charcters which need to be encoded in a URL.
 			// Simply using rawurlencode() doesn't work because it

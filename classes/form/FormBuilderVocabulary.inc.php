@@ -422,7 +422,8 @@ class FormBuilderVocabulary {
 		$smarty->assign('FBV_min', $params['min']);
 		$smarty->assign('FBV_max', $params['max']);
 
-		$smarty->assign('FBV_label_content', isset($params['label']) ? $this->_smartyFBVSubLabel($params, $smarty) : null);
+		$smarty->assign('FBV_value_min', isset($params['valueMin']) ? $params['valueMin'] : $params['min']);
+		$smarty->assign('FBV_value_max', isset($params['valueMax']) ? $params['valueMax'] : $params['max']);
 
 		return $smarty->fetch('form/rangeSlider.tpl');
 	}

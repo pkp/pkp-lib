@@ -99,7 +99,6 @@
 	<message key="editor.article.confirmChangeReviewForm">Warning: Changing the review form will affect any answers reviewers have made using this form. Are you sure you wish to continue?</message>
 	<message key="editor.submission.noReviewerFilesSelected">No Files Selected</message>
 	<message key="editor.submission.noReviewerFilesSelected.details">You have not selected any files for the reviewer to review.</message>
-	<message key="editor.submission.selectedReviewer">Selected Reviewer</message>
 	<message key="submission.queries.subjectRequired">A discussion subject is required.</message>
 	<message key="submission.queries.messageRequired">A discussion message is required.</message>
 	<message key="submission.queries.attachedFiles">Attached Files</message>

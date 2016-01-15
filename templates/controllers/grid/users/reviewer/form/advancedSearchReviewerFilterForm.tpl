@@ -30,9 +30,10 @@
 			{fbvElement type="rangeSlider" id="active" min=0 max=100 label="manager.reviewerSearch.activeAmount" valueMin=$reviewerValues.activeMin|default:0 valueMax=$reviewerValues.activeMax|default:100}
 		{/fbvFormSection}
 
-		{fbvFormSection description="manager.reviewerSearch.form.interests.instructions"}
+		{fbvFormSection title="manager.reviewerSearch.form.interests.instructions"}
 			{fbvElement type="interests" id="interests" interests=$interestSearchKeywords}
 		{/fbvFormSection}
+
 		{fbvFormSection class="pkp_helpers_text_right"}
 			{fbvElement type="submit" id="submitFilter" label="common.search"}
 		{/fbvFormSection}

@@ -237,7 +237,6 @@
 
 	<!-- Prepared emails -->
 	<message key="grid.preparedEmails.title">Prepared Email Templates</message>
-	<message key="grid.preparedEmails.description">The press facilitates work flow communication through the use of prepared email messages. The default wording of these email templates can be easily modified below.</message>
 	<message key="grid.preparedEmails.currentList">Current List</message>
 
 	<!-- Plugins -->

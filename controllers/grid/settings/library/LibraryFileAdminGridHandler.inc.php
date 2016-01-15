@@ -46,8 +46,6 @@ class LibraryFileAdminGridHandler extends LibraryFileGridHandler {
 		// determine if this grid is read only.
 		$this->setCanEdit((boolean) $request->getUserVar('canEdit'));
 
-		// Set instructions
-		$this->setInstructions('manager.publication.libraryDescription');
 		parent::initialize($request);
 	}
 

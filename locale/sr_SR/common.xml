@@ -356,8 +356,6 @@
 	<message key="form.emailRequired">Imejl adresa je neophodna</message>
 	<message key="form.dataHasChanged">Podaci u formi su promenjeni, da li ipak želite da nastavite?</message>
 	<message key="form.invalidImage">Nesipravna sllika je dostavljena, podržani formati su .png, .gif ili .jpg.</message>
-	<message key="help.toggleInlineHelpOn">Pomoć uključena</message>
-	<message key="help.toggleInlineHelpOff">Pomoć isključena</message>
 	<message key="navigation.access"><![CDATA[Korisnici &amp; uloge]]></message>
 	<message key="navigation.admin">Administracija</message>
 	<message key="navigation.browseByAuthor">Po autoru</message>

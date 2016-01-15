@@ -359,8 +359,6 @@
 	<message key="form.emailRequired">Um endereço de email é obrigatório.</message>
 	<message key="form.dataHasChanged">Os dados deste formulário foram alterados. Continuar assim mesmo?</message>
 	<message key="form.invalidImage">Uma imagem inválida foi enviada. Formatos aceitos são .png, .gif, ou .jpg.</message>
-	<message key="help.toggleInlineHelpOn">Desabilitar ajuda</message>
-	<message key="help.toggleInlineHelpOff">Habilitar ajuda</message>
 	<message key="navigation.access"><![CDATA[Usuários &amp; Papéis]]></message>
 	<message key="navigation.admin">Administração</message>
 	<message key="navigation.browseByAuthor">por Autor</message>

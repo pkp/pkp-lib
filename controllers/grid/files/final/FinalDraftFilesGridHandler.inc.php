@@ -39,7 +39,6 @@ class FinalDraftFilesGridHandler extends FileListGridHandler {
 		);
 
 		$this->setTitle('submission.finalDraft');
-		$this->setInstructions('editor.submission.editorial.finalDraftDescription');
 	}
 
 	//

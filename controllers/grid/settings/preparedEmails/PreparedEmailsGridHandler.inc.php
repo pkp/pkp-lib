@@ -57,8 +57,6 @@ class PreparedEmailsGridHandler extends GridHandler {
 		// Set the grid title.
 		$this->setTitle('grid.preparedEmails.title');
 
-		$this->setInstructions('grid.preparedEmails.description');
-
 		// Grid actions
 		import('lib.pkp.controllers.grid.settings.preparedEmails.linkAction.EditEmailLinkAction');
 		$addEmailLinkAction = new EditEmailLinkAction($request);

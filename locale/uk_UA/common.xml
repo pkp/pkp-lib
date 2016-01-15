@@ -367,6 +367,4 @@
 	<message key="common.declined">Відхилені</message>
 	<message key="common.notified">Сповіщені</message>
 	<message key="common.overdue">Прострочені</message>
-	<message key="help.toggleInlineHelpOn">Допомога Вкл</message>
-	<message key="help.toggleInlineHelpOff">Допомога Викл</message>
 </locale>

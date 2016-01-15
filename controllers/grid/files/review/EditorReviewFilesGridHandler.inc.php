@@ -33,7 +33,6 @@ class EditorReviewFilesGridHandler extends FileListGridHandler {
 			array('fetchGrid', 'fetchRow', 'selectFiles')
 		);
 
-		$this->setInstructions('editor.submission.review.reviewFilesDescription');
 		$this->setTitle('reviewer.submission.reviewFiles');
 	}
 

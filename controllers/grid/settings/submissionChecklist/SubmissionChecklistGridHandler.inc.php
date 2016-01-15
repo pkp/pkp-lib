@@ -39,8 +39,6 @@ class SubmissionChecklistGridHandler extends SetupGridHandler {
 		// Basic grid configuration
 		$this->setId('submissionChecklist');
 		$this->setTitle('manager.setup.submissionPreparationChecklist');
-		$this->setInstructions('manager.setup.submissionPreparationChecklistDescription');
-
 
 		// Add grid-level actions
 		import('lib.pkp.classes.linkAction.request.AjaxModal');

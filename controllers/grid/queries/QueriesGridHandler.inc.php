@@ -144,7 +144,6 @@ class QueriesGridHandler extends GridHandler {
 				break;
 			default: assert(false);
 		}
-		$this->setInstructions('submission.queriesDescription');
 
 		// Load pkp-lib translations
 		AppLocale::requireComponents(

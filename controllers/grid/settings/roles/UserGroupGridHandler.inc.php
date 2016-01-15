@@ -105,7 +105,6 @@ class UserGroupGridHandler extends GridHandler {
 
 		// Basic grid configuration.
 		$this->setTitle('grid.roles.currentRoles');
-		$this->setInstructions('settings.roles.gridDescription');
 
 		// Add grid-level actions.
 		$router = $request->getRouter();

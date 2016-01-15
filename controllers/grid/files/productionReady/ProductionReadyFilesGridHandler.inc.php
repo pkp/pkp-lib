@@ -48,9 +48,7 @@ class ProductionReadyFilesGridHandler extends FileListGridHandler {
 	 */
 	function initialize($request) {
 		parent::initialize($request);
-
 		$this->setTitle('editor.submission.production.productionReadyFiles');
-		$this->setInstructions('editor.submission.production.productionReadyFilesDescription');
 	}
 }
 

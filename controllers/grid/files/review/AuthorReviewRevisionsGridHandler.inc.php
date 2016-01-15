@@ -27,7 +27,6 @@ class AuthorReviewRevisionsGridHandler extends ReviewRevisionsGridHandler {
 		parent::ReviewRevisionsGridHandler($roleAssignments);
 
 		$this->setTitle('editor.submission.revisions');
-		$this->setInstructions('editor.submission.revisionsDescription');
 	}
 }
 

@@ -357,8 +357,6 @@
 	<message key="email.subjectRequired">请提供一个电子邮件的主题</message>
 	<message key="form.dataHasChanged">这个表单的数据已经改变。继续吗？</message>
 	<message key="form.invalidImage">无效的图像上传,允许的格式有.png,.gif,或者.jpg</message>
-	<message key="help.toggleInlineHelpOn">帮助关闭</message>
-	<message key="help.toggleInlineHelpOff">帮助打开</message>
 	<message key="common.go">进入</message>
 	<message key="common.invalidFileType">没有文件上传或无效的文件类型！</message>
 	<message key="navigation.access"><![CDATA[用户&amp;角色]]></message>

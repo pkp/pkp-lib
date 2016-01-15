@@ -115,12 +115,6 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 			$this->addManagementColumns();
 		}
 
-		if ($this->_canManage($request)) {
-			$instructions = 'manager.languages.languageInstructions';
-		} else {
-			$instructions = 'admin.languages.supportedLocalesInstructions';
-		}
-		$this->setInstructions($instructions);
 		$this->setFootNote('admin.locale.maybeIncomplete');
 	}
 

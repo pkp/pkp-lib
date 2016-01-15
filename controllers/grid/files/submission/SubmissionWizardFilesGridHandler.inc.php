@@ -35,7 +35,6 @@ class SubmissionWizardFilesGridHandler extends FileListGridHandler {
 
 		// Set grid title.
 		$this->setTitle('submission.submit.submissionFiles');
-		$this->setInstructions('submission.submit.upload.description');
 	}
 
 	/**

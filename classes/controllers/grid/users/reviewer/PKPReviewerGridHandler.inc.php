@@ -119,7 +119,6 @@ class PKPReviewerGridHandler extends GridHandler {
 		);
 
 		$this->setTitle('user.role.reviewers');
-		$this->setInstructions('editor.submission.review.reviewersDescription');
 
 		// Grid actions
 		import('lib.pkp.classes.linkAction.request.AjaxModal');

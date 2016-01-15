@@ -60,7 +60,6 @@
 	<message key="admin.server.apacheVersion">Apache version</message>
 	<message key="admin.server.dbDriver">Database driver</message>
 	<message key="admin.server.dbVersion">Database server version</message>
-	<message key="admin.serverInformationDescription"><![CDATA[Basic operating system and server software versions. Click on <span class="highlight">Extended PHP Information</span> to view extended details of this server's PHP configuration.]]></message>
 	<message key="admin.serverInformation">Server Information</message>
 	<message key="admin.server.phpVersion">PHP version</message>
 	<message key="admin.server.platform">OS platform</message>

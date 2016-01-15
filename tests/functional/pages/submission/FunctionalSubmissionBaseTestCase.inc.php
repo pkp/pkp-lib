@@ -100,7 +100,9 @@ abstract class FunctionalSubmissionBaseTestCase extends WebTestCase {
 			$this->type('css=[id^=abstract]', $title . ' abstract');
 		}
 
-		$this->click("css=#submitStep3Form .submitFormButton");
+		$this->click('css=#submitStep3Form .submitFormButton');
+		$this->waitForElementPresent($selector = 'css=#submitStep4Form .submitFormButton');
+		$this->click($selector);
 		$this->waitForElementPresent($selector = 'link=OK');
 		$this->click($selector);
 

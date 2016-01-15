@@ -8,6 +8,7 @@
  * Displays the form to filter results in the reviewerSelect grid.
  *
  *}
+
 <form class="pkp_form filter" id="reviewerFilterForm" action="{url router=$smarty.const.ROUTE_COMPONENT component="grid.users.reviewerSelect.ReviewerSelectGridHandler" op="fetchGrid"}" method="post" class="pkp_controllers_reviewerSelector">
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="advancedSearchReviewerFilterFormNotification"}
 	{fbvFormArea id="reviewerSearchForm"}
@@ -16,23 +17,35 @@
 		<input type="hidden" id="reviewRoundId" name="reviewRoundId" value="{$reviewRoundId|escape}" />
 		<input type="hidden" name="clientSubmit" value="1" />
 
-		{fbvFormSection inline="true" size=$fbvStyles.size.MEDIUM}
-			{fbvElement type="rangeSlider" id="done" min=0 max=100 label="manager.reviewerSearch.doneAmount" valueMin=$reviewerValues.doneMin|default:0 valueMax=$reviewerValues.doneMax|default:100}
-		{/fbvFormSection}
-		{fbvFormSection inline="true" size=$fbvStyles.size.MEDIUM}
-			{fbvElement type="rangeSlider" id="avg" min=0 max=365 label="manager.reviewerSearch.avgAmount" valueMin=$reviewerValues.avgMin|default:0 valueMax=$reviewerValues.avgMax|default:365}
-		{/fbvFormSection}
+		{capture assign="extraFilters"}
+			{fbvFormSection inline="true" size=$fbvStyles.size.MEDIUM}
+				{fbvElement type="rangeSlider" id="done" min=0 max=100 label="manager.reviewerSearch.doneAmount" valueMin=$reviewerValues.doneMin|default:0 valueMax=$reviewerValues.doneMax|default:100}
+			{/fbvFormSection}
+			{fbvFormSection inline="true" size=$fbvStyles.size.MEDIUM}
+				{fbvElement type="rangeSlider" id="avg" min=0 max=365 label="manager.reviewerSearch.avgAmount" valueMin=$reviewerValues.avgMin|default:0 valueMax=$reviewerValues.avgMax|default:365}
+			{/fbvFormSection}
 
-		{fbvFormSection inline="true" size=$fbvStyles.size.MEDIUM}
-			{fbvElement type="rangeSlider" id="last" min=0 max=365 label="manager.reviewerSearch.lastAmount" valueMin=$reviewerValues.lastMin|default:0 valueMax=$reviewerValues.lastMax|default:365}
-		{/fbvFormSection}
-		{fbvFormSection inline="true" size=$fbvStyles.size.MEDIUM}
-			{fbvElement type="rangeSlider" id="active" min=0 max=100 label="manager.reviewerSearch.activeAmount" valueMin=$reviewerValues.activeMin|default:0 valueMax=$reviewerValues.activeMax|default:100}
-		{/fbvFormSection}
+			{fbvFormSection inline="true" size=$fbvStyles.size.MEDIUM}
+				{fbvElement type="rangeSlider" id="last" min=0 max=365 label="manager.reviewerSearch.lastAmount" valueMin=$reviewerValues.lastMin|default:0 valueMax=$reviewerValues.lastMax|default:365}
+			{/fbvFormSection}
+			{fbvFormSection inline="true" size=$fbvStyles.size.MEDIUM}
+				{fbvElement type="rangeSlider" id="active" min=0 max=100 label="manager.reviewerSearch.activeAmount" valueMin=$reviewerValues.activeMin|default:0 valueMax=$reviewerValues.activeMax|default:100}
+			{/fbvFormSection}
 
-		{fbvFormSection title="manager.reviewerSearch.form.interests.instructions"}
-			{fbvElement type="interests" id="interests" interests=$interestSearchKeywords}
-		{/fbvFormSection}
+			{fbvFormSection title="manager.reviewerSearch.form.interests.instructions"}
+				{fbvElement type="interests" id="interests" interests=$interestSearchKeywords}
+			{/fbvFormSection}
+		{/capture}
+
+		<div id="reviewerAdvancedSearchFilters">
+			{include file="controllers/extrasOnDemand.tpl"
+				id="reviewerAdvancedSearchFiltersWrapper"
+				widgetWrapper="#reviewerAdvancedSearchFilters"
+				moreDetailsText="search.advancedSearchMore"
+				lessDetailsText="search.advancedSearchLess"
+				extraContent=$extraFilters
+			}
+		</div>
 
 		{fbvFormSection class="pkp_helpers_text_right"}
 			{fbvElement type="submit" id="submitFilter" label="common.search"}

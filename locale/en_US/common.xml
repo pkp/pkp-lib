@@ -454,8 +454,8 @@
 	<message key="notification.savedSubmissionMetadata">Submission metadata saved.</message>
 	<message key="search.abstract">Abstract</message>
 	<message key="search.activeFilters">Advanced filters</message>
-	<message key="search.advancedSearchMore">Additional Search Options (click to show)</message>
-	<message key="search.advancedSearchLess">Additional Search Options (click to hide)</message>
+	<message key="search.advancedSearchMore">More search options</message>
+	<message key="search.advancedSearchLess">Hide more search options</message>
 	<message key="search.allFields">All</message>
 	<message key="search.searchAgain">Search again</message>
 	<message key="search.cli.rebuildIndex.clearingIndex">Clearing index</message>

@@ -173,7 +173,7 @@
 	<message key="manager.reviewerSearch.activeAmount">Currently active reviews: {$current}</message>
 	<message key="manager.reviewerSearch.interests">Reviewing Interests</message>
 	<message key="manager.reviewerSearch.form.instructions">Use the form below to set the maximum values for the terms you wish to search for.  The form is pre-populated with the calculated averages of those fields.</message>
-	<message key="manager.reviewerSearch.form.interests.instructions">Reviewer Interests (type to search for matching options)</message>
+	<message key="manager.reviewerSearch.form.interests.instructions">Reviewer Interests (type to search for matching interests)</message>
 	<message key="manager.roles">Roles</message>
 	<message key="manager.statistics"><![CDATA[Stats &amp; Reports]]></message>
 	<message key="manager.statistics.defaultMetricDescription">

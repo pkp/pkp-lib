@@ -361,8 +361,6 @@
 	<message key="navigation.sitemap">Gunearen mapa</message>
 	<message key="navigation.system">Sistema</message>
 	<message key="navigation.userManagement">Erabiltzaileen kudeaketa</message>
-	<message key="help.toggleInlineHelpOn">Laguntza aktibatua</message>
-	<message key="help.toggleInlineHelpOff">Laguntza desaktibatua</message>
 	<message key="navigation.browseByAuthor">Egileka</message>
 	<message key="navigation.publicMenu">Menu publikoa</message>
 	<message key="navigation.setup">Konfigurazioa</message>

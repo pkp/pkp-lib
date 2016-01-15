@@ -68,7 +68,6 @@ class SystemInfoGridHandler extends CategoryGridHandler {
 
 		// Basic grid configuration.
 		$this->setTitle('admin.systemConfiguration');
-		$this->setInstructions('admin.systemConfigurationDescription');
 
 		//
 		// Grid columns.

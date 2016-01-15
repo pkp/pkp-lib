@@ -66,7 +66,6 @@ class ServerInfoGridHandler extends GridHandler {
 
 		// Basic grid configuration.
 		$this->setTitle('admin.serverInformation');
-		$this->setInstructions('admin.serverInformationDescription');
 
 		//
 		// Grid columns.

@@ -39,7 +39,6 @@ class CopyeditFilesGridHandler extends FileListGridHandler {
 		);
 
 		$this->setTitle('submission.copyedited');
-		$this->setInstructions('editor.submission.editorial.copyeditedDescription');
 	}
 
 	//

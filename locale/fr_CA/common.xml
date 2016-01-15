@@ -436,8 +436,6 @@
 	<message key="form.dataHasChanged">Les données de ce formulaire ont été modifiées. Vous voulez continuer sans sauvegarder?</message>
 	<message key="form.fileRequired">Un chargement de fichier est requis.</message>
 	<message key="form.invalidImage">Une image non valide a été téléchargée. Seuls les formats .png, .gif ou .jpg sont acceptés.</message>
-	<message key="help.toggleInlineHelpOn">Fonction d'Aide allumée</message>
-	<message key="help.toggleInlineHelpOff">Fonction d'Aide éteinte</message>
 	<message key="informationCenter.editorialHistory">Historique de rédaction</message>
 	<message key="navigation.management">Gestion</message>
 	<message key="navigation.access"><![CDATA[Utilisateurs &amp; Rôles]]></message>

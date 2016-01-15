@@ -305,8 +305,6 @@
 	<message key="form.invalidImage">Es wurde ein ungültiges Bild hochgeladen. Akzeptierte Formate sind .png, .gif und .jpg.</message>
 	<message key="help.contents">Inhalt</message>
 	<message key="help.help">Hilfe</message>
-	<message key="help.toggleInlineHelpOn">Hilfe ein</message>
-	<message key="help.toggleInlineHelpOff">Hilfe aus</message>
 	<message key="help.helpIndex">Hilfe-Verzeichnis</message>
 	<message key="help.matchesFound">{$matches} Resultate</message>
 	<message key="help.noMatchingTopics">Es wurden keine entsprechende Hilfethemen gefunden.</message>

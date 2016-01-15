@@ -63,9 +63,6 @@ class GridHandler extends PKPHandler {
 	/** @var string empty row locale key */
 	var $_emptyRowText = 'grid.noItems';
 
-	/** @var string Grid instructions locale key */
-	var $_instructions = '';
-
 	/** @var string Grid foot note locale key */
 	var $_footNote = '';
 
@@ -192,22 +189,6 @@ class GridHandler extends PKPHandler {
 	 */
 	function setEmptyRowText($emptyRowText) {
 		$this->_emptyRowText = $emptyRowText;
-	}
-
-	/**
-	 * Get the grid instructions.
-	 * @return string locale key
-	 */
-	function getInstructions() {
-		return $this->_instructions;
-	}
-
-	/**
-	 * Set the grid instructions.
-	 * @param $instructions string locale key
-	 */
-	function setInstructions($instructions) {
-		$this->_instructions = $instructions;
 	}
 
 	/**

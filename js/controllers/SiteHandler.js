@@ -45,13 +45,6 @@
 		this.bind('callWhenClickOutside', this.callWhenClickOutsideHandler_);
 		this.bind('mousedown', this.mouseDownHandler_);
 
-		// Listen for grid initialized events so the inline help
-		// can be shown or hidden.
-		this.bind('gridInitialized', this.updateHelpDisplayHandler_);
-
-		// Listen for help toggle events.
-		this.bind('toggleInlineHelp', this.toggleInlineHelpHandler_);
-
 		// Bind the pageUnloadHandler_ method to the DOM so it is
 		// called.
 		$(window).bind('beforeunload', this.pageUnloadHandler_);
@@ -327,57 +320,6 @@
 	//
 	// Private methods.
 	//
-	/**
-	 * Respond to a user toggling the display of inline help.
-	 * @private
-	 * @param {HTMLElement} sourceElement The element that
-	 *  issued the event.
-	 * @param {Event} event The triggering event.
-	 * @return {boolean} Always returns false.
-	 */
-	$.pkp.controllers.SiteHandler.prototype.toggleInlineHelpHandler_ =
-			function(sourceElement, event) {
-
-		// persist the change on the server.
-		$.ajax({url: this.options_.toggleHelpUrl});
-
-		this.options_.inlineHelpState = this.options_.inlineHelpState ? 0 : 1;
-		this.updateHelpDisplayHandler_();
-
-		// Stop further event processing
-		return false;
-	};
-
-
-	/**
-	 * Callback to listen to grid initialization events. Used to
-	 * toggle the inline help display on them.
-	 * @private
-	 * @param {HTMLElement=} opt_sourceElement The element that issued the
-	 *  "gridInitialized" event.
-	 * @param {Event=} opt_event The "gridInitialized" event.
-	 */
-	$.pkp.controllers.SiteHandler.prototype.updateHelpDisplayHandler_ =
-			function(opt_sourceElement, opt_event) {
-		var $bodyElement, inlineHelpState;
-
-		$bodyElement = this.getHtmlElement();
-		inlineHelpState = this.options_.inlineHelpState;
-		if (inlineHelpState) {
-			// the .css() call removes the CSS applied to the legend intially,
-			// so it is not shown while the page is being loaded.
-			$bodyElement.find('.pkp_grid_description, #legend, .pkp_help').
-					css('visibility', 'visible').show();
-			$bodyElement.find('[id^="toggleHelp"]').html(
-					this.options_.toggleHelpOffText);
-		} else {
-			$bodyElement.find('.pkp_grid_description, #legend, .pkp_help').hide();
-			$bodyElement.find('[id^="toggleHelp"]').html(
-					this.options_.toggleHelpOnText);
-		}
-	};
-
-
 	/**
 	 * Fetch the notification data.
 	 * @private

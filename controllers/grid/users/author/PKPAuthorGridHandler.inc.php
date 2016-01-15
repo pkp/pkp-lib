@@ -93,7 +93,6 @@ class PKPAuthorGridHandler extends GridHandler {
 		$this->setSubmission($this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION));
 
 		$this->setTitle('submission.contributors');
-		$this->setInstructions('submission.contributorsDescription');
 
 		// Load pkp-lib translations
 		AppLocale::requireComponents(

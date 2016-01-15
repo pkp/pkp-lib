@@ -35,8 +35,6 @@ class SelectableCopyeditFilesGridHandler extends SelectableFileListGridHandler {
 
 		// Set the grid title.
 		$this->setTitle('submission.copyedited');
-
-		$this->setInstructions('editor.submission.selectFairCopy');
 	}
 }
 

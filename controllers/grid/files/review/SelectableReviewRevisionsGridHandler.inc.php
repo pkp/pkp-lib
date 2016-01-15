@@ -36,7 +36,6 @@ class SelectableReviewRevisionsGridHandler extends SelectableFileListGridHandler
 
 		// Set the grid information.
 		$this->setTitle('editor.submission.revisions');
-		$this->setInstructions('editor.submission.selectPromoteRevisions');
 	}
 }
 

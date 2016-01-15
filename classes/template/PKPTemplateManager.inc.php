@@ -111,8 +111,6 @@ class PKPTemplateManager extends Smarty {
 			'timeFormat' => Config::getVar('general', 'time_format'),
 			'allowCDN' => Config::getVar('general', 'enable_cdn'),
 			'useMinifiedJavaScript' => Config::getVar('general', 'enable_minified'),
-			'toggleHelpOnText' => __('help.toggleInlineHelpOn'),
-			'toggleHelpOffText' => __('help.toggleInlineHelpOff'),
 			'currentContext' => $this->_request->getContext(),
 			'currentLocale' => $locale,
 			'pageTitle' => $application->getNameKey(),

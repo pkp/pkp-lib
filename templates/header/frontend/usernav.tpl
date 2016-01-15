@@ -42,9 +42,6 @@
 				</li>
 				{/if}
 				<li>
-					{null_link_action id="toggleHelp" key="help.toggleInlineHelpOn"}
-				</li>
-				<li>
 					<a href="{url router=$smarty.const.ROUTE_PAGE page="login" op="signOut"}">
 						{translate key="user.logOut"}
 					</a>

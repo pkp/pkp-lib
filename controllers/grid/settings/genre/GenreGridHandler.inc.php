@@ -58,8 +58,6 @@ class GenreGridHandler extends SetupGridHandler {
 		// Set the grid title.
 		$this->setTitle('grid.genres.title');
 
-		$this->setInstructions('grid.genres.description');
-
 		// Add grid-level actions
 		$router = $request->getRouter();
 		$actionArgs = array('gridId' => $this->getId());

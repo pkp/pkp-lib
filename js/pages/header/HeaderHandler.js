@@ -33,11 +33,6 @@
 
 		this.options_ = options;
 		this.parent($headerElement, options);
-
-		// Bind to the link action for toggling inline help.
-		$headerElement.find('[id^="toggleHelp"]').click(
-				this.callbackWrapper(this.toggleInlineHelpHandler_));
-		this.publishEvent('toggleInlineHelp');
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.pages.header.HeaderHandler,
@@ -50,27 +45,6 @@
 	 * @type {{requestedPage: string}?}
 	 */
 	$.pkp.pages.header.HeaderHandler.prototype.options_ = null;
-
-
-	//
-	// Private helper methods
-	//
-	/**
-	 * Respond to a user toggling the display of inline help.
-	 *
-	 * @param {HTMLElement} sourceElement The element that
-	 *  issued the event.
-	 * @param {Event} event The triggering event.
-	 * @return {boolean} Always returns false.
-	 * @private
-	 */
-	$.pkp.pages.header.HeaderHandler.prototype.toggleInlineHelpHandler_ =
-			function(sourceElement, event) {
-		this.trigger('toggleInlineHelp');
-		return false;
-	};
-
-
 
 
 /** @param {jQuery} $ jQuery closure. */

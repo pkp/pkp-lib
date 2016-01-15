@@ -47,8 +47,6 @@ class SubmissionDocumentsFilesGridHandler extends LibraryFileGridHandler {
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_EDITOR, LOCALE_COMPONENT_PKP_EDITOR, LOCALE_COMPONENT_APP_MANAGER);
 
-		// Set instructions
-		$this->setInstructions('editor.submissionLibrary.description');
 		$this->setTitle(null);
 
 		$router = $request->getRouter();

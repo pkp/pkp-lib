@@ -46,11 +46,9 @@
 	<message key="rt.admin.contexts.options.geoTerms">Use geographical indexing data as default search terms.</message>
 	<message key="rt.admin.contexts.options">Options</message>
 	<message key="rt.admin.management">Management</message>
-
 	<message key="rt.admin.sharing">Sharing</message>
 	<message key="rt.admin.sharing.enabled">Sharing Enabled</message>
 	<message key="rt.admin.sharing.description"><![CDATA[To enable your readers to share content, sign up for an account with <a href="http://www.addthis.com">addthis.com</a>, and copy/paste the Sharing button code below.]]></message>
-
 	<message key="rt.admin.sharing.basic">Basic Settings</message>
 	<message key="rt.admin.sharing.userNameLabel">AddThis.com user name</message>
 	<message key="rt.admin.sharing.buttonStyleLabel">Button style</message>
@@ -63,7 +61,6 @@
 	<message key="rt.admin.sharing.logolabel">Logo</message>
 	<message key="rt.admin.sharing.logoBackgroundLabel">Logo background</message>
 	<message key="rt.admin.sharing.logoColorLabel">Logo color</message>
-
 	<message key="rt.admin.readingToolsEnabled">Reading tools</message>
 	<message key="rt.admin.searches.confirmDelete">Are you sure you wish to delete this Search?</message>
 	<message key="rt.admin.searches.createSearch">Create Search</message>
@@ -100,7 +97,7 @@
 	<message key="rt.captureCite.format">Citation Format</message>
 	<message key="rt.captureCite">How to cite item</message>
 	<message key="rt.captureCite.online">Online</message>
-	<message key="rt.captureCite.web">Web</message>	
+	<message key="rt.captureCite.web">Web</message>
 	<message key="rt.colleague">Notify colleague</message>
 	<message key="rt.context.abbrev">Abbrev</message>
 	<message key="rt.context.and">AND</message>

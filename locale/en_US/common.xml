@@ -361,7 +361,6 @@
 	<message key="stageParticipants.notify.chooseMessage">Choose a predefined message to use, or fill out the form below.</message>
 	<message key="stageParticipants.notify.message">Message</message>
 	<message key="stageParticipants.notify.warning">Please ensure that you have filled out the message field and selected at least one recipient.</message>
-
 	<message key="locale.primary">Primary locale</message>
 	<message key="locale.supported">Supported locales</message>
 	<message key="navigation.access"><![CDATA[Users &amp; Roles]]></message>
@@ -485,7 +484,6 @@
 	<!-- Common -->
 	<message key="grid.action.toggleHelp">Toggle the display of inline help</message>
 	<message key="grid.action.downloadFile">Download this file</message>
-
 	<message key="context.path">Path</message>
 	<message key="review.ensuringBlindReview">Ensuring a Blind Review</message>
 	<message key="grid.action.showReviewPolicy">Read the current review policy</message>
@@ -493,10 +491,8 @@
 	<message key="grid.action.markNew">Mark New</message>
 	<message key="grid.action.markRead">Mark Read</message>
 	<message key="common.tasks.titleAndTask">{$acronym}: "{$title}": {$task}</message>
-
 	<message key="dashboard.tasks">Tasks</message>
 	<message key="dashboard.submissions">Submissions</message>
-
 	<message key="review.blindPeerReview">
 		<![CDATA[<p>To ensure the integrity of the blind peer-review for submission to this press, every effort should be made to prevent the identities of the authors and reviewers from being known to each other. This involves the authors, editors, and reviewers (who upload documents as part of their review) checking to see if the following steps have been taken with regard to the text and the file properties:</p>
 			<ul><li>The authors of the document have deleted their names from the text, with "Author" and year used in the references and footnotes, instead of the authors' name, article title, etc.</li>
@@ -510,7 +506,6 @@
 	<message key="reviewer.submission.reviewDueDate">Review Due Date</message>
 	<message key="submission.task.responseDueDate">Response Due Date</message>
 	<message key="navigation.goBack">Go Back</message>
-
 	<message key="notification.addedReviewer">Reviewer added.</message>
 	<message key="notification.removedReviewer">Reviewer removed.</message>
 	<message key="notification.addedStageParticipant">User added as a stage participant.</message>

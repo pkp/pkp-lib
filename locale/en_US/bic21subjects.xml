@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE subjects SYSTEM "../../dtd/bic21subjects.dtd">
+
 <!--
   * locale/en_US/bic21subjects.xml
   *
@@ -8,6 +9,7 @@
   * localized list of BIC 2.1 Subjects
   * Reference:  http://www.bic.org.uk/7/BIC-Standard-Subject-Categories
   -->
+
 <subjects>
 	<subject code="A" text="The arts" />
 	<subject code="AB" text="The arts: general issues" />

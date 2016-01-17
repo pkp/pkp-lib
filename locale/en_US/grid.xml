@@ -16,7 +16,6 @@
 	<message key="grid.noItems">No Items</message>
 	<message key="grid.settings">Settings</message>
 	<message key="grid.noAuditors">No Auditors</message>
-
 	<message key="grid.action.manageAccess">Manage Access</message>
 	<message key="grid.action.sort">Sort</message>
 	<message key="grid.action.addItem">Add Item</message>

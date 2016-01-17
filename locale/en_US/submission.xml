@@ -335,7 +335,6 @@
 
 	<!-- Stage Participants -->
 	<message key="submission.stageParticipants.notify">Notify</message>
-
 	<message key="submission.lastModified">Last modified</message>
 	<message key="submission.layout.addGalley">Add a Layout Galley</message>
 	<message key="submission.layout.confirmDeleteGalley">Are you sure you want to permanently delete this galley?</message>
@@ -476,7 +475,6 @@
 	<message key="workflow.stage.any">Any Stage</message>
 	<message key="workflow.stage">Stage</message>
 
-
 	<!-- Submission status -->
 	<message key="submission.status.editorial">In Copyediting</message>
 	<message key="submission.status.production">In Proofreading</message>
@@ -485,7 +483,6 @@
 	<message key="submission.status.unassigned">Unassigned</message>
 	<message key="submission.status.declined">Declined</message>
 	<message key="submission.status.published">Published</message>
-
 	<message key="submission.submit.uploadStep">1. Upload Submission</message>
 	<message key="submission.submit.uploadSubmissionFile">Upload Submission File</message>
 	<message key="submission.submit.metadataStep">2. Metadata</message>
@@ -559,7 +556,6 @@
 	<message key="submission.currentStage">Current stage</message>
 	<message key="submission.noActionRequired">No action required</message>
 	<message key="submission.actionNeeded">Needs action</message>
-
 	<message key="reviewer.submission.reviewFiles">Review Files</message>
 	<message key="submission.submit.currentFile">Current file</message>
 	<message key="submission.finalDraft">Draft Files</message>

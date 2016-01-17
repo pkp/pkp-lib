@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE qualifiers SYSTEM "../../dtd/bic21qualifiers.dtd">
+
 <!--
   * locale/en_US/bic21qualifiers.xml
   *
@@ -8,6 +9,7 @@
   * localized list of BIC 2.1 Subject Qualifiers
   * Reference:  http://www.bic.org.uk/7/BIC-Standard-Subject-Categories
   -->
+
 <qualifiers>
 	<qualifier code="1D" text="Europe" />
 	<qualifier code="1DB" text="British Isles" />

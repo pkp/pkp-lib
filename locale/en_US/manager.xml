@@ -16,7 +16,6 @@
 	<message key="manager.website.information">Information</message>
 	<message key="manager.website.appearance">Appearance</message>
 	<message key="manager.website.imageFileRequired">An image file is required. Please ensure that you have chosen and uploaded a file.</message>
-
 	<message key="manager.announcements">Announcements</message>
 	<message key="manager.announcements.confirmDelete">Are you sure you want to permanently delete this announcement?</message>
 	<message key="manager.announcements.create">Create New Announcement</message>
@@ -375,7 +374,6 @@
 	<message key="manager.plugins.uploadPluginDir">Select plugin file</message>
 	<message key="manager.plugins.versionFileInvalid">version.xml in plugin directory contains invalid data.</message>
 	<message key="manager.plugins.versionFileNotFound">version.xml not found in plugin directory</message>
-
 	<message key="notification.localeEnabled">Locale enabled.</message>
 	<message key="notification.localeDisabled">Locale disabled.</message>
 	<message key="notification.primaryLocaleDefined">{$locale} defined as primary locale.</message>
@@ -441,7 +439,6 @@
 	<message key="grid.content.navigation.socialMedia.includeInCatalog">Use this for each published item in the catalog?</message>
 	<message key="grid.content.navigation.socialMedia.inCatalog">Used In Catalog</message>
 	<message key="grid.action.addMedia">Add a new Social Media type</message>
-
 	<message key="notification.addedFooterCategory">Category added.</message>
 	<message key="notification.editedFooterCategory">Category edited.</message>
 	<message key="notification.removedFooterCategory">Category removed.</message>
@@ -521,7 +518,6 @@
 	<message key="grid.action.createReviewForm">Create a new Review Form</message>
 	<message key="manager.setup.reviewerCompetingInterestsRequired.description">Reviewer Competing Interest statement</message>
 	<message key="manager.setup.competingInterests.required">Accept a Competing Interest statement</message>
-
 	<message key="manager.setup.includeCopyrightStatement">Display the copyright statement with content (advisable for asserting an author-held copyright).</message>
 	<message key="manager.setup.includeLicense">Display the license with published work.</message>
 	<message key="manager.setup.licenseURLDescription">Provide URL for license webpage, if available.</message>

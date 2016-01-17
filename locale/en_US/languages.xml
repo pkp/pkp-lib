@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE languages SYSTEM "../../dtd/languages.dtd">
+
 <!--
   * locale/en_US/languages.xml
   *
@@ -10,6 +11,7 @@
   * Localized list of common languages. Based on ISO 639-1.
   *
   -->
+  
 <languages>
 	<language code="ab" name="Abkhazian"/>
 	<language code="aa" name="Afar"/>

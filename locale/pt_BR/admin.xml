@@ -85,7 +85,7 @@ Uso (processando todos os arquivos dentro de um diretório): {$scriptName} camin
 	<message key="admin.settings">Configurações</message>
 	<message key="admin.settings.contactEmail">E-mail do Contato Principal</message>
 	<message key="admin.settings.contactName">Nome do Contato Principal</message>
-  <message key="admin.settings.defaultMetricDescription">
+	<message key="admin.settings.defaultMetricDescription">
 		Sua instalação está configurada para gravar mais de uma métrica de uso. Estatísticas de uso serão mostradas de diferentes modos.
 		Existem casos onde uma única estatística de uso deve ser usada, por exemplo: para mostrar uma lista ordenada das submissões mais usadas ou para rankear resultados de busca. Por favor selecione uma das métricas configuradas como padrão.
 	</message>

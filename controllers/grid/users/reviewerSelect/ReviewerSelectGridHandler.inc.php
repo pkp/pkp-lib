@@ -158,6 +158,7 @@ class ReviewerSelectGridHandler extends GridHandler {
 		$reviewerValues = $filter['reviewerValues'];
 
 		// Retrieve the authors associated with this submission to be displayed in the grid
+		$name = $reviewerValues['name'];
 		$doneMin = $reviewerValues['doneMin'];
 		$doneMax = $reviewerValues['doneMax'];
 		$avgMin = $reviewerValues['avgMin'];
@@ -171,7 +172,7 @@ class ReviewerSelectGridHandler extends GridHandler {
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$reviewRound = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND);
 		return $userDao->getFilteredReviewers(
-			$submission->getContextId(), $reviewRound->getStageId(),
+			$submission->getContextId(), $reviewRound->getStageId(), $name,
 			$doneMin, $doneMax, $avgMin, $avgMax,
 			$lastMin, $lastMax, $activeMin, $activeMax, $interests,
 			$submission->getId(), $reviewRound->getId()
@@ -194,6 +195,7 @@ class ReviewerSelectGridHandler extends GridHandler {
 		} else {
 			return array(
 				'reviewerValues' => array(
+					'name' => null,
 					'doneMin' => null,
 					'doneMax' => null,
 					'avgMin' => null,

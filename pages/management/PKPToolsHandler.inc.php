@@ -246,7 +246,7 @@ class PKPToolsHandler extends ManagementHandler {
 
 				// Give a chance for subclasses to set the row values.
 				if ($returner = $this->getReportRowValue($key, $record)) {
-					$row = $returner;
+					$row[] = $returner;
 					continue;
 				}
 

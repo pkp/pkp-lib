@@ -344,7 +344,7 @@ class PKPMetricsDAO extends DAO {
 	 * and representation.
 	 */
 	protected function foreignKeyLookup($assocType, $assocId) {
-		$contextId = $sectionId = $submissionId = $representationId = null;
+		$contextId = $sectionId = $submissionId = $assocObjectType = $assocObjectId = $representationId = null;
 
 		$isFile = false;
 		$isRepresentation = false;
@@ -389,6 +389,7 @@ class PKPMetricsDAO extends DAO {
 				} else {
 					throw new Exception('Cannot load record: invalid submission id.');
 				}
+				list($assocObjectType, $assocObjectId) = $this->getAssocObjectInfo($submissionId, $contextId);
 				break;
 			case ASSOC_TYPE_SECTION:
 				$sectionDao = Application::getSectionDAO();
@@ -410,7 +411,20 @@ class PKPMetricsDAO extends DAO {
 				break;
 		}
 
-		return array($contextId, $sectionId, null, null, $submissionId, $representationId);
+		return array($contextId, $sectionId, $assocObjectType, $assocObjectId, $submissionId, $representationId);
+	}
+
+	/**
+	 * Get the id and type of the object that
+	 * the passed submission info is associated with.
+	 * Default implementation returns null, subclasses
+	 * have to implement it.
+	 * @param $submissionId Submission id.
+	 * @param $contextId The submission context id.
+	 * @return array Assoc type and id of the object.
+	 */
+	protected function getAssocObjectInfo($submissionId, $contextId) {
+		return array(null, null);
 	}
 }
 ?>

@@ -223,6 +223,14 @@ class ReviewerSelectGridHandler extends GridHandler {
 		import('lib.pkp.controllers.grid.users.reviewerSelect.form.AdvancedSearchReviewerFilterForm');
 		return new AdvancedSearchReviewerFilterForm($submission, $stageId, $reviewRound->getId());
 	}
+
+	/**
+	 * Determine whether a filter form should be collapsible.
+	 * @return boolean
+	 */
+	protected function isFilterFormCollapsible() {
+		return false;
+	}
 }
 
 ?>

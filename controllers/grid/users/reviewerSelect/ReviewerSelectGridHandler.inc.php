@@ -67,6 +67,8 @@ class ReviewerSelectGridHandler extends GridHandler {
 		);
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 
+		$this->setTitle('editor.submission.findAndSelectReviewer');
+
 		// Columns
 		$cellProvider = new ReviewerSelectGridCellProvider();
 		$this->addColumn(

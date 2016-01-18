@@ -29,7 +29,7 @@
 	<message key="editor.submission.addReviewer">Añadir revisor</message>
 	<message key="editor.submission.fileList.includeAllStages">Incluir todos los archivos de todas las etapas de flujo de trabajo con acceso.</message>
 	<message key="editor.submission.review.currentFiles">Archivos de revisión en ronda actuales {$round}</message>
-	<message key="editor.submission.returnToSimpleSearch">Volver a la búsqueda simple</message>
+	<message key="editor.submission.backToSearch">Volver a la búsqueda simple</message>
 	<message key="editor.review.createReviewer">Crear nuevo revisor</message>
 	<message key="editor.review.enrollReviewer.short">Inscribir ususario ya existente</message>
 	<message key="editor.review.unassignReviewer">Desasignar revisor</message>

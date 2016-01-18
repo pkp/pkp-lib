@@ -29,7 +29,7 @@
 	<message key="editor.submission.addReviewer">Gutachter/in hinzufügen</message>
 	<message key="editor.submission.fileList.includeAllStages">Alle Dateien aus allen verfügbaren Workflow-Phasen berücksichtigen.</message>
 	<message key="editor.submission.review.currentFiles">Aktuelle Begutachtungsdateien für Runde {$round}</message>
-	<message key="editor.submission.returnToSimpleSearch">Zur einfachen Suche zurückkehren</message>
+	<message key="editor.submission.backToSearch">Zur einfachen Suche zurückkehren</message>
 	<message key="editor.review.createReviewer">Neue/n Gutachter/in anlegen</message>
 	<message key="editor.review.enrollReviewer.short">Existierende/n Benutzer/in eintragen</message>
 	<message key="editor.review.unassignReviewer">Zuteilung an Gutachter/in aufheben</message>

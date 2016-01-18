@@ -164,7 +164,7 @@
 	<message key="manager.plugins.sitePlugin">This is a site-wide plugin. Only the Site Administrator may manage this plugin.</message>
 	<message key="manager.plugins">System Plugins</message>
 	<message key="manager.readingTools">Reading Tools</message>
-	<message key="manager.reviewerSearch.advancedSearch.short">Find Reviewer</message>
+	<message key="manager.reviewerSearch.change">Change</message>
 	<message key="manager.reviewerSearch.searchByName">Search For Reviewer By Name</message>
 	<message key="manager.reviewerSearch.searchByName.short">Search By Name</message>
 	<message key="manager.reviewerSearch.doneAmount">Reviews completed: {$current}</message>

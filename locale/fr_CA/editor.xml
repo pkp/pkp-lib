@@ -30,7 +30,7 @@
 	<message key="editor.submission.addReviewer">Ajouter un évaluateur</message>
 	<message key="editor.submission.fileList.includeAllStages">Inclure tous les fichiers de toutes les étapes de production accessibles.</message>
 	<message key="editor.submission.review.currentFiles">{$round}e série de révision des fichiers.</message>
-	<message key="editor.submission.returnToSimpleSearch">Revenir en mode de recherche simple</message>
+	<message key="editor.submission.backToSearch">Revenir en mode de recherche simple</message>
 	<message key="editor.review.createReviewer">Créer un nouvel évaluateur</message>
 	<message key="editor.review.enrollReviewer.short">Enregistrer un évaluateur actuel</message>
 	<message key="editor.submissionReview.reviewType">Type d'évaluation</message>

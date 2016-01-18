@@ -40,9 +40,9 @@ class CreateReviewerForm extends ReviewerForm {
 	 * @see Form::fetch()
 	 */
 	function fetch($request) {
-		$searchByNameAction = $this->getSearchByNameAction($request);
+		$advancedSearchAction = $this->getAdvancedSearchAction($request);
 
-		$this->setReviewerFormAction($searchByNameAction);
+		$this->setReviewerFormAction($advancedSearchAction);
 		return parent::fetch($request);
 	}
 

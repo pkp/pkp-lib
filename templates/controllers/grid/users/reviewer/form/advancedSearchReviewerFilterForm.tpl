@@ -28,6 +28,10 @@
 		<input type="hidden" id="reviewRoundId" name="reviewRoundId" value="{$reviewRoundId|escape}" />
 		<input type="hidden" name="clientSubmit" value="1" />
 
+		{fbvFormSection title="manager.reviewerSearch.searchByName.short"}
+			{fbvElement type="text" id="name" value=$reviewerValues.name|escape}
+		{/fbvFormSection}
+
 		{capture assign="extraFilters"}
 			{fbvFormSection inline="true" size=$fbvStyles.size.MEDIUM}
 				{fbvElement type="rangeSlider" id="done" min=0 max=100 label="manager.reviewerSearch.doneAmount" valueMin=$reviewerValues.doneMin|default:0 valueMax=$reviewerValues.doneMax|default:100}

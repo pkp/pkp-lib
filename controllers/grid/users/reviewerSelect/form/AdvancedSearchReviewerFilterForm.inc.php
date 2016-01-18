@@ -85,6 +85,7 @@ class AdvancedSearchReviewerFilterForm extends Form {
 	 */
 	function readInputData() {
 		$this->readUserVars(array(
+			'name',
 			'doneMin',
 			'doneMax',
 			'avgMin',
@@ -113,6 +114,7 @@ class AdvancedSearchReviewerFilterForm extends Form {
 	 */
 	function getFilterSelectionData() {
 		$reviewerValues = array(
+			'name' => (string) $this->getData('name'),
 			'doneMin' => (int) $this->getData('doneMin'),
 			'doneMax' => (int) $this->getData('doneMax'),
 			'avgMin' => (int) $this->getData('avgMin'),

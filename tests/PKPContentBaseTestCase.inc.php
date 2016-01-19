@@ -277,7 +277,8 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->click('css=[id^=component-grid-users-reviewer-reviewergrid-addReviewer-button-]');
 		$this->waitForElementPresent('css=[id^=name-]');
 		$this->type('css=[id^=name-]', $username);
-		$this->typeKeys('css=[id^=name-]', $username);
+		$this->click('css=[id=submitFilter]');
+		$this->waitJQuery();
 		$this->click('css=[id^=reviewer_]');
 		$this->click('css=[id^=selectReviewerButton]');
 

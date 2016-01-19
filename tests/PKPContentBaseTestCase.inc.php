@@ -275,13 +275,11 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 	function assignReviewer($username, $name) {
 		$this->waitForElementPresent('css=[id^=component-grid-users-reviewer-reviewergrid-addReviewer-button-]');
 		$this->click('css=[id^=component-grid-users-reviewer-reviewergrid-addReviewer-button-]');
-		$this->waitForElementPresent('css=[id^=reviewerId_input-]');
-		$this->type('css=[id^=reviewerId_input-]', $username);
-		$this->typeKeys('css=[id^=reviewerId_input-]', $username);
-
-		$this->waitForElementPresent($selector = '//li[text()=\'' . $this->escapeJS($name) . '\']');
-		$this->mouseOver($selector);
-		$this->click($selector);
+		$this->waitForElementPresent('css=[id^=name-]');
+		$this->type('css=[id^=name-]', $username);
+		$this->typeKeys('css=[id^=name-]', $username);
+		$this->click('css=[id^=reviewer_]');
+		$this->click('css=[id^=selectReviewerButton]');
 
 		$this->click('//button[text()=\'Add Reviewer\']');
 		$this->waitForElementNotPresent('css=div.pkp_modal_panel'); // pkp/pkp-lib#655

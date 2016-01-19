@@ -593,7 +593,7 @@ class GridHandler extends PKPHandler {
 				new LinkAction(
 					'search',
 					new NullAction(),
-					'',
+					__('common.search'),
 					'search_extras_expand'
 				)
 			);

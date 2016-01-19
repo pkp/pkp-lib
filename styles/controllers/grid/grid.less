@@ -72,12 +72,12 @@
 		transition: all 0.3s ease;
 
 		&:before {
-			margin-right: 0.25em;
+			margin-right: 0.5em;
 		}
 	}
 
 	.pkp_linkaction_search:before {
-		content: @fa-var-search-plus;
+		content: @fa-var-search;
 	}
 
 	.pkp_linkaction_search.is_open {
@@ -85,10 +85,6 @@
 		background: @bg-light;
 		border: @bg-border-light;
 		border-bottom: none;
-	}
-
-	.pkp_linkaction_search.is_open:before {
-		content: @fa-var-search-minus;
 	}
 
 	// Search filter

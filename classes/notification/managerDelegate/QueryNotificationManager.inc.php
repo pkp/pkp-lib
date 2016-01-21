@@ -82,13 +82,7 @@ class QueryNotificationManager extends NotificationManagerDelegate {
 		$submission = $this->getQuerySubmission($query);
 
 		import('lib.pkp.controllers.grid.submissions.SubmissionsListGridCellProvider');
-		list($page, $operation) = SubmissionsListGridCellProvider::getPageAndOperationByUserRoles($request, $submission, $notification->getUserId());
-
-		$router = $request->getRouter();
-		$dispatcher = $router->getDispatcher();
-		$contextDao = Application::getContextDAO();
-		$context = $contextDao->getById($submission->getContextId());
-		return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), $page, $operation, $submission->getId());
+		return SubmissionsListGridCellProvider::getUrlByUserRoles($request, $submission, $notification->getUserId());
 	}
 
 	/**

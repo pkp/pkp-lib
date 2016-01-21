@@ -17,9 +17,6 @@
 import('lib.pkp.controllers.grid.submissions.SubmissionsListGridHandler');
 import('lib.pkp.controllers.grid.submissions.SubmissionsListGridRow');
 
-// Import 'my submissions' list specific grid classes.
-import('lib.pkp.controllers.grid.submissions.mySubmissions.MySubmissionsListGridCellProvider');
-
 class MySubmissionsListGridHandler extends SubmissionsListGridHandler {
 	/**
 	 * Constructor

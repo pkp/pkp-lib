@@ -45,14 +45,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 				$submissionDao = Application::getSubmissionDAO();
 				$submission = $submissionDao->getById($reviewRound->getSubmissionId());
 				import('lib.pkp.controllers.grid.submissions.SubmissionsListGridCellProvider');
-				list($page, $operation) = SubmissionsListGridCellProvider::getPageAndOperationByUserRoles($request, $submission);
-
-				if ($page == 'workflow') {
-					$stageId = $reviewRound->getStageId();
-					$operation = WorkflowStageDAO::getPathFromId($stageId);
-				}
-
-				return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), $page, $operation, $submission->getId());
+				return SubmissionsListGridCellProvider::getUrlByUserRoles($request, $submission, null, WorkflowStageDAO::getPathFromId($reviewRound->getStageId()));
 			case NOTIFICATION_TYPE_LAYOUT_ASSIGNMENT:
 			case NOTIFICATION_TYPE_INDEX_ASSIGNMENT:
 			case NOTIFICATION_TYPE_APPROVE_SUBMISSION:

@@ -118,14 +118,7 @@ class EditorDecisionNotificationManager extends NotificationManagerDelegate {
 				$submissionDao = Application::getSubmissionDAO();
 				$submission = $submissionDao->getById($notification->getAssocId());
 				import('lib.pkp.controllers.grid.submissions.SubmissionsListGridCellProvider');
-				list($page, $operation) = SubmissionsListGridCellProvider::getPageAndOperationByUserRoles($request, $submission);
-				$router = $request->getRouter();
-				$dispatcher = $router->getDispatcher();
-				$contextDao = Application::getContextDAO();
-				$context = $contextDao->getById($submission->getContextId());
-				// this will probably be authorDashboard/submission, but the possibility exists that an editor is
-				// revising a submission without being an author in the stage assignments.
-				return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), $page, $operation, $submission->getId());
+				return SubmissionsListGridCellProvider::getUrlByUserRoles($request, $submission);
 			default:
 				return '';
 		}

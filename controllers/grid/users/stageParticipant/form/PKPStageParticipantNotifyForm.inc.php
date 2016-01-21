@@ -166,8 +166,7 @@ class PKPStageParticipantNotifyForm extends Form {
 		if (isset($user)) {
 			$email->addRecipient($user->getEmail(), $user->getFullName());
 			$email->setBody($this->getData('message'));
-			list($page, $operation) = SubmissionsListGridCellProvider::getPageAndOperationByUserRoles($request, $submission, $user->getId());
-			$submissionUrl = $dispatcher->url($request, ROUTE_PAGE, null, $page, $operation, array('submissionId' => $submission->getId()));
+			$submissionUrl = SubmissionsListGridCellProvider::getUrlByUserRoles($request, $submission, $user->getId());
 
 			// Parameters for various emails
 			$email->assignParams(array(

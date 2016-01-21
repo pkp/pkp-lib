@@ -97,18 +97,28 @@ class SubmissionsListGridCellProvider extends DataObjectGridCellProvider {
 				$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 				if (!$stage) $stage = __(WorkflowStageDAO::getTranslationKeyFromId($stageId));
 
+				import('lib.pkp.classes.linkAction.request.RedirectAction');
 				$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
 				$reviewAssignment = $reviewAssignmentDao->getLastReviewRoundReviewAssignmentByReviewer($submission->getId(), $user->getId());
-				if (is_a($reviewAssignment, 'ReviewAssignment')) {
-					// Reviewer: Add a review link action.
-					return array($this->_getCellLinkAction($request, 'reviewer', 'submission', $submission, $stage));
-				} else {
-					// Get the right page and operation (authordashboard or workflow).
-					list($page, $operation) = SubmissionsListGridCellProvider::getPageAndOperationByUserRoles($request, $submission);
-
-					// Return redirect link action.
-					return array($this->_getCellLinkAction($request, $page, $operation, $submission, $stage));
-				}
+				if (is_a($reviewAssignment, 'ReviewAssignment')) return array(new LinkAction(
+					'itemWorkflow',
+					new RedirectAction(
+						$request->getDispatcher()->url(
+							$request, ROUTE_PAGE,
+							null,
+							'reviewer', 'submission',
+							$submission->getId()
+						)
+					),
+					$stage
+				));
+				else return array(new LinkAction(
+					'itemWorkflow',
+					new RedirectAction(
+						SubmissionsListGridCellProvider::getUrlByUserRoles($request, $submission)
+					),
+					$stage
+				));
 		}
 		return parent::getCellActions($request, $row, $column, $position);
 	}
@@ -163,33 +173,38 @@ class SubmissionsListGridCellProvider extends DataObjectGridCellProvider {
 	// Public static methods
 	//
 	/**
-	 * Static method that returns the correct page and operation between
-	 * 'authordashboard' and 'workflow', based on users roles.
+	 * Static method that returns the correct access URL for a submission
+	 * between 'authordashboard', 'workflow', and 'submission', based on
+	 * users roles.
 	 * @param $request Request
 	 * @param $submission Submission
 	 * @param $userId an optional user id
-	 * @return array
+	 * @param $stageName string An optional suggested stage name
+	 * @return string|null URL; null if the user does not exist
 	 */
-	static function getPageAndOperationByUserRoles($request, $submission, $userId = null) {
+	static function getUrlByUserRoles($request, $submission, $userId = null, $stageName = null) {
+		// Get the current user, relying on current session if appropriate
 		if ($userId == null) {
 			$user = $request->getUser();
 		} else {
 			$userDao = DAORegistry::getDAO('UserDAO');
 			$user = $userDao->getById($userId);
-			if ($user == null) { // user does not exist
-				return array();
-			}
 		}
+		if ($user == null) return null;
+
+		// Get the submission's context, relying on the current session if appropriate
+		if (!($context = $request->getContext()) || $context->getId() != $submission->getContextId()) {
+			$contextDao = Application::getContextDAO();
+			$context = $contextDao->getById($submission->getContextId());
+		} 
+		$dispatcher = $request->getDispatcher();
 
 		// If user is enrolled with a context manager user group, let
-		// him access the workflow pages.
+		// them access the workflow pages.
 		$roleDao = DAORegistry::getDAO('RoleDAO');
-		$isManager = $roleDao->userHasRole($submission->getContextId(), $user->getId(), ROLE_ID_MANAGER);
-		if($isManager) {
-			return array('workflow', 'access');
+		if ($roleDao->userHasRole($context->getId(), $user->getId(), ROLE_ID_MANAGER)) {
+			return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'workflow', $stageName?$stageName:'access', $submission->getId());
 		}
-
-		$submissionId = $submission->getId();
 
 		// If user has only author role user groups stage assignments,
 		// then add an author dashboard link action.
@@ -197,8 +212,9 @@ class SubmissionsListGridCellProvider extends DataObjectGridCellProvider {
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 
 		$authorUserGroupIds = $userGroupDao->getUserGroupIdsByRoleId(ROLE_ID_AUTHOR);
-		$stageAssignmentsFactory = $stageAssignmentDao->getBySubmissionAndStageId($submissionId, null, null, $user->getId());
+		$stageAssignmentsFactory = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), null, null, $user->getId());
 
+		// Check if the user should be considered as author
 		$authorDashboard = false;
 		while ($stageAssignment = $stageAssignmentsFactory->next()) {
 			if (!in_array($stageAssignment->getUserGroupId(), $authorUserGroupIds)) {
@@ -208,41 +224,13 @@ class SubmissionsListGridCellProvider extends DataObjectGridCellProvider {
 			$authorDashboard = true;
 		}
 		if ($authorDashboard) {
-			return array('authorDashboard', 'submission');
-		} else {
-			return array('workflow', 'access');
+			if ($submission->getSubmissionProgress()>0) {
+				// Incomplete submission; send back to wizard.
+				return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'submission', 'wizard', $submission->getSubmissionProgress(), array('submissionId' => $submission->getId()));
+			}
+			return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'authorDashboard', 'submission', $submission->getId());
 		}
-	}
-
-	//
-	// Private helper methods.
-	//
-	/**
-	 * Get the cell link action.
-	 * @param $request Request
-	 * @param $page string
-	 * @param $operation string
-	 * @param $submission Submission
-	 * @param $title string
-	 * @return LinkAction
-	 */
-	function _getCellLinkAction($request, $page, $operation, $submission, $title) {
-		$router = $request->getRouter();
-		$dispatcher = $router->getDispatcher();
-
-		import('lib.pkp.classes.linkAction.request.RedirectAction');
-		return new LinkAction(
-			'itemWorkflow',
-			new RedirectAction(
-				$dispatcher->url(
-					$request, ROUTE_PAGE,
-					null,
-					$page, $operation,
-					$submission->getId()
-				)
-			),
-			$title
-		);
+		return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'workflow', $stageName?$stageName:'access', $submission->getId());
 	}
 }
 

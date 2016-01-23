@@ -10,11 +10,16 @@
  */
 
 body {
-	direction:rtl;
+	direction: rtl;
 	text-align: right; 
-	unicode-bidi:embed;
+	unicode-bidi: embed;
 }
 
 #headerTitle {
 	text-align: center !important;
+}
+
+div {	
+	direction: rtl;
+	text-align: right; 
 }

@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="tr_TR" full_name = "Türkiye Türkçesi">
+<locale name="tr_TR" full_name="Türkçe">
 	<message key="manager.announcements">Duyurular</message>
 	<message key="manager.announcements.confirmDelete">Bu duyuruyu kalıcı olarak silmek istediğinizden emin misiniz?</message>
 	<message key="manager.announcements.create">Yeni Duyuru Oluştur</message>
@@ -93,7 +93,7 @@
 	<message key="manager.groups.title">Başlık</message>
 	<message key="manager.importExport">İçe / Dışa Veri Aktar</message>
 	<message key="manager.languages.alternateLocaleInstructions">Bu sistem isteğe bağlı olarak çeşitli dillerde önemli bilgilerin girilmesine izin verir. Bu özelliği kullanmak için, alternatif diller seçin ve aşağıdaki seçeneklerden birini kulanın.</message>
-	<message key="manager.languages.supportedLocalesInstructions">Tüm sayfalarda dil seçimi olanağı ile siteyi geliştirmek için desteklemek istediğiniz dilleri seçiniz. Dil seçimi menüsü yalnızca birden fazla dil desteği seçilir ise sayfalarda görüntülenir.</message>
+	<message key="manager.languages.supportedLocalesInstructions">Tüm sayfalarda dil seçimi olanağı ile siteyi geliştirmek için desteklemek istediğiniz dilleri seçiniz. Dil seçimi menüsü yalnızca birden fazla dil desteği seçilir ise sayfalarda sunulacaktır.</message>
 	<message key="manager.payment.timestamp">Zaman Damgası</message>
 	<message key="manager.languages.supportedLocalesInstructions">Tüm sayfalarda dil seçimi olanağı ile siteyi geliştirmek için desteklemek istediğiniz dilleri seçiniz. Dil seçimi menüsü yalnızca birden fazla dil desteği seçilir ise sayfalarda sunulacaktır. </message>
 	<message key="manager.people.authSource">Yetkilendirme kaynağı</message>
@@ -101,7 +101,7 @@
 	<message key="manager.people.createUser">Yeni Kullanıcı Oluştur</message>
 	<message key="manager.people.createUserGeneratePassword">Rasgele bir şifre oluştur.</message>
 	<message key="manager.people.createUserSendNotify">Kullanıcıya, kullanıcı adını ve şifresini içeren bir hoş geldin mesajı gönder.</message>
-	<message key="manager.people.disable">PASİF</message>
+	<message key="manager.people.disable">Pasif</message>
 	<message key="manager.people.doNotEnroll">Yetki verme</message>
 	<message key="manager.people.editProfile">Profili Düzenle</message>
 	<message key="manager.people.editUser">Kullaıcı Düzenle</message>
@@ -110,12 +110,12 @@
 	<message key="manager.people.emailUsers">Üyelere E-Posta Gönder</message>
 	<message key="manager.people.emailUsers.selectLocale">Dil seç</message>
 	<message key="manager.people.emailUsers.selectUsers">E-posta göndermek istediğiniz üyelerin isimlerinin yanındaki kutuları işaretleyiniz.</message>
-	<message key="manager.people.enable">ETKİN</message>
-	<message key="manager.people.enroll">KULLAICI KAYDET</message>
+	<message key="manager.people.enable">Etkin</message>
+	<message key="manager.people.enroll">Kullanıcı Kaydet</message>
 	<message key="manager.people.enrollment">Kayıt</message>
-	<message key="manager.people.enrollSelected">Seçilen kULLANICILARI Kaydet</message>
-	<message key="manager.people.enrollSyncRole">ROLÜ EŞZAMANLA</message>
-	<message key="manager.people.enrollSync">EŞZAMANLI KAYIT</message>
+	<message key="manager.people.enrollSelected">Seçilen Kullanıcıları Kaydet</message>
+	<message key="manager.people.enrollSyncRole">Rolü Senkronize Et</message>
+	<message key="manager.people.enrollSync">Senkronize Kayıt</message>
 	<message key="manager.people.enrollUserAsDescription">Kullanıcılar herhangi bir rol ile atanabilir veya iptal edilebilir.</message>
 	<message key="manager.people.enrollUserAs">Kullanıcıyı böyle kaydet</message>
 	<message key="manager.people.invalidUser">Üzgünüz, böyle bir kullanıcı yok.</message>
@@ -125,11 +125,11 @@
 	<message key="manager.people.mustChooseRole">"Kullanıcı Kaydı"nı tıklamadan önce lütfen bir rol seçiniz.</message>
 	<message key="manager.people.mustProvideName">Kullanıcı için en azından bir soyadı belirtiniz.</message>
 	<message key="manager.people.noMatchingUsers">Eşleşmeyen kullanıcılar.</message>
-	<message key="manager.people.noneEnrolled">Kayıtsız kullanıcı yok.</message>
+	<message key="manager.people.noneEnrolled">Kayıtlı kullanıcı yok.</message>
 	<message key="manager.people">Kişiler</message>
-	<message key="manager.people.remove">KALDIR</message>
+	<message key="manager.people.remove">Kaldır</message>
 	<message key="manager.people.saveAndCreateAnotherUser">Kaydet ve Yenisini Oluştur</message>
-	<message key="manager.people.signInAs">BU KİŞİ GİBİ GİRİŞ YAP</message>
+	<message key="manager.people.signInAs">Bu Kişi Gibi Giriş Yap</message>
 	<message key="manager.people.signInAsUser">Kullanıcı olarak giriş yap</message>
 	<message key="manager.people.syncUsers">Kullanıcıyı Eşzamanlı Yap</message>
 	<message key="manager.people.unenroll">Kayıt Dışı Bırak</message>
@@ -152,13 +152,7 @@
 	<message key="manager.roles">Görevler</message>
 	<message key="manager.setup.citationAssistant">Atıf Biçimlendirme Yardımcısı</message>
 	<message key="manager.setup.citationFilterParser">Atıf Alma</message>
-	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>To find and check citations in citation databases they first have to be split into machine readable metadata: title, publisher, publication date, etc. must all be extracted from the original citation text provided by the author. Connectors to external web services can assist in this process. One or several connectors can be added by clicking on the "Add Item" button below. Some of these connectors may need to be configured; you will be prompted if this is the case.</p>
-		<p>You can edit or delete an existing Connector by clicking the gear icon next to it.</p>]]></message>
 	<message key="manager.setup.citationFilterLookup">Atıf Kontrolü</message>
-	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>You must also enable and configure connections to external citation databases. This helps you to find errors in authors' citations or add additional information (e.g. DOIs or PubMed IDs) required for electronic publishing or deposit.</p> 
-		<p>We provide connectors to several external databases in which you can search for citations. Some of these databases require registration or configuration information to be entered. Please refer to the public websites of the databases for further information on how to register. You can add one or several databases by clicking on the "Add Item" button below.</p>
-		<p>You can edit or delete an existing external database connection by clicking the gear icon next to it.</p>
-		<p><strong>Note:</strong> In order for the citation checking process to complete in a timely manner, the <tt>citation_checking_max_processes</tt> directive in your configuration file must be set to a reasonable value. See the General Settings section in <tt>config.inc.php</tt> for more information.</p>]]></message>
 	<message key="manager.setup.citationOutput">Atıf Çıktısı</message>
 	<message key="manager.setup.citationOutputStyleDescription">Derginizde kullanılan yazar gönderileri için bir atıf biçimi seçin. Atıf Biçimlendirme Yardımcısı hataları kolayca görmenizi sağlar ve böylece XML olarak oluşturulan bir sürümle yazarın sürümünü karşılaştırabilirsiniz:</message>
 	<message key="manager.setup.errorDeletingItem">Bu öğe silinirken bir hata oluştu.</message>
@@ -225,15 +219,10 @@
 	<message key="manager.emails.addEmail">E-posta Şablonu Ekle</message>
 	<message key="manager.emails.data">Mesaj Veri Şablonu</message>
 	<message key="manager.emails.details">Şablon Detayları</message>
-	<message key="manager.emails.disable.message">You are about to disable this email template.  If there were system processes using this template, they will not use it anymore.  Do you want to confirm this operation?</message>
-	<message key="manager.emails.enable.message">You are about to enable this email.  Do you want to confirm this operation?</message>
-	<message key="manager.emails.resetAll.message">If you reset all templates, all modifications to the email templates will be lost.  Do you want to confirm this operation?</message>
-	<message key="manager.emails.reset.message">If you reset this template, all message data will be reset to its default value, losing all modifications.  Do you want to confirm this operation?</message>
 	<message key="manager.masthead.title">Yönetici Listesi</message>
 	<message key="manager.navigation">Yön Bulma</message>
 	<message key="manager.reviewerSearch.advancedSearch.short">Gelişmiş Arama</message>
 	<message key="manager.reviewerSearch.searchByName.short">Ada Göre Ara</message>
-	<message key="manager.reviewerSearch.form.instructions">Use the form below to set the maximum values for the terms you wish to search for.  The form is pre-populated with the calculated averages of those fields.</message>
 	<message key="manager.reviewerSearch.form.interests.instructions">Enter reviewer interests, separated by commas...</message>
 	<message key="manager.setup.layout.blockManagement">Yan Taraf Yönetimi</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Hatalı sayfa logo görseli veya hatalı yükleme. Kabul edilebilir biçimler: .gif, .jpg veya .png.</message>
@@ -241,11 +230,12 @@
 	<message key="plugins.categories.metadata">Üst Veri Eklentileri</message>
 	<message key="plugins.categories.metadata.description">Metadata Plugins implement additional meta-data standards.</message>
 	<message key="plugins.categories.citationLookup">Atıf Veri Tabanı Bağlantı Eklentileri</message>
-	<message key="plugins.categories.citationLookup.description">Citation Database Connector Plugins connect to citation databases to look up citations, e.g. during citation editing.</message>
 	<message key="plugins.categories.citationOutput">Atıf Çıktı Eklentileri</message>
-	<message key="plugins.categories.citationOutput.description">Citation Output Plugins implement citation standards. This supersedes Citation Format Plugins.</message>
 	<message key="plugins.categories.citationParser">Atıf Ayıklama Eklentileri</message>
-	<message key="plugins.categories.citationParser.description">Citation Extraction Plugins extract field-level data from raw citations (e.g. author, title, etc.).</message>
 	<message key="manager.statistics.city">Şehir</message>
 	<message key="manager.statistics.region">Bölge</message>
+	<message key="manager.emails.uploadXML">XML dosya yükle</message>
+	<message key="manager.emails.uploadSuccess">Seçilen e-posta şablonları güncellemesi başarılı</message>
+	<message key="manager.emails.uploadError">Dosya yükleme başarısız</message>
+	<message key="manager.emails.exportXML">Seçilmiş e-posta şablonlarını XML olarak ihraç et</message>
 </locale>

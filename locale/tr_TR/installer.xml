@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="tr_TR" full_name = "Türkiye Türkçesi">
+<locale name="tr_TR" full_name="Türkçe">
 	<message key="installer.additionalLocales">Ek diller</message>
 	<message key="installer.administratorAccount">Yönetici Hesabı</message>
 	<message key="installer.administratorAccountInstructions">Bu kullanıcı hesabı site yöneticisi olacaktır ve sisteme tam giriş yetkisi olacaktır. Ek kullanıcı hesapları kurulumdan sonra oluşturulabilir.</message>
@@ -70,4 +70,6 @@
 	<message key="installer.databaseCharsetInstructions"><![CDATA[Kodlama veri tabanında depolanan veriler için kullanılacaktır. Bu özelliği yalnızca MySQL> = 4.1.1 veya PostgreSQL> = 7.1 ve üstü sürümlerin desteklendiğini unutmayın. Veri tabanı sunucusu bu gereksinimleri karşılamıyorsa "Uygulanamaz" seçeneğini seçin.]]></message>
 	<message key="installer.installParseFilterConfigFileError"><![CDATA[Filitre konfigürasyon dosyası <tt>{$file}</tt> ayrıştırma hatası.]]></message>
 	<message key="installer.oaiSettings">Açık Arşivler Girişimi (OAI) Ayarları</message>
+	<message key="installer.beacon">İşaret</message>
+	<message key="installer.beacon.enable">PKP istatistikleri ve sadece güvenlik uyarısı amaçlı tekil bir sıra numarası (ID) ile Açık Arşivler Girişimi (OAI base URL) adresi veriniz.</message>
 </locale>

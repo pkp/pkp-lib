@@ -15,7 +15,7 @@
 <locale name="tr_TR" full_name = "Türkçe">
 	<message key="admin.adminFunctions">Yönetsel İşlevler</message>
 	<message key="admin.auth.confirmDelete">Bu yetkilendirme kaynağını kalıcı olarak silmek istediğinizden emin misiniz?</message>
-	<message key="admin.auth.create">Yetkilendirme kaynağı oluştur</message>
+	<message key="admin.auth.create">Yetkilendirme kaynağı yarat</message>
 	<message key="admin.auth.noneCreated">Herhangi bir yetkilendirme kaynağı tanımlanmamış.</message>
 	<message key="admin.authSources">Yetkilendirme Kaynakları</message>
 	<message key="admin.clearDataCache">Önbellekteki Verileri Temizle</message>
@@ -93,8 +93,10 @@
 	<message key="admin.scheduledTask.startTime">Görev süreci başladı.</message>
 	<message key="admin.scheduledTask.stopTime">Görev süreci durduruldu.</message>
 	<message key="admin.scheduledTask.noLog">Görev günlük (log) oluşturmadı</message>
-	<message key="admin.scheduledTask.openAccessNotification">Açık erişim bildirimi</message>
 	<message key="admin.scheduledTask.reviewReminder">Değerlendirme Hatırlatması</message>
 	<message key="admin.scheduledTask.subscriptionExpiryReminder">Abonelik sonu hatırlatması</message>
 	<message key="admin.fileLoader.fileProcessed">{$filename} dosyası işlendi ve arşivlendi.</message>
+	<message key="admin.scheduledTask.confirmClearLogs">Tüm zamanlanmış görev yürütme günlüklerini silmek istediğinizden emin misiniz?</message>
+	<message key="admin.scheduledTask.clearLogs">Zamanlanmış Görev Yürütme Günlüklerini Temizle</message>
+	<message key="admin.scheduledTask.downloadLog">ADS kurulumunuz otomatik olarak gerçekleştirildi ve bu görev tamamlandı. Kurulum notlarını buradan indirebilirsiniz: {$url}</message>
 </locale>

@@ -10,7 +10,7 @@
   * Localization strings for the tr_TR (Türkçe) locale.
   -->
 
-<locale name="tr_TR" full_name = "Türkiye Türkçesi">
+<locale name="tr_TR" full_name="Türkçe">
 	<!-- Author Submission -->
 	<message key="author.submit.submissionCitations">Gönderide atıf yapılan kaynaklar için biçimlendirilmiş bir referans listesi verin. Lütfen her referansı yeni bir satırdan başlatın.</message>
 
@@ -20,7 +20,7 @@
 	<message key="metadata.filters.crossref.settings.email.validationMessage">Lütfen geçerli bir CrossRef e-postas adresi kaydediniz. E-postanızı CrossRef web sayfasında ücretsiz olarak kayıt edebilirsiniz.</message>
 	<message key="metadata.filters.isbndb.settings.apiKey.displayName">ISBNdb API Anahtarı</message>
 	<message key="metadata.filters.isbndb.settings.apiKey.validationMessage">Lütfen ISBNdb API anahtarınız giriniz. Henüz bir anahtarınız yok ise ISBNdb projesinden ücretsiz olarak talep edebilirsiniz.</message>
-	<message key="metadata.filters.pubmed.settings.email.displayName">PubMed Kayıt e-Postası</message>
+	<message key="metadata.filters.pubmed.settings.email.displayName">PubMed kayıt e-postası</message>
 	<message key="metadata.filters.pubmed.settings.email.validationMessage">Eğer varsa geçerli bir PubMed kayıt e-postası giriniz.</message>
 	<message key="metadata.filters.worldcat.settings.apiKey.displayName">WorldCat API Anahtarı</message>
 	<message key="metadata.filters.worldcat.settings.apiKey.validationMessage">Eğer varsa geçerli bir WorldCat API anahtarı giriniz.</message>
@@ -203,11 +203,11 @@
 	<message key="submission.comments.sendDecisionToReviewers">Hakemlere editör kararını gönder</message>
 	<message key="submission.comments.subject">Konu</message>
 	<message key="submission.complete">Tamam</message>
-	<message key="submission.done">YapIldI</message>
+	<message key="submission.done">Sonuç</message>
 	<message key="submission.dueDate">Son gün</message>
 	<message key="submission.due">Son Tarih</message>
 	<message key="submission.editing">Düzenleme</message>
-	<message key="submission.editMetadata">Üst Veriyi Düzenle</message>
+	<message key="submission.editMetadata">Üst Veri Düzenle</message>
 	<message key="submission.email.backToEmailLog">E-posta günlüğüne geri dön</message>
 	<message key="submission.email.confirmClearLog">Bu başvuru için e-posta günlüğünü silmek istediğinizden emin misiniz?</message>
 	<message key="submission.email.confirmDeleteLogEntry">Bu e-posta günlüğü girişini silmek istediğinizden emin misiniz?</message>
@@ -220,7 +220,7 @@
 	<message key="submission.event.general.metadataUpdated">Gönderi Üst Verisi Güncellendi</message>
 	<message key="submission.event.general.suppFileUpdated">Gönderi dosyası güncellendi</message>
 	<message key="submission.event.reviewer.reviewAcceptedByProxy">Değerlendirme ataması vekil (proxy) tarafından kabul edildi</message>
-	<message key="submission.event.reviewer.reviewAccepted">Değerlendirme ataöası kabul edildi</message>
+	<message key="submission.event.reviewer.reviewAccepted">Değerlendirme ataması kabul edildi</message>
 	<message key="submission.event.reviewer.reviewCancelled">Değerlendirme ataması iptal edildi</message>
 	<message key="submission.event.reviewer.reviewDeclined">Değerlendirme ataması reddedildi</message>
 	<message key="submission.event.reviewer.reviewDueDate">Değerlendirme son tarihi değiştirildi</message>
@@ -234,7 +234,7 @@
 	<message key="submission.event.reviewer.reviewResubmitted">Değerlendirme tekrar gönderildi</message>
 	<message key="submission.event.reviewer.reviewRevision">Hakem revizyon dosyaları güncellendi</message>
 	<message key="submission.files">Dosyalar</message>
-	<message key="submission.galley">Dizgi</message>
+	<message key="submission.galley">Baskı Sürümü</message>
 	<message key="submission.history.clearLog">Günlüğü Temizle</message>
 	<message key="submission.history">Geçmiş</message>
 	<message key="submission.history.noLogEntries">Günlük girişi yok.</message>
@@ -306,7 +306,7 @@
 	<message key="submission.request">İstek</message>
 	<message key="submission.response">Yanıt</message>
 	<message key="submission.restrictions">Sınırlamalar</message>
-	<message key="submission.reviewMetadata">ÜTS VERİYİ DÜZENLE</message>
+	<message key="submission.reviewMetadata">Üst Veriyi Düzenle</message>
 	<message key="submission.review">Değerlendirme</message>
 	<message key="submission.reviewVersion">Değerlendirme Sürümü</message>
 	<message key="submissions.active">Etkin</message>
@@ -319,9 +319,9 @@
 	<message key="submissions.queuedEditing">Baskı Düzenlemesinde</message>
 	<message key="submissions.queued">Sırada</message>
 	<message key="submissions.queuedUnassigned">Editöre iletilecek</message>
-	<message key="submissions.ruling">Kurallar</message>
+	<message key="submissions.ruling">Karar</message>
 	<message key="submissions.submit">Gönderi</message>
-	<message key="submissions.submitted">Gönderildi</message>
+	<message key="submissions.submitted">Gönderi</message>
 	<message key="submission.start">Başla</message>
 	<message key="submission.submissionHistory">Başvuru Geçmişi</message>
 	<message key="submission.submissionManuscript">Değerlendirilecek Makale:</message>
@@ -390,7 +390,7 @@
 	<message key="submission.citations.editor.unprocessedCitations">The citations of this article are still being processed on the server. The current citation list only contains already processed citations. Please click the refresh button to see citations that have been processed in the meantime.</message>
 	<message key="submission.citations.filter.invalidMetadata">An error occurred in {$filterName}: One of the data elements returned from the data source (e.g. a web service) did not conform to the internal meta-data format. Therefore the data source's results were rejected. Please file this as a bug.</message>
 	<message key="submission.citations.filter.noResultFromFilterError">Several citation services did not return any results. You can try to manually edit citation fields and then query citation services again to improve results. If this doesn't help then the citation does not exist in any of the connected databases.</message>
-	<message key="submission.citations.filter.unsupportedPublicationType">Desteklenmeyen veya kayıp yayın türü. Lütfen yayın türünü (kabul edilebilir türler; 'book', 'journal', 'thesis' ve 'conf-proc') giriniz ve atıfı elle ekleyiniz.</message>
+	<message key="submission.citations.filter.unsupportedPublicationType">Desteklenmeyen veya kayıp yayın türü. Lütfen yayın türünü (kabul edilebilir türler; kitap, dergi, tez ve konferans bildirisi) giriniz ve atıfı elle ekleyiniz.</message>
 	<message key="submission.citations.filter.webserviceError">The {$filterName}'s web service call has returned an error when called with the following URL: {$webserviceUrl}. It may be that the web service is temporarily unavailable. You'll still be able to work with the remaining services and save your results. You can also try again later. If the error persists then please ask the journal manager to deactivate this service and open a bug report.</message>
 	<message key="submission.citations.filter.webserviceResultTransformationError">An error occurred in {$filterName}: The transformation of XML results (e.g. from a web service) into field-based meta-data failed. The reason probably is that the web service returned invalid or incomplete data. Please file this as a bug.</message>
 	<message key="submission.citations.metadata.changeWarning">Are you sure you want to update your references list? If you click OK, any changes made by the Editors will be overwritten. If you are not sure whether you should make changes to the references list, please contact the Editor in charge of your submission.</message>

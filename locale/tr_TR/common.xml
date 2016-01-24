@@ -88,7 +88,7 @@
 	<message key="common.delete">Sil</message>
 	<message key="common.deleteSelection">Seçileni Sil</message>
 	<message key="common.description">Açıklama</message>
-	<message key="common.disable">Kapalı</message>
+	<message key="common.disable">Kapat</message>
 	<message key="common.disabled">Kapatıldı</message>
 	<message key="common.discipline">Disiplin</message>
 	<message key="common.done">Tamamlandı</message>
@@ -132,7 +132,7 @@
 	<message key="common.notAvailable">Kullanılmaz</message>
 	<message key="common.note">Not</message>
 	<message key="common.notes">Notlar</message>
-	<message key="common.off">Kapalı</message>
+	<message key="common.off">Kapat</message>
 	<message key="common.on">Açık</message>
 	<message key="common.ok">Tamam</message>
 	<message key="common.options">Seçenekler</message>
@@ -257,24 +257,24 @@
 	<message key="icon.view.alt">Göster</message>
 	<message key="locale.primary">Öncelikli dil</message>
 	<message key="locale.supported">Desteklenen diller</message>
-	<message key="navigation.about">HAKKINDA</message>
-	<message key="navigation.browse">GÖZ AT</message>
+	<message key="navigation.about">Hakkında</message>
+	<message key="navigation.browse">Göz At</message>
 	<message key="navigation.browseByTitle">Başlığa Göre</message>
 	<message key="navigation.dashboard">Gösterge Paneli</message>
-	<message key="navigation.home">ANA SAYFA</message>
+	<message key="navigation.home">Ana Sayfa</message>
 	<message key="navigation.infoForReaders">Okuyucular İçin</message>
 	<message key="navigation.infoForReaders.long">Okuyucular İçin Bilgi</message>
 	<message key="navigation.items">Toplam {$total} ögeden {$from} - {$to} arası</message>
-	<message key="navigation.login">KULLANICI</message>
+	<message key="navigation.login">Kullanıcı</message>
 	<message key="navigation.nextPage"><![CDATA[&gt;&gt;]]></message>
 	<message key="navigation.nextStep">Sonraki Adım</message>
 	<message key="navigation.previousPage"><![CDATA[&lt;&lt;]]></message>
 	<message key="navigation.previousStep">Önceki Adım</message>
-	<message key="navigation.register">KAYIT</message>
+	<message key="navigation.register">Kayıt</message>
 	<message key="navigation.search">Ara</message>
 	<message key="navigation.stepNumber">Adım {$step}</message>
-	<message key="navigation.userHome">KULLANICI</message>
-	<message key="navigation.user">KULLANICI</message>
+	<message key="navigation.userHome">Kullanıcı</message>
+	<message key="navigation.user">Kullanıcı</message>
 	<message key="notification.allow">Bu tür bildirimlerin görüntülenmesine izin ver.</message>
 	<message key="notification.confirmError">Abonelik doğrulamanızda bir hata var.</message>
 	<message key="notification.confirmSuccess">Başarılı bir şekilde kayıt oldunuz.</message>
@@ -288,8 +288,8 @@
 	<message key="notification.mailList.register">Bu siteye kayıt olabilirsiniz...</message>
 	<message key="notification.mailList.review"><![CDATA[<a href="{$reviewUrl}">Değerlendirme</a> sürecine katılabiliriniz]]></message>
 	<message key="notification.noneExist">Her hangi bir bildirim yok.</message>
-	<message key="notification.notification">BİLDİRİM</message>
-	<message key="notification.notifications">BİLDİRİMLER</message>
+	<message key="notification.notification">Bildirim</message>
+	<message key="notification.notifications">Bildirimler</message>
 	<message key="notification.notificationsNew">({$numNew} yeni)</message>
 	<message key="notification.notificationsDescription"><![CDATA[{$unreadCount} okunmamış, {$readCount} okunmuş bildiriminiz var. Bildirim ayarlarınızı değiştirmek için   <a href="{$settingsUrl}"> tıklayınız </a>.]]></message>
 	<message key="notification.settings">Bilgilendirme Ayarları</message>

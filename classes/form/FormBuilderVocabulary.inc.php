@@ -277,9 +277,6 @@ class FormBuilderVocabulary {
 			case 'interests':
 				$content = $this->_smartyFBVInterestsInput($params, $smarty);
 				break;
-			case 'link':
-				$content = $this->_smartyFBVLink($params, $smarty);
-				break;
 			case 'radio':
 				$content = $this->_smartyFBVRadioButton($params, $smarty);
 				unset($params['label']);
@@ -350,31 +347,6 @@ class FormBuilderVocabulary {
 		$smarty->assign('FBV_buttonParams', $buttonParams);
 
 		return $smarty->fetch('form/button.tpl');
-	}
-
-	/**
-	 * Text link.
-	 * parameters: label (or value), disabled (optional)
-	 * @param $params array
-	 * @param $smarty object
-	 */
-	function _smartyFBVLink($params, &$smarty) {
-		assert(isset($params['id']));
-
-		// Set the URL if there is one (defaults to '#' e.g. when the link should activate javascript)
-		$smarty->assign('FBV_href', isset($params['href']) ? $params['href'] : '#');
-
-		$smarty->clear_assign(array('FBV_label', 'FBV_disabled'));
-		foreach ($params as $key => $value) {
-			switch ($key) {
-				case 'label':
-				case 'disabled':
-					$smarty->assign('FBV_' . $key, $value);
-					break;
-			}
-		}
-
-		return $smarty->fetch('form/link.tpl');
 	}
 
 	/**

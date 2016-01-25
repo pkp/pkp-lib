@@ -185,11 +185,11 @@
 			</div>
 		{/if}
 
-		<fieldset class="buttons">
+		<div class="buttons">
 			<button class="submit" type="submit">
 				{translate key="user.register"}
 			</button>
-		</fieldset>
+		</div>
 
 		{if !$implicitAuth}
 			<div class="required_label">

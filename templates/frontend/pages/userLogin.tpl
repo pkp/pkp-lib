@@ -48,39 +48,37 @@
 
 		{if !$implicitAuth}
 
-			<fieldset class="login">
-				<ul class="fields">
-					<li class="username">
-						<label>
-							<span class="label">
-								{translate key="user.username"}
-							</span>
-							<input type="text" name="username" id="username" value="{$username|escape}" maxlength="32" required>
-						</label>
-					</li>
-					<li class="password">
-						<label>
-							<span class="label">
-								{translate key="user.password"}
-								<a href="{url page="login" op="lostPassword"}">
-									{translate key="user.login.forgotPassword"}
-								</a>
-							</span>
-							<input type="password" name="password" id="password" value="{$password|escape}" password="true" maxlength="32" required="$passwordRequired">
-						</label>
-					</li>
-					<li class="remember checkbox">
-						<label>
-							<input type="checkbox" name="remember" id="remember" value="1" checked="$remember">
-							<span class="label">
-								{translate key="user.login.rememberUsernameAndPassword"}
-							</span>
-						</label>
-					</li>
-				</ul>
-			</fieldset>
+			<ul class="fields">
+				<li class="username">
+					<label>
+						<span class="label">
+							{translate key="user.username"}
+						</span>
+						<input type="text" name="username" id="username" value="{$username|escape}" maxlength="32" required>
+					</label>
+				</li>
+				<li class="password">
+					<label>
+						<span class="label">
+							{translate key="user.password"}
+							<a href="{url page="login" op="lostPassword"}">
+								{translate key="user.login.forgotPassword"}
+							</a>
+						</span>
+						<input type="password" name="password" id="password" value="{$password|escape}" password="true" maxlength="32" required="$passwordRequired">
+					</label>
+				</li>
+				<li class="remember checkbox">
+					<label>
+						<input type="checkbox" name="remember" id="remember" value="1" checked="$remember">
+						<span class="label">
+							{translate key="user.login.rememberUsernameAndPassword"}
+						</span>
+					</label>
+				</li>
+			</ul>
 
-			<fieldset class="buttons">
+			<div class="buttons">
 				<button class="submit" type="submit">
 					{translate key="user.login"}
 				</button>
@@ -91,7 +89,7 @@
 						{translate key="user.login.registerNewAccount"}
 					</a>
 				{/if}
-			</fieldset>
+			</div>
 
 			{* {fbvFormArea id="loginFields"}
 				{fbvFormSection label="user.username" for="username"}

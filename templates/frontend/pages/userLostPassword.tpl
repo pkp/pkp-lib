@@ -31,20 +31,18 @@
 			</div>
 		{/if}
 
-		<fieldset class="email">
-			<ul class="fields">
-				<li class="email">
-					<label>
-						<span class="label">
-							{translate key="user.login.registeredEmail"}
-						</span>
-						<input type="text" name="email" id="email" value="{$email|escape}" maxlength="32" required>
-					</label>
-				</li>
-			</ul>
-		</fieldset>
+		<ul class="fields">
+			<li class="email">
+				<label>
+					<span class="label">
+						{translate key="user.login.registeredEmail"}
+					</span>
+					<input type="text" name="email" id="email" value="{$email|escape}" maxlength="32" required>
+				</label>
+			</li>
+		</ul>
 
-		<fieldset class="buttons">
+		<div class="buttons">
 			<button class="submit" type="submit">
 				{translate key="user.login.resetPassword"}
 			</button>
@@ -55,7 +53,7 @@
 					{translate key="user.login.registerNewAccount"}
 				</a>
 			{/if}
-		</fieldset>
+		</div>
 	</form>
 
 </div><!-- .page -->

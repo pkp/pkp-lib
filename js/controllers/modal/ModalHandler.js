@@ -177,8 +177,8 @@
 		$modal.append('<div class="content"></div>');
 
 		// Add aria role and label
-		$modal.attr( 'role', 'dialog' )
-			.attr( 'aria-label', this.options.title );
+		$modal.attr('role', 'dialog')
+			.attr('aria-label', this.options.title);
 
 		return $modal;
 	};

@@ -35,6 +35,10 @@
 			function($handledElement, options) {
 
 		this.parent($handledElement, options);
+
+		// Bind to the confirmation button
+		$handledElement.find('.pkpModalConfirmButton')
+				.on('click', this.callbackWrapper(this.modalConfirm));
 	};
 	$.pkp.classes.Helper.inherits($.pkp.controllers.modal.ConfirmationModalHandler,
 			$.pkp.controllers.modal.ModalHandler);

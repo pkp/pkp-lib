@@ -39,10 +39,6 @@
 		// Configure the redirect URL to be called when
 		// the modal closes.
 		this.remoteUrl_ = options.remoteUrl;
-
-		// Bind to the confirmation button
-		$handledElement.find('.pkpModalConfirmButton')
-				.on('click', this.callbackWrapper(this.modalConfirm));
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.modal.RedirectConfirmationModalHandler,

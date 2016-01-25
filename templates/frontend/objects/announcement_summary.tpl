@@ -8,13 +8,18 @@
  * @brief Display a summary view of an announcement
  *
  * @uses $announcement Announcement The announcement to display
+ * @uses $heading string HTML heading element, default: h2
  *}
+{if !$heading}
+	{assign var="heading" value="h2"}
+{/if}
+
 <article class="obj_announcement_summary">
-	<h4>
+	<{$heading}>
 		<a href="{url router=$smarty.const.ROUTE_PAGE page="announcement" op="view" path=$announcement->getId()}">
 			{$announcement->getLocalizedTitle()|escape}
 		</a>
-	</h4>
+	</{$heading}>
 	<div class="date">
 		{$announcement->getDatePosted()}
 	</div>

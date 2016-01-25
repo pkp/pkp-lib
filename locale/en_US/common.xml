@@ -213,6 +213,7 @@
 	<message key="common.saveAndEmail">Save and email</message>
 	<message key="common.save">Save</message>
 	<message key="common.search">Search</message>
+	<message key="common.searchQuery">Search Query</message>
 	<message key="common.second">Second(s)</message>
 	<message key="common.selectAll">Select All</message>
 	<message key="common.selectNone">Select None</message>

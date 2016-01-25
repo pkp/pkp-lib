@@ -26,9 +26,10 @@
 	<message key="editor.submission.revisions">Revisions</message>
 	<message key="editor.submission.review.reviewersDescription"><![CDATA[Use <em>+Add Reviewer</em> to invite readers to review the submission files. The notebook icon indicates that a review has been submitted, which is then checked <em>Acknowledged</em> after it has been consulted. When reviews are overdue, a red envelope icon appears for reminding reviewers.]]></message>
 	<message key="editor.submission.addReviewer">Add Reviewer</message>
+	<message key="editor.submission.findAndSelectReviewer">Locate a Reviewer</message>
 	<message key="editor.submission.fileList.includeAllStages">Include all files from all accessible workflow stages.</message>
 	<message key="editor.submission.review.currentFiles">Current Review Files For Round {$round}</message>
-	<message key="editor.submission.returnToSimpleSearch">Return to Simple Search</message>
+	<message key="editor.submission.backToSearch">Back to Search</message>
 	<message key="editor.review.createReviewer">Create New Reviewer</message>
 	<message key="editor.review.enrollReviewer.short">Enroll Existing User</message>
 	<message key="editor.review.unassignReviewer">Unassign Reviewer</message>
@@ -99,7 +100,6 @@
 	<message key="editor.article.confirmChangeReviewForm">Warning: Changing the review form will affect any answers reviewers have made using this form. Are you sure you wish to continue?</message>
 	<message key="editor.submission.noReviewerFilesSelected">No Files Selected</message>
 	<message key="editor.submission.noReviewerFilesSelected.details">You have not selected any files for the reviewer to review.</message>
-	<message key="editor.submission.selectedReviewer">Selected Reviewer</message>
 	<message key="submission.queries.subjectRequired">A discussion subject is required.</message>
 	<message key="submission.queries.messageRequired">A discussion message is required.</message>
 	<message key="submission.queries.attachedFiles">Attached Files</message>

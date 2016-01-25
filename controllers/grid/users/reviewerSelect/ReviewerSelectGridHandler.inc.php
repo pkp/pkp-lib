@@ -67,6 +67,8 @@ class ReviewerSelectGridHandler extends GridHandler {
 		);
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 
+		$this->setTitle('editor.submission.findAndSelectReviewer');
+
 		// Columns
 		$cellProvider = new ReviewerSelectGridCellProvider();
 		$this->addColumn(
@@ -158,6 +160,7 @@ class ReviewerSelectGridHandler extends GridHandler {
 		$reviewerValues = $filter['reviewerValues'];
 
 		// Retrieve the authors associated with this submission to be displayed in the grid
+		$name = $reviewerValues['name'];
 		$doneMin = $reviewerValues['doneMin'];
 		$doneMax = $reviewerValues['doneMax'];
 		$avgMin = $reviewerValues['avgMin'];
@@ -171,7 +174,7 @@ class ReviewerSelectGridHandler extends GridHandler {
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$reviewRound = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND);
 		return $userDao->getFilteredReviewers(
-			$submission->getContextId(), $reviewRound->getStageId(),
+			$submission->getContextId(), $reviewRound->getStageId(), $name,
 			$doneMin, $doneMax, $avgMin, $avgMax,
 			$lastMin, $lastMax, $activeMin, $activeMax, $interests,
 			$submission->getId(), $reviewRound->getId()
@@ -194,6 +197,7 @@ class ReviewerSelectGridHandler extends GridHandler {
 		} else {
 			return array(
 				'reviewerValues' => array(
+					'name' => null,
 					'doneMin' => null,
 					'doneMax' => null,
 					'avgMin' => null,
@@ -218,6 +222,14 @@ class ReviewerSelectGridHandler extends GridHandler {
 		$reviewRound = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND);
 		import('lib.pkp.controllers.grid.users.reviewerSelect.form.AdvancedSearchReviewerFilterForm');
 		return new AdvancedSearchReviewerFilterForm($submission, $stageId, $reviewRound->getId());
+	}
+
+	/**
+	 * Determine whether a filter form should be collapsible.
+	 * @return boolean
+	 */
+	protected function isFilterFormCollapsible() {
+		return false;
 	}
 }
 

@@ -277,9 +277,6 @@ class FormBuilderVocabulary {
 			case 'interests':
 				$content = $this->_smartyFBVInterestsInput($params, $smarty);
 				break;
-			case 'link':
-				$content = $this->_smartyFBVLink($params, $smarty);
-				break;
 			case 'radio':
 				$content = $this->_smartyFBVRadioButton($params, $smarty);
 				unset($params['label']);
@@ -353,31 +350,6 @@ class FormBuilderVocabulary {
 	}
 
 	/**
-	 * Text link.
-	 * parameters: label (or value), disabled (optional)
-	 * @param $params array
-	 * @param $smarty object
-	 */
-	function _smartyFBVLink($params, &$smarty) {
-		assert(isset($params['id']));
-
-		// Set the URL if there is one (defaults to '#' e.g. when the link should activate javascript)
-		$smarty->assign('FBV_href', isset($params['href']) ? $params['href'] : '#');
-
-		$smarty->clear_assign(array('FBV_label', 'FBV_disabled'));
-		foreach ($params as $key => $value) {
-			switch ($key) {
-				case 'label':
-				case 'disabled':
-					$smarty->assign('FBV_' . $key, $value);
-					break;
-			}
-		}
-
-		return $smarty->fetch('form/link.tpl');
-	}
-
-	/**
 	 * Form Autocomplete text input. (actually two inputs, label and value)
 	 * parameters: disabled (optional), name (optional - assigned value of 'id' by default)
 	 * @param $params array
@@ -422,7 +394,8 @@ class FormBuilderVocabulary {
 		$smarty->assign('FBV_min', $params['min']);
 		$smarty->assign('FBV_max', $params['max']);
 
-		$smarty->assign('FBV_label_content', isset($params['label']) ? $this->_smartyFBVSubLabel($params, $smarty) : null);
+		$smarty->assign('FBV_value_min', isset($params['valueMin']) ? $params['valueMin'] : $params['min']);
+		$smarty->assign('FBV_value_max', isset($params['valueMax']) ? $params['valueMax'] : $params['max']);
 
 		return $smarty->fetch('form/rangeSlider.tpl');
 	}

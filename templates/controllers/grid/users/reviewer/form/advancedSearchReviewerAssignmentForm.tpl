@@ -8,7 +8,6 @@
  * Assigns the reviewer (selected from the reviewerSelect grid) to review the submission.
  *
  *}
-
 <script type="text/javascript">
 	$(function() {ldelim}
 		// Attach the form handler for second form.

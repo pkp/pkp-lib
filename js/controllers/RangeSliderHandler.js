@@ -38,15 +38,22 @@
 				);
 
 		// Get the container that will display the numeric values of the slider.
-		this.label_ = $rangeSliderField.find(
-				'.pkp_controllers_rangeSlider_sliderValue'
+		this.labelMin_ = $rangeSliderField.find(
+				'.pkp_controllers_rangeSlider_sliderValueMin'
+				);
+		this.labelMax_ = $rangeSliderField.find(
+				'.pkp_controllers_rangeSlider_sliderValueMax'
 				);
 
 		// Create slider settings.
 		var opt = {}, rangeSliderOptions;
 		opt.min = options.min;
 		opt.max = options.max;
-		opt.values = [options.min, options.max];
+		if (typeof options.values === 'undefined') {
+			opt.values = [options.min, options.max];
+		} else {
+			opt.values = options.values;
+		}
 		rangeSliderOptions = $.extend({ },
 				this.self('DEFAULT_PROPERTIES_'), opt);
 
@@ -70,11 +77,19 @@
 
 
 	/**
-	 * The container that will display the numeric values of the slider.
+	 * The container that will display the numeric min value of the slider.
 	 * @private
 	 * @type {HTMLElement}
 	 */
-	$.pkp.controllers.RangeSliderHandler.label_ = null;
+	$.pkp.controllers.RangeSliderHandler.labelMin_ = null;
+
+
+	/**
+	 * The container that will display the numeric max value of the slider.
+	 * @private
+	 * @type {HTMLElement}
+	 */
+	$.pkp.controllers.RangeSliderHandler.labelMax_ = null;
 
 
 	/**
@@ -104,9 +119,9 @@
 			function(rangeSliderElement, event, ui) {
 
 		// Set the label
-		var $label = this.label_,
-				$minVal, $maxVal;
-		$label.val(ui.values[0] + ' - ' + ui.values[1]);
+		var $minVal, $maxVal;
+		this.labelMin_.html(ui.values[0]);
+		this.labelMax_.html(ui.values[1]);
 
 		// Set the hidden inputs
 		$minVal = $(rangeSliderElement).children(

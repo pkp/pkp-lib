@@ -14,7 +14,7 @@
 				'$.pkp.controllers.MenuHandler');
 	{rdelim});
  </script>
-<ul id="navigationUser" class="pkp_navigation_user pkp_nav_list">
+<ul id="navigationUser" class="pkp_navigation_user pkp_nav_list" role="navigation" aria-label="{translate|escape key="common.navigation.user"}">
 	{if $isUserLoggedIn}
 		<li>
 			{include file="controllers/page/tasks.tpl"}

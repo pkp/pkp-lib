@@ -18,14 +18,14 @@
 	{if empty($isFullWidth)}
 		{call_hook|assign:"leftSidebarCode" name="Templates::Common::LeftSidebar"}
 		{if $leftSidebarCode}
-			<div class="pkp_structure_sidebar left">
+			<div class="pkp_structure_sidebar left" role="complementary" aria-label="{translate|escape key="common.navigation.sidebar"}">
 				{$leftSidebarCode}
 			</div><!-- pkp_sidebar.left -->
 		{/if}
 	{/if}
 </div><!-- pkp_structure_content -->
 
-<div class="pkp_structure_footer_wrapper">
+<div class="pkp_structure_footer_wrapper" role="contentinfo">
 
 	<div class="pkp_structure_footer">
 
@@ -81,7 +81,7 @@
 
 </div><!-- pkp_structure_footer_wrapper -->
 
-<div class="pkp_brand_footer">
+<div class="pkp_brand_footer" role="complementary" aria-label="{translate|escape key="about.aboutThisPublishingSystem"}">
 	<a href="{url page="about" op="aboutThisPublishingSystem"}">
 		<img alt="{translate key=$packageKey}" src="{$baseUrl}/{$brandImage}">
 	</a>

@@ -29,8 +29,8 @@
 		{rdelim});
 	</script>
 	<div class="pkp_structure_page">
-		<header class="pkp_structure_head">
-			<nav class="pkp_navigation" id="headerNavigationContainer">
+		<header class="pkp_structure_head" role="banner">
+			<div class="pkp_navigation" id="headerNavigationContainer">
 
 				{* Logo or site title *}
 				<div class="pkp_site_name">
@@ -59,7 +59,7 @@
 									'$.pkp.controllers.MenuHandler');
 						{rdelim});
 					 </script>
-					<ul id="navigationPrimary" class="pkp_navigation_primary pkp_nav_list">
+					<ul id="navigationPrimary" class="pkp_navigation_primary pkp_nav_list" role="navigation" aria-label="{translate|escape key="common.navigation.site"}">
 
 						{url|assign:fetchTaskUrl router=$smarty.const.ROUTE_COMPONENT component="page.PageHandler" op="tasks" escape=false}
 						{capture assign="tasksNavPlaceholder"}
@@ -109,7 +109,7 @@
 
 				{url|assign:fetchHeaderUrl router=$smarty.const.ROUTE_COMPONENT component="page.PageHandler" op="userNavBackend" escape=false}
 				{load_url_in_div class="pkp_navigation_user" id="navigationUserWrapper" url=$fetchHeaderUrl}
-			</nav><!-- pkp_navigation -->
+			</div><!-- pkp_navigation -->
 		</header>
 
 		<div class="pkp_structure_content">
@@ -121,7 +121,7 @@
 				{rdelim});
 			</script>
 
-			<div class="pkp_structure_main">
+			<div class="pkp_structure_main" role="main">
 				{** allow pages to provide their own titles **}
 				{if !$suppressPageTitle}
 					<div class="pkp_page_title">

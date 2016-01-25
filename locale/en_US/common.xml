@@ -34,6 +34,10 @@
 	<message key="announcement.postedOn">Posted on {$postDate}</message>
 	<message key="announcement.view">View Announcement</message>
 	<message key="common.navigation">Navigation</message>
+	<message key="common.navigation.sidebar">Sidebar</message>
+	<message key="common.navigation.site">Site Navigation</message>
+	<message key="common.navigation.siteContext">Site Context Navigation</message>
+	<message key="common.navigation.user">User Navigation</message>
 	<message key="common.tasks">Tasks</message>
 	<message key="common.list">List</message>
 	<message key="common.grid">Grid</message>

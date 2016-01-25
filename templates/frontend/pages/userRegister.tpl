@@ -199,9 +199,9 @@
 
 		{if $privacyStatement}
 			<div class="privacy">
-				<h3>
+				<h2>
 					{translate key="user.register.privacyStatement"}
-				</h3>
+				</h2>
 				<p>
 					{$privacyStatement|nl2br}
 				</p>

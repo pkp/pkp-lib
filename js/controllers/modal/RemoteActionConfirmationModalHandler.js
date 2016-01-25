@@ -39,8 +39,6 @@
 		// Configure the remote action (URL) to be called when
 		// the modal closes.
 		this.remoteAction_ = options.remoteAction;
-		$handledElement.find('.pkpModalConfirmButton').on(
-				'click', this.callbackWrapper(this.modalConfirm));
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.modal.RemoteActionConfirmationModalHandler,

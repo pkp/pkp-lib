@@ -125,9 +125,6 @@
 				{** allow pages to provide their own titles **}
 				{if !$suppressPageTitle}
 					<div class="pkp_page_title">
-						<h2>{$pageTitleTranslated}</h2>
-						{if $currentJournal}
-							<h3>{$currentJournal->getLocalizedName()}</h3>
-						{/if}
+						<h1>{$pageTitleTranslated}</h1>
 					</div>
 				{/if}

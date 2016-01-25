@@ -19,14 +19,14 @@
 </script>
 <div id="submissionHeader">
 	<div class="pkp_page_title">
-		<h2 class="pkp_submission_title">
+		<h1 class="pkp_submission_title">
 			<!-- @todo screen reader text: Submission Title: -->
 			{$submission->getLocalizedTitle()}
-		</h2>
-		<h3 class="pkp_submission_author">
+		</h1>
+		<div class="pkp_submission_author">
 			<!-- @todo screen reader text: Submission Authors: -->
 			{$submission->getAuthorString()}
-		</h3>
+		</div>
 		<ul class="pkp_submission_actions">
 			{if array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR), $userRoles)}
 				<li>{include file="linkAction/linkAction.tpl" action=$submissionEntryAction}</li>

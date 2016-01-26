@@ -30,7 +30,8 @@
 					cancelUrl=$FBV_cancelUrl}
 		{/if}
 		{if $FBV_formReset}
-			<a href="#" id="resetButton-{$uniqid}" class="resetButton">{translate key=$FBV_cancelText}</a>
+			{assign var=resetButtonId value=""|uniqid}
+			<a href="#" id={$resetButtonId} class="resetButton">{translate key=$FBV_cancelText}</a>
 		{else}
 			<a href="#" id="{$cancelButtonId}" class="cancelButton">{translate key=$FBV_cancelText}</a>
 		{/if}

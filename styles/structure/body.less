@@ -64,19 +64,17 @@ img {
 	padding: (@double * 2) @double @double;
 }
 
-// Context panel
-@pkp_tab_sidebar_width: 192px;
-.pkp_tab_sidebar {
-	position: absolute;
-	top: @double;
-	right: @double;
-	width: @pkp_tab_sidebar_width;
-	margin: 0;
-	padding: 0;
-	list-style: none;
+// Panel wrapper when supporting context sidebar
+.pkp_panel_wrapper {
+	.pkp_helpers_clear;
+}
 
-	> li {
+// Context sidebar
+.pkp_context_sidebar {
+
+	> * {
 		margin-bottom: @double;
+		max-width: 400px;
 
 		&:last-child {
 			margin-bottom: 0;
@@ -105,15 +103,31 @@ img {
 	}
 }
 
-// Collapse spacing when the panel is with nested tab panels
-.ui-tabs-panel .ui-tabs-panel .pkp_tab_sidebar {
-	top: 0;
-	right: 0;
+// TODO no responsive breakpoints exist site-wide. This is just a temporary
+// placement until we can work out a more responsive backend
+@media(min-width: 767px) {
+
+	.pkp_context_sidebar {
+		float: right;
+		width: 25%;
+	}
+
+	.pkp_content_panel {
+		float: left;
+		width: 75%;
+		padding-right: @double;
+	}
 }
 
-// Content panel {
-.pkp_content_panel {
-	margin-right: @pkp_tab_sidebar_width + @double;
+@media(min-width: 1700px) {
+
+	.pkp_context_sidebar {
+		width: 20%;
+	}
+
+	.pkp_content_panel {
+		width: 80%;
+	}
 }
 
 // Page content wrapper for pages without tabs

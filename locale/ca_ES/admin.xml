@@ -2,15 +2,15 @@
 <!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
 
 <!--
-  * locale/en_US/admin.xml
+  * locale/ca_ES/admin.xml
   *
-  * Copyright (c) 2014 Simon Fraser University Library
-  * Copyright (c) 2000-2014 John Willinsky
+  * Copyright (c) 2015 Simon Fraser University Library
+  * Copyright (c) 2003-2015 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
-  * 
+  *
   * Credits: http://pkp.sfu.ca/wiki/index.php?title=OMP:_Catalan_%28ca_ES%29
-  * 
-  * Localization strings.
+  *
+  * Localization strings for the ca_ES (Català) locale.
   -->
 
 <locale name="ca_ES" full_name="Català">
@@ -23,33 +23,33 @@
 	<message key="admin.authSources">Fonts d’autenticació</message>
 	<message key="admin.clearDataCache">Esborra la memòria cau de dades</message>
 	<message key="admin.clearTemplateCache">Esborra la memòria cau de plantilles</message>
-	<message key="admin.configFileUpdatedInstructions"><![CDATA[El fitxer de configuració s&#39;ha desat correctament. Tingueu en compte que si el seu lloc ja no funciona correctament potser haureu de modificar manualment la configuració editant <tt>config.inc.php</tt> directament.]]></message>
+	<message key="admin.configFileUpdatedInstructions"><![CDATA[El fitxer de configuració s'ha desat correctament. Tingueu en compte que si el seu lloc ja no funciona correctament potser haureu de modificar manualment la configuració editant <tt>config.inc.php</tt> directament.]]></message>
 	<message key="admin.confirmClearTemplateCache">Esteu segur/a que voleu esborrar la memòria cau de les plantilles compilades?</message>
-	<message key="admin.confirmExpireSessions">Esteu segur/a que voleu vèncer totes les sessions d&apos;usuari/ària? Tots els usuaris/àries que tinguin la sessió iniciada al sistema hauran d&apos;iniciar la sessió de nou, inclòs vós.</message>
+	<message key="admin.confirmExpireSessions">Esteu segur/a que voleu vèncer totes les sessions d'usuari/ària? Tots els usuaris/àries que tinguin la sessió iniciada al sistema hauran d'iniciar la sessió de nou, inclòs vós.</message>
 	<message key="admin.contentsOfConfigFile">Continguts del fitxer de configuració</message>
-	<message key="admin.copyAccessLogFileTool.usage">Copia el/s fitxer/s de registre passat/s, i filtra les entrades relacionades amb la instal·lació del directori de fitxers actual, dins del directori UsageStatsPlugin. Heu d&apos;accedir amb un usuari amb suficients privilegis per llegir els fitxers de registre d&apos;apache.
+	<message key="admin.copyAccessLogFileTool.usage">Copia el/s fitxer/s de registre passat/s, i filtra les entrades relacionades amb la instal·lació del directori de fitxers actual, dins del directori UsageStatsPlugin. Heu d'accedir amb un usuari amb suficients privilegis per llegir els fitxers de registre d'apache.
 
-Aquesta eina només copiarà els fitxers que no es trobin al fitxer d&apos;estats d&apos;ús\n als directoris del carregador (fase, processament, arxivar i rebutjar).
+Aquesta eina només copiarà els fitxers que no es trobin al fitxer d'estats d'ús\n als directoris del carregador (fase, processament, arxivar i rebutjar).
 
 Ús: {$scriptName} path/to/apache/log/file.log
-Ús (proessa tots els fitxers a un directori d&apos;arxiu): {$scriptName} path/to/apache/directory
+Ús (proessa tots els fitxers a un directori d'arxiu): {$scriptName} path/to/apache/directory
 Ús (processa tots els fitxers a un directori de fitxers que comença amb la cadena anterior): {$scriptName} path/to/apache/directory starts_with_string 
 	</message>
-	<message key="admin.copyAccessLogFileTool.error.creatingFolder">Hi ha hagut un error: no s&apos;ha pogut crear un directori temporal a {$tmpDir}</message>
-	<message key="admin.copyAccessLogFileTool.error.acessingFile">Hi ha hagut un error: No s&apos;ha pogut accedir al fitxer {$filePath} o no existeix.</message>
+	<message key="admin.copyAccessLogFileTool.error.creatingFolder">Hi ha hagut un error: no s'ha pogut crear un directori temporal a {$tmpDir}</message>
+	<message key="admin.copyAccessLogFileTool.error.acessingFile">Hi ha hagut un error: No s'ha pogut accedir al fitxer {$filePath} o no existeix.</message>
 	<message key="admin.copyAccessLogFileTool.error.copyingFile">Hi ha hagut un error: no es pot copiar el fitxer des de {$filePath} a {$tmpFilePath}</message>
-	<message key="admin.copyAccessLogFileTool.error.deletingFile">Hi ha hagut un error: no s&apos;ha pogut eliminar el fitxer {$tmpFilePath}</message>
-	<message key="admin.copyAccessLogFileTool.warning.fileAlreadyExists">Atenció: el fitxer {$filePath} ja existeix dins del directori d&apos;estats d&apos;ús.</message>
-	<message key="admin.copyAccessLogFileTool.success">L&apos;operació: {$filePath} a {$destinationPath}s&apos;ha realitzat correctament.</message>
+	<message key="admin.copyAccessLogFileTool.error.deletingFile">Hi ha hagut un error: no s'ha pogut eliminar el fitxer {$tmpFilePath}</message>
+	<message key="admin.copyAccessLogFileTool.warning.fileAlreadyExists">Atenció: el fitxer {$filePath} ja existeix dins del directori d'estats d'ús.</message>
+	<message key="admin.copyAccessLogFileTool.success">L'operació: {$filePath} a {$destinationPath}s'ha realitzat correctament.</message>
 	<message key="admin.currentVersion">Versió actual</message>
 	<message key="admin.dateInstalled">Data d’instal·lació</message>
-	<message key="admin.displayConfigFileInstructions"><![CDATA[El contingut de la configuració actualitzada es mostra a continuació. Per aplicar els canvis de configuració heu d&#39;obrir <tt>config.inc.php</tt> en un editor de textos compatible i remplaçar el contingut amb el del camp de text a continuació.]]></message>
+	<message key="admin.displayConfigFileInstructions"><![CDATA[El contingut de la configuració actualitzada es mostra a continuació. Per aplicar els canvis de configuració heu d'obrir <tt>config.inc.php</tt> en un editor de textos compatible i remplaçar el contingut amb el del camp de text a continuació.]]></message>
 	<message key="admin.displayNewSystemConfig">Visualitza la nova configuració</message>
 	<message key="admin.expireSessions">Fes vèncer les sessions d’usuari/usuària</message>
 	<message key="admin.languages.download">Descarrega la configuració regional</message>
 	<message key="admin.languages.downloadLocales">Descarrega configuracions regionals</message>
-	<message key="admin.languages.download.cannotOpen">No s&apos;ha pogut obrir el descriptor de llengua des del lloc web de PKP.</message>
-	<message key="admin.languages.download.cannotModifyRegistry">No s&apos;ha pogut afegir la nova configuració regional al fitxer de registre de configuracions regionals, normalment «registry/locales.xml».</message>
+	<message key="admin.languages.download.cannotOpen">No s'ha pogut obrir el descriptor de llengua des del lloc web de PKP.</message>
+	<message key="admin.languages.download.cannotModifyRegistry">No s'ha pogut afegir la nova configuració regional al fitxer de registre de configuracions regionals, normalment «registry/locales.xml».</message>
 	<message key="admin.languages.cantDisable">Aquesta és la configuració regional principal del lloc web. No podeu inhabilitar-la fins que no hàgiu triat una altra configuració regional primària.</message>
 
 	<message key="admin.languages.confirmReload">Esteu segur/a que voleu tornar a carregar aquesta configuració regional? Això eliminarà qualsevol dada de configuració regional existent, com ara les plantilles de correu electrònic personalitzades.</message>
@@ -65,16 +65,16 @@ Aquesta eina només copiarà els fitxers que no es trobin al fitxer d&apos;estat
 	<message key="admin.languages.uninstall">Desinstal·la la configuració regional</message>
 	<message key="admin.phpInfo">Informació de PHP ampliada</message>
 	<message key="admin.scheduledTask">Tasques planificades</message>
-	<message key="admin.scheduledTask.startTime">S&apos;ha iniciat la tasca.</message>
-	<message key="admin.scheduledTask.stopTime">S&apos;ha aturat la tasca.</message>
+	<message key="admin.scheduledTask.startTime">S'ha iniciat la tasca.</message>
+	<message key="admin.scheduledTask.stopTime">S'ha aturat la tasca.</message>
 	<message key="admin.scheduledTask.noLog">La tasca no ha generat cap registre (log).</message>
-	<message key="admin.scheduledTask.openAccessNotification">Notifiació d&apos;accès obert</message>
+	<message key="admin.scheduledTask.openAccessNotification">Notifiació d'accès obert</message>
 	<message key="admin.scheduledTask.reviewReminder">Recordatori de revisió</message>
 	<message key="admin.scheduledTask.subscriptionExpiryReminder">Recordatori de caducitat de la subscripció</message>
 	<message key="admin.server.apacheVersion">Versió d’Apache</message>
 	<message key="admin.server.dbDriver">Controlador de la base de dades</message>
 	<message key="admin.server.dbVersion">Versió del servidor de la base de dades</message>
-	<message key="admin.serverInformationDescription"><![CDATA[Versions del programari del servidor i del sistema operatiu principal. Feu clic a <span class="highlight">Informació PHP Avançada</span> per visualitzar els detalls de configuració d&#39;aquest servidor PHP.]]></message>
+	<message key="admin.serverInformationDescription"><![CDATA[Versions del programari del servidor i del sistema operatiu principal. Feu clic a <span class="highlight">Informació PHP Avançada</span> per visualitzar els detalls de configuració d'aquest servidor PHP.]]></message>
 	<message key="admin.serverInformation">Informació del servidor</message>
 	<message key="admin.server.phpVersion">Versió de PHP</message>
 	<message key="admin.server.platform">Plataforma del SO</message>
@@ -87,8 +87,8 @@ Aquesta eina només copiarà els fitxers que no es trobin al fitxer d&apos;estat
 	<message key="admin.settings.form.minPasswordLengthRequired">Heu d’introduir una contrasenya de quatre caràcters com a mínim.</message>
 	<message key="admin.settings.form.titleRequired">Cal que introduïu un títol.</message>
 	<message key="admin.settings.defaultMetricDescription">
-		La instal·lació està configurada per enregistrar més d&apos;una analítica web. Les estadístiques d&apos;ús es mostraran en diversos contextos.
-		Hi ha casos en què s&apos;ha d&apos;utilitzar una estadística d&apos;ús, p.ex. per mostrar una llista ordenada de les trameses més emprades o bé per ordenar els resultats d&apos;una cerca. Seleccioneu una de les analítiques configurades com a analítica per defecte.
+		La instal·lació està configurada per enregistrar més d'una analítica web. Les estadístiques d'ús es mostraran en diversos contextos.
+		Hi ha casos en què s'ha d'utilitzar una estadística d'ús, p.ex. per mostrar una llista ordenada de les trameses més emprades o bé per ordenar els resultats d'una cerca. Seleccioneu una de les analítiques configurades com a analítica per defecte.
 	</message>
 	<message key="admin.settings.homeHeaderImage.altText">Logotip del lloc</message>
 	<message key="admin.settings.homeHeaderImageInvalid">El format de la imatge utilitzada com a logotip al lloc web no és vàlid. Els formats acceptats són .gif, .jpg i .png.</message>
@@ -97,7 +97,7 @@ Aquesta eina només copiarà els fitxers que no es trobin al fitxer d&apos;estat
 	<message key="admin.settings.oaiRegistration">Registra el lloc per a la indexació (recopilació de dades)</message>
 	<message key="admin.settings.passwordCharacters">caràcters</message>
 	<message key="admin.settings.siteLanguage">Llengua del lloc</message>
-	<message key="admin.settings.siteStyleSheetInvalid">El format del full d&apos;estil del lloc web no és vàlid. El format admès és .css.</message>
+	<message key="admin.settings.siteStyleSheetInvalid">El format del full d'estil del lloc web no és vàlid. El format admès és .css.</message>
 	<message key="admin.settings.siteStyleSheet">Full d’estil del lloc</message>
 	<message key="admin.settings.siteTheme">Tema del lloc web</message>
 	<message key="admin.settings.siteTitle">Títol del lloc</message>
@@ -121,26 +121,26 @@ Aquesta eina només copiarà els fitxers que no es trobin al fitxer d&apos;estat
 	<message key="admin.version.upToDate">El sistema està actualitzat.</message>
 	<message key="admin.version">Versió</message>
 
-	<message key="admin.fileLoader.wrongBasePathLocation">La ruta principal {$path} ha d&apos;estar dins d&apos;un directori de fitxer públic.</message>
+	<message key="admin.fileLoader.wrongBasePathLocation">La ruta principal {$path} ha d'estar dins d'un directori de fitxer públic.</message>
 	<message key="admin.fileLoader.pathNotAccessible">La carpeta {$path} no és un directori o bé no es pot llegir.</message>
-	<message key="admin.fileLoader.moveFileFailed">No s&apos;ha pogut more el fitxer {$filename} des de {$currentFilePath} a {$destinationPath}</message>
-	<message key="admin.fileLoader.fileProcessed">El fitxer {$filename} s&apos;ha processat i arxivat correctament.</message>
+	<message key="admin.fileLoader.moveFileFailed">No s'ha pogut more el fitxer {$filename} des de {$currentFilePath} a {$destinationPath}</message>
+	<message key="admin.fileLoader.fileProcessed">El fitxer {$filename} s'ha processat i arxivat correctament.</message>
 	<message key="admin.fileLoader.emailSubject">Carregador de fitxers</message>
 	
-	<message key="admin.copyAccessLogFileTool.usage">Copia el/s fitxer/s de registre passat/s, i filtra les entrades relacionades amb la instal·lació del directori de fitxers actual, dins del directori UsageStatsPlugin. Heu d&apos;accedir amb un usuari amb suficients privilegis per llegir els fitxers de registre d&apos;apache.
+	<message key="admin.copyAccessLogFileTool.usage">Copia el/s fitxer/s de registre passat/s, i filtra les entrades relacionades amb la instal·lació del directori de fitxers actual, dins del directori UsageStatsPlugin. Heu d'accedir amb un usuari amb suficients privilegis per llegir els fitxers de registre d'apache.
 
-Aquesta eina només copiarà els fitxers que no es trobin al fitxer d&apos;estats d&apos;ús\n als directoris de càrrega (fase, processament, arxivar i rebutjar).
+Aquesta eina només copiarà els fitxers que no es trobin al fitxer d'estats d'ús\n als directoris de càrrega (fase, processament, arxivar i rebutjar).
 
 Ús: {$scriptName} path/to/apache/log/file.log
-Ús (s&apos;estan processant tots els fitxers a un directori de fitxer): {$scriptName} path/to/apache/directory 
+Ús (s'estan processant tots els fitxers a un directori de fitxer): {$scriptName} path/to/apache/directory 
 	</message>
-	<message key="admin.copyAccessLogFileTool.error.creatingFolder">Hi ha hagut un error: no s&apos;ha pogut crear un directori temporal a {$tmpDir}</message>
-	<message key="admin.copyAccessLogFileTool.error.acessingFile">Hi ha hagut un error: el fitxer {$filePath} no existeix o bé no s&apos;hi pot accedir.</message>
+	<message key="admin.copyAccessLogFileTool.error.creatingFolder">Hi ha hagut un error: no s'ha pogut crear un directori temporal a {$tmpDir}</message>
+	<message key="admin.copyAccessLogFileTool.error.acessingFile">Hi ha hagut un error: el fitxer {$filePath} no existeix o bé no s'hi pot accedir.</message>
 	<message key="admin.copyAccessLogFileTool.error.copyingFile">Hi ha hagut un error: no es pot copiar el fitxer des de {$filePath} a {$tmpFilePath}</message>
-	<message key="admin.copyAccessLogFileTool.error.deletingFile">Hi ha hagut un error: no s&apos;ha pogut eliminar el fitxer {$tmpFilePath}</message>
-	<message key="admin.copyAccessLogFileTool.warning.fileAlreadyExists">Atenció: el fitxer {$filePath} ja existeix dins del directori d&apos;estats d&apos;ús.</message>
-	<message key="admin.copyAccessLogFileTool.success">L&apos;operació: {$filePath} a {$destinationPath}s&apos;ha realitzat correctament.</message>
-	<message key="admin.copyAccessLogFileTool.error.noEgrep">No s&apos;ha configurat la ruta Egrep. Consulteu config.inc.php, secció cli.</message>
-	<message key="admin.copyAccessLogFileTool.error.noGunzip">No s&apos;ha configurat La ruta Gunzip. Consulteu config.inc.php, secció cli.</message>
+	<message key="admin.copyAccessLogFileTool.error.deletingFile">Hi ha hagut un error: no s'ha pogut eliminar el fitxer {$tmpFilePath}</message>
+	<message key="admin.copyAccessLogFileTool.warning.fileAlreadyExists">Atenció: el fitxer {$filePath} ja existeix dins del directori d'estats d'ús.</message>
+	<message key="admin.copyAccessLogFileTool.success">L'operació: {$filePath} a {$destinationPath}s'ha realitzat correctament.</message>
+	<message key="admin.copyAccessLogFileTool.error.noEgrep">No s'ha configurat la ruta Egrep. Consulteu config.inc.php, secció cli.</message>
+	<message key="admin.copyAccessLogFileTool.error.noGunzip">No s'ha configurat La ruta Gunzip. Consulteu config.inc.php, secció cli.</message>
 	
 </locale>

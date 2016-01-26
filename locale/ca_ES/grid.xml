@@ -2,14 +2,14 @@
 <!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
 
 <!--
-  * locale/en_US/grid.xml
+  * locale/ca_ES/grid.xml
   *
-  * Copyright (c) 2014 Simon Fraser University Library
-  * Copyright (c) 2000-2014 John Willinsky
+  * Copyright (c) 2015 Simon Fraser University Library
+  * Copyright (c) 2003-2015 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
-  * 
+  *     
   * Credits: http://pkp.sfu.ca/wiki/index.php?title=OMP:_Catalan_%28ca_ES%29
-  * 
+  *     
   * Localization strings.
   -->
 
@@ -19,7 +19,7 @@
 	<message key="grid.settings">Configuració</message>
 	<message key="grid.noAuditors">No hi ha auditors</message>
 
-	<message key="grid.action.manageAccess">Administra l&apos;accés</message>
+	<message key="grid.action.manageAccess">Administra l'accés</message>
 	<message key="grid.action.sort">Ordena</message>
 	<message key="grid.action.addItem">Afegeix un element</message>
 	<message key="grid.action.addUser">Afegeix usuaris</message>
@@ -32,7 +32,7 @@
 	<message key="grid.action.editSection">Edita la secció</message>
 	<message key="grid.action.export">Exporta</message>
 	<message key="grid.action.deleteSection">Elimina la secció</message>
-	<message key="grid.action.editorialHistory">Historial d&apos;editorial</message>
+	<message key="grid.action.editorialHistory">Historial d'editorial</message>
 	<message key="grid.action.remove">Suprimeix</message>
 	<message key="grid.action.edit">Edita</message>
 	<message key="grid.action.approve">Aprova</message>
@@ -40,12 +40,12 @@
 	<message key="grid.action.restoreDefaults">Restaura els valors per defecte</message>
 	<message key="grid.action.restoreDefaults.confirm">Esteu segur/a que voleu restaurar els valors per defecte?</message>
 	<message key="grid.action.addAuthor">Afegeix un autor/a</message>
-	<message key="grid.action.editAuthor">Editar l&apos;autor/a</message>
-	<message key="grid.action.deleteAuthor">Elimina l&apos;autor/a</message>
+	<message key="grid.action.editAuthor">Editar l'autor/a</message>
+	<message key="grid.action.deleteAuthor">Elimina l'autor/a</message>
 	<message key="grid.action.addAuditor">Afegeix un auditor/a</message>
 	<message key="grid.action.upgrade">Actualiza</message>
 	<message key="grid.action.order">Ordena</message>
-	<message key="grid.action.cancelOrdering">Cancel·lar l&apos;ordre</message>
+	<message key="grid.action.cancelOrdering">Cancel·lar l'ordre</message>
 	<message key="grid.action.extendAll">Expandir tot</message>
 	<message key="grid.action.collapse">Replegar</message>
 	<message key="grid.action.collapseAll">Replegar todo</message>
@@ -68,7 +68,7 @@
 	<message key="grid.action.settings">Configuració</message>
 	<message key="grid.action.importexport">Importeu o exporteu contingut o dades del lloc</message>
 	<message key="grid.action.restoreDefaults">Restaura els valors per defecte</message>
-	<message key="grid.action.orderItems">Activa el mode d&apos;ordenació</message>
+	<message key="grid.action.orderItems">Activa el mode d'ordenació</message>
 	<message key="grid.action.editSubmissionChecklist">Edita aquest ítem de la llista de comprovació</message>
 	<message key="grid.action.deleteSubmissionChecklist">Elimina aquest ítem de la llista de comprovació</message>
 	<message key="grid.action.resetAll">Reinicia tots els ítems en els vsus valors per defecte</message>
@@ -84,27 +84,27 @@
 	<message key="grid.action.requestAccount">Afegeix un participant</message>
 	<message key="grid.action.expand">Expandir</message>
 	<message key="grid.action.notify">Notificar aquest usuario/a</message>
-	<message key="grid.action.addUserGroup">Afegeix un nou grup d&apos;usuaris</message>
-	<message key="grid.action.editUserGroup">Edita aquest grup d&apos;usuaris</message>
+	<message key="grid.action.addUserGroup">Afegeix un nou grup d'usuaris</message>
+	<message key="grid.action.editUserGroup">Edita aquest grup d'usuaris</message>
 	<message key="grid.action.disable">Inhabilita</message>
 	<message key="grid.action.details">Vegeu aquest ítem</message>
 	<message key="grid.action.enrolExisting">Inscriure un usuari/ària existent</message>
 	<message key="grid.action.selectCreate">Crea un nou revisor/a</message>
 	<message key="grid.action.advancedSearch">Cerca avançada</message>
 	<message key="grid.action.viewLibrary">Visualitza la biblioteca de documents</message>
-	<message key="grid.action.viewMetadata">Veure les metadades d&apos;aquesta tramessa</message>
+	<message key="grid.action.viewMetadata">Veure les metadades d'aquesta tramessa</message>
 	<message key="grid.action.sendReminder">Envia un recordatori de tasca a aquest usuari/ària</message>
 	<message key="grid.action.newRound">Crea una nova ronda</message>
 	<message key="grid.action.viewReviewGuidelines">Vegeu la política de revisió</message>
-	<message key="grid.action.viewCompetingInterestGuidelines">Vegeu les directrius de les polítiques de conflicte d&apos;interessos.</message>
-	<message key="grid.action.thankReviewer">Envia un missatge d&apos;agraïment a aquest revisor/ora</message>
+	<message key="grid.action.viewCompetingInterestGuidelines">Vegeu les directrius de les polítiques de conflicte d'interessos.</message>
+	<message key="grid.action.thankReviewer">Envia un missatge d'agraïment a aquest revisor/ora</message>
 	<message key="grid.action.uploadFile">Carrega un fitxer</message>
-	<message key="grid.action.addAnnouncementType">Afegeix un tipus d&apos;anunci</message>
+	<message key="grid.action.addAnnouncementType">Afegeix un tipus d'anunci</message>
 	<message key="grid.action.addAnnouncement">Afegeix un anunci</message>
-	<message key="grid.action.mergeUser">Fusiona l&apos;usuari/ària</message>
-	<message key="grid.action.unassignUser">Dessasigna l&apos;usuari/ària</message>
+	<message key="grid.action.mergeUser">Fusiona l'usuari/ària</message>
+	<message key="grid.action.unassignUser">Dessasigna l'usuari/ària</message>
 	<message key="grid.action.history">Vegeu la història</message>
-	<message key="grid.action.unconsiderReview">Aquesta revisió s&apos;ha enllestit, però podeu no tenir-la en compte</message>
+	<message key="grid.action.unconsiderReview">Aquesta revisió s'ha enllestit, però podeu no tenir-la en compte</message>
 	<message key="grid.action.enable">Habilita</message>
 	<message key="grid.action.bookInfo">Informació de la tramesa</message>
 	<message key="grid.action.logInAs">Inicieu sessió com a</message>
@@ -116,7 +116,7 @@
 	<message key="grid.task.status.new">Aquest és un nou ítem i requereix atenció</message>
 	<message key="grid.task.status.uploaded">La columna títol indica qui ha carregat aquest fitxer</message>
 	<message key="grid.task.status.unfinished">Tasca no finalitzada</message>
-	<message key="grid.task.status.reviewReady">Aquesta revisió ja està preparada. Feu clic a la icona de la nota a l&apos;esquerra per llegir-la.</message>
+	<message key="grid.task.status.reviewReady">Aquesta revisió ja està preparada. Feu clic a la icona de la nota a l'esquerra per llegir-la.</message>
 
 	<!-- Common Grid Column Titles -->
 	<message key="grid.columns.actions">Accions</message>
@@ -161,7 +161,7 @@
 	<!-- Library Files -->
 	<message key="grid.libraryFiles.column.files">Fitxers</message>
 	<message key="grid.libraryFiles.submission.title">Biblioteca de tramesa</message>
-	<message key="grid.libraryFiles.editorial.title">Biblioteca d&apos;editorial</message>
+	<message key="grid.libraryFiles.editorial.title">Biblioteca d'editorial</message>
 	<message key="grid.libraryFiles.review.title">Biblioteca de revisió</message>
 	<message key="grid.libraryFiles.production.title">Biblioteca de producció</message>
 	<message key="grid.libraryFiles.productionTemplate.title">Biblioteca de producció de plantilles</message>
@@ -180,7 +180,7 @@
 	<!-- Roles -->
 	<message key="grid.roles.currentRoles">Rols actuals</message>
 	<message key="grid.roles.add">Crea un nou rol</message>
-	<message key="grid.roles.stageAssignment">Asignació d&apos;etapa</message>
+	<message key="grid.roles.stageAssignment">Asignació d'etapa</message>
 
 	<!-- Users -->
 	<message key="grid.user.currentUsers">Usuaris actuals</message>
@@ -193,45 +193,45 @@
 	<message key="grid.user.email">Adreça electrònica</message>
 	<message key="grid.user.enable">Habilita</message>
 	<message key="grid.user.disable">Inhabilita</message>
-	<message key="grid.user.disableReason">Motiu pel qual es desactiva l&apos;usuari/ària</message>
-	<message key="grid.user.enableReason">Motiu pel qual s&apos;activa l&apos;usuari/ària</message>
+	<message key="grid.user.disableReason">Motiu pel qual es desactiva l'usuari/ària</message>
+	<message key="grid.user.enableReason">Motiu pel qual s'activa l'usuari/ària</message>
 	<message key="grid.user.error">Hi ha hagut un error quan es gestionava aquest usuari. Torneu-ho a intentar.</message>
-	<message key="grid.user.errorEmail">Ha aparegut un error en enviar aquest correu electrònic. Assegureu-vos que la configuració del servidor de correu electrònic funciona i/o contacteu amb l&apos;administrador/a del sistema.</message>
+	<message key="grid.user.errorEmail">Ha aparegut un error en enviar aquest correu electrònic. Assegureu-vos que la configuració del servidor de correu electrònic funciona i/o contacteu amb l'administrador/a del sistema.</message>
 	<message key="grid.user.cannotAdminister">No disposes dels permisos per editar aquest usuari/ària.</message>
 	<message key="grid.user.authSource">Font d’autenticació</message>
 	<message key="grid.user.mustProvideName">Indiqueu un cognom per a l’usuari/usuària com a mínim.</message>
 	<message key="grid.user.generatePassword">Genera una contrasenya</message>
 	<message key="grid.user.generatePasswordDescription">Genera una contrasenya aleatòria per a aquest usuari/ària.</message>
-	<message key="grid.user.notifyUser">Notifica-ho a l&apos;usuari/ària.</message>
-	<message key="grid.user.notifyUserDescription">Envia un correu de benvinguda a l&apos;usuari/ària.</message>
+	<message key="grid.user.notifyUser">Notifica-ho a l'usuari/ària.</message>
+	<message key="grid.user.notifyUserDescription">Envia un correu de benvinguda a l'usuari/ària.</message>
 	<message key="grid.user.mustChangePassword">Canvia la contrasenya</message>
-	<message key="grid.user.mustChangePasswordDescription">L&apos;usuari/ària haurà de canviar la contrasenya el pròxim cop que accedeixi.</message>
+	<message key="grid.user.mustChangePasswordDescription">L'usuari/ària haurà de canviar la contrasenya el pròxim cop que accedeixi.</message>
 	<message key="grid.user.mustChangePasswordDescriptionOld">Demana a l’usuari/usuària que canviï la contrasenya quan torni a iniciar la sessió.</message>
-	<message key="grid.user.moreDetails">Mostra més detalls de l&apos;usuari/ària.</message>
-	<message key="grid.user.lessDetails">Mostra menys detalls de l&apos;usuari/ària.</message>
-	<message key="grid.user.userDetails">Detalls de l&apos;usuari/ària</message>
-	<message key="grid.user.userRoles">Rols de l&apos;usuari/ària</message>
+	<message key="grid.user.moreDetails">Mostra més detalls de l'usuari/ària.</message>
+	<message key="grid.user.lessDetails">Mostra menys detalls de l'usuari/ària.</message>
+	<message key="grid.user.userDetails">Detalls de l'usuari/ària</message>
+	<message key="grid.user.userRoles">Rols de l'usuari/ària</message>
 	<message key="grid.user.userNoRoles">Aquest usuari/ària no té cap rol.</message>
-	<message key="grid.user.step1">Pas 1: Completa els detalls de l&apos;usuari/ària.</message>
-	<message key="grid.user.step2">Pas 2: Afegeix rols d&apos;usuari/ària a {$userFullName}</message>
+	<message key="grid.user.step1">Pas 1: Completa els detalls de l'usuari/ària.</message>
+	<message key="grid.user.step2">Pas 2: Afegeix rols d'usuari/ària a {$userFullName}</message>
 	<message key="grid.user.addRoles">Afegeix rols</message>
 	<message key="grid.user.addRole">Afegeix un rol</message>
 	<message key="grid.user.selectUser">Escull un usuari/ària</message>
 	<message key="grid.user.pleaseSelectUser">Si us plau, escull un un usuari/ària.</message>
-	<message key="grid.user.confirmLogInAs">Voleu iniciar sessió amb aquest usuari/ària? Totes les accions que realitzeu s&apos;atribuïran a aquest usuari/ària.</message>
+	<message key="grid.user.confirmLogInAs">Voleu iniciar sessió amb aquest usuari/ària? Totes les accions que realitzeu s'atribuïran a aquest usuari/ària.</message>
 	<message key="grid.user.mergeUsers">Fusió d’usuaris/usuàries</message>
 	<message key="grid.user.mergeUsers.mergeUser">Fusiona l’usuari/usuària</message>
 	<message key="grid.user.mergeUsers.mergeIntoUser">Fusiona amb aquest usuari/ària</message>
-	<message key="grid.user.mergeUsers.into.description">Ara heu de seleccionar un usuari/ària a qui atribuir l&apos;autoria, l&apos;edició de les assignacions, etc. de l&apos;usuari/ària previ.</message>
-	<message key="grid.user.mergeUsers.from.description">Seleccioneu un usuari/ària (o més d&apos;un) que vulgueu fusionar amb un altre compte d’usuari/ària (p. ex. un usuari/ària que en tingui dos de diferents). Amb aquesta acció se suprimeix el primer compte que hàgiu seleccionat i les seves trameses, assignacions, etc., s’assignen al segon compte.</message>
+	<message key="grid.user.mergeUsers.into.description">Ara heu de seleccionar un usuari/ària a qui atribuir l'autoria, l'edició de les assignacions, etc. de l'usuari/ària previ.</message>
+	<message key="grid.user.mergeUsers.from.description">Seleccioneu un usuari/ària (o més d'un) que vulgueu fusionar amb un altre compte d’usuari/ària (p. ex. un usuari/ària que en tingui dos de diferents). Amb aquesta acció se suprimeix el primer compte que hàgiu seleccionat i les seves trameses, assignacions, etc., s’assignen al segon compte.</message>
 	<message key="grid.user.mergeUsers.allUsers">Tots els usuaris/àries donats d’alta</message>
 	<message key="grid.user.mergeUsers.mergeUserSelect.confirm">Esteu segur/a que voleu fusionar aquest usuari/ària amb un altre/a?  Trieu el segon usuari/ària a la pantalla següent.</message>
-	<message key="grid.user.mergeUsers.confirm">Esteu segur/a que voleu fusionar aquest compte, amb el nom d&apos;usuari «{$oldUsername}», amb el compte amb el nom d&apos;usuari «{$newUsername}»? Si ho feu, el compte amb nom d&apos;usuari «{$oldUsername}» deixarà d&apos;existir. Aquesta acció és irreversible.</message>
+	<message key="grid.user.mergeUsers.confirm">Esteu segur/a que voleu fusionar aquest compte, amb el nom d'usuari «{$oldUsername}», amb el compte amb el nom d'usuari «{$newUsername}»? Si ho feu, el compte amb nom d'usuari «{$oldUsername}» deixarà d'existir. Aquesta acció és irreversible.</message>
 	<message key="grid.user.mergeUsers.noneEnrolled">No hi ha cap usuari/ària amb aquest rol.</message>
 
 	<!-- Prepared emails -->
 	<message key="grid.preparedEmails.title">Plantilles de correu preestablertes</message>
-	<message key="grid.preparedEmails.description">La premsa facilita la comunicació al flux de treball mitjançant l&apos;ús de correus electrònics preparats. El redactat per defecte d&apos;aquestes plantilles de correu es pot modificar fàcilment a continuació.</message>
+	<message key="grid.preparedEmails.description">La premsa facilita la comunicació al flux de treball mitjançant l'ús de correus electrònics preparats. El redactat per defecte d'aquestes plantilles de correu es pot modificar fàcilment a continuació.</message>
 	<message key="grid.preparedEmails.currentList">Llista actual</message>
 	
 	<!-- Plugins -->
@@ -240,25 +240,25 @@
 
 	<!-- signoffs -->
 	<message key="grid.action.viewSignoffNotes">Visualitza les notes de tancament de sessió</message>
-	<message key="grid.action.fileUnconsider">S&apos;han fet les esmenes de correcció. Podeu rebutjar aquesta tasca</message>
+	<message key="grid.action.fileUnconsider">S'han fet les esmenes de correcció. Podeu rebutjar aquesta tasca</message>
 
 	<!-- Artwork Files Grid -->
 	<message key="grid.artworkFile.caption">Peu</message>
 	<message key="grid.artworkFile.credit">Crèdit</message>
-	<message key="grid.artworkFile.copyrightOwner">Propietari de drets d&apos;autor/a</message>
+	<message key="grid.artworkFile.copyrightOwner">Propietari de drets d'autor/a</message>
 	<message key="grid.artworkFile.copyrightContact">Informació de contacte (si no sou un autor/a ni una institució publicadora)</message>
 	<message key="grid.artworkFile.permissionTerms">Condicions de permisos</message>
 	<message key="grid.artworkFile.placement">Col·locació a la tramesa</message>
 	
 	<!-- User Group Grid -->
-	<message key="grid.userGroup.assignStage">Fase d&apos;assignació</message>
+	<message key="grid.userGroup.assignStage">Fase d'assignació</message>
 	<message key="grid.userGroup.unassignStage">Fase de desassignació</message>
 	<message key="grid.userGroup.allStages">Totes les fases del circuit de treball</message>
 	<message key="grid.userGroup.filter.listRoles">Llista de rols assignats a</message>
 	<message key="grid.userGroup.filter.permissionLevel">Amb el nivell de permís determinat per</message>
 	<message key="grid.userGroup.cantRemoveDefaultUserGroup">El rol {$userGroupName} és predeterminat i no es pot eliminar.</message>
 	<message key="grid.userGroup.cantRemoveUserGroup">No es pot eliminar el rol {$userGroupName}. Actualment hi ha {$usersCount} usuaris/àries assignats.</message>
-	<message key="grid.userGroup.removed">S&apos;ha eliminat el rol {$userGroupName}.</message>
-	<message key="grid.userGroup.assignedStage">S&apos;ha assignat el rol {$userGroupName} a la fase de {$stageName}.</message>
-	<message key="grid.userGroup.unassignedStage">El rol {$userGroupName} s&apos;ha desassignat de la fase de {$stageName}.</message>
+	<message key="grid.userGroup.removed">S'ha eliminat el rol {$userGroupName}.</message>
+	<message key="grid.userGroup.assignedStage">S'ha assignat el rol {$userGroupName} a la fase de {$stageName}.</message>
+	<message key="grid.userGroup.unassignedStage">El rol {$userGroupName} s'ha desassignat de la fase de {$stageName}.</message>
 </locale>

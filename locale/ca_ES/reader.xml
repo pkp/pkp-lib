@@ -2,14 +2,14 @@
 <!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
 
 <!--
-  * locale/en_US/reader.xml
+  * locale/ca_ES/reader.xml
   *
-  * Copyright (c) 2014 Simon Fraser University Library
-  * Copyright (c) 2000-2014 John Willinsky
+  * Copyright (c) 2015 Simon Fraser University Library
+  * Copyright (c) 2003-2015 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
-  * 
+  *     
   * Credits: http://pkp.sfu.ca/wiki/index.php?title=OMP:_Catalan_%28ca_ES%29
-  * 
+  *     
   * Localization strings.
   -->
 
@@ -18,7 +18,7 @@
 	<message key="comments.anonymousNamed">{$userName}</message>
 	<message key="comments.body">Cos</message>
 	<message key="comments.titleRequired">Cal que introduïu un títol de comentari.</message>
-	<message key="comments.confirmDeleteChildren">Si s&apos;elimina aquest comentari, també s&apos;eliminaran totes les respostes. Esteu segur/a que voleu fer aquesta acció?</message>
+	<message key="comments.confirmDeleteChildren">Si s'elimina aquest comentari, també s'eliminaran totes les respostes. Esteu segur/a que voleu fer aquesta acció?</message>
 	<message key="comments.delete">Suprimeix aquest comentari</message>
 	<message key="comments.email">Adreça electrònica</message>
 	<message key="comments.emailReply">Resposta per correu electrònic</message>
@@ -44,7 +44,7 @@
 	<message key="rt.admin.contexts.metadata">Metadades</message>
 	<message key="rt.admin.contexts.options.authorTerms">Utilitza els noms dels autors/es com a termes predeterminats per a la cerca per a permetre als usuaris que cerquin altres obres dels autors d’aquest element (p. ex. en un context de tipus «Altres obres»).</message>
 	<message key="rt.admin.contexts.options.citedBy">Utilitza els noms dels autors/es com a termes predeterminats per a la cerca i descriu el context com a cerca per a les citacions de l’article.</message>
-	<message key="rt.admin.contexts.options.defineTerms"><![CDATA[Utilitza la paraula realçada pel lector/a com a terme predeterminat per a la cerca o deixa&#39;l en blanc si no s&#39;ha seleccionat res per a aquest element (p. ex., en un context de «Definició de termes»). Per permetre que s&#39;obri aquest context en fer doble clic en una paraula, cal que habiliteu l&#39;opció «Definició de termes» a la <a href="{$settingsUrl}">Configuració RST</a>.]]></message>
+	<message key="rt.admin.contexts.options.defineTerms"><![CDATA[Utilitza la paraula realçada pel lector/a com a terme predeterminat per a la cerca o deixa'l en blanc si no s'ha seleccionat res per a aquest element (p. ex., en un context de «Definició de termes»). Per permetre que s'obri aquest context en fer doble clic en una paraula, cal que habiliteu l'opció «Definició de termes» a la <a href="{$settingsUrl}">Configuració RST</a>.]]></message>
 	<message key="rt.admin.contexts.options.geoTerms">Utilitza les dades d’indexació geogràfica com a termes predeterminats per a la cerca.</message>
 	<message key="rt.admin.contexts.options">Opcions</message>
 	<message key="rt.admin.management">Gestió</message>
@@ -58,7 +58,7 @@
 	<message key="rt.admin.sharing.buttonStyleLabel">Estil del botó</message>
 	<message key="rt.admin.sharing.dropDownMenuLabel">Utilitzeu el menú desplegable</message>
 	<message key="rt.admin.sharing.advanced">Configuració avançada (opcional)</message>
-	<message key="rt.admin.sharing.customizationLink"><![CDATA[Consulteu la <a href="http://www.addthis.com/help/customize/custom-button/">documentació de configuració d&#39;AddThis.com </a> per obtenir-ne més informació.]]></message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[Consulteu la <a href="http://www.addthis.com/help/customize/custom-button/">documentació de configuració d'AddThis.com </a> per obtenir-ne més informació.]]></message>
 	<message key="rt.admin.sharing.brandLabel">Marca</message>
 	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Opcions desplegables <br /> (llista separada per comes)]]></message>
 	<message key="rt.admin.sharing.languageLabel">Llengua</message>
@@ -106,13 +106,13 @@
 	<message key="rt.colleague">Recomana-ho</message>
 	<message key="rt.context.abbrev">Abrev.</message>
 	<message key="rt.context.and">I</message>
-	<message key="rt.context.citesContextDescription">Si l&apos;article està indexat a Google Acadèmic, és possible que inclogui un enllaç «Citat per X» que dirigeixi a una llista de les obres que el citen. A més, Google Acadèmic llista tots els elements i en cita el títol i l&apos;autor/a. Per accedir als recursos en línia que només siguin accessibles mitjançant la vostra biblioteca de recerca, aneu a la secció «Preferències acadèmiques» del Google Acadèmic i activeu l&apos;opció «Enllaços de biblioteca» per a la vostra institució.</message>
+	<message key="rt.context.citesContextDescription">Si l'article està indexat a Google Acadèmic, és possible que inclogui un enllaç «Citat per X» que dirigeixi a una llista de les obres que el citen. A més, Google Acadèmic llista tots els elements i en cita el títol i l'autor/a. Per accedir als recursos en línia que només siguin accessibles mitjançant la vostra biblioteca de recerca, aneu a la secció «Preferències acadèmiques» del Google Acadèmic i activeu l'opció «Enllaços de biblioteca» per a la vostra institució.</message>
 	<message key="rt.context">Context</message>
-	<message key="rt.context.defineTermsDescription">Si l&apos;article és un fitxer HTML i no un PDF, en fer doble clic damunt de qualsevol paraula del text, aquesta paraula s&apos;afegirà al quadre «Paraula per definir». A més, també podeu escriure o enganxar paraules en aquest quadre. Feu clic a «Més informació» per obtenir més informació sobre el recurs cercat. Aquests recursos han estat seleccionats per la rellevància que tenen i perquè ofereixen accés lliure (gratuït) a tots o part dels continguts.</message>
+	<message key="rt.context.defineTermsDescription">Si l'article és un fitxer HTML i no un PDF, en fer doble clic damunt de qualsevol paraula del text, aquesta paraula s'afegirà al quadre «Paraula per definir». A més, també podeu escriure o enganxar paraules en aquest quadre. Feu clic a «Més informació» per obtenir més informació sobre el recurs cercat. Aquests recursos han estat seleccionats per la rellevància que tenen i perquè ofereixen accés lliure (gratuït) a tots o part dels continguts.</message>
 	<message key="rt.context.description">Descripció</message>
 	<message key="rt.context.order">Ordena</message>
 	<message key="rt.contexts">Contextos</message>
-	<message key="rt.context.searchDescription">Els termes de la cerca han estat seleccionats pels autors/ores. Els lectors/ores els poden modificar o eliminar tenint en compte que les millors cerques booleanes (amb l&apos;operador AND) són les formades per dos o tres termes o frases precisos. Feu clic a «Més informació» per obtenir més informació sobre els recursos cercats. Aquests recursos han estat seleccionats per la rellevància que tenen i perquè ofereixen accés lliure (gratuït) a tots o part dels continguts.</message>
+	<message key="rt.context.searchDescription">Els termes de la cerca han estat seleccionats pels autors/ores. Els lectors/ores els poden modificar o eliminar tenint en compte que les millors cerques booleanes (amb l'operador AND) són les formades per dos o tres termes o frases precisos. Feu clic a «Més informació» per obtenir més informació sobre els recursos cercats. Aquests recursos han estat seleccionats per la rellevància que tenen i perquè ofereixen accés lliure (gratuït) a tots o part dels continguts.</message>
 	<message key="rt.context.searchTerms">Termes de la cerca</message>
 	<message key="rt.context.termToDefine">Paraula per definir</message>
 	<message key="rt.context.title">Títol</message>

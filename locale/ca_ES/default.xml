@@ -2,12 +2,14 @@
 <!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
 
 <!--
-  * locale/en_US/default.xml
+  * locale/ca_ES/default.xml
   *
-  * Copyright (c) 2014 Simon Fraser University Library
-  * Copyright (c) 2003-2014 John Willinsky
+  * Copyright (c) 2015 Simon Fraser University Library
+  * Copyright (c) 2003-2015 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
-  *
+  *     
+  * Credits: http://pkp.sfu.ca/wiki/index.php?title=OMP:_Catalan_%28ca_ES%29
+  *     
   * Localization strings for default settings for setup items.
   -->
 
@@ -60,5 +62,5 @@
 	<message key="default.genres.other">Altres</message>
 	<message key="default.genres.multimedia">Multimèdia</message>
 	<message key="default.genres.image">Imatge</message>
-	<message key="default.genres.styleSheet">Full d&apos;estil HTML</message>
+	<message key="default.genres.styleSheet">Full d'estil HTML</message>
 </locale>

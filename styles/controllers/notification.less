@@ -16,69 +16,52 @@
 
 .pkp_notification {
 	position: relative;
- 	margin: @double 0;
-	padding: @base;
-	background: @bg;
-	font-size: @font-sml;
-	line-height: @line-sml;
-
-	&:first-child {
-		margin-top: 0;
-	}
-
-	&:last-child {
-		margin-bottom: 0;
-	}
 
 	.title {
+		display: block;
 		font-weight: @bold;
 	}
 
+	// Override .pkp_form .description
+	.description {
+		color: @text;
+		color: @text-rgba;
+	}
+
 	> div {
-		padding-top: @half;
-		padding-bottom: @half;
-		padding-left: @double + @base + @half;
+		position: relative;
+		margin-bottom: @double;
+		padding: @base;
+		padding-left: @base + @half;
+		border: @bg-border;
+		font-size: @font-sml;
+		line-height: @line-sml;
 
 		&:before {
-			&:extend(.fa);
-			content: @fa-var-info-circle;
+			content: '';
+			display: block;
 			position: absolute;
-			top: 50%; // vertically center
-			transform: translateY(-50%); // vertically center
-			left: @base;
-			width: @double + @base;
-			height: @double + @base;
-			font-size: @double + @base;
-			color: @primary-lift;
+			top: -1px;
+			bottom: -1px;
+			left: -1px;
+			width: @half;
+			background: @primary-lift;
 		}
 	}
 
 	> .notifySuccess:before {
-		content: @fa-var-check;
-		color: @yes;
+		background: @yes;
 	}
 
 	> .notifyWarning:before {
-		content: @fa-var-exclamation-triangle;
-		color: @warn;
+		background: @warn;
 	}
 
 	> .notifyError:before,
-	> .notifyFormError:before {
-		content: @fa-var-exclamation-triangle;
-		color: @no;
-	}
-
+	> .notifyFormError:before,
 	> .notifyForbidden:before {
-		content: @fa-var-ban;
-		color: @no;
+		background: @no;
 	}
-
-	// Uses default @fa-var-info-circle for now
-	/*
-	> .notifyInformation:before {}
-	> .notifyHelp:before {}
-	*/
 }
 
 // Small notification panels that float above the screen

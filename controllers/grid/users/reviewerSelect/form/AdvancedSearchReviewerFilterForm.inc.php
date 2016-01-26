@@ -98,16 +98,14 @@ class AdvancedSearchReviewerFilterForm extends Form {
 			'activeEnabled',
 			'activeMin',
 			'activeMax',
-			'keywords')
+			'interests')
 		);
 
-		$keywords = $this->getData('keywords');
-		if (is_array($keywords) && array_key_exists('interests', $keywords)) {
-			$interests = $keywords['interests'];
-			if ($interests != null && is_array($interests)) {
-				// The interests are coming in encoded -- Decode them for DB storage
-				$this->setData('interestSearchKeywords', array_map('urldecode', $interests));
-			}
+
+		$interests = $this->getData('interests');
+		if (is_array($interests)) {
+			// The interests are coming in encoded -- Decode them for DB storage
+			$this->setData('interestSearchKeywords', array_map('urldecode', $interests));
 		}
 		parent::readInputData();
 	}

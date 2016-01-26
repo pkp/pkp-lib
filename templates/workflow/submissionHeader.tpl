@@ -33,9 +33,6 @@
 			{/if}
 			<li>{include file="linkAction/linkAction.tpl" action=$submissionInformationCenterAction}</li>
 			<li>{include file="linkAction/linkAction.tpl" action=$submissionLibraryAction}</li>
-			<li class="participants">
-				<a href="javascript:$.noop();" id="participantToggle">{translate key="editor.submission.stageParticipants"}</a>
-			</li>
 		</ul>
 	</div>
 

@@ -21,21 +21,19 @@
 	 *
 	 * @param {jQueryObject} $submissionHeader The HTML element encapsulating
 	 *  the header div.
-	 * @param {Object} options Handler options.
+	 * @param {{
+	 *   participantToggleSelector: string
+	 *   }} options Handler options.
 	 */
 	$.pkp.pages.workflow.SubmissionHeaderHandler =
 			function($submissionHeader, options) {
 
 		this.parent($submissionHeader, options);
 
-		this.participantToggleSelector_ = options.participantToggleSelector;
-
-		// show and hide on click of link
-		$(this.participantToggleSelector_).click(this.callbackWrapper(
-				this.appendToggleIndicator_));
-
 		this.bind('gridRefreshRequested', this.refreshWorkflowContent_);
 		this.publishEvent('stageParticipantsChanged');
+
+		this.participantToggleSelector_ = options.participantToggleSelector;
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.pages.workflow.SubmissionHeaderHandler,
@@ -43,15 +41,15 @@
 
 
 	//
-	// Private properties.
+	// Private properties
 	//
 	/**
-	 * The selector for participants grid toggle link.
+	 * Site handler options.
 	 * @private
-	 * @type {?string}
+	 * @type {string?}
 	 */
-	$.pkp.pages.workflow.SubmissionHeaderHandler.prototype.
-			participantToggleSelector_ = null;
+	$.pkp.pages.workflow.SubmissionHeaderHandler
+			.prototype.participantToggleSelector_ = null;
 
 
 	//
@@ -77,36 +75,6 @@
 			// We also want to close the participants grid view
 			// every time a change is made there.
 			$(this.participantToggleSelector_).click();
-		}
-	};
-
-
-	/**
-	 * Append a + or - to the participants grid string based on current visibility
-	 * after toggling the display of the participants grid.
-	 *
-	 * @param {jQueryObject} callingElement The calling element.
-	 *  that triggered the event.
-	 * @param {Event} event The event.
-	 * @private
-	 */
-	$.pkp.pages.workflow.SubmissionHeaderHandler.prototype.appendToggleIndicator_ =
-			function(callingElement, event) {
-
-		var $submissionHeader = this.getHtmlElement(),
-				$participantsPopover = $submissionHeader.find('.participant_popover'),
-				$participantsListElement = $submissionHeader.find(
-				'.pkp_submission_actions .participants');
-
-		$participantsPopover.toggleClass('is_visible');
-		$participantsListElement.toggleClass('is_open');
-
-		if ($participantsListElement.hasClass('is_open')) {
-			this.trigger('callWhenClickOutside', [{
-				container: $participantsPopover.add($participantsListElement),
-				callback: this.callbackWrapper(this.appendToggleIndicator_),
-				skipWhenVisibleModals: true
-			}]);
 		}
 	};
 

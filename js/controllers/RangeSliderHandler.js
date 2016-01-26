@@ -33,7 +33,7 @@
 		}
 
 		// Get the container that will hold the actual slider.
-		this.slider_ = $rangeSliderField.children(
+		this.slider_ = $rangeSliderField.find(
 				'.pkp_controllers_rangeSlider_slider'
 				);
 
@@ -60,6 +60,12 @@
 		// Create the slider with the jqueryUI plug-in.
 		this.slider_.slider(rangeSliderOptions);
 		this.bind('slide', this.sliderAdjusted);
+
+		// Set up the toggleable option
+		if (typeof options.toggleable !== 'undefined' && options.toggleable) {
+			this.toggleCheckbox_ = this.getHtmlElement().find('.toggle input');
+			this.toggleCheckbox_.on('change', this.callbackWrapper(this.toggleField));
+		}
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.RangeSliderHandler, $.pkp.classes.Handler);
@@ -90,6 +96,14 @@
 	 * @type {HTMLElement}
 	 */
 	$.pkp.controllers.RangeSliderHandler.labelMax_ = null;
+
+
+	/**
+	 * The checkbox that will enable/disable the field
+	 * @private
+	 * @type {HTMLElement}
+	 */
+	$.pkp.controllers.RangeSliderHandler.toggleCheckbox_ = null;
 
 
 	/**
@@ -132,6 +146,21 @@
 				'.pkp_controllers_rangeSlider_maxInput'
 				);
 		$maxVal.val(ui.values[1]);
+	};
+
+
+	/**
+	 * Enable/disable this field
+	 *
+	 * @param {HTMLElement} rangeSliderElement The element that triggered
+	 *  the event.
+	 * @param {Event} event The triggered event.
+	 * @param {Object} ui The tabs ui data.
+	 */
+	$.pkp.controllers.RangeSliderHandler.prototype.toggleField =
+			function(rangeSliderElement, event, ui) {
+
+		this.getHtmlElement().toggleClass('is_enabled');
 	};
 
 /** @param {jQuery} $ jQuery closure. */

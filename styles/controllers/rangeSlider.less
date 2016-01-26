@@ -11,6 +11,8 @@
  */
 
 .pkp_controllers_rangeSlider {
+	position: relative;
+	padding-bottom: @half; // Allow the toggle label to cover the slider
 
 	.ui-slider {
 		position: relative;
@@ -90,4 +92,64 @@
 		}
 	}
 
+	// Enable/disable toggle
+
+	&.is_toggleable {
+
+		.control {
+			padding-left: 24px;
+			opacity: 0.5;
+		}
+
+		.value {
+			display: none;
+		}
+
+		.disabled {
+			display: inline;
+		}
+	}
+
+	.toggle {
+
+		input {
+			position: absolute;
+			top: @half;
+			left: 0;
+			cursor: pointer;
+		}
+
+		label {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			z-index: 2;
+
+			.label {
+				&:extend(.pkp_screen_reader);
+			}
+		}
+	}
+
+	&.is_enabled {
+
+		.control {
+			opacity: 1;
+		}
+
+		.toggle label {
+			&:extend(.pkp_screen_reader);
+			right: auto;
+		}
+
+		.value {
+			display: inline;
+		}
+
+		.disabled {
+			display: none;
+		}
+	}
 }

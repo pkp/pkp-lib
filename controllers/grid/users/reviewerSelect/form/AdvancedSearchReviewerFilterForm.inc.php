@@ -86,12 +86,16 @@ class AdvancedSearchReviewerFilterForm extends Form {
 	function readInputData() {
 		$this->readUserVars(array(
 			'name',
+			'doneEnabled',
 			'doneMin',
 			'doneMax',
+			'avgEnabled',
 			'avgMin',
 			'avgMax',
+			'lastEnabled',
 			'lastMin',
 			'lastMax',
+			'activeEnabled',
 			'activeMin',
 			'activeMax',
 			'keywords')
@@ -115,12 +119,16 @@ class AdvancedSearchReviewerFilterForm extends Form {
 	function getFilterSelectionData() {
 		$reviewerValues = array(
 			'name' => (string) $this->getData('name'),
+			'doneEnabled' => (bool) $this->getData('doneEnabled'),
 			'doneMin' => (int) $this->getData('doneMin'),
 			'doneMax' => (int) $this->getData('doneMax'),
+			'avgEnabled' => (bool) $this->getData('avgEnabled'),
 			'avgMin' => (int) $this->getData('avgMin'),
 			'avgMax' => (int) $this->getData('avgMax'),
+			'lastEnabled' => (bool) $this->getData('lastEnabled'),
 			'lastMin' => (int) $this->getData('lastMin'),
 			'lastMax' => (int) $this->getData('lastMax'),
+			'activeEnabled' => (bool) $this->getData('activeEnabled'),
 			'activeMin' => (int) $this->getData('activeMin'),
 			'activeMax' => (int) $this->getData('activeMax')
 		);

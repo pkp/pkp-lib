@@ -161,12 +161,16 @@ class ReviewerSelectGridHandler extends GridHandler {
 
 		// Retrieve the authors associated with this submission to be displayed in the grid
 		$name = $reviewerValues['name'];
+		$doneEnabled = $reviewerValues['doneEnabled'];
 		$doneMin = $reviewerValues['doneMin'];
 		$doneMax = $reviewerValues['doneMax'];
+		$avgEnabled = $reviewerValues['avgEnabled'];
 		$avgMin = $reviewerValues['avgMin'];
 		$avgMax = $reviewerValues['avgMax'];
+		$lastEnabled = $reviewerValues['lastEnabled'];
 		$lastMin = $reviewerValues['lastMin'];
 		$lastMax = $reviewerValues['lastMax'];
+		$activeEnabled = $reviewerValues['activeEnabled'];
 		$activeMin = $reviewerValues['activeMin'];
 		$activeMax = $reviewerValues['activeMax'];
 
@@ -175,8 +179,9 @@ class ReviewerSelectGridHandler extends GridHandler {
 		$reviewRound = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND);
 		return $userDao->getFilteredReviewers(
 			$submission->getContextId(), $reviewRound->getStageId(), $name,
-			$doneMin, $doneMax, $avgMin, $avgMax,
-			$lastMin, $lastMax, $activeMin, $activeMax, $interests,
+			$doneEnabled, $doneMin, $doneMax, $avgEnabled, $avgMin, $avgMax,
+			$lastEnabled, $lastMin, $lastMax,
+			$activeEnabled, $activeMin, $activeMax, $interests,
 			$submission->getId(), $reviewRound->getId()
 		);
 	}
@@ -198,12 +203,16 @@ class ReviewerSelectGridHandler extends GridHandler {
 			return array(
 				'reviewerValues' => array(
 					'name' => null,
+					'doneEnabled' => null,
 					'doneMin' => null,
 					'doneMax' => null,
+					'avgEnabled' => null,
 					'avgMin' => null,
 					'avgMax' => null,
+					'lastEnabled' => null,
 					'lastMin' => null,
 					'lastMax' => null,
+					'activeEnabled' => null,
 					'activeMin' => null,
 					'activeMax' => null,
 				),

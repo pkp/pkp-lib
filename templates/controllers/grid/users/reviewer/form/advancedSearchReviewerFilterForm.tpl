@@ -34,17 +34,16 @@
 
 		{capture assign="extraFilters"}
 			{fbvFormSection inline="true" size=$fbvStyles.size.MEDIUM}
-				{fbvElement type="rangeSlider" id="done" min=0 max=100 label="manager.reviewerSearch.doneAmount" valueMin=$reviewerValues.doneMin|default:0 valueMax=$reviewerValues.doneMax|default:100}
+				{fbvElement type="rangeSlider" id="done" min=0 max=100 label="manager.reviewerSearch.doneAmount" valueMin=$reviewerValues.doneMin|default:0 valueMax=$reviewerValues.doneMax|default:100 toggleable=true toggleable_label="manager.reviewerSearch.doneAmountToggle" enabled=$reviewerValues.doneEnabled}
 			{/fbvFormSection}
 			{fbvFormSection inline="true" size=$fbvStyles.size.MEDIUM}
-				{fbvElement type="rangeSlider" id="avg" min=0 max=365 label="manager.reviewerSearch.avgAmount" valueMin=$reviewerValues.avgMin|default:0 valueMax=$reviewerValues.avgMax|default:365}
-			{/fbvFormSection}
-
-			{fbvFormSection inline="true" size=$fbvStyles.size.MEDIUM}
-				{fbvElement type="rangeSlider" id="last" min=0 max=365 label="manager.reviewerSearch.lastAmount" valueMin=$reviewerValues.lastMin|default:0 valueMax=$reviewerValues.lastMax|default:365}
+				{fbvElement type="rangeSlider" id="last" min=0 max=365 label="manager.reviewerSearch.lastAmount" valueMin=$reviewerValues.lastMin|default:0 valueMax=$reviewerValues.lastMax|default:365 toggleable=true toggleable_label="manager.reviewerSearch.lastAmountToggle" enabled=$reviewerValues.lastEnabled}
 			{/fbvFormSection}
 			{fbvFormSection inline="true" size=$fbvStyles.size.MEDIUM}
-				{fbvElement type="rangeSlider" id="active" min=0 max=100 label="manager.reviewerSearch.activeAmount" valueMin=$reviewerValues.activeMin|default:0 valueMax=$reviewerValues.activeMax|default:100}
+				{fbvElement type="rangeSlider" id="avg" min=0 max=365 label="manager.reviewerSearch.avgAmount" valueMin=$reviewerValues.avgMin|default:0 valueMax=$reviewerValues.avgMax|default:365 toggleable=true toggleable_label="manager.reviewerSearch.avgAmountToggle" enabled=$reviewerValues.avgEnabled}
+			{/fbvFormSection}
+			{fbvFormSection inline="true" size=$fbvStyles.size.MEDIUM}
+				{fbvElement type="rangeSlider" id="active" min=0 max=100 label="manager.reviewerSearch.activeAmount" valueMin=$reviewerValues.activeMin|default:0 valueMax=$reviewerValues.activeMax|default:100 toggleable=true toggleable_label="manager.reviewerSearch.activeAmountToggle" enabled=$reviewerValues.activeEnabled}
 			{/fbvFormSection}
 
 			{fbvFormSection title="manager.reviewerSearch.form.interests.instructions"}

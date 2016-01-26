@@ -168,9 +168,13 @@
 	<message key="manager.reviewerSearch.searchByName">Search For Reviewer By Name</message>
 	<message key="manager.reviewerSearch.searchByName.short">Search By Name</message>
 	<message key="manager.reviewerSearch.doneAmount">Reviews completed: {$current}</message>
+	<message key="manager.reviewerSearch.doneAmountToggle">Enable/disable the filter for reviews completed.</message>
 	<message key="manager.reviewerSearch.avgAmount">Average days to complete: {$current}</message>
+	<message key="manager.reviewerSearch.avgAmountToggle">Enable/disable the filter for average days to complete a review.</message>
 	<message key="manager.reviewerSearch.lastAmount">Days since last review: {$current}</message>
+	<message key="manager.reviewerSearch.lastAmountToggle">Enable/disable the filter for days since last review.</message>
 	<message key="manager.reviewerSearch.activeAmount">Currently active reviews: {$current}</message>
+	<message key="manager.reviewerSearch.activeAmountToggle">Enable/disable the filter for currently active reviews.</message>
 	<message key="manager.reviewerSearch.interests">Reviewing Interests</message>
 	<message key="manager.reviewerSearch.form.instructions">Use the form below to set the maximum values for the terms you wish to search for.  The form is pre-populated with the calculated averages of those fields.</message>
 	<message key="manager.reviewerSearch.form.interests.instructions">Reviewer Interests (type to search for matching interests)</message>

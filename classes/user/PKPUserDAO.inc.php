@@ -244,7 +244,7 @@ class PKPUserDAO extends DAO {
 	 * @param $reviewRoundId int Also filter users assigned to this round of the given submission
 	 * @return array Users
 	 */
-	function getFilteredReviewers($contextId, $stageId, $name = null, $doneMin = null, $doneMax = null, $avgMin = null, $avgMax = null, $lastMin = null, $lastMax = null, $activeMin = null, $activeMax = null, $interests = array(), $submissionId = null, $reviewRoundId = null) {
+	function getFilteredReviewers($contextId, $stageId, $name = null, $doneEnabled = null, $doneMin = null, $doneMax = null, $avgEnabled = null, $avgMin = null, $avgMax = null, $lastEnabled = null, $lastMin = null, $lastMax = null, $activeEnabled = null, $activeMin = null, $activeMax = null, $interests = array(), $submissionId = null, $reviewRoundId = null) {
 		$result = $this->retrieve(
 			'SELECT	u.*,
 				COALESCE(COUNT(DISTINCT rac.review_id), 0) AS complete_count,
@@ -266,14 +266,14 @@ class PKPUserDAO extends DAO {
 				($name !== null?' AND (u.first_name LIKE ? OR u.middle_name LIKE ? OR u.last_name LIKE ? OR u.username LIKE ? OR u.email LIKE ?)':'') . '
 			GROUP BY u.user_id
 			HAVING 1=1' .
-				($doneMin !== null?' AND COUNT(DISTINCT rac.review_id) >= ?':'') .
-				($doneMax !== null?' AND COUNT(DISTINCT rac.review_id) <= ?':'') .
-				($avgMin !== null?' AND (AVG(rac.date_completed - rac.date_notified) >= ? OR AVG(rac.date_completed - rac.date_notified) IS NULL)':'') .
-				($avgMax !== null?' AND (AVG(rac.date_completed - rac.date_notified) <= ? OR AVG(rac.date_completed - rac.date_notified) IS NULL)':'') .
-				($activeMin !== null?' AND COUNT(DISTINCT rai.review_id) >= ?':'') .
-				($activeMax !== null?' AND COUNT(DISTINCT rai.review_id) <= ?':'') .
-				($lastMin !== null?' AND MAX(raf.date_assigned) <= ' . ($this->datetimeToDB(time() - ((int) $lastMin * 86400))):'') .
-				($lastMax !== null?' AND MAX(raf.date_assigned) >= ' . ($this->datetimeToDB(time() - ((int) $lastMax * 86400))):'') .
+				($doneEnabled && $doneMin !== null?' AND COUNT(DISTINCT rac.review_id) >= ?':'') .
+				($doneEnabled && $doneMax !== null?' AND COUNT(DISTINCT rac.review_id) <= ?':'') .
+				($avgEnabled && $avgMin !== null?' AND AVG(rac.date_completed - rac.date_notified) >= ?':'') .
+				($avgEnabled && $avgMax !== null?' AND AVG(rac.date_completed - rac.date_notified) <= ?':'') .
+				($activeEnabled && $activeMin !== null?' AND COUNT(DISTINCT rai.review_id) >= ?':'') .
+				($activeEnabled && $activeMax !== null?' AND COUNT(DISTINCT rai.review_id) <= ?':'') .
+				($lastEnabled && $lastMin !== null?' AND MAX(raf.date_assigned) <= ' . ($this->datetimeToDB(time() - ((int) $lastMin * 86400))):'') .
+				($lastEnabled && $lastMax !== null?' AND MAX(raf.date_assigned) >= ' . ($this->datetimeToDB(time() - ((int) $lastMax * 86400))):'') .
 			' ORDER BY last_name, first_name',
 			array_merge(
 				array(
@@ -288,12 +288,12 @@ class PKPUserDAO extends DAO {
 				$name !== null?array('%'.(string) $name.'%'):array(),
 				$name !== null?array('%'.(string) $name.'%'):array(),
 				$name !== null?array('%'.(string) $name.'%'):array(),
-				$doneMin !== null?array((int) $doneMin):array(),
-				$doneMax !== null?array((int) $doneMax):array(),
-				$avgMin !== null?array((int) $avgMin):array(),
-				$avgMax !== null?array((int) $avgMax):array(),
-				$activeMin !== null?array((int) $activeMin):array(),
-				$activeMax !== null?array((int) $activeMax):array()
+				$doneEnabled && $doneMin !== null?array((int) $doneMin):array(),
+				$doneEnabled && $doneMax !== null?array((int) $doneMax):array(),
+				$avgEnabled && $avgMin !== null?array((int) $avgMin):array(),
+				$avgEnabled && $avgMax !== null?array((int) $avgMax):array(),
+				$activeEnabled && $activeMin !== null?array((int) $activeMin):array(),
+				$activeEnabled && $activeMax !== null?array((int) $activeMax):array()
 			)
 		);
 

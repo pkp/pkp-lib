@@ -35,7 +35,7 @@
 	<div class="pkp_structure_page">
 
 		{* Header *}
-		<header class="pkp_structure_head" id="headerNavigationContainer">
+		<header class="pkp_structure_head" id="headerNavigationContainer" role="banner">
 			<div class="pkp_head_wrapper">
 
 				<div class="pkp_site_name_wrapper">
@@ -81,7 +81,7 @@
 							'$.pkp.controllers.MenuHandler');
 					{rdelim});
 				</script>
-				<nav class="pkp_navigation_primary_row">
+				<nav class="pkp_navigation_primary_row" aria-label="{translate|escape key="common.navigation.site"}">
 					<div class="pkp_navigation_primary_wrapper">
 
 						{* Primary navigation menu for current application *}
@@ -114,4 +114,4 @@
 				{rdelim});
 			</script>
 
-			<div class="pkp_structure_main">
+			<div class="pkp_structure_main" role="main">

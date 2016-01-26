@@ -97,6 +97,10 @@
 
 		$modal.append('<div class="footer">' + buttons + '</div>');
 
+		// Add aria role and label
+		$modal.attr('role', 'dialog')
+			.attr('aria-label', this.options.title);
+
 		return /** @type {jQueryObject} */ $modal;
 	};
 

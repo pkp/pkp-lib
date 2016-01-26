@@ -11,7 +11,7 @@
 </div><!-- pkp_structure_main -->
 </div><!-- pkp_structure_body -->
 
-<div class="pkp_structure_footer">
+<div class="pkp_structure_footer" role="contentinfo">
 	<div class="pkp_brand_footer">
 		<a href="{url page="about" op="aboutThisPublishingSystem"}">
 			<img alt="{translate key=$packageKey}" src="{$baseUrl}/{$brandImage}">

@@ -61,35 +61,6 @@
 	position: relative;
 }
 
-.participant_popover {
-	z-index: 1;
-	position: absolute;
-	top: 0;
-	right: 0;
-	transform: translateX(110%);
-	width: 24em;
-	background: @lift;
-	box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-	transition: transform 0.3s;
-
-	&.is_visible {
-		transform: translateX(0);
-	}
-
-	.pkp_controllers_grid {
-		padding: @base;
-		margin-bottom: 0;
-
-		.header {
-			min-height: @double; // has actions but no title
-		}
-	}
-
-	.gridRow:not(.category) td {
-		padding-left: @double; // make room for the drop-down caret
-	}
-}
-
 // Tabs
 .pkp_submission_workflow {
 
@@ -112,6 +83,10 @@
 }
 
 // Decision buttons (on the right)
+.pkp_tab_actions {
+	margin-bottom: @double;
+}
+
 .pkp_workflow_decisions a {
 	&:extend(.pkp_button);
 	width: 100%;
@@ -149,6 +124,22 @@
 		&[disabled] {
 			&:extend(.pkp_button[disabled]);
 		}
+	}
+}
+
+.pkp_participants_grid {
+	margin-bottom: @double;
+
+	.pkp_controllers_grid {
+		margin-bottom: 0;
+
+		.header {
+			min-height: @double; // has actions but no title
+		}
+	}
+
+	.gridRow:not(.category) td {
+		padding-left: @double; // make room for the drop-down caret
 	}
 }
 

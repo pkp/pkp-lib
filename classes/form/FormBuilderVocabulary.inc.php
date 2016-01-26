@@ -397,6 +397,10 @@ class FormBuilderVocabulary {
 		$smarty->assign('FBV_value_min', isset($params['valueMin']) ? $params['valueMin'] : $params['min']);
 		$smarty->assign('FBV_value_max', isset($params['valueMax']) ? $params['valueMax'] : $params['max']);
 
+		$smarty->assign('FBV_toggleable', isset($params['toggleable']) ? $params['toggleable'] : false);
+		$smarty->assign('FBV_toggleable_label', isset($params['toggleable_label']) ? $params['toggleable_label'] : '');
+		$smarty->assign('FBV_enabled', isset($params['enabled']) ? $params['enabled'] : false);
+
 		return $smarty->fetch('form/rangeSlider.tpl');
 	}
 

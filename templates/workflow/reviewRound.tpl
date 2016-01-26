@@ -9,6 +9,8 @@
  *}
 <div class="pkp_panel_wrapper">
 
+	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="reviewRoundNotification_"|concat:$reviewRoundId requestOptions=$reviewRoundNotificationRequestOptions}
+
 	{* Editorial decision actions, if available *}
 	<div class="pkp_context_sidebar">
 		{url|assign:reviewDecisionsUrl router=$smarty.const.ROUTE_PAGE page="workflow" op="editorDecisionActions" submissionId=$submission->getId() stageId=$stageId reviewRoundId=$reviewRoundId contextId="reviewRoundTab-"|concat:$reviewRoundId escape=false}
@@ -17,8 +19,6 @@
 	</div>
 
 	<div class="pkp_content_panel">
-
-		{include file="controllers/notification/inPlaceNotification.tpl" notificationId="reviewRoundNotification_"|concat:$reviewRoundId requestOptions=$reviewRoundNotificationRequestOptions}
 
 		{if $stageId == $smarty.const.WORKFLOW_STAGE_ID_INTERNAL_REVIEW}
 			<p class="pkp_help">{translate key="editor.internalReview.introduction"}</p>

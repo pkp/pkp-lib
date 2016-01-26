@@ -21,7 +21,9 @@
 	 *
 	 * @param {jQueryObject} $submissionHeader The HTML element encapsulating
 	 *  the header div.
-	 * @param {Object} options Handler options.
+	 * @param {{
+	 *   participantToggleSelector: string
+	 *   }} options Handler options.
 	 */
 	$.pkp.pages.workflow.SubmissionHeaderHandler =
 			function($submissionHeader, options) {
@@ -30,10 +32,24 @@
 
 		this.bind('gridRefreshRequested', this.refreshWorkflowContent_);
 		this.publishEvent('stageParticipantsChanged');
+
+		this.participantToggleSelector_ = options.participantToggleSelector;
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.pages.workflow.SubmissionHeaderHandler,
 			$.pkp.classes.Handler);
+
+
+	//
+	// Private properties
+	//
+	/**
+	 * Site handler options.
+	 * @private
+	 * @type {string?}
+	 */
+	$.pkp.pages.workflow.SubmissionHeaderHandler
+			.prototype.participantToggleSelector_ = null;
 
 
 	//

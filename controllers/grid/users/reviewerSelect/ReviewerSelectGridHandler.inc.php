@@ -162,26 +162,25 @@ class ReviewerSelectGridHandler extends GridHandler {
 		// Retrieve the authors associated with this submission to be displayed in the grid
 		$name = $reviewerValues['name'];
 		$doneEnabled = $reviewerValues['doneEnabled'];
-		$doneMin = $reviewerValues['doneMin'];
-		$doneMax = $reviewerValues['doneMax'];
+		$doneMin = $doneEnabled ? $reviewerValues['doneMin'] : null;
+		$doneMax = $doneEnabled ? $reviewerValues['doneMax'] : null;
 		$avgEnabled = $reviewerValues['avgEnabled'];
-		$avgMin = $reviewerValues['avgMin'];
-		$avgMax = $reviewerValues['avgMax'];
+		$avgMin = $avgEnabled ? $reviewerValues['avgMin'] : null;
+		$avgMax = $avgEnabled ? $reviewerValues['avgMax'] : null;
 		$lastEnabled = $reviewerValues['lastEnabled'];
-		$lastMin = $reviewerValues['lastMin'];
-		$lastMax = $reviewerValues['lastMax'];
+		$lastMin = $lastEnabled ? $reviewerValues['lastMin'] : null;
+		$lastMax = $lastEnabled ? $reviewerValues['lastMax'] : null;
 		$activeEnabled = $reviewerValues['activeEnabled'];
-		$activeMin = $reviewerValues['activeMin'];
-		$activeMax = $reviewerValues['activeMax'];
+		$activeMin = $activeEnabled ? $reviewerValues['activeMin'] : null;
+		$activeMax = $activeEnabled ? $reviewerValues['activeMax'] : null;
 
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$reviewRound = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND);
 		return $userDao->getFilteredReviewers(
 			$submission->getContextId(), $reviewRound->getStageId(), $name,
-			$doneEnabled, $doneMin, $doneMax, $avgEnabled, $avgMin, $avgMax,
-			$lastEnabled, $lastMin, $lastMax,
-			$activeEnabled, $activeMin, $activeMax, $interests,
+			$doneMin, $doneMax, $avgMin, $avgMax, $lastMin, $lastMax,
+			$activeMin, $activeMax, $interests,
 			$submission->getId(), $reviewRound->getId()
 		);
 	}

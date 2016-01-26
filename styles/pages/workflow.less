@@ -150,6 +150,19 @@
 	}
 }
 
+// Large blocks of help text at the top of each stage
+.pkp_content_panel .pkp_help {
+	margin: @double 0;
+	font-size: @font-sml;
+	line-height: @line-sml;
+	color: @text-light;
+	color: @text-light-rgba;
+
+	&:first-child {
+		margin-top: 0;
+	}
+}
+
 //
 // Hacky workarounds for targetting specific things that aren't that well
 // marked up, or otherwise cause complications

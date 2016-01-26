@@ -61,35 +61,6 @@
 	position: relative;
 }
 
-.participant_popover {
-	z-index: 1;
-	position: absolute;
-	top: 0;
-	right: 0;
-	transform: translateX(110%);
-	width: 24em;
-	background: @lift;
-	box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-	transition: transform 0.3s;
-
-	&.is_visible {
-		transform: translateX(0);
-	}
-
-	.pkp_controllers_grid {
-		padding: @base;
-		margin-bottom: 0;
-
-		.header {
-			min-height: @double; // has actions but no title
-		}
-	}
-
-	.gridRow:not(.category) td {
-		padding-left: @double; // make room for the drop-down caret
-	}
-}
-
 // Tabs
 .pkp_submission_workflow {
 
@@ -112,6 +83,10 @@
 }
 
 // Decision buttons (on the right)
+.pkp_tab_actions {
+	margin-bottom: @double;
+}
+
 .pkp_workflow_decisions a {
 	&:extend(.pkp_button);
 	width: 100%;
@@ -152,15 +127,48 @@
 	}
 }
 
+.pkp_participants_grid {
+	margin-bottom: @double;
+	border: @bg-border;
+
+	.pkp_controllers_grid {
+		margin-bottom: 0;
+
+		.header {
+			padding-left: @half;
+			padding-right: @half;
+		}
+
+		.header h4,
+		.gridCellContainer {
+			font-size: @font-sml;
+		}
+	}
+
+	.gridRow:not(.category) td {
+		padding-left: @double; // make room for the drop-down caret
+	}
+}
+
+// Large blocks of help text at the top of each stage
+.pkp_content_panel .pkp_help {
+	margin: @double 0;
+	padding: @half;
+	border: @bg-border;
+	font-size: @font-sml;
+	line-height: @line-sml;
+	color: @text-light;
+	color: @text-light-rgba;
+
+	&:first-child {
+		margin-top: 0;
+	}
+}
+
 //
 // Hacky workarounds for targetting specific things that aren't that well
 // marked up, or otherwise cause complications
 //
-
-// Removes top margin from notifications
-#reviewTabs .pkp_notification {
-	margin-top: 0;
-}
 
 // Removes file id styling from the reviewer's grid
 [id^="reviewersGrid"] .gridCellContainer .label.before_actions {

@@ -18,7 +18,7 @@
 		);
 	{rdelim});
 </script>
-<ul class="pkp_tab_sidebar">
+<ul class="pkp_context_sidebar">
 	<li class="pkp_tab_actions">
 		<form id="contextSubmissionForm">
 			<ul>

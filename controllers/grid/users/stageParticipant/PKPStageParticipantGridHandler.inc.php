@@ -37,6 +37,7 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR),
 			array_merge($peOps, array('addParticipant', 'deleteParticipant', 'saveParticipant', 'fetchUserList'))
 		);
+		$this->setTitle('editor.submission.stageParticipants');
 	}
 
 

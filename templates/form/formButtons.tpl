@@ -29,12 +29,7 @@
 					buttonSelector="#"|concat:$cancelButtonId
 					cancelUrl=$FBV_cancelUrl}
 		{/if}
-		{if $FBV_formReset}
-			{assign var=resetButtonId value=""|uniqid}
-			<a href="#" id={$resetButtonId} class="resetButton">{translate key=$FBV_cancelText}</a>
-		{else}
-			<a href="#" id="{$cancelButtonId}" class="cancelButton">{translate key=$FBV_cancelText}</a>
-		{/if}
+		<a href="#" id="{$cancelButtonId}" class="cancelButton">{translate key=$FBV_cancelText}</a>
 	{/if}
 
 	{* Submit button *}

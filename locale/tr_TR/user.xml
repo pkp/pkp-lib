@@ -13,8 +13,8 @@
   -->
 
 <locale name="tr_TR" full_name = "Türkiye Türkçesi">
-	<message key="user.affiliation">Affiliation</message>
-	<message key="user.affiliations">Affiliations</message>
+	<message key="user.affiliation">Kurum</message>
+	<message key="user.affiliations">Kurumlar</message>
 	<message key="user.biography">Öz geçmiş</message>
 	<message key="user.biography.description">(Ör. Bölüm ve kıdem)</message>
 	<message key="user.changeMyPassword">Şifremi Değiştir</message>
@@ -25,7 +25,7 @@
 	<message key="user.email">E-posta</message>
 	<message key="user.fax">Faks</message>
 	<message key="user.firstName">Adı</message>
-	<message key="user.initialsExample">Gonca Topuzlu Tekant = GAT</message>
+	<message key="user.initialsExample">Ezgi Sima ÇELİK = ESÇ</message>
 	<message key="user.initials">Ad İlk Harfleri</message>
 	<message key="user.interests">Değerlendirme için ilgi alanları</message>
 	<message key="user.lastName">Soyadı</message>

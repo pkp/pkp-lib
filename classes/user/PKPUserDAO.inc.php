@@ -230,6 +230,7 @@ class PKPUserDAO extends DAO {
 	/**
 	 * Given the ranges selected by the editor, produce a filtered list of reviewers
 	 * @param $contextId int
+	 * @param $stageId int WORKFLOW_STAGE_ID_...
 	 * @param $name string|null Partial string match with reviewer name
 	 * @param $doneMin int|null # of reviews completed int
 	 * @param $doneMax int|null
@@ -242,7 +243,7 @@ class PKPUserDAO extends DAO {
 	 * @param $interests array
 	 * @param $submissionId int Filter out reviewers assigned to this submission
 	 * @param $reviewRoundId int Also filter users assigned to this round of the given submission
-	 * @return array Users
+	 * @return DAOResultFactory Iterator for matching users
 	 */
 	function getFilteredReviewers($contextId, $stageId, $name = null, $doneMin = null, $doneMax = null, $avgMin = null, $avgMax = null, $lastMin = null, $lastMax = null, $activeMin = null, $activeMax = null, $interests = array(), $submissionId = null, $reviewRoundId = null) {
 		$result = $this->retrieve(

@@ -177,6 +177,41 @@
 	font-size: @font-base;
 }
 
+// Adjust button/link styles in reviewer selection grid, since they lie
+// outside of a .pkp_form
+.pkp_form_advancedReviewerSearch .section.buttons {
+	text-align: right;
+
+	> button,
+	> a {
+		margin-right: 1em;
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+}
+
+// Adjust display of selected reviewer in add reviewer form
+.pkp_reviewer_form .selected_reviewer {
+	&:extend(.pkp_form .section);
+
+	.label {
+		font-weight: @bold;
+	}
+
+	.name {
+		font-style: italic;
+		color: @text-light;
+		color: @text-light-rgba;
+	}
+
+	.actions a {
+		font-size: @font-tiny;
+		margin-left: 1em;
+	}
+}
+
 // @todo
 .pkp_page_header {
 

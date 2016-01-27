@@ -33,26 +33,39 @@
 		}
 
 		// Get the container that will hold the actual slider.
-		this.slider_ = $rangeSliderField.children(
+		this.slider_ = $rangeSliderField.find(
 				'.pkp_controllers_rangeSlider_slider'
 				);
 
 		// Get the container that will display the numeric values of the slider.
-		this.label_ = $rangeSliderField.find(
-				'.pkp_controllers_rangeSlider_sliderValue'
+		this.labelMin_ = $rangeSliderField.find(
+				'.pkp_controllers_rangeSlider_sliderValueMin'
+				);
+		this.labelMax_ = $rangeSliderField.find(
+				'.pkp_controllers_rangeSlider_sliderValueMax'
 				);
 
 		// Create slider settings.
 		var opt = {}, rangeSliderOptions;
 		opt.min = options.min;
 		opt.max = options.max;
-		opt.values = [options.min, options.max];
+		if (typeof options.values === 'undefined') {
+			opt.values = [options.min, options.max];
+		} else {
+			opt.values = options.values;
+		}
 		rangeSliderOptions = $.extend({ },
 				this.self('DEFAULT_PROPERTIES_'), opt);
 
 		// Create the slider with the jqueryUI plug-in.
 		this.slider_.slider(rangeSliderOptions);
 		this.bind('slide', this.sliderAdjusted);
+
+		// Set up the toggleable option
+		if (typeof options.toggleable !== 'undefined' && options.toggleable) {
+			this.toggleCheckbox_ = this.getHtmlElement().find('.toggle input');
+			this.toggleCheckbox_.on('change', this.callbackWrapper(this.toggleField));
+		}
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.RangeSliderHandler, $.pkp.classes.Handler);
@@ -70,11 +83,27 @@
 
 
 	/**
-	 * The container that will display the numeric values of the slider.
+	 * The container that will display the numeric min value of the slider.
 	 * @private
 	 * @type {HTMLElement}
 	 */
-	$.pkp.controllers.RangeSliderHandler.label_ = null;
+	$.pkp.controllers.RangeSliderHandler.labelMin_ = null;
+
+
+	/**
+	 * The container that will display the numeric max value of the slider.
+	 * @private
+	 * @type {HTMLElement}
+	 */
+	$.pkp.controllers.RangeSliderHandler.labelMax_ = null;
+
+
+	/**
+	 * The checkbox that will enable/disable the field
+	 * @private
+	 * @type {HTMLElement}
+	 */
+	$.pkp.controllers.RangeSliderHandler.toggleCheckbox_ = null;
 
 
 	/**
@@ -104,9 +133,9 @@
 			function(rangeSliderElement, event, ui) {
 
 		// Set the label
-		var $label = this.label_,
-				$minVal, $maxVal;
-		$label.val(ui.values[0] + ' - ' + ui.values[1]);
+		var $minVal, $maxVal;
+		this.labelMin_.html(ui.values[0]);
+		this.labelMax_.html(ui.values[1]);
 
 		// Set the hidden inputs
 		$minVal = $(rangeSliderElement).children(
@@ -117,6 +146,21 @@
 				'.pkp_controllers_rangeSlider_maxInput'
 				);
 		$maxVal.val(ui.values[1]);
+	};
+
+
+	/**
+	 * Enable/disable this field
+	 *
+	 * @param {HTMLElement} rangeSliderElement The element that triggered
+	 *  the event.
+	 * @param {Event} event The triggered event.
+	 * @param {Object} ui The tabs ui data.
+	 */
+	$.pkp.controllers.RangeSliderHandler.prototype.toggleField =
+			function(rangeSliderElement, event, ui) {
+
+		this.getHtmlElement().toggleClass('is_enabled');
 	};
 
 /** @param {jQuery} $ jQuery closure. */

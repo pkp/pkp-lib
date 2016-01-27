@@ -21,10 +21,9 @@ import('lib.pkp.controllers.grid.users.reviewer.ReviewerGridCellProvider');
 import('lib.pkp.controllers.grid.users.reviewer.ReviewerGridRow');
 
 // Reviewer selection types
-define('REVIEWER_SELECT_SEARCH_BY_NAME',		0x00000001);
-define('REVIEWER_SELECT_ADVANCED_SEARCH',		0x00000002);
-define('REVIEWER_SELECT_CREATE',			0x00000003);
-define('REVIEWER_SELECT_ENROLL_EXISTING',		0x00000004);
+define('REVIEWER_SELECT_ADVANCED_SEARCH',		0x00000001);
+define('REVIEWER_SELECT_CREATE',			0x00000002);
+define('REVIEWER_SELECT_ENROLL_EXISTING',		0x00000003);
 
 class PKPReviewerGridHandler extends GridHandler {
 
@@ -123,7 +122,7 @@ class PKPReviewerGridHandler extends GridHandler {
 		// Grid actions
 		import('lib.pkp.classes.linkAction.request.AjaxModal');
 		$router = $request->getRouter();
-		$actionArgs = array_merge($this->getRequestArgs(), array('selectionType' => REVIEWER_SELECT_SEARCH_BY_NAME));
+		$actionArgs = array_merge($this->getRequestArgs(), array('selectionType' => REVIEWER_SELECT_ADVANCED_SEARCH));
 		$this->addAction(
 			new LinkAction(
 				'addReviewer',
@@ -697,8 +696,6 @@ class PKPReviewerGridHandler extends GridHandler {
 	 */
 	function _getReviewerFormClassName($selectionType) {
 		switch ($selectionType) {
-			case REVIEWER_SELECT_SEARCH_BY_NAME:
-				return 'SearchByNameReviewerForm';
 			case REVIEWER_SELECT_ADVANCED_SEARCH:
 				return 'AdvancedSearchReviewerForm';
 			case REVIEWER_SELECT_CREATE:

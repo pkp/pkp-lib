@@ -8,7 +8,6 @@
  * Advanced Search and assignment reviewer form.
  *
  *}
-
 <script type="text/javascript">
 	$(function() {ldelim}
 		// Handle moving the reviewer ID from the grid to the second form
@@ -17,11 +16,6 @@
 </script>
 
 <div id="advancedReviewerSearch" class="pkp_form_advancedReviewerSearch">
-	<div class="action_links">
-		{foreach from=$reviewerActions item=action}
-			{include file="linkAction/linkAction.tpl" action=$action contextId="createReviewerForm"}
-		{/foreach}
-	</div>
 
 	<div id="searchGridAndButton">
 		{** The grid that will display reviewers.  We have a JS handler for handling selections of this grid which will update a hidden element in the form below **}
@@ -29,18 +23,34 @@
 		{load_url_in_div id='reviewerSelectGridContainer' url=$reviewerSelectGridUrl}
 
 		{** This button will get the reviewer selected in the grid and insert their ID into the form below **}
-		{fbvFormSection class="pkp_helpers_text_right"}
+		{fbvFormSection class="buttons"}
+			{foreach from=$reviewerActions item=action}
+				{if $action->getId() == 'advancedSearch'}
+					{php}continue;{/php}
+				{/if}
+				{include file="linkAction/linkAction.tpl" action=$action contextId="createReviewerForm"}
+			{/foreach}
 			{fbvElement type="button" id="selectReviewerButton" label="editor.submission.selectReviewer"}
 		{/fbvFormSection}
-		<br />
 	</div>
 
-	<div id="regularReviewerForm">
-		{** Display the name of the selected reviewer so the user knows their button click caused an action **}
-		{fbvFormSection title="editor.submission.selectedReviewer"}
-			{fbvElement id="selectedReviewerName" type="text" disabled=true size=$fbvStyles.size.MEDIUM}
-		{/fbvFormSection}
-		<br />
+	<div id="regularReviewerForm" class="pkp_reviewer_form">
+		{** Display the name of the selected reviewer **}
+		<div class="selected_reviewer">
+			<div class="label">
+				{translate key="editor.submission.selectedReviewer"}
+			</div>
+			<div class="value">
+				<span id="selectedReviewerName" class="name"></span>
+				<span class="actions">
+					{foreach from=$reviewerActions item=action}
+						{if $action->getId() == 'advancedSearch'}
+							{include file="linkAction/linkAction.tpl" action=$action contextId="createReviewerForm"}
+						{/if}
+					{/foreach}
+				</span>
+			</div>
+		</div>
 
 		{include file="controllers/grid/users/reviewer/form/advancedSearchReviewerAssignmentForm.tpl"}
 	</div>

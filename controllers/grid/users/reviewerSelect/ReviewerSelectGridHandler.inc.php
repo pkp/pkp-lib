@@ -67,6 +67,8 @@ class ReviewerSelectGridHandler extends GridHandler {
 		);
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 
+		$this->setTitle('editor.submission.findAndSelectReviewer');
+
 		// Columns
 		$cellProvider = new ReviewerSelectGridCellProvider();
 		$this->addColumn(
@@ -158,22 +160,27 @@ class ReviewerSelectGridHandler extends GridHandler {
 		$reviewerValues = $filter['reviewerValues'];
 
 		// Retrieve the authors associated with this submission to be displayed in the grid
-		$doneMin = $reviewerValues['doneMin'];
-		$doneMax = $reviewerValues['doneMax'];
-		$avgMin = $reviewerValues['avgMin'];
-		$avgMax = $reviewerValues['avgMax'];
-		$lastMin = $reviewerValues['lastMin'];
-		$lastMax = $reviewerValues['lastMax'];
-		$activeMin = $reviewerValues['activeMin'];
-		$activeMax = $reviewerValues['activeMax'];
+		$name = $reviewerValues['name'];
+		$doneEnabled = $reviewerValues['doneEnabled'];
+		$doneMin = $doneEnabled ? $reviewerValues['doneMin'] : null;
+		$doneMax = $doneEnabled ? $reviewerValues['doneMax'] : null;
+		$avgEnabled = $reviewerValues['avgEnabled'];
+		$avgMin = $avgEnabled ? $reviewerValues['avgMin'] : null;
+		$avgMax = $avgEnabled ? $reviewerValues['avgMax'] : null;
+		$lastEnabled = $reviewerValues['lastEnabled'];
+		$lastMin = $lastEnabled ? $reviewerValues['lastMin'] : null;
+		$lastMax = $lastEnabled ? $reviewerValues['lastMax'] : null;
+		$activeEnabled = $reviewerValues['activeEnabled'];
+		$activeMin = $activeEnabled ? $reviewerValues['activeMin'] : null;
+		$activeMax = $activeEnabled ? $reviewerValues['activeMax'] : null;
 
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$reviewRound = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND);
 		return $userDao->getFilteredReviewers(
-			$submission->getContextId(), $reviewRound->getStageId(),
-			$doneMin, $doneMax, $avgMin, $avgMax,
-			$lastMin, $lastMax, $activeMin, $activeMax, $interests,
+			$submission->getContextId(), $reviewRound->getStageId(), $name,
+			$doneMin, $doneMax, $avgMin, $avgMax, $lastMin, $lastMax,
+			$activeMin, $activeMax, $interests,
 			$submission->getId(), $reviewRound->getId()
 		);
 	}
@@ -194,12 +201,17 @@ class ReviewerSelectGridHandler extends GridHandler {
 		} else {
 			return array(
 				'reviewerValues' => array(
+					'name' => null,
+					'doneEnabled' => null,
 					'doneMin' => null,
 					'doneMax' => null,
+					'avgEnabled' => null,
 					'avgMin' => null,
 					'avgMax' => null,
+					'lastEnabled' => null,
 					'lastMin' => null,
 					'lastMax' => null,
+					'activeEnabled' => null,
 					'activeMin' => null,
 					'activeMax' => null,
 				),
@@ -218,6 +230,14 @@ class ReviewerSelectGridHandler extends GridHandler {
 		$reviewRound = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND);
 		import('lib.pkp.controllers.grid.users.reviewerSelect.form.AdvancedSearchReviewerFilterForm');
 		return new AdvancedSearchReviewerFilterForm($submission, $stageId, $reviewRound->getId());
+	}
+
+	/**
+	 * Determine whether a filter form should be collapsible.
+	 * @return boolean
+	 */
+	protected function isFilterFormCollapsible() {
+		return false;
 	}
 }
 

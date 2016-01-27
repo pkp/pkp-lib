@@ -72,8 +72,8 @@
 			$('#reviewerId').val(reviewerId);
 
 			// Update the selected reviewer name container
-			$('input[id^="selectedReviewerName"]', this.getHtmlElement()).
-					val(reviewerName);
+			$('[id^="selectedReviewerName"]', this.getHtmlElement()).
+					html(reviewerName);
 
 			// Hide the grid now
 			$('#searchGridAndButton').hide();

@@ -214,7 +214,6 @@ class FormBuilderVocabulary {
 		$smarty->assign('FBV_confirmCancel', isset($params['confirmCancel']) ? $params['confirmCancel'] : null);
 		$smarty->assign('FBV_cancelAction', isset($params['cancelAction']) ? $params['cancelAction'] : null);
 		$smarty->assign('FBV_cancelUrl', isset($params['cancelUrl']) ? $params['cancelUrl'] : null);
-		$smarty->assign('FBV_formReset', isset($params['formReset']) ? (boolean)$params['formReset'] : false);
 
 		$smarty->assign('FBV_translate', isset($params['translate']) ? $params['translate'] : true);
 
@@ -276,9 +275,6 @@ class FormBuilderVocabulary {
 				break;
 			case 'interests':
 				$content = $this->_smartyFBVInterestsInput($params, $smarty);
-				break;
-			case 'link':
-				$content = $this->_smartyFBVLink($params, $smarty);
 				break;
 			case 'radio':
 				$content = $this->_smartyFBVRadioButton($params, $smarty);
@@ -353,31 +349,6 @@ class FormBuilderVocabulary {
 	}
 
 	/**
-	 * Text link.
-	 * parameters: label (or value), disabled (optional)
-	 * @param $params array
-	 * @param $smarty object
-	 */
-	function _smartyFBVLink($params, &$smarty) {
-		assert(isset($params['id']));
-
-		// Set the URL if there is one (defaults to '#' e.g. when the link should activate javascript)
-		$smarty->assign('FBV_href', isset($params['href']) ? $params['href'] : '#');
-
-		$smarty->clear_assign(array('FBV_label', 'FBV_disabled'));
-		foreach ($params as $key => $value) {
-			switch ($key) {
-				case 'label':
-				case 'disabled':
-					$smarty->assign('FBV_' . $key, $value);
-					break;
-			}
-		}
-
-		return $smarty->fetch('form/link.tpl');
-	}
-
-	/**
 	 * Form Autocomplete text input. (actually two inputs, label and value)
 	 * parameters: disabled (optional), name (optional - assigned value of 'id' by default)
 	 * @param $params array
@@ -422,7 +393,12 @@ class FormBuilderVocabulary {
 		$smarty->assign('FBV_min', $params['min']);
 		$smarty->assign('FBV_max', $params['max']);
 
-		$smarty->assign('FBV_label_content', isset($params['label']) ? $this->_smartyFBVSubLabel($params, $smarty) : null);
+		$smarty->assign('FBV_value_min', isset($params['valueMin']) ? $params['valueMin'] : $params['min']);
+		$smarty->assign('FBV_value_max', isset($params['valueMax']) ? $params['valueMax'] : $params['max']);
+
+		$smarty->assign('FBV_toggleable', isset($params['toggleable']) ? $params['toggleable'] : false);
+		$smarty->assign('FBV_toggleable_label', isset($params['toggleable_label']) ? $params['toggleable_label'] : '');
+		$smarty->assign('FBV_enabled', isset($params['enabled']) ? $params['enabled'] : false);
 
 		return $smarty->fetch('form/rangeSlider.tpl');
 	}

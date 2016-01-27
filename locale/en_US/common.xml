@@ -197,6 +197,7 @@
 	<message key="common.publisher">Publisher</message>
 	<message key="common.quality">Quality</message>
 	<message key="common.queue.long.active">All Active</message>
+	<message key="common.range">{$min}-{$max}</message>
 	<message key="common.re">Re:</message>
 	<message key="common.readMore">Read More</message>
 	<message key="common.readMoreWithTitle">Read more about {$title}</message>
@@ -453,8 +454,8 @@
 	<message key="notification.savedSubmissionMetadata">Submission metadata saved.</message>
 	<message key="search.abstract">Abstract</message>
 	<message key="search.activeFilters">Advanced filters</message>
-	<message key="search.advancedSearchMore">Additional Search Options (click to show)</message>
-	<message key="search.advancedSearchLess">Additional Search Options (click to hide)</message>
+	<message key="search.advancedSearchMore">More search options</message>
+	<message key="search.advancedSearchLess">Hide more search options</message>
 	<message key="search.allFields">All</message>
 	<message key="search.searchAgain">Search again</message>
 	<message key="search.cli.rebuildIndex.clearingIndex">Clearing index</message>

@@ -4,8 +4,8 @@
 <!--
   * locale/ar_IQ/admin.xml
   *
-  * Copyright (c) 2013-2015 Simon Fraser University Library
-  * Copyright (c) 2000-2015 John Willinsky
+  * Copyright (c) 2013-2016 Simon Fraser University Library
+  * Copyright (c) 2000-2016 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the ar_IQ (العربية) locale.
@@ -43,6 +43,7 @@
 	<message key="admin.scheduledTask.startTime">بدأت المهمة.</message>
 	<message key="admin.scheduledTask.stopTime">توقفت المهمة.</message>
 	<message key="admin.scheduledTask.noLog">المهمة لم تقدم سجل عمل لها.</message>
+    <message key="admin.scheduledTask.openAccessNotification">إشعار الوصول المفتوح</message>
     <message key="admin.scheduledTask.downloadLog">تنصيبك الحالي من نظام المجلات المفتوحة يقوم تلقائياً بتنفيذ هذه المهمة وإنهائها، وبإمكانك الحصول على ملف توثيق المهام من هنا: {$url}</message>
     <message key="admin.scheduledTask.confirmClearLogs">هل أنت متأكد من رغبتك في حذف بيانات توثيق المهام المجدولة جميعاً؟</message>
     <message key="admin.scheduledTask.clearLogs">إزالة بيانات توثيق المهام المجدولة</message>
@@ -101,4 +102,7 @@
 	<message key="admin.fileLoader.moveFileFailed">الملف {$filename} تعذر نقله من {$currentFilePath} إلى {$destinationPath}</message>
 	<message key="admin.fileLoader.fileProcessed">الملف {$filename} قد تمت معالجته وحفظه.</message>
 	<message key="admin.fileLoader">محمِّل الملفات</message>
+    <message key="admin.error.utilExecutionProblem">إن تنفيذ البرنامج عند المسار "{$utilPath}" أدى إلى الخطأ الآتي: {$output}</message>
+    <message key="admin.error.executingUtil">خطأ: يتعذر تنفيذ "{$utilPath}". تحقق من إعدادات {$utilVar} في ملف التهيئة config.inc.php.</message>
+
 </locale>

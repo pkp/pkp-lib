@@ -4,8 +4,8 @@
 <!--
   * locale/ar_IQ/user.xml
   *
-  * Copyright (c) 2013-2015 Simon Fraser University Library
-  * Copyright (c) 2000-2015 John Willinsky
+  * Copyright (c) 2013-2016 Simon Fraser University Library
+  * Copyright (c) 2000-2016 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the ar_IQ (العربية) locale.
@@ -64,7 +64,10 @@
 	<message key="user.login.registeredEmail">البريد الالكتروني للمستخدم المسجل في الموقع</message>
 	<message key="user.login.rememberUsernameAndPassword">تذكرني</message>
 	<message key="user.login.resetPassword">إعادة تعيين كلمة المرور</message>
-	<message key="user.logOut">الخروج</message>
+    <message key="user.login.implicitAuth">الدخول بالمعطيات</message>
+    <message key="user.login.implicitAuthLogin">الدخول عبر المعطيات</message>
+    <message key="user.login.localAuth">الدخول بحساب مستخدم محلي</message>
+    <message key="user.logOut">الخروج</message>
 	<message key="user.hello">مرحباً </message>
 	<message key="user.mailingAddress">عنوان المراسلة</message>
 	<message key="user.masculine">ذكر</message>

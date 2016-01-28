@@ -30,7 +30,7 @@
 
 	{* Load Noto Sans font from Google Font CDN *}
 	{* To load extended latin or other character sets, see https://www.google.com/fonts#UsePlace:use/Collection:Noto+Sans *}
-	<link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+	<link href='//fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
 
 	{load_stylesheet context="frontend" stylesheets=$stylesheets}
 

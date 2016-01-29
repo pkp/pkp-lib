@@ -25,7 +25,7 @@
 	<message key="about.policies">Politikalar</message>
 	<message key="about.siteMap">Site Haritası</message>
 	<message key="announcement.announcements">Duyurular</message>
-	<message key="announcement.announcementsHome">ADuyurular</message>
+	<message key="announcement.announcementsHome">Duyurular</message>
 	<message key="announcement.moreAnnouncements">Daha fazla duyuru...</message>
 	<message key="announcement.noneExist">Yayınlanan duyuru yok.</message>
 	<message key="announcement.viewLink">Daha fazlası...</message>
@@ -85,7 +85,7 @@
 	<message key="common.initiate">Başlat</message>
 	<message key="common.inProgress">İşlem sürüyor</message>
 	<message key="common.keywords">Anahtar kelimeler</message>
-	<message key="common.language">Dil</message>
+	<message key="common.language">Language</message>
 	<message key="common.languages">Diller</message>
 	<message key="common.mailingAddress">Posta adresi</message>
 	<message key="common.minute">Dakika(lar)</message>
@@ -200,7 +200,7 @@
 	<message key="icon.letter.alt">Mektup</message>
 	<message key="icon.mail.alt">Posta</message>
 	<message key="icon.unchecked.alt">Seçilmemiş</message>
-	<message key="icon.view.alt">göster</message>
+	<message key="icon.view.alt">Göster</message>
 	<message key="locale.primary">Birincil dil</message>
 	<message key="locale.supported">Desteklenen diller</message>
 	<message key="navigation.about">SİTE HAKKINDA</message>
@@ -235,7 +235,7 @@
 	<message key="search.operator.and">Ve</message>
 	<message key="search.operator.not">İçermeyen</message>
 	<message key="search.operator.or">Veya</message>
-	<message key="search.reviseSearch">Yeniden ara</message>
+	<message key="search.reviseSearch">Yeni arama</message>
 	<message key="search.searchAllCategories">için bütün kategorileri araştırın</message>
 	<message key="search.searchCategories">Kategorileri araştırın</message>
 	<message key="search.searchResults">Arama Sonuçları±</message>

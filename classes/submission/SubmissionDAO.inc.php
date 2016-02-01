@@ -889,7 +889,7 @@ abstract class SubmissionDAO extends DAO {
 	 * @return string
 	 */
 	private function _getEditorSearchQuery() {
-		return '(CONCAT_WS(" ", u.first_name, u.middle_name, u.last_name) LIKE ? OR CONCAT_WS(" ", u.first_name, u.last_name) LIKE ?)';
+		return '(CONCAT_WS(\' \', u.first_name, u.middle_name, u.last_name) LIKE ? OR CONCAT_WS(\' \', u.first_name, u.last_name) LIKE ?)';
 	}
 }
 

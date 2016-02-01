@@ -18,8 +18,8 @@
 		);
 	{rdelim});
 </script>
-<ul class="pkp_context_sidebar">
-	<li class="pkp_tab_actions">
+<div class="pkp_context_sidebar">
+	<div class="pkp_tab_actions">
 		<form id="contextSubmissionForm">
 			<ul>
 				<li>
@@ -27,8 +27,8 @@
 				</li>
 			</ul>
 		</form>
-	</li>
-</ul>
+	</div>
+</div>
 
 <div class="pkp_content_panel">
 	<!-- Unassigned submissions grid: If the user is a manager or a series editor, then display these submissions which have not been assigned to anyone -->

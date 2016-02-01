@@ -784,7 +784,7 @@ class UserGroupDAO extends DAO {
 		if (!empty($search)) {
 
 			if (!isset($searchTypeMap[$searchType])) {
-				$str = $this->concat('u.first_name', 'u.last_name', 'u.email', 'us.setting_value');
+				$str = $this->concat('u.first_name', 'u.last_name', 'u.email', 'COALESCE(us.setting_value,\'\')');
 				$concatFields = ' ( LOWER(' . $str . ') LIKE ? OR LOWER(cves.setting_value) LIKE ? ) ';
 
 				$search = strtolower($search);

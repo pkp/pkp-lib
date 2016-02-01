@@ -40,6 +40,12 @@
 		color: @text-light-rgba;
 	}
 
+	// Ensure grid cells are clickable to enter edit mode even if empty
+	.gridCellDisplay {
+		min-height: @line-base;
+		cursor: pointer;
+	}
+
 	// Editable grid row styles
 	// Default: Edit not displayed
 	.gridCellEdit {
@@ -47,9 +53,12 @@
 	}
 
 	.gridRowEdit {
+
 		.gridCellEdit {
 			display: block;
 		}
+
+		.row_actions,
 		.gridCellDisplay {
 			display: none;
 		}

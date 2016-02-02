@@ -12,6 +12,7 @@
 gridId: {$grid->getId()|json_encode},
 fetchRowUrl: {url|json_encode op='fetchRow' params=$gridRequestArgs escape=false},
 fetchOptionsUrl: {url|json_encode op='fetchOptions' params=$gridRequestArgs escape=false},
+availableOptions: {$availableOptions|json_encode},
 {if $grid->getSaveType() == $smarty.const.LISTBUILDER_SAVE_TYPE_INTERNAL}
 	saveUrl: {url|json_encode op='save' params=$gridRequestArgs escape=false},
 	saveFieldName: null,

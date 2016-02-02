@@ -87,6 +87,15 @@
 			prototype.editItemCallingContext_ = null;
 
 
+	/**
+	 * Flag whether there's still available options to be selected or not.
+	 * @private
+	 * @type {boolean}
+	 */
+	$.pkp.controllers.listbuilder.ListbuilderHandler.
+			prototype.availableOptions_ = false;
+
+
 	//
 	// Protected methods
 	//
@@ -102,6 +111,7 @@
 		this.saveUrl_ = options.saveUrl;
 		this.saveFieldName_ = options.saveFieldName;
 		this.fetchOptionsUrl_ = options.fetchOptionsUrl;
+		this.availableOptions_ = options.availableOptions;
 
 		// Attach the button handlers
 		var $listbuilder = this.getHtmlElement();
@@ -279,16 +289,18 @@
 	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.addItemHandler_ =
 			function(callingContext, opt_event) {
 
-		// Make sure this event will be handled after any other next triggered one,
-		// like blur event that comes from inputs.
-		setTimeout(this.callbackWrapper(function() {
-			// Close any existing edits if necessary
-			this.closeEdits();
+		if (this.availableOptions_) {
+			// Make sure this event will be handled after any other next triggered one,
+			// like blur event that comes from inputs.
+			setTimeout(this.callbackWrapper(function() {
+				// Close any existing edits if necessary
+				this.closeEdits();
 
-			this.disableControls();
-			$.get(this.getFetchRowUrl(), {modify: true},
-					this.callbackWrapper(this.appendRowResponseHandler_, null), 'json');
-		}), 0);
+				this.disableControls();
+				$.get(this.getFetchRowUrl(), {modify: true},
+						this.callbackWrapper(this.appendRowResponseHandler_, null), 'json');
+			}), 0);
+		}
 
 		return false;
 	};
@@ -325,6 +337,8 @@
 		}
 
 		this.deleteElement(/** @type {jQueryObject} */ ($targetRow));
+
+		this.availableOptions_ = true;
 
 		return false;
 	};
@@ -480,6 +494,7 @@
 				// If only one element is available, select it.
 				if (optionsCount === 1 && $lastElement) {
 					$lastElement.attr('selected', 'selected');
+					this.availableOptions_ = false;
 				}
 
 				// If no options are available for this select menu,
@@ -490,6 +505,7 @@
 				}
 			}
 		}
+
 		this.enableControls();
 		return false;
 	};

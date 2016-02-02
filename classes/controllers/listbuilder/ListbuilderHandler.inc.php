@@ -212,6 +212,26 @@ class ListbuilderHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 */
 	function fetch($args, $request) {
+		$templateMgr = TemplateManager::getManager($request);
+		$options = $this->getOptions($request);
+		$availableOptions = false;
+		if (is_array($options) && !empty($options)) {
+			$firstColumnOptions = current($options);
+			$optionsCount = count($firstColumnOptions);
+			if (is_array(current($firstColumnOptions))) { // Options with opt group, count only the selectable options.
+				unset($firstColumnOptions[LISTBUILDER_OPTGROUP_LABEL]);
+				$optionsCount--;
+				$optionsCount = count($firstColumnOptions, COUNT_RECURSIVE) - $optionsCount;
+			}
+		
+			$listElements = $this->getGridDataElements($request);
+			if (count($listElements) < $optionsCount) {
+				$availableOptions = true;
+			}
+		}
+
+		$templateMgr->assign('availableOptions', $availableOptions);
+	
 		return $this->fetchGrid($args, $request);
 	}
 

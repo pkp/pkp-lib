@@ -151,7 +151,6 @@ class PKPTemplateManager extends Smarty {
 		$this->register_block('iterate', array($this, 'smartyIterate'));
 		$this->register_function('page_links', array($this, 'smartyPageLinks'));
 		$this->register_function('page_info', array($this, 'smartyPageInfo'));
-		$this->register_function('icon', array($this, 'smartyIcon'));
 		$this->register_modifier('truncate', array($this, 'smartyTruncate'));
 
 		// Modified vocabulary for creating forms
@@ -551,48 +550,6 @@ class PKPTemplateManager extends Smarty {
 			$smarty->assign_by_ref($params['item'], $iterator->next());
 		}
 		return $content;
-	}
-
-	/**
-	 * Smarty usage: {icon name="image name" alt="alternative name" url="url path"}
-	 *
-	 * Custom Smarty function for generating anchor tag with optional url
-	 * @param $params array associative array, must contain "name" paramater to create image anchor tag
-	 * @return string <a href="url"><img src="path to image/image name" ... /></a>
-	 */
-	function smartyIcon($params, $smarty) {
-		if (isset($params) && !empty($params)) {
-			$iconHtml = '';
-			if (isset($params['name'])) {
-				// build image tag with standarized size of 16x16
-				$disabled = (isset($params['disabled']) && !empty($params['disabled']));
-				if (!isset($params['path'])) $params['path'] = 'lib/pkp/templates/images/icons/';
-				$iconHtml = '<img src="' . $smarty->get_template_vars('baseUrl') . '/' . $params['path'];
-				$iconHtml .= $params['name'] . ($disabled ? '_disabled' : '') . '.gif" width="16" height="14" alt="';
-
-				// if alt parameter specified use it, otherwise use localization version
-				if (isset($params['alt'])) {
-					$iconHtml .= $params['alt'];
-				} else {
-					$iconHtml .= __('icon.'.$params['name'].'.alt');
-				}
-				$iconHtml .= '" ';
-
-				// if onclick parameter specified use it
-				if (isset($params['onclick'])) {
-					$iconHtml .= 'onclick="' . $params['onclick'] . '" ';
-				}
-
-
-				$iconHtml .= '/>';
-
-				// build anchor with url if specified as a parameter
-				if (!$disabled && isset($params['url'])) {
-					$iconHtml = '<a href="' . $params['url'] . '" class="icon">' . $iconHtml . '</a>';
-				}
-			}
-			return $iconHtml;
-		}
 	}
 
 	/**

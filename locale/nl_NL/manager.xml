@@ -221,7 +221,6 @@
 	<message key="manager.emails.disable.message">U staat op het punt dit sjabloon uit te schakelen. Als er systeemprocessen zijn die dit sjabloon gebruiken, zullen ze het niet meer gebruiken. Wilt u deze bewerking bevestigen?</message>
 	<message key="manager.emails.enable.message">U staat op het punt deze e-mail in te schakelen. Wilt u deze bewerking bevestigen?</message>
 	<message key="manager.emails.resetAll.message">Als u de sjablonen herstelt gaan alle modificaties aan de sjablonen verloren. Wilt deze bewerking bevestigen?</message>
-	<message key="manager.navigation">Navigatie</message>
 	<message key="manager.reviewerSearch.searchByName.short">Zoeken op naam</message>
 	<message key="manager.setup.layout.blockManagement">Beheer van de sidebar</message>
 	<message key="plugins.categories.metadata">Metadata plugins</message>

@@ -117,7 +117,6 @@
 	<message key="manager.languages.alternateLocaleInstructions">Dieses System bietet die Möglichkeit, wichtige Informationen in verschiedenen zusätzlichen Sprachen einzutragen. Dazu wählen Sie bitte aus der nachstehenden Liste eine andere Regionaleinstellung aus.</message>
 	<message key="manager.languages.supportedLocalesInstructions">Wählen Sie alle Regionaleinstellungen aus, die von der Website unterstützt werden sollen und die über ein Sprachenmenü auf jeder Seite ausgewählt werden können. Dieses Menü erscheint nur dann, wenn mehr als eine Regionaleinstellung ausgewählt wird.</message>
 	<message key="manager.masthead.title">Impressum</message>
-	<message key="manager.navigation">Navigation</message>
 	<message key="manager.payment.timestamp">Zeitpunkt</message>
 	<message key="manager.people.authSource">Authentifizierungsquelle</message>
 	<message key="manager.people.confirmUnenroll">Diese/n Benutzer/in austragen?</message>
@@ -385,40 +384,6 @@
 	<message key="settings.roles.uniqueAbbrev">Sie müssen eine eindeutige Abkürzung für die Rolle festlegen.</message>
 	<message key="settings.roles.roleIdRequired">Sie müssen eine Berechtigungsstufe für die Rolle festlegen.</message>
 	<message key="settings.roles.stageIdRequired">Sie müssen eine Phase festlegen, der die Rolle zugeordnet werden soll.</message>
-
-	<!-- Content Management - Footer grid keys -->
-	<message key="grid.content.navigation.footer">Footer</message>
-	<message key="grid.content.navigation.footer.noneExist">Es gibt momentan keine Footer.</message>
-	<message key="grid.content.navigation.footer.addCategory">Kategorie hinzufügen</message>
-	<message key="grid.action.deleteFooterCategory">Footerkategorie entfernen</message>
-	<message key="grid.content.navigation.footer.FooterLink">Footer-Links</message>
-	<message key="grid.content.navigation.footer.editCategory">Kategorie bearbeiten</message>
-	<message key="grid.content.navigation.footer.deleteCategory">Kategorie löschen</message>
-	<message key="grid.content.navigation.footer.deleteCategoryConfirm">Sind Sie sicher, dass Sie diese Kategorie löschen wollen? Die Aktion kann nicht rückgängig gemacht werden, und Links in dieser Kategorie werden ebenfalls entfernt werden.</message>
-	<message key="grid.content.navigation.footer.titleRequired">Die Angabe eines Titels ist erforderlich.</message>
-	<message key="grid.content.navigation.footer.descriptionRequired">Die Angabe einer Beschreibung ist erforderlich.</message>
-	<message key="grid.content.navigation.footer.pathRequired">Die Angabe eines eindeutigen Pfads ist erforderlich.</message>
-	<message key="grid.content.navigation.footer.pathInUse">Dieser Pfad wird momentan von einer anderen Kategorie benutzt.</message>
-	<message key="grid.action.addFooterCategoryLink">Eine neue Footer-Kategorie hinzufügen</message>
-	<message key="grid.action.editFooterCategory">Diese Footer-Kategorie bearbeiten</message>
-
-	<!-- Content Management - Social Media keys -->
-	<message key="grid.content.navigation.socialMedia">Social Media</message>
-	<message key="grid.content.navigation.socialMedia.platform">Plattform</message>
-	<message key="grid.content.navigation.socialMedia.code">Block zum Teilen</message>
-	<message key="grid.content.navigation.socialMedia.platformRequired">Sie müssen einen Titel der Plattform angeben (Facebook, Google+ etc).</message>
-	<message key="grid.content.navigation.socialMedia.codeRequired">Sie müssen den Code, den Sie benutzten möchten, um dieses soziale Netzwerk anzuzeigen.</message>
-	<message key="grid.content.navigation.socialMedia.addSocialLink">Social Link hinzufügen</message>
-	<message key="grid.content.navigation.socialMedia.includeInCatalog">Für jedes veröffentlichte Objekt im Katalog benutzen?</message>
-	<message key="grid.content.navigation.socialMedia.inCatalog">Im Katalog benutzt</message>
-	<message key="grid.action.addMedia">Einen neuen Social-Media-Typ hinzufügen</message>
-
-	<message key="notification.addedFooterCategory">Kategorie hinzugefügt.</message>
-	<message key="notification.editedFooterCategory">Kategorie bearbeitet.</message>
-	<message key="notification.removedFooterCategory">Kategorie entfernt.</message>
-	<message key="notification.addedSocialMedia">Soziales Netzwerk hinzugefügt.</message>
-	<message key="notification.editedSocialMedia">Soziales Netzwerk bearbeitet.</message>
-	<message key="notification.removedSocialMedia">Soziales Netzwerk entfernt.</message>
 
 	<!-- Library Files -->
 	<message key="settings.libraryFiles.fileRequired">Die Angabe einer Bibliotheksdatei ist erforderlich. Bitte stellen Sie sicher, dass Sie eine Datei ausgewählt und hochgeladen haben.</message>

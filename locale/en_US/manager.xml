@@ -116,7 +116,6 @@
 	<message key="manager.languages.alternateLocaleInstructions">This system optionally allows certain critical information to be entered in several additional languages. To use this feature, select alternate locales and choose from the options listed below.</message>
 	<message key="manager.languages.supportedLocalesInstructions">Select all locales to support on the site via a language select menu to appear on each page. The menu will only appear if more than one locale is selected.</message>
 	<message key="manager.masthead.title">Masthead</message>
-	<message key="manager.navigation">Navigation</message>
 	<message key="manager.payment.timestamp">Timestamp</message>
 	<message key="manager.people.authSource">Authentication source</message>
 	<message key="manager.people.confirmUnenroll">Unenroll this user?</message>
@@ -418,40 +417,6 @@
 	<message key="settings.roles.uniqueAbbrev">You need to define an unique role abbreviature.</message>
 	<message key="settings.roles.roleIdRequired">You need to define a role permission level.</message>
 	<message key="settings.roles.stageIdRequired">You need to define a stage to assign to.</message>
-
-	<!-- Content Management - Footer grid keys -->
-	<message key="grid.content.navigation.footer">Footer</message>
-	<message key="grid.content.navigation.footer.noneExist">There are no current footers.</message>
-	<message key="grid.content.navigation.footer.addCategory">Add Category</message>
-	<message key="grid.action.deleteFooterCategory">Delete Footer Category</message>
-	<message key="grid.content.navigation.footer.FooterLink">Footer Links</message>
-	<message key="grid.content.navigation.footer.editCategory">Edit Category</message>
-	<message key="grid.content.navigation.footer.deleteCategory">Delete Category</message>
-	<message key="grid.content.navigation.footer.deleteCategoryConfirm">Are you sure you wish to delete this category? The action cannot be undone, and links in this category will also be removed.</message>
-	<message key="grid.content.navigation.footer.titleRequired">A title is required.</message>
-	<message key="grid.content.navigation.footer.descriptionRequired">A description is required.</message>
-	<message key="grid.content.navigation.footer.pathRequired">A path is required and it must be unique.</message>
-	<message key="grid.content.navigation.footer.pathInUse">That path is currently in use by another category.</message>
-	<message key="grid.action.addFooterCategoryLink">Add a new footer category</message>
-	<message key="grid.action.editFooterCategory">Edit this footer category</message>
-
-	<!-- Content Management - Social Media keys -->
-	<message key="grid.content.navigation.socialMedia">Social Media</message>
-	<message key="grid.content.navigation.socialMedia.platform">Platform</message>
-	<message key="grid.content.navigation.socialMedia.code">Social Sharing Code Block</message>
-	<message key="grid.content.navigation.socialMedia.platformRequired">You must enter a platform title (Facebook, Google+, etc).</message>
-	<message key="grid.content.navigation.socialMedia.codeRequired">You must enter the code you wish to use to display this social network.</message>
-	<message key="grid.content.navigation.socialMedia.addSocialLink">Add Social Link</message>
-	<message key="grid.content.navigation.socialMedia.includeInCatalog">Use this for each published item in the catalog?</message>
-	<message key="grid.content.navigation.socialMedia.inCatalog">Used In Catalog</message>
-	<message key="grid.action.addMedia">Add a new Social Media type</message>
-
-	<message key="notification.addedFooterCategory">Category added.</message>
-	<message key="notification.editedFooterCategory">Category edited.</message>
-	<message key="notification.removedFooterCategory">Category removed.</message>
-	<message key="notification.addedSocialMedia">Social Media Network added.</message>
-	<message key="notification.editedSocialMedia">Social Media Network edited.</message>
-	<message key="notification.removedSocialMedia">Social Media Network removed.</message>
 
 	<!-- Library Files -->
 	<message key="settings.libraryFiles.fileRequired">A library file is required. Please ensure that you have chosen and uploaded a file.</message>

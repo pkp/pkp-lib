@@ -224,7 +224,6 @@
 	<message key="manager.emails.resetAll.message">Hvis du nulstiller alle skabeloner, vil alle tilretninger til e- mailskabelonerne blive slettet. Vil du bekræfte denne handling?</message>
 	<message key="manager.emails.reset.message">Hvis du nulstiller denne skabelon, vil alle data blive erstattet af standardinstillingerne, og evt. tilretninger vil gå tabt. Vil du bekræfte denne handling?</message>
 	<message key="manager.masthead.title">Kolofon</message>
-	<message key="manager.navigation">Navigation</message>
 	<message key="manager.reviewerSearch.searchByName.short">Søg efter navn</message>
 	<message key="manager.reviewerSearch.form.instructions">Brug nedenstående felt til at angive det maksimale antal ord, du ønsker at søge efter. Feltet er forudindstillet til at beregne et gennemsnit for formularens felter.</message>
 	<message key="manager.reviewerSearch.form.interests.instructions">Anfør bedømmelsesinteresser, adskilt med kommaer....</message>

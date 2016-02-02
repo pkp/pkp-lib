@@ -55,27 +55,10 @@
 			</div>
 		</div>
 
-		{* include a section if there are footer link categories defined *}
-		{if $footerCategories|@count > 0}
-			<div class="categories categories_{$footerCategories|@count}">
-				{foreach from=$footerCategories item=category name=loop}
-					{assign var=links value=$category->getLinks()}
-					<div class="category category_{$loop.index}">
-						<h4>{$category->getLocalizedTitle()|strip_unsafe_html}</h4>
-						<ul>
-							{foreach from=$links item=link}
-								<li><a href="{$link->getLocalizedUrl()}">{$link->getLocalizedTitle()|strip_unsafe_html}</a></li>
-							{/foreach}
-						</ul>
-					</div>
-				{/foreach}
-			</div><!-- pkp_structure_footer categories -->
-
-			{if $pageFooter}
-				<div class="page_footer">
-					{$pageFooter}
-				</div>
-			{/if}<!-- pkp_structure_footer page_footer -->
+		{if $pageFooter}
+			<div class="page_footer">
+				{$pageFooter}
+			</div>
 		{/if}
 	</div><!-- pkp_structure_footer -->
 

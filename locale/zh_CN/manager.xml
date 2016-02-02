@@ -197,7 +197,6 @@
 	<message key="manager.announcements.datePublish">已出版</message>
 	<message key="manager.emails.addEmail">添加电子邮件模版</message>
 	<message key="manager.emails.details">模板详细</message>
-	<message key="manager.navigation">导航</message>
 	<message key="manager.reviewerSearch.searchByName.short">根据名字检索</message>
 	<message key="manager.emails.data">模板信息数据</message>
 	<message key="manager.emails.disable.message">你是要禁用此电子邮件模板。如果有使用此模板的系统进程，他们不会用它了。你要确认此操作？</message>

@@ -180,7 +180,6 @@
 	<message key="manager.announcements.datePublish">Publisert</message>
 	<message key="manager.emails.addEmail">Legg til e-postmal</message>
 	<message key="manager.emails.details">Maldetaljer</message>
-	<message key="manager.navigation">Navigering</message>
 	<message key="manager.reviewerSearch.searchByName.short">Søk etter navn</message>
 	<message key="manager.masthead.title">Hode/kolofonside</message>
 	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">Du har valgt å legge til databasen {$filterDisplayName}. Klikk 'OK' for å bekrefte.</message>

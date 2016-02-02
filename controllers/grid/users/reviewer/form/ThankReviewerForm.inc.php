@@ -112,6 +112,15 @@ class ThankReviewerForm extends Form {
 
 		if (!$this->getData('skipEmail')) {
 			HookRegistry::call('ThankReviewerForm::thankReviewer', array(&$submission, &$reviewAssignment, &$email));
+			$dispatcher = $request->getDispatcher();
+			$context = $request->getContext();
+			$user = $request->getUser();
+			$email->assignParams(array(
+				'reviewerName' => $reviewer->getFullName(),
+				'contextUrl' => $dispatcher->url($request, ROUTE_PAGE, $context->getPath()),
+				'editorialContactSignature' => $user->getContactSignature(),
+				'signatureFullName' => $user->getFullname(),
+			));
 			$email->send($request);
 		}
 

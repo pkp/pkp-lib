@@ -55,6 +55,8 @@
 		}
 
 		a {
+			position: relative;
+			top: 1px; // alignment to account for filter toggle offset
 			display: inline-block;
 			line-height: @double;
 			font-size: @font-sml;
@@ -70,28 +72,28 @@
 		transition: all 0.3s ease;
 
 		&:before {
-			margin-right: 0.25em;
+			margin-right: 0.5em;
 		}
 	}
 
 	.pkp_linkaction_search:before {
-		content: @fa-var-search-plus;
+		content: @fa-var-search;
 	}
 
 	.pkp_linkaction_search.is_open {
-		padding: 0 1em;
-		background: @bg;
-	}
-
-	.pkp_linkaction_search.is_open:before {
-		content: @fa-var-search-minus;
+		padding: 0 @base;
+		background: @bg-light;
+		border: @bg-border-light;
+		border-bottom: none;
 	}
 
 	// Search filter
 	.filter {
 		padding: @base;
-		background: @bg;
 		font-size: @font-sml;
+		background: @bg-light;
+		border: @bg-border-light;
+		border-bottom: none;
 
 		label {
 			font-size: @font-sml;
@@ -101,6 +103,10 @@
 
 		.section {
 			margin-bottom: @half;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
 		}
 
 		.pkp_spinner {
@@ -129,37 +135,42 @@
 
 	tr {
 		position: static;
+		border: @bg-border-light;
+		border-top: none;
+
 	}
 
 	// Content rows only
 	.gridRow {
-		border-top: 1px solid @bg;
+		border-top: @bg-border-light;
 	}
 
 	th,
 	td {
-		padding: 0;
-		padding-left: 1em;
+		padding-left: @base;
+		padding-right: @base;
 		vertical-align: top;
 	}
 
 	thead {
-		background: @bg;
-		font-size: @font-sml;
-		line-height: @double;
+		font-size: @font-tiny;
+		line-height: 16px;
 		color: @text-light;
 		color: @text-light-rgba;
-		border-top: 1px solid #fff; // divider between form when form opened
+		border: @bg-border-light;
 
 		th {
+			padding-top: @half;
+			padding-bottom: @half;
 			font-weight: @normal;
+			border-left: @bg-border-light;
 		}
 	}
 
 	td {
 		position: relative;
 		padding-top: @half;
-		padding-bottom: @half;
+		padding-bottom: @half - 1;
 		line-height: @line-base;
 	}
 
@@ -167,6 +178,7 @@
 	.empty td {
 		padding: 8px 0;
 		font-size: @font-sml;
+		font-style: italic;
 		line-height: @line-base;
 		color: @text-light;
 		color: @text-light-rgba;
@@ -290,9 +302,12 @@
 	// Secondary row of actions
 	.row_controls {
 		display: none;
+		background: @bg-light;
 
 		td {
 			line-height: @line-base;
+			padding-top: 3px;
+			padding-bottom: 3px;
 		}
 
 		a {
@@ -380,7 +395,7 @@
 	// Items shown for infinite scrolling
 	.gridPagingScrolling {
 		position: relative;
-		border-top: @bg-border;
+		border-top: @bg-border-light;
 		font-size: @font-sml;
 		color: @text-light;
 		color: @text-light-rgba;
@@ -433,18 +448,12 @@
 // Categorized grids
 .pkp_grid_category {
 
-	thead {
-		background: @shade;
-		color: #fff;
-	}
-
 	.gridRow.category,
 	.category_controls {
 		background: @bg;
 		font-size: @font-sml;
 		color: @text-light;
 		color: @text-light-rgba;
-		border-bottom: 1px solid @lift;
 	}
 }
 

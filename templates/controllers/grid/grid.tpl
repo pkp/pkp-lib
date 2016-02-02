@@ -74,8 +74,6 @@
 		{/if}
 		{foreach from=$gridBodyParts item=bodyPart}
 			{$bodyPart}
-		{foreachelse}
-			<tbody><tr></tr></tbody>
 		{/foreach}
 		<tbody class="empty"{if count($gridBodyParts) > 0} style="display: none;"{/if}>
 			{**
@@ -83,7 +81,7 @@
 				so that we can restore it if the user deletes all rows.
 			**}
 			<tr>
-				<td colspan="{$grid->getColumnsCount('indent')|@count}">{translate key=$grid->getEmptyRowText()}</td>
+				<td colspan="{$grid->getColumnsCount('indent')}">{translate key=$grid->getEmptyRowText()}</td>
 			</tr>
 		</tbody>
 	</table>

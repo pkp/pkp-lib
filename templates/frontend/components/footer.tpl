@@ -55,11 +55,9 @@
 			</div>
 		</div>
 
-		{if $pageFooter}
-			<div class="page_footer">
-				{$pageFooter}
-			</div>
-		{/if}
+		<div class="page_footer">
+			{$pageFooter}
+		</div>
 	</div><!-- pkp_structure_footer -->
 
 </div><!-- pkp_structure_footer_wrapper -->

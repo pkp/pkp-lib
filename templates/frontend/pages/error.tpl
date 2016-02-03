@@ -8,15 +8,18 @@
  * Generic error page.
  * Displays a simple error message and (optionally) a return link.
  *}
-{strip}
 {include file="frontend/components/header.tpl"}
-{/strip}
 
-<span class="errorText">{translate key=$errorMsg params=$errorParams}</span>
-
-{if $backLink}
-<br /><br />
-&#187; <a id="backLink" href="{$backLink}">{translate key=$backLinkLabel}</a>
-{/if}
+<div class="page page_error">
+	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey=$pageTitle}
+	<div class="description">
+		{translate key=$errorMsg params=$errorParams}
+	</div>
+	{if $backLink}
+		<div class="cmp_back_link">
+			<a href="{$backLink}">{translate key=$backLinkLabel}</a>
+		</div>
+	{/if}
+</div>
 
 {include file="common/frontend/footer.tpl"}

@@ -10,9 +10,7 @@
 {include file="frontend/components/header.tpl" pageTitle="user.register"}
 
 <div class="page page_register">
-	<h1 class="page_title">
-		{translate key="user.register"}
-	</h1>
+	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="user.register"}
 
 	<p>
 		{translate key="user.register.completeForm"}

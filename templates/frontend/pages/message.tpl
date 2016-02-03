@@ -1,5 +1,5 @@
 {**
- * message.tpl
+ * templates/frontend/pages/message.tpl
  *
  * Copyright (c) 2014-2016 Simon Fraser University Library
  * Copyright (c) 2000-2016 John Willinsky
@@ -7,18 +7,19 @@
  *
  * Generic message page.
  * Displays a simple message and (optionally) a return link.
- *
  *}
-{strip}
 {include file="frontend/components/header.tpl"}
-{/strip}
 
-{if $message}{translate|assign:"messageTranslated" key=$message}{/if}
-
-<p>{$messageTranslated}</p>
-
-{if $backLink}
-<p><a href="{$backLink}">{translate key=$backLinkLabel}</a></p>
-{/if}
+<div class="page page_error">
+	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey=$pageTitle}
+	<div class="description">
+		{translate key=$message}
+	</div>
+	{if $backLink}
+		<div class="cmp_back_link">
+			<a href="{$backLink}">{translate key=$backLinkLabel}</a>
+		</div>
+	{/if}
+</div>
 
 {include file="common/frontend/footer.tpl"}

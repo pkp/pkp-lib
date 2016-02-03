@@ -541,7 +541,7 @@
 
 	<!--  editor decisions -->
 	<message key="editor.submission.decision">Decision</message>
-	<message key="editor.submission.decision.accept">Accept Submission</message>
+	<message key="editor.submission.decision.accept">Send to Copyediting</message>
 	<message key="editor.submission.decision.requestRevisions">Request Revisions</message>
 	<message key="editor.submission.decision.resubmit">Resubmit for Review</message>
 	<message key="editor.submission.decision.decline">Decline Submission</message>

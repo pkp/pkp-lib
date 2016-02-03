@@ -23,7 +23,6 @@
 
 <div id="informationCenterNotes">
 	{include file=$newNoteFormTemplate}
-	<hr />
 
 	{if $showEarlierEntries}
 	{**

@@ -11,9 +11,7 @@
 {include file="frontend/components/header.tpl" pageTitle="user.login.resetPassword"}
 
 <div class="page page_lost_password">
-	<h1 class="page_title">
-		{translate key="user.login.resetPassword"}
-	</h1>
+	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="user.login.resetPassword"}
 
 	<p>{translate key="user.login.resetPasswordInstructions"}</p>
 

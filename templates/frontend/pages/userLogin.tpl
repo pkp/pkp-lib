@@ -11,9 +11,7 @@
 {include file="frontend/components/header.tpl" pageTitle="user.login"}
 
 <div class="page page_login">
-	<h1 class="page_title">
-		{translate key="user.login"}
-	</h1>
+	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="user.login"}
 
 	{if $loginMessage}
 		<p>

@@ -40,7 +40,7 @@ abstract class PKPWorkflowHandler extends Handler {
 		$router = $request->getRouter();
 		$operation = $router->getRequestedOp($request);
 
-		if ($operation == 'access' || $operation == 'expedite') {
+		if ($operation == 'access') {
 			// Authorize requested submission.
 			import('lib.pkp.classes.security.authorization.internal.SubmissionRequiredPolicy');
 			$this->addPolicy(new SubmissionRequiredPolicy($request, $args, 'submissionId'));
@@ -174,14 +174,6 @@ abstract class PKPWorkflowHandler extends Handler {
 	}
 
 	/**
-	 * Expedites a submission through the submission process, if the submitter is a manager or editor.
-	 *  Implemented in sub classes.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 */
-	abstract function expedite($args, $request);
-
-	/**
 	 * Fetch JSON-encoded editor decision options.
 	 * @param $args array
 	 * @param $request Request
@@ -222,12 +214,6 @@ abstract class PKPWorkflowHandler extends Handler {
 
 		// Iterate through the editor decisions and create a link action for each decision.
 		$editorActions = array();
-
-		// If we're in Submission stage and could expedite, show action.
-		import('lib.pkp.classes.workflow.linkAction.ExpediteSubmissionLinkAction');
-		if ($stageId == WORKFLOW_STAGE_ID_SUBMISSION && ExpediteSubmissionLinkAction::canExpedite($request->getUser(), $request->getContext())) {
-			$editorActions[] = new ExpediteSubmissionLinkAction($request, $submission->getId());
-		}
 
 		$dispatcher = $request->getDispatcher();
 		import('lib.pkp.classes.linkAction.request.AjaxModal');

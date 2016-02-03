@@ -4,29 +4,44 @@
  * Copyright (c) 2014-2016 Simon Fraser University Library
  * Copyright (c) 2003-2016 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
- * 
+ *
  * @ingroup pkp_controllers_informationCenter
  *
  * @brief Information Center styles
  */
-
-span.pkp_controllers_informationCenter_itemLastEvent {
-	color: #888;
-	font-size: 80%;
-}
-
 .pkp_controllers_informationCenter {
-	#notesList {
-		max-height: 200px;
-		overflow: auto;
-		padding-right: 5px;
 
-		.newNote {
-			background-color: #f9ae3f;
+	#notesAccordion {
+		margin-top: @double;
+	}
+
+	.ui-accordion {
+		border: @bg-border-light;
+		font-size: @font-sml;
+		line-height: @line-sml;
+	}
+
+	.ui-accordion-header {
+		margin: 0;
+		padding: 4px @base;
+		border-bottom: @bg-border-light;
+		font-size: @font-sml;
+		background: @bg-border-color-light;
+
+		a {
+			text-decoration: none;
 		}
 	}
 
-	#informationCenterHistoryTab .heading td {
-		font-weight: bold;
+	.ui-accordion-content {
+		padding: @base;
+
+		p:first-child {
+			margin-top: 0;
+		}
+
+		p:last-child {
+			margin-bottom: 0;
+		}
 	}
 }

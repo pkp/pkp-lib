@@ -110,11 +110,11 @@ jQuery.pkp.controllers.informationCenter =
 		// Initialize an accordion for the "past notes" list, if it's
 		// available (e.g. for a file information center).
 		if (!$('#notesAccordion').hasClass('ui-accordion')) {
-			$('#notesAccordion').accordion({ clearStyle: true });
+			$('#notesAccordion').accordion({ heightStyle: 'content', animate: 200 });
 		} else {
 			// this is a refresh.  Since the accordion exists, we must destroy
 			// and then recreate it or the content looks unstyled.
-			$('#notesAccordion').accordion('destroy').accordion({ clearStyle: true });
+			$('#notesAccordion').accordion('destroy').accordion({ heightStyle: 'content', animate: 200 });
 		}
 	};
 

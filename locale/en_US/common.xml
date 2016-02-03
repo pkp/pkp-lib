@@ -351,8 +351,8 @@
 	<message key="informationCenter.addFileNote">Add to File</message>
 	<message key="informationCenter.addSubmissionNote">Add to Submission</message>
 	<message key="informationCenter.noNotes">There are no notes to display.</message>
-	<message key="informationCenter.currentNotes">Current Notes</message>
-	<message key="informationCenter.pastNotes">Earlier Notes</message>
+	<message key="informationCenter.currentNotes">Current Revision Notes</message>
+	<message key="informationCenter.pastNotes">Earlier Revision Notes</message>
 	<message key="informationCenter.lastUpdated">Last Updated</message>
 	<message key="informationCenter.deleteConfirm">Are you sure you wish to delete this note?</message>
 	<message key="informationCenter.currentHistory">Current Revision</message>

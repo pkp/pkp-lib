@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file controllers/grid/users/author/PKPAuthorGridHandler.inc.php
+ * @file controllers/grid/users/author/AuthorGridHandler.inc.php
  *
  * Copyright (c) 2014-2016 Simon Fraser University Library
  * Copyright (c) 2000-2016 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPAuthorGridHandler
+ * @class AuthorGridHandler
  * @ingroup controllers_grid_users_author
  *
  * @brief base PKP class to handle author grid requests.
@@ -16,23 +16,26 @@
 // import grid base classes
 import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.controllers.grid.users.author.PKPAuthorGridCellProvider');
-
+import('lib.pkp.controllers.grid.users.author.AuthorGridRow');
 
 // Link action & modal classes
 import('lib.pkp.classes.linkAction.request.AjaxModal');
 
-class PKPAuthorGridHandler extends GridHandler {
-	/** @var Submission */
-	var $_submission;
-
+class AuthorGridHandler extends GridHandler {
 	/** @var boolean */
 	var $_readOnly;
 
 	/**
 	 * Constructor
 	 */
-	function PKPAuthorGridHandler() {
+	function AuthorGridHandler() {
 		parent::GridHandler();
+		$this->addRoleAssignment(
+				array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR),
+				array('fetchGrid', 'fetchRow', 'addAuthor', 'editAuthor',
+				'updateAuthor', 'deleteAuthor', 'saveSequence'));
+		$this->addRoleAssignment(ROLE_ID_REVIEWER, array('fetchGrid', 'fetchRow'));
+		$this->addRoleAssignment(array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT), array('addUser'));
 	}
 
 
@@ -44,15 +47,7 @@ class PKPAuthorGridHandler extends GridHandler {
 	 * @return Submission
 	 */
 	function getSubmission() {
-		return $this->_submission;
-	}
-
-	/**
-	 * Set the Submission
-	 * @param Submission
-	 */
-	function setSubmission($submission) {
-		$this->_submission = $submission;
+		return $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 	}
 
 	/**
@@ -79,6 +74,8 @@ class PKPAuthorGridHandler extends GridHandler {
 	 * @copydoc PKPHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
+		import('lib.pkp.classes.security.authorization.SubmissionAccessPolicy');
+		$this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments));
 		return parent::authorize($request, $args, $roleAssignments);
 	}
 
@@ -89,19 +86,18 @@ class PKPAuthorGridHandler extends GridHandler {
 	function initialize($request) {
 		parent::initialize($request);
 
-		// Retrieve the authorized submission.
-		$this->setSubmission($this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION));
-
 		$this->setTitle('submission.contributors');
 
 		// Load pkp-lib translations
 		AppLocale::requireComponents(
+			LOCALE_COMPONENT_APP_SUBMISSION,
+			LOCALE_COMPONENT_APP_DEFAULT,
 			LOCALE_COMPONENT_PKP_SUBMISSION,
 			LOCALE_COMPONENT_PKP_USER,
 			LOCALE_COMPONENT_PKP_DEFAULT
 		);
 
-		if ($this->canAdminister()) {
+		if ($this->canAdminister($request->getUser())) {
 			$this->setReadOnly(false);
 			// Grid actions
 			$router = $request->getRouter();
@@ -181,7 +177,7 @@ class PKPAuthorGridHandler extends GridHandler {
 	 */
 	function initFeatures($request, $args) {
 		$features = parent::initFeatures($request, $args);
-		if ($this->canAdminister()) {
+		if ($this->canAdminister($request->getUser())) {
 			import('lib.pkp.classes.controllers.grid.feature.OrderGridItemsFeature');
 			$features[] = new OrderGridItemsFeature();
 		}
@@ -227,11 +223,29 @@ class PKPAuthorGridHandler extends GridHandler {
 	}
 
 	/**
-	 * Determines if there should be an 'add user' action on this grid.
-	 * Overridden by child grids.
+	 * Determines if there should be add/edit actions on this grid.
+	 * @param $user User
 	 * @return boolean
 	 */
-	function canAdminister() {
+	function canAdminister($user) {
+		$submission = $this->getSubmission();
+
+		// Incomplete submissions can be edited. (Presumably author.)
+		if ($submission->getDateSubmitted() == null) return true;
+
+		// Managers should always have access.
+		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+		if (array_intersect(array(ROLE_ID_MANAGER), $userRoles)) return true;
+
+		// Sub editors and assistants need to be assigned to the current stage.
+		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+		$stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), $submission->getStageId(), null, $user->getId());
+		while ($stageAssignment = $stageAssignments->next()) {
+			$userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId());
+			if (in_array($userGroup->getRoleId(), array(ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT))) return true;
+		}
+
+		// Default: Read-only.
 		return false;
 	}
 

@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file controllers/grid/users/author/PKPAuthorGridRow.inc.php
+ * @file controllers/grid/users/author/AuthorGridRow.inc.php
  *
  * Copyright (c) 2014-2016 Simon Fraser University Library
  * Copyright (c) 2000-2016 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPAuthorGridRow
+ * @class AuthorGridRow
  * @ingroup controllers_grid_users_author
  *
  * @brief Base class for author grid row definition
@@ -15,7 +15,7 @@
 
 import('lib.pkp.classes.controllers.grid.GridRow');
 
-class PKPAuthorGridRow extends GridRow {
+class AuthorGridRow extends GridRow {
 	/** @var Submission **/
 	var $_submission;
 
@@ -25,7 +25,7 @@ class PKPAuthorGridRow extends GridRow {
 	/**
 	 * Constructor
 	 */
-	function PKPAuthorGridRow($submission, $readOnly = false) {
+	function AuthorGridRow($submission, $readOnly = false) {
 		$this->_submission = $submission;
 		$this->_readOnly = $readOnly;
 		parent::GridRow();
@@ -52,7 +52,7 @@ class PKPAuthorGridRow extends GridRow {
 			$actionArgs = $this->getRequestArgs();
 			$actionArgs['authorId'] = $rowId;
 
-			if ($this->canAdminister($request)) {
+			if (!$this->isReadOnly()) {
 				// Add row-level actions
 				import('lib.pkp.classes.linkAction.request.AjaxModal');
 				$this->addAction(

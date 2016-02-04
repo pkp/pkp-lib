@@ -114,7 +114,9 @@ jQuery.pkp.controllers.informationCenter =
 		} else {
 			// this is a refresh.  Since the accordion exists, we must destroy
 			// and then recreate it or the content looks unstyled.
-			$('#notesAccordion').accordion('destroy').accordion({ heightStyle: 'content', animate: 200 });
+			$('#notesAccordion')
+					.accordion('destroy')
+					.accordion({ heightStyle: 'content', animate: 200 });
 		}
 	};
 

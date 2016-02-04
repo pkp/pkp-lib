@@ -37,14 +37,8 @@
 				<h3>{translate key="editor.review.reviewerComments"}</h3>
 				{assign var="contents" value=$reviewerComment->getComments()}
 				<span id="reviewContents">
-					{$contents|truncate:250|nl2br|strip_unsafe_html}
-					{if $contents|strlen > 250}<a href="javascript:$.noop();" class="showMore">{translate key="common.more"}</a>{/if}
+					{$contents|nl2br|strip_unsafe_html}
 				</span>
-				{if $contents|strlen > 250}
-					<span class="hidden">
-						{$contents|nl2br|strip_unsafe_html} <a href="javascript:$.noop();" class="showLess">{translate key="common.less"}</a>
-					</span>
-				{/if}
 			{/if}
 			{if $reviewAssignment->getRecommendation()}
 				<h3>{translate key="submission.recommendation" recommendation=$reviewAssignment->getLocalizedRecommendation()}</h3>

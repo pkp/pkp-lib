@@ -25,7 +25,7 @@ class EditorReviewAttachmentsGridHandler extends FileListGridHandler {
 		parent::FileListGridHandler(
 			new ReviewerReviewAttachmentGridDataProvider(SUBMISSION_FILE_REVIEW_ATTACHMENT),
 			null,
-			FILE_GRID_VIEW_NOTES
+			FILE_GRID_ADD|FILE_GRID_VIEW_NOTES
 		);
 
 		$this->addRoleAssignment(

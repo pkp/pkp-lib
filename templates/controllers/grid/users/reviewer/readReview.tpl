@@ -10,46 +10,69 @@
  *}
 
 <script type="text/javascript">
-	$(function() {ldelim}
-		// Attach the form handler.
-		$('#readReviewForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler');
-	{rdelim});
+    $(function() {ldelim}
+        // Attach the form handler.
+        $('#readReviewForm').pkpHandler('$.pkp.controllers.grid.users.reviewer.ReadReviewHandler');
+    {rdelim});
 </script>
 
 <form class="pkp_form" id="readReviewForm" method="post" action="{url op="reviewRead"}">
 	<input type="hidden" name="reviewAssignmentId" value="{$reviewAssignment->getId()|escape}" />
 	<input type="hidden" name="submissionId" value="{$reviewAssignment->getSubmissionId()|escape}" />
 	<input type="hidden" name="stageId" value="{$reviewAssignment->getStageId()|escape}" />
-	<p>{translate key="editor.review.readConfirmation"}</p>
+    {if $reviewAssignment->getUnconsidered() == $smarty.const.REVIEW_ASSIGNMENT_UNCONSIDERED}
+        <p>{translate key="editor.review.readConfirmation"}</p>
+    {elseif $reviewAssignment->getDateCompleted() == ''}
+        <p>{translate key="editor.review.reviewDetails.readConfirmation.description"}</p>
+    {/if}
 	<div id="reviewAssignment-{$reviewAssignment->getId()|escape}">
 		<h2>{$reviewAssignment->getReviewerFullName()|escape}</h2>
-		<span class="pkp_controllers_informationCenter_itemLastEvent">{$reviewAssignment->getDateCompleted()|date_format:$datetimeFormatShort}</span>
 
-		{if $reviewAssignment->getReviewFormId()}
-			{include file="reviewer/review/reviewFormResponse.tpl"}
-		{else}
-			<h3>{translate key="editor.review.reviewerComments"}</h3>
-			{assign var="contents" value=$reviewerComment->getComments()}
-			<span id="reviewContents">
-				{$contents|truncate:250|nl2br|strip_unsafe_html}
-				{if $contents|strlen > 250}<a href="javascript:$.noop();" class="showMore">{translate key="common.more"}</a>{/if}
-			</span>
-			{if $contents|strlen > 250}
-				<span class="hidden">
-					{$contents|nl2br|strip_unsafe_html} <a href="javascript:$.noop();" class="showLess">{translate key="common.less"}</a>
-				</span>
-			{/if}
-		{/if}
-		{if $reviewAssignment->getRecommendation()}
-			<h3>{translate key="submission.recommendation"}</h3>
-			{translate key="editor.article.recommendation"}:
-			{$reviewAssignment->getLocalizedRecommendation()}
-		{/if}
-		{if $reviewAssignment->getCompetingInterests()}
-			<h3>{translate key="reviewer.submission.competingInterests"}</h3>
-			<span id="reviewCompetingInterests">{$reviewAssignment->getCompetingInterests()|nl2br|strip_unsafe_html}</span>
-		{/if}
+        {if $reviewAssignment->getDateCompleted() != ''}
+            <span class="pkp_controllers_informationCenter_itemLastEvent">{translate key="common.completed"}: {$reviewAssignment->getDateCompleted()|date_format:$datetimeFormatShort}</span>
+
+            {if $reviewAssignment->getReviewFormId()}
+                {include file="reviewer/review/reviewFormResponse.tpl"}
+            {elseif $reviewerComment}
+                <h3>{translate key="editor.review.reviewerComments"}</h3>
+                {assign var="contents" value=$reviewerComment->getComments()}
+                <span id="reviewContents">
+                    {$contents|truncate:250|nl2br|strip_unsafe_html}
+                    {if $contents|strlen > 250}<a href="javascript:$.noop();" class="showMore">{translate key="common.more"}</a>{/if}
+                </span>
+                {if $contents|strlen > 250}
+                    <span class="hidden">
+                        {$contents|nl2br|strip_unsafe_html} <a href="javascript:$.noop();" class="showLess">{translate key="common.less"}</a>
+                    </span>
+                {/if}
+            {/if}
+            {if $reviewAssignment->getRecommendation()}
+                <h3>{translate key="submission.recommendation"}</h3>
+                {translate key="editor.article.recommendation"}:
+                {$reviewAssignment->getLocalizedRecommendation()}
+            {/if}
+            {if $reviewAssignment->getCompetingInterests()}
+                <h3>{translate key="reviewer.submission.competingInterests"}</h3>
+                <span id="reviewCompetingInterests">{$reviewAssignment->getCompetingInterests()|nl2br|strip_unsafe_html}</span>
+            {/if}
+
+        {else}
+            {if $reviewAssignment->getDateCompleted() != ''}
+                <span class="pkp_controllers_informationCenter_itemLastEvent">{translate key="common.completed"}: {$reviewAssignment->getDateCompleted()|date_format:$datetimeFormatShort}</span>
+            {elseif $reviewAssignment->getDateConfirmed() != ''}
+                <span class="pkp_controllers_informationCenter_itemLastEvent">{translate key="common.confirm"}: {$reviewAssignment->getDateConfirmed()|date_format:$datetimeFormatShort}</span>
+            {elseif $reviewAssignment->getDateReminded() != ''}
+                <span class="pkp_controllers_informationCenter_itemLastEvent">{translate key="common.reminder"}: {$reviewAssignment->getDateReminded()|date_format:$datetimeFormatShort}</span>
+            {elseif $reviewAssignment->getDateNotified() != ''}
+                <span class="pkp_controllers_informationCenter_itemLastEvent">{translate key="common.notified"}: {$reviewAssignment->getDateNotified()|date_format:$datetimeFormatShort}</span>
+            {elseif $reviewAssignment->getDateAssigned() != ''}
+                <span class="pkp_controllers_informationCenter_itemLastEvent">{translate key="common.assigned"}: {$reviewAssignment->getDateAssigned()|date_format:$datetimeFormatShort}</span>
+            {/if}
+        {/if}
 	</div>
+    <div class="pkp_notification" id="noFilesWarning" style="display: none;">
+        {include file="controllers/notification/inPlaceNotificationContent.tpl" notificationId=noFilesWarningContent notificationStyleClass=notifyWarning notificationTitle="editor.review.noReviewFilesUploaded"|translate notificationContents="editor.review.noReviewFilesUploaded.details"|translate}
+    </div>
 	{fbvFormArea id="readReview"}
 		{fbvFormSection}
 			{url|assign:reviewAttachmentsGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.attachment.EditorReviewAttachmentsGridHandler" op="fetchGrid" submissionId=$submission->getId() reviewId=$reviewAssignment->getId() stageId=$reviewAssignment->getStageId() escape=false}

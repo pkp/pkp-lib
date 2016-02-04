@@ -466,6 +466,11 @@ class PKPReviewerGridHandler extends GridHandler {
 			$reviewAssignmentDao->updateObject($reviewAssignment);
 		}
 
+		if (!$reviewAssignment->getDateCompleted()) {
+			$reviewAssignment->setDateConfirmed(Core::getCurrentDate());
+			$reviewAssignment->setDateCompleted(Core::getCurrentDate());
+		}
+
 		$this->_updateReviewRoundStatus($reviewAssignment);
 
 		return DAO::getDataChangedEvent($reviewAssignment->getId());

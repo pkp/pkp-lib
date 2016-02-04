@@ -52,15 +52,18 @@ class ReviewerGridRow extends GridRow {
 				'round' => $round
 			);
 
+			// read or upload a review
+			$submissionDao = Application::getSubmissionDAO();
+			$submission = $submissionDao->getById($submissionId);
 			$this->addAction(
 				new LinkAction(
-					'history',
+					'readReview',
 					new AjaxModal(
-						$router->url($request, null, null, 'reviewHistory', null, $actionArgs),
-						__('submission.history'),
+						$router->url($request, null, null, 'readReview', null, $actionArgs),
+						__('editor.review.reviewDetails') . ': ' . $submission->getLocalizedTitle(),
 						'modal_information'
 					),
-					__('submission.history'),
+					__('editor.review.reviewDetails'),
 					'more_info'
 				)
 			);
@@ -70,10 +73,10 @@ class ReviewerGridRow extends GridRow {
 					'email',
 					new AjaxModal(
 						$router->url($request, null, null, 'sendEmail', null, $actionArgs),
-						__('grid.user.email'),
+						__('editor.review.emailReviewer'),
 						'modal_email'
 					),
-					__('grid.user.email'),
+					__('editor.review.emailReviewer'),
 					'notify'
 				)
 			);
@@ -107,6 +110,19 @@ class ReviewerGridRow extends GridRow {
 					)
 				);
 			}
+
+			$this->addAction(
+				new LinkAction(
+					'history',
+					new AjaxModal(
+						$router->url($request, null, null, 'reviewHistory', null, $actionArgs),
+						__('submission.history'),
+						'modal_information'
+					),
+					__('submission.history'),
+					'more_info'
+				)
+			);
 		}
 	}
 }

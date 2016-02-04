@@ -388,7 +388,7 @@
 	<message key="submission.page.citations">#{$id} Zitationen</message>
 	<message key="submission.peerReview">Peer Review</message>
 	<message key="submission.production">Produktion</message>
-	<message key="submission.recommendation">Empfehlung</message>
+	<message key="submission.recommendation">Empfehlung: {$recommendation}</message>
 	<message key="submission.rejected">Abgelehnt</message>
 	<message key="submission.request">Anfragen</message>
 	<message key="submission.response">Antwort</message>

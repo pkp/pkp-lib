@@ -126,7 +126,7 @@
 	<message key="submission.page.review">Recenzija br.{$id}</message>
 	<message key="submission.page.summary">Pregled priloga br.{$id}</message>
 	<message key="submission.peerReview">Recenzija</message>
-	<message key="submission.recommendation">Preporuka</message>
+	<message key="submission.recommendation">Preporuka: {$recommendation}</message>
 	<message key="submission.rejected">Odbijena</message>
 	<message key="submission.request">Zahtjev</message>
 	<message key="submission.response">Odgovor</message>

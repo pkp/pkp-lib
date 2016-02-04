@@ -132,7 +132,7 @@
 	<message key="submission.page.review">#{$id} کارشناسی</message>
 	<message key="submission.page.summary">#{$id} خلاصه</message>
 	<message key="submission.peerReview">کارشناسی</message>
-	<message key="submission.recommendation">توصیه و نظرات</message>
+	<message key="submission.recommendation">توصیه و نظرات: {$recommendation}</message>
 	<message key="submission.rejected">رد</message>
 	<message key="submission.request">درخواست</message>
 	<message key="submission.response">پاسخ</message>

@@ -131,7 +131,7 @@
 	<message key="submission.page.review">#{$id} Bedømmelse</message>
 	<message key="submission.page.summary">#{$id} Resumé</message>
 	<message key="submission.peerReview">Peer review</message>
-	<message key="submission.recommendation">Anbefaling</message>
+	<message key="submission.recommendation">Anbefaling: {$recommendation}</message>
 	<message key="submission.rejected">Afvist</message>
 	<message key="submission.request">Forespørgsel</message>
 	<message key="submission.response">Svar</message>

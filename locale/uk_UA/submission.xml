@@ -343,7 +343,7 @@
 	<message key="submission.page.summary">#{$id} Резюме</message>
 	<message key="submission.page.citations">#{$id} Цитати</message>
 	<message key="submission.peerReview">Наукове рецензування</message>
-	<message key="submission.recommendation">Рекомендація</message>
+	<message key="submission.recommendation">Рекомендація: {$recommendation}</message>
 	<message key="submission.rejected">Відхилено</message>
 	<message key="submission.request">Запит</message>
 	<message key="submission.response">Відповідь</message>

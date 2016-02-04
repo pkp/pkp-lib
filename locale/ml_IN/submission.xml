@@ -341,7 +341,7 @@
 	<message key="submission.page.summary">#{$id} സംഗ്രഹം</message>
 	<message key="submission.page.citations">#{$id} സൈറ്റെഷന്‍സ്</message>
 	<message key="submission.peerReview"><![CDATA[പീര്‍&എന്‍.ബി.എസ്.പി;അവലോകനം]]></message>
-	<message key="submission.recommendation">ശുപാര്‍ശ</message>
+	<message key="submission.recommendation">ശുപാര്‍ശ: {$recommendation}</message>
 	<message key="submission.rejected">തിരസ്കരിക്കപ്പെട്ടത്</message>
 	<message key="submission.request">അഭ്യര്‍ത്ഥന</message>
 	<message key="submission.response">പ്രതികരണം</message>

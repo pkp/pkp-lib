@@ -131,7 +131,7 @@
 	<message key="submission.page.review">#{$id} Phản biện</message>
 	<message key="submission.page.summary">#{$id} Tóm tắt</message>
 	<message key="submission.peerReview">Phản biện chuyên gia</message>
-	<message key="submission.recommendation">Khuyến nghị</message>
+	<message key="submission.recommendation">Khuyến nghị: {$recommendation}</message>
 	<message key="submission.rejected">Không chấp nhận</message>
 	<message key="submission.request">Yêu cầu</message>
 	<message key="submission.response">Phản hồi</message>

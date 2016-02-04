@@ -395,7 +395,7 @@
 	<message key="submission.page.citations">#{$id} Citations</message>
 	<message key="submission.peerReview">Peer&amp;nbsp;Review</message>
 	<message key="submission.production">Production</message>
-	<message key="submission.recommendation">Recommendation</message>
+	<message key="submission.recommendation">Recommendation: {$recommendation}</message>
 	<message key="submission.rejected">Rejected</message>
 	<message key="submission.request">Request</message>
 	<message key="submission.response">Response</message>

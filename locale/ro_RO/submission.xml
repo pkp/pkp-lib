@@ -131,7 +131,7 @@
 	<message key="submission.page.review">#{$id} Evaluare</message>
 	<message key="submission.page.summary">#{$id} Sumar</message>
 	<message key="submission.peerReview">Evaluare Peer&amp;nbsp;Review</message>
-	<message key="submission.recommendation">Recomandare</message>
+	<message key="submission.recommendation">Recomandare: {$recommendation}</message>
 	<message key="submission.rejected">Respins</message>
 	<message key="submission.request">Solicitare</message>
 	<message key="submission.response">Răspuns</message>

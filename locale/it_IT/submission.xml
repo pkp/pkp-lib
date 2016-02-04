@@ -130,7 +130,7 @@
 	<message key="submission.page.review">#{$id} Revisione</message>
 	<message key="submission.page.summary">#{$id} Riassunto</message>
 	<message key="submission.peerReview">Peer review</message>
-	<message key="submission.recommendation">Parere</message>
+	<message key="submission.recommendation">Parere: {$recommendation}</message>
 	<message key="submission.rejected">Rifiutato</message>
 	<message key="submission.request">Richiesta</message>
 	<message key="submission.response">Risposta</message>

@@ -131,7 +131,7 @@
 	<message key="submission.page.review">{$id} Ebaluazioa</message>
 	<message key="submission.page.summary">{$id} Sumarioa</message>
 	<message key="submission.peerReview">Adituen ebaluazioa</message>
-	<message key="submission.recommendation">Gomendioa</message>
+	<message key="submission.recommendation">Gomendioa: {$recommendation}</message>
 	<message key="submission.rejected">Ezetsia</message>
 	<message key="submission.request">Eskatu</message>
 	<message key="submission.response">Erantzuna</message>

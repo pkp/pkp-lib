@@ -214,7 +214,7 @@
 			<element ref="pkp:title" minOccurs="1" maxOccurs="unbounded" />
 			<element name="prefix" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
 			<element name="subtitle" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
-			<element name="abstract" type="pkp:localizedNode" minOccurs="1" maxOccurs="unbounded" />
+			<element name="abstract" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
 			<element name="subject_class" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
 			<element name="coverage_geo" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
 			<element name="coverage_chron" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />

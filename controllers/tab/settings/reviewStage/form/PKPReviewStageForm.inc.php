@@ -74,8 +74,8 @@ class PKPReviewStageForm extends ContextSettingsForm {
 
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign(array(
-			'numDaysBeforeInviteReminderValues' => range(3, 10),
-			'numDaysBeforeSubmitReminderValues' => range(0, 10)
+			'numDaysBeforeInviteReminderValues' => array_combine(range(1, 10), range(1, 10)),
+			'numDaysBeforeSubmitReminderValues' => array_combine(range(1, 10), range(1, 10))
 		));
 
 		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');

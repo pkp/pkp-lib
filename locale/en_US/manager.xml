@@ -228,8 +228,8 @@
 	<message key="manager.setup.reviewOptions.numWeeksPerResponse">Time allowed for review responses (weeks)</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerReview">Time allowed for review completion (weeks)</message>
 	<message key="manager.setup.reviewOptions.neverSendReminder">Never Remind</message>
-	<message key="manager.setup.reviewOptions.remindForInvite">Send a reminder if a reviewer has not responded to a review request within the following time (days):</message>
-	<message key="manager.setup.reviewOptions.remindForSubmit">Send a reminder if a reviewer has not submitted a recommendation within the following time (days):</message>
+	<message key="manager.setup.reviewOptions.remindForInvite">Send a reminder if a reviewer has not responded to a review request within the following time (days) after response due date:</message>
+	<message key="manager.setup.reviewOptions.remindForSubmit">Send a reminder if a reviewer has not submitted a recommendation within the following time (days) after review's due date:</message>
 	<message key="manager.setup.reviewOptions.showBlindReviewLink">Present a link to "Ensuring a Blind Review" during upload</message>
 	<message key="manager.setup.reviewOptions.defaultReviewMethod">Default Review Type</message>
 	<message key="manager.setup.sortableByComponent">Sortable by component</message>

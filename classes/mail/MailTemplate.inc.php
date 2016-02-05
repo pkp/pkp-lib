@@ -149,7 +149,7 @@ class MailTemplate extends Mail {
 		if ($this->context) {
 			// Add context-specific variables
 			$router = $request->getRouter();
-			$dispatcher = $request->getDispatcher();
+			$dispatcher = $application->getDispatcher();
 			$params = array_merge(array(
 				'principalContactSignature' => $this->context->getSetting('contactName'),
 				'contextName' => $this->context->getLocalizedName(),

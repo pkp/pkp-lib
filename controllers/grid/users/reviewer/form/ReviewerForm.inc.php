@@ -219,6 +219,7 @@ class ReviewerForm extends Form {
 	 */
 	function fetch($request) {
 		$context = $request->getContext();
+		$user = $request->getUser();
 
 		// Get the review method options.
 		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
@@ -241,12 +242,16 @@ class ReviewerForm extends Form {
 			'reviewDueDate' => __('reviewer.submission.reviewDueDate'),
 			'submissionReviewUrl' => __('common.url'),
 			'reviewerUserName' => __('user.username'),
+			'contextName' => $context->getLocalizedName(),
+			'contextUrl' => __('common.url'),
+			'editorialContactSignature' => strip_tags($user->getContactSignature(), "<br>"),
+			'submissionTitle' => strip_tags($submission->getLocalizedTitle()),
+			'submissionAbstract' => String::html2text($submission->getLocalizedAbstract()),
 		));
 		// Allow the default template
 		$templateKeys[] = $this->_getMailTemplateKey($request->getContext());
 
 		// Determine if the current user can use any custom templates defined.
-		$user = $request->getUser();
 		$roleDao = DAORegistry::getDAO('RoleDAO');
 
 		$userRoles = $roleDao->getByUserId($user->getId(), $submission->getContextId());

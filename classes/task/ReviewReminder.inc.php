@@ -34,6 +34,14 @@ class ReviewReminder extends ScheduledTask {
 		return __('admin.scheduledTask.reviewReminder');
 	}
 
+	/**
+	 * Send the automatic review reminder to the reviewer.
+	 * @param $reviewAssignment ReviewAssignment
+	 * @param $submission Submission
+	 * @param $context Context
+	 * @param $reminderType string
+	 * 	REVIEW_REMIND_AUTO, REVIEW_REQUEST_REMIND_AUTO
+	 */
 	function sendReminder ($reviewAssignment, $submission, $context, $reminderType = REVIEW_REMIND_AUTO) {
 		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
 		$userDao = DAORegistry::getDAO('UserDAO');
@@ -43,18 +51,26 @@ class ReviewReminder extends ScheduledTask {
 		if (!isset($reviewer)) return false;
 
 		import('lib.pkp.classes.mail.SubmissionMailTemplate');
-
+		$emailKey = $reminderType;
 		$reviewerAccessKeysEnabled = $context->getSetting('reviewerAccessKeysEnabled');
-
-		$email = new SubmissionMailTemplate($submission, $reviewerAccessKeysEnabled ? $reminderType . '_ONECLICK' : $reminderType, $context->getPrimaryLocale(), $context, false);
+		switch (true) {
+			case $reviewerAccessKeysEnabled && ($reminderType == REVIEW_REMIND_AUTO):
+				$emailKey = 'REVIEW_REMIND_AUTO_ONECLICK';
+				break;
+			case $reviewerAccessKeysEnabled && ($reminderType == REVIEW_REQUEST_REMIND_AUTO):
+				$emailKey = 'REVIEW_REQUEST_REMIND_AUTO_ONECLICK';
+				break;
+		}
+		$email = new SubmissionMailTemplate($submission, $emailKey, $context->getPrimaryLocale(), $context, false);
 		$email->setContext($context);
 		$email->setReplyTo(null);
 		$email->addRecipient($reviewer->getEmail(), $reviewer->getFullName());
 		$email->setSubject($email->getSubject($context->getPrimaryLocale()));
 		$email->setBody($email->getBody($context->getPrimaryLocale()));
 
-		$urlParams = array();
-		$urlParams['submissionId'] = $reviewAssignment->getSubmissionId();
+		$urlParams = array(
+			'submissionId' => $reviewAssignment->getSubmissionId(),
+		);
 		if ($reviewerAccessKeysEnabled) {
 			import('lib.pkp.classes.security.AccessKeyManager');
 			$accessKeyManager = new AccessKeyManager();

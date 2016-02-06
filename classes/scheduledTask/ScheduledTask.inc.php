@@ -76,7 +76,7 @@ class ScheduledTask {
 	 * @return ScheduledTaskHelper
 	 */
 	function &getHelper() {
-		if (!$this->_helper) $this->_helper =& new ScheduledTaskHelper();
+		if (!$this->_helper) $this->_helper = new ScheduledTaskHelper();
 		return $this->_helper;
 	}
 

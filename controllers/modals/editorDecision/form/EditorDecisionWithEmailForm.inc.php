@@ -263,7 +263,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 			$context = $request->getContext();
 			$user = $request->getUser();
 			$email->assignParams(array(
-				'submissionUrl' => $dispatcher->url($request, ROUTE_PAGE, null, 'authorDashboard', 'submission', $submission->getId()),
+				'submissionUrl' => __('common.url'),
 				'contextName' => $context->getLocalizedName(),
 				'authorName' => $submission->getAuthorString(),
 				'editorialContactSignature' => $user->getContactSignature(),

@@ -98,7 +98,6 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 			'personalMessage' => $email->getBody(),
 			'actionLabel' => $actionLabels[$this->getDecision()]
 		);
-
 		foreach($data as $key => $value) {
 			$this->setData($key, $value);
 		}
@@ -263,7 +262,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 			$context = $request->getContext();
 			$user = $request->getUser();
 			$email->assignParams(array(
-				'submissionUrl' => __('common.url'),
+				'submissionUrl' => $dispatcher->url($request, ROUTE_PAGE, null, 'authorDashboard', 'submission', $submission->getId()),
 				'contextName' => $context->getLocalizedName(),
 				'authorName' => $submission->getAuthorString(),
 				'editorialContactSignature' => $user->getContactSignature(),
@@ -283,7 +282,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 		$submission = $this->getSubmission();
 		$user = $request->getUser();
 		return array(
-			'submissionUrl' => $dispatcher->url($request, ROUTE_PAGE, null, 'authorDashboard', 'submission', $submission->getId()),
+			'submissionUrl' => __('common.url'),
 			'contextName' => $request->getContext()->getLocalizedName(),
 			'editorialContactSignature' => strip_tags($user->getContactSignature(), "<br>"),
 			'submissionTitle' => strip_tags($submission->getLocalizedTitle()),

@@ -35,10 +35,7 @@
 				{include file="reviewer/review/reviewFormResponse.tpl"}
 			{elseif $reviewerComment}
 				<h3>{translate key="editor.review.reviewerComments"}</h3>
-				{assign var="contents" value=$reviewerComment->getComments()}
-				<span id="reviewContents">
-					{$contents|nl2br|strip_unsafe_html}
-				</span>
+				{include file="controllers/revealMore.tpl" content=$reviewerComment->getComments()|nl2br|strip_unsafe_html}
 			{/if}
 			{if $reviewAssignment->getRecommendation()}
 				<h3>{translate key="submission.recommendation" recommendation=$reviewAssignment->getLocalizedRecommendation()}</h3>

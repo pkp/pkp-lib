@@ -55,7 +55,6 @@ class HelpHandler extends Handler {
 		};
 
 		$returner = new JSONMessage(true, $parser->transform(file_get_contents($path . $filename)));
-		$returner->setEvent('setHelpContext', $filename . ($hash?"#$hash":''));
 		return $returner;
 	}
 }

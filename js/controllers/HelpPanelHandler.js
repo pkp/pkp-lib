@@ -67,11 +67,7 @@
 			.on('pkp.HelpPanel.Home', this.callbackWrapper(this.homePanel_));
 
 		this.helpUrl_ = options.helpUrl;
-
-		// If a page-wide help context was set, send it to the SiteHandler.
-		if (options.helpContext) {
-			$element.trigger('setHelpContext', options.helpContext);
-		}
+		this.helpLocale_ = options.helpLocale;
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.HelpPanelHandler, $.pkp.classes.Handler);
@@ -96,6 +92,22 @@
 	$.pkp.controllers.HelpPanelHandler.prototype.helpUrl_ = null;
 
 
+	/**
+	 * Help subsystem's locale. Default: `en`
+	 * @private
+	 * @type {string?}
+	 */
+	$.pkp.controllers.HelpPanelHandler.prototype.helpLocale_ = null;
+
+
+	/**
+	 * Current help topic
+	 * @private
+	 * @type {string?}
+	 */
+	$.pkp.controllers.HelpPanelHandler.prototype.currentTopic_ = null;
+
+
 	//
 	// Private methods
 	//
@@ -108,8 +120,8 @@
 	 */
 	$.pkp.controllers.HelpPanelHandler.prototype.openPanel_ =
 			function(context, event, options) {
-		var $element = this.getHtmlElement(),
-				siteHandler = $.pkp.classes.Handler.getHandler($('body'));
+
+		var $element = this.getHtmlElement();
 
 		// Save the calling element
 		if (typeof options.caller !== 'undefined') {
@@ -125,7 +137,7 @@
 				this.callbackWrapper(this.handleWrapperEvents));
 
 		// Load the appropriate help content
-		this.loadHelpContent_(siteHandler.getHelpContext());
+		this.loadHelpContent_(options.topic);
 
 		// Set focus inside the help panel (delay is required so that element is
 		// visible when jQuery tries to focus on it)
@@ -139,16 +151,14 @@
 
 	/**
 	 * Load help content in the panel.
-	 * @param {string?} helpContext The help context.
+	 * @param {string?} topic The help context.
 	 * @private
 	 */
 	$.pkp.controllers.HelpPanelHandler.prototype.loadHelpContent_ =
-			function(helpContext) {
-		if (helpContext === null) {
-			helpContext = '';
-		}
-		$.get(this.helpUrl_.replace(
-				'HELP_CONTEXT_SLUG', encodeURIComponent(helpContext)),
+			function(topic, locale) {
+		var locale = locale || this.helpLocale_;
+		this.currentTopic_ = topic || '';
+		$.get(this.helpUrl_ + '/index/'  + locale + '/' + encodeURIComponent(this.currentTopic_),
 				null, this.callbackWrapper(this.updateContentHandler_), 'json');
 	};
 
@@ -162,10 +172,8 @@
 	$.pkp.controllers.HelpPanelHandler.prototype.
 			updateContentHandler_ = function(ajaxContext, jsonData) {
 		var workingJsonData = this.handleJson(jsonData), helpPanelHandler = this,
-				siteHandler = $.pkp.classes.Handler.getHandler($('body')),
 				$element = this.getHtmlElement(),
-				helpContext = siteHandler.getHelpContext(),
-				hashIndex = siteHandler.getHelpContext().indexOf('#'),
+				hashIndex = this.currentTopic_.indexOf('#'),
 				$targetHash;
 
 		// Place the new content into the DOM
@@ -182,9 +190,15 @@
 
 		// Make sure clicks within help content are handled properly
 		$element.find('.content').find('a').click(function(e) {
+			var urlParts = $(e.target).attr('href').split('/');
+
 			e.preventDefault();
-			helpPanelHandler.loadHelpContent_(
-					/** @type {string} */ ($(e.target).attr('href')));
+
+			if (urlParts.length > 1) {
+				helpPanelHandler.loadHelpContent_(urlParts[1], urlParts[0]);
+			} else {
+				helpPanelHandler.loadHelpContent_(urlParts[0]);
+			}
 		});
 	};
 

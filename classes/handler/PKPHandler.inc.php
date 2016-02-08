@@ -510,36 +510,6 @@ class PKPHandler {
 		return true;
 	}
 
-	/**
-	 * Set the help file for a JSON response.
-	 * @param $response JSONMessage
-	 * @param $helpFile The help filename.
-	 * @return JSONMessage
-	 */
-	function setHelpFileJson($response, $helpFile) {
-		$response->setEvent('setHelpContext', $this->getHelpContext($helpFile));
-		return $response;
-	}
-
-	/**
-	 * Set the help file for a page (template manager) response.
-	 * @param $templateMgr TemplateManager
-	 * @param $helpFile The help filename.
-	 * @return JSONMessage
-	 */
-	function setHelpFilePage($templateMgr, $helpFile) {
-		$templateMgr->assign('pageHelpContext', $this->getHelpContext($helpFile));
-	}
-
-	/**
-	 * Return a help context from the specified help filename.
-	 * @param $helpFile string Filename for Markdown help file.
-	 * @return string Help context.
-	 */
-	function getHelpContext($helpFile) {
-		return substr(AppLocale::getLocale(), 0, 2) . '/' . $helpFile;
-	}
-
 }
 
 ?>

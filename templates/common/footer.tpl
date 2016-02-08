@@ -22,7 +22,7 @@
 	</div>
 </div>
 
-<a href="#" class="requestHelpPanel" data-topic="hi">
+<a href="#" class="requestHelpPanel" data-topic="chapter_6_submissions.md">
 	Help
 </a>
 
@@ -32,8 +32,8 @@
 		$('#pkpHelpPanel').pkpHandler(
 			'$.pkp.controllers.HelpPanelHandler',
 			{ldelim}
-				helpUrl: {url|json_encode page="help" path="HELP_CONTEXT_SLUG" escape=false},
-				helpContext: {$pageHelpContext|json_encode}
+				helpUrl: {url|json_encode page="help" escape=false},
+				helpLocale: '{$currentLocale|substr:0:2}',
 			{rdelim}
 		);
 	{rdelim});

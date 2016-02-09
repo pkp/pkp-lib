@@ -95,7 +95,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 			'submissionId' => $submission->getId(),
 			'decision' => $this->getDecision(),
 			'authorName' => $submission->getAuthorString(),
-			'personalMessage' => $email->getBody() . "\n" . $context->getSetting('emailSignature'),
+			'personalMessage' => $email->getBody(),
 			'actionLabel' => $actionLabels[$this->getDecision()]
 		);
 		foreach($data as $key => $value) {
@@ -260,9 +260,12 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 			$router = $request->getRouter();
 			$dispatcher = $router->getDispatcher();
 			$context = $request->getContext();
+			$user = $request->getUser();
 			$email->assignParams(array(
 				'submissionUrl' => $dispatcher->url($request, ROUTE_PAGE, null, 'authorDashboard', 'submission', $submission->getId()),
 				'contextName' => $context->getLocalizedName(),
+				'authorName' => $submission->getAuthorString(),
+				'editorialContactSignature' => $user->getContactSignature(),
 			));
 			$email->send($request);
 		}
@@ -274,10 +277,16 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 	 * @return array
 	 */
 	function _getAllowedVariables($request) {
+		$router = $request->getRouter();
+		$dispatcher = $router->getDispatcher();
+		$submission = $this->getSubmission();
+		$user = $request->getUser();
 		return array(
 			'submissionUrl' => __('common.url'),
 			'contextName' => $request->getContext()->getLocalizedName(),
-			'editorialContactSignature' => __('user.signature'),
+			'editorialContactSignature' => strip_tags($user->getContactSignature(), "<br>"),
+			'submissionTitle' => strip_tags($submission->getLocalizedTitle()),
+			'authorName' => strip_tags($submission->getAuthorString()),
 		);
 	}
 }

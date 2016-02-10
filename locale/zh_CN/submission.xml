@@ -130,7 +130,7 @@
 	<message key="submission.page.review">#{$id} 审查</message>
 	<message key="submission.page.summary">#{$id} 摘要</message>
 	<message key="submission.peerReview">Peer&amp;nbsp;审查</message>
-	<message key="submission.recommendation">建议</message>
+	<message key="submission.recommendation">建议: {$recommendation}</message>
 	<message key="submission.rejected">已经拒绝的</message>
 	<message key="submission.request">请求</message>
 	<message key="submission.response">回复</message>

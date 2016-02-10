@@ -130,7 +130,7 @@
 	<message key="submission.page.review">#{$id} Fagvurdering</message>
 	<message key="submission.page.summary">#{$id} Oppsummering</message>
 	<message key="submission.peerReview"><![CDATA[Faglig&nbsp;vurdering]]></message>
-	<message key="submission.recommendation">Anbefaling</message>
+	<message key="submission.recommendation">Anbefaling: {$recommendation}</message>
 	<message key="submission.rejected">Avvist</message>
 	<message key="submission.request">Bestill</message>
 	<message key="submission.response">Svar</message>

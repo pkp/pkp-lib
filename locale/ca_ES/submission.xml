@@ -131,7 +131,7 @@
 	<message key="submission.page.review">#{$id} revisió</message>
 	<message key="submission.page.summary">#{$id} resum</message>
 	<message key="submission.peerReview">Revisió de persones expertes</message>
-	<message key="submission.recommendation">Recomanació</message>
+	<message key="submission.recommendation">Recomanació: {$recommendation}</message>
 	<message key="submission.rejected">Rebutjada</message>
 	<message key="submission.request">Sol·licitud</message>
 	<message key="submission.response">Resposta</message>

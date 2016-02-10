@@ -133,7 +133,7 @@
 	<message key="submission.page.review">#{$id} Αξιολόγηση</message>
 	<message key="submission.page.summary">#{$id} Σύνοψη</message>
 	<message key="submission.peerReview">Ομότιμη Κρίση</message>
-	<message key="submission.recommendation">Εισήγηση Αξιολογητή</message>
+	<message key="submission.recommendation">Εισήγηση Αξιολογητή: {$recommendation}</message>
 	<message key="submission.rejected">Απορριπτέο</message>
 	<message key="submission.request">Αίτημα</message>
 	<message key="submission.response">Απόκριση</message>

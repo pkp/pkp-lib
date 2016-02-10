@@ -342,7 +342,7 @@ Pastikan Anda mengatur tipe judul yang valid. Nilai dukungan adalah "disingkat",
 	<message key="submission.page.summary">#{$id} Ringkasan</message>
 	<message key="submission.page.citations">#{$id} Sitiran</message>
 	<message key="submission.peerReview">Peer&amp;nbsp;Review</message>
-	<message key="submission.recommendation">Rekomendasi</message>
+	<message key="submission.recommendation">Rekomendasi: {$recommendation}</message>
 	<message key="submission.rejected">Tolak</message>
 	<message key="submission.request">Permintaan</message>
 	<message key="submission.response">Respon</message>

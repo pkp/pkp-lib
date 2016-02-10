@@ -61,6 +61,7 @@
 	<message key="common.applyAction">Apply Action</message>
 	<message key="common.assign">Assign</message>
 	<message key="common.assigned">Assigned</message>
+	<message key="common.assigned.date">Assigned: {$dateAssigned}</message>
 	<message key="common.available">Available</message>
 	<message key="common.back">Back</message>
 	<message key="common.between">between</message>
@@ -96,7 +97,9 @@
 	<message key="common.closeWindow">Close Window</message>
 	<message key="common.complete">Complete</message>
 	<message key="common.completed">Completed</message>
+	<message key="common.completed.date">Completed: {$dateCompleted}</message>
 	<message key="common.confirm">Confirm</message>
+	<message key="common.confirmed.date">Confirmed: {$dateConfirmed}</message>
 	<message key="common.content">Content</message>
 	<message key="common.contents">Contents</message>
 	<message key="common.continue">Continue</message>
@@ -174,6 +177,7 @@
 	<message key="common.notes">Notes</message>
 	<message key="common.notes.tooltip">Notes (yellow: has new notes; blue: has viewed notes; grey: no notes)</message>
 	<message key="common.notified">Notified</message>
+	<message key="common.notified.date">Notified: {$dateNotified}</message>
 	<message key="common.noMatches">No Matches</message>
 	<message key="common.off">Off</message>
 	<message key="common.on">On</message>
@@ -204,6 +208,7 @@
 	<message key="common.refresh">Refresh</message>
 	<message key="common.related">Related</message>
 	<message key="common.reminder">Reminder</message>
+	<message key="common.rreminded.date">Reminded: {$dateReminded}</message>
 	<message key="common.remote">Remote</message>
 	<message key="common.remoteURL">RemoteURL</message>
 	<message key="common.remove">Remove</message>

@@ -132,7 +132,7 @@
 	<message key="submission.page.review">#{$id} Review</message>
 	<message key="submission.page.summary">#{$id} Samenvatting</message>
 	<message key="submission.peerReview">Peer review</message>
-	<message key="submission.recommendation">Aanbeveling</message>
+	<message key="submission.recommendation">Aanbeveling: {$recommendation}</message>
 	<message key="submission.rejected">Afgewezen</message>
 	<message key="submission.request">Aanvraag</message>
 	<message key="submission.response">Reactie</message>

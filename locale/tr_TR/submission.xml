@@ -301,7 +301,7 @@
 	<message key="submission.page.summary">#{$id} Özet</message>
 	<message key="submission.page.citations">#{$id} Atıflar</message>
 	<message key="submission.peerReview">Hakem Değerlendirme</message>
-	<message key="submission.recommendation">Hakem Kararı</message>
+	<message key="submission.recommendation">Hakem Kararı: {$recommendation}</message>
 	<message key="submission.rejected">Reddedildi</message>
 	<message key="submission.request">İstek</message>
 	<message key="submission.response">Yanıt</message>

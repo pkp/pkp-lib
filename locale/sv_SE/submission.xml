@@ -129,7 +129,7 @@
 	<message key="submission.page.review">#{$id} Granska</message>
 	<message key="submission.page.summary">#{$id} Sammandrag</message>
 	<message key="submission.peerReview">Sakkunnig&amp;nbsp;granskning</message>
-	<message key="submission.recommendation">Rekommendation</message>
+	<message key="submission.recommendation">Rekommendation: {$recommendation}</message>
 	<message key="submission.rejected">Avvisad</message>
 	<message key="submission.request">Beställa</message>
 	<message key="submission.response">Svar</message>

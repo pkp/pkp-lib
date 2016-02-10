@@ -132,7 +132,7 @@
 	<message key="submission.page.review">#{$id} 査読</message>
 	<message key="submission.page.summary">#{$id} 概要</message>
 	<message key="submission.peerReview">査読</message>
-	<message key="submission.recommendation">審査結果</message>
+	<message key="submission.recommendation">審査結果: {$recommendation}</message>
 	<message key="submission.rejected">不採用</message>
 	<message key="submission.request">依頼</message>
 	<message key="submission.response">回答</message>

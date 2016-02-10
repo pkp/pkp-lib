@@ -128,7 +128,7 @@
 	<message key="submission.page.review">#{$id} 審查</message>
 	<message key="submission.page.summary">#{$id} 摘要</message>
 	<message key="submission.peerReview">審查</message>
-	<message key="submission.recommendation">推薦</message>
+	<message key="submission.recommendation">推薦: {$recommendation}</message>
 	<message key="submission.rejected">退稿</message>
 	<message key="submission.request">要求</message>
 	<message key="submission.response">回應：</message>

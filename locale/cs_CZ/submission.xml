@@ -191,7 +191,7 @@
 	<message key="submission.page.summary">#{$id} Souhrn</message>
 	<message key="submission.page.citations">#{$id} Citace</message>
 	<message key="submission.peerReview"><![CDATA[Recenzní&nbsp;řízení]]></message>
-	<message key="submission.recommendation">Doporučení</message>
+	<message key="submission.recommendation">Doporučení: {$recommendation}</message>
 	<message key="submission.rejected">Zamítnut</message>
 	<message key="submission.request">Požádat</message>
 	<message key="submission.response">Odpověď</message>

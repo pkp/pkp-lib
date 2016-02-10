@@ -132,7 +132,7 @@
 	<message key="submission.page.review">#{$id} Рецензии</message>
 	<message key="submission.page.summary">#{$id} Резюме</message>
 	<message key="submission.peerReview">Рецензия</message>
-	<message key="submission.recommendation">Рекомендации</message>
+	<message key="submission.recommendation">Рекомендации: {$recommendation}</message>
 	<message key="submission.rejected">Отказ</message>
 	<message key="submission.request">Запросы</message>
 	<message key="submission.response">Ответ</message>

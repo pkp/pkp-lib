@@ -26,7 +26,8 @@
 		this.parent($widgetWrapper, options);
 
 		if ($widgetWrapper.outerHeight() > options.height) {
-			$widgetWrapper.addClass('isHidden').css('max-height', options.height + 'px');
+			$widgetWrapper.addClass('isHidden').
+					css('max-height', options.height + 'px');
 			$('.revealMoreButton', $widgetWrapper).click(
 					this.callbackWrapper(this.revealMore));
 		}
@@ -41,7 +42,8 @@
 	/**
 	 * Event handler that is called when the button to reveal more is clicked
 	 *
-	 * @param {HTMLElement} revealMoreButton The button that is clicked to toggle extras.
+	 * @param {HTMLElement} revealMoreButton The button that is clicked to
+	 *   toggle extras.
 	 * @param {Event} event The triggering event.
 	 */
 	$.pkp.controllers.RevealMoreHandler.prototype.revealMore =

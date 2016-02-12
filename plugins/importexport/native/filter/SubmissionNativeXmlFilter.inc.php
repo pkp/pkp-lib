@@ -85,6 +85,11 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 		$deployment->setSubmission($submission);
 		$submissionNode = $doc->createElementNS($deployment->getNamespace(), $deployment->getSubmissionNodeName());
 		$submissionNode->setAttribute('locale', $submission->getLocale());
+		$submissionNode->setAttribute('date_submitted', strftime('%F', strtotime($submission->getDateSubmitted())));
+
+		$workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO');
+		$submissionNode->setAttribute('stage', WorkflowStageDAO::getPathFromId($submission->getStageId()));
+
 		if ($datePublished = $submission->getDatePublished()) {
 			$submissionNode->setAttribute('date_published', strftime('%F', strtotime($datePublished)));
 		}

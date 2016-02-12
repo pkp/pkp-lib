@@ -74,6 +74,8 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 		$submission->setStatus(STATUS_QUEUED);
 		$submission->setLocale($node->getAttribute('locale'));
 		$submission->setSubmissionProgress(0);
+		$workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO');
+		$submission->setStageId(WorkflowStageDAO::getIdFromPath($node->getAttribute('stage')));
 		$submissionDao->insertObject($submission);
 		$deployment->setSubmission($submission);
 
@@ -97,6 +99,9 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 	 */
 	function populateObject($submission, $node) {
 		$submissionDao = Application::getSubmissionDAO();
+		if ($dateSubmitted = $node->getAttribute('date_submitted')) {
+			$submission->setDateSubmitted(strtotime($dateSubmitted));
+		}
 		$submissionDao->updateObject($submission);
 		// If the date_published was set, add a published submission
 		if ($datePublished = $node->getAttribute('date_published')) {

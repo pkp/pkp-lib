@@ -155,8 +155,9 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 	function parseIdentifier($element, $submission) {
 		switch ($element->getAttribute('type')) {
 			case 'internal':
-				// Currently internal IDs are discarded; new IDs
-				// are generated and assigned.
+				// "update" advice not supported yet.
+				$advice = $attribute->getAttribute('advice');
+				assert(!$advice || $advice == 'ignore');
 				break;
 			case 'public':
 				$submission->setStoredPubId('publisher-id', $element->textContent);

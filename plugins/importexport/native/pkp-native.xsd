@@ -242,6 +242,14 @@
 	<element name="id">
 		<complexType mixed="true">
 			<attribute name="type" type="string" use="optional" />
+			<attribute name="advice" default="ignore">
+				<simpleType>
+					<restriction base="string">
+						<enumeration value="update" />
+						<enumeration value="ignore" />
+					</restriction>
+				</simpleType>
+			</attribute>
 		</complexType>
 	</element>
 

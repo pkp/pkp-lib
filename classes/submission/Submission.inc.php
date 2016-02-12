@@ -348,6 +348,7 @@ abstract class Submission extends DataObject {
 
 	/**
 	 * Return short author names string.
+	 * @return string
 	 */
 	function getShortAuthorString() {
 		$primaryAuthor = $this->getPrimaryAuthor();
@@ -357,6 +358,7 @@ abstract class Submission extends DataObject {
 				$primaryAuthor = $authors[0];
 			}
 		}
+		if (!$primaryAuthor) return '';
 
 		$authorString = $primaryAuthor->getLastName();
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);

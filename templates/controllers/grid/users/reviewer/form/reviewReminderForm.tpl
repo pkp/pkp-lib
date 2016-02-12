@@ -35,7 +35,7 @@
 			{else}
 				{fbvElement type="text" id="responseDue" label="reviewer.submission.responseDueDate" value=$reviewAssignment->getDateResponseDue()|date_format:$dateFormatShort disabled=true inline=true size=$fbvStyles.size.SMALL class="datepicker"}
 			{/if}
-			{fbvElement type="text" id="dateDue" label="reviewer.submission.reviewDueDate" value=$reviewAssignment->getDateDue()|date_format:$dateFormatShort disabled=true inline=true size=$fbvStyles.size.SMALL class="datepicker"}
+			{fbvElement type="text" id="reviewDueDate" label="reviewer.submission.reviewDueDate" value=$reviewDueDate readonly=true inline=true size=$fbvStyles.size.SMALL}
 		{/fbvFormSection}
 		{fbvFormButtons submitText="editor.review.sendReminder"}
 	{/fbvFormArea}

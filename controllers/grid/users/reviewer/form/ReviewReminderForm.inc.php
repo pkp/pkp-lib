@@ -88,6 +88,7 @@ class ReviewReminderForm extends Form {
 		$this->setData('reviewAssignment', $reviewAssignment);
 		$this->setData('reviewerName', $reviewer->getFullName() . ' <' . $reviewer->getEmail() . '>');
 		$this->setData('message', $email->getBody());
+		$this->setData('reviewDueDate', $reviewDueDate);
 	}
 
 	/**
@@ -95,7 +96,10 @@ class ReviewReminderForm extends Form {
 	 * @see Form::readInputData()
 	 */
 	function readInputData() {
-		$this->readUserVars(array('message'));
+		$this->readUserVars(array(
+			'message',
+			'reviewDueDate',
+		));
 	}
 
 	/**
@@ -111,12 +115,22 @@ class ReviewReminderForm extends Form {
 		$reviewerId = $reviewAssignment->getReviewerId();
 		$reviewer = $userDao->getById($reviewerId);
 		$submission = $submissionDao->getById($reviewAssignment->getSubmissionId());
+		$reviewDueDate = $this->getData('reviewDueDate');
+		$dispatcher = $request->getDispatcher();
+		$user = $request->getUser();
 
 		import('lib.pkp.classes.mail.SubmissionMailTemplate');
 		$email = new SubmissionMailTemplate($submission, 'REVIEW_REMIND', null, null, null, false);
 
 		$email->addRecipient($reviewer->getEmail(), $reviewer->getFullName());
 		$email->setBody($this->getData('message'));
+		$email->assignParams(array(
+			'reviewerName' => $reviewer->getFullName(),
+			'reviewDueDate' => $reviewDueDate,
+			'passwordResetUrl' => $dispatcher->url($request, ROUTE_PAGE, null, 'login', 'resetPassword', $reviewer->getUsername(), array('confirm' => Validation::generatePasswordResetHash($reviewer->getId()))),
+			'submissionReviewUrl' => $dispatcher->url($request, ROUTE_PAGE, null, 'reviewer', 'submission', null, array('submissionId' => $reviewAssignment->getSubmissionId())),
+			'editorialContactSignature' => $user->getContactSignature(),
+		));
 		$email->send($request);
 
 		// update the ReviewAssignment with the reminded and modified dates

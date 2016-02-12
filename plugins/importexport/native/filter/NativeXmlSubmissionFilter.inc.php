@@ -156,7 +156,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 		switch ($element->getAttribute('type')) {
 			case 'internal':
 				// "update" advice not supported yet.
-				$advice = $attribute->getAttribute('advice');
+				$advice = $element->getAttribute('advice');
 				assert(!$advice || $advice == 'ignore');
 				break;
 			case 'public':

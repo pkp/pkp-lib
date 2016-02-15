@@ -190,6 +190,7 @@
 	<message key="common.overdue">Overdue</message>
 	<message key="common.pageNumber">Page {$pageNumber}</message>
 	<message key="common.pageHeaderLogo.altText">Page Header Logo</message>
+	<message key="common.percentage">{$percentage}%</message>
 	<message key="common.plugin">Plugin</message>
 	<message key="common.pluginEnabled">The plugin "{$pluginName}" has been enabled.</message>
 	<message key="common.pluginDisabled">The plugin "{$pluginName}" has been disabled.</message>

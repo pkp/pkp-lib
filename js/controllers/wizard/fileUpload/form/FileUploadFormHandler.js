@@ -115,11 +115,12 @@
 	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler.prototype.
 			uploaderSetup = function($uploader) {
 
-		var pluploader = $uploader.plupload('getUploader');
+		var uploadHandler = $.pkp.classes.Handler.getHandler($uploader);
+
 		// Subscribe to uploader events.
-		pluploader.bind('BeforeUpload',
+		uploadHandler.pluploader.bind('BeforeUpload',
 				this.callbackWrapper(this.prepareFileUploadRequest));
-		pluploader.bind('FileUploaded',
+		uploadHandler.pluploader.bind('FileUploaded',
 				this.callbackWrapper(this.handleUploadResponse));
 	};
 
@@ -186,20 +187,16 @@
 			// Trigger the file uploaded event.
 			this.trigger('fileUploaded', jsonData.uploadedFile);
 
-			if (jsonData.content === '') {
-				// remove the 'add files' button to prevent repeated uploads.
-				// Note: we must disable the type="file" element or else Chrome
-				// will let a user click through the disabled button and add
-				// new files.
-				$uploadForm.find(':file').attr('disabled', 'disabled');
-				$uploadForm.find('a.plupload_add').button('disable');
-				// Trigger formValid to enable to continue button
-				this.trigger('formValid');
-			} else {
-				// Display the revision confirmation form.
+			// Display the revision confirmation form.
+			if (jsonData.content !== '') {
 				this.getHtmlElement().replaceWith(jsonData.content);
 			}
 		}
+
+		// Trigger validation on the form. This doesn't happen automatically
+		// until `blur` is triggered on the file input field, requiring the
+		// user to click before any disabled form functions become available.
+		this.getHtmlElement().valid();
 	};
 
 

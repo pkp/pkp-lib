@@ -483,7 +483,10 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 		return array(
 			'uploadedFile' => array(
 				'fileId' => $uploadedFile->getFileId(),
-				'revision' => $uploadedFile->getRevision()
+				'revision' => $uploadedFile->getRevision(),
+				'name' => $uploadedFile->getLocalizedName() ? $uploadedFile->getLocalizedName() : $uploadedFile->getFileLabel(),
+				'type' => $uploadedFile->getDocumentType(),
+				'genreId' => $uploadedFile->getGenreId(),
 			)
 		);
 	}

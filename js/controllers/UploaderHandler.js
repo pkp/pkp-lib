@@ -50,31 +50,31 @@
 					silverlight_xap_url: options.baseUrl +
 							'/lib/pkp/lib/vendor/moxiecode/plupload/js/Moxie.xap'
 				}),
-				pluploader;
+			pluploader;
 
 		// Create the uploader with the puploader plug-in.
 		// Setup the upload widget.
-		$uploader.plupload(uploaderOptions);
+		this.pluploader = new plupload.Uploader(uploaderOptions);
+		this.pluploader.init();
+		this.updateStatus('waiting');
 
-		// Hack to fix the add files button in non-FF browsers
-		// courtesy of: http://stackoverflow.com/questions/5471141/
-		pluploader = $uploader.plupload('getUploader');
-		pluploader.refresh();
-		if (!/Firefox[\/\s](\d+\.\d+)/.test(navigator.userAgent)) {
-			// On my Iceweasel 9.0.1, running the hack below
-			// results in the "Add Files" button being unclickable
-			// (html5 runtime).
-			$uploader.find('div.plupload').css('z-index', 99999);
-		}
-
-		$uploader.find('div.plupload input').css('z-index', 99999);
+		// Cache re-used DOM references
+		this.$progress = $uploader.find('.pkpUploaderProgress .percentage');
+		this.$progressBar = $uploader.find('.pkpUploaderProgressBar');
+		this.$fileName = $uploader.find('.pkpUploaderFilename');
 
 		// Bind to the pluploader for some configuration
-		pluploader.bind('FilesAdded',
-				this.callbackWrapper(this.limitQueueSize));
-
-		pluploader.bind('QueueChanged',
+		this.pluploader.bind('FilesAdded',
+				this.callbackWrapper(this.startUpload));
+		this.pluploader.bind('UploadProgress',
+				this.callbackWrapper(this.updateProgress));
+		this.pluploader.bind('Error',
+				this.callbackWrapper(this.handleError));
+		this.pluploader.bind('FileUploaded',
+				this.callbackWrapper(this.uploadComplete));
+		this.pluploader.bind('QueueChanged',
 				this.callbackWrapper(this.refreshUploader));
+
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.UploaderHandler, $.pkp.classes.Handler);
@@ -84,20 +84,85 @@
 	// Public methods
 	//
 	/**
-	 * Limit the queue size of the uploader to one file only.
+	 * Initiate upload of a file
 	 * @param {Object} caller The original context in which the callback was called.
 	 * @param {Object} pluploader The pluploader object.
 	 * @param {Object} file The data of the uploaded file.
 	 *
 	 */
 	$.pkp.controllers.UploaderHandler.prototype.
-			limitQueueSize = function(caller, pluploader, file) {
+			startUpload = function(caller, pluploader, file) {
 
 		// Prevent > 1 files from being added.
 		if (pluploader.files.length > 1) {
-			pluploader.splice(0, 1);
-			pluploader.refresh();
+			pluploader.removeFile(pluploader.files[0]);
 		}
+
+		// Initiate the upload process
+		this.updateStatus('uploading');
+		pluploader.start();
+	};
+
+	/**
+	 * Update the progress indicator for a file
+	 * @param {Object} caller The original context in which the callback was called.
+	 * @param {Object} pluploader The pluploader object.
+	 * @param {Object} file The data of the uploaded file.
+	 *
+	 */
+	$.pkp.controllers.UploaderHandler.prototype.
+			updateProgress = function(caller, pluploader, file) {
+
+		this.$progress.html(file.percent);
+		this.$progressBar.css('width', file.percent + '%');
+	};
+
+	/**
+	 * Indicate the file upload has completed
+	 * @param {Object} caller The original context in which the callback was called.
+	 * @param {Object} pluploader The pluploader object.
+	 * @param {Object} file The data of the uploaded file.
+	 *
+	 */
+	$.pkp.controllers.UploaderHandler.prototype.
+			uploadComplete = function(caller, pluploader, file, response) {
+		var jsonData = this.handleJson($.parseJSON(response.response));
+
+		if (!jsonData.status) {
+			this.showError(jsonData.content);
+			return;
+		}
+
+		this.$fileName.html(jsonData.uploadedFile.name);
+		this.updateStatus('complete');
+		this.$progress.html(0);
+		this.$progressBar.css('width', 0);
+	};
+
+	/**
+	 * Handle error revents from plupload
+	 * @param {Object} caller The original context in which the callback was called.
+	 * @param {Object} pluploader The pluploader object.
+	 * @param {Object} file The data of the uploaded file.
+	 *
+	 */
+	$.pkp.controllers.UploaderHandler.prototype.
+			handleError = function(caller, pluploader, err) {
+		this.showError(err.message);
+	};
+
+	/**
+	 * Display an error if encountered during upload
+	 * @param {string} msg The error message
+	 *
+	 */
+	$.pkp.controllers.UploaderHandler.prototype.
+			showError = function(msg) {
+
+		this.$progress.html(0);
+		this.$progressBar.css('width', 0);
+		this.updateStatus('error');
+		this.getHtmlElement().find('.pkpUploaderError').html(msg);
 	};
 
 
@@ -114,6 +179,18 @@
 	};
 
 
+	/**
+	 * Update the status of the element in the DOM
+	 * @param {string} status The new status
+	 *
+	 */
+	$.pkp.controllers.UploaderHandler.prototype.
+			updateStatus = function(status) {
+		this.getHtmlElement().removeClass('loading waiting uploading error complete')
+			.addClass(status);
+	};
+
+
 	//
 	// Private static properties
 	//
@@ -124,13 +201,14 @@
 	 * @const
 	 */
 	$.pkp.controllers.UploaderHandler.DEFAULT_PROPERTIES_ = {
-		// General settings
 		runtimes: 'html5,flash,silverlight,html4',
 		max_file_size: $.pkp.cons.UPLOAD_MAX_FILESIZE,
 		multi_selection: false,
 		file_data_name: 'uploadedFile',
 		multipart: true,
-		headers: {'browser_user_agent': navigator.userAgent}
+		headers: {'browser_user_agent': navigator.userAgent},
+		browse_button: 'pkpUploaderButton',
+		drop_element: 'pkpUploaderDropZone'
 	};
 
 

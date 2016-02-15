@@ -146,13 +146,6 @@ abstract class PKPSubmissionHandler extends Handler {
 			$templateMgr->assign('submitStep', $step);
 			$templateMgr->assign('submissionProgress', $submission->getSubmissionProgress());
 
-			// If the expedited process is available, show it.
-			import('lib.pkp.classes.workflow.linkAction.ExpediteSubmissionLinkAction');
-			if (ExpediteSubmissionLinkAction::canExpedite($request->getUser(), $context)) {
-				$templateMgr->assign('canExpedite', true);
-				$templateMgr->assign('expediteLinkAction', new ExpediteSubmissionLinkAction($request, $submission->getId()));
-			}
-
 			return new JSONMessage(true, $templateMgr->fetch('submission/form/complete.tpl'));
 		}
 	}

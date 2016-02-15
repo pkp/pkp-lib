@@ -23,11 +23,7 @@
 	<message key="submission.submit.whatNext.review">Review this submission</message>
 	<message key="submission.submit.whatNext.create">Create a new submission</message>
 	<message key="submission.submit.whatNext.return">Return to your dashboard</message>
-	<message key="submission.submit.uploadExpeditedFiles">As an editor, you may upload a PDF now and choose to expedite it to production on the last submission step.</message>
 	<message key="submission.submit.extendedMetadata">Extended Metadata</message>
-	<message key="submission.submit.expediteSubmission">Expedite submission</message>
-	<message key="submission.submit.expediteSubmission.description">Are you sure you wish to expedite this submission? This will publish the work directly using the uploaded submission file, if any was uploaded.</message>
-	<message key="grid.action.expedite">Move this submission directly into publication.</message>
 
 	<!-- FIXME: move to meta-data plug-ins -->
 	<!-- messages used by meta-data filters -->
@@ -545,7 +541,7 @@
 
 	<!--  editor decisions -->
 	<message key="editor.submission.decision">Decision</message>
-	<message key="editor.submission.decision.accept">Accept Submission</message>
+	<message key="editor.submission.decision.accept">Send to Copyediting</message>
 	<message key="editor.submission.decision.requestRevisions">Request Revisions</message>
 	<message key="editor.submission.decision.resubmit">Resubmit for Review</message>
 	<message key="editor.submission.decision.decline">Decline Submission</message>

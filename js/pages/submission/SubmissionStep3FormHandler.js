@@ -40,14 +40,6 @@ jQuery.pkp.pages.submission = jQuery.pkp.pages.submission || { };
 		// Save supplied options
 		this.authorsGridContainer_ = options.authorsGridContainer;
 		this.chaptersGridContainer_ = options.chaptersGridContainer;
-		this.canExpedite_ = options.canExpedite;
-
-		if (this.canExpedite_) {
-			// Wrap the fields in an accordion. "collapsible" lets it work with a
-			// single panel; "active" false means that it is collapsed by default.
-			$('#metadataAccordion').accordion(
-					{ clearStyle: true, collapsible: true, active: false });
-		}
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.pages.submission.SubmissionStep3FormHandler,
@@ -64,15 +56,6 @@ jQuery.pkp.pages.submission = jQuery.pkp.pages.submission || { };
 	 */
 	$.pkp.pages.submission.SubmissionStep3FormHandler.
 			prototype.chaptersGridContainer_ = '';
-
-
-	/**
-	 * Specifies if this user can expedite the submission process.
-	 * @private
-	 * @type {boolean}
-	 */
-	$.pkp.pages.submission.SubmissionStep3FormHandler.
-			prototype.canExpedite_ = false;
 
 
 	//

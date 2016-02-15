@@ -94,31 +94,34 @@ class SubmissionsListGridCellProvider extends DataObjectGridCellProvider {
 						break;
 				}
 
-				$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 				if (!$stage) $stage = __(WorkflowStageDAO::getTranslationKeyFromId($stageId));
 
 				import('lib.pkp.classes.linkAction.request.RedirectAction');
 				$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
 				$reviewAssignment = $reviewAssignmentDao->getLastReviewRoundReviewAssignmentByReviewer($submission->getId(), $user->getId());
-				if (is_a($reviewAssignment, 'ReviewAssignment')) return array(new LinkAction(
-					'itemWorkflow',
-					new RedirectAction(
-						$request->getDispatcher()->url(
-							$request, ROUTE_PAGE,
-							null,
-							'reviewer', 'submission',
-							$submission->getId()
-						)
-					),
-					$stage
-				));
-				else return array(new LinkAction(
-					'itemWorkflow',
-					new RedirectAction(
-						SubmissionsListGridCellProvider::getUrlByUserRoles($request, $submission)
-					),
-					$stage
-				));
+				if (is_a($reviewAssignment, 'ReviewAssignment') && ($reviewAssignment->getStageId() == $stageId)) {
+					return array(new LinkAction(
+						'itemWorkflow',
+						new RedirectAction(
+							$request->getDispatcher()->url(
+								$request, ROUTE_PAGE,
+								null,
+								'reviewer', 'submission',
+								$submission->getId()
+							)
+						),
+						$stage
+					));
+				}
+				else {
+					return array(new LinkAction(
+						'itemWorkflow',
+						new RedirectAction(
+							SubmissionsListGridCellProvider::getUrlByUserRoles($request, $submission)
+						),
+						$stage
+					));
+				}
 		}
 		return parent::getCellActions($request, $row, $column, $position);
 	}

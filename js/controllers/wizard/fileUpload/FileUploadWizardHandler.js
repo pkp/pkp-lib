@@ -43,7 +43,7 @@
 		this.bind('fileUploaded', this.handleFileUploaded);
 
 		// Initially disable the continue button.
-		this.getContinueButton().button('disable');
+		this.disableContinueButton();
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.wizard.fileUpload.FileUploadWizardHandler,
@@ -169,9 +169,9 @@
 		// continue button to finish.
 		if (targetStep === lastStep) {
 			$continueButton = this.getContinueButton();
-			$continueButton.button('option', 'label',
+			$continueButton.text(
 					/** @type {string} */ (this.getFinishButtonText()));
-			$continueButton.button('enable');
+			this.enableContinueButton();
 		}
 	};
 

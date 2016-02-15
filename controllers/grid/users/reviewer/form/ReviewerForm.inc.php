@@ -244,8 +244,8 @@ class ReviewerForm extends Form {
 			'reviewerUserName' => __('user.username'),
 			'contextName' => $context->getLocalizedName(),
 			'contextUrl' => __('common.url'),
-			'editorialContactSignature' => strip_tags($user->getContactSignature(), "<br>"),
-			'submissionTitle' => strip_tags($submission->getLocalizedTitle()),
+			'editorialContactSignature' => String::stripUnsafeHtml($user->getContactSignature()),
+			'submissionTitle' => String::stripUnsafeHtml($submission->getLocalizedTitle()),
 			'submissionAbstract' => String::html2text($submission->getLocalizedAbstract()),
 		));
 		// Allow the default template

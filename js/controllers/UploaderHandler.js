@@ -133,7 +133,10 @@
 			return;
 		}
 
-		this.$fileName.html(jsonData.uploadedFile.name);
+		// Save the file data from the server to the plupload file info
+		file.storedData = jsonData.uploadedFile;
+
+		this.$fileName.html(jsonData.uploadedFile.name || jsonData.uploadedFile.fileLabel);
 		this.updateStatus('complete');
 		this.$progress.html(0);
 		this.$progressBar.css('width', 0);

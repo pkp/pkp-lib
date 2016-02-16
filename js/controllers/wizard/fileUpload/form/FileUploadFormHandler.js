@@ -122,6 +122,8 @@
 				this.callbackWrapper(this.prepareFileUploadRequest));
 		uploadHandler.pluploader.bind('FileUploaded',
 				this.callbackWrapper(this.handleUploadResponse));
+		uploadHandler.pluploader.bind('FilesRemoved',
+				this.callbackWrapper(this.handleRemovedFiles));
 	};
 
 
@@ -197,6 +199,26 @@
 		// until `blur` is triggered on the file input field, requiring the
 		// user to click before any disabled form functions become available.
 		this.getHtmlElement().valid();
+	};
+
+
+	/**
+	 * Pass the `FilesRemoved` event from plupload on to FileUploadWizardHandler
+	 * so it can delete the file.
+	 *
+	 * @TODO this is necessary because only the FileUploadWizardHandler knows
+	 *  the delete URL. But other file upload utilities could benefit from this
+	 *  feature, so it would be best to internalize this functionality in the
+	 *  UploadHandler by passing in a deleteURL option. This is a task that
+	 *  should be handled when the file upload process is rewritten to support
+	 *  a multi-file upload workflow.
+	 * @param {Object} caller The original context in which the callback was called.
+	 * @param {Object} pluploader The pluploader object.
+	 * @param {Object} file The data of the uploaded file.
+	 */
+	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler.prototype.
+			handleRemovedFiles = function(caller, pluploader, file) {
+		this.trigger('filesRemoved', [pluploader, file]);
 	};
 
 

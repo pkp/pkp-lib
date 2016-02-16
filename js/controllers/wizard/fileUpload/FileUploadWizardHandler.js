@@ -41,6 +41,7 @@
 
 		// Bind events of the nested upload forms.
 		this.bind('fileUploaded', this.handleFileUploaded);
+		this.bind('filesRemoved', this.handleRemovedFiles);
 
 		// Initially disable the continue button.
 		this.disableContinueButton();
@@ -287,6 +288,38 @@
 
 		// Save the uploaded file information.
 		this.uploadedFile_ = uploadedFile;
+	};
+
+
+	/**
+	 * Handle the filesRemoved event triggered by the associated form. The
+	 * original event is triggered by plupload and passed via
+	 * FileUploadFormHandler.
+	 *
+	 * See the @TODO note under FileUPloadFormHandler::handleFilesRemoved
+	 *
+	 * @param {$.pkp.controllers.form.AjaxFormHandler} callingForm The form
+	 *  that triggered the event.
+	 * @param {Event} event The upload event.
+	 * @param {Object} pluploader plupload component that fired the original
+	 *  event.
+	 * @param {array} file Array of files removed
+	 */
+	$.pkp.controllers.wizard.fileUpload.FileUploadWizardHandler.
+			prototype.handleRemovedFiles = function(callingForm, event, pluploader, file) {
+
+		if (typeof file === 'undefined' || !file.length) {
+			return;
+		}
+
+		// There's no error handling done for the response because we don't
+		// really have an elegant way to handle or display a failed deletion
+		for (var i in file) {
+			if (typeof file[i].storedData === 'undefined' ) {
+				return;
+			}
+			$.post(this.deleteUrl_, file[i].storedData);
+		}
 	};
 
 

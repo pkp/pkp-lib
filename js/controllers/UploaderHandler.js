@@ -126,7 +126,7 @@
 	 */
 	$.pkp.controllers.UploaderHandler.prototype.
 			uploadComplete = function(caller, pluploader, file, response) {
-		var jsonData = this.handleJson($.parseJSON(response.response));
+		var jsonData = $.parseJSON(response.response);
 
 		if (!jsonData.status) {
 			this.showError(jsonData.content);

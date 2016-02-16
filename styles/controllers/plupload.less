@@ -39,13 +39,13 @@
 		.transform(opacity 0.3s);
 	}
 
-	&.error .pkpUploaderError,
 	&.complete .pkpUploaderFilename,
 	&.complete .pkp_uploader_button_change {
 		display: block;
 		opacity: 1;
 	}
 
+	&.error .pkpUploaderError,
 	&.uploading .pkp_uploader_details,
 	&.complete .pkp_uploader_details,
 	&.waiting .pkp_uploader_drop_zone_label {
@@ -63,6 +63,7 @@
 	min-height: 34px; // button height
 }
 
+.pkpUploaderError,
 .pkp_uploader_details,
 .pkp_uploader_drop_zone_label {
 	padding: 5px 0;
@@ -99,6 +100,10 @@
 	border-radius: @half / 2;
 }
 
+.pkpUploaderError {
+	color: @no;
+}
+
 .complete {
 
 	 .pkp_uploader_drop_zone {
@@ -113,9 +118,4 @@
 		margin-right: 1em;
 		color: @yes;
 	}
-}
-
-.uploading {
-
-
 }

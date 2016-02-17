@@ -35,22 +35,24 @@
 				' to a div!'].join(''));
 		}
 
-		// Create uploader settings.
-		var uploaderOptions = $.extend(
-				{ },
-				// Default settings.
-				this.self('DEFAULT_PROPERTIES_'),
-				// Non-default settings.
-				{
-					url: options.uploadUrl,
-					// Flash settings
-					flash_swf_url: options.baseUrl +
-							'/lib/pkp/lib/vendor/moxiecode/plupload/js/Moxie.swf',
-					// Silverlight settings
-					silverlight_xap_url: options.baseUrl +
-							'/lib/pkp/lib/vendor/moxiecode/plupload/js/Moxie.xap'
-				}),
-			pluploader;
+		// Set up options to pass to plupload
+		var uploaderOptions = {
+			url: options.uploadUrl,
+			// Flash settings
+			flash_swf_url: options.baseUrl +
+					'/lib/pkp/lib/vendor/moxiecode/plupload/js/Moxie.swf',
+			// Silverlight settings
+			silverlight_xap_url: options.baseUrl +
+					'/lib/pkp/lib/vendor/moxiecode/plupload/js/Moxie.xap'
+		};
+		if (typeof options.filters) {
+			uploaderOptions.filters = options.filters;
+		}
+		uploaderOptions = $.extend(
+			{},
+			this.self('DEFAULT_PROPERTIES_'),
+			uploaderOptions
+		);
 
 		// Create the uploader with the puploader plug-in.
 		// Setup the upload widget.
@@ -133,10 +135,21 @@
 			return;
 		}
 
-		// Save the file data from the server to the plupload file info
-		file.storedData = jsonData.uploadedFile;
+		var filename = file.name;
+		if (typeof jsonData.uploadedFile !== 'undefined') {
+			filename = jsonData.uploadedFile.name || jsonData.uploadedFile.fileLabel;
 
-		this.$fileName.html(jsonData.uploadedFile.name || jsonData.uploadedFile.fileLabel);
+			// Store uploaded file data so that it can be referenced during
+			// other API events. This is used by the submission file wizard
+			// to delete files that are uploaded then replaced before submission
+			// is complete.
+			//
+			// See: $.pkp.controllers.wizard.fileUpload.FileUploadWizardHandler.
+			//		prototype.handleRemovedFiles
+			file.storedData = jsonData.uploadedFile;
+		}
+
+		this.$fileName.html(filename);
 		this.updateStatus('complete');
 		this.$progress.html(0);
 		this.$progressBar.css('width', 0);

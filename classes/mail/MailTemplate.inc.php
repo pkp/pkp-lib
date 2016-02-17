@@ -256,7 +256,6 @@ class MailTemplate extends Mail {
 		}
 		$this->setSubject($subject);
 		$this->setBody($body);
-print_r($this);return;
 		return parent::send();
 	}
 

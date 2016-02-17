@@ -6,7 +6,25 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Markup for file uploader widget.
+ *
+ * @uses $id string ID for the HTML element wrapper. Typically used by parent
+ *  forms to instantiate the plupload utility.
+ * @uses $stringDragFile string (optional) Translation key for the drag and
+ *  drop zone label
+ * @uses $stringAddFile string (optional) Translation key for the add file
+ *  button
+ * @uses $stringChangeFile string (optional) Translation key for the change
+ *  file button
  *}
+{if !$stringDragFile}
+	{assign var=stringDragFile value="common.upload.dragFile"}
+{/if}
+{if !$stringAddFile}
+	{assign var=stringAddFile value="common.upload.addFile"}
+{/if}
+{if !$stringChangeFile}
+	{assign var=stringChangeFile value="common.upload.changeFile"}
+{/if}
 
 <div id="{$id}" class="pkp_controller_fileUpload loading">
 	<div class="pkp_uploader_loading">
@@ -28,7 +46,7 @@
 	<div id="pkpUploaderDropZone" class="pkp_uploader_drop_zone">
 
 		<div class="pkp_uploader_drop_zone_label">
-			{translate key="common.upload.dragFile"}
+			{translate key=$stringDragFile}
 		</div>
 
 		<div class="pkp_uploader_details">
@@ -47,10 +65,10 @@
 		{* Button to add/change file *}
 		<button id="pkpUploaderButton" class="pkp_uploader_button pkp_button">
 			<span class="pkp_uploader_button_add">
-				{translate key="common.upload.addFile"}
+				{translate key=$stringAddFile}
 			</span>
 			<span class="pkp_uploader_button_change">
-				{translate key="common.upload.changeFile"}
+				{translate key=$stringChangeFile}
 			</span>
 		</button>
 	</div>

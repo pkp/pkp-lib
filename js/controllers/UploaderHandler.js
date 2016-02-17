@@ -48,6 +48,9 @@
 		if (typeof options.filters) {
 			uploaderOptions.filters = options.filters;
 		}
+		if (typeof options.resize) {
+			uploaderOptions.resize = options.resize;
+		}
 		uploaderOptions = $.extend(
 			{},
 			this.self('DEFAULT_PROPERTIES_'),

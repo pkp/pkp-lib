@@ -171,8 +171,12 @@ class ProfileTabHandler extends Handler {
 	function uploadProfileImage($args, $request) {
 		import('lib.pkp.classes.user.form.PublicProfileForm');
 		$publicProfileForm = new PublicProfileForm($request->getUser());
-		$publicProfileForm->uploadProfileImage();
-		return $request->redirectUrlJson($request->getDispatcher()->url($request, ROUTE_PAGE, null, 'user', 'profile', null, array('uniq' => uniqid()), 'publicProfile'));
+		$result = $publicProfileForm->uploadProfileImage();
+		if ($result) {
+			return $request->redirectUrlJson($request->getDispatcher()->url($request, ROUTE_PAGE, null, 'user', 'profile', null, array('uniq' => uniqid()), 'publicProfile'));
+		} else {
+			return new JSONMessage(false, __('common.uploadFailed'));
+		}
 	}
 
 	/**

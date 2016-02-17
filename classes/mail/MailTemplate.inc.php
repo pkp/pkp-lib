@@ -76,7 +76,7 @@ class MailTemplate extends Mail {
 		}
 
 		$userSig = '';
-		$user = $request->getUser();
+		$user = defined('SESSION_DISABLE_INIT')?null:$request->getUser();
 		if ($user && $this->includeSignature) {
 			$userSig = $user->getLocalizedSignature();
 			if (!empty($userSig)) $userSig = "<br/>" . $userSig;
@@ -149,7 +149,7 @@ class MailTemplate extends Mail {
 		if ($this->context) {
 			// Add context-specific variables
 			$router = $request->getRouter();
-			$dispatcher = $request->getDispatcher();
+			$dispatcher = $application->getDispatcher();
 			$params = array_merge(array(
 				'principalContactSignature' => $this->context->getSetting('contactName'),
 				'contextName' => $this->context->getLocalizedName(),
@@ -162,12 +162,13 @@ class MailTemplate extends Mail {
 			), $params);
 		}
 
-		// Add user-specific variables
-		$user = $request->getUser();
-		if ($user) $params = array_merge(array(
-			'senderEmail' => $user->getEmail(),
-			'senderName' => $user->getFullName(),
-		), $params);
+		if (!defined('SESSION_DISABLE_INIT') && ($user = $request->getUser())) {
+			// Add user-specific variables
+			$params = array_merge(array(
+				'senderEmail' => $user->getEmail(),
+				'senderName' => $user->getFullName(),
+			), $params);
+		}
 
 		// Add some general variables
 		$params = array_merge(array(
@@ -238,7 +239,7 @@ class MailTemplate extends Mail {
 			if (!empty($envelopeSender) && Config::getVar('email', 'allow_envelope_sender')) $this->setEnvelopeSender($envelopeSender);
 		}
 
-		$user = Request::getUser();
+		$user = defined('SESSION_DISABLE_INIT')?null:Request::getUser();
 
 		if ($user && $this->bccSender) {
 			$this->addBcc($user->getEmail(), $user->getFullName());
@@ -255,7 +256,6 @@ class MailTemplate extends Mail {
 		}
 		$this->setSubject($subject);
 		$this->setBody($body);
-
 		return parent::send();
 	}
 

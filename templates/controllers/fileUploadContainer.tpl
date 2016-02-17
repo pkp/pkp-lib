@@ -28,7 +28,7 @@
 	<div id="pkpUploaderDropZone" class="pkp_uploader_drop_zone">
 
 		<div class="pkp_uploader_drop_zone_label">
-			{translate key="submission.dragFile"}
+			{translate key="common.upload.dragFile"}
 		</div>
 
 		<div class="pkp_uploader_details">
@@ -47,10 +47,10 @@
 		{* Button to add/change file *}
 		<button id="pkpUploaderButton" class="pkp_uploader_button pkp_button">
 			<span class="pkp_uploader_button_add">
-				{translate key="submission.addFile"}
+				{translate key="common.upload.addFile"}
 			</span>
 			<span class="pkp_uploader_button_change">
-				{translate key="submission.changeFile"}
+				{translate key="common.upload.changeFile"}
 			</span>
 		</button>
 	</div>

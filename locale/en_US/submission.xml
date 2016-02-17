@@ -138,8 +138,6 @@
 	<message key="submission.shortAuthor">{$author} et al.</message>
 	<message key="submission.mySubmissions">My Authored</message>
 	<message key="submission.addFile">Upload File</message>
-	<message key="submission.changeFile">Change File</message>
-	<message key="submission.dragFile">Drag and drop a file here to begin upload</message>
 	<message key="submission.agencies">Agencies</message>
 	<message key="submission.abstractViews">Abstract Views</message>
 	<message key="submission.accepted">Accepted</message>

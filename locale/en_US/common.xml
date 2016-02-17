@@ -255,6 +255,9 @@
 	<message key="common.invalidFileType">No file uploaded or invalid file type!</message>
 	<message key="common.homepageImage.altText">Homepage Image</message>
 	<message key="common.up">Up</message>
+	<message key="common.upload.addFile">Upload File</message>
+	<message key="common.upload.changeFile">Change File</message>
+	<message key="common.upload.dragFile">Drag and drop a file here to begin upload</message>
 	<message key="common.url">URL</message>
 	<message key="common.user">User</message>
 	<message key="common.view">View</message>

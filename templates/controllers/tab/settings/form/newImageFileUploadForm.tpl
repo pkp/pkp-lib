@@ -17,7 +17,12 @@
 				$uploader: $('#plupload'),
 				uploaderOptions: {ldelim}
 					uploadUrl: {url|json_encode op="uploadFile" fileSettingName=$fileSettingName fileType=$fileType escape=false},
-					baseUrl: {$baseUrl|json_encode}
+					baseUrl: {$baseUrl|json_encode},
+					filters: {ldelim}
+						mime_types : [
+							{ldelim} title : "Image files", extensions : "jpg,jpeg,png" {rdelim}
+						]
+					{rdelim}
 				{rdelim}
 			{rdelim}
 		);

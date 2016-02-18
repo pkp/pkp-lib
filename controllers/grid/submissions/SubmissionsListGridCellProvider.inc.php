@@ -20,14 +20,17 @@ class SubmissionsListGridCellProvider extends DataObjectGridCellProvider {
 	/** @var Array */
 	var $_authorizedRoles;
 
+	/** @var User */
+	var $user;
+
 	/**
 	 * Constructor
 	 */
-	function SubmissionsListGridCellProvider($authorizedRoles = null) {
+	function SubmissionsListGridCellProvider($user, $authorizedRoles = null) {
 		if ($authorizedRoles) {
 			$this->_authorizedRoles = $authorizedRoles;
 		}
-
+		$this->user = $user;
 		parent::DataObjectGridCellProvider();
 	}
 
@@ -113,15 +116,13 @@ class SubmissionsListGridCellProvider extends DataObjectGridCellProvider {
 						$stage
 					));
 				}
-				else {
-					return array(new LinkAction(
-						'itemWorkflow',
-						new RedirectAction(
-							SubmissionsListGridCellProvider::getUrlByUserRoles($request, $submission)
-						),
-						$stage
-					));
-				}
+				return array(new LinkAction(
+					'itemWorkflow',
+					new RedirectAction(
+						SubmissionsListGridCellProvider::getUrlByUserRoles($request, $submission)
+					),
+					$stage
+				));
 		}
 		return parent::getCellActions($request, $row, $column, $position);
 	}
@@ -148,19 +149,21 @@ class SubmissionsListGridCellProvider extends DataObjectGridCellProvider {
 				$this->_titleColumn = $column;
 				$title = $submission->getLocalizedTitle();
 				if ( empty($title) ) $title = __('common.untitled');
-				$authorsInTitle = $submission->getShortAuthorString();
-				$title = $authorsInTitle . '; ' . $title;
+
+				// Ensure we aren't exposing the author name to reviewers
+				$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+				$reviewAssignment = $reviewAssignmentDao->getLastReviewRoundReviewAssignmentByReviewer($submission->getId(), $this->user->getId());
+				if (!$reviewAssignment || $reviewAssignment->getReviewMethod() != SUBMISSION_REVIEW_METHOD_DOUBLEBLIND) {
+					$authorsInTitle = $submission->getShortAuthorString();
+					$title = $authorsInTitle . '; ' . $title;
+				}
+
 				return array('label' => $title);
-			case 'author':
-				if (is_a($submission, 'ReviewerSubmission') && $submission->getReviewMethod() == SUBMISSION_REVIEW_METHOD_DOUBLEBLIND) return array('label' => '—');
-				return array('label' => $submission->getAuthorString(true));
-				break;
 			case 'dateAssigned':
 				assert(is_a($submission, 'ReviewerSubmission'));
 				$dateAssigned = strftime(Config::getVar('general', 'date_format_short'), strtotime($submission->getDateAssigned()));
 				if ( empty($dateAssigned) ) $dateAssigned = '--';
 				return array('label' => $dateAssigned);
-				break;
 			case 'dateDue':
 				$dateDue = strftime(Config::getVar('general', 'date_format_short'), strtotime($submission->getDateDue()));
 				if ( empty($dateDue) ) $dateDue = '--';

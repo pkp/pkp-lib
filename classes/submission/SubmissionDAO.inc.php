@@ -670,7 +670,7 @@ abstract class SubmissionDAO extends DAO {
 				OR ra.reviewer_id = ?)'
 				. ($contextId?' AND s.context_id = ?':'')
 				. ($title?' AND (ss.setting_name = ? AND ss.setting_value LIKE ?)':'') 
-				. ($author?' AND (au.first_name LIKE ? OR au.middle_name LIKE ? OR au.last_name LIKE ?)':'')
+				. ($author?' AND (ra.submission_id IS NULL AND (au.first_name LIKE ? OR au.middle_name LIKE ? OR au.last_name LIKE ?))':'') // Don't permit reviewer searching on author name
 				. ($stageId?' AND s.stage_id = ?':'') .
 			' GROUP BY ' . $this->getGroupByColumns(),
 			$params,

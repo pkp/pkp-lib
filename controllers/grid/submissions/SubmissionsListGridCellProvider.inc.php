@@ -220,7 +220,7 @@ class SubmissionsListGridCellProvider extends DataObjectGridCellProvider {
 		$authorUserGroupIds = $userGroupDao->getUserGroupIdsByRoleId(ROLE_ID_AUTHOR);
 		$stageAssignmentsFactory = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), null, null, $user->getId());
 
-		// Check if the user should be considered as author only
+		// Check if the user should be considered as author.
 		$authorDashboard = false;
 		while ($stageAssignment = $stageAssignmentsFactory->next()) {
 			if (!in_array($stageAssignment->getUserGroupId(), $authorUserGroupIds)) {
@@ -235,6 +235,12 @@ class SubmissionsListGridCellProvider extends DataObjectGridCellProvider {
 			}
 			return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'authorDashboard', 'submission', $submission->getId());
 		}
+
+		// Check if the user should be considered as reviewer.
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+		$reviewAssignment = $reviewAssignmentDao->getLastReviewRoundReviewAssignmentByReviewer($submission->getId(), $request->getUser()->getId());
+		if ($reviewAssignment) return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'reviewer', 'submission', $submission->getId());
+
 		return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'workflow', $stageName?$stageName:'access', $submission->getId());
 	}
 }

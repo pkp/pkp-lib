@@ -80,6 +80,8 @@ abstract class PKPWorkflowHandler extends Handler {
 	/**
 	 * Redirect users to their most appropriate
 	 * submission workflow stage.
+	 * @param $args array
+	 * @param $request PKPRequest
 	 */
 	function access($args, $request) {
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);

@@ -118,7 +118,7 @@ class EditorDecisionNotificationManager extends NotificationManagerDelegate {
 				$submissionDao = Application::getSubmissionDAO();
 				$submission = $submissionDao->getById($notification->getAssocId());
 				import('lib.pkp.controllers.grid.submissions.SubmissionsListGridCellProvider');
-				return SubmissionsListGridCellProvider::getUrlByUserRoles($request, $submission);
+				return SubmissionsListGridCellProvider::getUrlByUserRoles($request, $submission, $notification->getUserId());
 			default:
 				return '';
 		}

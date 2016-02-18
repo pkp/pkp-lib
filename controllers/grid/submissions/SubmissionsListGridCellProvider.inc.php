@@ -220,14 +220,13 @@ class SubmissionsListGridCellProvider extends DataObjectGridCellProvider {
 		$authorUserGroupIds = $userGroupDao->getUserGroupIdsByRoleId(ROLE_ID_AUTHOR);
 		$stageAssignmentsFactory = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), null, null, $user->getId());
 
-		// Check if the user should be considered as author
-		$authorDashboard = false;
+		// Check if the user should be considered as author only
+		$authorDashboard = true;
 		while ($stageAssignment = $stageAssignmentsFactory->next()) {
 			if (!in_array($stageAssignment->getUserGroupId(), $authorUserGroupIds)) {
 				$authorDashboard = false;
 				break;
 			}
-			$authorDashboard = true;
 		}
 		if ($authorDashboard) {
 			if ($submission->getSubmissionProgress()>0) {

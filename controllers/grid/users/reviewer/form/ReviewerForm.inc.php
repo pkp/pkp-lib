@@ -244,9 +244,9 @@ class ReviewerForm extends Form {
 			'reviewerUserName' => __('user.username'),
 			'contextName' => $context->getLocalizedName(),
 			'contextUrl' => __('common.url'),
-			'editorialContactSignature' => String::stripUnsafeHtml($user->getContactSignature()),
-			'submissionTitle' => String::stripUnsafeHtml($submission->getLocalizedTitle()),
-			'submissionAbstract' => String::html2text($submission->getLocalizedAbstract()),
+			'editorialContactSignature' => PKPString::stripUnsafeHtml($user->getContactSignature()),
+			'submissionTitle' => PKPString::stripUnsafeHtml($submission->getLocalizedTitle()),
+			'submissionAbstract' => PKPString::html2text($submission->getLocalizedAbstract()),
 		));
 		// Allow the default template
 		$templateKeys[] = $this->_getMailTemplateKey($request->getContext());

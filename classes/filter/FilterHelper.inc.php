@@ -71,7 +71,7 @@ class FilterHelper {
 		// We have to include the filter class before going on
 		// so that all required constants are defined before they
 		// might be used in settings.
-		if (String::regexp_match('/^[a-zA-Z0-9.]+$/', $filterClassName)) {
+		if (PKPString::regexp_match('/^[a-zA-Z0-9.]+$/', $filterClassName)) {
 			import($filterClassName);
 		}
 

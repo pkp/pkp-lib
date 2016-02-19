@@ -62,8 +62,8 @@ class PKPLibraryFileManager extends PrivateFileManager {
 		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO');
 		$suffix = $this->getFileSuffixFromType($type);
 		$ext = $this->getExtension($originalFileName);
-		$truncated = $this->truncateFileName($originalFileName, 127 - String::strlen($suffix) - 1);
-		$baseName = String::substr($truncated, 0, String::strpos($originalFileName, $ext) - 1);
+		$truncated = $this->truncateFileName($originalFileName, 127 - PKPString::strlen($suffix) - 1);
+		$baseName = PKPString::substr($truncated, 0, PKPString::strpos($originalFileName, $ext) - 1);
 
 		// Try a simple syntax first
 		$fileName = $baseName . '-' . $suffix . '.' . $ext;
@@ -72,9 +72,9 @@ class PKPLibraryFileManager extends PrivateFileManager {
 		for ($i = 1; ; $i++) {
 			$fullSuffix = $suffix . '-' . $i;
 			//truncate more if necessary
-			$truncated = $this->truncateFileName($originalFileName, 127 - String::strlen($fullSuffix) - 1);
+			$truncated = $this->truncateFileName($originalFileName, 127 - PKPString::strlen($fullSuffix) - 1);
 			// get the base name and append the suffix
-			$baseName = String::substr($truncated, 0, String::strpos($originalFileName, $ext) - 1);
+			$baseName = PKPString::substr($truncated, 0, PKPString::strpos($originalFileName, $ext) - 1);
 
 			//try the following
 			$fileName = $baseName . '-' . $fullSuffix . '.' . $ext;

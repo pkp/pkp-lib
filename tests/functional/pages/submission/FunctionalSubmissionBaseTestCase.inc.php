@@ -66,7 +66,7 @@ abstract class FunctionalSubmissionBaseTestCase extends WebTestCase {
 		// We should now have the submission ID in the URL.
 		$url = $this->getLocation();
 		$matches = null;
-		String::regexp_match_get('/submissionId=([0-9]+)#/', $url, $matches);
+		PKPString::regexp_match_get('/submissionId=([0-9]+)#/', $url, $matches);
 		self::assertTrue(count($matches) == 2);
 		$submissionId = $matches[1];
 		self::assertTrue(is_numeric($submissionId));

@@ -63,12 +63,12 @@ class RegexRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilte
 
 		// Parse out any embedded URLs
 		$urlPattern = '(<?(https?://([-\w\.]+)+(:\d+)?(/([\w/_\.,]*(\?[^\s>]+)?)?)?)>?)';
-		if (String::regexp_match_get($urlPattern, $citationString, $matches)) {
+		if (PKPString::regexp_match_get($urlPattern, $citationString, $matches)) {
 			// Assume that the URL is a link to the resource.
 			$metadata['uri'] = $matches[1];
 
 			// Remove the URL from the citation string
-			$citationString = String::regexp_replace($urlPattern, '', $citationString);
+			$citationString = PKPString::regexp_replace($urlPattern, '', $citationString);
 
 			// If the URL is a link to PubMed, save the PMID
 			$pmIdExpressions = array(
@@ -77,7 +77,7 @@ class RegexRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilte
 				'/pubmedid=(?P<pmId>\d+)/i'
 			);
 			foreach ($pmIdExpressions as $pmIdExpression) {
-				if (String::regexp_match_get($pmIdExpression, $matches[1], $pmIdMatches) ) {
+				if (PKPString::regexp_match_get($pmIdExpression, $matches[1], $pmIdMatches) ) {
 					$metadata['pub-id[@pub-id-type="pmid"]'] = $pmIdMatches['pmId'];
 					break;
 				}
@@ -86,31 +86,31 @@ class RegexRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilte
 
 		// Parse out an embedded PMID and remove from the citation string
 		$pmidPattern = '/pmid:?\s*(\d+)/i';
-		if (String::regexp_match_get($pmidPattern, $citationString, $matches) ) {
+		if (PKPString::regexp_match_get($pmidPattern, $citationString, $matches) ) {
 			$metadata['pub-id[@pub-id-type="pmid"]'] = $matches[1];
-			$citationString = String::regexp_replace($pmidPattern, '', $citationString);
+			$citationString = PKPString::regexp_replace($pmidPattern, '', $citationString);
 		}
 
 		// Parse out an embedded DOI and remove it from the citation string
 		$doiPattern = '/doi:?\s*(\S+)/i';
-		if (String::regexp_match_get($doiPattern, $citationString, $matches) ) {
+		if (PKPString::regexp_match_get($doiPattern, $citationString, $matches) ) {
 			$metadata['pub-id[@pub-id-type="doi"]'] = $matches[1];
-			$citationString = String::regexp_replace($doiPattern, '', $citationString);
+			$citationString = PKPString::regexp_replace($doiPattern, '', $citationString);
 		}
 
 		// Parse out the access date if we have one and remove it from the citation string
 		$accessDatePattern = '/accessed:?\s*([\s\w]+)/i';
-		if (String::regexp_match_get($accessDatePattern, $citationString, $matches)) {
+		if (PKPString::regexp_match_get($accessDatePattern, $citationString, $matches)) {
 			$metadata['access-date'] = $matches[1];
-			$citationString = String::regexp_replace($accessDatePattern, '', $citationString );
+			$citationString = PKPString::regexp_replace($accessDatePattern, '', $citationString );
 		}
 
 		// Clean out square brackets
-		$citationString = String::regexp_replace('/\[(\s*(pubmed|medline|full text)\s*)*]/i', '', $citationString);
+		$citationString = PKPString::regexp_replace('/\[(\s*(pubmed|medline|full text)\s*)*]/i', '', $citationString);
 
 		// Book citation
 		$unparsedTail = '';
-		if (String::regexp_match_get("/\s*(?P<authors>[^\.]+)\.\s*(?P<source>.*?)\s*(?P<publisherLoc>[^\.]*):\s*(?P<publisherName>[^:]*?);\s*(?P<date>\d\d\d\d.*?)(?P<tail>.*)/", $citationString, $matches)) {
+		if (PKPString::regexp_match_get("/\s*(?P<authors>[^\.]+)\.\s*(?P<source>.*?)\s*(?P<publisherLoc>[^\.]*):\s*(?P<publisherName>[^:]*?);\s*(?P<date>\d\d\d\d.*?)(?P<tail>.*)/", $citationString, $matches)) {
 			$metadata['[@publication-type]'] = NLM30_PUBLICATION_TYPE_BOOK;
 			$metadata['author'] = $matches['authors'];
 			$metadata['source'] = $matches['source'];
@@ -120,19 +120,19 @@ class RegexRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilte
 			$unparsedTail = $matches['tail'];
 
 		// Journal citation
-		} elseif (String::regexp_match_get("/\s*(?P<authors>[^\.]+)\.\s*(?P<titleSource>.*)\s*(?P<date>\d\d\d\d.*?);(?P<volumeAndIssue>[^:]+):(?P<tail>.*)/", $citationString, $matches)) {
+		} elseif (PKPString::regexp_match_get("/\s*(?P<authors>[^\.]+)\.\s*(?P<titleSource>.*)\s*(?P<date>\d\d\d\d.*?);(?P<volumeAndIssue>[^:]+):(?P<tail>.*)/", $citationString, $matches)) {
 			$metadata['[@publication-type]'] = NLM30_PUBLICATION_TYPE_JOURNAL;
 			$metadata['author'] = $matches['authors'];
 
 			$titleSource = array();
-			if (String::regexp_match_get("/(.*[\.!\?])(.*)/", trim($matches['titleSource'], " ."), $titleSource)) {
+			if (PKPString::regexp_match_get("/(.*[\.!\?])(.*)/", trim($matches['titleSource'], " ."), $titleSource)) {
 				$metadata['article-title'] = $titleSource[1];
 				$metadata['source'] = $titleSource[2];
 			}
 			$metadata['date'] = $matches['date'];
 
 			$volumeAndIssue = array();
-			if (String::regexp_match_get("/([^\(]+)(\(([^\)]+)\))?/", $matches['volumeAndIssue'], $volumeAndIssue)) {
+			if (PKPString::regexp_match_get("/([^\(]+)(\(([^\)]+)\))?/", $matches['volumeAndIssue'], $volumeAndIssue)) {
 				$metadata['volume'] = $volumeAndIssue[1];
 				if (isset($volumeAndIssue[3])) $metadata['issue'] = $volumeAndIssue[3];
 			}
@@ -140,7 +140,7 @@ class RegexRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilte
 			$unparsedTail = $matches['tail'];
 
 		// Web citation with or without authors
-		} elseif (String::regexp_match_get("/\s*(?P<citationSource>.*?)\s*URL:\s*(?P<tail>.*)/", $citationString, $matches)) {
+		} elseif (PKPString::regexp_match_get("/\s*(?P<citationSource>.*?)\s*URL:\s*(?P<tail>.*)/", $citationString, $matches)) {
 			$unparsedTail = $matches['tail'];
 
 			$citationParts = explode(".", trim($matches['citationSource'], '. '));
@@ -175,12 +175,12 @@ class RegexRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilte
 
 		// Extract page numbers if possible
 		$pagesPattern = "/^[:p\.\s]*(?P<fpage>[Ee]?\d+)(-(?P<lpage>\d+))?/";
-		if (!empty($unparsedTail) && String::regexp_match_get($pagesPattern, $unparsedTail, $matches)) {
+		if (!empty($unparsedTail) && PKPString::regexp_match_get($pagesPattern, $unparsedTail, $matches)) {
 			$metadata['fpage'] = $matches['fpage'];
 			if (isset($matches['lpage'])) $metadata['lpage'] = $matches['lpage'];
 
 			// Add the unparsed part of the citation string as a comment so it doesn't get lost.
-			$comment = String::trimPunctuation(String::regexp_replace($pagesPattern, '', $unparsedTail));
+			$comment = PKPString::trimPunctuation(PKPString::regexp_replace($pagesPattern, '', $unparsedTail));
 			if (!empty($comment)) $metadata['comment'] = $comment;
 		}
 

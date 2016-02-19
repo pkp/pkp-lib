@@ -344,7 +344,7 @@ class PKPHandler {
 			// and human readable component id.
 			// Example: "grid.citation.CitationGridHandler"
 			// becomes "grid-citation-citationgrid"
-			$componentId = str_replace('.', '-', String::strtolower(String::substr($componentId, 0, -7)));
+			$componentId = str_replace('.', '-', PKPString::strtolower(PKPString::substr($componentId, 0, -7)));
 			$this->setId($componentId);
 		} else {
 			assert(is_a($router, 'PKPPageRouter'));

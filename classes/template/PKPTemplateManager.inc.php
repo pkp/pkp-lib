@@ -135,8 +135,8 @@ class PKPTemplateManager extends Smarty {
 
 		// Register custom functions
 		$this->register_modifier('translate', array('AppLocale', 'translate'));
-		$this->register_modifier('strip_unsafe_html', array('String', 'stripUnsafeHtml'));
-		$this->register_modifier('String_substr', array('String', 'substr'));
+		$this->register_modifier('strip_unsafe_html', array('PKPString', 'stripUnsafeHtml'));
+		$this->register_modifier('String_substr', array('PKPString', 'substr'));
 		$this->register_modifier('to_array', array($this, 'smartyToArray'));
 		$this->register_modifier('compare', array($this, 'smartyCompare'));
 		$this->register_modifier('concat', array($this, 'smartyConcat'));
@@ -812,7 +812,7 @@ class PKPTemplateManager extends Smarty {
 	function smartyTruncate($string, $length = 80, $etc = '...', $break_words = false, $middle = false, $skip_tags = true) {
 		if ($length == 0) return '';
 
-		if (String::strlen($string) > $length) {
+		if (PKPString::strlen($string) > $length) {
 			if ($skip_tags) {
 				if ($middle) {
 					$tagsReverse = array();
@@ -822,18 +822,18 @@ class PKPTemplateManager extends Smarty {
 				$string = $this->_removeTags($string, $tags, $length);
 			}
 			if (!empty($etc)) {
-				$length = max($length, String::strlen($etc));
+				$length = max($length, PKPString::strlen($etc));
 			}
 			$length--;
 			if (!$middle) {
 				if(!$break_words) {
-					$string = String::regexp_replace('/\s+?(\S+)?$/', '', String::substr($string, 0, $length+1));
-				} else $string = String::substr($string, 0, $length+1);
+					$string = PKPString::regexp_replace('/\s+?(\S+)?$/', '', PKPString::substr($string, 0, $length+1));
+				} else $string = PKPString::substr($string, 0, $length+1);
 				if ($skip_tags) $string = $this->_reinsertTags($string, $tags);
 				return $this->_closeTags($string) . $etc;
 			} else {
-				$firstHalf = String::substr($string, 0, $length/2);
-				$secondHalf = String::substr($string, -$length/2);
+				$firstHalf = PKPString::substr($string, 0, $length/2);
+				$secondHalf = PKPString::substr($string, -$length/2);
 
 				if($break_words) {
 					if($skip_tags) {
@@ -845,10 +845,10 @@ class PKPTemplateManager extends Smarty {
 					}
 				} else {
 					for($i=$length/2; $string[$i] != ' '; $i++) {
-						$firstHalf = String::substr($string, 0, $i+1);
+						$firstHalf = PKPString::substr($string, 0, $i+1);
 					}
-					for($i=$length/2; String::substr($string, -$i, 1) != ' '; $i++) {
-						$secondHalf = String::substr($string, -$i-1);
+					for($i=$length/2; PKPString::substr($string, -$i, 1) != ' '; $i++) {
+						$secondHalf = PKPString::substr($string, -$i-1);
 					}
 
 					if ($skip_tags) {
@@ -895,19 +895,19 @@ class PKPTemplateManager extends Smarty {
 		$newString = '';
 
 		for($i = 0; $i < strlen($string); $i++) {
-			if(String::substr($string, $i, 1) == '<') {
+			if(PKPString::substr($string, $i, 1) == '<') {
 				// We've found the beginning of an HTML tag, find the position of its ending
-				$closeBrack = String::strpos($string, '>', $i);
+				$closeBrack = PKPString::strpos($string, '>', $i);
 
 				if($closeBrack) {
 					// Add the tag and its position to the tags array reference
-					$tags[] = array(String::substr($string, $i, $closeBrack-$i+1), $i);
+					$tags[] = array(PKPString::substr($string, $i, $closeBrack-$i+1), $i);
 					$i += $closeBrack-$i;
 					continue;
 				}
 			}
 			$length--;
-			$newString = $newString . String::substr($string, $i, 1);
+			$newString = $newString . PKPString::substr($string, $i, 1);
 		}
 
 		return $newString;
@@ -926,12 +926,12 @@ class PKPTemplateManager extends Smarty {
 	function _removeTagsAuxReverse($string, $loc, &$tags, $length) {
 		$newString = '';
 
-		for($i = String::strlen($string); $i > 0; $i--) {
-			if(String::substr($string, $backLoc, 1) == '>') {
+		for($i = PKPString::strlen($string); $i > 0; $i--) {
+			if(PKPString::substr($string, $backLoc, 1) == '>') {
 				$tag = '>';
 				$openBrack = 1;
-				while (String::substr($string, $backLoc-$openBrack, 1) != '<') {
-					$tag = String::substr($string, $backLoc-$openBrack, 1) . $tag;
+				while (PKPString::substr($string, $backLoc-$openBrack, 1) != '<') {
+					$tag = PKPString::substr($string, $backLoc-$openBrack, 1) . $tag;
 					$openBrack++;
 				}
 				$tag = '<' . $tag;
@@ -942,7 +942,7 @@ class PKPTemplateManager extends Smarty {
 				continue;
 			}
 			$length--;
-			$newString = $newString . String::substr($string, $i, 1);
+			$newString = $newString . PKPString::substr($string, $i, 1);
 		}
 
 		return $newString;
@@ -961,16 +961,16 @@ class PKPTemplateManager extends Smarty {
 		if(empty($tags)) return $string;
 
 		for($i = 0; $i < count($tags); $i++) {
-			$length = String::strlen($string);
-			if ($tags[$i][1] < String::strlen($string)) {
+			$length = PKPString::strlen($string);
+			if ($tags[$i][1] < PKPString::strlen($string)) {
 				if ($reverse) {
 					if ($tags[$i][1] == 0) { // Cannot use -0 as the start index (its same as +0)
-						$string = String::substr_replace($string, $tags[$i][0], $length, 0);
+						$string = PKPString::substr_replace($string, $tags[$i][0], $length, 0);
 					} else {
-						$string = String::substr_replace($string, $tags[$i][0], -$tags[$i][1], 0);
+						$string = PKPString::substr_replace($string, $tags[$i][0], -$tags[$i][1], 0);
 					}
 				} else {
-					$string = String::substr_replace($string, $tags[$i][0], $tags[$i][1], 0);
+					$string = PKPString::substr_replace($string, $tags[$i][0], $tags[$i][1], 0);
 				}
 			}
 		}
@@ -987,11 +987,11 @@ class PKPTemplateManager extends Smarty {
 	 */
 	function _closeTags($string, $open = false){
 		// Put all opened tags into an array
-		String::regexp_match_all("#<([a-z]+)( .*)?(?!/)>#iU", $string, $result);
+		PKPString::regexp_match_all("#<([a-z]+)( .*)?(?!/)>#iU", $string, $result);
 		$openedtags = $result[1];
 
 		// Put all closed tags into an array
-		String::regexp_match_all("#</([a-z]+)>#iU", $string, $result);
+		PKPString::regexp_match_all("#</([a-z]+)>#iU", $string, $result);
 		$closedtags = $result[1];
 		$len_opened = count($openedtags);
 		$len_closed = count($closedtags);

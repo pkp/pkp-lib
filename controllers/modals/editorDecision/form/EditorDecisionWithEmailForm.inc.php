@@ -244,7 +244,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 					// Add the attachment to the email.
 					$email->addAttachment(
 						$submissionFile->getFilePath(),
-						String::enumerateAlphabetically($reviewIndex).'-'.$submissionFile->getOriginalFileName()
+						PKPString::enumerateAlphabetically($reviewIndex).'-'.$submissionFile->getOriginalFileName()
 					);
 
 					// Update submission file to set viewable as true, so author

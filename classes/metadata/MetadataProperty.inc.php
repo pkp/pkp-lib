@@ -195,7 +195,7 @@ class MetadataProperty {
 			'-', '', '', '', '-'
 		);
 		$propertyId = trim(str_replace($from, $to, $this->getName()), '-');
-		$propertyId = String::camelize($propertyId);
+		$propertyId = PKPString::camelize($propertyId);
 		return $propertyId;
 	}
 

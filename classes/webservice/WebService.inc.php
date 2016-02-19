@@ -101,8 +101,8 @@ class WebService {
 
 		// Clean the result
 		$result = stripslashes($result);
-		if ( Config::getVar('i18n', 'charset_normalization') == 'On' && !String::utf8_compliant($result) ) {
-			$result = String::utf8_normalize($result);
+		if ( Config::getVar('i18n', 'charset_normalization') == 'On' && !PKPString::utf8_compliant($result) ) {
+			$result = PKPString::utf8_normalize($result);
 		}
 
 		return $result;

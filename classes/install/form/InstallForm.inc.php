@@ -107,7 +107,7 @@ class InstallForm extends MaintenanceForm {
 		$templateMgr->assign('allowFileUploads', get_cfg_var('file_uploads') ? __('common.yes') : __('common.no'));
 		$templateMgr->assign('maxFileUploadSize', get_cfg_var('upload_max_filesize'));
 		$templateMgr->assign('databaseDriverOptions', $this->checkDBDrivers());
-		$templateMgr->assign('supportsMBString', String::hasMBString() ? __('common.yes') : __('common.no'));
+		$templateMgr->assign('supportsMBString', PKPString::hasMBString() ? __('common.yes') : __('common.no'));
 		$templateMgr->assign('phpIsSupportedVersion', version_compare(PHP_REQUIRED_VERSION, PHP_VERSION) != 1);
 		import('lib.pkp.classes.xslt.XSLTransformer');
 		$templateMgr->assign('xslEnabled', XSLTransformer::checkSupport());

@@ -293,7 +293,7 @@ class PKPMetricsDAO extends DAO {
 
 		// We require either month or day in the time dimension.
 		if (isset($record['day'])) {
-			if (!String::regexp_match('/[0-9]{8}/', $record['day'])) {
+			if (!PKPString::regexp_match('/[0-9]{8}/', $record['day'])) {
 				throw new Exception('Cannot load record: invalid date.');
 			}
 			$recordToStore['day'] = $record['day'];
@@ -302,7 +302,7 @@ class PKPMetricsDAO extends DAO {
 				throw new Exception('Cannot load record: invalid month.');
 			}
 		} elseif (isset($record['month'])) {
-			if (!String::regexp_match('/[0-9]{6}/', $record['month'])) {
+			if (!PKPString::regexp_match('/[0-9]{6}/', $record['month'])) {
 				throw new Exception('Cannot load record: invalid month.');
 			}
 			$recordToStore['month'] = $record['month'];

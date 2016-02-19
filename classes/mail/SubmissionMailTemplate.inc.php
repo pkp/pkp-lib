@@ -50,7 +50,7 @@ class SubmissionMailTemplate extends MailTemplate {
 
 		$paramArray['submissionTitle'] = strip_tags($submission->getLocalizedTitle());
 		$paramArray['submissionId'] = $submission->getId();
-		$paramArray['submissionAbstract'] = String::html2text($submission->getLocalizedAbstract());
+		$paramArray['submissionAbstract'] = PKPString::html2text($submission->getLocalizedAbstract());
 		$paramArray['authorString'] = strip_tags($submission->getAuthorString());
 
 		parent::assignParams($paramArray);

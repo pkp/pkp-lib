@@ -200,7 +200,7 @@ class FilterForm extends Form {
 				// please make sure that you use the en-US key for this
 				// processing. Alternatively we might want to introduce
 				// an alphanumeric "filter key" to the filters table.
-				$filterKey = String::regexp_replace('/[^a-zA-Z0-9]/', '', $displayName);
+				$filterKey = PKPString::regexp_replace('/[^a-zA-Z0-9]/', '', $displayName);
 				$filterKey = strtolower(substr($filterKey, 0, 1)).substr($filterKey, 1);
 				$formDescriptionKey = $this->getDescription().'.'.$filterKey;
 			} else {

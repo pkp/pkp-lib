@@ -196,10 +196,10 @@ class MailTemplate extends Mail {
 		foreach ($newAddresses as $newAddress) {
 			$regs = array();
 			// Match the form "My Name <my_email@my.domain.com>"
-			if (String::regexp_match_get('/^([^<>' . "\n" . ']*[^<> ' . "\n" . '])[ ]*<(?P<email>' . PCRE_EMAIL_ADDRESS . ')>$/i', $newAddress, $regs)) {
+			if (PKPString::regexp_match_get('/^([^<>' . "\n" . ']*[^<> ' . "\n" . '])[ ]*<(?P<email>' . PCRE_EMAIL_ADDRESS . ')>$/i', $newAddress, $regs)) {
 				$currentList[] = array('name' => $regs[1], 'email' => $regs['email']);
 
-			} elseif (String::regexp_match_get('/^<?(?P<email>' . PCRE_EMAIL_ADDRESS . ')>?$/i', $newAddress, $regs)) {
+			} elseif (PKPString::regexp_match_get('/^<?(?P<email>' . PCRE_EMAIL_ADDRESS . ')>?$/i', $newAddress, $regs)) {
 				$currentList[] = array('name' => '', 'email' => $regs['email']);
 
 			} elseif ($newAddress != '') {

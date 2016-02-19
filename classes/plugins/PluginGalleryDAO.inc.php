@@ -44,7 +44,7 @@ class PluginGalleryDAO extends DAO {
 			if (
 				$plugin &&
 				($category == '' || $plugin->getCategory() == $category) &&
-				($search == '' || String::strpos(String::strtolower(serialize($plugin)), String::strtolower($search)) !== false)
+				($search == '' || PKPString::strpos(PKPString::strtolower(serialize($plugin)), PKPString::strtolower($search)) !== false)
 			) {
 				$plugins[] = $plugin;
 			}

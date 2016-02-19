@@ -113,7 +113,7 @@ class TemporaryFileManager extends PrivateFileManager {
 
 			$temporaryFile->setUserId($userId);
 			$temporaryFile->setServerFileName($newFileName);
-			$temporaryFile->setFileType(String::mime_content_type($this->getBasePath() . $newFileName));
+			$temporaryFile->setFileType(PKPString::mime_content_type($this->getBasePath() . $newFileName));
 			$temporaryFile->setFileSize($_FILES[$fileName]['size']);
 			$temporaryFile->setOriginalFileName($this->truncateFileName($_FILES[$fileName]['name'], 127));
 			$temporaryFile->setDateUploaded(Core::getCurrentDate());

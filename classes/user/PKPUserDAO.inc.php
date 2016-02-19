@@ -283,7 +283,7 @@ class PKPUserDAO extends DAO {
 					(int) $stageId,
 					(int) $submissionId, // null gets cast to 0 which doesn't exist
 				),
-				array_map(array('String', 'strtolower'), $interests),
+				array_map(array('PKPString', 'strtolower'), $interests),
 				$name !== null?array('%'.(string) $name.'%'):array(),
 				$name !== null?array('%'.(string) $name.'%'):array(),
 				$name !== null?array('%'.(string) $name.'%'):array(),

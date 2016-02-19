@@ -125,7 +125,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 		mt_srand(((double) microtime()) * 1000000);
 
 		import('lib.pkp.classes.core.Core');
-		import('lib.pkp.classes.core.String');
+		import('lib.pkp.classes.core.PKPString');
 		import('lib.pkp.classes.core.Registry');
 
 		import('lib.pkp.classes.config.Config');
@@ -151,7 +151,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 
 		import('classes.i18n.AppLocale');
 
-		String::init();
+		PKPString::init();
 
 		$microTime = Core::microtime();
 		Registry::set('system.debug.startTime', $microTime);

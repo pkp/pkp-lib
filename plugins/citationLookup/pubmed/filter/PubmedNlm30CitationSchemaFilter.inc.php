@@ -135,7 +135,7 @@ class PubmedNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 
 						// Add initial of the first given name
 						$givenNames = $firstAuthor->getStatement('given-names');
-						if (is_array($givenNames)) $searchTerms .= ' '.String::substr($givenNames[0], 0, 1);
+						if (is_array($givenNames)) $searchTerms .= ' '.PKPString::substr($givenNames[0], 0, 1);
 					} else {
 						$searchTerms .= $citationDescription->getStatement($nlm30Property);
 					}
@@ -303,7 +303,7 @@ class PubmedNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 				}
 			}
 			if (!empty($givenNamesString)) {
-				foreach(explode(' ', $givenNamesString) as $givenName) $authorDescription->addStatement('given-names', String::trimPunctuation($givenName));
+				foreach(explode(' ', $givenNamesString) as $givenName) $authorDescription->addStatement('given-names', PKPString::trimPunctuation($givenName));
 			}
 
 			// Suffix
@@ -325,7 +325,7 @@ class PubmedNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 		// Extract pagination
 		$medlinePgnNodes = $resultDOM->getElementsByTagName('MedlinePgn');
 		$medlinePgnFirstNode = $medlinePgnNodes->item(0);
-		if (String::regexp_match_get("/^[:p\.\s]*(?P<fpage>[Ee]?\d+)(-(?P<lpage>\d+))?/", $medlinePgnFirstNode->textContent, $pages)) {
+		if (PKPString::regexp_match_get("/^[:p\.\s]*(?P<fpage>[Ee]?\d+)(-(?P<lpage>\d+))?/", $medlinePgnFirstNode->textContent, $pages)) {
 			$fPage = (integer)$pages['fpage'];
 			$metadata['fpage'] = $fPage;
 			if (!empty($pages['lpage'])) {
@@ -333,7 +333,7 @@ class PubmedNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 
 				// Deal with shortcuts like '382-7'
 				if ($lPage < $fPage) {
-					$lPage = (integer)(String::substr($pages['fpage'], 0, -String::strlen($pages['lpage'])).$pages['lpage']);
+					$lPage = (integer)(PKPString::substr($pages['fpage'], 0, -PKPString::strlen($pages['lpage'])).$pages['lpage']);
 				}
 
 				$metadata['lpage'] = $lPage;
@@ -383,7 +383,7 @@ class PubmedNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 		if ($publicationTypeNodes->length > 0) {
 			foreach($publicationTypeNodes as $publicationType) {
 				// The vast majority of items on PubMed are articles so catch these...
-				if (String::strpos(String::strtolower($publicationType->textContent), 'article') !== false) {
+				if (PKPString::strpos(PKPString::strtolower($publicationType->textContent), 'article') !== false) {
 					$metadata['[@publication-type]'] = NLM30_PUBLICATION_TYPE_JOURNAL;
 					break;
 				}
@@ -409,11 +409,11 @@ class PubmedNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 			// Get a list of possible links
 			foreach ($resultDOM->getElementsByTagName("ObjUrl") as $linkOut) {
 				$attributes = '';
-				foreach ($linkOut->getElementsByTagName("Attribute") as $attribute) $attributes .= String::strtolower($attribute->textContent).' / ';
+				foreach ($linkOut->getElementsByTagName("Attribute") as $attribute) $attributes .= PKPString::strtolower($attribute->textContent).' / ';
 
 				// Only add links to open access resources
-				if (String::strpos($attributes, "subscription") === false && String::strpos($attributes, "membership") === false &&
-						String::strpos($attributes, "fee") === false && $attributes != "") {
+				if (PKPString::strpos($attributes, "subscription") === false && PKPString::strpos($attributes, "membership") === false &&
+						PKPString::strpos($attributes, "fee") === false && $attributes != "") {
 					$urlNodes = $linkOut->getElementsByTagName('Url');
 					$urlFirstNode = $urlNodes->item(0);
 					$links[] = $urlFirstNode->textContent;

@@ -18,7 +18,7 @@
 require_mock_env('env1');
 
 import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.classes.core.String');
+import('lib.pkp.classes.core.PKPString');
 
 class StringTest extends PKPTestCase {
 	/**

@@ -248,15 +248,15 @@ class PKPUserDAO extends DAO {
 	function getFilteredReviewers($contextId, $stageId, $name = null, $doneMin = null, $doneMax = null, $avgMin = null, $avgMax = null, $lastMin = null, $lastMax = null, $activeMin = null, $activeMax = null, $interests = array(), $submissionId = null, $reviewRoundId = null) {
 		$result = $this->retrieve(
 			'SELECT	u.*,
-				COALESCE(COUNT(DISTINCT rac.review_id), 0) AS complete_count,
+				COUNT(DISTINCT rac.review_id) AS complete_count,
 				AVG(rac.date_completed - rac.date_notified) AS average_time,
 				MAX(raf.date_assigned) AS last_assigned,
-				COALESCE(COUNT(DISTINCT rai.review_id), 0) AS incomplete_count
+				COUNT(DISTINCT rai.review_id) AS incomplete_count
 			FROM	users u
 				JOIN user_user_groups uug ON (uug.user_id = u.user_id)
 				JOIN user_groups ug ON (ug.user_group_id = uug.user_group_id AND ug.role_id = ? AND ug.context_id = ?)
 				JOIN user_group_stage ugs ON (ugs.user_group_id = ug.user_group_id AND ugs.stage_id = ?)
-				LEFT JOIN review_assignments ras ON (ras.submission_id = ? AND ras.reviewer_id=u.user_id)
+				LEFT JOIN review_assignments ras ON (ras.submission_id = ? AND ras.stage_id = ? AND ras.review_round_id = ? AND ras.reviewer_id=u.user_id)
 				LEFT JOIN review_assignments rac ON (rac.reviewer_id = u.user_id AND rac.date_notified IS NOT NULL AND rac.date_completed IS NOT NULL)
 				LEFT JOIN review_assignments raf ON (raf.reviewer_id = u.user_id)
 				LEFT JOIN review_assignments ran ON (ran.reviewer_id = u.user_id AND ran.review_id > raf.review_id)
@@ -282,6 +282,8 @@ class PKPUserDAO extends DAO {
 					(int) $contextId,
 					(int) $stageId,
 					(int) $submissionId, // null gets cast to 0 which doesn't exist
+					(int) $stageId,
+					(int) $reviewRoundId,
 				),
 				array_map(array('String', 'strtolower'), $interests),
 				$name !== null?array('%'.(string) $name.'%'):array(),

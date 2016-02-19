@@ -22,16 +22,16 @@ import('lib.pkp.classes.core.String');
 
 class StringTest extends PKPTestCase {
 	/**
-	 * @covers String::titleCase
+	 * @covers PKPString::titleCase
 	 */
 	public function testTitleCase() {
 		AppLocale::setTranslations(array('common.titleSmallWords' => 'is a'));
 		$originalTitle = 'AND This IS A TEST title';
-		self::assertEquals('And This is a Test Title', String::titleCase($originalTitle));
+		self::assertEquals('And This is a Test Title', PKPString::titleCase($originalTitle));
 	}
 
 	/**
-	 * @covers String::trimPunctuation
+	 * @covers PKPString::trimPunctuation
 	 */
 	public function testTrimPunctuation() {
 		$trimmedChars = array(
@@ -41,12 +41,12 @@ class StringTest extends PKPTestCase {
 
 		foreach($trimmedChars as $trimmedChar) {
 			self::assertEquals('trim.med',
-					String::trimPunctuation($trimmedChar.'trim.med'.$trimmedChar));
+					PKPString::trimPunctuation($trimmedChar.'trim.med'.$trimmedChar));
 		}
 	}
 
 	/**
-	 * @covers String::diff
+	 * @covers PKPString::diff
 	 */
 	public function testDiff() {
 		// Test two strings that have common substrings.
@@ -59,7 +59,7 @@ class StringTest extends PKPTestCase {
 			array( -1 => ' string'),
 			array( 0 => '.')
 		);
-		$resultDiff = String::diff($originalString, $editedString);
+		$resultDiff = PKPString::diff($originalString, $editedString);
 		self::assertEquals($expectedDiff, $resultDiff);
 
 		// Test two completely different strings.
@@ -69,7 +69,7 @@ class StringTest extends PKPTestCase {
 			array( -1 => 'abc'),
 			array( 1 => 'def')
 		);
-		$resultDiff = String::diff($originalString, $editedString);
+		$resultDiff = PKPString::diff($originalString, $editedString);
 		self::assertEquals($expectedDiff, $resultDiff);
 
 		// A more realistic example from the citation editor use case
@@ -83,7 +83,7 @@ class StringTest extends PKPTestCase {
 			array( 1 => 's' ),
 			array( 0 => 's to research and scholarship. Cambridge, MA: MIT Press.' )
 		);
-		$resultDiff = String::diff($originalString, $editedString);
+		$resultDiff = PKPString::diff($originalString, $editedString);
 		self::assertEquals($expectedDiff, $resultDiff);
 	}
 }

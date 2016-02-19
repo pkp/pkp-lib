@@ -131,7 +131,7 @@ class UserGroupAssignmentDAO extends DAO {
 	 */
 	function insertObject($userGroupAssignment) {
 		$this->update(
-			'INSERT INTO user_user_groups (user_id, user_group_id) VALUES(?, ?)',
+			'INSERT IGNORE INTO user_user_groups (user_id, user_group_id) VALUES(?, ?)',
 			array((int) $userGroupAssignment->getUserId(), (int) $userGroupAssignment->getUserGroupId())
 		);
 	}

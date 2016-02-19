@@ -63,22 +63,22 @@ class UsageStatsOptoutBlockPlugin extends BlockPlugin {
 	}
 
 	/**
-	* @see PKPPlugin::isSitePlugin()
+	* @copydoc PKPPlugin::isSitePlugin()
 	*/
 	function isSitePlugin() {
 		return false;
 	}
 
 	/**
-	 * @see PKPPlugin::getTemplatePath()
+	 * @copydoc PKPPlugin::getTemplatePath()
 	 */
 	function getTemplatePath($inCore = false) {
 		$plugin =& $this->_getPlugin();
-		return $plugin->getTemplatePath(true);
+		return $plugin->getTemplatePath(true); // FIXME Should we be forcing $inCore?
 	}
 
 	/**
-	 * @see PKPPlugin::getSeq()
+	 * @copydoc PKPPlugin::getSeq()
 	 */
 	function getSeq() {
 		// Identify the position of the faceting block.

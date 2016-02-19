@@ -129,14 +129,14 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 	}
 
 	/**
-	 * @see PKPPlugin::getInstallSchemaFile()
+	 * @copydoc PKPPlugin::getInstallSchemaFile()
 	 */
 	function getInstallSchemaFile() {
 		return PKP_LIB_PATH . DIRECTORY_SEPARATOR . $this->getPluginPath() . DIRECTORY_SEPARATOR . 'schema.xml';
 	}
 
 	/**
-	 * @see Plugin::getTemplatePath($inCore)
+	 * @copydoc Plugin::getTemplatePath()
 	 */
 	function getTemplatePath($inCore = false) {
 		return parent::getTemplatePath($inCore) . 'templates' .  DIRECTORY_SEPARATOR;

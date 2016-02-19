@@ -72,8 +72,9 @@ class UnassignReviewerForm extends Form {
 				'editorialContactSignature' => $user->getContactSignature(),
 				'signatureFullName' => $user->getFullname(),
 			));
+			$template->replaceParams();
 
-			$this->setData('personalMessage', $template->getBody() . "\n" . $context->getSetting('emailSignature'));
+			$this->setData('personalMessage', $template->getBody());
 		}
 	}
 

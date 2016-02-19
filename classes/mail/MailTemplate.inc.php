@@ -246,6 +246,16 @@ class MailTemplate extends Mail {
 		}
 
 		// Replace variables in message with values
+		$this->replaceParams();
+
+		return parent::send();
+	}
+
+	/**
+	 * Replace template variables in the message body.
+	 * @param $params array Parameters to assign (augments anything provided via setParams)
+	 */
+	function replaceParams() {
 		$subject = $this->getSubject();
 		$body = $this->getBody();
 		foreach ($this->params as $key => $value) {
@@ -256,7 +266,6 @@ class MailTemplate extends Mail {
 		}
 		$this->setSubject($subject);
 		$this->setBody($body);
-		return parent::send();
 	}
 
 	/**

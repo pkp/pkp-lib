@@ -674,7 +674,7 @@ class PKPReviewerGridHandler extends GridHandler {
 					'signatureFullName' => $user->getFullname(),
 			));
 
-			return new JSONMessage(true, $template->getBody() . "\n" . $context->getSetting('emailSignature'));
+			return new JSONMessage(true, $template->getBody());
 		}
 	}
 

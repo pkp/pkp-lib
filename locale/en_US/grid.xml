@@ -26,6 +26,7 @@
 	<message key="grid.action.deleteQuery">Delete discussion</message>
 	<message key="grid.action.updateQuery">Update discussion</message>
 	<message key="grid.action.addUser">Add User</message>
+	<message key="grid.action.unassignReviewer">Unassign this reviewer</message>
 	<message key="grid.action.approveCopyedit">Approve this copyedit file for sending it to the next stage</message>
 	<message key="grid.action.reload">Reload</message>
 	<message key="grid.action.delete">Delete</message>

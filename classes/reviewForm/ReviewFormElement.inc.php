@@ -21,6 +21,7 @@ define('REVIEW_FORM_ELEMENT_TYPE_TEXTAREA',		0x000003);
 define('REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES',		0x000004);
 define('REVIEW_FORM_ELEMENT_TYPE_RADIO_BUTTONS',	0x000005);
 define('REVIEW_FORM_ELEMENT_TYPE_DROP_DOWN_BOX',	0x000006);
+define('REVIEW_FORM_ELEMENT_TYPE_INSTRUCTION_TEXT',	0x000007);
 
 class ReviewFormElement extends DataObject {
 	/**
@@ -179,7 +180,8 @@ class ReviewFormElement extends DataObject {
 			REVIEW_FORM_ELEMENT_TYPE_TEXTAREA => 'manager.reviewFormElements.textarea',
 			REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES => 'manager.reviewFormElements.checkboxes',
 			REVIEW_FORM_ELEMENT_TYPE_RADIO_BUTTONS => 'manager.reviewFormElements.radiobuttons',
-			REVIEW_FORM_ELEMENT_TYPE_DROP_DOWN_BOX => 'manager.reviewFormElements.dropdownbox'
+			REVIEW_FORM_ELEMENT_TYPE_DROP_DOWN_BOX => 'manager.reviewFormElements.dropdownbox',
+			REVIEW_FORM_ELEMENT_TYPE_INSTRUCTION_TEXT => 'manager.reviewFormElements.instructiontext'
 		);
 		return $reviewFormElementTypeOptions;
 	}

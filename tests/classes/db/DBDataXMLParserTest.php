@@ -27,6 +27,7 @@ class DBDataXMLParserTest extends DatabaseTestCase {
 		$dataXMLParser->setDBConn(DBConnection::getConn());
 		$sql = $dataXMLParser->parseData(dirname(__FILE__) . '/data-sql.xml');
 		switch (Config::getVar('database', 'driver')) {
+			case 'mysqli':
 			case 'mysql':
 				$this->assertEquals(array('RAW QUERY', 'RAW MYSQL QUERY'), $sql);
 				break;
@@ -60,6 +61,7 @@ class DBDataXMLParserTest extends DatabaseTestCase {
 		$dataXMLParser->setDBConn(DBConnection::getConn());
 		switch (Config::getVar('database', 'driver')) {
 			case 'mysql':
+			case 'mysqli':
 				$this->assertEquals(
 					array(
 						array('DROP TABLE IF EXISTS myDropTable'),

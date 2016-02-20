@@ -29,6 +29,9 @@ class DBConnectionTest extends DatabaseTestCase {
 		$conn = new DBConnection();
 		$dbConn = $conn->getDBConn();
 		switch (Config::getVar('database', 'driver')) {
+			case 'mysqli':
+				self::assertInstanceOf('ADODB_mysqli', $dbConn);
+				break;
 			case 'mysql':
 				self::assertInstanceOf('ADODB_mysql', $dbConn);
 				break;

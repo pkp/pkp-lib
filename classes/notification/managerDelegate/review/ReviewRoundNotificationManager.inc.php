@@ -64,8 +64,8 @@ abstract class ReviewRoundNotificationManager extends NotificationManagerDelegat
 	function getNotificationMessage($request, $notification) {
 		$localeKey = $this->getMessageLocaleKey();
 		$reviewRound = $this->getReviewRound($notification->getAssocId());
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
-		$stagesData = $userGroupDao->getWorkflowStageKeysAndPaths();
+		$workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO');
+		$stagesData = $workflowStageDao->getWorkflowStageKeysAndPaths();
 		return __($localeKey, array('stage' => __($stagesData[$reviewRound->getStageId()]['translationKey'])));	
 	}
 

@@ -33,6 +33,7 @@ jQueryObject.prototype.button = function(param1, param2, param3) {};
  * @param {Object=} options
  */
 jQueryObject.prototype.validate = function(options) {};
+jQueryObject.prototype.valid = function() {};
 
 /**
  * @param {Function} param1
@@ -53,11 +54,6 @@ jQueryObject.prototype.jLabel = function(options) {};
  * @param {Object=} options
  */
 jQueryObject.prototype.selectBox = function(options) {};
-
-/**
- * @param {Object|string=} param1
- */
-jQueryObject.prototype.plupload = function(param1) {};
 
 jQueryObject.prototype.equalizeElementHeights = function() {};
 
@@ -219,6 +215,35 @@ tinyMCEObject.prototype.onSetContent.remove = function(param1) {};
  * @type {tinyMCEObject}
  */
 var tinyMCE;
+
+/**
+ * @param {string} f
+ */
+jQueryObject.prototype.plupload = function(f) {};
+var plupload = {};
+
+/**
+ * @param {Object} options
+ * @constructor
+ */
+plupload.Uploader = function (options) {};
+plupload.Uploader.prototype.init = function() {};
+
+/**
+ * @param {string|number} p
+ */
+plupload.Uploader.prototype.percent = function(p) {};
+
+/**
+ * @param {string} f
+ */
+plupload.Uploader.prototype.removeFile = function(f) {};
+
+/**
+ * @param {!string} eventName
+ * @param {Function} f
+ */
+plupload.Uploader.prototype.bind = function(eventName, f) {};
 
 
 $.pkp.locale = {

@@ -51,7 +51,7 @@
 		this.uploaderSetup(options.$uploader);
 
 		// Enable/disable the uploader and genre selection based on selection
-		this.$revisedFileSelector = $form.find('#revisedFileId')
+		this.$revisedFileSelector_ = $form.find('#revisedFileId')
 			.change(this.callbackWrapper(this.revisedFileChange));
 		if (this.hasGenreSelector_) {
 			this.$genreSelector = $form.find('#genreId')
@@ -76,13 +76,14 @@
 	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler
 			.hasFileSelector_ = false;
 
+
 	/**
 	 * The file upload form's file selector if available.
 	 * @private
-	 * @type {boolean}
+	 * @type {boolean?}
 	 */
 	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler
-			.$revisedFileSelector = null;
+			.$revisedFileSelector_ = null;
 
 
 	/**
@@ -93,10 +94,11 @@
 	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler
 			.hasGenreSelector_ = false;
 
+
 	/**
 	 * The file upload form's genre selector if available.
 	 * @private
-	 * @type {boolean}
+	 * @type {boolean?}
 	 */
 	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler
 			.$genreSelector_ = null;
@@ -126,7 +128,7 @@
 	 * @type {Object}
 	 */
 	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler
-			.$uploader = null;
+			.$uploader_ = null;
 
 
 	//
@@ -169,8 +171,8 @@
 
 		// Add the revised file to the upload message.
 		if (this.hasFileSelector_) {
-			this.$revisedFileSelector.attr('disabled', 'disabled');
-			multipartParams.revisedFileId = this.$revisedFileSelector.val();
+			this.$revisedFileSelector_.attr('disabled', 'disabled');
+			multipartParams.revisedFileId = this.$revisedFileSelector_.val();
 		} else {
 			if (this.presetRevisedFileId_ !== null) {
 				multipartParams.revisedFileId = this.presetRevisedFileId_;
@@ -227,7 +229,7 @@
 	 * Pass the `FilesRemoved` event from plupload on to FileUploadWizardHandler
 	 * so it can delete the file.
 	 *
-	 * @TODO this is necessary because only the FileUploadWizardHandler knows
+	 * TODO this is necessary because only the FileUploadWizardHandler knows
 	 *  the delete URL. But other file upload utilities could benefit from this
 	 *  feature, so it would be best to internalize this functionality in the
 	 *  UploadHandler by passing in a deleteURL option. This is a task that
@@ -269,10 +271,10 @@
 			revisedFileChange = function(revisedFileElement, event) {
 
 		// Enable/disable the genre field when a revision is selected
-		if (!this.$revisedFileSelector.val()) {
+		if (!this.$revisedFileSelector_.val()) {
 			this.$genreSelector.removeAttr('disabled');
 		} else {
-			this.$genreSelector.val(this.fileGenres_[this.$revisedFileSelector.val()]);
+			this.$genreSelector.val(this.fileGenres_[this.$revisedFileSelector_.val()]);
 			this.$genreSelector.attr('disabled', 'disabled');
 		}
 
@@ -315,11 +317,13 @@
 	/**
 	 * Adjust the display of the plupload component depending on required
 	 * settings
+	 * @private
 	 */
 	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler.prototype.
 			setUploaderVisibility_ = function() {
 
-		if ( (this.hasGenreSelector_ && this.$genreSelector.val()) || this.$revisedFileSelector.val()) {
+		if ((this.hasGenreSelector_ && this.$genreSelector.val()) ||
+				this.$revisedFileSelector_.val()) {
 			this.showUploader_();
 		} else {
 			this.hideUploader_();
@@ -329,6 +333,7 @@
 
 	/**
 	 * Hide the plupload component
+	 * @private
 	 */
 	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler.prototype.
 			hideUploader_ = function() {
@@ -338,6 +343,7 @@
 
 	/**
 	 * Show the the plupload component
+	 * @private
 	 */
 	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler.prototype.
 			showUploader_ = function() {

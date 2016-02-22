@@ -65,7 +65,7 @@
 	/**
 	 * The continue button.
 	 * @private
-	 * @type {jQueryObject}
+	 * @type {jQueryObject?}
 	 */
 	$.pkp.controllers.wizard.WizardHandler.prototype.$continueButton_ = null;
 
@@ -73,7 +73,7 @@
 	/**
 	 * The progress indicator.
 	 * @private
-	 * @type {jQueryObject}
+	 * @type {jQueryObject?}
 	 */
 	$.pkp.controllers.wizard.WizardHandler.prototype.$progressIndicator_ = null;
 
@@ -556,8 +556,9 @@
 
 		if (options.continueButtonText) {
 			// Add continue/finish button.
-			$continueButton = $('<button id="continueButton" class="pkp_button"></button>')
-				.text(options.continueButtonText);
+			$continueButton = $(
+					'<button id="continueButton" class="pkp_button"></button>')
+					.text(options.continueButtonText);
 			$wizardButtons.append($continueButton);
 
 			$progressIndicator = $(
@@ -568,7 +569,7 @@
 					// Attach the continue request handler.
 					bind('click',
 							this.callbackWrapper(this.continueRequest));
-			this.$continueButton_ = $continueButton;
+			this.$continueButton_ = /** @type {jQueryObject} */ $continueButton;
 			this.$progressIndicator_ = $progressIndicator;
 
 			// Remember the button labels.
@@ -587,8 +588,6 @@
 
 	/**
 	 * Disable the continue button
-	 *
-	 * @private
 	 */
 	$.pkp.controllers.wizard.WizardHandler.prototype.disableContinueButton =
 			function() {
@@ -598,8 +597,6 @@
 
 	/**
 	 * Enable the continue button
-	 *
-	 * @private
 	 */
 	$.pkp.controllers.wizard.WizardHandler.prototype.enableContinueButton =
 			function() {

@@ -52,10 +52,10 @@
 			uploaderOptions.resize = options.resize;
 		}
 		uploaderOptions = $.extend(
-			{},
-			this.self('DEFAULT_PROPERTIES_'),
-			uploaderOptions
-		);
+				{},
+				this.self('DEFAULT_PROPERTIES_'),
+				uploaderOptions
+				);
 
 		// Create the uploader with the puploader plug-in.
 		// Setup the upload widget.
@@ -108,6 +108,7 @@
 		pluploader.start();
 	};
 
+
 	/**
 	 * Update the progress indicator for a file
 	 * @param {Object} caller The original context in which the callback was called.
@@ -122,23 +123,23 @@
 		this.$progressBar.css('width', file.percent + '%');
 	};
 
+
 	/**
 	 * Indicate the file upload has completed
 	 * @param {Object} caller The original context in which the callback was called.
 	 * @param {Object} pluploader The pluploader object.
 	 * @param {Object} file The data of the uploaded file.
-	 *
+	 * @param {{response: string}} response
 	 */
 	$.pkp.controllers.UploaderHandler.prototype.
 			uploadComplete = function(caller, pluploader, file, response) {
-		var jsonData = $.parseJSON(response.response);
+		var jsonData = $.parseJSON(response.response), filename = file.name;
 
 		if (!jsonData.status) {
 			this.showError(jsonData.content);
 			return;
 		}
 
-		var filename = file.name;
 		if (typeof jsonData.uploadedFile !== 'undefined') {
 			filename = jsonData.uploadedFile.name || jsonData.uploadedFile.fileLabel;
 
@@ -154,21 +155,23 @@
 
 		this.$fileName.html(filename);
 		this.updateStatus('complete');
-		this.$progress.html(0);
+		this.$progress.html('0');
 		this.$progressBar.css('width', 0);
 	};
+
 
 	/**
 	 * Handle error revents from plupload
 	 * @param {Object} caller The original context in which the callback was called.
 	 * @param {Object} pluploader The pluploader object.
-	 * @param {Object} file The data of the uploaded file.
+	 * @param {{message: string}} err An object describing an error condition
 	 *
 	 */
 	$.pkp.controllers.UploaderHandler.prototype.
 			handleError = function(caller, pluploader, err) {
 		this.showError(err.message);
 	};
+
 
 	/**
 	 * Display an error if encountered during upload
@@ -178,7 +181,7 @@
 	$.pkp.controllers.UploaderHandler.prototype.
 			showError = function(msg) {
 
-		this.$progress.html(0);
+		this.$progress.html('0');
 		this.$progressBar.css('width', 0);
 		this.updateStatus('error');
 		this.getHtmlElement().find('.pkpUploaderError').html(msg);

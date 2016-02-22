@@ -89,10 +89,9 @@
 	$.pkp.controllers.form.FileUploadFormHandler.prototype.
 			uploaderSetup = function($uploader) {
 
-		var pluploader = $uploader.plupload('getUploader');
-
+		var uploadHandler = $.pkp.classes.Handler.getHandler($uploader);
 		// Subscribe to uploader events.
-		pluploader.bind('FileUploaded',
+		uploadHandler.pluploader.bind('FileUploaded',
 				this.callbackWrapper(this.handleUploadResponse));
 	};
 

@@ -16,6 +16,13 @@
 			{ldelim}
 				$uploader: $('#plupload'),
 				uploaderOptions: {ldelim}
+					{if $fileType == 'css'}
+						filters: {ldelim}
+							mime_types : [
+								{ldelim} title : "CSS files", extensions : "css" {rdelim}
+							]
+						{rdelim},
+					{/if}
 					uploadUrl: {url|json_encode op="uploadFile" fileSettingName=$fileSettingName fileType=$fileType escape=false},
 					baseUrl: {$baseUrl|json_encode}
 				{rdelim}

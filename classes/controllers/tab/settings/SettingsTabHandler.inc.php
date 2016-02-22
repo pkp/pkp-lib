@@ -98,7 +98,6 @@ class SettingsTabHandler extends Handler {
 			if ($this->_isTabTemplate()) {
 				$this->setupTemplate($request, true);
 				$templateMgr = TemplateManager::getManager($request);
-				$templateMgr->assign('hideClose', $request->getUserVar('hideClose') ? true : false);
 				if ($this->_isManagementHandler()) {
 					// Pass to template if we are in wizard mode.
 					$templateMgr->assign('wizardMode', $this->getWizardMode());

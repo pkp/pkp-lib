@@ -7,7 +7,6 @@
  *
  * Display a single notification for in place notifications data.
  *}
-
 <div id="pkp_notification_{$notificationId|escape}"{if $notificationStyleClass} class="{$notificationStyleClass}"{/if}>
 	{if $notificationTitle}
 		<span class="title">

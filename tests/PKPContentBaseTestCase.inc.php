@@ -161,6 +161,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->waitForElementPresent('id=genreId');
 		$this->select('id=genreId', "label=$genreName");
 		$this->uploadFile($file);
+		$this->waitForElementPresent('css=button[id=continueButton]:enabled');
 		$this->click('id=continueButton');
 
 		// Enter the title into the metadata form

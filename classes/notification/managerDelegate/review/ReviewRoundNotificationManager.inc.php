@@ -47,15 +47,7 @@ abstract class ReviewRoundNotificationManager extends NotificationManagerDelegat
 		$submissionDao = Application::getSubmissionDAO();
 		$submission = $submissionDao->getById($reviewRound->getSubmissionId());
 		import('lib.pkp.controllers.grid.submissions.SubmissionsListGridCellProvider');
-		list($page, $operation) = SubmissionsListGridCellProvider::getPageAndOperationByUserRoles($request, $submission);
-
-		if ($page == 'workflow') {
-			$stageId = $reviewRound->getStageId();
-			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-			$operation = $userGroupDao->getPathFromId($stageId);
-		}
-
-		return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), $page, $operation, $submission->getId());		
+		return SubmissionsListGridCellProvider::getUrlByUserRoles($request, $submission);
 	}
 
 	/**

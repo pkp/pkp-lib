@@ -187,7 +187,7 @@
 			{/fbvFormSection}
 		{/if}
 
-		{fbvFormSection title="submission.submit.selectFile" required=true}
+		{fbvFormSection}
 			{* The uploader widget *}
 			{include file="controllers/fileUploadContainer.tpl" id="plupload"}
 		{/fbvFormSection}

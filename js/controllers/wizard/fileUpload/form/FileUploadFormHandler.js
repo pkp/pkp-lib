@@ -43,23 +43,22 @@
 		}
 		this.fileGenres_ = options.fileGenres;
 
+		this.$uploader_ = options.$uploader;
+
 		// Attach the uploader handler to the uploader HTML element.
-		this.attachUploader_(options.$uploader, options.uploaderOptions);
+		this.attachUploader_(this.$uploader_, options.uploaderOptions);
 
 		this.uploaderSetup(options.$uploader);
 
-		// When a user selects a submission to revise then the
-		// the file genre chooser must be disabled.
-		var $revisedFileId = $form.find('#revisedFileId'),
-				$genreId;
-
-		$revisedFileId.change(this.callbackWrapper(this.revisedFileChange));
+		// Enable/disable the uploader and genre selection based on selection
+		this.$revisedFileSelector_ = $form.find('#revisedFileId')
+			.change(this.callbackWrapper(this.revisedFileChange));
 		if (this.hasGenreSelector_) {
-			$genreId = $form.find('#genreId');
-			$genreId.change(this.callbackWrapper(this.genreChange));
-			// initially, hide the upload botton on the form.
-			$form.find('.plupload_button.plupload_start').hide();
+			this.$genreSelector = $form.find('#genreId')
+				.change(this.callbackWrapper(this.genreChange));
 		}
+
+		this.setUploaderVisibility_();
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler,
@@ -79,12 +78,30 @@
 
 
 	/**
+	 * The file upload form's file selector if available.
+	 * @private
+	 * @type {boolean?}
+	 */
+	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler
+			.$revisedFileSelector_ = null;
+
+
+	/**
 	 * Whether the file upload form has a genre selector.
 	 * @private
 	 * @type {boolean}
 	 */
 	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler
 			.hasGenreSelector_ = false;
+
+
+	/**
+	 * The file upload form's genre selector if available.
+	 * @private
+	 * @type {boolean?}
+	 */
+	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler
+			.$genreSelector_ = null;
 
 
 	/**
@@ -105,6 +122,15 @@
 			.fileGenres_ = null;
 
 
+	/**
+	 * A jQuery object referencing the DOM element plupload is attached to
+	 * @private
+	 * @type {Object}
+	 */
+	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler
+			.$uploader_ = null;
+
+
 	//
 	// Public methods
 	//
@@ -115,12 +141,15 @@
 	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler.prototype.
 			uploaderSetup = function($uploader) {
 
-		var pluploader = $uploader.plupload('getUploader');
+		var uploadHandler = $.pkp.classes.Handler.getHandler($uploader);
+
 		// Subscribe to uploader events.
-		pluploader.bind('BeforeUpload',
+		uploadHandler.pluploader.bind('BeforeUpload',
 				this.callbackWrapper(this.prepareFileUploadRequest));
-		pluploader.bind('FileUploaded',
+		uploadHandler.pluploader.bind('FileUploaded',
 				this.callbackWrapper(this.handleUploadResponse));
+		uploadHandler.pluploader.bind('FilesRemoved',
+				this.callbackWrapper(this.handleRemovedFiles));
 	};
 
 
@@ -135,17 +164,15 @@
 		var $uploadForm = this.getHtmlElement(),
 				multipartParams = { },
 				// Add the uploader user group id.
-				$uploaderUserGroupId = $uploadForm.find('#uploaderUserGroupId'),
-				$revisedFileId, $genreId;
+				$uploaderUserGroupId = $uploadForm.find('#uploaderUserGroupId');
 
 		$uploaderUserGroupId.attr('disabled', 'disabled');
 		multipartParams.uploaderUserGroupId = $uploaderUserGroupId.val();
 
 		// Add the revised file to the upload message.
 		if (this.hasFileSelector_) {
-			$revisedFileId = $uploadForm.find('#revisedFileId');
-			$revisedFileId.attr('disabled', 'disabled');
-			multipartParams.revisedFileId = $revisedFileId.val();
+			this.$revisedFileSelector_.attr('disabled', 'disabled');
+			multipartParams.revisedFileId = this.$revisedFileSelector_.val();
 		} else {
 			if (this.presetRevisedFileId_ !== null) {
 				multipartParams.revisedFileId = this.presetRevisedFileId_;
@@ -156,9 +183,8 @@
 
 		// Add the file genre to the upload message.
 		if (this.hasGenreSelector_) {
-			$genreId = $uploadForm.find('#genreId');
-			$genreId.attr('disabled', 'disabled');
-			multipartParams.genreId = $genreId.val();
+			this.$genreSelector.attr('disabled', 'disabled');
+			multipartParams.genreId = this.$genreSelector.val();
 		} else {
 			multipartParams.genreId = '';
 		}
@@ -186,20 +212,36 @@
 			// Trigger the file uploaded event.
 			this.trigger('fileUploaded', jsonData.uploadedFile);
 
-			if (jsonData.content === '') {
-				// remove the 'add files' button to prevent repeated uploads.
-				// Note: we must disable the type="file" element or else Chrome
-				// will let a user click through the disabled button and add
-				// new files.
-				$uploadForm.find(':file').attr('disabled', 'disabled');
-				$uploadForm.find('a.plupload_add').button('disable');
-				// Trigger formValid to enable to continue button
-				this.trigger('formValid');
-			} else {
-				// Display the revision confirmation form.
+			// Display the revision confirmation form.
+			if (jsonData.content !== '') {
 				this.getHtmlElement().replaceWith(jsonData.content);
 			}
 		}
+
+		// Trigger validation on the form. This doesn't happen automatically
+		// until `blur` is triggered on the file input field, requiring the
+		// user to click before any disabled form functions become available.
+		this.getHtmlElement().valid();
+	};
+
+
+	/**
+	 * Pass the `FilesRemoved` event from plupload on to FileUploadWizardHandler
+	 * so it can delete the file.
+	 *
+	 * TODO this is necessary because only the FileUploadWizardHandler knows
+	 *  the delete URL. But other file upload utilities could benefit from this
+	 *  feature, so it would be best to internalize this functionality in the
+	 *  UploadHandler by passing in a deleteURL option. This is a task that
+	 *  should be handled when the file upload process is rewritten to support
+	 *  a multi-file upload workflow.
+	 * @param {Object} caller The original context in which the callback was called.
+	 * @param {Object} pluploader The pluploader object.
+	 * @param {Object} file The data of the uploaded file.
+	 */
+	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler.prototype.
+			handleRemovedFiles = function(caller, pluploader, file) {
+		this.trigger('filesRemoved', [pluploader, file]);
 	};
 
 
@@ -228,19 +270,16 @@
 	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler.prototype.
 			revisedFileChange = function(revisedFileElement, event) {
 
-		var $uploadForm = this.getHtmlElement(),
-				$revisedFileId = $uploadForm.find('#revisedFileId'),
-				$genreId = $uploadForm.find('#genreId');
-
-		if ($revisedFileId.val() === '') {
-			// New file...
-			$genreId.removeAttr('disabled');
+		// Enable/disable the genre field when a revision is selected
+		if (!this.$revisedFileSelector_.val()) {
+			this.$genreSelector.removeAttr('disabled');
 		} else {
-			// Revision...
-			$genreId.val(this.fileGenres_[$revisedFileId.val()]);
-			$genreId.attr('disabled', 'disabled');
-			$uploadForm.find('.plupload_button.plupload_start').show();
+			this.$genreSelector.val(this.fileGenres_[this.$revisedFileSelector_.val()]);
+			this.$genreSelector.attr('disabled', 'disabled');
 		}
+
+		this.setUploaderVisibility_();
+
 		return false;
 	};
 
@@ -254,14 +293,7 @@
 	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler.prototype.
 			genreChange = function(genreElement, event) {
 
-		var $uploadForm = this.getHtmlElement(),
-				$genreId = $uploadForm.find('#genreId');
-		if ($genreId.val() === '') {
-			// genre is empty
-			$uploadForm.find('.plupload_button.plupload_start').hide();
-		} else {
-			$uploadForm.find('.plupload_button.plupload_start').show();
-		}
+		this.setUploaderVisibility_();
 	};
 
 
@@ -279,6 +311,46 @@
 
 		// Attach the uploader handler to the uploader div.
 		$uploader.pkpHandler('$.pkp.controllers.UploaderHandler', options);
+	};
+
+
+	/**
+	 * Adjust the display of the plupload component depending on required
+	 * settings
+	 * @private
+	 */
+	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler.prototype.
+			setUploaderVisibility_ = function() {
+
+		if ((this.hasGenreSelector_ && this.$genreSelector.val()) ||
+				this.$revisedFileSelector_.val()) {
+			this.showUploader_();
+		} else {
+			this.hideUploader_();
+		}
+	};
+
+
+	/**
+	 * Hide the plupload component
+	 * @private
+	 */
+	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler.prototype.
+			hideUploader_ = function() {
+		this.$uploader_.addClass('pkp_screen_reader');
+	};
+
+
+	/**
+	 * Show the the plupload component
+	 * @private
+	 */
+	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler.prototype.
+			showUploader_ = function() {
+		this.$uploader_.removeClass('pkp_screen_reader');
+		// Reset the button position
+		$.pkp.classes.Handler.getHandler(this.$uploader_)
+			.pluploader.refresh();
 	};
 
 

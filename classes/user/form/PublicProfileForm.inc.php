@@ -121,6 +121,8 @@ class PublicProfileForm extends BaseProfileForm {
 		$publicFileManager = new PublicFileManager();
 		$templateMgr->assign(array(
 			'profileImage' => $request->getUser()->getSetting('profileImage'),
+			'profileImageMaxWidth' => PROFILE_IMAGE_MAX_WIDTH,
+			'profileImageMaxHeight' => PROFILE_IMAGE_MAX_HEIGHT,
 			'publicSiteFilesPath' => $publicFileManager->getSiteFilesPath(),
 		));
 

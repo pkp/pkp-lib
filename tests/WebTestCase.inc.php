@@ -293,10 +293,8 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 
 		$this->waitForElementPresent('//input[@type="file"]');
 		$this->type('css=input[type="file"]', $testFile);
-		$this->waitForText('css=span.plupload_file_name_wrapper', $fileName);
-		$this->click('//span[text()=\'Start Upload\']');
-		$this->waitJQuery();
-		$this->waitForElementPresent('css=div.ui-icon-circle-check');
+		$this->waitForElementPresent('css=span.pkpUploaderFilename');
+		//$this->waitForElementPresent('css=div.ui-icon-circle-check');
 	}
 
 	/**

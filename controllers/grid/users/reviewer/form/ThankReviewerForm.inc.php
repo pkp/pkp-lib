@@ -65,21 +65,21 @@ class ThankReviewerForm extends Form {
 		$email = new SubmissionMailTemplate($submission, 'REVIEW_ACK');
 
 		$dispatcher = $request->getDispatcher();
-		$paramArray = array(
+		$email->assignParams(array(
 			'reviewerName' => $reviewer->getFullName(),
 			'editorialContactSignature' => $user->getContactSignature(),
 			'reviewerUserName' => $reviewer->getUsername(),
 			'passwordResetUrl' => $dispatcher->url($request, ROUTE_PAGE, null, 'login', 'resetPassword', $reviewer->getUsername(), array('confirm' => Validation::generatePasswordResetHash($reviewer->getId()))),
 			'submissionReviewUrl' => $dispatcher->url($request, ROUTE_PAGE, null, 'reviewer', 'submission', null, array('submissionId' => $reviewAssignment->getSubmissionId()))
-		);
-		$email->assignParams($paramArray);
+		));
+		$email->replaceParams();
 
 		$this->setData('submissionId', $submission->getId());
 		$this->setData('stageId', $reviewAssignment->getStageId());
 		$this->setData('reviewAssignmentId', $reviewAssignment->getId());
 		$this->setData('reviewAssignment', $reviewAssignment);
 		$this->setData('reviewerName', $reviewer->getFullName() . ' <' . $reviewer->getEmail() . '>');
-		$this->setData('message', $email->getBody() . "\n" . $context->getSetting('emailSignature'));
+		$this->setData('message', $email->getBody());
 	}
 
 	/**

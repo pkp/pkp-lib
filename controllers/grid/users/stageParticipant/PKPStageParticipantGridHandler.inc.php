@@ -513,7 +513,7 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 			return new JSONMessage(
 				true,
 				array(
-					'body' => $template->getBody() . "<br/>\n" . $context->getSetting('emailSignature'),
+					'body' => $template->getBody(),
 					'variables' => $notifyForm->getEmailVariableNames($templateId),
 				)
 			);

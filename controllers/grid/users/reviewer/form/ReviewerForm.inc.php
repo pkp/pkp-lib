@@ -208,7 +208,7 @@ class ReviewerForm extends Form {
 				'messageToReviewer' => __('reviewer.step1.requestBoilerplate'),
 			));
 		}
-		$this->setData('personalMessage', $template->getBody() . "<br/>" . $context->getSetting('emailSignature'));
+		$this->setData('personalMessage', $template->getBody());
 		$this->setData('responseDueDate', $responseDueDate);
 		$this->setData('reviewDueDate', $reviewDueDate);
 		$this->setData('selectionType', $selectionType);

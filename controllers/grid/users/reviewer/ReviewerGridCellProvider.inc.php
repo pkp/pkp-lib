@@ -201,8 +201,6 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider {
 				return '<span class="state overdue">'.__('common.overdue').'</span><span class="details">'.__('editor.review.reviewDue', array('date' => substr($reviewAssignment->getDateDue(),0,10))).'</span>';
 			case 'overdue_response':
 				return '<span class="state overdue">'.__('common.overdue').'</span><span class="details">'.__('editor.review.responseDue', array('date' => substr($reviewAssignment->getDateResponseDue(),0,10))).'</span>';
-			case 'accepted':
-				return __('common.accepted');
 			case 'declined':
 				return __('common.declined');
 			case 'reviewReady':

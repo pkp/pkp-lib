@@ -250,6 +250,7 @@
 	<message key="manager.setup.citationOutput">Citation Output</message>
 	<message key="manager.setup.citationOutputStyleDescription">Choose the citation style that is being used in your publication's submissions. The Citation Markup Assistant lets you compare the author's version of the citation to a version generated from the XML you are generating so that you can easily spot errors:</message>
 	<message key="manager.setup.errorDeletingItem">There was an error when deleting this item.</message>
+	<message key="manager.setup.journalFavicon">Invalid favicon format. Accepted formats are .ico, .png, and .gif.</message>
 	<message key="manager.setup.filter.grid.errorDeletingFilter">An error occurred while trying to remove this filter. Please report this as a bug.</message>
 	<message key="manager.setup.filter.grid.filterDisplayName">Connector</message>
 	<message key="manager.setup.filter.grid.filterSettings">Registration Information and Connector Settings</message>

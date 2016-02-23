@@ -199,6 +199,25 @@
 	}
 }
 
+.pkp_help_link {
+	display: inline-block;
+	padding: 4px 0;
+	font-size: @font-sml;
+	line-height: @line-sml;
+	text-decoration: none;
+
+	&:before {
+		&:extend(.fa);
+		content: @fa-var-info-circle;
+		color: @yes;
+	}
+
+	&:hover:before,
+	&:focus:before {
+		color: @yes-lift;
+	}
+}
+
 // @todo from here on down needs to be evaluated and removed if not useful
 .pkp_helpers_invisible {
 	visibility: hidden;

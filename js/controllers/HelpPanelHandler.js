@@ -41,10 +41,16 @@
 
 		this.parent($element, {});
 
-		// Search dom for calling elements and register click handlers
-		$('body').find('.requestHelpPanel').click(function(e) {
+		// Let help link events bubble up to the body tag. This way we only
+		// register one listener once per page load. We won't need to worry
+		// about content getting swapped out on the page either, as any new
+		// help links loaded will bubble up to the body tag.
+		$('body').click(function(e) {
+			if (!$(e.target).hasClass('requestHelpPanel')) {
+				return;
+			}
 			e.preventDefault();
-			var $self = $(this),
+			var $self = $(e.target),
 					options = $.extend({}, $self.data(), {caller: $self});
 			$element.trigger('pkp.HelpPanel.Open', options);
 		});
@@ -183,9 +189,9 @@
 		// If a hash was specified, scroll to the named anchor.
 		if (hashIndex !== -1) {
 			$targetHash = $element.find(
-					'a[name=' + helpContext.substr(hashIndex + 1) + ']');
+					'a[name=' + this.currentTopic_.substr(hashIndex + 1) + ']');
 			$element.find('.panel').scrollTop(
-					$targetHash.offset().top);
+					$targetHash.position().top - 50);
 		}
 
 		// Make sure clicks within help content are handled properly

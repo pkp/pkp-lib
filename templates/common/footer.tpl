@@ -22,10 +22,6 @@
 	</div>
 </div>
 
-<a href="#" class="requestHelpPanel" data-topic="chapter_6_submissions.md">
-	Help
-</a>
-
 <script type="text/javascript">
 	// Initialize JS handler
 	$(function() {ldelim}
@@ -40,15 +36,17 @@
 </script>
 <div id="pkpHelpPanel" class="pkp_help_panel" tabindex="-1">
 	<div class="panel">
+		<div class="header">
+			<a href="#" class="pkpHomeHelpPanel home">
+				{translate key="help.toc"}
+			</a>
+			<a href="#" class="pkpCloseHelpPanel close">
+				{translate key="common.close"}
+			</a>
+		</div>
 		<div class="content">
 			{include file="common/loadingContainer.tpl"}
 		</div>
-		<a href="#" class="pkpHomeHelpPanel home">
-			{translate key="navigation.home"}
-		</a>
-		<a href="#" class="pkpCloseHelpPanel close">
-			{translate key="common.close"}
-		</a>
 	</div>
 </div>
 

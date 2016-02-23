@@ -14,6 +14,12 @@
  * @brief Styles for pkp_help_panel
  */
 
+// Hides the outer scrollbar when the help panel is visible
+// Assigned to the <body> when the help panel is visible
+.help_panel_is_visible {
+	overflow: hidden !important;
+}
+
 .pkp_help_panel {
 	&:extend(.pkp_modal);
 	background: rgba(0, 0, 0, 0.3);
@@ -34,7 +40,7 @@
 		max-width: 100%;
 		background: @lift;
 		cursor: auto;
-		overflow: scroll;
+		overflow-y: scroll;
 		.transform(translate3d(100%,0,0));
 		-webkit-transition-property: -webkit-transform;
 		-moz-transition-property: -moz-transform;
@@ -44,9 +50,65 @@
 		transition-duration: 0.3s;
 	}
 
+	.header {
+		.pkp_helpers_clear();
+		font-size: @font-sml;
+		line-height: @line-sml;
+		padding: 12px @base; // 48px height
+
+		> a {
+			text-decoration: none;
+		}
+	}
+
 	.close {
-		position: absolute;
-		top: 0;
-		right: 0;
+		float: right;
+	}
+
+	.home {
+		float: left;
+
+		&:before {
+			&:extend(.fa);
+			content: @fa-var-long-arrow-left;
+			margin-right: 0.25em;
+		}
+	}
+
+	.content {
+		padding: 0 @base @double;
+		font-size: @font-sml;
+		line-height: @double;
+	}
+
+	h1,
+	h2 {
+		margin: 0 -@base;
+		padding: @base;
+		background: @bg;
+	}
+
+	h1 {
+		padding: 24px @base; // 80px height for 1-line titles
+		font-size: @font-lead;
+		line-height: @line-lead;
+		font-weight: @normal;
+	}
+
+	h2,
+	h3 {
+		font-size: @font-base;
+		line-height: @line-base;
+	}
+
+	h4,
+	h5 {
+		font-size: @font-sml;
+		line-height: @line-sml;
+	}
+
+	h5 {
+		font-weight: @normal;
+		font-style: italic;
 	}
 }

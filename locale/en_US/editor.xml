@@ -78,7 +78,7 @@
 	<message key="editor.review.unconsiderReviewText">Do you wish to mark this review as unconsidered?  The review history will be preserved.</message>
 	<message key="editor.review.unconsiderReview">Unconsider this Review</message>
 	<message key="editor.review.errorUnconsideringReview">There was an error marking this review as unconsidered.  Please try again.</message>
-	<message key="editor.review.readConfirmation">Once this review has been read, press "Confirm" to indicate that the review process may proceed. If the reviewer has submitted their review elsewhere, you may upload the file here and press "Confirm" to proceed.</message>
+	<message key="editor.review.readConfirmation">Once this review has been read, press "Confirm" to indicate that the review process may proceed. If the reviewer has submitted their review elsewhere, you may upload the file below and then press "Confirm" to proceed.</message>
 	<message key="editor.submission.selectCopyedingFiles">Copyediting Files</message>
 	<message key="editor.submission.selectReviewer">Select Reviewer</message>
 	<message key="editor.submission.taskDueDate">Task Due Date</message>

@@ -25,6 +25,9 @@
 	{fbvFormSection}
 		<div id="reviewAssignment-{$reviewAssignment->getId()|escape}">
 			<h2>{$reviewAssignment->getReviewerFullName()|escape}</h2>
+			{fbvFormSection class="description"}
+				{translate key="editor.review.readConfirmation"}
+			{/fbvFormSection}
 
 			{if $reviewAssignment->getDateCompleted()}
 				{fbvFormSection}
@@ -79,9 +82,6 @@
 		{fbvFormSection}
 			{url|assign:reviewAttachmentsGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.attachment.EditorReviewAttachmentsGridHandler" op="fetchGrid" submissionId=$submission->getId() reviewId=$reviewAssignment->getId() stageId=$reviewAssignment->getStageId() escape=false}
 			{load_url_in_div id="readReviewAttachmentsGridContainer" url=$reviewAttachmentsGridUrl}
-		{/fbvFormSection}
-		{fbvFormSection class="description"}
-			{translate key="editor.review.readConfirmation"}
 		{/fbvFormSection}
 		{fbvFormButtons id="closeButton" hideCancel=false submitText="common.confirm"}
 	{/fbvFormArea}

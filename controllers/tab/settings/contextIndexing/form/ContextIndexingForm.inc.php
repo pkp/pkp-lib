@@ -23,7 +23,6 @@ class ContextIndexingForm extends ContextSettingsForm {
 	function ContextIndexingForm($wizardMode = false) {
 		$settings = array(
 			'searchDescription' => 'string',
-			'searchKeywords' => 'string',
 			'customHeaders' => 'string'
 		);
 
@@ -38,7 +37,7 @@ class ContextIndexingForm extends ContextSettingsForm {
 	 * Get all locale field names
 	 */
 	function getLocaleFieldNames() {
-		return array('searchDescription', 'searchKeywords', 'customHeaders');
+		return array('searchDescription', 'customHeaders');
 	}
 }
 

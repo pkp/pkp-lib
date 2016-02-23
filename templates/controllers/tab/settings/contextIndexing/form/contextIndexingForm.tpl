@@ -24,9 +24,6 @@
 		{fbvFormSection title="common.description" description="manager.setup.searchEngineIndexingDescription" label="manager.setup.searchEngineIndexing"}
 			{fbvElement type="text" multilingual="true" id="searchDescription" name="searchDescription" value=$searchDescription size=$fbvStyles.size.LARGE}
 		{/fbvFormSection}
-		{fbvFormSection title="common.keywords"}
-			{fbvElement type="text" multilingual="true" id="searchKeywords" name="searchKeywords" value=$searchKeywords size=$fbvStyles.size.LARGE}
-		{/fbvFormSection}
 		{fbvFormSection label="manager.setup.customTags" description="manager.setup.customTagsDescription"}
 			{fbvElement type="textarea" multilingual="true" id="customHeaders" name="customHeaders" value=$customHeaders}
 		{/fbvFormSection}

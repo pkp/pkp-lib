@@ -34,6 +34,7 @@
 			function($form, options) {
 		this.parent($form, options);
 
+		this.reviewCompleted_ = options.reviewCompleted;
 		// bind a handler to make sure that a review file has been uploaded.
 		$form.find('[id^=\'submitFormButton-\']').click(this.callbackWrapper(
 				this.reviewFilesRequired_));
@@ -48,6 +49,15 @@
 	// Private methods.
 	//
 	/**
+	 * Is the review completed.
+	 * @private
+	 * @type {boolean}
+	 */
+	$.pkp.controllers.grid.users.reviewer.ReadReviewHandler.
+			prototype.reviewCompleted_ = false;
+
+
+	/**
 	 * Internal callback called on form submit to ensure there are
 	 * some review files uploaded.
 	 * @private
@@ -59,7 +69,7 @@
 	$.pkp.controllers.grid.users.reviewer.ReadReviewHandler.
 			prototype.reviewFilesRequired_ = function(submitButton, event) {
 
-		if ($('#readReviewAttachmentsGridContainer').
+		if (!this.reviewCompleted_ && $('#readReviewAttachmentsGridContainer').
 				find('tbody.empty:visible').length == 1) {
 			// There's nothing in the files grid; don't submit the form
 			this.showWarning_();

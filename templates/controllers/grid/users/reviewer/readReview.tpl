@@ -21,19 +21,24 @@
 	<input type="hidden" name="submissionId" value="{$reviewAssignment->getSubmissionId()|escape}" />
 	<input type="hidden" name="stageId" value="{$reviewAssignment->getStageId()|escape}" />
 
+
 	{fbvFormSection}
 		<div id="reviewAssignment-{$reviewAssignment->getId()|escape}">
 			<h2>{$reviewAssignment->getReviewerFullName()|escape}</h2>
 
 			{if $reviewAssignment->getDateCompleted()}
-				<div class="pkp_controllers_informationCenter_itemLastEvent">
-					{translate key="common.completed.date" dateCompleted=$reviewAssignment->getDateCompleted()|date_format:$datetimeFormatShort}
-				</div>
+				{fbvFormSection}
+					<div class="pkp_controllers_informationCenter_itemLastEvent">
+						{translate key="common.completed.date" dateCompleted=$reviewAssignment->getDateCompleted()|date_format:$datetimeFormatShort}
+					</div>
+				{/fbvFormSection}
 
 				{if $reviewAssignment->getRecommendation()}
-					<div class="pkp_controllers_informationCenter_itemLastEvent">
-						{translate key="submission.recommendation" recommendation=$reviewAssignment->getLocalizedRecommendation()}
-					</div>
+					{fbvFormSection}
+						<div class="pkp_controllers_informationCenter_itemLastEvent">
+							{translate key="submission.recommendation" recommendation=$reviewAssignment->getLocalizedRecommendation()}
+						</div>
+					{/fbvFormSection}
 				{/if}
 
 				{if $reviewAssignment->getReviewFormId()}
@@ -64,6 +69,7 @@
 			{/if}
 		</div>
 	{/fbvFormSection}
+
 
 	<div class="pkp_notification" id="noFilesWarning" style="display: none;">
 		{include file="controllers/notification/inPlaceNotificationContent.tpl" notificationId=noFilesWarningContent notificationStyleClass=notifyWarning notificationTitle="editor.review.noReviewFilesUploaded"|translate notificationContents="editor.review.noReviewFilesUploaded.details"|translate}

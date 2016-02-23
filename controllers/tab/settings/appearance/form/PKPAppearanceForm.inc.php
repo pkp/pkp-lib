@@ -54,7 +54,7 @@ class PKPAppearanceForm extends ContextSettingsForm {
 		return array(
 			'homepageImage' => 'common.homepageImage.altText',
 			'pageHeaderLogoImage' => 'common.pageHeaderLogo.altText',
-			'journalFavicon' => 'common.journalFavicon.altText',
+			'favicon' => 'common.favicon.altText',
 		);
 	}
 

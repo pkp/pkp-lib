@@ -353,7 +353,7 @@ class Mail extends DataObject {
 	 */
 	function getReplyToString($send = false) {
 		$replyTo = $this->getReplyTo();
-		if ($replyTo == null) {
+		if (!array_key_exists('email', $replyTo) || $replyTo['email'] == null) {
 			return null;
 		} else {
 			return (Mail::encodeDisplayName($replyTo['name'], $send) . ' <'.$replyTo['email'].'>');

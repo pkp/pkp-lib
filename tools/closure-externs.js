@@ -158,6 +158,12 @@ tinyMCEObject.prototype.EditorManager.createEditor = function(param1, param2) {}
  */
 tinyMCEObject.prototype.EditorManager.get = function(param1) {};
 
+/**
+ * @param {string} param1
+ * @return {tinyMCEObject}
+ */
+tinyMCEObject.prototype.get = function(param1) {};
+
 tinyMCEObject.prototype.target = {dom: {}, editorContainer: {}};
 
 /**
@@ -166,6 +172,7 @@ tinyMCEObject.prototype.target = {dom: {}, editorContainer: {}};
 tinyMCEObject.prototype.target.dom.get = function(param1) {};
 
 tinyMCEObject.prototype.target.getContent = function() {};
+tinyMCEObject.prototype.getContent = function() {};
 
 /**
  * @param {string} param1

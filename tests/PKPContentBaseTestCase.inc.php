@@ -312,7 +312,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->waitForElementPresent($selector='//button[text()=\'Continue to Step #3\']');
 		$this->click($selector);
 		$this->waitForElementPresent('css=[id^=comments-]');
-		$this->type('css=[id^=comments-]', $comments);
+		$this->typeTinyMCE('comments', $comments);
 
 		if ($recommendation !== null) {
 			$this->select('id=recommendation', 'label=' . $this->escapeJS($recommendation));

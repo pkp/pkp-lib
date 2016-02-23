@@ -217,12 +217,12 @@ class PKPEditorDecisionHandler extends Handler {
 				// Get the comments associated with this review assignment
 				$submissionComments = $submissionCommentDao->getSubmissionComments($submission->getId(), COMMENT_TYPE_PEER_REVIEW, $reviewAssignment->getId());
 
-				$body .= "\n\n$textSeparator\n";
+				$body .= "<br><br>$textSeparator<br>";
 				// If it is not a double blind review, show reviewer's name.
 				if ($reviewAssignment->getReviewMethod() != SUBMISSION_REVIEW_METHOD_DOUBLEBLIND) {
-					$body .= $reviewAssignment->getReviewerFullName() . "\n";
+					$body .= $reviewAssignment->getReviewerFullName() . "<br>\n";
 				} else {
-					$body .= __('submission.comments.importPeerReviews.reviewerLetter', array('reviewerLetter' => PKPString::enumerateAlphabetically($reviewIndexes[$reviewAssignment->getId()]))) . "\n";
+					$body .= __('submission.comments.importPeerReviews.reviewerLetter', array('reviewerLetter' => PKPString::enumerateAlphabetically($reviewIndexes[$reviewAssignment->getId()]))) . "<br>\n";
 				}
 
 				while ($comment = $submissionComments->next()) {
@@ -231,7 +231,7 @@ class PKPEditorDecisionHandler extends Handler {
 						$body .= PKPString::html2text($comment->getComments()) . "\n\n";
 					}
 				}
-				$body .= "$textSeparator\n\n";
+				$body .= "<br>$textSeparator<br><br>";
 
 				if ($reviewFormId = $reviewAssignment->getReviewFormId()) {
 					$reviewId = $reviewAssignment->getId();

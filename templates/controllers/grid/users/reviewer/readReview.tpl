@@ -9,10 +9,17 @@
  *
  *}
 
+{if $reviewAssignment->getDateCompleted()}
+	{assign var="reviewCompleted" value=true}
+{else}
+	{assign var="reviewCompleted" value=false}
+{/if}
 <script type="text/javascript">
 	$(function() {ldelim}
 		// Attach the form handler.
-		$('#readReviewForm').pkpHandler('$.pkp.controllers.grid.users.reviewer.ReadReviewHandler');
+		$('#readReviewForm').pkpHandler('$.pkp.controllers.grid.users.reviewer.ReadReviewHandler', {ldelim}
+				reviewCompleted: {$reviewCompleted|json_encode}
+		{rdelim});
 	{rdelim});
 </script>
 

@@ -334,6 +334,19 @@ class Mail extends DataObject {
 	}
 
 	/**
+	 * Return a string containing the reply-to address.
+	 * @return string
+	 */
+	function getReplyToString($send = false) {
+		$replyTo = $this->getReplyTo();
+		if (!array_key_exists('email', $replyTo) || $replyTo['email'] == null) {
+			return null;
+		} else {
+			return (Mail::encodeDisplayName($replyTo['name'], $send) . ' <'.$replyTo['email'].'>');
+		}
+	}
+
+	/**
 	 * Set the subject of the message.
 	 * @param $subject string
 	 */

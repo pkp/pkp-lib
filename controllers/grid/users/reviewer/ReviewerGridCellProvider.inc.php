@@ -192,26 +192,44 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider {
 		$reviewAssignment = $row->getData();
 		switch ($state) {
 			case 'waiting':
-				return '<span class="state">'.__('editor.review.requestSent').'</span><span class="due">'.__('editor.review.responseDue', array('date' => substr($reviewAssignment->getDateResponseDue(),0,10))).'</span>';
+				return '<span class="state">'.__('editor.review.requestSent').'</span><span class="details">'.__('editor.review.responseDue', array('date' => substr($reviewAssignment->getDateResponseDue(),0,10))).'</span>';
 			case 'accepted':
-				return '<span class="state">'.__('editor.review.requestAccepted').'</span><span class="due">'.__('editor.review.reviewDue', array('date' => substr($reviewAssignment->getDateDue(),0,10))).'</span>';
+				return '<span class="state">'.__('editor.review.requestAccepted').'</span><span class="details">'.__('editor.review.reviewDue', array('date' => substr($reviewAssignment->getDateDue(),0,10))).'</span>';
 			case 'completed':
-				return __('common.complete');
+				return $this->_getStatusWithRecommendation('common.complete', $reviewAssignment);
 			case 'overdue':
-				return '<span class="state overdue">'.__('common.overdue').'</span><span class="due">'.__('editor.review.reviewDue', array('date' => substr($reviewAssignment->getDateDue(),0,10))).'</span>';
+				return '<span class="state overdue">'.__('common.overdue').'</span><span class="details">'.__('editor.review.reviewDue', array('date' => substr($reviewAssignment->getDateDue(),0,10))).'</span>';
 			case 'overdue_response':
-				return '<span class="state overdue">'.__('common.overdue').'</span><span class="due">'.__('editor.review.responseDue', array('date' => substr($reviewAssignment->getDateResponseDue(),0,10))).'</span>';
+				return '<span class="state overdue">'.__('common.overdue').'</span><span class="details">'.__('editor.review.responseDue', array('date' => substr($reviewAssignment->getDateResponseDue(),0,10))).'</span>';
 			case 'accepted':
 				return __('common.accepted');
 			case 'declined':
 				return __('common.declined');
 			case 'reviewReady':
-				return __('editor.review.reviewSubmitted');
+				return $this->_getStatusWithRecommendation('editor.review.reviewSubmitted', $reviewAssignment);
 			case 'read':
-				return __('editor.review.reviewConfirmed');
+				return $this->_getStatusWithRecommendation('editor.review.reviewConfirmed', $reviewAssignment);
 			default:
 				return '';
 		}
+	}
+
+	/**
+	 * Retrieve a formatted HTML string that displays the state of the review
+	 * with the review recommendation if one exists. Or return just the state.
+	 * Only works with some states.
+	 *
+	 * @param string $statusKey Locale key for status text
+	 * @param ReviewAssignment $reviewAssignment
+	 * @return string
+	 */
+	function _getStatusWithRecommendation($statusKey, $reviewAssignment) {
+
+		if (!$reviewAssignment->getRecommendation()) {
+			return __($statusKey);
+		}
+
+		return '<span class="state">'.__($statusKey).'</span><span class="details">'.__('submission.recommendation', array('recommendation' => $reviewAssignment->getLocalizedRecommendation())).'</span>';
 	}
 }
 

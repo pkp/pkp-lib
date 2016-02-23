@@ -157,11 +157,63 @@
 // marked up, or otherwise cause complications
 //
 
-// Removes file id styling from the reviewer's grid
-[id^="reviewersGrid"] .gridCellContainer .label.before_actions {
-	padding: 0;
-	background: transparent;
-	font-size: @font-base;
+// Style reviewer's grid
+[id^="reviewersGrid"] {
+
+	.first_column,
+	th:first-child {
+		width: 40%;
+	}
+
+	tbody td:not(.first_column) {
+		font-size: @font-sml;
+		line-height: @line-sml;
+	}
+
+	tbody td:nth-child(2) {
+		font-weight: @bold;
+
+		.due {
+			display: block;
+			font-size: @font-tiny;
+			font-weight: @normal;
+			line-height: @line-tiny;
+			color: @text-light;
+		}
+	}
+
+	.overdue {
+		color: @no;
+	}
+}
+
+// Style review display/confirm form
+#readReviewForm {
+
+	.pkp_controllers_informationCenter_itemLastEvent {
+		position: relative;
+		display: block;
+		padding: @base;
+		padding-left: @base + @half;
+		border: @bg-border;
+		border-left: none;
+		font-size: @font-sml;
+		line-height: @line-sml;
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: -1px;
+			left: 0;
+			bottom: -1px;
+			width: @half;
+			background: @primary-lift;
+		}
+	}
+
+	.pkp_controllers_grid {
+		margin-bottom: 0;
+	}
 }
 
 // Adjust button/link styles in reviewer selection grid, since they lie

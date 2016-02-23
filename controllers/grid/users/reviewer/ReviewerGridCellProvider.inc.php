@@ -42,15 +42,23 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider {
 		assert(is_a($reviewAssignment, 'DataObject') && !empty($columnId));
 		switch ($columnId) {
 			case 'name':
-				if ($reviewAssignment->getDateCompleted())
-					return 'linkReview';
-				if ($reviewAssignment->getDateDue() < Core::getCurrentDate(strtotime('tomorrow')) || $reviewAssignment->getDateResponseDue() < Core::getCurrentDate(strtotime('tomorrow')))
-					return 'overdue';
-
 				return '';
 			case 'considered':
+			case 'actions':
 				// The review has not been completed.
-				if (!$reviewAssignment->getDateCompleted()) return 'unfinished';
+				if (!$reviewAssignment->getDateCompleted()) {
+					if ($reviewAssignment->getDateDue() < Core::getCurrentDate(strtotime('tomorrow'))) {
+						return 'overdue';
+					} elseif($reviewAssignment->getDateResponseDue() < Core::getCurrentDate(strtotime('tomorrow'))) {
+						return 'overdue_response';
+					} else {
+						if (!$reviewAssignment->getDateConfirmed()) {
+							return 'waiting';
+						} else {
+							return 'accepted';
+						}
+					}
+				}
 
 				// The reviewer has been sent an acknowledgement.
 				// Completed states can be 'unconsidered' by an editor.
@@ -121,7 +129,11 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider {
 				return array('label' => $element->getReviewerFullName());
 
 			case 'considered':
-				return array('status' => $this->getCellState($row, $column));
+				return array('label' => $this->_getStatusText($this->getCellState($row, $column), $row));
+
+			case 'actions':
+				// Only attach actions to this column. See self::getCellActions()
+				return array('label' => '');
 		}
 
 		return parent::getTemplateVarsFromRowColumn($row, $column);
@@ -145,24 +157,27 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider {
 		$action = false;
 		$submissionDao = Application::getSubmissionDAO();
 		$submission = $submissionDao->getById($reviewAssignment->getSubmissionId());
-		switch($this->getCellState($row, $column)) {
-			case 'linkReview':
-				$user = $request->getUser();
-				import('lib.pkp.controllers.review.linkAction.ReviewNotesLinkAction');
-				return array(new ReviewNotesLinkAction($request, $reviewAssignment, $submission, $user));
-			case 'overdue':
-				import('lib.pkp.controllers.api.task.SendReminderLinkAction');
-				return array(new SendReminderLinkAction($request, 'editor.review.reminder', $actionArgs));
-			case 'read':
-				import('lib.pkp.controllers.api.task.SendThankYouLinkAction');
-				return array(new SendThankYouLinkAction($request, 'editor.review.thankReviewer', $actionArgs));
-			case 'completed':
-				import('lib.pkp.controllers.review.linkAction.UnconsiderReviewLinkAction');
-				return array(new UnconsiderReviewLinkAction($request, $reviewAssignment, $submission));
-			case 'reviewReady':
-				$user = $request->getUser();
-				import('lib.pkp.controllers.review.linkAction.ReviewNotesLinkAction');
-				return array(new ReviewNotesLinkAction($request, $reviewAssignment, $submission, $user, true));
+
+		// Only attach actions to the actions column. The actions and status
+		// columns share state values.
+		$columnId = $column->getId();
+		if ($columnId == 'actions') {
+			switch($this->getCellState($row, $column)) {
+				case 'overdue':
+				case 'overdue_response':
+					import('lib.pkp.controllers.api.task.SendReminderLinkAction');
+					return array(new SendReminderLinkAction($request, 'editor.review.reminder', $actionArgs));
+				case 'read':
+					import('lib.pkp.controllers.api.task.SendThankYouLinkAction');
+					return array(new SendThankYouLinkAction($request, 'editor.review.thankReviewer', $actionArgs));
+				case 'completed':
+					import('lib.pkp.controllers.review.linkAction.UnconsiderReviewLinkAction');
+					return array(new UnconsiderReviewLinkAction($request, $reviewAssignment, $submission));
+				case 'reviewReady':
+					$user = $request->getUser();
+					import('lib.pkp.controllers.review.linkAction.ReviewNotesLinkAction');
+					return array(new ReviewNotesLinkAction($request, $reviewAssignment, $submission, $user, true));
+			}
 		}
 		return parent::getCellActions($request, $row, $column, $position);
 	}
@@ -170,22 +185,30 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider {
 	/**
 	 * Provide meaningful locale keys for the various grid status states.
 	 * @param string $state
+	 * @param $row GridRow
 	 * @return string
 	 */
-	function _getHoverTitleText($state) {
+	function _getStatusText($state, $row) {
+		$reviewAssignment = $row->getData();
 		switch ($state) {
+			case 'waiting':
+				return '<span class="state">'.__('editor.review.requestSent').'</span><span class="due">'.__('editor.review.responseDue', array('date' => substr($reviewAssignment->getDateResponseDue(),0,10))).'</span>';
+			case 'accepted':
+				return '<span class="state">'.__('editor.review.requestAccepted').'</span><span class="due">'.__('editor.review.reviewDue', array('date' => substr($reviewAssignment->getDateDue(),0,10))).'</span>';
 			case 'completed':
 				return __('common.complete');
 			case 'overdue':
-				return __('common.overdue');
+				return '<span class="state overdue">'.__('common.overdue').'</span><span class="due">'.__('editor.review.reviewDue', array('date' => substr($reviewAssignment->getDateDue(),0,10))).'</span>';
+			case 'overdue_response':
+				return '<span class="state overdue">'.__('common.overdue').'</span><span class="due">'.__('editor.review.responseDue', array('date' => substr($reviewAssignment->getDateResponseDue(),0,10))).'</span>';
 			case 'accepted':
 				return __('common.accepted');
 			case 'declined':
 				return __('common.declined');
-			case 'reminder':
-				return __('common.reminder');
-			case 'new':
-				return __('common.unread');
+			case 'reviewReady':
+				return __('editor.review.reviewSubmitted');
+			case 'read':
+				return __('editor.review.reviewConfirmed');
 			default:
 				return '';
 		}

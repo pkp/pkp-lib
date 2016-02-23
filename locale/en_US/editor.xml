@@ -60,8 +60,15 @@
 	<message key="editor.review.sendReminder">Send Reminder</message>
 	<message key="editor.review.readReview">Read Review</message>
 	<message key="editor.review.readNewReview">Read New Review</message>
+	<message key="editor.review.responseDue">Response due: {$date}</message>
+	<message key="editor.review.requestSent">Request Sent</message>
+	<message key="editor.review.requestAccepted">Request Accepted</message>
+	<message key="editor.review.revertDecision">Revert Decision</message>
+	<message key="editor.review.reviewDue">Review due: {$date}</message>
 	<message key="editor.review.reviewDueDate">Review Due Date</message>
 	<message key="editor.review.reviewCompleted">Review Completed</message>
+	<message key="editor.review.reviewConfirmed">Review Confirmed</message>
+	<message key="editor.review.reviewSubmitted">Review Submitted</message>
 	<message key="editor.review.reviewerComments">Reviewer Comments</message>
 	<message key="editor.review.days">Average Days</message>
 	<message key="editor.review.mustSelect">You must select a reviewer</message>
@@ -71,7 +78,7 @@
 	<message key="editor.review.unconsiderReviewText">Do you wish to mark this review as unconsidered?  The review history will be preserved.</message>
 	<message key="editor.review.unconsiderReview">Unconsider this Review</message>
 	<message key="editor.review.errorUnconsideringReview">There was an error marking this review as unconsidered.  Please try again.</message>
-	<message key="editor.review.readConfirmation">Once this review has been read, press "Confirm" to flag that the review process may proceed.</message>
+	<message key="editor.review.readConfirmation">Once this review has been read, press "Confirm" to indicate that the review process may proceed. If the reviewer has submitted their review elsewhere, you may upload the file here and press "Confirm" to proceed.</message>
 	<message key="editor.submission.selectCopyedingFiles">Copyediting Files</message>
 	<message key="editor.submission.selectReviewer">Select Reviewer</message>
 	<message key="editor.submission.taskDueDate">Task Due Date</message>
@@ -88,7 +95,6 @@
 	<message key="editor.submission.copyedit.manageCopyeditFilesDescription">Any files that have already been uploaded to any submission stage can be added to the Copyedit Files listing by checking the Include checkbox below and clicking Search: all available files will be listed and can be chosen for inclusion. Additional files not already uploaded to a stage can be added to the listing by clicking the Upload File link.</message>
 	<message key="editor.review">Review</message>
 	<message key="editor.review.reviewDetails">Review Details</message>
-	<message key="editor.review.reviewDetails.readConfirmation.description">You can upload a review file instead of the reviewer, then press "Confirm" to complete the review and flag that the review process may proceed.</message>
 	<message key="editor.review.noReviewFilesUploaded">No Files Uploaded</message>
 	<message key="editor.review.noReviewFilesUploaded.details">You have not uploaded any review files.</message>
 	<message key="editor.review.emailReviewer">Email Reviewer</message>

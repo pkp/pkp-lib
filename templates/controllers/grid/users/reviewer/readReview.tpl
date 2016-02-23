@@ -26,7 +26,15 @@
 			<h2>{$reviewAssignment->getReviewerFullName()|escape}</h2>
 
 			{if $reviewAssignment->getDateCompleted()}
-				<span class="pkp_controllers_informationCenter_itemLastEvent">{translate key="common.completed.date" dateCompleted=$reviewAssignment->getDateCompleted()|date_format:$datetimeFormatShort}</span>
+				<div class="pkp_controllers_informationCenter_itemLastEvent">
+					{translate key="common.completed.date" dateCompleted=$reviewAssignment->getDateCompleted()|date_format:$datetimeFormatShort}
+				</div>
+
+				{if $reviewAssignment->getRecommendation()}
+					<div class="pkp_controllers_informationCenter_itemLastEvent">
+						{translate key="submission.recommendation" recommendation=$reviewAssignment->getLocalizedRecommendation()}
+					</div>
+				{/if}
 
 				{if $reviewAssignment->getReviewFormId()}
 					{include file="reviewer/review/reviewFormResponse.tpl"}
@@ -34,12 +42,11 @@
 					<h3>{translate key="editor.review.reviewerComments"}</h3>
 					{include file="controllers/revealMore.tpl" content=$reviewerComment->getComments()|nl2br|strip_unsafe_html}
 				{/if}
-				{if $reviewAssignment->getRecommendation()}
-					<h3>{translate key="submission.recommendation" recommendation=$reviewAssignment->getLocalizedRecommendation()}</h3>
-				{/if}
 				{if $reviewAssignment->getCompetingInterests()}
 					<h3>{translate key="reviewer.submission.competingInterests"}</h3>
-					<span id="reviewCompetingInterests">{$reviewAssignment->getCompetingInterests()|nl2br|strip_unsafe_html}</span>
+					<div class="review_competing_interests">
+						{$reviewAssignment->getCompetingInterests()|nl2br|strip_unsafe_html}
+					</div>
 				{/if}
 
 			{else}

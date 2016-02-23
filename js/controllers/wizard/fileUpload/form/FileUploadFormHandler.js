@@ -325,6 +325,8 @@
 		if ((this.hasGenreSelector_ && this.$genreSelector.val()) ||
 				this.$revisedFileSelector_.val()) {
 			this.showUploader_();
+		} else if (!this.hasGenreSelector_ && !this.hasFileSelector_) {
+			this.showUploader_();
 		} else {
 			this.hideUploader_();
 		}

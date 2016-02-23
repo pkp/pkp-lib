@@ -144,8 +144,7 @@ class PKPReviewerGridHandler extends GridHandler {
 				'user.name',
 				null,
 				null,
-				$cellProvider,
-				array('width' => 60)
+				$cellProvider
 			)
 		);
 
@@ -153,11 +152,22 @@ class PKPReviewerGridHandler extends GridHandler {
 		$this->addColumn(
 			new GridColumn(
 				'considered',
-				'common.acknowledged',
+				'common.status',
 				null,
-				'controllers/grid/common/cell/statusCell.tpl',
+				null,
 				$cellProvider,
-				array('hoverTitle' => true)
+				array('anyhtml' => true)
+			)
+		);
+
+		// Add a column for the status of the review.
+		$this->addColumn(
+			new GridColumn(
+				'actions',
+				'grid.columns.actions',
+				null,
+				null,
+				$cellProvider
 			)
 		);
 	}

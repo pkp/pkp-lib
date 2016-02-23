@@ -45,6 +45,11 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider {
 				return '';
 			case 'considered':
 			case 'actions':
+
+				if ($reviewAssignment->getDeclined()) {
+					return 'declined';
+				}
+
 				// The review has not been completed.
 				if (!$reviewAssignment->getDateCompleted()) {
 					if ($reviewAssignment->getDateDue() < Core::getCurrentDate(strtotime('tomorrow'))) {
@@ -202,7 +207,7 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider {
 			case 'overdue_response':
 				return '<span class="state overdue">'.__('common.overdue').'</span><span class="details">'.__('editor.review.responseDue', array('date' => substr($reviewAssignment->getDateResponseDue(),0,10))).'</span>';
 			case 'declined':
-				return __('common.declined');
+				return '<span class="state declined">'.__('common.declined').'</span>';
 			case 'reviewReady':
 				return $this->_getStatusWithRecommendation('editor.review.reviewSubmitted', $reviewAssignment);
 			case 'read':

@@ -105,6 +105,10 @@ class PKPSubmissionMetadataFormImplementation {
 			// include all submission metadata fields for submissions
 			$this->_parentForm->setData('submissionSettings', array('all' => true));
 			$this->_parentForm->setData('abstractsRequired', $this->_getAbstractsRequired($submission));
+			
+			$submissionDao = Application::getSubmissionDAO();
+			$latestRevisionId = $submissionDao->getLatestRevisionId($submission->getId());
+			$this->_parentForm->setData('latestRevisionId', $latestRevisionId);
 		}
 	}
 
@@ -147,6 +151,17 @@ class PKPSubmissionMetadataFormImplementation {
 		$submission->setRights($this->_parentForm->getData('rights'), null); // Localized
 		$submission->setSource($this->_parentForm->getData('source'), null); // Localized
 		$submission->setCitations($this->_parentForm->getData('citations'));
+		
+		if ($request->getUserVar('submissionRevision')) {
+			$revision = $request->getUserVar('submissionRevision');
+		} else {
+			$revision = $submissionDao->getLatestRevisionId($submission->getId());
+		}
+
+		if ($request->getUserVar('saveAsRevision')) {
+			$revision++;
+		}
+		$submission->setData('submissionRevision', $revision);
 
 		// Save the submission
 		$submissionDao->updateObject($submission);

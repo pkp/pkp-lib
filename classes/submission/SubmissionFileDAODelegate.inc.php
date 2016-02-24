@@ -150,7 +150,9 @@ class SubmissionFileDAODelegate extends DAO {
 					assoc_id = ?,
 					genre_id = ?,
 					direct_sales_price = ?,
-					sales_type = ?
+					sales_type = ?,
+					submission_settings_revision = ?,
+					hide_revisions = ?
 				WHERE file_id = ? AND revision = ?',
 				$this->datetimeToDB($submissionFile->getDateUploaded()), $this->datetimeToDB($submissionFile->getDateModified())),
 			array(
@@ -171,6 +173,8 @@ class SubmissionFileDAODelegate extends DAO {
 				is_null($submissionFile->getGenreId()) ? null : (int)$submissionFile->getGenreId(),
 				$submissionFile->getDirectSalesPrice(),
 				$submissionFile->getSalesType(),
+				$submissionFile->getData('submissionSettingsRevision'),
+				$submissionFile->getData('hideRevisions'),
 				(int)$previousFile->getFileId(),
 				(int)$previousFile->getRevision(),
 			)
@@ -265,6 +269,8 @@ class SubmissionFileDAODelegate extends DAO {
 		$submissionFile->setDateModified($this->datetimeFromDB($row['date_modified']));
 		$submissionFile->setDirectSalesPrice($row['direct_sales_price']);
 		$submissionFile->setSalesType($row['sales_type']);
+		$submissionFile->setData('submissionSettingsRevision', $row['submission_settings_revision']);
+		$submissionFile->setData('hideRevisions', $row['hide_revisions']);
 
 		$this->getDataObjectSettings('submission_file_settings', 'file_id', $row['submission_file_id'], $submissionFile);
 

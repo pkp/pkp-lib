@@ -30,6 +30,20 @@
 		{fbvFormSection title="submission.upload.noteToAccompanyFile"}
 			{fbvElement type="textarea" id="note" height=$fbvStyles.height.SHORT}
 		{/fbvFormSection}
+		{if $submissionSettingsRevisions}
+			{fbvFormSection  for="submissionSettingsRevision" label="submission.upload.assignMetadata"}
+				{fbvElement type="select" name="submissionSettingsRevision" id="submissionSettingsRevision" from=$submissionSettingsRevisions translate=false selected=$currentSubmissionSettingsRevision}
+			{/fbvFormSection}
+		{/if}
+		
+		{if $submissionFile->getData('hideRevisions')}
+			{assign var="checked" value=true}
+		{else}
+			{assign var="checked" value=false}
+		{/if}
+		<ul class="checkbox_and_radiobutton">
+			{fbvElement type="checkbox" name="hideRevisions" checked=$checked label="submission.upload.hideRevisions"}
+		</ul>
 	{/fbvFormArea}
 
 	{* Read-only meta-data *}

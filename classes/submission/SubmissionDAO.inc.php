@@ -93,9 +93,10 @@ abstract class SubmissionDAO extends DAO {
 	/**
 	 * Internal function to return a Submission object from a row.
 	 * @param $row array
+	 * @param $submissionRevision int optional
 	 * @return Submission
 	 */
-	function _fromRow($row) {
+	function _fromRow($row, $submissionRevision = null) {
 		$submission = $this->newDataObject();
 
 		$submission->setId($row['submission_id']);
@@ -112,9 +113,69 @@ abstract class SubmissionDAO extends DAO {
 		$submission->setCommentsToEditor($row['comments_to_ed']);
 		$submission->setCitations($row['citations']);
 
-		$this->getDataObjectSettings('submission_settings', 'submission_id', $submission->getId(), $submission);
+		$this->getDataObjectSettings('submission_settings', 'submission_id', $submission->getId(), $submission, $submissionRevision, 'submission_revision');
 
 		return $submission;
+	}
+	
+	/**
+	 * Get all revisions for a submission; default settings: 
+	 * 1) Retrieve only the previous revisions, not the current one
+	 * 2) Get only the id's; optionally the title can be retrieved, too
+	 * 3) Default sorting order is ASC
+	 * @param $submissionId int
+	 * @param $showAll boolean false to exclude current revision; true to fetch all revisions including current
+	 * @param $withTitle boolean false to fetch only the IDs of the revisions; true to fetch additionally the title of the submission
+	 * $param $order string
+	 * @return array
+	 */
+	function getSubmissionRevisions($submissionId, $showAll = false, $withTitle = false, $order = SORT_DIRECTION_ASC) {
+		$params = array((int) $submissionId);
+		if ($withTitle) {
+			$params = array_merge($params, array(AppLocale::getPrimaryLocale(), 'title'));
+		}
+		$sql = 'SELECT DISTINCT submission_revision' . ($withTitle ? ', setting_value' : '') . 
+		       ' FROM submission_settings WHERE submission_id = ?'  . ($withTitle ? ' AND locale = ? AND setting_name = ?' : '') . 
+			   ' ORDER BY submission_revision ' . $this->getDirectionMapping($order);
+		
+		$result = $this->retrieve($sql, $params);
+		$submissionRevisions = array();
+		
+		foreach($result->getArray() as $submission) {
+			$revision = $submission['submission_revision'];
+			
+			if ($withTitle == false) {
+				$submissionRevisions[] = $revision;
+			} else {
+				$submissionRevisions[$revision] = $submission['setting_value'] . ' (' . $revision . ')';
+			}
+		}
+		
+		if ($showAll == false) {
+			if ($order == SORT_DIRECTION_ASC) {	
+				array_pop($submissionRevisions); 
+			} else {
+				array_shift($submissionRevisions);
+			}
+		}
+
+		return $submissionRevisions;
+	}
+	
+	/**
+	 * Get the current revision id for a submission
+	 * @param $submissionId int
+	 * @param $contextId int
+	 * @return int
+	 */
+	function getLatestRevisionId($submissionId, $contextId = null) {
+		if (!ctype_digit("$submissionId")) {
+			$publishedArticleDao = DAORegistry::getDAO('PublishedArticleDAO');
+			$publishedArticle = $publishedArticleDao->getPublishedArticleByPubId('publisher-id', $submissionId, $contextId);
+			$submissionId = $publishedArticle->getId();
+		}
+		$submissionRevisions = $this->getSubmissionRevisions($submissionId, true);
+		return array_pop($submissionRevisions);
 	}
 
 	/**
@@ -251,7 +312,7 @@ abstract class SubmissionDAO extends DAO {
 	 */
 	function updateLocaleFields($submission) {
 		$this->updateDataObjectSettings('submission_settings', $submission, array(
-			'submission_id' => $submission->getId()
+			'submission_id' => $submission->getId(), 'submission_revision' => ($submission->getData('submissionRevision') ? $submission->getData('submissionRevision') : 1)
 		));
 	}
 
@@ -278,9 +339,10 @@ abstract class SubmissionDAO extends DAO {
 	 * @param $submissionId int
 	 * @param $contextId int optional
 	 * @param $useCache boolean optional
+	 * @param $submissionRevision int optional
 	 * @return Submission
 	 */
-	function getById($submissionId, $contextId = null, $useCache = false) {
+	function getById($submissionId, $contextId = null, $useCache = false, $submissionRevision = null) {
 		if ($useCache) {
 			$cache = $this->_getCache();
 			$submission = $cache->get($submissionId);
@@ -307,7 +369,7 @@ abstract class SubmissionDAO extends DAO {
 
 		$returner = null;
 		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
+			$returner = $this->_fromRow($result->GetRowAssoc(false), $submissionRevision);
 		}
 
 		$result->Close();

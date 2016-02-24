@@ -30,6 +30,8 @@
 		<field name="submission_id" type="I8">
 			<NOTNULL/>
 		</field>
+		<field name="submission_settings_revision" type="I8" />
+		<field name="hide_revisions" type="I8" />
 		<field name="file_type" type="C2" size="255">
 			<NOTNULL/>
 		</field>

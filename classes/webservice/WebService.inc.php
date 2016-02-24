@@ -128,7 +128,8 @@ class WebService {
 		foreach($webServiceRequest->getHeaders() as $header => $content) {
 			$headers[] = $header . ': ' . $content;
 		}
-		if ($httpProxyHost = Config::getVar('proxy', 'http_host')) {
+		$useProxySettings = $webServiceRequest->getUseProxySettings();
+		if ($useProxySettings && $httpProxyHost = Config::getVar('proxy', 'http_host')) {
 			curl_setopt($ch, CURLOPT_PROXY, $httpProxyHost);
 			curl_setopt($ch, CURLOPT_PROXYPORT, Config::getVar('proxy', 'http_port', '80'));
 			if ($username = Config::getVar('proxy', 'username')) {
@@ -202,7 +203,8 @@ class WebService {
 		$headers = $this->_buildHeaders($webServiceRequest);
 		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		if ($httpProxyHost = Config::getVar('proxy', 'http_host')) {
+		$useProxySettings = $webServiceRequest->getUseProxySettings();
+		if ($useProxySettings && $httpProxyHost = Config::getVar('proxy', 'http_host')) {
 			curl_setopt($ch, CURLOPT_PROXY, $httpProxyHost);
 			curl_setopt($ch, CURLOPT_PROXYPORT, Config::getVar('proxy', 'http_port', '80'));
 			if ($username = Config::getVar('proxy', 'username')) {

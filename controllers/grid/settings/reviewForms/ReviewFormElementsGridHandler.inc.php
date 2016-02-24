@@ -157,7 +157,7 @@ class ReviewFormElementsGridHandler extends GridHandler {
 	/**
 	 * @see lib/pkp/classes/controllers/grid/GridHandler::setDataElementSequence()
 	 */
-	function setDataElementSequence($request, $rowId, &$reviewForm, $newSequence) {
+	function setDataElementSequence($request, $rowId, &$reviewFormElement, $newSequence) {
 		$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO'); /* @var $reviewFormElementDao ReviewFormElementDAO */
 		$reviewFormElement->setSequence($newSequence);
 		$reviewFormElementDao->updateObject($reviewFormElement);

@@ -78,12 +78,12 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 		$email = new SubmissionMailTemplate($submission, $emailKeys[$this->getDecision()]);
 
 		$submissionUrl = $dispatcher->url($request, ROUTE_PAGE, null, 'authorDashboard', 'submission', $submission->getId());
-		$paramArray = array(
+		$email->assignParams(array(
 			'authorName' => $submission->getAuthorString(),
 			'editorialContactSignature' => $user->getContactSignature(),
 			'submissionUrl' => "<a href=\"$submissionUrl\">$submissionUrl</a>",
-		);
-		$email->assignParams($paramArray);
+		));
+		$email->replaceParams();
 
 		// If we are in review stage we need a review round.
 		$reviewRound = $this->getReviewRound();

@@ -66,19 +66,27 @@ class SubmissionCommentDAO extends DAO {
 	 * @param $reviewerId int The user id of the reviewer.
 	 * @param $submissionId int The submission Id that was reviewered/commented on.
 	 * @param $reviewId int (optional) The review assignment ID the comment pertains to.
+	 * @param $viewable boolean True for only viewable comments; false for non-viewable; null for both
 	 * @return DAOResultFactory
 	 */
-	function getReviewerCommentsByReviewerId($reviewerId, $submissionId, $reviewId = null) {
+	function getReviewerCommentsByReviewerId($reviewerId, $submissionId, $reviewId = null, $viewable = null) {
 		$params = array((int) $reviewerId, (int) $submissionId);
-		if (isset($reviewId)) {
-			$params[] = (int) $reviewId;
-		}
-		$result = $this->retrieve(
-			'SELECT a.* FROM submission_comments a WHERE author_id = ? AND submission_id = ?' . (isset($reviewId) ? ' AND assoc_id = ?' : '') . ' ORDER BY date_posted DESC',
-			$params
+		if ($reviewId) $params[] = (int) $reviewId;
+		return new DAOResultFactory(
+			$this->retrieve(
+				'SELECT	a.*
+				FROM	submission_comments a
+				WHERE	author_id = ?
+					AND submission_id = ?
+					' . ($reviewId?' AND assoc_id = ?':'') . '
+					' . ($viewable === true?' AND viewable = 1':'') . '
+					' . ($viewable === false?' AND viewable = 0':'') . '
+				ORDER BY date_posted DESC',
+				$params
+			),
+			$this,
+			'_fromRow'
 		);
-
-		return new DAOResultFactory($result, $this, '_fromRow');
 	}
 
 	/**

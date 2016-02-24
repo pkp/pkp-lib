@@ -549,8 +549,14 @@ class PKPReviewerGridHandler extends GridHandler {
 		} else {
 			// Retrieve reviewer comment.
 			$submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO');
-			$submissionComments = $submissionCommentDao->getReviewerCommentsByReviewerId($reviewAssignment->getReviewerId(), $reviewAssignment->getSubmissionId(), $reviewAssignment->getId());
-			$templateMgr->assign('reviewerComment', $submissionComments->next());
+
+			$submissionComments = $submissionCommentDao->getReviewerCommentsByReviewerId($reviewAssignment->getReviewerId(), $reviewAssignment->getSubmissionId(), $reviewAssignment->getId(), true);
+			$submissionComment = $submissionComments->next();
+			$templateMgr->assign('comment', $submissionComment?$submissionComment->getComments():'');
+
+			$submissionCommentsPrivate = $submissionCommentDao->getReviewerCommentsByReviewerId($reviewAssignment->getReviewerId(), $reviewAssignment->getSubmissionId(), $reviewAssignment->getId(), false);
+			$submissionCommentPrivate = $submissionCommentsPrivate->next();
+			$templateMgr->assign('commentPrivate', $submissionCommentPrivate?$submissionCommentPrivate->getComments():'');
 		}
 
 		// Render the response.

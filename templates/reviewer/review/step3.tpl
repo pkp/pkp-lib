@@ -34,7 +34,8 @@
 		{if $reviewForm}
 			{include file="reviewer/review/reviewFormResponse.tpl"}
 		{else}
-			{fbvElement type="textarea" id="comments" name="comments" value=$reviewAssignment->getComments()|escape disabled=$reviewIsComplete}
+			{fbvElement type="textarea" id="comments" name="comments" value=$comment readonly=$reviewIsComplete label=submission.comments.canShareWithAuthor rich=true}
+			{fbvElement type="textarea" id="commentsPrivate" name="commentsPrivate" value=$commentPrivate readonly=$reviewIsComplete label=submission.comments.cannotShareWithAuthor rich=true}
 		{/if}
 	{/fbvFormSection}
 

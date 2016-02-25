@@ -41,5 +41,6 @@
 	<message key="reviewer.complete.whatNext">Thank you for completing the review of this submission. Your review has been submitted successfully. We appreciate your contribution to the quality of the work that we publish; the editor may contact you again for more information if needed.</message>
 	<message key="reviewer.aboutDueDates">About Due Dates</message>
 	<message key="reviewer.aboutDueDates.text">The editor asks that you either accept or decline the review before the Response Due Date and complete the review by the Review Due Date.</message>
-
+	<message key="submission.comments.canShareWithAuthor">For author and editor</message>
+	<message key="submission.comments.cannotShareWithAuthor">For editor only</message>
 </locale>

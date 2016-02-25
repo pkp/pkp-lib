@@ -8,166 +8,121 @@
  * @brief Styles for the plupload plugin used in the file upload handler
  */
 
-.plupload_header_title {
-	display: none;
-}
+.pkp_controller_fileUpload {
 
-.plupload_header_text {
-	font-size: @font-sml;
-	color: @text-light;
-	color: @text-light-rgba;
-}
+	&.loading {
 
-.plupload_filelist td {
-	padding: 0 0.5em;
-}
-
-.plupload_filelist_header {
-	background: @shade;
-	color: #fff;
-}
-
-.plupload_droptext {
-	width: 100%;
-	height: @double * 4;
-	line-height: @double * 4;
-	background: @bg;
-	border: 2px dashed @shade;
-	text-align: center;
-	cursor: pointer;
-}
-
-.plupload_filelist_content {
-	width: 100%;
-	margin: 0;
-	padding: 0;
-	list-style: none;
-
-	> li {
-		position: relative;
-		display: block;
-		width: 100% !important; // plupload attaches a width to the style attr!
-		padding: @half 0;
+		.pkp_uploader_drop_zone {
+			display: none;
+		}
 	}
 
-	.plupload_file_thumb {
+	&:not(.loading) {
+
+		.pkp_uploader_loading {
+			display: none;
+		}
+	}
+
+	.pkp_uploader_drop_zone_label,
+	.pkp_uploader_details,
+	.pkpUploaderError,
+	.pkpUploaderFilename,
+	&.complete .pkpUploaderProgress,
+	&.complete .pkpUploaderFilename,
+	&:not(.complete) .pkp_uploader_button_change,
+	&.complete .pkp_uploader_progress_bar_wrapper,
+	&.uploading .pkp_uploader_button,
+	&.complete .pkp_uploader_button_add {
 		display: none;
+		opacity: 0;
+		.transform(opacity 0.3s);
 	}
 
-	.plupload_action_icon.ui-icon-circle-minus,
-	.plupload_action_icon.ui-icon-circle-check {
+	&.complete .pkpUploaderFilename,
+	&.complete .pkp_uploader_button_change {
+		display: block;
+		opacity: 1;
+	}
+
+	&.error .pkpUploaderError,
+	&.uploading .pkp_uploader_details,
+	&.complete .pkp_uploader_details,
+	&.waiting .pkp_uploader_drop_zone_label {
+		display: inline-block;
+		opacity: 1;
+	}
+}
+
+.pkp_uploader_drop_zone {
+	padding: 11px @base;
+	border: 2px dashed @bg;
+	font-size: @font-sml;
+	line-height: @line-sml;
+	color: @text-light;
+	min-height: 34px; // button height
+}
+
+.pkpUploaderError,
+.pkp_uploader_details,
+.pkp_uploader_drop_zone_label {
+	padding: 5px 0;
+}
+
+.pkp_uploader_button {
+	float: right;
+}
+
+.pkpUploaderProgress {
+	display: inline-block;
+	min-width: 48px;
+	text-align: right;
+}
+
+.pkp_uploader_progress_bar_wrapper {
+	position: absolute;
+	top: 50%;
+	left: 48px + @double;
+	right: @base;
+	transform: translateY(-50%);
+	height: @half;
+	background: @bg;
+	border-radius: @half / 2;
+}
+
+.pkpUploaderProgressBar {
+	position: absolute;
+	top: 0;
+	left: 0;
+	min-width: @half;
+	height: @half;
+	background: @primary-lift;
+	border-radius: @half / 2;
+}
+
+.pkpUploaderError {
+	color: @no;
+}
+
+.complete {
+
+	 .pkp_uploader_drop_zone {
+		border-style: solid;
+		background: @bg;
+		color: @text;
+	}
+
+	.pkpUploaderFilename:before {
 		&:extend(.fa);
-		cursor: pointer;
-	}
-
-	.plupload_action_icon.ui-icon-circle-minus:before {
-		content: @fa-var-minus-circle;
-		color: @no;
-	}
-
-	.plupload_action_icon.ui-icon-circle-check:before {
-		content:  @fa-var-check;
+		content: @fa-var-check;
+		margin-right: 1em;
 		color: @yes;
 	}
 }
 
-.plupload_button {
-	&:extend(.pkp_button);
+.uploading {
 
-	&:hover,
-	&:focus {
-		&:extend(.pkp_button:hover);
-	}
-
-	&[disabled] {
-		&:extend(.pkp_button[disabled]);
-	}
-}
-
-.plupload_start {
-	&:extend(.pkp_button_primary);
-
-	&:hover,
-	&:focus {
-		&:extend(.pkp_button_primary:hover);
-	}
-
-	&[disabled] {
-		&:extend(.pkp_button[disabled]);
-	}
-}
-
-.plupload_stop {
-	&:extend(.pkp_button_offset);
-
-	&:hover,
-	&:focus {
-		&:extend(.pkp_button_offset:hover);
-	}
-
-	&[disabled] {
-		&:extend(.pkp_button[disabled]);
-	}
-}
-
-.plupload_filelist_footer {
-	font-size: @font-sml;
-	color: @text-light;
-	color: @text-light-rgba;
-
-	td {
-		vertical-align: bottom;
-	}
-
-	.plupload_file_name {
-		padding-left: 0;
-	}
-
-	.plupload_file_size {
-		padding-right: 0;
-	}
-
-	.plupload_clearer {
-		display: none;
-	}
-}
-
-//
-// The following declarations seek to sync the column widths with the file list
-// components... not very pretty.
-//
-.plupload_file_name {
-	width: 100%;
-}
-
-.plupload_file_status,
-.plupload_file_size {
-	white-space: nowrap;
-	min-width: 5em;
-}
-
-.plupload_file_action {
-	min-width: 32px;
-}
-
-.plupload_filelist_content {
-
-	.plupload_file_size,
-	.plupload_file_fields,
-	.plupload_file_status,
-	.plupload_file_action {
-		position: absolute;
-		top: @half;
-		right: 0;
-		height: 100%;
-		width: auto;
-	}
-
-	.plupload_file_size {
-		right: 40px; // 32px + 0.5em (em=16px)
-	}
-
-	.plupload_file_status {
-		right: 120px; // 32px + 0.5em (em=16px)
+	.pkp_uploader_drop_zone {
+		border-style: solid;
 	}
 }

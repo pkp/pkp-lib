@@ -9,10 +9,17 @@
  *
  *}
 
+{if $reviewAssignment->getDateCompleted()}
+	{assign var="reviewCompleted" value=true}
+{else}
+	{assign var="reviewCompleted" value=false}
+{/if}
 <script type="text/javascript">
 	$(function() {ldelim}
 		// Attach the form handler.
-		$('#readReviewForm').pkpHandler('$.pkp.controllers.grid.users.reviewer.ReadReviewHandler');
+		$('#readReviewForm').pkpHandler('$.pkp.controllers.grid.users.reviewer.ReadReviewHandler', {ldelim}
+				reviewCompleted: {$reviewCompleted|json_encode}
+		{rdelim});
 	{rdelim});
 </script>
 
@@ -20,48 +27,67 @@
 	<input type="hidden" name="reviewAssignmentId" value="{$reviewAssignment->getId()|escape}" />
 	<input type="hidden" name="submissionId" value="{$reviewAssignment->getSubmissionId()|escape}" />
 	<input type="hidden" name="stageId" value="{$reviewAssignment->getStageId()|escape}" />
-	{if $reviewAssignment->getUnconsidered() == $smarty.const.REVIEW_ASSIGNMENT_UNCONSIDERED}
-		<p>{translate key="editor.review.readConfirmation"}</p>
-	{elseif !$reviewAssignment->getDateCompleted()}
-		<p>{translate key="editor.review.reviewDetails.readConfirmation.description"}</p>
-	{/if}
-	<div id="reviewAssignment-{$reviewAssignment->getId()|escape}">
-		<h2>{$reviewAssignment->getReviewerFullName()|escape}</h2>
 
-		{if $reviewAssignment->getDateCompleted()}
-			<span class="pkp_controllers_informationCenter_itemLastEvent">{translate key="common.completed.date" dateCompleted=$reviewAssignment->getDateCompleted()|date_format:$datetimeFormatShort}</span>
 
-			{if $reviewAssignment->getReviewFormId()}
-				{include file="reviewer/review/reviewFormResponse.tpl"}
-			{elseif $reviewerComment}
-				<h3>{translate key="editor.review.reviewerComments"}</h3>
-				{include file="controllers/revealMore.tpl" content=$reviewerComment->getComments()|nl2br|strip_unsafe_html}
-			{/if}
-			{if $reviewAssignment->getRecommendation()}
-				<h3>{translate key="submission.recommendation" recommendation=$reviewAssignment->getLocalizedRecommendation()}</h3>
-			{/if}
-			{if $reviewAssignment->getCompetingInterests()}
-				<h3>{translate key="reviewer.submission.competingInterests"}</h3>
-				<span id="reviewCompetingInterests">{$reviewAssignment->getCompetingInterests()|nl2br|strip_unsafe_html}</span>
-			{/if}
+	{fbvFormSection}
+		<div id="reviewAssignment-{$reviewAssignment->getId()|escape}">
+			<h2>{$reviewAssignment->getReviewerFullName()|escape}</h2>
+			{fbvFormSection class="description"}
+				{translate key="editor.review.readConfirmation"}
+			{/fbvFormSection}
 
-		{else}
 			{if $reviewAssignment->getDateCompleted()}
-				<span class="pkp_controllers_informationCenter_itemLastEvent">{translate key="common.completed.date" dateCompleted=$reviewAssignment->getDateCompleted()|date_format:$datetimeFormatShort}</span>
-			{elseif $reviewAssignment->getDateConfirmed()}
-				<span class="pkp_controllers_informationCenter_itemLastEvent">{translate key="common.confirmed.date" dateConfirmed=$reviewAssignment->getDateConfirmed()|date_format:$datetimeFormatShort}</span>
-			{elseif $reviewAssignment->getDateReminded()}
-				<span class="pkp_controllers_informationCenter_itemLastEvent">{translate key="common.reminded.date" dateReminded=$reviewAssignment->getDateReminded()|date_format:$datetimeFormatShort}</span>
-			{elseif $reviewAssignment->getDateNotified()}
-				<span class="pkp_controllers_informationCenter_itemLastEvent">{translate key="common.notified.date" dateNotified=$reviewAssignment->getDateNotified()|date_format:$datetimeFormatShort}</span>
-			{elseif $reviewAssignment->getDateAssigned()}
-				<span class="pkp_controllers_informationCenter_itemLastEvent">{translate key="common.assigned.date" dateAssigned=$reviewAssignment->getDateAssigned()|date_format:$datetimeFormatShort}</span>
+				{fbvFormSection}
+					<div class="pkp_controllers_informationCenter_itemLastEvent">
+						{translate key="common.completed.date" dateCompleted=$reviewAssignment->getDateCompleted()|date_format:$datetimeFormatShort}
+					</div>
+				{/fbvFormSection}
+
+				{if $reviewAssignment->getRecommendation()}
+					{fbvFormSection}
+						<div class="pkp_controllers_informationCenter_itemLastEvent">
+							{translate key="submission.recommendation" recommendation=$reviewAssignment->getLocalizedRecommendation()}
+						</div>
+					{/fbvFormSection}
+				{/if}
+
+				{if $reviewAssignment->getReviewFormId()}
+					{include file="reviewer/review/reviewFormResponse.tpl"}
+				{elseif $comment}
+					<h3>{translate key="editor.review.reviewerComments"}</h3>
+					<h4>{translate key="submission.comments.canShareWithAuthor"}</h4>
+					{include file="controllers/revealMore.tpl" content=$comment|strip_unsafe_html}
+					<h4>{translate key="submission.comments.cannotShareWithAuthor"}</h4>
+					{include file="controllers/revealMore.tpl" content=$commentPrivate|strip_unsafe_html}
+				{/if}
+				{if $reviewAssignment->getCompetingInterests()}
+					<h3>{translate key="reviewer.submission.competingInterests"}</h3>
+					<div class="review_competing_interests">
+						{$reviewAssignment->getCompetingInterests()|nl2br|strip_unsafe_html}
+					</div>
+				{/if}
+
+			{else}
+				{if $reviewAssignment->getDateCompleted()}
+					<span class="pkp_controllers_informationCenter_itemLastEvent">{translate key="common.completed.date" dateCompleted=$reviewAssignment->getDateCompleted()|date_format:$datetimeFormatShort}</span>
+				{elseif $reviewAssignment->getDateConfirmed()}
+					<span class="pkp_controllers_informationCenter_itemLastEvent">{translate key="common.confirmed.date" dateConfirmed=$reviewAssignment->getDateConfirmed()|date_format:$datetimeFormatShort}</span>
+				{elseif $reviewAssignment->getDateReminded()}
+					<span class="pkp_controllers_informationCenter_itemLastEvent">{translate key="common.reminded.date" dateReminded=$reviewAssignment->getDateReminded()|date_format:$datetimeFormatShort}</span>
+				{elseif $reviewAssignment->getDateNotified()}
+					<span class="pkp_controllers_informationCenter_itemLastEvent">{translate key="common.notified.date" dateNotified=$reviewAssignment->getDateNotified()|date_format:$datetimeFormatShort}</span>
+				{elseif $reviewAssignment->getDateAssigned()}
+					<span class="pkp_controllers_informationCenter_itemLastEvent">{translate key="common.assigned.date" dateAssigned=$reviewAssignment->getDateAssigned()|date_format:$datetimeFormatShort}</span>
+				{/if}
 			{/if}
-		{/if}
-	</div>
+		</div>
+	{/fbvFormSection}
+
+
 	<div class="pkp_notification" id="noFilesWarning" style="display: none;">
 		{include file="controllers/notification/inPlaceNotificationContent.tpl" notificationId=noFilesWarningContent notificationStyleClass=notifyWarning notificationTitle="editor.review.noReviewFilesUploaded"|translate notificationContents="editor.review.noReviewFilesUploaded.details"|translate}
 	</div>
+
 	{fbvFormArea id="readReview"}
 		{fbvFormSection}
 			{url|assign:reviewAttachmentsGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.attachment.EditorReviewAttachmentsGridHandler" op="fetchGrid" submissionId=$submission->getId() reviewId=$reviewAssignment->getId() stageId=$reviewAssignment->getStageId() escape=false}

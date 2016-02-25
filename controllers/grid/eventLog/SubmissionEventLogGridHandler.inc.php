@@ -205,7 +205,7 @@ class SubmissionEventLogGridHandler extends GridHandler {
 		$text[] =  __('email.subject') . ': ' . htmlspecialchars($emailLogEntry->getSubject());
 		$text[] = $emailLogEntry->getBody();
 
-		return nl2br(String::stripUnsafeHtml(implode(PHP_EOL . PHP_EOL, $text)));
+		return nl2br(PKPString::stripUnsafeHtml(implode(PHP_EOL . PHP_EOL, $text)));
 	}
 }
 

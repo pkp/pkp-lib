@@ -13,8 +13,9 @@
 	<title>
 		{$pageTitleTranslated|strip_tags}
 	</title>
-	<meta name="description" content="{$metaSearchDescription|escape}" />
-	<meta name="keywords" content="{$metaSearchKeywords|escape}" />
+	{if $requestedOp == 'index' && $metaSearchDescription != ''}
+		<meta name="description" content="{$metaSearchDescription|escape}" />
+	{/if}
 	<meta name="generator" content="{$applicationName} {$currentVersionString|escape}" />
 	{$metaCustomHeaders}
 	{if $displayFavicon}<link rel="icon" href="{$faviconDir}/{$displayFavicon.uploadName|escape:"url"}" type="{$displayFavicon.mimeType|escape}" />{/if}

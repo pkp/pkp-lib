@@ -161,6 +161,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->waitForElementPresent('id=genreId');
 		$this->select('id=genreId', "label=$genreName");
 		$this->uploadFile($file);
+		$this->waitForElementPresent('css=button[id=continueButton]:enabled');
 		$this->click('id=continueButton');
 
 		// Enter the title into the metadata form
@@ -311,7 +312,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->waitForElementPresent($selector='//button[text()=\'Continue to Step #3\']');
 		$this->click($selector);
 		$this->waitForElementPresent('css=[id^=comments-]');
-		$this->type('css=[id^=comments-]', $comments);
+		$this->typeTinyMCE('comments', $comments);
 
 		if ($recommendation !== null) {
 			$this->select('id=recommendation', 'label=' . $this->escapeJS($recommendation));

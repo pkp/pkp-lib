@@ -42,18 +42,23 @@ class SubmissionMailTemplate extends MailTemplate {
 		$this->submission = $submission;
 	}
 
+	/**
+	 * Assign parameters to template
+	 * @param $paramArray array
+	 */
 	function assignParams($paramArray = array()) {
 		$submission = $this->submission;
-
 		$application = PKPApplication::getApplication();
 		$request = $application->getRequest();
-
-		$paramArray['submissionTitle'] = strip_tags($submission->getLocalizedTitle());
-		$paramArray['submissionId'] = $submission->getId();
-		$paramArray['submissionAbstract'] = String::html2text($submission->getLocalizedAbstract());
-		$paramArray['authorString'] = strip_tags($submission->getAuthorString());
-
-		parent::assignParams($paramArray);
+		parent::assignParams(array_merge(
+			array(
+				'submissionTitle' => strip_tags($submission->getLocalizedTitle()),
+				'submissionId' => $submission->getId(),
+				'submissionAbstract' => PKPString::html2text($submission->getLocalizedAbstract()),
+				'authorString' => strip_tags($submission->getAuthorString()),
+			),
+			$paramArray
+		));
 	}
 
 	/**

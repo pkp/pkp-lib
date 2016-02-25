@@ -155,6 +155,7 @@
 	<message key="common.initiate">Initiate</message>
 	<message key="common.inProgress">In progress</message>
 	<message key="common.itemsPerPage">Items per page</message>
+	<message key="common.favicon.altText">Journal Favicon</message>
 	<message key="common.keywords">Keywords</message>
 	<message key="common.language">Language</message>
 	<message key="common.languages">Languages</message>
@@ -190,6 +191,7 @@
 	<message key="common.overdue">Overdue</message>
 	<message key="common.pageNumber">Page {$pageNumber}</message>
 	<message key="common.pageHeaderLogo.altText">Page Header Logo</message>
+	<message key="common.percentage">{$percentage}%</message>
 	<message key="common.plugin">Plugin</message>
 	<message key="common.pluginEnabled">The plugin "{$pluginName}" has been enabled.</message>
 	<message key="common.pluginDisabled">The plugin "{$pluginName}" has been disabled.</message>
@@ -254,6 +256,9 @@
 	<message key="common.invalidFileType">No file uploaded or invalid file type!</message>
 	<message key="common.homepageImage.altText">Homepage Image</message>
 	<message key="common.up">Up</message>
+	<message key="common.upload.addFile">Upload File</message>
+	<message key="common.upload.changeFile">Change File</message>
+	<message key="common.upload.dragFile">Drag and drop a file here to begin upload</message>
 	<message key="common.url">URL</message>
 	<message key="common.user">User</message>
 	<message key="common.view">View</message>

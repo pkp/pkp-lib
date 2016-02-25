@@ -50,15 +50,15 @@ class Core {
 	 */
 	static function cleanVar($var) {
 		// only normalize strings that are not UTF-8 already, and when the system is using UTF-8
-		if ( Config::getVar('i18n', 'charset_normalization') == 'On' && strtolower_codesafe(Config::getVar('i18n', 'client_charset')) == 'utf-8' && !String::utf8_is_valid($var) ) {
+		if ( Config::getVar('i18n', 'charset_normalization') == 'On' && strtolower_codesafe(Config::getVar('i18n', 'client_charset')) == 'utf-8' && !PKPString::utf8_is_valid($var) ) {
 
-			$var = String::utf8_normalize($var);
+			$var = PKPString::utf8_normalize($var);
 
 			// convert HTML entities into valid UTF-8 characters (do not transcode)
 			$var = html_entity_decode($var, ENT_COMPAT, 'UTF-8');
 
 			// strip any invalid UTF-8 sequences
-			$var = String::utf8_bad_strip($var);
+			$var = PKPString::utf8_bad_strip($var);
 
 			// re-encode special HTML characters
 			if (checkPhpVersion('5.2.3')) {
@@ -69,7 +69,7 @@ class Core {
 		}
 
 		// strip any invalid ASCII control characters
-		$var = String::utf8_strip_ascii_ctrl($var);
+		$var = PKPString::utf8_strip_ascii_ctrl($var);
 
 		return trim($var);
 	}
@@ -81,7 +81,7 @@ class Core {
 	 * @return string
 	 */
 	static function cleanFileVar($var) {
-		return String::regexp_replace('/[^\w\-]/', '', $var);
+		return PKPString::regexp_replace('/[^\w\-]/', '', $var);
 	}
 
 	/**
@@ -157,7 +157,7 @@ class Core {
 		}
 
 		foreach ($botRegexps[$botRegexpsFile] as $regexp) {
-			if (String::regexp_match($regexp, $userAgent)) {
+			if (PKPString::regexp_match($regexp, $userAgent)) {
 				return true;
 			}
 		}

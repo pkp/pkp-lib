@@ -1,37 +1,30 @@
 <?php
 
 /**
- * @file classes/notification/managerDelegate/AllReviewsInNotificationManager.inc.php
+ * @file classes/notification/managerDelegate/review/AllReviewsInNotificationManager.inc.php
  *
  * Copyright (c) 2014-2016 Simon Fraser University Library
  * Copyright (c) 2003-2016 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class AllReviewsInNotificationManager
- * @ingroup managerDelegate
+ * @ingroup classses_notification_managerDelegate_review
  *
  * @brief All reviews in notification types manager delegate.
  */
 
-import('lib.pkp.classes.notification.NotificationManagerDelegate');
+import('lib.pkp.classes.notification.managerDelegate.review.ReviewRoundNotificationManager');
 
-class AllReviewsInNotificationManager extends NotificationManagerDelegate {
+class AllReviewsInNotificationManager extends ReviewRoundNotificationManager {
 
 	/**
 	 * Constructor.
 	 * @param $notificationType int NOTIFICATION_TYPE_...
 	 */
 	function AllReviewsInNotificationManager($notificationType) {
-		parent::NotificationManagerDelegate($notificationType);
+		parent::ReviewRoundNotificationManager($notificationType);
 	}
 
-	/**
-	 * @copydoc NotificationManagerDelegate::getStyleClass()
-	 * @param $notification Notification
-	 */
-	public function getStyleClass($notification) {
-		return NOTIFICATION_STYLE_CLASS_WARNING;
-	}
 
 	/**
 	 * @copydoc NotificationManagerDelegate::updateNotification()
@@ -77,6 +70,17 @@ class AllReviewsInNotificationManager extends NotificationManagerDelegate {
 			}
 		}
 	}
+
+	
+	//
+	// Protected methods.
+	//
+	/**
+	 * @copydoc ReviewRoundNotificationManager::getMessageLocaleKey()
+	 */
+	protected function getMessageLocaleKey() {
+		return 'notification.type.allReviewsIn';
+	}	
 }
 
 ?>

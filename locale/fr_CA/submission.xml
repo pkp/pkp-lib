@@ -536,7 +536,6 @@
 	<message key="submission.type.tip"><![CDATA[Par type de soumission, on entend 'image', 'texte' ou d'autres formats multimédias, y compris 'logiciel' et 'interactif'. Veuillez choisir le type qui correspond le mieux à votre soumission. Vous trouverez des exemples au <a target="_blank" href="http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>]]></message>
 	<message key="submission.createRemote">Créer un distant</message>
 	<message key="submission.submit.selectPrincipalContact">Personne-ressource pour la correspondance éditoriale.</message>
-	<message key="submission.form.name">Nommer le fichier (ex.: Soumission Smith, Smith Tableau 1)</message>
 	<message key="submission.form.replaceExisting">Remplacer un fichier existant?</message>
 	<message key="workflow.review.internalReview">Examen interne</message>
 	<message key="submission.status.declined">Refusé</message>

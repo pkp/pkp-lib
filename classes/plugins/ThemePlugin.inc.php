@@ -72,11 +72,10 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	}
 
 	/**
-	 * Get template directory
-	 * @return string
+	 * @copydoc PKPPlugin::getTemplatePath()
 	 */
-	function getTemplatePath() {
-		return parent::getTemplatePath() . 'templates/';
+	function getTemplatePath($inCore = false) {
+		return parent::getTemplatePath($inCore) . 'templates/';
 	}
 
 	/**

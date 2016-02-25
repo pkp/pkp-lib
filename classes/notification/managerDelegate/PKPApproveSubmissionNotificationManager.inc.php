@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file classes/notification/managerDelegate/ApproveSubmissionNotificationManager.inc.php
+ * @file classes/notification/managerDelegate/PKPApproveSubmissionNotificationManager.inc.php
  *
  * Copyright (c) 2014-2016 Simon Fraser University Library
  * Copyright (c) 2003-2016 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class ApproveSubmissionNotificationManager
+ * @class PKPApproveSubmissionNotificationManager
  * @ingroup managerDelegate
  *
  * @brief Approve submission notification type manager delegate.
@@ -15,27 +15,43 @@
 
 import('lib.pkp.classes.notification.NotificationManagerDelegate');
 
-class ApproveSubmissionNotificationManager extends NotificationManagerDelegate {
+class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegate {
 
 	/**
 	 * Constructor.
 	 * @param $notificationType int NOTIFICATION_TYPE_...
 	 */
-	function ApproveSubmissionNotificationManager($notificationType) {
+	function PKPApproveSubmissionNotificationManager($notificationType) {
 		parent::NotificationManagerDelegate($notificationType);
 	}
 
-	/**
-	 * @copydoc NotificationManagerDelegate::getStyleClass()
+	/** 
+	 * @copydoc PKPNotificationOperationManager::getNotificationUrl()
 	 */
-	public function getStyleClass($notification) {
-		return NOTIFICATION_STYLE_CLASS_WARNING;
+	function getNotificationUrl($request, $notification) {
+		$dispatcher = Application::getDispatcher();
+		$context = $request->getContext();
+		return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'workflow', 'access', $notification->getAssocId());	
+	}
+
+	/**
+	 * @copydoc PKPNotificationOperationManager::getStyleClass()
+	 */
+	function getStyleClass($notification) {
+		return NOTIFICATION_STYLE_CLASS_INFORMATION;
+	}
+
+	/**
+	 * @copydoc PKPNotificationOperationManager::isVisibleToAllUsers()
+	 */
+	function isVisibleToAllUsers($notificationType, $assocType, $assocId) {
+		return true;
 	}
 
 	/**
 	 * @copydoc NotificationManagerDelegate::updateNotification()
 	 */
-	public function updateNotification($request, $userIds, $assocType, $assocId) {
+	function updateNotification($request, $userIds, $assocType, $assocId) {
 		$submissionId = $assocId;
 		$submissionDao = Application::getSubmissionDAO();
 		$submission = $submissionDao->getById($submissionId);
@@ -79,6 +95,13 @@ class ApproveSubmissionNotificationManager extends NotificationManagerDelegate {
 			}
 		}
 	}
+
+	/**
+	 * @copydoc NotificationManagerDelegate.inc.php
+	 */
+	protected function multipleTypesUpdate() {
+		return true;
+	} 
 }
 
 ?>

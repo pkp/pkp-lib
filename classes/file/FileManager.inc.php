@@ -92,7 +92,7 @@ class FileManager {
 	 */
 	function getUploadedFileType($fileName) {
 		if (isset($_FILES[$fileName])) {
-			$type = String::mime_content_type($_FILES[$fileName]['tmp_name']);
+			$type = PKPString::mime_content_type($_FILES[$fileName]['tmp_name']);
 			if (!empty($type)) return $type;
 			return $_FILES[$fileName]['type'];
 		}
@@ -238,7 +238,7 @@ class FileManager {
 		if (is_readable($filePath)) {
 			if ($mediaType === null) {
 				// If the media type wasn't specified, try to detect.
-				$mediaType = String::mime_content_type($filePath);
+				$mediaType = PKPString::mime_content_type($filePath);
 				if (empty($mediaType)) $mediaType = 'application/octet-stream';
 			}
 			if ($fileName === null) {
@@ -496,10 +496,10 @@ class FileManager {
 	 * Truncate a filename to fit in the specified length.
 	 */
 	function truncateFileName($fileName, $length = 127) {
-		if (String::strlen($fileName) <= $length) return $fileName;
+		if (PKPString::strlen($fileName) <= $length) return $fileName;
 		$ext = $this->getExtension($fileName);
-		$truncated = String::substr($fileName, 0, $length - 1 - String::strlen($ext)) . '.' . $ext;
-		return String::substr($truncated, 0, $length);
+		$truncated = PKPString::substr($fileName, 0, $length - 1 - PKPString::strlen($ext)) . '.' . $ext;
+		return PKPString::substr($truncated, 0, $length);
 	}
 
 	/**

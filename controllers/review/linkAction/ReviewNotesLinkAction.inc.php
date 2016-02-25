@@ -49,13 +49,10 @@ class ReviewNotesLinkAction extends LinkAction {
 		$viewsDao = DAORegistry::getDAO('ViewsDAO');
 		$lastViewDate = $viewsDao->getLastViewDate(ASSOC_TYPE_REVIEW_RESPONSE, $reviewAssignment->getId(), $user->getId());
 
-		$label = !$lastViewDate || $isUnread ? __('editor.review.readNewReview') : __('editor.review.readReview');
+		$icon = !$lastViewDate || $isUnread ? 'read_new_review' : null;
 
 		// Configure the link action.
-		parent::LinkAction(
-			'readReview', $ajaxModal,
-			$label
-		);
+		parent::LinkAction( 'readReview', $ajaxModal, __('editor.review.readReview'), $icon );
 	}
 }
 

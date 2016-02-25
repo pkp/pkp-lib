@@ -64,6 +64,9 @@ class PKPNotificationSettingsForm extends Form {
 			NOTIFICATION_TYPE_QUERY_ACTIVITY => array('settingName' => 'notificationQueryActivity',
 				'emailSettingName' => 'emailNotificationQueryActivity',
 				'settingKey' => 'notification.type.queryActivity'),
+			NOTIFICATION_TYPE_ALL_REVISIONS_IN => array('settingName' => 'notificationAllRevisionsIn',
+				'emailSettingName' => 'emailNotificationAllRevisionsIn',
+				'settingKey' => 'notification.type.allRevisionsIn'),
 		);
 	}
 
@@ -83,7 +86,11 @@ class PKPNotificationSettingsForm extends Form {
 				)
 			),
 			array('categoryKey' => 'notification.type.reviewing',
-				'settings' => array(NOTIFICATION_TYPE_REVIEWER_COMMENT))
+				'settings' => array(
+					NOTIFICATION_TYPE_REVIEWER_COMMENT,
+					NOTIFICATION_TYPE_ALL_REVISIONS_IN,
+				)
+			),
 		);
 	}
 

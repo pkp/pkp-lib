@@ -267,7 +267,7 @@ class Mail extends DataObject {
 		}
 
 		if (empty($contentType)) {
-			$contentType = String::mime_content_type($filePath);
+			$contentType = PKPString::mime_content_type($filePath);
 			if (empty($contentType)) $contentType = 'application/x-unknown-content-type';
 		}
 
@@ -331,6 +331,19 @@ class Mail extends DataObject {
 	 */
 	function getReplyTo() {
 		return $this->getData('replyTo');
+	}
+
+	/**
+	 * Return a string containing the reply-to address.
+	 * @return string
+	 */
+	function getReplyToString($send = false) {
+		$replyTo = $this->getReplyTo();
+		if (!array_key_exists('email', $replyTo) || $replyTo['email'] == null) {
+			return null;
+		} else {
+			return (Mail::encodeDisplayName($replyTo['name'], $send) . ' <'.$replyTo['email'].'>');
+		}
 	}
 
 	/**
@@ -490,7 +503,7 @@ class Mail extends DataObject {
 		}
 		$mailer->Subject = $this->getSubject();
 		$mailer->Body = $mailBody;
-		$mailer->AltBody = String::html2text($mailBody);
+		$mailer->AltBody = PKPString::html2text($mailBody);
 
 		$remoteAddr = $mailer->SecureHeader(Request::getRemoteAddr());
 		if ($remoteAddr != '') $mailer->AddCustomHeader("X-Originating-IP: $remoteAddr");
@@ -520,8 +533,8 @@ class Mail extends DataObject {
 	 * @return string
 	 */
 	function encodeDisplayName($displayName, $send = false) {
-		if (String::regexp_match('!^[-A-Za-z0-9\!#\$%&\'\*\+\/=\?\^_\`\{\|\}~]+$!', $displayName)) return $displayName;
-		return ('"' . ($send ? String::encode_mime_header(str_replace(
+		if (PKPString::regexp_match('!^[-A-Za-z0-9\!#\$%&\'\*\+\/=\?\^_\`\{\|\}~]+$!', $displayName)) return $displayName;
+		return ('"' . ($send ? PKPString::encode_mime_header(str_replace(
 			array('"', '\\'),
 			'',
 			$displayName

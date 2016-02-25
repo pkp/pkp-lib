@@ -45,7 +45,7 @@ class PluginHelper {
 		// equal plugin directory name and plugin files must be in a
 		// directory named after the plug-in (potentially with version)
 		$matches = array();
-		String::regexp_match_get('/^[a-zA-Z0-9]+/', basename($originalFileName, '.tar.gz'), $matches);
+		PKPString::regexp_match_get('/^[a-zA-Z0-9]+/', basename($originalFileName, '.tar.gz'), $matches);
 		$pluginShortName = array_pop($matches);
 		if (!$pluginShortName) {
 			$errorMsg = __('manager.plugins.invalidPluginArchive');
@@ -74,7 +74,7 @@ class PluginHelper {
 			// Failing that, look for a directory named after the
 			// archive. (Typically also contains the version number
 			// e.g. with github generated release archives.)
-			String::regexp_match_get('/^[a-zA-Z0-9.-]+/', basename($originalFileName, '.tar.gz'), $matches);
+			PKPString::regexp_match_get('/^[a-zA-Z0-9.-]+/', basename($originalFileName, '.tar.gz'), $matches);
 			if (is_dir($tryDir = $pluginExtractDir . '/' . array_pop($matches))) {
 				// We found a directory named after the archive
 				// within the extracted archive. (Typically also

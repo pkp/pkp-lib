@@ -15,7 +15,7 @@
 
 
 import('lib.pkp.classes.search.SearchFileParser');
-import('lib.pkp.classes.core.String');
+import('lib.pkp.classes.core.PKPString');
 
 class SearchHTMLParser extends SearchFileParser {
 

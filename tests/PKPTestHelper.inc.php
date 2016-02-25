@@ -30,6 +30,7 @@ abstract class PKPTestHelper {
 		foreach ($tables as $table) {
 			switch ($driver) {
 				case 'mysql':
+				case 'mysqli':
 					$createLikeSql = "CREATE TABLE backup_$table LIKE $table";
 					break;
 				case 'postgres':
@@ -87,6 +88,7 @@ abstract class PKPTestHelper {
 		$output = $status = null; // For PHP scrutinizer
 		switch (Config::getVar('database', 'driver')) {
 			case 'mysql':
+			case 'mysqli':
 				exec($cmd = 'zcat ' .
 					escapeshellarg($filename) .
 					' | /usr/bin/mysql --user=' .

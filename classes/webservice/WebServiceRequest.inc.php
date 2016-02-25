@@ -33,18 +33,23 @@ class WebServiceRequest {
 	/** @var boolean Whether to make an asynchronous request */
 	var $_async = false;
 
+	/** @var boolean Whether to consider the proxy settings in the config.inc.php */
+	var $_useProxySettings = true;
+
 	/**
 	 * Constructor
 	 *
 	 * @param $url string The request URL
 	 * @param $params mixed array (key value pairs) or string request parameters
 	 * @param $method string GET or POST
+	 * @param $useProxy boolean Whether the proxy settings from config.inc.php should be considered
 	 */
-	function WebServiceRequest($url, $params, $method = 'GET') {
+	function WebServiceRequest($url, $params, $method = 'GET', $useProxy = true) {
 		$this->_url = $url;
 		$this->_params = $params;
 		$this->_method = $method;
 		$this->_accept = 'text/xml, */*';
+		$this->_useProxySettings = $useProxy;
 	}
 
 	//
@@ -162,5 +167,22 @@ class WebServiceRequest {
 	function getAsync() {
 		return $this->_async;
 	}
+
+	/**
+	 * Set whether to consider the proxy settings in config.inc.php.
+	 * @param $useProxySettings boolean
+	 */
+	function setUseProxySettings($useProxySettings) {
+		$this->_useProxySettings = $useProxySettings;
+	}
+
+	/**
+	 * Get whether to consider the proxy settings in config.inc.php.
+	 * @return boolean
+	 */
+	function getUseProxySettings() {
+		return $this->_useProxySettings;
+	}
+
 }
 ?>

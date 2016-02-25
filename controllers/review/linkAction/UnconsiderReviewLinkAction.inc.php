@@ -51,8 +51,8 @@ class UnconsiderReviewLinkAction extends LinkAction {
 		// Configure the link action.
 		parent::LinkAction(
 			'unconsiderReview', $modal,
-			__('common.complete'),
-			'completed'
+			__('editor.review.revertDecision'),
+			'unconsider'
 		);
 	}
 }

@@ -61,19 +61,19 @@ class XMLParser {
 		xml_set_character_data_handler($parser, "characterData");
 
 		// if the string contains non-UTF8 characters, convert it to UTF-8 for parsing
-		if ( Config::getVar('i18n', 'charset_normalization') == 'On' && !String::utf8_compliant($text) ) {
+		if ( Config::getVar('i18n', 'charset_normalization') == 'On' && !PKPString::utf8_compliant($text) ) {
 
-			$text = String::utf8_normalize($text);
+			$text = PKPString::utf8_normalize($text);
 
 			// strip any invalid UTF-8 sequences
-			$text = String::utf8_bad_strip($text);
+			$text = PKPString::utf8_bad_strip($text);
 
 			// convert named entities to numeric entities
-			$text = strtr($text, String::getHTMLEntities());
+			$text = strtr($text, PKPString::getHTMLEntities());
 		}
 
 		// strip any invalid ASCII control characters
-		$text = String::utf8_strip_ascii_ctrl($text);
+		$text = PKPString::utf8_strip_ascii_ctrl($text);
 
 		if (!xml_parse($parser, $text, true)) {
 			$this->addError(xml_error_string(xml_get_error_code($parser)));
@@ -138,28 +138,28 @@ class XMLParser {
 		while (!$wrapper->eof() && ($data = $wrapper->read()) !== false) {
 
 			// if the string contains non-UTF8 characters, convert it to UTF-8 for parsing
-			if ( Config::getVar('i18n', 'charset_normalization') == 'On' && !String::utf8_compliant($data) ) {
+			if ( Config::getVar('i18n', 'charset_normalization') == 'On' && !PKPString::utf8_compliant($data) ) {
 
-				$utf8_last = String::substr($data, String::strlen($data) - 1);
+				$utf8_last = PKPString::substr($data, PKPString::strlen($data) - 1);
 
 				// if the string ends in a "bad" UTF-8 character, maybe it's truncated
-				while (!$wrapper->eof() && String::utf8_bad_find($utf8_last) === 0) {
+				while (!$wrapper->eof() && PKPString::utf8_bad_find($utf8_last) === 0) {
 					// read another chunk of data
 					$data .= $wrapper->read();
-					$utf8_last = String::substr($data, String::strlen($data) - 1);
+					$utf8_last = PKPString::substr($data, PKPString::strlen($data) - 1);
 				}
 
-				$data = String::utf8_normalize($data);
+				$data = PKPString::utf8_normalize($data);
 
 				// strip any invalid UTF-8 sequences
-				$data = String::utf8_bad_strip($data);
+				$data = PKPString::utf8_bad_strip($data);
 
 				// convert named entities to numeric entities
-				$data = strtr($data, String::getHTMLEntities());
+				$data = strtr($data, PKPString::getHTMLEntities());
 			}
 
 			// strip any invalid ASCII control characters
-			$data = String::utf8_strip_ascii_ctrl($data);
+			$data = PKPString::utf8_strip_ascii_ctrl($data);
 
 			if ($dataCallback) call_user_func($dataCallback, 'parse', $wrapper, $data);
 			if (!xml_parse($parser, $data, $wrapper->eof())) {

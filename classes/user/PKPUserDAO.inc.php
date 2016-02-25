@@ -246,6 +246,15 @@ class PKPUserDAO extends DAO {
 	 * @return DAOResultFactory Iterator for matching users
 	 */
 	function getFilteredReviewers($contextId, $stageId, $name = null, $doneMin = null, $doneMax = null, $avgMin = null, $avgMax = null, $lastMin = null, $lastMax = null, $activeMin = null, $activeMax = null, $interests = array(), $submissionId = null, $reviewRoundId = null) {
+		// Timestamp math appears not to work in seconds in MySQL. Issue #1167.
+		switch (Config::getVar('database', 'driver')) {
+			case 'mysql':
+			case 'mysqli':
+				$dateDiffClause = 'DATEDIFF(rac.date_completed, rac.date_notified)';
+				break;
+			default:
+				$dateDiffClause = 'DATE_PART(\'day\', rac.date_completed - rac.date_notified)';
+		}
 		$result = $this->retrieve(
 			'SELECT	u.*,
 				COUNT(DISTINCT rac.review_id) AS complete_count,
@@ -269,8 +278,8 @@ class PKPUserDAO extends DAO {
 			HAVING 1=1' .
 				($doneMin !== null?' AND COUNT(DISTINCT rac.review_id) >= ?':'') .
 				($doneMax !== null?' AND COUNT(DISTINCT rac.review_id) <= ?':'') .
-				($avgMin !== null?' AND AVG(rac.date_completed - rac.date_notified) >= ?':'') .
-				($avgMax !== null?' AND AVG(rac.date_completed - rac.date_notified) <= ?':'') .
+				($avgMin !== null?" AND AVG($dateDiffClause) >= ?":'') .
+				($avgMax !== null?" AND AVG($dateDiffClause) <= ?":'') .
 				($activeMin !== null?' AND COUNT(DISTINCT rai.review_id) >= ?':'') .
 				($activeMax !== null?' AND COUNT(DISTINCT rai.review_id) <= ?':'') .
 				($lastMin !== null?' AND MAX(raf.date_assigned) <= ' . ($this->datetimeToDB(time() - ((int) $lastMin * 86400))):'') .
@@ -285,7 +294,7 @@ class PKPUserDAO extends DAO {
 					(int) $stageId,
 					(int) $reviewRoundId,
 				),
-				array_map(array('String', 'strtolower'), $interests),
+				array_map(array('PKPString', 'strtolower'), $interests),
 				$name !== null?array('%'.(string) $name.'%'):array(),
 				$name !== null?array('%'.(string) $name.'%'):array(),
 				$name !== null?array('%'.(string) $name.'%'):array(),
@@ -299,7 +308,6 @@ class PKPUserDAO extends DAO {
 				$activeMax !== null?array((int) $activeMax):array()
 			)
 		);
-
 		return new DAOResultFactory($result, $this, '_returnUserFromRowWithReviewerStats');
 	}
 

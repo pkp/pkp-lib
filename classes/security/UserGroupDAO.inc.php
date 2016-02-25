@@ -449,13 +449,17 @@ class UserGroupDAO extends DAO {
 		if(isset($search)) $params = array_merge($params, array_pad(array(), 5, '%' . $search . '%'));
 
 		$result = $this->retrieve(
-			'SELECT DISTINCT u.*
-			FROM	users u, user_groups ug, user_user_groups uug
-			WHERE	ug.user_group_id = uug.user_group_id AND
-				u.user_id = uug.user_id AND
-				ug.role_id <> ?' .
-				($contextId?' AND ug.context_id = ?':'') .
-				(isset($search) ? ' AND (u.first_name LIKE ? OR u.middle_name LIKE ? OR u.last_name LIKE ? OR u.email LIKE ? OR u.username LIKE ?)':''),
+			'SELECT	*
+			FROM	users
+			WHERE	user_id NOT IN (
+				SELECT	DISTINCT u.user_id
+				FROM	users u, user_user_groups uug, user_groups ug
+				WHERE	u.user_id = uug.user_id
+					AND ug.user_group_id = uug.user_group_id
+					AND ug.role_id = ?
+				)' .
+				($contextId ? ' AND ug.context_id = ?' : '') .
+				(isset($search) ? ' AND (u.first_name LIKE ? OR u.middle_name LIKE ? OR u.last_name LIKE ? OR u.email LIKE ? OR u.username LIKE ?)' : ''),
 			$params
 		);
 

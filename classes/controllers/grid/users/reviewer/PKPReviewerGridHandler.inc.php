@@ -144,8 +144,7 @@ class PKPReviewerGridHandler extends GridHandler {
 				'user.name',
 				null,
 				null,
-				$cellProvider,
-				array('width' => 60)
+				$cellProvider
 			)
 		);
 
@@ -153,11 +152,22 @@ class PKPReviewerGridHandler extends GridHandler {
 		$this->addColumn(
 			new GridColumn(
 				'considered',
-				'common.acknowledged',
+				'common.status',
 				null,
-				'controllers/grid/common/cell/statusCell.tpl',
+				null,
 				$cellProvider,
-				array('hoverTitle' => true)
+				array('anyhtml' => true)
+			)
+		);
+
+		// Add a column for the status of the review.
+		$this->addColumn(
+			new GridColumn(
+				'actions',
+				'grid.columns.actions',
+				null,
+				null,
+				$cellProvider
 			)
 		);
 	}
@@ -539,8 +549,14 @@ class PKPReviewerGridHandler extends GridHandler {
 		} else {
 			// Retrieve reviewer comment.
 			$submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO');
-			$submissionComments = $submissionCommentDao->getReviewerCommentsByReviewerId($reviewAssignment->getReviewerId(), $reviewAssignment->getSubmissionId(), $reviewAssignment->getId());
-			$templateMgr->assign('reviewerComment', $submissionComments->next());
+
+			$submissionComments = $submissionCommentDao->getReviewerCommentsByReviewerId($reviewAssignment->getReviewerId(), $reviewAssignment->getSubmissionId(), $reviewAssignment->getId(), true);
+			$submissionComment = $submissionComments->next();
+			$templateMgr->assign('comment', $submissionComment?$submissionComment->getComments():'');
+
+			$submissionCommentsPrivate = $submissionCommentDao->getReviewerCommentsByReviewerId($reviewAssignment->getReviewerId(), $reviewAssignment->getSubmissionId(), $reviewAssignment->getId(), false);
+			$submissionCommentPrivate = $submissionCommentsPrivate->next();
+			$templateMgr->assign('commentPrivate', $submissionCommentPrivate?$submissionCommentPrivate->getComments():'');
 		}
 
 		// Render the response.
@@ -674,7 +690,7 @@ class PKPReviewerGridHandler extends GridHandler {
 					'signatureFullName' => $user->getFullname(),
 			));
 
-			return new JSONMessage(true, $template->getBody() . "\n" . $context->getSetting('emailSignature'));
+			return new JSONMessage(true, $template->getBody());
 		}
 	}
 

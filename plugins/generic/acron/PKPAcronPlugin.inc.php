@@ -82,59 +82,6 @@ class PKPAcronPlugin extends GenericPlugin {
 	}
 
 	/**
-	 * @copydoc GenericPlugin::getManagementVerbs()
-	 */
-	function getManagementVerbs() {
-		$isEnabled = $this->getSetting(0, 'enabled');
-
-		$verbs = array();
-		$verbs[] = array(
-			($isEnabled?'disable':'enable'),
-			__($isEnabled?'manager.plugins.disable':'manager.plugins.enable')
-		);
-		$verbs[] = array(
-			'reload', __('plugins.generic.acron.reload')
-		);
-		return $verbs;
-	}
-
-	/**
-	 * @copydoc Plugin::getManagementVerbLinkAction()
-	 */
-	function getManagementVerbLinkAction($request, $verb) {
-		$router = $request->getRouter();
-
-		list($verbName, $verbLocalized) = $verb;
-
-		if ($verbName === 'reload') {
-			import('lib.pkp.classes.linkAction.request.AjaxAction');
-			$actionRequest = new AjaxAction(
-				$router->url($request, null, null, 'plugin', null, array('verb' => 'reload', 'plugin' => $this->getName(), 'category' => 'generic'))
-			);
-			return new LinkAction($verbName, $actionRequest, $verbLocalized, null);
-		}
-
-		return null;
-	}
-
-	/**
-	 * @copydoc GenericPlugin::manage()
-	 */
-	function manage($verb, $args, &$message, &$messageParams, &$pluginModalContent = null) {
-		if (parent::manage($verb, $args, $message, $messageParams, $pluginModalContent)) {
-			switch ($verb) {
-				case 'reload':
-					$this->_parseCrontab();
-					$message = NOTIFICATION_TYPE_SUCCESS;
-					$messageParams = array('contents' => __('plugins.generic.acron.tasksReloaded'));
-					return false;
-			}
-		}
-
-		return false;
-	}
-
-	/**
 	 * Post install hook to flag cron tab reload on every install/upgrade.
 	 * @param $hookName string
 	 * @param $args array

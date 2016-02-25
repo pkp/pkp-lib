@@ -217,21 +217,21 @@ class PKPEditorDecisionHandler extends Handler {
 				// Get the comments associated with this review assignment
 				$submissionComments = $submissionCommentDao->getSubmissionComments($submission->getId(), COMMENT_TYPE_PEER_REVIEW, $reviewAssignment->getId());
 
-				$body .= "\n\n$textSeparator\n";
+				$body .= "<br><br>$textSeparator<br>";
 				// If it is not a double blind review, show reviewer's name.
 				if ($reviewAssignment->getReviewMethod() != SUBMISSION_REVIEW_METHOD_DOUBLEBLIND) {
-					$body .= $reviewAssignment->getReviewerFullName() . "\n";
+					$body .= $reviewAssignment->getReviewerFullName() . "<br>\n";
 				} else {
-					$body .= __('submission.comments.importPeerReviews.reviewerLetter', array('reviewerLetter' => String::enumerateAlphabetically($reviewIndexes[$reviewAssignment->getId()]))) . "\n";
+					$body .= __('submission.comments.importPeerReviews.reviewerLetter', array('reviewerLetter' => PKPString::enumerateAlphabetically($reviewIndexes[$reviewAssignment->getId()]))) . "<br>\n";
 				}
 
 				while ($comment = $submissionComments->next()) {
 					// If the comment is viewable by the author, then add the comment.
 					if ($comment->getViewable()) {
-						$body .= String::html2text($comment->getComments()) . "\n\n";
+						$body .= PKPString::html2text($comment->getComments()) . "\n\n";
 					}
 				}
-				$body .= "$textSeparator\n\n";
+				$body .= "<br>$textSeparator<br><br>";
 
 				if ($reviewFormId = $reviewAssignment->getReviewFormId()) {
 					$reviewId = $reviewAssignment->getId();
@@ -241,10 +241,10 @@ class PKPEditorDecisionHandler extends Handler {
 					if(!$submissionComments) {
 						$body .= "$textSeparator\n";
 
-						$body .= __('submission.comments.importPeerReviews.reviewerLetter', array('reviewerLetter' => String::enumerateAlphabetically($reviewIndexes[$reviewAssignment->getId()]))) . "\n\n";
+						$body .= __('submission.comments.importPeerReviews.reviewerLetter', array('reviewerLetter' => PKPString::enumerateAlphabetically($reviewIndexes[$reviewAssignment->getId()]))) . "\n\n";
 					}
 					while ($reviewFormElement = $reviewFormElements->next()) {
-						$body .= String::html2text($reviewFormElement->getLocalizedQuestion()) . ": \n";
+						$body .= PKPString::html2text($reviewFormElement->getLocalizedQuestion()) . ": \n";
 						$reviewFormResponse = $reviewFormResponseDao->getReviewFormResponse($reviewId, $reviewFormElement->getId());
 
 						if ($reviewFormResponse) {
@@ -252,14 +252,14 @@ class PKPEditorDecisionHandler extends Handler {
 							if (in_array($reviewFormElement->getElementType(), $reviewFormElement->getMultipleResponsesElementTypes())) {
 								if ($reviewFormElement->getElementType() == REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES) {
 									foreach ($reviewFormResponse->getValue() as $value) {
-										$body .= "\t" . String::html2text($possibleResponses[$value]) . "\n";
+										$body .= "\t" . PKPString::html2text($possibleResponses[$value]) . "\n";
 									}
 								} else {
-									$body .= "\t" . String::html2text($possibleResponses[$reviewFormResponse->getValue()]) . "\n";
+									$body .= "\t" . PKPString::html2text($possibleResponses[$reviewFormResponse->getValue()]) . "\n";
 								}
 								$body .= "\n";
 							} else {
-								$body .= "\t" . String::html2text($reviewFormResponse->getValue()) . "\n\n";
+								$body .= "\t" . PKPString::html2text($reviewFormResponse->getValue()) . "\n\n";
 							}
 						}
 

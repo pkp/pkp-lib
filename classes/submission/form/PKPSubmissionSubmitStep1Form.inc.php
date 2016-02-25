@@ -155,7 +155,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	 * @param $submission Submission
 	 */
 	function setSubmissionData($submission) {
-		$this->submission->setLanguage(String::substr($this->submission->getLocale(), 0, 2));
+		$this->submission->setLanguage(PKPString::substr($this->submission->getLocale(), 0, 2));
 		$this->submission->setCommentsToEditor($this->getData('commentsToEditor'));
 		$this->submission->setLocale($this->getData('locale'));
 	}

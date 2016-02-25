@@ -464,7 +464,7 @@
 	<message key="submission.submit.addAuthor">Add Contributor</message>
 
 	<!-- Submission file upload form elements -->
-	<message key="submission.form.name">Name the file (e.g., Smith Submission, Smith Table 1)</message>
+	<message key="submission.form.name">Name the file (e.g., Manuscript; Table 1)</message>
 	<message key="submission.form.replaceExisting">Replacing an Existing File?</message>
 
 	<!-- Workflow keys -->

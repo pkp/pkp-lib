@@ -258,7 +258,7 @@ class PKPUserDAO extends DAO {
 		$result = $this->retrieve(
 			'SELECT	u.*,
 				COUNT(DISTINCT rac.review_id) AS complete_count,
-				AVG(rac.date_completed - rac.date_notified) AS average_time,
+				AVG(' . $dateDiffClause . ') AS average_time,
 				MAX(raf.date_assigned) AS last_assigned,
 				COUNT(DISTINCT rai.review_id) AS incomplete_count
 			FROM	users u

@@ -72,7 +72,7 @@ class FilesListbuilderHandler extends ListbuilderHandler {
 		$this->setSaveFieldName('files');
 
 		// Add the file column
-		$itemColumn = new ListbuilderGridColumn($this, 'name', 'common.name');
+		$itemColumn = new ListbuilderGridColumn($this, 'name', 'common.name', null, null, null, array('anyhtml' => true));
 		import('lib.pkp.controllers.listbuilder.files.FileListbuilderGridCellProvider');
 		$itemColumn->setCellProvider(new FileListbuilderGridCellProvider());
 		$this->addColumn($itemColumn);
@@ -91,7 +91,7 @@ class FilesListbuilderHandler extends ListbuilderHandler {
 	function getOptions($submissionFiles) {
 		$itemList = array();
 		foreach ($submissionFiles as $submissionFile) {
-			$itemList[$submissionFile->getFileId()] = $submissionFile->getFileLabel();
+			$itemList[$submissionFile->getFileId()] = $submissionFile->getFileId() . '-' . $submissionFile->getRevision() . ' ' . $submissionFile->getFileLabel();
 		}
 		return array($itemList);
 	}

@@ -38,12 +38,14 @@ class FileListbuilderGridCellProvider extends GridCellProvider {
 		$file = $row->getData();
 		$columnId = $column->getId();
 		assert(is_a($file, 'SubmissionFile') && !empty($columnId));
-		switch ( $columnId ) {
+		switch ($columnId) {
 			case 'name':
-				return array('labelKey' => $file->getFileId(), 'label' => $file->getFileLabel());
+				return array(
+					'labelKey' => $file->getFileId(),
+					'label' => '<span class="label before_actions">' . $file->getFileId() . '-' . $file->getRevision() . '</span>' . htmlspecialchars($file->getFileLabel())
+				);
 		}
-		// we got an unexpected column
-		assert(false);
+		return parent::getTemplateVarsFromRowColumn($row, $column);
 	}
 }
 

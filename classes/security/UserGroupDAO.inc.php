@@ -450,15 +450,15 @@ class UserGroupDAO extends DAO {
 
 		$result = $this->retrieve(
 			'SELECT	*
-			FROM	users
-			WHERE	user_id NOT IN (
+			FROM	users u
+			WHERE	u.user_id NOT IN (
 				SELECT	DISTINCT u.user_id
 				FROM	users u, user_user_groups uug, user_groups ug
 				WHERE	u.user_id = uug.user_id
 					AND ug.user_group_id = uug.user_group_id
-					AND ug.role_id = ?
-				)' .
-				($contextId ? ' AND ug.context_id = ?' : '') .
+					AND ug.role_id = ?' .
+					($contextId ? ' AND ug.context_id = ?' : '') .
+				')' .
 				(isset($search) ? ' AND (u.first_name LIKE ? OR u.middle_name LIKE ? OR u.last_name LIKE ? OR u.email LIKE ? OR u.username LIKE ?)' : ''),
 			$params
 		);

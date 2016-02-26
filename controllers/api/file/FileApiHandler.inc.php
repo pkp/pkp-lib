@@ -103,10 +103,16 @@ class FileApiHandler extends Handler {
 		if ($libraryFile) {
 
 			// If this file has a submission ID, ensure that the current
-			// user is assigned to that submission.
+			// user has access to that submission.
 			if ($libraryFile->getSubmissionId()) {
-				$user = $request->getUser();
 				$allowedAccess = false;
+
+				// Managers are always allowed access.
+				$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+				if (array_intersect($userRoles, array(ROLE_ID_MANAGER))) $allowedAccess = true;
+
+				// Check for specific assignments.
+				$user = $request->getUser();
 				$userStageAssignmentDao = DAORegistry::getDAO('UserStageAssignmentDAO');
 				$assignedUsers = $userStageAssignmentDao->getUsersBySubmissionAndStageId($libraryFile->getSubmissionId(), WORKFLOW_STAGE_ID_SUBMISSION);
 				if (!$assignedUsers->wasEmpty()) {

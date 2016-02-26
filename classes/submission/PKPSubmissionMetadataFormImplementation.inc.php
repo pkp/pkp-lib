@@ -101,9 +101,6 @@ class PKPSubmissionMetadataFormImplementation {
 			$this->_parentForm->setData('disciplines', $submissionDisciplineDao->getDisciplines($submission->getId(), $locales));
 			$this->_parentForm->setData('agencies', $submissionAgencyDao->getAgencies($submission->getId(), $locales));
 			$this->_parentForm->setData('languages', $submissionLanguageDao->getLanguages($submission->getId(), $locales));
-
-			// include all submission metadata fields for submissions
-			$this->_parentForm->setData('submissionSettings', array('all' => true));
 			$this->_parentForm->setData('abstractsRequired', $this->_getAbstractsRequired($submission));
 		}
 	}

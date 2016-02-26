@@ -122,9 +122,21 @@ class PKPSubmissionMetadataViewForm extends Form {
 	function fetch($request) {
 		$submission = $this->getSubmission();
 		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('submissionId', $submission->getId());
-		$templateMgr->assign('stageId', $this->getStageId());
-		$templateMgr->assign('formParams', $this->getFormParams());
+		$templateMgr->assign(array(
+			'submissionId' =>$submission->getId(),
+			'stageId' => $this->getStageId(),
+			'formParams' => $this->getFormParams(),
+		));
+
+		// Tell the form what fields are enabled (and which of those are required)
+		import('lib.pkp.controllers.grid.settings.metadata.MetadataGridHandler');
+		$context = $request->getContext();
+		foreach (array_keys(MetadataGridHandler::getNames()) as $field) {
+			$templateMgr->assign(array(
+				$field . 'Enabled' => $context->getSetting($field . 'EnabledWorkflow'),
+				$field . 'Required' => $context->getSetting($field . 'Required')
+			));
+		}
 
 		return parent::fetch($request);
 	}

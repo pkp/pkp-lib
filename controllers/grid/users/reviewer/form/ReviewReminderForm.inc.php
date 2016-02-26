@@ -19,6 +19,9 @@ class ReviewReminderForm extends Form {
 	/** The review assignment associated with the reviewer **/
 	var $_reviewAssignment;
 
+	/** The submission associated with the review assignment **/
+	var $_submission;
+
 	/**
 	 * Constructor.
 	 */
@@ -41,6 +44,22 @@ class ReviewReminderForm extends Form {
 		return $this->_reviewAssignment;
 	}
 
+	/**
+	 * Get the submission
+	 * @return Submission
+	 */
+	function getSubmission() {
+		return $this->_submission;
+	}
+
+	/**
+	 * Set the submission
+	 * @param $submission Submission
+	 */
+	function setSubmission($submission) {
+		$this->_submission = $submission;
+	}
+
 
 	//
 	// Overridden template methods
@@ -61,6 +80,7 @@ class ReviewReminderForm extends Form {
 
 		$submissionDao = Application::getSubmissionDAO();
 		$submission = $submissionDao->getById($reviewAssignment->getSubmissionId());
+		$this->setSubmission($submission);
 
 		import('lib.pkp.classes.mail.SubmissionMailTemplate');
 		$email = new SubmissionMailTemplate($submission, 'REVIEW_REMIND');
@@ -88,6 +108,50 @@ class ReviewReminderForm extends Form {
 		$this->setData('reviewAssignment', $reviewAssignment);
 		$this->setData('reviewerName', $reviewer->getFullName() . ' <' . $reviewer->getEmail() . '>');
 		$this->setData('message', $email->getBody());
+	}
+
+	/**
+	 * @copydoc Form::fetch()
+	 */
+	function fetch($request) {
+		$context = $request->getContext();
+		$user = $request->getUser();
+
+		// Get the review method options.
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+		$reviewMethods = $reviewAssignmentDao->getReviewMethodsTranslationKeys();
+		$submission = $this->getSubmission();
+
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign('reviewMethods', $reviewMethods);
+		$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
+		$reviewForms = array(0 => __('editor.article.selectReviewForm'));
+		$reviewFormsIterator = $reviewFormDao->getActiveByAssocId(Application::getContextAssocType(), $context->getId());
+		while ($reviewForm = $reviewFormsIterator->next()) {
+			$reviewForms[$reviewForm->getId()] = $reviewForm->getLocalizedTitle();
+		}
+		$templateMgr->assign('reviewForms', $reviewForms);
+		$templateMgr->assign('emailVariables', array(
+			'reviewerName' => __('user.name'),
+			'reviewDueDate' => __('reviewer.submission.reviewDueDate'),
+			'submissionReviewUrl' => __('common.url'),
+			'submissionTitle' => __('submission.title'),
+			'passwordResetUrl' => __('common.url'),
+			'contextName' => $context->getLocalizedName(),
+			'editorialContactSignature' => $user->getContactSignature(),
+		));
+		// Allow the default template
+		$templateKeys[] = $this->_getMailTemplateKey($request->getContext());
+
+		foreach ($templateKeys as $templateKey) {
+			$template = new SubmissionMailTemplate($submission, $templateKey, null, null, null, false);
+			$template->assignParams(array());
+			$templates[$templateKey] = $template->getSubject();
+		}
+
+		$templateMgr->assign('templates', $templates);
+
+		return parent::fetch($request);
 	}
 
 	/**
@@ -124,6 +188,22 @@ class ReviewReminderForm extends Form {
 		$reviewAssignment->stampModified();
 		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
 		$reviewAssignmentDao->updateObject($reviewAssignment);
+	}
+
+	/**
+	 * Get the email template key depending on if reviewer one click access is
+	 * enabled or not.
+	 *
+	 * @param mixed $context Context
+	 * @return int Email template key
+	 */
+	function _getMailTemplateKey($context) {
+		$templateKey = 'REVIEW_REMIND';
+		if ($context->getSetting('reviewerAccessKeysEnabled')) {
+			$templateKey = 'REVIEW_REMIND_ONECLICK';
+		}
+
+		return $templateKey;
 	}
 }
 

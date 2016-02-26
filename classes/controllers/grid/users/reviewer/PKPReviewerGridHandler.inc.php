@@ -310,33 +310,6 @@ class PKPReviewerGridHandler extends GridHandler {
 	}
 
 	/**
-	 * Get potential reviewers for editor's reviewer selection autocomplete.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function getReviewersNotAssignedToSubmission($args, $request) {
-		$context = $request->getContext();
-		$submission = $this->getSubmission();
-		$reviewRound = $this->getReviewRound();
-		$term = $request->getUserVar('term');
-
-		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
-		$reviewers = $userDao->getReviewersNotAssignedToSubmission($context->getId(), $submission->getId(), $reviewRound, $term);
-
-		$reviewerList = array();
-		while($reviewer = $reviewers->next()) {
-			$reviewerList[] = array('label' => $reviewer->getFullName(), 'value' => $reviewer->getId());
-		}
-
-		if (count($reviewerList) == 0) {
-			$reviewerList[] = array('label' => __('common.noMatches'), 'value' => '');
-		}
-
-		return new JSONMessage(true, $reviewerList);
-	}
-
-	/**
 	 * Get a list of all non-reviewer users in the system to populate the reviewer role assignment autocomplete.
 	 * @param $args array
 	 * @param $request PKPRequest

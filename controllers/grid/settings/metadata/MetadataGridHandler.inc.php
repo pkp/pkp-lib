@@ -62,7 +62,7 @@ class MetadataGridHandler extends GridHandler {
 		$this->addColumn(
 			new GridColumn(
 				'submission',
-				'submission.submission',
+				'manager.setup.metadata.submission',
 				null,
 				'controllers/grid/common/cell/selectStatusCell.tpl',
 				$cellProvider,
@@ -73,7 +73,7 @@ class MetadataGridHandler extends GridHandler {
 		$this->addColumn(
 			new GridColumn(
 				'workflow',
-				'manager.workflow',
+				'manager.setup.metadata.workflow',
 				null,
 				'controllers/grid/common/cell/selectStatusCell.tpl',
 				$cellProvider,
@@ -105,6 +105,13 @@ class MetadataGridHandler extends GridHandler {
 	 */
 	protected function loadData($request, $filter) {
 		return $this->getNames();
+	}
+
+	/**
+	 * @see GridHandler::getJSHandler()
+	 */
+	public function getJSHandler() {
+		return '$.pkp.controllers.grid.settings.metadata.MetadataGridHandler';
 	}
 }
 

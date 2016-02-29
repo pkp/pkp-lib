@@ -8,7 +8,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class MetadataGridCellProvider
- * @ingroup controllers_grid_settings/metadata
+ * @ingroup controllers_grid_settings_metadata
  *
  * @brief Subclass for a metadata grid column's cell provider
  */

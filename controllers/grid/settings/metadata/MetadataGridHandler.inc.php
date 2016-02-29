@@ -8,7 +8,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class MetadataGridHandler
- * @ingroup classes_controllers_grid_settings_metadata
+ * @ingroup controllers_grid_settings_metadata
  *
  * @brief Handle metadata grid requests.
  */
@@ -57,7 +57,7 @@ class MetadataGridHandler extends GridHandler {
 				'name',
 				'common.name',
 				null,
-				'controllers/grid/languages/localeNameCell.tpl',
+				'controllers/grid/gridCell.tpl',
 				$cellProvider,
 				array('width' => 60)
 			)
@@ -115,7 +115,7 @@ class MetadataGridHandler extends GridHandler {
 	// Public handler methods.
 	//
 	/**
-	 * Save language management settings.
+	 * Save metadata settings.
 	 * @param $args array
 	 * @param $request Request
 	 * @return JSONObject JSON message

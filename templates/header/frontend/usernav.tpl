@@ -20,12 +20,12 @@
 			{include file="controllers/page/tasks.tpl"}
 		</li>
 		<li class="profile has_submenu">
-			<a href="{url router=$smarty.const.ROUTE_PAGE page="dashboard"}">{$loggedInUsername|escape}</a>
+			<a href="{url router=$smarty.const.ROUTE_PAGE page="submissions"}">{$loggedInUsername|escape}</a>
 			<ul>
 				{if array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR), $userRoles)}
 					<li>
-						<a href="{url router=$smarty.const.ROUTE_PAGE page="dashboard"}">
-							{translate key="navigation.dashboard"}
+						<a href="{url router=$smarty.const.ROUTE_PAGE page="submissions"}">
+							{translate key="navigation.submissions"}
 						</a>
 					</li>
 				{/if}

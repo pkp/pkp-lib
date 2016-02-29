@@ -408,7 +408,7 @@ class PKPPageRouter extends PKPRouter {
 				$userGroup = $userGroups->next();
 				if (!$userGroup || $userGroup->getRoleId() == ROLE_ID_READER) return $request->url(null, 'index');
 			}
-			return $request->url(null, 'dashboard');
+			return $request->url(null, 'submissions');
 		} else {
 			// The user is at the site context, check to see if they are
 			// only registered in one place w/ one role

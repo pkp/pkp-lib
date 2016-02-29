@@ -22,7 +22,7 @@ class DashboardHandler extends Handler {
 		parent::Handler();
 
 		$this->addRoleAssignment(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_AUTHOR, ROLE_ID_REVIEWER, ROLE_ID_ASSISTANT),
-				array('index', 'tasks', 'submissions', 'active', 'archives'));
+				array('index', 'tasks', 'myQueue', 'active', 'archives'));
 	}
 
 	/**
@@ -63,12 +63,12 @@ class DashboardHandler extends Handler {
 	}
 
 	/**
-	 * View submissions tab
+	 * View myQueue tab
 	 * @param $args array
 	 * @param $request PKPRequest
 	 * @return JSONMessage JSON object
 	 */
-	function submissions($args, $request) {
+	function myQueue($args, $request) {
 		$templateMgr = TemplateManager::getManager($request);
 		$this->setupTemplate($request);
 
@@ -91,7 +91,7 @@ class DashboardHandler extends Handler {
 			}
 		}
 
-		return $templateMgr->fetchJson('dashboard/submissions.tpl');
+		return $templateMgr->fetchJson('dashboard/myQueue.tpl');
 	}
 
 	/**

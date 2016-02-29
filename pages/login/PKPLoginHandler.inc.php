@@ -406,7 +406,7 @@ class PKPLoginHandler extends Handler {
 	 * @param $request PKPRequest
 	 */
 	protected function sendHome($request) {
-		if ($request->getContext()) $request->redirect(null, 'dashboard');
+		if ($request->getContext()) $request->redirect(null, 'submissions');
 		else $request->redirect(null, 'user');
 	}
 }

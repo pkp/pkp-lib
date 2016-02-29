@@ -72,11 +72,13 @@
 
 						{if array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR), (array)$userRoles)}
 							<li>
-								<a href="{url router=$smarty.const.ROUTE_PAGE page="dashboard"}">
-									{translate key="navigation.dashboard"}
+								<a href="{url router=$smarty.const.ROUTE_PAGE page="submissions"}">
+									{translate key="navigation.submissions"}
 								</a>
 							</li>
 						{/if}
+
+						{$appSpecificMenuItems}
 
 						{if array_intersect(array(ROLE_ID_MANAGER), (array)$userRoles)}
 							<li class="has_submenu">

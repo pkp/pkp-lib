@@ -8,7 +8,7 @@
  * Dashboard index.
  *}
 {strip}
-{assign var="pageTitle" value="navigation.dashboard"}
+{assign var="pageTitle" value="navigation.submissions"}
 {include file="common/header.tpl"}
 {/strip}
 
@@ -20,14 +20,13 @@
 </script>
 <div id="dashboardTabs" class="pkp_controllers_tab">
 	<ul>
-		<li><a name="submissions" href="{url op="submissions"}">{translate key="dashboard.submissions"}</a></li>
+		<li><a name="myQueue" href="{url op="myQueue"}">{translate key="dashboard.myQueue"}</a></li>
 		{if array_intersect(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER), $userRoles)}
 			<li><a name="active" href="{url op="active"}">{translate key="common.queue.long.active"}</a></li>
 		{/if}
 		{if array_intersect(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_REVIEWER, ROLE_ID_ASSISTANT), $userRoles)}
 			<li><a name="archives" href="{url op="archives"}">{translate key="navigation.archives"}</a></li>
 		{/if}
-		{$additionalDashboardTabs}
 	</ul>
 </div>
 

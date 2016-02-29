@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file controllers/grid/settings/metadata/LanguageGridCellProvider.inc.php
+ * @file controllers/grid/settings/metadata/MetadataGridCellProvider.inc.php
  *
  * Copyright (c) 2014-2016 Simon Fraser University Library
  * Copyright (c) 2003-2016 John Willinsky

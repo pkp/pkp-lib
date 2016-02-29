@@ -197,8 +197,7 @@ class PKPUserDAO extends DAO {
 			JOIN user_group_stage ugs ON (ugs.user_group_id = ug.user_group_id AND ugs.stage_id = ?)
 			WHERE 0=(SELECT COUNT(r.reviewer_id)
 			FROM review_assignments r
-			WHERE r.submission_id = ? AND r.reviewer_id = u.user_id AND (r.review_round_id = ? OR' .
-			$reviewAssignmentDao->getIncompleteReviewAssignmentsWhereString() . '))' .
+			WHERE r.submission_id = ? AND r.reviewer_id = u.user_id AND r.review_round_id = ?)' .
 			(!empty($name)?' AND (first_name LIKE ? OR last_name LIKE ? OR username LIKE ? OR email LIKE ?)':'') .
 			' ORDER BY last_name, first_name',
 			$params

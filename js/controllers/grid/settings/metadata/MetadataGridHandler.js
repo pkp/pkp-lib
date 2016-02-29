@@ -72,7 +72,8 @@
 			toggleSubmissionEnabledHandler_ = function(callingContext, opt_event) {
 		var $checkbox = $(callingContext), checked = $checkbox.is(':checked'),
 				$grid = $(this.getHtmlElement()), name = $checkbox.attr('name'),
-				$pair = $grid.find('input:checkbox[name="' + name.replace('EnabledSubmission', 'EnabledWorkflow' + '"]'));
+				$pair = $grid.find('input:checkbox[name="' +
+				name.replace('EnabledSubmission', 'EnabledWorkflow' + '"]'));
 		if (checked) {
 			// Workflow checkbox must be enabled if submission checkbox is
 			$pair.prop('checked', true);

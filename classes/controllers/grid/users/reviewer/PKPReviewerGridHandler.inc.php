@@ -727,7 +727,7 @@ class PKPReviewerGridHandler extends GridHandler {
 		return array(
 			'fetchGrid', 'fetchRow', 'showReviewerForm', 'reloadReviewerForm',
 			'createReviewer', 'enrollReviewer', 'updateReviewer',
-			'getReviewersNotAssignedToSubmission', 'getUsersNotAssignedAsReviewers',
+			'getUsersNotAssignedAsReviewers',
 			'fetchTemplateBody'
 		);
 	}

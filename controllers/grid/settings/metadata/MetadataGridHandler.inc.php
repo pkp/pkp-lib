@@ -22,10 +22,6 @@ class MetadataGridHandler extends GridHandler {
 	 */
 	function MetadataGridHandler() {
 		parent::GridHandler();
-		$this->addRoleAssignment(
-			ROLE_ID_MANAGER,
-			array('saveMetadataSetting')
-		);
 	}
 
 
@@ -109,46 +105,6 @@ class MetadataGridHandler extends GridHandler {
 	 */
 	protected function loadData($request, $filter) {
 		return $this->getNames();
-	}
-
-	//
-	// Public handler methods.
-	//
-	/**
-	 * Save metadata settings.
-	 * @param $args array
-	 * @param $request Request
-	 * @return JSONObject JSON message
-	 */
-	function saveMetadataSetting($args, $request) {
-		$field = (string) $request->getUserVar('rowId');
-		$settingName = (string) $request->getUserVar('setting');
-		$settingValue = (boolean) $request->getUserVar('value');
-die('FIXME');
-		$availableLocales = $this->getGridDataElements($request);
-		$context = $request->getContext();
-
-		$permittedSettings = array('supportedFormLocales', 'supportedSubmissionLocales', 'supportedLocales');
-		if (in_array($settingName, $permittedSettings) && $locale) {
-			$currentSettingValue = (array) $context->getSetting($settingName);
-			if (AppLocale::isLocaleValid($locale) && array_key_exists($locale, $availableLocales)) {
-				if ($settingValue) {
-					array_push($currentSettingValue, $locale);
-				} else {
-					$key = array_search($locale, $currentSettingValue);
-					if ($key !== false) unset($currentSettingValue[$key]);
-				}
-			}
-		}
-
-		$context->updateSetting($settingName, $currentSettingValue);
-
-		$notificationManager = new NotificationManager();
-		$user = $request->getUser();
-		$notificationManager->createTrivialNotification(
-			$user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.localeSettingsSaved')));
-
-		return DAO::getDataChangedEvent($locale);
 	}
 }
 

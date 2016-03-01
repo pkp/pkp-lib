@@ -411,8 +411,6 @@
 	<message key="submissions.ruling">Ruling</message>
 	<message key="submission.source">Source</message>
 	<message key="submission.source.tip">Is this submission derived from another resource? If so, you may enter a URL or description of that resource.</message>
-	<message key="submission.subjectClass">Submission Subject</message>
-	<message key="submission.subjectClass.tip">Please describe your submission using a few key phrases.  You may refine the subject with specific keywords in a latter part of the form.</message>
 	<message key="submissions.submit">Submit</message>
 	<message key="submissions.submitted">Submitted</message>
 	<message key="submission.submission">Submission</message>

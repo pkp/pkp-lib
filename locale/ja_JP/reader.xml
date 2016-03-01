@@ -125,7 +125,6 @@
 	<message key="rt.metadata.pkp.publisher">組織機関、住所</message>
 	<message key="rt.metadata.pkp.source">雑誌・会議名; 巻, 号 （年）</message>
 	<message key="rt.metadata.pkp.sponsors">スポンサー</message>
-	<message key="rt.metadata.pkp.subjectClass">主題分類</message>
 	<message key="rt.metadata.pkp.subject">キーワード</message>
 	<message key="rt.metadata.pkp.suppFiles">補足ファイル</message>
 	<message key="rt.metadata.pkp.title">文書のタイトル</message>

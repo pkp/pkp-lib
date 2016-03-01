@@ -151,7 +151,6 @@
 	<message key="rt.metadata.pkp.publisher">Organizující agentura, umístění</message>
 	<message key="rt.metadata.pkp.source">Název časopisu/konference; vol., no. (rok)</message>
 	<message key="rt.metadata.pkp.sponsors">Sponzor(ři)</message>
-	<message key="rt.metadata.pkp.subjectClass">Klasifikace předmětu</message>
 	<message key="rt.metadata.pkp.subject">Klíčové slovo(a)</message>
 	<message key="rt.metadata.pkp.suppFiles">Doplň. soubory</message>
 	<message key="rt.metadata.pkp.title">Název dokumentu</message>

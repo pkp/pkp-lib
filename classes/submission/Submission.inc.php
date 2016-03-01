@@ -583,32 +583,6 @@ abstract class Submission extends DataObject {
 	}
 
 	/**
-	 * Return the localized subject classification
-	 * @return string
-	 */
-	function getLocalizedSubjectClass() {
-		return $this->getLocalizedData('subjectClass');
-	}
-
-	/**
-	 * Get subject classification.
-	 * @param $locale
-	 * @return string
-	 */
-	function getSubjectClass($locale) {
-		return $this->getData('subjectClass', $locale);
-	}
-
-	/**
-	 * Set subject classification.
-	 * @param $subjectClass string
-	 * @param $locale
-	 */
-	function setSubjectClass($subjectClass, $locale) {
-		$this->setData('subjectClass', $subjectClass, $locale);
-	}
-
-	/**
 	 * Return the localized subject
 	 * @return string
 	 */

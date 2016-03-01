@@ -297,10 +297,6 @@ class Mods34SchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 		$localizedDisciplines = $submission->getDiscipline(null); // Localized
 		$this->addLocalizedStatements($mods34Description, 'subject/topic', $localizedDisciplines);
 
-		// Subject class
-		$localizedSubjectClasses = $submission->getSubjectClass(null); // Localized
-		$this->addLocalizedStatements($mods34Description, 'subject/topic', $localizedSubjectClasses);
-
 		// Subject
 		$localizedSubjects = $submission->getSubject(null); // Localized
 		$this->addLocalizedStatements($mods34Description, 'subject/topic', $localizedSubjects);

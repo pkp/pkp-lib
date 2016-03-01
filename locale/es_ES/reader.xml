@@ -128,7 +128,6 @@
 	<message key="rt.metadata.pkp.publisher">Agencia organizadora, ubicación</message>
 	<message key="rt.metadata.pkp.source">Título de la revista/congreso; vol., núm. (año)</message>
 	<message key="rt.metadata.pkp.sponsors">Patrocinador(es)</message>
-	<message key="rt.metadata.pkp.subjectClass">Clasificación de la materia</message>
 	<message key="rt.metadata.pkp.subject">Palabra(s) clave(s)</message>
 	<message key="rt.metadata.pkp.suppFiles">Archivos complementarios</message>
 	<message key="rt.metadata.pkp.title">Título del documento</message>

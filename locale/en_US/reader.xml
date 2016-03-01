@@ -149,7 +149,6 @@
 	<message key="rt.metadata.pkp.publisher">Organizing agency, location</message>
 	<message key="rt.metadata.pkp.source">Title; vol., no. (year)</message>
 	<message key="rt.metadata.pkp.sponsors">Sponsor(s)</message>
-	<message key="rt.metadata.pkp.subjectClass">Subject classification</message>
 	<message key="rt.metadata.pkp.subject">Keyword(s)</message>
 	<message key="rt.metadata.pkp.suppFiles">Supp. Files</message>
 	<message key="rt.metadata.pkp.title">Title of document</message>

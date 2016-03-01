@@ -149,7 +149,6 @@
 	<message key="rt.metadata.pkp.publisher">Verlag, Ort</message>
 	<message key="rt.metadata.pkp.source">Titel; Bd.; Nr. (Jahr)</message>
 	<message key="rt.metadata.pkp.sponsors">Unterstützer/innen</message>
-	<message key="rt.metadata.pkp.subjectClass">Klassifizierung des Themas</message>
 	<message key="rt.metadata.pkp.subject">Schlagwort(e)</message>
 	<message key="rt.metadata.pkp.suppFiles">Zusatzdateien</message>
 	<message key="rt.metadata.pkp.title">Titel des Dokuments</message>

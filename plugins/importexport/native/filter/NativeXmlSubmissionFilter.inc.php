@@ -230,7 +230,6 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 			'prefix' => 'setPrefix',
 			'subtitle' => 'setSubtitle',
 			'abstract' => 'setAbstract',
-			'subject_class' => 'setSubjectClass',
 			'coverage' => 'setCoverage',
 			'source' => 'setSource',
 			'rights' => 'setRights',

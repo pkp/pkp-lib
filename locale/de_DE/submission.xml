@@ -412,8 +412,6 @@
 	<message key="submissions.ruling">Beschluss</message>
 	<message key="submission.source">Quelle</message>
 	<message key="submission.source.tip">Basiert diese Einreichung auf einer anderen Quelle? In diesem Fall können Sie eine URL oder Beschreibung dieser Quelle eingeben.</message>
-	<message key="submission.subjectClass">Thema der Einreichung</message>
-	<message key="submission.subjectClass.tip">Bitte beschreiben Sie Ihre Einreichung mit wenigen Schlüsselworten. Sie können das Thema in einem späteren Teil des Formulars mit detaillierten Schlagworten eingrenzen.</message>
 	<message key="submissions.submit">Einreichen</message>
 	<message key="submissions.submitted">Eingereicht</message>
 	<message key="submission.submission">Einreichung</message>

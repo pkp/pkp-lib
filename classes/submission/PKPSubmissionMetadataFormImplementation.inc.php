@@ -72,7 +72,6 @@ class PKPSubmissionMetadataFormImplementation {
 				'prefix' => $submission->getPrefix(null), // Localized
 				'subtitle' => $submission->getSubtitle(null), // Localized
 				'abstract' => $submission->getAbstract(null), // Localized
-				'subjectClass' => $submission->getSubjectClass(null), // Localized
 				'coverage' => $submission->getCoverage(null), // Localized
 				'type' => $submission->getType(null), // Localized
 				'source' =>$submission->getSource(null), // Localized
@@ -108,7 +107,7 @@ class PKPSubmissionMetadataFormImplementation {
 	 */
 	function readInputData() {
 		// 'keywords' is a tagit catchall that contains an array of values for each keyword/locale combination on the form.
-		$userVars = array('title', 'prefix', 'subtitle', 'abstract', 'coverage', 'type', 'subjectClass', 'source', 'rights', 'keywords', 'citations');
+		$userVars = array('title', 'prefix', 'subtitle', 'abstract', 'coverage', 'type', 'source', 'rights', 'keywords', 'citations');
 		$this->_parentForm->readUserVars($userVars);
 	}
 
@@ -117,7 +116,7 @@ class PKPSubmissionMetadataFormImplementation {
 	 * @return array
 	 */
 	function getLocaleFieldNames() {
-		return array('title', 'prefix', 'subtitle', 'abstract', 'coverage', 'type', 'subjectClass', 'source', 'rights');
+		return array('title', 'prefix', 'subtitle', 'abstract', 'coverage', 'type', 'source', 'rights');
 	}
 
 	/**
@@ -136,7 +135,6 @@ class PKPSubmissionMetadataFormImplementation {
 		$submission->setAbstract($this->_parentForm->getData('abstract'), null); // Localized
 		$submission->setCoverage($this->_parentForm->getData('coverage'), null); // Localized
 		$submission->setType($this->_parentForm->getData('type'), null); // Localized
-		$submission->setSubjectClass($this->_parentForm->getData('subjectClass'), null); // Localized
 		$submission->setRights($this->_parentForm->getData('rights'), null); // Localized
 		$submission->setSource($this->_parentForm->getData('source'), null); // Localized
 		$submission->setCitations($this->_parentForm->getData('citations'));

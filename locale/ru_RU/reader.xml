@@ -148,7 +148,6 @@
 	<message key="rt.metadata.pkp.publisher">Организатор, город</message>
 	<message key="rt.metadata.pkp.source">Журнал/конференция, том., №. (год)</message>
 	<message key="rt.metadata.pkp.sponsors">Спонсоры</message>
-	<message key="rt.metadata.pkp.subjectClass">Классификация</message>
 	<message key="rt.metadata.pkp.subject">Предметы</message>
 	<message key="rt.metadata.pkp.suppFiles">Дополнительные файлы</message>
 	<message key="rt.metadata.pkp.title">Название документа</message>

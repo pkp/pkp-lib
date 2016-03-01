@@ -520,11 +520,9 @@
 	<message key="submission.production">Production</message>
 	<message key="submission.reviewed">Révisé</message>
 	<message key="submission.source">Source</message>
-	<message key="submission.subjectClass">Sujet de la soumission</message>
 	<message key="submission.submit.metadataStep">2. Métadonnées</message>
 	<message key="submission.rights.tip">Si vous le désirez, vous pouvez ajouter une brève note concernant les droits d'accès de votre soumission.</message>
 	<message key="submission.source.tip">Est-ce que cette soumission dérive d'une autre ressource? Si oui, vous devez indiquer l'adresse URL ou décrire cette ressource.</message>
-	<message key="submission.subjectClass.tip">Veuillez décrire votre soumission à l'aide de quelques phrases clés. Vous pouvez préciser le sujet à l'aide de mots clés spécifiques au bas du formulaire.</message>
 	<message key="submission.submit.metadataForm">Autres modifications</message>
 	<message key="submission.submit.metadataForm.tip">Ajouter d'autres renseignements pour votre soumission. Veuillez appuyer sur la touche "enter" après chaque terme.</message>
 	<message key="submission.submit.submissionFiles">Fichiers de soumission</message>

@@ -73,9 +73,7 @@ class PKPSubmissionMetadataFormImplementation {
 				'subtitle' => $submission->getSubtitle(null), // Localized
 				'abstract' => $submission->getAbstract(null), // Localized
 				'subjectClass' => $submission->getSubjectClass(null), // Localized
-				'coverageGeo' => $submission->getCoverageGeo(null), // Localized
-				'coverageChron' => $submission->getCoverageChron(null), // Localized
-				'coverageSample' => $submission->getCoverageSample(null), // Localized
+				'coverage' => $submission->getCoverage(null), // Localized
 				'type' => $submission->getType(null), // Localized
 				'source' =>$submission->getSource(null), // Localized
 				'rights' => $submission->getRights(null), // Localized
@@ -110,7 +108,7 @@ class PKPSubmissionMetadataFormImplementation {
 	 */
 	function readInputData() {
 		// 'keywords' is a tagit catchall that contains an array of values for each keyword/locale combination on the form.
-		$userVars = array('title', 'prefix', 'subtitle', 'abstract', 'coverageGeo', 'coverageChron', 'coverageSample', 'type', 'subjectClass', 'source', 'rights', 'keywords', 'citations');
+		$userVars = array('title', 'prefix', 'subtitle', 'abstract', 'coverage', 'type', 'subjectClass', 'source', 'rights', 'keywords', 'citations');
 		$this->_parentForm->readUserVars($userVars);
 	}
 
@@ -119,7 +117,7 @@ class PKPSubmissionMetadataFormImplementation {
 	 * @return array
 	 */
 	function getLocaleFieldNames() {
-		return array('title', 'prefix', 'subtitle', 'abstract', 'coverageGeo', 'coverageChron', 'coverageSample', 'type', 'subjectClass', 'source', 'rights');
+		return array('title', 'prefix', 'subtitle', 'abstract', 'coverage', 'type', 'subjectClass', 'source', 'rights');
 	}
 
 	/**
@@ -136,9 +134,7 @@ class PKPSubmissionMetadataFormImplementation {
 		$submission->setPrefix($this->_parentForm->getData('prefix'), null); // Localized
 		$submission->setSubtitle($this->_parentForm->getData('subtitle'), null); // Localized
 		$submission->setAbstract($this->_parentForm->getData('abstract'), null); // Localized
-		$submission->setCoverageGeo($this->_parentForm->getData('coverageGeo'), null); // Localized
-		$submission->setCoverageChron($this->_parentForm->getData('coverageChron'), null); // Localized
-		$submission->setCoverageSample($this->_parentForm->getData('coverageSample'), null); // Localized
+		$submission->setCoverage($this->_parentForm->getData('coverage'), null); // Localized
 		$submission->setType($this->_parentForm->getData('type'), null); // Localized
 		$submission->setSubjectClass($this->_parentForm->getData('subjectClass'), null); // Localized
 		$submission->setRights($this->_parentForm->getData('rights'), null); // Localized

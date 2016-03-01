@@ -60,7 +60,7 @@ abstract class SubmissionDAO extends DAO {
 		return array_merge(parent::getLocaleFieldNames(), array(
 			'title', 'cleanTitle', 'abstract', 'prefix', 'subtitle',
 			'discipline', 'subjectClass', 'subject',
-			'coverageGeo', 'coverageChron', 'coverageSample',
+			'coverage',
 			'type', 'sponsor', 'source', 'rights',
 			'copyrightHolder',
 		));

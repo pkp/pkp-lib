@@ -166,21 +166,7 @@ class Mods34SchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 		// distinguish them within a list of MODS topic elements. Can we use several subject
 		// statements with different authorities instead?
 
-		// Geographical coverage
-		$localizedCoverageGeos = $mods34Description->getStatementTranslations('subject/geographic');
-		if (is_array($localizedCoverageGeos)) {
-			foreach($localizedCoverageGeos as $locale => $localizedCoverageGeo) {
-				$submission->setCoverageGeo($localizedCoverageGeo, $locale);
-			}
-		}
-
-		// Chronological coverage
-		$localizedCoverageChrons = $mods34Description->getStatementTranslations('subject/temporal');
-		if (is_array($localizedCoverageChrons)) {
-			foreach($localizedCoverageChrons as $locale => $localizedCoverageChron) {
-				$submission->setCoverageChron($localizedCoverageChron, $locale);
-			}
-		}
+		// FIXME: We do not include coverage information at the moment.
 
 		// Record identifier
 		// NB: We currently don't override the submission id with the record identifier in MODS
@@ -319,13 +305,7 @@ class Mods34SchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 		$localizedSubjects = $submission->getSubject(null); // Localized
 		$this->addLocalizedStatements($mods34Description, 'subject/topic', $localizedSubjects);
 
-		// Geographical coverage
-		$localizedCoverageGeo = $submission->getCoverageGeo(null); // Localized
-		$this->addLocalizedStatements($mods34Description, 'subject/geographic', $localizedCoverageGeo);
-
-		// Chronological coverage
-		$localizedCoverageChron = $submission->getCoverageChron(null); // Localized
-		$this->addLocalizedStatements($mods34Description, 'subject/temporal', $localizedCoverageChron);
+		// FIXME: Coverage not included
 
 		// Record creation date
 		$recordCreationDate = date('Y-m-d');

@@ -635,81 +635,29 @@ abstract class Submission extends DataObject {
 	}
 
 	/**
-	 * Return the localized geographical coverage
+	 * Return the localized coverage
 	 * @return string
 	 */
-	function getLocalizedCoverageGeo() {
-		return $this->getLocalizedData('coverageGeo');
+	function getLocalizedCoverage() {
+		return $this->getLocalizedData('coverage');
 	}
 
 	/**
-	 * Get geographical coverage.
+	 * Get coverage.
 	 * @param $locale
 	 * @return string
 	 */
-	function getCoverageGeo($locale) {
-		return $this->getData('coverageGeo', $locale);
+	function getCoverage($locale) {
+		return $this->getData('coverage', $locale);
 	}
 
 	/**
-	 * Set geographical coverage.
-	 * @param $coverageGeo string
+	 * Set coverage.
+	 * @param $coverage string
 	 * @param $locale
 	 */
-	function setCoverageGeo($coverageGeo, $locale) {
-		$this->setData('coverageGeo', $coverageGeo, $locale);
-	}
-
-	/**
-	 * Return the localized chronological coverage
-	 * @return string
-	 */
-	function getLocalizedCoverageChron() {
-		return $this->getLocalizedData('coverageChron');
-	}
-
-	/**
-	 * Get chronological coverage.
-	 * @param $locale
-	 * @return string
-	 */
-	function getCoverageChron($locale) {
-		return $this->getData('coverageChron', $locale);
-	}
-
-	/**
-	 * Set chronological coverage.
-	 * @param $coverageChron string
-	 * @param $locale
-	 */
-	function setCoverageChron($coverageChron, $locale) {
-		$this->setData('coverageChron', $coverageChron, $locale);
-	}
-
-	/**
-	 * Return the localized sample coverage
-	 * @return string
-	 */
-	function getLocalizedCoverageSample() {
-		return $this->getLocalizedData('coverageSample');
-	}
-
-	/**
-	 * Get research sample coverage.
-	 * @param $locale
-	 * @return string
-	 */
-	function getCoverageSample($locale) {
-		return $this->getData('coverageSample', $locale);
-	}
-
-	/**
-	 * Set geographical coverage.
-	 * @param $coverageSample string
-	 * @param $locale
-	 */
-	function setCoverageSample($coverageSample, $locale) {
-		$this->setData('coverageSample', $coverageSample, $locale);
+	function setCoverage($coverage, $locale) {
+		$this->setData('coverage', $coverage, $locale);
 	}
 
 	/**

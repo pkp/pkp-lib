@@ -231,9 +231,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 			'subtitle' => 'setSubtitle',
 			'abstract' => 'setAbstract',
 			'subject_class' => 'setSubjectClass',
-			'coverage_geo' => 'setCoverageGeo',
-			'coverage_chron' => 'setCoverageChron',
-			'coverage_sample' => 'setCoverageSample',
+			'coverage' => 'setCoverage',
 			'source' => 'setSource',
 			'rights' => 'setRights',
 		);

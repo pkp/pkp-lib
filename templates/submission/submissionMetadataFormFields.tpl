@@ -8,22 +8,13 @@
  * Submission's metadata form fields. To be included in any form that wants to handle
  * submission metadata.
  *}
-{if $coverageEnabled}
-	{fbvFormArea id="coverageInformation" title="submission.coverage"}
-		{fbvFormSection title="submission.coverage.chron" for="coverageChron" description="submission.coverage.tip"}
-			{fbvElement type="text" multilingual=true name="coverageChron" id="coverageChron" value=$coverageChron maxlength="255" readonly=$readOnly}
-		{/fbvFormSection}
-		{fbvFormSection title="submission.coverage.geo" for="coverageGeo"}
-			{fbvElement type="text" multilingual=true name="coverageGeo" id="coverageGeo" value=$coverageGeo maxlength="255" readonly=$readOnly}
-		{/fbvFormSection}
-		{fbvFormSection title="submission.coverage.sample" for="coverageSample"}
-			{fbvElement type="text" multilingual=true name="coverageSample" id="coverageSample" value=$coverageSample maxlength="255" readonly=$readOnly}
-		{/fbvFormSection}
-	{/fbvFormArea}
-{/if}
-
-{if $typeEnabled || $subjectEnabled || $sourceEnabled || $rightsEnabled}
-	{fbvFormArea id="additionalDublinCore" title="common.type"}
+{if $coverageEnabled || $typeEnabled || $subjectEnabled || $sourceEnabled || $rightsEnabled}
+	{fbvFormArea id="additionalDublinCore"}
+		{if $coverageEnabled}
+			{fbvFormSection title="submission.coverage" for="coverage"}
+				{fbvElement type="text" multilingual=true name="coverage" id="coverage" value=$coverage maxlength="255" readonly=$readOnly}
+			{/fbvFormSection}
+		{/if}
 		{if $typeEnabled}
 			{fbvFormSection for="type" title="common.type" description="submission.type.tip"}
 				{fbvElement type="text" multilingual=true name="type" id="type" value=$type maxlength="255" readonly=$readOnly}

@@ -164,9 +164,7 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 		$this->createLocalizedNodes($doc, $submissionNode, 'subtitle', $submission->getSubtitle(null));
 		$this->createLocalizedNodes($doc, $submissionNode, 'abstract', $submission->getAbstract(null));
 		$this->createLocalizedNodes($doc, $submissionNode, 'subject_class', $submission->getSubjectClass(null));
-		$this->createLocalizedNodes($doc, $submissionNode, 'coverage_geo', $submission->getCoverageGeo(null));
-		$this->createLocalizedNodes($doc, $submissionNode, 'coverage_chron', $submission->getCoverageChron(null));
-		$this->createLocalizedNodes($doc, $submissionNode, 'coverage_sample', $submission->getCoverageSample(null));
+		$this->createLocalizedNodes($doc, $submissionNode, 'coverage', $submission->getCoverage(null));
 		$this->createLocalizedNodes($doc, $submissionNode, 'type', $submission->getType(null));
 		$this->createLocalizedNodes($doc, $submissionNode, 'source', $submission->getSource(null));
 		$this->createLocalizedNodes($doc, $submissionNode, 'rights', $submission->getRights(null));

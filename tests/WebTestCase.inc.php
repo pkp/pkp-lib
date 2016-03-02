@@ -378,7 +378,8 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 		while($loadedItems < $totalItems) {
 			$this->runScript('$(\'.scrollable\', \'#' . $gridContainerId . '\').find(\'tr:visible\').last()[0].scrollIntoView()');
 			$this->waitJQuery();
-			$pagingInfo = $this->getText('css=#' . $gridContainerId . ' .gridPagingScrolling');
+			$this->waitForElementPresent($selector='css=#' . $gridContainerId . ' .gridPagingScrolling');
+			$pagingInfo = $this->getText($selector);
 			if (!$pagingInfo) break;
 
 			$pagingInfo = explode(' ', $pagingInfo);
@@ -392,7 +393,7 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	 */
 	protected function scrollPageDown() {
 		$this->waitJQuery();
-		$this->runScript('scroll(0, document.body.scrollHeight()');	
+		$this->runScript('scroll(0, document.body.scrollHeight()');
 	}
 }
 ?>

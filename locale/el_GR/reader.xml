@@ -128,7 +128,6 @@
 	<message key="rt.metadata.pkp.publisher">Φορέας οργάνωσης, τοποθεσία</message>
 	<message key="rt.metadata.pkp.source"> Περιοδικό/τίτλος συνεδρίου, τόμος, αρ. (έτος)</message>
 	<message key="rt.metadata.pkp.sponsors">Χορηγός(-οί)</message>
-	<message key="rt.metadata.pkp.subjectClass">Ταξινόμηση θέματος</message>
 	<message key="rt.metadata.pkp.subject">Λέξη-κλειδί (λέξεις-κλειδιά)</message>
 	<message key="rt.metadata.pkp.suppFiles">Συμπλ. Αρχεία </message>
 	<message key="rt.metadata.pkp.title">Τίτλος εγγράφου</message>

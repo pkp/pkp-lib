@@ -15,20 +15,38 @@
 
 import('lib.pkp.classes.controllers.tab.settings.form.ContextSettingsForm');
 
+// We delegate some settings on this form to the MetadataGridHandler
+import('lib.pkp.controllers.grid.settings.metadata.MetadataGridHandler');
+
 class SubmissionStageForm extends ContextSettingsForm {
 
 	/**
 	 * Constructor.
+	 * @param $wizardMode boolean True iff in wizard mode.
 	 */
 	function SubmissionStageForm($wizardMode = false) {
-		$settings = array(
-			'copySubmissionAckPrimaryContact' => 'bool',
-			'copySubmissionAckAddress' => 'string'
-		);
-
 		$this->addCheck(new FormValidatorEmail($this, 'copySubmissionAckAddress'));
 
-		parent::ContextSettingsForm($settings, 'controllers/tab/settings/submissionStage/form/submissionStageForm.tpl', $wizardMode);
+		// Add the list of metadata field-related settings per the MetadataGridHandler
+		// e.g.: typeEnabledSubmission; typeEnabledWorkflow; typeRequired
+		$metadataFieldNames = array_keys(MetadataGridHandler::getNames());
+		$metadataSettings = array_merge(
+			array_map(function($n) {return $n.'EnabledSubmission';}, $metadataFieldNames),
+			array_map(function($n) {return $n.'EnabledWorkflow';}, $metadataFieldNames),
+			array_map(function($n) {return $n.'Required';}, $metadataFieldNames)
+		);
+
+		parent::ContextSettingsForm(
+			array_merge(
+				array(
+					'copySubmissionAckPrimaryContact' => 'bool',
+					'copySubmissionAckAddress' => 'string'
+				),
+				array_combine($metadataSettings, array_fill(0, count($metadataSettings), 'bool'))
+			),
+			'controllers/tab/settings/submissionStage/form/submissionStageForm.tpl',
+			$wizardMode
+		);
 	}
 
 	/**

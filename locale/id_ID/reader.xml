@@ -148,7 +148,6 @@
 	<message key="rt.metadata.pkp.publisher">Agen Pengorganisasian, lokasi</message>
 	<message key="rt.metadata.pkp.source">Jurnal/ Konferensi judul; vol., no. (tahun)</message>
 	<message key="rt.metadata.pkp.sponsors">Sponsor</message>
-	<message key="rt.metadata.pkp.subjectClass">Klasifikasi Subjek</message>
 	<message key="rt.metadata.pkp.subject">Kata Kunci</message>
 	<message key="rt.metadata.pkp.suppFiles">File tambahan</message>
 	<message key="rt.metadata.pkp.title">Judul dokumen</message>

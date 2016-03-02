@@ -128,7 +128,6 @@
 	<message key="rt.metadata.pkp.publisher">Organisator, locatie</message>
 	<message key="rt.metadata.pkp.source">Tijdschrift/conferentie titel; vol., no. (jaar)</message>
 	<message key="rt.metadata.pkp.sponsors">Sponsor(s)</message>
-	<message key="rt.metadata.pkp.subjectClass">Onderwerpsclassificatie</message>
 	<message key="rt.metadata.pkp.subject">Trefwoord(en)</message>
 	<message key="rt.metadata.pkp.suppFiles">Aanv. bestanden</message>
 	<message key="rt.metadata.pkp.title">Titel van het document</message>

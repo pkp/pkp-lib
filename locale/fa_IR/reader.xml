@@ -127,7 +127,6 @@
 	<message key="rt.metadata.pkp.publisher">آزانس های سازمان دهنده ، موقعیت</message>
 	<message key="rt.metadata.pkp.source">عنوان مجله یا کنفرانس ، دوره ، شماره ، سال</message>
 	<message key="rt.metadata.pkp.sponsors">حمایت کننده</message>
-	<message key="rt.metadata.pkp.subjectClass">طبقه بندی موضوعی</message>
 	<message key="rt.metadata.pkp.subject">کلید وازه</message>
 	<message key="rt.metadata.pkp.suppFiles">فایل های الحاقی</message>
 	<message key="rt.metadata.pkp.title">عنوان سند</message>

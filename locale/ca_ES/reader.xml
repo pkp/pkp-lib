@@ -128,7 +128,6 @@
 	<message key="rt.metadata.pkp.publisher">Agència organitzadora, ubicació</message>
 	<message key="rt.metadata.pkp.source">Títol de la revista o conferència, vol., núm. (any)</message>
 	<message key="rt.metadata.pkp.sponsors">Patrocinadors/es</message>
-	<message key="rt.metadata.pkp.subjectClass">Classificació per matèries</message>
 	<message key="rt.metadata.pkp.subject">Paraules clau</message>
 	<message key="rt.metadata.pkp.suppFiles">Fitxers add.</message>
 	<message key="rt.metadata.pkp.title">Títol del document</message>

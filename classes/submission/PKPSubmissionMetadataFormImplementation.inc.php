@@ -72,10 +72,7 @@ class PKPSubmissionMetadataFormImplementation {
 				'prefix' => $submission->getPrefix(null), // Localized
 				'subtitle' => $submission->getSubtitle(null), // Localized
 				'abstract' => $submission->getAbstract(null), // Localized
-				'subjectClass' => $submission->getSubjectClass(null), // Localized
-				'coverageGeo' => $submission->getCoverageGeo(null), // Localized
-				'coverageChron' => $submission->getCoverageChron(null), // Localized
-				'coverageSample' => $submission->getCoverageSample(null), // Localized
+				'coverage' => $submission->getCoverage(null), // Localized
 				'type' => $submission->getType(null), // Localized
 				'source' =>$submission->getSource(null), // Localized
 				'rights' => $submission->getRights(null), // Localized
@@ -101,9 +98,6 @@ class PKPSubmissionMetadataFormImplementation {
 			$this->_parentForm->setData('disciplines', $submissionDisciplineDao->getDisciplines($submission->getId(), $locales));
 			$this->_parentForm->setData('agencies', $submissionAgencyDao->getAgencies($submission->getId(), $locales));
 			$this->_parentForm->setData('languages', $submissionLanguageDao->getLanguages($submission->getId(), $locales));
-
-			// include all submission metadata fields for submissions
-			$this->_parentForm->setData('submissionSettings', array('all' => true));
 			$this->_parentForm->setData('abstractsRequired', $this->_getAbstractsRequired($submission));
 		}
 	}
@@ -113,7 +107,7 @@ class PKPSubmissionMetadataFormImplementation {
 	 */
 	function readInputData() {
 		// 'keywords' is a tagit catchall that contains an array of values for each keyword/locale combination on the form.
-		$userVars = array('title', 'prefix', 'subtitle', 'abstract', 'coverageGeo', 'coverageChron', 'coverageSample', 'type', 'subjectClass', 'source', 'rights', 'keywords', 'citations');
+		$userVars = array('title', 'prefix', 'subtitle', 'abstract', 'coverage', 'type', 'source', 'rights', 'keywords', 'citations');
 		$this->_parentForm->readUserVars($userVars);
 	}
 
@@ -122,7 +116,7 @@ class PKPSubmissionMetadataFormImplementation {
 	 * @return array
 	 */
 	function getLocaleFieldNames() {
-		return array('title', 'prefix', 'subtitle', 'abstract', 'coverageGeo', 'coverageChron', 'coverageSample', 'type', 'subjectClass', 'source', 'rights');
+		return array('title', 'prefix', 'subtitle', 'abstract', 'coverage', 'type', 'source', 'rights');
 	}
 
 	/**
@@ -139,11 +133,8 @@ class PKPSubmissionMetadataFormImplementation {
 		$submission->setPrefix($this->_parentForm->getData('prefix'), null); // Localized
 		$submission->setSubtitle($this->_parentForm->getData('subtitle'), null); // Localized
 		$submission->setAbstract($this->_parentForm->getData('abstract'), null); // Localized
-		$submission->setCoverageGeo($this->_parentForm->getData('coverageGeo'), null); // Localized
-		$submission->setCoverageChron($this->_parentForm->getData('coverageChron'), null); // Localized
-		$submission->setCoverageSample($this->_parentForm->getData('coverageSample'), null); // Localized
+		$submission->setCoverage($this->_parentForm->getData('coverage'), null); // Localized
 		$submission->setType($this->_parentForm->getData('type'), null); // Localized
-		$submission->setSubjectClass($this->_parentForm->getData('subjectClass'), null); // Localized
 		$submission->setRights($this->_parentForm->getData('rights'), null); // Localized
 		$submission->setSource($this->_parentForm->getData('source'), null); // Localized
 		$submission->setCitations($this->_parentForm->getData('citations'));

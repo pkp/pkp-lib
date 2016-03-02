@@ -151,7 +151,6 @@
 	<message key="rt.metadata.pkp.publisher">Установа-видавець, адреса</message>
 	<message key="rt.metadata.pkp.source">Назва журналу/конференції; том, №. (рік)</message>
 	<message key="rt.metadata.pkp.sponsors">Спонсори</message>
-	<message key="rt.metadata.pkp.subjectClass">Класифікаційна схема</message>
 	<message key="rt.metadata.pkp.subject">Ключові слова</message>
 	<message key="rt.metadata.pkp.suppFiles">Супр. файли</message>
 	<message key="rt.metadata.pkp.title">Назва документу</message>

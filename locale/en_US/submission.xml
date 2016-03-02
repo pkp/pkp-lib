@@ -268,10 +268,6 @@
 	<message key="submission.copyediting">Copyediting</message>
 	<message key="submission.queryNoteFiles">Discussion Files</message>
 	<message key="submission.coverage">Coverage Information</message>
-	<message key="submission.coverage.tip">The following fields provide information about your submission's coverage.  Coverage may include chronologcal periods (1920-1940, 17th century), and geographical locations ('Boston, MA', or 'Northern England').  If you wish, you may use the sample coverage field to include a relevant example from your own work.</message>
-	<message key="submission.coverage.chron">Chronological or historical coverage</message>
-	<message key="submission.coverage.geo">Geo-spatial coverage</message>
-	<message key="submission.coverage.sample">Sample coverage</message>
 	<message key="submission.done">Done</message>
 	<message key="submission.dueDate">Due Date</message>
 	<message key="submission.due">Due</message>
@@ -415,8 +411,6 @@
 	<message key="submissions.ruling">Ruling</message>
 	<message key="submission.source">Source</message>
 	<message key="submission.source.tip">Is this submission derived from another resource? If so, you may enter a URL or description of that resource.</message>
-	<message key="submission.subjectClass">Submission Subject</message>
-	<message key="submission.subjectClass.tip">Please describe your submission using a few key phrases.  You may refine the subject with specific keywords in a latter part of the form.</message>
 	<message key="submissions.submit">Submit</message>
 	<message key="submissions.submitted">Submitted</message>
 	<message key="submission.submission">Submission</message>

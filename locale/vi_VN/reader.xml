@@ -128,7 +128,6 @@
 	<message key="rt.metadata.pkp.publisher">Cơ quan XB, địa chỉ</message>
 	<message key="rt.metadata.pkp.source">Tên tạp chí/hội nghị; Tập., số. (năm)</message>
 	<message key="rt.metadata.pkp.sponsors">Nhà tài trợ</message>
-	<message key="rt.metadata.pkp.subjectClass">Phân loại chủ đề</message>
 	<message key="rt.metadata.pkp.subject">Từ khóa</message>
 	<message key="rt.metadata.pkp.suppFiles">Các file phụ trợ</message>
 	<message key="rt.metadata.pkp.title">Tên tài liệu</message>

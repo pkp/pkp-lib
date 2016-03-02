@@ -62,7 +62,7 @@ class Mods34SchemaSubmissionAdapterTest extends Mods34DescriptionTestCase {
 			'dateSubmitted' => '2010-07-07',
 			'language' => 'en',
 			'pages' => 215,
-			'coverageGeo' => array('en_US' => 'some geography'),
+			'coverage' => array('en_US' => 'some geography'),
 			'mods34:titleInfo/nonSort' => array('en_US' => 'the', 'de_DE' => 'ein'),
 			'mods34:titleInfo/subTitle' => array('en_US' => 'subtitle', 'de_DE' => 'Subtitel'),
 			'mods34:titleInfo/partNumber' => array('en_US' => 'part I', 'de_DE' => 'Teil I'),

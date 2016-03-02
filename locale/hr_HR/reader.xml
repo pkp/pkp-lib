@@ -125,7 +125,6 @@
 	<message key="rt.metadata.pkp.publisher">Organizacijska agencija, mjesto</message>
 	<message key="rt.metadata.pkp.source">Časopis/konferencijski naslov; vol., br. (godina)</message>
 	<message key="rt.metadata.pkp.sponsors">Pokrovitelj(i)</message>
-	<message key="rt.metadata.pkp.subjectClass">Predmetna klasifikacija</message>
 	<message key="rt.metadata.pkp.subject">Ključna riječ(i)</message>
 	<message key="rt.metadata.pkp.suppFiles">Dop. datoteke</message>
 	<message key="rt.metadata.pkp.title">Naslov dokumenta</message>

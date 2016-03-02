@@ -443,8 +443,6 @@
 	<message key="submission.rights.tip">Se desejar, você pode inserir uma breve declaração sobre os direitos de acesso sobre esta submissão.</message>
 	<message key="submission.source">Fonte</message>
 	<message key="submission.source.tip">Este submissão é derivada de outro recurso? Se assim for, informe uma URL ou uma descrição destes recursos.</message>
-	<message key="submission.subjectClass">Assunto da Submissão</message>
-	<message key="submission.subjectClass.tip">Por favor, descreva a sua submissão usando algumas frases-chave. Você poderá refinar o assunto com palavras-chave específicas ao final do formulário.</message>
 	<message key="submission.submit.finishSubmission">Finalizar Submissão</message>
 	<message key="submission.submit.selectFile">Selecionar Arquivo</message>
 	<message key="submission.submit.fileInformation">Informações do Arquivo</message>

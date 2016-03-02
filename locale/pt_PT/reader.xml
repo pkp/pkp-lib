@@ -128,7 +128,6 @@
 	<message key="rt.metadata.pkp.publisher">Editora, localização</message>
 	<message key="rt.metadata.pkp.source">Título da Revista/conferência; V., No. (ano)</message>
 	<message key="rt.metadata.pkp.sponsors">Patrocínio</message>
-	<message key="rt.metadata.pkp.subjectClass">Classificação de Assunto</message>
 	<message key="rt.metadata.pkp.subject">Palavras-chave(s)</message>
 	<message key="rt.metadata.pkp.suppFiles">Docs. Sups.</message>
 	<message key="rt.metadata.pkp.title">Título do documento</message>

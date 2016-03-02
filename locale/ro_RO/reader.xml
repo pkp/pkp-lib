@@ -149,7 +149,6 @@
 	<message key="rt.metadata.pkp.publisher">Agenţia organizatoare, locaţia</message>
 	<message key="rt.metadata.pkp.source">Titlul revistei/conferinţei; vol., nr. (anul)</message>
 	<message key="rt.metadata.pkp.sponsors">Sponsor(i)</message>
-	<message key="rt.metadata.pkp.subjectClass">Clasificare</message>
 	<message key="rt.metadata.pkp.subject">Cuvinte cheie</message>
 	<message key="rt.metadata.pkp.suppFiles">Fişiere suplimentare</message>
 	<message key="rt.metadata.pkp.title">Titlu documentului</message>

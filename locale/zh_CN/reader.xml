@@ -148,7 +148,6 @@
 	<message key="rt.metadata.pkp.publisher">组织机构，地点</message>
 	<message key="rt.metadata.pkp.source">期刊/会议标题 ; 卷., 期. (年)</message>
 	<message key="rt.metadata.pkp.sponsors">主管</message>
-	<message key="rt.metadata.pkp.subjectClass">学科分类</message>
 	<message key="rt.metadata.pkp.subject">关键词</message>
 	<message key="rt.metadata.pkp.suppFiles">补充文件</message>
 	<message key="rt.metadata.pkp.title">文档的标题</message>

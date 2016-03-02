@@ -128,7 +128,6 @@
 	<message key="rt.metadata.pkp.publisher">Organisasjon, sted</message>
 	<message key="rt.metadata.pkp.source">Tidsskrift/konferansetittel; vol., nr. (år)</message>
 	<message key="rt.metadata.pkp.sponsors">Sponsor(er)</message>
-	<message key="rt.metadata.pkp.subjectClass">Emneklassifisering</message>
 	<message key="rt.metadata.pkp.subject">Emneord</message>
 	<message key="rt.metadata.pkp.suppFiles">Tilleggsfiler</message>
 	<message key="rt.metadata.pkp.title">Dokumenttittel</message>

@@ -148,7 +148,6 @@
 	<message key="rt.metadata.pkp.publisher">Organizasyon ajansı yeri</message>
 	<message key="rt.metadata.pkp.source">Başlık; cilt, no. (yıl)</message>
 	<message key="rt.metadata.pkp.sponsors">Destekleyen(ler)</message>
-	<message key="rt.metadata.pkp.subjectClass">Konu Sınıflaması</message>
 	<message key="rt.metadata.pkp.subject">Anahtar Kelime(ler)</message>
 	<message key="rt.metadata.pkp.suppFiles">Ek Dosyalar</message>
 	<message key="rt.metadata.pkp.title">Doküman Başlığı</message>

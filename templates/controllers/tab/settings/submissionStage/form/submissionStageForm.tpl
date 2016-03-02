@@ -34,6 +34,9 @@
 		{/if}
 	{/fbvFormArea}
 
+	{url|assign:metadataGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.settings.metadata.MetadataGridHandler" op="fetchGrid" escape=false}
+	{load_url_in_div id="metadataGridContainer" url=$metadataGridUrl}
+
 	{if !$wizardMode}
 		{fbvFormButtons id="submissionStageFormSubmit" submitText="common.save" hideCancel=true}
 	{/if}

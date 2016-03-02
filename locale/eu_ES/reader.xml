@@ -127,7 +127,6 @@
 	<message key="rt.metadata.pkp.publisher">Agentzia antolatzailea, kokalekua</message>
 	<message key="rt.metadata.pkp.source">Aldizkari/konferentzia titulua; bol., zk. (urtea)</message>
 	<message key="rt.metadata.pkp.sponsors">Babeslea(k)</message>
-	<message key="rt.metadata.pkp.subjectClass">Gaikako sailkapena</message>
 	<message key="rt.metadata.pkp.subject">Gako-hitza(k)</message>
 	<message key="rt.metadata.pkp.suppFiles">Fitxat. osag.</message>
 	<message key="rt.metadata.pkp.title">Dokumentuaren titulua</message>

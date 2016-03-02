@@ -61,7 +61,7 @@ class ScheduledTaskHelper {
 	 * @param XMLNode
 	 * @return array
 	 */
-	function getTaskArgs($task) {
+	static function getTaskArgs($task) {
 		$args = array();
 		$index = 0;
 

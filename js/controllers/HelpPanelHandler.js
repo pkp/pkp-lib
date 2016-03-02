@@ -122,7 +122,10 @@
 	 * @private
 	 * @param {HTMLElement} context The context in which this function was called
 	 * @param {Event} event The event triggered on this handler
-	 * @param {Object} options The options with which to open this handler
+	 * @param {{
+	 *  caller: jQueryObject,
+	 *  topic: string
+	 *  }} options The options with which to open this handler
 	 */
 	$.pkp.controllers.HelpPanelHandler.prototype.openPanel_ =
 			function(context, event, options) {
@@ -143,7 +146,7 @@
 				this.callbackWrapper(this.handleWrapperEvents));
 
 		// Load the appropriate help content
-		this.loadHelpContent_(options.topic);
+		this.loadHelpContent_(options.topic, null);
 
 		// Set focus inside the help panel (delay is required so that element is
 		// visible when jQuery tries to focus on it)
@@ -158,14 +161,17 @@
 	/**
 	 * Load help content in the panel.
 	 * @param {string?} topic The help context.
+	 * @param {string?} locale The language locale to load the help topic.
 	 * @private
 	 */
 	$.pkp.controllers.HelpPanelHandler.prototype.loadHelpContent_ =
 			function(topic, locale) {
-		var locale = locale || this.helpLocale_;
+		locale = locale || this.helpLocale_;
 		this.currentTopic_ = topic || '';
-		$.get(this.helpUrl_ + '/index/'  + locale + '/' + encodeURIComponent(this.currentTopic_),
-				null, this.callbackWrapper(this.updateContentHandler_), 'json');
+		var url = this.helpUrl_ + '/index/' + locale + '/';
+		url += encodeURIComponent(this.currentTopic_);
+		$.get(url, null, this.callbackWrapper(this.updateContentHandler_),
+				'json');
 	};
 
 
@@ -203,7 +209,7 @@
 			if (urlParts.length > 1) {
 				helpPanelHandler.loadHelpContent_(urlParts[1], urlParts[0]);
 			} else {
-				helpPanelHandler.loadHelpContent_(urlParts[0]);
+				helpPanelHandler.loadHelpContent_(urlParts[0], null);
 			}
 		});
 	};
@@ -241,7 +247,7 @@
 	 * @private
 	 */
 	$.pkp.controllers.HelpPanelHandler.prototype.homePanel_ = function() {
-		this.loadHelpContent_(null);
+		this.loadHelpContent_(null, null);
 	};
 
 

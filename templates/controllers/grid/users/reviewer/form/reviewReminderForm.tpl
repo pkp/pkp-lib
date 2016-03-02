@@ -26,14 +26,14 @@
 		{/fbvFormSection}
 
 		{fbvFormSection title="editor.review.personalMessageToReviewer" for="message"}
-			{fbvElement type="textarea" id="message" value=$message rich=true}
+			{fbvElement type="textarea" id="message" value=$message variables=$emailVariables rich=true}
 		{/fbvFormSection}
 		{fbvFormSection title="reviewer.submission.reviewSchedule"}
-			{fbvElement type="text" id="dateNotified" label="reviewer.submission.reviewRequestDate" value=$reviewAssignment->getDateNotified()|date_format:$dateFormatShort disabled=true inline=true size=$fbvStyles.size.SMALL class="datepicker"}
+			{fbvElement type="text" id="dateNotified" label="reviewer.submission.reviewRequestDate" value=$reviewAssignment->getDateNotified()|date_format:$dateFormatShort readonly=true inline=true size=$fbvStyles.size.SMALL}
 			{if $reviewAssignment->getDateConfirmed()}
-				{fbvElement type="text" id="dateConfirmed" label="editor.review.dateAccepted" value=$reviewAssignment->getDateConfirmed()|date_format:$dateFormatShort disabled=true inline=true size=$fbvStyles.size.SMALL class="datepicker"}
+				{fbvElement type="text" id="dateConfirmed" label="editor.review.dateAccepted" value=$reviewAssignment->getDateConfirmed()|date_format:$dateFormatShort readonly=true inline=true size=$fbvStyles.size.SMALL}
 			{else}
-				{fbvElement type="text" id="responseDue" label="reviewer.submission.responseDueDate" value=$reviewAssignment->getDateResponseDue()|date_format:$dateFormatShort disabled=true inline=true size=$fbvStyles.size.SMALL class="datepicker"}
+				{fbvElement type="text" id="responseDue" label="reviewer.submission.responseDueDate" value=$reviewAssignment->getDateResponseDue()|date_format:$dateFormatShort readonly=true inline=true size=$fbvStyles.size.SMALL}
 			{/if}
 			{fbvElement type="text" id="reviewDueDate" label="reviewer.submission.reviewDueDate" value=$reviewDueDate readonly=true inline=true size=$fbvStyles.size.SMALL}
 		{/fbvFormSection}

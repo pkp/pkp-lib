@@ -92,6 +92,26 @@ class ReviewReminderForm extends Form {
 	}
 
 	/**
+	 * @copydoc Form::fetch()
+	 */
+	function fetch($request) {
+		$context = $request->getContext();
+		$user = $request->getUser();
+
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign('emailVariables', array(
+			'reviewerName' => __('user.name'),
+			'reviewDueDate' => __('reviewer.submission.reviewDueDate'),
+			'submissionReviewUrl' => __('common.url'),
+			'submissionTitle' => __('submission.title'),
+			'passwordResetUrl' => __('common.url'),
+			'contextName' => $context->getLocalizedName(),
+			'editorialContactSignature' => $user->getContactSignature(),
+		));
+		return parent::fetch($request);
+	}
+
+	/**
 	 * Assign form data to user-submitted data.
 	 * @see Form::readInputData()
 	 */

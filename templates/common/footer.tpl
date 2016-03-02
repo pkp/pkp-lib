@@ -22,5 +22,18 @@
 	</div>
 </div>
 
+<a href="#" class="requestHelpPanel" data-topic="hi">
+	Help
+</a>
+
+<div id="pkpHelpPanel" class="pkp_help_panel" tabindex="-1">
+	<div class="panel">
+		<div class="content"></div>
+		<a href="#" class="pkpCloseHelpPanel close">
+			{translate key="common.close"}
+		</a>
+	</div>
+</div>
+
 </body>
 </html>

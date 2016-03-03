@@ -28,7 +28,7 @@
 		<input type="hidden" id="reviewRoundId" name="reviewRoundId" value="{$reviewRoundId|escape}" />
 		<input type="hidden" name="clientSubmit" value="1" />
 
-		{fbvFormSection title="manager.reviewerSearch.searchByName.short"}
+		{fbvFormSection title="manager.reviewerSearch.searchByName"}
 			{fbvElement type="text" id="name" value=$reviewerValues.name|escape}
 		{/fbvFormSection}
 

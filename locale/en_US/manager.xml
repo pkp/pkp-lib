@@ -164,7 +164,7 @@
 	<message key="manager.plugins">System Plugins</message>
 	<message key="manager.readingTools">Reading Tools</message>
 	<message key="manager.reviewerSearch.change">Change</message>
-	<message key="manager.reviewerSearch.searchByName">Search For Reviewer By Name</message>
+	<message key="manager.reviewerSearch.searchByName">Search Reviewers By Name</message>
 	<message key="manager.reviewerSearch.searchByName.short">Search By Name</message>
 	<message key="manager.reviewerSearch.doneAmount">Reviews completed: {$current}</message>
 	<message key="manager.reviewerSearch.doneAmountToggle">Enable/disable the filter for reviews completed.</message>

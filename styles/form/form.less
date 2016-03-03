@@ -466,6 +466,16 @@
 	cursor: pointer;
 }
 
+// Fixes the positioning of tinymce tooltips
+// skin.min.css (the tinymce we're loading) sets their position to absolute,
+// but the tooltips seem to set position relative to the viewport, not the
+// document. This causes problems for textareas in modals, where the scroll
+// position of the modal differs from the scroll position of the document.
+// "I'm almost definitely pretty sure that might be the explanation." ~NW
+.mce-widget.mce-tooltip {
+	position: fixed;
+}
+
 .pkp_form {
 
 	// @todo all below

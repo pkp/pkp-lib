@@ -211,14 +211,14 @@ class SubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 				$user->getId()
 			);
 
-			while ($stageAssignment = $stageAssignments->next()) { /* @var $stageSignoff Signoff */
+			while ($stageAssignment = $stageAssignments->next()) {
 				if (isset($uploaderUserGroupOptions[$stageAssignment->getUserGroupId()])) {
 					$defaultUserGroupId = $stageAssignment->getUserGroupId();
 					break;
 				}
 			}
 
-			// If we didn't find a corresponding stage signoff then
+			// If we didn't find a corresponding stage assignment then
 			// use the user group with the highest authority as default.
 			if (is_null($defaultUserGroupId)) $defaultUserGroupId = $highestAuthorityUserGroupId;
 		}

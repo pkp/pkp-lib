@@ -37,7 +37,7 @@
 	<message key="user.email">Correo electrónico</message>
 	<message key="user.confirmEmail">Confirmar correo electrónico</message>
 	<message key="user.fax">Fax</message>
-	<message key="user.feminine">F</message>
+	<message key="user.feminine">M</message>
 	<message key="user.firstName">Nombre</message>
 	<message key="user.gender">Sexo</message>
 	<message key="user.initialsExample">Joan Alice Smith = JAS</message>
@@ -67,7 +67,7 @@
 	<message key="user.logOut">Cerrar sesión</message>
 	<message key="user.hello">Hola: </message>
 	<message key="user.mailingAddress">Dirección postal</message>
-	<message key="user.masculine">M</message>
+	<message key="user.masculine">H</message>
 	<message key="user.middleName">Segundo nombre</message>
 	<message key="user.myAccount">Mi cuenta</message>
 	<message key="user.name">Nombre</message>

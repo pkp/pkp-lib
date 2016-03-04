@@ -61,8 +61,8 @@ class MetadataGridHandler extends GridHandler {
 
 		$this->addColumn(
 			new GridColumn(
-				'submission',
-				'manager.setup.metadata.submission',
+				'workflow',
+				'common.enabled',
 				null,
 				'controllers/grid/common/cell/selectStatusCell.tpl',
 				$cellProvider,
@@ -72,8 +72,8 @@ class MetadataGridHandler extends GridHandler {
 
 		$this->addColumn(
 			new GridColumn(
-				'workflow',
-				'manager.setup.metadata.workflow',
+				'submission',
+				'manager.setup.metadata.submission',
 				null,
 				'controllers/grid/common/cell/selectStatusCell.tpl',
 				$cellProvider,

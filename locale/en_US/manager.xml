@@ -496,6 +496,5 @@
 	<message key="manager.setup.includeLicense">Display the license with published work.</message>
 	<message key="manager.setup.licenseURLDescription">Provide URL for license webpage, if available.</message>
 
-	<message key="manager.setup.metadata.submission">Entered on Submission</message>
-	<message key="manager.setup.metadata.workflow">Entered in Workflow</message>
+	<message key="manager.setup.metadata.submission">Submission Form</message>
 </locale>

@@ -207,6 +207,7 @@ class ReviewerForm extends Form {
 				'signatureFullName' => $user->getFullname(),
 				'messageToReviewer' => __('reviewer.step1.requestBoilerplate'),
 			));
+			$template->replaceParams();
 		}
 		$this->setData('personalMessage', $template->getBody());
 		$this->setData('responseDueDate', $responseDueDate);

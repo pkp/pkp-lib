@@ -27,7 +27,7 @@ class SectionAssignmentRule {
 	 * @return boolean
 	 */
 	function effect($contextId, $sectionId, $userId) {
-		$subEditorsDao = Application::getSubEditorsDAO();
+		$subEditorsDao = DAORegistry::getDAO('SubEditorsDAO');
 		if ($subEditorsDao->editorExists($contextId, $sectionId, $userId)) {
 			return true;
 		} else {

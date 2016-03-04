@@ -92,11 +92,6 @@ interface iPKPApplicationInfoProvider {
 	static function getPluginSettingsContextColumnName();
 
 	/**
-	 * Get the DAO for ROLE_ID_SUB_EDITOR roles.
-	 */
-	static function getSubEditorsDAO();
-
-	/**
 	 * Get the stages used by the application.
 	 */
 	static function getApplicationStages();
@@ -378,6 +373,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 			'SignoffDAO' => 'lib.pkp.classes.signoff.SignoffDAO',
 			'SiteDAO' => 'lib.pkp.classes.site.SiteDAO',
 			'SiteSettingsDAO' => 'lib.pkp.classes.site.SiteSettingsDAO',
+			'SubEditorsDAO' => 'lib.pkp.classes.context.SubEditorsDAO',
 			'SubmissionAgencyDAO' => 'lib.pkp.classes.submission.SubmissionAgencyDAO',
 			'SubmissionAgencyEntryDAO' => 'lib.pkp.classes.submission.SubmissionAgencyEntryDAO',
 			'SubmissionDisciplineDAO' => 'lib.pkp.classes.submission.SubmissionDisciplineDAO',

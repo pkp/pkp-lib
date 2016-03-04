@@ -63,7 +63,7 @@ class PKPSectionForm extends Form {
 		$context = $request->getContext();
 		$userId = array_shift($newRowId);
 
-		$subEditorsDao = Application::getSubEditorsDAO();
+		$subEditorsDao = DAORegistry::getDAO('SubEditorsDAO');
 
 		// Make sure the membership doesn't already exist
 		if ($subEditorsDao->editorExists($context->getId(), $this->getSectionId(), $userId)) {
@@ -83,7 +83,7 @@ class PKPSectionForm extends Form {
 	 * @return boolean Success
 	 */
 	function deleteSubEditorEntry($request, $rowId) {
-		$subEditorsDao = Application::getSubEditorsDAO();
+		$subEditorsDao = DAORegistry::getDAO('SubEditorsDAO');
 		$context = $request->getContext();
 
 		$subEditorsDao->deleteEditor($context->getId(), $this->getSectionId(), $rowId);

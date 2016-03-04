@@ -16,7 +16,7 @@
 		{url|assign:reviewDecisionsUrl router=$smarty.const.ROUTE_PAGE page="workflow" op="editorDecisionActions" submissionId=$submission->getId() stageId=$stageId reviewRoundId=$reviewRoundId contextId="reviewRoundTab-"|concat:$reviewRoundId escape=false}
 		{load_url_in_div id="reviewDecisionsDiv-"|concat:$reviewRoundId url=$reviewDecisionsUrl class="pkp_tab_actions"}
 		{include file="controllers/tab/workflow/stageParticipants.tpl"}
-		{include file="common/helpLink.tpl" chapter="chapter_7_reviews.md"}
+		{help file="chapter_7_reviews.md"}
 	</div>
 
 	<div class="pkp_content_panel">

@@ -509,7 +509,6 @@ class PKPHandler {
 	function requireSSL() {
 		return true;
 	}
-
 }
 
 ?>

@@ -68,8 +68,7 @@ abstract class PKPWorkflowTabHandler extends Handler {
 
 		switch ($stageId) {
 			case WORKFLOW_STAGE_ID_SUBMISSION:
-				$response = $templateMgr->fetchJson('controllers/tab/workflow/submission.tpl');
-				return $response;
+				return $templateMgr->fetchJson('controllers/tab/workflow/submission.tpl');
 			case WORKFLOW_STAGE_ID_INTERNAL_REVIEW:
 			case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
 				// Retrieve the authorized submission and stage id.
@@ -120,11 +119,9 @@ abstract class PKPWorkflowTabHandler extends Handler {
 				}
 
 				// Render the view.
-				$response = $templateMgr->fetchJson('controllers/tab/workflow/review.tpl');
-				return $response;
+				return $templateMgr->fetchJson('controllers/tab/workflow/review.tpl');
 			case WORKFLOW_STAGE_ID_EDITING:
-				$response = $templateMgr->fetchJson('controllers/tab/workflow/editorial.tpl');
-				return $response;
+				return $templateMgr->fetchJson('controllers/tab/workflow/editorial.tpl');
 			case WORKFLOW_STAGE_ID_PRODUCTION:
 				$templateMgr = TemplateManager::getManager($request);
 				$notificationRequestOptions = $this->getProductionNotificationOptions($submission->getId());
@@ -133,8 +130,7 @@ abstract class PKPWorkflowTabHandler extends Handler {
 				$templateMgr->assign('representations', $representations->toAssociativeArray());
 
 				$templateMgr->assign('productionNotificationRequestOptions', $notificationRequestOptions);
-				$response = $templateMgr->fetchJson('controllers/tab/workflow/production.tpl');
-				return $response;
+				return $templateMgr->fetchJson('controllers/tab/workflow/production.tpl');
 		}
 	}
 

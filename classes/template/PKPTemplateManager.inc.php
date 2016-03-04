@@ -145,6 +145,7 @@ class PKPTemplateManager extends Smarty {
 		$this->register_modifier('assign', array($this, 'smartyAssign'));
 		$this->register_function('translate', array($this, 'smartyTranslate'));
 		$this->register_function('null_link_action', array($this, 'smartyNullLinkAction'));
+		$this->register_function('help', array($this, 'smartyHelp'));
 		$this->register_function('flush', array($this, 'smartyFlush'));
 		$this->register_function('call_hook', array($this, 'smartyCallHook'));
 		$this->register_function('html_options_translate', array($this, 'smartyHtmlOptionsTranslate'));
@@ -480,6 +481,36 @@ class PKPTemplateManager extends Smarty {
 
 		$this->assign('hoverTitle', $hoverTitle);
 		return $this->fetch('linkAction/linkAction.tpl');
+	}
+
+	/**
+	 * Smarty usage: {help file="someFile.md" section="someSection" textKey="some.text.key"}
+	 *
+	 * Custom Smarty function for displaying a context-sensitive help link.
+	 * @param $smarty Smarty
+	 * @return string the HTML for the generated link action
+	 */
+	function smartyHelp($params, $smarty) {
+		assert(isset($params['file']));
+
+		$params = array_merge(
+			array(
+				'file' => null, // The name of the Markdown file
+				'section' => null, // The (optional) anchor within the Markdown file
+				'textKey' => 'help.help', // An (optional) locale key for the link
+				'text' => null // An (optional) literal text for the link
+			),
+			$params
+		);
+
+		$this->assign(array(
+			'helpFile' => $params['file'],
+			'helpSection' => $params['section'],
+			'helpTextKey' => $params['textKey'],
+			'helpText' => $params['text'],
+		));
+
+		return $this->fetch('common/helpLink.tpl');
 	}
 
 	/**

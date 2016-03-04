@@ -13,7 +13,7 @@
 		{url|assign:copyeditingEditorDecisionsUrl router=$smarty.const.ROUTE_PAGE page="workflow" op="editorDecisionActions" submissionId=$submission->getId() stageId=$stageId contextId="copyediting" escape=false}
 		{load_url_in_div id="copyeditingEditorDecisionsDiv" url=$copyeditingEditorDecisionsUrl class="editorDecisionActions pkp_tab_actions"}
 		{include file="controllers/tab/workflow/stageParticipants.tpl"}
-		{include file="common/helpLink.tpl" chapter="chapter_8_copyediting.md"}
+		{help file="chapter_8_copyediting.md"}
 	</div>
 
 	<div class="pkp_content_panel">

@@ -127,4 +127,7 @@
 	<message key="user.suffix">Sufixo</message>
 	<message key="user.profile.form.hashInvalid">O codigo de redefinição de senha que você usou é inválido.</message>
 	<message key="user.login.changePasswordInstructionsOneStep"><![CDATA[Você deve escolher uma nova senha para poder entrar neste site. <br /> <br /> Por favor, insira seu nome de usuário e sua nova senha abaixo para alterar a senha de sua conta.]]></message>
+	<message key="user.login.implicitAuth">Acesso Shibboleth</message>
+	<message key="user.login.implicitAuthLogin">Acesso via Shibboleth</message>
+	<message key="user.login.localAuth">Acesso via conta local</message>
 </locale>

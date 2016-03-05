@@ -50,12 +50,6 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm {
 		// Assign the default stage participants.
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 
-		// Managerial roles are skipped -- They have access by default and
-		//  are assigned for informational purposes only
-
-		// Sub editor roles are skipped -- They are assigned by manager roles
-		//  or by other sub editors
-
 		// Assistant roles -- For each assistant role user group assigned to this
 		//  stage in setup, iff there is only one user for the group,
 		//  automatically assign the user to the stage
@@ -71,19 +65,6 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm {
 				if ($userGroup->getRoleId() == ROLE_ID_MANAGER) $managerFound = true;
 			}
 		}
-
-		import('classes.workflow.EditorDecisionActionsManager');
-		$notificationMgr = new NotificationManager();
-		$notificationMgr->updateNotification(
-			$request,
-			EditorDecisionActionsManager::getStageNotifications(),
-			null,
-			ASSOC_TYPE_SUBMISSION,
-			$this->submission->getId()
-		);
-
-		// Reviewer roles -- Do nothing. Reviewers are not included in the stage participant list, they
-		// are administered via review assignments.
 
 		// Author roles
 		// Assign only the submitter in whatever ROLE_ID_AUTHOR capacity they were assigned previously
@@ -101,8 +82,34 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm {
 
 		$notificationManager = new NotificationManager();
 
+		// Assign sub editors for that section
+		$submissionSubEditorFound = false;
+		$subEditorsDao = DAORegistry::getDAO('SubEditorsDAO');
+		$subEditors = $subEditorsDao->getBySectionId($this->submission->getSectionId(), $this->submission->getContextId());
+		foreach ($subEditors as $subEditor) {
+			$userGroups = $userGroupDao->getByUserId($subEditor->getId(), $this->submission->getContextId());
+			while ($userGroup = $userGroups->next()) {
+				if ($userGroup->getRoleId() != ROLE_ID_SUB_EDITOR) continue;
+				$stageAssignmentDao->build($this->submission->getId(), $userGroup->getId(), $subEditor->getId());
+				// If we assign a stage assignment in the Submission stage to a sub editor, make note.
+				if ($userGroupDao->userGroupAssignedToStage($userGroup->getId(), WORKFLOW_STAGE_ID_SUBMISSION)) {
+					$submissionSubEditorFound = true;
+				}
+			}
+		}
+
+		// Update assignment notifications
+		import('classes.workflow.EditorDecisionActionsManager');
+		$notificationManager->updateNotification(
+			$request,
+			EditorDecisionActionsManager::getStageNotifications(),
+			null,
+			ASSOC_TYPE_SUBMISSION,
+			$this->submission->getId()
+		);
+
 		// Send a notification to associated users if an editor needs assigning
-		if (!$managerFound) {
+		if (!$managerFound && !$submissionSubEditorFound) {
 			$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
 
 			// Get the managers.

@@ -16,8 +16,6 @@
 	</div>
 
 	<div class="pkp_content_panel">
-		<p class="pkp_help">{translate key="editor.submission.editorial.introduction"}</p>
-
 		{url|assign:finalDraftFilesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.final.FinalDraftFilesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId escape=false}
 		{load_url_in_div id="finalDraftFilesGrid" url=$finalDraftFilesGridUrl}
 

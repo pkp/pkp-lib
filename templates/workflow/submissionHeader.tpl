@@ -20,11 +20,11 @@
 <div id="submissionHeader">
 	<div class="pkp_page_title">
 		<h1 class="pkp_submission_title">
-			<!-- @todo screen reader text: Submission Title: -->
+			<span class="pkp_screen_reader">{translate key="submission.submissionTitle"}</span>
 			{$submission->getLocalizedTitle()}
 		</h1>
 		<div class="pkp_submission_author">
-			<!-- @todo screen reader text: Submission Authors: -->
+			<span class="pkp_screen_reader">{translate key="user.role.author_s"}</span>
 			{$submission->getAuthorString()}
 		</div>
 		<ul class="pkp_submission_actions">

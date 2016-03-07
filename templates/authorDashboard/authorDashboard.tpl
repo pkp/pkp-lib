@@ -20,14 +20,14 @@
 
 	<div id="submissionHeader" class="pkp_page_header">
 		<div class="pkp_page_title">
-			<h2 class="pkp_submission_title">
-				<!-- @todo screen reader text: Submission Title: -->
+			<h1 class="pkp_submission_title">
+				<span class="pkp_screen_reader">{translate key="submission.submissionTitle"}</span>
 				{$submission->getLocalizedTitle()}
-			</h2>
-			<h3 class="pkp_submission_author">
-				<!-- @todo screen reader text: Submission Authors: -->
+			</h1>
+			<div class="pkp_submission_author">
+				<span class="pkp_screen_reader">{translate key="user.role.author_s"}</span>
 				{$submission->getAuthorString()}
-			</h3>
+			</div>
 			<ul class="pkp_submission_actions">
 				{if $uploadFileAction}
 					<li>

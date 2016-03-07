@@ -414,6 +414,7 @@
 	<message key="submissions.submit">Submit</message>
 	<message key="submissions.submitted">Submitted</message>
 	<message key="submission.submission">Submission</message>
+	<message key="submission.submissionTitle">Submission Title:</message>
 	<message key="submission.start">Start</message>
 	<message key="submission.submissionHistory">Submission History</message>
 	<message key="submission.submissionManuscript">Submission Manuscript</message>

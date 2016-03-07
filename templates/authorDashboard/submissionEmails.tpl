@@ -27,7 +27,7 @@
 								actionRequest: '$.pkp.classes.linkAction.ModalRequest',
 								actionRequestOptions: {ldelim}
 									titleIcon: 'modal_information',
-									title: {$submissionEmail->getSubject()|json_encode},
+									title: {translate|json_encode key="notification.notifications"},
 									modalHandler: '$.pkp.controllers.modal.AjaxModalHandler',
 									url: {url|json_encode router=$smarty.const.ROUTE_PAGE page="authorDashboard" op="readSubmissionEmail" submissionId=$submission->getId() stageId=$stageId reviewRoundId=$reviewRoundId submissionEmailId=$submissionEmail->getId() escape=false}
 								{rdelim}

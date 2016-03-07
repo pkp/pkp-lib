@@ -13,18 +13,24 @@
  * @brief Display to authors the file revisions that they have uploaded.
  */
 
-import('lib.pkp.controllers.grid.files.review.ReviewRevisionsGridHandler');
+import('lib.pkp.controllers.grid.files.fileList.FileListGridHandler');
 
-class AuthorReviewRevisionsGridHandler extends ReviewRevisionsGridHandler {
+class AuthorReviewRevisionsGridHandler extends FileListGridHandler {
 	/**
 	 * Constructor
 	 */
 	function AuthorReviewRevisionsGridHandler() {
-		$roleAssignments = array(
+		import('lib.pkp.controllers.grid.files.review.ReviewGridDataProvider');
+		parent::FileListGridHandler(
+			new ReviewGridDataProvider(SUBMISSION_FILE_REVIEW_REVISION),
+			null,
+			FILE_GRID_ADD|FILE_GRID_EDIT|FILE_GRID_VIEW_NOTES|FILE_GRID_DELETE
+		);
+
+		$this->addRoleAssignment(
 			array(ROLE_ID_AUTHOR),
 			array('fetchGrid', 'fetchRow')
 		);
-		parent::ReviewRevisionsGridHandler($roleAssignments);
 
 		$this->setTitle('editor.submission.revisions');
 	}

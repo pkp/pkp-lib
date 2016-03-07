@@ -2,10 +2,10 @@
 <!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
 
 <!--
-  * locale/es_ES/default.xml
+  * locale/en_US/default.xml
   *
-  * Copyright (c) 2014-2015 Simon Fraser University Library
-  * Copyright (c) 2003-2015 John Willinsky
+  * Copyright (c) 2014 Simon Fraser University Library
+  * Copyright (c) 2003-2014 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for default settings for setup items.
@@ -51,19 +51,14 @@
 	<message key="default.groups.name.translator">Traductor</message>
 	<message key="default.groups.plural.translator">Traductores</message>
 	<message key="default.groups.abbrev.translator">Trad</message>
-	<message key="default.groups.name.reader">Lector</message>
-	<message key="default.groups.plural.reader">Lectores</message>
+	<message key="default.groups.name.reader">Lector/a</message>
+	<message key="default.groups.plural.reader">Lectores/as</message>
 	<message key="default.groups.abbrev.reader">Lect</message>
 
 	<!--  common app genre defaults -->
 	<message key="default.genres.submission">Propuesta</message>
-	<message key="default.genres.submission.designation">##</message>
-	<message key="default.genres.other">Otros</message>
-	<message key="default.genres.other.designation">##</message>
+	<message key="default.genres.other">Otro</message>
 	<message key="default.genres.multimedia">Multimedia</message>
-	<message key="default.genres.multimedia.designation">##</message>
 	<message key="default.genres.image">Imagen</message>
-	<message key="default.genres.image.designation">##</message>
 	<message key="default.genres.styleSheet">Hoja de estilo HTML</message>
-	<message key="default.genres.styleSheet.designation">##</message>
 </locale>

@@ -69,4 +69,6 @@
 	<message key="installer.locale.maybeIncomplete">Traduções marcadas podem estar incompletas.</message>
 	<message key="installer.installParseFilterConfigFileError"><![CDATA[Erro ao processar o arquivo de configuração de filtros <tt>{$file}</tt>.]]></message>
 	<message key="installer.oaiSettings">Configurações OAI</message>
+	<message key="installer.beacon">Sinalizador</message>
+	<message key="installer.beacon.enable">Informe um ID único para o site um endereço base ao PKP para propósitos apenas de estatística e alertas de segurança.</message>
 </locale>

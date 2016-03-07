@@ -663,7 +663,7 @@ class DAO {
 		$today = getDate();
 		$todayTimestamp = mktime(0, 0, 0, $today['mon'], $today['mday'], $today['year']);
 		if ($date != null) {
-			$dueDateParts = explode('-', $date);
+			$dateParts = explode('-', $date);
 
 			// If we don't accept past dates...
 			if (!$acceptPastDate && $todayTimestamp > strtotime($date)) {
@@ -671,7 +671,7 @@ class DAO {
 				return date('Y-m-d H:i:s', $todayTimestamp);
 			} else {
 				// Return the passed date.
-				return date('Y-m-d H:i:s', mktime(0, 0, 0, $dueDateParts[1], $dueDateParts[2], $dueDateParts[0]));
+				return date('Y-m-d H:i:s', mktime(0, 0, 0, $dateParts[1], $dateParts[2], $dateParts[0]));
 			}
 		} elseif (isset($defaultNumWeeks)) {
 			// Add the equivalent of $numWeeks weeks, measured in seconds, to $todaysTimestamp.

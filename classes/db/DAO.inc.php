@@ -564,11 +564,17 @@ class DAO {
 	 * @param $tableName string Settings table name
 	 * @param $idFieldName string Name of ID column
 	 * @param $dataObject DataObject Object in which to store retrieved values
+	 * @param $revision integer Revision Id
+	 * @param $revisionFieldName string Name of the revision column
 	 */
-	function getDataObjectSettings($tableName, $idFieldName, $idFieldValue, $dataObject) {
-		if ($idFieldName !== null) {
-			$sql = "SELECT * FROM $tableName WHERE $idFieldName = ?";
+	function getDataObjectSettings($tableName, $idFieldName, $idFieldValue, $dataObject, $revision = null, $revisionFieldName = 'version') {
+		
+		if (($idFieldName !== null) && ($revision == null)) {
+			$sql = "SELECT * FROM $tableName WHERE $idFieldName = ?"; 
 			$params = array($idFieldValue);
+		} elseif (($idFieldName !== null) && ($revision !== null)) {
+			$sql = "SELECT * FROM $tableName WHERE $idFieldName = ? AND $revisionFieldName = ?"; 
+			$params = array($idFieldValue, (int) $revision);
 		} else {
 			$sql = "SELECT * FROM $tableName";
 			$params = false;

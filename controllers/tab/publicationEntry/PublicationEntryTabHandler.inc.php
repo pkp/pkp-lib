@@ -106,8 +106,10 @@ class PublicationEntryTabHandler extends Handler {
 	 * @return JSONMessage JSON object
 	 */
 	function submissionMetadata($args, $request) {
+		$revision = $request->getUserVar('revision');
+		$saveAsRevision = $request->getUserVar('saveAsRevision');
 
-		$publicationEntrySubmissionReviewForm = $this->_getPublicationEntrySubmissionReviewForm();
+		$publicationEntrySubmissionReviewForm = $this->_getPublicationEntrySubmissionReviewForm($revision, $saveAsRevision);
 
 		$publicationEntrySubmissionReviewForm->initData($args, $request);
 		return new JSONMessage(true, $publicationEntrySubmissionReviewForm->fetch($request));

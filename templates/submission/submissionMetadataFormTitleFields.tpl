@@ -8,7 +8,15 @@
  * Submission's metadata form title fields. To be included in any form that wants to handle
  * submission metadata.
  *}
+{if $formParams.revision && ($formParams.revision < $latestRevisionId)}
+	{assign var=rich value=null}
+{else}
+	{assign var=rich value="extended"}
+{/if}
+
 {fbvFormArea id="generalInformation" title="submission.submit.titleAndSummary"}
+	{fbvElement type="hidden" name="submissionRevision" id="submissionRevision" value=$formParams.revision}
+	{fbvElement type="hidden" name="saveAsRevision" id="saveAsRevision" value=$formParams.saveAsRevision}
 	{fbvFormSection for="title" title="common.prefix" inline="true" size=$fbvStyles.size.SMALL}
 		{fbvElement type="text" multilingual=true name="prefix" id="prefix" value=$prefix readonly=$readOnly maxlength="32"}
 	{/fbvFormSection}
@@ -21,6 +29,6 @@
 	{/fbvFormSection}
 	{fbvFormSection description="common.subtitle.tip"}{/fbvFormSection}
 	{fbvFormSection title="common.abstract" for="abstract" required=$abstractsRequired}
-		{fbvElement type="textarea" multilingual=true name="abstract" id="abstract" value=$abstract rich="extended" readonly=$readOnly}
+		{fbvElement type="textarea" multilingual=true name="abstract" id="abstract" value=$abstract rich=$rich readonly=$readOnly}
 	{/fbvFormSection}
 {/fbvFormArea}

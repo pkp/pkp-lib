@@ -44,7 +44,9 @@ class PKPSubmissionMetadataViewForm extends Form {
 		parent::Form($templateName);
 
 		$submissionDao = Application::getSubmissionDAO();
-		$submission = $submissionDao->getById((int) $submissionId);
+		$revision = isset($formParams['revision']) ? $formParams['revision'] : null;
+		$submission = $submissionDao->getById((int) $submissionId, null, false, $revision);
+		
 		if ($submission) {
 			$this->_submission = $submission;
 		}

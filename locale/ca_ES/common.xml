@@ -7,7 +7,7 @@
   * Copyright (c) 2014-2015 Simon Fraser University Library
   * Copyright (c) 2000-2015 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
-  * Credits: http://pkp.sfu.ca/wiki/index.php?title=OMP:_Catalan_%28ca_ES%29
+  * Credits: https://pkp.sfu.ca/wiki/index.php?title=OMP:_Catalan_(ca_ES)
   * Localization strings.
   -->
 
@@ -105,7 +105,7 @@
 	<message key="common.deleteSelection">Suprimeix la selecció</message>
 	<message key="common.designation">Designació</message>
 	<message key="common.description">Descripció</message>
-	<message key="common.dimensionsInches"><![CDATA[{$width}&quot; x {$height}&quot; @ {$dpi} DPI/PPI]]></message>
+	<message key="common.dimensionsInches"><![CDATA[{$width}" x {$height}" @ {$dpi} DPI/PPI]]></message>
 	<message key="common.dimensionsPixels">{$width} x {$height} píxels</message>
 	<message key="common.disable">Inhabilita</message>
 	<message key="common.disabled">Inhabilitat</message>

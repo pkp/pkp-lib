@@ -239,6 +239,71 @@
 	}
 }
 
+// Email messages in author review stage
+.pkp_submission_emails {
+	margin-bottom: @double * 2;
+
+	h3 {
+		&:extend(.pkp_controllers_grid .header h4 all);
+	}
+
+	ul {
+		&:extend(.pkp_unstyled_list all);
+		border: @bg-border-light;
+	}
+
+	li {
+		&:extend(.pkp_helpers_clear all);
+		&:extend(.pkp_controllers_grid td);
+		border-bottom: @bg-border-light;
+
+		&:last-child {
+			border-bottom: none;
+		}
+	}
+
+	.message,
+	.date {
+		display: block;
+		float: left;
+		width: 50%;
+	}
+
+	.message {
+		white-space: nowrap;
+		overflow-x: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.date {
+		font-size: @font-sml;
+		color: @text-light;
+		text-align: right;
+	}
+
+	@media(min-width: 992px) {
+
+		.message {
+			width: 60%;
+		}
+
+		.date {
+			width: 40%;
+		}
+	}
+
+	@media(min-width: 1200px) {
+
+		.message {
+			width: 75%;
+		}
+
+		.date {
+			width: 25%;
+		}
+	}
+}
+
 // @todo
 .pkp_page_header {
 

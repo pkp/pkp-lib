@@ -9,10 +9,9 @@
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the es_ES locale.
-  *
   -->
 
-<locale name="es_ES" full_name = "Español (España)">
+<locale name="es_ES" full_name="Español (España)">
 	<!-- Common -->
 	<message key="grid.noItems">No hay artículos</message>
 	<message key="grid.settings">Preferéncias</message>

@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="es_ES" full_name = "Español">
+<locale name="es_ES" full_name="Español (España)">
 	<message key="editor.submissionLibrary.description"><![CDATA[Subir doumentos que pertenezcan a la revisión y a la publicación de este envío. Las plantillas para cualquiera de estos documentos están disponibles en <em>Ver biblioteca de documentos</em>.]]></message>
 	<message key="editor.review.notInitiated">El proceso de revisión todavía no se ha iniciado.</message>
 	<message key="editor.submission.copyediting.personalMessageToUser">Mensaje al usuario</message>

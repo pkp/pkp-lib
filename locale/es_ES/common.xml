@@ -2,14 +2,12 @@
 <!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
 
 <!--
-  * locale/en_US/common.xml
+  * locale/es_ES/common.xml
   *
-  * Copyright (c) 2014 Simon Fraser University Library
-  * Copyright (c) 2000-2014 John Willinsky
+  * Copyright (c) 2014-2015 Simon Fraser University Library
+  * Copyright (c) 2000-2015 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
-  *
   * Credits: https://pkp.sfu.ca/wiki/index.php?title=OMP:_Spanish_(es_ES)
-  *
   * Localization strings.
   -->
 
@@ -292,7 +290,7 @@
 	<message key="form.fileRequired">Es necesario subir un archivo.</message>
 	<message key="form.required">(* Obligatorio)</message>
 	<message key="form.resubmit">Reenviar</message>
-	<message key="form.saveToUpload">Use &apos;Guardar&apos; para subir el fichero.</message>
+	<message key="form.saveToUpload">Use 'Guardar' para subir el fichero.</message>
 	<message key="form.send">Enviar</message>
 	<message key="form.submit">Enviar</message>
 	<message key="form.invalidImage">Se subió una imagen no válida. Los formatos aceptados son .png, .gif y .jpg.</message>

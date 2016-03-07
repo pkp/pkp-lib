@@ -361,6 +361,7 @@
 	<message key="submission.layout.viewingGalley">Viewing Submission Galley</message>
 	<message key="submission.layout.viewProof">View Proof</message>
 	<message key="submission.metadata">Submission Metadata</message>
+	<message key="submission.metadataDescription">The metadata specifications are based on ONIX for Books which is an international standard used by the book industry for communication of product information.</message>
 	<message key="submission.noReviewAssignments">No Review Assignments</message>
 	<message key="submission.notes.addNewNote">Add New Note</message>
 	<message key="submission.notes.attachedFile">File Attachment</message>

@@ -196,7 +196,7 @@
 	<message key="common.pluginEnabled">The plugin "{$pluginName}" has been enabled.</message>
 	<message key="common.pluginDisabled">The plugin "{$pluginName}" has been disabled.</message>
 	<message key="common.prefix">Prefix</message>
-	<message key="common.prefixAndTitle.tip">If book title begins "A'" or "The" (or something similar re alphabetical order) place word in Prefix.</message>
+	<message key="common.prefixAndTitle.tip">Examples: A, The</message>
 	<message key="common.subtitle.tip">The submission's optional subtitle will appear after a colon (:), following the main title.</message>
 	<message key="common.preview">Preview</message>
 	<message key="common.publisher">Publisher</message>

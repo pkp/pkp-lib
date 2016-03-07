@@ -44,8 +44,6 @@
 		</div>
 	</div>
 
-	<p class="pkp_help">{translate key="submission.authorDashboard.description"}</p>
-
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="authorDashboardNotification" requestOptions=$authorDashboardNotificationRequestOptions}
 
 	{assign var=selectedTabIndex value=0}

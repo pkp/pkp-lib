@@ -20,12 +20,6 @@
 
 	<div class="pkp_content_panel">
 
-		{if $stageId == $smarty.const.WORKFLOW_STAGE_ID_INTERNAL_REVIEW}
-			<p class="pkp_help">{translate key="editor.internalReview.introduction"}</p>
-		{elseif $stageId == $smarty.const.WORKFLOW_STAGE_ID_EXTERNAL_REVIEW}
-			<p class="pkp_help">{translate key="editor.externalReview.introduction"}</p>
-		{/if}
-
 		{* Review files grid *}
 		{url|assign:reviewFileSelectionGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.review.EditorReviewFilesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId reviewRoundId=$reviewRoundId escape=false}
 		{load_url_in_div id="reviewFileSelection-round_"|concat:$reviewRoundId url=$reviewFileSelectionGridUrl}

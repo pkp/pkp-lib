@@ -84,7 +84,6 @@
 	<message key="editor.submission.taskDueDate">Task Due Date</message>
 	<message key="editor.submission.taskSchedule">Task schedule</message>
 	<message key="editor.review.enrollReviewer">Enroll an Existing User as Reviewer</message>
-	<message key="editor.submission.editorial.introduction"><![CDATA[In Editorial, the copyeditor works on final draft files before uploading files to <span class="pkp_help_title">Copyediting</span>, where the author and others  review them, leading to the preparation and uploading to <span class="pkp_help_title">Copyediting</span> of a copyedited fair copy of the submission, where it is <em>Approved</em> by an editor and sent to the Production stage.]]></message>
 	<message key="editor.submission.noAuditRequested">No audit requested for this file</message>
 	<message key="editor.submission.personalMessageToUser">Email to be sent to user</message>
 	<message key="editor.submission.proof.reminder">Proof reminder</message>

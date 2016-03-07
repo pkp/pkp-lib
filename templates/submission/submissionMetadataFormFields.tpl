@@ -8,6 +8,10 @@
  * Submission's metadata form fields. To be included in any form that wants to handle
  * submission metadata.
  *}
+{if $coverageEnabled || $typeEnabled || $sourceEnabled || $rightsEnabled ||
+		$languagesEnabled || $subjectEnabled || $keywordsEnabled || $agenciesEnabled || $referencesEnabled}
+	<p class="description">{translate key="submission.metadataDescription"}</p>
+{/if}
 {if $coverageEnabled || $typeEnabled || $sourceEnabled || $rightsEnabled}
 	{fbvFormArea id="additionalDublinCore"}
 		{if $coverageEnabled}

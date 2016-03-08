@@ -134,7 +134,7 @@
 	<message key="grid.columns.locale">Locale</message>
 
 	<!-- Sponsors Grid -->
-	<message key="grid.sponsor.title">Sponsors</message>
+	<message key="grid.sponsor.title">Sponsoring Organizations</message>
 	<message key="grid.action.addSponsor">Add Sponsor</message>
 	<message key="grid.action.deleteSponsor">Delete Sponsor</message>
 	<message key="grid.action.editSponsor">Edit Sponsor</message>
@@ -150,7 +150,7 @@
 	<message key="grid.action.deleteCategory">Delete Category</message>
 
 	<!-- Contributor Grid -->
-	<message key="grid.contributor.title">Contributors</message>
+	<message key="grid.contributor.title">Sources of Support</message>
 	<message key="grid.action.addContributor">Add Contributor</message>
 	<message key="grid.action.editContributor">Edit Contributor</message>
 	<message key="grid.action.deleteContributor">Delete Contributor</message>

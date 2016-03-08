@@ -88,29 +88,11 @@
 }
 
 .pkp_workflow_decisions a {
-	&:extend(.pkp_button);
+	&:extend(.pkp_button all);
 	width: 100%;
 
-	&:hover,
-	&:focus {
-		&:extend(.pkp_button:hover);
-	}
-
-	&[disabled] {
-		&:extend(.pkp_button[disabled]);
-	}
-
 	&.pkp_linkaction_decline {
-		&:extend(.pkp_button_offset);
-
-		&:hover,
-		&:focus {
-			&:extend(.pkp_button_offset:hover);
-		}
-
-		&[disabled] {
-			&:extend(.pkp_button[disabled]);
-		}
+		&:extend(.pkp_button_offset all);
 	}
 }
 

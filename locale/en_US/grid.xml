@@ -65,7 +65,6 @@
 	<message key="grid.action.editFile">Edit a file</message>
 	<message key="grid.action.selectFiles">Select files to manage</message>
 	<message key="grid.action.requestRevisions">Request revisions for this submission</message>
-	<message key="grid.action.resubmit">Request that this submission be resubmitted</message>
 	<message key="grid.action.accept">Accept this submission</message>
 	<message key="grid.action.decline">Decline this Submission</message>
 	<message key="grid.action.internalReview">Send this submission to internal review</message>

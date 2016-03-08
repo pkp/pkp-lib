@@ -31,16 +31,7 @@ h6 {
 }
 
 a[class*="pkp_linkaction_uploadFile"] {
-	&:extend(.pkp_button);
-
-	&:hover,
-	&:focus {
-		&:extend(.pkp_button:hover);
-	}
-
-	&[disabled] {
-		&:extend(.pkp_button[disabled]);
-	}
+	&:extend(.pkp_button all);
 
 	&:before {
 		&:extend(.fa);

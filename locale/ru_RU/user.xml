@@ -58,7 +58,7 @@
 	<message key="user.login.forgotPassword">Забыли Ваш пароль?</message>
 	<message key="user.login.loginError">Неправильное имя пользователя или пароль. Попробуйте еще раз.</message>
 	<message key="user.login">Войти в систему</message>
-	<message key="user.login.lostPassword.confirmationSent">Подтверждение было отправлен на Ваш адрес электронной почты. Пожалуйста, следуйте инструкциям в письме, чтобы сбросить Ваш пароль.</message>
+	<message key="user.login.lostPassword.confirmationSent">Подтверждение было отправлено на Ваш адрес электронной почты. Пожалуйста, следуйте инструкциям в письме, чтобы сбросить Ваш пароль.</message>
 	<message key="user.login.lostPassword.invalidHash">Извините, ссылка на которой Вы щелкнули, просрочена или неправильна. Пожалуйста, попробуйте сбросить Ваш пароль еще раз.</message>
 	<message key="user.login.lostPassword.invalidUser">Пользователя с таким адресом электронной почты не существует.</message>
 	<message key="user.login.lostPassword.passwordSent">Новый пароль был отправлен на Ваш адрес электронной почты. Теперь Вы можете войти на сайт с вашим новым паролем.</message>
@@ -94,7 +94,7 @@
 	<message key="user.profile.form.passwordSameAsOld">Ваш новый пароль совпадает со старым.</message>
 	<message key="user.profile.form.profileImage">Изображение профиля</message>
 	<message key="user.profile.form.publishedNotifications">Уведомлять по электронной почте о выходе нового выпуска</message>
-	<message key="user.profile.form.urlInvalid">Указанная адрес (URL) является неправильным. Пожалуйста, проверьте URL еще раз и попробуйте снова. (Подсказка: попробуйте добавить http:// в начало URL).</message>
+	<message key="user.profile.form.urlInvalid">Указанный адрес (URL) является неправильным. Пожалуйста, проверьте URL еще раз и попробуйте снова. (Подсказка: попробуйте добавить http:// в начало URL).</message>
 	<message key="user.profile.form.usergroupRequired">Группа пользователя обзательна.</message>
 	<message key="user.profile.form.usernameRequired">Имя пользователя обязательно.</message>
 	<message key="user.profile.leavePasswordBlank">Оставьте поля пароля пустыми, если хотите сохранить текущий пароль.</message>

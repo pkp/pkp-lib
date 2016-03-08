@@ -15,7 +15,7 @@
 	<message key="editor.submissionLibrary">Submission Library</message>
 	<message key="editor.review.notInitiated">The review process has not yet been initiated.</message>
 	<message key="editor.submission.copyediting.personalMessageToUser">Message to user</message>
-	<message key="editor.submission.externalReviewDescription">You are about to initiate an external review for this submission.  Files that are part of the submission are listed below and can be selected for review.</message>
+	<message key="editor.submission.externalReviewDescription">Select files below to send them to the review stage.</message>
 	<!-- Add file or auditor to editor/audit grids -->
 	<message key="editor.submission.fileAuditor.form.fileRequired">You must select at least one file to assign the user to.</message>
 	<message key="editor.submission.fileAuditor.form.messageRequired">You must include a personal message.</message>
@@ -27,7 +27,7 @@
 	<message key="editor.submission.review.reviewersDescription"><![CDATA[Use <em>+Add Reviewer</em> to invite readers to review the submission files. The notebook icon indicates that a review has been submitted, which is then checked <em>Acknowledged</em> after it has been consulted. When reviews are overdue, a red envelope icon appears for reminding reviewers.]]></message>
 	<message key="editor.submission.addReviewer">Add Reviewer</message>
 	<message key="editor.submission.findAndSelectReviewer">Locate a Reviewer</message>
-	<message key="editor.submission.fileList.includeAllStages">Include all files from all accessible workflow stages.</message>
+	<message key="editor.submission.fileList.includeAllStages">Show files from all accessible workflow stages.</message>
 	<message key="editor.submission.review.currentFiles">Current Review Files For Round {$round}</message>
 	<message key="editor.submission.backToSearch">Back to Search</message>
 	<message key="editor.review.createReviewer">Create New Reviewer</message>
@@ -44,11 +44,11 @@
 	<message key="editor.review.personalMessageToReviewer">Email to be sent to reviewer</message>
 	<message key="editor.review.importantDates">Important Dates</message>
 	<message key="editor.review.uploadRevision">Upload Revision</message>
-	<message key="editor.review.NotifyAuthorAccept">Notify the author of acceptance:</message>
-	<message key="editor.review.NotifyAuthorDecline">Notify the author of decision to decline submission:</message>
-	<message key="editor.review.NotifyAuthorRevisions">Notify the author of need for revisions:</message>
-	<message key="editor.review.NotifyAuthorResubmit">Notify the author of need for revisions that will be subject to further review:</message>
-	<message key="editor.review.NotifyAuthorExternal">Notify the author of decision to conduct external review:</message>
+	<message key="editor.review.NotifyAuthorAccept">Notify the author that their submission has been accepted.</message>
+	<message key="editor.review.NotifyAuthorDecline">Notify the author that their submission has been declined.</message>
+	<message key="editor.review.NotifyAuthorRevisions">Request revisions from the author.</message>
+	<message key="editor.review.NotifyAuthorResubmit">Request revisions from the author that will be subject to further review.</message>
+	<message key="editor.review.NotifyAuthorExternal">Notify the author of the decision to initiate an external review.</message>
 	<message key="editor.review.personalMessageToAuthor">Email to be sent to author</message>
 	<message key="editor.review.dateAccepted">Review Acceptance Date</message>
 	<message key="editor.review.noReviews">No peer reviews to import</message>
@@ -90,7 +90,6 @@
 	<message key="editor.submission.editorial.approveCopyeditDescription">The copyedited file needs to be approved before it can be sent to the Production stage. Do you want to approve this file?</message>
 	<message key="editor.submission.editorial.disapproveCopyeditDescription">Disapproving this copyedited file will make it unavailable to send to production stage. Do you want to disapprove this file?</message>
 	<message key="editor.submission.addAuditor">Assign Auditor</message>
-	<message key="editor.submission.final.manageFinalDraftFilesDescription">Any files that have already been uploaded to any submission stage can be added to the Final Draft Files listing by checking the Include checkbox below and clicking Search: all available files will be listed and can be chosen for inclusion. Additional files not already uploaded to a stage can be added to the listing by clicking the Upload File link.</message>
 	<message key="editor.submission.copyedit.manageCopyeditFilesDescription">Any files that have already been uploaded to any submission stage can be added to the Copyedit Files listing by checking the Include checkbox below and clicking Search: all available files will be listed and can be chosen for inclusion. Additional files not already uploaded to a stage can be added to the listing by clicking the Upload File link.</message>
 	<message key="editor.review">Review</message>
 	<message key="editor.review.reviewDetails">Review Details</message>
@@ -103,7 +102,6 @@
 	<message key="editor.submissionReview.recordDecision">Record Editorial Decision</message>
 	<message key="editor.submission.newRoundDescription">You are about to create a new review round for this submission.  Files that have not been used in other review rounds are listed below.  By default, the reviewers from the previous review round have been selected to participate in this new review round.</message>
 	<message key="editor.submission.createNewRound">Create New Review Round</message>
-	<message key="editor.submission.review.manageReviewFilesDescription">Any files that have already been uploaded to any submission stage (even Editorial or Production) can be chosen for review by checking the Include checkbox below and clicking Search: all available files will be listed and can be chosen for inclusion. Additional files not already uploaded to a stage can be added to this listing by clicking the Upload Review File link.</message>
 	<message key="editor.article.reviewForms">Review Forms</message>
 	<message key="editor.article.selectReviewForm">Select Review Form</message>
 	<message key="editor.article.clearReviewForm">Clear Review Form</message>

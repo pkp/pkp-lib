@@ -46,24 +46,24 @@
 	{fbvFormSection title="common.name"}
 		{fbvElement type="text" label="user.firstName" id="firstName" value=$firstName required="true" inline=true size=$fbvStyles.size.SMALL}
 		{fbvElement type="text" label="user.middleName" id="middleName" value=$middleName inline=true size=$fbvStyles.size.SMALL}
-		{fbvElement type="text" label="user.lastName" id="lastName" value=$lastName required="true" inline=true size=$fbvStyles.size.SMALL}
+		{fbvElement type="text" label="user.lastName" id="lastName" value=$lastName required="true" inline=true size=$fbvStyles.size.MEDIUM}
 	{/fbvFormSection}
 
-	{fbvFormSection description="user.register.usernameRestriction"}
-		{fbvElement type="text" label="user.username" id="username" value=$username required="true" size=$fbvStyles.size.MEDIUM inline=true}
+	{fbvFormSection title="user.username" required="true"}
+		{fbvElement type="text" label="user.register.usernameRestriction" id="username" required="true" value=$username size=$fbvStyles.size.MEDIUM inline=true}
 		{fbvElement type="button" label="common.suggest" id="suggestUsernameButton" inline=true class="default"}
 	{/fbvFormSection}
 
-	{fbvFormSection title="about.contact"}
-		{fbvElement type="text" label="user.email" id="email" required="true" value=$email maxlength="90" size=$fbvStyles.size.MEDIUM}
+	{fbvFormSection title="user.email" required="true"}
+		{fbvElement type="text" id="email" required="true" value=$email maxlength="90" size=$fbvStyles.size.MEDIUM}
 	{/fbvFormSection}
 
 	{fbvFormSection title="manager.reviewerSearch.interests" for="interests"}
 		{fbvElement type="interests" id="interests" interests=$interests}
 	{/fbvFormSection}
 
-	{fbvFormSection}
-		{fbvElement type="text" multilingual="true" name="affiliation" id="affiliation" value=$affiliation label="user.affiliation" inline=true size=$fbvStyles.size.LARGE}
+	{fbvFormSection title="user.affiliation"}
+		{fbvElement type="text" multilingual="true" name="affiliation" id="affiliation" value=$affiliation size=$fbvStyles.size.LARGE}
 	{/fbvFormSection}
 
 	{include file="controllers/grid/users/reviewer/form/reviewerFormFooter.tpl"}

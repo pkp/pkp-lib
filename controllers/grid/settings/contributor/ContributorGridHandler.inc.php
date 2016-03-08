@@ -28,6 +28,7 @@ class ContributorGridHandler extends SetupGridHandler {
 		parent::SetupGridHandler();
 		$this->addRoleAssignment(array(ROLE_ID_MANAGER),
 				array('fetchGrid', 'addContributor', 'editContributor', 'updateContributor', 'deleteContributor'));
+		$this->setTitle('grid.contributor.title');
 	}
 
 	//

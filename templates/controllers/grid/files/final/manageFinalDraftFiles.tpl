@@ -16,8 +16,6 @@
 </script>
 
 <!-- Current final draft files -->
-<p>{translate key="editor.submission.final.manageFinalDraftFilesDescription"}</p>
-
 <div id="existingFilesContainer">
 	<form class="pkp_form" id="manageFinalDraftFilesForm" action="{url component="grid.files.final.ManageFinalDraftFilesGridHandler" op="updateFinalDraftFiles" submissionId=$submissionId}" method="post">
 		{fbvFormArea id="manageFinalDraftFiles"}

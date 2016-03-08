@@ -10,8 +10,6 @@
 
 
 <!-- Current review files -->
-<p class="pkp_help">{translate key="editor.submission.review.manageReviewFilesDescription"}
-
 <div id="existingFilesContainer">
 	<script type="text/javascript">
 		$(function() {ldelim}
@@ -26,4 +24,3 @@
 		{fbvFormButtons}
 	</form>
 </div>
-

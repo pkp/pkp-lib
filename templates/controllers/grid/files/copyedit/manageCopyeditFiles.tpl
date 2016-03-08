@@ -16,8 +16,6 @@
 </script>
 
 <!-- Current copyedited files -->
-<p>{translate key="editor.submission.copyedit.manageCopyeditFilesDescription"}</p>
-
 <div id="existingFilesContainer">
 	<form class="pkp_form" id="manageCopyeditFilesForm" action="{url component="grid.files.copyedit.ManageCopyeditFilesGridHandler" op="updateCopyeditFiles" submissionId=$submissionId stageId=$smarty.const.WORKFLOW_STAGE_ID_EDITING}" method="post">
 		{fbvFormArea id="manageCopyeditFiles"}

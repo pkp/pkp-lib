@@ -29,7 +29,7 @@
 	<message key="announcement.moreAnnouncements">Другие объявления...</message>
 	<message key="announcement.noneExist">Не было опубликовано ни одного объявления.</message>
 	<message key="announcement.posted">Опубликовано</message>
-	<message key="announcement.postedOn">Опубиковано {$postDate}</message>
+	<message key="announcement.postedOn">Опубликовано {$postDate}</message>
 	<message key="announcement.viewLink">Далее...</message>
 	<message key="announcement.view">Показать объявление</message>
 	<message key="common.accepted">Принято</message>

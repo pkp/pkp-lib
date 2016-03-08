@@ -151,7 +151,7 @@
 	<message key="rt.metadata.pkp.source">Название; том, № (год)</message>
 	<message key="rt.metadata.pkp.sponsors">Спонсоры</message>
 	<message key="rt.metadata.pkp.subjectClass">Тематическая классификация</message>
-	<message key="rt.metadata.pkp.subject">Клюевые слова</message>
+	<message key="rt.metadata.pkp.subject">Ключевые слова</message>
 	<message key="rt.metadata.pkp.suppFiles">Дополнительные файлы</message>
 	<message key="rt.metadata.pkp.title">Название документа</message>
 	<message key="rt.metadata.pkp.type">Тип</message>

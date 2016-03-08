@@ -80,7 +80,7 @@
 	<message key="rt.admin.settings.emailOthers">Сообщить коллеге (открывает шаблон письма со ссылкой на материал).</message>
 	<message key="rt.admin.settings.findingReferences">Найти ссылки</message>
 	<message key="rt.admin.settings.printerFriendly">Версия для печати (отображает версию материала, удобную для печати).</message>
-	<message key="rt.admin.settings.supplementaryFiles">Дополнительные файлы (показывает список дополнительных файлов, включенных автором в отправляемвый материал).</message>
+	<message key="rt.admin.settings.supplementaryFiles">Дополнительные файлы (показывает список дополнительных файлов, включенных автором в отправляемый материал).</message>
 	<message key="rt.admin.settings.viewMetadata">Метаданные для индексации (показывает используемые для индексации материала метаданные, предоставляемые автором и системой).</message>
 	<message key="rt.admin.status">Статус</message>
 	<message key="rt.admin.configureSharing">Настроить AddThis</message>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/ru_RU/grid.xml
+  *
+  * Copyright (c) 2000-2012 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the ru_RU (Русский) locale.
+  * With updates from Pavel Pisklakov (revising translation). 
+  *
+  * $Id$
+  -->
+
+<locale name="ru_RU" full_name = "Russian">
+	<!-- Общие -->
+	<message key="grid.noItems">Нет элементов</message>
+	<message key="grid.settings">Настройки</message>
+
+	<message key="grid.action.sort">Сортировать</message>
+	<message key="grid.action.addItem">Добавить элемент</message>
+	<message key="grid.action.delete">Удалить</message>
+	<message key="grid.action.edit">Редактировать</message>
+	<message key="grid.action.restoreDefaults">Восстановить настройки по умолчанию</message>
+
+	<!-- Сетка. Общие заголовки столбцов -->
+	<message key="grid.columns.actions">Действия</message>
+	<message key="grid.columns.institution">Организация</message>
+	<message key="grid.columns.url">URL</message>
+
+	<!-- Сетка «Спонсоры» -->
+	<message key="grid.sponsor.title">Спонсоры</message>
+
+	<!-- Сетка «Выходные данные» -->
+	<message key="grid.masthead.title">Выходные данные</message>
+	<message key="grid.masthead.column.groups">Группы</message>
+
+	<!-- Сетка «Поддерживающие» -->
+	<message key="grid.contributor.title">Поддерживающие</message>
+
+	<!-- Сетка «Формы рецензии» -->
+	<message key="grid.reviewForm.title">Формы рецензии</message>
+
+	<!-- Сетка «Типы файлов книги» -->
+	<message key="grid.bookFileType.form.sortable">Разрешить сортировать файлы этого типа по компонентам (например, по главам)</message>
+
+	<!-- Сетка «иллюстрации» -->
+	<message key="grid.artworkFile.title">Иллюстрация с разрешениями</message>
+	<message key="grid.artworkFile.file">Файл</message>
+	<message key="grid.artworkFile.form.title">Добавить иллюстрацию с разрешениями</message>
+	<message key="grid.artworkFile.form.metadata">Метаданные иллюстрации</message>
+	<message key="grid.artworkFile.caption">Подпись</message>
+	<message key="grid.artworkFile.credit">Указание авторства</message>
+	<message key="grid.artworkFile.copyrightOwner">Владелец авторских прав</message>
+	<message key="grid.artworkFile.copyrightContact">Контактная информация (если нет автора/прессы)</message>
+	<message key="grid.artworkFile.permissionTerms">Условия использования</message>
+	<message key="grid.artworkFile.permissionForm">Форма разрешения</message>
+	<message key="grid.artworkFile.type">Тип</message>
+	<message key="grid.artworkFile.type.table">Таблица</message>
+	<message key="grid.artworkFile.type.figure">Рисунок</message>
+	<message key="grid.artworkFile.placement">Размещение в книге</message>
+	<message key="grid.artworkFile.placementDetail">Таблица/Рис. №</message>
+	<message key="grid.artworkFile.contactAuthor">Связаться с автором</message>
+
+	<!-- Файлы библиотеки -->
+	<message key="grid.libraryFiles.column.files">Файлы</message>
+	<message key="grid.libraryFiles.submission.title">Библиотека присланных материалов</message>
+	<message key="grid.libraryFiles.editorial.title">Библиотека редакции</message>
+	<message key="grid.libraryFiles.review.title">Библиотека рецензий</message>
+	<message key="grid.libraryFiles.production.title">Библиотека издательства</message>
+	<message key="grid.libraryFiles.productionTemplate.title">Библиотека издательских шаблонов</message>
+
+	<!-- Контрольный список подготовки к отправке -->
+	<message key="grid.submissionChecklist.title">Контрольный список подготовки материала к отправке</message>
+	<message key="grid.submissionChecklist.column.checklistItem">Элемент контрольного списка</message>
+
+	<!-- Отправители материалов -->
+	<message key="author.users.contributor.name">Имя</message>
+	<message key="author.users.contributor.email">Адрес электронной почты</message>
+	<message key="author.users.contributor.role">Роль</message>
+	<message key="author.users.contributor.principalContact">Контактное лицо</message>
+
+	<!-- Главы -->
+	<message key="grid.chapters.title">Главы</message>
+</locale>

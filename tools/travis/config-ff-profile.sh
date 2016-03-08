@@ -15,9 +15,7 @@ set -xe
 mkdir ~/downloads
 
 # Create the profile folders.
-mkdir ~/.mozilla
-mkdir ~/.mozilla/firefox
-mkdir ~/.mozilla/firefox/selenium
+mkdir -p ~/.mozilla/firefox/selenium
 
 # Create the profiles file definition.
 printf "[Profile1]\nName=selenium\nPath=selenium" > ~/.mozilla/firefox/profiles.ini

@@ -116,7 +116,6 @@
 
 .pkp_participants_grid {
 	margin-bottom: @double;
-	border: @bg-border;
 
 	.pkp_controllers_grid {
 		margin-bottom: 0;
@@ -134,6 +133,13 @@
 
 	.gridRow:not(.category) td {
 		padding-left: @double; // make room for the drop-down caret
+	}
+
+	thead,
+	thead tr,
+	thead th {
+		border: none;
+		padding: 0;
 	}
 }
 

@@ -21,7 +21,8 @@
 				{ldelim}
 					actionRequest: '$.pkp.classes.linkAction.RedirectRequest',
 					actionRequestOptions: {ldelim}
-						url: {$cancelUrl|json_encode}
+						url: {$cancelUrl|json_encode},
+						name: {$cancelUrlTarget|json_encode}
 					{rdelim},
 			{rdelim});
 	{rdelim});

@@ -26,6 +26,6 @@
 	{/fbvFormSection}
 
 	{url|assign:cancelUrl page="reviewer" op="submission" path=$submission->getId() step=1 escape=false}
-	{fbvFormButtons submitText="reviewer.submission.continueToStepThree" cancelText="navigation.goBack" cancelUrl=$cancelUrl submitDisabled=$reviewIsComplete}
+	{fbvFormButtons submitText="reviewer.submission.continueToStepThree" cancelText="navigation.goBack" cancelUrl=$cancelUrl cancelUrlTarget="_self" submitDisabled=$reviewIsComplete}
 {/fbvFormArea}
 </form>

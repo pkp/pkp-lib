@@ -39,7 +39,7 @@
 	<message key="metadata.filters.paracite.settings.citationModule.displayName">Módulo de Citas</message>
 	<message key="metadata.filters.paracite.settings.citationModule.validationMessage">Por favor, selecciona uno de los módulos de citas que se muestran.</message>
 	<message key="metadata.filters.settings.isOptional.displayName">No usar por defecto (todavía estarán disponibles para el editor)</message>
-	<message key="metadata.filters.settings.isOptional.validationMessage">Error interno. Se ha publicado un valor no válido en la configuración del &quot;filtro opcional&quot;. Informe de este error.</message>
+	<message key="metadata.filters.settings.isOptional.validationMessage">Error interno. Se ha publicado un valor no válido en la configuración del "filtro opcional". Informe de este error.</message>
 
 	<!-- messages shared between MD schemas -->
 	<message key="metadata.property.displayName.author">Autores</message>
@@ -117,7 +117,7 @@
 
 	<!-- MODS-specific messages -->
 	<message key="metadata.property.displayName.title-type">Tipo de título</message>
-	<message key="metadata.property.validationMessage.title-type">Asegúrese de especificar un tipo de título válido.  Los valores admitidos son &quot;abreviado&quot;, &quot;traducido&quot;, &quot;alternativo&quot; y &quot;uniforme&quot;.</message>
+	<message key="metadata.property.validationMessage.title-type">Asegúrese de especificar un tipo de título válido.  Los valores admitidos son "abreviado", "traducido", "alternativo" y "uniforme".</message>
 	<message key="metadata.property.displayName.nonSort">Parte del título omitido al clasificar</message>
 	<message key="metadata.property.validationMessage.nonSort">Introduzca sólo los caracteres iniciales del título que deberían omitirse al clasificarlo.</message>
 	<message key="metadata.property.displayName.title">Título</message>
@@ -129,7 +129,7 @@
 	<message key="metadata.property.displayName.partName">Nombre de elemento</message>
 	<message key="metadata.property.validationMessage.partName">Introduzca un nombre de elemento válido.</message>
 	<message key="metadata.property.displayName.name-type">Tipo de nombre</message>
-	<message key="metadata.property.validationMessage.name-type">Asegúrese de especificar un tipo de nombre válido.  Los valores admitidos son &quot;personal&quot;, &quot;corporativo&quot; y &quot;conferencia&quot;.</message>
+	<message key="metadata.property.validationMessage.name-type">Asegúrese de especificar un tipo de nombre válido.  Los valores admitidos son "personal", "corporativo" y "conferencia".</message>
 	<!-- FIXME: end -->
 
 	<message key="common.queue.long.submissionsUnassigned">Envíos sin asignar</message>
@@ -157,7 +157,7 @@
 	<message key="submission.citations.editor.clickToEdit">Haz clic para editar.</message>
 	<message key="submission.citations.editor.details.authorQuery">Preguntar al autor</message>
 	<message key="submission.citations.editor.details.authorQueryBody">Tu mensaje al autor:</message>
-	<message key="submission.citations.editor.details.authorQueryExplanation">Puede pedirle más información al autor/a acerca de la cita actual. Al hacer clic en el botón &quot;Enviar&quot;, se enviará el mensaje al autor/a en un correo electrónico.</message>
+	<message key="submission.citations.editor.details.authorQueryExplanation">Puede pedirle más información al autor/a acerca de la cita actual. Al hacer clic en el botón "Enviar", se enviará el mensaje al autor/a en un correo electrónico.</message>
 	<message key="submission.citations.editor.details.authorQuerySubject">Asunto:</message>
 	<message key="submission.citations.editor.details.cannotSelectDefaultForLabel">No pueden quitarse las etiquetas de campo. Elimine el campo si no lo necesita</message>
 	<message key="submission.citations.editor.details.checkInGoogleScholar">Comprobar en Google Académico</message>
@@ -206,7 +206,7 @@
 	<message key="submission.citations.editor.details.sourceResultsUseExplanation">Haz clic para mover todos los campos resultantes directamente a tu lista de campos</message>
 	<message key="submission.citations.editor.details.rawCitation">Texto original de la cita</message>
 	<message key="submission.citations.editor.details.rawCitationRequired">Se requiere un texto para la cita.</message>
-	<message key="submission.citations.editor.details.unsavedChanges">La cita contiene datos que no se han guardado. Haga clic en el botón &quot;Guardar&quot; para conservar los cambios o en el botón &quot;Cancelar&quot; para deshacerlos.</message>
+	<message key="submission.citations.editor.details.unsavedChanges">La cita contiene datos que no se han guardado. Haga clic en el botón "Guardar" para conservar los cambios o en el botón "Cancelar" para deshacerlos.</message>
 	<message key="submission.citations.editor.details.dontShowMessageAgain">No mostrar este mensaje de nuevo.</message>
 	<message key="submission.citations.editor.edit">Editar citas</message>
 	<message key="submission.citations.editor.export">Exportar citas</message>
@@ -214,7 +214,7 @@
 	<message key="submission.citations.editor.export.filterSelectionDescription">Por favor, selecciona una de las siguientes opciones de exportación.</message>
 	<message key="submission.citations.editor.export.filterSelectionError">No has seleccionado una de las opciones de salida.</message>
 	<message key="submission.citations.editor.export.foundUnapprovedCitationsMessage"><![CDATA[<p>Aún no ha aprobado todas las citas. Vaya a la pestaña <strong>Editar citas</strong> y asegúrese de haber aprobado todas las citas antes de intentar exportarlas. Las citas aprobadas aparecen marcadas con una raya de color azul oscuro a la izquierda.</p>]]></message>
-	<message key="submission.citations.editor.export.noExportOutput">El filtro de salida &quot;{$filterName}&quot; ha producido un error. Envíe un informe de errores.</message>
+	<message key="submission.citations.editor.export.noExportOutput">El filtro de salida "{$filterName}" ha producido un error. Envíe un informe de errores.</message>
 	<message key="submission.citations.editor.export.pleaseSelectXmlFilter">Opciones de salida XML:</message>
 	<message key="submission.citations.editor.export.pleaseSelectPlaintextFilter">Salida de estilo de citas (¡solo experimental!):</message>
 	<message key="submission.citations.editor.introduction">Introducción</message>
@@ -245,7 +245,7 @@
 	<message key="submission.citations.editor.unprocessedCitationsButtonTitle">Haz clic para refrescar la lista de citas.</message>
 	<message key="submission.citations.filter.invalidMetadata">Se produjo un error en {$filterName}: uno de los datos que regresó de la fuente de datos (p. ej., un servicio web) no se ajustó al formato interno de metadatos. Por lo tanto, se rechazaron los resultados de la fuente de datos. Envíe un informe de errores.</message>
 	<message key="submission.citations.filter.noResultFromFilterError">Varios servicios de citas no mostraron ningún resultado. Puede editar los campos de citas manualmente y luego volver a consultar los servicios de citas para mejorar los resultados. Si aun así no obtiene resultados, la cita no se encuentra en ninguna de las bases de datos conectadas.</message>
-	<message key="submission.citations.filter.unsupportedPublicationType">Falta el tipo de publicación o no es compatible. Edite la cita manualmente e introduzca un tipo de publicación (los tipos aceptados son &quot;libro&quot;, &quot;revista&quot;, &quot;tesis&quot; y &quot;acta-conf&quot;).</message>
+	<message key="submission.citations.filter.unsupportedPublicationType">Falta el tipo de publicación o no es compatible. Edite la cita manualmente e introduzca un tipo de publicación (los tipos aceptados son "libro", "revista", "tesis" y "acta-conf").</message>
 	<message key="submission.citations.filter.webserviceError">El aviso del servicio web de {$filterName} ha encontrado un error a través de la siguiente URL: {$webserviceUrl}. Posiblemente se deba a que el servicio web no está disponible temporalmente. A pesar de eso, podrá seguir trabajando con los demás servicios y guardar los resultados. También puede volver a intentarlo más tarde. Si el error persiste, solicite al gestor/a de la revista que desactive este servicio y envíe un informe de errores.</message>
 	<message key="submission.citations.filter.webserviceResultTransformationError">Se produjo un error en {$filterName}: se produjo un error al transformar los resultados XML (p. ej., de un servicio web) en metadatos basados en campos. Es probable que esto se deba a que el servicio web encontró datos inválidos o incompletos. Envíe un informe de errores.</message>
 	<message key="submission.citations.metadata.changeWarning">¿Está seguro de que desea actualizar la lista de referencias? Si hace clic en ACEPTAR, se reescribirán los cambios realizados por los editores/as. Si no está seguro/a de si debería hacer cambios en la lista de referencias, póngase en contacto con el editor/a a cargo de su envío.</message>
@@ -268,7 +268,7 @@
 	<message key="submission.copyedited">Corregido</message>
 	<message key="submission.copyediting">Corrección de originales</message>
 	<message key="submission.coverage">Información de cobertura</message>
-	<message key="submission.coverage.tip">Los campos siguientes proporcionan información sobre la cobertura del envío.  La cobertura puede incluir períodos cronológicos (1920-1940, siglo XVII) y ubicaciones geográficas (&quot;Boston, MA&quot;, o &quot;norte de Inglaterra&quot;).  Si lo desea, puede emplear el campo de cobertura de muestra para incluir un ejemplo pertinente de su propio trabajo.</message>
+	<message key="submission.coverage.tip">Los campos siguientes proporcionan información sobre la cobertura del envío.  La cobertura puede incluir períodos cronológicos (1920-1940, siglo XVII) y ubicaciones geográficas ("Boston, MA", o "norte de Inglaterra").  Si lo desea, puede emplear el campo de cobertura de muestra para incluir un ejemplo pertinente de su propio trabajo.</message>
 	<message key="submission.coverage.chron">Cobertura cronológica o histórica</message>
 	<message key="submission.coverage.geo">Cobertura geoespacial</message>
 	<message key="submission.coverage.sample">Cobertura de muestra</message>
@@ -288,8 +288,8 @@
 	<message key="submission.event.confirmDeleteLogEntry">¿Seguro que quieres borrar esta entrada del registro de eventos?</message>
 	<message key="submission.event.deleteLogEntry">Borrar entrada de registro</message>
 	<message key="submission.event.submissionSubmitted">Envío inicial completado.</message>
-	<message key="submission.event.fileUploaded">Se cargó el archivo &quot;{$name}&quot; (Id. de archivo {$fileId}-{$revision}).</message>
-	<message key="submission.event.fileRevised">Se cargó la revisión &quot;{$name}&quot; (Id. de archivo {$fileId}-{$revision}).</message>
+	<message key="submission.event.fileUploaded">Se cargó el archivo "{$name}" (Id. de archivo {$fileId}-{$revision}).</message>
+	<message key="submission.event.fileRevised">Se cargó la revisión "{$name}" (Id. de archivo {$fileId}-{$revision}).</message>
 	<message key="submission.event.general.metadataUpdated">Metadatos de envío actualizados</message>
 	<message key="submission.event.general.suppFileUpdated">Archivo de envío actualizado</message>
 	<message key="submission.event.reviewer.reviewAcceptedByProxy">Asignación de revisión aceptada por poderes</message>
@@ -431,7 +431,7 @@
 	<message key="submission.submit.newFile">Enviar otro archivo</message>
 	<message key="submission.submit.errorDeletingAuthor">Se produjo un error al eliminar al autor/a.</message>
 	<message key="submission.submit.metadataForm">Mejoras adicionales</message>
-	<message key="submission.submit.metadataForm.tip">Añada más información al envío.  Pulse &quot;Intro&quot; después de cada término.</message>
+	<message key="submission.submit.metadataForm.tip">Añada más información al envío.  Pulse "Intro" después de cada término.</message>
 	<message key="submission.submit.submissionLocale">Idioma del envío</message>
 	<message key="submission.submit.submissionLocaleDescription">Esta publicación acepta envíos en varios idiomas. Elija el idioma principal del envío en el menú desplegable que aparece a continuación.</message>
 	<message key="submission.submit.submissionFiles">Archivos de envío</message>
@@ -445,7 +445,7 @@
 	<message key="submission.currentAgencies">Agencias</message>
 	<message key="submission.indexingInformation">Información de indexado</message>
 	<message key="submission.titleAndAbstract">Título y resumen</message>
-	<message key="submission.type.tip"><![CDATA[El tipo de envío suele ser de &quot;imagen&quot;, &quot;texto&quot; u otros archivos multimedia entre los que se incluyen &quot;software&quot; e &quot;interactivo&quot;. Elija el que sea más pertinente para su envío. Pueden encontrarse ejemplos en <a target="_blank" href="http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>]]></message>
+	<message key="submission.type.tip"><![CDATA[El tipo de envío suele ser de "imagen", "texto" u otros archivos multimedia entre los que se incluyen "software" e "interactivo". Elija el que sea más pertinente para su envío. Pueden encontrarse ejemplos en <a target="_blank" href="http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>]]></message>
 	<message key="submission.underway">En curso</message>
 	<message key="submission.uploadFileTo">Subir archivo a</message>
 	<message key="submission.createRemote">Crear remoto</message>
@@ -492,7 +492,7 @@
 	<message key="submission.upload.noGenre">Falta el género o no es válido.</message>
 	<message key="submission.upload.invalidUserGroup">Falta el grupo de usuarios/as o no es válido.</message>
 	<message key="submission.upload.possibleRevision">Se detectó una posible revisión o copia</message>
-	<message key="submission.upload.possibleRevisionDescription"><![CDATA[<p>El nombre del archivo subido se parece al nombre del archivo &quot;{$revisedFileName}&quot; subido anteriormente. Si quiere reemplazar el archivo anterior con el que acaba de subir, seleccione el archivo que quiere reemplazar del menú desplegable. Si el archivo subido no debe reemplazar un archivo anterior, seleccione &quot;Seleccionar archivo (para preservar el historial)&quot; del menú desplegable.</p>]]></message>
+	<message key="submission.upload.possibleRevisionDescription"><![CDATA[<p>El nombre del archivo subido se parece al nombre del archivo "{$revisedFileName}" subido anteriormente. Si quiere reemplazar el archivo anterior con el que acaba de subir, seleccione el archivo que quiere reemplazar del menú desplegable. Si el archivo subido no debe reemplazar un archivo anterior, seleccione "Seleccionar archivo (para preservar el historial)" del menú desplegable.</p>]]></message>
 	<message key="submission.upload.selectMandatoryFileToRevise">Seleccione el archivo que quiere revisar.</message>
 	<message key="submission.upload.selectOptionalFileToRevise">Si está subiendo una revisión de un archivo existente, indique de qué archivo se trata.</message>
 	<message key="submission.upload.uploadNewFile">Seleccionar archivo (para preservar el historial)</message>
@@ -547,7 +547,7 @@
 	<message key="editor.submission.decision.sendInternalReview">Enviar para revisión interna</message>
 	<message key="editor.submission.decision.sendExternalReview">Enviar para revisión externa</message>
 	<message key="editor.submission.decision.approveProofs">Aprobar pruebas</message>
-	<message key="editor.submission.decision.approveProofsDescription">El archivo de compaginadas debe marcarse como &quot;aprobado&quot; para que esté disponible. ¿Quiere aprobarlo?</message>
+	<message key="editor.submission.decision.approveProofsDescription">El archivo de compaginadas debe marcarse como "aprobado" para que esté disponible. ¿Quiere aprobarlo?</message>
 	<message key="editor.submission.decision.disapproveProofsDescription">Esta compaginada ya no estará disponible públicamente para su descarga o compra. ¿Quiere rechazarlo?</message>
 
 	<!-- workflow navigation keys -->
@@ -563,16 +563,16 @@
 	<message key="editor.submission.addAuditorError">Se produjo un error al intentar asignar al auditor/a. Inténtelo de nuevo.</message>
 
 	<!-- Submission event log -->
-	<message key="submission.event.fileUploaded">{$username} subió el archivo &quot;{$originalFileName}&quot; para el envío {$submissionId}.</message>
-	<message key="submission.event.fileDeleted">{$username} eliminó el archivo &quot;{$originalFileName}&quot; para el envío {$submissionId}.</message>
-	<message key="submission.event.revisionUploaded">{$username} subió el archivo de revisión &quot;{$originalFileName}&quot; para el envío {$submissionId}.</message>
-	<message key="submission.event.revisionDeleted">{$username} eliminó el archivo de revisión &quot;{$originalFileName}&quot; para el envío {$submissionId}.</message>
-	<message key="submission.event.lastRevisionDeleted">{$username} eliminó la última revisión del archivo &quot;{$title}&quot;.</message>
-	<message key="submission.event.fileAuditorAdded">Se añadió a &quot;{$name}&quot; ({$username}) como uno de los auditores/as del archivo &quot;{$file}.&quot;</message>
-	<message key="submission.event.fileAuditorCleared">Se eliminó a &quot;{$name}&quot; ({$username}) como uno de los auditores/as del archivo &quot;{$file}.&quot;</message>
-	<message key="submission.event.fileAuditUploaded">&quot;{$name}&quot; ({$username}) completó una auditoría y subió &quot;{$file}.&quot;</message>
-	<message key="submission.event.signoffSignoff">&quot;{$name}&quot; ({$username}) cerró la sesión en el cierre de sesión de &quot;{$file}.&quot;</message>
-	<message key="submission.event.proofsApproved">&quot;{$name}&quot; ({$username}) aprobó los cambios de &quot;{$formatName}.&quot;</message>
+	<message key="submission.event.fileUploaded">{$username} subió el archivo "{$originalFileName}" para el envío {$submissionId}.</message>
+	<message key="submission.event.fileDeleted">{$username} eliminó el archivo "{$originalFileName}" para el envío {$submissionId}.</message>
+	<message key="submission.event.revisionUploaded">{$username} subió el archivo de revisión "{$originalFileName}" para el envío {$submissionId}.</message>
+	<message key="submission.event.revisionDeleted">{$username} eliminó el archivo de revisión "{$originalFileName}" para el envío {$submissionId}.</message>
+	<message key="submission.event.lastRevisionDeleted">{$username} eliminó la última revisión del archivo "{$title}".</message>
+	<message key="submission.event.fileAuditorAdded">Se añadió a "{$name}" ({$username}) como uno de los auditores/as del archivo "{$file}."</message>
+	<message key="submission.event.fileAuditorCleared">Se eliminó a "{$name}" ({$username}) como uno de los auditores/as del archivo "{$file}."</message>
+	<message key="submission.event.fileAuditUploaded">"{$name}" ({$username}) completó una auditoría y subió "{$file}."</message>
+	<message key="submission.event.signoffSignoff">"{$name}" ({$username}) cerró la sesión en el cierre de sesión de "{$file}."</message>
+	<message key="submission.event.proofsApproved">"{$name}" ({$username}) aprobó los cambios de "{$formatName}."</message>
 	<message key="submission.overview">Resumen del envío</message>
 	<message key="submission.description">Descripción</message>
 	<message key="submission.stageNotInitiated">Fase no iniciada.</message>

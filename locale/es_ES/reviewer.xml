@@ -40,6 +40,6 @@
 	<message key="reviewer.confirmSubmit">¿Estás seguro de que deseas presentar esta revisión?</message>
 	<message key="reviewer.complete.whatNext">Gracias por completar la revisión de este envío. La revisión se envió con éxito. Le agradecemos que haya contribuido a que el trabajo que publicamos sea de calidad. El editor/a se pondrá en contacto con usted si necesita más información.</message>
 	<message key="reviewer.aboutDueDates">Acerca de las fechas límite</message>
-	<message key="reviewer.aboutDueDates.text">El editor solicita que aceptes o rechaces la revisión antes de la &quot;Fecha límite de respuesta&quot; y finalices la revisión antes de la &quot;Fecha límite de la revisión&quot;.</message>
+	<message key="reviewer.aboutDueDates.text">El editor solicita que aceptes o rechaces la revisión antes de la "Fecha límite de respuesta" y finalices la revisión antes de la "Fecha límite de la revisión".</message>
 
 </locale>

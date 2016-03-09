@@ -4,8 +4,8 @@
 <!--
   * locale/es_ES/reader.xml
   *
-  * Copyright (c) 2014 Simon Fraser University Library
-  * Copyright (c) 2000-2014 John Willinsky
+  * Copyright (c) 2014-2015 Simon Fraser University Library
+  * Copyright (c) 2000-2015 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Credits: https://pkp.sfu.ca/wiki/index.php?title=OMP:_Spanish_(es_ES)
   * Localization strings.
@@ -13,7 +13,7 @@
 
 <locale name="es_ES" full_name="Español (España)">
 	<message key="comments.anonymous">Usuario anónimo</message>
-	<message key="comments.anonymousNamed">&quot;{$userName}&quot;</message>
+	<message key="comments.anonymousNamed">"{$userName}"</message>
 	<message key="comments.body">Texto</message>
 	<message key="comments.titleRequired">Se requiere un título para el comentario.</message>
 	<message key="comments.confirmDeleteChildren">Al eliminar este comentario también se eliminará cualquier respuesta. ¿Está seguro de que quiere realizar esta acción?</message>
@@ -40,9 +40,9 @@
 	<message key="rt.admin.contexts.createContext">Crear contexto</message>
 	<message key="rt.admin.contexts.edit.editContext">Editar contexto</message>
 	<message key="rt.admin.contexts.metadata">Metadatos</message>
-	<message key="rt.admin.contexts.options.authorTerms">Usar nombres de autores como términos de búsqueda por defecto para permitir a los usuarios encontrar otros trabajos de los autores de este artículo (p.ej., para un contexto de &quot;Otros trabajos&quot;)</message>
+	<message key="rt.admin.contexts.options.authorTerms">Usar nombres de autores como términos de búsqueda por defecto para permitir a los usuarios encontrar otros trabajos de los autores de este artículo (p.ej., para un contexto de "Otros trabajos")</message>
 	<message key="rt.admin.contexts.options.citedBy">Usar nombres de autores como términos de búsqueda por defecto y describir el contexto como búsqueda para citas al artículo.</message>
-	<message key="rt.admin.contexts.options.defineTerms"><![CDATA[Utilice la palabra destacada por el lector/a como término de búsqueda predeterminado o deje el campo en blanco si no se seleccionó ninguna para el elemento (p.ej., para el contexto &quot;Definición de términos&quot;). La opción &quot;Definición de términos&quot; debe estar habilitada en la <a href="{$settingsUrl}">Configuración RST</a> para permitir que se abra el contexto al hacer doble clic sobre una palabra.]]></message>
+	<message key="rt.admin.contexts.options.defineTerms"><![CDATA[Utilice la palabra destacada por el lector/a como término de búsqueda predeterminado o deje el campo en blanco si no se seleccionó ninguna para el elemento (p.ej., para el contexto "Definición de términos"). La opción "Definición de términos" debe estar habilitada en la <a href="{$settingsUrl}">Configuración RST</a> para permitir que se abra el contexto al hacer doble clic sobre una palabra.]]></message>
 	<message key="rt.admin.contexts.options.geoTerms">Utilizar información geográfica de indexación como términos de búsqueda por defecto.</message>
 	<message key="rt.admin.contexts.options">Opciones</message>
 	<message key="rt.admin.management">Gestión</message>
@@ -104,7 +104,7 @@
 	<message key="rt.colleague">Notificar a un amigo</message>
 	<message key="rt.context.abbrev">Abreviatura</message>
 	<message key="rt.context.and">Y</message>
-	<message key="rt.context.citesContextDescription">Si el artículo está indexado en Google Académico, puede que vaya acompañado de un enlace de &quot;Citado por X&quot;, el cual abre una lista de las obras que lo citan. Además, Google Académico enumerará todos los elementos que citen el título y al autor/a. Para acceder a los recursos en línea que solo estén disponibles a través de la biblioteca de investigación, puede ir a Configuración de Google Académico y activar los enlaces de bibliotecas de su institución.</message>
+	<message key="rt.context.citesContextDescription">Si el artículo está indexado en Google Académico, puede que vaya acompañado de un enlace de "Citado por X", el cual abre una lista de las obras que lo citan. Además, Google Académico enumerará todos los elementos que citen el título y al autor/a. Para acceder a los recursos en línea que solo estén disponibles a través de la biblioteca de investigación, puede ir a Configuración de Google Académico y activar los enlaces de bibliotecas de su institución.</message>
 	<message key="rt.context">Contexto</message>
 	<message key="rt.context.defineTermsDescription">Si el elemento es un archivo HTML (en lugar de un PDF), al hacer doble clic en cualquier palabra del texto ésta se mostrará en el cuadro Palabra para definir. De lo contrario, es posible escribir o pegar las palabras en el cuadro. Para obtener más información acerca del recurso buscado, haga clic en ACERCA DE. Estos recursos se seleccionaron por su carácter relevante y por permitir el acceso abierto (libre) a una parte total o parcial del contenido.</message>
 	<message key="rt.context.description">Descripción</message>

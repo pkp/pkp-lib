@@ -143,9 +143,9 @@
 	<message key="manager.people.enrollUserAs">Inscribir usuaria/o como</message>
 	<message key="manager.people.invalidUser">Lo sentimos, la/el usuaria/o solicitada/o no existe.</message>
 	<message key="manager.people.mergeUser">Unir usuario/a</message>
-	<message key="manager.people.mergeUsers.confirm">Are you sure you wish to merge the selected {$oldAccountCount} account(s) into the account with the username &quot;{$newUsername}&quot;? The selected {$oldAccountCount} accounts will not exist afterwards. Esta acción es irreversible.</message>
+	<message key="manager.people.mergeUsers.confirm">Are you sure you wish to merge the selected {$oldAccountCount} account(s) into the account with the username "{$newUsername}"? The selected {$oldAccountCount} accounts will not exist afterwards. Esta acción es irreversible.</message>
 	<message key="manager.people.mergeUsers">Unir usuarios/as</message>
-	<message key="manager.people.mustChooseRole">Seleccione un rol en la parte superior de la página antes de pulsar &quot;Asociar Usuario/a&quot;.</message>
+	<message key="manager.people.mustChooseRole">Seleccione un rol en la parte superior de la página antes de pulsar "Asociar Usuario/a".</message>
 	<message key="manager.people.mustProvideName">Por favor, indique al menos un apellido.</message>
 	<message key="manager.people.noMatchingUsers">No se han encontrado usuarias/os.</message>
 	<message key="manager.people.noneEnrolled">No se ha inscrito nadie.</message>
@@ -235,11 +235,11 @@
 	<message key="manager.setup.citations">Citas</message>
 	<message key="manager.setup.citationAssistant">Asistente de Marcado de Citas</message>
 	<message key="manager.setup.citationFilterParser">Extracción de Citas</message>
-	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>Para buscar y verificar citas en bases de datos de citas, éstas han de dividirse en metadatos que la máquina sepa interpretar: el título, la editorial, fecha de publicación, etc. deben extraerse del texto de la cita original del autor. Los conectores a servicios web externos pueden ayudar durante el proceso. Uno o varios conectores pueden añadirse haciendo clic en el botón &quot;Añadir elemento&quot; de abajo. Es posible que algunos de estos conectores necesiten configurarse. En caso de que esto ocurra, se le notificará.</p>
+	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>Para buscar y verificar citas en bases de datos de citas, éstas han de dividirse en metadatos que la máquina sepa interpretar: el título, la editorial, fecha de publicación, etc. deben extraerse del texto de la cita original del autor. Los conectores a servicios web externos pueden ayudar durante el proceso. Uno o varios conectores pueden añadirse haciendo clic en el botón "Añadir elemento" de abajo. Es posible que algunos de estos conectores necesiten configurarse. En caso de que esto ocurra, se le notificará.</p>
 		<p>Puede editar o eliminar un conector existente haciendo clic en el icono de ajustes a su lado.</p>]]></message>
 	<message key="manager.setup.citationFilterLookup">Comprobación de Citas</message>
 	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>También debe habilitar y configurar los conectores a las bases de datos de citas externas. Esto le ayuda a encontrar errores en las citas de los autores o a añadir la información adicional (p.ej. DOIs o PubMed IDs) necesaria para la publicación electrónica o el depósito.</p>
-		<p>Proporcionamos conectores a varias bases de datos externas donde puede buscar citas. Algunas de estas bases de datos requieren registrarse o información sobre la configuración para acceder a ellas. Dirígase a las páginas web públicas de las bases de datos para más información sobre cómo registrarse. Puede añadir una o varias bases de datos haciendo clic en el botón &quot;Añadir elemento&quot; de abajo.</p>
+		<p>Proporcionamos conectores a varias bases de datos externas donde puede buscar citas. Algunas de estas bases de datos requieren registrarse o información sobre la configuración para acceder a ellas. Dirígase a las páginas web públicas de las bases de datos para más información sobre cómo registrarse. Puede añadir una o varias bases de datos haciendo clic en el botón "Añadir elemento" de abajo.</p>
 		<p>Puede editar o eliminiar una conexión de base de datos externa existente haciendo clic en el icono de ajustes a su lado.</p>
 		<p><strong>Nota:</strong> Para que el proceso de comprobación de citas se pueda completar rápidamente, la directiva <tt>citation_checking_max_processes</tt> en su archivo de configuración debe ajustarse a un valor razonable. Véase la sección de Ajustes generales en <tt>config.inc.php</tt> para obtener más información.</p>]]></message>
 	<message key="manager.setup.citationOutput">Salida de Citas</message>
@@ -262,7 +262,7 @@
 	<p>Si posee una <a href="http://www.worldcat.org/devnet/wiki/SearchAPIWhoCanUse" target="_blank">clave API</a> de Worldcat puede conectar con Worldcat introduciendo la clave de debajo.</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.loadMessage">Por favor, espere a que la cuadrícula de configuración de la base de datos de citas haya sido cargado...</message>
 	<message key="manager.setup.filter.lookup.grid.title">Conectores de la Base de Datos de Citas</message>
-	<message key="manager.setup.filter.noMoreTemplates">Se han añadido todas las transformaciones disponibles. Haga clic en &quot;Cancelar&quot; para volver a la página de configuración.</message>
+	<message key="manager.setup.filter.noMoreTemplates">Se han añadido todas las transformaciones disponibles. Haga clic en "Cancelar" para volver a la página de configuración.</message>
 	<message key="manager.setup.filter.parser.grid.descriptionConfirm">Ha elegido añadir el analizador {$filterDisplayName}. Haga clic en OK para confirmar.</message>
 	<message key="manager.setup.filter.parser.grid.descriptionTemplate">Por favor, seleccione un analizador de citas.</message>
 	<message key="manager.setup.filter.parser.grid.description.freeCite"><![CDATA[<p>Este filtro de extracción está vinculado al servicio web <a href="http://freecite.library.brown.edu/" target="_blank">FreeCite</a>.</p>]]></message>
@@ -310,8 +310,8 @@
 	<message key="plugins.categories.importexport">Plugins de importación/exportación</message>
 	<message key="plugins.categories.paymethod.description">Los Complementos de Pago implementan varias formas de procesar los pagos on-line.</message>
 	<message key="plugins.categories.paymethod">Complementos de Pago</message>
-	<message key="plugins.categories.reports.description">Los &quot;Plugins&quot; de Reportes son usados para implementar varios tipos de reportes y extractos de datos para los Administradores de Conferencias</message>
-	<message key="plugins.categories.reports">&quot;Plugins&quot; de Reportes</message>
+	<message key="plugins.categories.reports.description">Los "Plugins" de Reportes son usados para implementar varios tipos de reportes y extractos de datos para los Administradores de Conferencias</message>
+	<message key="plugins.categories.reports">"Plugins" de Reportes</message>
 	<message key="plugins.categories.themes.description">Los Complementos de Aspecto se pueden usar para cambiar la apariencia del sistema.</message>
 	<message key="plugins.categories.themes">Complementos de Aspecto</message>
 	<message key="plugins.categories.oaiMetadataFormats">Plugins de Formato de Metadatos de OAI</message>
@@ -324,10 +324,10 @@
 	<message key="manager.plugins.delete">Eliminar módulo</message>
 	<message key="manager.plugins.deleteConfirm">¿Está seguro/a de que desea eliminar este módulo del sistema?</message>
 	<message key="manager.plugins.deleteDescription">Si hace clic en Eliminar, se eliminará el módulo del sistema de archivos del servidor.</message>
-	<message key="manager.plugins.deleteError">El complemento &quot;{$pluginName}&quot; no puede eliminarse del sistema de archivos. Puede tratarse de un problema de permisos. Asegúrese de que el servidor web permite editar el directorio de complementos (además de los subdirectorios), pero no olvide asegurarlo una vez haya finalizado la edición.</message>
-	<message key="manager.plugins.deleteSuccess">El módulo &quot;{$pluginName}&quot; se eliminó correctamente</message>
+	<message key="manager.plugins.deleteError">El complemento "{$pluginName}" no puede eliminarse del sistema de archivos. Puede tratarse de un problema de permisos. Asegúrese de que el servidor web permite editar el directorio de complementos (además de los subdirectorios), pero no olvide asegurarlo una vez haya finalizado la edición.</message>
+	<message key="manager.plugins.deleteSuccess">El módulo "{$pluginName}" se eliminó correctamente</message>
 	<message key="manager.plugins.description">This page allows the Manager to review and potentially configure the plugins that are currently installed. Los complementos se dividen en categorías según su función. Las categorías aparecen enumeradas más abajo y dentro de cada categoría se ecuentra la lista de sus complementos.</message>
-	<message key="manager.plugins.doesNotExist">El complemento &quot;{$pluginName}&quot; no existe</message>
+	<message key="manager.plugins.doesNotExist">El complemento "{$pluginName}" no existe</message>
 	<message key="manager.plugins.fileSelectError">Seleccione un archivo primero</message>
 	<message key="manager.plugins.install">Instalar un nuevo módulo</message>
 	<message key="manager.plugins.installDescription">Este formulario le permite cargar e instalar un nuevo complemento.  Asegúrese de que el complemento está comprimido como un archivo .tar.gz.</message>
@@ -341,7 +341,7 @@
 	<message key="manager.plugins.pleaseInstall">El complemento no existe.  Instale el complemento</message>
 	<message key="manager.plugins.pleaseUpgrade">El complemento ya existe, pero es una versión superior a la ya instalada.  Actualice el complemento</message>
 	<message key="manager.plugins.settings">Preferéncias</message>
-	<message key="manager.plugins.tarCommandNotFound">El comando tar no está disponible. Configúrelo correctamente en su &quot;config.inc.php&quot;.</message>
+	<message key="manager.plugins.tarCommandNotFound">El comando tar no está disponible. Configúrelo correctamente en su "config.inc.php".</message>
 	<message key="manager.plugins.upgrade">Actualizar módulo</message>
 	<message key="manager.plugins.upgradeDescription">Este formulario le permite actualizar un complemento.  Asegúrese de que el complemento está comprimido como un archivo .tar.gz.</message>
 	<message key="manager.plugins.upgradeFailed">Error de actualización {$errorString}</message>

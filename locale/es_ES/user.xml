@@ -4,8 +4,8 @@
 <!--
   * locale/es_ES/user.xml
   *
-  * Copyright (c) 2014 Simon Fraser University Library
-  * Copyright (c) 2000-2014 John Willinsky
+  * Copyright (c) 2014-2015 Simon Fraser University Library
+  * Copyright (c) 2000-2015 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Credits: https://pkp.sfu.ca/wiki/index.php?title=OMP:_Spanish_(es_ES)
   * Localization strings.
@@ -14,7 +14,7 @@
 <locale name="es_ES" full_name="Español (España)">
 	<message key="user.accountInformation">Información de la cuenta</message>
 	<message key="user.affiliation">Afiliación</message>
-	<message key="user.affiliation.description">(Tu institución, ej. &quot;Universidad Simon Fraser&quot;)</message>
+	<message key="user.affiliation.description">(Tu institución, ej. "Universidad Simon Fraser")</message>
 	<message key="user.affiliations">Afiliaciones</message>
 	<message key="user.authorization.accessDenied">Acceso denegado.</message>
 	<message key="user.authorization.processAuthenticationTokenRequired">La clave del proceso de autenticación no se encontró o no es válida.</message>

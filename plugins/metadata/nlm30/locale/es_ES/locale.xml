@@ -21,12 +21,12 @@
 	<message key="plugins.metadata.nlm30.citationAdapter.description">Extrae/introduce metadatos desde/en las citas.</message>
 
 	<!-- citation parsers (citation extraction services) -->
-	<message key="plugins.metadata.nlm30.citationParsers.displayName">Servicios de extracción de citas&quot;</message>
-	<message key="plugins.metadata.nlm30.citationParsers.description">Convierte una cita con texto sin formato en un marcador de elemento de cita NLM 3.0.&quot;</message>
+	<message key="plugins.metadata.nlm30.citationParsers.displayName">Servicios de extracción de citas"</message>
+	<message key="plugins.metadata.nlm30.citationParsers.description">Convierte una cita con texto sin formato en un marcador de elemento de cita NLM 3.0."</message>
 
 	<!-- citation lookup (citation database/improvement/lookup services) -->
-	<message key="plugins.metadata.nlm30.citationLookup.displayName">Servicios de base de datos de citas&quot;</message>
-	<message key="plugins.metadata.nlm30.citationLookup.description">Mejora un marcador de elemento de cita NLM 3.0, p. ej. busca citas en bases de datos externas.&quot;</message>
+	<message key="plugins.metadata.nlm30.citationLookup.displayName">Servicios de base de datos de citas"</message>
+	<message key="plugins.metadata.nlm30.citationLookup.description">Mejora un marcador de elemento de cita NLM 3.0, p. ej. busca citas en bases de datos externas."</message>
 
 	<!-- citation output -->
 	<message key="plugins.metadata.nlm30.citationOutput.displayName">Servicios de generación de citas</message>

@@ -28,7 +28,7 @@
 	<message key="installer.databaseDriver">Driver de la base de datos</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Parece que los controladores de bases de datos que se muestran entre paréntesis no tienen la extensión PHP requerida cargada y es probable que la instalación no se realice correctamente si la selecciona.</strong><br />Los controladores de bases de datos no compatibles enumerados anteriormente se recogen sólo con fines académicos y es probable que no funcionen.]]></message>
 	<message key="installer.databaseHost">Servidor</message>
-	<message key="installer.databaseHostInstructions">Deje el nombre del servidor en blanco cuando se conecte mediante sockets de dominio y no por TCP/IP. Esto no es necesario con MySQL, ya que utiliza sockets automáticamente si se introduce &quot;localhost&quot;, pero sí lo es con otros servidores de bases de datos como PostgreSQL.</message>
+	<message key="installer.databaseHostInstructions">Deje el nombre del servidor en blanco cuando se conecte mediante sockets de dominio y no por TCP/IP. Esto no es necesario con MySQL, ya que utiliza sockets automáticamente si se introduce "localhost", pero sí lo es con otros servidores de bases de datos como PostgreSQL.</message>
 	<message key="installer.databaseName">Nombre de la base de datos</message>
 	<message key="installer.databasePassword">Contraseña</message>
 	<message key="installer.databaseSettings">Configuración de la base de datos</message>
@@ -79,7 +79,7 @@
 			<li><tt>cache/_db</tt> es editable: {$writable_db_cache}</li>
 		</ul>
 
-		<p>2. Es necesario crear un directorio para guardar los archivos subidos y que sea editable (ver &quot;Configuración de archivo&quot; a continuación).</p>]]>
+		<p>2. Es necesario crear un directorio para guardar los archivos subidos y que sea editable (ver "Configuración de archivo" a continuación).</p>]]>
 	</message>
 	<message key="installer.configureXSLMessage"><![CDATA[<p>Su instalación PHP no tiene el módulo XSL activado. Actívelo o configure el parámetro xslt_command en su archivo config.inc.php.</p>]]></message>
 </locale>

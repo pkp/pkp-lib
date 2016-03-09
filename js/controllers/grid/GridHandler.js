@@ -647,7 +647,6 @@
 		// Hide the empty placeholder.
 		var $emptyElement = this.getEmptyElement($newRow);
 		$emptyElement.hide();
-		opt_$gridBody.find('tbody.empty').removeClass('empty');
 
 		this.callFeaturesHook('addElement', $newRow);
 	};

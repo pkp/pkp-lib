@@ -27,7 +27,8 @@
 		{elseif $FBV_cancelUrl}
 			{include file="linkAction/buttonRedirectLinkAction.tpl"
 					buttonSelector="#"|concat:$cancelButtonId
-					cancelUrl=$FBV_cancelUrl}
+					cancelUrl=$FBV_cancelUrl
+					cancelUrlTarget=$FBV_cancelUrlTarget}
 		{/if}
 		<a href="#" id="{$cancelButtonId}" class="cancelButton">{translate key=$FBV_cancelText}</a>
 	{/if}

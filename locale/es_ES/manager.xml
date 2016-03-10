@@ -95,7 +95,7 @@
 	<message key="manager.files.confirmDelete">¿Seguro que desea eliminar este archivo o directorio? Tenga en cuenta que el directorio debe estar vacío antes de eliminarlo.</message>
 	<message key="manager.files.createDir">Crear directorio</message>
 	<message key="manager.files.emptyDir">No se han encontrado ficheros en este directorio.</message>
-	<message key="manager.files.indexOfDir">Index of {$dir}</message>
+	<message key="manager.files.indexOfDir">Índice de {$dir}</message>
 	<message key="manager.files.parentDir">Directorio padre</message>
 	<message key="manager.files.uploadedFiles">Ficheros subidos</message>
 	<message key="manager.files.uploadFile">Subir fichero</message>
@@ -143,7 +143,7 @@
 	<message key="manager.people.enrollUserAs">Inscribir usuaria/o como</message>
 	<message key="manager.people.invalidUser">Lo sentimos, la/el usuaria/o solicitada/o no existe.</message>
 	<message key="manager.people.mergeUser">Unir usuario/a</message>
-	<message key="manager.people.mergeUsers.confirm">Are you sure you wish to merge the selected {$oldAccountCount} account(s) into the account with the username "{$newUsername}"? The selected {$oldAccountCount} accounts will not exist afterwards. Esta acción es irreversible.</message>
+	<message key="manager.people.mergeUsers.confirm">¿Está seguro que desea unir la cuenta "{$oldAccountCount}" a la cuenta "{$newUsername}"? La cuenta "{$oldAccountCount}" se eliminará. Esta acción es irreversible.</message>
 	<message key="manager.people.mergeUsers">Unir usuarios/as</message>
 	<message key="manager.people.mustChooseRole">Seleccione un rol en la parte superior de la página antes de pulsar "Asociar Usuario/a".</message>
 	<message key="manager.people.mustProvideName">Por favor, indique al menos un apellido.</message>
@@ -327,7 +327,6 @@
 	<message key="manager.plugins.deleteDescription">Si hace clic en Eliminar, se eliminará el módulo del sistema de archivos del servidor.</message>
 	<message key="manager.plugins.deleteError">El complemento "{$pluginName}" no puede eliminarse del sistema de archivos. Puede tratarse de un problema de permisos. Asegúrese de que el servidor web permite editar el directorio de complementos (además de los subdirectorios), pero no olvide asegurarlo una vez haya finalizado la edición.</message>
 	<message key="manager.plugins.deleteSuccess">El módulo "{$pluginName}" se eliminó correctamente</message>
-	<message key="manager.plugins.description">This page allows the Manager to review and potentially configure the plugins that are currently installed. Los complementos se dividen en categorías según su función. Las categorías aparecen enumeradas más abajo y dentro de cada categoría se ecuentra la lista de sus complementos.</message>
 	<message key="manager.plugins.doesNotExist">El complemento "{$pluginName}" no existe</message>
 	<message key="manager.plugins.fileSelectError">Seleccione un archivo primero</message>
 	<message key="manager.plugins.install">Instalar un nuevo módulo</message>

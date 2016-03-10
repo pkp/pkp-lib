@@ -25,7 +25,7 @@
 	<message key="plugins.generic.usageStats.removeUrlError">El número de línea {$lineNumber} del archivo {$file} contiene una URL de la que el sistema no puede eliminar la URL base.</message>
 	<message key="plugins.generic.usageStats.loadDataError">No se pueden cargar los datos extraídos del archivo {$file}. El error fue: {$error}. El archivo cambió de fase otra vez.</message>
 	<message key="plugins.generic.usageStats.pluginNotEnabled">El complemento de estadísticas de uso está deshabilitado. No se procesó ningún archivo de registro.</message>
-	<message key="plugins.generic.usageStats.noCounterBotList">La lista COUNTER bot {$botlist} no puede usarse. Existen varias razones por las que esto puede suceder. Compruebe que el archivo de la lista está dentro de la carpeta &apos;lib/pkp/plugins/generic/usageStats/lib/counter&apos;. Compruebe también los permisos de esta carpeta y que solo hay un archivo dentro.</message>
+	<message key="plugins.generic.usageStats.noCounterBotList">La lista COUNTER bot {$botlist} no puede usarse. Existen varias razones por las que esto puede suceder. Compruebe que el archivo de la lista está dentro de la carpeta 'lib/pkp/plugins/generic/usageStats/lib/counter'. Compruebe también los permisos de esta carpeta y que solo hay un archivo dentro.</message>
 	<message key="plugins.generic.usageStats.displayName">Estadísticas de uso</message>
 	<message key="plugins.generic.usageStats.description">Presentar estadísticas de uso de objetos de datos. Puede utilizar archivos de acceso de registro del servidor para extraer estadísticas.</message>
 	

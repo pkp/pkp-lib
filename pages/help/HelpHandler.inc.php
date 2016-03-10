@@ -42,7 +42,7 @@ class HelpHandler extends Handler {
 			$hash = null;
 		}
 
-		if (!$filename || !preg_match('#^(\w+/){1,2}\w+\.\w+$#', $filename) || !file_exists($path . $filename)) {
+		if (!$filename || !preg_match('#^(\w+/){1,2}[a-zA-Z0-9_-]+\.\w+$#', $filename) || !file_exists($path . $filename)) {
 			$language = AppLocale::getIso1FromLocale(AppLocale::getLocale());
 			if (!file_exists($path . $language)) $language = 'en'; // Default
 			$request->redirect(null, null, null, array($language, 'SUMMARY.md'));
@@ -54,8 +54,7 @@ class HelpHandler extends Handler {
 			return dirname($filename) . '/' . $url;
 		};
 
-		$returner = new JSONMessage(true, $parser->transform(file_get_contents($path . $filename)));
-		return $returner;
+		return new JSONMessage(true, $parser->transform(file_get_contents($path . $filename)));
 	}
 }
 

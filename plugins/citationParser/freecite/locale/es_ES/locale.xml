@@ -2,7 +2,7 @@
 <!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
 
 <!--
-  * plugins/metadata/dc11/locale/es_ES/locale.xml
+  * plugins/citationParser/freecite/locale/es_ES/locale.xml
   *
   * Copyright (c) 2014-2015 Simon Fraser University Library
   * Copyright (c) 2003-2015 John Willinsky
@@ -10,9 +10,8 @@
   * Credits: https://pkp.sfu.ca/wiki/index.php?title=OMP:_Spanish_(es_ES)
   * Localization strings.
   -->
- 
+
 <locale name="es_ES" full_name="Español (España)">
-	<!-- plug-in -->
-	<message key="plugins.metadata.dc11.displayName">Metadatos Dublin Core 1.1</message>
-	<message key="plugins.metadata.dc11.description">Proporciona plantillas Dublin Core 1.1 y compatibilidad de aplicaciones.</message>
+	<message key="plugins.citationParser.freecite.displayName">Extractor de cita FreeCite</message>
+	<message key="plugins.citationParser.freecite.description">Extrae campos de citas de texto sin formato a través de FreeCite.</message>
 </locale>

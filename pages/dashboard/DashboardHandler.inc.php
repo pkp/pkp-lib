@@ -95,7 +95,7 @@ class DashboardHandler extends Handler {
 	}
 
 	/**
-	 * View archives tab
+	 * View active submissions tab
 	 * @param $args array
 	 * @param $request PKPRequest
 	 * @return JSONMessage JSON object
@@ -103,14 +103,11 @@ class DashboardHandler extends Handler {
 	function active($args, $request) {
 		$templateMgr = TemplateManager::getManager($request);
 		$this->setupTemplate($request);
-		$dispatcher = $request->getDispatcher();
-		return $templateMgr->fetchAjax(
-			'activeSubmissionsListGridContainer',
-			$dispatcher->url($request, ROUTE_COMPONENT, null, 'grid.submissions.activeSubmissions.ActiveSubmissionsListGridHandler', 'fetchGrid')
-		);
+		return $templateMgr->fetchJson('dashboard/active.tpl');
 	}
+
 	/**
-	 * View archives tab
+	 * View archived submissions tab
 	 * @param $args array
 	 * @param $request PKPRequest
 	 * @return JSONMessage JSON object
@@ -118,7 +115,6 @@ class DashboardHandler extends Handler {
 	function archives($args, $request) {
 		$templateMgr = TemplateManager::getManager($request);
 		$this->setupTemplate($request);
-
 		return $templateMgr->fetchJson('dashboard/archives.tpl');
 	}
 

@@ -5,11 +5,11 @@
  * Copyright (c) 2003-2016 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * Dashboard submissions tab.
+ * Dashboard archived submissions tab.
  *}
 
-<!-- Archived submissions grid: Show all archived submissions -->
-{if array_intersect(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_REVIEWER, ROLE_ID_ASSISTANT), $userRoles)}
-	{url|assign:archivedSubmissionsListGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.submissions.archivedSubmissions.ArchivedSubmissionsListGridHandler" op="fetchGrid" escape=false}
-	{load_url_in_div id="archivedSubmissionsListGridContainer" url=$archivedSubmissionsListGridUrl}
-{/if}
+{help file="chapter3/archives.md" class="pkp_helpers_align_right"}
+<div class="pkp_helpers_clear"></div>
+
+{url|assign:archivedSubmissionsListGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.submissions.archivedSubmissions.ArchivedSubmissionsListGridHandler" op="fetchGrid" escape=false}
+{load_url_in_div id="archivedSubmissionsListGridContainer" url=$archivedSubmissionsListGridUrl}

@@ -28,6 +28,7 @@
 			</ul>
 		</form>
 	</div>
+	{help file="chapter3/my-queue.md"}
 </div>
 
 <div class="pkp_content_panel">

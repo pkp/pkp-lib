@@ -68,9 +68,10 @@
 		});
 
 		// Handlers for "next" and "previous" buttons
-		$element.find('.pkpPreviousHelpPanel').click(this.callbackWrapper(function(e) {
-			this.loadHelpContent_(this.previousTopic_, this.helpLocale_);
-		}));
+		$element.find('.pkpPreviousHelpPanel')
+				.click(this.callbackWrapper(function(e) {
+					this.loadHelpContent_(this.previousTopic_, this.helpLocale_);
+				}));
 		$element.find('.pkpNextHelpPanel').click(this.callbackWrapper(function(e) {
 			this.loadHelpContent_(this.nextTopic_, this.helpLocale_);
 		}));
@@ -121,12 +122,14 @@
 	 */
 	$.pkp.controllers.HelpPanelHandler.prototype.currentTopic_ = null;
 
+
 	/**
 	 * Previous help topic
 	 * @private
 	 * @type {string?}
 	 */
 	$.pkp.controllers.HelpPanelHandler.prototype.previousTopic_ = null;
+
 
 	/**
 	 * Next help topic

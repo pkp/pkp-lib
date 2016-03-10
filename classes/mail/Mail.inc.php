@@ -387,12 +387,8 @@ class Mail extends DataObject {
 		$from = $this->getFrom();
 		if ($from == null) {
 			return null;
-		} else {
-			if (Config::getVar('email', 'force_default_envelope_sender') && Config::getVar('email', 'default_envelope_sender')) {
-				return Config::getVar('email', 'default_envelope_sender');
-			}
-			return (Mail::encodeDisplayName($from['name'], $send) . ' <'.$from['email'].'>');
-		}
+		} 
+		return (Mail::encodeDisplayName($from['name'], $send) . ' <'.$from['email'].'>');
 	}
 
 	/**

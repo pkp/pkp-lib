@@ -8,7 +8,7 @@
  * @brief Form fields for configuring the frontend header
  *
  *}
-{fbvFormSection label="manager.setup.logo" description="manager.setup.useImageLogoDescription" class=$wizardClass}
+{fbvFormSection label="manager.setup.logo" class=$wizardClass}
 	<div id="pageHeaderLogoImage">
 		{$imagesViews.pageHeaderLogoImage}
 	</div>

@@ -35,8 +35,7 @@
 			{fbvElement type="text" label="manager.setup.reviewOptions.numWeeksPerReview" name="numWeeksPerReview" id="numWeeksPerReview" value=$numWeeksPerReview size=$fbvStyles.size.SMALL inline=true}
 		{/fbvFormSection}
 
-		{capture assign="reviewReminderNote"}{translate key="manager.setup.reviewOptions.automatedReminders"} {translate key="manager.setup.reviewOptions.automatedRemindersDisabled"}{/capture}
-		{fbvFormSection label="manager.setup.reviewOptions.reviewerReminders"|translate description=$reviewReminderNote translate=false}{/fbvFormSection}
+		{fbvFormSection label="manager.setup.reviewOptions.automatedReminders" description="manager.setup.reviewOptions.automatedRemindersDisabled"}{/fbvFormSection}
 
 		{translate|assign:"reminderDefault" key="manager.setup.reviewOptions.neverSendReminder"}
 
@@ -79,7 +78,7 @@
 	{/fbvFormArea}
 
 	{fbvFormArea id="reviewOptions" title="manager.setup.reviewOptions"}
-		{fbvFormSection description="manager.setup.reviewOptions.defaultReviewMethod"}
+		{fbvFormSection}
 			{fbvElement type="select" from=$reviewMethodOptions selected=$defaultReviewMode id="defaultReviewMode" size=$fbvStyles.size.SMALL inline=true}
 		{/fbvFormSection}
 

@@ -56,7 +56,7 @@
 	<message key="common.titleSmallWords">of a the and an or nor but is if then else when at from by on off for in out over to into with</message>
 	<message key="common.alreadyAssigned">Assigned</message>
 	<message key="common.altText">Alternate text</message>
-	<message key="common.altTextInstructions">Please provide alternate text for this image to ensure accessibility for users with text-only browsers or assistive devices.</message>
+	<message key="common.altTextInstructions">To improve your search engine optimization and comply with WCAG standards, please describe any information that appears in this image which would be missed if the site was viewed in a text-only browser or with assistive devices. Example: "Our editor speaking at the PKP#2015 conference."</message>
 	<message key="common.and">and</message>
 	<message key="common.applyAction">Apply Action</message>
 	<message key="common.assign">Assign</message>

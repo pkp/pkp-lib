@@ -472,7 +472,6 @@
 	<message key="search.cli.rebuildIndex.unknownJournal">O seguinte caminho da revistas "{$journalPath}" não leva a uma revista.</message>
 	<message key="search.deleteFilter">Apagar</message>
 	<message key="search.indexTermsLong">Todos os campos de índices</message>
-	<message key="grid.action.toggleHelp">Alternar a exibição da ajuda</message>
 	<message key="grid.action.downloadFile">Baixar este arquivo</message>
 	<message key="context.path">Caminho</message>
 	<message key="review.ensuringBlindReview">Garantindo uma revisão por pares as cegas</message>

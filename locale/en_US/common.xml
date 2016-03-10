@@ -496,7 +496,6 @@
 	<message key="search.typeMethodApproach">Type (method/approach)</message>
 
 	<!-- Common -->
-	<message key="grid.action.toggleHelp">Toggle the display of inline help</message>
 	<message key="grid.action.downloadFile">Download this file</message>
 
 	<message key="context.path">Path</message>

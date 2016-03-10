@@ -482,7 +482,6 @@
 	<message key="user.authorization.invalidSubmission">Soumission invalide</message>
 	<message key="navigation.archives">Archives</message>
 	<message key="search.advancedSearchMore">Options de recherche supplémentaires (cliquer pour afficher)</message>
-	<message key="grid.action.toggleHelp">Basculer l'affichage d'aide en ligne</message>
 	<message key="review.ensuringBlindReview">Assurer un examen aveugle</message>
 	<message key="grid.action.showReviewPolicy">Lire la politique actuelle concernant la révision</message>
 	<message key="user.authorization.submissionFile">L'utilisateur actuel n'a pas accès au fichier de soumission spécifié.</message>

@@ -466,7 +466,6 @@
 	<message key="search.typeMethodApproach">Forschungsansatz, -methode und -verfahren</message>
 
 	<!-- Common -->
-	<message key="grid.action.toggleHelp">Anzeige der internen Hilfe umschalten</message>
 	<message key="grid.action.downloadFile">Diese Datei herunterladen</message>
 
 	<message key="context.path">Zugangspfad</message>

@@ -146,7 +146,7 @@
 				this.callbackWrapper(this.handleWrapperEvents));
 
 		// Load the appropriate help content
-		this.loadHelpContent_(options.topic, null);
+		this.loadHelpContent_(options.topic, this.helpLocale_);
 
 		// Set focus inside the help panel (delay is required so that element is
 		// visible when jQuery tries to focus on it)
@@ -169,7 +169,7 @@
 		locale = locale || this.helpLocale_;
 		this.currentTopic_ = topic || '';
 		var url = this.helpUrl_ + '/index/' + locale + '/';
-		url += encodeURIComponent(this.currentTopic_);
+		url += encodeURIComponent(this.currentTopic_).replace(/%2C/g, '/'); // Don't escape slashes
 		$.get(url, null, this.callbackWrapper(this.updateContentHandler_),
 				'json');
 	};
@@ -206,11 +206,7 @@
 
 			e.preventDefault();
 
-			if (urlParts.length > 1) {
-				helpPanelHandler.loadHelpContent_(urlParts[1], urlParts[0]);
-			} else {
-				helpPanelHandler.loadHelpContent_(urlParts[0], null);
-			}
+			helpPanelHandler.loadHelpContent_(urlParts.slice(1).join('/'), urlParts[0]);
 		});
 	};
 
@@ -247,7 +243,7 @@
 	 * @private
 	 */
 	$.pkp.controllers.HelpPanelHandler.prototype.homePanel_ = function() {
-		this.loadHelpContent_(null, null);
+		this.loadHelpContent_(null, this.helpLocale_);
 	};
 
 

@@ -498,7 +498,8 @@ class PKPTemplateManager extends Smarty {
 				'file' => null, // The name of the Markdown file
 				'section' => null, // The (optional) anchor within the Markdown file
 				'textKey' => 'help.help', // An (optional) locale key for the link
-				'text' => null // An (optional) literal text for the link
+				'text' => null, // An (optional) literal text for the link
+				'class' => null, // An (optional) CSS class string for the link
 			),
 			$params
 		);
@@ -508,6 +509,7 @@ class PKPTemplateManager extends Smarty {
 			'helpSection' => $params['section'],
 			'helpTextKey' => $params['textKey'],
 			'helpText' => $params['text'],
+			'helpClass' => $params['class'],
 		));
 
 		return $this->fetch('common/helpLink.tpl');

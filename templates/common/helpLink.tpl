@@ -13,7 +13,7 @@
  * @uses $helpText string Text for the link
  * @uses $helpTextKey string Locale key for the link text
  *}
-<a href="#" class="requestHelpPanel pkp_help_link" data-topic="{$helpFile|escape}{if $helpSection}#{$helpSection|escape}{/if}">
+<a href="#" class="requestHelpPanel pkp_help_link {$helpClass|escape}" data-topic="{$helpFile|escape}{if $helpSection}#{$helpSection|escape}{/if}">
 	{if $helpText}
 		{$text|escape}
 	{else}

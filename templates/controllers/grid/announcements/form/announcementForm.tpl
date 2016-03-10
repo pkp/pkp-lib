@@ -51,7 +51,7 @@
 				{fbvElement type="textarea" multilingual="true" id="description" value=$description label="manager.announcements.form.descriptionInstructions" rich=true}
 			{/fbvFormSection}
 			{fbvFormSection title="manager.announcements.form.dateExpire" for="dataExpire"}
-				{fbvElement type="text" id="dateExpire" value=$dateExpire|date_format:"%y-%m-%d" label="manager.announcements.form.dateExpireInstructions" size=$fbvStyles.size.MEDIUM class="datepicker"}
+				{fbvElement type="text" id="dateExpire" value=$dateExpire|date_format:"%y-%m-%d" label="manager.announcements.form.dateExpireInstructions" class="datepicker"}
 			{/fbvFormSection}
 		{/fbvFormArea}
 		{fbvFormButtons id="announcementFormSubmit" submitText="common.save"}

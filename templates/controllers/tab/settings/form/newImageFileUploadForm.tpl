@@ -38,8 +38,7 @@
 	{/fbvFormArea}
 	{fbvFormArea id="extraFileData"}
 		{fbvFormSection title="common.altText"}
-			{fbvElement type="text" multilingual=true id="imageAltText" value=$imageAltText}
-			<span class="instruct">{translate key="common.altTextInstructions"}</span>
+			{fbvElement type="text" label="common.altTextInstructions" multilingual=true id="imageAltText" value=$imageAltText}
 		{/fbvFormSection}
 	{/fbvFormArea}
 

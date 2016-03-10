@@ -169,7 +169,10 @@
 		locale = locale || this.helpLocale_;
 		this.currentTopic_ = topic || '';
 		var url = this.helpUrl_ + '/index/' + locale + '/';
-		url += encodeURIComponent(this.currentTopic_).replace(/%2C/g, '/'); // Don't escape slashes
+
+		// Don't escape slashes
+		url += encodeURIComponent(this.currentTopic_).replace(/%2C/g, '/');
+
 		$.get(url, null, this.callbackWrapper(this.updateContentHandler_),
 				'json');
 	};

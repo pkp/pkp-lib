@@ -22,9 +22,12 @@
 	{rdelim});
 </script>
 
+{help file="chapter1/notification.md" class="pkp_helpers_align_right"}
+
 <p>{translate key="notification.settingsDescription"}</p>
 
 <form class="pkp_form" id="notificationSettingsForm" method="post" action="{url op="saveNotificationSettings"}" enctype="multipart/form-data">
+
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="notificationSettingsFormNotification"}
 
 	{fbvFormArea id="notificationSettings"}

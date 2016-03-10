@@ -67,6 +67,14 @@
 			$element.trigger('pkp.HelpPanel.Home');
 		});
 
+		// Handlers for "next" and "previous" buttons
+		$element.find('.pkpPreviousHelpPanel').click(this.callbackWrapper(function(e) {
+			this.loadHelpContent_(this.previousTopic_, this.helpLocale_);
+		}));
+		$element.find('.pkpNextHelpPanel').click(this.callbackWrapper(function(e) {
+			this.loadHelpContent_(this.nextTopic_, this.helpLocale_);
+		}));
+
 		// Register listeners
 		$element.on('pkp.HelpPanel.Open', this.callbackWrapper(this.openPanel_))
 			.on('pkp.HelpPanel.Close', this.callbackWrapper(this.closePanel_))
@@ -112,6 +120,20 @@
 	 * @type {string?}
 	 */
 	$.pkp.controllers.HelpPanelHandler.prototype.currentTopic_ = null;
+
+	/**
+	 * Previous help topic
+	 * @private
+	 * @type {string?}
+	 */
+	$.pkp.controllers.HelpPanelHandler.prototype.previousTopic_ = null;
+
+	/**
+	 * Next help topic
+	 * @private
+	 * @type {string?}
+	 */
+	$.pkp.controllers.HelpPanelHandler.prototype.nextTopic_ = null;
 
 
 	//
@@ -186,14 +208,19 @@
 	 */
 	$.pkp.controllers.HelpPanelHandler.prototype.
 			updateContentHandler_ = function(ajaxContext, jsonData) {
-		var workingJsonData = this.handleJson(jsonData), helpPanelHandler = this,
+		var workingJsonData = this.handleJson(jsonData),
+				responseObject = workingJsonData.content,
+				helpPanelHandler = this,
 				$element = this.getHtmlElement(),
 				hashIndex = this.currentTopic_.indexOf('#'),
 				$targetHash;
 
+		this.previousTopic_ = responseObject.previous;
+		this.nextTopic_ = responseObject.next;
+
 		// Place the new content into the DOM
 		$element.find('.content').replaceWith(
-				'<div class="content">' + workingJsonData.content + '</div>');
+				'<div class="content">' + responseObject.content + '</div>');
 
 		// If a hash was specified, scroll to the named anchor.
 		if (hashIndex !== -1) {

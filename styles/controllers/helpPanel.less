@@ -50,7 +50,7 @@
 		transition-duration: 0.3s;
 	}
 
-	.header {
+	.header, .footer {
 		.pkp_helpers_clear();
 		font-size: @font-sml;
 		line-height: @line-sml;
@@ -70,7 +70,27 @@
 
 		&:before {
 			&:extend(.fa);
+			content: @fa-var-long-arrow-up;
+			margin-right: 0.25em;
+		}
+	}
+
+	.previous {
+		float: left;
+
+		&:before {
+			&:extend(.fa);
 			content: @fa-var-long-arrow-left;
+			margin-right: 0.25em;
+		}
+	}
+
+	.next {
+		float: right;
+
+		&:before {
+			&:extend(.fa);
+			content: @fa-var-long-arrow-right;
 			margin-right: 0.25em;
 		}
 	}

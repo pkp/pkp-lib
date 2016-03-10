@@ -47,6 +47,14 @@
 		<div class="content">
 			{include file="common/loadingContainer.tpl"}
 		</div>
+		<div class="footer">
+			<a href="#" class="pkpPreviousHelpPanel previous">
+				{translate key="help.previous"}
+			</a>
+			<a href="#" class="pkpNextHelpPanel next">
+				{translate key="help.next"}
+			</a>
+		</div>
 	</div>
 </div>
 

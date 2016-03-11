@@ -17,6 +17,9 @@
 </script>
 
 <form class="pkp_form" id="guidelinesForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT op="saveFormData" tab="guidelines"}">
+	{help file="chapter6/press/guides.md" class="pkp_helpers_align_right"}
+	<div class="pkp_helpers_clear"></div>
+
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="guidelinesFormNotification"}
 
 	{fbvFormArea id="guidelines"}

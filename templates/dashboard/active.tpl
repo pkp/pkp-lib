@@ -8,7 +8,7 @@
  * Dashboard active submissions tab.
  *}
 
-{help file="chapter3/active.md" class="pkp_helpers_align_right"}
+{help file="chapter3/all-active.md" class="pkp_helpers_align_right"}
 <div class="pkp_helpers_clear"></div>
 
 <!-- Archived submissions grid: Show all archived submissions -->

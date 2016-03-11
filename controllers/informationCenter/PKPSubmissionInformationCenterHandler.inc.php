@@ -150,10 +150,8 @@ class PKPSubmissionInformationCenterHandler extends InformationCenterHandler {
 		$this->setupTemplate($request);
 		$templateMgr = TemplateManager::getManager($request);
 		$dispatcher = $request->getDispatcher();
-		return $templateMgr->fetchAjax(
-			'eventLogGrid',
-			$dispatcher->url($request, ROUTE_COMPONENT, null, 'grid.eventLog.SubmissionEventLogGridHandler', 'fetchGrid', null, $this->_getLinkParams())
-		);
+		$templateMgr->assign('gridParameters', $this->_getLinkParams());
+		return $templateMgr->fetchJson('controllers/informationCenter/submissionHistory.tpl');
 	}
 
 	/**

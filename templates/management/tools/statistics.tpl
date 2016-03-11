@@ -8,10 +8,9 @@
  * Display the statistics & reporting page.
  *
  *}
- {strip}
-{assign var="pageTitle" value="manager.statistics"}
-{include file="common/header.tpl"}
-{/strip}
+{include file="common/header.tpl" pageTitle="manager.statistics"}
+
+{help file="chapter7/statistics.md" class="pkp_helpers_align_right"}
 
 {if $showMetricTypeSelector || $appSettings}
 	{include file="management/tools/form/statisticsSettingsForm.tpl"}

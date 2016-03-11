@@ -14,6 +14,10 @@
 		$('#pluginsTabs').pkpHandler('$.pkp.controllers.TabHandler');
 	{rdelim});
 </script>
+
+{help file="chapter6/website/plugins.md" class="pkp_helpers_align_right"}
+<div class="pkp_helpers_clear"></div>
+
 <div id="pluginsTabs" class="pkp_controllers_tab">
 	<ul>
 		<li><a href="#installedPluginsDiv">{translate key="manager.plugins.installed"}</a></li>

@@ -20,7 +20,7 @@
 	<message key="admin.authSources">Источники аутентификации</message>
 	<message key="admin.clearDataCache">Очистить кэши данных</message>
 	<message key="admin.clearTemplateCache">Очистить кэш шаблонов</message>
-	<message key="admin.configFileUpdatedInstructions"><![CDATA[Ваш конфигурационный файл был успешно обновлен. Пожалуйста, обратите внимание на то, что если ваш сайт перестал правильно работать, вам необходимо вручную исправить вашу конфигурации, отредактировав <tt>config.inc.php</tt> напрямую, в текстовом редакторе.]]></message>
+	<message key="admin.configFileUpdatedInstructions"><![CDATA[Ваш конфигурационный файл был успешно обновлен. Пожалуйста, обратите внимание на то, что если ваш сайт перестал правильно работать, вам необходимо вручную исправить вашу конфигурацию, отредактировав <tt>config.inc.php</tt> напрямую, в текстовом редакторе.]]></message>
 	<message key="admin.confirmClearTemplateCache">Вы уверены, что хотите очистить кэш скомпилированных шаблонов?</message>
 	<message key="admin.confirmExpireSessions">Вы уверены, что хотите прекратить все сессии пользователей? Все пользователи, которые сейчас работают в системе, должны будут заново войти в нее под своей учетной записью (в том числе и вы).</message>
 	<message key="admin.contentsOfConfigFile">Содержимое конфигурационного файла</message>

@@ -29,7 +29,7 @@
 	<message key="announcement.moreAnnouncements">Другие объявления...</message>
 	<message key="announcement.noneExist">Не было опубликовано ни одного объявления.</message>
 	<message key="announcement.posted">Опубликовано</message>
-	<message key="announcement.postedOn">Опубиковано {$postDate}</message>
+	<message key="announcement.postedOn">Опубликовано {$postDate}</message>
 	<message key="announcement.viewLink">Далее...</message>
 	<message key="announcement.view">Показать объявление</message>
 	<message key="common.accepted">Принято</message>
@@ -350,7 +350,7 @@
 	<message key="notification.notificationsNew">({$numNew} новых)</message>
 	<message key="notification.notificationsDescription">У Вас {$unreadCount} непрочитанных уведомлений и {$readCount} прочитанных.<![CDATA[  <a href="{$settingsUrl}">Щелкните здесь</a> для изменения Ваших настроек уведомлений.]]></message>
 	<message key="notification.settings">Настройки уведомлений</message>
-	<message key="notification.settingsDescription">Выберите события системы, о которых Вы хотите быть уведомлены. Снятия отметки события приведет к тому, что оно не будет появляться в Вашей ленте уведомлений.</message>
+	<message key="notification.settingsDescription">Выберите события системы, о которых Вы хотите быть уведомлены. Снятие отметки события приведет к тому, что оно не будет появляться в Вашей ленте уведомлений.</message>
 	<message key="notification.subscribe">Подписаться</message>
 	<message key="notification.subscribeError">Ваш адрес электронной почты уже подписан на получение уведомлений.</message>
 	<message key="notification.subscribeSuccess">На указанный Вами адрес было отправлено сообщение. Пожалуйста, щелкните на ссылке подтверждения в письме для добавления Вас в список рассылки.</message>

@@ -109,7 +109,7 @@
 	<message key="grid.columns.locale">Язык</message>
 
 	<!-- Сетка «Спонсоры» -->
-	<message key="grid.sponsor.title">Спогсоры</message>
+	<message key="grid.sponsor.title">Спонсоры</message>
 	<message key="grid.action.addSponsor">Добавить спонсора</message>
 	<message key="grid.action.deleteSponsor">Удалить спонсора</message>
 	<message key="grid.action.editSponsor">Редактировать спонсора</message>

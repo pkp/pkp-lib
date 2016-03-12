@@ -18,7 +18,7 @@
 
 <form class="pkp_form" id="affiliationForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT op="saveFormData" tab="affiliationAndSupport"}">
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="affiliationFormNotification"}
-	{fbvFormArea}
+	{fbvFormArea id="sponsorsContainer"}
 		{fbvFormSection}
 			{url|assign:sponsorGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.settings.sponsor.sponsorGridHandler" op="fetchGrid" escape=false}
 			{load_url_in_div id="sponsorGridDiv" url=$sponsorGridUrl}
@@ -27,7 +27,7 @@
 			{fbvElement type="textarea" multilingual=true id="sponsorNote" value=$sponsorNote rich=true}
 		{/fbvFormSection}
 	{/fbvFormArea}
-	{fbvFormArea}
+	{fbvFormArea id="contributorsContainer"}
 		{fbvFormSection}
 			{url|assign:contributorGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.settings.contributor.ContributorGridHandler" op="fetchGrid" escape=false}
 			{load_url_in_div id="contributorGridDiv" url=$contributorGridUrl}

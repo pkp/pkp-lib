@@ -187,7 +187,6 @@ class PKPStageParticipantNotifyForm extends Form {
 				'editorUsername' => $user->getUsername(),
 			));
 
-			$this->_createNotifications($request, $submission, $user, $template);
 			$email->send($request);
 			// remove the INDEX_ and LAYOUT_ tasks if a user has sent the appropriate _COMPLETE email
 			switch ($template) {
@@ -232,7 +231,7 @@ class PKPStageParticipantNotifyForm extends Form {
 	}
 
 	/**
-	 * Delete a signoff
+	 * Delete an entry
 	 */
 	function deleteEntry($request, $rowId) {
 		// Dummy function; PHP throws a warning when this is not specified.
@@ -246,69 +245,6 @@ class PKPStageParticipantNotifyForm extends Form {
 	 */
 	function getStageId() {
 		return $this->_stageId;
-	}
-
-	/**
-	 * Internal method to create the necessary notifications, with user validation.
-	 * @param PKPRquest $request
-	 * @param Submission $submission
-	 * @param PKPUser $user
-	 * @param string $template
-	 */
-	function _createNotifications($request, $submission, $user, $template) {
-
-		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		$stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), $this->getStageId(), null, $user->getId());
-		$notificationMgr = new NotificationManager();
-
-		switch ($template) {
-			case 'COPYEDIT_REQUEST':
-				while ($stageAssignment = $stageAssignments->next()) {
-					$userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId());
-					if (in_array($userGroup->getRoleId(), array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT))) {
-						import('lib.pkp.classes.submission.SubmissionFile');
-						$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
-						$submissionFileSignoffDao = DAORegistry::getDAO('SubmissionFileSignoffDAO');
-						$submissionFiles = $submissionFileDao->getLatestRevisions($submission->getId(), SUBMISSION_FILE_COPYEDIT);
-						foreach ($submissionFiles as $submissionFile) {
-							$signoffFactory = $submissionFileSignoffDao->getAllBySymbolic('SIGNOFF_COPYEDITING', $submissionFile->getFileId());
-							while ($signoff = $signoffFactory->next()) {
-								$notificationMgr->updateNotification(
-									$request,
-									array(NOTIFICATION_TYPE_COPYEDIT_ASSIGNMENT),
-									array($user->getId()),
-									ASSOC_TYPE_SIGNOFF,
-									$signoff->getId()
-								);
-							}
-						}
-						return;
-					}
-				}
-				// User not in valid role for this task/notification.
-				break;
-			case 'LAYOUT_REQUEST':
-				while ($stageAssignment = $stageAssignments->next()) {
-					$userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId());
-					if (in_array($userGroup->getRoleId(), array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT))) {
-						$this->_addUploadTaskNotification($request, NOTIFICATION_TYPE_LAYOUT_ASSIGNMENT, $user->getId(), $submission->getId());
-						return;
-					}
-				}
-				// User not in valid role for this task/notification.
-				break;
-			case 'INDEX_REQUEST':
-				while ($stageAssignment = $stageAssignments->next()) {
-					$userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId());
-					if (in_array($userGroup->getRoleId(), array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT))) {
-						$this->_addUploadTaskNotification($request, NOTIFICATION_TYPE_INDEX_ASSIGNMENT, $user->getId(), $submission->getId());
-						return;
-					}
-				}
-				// User not in valid role for this task/notification.
-				break;
-		}
 	}
 
 	/**

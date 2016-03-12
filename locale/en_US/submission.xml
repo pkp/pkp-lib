@@ -506,7 +506,6 @@
 	<message key="submission.upload.copyeditedVersion">Upload Copyedited File</message>
 	<message key="submission.upload.fairCopy">Upload Fair Copy</message>
 	<message key="submission.upload.uploadFiles">Upload Files</message>
-	<message key="submission.upload.signoff">Upload a Response</message>
 	<message key="submission.upload.response.description">After reviewing the assigned file, record any comments on the file below, and/or upload an annotated copy of the file (or another file).</message>
 	<message key="submission.upload.productionReady">Upload a Production Ready File</message>
 	<message key="submission.upload.proof">Upload a Proof</message>
@@ -582,16 +581,8 @@
 	<message key="notification.type.editorDecisionResubmit">Resubmit for review.</message>
 	<message key="notification.type.editorDecisionDecline">Submission declined.</message>
 	<message key="notification.type.editorDecisionSendToProduction">Production process started.</message>
-	<message key="notification.type.signoff">Audit pending.</message>
 	<message key="notification.uploadedResponse">Response uploaded.</message>
 
- 	<!-- Read/Upload/Perform Signoff -->
- 	<message key="submission.signoff.selectFile">Select the file you wish to signoff on</message>
- 	<message key="submission.signoff.signoffOnFile">Signoff on this file</message>
-	<message key="submission.signoff.signedOffOnFile">Signed off on this file</message>
-	<message key="submission.signoff.noAvailableSignoffs">There are no files for you respond to at this time.</message>
-	<message key="submission.signoff.fileResponse">File Response</message>
-	<message key="grid.copyediting.deleteSignoff">Unassign User</message>
 	<message key="notification.type.editorAssignment">An editor must be assigned before review is initiated. Please add editor using Participants link above.</message>
 	<message key="grid.reviewAttachments.title">Reviewer's Attachments</message>
 	<message key="submission.productionReady">Book available</message>

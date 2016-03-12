@@ -63,7 +63,7 @@ class ReviewRoundDAO extends DAO {
 
 	/**
 	 * Construct a new data object corresponding to this DAO.
-	 * @return SignoffEntry
+	 * @return ReviewRound
 	 */
 	function newDataObject() {
 		return new ReviewRound();
@@ -381,7 +381,7 @@ class ReviewRoundDAO extends DAO {
 	/**
 	 * Internal function to return a review round object from a row.
 	 * @param $row array
-	 * @return Signoff
+	 * @return ReviewRound
 	 */
 	function _fromRow($row) {
 		$reviewRound = $this->newDataObject();

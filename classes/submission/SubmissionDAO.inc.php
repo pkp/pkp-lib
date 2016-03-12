@@ -148,25 +148,9 @@ abstract class SubmissionDAO extends DAO {
 		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
 		$reviewAssignmentDao->deleteBySubmissionId($submissionId);
 
-		// Signoff DAOs
-		$signoffDao = DAORegistry::getDAO('SignoffDAO');
-		$submissionFileSignoffDao = DAORegistry::getDAO('SubmissionFileSignoffDAO');
-
-		// Delete Signoffs associated with a submission file of this submission.
-		$submissionFileSignoffs = $submissionFileSignoffDao->getAllBySubmission($submissionId);
-		while ($signoff = $submissionFileSignoffs->next()) {
-			$signoffDao->deleteObject($signoff);
-		}
-
 		// Delete the queries associated with a submission
 		$queryDao = DAORegistry::getDAO('QueryDAO');
 		$queryDao->deleteByAssoc(ASSOC_TYPE_SUBMISSION, $submissionId);
-
-		// Delete the Signoffs associated with the submission itself.
-		$submissionSignoffs = $signoffDao->getAllByAssocType(ASSOC_TYPE_SUBMISSION, $submissionId);
-		while ($signoff = $submissionSignoffs->next()) {
-			$signoffDao->deleteObject($signoff);
-		}
 
 		// Delete the stage assignments.
 		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
@@ -175,7 +159,6 @@ abstract class SubmissionDAO extends DAO {
 			$stageAssignmentDao->deleteObject($stageAssignment);
 		}
 
-		// N.B. Files must be deleted after signoffs to identify submission file signoffs.
 		// Delete submission files.
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 		$submissionFileDao->deleteAllRevisionsBySubmissionId($submissionId);
@@ -315,7 +298,7 @@ abstract class SubmissionDAO extends DAO {
 	}
 
 	/**
-	 * Retrieve a submission by Id only if the submission is not published, has been submitted, and does not
+	 * Retrieve a submission by ID only if the submission is not published, has been submitted, and does not
 	 * belong to the user in question and is not STATUS_DECLINED.
 	 * @param int $submissionId
 	 * @param int $userId
@@ -633,8 +616,6 @@ abstract class SubmissionDAO extends DAO {
 			array(
 				(int) STATUS_DECLINED,
 				(int) $userId,
-				(int) $userId,
-				(int) ROLE_ID_AUTHOR,
 				(int) $userId
 			)
 		);
@@ -656,8 +637,6 @@ abstract class SubmissionDAO extends DAO {
 				LEFT JOIN stage_assignments sa ON (s.submission_id = sa.submission_id)
 				LEFT JOIN user_groups aug ON (sa.user_group_id = aug.user_group_id AND aug.role_id = ?)
 				LEFT JOIN submission_files sf ON (s.submission_id = sf.submission_id)
-				LEFT JOIN signoffs so ON (sf.file_id = so.assoc_id) 
-				LEFT JOIN user_groups g ON (g.user_group_id = so.user_group_id)
 				LEFT JOIN review_assignments ra ON (s.submission_id = ra.submission_id AND ra.declined = 0)
 				' . ($title?' LEFT JOIN submission_settings ss ON (s.submission_id = ss.submission_id)':'') . '
 				' . ($author?' LEFT JOIN authors au ON (s.submission_id = au.submission_id)':'')
@@ -666,8 +645,7 @@ abstract class SubmissionDAO extends DAO {
 				AND ' . $this->getCompletionConditions(false) . '
 				AND s.status <> ?
 				AND aug.user_group_id IS NULL
-				AND (sa.user_id = ? OR (so.user_id = ? AND g.role_id <> ? ) 
-				OR ra.reviewer_id = ?)'
+				AND (sa.user_id = ? OR ra.reviewer_id = ?)'
 				. ($contextId?' AND s.context_id = ?':'')
 				. ($title?' AND (ss.setting_name = ? AND ss.setting_value LIKE ?)':'') 
 				. ($author?' AND (ra.submission_id IS NULL AND (au.first_name LIKE ? OR au.middle_name LIKE ? OR au.last_name LIKE ?))':'') // Don't permit reviewer searching on author name
@@ -712,7 +690,6 @@ abstract class SubmissionDAO extends DAO {
 				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id)
 				' . $this->getCompletionJoins() . '
 				LEFT JOIN submission_files sf ON (s.submission_id = sf.submission_id)
-				LEFT JOIN signoffs so ON (sf.file_id = so.assoc_id) 
 				LEFT JOIN review_assignments ra ON (s.submission_id = ra.submission_id)
 				' . ($title?' LEFT JOIN submission_settings ss ON (s.submission_id = ss.submission_id)':'') . '
 				' . ($author?' LEFT JOIN authors au ON (s.submission_id = au.submission_id)':'')

@@ -40,7 +40,6 @@ define('ASSOC_TYPE_USER_GROUP',			0x0100002);
 define('ASSOC_TYPE_CITATION',			0x0100003);
 define('ASSOC_TYPE_AUTHOR',			0x0100004);
 define('ASSOC_TYPE_EDITOR',			0x0100005);
-define('ASSOC_TYPE_SIGNOFF',			0x0100006);
 define('ASSOC_TYPE_USER_ROLES',			0x0100007);
 define('ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES',	0x0100008);
 define('ASSOC_TYPE_SUBMISSION',			0x0100009);
@@ -370,7 +369,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 			'ReviewRoundDAO' => 'lib.pkp.classes.submission.reviewRound.ReviewRoundDAO',
 			'ScheduledTaskDAO' => 'lib.pkp.classes.scheduledTask.ScheduledTaskDAO',
 			'SessionDAO' => 'lib.pkp.classes.session.SessionDAO',
-			'SignoffDAO' => 'lib.pkp.classes.signoff.SignoffDAO',
 			'SiteDAO' => 'lib.pkp.classes.site.SiteDAO',
 			'SiteSettingsDAO' => 'lib.pkp.classes.site.SiteSettingsDAO',
 			'SubEditorsDAO' => 'lib.pkp.classes.context.SubEditorsDAO',
@@ -381,7 +379,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 			'SubmissionEmailLogDAO' => 'lib.pkp.classes.log.SubmissionEmailLogDAO',
 			'SubmissionFileEventLogDAO' => 'lib.pkp.classes.log.SubmissionFileEventLogDAO',
 			'QueryDAO' => 'lib.pkp.classes.query.QueryDAO',
-			'SubmissionFileSignoffDAO' => 'lib.pkp.classes.submission.SubmissionFileSignoffDAO',
 			'SubmissionLanguageDAO' => 'lib.pkp.classes.submission.SubmissionLanguageDAO',
 			'SubmissionLanguageEntryDAO' => 'lib.pkp.classes.submission.SubmissionLanguageEntryDAO',
 			'SubmissionKeywordDAO' => 'lib.pkp.classes.submission.SubmissionKeywordDAO',

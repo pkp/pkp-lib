@@ -96,7 +96,6 @@
 	<message key="editor.review.noReviewFilesUploaded">No Files Uploaded</message>
 	<message key="editor.review.noReviewFilesUploaded.details">You have not uploaded any review files.</message>
 	<message key="editor.review.emailReviewer">Email Reviewer</message>
-	<message key="editor.signoff.approved">Approved</message>
 	<message key="editor.submission.production.productionReadyFiles">Production Ready Files</message>
 	<message key="editor.submission.newRound">New Review Round</message>
 	<message key="editor.submissionReview.recordDecision">Record Editorial Decision</message>

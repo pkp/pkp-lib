@@ -141,8 +141,6 @@ class AuthorDashboardTabHandler extends Handler {
 		$submissionAssocTypeAndIdArray = array(ASSOC_TYPE_SUBMISSION, $submission->getId());
 		return array(
 			NOTIFICATION_LEVEL_TASK => array(
-				NOTIFICATION_TYPE_SIGNOFF_COPYEDIT => $submissionAssocTypeAndIdArray,
-				NOTIFICATION_TYPE_SIGNOFF_PROOF => $submissionAssocTypeAndIdArray,
 				NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS => $submissionAssocTypeAndIdArray),
 			NOTIFICATION_LEVEL_NORMAL => array(
 				NOTIFICATION_TYPE_EDITOR_DECISION_ACCEPT => $submissionAssocTypeAndIdArray,

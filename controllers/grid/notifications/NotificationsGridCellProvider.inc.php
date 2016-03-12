@@ -86,18 +86,6 @@ class NotificationsGridCellProvider extends GridCellProvider {
 			case ASSOC_TYPE_SUBMISSION_FILE:
 				$fileId = $notification->getAssocId();
 				break;
-			case ASSOC_TYPE_SIGNOFF:
-				$signoffDao = DAORegistry::getDAO('SignoffDAO'); /* @var $signoffDao SignoffDAO */
-				$signoff = $signoffDao->getById($notification->getAssocId());
-				if ($signoff->getAssocType() == ASSOC_TYPE_SUBMISSION) {
-					$submissionId = $signoff->getAssocId();
-				} elseif ($signoff->getAssocType() == ASSOC_TYPE_SUBMISSION_FILE) {
-					$fileId = $signoff->getAssocId();
-				} else {
-					// Don't know of SIGNOFFs with other ASSOC types for TASKS
-					assert(false);
-				}
-				break;
 			case ASSOC_TYPE_REVIEW_ASSIGNMENT:
 				$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 				$reviewAssignment = $reviewAssignmentDao->getById($notification->getAssocId());

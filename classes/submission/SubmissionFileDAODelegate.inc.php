@@ -320,17 +320,6 @@ class SubmissionFileDAODelegate extends DAO {
 				$previousFile->getRevision() == $submissionFile->getRevision()
 		) return;
 
-		// Update signoffs that refer to this file.
-		$signoffDao = DAORegistry::getDAO('SignoffDAO'); /* @var $signoffDao SignoffDAO */
-		$signoffFactory = $signoffDao->getByFileRevision(
-				$previousFile->getFileId(), $previousFile->getRevision()
-		);
-		while ($signoff = $signoffFactory->next()) { /* @var $signoff Signoff */
-			$signoff->setFileId($submissionFile->getFileId());
-			$signoff->setFileRevision($submissionFile->getRevision());
-			$signoffDao->updateObject($signoff);
-		}
-
 		// Update file views that refer to this file.
 		$viewsDao = DAORegistry::getDAO('ViewsDAO'); /* @var $viewsDao ViewsDAO */
 		$viewsDao->moveViews(
@@ -344,15 +333,6 @@ class SubmissionFileDAODelegate extends DAO {
 	 * @param $submissionFile SubmissionFile
 	 */
 	function _deleteDependentObjects($submissionFile) {
-		// Delete signoffs that refer to this file.
-		$signoffDao = DAORegistry::getDAO('SignoffDAO'); /* @var $signoffDao SignoffDAO */
-		$signoffFactory = $signoffDao->getByFileRevision(
-				$submissionFile->getFileId(), $submissionFile->getRevision()
-		);
-		while ($signoff = $signoffFactory->next()) { /* @var $signoff Signoff */
-			$signoffDao->deleteObject($signoff);
-		}
-
 		// Delete file views that refer to this file.
 		$viewsDao = DAORegistry::getDAO('ViewsDAO'); /* @var $viewsDao ViewsDAO */
 		$viewsDao->deleteViews(

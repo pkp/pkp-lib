@@ -124,7 +124,7 @@
 					<enumeration value="proof" />
 					<enumeration value="production_ready" />
 					<enumeration value="attachment" />
-					<enumeration value="signoff" />
+					<enumeration value="query" />
 					<enumeration value="review_revision" />
 					<enumeration value="dependent" />
 				</restriction>

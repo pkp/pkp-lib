@@ -427,7 +427,7 @@
 	<message key="submission.submit.fileInformation">File Information</message>
 	<message key="submission.submit.fileAdded">File Added</message>
 	<message key="submission.submit.includeInBrowse">Include this contributor in browse lists?</message>
-	<message key="submission.submit.newFile">Submit a New File</message>
+	<message key="submission.submit.newFile">Add Another File</message>
 	<message key="submission.submit.metadataForm">Additional Refinements</message>
 	<message key="submission.submit.metadataForm.tip">Add additional information for your submission.  Press 'enter' after each term.</message>
 	<message key="submission.submit.submissionLocale">Submission Language</message>
@@ -492,10 +492,10 @@
 	<message key="submission.upload.noGenre">Missing or invalid component!</message>
 	<message key="submission.upload.invalidUserGroup">Missing or invalid user group!</message>
 	<message key="submission.upload.possibleRevision">Possible Duplication or Revision Detected</message>
-	<message key="submission.upload.possibleRevisionDescription"><![CDATA[<p>The name of the uploaded file resembles the name of the previously uploaded file "{$revisedFileName}." If the file just uploaded is to replace the earlier file, then select the file to be replaced in the pulldown. If the uploaded file is not to replace an earlier file, then set the pulldown at "Select file (to preserve history)."</p>]]></message>
+	<message key="submission.upload.possibleRevisionDescription"><![CDATA[The name of the uploaded file resembles the name of a previously uploaded file, "{$revisedFileName}." Is this file intended to replace "{$revisedFileName}"? If so, select the file below. Otherwise, select "This is not a revision of an existing file" before proceeding.]]></message>
 	<message key="submission.upload.selectMandatoryFileToRevise">Please select the file you would like to revise.</message>
 	<message key="submission.upload.selectOptionalFileToRevise">If you are uploading a revision of an existing file, please indicate which file.</message>
-	<message key="submission.upload.uploadNewFile">Select file (to preserve history)</message>
+	<message key="submission.upload.uploadNewFile">This is not a revision of an existing file</message>
 	<message key="submission.upload.userGroup">Upload this file in my role as...</message>
 	<message key="submission.upload.userGroupDescription">If you are submitting an Edited Volume, you should upload all volume chapters individually, under your role as volume editor.</message>
 	<message key="submission.upload.uploadLibraryFile">Upload a Library File</message>
@@ -517,9 +517,9 @@
 	<message key="editor.submission.roundStatus.sentToExternal">Sent to external review.</message>
 	<message key="editor.submission.roundStatus.accepted">Submission accepted.</message>
 	<message key="editor.submission.roundStatus.declined">Submission declined.</message>
-	<message key="editor.submission.roundStatus.pendingReviewers">Awaiting reviewers.</message>
+	<message key="editor.submission.roundStatus.pendingReviewers">Waiting for reviewers to be selected.</message>
 	<message key="editor.submission.roundStatus.pendingReviews">Awaiting responses from reviewers.</message>
-	<message key="editor.submission.roundStatus.reviewsReady">New reviews ready.</message>
+	<message key="editor.submission.roundStatus.reviewsReady">New reviews have been submitted.</message>
 	<message key="editor.submission.roundStatus.reviewsCompleted">Reviews completed.</message>
 
 	<!-- Participants -->

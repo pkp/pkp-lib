@@ -19,23 +19,27 @@
 <form class="pkp_form" id="reviewStep3Form" method="post" action="{url op="saveStep" path=$submission->getId() step="3"}">
 	{include file="common/formErrors.tpl"}
 {fbvFormArea id="reviewStep3"}
-	{fbvFormSection label="common.download" description="reviewer.submission.downloadDescription"}
-		{url|assign:reviewFilesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.review.ReviewerReviewFilesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$reviewAssignment->getStageId() reviewRoundId=$reviewRoundId reviewAssignmentId=$reviewAssignment->getId() escape=false}
-		{load_url_in_div id="reviewFiles" url=$reviewFilesGridUrl}
-	{/fbvFormSection}
+	{url|assign:reviewFilesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.review.ReviewerReviewFilesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$reviewAssignment->getStageId() reviewRoundId=$reviewRoundId reviewAssignmentId=$reviewAssignment->getId() escape=false}
+	{load_url_in_div id="reviewFiles" url=$reviewFilesGridUrl}
 
-	{fbvFormSection label="submission.review" description="reviewer.submission.reviewDescription"}
-		{if $viewGuidelinesAction}
-			<div id="viewGuidelines" class="pkp_helpers_align_right">
+	{if $viewGuidelinesAction}
+		{fbvFormSection title="reviewer.submission.reviewerGuidelines"}
+			<div id="viewGuidelines">
 				{include file="linkAction/linkAction.tpl" action=$viewGuidelinesAction contextId="viewGuidelines"}
 			</div>
-		{/if}
+		{/fbvFormSection}
+	{/if}
 
+	{fbvFormSection label="submission.review" description="reviewer.submission.reviewDescription"}
 		{if $reviewForm}
 			{include file="reviewer/review/reviewFormResponse.tpl"}
 		{else}
-			{fbvElement type="textarea" id="comments" name="comments" value=$comment readonly=$reviewIsComplete label=submission.comments.canShareWithAuthor rich=true}
-			{fbvElement type="textarea" id="commentsPrivate" name="commentsPrivate" value=$commentPrivate readonly=$reviewIsComplete label=submission.comments.cannotShareWithAuthor rich=true}
+			{fbvFormSection}
+				{fbvElement type="textarea" id="comments" name="comments" value=$comment readonly=$reviewIsComplete label=submission.comments.canShareWithAuthor rich=true}
+			{/fbvFormSection}
+			{fbvFormSection}
+				{fbvElement type="textarea" id="commentsPrivate" name="commentsPrivate" value=$commentPrivate readonly=$reviewIsComplete label=submission.comments.cannotShareWithAuthor rich=true}
+			{/fbvFormSection}
 		{/if}
 	{/fbvFormSection}
 

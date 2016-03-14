@@ -194,7 +194,6 @@
 			if ($newFileButton.length !== 1) {
 				throw new Error('Did not find "new file" button!');
 			}
-			$newFileButton.button();
 			$newFileButton.bind('click', this.callbackWrapper(this.startWizard));
 		}
 

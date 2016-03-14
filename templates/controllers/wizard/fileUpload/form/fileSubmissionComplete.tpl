@@ -9,9 +9,7 @@
  *}
 <div id="finishSubmissionForm" class="pkp_helpers_text_center">
 	<h2>{translate key="submission.submit.fileAdded"}</h2>
-	<br />
-	<br />
-	<button type="button" name="newFile" id="newFile">{translate key='submission.submit.newFile'}</button>
-	<br />
-	<br />
+	<button class="pkp_button" type="button" name="newFile" id="newFile">{translate key='submission.submit.newFile'}</button>
+	<br>
+	<br>
 </div>

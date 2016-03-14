@@ -30,11 +30,13 @@
 		method="post">
 	{fbvFormArea id="file"}
 		<div id="possibleRevision" class="pkp_controllers_grid_files_possibleRevision" style="display:none;">
-			<div id="revisionWarningIcon" class="pkp_controllers_grid_files_warning"></div>
 			<div id="revisionWarningText">
-				<h5>{translate key="submission.upload.possibleRevision"}</h5>
-				{translate key="submission.upload.possibleRevisionDescription" revisedFileName=$revisedFileName}
-				{fbvElement type="select" name="revisedFileId" id="revisedFileId" from=$submissionFileOptions selected=$revisedFileId translate=false} <br />
+				{fbvFormSection title="submission.upload.possibleRevision"}
+					<div class="description">
+						{translate key="submission.upload.possibleRevisionDescription" revisedFileName=$revisedFileName}
+					</div>
+					{fbvElement type="select" name="revisedFileId" id="revisedFileId" from=$submissionFileOptions selected=$revisedFileId translate=false} <br />
+				{/fbvFormSection}
 			</div>
 		</div>
 	{/fbvFormArea}

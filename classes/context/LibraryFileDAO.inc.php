@@ -88,7 +88,7 @@ class LibraryFileDAO extends DAO {
 
 	/**
 	 * Construct a new data object corresponding to this DAO.
-	 * @return SignoffEntry
+	 * @return LibraryFile
 	 */
 	function newDataObject() {
 		return new LibraryFile();

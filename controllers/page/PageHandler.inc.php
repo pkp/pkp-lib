@@ -211,7 +211,7 @@ class PageHandler extends Handler {
 
 			// Exclude certain tasks, defined in the notifications grid handler
 			import('lib.pkp.controllers.grid.notifications.NotificationsGridHandler');
-			$templateMgr->assign('unreadNotificationCount', $notificationDao->getNotificationCount(false, $user->getId(), null, NOTIFICATION_LEVEL_TASK, NotificationsGridHandler::getNotListableTaskTypes()));
+			$templateMgr->assign('unreadNotificationCount', $notificationDao->getNotificationCount(false, $user->getId(), null, NOTIFICATION_LEVEL_TASK));
 		}
 	}
 }

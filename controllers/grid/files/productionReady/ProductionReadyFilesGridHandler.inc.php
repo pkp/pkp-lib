@@ -38,7 +38,6 @@ class ProductionReadyFilesGridHandler extends FileListGridHandler {
 				'addFile',
 				'downloadFile',
 				'deleteFile',
-				'signOffFile'
 			)
 		);
 	}

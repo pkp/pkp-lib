@@ -153,17 +153,7 @@ class NotificationsGridHandler extends GridHandler {
 		// Get all level task notifications.
 		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
 		$notifications = $notificationDao->getByUserId($user->getId(), NOTIFICATION_LEVEL_TASK);
-		$rowData = $notifications->toAssociativeArray();
-
-		// Remove not listable task types.
-		$notListableTaskTypes = $this->getNotListableTaskTypes();
-		foreach ($rowData as $key => $notification) {
-			if (in_array($notification->getType(), $notListableTaskTypes)) {
-				unset($rowData[$key]);
-			}
-		}
-
-		return $rowData;
+		return $notifications->toAssociativeArray();
 	}
 
 
@@ -245,15 +235,7 @@ class NotificationsGridHandler extends GridHandler {
 	function getUnreadNotificationsCount($args, $request) {
 		$notificationDao = DAORegistry::getDAO('NotificationDAO');
 		$user = $request->getUser();
-		return new JSONMessage(true, $notificationDao->getNotificationCount(false, $user->getId(), null, NOTIFICATION_LEVEL_TASK, $this->getNotListableTaskTypes()));
-	}
-
-	/**
-	 * Get the notification types that we don't want to list in this grid.
-	 * @return array
-	 */
-	static function getNotListableTaskTypes() {
-		return array(NOTIFICATION_TYPE_SIGNOFF_COPYEDIT, NOTIFICATION_TYPE_SIGNOFF_PROOF);
+		return new JSONMessage(true, $notificationDao->getNotificationCount(false, $user->getId(), null, NOTIFICATION_LEVEL_TASK));
 	}
 }
 

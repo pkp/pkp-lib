@@ -65,24 +65,6 @@ abstract class PKPManageFileApiHandler extends Handler {
 		$noteDao = DAORegistry::getDAO('NoteDAO');
 		$noteDao->deleteByAssoc(ASSOC_TYPE_SUBMISSION_FILE, $submissionFile->getFileId());
 
-		// Delete all signoffs related with this file.
-		$signoffDao = DAORegistry::getDAO('SignoffDAO'); /* @var $signoffDao SignoffDAO */
-		$signoffFactory = $signoffDao->getAllByAssocType(ASSOC_TYPE_SUBMISSION_FILE, $submissionFile->getFileId());
-		$signoffs = $signoffFactory->toArray();
-		$notificationMgr = new NotificationManager();
-
-		foreach ($signoffs as $signoff) {
-			$signoffDao->deleteObject($signoff);
-
-			$notificationMgr->updateNotification(
-				$request,
-				array(NOTIFICATION_TYPE_SIGNOFF_COPYEDIT, NOTIFICATION_TYPE_SIGNOFF_PROOF),
-				array($signoff->getUserId()),
-				ASSOC_TYPE_SUBMISSION,
-				$submission->getId()
-			);
-		}
-
 		// Delete the submission file.
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 
@@ -92,6 +74,7 @@ abstract class PKPManageFileApiHandler extends Handler {
 		}
 		$success = (boolean)$submissionFileDao->deleteRevisionById($submissionFile->getFileId(), $submissionFile->getRevision(), $submissionFile->getFileStage(), $submission->getId());
 
+		$notificationMgr = new NotificationManager();
 		if ($success) {
 			if ($submissionFile->getFileStage() == SUBMISSION_FILE_REVIEW_REVISION) {
 				// Get a list of author user IDs

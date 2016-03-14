@@ -388,16 +388,12 @@ abstract class PKPWorkflowHandler extends Handler {
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$notificationDao = DAORegistry::getDAO('NotificationDAO');
 
-		$signOffNotificationType = $this->_getSignoffNotificationTypeByStageId($stageId);
 		$editorAssignmentNotificationType = $this->getEditorAssignmentNotificationTypeByStageId($stageId);
 
 		$editorAssignments = $notificationDao->getByAssoc(ASSOC_TYPE_SUBMISSION, $submission->getId(), null, $editorAssignmentNotificationType, $contextId);
-		if (isset($signOffNotificationType)) {
-			$signoffAssignments = $notificationDao->getByAssoc(ASSOC_TYPE_SUBMISSION, $submission->getId(), $user->getId(), $signOffNotificationType, $contextId);
-		}
 
 		// if the User has assigned TASKs in this stage check, return true
-		if (!$editorAssignments->wasEmpty() || (isset($signoffAssignments) && !$signoffAssignments->wasEmpty())) {
+		if (!$editorAssignments->wasEmpty()) {
 			return true;
 		}
 
@@ -443,25 +439,6 @@ abstract class PKPWorkflowHandler extends Handler {
 	 * @return boolean
 	 */
 	abstract protected function isSubmissionReady($submission);
-
-
-	//
-	// Private helper methods.
-	//
-	/**
-	* Return the signoff notification type based on stage id.
-	* @param $stageId
-	* @return int
-	*/
-	private function _getSignoffNotificationTypeByStageId($stageId) {
-		switch ($stageId) {
-			case WORKFLOW_STAGE_ID_EDITING:
-				return NOTIFICATION_TYPE_SIGNOFF_COPYEDIT;
-			case WORKFLOW_STAGE_ID_PRODUCTION:
-				return NOTIFICATION_TYPE_SIGNOFF_PROOF;
-		}
-		return null;
-	}
 }
 
 ?>

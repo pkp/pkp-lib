@@ -43,7 +43,7 @@
 				{fbvElement required="true" type="select" id="currency" from=$currencies selected=$currency translate=false}
 			{/fbvFormSection}
 			<div id="paymentMethodSelector">
-				{fbvFormSection label="manager.paymentMethod.method" description="manager.paymentMethod.description"}
+				{fbvFormSection label="manager.paymentMethod.method"}
 					{fbvElement type="select" id="pluginSelect" from=$pluginNames translate=false}
 				{/fbvFormSection}
 			</div>

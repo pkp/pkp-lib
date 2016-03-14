@@ -53,15 +53,17 @@
 
 	{fbvFormArea id="licenseSettings"}
 		{fbvFormSection title="submission.license"}
-			{fbvElement type="select" id="licenseURLSelect" from=$ccLicenseOptions selected=$licenseURL label="manager.setup.licenseURLDescription" size=$fbvStyles.size.MEDIUM inline=true}
-			{fbvElement type="text" id="licenseURL" name="licenseURL" value=$licenseURL label="common.url" size=$fbvStyles.size.MEDIUM inline=true}
+			{fbvElement type="select" id="licenseURLSelect" from=$ccLicenseOptions selected=$licenseURL size=$fbvStyles.size.MEDIUM inline=true}
+			{fbvElement type="text" id="licenseURL" name="licenseURL" value=$licenseURL label="manager.setup.licenseURLDescription" size=$fbvStyles.size.MEDIUM inline=true}
 		{/fbvFormSection}
 	{/fbvFormArea}
 
 	{if !$wizardMode}
-		{fbvFormSection class="formButtons"}
+		{fbvFormSection title="manager.setup.resetPermissions"}
 			<p>{translate key="manager.setup.resetPermissions.description"}</p>
-			{fbvElement type="button" class="pkp_helpers_align_left" id="resetPermissionsButton" label="manager.setup.resetPermissions"}
+			{fbvElement type="button" id="resetPermissionsButton" label="manager.setup.resetPermissions"}
+		{/fbvFormSection}
+		{fbvFormSection class="formButtons"}
 			{assign var=buttonId value="submitFormButton"|concat:"-"|uniqid}
 			{fbvElement type="submit" class="submitFormButton" id=$buttonId label="common.save"}
 		{/fbvFormSection}

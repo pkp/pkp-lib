@@ -263,6 +263,14 @@ class QueryForm extends Form {
 		$notificationDao = DAORegistry::getDAO('NotificationDAO');
 		$notificationDao->deleteByAssoc(ASSOC_TYPE_QUERY, $query->getId(), $rowId);
 	}
+
+	/**
+	 * @copydoc ListbuilderHandler::updateEntry()
+	 */
+	function updateEntry($request, $rowId, $newRowId) {
+		$this->deleteEntry($request, $rowId);
+		$this->insertEntry($request, $newRowId);
+	}
 }
 
 ?>

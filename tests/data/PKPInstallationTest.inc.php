@@ -59,7 +59,7 @@ abstract class PKPInstallationTest extends WebTestCase {
 
 		// Execute
 		$this->clickAndWait('name=install');
-		$this->waitForElementPresent('link=Login');
+		$this->waitForTextPresent('has completed successfully.');
 	}
 }
 

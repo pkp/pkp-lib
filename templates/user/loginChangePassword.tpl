@@ -26,10 +26,9 @@
 {/if}
 
 <form class="pkp_form" id="loginChangePassword" method="post" action="{url page="login" op="savePassword"}">
+	{include file="common/formErrors.tpl"}
 
-{include file="common/formErrors.tpl"}
-
-<p><span class="instruct">{translate key="user.login.changePasswordInstructions"}</span></p>
+	<p><span class="instruct">{translate key="user.login.changePasswordInstructions"}</span></p>
 
 	{fbvFormArea id="loginFields"}
 		{fbvFormSection label="user.login" for="username"}

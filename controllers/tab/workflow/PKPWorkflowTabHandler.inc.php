@@ -124,7 +124,7 @@ abstract class PKPWorkflowTabHandler extends Handler {
 				return $templateMgr->fetchJson('controllers/tab/workflow/editorial.tpl');
 			case WORKFLOW_STAGE_ID_PRODUCTION:
 				$templateMgr = TemplateManager::getManager($request);
-				$notificationRequestOptions = $this->getProductionNotificationOptions($submission->getId()); 
+				$notificationRequestOptions = $this->getProductionNotificationOptions($submission->getId());
 				$representationDao = Application::getRepresentationDAO();
 				$representations = $representationDao->getBySubmissionId($submission->getId());
 				$templateMgr->assign('representations', $representations->toAssociativeArray());

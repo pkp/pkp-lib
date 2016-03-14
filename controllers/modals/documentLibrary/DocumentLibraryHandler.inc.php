@@ -77,16 +77,8 @@ class DocumentLibraryHandler extends Handler {
 	 */
 	function documentLibrary($args, $request) {
 		$templateMgr = TemplateManager::getManager($request);
-		$dispatcher = $request->getDispatcher();
-		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-		return $templateMgr->fetchAjax(
-			'submissionLibraryContainer',
-			$dispatcher->url(
-				$request, ROUTE_COMPONENT, null,
-				'grid.files.submissionDocuments.SubmissionDocumentsFilesGridHandler', 'fetchGrid', null,
-				array('submissionId' => $submission->getId())
-			)
-		);
+		$templateMgr->assign('submission', $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION));
+		return $templateMgr->fetchJson('controllers/modals/documentLibrary/documentLibrary.tpl');
 	}
 }
 

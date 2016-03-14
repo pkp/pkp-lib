@@ -1,7 +1,7 @@
 #
 # paracite.pl
 #
-# Copyright (c) 2015 Simon Fraser University Library
+# Copyright (c) 2015-2016 Simon Fraser University Library
 # Copyright (c) 2008-2009 MJ Suhonos
 # Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
 #

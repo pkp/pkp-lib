@@ -8,7 +8,8 @@
 		"ezyang/htmlpurifier": "v4.6.0",
 		"moxiecode/plupload": "v2.1.2",
 		"tinymce/tinymce": "4.1.7",
-		"ircmaxell/password-compat": "v1.0.4"
+		"ircmaxell/password-compat": "v1.0.4",
+		"michelf/php-markdown": "1.5.0"
 	},
 	"require-dev": {
 		"phpunit/phpunit-selenium": "1.4.2"

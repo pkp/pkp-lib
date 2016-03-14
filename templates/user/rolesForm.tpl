@@ -15,6 +15,8 @@
 </script>
 
 <form class="pkp_form" id="rolesForm" method="post" action="{url op="saveRoles"}" enctype="multipart/form-data">
+	{help file="chapter1/roles.md" class="pkp_helpers_align_right"}
+
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="rolesFormNotification"}
 
 	{include file="user/userGroups.tpl"}

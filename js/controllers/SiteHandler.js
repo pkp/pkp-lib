@@ -85,6 +85,14 @@
 	// Private properties
 	//
 	/**
+	 * Help context.
+	 * @private
+	 * @type {string?}
+	 */
+	$.pkp.controllers.SiteHandler.prototype.helpContext_ = null;
+
+
+	/**
 	 * Site handler options.
 	 * @private
 	 * @type {Object}

@@ -327,17 +327,10 @@
 	<message key="form.send">Send</message>
 	<message key="form.submit">Submit</message>
 	<message key="form.invalidImage">An invalid image was uploaded. Accepted formats are .png, .gif, or .jpg.</message>
-	<message key="help.contents">Contents</message>
 	<message key="help.help">Help</message>
-	<message key="help.helpIndex">Help Index</message>
-	<message key="help.matchesFound">{$matches} matches found</message>
-	<message key="help.noMatchingTopics">No matching help topics were found.</message>
-	<message key="help.relatedTopics">Related Topics</message>
-	<message key="help.searchFor">Search help topics for</message>
-	<message key="help.searchResultsFor">Results for</message>
-	<message key="help.searchResults">Search Results</message>
-	<message key="help.search">Search Help</message>
 	<message key="help.toc">Table of Contents</message>
+	<message key="help.previous">Previous</message>
+	<message key="help.next">Next</message>
 	<message key="help.upALevel">Up a Level</message>
 	<message key="icon.checked.alt">Checked</message>
 	<message key="icon.comment.alt">Comment</message>
@@ -496,7 +489,6 @@
 	<message key="search.typeMethodApproach">Type (method/approach)</message>
 
 	<!-- Common -->
-	<message key="grid.action.toggleHelp">Toggle the display of inline help</message>
 	<message key="grid.action.downloadFile">Download this file</message>
 
 	<message key="context.path">Path</message>

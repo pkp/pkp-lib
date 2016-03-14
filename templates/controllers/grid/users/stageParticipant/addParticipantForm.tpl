@@ -22,6 +22,9 @@
 </script>
 
 <form class="pkp_form" id="addParticipantForm" action="{url op="saveParticipant"}" method="post">
+	{help file="chapter5/participants/add.md" class="pkp_helpers_align_right"}
+	<div class="pkp_helpers_clear"></div>
+
 	{fbvFormArea id="addParticipant"}
 		<input type="hidden" name="submissionId" value="{$submissionId|escape}" />
 		<input type="hidden" name="stageId" value="{$stageId|escape}" />

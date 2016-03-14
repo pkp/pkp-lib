@@ -7,6 +7,8 @@
  *
  * Admin/manage language settings.
  *}
+{help file="chapter6/website/languages.md" class="pkp_helpers_align_right"}
+<div class="pkp_helpers_clear"></div>
 
 {if in_array(ROLE_ID_SITE_ADMIN, $userRoles) && !$multipleContexts}
 	{url|assign:languagesUrl router=$smarty.const.ROUTE_COMPONENT component="grid.admin.languages.AdminLanguageGridHandler" op="fetchGrid" escape=false}

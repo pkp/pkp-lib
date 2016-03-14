@@ -22,6 +22,8 @@
 </script>
 
 <div id="informationCenterNotes">
+	{help file="chapter5/editorial-history/notes.md" class="pkp_helpers_align_right"}
+
 	{include file=$newNoteFormTemplate}
 
 	{if $showEarlierEntries}

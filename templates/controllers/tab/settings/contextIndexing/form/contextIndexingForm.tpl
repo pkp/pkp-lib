@@ -29,11 +29,6 @@
 		{/fbvFormSection}
 	{/fbvFormArea}
 
-	<h4>{translate key="manager.setup.registerForIndexing"}</h4>
-	{url|assign:"oaiUrl" router=$smarty.const.ROUTE_PAGE page="oai"}
-	{url|assign:"siteUrl" router=$smarty.const.ROUTE_PAGE page="index"}
-	<p>{translate key="manager.setup.registerForIndexingDescription" oaiUrl=$oaiUrl siteUrl=$siteUrl}</p>
-
 	{if !$wizardMode}
 		{fbvFormButtons id="contextIndexingFormSubmit" submitText="common.save" hideCancel=true}
 	{/if}

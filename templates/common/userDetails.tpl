@@ -159,15 +159,18 @@
 			{/fbvFormSection}
 
 			{fbvFormSection}
-				{fbvElement type="textarea" label="user.biography" multilingual="true" name="biography" id="biography" rich=true value=$biography size=$fbvStyles.size.MEDIUM}
-				{if !$disableMailingSection}
-					{fbvElement type="textarea" label="common.mailingAddress" name="mailingAddress" id="mailingAddress" rich=true value=$mailingAddress size=$fbvStyles.size.MEDIUM}
-				{/if}
+				{fbvElement type="textarea" label="user.biography" multilingual="true" name="biography" id="biography" rich=true value=$biography}
 			{/fbvFormSection}
+
+			{if !$disableMailingSection}
+				{fbvFormSection}
+					{fbvElement type="textarea" label="common.mailingAddress" name="mailingAddress" id="mailingAddress" rich=true value=$mailingAddress}
+				{/fbvFormSection}
+			{/if}
 
 			{if !$disableSignatureSection}
 				{fbvFormSection}
-					{fbvElement type="textarea" label="user.signature" multilingual="true" name="signature" id="signature" value=$signature rich=true size=$fbvStyles.size.MEDIUM}
+					{fbvElement type="textarea" label="user.signature" multilingual="true" name="signature" id="signature" value=$signature rich=true}
 				{/fbvFormSection}
 			{/if}
 		{/fbvFormArea}

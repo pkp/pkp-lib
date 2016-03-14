@@ -223,7 +223,7 @@
 	<message key="manager.setup.additionalContent">Additional Content</message>
 	<message key="manager.setup.additionalContentDescription">Anything entered here will appear on your homepage.</message>
 	<message key="manager.setup.authorCopyrightNotice">Copyright Notice</message>
-	<message key="manager.setup.authorCopyrightNoticeAgree">Require authors to agree to Copyright Notice as part of the submission process.</message>
+	<message key="manager.setup.authorCopyrightNoticeAgree">Require authors to agree to the Copyright Notice as part of the submission process.</message>
 	<message key="manager.setup.authorGuidelines">Author Guidelines</message>
 	<message key="manager.setup.authorGuidelines.description">Recommended guidelines include bibliographic and formatting standards alongside examples of common citation formats to be used in submissions.</message>
 	<message key="manager.setup.citations">Citations</message>
@@ -418,7 +418,6 @@
 	<!-- Payment Method settings -->
 	<message key="manager.paymentMethod">Payments</message>
 	<message key="manager.paymentMethod.title">Payment Methods</message>
-	<message key="manager.paymentMethod.description">Choose from the list of available payment methods.  The area below will update accordingly.</message>
 	<message key="manager.paymentMethod.none">No payment method selected</message>
 	<message key="manager.paymentMethod.method">Payment Method</message>
 	<message key="manager.paymentMethod.currency">Currency</message>
@@ -517,7 +516,7 @@
 
 	<message key="manager.setup.includeCopyrightStatement">Display the copyright statement with content (advisable for asserting an author-held copyright).</message>
 	<message key="manager.setup.includeLicense">Display the license with published work.</message>
-	<message key="manager.setup.licenseURLDescription">Provide URL for license webpage, if available.</message>
+	<message key="manager.setup.licenseURLDescription">URL to a webpage describing the license, if available.</message>
 
 	<message key="manager.setup.metadata.submission">Submission Form</message>
 </locale>

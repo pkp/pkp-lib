@@ -196,7 +196,7 @@
 		var url = this.helpUrl_ + '/index/' + locale + '/';
 
 		// Don't escape slashes
-		url += encodeURIComponent(this.currentTopic_).replace(/%2C/g, '/');
+		url += encodeURIComponent(this.currentTopic_).replace(/%2F/g, '/');
 
 		$.get(url, null, this.callbackWrapper(this.updateContentHandler_),
 				'json');

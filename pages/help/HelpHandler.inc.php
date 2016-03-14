@@ -49,26 +49,22 @@ class HelpHandler extends Handler {
 			$request->redirect(null, null, null, array($language, 'SUMMARY.md'));
 		}
 
-		$parser = new \Michelf\Markdown;
-
 		// Use the summary document to find next/previous links.
+		// (Yes, we're grepping markdown outside the parser, but this is much faster.)
 		$previousLink = $nextLink = null;
-		$found = false;
-		// Use a URL filter to find previous and next links from the summary.
-		$parser->url_filter_func = function ($url) use (&$found, &$previousLink, &$nextLink, $filename, $language) {
-			if (!$found) {
-				if ($language . '/' . $url == $filename) $found = true;
-				else $previousLink = $url;
-			} elseif (!$nextLink) $nextLink = $url;
-			return $url;
-		};
-		$parser->transform(file_get_contents($path . $language . '/SUMMARY.md'));
+		if (preg_match_all('/\(([^)]+\.md)\)/sm', file_get_contents($path . $language . '/SUMMARY.md'), $matches)) {
+			$matches = $matches[1];
+			if (($i = array_search(substr($filename, strpos($filename, '/')+1), $matches)) !== false) {
+				if ($i>0) $previousLink = $matches[$i-1];
+				if ($i<count($matches)-1) $nextLink = $matches[$i+1];
+			}
+		}
 
 		// Use a URL filter to prepend the current path to relative URLs.
+		$parser = new \Michelf\Markdown;
 		$parser->url_filter_func = function ($url) use ($filename) {
 			return dirname($filename) . '/' . $url;
 		};
-
 		return new JSONMessage(
 			true,
 			array(

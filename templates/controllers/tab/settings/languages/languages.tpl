@@ -7,7 +7,7 @@
  *
  * Admin/manage language settings.
  *}
-{help file="chapter6/website/languages.md" class="pkp_helpers_align_right"}
+{help file="chapter6/website/language.md" class="pkp_helpers_align_right"}
 <div class="pkp_helpers_clear"></div>
 
 {if in_array(ROLE_ID_SITE_ADMIN, $userRoles) && !$multipleContexts}

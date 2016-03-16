@@ -12,12 +12,16 @@
 #
 
 # Look for help filenames referred to in templates and check that they all exist (in English)
+ERRORS=0
 for filename in `find . -name \*.tpl -exec sed -n -e "s/.*{help[^}]file=\"\([^\"]\+\)\".*/\1/p" "{}" ";"`; do
 	if [ ! -f docs/manual/en/$filename ]; then
 		echo "Help file \"$filename\" referred to in template does not exist!"
-		exit -1
+		ERRORS=1
 	fi
 done
+if [ $ERRORS -ne 0 ]; then
+	exit -1
+fi
 
 # Generate a quick report of the differences between the files listed in templates and the available files.
 find . -name \*.tpl -exec sed -n -e "s/.*{help[^}]file=\"\([^\"]\+\)\".*/\1/p" "{}" ";" | sort | uniq > /tmp/template-help-references.txt

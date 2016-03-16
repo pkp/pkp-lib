@@ -40,10 +40,10 @@ class PKPToolsHandler extends ManagementHandler {
 	}
 
 	/**
-	* Route to other Tools operations
-	* @param $args array
-	* @param $request PKPRequest
-	*/
+	 * Route to other Tools operations
+	 * @param $args array
+	 * @param $request PKPRequest
+	 */
 	function tools($args, $request) {
 		$path = array_shift($args);
 		switch ($path) {
@@ -70,10 +70,10 @@ class PKPToolsHandler extends ManagementHandler {
 	}
 
 	/**
-	* Display tools index page.
-	* @param $request PKPRequest
-	* @param $args array
-	*/
+	 * Display tools index page.
+	 * @param $request PKPRequest
+	 * @param $args array
+	 */
 	function index($args, $request) {
 		$templateMgr = TemplateManager::getManager($request);
 		$this->setupTemplate($request);
@@ -99,8 +99,9 @@ class PKPToolsHandler extends ManagementHandler {
 		$templateMgr->assign('plugins', PluginRegistry::getPlugins(IMPORTEXPORT_PLUGIN_CATEGORY));
 		$templateMgr->display('manager/importexport/plugins.tpl');
 	}
+
 	/**
-	 * Display the
+	 * Display the statistics area.
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
@@ -128,11 +129,11 @@ class PKPToolsHandler extends ManagementHandler {
 	}
 
 	/**
-	* Delegates to plugins operations
-	* related to report generation.
-	* @param $args array
-	* @param $request Request
-	*/
+	 * Delegates to plugins operations
+	 * related to report generation.
+	 * @param $args array
+	 * @param $request Request
+	 */
 	function report($args, $request) {
 		$this->setupTemplate($request);
 
@@ -163,11 +164,11 @@ class PKPToolsHandler extends ManagementHandler {
 
 
 	/**
-	* Generate statistics reports from passed
-	* request arguments.
-	* @param $args array
-	* @param $request PKPRequest
-	*/
+	 * Generate statistics reports from passed
+	 * request arguments.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 */
 	function generateReport($args, $request) {
 		$this->setupTemplate($request);
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
@@ -353,12 +354,12 @@ class PKPToolsHandler extends ManagementHandler {
 	}
 
 	/**
-	* Get data object title based on passed
-	* assoc type and id.
-	* @param $assocId int
-	* @param $assocType int
-	* @return string
-	*/
+	 * Get data object title based on passed
+	 * assoc type and id.
+	 * @param $assocId int
+	 * @param $assocType int
+	 * @return string
+	 */
 	protected function getObjectTitle($assocId, $assocType) {
 		switch ($assocType) {
 			case Application::getContextAssocType():

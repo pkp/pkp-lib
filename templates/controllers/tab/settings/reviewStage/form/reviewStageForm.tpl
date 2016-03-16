@@ -72,6 +72,9 @@
 		{fbvFormSection for="reviewerCompetingInterestsRequired" list=true label="manager.setup.reviewerCompetingInterestsRequired.description"}
 			{fbvElement type="checkbox" id="reviewerCompetingInterestsRequired" checked=$reviewerCompetingInterestsRequired label="manager.setup.competingInterests.required" inline=true}
 		{/fbvFormSection}
+
+		{$additionalReviewFormContents}
+
 		{fbvFormSection label="manager.setup.reviewGuidelines" for="reviewGuidelines" description="manager.setup.reviewGuidelinesDescription"}
 			{fbvElement type="textarea" multilingual="true" name="reviewGuidelines" id="reviewGuidelines" value=$reviewGuidelines rich=true}
 		{/fbvFormSection}

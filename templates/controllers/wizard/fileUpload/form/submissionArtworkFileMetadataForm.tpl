@@ -39,9 +39,6 @@
 		{fbvFormSection title="grid.artworkFile.permissionTerms" inline=true size=$fbvStyles.size.MEDIUM}
 			{fbvElement type="textarea" id="artworkPermissionTerms" height=$fbvStyles.height.SHORT value=$submissionFile->getPermissionTerms()}
 		{/fbvFormSection}
-		{fbvFormSection title="submission.upload.noteToAccompanyFile"}
-			{fbvElement type="textarea" id="note" height=$fbvStyles.height.SHORT}
-		{/fbvFormSection}
 	{/fbvFormArea}
 
 	{* Read-only meta-data *}

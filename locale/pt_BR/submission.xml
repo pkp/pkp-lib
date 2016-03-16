@@ -476,7 +476,6 @@
 	<message key="submission.submit.fileNameRequired">Informe um nome para este arquivo</message>
 	<message key="submission.submit.howToSubmit"><![CDATA[Dificuldades? Contate <a href="mailto:{$supportEmail}"> {$supportname} </ a> para obter assistência ({$supportPhone }).]]></message>
 	<message key="submission.submit.howToSubmitNoPhone"><![CDATA[Dificuldades? Contate <a href="mailto:{$supportEmail}"> {$supportName} </ a> para obter ajuda.]]></message>
-	<message key="submission.upload.noteToAccompanyFile">Notas sobre o arquivo</message>
 	<message key="submission.upload.noGenre">Gênero ausente ou inválido!</message>
 	<message key="submission.upload.invalidUserGroup">Grupo de usuário inválido ou ausente!</message>
 	<message key="submission.upload.possibleRevision">Detectada Possível Duplicação ou Revisão (há duvida sobre essa tradulção)</message>

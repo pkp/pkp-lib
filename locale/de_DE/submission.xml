@@ -483,7 +483,6 @@
 	<message key="submission.submit.howToSubmitNoPhone"><![CDATA[Sind Schwierigkeiten aufgetreten? Kontaktieren Sie <a href="mailto:{$supportEmail}">{$supportName}</a>.]]></message>
 
 	<!-- File upload wizard -->
-	<message key="submission.upload.noteToAccompanyFile">Anmerkung zur Datei</message>
 	<message key="submission.upload.noGenre">Genre fehlt oder ist ungültig!</message>
 	<message key="submission.upload.invalidUserGroup">Benutzer/innengruppe fehlt oder ist ungültig!</message>
 	<message key="submission.upload.possibleRevision">Mögliche Dublette oder Überarbeitung entdeckt</message>

@@ -109,7 +109,7 @@ class SubmissionFilesMetadataForm extends Form {
 	 * @copydoc Form::readInputData()
 	 */
 	function readInputData() {
-		$this->readUserVars(array('name', 'note', 'showButtons'));
+		$this->readUserVars(array('name', 'showButtons'));
 	}
 
 	/**
@@ -135,26 +135,6 @@ class SubmissionFilesMetadataForm extends Form {
 		$submissionFile->setName($this->getData('name'), null); // Localized
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 		$submissionFileDao->updateObject($submissionFile);
-
-		// Save the note if it exists.
-		if ($this->getData('note')) {
-			$noteDao = DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */
-			$note = $noteDao->newDataObject();
-
-			$user = $request->getUser();
-			$note->setUserId($user->getId());
-
-			$note->setContents($this->getData('note'));
-			$note->setAssocType(ASSOC_TYPE_SUBMISSION_FILE);
-			$note->setAssocId($submissionFile->getFileId());
-
-			$noteId = $noteDao->insertObject($note);
-
-			// Mark the note as viewed by this user
-			$user = $request->getUser();
-			$viewsDao = DAORegistry::getDAO('ViewsDAO');
-			$viewsDao->recordView(ASSOC_TYPE_NOTE, $noteId, $user->getId());
-		}
 	}
 }
 

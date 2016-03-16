@@ -543,7 +543,6 @@
 	<message key="submission.submit.fileNameRequired">Vous devez entrer un nom de fichier pour ce fichier.</message>
 	<message key="submission.submit.howToSubmit"><![CDATA[Vous avez des difficultés? Contactez <a href="mailto:{$supportEmail}">{$supportName}</a> pour obtenir de l'aide ({$supportPhone}).]]></message>
 	<message key="submission.submit.howToSubmitNoPhone"><![CDATA[Vous avez des difficultés? Contactez <a href="mailto:{$supportEmail}">{$supportName}</a> pour obtenir de l'aide.]]></message>
-	<message key="submission.upload.noteToAccompanyFile">Note d'accompagnement au fichier.</message>
 	<message key="submission.upload.noGenre">Genre manquant ou invalide!</message>
 	<message key="submission.upload.invalidUserGroup">Groupe d'utilisateur manquant ou invalide!</message>
 	<message key="submission.upload.possibleRevision">Détection d</message>

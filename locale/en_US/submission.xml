@@ -488,7 +488,6 @@
 	<message key="submission.submit.howToSubmitNoPhone"><![CDATA[Encountering difficulties? Contact <a href="mailto:{$supportEmail}">{$supportName}</a> for assistance.]]></message>
 
 	<!-- File upload wizard -->
-	<message key="submission.upload.noteToAccompanyFile">Note to accompany file</message>
 	<message key="submission.upload.noGenre">Missing or invalid component!</message>
 	<message key="submission.upload.invalidUserGroup">Missing or invalid user group!</message>
 	<message key="submission.upload.possibleRevision">Possible Duplication or Revision Detected</message>

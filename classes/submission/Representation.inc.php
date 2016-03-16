@@ -123,6 +123,22 @@ class Representation extends DataObject {
 	}
 
 	/**
+	 * Get the remote URL at which this representation is retrievable.
+	 * @return string
+	 */
+	function getRemoteURL() {
+		return $this->getData('remoteUrl');
+	}
+
+	/**
+	 * Set the remote URL for retrieving this representation.
+	 * @param $remoteURL string
+	 */
+	function setRemoteURL($remoteURL) {
+		return $this->setData('remoteUrl', $remoteURL);
+	}
+
+	/**
 	 * Get the context id from the submission assigned to this representation.
 	 * @return int
 	 */

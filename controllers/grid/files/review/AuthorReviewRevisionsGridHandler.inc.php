@@ -24,7 +24,7 @@ class AuthorReviewRevisionsGridHandler extends FileListGridHandler {
 		parent::FileListGridHandler(
 			new ReviewGridDataProvider(SUBMISSION_FILE_REVIEW_REVISION),
 			null,
-			FILE_GRID_ADD|FILE_GRID_EDIT|FILE_GRID_VIEW_NOTES|FILE_GRID_DELETE
+			FILE_GRID_ADD|FILE_GRID_EDIT
 		);
 
 		$this->addRoleAssignment(

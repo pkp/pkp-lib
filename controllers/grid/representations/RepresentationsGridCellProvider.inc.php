@@ -87,6 +87,12 @@ class RepresentationsGridCellProvider extends DataObjectGridCellProvider {
 		if (is_a($data, 'Representation')) {
 			switch ($column->getId()) {
 				case 'name':
+					// if it is a remotely hosted content, don't provide
+					// file upload and select link actions
+					$remoteURL = $data->getRemoteURL();
+					if ($remoteURL) {
+						return array();
+					}
 					import('lib.pkp.controllers.api.file.linkAction.AddFileLinkAction');
 					import('lib.pkp.controllers.grid.files.fileList.linkAction.SelectFilesLinkAction');
 					AppLocale::requireComponents(LOCALE_COMPONENT_PKP_EDITOR);

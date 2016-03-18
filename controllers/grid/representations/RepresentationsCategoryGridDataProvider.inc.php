@@ -17,10 +17,15 @@
 import('lib.pkp.controllers.grid.files.SubmissionFilesCategoryGridDataProvider');
 
 class RepresentationsCategoryGridDataProvider extends SubmissionFilesCategoryGridDataProvider {
+
+	/** @var RepresentationsGridHandler this data provider is used in */
+	var $_gridHandler;
+
 	/**
 	 * Constructor
 	 */
-	function RepresentationsCategoryGridDataProvider() {
+	function RepresentationsCategoryGridDataProvider($gridHandler) {
+		$this->_gridHandler = $gridHandler;
 		import('lib.pkp.classes.submission.SubmissionFile');
 		parent::SubmissionFilesCategoryGridDataProvider(SUBMISSION_FILE_PROOF);
 		$this->setStageId(WORKFLOW_STAGE_ID_PRODUCTION);
@@ -91,7 +96,15 @@ class RepresentationsCategoryGridDataProvider extends SubmissionFilesCategoryGri
 			$this->getFileStage()
 		);
 
+		// if it is a remotely hosted content, don't provide the files rows
+		$remoteURL = $categoryDataElement->getRemoteURL();
+		if ($remoteURL) {
+			$this->_gridHandler->setEmptyCategoryRowText('grid.remotelyHostedItem');
+			return array();
+		}
+		$this->_gridHandler->setEmptyCategoryRowText('grid.noItems');
 		return $this->getDataProvider()->prepareSubmissionFileData($submissionFiles, false, $filter);
+
 	}
 }
 

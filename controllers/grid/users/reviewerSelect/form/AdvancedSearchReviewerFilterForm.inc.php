@@ -25,17 +25,21 @@ class AdvancedSearchReviewerFilterForm extends Form {
 	/** @var int */
 	var $_reviewRoundId;
 
+	/** @var int */
+	var $_reviewRound;
+
 	/**
 	 * Constructor.
 	 * @param $submission Submission
 	 * @param $stageId int
 	 * @param $reviewRoundId int
 	 */
-	function AdvancedSearchReviewerFilterForm($submission, $stageId, $reviewRoundId) {
+	function AdvancedSearchReviewerFilterForm($submission, $stageId, $reviewRoundId, $reviewRound) {
 		parent::Form();
 		$this->_submission = $submission;
 		$this->_stageId = $stageId;
 		$this->_reviewRoundId = $reviewRoundId;
+		$this->_reviewRound = $reviewRound;
 		$this->setTemplate('controllers/grid/users/reviewer/form/advancedSearchReviewerFilterForm.tpl');
 	}
 
@@ -63,6 +67,14 @@ class AdvancedSearchReviewerFilterForm extends Form {
 		return $this->_reviewRoundId;
 	}
 
+	/**
+	 * Get the review round.
+	 * @return int
+	 */
+	function getReviewRound() {
+		return $this->_reviewRound;
+	}
+
 	/*
 	 * Initialize the filter form inputs
 	 * @param $filterData array
@@ -75,6 +87,7 @@ class AdvancedSearchReviewerFilterForm extends Form {
 		$this->setData('submissionId', $submission->getId());
 		$this->setData('stageId', $this->getStageId());
 		$this->setData('reviewRoundId', $this->getReviewRoundId());
+		$this->setData('reviewRound', $this->getReviewRound());
 
 		return parent::initData($filterData, $request);
 	}
@@ -98,9 +111,9 @@ class AdvancedSearchReviewerFilterForm extends Form {
 			'activeEnabled',
 			'activeMin',
 			'activeMax',
-			'interests')
+			'interests',
+			'previsousReviewRounds')
 		);
-
 
 		$interests = $this->getData('interests');
 		if (is_array($interests)) {
@@ -133,7 +146,8 @@ class AdvancedSearchReviewerFilterForm extends Form {
 
 		return $filterSelectionData = array(
 			'reviewerValues' => $reviewerValues,
-			'interestSearchKeywords' => $this->getData('interestSearchKeywords')
+			'interestSearchKeywords' => $this->getData('interestSearchKeywords'),
+			'previsousReviewRounds' => (bool) $this->getData('previsousReviewRounds')
 		);
 	}
 }

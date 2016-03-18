@@ -49,6 +49,16 @@
 			{fbvFormSection title="manager.reviewerSearch.form.interests.instructions"}
 				{fbvElement type="interests" id="interests" interests=$interestSearchKeywords}
 			{/fbvFormSection}
+			{if $reviewRound > 1}
+				{if $previsousReviewRounds}
+					{assign var="checked" value=true}
+				{else}
+					{assign var="checked" value=false}
+				{/if}
+				{fbvFormSection for="previsousReviewRounds" list=true}
+					{fbvElement type="checkbox" label="manager.reviewerSearch.form.previousReviewRounds" id="previsousReviewRounds" checked=$checked}
+				{/fbvFormSection}
+			{/if}
 		{/capture}
 
 		<div id="reviewerAdvancedSearchFilters">

@@ -178,8 +178,8 @@ class ReviewerSelectGridHandler extends GridHandler {
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$reviewRound = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND);
 
-		$previsousReviewRounds = $filter['previsousReviewRounds'];
-		$round = $previsousReviewRounds ? $reviewRound->getRound() : null;
+		$previousReviewRounds = $filter['previousReviewRounds'];
+		$round = $previousReviewRounds ? $reviewRound->getRound() : null;
 		return $userDao->getFilteredReviewers(
 			$submission->getContextId(), $reviewRound->getStageId(), $name,
 			$doneMin, $doneMax, $avgMin, $avgMax, $lastMin, $lastMax,
@@ -219,7 +219,7 @@ class ReviewerSelectGridHandler extends GridHandler {
 					'activeMax' => null,
 				),
 				'interestSearchKeywords' => array(),
-				'previsousReviewRounds' => null,
+				'previousReviewRounds' => null,
 			);
 		}
 	}

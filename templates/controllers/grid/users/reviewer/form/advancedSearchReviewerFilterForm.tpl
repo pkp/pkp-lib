@@ -50,13 +50,13 @@
 				{fbvElement type="interests" id="interests" interests=$interestSearchKeywords}
 			{/fbvFormSection}
 			{if $reviewRound > 1}
-				{if $previsousReviewRounds}
+				{if $previousReviewRounds}
 					{assign var="checked" value=true}
 				{else}
 					{assign var="checked" value=false}
 				{/if}
-				{fbvFormSection for="previsousReviewRounds" list=true}
-					{fbvElement type="checkbox" label="manager.reviewerSearch.form.previousReviewRounds" id="previsousReviewRounds" checked=$checked}
+				{fbvFormSection for="previousReviewRounds" list=true}
+					{fbvElement type="checkbox" label="manager.reviewerSearch.form.previousReviewRounds" id="previousReviewRounds" checked=$checked}
 				{/fbvFormSection}
 			{/if}
 		{/capture}

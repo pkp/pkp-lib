@@ -112,7 +112,7 @@ class AdvancedSearchReviewerFilterForm extends Form {
 			'activeMin',
 			'activeMax',
 			'interests',
-			'previsousReviewRounds')
+			'previousReviewRounds')
 		);
 
 		$interests = $this->getData('interests');
@@ -147,7 +147,7 @@ class AdvancedSearchReviewerFilterForm extends Form {
 		return $filterSelectionData = array(
 			'reviewerValues' => $reviewerValues,
 			'interestSearchKeywords' => $this->getData('interestSearchKeywords'),
-			'previsousReviewRounds' => (bool) $this->getData('previsousReviewRounds')
+			'previousReviewRounds' => (bool) $this->getData('previousReviewRounds')
 		);
 	}
 }

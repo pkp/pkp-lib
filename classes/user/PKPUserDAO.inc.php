@@ -272,7 +272,7 @@ class PKPUserDAO extends DAO {
 				LEFT JOIN review_assignments rai ON (rai.reviewer_id = u.user_id AND rai.date_notified IS NOT NULL AND rai.date_completed IS NULL AND rai.cancelled = 0 AND rai.declined = 0 AND rai.replaced = 0)
 			WHERE	ras.review_id IS NULL
 				AND ran.review_id IS NULL' .
-				($reviewRound ? ' AND rac.submission_id = ? AND rac.stage_id = ? AND rac.round < ?':'') .
+				($reviewRound !== null ? ' AND rac.submission_id = ? AND rac.stage_id = ? AND rac.round < ?':'') .
 				str_repeat(' AND u.user_id IN (SELECT ui.user_id FROM user_interests ui JOIN controlled_vocab_entry_settings cves ON (ui.controlled_vocab_entry_id = cves.controlled_vocab_entry_id) WHERE cves.setting_name = \'interest\' AND LOWER(cves.setting_value) = ?)', count($interests)) .
 				($name !== null?' AND (u.first_name LIKE ? OR u.middle_name LIKE ? OR u.last_name LIKE ? OR u.username LIKE ? OR u.email LIKE ?)':'') . '
 			GROUP BY u.user_id
@@ -294,10 +294,8 @@ class PKPUserDAO extends DAO {
 					(int) $submissionId, // null gets cast to 0 which doesn't exist
 					(int) $stageId,
 					(int) $reviewRoundId,
-					(int) $submissionId,  // null gets cast to 0 which doesn't exist
-					(int) $stageId,
-					(int) $reviewRound,
 				),
+				$reviewRound !== null?array((int) $submissionId, (int) $stageId, (int) $reviewRound):array(),
 				array_map(array('PKPString', 'strtolower'), $interests),
 				$name !== null?array('%'.(string) $name.'%'):array(),
 				$name !== null?array('%'.(string) $name.'%'):array(),

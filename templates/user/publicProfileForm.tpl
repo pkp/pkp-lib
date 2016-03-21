@@ -7,6 +7,10 @@
  *
  * Public user profile form.
  *}
+
+{* Help Link *}
+{help file="chapter1/public.md" class="pkp_help_tab"}
+
 <script type="text/javascript">
 	$(function() {ldelim}
 		// Attach the form handler.
@@ -34,7 +38,6 @@
 </script>
 
 <form class="pkp_form" id="publicProfileForm" method="post" action="{url op="savePublicProfile"}" enctype="multipart/form-data">
-	{help file="chapter1/public.md" class="pkp_helpers_align_right"}
 
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="publicProfileNotification"}
 

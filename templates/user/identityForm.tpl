@@ -7,6 +7,10 @@
  *
  * User profile form.
  *}
+
+{* Help Link *}
+{help file="chapter1/identity.md" class="pkp_help_tab"}
+
 <script type="text/javascript">
 	$(function() {ldelim}
 		// Attach the form handler.
@@ -15,7 +19,6 @@
 </script>
 
 <form class="pkp_form" id="identityForm" method="post" action="{url op="saveIdentity"}" enctype="multipart/form-data">
-	{help file="chapter1/identity.md" class="pkp_helpers_align_right"}
 
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="identityFormNotification"}
 

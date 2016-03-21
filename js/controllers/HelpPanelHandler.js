@@ -170,6 +170,10 @@
 		$element.on('click.pkp.HelpPanel keyup.pkp.HelpPanel',
 				this.callbackWrapper(this.handleWrapperEvents));
 
+		// Listen to clicks on links
+		$element.on('click', '.content a',
+				this.callbackWrapper(this.handleContentLinks_));
+
 		// Load the appropriate help content
 		this.loadHelpContent_(options.topic, this.helpLocale_);
 
@@ -234,15 +238,35 @@
 		} else {
 			$element.find('.panel').scrollTop(0);
 		}
+	};
 
-		// Make sure clicks within help content are handled properly
-		$element.find('.content').find('a').click(function(e) {
-			var urlParts = $(e.target).attr('href').split('/');
+	/**
+	 * A callback to handle clicks on links in the help content
+	 *
+	 * This function will allow external links to open in a new window but take
+	 * control of relative links and try to open the appropriate help topic.
+	 *
+	 * @private
+	 * @param
+	 */
+	$.pkp.controllers.HelpPanelHandler.prototype.
+			handleContentLinks_ = function(target, event) {
 
-			e.preventDefault();
+		var url = $(target).attr('href'),
+				urlParts;
 
-			helpPanelHandler.loadHelpContent_(urlParts.slice(1).join('/'), urlParts[0]);
-		});
+		event.preventDefault();
+
+		// External links aren't yet supported in the help docs
+		// See: https://github.com/pkp/pkp-lib/issues/1032#issuecomment-199342940
+		if (url.substring(0, 4) == 'http') {
+			window.open(url);
+		} else {
+			urlParts = url.split('/');
+			this.loadHelpContent_(urlParts.slice(1).join('/'), urlParts[0]);
+		}
+
+		return false;
 	};
 
 

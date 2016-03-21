@@ -8,6 +8,9 @@
  * Library Files form
  *}
 
+{* Help link *}
+{help file="chapter5/submission-library/add-a-file.md" class="pkp_help_modal"}
+
 <script type="text/javascript">
 	// Attach the file upload form handler.
 	$(function() {ldelim}
@@ -25,8 +28,6 @@
 </script>
 
 <form class="pkp_form" id="uploadForm" action="{url op="saveFile"}" method="post">
-	{help file="chapter5/submission-library/add-a-file.md" class="pkp_helpers_align_right"}
-	<div class="pkp_helpers_clear"></div>
 
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="libraryFileUploadNotification"}
 	<input type="hidden" name="temporaryFileId" id="temporaryFileId" value="" />

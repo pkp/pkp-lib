@@ -23,6 +23,7 @@
 .pkp_help_panel {
 	&:extend(.pkp_modal);
 	background: rgba(0, 0, 0, 0.3);
+	z-index: 1001; // Always sit on top of other modals
 
 	&.is_visible {
 		&:extend(.pkp_modal.is_visible);

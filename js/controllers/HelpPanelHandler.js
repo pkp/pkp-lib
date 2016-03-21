@@ -231,6 +231,8 @@
 					'a[name=' + this.currentTopic_.substr(hashIndex + 1) + ']');
 			$element.find('.panel').scrollTop(
 					$targetHash.position().top - 50);
+		} else {
+			$element.find('.panel').scrollTop(0);
 		}
 
 		// Make sure clicks within help content are handled properly

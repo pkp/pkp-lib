@@ -8,8 +8,8 @@
  * Dashboard active submissions tab.
  *}
 
-{help file="chapter3/all-active.md" class="pkp_helpers_align_right"}
-<div class="pkp_helpers_clear"></div>
+{* Help File *}
+{help file="chapter3/all-active.md" class="pkp_help_tab"}
 
 <!-- Archived submissions grid: Show all archived submissions -->
 {url|assign:activeSubmissionsListGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.submissions.activeSubmissions.ActiveSubmissionsListGridHandler" op="fetchGrid" escape=false}

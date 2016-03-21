@@ -8,8 +8,8 @@
  * Dashboard archived submissions tab.
  *}
 
-{help file="chapter3/archives.md" class="pkp_helpers_align_right"}
-<div class="pkp_helpers_clear"></div>
+{* Help File *}
+{help file="chapter3/archives.md" class="pkp_help_tab"}
 
 {url|assign:archivedSubmissionsListGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.submissions.archivedSubmissions.ArchivedSubmissionsListGridHandler" op="fetchGrid" escape=false}
 {load_url_in_div id="archivedSubmissionsListGridContainer" url=$archivedSubmissionsListGridUrl}

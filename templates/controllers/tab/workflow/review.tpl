@@ -7,6 +7,14 @@
  *
  * Review workflow stage.
  *}
+
+{* Help tab *}
+{if $stageId == $smarty.const.WORKFLOW_STAGE_ID_INTERNAL_REVIEW}
+	{help file="chapter5/internal-review.md" class="pkp_help_tab"}
+{else}{* WORKFLOW_STAGE_ID_EXTERNAL_REVIEW *}
+	{help file="chapter5/external-review.md" class="pkp_help_tab"}
+{/if}
+
 <script type="text/javascript">
 	// Attach the JS file tab handler.
 	$(function() {ldelim}

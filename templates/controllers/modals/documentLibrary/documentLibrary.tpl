@@ -8,8 +8,7 @@
  * Document library
  *}
 
-{help file="chapter5/submission-library.md" class="pkp_helpers_align_right"}
-<div class="pkp_helpers_clear"></div>
+{help file="chapter5/submission-library.md" class="pkp_help_modal"}
 
 {url|assign:submissionLibraryGridUrl submissionId=$submission->getId() router=$smarty.const.ROUTE_COMPONENT component="grid.files.submissionDocuments.SubmissionDocumentsFilesGridHandler" op="fetchGrid" escape=false}
 {load_url_in_div id="submissionLibraryGridContainer" url=$submissionLibraryGridUrl}

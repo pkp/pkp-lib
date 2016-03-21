@@ -7,12 +7,16 @@
  *
  * User profile form.
  *}
+
+{* Help Link *}
+{help file="chapter1/notification.md" class="pkp_help_tab"}
+
 <script type="text/javascript">
 	$(function() {ldelim}
 		// Attach the form handler.
 		$('#notificationSettingsForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler', {ldelim}
 			'enableDisablePairs': {ldelim}
-					{foreach from=$notificationSettingCategories item=notificationSettingCategory} 
+					{foreach from=$notificationSettingCategories item=notificationSettingCategory}
 						{foreach name=notifications from=$notificationSettingCategory.settings item=settingId}
 						{$notificationSettings.$settingId.settingName|json_encode}: {$notificationSettings.$settingId.emailSettingName|json_encode},
 						{/foreach}
@@ -21,8 +25,6 @@
 		{rdelim});
 	{rdelim});
 </script>
-
-{help file="chapter1/notification.md" class="pkp_helpers_align_right"}
 
 <p>{translate key="notification.settingsDescription"}</p>
 

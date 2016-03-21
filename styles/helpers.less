@@ -233,6 +233,13 @@
 	border-top-right-radius: 0.5em;
 }
 
+.pkp_help_modal {
+	&:extend(.pkp_help_tab);
+	top: @double;
+	right: @double * 2;
+	border: none;
+}
+
 // @todo from here on down needs to be evaluated and removed if not useful
 .pkp_helpers_invisible {
 	visibility: hidden;

@@ -237,7 +237,9 @@
 		if (hashIndex !== -1) {
 			$targetHash = $element.find(
 					'a[name=' + this.currentTopic_.substr(hashIndex + 1) + ']');
-			panel.scrollTop($targetHash.offset().top - 50);
+			if ($targetHash.length) {
+				panel.scrollTop($targetHash.offset().top - 50);
+			}
 		}
 
 		this.getHtmlElement().removeClass('is_loading');

@@ -167,4 +167,25 @@
 	h1 + ol {
 		padding-left: 1em;
 	}
+
+	&.is_loading {
+
+		&:after {
+			&:extend(.pkp_spinner:after);
+			position: absolute;
+			top: 50%;
+			right: 225px;
+			opacity: 1;
+		}
+
+		.content {
+			opacity: 0.6;
+		}
+
+		.pkp_loading {
+			padding: 300px 0;
+			text-align: center;
+			text-indent: -9999px;
+		}
+	}
 }

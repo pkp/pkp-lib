@@ -199,6 +199,8 @@
 		this.currentTopic_ = topic || '';
 		var url = this.helpUrl_ + '/index/' + locale + '/';
 
+		this.getHtmlElement().addClass('is_loading');
+
 		// Don't escape slashes
 		url += encodeURIComponent(this.currentTopic_).replace(/%2F/g, '/');
 
@@ -238,6 +240,8 @@
 		} else {
 			$element.find('.panel').scrollTop(0);
 		}
+
+		this.getHtmlElement().removeClass('is_loading');
 	};
 
 	/**

@@ -170,19 +170,12 @@ class PKPStageParticipantNotifyForm extends Form {
 
 			// Parameters for various emails
 			$email->assignParams(array(
-				// COPYEDIT_REQUEST
-				'copyeditorName' => $user->getFullName(),
-				'copyeditorUsername' => $user->getUsername(),
-				'submissionCopyeditingUrl' => $submissionUrl,
-				// LAYOUT_REQUEST
-				'layoutEditorName' => $user->getFullName(),
+				// COPYEDIT_REQUEST, LAYOUT_REQUEST, INDEX_REQUEST
+				'participantName' => $user->getFullName(),
+				'participantUsername' => $user->getUsername(),
 				'submissionUrl' => $submissionUrl,
-				'layoutEditorUsername' => $user->getUsername(),
 				// LAYOUT_COMPLETE, INDEX_COMPLETE, EDITOR_ASSIGN
 				'editorialContactName' => $user->getFullname(),
-				// INDEX_REQUEST
-				'indexerName' => $user->getFullName(),
-				'indexerUsername' => $user->getUsername(),
 				// EDITOR_ASSIGN
 				'editorUsername' => $user->getUsername(),
 			));
@@ -207,14 +200,14 @@ class PKPStageParticipantNotifyForm extends Form {
 	 */
 	function getEmailVariableNames($emailKey) {
 		switch ($emailKey) {
-			case 'COPYEDIT_REQUEST': return array(
-				'copyeditorName' => __('user.name'),
-				'copyeditorUsername' => __('user.username'),
-			);
-			case 'LAYOUT_REQUEST': return array(
-				'layoutEditorName' => __('user.name'),
-				'layoutEditorUsername' => __('user.username'),
-			);
+			case 'COPYEDIT_REQUEST':
+			case 'LAYOUT_REQUEST':
+			case 'INDEX_REQUEST':
+				return array(
+					'participantName' => __('user.name'),
+					'participantUsername' => __('user.username'),
+					'submissionUrl' => __('common.url'),
+				);
 			case 'LAYOUT_COMPLETE':
 			case 'INDEX_COMPLETE': return array(
 				'editorialContactName' => __('user.role.editor'),
@@ -222,10 +215,6 @@ class PKPStageParticipantNotifyForm extends Form {
 			case 'EDITOR_ASSIGN': return array(
 				'editorUsername' => __('user.username'),
 				'editorialContactName' => __('user.role.editor'),
-			);
-			case 'INDEX_REQUEST': return array(
-				'indexerName' => __('user.name'),
-				'indexerUsername' => __('user.username'),
 			);
 		}
 	}

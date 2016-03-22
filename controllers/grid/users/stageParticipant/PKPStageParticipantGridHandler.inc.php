@@ -486,9 +486,10 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 			$dispatcher = $request->getDispatcher();
 			$context = $request->getContext();
 			$template->assignParams(array(
-					'editorialContactSignature' => $user->getContactSignature(),
-					'signatureFullName' => $user->getFullname(),
+				'editorialContactSignature' => $user->getContactSignature(),
+				'signatureFullName' => $user->getFullname(),
 			));
+			$template->replaceParams();
 
 			import('controllers.grid.users.stageParticipant.form.StageParticipantNotifyForm'); // exists in each app.
 			$notifyForm = new StageParticipantNotifyForm($this->getSubmission()->getId(), ASSOC_TYPE_SUBMISSION, $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE));

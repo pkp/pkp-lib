@@ -171,7 +171,7 @@
 				this.callbackWrapper(this.handleWrapperEvents));
 
 		// Listen to clicks on links
-		$element.on('click', '.content a',
+		$element.on('click.pkp.HelpPanelContentLink', '.content a',
 				this.callbackWrapper(this.handleContentLinks_));
 
 		// Load the appropriate help content
@@ -297,6 +297,7 @@
 
 		// Unbind wrapper events from element and reset vars
 		$element.off('click.pkp.HelpPanel keyup.pkp.HelpPanel');
+		$element.off('click.pkp.HelpPanelContentLink', '.content a');
 		this.caller_ = null;
 	};
 

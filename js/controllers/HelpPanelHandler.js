@@ -222,7 +222,8 @@
 				helpPanelHandler = this,
 				$element = this.getHtmlElement(),
 				hashIndex = this.currentTopic_.indexOf('#'),
-				$targetHash;
+				$targetHash,
+				panel = $element.find('.panel');
 
 		this.previousTopic_ = responseObject.previous;
 		this.nextTopic_ = responseObject.next;
@@ -232,13 +233,11 @@
 				'<div class="content">' + responseObject.content + '</div>');
 
 		// If a hash was specified, scroll to the named anchor.
+		panel.scrollTop(0);
 		if (hashIndex !== -1) {
 			$targetHash = $element.find(
 					'a[name=' + this.currentTopic_.substr(hashIndex + 1) + ']');
-			$element.find('.panel').scrollTop(
-					$targetHash.position().top - 50);
-		} else {
-			$element.find('.panel').scrollTop(0);
+			panel.scrollTop($targetHash.offset().top - 50);
 		}
 
 		this.getHtmlElement().removeClass('is_loading');

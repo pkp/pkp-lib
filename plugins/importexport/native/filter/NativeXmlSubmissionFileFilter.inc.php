@@ -135,6 +135,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 		$submissionFile->setFileStage($stageId);
 		$submissionFile->setDateUploaded(Core::getCurrentDate());
 		$submissionFile->setDateModified(Core::getCurrentDate());
+		if ($node->getAttribute('available') == 'true') $submissionFile->setViewable(true);
 
 		$submissionFile->setOriginalFileName($filename = $node->getAttribute('filename'));
 		for ($n = $node->firstChild; $n !== null; $n=$n->nextSibling) {

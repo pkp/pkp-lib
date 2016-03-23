@@ -131,7 +131,7 @@ class RepresentationsGridCellProvider extends DataObjectGridCellProvider {
 							),
 							'modal_approve'
 						),
-						$data->getIsApproved()?__('submission.catalogEntry'):__('submission.noCatalogEntry'),
+						$data->getIsApproved()?__('submission.complete'):__('submission.incomplete'),
 						$data->getIsApproved()?'complete':'incomplete',
 						__('grid.action.setApproval')
 					));

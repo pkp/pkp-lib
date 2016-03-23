@@ -107,25 +107,31 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 		$context = $deployment->getContext();
 
 		$genreName = $node->getAttribute('genre');
-		// Build a cached list of genres by context ID by name
-		if (!isset($genresByContextId[$context->getId()])) {
-			$genreDao = DAORegistry::getDAO('GenreDAO');
-			$genres = $genreDao->getByContextId($context->getId());
-			while ($genre = $genres->next()) {
-				foreach ($genre->getName(null) as $locale => $name) {
-					$genresByContextId[$context->getId()][$name] = $genre;
+		if ($genreName) {
+			// Build a cached list of genres by context ID by name
+			if (!isset($genresByContextId[$context->getId()])) {
+				$genreDao = DAORegistry::getDAO('GenreDAO');
+				$genres = $genreDao->getByContextId($context->getId());
+				while ($genre = $genres->next()) {
+					foreach ($genre->getName(null) as $locale => $name) {
+						$genresByContextId[$context->getId()][$name] = $genre;
+					}
 				}
 			}
+			if (!isset($genresByContextId[$context->getId()][$genreName])) {
+				fatalError('Unknown genre "' . $genreName . '"!');
+			}
+			$genre = $genresByContextId[$context->getId()][$genreName];
+			$genreId = $genre->getId();
+		} else {
+			$genreId = null;
 		}
-		if (!isset($genresByContextId[$context->getId()][$genreName])) {
-			fatalError('Unknown genre "' . $genreName . '"!');
-		}
-		$genre = $genresByContextId[$context->getId()][$genreName];
+
 
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
-		$submissionFile = $submissionFileDao->newDataObjectByGenreId($genre->getId());
+		$submissionFile = $submissionFileDao->newDataObjectByGenreId($genreId);
 		$submissionFile->setSubmissionId($submission->getId());
-		$submissionFile->setGenreId($genre->getId());
+		$submissionFile->setGenreId($genreId);
 		$submissionFile->setFileStage($stageId);
 		$submissionFile->setDateUploaded(Core::getCurrentDate());
 		$submissionFile->setDateModified(Core::getCurrentDate());
@@ -179,14 +185,6 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 		switch ($node->tagName) {
 			case 'name':
 				$submissionFile->setName($node->textContent, $node->getAttribute('locale'));
-				break;
-			case 'remote':
-				$submissionFile->setFileType($node->getAttribute('mime_type'));
-				$src = $node->getAttribute('src');
-				$temporaryFileManager = new TemporaryFileManager();
-				$temporaryFilename = tempnam($temporaryFileManager->getBasePath(), 'remote');
-				$temporaryFileManager->copyFile($src, $temporaryFilename);
-				return $temporaryFilename;
 				break;
 			case 'href':
 				$submissionFile->setFileType($node->getAttribute('mime_type'));

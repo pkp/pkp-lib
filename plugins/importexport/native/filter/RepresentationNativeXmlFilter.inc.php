@@ -79,12 +79,19 @@ class RepresentationNativeXmlFilter extends NativeExportFilter {
 		$sequenceNode->appendChild($doc->createTextNode($representation->getSeq()));
 		$representationNode->appendChild($sequenceNode);
 
-		// Add files
-		foreach ($this->getFiles($representation) as $submissionFile) {
-			$fileRefNode = $doc->createElementNS($deployment->getNamespace(), 'submission_file_ref');
-			$fileRefNode->setAttribute('id', $submissionFile->getFileId());
-			$fileRefNode->setAttribute('revision', $submissionFile->getRevision());
-			$representationNode->appendChild($fileRefNode);
+		$remoteURL = $representation->getRemoteURL();
+		if ($remoteURL) {
+			$remoteNode = $doc->createElementNS($deployment->getNamespace(), 'remote');
+			$remoteNode->setAttribute('src', $remoteURL);
+			$representationNode->appendChild($remoteNode);
+		} else {
+			// Add files
+			foreach ($this->getFiles($representation) as $submissionFile) {
+				$fileRefNode = $doc->createElementNS($deployment->getNamespace(), 'submission_file_ref');
+				$fileRefNode->setAttribute('id', $submissionFile->getFileId());
+				$fileRefNode->setAttribute('revision', $submissionFile->getRevision());
+				$representationNode->appendChild($fileRefNode);
+			}
 		}
 
 		return $representationNode;

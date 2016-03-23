@@ -205,6 +205,11 @@ class SubmissionsListGridCellProvider extends DataObjectGridCellProvider {
 		} 
 		$dispatcher = $request->getDispatcher();
 
+		// Incomplete submissions get sent back to the wizard.
+		if ($submission->getSubmissionProgress()>0) {
+			return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'submission', 'wizard', $submission->getSubmissionProgress(), array('submissionId' => $submission->getId()));
+		}
+
 		// If user is enrolled with a context manager user group, let
 		// them access the workflow pages.
 		$roleDao = DAORegistry::getDAO('RoleDAO');
@@ -228,13 +233,7 @@ class SubmissionsListGridCellProvider extends DataObjectGridCellProvider {
 				break;
 			} else $authorDashboard = true;
 		}
-		if ($authorDashboard) {
-			if ($submission->getSubmissionProgress()>0) {
-				// Incomplete submission; send back to wizard.
-				return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'submission', 'wizard', $submission->getSubmissionProgress(), array('submissionId' => $submission->getId()));
-			}
-			return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'authorDashboard', 'submission', $submission->getId());
-		}
+		if ($authorDashboard) return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'authorDashboard', 'submission', $submission->getId());
 
 		// Check if the user should be considered as reviewer.
 		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');

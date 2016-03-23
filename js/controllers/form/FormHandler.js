@@ -504,21 +504,25 @@
 	 * @param {HTMLElement} input The input element that triggered the
 	 * event.
 	 * @param {Event} event The initialized event.
+	 * @param {{closePermitted: boolean}} informationObject
 	 * @return {boolean} Event handling success.
 	 */
 	$.pkp.controllers.form.FormHandler.prototype.containerCloseHandler =
-			function(input, event) {
+			function(input, event, informationObject) {
+
 		var $form = $(this.getHtmlElement());
 		// prevent orphaned date pickers that may be still open.
 		$form.find('.hasDatepicker').datepicker('hide');
 		if (this.formChangesTracked) {
 			if (!confirm($.pkp.locale.form_dataHasChanged)) {
+				informationObject.closePermitted = false;
 				return false;
 			} else {
 				this.trigger('unregisterAllForms');
 			}
 		}
 
+		informationObject.closePermitted = true;
 		return true;
 	};
 

@@ -228,14 +228,18 @@
 		var modalHandler = this,
 				$modalElement = this.getHtmlElement(),
 				$form = $modalElement.find('form').first(),
-				handler;
+				handler, informationObject;
 
 		// Unregister a form if attached to this modalElement
 		// modalClose is called on both 'cancel' and 'close' events.  With
 		// callbacks both callingContext and event are undefined. So,
 		// unregister this form with SiteHandler.
 		if ($form.length == 1) {
-			$form.trigger('containerClose');
+			informationObject = {closePermitted: true};
+			$form.trigger('containerClose', [informationObject]);
+			if (!informationObject.closePermitted) {
+				return false;
+			}
 		}
 
 		// Hide the modal, remove it from the DOM and remove the handler once

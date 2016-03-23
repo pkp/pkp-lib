@@ -177,11 +177,14 @@ class ReviewerSelectGridHandler extends GridHandler {
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$reviewRound = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND);
+
+		$previousReviewRounds = $filter['previousReviewRounds'];
+		$round = $previousReviewRounds ? $reviewRound->getRound() : null;
 		return $userDao->getFilteredReviewers(
 			$submission->getContextId(), $reviewRound->getStageId(), $name,
 			$doneMin, $doneMax, $avgMin, $avgMax, $lastMin, $lastMax,
 			$activeMin, $activeMax, $interests,
-			$submission->getId(), $reviewRound->getId()
+			$submission->getId(), $reviewRound->getId(), $round
 		);
 	}
 
@@ -216,6 +219,7 @@ class ReviewerSelectGridHandler extends GridHandler {
 					'activeMax' => null,
 				),
 				'interestSearchKeywords' => array(),
+				'previousReviewRounds' => null,
 			);
 		}
 	}
@@ -229,7 +233,7 @@ class ReviewerSelectGridHandler extends GridHandler {
 		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
 		$reviewRound = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND);
 		import('lib.pkp.controllers.grid.users.reviewerSelect.form.AdvancedSearchReviewerFilterForm');
-		return new AdvancedSearchReviewerFilterForm($submission, $stageId, $reviewRound->getId());
+		return new AdvancedSearchReviewerFilterForm($submission, $stageId, $reviewRound->getId(), $reviewRound->getRound());
 	}
 
 	/**

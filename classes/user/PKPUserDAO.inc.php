@@ -240,11 +240,12 @@ class PKPUserDAO extends DAO {
 	 * @param $activeMin int|null How many reviews are currently being considered or underway int
 	 * @param $activeMax int|null
 	 * @param $interests array
-	 * @param $submissionId int Filter out reviewers assigned to this submission
-	 * @param $reviewRoundId int Also filter users assigned to this round of the given submission
+	 * @param $submissionId int This parameter is in conjunction with the next two parameters i.e. reviewRoundId and reviewRound
+	 * @param $reviewRoundId int Exclude users assigned to this round of the given submission
+	 * @param $reviewRound int Filter users assigned to previous rounds of the given submission
 	 * @return DAOResultFactory Iterator for matching users
 	 */
-	function getFilteredReviewers($contextId, $stageId, $name = null, $doneMin = null, $doneMax = null, $avgMin = null, $avgMax = null, $lastMin = null, $lastMax = null, $activeMin = null, $activeMax = null, $interests = array(), $submissionId = null, $reviewRoundId = null) {
+	function getFilteredReviewers($contextId, $stageId, $name = null, $doneMin = null, $doneMax = null, $avgMin = null, $avgMax = null, $lastMin = null, $lastMax = null, $activeMin = null, $activeMax = null, $interests = array(), $submissionId = null, $reviewRoundId = null, $reviewRound = null) {
 		// Timestamp math appears not to work in seconds in MySQL. Issue #1167.
 		switch (Config::getVar('database', 'driver')) {
 			case 'mysql':
@@ -271,6 +272,7 @@ class PKPUserDAO extends DAO {
 				LEFT JOIN review_assignments rai ON (rai.reviewer_id = u.user_id AND rai.date_notified IS NOT NULL AND rai.date_completed IS NULL AND rai.cancelled = 0 AND rai.declined = 0 AND rai.replaced = 0)
 			WHERE	ras.review_id IS NULL
 				AND ran.review_id IS NULL' .
+				($reviewRound !== null ? ' AND rac.submission_id = ? AND rac.stage_id = ? AND rac.round < ?':'') .
 				str_repeat(' AND u.user_id IN (SELECT ui.user_id FROM user_interests ui JOIN controlled_vocab_entry_settings cves ON (ui.controlled_vocab_entry_id = cves.controlled_vocab_entry_id) WHERE cves.setting_name = \'interest\' AND LOWER(cves.setting_value) = ?)', count($interests)) .
 				($name !== null?' AND (u.first_name LIKE ? OR u.middle_name LIKE ? OR u.last_name LIKE ? OR u.username LIKE ? OR u.email LIKE ?)':'') . '
 			GROUP BY u.user_id
@@ -293,6 +295,7 @@ class PKPUserDAO extends DAO {
 					(int) $stageId,
 					(int) $reviewRoundId,
 				),
+				$reviewRound !== null?array((int) $submissionId, (int) $stageId, (int) $reviewRound):array(),
 				array_map(array('PKPString', 'strtolower'), $interests),
 				$name !== null?array('%'.(string) $name.'%'):array(),
 				$name !== null?array('%'.(string) $name.'%'):array(),

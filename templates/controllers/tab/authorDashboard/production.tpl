@@ -7,7 +7,7 @@
  *
  * Display the production stage on the author dashboard.
  *}
-{if $submission->getStageId() >= $smarty.const.WORKFLOW_STAGE_ID_PRODUCTION && !empty($representations)}
+{if $submission->getStageId() >= $smarty.const.WORKFLOW_STAGE_ID_PRODUCTION}
 	{include file="authorDashboard/submissionEmails.tpl" submissionEmails=$productionEmails}
 
 	<script type="text/javascript">

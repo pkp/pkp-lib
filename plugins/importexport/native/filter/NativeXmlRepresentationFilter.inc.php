@@ -57,6 +57,7 @@ class NativeXmlRepresentationFilter extends NativeImportFilter {
 		for ($n = $node->firstChild; $n !== null; $n=$n->nextSibling) if (is_a($n, 'DOMElement')) switch($n->tagName) {
 			case 'name': $representation->setName($n->textContent, $n->getAttribute('locale')); break;
 			case 'seq': $representation->setSeq($n->textContent); break;
+			case 'remote': $representation->setRemoteURL($n->getAttribute('src')); break;
 
 		}
 

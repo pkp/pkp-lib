@@ -114,6 +114,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 			$publishedSubmissionDao->$insertMethod($publishedSubmission);
 			// Reload from DB now that some fields may have changed
 			$submission = $submissionDao->getById($submission->getId());
+			$submission->setStatus(STATUS_PUBLISHED);
 		}
 		return $submission;
 	}
@@ -231,6 +232,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 			'subtitle' => 'setSubtitle',
 			'abstract' => 'setAbstract',
 			'coverage' => 'setCoverage',
+			'type' => 'setType',
 			'source' => 'setSource',
 			'rights' => 'setRights',
 		);

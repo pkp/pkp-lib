@@ -95,6 +95,7 @@ class PKPStageParticipantNotifyForm extends Form {
 		foreach ($templateKeys as $templateKey) {
 			$template = $this->_getMailTemplate($submission, $templateKey);
 			$template->assignParams(array());
+			$template->replaceParams();
 			$templates[$templateKey] = $template->getSubject();
 		}
 
@@ -316,10 +317,10 @@ class PKPStageParticipantNotifyForm extends Form {
 	}
 
 	/**
-	 * return app-specific mail template.
-	 * @param Submission $submission
-	 * @param String $templateKey
-	 * @param boolean $includeSignature
+	 * Return app-specific mail template.
+	 * @param $submission Submission
+	 * @param $templateKey string
+	 * @param $includeSignature boolean
 	 * @return array
 	 */
 	protected function _getMailTemplate($submission, $templateKey, $includeSignature = true) {

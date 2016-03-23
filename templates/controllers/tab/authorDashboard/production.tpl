@@ -7,8 +7,12 @@
  *
  * Display the production stage on the author dashboard.
  *}
-{if $submission->getStageId() >= $smarty.const.WORKFLOW_STAGE_ID_PRODUCTION && !empty($representations)}
+{if $submission->getStageId() >= $smarty.const.WORKFLOW_STAGE_ID_PRODUCTION}
 	{include file="authorDashboard/submissionEmails.tpl" submissionEmails=$productionEmails}
+
+	<!-- Display queries grid -->
+	{url|assign:queriesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.queries.QueriesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$smarty.const.WORKFLOW_STAGE_ID_PRODUCTION escape=false}
+	{load_url_in_div id="queriesGridDiv" url=$queriesGridUrl}
 
 	<script type="text/javascript">
 	// Attach the JS file tab handler.

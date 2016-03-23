@@ -668,8 +668,6 @@ class PKPEmailTemplateDAO extends DAO {
 	 * skipping others
 	 * @param $skipExisting boolean If true, do not install email templates
 	 * that already exist in the database
-	 * @param $emailKey string If specified, the key of the single template
-	 * to install (otherwise all are installed)
 	 * @return array
 	 */
 	function installEmailTemplates($templatesFile, $returnSql = false, $emailKey = null, $skipExisting = false) {

@@ -91,7 +91,8 @@ class EditorDecisionNotificationManager extends NotificationManagerDelegate {
 			$notificationDao->deleteObject($notification);
 		}
 
-		// (Re)create notifications.
+		// (Re)create notifications, but don’t send email, since we
+		// got here from the editor decision which sends its own email.
 		foreach ((array) $userIds as $userId) $this->createNotification(
 			$request,
 			$userId,
@@ -99,7 +100,9 @@ class EditorDecisionNotificationManager extends NotificationManagerDelegate {
 			$context->getId(),
 			ASSOC_TYPE_SUBMISSION,
 			$assocId,
-			$this->_getNotificationTaskLevel($this->getNotificationType())
+			$this->_getNotificationTaskLevel($this->getNotificationType()),
+			null,
+			true // suppressEmail
 		);
 	}
 

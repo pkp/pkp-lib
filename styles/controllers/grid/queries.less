@@ -23,6 +23,33 @@
 
     .pkp_controllers_grid {
         margin-bottom: @double;
+
+        .label.before_actions {
+            display: block;
+            font-size: @font-base;
+            line-height: @line-base;
+            background: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .pkp_linkaction_downloadFile {
+            position: relative;
+            display: inline-block;
+            margin: @base @double 0 20px;
+            font-size: @font-sml;
+            line-height: @line-sml;
+
+            &:before {
+                &:extend(.fa all);
+                content: @fa-var-file-o;
+                position: absolute;
+                top: 0;
+                left: -18px;
+                line-height: 24px;
+                color: @text-light-rgba;
+            }
+        }
     }
 
     .add_note {

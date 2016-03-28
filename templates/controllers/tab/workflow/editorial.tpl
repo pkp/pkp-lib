@@ -10,7 +10,7 @@
 <div id="editorial">
 
 	{* Help Link *}
-	{help file="chapter5/copyediting.md" class="pkp_help_tab"}
+	{help file="editorial-workflow/copyediting.md" class="pkp_help_tab"}
 
 	<div class="pkp_context_sidebar">
 		{url|assign:copyeditingEditorDecisionsUrl router=$smarty.const.ROUTE_PAGE page="workflow" op="editorDecisionActions" submissionId=$submission->getId() stageId=$stageId contextId="copyediting" escape=false}

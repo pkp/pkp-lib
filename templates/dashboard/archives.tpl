@@ -9,7 +9,7 @@
  *}
 
 {* Help File *}
-{help file="chapter3/archives.md" class="pkp_help_tab"}
+{help file="submissions.md" section="archives" class="pkp_help_tab"}
 
 {url|assign:archivedSubmissionsListGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.submissions.archivedSubmissions.ArchivedSubmissionsListGridHandler" op="fetchGrid" escape=false}
 {load_url_in_div id="archivedSubmissionsListGridContainer" url=$archivedSubmissionsListGridUrl}

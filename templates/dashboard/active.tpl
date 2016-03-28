@@ -9,7 +9,7 @@
  *}
 
 {* Help File *}
-{help file="chapter3/all-active.md" class="pkp_help_tab"}
+{help file="submissions.md" section="active" class="pkp_help_tab"}
 
 <!-- Archived submissions grid: Show all archived submissions -->
 {url|assign:activeSubmissionsListGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.submissions.activeSubmissions.ActiveSubmissionsListGridHandler" op="fetchGrid" escape=false}

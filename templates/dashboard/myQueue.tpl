@@ -9,7 +9,7 @@
  *}
 
 {* Help File *}
-{help file="chapter3/my-queue.md" class="pkp_help_tab"}
+{help file="submissions.md" section="my-queue" class="pkp_help_tab"}
 
 {if array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_AUTHOR), (array)$userRoles)}
 <script type="text/javascript">

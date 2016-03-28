@@ -10,7 +10,7 @@
  *}
 
 {* Help Link *}
-{help file="chapter6/context/contact.md" class="pkp_help_tab"}
+{help file="settings.md" section="context" class="pkp_help_tab"}
 
 <script type="text/javascript">
 	$(function() {ldelim}

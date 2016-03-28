@@ -10,7 +10,7 @@
  *}
 
 {* Help Link *}
-{help file="chapter5/submission-library/view-document-library.md" class="pkp_help_tab"}
+{help file="settings.md" section="workflow-press-library" class="pkp_help_modal"}
 
 {url|assign:libraryGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.settings.library.LibraryFileAdminGridHandler" op="fetchGrid" canEdit=$canEdit escape=false}
 {load_url_in_div id="libraryGridDiv" url=$libraryGridUrl}

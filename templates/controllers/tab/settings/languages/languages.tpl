@@ -9,7 +9,7 @@
  *}
 
 {* Help Link *}
-{help file="chapter6/website/language.md" class="pkp_help_tab"}
+{help file="settings.md" section="website" class="pkp_help_tab"}
 
 {if in_array(ROLE_ID_SITE_ADMIN, $userRoles) && !$multipleContexts}
 	{url|assign:languagesUrl router=$smarty.const.ROUTE_COMPONENT component="grid.admin.languages.AdminLanguageGridHandler" op="fetchGrid" escape=false}

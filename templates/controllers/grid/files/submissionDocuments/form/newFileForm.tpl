@@ -8,9 +8,6 @@
  * Library Files form
  *}
 
-{* Help link *}
-{help file="chapter5/submission-library/add-a-file.md" class="pkp_help_modal"}
-
 <script type="text/javascript">
 	// Attach the file upload form handler.
 	$(function() {ldelim}

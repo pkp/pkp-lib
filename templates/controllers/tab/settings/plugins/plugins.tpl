@@ -9,7 +9,7 @@
  *}
 
 {* Help Link *}
-{help file="chapter6/website/plugins.md" class="pkp_help_tab"}
+{help file="settings.md" section="website" class="pkp_help_tab"}
 
 <script type="text/javascript">
 	// Attach the JS file tab handler.

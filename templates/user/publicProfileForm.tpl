@@ -9,7 +9,7 @@
  *}
 
 {* Help Link *}
-{help file="chapter1/public.md" class="pkp_help_tab"}
+{help file="user-profile.md" class="pkp_help_tab"}
 
 <script type="text/javascript">
 	$(function() {ldelim}

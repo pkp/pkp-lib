@@ -10,7 +10,7 @@
  *}
 {include file="common/header.tpl" pageTitle="manager.statistics"}
 
-{help file="chapter7/statistics.md"}
+{help file="tools.md" section="statistics"}
 
 {if $showMetricTypeSelector || $appSettings}
 	{include file="management/tools/form/statisticsSettingsForm.tpl"}

@@ -244,7 +244,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 	 * @param $decision string
 	 */
 	protected function recordEditorialDecision($decision) {
-		$this->waitForElementPresent($selector='//a/span[contains(.,\'' . $this->escapeJS($decision) . '\')]/..');
+		$this->waitForElementPresent($selector='//a[contains(.,\'' . $this->escapeJS($decision) . '\')]');
 		$this->click($selector);
 		$this->waitForElementPresent($selector='//button[contains(.,\'Record Editorial Decision\')]');
 		$this->click($selector);

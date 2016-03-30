@@ -22,6 +22,7 @@ class UserEmailForm extends Form {
 
 	/**
 	 * Constructor.
+	 * @param $userId int User ID to contact.
 	 */
 	function UserEmailForm($userId) {
 		parent::Form('controllers/grid/settings/user/form/userEmailForm.tpl');
@@ -34,44 +35,33 @@ class UserEmailForm extends Form {
 	}
 
 	/**
-	 * Initialize form data.
-	 */
-	function initData($args, $request) {
-		$fromUser = $request->getUser();
-		$fromSignature = "\n\n\n" . $fromUser->getLocalizedSignature();
-
-		$this->_data = array(
-			'message' => $fromSignature
-		);
-	}
-
-	/**
 	 * Assign form data to user-submitted data.
 	 * @see Form::readInputData()
 	 */
 	function readInputData() {
-		$this->readUserVars(
-			array(
-				'subject',
-				'message'
-			)
-		);
-
+		$this->readUserVars(array(
+			'subject',
+			'message',
+		));
 	}
 
 	/**
 	 * Display the form.
+	 * @param $args array
+	 * @param $request PKPRequest
 	 */
-	function display($args, $request) {
+	function fetch($args, $request) {
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$user = $userDao->getById($this->userId);
 
 		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('userId', $this->userId);
-		$templateMgr->assign('userFullName', $user->getFullName());
-		$templateMgr->assign('userEmail', $user->getEmail());
+		$templateMgr->assign(array(
+			'userId' => $this->userId,
+			'userFullName' => $user->getFullName(),
+			'userEmail' => $user->getEmail(),
+		));
 
-		return $this->fetch($request);
+		return parent::fetch($request);
 	}
 
 	/**

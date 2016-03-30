@@ -475,9 +475,9 @@ class UserGridHandler extends GridHandler {
 			// Form handling.
 			import('lib.pkp.controllers.grid.settings.user.form.UserEmailForm');
 			$userEmailForm = new UserEmailForm($userId);
-			$userEmailForm->initData($args, $request);
+			$userEmailForm->initData();
 
-			return new JSONMessage(true, $userEmailForm->display($args, $request));
+			return new JSONMessage(true, $userEmailForm->fetch($args, $request));
 		}
 	}
 
@@ -506,7 +506,7 @@ class UserGridHandler extends GridHandler {
 			$userEmailForm->execute($args, $request);
 			return new JSONMessage(true);
 		} else {
-			return new JSONMessage(false, $userEmailForm->display($args, $request));
+			return new JSONMessage(false, $userEmailForm->fetch($args, $request));
 		}
 	}
 

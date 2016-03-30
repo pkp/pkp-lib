@@ -621,9 +621,9 @@ class PKPReviewerGridHandler extends GridHandler {
 		// Form handling.
 		import('lib.pkp.controllers.grid.settings.user.form.UserEmailForm');
 		$userEmailForm = new UserEmailForm($reviewAssignment->getReviewerId());
-		$userEmailForm->initData($args, $request);
+		$userEmailForm->initData();
 
-		return new JSONMessage(true, $userEmailForm->display($args, $request));
+		return new JSONMessage(true, $userEmailForm->fetch($args, $request));
 	}
 
 

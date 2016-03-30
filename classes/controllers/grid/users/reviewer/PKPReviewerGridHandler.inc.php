@@ -376,7 +376,6 @@ class PKPReviewerGridHandler extends GridHandler {
 				return new JSONMessage(false, __('editor.review.errorDeletingReviewer'));
 			}
 		}
-
 	}
 
 	/**

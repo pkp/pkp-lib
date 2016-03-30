@@ -91,7 +91,7 @@ class UnassignReviewerForm extends Form {
 
 		// Notify the reviewer via email.
 		import('lib.pkp.classes.mail.SubmissionMailTemplate');
-		$mail = new SubmissionMailTemplate($submission, 'REVIEW_CANCEL', null, null, null, false);
+		$mail = new SubmissionMailTemplate($submission, 'REVIEW_CANCEL', null, null, false);
 
 		if ($mail->isEnabled() && !$this->getData('skipEmail')) {
 			$userDao = DAORegistry::getDAO('UserDAO');
@@ -99,6 +99,7 @@ class UnassignReviewerForm extends Form {
 			$reviewer = $userDao->getById($reviewerId);
 			$mail->addRecipient($reviewer->getEmail(), $reviewer->getFullName());
 			$mail->setBody($this->getData('personalMessage'));
+			$mail->assignParams();
 			$mail->send($request);
 		}
 

@@ -384,14 +384,13 @@ class ReviewerForm extends Form {
 			}
 
 			// Assign the remaining parameters
-			$paramArray = array(
+			$mail->assignParams(array(
 				'reviewerName' => $reviewer->getFullName(),
 				'responseDueDate' => $responseDueDate,
 				'reviewDueDate' => $reviewDueDate,
 				'reviewerUserName' => $reviewer->getUsername(),
 				'submissionReviewUrl' => $dispatcher->url($request, ROUTE_PAGE, null, 'reviewer', 'submission', null, $reviewUrlArgs)
-			);
-			$mail->assignParams($paramArray);
+			));
 			$mail->send($request);
 		}
 

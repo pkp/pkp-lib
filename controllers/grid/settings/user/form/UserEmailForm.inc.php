@@ -91,6 +91,7 @@ class UserEmailForm extends Form {
 		$email->setReplyTo($fromUser->getEmail(), $fromUser->getFullName());
 		$email->setSubject($this->getData('subject'));
 		$email->setBody($this->getData('message'));
+		$email->assignParams();
 		$email->send();
 	}
 }

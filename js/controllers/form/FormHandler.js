@@ -522,7 +522,9 @@
 			}
 		}
 
-		informationObject.closePermitted = true;
+		if (typeof informationObject !== 'undefined') {
+			informationObject.closePermitted = true;
+		}
 		return true;
 	};
 

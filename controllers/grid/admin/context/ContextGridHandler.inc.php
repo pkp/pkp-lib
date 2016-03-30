@@ -146,8 +146,8 @@ class ContextGridHandler extends GridHandler {
 	/**
 	 * @copydoc GridHandler::getDataElementSequence()
 	 */
-	function getDataElementSequence($context) {
-		return $context->getSequence();
+	function getDataElementSequence($gridDataElement) {
+		return $gridDataElement->getSequence();
 	}
 
 	/**

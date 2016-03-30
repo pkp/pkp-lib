@@ -20,13 +20,10 @@ class OrderGridItemsFeature extends OrderItemsFeature{
 
 	/**
 	 * Constructor.
-	 * @param $overrideRowTemplate boolean This feature uses row
-	 * actions and it will force the usage of the gridRow.tpl.
-	 * If you want to use a different grid row template file, set this flag to
-	 * false and make sure to use a template file that adds row actions.
+	 * @copydoc OrderItemsFeature::OrderItemsFeature()
 	 */
-	function OrderGridItemsFeature($overrideRowTemplate = true) {
-		parent::OrderItemsFeature($overrideRowTemplate);
+	function OrderGridItemsFeature($overrideRowTemplate = true, $nonOrderableItemsMessage = null) {
+		parent::OrderItemsFeature($overrideRowTemplate, $nonOrderableItemsMessage);
 	}
 
 

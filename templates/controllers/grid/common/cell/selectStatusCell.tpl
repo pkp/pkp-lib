@@ -7,7 +7,7 @@
  *
  * a regular grid cell (with or without actions)
  *}
-{assign var=cellId value="cell-"|concat:$id}
+{assign var=cellId value="cell-"|concat:$id|uniqid}
 <span id="{$cellId}">
 	{if count($actions) gt 0}
 		{assign var=defaultCellAction value=$actions[0]}

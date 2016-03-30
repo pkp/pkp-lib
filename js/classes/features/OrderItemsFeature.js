@@ -210,6 +210,7 @@
 
 		this.addOrderingClassToRows();
 		this.toggleMoveItemRowAction(this.isOrdering);
+		this.getGridHtmlElement().find('div.order_message').hide();
 
 		this.toggleOrderLink_();
 		if (this.isOrdering) {
@@ -223,12 +224,21 @@
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.addFeatureHtml =
 			function($gridElement, options) {
-		var castOptions = /** @type {{orderFinishControls: string?}} */ (options),
-				$orderFinishControls;
+		var castOptions = /** @type {{orderFinishControls: string?,
+				orderMessage: string?}} */ (options),
+				$orderFinishControls, orderMessageHtml, $gridRows;
 		if (castOptions.orderFinishControls !== undefined) {
 			$orderFinishControls = $(castOptions.orderFinishControls);
 			$gridElement.find('table').last().after($orderFinishControls);
 			$orderFinishControls.hide();
+		}
+
+		if (castOptions.orderMessage !== undefined) {
+			orderMessageHtml = castOptions.orderMessage;
+			$gridRows = $gridElement.find('.gridRow').filter(function(index, element) {
+				return !Boolean($(this).find('a.pkp_linkaction_moveItem').length);
+			});
+			$gridRows.find('td:first-child').prepend(orderMessageHtml);
 		}
 
 		this.updateOrderLinkVisibility_();
@@ -244,7 +254,9 @@
 	$.pkp.classes.features.OrderItemsFeature.prototype.addOrderingClassToRows =
 			function() {
 		// Add ordering class to grid rows.
-		var $gridRows = this.gridHandler.getRows();
+		var $gridRows = this.gridHandler.getRows().filter(function(index, element) {
+			return $(this).find('a.pkp_linkaction_moveItem').length;
+		});
 		$gridRows.addClass('orderable');
 	};
 
@@ -329,6 +341,7 @@
 		this.toggleFinishControl_();
 		this.toggleItemsDragMode();
 		this.setupSortablePlugin();
+		this.setupNonOrderableMessage_();
 	};
 
 
@@ -496,6 +509,7 @@
 	$.pkp.classes.features.OrderItemsFeature.prototype.
 			replaceElementResponseHandler = function(handledJsonData) {
 		this.updateOrderLinkVisibility_();
+		this.setupNonOrderableMessage_();
 		return false;
 	};
 
@@ -602,6 +616,23 @@
 
 		this.getSaveOrderButton().unbind('click');
 		this.getCancelOrderButton().unbind('click');
+	};
+
+
+	/**
+	 * Toggle hover action to show message for non orderable
+	 * grid rows.
+	 * @private
+	 */
+	$.pkp.classes.features.OrderItemsFeature.prototype.
+			setupNonOrderableMessage_ = function() {
+		if (this.isOrdering) {
+			this.gridHandler.getRows().hover(function() {
+				$(this).find('div.order_message').toggle();
+			});
+		} else {
+			this.gridHandler.getRows().unbind('mouseenter mouseleave');
+		}
 	};
 
 

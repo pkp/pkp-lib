@@ -21,13 +21,23 @@ class OrderItemsFeature extends GridFeature{
 	/** @var boolean */
 	var $_overrideRowTemplate;
 
+	/** @var string */
+	var $_nonOrderableItemMessage;
+
 	/**
 	 * Constructor.
+	 * @param $overrideRowTemplate boolean This feature uses row
+	 * actions and it will force the usage of the gridRow.tpl.
+	 * If you want to use a different grid row template file, set this flag to
+	 * false and make sure to use a template file that adds row actions.
+	 * @param $nonOrderableItemMessage string optional A translated message to be used
+	 * when user tries to move a non orderable grid item.
 	 */
-	function OrderItemsFeature($overrideRowTemplate) {
+	function OrderItemsFeature($overrideRowTemplate, $nonOrderableItemMessage = null) {
 		parent::GridFeature('orderItems');
 
 		$this->setOverrideRowTemplate($overrideRowTemplate);
+		$this->setNonOrderableItemMessage($nonOrderableItemMessage);
 	}
 
 
@@ -57,6 +67,22 @@ class OrderItemsFeature extends GridFeature{
 		}
 	}
 
+	/**
+	 * Set non orderable item message.
+	 * @param $nonOrderableItemMessage string Message already translated.
+	 */
+	function setNonOrderableItemMessage($nonOrderableItemMessage) {
+		$this->_nonOrderableItemMessage = $nonOrderableItemMessage;
+	}
+
+	/**
+	 * Get non orderable item message.
+	 * @return string Message already translated.
+	 */
+	function getNonOrderableItemMessage() {
+		return $this->_nonOrderableItemMessage;
+	}
+
 
 	//
 	// Extended methods from GridFeature.
@@ -73,6 +99,25 @@ class OrderItemsFeature extends GridFeature{
 		));
 	}
 
+	/**
+	 * @see GridFeature::fetchUIElements()
+	 */
+	function fetchUIElements($request, $grid) {
+		$templateMgr = TemplateManager::getManager($request);
+		$UIElements = array();
+		if ($this->isOrderActionNecessary()) {
+			$templateMgr->assign('gridId', $grid->getId());
+			$UIElements['orderFinishControls'] = $templateMgr->fetch('controllers/grid/feature/gridOrderFinishControls.tpl');
+		}
+		$nonOrderableItemMessage = $this->getNonOrderableItemMessage();
+		if ($nonOrderableItemMessage) {
+			$templateMgr->assign('orderMessage', $nonOrderableItemMessage);
+			$UIElements['orderMessage'] = $templateMgr->fetch('controllers/grid/feature/gridOrderNonOrderableMessage.tpl');
+		}
+
+		return $UIElements;
+	}
+
 
 	//
 	// Hooks implementation.
@@ -82,7 +127,9 @@ class OrderItemsFeature extends GridFeature{
 	 */
 	function getInitializedRowInstance($args) {
 		$row =& $args['row'];
-		$this->addRowOrderAction($row);
+		if ($args['grid']->getDataElementSequence($row->getData()) !== false) {
+			$this->addRowOrderAction($row);
+		}
 	}
 
 	/**
@@ -101,17 +148,6 @@ class OrderItemsFeature extends GridFeature{
 					'order_items'
 				)
 			);
-		}
-	}
-
-	/**
-	 * @see GridFeature::fetchUIElements()
-	 */
-	function fetchUIElements($request, $grid) {
-		if ($this->isOrderActionNecessary()) {
-			$templateMgr = TemplateManager::getManager($request);
-			$templateMgr->assign('gridId', $grid->getId());
-			return array('orderFinishControls' => $templateMgr->fetch('controllers/grid/feature/gridOrderFinishControls.tpl'));
 		}
 	}
 

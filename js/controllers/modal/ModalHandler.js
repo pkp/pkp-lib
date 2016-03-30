@@ -65,6 +65,7 @@
 		this.publishEvent('dataChanged');
 		this.publishEvent('containerReloadRequested');
 		this.publishEvent('updateHeader');
+		this.publishEvent('gridRefreshRequested');
 
 		// Bind notify user event.
 		this.bind('notifyUser', this.redirectNotifyUserEventHandler_);

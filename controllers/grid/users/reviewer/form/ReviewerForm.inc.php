@@ -362,7 +362,7 @@ class ReviewerForm extends Form {
 
 		// Notify the reviewer via email.
 		import('lib.pkp.classes.mail.SubmissionMailTemplate');
-		$templateKey = $keywords = $this->getData('template');
+		$templateKey = $this->getData('template');
 		$mail = new SubmissionMailTemplate($submission, $templateKey, null, null, null, false);
 
 		if ($mail->isEnabled() && !$this->getData('skipEmail')) {

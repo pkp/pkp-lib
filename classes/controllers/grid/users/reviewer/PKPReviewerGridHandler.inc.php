@@ -617,13 +617,24 @@ class PKPReviewerGridHandler extends GridHandler {
 	 */
 	function sendEmail($args, $request) {
 		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
+		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 
 		// Form handling.
-		import('lib.pkp.controllers.grid.settings.user.form.UserEmailForm');
-		$userEmailForm = new UserEmailForm($reviewAssignment->getReviewerId());
-		$userEmailForm->initData();
-
-		return new JSONMessage(true, $userEmailForm->fetch($args, $request));
+		import('lib.pkp.controllers.grid.users.reviewer.form.EmailReviewerForm');
+		$emailReviewerForm = new EmailReviewerForm($reviewAssignment);
+		if (!$request->isPost()) {
+			$emailReviewerForm->initData();
+			return new JSONMessage(
+				true,
+				$emailReviewerForm->fetch(
+					$request,
+					$this->getRequestArgs()
+				)
+			);
+		}
+		$emailReviewerForm->readInputData();
+		$emailReviewerForm->execute($request, $submission);
+		return new JSONMessage(true);
 	}
 
 
@@ -649,21 +660,20 @@ class PKPReviewerGridHandler extends GridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function fetchTemplateBody($args, $request) {
-		$templateId = $request->getUserVar('template');
 		import('lib.pkp.classes.mail.SubmissionMailTemplate');
-		$template = new SubmissionMailTemplate($this->getSubmission(), $templateId);
-		if ($template) {
-			$user = $request->getUser();
-			$dispatcher = $request->getDispatcher();
-			$context = $request->getContext();
+		$template = new SubmissionMailTemplate($this->getSubmission(), $request->getUserVar('template'));
+		if (!$template) return;
 
-			$template->assignParams(array(
-					'editorialContactSignature' => $user->getContactSignature(),
-					'signatureFullName' => $user->getFullname(),
-			));
+		$user = $request->getUser();
+		$dispatcher = $request->getDispatcher();
+		$context = $request->getContext();
 
-			return new JSONMessage(true, $template->getBody());
-		}
+		$template->assignParams(array(
+			'editorialContactSignature' => $user->getContactSignature(),
+			'signatureFullName' => $user->getFullname(),
+		));
+
+		return new JSONMessage(true, $template->getBody());
 	}
 
 
@@ -705,6 +715,7 @@ class PKPReviewerGridHandler extends GridHandler {
 			case REVIEWER_SELECT_ENROLL_EXISTING:
 				return 'EnrollExistingReviewerForm';
 		}
+		assert(false);
 	}
 
 	/**
@@ -733,6 +744,7 @@ class PKPReviewerGridHandler extends GridHandler {
 
 	/**
 	 * Update the review round status.
+	 * @param $reviewAssignment ReviewAssignment
 	 */
 	function _updateReviewRoundStatus($reviewAssignment) {
 		// Update the review round status.

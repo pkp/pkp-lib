@@ -1,5 +1,5 @@
 {**
- * controllers/grid/settings/user/form/userEmailForm.tpl
+ * controllers/grid/users/reviewer/form/emailReviewerForm.tpl
  *
  * Copyright (c) 2014-2016 Simon Fraser University Library
  * Copyright (c) 2003-2016 John Willinsky
@@ -10,19 +10,17 @@
 <script type="text/javascript">
 	$(function() {ldelim}
 		// Attach the form handler.
-		$('#sendEmailForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler');
+		$('#emailReviewerForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler');
 	{rdelim});
 </script>
-<form class="pkp_form" id="sendEmailForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.user.UserGridHandler" op="sendEmail"}" >
-
-	<input type="hidden" name="userId" value="{$userId|escape}" />
-
+<form class="pkp_form" id="emailReviewerForm" method="post" action="{url op="sendEmail" params=$requestArgs}" >
+	<input type="hidden" name="reviewAssignmentId" value="{$reviewAssignmentId|escape}" />
 	{fbvFormSection title="email.subject" for="subject" required="true" size=$fbvStyles.size.MEDIUM inline=true}
 		{fbvElement type="text" id="subject" value=$subject}
 	{/fbvFormSection}
 
 	{fbvFormSection title="email.to" size=$fbvStyles.size.MEDIUM inline=true}
-		{fbvElement type="text" id="user" value=$userFullName|concat:" <":$userEmail:">" disabled="true"}
+		{fbvElement type="text" id="user" value=$userFullName disabled="true"}
 	{/fbvFormSection}
 
 	{fbvFormSection title="email.body" for="message" required="true"}

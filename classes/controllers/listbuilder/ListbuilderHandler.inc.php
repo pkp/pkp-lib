@@ -200,7 +200,7 @@ class ListbuilderHandler extends GridHandler {
 	 * @return array
 	 */
 	function getOptions($request) {
-		fatalError('ABSTRACT METHOD');
+		return array();
 	}
 
 	//

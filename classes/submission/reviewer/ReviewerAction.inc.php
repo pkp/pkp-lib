@@ -99,9 +99,22 @@ class ReviewerAction extends PKPAction {
 		$reviewer = $userDao->getById($reviewAssignment->getReviewerId());
 
 		// Get editorial contact name
-		$context = $request->getContext();
-		$email->addRecipient($context->getSetting('contactEmail'), $context->getSetting('contactName'));
-		$editorialContactName = $context->getSetting('contactName');
+		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userDao = DAORegistry::getDAO('UserDAO');
+		$stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), $reviewAssignment->getStageId());
+		$recipient = null;
+		while ($stageAssignment = $stageAssignments->next()) {
+			$userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId());
+			if (!in_array($userGroup->getRoleId(), array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR))) continue;
+
+			$recipient = $userDao->getById($stageAssignment->getUserId());
+			$email->addRecipient($recipient->getEmail(), $recipient->getFullName());
+		}
+		if (!$recipient) {
+			$context = $request->getContext();
+			$email->addRecipient($context->getSetting('contactEmail'), $context->getSetting('contactName'));
+		}
 
 		// Get due date
 		$reviewDueDate = strtotime($reviewAssignment->getDateDue());
@@ -112,10 +125,10 @@ class ReviewerAction extends PKPAction {
 		$email->setReplyTo($reviewer->getEmail(), $reviewer->getFullName());
 
 		$email->assignParams(array(
-			'editorialContactName' => $editorialContactName,
 			'reviewerName' => $reviewer->getFullName(),
 			'reviewDueDate' => $reviewDueDate
 		));
+		$email->replaceParams();
 
 		return $email;
 	}

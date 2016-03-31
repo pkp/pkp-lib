@@ -21,7 +21,7 @@
 
 	{fbvFormArea id="declineReview"}
 		{fbvFormSection}
-			{fbvElement type="textarea" id="declineReviewMessage" value=$declineMessageBody}
+			{fbvElement type="textarea" id="declineReviewMessage" value=$declineMessageBody rich=true}
 		{/fbvFormSection}
 
 		{fbvFormButtons submitText="reviewer.submission.declineReview" hideCancel=true}

@@ -33,7 +33,7 @@ abstract class UsersListbuilderHandler extends ListbuilderHandler {
 		parent::initialize($request);
 
 		// Load submission-specific translations
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_USER);
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
 
 		import('lib.pkp.classes.linkAction.request.NullAction');
 		$this->addAction(

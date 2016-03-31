@@ -447,7 +447,17 @@ class PKPNotificationManager {
 		import('classes.mail.MailTemplate');
 		$site =& $request->getSite();
 		$mail = new MailTemplate('NOTIFICATION', null, null, null, false, true);
-		$mail->setReplyTo($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
+		$replyToEmail = $site->getLocalizedContactEmail();
+		$replyToName = $site->getLocalizedContactName();
+		if ($notification->getContextId()) {
+			$journalDao =& DAORegistry::getDAO('JournalDAO');
+			$journal = $journalDao->getById($notification->getContextId());
+			if ($journal && $journal->getSetting('contactEmail')) {
+				$replyToEmail = $journal->getSetting('contactEmail');
+				$replyToName = $journal->getSetting('contactName');
+			}
+		}
+		$mail->setReplyTo($replyToEmail, $replyToName);
 		$mail->assignParams(array(
 			'notificationContents' => $this->getNotificationContents($request, $notification),
 			'url' => $this->getNotificationUrl($request, $notification),
@@ -477,7 +487,17 @@ class PKPNotificationManager {
 			$dispatcher =& $router->getDispatcher();
 
 			$mail = new MailTemplate('NOTIFICATION_MAILLIST');
-			$mail->setReplyTo($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
+			$replyToEmail = $site->getLocalizedContactEmail();
+			$replyToName = $site->getLocalizedContactName();
+			if ($notification->getContextId()) {
+				$journalDao =& DAORegistry::getDAO('JournalDAO');
+				$journal = $journalDao->getById($notification->getContextId());
+				if ($journal && $journal->getSetting('contactEmail')) {
+					$replyToEmail = $journal->getSetting('contactEmail');
+					$replyToName = $journal->getSetting('contactName');
+				}
+			}
+			$mail->setReplyTo($replyToEmail, $replyToName);
 			$mail->assignParams(array(
 				'notificationContents' => $this->getNotificationContents($request, $notification),
 				'url' => $this->getNotificationUrl($request, $notification),

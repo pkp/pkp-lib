@@ -117,6 +117,8 @@ class PKPStageParticipantNotifyForm extends Form {
 	function readInputData($request) {
 		$this->readUserVars(array('message', 'users', 'template'));
 		import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
+
+		$this->setData('userIds', array($request->getUserVar('userId')));
 		$userData = $this->getData('users');
 		ListbuilderHandler::unpack($request, $userData);
 	}
@@ -125,6 +127,9 @@ class PKPStageParticipantNotifyForm extends Form {
 	 * @copydoc Form::execute()
 	 */
 	function execute($request) {
+		foreach ($this->getData('userIds') as $userId) {
+			$this->sendMessage($userId, $submission, $request);
+		}
 		return parent::execute($request);
 	}
 
@@ -140,9 +145,14 @@ class PKPStageParticipantNotifyForm extends Form {
 		$submissionDao = Application::getSubmissionDAO();
 		$submission = $submissionDao->getById($this->_submissionId);
 
-		foreach ($newRowId as $id) {
-			$this->sendMessage($id, $submission, $request);
-		}
+		$this->setData('userIds', array_merge($this->getData('userIds'), $newRowId));
+	}
+
+	/**
+	 * @copydoc ListbuilderHandler::deleteEntry
+	 */
+	function deleteEntry($request, $rowId) {
+		$this->setData('userIds', array_diff($this->getData('userIds'), array($rowId)));
 	}
 
 	/**
@@ -218,15 +228,6 @@ class PKPStageParticipantNotifyForm extends Form {
 				'editorialContactName' => __('user.role.editor'),
 			);
 		}
-	}
-
-	/**
-	 * Delete an entry
-	 */
-	function deleteEntry($request, $rowId) {
-		// Dummy function; PHP throws a warning when this is not specified.
-		// The actual delete is done on the client side.
-		return true;
 	}
 
 	/**

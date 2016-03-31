@@ -22,7 +22,9 @@
 	<form class="pkp_form" id="notifyForm" action="{url op="sendNotification" stageId=$stageId submissionId=$submissionId escape=false}" method="post">
 		{include file="controllers/notification/inPlaceNotification.tpl" notificationId="notifyFormNotification"}
 		{fbvFormArea id="notifyFormArea"}
-			{if $lastEventUser}{assign var="userId" value=$lastEventUser->getId()}{/if}
+			{* Since the listbuilder only reports changes, we need to pass along the initial list *}
+			<input type="hidden" name="userId" value="{$userId|escape}"/>
+
 			{if $includeNotifyUsersListbuilder}
 				{url|assign:notifyUsersUrl router=$smarty.const.ROUTE_COMPONENT component="listbuilder.users.StageUsersListbuilderHandler" op="fetch" params=$linkParams submissionId=$submissionId userIds=$userId|to_array escape=false}
 				{load_url_in_div id="notifyUsersContainer" url=$notifyUsersUrl}

@@ -65,18 +65,23 @@ class QueryDAO extends DAO {
 	 */
 	function getByAssoc($assocType, $assocId, $stageId = null, $userId = null) {
 		$params = array();
+		$params[] = (int) ASSOC_TYPE_QUERY;
 		if ($userId) $params[] = (int) $userId;
 		$params[] = (int) $assocType;
 		$params[] = (int) $assocId;
 		if ($stageId) $params[] = (int) $stageId;
+		if ($userId) $params[] = (int) $userId;
 
 		return new DAOResultFactory(
 			$this->retrieve(
-				'SELECT	q.*
+				'SELECT	DISTINCT q.*
 				FROM	queries q
+				LEFT JOIN notes n ON n.assoc_type = ? AND n.assoc_id = q.query_id
 				' . ($userId?'INNER JOIN query_participants qp ON (q.query_id = qp.query_id AND qp.user_id = ?)':'') . '
 				WHERE	q.assoc_type = ? AND q.assoc_id = ?
 				' . ($stageId?' AND q.stage_id = ?':'') . '
+				AND (' . ($userId?'n.user_id = ? OR ':'') .
+				'n.title IS NOT NULL OR n.contents IS NOT NULL)
 				ORDER BY q.seq',
 				$params
 			),

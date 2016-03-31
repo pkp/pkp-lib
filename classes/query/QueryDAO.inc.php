@@ -79,9 +79,10 @@ class QueryDAO extends DAO {
 				LEFT JOIN notes n ON n.assoc_type = ? AND n.assoc_id = q.query_id
 				' . ($userId?'INNER JOIN query_participants qp ON (q.query_id = qp.query_id AND qp.user_id = ?)':'') . '
 				WHERE	q.assoc_type = ? AND q.assoc_id = ?
-				' . ($stageId?' AND q.stage_id = ?':'') . '
-				AND (' . ($userId?'n.user_id = ? OR ':'') .
-				'n.title IS NOT NULL OR n.contents IS NOT NULL)
+				' . ($stageId?' AND q.stage_id = ?':'') .
+				($userId?'
+				AND (n.user_id = ? OR n.title IS NOT NULL
+				OR n.contents IS NOT NULL)':'') . '
 				ORDER BY q.seq',
 				$params
 			),

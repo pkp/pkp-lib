@@ -151,7 +151,7 @@ class QueryNotesGridHandler extends GridHandler {
 	 * @copydoc GridHandler::loadData()
 	 */
 	function loadData($request, $filter = null) {
-		return $this->getQuery()->getReplies(null, NOTE_ORDER_DATE_CREATED, SORT_DIRECTION_ASC);
+		return $this->getQuery()->getReplies(null, NOTE_ORDER_DATE_CREATED, SORT_DIRECTION_ASC, $this->getCanManage(null));
 	}
 
 	//
@@ -188,14 +188,20 @@ class QueryNotesGridHandler extends GridHandler {
 
 	/**
 	 * Determine whether the current user can manage (delete) a note.
-	 * @param $note Note
+	 * @param $note Note optional
 	 * @return boolean
 	 */
 	function getCanManage($note) {
-		return ($note->getUserId() == $this->_user->getId() || 0 != count(array_intersect(
+		$isAdmin = (0 != count(array_intersect(
 			$this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES),
 			array(ROLE_ID_MANAGER, ROLE_ID_ASSISTANT, ROLE_ID_SUB_EDITOR)
 		)));
+
+		if ($note === null) {
+			return $isAdmin;
+		} else {
+			return ($note->getUserId() == $this->_user->getId() || $isAdmin);
+		}
 	}
 
 	/**

@@ -76,7 +76,7 @@ class NoteDAO extends DAO {
 	 * @param $sortDirection int Optional sorting order constant: SORT_DIRECTION_...
 	 * @return object DAOResultFactory containing matching Note objects
 	 */
-	function getByAssoc($assocType, $assocId, $userId = null, $orderBy = NOTE_ORDER_DATE_CREATED, $sortDirection = SORT_DIRECTION_DESC) {
+	function getByAssoc($assocType, $assocId, $userId = null, $orderBy = NOTE_ORDER_DATE_CREATED, $sortDirection = SORT_DIRECTION_DESC, $isAdmin = false) {
 		$params = array((int) $assocId, (int) $assocType);
 		if ($userId) $params[] = (int) $userId;
 
@@ -103,8 +103,9 @@ class NoteDAO extends DAO {
 			FROM	notes
 			WHERE	assoc_id = ?
 				AND assoc_type = ?
-				' . ($userId?' AND user_id = ?':'') . '
-				AND (title IS NOT NULL OR contents IS NOT NULL)
+				' . ($userId?' AND user_id = ?':'') .
+				($isAdmin?'':'
+				AND (title IS NOT NULL OR contents IS NOT NULL)') . '
 			ORDER BY ' . $orderSanitized . ' ' . $directionSanitized,
 			$params
 		);

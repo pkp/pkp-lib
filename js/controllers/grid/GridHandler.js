@@ -471,7 +471,7 @@
 		deleteFunction = function() {
 			$element.remove();
 			if (lastElement) {
-				$emptyElement.fadeIn(500);
+				$emptyElement.fadeIn(100);
 			}
 		};
 

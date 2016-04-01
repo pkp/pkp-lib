@@ -104,6 +104,7 @@ class NoteDAO extends DAO {
 			WHERE	assoc_id = ?
 				AND assoc_type = ?
 				' . ($userId?' AND user_id = ?':'') . '
+				AND (title IS NOT NULL OR contents IS NOT NULL)
 			ORDER BY ' . $orderSanitized . ' ' . $directionSanitized,
 			$params
 		);

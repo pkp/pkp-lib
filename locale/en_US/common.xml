@@ -401,7 +401,6 @@
 	<message key="navigation.sitemap">Site Map</message>
 	<message key="navigation.stepNumber">Step {$step}</message>
 	<message key="navigation.submissions">Submissions</message>
-	<message key="navigation.switchJournals">Switch Journals</message>
 	<message key="navigation.system">System</message>
 	<message key="navigation.userHome">User Home</message>
 	<message key="navigation.user">User</message>

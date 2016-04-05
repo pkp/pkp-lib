@@ -127,7 +127,7 @@ class PKPStageParticipantNotifyForm extends Form {
 	 * @copydoc Form::execute()
 	 */
 	function execute($request) {
-		foreach ($this->getData('userIds') as $userId) {
+		foreach ((array) $this->getData('userIds') as $userId) {
 			$this->sendMessage($userId, $submission, $request);
 		}
 		return parent::execute($request);

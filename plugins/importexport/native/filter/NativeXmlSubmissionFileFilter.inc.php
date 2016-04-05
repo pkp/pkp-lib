@@ -63,6 +63,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 	function handleElement($node) {
 		$deployment = $this->getDeployment();
 		$stageName = $node->getAttribute('stage');
+		$fileId = $node->getAttribute('id');
 		$stageNameIdMapping = $deployment->getStageNameStageIdMapping();
 		assert(isset($stageNameIdMapping[$stageName]));
 		$stageId = $stageNameIdMapping[$stageName];
@@ -71,7 +72,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 		// Handle metadata in subelements
 		for ($n = $node->firstChild; $n !== null; $n=$n->nextSibling) {
 			if (is_a($n, 'DOMElement')) {
-				$this->handleChildElement($n, $stageId, $submissionFiles);
+				$this->handleChildElement($n, $stageId, $fileId, $submissionFiles);
 			}
 		}
 		return $submissionFiles;
@@ -82,12 +83,13 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 	 * any, to $submissionFiles
 	 * @param $node DOMElement
 	 * @param $stageId int SUBMISSION_FILE_...
+	 * @param $fileId int File id
 	 * @param $submissionFiles array
 	 */
-	function handleChildElement($node, $stageId, &$submissionFiles) {
+	function handleChildElement($node, $stageId, $fileId, &$submissionFiles) {
 		switch ($node->tagName) {
 			case 'revision':
-				$submissionFiles[] = $this->handleRevisionElement($node, $stageId);
+				$submissionFiles[] = $this->handleRevisionElement($node, $stageId, $fileId);
 				break;
 			default:
 				fatalError('Unknown element ' . $node->tagName);
@@ -97,14 +99,17 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 	/**
 	 * Handle a revision element
 	 * @param $node DOMElement
+	 * @param $fileId int File id
 	 * @param $stageId int SUBMISSION_FILE_...
 	 */
-	function handleRevisionElement($node, $stageId) {
+	function handleRevisionElement($node, $stageId, $fileId) {
 		static $genresByContextId = array();
 
 		$deployment = $this->getDeployment();
 		$submission = $deployment->getSubmission();
 		$context = $deployment->getContext();
+
+		$revisionId = $node->getAttribute('number');
 
 		$genreName = $node->getAttribute('genre');
 		if ($genreName) {
@@ -126,7 +131,6 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 		} else {
 			$genreId = null;
 		}
-
 
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
 		$submissionFile = $submissionFileDao->newDataObjectByGenreId($genreId);
@@ -169,7 +173,11 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 		$fileType = $node->getAttribute('filetype');
 		$submissionFile->setFileType($fileType);
 
-		$submissionFileDao->insertObject($submissionFile, $filename, false);
+		$submissionFile->setRevision($revisionId);
+
+		$insertedSubmissionFile = $submissionFileDao->insertObject($submissionFile, $filename, false);
+		$deployment->setFileDBId($fileId, $revisionId, $insertedSubmissionFile->getFileId());
+
 		$fileManager = new FileManager();
 		$fileManager->deleteFile($filename);
 		return $submissionFile;

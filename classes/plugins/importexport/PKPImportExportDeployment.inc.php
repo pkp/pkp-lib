@@ -27,6 +27,9 @@ class PKPImportExportDeployment {
 	/** @var Submission The current import/export submission */
 	var $_submission;
 
+	/** @var array Connection between the file and revision IDs from the XML import file and the DB file IDs */
+	var $_fileDBIds;
+
 	/**
 	 * Constructor
 	 * @param $context Context
@@ -36,6 +39,7 @@ class PKPImportExportDeployment {
 		$this->setContext($context);
 		$this->setUser($user);
 		$this->setSubmission(null);
+		$this->setFileDBIds(array());
 	}
 
 	//
@@ -130,6 +134,45 @@ class PKPImportExportDeployment {
 	 */
 	function getUser() {
 		return $this->_user;
+	}
+
+	/**
+	 * Get the array of the inserted file DB Ids.
+	 * @return array
+	 */
+	function getFileDBIds() {
+		return $this->_fileDBIds;
+	}
+
+	/**
+	 * Set the array of the inserted file DB Ids.
+	 * @param $fileDBIds array
+	 */
+	function setFileDBIds($fileDBIds) {
+		return $this->_fileDBIds = $fileDBIds;
+	}
+
+	/**
+	 * Get the file DB Id.
+	 * @param $fileId integer
+	 * @param $revisionId integer
+	 * @return integer
+	 */
+	function getFileDBId($fileId, $revisionId) {
+		if (array_key_exists($fileId, $this->_fileDBIds) && array_key_exists($revisionId, $this->_fileDBIds[$fileId])) {
+			return $this->_fileDBIds[$fileId][$revisionId];
+		}
+		return null;
+	}
+
+	/**
+	 * Set the file DB Id.
+	 * @param $fileId integer
+	 * @param $revisionId integer
+	 * @param $DBId integer
+	 */
+	function setFileDBId($fileId, $revisionId, $DBId) {
+		return $this->_fileDBIds[$fileId][$revisionId]= $DBId;
 	}
 }
 

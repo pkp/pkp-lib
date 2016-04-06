@@ -8,6 +8,10 @@
  * Indexing management form.
  *
  *}
+
+{* Help Link *}
+{help file="settings.md" section="distribution" class="pkp_help_tab"}
+
 <script type="text/javascript">
 	$(function() {ldelim}
 		// Attach the form handler.

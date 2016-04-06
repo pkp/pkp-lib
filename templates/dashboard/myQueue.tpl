@@ -7,6 +7,10 @@
  *
  * User related submissions tab.
  *}
+
+{* Help File *}
+{help file="submissions.md" section="my-queue" class="pkp_help_tab"}
+
 {if array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_AUTHOR), (array)$userRoles)}
 <script type="text/javascript">
 	$(function() {ldelim}
@@ -32,7 +36,6 @@
 		</form>
 	</div>
 	{/if}
-	{help file="chapter3/my-queue.md"}
 </div>
 
 <div class="pkp_content_panel">

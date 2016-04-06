@@ -7,9 +7,15 @@
  *
  * File library management.
  *
+ * @uses $isModal bool True if this template is loaded inside of a modal.
  *}
-{help file="chapter5/submission-library/view-document-library.md" class="pkp_helpers_align_right"}
-<div class="pkp_helpers_clear"></div>
+
+{* Help Link *}
+{assign var=helpClass value="pkp_help_tab"}
+{if $isModal}
+    {assign var=helpClass value="pkp_help_modal"}
+{/if}
+{help file="settings.md" section="workflow-press-library" class=$helpClass}
 
 {url|assign:libraryGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.settings.library.LibraryFileAdminGridHandler" op="fetchGrid" canEdit=$canEdit escape=false}
 {load_url_in_div id="libraryGridDiv" url=$libraryGridUrl}

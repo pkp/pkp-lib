@@ -245,6 +245,7 @@
 		this.getHtmlElement().removeClass('is_loading');
 	};
 
+
 	/**
 	 * A callback to handle clicks on links in the help content
 	 *
@@ -252,7 +253,9 @@
 	 * control of relative links and try to open the appropriate help topic.
 	 *
 	 * @private
-	 * @param
+	 * @param {HTMLElement} target The target element the event was triggered on
+	 * @param {Event} event The event triggered on this handler
+	 * @return {boolean} Event handling status.
 	 */
 	$.pkp.controllers.HelpPanelHandler.prototype.
 			handleContentLinks_ = function(target, event) {

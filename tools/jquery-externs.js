@@ -712,10 +712,11 @@ jQueryObject.prototype.find = function(selector) {};
 
 /**
  * @param {string} arg1
- * @param {Function} arg2
+ * @param {Function|string} arg2
+ * @param {Function=} arg3
  * @returns {jQueryObject}
  */
-jQueryObject.prototype.on = function(arg1, arg2) {};
+jQueryObject.prototype.on = function(arg1, arg2, arg3) {};
 
 /**
  * @return {jQueryObject}

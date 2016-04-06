@@ -8,15 +8,15 @@
  * List installed and available plugins in a tabbed interface.
  *}
 
+{* Help Link *}
+{help file="settings.md" section="website" class="pkp_help_tab"}
+
 <script type="text/javascript">
 	// Attach the JS file tab handler.
 	$(function() {ldelim}
 		$('#pluginsTabs').pkpHandler('$.pkp.controllers.TabHandler');
 	{rdelim});
 </script>
-
-{help file="chapter6/website/plugins.md" class="pkp_helpers_align_right"}
-<div class="pkp_helpers_clear"></div>
 
 <div id="pluginsTabs" class="pkp_controllers_tab">
 	<ul>

@@ -16,11 +16,6 @@
 		{url|assign:reviewDecisionsUrl router=$smarty.const.ROUTE_PAGE page="workflow" op="editorDecisionActions" submissionId=$submission->getId() stageId=$stageId reviewRoundId=$reviewRoundId contextId="reviewRoundTab-"|concat:$reviewRoundId escape=false}
 		{load_url_in_div id="reviewDecisionsDiv-"|concat:$reviewRoundId url=$reviewDecisionsUrl class="pkp_tab_actions"}
 		{include file="controllers/tab/workflow/stageParticipants.tpl"}
-		{if $stageId == $smarty.const.WORKFLOW_STAGE_ID_INTERNAL_REVIEW}
-			{help file="chapter5/internal-review.md"}
-		{else}{* WORKFLOW_STAGE_ID_EXTERNAL_REVIEW *}
-			{help file="chapter5/external-review.md"}
-		{/if}
 	</div>
 
 	<div class="pkp_content_panel">

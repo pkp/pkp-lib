@@ -12,6 +12,7 @@
  * @uses $helpSection string Section reference, eg - second
  * @uses $helpText string Text for the link
  * @uses $helpTextKey string Locale key for the link text
+ * @uses $helpClass string Class to add to the help link
  *}
 <a href="#" class="requestHelpPanel pkp_help_link {$helpClass|escape}" data-topic="{$helpFile|escape}{if $helpSection}#{$helpSection|escape}{/if}">
 	{if $helpText}

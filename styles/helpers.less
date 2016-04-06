@@ -199,23 +199,45 @@
 	}
 }
 
+// A help link
 .pkp_help_link {
 	display: inline-block;
 	padding: 4px 0;
-	font-size: @font-sml;
-	line-height: @line-sml;
+	font-size: @font-tiny;
+	line-height: @line-tiny;
 	text-decoration: none;
 
 	&:before {
 		&:extend(.fa);
 		content: @fa-var-info-circle;
 		color: @yes;
+		margin-right: 0.25em;
 	}
 
 	&:hover:before,
 	&:focus:before {
 		color: @yes-lift;
 	}
+}
+
+// A small help link that attaches to a tab
+.pkp_help_tab {
+	position: absolute;
+	top: -@double - 1;
+	right: @double;
+	padding: @half 1em;
+	background: @lift;
+	border: @bg-border;
+	border-bottom-width: 0;
+	border-top-left-radius: 0.5em;
+	border-top-right-radius: 0.5em;
+}
+
+.pkp_help_modal {
+	&:extend(.pkp_help_tab);
+	top: @double;
+	right: @double * 2;
+	border: none;
 }
 
 // @todo from here on down needs to be evaluated and removed if not useful

@@ -9,6 +9,9 @@
  *
  *}
 
+{* Help Link *}
+{help file="settings.md" section="context" class="pkp_help_tab"}
+
 <script type="text/javascript">
 	$(function() {ldelim}
 		// Attach the form handler.
@@ -17,8 +20,6 @@
 </script>
 
 <form class="pkp_form" id="policiesForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT op="saveFormData" tab="policies"}">
-	{help file="chapter6/context/policies.md" class="pkp_helpers_align_right"}
-	<div class="pkp_helpers_clear"></div>
 
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="policiesFormNotification"}
 	{include file="controllers/tab/settings/wizardMode.tpl" wizardMode=$wizardMode}

@@ -7,7 +7,6 @@
  *
  * Display submission file notes/note form in information center.
  *}
-
 <script type="text/javascript">
 	// Attach the Notes handler.
 	$(function() {ldelim}
@@ -22,7 +21,6 @@
 </script>
 
 <div id="informationCenterNotes">
-	{help file="chapter5/editorial-history/notes.md" class="pkp_helpers_align_right"}
 
 	{include file=$newNoteFormTemplate}
 

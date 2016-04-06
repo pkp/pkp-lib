@@ -170,6 +170,10 @@
 		$element.on('click.pkp.HelpPanel keyup.pkp.HelpPanel',
 				this.callbackWrapper(this.handleWrapperEvents));
 
+		// Listen to clicks on links
+		$element.on('click.pkp.HelpPanelContentLink', '.content a',
+				this.callbackWrapper(this.handleContentLinks_));
+
 		// Load the appropriate help content
 		this.loadHelpContent_(options.topic, this.helpLocale_);
 
@@ -195,6 +199,8 @@
 		this.currentTopic_ = topic || '';
 		var url = this.helpUrl_ + '/index/' + locale + '/';
 
+		this.getHtmlElement().addClass('is_loading');
+
 		// Don't escape slashes
 		url += encodeURIComponent(this.currentTopic_).replace(/%2F/g, '/');
 
@@ -216,7 +222,8 @@
 				helpPanelHandler = this,
 				$element = this.getHtmlElement(),
 				hashIndex = this.currentTopic_.indexOf('#'),
-				$targetHash;
+				$targetHash,
+				panel = $element.find('.panel');
 
 		this.previousTopic_ = responseObject.previous;
 		this.nextTopic_ = responseObject.next;
@@ -226,21 +233,48 @@
 				'<div class="content">' + responseObject.content + '</div>');
 
 		// If a hash was specified, scroll to the named anchor.
+		panel.scrollTop(0);
 		if (hashIndex !== -1) {
 			$targetHash = $element.find(
 					'a[name=' + this.currentTopic_.substr(hashIndex + 1) + ']');
-			$element.find('.panel').scrollTop(
-					$targetHash.position().top - 50);
+			if ($targetHash.length) {
+				panel.scrollTop($targetHash.offset().top - 50);
+			}
 		}
 
-		// Make sure clicks within help content are handled properly
-		$element.find('.content').find('a').click(function(e) {
-			var urlParts = $(e.target).attr('href').split('/');
+		this.getHtmlElement().removeClass('is_loading');
+	};
 
-			e.preventDefault();
 
-			helpPanelHandler.loadHelpContent_(urlParts.slice(1).join('/'), urlParts[0]);
-		});
+	/**
+	 * A callback to handle clicks on links in the help content
+	 *
+	 * This function will allow external links to open in a new window but take
+	 * control of relative links and try to open the appropriate help topic.
+	 *
+	 * @private
+	 * @param {HTMLElement} target The target element the event was triggered on
+	 * @param {Event} event The event triggered on this handler
+	 * @return {boolean} Event handling status.
+	 */
+	$.pkp.controllers.HelpPanelHandler.prototype.
+			handleContentLinks_ = function(target, event) {
+
+		var url = $(target).attr('href'),
+				urlParts;
+
+		event.preventDefault();
+
+		// External links aren't yet supported in the help docs
+		// See: https://github.com/pkp/pkp-lib/issues/1032#issuecomment-199342940
+		if (url.substring(0, 4) == 'http') {
+			window.open(url);
+		} else {
+			urlParts = url.split('/');
+			this.loadHelpContent_(urlParts.slice(1).join('/'), urlParts[0]);
+		}
+
+		return false;
 	};
 
 
@@ -267,6 +301,7 @@
 
 		// Unbind wrapper events from element and reset vars
 		$element.off('click.pkp.HelpPanel keyup.pkp.HelpPanel');
+		$element.off('click.pkp.HelpPanelContentLink', '.content a');
 		this.caller_ = null;
 	};
 

@@ -144,7 +144,6 @@
 	<complexType name="user_group">
 		<sequence>
 			<element name="role_id" type="int" />
-			<element name="path" type="normalizedString" minOccurs="1" maxOccurs="1" />
 			<element name="context_id" type="int" />
 			<element name="is_default" type="boolean" />
 			<element name="show_title" type="boolean" />

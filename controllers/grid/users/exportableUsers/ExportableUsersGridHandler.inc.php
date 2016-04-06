@@ -68,7 +68,7 @@ class ExportableUsersGridHandler extends GridHandler {
 		$this->_pluginName = $pluginName;
 
 		$dispatcher = $request->getDispatcher();
-		$url = $dispatcher->url($request, ROUTE_PAGE, null, 'manager', 'importexport', array('plugin', $pluginName, 'exportAllUsers'));
+		$url = $dispatcher->url($request, ROUTE_PAGE, null, 'management', 'importexport', array('plugin', $pluginName, 'exportAllUsers'));
 
 		$this->addAction(
 			new LinkAction(

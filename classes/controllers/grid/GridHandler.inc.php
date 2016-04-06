@@ -448,7 +448,7 @@ class GridHandler extends PKPHandler {
 	 * @return int
 	 */
 	function getDataElementSequence(&$gridDataElement) {
-		assert(false);
+		return 0; // Ordering is ambiguous or irrelevant.
 	}
 
 	/**

@@ -86,7 +86,7 @@ class UsageStatsSettingsForm extends Form {
 
 		$optionalColumns = $this->getData('optionalColumns');
 		// Make sure optional columns data makes sense.
-		if (in_array(STATISTICS_DIMENSION_CITY, $optionalColumns) && !in_array(STATISTICS_DIMENSION_REGION, $optionalColumns)) {
+		if ($optionalColumns && in_array(STATISTICS_DIMENSION_CITY, $optionalColumns) && !in_array(STATISTICS_DIMENSION_REGION, $optionalColumns)) {
 			$user = Request::getUser();
 			import('classes.notification.NotificationManager');
 			$notificationManager = new NotificationManager();

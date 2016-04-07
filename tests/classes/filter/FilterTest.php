@@ -31,8 +31,8 @@ class FilterTest extends PKPTestCase {
 		self::assertEquals('Mock_Filter_', substr($mockFilter->getDisplayName(), 0, 12));
 		$mockFilter->setDisplayName('Some other display name');
 		self::assertEquals('Some other display name', $mockFilter->getDisplayName());
-		$mockFilter->setSeq(5);
-		self::assertEquals(5, $mockFilter->getSeq());
+		$mockFilter->setSequence(5);
+		self::assertEquals(5, $mockFilter->getSequence());
 
 		// Test errors
 		$mockFilter->addError('some error message');

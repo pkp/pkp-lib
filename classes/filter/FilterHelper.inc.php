@@ -151,7 +151,7 @@ class FilterHelper {
 		if (is_a($filterA, 'CompositeFilter')) {
 			// Compare sub-filters of composite filters.
 			foreach($filterBSubfilters as $filterBSubfilter) { /* @var $filterBSubfilter PersistableFilter */
-				$seq = $filterBSubfilter->getSeq();
+				$seq = $filterBSubfilter->getSequence();
 				$filterASubfilter =& $filterA->getFilter($seq);
 				if (get_class($filterASubfilter) != get_class($filterBSubfilter)) {
 					return false;

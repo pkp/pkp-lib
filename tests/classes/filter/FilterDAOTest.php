@@ -141,7 +141,7 @@ class FilterDAOTest extends DatabaseTestCase {
 		// Update filter instance
 		$testFilter = new GenericSequencerFilter($testFilter->getFilterGroup());
 		$testFilter->setDisplayName('composite filter');
-		$testFilter->setSeq(9999);
+		$testFilter->setSequence(9999);
 		$testFilter->setId($filterId);
 		$testFilter->setIsTemplate(true);
 

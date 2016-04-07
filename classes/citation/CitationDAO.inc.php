@@ -37,7 +37,7 @@ class CitationDAO extends DAO {
 	 * @return integer the new citation id
 	 */
 	function insertObject(&$citation) {
-		$seq = $citation->getSeq();
+		$seq = $citation->getSequence();
 		if (!(is_numeric($seq) && $seq > 0)) {
 			// Find the latest sequence number
 			$result = $this->retrieve(
@@ -55,7 +55,7 @@ class CitationDAO extends DAO {
 			} else {
 				$seq = 1;
 			}
-			$citation->setSeq($seq);
+			$citation->setSequence($seq);
 		}
 
 		$this->update(
@@ -132,7 +132,7 @@ class CitationDAO extends DAO {
 			$citation->setAssocId($assocId);
 
 			// Set the counter
-			$citation->setSeq($seq+1);
+			$citation->setSequence($seq+1);
 
 			$this->insertObject($citation);
 			$citations[$citation->getId()] = $citation;
@@ -349,7 +349,7 @@ class CitationDAO extends DAO {
 				(integer)$citation->getAssocId(),
 				(integer)$citation->getCitationState(),
 				$citation->getRawCitation(),
-				(integer)$citation->getSeq(),
+				(integer)$citation->getSequence(),
 				(integer)$citation->getId()
 			)
 		);
@@ -483,7 +483,7 @@ class CitationDAO extends DAO {
 		$citation->setAssocId((integer)$row['assoc_id']);
 		$citation->setCitationState($row['citation_state']);
 		$citation->setRawCitation($row['raw_citation']);
-		$citation->setSeq((integer)$row['seq']);
+		$citation->setSequence((integer)$row['seq']);
 
 		$this->getDataObjectSettings('citation_settings', 'citation_id', $row['citation_id'], $citation);
 
@@ -664,7 +664,7 @@ class CitationDAO extends DAO {
 		} else {
 			// Copy data from the original citation to the filtered citation.
 			$filteredCitation->setId($citation->getId());
-			$filteredCitation->setSeq($citation->getSeq());
+			$filteredCitation->setSequence($citation->getSequence());
 			$filteredCitation->setRawCitation($citation->getRawCitation());
 			$filteredCitation->setAssocId($citation->getAssocId());
 			$filteredCitation->setAssocType($citation->getAssocType());

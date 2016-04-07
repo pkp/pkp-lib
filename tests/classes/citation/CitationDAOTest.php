@@ -55,12 +55,12 @@ class CitationDAOTest extends DatabaseTestCase {
 		$sourceDescription = new MetadataDescription($citationSchemaName, ASSOC_TYPE_CITATION);
 		$sourceDescription->setDisplayName('test');
 		$sourceDescription->addStatement('article-title', $value = 'a simple source description', 'en_US');
-		$sourceDescription->setSeq(0);
+		$sourceDescription->setSequence(0);
 
 		$citation = new Citation('raw citation');
 		$citation->setAssocType(ASSOC_TYPE_ARTICLE);
 		$citation->setAssocId(999999);
-		$citation->setSeq(50);
+		$citation->setSequence(50);
 		$citation->addSourceDescription($sourceDescription);
 		$citation->injectMetadata($citationDescription);
 
@@ -104,7 +104,7 @@ class CitationDAOTest extends DatabaseTestCase {
 		$updatedCitation->setId($citationId);
 		$updatedCitation->setAssocType(ASSOC_TYPE_ARTICLE);
 		$updatedCitation->setAssocId(999998);
-		$updatedCitation->setSeq(50);
+		$updatedCitation->setSequence(50);
 		$updatedCitation->addSourceDescription($sourceDescription);
 		$updatedCitation->injectMetadata($citationDescription);
 

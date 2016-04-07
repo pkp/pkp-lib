@@ -78,7 +78,7 @@ class Nlm30Nlm23CrosswalkFilterTest extends Nlm30XmlFilterTestCase {
 
 		// Persist one copy of the citation for testing.
 		$citationDao =& $this->getCitationDao();
-		$citation->setSeq(1);
+		$citation->setSequence(1);
 		$citation->setCitationState(CITATION_APPROVED);
 		$citationId = $citationDao->insertObject($citation);
 		self::assertTrue(is_numeric($citationId));

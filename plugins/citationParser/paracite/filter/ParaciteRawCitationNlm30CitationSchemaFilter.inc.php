@@ -271,7 +271,7 @@ class ParaciteRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFi
 		// to the corresponding values from the filter. This is important
 		// so that we later know which result came from which filter.
 		$nlm30Description->setDisplayName($this->getDisplayName());
-		$nlm30Description->setSeq($this->getSeq());
+		$nlm30Description->setSequence($this->getSequence());
 
 		return $nlm30Description;
 	}

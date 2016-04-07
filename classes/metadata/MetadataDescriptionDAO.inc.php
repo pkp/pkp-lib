@@ -43,7 +43,7 @@ class MetadataDescriptionDAO extends DAO {
 				$metadataSchema->getNamespace(),
 				$metadataSchema->getName(),
 				$metadataDescription->getDisplayName(),
-				(integer)$metadataDescription->getSeq()
+				(integer)$metadataDescription->getSequence()
 			)
 		);
 		$metadataDescription->setId($this->getInsertId());
@@ -111,7 +111,7 @@ class MetadataDescriptionDAO extends DAO {
 				$metadataSchema->getName(),
 				$metadataSchema->getNamespace(),
 				$metadataDescription->getDisplayName(),
-				$metadataDescription->getSeq(),
+				$metadataDescription->getSequence(),
 				$metadataDescription->getId()
 			)
 		);
@@ -217,7 +217,7 @@ class MetadataDescriptionDAO extends DAO {
 		$metadataDescription->setId((int)$row['metadata_description_id']);
 		$metadataDescription->setAssocId((int)$row['assoc_id']);
 		$metadataDescription->setDisplayName($row['display_name']);
-		$metadataDescription->setSeq((int)$row['seq']);
+		$metadataDescription->setSequence((int)$row['seq']);
 
 		$this->getDataObjectSettings('metadata_description_settings', 'metadata_description_id', $row['metadata_description_id'], $metadataDescription);
 

@@ -75,6 +75,9 @@
 					this.fetchFormHandler_));
 		}
 
+		// Hide the loading container.
+		$('.pkp_loading', $form).hide();
+
 		// Update form when report template is changed.
 		$reportTemplateSelectElement = $(options.reportTemplateSelectSelector,
 				this.getHtmlElement());
@@ -342,6 +345,9 @@
 		$.each(timeFilterValues, function(i, element) {
 			args[element.name] = element.value;
 		});
+
+		// Show loading spinner.
+		$('.pkp_loading', this.getHtmlElement()).show();
 
 		$metricTypeSelectedOption = $('option:selected',
 				this.$metricTypeSelectElement_);

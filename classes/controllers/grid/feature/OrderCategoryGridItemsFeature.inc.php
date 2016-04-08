@@ -131,6 +131,7 @@ class OrderCategoryGridItemsFeature extends OrderItemsFeature{
 		if ($this->getType() != ORDER_CATEGORY_GRID_CATEGORIES_ONLY) {
 			foreach($gridCategoryElements as $categoryId => $element) {
 				$gridRowElements = $grid->getGridCategoryDataElements($request, $element);
+				if (!$gridRowElements) continue;
 
 				// Get the correct rows sequence data.
 				$rowsData = null;

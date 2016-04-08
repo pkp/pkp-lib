@@ -31,10 +31,10 @@ class QueryNotificationManager extends NotificationManagerDelegate {
 	public function getNotificationTitle($notification) {
 		switch ($notification->getType()) {
 			case NOTIFICATION_TYPE_NEW_QUERY:
-				return 'New query FIXME';
+				assert(false);
 				break;
 			case NOTIFICATION_TYPE_QUERY_ACTIVITY:
-				return 'Query activity FIXME';
+				assert(false);
 				break;
 			default: assert(false);
 		}

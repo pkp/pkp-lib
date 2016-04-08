@@ -286,7 +286,11 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 			$dispatcher = $router->getDispatcher();
 
 			$mail = $this->getMailTemplate('NOTIFICATION_MAILLIST');
-			$mail->setReplyTo($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
+			if ($context) {
+				$mail->setReplyTo($context->getContactEmail(), $context->getContactName());
+			} else {
+				$mail->setReplyTo($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
+			}
 			$mail->assignParams(array(
 				'notificationContents' => $this->getNotificationContents($request, $notification),
 				'url' => $this->getNotificationUrl($request, $notification),

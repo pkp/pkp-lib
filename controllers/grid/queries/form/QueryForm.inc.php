@@ -228,6 +228,24 @@ class QueryForm extends Form {
 		ListbuilderHandler::unpack($request, $this->getData('users'));
 
 		$queryDao->updateObject($query);
+
+		// Notify the users of a new query.
+		$notificationManager = new NotificationManager();
+		$user = $request->getUser();
+		foreach ($queryDao->getParticipantIds($query->getId()) as $userId) {
+			// Skip sending a message to the current user.
+			if ($user->getId() == $userId) continue;
+
+			$notificationManager->createNotification(
+				$request,
+				$userId,
+				NOTIFICATION_TYPE_NEW_QUERY,
+				$request->getContext()->getId(),
+				ASSOC_TYPE_QUERY,
+				$query->getId(),
+				NOTIFICATION_LEVEL_TASK
+			);
+		}
 	}
 
 	/**
@@ -237,18 +255,6 @@ class QueryForm extends Form {
 		$query = $this->getQuery();
 		$queryDao = DAORegistry::getDAO('QueryDAO');
 		$queryDao->insertParticipant($query->getId(), $newRowId['name']);
-
-		// Notify the user of a new query.
-		$notificationManager = new NotificationManager();
-		$notificationManager->createNotification(
-			$request,
-			$newRowId['name'],
-			NOTIFICATION_TYPE_NEW_QUERY,
-			$request->getContext()->getId(),
-			ASSOC_TYPE_QUERY,
-			$query->getId(),
-			NOTIFICATION_LEVEL_TASK
-		);
 	}
 
 	/**

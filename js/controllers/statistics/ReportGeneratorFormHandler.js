@@ -516,7 +516,7 @@
 		$column = $columns.find('option[value="' + $aggregationOption.
 				attr('value') + '"]');
 
-		if ($aggregationOption.attr('checked')) {
+		if ($aggregationOption.is(':checked')) {
 			$column.attr('selected', 'selected');
 		} else {
 			$column.removeAttr('selected');

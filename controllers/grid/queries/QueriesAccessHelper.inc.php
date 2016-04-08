@@ -15,8 +15,8 @@
  *
  *	     ROLE
  *  TASK       MANAGER   SUB EDITOR  ASSISTANT  AUTHOR
- *  Create Q   Yes       Yes	     Yes        No
- *  Edit Q     All       All         If Creator No
+ *  Create Q   Yes       Yes	     Yes        Yes
+ *  Edit Q     All       All         If Creator If Creator
  *  List/View  All       All	     Assigned   Assigned
  *  Open/close All       All	     Assigned   No
  *  Delete Q   All       All	     No         No
@@ -86,8 +86,8 @@ class QueriesAccessHelper {
 	function getCanCreate() {
 		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
 
-		// Managers, editors, and assistants can create.
-		if (count(array_intersect($userRoles, array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT)))) return true;
+		// Managers, editors, assistants, and authors can create.
+		if (count(array_intersect($userRoles, array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR)))) return true;
 
 		return false;
 	}
@@ -103,8 +103,8 @@ class QueriesAccessHelper {
 		// Managers and sub editors are always allowed
 		if (count(array_intersect($userRoles, array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR)))) return true;
 
-		// Assistants are allowed, if they created the query
-		if (in_array(ROLE_ID_ASSISTANT, $userRoles)) {
+		// Assistants and authors are allowed, if they created the query
+		if (count(array_intersect($userRoles, array(ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR)))) {
 			$queryDao = DAORegistry::getDAO('QueryDAO');
 			$query = $queryDao->getById($queryId);
 			if ($query && $query->getHeadNote()->getUserId() == $this->_user->getId()) return true;

@@ -34,10 +34,10 @@ class QueriesGridHandler extends GridHandler {
 		parent::GridHandler();
 		$this->addRoleAssignment(
 			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR),
-			array('fetchGrid', 'fetchRow', 'readQuery', 'participants'));
+			array('fetchGrid', 'fetchRow', 'readQuery', 'participants', 'addQuery', 'editQuery', 'updateQuery'));
 		$this->addRoleAssignment(
 			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT),
-			array('addQuery', 'updateQuery', 'editQuery', 'deleteQuery', 'openQuery', 'closeQuery', 'saveSequence'));
+			array('deleteQuery', 'openQuery', 'closeQuery', 'saveSequence'));
 	}
 
 

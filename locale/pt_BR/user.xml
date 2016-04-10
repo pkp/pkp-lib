@@ -7,12 +7,11 @@
   * Copyright (c) 2014-2016 Simon Fraser University Library
   * Copyright (c) 2000-2016 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
-  *
-  * Localization strings for the pt_BR (Português (Brasil)) locale.
-  *
+  * Locale information: https://pkp.sfu.ca/wiki/index.php?title=OMP:_Portuguese_(pt_BR)
+  * Localization strings.
   -->
 
-<locale name="pt_BR" full_name = "Português (Brasil)">
+<locale name="pt_BR" full_name="Português (Brasil)">
 	<message key="user.affiliation">Instituição/Afiliação</message>
 	<message key="user.affiliations">Outras Afiliações</message>
 	<message key="user.biography">Resumo da Biografia</message>
@@ -24,7 +23,7 @@
 	<message key="user.editMyProfile">Editar meu perfil</message>
 	<message key="user.email">E-mail</message>
 	<message key="user.feminine">F</message>
-	<message key="user.firstName">Prenome</message>
+	<message key="user.firstName">Nome</message>
 	<message key="user.gender">Sexo</message>
 	<message key="user.initialsExample">Joan Alice Smith = JAS</message>
 	<message key="user.initials">Iniciais</message>
@@ -57,7 +56,7 @@
 	<message key="user.profile.changePasswordInstructions">Digite as senhas atual e nova para alterar a senha de acesso ao cadastro.</message>
 	<message key="user.profile.editProfile">Editar perfil</message>
 	<message key="user.profile.form.emailRequired">Endereço de e-mail válido obrigatório.</message>
-	<message key="user.profile.form.firstNameRequired">Prenome obrigatório.</message>
+	<message key="user.profile.form.firstNameRequired">Nome obrigatório.</message>
 	<message key="user.profile.form.lastNameRequired">Sobrenome obrigatório.</message>
 	<message key="user.profile.form.newPasswordRequired">Nova senha obrigatória.</message>
 	<message key="user.profile.form.oldPasswordInvalid">Senha atual incorreta.</message>
@@ -79,7 +78,7 @@
 	<message key="user.register.form.usernameAlphaNumeric">O login deve conter apenas letras minúsculas (a-z), números(0-9), sublinhados(_) e hífens(-), e deve começar por um caractere alfanumérico (a-z, 0-9).</message>
 	<message key="user.register.form.usernameExists">O login digitado já está cadastrado.</message>
 	<message key="user.register.passwordLengthRestriction">A senha deve ter no mínimo {$length} caracteres.</message>
-	<message key="user.register.registerAs">Cadastrar como</message>
+	<message key="user.register.registerAs">Cadastrar em {$contextName} como...</message>
 	<message key="user.register">Cadastrar</message>
 	<message key="user.register.usernameRestriction">O login deve conter apenas letras minúsculas (a-z), números(0-9), sublinhados(_) e hífens(-).</message>
 	<message key="user.role.reader">Leitor</message>
@@ -137,4 +136,16 @@
 	<message key="user.role.proofreaders">Leitores de Prova</message>
 	<message key="user.role.layoutEditor">Editor de Leiaute</message>
 	<message key="user.role.layoutEditors">Editores de Leiaute</message>
+	
+	<message key="user.register.completeForm">Preencha o formulário para se registrar no site.</message>
+	<message key="user.orcid">ORCID</message>
+	<message key="user.orcid.orcidInvalid">O ORCID informado é inválido. Por favor inclua a URL completa (ex. "http://orcid.org/0000-0002-1825-0097").</message>
+	<message key="user.profile.identity">Identificação</message>
+	<message key="user.profile.contact">Contato</message>
+	<message key="user.profile.public">Público</message>
+	<message key="user.authorization.accessibleWorkflowStage">Atualmente você não possui acesso a este estágio do fluxo de trabalho.</message>
+	<message key="user.authorization.workflowStageRequired">Um estágio do fluxo de trabalho não foi especificado.</message>
+	<message key="user.authorization.pluginRequired">Um plugin não foi especificado mas é requerido.</message>
+	<message key="user.register.form.userGroupRequired">Ao menos um papel deve ser selecionado.</message>
+	<message key="user.register.registrationCompleted"><![CDATA[Cadastro realizado com sucesso. <a href="{$profileUrl}">Clique aqui</a> para completar seu perfil.]]></message>
 </locale>

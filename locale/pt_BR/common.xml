@@ -7,9 +7,8 @@
   * Copyright (c) 2014-2016 Simon Fraser University Library
   * Copyright (c) 2000-2016 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
-  *
+  * Locale information: https://pkp.sfu.ca/wiki/index.php?title=OMP:_Portuguese_(pt_BR)
   * Localization strings for the pt_BR (Português (Brasil)) locale.
-  *
   -->
 
 <locale name="pt_BR" full_name = "Português (Brasil)">
@@ -92,6 +91,7 @@
 	<message key="common.fileSize">Tamanho do documento</message>
 	<message key="common.fileType">Tipo do Documento</message>
 	<message key="common.height">Altura</message>
+	<message key="common.homepageNavigationLabel">Início</message>
 	<message key="common.homePageHeaderLogo.altText">Logo do cabeçalho da página inicial</message>
 	<message key="common.hour">Hora</message>
 	<message key="common.id">ID</message>
@@ -122,7 +122,9 @@
 	<message key="common.other">Outro</message>
 	<message key="common.pageHeaderLogo.altText">Logo do cabeçalho da página</message>
 	<message key="common.plugin">Plugin</message>
-	<message key="common.publisher">Editora</message>
+	<message key="common.publisher">Editora</message>	
+	<message key="common.quality">Qualidade</message>
+	<message key="common.queue.long.active">Ativos</message>
 	<message key="common.record">Registrar</message>
 	<message key="common.related">Relacionado</message>
 	<message key="common.remove">Remover</message>
@@ -134,7 +136,8 @@
 	<message key="common.saveAndContinue">Salvar e continuar</message>
 	<message key="common.saveAndEmail">Salvar e enviar e-mail</message>
 	<message key="common.save">Salvar</message>
-	<message key="common.search">Pesquisar</message>
+	<message key="common.search">Buscar</message>	
+	<message key="search.searchAgain">Buscar novamente</message>
 	<message key="common.second">Segundo(s)</message>
 	<message key="common.selectAll">Selecionar todos</message>
 	<message key="common.selectNone">Selecionar nenhum</message>
@@ -150,11 +153,17 @@
 	<message key="common.uninitiated">Não iniciado</message>
 	<message key="common.untitled">Sem título</message>
 	<message key="common.updated">Atualizado</message>
-	<message key="common.upload">Transferir</message>
+	<message key="common.upload">Transferir</message>	
+	<message key="common.uploadedDate">Data de envio</message>
+	<message key="common.uploadedFile">Arquivo enviado</message>
+	<message key="common.upload.addFile">Enviar arquivo</message>
+	<message key="common.upload.changeFile">Alterar arquivo</message>
+	<message key="common.upload.dragFile">Arraste um arquivo aqui para iniciar o upload</message>
 	<message key="common.up">Acima/Subir</message>
 	<message key="common.url">URL</message>
 	<message key="common.user">Usuário</message>
 	<message key="common.view">Visualizar</message>
+	<message key="common.viewProfile">Perfil</message>
 	<message key="common.weeks">semanas</message>
 	<message key="common.width">Largura</message>
 	<message key="common.year">Ano</message>
@@ -228,22 +237,42 @@
 	<message key="locale.primary">Idioma principal</message>
 	<message key="locale.supported">Idiomas suportados</message>
 	<message key="navigation.about">Sobre</message>
-	<message key="navigation.browse">Procurar</message>
+	<message key="navigation.admin">Administração</message>
+	<message key="navigation.breadcrumbLabel">Você está aqui:</message>
+	<message key="navigation.breadcrumbSeparator">/</message>
+	<message key="navigation.tools">Ferramentas</message>
+	<message key="navigation.tools.importExport">Importar/Exportar</message>
+	<message key="navigation.tools.statistics">Estatísticas</message>
+	<message key="navigation.browse">Navegar</message>
+	<message key="navigation.browseByAuthor">Por Autor</message>
 	<message key="navigation.browseByTitle">Por título</message>
 	<message key="navigation.home">Capa</message>
 	<message key="navigation.infoForReaders">Para leitores</message>
 	<message key="navigation.infoForReaders.long">Informações para Leitores</message>
 	<message key="navigation.items">{$from} a {$to} de {$total} itens</message>
+	<message key="navigation.items.shownTotal">{$shown} de {$total} itens</message>
 	<message key="navigation.login">Acesso</message>
 	<message key="navigation.nextPage"><![CDATA[&gt;&gt;]]></message>
 	<message key="navigation.nextStep">Avançar</message>
 	<message key="navigation.previousPage"><![CDATA[&lt;&lt;]]></message>
 	<message key="navigation.previousStep">Voltar</message>
+	<message key="navigation.publicMenu">Menu Público</message>
 	<message key="navigation.register">Cadastro</message>
-	<message key="navigation.search">Pesquisa</message>
+	<message key="navigation.search">Procurar</message>
+	<message key="navigation.settings">Configurações</message>
+	<message key="navigation.setup">Configurar</message>
+	<message key="navigation.sitemap">Mapa do Site</message>
 	<message key="navigation.stepNumber">Passo {$step}</message>
+	<message key="navigation.submissions">Submissões</message>
+	<message key="navigation.switchJournals">Trocar Journals</message>
+	<message key="navigation.system">Sistema</message>
 	<message key="navigation.userHome">Página do usuário</message>
 	<message key="navigation.user">Usuário</message>
+	<message key="navigation.userManagement">Gerenciamento de usuário</message>
+	<message key="navigation.viewFrontend">Ver o Site</message>
+	
+	
+	
 	<message key="search.abstract">Resumo</message>
 	<message key="search.advancedSearchMore">Opções adicionais de pesquisa (clique para exibir)</message>
 	<message key="search.advancedSearchLess">Opções adicionais de pesquisa (clique para ocultar)</message>
@@ -472,6 +501,7 @@
 	<message key="search.cli.rebuildIndex.unknownJournal">O seguinte caminho da revistas "{$journalPath}" não leva a uma revista.</message>
 	<message key="search.deleteFilter">Apagar</message>
 	<message key="search.indexTermsLong">Todos os campos de índices</message>
+	<message key="grid.action.toggleHelp">Alternar a exibição da ajuda</message>
 	<message key="grid.action.downloadFile">Baixar este arquivo</message>
 	<message key="context.path">Caminho</message>
 	<message key="review.ensuringBlindReview">Garantindo uma revisão por pares as cegas</message>
@@ -487,9 +517,81 @@
 	<message key="user.authorization.invalidSubmission">Submissão inválida.</message>
 	<message key="navigation.archives">Arquivos</message>
 	<message key="user.authorization.submissionAuthor">O usuário atual não é o autor da submissão requisitada. Por favor verifique se está autenticado com a conta de usuário correta.</message>
+	
+	
+		<message key="dashboard.tasks">Tarefas</message>
+	<message key="dashboard.myQueue">Minha fila</message>
+	
+	<!-- Common -->
+
+	<message key="grid.action.downloadFile">Baixar este arquivo</message>
+
+	<message key="context.path">Caminho</message>
+	<message key="review.ensuringBlindReview">Garantindo o Blind Review</message>
+	<message key="grid.action.showReviewPolicy">Leia a política de avaliação atual</message>
+	<message key="grid.action.deleteNotification">Apagar tarefa</message>
+	<message key="grid.action.markNew">Marcar nova</message>
+	<message key="grid.action.markRead">Marcar lida</message>
+	<message key="common.tasks.titleAndTask">{$acronym}: "{$title}": {$task}</message>
+
+	<message key="dashboard.tasks">Tarefas</message>
+	<message key="dashboard.myQueue">Fila</message>
 	<message key="review.blindPeerReview"><![CDATA[<p> Para garantir a integridade da avaliação por pares cega para a submissão a esta editora, todo esforço deve ser feito para evitar que as identidades dos autores e revisores seja conhecida um ao outro. Isto envolve os autores , editores e revisores ( que carregam documentos como parte de sua revisão ) verificando se as seguintes medidas foram tomadas em relação ao texto e as propriedades do arquivo : </ p>
 <ul> <li> Os autores do documento devem excluir seus nomes do texto, com o literal " Autor" e ano usada nas referências e notas de rodapé, em vez do nome dos autores, título do artigo, etc </ li>
 <li>Em documentos do Microsoft Office , a identificação do autor deve igualmente ser removidos das propriedades do arquivo (ver no menu Arquivo no Word), clicando sobre o seguinte, começando com Arquivo no menu principal do aplicativo da Microsoft: Arquivo> Salvar como > Ferramentas (ou Opções no Mac ) > Segurança> Remover informações pessoais das propriedades do arquivo ao salvar > Salvar. </ li>
 <li> Com PDFs, os nomes dos autores também devem ser removidos das Propriedades do Documento, encontradas na opção Arquivo no menu principal do Adobe Acrobat. </ li>
 </ ul>]]></message>
+
+	<message key="reviewer.submission.reviewSchedule">Agenda de avaliação</message>
+	<message key="reviewer.submission.reviewRequestDate">Pedido do editor</message>
+	<message key="reviewer.submission.responseDueDate">Prazo de resposta</message>
+	<message key="reviewer.submission.reviewDueDate">Prazo para avaliação</message>
+	<message key="submission.task.responseDueDate">Prazo de resposta</message>
+	<message key="navigation.goBack">Voltar</message>
+	
+	<message key="notification.addedReviewer">Avaliador adicionado.</message>
+	<message key="notification.removedReviewer">Avaliador removido.</message>
+	<message key="notification.addedStageParticipant">User added as a stage participant.</message>
+	<message key="notification.type.newAnnouncement">Nova notícia.</message>
+	<message key="notification.type.reviewAssignment">Avaliação pendente.</message>
+	<message key="notification.type.auditorRequest">Audit request for "{$file}"</message>
+	<message key="notification.type.allReviewsIn">All reviews are in and a decision is needed in {$stage}.</message>
+	<message key="notification.type.allRevisionsIn">A revised file has been uploaded for your editorial consideration in {$stage}.</message>
+	<message key="notification.type.pendingRevisions">Revisions to consider in {$stage}.</message>
+	<message key="notification.type.pendingRevisions.title">Revisions submitted to {$stage}.</message>
+	<message key="notification.type.metadataModified">"{$title}'s" metadata has been modified.</message>
+	<message key="notification.type.reviewerComment">A reviewer has commented on "{$title}".</message>
+	<message key="notification.signedFile">File considered.</message>
+	<message key="user.authorization.submissionFile">The current user is not authorized to access the specified submission file.</message>
+	<message key="user.authorization.invalidSubmission">Invalid submission.</message>
+	<message key="user.authorization.invalidRepresentation">Invalid representation.</message>
+	<message key="navigation.archives">Arquivos</message>
+	<message key="user.authorization.authorRoleMissing">You do not currently have sufficient privileges to view the submission. Please edit your profile to ensure that you have been granted the appropriate roles under "Register As".</message>
+	<message key="user.authorization.submissionAuthor">The current user is not the author of the requested submission. Please verify that you are logged in with the correct user account.</message>
+	<message key="notification.type.queryActivity">Conversation activity.</message>
+	<message key="notification.type.queryAdded">Conversation added.</message>
+	<message key="common.navigation.sidebar">Barra lateral</message>
+	<message key="common.navigation.site">Navegação no Site</message>
+	<message key="common.navigation.siteContext">Contexto de Navegação no Site</message>
+	<message key="common.navigation.user">Navegação do Usuário</message>
+	<message key="common.assigned.date">Designado em: {$dateAssigned}</message>
+	<message key="common.notice">Aviso</message>
+	<message key="common.closePanel">Fechar Painel</message>
+	<message key="common.completed.date">Completo em: {$dateCompleted}</message>
+	<message key="common.confirmed.date">Confirmado em: {$dateConfirmed}</message>
+	<message key="common.favicon.altText">Favicon da Revista</message>
+	<message key="common.notified.date">Notificado em: {$dateNotified}</message>
+	<message key="common.pageNumber">Página {$pageNumber}</message>
+	<message key="common.percentage">{$percentage}%</message>
+	<message key="common.range">{$min}-{$max}</message>
+	<message key="common.readMore">Saiba mais</message>
+	<message key="common.readMoreWithTitle">Saiba mais sobre {$title}</message>
+	<message key="common.rreminded.date">Lembrado em: {$dateReminded}</message>
+	<message key="common.searchQuery">Termo de Busca</message>
+	<message key="email.senderName">Nome do Remetente</message>
+	<message key="email.senderEmail">Email do Remetente</message>
+	<message key="form.url.invalid">A URL especificada é inválida. Por favor verifique e tente novamente.</message>
+	<message key="help.previous">Anterior</message>
+	<message key="help.next">Próximo</message>
+	<message key="notification.addedQuery">Discussão Adicionada</message>
 </locale>

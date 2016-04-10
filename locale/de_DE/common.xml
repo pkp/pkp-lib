@@ -32,8 +32,11 @@
 	<message key="announcement.noneExist">Es wurden keine Mitteilungen veröffentlicht.</message>
 	<message key="announcement.posted">Veröffentlicht</message>
 	<message key="announcement.postedOn">Veröffentlicht am {$postDate}</message>
-	<message key="announcement.viewLink">Weiter…</message>
 	<message key="announcement.view">Mitteilungen ansehen</message>
+	<message key="common.navigation.sidebar">Sidebar</message>
+	<message key="common.navigation.site">Website-Navigation</message>
+	<message key="common.navigation.siteContext">Website-Kontext-Navigation</message>
+	<message key="common.navigation.user">Benutzer-Navigation</message>
 	<message key="common.tasks">Aufgaben</message>
 	<message key="common.list">Liste</message>
 	<message key="common.grid">Grid</message>
@@ -58,6 +61,7 @@
 	<message key="common.applyAction">Anwenden</message>
 	<message key="common.assign">Zuweisen</message>
 	<message key="common.assigned">Zugewiesen</message>
+	<message key="common.assigned.date">Zugewiesen: {$dateAssigned}</message>
 	<message key="common.available">Verfügbar</message>
 	<message key="common.back">Zurück</message>
 	<message key="common.between">zwischen</message>
@@ -466,6 +470,7 @@
 	<message key="search.typeMethodApproach">Forschungsansatz, -methode und -verfahren</message>
 
 	<!-- Common -->
+	<message key="grid.action.toggleHelp">Anzeige der internen Hilfe umschalten</message>
 	<message key="grid.action.downloadFile">Diese Datei herunterladen</message>
 
 	<message key="context.path">Zugangspfad</message>
@@ -473,7 +478,6 @@
 	<message key="grid.action.showReviewPolicy">Lesen Sie aktuelle Begutachtungsgrundsätze</message>
 
 	<message key="dashboard.tasks">Aufgaben</message>
-	<message key="dashboard.submissions">Beiträge</message>
 
 	<message key="review.blindPeerReview">
 		<![CDATA[<p>Um die Integrität des Blind Peer Review sicherzustellen, sollte bei Einreichungen gewährleistet werden, dass die Identitäten von Autor/innen und Gutachter/innen voreinander zu verbergen. Autor/innen, Redakteur/innen und Gutachter/innen (die Dokumente im Rahmen ihrer Begutachtung hochladen) sollten die Einhaltung der folgenden Schritte in Bezug auf den jeweiligen Text und die Dateieigenschaften erledigt worden sind:</p>
@@ -504,4 +508,46 @@
 	<message key="navigation.archives">Archiv</message>
 	<message key="user.authorization.authorRoleMissing">Sie verfügen nicht über ausreichende Rechte, um die Einreichung anzusehen. Bitte überarbeiten Sie Ihr Profil, um zu gewährleisten, dass Sie für die entsprechenden Rollen registriert sind.</message>
 	<message key="user.authorization.submissionAuthor">Der/die aktuelle Nutzer/in ist nicht Autor/in der entsprechenden Einreichung. Bitte stellen Sie sicher, dass Sie mit dem richtigen Benutzer/innenkonto angemeldet sind.</message>
+	<message key="common.closePanel">Panel schließen</message>
+	<message key="common.completed.date">Beendet: {$dateCompleted}</message>
+	<message key="common.confirmed.date">Bestätigt: {$dateConfirmed}</message>
+	<message key="common.homepageNavigationLabel">Home</message>
+	<message key="common.favicon.altText">Favicon der Zeitschrift</message>
+	<message key="common.notified.date">Benachrichtigt: {$dateNotified}</message>
+	<message key="common.pageNumber">Seite {$pageNumber}</message>
+	<message key="common.percentage">{$percentage}%</message>
+	<message key="common.queue.long.active">Alle aktiven</message>
+	<message key="common.range">{$min}-{$max}</message>
+	<message key="common.readMore">Mehr lesen</message>
+	<message key="common.readMoreWithTitle">Lesen Sie mehr über {$title}</message>
+	<message key="common.rreminded.date">Erinnert: {$dateReminded}</message>
+	<message key="common.searchQuery">Suchanfrage</message>
+	<message key="common.uploadedDate">Datum des Hochladens</message>
+	<message key="common.upload.addFile">Datei hochladen</message>
+	<message key="common.upload.changeFile">Datei ändern</message>
+	<message key="common.upload.dragFile">Ziehen Sie eine Datei per Drag and drop hierher, um das Hochladen zu beginnen</message>
+	<message key="common.viewProfile">Profil ansehen</message>
+	<message key="email.senderName">Absender/in-Name</message>
+	<message key="email.senderEmail">Absender/in-E-Mail</message>
+	<message key="form.url.invalid">Die angegebene URL ist ungültig. Bitte überprüfen Sie die Adresse und versuchen es erneut.</message>
+	<message key="help.previous">zurück</message>
+	<message key="help.next">weiter</message>
+	<message key="navigation.breadcrumbLabel">Sie sind hier:</message>
+	<message key="navigation.breadcrumbSeparator">/</message>
+	<message key="navigation.items.shownTotal">{$shown} von {$total} Treffern</message>
+	<message key="navigation.switchJournals">Zeitschrift wechseln</message>
+	<message key="navigation.viewFrontend">Website ansehen</message>
+	<message key="notification.addedQuery">Diskussion hinzugefügt</message>
+	<message key="search.searchAgain">Erneut suchen</message>
+	<message key="grid.action.deleteNotification">Aufgabe löschen</message>
+	<message key="grid.action.markNew">Neu markieren</message>
+	<message key="grid.action.markRead">Gelesen markieren</message>
+	<message key="common.tasks.titleAndTask">{$acronym}: "{$title}": {$task}</message>
+	<message key="dashboard.myQueue">Meine Warteschlange</message>
+	<message key="notification.type.newAnnouncement">Neue Ankündigung.</message>
+	<message key="notification.type.metadataModified">Metadaten von "{$title}" wurden verändert.</message>
+	<message key="notification.type.reviewerComment">Gutachter/in hat "{$title}" kommentiert.</message>
+	<message key="user.authorization.invalidRepresentation">Ungültige Repräsentation</message>
+	<message key="notification.type.queryActivity">Gesprächsaktivität.</message>
+	<message key="notification.type.queryAdded">Gespräch ergänzt.</message>
 </locale>

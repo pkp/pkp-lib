@@ -7,11 +7,11 @@
   * Copyright (c) 2014-2016 Simon Fraser University Library
   * Copyright (c) 2000-2016 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
-  * Localization strings for the de_DE (Deutsch (Deutschland)) locale.
   * Please contact Marco Tullney, marco.tullney@fu-berlin.de, with any questions regarding this translation.
+  * Localization strings.
   -->
 
-<locale name="de_DE" full_name = "Deutsch (Deutschland)">
+<locale name="de_DE" full_name="Deutsch (Deutschland)">
 	<message key="user.accountInformation">Konto-Information</message>
 	<message key="user.affiliation">Institution</message>
 	<message key="user.affiliation.description">(Ihre Institution, z.B. "Simon Fraser University")</message>
@@ -25,8 +25,10 @@
 	<message key="user.authorization.roleBasedAccessDenied">Die aktuelle Rolle hat keinen Zugriff auf diese Operation.</message>
 	<message key="user.authorization.userGroupRequired">Sie müssen eine gültige Benutzer/innen-Gruppe setzen, um auf diese Operation zugreifen zu können.</message>
 	<message key="user.authorization.managerRequired">Ein/e Benutzer/in mit einer Verlagsverwalter/innen-Rolle (z.B. Verlags- oder Produktionsredakteur/in) muss dem Arbeitsschritt hinzugefügt werden, bevor Sie weitermachen können.</message>
+	<message key="user.authorization.accessibleWorkflowStage">Sie haben momentan keinen Zugriff auf diese Phase des Publikationsprozesses.</message>
+	<message key="user.authorization.workflowStageRequired">Es wurde kein Arbeitsschritt angegeben.</message>
+	<message key="user.authorization.pluginRequired">Es wurde kein Plugin angegeben, obwohl es erforderlich ist.</message>
 	<message key="user.biography">Angaben zum Lebenslauf</message>
-	<message key="user.biography.description">(z.B. Abteilung und Position)</message>
 	<message key="user.changeMyPassword">Mein Passwort ändern</message>
 	<message key="user.changePassword">Passwort ändern</message>
 	<message key="user.dateLastLogin">Letztes Einloggen am</message>
@@ -106,11 +108,13 @@ Tragen Sie zur Wiederherstellung des Passwortes unten Ihre E-Mail-Adresse ein. E
 	<message key="user.register.form.passwordsDoNotMatch">Die Passwörter stimmen nicht überein.</message>
 	<message key="user.register.form.emailsDoNotMatch">Die E-Mail-Adressen stimmen nicht überein.</message>
 	<message key="user.register.form.usernameAlphaNumeric">Der Benutzer/innen-Name darf nur Buchstaben und Zahlen, Unterstriche und Bindestriche enthalten und muss mit einem Buchstaben oder einer Zahl beginnen und enden.</message>
+	<message key="user.register.form.userGroupRequired">Mindestens eine Rolle muss ausgewählt werden.</message>
 	<message key="user.register.form.usernameExists">Der ausgewählte Benutzer/innen-Name wird bereits von einer anderen Benutzerin/einem anderen Benutzer verwendet.</message>
 	<message key="user.register.passwordLengthRestriction">Das Passwort muss mindestens {$length} Zeichen enthalten.</message>
-	<message key="user.register.registerAs">Sich registrieren als</message>
+	<message key="user.register.registerAs">Sich bei {$contextName} registrieren als...</message>
 	<message key="user.register">Registrieren</message>
 	<message key="user.register.usernameRestriction">Der Benutzer/innen-Name darf nur Kleinbuchstaben, Zahlen, Bindestriche und Unterstriche enthalten.</message>
+	<message key="user.register.registrationCompleted"><![CDATA[Sie haben sich erfolgreich registriert. <a href="{$profileUrl}">Klicken Sie hier</a>, um Ihr Profil zu vervollständigen.]]></message>
 	<message key="user.role.author">Autor/in</message>
 	<message key="user.role.author_s">Autor/innen</message>
 	<message key="user.role.authors">Autor/innen</message>
@@ -140,4 +144,9 @@ Tragen Sie zur Wiederherstellung des Passwortes unten Ihre E-Mail-Adresse ein. E
 	<message key="user.username">Benutzer/innen-Name</message>
 	<message key="user.workingLanguages">Arbeitssprachen</message>
 	<message key="user.register.completeForm">Sie können sich für diese Site registrieren, indem Sie das folgende Formular ausfüllen.</message>
+	<message key="user.orcid">ORCID iD</message>
+	<message key="user.orcid.orcidInvalid">Der angegebenen ORCID iD ist ungültig. Bitte geben Sie den kompletten URI an (z.B. "http://orcid.org/0000-0002-1825-0097").</message>
+	<message key="user.profile.identity">Identität</message>
+	<message key="user.profile.contact">Kontakt</message>
+	<message key="user.profile.public">Öffentlich</message>
 </locale>

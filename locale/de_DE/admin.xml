@@ -21,9 +21,9 @@
 	<message key="admin.authSources">Authentifizierungsquellen</message>
 	<message key="admin.clearDataCache">Den Datenspeicher leeren</message>
 	<message key="admin.clearTemplateCache">Den Vorlagenspeicher leeren</message>
-	<message key="admin.configFileUpdatedInstructions"><![CDATA[Ihre Konfigurationsdatei wurde erfolgreich aktualisiert. Beachten Sie bitte, dass Sie, falls Ihr Seite nicht mehr richtig arbeitet, eventuell die Konfiguration manuell wiederherstellen müssen, indem Sie direkt <tt>config.inc.php</tt> bearbeiten.]]></message>
+	<message key="admin.configFileUpdatedInstructions"><![CDATA[Ihre Konfigurationsdatei wurde erfolgreich aktualisiert. Beachten Sie bitte, dass Sie, falls Ihre Seite nicht mehr richtig arbeitet, eventuell die Konfiguration manuell wiederherstellen müssen, indem Sie direkt <tt>config.inc.php</tt> bearbeiten.]]></message>
 	<message key="admin.confirmClearTemplateCache">Sind Sie sicher, dass Sie den Vorlagenspeicher leeren wollen?</message>
-	<message key="admin.confirmExpireSessions">Sind Sie sicher, dass Sie alle Benutzer/innensitzungen schließen wollen? Alle Benutzer/innen, die gerade arbeiten (auch Sie selbst), müssen sich dann neu einloggen.</message>
+	<message key="admin.confirmExpireSessions">Sind Sie sicher, dass Sie alle Benutzer/innensitzungen schließen wollen? Alle Benutzer/innen, die gerade arbeiten (auch Sie selbst), müssen sich danach neu einloggen.</message>
 	<message key="admin.contentsOfConfigFile">Inhalt der Konfigurationsdatei</message>
 	<message key="admin.currentVersion">Aktuelle Version</message>
 	<message key="admin.dateInstalled">Installiert am</message>
@@ -49,25 +49,26 @@
 	<message key="admin.languages.uninstall">Regionaleinstellung deinstallieren</message>
 	<message key="admin.phpInfo">Ausführliche Informationen zu PHP</message>
 	<message key="admin.scheduledTask">Geplante Aufgabe</message>
-	<message key="admin.scheduledTask.startTime">Aufgabe gestartet.</message>
-	<message key="admin.scheduledTask.stopTime">Aufgabe beendet.</message>
-	<message key="admin.scheduledTask.noLog">Aufgabe hat kein Protokoll produziert.</message>
-	<message key="admin.scheduledTask.openAccessNotification">Open-Access-Benachrichtigung</message>
+	<message key="admin.scheduledTask.startTime">Geplante Aufgabe wurde gestartet.</message>
+	<message key="admin.scheduledTask.stopTime">Geplante Aufgabe wurde beendet.</message>
+	<message key="admin.scheduledTask.noLog">Geplante Aufgabe hat keine Logdatei erzeugt.</message>
+	<message key="admin.scheduledTask.downloadLog">Ihre OJS-Installation hat diese Aufgabe automatisch ausgeführt und beendet. Sie können die Logdatei hier herunterladen: {$url}</message>
+	<message key="admin.scheduledTask.confirmClearLogs">Sind Sie sicher, dass Sie alle Logdateien zu geplanten Aufgaben löschen möchten?</message>
+	<message key="admin.scheduledTask.clearLogs">Logdateien zur Ausführung geplanter Aufgaben löschen</message>
 	<message key="admin.scheduledTask.reviewReminder">Erinnerung an Begutachtung</message>
 	<message key="admin.scheduledTask.subscriptionExpiryReminder">Erinnerung an Ende des Abonnements</message>
 	<message key="admin.server.apacheVersion">Apache-Version</message>
 	<message key="admin.server.dbDriver">Datenbanktreiber</message>
 	<message key="admin.server.dbVersion">Version des Datenbankservers</message>
-	<message key="admin.serverInformationDescription"><![CDATA[Versionen der System- und Datenbankprogramme der Server. <span class="highlight">Ausführliche Informationen zu PHP</span> anklicken, um Einzelheiten zur Konfiguration von PHP auf diesem Server anzuzeigen.]]></message>
 	<message key="admin.serverInformation">Serverinformationen</message>
 	<message key="admin.server.phpVersion">PHP-Version</message>
 	<message key="admin.server.platform">OS-Plattform</message>
 	<message key="admin.settings">Einstellungen</message>
-	<message key="admin.settings.aboutDescription">Über die Website</message>
-	<message key="admin.settings.contactEmail">E-Mail-Adresse des Hauptkontaktes</message>
-	<message key="admin.settings.contactName">Name des Hauptkontaktes</message>
-	<message key="admin.settings.form.contactEmailRequired">E-Mail-Adresse des Hauptkontaktes erforderlich</message>
-	<message key="admin.settings.form.contactNameRequired">Name des Hauptkontaktes erforderlich</message>
+	<message key="admin.settings.aboutDescription">Beschreibung Über uns</message>
+	<message key="admin.settings.contactEmail">E-Mail-Adresse des Hauptkontakts</message>
+	<message key="admin.settings.contactName">Name des Hauptkontakts</message>
+	<message key="admin.settings.form.contactEmailRequired">E-Mail-Adresse des Hauptkontakts erforderlich</message>
+	<message key="admin.settings.form.contactNameRequired">Name des Hauptkontakts erforderlich</message>
 	<message key="admin.settings.form.minPasswordLengthRequired">Ihr Passwort muss mindestens 4 Zeichen lang sein.</message>
 	<message key="admin.settings.form.titleRequired">Ein Titel ist erforderlich.</message>
 	<message key="admin.settings.defaultMetricDescription">
@@ -76,8 +77,8 @@
 		Suchergebnisse zu gewichten. Bitte wählen Sie eine der Nutzungsmetriken als Standard aus.
 	</message>
 	<message key="admin.settings.homeHeaderImage.altText">Logo der Website</message>
-	<message key="admin.settings.homeHeaderImageInvalid">Ungültiges Bildformat für das Logo der Website. Gültige Formate sind .gif, .jpg oder .png.</message>
-	<message key="admin.settings.introduction">Einleitung</message>
+	<message key="admin.settings.homeHeaderImageInvalid">Ungültiges Dateiformat für Logo der Website. Zulässige Formate sind .gif, .jpg und .png.</message>
+	<message key="admin.settings.introduction">Einführung</message>
 	<message key="admin.settings.minPasswordLength">Mindestlänge des Passworts</message>
 	<message key="admin.settings.oaiRegistration">Registrieren Sie die Website für die Indizierung (Metadaten-Harvesting).</message>
 	<message key="admin.settings.passwordCharacters">Zeichen</message>
@@ -86,16 +87,16 @@
 	<message key="admin.settings.siteStyleSheet">Formatvorlage der Website</message>
 	<message key="admin.settings.siteTheme">Thema der Website</message>
 	<message key="admin.settings.siteTitle">Titel der Website</message>
-	<message key="admin.siteAdmin">Website-Administrator/in</message>
-	<message key="admin.siteManagement">Website-Administration</message>
+	<message key="admin.siteAdmin">Administration der Website</message>
+	<message key="admin.siteManagement">Management der Website</message>
 	<message key="admin.siteSettings">Einstellungen der Website</message>
 	<message key="admin.siteSetup">Einrichtung der Website</message>
 	<message key="admin.systemConfigFileReadError"><![CDATA[Die Konfigurationsdatei <tt>config.inc.php</tt> ist nicht vorhanden, nicht lesbar oder ungültig.]]></message>
-	<message key="admin.systemInformation">Systeminformation </message>
+	<message key="admin.systemInformation">Systeminformationen</message>
 	<message key="admin.versionBuild">Build</message>
 	<message key="admin.version.checkForUpdates">Nach Aktualisierungen suchen</message>
 	<message key="admin.version.downloadPackage">Herunterladen</message>
-	<message key="admin.version.downloadPatch">Einen Patch herunterladen.</message>
+	<message key="admin.version.downloadPatch">Patch herunterladen</message>
 	<message key="admin.versionHistory">Bisherige Versionen</message>
 	<message key="admin.version.latest">Neueste Version</message>
 	<message key="admin.versionMajor">Hauptversion</message>
@@ -108,10 +109,10 @@
 
 	<message key="admin.fileLoader.wrongBasePathLocation">Der Basispfad {$path} muss im Verzeichnis der öffentlichen Dateien liegen.</message>
 	<message key="admin.fileLoader.pathNotAccessible">Der Ordner {$path} ist kein Verzeichnis oder ist nicht lesbar.</message>
-	<message key="admin.fileLoader.moveFileFailed">Die Datei {$filename} konnte nicht von {$currentFilePath} nach {$destinationPath} verschoben werden</message>
-	<message key="admin.fileLoader.fileProcessed">Datei {$filename} wurde verarbeitet und archiviert.</message>
+	<message key="admin.fileLoader.moveFileFailed">Die Datei {$filename} konnte nicht von {$currentFilePath} nach {$destinationPath} verschoben werden.</message>
+	<message key="admin.fileLoader.fileProcessed">Die Datei {$filename} wurde verarbeitet und archiviert.</message>
 	<message key="admin.fileLoader.emailSubject">Fileloader</message>
-	
+
 	<message key="admin.copyAccessLogFileTool.usage">Kopiere die übergebenen Apache-Zugriffsdatei(en), woraus die mit dieser Installation zusammenhängenden Einträge ausgewählt werden,
 in das aktuelle Dateiverzeichnis innerhalb des Vorbereitungs-Verzeichnisses des UsageStats-Plug-Ins. Muss unter einem Benutzer mit ausreichenden Rechten für den Lesezugriff auf Apache-Log-Dateien ausgeführt werden.
 
@@ -126,7 +127,6 @@ Benutzung (verarbeite alle Dateien in einem Verzeichnis): {$scriptName} path/to/
 	<message key="admin.copyAccessLogFileTool.error.deletingFile">Fehler: kann Datei {$tmpFilePath} nicht löschen</message>
 	<message key="admin.copyAccessLogFileTool.warning.fileAlreadyExists">Warnung: Datei {$filePath} gibt es bereits im Verzeichnis der Nutzungsstatistiken.</message>
 	<message key="admin.copyAccessLogFileTool.success">Erfolgreich kopiert: {$filePath} nach {$destinationPath}</message>
-	<message key="admin.copyAccessLogFileTool.error.noEgrep">Pfad zu Egrep nicht konfiguriert. Siehe config.inc.php, Abschnitt cli.</message>
-	<message key="admin.copyAccessLogFileTool.error.noGunzip">Pfad zu Gunzip nicht konfiguriert. Siehe config.inc.php, Abschnitt cli.</message>
-	
+	<message key="admin.error.utilExecutionProblem">Die Ausführung des Programms "{$utilPath}" hat den folgenden Fehler geliefert: {$output}</message>
+	<message key="admin.error.executingUtil">Fehler: Ausführung von "{$utilPath}" nicht möglich. Überprüfen Sie die {$utilVar}-Einstellung in config.inc.php.</message>
 </locale>

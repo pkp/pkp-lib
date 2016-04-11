@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="pt_BR" full_name = "Português (Brasil)">
+<locale name="pt_BR" full_name="Português (Brasil)">
 	<!-- Common -->
 	<message key="grid.noItems">Nenhum item</message>
 	<message key="grid.settings">Configurações</message>

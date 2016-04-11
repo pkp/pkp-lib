@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="pt_BR" full_name = "Português (Brasil)">
+<locale name="pt_BR" full_name="Português (Brasil)">
 	<message key="admin.systemInfo.settingName">Nome da Configuração</message>
 	<message key="admin.systemInfo.settingValue">Valor da Configuração</message>
 	<message key="admin.adminFunctions">Funções Administrativas</message>

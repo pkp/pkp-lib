@@ -24,7 +24,7 @@ import('lib.pkp.classes.site.VersionCheck');
 
 class UpgradeTool extends CommandLineTool {
 
-	/** @var string command to execute (check|upgrade|patch|download) */
+	/** @var string command to execute (check|upgrade|download) */
 	var $command;
 	/**
 	 * Constructor.
@@ -33,7 +33,7 @@ class UpgradeTool extends CommandLineTool {
 	function upgradeTool($argv = array()) {
 		parent::CommandLineTool($argv);
 
-		if (!isset($this->argv[0]) || !in_array($this->argv[0], array('check', 'latest', 'upgrade', 'patch', 'download'))) {
+		if (!isset($this->argv[0]) || !in_array($this->argv[0], array('check', 'latest', 'upgrade', 'download'))) {
 			$this->usage();
 			exit(1);
 		}
@@ -49,11 +49,10 @@ class UpgradeTool extends CommandLineTool {
 		echo "Upgrade tool\n"
 			. "Usage: {$this->scriptName} command\n"
 			. "Supported commands:\n"
-			. "    check                     perform version check\n"
-			. "    latest                    display latest version info\n"
-			. "    upgrade                   execute upgrade script\n"
-			. "    patch                     download and apply patch for latest version\n"
-			. "    download [package|patch]  download latest version (does not unpack/install)\n";
+			. "    check     perform version check\n"
+			. "    latest    display latest version info\n"
+			. "    upgrade   execute upgrade script\n"
+			. "    download  download latest version (does not unpack/install)\n";
 	}
 
 	/**
@@ -103,70 +102,7 @@ class UpgradeTool extends CommandLineTool {
 	}
 
 	/**
-	 * Apply patch to update code to latest version.
-	 */
-	function patch() {
-		$versionInfo = VersionCheck::getLatestVersion();
-		$check = $this->checkVersion($versionInfo);
-
-		if ($check < 0) {
-			$patch = VersionCheck::getPatch($versionInfo);
-			if (!isset($patch)) {
-				printf("No applicable patch available\n");
-				return;
-			}
-
-			$outFile = $versionInfo['application'] . '-' . $versionInfo['release'] . '.patch';
-			printf("Download patch: %s\n", $patch);
-			printf("Patch will be saved to: %s\n", $outFile);
-
-			if (!$this->promptContinue()) {
-				exit(0);
-			}
-
-			$out = fopen($outFile, 'wb');
-			if (!$out) {
-				printf("Failed to open %s for writing\n", $outFile);
-				exit(1);
-			}
-
-			$in = gzopen($patch, 'r');
-			if (!$in) {
-				printf("Failed to open %s for reading\n", $patch);
-				fclose($out);
-				exit(1);
-			}
-
-			printf('Downloading patch...');
-
-			while(($data = gzread($in, 4096)) !== '') {
-				printf('.');
-				fwrite($out, $data);
-			}
-
-			printf("done\n");
-
-			gzclose($in);
-			fclose($out);
-
-			$command = 'patch -p1 < ' . escapeshellarg($outFile);
-			printf("Apply patch: %s\n", $command);
-
-			if (!$this->promptContinue()) {
-				exit(0);
-			}
-
-			system($command, $ret);
-			if ($ret == 0) {
-				printf("Successfully applied patch for version %s\n", $versionInfo['release']);
-			} else {
-				printf("ERROR: Failed to apply patch\n");
-			}
-		}
-	}
-
-	/**
-	 * Download latest package/patch.
+	 * Download latest package.
 	 */
 	function download() {
 		$versionInfo = VersionCheck::getLatestVersion();
@@ -176,16 +112,7 @@ class UpgradeTool extends CommandLineTool {
 			exit(1);
 		}
 
-		$type = isset($this->argv[1]) && $this->argv[1] == 'patch' ? 'patch' : 'package';
-		if ($type == 'package') {
-			$download = $versionInfo['package'];
-		} else {
-			$download = VersionCheck::getPatch($versionInfo);
-		}
-		if (!isset($download)) {
-			printf("No applicable download available\n");
-			return;
-		}
+		$download = $versionInfo['package'];
 		$outFile = basename($download);
 
 		printf("Download %s: %s\n", $type, $download);
@@ -267,12 +194,10 @@ class UpgradeTool extends CommandLineTool {
 		}
 
 		if ($displayInfo) {
-			$patch = VersionCheck::getPatch($versionInfo, $codeVersion);
 			printf("         tag:     %s\n", $versionInfo['tag']);
 			printf("         date:    %s\n", $versionInfo['date']);
 			printf("         info:    %s\n", $versionInfo['info']);
 			printf("         package: %s\n", $versionInfo['package']);
-			printf("         patch:   %s\n", isset($patch) ? $patch : 'N/A');
 		}
 
 		return $compare1;

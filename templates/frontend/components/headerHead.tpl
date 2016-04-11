@@ -52,7 +52,7 @@
 	{/if}
 
 	<!-- Pines Notify build/cache -->
-	<script src="{$baseUrl}/lib/pkp/js/lib/pnotify/pnotify.core.{if $useMinifiedJavaScript}min.{/if}js"></script>
+	<script src="{$baseUrl}/lib/pkp/js/lib/pnotify/pnotify.core.js"></script>
 	<script src="{$baseUrl}/lib/pkp/js/lib/pnotify/pnotify.buttons.js"></script>
 
 	{$additionalHeadData}

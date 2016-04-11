@@ -91,6 +91,16 @@ class ManageAnnouncementGridHandler extends AnnouncementGridHandler {
 		return parent::authorize($request, $args, $roleAssignments, false);
 	}
 
+	/**
+	 * @copydoc GridHandler::loadData()
+	 */
+	protected function loadData($request, $filter) {
+		$context = $request->getContext();
+		$announcementDao = DAORegistry::getDAO('AnnouncementDAO');
+		$rangeInfo = $this->getGridRangeInfo($request, $this->getId());
+		return $announcementDao->getByAssocId($context->getAssocType(), $context->getId(), $rangeInfo);
+	}
+
 
 	//
 	// Public handler methods.

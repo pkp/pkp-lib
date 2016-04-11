@@ -31,29 +31,12 @@
 
 <br/>
 
-<div id="notifications">
-
-{$formattedNotifications}
-
-{if $notifications->wasEmpty()}
-	<table class="notifications">
-		<tr>
-			<td colspan="2" class="nodata"><h5>{translate key="notification.noneExist"}</h5></td>
-		</tr>
-		<tr>
-			<td colspan="2" class="endseparator">&nbsp;</td>
-		</tr>
-	</table>
-{else}
-	<table class="notifications">
-		<tr>
-			<td align="left">{page_info iterator=$notifications}</td>
-			<td align="right">{page_links anchor="notifications" name="notifications" iterator=$notifications}</td>
-		</tr>
-	</table>
+{if $isUserLoggedIn}
+	<div id="normalNotifications">
+		{url|assign:notificationsGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.notifications.NormalNotificationsGridHandler" op="fetchGrid" escape=false}
+		{load_url_in_div id="normalNotificationsGridContainer" url=$notificationsGridUrl}
+	</div>
 {/if}
-
-</div>
 
 {include file="common/frontend/footer.tpl"}
 

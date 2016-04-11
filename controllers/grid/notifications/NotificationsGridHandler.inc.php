@@ -44,7 +44,7 @@ class NotificationsGridHandler extends GridHandler {
 		$this->addColumn(
 			new GridColumn(
 				'task',
-				'common.tasks',
+				$this->getNotificationsColumnTitle(),
 				null,
 				null,
 				$cellProvider,
@@ -143,17 +143,16 @@ class NotificationsGridHandler extends GridHandler {
 		return in_array($gridDataElement->getId(), $this->_selectedNotificationIds);
 	}
 
-	/**
-	 * @see GridHandler::loadData()
-	 * @return array Grid data.
-	 */
-	protected function loadData($request, $filter) {
-		$user = $request->getUser();
 
-		// Get all level task notifications.
-		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
-		$notifications = $notificationDao->getByUserId($user->getId(), NOTIFICATION_LEVEL_TASK);
-		return $notifications->toAssociativeArray();
+	//
+	// Protected methods.
+	//
+	/**
+	 * Get the notifications column title.
+	 * @return string Locale key.
+	 */
+	protected function getNotificationsColumnTitle() {
+		return 'common.tasks';
 	}
 
 

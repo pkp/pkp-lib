@@ -48,95 +48,11 @@ class NotificationHandler extends Handler {
 		$context = $request->getContext();
 		$contextId = isset($context)?$context->getId():null;
 
-		$notificationManager = new NotificationManager();
 		$notificationDao = DAORegistry::getDAO('NotificationDAO');
-
-		$rangeInfo = $this->getRangeInfo($request, 'notifications');
-
-		// Construct the formatted notification string to display in the template
-		$formattedNotifications = $notificationManager->getFormattedNotificationsForUser($request, $userId, NOTIFICATION_LEVEL_NORMAL, $contextId, $rangeInfo);
-
-		// Get the same notifications used for the string so we can paginate
-		$notifications = $notificationDao->getByUserId($userId, NOTIFICATION_LEVEL_NORMAL, null, $contextId, $rangeInfo);
-
-		$notificationDao = DAORegistry::getDAO('NotificationDAO');
-		$templateMgr->assign('formattedNotifications', $formattedNotifications);
-		$templateMgr->assign('notifications', $notifications);
 		$templateMgr->assign('unread', $notificationDao->getNotificationCount(false, $userId, $contextId));
 		$templateMgr->assign('read', $notificationDao->getNotificationCount(true, $userId, $contextId));
-		$templateMgr->assign('url', $router->url($request, null, 'notification', 'settings'));
+		$templateMgr->assign('url', $router->url($request, null, 'user', 'profile'));
 		$templateMgr->display('notification/index.tpl');
-	}
-
-	/**
-	 * Delete a notification
-	 * @param $args array
-	 * @param $request Request
-	 */
-	function delete($args, $request) {
-		$this->validate();
-
-		$notificationId = array_shift($args);
-		if (array_shift($args) == 'ajax') {
-			$isAjax = true;
-		} else $isAjax = false;
-
-		$user = $request->getUser();
-		if(isset($user)) {
-			$userId = (int) $user->getId();
-
-			$notificationDao = DAORegistry::getDAO('NotificationDAO');
-			$notificationDao->deleteById($notificationId, $userId);
-		}
-
-		if (!$isAjax) {
-			$router = $request->getRouter();
-			$request->redirectUrl($router->url($request, null, 'notification'));
-		}
-	}
-
-	/**
-	 * View and modify notification settings
-	 * @param $args array
-	 * @param $request Request
-	 */
-	function settings($args, $request) {
-		$this->validate();
-		$this->setupTemplate($request);
-
-
-		$user = $request->getUser();
-		if(isset($user)) {
-			import('classes.notification.form.NotificationSettingsForm');
-			$notificationSettingsForm = new NotificationSettingsForm();
-			$notificationSettingsForm->display($request);
-		} else {
-			$router = $request->getRouter();
-			$request->redirectUrl($router->url($request, null, 'notification'));
-		}
-	}
-
-	/**
-	 * Save user notification settings
-	 * @param $args array
-	 * @param $request Request
-	 */
-	function saveSettings($args, $request) {
-		$this->validate();
-		$this->setupTemplate($request, true);
-
-		import('classes.notification.form.NotificationSettingsForm');
-
-		$notificationSettingsForm = new NotificationSettingsForm();
-		$notificationSettingsForm->readInputData();
-
-		if ($notificationSettingsForm->validate()) {
-			$notificationSettingsForm->execute($request);
-			$router = $request->getRouter();
-			$request->redirectUrl($router->url($request, null, 'notification', 'settings'));
-		} else {
-			$notificationSettingsForm->display($request);
-		}
 	}
 
 	/**

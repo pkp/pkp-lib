@@ -210,7 +210,7 @@ class PageHandler extends Handler {
 			$notificationDao = DAORegistry::getDAO('NotificationDAO');
 
 			// Exclude certain tasks, defined in the notifications grid handler
-			import('lib.pkp.controllers.grid.notifications.NotificationsGridHandler');
+			import('lib.pkp.controllers.grid.notifications.TaskNotificationsGridHandler');
 			$templateMgr->assign('unreadNotificationCount', $notificationDao->getNotificationCount(false, $user->getId(), null, NOTIFICATION_LEVEL_TASK));
 		}
 	}

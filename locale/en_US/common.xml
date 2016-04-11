@@ -210,7 +210,7 @@
 	<message key="common.refresh">Refresh</message>
 	<message key="common.related">Related</message>
 	<message key="common.reminder">Reminder</message>
-	<message key="common.rreminded.date">Reminded: {$dateReminded}</message>
+	<message key="common.reminded.date">Reminded: {$dateReminded}</message>
 	<message key="common.remote">Remote</message>
 	<message key="common.remoteURL">RemoteURL</message>
 	<message key="common.remove">Remove</message>

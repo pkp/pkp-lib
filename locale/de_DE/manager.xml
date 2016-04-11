@@ -454,7 +454,7 @@
 	<message key="manager.reviewFormElements.textfield">Einzeiliges Textfeld</message>
 	<message key="manager.reviewFormElements.viewable">Sichtbar (für Autor/innen)</message>
 	<message key="grid.action.createReviewForm">Ein neues Begutachtungsformular anlegen</message>
-	<message key="manager.statistics.reports.optinoalColumns.description">Elemente, die kursiv gesetzt und mit * markiert sind, stehen für optionale Daten für die momentane Statistikmethode in OJS sind (gewählte Metrik). Abhängig von Ihrer Konfiguration des Statistik-Plug-Ins haben Sie diese Daten oder nicht.</message>
+	<message key="manager.statistics.reports.optionalColumns.description">Elemente, die kursiv gesetzt und mit * markiert sind, stehen für optionale Daten für die momentane Statistikmethode in OJS sind (gewählte Metrik). Abhängig von Ihrer Konfiguration des Statistik-Plug-Ins haben Sie diese Daten oder nicht.</message>
 	<message key="manager.setup.additionalContent">Weiterer Inhalt</message>
 	<message key="manager.setup.additionalContentDescription">Alle hier eingegebenen Inhalte werden auf Ihrer Homepage erscheinen.</message>
 	<message key="manager.setup.authorCopyrightNotice">Copyright-Vermerk</message>

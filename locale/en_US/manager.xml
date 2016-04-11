@@ -190,7 +190,7 @@
 	<message key="manager.statistics.reports">Report Generator</message>
 	<message key="manager.statistics.reports.description">The system generates reports that track the details associated with site usage and submissions over a given period of time. Reports are generated in CSV format which requires a spreadsheet application to view.</message>
 	<message key="manager.statistics.reports.aggregationColumns">Aggregate stats by:</message>
-	<message key="manager.statistics.reports.optinoalColumns.description">Items in italic and marked with * represents data that is optional to the current way of counting statistics in the system (metric type). You might have that data or not, depending on your statistics plugin configuration.</message>
+	<message key="manager.statistics.reports.optionalColumns.description">Items in italic and marked with * represents data that is optional to the current way of counting statistics in the system (metric type). You might have that data or not, depending on your statistics plugin configuration.</message>
 	<message key="manager.statistics.reports.defaultReportTemplates">Default report templates</message>
 	<message key="manager.statistics.reports.generateReport">Generate custom report</message>
 	<message key="manager.statistics.reports.advancedOptions">Advanced Options</message>
@@ -472,7 +472,7 @@
 	<!-- Review forms -->
 	<message key="manager.reviewForms">Review Forms</message>
 	<message key="manager.reviewForms.confirmActivate">Are you sure you wish to activate this review form? Once it's assigned to a review you will no longer be able to deactivate it.</message>
-	<message key="manager.reviewForms.confirmDeactivate">Are you sure you wish to deactivate this review form? It will no longer be availble for new review assignments.</message>
+	<message key="manager.reviewForms.confirmDeactivate">Are you sure you wish to deactivate this review form? It will no longer be available for new review assignments.</message>
 	<message key="manager.reviewForms.confirmCopy">Are you sure you wish to create a copy of this review form?</message>
 	<message key="manager.reviewForms.completed">Completed</message>
 	<message key="manager.reviewForms.confirmDelete">Are you sure you wish to delete this review form?</message>

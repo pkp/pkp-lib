@@ -65,7 +65,7 @@
 			{/fbvFormSection}
 		{/fbvFormArea}
 		{fbvFormArea id="aggregationColumnsFormArea" title="manager.statistics.reports.aggregationColumns"}
-			{fbvFormSection for="aggregationColumns" description="manager.statistics.reports.optinoalColumns.description" list=true}
+			{fbvFormSection for="aggregationColumns" description="manager.statistics.reports.optionalColumns.description" list=true}
 				{fbvElement type="checkboxgroup" name="aggregationColumns" id="aggregationColumns" from=$aggregationOptions selected=$selectedAggregationOptions translate=false}
 			{/fbvFormSection}
 		{/fbvFormArea}
@@ -94,7 +94,7 @@
 	{capture assign="advancedOptionsContent"}
 		{fbvFormArea id="columnsFormArea" title="manager.statistics.reports.columns"}
 			<p>{translate key="manager.statistics.reports.columns.description"}</p>
-			{fbvFormSection description="manager.statistics.reports.optinoalColumns.description"}
+			{fbvFormSection description="manager.statistics.reports.optionalColumns.description"}
 				{fbvElement type="select" name="columns[]" id="columns" from=$columnsOptions multiple="multiple" selected=$columns translate=false required=true}
 			{/fbvFormSection}
 		{/fbvFormArea}
@@ -138,7 +138,7 @@
 		{/fbvFormArea}
 
 		{fbvFormArea id="orderByFormArea" title="manager.statistics.reports.orderBy"}
-			{fbvFormSection description="manager.statistics.reports.optinoalColumns.description"}
+			{fbvFormSection description="manager.statistics.reports.optioanlColumns.description"}
 				<div style="clear:both"></div>
 				{foreach from=$orderColumnsOptions item=item key=key}
 					{fbvFormSection}

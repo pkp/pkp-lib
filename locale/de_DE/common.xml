@@ -520,7 +520,7 @@
 	<message key="common.range">{$min}-{$max}</message>
 	<message key="common.readMore">Mehr lesen</message>
 	<message key="common.readMoreWithTitle">Lesen Sie mehr über {$title}</message>
-	<message key="common.rreminded.date">Erinnert: {$dateReminded}</message>
+	<message key="common.reminded.date">Erinnert: {$dateReminded}</message>
 	<message key="common.searchQuery">Suchanfrage</message>
 	<message key="common.uploadedDate">Datum des Hochladens</message>
 	<message key="common.upload.addFile">Datei hochladen</message>

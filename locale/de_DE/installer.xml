@@ -7,11 +7,11 @@
   * Copyright (c) 2014-2016 Simon Fraser University Library
   * Copyright (c) 2000-2016 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
-  * Localization strings for the de_DE (Deutsch (Deutschland)) locale.
   * Please contact Marco Tullney, marco.tullney@fu-berlin.de, with any questions regarding this translation.
+  * Localization strings.
   -->
 
-<locale name="de_DE" full_name = "Deutsch (Deutschland)">
+<locale name="de_DE" full_name="Deutsch (Deutschland)">
 	<message key="installer.additionalLocales">Weitere Regionaleinstellungen</message>
 	<message key="installer.administratorAccount">Administrator/innen-Konto</message>
 	<message key="installer.administratorAccountInstructions">Dieses Benutzer/innen-Konto erhält die Administrationsrechte für die gesamte Website und wird kompletten Zugriff auf das System haben. Zusätzliche Benutzer/innen-Konten können nach der Installation erstellt werden.</message>
@@ -33,15 +33,12 @@
 	<message key="installer.databasePassword">Passwort</message>
 	<message key="installer.databaseSettings">Datenbank-Einstellungen</message>
 	<message key="installer.databaseUsername">Benutzer/innen-Name</message>
-	<message key="installer.encryptionInstructions">SHA1 ist empfohlen.</message>
-	<message key="installer.encryption">Verschlüsselungsalgorithmus für Passwörter</message>
 	<message key="installer.filesDir">Verzeichnis für hochgeladene Dateien</message>
 	<message key="installer.fileSettings">Dateieinstellungen</message>
 	<message key="installer.form.clientCharsetRequired">Bitte wählen Sie einen Zeichensatz aus.</message>
 	<message key="installer.form.databaseDriverRequired">Bitte wählen Sie einen Datenbanktreiber aus.</message>
 	<message key="installer.form.databaseNameRequired">Bitte geben Sie einen Namen für die Datenbank an.</message>
 	<message key="installer.form.emailRequired">Bitte geben Sie eine gültige E-Mail-Adresse für das Administrations-Konto an.</message>
-	<message key="installer.form.encryptionRequired">Bitte wählen Sie einen Algorithmus zur Verschlüsselung der Passwörter aus.</message>
 	<message key="installer.form.filesDirRequired">Bitte geben Sie ein Verzeichnis an, in dem hochgeladene Dateien gespeichert werden sollen.</message>
 	<message key="installer.form.localeRequired">Bitte wählen Sie eine Regionaleinstellung aus.</message>
 	<message key="installer.form.passwordRequired">Bitte geben Sie ein Passwort für das Administrations-Konto an.</message>
@@ -66,7 +63,6 @@
 	<message key="installer.oaiRepositoryId">Kennung für das Repository</message>
 	<message key="installer.publicFilesDirError">Das öffentliche Verzeichnis existiert nicht oder erlaubt keine Schreibzugriffe.</message>
 	<message key="installer.releaseNotes">Versionsinformationen</message>
-	<message key="installer.securitySettings">Sicherheitseinstellungen</message>
 	<message key="installer.preInstallationInstructionsTitle">Vor der Installation</message>
 	<message key="installer.preInstallationInstructions"><![CDATA[
 		<p>1. Die folgenden Dateien und Verzeichnisse (mit ihren Inhalten) müssen beschreibbar sein:</p>
@@ -82,4 +78,6 @@
 		<p>2. Ein Verzeichnis für die Ablage hochgeladener Dateien muss angelegt und beschreibbar gemacht werden (siehe "Datei-Einstellungen" unten).</p>]]>
 	</message>
 	<message key="installer.configureXSLMessage"><![CDATA[<p>In Ihrer PHP-Installation ist das XSL-Modul nicht freigeschaltet. Entweder schalten Sie es frei, oder konfigurieren Sie das Parameter xsl_command in Ihrer Datei config.inc.php.</p>]]></message>
+	<message key="installer.beacon">Identifikationssignal</message>
+	<message key="installer.beacon.enable">Eine eindeutige Identifikation und die OAI base URL an PKP übermitteln (nur für Statistiken und Sicherheitsbenachrichtigungen).</message>
 </locale>

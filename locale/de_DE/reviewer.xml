@@ -7,11 +7,11 @@
   * Copyright (c) 2014-2016 Simon Fraser University Library
   * Copyright (c) 2000-2016 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
-  * Localization strings for the de_DE (Deutsch (Deutschland)) locale.
   * Please contact Marco Tullney, marco.tullney@fu-berlin.de, with any questions regarding this translation.
+  * Localization strings
   -->
 
-<locale name="de_DE" full_name = "Deutsch (Deutschland)">
+<locale name="de_DE" full_name="Deutsch (Deutschland)">
 	<!-- Used in submission review -->
 	<message key="reviewer.reviewSteps.request">1. Anfrage</message>
 	<message key="reviewer.reviewSteps.guidelines">2. Richtlinien</message>
@@ -41,5 +41,6 @@
 	<message key="reviewer.complete.whatNext">Vielen Dank für den Abschluss der Begutachtung dieser Einreichung. Ihr Gutachten ist erfolgreich übermittelt worden. Wir schätzen Ihren Beitrag zur Qualität der von uns veröffentlichten Arbeiten sehr. Vielleicht wird der/die Redakteur/in Sie noch einmal kontaktieren, falls weitere Informationen benötigt werden.</message>
 	<message key="reviewer.aboutDueDates">Über die Fälligkeit</message>
 	<message key="reviewer.aboutDueDates.text">Der/die Redakteur/in bittet darum, dass Sie vor der Fälligkeit der Antwort die Begutachtung annehmen oder absagen und dass Sie Ihr Gutachten vor dem Fälligkeitsdatum des Gutachtens abschließen.</message>
-
+	<message key="submission.comments.canShareWithAuthor">Für Autor/in und Redakteur/in</message>
+	<message key="submission.comments.cannotShareWithAuthor">Nur für Redakteur/in</message>
 </locale>

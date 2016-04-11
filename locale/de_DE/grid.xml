@@ -7,15 +7,16 @@
   * Copyright (c) 2014-2016 Simon Fraser University Library
   * Copyright (c) 2000-2016 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
-  * Localization strings for the de_DE (Deutsch (Deutschland)) locale.
   * Please contact Marco Tullney, marco.tullney@fu-berlin.de, with any questions regarding this translation.
+  * Localization strings.
   -->
 
-<locale name="de_DE" full_name = "Deutsch (Deutschland)">
+<locale name="de_DE" full_name="Deutsch (Deutschland)">
 	<!-- Common -->
 	<message key="grid.noItems">Keine Einträge</message>
 	<message key="grid.settings">Einstellungen</message>
 	<message key="grid.noAuditors">Kein/e Prüfer/in</message>
+	<message key="grid.remotelyHostedItem">Dieses Element wird liegt an einem Remote-Ort.</message>
 
 	<message key="grid.action.manageAccess">Zugriff verwalten</message>
 	<message key="grid.action.sort">Sortieren</message>
@@ -57,7 +58,6 @@
 	<message key="grid.action.editFile">Eine Datei bearbeiten</message>
 	<message key="grid.action.selectFiles">Dateien auswählen, die verwaltet werden sollen</message>
 	<message key="grid.action.requestRevisions">Überarbeitungen für diese Einreichung einfordern</message>
-	<message key="grid.action.resubmit">Eine erneute Einreichung für diesen Beitrag einfordern</message>
 	<message key="grid.action.accept">Diese Einreichung annehmen</message>
 	<message key="grid.action.decline">Diese Einreichung ablehnen</message>
 	<message key="grid.action.internalReview">Diese Einreichung in die interne Begutachtung schicken</message>
@@ -98,13 +98,13 @@
 	<message key="grid.action.mergeUser">Benutzer/in zusammenführen</message>
 	<message key="grid.action.unassignUser">Zuweisung an Benutzer/in zurücknehmen</message>
 	<message key="grid.action.history">Verlauf ansehen</message>
-	<message key="grid.action.unconsiderReview">Dieses Gutachten ist komplett, aber sie können es unberücksichtigt lassen.</message>
+	<message key="grid.action.unconsiderReview">Dieses Gutachten ist komplett, aber Sie können es unberücksichtigt lassen.</message>
 	<message key="grid.action.enable">Einschalten</message>
 	<message key="grid.action.bookInfo">Informationen zur Einreichung</message>
 	<message key="grid.action.logInAs">Einloggen als</message>
 	<message key="grid.action.exportAllUsers">Alle Benutzer/innen exportieren</message>
 	<message key="grid.users.confirmExportAllUsers">Sind Sie sicher, dass Sie alle Benutzer/innen exportieren möchten?</message>
-	
+
 	<!--  grid task status -->
 	<message key="grid.task.status.completed">Diese Aufgabe ist erledigt.</message>
 	<message key="grid.task.status.new">Dies ist ein neues Element und bedarf Ihrer Aufmerksamkeit.</message>
@@ -140,12 +140,8 @@
 	<message key="grid.action.addContributor">Beiträger/in hinzufügen</message>
 	<message key="grid.action.editContributor">Beiträger/in bearbeiten</message>
 	<message key="grid.action.deleteContributor">Beiträger/in löschen</message>
-	
+
 	<!-- Genres Grid -->
-	<message key="grid.genres.title">Genres</message>
-	<message key="grid.genres.description">Diese Genres werden für die Benennung von Dateien benutzt und werden in einem Pull-Down-Menü beim Hochladen von Dateien angezeigt. Die Genres gestatten es, der Datei einen Standardtyp zuzuweisen, sie z.B. als gesamtes Buch oder als ein Kapitel zu identifizieren.</message>
-
-
 	<!-- Review Forms Grid -->
 	<message key="grid.reviewForm.title">Begutachtungsformulare</message>
 
@@ -225,7 +221,6 @@
 	
 	<!-- Prepared emails -->
 	<message key="grid.preparedEmails.title">Vorbereitete E-Mail-Vorlagen</message>
-	<message key="grid.preparedEmails.description">Der Verlag erleichtert die Kommunikation rund um den Workflow durch Gebrauch vorbereiteter E-Mail-Nachrichten. Der Wortlaut dieser E-Mail-Vorlagen kann unten einfach geändert werden.</message>
 	<message key="grid.preparedEmails.currentList">Aktuelle Liste</message>
 
 	<!-- Plugins -->
@@ -233,7 +228,6 @@
 	<message key="grid.plugin.disable">Sind Sie sicher, dass Sie dieses Plug-In deaktivieren wollen?</message>
 
 	<!-- signoffs -->
-	<message key="grid.action.viewSignoffNotes">Anmerkungen zur Freigabe anzeigen</message>
 	<message key="grid.action.fileUnconsider">Korrekturen gemacht. Sie müssen diese Aufgabe nicht länger berücksichtigen.</message>
 
 	<!-- Artwork Files Grid -->
@@ -243,7 +237,7 @@
 	<message key="grid.artworkFile.copyrightContact">Kontakt (sofern nicht Autor/in oder Verlag)</message>
 	<message key="grid.artworkFile.permissionTerms">Nutzungsbedingungen</message>
 	<message key="grid.artworkFile.placement">Platzierung in der Einreichung</message>
-	
+
 	<!-- User Group Grid -->
 	<message key="grid.userGroup.assignStage">Phase zuweisen</message>
 	<message key="grid.userGroup.unassignStage">Phasenzuordnung aufheben</message>
@@ -255,4 +249,21 @@
 	<message key="grid.userGroup.removed">Rolle {$userGroupName} entfernt.</message>
 	<message key="grid.userGroup.assignedStage">Rolle {$userGroupName} der Phase {$stageName} zugeordnet.</message>
 	<message key="grid.userGroup.unassignedStage">Rolle {$userGroupName} nicht länger der Phase {$stageName} zugeordnet.</message>
+	<message key="grid.action.addNote">Notiz hinzufügen</message>
+	<message key="grid.action.addQuery">Diskussion hinzufügen</message>
+	<message key="grid.action.readQuery">Diskussion lesen</message>
+	<message key="grid.action.deleteQuery">Diskussion löschen</message>
+	<message key="grid.action.updateQuery">Diskussion aktualisieren</message>
+	<message key="grid.action.unassignReviewer">Gutachter/in austragen</message>
+	<message key="grid.action.disapprove">Nicht akzeptieren</message>
+	<message key="grid.action.setApproval">Zustimmung geben</message>
+	<message key="grid.action.search">Suche</message>
+	<message key="grid.action.activate">Aktivieren</message>
+	<message key="grid.action.deactivate">Deaktivieren</message>
+	<message key="grid.action.copy">Kopieren</message>
+	<message key="grid.action.preview">Vorschau</message>
+	<message key="grid.action.install">Installieren</message>
+	<message key="grid.action.moreItems">Mehr laden</message>
+	<message key="grid.reviewFormElement.responseItems">Antwortmöglichkeiten</message>
+	<message key="grid.submission.itemTitle">Autor/in; Titel</message>
 </locale>

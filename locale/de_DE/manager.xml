@@ -7,11 +7,11 @@
   * Copyright (c) 2014-2016 Simon Fraser University Library
   * Copyright (c) 2000-2016 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
-  * Localization strings for the de_DE (Deutsch (Deutschland)) locale.
   * Please contact Marco Tullney, marco.tullney@fu-berlin.de, with any questions regarding this translation.
+  * Localization strings.
   -->
 
-<locale name="de_DE" full_name = "Deutsch (Deutschland)">
+<locale name="de_DE" full_name="Deutsch (Deutschland)">
 	<!-- Website settings -->
 	<message key="manager.website.information">Information</message>
 	<message key="manager.website.appearance">Aussehen</message>
@@ -64,7 +64,6 @@
 	<message key="manager.publication.editorialStage">Redaktionsphase</message>
 	<message key="manager.publication.productionStage">Herstellung</message>
 	<message key="manager.publication.emails">E-Mails</message>
-	<message key="manager.publication.libraryDescription"><![CDATA[Diese Dateien sind vorbereitet worden als Vorlagen und Handreichungen als Teil der <span class="pkp_help_title">Einreichungs-Dokumente</span>.]]></message> 
 	<message key="manager.emails.confirmDelete">Sind Sie sicher, dass Sie diese E-Mail-Vorlage löschen wollen?</message>
 	<message key="manager.emails.confirmReset">Sind Sie sicher, dass Sie diese E-Mail-Vorlage auf die Standardform zurücksetzen wollen?</message>
 	<message key="manager.emails.addEmail">E-Mail-Vorlage hinzufügen</message>
@@ -166,10 +165,10 @@
 	<message key="manager.readingTools">Lesewerkzeuge</message>
 	<message key="manager.reviewerSearch.searchByName">Nach Gutachter/in per Name suchen</message>
 	<message key="manager.reviewerSearch.searchByName.short">Suche nach Namen</message>
-	<message key="manager.reviewerSearch.doneAmount">Abgeschlossene Gutachten</message>
-	<message key="manager.reviewerSearch.avgAmount">Durchschnittliche Dauer in Tagen pro Gutachten</message>
-	<message key="manager.reviewerSearch.lastAmount">Tage seit letztem Gutachten</message>
-	<message key="manager.reviewerSearch.activeAmount">Anzahl momentan aktiver Begutachtungen</message>
+	<message key="manager.reviewerSearch.doneAmount">Abgeschlossene Gutachten: {$current}</message>
+	<message key="manager.reviewerSearch.avgAmount">Durchschnittliche Dauer in Tagen pro Gutachten: {$current}</message>
+	<message key="manager.reviewerSearch.lastAmount">Tage seit letztem Gutachten: {$current}</message>
+	<message key="manager.reviewerSearch.activeAmount">Anzahl momentan aktiver Begutachtungen: {$current}</message>
 	<message key="manager.reviewerSearch.interests">Begutachtungsinteressen</message>
 	<message key="manager.reviewerSearch.form.instructions">Benutzen Sie bitte das Formular unten, um Maximalwerte für die geplanten Suchen anzugeben. Das Formular ist vorausgefüllt mit den berechneten Durchschnittswerten dieser Felder.</message>
 	<message key="manager.reviewerSearch.form.interests.instructions">Geben Sie Begutachtungsinteressen ein, durch Kommata getrennt…</message>
@@ -187,14 +186,12 @@
 	<message key="manager.statistics.reports.defaultReportTemplates">Standard-Berichtsvorlagen</message>
 	<message key="manager.statistics.reports.generateReport">Benutzerdefinierten Bericht erzeugen</message>
 	<message key="manager.statistics.reports.advancedOptions">Erweiterte Einstellungen</message>
-	<message key="manager.statistics.reports.advancedOptions.label">Spalten, Filter und Sortierung anpassen. Änderungen an diesen Einstellungen könnte das erwartete Ergebnis der Berichtsvorlage verändern.</message>
 	<message key="manager.statistics.reports.columns">Spalten</message>
 	<message key="manager.statistics.reports.columns.description">Definieren Sie die Spalten, die zum Erzeugen des Berichts benutzt werden. Die Spalten, die Sie auswählen legen nicht nur fest, welche Daten im Bericht angzeigt werden, sondern definieren auch die Aggregationsstufe der Statistik. Wenn Sie zum Beispiel die Spalten ID, Typ und Monat auswählen, wird der Repurt alle Aufrufe eines Objekts in einem Monat summieren und diese Information in einer Zeile anzeigen. Wenn Sie stattdessen Tag statt Monat auswählen, wird jedes Objekt eine Zeile für jeden Tag erhalten.</message>
 	<message key="manager.statistics.reports.filters">Filter</message>
 	<message key="manager.statistics.reports.objectType">Objekttyp</message>
 	<message key="manager.statistics.reports.objectId">Objekt-ID</message>
 	<message key="manager.statistics.reports.objectId.label">Definieren Sie eine oder mehrere Objekt-ID, jeweils mit Komma getrennt (z.B. 1,2,3,4,5).</message>
-	<message key="manager.statistics.reports.today">Heute</message>
 	<message key="manager.statistics.reports.currentMonth">Aktueller Monat</message>
 	<message key="manager.statistics.reports.orderBy">Sortieren nach</message>
 	<message key="manager.statistics.reports.orderDir">Richtung</message>
@@ -223,8 +220,6 @@
 	<message key="manager.setup.reviewOptions.remindForInvite">Eine Erinnerung schicken, wenn ein/e Gutachter/in auf die Anfrage nicht innerhalb der genannten Zeit geantwortet hat (Tage):</message>
 	<message key="manager.setup.reviewOptions.remindForSubmit">Eine Erinnerung schicken, wenn ein/e Gutachter/in nicht innerhalb der genannten Zeit eine Empfehlung eingereicht hat (Tage):</message>
 	<message key="manager.setup.sortableByComponent">Nach Komponenten sortierbar</message>
-	<message key="manager.setup.dependentGenre">Abhängige Genres</message>
-	<message key="manager.setup.sponsors">Finanzielle Unterstützung</message>
 	<message key="manager.setup.sponsors.note">Sie können einen Hinweis hinzufügen, wie Ihr Verhältnis zu Ihren Sponsoren ist; dieser Hinweis wird in der Sponsorenliste auf Ihrer "Über uns"-Seite erscheinen.</message>
 	<message key="manager.setup.contributors.note">Sie können einen Hinweis hinzufügen, wie Ihr Verhältnis zu den Sie unterstützenden Einrichtungen ist; dieser Hinweis wird in der Unterstützerliste auf Ihrer "Über uns"-Seite erscheinen.</message>
 	<message key="manager.setup.styleSheetDescription">Sie können eine zusätzliche CSS-Datei hochlade, um das Aussehen anzupassen.</message>
@@ -276,12 +271,10 @@
 	<message key="manager.setup.layout.themeDescription">Wählen Sie ein Grafikthema aus den verfügbaren Thema-Plug-Ins aus.</message>
 	<message key="manager.setup.layout.blockManagement">Verwaltung der Sidebar</message>
 	<message key="manager.setup.layout.leftSidebar">Linke Seitenleiste</message>
-	<message key="manager.setup.layout.rightSidebar">Rechte Seitenleiste</message>
 	<message key="manager.setup.layout.unselected">Nicht ausgewählt</message>
 	<message key="manager.setup.loggingAndAuditing">Protokollieren und prüfen</message>
 	<message key="manager.setup.metaCitationsDescription">Aktivieren Sie die folgende Auswahlbox, um Zitationsbearbeitung zu ermöglichen. Dies wird es Autor/innen ermöglichen, unbearbeitete Zitationen mit ihren Beiträgen einzureichen. Redakteur/innen werden ebenfalls Zugriff auf einen Zitationsauszeichnungsassistenten haben, der unbearbeitete Zitationen mit externen Datenbanken wie WorldCat, ISBNdb, PubMed u.a. abgleichen kann. Bestätigte Zitationen können in die endgültigen Fahnendateien exportiert werden.</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Ungültiges Format des Logos in der Kopfzeile. Gültige Formate sind .gif, .jpg und .png.</message>
-	<message key="manager.setup.selectOne">Auswählen</message>
 	<message key="manager.statistics"><![CDATA[Statistiken &amp; Berichte]]></message>
 	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>
 	<message key="manager.statistics.statistics.totalNewValue">{$numTotal} ({$numNew} Neue)</message>
@@ -319,17 +312,15 @@
 	<message key="manager.plugins.delete">Plug-In löschen</message>
 	<message key="manager.plugins.deleteConfirm">Sind Sie sicher, dass dieses Plug-In aus dem System entfernt werden soll?</message>
 	<message key="manager.plugins.deleteDescription">Wenn Sie "Löschen" anklicken, wird das Plug-In aus dem Dateisystem des Servers entfernt.</message>
-	<message key="manager.plugins.deleteError">Das Plug-In konnte nicht aus dem Dateisystem gelöscht werden.</message>
-	<message key="manager.plugins.deleteSuccess">Plug-In erfolgreich gelöscht</message>
+	<message key="manager.plugins.deleteError">Das Plugin "{$pluginName}" konnte nicht aus dem Dateisystem gelöscht werden. Eventuell liegt ein Problem mit den Berechtigungen vor. Bitte stellen Sie sicher, dass der Webserver in das plugins-Verzeichnis (inklusive Unterverzeichnisse) schreiben kann. Vergessen Sie aber nicht, den Zugang später abzusichern.</message>
+	<message key="manager.plugins.deleteSuccess">Plugin "{$pluginName}" erfolgreich gelöscht</message>
 	<message key="manager.plugins.description">Diese Seite ermöglicht es der/dem Zeitschriftenverwalter/in, die aktuell installierten Plug-Ins zu überprüfen und ggf. zu konfigurieren. Plug-Ins sind nach ihren Funktionen in Kategorien eingeteilt. Die entsprechenden Ordnungskategorien sind unten aufgeführt, darunter jeweils die derzeitig eingesetzten Plug-Ins.</message>
 	<message key="manager.plugins.doesNotExist">Plug-In nicht verfügbar.</message>
 	<message key="manager.plugins.fileSelectError">Bitte wählen Sie zuerst eine Datei aus</message>
-	<message key="manager.plugins.install">Ein neues Plug-In installieren</message>
-	<message key="manager.plugins.installDescription">Mit diesem Formular können Sie ein neues Plug-In hochladen und installieren. Bitte stellen Sie sicher, das das Plug-In als .tar.gz-Datei komprimiert ist.</message>
-	<message key="manager.plugins.installedVersionNewer">Das Plug-In existiert bereits und ist neuer als oder genauso alt wie die installierte Version.</message>
+	<message key="manager.plugins.installedVersionNewer">Das Plugin ist bereits installiert und ist neuer als die in der Galerie verfügbare Version.</message>
 	<message key="manager.plugins.installedVersionOlder">Das Plug-In existiert bereits, ist aber älter als oder genauso alt wie die installierte Version.</message>
-	<message key="manager.plugins.installFailed">Installation gescheitert</message>
-	<message key="manager.plugins.installSuccessful">Erfolgreich installierte Version</message>
+	<message key="manager.plugins.installFailed">Installation gescheitert. {$errorString}</message>
+	<message key="manager.plugins.installSuccessful">Version {$versionNumber} erfolgreich installiert</message>
 	<message key="manager.plugins.invalidPluginArchive">Das hochgeladene Plug-In-Archiv enthält keinen zum Plug-In-Namen passenden Ordner.</message>
 	<message key="manager.plugins.wrongCategory">Das hochgeladene Plug-In passt nicht zu der Kategorie des aktualisierten Plug-Ins.</message>
 	<message key="manager.plugins.wrongName">Die version.xml in dem hochgeladenen Plug-In enthält einen Plug-In-Namen, der nicht zu dem Namen des aktualisierten Plug-Ins passt.</message>
@@ -339,8 +330,8 @@
 	<message key="manager.plugins.tarCommandNotFound">Der tar-Befehl ist nicht verfügbar. Bitte konfigurieren Sie ihn in Ihrer "config.inc.php".</message>
 	<message key="manager.plugins.upgrade">Upgrade Plug-In</message>
 	<message key="manager.plugins.upgradeDescription">Dieses Formular ermöglicht ein Upgrade für ein Plug-In. Bitte stellen Sie sicher, das das Plug-In als .tar.gz-Datei komprimiert ist.</message>
-	<message key="manager.plugins.upgradeFailed">Upgrade gescheitert</message>
-	<message key="manager.plugins.upgradeSuccessful">Erfolgreiches Upgrade</message>
+	<message key="manager.plugins.upgradeFailed">Upgrade gescheitert. {$errorString}</message>
+	<message key="manager.plugins.upgradeSuccessful">Erfolgreiches Upgrade auf Version {$versionString}</message>
 	<message key="manager.plugins.uploadError">Fehler beim Hochladen der Datei</message>
 	<message key="manager.plugins.uploadPluginDir">Plug-In-Datei auswählen</message>
 	<message key="manager.plugins.versionFileInvalid">version.xml im Plug-In-Verzeichnis enthält ungültige Daten.</message>
@@ -361,7 +352,6 @@
 	<!-- Payment Method settings -->
 	<message key="manager.paymentMethod">Zahlungen</message>
 	<message key="manager.paymentMethod.title">Zahlungsmethoden</message>
-	<message key="manager.paymentMethod.description">Wählen Sie aus der Liste verfügbarer Zahlungsmethoden aus. Der Bereich unten wird entsprechend angepasst.</message>
 	<message key="manager.paymentMethod.none">Keine Zahlungsmethode ausgewählt</message>
 	<message key="manager.paymentMethod.method">Zahlungsmethode</message>
 	<message key="manager.paymentMethod.currency">Währung</message>
@@ -402,7 +392,6 @@
 	<message key="grid.action.restoreGenres">Genres auf Standard zurücksetzen</message>
 	<message key="manager.setup.genres.sortable">Dateien dieses Typs können nach Komponenten sortiert werden (z.B. nach Kapitel)</message>
 	<message key="manager.setup.genres.dependent">Dateien dieses Typs als abhängige Dateien markieren (z.B. nicht Primärveröffentlichungen)</message>
-	<message key="manager.settings.wizard">Einstellungswizard</message>
 	<message key="manager.users.roleRequired">Sie müssen wenigstens eine Rolle auswählen, die mit dieser Benutzerin/diesem Benutzer verknüpft wird.</message>
 	<message key="manager.website">Website</message>
 	<message key="manager.website.title">Website-Einstellungen</message>
@@ -425,4 +414,107 @@
 	<message key="manager.reviewForms.noneCreated">Es wurde kein Peer-Review-Formular erzeugt.</message>
 	<message key="manager.reviewForms.preview">Vorschau des Formulars</message>
 	<message key="manager.reviewForms.title">Titel</message>
+	<message key="manager.reviewerSearch.change">Wechseln</message>
+	<message key="manager.reviewerSearch.doneAmountToggle">Filter nach abgeschlossenen Gutachten aktivieren/deaktivieren.</message>
+	<message key="manager.reviewerSearch.avgAmountToggle">Filter nach durchschnittlicher Begutachtungsdauer (Tage) aktivieren/deaktivieren.</message>
+	<message key="manager.reviewerSearch.lastAmountToggle">Filter nach Tage seit dem letzten Gutachten aktivieren/deaktivieren.</message>
+	<message key="manager.reviewerSearch.activeAmountToggle">Filter nach momentan aktiven Gutachten aktivieren/deaktivieren.</message>
+	<message key="manager.reviewerSearch.form.previousReviewRounds">Gutachter/innen aus früheren Begutachtungsrunden dieser Einreichung</message>
+	<message key="manager.setup.genres.supplementary">Dateien dieses Typs als Zusatzdateien markieren (z.B. kein primärer Beitragsinhalt)</message>
+	<message key="manager.settings.wizard">Einstellungs-Wizard</message>
+	<message key="manager.reviewForms.confirmActivate">Sind Sie sicher, dass Sie dieses Peer-Review-Formular aktivieren möchten? Nachdem es einmal einem Gutachten zugewiesen worden ist, werden Sie es nicht mehr deaktivieren können.</message>
+	<message key="manager.reviewForms.confirmDeactivate">Sind Sie sicher, dass Sie dieses Peer-Review-Formular deaktivieren möchten? Es wird für neue Peer-Review-Anfragen nicht mehr verfügbar sein.</message>
+	<message key="manager.reviewForms.confirmCopy">Sind Sie sicher, dass Sie eine Kopie dieses Peer-Review-Formular anlegen möchten?</message>
+	<message key="manager.reviewForms.confirmDelete">Sind Sie sicher, dass Sie dieses Peer-Review-Formular löschen möchten?</message>
+	<message key="manager.reviewForms.noneUsed">Es wurden keine Peer-Review-Formulare benutzt.</message>
+	<message key="manager.reviewForms.reviewFormData">Daten zum Peer-Review-Formular</message>
+	<message key="manager.reviewFormElement.changeType">Typ des Formularelements ändern...</message>
+	<message key="manager.reviewFormElements">Formularelemente</message>
+	<message key="manager.statistics.reports.advancedOptions.hide">Erweiterte Einstellungen verbergen</message>
+	<message key="manager.statistics.reports.objectNotFound">Objekt nicht in Datenbank gefunden</message>
+	<message key="manager.statistics.reports.yesterday">Gestern</message>
+	<message key="manager.reviewFormElements.addResponseItem">Auswahl hinzugefügen</message>
+	<message key="manager.reviewFormElements.checkboxes">Checkboxen (Sie können eine oder mehrere auswählen)</message>
+	<message key="manager.reviewFormElements.chooseType">Feldtyp auswählen</message>
+	<message key="manager.reviewFormElements.confirmDelete">Löschen eines veröffentlichten Formularfeldes bestätigen ...</message>
+	<message key="manager.reviewFormElements.copyTo">Kopie an:</message>
+	<message key="manager.reviewFormElements.create">Neues Feld anlegen</message>
+	<message key="manager.reviewFormElements.dropdownbox">Auswahlliste</message>
+	<message key="manager.reviewFormElements.edit">Formularfeld bearbeiten</message>
+	<message key="manager.reviewFormElements.elementType">Feldtyp</message>
+	<message key="manager.reviewFormElements.form.elementTypeRequired">Für dieses Feld ist die Angabe eines Feldtyps erforderlich.</message>
+	<message key="manager.reviewFormElements.form.questionRequired">Für dieses Formularfeld ist die Angabe einer Frage erforderlich.</message>
+	<message key="manager.reviewFormElements.noneCreated">Es wurden keine Formularfelder angelegt.</message>
+	<message key="manager.reviewFormElements.possibleResponse">Auswahl</message>
+	<message key="manager.reviewFormElements.question">Feld</message>
+	<message key="manager.reviewFormElements.radiobuttons">Radiobuttons (keine Mehrfachauswahl möglich)</message>
+	<message key="manager.reviewFormElements.required">Um die Rubrik auszufüllen, werden Gutachter/innen benötigt</message>
+	<message key="manager.reviewFormElements.smalltextfield">Ein-Wort-Textfeld</message>
+	<message key="manager.reviewFormElements.textarea">Erweitertes Textfeld</message>
+	<message key="manager.reviewFormElements.textfield">Einzeiliges Textfeld</message>
+	<message key="manager.reviewFormElements.viewable">Sichtbar (für Autor/innen)</message>
+	<message key="grid.action.createReviewForm">Ein neues Begutachtungsformular anlegen</message>
+	<message key="manager.statistics.reports.optinoalColumns.description">Elemente, die kursiv gesetzt und mit * markiert sind, stehen für optionale Daten für die momentane Statistikmethode in OJS sind (gewählte Metrik). Abhängig von Ihrer Konfiguration des Statistik-Plug-Ins haben Sie diese Daten oder nicht.</message>
+	<message key="manager.setup.additionalContent">Weiterer Inhalt</message>
+	<message key="manager.setup.additionalContentDescription">Alle hier eingegebenen Inhalte werden auf Ihrer Homepage erscheinen.</message>
+	<message key="manager.setup.authorCopyrightNotice">Copyright-Vermerk</message>
+	<message key="manager.setup.authorCopyrightNoticeAgree">Autor/innen müssen im Einreichungsverfahren der Lizenz zustimmen.</message>
+	<message key="manager.setup.authorGuidelines.description">Für die Richtlinien werden Standards für Bibliografie und Format sowie Beispiele für gängige Zitierformate, die in Einreichungen benutzt werden sollen, vorgeschlagen.</message>
+	<message key="manager.setup.favicon">Ungültiges Favicon-Format. Zulässige Formate sind .ico, .png und .gif.</message>
+	<message key="manager.setup.homepageImage">Startseitengrafik</message>
+	<message key="manager.setup.homepageImageDescription">Laden Sie eine Grafik hoch, die zentral auf Ihrer Homepage angezeigt werden soll.</message>
+	<message key="manager.setup.information.descriptionTitle">Beschreibungen</message>
+	<message key="manager.setup.logo">Logo</message>
+	<message key="manager.setup.notifications">Bestätigung der Beitragseinreichung durch die Autor/innen</message>
+	<message key="manager.setup.notifications.copyPrimaryContact">Eine Kopie an den in Schritt 1 festgelegten Hauptkontakt schicken.</message>
+	<message key="manager.setup.notifications.copySpecifiedAddress">Eine Kopie an diese E-Mail-Adresse schicken.</message>
+	<message key="manager.setup.notifications.description">Autor/innen erhalten automatisch eine E-Mail, die ihnen den Eingang ihrer Einreichung bestätigt. Darüber hinaus können Kopien der Bestätigungs-E-Mail an die folgenden Adressen verschickt werden:</message>
+	<message key="manager.setup.openAccessPolicy">Open-Access-Richtlinien</message>
+	<message key="manager.setup.openAccessPolicy.description">Wenn Sie sofortigen freien Zugang zu allen veröffentlichten Inhalten gewähren, geben Sie eine Beschreibung Ihrer Open-Access-Richtlinie ein.</message>
+	<message key="manager.setup.pageFooter">Fußzeile</message>
+	<message key="manager.setup.pageFooterDescription">Geben Sie alle Grafiken, Text oder HTML-Code an, die Sie am Fuß Ihrer Website anzeigen möchten.</message>
+	<message key="manager.reviewFormElements.included">In Nachricht an Autor/in aufgenommen</message>
+	<message key="manager.setup.reviewerCompetingInterestsRequired.description">Erklärung von Gutachter/in zu möglicherweise bestehenden Interessenkonflikten</message>
+	<message key="manager.setup.competingInterests.required">Während der Begutachtung die Angabe einer Erklärung zu möglicherweise bestehenden Interessenkonflikten verlangen.</message>
+	<message key="manager.setup.includeCopyrightStatement">Den Copyright-Vermerk zusammen mit den Inhalten anzeigen (ratsam, um durch Autor/innen gehaltenes Copyright geltend zu machen).</message>
+	<message key="manager.setup.includeLicense">Die Lizenz zusammen mit dem veröffentlichten Werk anzeigen.</message>
+	<message key="manager.setup.licenseURLDescription">URL zum Lizenztext, sofern verfügbar.</message>
+	<message key="manager.setup.metadata.submission">Einreichungs-Formular</message>
+	<message key="manager.setup.principalContact">Hauptkontakt</message>
+	<message key="manager.setup.privacyStatement">Erklärung zum Schutz persönlicher Daten</message>
+	<message key="manager.setup.privacyStatement.description">Diese Erklärung wird während der Einreichung durch den/die Autor/in und auf der öffentlich verfügbaren Seite "Über uns" angezeigt.</message>
+	<message key="manager.setup.reviewOptions.noteOnModification">Die Standards können für jedes Gutachten im Rahmen des redaktionellen Prozesses angepasst werden.</message>
+	<message key="manager.setup.reviewOptions.reviewTime">Standard-Fristen für Begutachtung</message>
+	<message key="manager.setup.reviewOptions.showBlindReviewLink">Einen Link zu "blinde Begutachtung gewährleisten" während des Uploads anzeigen</message>
+	<message key="manager.setup.sponsors.description">Beispiele: Fachgesellschaften, Fachbereiche, Konsortien etc. Spnsoren werden öffentlich angezeigt.</message>
+	<message key="manager.setup.technicalSupportContact">Kontakt bei technischen Fragen</message>
+	<message key="manager.setup.technicalSupportContactDescription">Eine Kontaktperson, die Herausgeber/innen, Autor/innen und Gutachter/innen bei allen Problemen unterstützen kann, die sie bei der Einreichung, beim redaktionellen Prozess, bei der Begutachtung oder beim Umgang mit veröffentlichtem Material haben.</message>
+	<message key="manager.siteAccessOptions.siteAccessOptions">Zugriffsoptionen</message>
+	<message key="manager.plugins.installConfirm">Sind Sie sicher, dass Sie dieses Plugin installieren möchten?</message>
+	<message key="manager.plugins.upgradeConfirm">Sind Sie sicher, dass Sie dieses Plugin aktualisieren möchten?</message>
+	<message key="grid.action.installPlugin">Dieses Plugin installieren oder aktualisieren</message>
+	<message key="manager.plugins.upload">Ein neues Plugin hochladen</message>
+	<message key="manager.plugins.uploadDescription">Dieses Formular erlaubt Ihnen, ein neues Plugin hochzuladen und zu installieren. Bitte stellen Sie sicher, dass das Plugin als eine .tar.gz-Datei komprimiert ist.</message>
+	<message key="manager.plugins.uploadFailed">Bitte stellen Sie sicher, dass Sie eine Datei für das Hochladen ausgewählt haben.</message>
+	<message key="manager.plugins.installed">Installierte Plugins</message>
+	<message key="manager.plugins.pluginGallery">Plugin-Galerie</message>
+	<message key="manager.plugins.pluginGallery.overview">Übersicht</message>
+	<message key="manager.plugins.pluginGallery.installation">Installation</message>
+	<message key="manager.plugins.pluginGallery.latestCompatible">Letzte kompatible Veröffentlichung</message>
+	<message key="manager.plugins.pluginGallery.certifications.official">Offiziell</message>
+	<message key="manager.plugins.pluginGallery.certifications.reviewed">Begutachtet</message>
+	<message key="manager.plugins.pluginGallery.certifications.partner">Partner</message>
+	<message key="manager.plugins.pluginGallery.maintainer">Verwalter</message>
+	<message key="manager.plugins.pluginGallery.version">Version: {$version}</message>
+	<message key="manager.plugins.pluginGallery.date">Veröffentlichungsdatum: {$date}</message>
+	<message key="manager.plugins.pluginGallery.homepage">Homepage</message>
+	<message key="manager.plugins.pluginGallery.summary">Zusammenfassung</message>
+	<message key="manager.plugins.pluginGallery.status">Status</message>
+	<message key="manager.plugins.noInstalledVersion">Das Plugin ist noch nicht installiert worden.</message>
+	<message key="manager.plugins.noCompatibleVersion">Momentan ist keine kompatible Version dieses Plugins verfügbar.</message>
+	<message key="manager.plugins.installedVersionNewest">Plugin bereits installiert und up-to-date.</message>
+	<message key="manager.plugins.installedVersionNewer.short">Neuer als die verfügbare Version</message>
+	<message key="manager.plugins.installedVersionOlder.short">Kann aktualisiert werden</message>
+	<message key="manager.plugins.installedVersionNewest.short">Up to date</message>
+	<message key="manager.plugins.noCompatibleVersion.short">Nicht verfügbar</message>
 </locale>

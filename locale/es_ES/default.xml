@@ -7,7 +7,7 @@
   * Copyright (c) 2014-2016 Simon Fraser University Library
   * Copyright (c) 2003-2016 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
-  *
+  * Credits: https://pkp.sfu.ca/wiki/index.php?title=OMP:_Spanish_(es_ES)
   * Localization strings for default settings for setup items.
   -->
 
@@ -51,17 +51,13 @@
 	<message key="default.groups.name.translator">Traductor</message>
 	<message key="default.groups.plural.translator">Traductores</message>
 	<message key="default.groups.abbrev.translator">Trad</message>
-	<message key="default.groups.name.reader">Lector</message>
-	<message key="default.groups.plural.reader">Lectores</message>
+	<message key="default.groups.name.reader">Lector/a</message>
+	<message key="default.groups.plural.reader">Lectores/as</message>
 	<message key="default.groups.abbrev.reader">Lect</message>
 
 	<!--  common app genre defaults -->
-	<message key="default.genres.other">Otros</message>
-	<message key="default.genres.other.designation">##</message>
+	<message key="default.genres.other">Otro</message>
 	<message key="default.genres.multimedia">Multimedia</message>
-	<message key="default.genres.multimedia.designation">##</message>
 	<message key="default.genres.image">Imagen</message>
-	<message key="default.genres.image.designation">##</message>
 	<message key="default.genres.styleSheet">Hoja de estilo HTML</message>
-	<message key="default.genres.styleSheet.designation">##</message>
 </locale>

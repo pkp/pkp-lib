@@ -13,10 +13,10 @@
   -->
  
 <locale name="es_ES" full_name="Español (España)">
-	<message key="plugins.generic.acron.name">Acron Plugin</message>
-	<message key="plugins.generic.acron.description"><![CDATA[Este plugin pretende reducir la dependencia de OCS de las tareas periódicas de programación tales como 'cron.']]></message>
-
-	<message key="plugins.generic.acron.reload">Recargar las tareas programadas</message>
+	<message key="plugins.generic.acron.name">Módulo Acron</message>
+	<message key="plugins.generic.acron.description"><![CDATA[Este complemento intenta reducir la dependencia de OCS en herramientas de programación periódica como "cron".]]></message>
 	<message key="plugins.generic.acron.enabled">El plugin Acron ha sido habilitado.</message>
 	<message key="plugins.generic.acron.disabled">El plugin Acron ha sido deshabilitado.</message>
+
+	<message key="plugins.generic.acron.reload">Recargar las tareas programadas</message>
 </locale>

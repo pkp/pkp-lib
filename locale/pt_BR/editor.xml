@@ -7,13 +7,70 @@
   * Copyright (c) 2014-2016 Simon Fraser University Library
   * Copyright (c) 2003-2016 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
-  *
+  * Locale information: https://pkp.sfu.ca/wiki/index.php?title=OMP:_Portuguese_(pt_BR)
   * Localization strings.
   -->
 
-<locale name="pt_BR" full_name = "Português (Brasil)">
-	<message key="editor.article.reviewForms">Formulários de avaliação</message>
-	<message key="editor.article.selectReviewForm">Escolher formulário de avaliação</message>
-	<message key="editor.article.clearReviewForm">Retirar formulário designado</message>
-	<message key="editor.submission.selectedReviewer">Revisor Selecionado</message>
+<locale name="pt_BR" full_name="Português (Brasil)">	
+	<message key="editor.submissionLibrary">Biblioteca das Submissões</message>
+	<message key="editor.review.notInitiated">A avaliação não foi iniciada.</message>
+	<message key="editor.submission.copyediting.personalMessageToUser">Mensagem ao usuário</message>
+	<message key="editor.submission.externalReviewDescription">Selecione os arquivos abaixo a serem enviados a etapa de avaliação.</message>
+	<!-- Add file or auditor to editor/audit grids -->
+	<message key="editor.submission.fileAuditor.form.userRequired">Você deve selecionar um usuário para designar.</message>
+	<message key="editor.submission.uploadSelectFiles">Enviar/Selecionar Arquivos</message>
+	<message key="editor.submission.selectFiles">Selecionar Arquivos</message>
+	<message key="editor.submission.revisions">Avaliações</message>
+	<message key="editor.submission.addReviewer">Adicionar Avaliador</message>
+	<message key="editor.submission.findAndSelectReviewer">Localizar um Avaliador</message>
+	<message key="editor.submission.fileList.includeAllStages">Mostrar arquivos de todos os estágios de trabalho.</message>
+	<message key="editor.submission.backToSearch">Voltar a Busca</message>
+	<message key="editor.review.createReviewer">Criar Novo Avaliador</message>
+	<message key="editor.review.enrollReviewer.short">Designar Usuário Existente</message>
+	<message key="editor.review.unassignReviewer">Dispensar Avaliador</message>
+	<message key="editor.submissionReview.reviewType">Tipo de avaliação</message>
+	<message key="editor.submissionReview.skipEmail">Não enviar email ao autor</message>
+	<message key="editor.submissionReview.open">Abrir</message>
+	<message key="editor.submissionReview.blind">Cega</message>
+	<message key="editor.submissionReview.doubleBlind">Duplo-cega</message>
+	<message key="editor.submissionReview.restrictFiles">Arquivos a serem avaliados</message>
+	<message key="editor.submissionReview.restrictFiles.hide">Fechar Seleção de Arquivos</message>
+	<message key="editor.submissionReview.editReview">Editar Avaliação</message>
+	<message key="editor.review.personalMessageToReviewer">Email para o avaliador</message>
+	<message key="editor.review.importantDates">Datas Importantes</message>
+	<message key="editor.review.uploadRevision">Envio da Avaliação</message>
+	<message key="editor.review.NotifyAuthorAccept">Notificar o autor que sua submissão foi aceita.</message>
+	<message key="editor.review.NotifyAuthorDecline">Notificar o autor que sua submissão foi recusada.</message>
+	<message key="editor.review.NotifyAuthorRevisions">Solicitar modificações ao autor.</message>
+	<message key="editor.review.NotifyAuthorResubmit">Solicitar modificações ao autor que estarão sujeitos a avaliação futura.</message>
+	<message key="editor.review.NotifyAuthorExternal">Notifica o autora da decisão para iniciar uma avaliação externa.</message>
+	<message key="editor.review.personalMessageToAuthor">Email a ser enviado ao autor</message>
+	<message key="editor.review.dateAccepted">Data de Recebimento da Avaliação</message>
+	<message key="editor.review.noReviews">Sem avaliações por pares para importar</message>
+	<message key="editor.review.reminder">Lembrete ao Avaliador</message>
+	<message key="editor.review.thankReviewer">Agradecer ao Avaliador</message>
+	<message key="editor.review.reminderError">Erro ao enviar lembrete ao avaliador</message>
+	<message key="editor.review.thankReviewerError">Erro ao enviar agradecimento ao avaliador</message>
+	<message key="editor.review.skipEmail">Não enviar email ao avaliador.</message>
+	<message key="editor.review.sendReminder">Enviar Lembrete</message>
+	<message key="editor.review.readReview">Ler Avaliação</message>
+	<message key="editor.review.readNewReview">Ler Nova Avaliação</message>
+	<message key="editor.review.responseDue">Prazo de resposta: {$date}</message>
+	<message key="editor.review.requestSent">Solicitação enviada</message>
+	<message key="editor.review.requestAccepted">Solicitação aceita</message>
+	<message key="editor.review.revertDecision">Reverter decisão</message>
+	<message key="editor.review.reviewDue">Prazo de avaliação: {$date}</message>
+	<message key="editor.review.reviewCompleted">Avaliação Completada</message>
+	<message key="editor.review.reviewConfirmed">Avaliação Confirmada</message>
+	<message key="editor.review.reviewSubmitted">Avaliação Enviada</message>
+	<message key="editor.review.reviewerComments">Comentários do Avaliador</message>
+	<message key="editor.review.days">Médias de Dias</message>
+	<message key="editor.review.mustSelect">Você deve selecionar um avaliador</message>
+	<message key="editor.review.errorAddingReviewer">Houve um erro ao adicionar um avaliador. Por favor tente novamente.</message>
+	<message key="editor.submission.newRound">Nova Rodada de Avaliação</message>
+	<message key="editor.submission.newRoundDescription">You are about to create a new review round for this submission.  Files that have not been used in other review rounds are listed below.  By default, the reviewers from the previous review round have been selected to participate in this new review round.</message>
+	<message key="editor.article.reviewForms">Formulários de Avaliação</message>
+	<message key="editor.article.selectReviewForm">Selecionar Formulário de Avaliação</message>
+	<message key="editor.article.clearReviewForm">Limpar Formulário de Avaliação</message>
+	<message key="grid.action.editQuery">Editar Comentários</message>
 </locale>

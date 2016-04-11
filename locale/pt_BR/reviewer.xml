@@ -7,12 +7,12 @@
   * Copyright (c) 2014-2016 Simon Fraser University Library
   * Copyright (c) 2000-2016 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
-  *
-  * Localization strings for the pt_BR (Português (Brasil)) locale.
-  *
+  * Locale information: https://pkp.sfu.ca/wiki/index.php?title=OMP:_Portuguese_(pt_BR)
+  * Localization strings
   -->
 
-<locale name="pt_BR" full_name = "Português (Brasil)">
+<locale name="pt_BR" full_name="Português (Brasil)">
+	<!-- Used in submission review -->
 	<message key="reviewer.submission.reviewerFiles">Arquivos do avaliador</message>
 	<message key="reviewer.reviewSteps.request">1. Requisição</message>
 	<message key="reviewer.reviewSteps.guidelines">2. Diretrizes</message>
@@ -41,5 +41,6 @@
 	<message key="reviewer.aboutDueDates">Sobre Datas Limites</message>
 	<message key="reviewer.aboutDueDates.text">O editor pede que você o aceite ou recuse a revisão antes da Data Limite para Resposta e conclua a revisão antes da Data Limite para Revisão.</message>
 	<message key="reviewer.submission.noGuidelines">Este editor não definiu nenhuma diretriz de revisão.</message>
+	<message key="submission.comments.canShareWithAuthor">Para autor e editor</message>
+	<message key="submission.comments.cannotShareWithAuthor">Apenas para o editor</message>
 </locale>
-

@@ -60,6 +60,10 @@ class RepresentationsGridCellProvider extends DataObjectGridCellProvider {
 		if (is_a($data, 'Representation')) switch ($column->getId()) {
 			case 'indent': return array();
 			case 'name':
+				$remoteURL = $data->getRemoteURL();
+				if ($remoteURL) {
+					return array('label' => '<a href="'.htmlspecialchars($remoteURL).'" target="_blank">'.htmlspecialchars($data->getLocalizedName()).'</a>');
+				}
 				return array('label' => htmlspecialchars($data->getLocalizedName()));
 			case 'isComplete':
 				return array('status' => $data->getIsApproved()?'completed':'new');

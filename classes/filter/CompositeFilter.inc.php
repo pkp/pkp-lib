@@ -51,7 +51,7 @@ class CompositeFilter extends PersistableFilter {
 		assert(is_a($filter, 'Filter'));
 
 		// Identify an appropriate sequence number.
-		$seq = $filter->getSeq();
+		$seq = $filter->getSequence();
 		if (is_numeric($seq) && $seq > 0) {
 			// This filter has a pre-set sequence number
 			if (isset($this->_filters[$seq])) return null;
@@ -60,7 +60,7 @@ class CompositeFilter extends PersistableFilter {
 			// We'll create a sequence number for the filter
 			$this->_maxSeq++;
 			$seq = $this->_maxSeq;
-			$filter->setSeq($seq);
+			$filter->setSequence($seq);
 		}
 
 		// Add the filter to the list.

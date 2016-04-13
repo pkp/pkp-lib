@@ -50,7 +50,7 @@ class FilterHelperTest extends PKPTestCase {
 		$filterA = new CompositeFilter($someGroup);
 		$filterBSettings = array();
 		$filterBSubfilter = new CompositeFilter($someGroup);
-		$filterBSubfilter->setSeq(1);
+		$filterBSubfilter->setSequence(1);
 		$filterBSubfilters = array($filterBSubfilter);
 		self::assertFalse($filterHelper->compareFilters($filterA, $filterBSettings, $filterBSubfilters));
 

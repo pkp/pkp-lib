@@ -47,7 +47,7 @@ class PKPSubmissionNlm30XmlFilterTest extends Nlm30XmlFilterTestCase {
 		// Persist a few copies of the citation for testing.
 		$citationDao =& $this->getCitationDao();
 		for ($seq = 1; $seq <= 10; $seq++) {
-			$citation->setSeq($seq);
+			$citation->setSequence($seq);
 			$citation->setCitationState(CITATION_APPROVED);
 			$citationId = $citationDao->insertObject($citation);
 			self::assertTrue(is_numeric($citationId));

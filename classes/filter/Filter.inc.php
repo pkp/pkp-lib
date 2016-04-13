@@ -146,7 +146,7 @@ class Filter extends DataObject {
 	 * Set the sequence id
 	 * @param $seq integer
 	 */
-	function setSeq($seq) {
+	function setSequence($seq) {
 		$this->setData('seq', $seq);
 	}
 
@@ -154,7 +154,7 @@ class Filter extends DataObject {
 	 * Get the sequence id
 	 * @return integer
 	 */
-	function getSeq() {
+	function getSequence() {
 		return $this->getData('seq');
 	}
 

@@ -30,15 +30,15 @@ class Representation extends DataObject {
 	 * Get sequence of format in format listings for the submission.
 	 * @return float
 	 */
-	function getSeq() {
+	function getSequence() {
 		return $this->getData('seq');
 	}
 
 	/**
 	 * Set sequence of format in format listings for the submission.
-	 * @param $sequence float
+	 * @param $seq float
 	 */
-	function setSeq($seq) {
+	function setSequence($seq) {
 		$this->setData('seq', $seq);
 	}
 

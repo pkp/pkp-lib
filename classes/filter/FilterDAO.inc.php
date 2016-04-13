@@ -129,7 +129,7 @@ class FilterDAO extends DAO {
 				$filter->getClassName(),
 				$filter->getIsTemplate()?1:0,
 				(int) $filter->getParentFilterId(),
-				(int) $filter->getSeq()
+				(int) $filter->getSequence()
 			)
 		);
 		$filter->setId((int)$this->getInsertId());
@@ -353,7 +353,7 @@ class FilterDAO extends DAO {
 				$filter->getClassName(),
 				$filter->getIsTemplate()?1:0,
 				(int) $filter->getParentFilterId(),
-				(int) $filter->getSeq(),
+				(int) $filter->getSequence(),
 				(int) $filter->getId()
 			)
 		);
@@ -501,7 +501,7 @@ class FilterDAO extends DAO {
 		$filter->setDisplayName($row['display_name']);
 		$filter->setIsTemplate((boolean)$row['is_template']);
 		$filter->setParentFilterId((int)$row['parent_filter_id']);
-		$filter->setSeq((int)$row['seq']);
+		$filter->setSequence((int)$row['seq']);
 		$this->getDataObjectSettings('filter_settings', 'filter_id', $row['filter_id'], $filter);
 
 		// Recursively retrieve sub-filters of this filter.

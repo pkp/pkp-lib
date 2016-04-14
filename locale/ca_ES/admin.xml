@@ -141,7 +141,7 @@ Aquesta eina només copiarà els fitxers que no es trobin al fitxer d'estats d'�
 	<message key="admin.copyAccessLogFileTool.error.noEgrep">No s'ha configurat la ruta Egrep. Consulteu config.inc.php, secció cli.</message>
 	<message key="admin.copyAccessLogFileTool.error.noGunzip">No s'ha configurat La ruta Gunzip. Consulteu config.inc.php, secció cli.</message>
 
-	<message key="admin.scheduledTask.downloadLog">La instal·lació de l'OJS ha executat i finalitzat aquesta tasca automàticament i ja podeu descarregar-vos el fitxer de registre aquí: {$url}</message>
+	<message key="admin.scheduledTask.downloadLog">La instal·lació de l'{$softwareName} ha executat i finalitzat aquesta tasca automàticament i ja podeu descarregar-vos el fitxer de registre aquí: {$url}</message>
 	<message key="admin.scheduledTask.confirmClearLogs">Esteu segur que voleu eliminar tots els registres d'execució de tasques programats?</message>
 	<message key="admin.scheduledTask.clearLogs">Neteja els registres d'execució de tasques programats</message>
 	<message key="admin.error.utilExecutionProblem">L'execució del programa "{$utilPath}" ha produït el següent error: {$output}</message>

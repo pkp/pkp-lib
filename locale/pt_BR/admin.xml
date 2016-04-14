@@ -52,7 +52,7 @@
 	<message key="admin.scheduledTask.startTime">Tarefa agendada iniciou.</message>
 	<message key="admin.scheduledTask.stopTime">Tarefa agendada parou.</message>
 	<message key="admin.scheduledTask.noLog">Tarefa não produziu log.</message>
-	<message key="admin.scheduledTask.downloadLog">Sua instalação OJS executou automaticamente e finalizou esta tarefa, você pode baixar os registros (logs) aqui: {$url}</message>
+	<message key="admin.scheduledTask.downloadLog">Sua instalação {$softwareName} executou automaticamente e finalizou esta tarefa, você pode baixar os registros (logs) aqui: {$url}</message>
 	<message key="admin.scheduledTask.confirmClearLogs">Você tem certeza de que deseja deletar todos os registros de execução de tarefas agendadas?</message>
 	<message key="admin.scheduledTask.clearLogs">Limpar Registros (logs) de Tarefas Agendadas</message>
 	<message key="admin.scheduledTask.reviewReminder">Lembrete de avaliador</message>

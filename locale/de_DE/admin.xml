@@ -52,7 +52,7 @@
 	<message key="admin.scheduledTask.startTime">Geplante Aufgabe wurde gestartet.</message>
 	<message key="admin.scheduledTask.stopTime">Geplante Aufgabe wurde beendet.</message>
 	<message key="admin.scheduledTask.noLog">Geplante Aufgabe hat keine Logdatei erzeugt.</message>
-	<message key="admin.scheduledTask.downloadLog">Ihre OJS-Installation hat diese Aufgabe automatisch ausgeführt und beendet. Sie können die Logdatei hier herunterladen: {$url}</message>
+	<message key="admin.scheduledTask.downloadLog">Ihre {$softwareName}-Installation hat diese Aufgabe automatisch ausgeführt und beendet. Sie können die Logdatei hier herunterladen: {$url}</message>
 	<message key="admin.scheduledTask.confirmClearLogs">Sind Sie sicher, dass Sie alle Logdateien zu geplanten Aufgaben löschen möchten?</message>
 	<message key="admin.scheduledTask.clearLogs">Logdateien zur Ausführung geplanter Aufgaben löschen</message>
 	<message key="admin.scheduledTask.reviewReminder">Erinnerung an Begutachtung</message>

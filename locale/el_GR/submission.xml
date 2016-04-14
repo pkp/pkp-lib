@@ -350,8 +350,6 @@
 	<message key="metadata.property.displayName.name-type">Τύπος ονόματος</message>
 	<message key="metadata.property.validationMessage.name-type">Παρακαλούμε σιγουρευτείρε ότι έχετε επιλέξει έναν έγκυρο τύπο ονόματος. Οι τύποι που υποστηρίζονται είναι "προσωπικό", "επιχείρηση" και "συνέδριο".</message>
 	<message key="submission.citations.editor.loadMessage">Παρακαλούμε περιμένετε να φορτωθεί ο Βοηθός σήμανσης παραπομπών</message>
-	<message key="submission.citations.editor.pleaseAddParserFilter"><![CDATA[Παρακαλούμε επικοινωνήστε με τον Διαχειριστή του περιοδικού σας ώστε να <a href="{$citationSetupUrl}">προσθέσει τουλάχιστον μια υπηρεσία αναφορών</a> πριν μπορέσετε να χρησιμοποιήσετε τον βοηθό σήμανσης αναφορών.]]></message>
-	<message key="submission.citations.editor.pleaseConfigureOutputStyle"><![CDATA[Παρακαλούμε επικοινωνήστε με τον Διαχειριστή του περιοδικού σας ώστε <a href="{$citationSetupUrl}">προσθέσει τουλάχιστον μια υπηρεσία εξαγωγής αναφορών</a> πριν μπορέσετε να  χρησιμοποιήσετε τον βοηθό σήμανσης αναφορών.]]></message>
 	<message key="submission.citations.editor.pleaseImportCitationsFirst"><![CDATA[<p>Δεν υπάρχουν αναφορές για αυτό το άρθρο.</p><p>Παρακαλούμε πηγαίνετε <a href="{$articleMetadataUrl}">στην σελίδα με τα μεταδεδομένα του άρθρου</a> και εισάγετε μια λίστα αναφορών ή εισάγετε αναφορές χειρωνακτικά.</p>]]></message>
 	<message key="submission.citations.editor.pleaseSelect">Παρακαλούμε περιμένετε...</message>
 	<message key="submission.citations.editor.pleaseSetup"><![CDATA[Παρακαλούμε επικοινωνήστε με τον Διαχειριστή του περιοδικού σας ώστε <a href="{$citationSetupUrl}">ενεργοποιήσει την επεξεργασία αναφορών</a> πριν μπορέσετε να  χρησιμοποιήσετε τον βοηθό σήμανσης αναφορών.]]></message>

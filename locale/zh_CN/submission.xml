@@ -352,8 +352,6 @@
 		<p>实验问吧导出选项包括 ABNT、APA、MLA 和 温哥华引用输出样式。这些选项提供了可以进行复制和粘贴到基于文本的文章校样（如Microsoft Word 或 OpenOffice; Adobe InDesign; 等）中的文本输出。每个引用包括一个嵌入的链接以便在Google学术中自动搜索引用。</p></li>
 	</ul>]]></message>
 	<message key="submission.citations.editor.loadMessage">请等待加载引用标记助理。</message>
-	<message key="submission.citations.editor.pleaseAddParserFilter"><![CDATA[请询问您的期刊管理员<a href="{$citationSetupUrl}">在您能使用引用标记助理之</a>前来添加至少一个引用提取服务。]]></message>
-	<message key="submission.citations.editor.pleaseConfigureOutputStyle"><![CDATA[请询问您的期刊管理员 <a href="{$citationSetupUrl}">在您能使用引用标记助理之前</a> 来配置引用导出样式。]]></message>
 	<message key="submission.citations.editor.pleaseImportCitationsFirst"><![CDATA[<p>没有该文章的引用。</p><p>请到文章 <a href="{$articleMetadataUrl}">元数据页面</a> 并输入引用列表或使用编辑中的添加项目按钮来手动添加参考文献。</p>]]></message>
 	<message key="submission.citations.editor.pleaseSetup"><![CDATA[请询问您的期刊管理员<a href="{$citationSetupUrl}">在您能够使用引用标记助理前</a> 来启用引用编辑。]]></message>
 	<message key="submission.citations.editor.unprocessedCitations">该文章引用仍然在服务器上进行处理。当前的引用列表只包含已经处理过的引用。请点击刷新按钮查看与此同时正在处理的引用。</message>

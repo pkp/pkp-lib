@@ -217,8 +217,6 @@ Pastikan Anda mengatur tipe judul yang valid. Nilai dukungan adalah "disingkat",
 		<p>Pilihan ekspor teks eksperimental termasuk ABNT, APA, MLA dan model output Sitiran vancouver. Pilihan ini menyediakan output teks yang dapat disalin ke dalam galley artikel text-based (sebagai contoh: ke dalam Microsoft Word atau OpenOffice; Adobe InDesign; dll.). Tiap Sitiran termasuk tautan yang dimasukkan untuk secara otomatis mencari Sitiran di Google Scholar.</p></li>
 	</ul>]]></message>
 	<message key="submission.citations.editor.loadMessage">Tunggu bantuan Koreksi Sitiran untuk dimuat.</message>
-	<message key="submission.citations.editor.pleaseAddParserFilter"><![CDATA[Minta Jurnal Manajer untuk <a href="{$citationSetupUrl}">menambah setidaknya satu layanan ekstrasi Sitiran </a> sebelum Anda dapat menggunakannya bantuan Koreksi Sitiran.]]></message>
-	<message key="submission.citations.editor.pleaseConfigureOutputStyle"><![CDATA[Minta manajer jurnal Anda untuk <a href="{$citationSetupUrl}">mengkonfigurasi model ekspor Sitiran</a> sebelum Anda dapat menggunakan bantuan Koreksi Sitiran.]]></message>
 	<message key="submission.citations.editor.pleaseImportCitationsFirst"><![CDATA[<p>Tidak ada Sitiran untuk artikel ini.</p><p>Pergi ke <a href="{$articleMetadataUrl}">halaman metadata artikel</a> dan masukkan daftar referensi atau tambahkan referensi secara manual dengan menggunakan tombol tambah item dari editor.</p>]]></message>
 	<message key="submission.citations.editor.pleaseSelect">Pilih...</message>
 	<message key="submission.citations.editor.pleaseSetup"><![CDATA[Minta manajer jurnal untuk <a href="{$citationSetupUrl}">memudahkan pengeditan Sitiran</a> sebelum Anda dapat mengakses bantuan koreksi Sitiran.]]></message>

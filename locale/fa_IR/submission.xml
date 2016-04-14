@@ -370,16 +370,6 @@ Coleman Jr, D. (Ralf) Dr</message>
 				<strong>
 ویرایش]]></message>
 	<message key="submission.citations.editor.loadMessage">لطفا تا بارگیری مددیار مارک آپ ارجاع صبر کنید.</message>
-	<message key="submission.citations.editor.pleaseAddParserFilter"><![CDATA[لطفا از مدیر مجله تان بخواهید تا 
-<a href="{$citationSetupUrl}">
-حداقل یک سرویس استخراج ارجاع
-</a>
-را اضافه کند.]]></message>
-	<message key="submission.citations.editor.pleaseConfigureOutputStyle"><![CDATA[لطفا از مدیر مجله تان بخواهید تا 
-<a href="{$citationSetupUrl}">
-حداقل یک سرویس استخراج ارجاع
-</a>
-را اضافه کند.]]></message>
 	<message key="submission.citations.editor.pleaseImportCitationsFirst"><![CDATA[<p>
 هیچ ارجاعی برای این مقاله وجود ندارد.
 </p>

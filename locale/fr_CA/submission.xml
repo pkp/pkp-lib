@@ -353,8 +353,6 @@
 	<message key="submission.citations.editor.export.pleaseSelectXmlFilter">Options de sortie XML :</message>
 	<message key="submission.citations.editor.export.pleaseSelectPlaintextFilter">Style de sortie des références (expérimental seulement!) :</message>
 	<message key="submission.citations.editor.introduction">Introduction</message>
-	<message key="submission.citations.editor.pleaseAddParserFilter"><![CDATA[Veuillez demander à votre directeur de revue d'<a href="{$citationSetupUrl}">ajouter au minimum un service d'extraction de références</a> avant de pouvoir utiliser l'assistant au balisage de références.]]></message>
-	<message key="submission.citations.editor.pleaseConfigureOutputStyle"><![CDATA[Veuillez demander à votre directeur de revue de <a href="{$citationSetupUrl}">configurer au minimum un style d'exportation de références</a> avant de pouvoir utiliser l'assistant au balisage de références.]]></message>
 	<message key="submission.citations.editor.pleaseImportCitationsFirst"><![CDATA[<p>Il n'y a aucune référence pour cet article.</p><p>Veuillez aller à la <a href="{$articleMetadataUrl}">page des métadonnées</a> de l'article pour saisir une liste de références ou ajouter manuellement des références à l'aide du bouton 'Ajouter un élément' de l'éditeur.</p>]]></message>
 	<message key="submission.citations.editor.pleaseSelect">Veuillez sélectionner...</message>
 	<message key="submission.citations.editor.pleaseSetup"><![CDATA[Veuillez demander à votre directeur de revue d'<a href="{$citationSetupUrl}">activer l'édition de références</a> avant de pouvoir accéder à l'assistant au balisage de références.]]></message>

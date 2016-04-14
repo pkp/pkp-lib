@@ -155,7 +155,7 @@
 	<message key="common.initiate">Iniciar</message>
 	<message key="common.inProgress">Em andamento</message>
 	<message key="common.itemsPerPage">Itens por página</message>
-	<message key="common.favicon.altText">Favicon da Revista</message>
+	<message key="common.favicon.altText">Favicon</message>
 	<message key="common.keywords">Palavras-chave</message>
 	<message key="common.language">Idioma</message>
 	<message key="common.languages">Idiomas</message>

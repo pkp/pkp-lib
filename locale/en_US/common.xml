@@ -155,7 +155,7 @@
 	<message key="common.initiate">Initiate</message>
 	<message key="common.inProgress">In progress</message>
 	<message key="common.itemsPerPage">Items per page</message>
-	<message key="common.favicon.altText">Journal Favicon</message>
+	<message key="common.favicon.altText">Favicon</message>
 	<message key="common.keywords">Keywords</message>
 	<message key="common.language">Language</message>
 	<message key="common.languages">Languages</message>

@@ -531,6 +531,8 @@ class PKPReviewerGridHandler extends GridHandler {
 			$templateMgr->assign('commentPrivate', $submissionCommentPrivate?$submissionCommentPrivate->getComments():'');
 		}
 
+		$templateMgr->assign_by_ref('reviewerRecommendationOptions', ReviewAssignment::getReviewerRecommendationOptions());
+
 		// Render the response.
 		return $templateMgr->fetchJson('controllers/grid/users/reviewer/readReview.tpl');
 	}

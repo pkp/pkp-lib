@@ -16,15 +16,13 @@
 
 // Access decision actions constants.
 import('classes.workflow.EditorDecisionActionsManager');
-import('lib.pkp.classes.submission.action.PKPAction');
 
-class ReviewerAction extends PKPAction {
+class ReviewerAction {
 
 	/**
 	 * Constructor
 	 */
 	function ReviewerAction() {
-		parent::PKPAction();
 	}
 
 	//

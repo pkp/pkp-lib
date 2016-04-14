@@ -13,17 +13,14 @@
  * @brief Editor actions.
  */
 
-import('lib.pkp.classes.submission.action.PKPAction');
-
 // Access decision actions constants.
 import('classes.workflow.EditorDecisionActionsManager');
 
-class EditorAction extends PKPAction {
+class EditorAction {
 	/**
 	 * Constructor.
 	 */
 	function EditorAction() {
-		parent::PKPAction();
 	}
 
 	//

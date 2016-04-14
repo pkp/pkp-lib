@@ -218,8 +218,6 @@
 		<p>Експериментальна опція експорту цитат як тексту включає підтримку форматів цитування ABNT, APA, MLA та Vancouver. В цьому випадку ви отримаєте текстовий блок, який можна копіювати та вставити у текстову гранку статті (наприклад, у файл Microsoft Word або OpenOffice; Adobe InDesign тощо). Кожна цитата має вбудоване посилання для автоматичного пошуку посилань у Google Академії.</p></li>
 	</ul>]]></message>
 	<message key="submission.citations.editor.loadMessage">Будь ласка, зачекайте поки завантажиться Помічник розмітки цитат.</message>
-	<message key="submission.citations.editor.pleaseAddParserFilter"><![CDATA[Будь ласка, попросіть менеджера вашого журналу <a href="{$citationSetupUrl}">додати принаймні одну службу екстракції цитат</a>, щоб ви могли використовувати Помічник розмітки цитат.]]></message>
-	<message key="submission.citations.editor.pleaseConfigureOutputStyle"><![CDATA[Будь ласка, попросіть менеджера вашого журналу <a href="{$citationSetupUrl}">налаштувати вихідний формат цитат</a>, щоб ви могли використовувати Помічник розмітки цитат.]]></message>
 	<message key="submission.citations.editor.pleaseImportCitationsFirst"><![CDATA[<p>Ця стаття не має цитат.</p><p>Будь ласка, перейдіть до <a href="{$articleMetadataUrl}">сторінки метаданих</a> статті та введіть список пристатейної бібліографії або вручну додайте посилання, скориставшись кнопкою "Нова цитата" цього редактора.</p>]]></message>
 	<message key="submission.citations.editor.pleaseSelect">Будь ласка, оберіть...</message>
 	<message key="submission.citations.editor.pleaseSetup"><![CDATA[Будь ласка, попросіть менеджера вашого журналу <a href="{$citationSetupUrl}">дозволити редагування цитат</a>, щоб ви могли використовувати Помічник розмітки цитат.]]></message>

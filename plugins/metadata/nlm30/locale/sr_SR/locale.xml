@@ -36,7 +36,6 @@
 
 	<!-- NLM 3.0 output -->
 	<message key="plugins.metadata.nlm30.nlm30XmlOutput.displayName">NLM 3.0 Journal Publishing Output</message>
-	<message key="plugins.metadata.nlm30.nlm30XmlOutput.description">konvertuje OJS ili OCS članak/rad u NLM 3.0.</message>
 
 	<!-- NLM 2.3 output -->
 	<message key="plugins.metadata.nlm30.nlm23XmlOutput.displayName">NLM 2.3 Journal Publishing Output</message>

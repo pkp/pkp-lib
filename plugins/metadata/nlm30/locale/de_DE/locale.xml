@@ -36,7 +36,6 @@
 
 	<!-- NLM 3.0 output -->
 	<message key="plugins.metadata.nlm30.nlm30XmlOutput.displayName">NLM 3.0 Zeitschriftenausgabe</message>
-	<message key="plugins.metadata.nlm30.nlm30XmlOutput.description">Konvertiere einen Artikel aus OJS oder OCS in NLM 3.0.</message>
 
 	<!-- NLM 2.3 output -->
 	<message key="plugins.metadata.nlm30.nlm23XmlOutput.displayName">NLM 2.3 Zeitschriftenausgabe</message>

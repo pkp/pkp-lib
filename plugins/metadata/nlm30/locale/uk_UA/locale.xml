@@ -36,7 +36,6 @@
 
 	<!-- NLM 3.0 output -->
 	<message key="plugins.metadata.nlm30.nlm30XmlOutput.displayName">Відображення журналу NLM 3.0</message>
-	<message key="plugins.metadata.nlm30.nlm30XmlOutput.description">Конвертувати статтю OJS або доповідь OCS у формат NLM 3.0.</message>
 
 	<!-- NLM 2.3 output -->
 	<message key="plugins.metadata.nlm30.nlm23XmlOutput.displayName">Відображення журналу NLM 2.3</message>

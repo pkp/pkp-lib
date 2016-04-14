@@ -36,7 +36,6 @@
 
 	<!-- NLM 3.0 output -->
 	<message key="plugins.metadata.nlm30.nlm30XmlOutput.displayName">Output Penerbitan Jurnal NLM 3.0</message>
-	<message key="plugins.metadata.nlm30.nlm30XmlOutput.description">Konversi artikel/tulisan OJS atau OCS ke dalam NLM 3.0.</message>
 
 	<!-- NLM 2.3 output -->
 	<message key="plugins.metadata.nlm30.nlm23XmlOutput.displayName">Output Penerbitan Jurnal NLM 2.3</message>

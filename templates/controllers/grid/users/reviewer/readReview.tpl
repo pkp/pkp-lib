@@ -53,12 +53,16 @@
 
 				{if $reviewAssignment->getReviewFormId()}
 					{include file="reviewer/review/reviewFormResponse.tpl"}
-				{elseif $comment}
+				{elseif $comment || $commentPrivate}
 					<h3>{translate key="editor.review.reviewerComments"}</h3>
-					<h4>{translate key="submission.comments.canShareWithAuthor"}</h4>
-					{include file="controllers/revealMore.tpl" content=$comment|strip_unsafe_html}
-					<h4>{translate key="submission.comments.cannotShareWithAuthor"}</h4>
-					{include file="controllers/revealMore.tpl" content=$commentPrivate|strip_unsafe_html}
+					{if $comment}
+						<h4>{translate key="submission.comments.canShareWithAuthor"}</h4>
+						{include file="controllers/revealMore.tpl" content=$comment|strip_unsafe_html}
+					{/if}
+					{if $commentPrivate}
+						<h4>{translate key="submission.comments.cannotShareWithAuthor"}</h4>
+						{include file="controllers/revealMore.tpl" content=$commentPrivate|strip_unsafe_html}
+					{/if}
 				{/if}
 				{if $reviewAssignment->getCompetingInterests()}
 					<h3>{translate key="reviewer.submission.competingInterests"}</h3>

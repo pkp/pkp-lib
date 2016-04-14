@@ -236,8 +236,6 @@
 		<p>Experimental text export options include ABNT, APA, MLA and Vancouver citation output styles. These options provide a text output that can be copied and pasted into a text-based article galley (for example into Microsoft Word or OpenOffice; Adobe InDesign; etc.). Each citation includes an embedded link to automatically search for that citation in Google Scholar.</p></li>
 	</ul>]]></message>
 	<message key="submission.citations.editor.loadMessage">Please wait for the citation markup assistant to load.</message>
-	<message key="submission.citations.editor.pleaseAddParserFilter"><![CDATA[Please ask your journal manager to <a href="{$citationSetupUrl}">add at least one citation extraction service</a> before you can use the citation markup assistant.]]></message>
-	<message key="submission.citations.editor.pleaseConfigureOutputStyle"><![CDATA[Please ask your journal manager to <a href="{$citationSetupUrl}">configure a citation export style</a> before you can use the citation markup assistant.]]></message>
 	<message key="submission.citations.editor.pleaseImportCitationsFirst"><![CDATA[<p>There are no citations for this article.</p><p>Please go to the article's <a href="{$articleMetadataUrl}">metadata page</a> and enter a reference list or add references manually using the add item button of the editor.</p>]]></message>
 	<message key="submission.citations.editor.pleaseSelect">Please select...</message>
 	<message key="submission.citations.editor.pleaseSetup"><![CDATA[Please ask your journal manager to <a href="{$citationSetupUrl}">enable citation editing</a> before you can access the citation markup assistant.]]></message>

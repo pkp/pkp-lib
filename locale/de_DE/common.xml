@@ -512,7 +512,7 @@
 	<message key="common.completed.date">Beendet: {$dateCompleted}</message>
 	<message key="common.confirmed.date">Bestätigt: {$dateConfirmed}</message>
 	<message key="common.homepageNavigationLabel">Home</message>
-	<message key="common.favicon.altText">Favicon der Zeitschrift</message>
+	<message key="common.favicon.altText">Favicon</message>
 	<message key="common.notified.date">Benachrichtigt: {$dateNotified}</message>
 	<message key="common.pageNumber">Seite {$pageNumber}</message>
 	<message key="common.percentage">{$percentage}%</message>

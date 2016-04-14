@@ -481,7 +481,7 @@
 	<message key="user.authorization.authorRoleMissing">Actualmente no posee los permisos suficientes para ver el envío. Edite su perfil para asegurarse de que le han concedido el rol apropiado en la opción "Registrarse como".</message>
 	<message key="user.authorization.submissionAuthor">El usuario/a actual no es el autor/a del envío solicitado. Compruebe que se ha identificado con la cuenta de usuario/a correcta.</message>
 	<message key="common.homepageNavigationLabel">Inicio</message>
-	<message key="common.favicon.altText">Icono de página de la revista</message>
+	<message key="common.favicon.altText">Icono de página</message>
 	<message key="common.pageNumber">Página {$pageNumber}</message>
 	<message key="common.percentage">{$percentage}%</message>
 	<message key="common.queue.long.active">Todo activo</message>

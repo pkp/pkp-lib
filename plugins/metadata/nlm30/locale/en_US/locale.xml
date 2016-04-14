@@ -40,7 +40,7 @@
 
 	<!-- NLM 2.3 output -->
 	<message key="plugins.metadata.nlm30.nlm23XmlOutput.displayName">NLM 2.3 Journal Publishing Output</message>
-	<message key="plugins.metadata.nlm30.nlm23XmlOutput.description">Convert an OJS or OCS article/paper into NLM 2.3.</message>
+	<message key="plugins.metadata.nlm30.nlm23XmlOutput.description">Convert a submission into NLM 2.3.</message>
 
 	<!-- NLM 3.0 to 2.3 downgrade -->
 	<message key="plugins.metadata.nlm30.nlm30ToNlm23Xml.displayName">NLM 3.0 to 2.3 Journal Publishing Downgrade</message>

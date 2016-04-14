@@ -139,6 +139,6 @@ Uso (procesamiento de todos los archivos dentro de un directorio): {$scriptName}
 	<message key="admin.scheduledTask.clearLogs">Limpiar el registro de ejecución de tareas programadas</message>
 	<message key="admin.error.utilExecutionProblem">La ejecución del programa "{$utilPath}" produjo el siguiente error: {$output}</message>
 	<message key="admin.error.executingUtil">Error: no se puede ejecutar "{$utilPath}". Compruebe su configuración {$utilVar} en config.inc.php.</message>
-	<message key="admin.scheduledTask.downloadLog">Su instalación de OJS ejecutó y finalizó automáticamente esta tarea y  puede descargarse el fichero de registro aquí: {$url}</message>
+	<message key="admin.scheduledTask.downloadLog">Su instalación de {$softwareName} ejecutó y finalizó automáticamente esta tarea y  puede descargarse el fichero de registro aquí: {$url}</message>
 	<message key="admin.scheduledTask.confirmClearLogs">Está seguro de que quiere eliminar todos los registros de ejecución de tareas programados?</message>
 </locale>

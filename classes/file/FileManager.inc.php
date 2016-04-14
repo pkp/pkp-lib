@@ -351,7 +351,11 @@ class FileManager {
 	 */
 	function mkdirtree($dirPath, $perms = null) {
 		if (!file_exists($dirPath)) {
-			if ($this->mkdirtree(dirname($dirPath), $perms)) {
+			//Avoid infinite recursion when file_exists reports false for root directory
+			if ($dirPath == dirname ( $dirPath )) {
+				trigger_error ( 'There are no readable files in this directory tree. Is safe mode or open_basedir active?', E_USER_ERROR );
+				return false;
+			} else if ($this->mkdirtree(dirname($dirPath), $perms)) {
 				return $this->mkdir($dirPath, $perms);
 			} else {
 				return false;

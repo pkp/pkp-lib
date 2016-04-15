@@ -342,7 +342,7 @@ class ListbuilderHandler extends GridHandler {
 	//
 	/**
 	 * @see GridHandler::getRowInstance()
-	 * @return CitationGridRow
+	 * @return ListbuilderGridRow
 	 */
 	protected function getRowInstance() {
 		// Return a citation row

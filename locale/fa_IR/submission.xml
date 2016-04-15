@@ -377,8 +377,6 @@ Coleman Jr, D. (Ralf) Dr</message>
 	<message key="submission.citations.editor.unprocessedCitationsButtonTitle">برای تازه سازی لیست ارجاع کلیک کنید</message>
 	<message key="submission.citations.filter.invalidMetadata">بروز خطا در {$filterName}: یکی از المان های داده برگشتی از منبع داده با فرمت متاداده داخلی مطابقت ندارد. بنابراین نتایج حاصل از منبع داده رد شد. لطفا باگ را گزارش کنید.</message>
 	<message key="submission.citations.filter.noResultFromFilterError">چندین سرویس ارجاع هیچ نتیجه ای برنگرداندند. می توانید بصورت دستی فیلدها را ویرایش کنید و سپس سرویس ارجاع را از نو جستجو کنید. اگر فایده نداشت در این صورت ارجاع در خواستی در هیچ یک نیست</message>
-	<message key="submission.citations.filter.webserviceError">یک خطا از وب سرویس مربوط به {$filterName} با آدرس زیر روی دارده است: {$webserviceUrl}
-ممکن است سرویس وب مذکور بطور موقت در دسترس نباشد. البته شما می توانید با بقیه سرویس های آن کار کنید و نتایج خود را ذخیره کنید. همچنین می توانید بعدا نیز امتحان کتید. اگر خطا ادامه یافت لطفا از مدیر مجله بخواهید تا این سرویس را غیر فعال کرده و باگ را گزارش کند.</message>
 	<message key="submission.citations.filter.webserviceResultTransformationError">در {$filterName} خطائی رخ داده است. ترانس فورماسیون نتایج XML به صورت متاداده متکی به فیلد شکست خورده است. ممکن است دلیل آن این باشد که سرویس وب مذکور داده های بی اعتبار و یا ناکامل برگردانده است. لطفا باگ را گزارش کنید.</message>
 	<message key="submission.citations.metadata.changeWarning">آیا مطمئن هستید که می خواهید لیست رفرانس ها را بروز رسانی کنید؟ در صورت کلیک بر روی OK تمام تغییرات ادیتور از بین می رود. اگر مطمئن نیستید با ادیتور تماس بگیرید.</message>
 	<message key="submission.page.citations">#{$id} ارجاعات</message>

@@ -442,8 +442,6 @@
 	<message key="search.cli.rebuildIndex.clearingIndex">Index löschen</message>
 	<message key="search.cli.rebuildIndex.done">erledigt</message>
 	<message key="search.cli.rebuildIndex.error">Fehler</message>
-	<message key="search.cli.rebuildIndex.indexing">Indiziere "{$journalName}"</message>
-	<message key="search.cli.rebuildIndex.indexingByJournalNotSupported">Diese Implementierung der Suche erlaubt keine Neuindizierung auf Zeitschriftenebene.</message>
 	<message key="search.cli.rebuildIndex.result">{$numIndexed} Artikel indiziert</message>
 	<message key="search.cli.rebuildIndex.unknownJournal">Der angegebene Pfad "{$journalPath}" führt nicht zu einer Zeitschrift.</message>
 	<message key="search.coverage">Bereich</message>

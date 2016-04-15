@@ -460,8 +460,6 @@
 	<message key="search.cli.rebuildIndex.clearingIndex">Índice de tiragem</message>
 	<message key="search.cli.rebuildIndex.done">feito</message>
 	<message key="search.cli.rebuildIndex.error">erro</message>
-	<message key="search.cli.rebuildIndex.indexing">Indexando "{$journalName}"</message>
-	<message key="search.cli.rebuildIndex.indexingByJournalNotSupported">A implementação desta busca não permite a reindexação por revista.</message>
 	<message key="search.cli.rebuildIndex.result">{$numIndexed} artigos indexados</message>
 	<message key="search.cli.rebuildIndex.unknownJournal">O seguinte caminho da revistas "{$journalPath}" não leva a uma revista.</message>
 	<message key="search.coverage">Cobertura</message>

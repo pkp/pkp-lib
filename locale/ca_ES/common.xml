@@ -432,8 +432,6 @@
 	<message key="search.cli.rebuildIndex.clearingIndex">Neteja de l'índex</message>
 	<message key="search.cli.rebuildIndex.done">fet</message>
 	<message key="search.cli.rebuildIndex.error">error</message>
-	<message key="search.cli.rebuildIndex.indexing">Indexació «{$journalName}» </message>
-	<message key="search.cli.rebuildIndex.indexingByJournalNotSupported">Aquesta implementació de la cerca no permet la reindexació per revista.</message>
 	<message key="search.cli.rebuildIndex.result">S'han indexat {$numIndexed} articles</message>
 	<message key="search.cli.rebuildIndex.unknownJournal">La ruta «{$journalPath}» que heu proporcionat no condueix a cap revista.</message>
 	<message key="search.coverage">Cobertura</message>

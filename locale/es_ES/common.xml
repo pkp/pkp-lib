@@ -417,7 +417,6 @@
 	<message key="search.cli.rebuildIndex.done">hecho</message>
 	<message key="search.cli.rebuildIndex.error">error</message>
 	<message key="search.cli.rebuildIndex.result">{$numIndexed} artículos indexados</message>
-	<message key="search.cli.rebuildIndex.unknownJournal">La ruta de la revista proporcionada "{$journalPath}" no corresponde con ninguna revista.</message>
 	<message key="search.coverage">Cobertura</message>
 	<message key="search.date">Fecha de publicación</message>
 	<message key="search.dateFrom">Desde</message>

@@ -461,7 +461,6 @@
 	<message key="search.cli.rebuildIndex.done">feito</message>
 	<message key="search.cli.rebuildIndex.error">erro</message>
 	<message key="search.cli.rebuildIndex.result">{$numIndexed} artigos indexados</message>
-	<message key="search.cli.rebuildIndex.unknownJournal">O seguinte caminho da revistas "{$journalPath}" não leva a uma revista.</message>
 	<message key="search.coverage">Cobertura</message>
 	<message key="search.date">Data</message>
 	<message key="search.dateFrom">De</message>

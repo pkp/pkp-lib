@@ -74,6 +74,28 @@ class StageParticipantGridRow extends GridRow {
 			$stageAssignment = $this->getData();
 			$userId = $stageAssignment->getUserId();
 			$this->addAction(new NotifyLinkAction($request, $submission, $stageId, $userId));
+
+			$user = $request->getUser();
+			if (
+				!Validation::isLoggedInAs() &&
+				$user->getId() != $rowId &&
+				Validation::canAdminister($rowId, $user->getId())
+			) {
+				$dispatcher = $router->getDispatcher();
+				import('lib.pkp.classes.linkAction.request.RedirectConfirmationModal');
+				$this->addAction(
+					new LinkAction(
+						'logInAs',
+						new RedirectConfirmationModal(
+							__('grid.user.confirmLogInAs'),
+							__('grid.action.logInAs'),
+							$dispatcher->url($request, ROUTE_PAGE, null, 'login', 'signInAsUser', $this->getId())
+						),
+						__('grid.action.logInAs'),
+						'enroll_user'
+					)
+				);
+			}
 		}
 	}
 

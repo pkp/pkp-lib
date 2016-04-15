@@ -224,7 +224,6 @@
 	<message key="submission.citations.editor.loadMessage">Espera a que cargue el editor de citas.</message>
 	<message key="submission.citations.editor.pleaseImportCitationsFirst"><![CDATA[<p>No hay citas para este artículo.</p><p>Diríjase a la <a href="{$articleMetadataUrl}">página de metadatos</a> del artículo e introduzca una lista de referencias o añada referencias manualmente con el botón de añadir elemento del editor.</p>]]></message>
 	<message key="submission.citations.editor.pleaseSelect">Por favor, seleccione...</message>
-	<message key="submission.citations.editor.pleaseSetup"><![CDATA[Solicite al gestor/a de la revista que <a href="{$citationSetupUrl}">active la edición de citas</a> para poder acceder al Asistente de marcado de citas.]]></message>
 	<message key="submission.citations.editor.unprocessedCitations">Las citas de este artículo aún se están procesando en el servidor. La lista de citas actual solo contiene citas ya procesadas. Haga clic en el botón de actualizar para ver las citas que han acabado de procesarse.</message>
 	<message key="submission.citations.editor.unprocessedCitationsButton">Refrescar la lista de citas</message>
 	<message key="submission.citations.editor.unprocessedCitationsButtonTitle">Haz clic para refrescar la lista de citas.</message>

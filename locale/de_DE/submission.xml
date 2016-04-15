@@ -224,7 +224,6 @@
 	<message key="submission.citations.editor.loadMessage">Bitte warten Sie, bis der Zitationsauszeichnungsassistent geladen worden ist.</message>
 	<message key="submission.citations.editor.pleaseImportCitationsFirst"><![CDATA[<p>Es gibt keine Zitationen für diesen Artikel.</p><p>Bitte gehen Sie zu der <a href="{$articleMetadataUrl}">Metadaten-Seite</a> dieses Artikels und geben Sie eine Literaturliste ein oder fügen Sie Literaturverweise manuell hinzu, in dem Sie den Hinzufügen-Knopf benutzen.]]></message>
 	<message key="submission.citations.editor.pleaseSelect">Bitte wählen Sie aus…</message>
-	<message key="submission.citations.editor.pleaseSetup"><![CDATA[Bitten Sie bitte Ihre/n Zeitschriftenverwalter/in um die <a href="{$citationSetupUrl}">Aktivierung der Zitationsbearbeitung</a>, bevor Sie den Zitationsauszeichnungsassistent starten können.]]></message>
 	<message key="submission.citations.editor.unprocessedCitations">Die Zitationen dieses Artikels werden noch auf dem Server bearbeitet. Die aktuelle Zitationsliste  enthält nur bereits verarbeitete Zitationen. Bitte klicken Sie auf den Aktualisieren-Schalter, um die Zitationen anzuzeigen, die in der Zwischenzeit hinzugefügt worden sind.</message>
 	<message key="submission.citations.editor.unprocessedCitationsButton">Zitationsliste aktualisieren</message>
 	<message key="submission.citations.editor.unprocessedCitationsButtonTitle">Klicken Sie, um die Zitationsliste zu aktualisieren.</message>

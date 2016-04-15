@@ -333,7 +333,6 @@
 	</ul>]]></message>
 	<message key="submission.citations.editor.pleaseImportCitationsFirst"><![CDATA[<p>Ez dago aipurik artikulu honentzat.</p><p>Mesedez, joan zaitez artikuluaren href="{$articleMetadataUrl}">metadatuen orrira</a> eta sartu erreferentzien zerrenda edo gehitu eskuz erreferentziak, editatzailearen “Gehitu elementua” botoia erabiliz.</p>]]></message>
 	<message key="submission.citations.editor.pleaseSelect">Mesedez, hautatu…</message>
-	<message key="submission.citations.editor.pleaseSetup"><![CDATA[Mesedez, eskatu zure aldizkariaren kudeatzaileari <a href="{$citationSetupUrl}"> aipuak editatzea gaitzeko</a> aipuak markatzeko laguntzailera sartu baino lehen.]]></message>
 	<message key="submission.citations.editor.unprocessedCitations">Artikulu honetako aipuak zerbitzarian prozesatzen ari dira oraindik. Aipuen zerrenda honek dagoeneko prozesatuta dauden aipuak ditu soilik. Oraindik prozesatu gabe dauden aipuak ikusteko, egin klik “berritu” botoian, mesedez.</message>
 	<message key="submission.citations.editor.unprocessedCitationsButton">Berritu aipuen zerrenda</message>
 	<message key="submission.citations.editor.unprocessedCitationsButtonTitle">Egin klik aipuen zerrenda berritzeko.</message>

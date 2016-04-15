@@ -150,7 +150,6 @@
 	<message key="submission.citations.editor.details.citationImprovementResultsInactive">Результати експертної служби внутрішніх цитувань (натисніть для відкриття)</message>
 	<message key="submission.citations.editor.details.citationServices">Служби цитувань</message>
 	<message key="submission.citations.editor.details.clickToDismissMessage">Ви можете натиснути на тексті повідомлення, щоб очистити його.</message>
-	<message key="submission.citations.editor.details.databaseQueryExplanation">Нижче знаходиться список служб цитування, налаштованих для вашого журналу. Були вибрані служби, які менеджер вашого журналу визначив як найбільш релевантні. У своєму запиті ви, на власний розсуд, можете включати додаткові служби або відключати вибрані.</message>
 	<message key="submission.citations.editor.details.dataSaved">Ваші зміни були збережені.</message>
 	<message key="submission.citations.editor.details.editRawCitationDatabaseServices">Виберіть бази даних цитованості:</message>
 	<message key="submission.citations.editor.details.editRawCitationExpertSettingsActive">Експертні налаштування редагування цитат (натисніть для закриття)</message>

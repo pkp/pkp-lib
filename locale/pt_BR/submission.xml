@@ -345,7 +345,6 @@
 	<message key="submission.citations.editor.details.queryCitation">Pesquisar serviços de citação novamente</message>
 
 	<message key="submission.citations.editor.details.authorQueryExplanation">Solicite ao autor mais informações sobre a citação atual. Clique no botão 'enviar' a seguir para encaminhar sua mensagem via e-mail ao autor.</message>
-	<message key="submission.citations.editor.details.databaseQueryExplanation">A seguir, apresentamos uma lista de serviços de citação configurados para seu sistema. Os serviços considerados mais relevantes estão pré-selecionados. Inclua os serviços adicionais de acordo com sua necessidade.</message>
 	<message key="submission.citations.editor.details.googleScholarExplanation">Caso uma citação não tenha sido encontrada em nenhum serviço de citações, ainda assim pode tentar encontrá-la no Google Acadêmico. Infelizmente, esse serviço não oferece uma interface com campos que possa ser usada, o que impossibilita a execução e retorno automático dos dados no Assistente. Será necessário copiar e colar a informação manualmente dos resultados do Google para os campos.</message>
 	<message key="submission.citations.editor.details.authorQuery">Perguntar ao autor</message>
 	<message key="submission.citations.editor.details.citationServices">Serviços de citação</message>

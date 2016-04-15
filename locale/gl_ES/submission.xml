@@ -281,7 +281,6 @@
 	<message key="submission.citations.editor.details.citationImprovementResultsInactive">Resultados del servicio experto de citas internas (haga clic para abrir)</message>
 	<message key="submission.citations.editor.details.citationServices">Servicios de Citas</message>
 	<message key="submission.citations.editor.details.clickToDismissMessage">Puede hacer clic en el texto de un mensaje para descartarlo.</message>
-	<message key="submission.citations.editor.details.databaseQueryExplanation"><![CDATA[A continuación encontrará una lista de servicios de citas configurados para su revista. Los servicios que un <em>Gestor de la revista</em> considera más relevantes para la revista han sido pre-seleccionados. Puede incluir servicios adicionales en su consulta o excluir los servicios que desee.]]></message>
 	<message key="submission.citations.editor.details.dataSaved">Sus cambios se han guardado.</message>
 	<message key="submission.citations.editor.details.editRawCitationDatabaseServices">Seleccione Servicios de Base de Datos de Citas:</message>
 	<message key="submission.citations.editor.details.editRawCitationExpertSettingsActive">Opciones de edición de citas expertas (Haga clic para cerrar)</message>

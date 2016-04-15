@@ -328,7 +328,6 @@
 	<message key="metadata.property.validationMessage.fpage">Geef een geldige eerste pagina (moet een numerieke waarde zijn).</message>
 	<message key="metadata.property.validationMessage.publisher-name">Geef een geldige uitgeversnaam</message>
 	<message key="metadata.property.validationMessage.isbn">Geef een geldig ISBN (9 of 13 cijfers)</message>
-	<message key="submission.citations.editor.details.databaseQueryExplanation">Hieronder vindt u de lijst met citatiediensten die voor uw tijdschrift geconfigureerd zijn. De diensten die volgens uw tijdschriftbeheerder het meest relevant zijn, zijn al geselecteerd. U kunt additionele diensten in uw vraag opnemen of diensten uitschakelen.</message>
 	<message key="submission.citations.editor.introduction.introductionMessage"><![CDATA[<h4>Welkom bij de citatie-markering assistent!</h4>
 	<p>Met deze assistent kunt u de citaties van de auteur markeren voor export naar NLM 2.3 of 3.0 XML proeven, of naar tekst-uitvoer. Dit gereedschap probeert om te beginnen de citaties automatisch te extraheren en herkennen, maar u kunt op ieder moment zelf de resultaten aanpassen.</p>
 	<ul>

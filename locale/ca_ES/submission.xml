@@ -167,7 +167,6 @@
 	<message key="submission.citations.editor.details.citationImprovementResultsInactive">Resultats del servei de citació interna d'experts (feu clic per obrir)</message>
 	<message key="submission.citations.editor.details.citationServices">Serveis de citació</message>
 	<message key="submission.citations.editor.details.clickToDismissMessage">Podeu fer clic al text d'un missatge per descartar-lo.</message>
-	<message key="submission.citations.editor.details.databaseQueryExplanation">A continuació, trobareu una llista de serveis de citació configurats per a la vostra revista. S'han preseleccionat el serveis que l'administrador/a de la revista considera més rellevants per a la revista. Podeu incloure o excloure tants serveis addicionals com desitgeu a la vostra consulta.</message>
 	<message key="submission.citations.editor.details.dataSaved">S’han desat els canvis.</message>
 	<message key="submission.citations.editor.details.editRawCitationDatabaseServices">Seleccioneu serveis de bases de dades de citacions:</message>
 	<message key="submission.citations.editor.details.editRawCitationExpertSettingsActive">Ajustos d'edició de citacions d'experts (feu clic per tancar)</message>

@@ -320,7 +320,6 @@
 	<message key="submission.citations.editor.details.sourceResultsUseAll">すべて使用</message>
 	<message key="submission.citations.editor.introduction">概要</message>
 	<message key="submission.citations.filter.noResultFromFilterError">いくつかの引用サービスから結果が得られませんでした。よい結果を得るために，引用フィールドをマニュアルで修正して再度引用サービスを検索してください。うまくいかない場合は，引用情報が接続しているデータベースに存在していません。</message>
-	<message key="submission.citations.editor.details.databaseQueryExplanation">下記にこの雑誌で設定された引用サービスのリストが表示されます。雑誌管理者がこの雑誌に最も関連のあると判断したサービスがあらかじめ選択されています。好みに応じてサービスを追加して検索したり除外することができます。</message>
 	<message key="submission.citations.editor.details.sourceResultsUseAllExplanation">クリックすると情報源から得られたすべてのフィールドが直接あなたのフィールドリストに移動します。</message>
 	<message key="submission.citations.filter.invalidMetadata">{$filterName} でエラーが発生しました: 情報源(例: Webサービス)から返ってきたデータ要素が内部のメタデータフォーマットに一致しませんでした。そのためデータソースの結果が拒絶されました。バグとして報告して下さい。</message>
 	<message key="submission.citations.editor.details.citationImprovementResultsActive">エキスパート内部引用サービス結果 (クリックして閉じる)</message>

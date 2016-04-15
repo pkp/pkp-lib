@@ -268,7 +268,6 @@
 	<message key="submission.citations.editor.details.citationImprovementResultsInactive">Έξειδικευμένα αποτελέσματα εσωτερικής υπηρεσίας αναφορών (πατήστε για να ανοίξει)</message>
 	<message key="submission.citations.editor.details.citationServices">Υπηρεσίες Αναφορών</message>
 	<message key="submission.citations.editor.details.clickToDismissMessage">Μπορείτε να πατήσετε το κείμενο ενός μηνύματος για να το απορρίψετε.</message>
-	<message key="submission.citations.editor.details.databaseQueryExplanation">Παρακάτω μπορείτε να βρείτε μια λίστα με υπηρεσία αναφορών για το περιοδικό σας. Οι υπηρεσίες οι οποίες ο Διαχειριστής του περιοδικού θεωρεί σχετικές με το περιοδικό σας έχουν προ-επιλεγεί. Μπορείτε να προσθέσετε ή να διαγράψετε υπηρεσίες σύμφωνα με τις ανάγκες σας.</message>
 	<message key="submission.citations.editor.details.dataSaved">Οι αλλαγές σας έχουν αποθηκευτεί.</message>
 	<message key="submission.citations.editor.details.editRawCitationDatabaseServices">Επιλέξετε Υπηρεσίες Βάσεων Δεδομένων Αναφορών:</message>
 	<message key="submission.citations.editor.details.editRawCitationExpertSettingsActive">Προωθημένες ρυθμίσεις διαμόρφωσης αναφορών (Πατήστε για κλείσιμο)</message>

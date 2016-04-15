@@ -164,7 +164,6 @@
 	<message key="submission.citations.editor.details.citationImprovementResultsInactive">Erweiterte Ergebnisse des internen Zitationsdienstes (klicken zum Öffnen)</message>
 	<message key="submission.citations.editor.details.citationServices">Zitationsdienste</message>
 	<message key="submission.citations.editor.details.clickToDismissMessage">Sie können den Text einer Nachicht anklicken, um sie zu verwerfen.</message>
-	<message key="submission.citations.editor.details.databaseQueryExplanation">Unten finden Sie eine Liste der Zitationsdienste, die für Ihre Zeitschrift eingerichtet worden sind. Die Dienste, die Ihr/e Zeitschriftenverwalter/in für Ihre Zeitschrift am wichtigsten findet, sind vorausgewählt. Sie können nach Belieben zusätzliche Dienste in Ihre Abfrage aufnehmen oder Dienste abwählen.</message>
 	<message key="submission.citations.editor.details.dataSaved">Ihre Änderungen wurden gespeichert.</message>
 	<message key="submission.citations.editor.details.editRawCitationDatabaseServices">Wählen Sie Zitationsdatenbankdienste aus:</message>
 	<message key="submission.citations.editor.details.editRawCitationExpertSettingsActive">Expert/inneneinstellungen zur Zitationsbearbeitung (Klicken, um zu schließen)</message>

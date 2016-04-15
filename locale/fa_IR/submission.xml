@@ -275,7 +275,6 @@ Coleman Jr, D. (Ralf) Dr</message>
 	<message key="submission.citations.editor.details.citationImprovementResultsActive">نتایج سرویس ارجاع داخلی پیشرفته: کلیک برای بستن</message>
 	<message key="submission.citations.editor.details.citationImprovementResultsInactive">نتایج سرویس ارجاع داخلی پیشرفته: کلیک برای باز کردن</message>
 	<message key="submission.citations.editor.details.clickToDismissMessage">با کلیک بر روی متن یک پیام آن را مرخص کنید</message>
-	<message key="submission.citations.editor.details.databaseQueryExplanation">در زیر لیستی از سرویس های ارجاع تنظیم شده برای مجله شما را می بینید. سرویس های مناسب تر برای مجله شما از قبل انتخاب شده اند. شما می توانید انتخاب ها را کم یا زیاد کنید.</message>
 	<message key="submission.citations.editor.details.dataSaved">تغییرات ذخیره شدند</message>
 	<message key="submission.citations.editor.details.editRawCitationDatabaseServices">سرویس های بانک ارحاع را انتخاب کنید</message>
 	<message key="submission.citations.editor.details.editRawCitationExpertSettingsActive">ویرایش تنظیمات ارجاع پیشرفته: کلیک برای بستن</message>

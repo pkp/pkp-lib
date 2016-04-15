@@ -168,7 +168,6 @@
 	<message key="submission.citations.editor.details.citationImprovementResultsInactive">Expert internal citation service results (click to open)</message>
 	<message key="submission.citations.editor.details.citationServices">Citation Services</message>
 	<message key="submission.citations.editor.details.clickToDismissMessage">You can click the text of a message to dismiss it.</message>
-	<message key="submission.citations.editor.details.databaseQueryExplanation">Below you find a list of citation services configured for your journal. The services that your journal manager considers most relevant for your journal have been pre-selected. You can include additional services in your query or exclude services as you like.</message>
 	<message key="submission.citations.editor.details.dataSaved">Your changes have been saved.</message>
 	<message key="submission.citations.editor.details.editRawCitationDatabaseServices">Select Citation Database Services:</message>
 	<message key="submission.citations.editor.details.editRawCitationExpertSettingsActive">Expert citation editing settings (Click to close)</message>

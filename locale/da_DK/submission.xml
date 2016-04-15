@@ -279,7 +279,6 @@
 	<message key="submission.citations.editor.details.citationImprovementResultsInactive">Resultater af intern ekspertcitationstjeneste (klik for at åbne)</message>
 	<message key="submission.citations.editor.details.citationServices">Citationstjenester</message>
 	<message key="submission.citations.editor.details.clickToDismissMessage">Du kan klikke på teksten i en besked for at fjerne den.</message>
-	<message key="submission.citations.editor.details.databaseQueryExplanation">Herunder kan du se en liste over citationstjenester, der er konfigureret for dit tidsskrift. De tjenester, som din tidsskriftschef anser for at være mest relevante for dit tidsskrift, er forvalgt. Du kan inkludere yderligere tjenester i din forespørgsel eller fravælge tjenester, som du har lyst.</message>
 	<message key="submission.citations.editor.details.dataSaved">Dine ændringer er blevet gemt.</message>
 	<message key="submission.citations.editor.details.editRawCitationDatabaseServices">Vælg citationsdatabasetjenester:</message>
 	<message key="submission.citations.editor.details.editRawCitationExpertSettingsActive">Indstillinger for ekspertcitationsredigering (klik for at lukke)</message>

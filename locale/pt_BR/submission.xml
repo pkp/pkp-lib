@@ -347,16 +347,6 @@
 	<message key="submission.citations.editor.details.authorQueryExplanation">Solicite ao autor mais informações sobre a citação atual. Clique no botão 'enviar' a seguir para encaminhar sua mensagem via e-mail ao autor.</message>
 	<message key="submission.citations.editor.details.databaseQueryExplanation">A seguir, apresentamos uma lista de serviços de citação configurados para seu sistema. Os serviços considerados mais relevantes estão pré-selecionados. Inclua os serviços adicionais de acordo com sua necessidade.</message>
 	<message key="submission.citations.editor.details.googleScholarExplanation">Caso uma citação não tenha sido encontrada em nenhum serviço de citações, ainda assim pode tentar encontrá-la no Google Acadêmico. Infelizmente, esse serviço não oferece uma interface com campos que possa ser usada, o que impossibilita a execução e retorno automático dos dados no Assistente. Será necessário copiar e colar a informação manualmente dos resultados do Google para os campos.</message>
-	<message key="submission.citations.editor.details.pleaseClickOnCitationToStartEditing"><![CDATA[<p>Bem-vindo ao processo de edição de citações. Clique em uma citação da lista para exibi-la nesta janela, onde poderá verificar a precisão do processo de extração. Também poderá verificar a citação em serviços de bases de citação configuradas no sistema, e editar manualmente as citações.</p>
-		<h4>Navegando na interface</h4>
-		<p>Clique em uma das citações listadas para iniciar a edição.</p>
-		<p>Uma leve linha separadora entre esta janela e a coluna é móvel. Caso precise de mais espaço  para editar a citação ou ler a lista, mova a linha para o lado desejado.</p>
-		<p>Para expandir a interface de citação, clique no botão <strong>Tela cheia</strong>. Para retornar à interface padrão, clique no botão <strong>Tela padrão</strong>.</p>
-		<h4>Incluindo e excluindo citações</h4>
-		<p>Inclua novas citações clicando no ícone <strong>Nova citação</strong> no canto superior direito da coluna que lista as citações. Exclua citações clicando no ícone vermelho <strong>Excluir</strong> ao lado da citação.</p>
-		<h4>Editando citações</h4>
-		<p>Para editar a citação na lista, clique nela para abri-la nesta janela. A citação original será apresentada como foi alimentada pelo autor, seguida da tentativa de extração automática do Assistente; edite conforme a necessidade; verifique novamente a citação nos serviços de bases de citação configuradas; pesquise no Google Acadêmico; solicite mais informações ao autor em caso de dúvidas sobre as citações.</p>
-		<p>Quando estiver satisfeito com a edição das citações, clique no botão <strong>Salvar e aprovar</strong>, que o levará automaticamente à próxima citação não aprovada da lista. Desta forma, poderá trabalhar rapidamente sobre uma lista longa de citações. Uma vez aprovadas todas as citações, será apresentada a página <strong>Exportar citações</strong>.</p>]]></message>
 	<message key="submission.citations.editor.details.authorQuery">Perguntar ao autor</message>
 	<message key="submission.citations.editor.details.citationServices">Serviços de citação</message>
 	<message key="submission.citations.editor.details.googleScholar">Google Acadêmico</message>

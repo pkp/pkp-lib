@@ -347,16 +347,6 @@
  		<p>Ciitaties kunnen geëxporteerd worden als XML of tekst. XML export opties omvatten momenteel <a href="http://dtd.nlm.nih.gov/publishing/">NLM Journal Publishing</a> 2.3 en 3.0 <a href="http://www.ncbi.nlm.nih.gov/pmc/pmcdoc/tagging-guidelines/article/tags.html#el-reflist">ref-list XML</a>. Het kiezen van een van deze opties geeft een in XML gecodeerde lijst met referenties die gekopieerd kan worden en geplakt in een NLM XML proef.</p>
 		<p>Experimentele tekst-export opties omvatten ABNT, APA, MLA en Vancouver citatiestijlen. Deze opties leveren tekst-uitvoer die gekopieerd en geplakt kan worden en een tekst-gebaseerde artikel-proef (bijvoorbeeld in  Microsoft Word of OpenOffice, Adobe InDesign, enz.). Iedere citatie bevat een link om de automatisch naar die citatie te zoeken in Google Scholar.</p></li>
 	</ul>]]></message>
-	<message key="submission.citations.editor.details.pleaseClickOnCitationToStartEditing"><![CDATA[<p>Welkom bij het citatie-bewerkingsproces. Klikken op een citatie in de lijst aan de linkerkant toont de citatie in dit venster, zodat u de juistheid van de citatie kunt controleren. U kunt de citatie ook controleren bij een aantal citatie-databanken die door de tijdschriftbeheerder zijn ingesteld. U kunt de citatie ook zelf bewerken.</p>
-		<h4>Navigatie</h4>
-		<p>Klik op een van de citaties links om het bewerken te starten.</p>
-		<p>De lichtblauwe scheider tussen dit venster en de lijst aan de linkerkant is verschuifbaar. Als u meer ruimte wenst om de citatielijst te bekijken of meer ruimte om een citatie te bewerken, kunt u de scheider in één van beide richtingen verslepen.</p>
-		<p>Klik op de <strong>Volledig scherm</strong> knop om het scherm te vergoten. Om terug te keren naar het normale scherm, klik op de <strong>Volledig scherm uit</strong> knop.</p>
-		<h4>Citaties toevoegen en verwijderen</h4>
-		<p>Citaties kunnen toegevoegd worden met het <strong>Nieuwe citatie</strong> ikoon in de rechterbovenhoek van de citatielijst. Citaties kunnen verwijderd worden door te klikken op het rode <strong>Verwijder</strong> ikoon aan de linkerkant van de citatie.</p>
-		<h4>Citaties bewerken</h4>
-		<p>Klik op een citatie in de lijst aan de linkerkant om die citatie te bewerken. De citatie zal dan geopend worden in dit venster. U krijgt de originele citatie van de auteur te zien,gevolg door de automatisch extractie van de assistent. U kunt de originele citatie bewerken, onderdelen of de gehele nieuwe citatie bewerken, de citatie opnieuw controleren bij de geconfigureerde databanken, Google Scholar doorzoeken of de auteur om meer informatie vragen.</p>
-		<p>Als u een citatie naar tevredenheid bewerkt hebt, kunt up op de <strong>Bewaren en goedkeuren</strong> knop klikken. U krijgt dan de volgende niet-goedgekeurde citatie uit de lijst. Op deze manier kunt een grote lijst citaties snel verwerken. Zodra alle citaties goedgekeurd zijn komt u  op de <strong>Exporteer citaties</strong> pagina.</p>]]></message>
 	<message key="metadata.property.displayName.nonSort">Deel van de titel genegeerd bij het sorteren</message>
 	<message key="metadata.property.displayName.title">Titel</message>
 	<message key="metadata.property.validationMessage.title">Geef een geldige titel</message>

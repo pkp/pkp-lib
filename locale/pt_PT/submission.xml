@@ -294,16 +294,6 @@
 	<message key="submission.citations.editor.details.newFieldInfo">...clicar aqui para adicionar um novo campo...</message>
 	<message key="submission.citations.editor.details.queryCitation">Serviços de Citação Re-Query</message>
 	<message key="submission.citations.editor.details.queryGoogleScholar">Pesquisar no Google Académico</message>
-	<message key="submission.citations.editor.details.pleaseClickOnCitationToStartEditing"><![CDATA[<p>Bem-vindo ao processo de edição da citação. Clique na lista de citações apresentada à esquerda na janela, onde pode verificar a precisão do processo de citação. Também poderá comparar a citação com os serviços de citação das bases de dados configurados pelo Editor-Gestor, e manualmente editar a citação.</p>
-		<h4>Navegar na Interface</h4>
-		<p>Clique sobre as citações listadas na esquerda para dar início à edição.</p>
-		<p>O separador azul claro situado entre esta janela e a coluna na esquerda é movível. Quer precise de mais espaço para ver a lista de citações, ou alternativamente mais espaço para editar uma citação, pode deslocar para qualquer direcção.</p>
-		<p>Para expandir a interface de citação, clique no botão <strong>Ecrã Inteiro</strong>. Para voltar à interface normal da interface de citação expandida, clique no botão <strong>Ecrã Inteiro Desligado</strong>.</p>
-		<h4>Adicionar e Eliminar Citações</h4>
-		<p>As citações podem ser adicionadas clicando o ícone <strong>Nova Citação</strong> localizado no canto superior direito da coluna da lista de citação. As citações podem ser eliminadas clicando o ícone <strong>Eliminar</strong> vermelho localizado à esquerda da citação.</p>
-		<h4>Editar Citações</h4>
-		<p>Para editar uma citação na lista da esquerda, clique sobre esta e abrir-se-á uma janela. Será apresentada uma citação original tal como foi escrita pelo autor, acompanhada pela tentativa de extracção automática feita pelo Assistente. Poderá editar manualmente a citação original; editar partes ou todas as novas citações; comparar novamente a citação com os serviços de bases de dados da citação configurados; inquirir Google Académico; e inquirir o autor para obter informações adicionais sobre a citação.</p>
-		<p>Quando concluir satisfatoriamente a edição da citação, clique no botão <strong>Guardar e Aprovar</strong> e será encaminhado automaticamente para a próxima citação não aprovada da lista. Deste modo poderá trabalhar facilmente com várias listas de citações. Assim que todas as citações tenham sido aprovadas, será encaminhado para a página. <strong>Exportar Citações</strong></p>]]></message>
 	<message key="submission.citations.editor.details.processRawCitation">Processo</message>
 	<message key="submission.citations.editor.details.processRawCitationGoAhead">Avançar</message>
 	<message key="submission.citations.editor.details.processRawCitationTitle">Modificação da Citação Original</message>

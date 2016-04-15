@@ -162,16 +162,6 @@ Pastikan Anda mengatur tipe judul yang valid. Nilai dukungan adalah "disingkat",
 	<message key="submission.citations.editor.details.newFieldInfo">...klik di sini untuk menambah bidang baru...</message>
 	<message key="submission.citations.editor.details.queryCitation">Layanag Sitiran Pertanyaan ulang</message>
 	<message key="submission.citations.editor.details.queryGoogleScholar">Cari di Google Scholar</message>
-	<message key="submission.citations.editor.details.pleaseClickOnCitationToStartEditing"><![CDATA[<p>Selamat datang di proses pengeditan Sitiran. Mengklik Sitiran di daftar ke kiri akan menampilkan Sitiran di window ini, di mana Anda dapat mengecek keakuratan proses Sitiran. Anda juga akan bisa mengecek Sitiran terhadap layanan database Sitiran yang dikonfigurasi oleh manajer jurnal, dan secara manual mengedit Sitiran itu sendiri.</p>
-		<h4>Menavigasi antarmuka</h4>
-		<p>Klik di salah satu Sitiran yang terdaftar di sebelah kiri untuk memulai pengeditan.</p>
-		<p>Separator biru muda diantara window ini dan kolom di sebelah kiri dapat dipindahkan. Apakah Anda butuh kamar lebih untuk melihat daftar Sitiran, atau tempat lebih untuk mengedit Sitiran, ini dapat dipindahkan ke arah manapun.</p>
-		<p>Untuk memperluas antarmuka Sitiran, klik <strong>Fullscreen</strong> tombol. Untuk mengembalikan ke antarmuka normal dari antarmuka Sitiran yang diperluas, klik <strong>Fullscreen Off</strong> tombol.</p>
-		<h4>Menambah dan menghapus Sitiran</h4>
-		<p>Sitiran dapat ditambah dengan meng-klik ikon <strong>Sitiran Baru</strong> di pojok kanan atas kolom daftar Sitiran. Sitiran dapat dihapus dengan mengklik ikon merah <strong>Hapus</strong> ke sebelah kiri Sitiran.</p>
-		<h4>Pengeditan Sitiran</h4>
-		<p>Untuk mengedit Sitiran di daftar sebelah kiri, klik di bagian itu dan akan membuka window ini. Anda akan melihat Sitiran asli seperti yang ditulis oleh penulisnya, diikuti dengan usaha ekstrasi otomatis Bantuan. Anda akan bisa mengedit Sitiran asli secara manual; mengedit bagian atau seluruh Sitiran baru; mengecek ulang Sitiran terhadap layanan database Sitiran terkonfigurasi; menanyakan Google Scholar; dan menanyakan penulid untuk informasi Sitiran lebih lanjut.</p>
-		<p>Saat Anda selesai mengedit Sitiran sesuai dengan keinginan Anda, saat mengklik tombol <strong>Simpan dan Setujui</strong> Anda akan dipindah secara otomatis ke Sitiran yang belum disetujui selanjutnya di dalam daftar. Dengan cara ini Anda dapat bekerja dengan sangat cepat melalui daftar Sitiran yang sangat besar. Saat semua Sitiran sudah disetujui, Anda akan dipindahkan ke <strong>Ekspor Sitiran</strong> halaman.</p>]]></message>
 	<message key="submission.citations.editor.details.processRawCitation">Proses</message>
 	<message key="submission.citations.editor.details.processRawCitationGoAhead">Teruskan</message>
 	<message key="submission.citations.editor.details.processRawCitationTitle">Mengubah Sitiran Asli</message>

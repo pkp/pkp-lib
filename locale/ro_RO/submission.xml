@@ -277,16 +277,6 @@
 	<message key="submission.citations.editor.details.newFieldInfo">...clic aici pentur a adăuga un câmp nou...</message>
 	<message key="submission.citations.editor.details.queryCitation">Reinteroghează serviciile pentru referințe bibliografice</message>
 	<message key="submission.citations.editor.details.queryGoogleScholar">Caută în Google Scholar</message>
-	<message key="submission.citations.editor.details.pleaseClickOnCitationToStartEditing"><![CDATA[<p>Ai ajuns la procesul de editare al referințelor bibliografice. Dând clic pe o referință din lista din partea stângă, va avea ca efect afișarea referinței în această fereastră, de unde poți verifica acuratețea procesului de citare. Vei putea verifica referița în bazele de date la care acces a fost configurat de managerul revistei și vei putea edita de mână referința.</p>
-		<h4>Navigarea prin interfață</h4>
-		<p>Clic pe una din referințele listate pe stânga pentru a porni editarea.</p>
-		<p>Separatorul albastru deschis dintre această fereastră și coloana din stânga se poate muta. Fie că ai nevoie de mai mult spațiu, fie că ai nevoie de mai mult spațiu pentru a edita citare, aceasta se poate muta în oricare direcție.</p>
-		<p>Pentru a extinde interfața de citare, dă clic pe butonul <strong>tot ecranul</strong>. Pentru a te întoarce la interfața obișnuită din interfața extinsă pentru referințele bibliografice, dă clic pe butonul <strong>în fereastră</strong>.</p>
-		<h4>Adăugarea și eliminarea referințelor bibliografice</h4>
-		<p>Referințele bibliografice pot fi adăugate dând clic pe pictograma <strong>referință nouă</strong> din colțul dreapta sus a coloanei pentru lista de citări bibliografice. Citările pot fi șterse dând clic pe pictograma roșie <strong>șterge</strong> din stânga referinței bibliografice.</p>
-		<h4>Editarea referințelor bibliografice</h4>
-		<p>Pentur a edita o referință din partea stângă, dă clic pe ea și se va deschide în această fereastră. Vi se va arăta referința în forma sa originală așa cum a fost întocmită de autor urmată de încercarea de extracție a asistentului. Vei putea să editezi de mână referinșa originală, să editezi parțial sau integral noua citare, reverifica citarea cu serviciile pentru referințe ale bazelor de date specializate, vei putea interoga Google Scholar și chiar să-i soliciți autorului mai multe informații.</p>
-		<p>La finalizarea unei referințe care va fi conformă cu așteptările, dă clic pe butonul <strong>salvează și aprobă</strong> și vei fi condus la următoarea citare care nu este verificată din listă. În acest mod poți parcurge o listă foarte mare de referințe bibliografice. Din moment ce toate referințele au fost aprobate, vei fi condus la următoarea pagină: <strong>exportă referințele bibliografice</strong>.</p>]]></message>
 	<message key="submission.citations.editor.details.processRawCitation">Proces</message>
 	<message key="submission.citations.editor.details.processRawCitationGoAhead">Mergi mai departe</message>
 	<message key="submission.citations.editor.details.processRawCitationTitle">Modificarea citării originale</message>

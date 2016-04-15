@@ -322,7 +322,6 @@
 	<message key="submission.citations.editor.details.newFieldInfo">...点击这里添加新字段...</message>
 	<message key="submission.citations.editor.details.queryCitation">重新查询引用服务</message>
 	<message key="submission.citations.editor.details.queryGoogleScholar">在Google学术搜索中搜索</message>
-	<message key="submission.citations.editor.details.pleaseClickOnCitationToStartEditing"><![CDATA[<p>欢迎来到引用编辑过程中。点击左侧列表中的引用连接， 在此窗口中就可以显示相关引用，您可以在此检查引用过程的准确性。您还将可以将引用同期刊管理中配置的引用服务进行对比，对引用进行手动编辑。</p>]]></message>
 	<message key="submission.citations.editor.details.processRawCitationWarning">您将更改原始引用文本。如果您这样做了， 那么所有字段将会被新生成的值所替换。这将会删除掉您通过手动调整的部分。</message>
 	<message key="submission.citations.editor.details.saveAndApprove">保存和批准</message>
 	<message key="submission.citations.editor.details.saveAndRevokeApproval">撤销批准</message>

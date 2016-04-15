@@ -294,16 +294,6 @@
 	<message key="submission.citations.editor.details.newFieldInfo">… klik her for at tilføje et nyt felt …</message>
 	<message key="submission.citations.editor.details.queryCitation">Citationstjenester til gentaget forespørgsel</message>
 	<message key="submission.citations.editor.details.queryGoogleScholar">Søg i Google Scholar</message>
-	<message key="submission.citations.editor.details.pleaseClickOnCitationToStartEditing"><![CDATA[<p>Velkommen til citationsredigeringsprocessen. Hvis du klikker på en reference i listen til venstre, bliver referencen vist i dette vindue, hvor du kan kontrollere citationsprocessens nøjagtighed. Du kan også kontrollere referencen i forhold til de citationsdatabase-tjenester, som tidsskriftschefen har konfigureret, og selv redigere referencen manuelt.</p>
-		<h4>Navigation i brugerfladen</h4>
-		<p>Klik på en af referencerne i listen til venstre for at gå i gang med at redigere.</p>
-		<p>Denne lyseblå separatorlinje mellem dette vindue og kolonnen til venstre kan flyttes. Hvis du har brug for mere plads til at se referencelisten eller til at redigere en reference, kan separatoren flyttes i den ene eller den anden retning.</p>
-		<p>Hvis du vil forstørre citationsbrugerfladen, skal du klikke på knappen <strong>Fuldskærm</strong>. Hvis du vil gå tilbage til normal visning fra den forstørrede citationsbrugerflade, skal du klikke på knappen <strong>Deaktiver fuldskærm</strong>.</p>
-		<h4>Sådan tilføjer og sletter du referencer</h4>
-		<p>Du kan tilføje referencer ved at klikke på ikonet <strong>Ny reference</strong> i øverste højre hjørne af kolonnen med referencelisten. Du kan slette referencer ved at klikke på det røde ikon <strong>Slet</strong> til venstre for referencen.</p>
-		<h4>Sådan redigerer du referencer</h4>
-		<p>Hvis du vil redigere en reference i listen til venstre, kan du åbne det i dette vindue ved at klikke på det. Du får vist den originale reference, som det er skrevet af forfatteren, efterfulgt af assistentens automatiske udtrækningsforsøg. Du kan redigere den originale reference manuelt, redigere dele af eller hele den nye reference, kontrollere referencen i forhold til konfigurerede citationsdatabase-tjenester, sende en forespørgsel til Google Scholar og bede forfatteren om yderligere information om referencen.</p>
-		<p>Når du er færdig med at redigere referencen og klikker på knappen <strong>Gem og godkend</strong>, bliver du automatisk flyttet til den næste ikke-godkendte reference på listen. På den måde kan du hurtigt arbejde dig igennem en lang liste med referencer. Når alle referencer er blevet godkendt, vil du blive sendt til siden <strong>Eksporter referencer</strong>.</p>]]></message>
 	<message key="submission.citations.editor.details.processRawCitation">Behandl</message>
 	<message key="submission.citations.editor.details.processRawCitationGoAhead">Fortsæt</message>
 	<message key="submission.citations.editor.details.processRawCitationTitle">Ret i original reference</message>

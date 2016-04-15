@@ -41,7 +41,7 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 
 		$_SERVER = array(
-			'PATH_INFO' => '/context1/context2/$$$call$$$/grid/citation/citation-grid/fetch-grid'
+			'PATH_INFO' => '/context1/context2/$$$call$$$/grid/notifications/task-notifications-grid/fetch-grid'
 		);
 		self::assertTrue($this->router->supports($this->request));
 	}
@@ -97,27 +97,6 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 		self::assertEquals('inexistent.ComponentHandler', $this->router->getRequestedComponent($this->request));
 		self::assertFalse($this->router->supports($this->request));
 	}
-
-	/**
-	 * @covers PKPComponentRouter::supports
-	 * @covers PKPComponentRouter::getRpcServiceEndpoint
-	 * @covers PKPComponentRouter::_getValidatedServiceEndpointParts
-	 * @covers PKPComponentRouter::_retrieveServiceEndpointParts
-	 * @covers PKPComponentRouter::_validateServiceEndpointParts
-	 */
-	public function testSupportsWithPathinfoUnsuccessfulOperationDoesNotExist() {
-		$this->markTestSkipped();
-		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
-
-		$_SERVER = array(
-			'PATH_INFO' => '/context1/context2/$$$call$$$/grid/citation/citation-grid/inexistent-operation'
-		);
-		self::assertEquals('grid.citation.CitationGridHandler', $this->router->getRequestedComponent($this->request));
-		self::assertEquals('inexistentOperation', $this->router->getRequestedOp($this->request));
-		self::assertFalse($this->router->supports($this->request));
-		self::assertTrue(class_exists('CitationGridHandler'));
-	}
-
 
 	/**
 	 * @covers PKPComponentRouter::supports
@@ -260,7 +239,7 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 
 		$_SERVER = array(
-			'PATH_INFO' => '/context1/context2/$$$call$$$/grid/citation/citation-grid/fetch-grid'
+			'PATH_INFO' => '/context1/context2/$$$call$$$/grid/notifications/task-notifications-grid/fetch-grid'
 		);
 		$_GET = array(
 			'arg1' => 'val1',
@@ -270,19 +249,12 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 		// Simulate context DAOs
 		$this->_setUpMockDAOs('context1', 'context2');
 
-		// Route the request. This should call CitationGridHandler::fetchGrid()
+		// Route the request. This should call NotificationsGridHandler::fetchGrid()
 		// with a reference to the request object as the first argument.
 		$this->router->route($this->request);
 
 		self::assertNotNull($serviceEndpoint =& $this->router->getRpcServiceEndpoint($this->request));
-		self::assertInstanceOf('CitationGridHandler', $handler =& $serviceEndpoint[0]);
-		$fetchArgs =& $handler->getFetchArgs();
-		$expectedArgs = array(
-			array('arg1' => 'val1', 'arg2' => 'val2'),
-			$this->request
-		);
-		self::assertEquals($expectedArgs, $fetchArgs);
-		self::assertSame($expectedArgs[1], $fetchArgs[1]);
+		self::assertInstanceOf('NotificationsGridHandler', $handler =& $serviceEndpoint[0]);
 		$firstContextDao = DAORegistry::getDAO('FirstContextDAO');
 		self::assertInstanceOf('FirstContext', $firstContextDao->getByPath('context1'));
 		$secondContextDao = DAORegistry::getDAO('SecondContextDAO');

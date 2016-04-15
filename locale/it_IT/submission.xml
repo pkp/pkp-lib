@@ -296,7 +296,6 @@
 	<message key="submission.citations.editor.details.editRawCitationDatabaseServices">Seleziona il database di un servizio di citazioni:</message>
 	<message key="submission.citations.editor.details.editRawCitationExtractionServices">Seleziona il servizio di estrazione delle citazioni</message>
 	<message key="submission.citations.editor.details.queryCitation">Re-interroga il servizio delle citazioni</message>
-	<message key="submission.citations.editor.details.pleaseClickOnCitationToStartEditing"><![CDATA[<p>Benvenuto nel servizio di modifica delle citazioni. Cliccando su una citazione  nella lista]]></message>
 	<message key="submission.citations.editor.details.processRawCitation">Processa</message>
 	<message key="submission.citations.editor.details.sourceResultsUse">Usa</message>
 	<message key="submission.citations.editor.details.sourceResultsUseAll">Usa tutti</message>

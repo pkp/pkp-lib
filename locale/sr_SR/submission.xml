@@ -147,7 +147,6 @@
 	<message key="submission.citations.editor.details.citationImprovementResultsInactive">Rezultati Expert internal citation servisa (klikni da otvoriš)</message>
 	<message key="submission.citations.editor.details.citationServices">Servis citata</message>
 	<message key="submission.citations.editor.details.clickToDismissMessage">Možete da kliknete na tekst da poništite.</message>
-	<message key="submission.citations.editor.details.databaseQueryExplanation">Ispod možete naći listu servisa citata koji su konfigurisani za vaš časopis. Servisi koje je urednik smatrao najrelevantnijima su već obeleženi. Vi možete uključiti ili isključiti servise koje želite.</message>
 	<message key="submission.citations.editor.details.dataSaved">Vaše izmene su sačuvane.</message>
 	<message key="submission.citations.editor.details.editRawCitationDatabaseServices">Odaberite servis baze citatnosti:</message>
 	<message key="submission.citations.editor.details.editRawCitationExpertSettingsActive">Podešavanja Expert citation editing (Klikni da zatvoriš)</message>

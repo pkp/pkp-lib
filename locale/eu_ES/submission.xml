@@ -278,7 +278,6 @@
 	<message key="submission.citations.editor.details.citationImprovementResultsInactive">Aipuen barneko zerbitzu adituen emaitzak (egin klik irekitzeko)</message>
 	<message key="submission.citations.editor.details.citationServices">Aipuen Zerbitzuak</message>
 	<message key="submission.citations.editor.details.clickToDismissMessage">Mezu bat baztertzeko, haren testuan klik egin dezakezu.</message>
-	<message key="submission.citations.editor.details.databaseQueryExplanation">Beheran, zure aldizkarirako konfiguratuta dauden aipuen zerbitzuen zerrenda agertzen da. Zure aldizkariaren kudeatzaileak aurrez hautatu ditu zure aldizkariarentzat zerbitzu garrantzitsuenak iruditu zaizkionak. Zure eskaeran zerbitzu osagarriak jarri edo zerbitzuak ken ditzakezu, nahierara.</message>
 	<message key="submission.citations.editor.details.dataSaved">Zure aldaketak gorde dira.</message>
 	<message key="submission.citations.editor.details.editRawCitationDatabaseServices">Aukeratu Aipuen Datu-baseen Zerbitzuak:</message>
 	<message key="submission.citations.editor.details.editRawCitationExpertSettingsActive">Aipuak editatzeko adituen ezarpenak (egin klik ixteko)</message>

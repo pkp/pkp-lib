@@ -264,7 +264,6 @@
 	<message key="submission.citations.editor.details.citationImprovementResultsActive">Rezultate expert pentru serviciul intern pentru referințe bibliografice (clic pe închide)</message>
 	<message key="submission.citations.editor.details.citationImprovementResultsInactive">Rezultate expert pentru serviciul intern pentru referințe bibliografice (clic pe deschide)</message>
 	<message key="submission.citations.editor.details.clickToDismissMessage">Poți da clic pe textul unui mesaj pentru a-l anula.</message>
-	<message key="submission.citations.editor.details.databaseQueryExplanation">Mai jos găsești o listă cu servicii pentru referințe bibliografice configurate pentru revista ta. Serviciile pe care managerul le consideră relevante pentru revistă, au fost preselectate. Poți include servicii suplimentare în interogare sau poți scoate din servicii după cum crezi.</message>
 	<message key="submission.citations.editor.details.dataSaved">Modificările au fost salvate.</message>
 	<message key="submission.citations.editor.details.editRawCitationDatabaseServices">Selectează serviciile pentru baza de date pentru referințe bibliografice:</message>
 	<message key="submission.citations.editor.details.editRawCitationExpertSettingsActive">Setările pentru editarea expert pentru referințele bibliografice (clic pentru a închide)</message>

@@ -314,7 +314,6 @@
 	<message key="submission.citations.editor.details.authorQueryExplanation">您可以就现有引用的更多问题，向作者进行询问。点击下面的“发送”按钮，您的信息就会以邮件的形式发送到作者那里。</message>
 	<message key="submission.citations.editor.details.cannotSelectDefaultForLabel">您不可以扰乱字段标签。如果您不需要的话，请将对应的字段删除。</message>
 	<message key="submission.citations.editor.details.clickToDismissMessage">您可以点击文本消息对其进行消除。</message>
-	<message key="submission.citations.editor.details.databaseQueryExplanation">从下面您可以找到为您的期刊所配置的一列引用服务清单。您的期刊管理所需要的最相关的服务已经被预先选中配置在上面。您可以根据您的喜好增加查询或排除服务等附加的服务项目。</message>
 	<message key="submission.citations.editor.details.editRawCitationExpertSettingsActive">专家引用编辑设置 （点击关闭）</message>
 	<message key="submission.citations.editor.details.editRawCitationExpertSettingsInactive">专家引用编辑设置（点击打开）</message>
 	<message key="submission.citations.editor.details.explainImprovementOptions">如果您对默认设置的结果不满意，您有多种选择来改进引用。其常常便于对重要字段（如题目和作者）进行手动编辑，然后重试引用服务。如果没有作用，您仍可以查询Google学术搜索或询问作者来获得详情。</message>

@@ -146,7 +146,6 @@
 	<message key="submission.citations.editor.details.citationImprovementResultsInactive">Dahili uzman atıf servisi sonuçları (açmak için tıklayın)</message>
 	<message key="submission.citations.editor.details.citationServices">Atıf Servisleri</message>
 	<message key="submission.citations.editor.details.clickToDismissMessage">Mesajı kapatmak için metne tıklayabilirsiniz.</message>
-	<message key="submission.citations.editor.details.databaseQueryExplanation">Aşağıda dergi için yapılandırılmış atıf hizmetlerinin bir listesini bulabilirsiniz. Dergi yöneticisi uygun olduğunu düşündüğü hizmetleri önceden seçilmiştir. Sorgunuzda ek hizmetleri veya istediğiniz hizmetleri hariç tutabilirsiniz.</message>
 	<message key="submission.citations.editor.details.dataSaved">Değişiklikleriniz kayt edildi.</message>
 	<message key="submission.citations.editor.details.editRawCitationDatabaseServices">Atıf veri tabanı servisi seçiniz:</message>
 	<message key="submission.citations.editor.details.editRawCitationExpertSettingsActive">Uzman atıf düzeltme ayarları (kapatmak için tıklayınız)</message>

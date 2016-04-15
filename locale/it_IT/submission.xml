@@ -270,7 +270,6 @@
 	<message key="submission.citations.editor.details.saveAndRevokeApproval">Revoca l'approvazione</message>
 	<message key="submission.citations.editor.details.sendAuthorQuery">Invia un messaggio</message>
 	<message key="submission.citations.editor.details.sendAuthorQuerySuccess">Messaggio inviato!</message>
-	<message key="submission.citations.editor.details.databaseQueryExplanation">Di seguito trovi un elenco dei servizi configurati per questa rivista, pre-selezionati tra quelli considerati più importanti. Puoi includere nella ricerca servizi aggiuntivi, oppure escluderne alcuni.</message>
 	<message key="submission.citations.editor.details.explainImprovementOptions"><![CDATA[Se non sei soddisfatto dei risultati ottenuti, hai diverse possibilit&#224; di migliorare le citazioni. Spesso è sufficiente modificare manualmente alcuni campi (es. titolo e autore) ed effettuare nuovamente la ricerca. Se anche questa soluzione non funziona, puoi effettuare una ricerca su Google Scholar o chiedere maggiori informazioni all'autore.]]></message>
 	<message key="submission.citations.editor.details.dontShowMessageAgain"><![CDATA[Non mostrare pi&#249; questo messaggio.]]></message>
 	<message key="submission.citations.editor.edit">Modifica le citazioni</message>

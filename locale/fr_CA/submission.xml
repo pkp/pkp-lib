@@ -306,7 +306,6 @@
 	<message key="submission.citations.editor.details.citationImprovementResultsInactive">Résultat du service spécialisé de références interne (cliquer pour ouvrir)</message>
 	<message key="submission.citations.editor.details.citationServices">Services de références</message>
 	<message key="submission.citations.editor.details.clickToDismissMessage">Vous pouvez cliquer sur le texte d'un message pour le rejeter.</message>
-	<message key="submission.citations.editor.details.databaseQueryExplanation">Plus bas se trouve une liste de services de références configurés pour votre revue. Les services que votre directeur de revue considère les plus pertinents pour votre revue ont été pré-sélectionnés. Vous pouvez inclure des services supplémentaires dans votre requête ou exclure certains services, comme vous le souhaitez.</message>
 	<message key="submission.citations.editor.details.dataSaved">Les changements apportés ont été enregistrés.</message>
 	<message key="submission.citations.editor.details.editRawCitationDatabaseServices">Sélectionner les services de bases de données de références :</message>
 	<message key="submission.citations.editor.details.editRawCitationExpertSettingsActive">Paramètres d'édition avancée de références (Cliquer pour fermer)</message>

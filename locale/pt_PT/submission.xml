@@ -280,7 +280,6 @@
 	<message key="submission.citations.editor.details.citationImprovementResultsInactive">Resultados do serviço de citação interno especializado (clicar para abrir)</message>
 	<message key="submission.citations.editor.details.citationServices">Serviços de Citação</message>
 	<message key="submission.citations.editor.details.clickToDismissMessage">Pode clicar sobre o texto da mensagem para recusá-lo.</message>
-	<message key="submission.citations.editor.details.databaseQueryExplanation">Pode encontrar em baixo uma lista dos serviços de citação configurados na sua revista. Os serviços que o Editor-Gestor considera mais relevantes para a sua revista foram pré-seleccionados. Pode incluir serviços adicionais na sua query ou excluir os serviços que entender sejam necessários.</message>
 	<message key="submission.citations.editor.details.dataSaved">As alterações foram gravadas.</message>
 	<message key="submission.citations.editor.details.editRawCitationDatabaseServices">Seleccionar os Serviços de Bases de Dados de Citação:</message>
 	<message key="submission.citations.editor.details.editRawCitationExpertSettingsActive">Configurações da edição de citação especializada (clicar para fechar)</message>

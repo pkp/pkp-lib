@@ -147,7 +147,6 @@ Pastikan Anda mengatur tipe judul yang valid. Nilai dukungan adalah "disingkat",
 	<message key="submission.citations.editor.details.citationImprovementResultsInactive">Hasil layanan Sitiran internal ahli (klik untuk membuka)</message>
 	<message key="submission.citations.editor.details.citationServices">Layanan Sitiran</message>
 	<message key="submission.citations.editor.details.clickToDismissMessage">Anda dapat mengklik teks pesan untuk menghentikannya.</message>
-	<message key="submission.citations.editor.details.databaseQueryExplanation">Di bawah ini Anda akan temukan daftar layanan Sitiran yang dikonfigurasi untuk jurnal Anda. Layanan yang manajer jurnal Anda anggap paling relevan untuk jurnal Anda telah di seleksi pada tahap awal. Anda dapat memasukkan layanan tambahan di layanan 'mengeluarkan/ meniadakan' atau layanan pertanyaan Anda seperti yang Anda inginkan.</message>
 	<message key="submission.citations.editor.details.dataSaved">Perubahan Anda telah disimpan.</message>
 	<message key="submission.citations.editor.details.editRawCitationDatabaseServices">Pilih Layanan Database Sitiran:</message>
 	<message key="submission.citations.editor.details.editRawCitationExpertSettingsActive">Pengaturan pengeditan Sitiran ahli (klik untuk menutup)</message>

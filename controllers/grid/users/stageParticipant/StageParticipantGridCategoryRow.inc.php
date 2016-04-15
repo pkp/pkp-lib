@@ -28,8 +28,8 @@ class StageParticipantGridCategoryRow extends GridCategoryRow {
 	/**
 	 * Constructor
 	 */
-	function StageParticipantGridCategoryRow(&$submission, $stageId) {
-		$this->_submission =& $submission;
+	function StageParticipantGridCategoryRow($submission, $stageId) {
+		$this->_submission = $submission;
 		$this->_stageId = $stageId;
 		parent::GridCategoryRow();
 	}
@@ -41,7 +41,7 @@ class StageParticipantGridCategoryRow extends GridCategoryRow {
 	 * @copydoc GridCategoryRow::getCategoryLabel()
 	 */
 	function getCategoryLabel() {
-		$userGroup =& $this->getData();
+		$userGroup = $this->getData();
 		return $userGroup->getLocalizedName();
 	}
 

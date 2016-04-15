@@ -103,6 +103,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 			$submission->setDateSubmitted(strtotime($dateSubmitted));
 		}
 		$submissionDao->updateObject($submission);
+
 		// If the date_published was set, add a published submission
 		if ($datePublished = $node->getAttribute('date_published')) {
 			$publishedSubmissionDao = $this->getPublishedSubmissionDAO();
@@ -111,9 +112,11 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 			$publishedSubmission->setDatePublished(strtotime($datePublished));
 			$publishedSubmission = $this->populatePublishedSubmission($publishedSubmission, $node);
 			$publishedSubmissionDao->insertObject($publishedSubmission);
+
 			// Reload from DB now that some fields may have changed
 			$submission = $submissionDao->getById($submission->getId());
 			$submission->setStatus(STATUS_PUBLISHED);
+			$submissionDao->updateObject($submission);
 		}
 		return $submission;
 	}

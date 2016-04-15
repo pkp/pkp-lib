@@ -22,7 +22,7 @@
 import('lib.pkp.classes.i18n.LocaleFile');
 
 if (!defined('LOCALE_REGISTRY_FILE')) {
-	define('LOCALE_REGISTRY_FILE', Config::getVar('general', 'registry_dir') . DIRECTORY_SEPARATOR . 'locales.xml');
+	define('LOCALE_REGISTRY_FILE', 'registry/locales.xml');
 }
 if (!defined('LOCALE_DEFAULT')) {
 	define('LOCALE_DEFAULT', Config::getVar('i18n', 'locale'));

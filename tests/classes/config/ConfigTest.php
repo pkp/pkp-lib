@@ -56,7 +56,6 @@ class ConfigTest extends PKPTestCase {
 		$expectedResult = array(
 			'installed' => true,
 			'base_url' => 'http://pkp.sfu.ca/ojs',
-			'registry_dir' => 'registry',
 			'session_cookie_name' => 'OJSSID',
 			'session_lifetime' => 30,
 			'scheduled_tasks' => false,

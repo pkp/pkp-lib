@@ -243,7 +243,7 @@ class PKPAcronPlugin extends GenericPlugin {
 		HookRegistry::call('AcronPlugin::parseCronTab', array(&$taskFilesPath)); // Reference needed.
 
 		// Add the default tasks file.
-		$taskFilesPath[] = Config::getVar('general', 'registry_dir') . '/scheduledTasks.xml'; // TODO: make this a plugin setting, rather than assuming.
+		$taskFilesPath[] = 'registry/scheduledTasks.xml'; // TODO: make this a plugin setting, rather than assuming.
 
 		$tasks = array();
 		foreach ($taskFilesPath as $filePath) {

@@ -295,7 +295,6 @@
 	<message key="submission.citations.editor.details.newFieldInfo">... Haga clic aquí para añadir un nuevo campo ...</message>
 	<message key="submission.citations.editor.details.queryCitation">Servicios de Re-Consulta de Citas</message>
 	<message key="submission.citations.editor.details.queryGoogleScholar">Buscar en Google Académico</message>
-	<message key="submission.citations.editor.details.pleaseClickOnCitationToStartEditing"><![CDATA[<p>Bienvenido al proceso de edición de citas. Al hacer clic en una cita del listado de la izquierda se presentará la cita en esta ventana, donde podrá comprobar la exactitud del proceso de citación. Usted también podrá comprobar la cita respecto a los servicios de base de datos de citas configurados por el <em>gestor de la revista</em>, y editar manualmente usted mismo la cita.</p>]]></message>
 	<message key="submission.citations.editor.details.processRawCitation">Proceso</message>
 	<message key="submission.citations.editor.details.processRawCitationGoAhead">Seguir Adelante</message>
 	<message key="submission.citations.editor.details.processRawCitationTitle">Cambiando Cita Original</message>

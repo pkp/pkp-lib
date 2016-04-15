@@ -292,16 +292,6 @@
 	<message key="submission.citations.editor.details.newFieldInfo">…eremu berria gehitzeko, egin klik hemen…</message>
 	<message key="submission.citations.editor.details.queryCitation">Berriz Kontsultatu Aipuen Zerbitzuak</message>
 	<message key="submission.citations.editor.details.queryGoogleScholar">Bilatu Google Scholar-en</message>
-	<message key="submission.citations.editor.details.pleaseClickOnCitationToStartEditing"><![CDATA[<p> Ongi etorri aipuak editatzeko prozesura. Ezkerreko zerrendako aipu batean klik eginez gero, aipua leiho honetan agertuko da, eta bertan egiaztatu ahal izango duzu aipuaren prozesuaren zehaztasuna. Era berean, aldizkariaren kudeatzaileak konfiguratutako aipuen datu-baseen zerbitzuekin alderatu ahal izango duzu aipua, eta eskuz editatu ahal izango duzu. </p>
-		<h4> Interfazean nabigatzea</h4>
-		<p> Editatzen hasteko, egin klik ezkerreko zerrendako aipu batean. </p>
-		<p> Leiho honen eta ezkerreko zutabearen arteko bereizle urdin argia mugitu egin daiteke. Aipuen zerrenda ikusteko leku gehiago behar baduzu, edo aipua editatzeko toki gehiago behar baduzu, bi norabidetan mugi dezakezu. </p>
-		<p>Aipuaren interfazea hedatzeko, sakatu <strong>Pantaila osoa</strong> botoia. Aipuaren interfaze hedatutik interfaze normalera igarotzeko, egin klik <strong>Kendu pantaila osoa</strong> botoian.</p>
-		<h4>Aipuak gehitzea eta ezabatzea</h4>
-		<p> Aipuen zerrendaren zutabean, goian eskuinaldean, agertzen den <strong>Aipu berria</strong>ikonoa sakatuz gero, aipuak gehitu daitezke. Halaber, aipuak ezaba daitezke, aipuaren ezkerraldeko  <strong>Ezabatu</strong> ikur gorria sakatuz gero. </p>
-		<h4>Aipuak editatzea</h4>
-		<p>Ezkerreko zerrendako aipu bat editatzeko, egin klik haren gainean, eta leiho honetan irekiko da. Egileak idatzitako jatorrizko aipua agertuko zaizu, eta laguntzaileak automatikoki ateratako saioa ere agertuko da. Jatorrizko aipua eskuz editatu ahal izango duzu; aipu berriko zatiak edo aipu osoa editatu ahal izango duzu; konfiguratutako aipuen datu-baseen zerbitzuarekin alderatu ahal izango duzu aipua; Google Scholar-en bilaketa egin dezakezu; eta egileari berari informazio gehiago eska diezaiokezu. </p>
-		<p>Aipua zure modura editatzen amaitu ondoren, <strong>Gorde eta onartu</strong> botoian klik eginez gero, zerrendan onartu gabe dagoen hurrengo aipura igaroko zara automatikoki. Modu horretan, oso azkar lan egin dezakezu aipuen zerrenda luzeekin. Aipu guztiak onartu ondoren, <strong>Aipuak esportatu</strong> orrira igaroko zara. </p>]]></message>
 	<message key="submission.citations.editor.details.processRawCitation">Prozesua</message>
 	<message key="submission.citations.editor.details.processRawCitationGoAhead">Joan aurrera</message>
 	<message key="submission.citations.editor.details.processRawCitationTitle">Jatorrizko aipua aldatzen</message>

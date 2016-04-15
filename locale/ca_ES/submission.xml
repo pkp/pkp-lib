@@ -182,16 +182,6 @@
 	<message key="submission.citations.editor.details.newFieldInfo">...feu clic aquí per afegir un camp nou...</message>
 	<message key="submission.citations.editor.details.queryCitation">Serveis de nova consulta de citació</message>
 	<message key="submission.citations.editor.details.queryGoogleScholar">Cerqueu a Google Acadèmic</message>
-	<message key="submission.citations.editor.details.pleaseClickOnCitationToStartEditing"><![CDATA[<p>Benvingut/da al procés d'edició de citacions. Si feu clic en una citació del llistat esquerre, es mostrarà la citació en aquesta finestra, on podreu comprovar la precisió del procés de citació. També podreu comprovar la citació respecte a la configuració de serveis de la base de dades de citacions de l'administrador/a de la revista i editar-la manualment.</p>
-		<h4>Navega per la interfície</h4>
-		<p>Feu clic a una de les citacions de la llista de l'esquerra per començar a editar.</p>
-		<p>Podeu moure el separador blau clar entre aquesta finestra i la columna de l'esquerra. Si necessiteu més espai per visualitzar la llista de citacions, o bé per editar una citació, podeu moure-la en qualsevol direcció.</p>
-		<p>Per ampliar la interfície de citació, feu clic al botó <strong>Pantalla completa</strong>. Per tornar a la interfície normal des de la interfície de citació ampliada, feu clic al botó <strong>Desactiva la pantalla completa</strong>.</p>
-		<h4>Addició i eliminació de citacions</h4>
-		<p>Podeu afegir citacions fent clic a la icona <strong>Nova citació</strong> a l'angle superior dret de la columna del llistat de citacions. Les citacions es poden eliminar fent clic a la icona <strong>Elimina</strong> a l'esquerra de la citació.</p>
-		<h4>Edició de les citacions</h4>
-		<p>Per editar una citació al llistat esquerre, feu-hi clic i s'obrirà en aquesta finestra. Es mostrarà la finestra amb la citació original tal com l'ha escrit l'autor/a, seguida d'un intent d'extracció automàtic de l'assistent. També podreu editar manualment la citació original, editar algunes parts o la totalitat de la nova citació, comprovar de nou la citació respecte dels serveis de citació de bases de dades configurats, i fer consultes a Google Acadèmic i a l'autor/a per obtenir més informació sobre la citació.</p>
-		<p>En acabar l'edició d'una citació satisfactòriament, després de fer clic a <strong>Desa i aprova</strong> se us dirigirà automàticament a la següent citació sense aprovar de la llista. D'aquesta manera podeu moure-us ràpidament per una llarga llista de citacions. Un cop aprovades totes les citacions, se us dirigirà a la pàgina <strong>Exporta citacions</strong>.</p>]]></message>
 	<message key="submission.citations.editor.details.processRawCitation">Procés</message>
 	<message key="submission.citations.editor.details.processRawCitationGoAhead">Continueu</message>
 	<message key="submission.citations.editor.details.processRawCitationTitle">Canvieu la citació original</message>

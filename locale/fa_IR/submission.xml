@@ -288,15 +288,6 @@ Coleman Jr, D. (Ralf) Dr</message>
 	<message key="submission.citations.editor.details.newFieldInfo">... اینجا را کلیک کنید تا یک فیلد جدید اضافه کنید</message>
 	<message key="submission.citations.editor.details.queryCitation">استعلام مجدد از سرویس های ارجاعی</message>
 	<message key="submission.citations.editor.details.queryGoogleScholar">جستجو در گوگل اسکولار</message>
-	<message key="submission.citations.editor.details.pleaseClickOnCitationToStartEditing"><![CDATA[<p>
-به پروسه ویرایش ارجاع خوش آمدید. کلیک بر بروی یک ارجاع در سمت چپ، ان را در این پنجره باز می کند که در اینجا می توانید صحت پروسه ارجاع را چک کنید. همچنین می توانید ارجاع را در مقابل سرویس های بان ارجاع تنظیم شده توسط مدیر مجله چک کنید و بصورت دستی خود ارجاع را نیز ویرایش کنید.
-</p>
-<h4>
-گشت و گذار در اینترفیس
-</h4>
-<p>
-بر روی یکی از ارجاعات سمت چپ کلیک کنید تا شروع به ویرایش آن کنید.
-</p>]]></message>
 	<message key="submission.citations.editor.details.processRawCitation">پروسه</message>
 	<message key="submission.citations.editor.details.processRawCitationGoAhead">برو جلو</message>
 	<message key="submission.citations.editor.details.processRawCitationTitle">تغییر ارجاع اصلی</message>

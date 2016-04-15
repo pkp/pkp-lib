@@ -183,16 +183,6 @@
 	<message key="submission.citations.editor.details.newFieldInfo">...click here to add a new field...</message>
 	<message key="submission.citations.editor.details.queryCitation">Re-Query Citation Services</message>
 	<message key="submission.citations.editor.details.queryGoogleScholar">Search in Google Scholar</message>
-	<message key="submission.citations.editor.details.pleaseClickOnCitationToStartEditing"><![CDATA[<p>Welcome to the citation editing process. Clicking on a citation in the listing to the left will present the citation in this window, where you can check the accuracy of the citation process. You will also be able to check the citation against citation database services configured by the journal manager, and manually edit the citation yourself.</p>
-		<h4>Navigating the Interface</h4>
-		<p>Click on one of the listed citations on the left to start editing.</p>
-		<p>The light blue separator between this window and the column on the left is movable. Whether you need more room to view the citation list, or alternatively more space to edit a citation, it can be moved in either direction.</p>
-		<p>To expand the citation interface, click the <strong>Fullscreen</strong> button. To return to a normal interface from the expanded citation interface, click the <strong>Fullscreen Off</strong> button.</p>
-		<h4>Adding and Deleting Citations</h4>
-		<p>Citations can be added by clicking the <strong>New Citation</strong> icon in the top right corner of the citation listing column. Citations can be deleted by clicking the red <strong>Delete</strong> icon to the left of the citation.</p>
-		<h4>Editing Citations</h4>
-		<p>To edit a citation in the left listing, click on it and it will open in this window. You will be presented with the original citation as written by the author, followed by the Assistant's automatic extraction attempt. You will be able to manually edit the original citation; edit parts or all of the new citation; re-check the citation against configured citation database services; query Google Scholar; and query the author for further citation information.</p>
-		<p>When you are finished editing a citation to your satisfaction, upon clicking the <strong>Save and Approve</strong> button you will be moved automatically to the next unapproved citation in the list. In this way you can very quickly work through a large list of citations. Once all citations have been approved, you will be moved to the <strong>Export Citations</strong> page.</p>]]></message>
 	<message key="submission.citations.editor.details.processRawCitation">Process</message>
 	<message key="submission.citations.editor.details.processRawCitationGoAhead">Go Ahead</message>
 	<message key="submission.citations.editor.details.processRawCitationTitle">Changing Original Citation</message>

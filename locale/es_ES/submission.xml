@@ -179,16 +179,6 @@
 	<message key="submission.citations.editor.details.newFieldInfo">...haz clic aquí para añadir un nuevo campo...</message>
 	<message key="submission.citations.editor.details.queryCitation">Servicios de re-consulta de citas</message>
 	<message key="submission.citations.editor.details.queryGoogleScholar">Buscar en Google Académico</message>
-	<message key="submission.citations.editor.details.pleaseClickOnCitationToStartEditing"><![CDATA[<p>Bienvenido al proceso de edición de citas. Al hacer clic en una cita de la lista de la izquierda se mostrará la cita en esta ventana, donde podrá comprobar la exactitud del proceso de cita. También podrá comprobar la cita con los servicios de base de datos de citas configurados por el gestor/a de la revista y editar la cita de forma manual.</p>
-		<h4>Explorar la interfaz</h4>
-		<p>Haga clic en una de las citas enumeradas a la izquierda para iniciar la edición.</p>
-		<p>El separador azul claro que se encuentra entre esta ventana y la columna de la izquierda se puede mover. Si le falta espacio para ver la lista de citas o si necesita más espacio para editar una cita, el separador se puede mover en cualquier dirección.</p>
-		<p>Para expandir la interfaz de citas, haga clic en el botón de <strong>pantalla completa</strong>. Para volver a la interfaz normal desde la interfaz de citas expandida, haga clic en el botón <strong>Salir de pantalla completa</strong>.</p>
-		<h4>Añadir y eliminar citas</h4>
-		<p>Se pueden añadir citas haciendo clic en el icono <strong>Nueva cita</strong> que se encuentra en la esquina superior derecha de la columna de la lista de citas. Se pueden eliminar citas haciendo clic en el icono rojo <strong>Eliminar</strong> que se encuentra a la izquierda de la cita.</p>
-		<h4>Editar citas</h4>
-		<p>Para editar una cita de la lista de la izquierda, haga clic en ella y se abrirá en esta ventana. Aparecerá la cita original tal y como la escribió el autor/a, seguida del intento de extracción automático del asistente. Podrá editar manualmente la cita original, editar parcial o totalmente la cita nueva, volver a comprobar la cita con los servicios configurados de base de datos de citas, consultar Google Académico y preguntar al autor/a para obtener más información de la cita.</p>
-		<p>Cuando esté satisfecho con la cita que ha editado y haga clic en el botón <strong>Guardar y aprobar</strong>, se pasará automáticamente a la siguiente cita de la lista. De esa manera, podrá trabajar rápidamente con una lista de citas de gran volumen. Una vez que todas las citas se hayan aprobado, se pasará a la página de <strong>Exportar citas</strong>.</p>]]></message>
 	<message key="submission.citations.editor.details.processRawCitation">Proceso</message>
 	<message key="submission.citations.editor.details.processRawCitationGoAhead">Seguir adelante</message>
 	<message key="submission.citations.editor.details.processRawCitationTitle">Cambiando cita original</message>
@@ -566,7 +556,6 @@
 	<message key="submission.citations.editor.details.newFieldInfo">...haz clic aquí para añadir un nuevo campo...</message>
 	<message key="submission.citations.editor.details.queryCitation">Servicios de re-consulta de citas</message>
 	<message key="submission.citations.editor.details.queryGoogleScholar">Buscar en Google Académico</message>
-	<message key="submission.citations.editor.details.pleaseClickOnCitationToStartEditing"><![CDATA[<p>Bienvenido al proceso de edición de citas. Al hacer clic en una cita del listado de la izquierda, se mostrará la cita en esta ventana, donde podrás comprobar la exactitud del proceso de citación. También podrás comprobar la cita con respecto a los servicios de base de datos de citas configurados por el <em>gestor de la revista</em>, y editar manualmente personalmente la cita.</p>]]></message>
 	<message key="submission.citations.editor.details.processRawCitation">Proceso</message>
 	<message key="submission.citations.editor.details.processRawCitationGoAhead">Seguir adelante</message>
 	<message key="submission.citations.editor.details.processRawCitationTitle">Cambiando cita original</message>

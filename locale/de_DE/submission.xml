@@ -179,16 +179,6 @@
 	<message key="submission.citations.editor.details.newFieldInfo">… klicken Sie hier, um ein neues Feld hinzuzufügen…</message>
 	<message key="submission.citations.editor.details.queryCitation">Zitationsdienste erneut abfragen</message>
 	<message key="submission.citations.editor.details.queryGoogleScholar">In Google Scholar suchen</message>
-	<message key="submission.citations.editor.details.pleaseClickOnCitationToStartEditing"><![CDATA[<p>Willkommen zum Prozess der Zitationsbearbeitung. Das Anklicken einer Zitation in der Auflistung links wird die Zitation in diesem Fenster öffnen, wo Sie die Korrektheit des Zitationsprozesses prüfen können. Sie können die Zitation auch in Zitationsdatenbankdiensten überprüfen, die die/der Zeitschriftenverwalter/in konfiguriert hat, und können die Zitation selber manuell bearbeiten.</p>
-	<h4>Die Schnittstelle benutzen</h4>
-		<p>Klicken Sie auf eine der links aufgelisteten Zitationen, um die Bearbeitung zu beginnen.</p>
-		<p>Die hellblaue Grenze zwischen diesem Fenster und der Spalte links ist beweglich. Ob Sie mehr Platz für die Zitationsliste oder für die Bearbeitung einer Zitation benötigen, sie kann in jede Richtung bewegt werden.</p>
-		<p>Um die Zitationsschnittstelle zu erweitern, klicken Sie den <strong>Vollbild</strong>-Knopf. Um zur normalen Ansicht zurückzukehren, klicken Sie den <strong>Vollbild aus</strong>-Knopf.</p>
-		<h4>Zitationen hinzufügen und löschen</h4>
-		<p>Zitationen können hinzugefügt werden, in dem das <strong>Neue Zitation</strong>-Symbol in der oberen rechten Ecke der Spalte mit der Zitationsliste geklickt wird. Zitationen können gelöscht werden, indem das rote <strong>Löschen</strong>-Symbol links neben der Zitation geklickt wird.</p>
-		<h4>Zitationen bearbeiten</h4>
-		<p>Um eine Zitation aus der linken Liste zu bearbeiten, klicken Sie es an, und sie wird sich in diesem Fenster öffnen. Sie erhalten die originale Zitation, wie sie die Autorin/der Autor geschrieben hat, gefolgt von dem automatischen Extraktionsversuch des Assistenten. Sie können die originale Zitation manuell bearbeiten, Teile oder die gesamte neue Zitation bearbeiten, die Zitation erneut in den konfigurierten Zitationsdatenbankdiensten überprüfen, Google Scholar abfragen und die Autorin/den Autoren nach weiteren Angaben zur Zitation fragen.</p>
-		<p>Wenn Sie die Bearbeitung einer Zitation zu Ihrer Zufriedenheit abgeschlossen haben, gelangen Sie durch Klicken des <strong>Speichern und akzeptieren</strong>-Knopfes automatisch zu der nächsten ungeprüften Zitation der Liste. Auf diese Weise können Sie sich sehr schnell durch eine lange Liste von Zitationen arbeiten. Wenn alle Zitationen akzeptiert worden sind, gelangen Sie zu der <strong>Zitationen exportieren</strong>-Seite.</p>]]></message>
 	<message key="submission.citations.editor.details.processRawCitation">Verarbeiten</message>
 	<message key="submission.citations.editor.details.processRawCitationGoAhead">Weiter</message>
 	<message key="submission.citations.editor.details.processRawCitationTitle">Originale Zitation verändern</message>

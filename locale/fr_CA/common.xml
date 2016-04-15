@@ -469,7 +469,6 @@
 	<message key="search.cli.rebuildIndex.done">Terminé</message>
 	<message key="search.cli.rebuildIndex.error">Erreur</message>
 	<message key="search.cli.rebuildIndex.result">{$numIndexed} articles indexés</message>
-	<message key="search.cli.rebuildIndex.unknownJournal">Le chemin d'accès fourni "{$journalPath}" n'a pu être résolu à un journal.</message>
 	<message key="search.deleteFilter">Supprimer</message>
 	<message key="search.indexTermsLong">Tous les champs des termes de l'index</message>
 	<message key="grid.action.downloadFile">Télécharger ce fichier</message>

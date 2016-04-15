@@ -461,7 +461,6 @@
 	<message key="search.cli.rebuildIndex.done">done</message>
 	<message key="search.cli.rebuildIndex.error">error</message>
 	<message key="search.cli.rebuildIndex.result">{$numIndexed} articles indexed</message>
-	<message key="search.cli.rebuildIndex.unknownJournal">The given journal path "{$journalPath}" could not be resolved to a journal.</message>
 	<message key="search.coverage">Coverage</message>
 	<message key="search.date">Publication Date</message>
 	<message key="search.dateFrom">From</message>

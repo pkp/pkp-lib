@@ -208,7 +208,6 @@
 	<message key="submission.citations.editor.loadMessage">ദയവായി സൈറ്റെഷന്‍ മാര്‍ക്ക് അപ് അസിസ്റ്റന്റ് ലോഡ് ആകുന്നത് വരെ കാത്തിരിക്കുക.</message>
 	<message key="submission.citations.editor.pleaseImportCitationsFirst"><![CDATA[<p>There are no citations for this article.</p><p>Please go to the article's <a href="{$articleMetadataUrl}">metadata page</a> and enter a reference list or add references manually using the add item button of the editor.</p>]]></message>
 	<message key="submission.citations.editor.pleaseSelect">ദയവായി തിരെഞ്ഞെടുക്കുക...</message>
-	<message key="submission.citations.editor.pleaseSetup"><![CDATA[Please ask your journal manager to <a href="{$citationSetupUrl}">enable citation editing</a> before you can access the citation markup assistant.]]></message>
 	<message key="submission.citations.editor.unprocessedCitations">The citations of this article are still being processed on the server. The current citation list only contains already processed citations. Please click the refresh button to see citations that have been processed in the meantime.</message>
 	<message key="submission.citations.editor.unprocessedCitationsButton">സൈറ്റെഷന്‍ പട്ടിക റിഫ്രഷ് ചെയ്യുക</message>
 	<message key="submission.citations.editor.unprocessedCitationsButtonTitle">സൈറ്റെഷന്‍ പട്ടിക റിഫ്രഷ് ചെയ്യുന്നതിനായി ക്ലിക്ക് ചെയ്യുക.</message>

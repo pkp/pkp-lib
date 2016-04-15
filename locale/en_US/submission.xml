@@ -228,7 +228,6 @@
 	<message key="submission.citations.editor.loadMessage">Please wait for the citation markup assistant to load.</message>
 	<message key="submission.citations.editor.pleaseImportCitationsFirst"><![CDATA[<p>There are no citations for this article.</p><p>Please go to the article's <a href="{$articleMetadataUrl}">metadata page</a> and enter a reference list or add references manually using the add item button of the editor.</p>]]></message>
 	<message key="submission.citations.editor.pleaseSelect">Please select...</message>
-	<message key="submission.citations.editor.pleaseSetup"><![CDATA[Please ask your journal manager to <a href="{$citationSetupUrl}">enable citation editing</a> before you can access the citation markup assistant.]]></message>
 	<message key="submission.citations.editor.unprocessedCitations">The citations of this article are still being processed on the server. The current citation list only contains already processed citations. Please click the refresh button to see citations that have been processed in the meantime.</message>
 	<message key="submission.citations.editor.unprocessedCitationsButton">Refresh Citation List</message>
 	<message key="submission.citations.editor.unprocessedCitationsButtonTitle">Click to refresh the citation list.</message>

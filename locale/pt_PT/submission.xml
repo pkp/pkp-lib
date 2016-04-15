@@ -335,7 +335,6 @@
 	</ul>]]></message>
 	<message key="submission.citations.editor.pleaseImportCitationsFirst"><![CDATA[<p>Não existem citações para este artigo.</p><p>Vá à página de metadados do artigo <a href="{$articleMetadataUrl}"></a> e insira uma lista de referências ou adicione manualmente as referências usando o botão de adição do editor.</p>]]></message>
 	<message key="submission.citations.editor.pleaseSelect">Por favor seleccione...</message>
-	<message key="submission.citations.editor.pleaseSetup"><![CDATA[Por favor solicite ao Editor-Gestor para activar a edição de citação <a href="{$citationSetupUrl}"></a> antes de aceder ao assistente de marcação de citação.]]></message>
 	<message key="submission.citations.editor.unprocessedCitations">As citações do artigo estão em processamento no servidor. A lista de citação actual contem apenas as citações processadas. Por favor clique no botão de actualização para ver as citações processadas até ao momento.</message>
 	<message key="submission.citations.editor.unprocessedCitationsButton">Lista de Citações Actualizada</message>
 	<message key="submission.citations.editor.unprocessedCitationsButtonTitle">Clicar para actualizar a lista de citações.</message>

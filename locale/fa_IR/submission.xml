@@ -372,11 +372,6 @@ Coleman Jr, D. (Ralf) Dr</message>
 مقاله رفته و لیستی ار رفرانس ها را وارد کنید و یا بطور دستی رفرانس را وارد کنید.
 </p>]]></message>
 	<message key="submission.citations.editor.pleaseSelect">لطفا انتخاب کنید...</message>
-	<message key="submission.citations.editor.pleaseSetup"><![CDATA[لطفا از مدیر مجله تان بخواهید تا 
-<a href="{$citationSetupUrl}">
-ویرایش ارجاع را فعال
-</a>
-کند.]]></message>
 	<message key="submission.citations.editor.unprocessedCitations">ارجاعات این مقاله هنوز در سرور در حال پردازش است.</message>
 	<message key="submission.citations.editor.unprocessedCitationsButton">تازه سازی لیست ارجاع</message>
 	<message key="submission.citations.editor.unprocessedCitationsButtonTitle">برای تازه سازی لیست ارجاع کلیک کنید</message>

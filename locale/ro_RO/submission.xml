@@ -322,7 +322,6 @@
 	<message key="submission.citations.editor.loadMessage">Așteaptă până la încărcarea asistentului pentru markup-ul referințelor bibliografice</message>
 	<message key="submission.citations.editor.pleaseImportCitationsFirst"><![CDATA[<p>Nu există referințe bibliografice pentru acest articol.</p><p>Mergi la pagina <a href="{$articleMetadataUrl}">metadatelor</a> și introdu a listă cu referințe bibliografice sau adaugă referințele manual utilizând butonul pentru adăugare al editorului.</p>]]></message>
 	<message key="submission.citations.editor.pleaseSelect">Selectează...</message>
-	<message key="submission.citations.editor.pleaseSetup"><![CDATA[Cere managerului revistei să <a href="{$citationSetupUrl}">activeze editarea referințelor</a> înainte de a accesa asistentul pentru markup pentru referințele bibliografice.]]></message>
 	<message key="submission.citations.editor.unprocessedCitations">Referințele bibliografice pentru acest articol încă sunt procesare de server. Lista curentă a citărilor conține doar referințele care au fost procesate deja. Dă clic pe butonul de actualizare pentru a vedea care au mai fost procesate între timp.</message>
 	<message key="submission.citations.editor.unprocessedCitationsButton">Actualizează lista referințelor bibliografice</message>
 	<message key="submission.citations.editor.unprocessedCitationsButtonTitle">Clic pentru a actualiza lista referințelor bibliografice.</message>

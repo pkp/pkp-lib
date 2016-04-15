@@ -210,7 +210,6 @@
 	<message key="submission.citations.editor.loadMessage">Будь ласка, зачекайте поки завантажиться Помічник розмітки цитат.</message>
 	<message key="submission.citations.editor.pleaseImportCitationsFirst"><![CDATA[<p>Ця стаття не має цитат.</p><p>Будь ласка, перейдіть до <a href="{$articleMetadataUrl}">сторінки метаданих</a> статті та введіть список пристатейної бібліографії або вручну додайте посилання, скориставшись кнопкою "Нова цитата" цього редактора.</p>]]></message>
 	<message key="submission.citations.editor.pleaseSelect">Будь ласка, оберіть...</message>
-	<message key="submission.citations.editor.pleaseSetup"><![CDATA[Будь ласка, попросіть менеджера вашого журналу <a href="{$citationSetupUrl}">дозволити редагування цитат</a>, щоб ви могли використовувати Помічник розмітки цитат.]]></message>
 	<message key="submission.citations.editor.unprocessedCitations">Цитати цієї статті все ще обробляються на сервері. Поточний список цитат містить лише ті цитати, які наразі вже оброблені. Для оновлення цього списку використовуйте відповідну кнопку.</message>
 	<message key="submission.citations.editor.unprocessedCitationsButton">Оновити список цитат</message>
 	<message key="submission.citations.editor.unprocessedCitationsButtonTitle">Натисніть, щоб оновити список цитат.</message>

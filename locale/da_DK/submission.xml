@@ -339,7 +339,6 @@
 	<message key="submission.citations.editor.loadMessage">Vent, til citationsredigeringsværktøjet er indlæst.</message>
 	<message key="submission.citations.editor.pleaseImportCitationsFirst"><![CDATA[<p>Der er ingen referencer til denne artikel.</p><p>Gå til artiklens <a href="{$articleMetadataUrl}">metadataside</a>, og indtast en litteraturhenvisning, eller tilføj referencer manuelt ved hjælp af knappen "Tilføj element" i redigeringsprogrammet.</p>]]></message>
 	<message key="submission.citations.editor.pleaseSelect">Vælg …</message>
-	<message key="submission.citations.editor.pleaseSetup"><![CDATA[Din tidsskriftschef skal <a href="{$citationSetupUrl}">aktivere citationsredigering</a>, inden du kan få adgang til citationsredigeringsværktøjet.]]></message>
 	<message key="submission.citations.editor.unprocessedCitations">Referencerne i denne artikel er stadig ved at blive behandlet på serveren. Den aktuelle litteraturliste indeholder kun referencer, der allerede er behandlet. Klik på opdater-knappen for at se referencer, der er blevet behandlet i mellemtiden.</message>
 	<message key="submission.citations.editor.unprocessedCitationsButton">Opdater litteraturliste</message>
 	<message key="submission.citations.editor.unprocessedCitationsButtonTitle">Klik for at opdatere litteraturlisten.</message>

@@ -227,7 +227,6 @@
 	<message key="submission.citations.editor.loadMessage">Espereu que es carregui l'Assistent de marcatge de citacions.</message>
 	<message key="submission.citations.editor.pleaseImportCitationsFirst"><![CDATA[<p>No hi ha citacions en aquest article.</p><p>Aneu a la <a href="{$articleMetadataUrl}">pàgina de metadades</a> de l'article i introduïu-hi una llista de referències o afegiu-hi referències manualment utilitzant el botó d'afegir article de l'editor/a.</p>]]></message>
 	<message key="submission.citations.editor.pleaseSelect">Seleccioneu...</message>
-	<message key="submission.citations.editor.pleaseSetup"><![CDATA[Sol·liciteu <a href="{$citationSetupUrl}">activar l'edició de citacions</a> a l'administrador/a de la vostra revista abans d'accedir a l'assistent de marcació de citacions.]]></message>
 	<message key="submission.citations.editor.unprocessedCitations">Les citacions d'aquest article encara s'estan processant al servidor. La llista actual de citacions només conté citacions que ja s'han processat. Feu clic al botó d'actualitzar la pàgina per veure les citacions que ja s'han processat.</message>
 	<message key="submission.citations.editor.unprocessedCitationsButton">Actualitzeu llista de citacions</message>
 	<message key="submission.citations.editor.unprocessedCitationsButtonTitle">Feu clic per actualitzar la llista de citacions.</message>

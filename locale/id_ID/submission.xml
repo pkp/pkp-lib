@@ -209,7 +209,6 @@ Pastikan Anda mengatur tipe judul yang valid. Nilai dukungan adalah "disingkat",
 	<message key="submission.citations.editor.loadMessage">Tunggu bantuan Koreksi Sitiran untuk dimuat.</message>
 	<message key="submission.citations.editor.pleaseImportCitationsFirst"><![CDATA[<p>Tidak ada Sitiran untuk artikel ini.</p><p>Pergi ke <a href="{$articleMetadataUrl}">halaman metadata artikel</a> dan masukkan daftar referensi atau tambahkan referensi secara manual dengan menggunakan tombol tambah item dari editor.</p>]]></message>
 	<message key="submission.citations.editor.pleaseSelect">Pilih...</message>
-	<message key="submission.citations.editor.pleaseSetup"><![CDATA[Minta manajer jurnal untuk <a href="{$citationSetupUrl}">memudahkan pengeditan Sitiran</a> sebelum Anda dapat mengakses bantuan koreksi Sitiran.]]></message>
 	<message key="submission.citations.editor.unprocessedCitations">Sitiran artikel ini sedang diproses di server. Daftar Sitiran yang sekarang hanya berisi Sitiran yang sudah diproses. Klik tombol refresh untuk melihat Sitiran yang telah diproses sementara ini.</message>
 	<message key="submission.citations.editor.unprocessedCitationsButton">Refresh Daftar Sitiran</message>
 	<message key="submission.citations.editor.unprocessedCitationsButtonTitle">Klik untuk merefresh daftar Sitiran.</message>

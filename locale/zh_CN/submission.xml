@@ -352,7 +352,6 @@
 	</ul>]]></message>
 	<message key="submission.citations.editor.loadMessage">请等待加载引用标记助理。</message>
 	<message key="submission.citations.editor.pleaseImportCitationsFirst"><![CDATA[<p>没有该文章的引用。</p><p>请到文章 <a href="{$articleMetadataUrl}">元数据页面</a> 并输入引用列表或使用编辑中的添加项目按钮来手动添加参考文献。</p>]]></message>
-	<message key="submission.citations.editor.pleaseSetup"><![CDATA[请询问您的期刊管理员<a href="{$citationSetupUrl}">在您能够使用引用标记助理前</a> 来启用引用编辑。]]></message>
 	<message key="submission.citations.editor.unprocessedCitations">该文章引用仍然在服务器上进行处理。当前的引用列表只包含已经处理过的引用。请点击刷新按钮查看与此同时正在处理的引用。</message>
 	<message key="submission.citations.filter.invalidMetadata">在 {$filterName}中发生错误: 从数据资源（如web服务）中返回来的数据元素同内部元数据格式不符。因此，数据服务的结果被拒绝。请将其报告为错误。</message>
 	<message key="submission.citations.filter.noResultFromFilterError">一些引用服务未返回任何结果。您可以重新尝试手动编辑引用字段，然后再次检索引用服务来改善结果。如果没有作用，那么引用不存在于连接的数据库中。</message>

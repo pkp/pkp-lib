@@ -297,7 +297,6 @@
 	<message key="submission.citations.editor.details.processRawCitationWarning">オリジナルの引用テクストを編集しようとしています。この操作によりすべてのフィールドが新たに生成された値に置き換えられます。これによってすでにマニュアルで修正された結果は削除されます。</message>
 	<message key="submission.citations.editor.export.foundUnapprovedCitationsMessage"><![CDATA[<p>すべての引用がまだ承認されていません。 Please go to the <strong>引用情報の修正</strong> タブからエクスポートしようとしている全ての引用が承認されているかどうか確認してください。承認された引用は左に青紺色のストライプでマークされています。</p>]]></message>
 	<message key="submission.citations.editor.pleaseImportCitationsFirst"><![CDATA[<p>この論文には引用情報がありません。</p><p>論文の <a href="{$articleMetadataUrl}">メタデータページ</a> で参考文献リストを入力するか，編集者のアイテム追加ボタンを使用して手動で参考文献を追加してください。</p>]]></message>
-	<message key="submission.citations.editor.pleaseSetup"><![CDATA[引用マークアップ支援機能にアクセスする前に，<a href="{$citationSetupUrl}">引用の編集を可能にする</a> ように雑誌管理者へ依頼してください。]]></message>
 	<message key="submission.citations.editor.unprocessedCitations">この論文の引用情報はサーバで処理途中です。現在表示されているものは処理が完了した引用情報のみです。再読み込みボタンをクリックして処理された引用情報を確認してください。</message>
 	<message key="metadata.property.displayName.season">Season</message>
 	<message key="metadata.property.validationMessage.season">適切な Season を入力してください。</message>

@@ -339,7 +339,6 @@
 	<message key="submission.nameRequired">Se cere un nume pentru acest articol.</message>
 	<message key="submission.date.mmdd">LL-ZZ</message>
 	<message key="submission.date.yyyymmdd">AAAA-LL-ZZ</message>
-	<message key="submission.citations.filter.webserviceError">Apelul la serviciul web {$filterName}'s a semnalat eroarea urmând următorul URL: {$webserviceUrl}. Se pare că serviciul web este temporar indisponibil. Veți putea lucra cu serviciile rămase și salva rezultatele. Poți încerca mai târziu. Dacă eroarea persistă, atunci rugați managerul revistei pentru a dezactiva acest serviciu și să semnalați un bug.</message>
 	<message key="submission.citations.filter.webserviceResultTransformationError">A apărut o eroare în {$filterName}: A eșuat transfomarea rezultatelor XML (de ex. de la serviciul web) pe câmpurile bazate pe metadate. E posibil ca motivul să fie date incomplete sau invalide. Trimite eroarea ca un bug.</message>
 	<message key="submission.citations.metadata.changeWarning">Ești sigur că dorești să actualizezi lista cu referințe bibliografice? Dacă dați clic pe OK, oricare modificări făcute de editori vor fi suprascrise. Dacă nu ești sigur că trebuie să faceți modificări listei de referințe bibliografice, contactați-l pe redactorul responsabil de propunere.</message>
 	<message key="submission.citations.editor.details.authorQuery">Întreabă autorul</message>

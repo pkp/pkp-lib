@@ -181,42 +181,15 @@
 	<message key="submission.citations.editor.details.dontShowMessageAgain">ഈ സന്ദേശം വീണ്ടും കാണിക്കരുത്.</message>
 	<message key="submission.citations.editor.edit">സൈറ്റെഷന്‍സ് ചിട്ടപ്പെടുത്തുക</message>
 	<message key="submission.citations.editor.export">എക്സ്പോര്‍ട്ട് സൈറ്റെഷന്‍സ്</message>
-	<message key="submission.citations.editor.export.exportDescription"><![CDATA[<a id="markForExport" href="">Click here</a> to select all of the generated output. You can then copy and paste it into your document.]]></message>
 	<message key="submission.citations.editor.export.filterSelectionDescription">ദയവായി ഒരു എക്സ്പോര്‍ട്ട് ഒപ്ഷന്‍ എങ്കിലും തിരെഞ്ഞെടുക്കുക.</message>
 	<message key="submission.citations.editor.export.filterSelectionError">താങ്കള്‍ ഒരു ഔട്ട്പുട്ട് ഓപ്ഷനും തിരെഞ്ഞെടുത്തിട്ടില്ല.</message>
-	<message key="submission.citations.editor.export.foundUnapprovedCitationsMessage"><![CDATA[<p>You have not yet approved all citations. Please go to the <strong>Edit Citations</strong> tab and make sure you have approved all citations before you try to export them. Approved citations are marked with a dark blue stripe to the left.</p>]]></message>
-	<message key="submission.citations.editor.export.noExportOutput">The '{$filterName}' output filter has produced an error. Please file a bug report.</message>
 	<message key="submission.citations.editor.export.pleaseSelectXmlFilter">എക്സ്എംഎല്‍ ഔട്ട്പുട്ട് ഓപ്ഷന്‍സ്:</message>
 	<message key="submission.citations.editor.export.pleaseSelectPlaintextFilter">സൈറ്റെഷന്‍ സ്റ്റൈല്‍ ഔട്ട്പുട്ട് (പരീക്ഷണം മാത്രം!):</message>
 	<message key="submission.citations.editor.introduction">മുഖവുര</message>
-	<message key="submission.citations.editor.introduction.introductionMessage"><![CDATA[<h4>Welcome to the Citation Markup Assistant!</h4>
-	<p>With this assistant you can mark up author-provided citations for export to NLM 2.3 or 3.0 XML galleys, or alternatively as text-based output. This tool first attempts to automatically extract and recognize citations as they have been provided, but you can step in and edit the results at any time.</p>
-	<ul>
-		<li><p><strong>Configuring the Assistant</strong></p>
-		<p>The Citation Markup Assistant is configured by the journal manager in <a href="{$citationSetupUrl}">Journal Setup Step 3.7: Citation Markup Assistant</a>. Different citation extraction and checking tools can be added, configured, and deleted. For more information, contact the journal manager.</p></li>
-		<li><p><strong>Navigating the Assistant Interface</strong></p>
-		<p>To switch between <strong>Introduction</strong>, <strong>Edit Citations</strong> and <strong>Export Citations</strong> tabs, click the tab titles. To expand the citation interface, click the <strong>Fullscreen</strong> button. To return to a normal interface from the expanded citation interface, click the <strong>Fullscreen Off</strong> button. To remove this introductory tab entirely, click the button below.</p></li>
-		<li><p><strong>Requesting Citations</strong></p>
-		<p>If the Citation Markup Assistant has been enabled by the journal manager, authors will be prompted for a list of references during article submission. These references will be requested separately from the submission document itself. After submission, authors can also modify their list of references at any time by editing the submission's metadata; note that this will overwrite any modifications that you have made to the citations using this tool.</p></li>
-		<li><p><strong>Editing Citations</strong></p>
-		<p>The Citation Markup Assistant will attempt to identify and extract individual citations from the author's list of references. You can systematically check each citation extraction attempt for accuracy against a number of external databases; edit incorrect citation information and add new information; approve or delete citations; and add new citations.</p>
-		<p>All final citations for a submission must be approved before they can be exported.</p></li>
-		<li><p><strong>Exporting Citations</strong></p>
- 		<p>Citations can be exported as XML or text. XML export options currently include <a href="http://dtd.nlm.nih.gov/publishing/">NLM Journal Publishing</a> 2.3 and 3.0 <a href="http://www.ncbi.nlm.nih.gov/pmc/pmcdoc/tagging-guidelines/article/tags.html#el-reflist">ref-list XML</a>. Selecting one of these options outputs an XML-encoded ref-list snippet that can be copied and pasted into an NLM XML galley.</p>
-		<p>Experimental text export options include ABNT, APA, MLA and Vancouver citation output styles. These options provide a text output that can be copied and pasted into a text-based article galley (for example into Microsoft Word or OpenOffice; Adobe InDesign; etc.). Each citation includes an embedded link to automatically search for that citation in Google Scholar.</p></li>
-	</ul>]]></message>
 	<message key="submission.citations.editor.loadMessage">ദയവായി സൈറ്റെഷന്‍ മാര്‍ക്ക് അപ് അസിസ്റ്റന്റ് ലോഡ് ആകുന്നത് വരെ കാത്തിരിക്കുക.</message>
-	<message key="submission.citations.editor.pleaseImportCitationsFirst"><![CDATA[<p>There are no citations for this article.</p><p>Please go to the article's <a href="{$articleMetadataUrl}">metadata page</a> and enter a reference list or add references manually using the add item button of the editor.</p>]]></message>
 	<message key="submission.citations.editor.pleaseSelect">ദയവായി തിരെഞ്ഞെടുക്കുക...</message>
-	<message key="submission.citations.editor.unprocessedCitations">The citations of this article are still being processed on the server. The current citation list only contains already processed citations. Please click the refresh button to see citations that have been processed in the meantime.</message>
 	<message key="submission.citations.editor.unprocessedCitationsButton">സൈറ്റെഷന്‍ പട്ടിക റിഫ്രഷ് ചെയ്യുക</message>
 	<message key="submission.citations.editor.unprocessedCitationsButtonTitle">സൈറ്റെഷന്‍ പട്ടിക റിഫ്രഷ് ചെയ്യുന്നതിനായി ക്ലിക്ക് ചെയ്യുക.</message>
-	<message key="submission.citations.filter.invalidMetadata">An error occurred in {$filterName}: One of the data elements returned from the data source (e.g. a web service) did not conform to the internal meta-data format. Therefore the data source's results were rejected. Please file this as a bug.</message>
-	<message key="submission.citations.filter.noResultFromFilterError">Several citation services did not return any results. You can try to manually edit citation fields and then query citation services again to improve results. If this doesn't help then the citation does not exist in any of the connected databases.</message>
-	<message key="submission.citations.filter.unsupportedPublicationType">Unsupported or missing publication type. Please manually edit the citation and enter a publication type (allowed types are 'book', 'journal', 'thesis' and 'conf-proc').</message>
-	<message key="submission.citations.filter.webserviceError">The {$filterName}'s web service call has returned an error when called with the following URL: {$webserviceUrl}. It may be that the web service is temporarily unavailable. You'll still be able to work with the remaining services and save your results. You can also try again later. If the error persists then please ask the journal manager to deactivate this service and open a bug report.</message>
-	<message key="submission.citations.filter.webserviceResultTransformationError">An error occurred in {$filterName}: The transformation of XML results (e.g. from a web service) into field-based meta-data failed. The reason probably is that the web service returned invalid or incomplete data. Please file this as a bug.</message>
-	<message key="submission.citations.metadata.changeWarning">Are you sure you want to update your references list? If you click OK, any changes made by the Editors will be overwritten. If you are not sure whether you should make changes to the references list, please contact the Editor in charge of your submission.</message>
 	<message key="submission.comments.addComment">നിര്‍ദ്ദേശങ്ങള്‍ ചേര്‍ക്കുക</message>
 	<message key="submission.comments.comments">നിര്‍ദ്ദേശങ്ങള്‍</message>
 	<message key="submission.comments.confirmDelete">ഈ നിര്‍ദ്ദേശം നീക്കണമെന്ന് താങ്കള്‍ക്ക് ഉറപ്പാണ്ണോ?</message>

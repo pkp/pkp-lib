@@ -416,8 +416,6 @@
 	<message key="search.cli.rebuildIndex.clearingIndex">Restablecer índice</message>
 	<message key="search.cli.rebuildIndex.done">hecho</message>
 	<message key="search.cli.rebuildIndex.error">error</message>
-	<message key="search.cli.rebuildIndex.indexing">Indexación "{$journalName}"</message>
-	<message key="search.cli.rebuildIndex.indexingByJournalNotSupported">Esta implementación de búsqueda no permite la reindexación por revista.</message>
 	<message key="search.cli.rebuildIndex.result">{$numIndexed} artículos indexados</message>
 	<message key="search.cli.rebuildIndex.unknownJournal">La ruta de la revista proporcionada "{$journalPath}" no corresponde con ninguna revista.</message>
 	<message key="search.coverage">Cobertura</message>

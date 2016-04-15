@@ -468,8 +468,6 @@
 	<message key="search.cli.rebuildIndex.clearingIndex">Elimination de l'index</message>
 	<message key="search.cli.rebuildIndex.done">Terminé</message>
 	<message key="search.cli.rebuildIndex.error">Erreur</message>
-	<message key="search.cli.rebuildIndex.indexing">Indexage de "{$journalName}"</message>
-	<message key="search.cli.rebuildIndex.indexingByJournalNotSupported">Cette application de recherche ne permet pas le ré-indexage par journal.</message>
 	<message key="search.cli.rebuildIndex.result">{$numIndexed} articles indexés</message>
 	<message key="search.cli.rebuildIndex.unknownJournal">Le chemin d'accès fourni "{$journalPath}" n'a pu être résolu à un journal.</message>
 	<message key="search.deleteFilter">Supprimer</message>

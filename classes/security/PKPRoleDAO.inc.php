@@ -109,10 +109,10 @@ class PKPRoleDAO extends DAO {
 
 	/**
 	 * Validation check to see if a user belongs to any group that has a given role
-	 * @param $contextId
-	 * @param $userId
-	 * @param $roleId
-	 * @return bool
+	 * @param $contextId int
+	 * @param $userId int
+	 * @param $roleId int ROLE_ID_...
+	 * @return bool True iff at least one such role exists
 	 */
 	function userHasRole($contextId, $userId, $roleId) {
 		$result = $this->retrieve(

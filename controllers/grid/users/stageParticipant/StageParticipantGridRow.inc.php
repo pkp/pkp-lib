@@ -28,9 +28,9 @@ class StageParticipantGridRow extends GridRow {
 	/**
 	 * Constructor
 	 */
-	function StageParticipantGridRow(&$submission, $stageId, $canAdminister = false) {
-		$this->_submission =& $submission;
-		$this->_stageId =& $stageId;
+	function StageParticipantGridRow($submission, $stageId, $canAdminister = false) {
+		$this->_submission = $submission;
+		$this->_stageId = $stageId;
 		$this->_canAdminister = $canAdminister;
 
 		parent::GridRow();

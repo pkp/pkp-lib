@@ -505,6 +505,27 @@ abstract class Submission extends DataObject {
 	}
 
 	/**
+	 * Get the submission full title (with prefix, title
+	 * and subtitle).
+	 * @param $locale string Locale to fetch data in.
+	 * @return string
+	 */
+	function getFullTitle($locale) {
+		$fullTitle = null;
+		if ($prefix = $this->getPrefix($locale)) {
+			$fullTitle = $prefix . ' ';
+		}
+
+		$fullTitle .= $this->getTitle($locale);
+
+		if ($subtitle = $this->getSubtitle($locale)) {
+			$fullTitle = PKPString::concatTitleFields(array($fullTitle, $subtitle));
+		}
+
+		return $fullTitle;
+	}
+
+	/**
 	 * Get "localized" submission prefix (if applicable).
 	 * @return string
 	 */

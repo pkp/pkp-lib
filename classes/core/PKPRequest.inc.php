@@ -42,9 +42,6 @@ class PKPRequest {
 	/** @var string server host */
 	var $_serverHost;
 
-	/** @var string base url */
-	var $_baseUrl;
-
 	/** @var string request protocol */
 	var $_protocol;
 
@@ -154,24 +151,26 @@ class PKPRequest {
 
 	/**
 	 * Get the base URL of the request (excluding script).
+	 * @param $allowProtocolRelative boolean True iff protocol-relative URLs are allowed
 	 * @return string
 	 */
-	function getBaseUrl() {
+	function getBaseUrl($allowProtocolRelative = false) {
 		$_this =& PKPRequest::_checkThis();
 
-		if (!isset($_this->_baseUrl)) {
-			$serverHost = $_this->getServerHost(false);
-			if ($serverHost !== false) {
-				// Auto-detection worked.
-				$_this->_baseUrl = $_this->getProtocol() . '://' . $_this->getServerHost() . $_this->getBasePath();
+		$serverHost = $_this->getServerHost(false);
+		if ($serverHost !== false) {
+			// Auto-detection worked.
+			if ($allowProtocolRelative) {
+				$baseUrl = '//' . $_this->getServerHost() . $_this->getBasePath();
 			} else {
-				// Auto-detection didn't work (e.g. this is a command-line call); use configuration param
-				$_this->_baseUrl = Config::getVar('general', 'base_url');
+				$baseUrl = $_this->getProtocol() . '://' . $_this->getServerHost() . $_this->getBasePath();
 			}
-			HookRegistry::call('Request::getBaseUrl', array(&$_this->_baseUrl));
+		} else {
+			// Auto-detection didn't work (e.g. this is a command-line call); use configuration param
+			$baseUrl = Config::getVar('general', 'base_url');
 		}
-
-		return $_this->_baseUrl;
+		HookRegistry::call('Request::getBaseUrl', array(&$baseUrl));
+		return $baseUrl;
 	}
 
 	/**

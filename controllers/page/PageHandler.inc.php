@@ -112,7 +112,7 @@ class PageHandler extends Handler {
 					require_once('lib/pkp/lib/vendor/oyejorge/less.php/lessc.inc.php');
 					$less = new Less_Parser(array( 'relativeUrls' => false ));
 					$less->parseFile('styles/index.less');
-					$compiledStyles = str_replace('{$baseUrl}', $request->getBaseUrl(), $less->getCss());
+					$compiledStyles = str_replace('{$baseUrl}', $request->getBaseUrl(true), $less->getCss());
 
 					// Allow plugins to intervene in stylesheet compilation
 					HookRegistry::call('PageHandler::compileCss', array($request, $less, &$compiledStylesheetFile, &$compiledStyles));

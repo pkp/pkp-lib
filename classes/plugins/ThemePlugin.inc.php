@@ -105,7 +105,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 				require_once('lib/pkp/lib/vendor/oyejorge/less.php/lessc.inc.php');
 				$less = new Less_Parser(array( 'relativeUrls' => false ));
 				$less->parseFile ($lessFile);
-				$compiledStyles = str_replace('{$baseUrl}', $request->getBaseUrl(), $less->getCss());
+				$compiledStyles = str_replace('{$baseUrl}', $request->getBaseUrl(true), $less->getCss());
 
 				// Give other plugins the chance to intervene
 				HookRegistry::call('ThemePlugin::compileCss', array($request, $less, &$compiledStylesheetFile, &$compiledStyles));

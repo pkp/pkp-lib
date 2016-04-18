@@ -36,6 +36,16 @@ class SelectableCopyeditFilesGridHandler extends SelectableFileListGridHandler {
 		// Set the grid title.
 		$this->setTitle('submission.copyedited');
 	}
+
+	//
+	// Implemented methods from GridHandler.
+	//
+	/**
+	 * @copydoc GridHandler::isDataElementSelected()
+	 */
+	function isDataElementSelected($gridDataElement) {
+		return true;
+	}
 }
 
 ?>

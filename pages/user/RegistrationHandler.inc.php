@@ -70,7 +70,7 @@ class RegistrationHandler extends UserHandler {
 		$regForm = new RegistrationForm($request->getSite());
 		$regForm->readInputData();
 		if (!$regForm->validate()) {
-			return $regForm->fetchJson($request);
+			return new JSONMessage(true, $regForm->fetch($request));
 		}
 
 		$regForm->execute($request);

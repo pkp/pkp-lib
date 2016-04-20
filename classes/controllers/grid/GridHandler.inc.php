@@ -389,9 +389,9 @@ class GridHandler extends PKPHandler {
 	function setUrls($request, $extraUrls = array()) {
 		$router = $request->getRouter();
 		$urls = array(
-			'fetchGridUrl' => $router->url($request, null, null, 'fetchGrid', null, $this->getRequestArgs()),
-			'fetchRowsUrl' => $router->url($request, null, null, 'fetchRows', null, $this->getRequestArgs()),
-			'fetchRowUrl' => $router->url($request, null, null, 'fetchRow', null, $this->getRequestArgs())
+			'fetchGridUrl' => $router->url($request, null, null, 'fetchGrid'),
+			'fetchRowsUrl' => $router->url($request, null, null, 'fetchRows'),
+			'fetchRowUrl' => $router->url($request, null, null, 'fetchRow')
 		);
 		$this->_urls = array_merge($urls, $extraUrls);
 	}

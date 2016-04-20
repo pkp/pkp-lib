@@ -66,12 +66,12 @@
 
 	// Search filter
 	.pkp_linkaction_search {
-		&:extend( .fa );
 		padding: 0 1px; // 1px prevents aliased icon from getting clipped at the edge
 		background: transparent;
 		transition: all 0.3s ease;
 
 		&:before {
+			&:extend( .fa );
 			margin-right: 0.5em;
 		}
 	}
@@ -252,9 +252,9 @@
 	}
 
 	.order_message {
-		position: absolute; 
-		background-color: lightGrey; 
-		padding: 0.5em 0.5em; 
+		position: absolute;
+		background-color: lightGrey;
+		padding: 0.5em 0.5em;
 		display: inline-table;
 		top: 2em;
 		width: 15em;

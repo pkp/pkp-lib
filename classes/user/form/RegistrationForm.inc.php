@@ -70,13 +70,11 @@ class RegistrationForm extends Form {
 	}
 
 	/**
-	 * Display the form.
-	 * @param $request PKPRequest
+	 * @copydoc Form::fetch()
 	 */
-	function display($request) {
+	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 		$site = $request->getSite();
-		$templateMgr->assign('minPasswordLength', $site->getMinPasswordLength());
 		$context = $request->getContext();
 
 		if ($this->captchaEnabled) {
@@ -84,11 +82,11 @@ class RegistrationForm extends Form {
 			$publicKey = Config::getVar('captcha', 'recaptcha_public_key');
 			$useSSL = Config::getVar('security', 'force_ssl')?true:false;
 			$reCaptchaHtml = recaptcha_get_html($publicKey, null, $useSSL);
-			$templateMgr->assign('reCaptchaHtml', $reCaptchaHtml);
-			$templateMgr->assign('captchaEnabled', true);
+			$templateMgr->assign(array(
+				'reCaptchaHtml' => $reCaptchaHtml,
+				'captchaEnabled' => true,
+			));
 		}
-
-		$templateMgr->assign('privacyStatement', $context->getLocalizedSetting('privacyStatement'));
 
 		$countryDao = DAORegistry::getDAO('CountryDAO');
 		$countries = $countryDao->getCountries();
@@ -104,9 +102,14 @@ class RegistrationForm extends Form {
 		$userFormHelper = new UserFormHelper();
 		$userFormHelper->assignRoleContent($templateMgr, $request);
 
-		$templateMgr->assign('source', $request->getUserVar('source'));
+		$templateMgr->assign(array(
+			'source' =>$request->getUserVar('source'),
+			'minPasswordLength' => $site->getMinPasswordLength(),
+			'privacyStatement' => $context->getLocalizedSetting('privacyStatement'),
+			'includeEntirePage' => $display
+		));
 
-		parent::display($request);
+		return parent::fetch($request, $template, $display);
 	}
 
 	/**

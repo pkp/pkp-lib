@@ -42,18 +42,8 @@
 			</td>
 		</tr>
 		<tr valign="top">
-			{assign var="contents" value=$note->getContents()}
 			<td colspan="3">
-				<blockquote>
-				<span>
-					{$contents|truncate:250|nl2br|strip_unsafe_html}
-					{if $contents|strlen > 250}<a href="javascript:$.noop();" class="showMore">{translate key="common.more"}</a>{/if}
-				</span>
-				{if $contents|strlen > 250}
-					<span class="hidden">
-						{$contents|nl2br|strip_unsafe_html} <a href="javascript:$.noop();" class="showLess">{translate key="common.less"}</a>
-					</span>
-				{/if}
+				{include file="controllers/revealMore.tpl" content=$note->getContents()|strip_unsafe_html}
 				{if $noteFileDownloadLink}
 					<br />
 					<span class="noteFile">
@@ -61,7 +51,6 @@
 						{include file="linkAction/linkAction.tpl" action=$noteFileDownloadLink contextId=$note->getId()}
 					</span>
 				{/if}
-				</blockquote>
 			</td>
 		</tr>
 	</table>

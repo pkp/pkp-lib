@@ -122,10 +122,10 @@ class UserGridRow extends GridRow {
 					'delete')
 			);
 
-			$canAdminister = Validation::canAdminister($this->getId(), $session->user->getId());
+			$canAdminister = Validation::canAdminister($this->getId(), $request->getUser()->getId());
 			if (
 				!Validation::isLoggedInAs() and
-				$session->user->getId() != $this->getId() and
+				$request->getUser()->getId() != $this->getId() and
 				$canAdminister
 			) {
 				$dispatcher = $router->getDispatcher();

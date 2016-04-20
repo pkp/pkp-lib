@@ -122,8 +122,6 @@ class UserGridRow extends GridRow {
 					'delete')
 			);
 
-			$sessionManager = SessionManager::getManager();
-			$session = $sessionManager->getUserSession();
 			$canAdminister = Validation::canAdminister($this->getId(), $session->user->getId());
 			if (
 				!Validation::isLoggedInAs() and

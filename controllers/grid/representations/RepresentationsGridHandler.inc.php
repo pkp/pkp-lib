@@ -38,7 +38,7 @@ abstract class RepresentationsGridHandler extends CategoryGridHandler {
 	function RepresentationsGridHandler() {
 		parent::CategoryGridHandler(new RepresentationsCategoryGridDataProvider($this));
 		$this->addRoleAssignment(
-			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR),
+			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT),
 			array(
 				'fetchGrid', 'fetchRow', 'fetchCategory',
 				'addFormat', 'editFormat', 'updateFormat', 'deleteFormat',

@@ -89,7 +89,7 @@ class StageParticipantGridRow extends GridRow {
 						new RedirectConfirmationModal(
 							__('grid.user.confirmLogInAs'),
 							__('grid.action.logInAs'),
-							$dispatcher->url($request, ROUTE_PAGE, null, 'login', 'signInAsUser', $this->getId())
+							$dispatcher->url($request, ROUTE_PAGE, null, 'login', 'signInAsUser', $userId)
 						),
 						__('grid.action.logInAs'),
 						'enroll_user'

@@ -127,6 +127,8 @@ class PKPStageParticipantNotifyForm extends Form {
 	 * @copydoc Form::execute()
 	 */
 	function execute($request) {
+		$submissionDao = Application::getDAO('SubmissionDAO');
+		$submission = $submissionDao->getById($this->_submissionId);
 		foreach ((array) $this->getData('userIds') as $userId) {
 			$this->sendMessage($userId, $submission, $request);
 		}

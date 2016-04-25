@@ -113,4 +113,9 @@ Vous devez parfois utiliser une seule statistique d'utilisation pour, par exempl
 	<message key="admin.fileLoader.pathNotAccessible">Le dossier {$path} n'est pas un répertoire ou ne peut être lu.</message>
 	<message key="admin.fileLoader.moveFileFailed">Le fichier {$filename} ne peut être déplacé de {$currentFilePath} à {$destinationPath}</message>
 	<message key="admin.fileLoader.emailSubject">Chargeur de fichier</message>
+	<message key="admin.scheduledTask.downloadLog">Votre installation de OJS a terminé l'exécution de cette tâche. Vous pouvez télécharger le journal d'exécution ici: {$url}</message>
+	<message key="admin.scheduledTask.confirmClearLogs">Êtes-vous certain de vouloir supprimer le journal d'exécution des tâches planifiées ?</message>
+	<message key="admin.scheduledTask.clearLogs">Supprimer le journal d'exécution des tâches planifiées</message>
+	<message key="admin.error.utilExecutionProblem">L'exécution de "{$utilPath}" s'est terminée avec l'erreur suivante: {$output}</message>
+	<message key="admin.error.executingUtil">Erreur: impossible de lancer "{$utilPath}". Veuillez vérifier la configuration de {$utilVar} dans le fichier config.inc.php</message>
 </locale>

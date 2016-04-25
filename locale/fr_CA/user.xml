@@ -128,4 +128,7 @@
 	<message key="user.suffix">Suffixe</message>
 	<message key="user.profile.form.hashInvalid">La réinitialisation cryptée du mot de passe que vous avez tenté d'effectuer n'est pas valide.</message>
 	<message key="user.login.changePasswordInstructionsOneStep"><![CDATA[Vous devez choisir un nouveau mot de passe avant de pouvoir vous connecter à ce site.<br /><br />Veuillez entrer votre nom d'utilisateur et votre nouveau mot de passe ci-dessous pour changer le mot de passe de votre compte.]]></message>
+	<message key="user.login.implicitAuth">Login Shibboleth</message>
+	<message key="user.login.implicitAuthLogin">Login via Shibboleth</message>
+	<message key="user.login.localAuth">Login avec un compte local</message>
 </locale>

@@ -33,6 +33,12 @@
 	<message key="plugins.generic.usageStats.settings.archives">Archives</message>
 	<message key="plugins.generic.usageStats.settings.compressArchives.description">Activate this option to compress archived log files using gzip tool (you will have to configure the gzip setting inside config.inc.php). If you have a high traffic site it's a good idea to enable this, so you can save some extra disk space.</message>
 	<message key="plugins.generic.usageStats.settings.compressArchives">Compress archives</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions">Statistics display options</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.display">Display submission statistics chart for reader</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.chartType">Choose the type of the chart to display the download statistics</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.chartType.bar">Bar</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.chartType.line">Line</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.datasetMaxCount">Define the maximum number of data to present at the same time for an specific x-axis point. A higher value can generate hard to understand charts. Something between 3 and 5 is safe.</message>
 
 	<message key="plugins.generic.usageStats.usageStatsLoaderName">Usage statistics file loader task</message>
 	<message key="plugins.generic.usageStats.openFileFailed">The file {$file} could not be opened and was rejected.</message>
@@ -55,4 +61,7 @@
 
 	<message key="plugins.reports.usageStats.metricType">OMP/COUNTER</message>
 	<message key="plugins.reports.usageStats.metricType.full">Open Monograph Press statistics (COUNTER ready)</message>
+	<message key="plugins.generic.usageStats.statsSum">Sum all file downloads</message>
+	<message key="plugins.generic.usageStats.noStats">No usage statistics data.</message>
+	<message key="plugins.generic.usageStats.monthInitials">Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</message>
 </locale>

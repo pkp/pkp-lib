@@ -45,5 +45,16 @@
 			{fbvElement type="checkboxgroup" id="optionalColumns" from=$optionalColumnsOptions selected=$selectedOptionalColumns translate=false}
 		{/fbvFormSection}
 	{/fbvFormArea}
+	{fbvFormArea id="usageStatsDisplayOptions" title="plugins.generic.usageStats.settings.statsDisplayOptions"}
+		{fbvFormSection for="displayStatistics" list=true}
+			{fbvElement type="checkbox" id="displayStatistics" value="1" checked=$displayStatistics label="plugins.generic.usageStats.settings.statsDisplayOptions.display"}
+		{/fbvFormSection}
+		{fbvFormSection for="chartType" description="plugins.generic.usageStats.settings.statsDisplayOptions.chartType"}
+			{fbvElement type="select" id="chartType" from=$chartTypes selected=$chartType translate=false size=$fbvStyles.size.SMALL}
+		{/fbvFormSection}
+		{fbvFormSection for="datasetMaxCount" description="plugins.generic.usageStats.settings.statsDisplayOptions.datasetMaxCount"}
+			{fbvElement type="text" id="datasetMaxCount" value=$datasetMaxCount size=$fbvStyles.size.SMALL}
+		{/fbvFormSection}
+	{/fbvFormArea}
 	{fbvFormButtons id="usageStatsSettingsFormSubmit" submitText="common.save" hideCancel=true}
 </form>

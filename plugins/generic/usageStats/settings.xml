@@ -34,5 +34,13 @@
 			</array>
 		</value>
 	</setting>
+	<setting type="string">
+		<name>chartType</name>
+		<value>bar</value>
+	</setting>
+	<setting type="string">
+		<name>datasetMaxCount</name>
+		<value>4</value>
+	</setting>
 </plugin_settings>
 

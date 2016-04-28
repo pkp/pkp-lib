@@ -47,13 +47,26 @@ class UsageStatsSettingsForm extends Form {
 		$this->setData('saltFilepath', $plugin->getSaltPath());
 		$this->setData('selectedOptionalColumns', $plugin->getSetting(CONTEXT_ID_NONE, 'optionalColumns'));
 		$this->setData('compressArchives', $plugin->getSetting(CONTEXT_ID_NONE, 'compressArchives'));
+		$this->setData('displayStatistics', $plugin->getSetting(CONTEXT_ID_NONE, 'displayStatistics'));
+		$this->setData('datasetMaxCount', $plugin->getSetting(CONTEXT_ID_NONE, 'datasetMaxCount'));
+		$this->setData('chartType', $plugin->getSetting(CONTEXT_ID_NONE, 'chartType'));
 	}
 
 	/**
 	 * Assign form data to user-submitted data.
 	 */
 	function readInputData() {
-		$this->readUserVars(array('createLogFiles','accessLogFileParseRegex', 'dataPrivacyOption', 'optionalColumns', 'compressArchives', 'saltFilepath'));
+		$this->readUserVars(array(
+			'createLogFiles',
+			'accessLogFileParseRegex',
+			'dataPrivacyOption',
+			'optionalColumns',
+			'compressArchives',
+			'saltFilepath',
+			'displayStatistics',
+			'chartType',
+			'datasetMaxCount'
+		));
 		$this->setData('selectedOptionalColumns', $this->getData('optionalColumns'));
 	}
 
@@ -62,6 +75,11 @@ class UsageStatsSettingsForm extends Form {
 	 */
 	function fetch($request) {
 		$templateMgr = TemplateManager::getManager($request);
+		$chartTypes = array(
+			'bar' => __('plugins.generic.usageStats.settings.statsDisplayOptions.chartType.bar'),
+			'line' => __('plugins.generic.usageStats.settings.statsDisplayOptions.chartType.line')
+		);
+		$templateMgr->assign('chartTypes', $chartTypes);
 		$templateMgr->assign('pluginName', $this->plugin->getName());
 		$saltFilepath = Config::getVar('usageStats', 'salt_filepath');
 		$templateMgr->assign('saltFilepath', $saltFilepath && file_exists($saltFilepath) && is_writable($saltFilepath));
@@ -78,11 +96,14 @@ class UsageStatsSettingsForm extends Form {
 	function execute() {
 		$plugin = $this->plugin;
 
-		$plugin->updateSetting(CONTEXT_ID_NONE, 'createLogFiles', $this->getData('createLogFiles'));
+		$plugin->updateSetting(CONTEXT_ID_NONE, 'createLogFiles', $this->getData('createLogFiles'), bool);
 		$plugin->updateSetting(CONTEXT_ID_NONE, 'accessLogFileParseRegex', $this->getData('accessLogFileParseRegex'));
-		$plugin->updateSetting(CONTEXT_ID_NONE, 'dataPrivacyOption', $this->getData('dataPrivacyOption'));
-		$plugin->updateSetting(CONTEXT_ID_NONE, 'compressArchives', $this->getData('compressArchives'));
+		$plugin->updateSetting(CONTEXT_ID_NONE, 'dataPrivacyOption', $this->getData('dataPrivacyOption'), bool);
+		$plugin->updateSetting(CONTEXT_ID_NONE, 'compressArchives', $this->getData('compressArchives'), bool);
 		$plugin->updateSetting(CONTEXT_ID_NONE, 'saltFilepath', $this->getData('saltFilepath'));
+		$plugin->updateSetting(CONTEXT_ID_NONE, 'displayStatistics', $this->getData('displayStatistics'), bool);
+		$plugin->updateSetting(CONTEXT_ID_NONE, 'chartType', $this->getData('chartType'));
+		$plugin->updateSetting(CONTEXT_ID_NONE, 'datasetMaxCount', $this->getData('datasetMaxCount'));
 
 		$optionalColumns = $this->getData('optionalColumns');
 		// Make sure optional columns data makes sense.

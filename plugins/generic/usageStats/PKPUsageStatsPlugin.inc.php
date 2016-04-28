@@ -87,6 +87,12 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 				// Renew the Opt-Out cookie if present.
 				$request->setCookieVar('usageStats-opt-out', true, time() + 60*60*24*365);
 			}
+			if ($this->getSetting(CONTEXT_ID_NONE, 'displayStatistics')) {
+				// Add JS and CSS for statistics display in the header
+				HookRegistry::register('TemplateManager::display',array(&$this, 'templateManagerCallback'));
+				// Display statistics
+				HookRegistry::register($this->getStatisticsDisplayTemplateHook() ,array(&$this, 'statisticsDisplayCallback'));
+			}
 		}
 
 		return $success;
@@ -353,6 +359,54 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 		return 'usage_events_' . date("Ymd") . '.log';
 	}
 
+	/**
+	 * Template manager hook callback.
+	 * Add ditional header data: JS and CSS for statistics display
+	 * @param $hookName string
+	 * @param $params array
+	 */
+	function templateManagerCallback($hookName, $params) {
+		if ($this->getEnabled()) {
+			$templateMgr =& $params[0];
+			$template = $params[1];
+			if ($template == $this->getStatisticsDisplayTemplate()) {
+				$additionalHeadData = $templateMgr->get_template_vars('additionalHeadData');
+				// the JS and CSS will be integrated here
+				$baseImportPath = Request::getBaseUrl() . DIRECTORY_SEPARATOR . PKP_LIB_PATH . DIRECTORY_SEPARATOR . $this->getPluginPath() . DIRECTORY_SEPARATOR;
+				$scriptImportString = '<script language="javascript" type="text/javascript" src="';
+				$usageStatsGraphHandler = $scriptImportString . $baseImportPath .
+					'js' . DIRECTORY_SEPARATOR . 'UsageStatsGraphHandler.js"></script>';
+				$chartJsImport = '<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.0.1/Chart.js"></script>';
+				$templateMgr->assign('additionalHeadData', $additionalHeadData . "\n" . $usageStatsGraphHandler . "\n" . $chartJsImport);
+				$templateMgr->addStyleSheet($baseImportPath . 'css/usageStatsGraph.css');
+			}
+		}
+	}
+
+	/**
+	 * Adds/renders the submission level metrics markup, if any stats.
+	 * @param $hookName string
+	 * @param $params
+	 * @return boolean
+	 */
+	function statisticsDisplayCallback($hookName, $params) {
+		$smarty =& $params[1];
+		$output =& $params[2];
+		$pubObjectId = $this->getPubObjectId($smarty);
+		list($statsByRepresentation, $statsByMonth, $statsYears) = $this->_getDownloadStats($pubObjectId);
+
+		$smarty->assign('statsYears', $statsYears);
+		end($statsYears);
+		$smarty->assign('year', key($statsYears));
+		$smarty->assign('statistics', json_encode(array('byRepresentation' => $statsByRepresentation, 'byMonth' => $statsByMonth)));
+		$smarty->assign('labels', json_encode(explode(' ', __('plugins.generic.usageStats.monthInitials'))));
+		$smarty->assign('chartType', $this->getSetting(CONTEXT_ID_NONE, 'chartType'));
+		$smarty->assign('datasetMaxCount', $this->getSetting(CONTEXT_ID_NONE, 'datasetMaxCount'));
+		$metricsHTML = $smarty->fetch($this->getTemplatePath(true) . 'output.tpl');
+		$output .= $metricsHTML;
+
+		return false;
+	}
 
 	//
 	// Private helper methods.
@@ -453,9 +507,6 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 		fclose($fp);
 	}
 
-	//
-	// Private helper methods.
-	//
 	/**
 	* Hash (SHA256) the given IP using the given SALT.
 	*
@@ -476,6 +527,87 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 			return hash('sha256', $ip.$salt);
 		}
 	}
+
+	/**
+	 * Get prepared download statistics from the DB
+	 * @param $pubObjectId integer
+	 * @return array
+	 */
+	function _getDownloadStats($pubObjectId) {
+		$application = PKPApplication::getApplication();
+		$currentYear = date("Y");
+		$months = range(1, 12);
+
+		$filter = array(
+				STATISTICS_DIMENSION_SUBMISSION_ID => $pubObjectId,
+				STATISTICS_DIMENSION_ASSOC_TYPE => ASSOC_TYPE_SUBMISSION_FILE
+		);
+		$orderBy = array(STATISTICS_DIMENSION_MONTH => STATISTICS_ORDER_ASC);
+		$reportPlugin = $this->getReportPlugin();
+		$statsReports = $application->getMetrics(current($reportPlugin->getMetricTypes()), array(STATISTICS_DIMENSION_MONTH, STATISTICS_DIMENSION_REPRESENTATION_ID), $filter, $orderBy);
+		$statsByFormat = $statsByMonth = $years = array();
+		$totalDownloads = 0;
+		foreach ($statsReports as $statsReport) {
+			$month = (int) substr($statsReport[STATISTICS_DIMENSION_MONTH], -2);
+			$year = (int) substr($statsReport[STATISTICS_DIMENSION_MONTH], 0, 4);
+			$metric = $statsReport[STATISTICS_METRIC];
+
+			// Keep track of the years, avoiding duplicates.
+			$years[$year] = null;
+
+			$representationId = $statsReport[STATISTICS_DIMENSION_REPRESENTATION_ID];
+
+			// Prepare the stats aggregating by Representation.
+			// Create entries for all months, so all representations will have the same entries count.
+			if (!array_key_exists($representationId, $statsByFormat)) {
+				$representationDao = Application::getRepresentationDAO();
+				$representation = $representationDao->getById($representationId);
+				$statsByFormat[$representationId] = array(
+					'data' => array(),
+					'label' => $representation->getLocalizedName(),
+					'color' => $this->_getColor($representationId),
+					'total' => 0);
+			}
+
+			// Make sure we have entries for all years with stats.
+			if (!array_key_exists($year, $statsByFormat[$representationId]['data'])) {
+				$statsByFormat[$representationId]['data'][$year] = array_fill_keys($months, 0);
+			}
+			$statsByFormat[$representationId]['data'][$year][$month] = $metric;
+			$statsByFormat[$representationId]['total'] += $metric;
+
+			// Prepare the stats aggregating only by Month.
+			if (!array_key_exists($year, $statsByMonth)) {
+				$statsByMonth[$year] = array_fill_keys($months, 0);
+			}
+			$statsByMonth[$year][$month] += $metric;
+			$totalDownloads += $metric;
+		}
+
+		if ($statsByMonth) {
+			$datasetId = 'allDownloads'; // GraphJS works with datasets.
+			$statsByMonth = array($datasetId => array(
+				'data' => $statsByMonth,
+				'label' => __('common.allDownloads'),
+				'color' => $this->_getColor(REALLY_BIG_NUMBER),
+				'total' => $totalDownloads
+			));
+		}
+
+		return array($statsByFormat, $statsByMonth, array_keys($years));
+	}
+
+	/**
+	 * Return a color RGB code to be used in the graph.
+	 * @private
+	 * @param $num integer
+	 * @return string
+	 */
+	function _getColor($num) {
+		$hash = md5('color' . $num * 2);
+		return hexdec(substr($hash, 0, 2)) . ',' . hexdec(substr($hash, 2, 2)) . ',' . hexdec(substr($hash, 4, 2));
+	}
+
 }
 
 ?>

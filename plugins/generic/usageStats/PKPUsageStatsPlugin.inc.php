@@ -534,17 +534,15 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 	 * @return array
 	 */
 	function _getDownloadStats($pubObjectId) {
-		$application = PKPApplication::getApplication();
+		$cache = CacheManager::getManager()->getCache('downloadStats', $pubObjectId, array($this, '_downloadStatsCacheMiss'));
+		if (time() - $cache->getCacheTime() > 60 * 60 * 24) {
+			// Cache is older than one day, erase it.
+			$cache->flush();
+		}
+		$statsReports = $cache->get($pubObjectId);
+
 		$currentYear = date("Y");
 		$months = range(1, 12);
-
-		$filter = array(
-				STATISTICS_DIMENSION_SUBMISSION_ID => $pubObjectId,
-				STATISTICS_DIMENSION_ASSOC_TYPE => ASSOC_TYPE_SUBMISSION_FILE
-		);
-		$orderBy = array(STATISTICS_DIMENSION_MONTH => STATISTICS_ORDER_ASC);
-		$reportPlugin = $this->getReportPlugin();
-		$statsReports = $application->getMetrics(current($reportPlugin->getMetricTypes()), array(STATISTICS_DIMENSION_MONTH, STATISTICS_DIMENSION_REPRESENTATION_ID), $filter, $orderBy);
 		$statsByFormat = $statsByMonth = $years = array();
 		$totalDownloads = 0;
 		foreach ($statsReports as $statsReport) {
@@ -595,6 +593,27 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 		}
 
 		return array($statsByFormat, $statsByMonth, array_keys($years));
+	}
+
+	/**
+	 * Callback to fill cache with data, if empty.
+	 * @param $cache FileCache
+	 * @param $pubObjectId int
+	 * @return array
+	 */
+	function _downloadStatsCacheMiss($cache, $pubObjectId) {
+		$filter = array(
+				STATISTICS_DIMENSION_SUBMISSION_ID => $pubObjectId,
+				STATISTICS_DIMENSION_ASSOC_TYPE => ASSOC_TYPE_SUBMISSION_FILE
+		);
+		$orderBy = array(STATISTICS_DIMENSION_MONTH => STATISTICS_ORDER_ASC);
+		$reportPlugin = $this->getReportPlugin();
+
+		$application = PKPApplication::getApplication();
+
+		$statsReports = $application->getMetrics(current($reportPlugin->getMetricTypes()), array(STATISTICS_DIMENSION_MONTH, STATISTICS_DIMENSION_REPRESENTATION_ID), $filter, $orderBy);
+		$cache->setEntireCache(array($pubObjectId => $statsReports));
+		return $statsReports;
 	}
 
 	/**

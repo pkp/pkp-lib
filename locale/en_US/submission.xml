@@ -136,6 +136,7 @@
 	<message key="common.queue.long.myAssigned">My Assigned</message>
 	<message key="common.queue.long.submissionsArchived">Archived Submissions</message>
 	<message key="submission.authors">Authors</message>
+	<message key="submission.authorBiographies">Author Biographies</message>
 	<message key="submission.shortAuthor">{$author} et al.</message>
 	<message key="submission.mySubmissions">My Authored</message>
 	<message key="submission.addFile">Upload File</message>

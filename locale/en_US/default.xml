@@ -30,9 +30,6 @@
 	<message key="default.groups.name.internalReviewer">Internal Reviewer</message>
 	<message key="default.groups.plural.internalReviewer">Internal Reviewers</message>
 	<message key="default.groups.abbrev.internalReviewer">IR</message>
-	<message key="default.groups.name.externalReviewer">External Reviewer</message>
-	<message key="default.groups.plural.externalReviewer">External Reviewers</message>
-	<message key="default.groups.abbrev.externalReviewer">ER</message>
 	<message key="default.groups.name.marketing">Marketing and sales coordinator</message>
 	<message key="default.groups.plural.marketing">Marketing and sales coordinators</message>
 	<message key="default.groups.abbrev.marketing">MS</message>

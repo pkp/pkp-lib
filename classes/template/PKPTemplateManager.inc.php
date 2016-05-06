@@ -152,6 +152,7 @@ class PKPTemplateManager extends Smarty {
 		$this->register_block('iterate', array($this, 'smartyIterate'));
 		$this->register_function('page_links', array($this, 'smartyPageLinks'));
 		$this->register_function('page_info', array($this, 'smartyPageInfo'));
+		$this->register_function('pluck_files', array($this, 'smartyPluckFiles'));
 
 		// Modified vocabulary for creating forms
 		$fbv = $this->getFBV();
@@ -938,6 +939,99 @@ class PKPTemplateManager extends Smarty {
 		}
 
 		return $output;
+	}
+
+	/**
+	 * Smarty usage: {pluck_files files=$availableFiles by="chapter" value=$chapterId}
+	 *
+	 * Custom Smarty function for plucking files from the array of $availableFiles
+	 * related to a submission. Intended to be used on the frontend
+	 * @param $params array associative array
+	 * @param $smarty Smarty
+	 * @return array of SubmissionFile objects
+	 */
+	function smartyPluckFiles($params, $smarty) {
+
+		// $params['files'] should be an array of SubmissionFile objects
+		if (!is_array($params['files'])) {
+			error_log('Smarty: {pluck_files} function called without required `files` param. Called in ' . __FILE__ . ':' . __LINE__);
+			return array();
+		}
+
+		// $params['by'] is one of an approved list of attributes to select by
+		if (empty($params['by'])) {
+			error_log('Smarty: {pluck_files} function called without required `by` param. Called in ' . __FILE__ . ':' . __LINE__);
+			return array();
+		}
+
+		// The approved list of `by` attributes
+		// chapter Any files assigned to a chapter ID. A value of `any` will return files assigned to any chapter. A value of 0 will return files not assigned to chapter
+		// publicationFormat Any files in a given publicationFormat ID
+		// component Any files of a component type by class name: MonographFile|SubmissionArtworkFile|SupplementaryFile
+		// fileExtension Any files with a file extension in all caps: PDF
+		// genre Any files with a genre ID (file genres are configurable but typically refer to Manuscript, Bibliography, etc)
+		if (!in_array($params['by'], array('chapter','publicationFormat','component','fileExtension','genre'))) {
+			error_log('Smarty: {pluck_files} function called without a valid `by` param. Called in ' . __FILE__ . ':' . __LINE__);
+			return array();
+		}
+
+		// The value to match against. See docs for `by` param
+		if (!isset($params['value'])) {
+			error_log('Smarty: {pluck_files} function called without required `value` param. Called in ' . __FILE__ . ':' . __LINE__);
+			return array();
+		}
+
+		// The variable to assign the result to.
+		if (empty($params['assign'])) {
+			error_log('Smarty: {pluck_files} function called without required `assign` param. Called in ' . __FILE__ . ':' . __LINE__);
+			return array();
+		}
+
+		$matching_files = array();
+
+
+		foreach ($params['files'] as $file) {
+			switch ($params['by']) {
+
+				case 'chapter':
+					if ((get_class($file) == 'SubmissionArtworkFile' || get_class($file) == 'MonographFile')) {
+						if ($params['value'] === 'any' && $file->getChapterId()) {
+							$matching_files[] = $file;
+						} elseif($file->getChapterId() === $params['value']) {
+							$matching_files[] = $file;
+						}
+					} elseif ($params['value'] == 0) {
+						$matching_files[] = $file;
+					}
+					break;
+
+				case 'publicationFormat':
+					if ($file->getAssocId() == $params['value']) {
+						$matching_files[] = $file;
+					}
+					break;
+
+				case 'component':
+					if (get_class($file) == $params['value']) {
+						$matching_files[] = $file;
+					}
+					break;
+
+				case 'fileExtension':
+					if ($file->getExtension() == $params['value']) {
+						$matching_files[] = $file;
+					}
+					break;
+
+				case 'genre':
+					if ($file->getGenreId() == $params['value']) {
+						$matching_files[] = $file;
+					}
+					break;
+			}
+		}
+
+		$smarty->assign($params['assign'], $matching_files);
 	}
 }
 

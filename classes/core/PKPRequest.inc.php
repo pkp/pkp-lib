@@ -710,7 +710,8 @@ class PKPRequest {
 	}
 
 	/**
-	 * Deprecated
+	 * Get the current "context" (press/journal/etc) object.
+	 * @return Context
 	 * @see PKPPageRouter::getContext()
 	 */
 	function &getContext() {

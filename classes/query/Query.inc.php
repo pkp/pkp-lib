@@ -120,11 +120,12 @@ class Query extends DataObject {
 	 * @param $userId int Optional user ID
 	 * @param $sortBy int Optional NOTE_ORDER_...
 	 * @param $sortOrder int Optional SORT_DIRECTION_...
+	 * @param $isAdmin bool Optional user sees all
 	 * @return DAOResultFactory
 	 */
-	function getReplies($userId = null, $sortBy = NOTE_ORDER_ID, $sortOrder = SORT_DIRECTION_ASC) {
+	function getReplies($userId = null, $sortBy = NOTE_ORDER_ID, $sortOrder = SORT_DIRECTION_ASC, $isAdmin = false) {
 		$noteDao = DAORegistry::getDAO('NoteDAO');
-		return $noteDao->getByAssoc(ASSOC_TYPE_QUERY, $this->getId(), null, $sortBy, $sortOrder);
+		return $noteDao->getByAssoc(ASSOC_TYPE_QUERY, $this->getId(), null, $sortBy, $sortOrder, $isAdmin);
 	}
 }
 

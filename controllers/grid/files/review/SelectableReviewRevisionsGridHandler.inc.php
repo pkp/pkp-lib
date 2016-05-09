@@ -37,6 +37,16 @@ class SelectableReviewRevisionsGridHandler extends SelectableFileListGridHandler
 		// Set the grid information.
 		$this->setTitle('editor.submission.revisions');
 	}
+
+	//
+	// Implemented methods from GridHandler.
+	//
+	/**
+	 * @copydoc GridHandler::isDataElementSelected()
+	 */
+	function isDataElementSelected($gridDataElement) {
+		return true;
+	}
 }
 
 ?>

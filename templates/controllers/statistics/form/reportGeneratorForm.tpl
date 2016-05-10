@@ -138,7 +138,7 @@
 		{/fbvFormArea}
 
 		{fbvFormArea id="orderByFormArea" title="manager.statistics.reports.orderBy"}
-			{fbvFormSection description="manager.statistics.reports.optioanlColumns.description"}
+			{fbvFormSection description="manager.statistics.reports.optionalColumns.description"}
 				<div style="clear:both"></div>
 				{foreach from=$orderColumnsOptions item=item key=key}
 					{fbvFormSection}

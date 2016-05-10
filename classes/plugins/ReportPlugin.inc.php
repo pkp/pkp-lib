@@ -28,22 +28,22 @@ abstract class ReportPlugin extends Plugin {
 	// Public methods to be implemented by subclasses.
 	//
 	/**
-	* Retrieve a range of aggregate, filtered, ordered metric values, i.e.
-	* a statistics report.
-	*
-	* @see <http://pkp.sfu.ca/wiki/index.php/OJSdeStatisticsConcept#Input_and_Output_Formats_.28Aggregation.2C_Filters.2C_Metrics_Data.29>
-	* for a full specification of the input and output format of this method.
-	*
-	* @param $metricType null|string|array metrics selection
-	* @param $columns string|array column (aggregation level) selection
-	* @param $filters array report-level filter selection
-	* @param $orderBy array order criteria
-	* @param $range null|DBResultRange paging specification
-	*
-	* @return null|array The selected data as a simple tabular result set or
-	*  null if metrics are not supported by this plug-in, the specified report
-	*  is invalid or cannot be produced or another error occurred.
-	*/
+	 * Retrieve a range of aggregate, filtered, ordered metric values, i.e.
+	 * a statistics report.
+	 *
+	 * @see <http://pkp.sfu.ca/wiki/index.php/OJSdeStatisticsConcept#Input_and_Output_Formats_.28Aggregation.2C_Filters.2C_Metrics_Data.29>
+	 * for a full specification of the input and output format of this method.
+	 *
+	 * @param $metricType null|string|array metrics selection
+	 * @param $columns string|array column (aggregation level) selection
+	 * @param $filters array report-level filter selection
+	 * @param $orderBy array order criteria
+	 * @param $range null|DBResultRange paging specification
+	 *
+	 * @return null|array The selected data as a simple tabular result set or
+	 *  null if metrics are not supported by this plug-in, the specified report
+	 *  is invalid or cannot be produced or another error occurred.
+	 */
 	function getMetrics($metricType = null, $columns = array(), $filters = array(), $orderBy = array(), $range = null) {
 		return null;
 	}
@@ -113,14 +113,14 @@ abstract class ReportPlugin extends Plugin {
 	}
 
 	/**
-	* Get the default report templates that each report
-	* plugin can implement, with an string to represent it.
-	* Subclasses can override this method to add/remove
-	* default formats.
-	* @param $metricTypes string|array|null Define one or more metric types
-	* if you don't want to use all the implemented report metric types.
-	* @return array
-	*/
+	 * Get the default report templates that each report
+	 * plugin can implement, with an string to represent it.
+	 * Subclasses can override this method to add/remove
+	 * default formats.
+	 * @param $metricTypes string|array|null Define one or more metric types
+	 * if you don't want to use all the implemented report metric types.
+	 * @return array
+	 */
 	function getDefaultReportTemplates($metricTypes = null) {
 		return array();
 	}

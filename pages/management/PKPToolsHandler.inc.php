@@ -141,7 +141,7 @@ class PKPToolsHandler extends ManagementHandler {
 		$reportPlugins = PluginRegistry::loadCategory('reports');
 
 		if ($pluginName == '' || !isset($reportPlugins[$pluginName])) {
-			Request::redirect(null, null, 'management', 'statistics');
+			$request->redirect(null, null, 'management', 'statistics');
 		}
 
 		$plugin = $reportPlugins[$pluginName];
@@ -149,10 +149,10 @@ class PKPToolsHandler extends ManagementHandler {
 	}
 
 	/**
-	* Display page to generate custom reports.
-	* @param $args array
-	* @param $request Request
-	*/
+	 * Display page to generate custom reports.
+	 * @param $args array
+	 * @param $request Request
+	 */
 	function reportGenerator($args, $request) {
 		$this->setupTemplate($request);
 

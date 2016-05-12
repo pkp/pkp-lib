@@ -52,23 +52,23 @@
 						<span class="label">
 							{translate key="user.username"}
 						</span>
-						<input type="text" name="username" id="username" value="{$username|escape}" maxlength="32" required>
+						<input type="text" name="username" id="username" value="{$username|escape}" maxlength="32" required tabindex="1">
 					</label>
 				</li>
 				<li class="password">
 					<label>
 						<span class="label">
 							{translate key="user.password"}
-							<a href="{url page="login" op="lostPassword"}">
+							<a href="{url page="login" op="lostPassword"}" tabindex="3">
 								{translate key="user.login.forgotPassword"}
 							</a>
 						</span>
-						<input type="password" name="password" id="password" value="{$password|escape}" password="true" maxlength="32" required="$passwordRequired">
+						<input type="password" name="password" id="password" value="{$password|escape}" password="true" maxlength="32" required="$passwordRequired" tabindex="2">
 					</label>
 				</li>
 				<li class="remember checkbox">
 					<label>
-						<input type="checkbox" name="remember" id="remember" value="1" checked="$remember">
+						<input type="checkbox" name="remember" id="remember" value="1" checked="$remember" tabindex="4">
 						<span class="label">
 							{translate key="user.login.rememberUsernameAndPassword"}
 						</span>

@@ -573,6 +573,8 @@
 					elementId = $element.attr('id'),
 					settings = tinyMCE.EditorManager.settings;
 
+			settings.defaultToolbar = settings.toolbar;
+
 			$('#' + elementId).find('.richContent').each(function() {
 				var id = /** @type {string} */ ($(this).attr('id')),
 						icon = $('<div></div>'),
@@ -583,6 +585,8 @@
 				// Set the extended toolbar, if requested
 				if ($(this).hasClass('extendedRichContent')) {
 					settings.toolbar = settings.richToolbar;
+				} else {
+					settings.toolbar = settings.defaultToolbar;
 				}
 
 				editor = tinyMCE.EditorManager.createEditor(id, settings).render();

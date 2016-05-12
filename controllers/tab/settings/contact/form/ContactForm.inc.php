@@ -22,6 +22,7 @@ class ContactForm extends ContextSettingsForm {
 	 */
 	function ContactForm($wizardMode = false) {
 		$settings = array(
+			'mailingAddress' => 'string',
 			'contactName' => 'string',
 			'contactTitle' => 'string',
 			'contactAffiliation' => 'string',
@@ -37,6 +38,7 @@ class ContactForm extends ContextSettingsForm {
 		$this->addCheck(new FormValidator($this, 'contactName', 'required', 'manager.setup.form.contactNameRequired'));
 		$this->addCheck(new FormValidatorEmail($this, 'contactEmail', 'required', 'manager.setup.form.contactEmailRequired'));
 		if (!$this->getWizardMode()) {
+			$this->addCheck(new FormValidator($this, 'mailingAddress', 'required', 'manager.setup.form.supportNameRequired'));
 			$this->addCheck(new FormValidator($this, 'supportName', 'required', 'manager.setup.form.supportNameRequired'));
 			$this->addCheck(new FormValidatorEmail($this, 'supportEmail', 'required', 'manager.setup.form.supportEmailRequired'));
 		}

@@ -142,6 +142,29 @@ class PKPLocale {
 		// http://pl.php.net/manual/en/function.date-default-timezone-set.php
 		$timeZone = self::getTimeZone();
 		date_default_timezone_set($timeZone);
+
+		// Set the time zone for DB
+		// Get the offset from UTC
+		$now = new DateTime();
+		$mins = $now->getOffset() / 60;
+		$sgn = ($mins < 0 ? -1 : 1);
+		$mins = abs($mins);
+		$hrs = floor($mins / 60);
+		$mins -= $hrs * 60;
+		$offset = sprintf('%+d:%02d', $hrs*$sgn, $mins);
+
+		$conn = DBConnection::getInstance();
+		$dbconn =& $conn->getDBConn();
+		switch($conn->getDriver()) {
+			case 'mysql':
+			case 'mysqli':
+				$dbconn->execute('SET time_zone = \''.$offset.'\'');
+				break;
+			case 'postgres':
+				$dbconn->execute('SET TIME ZONE INTERVAL \''.$offset.'\' HOUR TO MINUTE');
+				break;
+			default: assert(false);
+		}
 	}
 
 	/**

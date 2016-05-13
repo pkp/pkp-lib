@@ -241,7 +241,6 @@
 	<message key="manager.setup.citationOutputStyleDescription">Choose the citation style that is being used in your publication's submissions. The Citation Markup Assistant lets you compare the author's version of the citation to a version generated from the XML you are generating so that you can easily spot errors:</message>
 	<message key="manager.setup.competingInterests">Competing Interests</message>
 	<message key="manager.setup.competingInterestsDescription">Reviewers will be asked to comply with the competing interests disclosure policy you specify below.</message> <!-- FIXME #6843 (JM): should this just reference reviewers? -->
-	<message key="manager.setup.contributors.note">Contributor Relationship and Policy Description</message>
 	<message key="manager.setup.errorDeletingItem">There was an error when deleting this item.</message>
 	<message key="manager.setup.favicon">Invalid favicon format. Accepted formats are .ico, .png, and .gif.</message>
 	<message key="manager.setup.filter.grid.errorDeletingFilter">An error occurred while trying to remove this filter. Please report this as a bug.</message>

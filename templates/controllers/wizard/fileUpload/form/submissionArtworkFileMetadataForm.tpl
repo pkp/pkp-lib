@@ -41,37 +41,6 @@
 		{/fbvFormSection}
 	{/fbvFormArea}
 
-	{* Read-only meta-data *}
-	{fbvFormArea id="fileInfo" title="submission.submit.fileInformation"}
-		{fbvFormSection title="common.fileName" inline=true size=$fbvStyles.size.MEDIUM}
-			{$submissionFile->getClientFileName()|escape}
-		{/fbvFormSection}
-		{fbvFormSection title="common.fileType" inline=true size=$fbvStyles.size.MEDIUM}
-			{$submissionFile->getExtension()|escape}
-		{/fbvFormSection}
-		{fbvFormSection title="common.fileSize" inline=true size=$fbvStyles.size.MEDIUM}
-			{$submissionFile->getNiceFileSize()}
-		{/fbvFormSection}
-
-		{if $submissionFile->getWidth() > 0 && $submissionFile->getHeight() > 0}
-			{assign var=dpi value=300}
-			{math assign="imageWidthOnDevice" equation="w/dpi" w=$submissionFile->getWidth() dpi=$dpi format="%.2f"}
-			{math assign="imageHeightOnDevice" equation="h/dpi" h=$submissionFile->getHeight() dpi=$dpi format="%.2f"}
-			{fbvFormSection title="common.quality" inline=true size=$fbvStyles.size.MEDIUM}
-				{translate key="common.dimensionsInches" width=$imageWidthOnDevice height=$imageHeightOnDevice dpi=$dpi}
-				<br/>
-				({translate key="common.dimensionsPixels" width=$submissionFile->getWidth() height=$submissionFile->getHeight()})
-			{/fbvFormSection}
-			{fbvFormSection title="common.preview" inline=true size=$fbvStyles.size.MEDIUM}
-				{if $submissionFile->getFileType() == 'image/tiff'}
-					<embed width="100" src="{url component="api.file.FileApiHandler" op="viewFile" submissionId=$submissionFile->getSubmissionId() stageId=$stageId fileStage=$submissionFile->getFileStage() fileId=$submissionFile->getFileId()}" type="image/tiff" negative=yes>
-				{else}<a target="_blank" href="{url component="api.file.FileApiHandler" op="viewFile" submissionId=$submissionFile->getSubmissionId() stageId=$stageId fileStage=$submissionFile->getFileStage() fileId=$submissionFile->getFileId() revision=$submissionFile->getRevision()}">
-					<img class="thumbnail" width="100" src="{url component="api.file.FileApiHandler" op="viewFile" submissionId=$submissionFile->getSubmissionId() stageId=$stageId fileStage=$submissionFile->getFileStage() fileId=$submissionFile->getFileId()}" />
-				</a>{/if}
-			{/fbvFormSection}
-		{/if}
-	{/fbvFormArea}
-
 	{if $showButtons}
 		{fbvElement type="hidden" id="showButtons" value=$showButtons}
 		{fbvFormButtons submitText="common.save"}

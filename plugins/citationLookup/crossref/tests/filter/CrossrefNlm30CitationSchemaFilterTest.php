@@ -40,7 +40,7 @@ class CrossrefNlm30CitationSchemaFilterTest extends Nlm30CitationSchemaFilterTes
 				'volume' => '5',
 				'date' => '2004',
 				'fpage' => 147,
-				'uri' => 'http://www.biomedcentral.com/1471-2105/5/147',
+				'uri' => 'http://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-5-147',
 				'person-group[@person-group-type="author"]' => array (
 					array ('given-names' => array('Hao'), 'surname' => 'Chen'),
 					array ('given-names' => array('Burt', 'M'), 'surname' => 'Sharp')
@@ -131,7 +131,7 @@ class CrossrefNlm30CitationSchemaFilterTest extends Nlm30CitationSchemaFilterTes
 					'volume' => '5',
 					'date' => '2004',
 					'fpage' => 147,
-					'uri' => 'http://www.biomedcentral.com/1471-2105/5/147',
+					'uri' => 'http://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-5-147',
 					'issn[@pub-type="ppub"]' => '14712105',
 					'person-group[@person-group-type="author"]' => array (
 						array ('given-names' => array('Hao'), 'surname' => 'Chen'),

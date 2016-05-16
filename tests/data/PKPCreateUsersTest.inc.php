@@ -31,7 +31,7 @@ class PKPCreateUsersTest extends WebTestCase {
 		), $data);
 
 		$this->open(self::$baseUrl);
-		$this->waitForElementPresent($selector='css=li.profile a:contains(\'Submissions\')');
+		$this->waitForElementPresent($selector='css=li.profile a:contains(\'Dashboard\')');
 		$this->clickAndWait($selector);
 		$this->waitForElementPresent($selector='link=Users & Roles');
 		$this->click($selector);

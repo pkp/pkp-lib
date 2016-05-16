@@ -466,10 +466,10 @@
 	<message key="submission.status.declined">Declined</message>
 	<message key="submission.status.published">Published</message>
 
-	<message key="submission.submit.uploadStep">1. Upload Submission</message>
+	<message key="submission.submit.uploadStep">1. Upload File</message>
 	<message key="submission.submit.uploadSubmissionFile">Upload Submission File</message>
-	<message key="submission.submit.metadataStep">2. Metadata</message>
-	<message key="submission.submit.finishingUpStep">3. Finishing Up</message>
+	<message key="submission.submit.metadataStep">2. Add Details</message>
+	<message key="submission.submit.finishingUpStep">3. Confirm</message>
 	<message key="submission.submit.fileNameRequired">You must enter a file name for this file</message>
 	<message key="submission.submit.howToSubmit"><![CDATA[Encountering difficulties? Contact <a href="mailto:{$supportEmail}">{$supportName}</a> for assistance ({$supportPhone}).]]></message>
 	<message key="submission.submit.howToSubmitNoPhone"><![CDATA[Encountering difficulties? Contact <a href="mailto:{$supportEmail}">{$supportName}</a> for assistance.]]></message>

@@ -29,7 +29,7 @@
 			{fbvElement type="text" password="true" id="oldPassword" value=$oldPassword maxLength="32" size=$fbvStyles.size.MEDIUM}
 		{/fbvFormSection}
 		{fbvFormSection label="user.profile.newPassword"}
-			{translate|assign:"passwordLengthRestriction" key="user.register.passwordLengthRestriction" length=$minPasswordLength}
+			{translate|assign:"passwordLengthRestriction" key="user.register.form.passwordLengthRestriction" length=$minPasswordLength}
 			{fbvElement type="text" password="true" id="password" value=$oldPassword label=$passwordLengthRestriction subLabelTranslate=false maxLength="32" size=$fbvStyles.size.MEDIUM}
 			{fbvElement type="text" password="true" id="password2" value=$oldPassword maxLength="32" label="user.profile.repeatNewPassword" size=$fbvStyles.size.MEDIUM}
 		{/fbvFormSection}

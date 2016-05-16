@@ -478,8 +478,7 @@
 	<message key="search.operator.and">and</message>
 	<message key="search.operator.not">not</message>
 	<message key="search.operator.or">or</message>
-	<message key="search.searchAllCategories">Search for</message>
-	<message key="search.searchCategories">Search categories</message>
+	<message key="search.SearchFor">Search for</message>
 	<message key="search.searchResults">Search Results</message>
 	<message key="search.subject">Keyword(s)</message>
 	<message key="search.titleIndex">Browse Title Index</message>

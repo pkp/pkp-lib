@@ -243,7 +243,7 @@
 	<message key="common.top">Top</message>
 	<message key="common.true">True</message>
 	<message key="common.type">Type</message>
-	<message key="common.element">Element</message>
+	<message key="common.component">Component</message>
 	<message key="common.uninitiated">Uninitiated</message>
 	<message key="common.unread">Unread</message>
 	<message key="common.untitled">Untitled</message>

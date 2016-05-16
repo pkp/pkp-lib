@@ -40,13 +40,21 @@ class SubmissionStageForm extends ContextSettingsForm {
 			array_merge(
 				array(
 					'copySubmissionAckPrimaryContact' => 'bool',
-					'copySubmissionAckAddress' => 'string'
+					'copySubmissionAckAddress' => 'string',
+					'authorGuidelines' => 'string',
 				),
 				array_combine($metadataSettings, array_fill(0, count($metadataSettings), 'bool'))
 			),
 			'controllers/tab/settings/submissionStage/form/submissionStageForm.tpl',
 			$wizardMode
 		);
+	}
+
+	/**
+	 * @copydoc Form::getLocaleFieldNames()
+	 */
+	function getLocaleFieldNames() {
+		return array('authorGuidelines');
 	}
 
 	/**

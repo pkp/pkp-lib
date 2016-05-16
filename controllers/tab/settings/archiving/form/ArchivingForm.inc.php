@@ -23,9 +23,7 @@ class ArchivingForm extends ContextSettingsForm {
 	function ArchivingForm($wizardMode = false) {
 		$settings = array(
 			'enableLockss' => 'bool',
-			'lockssLicense' => 'string',
 			'enableClockss' => 'bool',
-			'clockssLicense' => 'string',
 		);
 
 		parent::ContextSettingsForm($settings, 'controllers/tab/settings/archiving/form/archivingForm.tpl', $wizardMode);

@@ -40,19 +40,6 @@
 		{/fbvFormSection}
 	{/fbvFormArea}
 
-	{* Read-only meta-data *}
-	{fbvFormArea id="fileInfo" title="submission.submit.fileInformation"}
-		{fbvFormSection title="common.fileName" inline=true size=$fbvStyles.size.MEDIUM}
-			{$submissionFile->getClientFileName()|escape}
-		{/fbvFormSection}
-		{fbvFormSection title="common.fileType" inline=true size=$fbvStyles.size.MEDIUM}
-			{$submissionFile->getExtension()|escape}
-		{/fbvFormSection}
-		{fbvFormSection title="common.fileSize" inline=true size=$fbvStyles.size.MEDIUM}
-			{$submissionFile->getNiceFileSize()}
-		{/fbvFormSection}
-	{/fbvFormArea}
-
 	{if $showButtons}
 		{fbvElement type="hidden" id="showButtons" value=$showButtons}
 		{fbvFormButtons submitText="common.save"}

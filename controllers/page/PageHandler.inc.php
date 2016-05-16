@@ -47,22 +47,6 @@ class PageHandler extends Handler {
 	// Public operations
 	//
 	/**
-	 * Display the frontend user-context menu.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function userNav($args, $request) {
-		$this->setupTemplate($request);
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER); // Management menu items
-		$templateMgr = TemplateManager::getManager($request);
-
-		$this->setupHeader($args, $request);
-
-		return $templateMgr->fetchJson('controllers/page/frontend/usernav.tpl');
-	}
-
-	/**
 	 * Display the backend user-context menu.
 	 * @param $args array
 	 * @param $request PKPRequest
@@ -87,9 +71,6 @@ class PageHandler extends Handler {
 	function tasks($args, $request) {
 		$this->setupTemplate($request);
 		$templateMgr = TemplateManager::getManager($request);
-
-		$this->setupTasks($args, $request);
-
 		return $templateMgr->fetchJson('controllers/page/tasks.tpl');
 	}
 
@@ -189,29 +170,6 @@ class PageHandler extends Handler {
 			if (!$workingContexts) {
 				$templateMgr->assign('notInstalled', true);
 			}
-		}
-
-		$this->setupTasks($args, $request);
-	}
-
-	/**
-	 * Setup and assign variables for the tasks component.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @param $templateMgr TemplateManager
-	 * @return TemplateManager
-	 */
-	private function setupTasks($args, $request) {
-
-		$templateMgr = TemplateManager::getManager($request);
-
-		if (!defined('SESSION_DISABLE_INIT') && $user = $request->getUser()) {
-			// Get a count of unread tasks.
-			$notificationDao = DAORegistry::getDAO('NotificationDAO');
-
-			// Exclude certain tasks, defined in the notifications grid handler
-			import('lib.pkp.controllers.grid.notifications.TaskNotificationsGridHandler');
-			$templateMgr->assign('unreadNotificationCount', $notificationDao->getNotificationCount(false, $user->getId(), null, NOTIFICATION_LEVEL_TASK));
 		}
 	}
 }

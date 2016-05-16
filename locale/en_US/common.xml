@@ -383,6 +383,7 @@
 	<message key="navigation.browse">Browse</message>
 	<message key="navigation.browseByAuthor">By Author</message>
 	<message key="navigation.browseByTitle">By Title</message>
+	<message key="navigation.dashboard">Dashboard</message>
 	<message key="navigation.data">Data</message>
 	<message key="navigation.home">Home</message>
 	<message key="navigation.infoForReaders">For Readers</message>

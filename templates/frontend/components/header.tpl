@@ -101,9 +101,68 @@
 					</div>
 				</nav>
 
-				{* User-specific login, settings and task management *}
-				{url|assign:fetchHeaderUrl router=$smarty.const.ROUTE_COMPONENT component="page.PageHandler" op="userNav" escape=false}
-				{load_url_in_div class="pkp_navigation_user_wrapper" id="navigationUserWrapper" url=$fetchHeaderUrl}
+				<div class="pkp_navigation_user_wrapper" id="navigationUserWrapper">
+					<script type="text/javascript">
+						// Attach the JS file tab handler.
+						$(function() {ldelim}
+							$('#navigationUser').pkpHandler(
+									'$.pkp.controllers.MenuHandler');
+						{rdelim});
+					 </script>
+					<ul id="navigationUser" class="pkp_navigation_user pkp_nav_list" role="navigation" aria-label="{translate|escape key="common.navigation.user"}">
+						{if $isUserLoggedIn}
+							<li class="profile has_submenu{if $unreadNotificationCount} has_tasks{/if}">
+								<a href="{url router=$smarty.const.ROUTE_PAGE page="submissions"}">
+									{$loggedInUsername|escape}
+									<span class="task_count">
+										{$unreadNotificationCount}
+									</span>
+								</a>
+								<ul>
+									{if array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR), $userRoles)}
+										<li>
+											<a href="{url router=$smarty.const.ROUTE_PAGE page="submissions"}">
+												{translate key="navigation.dashboard"}
+												<span class="task_count">
+													{$unreadNotificationCount}
+												</span>
+											</a>
+										</li>
+									{/if}
+									<li>
+										<a href="{url router=$smarty.const.ROUTE_PAGE page="user" op="profile"}">
+											{translate key="common.viewProfile"}
+										</a>
+									</li>
+									{if array_intersect(array(ROLE_ID_SITE_ADMIN), $userRoles)}
+									<li>
+										<a href="{if $multipleContexts}{url router=$smarty.const.ROUTE_PAGE context="index" page="admin" op="index"}{else}{url router=$smarty.const.ROUTE_PAGE page="admin" op="index"}{/if}">
+											{translate key="navigation.admin"}
+										</a>
+									</li>
+									{/if}
+									<li>
+										<a href="{url router=$smarty.const.ROUTE_PAGE page="login" op="signOut"}">
+											{translate key="user.logOut"}
+										</a>
+									</li>
+									{if $isUserLoggedInAs}
+										<li>
+											<a href="{url router=$smarty.const.ROUTE_PAGE page="login" op="signOutAsUser"}">
+												{translate key="user.logOutAs"} {$loggedInUsername|escape}
+											</a>
+										</li>
+									{/if}
+								</ul>
+							</li>
+						{else}
+							{if !$hideRegisterLink}
+								<li><a href="{url router=$smarty.const.ROUTE_PAGE page="user" op="register"}">{translate key="navigation.register"}</a></li>
+							{/if}
+							<li><a href="{url router=$smarty.const.ROUTE_PAGE page="login"}">{translate key="navigation.login"}</a></li>
+						{/if}
+					</ul>
+				</div><!-- .pkp_navigation_user_wrapper -->
 
 			</div><!-- .pkp_head_wrapper -->
 		</header><!-- .pkp_structure_head -->

@@ -25,16 +25,6 @@
 	{if $implicitAuth}
 		<a id="implicitAuthLogin" href="{url page="login" op="implicitAuthLogin"}">Login</a>
 	{else}
-		<script>
-			$(function() {ldelim}
-				// Attach the form handler.
-				$('#login').pkpHandler(
-					'$.pkp.controllers.form.FormHandler',
-					{ldelim}
-						trackFormChanges: false
-					{rdelim});
-			{rdelim});
-		</script>
 
 		<form class="pkp_form login" id="login" method="post" action="{$loginUrl}">
 
@@ -51,43 +41,51 @@
 					<label>
 						<span class="label">
 							{translate key="user.username"}
+							<span class="required">*</span>
+							<span class="pkp_screen_reader">
+								{translate key="common.required"}
+							</span>
 						</span>
-						<input type="text" name="username" id="username" value="{$username|escape}" maxlength="32" required tabindex="1">
+						<input type="text" name="username" id="username" value="{$username|escape}" maxlength="32" required>
 					</label>
 				</div>
 				<div class="password">
 					<label>
 						<span class="label">
 							{translate key="user.password"}
+							<span class="required">*</span>
+							<span class="pkp_screen_reader">
+								{translate key="common.required"}
+							</span>
 						</span>
-						<input type="password" name="password" id="password" value="{$password|escape}" password="true" maxlength="32" required="$passwordRequired" tabindex="2">
-						<a href="{url page="login" op="lostPassword"}" tabindex="3">
+						<input type="password" name="password" id="password" value="{$password|escape}" password="true" maxlength="32" required="$passwordRequired">
+						<a href="{url page="login" op="lostPassword"}">
 							{translate key="user.login.forgotPassword"}
 						</a>
 					</label>
 				</div>
 				<div class="remember checkbox">
 					<label>
-						<input type="checkbox" name="remember" id="remember" value="1" checked="$remember" tabindex="4">
+						<input type="checkbox" name="remember" id="remember" value="1" checked="$remember">
 						<span class="label">
 							{translate key="user.login.rememberUsernameAndPassword"}
 						</span>
 					</label>
 				</div>
+				<div class="buttons">
+					<button class="submit" type="submit">
+						{translate key="user.login"}
+					</button>
+
+					{if !$disableUserReg}
+						{url|assign:registerUrl page="user" op="register" source=$source}
+						<a href="{$registerUrl}" class="register">
+							{translate key="user.login.registerNewAccount"}
+						</a>
+					{/if}
+				</div>
 			</fieldset>
 
-			<div class="buttons">
-				<button class="submit" type="submit">
-					{translate key="user.login"}
-				</button>
-
-				{if !$disableUserReg}
-					{url|assign:registerUrl page="user" op="register" source=$source}
-					<a href="{$registerUrl}" class="register">
-						{translate key="user.login.registerNewAccount"}
-					</a>
-				{/if}
-			</div>
 
 		</form>
 	{/if}{* !$implicitAuth *}

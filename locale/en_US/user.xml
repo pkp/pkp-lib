@@ -101,8 +101,7 @@
 	<message key="user.profile.repeatNewPassword">Repeat new password</message>
 	<!-- Login -->
 	<message key="user.login.registerNewAccount">Register</message>
-	<message key="user.login.resetPasswordInstructions"><![CDATA[For security reasons, this system emails a reset password to registered users, rather than recalling the
-current password.<br /><br />Enter your email address below to reset your password. A confirmation will be sent to this email address.]]></message>
+	<message key="user.login.resetPasswordInstructions">Enter your account email address below and an email will be sent with instructions on how to reset your password.</message>
 
 	<message key="user.register.form.emailExists">The selected email address is already in use by another user.</message>
 	<message key="user.register.form.passwordsDoNotMatch">The passwords do not match.</message>

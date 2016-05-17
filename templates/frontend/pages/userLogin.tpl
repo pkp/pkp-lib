@@ -81,7 +81,7 @@
 					{translate key="user.login"}
 				</button>
 
-				{if !$hideRegisterLink}
+				{if !$disableUserReg}
 					{url|assign:registerUrl page="user" op="register" source=$source}
 					<a href="{$registerUrl}" class="register">
 						{translate key="user.login.registerNewAccount"}

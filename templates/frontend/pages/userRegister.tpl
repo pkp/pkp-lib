@@ -12,16 +12,12 @@
 <div class="page page_register">
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="user.register"}
 
-	<p>
-		{translate key="user.register.completeForm"}
-	</p>
-
 	{if !$implicitAuth}
 		{url|assign:"rolesProfileUrl" page="user" op="profile" path="roles"}
 		{url|assign:"loginUrl" page="login" source=$rolesProfileUrl}
-		<p>
+		<div class="cmp_notification">
 			{translate key="user.register.alreadyRegisteredOtherContext" registerUrl=$loginUrl}
-		</p>
+		</div>
 	{/if}
 
 	<form class="pkp_form register" id="register" method="post" action="{url op="registerUser"}">

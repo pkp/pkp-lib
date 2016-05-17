@@ -70,7 +70,7 @@ class RegistrationHandler extends UserHandler {
 		$regForm = new RegistrationForm($request->getSite());
 		$regForm->readInputData();
 		if (!$regForm->validate()) {
-			return new JSONMessage(true, $regForm->fetch($request));
+			return $regForm->display($request);
 		}
 
 		$regForm->execute($request);
@@ -78,7 +78,7 @@ class RegistrationHandler extends UserHandler {
 		if (Config::getVar('email', 'require_validation')) {
 			// Send them home; they need to deal with the
 			// registration email.
-			return $request->redirectUrlJson($request->url(null, 'index'));
+			return $request->redirectUrl($request->url(null, 'index'));
 		}
 
 		$reason = null;
@@ -96,11 +96,11 @@ class RegistrationHandler extends UserHandler {
 			$templateMgr->assign('errorParams', array('reason' => $reason));
 			$templateMgr->assign('backLink', $request->url(null, 'login'));
 			$templateMgr->assign('backLinkLabel', 'user.login');
-			return $templateMgr->fetchJson('frontend/pages/error.tpl');
+			return $templateMgr->fetch('frontend/pages/error.tpl');
 		}
 
 		if ($source = $request->getUserVar('source')) return $request->redirectUrlJson($source);
-		return $request->redirectUrlJson($request->getRouter()->getHomeUrl($request));
+		return $request->redirectUrl($request->getRouter()->getHomeUrl($request));
 	}
 
 	/**

@@ -105,8 +105,6 @@ class RegistrationForm extends Form {
 		$templateMgr->assign(array(
 			'source' =>$request->getUserVar('source'),
 			'minPasswordLength' => $site->getMinPasswordLength(),
-			'privacyStatement' => $context->getLocalizedSetting('privacyStatement'),
-			'includeEntirePage' => $display
 		));
 
 		return parent::fetch($request, $template, $display);

@@ -12,14 +12,6 @@
 <div class="page page_register">
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="user.register"}
 
-	{if !$implicitAuth}
-		{url|assign:"rolesProfileUrl" page="user" op="profile" path="roles"}
-		{url|assign:"loginUrl" page="login" source=$rolesProfileUrl}
-		<div class="cmp_notification">
-			{translate key="user.register.alreadyRegisteredOtherContext" registerUrl=$loginUrl}
-		</div>
-	{/if}
-
 	<form class="pkp_form register" id="register" method="post" action="{url op="registerUser"}">
 
 		{if $source}
@@ -152,21 +144,158 @@
 			</div>
 		</fieldset>
 
-		{* @todo Implement this without recourse to the Form Builder Vocab,
-		    so we don't force themers to dip into FBV at all *}
-		{include file="user/userGroups.tpl"}
+		{* Automatically opt-in all users to the Reader and Author roles in the
+		   current journal/press *}
+		{assign var=contextId value=$currentContext->getId()}
+		{foreach from=$readerUserGroups[$contextId] item=userGroup}
+			{if $userGroup->getPermitSelfRegistration()}
+				{assign var="userGroupId" value=$userGroup->getId()}
+				<input type="hidden" name="readerGroup[{$userGroupId}]" value="1">
+			{/if}
+		{/foreach}
+		{foreach from=$authorUserGroups[$contextId] item=userGroup}
+			{if $userGroup->getPermitSelfRegistration()}
+				{assign var="userGroupId" value=$userGroup->getId()}
+				<input type="hidden" name="authorGroup[{$userGroupId}]" value="1">
+			{/if}
+		{/foreach}
 
-		<div class="buttons">
-			<button class="submit" type="submit">
-				{translate key="user.register"}
-			</button>
-		</div>
+		{* Allow the user to sign up as a reviewer *}
+		{assign var=userCanRegisterReviewer value=0}
+		{foreach from=$reviewerUserGroups[$contextId] item=userGroup}
+			{if $userGroup->getPermitSelfRegistration()}
+				{assign var=userCanRegisterReviewer value=$userCanRegisterReviewer+1}
+			{/if}
+		{/foreach}
+		{if $userCanRegisterReviewer}
+			<fieldset class="reviewer">
+				<legend>
+					{translate key="user.reviewerPrompt"}
+				</legend>
+				<div class="fields">
+					<div id="reviewerOptinGroup" class="optin">
+						{foreach from=$reviewerUserGroups[$contextId] item=userGroup}
+							{if $userGroup->getPermitSelfRegistration()}
+								<label>
+									{assign var="userGroupId" value=$userGroup->getId()}
+									<input type="checkbox" name="reviewerGroup[{$userGroupId}]" value="1"{if in_array($userGroupId, $userGroupIds)} checked="checked"{/if}>
+									{translate key="user.reviewerPrompt.userGroup" userGroup=$userGroup->getLocalizedName()}
+								</label>
+							{/if}
+						{/foreach}
+					</div>
+					<div id="reviewerInterests" class="reviewer_interests">
+						{*
+						 * This container will be processed by the tag-it jQuery
+						 * plugin. In order for it to work, your theme will need to
+						 * load the jQuery tag-it plugin and initialize the
+						 * component.
+						 *
+						 * Two data attributes are added which are not a default
+						 * feature of the plugin. These are converted into options
+						 * when the plugin is initialized on the element.
+						 *
+						 * See: /plugins/themes/default/js/main.js
+						 *
+						 * `data-field-name` represents the name used to POST the
+						 * interests when the form is submitted.
+						 *
+						 * `data-autocomplete-url` is the URL used to request
+						 * existing entries from the server.
+						 *
+						 * @link: http://aehlke.github.io/tag-it/
+						 *}
+						<div class="label">
+							{translate key="user.interests"}
+						</div>
+						<ul class="interests tag-it" data-field-name="interests[]" data-autocomplete-url="{url|escape router=$smarty.const.ROUTE_PAGE page='user' op='getInterests'}">
+							{foreach from=$interests item=interest}
+								<li>{$interest|escape}</li>
+							{/foreach}
+						</ul>
+					</div>
+				</div>
+			</fieldset>
+		{/if}
+
+		{* Allow users to register for other journals/presses on this site *}
+		{if !$currentContext || $contexts|@count > 1}
+			<fieldset name="contexts">
+				<legend>
+					{if !$currentContext}
+						{translate key="user.register.contextsPrompt"}
+					{else}
+						{translate key="user.register.otherContextsPrompt"}
+					{/if}
+				</legend>
+				<div class="fields">
+					<div id="contextOptinGroup" class="context_optin">
+						<ul class="contexts">
+							{assign var=currentContextId value=$currentContext->getId()}
+							{foreach from=$contexts item=context}
+								{assign var=contextId value=$context->getId()}
+								{if $contextId != $currentContextId}
+									<li class="context">
+										<div class="name">
+											{$context->getLocalizedName()}
+										</div class="name">
+										<fieldset class="roles">
+											<legend>
+												{translate key="user.register.otherContextRoles"}
+											</legend>
+											{foreach from=$readerUserGroups[$contextId] item=userGroup}
+												{if $userGroup->getPermitSelfRegistration()}
+													{assign var="userGroupId" value=$userGroup->getId()}
+													<label>
+														<input type="checkbox" name="readerGroup[{$userGroupId}]"{if in_array($userGroupId, $userGroupIds)} checked="checked"{/if}>
+														{$userGroup->getLocalizedName()}
+													</label>
+												{/if}
+											{/foreach}
+											{foreach from=$authorUserGroups[$contextId] item=userGroup}
+												{if $userGroup->getPermitSelfRegistration()}
+													{assign var="userGroupId" value=$userGroup->getId()}
+													<label>
+														<input type="checkbox" name="authorGroup[{$userGroupId}]"{if in_array($userGroupId, $userGroupIds)} checked="checked"{/if}>
+														{$userGroup->getLocalizedName()}
+													</label>
+												{/if}
+											{/foreach}
+											{foreach from=$reviewerUserGroups[$contextId] item=userGroup}
+												{if $userGroup->getPermitSelfRegistration()}
+													{assign var="userGroupId" value=$userGroup->getId()}
+													<label>
+														<input type="checkbox" name="reviewerGroup[{$userGroupId}]"{if in_array($userGroupId, $userGroupIds)} checked="checked"{/if}>
+														{$userGroup->getLocalizedName()}
+													</label>
+												{/if}
+											{/foreach}
+										</fieldset>
+									</li>
+								{/if}
+							{/foreach}
+						</ul>
+					</div>
+				</div>
+			</fieldset>
+		{/if}
 
 		{if !$implicitAuth}
 			<div class="required_label">
 				{translate key="common.requiredField"}
 			</div>
 		{/if}
+
+		<div class="buttons">
+			<button class="submit" type="submit">
+				{translate key="user.register"}
+			</button>
+
+			{if !$implicitAuth}
+				{url|assign:"rolesProfileUrl" page="user" op="profile" path="roles"}
+				<a href="{url page="login" source=$rolesProfileUrl}" class="login">{translate key="user.login"}</a>
+			{/if}
+		</div>
 	</form>
 
 </div><!-- .page -->

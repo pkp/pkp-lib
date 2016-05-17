@@ -13,6 +13,9 @@
 <div class="page page_login">
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="user.login"}
 
+	{* A login message may be displayed if the user was redireceted to the
+	   login page from another request. Examples include if login is required
+	   before dowloading a file. *}
 	{if $loginMessage}
 		<p>
 			{translate key=$loginMessage}
@@ -34,47 +37,44 @@
 		</script>
 
 		<form class="pkp_form login" id="login" method="post" action="{$loginUrl}">
-	{/if}
 
-	{if $error}
-		<div class="pkp_form_error">
-			{translate key=$error reason=$reason}
-		</div>
-	{/if}
+			{if $error}
+				<div class="pkp_form_error">
+					{translate key=$error reason=$reason}
+				</div>
+			{/if}
 
-		<input type="hidden" name="source" value="{$source|strip_unsafe_html|escape}" />
+			<input type="hidden" name="source" value="{$source|strip_unsafe_html|escape}" />
 
-		{if !$implicitAuth}
-
-			<ul class="fields">
-				<li class="username">
+			<fieldset class="fields">
+				<div class="username">
 					<label>
 						<span class="label">
 							{translate key="user.username"}
 						</span>
 						<input type="text" name="username" id="username" value="{$username|escape}" maxlength="32" required tabindex="1">
 					</label>
-				</li>
-				<li class="password">
+				</div>
+				<div class="password">
 					<label>
 						<span class="label">
 							{translate key="user.password"}
-							<a href="{url page="login" op="lostPassword"}" tabindex="3">
-								{translate key="user.login.forgotPassword"}
-							</a>
 						</span>
 						<input type="password" name="password" id="password" value="{$password|escape}" password="true" maxlength="32" required="$passwordRequired" tabindex="2">
+						<a href="{url page="login" op="lostPassword"}" tabindex="3">
+							{translate key="user.login.forgotPassword"}
+						</a>
 					</label>
-				</li>
-				<li class="remember checkbox">
+				</div>
+				<div class="remember checkbox">
 					<label>
 						<input type="checkbox" name="remember" id="remember" value="1" checked="$remember" tabindex="4">
 						<span class="label">
 							{translate key="user.login.rememberUsernameAndPassword"}
 						</span>
 					</label>
-				</li>
-			</ul>
+				</div>
+			</fieldset>
 
 			<div class="buttons">
 				<button class="submit" type="submit">
@@ -89,33 +89,8 @@
 				{/if}
 			</div>
 
-			{* {fbvFormArea id="loginFields"}
-				{fbvFormSection label="user.username" for="username"}
-					{fbvElement type="text" id="username" value=$username maxlength="32" size=$fbvStyles.size.MEDIUM}
-				{/fbvFormSection}
-				{fbvFormSection label="user.password" for="password"}
-					{fbvElement type="text" password=true id="password" value=$password maxlength="32" size=$fbvStyles.size.MEDIUM}
-					<a href="{url page="login" op="lostPassword"}">{translate key="user.login.forgotPassword"}</a>
-				{/fbvFormSection}
-				{if $showRemember}
-					{fbvFormSection list=true}
-						{fbvElement type="checkbox" label="user.login.rememberUsernameAndPassword" id="remember" value="1" checked=$remember}
-					{/fbvFormSection}
-				{/if}
-				{if !$hideRegisterLink}
-					{if $source}
-						{url|assign:cancelUrl page="user" op="register" source=$source escape=false}
-					{else}
-						{url|assign:cancelUrl page="user" op="register" escape=false}
-					{/if}
-					{fbvFormButtons cancelUrl=$cancelUrl cancelText="user.login.registerNewAccount" submitText="user.login"}
-				{else}
-					{fbvFormButtons hideCancel=true submitText="user.login.resetPassword"}
-				{/if}
-			{/fbvFormArea} *}
-
-		{/if}{* !$implicitAuth *}
-	</form>
+		</form>
+	{/if}{* !$implicitAuth *}
 
 </div><!-- .page -->
 

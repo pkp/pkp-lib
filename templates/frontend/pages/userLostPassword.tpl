@@ -29,23 +29,23 @@
 			</div>
 		{/if}
 
-		<ul class="fields">
-			<li class="email">
+		<fieldset class="fields">
+			<div class="email">
 				<label>
 					<span class="label">
 						{translate key="user.login.registeredEmail"}
 					</span>
 					<input type="text" name="email" id="email" value="{$email|escape}" maxlength="32" required>
 				</label>
-			</li>
-		</ul>
+			</div>
+		</fieldset>
 
 		<div class="buttons">
 			<button class="submit" type="submit">
 				{translate key="user.login.resetPassword"}
 			</button>
 
-			{if !$hideRegisterLink}
+			{if !$disableUserReg}
 				{url|assign:registerUrl page="user" op="register" source=$source}
 				<a href="{$registerUrl}" class="register">
 					{translate key="user.login.registerNewAccount"}

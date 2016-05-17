@@ -51,8 +51,8 @@
 		<legend>
 			{translate key="user.profile"}
 		</legend>
-		<ul class="fields">
-			<li class="first_name">
+		<div class="fields">
+			<div class="first_name">
 				<label>
 					<span class="label">
 						{translate key="user.firstName"}
@@ -63,16 +63,16 @@
 					</span>
 					<input type="text" name="firstName" id="firstName" value="{$firstName|escape}" maxlength="40" required>
 				</label>
-			</li>
-			<li class="middle_name">
+			</div>
+			<div class="middle_name">
 				<label>
 					<span class="label">
 						{translate key="user.middleName"}
 					</span>
 					<input type="text" name="middleName" value="{$middleName|escape}" maxlength="40">
 				</label>
-			</li>
-			<li class="last_name">
+			</div>
+			<div class="last_name">
 				<label>
 					<span class="label">
 						{translate key="user.lastName"}
@@ -83,8 +83,8 @@
 					</span>
 					<input type="text" name="lastName" id="lastName" value="{$lastName|escape}" maxlength="40" required>
 				</label>
-			</li>
-			<li class="affiliation">
+			</div>
+			<div class="affiliation">
 				<label>
 					<span class="label">
 						{translate key="user.affiliation"}
@@ -96,8 +96,8 @@
 					{assign var="primaryLocale" value=$currentContext->getPrimaryLocale()}
 					<input type="text" name="affiliation[{$primaryLocale|escape}]" id="affiliation" value="{$affiliation.$primaryLocale|escape}" required>
 				</label>
-			</li>
-			<li class="country">
+			</div>
+			<div class="country">
 				<label>
 					<span class="label">
 						{translate key="common.country"}
@@ -111,16 +111,16 @@
 						{html_options options=$countries selected=$country}
 					</select>
 				</label>
-			</li>
-		</ul>
+			</div>
+		</div>
 	</fieldset>
 
 	<fieldset class="login">
 		<legend>
 			{translate key="user.login"}
 		</legend>
-		<ul class="fields">
-			<li class="email">
+		<div class="fields">
+			<div class="email">
 				<label>
 					<span class="label">
 						{translate key="user.email"}
@@ -131,8 +131,8 @@
 					</span>
 					<input type="text" name="email" id="email" value="{$email|escape}" maxlength="32" required>
 				</label>
-			</li>
-			<li class="username">
+			</div>
+			<div class="username">
 				<label>
 					<span class="label">
 						{translate key="user.username"}
@@ -146,8 +146,8 @@
 				<button id="suggestUsernameButton" class="suggest_username">
 					{translate key="common.suggest"}
 				</button>
-			</li>
-			<li class="password">
+			</div>
+			<div class="password">
 				<label>
 					<span class="label">
 						{translate key="user.password"}
@@ -158,8 +158,8 @@
 					</span>
 					<input type="password" name="password" id="password" password="true" maxlength="32" required="$passwordRequired">
 				</label>
-			</li>
-			<li class="password">
+			</div>
+			<div class="password">
 				<label>
 					<span class="label">
 						{translate key="user.repeatPassword"}
@@ -170,8 +170,8 @@
 					</span>
 					<input type="password" name="password2" id="password2" password="true" maxlength="32" required="$passwordRequired">
 				</label>
-			</li>
-		</ul>
+			</div>
+		</div>
 	</fieldset>
 
 	{* @todo Implement this without recourse to the Form Builder Vocab,

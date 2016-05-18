@@ -41,20 +41,10 @@ class RegistrationHandler extends UserHandler {
 		$this->validate($request);
 		$this->setupTemplate($request);
 
-		if ($request->getContext()) {
-			import('lib.pkp.classes.user.form.RegistrationForm');
-			$regForm = new RegistrationForm($request->getSite());
-			$regForm->initData($request->getContext());
-			$regForm->display($request);
-		} else {
-			$templateMgr = TemplateManager::getManager($request);
-			$contextDao = Application::getContextDAO();
-			$templateMgr->assign(array(
-				'source' => $request->getUserVar('source'),
-				'contexts' => $contextDao->getAll(true),
-			));
-			$templateMgr->display('frontend/pages/userRegisterSite.tpl');
-		}
+		import('lib.pkp.classes.user.form.RegistrationForm');
+		$regForm = new RegistrationForm($request->getSite());
+		$regForm->initData($request);
+		$regForm->display($request);
 	}
 
 	/**

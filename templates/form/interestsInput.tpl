@@ -16,7 +16,7 @@
 				source: function(request, response) {ldelim}
 					$.ajax({ldelim}
 						url: {url|json_encode router=$smarty.const.ROUTE_PAGE page='user' op='getInterests' escape=false},
-						data: request.term,
+						data: {ldelim}'term': request.term{rdelim},
 						dataType: 'json',
 						success: function(jsonData) {ldelim}
 							if (jsonData.status == true) {ldelim}

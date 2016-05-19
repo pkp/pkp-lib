@@ -109,7 +109,7 @@ class Query extends DataObject {
 	 * @return Note
 	 */
 	function getHeadNote() {
-		$notes = $this->getReplies(null, NOTE_ORDER_DATE_CREATED, SORT_DIRECTION_ASC);
+		$notes = $this->getReplies(null, NOTE_ORDER_DATE_CREATED, SORT_DIRECTION_ASC, true);
 		$note = $notes->next();
 		$notes->close();
 		return $note;

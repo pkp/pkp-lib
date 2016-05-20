@@ -78,6 +78,8 @@ abstract class SubmissionDAO extends DAO {
 				'pub-id::publisher-id', // FIXME: Move this to a PID plug-in.
 				'copyrightYear',
 				'licenseURL',
+				'citations',
+				'datePublished',
 			)
 		);
 	}
@@ -93,9 +95,10 @@ abstract class SubmissionDAO extends DAO {
 	/**
 	 * Internal function to return a Submission object from a row.
 	 * @param $row array
+	 * @param $submissionRevision int optional
 	 * @return Submission
 	 */
-	function _fromRow($row) {
+	function _fromRow($row, $submissionRevision = null) {
 		$submission = $this->newDataObject();
 
 		$submission->setId($row['submission_id']);
@@ -106,15 +109,98 @@ abstract class SubmissionDAO extends DAO {
 		$submission->setSubmissionProgress($row['submission_progress']);
 		$submission->setDateSubmitted($this->datetimeFromDB($row['date_submitted']));
 		$submission->setDateStatusModified($this->datetimeFromDB($row['date_status_modified']));
-		$submission->setDatePublished($this->datetimeFromDB($row['date_published']));
 		$submission->setLastModified($this->datetimeFromDB($row['last_modified']));
 		$submission->setLanguage($row['language']);
 		$submission->setCommentsToEditor($row['comments_to_ed']);
-		$submission->setCitations($row['citations']);
+		$submission->setHideSubmissionRevisions($row['hide_submission_revisions']);
 
-		$this->getDataObjectSettings('submission_settings', 'submission_id', $submission->getId(), $submission);
+		$this->getDataObjectSettings('submission_settings', 'submission_id', $submission->getId(), $submission, $submissionRevision, 'submission_revision');
 
 		return $submission;
+	}
+	
+	/**
+	 * Get all revisions for a submission; default settings: 
+	 * 1) Retrieve only the previous revisions, not the current one
+	 * 2) Get only the id's; optionally the title can be retrieved, too
+	 * 3) Default sorting order is ASC
+	 * @param $submissionId int
+	 * @param $contextId int
+	 * @param $showAll boolean false to exclude current revision; true to fetch all revisions including current
+	 * @param $withTitle boolean false to fetch only the IDs of the revisions; true to fetch additionally the title of the submission
+	 * $param $order string
+	 * @return array
+	 */
+	function getSubmissionRevisions($submissionId, $contextId = null, $showAll = false, $withTitle = false, $order = SORT_DIRECTION_ASC) {
+		$params = array();
+		if ($withTitle) {
+			$params[] = AppLocale::getPrimaryLocale();
+		}
+		$params[] = (int) $submissionId;
+		if ($contextId) {
+			$params[] = (int) $contextId;
+		}
+
+		$sql = 'SELECT DISTINCT ' . ($withTitle ? 'stl.' : '') . 'submission_revision AS revision' . ($withTitle ? ', COALESCE(stl.setting_value, stpl.setting_value) AS submission_title' : '') . 
+		       ' FROM submission_settings ' .
+			   'INNER JOIN submissions s ON submission_settings.submission_id = s.submission_id' .
+			   ($withTitle ? ' LEFT JOIN submission_settings stl ON (stl.setting_name = "title" AND stl.locale = ?) 
+							   LEFT JOIN submission_settings stpl ON (stpl.setting_name = "title" AND stpl.locale = s.locale)' : '') . 
+			   ' WHERE submission_settings.submission_id = ?'  . 
+			   ($withTitle ? ' AND submission_settings.submission_id = stl.submission_id' : '') .
+			   ($contextId ? ' AND s.context_id = ?' : '') .
+			   ' ORDER BY revision ' . $this->getDirectionMapping($order);
+
+		$result = $this->retrieve($sql, $params);
+		$submissionRevisions = array();
+		
+		foreach($result->getArray() as $submission) {
+			$revision = $submission['revision'];
+			
+			if ($withTitle == false) {
+				$submissionRevisions[] = $revision;
+			} else {
+				$submissionRevisions[$revision] = $submission['submission_title'] . ' (' . $revision . ')';
+			}
+		}
+
+		if ($showAll == false) {
+			if ($order == SORT_DIRECTION_ASC) {	
+				array_pop($submissionRevisions); 
+			} else {
+				array_shift($submissionRevisions);
+			}
+		}
+
+		return $submissionRevisions;
+	}
+	
+	/**
+	 * Get the current revision id for a submission
+	 * @param $submissionId int
+	 * @param $contextId int
+	 * @return int
+	 */
+	function getLatestRevisionId($submissionId, $contextId = null) {
+		if (!ctype_digit("$submissionId")) {
+			$publishedArticleDao = DAORegistry::getDAO('PublishedArticleDAO');
+			$publishedArticle = $publishedArticleDao->getPublishedArticleByPubId('publisher-id', $submissionId, $contextId);
+			$submissionId = $publishedArticle->getId();
+		}
+		$submissionRevisions = $this->getSubmissionRevisions($submissionId, $contextId, true);
+		return array_pop($submissionRevisions);
+	}
+	
+	/**
+	 * Checks whether a revision ID exists for a submission
+	 * @param $submissionId int
+	 * @param $revisionId int
+	 * @param $contextId int
+	 * @return boolean
+	 */
+	function revisionIdExists($submissionId, $revisionId, $contextId = null) {
+		$submissionRevisions = $this->getSubmissionRevisions($submissionId, $contextId, true);
+		return in_array($revisionId, $submissionRevisions);
 	}
 
 	/**
@@ -234,7 +320,7 @@ abstract class SubmissionDAO extends DAO {
 	 */
 	function updateLocaleFields($submission) {
 		$this->updateDataObjectSettings('submission_settings', $submission, array(
-			'submission_id' => $submission->getId()
+			'submission_id' => $submission->getId(), 'submission_revision' => ($submission->getData('submissionRevision') ? $submission->getData('submissionRevision') : 1)
 		));
 	}
 
@@ -261,9 +347,10 @@ abstract class SubmissionDAO extends DAO {
 	 * @param $submissionId int
 	 * @param $contextId int optional
 	 * @param $useCache boolean optional
+	 * @param $submissionRevision int optional
 	 * @return Submission
 	 */
-	function getById($submissionId, $contextId = null, $useCache = false) {
+	function getById($submissionId, $contextId = null, $useCache = false, $submissionRevision = null) {
 		if ($useCache) {
 			$cache = $this->_getCache();
 			$submission = $cache->get($submissionId);
@@ -290,7 +377,7 @@ abstract class SubmissionDAO extends DAO {
 
 		$returner = null;
 		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
+			$returner = $this->_fromRow($result->GetRowAssoc(false), $submissionRevision);
 		}
 
 		$result->Close();

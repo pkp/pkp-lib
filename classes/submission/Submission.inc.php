@@ -293,6 +293,42 @@ abstract class Submission extends DataObject {
 	function setCommentsToEditor($commentsToEditor) {
 		$this->setData('commentsToEditor', $commentsToEditor);
 	}
+	
+	/**
+	 * Get the hide revisions flag that is associated with this submission.
+	 * @return int
+	 */
+	function getHideSubmissionRevisions() {
+		return $this->getData('hideSubmissionRevisions');
+	}
+	
+	/**
+	 * Set the hide revisions flag that is associated with this submission.
+	 * @param $hideSubmissionRevisions int
+	 */
+	function setHideSubmissionRevisions($hideSubmissionRevisions) {
+		$this->setData('hideSubmissionRevisions', $hideSubmissionRevisions);
+	}
+	
+	/**
+	 * Get the current revision id for a submission
+	 * @param $contextId int
+	 * @return int
+	 */
+	function getCurrentVersionId($contextId = null) {
+		$submissionId = $this->getId();
+
+		if (!ctype_digit("$submissionId")) {
+			$publishedArticleDao = DAORegistry::getDAO('PublishedArticleDAO');
+			$publishedArticle = $publishedArticleDao->getPublishedArticleByPubId('publisher-id', $submissionId, $contextId);
+			$submissionId = $publishedArticle->getId();
+		}
+
+		$submissionDao = Application::getSubmissionDAO();
+		$submissionRevisions = $submissionDao->getSubmissionRevisions($submissionId, $contextId, true);
+
+		return array_pop($submissionRevisions);
+	}
 
 	/**
 	 * Return first author
@@ -314,10 +350,11 @@ abstract class Submission extends DataObject {
 	 * @param $lastOnly boolean return list of lastnames only (default false)
 	 * @param $nameSeparator string Separator for names (default comma+space)
 	 * @param $userGroupSeparator string Separator for user groups (default semicolon+space)
+	 * @param $version int
 	 * @return string
 	 */
-	function getAuthorString($lastOnly = false, $nameSeparator = ', ', $userGroupSeparator = '; ') {
-		$authors = $this->getAuthors(true);
+	function getAuthorString($lastOnly = false, $nameSeparator = ', ', $userGroupSeparator = '; ', $version = null) {
+		$authors = $this->getAuthors(true, $version);
 
 		$str = '';
 		$lastUserGroupId = null;
@@ -384,14 +421,20 @@ abstract class Submission extends DataObject {
 	/**
 	 * Get all authors of this submission.
 	 * @param $onlyIncludeInBrowse boolean whether to limit to include_in_browse authors.
+	 * @param $version int
 	 * @return array Authors
 	 */
-	function getAuthors($onlyIncludeInBrowse = false) {
+	function getAuthors($onlyIncludeInBrowse = false, $version = null) {
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
-		if (!$onlyIncludeInBrowse)
-			return $authorDao->getBySubmissionId($this->getId());
-		else
-			return $authorDao->getBySubmissionId($this->getId(), false, true);
+		if ($version == null) {
+			$version = $this->getCurrentVersionId() ? $this->getCurrentVersionId() : 1; // if a new submission is submitted, version is 1
+		}
+		
+		if (!$onlyIncludeInBrowse) {
+			return $authorDao->getBySubmissionId($this->getId(), false, false, $version);
+		} else {
+			return $authorDao->getBySubmissionId($this->getId(), false, true, $version);
+		}
 	}
 
 	/**

@@ -37,12 +37,19 @@ class SubmissionLanguageEntryDAO extends ControlledVocabEntryDAO {
 	 * Retrieve an iterator of controlled vocabulary entries matching a
 	 * particular controlled vocabulary ID.
 	 * @param $controlledVocabId int
+	 * @param $rangeInfo DBResultRange
+	 * @param $version int
 	 * @return object DAOResultFactory containing matching CVE objects
 	 */
-	function getByControlledVocabId($controlledVocabId, $rangeInfo = null) {
+	function getByControlledVocabId($controlledVocabId, $rangeInfo = null, $version = null) {
+		$params = array((int) $controlledVocabId);
+		if ($version) $params[] = (int) $version;
+
 		$result = $this->retrieveRange(
-			'SELECT cve.* FROM controlled_vocab_entries cve WHERE cve.controlled_vocab_id = ? ORDER BY seq',
-			array((int) $controlledVocabId),
+			'SELECT cve.* FROM controlled_vocab_entries cve WHERE cve.controlled_vocab_id = ? ' . 
+			($version ? ' AND version = ? ' : '') . 
+			'ORDER BY seq',
+			$params,
 			$rangeInfo
 		);
 

@@ -27,6 +27,20 @@
 		{fbvFormSection title="submission.form.name" required=true}
 			{fbvElement type="text" id="name" value=$submissionFile->getName(null) multilingual=true maxlength="255"}
 		{/fbvFormSection}
+		{if $submissionSettingsRevisions}
+			{fbvFormSection  for="submissionSettingsRevision" label="submission.upload.assignMetadata"}
+				{fbvElement type="select" name="submissionSettingsRevision" id="submissionSettingsRevision" from=$submissionSettingsRevisions translate=false selected=$currentSubmissionSettingsRevision}
+			{/fbvFormSection}
+		{/if}
+		
+		{if $submissionFile->getHideFileRevisions()}
+			{assign var="checked" value=true}
+		{else}
+			{assign var="checked" value=false}
+		{/if}
+		{fbvFormSection list=true}
+			{fbvElement type="checkbox" id="hideFileRevisions" name="hideFileRevisions" checked=$checked label="submission.upload.hideFileRevisions"}
+		{/fbvFormSection}
 	{/fbvFormArea}
 
 	{* Read-only meta-data *}

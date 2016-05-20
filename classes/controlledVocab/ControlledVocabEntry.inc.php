@@ -84,6 +84,22 @@ class ControlledVocabEntry extends DataObject {
 	function setName($name, $locale) {
 		$this->setData('name', $name, $locale);
 	}
+	
+	/**
+	 * Get version number.
+	 * @return int
+	 */
+	function getVersion() {
+		return $this->getData('version');
+	}
+
+	/**
+	 * Set version number.
+	 * @param $version int
+	 */
+	function setVersion($version) {
+		$this->setData('version', $version);
+	}
 }
 
 ?>

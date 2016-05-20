@@ -25,6 +25,9 @@ class SubmissionFilesMetadataForm extends Form {
 
 	/** @var ReviewRound */
 	var $_reviewRound;
+	
+	/** @var Array */
+	var $_submissionSettingsRevisions;
 
 	/**
 	 * Constructor.
@@ -44,6 +47,10 @@ class SubmissionFilesMetadataForm extends Form {
 		if (is_a($reviewRound, 'ReviewRound')) {
 			$this->_reviewRound = $reviewRound;
 		}
+		
+		$submissionDao = Application::getSubmissionDAO();
+		$contextId = Request::getContext()->getId();
+		$this->_submissionSettingsRevisions = $submissionDao->getSubmissionRevisions($submissionFile->getSubmissionId(), $contextId, true, true, SORT_DIRECTION_DESC);
 
 		// Add validation checks.
 		$this->addCheck(new FormValidatorLocale($this, 'name', 'required', 'submission.submit.fileNameRequired'));
@@ -121,7 +128,9 @@ class SubmissionFilesMetadataForm extends Form {
 		$templateMgr->assign(array(
 			'submissionFile' => $this->getSubmissionFile(),
 			'stageId' => $this->getStageId(),
-			'reviewRoundId' => $reviewRound?$reviewRound->getId():null
+			'reviewRoundId' => $reviewRound?$reviewRound->getId():null,
+			'submissionSettingsRevisions' => $this->_submissionSettingsRevisions,
+			'currentSubmissionSettingsRevision' => $this->_submissionFile->getSubmissionSettingsRevision(),
 		));
 		return parent::fetch($request);
 	}
@@ -132,6 +141,8 @@ class SubmissionFilesMetadataForm extends Form {
 	function execute($args, $request) {
 		// Update the submission file with data from the form.
 		$submissionFile = $this->getSubmissionFile();
+		$submissionFile->setHideFileRevisions($request->getUserVar('hideFileRevisions') == 'on' ? 1 : 0);
+		$submissionFile->setSubmissionSettingsRevision($request->getUserVar('submissionSettingsRevision'));
 		$submissionFile->setName($this->getData('name'), null); // Localized
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 		$submissionFileDao->updateObject($submissionFile);

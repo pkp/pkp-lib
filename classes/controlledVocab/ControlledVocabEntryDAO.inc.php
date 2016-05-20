@@ -129,7 +129,8 @@ class ControlledVocabEntryDAO extends DAO {
 	 */
 	function updateLocaleFields($controlledVocabEntry) {
 		$this->updateDataObjectSettings('controlled_vocab_entry_settings', $controlledVocabEntry, array(
-			'controlled_vocab_entry_id' => $controlledVocabEntry->getId()
+			'controlled_vocab_entry_id' => $controlledVocabEntry->getId(),
+			'version' => ($controlledVocabEntry->getVersion() ? $controlledVocabEntry->getVersion() : 1),
 		));
 	}
 
@@ -140,11 +141,12 @@ class ControlledVocabEntryDAO extends DAO {
 	 */
 	function insertObject($controlledVocabEntry) {
 		$this->update(
-			'INSERT INTO controlled_vocab_entries (controlled_vocab_id, seq)
-			VALUES (?, ?)',
+			'INSERT INTO controlled_vocab_entries (controlled_vocab_id, seq, version)
+			VALUES (?, ?, ?)',
 			array(
 				(int) $controlledVocabEntry->getControlledVocabId(),
-				(float) $controlledVocabEntry->getSequence()
+				(float) $controlledVocabEntry->getSequence(),
+				(int) $controlledVocabEntry->getVersion(),
 			)
 		);
 		$controlledVocabEntry->setId($this->getInsertId());
@@ -163,11 +165,14 @@ class ControlledVocabEntryDAO extends DAO {
 	/**
 	 * Delete a controlled vocab entry by controlled vocab entry ID.
 	 * @param $controlledVocabEntryId int
+	 * @param $version int
 	 */
-	function deleteObjectById($controlledVocabEntryId) {
+	function deleteObjectById($controlledVocabEntryId, $version = null) {
 		$params = array((int) $controlledVocabEntryId);
-		$this->update('DELETE FROM controlled_vocab_entry_settings WHERE controlled_vocab_entry_id = ?', $params);
-		$this->update('DELETE FROM controlled_vocab_entries WHERE controlled_vocab_entry_id = ?', $params);
+		if ($version) $params[] = (int) $version;
+		
+		$this->update('DELETE FROM controlled_vocab_entry_settings WHERE controlled_vocab_entry_id = ?' . ($version ? ' AND version = ?' : ''), $params);
+		$this->update('DELETE FROM controlled_vocab_entries WHERE controlled_vocab_entry_id = ?' . ($version ? ' AND version = ?' : ''), $params);
 	}
 
 	/**

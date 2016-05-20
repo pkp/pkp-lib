@@ -44,7 +44,9 @@ class PKPSubmissionMetadataViewForm extends Form {
 		parent::Form($templateName);
 
 		$submissionDao = Application::getSubmissionDAO();
-		$submission = $submissionDao->getById((int) $submissionId);
+		$revision = isset($formParams['revision']) ? (int)$formParams['revision'] : null;
+		$submission = $submissionDao->getById((int) $submissionId, null, false, $revision);
+
 		if ($submission) {
 			$this->_submission = $submission;
 		}
@@ -102,15 +104,16 @@ class PKPSubmissionMetadataViewForm extends Form {
 	 * Initialize form data with the author name and the submission id.
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @param $revision int
 	 */
-	function initData($args, $request) {
+	function initData($args, $request, $revision = null) {
 		AppLocale::requireComponents(
 			LOCALE_COMPONENT_APP_COMMON,
 			LOCALE_COMPONENT_PKP_SUBMISSION,
 			LOCALE_COMPONENT_APP_SUBMISSION
 		);
 
-		$this->_metadataFormImplem->initData($this->getSubmission());
+		$this->_metadataFormImplem->initData($this->getSubmission(), $revision);
 		parent::initData();
 	}
 

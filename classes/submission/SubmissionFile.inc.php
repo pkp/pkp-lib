@@ -391,6 +391,38 @@ class SubmissionFile extends PKPFile {
 	function setAssocType($assocType) {
 		$this->setData('assocType', $assocType);
 	}
+	
+	/**
+	 * Get the submission revision that is associated with this file.
+	 * @return int
+	 */
+	function getSubmissionSettingsRevision() {
+		return $this->getData('submissionSettingsRevision');
+	}
+	
+	/**
+	 * Set the submission revision that is associated with this file.
+	 * @param $submissionSettingsRevision int
+	 */
+	function setSubmissionSettingsRevision($submissionSettingsRevision) {
+		$this->setData('submissionSettingsRevision', $submissionSettingsRevision);
+	}
+	
+	/**
+	 * Get the hide revisions flag that is associated with this file.
+	 * @return int
+	 */
+	function getHideFileRevisions() {
+		return $this->getData('hideFileRevisions');
+	}
+	
+	/**
+	 * Set the hide revisions flag that is associated with this file.
+	 * @param $hideFileRevisions int
+	 */
+	function setHideFileRevisions($hideFileRevisions) {
+		$this->setData('hideFileRevisions', $hideFileRevisions);
+	}
 
 	/**
 	 * Return a context-aware file path.

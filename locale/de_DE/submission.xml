@@ -295,6 +295,11 @@
 	<message key="submission.history.viewLog">Protokoll anzeigen</message>
 	<message key="submission.indexing">Indizieren</message>
 	<message key="submission.initiated">Begonnen</message>
+	<message key="submission.saveAsRevision">Änderungen als neue Version speichern</message>
+	<message key="submission.linkToRecentRevision">Von diesem Artikel existiert eine neuere Version:</message>
+	<message key="submission.linkToPreviousRevisions">Von diesem Artikel gibt es ältere Versionen:</message>
+	<message key="submission.hideSubmissionRevisions">Links zu älteren Versionen dieses Artikels ausblenden</message>
+	<message key="submission.noGalleyFiles">Für diese Version existieren keine Dateien!</message>
 
 	<!-- Information Center -->
 	<message key="submission.informationCenter.submissionInfo">Informationen zur Einreichung</message>
@@ -469,6 +474,8 @@
 	<message key="submission.upload.userGroupDescription">Wenn Sie einen Sammelband einreichen, sollten Sie alle Kapitel individuell in Ihrer Rolle als Sammelbandherausgeber/in hochladen.</message>
 	<message key="submission.upload.uploadLibraryFile">Eine Bibliotheksdatei hochladen</message>
 	<message key="submission.upload.libraryCategory">Dokumentkategorie der Einreichung</message>
+	<message key="submission.upload.hideFileRevisions">Ältere Dateiversionen ausblenden</message>
+	<message key="submission.upload.assignMetadata">Diese Datei soll mit den Metadaten folgender Version des Artikels verknüpft werden</message>
 
 	<!-- File uploads -->
 	<message key="submission.upload.finalDraft">Datei hochladen</message>

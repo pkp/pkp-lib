@@ -48,16 +48,17 @@ class SubmissionLanguageDAO extends ControlledVocabDAO {
 	 * Get Languages for a submission.
 	 * @param $submissionId int
 	 * @param $locales array
+	 * @param $version
 	 * @return array
 	 */
-	function getLanguages($submissionId, $locales) {
+	function getLanguages($submissionId, $locales, $version = null) {
 
 		$returner = array();
 		foreach ($locales as $locale) {
 			$returner[$locale] = array();
 			$languages = $this->build($submissionId);
 			$submissionLanguageEntryDao = DAORegistry::getDAO('SubmissionLanguageEntryDAO');
-			$submissionLanguages = $submissionLanguageEntryDao->getByControlledVocabId($languages->getId());
+			$submissionLanguages = $submissionLanguageEntryDao->getByControlledVocabId($languages->getId(), null, $version);
 
 			while ($language = $submissionLanguages->next()) {
 				$language = $language->getLanguage();
@@ -119,9 +120,10 @@ class SubmissionLanguageDAO extends ControlledVocabDAO {
 	 * @param $languages array
 	 * @param $submissionId int
 	 * @param $deleteFirst boolean
+	 * @param $version int
 	 * @return int
 	 */
-	function insertLanguages($languages, $submissionId, $deleteFirst = true) {
+	function insertLanguages($languages, $submissionId, $deleteFirst = true, $version = null) {
 		$languageDao = DAORegistry::getDAO('SubmissionLanguageDAO');
 		$submissionLanguageEntryDao = DAORegistry::getDAO('SubmissionLanguageEntryDAO');
 		$currentLanguages = $this->build($submissionId);
@@ -131,7 +133,7 @@ class SubmissionLanguageDAO extends ControlledVocabDAO {
 
 			foreach ($existingEntries as $id => $entry) {
 				$entry = trim($entry);
-				$submissionLanguageEntryDao->deleteObjectById($id);
+				$submissionLanguageEntryDao->deleteObjectById($id, $version);
 			}
 		}
 		if (is_array($languages)) { // localized, array of arrays
@@ -145,6 +147,7 @@ class SubmissionLanguageDAO extends ControlledVocabDAO {
 						$languageEntry->setControlledVocabId($currentLanguages->getID());
 						$languageEntry->setLanguage(urldecode($language), $locale);
 						$languageEntry->setSequence($i);
+						$languageEntry->setVersion($version);
 						$i++;
 						$submissionLanguageEntryDao->insertObject($languageEntry);
 					}

@@ -15,7 +15,7 @@
  */
 
 // Import the base handler.
-import('lib.pkp.classes.file.FileManagementHandler');
+import('classes.handler.Handler');
 
 // Import JSON class for use with all AJAX requests.
 import('lib.pkp.classes.core.JSONMessage');
@@ -25,7 +25,7 @@ import('lib.pkp.classes.core.JSONMessage');
 // considered as a revision of that file.
 define('SUBMISSION_MIN_SIMILARITY_OF_REVISION', 70);
 
-class PKPFileUploadWizardHandler extends FileManagementHandler {
+class PKPFileUploadWizardHandler extends Handler {
 	/** @var integer */
 	var $_fileStage;
 
@@ -124,6 +124,11 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 	}
 
 	function authorize($request, &$args, $roleAssignments) {
+		// Allow both reviewers (if in review) and context roles.
+		import('classes.security.authorization.ReviewStageAccessPolicy');
+
+		$this->addPolicy(new ReviewStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $request->getUserVar('stageId')), true);
+
 		return parent::authorize($request, $args, $roleAssignments);
 	}
 
@@ -131,6 +136,23 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 	//
 	// Getters and Setters
 	//
+	/**
+	 * The submission to which we upload files.
+	 * @return Submission
+	 */
+	function getSubmission() {
+		return $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+	}
+
+
+	/**
+	 * Get the authorized workflow stage.
+	 * @return integer One of the WORKFLOW_STAGE_ID_* constants.
+	 */
+	function getStageId() {
+		return $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+	}
+
 	/**
 	 * Get the workflow stage file storage that
 	 * we upload files to. One of the SUBMISSION_FILE_*

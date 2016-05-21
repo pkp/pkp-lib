@@ -272,7 +272,7 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 	 * @param $request Request
 	 * @return JSONMessage JSON object
 	 */
-	function uploadFile($args, $request, $fileModifyCallback = null) {
+	function uploadFile($args, $request) {
 		// Instantiate the file upload form.
 		$submission = $this->getSubmission();
 		import('lib.pkp.controllers.wizard.fileUpload.form.SubmissionFilesUploadForm');
@@ -283,35 +283,36 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 		$uploadForm->readInputData();
 
 		// Validate the form and upload the file.
-		if ($uploadForm->validate($request)) {
-			if (is_a($uploadedFile = $uploadForm->execute($request), 'SubmissionFile')) { /* @var $uploadedFile SubmissionFile */
-				// Retrieve file info to be used in a JSON response.
-				$uploadedFileInfo = $this->_getUploadedFileInfo($uploadedFile);
-				$reviewRound = $this->getReviewRound();
-
-				// If no revised file id was given then try out whether
-				// the user maybe accidentally didn't identify this file as a revision.
-				if (!$uploadForm->getRevisedFileId()) {
-					$revisedFileId = $this->_checkForRevision($uploadedFile, $uploadForm->getSubmissionFiles());
-					if ($revisedFileId) {
-						// Instantiate the revision confirmation form.
-						import('lib.pkp.controllers.wizard.fileUpload.form.SubmissionFilesUploadConfirmationForm');
-						$confirmationForm = new SubmissionFilesUploadConfirmationForm($request, $submission->getId(), $this->getStageId(), $this->getFileStage(), $reviewRound, $revisedFileId, $this->getAssocType(), $this->getAssocId(), $uploadedFile);
-						$confirmationForm->initData($args, $request);
-
-						// Render the revision confirmation form.
-						return new JSONMessage(true, $confirmationForm->fetch($request), '0', $uploadedFileInfo);
-					}
-				}
-
-				// Advance to the next step (i.e. meta-data editing).
-				return new JSONMessage(true, '', '0', $uploadedFileInfo);
-			} else {
-				return new JSONMessage(false, __('common.uploadFailed'));
-			}
-		} else {
+		if (!$uploadForm->validate($request)) {
 			return new JSONMessage(false, array_pop($uploadForm->getErrorsArray()));
 		}
+
+		$uploadedFile = $uploadForm->execute($request); /* @var $uploadedFile SubmissionFile */
+		if (!is_a($uploadedFile, 'SubmissionFile')) {
+			return new JSONMessage(false, __('common.uploadFailed'));
+		}
+
+		// Retrieve file info to be used in a JSON response.
+		$uploadedFileInfo = $this->_getUploadedFileInfo($uploadedFile);
+		$reviewRound = $this->getReviewRound();
+
+		// If no revised file id was given then try out whether
+		// the user maybe accidentally didn't identify this file as a revision.
+		if (!$uploadForm->getRevisedFileId()) {
+			$revisedFileId = $this->_checkForRevision($uploadedFile, $uploadForm->getSubmissionFiles());
+			if ($revisedFileId) {
+				// Instantiate the revision confirmation form.
+				import('lib.pkp.controllers.wizard.fileUpload.form.SubmissionFilesUploadConfirmationForm');
+				$confirmationForm = new SubmissionFilesUploadConfirmationForm($request, $submission->getId(), $this->getStageId(), $this->getFileStage(), $reviewRound, $revisedFileId, $this->getAssocType(), $this->getAssocId(), $uploadedFile);
+				$confirmationForm->initData($args, $request);
+
+				// Render the revision confirmation form.
+				return new JSONMessage(true, $confirmationForm->fetch($request), '0', $uploadedFileInfo);
+			}
+		}
+
+		// Advance to the next step (i.e. meta-data editing).
+		return new JSONMessage(true, '', '0', $uploadedFileInfo);
 	}
 
 	/**

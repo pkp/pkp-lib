@@ -314,6 +314,8 @@ class PKPFileUploadWizardHandler extends Handler {
 			return new JSONMessage(false, __('common.uploadFailed'));
 		}
 
+		$this->_attachEntities($uploadedFile);
+
 		// Retrieve file info to be used in a JSON response.
 		$uploadedFileInfo = $this->_getUploadedFileInfo($uploadedFile);
 		$reviewRound = $this->getReviewRound();
@@ -335,6 +337,23 @@ class PKPFileUploadWizardHandler extends Handler {
 
 		// Advance to the next step (i.e. meta-data editing).
 		return new JSONMessage(true, '', '0', $uploadedFileInfo);
+	}
+
+	/**
+	 * Attach any dependent entities to a new file upload.
+	 * @param $submissionFile SubmissionFile
+	 */
+	protected function _attachEntities($submissionFile) {
+		switch ($submissionFile->getFileStage()) {
+			case SUBMISSION_FILE_REVIEW_FILE:
+			case SUBMISSION_FILE_REVIEW_ATTACHMENT:
+			case SUBMISSION_FILE_REVIEW_REVISION:
+				// Add the uploaded review file to the review round.
+				$reviewRound = $this->getReviewRound();
+				$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+				$submissionFileDao->assignRevisionToReviewRound($submissionFile->getFileId(), $submissionFile->getRevision(), $reviewRound);
+				break;
+		}
 	}
 
 	/**

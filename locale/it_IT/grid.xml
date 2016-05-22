@@ -8,11 +8,10 @@
   * Copyright (c) 2000-2016 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the en_US (English) locale.
-  *
+  * Localization strings for the it_IT (Italiano) locale.
   -->
 
-<locale name="en_US" full_name="Italiano">
+<locale name="it_IT" full_name="Italiano">
 	<!-- Common -->
 	<message key="grid.noItems">Nessun elemento</message>
 	<message key="grid.settings">Impostazioni</message>
@@ -45,12 +44,6 @@
 
 	<!-- Artwork Files Grid -->
 	<!-- Library Files -->
-	<message key="grid.libraryFiles.column.files">File</message>
-	<message key="grid.libraryFiles.submission.title">Submission Library</message>
-	<message key="grid.libraryFiles.editorial.title">Editorial Library</message>
-	<message key="grid.libraryFiles.review.title">Review Library</message>
-	<message key="grid.libraryFiles.production.title">Production Library</message>
-	<message key="grid.libraryFiles.productionTemplate.title">Production Template Library</message>
 
 	<!-- SubmissionChecklist -->
 	<message key="grid.submissionChecklist.title">Controllo della submission</message>

@@ -38,7 +38,6 @@
  * 		before the form is submitted
  *   cancelText (optional): Text to display for the cancel link (default is 'Cancel')
  *   hideCancel (optional): Whether the submit button should be disabled
- * 	 confirmCancel (optional): Text to display in cancel button's confirmation dialog
  *   cancelAction (optional): A LinkAction object to execute when cancel is clicked
  *   cancelUrl (optional): URL to redirect to when cancel is clicked
  * Form elements are created with {fbvElement type="type"} plus any additional parameters.
@@ -211,7 +210,6 @@ class FormBuilderVocabulary {
 		// Cancel button options.
 		$smarty->assign('FBV_cancelText', isset($params['cancelText']) ? $params['cancelText'] : 'common.cancel');
 		$smarty->assign('FBV_hideCancel', isset($params['hideCancel']) ? (boolean)$params['hideCancel'] : false);
-		$smarty->assign('FBV_confirmCancel', isset($params['confirmCancel']) ? $params['confirmCancel'] : null);
 		$smarty->assign('FBV_cancelAction', isset($params['cancelAction']) ? $params['cancelAction'] : null);
 		$smarty->assign('FBV_cancelUrl', isset($params['cancelUrl']) ? $params['cancelUrl'] : null);
 		$smarty->assign('FBV_cancelUrlTarget', isset($params['cancelUrlTarget']) ? $params['cancelUrlTarget'] : '');

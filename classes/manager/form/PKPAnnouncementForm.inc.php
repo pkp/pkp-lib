@@ -114,6 +114,7 @@ class PKPAnnouncementForm extends Form {
 
 	/**
 	 * Save announcement.
+	 * @return Announcement
 	 */
 	function execute() {
 		$announcementDao =& DAORegistry::getDAO('AnnouncementDAO');
@@ -152,6 +153,7 @@ class PKPAnnouncementForm extends Form {
 			$announcement->setDatetimePosted(Core::getCurrentDate());
 			$announcementDao->insertAnnouncement($announcement);
 		}
+		return $announcement;
 	}
 
 	function _getAnnouncementTypesAssocId() {

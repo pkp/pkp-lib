@@ -2,7 +2,7 @@
 <!DOCTYPE countries SYSTEM "../../dtd/countries.dtd">
 
 <!--
-  * lib/pkp/locale/it_IT/countries.xml
+  * locale/it_IT/countries.xml
   *
   * Copyright (c) 2014-2016 Simon Fraser University Library
   * Copyright (c) 2000-2016 John Willinsky
@@ -14,7 +14,6 @@
   * (https://packages.debian.org/sid/all/iso-codes) using the
   * tools/poToCountries.php tool.
   -->
-
 <countries>
 	<country name="Afghanistan" code="AF"/>
 	<country name="Albania" code="AL"/>

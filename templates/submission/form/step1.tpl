@@ -77,14 +77,8 @@
 		{fbvElement type="textarea" name="privacyStatement" id="privacyStatement" disabled=true value=$currentContext->getLocalizedSetting('privacyStatement') rich=true}
 	{/fbvFormSection}
 
-	{if $submissionProgress > 1}
-		{assign var="confirmCancelMessage" value="submission.submit.cancelSubmission"}
-	{else}
-		{assign var="confirmCancelMessage" value="submission.submit.cancelSubmissionStep1"}
-	{/if}
-
 	<!-- Buttons -->
-	{fbvFormButtons id="step1Buttons" submitText="common.saveAndContinue" confirmCancel=$confirmCancelMessage}
+	{fbvFormButtons id="step1Buttons" submitText="common.saveAndContinue"}
 
 	<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 {/fbvFormArea}

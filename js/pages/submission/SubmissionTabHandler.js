@@ -36,9 +36,12 @@
 		this.parent($tabs, options);
 
 		this.submissionProgress_ = options.submissionProgress;
+		this.cancelUrl_ = options.cancelUrl;
+		this.cancelConfirmText_ = options.cancelConfirmText;
 
-		// Attach the tabs grid refresh handler.
+		// Attach handlers.
 		this.bind('setStep', this.setStepHandler);
+		this.bind('formCanceled', this.formCanceledHandler);
 
 		this.getHtmlElement().tabs('option', 'disabled',
 				this.getDisabledSteps(this.submissionProgress_));
@@ -60,6 +63,24 @@
 			prototype.submissionProgress_ = null;
 
 
+	/**
+	 * The cancel URL
+	 * @private
+	 * @type {string?}
+	 */
+	$.pkp.pages.submission.SubmissionTabHandler.
+			prototype.cancelUrl_ = null;
+
+
+	/**
+	 * The cancel confirmation text
+	 * @private
+	 * @type {string?}
+	 */
+	$.pkp.pages.submission.SubmissionTabHandler.
+			prototype.cancelConfirmText_ = null;
+
+
 	//
 	// Public methods
 	//
@@ -78,6 +99,22 @@
 		this.getHtmlElement().tabs('option', 'disabled',
 				this.getDisabledSteps(submissionProgress));
 		this.getHtmlElement().tabs('option', 'active', submissionProgress - 1);
+	};
+
+
+	/**
+	 * Handle form cancellation events.
+	 * @param {HTMLElement} sourceElement The parent DIV element
+	 *  which contains the tabs.
+	 * @param {Event} event The triggered event (gridRefreshRequested).
+	 * @param {number} submissionProgress The new submission progress.
+	 */
+	$.pkp.pages.submission.SubmissionTabHandler.prototype.
+			formCanceledHandler = function(sourceElement, event, submissionProgress) {
+
+		if (confirm(this.cancelConfirmText_)) {
+			window.location = this.cancelUrl_;
+		}
 	};
 
 

@@ -19,7 +19,9 @@
 			'$.pkp.pages.submission.SubmissionTabHandler',
 			{ldelim}
 				submissionProgress: {$submissionProgress},
-				selected: {$submissionProgress-1}
+				selected: {$submissionProgress-1},
+				cancelUrl: {url|json_encode page="submissions" escape=false},
+				cancelConfirmText: {translate|json_encode key="submission.submit.cancelSubmission"}
 			{rdelim}
 		);
 	{rdelim});

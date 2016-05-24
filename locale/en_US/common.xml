@@ -122,8 +122,8 @@
 	<message key="common.deleteSelection">Delete Selection</message>
 	<message key="common.designation">Designation</message>
 	<message key="common.description">Description</message>
-	<message key="common.dimensionsInches"><![CDATA[{$width}"&nbsp;x&nbsp;{$height}" @ {$dpi} DPI/PPI]]></message>
-	<message key="common.dimensionsPixels">{$width} x {$height} pixels</message>
+	<message key="common.dimensionsInches"><![CDATA[{$width}&Prime;&times;{$height}&Prime; at {$dpi} DPI/PPI]]></message>
+	<message key="common.dimensionsPixels"><![CDATA[{$width}&times;{$height} pixels]]></message>
 	<message key="common.disable">Disable</message>
 	<message key="common.disabled">Disabled</message>
 	<message key="common.discipline">Discipline</message>
@@ -142,6 +142,7 @@
 	<message key="common.fullscreenOff">Fullscreen Off</message>
 	<message key="common.false">False</message>
 	<message key="common.file">File</message>
+	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
 	<message key="common.fileName">File Name</message>
 	<message key="common.fileSize">File Size</message>
 	<message key="common.fileType">File Type</message>

@@ -24,8 +24,10 @@
 
 	{* Editable metadata *}
 	{fbvFormArea id="fileMetaData"}
-		{fbvFormSection title="submission.form.name" required=true}
-			{fbvElement type="text" id="name" value=$submissionFile->getName(null) multilingual=true maxlength="255"}
+
+		{* File name and detail summary *}
+		{fbvFormSection}
+			{include file="controllers/wizard/fileUpload/form/uploadedFileSummary.tpl" submissionFile=$submissionFile}
 		{/fbvFormSection}
 	{/fbvFormArea}
 

@@ -519,6 +519,29 @@ class SubmissionFile extends PKPFile {
 	}
 
 	/**
+	 * Generate a user-facing name for the file
+	 * @return string
+	 */
+	function _generateName() {
+		$genreDao = DAORegistry::getDAO('GenreDAO');
+		$genre = $genreDao->getById($this->getGenreId());
+		$userGroupDAO = DAORegistry::getDAO('UserGroupDAO');
+		$userGroup = $userGroupDAO->getById($this->getUserGroupId());
+		$userDAO = DAORegistry::getDAO('UserDAO');
+		$user = $userDAO->getById($this->getUploaderUserId());
+
+		return __('common.file.namingPattern',
+			array(
+				'genre'            => $genre->getLocalizedName(),
+				'docType'          => $this->getDocumentType(),
+				'originalFilename' => $this->getOriginalFilename(),
+				'username'         => $user->getUsername(),
+				'userGroup'        => $userGroup->getLocalizedName(),
+			)
+		);
+	}
+
+	/**
 	 * Return path associated with a file stage code.
 	 * @param $fileStage string
 	 * @return string

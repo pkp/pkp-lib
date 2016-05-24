@@ -240,6 +240,80 @@
 	border: none;
 }
 
+// Summary of an uploaded file
+.pkp_uploadedFile_summary {
+	font-size: @font-sml;
+	line-height: @line-sml;
+
+	.filename {
+		&:extend(.pkp_form .section > .label);
+
+		.display {
+			line-height: @double;
+		}
+
+		.edit {
+			line-height: @line-sml;
+		}
+	}
+
+	.details {
+		margin-top: @half;
+		color: @text-light;
+
+		> span {
+			margin-left: @double;
+
+			&:first-child {
+				margin-left: 0;
+			}
+
+			&:before {
+				&:extend(.fa);
+				padding-right: 0.25em;
+				color: #aaa;
+			}
+		}
+	}
+
+	.pixels:before {
+		content: @fa-var-desktop;
+	}
+
+	.print {
+		margin-left: @double;
+
+		&:before {
+			&:extend(.fa);
+			padding-right: 0.25em;
+			color: #aaa;
+			content: @fa-var-print;
+		}
+	}
+
+	.type:before {
+		content: @fa-var-file-o;
+	}
+
+	.type.pdf:before {
+		content: @fa-var-file-pdf-o;
+	}
+
+	.type.doc:before,
+	.type.docx:before {
+		content: @fa-var-file-word-o;
+	}
+
+	.type.xls:before,
+	.type.xlsx:before {
+		content: @fa-var-file-excel-o;
+	}
+
+	.file_size:before {
+		content: @fa-var-hdd-o;
+	}
+}
+
 // @todo from here on down needs to be evaluated and removed if not useful
 .pkp_helpers_invisible {
 	visibility: hidden;

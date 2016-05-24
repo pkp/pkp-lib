@@ -24,9 +24,12 @@
 
 	{* Editable metadata *}
 	{fbvFormArea id="fileMetaData"}
-		{fbvFormSection title="submission.form.name" required=true}
-			{fbvElement type="text" id="name" value=$submissionFile->getName(null) multilingual=true maxlength="255"}
+
+		{* File detail summary *}
+		{fbvFormSection}
+			{include file="controllers/wizard/fileUpload/form/uploadedFileSummary.tpl" submissionFile=$submissionFile}
 		{/fbvFormSection}
+
 		{fbvFormSection title="grid.artworkFile.caption" inline=true size=$fbvStyles.size.MEDIUM}
 			{fbvElement type="textarea" id="artworkCaption" height=$fbvStyles.height.SHORT value=$submissionFile->getCaption()}
 		{/fbvFormSection}

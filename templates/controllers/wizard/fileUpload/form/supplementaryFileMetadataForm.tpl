@@ -24,8 +24,10 @@
 
 	{* Editable metadata *}
 	{fbvFormArea id="fileMetaData"}
-		{fbvFormSection title="submission.form.name" required=true}
-			{fbvElement type="text" id="name" value=$submissionFile->getName(null) multilingual=true maxlength="255"}
+
+		{* File detail summary *}
+		{fbvFormSection}
+			{include file="controllers/wizard/fileUpload/form/uploadedFileSummary.tpl" submissionFile=$submissionFile}
 		{/fbvFormSection}
 
 		{fbvFormSection}
@@ -39,6 +41,7 @@
 			{fbvElement label="common.language" inline=true size=$fbvStyles.size.SMALL type="text" id="language" value=$submissionFile->getLanguage() maxlength="255"}
 		{/fbvFormSection}
 	{/fbvFormArea}
+
 
 	{if $showButtons}
 		{fbvElement type="hidden" id="showButtons" value=$showButtons}

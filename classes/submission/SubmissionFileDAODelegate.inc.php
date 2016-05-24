@@ -89,6 +89,10 @@ class SubmissionFileDAODelegate extends DAO {
 			$submissionFile->setFileId($this->_getInsertId('submission_files', 'file_id'));
 		}
 
+		if (!$submissionFile->getName(AppLocale::getPrimaryLocale())) {
+			$submissionFile->setName($submissionFile->_generateName(), AppLocale::getPrimaryLocale());
+		}
+
 		$this->updateLocaleFields($submissionFile);
 
 		// Determine the final destination of the file (requires

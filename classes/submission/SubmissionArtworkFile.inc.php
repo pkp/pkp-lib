@@ -182,6 +182,42 @@ class SubmissionArtworkFile extends SubmissionFile {
 	}
 
 	/**
+	 * Get the physical width of an image when printed
+	 *
+	 * Common use is to print at 300 DPI (dots per inch), but you can pass any
+	 * any pixel density to this function to return it's printed width. For
+	 * instance, a 300 DPI is roughly equal to 118 dpcm (dots per centimeter),
+	 * so you'd pass $dpi = 118 to calculate the width in centimeters.
+	 *
+	 * @param $dpi int Dots (or pixels) per inch (or any other unit of
+	 *  measurement).
+	 * @return integer
+	 */
+	function getPhysicalWidth($dpi) {
+		$width = $this->getWidth();
+		if (!is_int($width) || $width <= 0) {
+			return 0;
+		}
+		return number_format($width/$dpi,1);
+	}
+
+	/**
+	 * Get the physical height of an image when printed
+	 *
+	 * @see self::getPhysicalWidth
+	 * @param $dpi int Dots (or pixels) per inch (or any other unit of
+	 *  measurement).
+	 * @return integer
+	 */
+	function getPhysicalHeight($dpi) {
+		$height = $this->getheight();
+		if (!is_int($height) || $height <= 0) {
+			return 0;
+		}
+		return number_format($height/$dpi,1);
+	}
+
+	/**
 	 * Copy the user-facing (editable) metadata from another submission
 	 * file.
 	 * @param $submissionFile SubmissionFile

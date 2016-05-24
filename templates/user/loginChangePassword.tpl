@@ -22,7 +22,7 @@
 </script>
 
 {if !$passwordLengthRestrictionLocaleKey}
-	{assign var="passwordLengthRestrictionLocaleKey" value="user.register.passwordLengthRestriction"}
+	{assign var="passwordLengthRestrictionLocaleKey" value="user.register.form.passwordLengthRestriction"}
 {/if}
 
 <form class="pkp_form" id="loginChangePassword" method="post" action="{url page="login" op="savePassword"}">

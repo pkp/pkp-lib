@@ -30,7 +30,7 @@
 		{/fbvFormSection}
 	{/if}
 
-	{fbvFormArea title="manager.setup.principalContact"}
+	{fbvFormArea title="manager.setup.principalContact" id="principalContactArea"}
 		{fbvFormSection description="manager.setup.principalContactDescription"}
 			{fbvElement type="text" label="user.name" required=true id="contactName" value=$contactName maxlength="60" inline=true size=$fbvStyles.size.MEDIUM}
 			{fbvElement type="text" label="user.title" multilingual=true name="contactTitle" id="contactTitle" value=$contactTitle maxlength="90" inline=true size=$fbvStyles.size.MEDIUM}
@@ -43,7 +43,7 @@
 	{/fbvFormArea}
 
 	{if !$wizardMode}
-		{fbvFormArea title="manager.setup.technicalSupportContact" class=$wizardClass}
+		{fbvFormArea title="manager.setup.technicalSupportContact" class=$wizardClass id="technicalContactArea"}
 			{fbvFormSection description="manager.setup.technicalSupportContactDescription"}
 				{fbvElement type="text" label="user.name" required=true id="supportName" value=$supportName maxlength="60" inline=true size=$fbvStyles.size.MEDIUM}
 				{fbvElement type="text" label="user.email" required=true id="supportEmail" value=$supportEmail maxlength="60" inline=true size=$fbvStyles.size.MEDIUM}

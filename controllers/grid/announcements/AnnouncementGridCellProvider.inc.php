@@ -39,7 +39,7 @@ class AnnouncementGridCellProvider extends GridCellProvider {
 					'moreInformation',
 					new AjaxModal(
 						$router->url($request, null, null, 'moreInformation', null, $actionArgs),
-						$label,
+						$announcement->getLocalizedTitle(),
 						null,
 						true
 					),

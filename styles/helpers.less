@@ -12,19 +12,20 @@
 // Buttons
 .pkp_button {
 	display: inline-block;
-	padding: 4px @base;
-	font-size: @font-sml;
-	line-height: @line-base;
-	color: @text;
-	color: @text-rgba;
+	padding: 7px @base;
 	vertical-align: middle;
-	cursor: pointer;
 	background-color: #eee;
-	background-image: linear-gradient(#fff, #ddd);
-	border: @bg-border;
+	background-image: linear-gradient(#eee, #ddd);
+	border: 1px solid #ccc;
 	border-radius: @radius;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.1), inset 0 1px 1px rgba(255,255,255,0.6);
+	font-size: @font-tiny;
+	font-weight: @bold;
+	line-height: @line-tiny;
+	color: @text-rgba;
+	text-shadow: 0 2px 0 rgba(255,255,255,0.6);
+	cursor: pointer;
 	text-decoration: none;
-	text-align: center;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
@@ -33,13 +34,14 @@
 
 	&:hover,
 	&:focus {
-		background-color: #ccc;
-		background-image: linear-gradient(#fff, #ccc);
+		background-color: #fff;
+		background-image: linear-gradient(#fff, #ddd);
+		color: #000;
 	}
 
 	&:active {
-		background-color: #bbb;
-		background-image: linear-gradient(#eee, #bbb);
+		background-color: #ddd;
+		background-image: linear-gradient(#eee, #ccc);
 	}
 
 	&[disabled] {
@@ -52,15 +54,16 @@
 	&:extend(.pkp_button);
 	background-color: @primary-lift;
 	background-image: linear-gradient( lighten( @primary-lift, 10% ), @primary-lift );
-	font-weight: @bold;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.1), inset 0 1px 1px rgba(255,255,255,0.4);
 	color: #fff;
+	text-shadow: 0 2px 0 rgba(0,0,0,0.2);
 	border-color: @primary-lift;
 
 	&:hover,
 	&:focus {
 		text-decoration: none;
-		background-color: darken( @primary-lift, 5% );
-		background-image: linear-gradient( lighten( @primary-lift, 7% ), darken( @primary-lift, 5% ) );
+		background-color: @primary-lift-highlight;
+		background-image: linear-gradient( lighten( @primary-lift, 20% ), darken( @primary-lift, 5% ) );
 		color: #fff;
 	}
 
@@ -78,15 +81,16 @@
 	&:extend(.pkp_button);
 	background-color: @offset;
 	background-image: linear-gradient( lighten( @offset, 10% ), @offset );
-	font-weight: @bold;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.1), inset 0 1px 1px rgba(255,255,255,0.4);
 	color: #fff;
+	text-shadow: 0 2px 0 rgba(0,0,0,0.2);
 	border-color: @offset;
 
 	&:hover,
 	&:focus {
 		text-decoration: none;
 		background-color: darken( @offset, 5% );
-		background-image: linear-gradient( lighten( @offset, 7% ), darken( @offset, 5% ) );
+		background-image: linear-gradient( lighten( @offset, 20% ), darken( @offset, 5% ) );
 		color: #fff;
 	}
 

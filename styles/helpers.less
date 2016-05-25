@@ -209,13 +209,14 @@
 	padding: 4px 0;
 	font-size: @font-tiny;
 	line-height: @line-tiny;
+	font-weight: @bold;
 	text-decoration: none;
 
 	&:before {
 		&:extend(.fa);
 		content: @fa-var-info-circle;
 		color: @yes;
-		margin-right: 0.25em;
+		margin-right: 0.5em;
 	}
 
 	&:hover:before,
@@ -231,15 +232,14 @@
 	right: @double;
 	padding: @half 1em;
 	background: @lift;
-	border-top-left-radius: 0.5em;
-	border-top-right-radius: 0.5em;
+	border-top-left-radius: @radius;
+	border-top-right-radius: @radius;
 }
 
 .pkp_help_modal {
 	&:extend(.pkp_help_tab);
 	top: @double;
 	right: @double * 2;
-	border: none;
 }
 
 // @todo from here on down needs to be evaluated and removed if not useful

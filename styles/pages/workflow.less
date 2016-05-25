@@ -102,12 +102,26 @@
 	}
 }
 
-.pkp_workflow_decisions a {
-	&:extend(.pkp_button all);
+.pkp_workflow_decisions {
 
-	&.pkp_linkaction_decline {
-		&:extend(.pkp_button_offset all);
+	a {
+		&:extend(.pkp_button all);
+		width: 100%;
+
+		&.pkp_linkaction_decline {
+			&:extend(.pkp_button_offset all);
+		}
+
+		&.pkp_linkaction_externalReview,
+		&.pkp_linkaction_sendToProduction {
+			&:extend(.pkp_button_primary all);
+		}
+
 	}
+}
+
+[id^="reviewDecisionsDiv"] .pkp_linkaction_accept {
+	&:extend(.pkp_button_primary all);
 }
 
 .pkp_participants_grid {

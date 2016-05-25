@@ -18,7 +18,7 @@ body {
 	position: relative;
 	height: auto;
 	min-height: 100%;
-	background: @bg;
+	background: @lift;
 	font-family: @font;
 	font-size: @font-base;
 	line-height: @double;
@@ -49,19 +49,18 @@ img {
 }
 
 .pkp_page_title {
-	color: @text-light;
-	color: @text-light-rgba;
-	margin-bottom: @double;
+	background: @bg;
+	padding: @base @double;
 
 	h1 {
 		margin: 0;
-		font-size: @font-lead;
+		font-size: @font-base;
 	}
 }
 
 .pkp_structure_page {
 	margin-left: 192px;
-	padding: (@double * 2) @double @double;
+	padding: @double 0 96px;
 }
 
 // Panel wrapper when supporting context sidebar
@@ -133,8 +132,6 @@ img {
 // Page content wrapper for pages without tabs
 .pkp_page_content {
 	padding: @double;
-	background: @lift;
-	border: @bg-border;
 
 	h1,
 	h2,

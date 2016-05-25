@@ -67,17 +67,16 @@
 	.ui-tabs-nav {
 
 		// Stage currently initiated
-		.initiated a:before {
-			content: ' ';
-			position: absolute;
-			bottom: -@half;
-			left: 50%;
-			margin-left: -@half;
-			width: @base;
-			height: @base;
-			margin-right: 0.25em;
+		.initiated a:before,
+		.initiated:focus a:before,
+		.initiated a:hover:before,
+		.initiated a:focus:before {
+			width: 100%;
 			background: @offset;
-			border-radius: 50%;
+		}
+
+		.initiated:not(.ui-state-active) a:before {
+			top: @double + @base - 2;
 		}
 	}
 }

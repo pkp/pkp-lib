@@ -15,7 +15,7 @@
 	margin-bottom: @double * 2;
 	font-size: @font-sml;
 	box-shadow: 0 1px 1px rgba(0,0,0,0.2);
-	border-radius: 5px;
+	border-radius: @radius;
 
 	.header,
 	.footer {
@@ -27,8 +27,8 @@
 		position: relative;
 		background: @grid-border-color;
 		padding: 0 1em;
-		border-top-left-radius: 5px;
-		border-top-right-radius: 5px;
+		border-top-left-radius: @radius;
+		border-top-right-radius: @radius;
 
 		h4 {
 			display: inline-block;
@@ -395,8 +395,8 @@
 		height: @double + @base;
 		line-height: @double + @base;
 		background: @grid-border-color;
-		border-bottom-right-radius: 5px;
-		border-bottom-left-radius: 5px;
+		border-bottom-right-radius: @radius;
+		border-bottom-left-radius: @radius;
 
 		.item_count {
 			position: absolute;

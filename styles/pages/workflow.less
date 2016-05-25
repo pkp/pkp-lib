@@ -11,9 +11,9 @@
 
 // Title and author
 .pkp_page_header {
+	position: relative;
 
 	.pkp_submission_author {
-		display: inline-block;
 		margin-right: 1em;
 		max-width: 50%; // @todo We can work out a more responsive width system when we improve tablet/phone support
 		overflow: hidden;
@@ -25,40 +25,60 @@
 		// which follow it. It's complicated: http://stackoverflow.com/a/20566810/1723499
 		vertical-align: bottom;
 	}
+
+	// Adjust the title area for title + author
+	.pkp_page_title {
+		padding-top: @base + @half;
+		padding-bottom: @base + @half;
+	}
+
+	.pkp_submission_title,
+	.pkp_submission_author {
+		line-height: @line-base;
+	}
+
 }
 
 // Action links alongside author
+@pkp_submission_actions_height: @base + @double;
+.pkp_submission_workflow .pkp_page_title {
+	margin-top: @pkp_submission_actions_height;
+}
+
 .pkp_submission_actions {
-	display: inline-block;
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	font-size: @font-sml;
+	&:extend(.pkp_unstyled_list);
+	position: absolute;
+	top: -@pkp_submission_actions_height;
+	left: 0;
+	right: 0;
+	height: @pkp_submission_actions_height;
+	line-height: @pkp_submission_actions_height;
+	padding-left: @double;
+	padding-right: @double;
+	background: @primary-lift;
+	text-align: right;
 
 	li {
 		display: inline-block;
+	}
+
+	a {
+		display: block;
+		padding-left: 1em;
 		padding-right: 1em;
+		font-size: @font-sml;
+		font-weight: @bold;
+		color: #fff;
+		text-decoration: none;
+		text-shadow: 0 2px 0 rgba(0,0,0,0.2);
 
-		&:last-child {
-			padding-right: 0;
+		&:hover,
+		&:focus {
+			background: @bg;
+			color: @primary-lift;
+			text-shadow: 0 2px 0 rgba(255,255,255,0.4);
 		}
 	}
-
-	.participants {
-
-		a:before {
-			&:extend( .fa );
-			content: @fa-var-users;
-			margin-right: 0.25em;
-		}
-	}
-}
-
-// Participant panel
-.pkp_page_title {
-	// anchor the panel to the header. This could use a better element to
-	// attach to.
-	position: relative;
 }
 
 // Tabs
@@ -119,21 +139,6 @@
 	thead th {
 		border: none;
 		padding: 0;
-	}
-}
-
-// Large blocks of help text at the top of each stage
-.pkp_content_panel .pkp_help {
-	margin: @double 0;
-	padding: @half;
-	border: @bg-border;
-	font-size: @font-sml;
-	line-height: @line-sml;
-	color: @text-light;
-	color: @text-light-rgba;
-
-	&:first-child {
-		margin-top: 0;
 	}
 }
 

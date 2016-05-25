@@ -41,7 +41,7 @@ class FileNameGridColumn extends GridColumn {
 		$cellProvider = new ColumnBasedGridCellProvider();
 
 		parent::GridColumn('name', 'common.name', null, null, $cellProvider,
-			array('width' => 60, 'alignment' => COLUMN_ALIGNMENT_LEFT));
+			array('width' => 70, 'alignment' => COLUMN_ALIGNMENT_LEFT));
 	}
 
 

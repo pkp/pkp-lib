@@ -11,10 +11,10 @@
 	// Attach the form handler to the form.
 	$('#fileListFilterForm').pkpHandler('$.pkp.controllers.form.ToggleFormHandler');
 </script>
-<form class="pkp_form" id="fileListFilterForm" action="{url router=$smarty.const.ROUTE_COMPONENT op="fetchGrid"}" method="post">
-	{fbvFormArea id="allStagesFilterArea"}
+<form class="pkp_form filter" id="fileListFilterForm" action="{url router=$smarty.const.ROUTE_COMPONENT op="fetchGrid"}" method="post">
+	{fbvFormArea}
 		{fbvFormSection list="true"}
-			{fbvElement type="checkbox" id="allStages" checked=$filterSelectionData.allStages label="editor.submission.fileList.includeAllStages" size=$fbvStyles.size.LARGE}
+			{fbvElement type="checkbox" id="allStages" checked=$filterSelectionData.allStages label="editor.submission.fileList.includeAllStages"}
 		{/fbvFormSection}
 	{/fbvFormArea}
 </form>

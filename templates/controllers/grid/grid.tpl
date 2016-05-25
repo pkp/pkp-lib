@@ -32,7 +32,7 @@
 	{rdelim});
 </script>
 
-<div id="{$gridId|escape}" class="pkp_controllers_grid{if is_a($grid, 'CategoryGridHandler')} pkp_grid_category{/if}">
+<div id="{$gridId|escape}" class="pkp_controllers_grid{if is_a($grid, 'CategoryGridHandler')} pkp_grid_category{/if}{if !$grid->getTitle()} pkp_grid_no_title{/if}">
 	{include file="controllers/grid/gridHeader.tpl"}
 	<table id="{$gridTableId|escape}">
 		{include file="controllers/grid/columnGroup.tpl" columns=$columns}

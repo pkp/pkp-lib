@@ -108,10 +108,6 @@
 	&.pkp_linkaction_decline {
 		&:extend(.pkp_button_offset all);
 	}
-
-	&.pkp_linkaction_requestRevisions {
-		&:extend(.pkp_button_primary all);
-	}
 }
 
 .pkp_participants_grid {
@@ -119,16 +115,6 @@
 
 	.pkp_controllers_grid {
 		margin-bottom: 0;
-
-		.header {
-			padding-left: @half;
-			padding-right: @half;
-		}
-
-		.header h4,
-		.gridCellContainer {
-			font-size: @font-sml;
-		}
 	}
 
 	.gridRow:not(.category) td {
@@ -150,6 +136,11 @@
 
 // Style reviewer's grid
 [id^="reviewersGrid"] {
+
+	// Hide the table headers
+	thead {
+		&:extend(.pkp_screen_reader);
+	}
 
 	.first_column,
 	th:first-child {
@@ -175,6 +166,10 @@
 
 	.overdue {
 		color: @no;
+	}
+
+	td:last-child a {
+		&:extend(.pkp_button_link all);
 	}
 }
 

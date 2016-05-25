@@ -104,6 +104,38 @@
 	}
 }
 
+.pkp_button_link {
+	display: inline-block;
+	padding: 7px @base;
+	vertical-align: middle;
+	font-size: @font-tiny;
+	font-weight: @bold;
+	line-height: @line-tiny;
+	color: @primary-lift;
+	text-shadow: 0 2px 0 rgba(255,255,255,0.6);
+	cursor: pointer;
+	text-decoration: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-appearance: none;
+
+	&:hover,
+	&:focus {
+		color: @primary-lift-highlight;
+	}
+
+	&:active {
+		color: @primary;
+	}
+
+	&[disabled] {
+		opacity: 0.5;
+		cursor: default;
+	}
+}
+
 // Spinner
 .pkp_spinner {
 

@@ -52,24 +52,24 @@
 
 .pkp_button_primary {
 	&:extend(.pkp_button);
-	background-color: @primary-lift;
-	background-image: linear-gradient( lighten( @primary-lift, 10% ), @primary-lift );
+	background-color: @primary;
+	background-image: linear-gradient( lighten( @primary, 10% ), @primary );
 	box-shadow: 0 1px 2px rgba(0,0,0,0.1), inset 0 1px 1px rgba(255,255,255,0.4);
 	color: #fff;
 	text-shadow: 0 2px 0 rgba(0,0,0,0.2);
-	border-color: @primary-lift;
+	border-color: @primary;
 
 	&:hover,
 	&:focus {
 		text-decoration: none;
-		background-color: @primary-lift-highlight;
-		background-image: linear-gradient( lighten( @primary-lift, 20% ), darken( @primary-lift, 5% ) );
+		background-color: @primary-lift;
+		background-image: linear-gradient( lighten( @primary, 20% ), darken( @primary, 5% ) );
 		color: #fff;
 	}
 
 	&:active {
-		background-color: darken( @primary-lift, 10% );
-		background-image: linear-gradient( lighten( @primary-lift, 5% ), darken( @primary-lift, 15% ) );
+		background-color: darken( @primary, 10% );
+		background-image: linear-gradient( lighten( @primary, 5% ), darken( @primary, 15% ) );
 	}
 
 	&[disabled] {
@@ -111,7 +111,7 @@
 	font-size: @font-tiny;
 	font-weight: @bold;
 	line-height: @line-tiny;
-	color: @primary-lift;
+	color: @primary;
 	text-shadow: 0 2px 0 rgba(255,255,255,0.6);
 	cursor: pointer;
 	text-decoration: none;
@@ -123,11 +123,11 @@
 
 	&:hover,
 	&:focus {
-		color: @primary-lift-highlight;
+		color: @primary-lift;
 	}
 
 	&:active {
-		color: @primary;
+		color: @bg-anchor;
 	}
 
 	&[disabled] {

@@ -106,7 +106,8 @@
 		}
 
 		// Initialize editable toggles
-		$('.pkpEditableToggle', $form).click(this.callbackWrapper(this.toggleEditableControl));
+		$('.pkpEditableToggle', $form).click(this.callbackWrapper(
+			this.toggleEditableControl));
 
 		this.initializeTinyMCE();
 
@@ -393,7 +394,7 @@
 	 * </div>
 	 *
 	 * @param {HTMLElement} toggle The HTML element this event was fired on
-	 * @param {event} event The event which fired this function
+	 * @param {Event} event The event which fired this function
 	 */
 	$.pkp.controllers.form.FormHandler.prototype.toggleEditableControl =
 			function(toggle, event) {
@@ -406,7 +407,6 @@
 
 		control.toggleClass('isEditing');
 	};
-
 
 
 	//

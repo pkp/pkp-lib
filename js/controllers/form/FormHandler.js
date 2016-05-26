@@ -106,8 +106,8 @@
 		}
 
 		// Initialize editable toggles
-		$('.pkpEditableToggle', $form).click(this.callbackWrapper(
-			this.toggleEditableControl));
+		$('.pkpEditableToggle', $form)
+			.click(this.callbackWrapper(this.toggleEditableControl));
 
 		this.initializeTinyMCE();
 

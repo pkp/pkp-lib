@@ -20,7 +20,7 @@
 	left: 0;
 	padding-top: @double;
 	z-index: 3;
-	background: @primary;
+	background: @bg-anchor;
 
 	.pkp_navigation {
 		width: 100%;
@@ -64,7 +64,6 @@
 	margin: 0;
 	padding: 0;
 	list-style: none;
-	font-size: @font-sml;
 
 	li {
 		position: relative;
@@ -78,15 +77,18 @@
 		z-index: 1000;
 		width: 192px;
 		padding: 0;
-		background: @primary-lift;
+		background: @bg-anchor-lift;
 	}
 
 	a {
 		display: block;
-		padding: 12px @base 12px @half; // 48 height with line height
+		padding: 12px @base 12px 12px; // 48 height with line height
 		line-height: @line-base;
-		border-left: @half solid transparent;
-		color: #fff;
+		border-left: 4px solid transparent;
+		font-size: @font-sml;
+		font-weight: @bold;
+		color: rgba(255,255,255,0.8);
+		text-shadow: 0 2px 0 rgba(0,0,0,0.8);
 		text-decoration: none;
 
 		&:focus {
@@ -99,7 +101,7 @@
 
 		> a {
 			border-color: @bg;
-			background: @primary-lift;
+			background: @bg-anchor-lift;
 			color: #fff;
 
 			.fa {
@@ -114,12 +116,11 @@
 
 	ul a:hover,
 	ul a:focus {
-		background: @primary;
+		background: @bg-anchor;
 	}
 
 	.fa {
 		margin-right: 0.5em;
-		color: @primary-lift;
 	}
 }
 
@@ -133,6 +134,7 @@
 
 		a {
 			background: @offset;
+			text-shadow: 0 2px 0 rgb(0,0,0,0.2);
 
 			&:hover,
 			&:focus {
@@ -151,7 +153,7 @@
 	right: 0;
 	width: auto;
 	height: @double;
-	background: @primary;
+	background: @bg-anchor;
 	line-height: @double;
 
 	// Loading placeholder
@@ -186,7 +188,6 @@
 	max-width: 192px * 2;
 	width: auto;
 	height: @double;
-	background: @primary;
 
 	.pkp_current_context {
 		display: block;
@@ -210,7 +211,7 @@
 		left: -(192px * 2) - @double;
 		right: 0;
 		max-width: (192px * 2) + @double;
-		background: @primary-lift;
+		background: @bg-anchor-lift;
 
 		ul {
 			&:extend(.pkp_unstyled_list);
@@ -224,7 +225,7 @@
 
 			&:hover,
 			&:focus {
-				background: @primary;
+				background: @bg-anchor;
 			}
 		}
 	}
@@ -233,7 +234,7 @@
 	> li.in_focus {
 
 		> a {
-			background: @primary-lift;
+			background: @bg-anchor-lift;
 		}
 
 		.pkp_contexts {
@@ -284,10 +285,20 @@
 		height: 22px;
 		line-height: 22px;
 		border-radius: 50%;
-		background: #fff;
-		color: @primary;
+		background: rgba(255,255,255,0.8);
+		color: rgba(0,0,0,0.8);
+		text-shadow: none;
 		vertical-align: middle;
 		text-align: center;
+	}
+
+	&:hover,
+	&:focus {
+
+		.task_count {
+			background: #fff;
+			color: #000;
+		}
 	}
 
 	.pkp_spinner,
@@ -303,18 +314,20 @@
 		width: 384px - @double;
 		padding: @base;
 		background: @lift;
+		text-shadow: none;
 		box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
 
 		a {
 			padding: 0;
 			border: none;
 			background: transparent;
-			color: @primary-lift;
+			color: @primary;
+			text-shadow: none;
 
 			&:hover,
 			&:focus {
 				background: transparent;
-				color: @primary;
+				color: @primary-lift;
 			}
 		}
 	}

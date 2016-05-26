@@ -540,19 +540,8 @@
 
 		// Add space before wizard buttons.
 		var $wizardButtons =
-				$('<div id="wizardButtons" class="modal-buttons"></div>'),
+				$('<div id="wizardButtons" class="modal_buttons"></div>'),
 				$cancelButton, $continueButton, $progressIndicator;
-
-		if (options.cancelButtonText) {
-			// Add cancel button.
-			$cancelButton = $('<a id="cancelButton" href="#"></a>')
-				.text(options.cancelButtonText);
-			$wizardButtons.append($cancelButton);
-
-			// Attach the cancel request handler.
-			$cancelButton.bind('click',
-					this.callbackWrapper(this.cancelRequest));
-		}
 
 		if (options.continueButtonText) {
 			// Add continue/finish button.
@@ -579,6 +568,17 @@
 			} else {
 				this.finishButtonText_ = options.continueButtonText;
 			}
+		}
+
+		if (options.cancelButtonText) {
+			// Add cancel button.
+			$cancelButton = $('<a id="cancelButton" class="cancel" href="#"></a>')
+				.text(options.cancelButtonText);
+			$wizardButtons.append($cancelButton);
+
+			// Attach the cancel request handler.
+			$cancelButton.bind('click',
+					this.callbackWrapper(this.cancelRequest));
 		}
 
 		// Insert wizard buttons.

@@ -16,7 +16,23 @@
  * 	FBV_submitDisabled bool disables the submit button.
  *}
 
-{fbvFormSection class="formButtons"}
+{fbvFormSection class="formButtons form_buttons"}
+
+	{* Submit button *}
+	{assign var=submitButtonId value="submitFormButton"|concat:"-"|uniqid}
+
+	{* IF we have confirmation dialog text specified, load buttonConfirmationLinkAction for the submit button *}
+	{if $FBV_confirmSubmit}
+		{include file="core:linkAction/buttonConfirmationLinkAction.tpl"
+				buttonSelector="#"|concat:$submitButtonId
+				dialogText="$FBV_confirmSubmit"}
+	{/if}
+
+	{fbvElement type="submit" class="submitFormButton" id=$submitButtonId label=$FBV_submitText translate=$FBV_translate disabled=$FBV_submitDisabled}
+
+	{* Loading indicator *}
+	<span class="pkp_spinner"></span>
+
 	{* Cancel button (if any) *}
 	{if !$FBV_hideCancel}
 		{assign var=cancelButtonId value="cancelFormButton"|concat:"-"|uniqid}
@@ -32,16 +48,4 @@
 		{/if}
 		<a href="#" id="{$cancelButtonId}" class="cancelButton">{translate key=$FBV_cancelText}</a>
 	{/if}
-
-	{* Submit button *}
-	{assign var=submitButtonId value="submitFormButton"|concat:"-"|uniqid}
-
-	{* IF we have confirmation dialog text specified, load buttonConfirmationLinkAction for the submit button *}
-	{if $FBV_confirmSubmit}
-		{include file="core:linkAction/buttonConfirmationLinkAction.tpl"
-				 buttonSelector="#"|concat:$submitButtonId
-				 dialogText="$FBV_confirmSubmit"}
-	{/if}
-	{fbvElement type="submit" class="submitFormButton" id=$submitButtonId label=$FBV_submitText translate=$FBV_translate disabled=$FBV_submitDisabled}
-	<span class="pkp_spinner"></span>
 {/fbvFormSection}

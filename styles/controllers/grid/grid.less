@@ -13,6 +13,9 @@
 .pkp_controllers_grid {
 	position: relative;
 	margin-bottom: @double * 2;
+	font-size: @font-sml;
+	box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+	border-radius: @radius;
 
 	.header,
 	.footer {
@@ -22,17 +25,23 @@
 	// Header
 	.header {
 		position: relative;
+		background: @grid-border-color;
+		padding: 0 1em;
+		border-top-left-radius: @radius;
+		border-top-right-radius: @radius;
 
 		h4 {
 			display: inline-block;
 			font-size: @font-base;
 			margin: 0;
+			padding-top: @half;
+			padding-bottom: @half;
 		}
 	}
 
 	// Footer
 	.footer {
-		background: @bg;
+		background: @grid-border-color;
 		padding-left: 1em;
 		padding-right: 1em;
 	}
@@ -43,57 +52,51 @@
 		float: right;
 		margin: 0;
 		padding: 0;
+		padding-top: 6px;
 		list-style: none;
 
 		li {
 			display: inline-block;
-			margin-right: 1em;
-
-			&:last-child {
-				margin-right: 0;
-			}
 		}
 
 		a {
 			position: relative;
 			top: 1px; // alignment to account for filter toggle offset
 			display: inline-block;
+			border-top: 2px solid transparent;
+			padding: 0 1em @half;
 			line-height: @double;
-			font-size: @font-sml;
+			font-weight: @bold;
 			text-decoration: none;
+			background: transparent;
+			transition: all 0.3s ease;
 		}
 	}
 
 	// Search filter
 	.pkp_linkaction_search {
 		padding: 0 1px; // 1px prevents aliased icon from getting clipped at the edge
-		background: transparent;
-		transition: all 0.3s ease;
 
 		&:before {
 			&:extend( .fa );
+			content: @fa-var-search;
 			margin-right: 0.5em;
 		}
-	}
 
-	.pkp_linkaction_search:before {
-		content: @fa-var-search;
-	}
+		&.is_open {
+			background: @lift;
+			border-color: @primary;
 
-	.pkp_linkaction_search.is_open {
-		padding: 0 @base;
-		background: @bg-light;
-		border: @bg-border-light;
-		border-bottom: none;
+			&:before {
+				content: @fa-var-caret-up;
+			}
+		}
 	}
 
 	// Search filter
 	.filter {
 		padding: @base;
 		font-size: @font-sml;
-		background: @bg-light;
-		border: @bg-border-light;
-		border-bottom: none;
 
 		label {
 			font-size: @font-sml;
@@ -131,14 +134,12 @@
 
 	tr {
 		position: static;
-		border: @bg-border-light;
-		border-top: none;
 
 	}
 
 	// Content rows only
 	.gridRow {
-		border-top: @bg-border-light;
+		border-top: @grid-border;
 	}
 
 	th,
@@ -151,15 +152,19 @@
 	thead {
 		font-size: @font-tiny;
 		line-height: 16px;
-		color: @text-light;
 		color: @text-light-rgba;
-		border: @bg-border-light;
+		background: @grid-border-color;
 
 		th {
 			padding-top: @half;
 			padding-bottom: @half;
 			font-weight: @normal;
-			border-left: @bg-border-light;
+		}
+
+		// Go ahead and remove header columns when there's only one column
+		// per header
+		th:first-child:last-child {
+			&:extend(.pkp_screen_reader all);
 		}
 	}
 
@@ -222,8 +227,12 @@
 
 	.ordering {
 
+		&.gridRow {
+			border-top: 1px dashed #ddd;
+		}
+
 		&:hover {
-			background: @bg;
+			background: @grid-border-color;
 		}
 
 		.show_extras,
@@ -238,16 +247,15 @@
 	}
 
 	.order_finish_controls {
-		margin-top: @base;
-		text-align: right;
+		padding: @base;
+		background: @grid-border-color;
 
 		.saveButton {
 			&:extend(.pkp_button all);
 		}
 
 		.cancelFormButton {
-			margin-left: 1em;
-			color: @no;
+			&:extend(.pkp_button_link_offset all);
 		}
 	}
 
@@ -264,13 +272,14 @@
 	// Labels within a grid cell which appear before a link action in the cell
 	// @todo This is designed for file IDs. If used elsewhere, we'll need to check
 	//  how this styling impacts on other uses
+	[id^="component-grid-submissions"] .first_column .label,
 	.gridCellContainer .label.before_actions {
 		display: inline-block;
 		margin-right: 0.5em;
 		padding: 0 0.5em;
-		background: @bg;
-		border-radius: 0.25em;
-		font-size: 12px; // extra small
+		border: @bg-border-light;
+		border-radius: @radius;
+		font-size: @font-tiny; // extra small
 	}
 
 	// Infinite scroll
@@ -299,7 +308,6 @@
 	// Secondary row of actions
 	.row_controls {
 		display: none;
-		background: @bg-light;
 
 		td {
 			line-height: @line-base;
@@ -310,13 +318,11 @@
 		a {
 			display: inline-block;
 			margin-right: 1em;
-			font-size: @font-sml;
+			padding-left: 0.5em;
+			padding-right: 0.5em;
+			font-size: @font-tiny;
+			font-weight: @bold;
 			text-decoration: none;
-
-			&:hover,
-			&:focus {
-				text-decoration: underline;
-			}
 		}
 	}
 
@@ -358,12 +364,9 @@
 	// Pagination
 	.gridPaging {
 		.pkp_helpers_clear;
-		padding-top: @half;
-		padding-bottom: @half;
-		font-size: @font-sml;
-		color: @text-light;
+		padding: @half @base;
 		color: @text-light-rgba;
-		border-top: 1px solid @bg;
+		border-top: @grid-border;
 
 		.gridItemsPerPage {
 			float: left;
@@ -380,12 +383,7 @@
 			float: right;
 
 			a {
-				display: inline-block;
-				padding: 0 0.5em;
-				background: @bg;
-				border-radius: 0.25em;
-				line-height: @double;
-				text-decoration: none;
+				&:extend(.pkp_button all);
 			}
 		}
 	}
@@ -393,29 +391,30 @@
 	// Items shown for infinite scrolling
 	.gridPagingScrolling {
 		position: relative;
-		border-top: @bg-border-light;
-		font-size: @font-sml;
-		color: @text-light;
 		color: @text-light-rgba;
 		text-align: center;
-		height: @double;
-		line-height: @double;
+		height: @double + @base;
+		line-height: @double + @base;
+		background: @grid-border-color;
+		border-bottom-right-radius: @radius;
+		border-bottom-left-radius: @radius;
 
 		.item_count {
 			position: absolute;
-			right: 0;
+			right: @base;
 		}
 
 		.pkp_linkaction_icon_more_items {
-			font-weight: @bold;
-			text-decoration: none;
+			&:extend(.pkp_button_link all);
 
 			&:before {
 				&:extend(.pkp_caret);
 				&:extend(.pkp_caret_down);
-				position: relative;
-				top: 1px;
-				margin-right: 0.5em;
+				position: absolute;
+				bottom: 6px;
+				left: 50%;
+				margin-left: -2px;
+				border-top-width: 4px;
 			}
 		}
 
@@ -424,8 +423,8 @@
 			position: absolute;
 			top: 0;
 			width: 100%;
-			line-height: @double;
-			background: @lift;
+			background: @grid-border-color;
+			line-height: @double + @base;
 			opacity: 0;
 			transition: 0.3s opacity, 0.3s visibility;
 		}
@@ -448,10 +447,11 @@
 
 	.gridRow.category,
 	.category_controls {
-		background: @bg;
-		font-size: @font-sml;
-		color: @text-light;
-		color: @text-light-rgba;
+		background: @grid-border-color;
+
+		.label {
+			font-weight: @bold;
+		}
 	}
 }
 
@@ -469,6 +469,42 @@
 		}
 	}
 }
+
+// File grids
+[id^="component-grid-files"] {
+
+	// Headers aren't needed in file grids
+	thead {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+
+	.pkp_linkaction_downloadFile {
+		text-decoration: none;
+	}
+
+	[id^="component-grid-files"] td:not(.first_column),
+	[id^="component-grid-files"] th:not(.first_column) {
+		color: @text-light-rgba;
+		width: 50px;
+	}
+}
+
+// Grids without titles
+.pkp_grid_no_title {
+	box-shadow: none;
+	border-bottom: @grid-border;
+
+	.header {
+		background: transparent;
+	}
+
+	thead {
+		background: transparent;
+	}
+}
+
 
 // TODO check if these styles can be removed
 .pkp_controllers_grid {

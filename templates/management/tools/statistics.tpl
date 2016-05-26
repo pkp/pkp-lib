@@ -10,13 +10,13 @@
  *}
 {include file="common/header.tpl" pageTitle="manager.statistics"}
 
-{help file="tools.md" section="statistics"}
+<div class="pkp_page_content pkp_page_statistics">
+	{help file="tools.md" section="statistics"}
 
-{if $showMetricTypeSelector || $appSettings}
-	{include file="management/tools/form/statisticsSettingsForm.tpl"}
-{/if}
+	{if $showMetricTypeSelector || $appSettings}
+		{include file="management/tools/form/statisticsSettingsForm.tpl"}
+	{/if}
 
-<div id="reports">
 	<h3>{translate key="manager.statistics.reports"}</h3>
 	<p>{translate key="manager.statistics.reports.description"}</p>
 
@@ -26,6 +26,6 @@
 	{/foreach}
 	</ul>
 
-	<p><a href="{url op="tools" path="reportGenerator"}">{translate key="manager.statistics.reports.generateReport"}</a></p>
+	<p><a class="pkp_button" href="{url op="tools" path="reportGenerator"}">{translate key="manager.statistics.reports.generateReport"}</a></p>
 </div>
 {include file="common/footer.tpl"}

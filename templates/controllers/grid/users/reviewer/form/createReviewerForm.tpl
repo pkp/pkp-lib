@@ -68,7 +68,8 @@
 
 	{include file="controllers/grid/users/reviewer/form/reviewerFormFooter.tpl"}
 
+	<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
+
 	{fbvFormButtons submitText="editor.submission.addReviewer"}
 
-	<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 </form>

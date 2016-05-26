@@ -13,9 +13,8 @@
 .pkp_controllers_listbuilder {
 
 	thead,
-	tr.gridRow,
 	tr.empty {
-		border-bottom: 1px solid @bg;
+		border-bottom: @grid-border-color;
 	}
 
 	.wrapper {
@@ -33,10 +32,9 @@
 	}
 
 	.list_header {
+		margin-right: -@base;
 		padding: 0 1em;
-		background: @bg;
-		font-size: @font-sml;
-		color: @text-light;
+		background: @grid-border-color;
 		color: @text-light-rgba;
 	}
 

@@ -11,47 +11,63 @@
  */
 
 .ui-tabs-nav {
-	margin: 0;
-	margin-right: 128px; // space for help link
-	padding: 0;
-	list-style: none;
+	&:extend(.pkp_unstyled_list);
+	padding: 0 96px 0 @double; // 96 = space for help tab
+	background: @bg;
+	font-size: @font-sml;
 
 	li {
-		z-index: 1; // Lift above .ui-tabs-panel
 		position: relative;
-		top: 1px;
 		display: inline-block;
-		border: 1px solid transparent;
-		border-bottom: none;
 
 		a {
 			display: block;
 			padding: 0 @base;
-			border-bottom: 2px solid transparent;
-			line-height: @double + @base - 3; // account for border
+			line-height: @double + @base;
+			font-weight: @bold;
 			text-decoration: none;
+
+			&:before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 25%;
+				height: 2px;
+				background: transparent;
+				transition: all 0.2s;
+			}
 		}
 
-		&:focus {
-			outline: 0;
-		}
-
+		&:focus,
 		&:focus a,
 		a:hover,
 		a:focus {
-			border-color: @primary-lift;
 			outline: 0;
+		}
+
+		&:focus a:before,
+		a:hover:before,
+		a:focus:before {
+			background: @primary-lift;
+			width: 100%;
 		}
 	}
 
 	.ui-state-active {
 		background: @lift;
-		border-color: @bg-border-color;
 
 		a {
-			color: @text;
-			color: @text-rgba;
+			color: @text-light-rgba;
 			cursor: default;
+
+			&:before {
+				width: 100%;
+				background: @primary;
+				border-top-left-radius: @radius;
+				border-top-right-radius: @radius;
+			}
 		}
 	}
 
@@ -95,8 +111,6 @@
 	position: relative;
 	padding: @double;
 	background: @lift;
-	border: @bg-border;
-	border-radius: 0;
 }
 
 /**
@@ -109,39 +123,43 @@
 .ui-tabs-panel {
 
 	.ui-tabs-nav {
+		margin-left: -@double;
+		margin-right: -@double;
 		margin-bottom: @double;
-		border-bottom: 1px solid @bg-border-color;
+		padding-left: @double;
+		border-bottom: @bg-border;
 		font-size: @font-sml;
 		line-height: @pkp_nested_tab_line_height;
+		background: transparent;
 
 		li {
-			top: 0;
-			border: none;
+			top: 1px;
+			border: 1px solid transparent;
+			border-top: none;
 
 			a {
 				padding: 0 @base;
-				border: none;
 				line-height: @pkp_nested_tab_line_height;
+				background: @lift;
+
+				&:before {
+					top: -2px;
+				}
 			}
 		}
 
 		.ui-state-active {
-			background: transparent;
+			border-color: @bg-border-color;
+			border-bottom-color: transparent;
+			border-top: none;
 
 			a {
-				color: @text-light;
-				color: @text-light-rgba;
-				font-weight: @bold;
 
-				// Arrow
-				&:after {
-					content: ' ';
-					position: absolute;
-					left: 50%;
-					bottom: 0;
-					margin-left: -2px;
-					border: 4px solid transparent;
-					border-bottom: 4px solid @bg-border-color;
+				&:before {
+					left: -1px;
+					right: -1px;
+					transform: none;
+					width: auto;
 				}
 			}
 		}

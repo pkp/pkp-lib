@@ -12,19 +12,20 @@
 // Buttons
 .pkp_button {
 	display: inline-block;
-	padding: 4px @base;
-	font-size: @font-sml;
-	line-height: @line-base;
-	color: @text;
-	color: @text-rgba;
+	padding: 7px @base;
 	vertical-align: middle;
-	cursor: pointer;
 	background-color: #eee;
-	background-image: linear-gradient(#fff, #ddd);
-	border: @bg-border;
+	background-image: linear-gradient(#eee, #ddd);
+	border: 1px solid #ccc;
 	border-radius: @radius;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.1), inset 0 1px 1px rgba(255,255,255,0.6);
+	font-size: @font-tiny;
+	font-weight: @bold;
+	line-height: @line-tiny;
+	color: @text-rgba;
+	text-shadow: 0 2px 0 rgba(255,255,255,0.6);
+	cursor: pointer;
 	text-decoration: none;
-	text-align: center;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
@@ -33,13 +34,14 @@
 
 	&:hover,
 	&:focus {
-		background-color: #ccc;
-		background-image: linear-gradient(#fff, #ccc);
+		background-color: #fff;
+		background-image: linear-gradient(#fff, #ddd);
+		color: #000;
 	}
 
 	&:active {
-		background-color: #bbb;
-		background-image: linear-gradient(#eee, #bbb);
+		background-color: #ddd;
+		background-image: linear-gradient(#eee, #ccc);
 	}
 
 	&[disabled] {
@@ -50,23 +52,24 @@
 
 .pkp_button_primary {
 	&:extend(.pkp_button);
-	background-color: @primary-lift;
-	background-image: linear-gradient( lighten( @primary-lift, 10% ), @primary-lift );
-	font-weight: @bold;
+	background-color: @primary;
+	background-image: linear-gradient( lighten( @primary, 10% ), @primary );
+	box-shadow: 0 1px 2px rgba(0,0,0,0.1), inset 0 1px 1px rgba(255,255,255,0.4);
 	color: #fff;
-	border-color: @primary-lift;
+	text-shadow: 0 2px 0 rgba(0,0,0,0.2);
+	border-color: @primary;
 
 	&:hover,
 	&:focus {
 		text-decoration: none;
-		background-color: darken( @primary-lift, 5% );
-		background-image: linear-gradient( lighten( @primary-lift, 7% ), darken( @primary-lift, 5% ) );
+		background-color: @primary-lift;
+		background-image: linear-gradient( lighten( @primary, 20% ), darken( @primary, 5% ) );
 		color: #fff;
 	}
 
 	&:active {
-		background-color: darken( @primary-lift, 10% );
-		background-image: linear-gradient( lighten( @primary-lift, 5% ), darken( @primary-lift, 15% ) );
+		background-color: darken( @primary, 10% );
+		background-image: linear-gradient( lighten( @primary, 5% ), darken( @primary, 15% ) );
 	}
 
 	&[disabled] {
@@ -78,15 +81,16 @@
 	&:extend(.pkp_button);
 	background-color: @offset;
 	background-image: linear-gradient( lighten( @offset, 10% ), @offset );
-	font-weight: @bold;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.1), inset 0 1px 1px rgba(255,255,255,0.4);
 	color: #fff;
+	text-shadow: 0 2px 0 rgba(0,0,0,0.2);
 	border-color: @offset;
 
 	&:hover,
 	&:focus {
 		text-decoration: none;
 		background-color: darken( @offset, 5% );
-		background-image: linear-gradient( lighten( @offset, 7% ), darken( @offset, 5% ) );
+		background-image: linear-gradient( lighten( @offset, 20% ), darken( @offset, 5% ) );
 		color: #fff;
 	}
 
@@ -97,6 +101,52 @@
 
 	&[disabled] {
 		&:extend(.pkp_button[disabled]);
+	}
+}
+
+.pkp_button_link {
+	display: inline-block;
+	padding: 7px @base;
+	vertical-align: middle;
+	font-size: @font-tiny;
+	font-weight: @bold;
+	line-height: @line-tiny;
+	color: @primary;
+	text-shadow: 0 2px 0 rgba(255,255,255,0.6);
+	cursor: pointer;
+	text-decoration: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-appearance: none;
+
+	&:hover,
+	&:focus {
+		color: @primary-lift;
+	}
+
+	&:active {
+		color: @primary-shade;
+	}
+
+	&[disabled] {
+		opacity: 0.5;
+		cursor: default;
+	}
+}
+
+.pkp_button_link_offset {
+	&:extend(.pkp_button_link all);
+	color: @offset;
+
+	&:hover,
+	&:focus {
+		color: @offset-lift;
+	}
+
+	&:active {
+		color: @offset-shade;
 	}
 }
 
@@ -205,13 +255,14 @@
 	padding: 4px 0;
 	font-size: @font-tiny;
 	line-height: @line-tiny;
+	font-weight: @bold;
 	text-decoration: none;
 
 	&:before {
 		&:extend(.fa);
 		content: @fa-var-info-circle;
 		color: @yes;
-		margin-right: 0.25em;
+		margin-right: 0.5em;
 	}
 
 	&:hover:before,
@@ -223,21 +274,18 @@
 // A small help link that attaches to a tab
 .pkp_help_tab {
 	position: absolute;
-	top: -@double - 1;
+	top: -@double;
 	right: @double;
 	padding: @half 1em;
 	background: @lift;
-	border: @bg-border;
-	border-bottom-width: 0;
-	border-top-left-radius: 0.5em;
-	border-top-right-radius: 0.5em;
+	border-top-left-radius: @radius;
+	border-top-right-radius: @radius;
 }
 
 .pkp_help_modal {
 	&:extend(.pkp_help_tab);
 	top: @double;
 	right: @double * 2;
-	border: none;
 }
 
 // @todo from here on down needs to be evaluated and removed if not useful

@@ -12,18 +12,23 @@
 //
 
 // Background
-@bg:			#ddd;
-@bg-light:		#eee;
-@shade:			#888;
-@lift:			#fff;
+@bg:			 #ddd;
+@bg-dark:		 #bbb;
+@bg-light:		 #eee;
+@shade:			 #888;
+@lift:			 #fff;
+@bg-anchor:      #002C40; // Dark color background
+@bg-anchor-lift: lighten(@bg-anchor, 10%);
 
-// Primary "anchor" color for backgrounds and links
-@primary:		#113241;
-@primary-lift:		#007ab2;
+// Primary color for links and buttons
+@primary:        #007ab2;
+@primary-lift:   lighten(@primary, 10%);
+@primary-shade:  darken(@primary, 10%);
 
 // Offset "highlight" color
-@offset:		#D00A6C;
-@offset-shade:		#B50E61;
+@offset:         #D00A6C;
+@offset-lift:    lighten(@offset, 20%);
+@offset-shade:   #B50E61;
 
 // Yes/no, success/error, on/off, go/stop, etc
 @yes:			#00B24E;
@@ -41,8 +46,9 @@
 @text-light-rgba:	rgba(0, 0, 0, 0.54);
 
 // Border colors
-@bg-border-color:		#bbb;
-@bg-border-color-light:	#ddd;
+@bg-border-color:       #bbb;
+@bg-border-color-light: #ddd;
+@grid-border-color:     #eee;
 
 //
 // Spacing
@@ -79,6 +85,7 @@
 //
 // Borders
 //
-@bg-border:			1px solid @bg-border-color;
-@bg-border-light:	1px solid @bg-border-color-light;
-@radius:			5px;
+@bg-border:       1px solid @bg-border-color;
+@bg-border-light: 1px solid @bg-border-color-light;
+@grid-border:     1px solid @grid-border-color;
+@radius:          2px;

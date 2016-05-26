@@ -128,7 +128,7 @@
 		}
 
 		.cancel {
-			margin-left: 1em;
+			&:extend(.pkp_button_link_offset all);
 		}
 	}
 }
@@ -149,20 +149,7 @@
 	border: none;
 }
 
-// Form buttons
-// @todo this only handles the modal buttons in a wizard for now because the
-//  markup on the forms inside tabs doesn't allow us to "reach out" with the
-//  negative margin trick.
-.modal-buttons {
-	.pkp_helpers_clear;
-	margin: 0 -@base -@base; // pull to edge of modal
-	padding: @base;
-	background: @bg;
-	border-bottom-left-radius: @radius;
-	border-bottom-right-radius: @radius;
-	text-align: right;
-
-	#cancelButton {
-		float: left;
-	}
+.modal_buttons {
+	&:extend(.pkp_form .form_buttons all);
+	&:extend(.pkp_modal .pkp_form .form_buttons all);
 }

@@ -127,12 +127,26 @@
 	}
 
 	&:active {
-		color: @bg-anchor;
+		color: @primary-shade;
 	}
 
 	&[disabled] {
 		opacity: 0.5;
 		cursor: default;
+	}
+}
+
+.pkp_button_link_offset {
+	&:extend(.pkp_button_link all);
+	color: @offset;
+
+	&:hover,
+	&:focus {
+		color: @offset-lift;
+	}
+
+	&:active {
+		color: @offset-shade;
 	}
 }
 

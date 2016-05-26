@@ -47,7 +47,7 @@
 		{fbvFormSection title="stageParticipants.notify.message" for="message"}
 			{fbvElement type="textarea" id="message" rich=true}
 		{/fbvFormSection}
+		<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 		{fbvFormButtons}
 	{/fbvFormArea}
 </form>
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>

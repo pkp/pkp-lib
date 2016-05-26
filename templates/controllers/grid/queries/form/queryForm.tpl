@@ -45,7 +45,8 @@
 		{load_url_in_div id="queryNoteFilesGrid" url=$queryNoteFilesGridUrl}
 	{/fbvFormArea}
 
+	<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
+
 	{fbvFormButtons id="addQueryButton"}
 
-	<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 </form>

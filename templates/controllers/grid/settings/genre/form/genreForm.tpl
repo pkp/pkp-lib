@@ -44,6 +44,6 @@
 {if $genreId}
 	<input type="hidden" name="genreId" value="{$genreId|escape}" />
 {/if}
+<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 {fbvFormButtons submitText="common.save"}
 </form>
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>

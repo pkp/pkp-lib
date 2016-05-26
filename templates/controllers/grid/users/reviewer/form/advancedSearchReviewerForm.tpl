@@ -15,7 +15,7 @@
 	{rdelim});
 </script>
 
-<div id="advancedReviewerSearch" class="pkp_form_advancedReviewerSearch">
+<div id="advancedReviewerSearch" class="pkp_form pkp_form_advancedReviewerSearch">
 
 	<div id="searchGridAndButton">
 		{** The grid that will display reviewers.  We have a JS handler for handling selections of this grid which will update a hidden element in the form below **}
@@ -23,14 +23,14 @@
 		{load_url_in_div id='reviewerSelectGridContainer' url=$reviewerSelectGridUrl}
 
 		{** This button will get the reviewer selected in the grid and insert their ID into the form below **}
-		{fbvFormSection class="buttons"}
+		{fbvFormSection class="form_buttons"}
+			{fbvElement type="button" id="selectReviewerButton" label="editor.submission.selectReviewer"}
 			{foreach from=$reviewerActions item=action}
 				{if $action->getId() == 'advancedSearch'}
 					{php}continue;{/php}
 				{/if}
 				{include file="linkAction/linkAction.tpl" action=$action contextId="createReviewerForm"}
 			{/foreach}
-			{fbvElement type="button" id="selectReviewerButton" label="editor.submission.selectReviewer"}
 		{/fbvFormSection}
 	</div>
 

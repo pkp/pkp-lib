@@ -18,6 +18,8 @@
  * FBV styles
  */
 .pkp_form {
+	font-size: @font-sml;
+	line-height: @line-sml;
 
 	fieldset {
 		margin: 0 0 @double 0;
@@ -41,7 +43,13 @@
 	}
 
 	// error
-	.error {
+	label.error {
+		margin-top: 4px;
+		margin-bottom: 4px;
+		padding-left: 0.5em;
+		border-left: @half solid @no;
+		font-size: @font-sml;
+		line-height: @line-sml;
 		color: @no;
 	}
 
@@ -124,6 +132,7 @@
 		}
 
 		li label {
+			font-size: @font-sml;
 			font-weight: @normal;
 		}
 	}
@@ -242,6 +251,30 @@
 	.is_wizard_mode {
 		display: none;
 	}
+}
+
+// Row of buttons
+.form_buttons {
+
+	a {
+		&:extend(.pkp_button_link all);
+
+		&.cancelButton {
+			&:extend(.pkp_button_link_offset all);
+		}
+	}
+}
+
+// Required fields notice
+.formRequired {
+	display: inline-block;
+	margin-top: @double;
+	padding: 12px 1em;
+	background: @bg-light;
+	border-left: 2px solid @primary;
+	font-size: @font-sml;
+	font-style: italic;
+	line-height: @line-sml;
 }
 
 // Form file view
@@ -476,6 +509,15 @@
 	position: fixed;
 }
 
+// Forms in modals
+.pkp_modal .pkp_form {
+
+	.form_buttons {
+		&:extend(.pkp_modal_panel > .footer all);
+		margin: @base -@base -@base;
+	}
+}
+
 .pkp_form {
 
 	// @todo all below
@@ -536,19 +578,5 @@
 
 	.pkp_form_hidden {
 		display:none !important;
-	}
-
-	.formButtons {
-
-		.submitFormButton {
-			float: right;
-		}
-		.cancelFormButton {
-			float: left
-		}
-
-		> a {
-			display: inline-block;
-		}
 	}
 }

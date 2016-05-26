@@ -20,6 +20,7 @@
 				'$.pkp.controllers.MenuHandler');
 	{rdelim});
 </script>
+
 <ul id="navigationContextMenu" class="pkp_nav_context pkp_nav_list" role="navigation" aria-label="{translate|escape key="common.navigation.siteContext"}">
 
 	<li {if $multipleContexts}class="has_submenu submenu_opens_below"{/if}>
@@ -63,8 +64,27 @@
 	{rdelim});
 </script>
 <ul id="navigationUser" class="pkp_nav_user pkp_nav_list" role="navigation" aria-label="{translate|escape key="common.navigation.user"}">
+	{if $supportedLocales|@count}
+		<li class="has_submenu languages">
+			<a href="#">
+				<span class="fa fa-globe"></span>
+				{$supportedLocales.$currentLocale}
+			</a>
+			<ul>
+				{foreach from=$supportedLocales item=localeName key=localeKey}
+					{if $localeKey != $currentLocale}
+						<li>
+							<a href="{url router=$smarty.const.ROUTE_PAGE page="user" op="setLocale" path=$localeKey source=$smarty.server.REQUEST_URI}">
+								{$localeName}
+							</a>
+						</li>
+					{/if}
+				{/foreach}
+			</ul>
+		</li>
+	{/if}
 	{if $homeUrl}
-		<li>
+		<li class="view_frontend">
 			<a href="{$homeUrl}">
 				<span class="fa fa-eye"></span>
 				{translate key="navigation.viewFrontend"}
@@ -72,7 +92,7 @@
 		</li>
 	{/if}
 	{if $isUserLoggedIn}
-		<li class="has_submenu">
+		<li class="has_submenu user">
 			<a href="{url router=$smarty.const.ROUTE_PAGE page="user" op="profile"}">
 				<span class="fa fa-user"></span>
 				{$loggedInUsername|escape}

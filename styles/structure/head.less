@@ -64,7 +64,6 @@
 	margin: 0;
 	padding: 0;
 	list-style: none;
-	font-size: @font-sml;
 
 	li {
 		position: relative;
@@ -83,10 +82,13 @@
 
 	a {
 		display: block;
-		padding: 12px @base 12px @half; // 48 height with line height
+		padding: 12px @base 12px 12px; // 48 height with line height
 		line-height: @line-base;
-		border-left: @half solid transparent;
-		color: #fff;
+		border-left: 4px solid transparent;
+		font-size: @font-sml;
+		font-weight: @bold;
+		color: rgba(255,255,255,0.8);
+		text-shadow: 0 2px 0 rgba(0,0,0,0.8);
 		text-decoration: none;
 
 		&:focus {
@@ -132,6 +134,7 @@
 
 		a {
 			background: @offset;
+			text-shadow: 0 2px 0 rgb(0,0,0,0.2);
 
 			&:hover,
 			&:focus {
@@ -282,10 +285,20 @@
 		height: 22px;
 		line-height: 22px;
 		border-radius: 50%;
-		background: #fff;
-		color: @bg-anchor;
+		background: rgba(255,255,255,0.8);
+		color: rgba(0,0,0,0.8);
+		text-shadow: none;
 		vertical-align: middle;
 		text-align: center;
+	}
+
+	&:hover,
+	&:focus {
+
+		.task_count {
+			background: #fff;
+			color: #000;
+		}
 	}
 
 	.pkp_spinner,
@@ -301,6 +314,7 @@
 		width: 384px - @double;
 		padding: @base;
 		background: @lift;
+		text-shadow: none;
 		box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
 
 		a {
@@ -308,6 +322,7 @@
 			border: none;
 			background: transparent;
 			color: @primary;
+			text-shadow: none;
 
 			&:hover,
 			&:focus {

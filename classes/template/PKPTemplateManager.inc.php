@@ -249,7 +249,75 @@ class PKPTemplateManager extends Smarty {
 	}
 
 	/**
+	 * Compile a LESS stylesheet
+	 *
+	 * @param $name string Unique name for this LESS stylesheet
+	 * @param $lessFile string Path to the LESS file to compile
+	 * @param $args array Optional arguments. SUpports:
+	 *   'baseUrl': Base URL to use when rewriting URLs in the LESS file.
+	 *   'addLess': Array of additional LESS files to parse before compiling
+	 * @return string|bool File name if already cached or true if files freshly
+	 *    compiled
+	 */
+	public function compileLess($name, $lessFile, $args = array()) {
+
+		// Load the LESS compiler
+		require_once('lib/pkp/lib/vendor/oyejorge/less.php/lessc.inc.php');
+		$less = new Less_Parser(array(
+			'relativeUrls' => false,
+			'compress' => true,
+		));
+
+		$request = $this->_request;
+
+		// Allow plugins to intervene
+		HookRegistry::call('PageHandler::compileLess', array($request, $less, $name, $lessFile, $args));
+
+		$baseUrl = !empty($args['baseUrl']) ? $args['baseUrl'] : $request->getBaseUrl(true);
+
+		// Compile the stylesheet
+		$less->parseFile($lessFile);
+
+		// Add extra LESS files before compiling
+		if (isset($args['addLess']) && is_array($args['addLess'])) {
+			foreach ($args['addLess'] as $addless) {
+				$less->parseFile($addless);
+			}
+		}
+
+		return str_replace('{$baseUrl}', $baseUrl, $less->getCSS());
+	}
+
+	/**
+	 * Save LESS styles to a cached file
+	 *
+	 * @param $path string File path to save the compiled styles
+	 * @param styles string CSS styles compiled from the LESS
+	 * @return bool success/failure
+	 */
+	public function cacheLess($path, $styles) {
+		if (file_put_contents($path, $styles) === false) {
+			error_log("Unable to write \"$path\".");
+			return false;
+		}
+
+		return true;
+	}
+
+	/**
+	 * Retrieve the file path for a cached LESS file
+	 *
+	 * @param $name string Unique name for the LESS file
+	 * @return $path string Path to the less file or false if not found
+	 */
+	public function getCachedLessFilePath($name) {
+		$cacheDirectory = CacheManager::getFileCachePath();
+		return $cacheDirectory . DIRECTORY_SEPARATOR . $name . '.css';
+	}
+
+	/**
 	 * Add a page-specific style sheet.
+	 *
 	 * @param $url string the URL to the style sheet
 	 * @param $priority int STYLE_SEQUENCE_...
 	 * @param $contexts string|array where stylesheet should be used

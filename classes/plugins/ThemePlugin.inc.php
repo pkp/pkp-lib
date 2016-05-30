@@ -17,6 +17,22 @@ import('lib.pkp.classes.plugins.LazyLoadPlugin');
 
 abstract class ThemePlugin extends LazyLoadPlugin {
 	/**
+	 * Collection of styles
+	 *
+	 * @see self::_registerStyles
+	 * @param array $styles
+	 */
+	public $styles = array();
+
+	/**
+	 * Collection of scripts
+	 *
+	 * @see self::_registerScripts
+	 * @param array $scripts
+	 */
+	public $scripts = array();
+
+	/**
 	 * Constructor
 	 */
 	function ThemePlugin() {
@@ -28,110 +44,197 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	 */
 	function register($category, $path) {
 		if (!parent::register($category, $path)) return false;
-		$request = $this->getRequest();
-		if ($this->getEnabled() && !defined('SESSION_DISABLE_INIT')) {
-			$templateManager = TemplateManager::getManager($request);
-			HookRegistry::register('PageHandler::displayCss', array($this, '_displayCssCallback'));
 
-			$context = $request->getContext();
-			$site = $request->getSite();
-			$contextOrSite = $context?$context:$site;
-
-			// Add the stylesheet.
-			if ($contextOrSite->getSetting('themePluginPath') == basename($path)) {
-				$dispatcher = $request->getDispatcher();
-				$templateManager->addStyleSheet($dispatcher->url($request, ROUTE_COMPONENT, null, 'page.PageHandler', 'css', null, array('name' => $this->getName())), STYLE_SEQUENCE_LATE);
-
-				// If this theme uses templates, ensure they're given priority.
-				array_unshift(
-					$templateManager->template_dir,
-					$path = Core::getBaseDir() . DIRECTORY_SEPARATOR . $this->getPluginPath() . '/templates'
-				);
-			}
+		// Don't perform any futher operations if theme is not enabled
+		if (!$this->getEnabled() || defined('SESSION_DISABLE_INIT')) {
+			return false;
 		}
+
+		// Fire an initialization method which themes should use to add
+		// styles, scripts and fonts
+		$this->init();
+
+		$this->_registerTemplates();
+		$this->_registerStyles();
+		$this->_registerScripts();
+
 		return true;
 	}
 
 	/**
-	 * Get the filename to this theme's stylesheet, or null if none.
-	 * @return string|null
+	 * The primary method themes should use to add styles, scripts and fonrts,
+	 * or register hooks. This method is only fired for the currently active
+	 * theme.
+	 *
+	 * @return null
 	 */
-	function getLessStylesheet() {
-		return null;
+	public abstract function init();
+
+	/**
+	 * Determine whether or not this plugin is enabled
+	 *
+	 * This only returns true if the theme is currently the selected theme
+	 * in a given context.
+	 *
+	 * @return boolean
+	 */
+	public function getEnabled() {
+		if (!parent::getEnabled()) {
+			return false;
+		}
+
+		$request = $this->getRequest();
+		$context = $request->getContext();
+		$activeTheme = $context->getSetting('themePluginPath');
+
+		return $activeTheme == basename($this->getPluginPath());
 	}
 
 	/**
-	 * Get the compiled CSS cache filename
-	 * @return string|null
+	 * Add a stylesheet to load with this theme
+	 *
+	 * Style paths with a .less extension will be compiled and redirected to
+	 * the compiled file.
+	 *
+	 * @param string $name A name for this stylesheet
+	 * @param string $path The path to this stylesheet, relative to the theme
+	 * @param array $args Optional arguments hash. Supported args:
+	 *   'context': Whether to load this on the `frontend` or `backend`.
+	 *      default: `frontend`
+	 *   'priority': Controls order in which styles are printed
+	 *   'addLess': Additional LESS files to process before compiling. Array
 	 */
-	function getStyleCacheFilename() {
-		// Only relevant if Less compilation is used; otherwise return null.
-		if ($this->getLessStylesheet() === null) return null;
+	public function addStyle($name, $path, $args = array()) {
 
-		return 'compiled-' . $this->getName() . '.css';
+		// Pass a file path for LESS files
+		if (substr($path, -4) == 'less' ) {
+			$fullPath = $this->_getBaseDir($path);
+
+		// Pass a URL for other files
+		} else {
+			$fullPath = $this->_getBaseUrl($path);
+		}
+
+		$this->styles[$name] = array(
+			'path' => $fullPath,
+			'context' => isset($args['context']) && $args['context'] == 'backend' ? 'backend' : 'frontend',
+			'priority' => isset($args['priority']) ? $args['priority'] : STYLE_SEQUENCE_NORMAL,
+			'addLess' => isset($args['addLess']) ? $args['addLess'] : array(),
+			'baseUrl' => isset($args['baseUrl']) ? $args['baseUrl'] : '',
+		);
 	}
 
 	/**
-	 * @copydoc PKPPlugin::getTemplatePath()
+	 * Add a script to load with this theme
+	 *
+	 * @param string $name A name for this script
+	 * @param string $path The path to this script, relative to the theme
+	 * @param array $args Optional arguments hash. Supported args:
+	 *   string $context Whether to load this on the `frontend` or `backend`.
+	 *      default: `frontend`
+	 *   int $priority Controls order in which styles are printed
 	 */
-	function getTemplatePath($inCore = false) {
-		return parent::getTemplatePath($inCore) . 'templates/';
+	public function addScript($name, $path, $args = array()) {
+
+		// @todo cast arg variable types
+		$this->scripts[$name] = array(
+			'path'     => $this->_getBaseUrl($path),
+			'context'  => isset($args['context']) && $args['context'] == 'backend' ? 'backend' : 'frontend',
+			'priority' => isset($args['priority']) ? $args['priority'] : STYLE_SEQUENCE_NORMAL,
+		);
 	}
 
 	/**
-	 * Called as a callback upon stylesheet compilation.
-	 * Used to inject this theme's styles.
+	 * Register directories to search for template files
+	 *
+	 * @return null
 	 */
-	function _displayCssCallback($hookName, $args) {
-		$request = $args[0];
-		$stylesheetName = $args[1];
-		$result =& $args[2];
-		$lastModified =& $args[3];
+	private function _registerTemplates() {
 
-		// Ensure the callback is for this plugin before intervening
-		if ($stylesheetName != $this->getName()) return false;
+		// Register parent theme template directory
+		if (method_exists('parent', 'registerTemplates')) {
+			parent::registerTemplates();
+		}
 
-		if ($this->getLessStylesheet()) {
-			$cacheDirectory = CacheManager::getFileCachePath();
-			$cacheFilename = $this->getStyleCacheFilename();
-			$lessFile = $this->getPluginPath() . '/' . $this->getLessStylesheet();
-			$compiledStylesheetFile = $cacheDirectory . '/' . $cacheFilename;
+		// Register this theme's template directory
+		$request = $this->getRequest();
+		$templateManager = TemplateManager::getManager($request);
+		array_unshift(
+			$templateManager->template_dir,
+			$this->_getBaseDir('templates')
+		);
+	}
 
-			if ($cacheFilename === null || !file_exists($compiledStylesheetFile)) {
-				// Need to recompile, so flag last modified.
-				$lastModified = time();
+	/**
+	 * Register stylesheets and font assets
+	 *
+	 * @return null
+	 */
+	private function _registerStyles() {
 
-				// Compile this theme's styles
-				require_once('lib/pkp/lib/vendor/oyejorge/less.php/lessc.inc.php');
-				$less = new Less_Parser(array(
-					'relativeUrls' => false,
-					'compress' => true,
-				));
-				$less->parseFile ($lessFile);
-				$compiledStyles = str_replace('{$baseUrl}', $request->getBaseUrl(true), $less->getCss());
+		$request = $this->getRequest();
+		$dispatcher = $request->getDispatcher();
+		$templateManager = TemplateManager::getManager($request);
 
-				// Give other plugins the chance to intervene
-				HookRegistry::call('ThemePlugin::compileCss', array($request, $less, &$compiledStylesheetFile, &$compiledStyles));
+		foreach($this->styles as $name => $style) {
 
-				if ($cacheFilename === null || file_put_contents($compiledStylesheetFile, $compiledStyles) === false) {
-					// If the stylesheet cache can't be written, log the error and
-					// output the compiled styles directly without caching.
-					error_log("Unable to write \"$compiledStylesheetFile\".");
-					$result .= $compiledStyles;
-					return false;
-				}
+			// Compile LESS files
+			if (substr($style['path'], -4) == 'less') {
+				$url = $dispatcher->url(
+					$request,
+					ROUTE_COMPONENT,
+					null,
+					'page.PageHandler',
+					'css',
+					null,
+					array(
+						'name' => $name,
+					)
+				);
 			} else {
-				// We were able to fall back on a previously compiled file. Set lastModified.
-				$cacheLastModified = filemtime($compiledStylesheetFile);
-				$lastModified = $lastModified===null?
-					$cacheLastModified:
-					min($lastModified, $cacheLastModified);
+				$url = $request->_getBaseUrl() . DIRECTORY_SEPARATOR . $this->getPluginPath() . DIRECTORY_SEPARATOR . $path;
 			}
 
-			// Add the compiled styles to the rest
-			$result .= "\n" . file_get_contents($compiledStylesheetFile);
+			$templateManager->addStylesheet(
+				$url,
+				$style['priority'],
+				$style['context']
+			);
 		}
-		return false;
+	}
+
+	/**
+	 * Register script assets
+	 *
+	 * @return null
+	 */
+	public function _registerScripts() {
+		// @todo
+	}
+
+	/**
+	 * Get the base URL to be used for file references in LESS stylesheets
+	 *
+	 * {$baseUrl} will be replaced with this URL before LESS files are processed
+	 *
+	 * @param $path string An optional path to append to the base
+	 * @return string
+	 */
+	public function _getBaseUrl($path = '') {
+		$request = $this->getRequest();
+		$path = empty($path) ? '' : DIRECTORY_SEPARATOR . $path;
+		return $request->getBaseUrl() . DIRECTORY_SEPARATOR . $this->getPluginPath() . $path;
+	}
+
+	/**
+	 * Get the base path to be used for file references
+	 *
+	 * @param $path string An optional path to append to the base
+	 * @return string
+	 */
+	public function _getBaseDir($path = '') {
+		$path = empty($path) ? '' : DIRECTORY_SEPARATOR . $path;
+		return Core::getBaseDir() . DIRECTORY_SEPARATOR . $this->getPluginPath() . $path;
 	}
 }
 

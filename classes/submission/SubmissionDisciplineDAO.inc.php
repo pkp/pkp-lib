@@ -48,9 +48,10 @@ class SubmissionDisciplineDAO extends ControlledVocabDAO {
 	 * Get disciplines for a submission.
 	 * @param $submissionId int
 	 * @param $locales array
+	 * @param $version
 	 * @return array
 	 */
-	function getDisciplines($submissionId, $locales) {
+	function getDisciplines($submissionId, $locales, $version = null) {
 
 		$returner = array();
 
@@ -59,7 +60,7 @@ class SubmissionDisciplineDAO extends ControlledVocabDAO {
 			$returner[$locale] = array();
 			$disciplines = $this->build($submissionId);
 			$submissionDisciplineEntryDao = DAORegistry::getDAO('SubmissionDisciplineEntryDAO');
-			$submissionDisciplines = $submissionDisciplineEntryDao->getByControlledVocabId($disciplines->getId());
+			$submissionDisciplines = $submissionDisciplineEntryDao->getByControlledVocabId($disciplines->getId(), null, $version);
 
 			while ($discipline = $submissionDisciplines->next()) {
 				$discipline = $discipline->getDiscipline();
@@ -121,9 +122,10 @@ class SubmissionDisciplineDAO extends ControlledVocabDAO {
 	 * @param $disciplines array
 	 * @param $submissionId int
 	 * @param $deleteFirst boolean
+	 * @param $version int
 	 * @return int
 	 */
-	function insertDisciplines($disciplines, $submissionId, $deleteFirst = true) {
+	function insertDisciplines($disciplines, $submissionId, $deleteFirst = true, $version = null) {
 		$disciplineDao = DAORegistry::getDAO('SubmissionDisciplineDAO');
 		$submissionDisciplineEntryDao = DAORegistry::getDAO('SubmissionDisciplineEntryDAO');
 		$currentDisciplines = $this->build($submissionId);
@@ -133,7 +135,7 @@ class SubmissionDisciplineDAO extends ControlledVocabDAO {
 
 			foreach ($existingEntries as $id => $entry) {
 				$entry = trim($entry);
-				$submissionDisciplineEntryDao->deleteObjectById($id);
+				$submissionDisciplineEntryDao->deleteObjectById($id, $version);
 			}
 		}
 		if (is_array($disciplines)) { // localized, array of arrays
@@ -147,6 +149,7 @@ class SubmissionDisciplineDAO extends ControlledVocabDAO {
 						$disciplineEntry->setControlledVocabId($currentDisciplines->getID());
 						$disciplineEntry->setDiscipline(urldecode($discipline), $locale);
 						$disciplineEntry->setSequence($i);
+						$disciplineEntry->setVersion($version);
 						$i++;
 						$submissionDisciplineEntryDao->insertObject($disciplineEntry);
 					}

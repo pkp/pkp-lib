@@ -305,6 +305,11 @@
 	<message key="submission.history.viewLog">View Log</message>
 	<message key="submission.indexing">Indexing</message>
 	<message key="submission.initiated">Initiated</message>
+	<message key="submission.saveAsRevision">Save changes as a new version</message>
+	<message key="submission.linkToRecentRevision">There is a more recent version of this item available:</message>
+	<message key="submission.linkToPreviousRevisions">There are previous versions of this item available:</message>
+	<message key="submission.hideSubmissionRevisions">Hide links to previous versions of this submission</message>
+	<message key="submission.noGalleyFiles">There are no galley files for this version!</message>
 
 	<!-- Information Center -->
 	<message key="submission.informationCenter.submissionInfo">Submission Info</message>
@@ -486,6 +491,8 @@
 	<message key="submission.upload.userGroupDescription">If you are submitting an Edited Volume, you should upload all volume chapters individually, under your role as volume editor.</message>
 	<message key="submission.upload.uploadLibraryFile">Upload a Library File</message>
 	<message key="submission.upload.libraryCategory">Submission Document Category</message>
+	<message key="submission.upload.hideFileRevisions">Hide previous versions of this file</message>
+	<message key="submission.upload.assignMetadata">This file should be linked to the metadata of the following article version</message>
 
 	<!-- File uploads -->
 	<message key="submission.upload.finalDraft">Upload File</message>

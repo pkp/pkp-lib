@@ -563,16 +563,24 @@ class DAO {
 	 * data object.
 	 * @param $tableName string Settings table name
 	 * @param $idFieldName string Name of ID column
+	 * @param $idFieldValue int Value of ID column
 	 * @param $dataObject DataObject Object in which to store retrieved values
+	 * @param $revision integer Revision Id
+	 * @param $revisionFieldName string Name of the revision column
 	 */
-	function getDataObjectSettings($tableName, $idFieldName, $idFieldValue, $dataObject) {
-		if ($idFieldName !== null) {
-			$sql = "SELECT * FROM $tableName WHERE $idFieldName = ?";
-			$params = array($idFieldValue);
-		} else {
-			$sql = "SELECT * FROM $tableName";
-			$params = false;
+	function getDataObjectSettings($tableName, $idFieldName, $idFieldValue, $dataObject, $revision = null, $revisionFieldName = 'version') {
+
+		$params = array();
+		if (($idFieldName !== null) && ($revision == null)) {
+			$params = array_merge($params, array((int) $idFieldValue));
+		} elseif (($idFieldName !== null) && ($revision !== null)) {
+			$params = array_merge($params, array((int) $idFieldValue, (int) $revision));
 		}
+		
+		$sql = "SELECT * FROM $tableName" . 
+		((($idFieldName == null) && ($revision == null)) ? "" : " WHERE $idFieldName = ?" . 
+		((($idFieldName !== null) && ($revision !== null)) ? " AND $revisionFieldName = ?" : ""));
+
 		$result = $this->retrieve($sql, $params);
 
 		while (!$result->EOF) {

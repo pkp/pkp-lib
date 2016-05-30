@@ -48,15 +48,16 @@ class SubmissionSubjectDAO extends ControlledVocabDAO {
 	 * Get Subjects for a submission.
 	 * @param $submissionId int
 	 * @param $locales array
+	 * @param $version
 	 * @return array
 	 */
-	function getSubjects($submissionId, $locales) {
+	function getSubjects($submissionId, $locales, $version = null) {
 		$returner = array();
 		$submissionSubjectEntryDao = DAORegistry::getDAO('SubmissionSubjectEntryDAO');
 		foreach ($locales as $locale) {
 			$returner[$locale] = array();
 			$subjects = $this->build($submissionId);
-			$submissionSubjects = $submissionSubjectEntryDao->getByControlledVocabId($subjects->getId());
+			$submissionSubjects = $submissionSubjectEntryDao->getByControlledVocabId($subjects->getId(), null, $version);
 
 			while ($subject = $submissionSubjects->next()) {
 				$subject = $subject->getSubject();
@@ -118,9 +119,10 @@ class SubmissionSubjectDAO extends ControlledVocabDAO {
 	 * @param $subjects array
 	 * @param $submissionId int
 	 * @param $deleteFirst boolean
+	 * @param $version int
 	 * @return int
 	 */
-	function insertSubjects($subjects, $submissionId, $deleteFirst = true) {
+	function insertSubjects($subjects, $submissionId, $deleteFirst = true, $version = null) {
 		$subjectDao = DAORegistry::getDAO('SubmissionSubjectDAO');
 		$submissionSubjectEntryDao = DAORegistry::getDAO('SubmissionSubjectEntryDAO');
 		$currentSubjects = $this->build($submissionId);
@@ -130,7 +132,7 @@ class SubmissionSubjectDAO extends ControlledVocabDAO {
 
 			foreach ($existingEntries as $id => $entry) {
 				$entry = trim($entry);
-				$submissionSubjectEntryDao->deleteObjectById($id);
+				$submissionSubjectEntryDao->deleteObjectById($id, $version);
 			}
 		}
 		if (is_array($subjects)) { // localized, array of arrays
@@ -144,6 +146,7 @@ class SubmissionSubjectDAO extends ControlledVocabDAO {
 						$subjectEntry->setControlledVocabId($currentSubjects->getID());
 						$subjectEntry->setSubject(urldecode($subject), $locale);
 						$subjectEntry->setSequence($i);
+						$subjectEntry->setVersion($version);
 						$i++;
 						$submissionSubjectEntryDao->insertObject($subjectEntry);
 					}

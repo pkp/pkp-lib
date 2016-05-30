@@ -47,16 +47,17 @@ class SubmissionAgencyDAO extends ControlledVocabDAO {
 	 * Get agencies for a specified submission ID.
 	 * @param $submissionId int
 	 * @param $locales array
+	 * @param $version
 	 * @return array
 	 */
-	function getAgencies($submissionId, $locales) {
+	function getAgencies($submissionId, $locales, $version = null) {
 
 		$returner = array();
 		foreach ($locales as $locale) {
 			$returner[$locale] = array();
 			$agencies = $this->build($submissionId);
 			$submissionAgencyEntryDao = DAORegistry::getDAO('SubmissionAgencyEntryDAO');
-			$submissionAgencies = $submissionAgencyEntryDao->getByControlledVocabId($agencies->getId());
+			$submissionAgencies = $submissionAgencyEntryDao->getByControlledVocabId($agencies->getId(), null, $version);
 
 			while ($agency = $submissionAgencies->next()) {
 				$agency = $agency->getAgency();
@@ -118,9 +119,10 @@ class SubmissionAgencyDAO extends ControlledVocabDAO {
 	 * @param $agencies array List of agencies.
 	 * @param $submissionId int Submission ID.
 	 * @param $deleteFirst boolean True iff existing agencies should be removed first.
+	 * @param $version int
 	 * @return int
 	 */
-	function insertAgencies($agencies, $submissionId, $deleteFirst = true) {
+	function insertAgencies($agencies, $submissionId, $deleteFirst = true, $version = null) {
 		$agencyDao = DAORegistry::getDAO('SubmissionAgencyDAO');
 		$submissionAgencyEntryDao = DAORegistry::getDAO('SubmissionAgencyEntryDAO');
 		$currentAgencies = $this->build($submissionId);
@@ -130,7 +132,7 @@ class SubmissionAgencyDAO extends ControlledVocabDAO {
 
 			foreach ($existingEntries as $id => $entry) {
 				$entry = trim($entry);
-				$submissionAgencyEntryDao->deleteObjectById($id);
+				$submissionAgencyEntryDao->deleteObjectById($id, $version);
 			}
 		}
 		if (is_array($agencies)) { // localized, array of arrays
@@ -144,6 +146,7 @@ class SubmissionAgencyDAO extends ControlledVocabDAO {
 						$agencyEntry->setControlledVocabId($currentAgencies->getID());
 						$agencyEntry->setAgency(urldecode($agency), $locale);
 						$agencyEntry->setSequence($i);
+						$agencyEntry->setVersion($version);
 						$i++;
 						$submissionAgencyEntryDao->insertObject($agencyEntry);
 					}

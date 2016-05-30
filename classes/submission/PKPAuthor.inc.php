@@ -75,7 +75,23 @@ class PKPAuthor extends Identity {
 	function getIncludeInBrowse() {
 		return $this->getData('includeInBrowse');
 	}
+	
+	/**
+	 * Set version
+	 * @param $version int
+	 */
+	function setVersion($version) {
+		$this->setData('version', $version);
+	}
 
+	/**
+	 * Get version
+	 * @return int
+	 */
+	function getVersion() {
+		return $this->getData('version') ? $this->getData('version') : 1;
+	}
+	
 	/**
 	 * Get the "show title" flag (whether or not the title of the role
 	 * should be included in the list of submission contributor names).

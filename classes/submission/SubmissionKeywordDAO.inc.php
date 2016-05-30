@@ -48,16 +48,17 @@ class SubmissionKeywordDAO extends ControlledVocabDAO {
 	 * Get keywords for a submission.
 	 * @param $submissionId int
 	 * @param $locales array
+	 * @param $version
 	 * @return array
 	 */
-	function getKeywords($submissionId, $locales) {
+	function getKeywords($submissionId, $locales, $version = null) {
 
 		$returner = array();
 		foreach ($locales as $locale) {
 			$returner[$locale] = array();
 			$keywords = $this->build($submissionId);
 			$submissionKeywordEntryDao = DAORegistry::getDAO('SubmissionKeywordEntryDAO');
-			$submissionKeywords = $submissionKeywordEntryDao->getByControlledVocabId($keywords->getId());
+			$submissionKeywords = $submissionKeywordEntryDao->getByControlledVocabId($keywords->getId(), null, $version);
 
 			while ($keyword = $submissionKeywords->next()) {
 				$keyword = $keyword->getKeyword();
@@ -119,9 +120,10 @@ class SubmissionKeywordDAO extends ControlledVocabDAO {
 	 * @param $keywords array
 	 * @param $submissionId int
 	 * @param $deleteFirst boolean
+	 * @param $version int
 	 * @return int
 	 */
-	function insertKeywords($keywords, $submissionId, $deleteFirst = true) {
+	function insertKeywords($keywords, $submissionId, $deleteFirst = true, $version = null) {
 		$keywordDao = DAORegistry::getDAO('SubmissionKeywordDAO');
 		$submissionKeywordEntryDao = DAORegistry::getDAO('SubmissionKeywordEntryDAO');
 		$currentKeywords = $this->build($submissionId);
@@ -131,7 +133,7 @@ class SubmissionKeywordDAO extends ControlledVocabDAO {
 
 			foreach ($existingEntries as $id => $entry) {
 				$entry = trim($entry);
-				$submissionKeywordEntryDao->deleteObjectById($id);
+				$submissionKeywordEntryDao->deleteObjectById($id, $version);
 			}
 		}
 		if (is_array($keywords)) { // localized, array of arrays
@@ -145,6 +147,7 @@ class SubmissionKeywordDAO extends ControlledVocabDAO {
 						$keywordEntry->setControlledVocabId($currentKeywords->getID());
 						$keywordEntry->setKeyword(urldecode($keyword), $locale);
 						$keywordEntry->setSequence($i);
+						$keywordEntry->setVersion($version);
 						$i++;
 						$submissionKeywordEntryDao->insertObject($keywordEntry);
 					}

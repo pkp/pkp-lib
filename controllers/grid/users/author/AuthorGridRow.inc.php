@@ -20,14 +20,18 @@ class AuthorGridRow extends GridRow {
 	var $_submission;
 
 	/** @var boolean */
-	var $_reaadOnly;
+	var $_readOnly;
+	
+	/** @var int */
+	var $_version;
 
 	/**
 	 * Constructor
 	 */
-	function AuthorGridRow($submission, $readOnly = false) {
+	function AuthorGridRow($submission, $readOnly = false, $version = null) {
 		$this->_submission = $submission;
 		$this->_readOnly = $readOnly;
+		$this->_version = $version;
 		parent::GridRow();
 	}
 
@@ -51,6 +55,7 @@ class AuthorGridRow extends GridRow {
 			$router = $request->getRouter();
 			$actionArgs = $this->getRequestArgs();
 			$actionArgs['authorId'] = $rowId;
+			$actionArgs['version'] = $this->_version;
 
 			if (!$this->isReadOnly()) {
 				// Add row-level actions

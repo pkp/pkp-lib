@@ -8,6 +8,15 @@
  * Submission's metadata form title fields. To be included in any form that wants to handle
  * submission metadata.
  *}
+{if $formParams.revision && ($formParams.revision < $latestRevisionId)}
+	{assign var=readOnly value=1}
+{else}
+	{assign var=readOnly value=0}
+{/if}
+
+{fbvElement type="hidden" name="submissionRevision" id="submissionRevision" value=$formParams.revision}
+{fbvElement type="hidden" name="saveAsRevision" id="saveAsRevision" value=$formParams.saveAsRevision}
+
 <div class="pkp_helpers_clear">
 	{fbvFormSection for="title" title="common.prefix" inline="true" size=$fbvStyles.size.SMALL}
 		{fbvElement label="common.prefixAndTitle.tip" type="text" multilingual=true name="prefix" id="prefix" value=$prefix readonly=$readOnly maxlength="32"}

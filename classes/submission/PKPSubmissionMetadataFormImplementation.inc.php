@@ -64,8 +64,9 @@ class PKPSubmissionMetadataFormImplementation {
 	/**
 	 * Initialize form data from current submission.
 	 * @param $submission Submission
+	 * @param $revision int
 	 */
-	function initData($submission) {
+	function initData($submission, $revision = null) {
 		if (isset($submission)) {
 			$formData = array(
 				'title' => $submission->getTitle(null), // Localized
@@ -76,7 +77,8 @@ class PKPSubmissionMetadataFormImplementation {
 				'type' => $submission->getType(null), // Localized
 				'source' =>$submission->getSource(null), // Localized
 				'rights' => $submission->getRights(null), // Localized
-				'citations' => $submission->getCitations()
+				'citations' => $submission->getCitations(),
+				'hideSubmissionRevisions' => $submission->getHideSubmissionRevisions(),
 			);
 
 			foreach ($formData as $key => $data) {
@@ -93,12 +95,17 @@ class PKPSubmissionMetadataFormImplementation {
 			$submissionAgencyDao = DAORegistry::getDAO('SubmissionAgencyDAO');
 			$submissionLanguageDao = DAORegistry::getDAO('SubmissionLanguageDAO');
 
-			$this->_parentForm->setData('subjects', $submissionSubjectDao->getSubjects($submission->getId(), $locales));
-			$this->_parentForm->setData('keywords', $submissionKeywordDao->getKeywords($submission->getId(), $locales));
-			$this->_parentForm->setData('disciplines', $submissionDisciplineDao->getDisciplines($submission->getId(), $locales));
-			$this->_parentForm->setData('agencies', $submissionAgencyDao->getAgencies($submission->getId(), $locales));
-			$this->_parentForm->setData('languages', $submissionLanguageDao->getLanguages($submission->getId(), $locales));
+			$contextId = Request::getContext()->getId();
+			$latestRevisionId = $submission->getCurrentVersionId($contextId);
+			if (!$revision) $revision = $latestRevisionId;
+			
+			$this->_parentForm->setData('subjects', $submissionSubjectDao->getSubjects($submission->getId(), $locales, $revision));
+			$this->_parentForm->setData('keywords', $submissionKeywordDao->getKeywords($submission->getId(), $locales, $revision));
+			$this->_parentForm->setData('disciplines', $submissionDisciplineDao->getDisciplines($submission->getId(), $locales, $revision));
+			$this->_parentForm->setData('agencies', $submissionAgencyDao->getAgencies($submission->getId(), $locales, $revision));
+			$this->_parentForm->setData('languages', $submissionLanguageDao->getLanguages($submission->getId(), $locales, $revision));
 			$this->_parentForm->setData('abstractsRequired', $this->_getAbstractsRequired($submission));
+			$this->_parentForm->setData('latestRevisionId', $latestRevisionId);
 		}
 	}
 
@@ -138,6 +145,32 @@ class PKPSubmissionMetadataFormImplementation {
 		$submission->setRights($this->_parentForm->getData('rights'), null); // Localized
 		$submission->setSource($this->_parentForm->getData('source'), null); // Localized
 		$submission->setCitations($this->_parentForm->getData('citations'));
+		$submission->setHideSubmissionRevisions($request->getUserVar('hideSubmissionRevisions') ? 1 : 0);
+
+		if ($request->getUserVar('submissionRevision')) {
+			$revision = (int)$request->getUserVar('submissionRevision');
+		} else {
+			$router = $request->getRouter();
+			$contextId = $router->getContext()->getId();
+			$revision = $submission->getCurrentVersionId($contextId);
+		}
+
+		if ($request->getUserVar('saveAsRevision')) {
+			$authorDao = DAORegistry::getDAO('AuthorDAO');
+			$authors = $authorDao->getBySubmissionId($submission->getId(), true, false, $revision);
+			
+			$revision++;
+			// copy the authors from the old version into the new version
+			// (the author_id is retained unchanged as the primary key for the authors table is [author_id, version])
+			foreach($authors as $author) {
+				$authorId = (int)$author->getId();
+				$author->setVersion($revision);
+				$authorDao->insertObject($author, true);
+				$newAuthorId = (int)$authorDao->getInsertId();
+				$authorDao->update('UPDATE authors SET author_id = ? WHERE author_id = ?', array($authorId, $newAuthorId));
+			}
+		}
+		$submission->setData('submissionRevision', $revision);
 
 		// Save the submission
 		$submissionDao->updateObject($submission);
@@ -171,11 +204,11 @@ class PKPSubmissionMetadataFormImplementation {
 		}
 
 		// persist the controlled vocabs
-		$submissionKeywordDao->insertKeywords($keywords, $submission->getId());
-		$submissionAgencyDao->insertAgencies($agencies, $submission->getId());
-		$submissionDisciplineDao->insertDisciplines($disciplines, $submission->getId());
-		$submissionLanguageDao->insertLanguages($languages, $submission->getId());
-		$submissionSubjectDao->insertSubjects($subjects, $submission->getId());
+		$submissionKeywordDao->insertKeywords($keywords, $submission->getId(), true, $revision);
+		$submissionAgencyDao->insertAgencies($agencies, $submission->getId(), true, $revision);
+		$submissionDisciplineDao->insertDisciplines($disciplines, $submission->getId(), true, $revision);
+		$submissionLanguageDao->insertLanguages($languages, $submission->getId(), true, $revision);
+		$submissionSubjectDao->insertSubjects($subjects, $submission->getId(), true, $revision);
 
 		// Resequence the authors (this ensures a primary contact).
 		$authorDao = DAORegistry::getDAO('AuthorDAO');

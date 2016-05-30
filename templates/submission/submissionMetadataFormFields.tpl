@@ -8,6 +8,12 @@
  * Submission's metadata form fields. To be included in any form that wants to handle
  * submission metadata.
  *}
+{if $formParams.revision && ($formParams.revision < $latestRevisionId)}
+	{assign var=readOnly value=1}
+{else}
+	{assign var=readOnly value=0}
+{/if}
+
 {if $coverageEnabled || $typeEnabled || $sourceEnabled || $rightsEnabled ||
 		$languagesEnabled || $subjectEnabled || $keywordsEnabled || $agenciesEnabled || $referencesEnabled}
 	<p class="description">{translate key="submission.metadataDescription"}</p>
@@ -73,5 +79,15 @@
 		{/if}
 	{/fbvFormArea}
 {/if}
+
+{if $hideSubmissionRevisions}
+	{assign var="checked" value=true}
+{else}
+	{assign var="checked" value=false}
+{/if}
+
+{fbvFormSection list=true}
+	{fbvElement type="checkbox" id="hideSubmissionRevisions" name="hideSubmissionRevisions" checked=$checked label="submission.hideSubmissionRevisions"}
+{/fbvFormSection}
 
 {call_hook name="Templates::Submission::SubmissionMetadataForm::AdditionalMetadata"}

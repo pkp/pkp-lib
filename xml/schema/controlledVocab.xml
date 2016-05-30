@@ -52,6 +52,9 @@
 			<KEY />
 			<AUTOINCREMENT/>
 		</field>
+		<field name="version" type="I8">
+			<KEY />
+		</field>
 		<field name="controlled_vocab_id" type="I8">
 			<NOTNULL />
 		</field>
@@ -72,6 +75,7 @@
 		<field name="controlled_vocab_entry_id" type="I8">
 			<NOTNULL />
 		</field>
+		<field name="version" type="I8" />
 		<field name="locale" type="C2" size="5">
 			<NOTNULL />
 			<DEFAULT VALUE=""/>
@@ -89,6 +93,7 @@
 		</index>
 		<index name="c_v_e_s_pkey">
 			<col>controlled_vocab_entry_id</col>
+			<col>version</col>
 			<col>locale</col>
 			<col>setting_name</col>
 			<UNIQUE />

@@ -115,12 +115,47 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 			$fullPath = $this->_getBaseUrl($path);
 		}
 
+		if (isset($args['addLess'])) {
+			foreach ($args['addLess'] as &$file) {
+				$file = $this->_getBaseDir($file);
+			}
+		}
+
 		$this->styles[$name] = array(
 			'path' => $fullPath,
 			'context' => isset($args['context']) && $args['context'] == 'backend' ? 'backend' : 'frontend',
 			'priority' => isset($args['priority']) ? (int) $args['priority'] : STYLE_SEQUENCE_NORMAL,
 			'addLess' => isset($args['addLess']) ? (array) $args['addLess'] : array(),
 			'baseUrl' => isset($args['baseUrl']) ? (string) $args['baseUrl'] : '',
+		);
+	}
+
+	/**
+	 * Modify the params of an existing stylesheet
+	 *
+	 * @param string $name The name of the stylesheet to modify
+	 * @param array $args Parameters to modify.
+	 * @see self::addStyle()
+	 * @return null
+	 */
+	public function modifyStyle($name, $args = array()) {
+		if (!isset($this->styles[$name])) {
+			return;
+		}
+
+		if (isset($args['addLess'])) {
+			foreach ($args['addLess'] as &$file) {
+				$file = $this->_getBaseDir($file);
+			}
+		}
+
+		if (isset($args['path'])) {
+			$args['path'] = substr($args['path'], -4) == 'less' ? $this->_getBaseDir($path) : $this->_getBaseUrl($args['path']);
+		}
+
+		$this->styles[$name] = array_merge(
+			$this->styles[$name],
+			$args
 		);
 	}
 

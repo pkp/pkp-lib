@@ -105,6 +105,10 @@
 			this.trigger('formInvalid');
 		}
 
+		// Initialize editable toggles
+		$('.pkpEditableToggle', $form)
+			.click(this.callbackWrapper(this.toggleEditableControl));
+
 		this.initializeTinyMCE();
 
 		// bind a handler to make sure tinyMCE fields are populated.
@@ -366,6 +370,42 @@
 			function() {
 		this.getHtmlElement()
 				.find('.formButtons .pkp_spinner').removeClass('is_visible');
+	};
+
+
+	/**
+	 * Toggle editable display controls
+	 *
+	 * Editable display controls pair a visual display of data with an editable
+	 * set of fields for that data. This function will toggle between the
+	 * display and edit views.
+	 *
+	 * To use this feature, assign an outer element a `pkp-editable` data
+	 * attribute and corresponding data attributes to the child display and
+	 * input views.
+	 *
+	 * <div data-pkp-editable="true">
+	 *   <div data-pkp-editable-view="display">
+	 *     <!-- display markup -->
+	 *   </div>
+	 *   <div data-pkp-editable-view="input">
+	 *     <!-- input markup -->
+	 *   </div>
+	 * </div>
+	 *
+	 * @param {HTMLElement} toggle The HTML element this event was fired on
+	 * @param {Event} event The event which fired this function
+	 */
+	$.pkp.controllers.form.FormHandler.prototype.toggleEditableControl =
+			function(toggle, event) {
+		event.preventDefault();
+		var control = $(toggle).parents('[data-pkp-editable="true"]');
+
+		if (!control.length) {
+			return;
+		}
+
+		control.toggleClass('isEditing');
 	};
 
 

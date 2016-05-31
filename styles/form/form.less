@@ -179,6 +179,37 @@
 		margin-top: @double;
 	}
 
+	// Form controls that toggle between display and editing states
+	[data-pkp-editable] {
+
+		[data-pkp-editable-view="input"],
+		[data-pkp-editable-view="input"] label:not(.error),
+		&.isEditing [data-pkp-editable-view="display"] {
+			position: absolute;
+			top: -9999px;
+			left: -9999px;
+		}
+
+		[data-pkp-editable-view="display"],
+		&.isEditing [data-pkp-editable-view="input"] {
+			position: relative;
+			top: auto;
+			left: auto;
+		}
+
+		.edit {
+			font-size: @font-sml;
+			margin-left: 1em;
+			text-decoration: none;
+
+			&:before {
+				&:extend(.fa);
+				content: @fa-var-pencil;
+				margin-right: 0.25em;
+			}
+		}
+	}
+
 	// Localization popovers
 	.localization_popover_container {
 		position: relative;

@@ -45,8 +45,8 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	function register($category, $path) {
 		if (!parent::register($category, $path)) return false;
 
-		// Don't perform any futher operations if theme is not enabled
-		if (!$this->getEnabled() || defined('SESSION_DISABLE_INIT')) {
+		// Don't perform any futher operations if theme is not currently active
+		if (!$this->isActive() || defined('SESSION_DISABLE_INIT')) {
 			return false;
 		}
 
@@ -71,18 +71,15 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	public abstract function init();
 
 	/**
-	 * Determine whether or not this plugin is enabled
+	 * Determine whether or not this plugin is currently active
 	 *
 	 * This only returns true if the theme is currently the selected theme
-	 * in a given context.
+	 * in a given context. Use self::getEnabled() if you want to know if the
+	 * theme is available for use on the site.
 	 *
 	 * @return boolean
 	 */
-	public function getEnabled() {
-		if (!parent::getEnabled()) {
-			return false;
-		}
-
+	public function isActive() {
 		$request = $this->getRequest();
 		$context = $request->getContext();
 		$activeTheme = $context->getSetting('themePluginPath');

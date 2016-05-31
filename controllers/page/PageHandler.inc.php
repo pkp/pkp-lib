@@ -121,7 +121,7 @@ class PageHandler extends Handler {
 						$styles = '';
 						$themes = PluginRegistry::loadCategory('themes');
 						foreach($themes as $theme) {
-							if ($theme->getEnabled()) {
+							if ($theme->isActive()) {
 								if (isset($theme->styles[$name])) {
 
 									// Compile and cache the stylesheet

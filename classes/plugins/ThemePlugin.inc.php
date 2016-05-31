@@ -118,9 +118,9 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 		$this->styles[$name] = array(
 			'path' => $fullPath,
 			'context' => isset($args['context']) && $args['context'] == 'backend' ? 'backend' : 'frontend',
-			'priority' => isset($args['priority']) ? $args['priority'] : STYLE_SEQUENCE_NORMAL,
-			'addLess' => isset($args['addLess']) ? $args['addLess'] : array(),
-			'baseUrl' => isset($args['baseUrl']) ? $args['baseUrl'] : '',
+			'priority' => isset($args['priority']) ? (int) $args['priority'] : STYLE_SEQUENCE_NORMAL,
+			'addLess' => isset($args['addLess']) ? (array) $args['addLess'] : array(),
+			'baseUrl' => isset($args['baseUrl']) ? (string) $args['baseUrl'] : '',
 		);
 	}
 
@@ -136,11 +136,10 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	 */
 	public function addScript($name, $path, $args = array()) {
 
-		// @todo cast arg variable types
 		$this->scripts[$name] = array(
 			'path'     => $this->_getBaseUrl($path),
 			'context'  => isset($args['context']) && $args['context'] == 'backend' ? 'backend' : 'frontend',
-			'priority' => isset($args['priority']) ? $args['priority'] : STYLE_SEQUENCE_NORMAL,
+			'priority' => isset($args['priority']) ? (int) $args['priority'] : STYLE_SEQUENCE_NORMAL,
 		);
 	}
 
@@ -168,6 +167,8 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	/**
 	 * Register stylesheets and font assets
 	 *
+	 * Passes styles defined by the theme to the templat manager for handling.
+	 *
 	 * @return null
 	 */
 	private function _registerStyles() {
@@ -192,7 +193,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 					)
 				);
 			} else {
-				$url = $request->_getBaseUrl() . DIRECTORY_SEPARATOR . $this->getPluginPath() . DIRECTORY_SEPARATOR . $path;
+				$url = $style['path'];
 			}
 
 			$templateManager->addStylesheet(
@@ -206,10 +207,24 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	/**
 	 * Register script assets
 	 *
+	 * Passes defined scripts from the theme to the template manager for
+	 * handling.
+	 *
 	 * @return null
 	 */
 	public function _registerScripts() {
-		// @todo
+
+		$request = $this->getRequest();
+		$dispatcher = $request->getDispatcher();
+		$templateManager = TemplateManager::getManager($request);
+
+		foreach($this->scripts as $name => $script) {
+			$templateManager->addJavaScript(
+				$script['path'],
+				$script['priority'],
+				$script['context']
+			);
+		}
 	}
 
 	/**

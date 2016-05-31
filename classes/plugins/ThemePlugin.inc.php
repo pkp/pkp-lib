@@ -33,6 +33,13 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	public $scripts = array();
 
 	/**
+	 * Parent theme (optional)
+	 *
+	 * @param ThemePlugin $parent
+	 */
+	public $parent;
+
+	/**
 	 * Constructor
 	 */
 	function ThemePlugin() {
@@ -140,7 +147,10 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	 * @return null
 	 */
 	public function modifyStyle($name, $args = array()) {
-		if (!isset($this->styles[$name])) {
+
+		$style = &$this->getStyle($name);
+
+		if (empty($style)) {
 			return;
 		}
 
@@ -154,10 +164,29 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 			$args['path'] = substr($args['path'], -4) == 'less' ? $this->_getBaseDir($path) : $this->_getBaseUrl($args['path']);
 		}
 
-		$this->styles[$name] = array_merge(
-			$this->styles[$name],
-			$args
-		);
+		$style = array_merge( $style, $args );
+	}
+
+	/**
+	 * Get a style from this theme or any parent theme
+	 *
+	 * @param string $name The name of the style to retrieve
+	 * @return array|null Reference to the style or null if not found
+	 */
+	public function &getStyle($name) {
+
+		// Search this theme
+		if (isset($this->styles[$name])) {
+			$style = &$this->styles[$name];
+			return $style;
+		}
+
+		// If no parent theme, no style was found
+		if (!isset($this->parent)) {
+			return;
+		}
+
+		return $this->parent->getStyle($name);
 	}
 
 	/**
@@ -203,6 +232,23 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	}
 
 	/**
+	 * Set a parent theme for this theme
+	 *
+	 * @param $parent string Key in the plugin registry for the parent theme
+	 * @return null
+	 */
+	public function setParent($parent) {
+		// print_r(PluginRegistry::getPlugins());
+		$parent = PluginRegistry::getPlugin('themes', $parent);
+		if (!is_a($parent, 'ThemePlugin')) {
+			return;
+		}
+
+		$this->parent = &$parent;
+		$this->parent->init();
+	}
+
+	/**
 	 * Register directories to search for template files
 	 *
 	 * @return null
@@ -210,8 +256,8 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	private function _registerTemplates() {
 
 		// Register parent theme template directory
-		if (method_exists('parent', 'registerTemplates')) {
-			parent::registerTemplates();
+		if (isset($this->parent) && is_a($this->parent, 'ThemePlugin')) {
+			$this->parent->_registerTemplates();
 		}
 
 		// Register this theme's template directory
@@ -232,11 +278,19 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	 */
 	private function _registerStyles() {
 
+		if (isset($this->parent)) {
+			$this->parent->_registerStyles();
+		}
+
 		$request = $this->getRequest();
 		$dispatcher = $request->getDispatcher();
 		$templateManager = TemplateManager::getManager($request);
 
 		foreach($this->styles as $name => $style) {
+
+			if (empty($style['path'])) {
+				continue;
+			}
 
 			// Compile LESS files
 			if (substr($style['path'], -4) == 'less') {

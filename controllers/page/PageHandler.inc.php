@@ -122,15 +122,16 @@ class PageHandler extends Handler {
 						$themes = PluginRegistry::loadCategory('themes');
 						foreach($themes as $theme) {
 							if ($theme->isActive()) {
-								if (isset($theme->styles[$name])) {
+								$style = $theme->getStyle($name);
+								if (!empty($style)) {
 
 									// Compile and cache the stylesheet
 									$styles = $templateManager->compileLess(
 										$name,
-										$theme->styles[$name]['path'],
+										$style['path'],
 										array(
-											'baseUrl' => $theme->styles[$name]['baseUrl'],
-											'addLess' => $theme->styles[$name]['addLess'],
+											'baseUrl' => $style['baseUrl'],
+											'addLess' => $style['addLess'],
 										)
 									);
 								}

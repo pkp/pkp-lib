@@ -45,9 +45,13 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	function register($category, $path) {
 		if (!parent::register($category, $path)) return false;
 
-		// Don't perform any futher operations if theme is not currently active
-		if (!$this->isActive() || defined('SESSION_DISABLE_INIT')) {
+		if (defined('SESSION_DISABLE_INIT')) {
 			return false;
+		}
+
+		// Don't perform any futher operations if theme is not currently active
+		if (!$this->isActive()) {
+			return true;
 		}
 
 		// Fire an initialization method which themes should use to add

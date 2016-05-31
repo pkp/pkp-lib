@@ -179,6 +179,29 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	}
 
 	/**
+	 * Modify the params of an existing script
+	 *
+	 * @param string $name The name of the script to modify
+	 * @param array $args Parameters to modify.
+	 * @see self::addScript()
+	 * @return null
+	 */
+	public function modifyScript($name, $args = array()) {
+		if (!isset($this->scripts[$name])) {
+			return;
+		}
+
+		if (isset($args['path'])) {
+			$args['path'] = $this->_getBaseUrl($args['path']);
+		}
+
+		$this->scripts[$name] = array_merge(
+			$this->scripts[$name],
+			$args
+		);
+	}
+
+	/**
 	 * Register directories to search for template files
 	 *
 	 * @return null

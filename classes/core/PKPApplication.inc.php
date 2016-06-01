@@ -16,6 +16,7 @@
 
 define('ROUTE_COMPONENT', 'component');
 define('ROUTE_PAGE', 'page');
+define('ROUTE_API', 'api');
 
 define('CONTEXT_SITE', 0);
 define('CONTEXT_ID_NONE', 0);
@@ -213,6 +214,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 			$dispatcher->setApplication(PKPApplication::getApplication());
 
 			// Inject router configuration
+			$dispatcher->addRouterName('lib.pkp.classes.core.APIRouter', ROUTE_API);
 			$dispatcher->addRouterName('lib.pkp.classes.core.PKPComponentRouter', ROUTE_COMPONENT);
 			$dispatcher->addRouterName('classes.core.PageRouter', ROUTE_PAGE);
 		}

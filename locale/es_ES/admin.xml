@@ -8,9 +8,7 @@
   * Copyright (c) 2000-2016 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the 
   *
-  * Credits: http://pkp.sfu.ca/wiki/index.php?title=OJS:_Spanish_%28es_ES%29
-  *
-  * Localization strings.
+  * Localization strings for the es_ES (Español (España)) locale. Credits: http://pkp.sfu.ca/wiki/index.php?title=OJS:_Spanish_%28es_ES%29
   *
   -->
 
@@ -42,6 +40,15 @@
 	<message key="admin.languages.uninstall">Desinstalar configuración regional</message>
 	<message key="admin.phpInfo">Información adicional de PHP</message>
 	<message key="admin.scheduledTask">Tarea programada</message>
+	<message key="admin.scheduledTask.startTime">Se ha iniciado la tarea.</message>
+	<message key="admin.scheduledTask.stopTime">Se ha detenido la tarea.</message>
+	<message key="admin.scheduledTask.noLog">La tarea no ha generado ningún registro.</message>
+	<message key="admin.scheduledTask.openAccessNotification">Notificación de acceso abierto</message>
+	<message key="admin.scheduledTask.downloadLog">Su OJS ha ejecutado y finalizado automáticamente esta tarea y puede descargar el registro aquí: {$url}</message>
+	<message key="admin.scheduledTask.confirmClearLogs">¿Está seguro de borrar todos los registros de las tareas programadas?</message>
+	<message key="admin.scheduledTask.clearLogs">Borrar registros de ejecución las tareas programadas</message>
+	<message key="admin.scheduledTask.reviewReminder">Recordatorio de revisión</message>
+	<message key="admin.scheduledTask.subscriptionExpiryReminder">Recordatorio de caducidad de subscripción</message>
 	<message key="admin.server.apacheVersion">Versión Apache</message>
 	<message key="admin.server.dbDriver">Controlador de la base de datos</message>
 	<message key="admin.server.dbVersion">Versión del servidor de la base de datos</message>
@@ -61,6 +68,7 @@
 	<message key="admin.settings.homeHeaderImageInvalid">Formato de imagen para el logotipo del sitio no válido. Formatos aceptados: .gif, .jpg o .png.</message>
 	<message key="admin.settings.introduction">Introducción</message>
 	<message key="admin.settings.minPasswordLength">Longitud mínima de la contraseña</message>
+	<message key="admin.settings.oneStepReset">¿Utilizar reestablecimiento de contraseña en un solo paso?</message>
 	<message key="admin.settings.oaiRegistration">Registrar sitio para realizar la indexación (recopilación de metadatos)</message>
 	<message key="admin.settings.passwordCharacters">caracteres</message>
 	<message key="admin.settings.siteLanguage">Idioma del sitio</message>
@@ -91,13 +99,8 @@
 	<message key="admin.fileLoader.wrongBasePathLocation">La ruta base {$path} tiene que estar dentro del directorio de archivos públicos.</message>
 	<message key="admin.fileLoader.pathNotAccessible">La carpeta {$path} no es un directorio o no se puede leer.</message>
 	<message key="admin.fileLoader.moveFileFailed">No se puede mover el archivo {$filename} de {$currentFilePath} a {$destinationPath}.</message>
-	<message key="admin.fileLoader">Cargador de archivos</message>
-	<message key="admin.scheduledTask.startTime">Se ha iniciado la tarea.</message>
-	<message key="admin.scheduledTask.stopTime">Se ha detenido la tarea.</message>
-	<message key="admin.scheduledTask.noLog">La tarea no ha generado ningún registro.</message>
-	<message key="admin.scheduledTask.openAccessNotification">Notificación de acceso abierto</message>
-	<message key="admin.scheduledTask.reviewReminder">Recordatorio de revisión</message>
-	<message key="admin.scheduledTask.subscriptionExpiryReminder">Recordatorio de caducidad de subscripción</message>
-	<message key="admin.settings.oneStepReset">Utilitzar reinicio de palabras clave en un solo paso?</message>
-	<message key="admin.fileLoader.fileProcessed">El fitxero {$filename} se ha procesado y archivado.</message>
+	<message key="admin.fileLoader.fileProcessed">El archivo {$filename} se ha procesado y archivado.</message>
+	<message key="admin.fileLoader">Cargador de archivos</message>	
+	<message key="admin.error.utilExecutionProblem">La ejecución del programa "{$utilPath}" devolvió el siguiente error: {$output}</message>
+	<message key="admin.error.executingUtil">Error: no se ha podido ejecutar "{$utilPath}". Compruebe el valor de {$utilVar} en config.inc.php.</message>
 </locale>

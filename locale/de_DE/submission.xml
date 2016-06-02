@@ -13,6 +13,8 @@
 
 <locale name="de_DE" full_name="Deutsch (Deutschland)">
 	<!-- Author Submission -->
+	
+	<message key="submission.submit.newSubmissionSingle">Neuen Beitrag einreichen</message>
 	<message key="author.submit.userGroupRequired">Ihr Account ist momentan keiner Rolle zugeordnet, die neue Beiträge einreichen kann (z.B. Autor/in). Bitte überprüfen Sie Ihren Account, Sie könnten evtl. eine entsprechende Rolle selbst hinzufügen, wenn Sie Ihr Profil bearbeiten.</message>
 	<message key="author.submit.submissionCitations">Stellen Sie bitte ein formatiertes Literaturverzeichnis für die Werke zur Verfügung, die Sie in Ihrem Beitrag zitiert haben. Bitte trennen Sie die einzelnen Verweise durch Leerzeilen.</message>
 	<message key="submission.submit.submissionComplete">Die Einreichung ist abgeschlossen.</message>
@@ -439,6 +441,7 @@
 	<message key="submission.form.replaceExisting">Eine existierende Datei ersetzen?</message>
 	<!-- Workflow keys -->
 	<message key="workflow.review.internalReview">Interne Begutachtung</message>
+	<message key="workflow.review.externalReview">Externe Begutachtung</message>
 	<!-- Submission status -->
 	<message key="submission.status.editorial">Im Lektorat</message>
 	<message key="submission.status.production">Im Korrekturlektorat</message>
@@ -511,6 +514,7 @@
 	<message key="editor.submission.decision.decline">Beitrag ablehnen</message>
 	<message key="editor.submission.decision.sendToProduction">Zur Produktion senden</message>
 	<message key="editor.submission.decision.sendInternalReview">Zur internen Begutachtung senden</message>
+	<message key="editor.submission.decision.sendExternalReview">Zur externen Begutachtung senden</message>
 	<message key="editor.submission.decision.approveProofs">Korrekturfahne akzeptieren</message>
 	<message key="editor.submission.decision.approveProofsDescription">Die Datei der Korrekturfahne muss angenommen werden, um verfügbar gemacht werden zu können. Wollen Sie sie annehmen?</message>
 	<message key="editor.submission.decision.disapproveProofsDescription">Diese Korrekturfahne wird nicht weiter zum Download oder Erwerb zur Verfügung stehen. Wollen Sie sie ablehnen?</message>

@@ -15,8 +15,9 @@
  */
 
 import('lib.pkp.classes.submission.Submission');
+import('lib.pkp.classes.plugins.PKPPubIdPluginDAO');
 
-abstract class SubmissionDAO extends DAO {
+abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	var $cache;
 	var $authorDao;
 
@@ -215,15 +216,7 @@ abstract class SubmissionDAO extends DAO {
 	}
 
 	/**
-	 * Checks if public identifier exists (other than for the specified
-	 * submission ID, which is treated as an exception).
-	 * @param $pubIdType string One of the NLM pub-id-type values or
-	 * 'other::something' if not part of the official NLM list
-	 * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
-	 * @param $pubId string
-	 * @param $submissionId int An ID to be excluded from the search.
-	 * @param $contextId int
-	 * @return boolean
+	 * @copydoc PKPPubIdPluginDAO::pubIdExists()
 	 */
 	function pubIdExists($pubIdType, $pubId, $submissionId, $contextId) {
 		$result = $this->retrieve(
@@ -244,11 +237,40 @@ abstract class SubmissionDAO extends DAO {
 	}
 
 	/**
-	 * Delete the public IDs of all submissions in this context.
-	 * @param $contextId int
-	 * @param $pubIdType string One of the NLM pub-id-type values or
-	 * 'other::something' if not part of the official NLM list
-	 * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
+	 * @copydoc PKPPubIdPluginDAO::changePubId()
+	 */
+	function changePubId($submissionId, $pubIdType, $pubId) {
+		$idFields = array(
+			'submission_id', 'locale', 'setting_name'
+		);
+		$updateArray = array(
+			'submission_id' => (int) $submissionId,
+			'locale' => '',
+			'setting_name' => 'pub-id::'.$pubIdType,
+			'setting_type' => 'string',
+			'setting_value' => (string)$pubId
+		);
+		$this->replace('submission_settings', $updateArray, $idFields);
+		$this->flushCache();
+	}
+
+	/**
+	 * @copydoc PKPPubIdPluginDAO::deletePubId()
+	 */
+	function deletePubId($submissionId, $pubIdType) {
+		$settingName = 'pub-id::'.$pubIdType;
+		$this->update(
+			'DELETE FROM submission_settings WHERE setting_name = ? AND submission_id = ?',
+			array(
+				$settingName,
+				(int)$submissionId
+			)
+		);
+		$this->flushCache();
+	}
+
+	/**
+	 * @copydoc PKPPubIdPluginDAO::deleteAllPubIds()
 	 */
 	function deleteAllPubIds($contextId, $pubIdType) {
 		$contextId = (int) $contextId;
@@ -264,48 +286,6 @@ abstract class SubmissionDAO extends DAO {
 					)
 					);
 		}
-		$this->flushCache();
-	}
-
-	/**
-	 * Delete the public ID of a submission.
-	 * @param $submissionId int
-	 * @param $pubIdType string One of the NLM pub-id-type values or
-	 * 'other::something' if not part of the official NLM list
-	 * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
-	 */
-	function deletePubId($submissionId, $pubIdType) {
-		$settingName = 'pub-id::'.$pubIdType;
-		$this->update(
-			'DELETE FROM submission_settings WHERE setting_name = ? AND submission_id = ?',
-			array(
-				$settingName,
-				(int)$submissionId
-			)
-		);
-		$this->flushCache();
-	}
-
-	/**
-	 * Change the public ID of a submission.
-	 * @param $submissionId int
-	 * @param $pubIdType string One of the NLM pub-id-type values or
-	 * 'other::something' if not part of the official NLM list
-	 * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
-	 * @param $pubId string
-	 */
-	function changePubId($submissionId, $pubIdType, $pubId) {
-		$idFields = array(
-			'submission_id', 'locale', 'setting_name'
-		);
-		$updateArray = array(
-			'submission_id' => (int) $submissionId,
-			'locale' => '',
-			'setting_name' => 'pub-id::'.$pubIdType,
-			'setting_type' => 'string',
-			'setting_value' => (string)$pubId
-		);
-		$this->replace('submission_settings', $updateArray, $idFields);
 		$this->flushCache();
 	}
 

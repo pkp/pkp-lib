@@ -21,7 +21,8 @@ class PKPAssignPublicIdentifiersForm extends Form {
 	/** @var int The context id */
 	var $_contextId;
 
-	/** @var object The pub object the identifiers are edited of
+	/** @var object The pub object, that are beeing approved,
+	 * the pub ids can be considered for assignement there
 	 * OJS Issue, Representation or SubmissionFile
 	 */
 	var $_pubObject;
@@ -38,13 +39,13 @@ class PKPAssignPublicIdentifiersForm extends Form {
 	 * Constructor.
 	 * @param $template string Form template
 	 * @param $pubObject object
-	 * @param $stageId integer
-	 * @param $formParams array
+	 * @param $approval boolean
+	 * @param $confirmationText string
 	 */
-	function PKPAssignPublicIdentifiersForm($template, &$pubObject, $approval, $confirmationText) {
+	function PKPAssignPublicIdentifiersForm($template, $pubObject, $approval, $confirmationText) {
 		parent::Form($template);
 
-		$this->_pubObject =& $pubObject;
+		$this->_pubObject = $pubObject;
 		$this->_approval = $approval;
 		$this->_confirmationText = $confirmationText;
 
@@ -56,9 +57,7 @@ class PKPAssignPublicIdentifiersForm extends Form {
 	}
 
 	/**
-	 * Fetch the HTML contents of the form.
-	 * @param $request PKPRequest
-	 * return string
+	 * @copydoc Form::fetch()
 	 */
 	function fetch($request) {
 		$templateMgr = TemplateManager::getManager($request);
@@ -78,13 +77,13 @@ class PKPAssignPublicIdentifiersForm extends Form {
 	 * Get the pub object
 	 * @return object
 	 */
-	function &getPubObject() {
+	function getPubObject() {
 		return $this->_pubObject;
 	}
 
 	/**
-	 * Get the stage id
-	 * @return integer WORKFLOW_STAGE_ID_
+	 * Get weather it is an approval
+	 * @return boolean
 	 */
 	function getApproval() {
 		return $this->_approval;
@@ -99,7 +98,8 @@ class PKPAssignPublicIdentifiersForm extends Form {
 	}
 
 	/**
-	 * Get the extra form parameters.
+	 * Get the confirmation text.
+	 * @return string
 	 */
 	function getConfirmationText() {
 		return $this->_confirmationText;
@@ -114,13 +114,13 @@ class PKPAssignPublicIdentifiersForm extends Form {
 	}
 
 	/**
-	 * Save the metadata and store the catalog data for this published
-	 * monograph.
+	 * Assign pub ids.
+	 * @copydoc Form::execute()
 	 */
 	function execute($request) {
 		parent::execute($request);
 
-		$pubObject =& $this->getPubObject();
+		$pubObject = $this->getPubObject();
 		$pubIdPluginHelper = new PKPPubIdPluginHelper();
 		$pubIdPluginHelper->assignPubId($this->getContextId(), $this, $pubObject);
 	}

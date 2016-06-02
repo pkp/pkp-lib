@@ -93,7 +93,7 @@ class PKPPublicIdentifiersForm extends Form {
 	 * Get the pub object
 	 * @return object
 	 */
-	function &getPubObject() {
+	function getPubObject() {
 		return $this->_pubObject;
 	}
 
@@ -115,6 +115,7 @@ class PKPPublicIdentifiersForm extends Form {
 
 	/**
 	 * Get the extra form parameters.
+	 * @return array
 	 */
 	function getFormParams() {
 		return $this->_formParams;
@@ -143,12 +144,13 @@ class PKPPublicIdentifiersForm extends Form {
 	}
 
 	/**
+	 * Store objects with pub ids.
 	 * @copydoc Form::execute()
 	 */
 	function execute($request) {
 		parent::execute($request);
 
-		$pubObject =& $this->getPubObject();
+		$pubObject = $this->getPubObject();
 		$pubObject->setStoredPubId('publisher-id', $this->getData('publisherId'));
 
 		$pubIdPluginHelper = new PKPPubIdPluginHelper();

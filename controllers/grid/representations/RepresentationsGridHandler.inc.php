@@ -214,12 +214,10 @@ abstract class RepresentationsGridHandler extends CategoryGridHandler {
 	}
 
 	/**
-	 * Get the teplate for the assign public identifiers form.
+	 * Get the template for the assign public identifiers form.
 	 * @return string
 	 */
-	function getAssignPublicIdentifiersFormTemplate() {
-		assert(false);
-	}
+	abstract function getAssignPublicIdentifiersFormTemplate();
 
 }
 

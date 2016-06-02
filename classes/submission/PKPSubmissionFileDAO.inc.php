@@ -32,8 +32,9 @@
 
 import('lib.pkp.classes.file.PKPFileDAO');
 import('lib.pkp.classes.submission.Genre'); // GENRE_CATEGORY_... constants
+import('lib.pkp.classes.plugins.PKPPubIdPluginDAO');
 
-abstract class PKPSubmissionFileDAO extends PKPFileDAO {
+abstract class PKPSubmissionFileDAO extends PKPFileDAO implements PKPPubIdPluginDAO {
 	/**
 	 * @var array a private list of delegates that provide operations for
 	 *  different SubmissionFile implementations.
@@ -610,6 +611,38 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO {
 			SUBMISSION_FILE_DEPENDENT,
 			SUBMISSION_FILE_QUERY,
 		);
+	}
+
+	/**
+	 * @copydoc PKPPubIdPluginDAO::pubIdExists()
+	 */
+	function pubIdExists($pubIdType, $pubId, $fileId, $contextId) {
+		$submissionFileDAODelegate = $this->_getDaoDelegate('submissionfile');
+		return $submissionFileDAODelegate->pubIdExists($pubIdType, $pubId, $fileId, $contextId);
+	}
+
+	/**
+	 * @copydoc PKPPubIdPluginDAO::changePubId()
+	 */
+	function changePubId($fileId, $pubIdType, $pubId) {
+		$submissionFileDAODelegate = $this->_getDaoDelegate('submissionfile');
+		$submissionFileDAODelegate->changePubId($fileId, $pubIdType, $pubId);
+	}
+
+	/**
+	 * @copydoc PKPPubIdPluginDAO::deletePubId()
+	 */
+	function deletePubId($fileId, $pubIdType) {
+		$submissionFileDAODelegate = $this->_getDaoDelegate('submissionfile');
+		$submissionFileDAODelegate->deletePubId($fileId, $pubIdType);
+	}
+
+	/**
+	 * @copydoc PKPPubIdPluginDAO::deleteAllPubIds()
+	 */
+	function deleteAllPubIds($contextId, $pubIdType) {
+		$submissionFileDAODelegate = $this->_getDaoDelegate('submissionfile');
+		$submissionFileDAODelegate->deleteAllPubIds($contextId, $pubIdType);
 	}
 
 	//

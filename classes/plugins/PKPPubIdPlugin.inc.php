@@ -37,8 +37,9 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin {
 			// Enable storage of additional fields.
 			foreach($this->getDAOs() as $publicObjectType => $dao) {
 				HookRegistry::register(strtolower_codesafe(get_class($dao)).'::getAdditionalFieldNames', array($this, 'getAdditionalFieldNames'));
-				if (strtolower_codesafe(get_class($dao)) == 'submissionfiledaodelegate') {
-					// if it is a file, consider all file types
+				if (strtolower_codesafe(get_class($dao)) == 'submissionfiledao') {
+					// if it is a file, consider all file delegates
+					HookRegistry::register('submissionfiledaodelegate::getAdditionalFieldNames', array($this, 'getAdditionalFieldNames'));
 					HookRegistry::register('supplementaryfiledaodelegate::getAdditionalFieldNames', array($this, 'getAdditionalFieldNames'));
 					HookRegistry::register('submissionartworkfiledaodelegate::getAdditionalFieldNames', array($this, 'getAdditionalFieldNames'));
 				}
@@ -152,7 +153,7 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin {
 	/**
 	 * Get the file (path + filename)
 	 * to be included into the object's
-	 * identifiers tab.
+	 * identifiers tab, e.g. for suffix editing.
 	 * @return string
 	 */
 	abstract function getPubIdMetadataFile();
@@ -173,7 +174,8 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin {
 	abstract function instantiateSettingsForm($contextId);
 
 	/**
-	 * Get the additional form field names.
+	 * Get the additional form field names,
+	 * for metadata, e.g. suffix field name.
 	 * @return array
 	 */
 	abstract function getFormFieldNames();
@@ -197,7 +199,8 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin {
 	abstract function getSuffixFieldName();
 
 	/**
-	 * Get the link actions used in the pub id forms.
+	 * Get the link actions used in the pub id forms,
+	 * e.g. clear pub id.
 	 * @return array
 	 */
 	abstract function getLinkActions($pubObject);

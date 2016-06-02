@@ -350,11 +350,25 @@ class SubmissionFileDAODelegate extends DAO {
 	}
 
 	/**
-	 * Delete the public ID of a file.
-	 * @param $fileId int
-	 * @param $pubIdType string One of the NLM pub-id-type values or
-	 * 'other::something' if not part of the official NLM list
-	 * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
+	 * @copydoc PKPPubIdPluginDAO::changePubId()
+	 */
+	function changePubId($fileId, $pubIdType, $pubId) {
+		$idFields = array(
+			'file_id', 'locale', 'setting_name'
+		);
+		$updateArray = array(
+			'file_id' => (int) $fileId,
+			'locale' => '',
+			'setting_name' => 'pub-id::'.$pubIdType,
+			'setting_type' => 'string',
+			'setting_value' => (string)$pubId
+		);
+		$this->replace('submission_file_settings', $updateArray, $idFields);
+		$this->flushCache();
+	}
+
+	/**
+	 * @copydoc PKPPubIdPluginDAO::deletePubId()
 	 */
 	function deletePubId($fileId, $pubIdType) {
 		$settingName = 'pub-id::'.$pubIdType;
@@ -369,11 +383,7 @@ class SubmissionFileDAODelegate extends DAO {
 	}
 
 	/**
-	 * Delete the public IDs of all files in a context.
-	 * @param $contextId int
-	 * @param $pubIdType string One of the NLM pub-id-type values or
-	 * 'other::something' if not part of the official NLM list
-	 * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
+	 * @copydoc PKPPubIdPluginDAO::deleteAllPubIds()
 	 */
 	function deleteAllPubIds($contextId, $pubIdType) {
 		$contextId = (int) $contextId;
@@ -396,30 +406,6 @@ class SubmissionFileDAODelegate extends DAO {
 		}
 		$this->flushCache();
 	}
-
-	/**
-	 * Change the public ID of a file.
-	 * @param $fileId int
-	 * @param $pubIdType string One of the NLM pub-id-type values or
-	 * 'other::something' if not part of the official NLM list
-	 * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
-	 * @param $pubId string
-	 */
-	function changePubId($fileId, $pubIdType, $pubId) {
-		$idFields = array(
-			'file_id', 'locale', 'setting_name'
-		);
-		$updateArray = array(
-			'file_id' => (int) $fileId,
-			'locale' => '',
-			'setting_name' => 'pub-id::'.$pubIdType,
-			'setting_type' => 'string',
-			'setting_value' => (string)$pubId
-		);
-		$this->replace('submission_file_settings', $updateArray, $idFields);
-		$this->flushCache();
-	}
-
 
 	//
 	// Private helper methods

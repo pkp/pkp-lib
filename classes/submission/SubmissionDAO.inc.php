@@ -132,35 +132,35 @@ abstract class SubmissionDAO extends DAO {
 	 * @return array
 	 */
 	function getSubmissionRevisions($submissionId, $contextId = null, $showAll = false, $withTitle = false, $order = SORT_DIRECTION_ASC) {
-		$params = array();
-		if ($withTitle) {
-			$params[] = AppLocale::getPrimaryLocale();
+
+		if (!ctype_digit("$submissionId")) {
+			$publishedArticleDao = DAORegistry::getDAO('PublishedArticleDAO');
+			$publishedArticle = $publishedArticleDao->getPublishedArticleByPubId('publisher-id', $submissionId, $contextId);
+			$submissionId = $publishedArticle->getId();
 		}
-		$params[] = (int) $submissionId;
+		
+		$params = array((int) $submissionId);
 		if ($contextId) {
 			$params[] = (int) $contextId;
 		}
-
-		$sql = 'SELECT DISTINCT ' . ($withTitle ? 'stl.' : '') . 'submission_revision AS revision' . ($withTitle ? ', COALESCE(stl.setting_value, stpl.setting_value) AS submission_title' : '') . 
-		       ' FROM submission_settings ' .
-			   'INNER JOIN submissions s ON submission_settings.submission_id = s.submission_id' .
-			   ($withTitle ? ' LEFT JOIN submission_settings stl ON (stl.setting_name = "title" AND stl.locale = ?) 
-							   LEFT JOIN submission_settings stpl ON (stpl.setting_name = "title" AND stpl.locale = s.locale)' : '') . 
+		
+		$sql = 'SELECT DISTINCT submission_revision FROM submission_settings ' .
+			   'INNER JOIN submissions ON submission_settings.submission_id = submissions.submission_id' .
 			   ' WHERE submission_settings.submission_id = ?'  . 
-			   ($withTitle ? ' AND submission_settings.submission_id = stl.submission_id' : '') .
-			   ($contextId ? ' AND s.context_id = ?' : '') .
-			   ' ORDER BY revision ' . $this->getDirectionMapping($order);
-
+			   ($contextId ? ' AND submissions.context_id = ?' : '') .
+			   ' ORDER BY submission_revision ' . $this->getDirectionMapping($order);
+		
 		$result = $this->retrieve($sql, $params);
 		$submissionRevisions = array();
 		
-		foreach($result->getArray() as $submission) {
-			$revision = $submission['revision'];
-			
+		foreach($result->getArray() as $submission) { 
+			$revision = $submission['submission_revision'];
+
 			if ($withTitle == false) {
 				$submissionRevisions[] = $revision;
 			} else {
-				$submissionRevisions[$revision] = $submission['submission_title'] . ' (' . $revision . ')';
+				$title = $this->getLocalizedTitleByVersion($submissionId, $revision);
+				$submissionRevisions[$revision] = $title . ' (' . $revision . ')';
 			}
 		}
 
@@ -176,17 +176,39 @@ abstract class SubmissionDAO extends DAO {
 	}
 	
 	/**
+	 * Get the localized title of a submission for a specific version
+	 * @param $submissionId int
+	 * @param $revisionId int
+	 * @return string
+	 */
+	function getLocalizedTitleByVersion($submissionId, $revisionId) {
+		$localePrecedence = array_map(function($v) { return '"'.$v.'"'; }, AppLocale::getLocalePrecedence());
+		$strLocalePrecedence = implode(', ', $localePrecedence);
+		
+		$params = array((int) $submissionId, 'title', (int) $revisionId);
+		
+		$sql = "SELECT locale, setting_value FROM submission_settings WHERE submission_id = ? AND setting_name = ? AND submission_revision = ? AND locale IN ($strLocalePrecedence)";
+		$result = $this->retrieve($sql, $params);
+		$resultArray = $result->getArray();
+
+		foreach(AppLocale::getLocalePrecedence() as $preferredLocale) {
+			foreach($resultArray as $data) {
+				if (in_array($preferredLocale, $data) && !empty($data['setting_value'])) {
+					return $data['setting_value'];
+				}
+			}
+		}
+		
+		return '';
+	}
+	
+	/**
 	 * Get the current revision id for a submission
 	 * @param $submissionId int
 	 * @param $contextId int
 	 * @return int
 	 */
 	function getLatestRevisionId($submissionId, $contextId = null) {
-		if (!ctype_digit("$submissionId")) {
-			$publishedArticleDao = DAORegistry::getDAO('PublishedArticleDAO');
-			$publishedArticle = $publishedArticleDao->getPublishedArticleByPubId('publisher-id', $submissionId, $contextId);
-			$submissionId = $publishedArticle->getId();
-		}
 		$submissionRevisions = $this->getSubmissionRevisions($submissionId, $contextId, true);
 		return array_pop($submissionRevisions);
 	}

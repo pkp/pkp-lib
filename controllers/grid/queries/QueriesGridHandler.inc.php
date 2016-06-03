@@ -116,11 +116,6 @@ class QueriesGridHandler extends GridHandler {
 		} else {
 			import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
 			$this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $this->_stageId));
-
-			if ($request->getUserVar('representationId')) {
-				import('lib.pkp.classes.security.authorization.internal.RepresentationRequiredPolicy');
-				$this->addPolicy(new RepresentationRequiredPolicy($request, $args));
-			}
 		}
 
 		return parent::authorize($request, $args, $roleAssignments);

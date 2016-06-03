@@ -15,7 +15,7 @@
  */
 
 // Import the base handler.
-import('lib.pkp.classes.file.FileManagementHandler');
+import('classes.handler.Handler');
 
 // Import JSON class for use with all AJAX requests.
 import('lib.pkp.classes.core.JSONMessage');
@@ -25,7 +25,7 @@ import('lib.pkp.classes.core.JSONMessage');
 // considered as a revision of that file.
 define('SUBMISSION_MIN_SIMILARITY_OF_REVISION', 70);
 
-class PKPFileUploadWizardHandler extends FileManagementHandler {
+class PKPFileUploadWizardHandler extends Handler {
 	/** @var integer */
 	var $_fileStage;
 
@@ -124,6 +124,11 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 	}
 
 	function authorize($request, &$args, $roleAssignments) {
+		// Allow both reviewers (if in review) and context roles.
+		import('classes.security.authorization.ReviewStageAccessPolicy');
+
+		$this->addPolicy(new ReviewStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $request->getUserVar('stageId')), true);
+
 		return parent::authorize($request, $args, $roleAssignments);
 	}
 
@@ -131,6 +136,23 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 	//
 	// Getters and Setters
 	//
+	/**
+	 * The submission to which we upload files.
+	 * @return Submission
+	 */
+	function getSubmission() {
+		return $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+	}
+
+
+	/**
+	 * Get the authorized workflow stage.
+	 * @return integer One of the WORKFLOW_STAGE_ID_* constants.
+	 */
+	function getStageId() {
+		return $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+	}
+
 	/**
 	 * Get the workflow stage file storage that
 	 * we upload files to. One of the SUBMISSION_FILE_*
@@ -272,7 +294,7 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 	 * @param $request Request
 	 * @return JSONMessage JSON object
 	 */
-	function uploadFile($args, $request, $fileModifyCallback = null) {
+	function uploadFile($args, $request) {
 		// Instantiate the file upload form.
 		$submission = $this->getSubmission();
 		import('lib.pkp.controllers.wizard.fileUpload.form.SubmissionFilesUploadForm');
@@ -283,34 +305,54 @@ class PKPFileUploadWizardHandler extends FileManagementHandler {
 		$uploadForm->readInputData();
 
 		// Validate the form and upload the file.
-		if ($uploadForm->validate($request)) {
-			if (is_a($uploadedFile = $uploadForm->execute($request), 'SubmissionFile')) { /* @var $uploadedFile SubmissionFile */
-				// Retrieve file info to be used in a JSON response.
-				$uploadedFileInfo = $this->_getUploadedFileInfo($uploadedFile);
-				$reviewRound = $this->getReviewRound();
-
-				// If no revised file id was given then try out whether
-				// the user maybe accidentally didn't identify this file as a revision.
-				if (!$uploadForm->getRevisedFileId()) {
-					$revisedFileId = $this->_checkForRevision($uploadedFile, $uploadForm->getSubmissionFiles());
-					if ($revisedFileId) {
-						// Instantiate the revision confirmation form.
-						import('lib.pkp.controllers.wizard.fileUpload.form.SubmissionFilesUploadConfirmationForm');
-						$confirmationForm = new SubmissionFilesUploadConfirmationForm($request, $submission->getId(), $this->getStageId(), $this->getFileStage(), $reviewRound, $revisedFileId, $this->getAssocType(), $this->getAssocId(), $uploadedFile);
-						$confirmationForm->initData($args, $request);
-
-						// Render the revision confirmation form.
-						return new JSONMessage(true, $confirmationForm->fetch($request), '0', $uploadedFileInfo);
-					}
-				}
-
-				// Advance to the next step (i.e. meta-data editing).
-				return new JSONMessage(true, '', '0', $uploadedFileInfo);
-			} else {
-				return new JSONMessage(false, __('common.uploadFailed'));
-			}
-		} else {
+		if (!$uploadForm->validate($request)) {
 			return new JSONMessage(false, array_pop($uploadForm->getErrorsArray()));
+		}
+
+		$uploadedFile = $uploadForm->execute($request); /* @var $uploadedFile SubmissionFile */
+		if (!is_a($uploadedFile, 'SubmissionFile')) {
+			return new JSONMessage(false, __('common.uploadFailed'));
+		}
+
+		$this->_attachEntities($uploadedFile);
+
+		// Retrieve file info to be used in a JSON response.
+		$uploadedFileInfo = $this->_getUploadedFileInfo($uploadedFile);
+		$reviewRound = $this->getReviewRound();
+
+		// If no revised file id was given then try out whether
+		// the user maybe accidentally didn't identify this file as a revision.
+		if (!$uploadForm->getRevisedFileId()) {
+			$revisedFileId = $this->_checkForRevision($uploadedFile, $uploadForm->getSubmissionFiles());
+			if ($revisedFileId) {
+				// Instantiate the revision confirmation form.
+				import('lib.pkp.controllers.wizard.fileUpload.form.SubmissionFilesUploadConfirmationForm');
+				$confirmationForm = new SubmissionFilesUploadConfirmationForm($request, $submission->getId(), $this->getStageId(), $this->getFileStage(), $reviewRound, $revisedFileId, $this->getAssocType(), $this->getAssocId(), $uploadedFile);
+				$confirmationForm->initData($args, $request);
+
+				// Render the revision confirmation form.
+				return new JSONMessage(true, $confirmationForm->fetch($request), '0', $uploadedFileInfo);
+			}
+		}
+
+		// Advance to the next step (i.e. meta-data editing).
+		return new JSONMessage(true, '', '0', $uploadedFileInfo);
+	}
+
+	/**
+	 * Attach any dependent entities to a new file upload.
+	 * @param $submissionFile SubmissionFile
+	 */
+	protected function _attachEntities($submissionFile) {
+		switch ($submissionFile->getFileStage()) {
+			case SUBMISSION_FILE_REVIEW_FILE:
+			case SUBMISSION_FILE_REVIEW_ATTACHMENT:
+			case SUBMISSION_FILE_REVIEW_REVISION:
+				// Add the uploaded review file to the review round.
+				$reviewRound = $this->getReviewRound();
+				$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+				$submissionFileDao->assignRevisionToReviewRound($submissionFile->getFileId(), $submissionFile->getRevision(), $reviewRound);
+				break;
 		}
 	}
 

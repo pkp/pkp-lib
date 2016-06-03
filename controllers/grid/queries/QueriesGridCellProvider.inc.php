@@ -8,7 +8,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class QueriesGridCellProvider
- * @ingroup controllers_grid_users_author
+ * @ingroup controllers_grid_queries
  *
  * @brief Base class for a cell provider that can retrieve labels for queries.
  */

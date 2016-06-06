@@ -199,9 +199,10 @@ class FileManager {
 	 * @param $output boolean output the file's contents instead of returning a string
 	 * @return string|boolean
 	 */
-	function readFile($filePath, $output = false) {
+	function readFileFromPath($filePath, $output = false) {
 		if (is_readable($filePath)) {
 			$f = fopen($filePath, 'rb');
+			if (!$f) return false;
 			$data = '';
 			while (!feof($f)) {
 				$data .= fread($f, 4096);
@@ -212,15 +213,10 @@ class FileManager {
 			}
 			fclose($f);
 
-			if ($output) {
-				return true;
-			} else {
-				return $data;
-			}
-
-		} else {
-			return false;
+			if ($output) return true;
+			return $data;
 		}
+		return false;
 	}
 
 	/**
@@ -264,9 +260,7 @@ class FileManager {
 			header('Cache-Control: private'); // Workarounds for IE weirdness
 			header('Pragma: public');
 
-			// Beware of converting to instance call
-			// https://github.com/pkp/pkp-lib/commit/82f4a36db406ecac3eb88875541a74123e455713#commitcomment-1459396
-			FileManager::readFile($filePath, true);
+			$this->readFileFromPath($filePath, true);
 
 			if ($postDownloadHooks) {
 				foreach ($postDownloadHooks as $hookName => $hooks) {

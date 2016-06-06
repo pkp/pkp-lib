@@ -90,7 +90,7 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 			// Make sure that the file belongs to the submission.
 			if ($submissionFile->getSubmissionId() != $this->getSubmissionId()) fatalError('Invalid file id!');
 
-			SubmissionFileManager::recordView($submissionFile);
+			$this->recordView($submissionFile);
 
 			// Send the file to the user.
 			$filePath = $submissionFile->getFilePath();
@@ -105,7 +105,7 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 	 * Record a file view in database.
 	 * @param $submissionFile SubmissionFile
 	 */
-	function recordView(&$submissionFile) {
+	function recordView($submissionFile) {
 		// Mark the file as viewed by this user.
 		$sessionManager = SessionManager::getManager();
 		$session = $sessionManager->getUserSession();
@@ -127,7 +127,7 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 	 * @param $assocType integer
 	 * @return integer the file ID (false if upload failed)
 	 */
-	function temporaryFileToSubmissionFile(&$temporaryFile, $fileStage, $uploaderUserId, $uploaderUserGroupId, $revisedFileId, $genreId, $assocType, $assocId) {
+	function temporaryFileToSubmissionFile($temporaryFile, $fileStage, $uploaderUserId, $uploaderUserGroupId, $revisedFileId, $genreId, $assocType, $assocId) {
 		// Instantiate and pre-populate the new target submission file.
 		$sourceFile = $temporaryFile->getFilePath();
 		$submissionFile = $this->_instantiateSubmissionFile($sourceFile, $fileStage, $revisedFileId, $genreId, $assocType, $assocId);
@@ -266,7 +266,7 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 		// Retrieve the submission file DAO.
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 
-		// Except for reviewer file attchments we either need a genre id or a
+		// Except for reviewer file attachments we either need a genre id or a
 		// revised file, otherwise we cannot identify the target file
 		// implementation.
 		if ($fileStage != SUBMISSION_FILE_REVIEW_ATTACHMENT) {

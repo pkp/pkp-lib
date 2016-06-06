@@ -47,6 +47,7 @@ class BaseSubmissionFileManager extends ContextFileManager {
 	//
 	/**
 	 * Get the base path for file storage.
+	 * @return string
 	 */
 	function getBasePath() {
 		$dirNames = Application::getFileDirectories();
@@ -55,6 +56,7 @@ class BaseSubmissionFileManager extends ContextFileManager {
 
 	/**
 	 * Get the submission ID that this manager operates upon.
+	 * @return int
 	 */
 	function getSubmissionId() {
 		return $this->_submissionId;

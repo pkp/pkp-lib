@@ -38,26 +38,9 @@ class TemporaryFileManager extends PrivateFileManager {
 	 * Retrieve file information by file ID.
 	 * @return TemporaryFile
 	 */
-	function &getFile($fileId, $userId) {
+	function getFile($fileId, $userId) {
 		$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO');
-		$temporaryFile =& $temporaryFileDao->getTemporaryFile($fileId, $userId);
-		return $temporaryFile;
-	}
-
-	/**
-	 * Read a file's contents.
-	 * @param $output boolean output the file's contents instead of returning a string
-	 * @return boolean
-	 */
-	function readFile($fileId, $userId, $output = false) {
-		$temporaryFile =& $this->getFile($fileId, $userId);
-
-		if (isset($temporaryFile)) {
-			$filePath = $this->getBasePath() . $temporaryFile->getServerFileName();
-			return parent::readFile($filePath, $output);
-		} else {
-			return false;
-		}
+		return $temporaryFileDao->getTemporaryFile($fileId, $userId);
 	}
 
 	/**

@@ -52,7 +52,7 @@ class EmailReviewerForm extends Form {
 	 */
 	function fetch($request, $requestArgs = array()) {
 		$userDao = DAORegistry::getDAO('UserDAO');
-		$user = $userDao->getById($this->userId);
+		$user = $userDao->getById($this->_reviewAssignment->getReviewerId());
 
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign(array(

@@ -120,10 +120,11 @@ class RepresentationsGridCellProvider extends DataObjectGridCellProvider {
 						)
 					);
 				case 'isComplete':
-					import('lib.pkp.classes.linkAction.request.AjaxModal');
 					return array(new LinkAction(
 						'approveRepresentation',
-						new AjaxModal(
+						new RemoteActionConfirmationModal(
+							__($data->getIsApproved()?'grid.catalogEntry.approvedRepresentation.removeMessage':'grid.catalogEntry.approvedRepresentation.message'),
+							__('grid.catalogEntry.approvedRepresentation.title'),
 							$router->url(
 								$request, null, null, 'setApproved', null,
 								array(
@@ -132,7 +133,6 @@ class RepresentationsGridCellProvider extends DataObjectGridCellProvider {
 									'submissionId' => $data->getSubmissionId(),
 								)
 							),
-							__('grid.catalogEntry.approvedRepresentation.title'),
 							'modal_approve'
 						),
 						$data->getIsApproved()?__('submission.complete'):__('submission.incomplete'),
@@ -150,11 +150,12 @@ class RepresentationsGridCellProvider extends DataObjectGridCellProvider {
 					return $fileNameColumn->getCellActions($request, $row);
 				case 'isComplete':
 					AppLocale::requireComponents(LOCALE_COMPONENT_PKP_EDITOR);
-					import('lib.pkp.classes.linkAction.request.AjaxModal');
-					$title = __($submissionFile->getViewable()?'editor.submission.proofreading.revokeProofApproval':'editor.submission.proofreading.approveProof');
+					import('lib.pkp.classes.linkAction.request.AjaxAction');
 					return array(new LinkAction(
 						$submissionFile->getViewable()?'approved':'not_approved',
-						new AjaxModal(
+						new RemoteActionConfirmationModal(
+							__($submissionFile->getViewable()?'editor.submission.proofreading.confirmRemoveCompletion':'editor.submission.proofreading.confirmCompletion'),
+							__($submissionFile->getViewable()?'editor.submission.proofreading.revokeProofApproval':'editor.submission.proofreading.approveProof'),
 							$router->url(
 								$request, null, null, 'setProofFileCompletion',
 								null,
@@ -165,12 +166,9 @@ class RepresentationsGridCellProvider extends DataObjectGridCellProvider {
 									'approval' => !$submissionFile->getViewable(),
 								)
 							),
-							$title,
-						'	modal_approve'
+							'modal_approve'
 						),
-						$submissionFile->getViewable()?__('grid.catalogEntry.availableRepresentation.approved'):__('grid.catalogEntry.availableRepresentation.notApproved'),
-						$submissionFile->getViewable()?'complete':'incomplete',
-						__('grid.action.setApproval')
+						$submissionFile->getViewable()?__('grid.catalogEntry.availableRepresentation.approved'):__('grid.catalogEntry.availableRepresentation.notApproved')
 					));
 			}
 		}

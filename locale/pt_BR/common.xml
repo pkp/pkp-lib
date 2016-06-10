@@ -77,7 +77,7 @@
 	<message key="common.ccLicense"><![CDATA[
 		<br /><br />
 		<a target="_blank" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
-			<img alt="Licença Creative Commons" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"/>
+			<img alt="Licença Creative Commons" style="border-width:0" src="//i.creativecommons.org/l/by/3.0/80x15.png"/>
 		</a>
 		<br/>
 		Este trabalho está licenciado sob uma <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/3.0/">Licença Creative Commons Attribution 3.0 </a>.
@@ -85,7 +85,7 @@
 	<message key="common.ccLicense.rt"><![CDATA[
 	<div class="rtBlock">
 		<br />
-		<a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_blank"><img alt="Licença Creative Commons" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
+		<a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_blank"><img alt="Licença Creative Commons" style="border-width:0" src="//i.creativecommons.org/l/by/3.0/80x15.png" /></a>
 		<br />
 		Este trabalho está licenciado sob uma <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_blank">Licença Creative Commons Attribution 3.0</a>.
 	</div>

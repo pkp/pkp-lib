@@ -55,13 +55,13 @@
 	<message key="common.captchaField">വാലിഡേഷന്‍</message>
 	<message key="common.ccLicense"><![CDATA[<br /><br />
 		<a target="_new" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
-			<img alt="ക്രിയേറ്റീവ് കോമ്മണ്‍സ് അനുമതിപ്പത്രം" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"/>
+			<img alt="ക്രിയേറ്റീവ് കോമ്മണ്‍സ് അനുമതിപ്പത്രം" style="border-width:0" src="//i.creativecommons.org/l/by/3.0/80x15.png"/>
 		</a>
 		<br/>
 		ഈ കൃതി  <a rel="license" target="_new" href="http://creativecommons.org/licenses/by/3.0/">ക്രിയേറ്റീവ് കോമ്മണ്‍സ് ആട്രിബ്യൂഷന്‍ 3.0  അനുമതിപത്രം പ്രകാരം ലൈസന്‍സ് ചെയ്തിട്ടുള്ളതാണ്</a>.]]></message>
 	<message key="common.ccLicense.rt"><![CDATA[<div class="rtBlock">
 		<br />
-		<a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new"><img alt="ക്രിയേറ്റീവ് കോമ്മണ്‍സ്" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
+		<a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new"><img alt="ക്രിയേറ്റീവ് കോമ്മണ്‍സ്" style="border-width:0" src="//i.creativecommons.org/l/by/3.0/80x15.png" /></a>
 		<br />
 		ഈ കൃതി <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new">ക്രിയേറ്റീവ് കോമ്മണ്‍സ് ആട്രിബ്യൂഷന്‍ 3.0  അനുമതിപത്രം പ്രകാരം ലൈസന്‍സ് ചെയ്തിട്ടുള്ളതാണ്</a>.
 	</div>]]></message>

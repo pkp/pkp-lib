@@ -532,7 +532,7 @@ class SubmissionFile extends PKPFile {
 
 		return __('common.file.namingPattern',
 			array(
-				'genre'            => $genre->getLocalizedName(),
+				'genre'            => $genre?$genre->getLocalizedName():'',
 				'docType'          => $this->getDocumentType(),
 				'originalFilename' => $this->getOriginalFilename(),
 				'username'         => $user->getUsername(),

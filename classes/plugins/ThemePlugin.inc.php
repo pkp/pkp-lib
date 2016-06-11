@@ -73,7 +73,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	}
 
 	/**
-	 * The primary method themes should use to add styles, scripts and fonrts,
+	 * The primary method themes should use to add styles, scripts and fonts,
 	 * or register hooks. This method is only fired for the currently active
 	 * theme.
 	 *
@@ -125,9 +125,15 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 
 		// Pass a URL for other files
 		} else {
-			$fullPath = $this->_getBaseUrl($path);
+			if (isset($args['baseUrl'])) {
+				$fullPath = $args['baseUrl'] . $path;
+			} else {
+				$fullPath = $this->_getBaseUrl($path);
+			}
 		}
 
+		// Generate file paths for any additional LESS files to compile with
+		// this style
 		if (isset($args['addLess'])) {
 			foreach ($args['addLess'] as &$file) {
 				$file = $this->_getBaseDir($file);
@@ -265,8 +271,9 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	 * @return null
 	 */
 	public function setParent($parent) {
-		// print_r(PluginRegistry::getPlugins());
+
 		$parent = PluginRegistry::getPlugin('themes', $parent);
+
 		if (!is_a($parent, 'ThemePlugin')) {
 			return;
 		}
@@ -299,7 +306,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	/**
 	 * Register stylesheets and font assets
 	 *
-	 * Passes styles defined by the theme to the templat manager for handling.
+	 * Passes styles defined by the theme to the template manager for handling.
 	 *
 	 * @return null
 	 */
@@ -347,8 +354,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	/**
 	 * Register script assets
 	 *
-	 * Passes defined scripts from the theme to the template manager for
-	 * handling.
+	 * Passes scripts defined by the theme to the template manager for handling.
 	 *
 	 * @return null
 	 */
@@ -374,8 +380,9 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	/**
 	 * Get the base URL to be used for file paths
 	 *
-	 * {$baseUrl} will be replaced with this URL before LESS files are processed
-	 * It is also used to point to LESS/CSS/JS files in <link> elements
+	 * A base URL for loading LESS/CSS/JS files in <link> elements. It will
+	 * also be set to the @base-url variable before LESS files are compiloed so
+	 * that images and fonts can be located.
 	 *
 	 * @param $path string An optional path to append to the base
 	 * @return string

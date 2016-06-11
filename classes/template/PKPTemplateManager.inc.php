@@ -257,8 +257,7 @@ class PKPTemplateManager extends Smarty {
 	 * @param $args array Optional arguments. SUpports:
 	 *   'baseUrl': Base URL to use when rewriting URLs in the LESS file.
 	 *   'addLess': Array of additional LESS files to parse before compiling
-	 * @return string|bool File name if already cached or true if files freshly
-	 *    compiled
+	 * @return string Compiled CSS styles
 	 */
 	public function compileLess($name, $lessFile, $args = array()) {
 

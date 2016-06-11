@@ -93,7 +93,12 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	public function isActive() {
 		$request = $this->getRequest();
 		$context = $request->getContext();
-		$activeTheme = $context->getSetting('themePluginPath');
+		if (is_a($context, 'Context')) {
+			$activeTheme = $context->getSetting('themePluginPath');
+		} else {
+			$site = $request->getSite();
+			$activeTheme = $site->getSetting('themePluginPath');
+		}
 
 		return $activeTheme == basename($this->getPluginPath());
 	}

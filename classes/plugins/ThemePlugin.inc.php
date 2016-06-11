@@ -175,6 +175,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 			$args['path'] = substr($args['path'], -4) == 'less' ? $this->_getBaseDir($path) : $this->_getBaseUrl($args['path']);
 		}
 
+
 		$style = array_merge( $style, $args );
 	}
 
@@ -213,7 +214,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	public function addScript($name, $path, $args = array()) {
 
 		$this->scripts[$name] = array(
-			'path'     => $this->_getBaseUrl($path),
+			'path'     => isset($args['baseUrl']) ? $args['baseUrl'] . $path : $this->_getBaseUrl($path),
 			'context'  => isset($args['context']) && $args['context'] == 'backend' ? 'backend' : 'frontend',
 			'priority' => isset($args['priority']) ? (int) $args['priority'] : STYLE_SEQUENCE_NORMAL,
 		);

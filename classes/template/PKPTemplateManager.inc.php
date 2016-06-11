@@ -274,9 +274,7 @@ class PKPTemplateManager extends Smarty {
 		// Allow plugins to intervene
 		HookRegistry::call('PageHandler::compileLess', array($request, $less, $name, $lessFile, $args));
 
-		$baseUrl = !empty($args['baseUrl']) ? $args['baseUrl'] : $request->getBaseUrl(true);
-
-		// Compile the stylesheet
+		// Read the stylesheet
 		$less->parseFile($lessFile);
 
 		// Add extra LESS files before compiling
@@ -286,7 +284,11 @@ class PKPTemplateManager extends Smarty {
 			}
 		}
 
-		return str_replace('{$baseUrl}', $baseUrl, $less->getCSS());
+		// Set the @base-url variable
+		$baseUrl = !empty($args['baseUrl']) ? $args['baseUrl'] : $request->getBaseUrl(true);
+		$less->parse("@base-url: '$baseUrl';");
+
+		return $less->getCSS();
 	}
 
 	/**

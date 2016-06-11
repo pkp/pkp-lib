@@ -222,7 +222,10 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	 * @return null
 	 */
 	public function modifyScript($name, $args = array()) {
-		if (!isset($this->scripts[$name])) {
+
+		$script = &$this->getScript($name);
+
+		if (empty($script)) {
 			return;
 		}
 
@@ -230,10 +233,29 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 			$args['path'] = $this->_getBaseUrl($args['path']);
 		}
 
-		$this->scripts[$name] = array_merge(
-			$this->scripts[$name],
-			$args
-		);
+		$script = array_merge( $script, $args );
+	}
+
+	/**
+	 * Get a script from this theme or any parent theme
+	 *
+	 * @param string $name The name of the script to retrieve
+	 * @return array|null Reference to the script or null if not found
+	 */
+	public function &getScript($name) {
+
+		// Search this theme
+		if (isset($this->scripts[$name])) {
+			$style = &$this->scripts[$name];
+			return $style;
+		}
+
+		// If no parent theme, no script was found
+		if (!isset($this->parent)) {
+			return;
+		}
+
+		return $this->parent->getScript($name);
 	}
 
 	/**
@@ -332,6 +354,10 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	 */
 	public function _registerScripts() {
 
+		if (isset($this->parent)) {
+			$this->parent->_registerScripts();
+		}
+
 		$request = $this->getRequest();
 		$dispatcher = $request->getDispatcher();
 		$templateManager = TemplateManager::getManager($request);
@@ -346,9 +372,10 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	}
 
 	/**
-	 * Get the base URL to be used for file references in LESS stylesheets
+	 * Get the base URL to be used for file paths
 	 *
 	 * {$baseUrl} will be replaced with this URL before LESS files are processed
+	 * It is also used to point to LESS/CSS/JS files in <link> elements
 	 *
 	 * @param $path string An optional path to append to the base
 	 * @return string

@@ -303,9 +303,7 @@ abstract class PKPOAIDAO extends DAO {
 	 *
 	 * @return string
 	 */
-	function getRecordSelectStatement() {
-		assert(false);
-	}
+	abstract function getRecordSelectStatement();
 
 	/**
 	 * Return the string defining the JOIN part of an sql
@@ -320,9 +318,7 @@ abstract class PKPOAIDAO extends DAO {
 	 * @param $set string
 	 * @return string
 	 */
-	function getRecordJoinClause($dataObjectId = null, $setIds = array(), $set = null) {
-		assert(false);
-	}
+	abstract function getRecordJoinClause($dataObjectId = null, $setIds = array(), $set = null);
 
 	/**
 	 * Return the string defining the WHERE part of
@@ -331,9 +327,7 @@ abstract class PKPOAIDAO extends DAO {
 	 * Must be implemented by subclasses.
 	 * @return string
 	 */
-	function getAccessibleRecordWhereClause() {
-		assert(false);
-	}
+	abstract function getAccessibleRecordWhereClause();
 
 	/**
 	 * Return the string defining the WHERE part of

@@ -109,23 +109,7 @@ class PluginHelper {
 
 			// Copy the plug-in from the temporary folder to the
 			// target folder.
-			// Start with the library part (if any).
-			$libPath = $path . '/lib';
-			$fileManager = new FileManager();
-			if (is_dir($libPath)) {
-				if(!$fileManager->copyDir($libPath, $pluginLibDest)) {
-					$errorMsg = __('manager.plugins.copyError');
-					return null;
-				}
-				// Remove the library part of the temporary folder.
-				$fileManager->rmtree($libPath);
-			}
-
-			// Continue with the application-specific part (mandatory).
-			if (!$fileManager->copyDir($path, $pluginDest)) {
-				$errorMsg = __('manager.plugins.copyError');
-				return null;
-			}
+			_cutAndPasteTemporaryFile($path, $pluginDest, $pluginLibDest, $errorMsg);
 
 			// Remove the temporary folder.
 			$fileManager->rmtree(dirname($path));
@@ -240,25 +224,7 @@ class PluginHelper {
 
 			// Copy the plug-in from the temporary folder to the
 			// target folder.
-			// Start with the library part (if any).
-			$libPath = $path . '/lib';
-			if (is_dir($libPath)) {
-				if(!$fileManager->copyDir($libPath, $pluginLibDest)) {
-					$errorMsg = __('manager.plugins.copyError');
-					return null;
-				}
-				// Remove the library part of the temporary folder.
-				$fileManager->rmtree($libPath);
-			}
-
-			// Continue with the application-specific part (mandatory).
-			if(!$fileManager->copyDir($path, $pluginDest)) {
-				$errorMsg = __('manager.plugins.copyError');
-				return null;
-			}
-
-			// Remove the temporary folder.
-			$fileManager->rmtree(dirname($path));
+			_cutAndPasteTemporaryFile($path, $pluginDest, $pluginLibDest, $errorMsg, $fileManager);
 
 			$upgradeFile = $pluginDest . '/' . PLUGIN_UPGRADE_FILE;
 			if($fileManager->fileExists($upgradeFile)) {
@@ -276,6 +242,39 @@ class PluginHelper {
 			$versionDao->insertVersion($pluginVersion, true);
 			return $pluginVersion;
 		}
+	}
+	
+	/**
+	 * Cut and paste plugin from temporary files to it's actual place.
+	 * @param $path Path of temporary files
+	 * @param $pluginDest Path of application-specific part (mandatory)
+	 * @param $pluginLibDest path of library part (if any)
+	 * @param $errorMsg Error message
+	 * @param $fileManager Manager to manage files. Will be created if not specified.
+	 */
+	function _cutAndPasteTemporaryFile($path, $pluginDest, $pluginLibDest, &$errorMsg, $fileManager = null) {
+		if (!isset($fileManager)) {
+			$fileManager = new FileManager();
+		}
+		// Start with the library part (if any).
+		$libPath = $path . '/lib';
+		if (is_dir($libPath)) {
+			if(!$fileManager->copyDir($libPath, $pluginLibDest)) {
+				$errorMsg = __('manager.plugins.copyError');
+				return null;
+			}
+			// Remove the library part of the temporary folder.
+			$fileManager->rmtree($libPath);
+		}
+
+		// Continue with the application-specific part (mandatory).
+		if(!$fileManager->copyDir($path, $pluginDest)) {
+			$errorMsg = __('manager.plugins.copyError');
+			return null;
+		}
+
+		// Remove the temporary folder.
+		$fileManager->rmtree(dirname($path));
 	}
 }
 

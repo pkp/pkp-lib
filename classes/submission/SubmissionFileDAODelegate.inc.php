@@ -298,6 +298,17 @@ class SubmissionFileDAODelegate extends DAO {
 	}
 
 	/**
+	 * Get a list of additional fields that do not have
+	 * dedicated accessors.
+	 * @return array
+	 */
+	function getAdditionalFieldNames() {
+		$additionalFields = parent::getAdditionalFieldNames();
+		$additionalFields[] = 'pub-id::publisher-id';
+		return $additionalFields;
+	}
+
+	/**
 	 * Update the localized fields for this submission file.
 	 * @param $submissionFile SubmissionFile
 	 */
@@ -306,6 +317,94 @@ class SubmissionFileDAODelegate extends DAO {
 		$this->updateDataObjectSettings('submission_file_settings', $submissionFile, array(
 			'file_id' => $submissionFile->getFileId()
 		));
+	}
+
+	/**
+	 * Checks if public identifier exists (other than for the specified
+	 * submission file ID, which is treated as an exception).
+	 * @param $pubIdType string One of the NLM pub-id-type values or
+	 * 'other::something' if not part of the official NLM list
+	 * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
+	 * @param $pubId string
+	 * @param $fileId int An ID to be excluded from the search.
+	 * @param $contextId int
+	 * @return boolean
+	 */
+	function pubIdExists($pubIdType, $pubId, $fileId, $contextId) {
+		$result = $this->retrieve(
+			'SELECT COUNT(*)
+			FROM submission_file_settings sfs
+				INNER JOIN submission_files sf ON sfs.file_id = sf.file_id
+				INNER JOIN submissions s ON sf.submission_id = s.submission_id
+			WHERE sfs.setting_name = ? AND sfs.setting_value = ? AND sfs.file_id <> ? AND s.context_id = ?',
+			array(
+				'pub-id::'.$pubIdType,
+				$pubId,
+				(int) $fileId,
+				(int) $contextId
+			)
+		);
+		$returner = $result->fields[0] ? true : false;
+		$result->Close();
+		return $returner;
+	}
+
+	/**
+	 * @copydoc PKPPubIdPluginDAO::changePubId()
+	 */
+	function changePubId($fileId, $pubIdType, $pubId) {
+		$idFields = array(
+			'file_id', 'locale', 'setting_name'
+		);
+		$updateArray = array(
+			'file_id' => (int) $fileId,
+			'locale' => '',
+			'setting_name' => 'pub-id::'.$pubIdType,
+			'setting_type' => 'string',
+			'setting_value' => (string)$pubId
+		);
+		$this->replace('submission_file_settings', $updateArray, $idFields);
+		$this->flushCache();
+	}
+
+	/**
+	 * @copydoc PKPPubIdPluginDAO::deletePubId()
+	 */
+	function deletePubId($fileId, $pubIdType) {
+		$settingName = 'pub-id::'.$pubIdType;
+		$this->update(
+			'DELETE FROM submission_file_settings WHERE setting_name = ? AND file_id = ?',
+			array(
+				$settingName,
+				(int)$fileId
+			)
+		);
+		$this->flushCache();
+	}
+
+	/**
+	 * @copydoc PKPPubIdPluginDAO::deleteAllPubIds()
+	 */
+	function deleteAllPubIds($contextId, $pubIdType) {
+		$contextId = (int) $contextId;
+		$settingName = 'pub-id::'.$pubIdType;
+
+		$submissionDao = Application::getSubmissionDAO();
+		$submissions = $submissionDao->getByContextId($contextId);
+		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
+		while ($submission = $submissions->next()) {
+			$submissionFiles = $submissionFileDao->getBySubmissionId($submission->getId());
+			foreach ($submissionFiles as $submissionFile) {
+				$this->update(
+					'DELETE FROM submission_file_settings WHERE setting_name = ? AND file_id = ?',
+					array(
+						$settingName,
+						(int)$submissionFile->getFileId()
+					)
+				);
+			}
+		}
+		$this->flushCache();
 	}
 
 	//

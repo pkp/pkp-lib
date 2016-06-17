@@ -120,7 +120,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	public function addStyle($name, $path, $args = array()) {
 
 		// Pass a file path for LESS files
-		if (substr($path, -4) == 'less' ) {
+		if (substr($path, -5) == '.less' ) {
 			$fullPath = $this->_getBaseDir($path);
 
 		// Pass a URL for other files

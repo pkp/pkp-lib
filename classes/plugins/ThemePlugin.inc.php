@@ -20,7 +20,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	 * Collection of styles
 	 *
 	 * @see self::_registerStyles
-	 * @param array $styles
+	 * @param $styles array
 	 */
 	public $styles = array();
 
@@ -28,14 +28,14 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	 * Collection of scripts
 	 *
 	 * @see self::_registerScripts
-	 * @param array $scripts
+	 * @param $scripts array
 	 */
 	public $scripts = array();
 
 	/**
 	 * Parent theme (optional)
 	 *
-	 * @param ThemePlugin $parent
+	 * @param $parent ThemePlugin
 	 */
 	public $parent;
 
@@ -109,9 +109,9 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	 * Style paths with a .less extension will be compiled and redirected to
 	 * the compiled file.
 	 *
-	 * @param string $name A name for this stylesheet
-	 * @param string $path The path to this stylesheet, relative to the theme
-	 * @param array $args Optional arguments hash. Supported args:
+	 * @param $name string A name for this stylesheet
+	 * @param $path string The path to this stylesheet, relative to the theme
+	 * @param $args array Optional arguments hash. Supported args:
 	 *   'context': Whether to load this on the `frontend` or `backend`.
 	 *      default: `frontend`
 	 *   'priority': Controls order in which styles are printed
@@ -152,8 +152,8 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	/**
 	 * Modify the params of an existing stylesheet
 	 *
-	 * @param string $name The name of the stylesheet to modify
-	 * @param array $args Parameters to modify.
+	 * @param $name string The name of the stylesheet to modify
+	 * @param $args array Parameters to modify.
 	 * @see self::addStyle()
 	 * @return null
 	 */
@@ -182,7 +182,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	/**
 	 * Get a style from this theme or any parent theme
 	 *
-	 * @param string $name The name of the style to retrieve
+	 * @param $name string The name of the style to retrieve
 	 * @return array|null Reference to the style or null if not found
 	 */
 	public function &getStyle($name) {
@@ -204,9 +204,9 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	/**
 	 * Add a script to load with this theme
 	 *
-	 * @param string $name A name for this script
-	 * @param string $path The path to this script, relative to the theme
-	 * @param array $args Optional arguments hash. Supported args:
+	 * @param $name string A name for this script
+	 * @param $path string The path to this script, relative to the theme
+	 * @param $args array Optional arguments hash. Supported args:
 	 *   string $context Whether to load this on the `frontend` or `backend`.
 	 *      default: `frontend`
 	 *   int $priority Controls order in which styles are printed
@@ -223,8 +223,8 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	/**
 	 * Modify the params of an existing script
 	 *
-	 * @param string $name The name of the script to modify
-	 * @param array $args Parameters to modify.
+	 * @param $name string The name of the script to modify
+	 * @param $args array Parameters to modify.
 	 * @see self::addScript()
 	 * @return null
 	 */
@@ -246,7 +246,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	/**
 	 * Get a script from this theme or any parent theme
 	 *
-	 * @param string $name The name of the script to retrieve
+	 * @param $name string The name of the script to retrieve
 	 * @return array|null Reference to the script or null if not found
 	 */
 	public function &getScript($name) {

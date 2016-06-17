@@ -271,7 +271,7 @@ class PKPTemplateManager extends Smarty {
 		$request = $this->_request;
 
 		// Allow plugins to intervene
-		HookRegistry::call('PageHandler::compileLess', array($request, $less, $name, $lessFile, $args));
+		HookRegistry::call('PageHandler::compileLess', array(&$less, &$lessFile, &$args, $name, $request));
 
 		// Read the stylesheet
 		$less->parseFile($lessFile);

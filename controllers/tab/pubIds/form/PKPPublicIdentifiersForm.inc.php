@@ -22,7 +22,7 @@ class PKPPublicIdentifiersForm extends Form {
 	var $_contextId;
 
 	/** @var object The pub object the identifiers are edited of
-	 * OJS Issue, Article, Representation or SubmissionFile
+	 * 	Submission, Representation, SubmissionFile + OJS Issue
 	 */
 	var $_pubObject;
 
@@ -41,8 +41,8 @@ class PKPPublicIdentifiersForm extends Form {
 	 * @param $stageId integer
 	 * @param $formParams array
 	 */
-	function PKPPublicIdentifiersForm($template, $pubObject, $stageId = null, $formParams = null) {
-		parent::Form($template);
+	function PKPPublicIdentifiersForm($pubObject, $stageId = null, $formParams = null) {
+		parent::Form('controllers/tab/pubIds/form/publicIdentifiersForm.tpl');
 
 		$this->_pubObject = $pubObject;
 		$this->_stageId = $stageId;
@@ -52,12 +52,11 @@ class PKPPublicIdentifiersForm extends Form {
 		$context = $request->getContext();
 		$this->_contextId = $context->getId();
 
-		AppLocale::requireComponents(LOCALE_COMPONENT_APP_EDITOR);
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_EDITOR);
 
 		$this->addCheck(new FormValidatorPost($this));
 
 		// action links for pub id reset requests
-		import('lib.pkp.classes.plugins.PKPPubIdPluginHelper');
 		$pubIdPluginHelper = new PKPPubIdPluginHelper();
 		$pubIdPluginHelper->setLinkActions($this->getContextId(), $this, $pubObject);
 	}
@@ -138,6 +137,23 @@ class PKPPublicIdentifiersForm extends Form {
 	 * @copydoc Form::validate()
 	 */
 	function validate() {
+		$pubObject = $this->getPubObject();
+		$assocType = $this->getAssocType($pubObject);
+		$publisherId = $this->getData('publisherId');
+		$pubObjectId = $pubObject->getId();
+		if ($assocType == ASSOC_TYPE_SUBMISSION_FILE) {
+			$pubObjectId = $pubObject->getFileId();
+		}
+		$contextDao = Application::getContextDAO();
+		if ($publisherId) {
+			if (is_numeric($publisherId)) {
+				$this->addError('publisherId', __('editor.publicIdentificationNumericNotAllowed', array('publicIdentifier' => $publisherId)));
+				$this->addErrorField('$publisherId');
+			} elseif ($contextDao->anyPubIdExists($this->getContextId(), 'publisher-id', $publisherId, $assocType, $pubObjectId, true)) {
+				$this->addError('publisherId', __('editor.publicIdentificationExistsForTheSameType', array('publicIdentifier' => $publisherId)));
+				$this->addErrorField('$publisherId');
+			}
+		}
 		$pubIdPluginHelper = new PKPPubIdPluginHelper();
 		$pubIdPluginHelper->validate($this->getContextId(), $this, $this->getPubObject());
 		return parent::validate();
@@ -177,6 +193,22 @@ class PKPPublicIdentifiersForm extends Form {
 		$pubIdPluginHelper->clearPubId($this->getContextId(), $pubIdPlugInClassName, $this->getPubObject());
 	}
 
+	/**
+	 * Get assoc type of the given object.
+	 * @param $pubObject
+	 * @return integer ASSOC_TYPE_
+	 */
+	function getAssocType($pubObject) {
+		$assocType = null;
+		if (is_a($pubObject, 'Submission')) {
+			$assocType = ASSOC_TYPE_SUBMISSION;
+		} elseif (is_a($pubObject, 'Representation')) {
+			$assocType = ASSOC_TYPE_REPRESENTATION;
+		} elseif (is_a($pubObject, 'SubmissionFile')) {
+			$assocType = ASSOC_TYPE_SUBMISSION_FILE;
+		}
+		return $assocType;
+	}
 }
 
 ?>

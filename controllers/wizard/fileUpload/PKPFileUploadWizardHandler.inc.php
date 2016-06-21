@@ -415,6 +415,9 @@ class PKPFileUploadWizardHandler extends Handler {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('submissionId', $submission->getId());
 		$templateMgr->assign('fileId', $fileId);
+		if (isset($args['fileStage'])) {
+			$templateMgr->assign('fileStage', $args['fileStage']);
+		}
 
 		return $templateMgr->fetchJson('controllers/wizard/fileUpload/form/fileSubmissionComplete.tpl');
 	}

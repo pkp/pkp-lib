@@ -36,11 +36,12 @@ class AddFileLinkAction extends BaseAddFileLinkAction {
 	 * @param $assocId integer The id of the element the file should be
 	 *  associated with.
 	 * @param $reviewRoundId int The current review round ID (if any)
+	 * @param $revisedFileId int Revised file ID, if any
 	 * @param $dependentFilesOnly bool whether to only include dependent
 	 *  files in the Genres dropdown.
 	 */
 	function AddFileLinkAction($request, $submissionId, $stageId, $uploaderRoles,
-			$uploaderGroupIds, $fileStage, $assocType = null, $assocId = null, $reviewRoundId = null, $dependentFilesOnly = false) {
+			$uploaderGroupIds, $fileStage, $assocType = null, $assocId = null, $reviewRoundId = null, $revisedFileId = null, $dependentFilesOnly = false) {
 
 		// Create the action arguments array.
 		$actionArgs = array('fileStage' => $fileStage, 'reviewRoundId' => $reviewRoundId);
@@ -48,7 +49,10 @@ class AddFileLinkAction extends BaseAddFileLinkAction {
 			$actionArgs['assocType'] = (int)$assocType;
 			$actionArgs['assocId'] = (int)$assocId;
 		}
-
+		if ($revisedFileId) {
+			$actionArgs['revisedFileId'] = $revisedFileId;
+			$actionArgs['revisionOnly'] = true;
+		}
 		if ($dependentFilesOnly) $actionArgs['dependentFilesOnly'] = true;
 
 		// Identify text labels based on the file stage.

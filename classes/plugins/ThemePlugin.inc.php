@@ -384,7 +384,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	 * Get the base URL to be used for file paths
 	 *
 	 * A base URL for loading LESS/CSS/JS files in <link> elements. It will
-	 * also be set to the @base-url variable before LESS files are compiloed so
+	 * also be set to the @baseUrl variable before LESS files are compiloed so
 	 * that images and fonts can be located.
 	 *
 	 * @param $path string An optional path to append to the base

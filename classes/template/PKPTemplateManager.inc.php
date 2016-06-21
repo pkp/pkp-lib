@@ -283,9 +283,9 @@ class PKPTemplateManager extends Smarty {
 			}
 		}
 
-		// Set the @base-url variable
+		// Set the @baseUrl variable
 		$baseUrl = !empty($args['baseUrl']) ? $args['baseUrl'] : $request->getBaseUrl(true);
-		$less->parse("@base-url: '$baseUrl';");
+		$less->parse("@baseUrl: '$baseUrl';");
 
 		return $less->getCSS();
 	}

@@ -109,7 +109,7 @@ class AddFileLinkAction extends BaseAddFileLinkAction {
 			),
 			SUBMISSION_FILE_PROOF => array(
 				'wizardTitle' => 'submission.upload.proof',
-				'buttonLabel' => 'submission.addFile'
+				'buttonLabel' => 'submission.changeFile'
 			),
 			SUBMISSION_FILE_DEPENDENT => array(
 				'wizardTitle' => 'submission.upload.dependent',

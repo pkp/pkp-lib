@@ -394,7 +394,6 @@ class Mail extends DataObject {
 
 	/**
 	 * Return a string containing the from address.
-	 * Override any from address if force_default_envelope_sender config option is in effect.
 	 * @return string
 	 */
 	function getFromString($send = false) {
@@ -404,9 +403,6 @@ class Mail extends DataObject {
 		} else {
 			$display = $from['name'];
 			$address = $from['email'];
-			if (Config::getVar('email', 'force_default_envelope_sender') && Config::getVar('email', 'default_envelope_sender')) {
-				return Config::getVar('email', 'default_envelope_sender');
-			}
 			return (Mail::encodeDisplayName($display, $send) . ' <'.$address.'>');
 		}
 	}
@@ -497,6 +493,10 @@ class Mail extends DataObject {
 
 		} else {
 			$this->addHeader('Content-Type', 'text/plain; charset="'.Config::getVar('i18n', 'client_charset').'"');
+		}
+
+		if (Config::getVar('email', 'force_default_envelope_sender') && Config::getVar('email', 'default_envelope_sender')) {
+			$this->addHeader('Return-Path', Config::getVar('email', 'default_envelope_sender'));
 		}
 
 		$this->addHeader('X-Mailer', 'Public Knowledge Project Suite v2');

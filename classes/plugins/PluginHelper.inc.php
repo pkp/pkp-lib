@@ -109,10 +109,7 @@ class PluginHelper {
 
 			// Copy the plug-in from the temporary folder to the
 			// target folder.
-			_cutAndPasteTemporaryFile($path, $pluginDest, $pluginLibDest, $errorMsg);
-
-			// Remove the temporary folder.
-			$fileManager->rmtree(dirname($path));
+			$this->_cutAndPasteTemporaryFile($path, $pluginDest, $pluginLibDest, $errorMsg);
 
 			// Upgrade the database with the new plug-in.
 			$installFile = $pluginDest . '/' . PLUGIN_INSTALL_FILE;
@@ -224,7 +221,7 @@ class PluginHelper {
 
 			// Copy the plug-in from the temporary folder to the
 			// target folder.
-			_cutAndPasteTemporaryFile($path, $pluginDest, $pluginLibDest, $errorMsg, $fileManager);
+			$this->_cutAndPasteTemporaryFile($path, $pluginDest, $pluginLibDest, $errorMsg, $fileManager);
 
 			$upgradeFile = $pluginDest . '/' . PLUGIN_UPGRADE_FILE;
 			if($fileManager->fileExists($upgradeFile)) {

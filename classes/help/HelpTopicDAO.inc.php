@@ -132,14 +132,15 @@ class HelpTopicDAO extends XMLDAO {
 		$matchingTopics = array();
 		$help =& PKPHelp::getHelp();
 		foreach ($help->getSearchPaths() as $searchPath => $mappingFile) {
-			$dir = opendir($searchPath);
-			while (($file = readdir($dir)) !== false) {
-				$currFile = $searchPath . DIRECTORY_SEPARATOR . $file;
-				if (is_dir($currFile) && $file != 'toc' && $file != '.' && $file != '..') {
-					HelpTopicDAO::searchDirectory($mappingFile, $matchingTopics,$keyword,$currFile);
+			if ($dir = opendir($searchPath)) {
+				while (($file = readdir($dir)) !== false) {
+					$currFile = $searchPath . DIRECTORY_SEPARATOR . $file;
+					if (is_dir($currFile) && $file != 'toc' && $file != '.' && $file != '..') {
+						HelpTopicDAO::searchDirectory($mappingFile, $matchingTopics, $keyword, $currFile);
+					}
 				}
+				closedir($dir);
 			}
-			closedir($dir);
 		}
 
 		krsort($matchingTopics);
@@ -157,16 +158,17 @@ class HelpTopicDAO extends XMLDAO {
 	 * @modifies $matchingTopics array by reference by making appropriate calls to functions
 	 */
 	function searchDirectory(&$mappingFile, &$matchingTopics,$keyword,$dir) {
-		$currDir = opendir($dir);
-		while (($file = readdir($currDir)) !== false) {
-			$currFile = sprintf('%s/%s',$dir,$file);
-			if (is_dir($currFile) && $file != '.' && $file != '..' && $file != 'toc') {
-				HelpTopicDAO::searchDirectory($mappingFile, $matchingTopics,$keyword,$currFile);
-			} else {
-				HelpTopicDAO::scanTopic($mappingFile, $matchingTopics,$keyword,$dir,$file);
+		if ($currDir = opendir($dir)) {
+			while (($file = readdir($currDir)) !== false) {
+				$currFile = sprintf('%s/%s',$dir,$file);
+				if (is_dir($currFile) && $file != '.' && $file != '..' && $file != 'toc') {
+					HelpTopicDAO::searchDirectory($mappingFile, $matchingTopics,$keyword,$currFile);
+				} else {
+					HelpTopicDAO::scanTopic($mappingFile, $matchingTopics,$keyword,$dir,$file);
+				}
 			}
+			closedir($currDir);
 		}
-		closedir($currDir);
 	}
 
 	/**

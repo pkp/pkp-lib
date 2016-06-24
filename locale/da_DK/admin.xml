@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="da_DK" full_name = "Danish">
+<locale name="da_DK" full_name="Dansk">
 	<message key="admin.adminFunctions">Administrative funktioner</message>
 	<message key="admin.auth.confirmDelete">Er du sikker på, at du vil slette denne godkendelseskilde permanent?</message>
 	<message key="admin.auth.create">Opret godkendelseskilde</message>
@@ -94,7 +94,6 @@
 	<message key="admin.scheduledTask.startTime">Task process started.</message>
 	<message key="admin.scheduledTask.stopTime">Task process stopped.</message>
 	<message key="admin.scheduledTask.noLog">Task produced no log.</message>
-	<message key="admin.scheduledTask.openAccessNotification">Open access notification</message>
 	<message key="admin.scheduledTask.reviewReminder">Review reminder</message>
 	<message key="admin.fileLoader.fileProcessed">File {$filename} was processed and archived.</message>
 </locale>

@@ -7,7 +7,7 @@
   * Copyright (c) 2000-2016 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Credits: http://pkp.sfu.ca/wiki/index.php?title=OJS:_Spanish_%28es_ES%29
+  * Credits: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Spanish_(es_ES)
   *
   * Localization strings for the es_ES (Español (España)) locale.
   *
@@ -236,4 +236,7 @@
 	<message key="plugins.categories.themes">Módulos de tema</message>
 	<message key="manager.announcements.form.notificationToggle">Enviar notificación</message>
 	<message key="manager.announcements.form.notificationToggleInstructions">Crear una nueva notificación al guardar este anuncio.</message>
+	<message key="manager.emails.exportXML">Exporta como XML las plantillas de correo seleccionadas</message>
+	<message key="manager.emails.uploadXML">Carga el fichero XML</message>
+	<message key="manager.emails.uploadError">La carga del fichero ha fallado</message>
 </locale>

@@ -52,7 +52,7 @@
 	<message key="installer.form.separateMultiple">Scheid meerdere waarden met komma's</message>
 	<message key="installer.form.usernameAlphaNumeric">De gebruikersnaam van de de beheerder mag alleen alfanumerieke tekens, liggende streepjes en koppelstreepjes bevatten en moet beginnen en eindigen met een alfanumeriek teken.</message>
 	<message key="installer.form.usernameRequired">De gebruikersnaam voor de beheerder is verplicht.</message>
-	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>WAARSCHUWING: Uw huidige PHP versie voldoet niet aan de minimale eisen. Het is aan te bevelen om te upgraden naar een meer recente versie.</strong>]]></message>
+	<message key="installer.installationWrongPhp"><![CDATA[<br /><strong>WAARSCHUWING: Uw huidige PHP versie voldoet niet aan de minimale eisen. Het is aan te bevelen om te upgraden naar een meer recente versie.</strong>]]></message>
 	<message key="installer.installErrorsOccurred">Fouten tijdens de installatie</message>
 	<message key="installer.installerSQLStatements">SQL opdrachten voor installatie</message>
 	<message key="installer.installFileError"><![CDATA[Het installatiebestand <tt>dbscripts/xml/install.xml</tt> bestaat niet of kan niet gelezen worden.]]></message>

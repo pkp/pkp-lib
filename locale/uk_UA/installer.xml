@@ -54,7 +54,7 @@
 	<message key="installer.form.separateMultiple">Якщо значень декілька, відокремлюйте їх комами</message>
 	<message key="installer.form.usernameAlphaNumeric">Ім'я користувача адміністратора може складатися лише з літер, цифр, символів підкреслення та дефісів, воно має починатися та закінчуватися літерою або цифрою.</message>
 	<message key="installer.form.usernameRequired">Необхідно вказати ім'я користувача для облікового запису адміністратора.</message>
-	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>ПОПЕРЕДЖЕННЯ: Встановлена версія PHP не відповідає мінімальним вимогам для інсталяції цієї програми. Рекомендується оновити версію PHP.</strong>]]></message>
+	<message key="installer.installationWrongPhp"><![CDATA[<br /><strong>ПОПЕРЕДЖЕННЯ: Встановлена версія PHP не відповідає мінімальним вимогам для інсталяції цієї програми. Рекомендується оновити версію PHP.</strong>]]></message>
 	<message key="installer.installErrorsOccurred">В процесі інсталяції виникли помилки</message>
 	<message key="installer.installerSQLStatements">Оператори SQL для інсталяції</message>
 	<message key="installer.installFileError"><![CDATA[Інсталяційний файл <tt>dbscripts/xml/install.xml</tt>  не існує або недоступний для читання.]]></message>

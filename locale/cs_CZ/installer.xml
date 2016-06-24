@@ -54,7 +54,7 @@
 	<message key="installer.form.separateMultiple">Více hodnot oddělte čárkami</message>
 	<message key="installer.form.usernameAlphaNumeric">Uživatelské jméno administrátora může obsahovat pouze alfanumerické znaky, podtržítka a pomlčky a musí začínat a končit alfanumerickým znakem.</message>
 	<message key="installer.form.usernameRequired">Je vyžadováno uživatelské jméno pro účet administrátora.</message>
-	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>VAROVÁNÍ: Vaše současná verze PHP nesplňuje minimální požadavky pro instalaci. Doporučuje se upgrade na novější vydání PHP.</strong>]]></message>
+	<message key="installer.installationWrongPhp"><![CDATA[<br /><strong>VAROVÁNÍ: Vaše současná verze PHP nesplňuje minimální požadavky pro instalaci. Doporučuje se upgrade na novější vydání PHP.</strong>]]></message>
 	<message key="installer.installErrorsOccurred">Chyby, ke kterým došlo v průběhu instalace</message>
 	<message key="installer.installerSQLStatements">SQL příkazy pro instalaci</message>
 	<message key="installer.installFileError"><![CDATA[Instalační soubor <tt>dbscripts/xml/install.xml</tt> neexistuje nebo není čitelný.]]></message>

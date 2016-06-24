@@ -52,7 +52,7 @@
 	<message key="installer.form.separateMultiple">ബഹുഗുണമുളള വാക്കുകളെ കോമ ഉപയോഗിച്ച് വേര്‍തിരിക്കുക</message>
 	<message key="installer.form.usernameAlphaNumeric">അഡ്മിനിസ്ട്രേറ്റിവ് യൂസര്‍ നാമത്തില്‍ ആല്ഫാ നൂമെറിക് കാരക്ടര്‍,അണ്ടര്‍സ്കോര്‍,ഹൈഫന്‍ എന്നിവയേ പാടുളളു,തുടങ്ങുന്നതും അവസാനിക്കുന്നതും ആല്ഫാ നൂമെറിക് കാരക്ടരില്‍ ആയിരിക്കണം.</message>
 	<message key="installer.form.usernameRequired">അഡ്മിനിസ്ട്രേറ്റര്‍ അക്കൗണ്ടിനു വേണ്ടി ഒരു യൂസര്‍ നാമം ആവശ്യമാണ്.</message>
-	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>WARNING: Your current version of PHP does not meet the minimum requirements for installation. It is recommended to upgrade to a more recent release of PHP.</strong>]]></message>
+	<message key="installer.installationWrongPhp"><![CDATA[<br /><strong>WARNING: Your current version of PHP does not meet the minimum requirements for installation. It is recommended to upgrade to a more recent release of PHP.</strong>]]></message>
 	<message key="installer.installErrorsOccurred">ഇന്‍സ്റ്റാളേഷന്‍ നടന്നപ്പോള്‍ തെറ്റുകള്‍ സംഭവിച്ചു</message>
 	<message key="installer.installerSQLStatements">ഇന്‍സ്റ്റാളേഷനു വേണ്ടിയുളള എസ്.ക്യു.എല്‍ കുറിപ്പ്</message>
 	<message key="installer.installFileError"><![CDATA[The installation file <tt>dbscripts/xml/install.xml</tt> does not exist or is not readable.]]></message>

@@ -51,7 +51,7 @@
 	<message key="installer.form.separateMultiple">Separar valores múltiples con vírgulas</message>
 	<message key="installer.form.usernameAlphaNumeric">O nome de usuario/a do / da administrador/a só pode conter caracteres alfanuméricos, guións baixos, e guións, e debe comezar e rematar cun caracter alfanumérico.</message>
 	<message key="installer.form.usernameRequired">Compre achegar un nome de usuario/a para a conta de administrador/a.</message>
-	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>ATENCIÓN: A túa versión actual de PHP non cumpre os requisitos mínimos necesarios de instalación. Actualiza unha versión recente de PHP.</strong>]]></message>
+	<message key="installer.installationWrongPhp"><![CDATA[<br /><strong>ATENCIÓN: A túa versión actual de PHP non cumpre os requisitos mínimos necesarios de instalación. Actualiza unha versión recente de PHP.</strong>]]></message>
 	<message key="installer.installErrorsOccurred">Véñense de producir erros durante a instalación</message>
 	<message key="installer.installerSQLStatements">Sentencias SQL para a instalación</message>
 	<message key="installer.installFileError"><![CDATA[Non existe ou non se pode ler o ficheiro de instalación <tt>dbscripts/xml/install.xml</tt>.]]></message>

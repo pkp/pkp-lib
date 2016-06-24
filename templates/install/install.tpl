@@ -85,7 +85,7 @@ function doSubmit() {
 			{/foreach}
 			<span class="instruct">{translate key="installer.additionalLocalesInstructions"}</span>
 			{if $incompleteLocaleFound}
-				<br/>
+				<br />
 				<span class="pkp_form_error">*</span>&nbsp;{translate key="installer.locale.maybeIncomplete"}
 			{/if}{* $incompleteLocaleFound *}
 		</td>

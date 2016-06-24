@@ -49,7 +49,7 @@
 	<message key="installer.form.separateMultiple">複数の値はコンマで区切ってください</message>
 	<message key="installer.form.usernameAlphaNumeric">管理者のユーザ名に使用できるのは、英数字、下線、ハイフンのみであり、最初と最後の文字は英数字でなければなりません。</message>
 	<message key="installer.form.usernameRequired">管理者アカウントのユーザ名は必須です。</message>
-	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>警告: PHPのバージョンがインストールのための最小要件を満たしていません。もっと新しい版のPHPへアップグレードすることを推奨します。</strong>]]></message>
+	<message key="installer.installationWrongPhp"><![CDATA[<br /><strong>警告: PHPのバージョンがインストールのための最小要件を満たしていません。もっと新しい版のPHPへアップグレードすることを推奨します。</strong>]]></message>
 	<message key="installer.installErrorsOccurred">インストール中にエラーが発生しました</message>
 	<message key="installer.installerSQLStatements">インストール用のSQL文</message>
 	<message key="installer.installFilesDirError">アップロードファイル用に指定されたディレクトリが存在しない、または、書き込みができません。</message>

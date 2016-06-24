@@ -52,7 +52,7 @@
 	<message key="installer.form.separateMultiple">Separe valores múltiplos com vírgulas</message>
 	<message key="installer.form.usernameAlphaNumeric">A autenticação apenas pode conter caracteres alfanuméricos, sublinhados "_" e hífens "-", devendo começar e terminar por um caractere alfanumérico.</message>
 	<message key="installer.form.usernameRequired">Autenticação obrigatória.</message>
-	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>AVISO: A versão do PHP utilizada não está em conformidade com os requisitos mínimos para instalação do sistema. Recomenda-se usar a versão mais recente do PHP.</strong>]]></message>
+	<message key="installer.installationWrongPhp"><![CDATA[<br /><strong>AVISO: A versão do PHP utilizada não está em conformidade com os requisitos mínimos para instalação do sistema. Recomenda-se usar a versão mais recente do PHP.</strong>]]></message>
 	<message key="installer.installErrorsOccurred">Ocorreram erros durante a instalação</message>
 	<message key="installer.installerSQLStatements">Comandos SQL para instalação</message>
 	<message key="installer.installFileError"><![CDATA[O documento de instalação <tt>dbscripts/xml/install.xml</tt> não existe ou não possui permissão de leitura.]]></message>

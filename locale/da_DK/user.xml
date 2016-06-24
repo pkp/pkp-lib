@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="da_DK" full_name = "Danish">
+<locale name="da_DK" full_name="Dansk">
 	<message key="user.affiliation">Tilhørsforhold</message>
 	<message key="user.affiliations">Tilhørsforhold</message>
 	<message key="user.biography">Biografierklæring</message>
@@ -63,10 +63,10 @@
 	<message key="user.profile.form.lastNameRequired">Et efternavn er påkrævet.</message>
 	<message key="user.profile.form.newPasswordRequired">Du skal angive din nye adgangskode.</message>
 	<message key="user.profile.form.oldPasswordInvalid">Den aktuelle adgangskode, du har angivet, er forkert.</message>
-	<message key="user.profile.form.openAccessNotifications">E-mail-beskeder om Open Access til udgave</message>
+	<message key="user.profile.form.openAccessNotifications">E-mail-beskeder om Open Access til nummer</message>
 	<message key="user.profile.form.passwordRequired">En adgangskode er påkrævet.</message>
 	<message key="user.profile.form.profileImage">Profilbillede</message>
-	<message key="user.profile.form.publishedNotifications">E-mail-beskeder om publicering af ny udgave</message>
+	<message key="user.profile.form.publishedNotifications">E-mail-beskeder om publicering af nyt nummer</message>
 	<message key="user.profile.form.urlInvalid">Den angivne URL-adresse er ikke gyldig. Kontroller URL-adressen, og forsøg igen. (Tip: Sæt http:// foran URL-adressen).</message>
 	<message key="user.profile.form.usernameRequired">Et brugernavn er påkrævet.</message>
 	<message key="user.profile.leavePasswordBlank">Undlad at udfylde adgangskodefelterne, hvis du vil bevare den aktuelle adgangskode.</message>
@@ -128,4 +128,7 @@
 	<message key="user.authorization.pressManagerRequired">En bruger med rollen som pressechef (f.eks. presse- eller produktionsredaktør) skal være knyttet til forløbet, førend du kan fortsætte</message>
 	<message key="user.profile.form.hashInvalid">Det tegn du anvendte i dit nye password er ikke gyldigt.</message>
 	<message key="user.login.changePasswordInstructionsOneStep"><![CDATA[Du skal vælge nyt password før du logger ind på dette sted.<br /><br />Indtast dit brugernavn og dit nye password nedenfor for at ændre passwordet til din konto.]]></message>
+	<message key="user.login.implicitAuth">Shibboleth Login</message>
+	<message key="user.login.implicitAuthLogin">Login via Shibboleth</message>
+	<message key="user.login.localAuth">Local Account Login</message>
 </locale>

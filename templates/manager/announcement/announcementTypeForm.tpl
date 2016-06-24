@@ -19,7 +19,7 @@
 {include file="common/header.tpl"}
 {/strip}
 
-<br/>
+<br />
 <div id="announcementType">
 <form id="announcementTypeForm" method="post" action="{url op="updateAnnouncementType"}">
 {if $typeId}

@@ -53,7 +53,7 @@
 	<message key="installer.form.separateMultiple">Separă valorile multiple prin virgule</message>
 	<message key="installer.form.usernameAlphaNumeric">Numele de utilizator pentru administrator poate conține doar alfanumerice, linii jos, linii de despărțire și trebuie să se termine cu un caracter alfanumeric.</message>
 	<message key="installer.form.usernameRequired">Este necesar un nume de utilizator pentru contul de administrator.</message>
-	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>AVERTISMENT: Versiunea curentă de PHP nu întrunește cerințele minime pentru instalare. Se recomandă actualizarea la o nouă recentă de PHP.</strong>]]></message>
+	<message key="installer.installationWrongPhp"><![CDATA[<br /><strong>AVERTISMENT: Versiunea curentă de PHP nu întrunește cerințele minime pentru instalare. Se recomandă actualizarea la o nouă recentă de PHP.</strong>]]></message>
 	<message key="installer.installErrorsOccurred">Erori apărute în timpul instalării</message>
 	<message key="installer.installerSQLStatements">Declarațiile SQL statements necesare instalării</message>
 	<message key="installer.installFileError"><![CDATA[Fișierul de instalare <tt>dbscripts/xml/install.xml</tt> nu există sau nu poate fi citit.]]></message>

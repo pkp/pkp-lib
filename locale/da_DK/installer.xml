@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="da_DK" full_name = "Danish">
+<locale name="da_DK" full_name="Dansk">
 	<message key="installer.additionalLocales">Yderligere landestandarder</message>
 	<message key="installer.administratorAccount">Administratorkonto</message>
 	<message key="installer.administratorAccountInstructions">Denne brugerkonto bliver webstedsadministrator og vil få fuld adgang til systemet. Efter installationen kan der oprettes flere brugerkonti.</message>
@@ -52,7 +52,7 @@
 	<message key="installer.form.separateMultiple">Adskil flere værdier med kommaer</message>
 	<message key="installer.form.usernameAlphaNumeric">Administratorbrugernavnet må kun indeholde alfanumeriske tegn, understregningstegn og bindestreger og skal begynde og slutte med et alfanumerisk tegn.</message>
 	<message key="installer.form.usernameRequired">Der kræves et brugernavn til administratorkontoen.</message>
-	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>ADVARSEL! Din aktuelle version af PHP opfylder ikke minimumkravene til installation. Det anbefales at opgradere til en nyere version af PHP.</strong>]]></message>
+	<message key="installer.installationWrongPhp"><![CDATA[<br /><strong>ADVARSEL! Din aktuelle version af PHP opfylder ikke minimumkravene til installation. Det anbefales at opgradere til en nyere version af PHP.</strong>]]></message>
 	<message key="installer.installErrorsOccurred">Der opstod fejl under installationen</message>
 	<message key="installer.installerSQLStatements">SQL-sætninger til installation</message>
 	<message key="installer.installFileError"><![CDATA[Installationsfilen <tt>dbscripts/xml/install.xml</tt> findes ikke eller kan ikke læses.]]></message>

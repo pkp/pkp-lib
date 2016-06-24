@@ -7,7 +7,7 @@
   * Copyright (c) 2000-2016 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Credits: http://pkp.sfu.ca/wiki/index.php?title=OJS:_Catalan_%28ca_ES%29
+  * Credits: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Catalan_(ca_ES)
   *
   * Localization strings for the ca_ES (Català) locale.
   *
@@ -99,4 +99,9 @@
 	<message key="admin.scheduledTask.subscriptionExpiryReminder">Recordatori de caducitat de la subscripció</message>
 	<message key="admin.settings.oneStepReset">Utilitzar reiniciat de paraules clau en un sol pas?</message>
 	<message key="admin.fileLoader.fileProcessed">El fitxer {$filename} ha estat processat i arxivat.</message>
+	<message key="admin.scheduledTask.downloadLog">La instal·lació del vostre OJS ha executat i finalitzat automàticament aquesta tasca i ja pot descarregar l'arxiu de registre aquí: {$url}</message>
+	<message key="admin.scheduledTask.confirmClearLogs">Esteu segur que voleu eliminar tots els registres d'execució de tasques programats?</message>
+	<message key="admin.scheduledTask.clearLogs">Neteja els registres d'execució de tasques programats</message>
+	<message key="admin.error.utilExecutionProblem">L'execució del programa "{$utilPath}" ha produït el següent error: {$output}</message>
+	<message key="admin.error.executingUtil">Error: no es pot executar "{$utilPath}". Reviseu el paràmetre {$utilVar} al fitxer config.inc.php.</message>
 </locale>

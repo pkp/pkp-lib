@@ -52,7 +52,7 @@
 	<message key="installer.form.separateMultiple">إفصل بين الكلمات المتعددة بفوارز إنجليزية</message>
 	<message key="installer.form.usernameAlphaNumeric">اسم الدخول للمشرف الإداري يمكن أن يتضمن حروفاً وأرقاماً، خطوط تحتانية، وشُرط، وينبغي أن يبدأ وينتهي بحرف أو رقم حصراً.</message>
 	<message key="installer.form.usernameRequired">ينبغي إدخال اسم الدخول للمشرف الإداري حتماً.</message>
-	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>تحذير: نسختك من برنامج PHP لا تلبي متطلبات الحد الأدنى المطلوبة للتنصيب. ننصح بترقيتها إلى نسخة أحدث تتوافق مع متطلبات تشغيل النظام.</strong>]]></message>
+	<message key="installer.installationWrongPhp"><![CDATA[<br /><strong>تحذير: نسختك من برنامج PHP لا تلبي متطلبات الحد الأدنى المطلوبة للتنصيب. ننصح بترقيتها إلى نسخة أحدث تتوافق مع متطلبات تشغيل النظام.</strong>]]></message>
 	<message key="installer.installErrorsOccurred">حدثت أخطاء خلال عملية التنصيب</message>
 	<message key="installer.installerSQLStatements">عبارات SQL للتنصيب</message>
 	<message key="installer.installFileError"><![CDATA[ملف التنصيب <tt>dbscripts/xml/install.xml</tt> مفقود أو تتعذر قراءته.]]></message>

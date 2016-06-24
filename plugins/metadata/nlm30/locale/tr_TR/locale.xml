@@ -15,21 +15,15 @@
 	<message key="plugins.metadata.nlm30.displayName">NLM 3.0 Üst Veri</message>
 	<message key="plugins.metadata.nlm30.citationAdapter.displayName">NLM 3.0 Atıf Adaptörü</message>
 	<message key="plugins.metadata.nlm30.description">NLM 3.0 şema ve uygulama adaptörü destekçisi</message>
-	<message key="plugins.metadata.nlm30.citationAdapter.description">Extracts/injects meta-data from/into citations.</message>
 	<message key="plugins.metadata.nlm30.citationParsers.displayName">Atıf Ayıklama Servisleri</message>
-	<message key="plugins.metadata.nlm30.citationParsers.description">Convert a plain text citation into NLM 3.0 element-citation mark-up."</message>
 	<message key="plugins.metadata.nlm30.citationLookup.displayName">Atıf Veri Tabanı Servisleri</message>
-	<message key="plugins.metadata.nlm30.citationLookup.description">Improve NLM 3.0 element-citation mark-up, e.g. by looking up citations in external databases."</message>
 	<message key="plugins.metadata.nlm30.citationOutput.displayName">Atıf Çıktı Servisleri</message>
-	<message key="plugins.metadata.nlm30.citationOutput.description">Convert NLM 3.0 element-citation mark-up into a plain-text citation output standard.</message>
 	<message key="plugins.metadata.nlm30Xml.citationOutput.displayName">Atıf Çıktı Servisleri (XML)</message>
-	<message key="plugins.metadata.nlm30Xml.citationOutput.description">Convert NLM 3.0 element-citation mark-up into an XML citation output standard.</message>
 	<message key="plugins.metadata.nlm30.nlm30XmlOutput.displayName">NLM 3.0 Dergi Yayımlama Çıktısı</message>
 	<message key="plugins.metadata.nlm30.nlm30XmlOutput.description">ADS veya AKS makalesi/bildirisini NLM 3.0'a dönüştür.</message>
 	<message key="plugins.metadata.nlm30.nlm23XmlOutput.displayName">NLM 2.3 Dergi Yayımlama Çıktısı</message>
 	<message key="plugins.metadata.nlm30.nlm23XmlOutput.description">ADS veya AKS makalesi/bildirisini NLM 2.3'e dönüştür.</message>
 	<message key="plugins.metadata.nlm30.nlm30ToNlm23Xml.displayName">NLM 3.0 to 2.3 Journal Publishing Downgrade</message>
-	<message key="plugins.metadata.nlm30.nlm30ToNlm23Xml.description">Downgrades NLM 3.0 to NLM 2.3.</message>
 	<message key="plugins.metadata.nlm30.refList.displayName">Düz metin referans listesi oluşturma</message>
 	<message key="plugins.metadata.nlm30.refList.description">ADS/AKS/OMP gönderileri referanslarından formatlanmış düz metin referans listesi oluştur.</message>
 </locale>

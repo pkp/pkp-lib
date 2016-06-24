@@ -12,59 +12,36 @@
   *
   -->
 
-<locale name="da_DK" full_name = "Danish">
+<locale name="da_DK" full_name="Dansk">
 	<!-- Common -->
-	<message key="grid.noItems">No Items</message>
-	<message key="grid.settings">Settings</message>
 
-	<message key="grid.action.sort">Sort</message>
-	<message key="grid.action.addItem">Add Item</message>
-	<message key="grid.action.delete">Delete</message>
-	<message key="grid.action.remove">Remove</message>
-	<message key="grid.action.edit">Edit</message>
-	<message key="grid.action.approve">Approve</message>
-	<message key="grid.action.decline">Decline</message>
-	<message key="grid.action.moreInformation">More Information</message>
-	<message key="grid.action.restoreDefaults">Restore Defaults</message>
 
 	<!-- Common Grid Column Titles -->
-	<message key="grid.columns.actions">Actions</message>
-	<message key="grid.columns.institution">Institution</message>
-	<message key="grid.columns.url">URL</message>
+
 
 	<!-- Sponsors Grid -->
-	<message key="grid.sponsor.title">Sponsors</message>
+
 
 	<!-- Masthead Grid -->
 
 	<!-- Contributor Grid -->
-	<message key="grid.contributor.title">Contributor</message>
-	<message key="grid.action.addAuthor">Add Author</message>
+
 
 	<!-- Review Forms Grid -->
-	<message key="grid.reviewForm.title">Review Forms</message>
+
 
 	<!-- Book File Types Grid -->
 
 	<!-- Artwork Files Grid -->
 
 	<!-- Library Files -->
-	<message key="grid.libraryFiles.column.files">Files</message>
-	<message key="grid.libraryFiles.submission.title">Submission Library</message>
-	<message key="grid.libraryFiles.editorial.title">Editorial Library</message>
-	<message key="grid.libraryFiles.review.title">Review Library</message>
-	<message key="grid.libraryFiles.production.title">Production Library</message>
-	<message key="grid.libraryFiles.productionTemplate.title">Production Template Library</message>
+
 
 	<!-- SubmissionChecklist -->
-	<message key="grid.submissionChecklist.title">Submission Checklist</message>
-	<message key="grid.submissionChecklist.column.checklistItem">Checklist Item</message>
+
 
 	<!-- Submission Contributors -->
-	<message key="author.users.contributor.name">Name</message>
-	<message key="author.users.contributor.email">E-mail</message>
-	<message key="author.users.contributor.role">Role</message>
-	<message key="author.users.contributor.principalContact">Primary Contact</message>
+
 
 	<!-- Review Attachments -->
 
@@ -158,7 +135,6 @@
 	<message key="grid.noFiles">Ingen filer</message>
 	<message key="grid.roles.currentRoles">Nuværende roller</message>
 	<message key="grid.roles.add">Tilføj rolle</message>
-	<message key="grid.roles.stageAssignment">Stage Assignment</message>
 	<message key="grid.user.currentUsers">Nuværende brugere</message>
 	<message key="grid.user.currentEnrollment">Nuværende tilmeldte</message>
 	<message key="grid.user.allRoles">Alle roller</message>

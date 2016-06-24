@@ -52,7 +52,7 @@
 	<message key="installer.form.separateMultiple">Separera flera värden med kommatecken (,)</message>
 	<message key="installer.form.usernameAlphaNumeric">Administratörens användarnamn får endast innehålla alfanumeriska tecken, understreck eller bindestreck, och måste inledas och avslutas med ett alfanumeriskt tecken.</message>
 	<message key="installer.form.usernameRequired">Ett användarnamn för administratörskontot måste anges.</message>
-	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>VARNING: Din nuvarande version av PHP uppfyller inte minimikraven för installation. Vi rekommenderar att du uppgraderar till en nyare version av PHP.</strong>]]></message>
+	<message key="installer.installationWrongPhp"><![CDATA[<br /><strong>VARNING: Din nuvarande version av PHP uppfyller inte minimikraven för installation. Vi rekommenderar att du uppgraderar till en nyare version av PHP.</strong>]]></message>
 	<message key="installer.installErrorsOccurred">Det uppstod fel under installationen</message>
 	<message key="installer.installerSQLStatements">SQL statements för installation</message>
 	<message key="installer.installFileError"><![CDATA[Installationsfilen <tt>dbscripts/xml/install.xml</tt> existerar inte, eller går inte att läsa.]]></message>

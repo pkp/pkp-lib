@@ -51,7 +51,7 @@
 	<message key="installer.form.separateMultiple">Несколько вводимых значений разделяйте запятыми.</message>
 	<message key="installer.form.usernameAlphaNumeric">Имя пользователя для учетной записи администратора может содержать только буквы, цифры, подчеркивания и тире; оно должно начинаться и заканчиваться буквой или цифрой.</message>
 	<message key="installer.form.usernameRequired">Имя пользователя для учетной записи администратора обязательно.</message>
-	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>ПРЕДУПРЕЖДЕНИЕ: Ваша текущая версия PHP не соответствует минимальным требованиям для установки. Рекомендуется обновить PHP до более новой версии.</strong>]]></message>
+	<message key="installer.installationWrongPhp"><![CDATA[<br /><strong>ПРЕДУПРЕЖДЕНИЕ: Ваша текущая версия PHP не соответствует минимальным требованиям для установки. Рекомендуется обновить PHP до более новой версии.</strong>]]></message>
 	<message key="installer.installErrorsOccurred">Во время установки произошли ошибки</message>
 	<message key="installer.installerSQLStatements">SQL-запросы для установки</message>
 	<message key="installer.installFileError"><![CDATA[Файл установки <tt>dbscripts/xml/install.xml</tt> не существует или не доступен для чтения.]]></message>

@@ -52,7 +52,7 @@
 	<message key="installer.form.separateMultiple">Balio bat baino gehiago direnean, bereizi koma bidez</message>
 	<message key="installer.form.usernameAlphaNumeric">Administratzailearen erabiltzaile-izenean alfazenbakizko karaktereak, azpimarra eta marratxoak bakarrik onartzen dira, eta lehen karakterea eta azkena alfazenbakizkoak izan behar dira.</message>
 	<message key="installer.form.usernameRequired">Administratzaile-kontuaren erabiltzaile-izena eman behar da.</message>
-	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>KONTUZ: Zure oraingo PHP bertsioak ez ditu betetzen instalazioa egiteko eskakizunak. PHP bertsio berriagora aldatzea gomendatzen dizugu.</strong>]]></message>
+	<message key="installer.installationWrongPhp"><![CDATA[<br /><strong>KONTUZ: Zure oraingo PHP bertsioak ez ditu betetzen instalazioa egiteko eskakizunak. PHP bertsio berriagora aldatzea gomendatzen dizugu.</strong>]]></message>
 	<message key="installer.installErrorsOccurred">Erroreak gertatu dira instalazioan</message>
 	<message key="installer.installerSQLStatements">Instalazioa egiteko SQL instrukzioak</message>
 	<message key="installer.installFileError"><![CDATA[<tt>dbscripts/xml/install.xml</tt> instalazio-fitxategia ez dago edo ezin da irakurri.]]></message>

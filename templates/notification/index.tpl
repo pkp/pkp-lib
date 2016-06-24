@@ -29,7 +29,7 @@
 	</tr>
 </table>
 
-<br/>
+<br />
 
 <div id="notifications">
 

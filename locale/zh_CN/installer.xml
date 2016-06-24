@@ -52,7 +52,7 @@
 	<message key="installer.form.separateMultiple">用逗号分隔多个值</message>
 	<message key="installer.form.usernameAlphaNumeric">管理员的用户名能包含数字和字符，下划线和链接符，而且必须以字母和数字开始和结束.</message>
 	<message key="installer.form.usernameRequired">管理员的用户名是必须的.</message>
-	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>警告：您当前PHP的版本不符合系统安装的最低要求. 推荐您升级系统的PHP版本到最新.</strong>]]></message>
+	<message key="installer.installationWrongPhp"><![CDATA[<br /><strong>警告：您当前PHP的版本不符合系统安装的最低要求. 推荐您升级系统的PHP版本到最新.</strong>]]></message>
 	<message key="installer.installErrorsOccurred">安装过程报错</message>
 	<message key="installer.installerSQLStatements">安装SQL语句</message>
 	<message key="installer.installFileError"><![CDATA[安装文件 <tt>dbscripts/xml/install.xml</tt> 不存在后者不可读.]]></message>

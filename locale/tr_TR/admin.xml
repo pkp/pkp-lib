@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="tr_TR" full_name = "Türkçe">
+<locale name="tr_TR" full_name="Türkçe">
 	<message key="admin.adminFunctions">Yönetsel İşlevler</message>
 	<message key="admin.auth.confirmDelete">Bu yetkilendirme kaynağını kalıcı olarak silmek istediğinizden emin misiniz?</message>
 	<message key="admin.auth.create">Yetkilendirme kaynağı yarat</message>
@@ -99,4 +99,7 @@
 	<message key="admin.scheduledTask.confirmClearLogs">Tüm zamanlanmış görev yürütme günlüklerini silmek istediğinizden emin misiniz?</message>
 	<message key="admin.scheduledTask.clearLogs">Zamanlanmış Görev Yürütme Günlüklerini Temizle</message>
 	<message key="admin.scheduledTask.downloadLog">ADS kurulumunuz otomatik olarak gerçekleştirildi ve bu görev tamamlandı. Kurulum notlarını buradan indirebilirsiniz: {$url}</message>
+	<message key="admin.scheduledTask.openAccessNotification">Açık erişim bildirimi</message>
+	<message key="admin.error.executingUtil">Hata: "{$utilPath}" çalıştırılamadı. config.inc.php ayarlarınızda {$utilVar} seçeneğini kontrol ediniz.</message>
+	<message key="admin.error.utilExecutionProblem">"{$utilPath}" programı çalıştırılırken aşağıdaki hata oluştu: {$output}</message>
 </locale>

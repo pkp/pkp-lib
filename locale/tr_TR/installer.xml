@@ -52,7 +52,7 @@
 	<message key="installer.form.separateMultiple">Çoklu değerleri virgül ile ayırın.</message>
 	<message key="installer.form.usernameAlphaNumeric">Yöneticinin kullanıcı adı yalnızca alfanümerik karakterleri, alt çizgileri ve tire işaretlerini içerebilir ve mutlaka bir alfanümerik karakter ile başlayıp sonlanmalıdır.</message>
 	<message key="installer.form.usernameRequired">Yönetici hesabı için bir kullanıcı adı gereklidir.</message>
-	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>UYARI: Kullanmakta olduğunuz PHP sürümü kurulum için minimum gereksinimleri karşılamıyor. Daha güncel bir PHP sürümü yüklemeniz önerilir.</strong>]]></message>
+	<message key="installer.installationWrongPhp"><![CDATA[<br /><strong>UYARI: Kullanmakta olduğunuz PHP sürümü kurulum için minimum gereksinimleri karşılamıyor. Daha güncel bir PHP sürümü yüklemeniz önerilir.</strong>]]></message>
 	<message key="installer.installErrorsOccurred">Yükleme sırasında hata oluştu.</message>
 	<message key="installer.installerSQLStatements">Kurulum için SQL açıklamaları</message>
 	<message key="installer.installFileError"><![CDATA[<tt>dbscripts/xml/install.xml</tt> adlı kurulum dosyası mevcut değil veya okunabilir değil.]]></message>

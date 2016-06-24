@@ -9,19 +9,7 @@
  *
  *}
 
-{if $reviewAssignment->getDateCompleted()}
-	{assign var="reviewCompleted" value=true}
-{else}
-	{assign var="reviewCompleted" value=false}
-{/if}
-<script type="text/javascript">
-	$(function() {ldelim}
-		// Attach the form handler.
-		$('#readReviewForm').pkpHandler('$.pkp.controllers.grid.users.reviewer.ReadReviewHandler', {ldelim}
-				reviewCompleted: {$reviewCompleted|json_encode}
-		{rdelim});
-	{rdelim});
-</script>
+{* Form handler attachment implemented in application-specific versions of this template. *}
 
 <form class="pkp_form" id="readReviewForm" method="post" action="{url op="reviewRead"}">
 	<input type="hidden" name="reviewAssignmentId" value="{$reviewAssignment->getId()|escape}" />

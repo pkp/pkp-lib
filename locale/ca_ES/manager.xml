@@ -7,7 +7,7 @@
   * Copyright (c) 2000-2016 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Credits: http://pkp.sfu.ca/wiki/index.php?title=OJS:_Catalan_%28ca_ES%29
+  * Credits: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Catalan_(ca_ES)
   *
   * Localization strings for the ca_ES (Català) locale.
   -->
@@ -235,4 +235,8 @@
 	<message key="plugins.categories.themes">Mòduls de tema</message>
 	<message key="manager.announcements.form.notificationToggle">Enviar notificació</message>
 	<message key="manager.announcements.form.notificationToggleInstructions">Crea una nova notificació al guardar aquest anunci.</message>
+	<message key="manager.emails.exportXML">Exporta les plantilles de correu seleccionades com a XML</message>
+	<message key="manager.emails.uploadXML">Carrega el fitxer XML</message>
+	<message key="manager.emails.uploadSuccess">Les plantilles de correu seleccionades han estat actualitzades correctament</message>
+	<message key="manager.emails.uploadError">La càrrega del fitxer ha fallat</message>
 </locale>

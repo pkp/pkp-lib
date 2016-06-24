@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="tr_TR" full_name = "Türkçe">
+<locale name="tr_TR" full_name="Türkçe">
 	<message key="about.aboutSite">Hakkında</message>
 	<message key="about.contact">İletişim</message>
 	<message key="about.contact.email">E-posta</message>
@@ -57,7 +57,7 @@
 		<a target="_blank" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
 			<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"/>
 		</a>
-		<br/>
+		<br />
 		Bu çalışma <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0</a> ile lisanslanmıştır.<br />Bu sürümü çeviren: <a href="mailto:snmzclk@gmail.com">Sönmez ÇELİK</a>]]></message>
 	<message key="common.ccLicense.rt"><![CDATA[<div class="rtBlock">
 		<br />

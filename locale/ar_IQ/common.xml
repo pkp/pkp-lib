@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="ar_IQ" full_name = "العربية">
+<locale name="ar_IQ" full_name="العربية">
 	<message key="about.aboutSite">عن الموقع</message>
 	<message key="about.contact">عنوان الاتصال</message>
 	<message key="about.contact.email">البريد الالكتروني</message>

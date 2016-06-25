@@ -12,7 +12,7 @@
   * With updates from Pavel Pisklakov (revising translation). 
   -->
 
-<locale name="ru_RU" full_name = "Russian">
+<locale name="ru_RU" full_name="Русский">
 	<!-- Общие -->
 	<message key="grid.noItems">Нет элементов</message>
 	<message key="grid.settings">Настройки</message>

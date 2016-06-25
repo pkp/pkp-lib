@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="nl_NL" full_name = "Nederlands">
+<locale name="nl_NL" full_name="Nederlands">
 	<message key="about.aboutSite">Over de site</message>
 	<message key="about.contact">Contactpersoon</message>
 	<message key="about.contact.email">E-mail</message>

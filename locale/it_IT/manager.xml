@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="it_IT" full_name = "Italiano">
+<locale name="it_IT" full_name="Italiano">
 	<message key="manager.announcements">Avvisi</message>
 	<message key="manager.announcements.confirmDelete">Sei sicuro di voler cancellare in maniera permanente questo annuncio?</message>
 	<message key="manager.announcements.create">Crea un nuovo avviso</message>

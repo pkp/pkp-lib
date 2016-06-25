@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="fr_FR" full_name = "Français">
+<locale name="fr_FR" full_name="Français (France)">
 	<message key="about.aboutSite">À propos du site</message>
 	<message key="about.contact">Contact</message>
 	<message key="about.contact.email">Courriel</message>

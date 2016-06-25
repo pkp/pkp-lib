@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="zh_TW" full_name = "繁體中文">
+<locale name="zh_TW" full_name="繁體中文">
 	<message key="installer.additionalLocales">額外的語系</message>
 	<message key="installer.administratorAccount">管理員帳號</message>
 	<message key="installer.administratorAccountInstructions">這個使用者帳號會變成網站管理員而且擁有系統的完整權限。安裝完畢之後可以建立其他的帳號。</message>

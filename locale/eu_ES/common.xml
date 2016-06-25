@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="eu_ES" full_name = "Basque (Euskara)">
+<locale name="eu_ES" full_name="Euskara">
 	<message key="about.aboutSite">Guneari buruz</message>
 	<message key="about.contact">Kontaktua</message>
 	<message key="about.contact.email">Helb. el.</message>

@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="fa_IR" full_name = "Persian">
+<locale name="fa_IR" full_name="فارسی">
 	<message key="admin.adminFunctions">عملیات مدیریتی</message>
 	<message key="admin.auth.confirmDelete">آیا مطمئن هستید که می خواهید این منبع تعیین هویت بطور دائم پاک شود؟</message>
 	<message key="admin.auth.create">ساختن منبع تعیین هویت</message>

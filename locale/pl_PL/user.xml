@@ -10,7 +10,7 @@
   *
   -->
 
-<locale name="pl_PL" full_name = "Polski">
+<locale name="pl_PL" full_name="Język Polski">
 	<message key="user.affiliation">Afiliacja</message>
 	<message key="user.affiliation.description">(pełna nazwa instytucji naukowej, np. Dolnośląska Szkoła Wyższa. Wydział Nauk Pedagogicznych)</message>
 	<message key="user.affiliations">Afiliacje</message>

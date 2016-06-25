@@ -14,7 +14,7 @@
   * V. I. Vernadsky National Library of Ukraine
   -->
 
-<locale name="uk_UA" full_name = "Ukrainian">
+<locale name="uk_UA" full_name="Українська">
 	<message key="admin.adminFunctions">Адміністративні функції</message>
 	<message key="admin.auth.confirmDelete">Ви впевнені, що бажаєте видалити назавжди це джерело аутентифікації?</message>
 	<message key="admin.auth.create">Створити джерело аутентифікації</message>

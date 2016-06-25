@@ -10,7 +10,7 @@
   *
   -->
 
-<locale name="pl_PL" full_name = "Polski">
+<locale name="pl_PL" full_name="Język Polski">
 	<!-- Common -->
 	<message key="grid.noItems">Żadnych pozycji</message>
 	<message key="grid.settings">Ustawienia</message>

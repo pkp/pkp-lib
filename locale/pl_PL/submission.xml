@@ -10,7 +10,7 @@
   *
   -->
 
-<locale name="pl_PL" full_name = "Polski">
+<locale name="pl_PL" full_name="Język Polski">
 	<!-- Author Submission -->
 	<message key="author.submit.submissionCitations">Należy dostarczyć odpowiednio sformatowaną listę cytowanych prac. Proszę o rozdzielenie poszczególnych opisów bibliograficznych pustym wierszem.
 </message>

@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="pt_BR" full_name = "Português (Brasil)">
+<locale name="pt_BR" full_name="Português (Brasil)">
 	<message key="about.aboutSite">Sobre o Portal</message>
 	<message key="about.contact">Contato</message>
 	<message key="about.contact.email">E-mail</message>

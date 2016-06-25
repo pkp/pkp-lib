@@ -12,7 +12,7 @@
   * With updates from Pavel Pisklakov (revising translation). 
   -->
 
-<locale name="ru_RU" full_name = "Russian">
+<locale name="ru_RU" full_name="Русский">
 	<message key="admin.adminFunctions">Административные функции</message>
 	<message key="admin.auth.confirmDelete">Вы уверены, что хотите навсегда удалить этот источник аутентификации?</message>
 	<message key="admin.auth.create">Создать источник аутентификации</message>

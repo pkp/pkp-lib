@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="pt_BR" full_name = "Português (Brasil)">
+<locale name="pt_BR" full_name="Português (Brasil)">
 	<message key="comments.anonymous">Usuário anônimo</message>
 	<message key="comments.anonymousNamed">"{$userName}"</message>
 	<message key="comments.body">Corpo</message>

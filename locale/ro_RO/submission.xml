@@ -13,7 +13,7 @@
   *
   -->
 
-<locale name="ro_RO" full_name = "Romanian">
+<locale name="ro_RO" full_name="Limba Română">
 	<message key="submission.abstractViews">Vizualizări abstracte</message>
 	<message key="submission.accepted">Acceptat</message>
 	<message key="submission.acknowledge">Confirmă</message>

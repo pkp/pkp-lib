@@ -13,7 +13,7 @@
 
 
 
-<locale name="id_ID" full_name = "Indonesia">
+<locale name="id_ID" full_name="Bahasa Indonesia">
 <message key="installer.additionalLocales">Bahasa Tambahan</message>
 <message key="installer.administratorAccount">Akun Administrator</message>
 	<message key="installer.administratorAccountInstructions">Akun pengguna ini akan menjadi administrator situs dan memiliki akses penuh ke sistem. Akun pengguna tambahan dapat dibuat setelah instalasi. </message>

@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="nl_NL" full_name = "Nederlands">
+<locale name="nl_NL" full_name="Nederlands">
 	<message key="admin.adminFunctions">Administratieve functies</message>
 	<message key="admin.auth.confirmDelete">Weet u zeker dat u deze authenticatiebron wilt verwijderen?</message>
 	<message key="admin.auth.create">Creëer authenticatiebron</message>

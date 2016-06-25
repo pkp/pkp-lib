@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="eu_ES" full_name = "Basque (Euskara)">
+<locale name="eu_ES" full_name="Euskara">
 	<message key="submission.agencies">Agentziak</message>
 	<message key="submission.abstractViews">Laburpenen ikuspegiak</message>
 	<message key="submission.accepted">Onartua</message>

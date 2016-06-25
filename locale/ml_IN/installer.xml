@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="ml_IN" full_name = "Malayalam">
+<locale name="ml_IN" full_name="മലയാളം">
 	<message key="installer.additionalLocales">അഡീഷണല്‍ ലോക്കേല്‍സ്</message>
 	<message key="installer.administratorAccount">അഡ്മിനിസ്ട്രേറ്റര്‍ അക്കൗണ്ട്</message>
 	<message key="installer.administratorAccountInstructions">ഈ യൂസ്സര്‍ അക്കൗണ്ട് സൈറ്റ് അഡ്മിനിസ്ട്രേറ്റീവ് ആവുകയും പൂര്‍ണമായ സിസ്റ്റം അക്സസ്സ് കൈവരിക്കുകയും ചെയും. അഡീഷണന്‍ യൂസ്സര്‍ അക്കൗണ്ട്  ഇന്‍സ്റ്റാളേഷനു ശേഷം നിര്‍മ്മിക്കാം.</message>

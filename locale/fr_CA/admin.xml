@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="fr_CA" full_name = "Français (Canada)">
+<locale name="fr_CA" full_name="Français (Canada)">
 	<message key="admin.adminFunctions">Fonctions administratives</message>
 	<message key="admin.auth.confirmDelete">Êtes-vous certain de vouloir supprimer définitivement cette source d'authentification?</message>
 	<message key="admin.auth.create">Créer une source d'authentification</message>

@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="no_NO" full_name = "Norwegian">
+<locale name="no_NO" full_name="Norsk">
 	<message key="comments.anonymous">Anonym bruker</message>
 	<message key="comments.anonymousNamed">"{$userName}"</message>
 	<message key="comments.body">Meldingstekst</message>

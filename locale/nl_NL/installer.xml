@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="nl_NL" full_name = "Nederlands">
+<locale name="nl_NL" full_name="Nederlands">
 	<message key="installer.additionalLocales">Additionele talen</message>
 	<message key="installer.administratorAccount">Beheerdersaccount</message>
 	<message key="installer.administratorAccountInstructions">Deze gebruiker wordt de sitebeheerder en heeft volledige toegang tot het systeem. Additionele gebruikersaccounts kunnen na installatie aangemaakt worden.</message>

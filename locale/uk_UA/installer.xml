@@ -14,7 +14,7 @@
   * V. I. Vernadsky National Library of Ukraine
   -->
 
-<locale name="uk_UA" full_name = "Ukrainian">
+<locale name="uk_UA" full_name="Українська">
 	<message key="installer.additionalLocales">Додаткові локалізації</message>
 	<message key="installer.administratorAccount">Обліковий запис адміністратора</message>
 	<message key="installer.administratorAccountInstructions">Цей обліковий запис буде використовуватись адміністратором сайту, він надаватиме повний доступ до системи. Ви зможете створити додаткові облікові записи після завершення інсталяції.</message>

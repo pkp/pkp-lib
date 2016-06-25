@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="el_GR" full_name = "Greek">
+<locale name="el_GR" full_name="ελληνικά">
 	<message key="installer.additionalLocales">Πρόσθετες γλώσσες</message>
 	<message key="installer.administratorAccount">Λογαριασμός διαχειριστή</message>
 	<message key="installer.administratorAccountInstructions">Ο συγκεκριμένος λογαριασμός χρήστη θα αποτελεί τον τεχνικό διαχειριστή του ιστοτόπου και θα έχει πλήρη πρόσβαση στο σύστημα. Πρόσθετοι λογαριασμοί χρηστών μπορούν να δημιουργηθούν μετά από την εγκατάσταση.</message>

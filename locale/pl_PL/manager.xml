@@ -10,7 +10,7 @@
   *
   -->
 
-<locale name="pl_PL" full_name = "Polski">
+<locale name="pl_PL" full_name="Język Polski">
 	<message key="manager.announcements">Aktualności</message>
 	<message key="manager.announcements.confirmDelete">Czy jesteś pewny, że chcesz usunąć ten wpis?</message>
 	<message key="manager.announcements.create">Utwórz nowy wpis</message>

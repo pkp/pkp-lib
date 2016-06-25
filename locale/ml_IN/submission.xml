@@ -11,7 +11,7 @@
   * Localization strings for the ml_IN (മലയാളം) locale.
   -->
 
-<locale name="ml_IN" full_name = "Malayalam">
+<locale name="ml_IN" full_name="മലയാളം">
 	<!-- Author Submission -->
 	<message key="author.submit.submissionCitations">ഈ സബ്മിഷനിലെ വര്‍ക്ക് സൈറ്റെഡിന്റെ ഒരു രൂപീകരണ അവലംബം നല്‍കുക.
 അവ ഒരോന്നും ബ്ലാങ്ക് ലൈന്‍ ഉപയോഗിച്ച് വേര്‍തിരിക്കുക.</message>

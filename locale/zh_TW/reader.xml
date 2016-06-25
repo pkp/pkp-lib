@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="zh_TW" full_name = "繁體中文">
+<locale name="zh_TW" full_name="繁體中文">
 	<message key="comments.anonymous">未註冊的使用者</message>
 	<message key="comments.anonymousNamed">"{$userName}"</message>
 	<message key="comments.body">評論正文</message>

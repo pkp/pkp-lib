@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="id_ID" full_name = "Indonesia">
+<locale name="id_ID" full_name="Bahasa Indonesia">
 	<message key="user.affiliation">Afiliasi</message>
 	<message key="user.affiliation.description">(Institusi Anda, contoh: "Pusat Dokumentasi dan Informasi Ilmiah - LIPI")</message>
 	<message key="user.affiliations">Afiliasi</message>

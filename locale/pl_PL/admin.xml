@@ -10,7 +10,7 @@
   *
   -->
 
-<locale name="pl_PL" full_name = "Polski">
+<locale name="pl_PL" full_name="Język Polski">
 	<message key="admin.adminFunctions">Funkcje administracyjne</message>
 	<message key="admin.auth.confirmDelete">Czy jesteś pewny, że chcesz usunąć źródła uwierzytelniania?</message>
 	<message key="admin.auth.create">Stwórz źródło uwierzytelniania.</message>

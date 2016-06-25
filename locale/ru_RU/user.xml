@@ -12,7 +12,7 @@
   * With updates from Pavel Pisklakov (revising translation). 
   -->
 
-<locale name="ru_RU" full_name = "Russian">
+<locale name="ru_RU" full_name="Русский">
 	<message key="user.accountInformation">Информация учетной записи</message>
 	<message key="user.affiliation">Организация</message>
 	<message key="user.affiliation.description">(Ваша организация, например, «Московский государственный университет имени М.В. Ломоносова»)</message>

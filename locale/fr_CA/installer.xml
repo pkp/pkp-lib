@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="fr_CA" full_name = "Français (Canada)">
+<locale name="fr_CA" full_name="Français (Canada)">
 	<message key="installer.additionalLocales">Langues supplémentaires</message>
 	<message key="installer.administratorAccount">Compte administrateur</message>
 	<message key="installer.administratorAccountInstructions">Ce compte utilisateur deviendra l'administrateur du site et aura le plein accès à tout le système. D'autres comptes utilisateurs peuvent être créés après l'installation.</message>

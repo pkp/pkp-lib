@@ -13,7 +13,7 @@
   *
   -->
 
-<locale name="ro_RO" full_name = "Romanian">
+<locale name="ro_RO" full_name="Limba Română">
 	<message key="manager.announcements">Înștiințări</message>
 	<message key="manager.announcements.confirmDelete">Eşti sigur că vrei să ştergi permanent această înștiințare?</message>
 	<message key="manager.announcements.create">Creează o nouă înștiințare</message>

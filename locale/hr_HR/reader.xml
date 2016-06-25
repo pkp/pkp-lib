@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="hr_HR" full_name = "Hrvatski">
+<locale name="hr_HR" full_name="Hrvatski">
 	<message key="comments.anonymous">Anonimni korisnik</message>
 	<message key="comments.anonymousNamed">"{$userName}"</message>
 	<message key="comments.body">Tijelo poruke</message>

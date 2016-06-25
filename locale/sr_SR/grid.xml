@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="sr_SR" full_name = "Serbian">
+<locale name="sr_SR" full_name="Cрпски">
 	<!-- Common -->
 	<message key="grid.noItems">Nema stavki</message>
 	<message key="grid.settings">Podešavanja</message>

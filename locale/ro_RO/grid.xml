@@ -13,7 +13,7 @@
   *
   -->
 
-<locale name="ro_RO" full_name = "Romanian">
+<locale name="ro_RO" full_name="Limba Română">
 	<!-- Common -->
 	<message key="grid.noItems">Niciun articol</message>
 

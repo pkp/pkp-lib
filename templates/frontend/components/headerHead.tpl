@@ -55,5 +55,7 @@
 	<script src="{$baseUrl}/lib/pkp/js/lib/pnotify/pnotify.core.js"></script>
 	<script src="{$baseUrl}/lib/pkp/js/lib/pnotify/pnotify.buttons.js"></script>
 
+	{load_script context="frontend" scripts=$scripts}
+
 	{$additionalHeadData}
 </head>

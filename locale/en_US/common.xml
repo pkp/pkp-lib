@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="en_US" full_name = "English">
+<locale name="en_US" full_name="English">
 	<message key="about.aboutSite">About the Site</message>
 	<message key="about.contact">Contact</message>
 	<message key="about.contact.email">Email</message>

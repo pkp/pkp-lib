@@ -11,7 +11,7 @@
   * Localization strings for the en_US (English) locale.
   -->
 
-<locale name="en_US" full_name = "English">
+<locale name="en_US" full_name="English">
 	<message key="user.accountInformation">Account Information</message>
 	<message key="user.affiliation">Affiliation</message>
 	<message key="user.affiliation.description">(Your institution, e.g. "Simon Fraser University")</message>

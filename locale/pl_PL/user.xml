@@ -10,18 +10,13 @@
   *
   -->
 
-<locale name="pl_PL" full_name = "Polski">
+<locale name="pl_PL" full_name="Język Polski">
 	<message key="user.affiliation">Afiliacja</message>
 	<message key="user.affiliation.description">(pełna nazwa instytucji naukowej, np. Dolnośląska Szkoła Wyższa. Wydział Nauk Pedagogicznych)</message>
 	<message key="user.affiliations">Afiliacje</message>
 	<message key="user.authorization.accessDenied">Brak dostępu.</message>
-	<message key="user.authorization.processAuthenticationTokenRequired">The process authentication token is missing or invalid.</message>
 	<message key="user.authorization.contextRequired">Nie możesz zakończyć tej operacji bez wprowadzenia wymaganych danych (wydawca, czasopisma, konferencja, itd.).</message>
 	<message key="user.authorization.loginRequired">Wymagany login.</message>
-	<message key="user.authorization.privateOperation">The operation you tried to access is either private or doesn't exist.</message>
-	<message key="user.authorization.restrictedSiteAccess">You have been denied access. Access to this site is currently restricted.</message>
-	<message key="user.authorization.roleBasedAccessDenied">The current role does not have access to this operation.</message>
-	<message key="user.authorization.userGroupRequired">You have to set a valid user group to access this operation.</message>
 	<message key="user.biography">Biogram</message>
 	<message key="user.biography.description">(np. Dokonania, osiągnięcia)</message>
 	<message key="user.changeMyPassword">Zmień moje hasło</message>

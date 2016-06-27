@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="hr_HR" full_name = "Hrvatski">
+<locale name="hr_HR" full_name="Hrvatski">
 	<message key="installer.additionalLocales">Dodatni prijevodi</message>
 	<message key="installer.administratorAccount">Administratorski račun</message>
 	<message key="installer.administratorAccountInstructions">Ovaj korisnički račun će postati administrator stranice i imati potpuni pristup sustavu. Dodatni korisnički računi mogu biti kreirani nakon instalacije.</message>

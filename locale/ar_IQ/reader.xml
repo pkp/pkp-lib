@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="ar_IQ" full_name = "العربية">
+<locale name="ar_IQ" full_name="العربية">
 	<message key="comments.anonymous">مستخدم مجهول</message>
 	<message key="comments.anonymousNamed">"{$userName}"</message>
 	<message key="comments.body">المتن</message>

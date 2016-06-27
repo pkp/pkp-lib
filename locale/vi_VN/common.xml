@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="vi_VN" full_name = "Tiếng Việt">
+<locale name="vi_VN" full_name="Tiếng Việt">
 	<message key="about.aboutSite">Giới thiệu</message>
 	<message key="about.contact">Liên hệ</message>
 	<message key="about.contact.email">Email</message>

@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="eu_ES" full_name = "Basque (Euskara)">
+<locale name="eu_ES" full_name="Euskara">
 	<message key="admin.adminFunctions">Funtzio administratiboak</message>
 	<message key="admin.auth.confirmDelete">Ziur zaude betiko ezabatu nahi duzula autentifikazio-iturburu hau?</message>
 	<message key="admin.auth.create">Sortu autentifikazio-iturburua</message>

@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="de_DE" full_name = "Deutsch (Deutschland)">
+<locale name="de_DE" full_name="Deutsch (Deutschland)">
 	<message key="installer.additionalLocales">Weitere Regionaleinstellungen</message>
 	<message key="installer.administratorAccount">Administrator/innen-Konto</message>
 	<message key="installer.administratorAccountInstructions">Dieses Benutzer/innen-Konto erhält die Administrationsrechte für die gesamte Website und wird kompletten Zugriff auf das System haben. Zusätzliche Benutzer/innen-Konten können nach der Installation erstellt werden.</message>

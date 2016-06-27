@@ -8,11 +8,11 @@
   * Copyright (c) 2000-2016 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the en_US (English) locale.
+  * Localization strings for the ja_JP (日本語) locale.
   *
   -->
 
-<locale name="en_US" full_name = "English">
+<locale name="ja_JP" full_name="日本語">
 	<!-- Common -->
 	<message key="grid.noItems">アイテムなし</message>
 	<message key="grid.settings">設定</message>

@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="vi_VN" full_name = "Tiếng Việt">
+<locale name="vi_VN" full_name="Tiếng Việt">
 	<message key="submission.agencies">Cơ quan</message>
 	<message key="submission.abstractViews">Lượt xem Tóm tắt</message>
 	<message key="submission.accepted">Chấp thuận</message>

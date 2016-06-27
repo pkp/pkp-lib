@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="sr_SR" full_name = "Serbian">
+<locale name="sr_SR" full_name="Cрпски">
 	<message key="installer.additionalLocales">Dodatne lokalizacije</message>
 	<message key="installer.administratorAccount">Administratorski nalog</message>
 	<message key="installer.administratorAccountInstructions">Ovaj korisnički nalog će postati administrator sajta i imati potpuni pristup sistemu. Dodatni korisnički nalozi mogu biti kreirani nakon instalacije.</message>

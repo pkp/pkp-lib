@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="no_NO" full_name = "Norwegian">
+<locale name="no_NO" full_name="Norsk">
 	<message key="installer.additionalLocales">Flere lokalinnstillinger</message>
 	<message key="installer.administratorAccount">Administratorkonto</message>
 	<message key="installer.administratorAccountInstructions">Denne brukerkontoen kommer til å bli nettstedsadministrator, vil ha full tilgang til systemet. Flere brukerkontoer kan opprettes etter installasjon.</message>

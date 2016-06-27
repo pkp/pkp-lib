@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="sv_SE" full_name = "Swedish">
+<locale name="sv_SE" full_name="Svenska">
 	<message key="installer.additionalLocales">Fler lokalinställningar</message>
 	<message key="installer.administratorAccount">Administratörskonto</message>
 	<message key="installer.administratorAccountInstructions">Det här användarkontot kommer att bli Sidaministratörens och kommer att ha fullständig tillgång till systemet. Ytterligare konton kan skapas efter installationen.</message>
@@ -57,7 +57,6 @@
 	<message key="installer.installerSQLStatements">SQL statements för installation</message>
 	<message key="installer.installFileError"><![CDATA[Installationsfilen <tt>dbscripts/xml/install.xml</tt> existerar inte, eller går inte att läsa.]]></message>
 	<message key="installer.installFilesDirError">Vald mapp för uppladdade filer existerar inte, eller är inte överskrivbar.</message>
-	<message key="installer.installParseDBFileError"><![CDATA[Error parsing the database installation file <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale">Lokalinställningar</message>
 	<message key="installer.localeSettings">Lokala inställningar</message>
 	<message key="installer.miscSettings">Diverse inställningar</message>

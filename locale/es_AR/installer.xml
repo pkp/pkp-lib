@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="es_AR" full_name = "Español (Argentina)">
+<locale name="es_AR" full_name="Español (Argentina)">
 	<message key="installer.additionalLocales">Interfaz en otro idioma</message>
 	<message key="installer.administratorAccount">Cuenta del administrador</message>
 	<message key="installer.administratorAccountInstructions">La cuenta del administrador tendrá acceso completo al sistema. Se pueden crear cuentas de usuarios adicionales después de la isntalación.</message>

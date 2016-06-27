@@ -14,7 +14,7 @@
   * V. I. Vernadsky National Library of Ukraine
   -->
 
-<locale name="uk_UA" full_name = "Ukrainian">
+<locale name="uk_UA" full_name="Українська">
 	<!-- Common -->
 	<message key="grid.noItems">Немає елементів</message>
 	<message key="grid.settings">Налаштування</message>

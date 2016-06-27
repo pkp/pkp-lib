@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="fr_FR" full_name = "Français">
+<locale name="fr_FR" full_name="Français (France)">
 	<message key="submission.agencies">Organismes</message>
 	<message key="submission.abstractViews">Vues des résumés</message>
 	<message key="submission.accepted">Accepté</message>

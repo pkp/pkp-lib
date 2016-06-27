@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="zh_TW" full_name = "繁體中文">
+<locale name="zh_TW" full_name="繁體中文">
 	<message key="user.affiliation">所屬機構</message>
 	<message key="user.affiliations">所屬機構</message>
 	<message key="user.biography">個人資訊</message>

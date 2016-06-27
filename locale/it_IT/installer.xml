@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="it_IT" full_name = "Italiano">
+<locale name="it_IT" full_name="Italiano">
 	<message key="installer.additionalLocales">Localizzazioni aggiuntive</message>
 	<message key="installer.administratorAccount">Account dell'amministratore</message>
 	<message key="installer.administratorAccountInstructions">Questo account utente sarà l'amministratore del sito ed avrà accesso totale al sistema. potrai creare dopo il termine dell'installazione altri account utente.</message>

@@ -10,7 +10,7 @@
   *
   -->
 
-<locale name="pl_PL" full_name = "Polski">
+<locale name="pl_PL" full_name="Język Polski">
 	<!-- Common -->
 	<message key="grid.noItems">Żadnych pozycji</message>
 	<message key="grid.settings">Ustawienia</message>
@@ -50,13 +50,8 @@
 	<message key="grid.bookFileType.form.sortable">Pozwól, aby pliki tego typu były sortowane wg określonego komponentu (np. rozdziału)</message>
 
 	<!-- Artwork Files Grid -->
-	<message key="grid.artworkFile.title">Artwork w/Permissions (?)</message>
 	<message key="grid.artworkFile.file">Plik</message>
-	<message key="grid.artworkFile.form.title">Add Artwork w/Permissions</message>
-	<message key="grid.artworkFile.form.metadata">Artwork Metadata</message>
 	<message key="grid.artworkFile.caption">Wielkie litery</message>
-	<message key="grid.artworkFile.credit">Credit (?)</message>
-	<message key="grid.artworkFile.captionAndCredit">Caption and Credit (If Not Included in the File)</message>
 	<message key="grid.artworkFile.copyrightOwner">Właściciel praw autorskich</message>
 	<message key="grid.artworkFile.copyrightContact">Dane kontaktowe (if not author/publisher)</message>
 	<message key="grid.artworkFile.permissionTerms">Zasady wykorzystania</message>
@@ -77,14 +72,9 @@
 	<message key="grid.libraryFiles.productionTemplate.title">Biblioteka szablonów produkcyjnych (?)</message>
 
 	<!-- SubmissionChecklist -->
-	<message key="grid.submissionChecklist.title">Submission Checklist</message>
-	<message key="grid.submissionChecklist.column.checklistItem">Checklist Item</message>
 
 	<!-- Submission Contributors -->
 	<message key="author.users.contributor.name">Nazwisko</message>
-	<message key="author.users.contributor.email">E-mail</message>
-	<message key="author.users.contributor.role">Role</message>
-	<message key="author.users.contributor.principalContact">Primary Contact</message>
 
 	<!-- Review Attachments -->
 	<message key="grid.reviewAttachments.title">Załącznik recenzenta</message>

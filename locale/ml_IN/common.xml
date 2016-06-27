@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="ml_IN" full_name = "Malayalam">
+<locale name="ml_IN" full_name="മലയാളം">
 	<message key="about.aboutSite">സൈറ്റിനെ സംബന്ധിച്ച്</message>
 	<message key="about.contact">കോണ്‍ടാക്റ്റ്</message>
 	<message key="about.contact.email">ഇ-മെയില്‍</message>

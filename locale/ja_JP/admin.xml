@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="ja_JP" full_name = "日本語">
+<locale name="ja_JP" full_name="日本語">
 	<message key="admin.adminFunctions">管理機能</message>
 	<message key="admin.auth.confirmDelete">この認証システムを完全に削除してもよいですか。</message>
 	<message key="admin.auth.create">認証システムの作成</message>

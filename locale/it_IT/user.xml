@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="it_IT" full_name = "Italiano">
+<locale name="it_IT" full_name="Italiano">
 	<message key="user.affiliation">Affiliazione</message>
 	<message key="user.affiliations">Affiliazioni</message>
 	<message key="user.biography">Note biografiche</message>

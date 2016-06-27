@@ -10,7 +10,7 @@
   *
   -->
 
-<locale name="pl_PL" full_name = "Polski">
+<locale name="pl_PL" full_name="Język Polski">
 	<message key="installer.additionalLocales">Dodatkowe języki</message>
 	<message key="installer.administratorAccount">Konto administratora</message>
 	<message key="installer.administratorAccountInstructions">To konto użytkownika dostanie uprawnienia nadrzędnego administratora strony. Dodatkowe konta użytkowników mogą zostać utworzone po instalacji.</message>

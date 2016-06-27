@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="fa_IR" full_name = "Persian">
+<locale name="fa_IR" full_name="فارسی">
 	<message key="user.affiliation">وابستگی</message>
 	<message key="user.affiliations">وابستگی ها</message>
 	<message key="user.biography">کارنامه علمی</message>

@@ -8,11 +8,11 @@
   * Copyright (c) 2000-2016 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the en_US (English) locale.
+  * Localization strings for the fa_IR (فارسی) locale.
   *
   -->
 
-<locale name="en_US" full_name = "English">
+<locale name="fa_IR" full_name="فارسی">
 	<!-- Common -->
 	<message key="grid.noItems">هیچ آیتمی</message>
 	<message key="grid.settings">تنظیمات</message>
@@ -49,13 +49,9 @@
 	<message key="grid.reviewForm.title">فرم های کارشناسی</message>
 
 	<!-- Artwork Files Grid -->
-	<message key="grid.artworkFile.title">Artwork w/Permissions</message>
 	<message key="grid.artworkFile.file">فایل</message>
-	<message key="grid.artworkFile.form.title">Add Artwork w/Permissions</message>
 	<message key="grid.artworkFile.form.metadata">متاداده آرت ورک</message>
-	<message key="grid.artworkFile.caption">Caption</message>
 	<message key="grid.artworkFile.credit">اعتبار</message>
-	<message key="grid.artworkFile.captionAndCredit">Caption and Credit (If Not Included in the File)</message>
 	<message key="grid.artworkFile.copyrightOwner">صاحب کپی رایت</message>
 	<message key="grid.artworkFile.copyrightContact">اطلاعات تماس</message>
 	<message key="grid.artworkFile.permissionTerms">بیانیه مجوز</message>

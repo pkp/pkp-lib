@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="pt_BR" full_name = "Português (Brasil)">
+<locale name="pt_BR" full_name="Português (Brasil)">
 	<message key="user.affiliation">Instituição/Afiliação</message>
 	<message key="user.affiliations">Outras Afiliações</message>
 	<message key="user.biography">Resumo da Biografia</message>

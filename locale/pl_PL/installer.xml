@@ -10,7 +10,7 @@
   *
   -->
 
-<locale name="pl_PL" full_name = "Polski">
+<locale name="pl_PL" full_name="Język Polski">
 	<message key="installer.additionalLocales">Dodatkowe języki</message>
 	<message key="installer.administratorAccount">Konto administratora</message>
 	<message key="installer.administratorAccountInstructions">To konto użytkownika dostanie uprawnienia nadrzędnego administratora strony. Dodatkowe konta użytkowników mogą zostać utworzone po instalacji.</message>
@@ -50,7 +50,7 @@
 	<message key="installer.form.separateMultiple">Oddziel wiele wartości za pomocą przecinków</message>
 	<message key="installer.form.usernameAlphaNumeric">Nazwa konta administratora może być złożona ze znaków alfanumerycznych, podkreśleń, oraz znaku minus (-). Ponadto, musi się zaczynać i kończyć znakiem alfanumerycznym.</message>
 	<message key="installer.form.usernameRequired">Nazwa użytkownika dla konta administratora jest wymagana.</message>
-	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>UWAGA: Wersja PHP zainstalowana na serwerze nie spełnia minimalnych wymagań niezbędnych do zainstalowania systemu. Zaktualizuj PHP do nowszej wersji.</strong>]]></message>
+	<message key="installer.installationWrongPhp"><![CDATA[<br /><strong>UWAGA: Wersja PHP zainstalowana na serwerze nie spełnia minimalnych wymagań niezbędnych do zainstalowania systemu. Zaktualizuj PHP do nowszej wersji.</strong>]]></message>
 	<message key="installer.installErrorsOccurred">Podczas instalacji wystąpiły błędy</message>
 	<message key="installer.installerSQLStatements">Wyrażenia SQL dla instalacji</message>
 	<message key="installer.installFileError"><![CDATA[Plik instalacyjny <tt>dbscripts/xml/install.xml</tt> nie istnieje.]]></message>

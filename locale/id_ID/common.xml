@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="id_ID" full_name = "Indonesia">
+<locale name="id_ID" full_name="Bahasa Indonesia">
 	<message key="about.aboutSite">Tentang Kami</message>
 	<message key="about.contact">Kontak</message>
 	<message key="about.contact.email">Email</message>
@@ -58,7 +58,7 @@
 		<a target="_new" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
 			<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"/>
 		</a>
-		<br/>
+		<br />
 		Bekerja dibawah lisensi <a rel="license" target="_new" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0  License</a>.
 	]]></message>
 	<message key="common.ccLicense.rt"><![CDATA[

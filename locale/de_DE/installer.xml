@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="de_DE" full_name = "Deutsch (Deutschland)">
+<locale name="de_DE" full_name="Deutsch (Deutschland)">
 	<message key="installer.additionalLocales">Weitere Regionaleinstellungen</message>
 	<message key="installer.administratorAccount">Administrator/innen-Konto</message>
 	<message key="installer.administratorAccountInstructions">Dieses Benutzer/innen-Konto erhält die Administrationsrechte für die gesamte Website und wird kompletten Zugriff auf das System haben. Zusätzliche Benutzer/innen-Konten können nach der Installation erstellt werden.</message>
@@ -52,7 +52,7 @@
 	<message key="installer.form.separateMultiple">Bitte trennen Sie mehrere Werte durch Kommata.</message>
 	<message key="installer.form.usernameAlphaNumeric">Der Benutzer/innen-Name für das Administrations-Konto darf nur Buchstaben, Zahlen, Unterstriche und Bindestriche enthalten und muss mit einem Buchstaben oder einer Zahl beginnen und enden.</message>
 	<message key="installer.form.usernameRequired">Bitte geben Sie einen Benutzer/innen-Namen für das Administrations-Konto an.</message>
-	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>WARNUNG: Ihre aktuelle PHP-Version erfüllt nicht die Minimalanforderungen für die Installation. Wir empfehlen ein Upgrade zu einer neueren Version von PHP.</strong>]]></message>
+	<message key="installer.installationWrongPhp"><![CDATA[<br /><strong>WARNUNG: Ihre aktuelle PHP-Version erfüllt nicht die Minimalanforderungen für die Installation. Wir empfehlen ein Upgrade zu einer neueren Version von PHP.</strong>]]></message>
 	<message key="installer.installErrorsOccurred">Während der Installation sind Fehler aufgetreten.</message>
 	<message key="installer.installerSQLStatements">SQL-Anweisungen für die Installation</message>
 	<message key="installer.installFileError"><![CDATA[Die Installationsdatei <tt>dbscripts/xml/install.xml</tt> existiert nicht oder ist nicht lesbar.]]></message>

@@ -102,7 +102,7 @@
 	<currency name="Латвийский лат" code_alpha="LVL" code_numeric="428" />
 	<currency name="Ливийский динар" code_alpha="LYD" code_numeric="434" />
 	<currency name="Марокканский дирхам" code_alpha="MAD" code_numeric="504" />
-	<currency name="Молавский лей" code_alpha="MDL" code_numeric="498" />
+	<currency name="Молдавский лей" code_alpha="MDL" code_numeric="498" />
 	<currency name="Малагасийский ариари" code_alpha="MGA" code_numeric="969" />
 	<currency name="Денар" code_alpha="MKD" code_numeric="807" />
 	<currency name="Кьят" code_alpha="MMK" code_numeric="104" />
@@ -120,13 +120,13 @@
 	<currency name="Золотая кордоба" code_alpha="NIO" code_numeric="558" />
 	<currency name="Норвежская крона" code_alpha="NOK" code_numeric="578" />
 	<currency name="Непальская рупия" code_alpha="NPR" code_numeric="524" />
-	<currency name="новозеландский доллар" code_alpha="NZD" code_numeric="554" />
+	<currency name="Новозеландский доллар" code_alpha="NZD" code_numeric="554" />
 	<currency name="Оманский риал" code_alpha="OMR" code_numeric="512" />
 	<currency name="Бальбоа" code_alpha="PAB" code_numeric="590" />
 	<currency name="Новый соль" code_alpha="PEN" code_numeric="604" />
 	<currency name="Кина" code_alpha="PGK" code_numeric="598" />
 	<currency name="Филиппинское песо" code_alpha="PHP" code_numeric="608" />
-	<currency name="пакистанская рупия" code_alpha="PKR" code_numeric="586" />
+	<currency name="Пакистанская рупия" code_alpha="PKR" code_numeric="586" />
 	<currency name="Злотый" code_alpha="PLN" code_numeric="985" />
 	<currency name="Гуарани" code_alpha="PYG" code_numeric="600" />
 	<currency name="Катарский риал" code_alpha="QAR" code_numeric="634" />

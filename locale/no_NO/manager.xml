@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="no_NO" full_name = "Norwegian">
+<locale name="no_NO" full_name="Norsk">
 	<message key="manager.announcements">Oppslagstavle</message>
 	<message key="manager.announcements.confirmDelete">Er du sikker på at du vil slette dette oppslaget for alltid?</message>
 	<message key="manager.announcements.create">Opprett nytt oppslag</message>

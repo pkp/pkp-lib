@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="it_IT" full_name = "Italiano">
+<locale name="it_IT" full_name="Italiano">
 	<message key="installer.additionalLocales">Localizzazioni aggiuntive</message>
 	<message key="installer.administratorAccount">Account dell'amministratore</message>
 	<message key="installer.administratorAccountInstructions">Questo account utente sarà l'amministratore del sito ed avrà accesso totale al sistema. potrai creare dopo il termine dell'installazione altri account utente.</message>
@@ -52,7 +52,7 @@
 	<message key="installer.form.separateMultiple">Separare valori multipli con le virgole</message>
 	<message key="installer.form.usernameAlphaNumeric">L'username dell'amministratore può contenere solo caratteri alfanumerici, underscore, e trattini, e deve iniziare e finire con un carattere alfanumerico.</message>
 	<message key="installer.form.usernameRequired">Inserisci l'username per l'account di amministratore.</message>
-	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>ATTENZIONE: La tua versione attuale di PHP non soddisfa i requisiti minimi per l'installazione. E' raccomandato aggionare a una versione più recente di PHP.<br/><strong>]]></message>
+	<message key="installer.installationWrongPhp"><![CDATA[<br /><strong>ATTENZIONE: La tua versione attuale di PHP non soddisfa i requisiti minimi per l'installazione. E' raccomandato aggionare a una versione più recente di PHP.<br/><strong>]]></message>
 	<message key="installer.installErrorsOccurred">Errori avvenuti durante l'installazione</message>
 	<message key="installer.installerSQLStatements">Istruzioni SQL per l'installazione</message>
 	<message key="installer.installFileError"><![CDATA[Il file d'<tt>dbscripts/xml/install.xml</tt> non esiste o  non &#x00E8; leggibile.]]></message>

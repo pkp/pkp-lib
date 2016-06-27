@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="sr_SR" full_name = "Serbian">
+<locale name="sr_SR" full_name="Cрпски">
 	<message key="installer.additionalLocales">Dodatne lokalizacije</message>
 	<message key="installer.administratorAccount">Administratorski nalog</message>
 	<message key="installer.administratorAccountInstructions">Ovaj korisnički nalog će postati administrator sajta i imati potpuni pristup sistemu. Dodatni korisnički nalozi mogu biti kreirani nakon instalacije.</message>
@@ -52,7 +52,7 @@
 	<message key="installer.form.separateMultiple">Razdvojite višestruke vriednosti zarezima.</message>
 	<message key="installer.form.usernameAlphaNumeric">Administratorsko korisničko ime može da sadrži samo slovne i brojčane znake, podvlačenja i crtice, a mora početi i završiti sa slovnim ili brojčanim znakom.</message>
 	<message key="installer.form.usernameRequired">Korisničko ime za administratorski nalog je obavezno.</message>
-	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>UPOZORENJE: Vaša trenutna verzija PHP-a ne odgovara minimalnim zahtevima instalacije. Preporučujemo da instalirate noviju verziju PHP-a.</strong>]]></message>
+	<message key="installer.installationWrongPhp"><![CDATA[<br /><strong>UPOZORENJE: Vaša trenutna verzija PHP-a ne odgovara minimalnim zahtevima instalacije. Preporučujemo da instalirate noviju verziju PHP-a.</strong>]]></message>
 	<message key="installer.installErrorsOccurred">Pojavile su se greške u instalaciji</message>
 	<message key="installer.installerSQLStatements">SQL izjave za instalaciju</message>
 	<message key="installer.installFileError"><![CDATA[Instalacioni folder <tt>dbscripts/xml/install.xml</tt> ne postoji ili je nečitljiv.]]></message>

@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="es_AR" full_name = "Español (Argentina)">
+<locale name="es_AR" full_name="Español (Argentina)">
 	<message key="installer.additionalLocales">Interfaz en otro idioma</message>
 	<message key="installer.administratorAccount">Cuenta del administrador</message>
 	<message key="installer.administratorAccountInstructions">La cuenta del administrador tendrá acceso completo al sistema. Se pueden crear cuentas de usuarios adicionales después de la isntalación.</message>
@@ -64,7 +64,7 @@
 	<message key="installer.publicFilesDirError">El directorio de archivos de acceso público no existe o no tiene el permiso de escritura.</message>
 	<message key="installer.releaseNotes">Notas</message>
 	<message key="installer.securitySettings">Opciones de seguridad</message>
-	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>ATENCION: Su versión actual de PHP no cumple los requerimientos mínimos para una correcta instalación. SE recomiendo actualizar a una versión más reciente de PHP.</strong>]]></message>
+	<message key="installer.installationWrongPhp"><![CDATA[<br /><strong>ATENCION: Su versión actual de PHP no cumple los requerimientos mínimos para una correcta instalación. SE recomiendo actualizar a una versión más reciente de PHP.</strong>]]></message>
 	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Error al parsear el archivo de plantilla de correo <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale.maybeIncomplete">Las internacionalizaciones seleccionadas podrían estar incompletas</message>
 	<message key="installer.installParseFilterConfigFileError"><![CDATA[Error al interpretar el arhivo de configuración de filtros: <tt>{$file}</tt>]]></message>

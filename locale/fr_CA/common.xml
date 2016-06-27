@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="fr_CA" full_name = "Français (Canada)">
+<locale name="fr_CA" full_name="Français (Canada)">
 	<message key="about.aboutSite">À propos du site</message>
 	<message key="about.contact">Contact</message>
 	<message key="about.contact.email">Courriel</message>
@@ -270,7 +270,7 @@
 		<a target="_blank" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
 			<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"/>
 		</a>
-		<br/>
+		<br />
 		Ce travail est autorisé sous licence avec la <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/3.0/">Licence de paternité Creative Commons 3.0</a>.]]></message>
 	<message key="common.ccLicense.rt"><![CDATA[<div class="rtBlock">
 		<br />

@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="el_GR" full_name = "Greek">
+<locale name="el_GR" full_name="ελληνικά">
 	<message key="about.aboutSite">Σχετικά με τον ιστότοπο</message>
 	<message key="about.contact">Επικοινωνία</message>
 	<message key="about.contact.email">Διεύθυνση ηλεκτρονικού ταχυδρομείου</message>
@@ -270,7 +270,7 @@
 		<a target="_new" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
 			<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"/>
 		</a>
-		<br/>
+		<br />
 		Η χρήση του περιεχομένου καθορίζεται από την άδεια <a rel="license" target="_new" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0  License</a>.]]></message>
 	<message key="common.ccLicense.rt"><![CDATA[<div class="rtBlock">
 		<br />

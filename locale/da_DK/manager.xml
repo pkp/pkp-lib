@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="da_DK" full_name = "Danish">
+<locale name="da_DK" full_name="Dansk">
 	<message key="manager.announcements">Meddelelser</message>
 	<message key="manager.announcements.confirmDelete">Er du sikker på, at du vil slette denne meddelelse permanent?</message>
 	<message key="manager.announcements.create">Opret ny meddelelse</message>
@@ -218,7 +218,7 @@
 	<message key="manager.setup.filter.parser.grid.loadMessage">Vent, indtil konfigurationsgitteret for citations-parseren er blevet indlæst …</message>
 	<message key="manager.setup.filter.parser.grid.title">Citationsudtrækningstjenester</message>
 	<message key="manager.setup.filter.pleaseSelect">Vælg …</message>
-	<message key="manager.setup.metaCitationsDescription">Sæt en markering i det følgende afkrydsningsfelt for at aktivere redigering af citationer og referencer. Det gør forfattere i stand til at inkludere de utilrettede referencer i deres indsendte bidrag. Redaktører vil også have adgang til et referenceredigeringsværktøj, som kan kontrollere utilrettede referencers nøjagtighed i forhold til eksterne databaser som WorldCat, ISBNdb, PubMed med flere. Godkendte referencer kan eksporteres til endelige satsskibfiler.</message>
+	<message key="manager.setup.metaCitationsDescription">Sæt en markering i det følgende afkrydsningsfelt for at aktivere redigering af citationer og referencer. Det gør forfattere i stand til at inkludere de utilrettede referencer i deres indsendte bidrag. Redaktører vil også have adgang til et referenceredigeringsværktøj, som kan kontrollere utilrettede referencers nøjagtighed i forhold til eksterne databaser som WorldCat, ISBNdb, PubMed med flere. Godkendte referencer kan eksporteres til endelige publiceringsfiler.</message>
 	<message key="manager.announcements.datePublish">Udgivet</message>
 	<message key="manager.emails.addEmail">Tilføj e-mail skabelon</message>
 	<message key="manager.emails.data">Skabelondata</message>

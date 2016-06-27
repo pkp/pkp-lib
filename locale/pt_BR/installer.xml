@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="pt_BR" full_name = "Português (Brasil)">
+<locale name="pt_BR" full_name="Português (Brasil)">
 	<message key="installer.additionalLocales">Idiomas adicionais</message>
 	<message key="installer.administratorAccount">Conta do administrador</message>
 	<message key="installer.administratorAccountInstructions">Este usuário será o Administrador do Portal e terá acesso completo ao sistema. Contas adicionais podem ser criadas após a instalação.</message>
@@ -52,7 +52,7 @@
 	<message key="installer.form.separateMultiple">Separe valores múltiplos com vírgulas</message>
 	<message key="installer.form.usernameAlphaNumeric">O login pode conter apenas caracteres alfanuméricos, sublinhados "_" e hífens "-", devendo começar e terminar por um caractere alfanumérico.</message>
 	<message key="installer.form.usernameRequired">Login obrigatório.</message>
-	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>AVISO: A versão do PHP utilizada não está em conformidade com os requisitos mínimos para instalação do sistema. Recomenda-se usar a versão mais recente do PHP.</strong>]]></message>
+	<message key="installer.installationWrongPhp"><![CDATA[<br /><strong>AVISO: A versão do PHP utilizada não está em conformidade com os requisitos mínimos para instalação do sistema. Recomenda-se usar a versão mais recente do PHP.</strong>]]></message>
 	<message key="installer.installErrorsOccurred">Ocorreram erros durante a instalação</message>
 	<message key="installer.installerSQLStatements">Comandos SQL para instalação</message>
 	<message key="installer.installFileError"><![CDATA[O documento de instalação <tt>dbscripts/xml/install.xml</tt> não existe ou não possui permissão de leitura.]]></message>
@@ -69,4 +69,6 @@
 	<message key="installer.locale.maybeIncomplete">Traduções marcadas podem estar incompletas.</message>
 	<message key="installer.installParseFilterConfigFileError"><![CDATA[Erro ao processar o arquivo de configuração de filtros <tt>{$file}</tt>.]]></message>
 	<message key="installer.oaiSettings">Configurações OAI</message>
+	<message key="installer.beacon">Sinalizador</message>
+	<message key="installer.beacon.enable">Informe um ID único para o site um endereço base ao PKP para propósitos apenas de estatística e alertas de segurança.</message>
 </locale>

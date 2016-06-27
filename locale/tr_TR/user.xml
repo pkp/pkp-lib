@@ -125,4 +125,7 @@
 	<message key="user.profile.form.passwordSameAsOld">Yeni şifreniz eski şifrenizle aynıdır.</message>
 	<message key="user.profile.form.hashInvalid">Sıfırlama için verdiğiniz şifre karması geçerli değil.</message>
 	<message key="user.login.changePasswordInstructionsOneStep"><![CDATA[Bu siteye giriş yapmadan önce yeni bir şifre seçmelisiniz.<br /><br />Hesabınızın şifresini değiştirmek için lütfen aşağıya kullanıcı adınızı ve yeni şifrenizi giriniz.]]></message>
+	<message key="user.login.implicitAuth">Shibboleth Girişi</message>
+	<message key="user.login.implicitAuthLogin">Shibboleth Seçeneğiyle Giriş</message>
+	<message key="user.login.localAuth">Yerel Hesap Girişi</message>
 </locale>

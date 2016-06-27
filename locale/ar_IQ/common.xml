@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="ar_IQ" full_name = "العربية">
+<locale name="ar_IQ" full_name="العربية">
 	<message key="about.aboutSite">عن الموقع</message>
 	<message key="about.contact">عنوان الاتصال</message>
 	<message key="about.contact.email">البريد الالكتروني</message>
@@ -65,7 +65,7 @@
 		<a target="_blank" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
 			<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"/>
 		</a>
-		<br/>
+		<br />
 		هذا العمل مرخص ضمن رخصة <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>.
 	]]></message>
 	<message key="common.ccLicense.rt"><![CDATA[

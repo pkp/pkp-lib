@@ -12,7 +12,7 @@
   * With updates from Pavel Pisklakov (revising translation). 
   -->
 
-<locale name="ru_RU" full_name = "Russian">
+<locale name="ru_RU" full_name="Русский">
 	<!-- Отправка материала автором --> 
 	<message key="author.submit.submissionCitations">Введите отформатированный список ссылок на работы, использованные при подготовке данного материала. Пожалуйста, отделяйте ссылки одну от другой с помощью пустой строки.</message>	
 
@@ -305,7 +305,7 @@
 	<message key="submission.layout.galleyLabelInstructions">Метка гранки используется для идентификации формата файла (например, HTML, PDF и т. д.).</message>
 	<message key="submission.layout.galleyLabel">Метка</message>
 	<message key="submission.layout.galleyLabelRequired">Метка гранки обязательна.</message>
-	<message key="submission.layout.galleyLanguageRequired">Язык граки обязателен.</message>
+	<message key="submission.layout.galleyLanguageRequired">Язык гранки обязателен.</message>
 	<message key="submission.layout.galleyLocaleRequired">Язык гранки обязателен.</message>
 	<message key="submission.layout.galleyRemoteURL">Адрес URL удаленного сервера</message>
 	<message key="submission.layout.galleyRemoteURLValid">Пожалуйста, введите правильный адрес (URL) удаленного сервера (включая http://).</message>
@@ -363,7 +363,7 @@
 	<message key="submission.saveMetadata">Сохранить метаданные</message>
 	<message key="submissions.completed">Завершены</message>
 	<message key="submissions.declined">Отклонены</message>
-	<message key="submissions.incomplete">Незакончены</message>
+	<message key="submissions.incomplete">Не закончены</message>
 	<message key="submissions.noSubmissions">Нет материалов</message>
 	<message key="submissions.queuedEditing">На редакции</message>
 	<message key="submissions.queued">В очереди</message>

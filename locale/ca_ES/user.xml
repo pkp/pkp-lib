@@ -7,7 +7,7 @@
   * Copyright (c) 2000-2016 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Credits: http://pkp.sfu.ca/wiki/index.php?title=OJS:_Catalan_%28ca_ES%29
+  * Credits: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Catalan_(ca_ES)
   *
   * Localization strings for the ca_ES (Català) locale.
   -->
@@ -126,4 +126,8 @@
 	<message key="user.workingLanguages">Llengües de treball</message>
 	<message key="user.register.completeForm">Ompliu aquest formulari per registrar-vos en aquest lloc web.</message>
 	<message key="user.profile.form.hashInvalid">El reinici del hash de la paraula de pas que intenteu utilitzar no es vàlid.</message>
+	<message key="user.login.changePasswordInstructionsOneStep"><![CDATA[Heu de triar una nova contrasenya abans de registrar-vos en aquest lloc.<br /><br />Introduïu el vostre usuari i la nova contrasenya a continuació per canviar la contrasenya del compte.]]></message>
+	<message key="user.login.implicitAuth">Inicia sessió Shibboleth</message>
+	<message key="user.login.implicitAuthLogin">Inicia sessió via Shibboleth</message>
+	<message key="user.login.localAuth">Inicia sessió amb el compte local</message>
 </locale>

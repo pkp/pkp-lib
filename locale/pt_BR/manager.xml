@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="pt_BR" full_name = "Português (Brasil)">
+<locale name="pt_BR" full_name="Português (Brasil)">
 	<message key="manager.announcements">Notícias</message>
 	<message key="manager.announcements.confirmDelete">Deseja realmente excluir permanentemente esta notícia?</message>
 	<message key="manager.announcements.create">Criar nova notícia</message>
@@ -244,4 +244,8 @@
 	<message key="plugins.categories.citationParser.description">Plugins de extração de citação extraem dados a nível de campos para citações cruas (ex.: autor, título, entre outros).</message>
 	<message key="manager.statistics.city">Cidade</message>
 	<message key="manager.statistics.region">Região</message>
+	<message key="manager.emails.exportXML">Exportar como XML modelos de mensagens marcadas</message>
+	<message key="manager.emails.uploadXML">Enviar arquivo XML</message>
+	<message key="manager.emails.uploadSuccess">Os modelos de mensagem foram atualizados com sucesso</message>
+	<message key="manager.emails.uploadError">Envio de arquivo falhou</message>
 </locale>

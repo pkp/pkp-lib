@@ -13,7 +13,7 @@
 
 
 
-<locale name="id_ID" full_name = "Indonesia">
+<locale name="id_ID" full_name="Bahasa Indonesia">
 <message key="installer.additionalLocales">Bahasa Tambahan</message>
 <message key="installer.administratorAccount">Akun Administrator</message>
 	<message key="installer.administratorAccountInstructions">Akun pengguna ini akan menjadi administrator situs dan memiliki akses penuh ke sistem. Akun pengguna tambahan dapat dibuat setelah instalasi. </message>
@@ -53,7 +53,7 @@
 	<message key="installer.form.separateMultiple">Pisahkan beberapa nilai dengan koma.</message>
 	<message key="installer.form.usernameAlphaNumeric">Nama administrator hanya dapat berisi karakter alfanumeik, garis bawah, dan tanda hubung, dan harus dimulai dan diakhiri dengan karakter alfanumerik.</message>
 	<message key="installer.form.usernameRequired">Nama pengguna untuk akun administrator diperlukan.</message>
-	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>PERINGATAN: Versi PHP Anda saat ini tidak memenuhi persyaratan minimum untuk instalasi. Disarankan untuk memperbaharui menjadi versi PHP terbaru.</strong>]]></message>
+	<message key="installer.installationWrongPhp"><![CDATA[<br /><strong>PERINGATAN: Versi PHP Anda saat ini tidak memenuhi persyaratan minimum untuk instalasi. Disarankan untuk memperbaharui menjadi versi PHP terbaru.</strong>]]></message>
 	<message key="installer.installErrorsOccurred">Kesalahan terjadi pada saat instalasi</message>
 	<message key="installer.installerSQLStatements">Laporan SQL untuk instalasi</message>
 	<message key="installer.installFileError"><![CDATA[File instalasi <tt>dbscripts/xml/install.xml</tt> Tidak ada atau tidak dapat terbaca.]]></message>

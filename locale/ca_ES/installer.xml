@@ -7,7 +7,7 @@
   * Copyright (c) 2000-2016 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Credits: http://pkp.sfu.ca/wiki/index.php?title=OJS:_Catalan_%28ca_ES%29
+  * Credits: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Catalan_(ca_ES)
   *
   * Localization strings for the ca_ES (Català) locale.
   *
@@ -70,4 +70,6 @@
 	<message key="installer.publicFilesDirError">El directori per als fitxers públics no existeix o no té permís d’escriptura.</message>
 	<message key="installer.releaseNotes">Notes de la versió</message>
 	<message key="installer.securitySettings">Paràmetres de seguretat</message>
+	<message key="installer.beacon">Beacon</message>
+	<message key="installer.beacon.enable">Proporciona a PKP un identificador únic del lloc i una URL base OAI per finalitats estadístiques i de seguretat.</message>
 </locale>

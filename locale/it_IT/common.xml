@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="it_IT" full_name = "Italiano">
+<locale name="it_IT" full_name="Italiano">
 	<message key="about.aboutSite">Informazioni sul sito</message>
 	<message key="about.contact">Contatti</message>
 	<message key="about.contact.email">Email</message>
@@ -273,7 +273,7 @@
 		<a target="_blank" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
 			<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"/>
 		</a>
-		<br/>
+		<br />
 		Se non diversamente indicato, i contenuti di questa rivista sono pubblicati sotto licenza
  <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0</a>.]]></message>
 	<message key="common.ccLicense.rt"><![CDATA[<div class="rtBlock">

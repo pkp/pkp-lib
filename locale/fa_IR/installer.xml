@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="fa_IR" full_name = "Persian">
+<locale name="fa_IR" full_name="فارسی">
 	<message key="installer.additionalLocales">زبانهای اضافی</message>
 	<message key="installer.administratorAccount">حساب مدیر</message>
 	<message key="installer.administratorAccountInstructions">این حساب کاربری مدیر سایت خواهد شد و دسترسی کامل به  سیستم خواهد داشت. حسابهای اضافی کاربران را میتئان پس از نصب برنامه ایجاد کرد.</message>
@@ -65,7 +65,7 @@
 	<message key="installer.publicFilesDirError">پوشه public وجود ندارد ویا قابل نوشتن نیست</message>
 	<message key="installer.releaseNotes">یاداشت های منتشره</message>
 	<message key="installer.securitySettings">تنظیمات امنیتی</message>
-	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>هشدار: نسخه PHP شما فاقد خداقل های مورد نیاز برای نصب برنامه است. توصیه میشود به نسخه های جدید ارتفا دهید.</strong>]]></message>
+	<message key="installer.installationWrongPhp"><![CDATA[<br /><strong>هشدار: نسخه PHP شما فاقد خداقل های مورد نیاز برای نصب برنامه است. توصیه میشود به نسخه های جدید ارتفا دهید.</strong>]]></message>
 	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[بروز خطا هنگام پردازش فایل تمپلیت ایمیل <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale.maybeIncomplete">زبانهای مشخص شده ممکن است ناکامل باشند.</message>
 </locale>

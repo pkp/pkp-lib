@@ -11,7 +11,7 @@
   * Localization strings for the sr_SR (Cрпски) locale.
   -->
 
-<locale name="sr_SR" full_name = "Serbian">
+<locale name="sr_SR" full_name="Cрпски">
 	<!-- Author Submission -->
 	<message key="author.submit.submissionCitations">Daje formatiranu listu referenci za radove citiran dokumentu. Odvojte reference prazninama.</message>
 

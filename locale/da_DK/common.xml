@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="da_DK" full_name = "Danish">
+<locale name="da_DK" full_name="Dansk">
 	<message key="about.aboutSite">Om webstedet</message>
 	<message key="about.contact">Kontaktperson</message>
 	<message key="about.contact.email">E-mail</message>
@@ -123,7 +123,7 @@
 	<message key="common.pageHeaderLogo.altText">Sidehovede logo</message>
 	<message key="common.plugin">Plug-in</message>
 	<message key="common.publisher">Forlægger</message>
-	<message key="common.record">Post</message>
+	<message key="common.record">Registrér</message>
 	<message key="common.related">Relateret</message>
 	<message key="common.remove">Fjern</message>
 	<message key="common.removeSelection">Fjern markering</message>
@@ -199,7 +199,7 @@
 	<message key="form.resubmit">Send igen</message>
 	<message key="form.saveToUpload">Brug Gem for at overføre filen.</message>
 	<message key="form.send">Send</message>
-	<message key="form.submit">Fremsend</message>
+	<message key="form.submit">Send</message>
 	<message key="help.contents">Indhold</message>
 	<message key="help.help">Hjælp</message>
 	<message key="help.helpIndex">Indeks i Hjælp</message>
@@ -269,7 +269,7 @@
 		<a target="_new" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
 			<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"/>
 		</a>
-		<br/>
+		<br />
 		Brug af dette værk skal ske i overensstemmelse med copyrightlicensen <a rel="license" target="_new" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0  License</a>.]]></message>
 	<message key="common.ccLicense.rt"><![CDATA[<div class="rtBlock">
 		<br />

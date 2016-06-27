@@ -10,7 +10,7 @@
   *
   -->
 
-<locale name="pl_PL" full_name = "Polski">
+<locale name="pl_PL" full_name="Język Polski">
 	<message key="about.aboutSite">O Stronie</message>
 	<message key="about.contact">Kontakt</message>
 	<message key="about.contact.email">Email</message>
@@ -57,7 +57,7 @@
 		<a target="_new" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
 			<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"/>
 		</a>
-		<br/>
+		<br />
 		Ta praca dostępna jest na licencji <a rel="license" target="_new" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>.
 	]]></message>
 	<message key="common.ccLicense.rt"><![CDATA[

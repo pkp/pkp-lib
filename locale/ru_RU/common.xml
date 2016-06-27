@@ -12,7 +12,7 @@
   * With updates from Pavel Pisklakov (revising translation). 
   -->
 
-<locale name="ru_RU" full_name = "Russian">
+<locale name="ru_RU" full_name="Русский">
 	<message key="about.aboutSite">О сайте</message>
 	<message key="about.contact">Контакты</message>
 	<message key="about.contact.email">E-mail</message>
@@ -29,7 +29,7 @@
 	<message key="announcement.moreAnnouncements">Другие объявления...</message>
 	<message key="announcement.noneExist">Не было опубликовано ни одного объявления.</message>
 	<message key="announcement.posted">Опубликовано</message>
-	<message key="announcement.postedOn">Опубиковано {$postDate}</message>
+	<message key="announcement.postedOn">Опубликовано {$postDate}</message>
 	<message key="announcement.viewLink">Далее...</message>
 	<message key="announcement.view">Показать объявление</message>
 	<message key="common.accepted">Принято</message>
@@ -65,7 +65,7 @@
 		<a target="_blank" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
 			<img alt="Лицензия Creative Commons" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"/>
 		</a>
-		<br/>
+		<br />
 		Эта работа распространяется по лицензии <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0</a>.
 	]]></message>
 	<message key="common.ccLicense.rt"><![CDATA[
@@ -350,7 +350,7 @@
 	<message key="notification.notificationsNew">({$numNew} новых)</message>
 	<message key="notification.notificationsDescription">У Вас {$unreadCount} непрочитанных уведомлений и {$readCount} прочитанных.<![CDATA[  <a href="{$settingsUrl}">Щелкните здесь</a> для изменения Ваших настроек уведомлений.]]></message>
 	<message key="notification.settings">Настройки уведомлений</message>
-	<message key="notification.settingsDescription">Выберите события системы, о которых Вы хотите быть уведомлены. Снятия отметки события приведет к тому, что оно не будет появляться в Вашей ленте уведомлений.</message>
+	<message key="notification.settingsDescription">Выберите события системы, о которых Вы хотите быть уведомлены. Снятие отметки события приведет к тому, что оно не будет появляться в Вашей ленте уведомлений.</message>
 	<message key="notification.subscribe">Подписаться</message>
 	<message key="notification.subscribeError">Ваш адрес электронной почты уже подписан на получение уведомлений.</message>
 	<message key="notification.subscribeSuccess">На указанный Вами адрес было отправлено сообщение. Пожалуйста, щелкните на ссылке подтверждения в письме для добавления Вас в список рассылки.</message>

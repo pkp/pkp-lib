@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="ja_JP" full_name = "日本語">
+<locale name="ja_JP" full_name="日本語">
 	<message key="submission.agencies">機関</message>
 	<message key="submission.abstractViews">要旨を読む</message>
 	<message key="submission.accepted">採用</message>

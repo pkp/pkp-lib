@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="en_US" full_name = "English">
+<locale name="en_US" full_name="English">
 	<!-- Common -->
 	<message key="grid.noItems">No Items</message>
 	<message key="grid.settings">Settings</message>

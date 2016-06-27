@@ -12,7 +12,7 @@
   * With updates from Pavel Pisklakov (revising translation). 
   -->
 
-<locale name="ru_RU" full_name = "Russian">
+<locale name="ru_RU" full_name="Русский">
 	<message key="manager.announcements">Объявления</message>
 	<message key="manager.announcements.confirmDelete">Вы уверены, что хотите навсегда удалить это объявление?</message>
 	<message key="manager.announcements.create">Создать новое объявление</message>
@@ -31,7 +31,7 @@
 	<message key="manager.announcements.form.descriptionInstructions">Полный текст обьявления.</message>
 	<message key="manager.announcements.form.descriptionRequired">Описание объявления обязательно.</message>
 	<message key="manager.announcements.form.descriptionShortInstructions">Краткое описание, которое появится вместе с заголовком объявления.</message>
-	<message key="manager.announcements.form.descriptionShortRequired">Краткое описание объявления обязатеьно.</message>
+	<message key="manager.announcements.form.descriptionShortRequired">Краткое описание объявления обязательно.</message>
 	<message key="manager.announcements.form.descriptionShort">Краткое описание</message>
 	<message key="manager.announcements.form.notificationToggle">Отправить уведомление</message>
 	<message key="manager.announcements.form.notificationToggleInstructions">Создать новое уведомление после сохранения это объявление.</message>
@@ -110,7 +110,7 @@
 	<message key="manager.navigation">Навигация</message>
 	<message key="manager.payment.timestamp">Дата/Время</message>
 	<message key="manager.people.authSource">Источник аутентификации</message>
-	<message key="manager.people.confirmUnenroll">Отписать этого пользователя?</message>
+	<message key="manager.people.confirmUnenroll">Отменить назначение этого пользователя?</message>
 	<message key="manager.people.createUser">Создать нового пользователя</message>
 	<message key="manager.people.createUserGeneratePassword">Создать случайный пароль.</message>
 	<message key="manager.people.createUserSendNotify">Отправить пользователю приветственное письмо, содержащее его имя пользователя и пароль.</message>
@@ -128,12 +128,12 @@
 	<message key="manager.people.enrollment">Назначение</message>
 	<message key="manager.people.enrollSelected">Назначить выбранных пользователей</message>
 	<message key="manager.people.enrollSyncRole">Синхронизировать роль</message>
-	<message key="manager.people.enrollSync">Синхронизировать запись</message>
+	<message key="manager.people.enrollSync">Синхронизировать назначения</message>
 	<message key="manager.people.enrollUserAsDescription">Пользователям можно назначать любую роль или отменять назначение любой роли в любое время.</message>
 	<message key="manager.people.enrollUserAs">Назначить на роль</message>
 	<message key="manager.people.invalidUser">Извините, данный пользователь не существует.</message>
 	<message key="manager.people.mergeUser">Объединить</message>
-	<message key="manager.people.mergeUsers.confirm">Вы уверены, что хотите слить выбранные {$oldAccountCount} учетных записей в учетную запись с именем пользователя «{$newUsername}»? Выбранные {$oldAccountCount} учетные записи после этого не будут существовать. Это действие необратимо.</message>
+	<message key="manager.people.mergeUsers.confirm">Вы уверены, что хотите объединить выбранные {$oldAccountCount} учетных записей в учетную запись с именем пользователя «{$newUsername}»? Выбранные {$oldAccountCount} учетные записи после этого перестанут существовать. Это действие необратимо.</message>
 	<message key="manager.people.mergeUsers">Объединение пользователей</message>
 	<message key="manager.people.mustChooseRole">Пожалуйста выберите роль вверху страницы перед тем как нажать «Назначить пользователя».</message>
 	<message key="manager.people.mustProvideName">Пожалуйста, укажите сначала хотя бы фамилию пользователя.</message>

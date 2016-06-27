@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="vi_VN" full_name = "Tiếng Việt">
+<locale name="vi_VN" full_name="Tiếng Việt">
 	<message key="installer.additionalLocales">Các ngôn ngữ khác</message>
 	<message key="installer.administratorAccount">Tài khoản của Người quản trị </message>
 	<message key="installer.administratorAccountInstructions">Tài khoản người dùng này sẽ trở thành người quản trị website và có quyền truy cập toàn bộ hệ thống. Các tài khoản người dùng khác có thể thêm sau khi cài đặt.</message>
@@ -52,7 +52,7 @@
 	<message key="installer.form.separateMultiple">Phân tách các giá trị bằng dấu phẩy</message>
 	<message key="installer.form.usernameAlphaNumeric">Bí danh quản trị có thể chứa các ký tự chữ số, dấu gạch dưới và gạch ngang, phải bắt đầu và kết thúc bằng chữ số.</message>
 	<message key="installer.form.usernameRequired">Phải có bí danh cho tài khoản quản trị.</message>
-	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>CẢNH BÁO: Phiên bản PHP hiện thời của quý vị không đáp ứng những yêu cầu tối thiểu để cài đặt. Xin khuyến nghị nâng cấp lên phiên bản PHP mới hơn.</strong>]]></message>
+	<message key="installer.installationWrongPhp"><![CDATA[<br /><strong>CẢNH BÁO: Phiên bản PHP hiện thời của quý vị không đáp ứng những yêu cầu tối thiểu để cài đặt. Xin khuyến nghị nâng cấp lên phiên bản PHP mới hơn.</strong>]]></message>
 	<message key="installer.installErrorsOccurred">Có lỗi trong quá trình cài đặt</message>
 	<message key="installer.installerSQLStatements">SQL statements dùng để cài đặt</message>
 	<message key="installer.installFileError"><![CDATA[File cài đặt <tt>dbscripts/xml/install.xml</tt> không tồn tại hoặc không đọc được.]]></message>

@@ -12,7 +12,7 @@
   * With updates from Pavel Pisklakov (revising translation). 
   -->
 
-<locale name="ru_RU" full_name = "Russian">
+<locale name="ru_RU" full_name="Русский">
 	<!-- Общие -->
 	<message key="grid.noItems">Нет элементов</message>
 	<message key="grid.settings">Настройки</message>
@@ -109,7 +109,7 @@
 	<message key="grid.columns.locale">Язык</message>
 
 	<!-- Сетка «Спонсоры» -->
-	<message key="grid.sponsor.title">Спогсоры</message>
+	<message key="grid.sponsor.title">Спонсоры</message>
 	<message key="grid.action.addSponsor">Добавить спонсора</message>
 	<message key="grid.action.deleteSponsor">Удалить спонсора</message>
 	<message key="grid.action.editSponsor">Редактировать спонсора</message>

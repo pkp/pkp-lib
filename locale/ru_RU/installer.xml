@@ -11,7 +11,7 @@
   * With updates from Pavel Pisklakov (revising translation). 
   -->
 
-<locale name="ru_RU" full_name = "Russian">
+<locale name="ru_RU" full_name="Русский">
 	<message key="installer.additionalLocales">Дополнительные языки</message>
 	<message key="installer.administratorAccount">Учетная запись администратора</message>
 	<message key="installer.administratorAccountInstructions">Этот пользователь станет администратором сайта и получит полный доступ к системе. Дополнительные учетные записи пользователей можно будет создать после завершения установки.</message>
@@ -24,7 +24,7 @@
 	<message key="installer.connectionCharsetInstructions">Кодировка, которая используется для обмена информацией с базой данных. Желательно использовать кодировку, совпадающую с кодировкой клиента. Обратите внимание, что эта возможность поддерживается только MySQL >= 4.1.1 или PostgreSQL >= 7.1. Выберите «Не применимо» если ваша СУБД не отвечает этим требованиям.</message>
 	<message key="installer.contentsOfConfigFile">Содержимое конфигурационного файла</message>
 	<message key="installer.createDatabase">Создать новую базу данных</message>
-	<message key="installer.createDatabaseInstructions">Для использования этой возможности необходимо, чтобы ваша СУБД поддерживала возможность удаленного создания базы данных, а ваша учетная запись пользователя БД имел соответствующие права на создание новых баз данных. Если установка завершается неудачей при использовании этой настройки, создайте базу данных на сервере вручную и запустите установку снова, отключив эту настройку.</message>
+	<message key="installer.createDatabaseInstructions">Для использования этой возможности необходимо, чтобы ваша СУБД поддерживала возможность удаленного создания базы данных, а ваша учетная запись пользователя БД имела соответствующие права на создание новых баз данных. Если установка завершается неудачей при использовании этой настройки, создайте базу данных на сервере вручную и запустите установку снова, отключив эту настройку.</message>
 	<message key="installer.databaseCharset">Кодировка базы данных</message>
 	<message key="installer.databaseCharsetInstructions">Кодировка, которая используется для хранения данных в базе данных. Обратите внимание, что эта возможность поддерживается только MySQL >= 4.1.1 или PostgreSQL >= 7.1. Выберите «Не применимо» если ваша СУБД не отвечает этим требованиям.</message>
 	<message key="installer.databaseDriver">Драйвер базы данных</message>
@@ -51,7 +51,7 @@
 	<message key="installer.form.separateMultiple">Несколько вводимых значений разделяйте запятыми.</message>
 	<message key="installer.form.usernameAlphaNumeric">Имя пользователя для учетной записи администратора может содержать только буквы, цифры, подчеркивания и тире; оно должно начинаться и заканчиваться буквой или цифрой.</message>
 	<message key="installer.form.usernameRequired">Имя пользователя для учетной записи администратора обязательно.</message>
-	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>ПРЕДУПРЕЖДЕНИЕ: Ваша текущая версия PHP не соответствует минимальным требованиям для установки. Желательно обновить PHP до более новой версии.</strong>]]></message>
+	<message key="installer.installationWrongPhp"><![CDATA[<br /><strong>ПРЕДУПРЕЖДЕНИЕ: Ваша текущая версия PHP не соответствует минимальным требованиям для установки. Рекомендуется обновить PHP до более новой версии.</strong>]]></message>
 	<message key="installer.installErrorsOccurred">Во время установки произошли ошибки</message>
 	<message key="installer.installerSQLStatements">SQL-запросы для установки</message>
 	<message key="installer.installFileError"><![CDATA[Файл установки <tt>dbscripts/xml/install.xml</tt> не существует или не доступен для чтения.]]></message>

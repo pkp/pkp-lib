@@ -238,4 +238,11 @@
 	<message key="manager.emails.uploadSuccess">Seçilen e-posta şablonları güncellemesi başarılı</message>
 	<message key="manager.emails.uploadError">Dosya yükleme başarısız</message>
 	<message key="manager.emails.exportXML">Seçilmiş e-posta şablonlarını XML olarak ihraç et</message>
+	<message key="manager.emails.enable.message">Bu e-postayı etkinleştirmek üzeresiniz. Bu işlemi onaylamak ister misiniz?</message>
+	<message key="manager.emails.disable.message">Bu e-posta şablonunu devre dışı bırakmak üzeresiniz. Eğer sistem bu şablonu kullandıysa, bundan sonra kullanamayacaktır.  Bu işlemi onaylıyor musunuz?</message>
+	<message key="manager.emails.resetAll.message">Eğer tüm şablonları sıfırlarsanız, e-postalardaki tüm değişikliklerinizi kaybedeceksiniz. Bunu onaylamak ister misiniz?</message>
+	<message key="manager.emails.reset.message">Eğer bu şablonu sıfırlarsanız, tüm değişikliklerinizi kaybedeceksiniz ve tüm mesaj verileri varsayılan biçimine döndürülecektir. Bu işlemi onaylıyor musunuz?</message>
+	<message key="manager.reviewerSearch.form.instructions">Aramak istediğiniz terimler için maksimum değerleri aşağıdaki forma giriniz. Form, o alanlardaki verilerin hesaplanmış ortalamaları ile ön tamamlamalıdır.</message>
+	<message key="plugins.categories.citationLookup.description">Atıf Veri Tabanı Bağlama Eklentisi atıf bakman için atıf veri tabanına bağlanır. Ör.: Atıf düzeltirken.</message>
+	<message key="plugins.categories.citationOutput.description">Atıf Çıktı Eklentisi atıf standartlarını tamamlar. Bu Atıf Biçim Eklentisinin yerini alır.</message>
 </locale>

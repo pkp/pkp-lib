@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="es_AR" full_name = "Español (Argentina)">
+<locale name="es_AR" full_name="Español (Argentina)">
 	<message key="about.aboutSite">Acerca del sitio</message>
 	<message key="about.contact">Contacto</message>
 	<message key="about.contact.email">Email</message>
@@ -63,7 +63,7 @@
 		<a target="_blank" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
 			<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"/>
 		</a>
-		<br/>
+		<br />
                 Este trabajo está licenciado bajo una <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/3.0/">Licencia de Atribución Creative Commons 3.0</a>.]]></message>
 	<message key="common.ccLicense.rt"><![CDATA[<div class="rtBlock">
 		<br />

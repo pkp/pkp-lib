@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="ar_IQ" full_name = "العربية">
+<locale name="ar_IQ" full_name="العربية">
 	<message key="admin.adminFunctions">الوظائف الإدارية</message>
 	<message key="admin.auth.confirmDelete">هل أنت متأكد من رغبتك في حذف مصدر التوثيق هذا نهائياً؟?</message>
 	<message key="admin.auth.create">إنشاء مصدر توثيق</message>

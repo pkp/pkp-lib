@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="da_DK" full_name = "Danish">
+<locale name="da_DK" full_name="Dansk">
 	<message key="submission.agencies">Instanser</message>
 	<message key="submission.abstractViews">Visninger af resuméer</message>
 	<message key="submission.accepted">Accepteret</message>
@@ -65,7 +65,7 @@
 	<message key="submission.event.reviewer.reviewResubmitted">Bedømmelsen er fremsendt igen</message>
 	<message key="submission.event.reviewer.reviewRevision">Bedømmers revideringsfil er opdateret</message>
 	<message key="submission.files">filer</message>
-	<message key="submission.galley">Satsskib</message>
+	<message key="submission.galley">Publiceringsversion</message>
 	<message key="submission.history.clearLog">Ryd log</message>
 	<message key="submission.history">Oversigt</message>
 	<message key="submission.history.noLogEntries">Ingen logposter.</message>
@@ -78,33 +78,33 @@
 	<message key="submission.initiated">Startet</message>
 	<message key="submission.lastModified">Senest ændret</message>
 	<message key="submission.layout.addGalley">Tilføj et layoutsatsskib</message>
-	<message key="submission.layout.confirmDeleteGalley">Er du sikker på, at du vil slette dette satsskib permanent?</message>
-	<message key="submission.layout.confirmDeleteGalleyImage">Er du sikker på, at du vil fjerne dette billede fra satsskibet?</message>
+	<message key="submission.layout.confirmDeleteGalley">Er du sikker på, at du vil slette denne publiceringsversion permanent?</message>
+	<message key="submission.layout.confirmDeleteGalleyImage">Er du sikker på, at du vil fjerne dette billede fra publiceringsversionen?</message>
 	<message key="submission.layout.confirmDeleteSupplementaryFile">Er du sikker på, at du vil slette denne supplerende fil permanent?</message>
 	<message key="submission.layout.deleteGalleyStylesheet">Slet dette typografiark.</message>
-	<message key="submission.layout.editGalley">Rediger et layoutsatsskib</message>
-	<message key="submission.layout.galleyFileData">Oplysninger om satsskibsfil</message>
-	<message key="submission.layout.galleyFormat">Satsskibsformat</message>
-	<message key="submission.layout.galleyHTMLData">HTML-satsskibsfiler</message>
+	<message key="submission.layout.editGalley">Rediger en publiceringsversion</message>
+	<message key="submission.layout.galleyFileData">Oplysninger om publiceringsversion</message>
+	<message key="submission.layout.galleyFormat">Publiceringsformat</message>
+	<message key="submission.layout.galleyHTMLData">HTML-publiceringsfiler</message>
 	<message key="submission.layout.galleyImages">Billeder</message>
-	<message key="submission.layout.galleyLabelInstructions">Satsskibsetiketten bruges til at identificere elementets filformat (f.eks. HTML, PDF osv.).</message>
+	<message key="submission.layout.galleyLabelInstructions">Formatetiketten bruges til at identificere elementets filformat (f.eks. HTML, PDF osv.).</message>
 	<message key="submission.layout.galleyLabel">Etiket</message>
-	<message key="submission.layout.galleyLabelRequired">En satsskibsetiket er påkrævet.</message>
-	<message key="submission.layout.galleyLanguageRequired">Et satsskibssprog er påkrævet.</message>
-	<message key="submission.layout.galleyLocaleRequired">En satsskibslandestandard er påkrævet.</message>
+	<message key="submission.layout.galleyLabelRequired">En formatetiket er påkrævet.</message>
+	<message key="submission.layout.galleyLanguageRequired">Et publiceringssprog er påkrævet.</message>
+	<message key="submission.layout.galleyLocaleRequired">En publiceringslandestandard er påkrævet.</message>
 	<message key="submission.layout.galleyNoImages">Ingen billeder</message>
-	<message key="submission.layout.galleys">Satsskibe</message>
+	<message key="submission.layout.galleys">Publiceringsversioner</message>
 	<message key="submission.layout.galleyStylesheet">Typografiarksfil</message>
 	<message key="submission.layout.galleyStyle">Typografi</message>
-	<message key="submission.layout.initialGalleyCreation">Oprettelse af første satsskib</message>
+	<message key="submission.layout.initialGalleyCreation">Oprettelse af første publiceringsversion</message>
 	<message key="submission.layout.layoutFile">Layoutfil</message>
 	<message key="submission.layout">Layout</message>
 	<message key="submission.layout.layoutVersion">Layoutversion</message>
-	<message key="submission.layout.newGalley">Opret nyt satsskib</message>
+	<message key="submission.layout.newGalley">Opret ny publiceringsversion</message>
 	<message key="submission.layout.newSupplementaryFile">Overfør ny supplerende fil</message>
-	<message key="submission.layout.noStyleFile">Der er ikke føjet en typografiarksfil til dette satsskib.</message>
+	<message key="submission.layout.noStyleFile">Der er ikke føjet en typografiarksfil til denne publiceringsversion.</message>
 	<message key="submission.layout.supplementaryFiles">Bedømmelse af supplerende fil</message>
-	<message key="submission.layout.viewingGalley">Visning af manuskriptsatsskib</message>
+	<message key="submission.layout.viewingGalley">Visning af manuskriptversion</message>
 	<message key="submission.layout.viewProof">Vis korrektur</message>
 	<message key="submission.metadata">Manuskriptmetadata</message>
 	<message key="submission.noReviewAssignments">Ingen bedømmelsesopgaver</message>
@@ -301,7 +301,7 @@
 		<p>Denne lyseblå separatorlinje mellem dette vindue og kolonnen til venstre kan flyttes. Hvis du har brug for mere plads til at se referencelisten eller til at redigere en reference, kan separatoren flyttes i den ene eller den anden retning.</p>
 		<p>Hvis du vil forstørre citationsbrugerfladen, skal du klikke på knappen <strong>Fuldskærm</strong>. Hvis du vil gå tilbage til normal visning fra den forstørrede citationsbrugerflade, skal du klikke på knappen <strong>Deaktiver fuldskærm</strong>.</p>
 		<h4>Sådan tilføjer og sletter du referencer</h4>
-		<p>Du kan tilføje referencer ved at klikke på ikonet <strong>Ny reference</strong> i øverste højre hjørne af kolonnen med referencelisten. Du kan slette referencer ved at klikke på det røde ikon <strong>Slet</strong> til venstre for referencen.</p>
+		<p>Du kan tilføje referencer ved at klikke på ikonet <strong>Ny reference</strong> i øverste højre hjørne af kolonnen med referencelisten. Du kan slette referencer ved at klikke på det blå ikon <strong>Slet</strong> til venstre for referencen.</p>
 		<h4>Sådan redigerer du referencer</h4>
 		<p>Hvis du vil redigere en reference i listen til venstre, kan du åbne det i dette vindue ved at klikke på det. Du får vist den originale reference, som det er skrevet af forfatteren, efterfulgt af assistentens automatiske udtrækningsforsøg. Du kan redigere den originale reference manuelt, redigere dele af eller hele den nye reference, kontrollere referencen i forhold til konfigurerede citationsdatabase-tjenester, sende en forespørgsel til Google Scholar og bede forfatteren om yderligere information om referencen.</p>
 		<p>Når du er færdig med at redigere referencen og klikker på knappen <strong>Gem og godkend</strong>, bliver du automatisk flyttet til den næste ikke-godkendte reference på listen. På den måde kan du hurtigt arbejde dig igennem en lang liste med referencer. Når alle referencer er blevet godkendt, vil du blive sendt til siden <strong>Eksporter referencer</strong>.</p>]]></message>
@@ -349,7 +349,6 @@
 	</ul>]]></message>
 	<message key="submission.citations.editor.loadMessage">Vent, til citationsredigeringsværktøjet er indlæst.</message>
 	<message key="submission.citations.editor.php5Required">Citationsredigering kræver XML- og XSL-understøttelse, som kun er tilgængelig i PHP version 5.0.0. og nyere. Det lader til, at din installation kører på en tidligere version af PHP. Du kan ikke anvende citationsmarkeringsværktøjet, medmindre du opgraderer til en nyere version.</message>
-	<message key="submission.citations.editor.pleaseAddParserFilter"><![CDATA[Please ask your journal manager to <a href="{$citationSetupUrl}">add at least one citation extraction service</a> before you can use the citation markup assistant.]]></message>
 	<message key="submission.citations.editor.pleaseConfigureOutputStyle"><![CDATA[Din tidsskriftschef skal <a href="{$citationSetupUrl}">konfigurere en citationseksportstil</a>, inden du kan begynde at anvende citationsmarkeringsværktøjet.]]></message>
 	<message key="submission.citations.editor.pleaseImportCitationsFirst"><![CDATA[<p>Der er ingen referencer til denne artikel.</p><p>Gå til artiklens <a href="{$articleMetadataUrl}">metadataside</a>, og indtast en litteraturhenvisning, eller tilføj referencer manuelt ved hjælp af knappen "Tilføj element" i redigeringsprogrammet.</p>]]></message>
 	<message key="submission.citations.editor.pleaseSelect">Vælg …</message>
@@ -383,6 +382,6 @@
 	<message key="submission.reviewed">Bedømt</message>
 	<message key="submission.supportingAgencies">Støtteinstanser</message>
 	<message key="submission.createRemote">Opret ekstern</message>
-	<message key="submission.form.name">Giv denne fil et sigendenavn</message>
+	<message key="submission.form.name">Giv denne fil et sigende navn</message>
 	<message key="submission.form.replaceExisting">Erstat en eksisterende fil?</message>
 </locale>

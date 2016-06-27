@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="fr_CA" full_name = "Français (Canada)">
+<locale name="fr_CA" full_name="Français (Canada)">
 	<message key="installer.additionalLocales">Langues supplémentaires</message>
 	<message key="installer.administratorAccount">Compte administrateur</message>
 	<message key="installer.administratorAccountInstructions">Ce compte utilisateur deviendra l'administrateur du site et aura le plein accès à tout le système. D'autres comptes utilisateurs peuvent être créés après l'installation.</message>
@@ -52,7 +52,7 @@
 	<message key="installer.form.separateMultiple">Séparer les valeurs multiples par une virgule</message>
 	<message key="installer.form.usernameAlphaNumeric">Le nom d'utilisateur de l'administrateur ne peut contenir que des caractères alphanumériques, traits de soulignement, et traits d'union, et doit commencer et se terminer par un caractère alphanumérique.</message>
 	<message key="installer.form.usernameRequired">Un nom d'utilisateur pour le compte administrateur est obligatoire.</message>
-	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>AVERTISSEMENT : Votre version actuelle de PHP ne satisfait pas aux exigences minimales d'installation. Nous vous recommandons de faire la mise à jour vers une version plus récente de PHP.</strong>]]></message>
+	<message key="installer.installationWrongPhp"><![CDATA[<br /><strong>AVERTISSEMENT : Votre version actuelle de PHP ne satisfait pas aux exigences minimales d'installation. Nous vous recommandons de faire la mise à jour vers une version plus récente de PHP.</strong>]]></message>
 	<message key="installer.installErrorsOccurred">Des erreurs se sont produites pendant l'installation</message>
 	<message key="installer.installerSQLStatements">énoncés SQL pour l'installation</message>
 	<message key="installer.installFileError"><![CDATA[Le fichier d'installation <tt>dbscripts/xml/install.xml</tt> n'existe pas ou n'est pas lisible.]]></message>

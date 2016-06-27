@@ -14,7 +14,7 @@
   * V. I. Vernadsky National Library of Ukraine
   -->
 
-<locale name="uk_UA" full_name = "Ukrainian">
+<locale name="uk_UA" full_name="Українська">
 	<!-- Author Submission -->
 	<message key="author.submit.submissionCitations">Надайте форматований список посилань на роботи, процитовані у цьому рукописі. Будь ласка, відокремлюйте посилання одне від одного пустими рядками.</message>
 

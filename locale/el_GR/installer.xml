@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="el_GR" full_name = "Greek">
+<locale name="el_GR" full_name="ελληνικά">
 	<message key="installer.additionalLocales">Πρόσθετες γλώσσες</message>
 	<message key="installer.administratorAccount">Λογαριασμός διαχειριστή</message>
 	<message key="installer.administratorAccountInstructions">Ο συγκεκριμένος λογαριασμός χρήστη θα αποτελεί τον τεχνικό διαχειριστή του ιστοτόπου και θα έχει πλήρη πρόσβαση στο σύστημα. Πρόσθετοι λογαριασμοί χρηστών μπορούν να δημιουργηθούν μετά από την εγκατάσταση.</message>
@@ -52,7 +52,7 @@
 	<message key="installer.form.separateMultiple">Διαχωρίστε πολλαπλές τιμές με κόμματα</message>
 	<message key="installer.form.usernameAlphaNumeric">Το όνομα χρήστη του διαχειριστή μπορεί να περιέχει μόνο αλφαριθμητικούς χαρακτήρες, κάτω και πάνω παύλες και πρέπει να αρχίζει και να τελειώνει με έναν αλφαριθμητικό χαρακτήρα.</message>
 	<message key="installer.form.usernameRequired">Απαιτείται όνομα χρήστη για το λογαριασμό διαχειριστή.</message>
-	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>ΕΙΔΟΠΟΙΗΣΗ: Η τρέχουσα έκδοση της PHP στον υπολογιστή σας δεν ικανοποιεί τις ελάχιστες προδιαγραφές εγκατάστασης. Συνιστάται η αναβάθμιση σε μια νεώτερη έκδοση PHP.</strong>]]></message>
+	<message key="installer.installationWrongPhp"><![CDATA[<br /><strong>ΕΙΔΟΠΟΙΗΣΗ: Η τρέχουσα έκδοση της PHP στον υπολογιστή σας δεν ικανοποιεί τις ελάχιστες προδιαγραφές εγκατάστασης. Συνιστάται η αναβάθμιση σε μια νεώτερη έκδοση PHP.</strong>]]></message>
 	<message key="installer.installErrorsOccurred">Σφάλματα που προέκυψαν κατά την εγκατάσταση</message>
 	<message key="installer.installerSQLStatements">Εντολές SQL για την εγκατάσταση</message>
 	<message key="installer.installFileError"><![CDATA[Το αρχείο εγκατάστασης <tt>dbscripts/xml/install.xml</tt> δεν υπάρχει ή δεν είναι αναγνώσιμο.]]></message>

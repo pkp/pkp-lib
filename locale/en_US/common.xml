@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="en_US" full_name = "English">
+<locale name="en_US" full_name="English">
 	<message key="about.aboutSite">About the Site</message>
 	<message key="about.contact">Contact</message>
 	<message key="about.contact.email">Email</message>
@@ -65,7 +65,7 @@
 		<a target="_blank" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
 			<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"/>
 		</a>
-		<br/>
+		<br />
 		This work is licensed under a <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0  License</a>.
 	]]></message>
 	<message key="common.ccLicense.rt"><![CDATA[

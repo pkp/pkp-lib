@@ -8,7 +8,7 @@
   * Copyright (c) 2000-2016 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the 
   *
-  * Credits: http://pkp.sfu.ca/wiki/index.php?title=OJS:_Spanish_%28es_ES%29
+  * Credits: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Spanish_(es_ES)
   *
   * Localization strings.
   -->
@@ -37,7 +37,7 @@
 	<message key="user.email">Correo electrónico</message>
 	<message key="user.confirmEmail">Confirmar correo electrónico</message>
 	<message key="user.fax">Fax</message>
-	<message key="user.feminine">F</message>
+	<message key="user.feminine">M</message>
 	<message key="user.firstName">Nombre</message>
 	<message key="user.gender">Sexo</message>
 	<message key="user.initialsExample">Joan Alice Smith = JAS</message>
@@ -67,7 +67,7 @@
 	<message key="user.logOut">Cerrar sesión</message>
 	<message key="user.hello">Hola: </message>
 	<message key="user.mailingAddress">Dirección postal</message>
-	<message key="user.masculine">M</message>
+	<message key="user.masculine">H</message>
 	<message key="user.middleName">Segundo nombre</message>
 	<message key="user.myAccount">Mi cuenta</message>
 	<message key="user.name">Nombre</message>
@@ -128,4 +128,5 @@
 	<message key="user.register.completeForm">Rellene el formulario para registrarse en el sitio.</message>
 	<message key="user.profile.form.hashInvalid">El reinicio del hash de la palabra de paso que intentas usar no es válido.</message>
 	<message key="user.login.changePasswordInstructionsOneStep"><![CDATA[Tiene que escoger una nueva contraseña antes de poder entrar a este sitio.<br /><br />Introduzca su usuario y su nueva contraseña tras cambiar la contraseña de su cuenta.]]></message>
+	<message key="user.login.implicitAuthLogin">Inicia sesión vía Shibboleth</message>
 </locale>

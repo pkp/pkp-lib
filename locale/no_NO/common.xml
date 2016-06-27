@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="no_NO" full_name = "Norwegian">
+<locale name="no_NO" full_name="Norsk">
 	<message key="about.aboutSite">Om nettstedet</message>
 	<message key="about.contact">Kontakt</message>
 	<message key="about.contact.email">E-post</message>
@@ -275,7 +275,7 @@
 		<a target="_blank" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
 			<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"/>
 		</a>
-		<br/>
+		<br />
 		Dette verket er lisensiert med en <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0-lisens</a>.]]></message>
 	<message key="common.ccLicense.rt"><![CDATA[<div class="rtBlock">
 		<br />

@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="pt_PT" full_name = "Português)">
+<locale name="pt_PT" full_name="Português (Portugal)">
 	<message key="about.aboutSite">Sobre o Portal</message>
 	<message key="about.contact">Contacto</message>
 	<message key="about.contact.email">E-mail</message>
@@ -269,7 +269,7 @@
 		<a target="_blank" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
 			<img alt="Licença Creative Commons" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"/>
 		</a>
-		<br/>Este trabalho está licenciado sob uma <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/3.0/">Licença Creative Commons Attribution 3.0 </a>.]]></message>
+		<br />Este trabalho está licenciado sob uma <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/3.0/">Licença Creative Commons Attribution 3.0 </a>.]]></message>
 	<message key="common.ccLicense.rt"><![CDATA[<div class="rtBlock">
 		<br />
 		<a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_blank"><img alt="Licença Creative Commons" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>

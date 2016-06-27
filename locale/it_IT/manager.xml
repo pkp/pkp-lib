@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="it_IT" full_name = "Italiano">
+<locale name="it_IT" full_name="Italiano">
 	<message key="manager.announcements">Avvisi</message>
 	<message key="manager.announcements.confirmDelete">Sei sicuro di voler cancellare in maniera permanente questo annuncio?</message>
 	<message key="manager.announcements.create">Crea un nuovo avviso</message>
@@ -170,6 +170,10 @@
 	<message key="plugins.categories.reports">Gestione dei report</message>
 	<message key="plugins.categories.themes.description">Il plugin del tema può essere usato per cambiare l'aspetto del sistema.</message>
 	<message key="plugins.categories.themes">Temi</message>
+	<message key="plugins.categories.oaiMetadataFormats">Plugin per i formati dei metadati OAI</message>	
+	<message key="plugins.categories.oaiMetadataFormats.description">Questi plugin permettono di esporre i metadati in diversi formati nelle comunicazioni OAI.</message>
+	<message key="plugins.categories.pubIds">Plugin per gli identificatori pubblici</message>
+	<message key="plugins.categories.pubIds.description">Questi plugin permettono il supporto agli identificatori pubblici.</message>
 	<message key="manager.emails.form.emailKeyRequired">L'indirizzo email deve essere unico.</message>
 	<message key="manager.reviewerSearch.activeAmount">Numero di revisioni attive</message>
 	<message key="manager.setup.citationFilterParser">Estrazione delle citazioni</message>

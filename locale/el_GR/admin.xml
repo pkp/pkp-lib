@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="el_GR" full_name = "Greek">
+<locale name="el_GR" full_name="ελληνικά">
 	<message key="admin.adminFunctions">Λειτουργίες Διαχείρισης</message>
 	<message key="admin.auth.confirmDelete">Είστε σίγουροι ότι  θέλετε να διαγράψετε μόνιμα αυτή την πηγή  πιστοποίησης;</message>
 	<message key="admin.auth.create">Δημιουργία Πηγής  Πιστοποίησης</message>

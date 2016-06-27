@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="el_GR" full_name = "Greek">
+<locale name="el_GR" full_name="ελληνικά">
 	<message key="user.affiliation">Συνεργαζόμενο Ίδρυμα</message>
 	<message key="user.affiliations">Συνεργαζόμενα Ιδρύματα</message>
 	<message key="user.biography">Βιογραφικά Στοιχεία</message>

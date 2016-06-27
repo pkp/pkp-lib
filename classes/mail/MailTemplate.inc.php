@@ -93,9 +93,8 @@ class MailTemplate extends Mail {
 
 		// Default "From" to user if available, otherwise site/context principal contact
 		if ($user) {
-			$this->setReplyTo($user->getEmail(), $user->getFullName());
-		}
-		if (!$context) {
+			$this->setFrom($user->getEmail(), $user->getFullName());
+		} elseif (is_null($context) || is_null($context->getSetting('contactEmail'))) {
 			$site = $request->getSite();
 			$this->setFrom($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
 		} else {

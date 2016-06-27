@@ -174,9 +174,8 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 		}
 
 		if (isset($args['path'])) {
-			$args['path'] = substr($args['path'], -4) == 'less' ? $this->_getBaseDir($path) : $this->_getBaseUrl($args['path']);
+			$args['path'] = substr($args['path'], (strlen(LESS_FILENAME_SUFFIX) * -1)) == LESS_FILENAME_SUFFIX ? $this->_getBaseDir($path) : $this->_getBaseUrl($args['path']);
 		}
-
 
 		$style = array_merge( $style, $args );
 	}
@@ -330,7 +329,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 			}
 
 			// Compile LESS files
-			if (substr($style['path'], -4) == 'less') {
+			if (substr($style['path'], (strlen(LESS_FILENAME_SUFFIX) * -1)) == LESS_FILENAME_SUFFIX) {
 				$url = $dispatcher->url(
 					$request,
 					ROUTE_COMPONENT,

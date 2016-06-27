@@ -349,7 +349,6 @@
 	</ul>]]></message>
 	<message key="submission.citations.editor.loadMessage">Vent, til citationsredigeringsværktøjet er indlæst.</message>
 	<message key="submission.citations.editor.php5Required">Citationsredigering kræver XML- og XSL-understøttelse, som kun er tilgængelig i PHP version 5.0.0. og nyere. Det lader til, at din installation kører på en tidligere version af PHP. Du kan ikke anvende citationsmarkeringsværktøjet, medmindre du opgraderer til en nyere version.</message>
-	<message key="submission.citations.editor.pleaseAddParserFilter"><![CDATA[Please ask your journal manager to <a href="{$citationSetupUrl}">add at least one citation extraction service</a> before you can use the citation markup assistant.]]></message>
 	<message key="submission.citations.editor.pleaseConfigureOutputStyle"><![CDATA[Din tidsskriftschef skal <a href="{$citationSetupUrl}">konfigurere en citationseksportstil</a>, inden du kan begynde at anvende citationsmarkeringsværktøjet.]]></message>
 	<message key="submission.citations.editor.pleaseImportCitationsFirst"><![CDATA[<p>Der er ingen referencer til denne artikel.</p><p>Gå til artiklens <a href="{$articleMetadataUrl}">metadataside</a>, og indtast en litteraturhenvisning, eller tilføj referencer manuelt ved hjælp af knappen "Tilføj element" i redigeringsprogrammet.</p>]]></message>
 	<message key="submission.citations.editor.pleaseSelect">Vælg …</message>

@@ -15,7 +15,7 @@
 
 import('lib.pkp.classes.plugins.LazyLoadPlugin');
 
-define(LESS_FILENAME_SUFFIX, '.less');
+define('LESS_FILENAME_SUFFIX', '.less');
 
 abstract class ThemePlugin extends LazyLoadPlugin {
 	/**
@@ -122,7 +122,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	public function addStyle($name, $path, $args = array()) {
 
 		// Pass a file path for LESS files
-		if (substr($path, strlen(LESS_FILENAME_SUFFIX)) == '.less' ) {
+		if (substr($path, (strlen(LESS_FILENAME_SUFFIX) * -1)) === LESS_FILENAME_SUFFIX) {
 			$fullPath = $this->_getBaseDir($path);
 
 		// Pass a URL for other files

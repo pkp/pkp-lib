@@ -48,6 +48,9 @@ class PKPTemplateManager extends Smarty {
 	/** @var array of URLs to javascript files */
 	private $_javaScripts = array();
 
+	/** @var array of HTML head content to output */
+	private $_htmlHeaders = array();
+
 	/** @var string Type of cacheability (Cache-Control). */
 	private $_cacheability;
 
@@ -186,9 +189,10 @@ class PKPTemplateManager extends Smarty {
 		$this->register_function('load_url_in_el', array($this, 'smartyLoadUrlInEl'));
 		$this->register_function('load_url_in_div', array($this, 'smartyLoadUrlInDiv'));
 
-		// load stylesheets/scripts from a given context
+		// load stylesheets/scripts/headers from a given context
 		$this->register_function('load_stylesheet', array($this, 'smartyLoadStylesheet'));
 		$this->register_function('load_script', array($this, 'smartyLoadScript'));
+		$this->register_function('load_header', array($this, 'smartyLoadHeader'));
 
 		/**
 		 * Kludge to make sure no code that tries to connect to the
@@ -346,6 +350,20 @@ class PKPTemplateManager extends Smarty {
 	}
 
 	/**
+	 * Add a page-specific item to the <head>.
+	 *
+	 * @param $header string the header to be included
+	 * @param $priority int The order in which to print this header. STYLE_SEQUENCE_...
+	 * @param $contexts string|array where header should be used
+	 */
+	function addHeader($header, $priority = STYLE_SEQUENCE_NORMAL, $contexts = array('frontend')) {
+		$contexts = (array) $contexts;
+		foreach($contexts as $context) {
+			$this->_htmlHeaders[$context][$priority][] = $header;
+		}
+	}
+
+	/**
 	 * @see Smarty::fetch()
 	 */
 	function fetch($resource_name, $cache_id = null, $compile_id = null, $display = false) {
@@ -359,6 +377,11 @@ class PKPTemplateManager extends Smarty {
 			ksort( $list );
 		}
 		$this->assign('scripts', $this->_javaScripts);
+
+		foreach( $this->_htmlHeaders as &$list ) {
+			ksort( $list );
+		}
+		$this->assign('headers', $this->_htmlHeaders);
 
 		// If no compile ID was assigned, get one.
 		if (!$compile_id) $compile_id = $this->getCompileId($resource_name);
@@ -994,15 +1017,12 @@ class PKPTemplateManager extends Smarty {
 			$context = 'frontend';
 		}
 
+		$stylesheets = $this->getResourcesByContext($params['stylesheets'], $params['context']);
+
 		$output = '';
-		foreach($params['stylesheets'] as $context => $priorityList) {
-			if ($context != $params['context']) {
-				continue;
-			}
-			foreach($priorityList as $files) {
-				foreach($files as $url) {
-					$output .= '<link rel="stylesheet" href="' . $url . '" type="text/css" />';
-				}
+		foreach($stylesheets as $priorityList) {
+			foreach($priorityList as $url) {
+				$output .= '<link rel="stylesheet" href="' . $url . '" type="text/css" />';
 			}
 		}
 
@@ -1024,22 +1044,83 @@ class PKPTemplateManager extends Smarty {
 		}
 
 		if (empty($params['context'])) {
-			$context = 'frontend';
+			$params['context'] = 'frontend';
 		}
 
+		$scripts = $this->getResourcesByContext($params['scripts'], $params['context']);
+
 		$output = '';
-		foreach($params['scripts'] as $context => $priorityList) {
-			if ($context != $params['context']) {
-				continue;
-			}
-			foreach($priorityList as $files) {
-				foreach($files as $url) {
-					$output .= '<script src="' . $url . '" type="text/javascript"></script>';
-				}
+		foreach($scripts as $priorityList) {
+			foreach($priorityList as $url) {
+				$output .= '<script src="' . $url . '" type="text/javascript"></script>';
 			}
 		}
 
 		return $output;
+	}
+
+	/**
+	 * Smarty usage: {load_header context="frontent" headers=$headers}
+	 *
+	 * Custom Smarty function for printing scripts attached to a context.
+	 * @param $params array associative array
+	 * @param $smarty Smarty
+	 * @return string of HTML/Javascript
+	 */
+	function smartyLoadHeader($params, $smarty) {
+
+		if (empty($params['headers'])) {
+			return;
+		}
+
+		if (empty($params['context'])) {
+			$params['context'] = 'frontend';
+		}
+
+		$headers = $this->getResourcesByContext($params['headers'], $params['context']);
+
+		$output = '';
+		foreach($headers as $priorityList) {
+			$output .= join("\n", $priorityList);
+		}
+
+		return $output;
+	}
+
+	/**
+	 * Get resources assigned to a context
+	 *
+	 * A helper function which retrieves script, style and header assets
+	 * assigned to a particular context.
+	 * @param $resources array Requested resources
+	 * @param $context string Requested context
+	 * @return array Resources assigned to these contexts
+	 */
+	function getResourcesByContext($resources, $context) {
+
+		$matches = array();
+
+		if (array_key_exists($context, $resources)) {
+			$matches = $resources[$context];
+		}
+
+		$page = $this->get_template_vars('requestedPage');
+		$page = empty( $page ) ? 'index' : $page;
+		$op = $this->get_template_vars('requestedOp');
+		$op = empty( $op ) ? 'index' : $op;
+
+		$contexts = array(
+			join('-', array($context, $page)),
+			join('-', array($context, $page, $op)),
+		);
+
+		foreach($contexts as $context) {
+			if (array_key_exists($context, $resources)) {
+				$matches += $resources[$context];
+			}
+		}
+
+		return $matches;
 	}
 
 	/**

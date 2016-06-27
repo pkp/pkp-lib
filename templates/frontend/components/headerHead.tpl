@@ -1,5 +1,5 @@
 {**
- * templates/common/headerHead.tpl
+ * templates/frontend/components/headerHead.tpl
  *
  * Copyright (c) 2014-2016 Simon Fraser University Library
  * Copyright (c) 2000-2016 John Willinsky
@@ -17,6 +17,7 @@
 		<meta name="description" content="{$metaSearchDescription|escape}" />
 	{/if}
 	<meta name="generator" content="{$applicationName} {$currentVersionString|escape}" />
+	{load_header context="frontend" headers=$headers}
 	{$metaCustomHeaders}
 	{if $displayFavicon}<link rel="icon" href="{$faviconDir}/{$displayFavicon.uploadName|escape:"url"}" type="{$displayFavicon.mimeType|escape}" />{/if}
 

@@ -13,7 +13,6 @@
 
 <locale name="ml_IN" full_name="മലയാളം">
 	<message key="user.affiliation">അംഗീകരണം</message>
-	<message key="user.affiliation.description">(Your institution, e.g. "Simon Fraser University")</message>
 	<message key="user.affiliations">അംഗീകരണങ്ങള്‍</message>
 	<message key="user.authorization.accessDenied">പ്രവേശനം നിഷേധിച്ചിരിക്കുന്നു.</message>
 	<message key="user.authorization.processAuthenticationTokenRequired">പ്രോസസ്സ് ഓതെന്റിക്കേഷന്‍ ടോക്കണ്‍ നഷ്ടപ്പെട്ടിരിക്കുന്നു അല്ലെങ്കില്‍ പ്രാബല്യത്തിലില്ല.</message>
@@ -48,7 +47,6 @@
 	<message key="user.login.accountNotValidated">താങ്കളുടെ ഇ-മെയില്‍ അഡ്രസ്സ് സാധുവായിട്ടില്ല.ദയവായി ഇ-മെയില്‍ പരിശോധിക്കുകയും താഴെ കൊടുത്തിരിക്കുന്ന നിര്‍ദ്ദേശങ്ങള്‍ പാലിക്കുകയും ചെയ്യുക.താങ്കള്‍ക്ക് ഇ-മെയില്‍ ഒന്നും ലഭിച്ചിട്ടില്ലെങ്കില്‍ സഹായത്തിനായി സൈറ്റ് അഡ്മിനിസ്ട്രേറ്ററുമായി ബന്ധപ്പെടുക.</message>
 	<message key="user.login.activate">അക്കൗണ്ട് പ്രവര്‍ത്തനക്ഷമമാക്കുക</message>
 	<message key="user.login.activated">താങ്കളുടെ അക്കൗണ്ട് പ്രവര്‍ത്തനക്ഷമമാക്കിയതിന് നന്ദി.അക്കൗണ്ട് സൃഷ്ടിച്ചപ്പോള്‍ ലഭിച്ച തെളിവുകള്‍ ഉപയോഗിച്ച് താങ്കള്‍ക്ക് ഇപ്പോള്‍ ലോഗിന്‍ ചെയ്യാവുന്നതാണ്.</message>
-	<message key="user.login.changePasswordInstructions"><![CDATA[You must choose a new password before you can log in to this site.<br /><br />Please enter your username and your current and new passwords below to change the password for your account.]]></message>
 	<message key="user.login.forgotPassword">താങ്കളുടെ പാസ് വേഡ് മറന്നുവോ?</message>
 	<message key="user.login.loginError">അസാധുവായ യൂസര്‍ നാമം അല്ലെങ്കില്‍ പാസ് വേഡ്.ദയവായി വീണ്ടും ശ്രമിക്കൂ.</message>
 	<message key="user.login">ലോഗിന്‍</message>

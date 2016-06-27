@@ -370,15 +370,11 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 			$templateMgr =& $params[0];
 			$template = $params[1];
 			if ($template == $this->getStatisticsDisplayTemplate()) {
-				$additionalHeadData = $templateMgr->get_template_vars('additionalHeadData');
-				// the JS and CSS will be integrated here
+				// Load the JS and CSS for the usage stats graph
 				$baseImportPath = Request::getBaseUrl() . DIRECTORY_SEPARATOR . PKP_LIB_PATH . DIRECTORY_SEPARATOR . $this->getPluginPath() . DIRECTORY_SEPARATOR;
-				$scriptImportString = '<script language="javascript" type="text/javascript" src="';
-				$usageStatsGraphHandler = $scriptImportString . $baseImportPath .
-					'js' . DIRECTORY_SEPARATOR . 'UsageStatsGraphHandler.js"></script>';
-				$chartJsImport = '<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.0.1/Chart.js"></script>';
-				$templateMgr->assign('additionalHeadData', $additionalHeadData . "\n" . $usageStatsGraphHandler . "\n" . $chartJsImport);
 				$templateMgr->addStyleSheet($baseImportPath . 'css/usageStatsGraph.css');
+				$templateMgr->addJavaScript($baseImportPath .	'js' . DIRECTORY_SEPARATOR . 'UsageStatsGraphHandler.js');
+				$templateMgr->addJavaScript('https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.0.1/Chart.js');
 			}
 		}
 	}

@@ -8,11 +8,11 @@
   * Copyright (c) 2000-2016 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the en_US (English) locale.
+  * Localization strings for the fa_IR (فارسی) locale.
   *
   -->
 
-<locale name="en_US" full_name = "English">
+<locale name="fa_IR" full_name="فارسی">
 	<!-- Common -->
 	<message key="grid.noItems">هیچ آیتمی</message>
 	<message key="grid.settings">تنظیمات</message>

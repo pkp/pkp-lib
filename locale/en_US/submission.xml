@@ -11,7 +11,7 @@
   * Localization strings for the en_US (English) locale.
   -->
 
-<locale name="en_US" full_name = "English">
+<locale name="en_US" full_name="English">
 	<!-- Author Submission -->
 	<message key="author.submit.submissionCitations">Provide a formatted list of references for works cited in this submission. Please separate individual references with a blank line.</message>
 

@@ -8,11 +8,11 @@
   * Copyright (c) 2000-2016 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the en_US (English) locale.
+  * Localization strings for the nl_NL (Nederlands) locale.
   *
   -->
 
-<locale name="en_US" full_name = "English">
+<locale name="nl_NL" full_name="Nederlands">
 	<!-- Common -->
 	<message key="grid.noItems">Geen onderdelen</message>
 	<message key="grid.settings">Instellingen</message>

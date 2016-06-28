@@ -416,14 +416,14 @@ class Filter extends DataObject {
 	 * NB: sub-classes will not normally override
 	 * this method.
 	 *
-	 * @param mixed an input value that is supported
+	 * @param $input mixed an input value that is supported
 	 *  by this filter
-	 * @displayErrors boolean weather the value
+	 * @param $returnErrors boolean weather the value
 	 *  should be returned also if an error occurred
 	 * @return mixed a valid return value or null
 	 *  if an error occurred during processing
 	 */
-	function &execute(&$input, $displayErrors = false) {
+	function &execute(&$input, $returnErrors = false) {
 		// Make sure that we don't destroy referenced
 		// data somewhere out there.
 		unset($this->_input, $this->_output);
@@ -449,7 +449,7 @@ class Filter extends DataObject {
 		$preliminaryOutput =& $this->process($input);
 
 		// Validate the filter output
-		if ((!is_null($preliminaryOutput) && $this->supports($input, $preliminaryOutput)) || $displayErrors) {
+		if ((!is_null($preliminaryOutput) && $this->supports($input, $preliminaryOutput)) || $returnErrors) {
 			$this->_output =& $preliminaryOutput;
 		}
 

@@ -418,7 +418,7 @@ class Filter extends DataObject {
 	 *
 	 * @param $input mixed an input value that is supported
 	 *  by this filter
-	 * @param $returnErrors boolean weather the value
+	 * @param $returnErrors boolean whether the value
 	 *  should be returned also if an error occurred
 	 * @return mixed a valid return value or null
 	 *  if an error occurred during processing

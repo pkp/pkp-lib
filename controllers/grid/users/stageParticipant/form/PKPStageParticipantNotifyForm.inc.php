@@ -59,12 +59,6 @@ class PKPStageParticipantNotifyForm extends Form {
 	 * @copydoc Form::fetch()
 	 */
 	function fetch($request) {
-		$templateMgr = TemplateManager::getManager($request);
-
-		$templateMgr->assign('submissionId', $this->_submissionId);
-		$templateMgr->assign('itemId', $this->_itemId);
-
-		$submissionDao = Application::getSubmissionDAO();
 		$submission = $submissionDao->getById($this->_submissionId);
 
 		// All stages can choose the default template
@@ -83,15 +77,11 @@ class PKPStageParticipantNotifyForm extends Form {
 			}
 		}
 
-		// template keys indexed by stageId
 		$stageTemplates = $this->_getStageTemplates();
-
 		$currentStageId = $this->getStageId();
-
 		if (array_key_exists($currentStageId, $stageTemplates)) {
 			$templateKeys = array_merge($templateKeys, $stageTemplates[$currentStageId]);
 		}
-
 		foreach ($templateKeys as $templateKey) {
 			$template = $this->_getMailTemplate($submission, $templateKey);
 			$template->assignParams(array());
@@ -99,14 +89,17 @@ class PKPStageParticipantNotifyForm extends Form {
 			$templates[$templateKey] = $template->getSubject();
 		}
 
-		$templateMgr->assign('templates', $templates);
-		$templateMgr->assign('stageId', $currentStageId);
-		$templateMgr->assign('includeNotifyUsersListbuilder', $this->includeNotifyUsersListbuilder());
-
-		// check to see if we were handed a userId from the stage participants grid.  If so,
-		// pass that in so the list builder can pre-populate. The Listbuilder validates this.
-
-		$templateMgr->assign('userId', (int) $request->getUserVar('userId'));
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign(array(
+			'templates' => $templates,
+			'stageId' => $currentStageId,
+			'includeNotifyUsersListbuilder' => $this->includeNotifyUsersListbuilder(),
+			'submissionId' => $this->_submissionId,
+			'itemId' => $this->_itemId,
+			// check to see if we were handed a userId from the stage participants grid. If
+			// so, pass that in so the listbuilder can pre-populate. Listbuilder validates.
+			'userId' => (int) $request->getUserVar('userId'),
+		));
 
 		return parent::fetch($request);
 	}
@@ -215,8 +208,7 @@ class PKPStageParticipantNotifyForm extends Form {
 		switch ($emailKey) {
 			case 'COPYEDIT_REQUEST':
 			case 'LAYOUT_REQUEST':
-			case 'INDEX_REQUEST':
-				return array(
+			case 'INDEX_REQUEST': return array(
 					'participantName' => __('user.name'),
 					'participantUsername' => __('user.username'),
 					'submissionUrl' => __('common.url'),

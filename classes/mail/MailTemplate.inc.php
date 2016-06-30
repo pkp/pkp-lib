@@ -219,19 +219,6 @@ class MailTemplate extends Mail {
 	 */
 	function send() {
 		if (isset($this->context)) {
-			//If {$templateSignature} and/or {$templateHeader}
-			// exist in the body of the message, replace them with
-			// the signature; otherwise just pre/append
-			// them. This is here to accomodate MIME-encoded
-			// messages or other cases where the signature cannot
-			// just be appended.
-			$header = $this->emailHeader;
-			if (strstr($this->getBody(), '{$templateHeader}') === false) {
-				$this->setBody($header . "<br/>" . $this->getBody());
-			} else {
-				$this->setBody(str_replace('{$templateHeader}', $header, $this->getBody()));
-			}
-
 			$signature = $this->context->getSetting('emailSignature');
 			if (strstr($this->getBody(), '{$templateSignature}') === false) {
 				$this->setBody($this->getBody() . "<br/>" . $signature);

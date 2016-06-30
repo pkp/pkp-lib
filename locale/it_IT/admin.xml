@@ -85,6 +85,15 @@
 	<message key="admin.settings.siteTheme">Tema del sito</message>
 	<message key="admin.siteSetup">Setup del sito</message>
 	<message key="admin.scheduledTask">Attività programmate</message>
+	<message key="admin.scheduledTask.startTime">Avvio delle attività programmate.</message>
+	<message key="admin.scheduledTask.stopTime">Fine delle attività programmate.</message>
+	<message key="admin.scheduledTask.noLog">Il processo non ha prodotto log.</message>
+	<message key="admin.scheduledTask.openAccessNotification">Notifica di disponibilità open access</message>
+	<message key="admin.scheduledTask.downloadLog">La tua installazione OJS ha eseguito automaticamente e completato questa attività; puoi scaricare qui il log del processo: {$url}</message>
+	<message key="admin.scheduledTask.confirmClearLogs">Sei sicuro di eliminare tutti i log di esecuzione delle attività programmate?</message>
+	<message key="admin.scheduledTask.clearLogs">Cancella i log di esecuzione delle attività programmate</message>
+	<message key="admin.scheduledTask.reviewReminder">Promemoria revisione</message>
+	<message key="admin.scheduledTask.subscriptionExpiryReminder">Promemoria scadenza abbonamento</message>
 	<message key="admin.settings.oneStepReset">Usa il reset delle password in un unico passaggio?</message>
 	<message key="admin.fileLoader.wrongBasePathLocation">Il path bas {$path} deve essere dentro la cartella dei file public</message>
 	<message key="admin.fileLoader.pathNotAccessible">La cartella {$path} non è esiste o non è scrivibile</message>

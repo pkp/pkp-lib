@@ -91,7 +91,10 @@ class PageHandler extends Handler {
 				if (!file_exists($compiledStylesheetFile)) {
 					// Generate the stylesheet file
 					require_once('lib/pkp/lib/vendor/oyejorge/less.php/lessc.inc.php');
-					$less = new Less_Parser(array( 'relativeUrls' => false ));
+					$less = new Less_Parser(array(
+						'relativeUrls' => false,
+						'compress' => true,
+					));
 					$less->parseFile('styles/index.less');
 					$compiledStyles = str_replace('{$baseUrl}', $request->getBaseUrl(true), $less->getCss());
 

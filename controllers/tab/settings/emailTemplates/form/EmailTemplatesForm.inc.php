@@ -22,7 +22,6 @@ class EmailTemplatesForm extends ContextSettingsForm {
 	 */
 	function EmailTemplatesForm($wizardMode = false) {
 		$settings = array(
-			'emailHeader' => 'string',
 			'emailSignature' => 'string',
 			'envelopeSender' => 'string'
 		);

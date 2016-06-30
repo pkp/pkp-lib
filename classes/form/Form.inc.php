@@ -160,7 +160,6 @@ class Form {
 		// Set custom template.
 		if (!is_null($template)) $this->_template = $template;
 
-
 		// Call hooks based on the calling entity, assuming
 		// this method is only called by a subclass. Results
 		// in hook calls named e.g. "papergalleyform::display"

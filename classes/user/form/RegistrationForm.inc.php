@@ -105,6 +105,8 @@ class RegistrationForm extends Form {
 		$templateMgr->assign(array(
 			'source' =>$request->getUserVar('source'),
 			'minPasswordLength' => $site->getMinPasswordLength(),
+			'privacyStatement' => $context->getLocalizedSetting('privacyStatement'),
+			'includeEntirePage' => $display
 		));
 
 		return parent::fetch($request, $template, $display);
@@ -112,36 +114,21 @@ class RegistrationForm extends Form {
 
 	/**
 	 * @copydoc Form::initData()
-	 * @param $request Request
+	 * @param $context Context
 	 */
-	function initData($request) {
+	function initData($context) {
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$userGroupIds = array();
 
-		// If a context exists, opt the user into reader and author roles in
-		// that context by default.
-		if ($request->getContext()) {
-			$context = $request->getContext();
-			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-
-			$readerUserGroups = $userGroupDao->getByRoleId($context->getId(), ROLE_ID_READER);
-			while ($userGroup = $readerUserGroups->next()) {
-				if ($userGroup->getPermitSelfRegistration()) $userGroupIds[] = $userGroup->getId();
-			}
-
-			$authorUserGroups = $userGroupDao->getByRoleId($context->getId(), ROLE_ID_AUTHOR);
-			while ($userGroup = $authorUserGroups->next()) {
-				if ($userGroup->getPermitSelfRegistration()) $userGroupIds[] = $userGroup->getId();
-			}
+		// Register the user as a reader by default, if available.
+		$readerUserGroups = $userGroupDao->getByRoleId($context->getId(), ROLE_ID_READER);
+		while ($userGroup = $readerUserGroups->next()) {
+			if ($userGroup->getPermitSelfRegistration()) $userGroupIds[] = $userGroup->getId();
 		}
-
-		// Return a list of all contexts available in the site
-		$contextDao = Application::getContextDAO();
-		$contexts = $contextDao->getAll(true)->toArray();
 
 		$this->_data = array(
 			'userLocales' => array(),
 			'userGroupIds' => $userGroupIds,
-			'contexts' => $contexts,
 		);
 	}
 

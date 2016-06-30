@@ -186,8 +186,9 @@ class PKPTemplateManager extends Smarty {
 		$this->register_function('load_url_in_el', array($this, 'smartyLoadUrlInEl'));
 		$this->register_function('load_url_in_div', array($this, 'smartyLoadUrlInDiv'));
 
-		// load stylesheets from a given context
+		// load stylesheets/scripts from a given context
 		$this->register_function('load_stylesheet', array($this, 'smartyLoadStylesheet'));
+		$this->register_function('load_script', array($this, 'smartyLoadScript'));
 
 		/**
 		 * Kludge to make sure no code that tries to connect to the
@@ -249,12 +250,78 @@ class PKPTemplateManager extends Smarty {
 	}
 
 	/**
+	 * Compile a LESS stylesheet
+	 *
+	 * @param $name string Unique name for this LESS stylesheet
+	 * @param $lessFile string Path to the LESS file to compile
+	 * @param $args array Optional arguments. SUpports:
+	 *   'baseUrl': Base URL to use when rewriting URLs in the LESS file.
+	 *   'addLess': Array of additional LESS files to parse before compiling
+	 * @return string Compiled CSS styles
+	 */
+	public function compileLess($name, $lessFile, $args = array()) {
+
+		// Load the LESS compiler
+		require_once('lib/pkp/lib/vendor/oyejorge/less.php/lessc.inc.php');
+		$less = new Less_Parser(array( 'relativeUrls' => false ));
+
+		$request = $this->_request;
+
+		// Allow plugins to intervene
+		HookRegistry::call('PageHandler::compileLess', array(&$less, &$lessFile, &$args, $name, $request));
+
+		// Read the stylesheet
+		$less->parseFile($lessFile);
+
+		// Add extra LESS files before compiling
+		if (isset($args['addLess']) && is_array($args['addLess'])) {
+			foreach ($args['addLess'] as $addless) {
+				$less->parseFile($addless);
+			}
+		}
+
+		// Set the @baseUrl variable
+		$baseUrl = !empty($args['baseUrl']) ? $args['baseUrl'] : $request->getBaseUrl(true);
+		$less->parse("@baseUrl: '$baseUrl';");
+
+		return $less->getCSS();
+	}
+
+	/**
+	 * Save LESS styles to a cached file
+	 *
+	 * @param $path string File path to save the compiled styles
+	 * @param styles string CSS styles compiled from the LESS
+	 * @return bool success/failure
+	 */
+	public function cacheLess($path, $styles) {
+		if (file_put_contents($path, $styles) === false) {
+			error_log("Unable to write \"$path\".");
+			return false;
+		}
+
+		return true;
+	}
+
+	/**
+	 * Retrieve the file path for a cached LESS file
+	 *
+	 * @param $name string Unique name for the LESS file
+	 * @return $path string Path to the less file or false if not found
+	 */
+	public function getCachedLessFilePath($name) {
+		$cacheDirectory = CacheManager::getFileCachePath();
+		return $cacheDirectory . DIRECTORY_SEPARATOR . $name . '.css';
+	}
+
+	/**
 	 * Add a page-specific style sheet.
+	 *
 	 * @param $url string the URL to the style sheet
-	 * @param $priority int STYLE_SEQUENCE_...
+	 * @param $priority int The order in which to print this style. STYLE_SEQUENCE_...
 	 * @param $contexts string|array where stylesheet should be used
 	 */
-	function addStyleSheet($url, $priority = STYLE_SEQUENCE_NORMAL, $contexts = array('frontend') ) {
+	function addStyleSheet($url, $priority = STYLE_SEQUENCE_NORMAL, $contexts = array('frontend')) {
 		$contexts = (array) $contexts;
 		foreach($contexts as $context) {
 			$this->_styleSheets[$context][$priority][] = $url;
@@ -263,34 +330,32 @@ class PKPTemplateManager extends Smarty {
 
 	/**
 	 * Add a page-specific script.
+	 *
 	 * @param $url string the URL to be included
+	 * @param $priority int The order in which to print this script. STYLE_SEQUENCE_...
+	 * @param $contexts string|array where script should be used
 	 */
-	function addJavaScript($url) {
-		array_push($this->_javaScripts, $url);
+	function addJavaScript($url, $priority = STYLE_SEQUENCE_NORMAL, $contexts = array('frontend')) {
+		$contexts = (array) $contexts;
+		foreach($contexts as $context) {
+			$this->_javaScripts[$context][$priority][] = $url;
+		}
 	}
 
 	/**
 	 * @see Smarty::fetch()
 	 */
 	function fetch($resource_name, $cache_id = null, $compile_id = null, $display = false) {
-		// Add additional java script URLs
-		if (!empty($this->_javaScripts)) {
-			$baseUrl = $this->get_template_vars('baseUrl');
-			$scriptOpen = '	<script type="text/javascript" src="';
-			$scriptClose = '"></script>';
-			$javaScript = '';
-			foreach ($this->_javaScripts as $script) {
-				$javaScript .= $scriptOpen . $baseUrl . '/' . $script . $scriptClose . "\n";
-			}
-
-			$additionalHeadData = $this->get_template_vars('additionalHeadData');
-			$this->assign('additionalHeadData', $additionalHeadData."\n".$javaScript);
-		}
 
 		foreach( $this->_styleSheets as &$list ) {
 			ksort( $list );
 		}
 		$this->assign('stylesheets', $this->_styleSheets);
+
+		foreach( $this->_javaScripts as &$list ) {
+			ksort( $list );
+		}
+		$this->assign('scripts', $this->_javaScripts);
 
 		// If no compile ID was assigned, get one.
 		if (!$compile_id) $compile_id = $this->getCompileId($resource_name);
@@ -934,6 +999,39 @@ class PKPTemplateManager extends Smarty {
 			foreach($priorityList as $files) {
 				foreach($files as $url) {
 					$output .= '<link rel="stylesheet" href="' . $url . '" type="text/css" />';
+				}
+			}
+		}
+
+		return $output;
+	}
+
+	/**
+	 * Smarty usage: {load_script context="backend" scripts=$scripts}
+	 *
+	 * Custom Smarty function for printing scripts attached to a context.
+	 * @param $params array associative array
+	 * @param $smarty Smarty
+	 * @return string of HTML/Javascript
+	 */
+	function smartyLoadScript($params, $smarty) {
+
+		if (empty($params['scripts'])) {
+			return;
+		}
+
+		if (empty($params['context'])) {
+			$context = 'frontend';
+		}
+
+		$output = '';
+		foreach($params['scripts'] as $context => $priorityList) {
+			if ($context != $params['context']) {
+				continue;
+			}
+			foreach($priorityList as $files) {
+				foreach($files as $url) {
+					$output .= '<script src="' . $url . '" type="text/javascript"></script>';
 				}
 			}
 		}

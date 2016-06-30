@@ -41,9 +41,8 @@ abstract class RepresentationsGridHandler extends CategoryGridHandler {
 			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT),
 			array(
 				'fetchGrid', 'fetchRow', 'fetchCategory',
-				'addFormat', 'editFormat', 'editFormatTab', 'updateFormat', 'deleteFormat',
+				'addFormat', 'editFormat', 'updateFormat', 'deleteFormat',
 				'setApproved', 'setProofFileCompletion', 'selectFiles',
-				'identifiers', 'updateIdentifiers', 'clearPubId',
 			)
 		);
 	}
@@ -97,7 +96,6 @@ abstract class RepresentationsGridHandler extends CategoryGridHandler {
 		// Load submission-specific translations
 		AppLocale::requireComponents(
 			LOCALE_COMPONENT_PKP_SUBMISSION,
-			LOCALE_COMPONENT_PKP_EDITOR,
 			LOCALE_COMPONENT_PKP_USER,
 			LOCALE_COMPONENT_PKP_DEFAULT
 		);
@@ -192,7 +190,6 @@ abstract class RepresentationsGridHandler extends CategoryGridHandler {
 		$manageProofFilesForm->initData($args, $request);
 		return new JSONMessage(true, $manageProofFilesForm->fetch($request));
 	}
-
 }
 
 ?>

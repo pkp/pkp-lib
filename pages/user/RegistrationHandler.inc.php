@@ -41,10 +41,20 @@ class RegistrationHandler extends UserHandler {
 		$this->validate($request);
 		$this->setupTemplate($request);
 
-		import('lib.pkp.classes.user.form.RegistrationForm');
-		$regForm = new RegistrationForm($request->getSite());
-		$regForm->initData($request);
-		$regForm->display($request);
+		if ($request->getContext()) {
+			import('lib.pkp.classes.user.form.RegistrationForm');
+			$regForm = new RegistrationForm($request->getSite());
+			$regForm->initData($request->getContext());
+			$regForm->display($request);
+		} else {
+			$templateMgr = TemplateManager::getManager($request);
+			$contextDao = Application::getContextDAO();
+			$templateMgr->assign(array(
+				'source' => $request->getUserVar('source'),
+				'contexts' => $contextDao->getAll(true),
+			));
+			$templateMgr->display('frontend/pages/userRegisterSite.tpl');
+		}
 	}
 
 	/**
@@ -60,7 +70,7 @@ class RegistrationHandler extends UserHandler {
 		$regForm = new RegistrationForm($request->getSite());
 		$regForm->readInputData();
 		if (!$regForm->validate()) {
-			return $regForm->display($request);
+			return new JSONMessage(true, $regForm->fetch($request));
 		}
 
 		$regForm->execute($request);
@@ -68,7 +78,7 @@ class RegistrationHandler extends UserHandler {
 		if (Config::getVar('email', 'require_validation')) {
 			// Send them home; they need to deal with the
 			// registration email.
-			return $request->redirectUrl($request->url(null, 'index'));
+			return $request->redirectUrlJson($request->url(null, 'index'));
 		}
 
 		$reason = null;
@@ -86,11 +96,11 @@ class RegistrationHandler extends UserHandler {
 			$templateMgr->assign('errorParams', array('reason' => $reason));
 			$templateMgr->assign('backLink', $request->url(null, 'login'));
 			$templateMgr->assign('backLinkLabel', 'user.login');
-			return $templateMgr->fetch('frontend/pages/error.tpl');
+			return $templateMgr->fetchJson('frontend/pages/error.tpl');
 		}
 
 		if ($source = $request->getUserVar('source')) return $request->redirectUrlJson($source);
-		return $request->redirectUrl($request->getRouter()->getHomeUrl($request));
+		return $request->redirectUrlJson($request->getRouter()->getHomeUrl($request));
 	}
 
 	/**

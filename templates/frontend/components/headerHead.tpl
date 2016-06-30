@@ -35,6 +35,8 @@
 
 	{load_stylesheet context="frontend" stylesheets=$stylesheets}
 
+	{load_script context="frontend" scripts=$scripts}
+
 	{* Form validator used on search form *}
 	{include file="common/validate.tpl"}
 

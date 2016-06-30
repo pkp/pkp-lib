@@ -9,9 +9,7 @@
  *}
 <div id="finishSubmissionForm" class="pkp_helpers_text_center">
 	<h2>{translate key="submission.submit.fileAdded"}</h2>
-	{if $fileStage != $smarty.const.SUBMISSION_FILE_PROOF}
-		<button class="pkp_button" type="button" name="newFile" id="newFile">{translate key='submission.submit.newFile'}</button>
-	{/if}
+	<button class="pkp_button" type="button" name="newFile" id="newFile">{translate key='submission.submit.newFile'}</button>
 	<br>
 	<br>
 </div>

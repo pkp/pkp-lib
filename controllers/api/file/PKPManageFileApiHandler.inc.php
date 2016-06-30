@@ -26,10 +26,8 @@ abstract class PKPManageFileApiHandler extends Handler {
 		parent::Handler();
 		$this->addRoleAssignment(
 			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR),
-			array('deleteFile', 'editMetadata', 'editMetadataTab', 'saveMetadata')
+			array('deleteFile', 'editMetadata', 'saveMetadata')
 		);
-		// Load submission-specific translations
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
 	}
 
 	//
@@ -124,30 +122,12 @@ abstract class PKPManageFileApiHandler extends Handler {
 	}
 
 	/**
-	 * Edit submission file metadata modal.
+	 * Edit submission file metadata.
 	 * @param $args array
 	 * @param $request Request
 	 * @return JSONMessage JSON object
 	 */
 	function editMetadata($args, $request) {
-		$submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
-		if ($submissionFile->getFileStage() == SUBMISSION_FILE_PROOF) {
-			$templateMgr = TemplateManager::getManager($request);
-			$templateMgr->assign('submissionFile', $submissionFile);
-			$templateMgr->assign('stageId', $request->getUserVar('stageId'));
-			return new JSONMessage(true, $templateMgr->fetch('controllers/api/file/editMetadata.tpl'));
-		} else {
-			return $this->editMetadataTab($args, $request);
-		}
-	}
-
-	/**
-	 * Edit submission file metadata tab.
-	 * @param $args array
-	 * @param $request Request
-	 * @return JSONMessage JSON object
-	 */
-	function editMetadataTab($args, $request) {
 		$submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
 		$reviewRound = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND);
 		$stageId = $request->getUserVar('stageId');

@@ -11,12 +11,12 @@
  * @brief A basic handler for a hierarchical list of navigation items.
  *
  * Attach this handler to a <ul> with nested <li> and <ul> elements.
- * <li> elements with submenu should have a has_submenu class:
- *   <li class="has_submenu">
+ * <li> elements with submenu should have aria properties:
+ *   <li aria-haspopup="true" aria-expanded="false">
  *
  * <li> elements wiith a submenu that opens below the parent item should add a
- * submenu_opens_below class to support scrolling in long lists when necessary.
- *   <li class="has_submenu submenu_opens_below"></li>
+ * submenuOpensBelow class to support scrolling in long lists when necessary.
+ *   <li class="submenuOpensBelow" aria-haspopup="true" aria-expanded="false"></li>
  */
 (function($) {
 
@@ -33,10 +33,6 @@
 
 		this.parent($menu, options);
 
-		// Reference to all links within the menu
-		this.$links_ = this.getHtmlElement().find('a');
-		this.$parents_ = this.getHtmlElement().find('.has_submenu');
-
 		// Fix dropdown menus that may go off-screen and recalculate whenever
 		// the browser window is resized
 		// 1ms delay allows dom insertion to complete
@@ -47,54 +43,29 @@
 		}, 1);
 		$(window).resize(this.callbackWrapper(this.onResize));
 
-		this.$parents_.children('a').on('touchstart', function(event) {
-			if (!$(this).parent().hasClass('in_focus')) {
-				$(this).focus();
-				event.preventDefault();
-			}
+		// Show/hide dropdown menus using WCAG-compliant aria attributes
+		this.getHtmlElement().on('focus mouseenter', '[aria-haspopup="true"]', function(e) {
+			$(e.currentTarget).attr('aria-expanded', true);
+		});
+		this.getHtmlElement().on('blur mouseleave', '[aria-haspopup="true"]', function(e) {
+			$(e.currentTarget).attr('aria-expanded', false);
 		});
 
-		// Attach event handlers
-		this.$links_.bind('focus', this.onFocus);
-		this.$links_.bind('blur', this.onBlur);
+		// Prevent first touch on top-level menu items from following the link
+		this.getHtmlElement().find('[aria-haspopup="true"] > a').on('touchstart', function(e) {
+			if (!$(this).parent().attr('aria-expanded') == false) {
+				$(this).focus();
+				e.preventDefault();
+			}
+		});
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.MenuHandler, $.pkp.classes.Handler);
 
 
 	//
-	// Protected methods
+	// Public methods
 	//
-	/**
-	 * Event handler that is called when a link within the menu gets focus.
-	 *
-	 * @param {Event} event The triggered event.
-	 */
-	$.pkp.controllers.MenuHandler.prototype.onFocus = function(event) {
-		var parent = $(event.target).parents('li');
-		if (!parent.length) {
-			return;
-		}
-
-		parent.addClass('in_focus');
-	};
-
-
-	/**
-	 * Event handler that is called when a link within the menu loses focus.
-	 *
-	 * @param {Event} event The triggered event.
-	 */
-	$.pkp.controllers.MenuHandler.prototype.onBlur = function(event) {
-		var parent = $(event.target).parents('li');
-		if (!parent.length) {
-			return;
-		}
-
-		parent.removeClass('in_focus');
-	};
-
-
 	/**
 	 * Check if submenus are straying off-screen and adjust as needed
 	 */
@@ -105,7 +76,7 @@
 				height = Math.max(
 						document.documentElement.clientHeight, window.innerHeight || 0);
 
-		this.$parents_.each(function() {
+		this.getHtmlElement().find('[aria-haspopup="true"]').each(function() {
 			var $parent = $(this),
 					$submenus = $parent.children('ul'),
 					right, pos_top, min_top, pos_btm, offset_top, new_top;
@@ -122,7 +93,7 @@
 			$submenus.attr('style', ''); // reset
 			pos_top = $parent.offset().top;
 			min_top = 0;
-			if ($parent.hasClass('submenu_opens_below')) {
+			if ($parent.hasClass('submenuOpensBelow')) {
 				min_top = pos_top + $parent.outerHeight();
 			}
 			pos_btm = pos_top + $submenus.outerHeight();

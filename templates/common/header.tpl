@@ -81,7 +81,7 @@
 						{$appSpecificMenuItems}
 
 						{if array_intersect(array(ROLE_ID_MANAGER), (array)$userRoles)}
-							<li class="has_submenu">
+							<li aria-haspopup="true" aria-expanded="false">
 								<a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="settings" path="index"}">{translate key="navigation.settings"}</a>
 								<ul>
 									<li><a href="{$contextSettingsUrl}">{translate key="context.context"}</a></li>
@@ -91,7 +91,7 @@
 									<li><a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="settings" path="access"}">{translate key="navigation.access"}</a></li>
 								</ul>
 							</li>
-							<li class="has_submenu">
+							<li aria-haspopup="true" aria-expanded="false">
 								<a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="tools" path="index"}">{translate key="navigation.tools"}</a>
 								<ul>
 									<li><a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="importexport"}">{translate key="navigation.tools.importExport"}</a></li>

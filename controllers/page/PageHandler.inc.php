@@ -128,7 +128,7 @@ class PageHandler extends Handler {
 									// Compile and cache the stylesheet
 									$styles = $templateManager->compileLess(
 										$name,
-										$style['path'],
+										$style['style'],
 										array(
 											'baseUrl' => $style['baseUrl'],
 											'addLess' => $style['addLess'],

@@ -372,9 +372,12 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 			if ($template == $this->getStatisticsDisplayTemplate()) {
 				// Load the JS and CSS for the usage stats graph
 				$baseImportPath = Request::getBaseUrl() . DIRECTORY_SEPARATOR . PKP_LIB_PATH . DIRECTORY_SEPARATOR . $this->getPluginPath() . DIRECTORY_SEPARATOR;
-				$templateMgr->addStyleSheet($baseImportPath . 'css/usageStatsGraph.css');
-				$templateMgr->addJavaScript($baseImportPath .	'js' . DIRECTORY_SEPARATOR . 'UsageStatsGraphHandler.js');
-				$templateMgr->addJavaScript('https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.0.1/Chart.js');
+				$templateMgr->addStyleSheet('usageStatsGraph', $baseImportPath . 'css/usageStatsGraph.css');
+				$templateMgr->addJavaScript('usageStatsGraphHandler', $baseImportPath .	'js' . DIRECTORY_SEPARATOR . 'UsageStatsGraphHandler.js');
+				$templateMgr->addJavaScript(
+					'chartJS',
+					'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.0.1/Chart.js'
+				);
 			}
 		}
 	}
@@ -556,6 +559,9 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 			if (!array_key_exists($representationId, $statsByFormat)) {
 				$representationDao = Application::getRepresentationDAO();
 				$representation = $representationDao->getById($representationId);
+				if (empty($representation)) {
+					continue;
+				}
 				$statsByFormat[$representationId] = array(
 					'data' => array(),
 					'label' => $representation->getLocalizedName(),

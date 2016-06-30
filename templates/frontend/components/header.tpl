@@ -23,22 +23,6 @@
 {if !$pageTitleTranslated}{translate|assign:"pageTitleTranslated" key=$pageTitle}{/if}
 {include file="frontend/components/headerHead.tpl"}
 <body class="pkp_page_{$requestedPage|escape|default:"index"} pkp_op_{$requestedOp|escape|default:"index"}{if $showingLogo} has_site_logo{/if}">
-	<script type="text/javascript">
-		// Initialise JS handler.
-		$(function() {ldelim}
-			$('body').pkpHandler(
-				'$.pkp.controllers.SiteHandler',
-				{ldelim}
-					{if $isUserLoggedIn}
-						inlineHelpState: {$initialHelpState},
-					{/if}
-					toggleHelpUrl: {url|json_encode page="user" op="toggleHelp" escape=false},
-					toggleHelpOnText: {$toggleHelpOnText|json_encode},
-					toggleHelpOffText: {$toggleHelpOffText|json_encode},
-					{include file="core:controllers/notification/notificationOptions.tpl"}
-				{rdelim});
-		{rdelim});
-	</script>
 	<div class="pkp_structure_page">
 
 		{* Header *}
@@ -81,14 +65,7 @@
 				</div>
 
 				{* Primary site navigation *}
-				<script type="text/javascript">
-					// Attach the JS file tab handler.
-					$(function() {ldelim}
-						$('#navigationPrimary').pkpHandler(
-							'$.pkp.controllers.MenuHandler');
-					{rdelim});
-				</script>
-				<nav class="pkp_navigation_primary_row" aria-label="{translate|escape key="common.navigation.site"}">
+				<nav class="pkp_navigation_primary_row navDropdownMenu" aria-label="{translate|escape key="common.navigation.site"}">
 					<div class="pkp_navigation_primary_wrapper">
 
 						{* Primary navigation menu for current application *}
@@ -101,17 +78,10 @@
 					</div>
 				</nav>
 
-				<div class="pkp_navigation_user_wrapper" id="navigationUserWrapper">
-					<script type="text/javascript">
-						// Attach the JS file tab handler.
-						$(function() {ldelim}
-							$('#navigationUser').pkpHandler(
-									'$.pkp.controllers.MenuHandler');
-						{rdelim});
-					 </script>
-					<ul id="navigationUser" class="pkp_navigation_user pkp_nav_list" role="navigation" aria-label="{translate|escape key="common.navigation.user"}">
+				<nav class="pkp_navigation_user_wrapper navDropdownMenu" id="navigationUserWrapper" aria-label="{translate|escape key="common.navigation.user"}">
+					<ul id="navigationUser" class="pkp_navigation_user pkp_nav_list">
 						{if $isUserLoggedIn}
-							<li class="profile has_submenu{if $unreadNotificationCount} has_tasks{/if}">
+							<li class="profile {if $unreadNotificationCount} has_tasks{/if}" aria-haspopup="true" aria-expanded="false">
 								<a href="{url router=$smarty.const.ROUTE_PAGE page="submissions"}">
 									{$loggedInUsername|escape}
 									<span class="task_count">
@@ -162,7 +132,7 @@
 							<li><a href="{url router=$smarty.const.ROUTE_PAGE page="login"}">{translate key="navigation.login"}</a></li>
 						{/if}
 					</ul>
-				</div><!-- .pkp_navigation_user_wrapper -->
+				</nav><!-- .pkp_navigation_user_wrapper -->
 
 			</div><!-- .pkp_head_wrapper -->
 		</header><!-- .pkp_structure_head -->
@@ -172,12 +142,4 @@
 			{assign var=hasLeftSidebar value=0}
 		{/if}
 		<div class="pkp_structure_content{if $hasLeftSidebar} has_left_sidebar{/if}">
-
-			<script type="text/javascript">
-				// Attach the JS page handler to the main content wrapper.
-				$(function() {ldelim}
-					$('div.pkp_structure_main').pkpHandler('$.pkp.controllers.PageHandler');
-				{rdelim});
-			</script>
-
 			<div class="pkp_structure_main" role="main">

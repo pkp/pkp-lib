@@ -112,26 +112,34 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	 * the compiled file.
 	 *
 	 * @param $name string A name for this stylesheet
-	 * @param $path string The path to this stylesheet, relative to the theme
+	 * @param $style string The stylesheet. Should be a path relative to the
+	 *   theme directory or, if the `inline` argument is included, style data to
+	 *   be output.
 	 * @param $args array Optional arguments hash. Supported args:
 	 *   'context': Whether to load this on the `frontend` or `backend`.
 	 *      default: `frontend`
 	 *   'priority': Controls order in which styles are printed
 	 *   'addLess': Additional LESS files to process before compiling. Array
+	 *   `inline` bool Whether the $style value should be output directly as
+	 *      style data.
 	 */
-	public function addStyle($name, $path, $args = array()) {
+	public function addStyle($name, $style, $args = array()) {
 
 		// Pass a file path for LESS files
-		if (substr($path, (strlen(LESS_FILENAME_SUFFIX) * -1)) === LESS_FILENAME_SUFFIX) {
-			$fullPath = $this->_getBaseDir($path);
+		if (substr($style, (strlen(LESS_FILENAME_SUFFIX) * -1)) === LESS_FILENAME_SUFFIX) {
+			$args['style'] = $this->_getBaseDir($style);
 
 		// Pass a URL for other files
-		} else {
+		} elseif (empty($args['inline'])) {
 			if (isset($args['baseUrl'])) {
-				$fullPath = $args['baseUrl'] . $path;
+				$args['style'] = $args['baseUrl'] . $style;
 			} else {
-				$fullPath = $this->_getBaseUrl($path);
+				$args['style'] = $this->_getBaseUrl($style);
 			}
+
+		// Leave inlined styles alone
+		} else {
+			$args['style'] = $style;
 		}
 
 		// Generate file paths for any additional LESS files to compile with
@@ -142,13 +150,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 			}
 		}
 
-		$this->styles[$name] = array(
-			'path' => $fullPath,
-			'context' => isset($args['context']) && $args['context'] == 'backend' ? 'backend' : 'frontend',
-			'priority' => isset($args['priority']) ? (int) $args['priority'] : STYLE_SEQUENCE_NORMAL,
-			'addLess' => isset($args['addLess']) ? (array) $args['addLess'] : array(),
-			'baseUrl' => isset($args['baseUrl']) ? (string) $args['baseUrl'] : '',
-		);
+		$this->styles[$name] = $args;
 	}
 
 	/**
@@ -173,11 +175,11 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 			}
 		}
 
-		if (isset($args['path'])) {
-			$args['path'] = substr($args['path'], (strlen(LESS_FILENAME_SUFFIX) * -1)) == LESS_FILENAME_SUFFIX ? $this->_getBaseDir($path) : $this->_getBaseUrl($args['path']);
+		if (isset($args['style']) && !isset($args['inline'])) {
+			$args['style'] = substr($args['style'], (strlen(LESS_FILENAME_SUFFIX) * -1)) == LESS_FILENAME_SUFFIX ? $this->_getBaseDir($args['style']) : $this->_getBaseUrl($args['style']);
 		}
 
-		$style = array_merge( $style, $args );
+		$style = array_merge($style, $args);
 	}
 
 	/**
@@ -206,19 +208,28 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	 * Add a script to load with this theme
 	 *
 	 * @param $name string A name for this script
-	 * @param $path string The path to this script, relative to the theme
+	 * @param $script string The script to be included. Should be path relative
+	 *   to the theme or, if the `inline` argument is included, script data to
+	 *   be output.
 	 * @param $args array Optional arguments hash. Supported args:
-	 *   string $context Whether to load this on the `frontend` or `backend`.
-	 *      default: `frontend`
-	 *   int $priority Controls order in which styles are printed
+	 *   `context` string Whether to load this on the `frontend` or `backend`.
+	 *      default: frontend
+	 *   `priority` int Controls order in which scripts are printed
+	 *      default: STYLE_SEQUENCE_NORMAL
+	 *   `inline` bool Whether the $script value should be output directly as
+	 *      script data. Used to pass backend data to the scripts.
 	 */
-	public function addScript($name, $path, $args = array()) {
+	public function addScript($name, $script, $args = array()) {
 
-		$this->scripts[$name] = array(
-			'path'     => isset($args['baseUrl']) ? $args['baseUrl'] . $path : $this->_getBaseUrl($path),
-			'context'  => isset($args['context']) && $args['context'] == 'backend' ? 'backend' : 'frontend',
-			'priority' => isset($args['priority']) ? (int) $args['priority'] : STYLE_SEQUENCE_NORMAL,
-		);
+		if (!empty($args['inline'])) {
+			$args['script'] = $script;
+		} elseif (isset($args['baseUrl'])) {
+			$args['script'] = $args['baseUrl'] . $script;
+		} else {
+			$args['script'] = $this->_getBaseUrl($script);
+		}
+
+		$this->scripts[$name] = $args;
 	}
 
 	/**
@@ -322,15 +333,15 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 		$dispatcher = $request->getDispatcher();
 		$templateManager = TemplateManager::getManager($request);
 
-		foreach($this->styles as $name => $style) {
+		foreach($this->styles as $name => $data) {
 
-			if (empty($style['path'])) {
+			if (empty($data['style'])) {
 				continue;
 			}
 
 			// Compile LESS files
-			if (substr($style['path'], (strlen(LESS_FILENAME_SUFFIX) * -1)) == LESS_FILENAME_SUFFIX) {
-				$url = $dispatcher->url(
+			if (substr($data['style'], (strlen(LESS_FILENAME_SUFFIX) * -1)) == LESS_FILENAME_SUFFIX) {
+				$styles = $dispatcher->url(
 					$request,
 					ROUTE_COMPONENT,
 					null,
@@ -342,14 +353,12 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 					)
 				);
 			} else {
-				$url = $style['path'];
+				$styles = $data['style'];
 			}
 
-			$templateManager->addStylesheet(
-				$url,
-				$style['priority'],
-				$style['context']
-			);
+			unset($data['style']);
+
+			$templateManager->addStylesheet($name, $styles, $data);
 		}
 	}
 
@@ -370,12 +379,10 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 		$dispatcher = $request->getDispatcher();
 		$templateManager = TemplateManager::getManager($request);
 
-		foreach($this->scripts as $name => $script) {
-			$templateManager->addJavaScript(
-				$script['path'],
-				$script['priority'],
-				$script['context']
-			);
+		foreach($this->scripts as $name => $data) {
+			$script = $data['script'];
+			unset($data['script']);
+			$templateManager->addJavaScript($name, $script, $data);
 		}
 	}
 

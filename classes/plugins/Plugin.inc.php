@@ -812,6 +812,14 @@ abstract class Plugin {
 	function getEnabled() {
 		return true;
 	}
+
+	/**
+	 * Retrieve a namespace used when attaching JavaScript data to $.pkp.plugins
+	 * @return string
+	 */
+	function getJavascriptNameSpace() {
+		return '$.pkp.plugins.' . strtolower(get_class($this));
+	}
 }
 
 ?>

@@ -77,7 +77,7 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 		$templateMgr->assign('reviewRoundId', $reviewRoundId);
 
 		// Include the review recommendation options on the form.
-		$templateMgr->assign_by_ref('reviewerRecommendationOptions', ReviewAssignment::getReviewerRecommendationOptions());
+		$templateMgr->assign('reviewerRecommendationOptions', ReviewAssignment::getReviewerRecommendationOptions());
 
 		if ($reviewAssignment->getReviewFormId()) {
 

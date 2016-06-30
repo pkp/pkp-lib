@@ -24,7 +24,7 @@ class DependentFilesGridHandler extends FileListGridHandler {
 	function DependentFilesGridHandler() {
 		// import app-specific grid data provider for access policies.
 		$request = Application::getRequest();
-		$fileId = $request->getUservar('fileId'); // authorized in authorize() method.
+		$fileId = $request->getUserVar('fileId'); // authorized in authorize() method.
 		import('lib.pkp.controllers.grid.files.dependent.DependentFilesGridDataProvider');
 		parent::FileListGridHandler(
 			new DependentFilesGridDataProvider($fileId),
@@ -54,8 +54,8 @@ class DependentFilesGridHandler extends FileListGridHandler {
 	function getRequestArgs() {
 		$submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
 		return array_merge(
-				parent::getRequestArgs(),
-				array('fileId' => $submissionFile->getFileId())
+			parent::getRequestArgs(),
+			array('fileId' => $submissionFile->getFileId())
 		);
 	}
 }

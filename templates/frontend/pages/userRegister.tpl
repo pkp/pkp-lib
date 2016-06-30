@@ -6,212 +6,143 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * User registration form.
+ *
+ * @uses $primaryLocale string The primary locale for this journal/press
  *}
-{if $includeEntirePage}
-	{include file="frontend/components/header.tpl" pageTitle="user.register"}
+{include file="frontend/components/header.tpl" pageTitle="user.register"}
 
-	<div class="page page_register">
-		{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="user.register"}
+<div class="page page_register">
+	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="user.register"}
 
-		<p>
-			{translate key="user.register.completeForm"}
-		</p>
+	<form class="pkp_form register" id="register" method="post" action="{url op="registerUser"}">
+
+		{if $source}
+			<input type="hidden" name="source" value="{$source|escape}" />
+		{/if}
+
+		{include file="common/formErrors.tpl"}
+
+		{include file="frontend/components/registrationForm.tpl"}
+
+		{* When a user is registering with a specific journal *}
+		{if $currentContext}
+
+			{* Users are opted into the Reader and Author roles in the current
+			   journal/press by default. See RegistrationForm::initData() *}
+			{assign var=contextId value=$currentContext->getId()}
+			{foreach from=$readerUserGroups[$contextId] item=userGroup}
+				{if in_array($userGroup->getId(), $userGroupIds)}
+					{assign var="userGroupId" value=$userGroup->getId()}
+					<input type="hidden" name="readerGroup[{$userGroupId}]" value="1">
+				{/if}
+			{/foreach}
+			{foreach from=$authorUserGroups[$contextId] item=userGroup}
+				{if in_array($userGroup->getId(), $userGroupIds)}
+					{assign var="userGroupId" value=$userGroup->getId()}
+					<input type="hidden" name="authorGroup[{$userGroupId}]" value="1">
+				{/if}
+			{/foreach}
+
+			{* Allow the user to sign up as a reviewer *}
+			{assign var=userCanRegisterReviewer value=0}
+			{foreach from=$reviewerUserGroups[$contextId] item=userGroup}
+				{if $userGroup->getPermitSelfRegistration()}
+					{assign var=userCanRegisterReviewer value=$userCanRegisterReviewer+1}
+				{/if}
+			{/foreach}
+			{if $userCanRegisterReviewer}
+				<fieldset class="reviewer">
+					<legend>
+						{translate key="user.reviewerPrompt"}
+					</legend>
+					<div class="fields">
+						<div id="reviewerOptinGroup" class="optin">
+							{foreach from=$reviewerUserGroups[$contextId] item=userGroup}
+								{if $userGroup->getPermitSelfRegistration()}
+									<label>
+										{assign var="userGroupId" value=$userGroup->getId()}
+										<input type="checkbox" name="reviewerGroup[{$userGroupId}]" value="1"{if in_array($userGroupId, $userGroupIds)} checked="checked"{/if}>
+										{translate key="user.reviewerPrompt.userGroup" userGroup=$userGroup->getLocalizedName()}
+									</label>
+								{/if}
+							{/foreach}
+						</div>
+
+						<div id="reviewerInterests" class="reviewer_interests">
+							{*
+							 * This container will be processed by the tag-it jQuery
+							 * plugin. In order for it to work, your theme will need to
+							 * load the jQuery tag-it plugin and initialize the
+							 * component.
+							 *
+							 * Two data attributes are added which are not a default
+							 * feature of the plugin. These are converted into options
+							 * when the plugin is initialized on the element.
+							 *
+							 * See: /plugins/themes/default/js/main.js
+							 *
+							 * `data-field-name` represents the name used to POST the
+							 * interests when the form is submitted.
+							 *
+							 * `data-autocomplete-url` is the URL used to request
+							 * existing entries from the server.
+							 *
+							 * @link: http://aehlke.github.io/tag-it/
+							 *}
+							<div class="label">
+								{translate key="user.interests"}
+							</div>
+							<ul class="interests tag-it" data-field-name="interests[]" data-autocomplete-url="{url|escape router=$smarty.const.ROUTE_PAGE page='user' op='getInterests'}">
+								{foreach from=$interests item=interest}
+									<li>{$interest|escape}</li>
+								{/foreach}
+							</ul>
+						</div>
+					</div>
+				</fieldset>
+			{/if}
+		{/if}
+
+		{include file="frontend/components/registrationFormContexts.tpl"}
+
+		{* When a user is registering for no specific journal, allow them to
+		   enter their reviewer interests *}
+		{if !$currentContext}
+			<fieldset class="reviewer_nocontext_interests">
+				<legend>
+					{translate key="user.register.noContextReviewerInterests"}
+				</legend>
+				<div class="fields">
+					<div class="reviewer_nocontext_interests">
+						{* See comment for .tag-it above *}
+						<ul class="interests tag-it" data-field-name="interests[]" data-autocomplete-url="{url|escape router=$smarty.const.ROUTE_PAGE page='user' op='getInterests'}">
+							{foreach from=$interests item=interest}
+								<li>{$interest|escape}</li>
+							{/foreach}
+						</ul>
+					</div>
+				</div>
+			</fieldset>
+		{/if}
 
 		{if !$implicitAuth}
-			{url|assign:"rolesProfileUrl" page="user" op="profile" path="roles"}
-			{url|assign:"loginUrl" page="login" source=$rolesProfileUrl}
-			<p>
-				{translate key="user.register.alreadyRegisteredOtherContext" registerUrl=$loginUrl}
-			</p>
+			<div class="required_label">
+				{translate key="common.requiredField"}
+			</div>
 		{/if}
-{/if}
 
-<script type="text/javascript">
-	$(function() {ldelim}
-		// Attach the form handler.
-		$('#register').pkpHandler('$.pkp.controllers.form.UserFormHandler',
-			{ldelim}
-				fetchUsernameSuggestionUrl: {url|json_encode router=$smarty.const.ROUTE_COMPONENT component="api.user.UserApiHandler" op="suggestUsername" firstName="FIRST_NAME_DUMMY" lastName="LAST_NAME_DUMMY" escape=false},
-				usernameSuggestionTextAlert: {translate|json_encode key="grid.user.mustProvideName"},
-				hideNonReviewerInterests: true
-			{rdelim}
-		);
-	{rdelim});
-</script>
+		<div class="buttons">
+			<button class="submit" type="submit">
+				{translate key="user.register"}
+			</button>
 
-<form class="pkp_form register" id="register" method="post" action="{url op="registerUser"}">
-
-	{if $source}
-		<input type="hidden" name="source" value="{$source|escape}" />
-	{/if}
-
-	{include file="common/formErrors.tpl"}
-
-	<fieldset class="identity">
-		<legend>
-			{translate key="user.profile"}
-		</legend>
-		<ul class="fields">
-			<li class="first_name">
-				<label>
-					<span class="label">
-						{translate key="user.firstName"}
-						<span class="required">*</span>
-						<span class="pkp_screen_reader">
-							{translate key="common.required"}
-						</span>
-					</span>
-					<input type="text" name="firstName" id="firstName" value="{$firstName|escape}" maxlength="40" required>
-				</label>
-			</li>
-			<li class="middle_name">
-				<label>
-					<span class="label">
-						{translate key="user.middleName"}
-					</span>
-					<input type="text" name="middleName" value="{$middleName|escape}" maxlength="40">
-				</label>
-			</li>
-			<li class="last_name">
-				<label>
-					<span class="label">
-						{translate key="user.lastName"}
-						<span class="required">*</span>
-						<span class="pkp_screen_reader">
-							{translate key="common.required"}
-						</span>
-					</span>
-					<input type="text" name="lastName" id="lastName" value="{$lastName|escape}" maxlength="40" required>
-				</label>
-			</li>
-			<li class="affiliation">
-				<label>
-					<span class="label">
-						{translate key="user.affiliation"}
-						<span class="required">*</span>
-						<span class="pkp_screen_reader">
-							{translate key="common.required"}
-						</span>
-					</span>
-					{assign var="primaryLocale" value=$currentContext->getPrimaryLocale()}
-					<input type="text" name="affiliation[{$primaryLocale|escape}]" id="affiliation" value="{$affiliation.$primaryLocale|escape}" required>
-				</label>
-			</li>
-			<li class="country">
-				<label>
-					<span class="label">
-						{translate key="common.country"}
-						<span class="required">*</span>
-						<span class="pkp_screen_reader">
-							{translate key="common.required"}
-						</span>
-					</span>
-					<select name="country" id="country" required>
-						<option></option>
-						{html_options options=$countries selected=$country}
-					</select>
-				</label>
-			</li>
-		</ul>
-	</fieldset>
-
-	<fieldset class="login">
-		<legend>
-			{translate key="user.login"}
-		</legend>
-		<ul class="fields">
-			<li class="email">
-				<label>
-					<span class="label">
-						{translate key="user.email"}
-						<span class="required">*</span>
-						<span class="pkp_screen_reader">
-							{translate key="common.required"}
-						</span>
-					</span>
-					<input type="text" name="email" id="email" value="{$email|escape}" maxlength="32" required>
-				</label>
-			</li>
-			<li class="username">
-				<label>
-					<span class="label">
-						{translate key="user.username"}
-						<span class="required">*</span>
-						<span class="pkp_screen_reader">
-							{translate key="common.required"}
-						</span>
-					</span>
-					<input type="text" name="username" id="username" value="{$username|escape}" maxlength="32" required>
-				</label>
-				<button id="suggestUsernameButton" class="suggest_username">
-					{translate key="common.suggest"}
-				</button>
-			</li>
-			<li class="password">
-				<label>
-					<span class="label">
-						{translate key="user.password"}
-						<span class="required">*</span>
-						<span class="pkp_screen_reader">
-							{translate key="common.required"}
-						</span>
-					</span>
-					<input type="password" name="password" id="password" password="true" maxlength="32" required="$passwordRequired">
-				</label>
-			</li>
-			<li class="password">
-				<label>
-					<span class="label">
-						{translate key="user.repeatPassword"}
-						<span class="required">*</span>
-						<span class="pkp_screen_reader">
-							{translate key="common.required"}
-						</span>
-					</span>
-					<input type="password" name="password2" id="password2" password="true" maxlength="32" required="$passwordRequired">
-				</label>
-			</li>
-		</ul>
-	</fieldset>
-
-	{* @todo Implement this without recourse to the Form Builder Vocab,
-	    so we don't force themers to dip into FBV at all *}
-	{include file="user/userGroups.tpl"}
-
-	{* @todo recaptcha display is untested *}
-	{if $reCaptchaHtml}
-		<div class="recaptcha">
-			{fieldLabel name="captcha" required=true key="common.captchaField" class="desc"}
-			{$reCaptchaHtml}
+			{if !$implicitAuth}
+				{url|assign:"rolesProfileUrl" page="user" op="profile" path="roles"}
+				<a href="{url page="login" source=$rolesProfileUrl}" class="login">{translate key="user.login"}</a>
+			{/if}
 		</div>
-	{/if}
+	</form>
 
-	<div class="buttons">
-		<button class="submit" type="submit">
-			{translate key="user.register"}
-		</button>
-	</div>
+</div><!-- .page -->
 
-	{if !$implicitAuth}
-		<div class="required_label">
-			{translate key="common.requiredField"}
-		</div>
-	{/if}
-
-	{if $privacyStatement}
-		<div class="privacy">
-			<h2>
-				{translate key="user.register.privacyStatement"}
-			</h2>
-			<p>
-				{$privacyStatement|nl2br}
-			</p>
-		</div>
-	{/if}
-</form>
-
-{if $includeEntirePage}
-	</div><!-- .page -->
-
-	{include file="common/frontend/footer.tpl"}
-{/if}
+{include file="common/frontend/footer.tpl"}

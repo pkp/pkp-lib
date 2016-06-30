@@ -269,34 +269,26 @@ class SubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 			'uploadedFile', $fileStage, $user->getId(),
 			$uploaderUserGroupId, $revisedFileId, $fileGenre, $assocType, $assocId
 		);
+		if (!$submissionFile) return null;
 
-		if ($submissionFile && ($fileStage == SUBMISSION_FILE_REVIEW_FILE || $fileStage == SUBMISSION_FILE_REVIEW_ATTACHMENT || $fileStage == SUBMISSION_FILE_REVIEW_REVISION)) {
-			// Add the uploaded review file to the review round.
-			$reviewRound = $this->getReviewRound();
-			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
-			$submissionFileDao->assignRevisionToReviewRound($submissionFile->getFileId(), $submissionFile->getRevision(), $reviewRound);
-		}
-
-		if ($submissionFile) {
-			// Log the event.
-			import('lib.pkp.classes.log.SubmissionFileLog');
-			import('lib.pkp.classes.log.SubmissionFileEventLogEntry'); // constants
-			SubmissionFileLog::logEvent(
-				$request,
-				$submissionFile,
-				$revisedFileId?SUBMISSION_LOG_FILE_REVISION_UPLOAD:SUBMISSION_LOG_FILE_UPLOAD, // assocId
-				$revisedFileId?'submission.event.revisionUploaded':'submission.event.fileUploaded',
-				array(
-					'fileStage' => $fileStage,
-					'revisedFileId' => $revisedFileId,
-					'fileId' => $submissionFile->getFileId(),
-					'fileRevision' => $submissionFile->getRevision(),
-					'originalFileName' => $submissionFile->getOriginalFileName(),
-					'submissionId' => $this->getData('submissionId'),
-					'username' => $user->getUsername()
-				)
-			);
-		}
+		// Log the event.
+		import('lib.pkp.classes.log.SubmissionFileLog');
+		import('lib.pkp.classes.log.SubmissionFileEventLogEntry'); // constants
+		SubmissionFileLog::logEvent(
+			$request,
+			$submissionFile,
+			$revisedFileId?SUBMISSION_LOG_FILE_REVISION_UPLOAD:SUBMISSION_LOG_FILE_UPLOAD, // assocId
+			$revisedFileId?'submission.event.revisionUploaded':'submission.event.fileUploaded',
+			array(
+				'fileStage' => $fileStage,
+				'revisedFileId' => $revisedFileId,
+				'fileId' => $submissionFile->getFileId(),
+				'fileRevision' => $submissionFile->getRevision(),
+				'originalFileName' => $submissionFile->getOriginalFileName(),
+				'submissionId' => $this->getData('submissionId'),
+				'username' => $user->getUsername()
+			)
+		);
 
 		return $submissionFile;
 	}

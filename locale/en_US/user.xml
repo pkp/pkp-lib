@@ -101,8 +101,7 @@
 	<message key="user.profile.repeatNewPassword">Repeat new password</message>
 	<!-- Login -->
 	<message key="user.login.registerNewAccount">Register</message>
-	<message key="user.login.resetPasswordInstructions"><![CDATA[For security reasons, this system emails a reset password to registered users, rather than recalling the
-current password.<br /><br />Enter your email address below to reset your password. A confirmation will be sent to this email address.]]></message>
+	<message key="user.login.resetPasswordInstructions">Enter your account email address below and an email will be sent with instructions on how to reset your password.</message>
 
 	<message key="user.register.form.emailExists">The selected email address is already in use by another user.</message>
 	<message key="user.register.form.passwordsDoNotMatch">The passwords do not match.</message>
@@ -143,7 +142,6 @@ current password.<br /><br />Enter your email address below to reset your passwo
 	<message key="user.userHome">User Home</message>
 	<message key="user.username">Username</message>
 	<message key="user.workingLanguages">Working Languages</message>
-	<message key="user.register.completeForm">Fill in this form to register with this site.</message>
 	<message key="user.orcid">ORCID iD</message>
 	<message key="user.orcid.orcidInvalid">The ORCID iD you specified is invalid. Please include the full URI (e.g. "http://orcid.org/0000-0002-1825-0097").</message>
 	<message key="user.profile.identity">Identity</message>

@@ -218,8 +218,8 @@ class PKPEditorDecisionHandler extends Handler {
 				$submissionComments = $submissionCommentDao->getSubmissionComments($submission->getId(), COMMENT_TYPE_PEER_REVIEW, $reviewAssignment->getId());
 
 				$body .= "<br><br>$textSeparator<br>";
-				// If it is not a double blind review, show reviewer's name.
-				if ($reviewAssignment->getReviewMethod() != SUBMISSION_REVIEW_METHOD_DOUBLEBLIND) {
+				// If it is an open review, show reviewer's name.
+				if ($reviewAssignment->getReviewMethod() == SUBMISSION_REVIEW_METHOD_OPEN) {
 					$body .= $reviewAssignment->getReviewerFullName() . "<br>\n";
 				} else {
 					$body .= __('submission.comments.importPeerReviews.reviewerLetter', array('reviewerLetter' => PKPString::enumerateAlphabetically($reviewIndexes[$reviewAssignment->getId()]))) . "<br>\n";

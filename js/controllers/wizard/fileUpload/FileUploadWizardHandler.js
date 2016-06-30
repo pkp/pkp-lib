@@ -191,10 +191,11 @@
 		// the upload process.
 		if (ui.tab.index() === 2) {
 			$newFileButton = $('#newFile', $wizard);
-			if ($newFileButton.length !== 1) {
-				throw new Error('Did not find "new file" button!');
+			// In some cases only a single file can be uploaded and no new
+			// file button appears
+			if ($newFileButton.length) {
+				$newFileButton.bind('click', this.callbackWrapper(this.startWizard));
 			}
-			$newFileButton.bind('click', this.callbackWrapper(this.startWizard));
 		}
 
 		$progressIndicator.hide();

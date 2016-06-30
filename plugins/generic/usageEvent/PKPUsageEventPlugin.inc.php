@@ -228,7 +228,7 @@ abstract class PKPUsageEventPlugin extends GenericPlugin {
 			if (is_array($pubIdPlugins)) {
 				foreach ($pubIdPlugins as $pubIdPlugin) {
 					if (!$pubIdPlugin->getEnabled()) continue;
-					$pubId = $pubIdPlugin->getPubId($pubObject);
+					$pubId = $pubObject->getStoredPubId($pubIdPlugin->getPubIdType());
 					if ($pubId) {
 						$identifiers[$pubIdPlugin->getPubIdType()] = $pubId;
 					}

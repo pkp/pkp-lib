@@ -114,6 +114,28 @@ class SubmissionFile extends PKPFile {
 	}
 
 	/**
+	 * Get stored public ID of the file.
+	 * @param @literal $pubIdType string One of the NLM pub-id-type values or
+	 * 'other::something' if not part of the official NLM list
+	 * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>). @endliteral
+	 * @return int
+	 */
+	function getStoredPubId($pubIdType) {
+		return $this->getData('pub-id::'.$pubIdType);
+	}
+
+	/**
+	 * Set the stored public ID of the file.
+	 * @param $pubIdType string One of the NLM pub-id-type values or
+	 * 'other::something' if not part of the official NLM list
+	 * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
+	 * @param $pubId string
+	 */
+	function setStoredPubId($pubIdType, $pubId) {
+		$this->setData('pub-id::'.$pubIdType, $pubId);
+	}
+
+	/**
 	 * Get price of submission file.
 	 * A null return indicates "not available"; 0 is free.
 	 * @return numeric|null
@@ -532,7 +554,7 @@ class SubmissionFile extends PKPFile {
 
 		return __('common.file.namingPattern',
 			array(
-				'genre'            => $genre->getLocalizedName(),
+				'genre'            => $genre?$genre->getLocalizedName():'',
 				'docType'          => $this->getDocumentType(),
 				'originalFilename' => $this->getOriginalFilename(),
 				'username'         => $user->getUsername(),

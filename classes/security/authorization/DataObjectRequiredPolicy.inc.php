@@ -99,10 +99,10 @@ class DataObjectRequiredPolicy extends AuthorizationPolicy {
 		$router = $this->_request->getRouter();
 		switch(true) {
 			case is_a($router, 'PKPPageRouter'):
-				if ( is_numeric($this->_request->getUserVar($this->_parameterName)) ) {
+				if ( ctype_digit((string) $this->_request->getUserVar($this->_parameterName)) ) {
 					// We may expect a object id in the user vars
 					return (int) $this->_request->getUserVar($this->_parameterName);
-				} else if (isset($this->_args[0]) && is_numeric($this->_args[0])) {
+				} else if (isset($this->_args[0]) && ctype_digit((string) $this->_args[0])) {
 					// Or the object id can be expected as the first path in the argument list
 					return (int) $this->_args[0];
 				}
@@ -111,7 +111,7 @@ class DataObjectRequiredPolicy extends AuthorizationPolicy {
 			case is_a($router, 'PKPComponentRouter'):
 				// We expect a named object id argument.
 				if (isset($this->_args[$this->_parameterName])
-						&& is_numeric($this->_args[$this->_parameterName])) {
+						&& ctype_digit((string) $this->_args[$this->_parameterName])) {
 					return (int) $this->_args[$this->_parameterName];
 				}
 				break;

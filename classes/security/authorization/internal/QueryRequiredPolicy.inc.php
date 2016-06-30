@@ -36,7 +36,7 @@ class QueryRequiredPolicy extends DataObjectRequiredPolicy {
 		$queryId = (int)$this->getDataObjectId();
 		if (!$queryId) return AUTHORIZATION_DENY;
 
-		// Make sure the query belongs to the submission/representation.
+		// Make sure the query belongs to the submission.
 		$queryDao = DAORegistry::getDAO('QueryDAO');
 		$query = $queryDao->getById($queryId);
 		if (!is_a($query, 'Query')) return AUTHORIZATION_DENY;
@@ -45,11 +45,6 @@ class QueryRequiredPolicy extends DataObjectRequiredPolicy {
 				$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 				if (!is_a($submission, 'Submission')) return AUTHORIZATION_DENY;
 				if ($query->getAssocId() != $submission->getId()) return AUTHORIZATION_DENY;
-				break;
-			case ASSOC_TYPE_REPRESENTATION:
-				$representation = $this->getAuthorizedContextObject(ASSOC_TYPE_REPRESENTATION);
-				if (!is_a($representation, 'Representation')) return AUTHORIZATION_DENY;
-				if ($query->getAssocId() != $representation->getId()) return AUTHORIZATION_DENY;
 				break;
 			default:
 				return AUTHORIZATION_DENY;

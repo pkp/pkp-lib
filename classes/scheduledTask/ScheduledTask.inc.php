@@ -39,6 +39,9 @@ abstract class ScheduledTask {
 	function ScheduledTask($args = array()) {
 		$this->_args = $args;
 		$this->_processId = uniqid();
+
+		// Ensure common locale keys are available
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_ADMIN, LOCALE_COMPONENT_PKP_COMMON);
 		
 		// Check the scheduled task execution log folder.
 		import('lib.pkp.classes.file.PrivateFileManager');
@@ -55,8 +58,6 @@ abstract class ScheduledTask {
 				$this->_executionLogFile = null;
 			}
 		}
-
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_ADMIN, LOCALE_COMPONENT_PKP_COMMON);
 	}
 
 

@@ -174,6 +174,7 @@ class PageHandler extends Handler {
 		readfile($cachedFile);
 		die;
 	}
+
 	/**
 	 * Setup and assign variables for any templates that want the overall header
 	 * context.

@@ -59,6 +59,7 @@ class PKPStageParticipantNotifyForm extends Form {
 	 * @copydoc Form::fetch()
 	 */
 	function fetch($request) {
+		$submissionDao = Application::getSubmissionDAO();
 		$submission = $submissionDao->getById($this->_submissionId);
 
 		// All stages can choose the default template
@@ -120,7 +121,7 @@ class PKPStageParticipantNotifyForm extends Form {
 	 * @copydoc Form::execute()
 	 */
 	function execute($request) {
-		$submissionDao = Application::getSubmissionDAO('SubmissionDAO');
+		$submissionDao = Application::getSubmissionDAO();
 		$submission = $submissionDao->getById($this->_submissionId);
 		foreach ((array) $this->getData('userIds') as $userId) {
 			$this->sendMessage($userId, $submission, $request);

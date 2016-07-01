@@ -291,7 +291,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 			return;
 		}
 
-		$this->parent = &$parent;
+		$this->parent = $parent;
 		$this->parent->init();
 	}
 

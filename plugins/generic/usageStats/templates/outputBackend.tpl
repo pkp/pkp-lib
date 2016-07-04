@@ -1,5 +1,5 @@
 {**
- * plugins/generic/usageStats/templates/output.tpl
+ * plugins/generic/usageStats/templates/outputBackend.tpl
  *
  * Copyright (c) 2013-2016 Simon Fraser University Library
  * Copyright (c) 2003-2016 John Willinsky
@@ -12,13 +12,13 @@
 <script type="text/javascript">
 	$(function() {ldelim}
 		// Attach the graph handler.
-		$('#usageStatsGraphContainer').pkpHandler('$.pkp.plugins.generic.usageStats.UsageStatsGraphHandler', 
+		$('#usageStatsGraphContainer').pkpHandler('$.pkp.plugins.generic.usageStats.UsageStatsGraphHandler',
 			{ldelim}
 				labels: {$labels},
 				data: {$statistics},
 				datasetMaxCount: {$datasetMaxCount},
 				chartType: "{$chartType}"
-			{rdelim}		
+			{rdelim}
 		);
 	{rdelim});
 </script>

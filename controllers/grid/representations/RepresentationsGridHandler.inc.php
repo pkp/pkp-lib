@@ -157,7 +157,24 @@ abstract class RepresentationsGridHandler extends CategoryGridHandler {
 			SUBMISSION_FILE_PROOF,
 			$submission->getId()
 		);
+		$confirmationText = __('editor.submission.proofreading.confirmRemoveCompletion');
+		if ($request->getUserVar('approval')) {
+			$confirmationText = __('editor.submission.proofreading.confirmCompletion');
+		}
 		if ($submissionFile && $submissionFile->getAssocType()==ASSOC_TYPE_REPRESENTATION) {
+			import('lib.pkp.controllers.grid.pubIds.form.PKPAssignPublicIdentifiersForm');
+			$formTemplate = $this->getAssignPublicIdentifiersFormTemplate();
+			$assignPublicIdentifiersForm = new PKPAssignPublicIdentifiersForm($formTemplate, $submissionFile, $request->getUserVar('approval'), $confirmationText);
+			if (!$request->getUserVar('confirmed')) {
+				// Display assign pub ids modal
+				$assignPublicIdentifiersForm->initData($args, $request);
+				return new JSONMessage(true, $assignPublicIdentifiersForm->fetch($request));
+			}
+			if ($request->getUserVar('approval')) {
+				// Asign pub ids
+				$assignPublicIdentifiersForm->readInputData();
+				$assignPublicIdentifiersForm->execute($request);
+			}
 			// Update the approval flag
 			$submissionFile->setViewable($request->getUserVar('approval')?1:0);
 			$submissionFileDao->updateObject($submissionFile);
@@ -192,6 +209,74 @@ abstract class RepresentationsGridHandler extends CategoryGridHandler {
 		$manageProofFilesForm->initData($args, $request);
 		return new JSONMessage(true, $manageProofFilesForm->fetch($request));
 	}
+
+	/**
+	 * Edit pub ids
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
+	 */
+	function identifiers($args, $request) {
+		$submission = $this->getSubmission();
+		$representationDao = Application::getRepresentationDAO();
+		$representation = $representationDao->getById(
+			$request->getUserVar('representationId'),
+			$submission->getId()
+		);
+		import('lib.pkp.controllers.tab.pubIds.form.PKPPublicIdentifiersForm');
+		$form = new PKPPublicIdentifiersForm($representation);
+		$form->initData($request);
+		return new JSONMessage(true, $form->fetch($request));
+	}
+
+	/**
+	 * Update pub ids
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
+	 */
+	function updateIdentifiers($args, $request) {
+		$submission = $this->getSubmission();
+		$representationDao = Application::getRepresentationDAO();
+		$representation = $representationDao->getById(
+			$request->getUserVar('representationId'),
+			$submission->getId()
+		);
+		import('lib.pkp.controllers.tab.pubIds.form.PKPPublicIdentifiersForm');
+		$form = new PKPPublicIdentifiersForm($representation);
+		$form->readInputData();
+		if ($form->validate($request)) {
+			$form->execute($request);
+			return DAO::getDataChangedEvent();
+		} else {
+			return new JSONMessage(true, $form->fetch($request));
+		}
+	}
+
+	/**
+	 * Clear pub id
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
+	 */
+	function clearPubId($args, $request) {
+		$submission = $this->getSubmission();
+		$representationDao = Application::getRepresentationDAO();
+		$representation = $representationDao->getById(
+			$request->getUserVar('representationId'),
+			$submission->getId()
+		);
+		import('lib.pkp.controllers.tab.pubIds.form.PKPPublicIdentifiersForm');
+		$form = new PKPPublicIdentifiersForm($representation);
+		$form->clearPubId($request->getUserVar('pubIdPlugIn'));
+		return new JSONMessage(true);
+	}
+
+	/**
+	 * Get the template for the assign public identifiers form.
+	 * @return string
+	 */
+	abstract function getAssignPublicIdentifiersFormTemplate();
 
 }
 

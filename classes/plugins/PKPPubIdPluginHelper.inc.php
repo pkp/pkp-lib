@@ -21,7 +21,7 @@ class PKPPubIdPluginHelper {
 	 * @param $contextId integer
 	 * @param $form object PKPPublicIdentifiersForm
 	 * @param $pubObject object
-	 * 	OJS Issue, Article, Representation or SubmissionFile
+	 * 	Submission, Representation, SubmissionFile + OJS Issue
 	 */
 	function validate($contextId, $form, $pubObject) {
 		$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $contextId);
@@ -44,7 +44,7 @@ class PKPPubIdPluginHelper {
 	 * @param $contextId integer
 	 * @param $form object PKPPublicIdentifiersForm
 	 * @param $pubObject object
-	 * 	OJS Issue, Article, Representation or SubmissionFile
+	 * 	Submission, Representation, SubmissionFile + OJS Issue
 	 */
 	function setLinkActions($contextId, $form, $pubObject) {
 		$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $contextId);
@@ -62,9 +62,9 @@ class PKPPubIdPluginHelper {
 	/**
 	 * Init the additional form fields from public identifier plugins.
 	 * @param $contextId integer
-	 * @param $form object PKPPublicIdentifiersForm
+	 * @param $form object PKPPublicIdentifiersForm|CatalogEntryFormatMetadataForm
 	 * @param $pubObject object
-	 * 	OJS Issue, Article, Representation or SubmissionFile
+	 * 	Submission, Representation, SubmissionFile + OJS Issue
 	 */
 	function init($contextId, $form, $pubObject) {
 		if (isset($pubObject)) {
@@ -118,7 +118,7 @@ class PKPPubIdPluginHelper {
 	 * @param $contextId integer
 	 * @param $form object PKPPublicIdentifiersForm
 	 * @param $pubObject object
-	 * 	OJS Issue, Article, Representation or SubmissionFile
+	 * 	Submission, Representation, SubmissionFile + OJS Issue
 	 */
 	function execute($contextId, $form, $pubObject) {
 		$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $contextId);
@@ -147,7 +147,7 @@ class PKPPubIdPluginHelper {
 	 * @param $contextId integer
 	 * @param $form object
 	 * @param $pubObject object
-	 * 	OJS Issue, Article, Representation or SubmissionFile
+	 * 	Submission, Representation, SubmissionFile + OJS Issue
 	 */
 	function assignPubId($contextId, $form, $pubObject) {
 		$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $contextId);
@@ -166,7 +166,7 @@ class PKPPubIdPluginHelper {
 	 * @param $contextId integer
 	 * @param $pubIdPlugInClassName string
 	 * @param $pubObject object
-	 * 	OJS Issue, Article, Representation or SubmissionFile
+	 * 	Submission, Representation, SubmissionFile + OJS Issue
 	 */
 	function clearPubId($contextId, $pubIdPlugInClassName, $pubObject) {
 		$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $contextId);

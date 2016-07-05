@@ -335,7 +335,7 @@ class PKPRequest {
 		if (!isset($_this->_serverHost)) {
 			$_this->_serverHost = isset($_SERVER['HTTP_X_FORWARDED_HOST']) ? $_SERVER['HTTP_X_FORWARDED_HOST']
 				: (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST']
-				: (isset($_SERVER['HOSTNAME']) ? $_SERVER['HOSTNAME']
+				: (isset($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME']
 				: null));
 
 			HookRegistry::call('Request::getServerHost', array(&$_this->_serverHost, &$default, &$includePort));

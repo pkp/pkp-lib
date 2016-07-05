@@ -517,7 +517,7 @@ class PKPTemplateManager extends Smarty {
 
 		// Otherwise retrieve and register all script files
 		$minifiedScriptsTemplate = $this->fetch('common/minifiedScripts.tpl');
-		preg_match_all('/<script src=\"' . str_replace('/', '\/', $baseUrl ) . '(.*)\"><\/script>/', $minifiedScriptsTemplate, $scripts);
+		preg_match_all('/<script src=\"' . preg_quote($baseUrl, '/') . '([^"]*)\"><\/script>/', $minifiedScriptsTemplate, $scripts);
 		if (empty($scripts[1])) {
 			return;
 		}

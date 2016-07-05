@@ -193,22 +193,26 @@ class PKPTemplateManager extends Smarty {
 		}
 
 		// Register meta tags
-		$currentContext = $this->_request->getContext();
-		if ((empty($this->_request->getRequestedPage()) || $this->_request->getRequestedPage() == 'index') && $currentContext->getLocalizedSetting('searchDescription')) {
-			$this->addHeader('searchDescription', '<meta name="description" content="' . $currentContext->getLocalizedSetting('searchDescription') . '">');
-		}
+		if (Config::getVar('general', 'installed')) {
+			$currentContext = $this->_request->getContext();
+			if ((empty($this->_request->getRequestedPage()) || $this->_request->getRequestedPage() == 'index') && $currentContext && $currentContext->getLocalizedSetting('searchDescription')) {
+				$this->addHeader('searchDescription', '<meta name="description" content="' . $currentContext->getLocalizedSetting('searchDescription') . '">');
+			}
 
-		$this->addHeader(
-			'generator',
-			'<meta name="generator" content="' . __($application->getNameKey()) . ' ' . $application->getCurrentVersion()->getVersionString(false) . '">',
-			array(
-				'contexts' => array('frontend','backend'),
-			)
-		);
+			$this->addHeader(
+				'generator',
+				'<meta name="generator" content="' . __($application->getNameKey()) . ' ' . $application->getCurrentVersion()->getVersionString(false) . '">',
+				array(
+					'contexts' => array('frontend','backend'),
+				)
+			);
 
-		$customHeaders = $currentContext->getLocalizedSetting('customHeaders');
-		if (!empty($customHeaders)) {
-			$this->addHeader('customHeaders', $customHeaders);
+			if ($currentContext) {
+				$customHeaders = $currentContext->getLocalizedSetting('customHeaders');
+				if (!empty($customHeaders)) {
+					$this->addHeader('customHeaders', $customHeaders);
+				}
+			}
 		}
 
 		// Register custom functions

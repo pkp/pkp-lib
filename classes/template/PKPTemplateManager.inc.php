@@ -193,7 +193,7 @@ class PKPTemplateManager extends Smarty {
 		}
 
 		// Register meta tags
-		if (Config::getVar('general', 'installed')) {
+		if (Config::getVar('general', 'installed') && is_a($router, 'PKPPageRouter')) {
 			$currentContext = $this->_request->getContext();
 			if ((empty($this->_request->getRequestedPage()) || $this->_request->getRequestedPage() == 'index') && $currentContext && $currentContext->getLocalizedSetting('searchDescription')) {
 				$this->addHeader('searchDescription', '<meta name="description" content="' . $currentContext->getLocalizedSetting('searchDescription') . '">');

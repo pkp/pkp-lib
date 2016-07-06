@@ -16,7 +16,8 @@
  *
  * <li> elements wiith a submenu that opens below the parent item should add a
  * submenuOpensBelow class to support scrolling in long lists when necessary.
- *   <li class="submenuOpensBelow" aria-haspopup="true" aria-expanded="false"></li>
+ *   <li class="submenuOpensBelow"
+ *       aria-haspopup="true" aria-expanded="false"></li>
  */
 (function($) {
 
@@ -44,16 +45,19 @@
 		$(window).resize(this.callbackWrapper(this.onResize));
 
 		// Show/hide dropdown menus using WCAG-compliant aria attributes
-		this.getHtmlElement().on('focus mouseenter', '[aria-haspopup="true"]', function(e) {
+		this.getHtmlElement().on('focus mouseenter', '[aria-haspopup="true"]',
+				function(e) {
 			$(e.currentTarget).attr('aria-expanded', true);
 		});
-		this.getHtmlElement().on('blur mouseleave', '[aria-haspopup="true"]', function(e) {
+		this.getHtmlElement().on('blur mouseleave', '[aria-haspopup="true"]',
+				function(e) {
 			$(e.currentTarget).attr('aria-expanded', false);
 		});
 
 		// Prevent first touch on top-level menu items from following the link
-		this.getHtmlElement().find('[aria-haspopup="true"] > a').on('touchstart', function(e) {
-			if (!$(this).parent().attr('aria-expanded') == false) {
+		this.getHtmlElement().find('[aria-haspopup="true"] > a').on(
+				'touchstart', function(e) {
+			if ($(this).parent().attr('aria-expanded') != false) {
 				$(this).focus();
 				e.preventDefault();
 			}

@@ -129,11 +129,11 @@
 	$.pkp.controllers.SiteHandler.prototype.initializeTinyMCE =
 			function() {
 
-		if (typeof tinymce !== 'undefined') {
-			tinymce.PluginManager.load('jbimages',
-					$.pkp.app.baseUrl + '/plugins/generic/tinymce/plugins/justboil.me/plugin.js');
-			tinymce.PluginManager.load('pkpTags',
-					$.pkp.app.baseUrl + '/plugins/generic/tinymce/plugins/pkpTags/plugin.js');
+		if (typeof tinyMCE !== 'undefined') {
+			tinyMCE.PluginManager.load('jbimages', $.pkp.app.baseUrl +
+					'/plugins/generic/tinymce/plugins/justboil.me/plugin.js');
+			tinyMCE.PluginManager.load('pkpTags', $.pkp.app.baseUrl +
+					'/plugins/generic/tinymce/plugins/pkpTags/plugin.js');
 
 			var tinymceParams, tinymceParamDefaults = {
 				width: '100%',
@@ -148,15 +148,18 @@
 				toolbar: 'copy paste | bold italic underline | link unlink ' +
 						'code fullscreen | jbimages | pkpTags',
 				richToolbar: 'copy paste | bold italic underline | bullist numlist | ' +
-						'superscript subscript | link unlink code fullscreen | jbimages | pkpTags',
+						'superscript subscript | link unlink code fullscreen | ' +
+						'jbimages | pkpTags',
 				statusbar: false,
-				content_css: $.pkp.app.baseUrl + '/plugins/generic/tinymce/styles/content.css'
+				content_css: $.pkp.app.baseUrl +
+						'/plugins/generic/tinymce/styles/content.css'
 			};
 
 			// Allow default params to be overridden
 			if (typeof $.pkp.plugins.tinymceplugin !== 'undefined' &&
 					typeof $.pkp.plugins.tinymceplugin.tinymceParams) {
-				tinymceParams = $.extend({}, tinymceParamDefaults, $.pkp.plugins.tinymceplugin.tinymceParams);
+				tinymceParams = $.extend({}, tinymceParamDefaults,
+						$.pkp.plugins.tinymceplugin.tinymceParams);
 			} else {
 				tinymceParams = $.extend({}, tinymceParamDefaults);
 			}
@@ -167,7 +170,7 @@
 			tinymceParams.setup =
 					$.pkp.controllers.SiteHandler.prototype.triggerTinyMCESetup;
 
-			tinymce.init(tinymceParams);
+			tinyMCE.init(tinymceParams);
 		}
 	};
 

@@ -123,94 +123,94 @@ class PKPTemplateManager extends Smarty {
 				'requestedPage' => $router->getRequestedPage($this->_request),
 				'requestedOp' => $router->getRequestedOp($this->_request),
 			));
-		}
 
-		// Register the jQuery script
-		$min = Config::getVar('general', 'enable_minified') ? '.min' : '';
-		if (Config::getVar('general', 'enable_cdn')) {
-			$jquery = '//ajax.googleapis.com/ajax/libs/jquery/' . CDN_JQUERY_VERSION . '/jquery' . $min . '.js';
-			$jqueryUI = '//ajax.googleapis.com/ajax/libs/jqueryui/' . CDN_JQUERY_UI_VERSION . '/jquery-ui' . $min . '.js';
-		} else {
-			$jquery = $this->_request->getBaseUrl() . '/lib/pkp/lib/vendor/components/jquery/jquery' . $min . '.js';
-			$jqueryUI = $this->_request->getBaseUrl() . '/lib/pkp/lib/vendor/components/jqueryui/jquery-ui' . $min . '.js';
-		}
-		$this->addJavaScript(
-			'jquery',
-			$jquery,
-			array(
-				'priority' => STYLE_SEQUENCE_CORE,
-				'contexts' => 'backend',
-			)
-		);
-		$this->addJavaScript(
-			'jqueryUI',
-			$jqueryUI,
-			array(
-				'priority' => STYLE_SEQUENCE_CORE,
-				'contexts' => 'backend',
-			)
-		);
-
-		// Register the pkp-lib JS library
-		$this->registerJSLibraryData();
-		$this->registerJSLibrary();
-
-		// Load Noto Sans font from Google Font CDN
-		// To load extended latin or other character sets, see:
-		// https://www.google.com/fonts#UsePlace:use/Collection:Noto+Sans
-		if (Config::getVar('general', 'enable_cdn')) {
-			$this->addStyleSheet(
-				'pkpLibNotoSans',
-				'//fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700,700italic',
+			// Register the jQuery script
+			$min = Config::getVar('general', 'enable_minified') ? '.min' : '';
+			if (Config::getVar('general', 'enable_cdn')) {
+				$jquery = '//ajax.googleapis.com/ajax/libs/jquery/' . CDN_JQUERY_VERSION . '/jquery' . $min . '.js';
+				$jqueryUI = '//ajax.googleapis.com/ajax/libs/jqueryui/' . CDN_JQUERY_UI_VERSION . '/jquery-ui' . $min . '.js';
+			} else {
+				$jquery = $this->_request->getBaseUrl() . '/lib/pkp/lib/vendor/components/jquery/jquery' . $min . '.js';
+				$jqueryUI = $this->_request->getBaseUrl() . '/lib/pkp/lib/vendor/components/jqueryui/jquery-ui' . $min . '.js';
+			}
+			$this->addJavaScript(
+				'jquery',
+				$jquery,
 				array(
 					'priority' => STYLE_SEQUENCE_CORE,
 					'contexts' => 'backend',
 				)
 			);
-		}
-
-		// Register the primary backend stylesheet
-		if ($dispatcher = $this->_request->getDispatcher()) {
-			$this->addStyleSheet(
-				'pkpLib',
-				$dispatcher->url($this->_request, ROUTE_COMPONENT, null, 'page.PageHandler', 'css'),
+			$this->addJavaScript(
+				'jqueryUI',
+				$jqueryUI,
 				array(
 					'priority' => STYLE_SEQUENCE_CORE,
 					'contexts' => 'backend',
 				)
 			);
-		}
 
-		// If there's a locale-specific stylesheet, add it.
-		if (($localeStyleSheet = AppLocale::getLocaleStyleSheet($locale)) != null) {
-			$this->addStyleSheet(
-				'pkpLibLocale',
-				$this->_request->getBaseUrl() . '/' . $localeStyleSheet,
-				array(
-					'contexts' => 'backend',
-				)
-			);
-		}
+			// Register the pkp-lib JS library
+			$this->registerJSLibraryData();
+			$this->registerJSLibrary();
 
-		// Register meta tags
-		if (Config::getVar('general', 'installed') && is_a($router, 'PKPPageRouter')) {
-			$currentContext = $this->_request->getContext();
-			if ((empty($this->_request->getRequestedPage()) || $this->_request->getRequestedPage() == 'index') && $currentContext && $currentContext->getLocalizedSetting('searchDescription')) {
-				$this->addHeader('searchDescription', '<meta name="description" content="' . $currentContext->getLocalizedSetting('searchDescription') . '">');
+			// Load Noto Sans font from Google Font CDN
+			// To load extended latin or other character sets, see:
+			// https://www.google.com/fonts#UsePlace:use/Collection:Noto+Sans
+			if (Config::getVar('general', 'enable_cdn')) {
+				$this->addStyleSheet(
+					'pkpLibNotoSans',
+					'//fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700,700italic',
+					array(
+						'priority' => STYLE_SEQUENCE_CORE,
+						'contexts' => 'backend',
+					)
+				);
 			}
 
-			$this->addHeader(
-				'generator',
-				'<meta name="generator" content="' . __($application->getNameKey()) . ' ' . $application->getCurrentVersion()->getVersionString(false) . '">',
-				array(
-					'contexts' => array('frontend','backend'),
-				)
-			);
+			// Register the primary backend stylesheet
+			if ($dispatcher = $this->_request->getDispatcher()) {
+				$this->addStyleSheet(
+					'pkpLib',
+					$dispatcher->url($this->_request, ROUTE_COMPONENT, null, 'page.PageHandler', 'css'),
+					array(
+						'priority' => STYLE_SEQUENCE_CORE,
+						'contexts' => 'backend',
+					)
+				);
+			}
 
-			if ($currentContext) {
-				$customHeaders = $currentContext->getLocalizedSetting('customHeaders');
-				if (!empty($customHeaders)) {
-					$this->addHeader('customHeaders', $customHeaders);
+			// If there's a locale-specific stylesheet, add it.
+			if (($localeStyleSheet = AppLocale::getLocaleStyleSheet($locale)) != null) {
+				$this->addStyleSheet(
+					'pkpLibLocale',
+					$this->_request->getBaseUrl() . '/' . $localeStyleSheet,
+					array(
+						'contexts' => 'backend',
+					)
+				);
+			}
+
+			// Register meta tags
+			if (Config::getVar('general', 'installed')) {
+				$currentContext = $this->_request->getContext();
+				if ((empty($this->_request->getRequestedPage()) || $this->_request->getRequestedPage() == 'index') && $currentContext && $currentContext->getLocalizedSetting('searchDescription')) {
+					$this->addHeader('searchDescription', '<meta name="description" content="' . $currentContext->getLocalizedSetting('searchDescription') . '">');
+				}
+
+				$this->addHeader(
+					'generator',
+					'<meta name="generator" content="' . __($application->getNameKey()) . ' ' . $application->getCurrentVersion()->getVersionString(false) . '">',
+					array(
+						'contexts' => array('frontend','backend'),
+					)
+				);
+
+				if ($currentContext) {
+					$customHeaders = $currentContext->getLocalizedSetting('customHeaders');
+					if (!empty($customHeaders)) {
+						$this->addHeader('customHeaders', $customHeaders);
+					}
 				}
 			}
 		}

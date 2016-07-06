@@ -337,7 +337,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 			}
 
 			// Compile LESS files
-			if (substr($data['style'], (strlen(LESS_FILENAME_SUFFIX) * -1)) == LESS_FILENAME_SUFFIX) {
+			if ($dispatcher && substr($data['style'], (strlen(LESS_FILENAME_SUFFIX) * -1)) == LESS_FILENAME_SUFFIX) {
 				$styles = $dispatcher->url(
 					$request,
 					ROUTE_COMPONENT,
@@ -373,7 +373,6 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 		}
 
 		$request = $this->getRequest();
-		$dispatcher = $request->getDispatcher();
 		$templateManager = TemplateManager::getManager($request);
 
 		foreach($this->scripts as $name => $data) {

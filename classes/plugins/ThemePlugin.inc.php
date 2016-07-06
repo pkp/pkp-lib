@@ -45,7 +45,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	 * Constructor
 	 */
 	function ThemePlugin() {
-		parent::Plugin();
+		parent::LazyLoadPlugin();
 	}
 
 	/**
@@ -53,10 +53,6 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	 */
 	function register($category, $path) {
 		if (!parent::register($category, $path)) return false;
-
-		if (defined('SESSION_DISABLE_INIT')) {
-			return false;
-		}
 
 		// Don't perform any futher operations if theme is not currently active
 		if (!$this->isActive()) {
@@ -93,6 +89,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	 * @return boolean
 	 */
 	public function isActive() {
+		if (defined('SESSION_DISABLE_INIT')) return false;
 		$request = $this->getRequest();
 		$context = $request->getContext();
 		if (is_a($context, 'Context')) {

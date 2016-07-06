@@ -130,8 +130,8 @@ class PageHandler extends Handler {
 										$name,
 										$style['style'],
 										array(
-											'baseUrl' => $style['baseUrl'],
-											'addLess' => $style['addLess'],
+											'baseUrl' => isset($style['baseUrl']) ? $style['baseUrl'] : null,
+											'addLess' => isset($style['addLess']) ? $style['addLess'] : null,
 										)
 									);
 								}

@@ -244,4 +244,8 @@
 	<message key="manager.announcements.form.notificationToggleInstructions">Créer une nouvelle notification lors de l'enregistrement de cette annonce.</message>
 	<message key="manager.statistics.city">Ville</message>
 	<message key="manager.statistics.region">Région</message>
+	<message key="manager.emails.uploadXML">Importer un fichier XML</message>
+	<message key="manager.emails.exportXML">Télécharger les modèles de courriels sélectionnés en XML</message>
+	<message key="manager.emails.uploadSuccess">Les modèles de courriels sélectionnés ont été mis à jour</message>
+	<message key="manager.emails.uploadError">Le téléversement du fichier a échoué</message>
 </locale>

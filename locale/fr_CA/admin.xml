@@ -97,4 +97,9 @@
 	<message key="admin.fileLoader.fileProcessed">Le fichier {$filename} a été traité et archivé.</message>
 	<message key="admin.fileLoader">Chargement du fichier</message>
 	<message key="admin.scheduledTask.openAccessNotification">Notification d'accès libre</message>
+	<message key="admin.scheduledTask.downloadLog">Votre installation de OJS a terminé l'exécution de cette tâche. Vous pouvez télécharger le journal d'exécution ici: {$url}</message>
+	<message key="admin.scheduledTask.confirmClearLogs">Êtes-vous certain de vouloir supprimer le journal d'exécution des tâches planifiées ?</message>
+	<message key="admin.scheduledTask.clearLogs">Supprimer le journal d'exécution des tâches planifiées</message>
+	<message key="admin.error.utilExecutionProblem">L'exécution de "{$utilPath}" s'est terminée avec l'erreur suivante: {$output}</message>
+	<message key="admin.error.executingUtil">Erreur: impossible de lancer "{$utilPath}". Veuillez vérifier la configuration de {$utilVar} dans le fichier config.inc.php</message>
 </locale>

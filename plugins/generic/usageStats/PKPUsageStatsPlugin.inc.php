@@ -88,10 +88,7 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 				$request->setCookieVar('usageStats-opt-out', true, time() + 60*60*24*365);
 			}
 			if ($this->getSetting(CONTEXT_ID_NONE, 'displayStatistics')) {
-				// Add JS and CSS for statistics display in the header
-				HookRegistry::register('TemplateManager::display',array(&$this, 'templateManagerCallback'));
-				// Display statistics
-				HookRegistry::register($this->getStatisticsDisplayTemplateHook() ,array(&$this, 'statisticsDisplayCallback'));
+				$this->displayReaderStatistics();
 			}
 		}
 
@@ -362,6 +359,9 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 	/**
 	 * Template manager hook callback.
 	 * Add ditional header data: JS and CSS for statistics display
+	 *
+	 * This is temporarily unused. When backend display of statistics is
+	 * implemented in my be of use.
 	 * @param $hookName string
 	 * @param $params array
 	 */
@@ -370,21 +370,101 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 			$templateMgr =& $params[0];
 			$template = $params[1];
 			if ($template == $this->getStatisticsDisplayTemplate()) {
-				$additionalHeadData = $templateMgr->get_template_vars('additionalHeadData');
-				// the JS and CSS will be integrated here
+				// Load the JS and CSS for the usage stats graph
 				$baseImportPath = Request::getBaseUrl() . DIRECTORY_SEPARATOR . PKP_LIB_PATH . DIRECTORY_SEPARATOR . $this->getPluginPath() . DIRECTORY_SEPARATOR;
-				$scriptImportString = '<script language="javascript" type="text/javascript" src="';
-				$usageStatsGraphHandler = $scriptImportString . $baseImportPath .
-					'js' . DIRECTORY_SEPARATOR . 'UsageStatsGraphHandler.js"></script>';
-				$chartJsImport = '<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.0.1/Chart.js"></script>';
-				$templateMgr->assign('additionalHeadData', $additionalHeadData . "\n" . $usageStatsGraphHandler . "\n" . $chartJsImport);
-				$templateMgr->addStyleSheet($baseImportPath . 'css/usageStatsGraph.css');
+				$templateMgr->addStyleSheet('usageStatsGraph', $baseImportPath . 'css/usageStatsGraph.css');
+				$templateMgr->addJavaScript('usageStatsGraphHandler', $baseImportPath .	'js' . DIRECTORY_SEPARATOR . 'UsageStatsGraphHandler.js');
+				$templateMgr->addJavaScript(
+					'chartJS',
+					'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.0.1/Chart.js'
+				);
 			}
 		}
 	}
 
 	/**
+	 * Load the JavaScript assets and pass data to the scripts
+	 *
+	 * @param $data array JS data to pass to the scripts
+	 * @param $contexts string|array Contexts in which to load the scripts.
+	 * @return null
+	 */
+	function loadJavascript($contexts) {
+
+		$request = Application::getRequest();
+		$templateMgr = TemplateManager::getManager($request);
+
+		// Register Chart.js on the frontend article view
+		$templateMgr->addJavaScript(
+			'chartJS',
+			'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.0.1/Chart.js',
+			array(
+				'contexts' => $contexts,
+			)
+		);
+
+		// Add locale and configuration data
+		$script_data = 'var pkpUsageStats = pkpUsageStats || {};';
+		$script_data .= 'pkpUsageStats.locale = pkpUsageStats.locale || {};';
+		$script_data .= 'pkpUsageStats.locale.months = ' . json_encode(explode(' ', __('plugins.generic.usageStats.monthInitials'))) . ';';
+		$script_data .= 'pkpUsageStats.config = pkpUsageStats.config || {};';
+		$script_data .= 'pkpUsageStats.config.chartType = ' . json_encode($this->getSetting(CONTEXT_ID_NONE, 'chartType')) . ';';
+		$templateMgr->addJavaScript(
+			'pkpUsageStatsConfig',
+			$script_data,
+			array(
+				'inline' => true,
+				'contexts' => $contexts,
+			)
+		);
+
+		// Register the JS which initializes the chart
+		$baseImportPath = Request::getBaseUrl() . DIRECTORY_SEPARATOR . PKP_LIB_PATH . DIRECTORY_SEPARATOR . $this->getPluginPath() . DIRECTORY_SEPARATOR;
+		$templateMgr->addJavaScript(
+			'usageStatsFrontend',
+			$baseImportPath . 'js/UsageStatsFrontendHandler.js',
+			array(
+				'contexts' => $contexts,
+			)
+		);
+	}
+
+	/**
+	 * Add a data set to the script data output
+	 *
+	 * @param $data array JS data to pass to the scripts
+	 * @param $pubObjectType string The type of object this data is for
+	 * @param $pubObjectId string The id of the object this data is for
+	 * @param $contexts string|array Contexts in which to load the scripts.
+	 * @return null
+	 */
+	function addJavascriptData($data, $pubObjectType, $pubObjectId, $contexts) {
+
+		// Initialize the name space
+		$script_data = 'var pkpUsageStats = pkpUsageStats || {};';
+		$script_data .= 'pkpUsageStats.data = pkpUsageStats.data || {};';
+		$script_data .= 'pkpUsageStats.data.' . $pubObjectType . ' = pkpUsageStats.data.' . $pubObjectType . ' || {};';
+		$namespace = $pubObjectType . '[' . $pubObjectId . ']';
+		$script_data .= 'pkpUsageStats.data.' . $namespace . ' = ' . json_encode($data) .';';
+
+		// Register the data
+		$request = Application::getRequest();
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->addJavaScript(
+			'pkpUsageStatsData',
+			$script_data,
+			array(
+				'inline' => true,
+				'contexts' => $contexts,
+			)
+		);
+	}
+
+	/**
 	 * Adds/renders the submission level metrics markup, if any stats.
+	 *
+	 * This is temporarily unused. When backend display of statistics is
+	 * implemented it may be useful.
 	 * @param $hookName string
 	 * @param $params
 	 * @return boolean
@@ -402,10 +482,23 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 		$smarty->assign('labels', json_encode(explode(' ', __('plugins.generic.usageStats.monthInitials'))));
 		$smarty->assign('chartType', $this->getSetting(CONTEXT_ID_NONE, 'chartType'));
 		$smarty->assign('datasetMaxCount', $this->getSetting(CONTEXT_ID_NONE, 'datasetMaxCount'));
-		$metricsHTML = $smarty->fetch($this->getTemplatePath(true) . 'output.tpl');
+		$metricsHTML = $smarty->fetch($this->getTemplatePath(true) . 'outputBackend.tpl');
 		$output .= $metricsHTML;
 
 		return false;
+	}
+
+	/**
+	 * Fetch a template with the requested params
+	 *
+	 * @param $args array Variables to assign to the template
+	 * @param $template array Template file name
+	 * @param $smarty object Smarty template object
+	 * @return string
+	 */
+	function getTemplate($args, $template, $smarty) {
+		$smarty->assign($args);
+		return $smarty->fetch($this->getTemplatePath(true) . $template);
 	}
 
 	//
@@ -560,6 +653,9 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 			if (!array_key_exists($representationId, $statsByFormat)) {
 				$representationDao = Application::getRepresentationDAO();
 				$representation = $representationDao->getById($representationId);
+				if (empty($representation)) {
+					continue;
+				}
 				$statsByFormat[$representationId] = array(
 					'data' => array(),
 					'label' => $representation->getLocalizedName(),
@@ -593,6 +689,30 @@ class PKPUsageStatsPlugin extends GenericPlugin {
 		}
 
 		return array($statsByFormat, $statsByMonth, array_keys($years));
+	}
+
+	/**
+	 * Retrieve the `allDownloads` dataset from the download stats
+	 *
+	 * @param $pubObjectId int ID of the object to get stats for
+	 * @param $stats array Optionally pass in stats that have already been
+	 *   fetched from _getDownloadStats().
+	 * @return $allDownloadStats array The `allDownloads` dataset
+	 */
+	function getAllDownloadsStats($pubObjectId, $stats = array()) {
+
+		if (empty($stats)) {
+			$stats = $this->_getDownloadStats($pubObjectId);
+		}
+
+		$allDownloadStats = array();
+		foreach($stats as $dataset) {
+			if (array_key_exists('allDownloads', $dataset)) {
+				$allDownloadStats = $dataset['allDownloads'];
+			}
+		}
+
+		return $allDownloadStats;
 	}
 
 	/**

@@ -439,6 +439,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 		return array(
 			'form.dataHasChanged',
 			'common.close',
+			'search.noKeywordError',
 		);
 	}
 

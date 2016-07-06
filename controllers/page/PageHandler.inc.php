@@ -82,54 +82,99 @@ class PageHandler extends Handler {
 	function css($args, $request) {
 		header('Content-Type: text/css');
 
-		$stylesheetName = $request->getUserVar('name');
-		switch ($stylesheetName) {
-			case '':
-			case null:
-				$cacheDirectory = CacheManager::getFileCachePath();
-				$compiledStylesheetFile = $cacheDirectory . '/compiled.css';
-				if (!file_exists($compiledStylesheetFile)) {
-					// Generate the stylesheet file
-					require_once('lib/pkp/lib/vendor/oyejorge/less.php/lessc.inc.php');
-					$less = new Less_Parser(array(
-						'relativeUrls' => false,
-						'compress' => true,
-					));
-					$less->parseFile('styles/index.less');
-					$compiledStyles = str_replace('{$baseUrl}', $request->getBaseUrl(true), $less->getCss());
+		$templateManager = TemplateManager::getManager($request);
 
-					// Allow plugins to intervene in stylesheet compilation
-					HookRegistry::call('PageHandler::compileCss', array($request, $less, &$compiledStylesheetFile, &$compiledStyles));
+		$name = $request->getUserVar('name');
+		if (empty($name)) {
+			$name = 'pkp-lib';
+		}
+		switch ($name) {
 
-					if (file_put_contents($compiledStylesheetFile, $compiledStyles) === false) {
-						// If the stylesheet cache can't be written, log the error and
-						// output the compiled styles directly without caching.
-						error_log("Unable to write \"$compiledStylesheetFile\".");
-						echo $compiledStyles;
-						return;
+			// The core app stylesheet
+			case 'pkp-lib':
+				$cachedFile = $templateManager->getCachedLessFilePath($name);
+				if (!file_exists($cachedFile)) {
+					$styles = $templateManager->compileLess($name, 'styles/index.less');
+					if (!$templateManager->cacheLess($cachedFile, $styles)) {
+						echo $styles;
+						die;
 					}
 				}
 
-				// Allow plugins to intervene in stylesheet display
-				HookRegistry::call('PageHandler::displayCoreCss', array($request, &$compiledStylesheetFile));
-
-				// Display the styles
-				header('Last-Modified: ' . gmdate('D, d M Y H:i:s', filemtime($compiledStylesheetFile)).' GMT');
-				header('Content-Length: ' . filesize($compiledStylesheetFile));
-				readfile($compiledStylesheetFile);
-				break;
 			default:
-				// Allow plugins to intervene
-				$result = null;
-				$lastModified = null;
-				TemplateManager::getManager($request); // Trigger loading of the themes plugins
-				if (!HookRegistry::call('PageHandler::displayCss', array($request, &$stylesheetName, &$result, &$lastModified))) {
+
+				// Backwards compatibility. This hook is deprecated.
+				if (HookRegistry::getHooks('PageHandler::displayCss')) {
+					$result = '';
+					$lastModified = null;
+					HookRegistry::call('PageHandler::displayCss', array($request, &$name, &$result, &$lastModified));
 					if ($lastModified) header('Last-Modified: ' . gmdate('D, d M Y H:i:s', $lastModified) . ' GMT');
 					header('Content-Length: ' . strlen($result));
 					echo $result;
+					die;
+
+				} else {
+					$cachedFile = $templateManager->getCachedLessFilePath($name);
+					if (!file_exists($cachedFile)) {
+
+						// Process styles registered with the current theme
+						$styles = '';
+						$themes = PluginRegistry::loadCategory('themes');
+						foreach($themes as $theme) {
+							if ($theme->isActive()) {
+								$style = $theme->getStyle($name);
+								if (!empty($style)) {
+
+									// Compile and cache the stylesheet
+									$styles = $templateManager->compileLess(
+										$name,
+										$style['style'],
+										array(
+											'baseUrl' => isset($style['baseUrl']) ? $style['baseUrl'] : null,
+											'addLess' => isset($style['addLess']) ? $style['addLess'] : null,
+										)
+									);
+								}
+								break;
+							}
+						}
+
+						// If we still haven't found styles, fire off a hook
+						// which allows other types of plugins to handle
+						// requests
+						if (!$styles) {
+							HookRegistry::call(
+								'PageHandler::getCompiledLess',
+								array(
+									'request'    => $request,
+									'name'       => &$name,
+									'styles'     => &$styles,
+								)
+							);
+						}
+
+						// Give up if there are still no styles
+						if (!$styles) {
+							die;
+						}
+
+						// Try to save the styles to a cached file. If we can't,
+						// just print them out
+						if (!$templateManager->cacheLess($cachedFile, $styles)) {
+							echo $styles;
+							die;
+						}
+					}
 				}
 		}
+
+		// Deliver the cached file
+		header('Last-Modified: ' . gmdate('D, d M Y H:i:s', filemtime($cachedFile)).' GMT');
+		header('Content-Length: ' . filesize($cachedFile));
+		readfile($cachedFile);
+		die;
 	}
+
 	/**
 	 * Setup and assign variables for any templates that want the overall header
 	 * context.

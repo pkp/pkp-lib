@@ -48,6 +48,9 @@ class PKPTemplateManager extends Smarty {
 	/** @var array of URLs to javascript files */
 	private $_javaScripts = array();
 
+	/** @var array of HTML head content to output */
+	private $_htmlHeaders = array();
+
 	/** @var string Type of cacheability (Cache-Control). */
 	private $_cacheability;
 
@@ -109,14 +112,10 @@ class PKPTemplateManager extends Smarty {
 			'datetimeFormatShort' => Config::getVar('general', 'datetime_format_short'),
 			'datetimeFormatLong' => Config::getVar('general', 'datetime_format_long'),
 			'timeFormat' => Config::getVar('general', 'time_format'),
-			'allowCDN' => Config::getVar('general', 'enable_cdn'),
-			'useMinifiedJavaScript' => Config::getVar('general', 'enable_minified'),
 			'currentContext' => $this->_request->getContext(),
 			'currentLocale' => $locale,
 			'pageTitle' => $application->getNameKey(),
 			'applicationName' => __($application->getNameKey()),
-			'exposedConstants' => $application->getExposedConstants(),
-			'jsLocaleKeys' => $application->getJSLocaleKeys(),
 		));
 
 		if (is_a($router, 'PKPPageRouter')) {
@@ -124,14 +123,97 @@ class PKPTemplateManager extends Smarty {
 				'requestedPage' => $router->getRequestedPage($this->_request),
 				'requestedOp' => $router->getRequestedOp($this->_request),
 			));
-		}
 
-		if ($dispatcher = $this->_request->getDispatcher()) {
-			$this->addStyleSheet($dispatcher->url($this->_request, ROUTE_COMPONENT, null, 'page.PageHandler', 'css'), STYLE_SEQUENCE_CORE, 'backend');
-		}
+			// Register the jQuery script
+			$min = Config::getVar('general', 'enable_minified') ? '.min' : '';
+			if (Config::getVar('general', 'enable_cdn')) {
+				$jquery = '//ajax.googleapis.com/ajax/libs/jquery/' . CDN_JQUERY_VERSION . '/jquery' . $min . '.js';
+				$jqueryUI = '//ajax.googleapis.com/ajax/libs/jqueryui/' . CDN_JQUERY_UI_VERSION . '/jquery-ui' . $min . '.js';
+			} else {
+				$jquery = $this->_request->getBaseUrl() . '/lib/pkp/lib/vendor/components/jquery/jquery' . $min . '.js';
+				$jqueryUI = $this->_request->getBaseUrl() . '/lib/pkp/lib/vendor/components/jqueryui/jquery-ui' . $min . '.js';
+			}
+			$this->addJavaScript(
+				'jquery',
+				$jquery,
+				array(
+					'priority' => STYLE_SEQUENCE_CORE,
+					'contexts' => 'backend',
+				)
+			);
+			$this->addJavaScript(
+				'jqueryUI',
+				$jqueryUI,
+				array(
+					'priority' => STYLE_SEQUENCE_CORE,
+					'contexts' => 'backend',
+				)
+			);
 
-		// If there's a locale-specific stylesheet, add it.
-		if (($localeStyleSheet = AppLocale::getLocaleStyleSheet($locale)) != null) $this->addStyleSheet($this->_request->getBaseUrl() . '/' . $localeStyleSheet, 'backend');
+			// Register the pkp-lib JS library
+			$this->registerJSLibraryData();
+			$this->registerJSLibrary();
+
+			// Load Noto Sans font from Google Font CDN
+			// To load extended latin or other character sets, see:
+			// https://www.google.com/fonts#UsePlace:use/Collection:Noto+Sans
+			if (Config::getVar('general', 'enable_cdn')) {
+				$this->addStyleSheet(
+					'pkpLibNotoSans',
+					'//fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700,700italic',
+					array(
+						'priority' => STYLE_SEQUENCE_CORE,
+						'contexts' => 'backend',
+					)
+				);
+			}
+
+			// Register the primary backend stylesheet
+			if ($dispatcher = $this->_request->getDispatcher()) {
+				$this->addStyleSheet(
+					'pkpLib',
+					$dispatcher->url($this->_request, ROUTE_COMPONENT, null, 'page.PageHandler', 'css'),
+					array(
+						'priority' => STYLE_SEQUENCE_CORE,
+						'contexts' => 'backend',
+					)
+				);
+			}
+
+			// If there's a locale-specific stylesheet, add it.
+			if (($localeStyleSheet = AppLocale::getLocaleStyleSheet($locale)) != null) {
+				$this->addStyleSheet(
+					'pkpLibLocale',
+					$this->_request->getBaseUrl() . '/' . $localeStyleSheet,
+					array(
+						'contexts' => 'backend',
+					)
+				);
+			}
+
+			// Register meta tags
+			if (Config::getVar('general', 'installed')) {
+				$currentContext = $this->_request->getContext();
+				if ((empty($this->_request->getRequestedPage()) || $this->_request->getRequestedPage() == 'index') && $currentContext && $currentContext->getLocalizedSetting('searchDescription')) {
+					$this->addHeader('searchDescription', '<meta name="description" content="' . $currentContext->getLocalizedSetting('searchDescription') . '">');
+				}
+
+				$this->addHeader(
+					'generator',
+					'<meta name="generator" content="' . __($application->getNameKey()) . ' ' . $application->getCurrentVersion()->getVersionString(false) . '">',
+					array(
+						'contexts' => array('frontend','backend'),
+					)
+				);
+
+				if ($currentContext) {
+					$customHeaders = $currentContext->getLocalizedSetting('customHeaders');
+					if (!empty($customHeaders)) {
+						$this->addHeader('customHeaders', $customHeaders);
+					}
+				}
+			}
+		}
 
 		// Register custom functions
 		$this->register_modifier('translate', array('AppLocale', 'translate'));
@@ -186,8 +268,10 @@ class PKPTemplateManager extends Smarty {
 		$this->register_function('load_url_in_el', array($this, 'smartyLoadUrlInEl'));
 		$this->register_function('load_url_in_div', array($this, 'smartyLoadUrlInDiv'));
 
-		// load stylesheets from a given context
+		// load stylesheets/scripts/headers from a given context
 		$this->register_function('load_stylesheet', array($this, 'smartyLoadStylesheet'));
+		$this->register_function('load_script', array($this, 'smartyLoadScript'));
+		$this->register_function('load_header', array($this, 'smartyLoadHeader'));
 
 		/**
 		 * Kludge to make sure no code that tries to connect to the
@@ -195,11 +279,9 @@ class PKPTemplateManager extends Smarty {
 		 */
 		if (!defined('SESSION_DISABLE_INIT')) {
 			$application = PKPApplication::getApplication();
-			$currentVersion = $application->getCurrentVersion();
 			$this->assign(array(
 				'isUserLoggedIn' => Validation::isLoggedIn(),
 				'isUserLoggedInAs' => Validation::isLoggedInAs(),
-				'currentVersionString' => $currentVersion->getVersionString(false),
 				'itemsPerPage' => Config::getVar('interface', 'items_per_page'),
 				'numPageLinks' => Config::getVar('interface', 'page_links'),
 			));
@@ -249,48 +331,299 @@ class PKPTemplateManager extends Smarty {
 	}
 
 	/**
-	 * Add a page-specific style sheet.
-	 * @param $url string the URL to the style sheet
-	 * @param $priority int STYLE_SEQUENCE_...
-	 * @param $contexts string|array where stylesheet should be used
+	 * Compile a LESS stylesheet
+	 *
+	 * @param $name string Unique name for this LESS stylesheet
+	 * @param $lessFile string Path to the LESS file to compile
+	 * @param $args array Optional arguments. SUpports:
+	 *   'baseUrl': Base URL to use when rewriting URLs in the LESS file.
+	 *   'addLess': Array of additional LESS files to parse before compiling
+	 * @return string Compiled CSS styles
 	 */
-	function addStyleSheet($url, $priority = STYLE_SEQUENCE_NORMAL, $contexts = array('frontend') ) {
-		$contexts = (array) $contexts;
-		foreach($contexts as $context) {
-			$this->_styleSheets[$context][$priority][] = $url;
+	public function compileLess($name, $lessFile, $args = array()) {
+
+		// Load the LESS compiler
+		require_once('lib/pkp/lib/vendor/oyejorge/less.php/lessc.inc.php');
+		$less = new Less_Parser(array(
+			'relativeUrls' => false,
+			'compress' => true,
+		));
+
+		$request = $this->_request;
+
+		// Allow plugins to intervene
+		HookRegistry::call('PageHandler::compileLess', array(&$less, &$lessFile, &$args, $name, $request));
+
+		// Read the stylesheet
+		$less->parseFile($lessFile);
+
+		// Add extra LESS files before compiling
+		if (isset($args['addLess']) && is_array($args['addLess'])) {
+			foreach ($args['addLess'] as $addless) {
+				$less->parseFile($addless);
+			}
+		}
+
+		// Set the @baseUrl variable
+		$baseUrl = !empty($args['baseUrl']) ? $args['baseUrl'] : $request->getBaseUrl(true);
+		$less->parse("@baseUrl: '$baseUrl';");
+
+		return $less->getCSS();
+	}
+
+	/**
+	 * Save LESS styles to a cached file
+	 *
+	 * @param $path string File path to save the compiled styles
+	 * @param styles string CSS styles compiled from the LESS
+	 * @return bool success/failure
+	 */
+	public function cacheLess($path, $styles) {
+		if (file_put_contents($path, $styles) === false) {
+			error_log("Unable to write \"$path\".");
+			return false;
+		}
+
+		return true;
+	}
+
+	/**
+	 * Retrieve the file path for a cached LESS file
+	 *
+	 * @param $name string Unique name for the LESS file
+	 * @return $path string Path to the less file or false if not found
+	 */
+	public function getCachedLessFilePath($name) {
+		$cacheDirectory = CacheManager::getFileCachePath();
+		return $cacheDirectory . DIRECTORY_SEPARATOR . $name . '.css';
+	}
+
+	/**
+	 * Register a stylesheet with the style handler
+	 *
+	 * @param $name string Unique name for the stylesheet
+	 * @param $style string The stylesheet to be included. Should be a URL
+	 *   or, if the `inline` argument is included, stylesheet data to be output.
+	 * @param $args array Key/value array defining display details
+	 *   `priority` int The order in which to print this stylesheet.
+	 *      Default: STYLE_SEQUENCE_NORMAL
+	 *   `contexts` string|array Where the stylesheet should be loaded.
+	 *      Default: array('frontend')
+	 *   `inline` bool Whether the $stylesheet value should be output directly as
+	 *      stylesheet data. Used to pass backend data to the scripts.
+	 */
+	function addStyleSheet($name, $style, $args = array()) {
+
+		$args = array_merge(
+			array(
+				'priority' => STYLE_SEQUENCE_NORMAL,
+				'contexts' => array('frontend'),
+				'inline'   => false,
+			),
+			$args
+		);
+
+		$args['contexts'] = (array) $args['contexts'];
+		foreach($args['contexts'] as $context) {
+			$this->_styleSheets[$context][$args['priority']][$name] = array(
+				'style' => $style,
+				'inline' => $args['inline'],
+			);
 		}
 	}
 
 	/**
-	 * Add a page-specific script.
-	 * @param $url string the URL to be included
+	 * Register a script with the script handler
+	 *
+	 * @param $name string Unique name for the script
+	 * @param $script string The script to be included. Should be a URL or, if
+	 *   the `inline` argument is included, script data to be output.
+	 * @param $args array Key/value array defining display details
+	 *   `priority` int The order in which to print this script.
+	 *      Default: STYLE_SEQUENCE_NORMAL
+	 *   `contexts` string|array Where the script should be loaded.
+	 *      Default: array('frontend')
+	 *   `inline` bool Whether the $script value should be output directly as
+	 *      script data. Used to pass backend data to the scripts.
 	 */
-	function addJavaScript($url) {
-		array_push($this->_javaScripts, $url);
+	function addJavaScript($name, $script, $args = array()) {
+
+		$args = array_merge(
+			array(
+				'priority' => STYLE_SEQUENCE_NORMAL,
+				'contexts' => array('frontend'),
+				'inline'   => false,
+			),
+			$args
+		);
+
+		$args['contexts'] = (array) $args['contexts'];
+		foreach($args['contexts'] as $context) {
+			$this->_javaScripts[$context][$args['priority']][$name] = array(
+				'script' => $script,
+				'inline' => $args['inline'],
+			);
+		}
+	}
+
+	/**
+	 * Add a page-specific item to the <head>.
+	 *
+	 * @param $name string Unique name for the header
+	 * @param $header string The header to be included.
+	 * @param $args array Key/value array defining display details
+	 *   `priority` int The order in which to print this header.
+	 *      Default: STYLE_SEQUENCE_NORMAL
+	 *   `contexts` string|array Where the header should be loaded.
+	 *      Default: array('frontend')
+	 */
+	function addHeader($name, $header, $args = array()) {
+
+		$args = array_merge(
+			array(
+				'priority' => STYLE_SEQUENCE_NORMAL,
+				'contexts' => array('frontend'),
+			),
+			$args
+		);
+
+		$args['contexts'] = (array) $args['contexts'];
+		foreach($args['contexts'] as $context) {
+			$this->_htmlHeaders[$context][$args['priority']][$name] = array(
+				'header' => $header,
+			);
+		}
+	}
+
+	/**
+	 * Register all files required by the core JavaScript library
+	 */
+	function registerJSLibrary() {
+
+		$basePath = $this->_request->getBasePath();
+		$baseUrl = $this->_request->getBaseUrl();
+
+		// Load minified file if it exists
+		if (Config::getVar('general', 'enable_minified')) {
+			$path = $basePath . '/js/pkp.min.js';
+			if (file_exists($path)) {
+				$this->addJavaScript(
+					'pkpLib',
+					$path,
+					array(
+						'priority' => STYLE_SEQUENCE_CORE,
+						'contexts' => array('backend', 'frontend')
+					)
+				);
+				return;
+			}
+		}
+
+		// Otherwise retrieve and register all script files
+		$minifiedScriptsTemplate = $this->fetch('common/minifiedScripts.tpl');
+		preg_match_all('/<script src=\"' . preg_quote($baseUrl, '/') . '([^"]*)\"><\/script>/', $minifiedScriptsTemplate, $scripts);
+		if (empty($scripts[1])) {
+			return;
+		}
+
+		$scripts = $scripts[1];
+
+		foreach ($scripts as $key => $script) {
+			$this->addJavaScript(
+				'pkpLib' . $key,
+				$baseUrl . $script,
+				array(
+					'priority' => STYLE_SEQUENCE_CORE,
+					'contexts' => 'backend',
+				)
+			);
+		}
+	}
+
+	/**
+	 * Register JavaScript data used by the core JS library
+	 *
+	 * This function registers script data that is required by the core JS
+	 * library. This data is queued after jQuery but before the pkp-lib
+	 * framework, allowing dynamic data to be passed to the framework. It is
+	 * intended to be used for passing constants and locale strings, but plugins
+	 * may also take advantage of a hook to include data required by their own
+	 * scripts, when integrating with the pkp-lib framework.
+	 */
+	function registerJSLibraryData() {
+
+		$application = PKPApplication::getApplication();
+
+		// Instantiate the namespace
+		$output = '$.pkp = $.pkp || {};';
+
+		// Load data intended for general use by the app
+		$app_data = array(
+			'baseUrl' => $this->_request->getBaseUrl(),
+		);
+		$output .= '$.pkp.app = ' . json_encode($app_data) . ';';
+
+		// Load exposed constants
+		$exposedConstants = $application->getExposedConstants();
+		if (!empty($exposedConstants)) {
+			$output .= '$.pkp.cons = ' . json_encode($exposedConstants) . ';';
+		}
+
+		// Load locale keys
+		$localeKeys = $application->getJSLocaleKeys();
+		if (!empty($localeKeys)) {
+
+			// Replace periods in the key name with underscores for better-
+			// formatted JS keys
+			$jsLocaleKeys = array();
+			foreach($localeKeys as $key) {
+				$jsLocaleKeys[str_replace('.', '_', $key)] = __($key);
+			}
+
+			$output .= '$.pkp.locale = ' . json_encode($jsLocaleKeys) . ';';
+		}
+
+		// Allow plugins to load data within their own namespace
+		$plugin_data = array();
+		HookRegistry::call('TemplateManager::registerJSLibraryData', array(&$plugin_data));
+
+		if (!empty($plugin_data) && is_array($plugin_data)) {
+			$output .= '$.pkp.plugins = {};';
+			foreach($plugin_data as $namespace => $data) {
+				$output .= $namespace . ' = ' . json_encode($data) . ';';
+			}
+		}
+
+		$this->addJavaScript(
+			'pkpLibData',
+			$output,
+			array(
+				'priority' => STYLE_SEQUENCE_CORE,
+				'contexts' => 'backend',
+				'inline'   => true,
+			)
+		);
 	}
 
 	/**
 	 * @see Smarty::fetch()
 	 */
 	function fetch($resource_name, $cache_id = null, $compile_id = null, $display = false) {
-		// Add additional java script URLs
-		if (!empty($this->_javaScripts)) {
-			$baseUrl = $this->get_template_vars('baseUrl');
-			$scriptOpen = '	<script type="text/javascript" src="';
-			$scriptClose = '"></script>';
-			$javaScript = '';
-			foreach ($this->_javaScripts as $script) {
-				$javaScript .= $scriptOpen . $baseUrl . '/' . $script . $scriptClose . "\n";
-			}
-
-			$additionalHeadData = $this->get_template_vars('additionalHeadData');
-			$this->assign('additionalHeadData', $additionalHeadData."\n".$javaScript);
-		}
 
 		foreach( $this->_styleSheets as &$list ) {
 			ksort( $list );
 		}
 		$this->assign('stylesheets', $this->_styleSheets);
+
+		foreach( $this->_javaScripts as &$list ) {
+			ksort( $list );
+		}
+		$this->assign('scripts', $this->_javaScripts);
+
+		foreach( $this->_htmlHeaders as &$list ) {
+			ksort( $list );
+		}
+		$this->assign('headers', $this->_htmlHeaders);
 
 		// If no compile ID was assigned, get one.
 		if (!$compile_id) $compile_id = $this->getCompileId($resource_name);
@@ -926,19 +1259,126 @@ class PKPTemplateManager extends Smarty {
 			$context = 'frontend';
 		}
 
+		$stylesheets = $this->getResourcesByContext($params['stylesheets'], $params['context']);
+
 		$output = '';
-		foreach($params['stylesheets'] as $context => $priorityList) {
-			if ($context != $params['context']) {
-				continue;
-			}
-			foreach($priorityList as $files) {
-				foreach($files as $url) {
-					$output .= '<link rel="stylesheet" href="' . $url . '" type="text/css" />';
+		foreach($stylesheets as $priorityList) {
+			foreach($priorityList as $style) {
+				if (!empty($style['inline'])) {
+					$output .= '<style type="text/css">' . $style['style'] . '</style>';
+				} else {
+					$output .= '<link rel="stylesheet" href="' . $style['style'] . '" type="text/css" />';
 				}
 			}
 		}
 
 		return $output;
+	}
+
+	/**
+	 * Smarty usage: {load_script context="backend" scripts=$scripts}
+	 *
+	 * Custom Smarty function for printing scripts attached to a context.
+	 * @param $params array associative array
+	 * @param $smarty Smarty
+	 * @return string of HTML/Javascript
+	 */
+	function smartyLoadScript($params, $smarty) {
+
+		if (empty($params['scripts'])) {
+			return;
+		}
+
+		if (empty($params['context'])) {
+			$params['context'] = 'frontend';
+		}
+
+		$scripts = $this->getResourcesByContext($params['scripts'], $params['context']);
+
+		$output = '';
+		foreach($scripts as $priorityList) {
+			foreach($priorityList as $name => $data) {
+				if ($data['inline']) {
+					$output .= '<script type="text/javascript">' . $data['script'] . '</script>';
+				} else {
+					$output .= '<script src="' . $data['script'] . '" type="text/javascript"></script>';
+				}
+			}
+		}
+
+		return $output;
+	}
+
+	/**
+	 * Smarty usage: {load_header context="frontent" headers=$headers}
+	 *
+	 * Custom Smarty function for printing scripts attached to a context.
+	 * @param $params array associative array
+	 * @param $smarty Smarty
+	 * @return string of HTML/Javascript
+	 */
+	function smartyLoadHeader($params, $smarty) {
+
+		if (empty($params['headers'])) {
+			return;
+		}
+
+		if (empty($params['context'])) {
+			$params['context'] = 'frontend';
+		}
+
+		$headers = $this->getResourcesByContext($params['headers'], $params['context']);
+
+		$output = '';
+		foreach($headers as $priorityList) {
+			foreach($priorityList as $name => $data) {
+				$output .= "\n" . $data['header'];
+			}
+		}
+
+		return $output;
+	}
+
+	/**
+	 * Get resources assigned to a context
+	 *
+	 * A helper function which retrieves script, style and header assets
+	 * assigned to a particular context.
+	 * @param $resources array Requested resources
+	 * @param $context string Requested context
+	 * @return array Resources assigned to these contexts
+	 */
+	function getResourcesByContext($resources, $context) {
+
+		$matches = array();
+
+		if (array_key_exists($context, $resources)) {
+			$matches = $resources[$context];
+		}
+
+		$page = $this->get_template_vars('requestedPage');
+		$page = empty( $page ) ? 'index' : $page;
+		$op = $this->get_template_vars('requestedOp');
+		$op = empty( $op ) ? 'index' : $op;
+
+		$contexts = array(
+			join('-', array($context, $page)),
+			join('-', array($context, $page, $op)),
+		);
+
+		foreach($contexts as $context) {
+			if (array_key_exists($context, $resources)) {
+				foreach ($resources[$context] as $priority => $priorityList) {
+					if (!array_key_exists($priority, $matches)) {
+						$matches[$priority] = array();
+					}
+					$matches[$priority] = array_merge($matches[$priority], $resources[$context][$priority]);
+				}
+				$matches += $resources[$context];
+			}
+		}
+
+		return $matches;
 	}
 
 	/**

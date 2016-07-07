@@ -529,6 +529,11 @@ class PKPTemplateManager extends Smarty {
 			$baseUrl . '/lib/pkp/lib/vendor/moxiecode/plupload/js/plupload.full.min.js',
 			$args
 		);
+		$this->addJavaScript(
+			'jQueryPlUpload',
+			$baseUrl . '/lib/pkp/lib/vendor/moxiecode/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js',
+			$args
+		);
 		$localePath = '/lib/pkp/lib/vendor/moxiecode/plupload/js/i18n/';
 		foreach ($localeChecks as $localeCheck) {
 			if (file_exists($basePath . $localePath . $localeCheck . '.js')) {

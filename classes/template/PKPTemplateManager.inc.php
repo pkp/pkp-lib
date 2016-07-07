@@ -502,6 +502,42 @@ class PKPTemplateManager extends Smarty {
 
 		$basePath = $this->_request->getBasePath();
 		$baseUrl = $this->_request->getBaseUrl();
+		$localeChecks = array(AppLocale::getLocale(), strtolower(substr(AppLocale::getLocale(), 0, 2)));
+
+		// Common $args array used for all our core JS files
+		$args = array(
+			'priority' => STYLE_SEQUENCE_CORE,
+			'contexts' => 'backend',
+		);
+
+		// Load jQuery validate separately because it can not be linted
+		// properly by our build script
+		$this->addJavaScript(
+			'jqueryValidate',
+			$baseUrl . '/lib/pkp/js/lib/jquery/plugins/validate/jquery.validate.min.js',
+			$args
+		);
+		$localePath = '/lib/pkp/js/lib/jquery/plugins/validate/localization/messages_';
+		foreach ($localeChecks as $localeCheck) {
+			if (file_exists($basePath . $localePath . $localeCheck .'.js')) {
+				$this->addJavaScript('jqueryValidateLocale', $baseUrl . $localePath . $localeCheck . '.js', $args);
+			}
+		}
+
+		$this->addJavaScript(
+			'plUpload',
+			$baseUrl . '/lib/pkp/lib/vendor/moxiecode/plupload/js/plupload.full.min.js',
+			$args
+		);
+		$localePath = '/lib/pkp/lib/vendor/moxiecode/plupload/js/i18n/';
+		foreach ($localeChecks as $localeCheck) {
+			if (file_exists($basePath . $localePath . $localeCheck . '.js')) {
+				$this->addJavaScript('plUploadLocale', $baseUrl . $localePath . $localeCheck . '.js.', $args);
+			}
+		}
+
+		$this->addJavaScript('pNotify', $baseUrl . '/lib/pkp/js/lib/pnotify/pnotify.core.js', $args);
+		$this->addJavaScript('pNotifyButtons', $baseUrl . '/lib/pkp/js/lib/pnotify/pnotify.buttons.js', $args);
 
 		// Load minified file if it exists
 		if (Config::getVar('general', 'enable_minified')) {
@@ -529,14 +565,7 @@ class PKPTemplateManager extends Smarty {
 		$scripts = $scripts[1];
 
 		foreach ($scripts as $key => $script) {
-			$this->addJavaScript(
-				'pkpLib' . $key,
-				$baseUrl . $script,
-				array(
-					'priority' => STYLE_SEQUENCE_CORE,
-					'contexts' => 'backend',
-				)
-			);
+			$this->addJavaScript( 'pkpLib' . $key, $baseUrl . $script, $args );
 		}
 	}
 

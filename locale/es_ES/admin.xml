@@ -9,9 +9,7 @@
   * Distributed under the GNU GPL v2. For full terms see the 
   *
   * Credits: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Spanish_(es_ES)
-  *
   * Localization strings.
-  *
   -->
 
 <locale name="es_ES" full_name="Español (España)">
@@ -70,7 +68,7 @@
 	<message key="admin.settings.homeHeaderImageInvalid">Formato de imagen para el logotipo del sitio no válido. Formatos aceptados: .gif, .jpg o .png.</message>
 	<message key="admin.settings.introduction">Introducción</message>
 	<message key="admin.settings.minPasswordLength">Longitud mínima de la contraseña</message>
-	<message key="admin.settings.oneStepReset">¿Utilizar reestablecimiento de contraseña en un solo paso?</message>
+	<message key="admin.settings.oneStepReset">¿Utilizar restablecimiento de contraseña en un solo paso?</message>
 	<message key="admin.settings.oaiRegistration">Registrar sitio para realizar la indexación (recopilación de metadatos)</message>
 	<message key="admin.settings.passwordCharacters">caracteres</message>
 	<message key="admin.settings.siteLanguage">Idioma del sitio</message>

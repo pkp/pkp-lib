@@ -30,9 +30,6 @@
 	<message key="default.groups.name.internalReviewer">Avaliador Interno</message>
 	<message key="default.groups.plural.internalReviewer">Avaliadores Internos</message>
 	<message key="default.groups.abbrev.internalReviewer">AI</message>
-	<message key="default.groups.name.externalReviewer">Avaliador Externo</message>
-	<message key="default.groups.plural.externalReviewer">Avaliadores Externos</message>
-	<message key="default.groups.abbrev.externalReviewer">AE</message>
 	<message key="default.groups.name.marketing">Coordenador de Vendas e Marketing</message>
 	<message key="default.groups.plural.marketing">Coordenadores de Vendas e Marketing</message>
 	<message key="default.groups.abbrev.marketing">CVM</message>

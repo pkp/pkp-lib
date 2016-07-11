@@ -167,7 +167,10 @@ tinyMCEObject.prototype.EditorManager.createEditor = function(param1, param2) {}
  */
 tinyMCEObject.prototype.EditorManager.get = function(param1) {};
 
-tinyMCEObject.prototype.init = function() {};
+/**
+ * @param {Object} param1
+ */
+tinyMCEObject.prototype.init = function(param1) {};
 
 /**
  * @param {string} param1

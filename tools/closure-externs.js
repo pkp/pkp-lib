@@ -141,6 +141,15 @@ jQueryObject.prototype.ajaxSettings = null;
  */
 function tinyMCEObject() {};
 
+tinyMCEObject.prototype.PluginManager = {};
+
+/**
+ * @param {string} param1
+ * @param {string} param2
+ * @return {tinyMCEObject}
+ */
+tinyMCEObject.prototype.PluginManager.load = function(param1, param2) {};
+
 tinyMCEObject.prototype.EditorManager = {};
 
 tinyMCEObject.prototype.EditorManager.triggerSave = function() {};
@@ -157,6 +166,8 @@ tinyMCEObject.prototype.EditorManager.createEditor = function(param1, param2) {}
  * @return {tinyMCEObject}
  */
 tinyMCEObject.prototype.EditorManager.get = function(param1) {};
+
+tinyMCEObject.prototype.init = function() {};
 
 /**
  * @param {string} param1
@@ -252,6 +263,9 @@ plupload.Uploader.prototype.removeFile = function(f) {};
  */
 plupload.Uploader.prototype.bind = function(eventName, f) {};
 
+$.pkp.app = {
+	baseUrl: ''
+};
 
 $.pkp.locale = {
 	search_noKeywordError: '',

@@ -47,11 +47,11 @@
 		// Show/hide dropdown menus using WCAG-compliant aria attributes
 		this.getHtmlElement().on('focus mouseenter', '[aria-haspopup="true"]',
 				function(e) {
-					$(e.currentTarget).attr('aria-expanded', true);
+					$(e.currentTarget).attr('aria-expanded', 'true');
 				});
 		this.getHtmlElement().on('blur mouseleave', '[aria-haspopup="true"]',
 				function(e) {
-					$(e.currentTarget).attr('aria-expanded', false);
+					$(e.currentTarget).attr('aria-expanded', 'false');
 				});
 
 		// Prevent first touch on top-level menu items from following the link

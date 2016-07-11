@@ -210,7 +210,6 @@
 	<message key="common.refresh">Atualizar</message>
 	<message key="common.related">Relacionado</message>
 	<message key="common.reminder">Lembrete</message>
-	<message key="common.rreminded.date">Lembrado em: {$dateReminded}</message>
 	<message key="common.remote">Remoto</message>
 	<message key="common.remoteURL">URL remoto</message>
 	<message key="common.remove">Remover</message>
@@ -242,7 +241,6 @@
 	<message key="common.top">Topo</message>
 	<message key="common.true">Verdadeiro</message>
 	<message key="common.type">Tipo</message>
-	<message key="common.element">Elemento</message>
 	<message key="common.uninitiated">Não iniciado</message>
 	<message key="common.unread">Não lido</message>
 	<message key="common.untitled">Sem título</message>
@@ -476,8 +474,6 @@
 	<message key="search.operator.and">and</message>
 	<message key="search.operator.not">not</message>
 	<message key="search.operator.or">or</message>
-	<message key="search.searchAllCategories">Pesquisar termo em todas as categorias</message>
-	<message key="search.searchCategories">Pesquisar nas categorias</message>
 	<message key="search.searchResults">Resultado da pesquisa</message>
 	<message key="search.subject">Assunto</message>
 	<message key="search.titleIndex">Índice de títulos</message>
@@ -534,4 +530,10 @@
 
 
 
+	<message key="navigation.dashboard">Painel de Controle</message>
+	<message key="notification.type.metadataModified">Metadado de "{$title}" modificado.</message>
+	<message key="notification.type.reviewerComment">Um avaliador comentou em "{$title}".</message>
+	<message key="user.authorization.invalidRepresentation">Representação inválida.</message>
+	<message key="notification.type.queryActivity">Atividade da discussão.</message>
+	<message key="notification.type.queryAdded">Conversa adicionada.</message>
 </locale>

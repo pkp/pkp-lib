@@ -64,20 +64,18 @@
 	<message key="installer.publicFilesDirError">O diretório de documentos públicos não existe ou não possui permissão de escrita.</message>
 	<message key="installer.releaseNotes">Notas de lançamento</message>
 	<message key="installer.preInstallationInstructionsTitle">Passos de pré-instalação</message>
-	<message key="installer.preInstallationInstructions"><![CDATA[
-		<p> 1. Os seguintes arquivos e diretórios (e seus conteúdos) devem ter permissão de escrita: </p>
+	<message key="installer.preInstallationInstructions"><![CDATA[<p>1. Os seguintes arquivos e diretórios (e seus conteúdos) devem ter permissão de escrita:</p>
 		<ul>
-			<li> <tt> config.inc.php</ tt> é gravável (opcional): {$ writable_config} </li>
-			<li> <tt> público/</ tt> é gravável: {$writable_public} </li>
-			<li> <tt> cache/</ tt> é gravável: {$writable_cache} </li>
-			<li> <tt> cache/t_cache/ </ tt> é gravável: {$writable_templates_cache} </li>
-			<li> <tt> cache/t_compile/ </ tt> é gravável: {$writable_templates_compile} </li>
-			<li> <tt> cache/_db </ tt> é gravável: {$writable_db_cache} </li>
+			<li><tt>config.inc.php</tt> é gravável (opcional): {$ writable_config}</li>
+			<li><tt>público/</tt> é gravável: {$writable_public}</li>
+			<li><tt>cache/</tt> é gravável: {$writable_cache}</li>
+			<li><tt>cache/t_cache/</tt> é gravável: {$writable_templates_cache}</li>
+			<li><tt>cache/t_compile/</tt> é gravável: {$writable_templates_compile}</li>
+			<li><tt>cache/_db</tt> é gravável: {$writable_db_cache}</li>
 		</ul>
 
-		<p> 2. Um diretório para armazenar os arquivos de submissão deve ser criado e com permissão de escrita (consulte "Configurações do arquivo" abaixo). </p>]]>
-	</message>
-	<message key="installer.configureXSLMessage"><![CDATA[<p> Sua instalação do PHP não tem o módulo XSL habilitado. Ou habilite-o, ou configure o parâmetro xslt_command em seu arquivo config.inc.php. </p>]]></message>
+		<p>2. Um diretório para armazenar os arquivos de submissão deve ser criado e com permissão de escrita (consulte "Configurações do arquivo" abaixo).</p>]]></message>
+	<message key="installer.configureXSLMessage"><![CDATA[<p>Sua instalação do PHP não tem o módulo XSL habilitado. Ou habilite-o, ou configure o parâmetro xslt_command em seu arquivo config.inc.php.</p>]]></message>
 	<message key="installer.beacon">Sinalizador</message>
 	<message key="installer.beacon.enable">Fornece um ID único ao site e a URL OAI exclusivamente para estatísticas do PKP e alertas de segurança.</message>
 </locale>

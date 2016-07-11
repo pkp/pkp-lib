@@ -16,6 +16,8 @@
 	<message key="author.submit.userGroupRequired">Seu usuário não está associado a um papel que permite novos envios, tal como o de Autor. Verifique sua conta, pode ser que você mesmo possa se atribuir esse papel editando seu perfil.</message>
 	<message key="author.submit.submissionCitations">Forneça uma lista formatada de citações incluídas nesta submissão.</message>
 	<message key="submission.confirm.message">Seu envio está no sistema e pronto para ser finalizado. Você pode voltar e ajustar as informações fornecidas antes de continuar. Quando pronto, clique em "Finalizar Submissão".</message>
+
+
 	<message key="submission.submit.submissionComplete">Submissão completa</message>
 	<message key="submission.submit.submissionCompleteThanks">Obrigado pelo seu interesse em publicar com {$contextName}.</message>
 	<message key="submission.submit.copyrightNoticeAgree">Concordo em cumprir os termos da declaração de direitos autorais.</message>
@@ -136,6 +138,7 @@
 	<message key="common.queue.long.myAssigned">Minhas Submissões Designadas</message>
 	<message key="common.queue.long.submissionsArchived">Submissões Arquivadas</message>
 	<message key="submission.authors">Autores</message>
+
 	<message key="submission.shortAuthor">{$author} et al.</message>
 	<message key="submission.mySubmissions">Submissões de Minha Autoria</message>
 	<message key="submission.addFile">Enviar Arquivo</message>
@@ -148,7 +151,17 @@
 	<message key="submission.attachedFile">Arquivo anexado</message>
 	<message key="submission.backToSubmissionEditing">Retornar à edição da submissão</message>
 	<message key="submission.changeComments">Mudar para</message>
+
 	<message key="submission.citations">Referências</message>
+	<message key="submission.citations.editor.citationlist.title">Editar citações</message>
+	<message key="submission.citations.editor.details.rawCitation">Citação original</message>
+	<message key="submission.citations.editor.details.rawCitationRequired">O texto da citação é obrigatório.</message>
+	<message key="submission.citations.editor.citationlist.errorDeletingCitation">Ocorreu um erro ao tentar excluir a citação. Reporte este erro com uma falha do sistema.</message>
+	<message key="submission.citations.editor.loadMessage">Aguarde enquanto o editor de citações é carregado.</message>
+	<message key="submission.citations.editor.details.explainImprovementOptions">Caso não tenha conseguido resultados satisfatórios, tente melhorar a citação de outras formas. Pode ser útil alterar manualmente campos importantes (como o título ou autor) e tentar os serviços de citação novamente. Caso isso não ajude, ainda pode pesquisar no Google Acadêmico ou solicitar ao autor mais detalhes.</message>
+	<message key="submission.citations.filter.noResultFromFilterError">Várias operações de procura e análise não retornaram nenhum resultado. Tente editar manualmente o texto da citação e pesquisar novamente nos serviços externos para melhorar os resultados. Caso não perceba melhora, a citação pode não existir em nenhuma das bases conectadas.</message>
+	<message key="submission.citations.filter.unsupportedPublicationType">Tipo de publicação não suportado ou faltando. Edite a citação manualmente e digite o tipo de publicação (tipos permitidos são 'book', 'journal', 'thesis' e 'conf-proc').</message>
+	<message key="submission.citations.editor.export.exportDescription"><![CDATA[<a id="markForExport" href="">Clique aqui</a> para selecionar todo o texto gerado. Copie o conteúdo desta caixa de diálogo e cole no seu documento.]]></message>
 	<message key="submission.comments.addComment">Incluir comentário</message>
 	<message key="submission.comments.comments">Comentários</message>
 	<message key="submission.comments.confirmDelete">Deseja realmente excluir o comentário?</message>
@@ -162,6 +175,7 @@
 	<message key="submission.comments.sendDecisionToReviewers">Enviar decisão editorial aos avaliadores</message>
 	<message key="submission.comments.subject">Assunto</message>
 	<message key="submission.complete">Concluída</message>
+	<message key="submission.contributors">Lista de Contribuidores</message>
 	<message key="submission.done">Findo em</message>
 	<message key="submission.dueDate">Prazo para conclusão</message>
 	<message key="submission.due">Prazo</message>
@@ -331,7 +345,16 @@
 	<message key="submission.citations.editor.pleaseSelect">Escolha...</message>
 	<message key="submission.citations.editor.unprocessedCitationsButton">Atualizar lista de citações</message>
 	<message key="submission.citations.editor.unprocessedCitationsButtonTitle">Clique para atualizar a lista de citações.</message>
+
+	<message key="submission.page.citations">#{$id} Citações</message>
+	<message key="submission.currentAgencies">Apoio e financiamento atual</message>
+	<message key="submission.indexingInformation">Informação para indexação</message>
+
+
+	<message key="submission.uploadSuccessful">Seu arquivo foi enviado.</message>
+	<message key="submission.loadMessage">Aguarde enquanto o arquivo é enviado ao servidor.</message>
 	<message key="submission.artworkFileDetails">Detalhes do arquivo de arte</message>
+	<message key="submission.fileDetails">Detalhes do arquivo</message>
 	<message key="submission.nameRequired">O título do item é obrigatório.</message>
 	<message key="submission.date.mmdd">MM-DD</message>
 	<message key="submission.date.yyyymmdd">YYYY-MM-DD</message>
@@ -397,24 +420,21 @@
 	<message key="notification.type.editorDecisionResubmit">Enviar novamente para avaliação.</message>
 	<message key="notification.type.editorDecisionDecline">Submissão rejeitada.</message>
 	<message key="notification.type.editorDecisionSendToProduction">Processo de produção iniciado.</message>
-	<message key="notification.type.signoff">Auditoria pendente.</message>
 	<message key="notification.uploadedResponse">Resposta enviada.</message>
 	<message key="notification.type.editorAssignment">Um editor deve ser designado antes de iniciar a avaliação. Inclua um editor usando o link de Participantes acima.</message>
 	<message key="grid.reviewAttachments.title">Anexos do avaliador</message>
-	<message key="workflow.review.externalReview">Avaliação externa</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} designado para avaliar a submissão {$submissionId} na rodada de avaliação {$round}.</message>
 	<message key="grid.action.itemWorkflow">Acessar o fluxograma de trabalho desta submissão</message>
 	<message key="notification.type.editorAssignmentProduction">Um editor de produção deve ser designado antes de iniciar o processo de produção. Inclua um editor de produção usando o link de Participantes acima.</message>
 	<message key="notification.type.editorAssignmentEditing">Um editor de produção deve ser designado antes de iniciar o processo editorial. Inclua um editor de produção usando o link de Participantes acima.</message>
 	<message key="submission.submission">Submissão</message>
-	<message key="submission.submit.uploadExpeditedFiles">Como editor, você pode carregar um PDF agora e escolher encaminhá-lo para a produção no último passo da submissão.</message>
-	<message key="submission.submit.expediteSubmission">Encaminhar esta submissão</message>
+	<message key="submission.submissionTitle">Título da Submissão:</message>
+	<message key="submission.upload.query">Enviar um Arquivo de Discussão</message>
+	<message key="submission.queryNoteFiles">Arquivos de Disucssão</message>
+	<message key="submission.event.subjectPrefix">Um email foi enviado:</message>
+	<message key="submission.event.viewEmail">Ver Email</message>
 	<message key="submission.copyediting">Edição de Texto</message>
 	<message key="submission.coverage">Informações de Cobertura</message>
-	<message key="submission.coverage.tip">Os campos a seguir fornecem informações sobre a cobertura da submissão. Cobertura pode incluir períodos cronológicos (1920-1940, do século 17), e localizações geográficas ('Boston, MA "ou" norte da Inglaterra). Se desejar, você pode usar o campo de cobertura para incluir um exemplo relevante de seu próprio trabalho.</message>
-	<message key="submission.coverage.chron">Cobertura cronológica ou histórica</message>
-	<message key="submission.coverage.geo">Cobertura geográfica</message>
-	<message key="submission.coverage.sample">Cobertura da amostra</message>
 	<message key="submission.event.submissionSubmitted">Submissão inicial concluída.</message>
 	<message key="submission.event.fileUploaded">Um arquivo "{$originalFileName}" foi carregado para a submissão {$submissionId} por {$username}.</message>
 	<message key="submission.event.fileRevised">Avaliação "{$name}" (ID do arquivo {$fileId} -{$revision}) foi carregado.</message>
@@ -444,7 +464,6 @@
 	<message key="submission.submit.dependentFiles">Arquivos Dependentes</message>
 	<message key="submission.manageDependentFiles">Gerenciar Arquivos Dependentes</message>
 	<message key="submission.upload.dependent">Carregar um Arquivo Dependente</message>
-	<message key="submission.dependent.upload.description">Carregue os arquivos que esta produção requer a fim de ser exibida corretamente (HTML, CSS, etc.)</message>
 	<message key="submission.type.tip"><![CDATA[O tipo da submissão é geralmente do tipo 'imagem', 'texto', ou outro tipos de mídia, incluindo 'software' ou 'interativo'. Por favor, escolha o mais relevante para a sua submissão. Exemplos podem ser encontrados em <a target="_blank" href="http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>]]></message>
 	<message key="submission.submit.selectPrincipalContact">Contato principal para correspondência editorial.</message>
 	<message key="submission.submit.contributorRole">Papel do colaborador</message>
@@ -467,17 +486,15 @@
 	<message key="submission.submit.metadataStep">2. Metadados</message>
 	<message key="submission.submit.finishingUpStep">3. Finalização</message>
 	<message key="submission.submit.fileNameRequired">Informe um nome para este arquivo</message>
-	<message key="submission.submit.howToSubmit"><![CDATA[Dificuldades? Contate <a href="mailto:{$supportEmail}"> {$supportName} </ a> para obter assistência ({$supportPhone }).]]></message>
-	<message key="submission.submit.howToSubmitNoPhone"><![CDATA[Dificuldades? Contate <a href="mailto:{$supportEmail}"> {$supportName} </ a> para obter ajuda.]]></message>
-	<message key="submission.upload.noteToAccompanyFile">Notas sobre o arquivo</message>
+	<message key="submission.submit.howToSubmit"><![CDATA[Dificuldades? Contate <a href="mailto:{$supportEmail}">{$supportName}</ a> para obter assistência ({$supportPhone}).]]></message>
+	<message key="submission.submit.howToSubmitNoPhone"><![CDATA[Dificuldades? Contate <a href="mailto:{$supportEmail}">{$supportName}</ a> para obter ajuda.]]></message>
 	<message key="submission.upload.noGenre">Gênero ausente ou inválido!</message>
 	<message key="submission.upload.invalidUserGroup">Grupo de usuário inválido ou ausente!</message>
 	<message key="submission.upload.possibleRevision">Detectada Possível Duplicação ou Avaliação (há duvida sobre essa tradução)</message>
-	<message key="submission.upload.possibleRevisionDescription"><![CDATA[<p> O nome do arquivo enviado assemelha-se ao nome do arquivo previamente carregado " {$revisedFileName}". Se o arquivo foi carregado para substituir o arquivo mais recente, selecione o arquivo a ser substituído no menu suspenso. Se o arquivo enviado não é para substituir um arquivo mais recente, selecione a opção "Selecionar arquivo (preservar o histórico)." </ P>]]></message>
+	<message key="submission.upload.possibleRevisionDescription">O nome do arquivo enviado assemelha-se ao nome do arquivo previamente carregado " {$revisedFileName}". Se o arquivo foi carregado para substituir o arquivo mais recente, selecione o arquivo a ser substituído no menu suspenso. Se o arquivo enviado não é para substituir um arquivo mais recente, selecione a opção "Selecionar arquivo (preservar o histórico)."</message>
 	<message key="submission.upload.selectMandatoryFileToRevise">Por favor selecione o arquivo que gostaria de revisar.</message>
 	<message key="submission.upload.selectOptionalFileToRevise">Se você estiver carregando uma avaliação de um arquivo existente, por favor, indique que arquivo.</message>
 	<message key="submission.upload.uploadNewFile">Selecionar arquivo (preservar o histórico)</message>
-	<message key="submission.upload.fileContents">Conteúdo do Arquivo</message>
 	<message key="submission.upload.userGroup">Envie este arquivo no meu papel como ...</message>
 	<message key="submission.upload.userGroupDescription">Se você estiver enviando um volume editado, você deve fazer upload de todos os capítulos individualmente, de acordo com o seu papel de editor de volume.</message>
 	<message key="submission.upload.uploadLibraryFile">Enviar um Arquivo de Biblioteca</message>
@@ -486,7 +503,6 @@
 	<message key="submission.upload.copyeditedVersion">Enviar Arquivo da Edição de Texto</message>
 	<message key="submission.upload.fairCopy">Enviar Cópia "Fair" (???)</message>
 	<message key="submission.upload.uploadFiles">Enviar Arquivos</message>
-	<message key="submission.upload.signoff">Enviar uma Resposta</message>
 	<message key="submission.upload.response.description">Depois de analisar o arquivo designado, grave seus comentários no arquivo abaixo, e/ou envie uma cópia anotada do arquivo (ou outro arquivo).</message>
 	<message key="submission.upload.productionReady">Enviar uma Versão Final</message>
 	<message key="submission.upload.proof">Enviar uma Prova</message>
@@ -504,7 +520,6 @@
 	<message key="editor.submission.noneAssigned">Nenhum Designado</message>
 	<message key="editor.submission.participant">Participante</message>
 	<message key="editor.submission.addStageParticipant">Adicionar Participante</message>
-	<message key="editor.submission.addStageParticipant.description"><![CDATA[Para adicionar um participante a esta fase da submissão, selecione um grupo de usuários a partir do menu drop-down, em seguida, adicione um usuário <br/> <br/> Nota: O usuário será adicionado a todas as fases para o qual este grupo de usuários é atribuído.]]></message>
 	<message key="editor.submission.addStageParticipant.userGroup">Usuários são designados às etapas do fluxo de trabalho por grupo de usuários. Qualquer usuário designado a esta etapa será automaticamente designado as outras etapas que seu grupo de usuário foi designado. Isto é geralmente reservado a editores, autores e tradutores.</message>
 	<message key="editor.submission.removeStageParticipant">Remover Participante</message>
 	<message key="editor.submission.removeStageParticipant.description"><![CDATA[Você está prestes a remover este participante de <strong>todos</ strong> os estágios. Se o usuário tiver tarefas pendentes, eles também serão removidas .]]></message>
@@ -517,7 +532,6 @@
 	<message key="editor.submission.decision.decline">Rejeitar Submissão</message>
 	<message key="editor.submission.decision.sendToProduction">Enviar para Produção</message>
 	<message key="editor.submission.decision.sendInternalReview">Enviar para Avaliação Interna</message>
-	<message key="editor.submission.decision.sendExternalReview">Enviar para Avaliação Externa</message>
 	<message key="editor.submission.decision.approveProofs">Aprovar Versões de Prova</message>
 	<message key="editor.submission.decision.approveProofsDescription">O arquivo de leitura de prova deve ser definido como aprovado para ser disponibilizado. Você quer aprová-lo?</message>
 	<message key="editor.submission.decision.disapproveProofsDescription">Este arquivo de prova não estará mais disponível publicamente para download ou compra. Deseja desaprová-lo?</message>
@@ -529,7 +543,6 @@
 	<message key="editor.submission.addAuditorError">Houve um erro ao tentar atribuir o auditor. Por favor tente novamente.</message>
 	<message key="submission.description">Descrição</message>
 	<message key="submission.documents">Documentos Submetidos</message>
-	<message key="submission.signoff.selectFile">Selecione o arquivo que deseja descontinuar (??)</message>
 	<message key="submission.event.fileDeleted">O arquivo "{$originalFileName}" foi excluído da submissão {$submissionId} por {$username}.</message>
 	<message key="submission.event.revisionUploaded">O arquivo de avaliação "{$originalFileName}" foi enviado para a submissão {$submissionId} por {$username}.</message>
 	<message key="submission.event.revisionDeleted">O arquivo de avaliação "{$originalFileName}" foi apagado da submissão {$submissionId} por {$username}.</message>
@@ -540,24 +553,21 @@
 	<message key="submission.event.signoffSignoff">"{$name}" ({$username}) has signed off on the signoff for "{$file}." (???)</message>
 	<message key="submission.event.proofsApproved">"{$name}" ({$username}) aprovou a leitura de prova para "{$formatName}."</message>
 	<message key="submission.overview">Resumo da Submissão</message>
-	<message key="submission.authorDashboard.description">Em cada etapa do fluxo de trabalho iniciada listadas abaixo você vai encontrar informações sobre seu status, bem como todos os arquivos de submissão e correspondência associados a essa fase. Você pode ser solicitado para fazer upload de um arquivo avaliado para uma etapa específica, ou auditar um arquivo previamente carregado. Estas ações podem ser concluídas dentro da seção da etapa especificada.</message>
-	<message key="submission.signoff.fileResponse">Arquivo Resposta</message>
-	<message key="grid.copyediting.deleteSignoff">Remover Usuário</message>
 	<message key="submission.productionReady">Livro disponível</message>
 	<message key="submission.review.uploadRevisionToRound">Enviar Arquivo Avaliado</message>
 	<message key="submission.document">Documento</message>
-	<message key="editor.review.personalMessageFromEditor">Mensagem do editor</message>
-	<message key="submission.previousAuthorMessages">Mensagens Anteriores</message>
-	<message key="submission.signoff.signoffOnFile">Assinar este arquivo</message>
-	<message key="submission.signoff.signedOffOnFile">Arquivo assinado</message>
-	<message key="submission.signoff.noAvailableSignoffs">Sem arquivos para responder agora.</message>
 	<message key="submission.art">Obra</message>
+	<message key="submission.supplementary">Conteúdo Suplementar</message>
+	<message key="submission.supplementary.creator">Criador (ou proprietário) do arquivo</message>
+	<message key="submission.supplementary.subject">Assunto</message>
+	<message key="submission.supplementary.publisher">Editora</message>
+	<message key="submission.supplementary.sponsor">Agência de financiamento ou contribuidores</message>
+
+	<!--  peer review -->
 	<message key="submission.reviewForm">Formulário de avaliação</message>
 	<message key="submission.reviewFormResponse">Resposta do formulário de avaliação</message>
 	<message key="grid.action.createReviewFormElement">Criar novo campo no formulário de avaliação</message>
 	<message key="grid.action.editMetadata">Editar metadados</message>
-
-	<!--  peer review -->
 	
 	<!-- Permissions -->
 	<message key="submission.permissions">Permissões</message>
@@ -594,42 +604,9 @@
 	<message key="submission.query.lastReply">Última resposta</message>
 	<message key="submission.query.closed">Fechado</message>
 	<message key="submission.query.addNote">Adicionar mensagem</message>
-
 	<message key="grid.action.openNoteForm">Adiciona resposta aos comentários</message>
 	<message key="submission.query.activity">Há nova atividade numa conversa.</message>
 	<message key="submission.query.new">Há uma demanda a responder.</message>
 	<message key="submission.query.activity.contents">Não há atividades em "{$queryTitle}" sobre a submissão "{$submissionTitle}".</message>
 	<message key="submission.query.new.contents">Você foi adicionado a uma conversa chamada "{$queryTitle}" sobre a submissão  "{$submissionTitle}".</message>
-	<message key="submission.supplementary">Conteúdo Suplementar</message>
-	<message key="submission.supplementary.creator">Criador (ou proprietário) do arquivo</message>
-	<message key="submission.supplementary.subject">Assunto</message>
-	<message key="submission.supplementary.publisher">Editora</message>
-	<message key="submission.supplementary.sponsor">Agência de financiamento ou contribuidores</message>
-
-	<message key="submission.submissionTitle">Título da Submissão:</message>
-	<message key="submission.upload.query">Enviar um Arquivo de Discussão</message>
-	<message key="submission.queryNoteFiles">Arquivos de Disucssão</message>
-	<message key="submission.event.subjectPrefix">Um email foi enviado:</message>
-	<message key="submission.event.viewEmail">Ver Email</message>
-
-	<message key="submission.citations.editor.citationlist.title">Editar citações</message>
-	<message key="submission.citations.editor.details.rawCitation">Citação original</message>
-	<message key="submission.citations.editor.details.rawCitationRequired">O texto da citação é obrigatório.</message>
-	<message key="submission.citations.editor.citationlist.errorDeletingCitation">Ocorreu um erro ao tentar excluir a citação. Reporte este erro com uma falha do sistema.</message>
-	<message key="submission.citations.editor.loadMessage">Aguarde enquanto o editor de citações é carregado.</message>
-	<message key="submission.citations.editor.details.explainImprovementOptions">Caso não tenha conseguido resultados satisfatórios, tente melhorar a citação de outras formas. Pode ser útil alterar manualmente campos importantes (como o título ou autor) e tentar os serviços de citação novamente. Caso isso não ajude, ainda pode pesquisar no Google Acadêmico ou solicitar ao autor mais detalhes.</message>
-	<message key="submission.citations.filter.noResultFromFilterError">Várias operações de procura e análise não retornaram nenhum resultado. Tente editar manualmente o texto da citação e pesquisar novamente nos serviços externos para melhorar os resultados. Caso não perceba melhora, a citação pode não existir em nenhuma das bases conectadas.</message>
-	<message key="submission.citations.filter.unsupportedPublicationType">Tipo de publicação não suportado ou faltando. Edite a citação manualmente e digite o tipo de publicação (tipos permitidos são 'book', 'journal', 'thesis' e 'conf-proc').</message>
-	<message key="submission.citations.editor.export.exportDescription"><![CDATA[<a id="markForExport" href="">Clique aqui</a> para selecionar todo o texto gerado. Copie o conteúdo desta caixa de diálogo e cole no seu documento.]]></message>
-	<message key="submission.page.citations">#{$id} Citações</message>
-	<message key="submission.currentAgencies">Apoio e financiamento atual</message>
-	<message key="submission.indexingInformation">Informação para indexação</message>
-	<message key="submission.uploadSuccessful">Seu arquivo foi enviado.</message>
-	<message key="submission.loadMessage">Aguarde enquanto o arquivo é enviado ao servidor.</message>
-	<message key="submission.fileDetails">Detalhes do arquivo</message>
-
-	<message key="submission.contributors">Lista de Contribuidores</message>
-	<message key="submission.contributorsDescription">A lista dos colaboradores desta submissão pode incluir outros autores; autores de capítulos individuais de um volume editado; os editores de volume; e/ou tradutores. Um colaborador da lista pode ser atribuído como o contato principal para correspondência editorial, não precisando ser necessariamente o autor que submeteu o trabalho.</message>
-	
-
 </locale>

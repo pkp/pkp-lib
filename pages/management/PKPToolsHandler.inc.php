@@ -98,7 +98,7 @@ class PKPToolsHandler extends ManagementHandler {
 			if ($plugin) return $plugin->display($args, $request);
 		}
 		$templateMgr->assign('plugins', PluginRegistry::getPlugins(IMPORTEXPORT_PLUGIN_CATEGORY));
-		return $templateMgr->fetchJson('manager/importexport/plugins.tpl');
+		return $templateMgr->fetchJson('management/tools/importexport.tpl');
 	}
 
 	/**

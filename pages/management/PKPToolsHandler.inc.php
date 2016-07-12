@@ -47,6 +47,7 @@ class PKPToolsHandler extends ManagementHandler {
 	function tools($args, $request) {
 		$path = array_shift($args);
 		switch ($path) {
+			case '':
 			case 'index':
 				$this->index($args, $request);
 				break;
@@ -97,7 +98,7 @@ class PKPToolsHandler extends ManagementHandler {
 			if ($plugin) return $plugin->display($args, $request);
 		}
 		$templateMgr->assign('plugins', PluginRegistry::getPlugins(IMPORTEXPORT_PLUGIN_CATEGORY));
-		$templateMgr->display('manager/importexport/plugins.tpl');
+		return $templateMgr->fetchJson('manager/importexport/plugins.tpl');
 	}
 
 	/**
@@ -125,7 +126,7 @@ class PKPToolsHandler extends ManagementHandler {
 			$templateMgr->assign('showMetricTypeSelector', true);
 		}
 
-		$templateMgr->display('management/tools/statistics.tpl');
+		return $templateMgr->fetchJson('management/tools/statistics.tpl');
 	}
 
 	/**

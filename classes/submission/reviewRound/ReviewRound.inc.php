@@ -105,9 +105,10 @@ class ReviewRound extends DataObject {
 
 	/**
 	 * Get locale key associated with current status
+	 * @param $isAuthor boolean True iff the status is to be shown to the author (slightly tweaked phrasing)
 	 * @return int
 	 */
-	function getStatusKey() {
+	function getStatusKey($isAuthor = false) {
 		switch ($this->getStatus()) {
 			case REVIEW_ROUND_STATUS_REVISIONS_REQUESTED:
 				return 'editor.submission.roundStatus.revisionsRequested';
@@ -124,7 +125,7 @@ class ReviewRound extends DataObject {
 			case REVIEW_ROUND_STATUS_PENDING_REVIEWS:
 				return 'editor.submission.roundStatus.pendingReviews';
 			case REVIEW_ROUND_STATUS_REVIEWS_READY:
-				return 'editor.submission.roundStatus.reviewsReady';
+				return $isAuthor?'author.submission.roundStatus.reviewsReady':'editor.submission.roundStatus.reviewsReady';
 			case REVIEW_ROUND_STATUS_REVIEWS_COMPLETED:
 				return 'editor.submission.roundStatus.reviewsCompleted';
 			default: return null;

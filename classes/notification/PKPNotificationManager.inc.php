@@ -129,9 +129,14 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 				assert($notification->getAssocType() == ASSOC_TYPE_REVIEW_ROUND && is_numeric($notification->getAssocId()));
 				$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
 				$reviewRound = $reviewRoundDao->getById($notification->getAssocId());
+				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
 
 				AppLocale::requireComponents(LOCALE_COMPONENT_APP_EDITOR); // load review round status keys.
-				return __($reviewRound->getStatusKey());
+				$user = $request->getUser();
+				$stageAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($reviewRound->getSubmissionId(), ROLE_ID_AUTHOR, null, $user->getId());
+				$isAuthor = $stageAssignments->getCount()>0;
+				$stageAssignments->close();
+				return __($reviewRound->getStatusKey($isAuthor));
 			default:
 				$delegateResult = $this->getByDelegate(
 					$notification->getType(),

@@ -15,6 +15,7 @@
 	<!-- Author Submission -->
 	<message key="author.submit.userGroupRequired">Your account does not currently have a role permitting new submissions, such as Author. Please double-check your account; you may be able to add a suitable role yourself by editing your profile.</message>
 	<message key="author.submit.submissionCitations">Provide a formatted list of references for works cited in this submission. Please separate individual references with a blank line.</message>
+	<message key="author.submission.roundStatus.reviewsReady">New reviews have been submitted and are being considered by the editor.</message>
 	<message key="submission.confirm.message">Your submission has been uploaded and is ready to be sent. You may go back to review and adjust any of the information you have entered before continuing. When you are ready, click "Finish Submission".</message>
 	<message key="submission.submit.submissionChecklist">Submission Requirements</message>
 	<message key="submission.submit.submissionChecklistDescription">You must read and acknowledge that you've completed the requirements below before proceeding.</message>

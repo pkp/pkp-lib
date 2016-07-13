@@ -82,7 +82,7 @@
 	<message key="common.download">Transferir</message>
 	<message key="common.edit">Editar</message>
 	<message key="common.enabled">Activado</message>
-	<message key="common.error.databaseError">Ocorreu um erro de base de dados: {$error}</message>
+	<message key="common.error.databaseError">Ocorreu um erro na base de dados: {$error}</message>
 	<message key="common.error.databaseErrorUnknown">Ocorreu um erro desconhecido de conexão à base de dados.</message>
 	<message key="common.error.framesRequired"><![CDATA[Esta página requer frames. <a href="{$url}">Clique aqui </a> para a versão sem frames.]]></message>
 	<message key="common.event">Evento</message>
@@ -230,7 +230,7 @@
 	<message key="navigation.about">Sobre</message>
 	<message key="navigation.browse">Pesquisar</message>
 	<message key="navigation.browseByTitle">Por Título</message>
-	<message key="navigation.home">Capa</message>
+	<message key="navigation.home">Home</message>
 	<message key="navigation.infoForReaders">Para Leitores</message>
 	<message key="navigation.infoForReaders.long">Informação para Leitores</message>
 	<message key="navigation.items">{$from} a {$to} de {$total} Itens</message>
@@ -313,13 +313,13 @@
 	<message key="common.true">Verdadeiro</message>
 	<message key="common.uploadFailed">Não foi possível carregador o ficheiro. Tente novamente ou contacte o administrador se o problema persistir.</message>
 	<message key="navigation.dashboard">Painel</message>
-	<message key="common.disable">Desabilitar</message>
-	<message key="common.enable">Habilitar</message>
-	<message key="common.fullscreen">Tela cheia</message>
-	<message key="common.fullscreenOff">Tela padrão</message>
+	<message key="common.disable">Desactivar</message>
+	<message key="common.enable">Activar</message>
+	<message key="common.fullscreen">Écrã pleno</message>
+	<message key="common.fullscreenOff">Écrã padrão</message>
 	<message key="common.pluginEnabled">O Plugin "{$pluginName}" foi habilitado.</message>
 	<message key="common.pluginDisabled">O Plugin "{$pluginName}" foi desabilitado.</message>
-	<message key="common.refresh">Atualizar</message>
+	<message key="common.refresh">Actualizar</message>
 	<message key="common.loading">Carregando ...</message>
 	<message key="announcement.postedOn">Postado em {$postDate}</message>
 	<message key="common.accepted">Aceite</message>
@@ -376,13 +376,13 @@
 	<message key="defaultMetric.title">Métrica padrão</message>
 	<message key="defaultMetric.availableMetrics">Métricas disponíveis</message>
 	<message key="search.activeFilters">Filtros avançados</message>
-	<message key="search.advancedSearchMore">Opções Adicionais Pesquisa Options (clicar para mostrar)</message>
-	<message key="search.advancedSearchLess">Opções Adicionais Pesquisa Options (clicar para ocultar)</message>
+	<message key="search.advancedSearchMore">Opções Adicionais Pesquisa (clicar para mostrar)</message>
+	<message key="search.advancedSearchLess">Opções Adicionais Pesquisa (clicar para ocultar)</message>
 	<message key="search.cli.rebuildIndex.clearingIndex">Limpando índice</message>
 	<message key="search.cli.rebuildIndex.done">concluído</message>
 	<message key="search.cli.rebuildIndex.error">erro</message>
 	<message key="search.cli.rebuildIndex.indexing">Indexação "{$journalName}"</message>
-	<message key="search.cli.rebuildIndex.indexingByJournalNotSupported">Esta pesquisa não permite re-indexação per-journal.</message>
+	<message key="search.cli.rebuildIndex.indexingByJournalNotSupported">Esta pesquisa não permite re-indexação por revista.</message>
 	<message key="search.cli.rebuildIndex.result">{$numIndexed} artigos indexados</message>
 	<message key="search.cli.rebuildIndex.unknownJournal">O caminho fornecido para a revista "{$journalPath}" não pode ser atribuído a uma revista.</message>
 	<message key="search.deleteFilter">Eliminar</message>

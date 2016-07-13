@@ -16,7 +16,7 @@
 	<message key="comments.anonymous">Utilizador Anónimo</message>
 	<message key="comments.anonymousNamed">"{$userName}"</message>
 	<message key="comments.body">Corpo</message>
-	<message key="comments.confirmDeleteChildren">Eliminar este comentário também eliminará todas as respostas. Deseja realmente eliominar o comentário?</message>
+	<message key="comments.confirmDeleteChildren">Eliminar este comentário também eliminará todas as respostas. Deseja realmente eliminar o comentário?</message>
 	<message key="comments.delete">Eliminar este comentário</message>
 	<message key="comments.email">E-mail do comentador</message>
 	<message key="comments.emailReply">Responder e-mail</message>
@@ -51,11 +51,11 @@
 	<message key="rt.admin.searches.createSearch">Criar Pesquisa</message>
 	<message key="rt.admin.searches.edit.editSearch">Editar Pesquisa</message>
 	<message key="rt.admin.selectedVersion">Itens Relacionados</message>
-	<message key="rt.admin.settings.abstract">Resumo (apresenta o resumo do item).</message>
+	<message key="rt.admin.settings.abstract">Resumo (apresenta o resumo do artigo).</message>
 	<message key="rt.admin.settings.authorBio">Biografia do Autor (Exibe a biografia do autor alimentada no sistema)</message>
 	<message key="rt.admin.settings.captureCite">Como citar este documento (Exibe detalhes bibliográficos do documento).</message>
 	<message key="rt.admin.settings.defineTerms">Definição de palavra (Permite leitores clicar duas vezes em um palavra para pesquisa em dicionários)</message>
-	<message key="rt.admin.settings.disableRelatedItems">Desactivar Itens Relacionados</message>
+	<message key="rt.admin.settings.disableRelatedItems">Desactivar Artigos Relacionados</message>
 	<message key="rt.admin.settings.emailAuthor">E-mail ao autor (abre um formulário para comunicação directa com o autor)</message>
 	<message key="rt.admin.settings.emailOthers">Enviar para outros (abre um formulário para enviar o documento a outros leitores, com o título do documento no assunto da mensagem).</message>
 	<message key="rt.admin.settings.findingReferences">Pesquisar Referências</message>

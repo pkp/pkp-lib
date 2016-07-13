@@ -187,7 +187,7 @@
 	<message key="grid.user.step2">Passo #2: Adicionar Papéis Utilizador a {$userFullName}</message>
 	<message key="grid.user.addRoles">Adicionar Papéis</message>
 	<message key="grid.user.selectUser">Seleccionar Utilizador</message>
-	<message key="grid.user.pleaseSelectUser">Por favor seleccione utilizador</message>
+	<message key="grid.user.pleaseSelectUser">Por favor, seleccione utilizador</message>
 	<message key="grid.preparedEmails.title">Templates de e-mail padrão</message>
 	<message key="grid.preparedEmails.description">A imprensa facilita a comunicação de fluxo de trabalho através do uso de mensagens de e-mail padrão. O texto padrão destes modelos de e-mail pode ser facilmente modificado abaixo.</message>
 	<message key="grid.preparedEmails.currentList">Lista Actual</message>

@@ -74,8 +74,8 @@
 	<message key="admin.version.downloadPatch">Transferir Actualização</message>
 	<message key="admin.versionHistory">Histórico de Versões</message>
 	<message key="admin.version.latest">Última versão</message>
-	<message key="admin.versionMajor">Maior</message>
-	<message key="admin.versionMinor">Menor</message>
+	<message key="admin.versionMajor">Superior</message>
+	<message key="admin.versionMinor">Inferior</message>
 	<message key="admin.version.moreInfo">Detalhar</message>
 	<message key="admin.versionRevision">Revisão</message>
 	<message key="admin.version.updateAvailable">Actualização disponível</message>
@@ -83,7 +83,7 @@
 	<message key="admin.version">Versão</message>
 	<message key="admin.settings">Configurações</message>
 	<message key="admin.settings.siteTheme">Tema do Portal</message>
-	<message key="admin.siteSetup">Configurar Site</message>
+	<message key="admin.siteSetup">Configurar Portal</message>
 	<message key="admin.scheduledTask">Tarefa agendada</message>
 	<message key="admin.settings.oneStepReset">Usar passo único para recuperação de senhas?</message>
 	<message key="admin.fileLoader.wrongBasePathLocation">Caminho base {$path} tem de estar na pasta de ficheiros pública.</message>
@@ -93,6 +93,10 @@
 	<message key="admin.scheduledTask.startTime">Tarefa do iniciada.</message>
 	<message key="admin.scheduledTask.stopTime">Tarefa do interrropida.</message>
 	<message key="admin.scheduledTask.noLog">A tarefa não gerou nenhum log.</message>
+	<message key="admin.scheduledTask.openAccessNotification">Notificação Open Access</message>
+	<message key="admin.scheduledTask.downloadLog">A sua instalação automaticamente executou e concluiu esta tarefa e pode fazer o download do ficheiro log aqui: {$url}</message>
+	<message key="admin.scheduledTask.confirmClearLogs">Tem a certeza de que deseja eliminar todos os logs de execução de tarefas programadas??</message>
+	<message key="admin.scheduledTask.clearLogs">Limpar logs de execução de tarefas agendadas</message>
 	<message key="admin.scheduledTask.openAccessNotification">Notificação Open Access</message>
 	<message key="admin.scheduledTask.reviewReminder">Lembrete revisor</message>
 	<message key="admin.scheduledTask.subscriptionExpiryReminder">Lembrete expiração assinatura</message>

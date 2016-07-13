@@ -161,6 +161,13 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin {
 	abstract function getPubIdMetadataFile();
 
 	/**
+	 * Add JavaScript files to be loaded in the metadata file.
+	 * @param $request PKPRequest
+	 * @param $templateMgr PKPTemplateManager
+	 */
+	function addJavaScript($request, $templateMgr) { }
+
+	/**
 	 * Get the file (path + filename)
 	 * for the pub id assignment
 	 * to be included into other pages.

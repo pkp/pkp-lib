@@ -71,6 +71,9 @@ class PKPPublicIdentifiersForm extends Form {
 		$templateMgr->assign('pubObject', $this->getPubObject());
 		$templateMgr->assign('stageId', $this->getStageId());
 		$templateMgr->assign('formParams', $this->getFormParams());
+		// consider JavaScripts
+		$pubIdPluginHelper = new PKPPubIdPluginHelper();
+		$pubIdPluginHelper->addJavaScripts($this->getContextId(), $request, $templateMgr);
 		return parent::fetch($request);
 	}
 

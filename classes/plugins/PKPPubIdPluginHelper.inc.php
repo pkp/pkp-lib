@@ -60,6 +60,21 @@ class PKPPubIdPluginHelper {
 	}
 
 	/**
+	 * Add pub id plugins JavaScripts.
+	 * @param $contextId integer
+	 * @param $request PKPRequest
+	 * @param $templateMgr PKPTemplateManager
+	 */
+	function addJavaScripts($contextId, $request, $templateMgr) {
+		$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $contextId);
+		if (is_array($pubIdPlugins)) {
+			foreach ($pubIdPlugins as $pubIdPlugin) {
+				$pubIdPlugin->addJavaScript($request, $templateMgr);
+			}
+		}
+	}
+
+	/**
 	 * Init the additional form fields from public identifier plugins.
 	 * @param $contextId integer
 	 * @param $form object PKPPublicIdentifiersForm|CatalogEntryFormatMetadataForm

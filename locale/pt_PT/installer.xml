@@ -2,7 +2,7 @@
 <!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
 
 <!--
-  * locale/pt_BR/installer.xml
+  * locale/pt_PT/installer.xml
   *
   * Copyright (c) 2013-2016 Simon Fraser University Library
   * Copyright (c) 2000-2016 John Willinsky
@@ -22,10 +22,10 @@
 	<message key="installer.clientCharsetInstructions">A codificação utilizada para dados enviados e recebidos pelos navegadores.</message>
 	<message key="installer.configFileError"><![CDATA[O documento de configuração <tt>config.inc.php</tt> não existe ou não possui permissão de leitura.]]></message>
 	<message key="installer.connectionCharset">Conjunto de Caracteres da Conexão</message>
-	<message key="installer.connectionCharsetInstructions"><![CDATA[A codificação utilizada para dados enviados e recebidos pela base de dados. Deve ser o mesmo do Cliente. Note que esta opção é suportada somente em bases MySQL >= 4.1.1 ou PostgreSQL >= 7.1. Escolha "Não disponível" caso a base de dados não atenda aos requisitos.]]></message>
+	<message key="installer.connectionCharsetInstructions"><![CDATA[A codificação utilizada para dados enviados e recebidos pela base de dados. Deve ser o mesmo do Cliente. Note que esta opção é suportada somente em bases MySQL >= 4.1.1 ou PostgreSQL >= 7.1. Escolha "Indisponível" caso a base de dados não atenda aos requisitos.]]></message>
 	<message key="installer.contentsOfConfigFile">Conteúdo para ficheiro de configuração</message>
 	<message key="installer.createDatabase">Criar nova base de dados</message>
-	<message key="installer.createDatabaseInstructions">Para utilizar esta opção o servidor de bases de dados deve permitir criação de bases remotamente e o nome de utilizador e senha deve possuir as permissões necessárias para criação de bases e tabelas. Caso ocorra um erro durante a instalação, crie manualmente a base de dados no servidor e execute novamente o instalador desactivando esta opção.</message>
+	<message key="installer.createDatabaseInstructions">Para utilizar esta opção o servidor de bases de dados deve permitir criação de bases remotamente e o nome de utilizador e senha deve possuir as permissões necessárias para a criação de bases e tabelas. Caso ocorra um erro durante a instalação, crie manualmente a base de dados no servidor e execute novamente o instalador desactivando esta opção.</message>
 	<message key="installer.databaseCharset">Conjunto de Caracteres da Base de Dados</message>
 	<message key="installer.databaseCharsetInstructions"><![CDATA[Conjunto de Caracteres para armazenamento de dados na base. Note que esta funcionalidade é suportada somente em MySQL >= 4.1.1 ou PostgreSQL >= 7.1. Escolha "Não disponível" caso o servidor de bases de dados não atenda aos requisitos.]]></message>
 	<message key="installer.databaseDriver">Driver da Base de Dados</message>
@@ -50,13 +50,13 @@
 	<message key="installer.form.passwordRequired">Senha obrigatória.</message>
 	<message key="installer.form.passwordsDoNotMatch">Senhas inseridas não combinam.</message>
 	<message key="installer.form.separateMultiple">Separe valores múltiplos com vírgulas</message>
-	<message key="installer.form.usernameAlphaNumeric">A autenticação apenas pode conter caracteres alfanuméricos, sublinhados "_" e hífens "-", devendo começar e terminar por um caractere alfanumérico.</message>
+	<message key="installer.form.usernameAlphaNumeric">A autenticação apenas pode conter caracteres alfanuméricos, sublinhados "_" e hífens "-", devendo começar e terminar por um caracter alfanumérico.</message>
 	<message key="installer.form.usernameRequired">Autenticação obrigatória.</message>
 	<message key="installer.installationWrongPhp"><![CDATA[<br /><strong>AVISO: A versão do PHP utilizada não está em conformidade com os requisitos mínimos para instalação do sistema. Recomenda-se usar a versão mais recente do PHP.</strong>]]></message>
 	<message key="installer.installErrorsOccurred">Ocorreram erros durante a instalação</message>
 	<message key="installer.installerSQLStatements">Comandos SQL para instalação</message>
 	<message key="installer.installFileError"><![CDATA[O documento de instalação <tt>dbscripts/xml/install.xml</tt> não existe ou não possui permissão de leitura.]]></message>
-	<message key="installer.installFilesDirError">A pasta indicado não existe ou não possui permissão de escrita.</message>
+	<message key="installer.installFilesDirError">A pasta indicada não existe ou não possui permissão de escrita.</message>
 	<message key="installer.installParseDBFileError"><![CDATA[Erro na execução do documento de instalação da base de dados <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale">Idioma</message>
 	<message key="installer.localeSettings">Configurações de Idioma (Localização)</message>
@@ -69,4 +69,6 @@
 	<message key="installer.locale.maybeIncomplete">Traduções marcadas podem estar incompletas.</message>
 	<message key="installer.installParseFilterConfigFileError"><![CDATA[Erro ao analisar filtro do ficheiro de configuração <tt>{$file}</tt>.]]></message>
 	<message key="installer.oaiSettings">Configurações OAI</message>
+	<message key="installer.beacon">Beacon</message>
+	<message key="installer.beacon.enable">Indicar um ID do portal e URL base OAI URL para o PHP apenas para fins de alerta de segurança e estatísticas.</message>
 </locale>

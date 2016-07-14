@@ -48,9 +48,9 @@ class NotificationsGridCellProvider extends GridCellProvider {
 				array('redirect' => 1, 'selectedElements' => array($notification->getId()))
 			)),
 			($notification->getDateRead()?'':'<strong>') . __('common.tasks.titleAndTask', array(
-				'acronym' => $context->getLocalizedAcronym(),
-				'title' => $this->_getTitle($notification),
-				'task' => $notificationMgr->getNotificationMessage($request, $notification)
+				'acronym' => htmlspecialchars($context->getLocalizedAcronym()),
+				'title' => htmlspecialchars($this->_getTitle($notification)),
+				'task' => PKPString::stripUnsafeHtml($notificationMgr->getNotificationMessage($request, $notification))
 			)) . ($notification->getDateRead()?'':'</strong>')
 		));
 	}

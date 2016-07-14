@@ -46,6 +46,6 @@
 
 {if count($actions) gt 0}
 	{foreach from=$actions item=action}
-		{include file="linkAction/linkAction.tpl" action=$action contextId=$cellId}
+		{include file="linkAction/linkAction.tpl" action=$action contextId=$cellId anyhtml=$column->hasFlag('anyhtml')}
 	{/foreach}
 {/if}

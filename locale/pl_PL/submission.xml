@@ -116,7 +116,7 @@
 	<message key="submission.changeComments">Zmień na</message>
 	<message key="submission.citations">Bibliografia</message>
 	<message key="submission.citations.editor.citationlist.deleteCitationConfirmation">Czy na pewno chcesz usunąć to cytowanie?</message>
-	<message key="submission.citations.editor.citationlist.errorDeletingCitation">An error occurred while trying to delete the citation.  Please report this as a bug.</message>
+	
 	<message key="submission.citations.editor.citationlist.newCitation">Nowe cytowanie</message>
 	<message key="submission.citations.editor.citationlist.title">Edycja cytowania</message>
 	<message key="submission.citations.editor.clickToEdit">Kliknij aby edytować.</message>

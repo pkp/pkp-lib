@@ -13,7 +13,6 @@
 <locale name="pl_PL" full_name="Język Polski">
 	<message key="comments.anonymous">Anonimowy użytkownik</message>
 	<message key="comments.anonymousNamed">"{$userName}"</message>
-	<message key="comments.body">Body</message>
 	<message key="comments.titleRequired">Wymagane jest podanie tytułu komentarza.</message>
 	<message key="comments.confirmDeleteChildren">Usunięcie komentarza spowoduje usunięcie powiązanych wątków (komentarzy). Czy jesteś pewien, że chcesz usunąć swój komentarz?</message>
 	<message key="comments.delete">Usuń komentarz</message>
@@ -57,17 +56,9 @@
 
 	<message key="rt.admin.versions.createVersion">Stwórz wersję</message>
 	<message key="rt.admin.versions.edit.editVersion">Edytuj wersję</message>
-	<message key="rt.admin.versions.export">Export</message>
-	<message key="rt.admin.versions.importVersion">Import Version</message>
-	<message key="rt.admin.versions.metadata">Metadata</message>
-	<message key="rt.admin.versions.restoreVersions">Restore Versions to Defaults</message>
 	<message key="rt.authorBio">O autorze</message>
 	<message key="rt.captureCite.format">Format cytowania</message>
 	<message key="rt.captureCite">Jak cytować publikację</message>
-	<message key="rt.captureCite.online">Online</message>
-	<message key="rt.captureCite.web">Web</message>	
-	<message key="rt.colleague">Notify colleague</message>
-	<message key="rt.context.abbrev">Abbrev</message>
 	<message key="rt.context.and">AND</message>
 	<message key="rt.context.searchTerms">Wyszukaj w zasadach</message>
 	<message key="rt.context.termToDefine">Słowo do zdefiniowania</message>
@@ -88,22 +79,17 @@
 	<message key="rt.metadata.forThisDocument">Metadane dla dokumentu</message>
 	<message key="rt.metadata.pkp.abstract">Abstrakt</message>
 	<message key="rt.metadata.pkp.copyright">Prawa autorskie i zasady wykorzystania</message>
-	<message key="rt.metadata.pkp.coverage">Geo-spatial location, chronological period, research sample (gender, age, etc.)</message>
 	<message key="rt.metadata.pkp.date">(YYYY-MM-DD)</message>
 	<message key="rt.metadata.pkp.discipline">Dyscyplina(y)</message>
 	<message key="rt.metadata.pkp.format">Format pliku</message>
 	<message key="rt.metadata.pkp.genre"><![CDATA[Status & genre]]></message>
-	<message key="rt.metadata.pkpItem">PKP Metadata Items</message>
 	<message key="rt.metadata.pkp.language">Polish=PL</message>
-	<message key="rt.metadata.pkp.publisher">Organizing agency, location</message>
 	<message key="rt.metadata.pkp.source">Tytuł czasopisma/konferencji; vol., nr. (rok)</message>
 	<message key="rt.metadata.pkp.sponsors">Sponsor(rzy)</message>
 	<message key="rt.metadata.pkp.subjectClass">Klasyfikacja przedmiotowa</message>
 	<message key="rt.metadata.pkp.subject">Słowo(a) kluczowe </message>
-	<message key="rt.metadata.pkp.suppFiles">Supp. Files</message>
 	<message key="rt.metadata.pkp.title">Tytuł dokumentu</message>
 	<message key="rt.metadata.pkp.type">Typ</message>
-	<message key="rt.metadata.pkp.uri">Uniform Resource Identifier</message>
 	<message key="rt.printVersion">Wersja drukowana</message>
 	<message key="rt.readingTools">Reading Tools</message>
 	<message key="rt.relatedItems">Powiązane pozycje</message>
@@ -118,12 +104,9 @@
 	<message key="rt.search.title">Tytuł</message>
 	<message key="rt.search.url">WWW</message>
 	<message key="rt.suppFiles.download">Pobierz</message>
-	<message key="rt.suppFiles">Supplementary files</message>
 	<message key="rt.suppFiles.viewMetadata">Indeksowane metadane</message>
-	<message key="rt.version.description">Description</message>
 	<message key="rt.version.key">Klucz</message>
 	<message key="rt.version.locale">Lokalizacja</message>
-	<message key="rt.versions">Related Item Sets</message>
 	<message key="rt.version.title">Tytuł</message>
 	<message key="rt.version">Wersja</message>
 	<message key="rt.viewMetadata">Indeksowane metadane</message>

@@ -260,10 +260,8 @@
 	<message key="search.operator.and">ETA</message>
 	<message key="search.operator.not">EZ</message>
 	<message key="search.operator.or">EDO</message>
-	<message key="search.reviseSearch">Berrikusi bilaketa</message>
 	<message key="search.searchAllCategories">Bilatu kategoria guztietan</message>
 	<message key="search.searchCategories">Bilaketa egiteko kategoriak</message>
-	<message key="search.searchResults">Bilaketaren emaitza</message>
 	<message key="search.subject">Gako-hitza(k)</message>
 	<message key="search.titleIndex">Arakatu tituluen indizea</message>
 	<message key="search.title">Titulua</message>

@@ -38,7 +38,6 @@
 	<message key="admin.languages.reload">Reload locale</message>
 	<message key="admin.languages.uninstall">Uninstal locale</message>
 	<message key="admin.phpInfo"> Informasi Detail PHP</message>
-	<message key="admin.saveSystemConfig">Simpan Konfigurasi</message>
 	<message key="admin.server.apacheVersion">Versi Apache</message>
 	<message key="admin.server.dbDriver">Database driver</message>
 	<message key="admin.server.dbVersion">Versi server database</message>

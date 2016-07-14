@@ -112,7 +112,6 @@
 	<message key="common.notAvailable">موجود نیست</message>
 	<message key="common.note">یادداشت</message>
 	<message key="common.notes">یادداشت ها</message>
-	<message key="common.notify">آگاه کن</message>
 	<message key="common.off">خاموش</message>
 	<message key="common.on">روشن</message>
 	<message key="common.options">گزینه ها</message>
@@ -260,10 +259,8 @@
 	<message key="search.operator.and">and</message>
 	<message key="search.operator.not">not</message>
 	<message key="search.operator.or">or</message>
-	<message key="search.reviseSearch">تجدید نظر در جستجو</message>
 	<message key="search.searchAllCategories">جستجو کن تمام قسمت ها را برای</message>
 	<message key="search.searchCategories">قسمت های جستجو</message>
-	<message key="search.searchResults">نتایج جستجو</message>
 	<message key="search.subject">کلید واژه</message>
 	<message key="search.titleIndex">مرور اندکس عناوین</message>
 	<message key="search.title">عنوان</message>

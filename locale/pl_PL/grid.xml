@@ -21,8 +21,6 @@
 	<message key="grid.action.remove">Wycofaj</message>
 	<message key="grid.action.edit">Edytuj</message>
 	<message key="grid.action.approve">Akceptuj</message>
-	<message key="grid.action.approveForReview">Zaakceptuj etap recenzowania</message>
-	<message key="grid.action.approveForPub">Zaakceptuj publikację</message>
 	<message key="grid.action.decline">Odrzuć</message>
 	<message key="grid.action.moreInformation">Więcej informacji</message>
 	<message key="grid.action.restoreDefaults">Przywróć domyślne</message>
@@ -36,9 +34,6 @@
 	<message key="grid.sponsor.title">Sponsorzy</message>
 
 	<!-- Masthead Grid -->
-	<message key="grid.masthead.title">Nagłówek (?)</message>
-	<message key="grid.masthead.column.groups">Grupy</message>
-
 	<!-- Contributor Grid -->
 	<message key="grid.contributor.title">Współautorzy</message>
 	<message key="grid.action.addAuthor">Dodaj autora</message>
@@ -47,22 +42,7 @@
 	<message key="grid.reviewForm.title">Formularz recenzji</message>
 
 	<!-- Book File Types Grid -->
-	<message key="grid.bookFileType.form.sortable">Pozwól, aby pliki tego typu były sortowane wg określonego komponentu (np. rozdziału)</message>
-
 	<!-- Artwork Files Grid -->
-	<message key="grid.artworkFile.file">Plik</message>
-	<message key="grid.artworkFile.caption">Wielkie litery</message>
-	<message key="grid.artworkFile.copyrightOwner">Właściciel praw autorskich</message>
-	<message key="grid.artworkFile.copyrightContact">Dane kontaktowe (if not author/publisher)</message>
-	<message key="grid.artworkFile.permissionTerms">Zasady wykorzystania</message>
-	<message key="grid.artworkFile.permissionForm">Formularz z zasadami wykorzystania (?)</message>
-	<message key="grid.artworkFile.type">Typ</message>
-	<message key="grid.artworkFile.type.table">Tabela</message>
-	<message key="grid.artworkFile.type.figure">Wykres</message>
-	<message key="grid.artworkFile.placement">Lokalizacja w książce</message>
-	<message key="grid.artworkFile.placementDetail">Numer tabeli/wykresu</message>
-	<message key="grid.artworkFile.contactAuthor">Kontakt z autorem</message>
-
 	<!-- Library Files -->
 	<message key="grid.libraryFiles.column.files">Pliki</message>
 	<message key="grid.libraryFiles.submission.title">Biblioteka depozytów (?)</message>
@@ -77,9 +57,5 @@
 	<message key="author.users.contributor.name">Nazwisko</message>
 
 	<!-- Review Attachments -->
-	<message key="grid.reviewAttachments.title">Załącznik recenzenta</message>
-	<message key="grid.reviewAttachments.add">Dodaj załącznik do recenzji</message>
-
 	<!-- Chapters -->
-	<message key="grid.chapters.title">Rozdziały</message>
 </locale>

@@ -337,7 +337,6 @@
 	<message key="submission.viewMetadata">മെറ്റാഡാറ്റാ വ്യൂ ചെയ്യുക</message>
 	<message key="submission.views">വ്യൂസ്</message>
 	<message key="submission.uploadSuccessful">താങ്കളുടെ ഫയല്‍ അപ് ലോഡ് ചെയ്തിരിക്കുന്നു.</message>
-	<message key="submission.uploadSuccessfulContinue">താങ്കളുടെ ഫയല്‍ അപ് ലോഡ് ചെയ്തിരിക്കുന്നു. ഫയലിന്റെ മെറ്റാഡാറ്റ ചിട്ടപ്പെടുത്തുന്നതിനായി തുടരുക -ല്‍ പ്രെസ്സ് ചെയ്യുക.</message>
 	<message key="submission.loadMessage">താങ്കളുടെ ഫയല്‍ സെര്‍വറിലേക്ക് അപ് ലോഡ് ചെയ്യുന്നത് വരെ കാത്തിരിക്കുക.</message>
 	<message key="submission.artworkFileDetails">ആര്‍ട്ട് വര്‍ക്ക് ഫയലിന്റെ വിവരങ്ങള്‍</message>
 	<message key="submission.fileDetails">ഫയലിന്റെ വിവരങ്ങള്‍</message>

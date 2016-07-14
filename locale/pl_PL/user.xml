@@ -46,7 +46,6 @@
 	<message key="user.login.forgotPassword">Zapomniałeś hasła?</message>
 	<message key="user.login.loginError">Błędna nazwa użytkownika lub hasło. Spróbuj ponownie.</message>
 	<message key="user.login">Zaloguj się</message>
-	<message key="user.logIn">Zaloguj się</message>
 	<message key="user.login.lostPassword.confirmationSent">Potwierdzenie zostało wysłane na skrzynkę e-mail. Aby zmienić hasło, proszę postępować zgodnie ze wskazówkami zamieszczonymi w przesłanej wiadomości.</message>
 	<message key="user.login.lostPassword.invalidHash">Przepraszamy, ten link jest nieaktywny. Spróbuj zresetować swoje hasło ponownie. </message>
 	<message key="user.login.lostPassword.invalidUser">Użytkownik z takim adresem e-mail nie istnieje.</message>

@@ -31,38 +31,16 @@
 	<message key="grid.sponsor.title">Sponsori</message>
 
 	<!-- Masthead Grid -->
-	<message key="grid.masthead.title">Groupe</message>
-
 	<!-- Contributor Grid -->
 	<message key="grid.contributor.title">Contribuitor</message>
 	<message key="grid.settings">Setări</message>
 	<message key="grid.action.remove">Elimină</message>
 	<message key="grid.action.approve">Aprobă</message>
-	<message key="grid.action.approveForReview">Trimite către sesiunea de evaluare</message>
-	<message key="grid.action.approveForPub">Aprobă pentru publicare</message>
 	<message key="grid.action.decline">Refuză</message>
 	<message key="grid.action.moreInformation">Mai multe informații</message>
 	<message key="grid.action.restoreDefaults">Restaurează setările implicite</message>
-	<message key="grid.masthead.column.groups">Grupuri</message>
 	<message key="grid.action.addAuthor">Adaugă autor</message>
 	<message key="grid.reviewForm.title">Formulare de evaluare</message>
-	<message key="grid.artworkFile.title">Permisiuni de scriere pentru aspectul vizual</message>
-	<message key="grid.artworkFile.file">Fișier</message>
-	<message key="grid.artworkFile.form.title">Adaugă permisiuni de scriere pentru aspectul vizual</message>
-	<message key="grid.artworkFile.form.metadata">Metadatele pentru aspectul vizual</message>
-	<message key="grid.artworkFile.caption">Etichetă</message>
-	<message key="grid.artworkFile.credit">Autorul</message>
-	<message key="grid.artworkFile.captionAndCredit">Etichetă și autor (dacă nu este inclus în fișier)</message>
-	<message key="grid.artworkFile.copyrightOwner">Deținătorul drepturilor de copyright</message>
-	<message key="grid.artworkFile.copyrightContact">Informații de contact (dacă nu este autorul/editorul)</message>
-	<message key="grid.artworkFile.permissionTerms">Termenii privind permisiunile</message>
-	<message key="grid.artworkFile.permissionForm">Formularul pentru permisiuni</message>
-	<message key="grid.artworkFile.type">Tip</message>
-	<message key="grid.artworkFile.type.table">Tabel</message>
-	<message key="grid.artworkFile.type.figure">Figură</message>
-	<message key="grid.artworkFile.placement">Localizarea în carte</message>
-	<message key="grid.artworkFile.placementDetail">Tabel/ Fig. nr.</message>
-	<message key="grid.artworkFile.contactAuthor">Contactează autorul</message>
 	<message key="grid.libraryFiles.column.files">Fișiere</message>
 	<message key="grid.libraryFiles.submission.title">Biblioteca propunerilor</message>
 	<message key="grid.libraryFiles.editorial.title">Biblioteca redacțională</message>
@@ -75,9 +53,6 @@
 	<message key="author.users.contributor.email">Email</message>
 	<message key="author.users.contributor.role">Rol</message>
 	<message key="author.users.contributor.principalContact">Contact primar</message>
-	<message key="grid.reviewAttachments.title">Atașamentele evaluatorilor</message>
-	<message key="grid.reviewAttachments.add">Adaugă atașament pentru evaluare</message>
-	<message key="grid.chapters.title">Capitole</message>
 	<message key="grid.action.addUser">Adaugă utilizator</message>
 	<message key="grid.action.deleteFile">Șterge fișier</message>
 	<message key="grid.action.deleteMedia">Șterge media</message>

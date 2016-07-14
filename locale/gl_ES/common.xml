@@ -113,7 +113,6 @@
 	<message key="common.notAvailable">Non dispoñibel</message>
 	<message key="common.note">Nota</message>
 	<message key="common.notes">Notas</message>
-	<message key="common.notify">Notificar</message>
 	<message key="common.off">Off</message>
 	<message key="common.on">On</message>
 	<message key="common.options">Opcións</message>
@@ -261,10 +260,8 @@
 	<message key="search.operator.and">and</message>
 	<message key="search.operator.not">not</message>
 	<message key="search.operator.or">or</message>
-	<message key="search.reviseSearch">Revisar busca</message>
 	<message key="search.searchAllCategories">Procurar en todas as categorías</message>
 	<message key="search.searchCategories">Procurar categorías</message>
-	<message key="search.searchResults">Procurar resultados</message>
 	<message key="search.subject">Palabra(s) clave(s)</message>
 	<message key="search.titleIndex">Consultar índice de títulos</message>
 	<message key="search.title">Título</message>
@@ -277,7 +274,6 @@
 	<message key="notification.reminderError">Houbo un erro enviado  o teu contrasinal, por favor comproba que escribiches ben o teu enderezo de correo electrónico.</message>
 	<message key="notification.reminderSent">O teu novo contrasinal foi enviado ao enderezo de correo electrónico proporcionado.</message>
 	<message key="notification.unsubscribe">Des-subscribirse</message>
-	<message key="notification.unsubscribeDescription">Introduce o teu enderezo de correo electrónico e o teu contrasinal para darte de baixa da subscrición ás notificacións vía correo electrónico. Se non lembras o teu contrasinal, deixa o campo do contrasinal baleiro e enviaráchese un novo contrasinal ao teu correo electrónico.</message>
 	<message key="notification.unsubscribeError">Houbo un erro ao darte de baixa da subscrición. Comproba que o teu enderezo de correo electrónico e o teu contrasinal son correctos.</message>
 	<message key="notification.unsubscribeSuccess">Foi correctamente dado de baixa da subscrición.</message>
 	<message key="common.re">Re:</message>
@@ -318,7 +314,6 @@
 	<message key="common.false">Falso</message>
 	<message key="common.ok">OK</message>
 	<message key="common.true">Verdadeiro</message>
-	<message key="common.actingAsUserGroup.userIsNotInTargetUserGroup">Non formas parte deste grupo de usuarios.</message>
 	<message key="common.disable">Desactivar</message>
 	<message key="common.enable">Activar</message>
 	<message key="common.fullscreen">Pantalla completa</message>

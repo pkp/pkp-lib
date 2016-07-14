@@ -31,7 +31,6 @@
 	<message key="announcement.posted">ഉള്‍പ്പെടുത്തി</message>
 	<message key="announcement.viewLink">കൂടുതല്‍ ...</message>
 	<message key="announcement.view">അറിയിപ്പുകള്‍ കാണുക</message>
-	<message key="common.actingAsUserGroup.userIsNotInTargetUserGroup">താങ്കള്‍ ഈ ഉപയോക്തൃ കൂട്ടത്തില്‍ ഇല്ല.</message>
 	<message key="common.action">നടപടി</message>
 	<message key="common.activate">പ്രവര്‍ത്തനക്ഷമമാക്കുക</message>
 	<message key="common.active">പ്രവര്‍ത്തനക്ഷമം</message>
@@ -132,7 +131,6 @@
 	<message key="common.notAvailable">ലഭ്യമല്ല</message>
 	<message key="common.note">കുറിപ്പ്</message>
 	<message key="common.notes">കുറിപ്പുകള്‍</message>
-	<message key="common.notify">പരസ്യപ്പെടുത്തുക</message>
 	<message key="common.off">ഓഫ്</message>
 	<message key="common.on">ഓണ്‍</message>
 	<message key="common.ok">ഒ.കെ</message>
@@ -301,7 +299,6 @@
 	<message key="notification.reminderError">താങ്കളുടെ രഹസ്യവാക്ക് അയക്കുന്നതില്‍ പിശക് സംഭവിച്ചിരിക്കുന്നു. ദയവായി താങ്കള്‍ നല്‍ക്കിയ ഇ-മെയില്‍ വിലാസം ശരിയാണെന്ന് ഉറപ്പ് വരുത്തുക.</message>
 	<message key="notification.reminderSent">താങ്കള്‍ നല്‍കിയ ഇ-മെയില്‍ വിലാസത്തിലേക്ക് പുതിയ രഹസ്യവാക്ക് അയച്ചിരിക്കുന്നു.</message>
 	<message key="notification.unsubscribe">അണ്‍-സബ്സ്ക്രൈബ്</message>
-	<message key="notification.unsubscribeDescription">ഇ-മെയില്‍ വിജ്ഞാപനങ്ങള്‍ അണ്‍-സബ്സ്ക്രൈബ് ചെയ്യുന്നതിനായി താങ്കളുടെ ഇ-മെയില്‍ വിലാസവും രഹസ്യവാക്കു നല്‍ക്കുക. രഹസ്യവാക്ക് ഓര്‍ക്കുന്നില്ലെങ്കില്‍ അതു നല്‍കേണ്ടത്തില്ല, പുതിയ രഹസ്യവാക്ക് താങ്കള്‍ നല്‍കിയ ഇ-മെയില്‍ വിലാസത്തിലേക്ക് അയക്കുന്നതാണ്.</message>
 	<message key="notification.unsubscribeError">അണ്‍-സബ്സ്ക്രൈബ് ചെയ്യുന്നത്തില്‍ പിശക് സംഭവിച്ചിരിക്കുന്നു.  ദയവായി താങ്കള്‍ നല്‍ക്കിയ ഇ-മെയില്‍ വിലാസവും രഹസ്യവാക്കും ശരിയാണെന്ന് ഉറപ്പ് വരുത്തുക.</message>
 	<message key="notification.unsubscribeSuccess">താങ്കള്‍ വിജയകരമായി അണ്‍-സബ്സ്ക്രൈബ് ചെയ്തിരിക്കുന്നു.</message>
 	<message key="search.abstract">അബ്സ്ട്രാക്ട്</message>
@@ -319,10 +316,8 @@
 	<message key="search.operator.and">and</message>
 	<message key="search.operator.not">not</message>
 	<message key="search.operator.or">or</message>
-	<message key="search.reviseSearch">അന്വേഷണം പുനഃപരിശോധിക്കുക</message>
 	<message key="search.searchAllCategories">എല്ലാം വിഭാഗങ്ങളും അന്വേഷിക്കുന്നതിന്:</message>
 	<message key="search.searchCategories">വിഭാഗങ്ങള്‍ തിരയുക</message>
-	<message key="search.searchResults">തിരച്ചില്‍ ഫലങ്ങള്‍</message>
 	<message key="search.subject">കീ-വേഡ്</message>
 	<message key="search.titleIndex">തലക്കെട്ട് സൂചിക പരതുക</message>
 	<message key="search.title">തലക്കെട്ട്</message>

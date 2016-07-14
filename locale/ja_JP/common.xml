@@ -113,7 +113,6 @@
 	<message key="common.notAvailable">利用できません</message>
 	<message key="common.note">注記</message>
 	<message key="common.notes">注記</message>
-	<message key="common.notify">通知</message>
 	<message key="common.off">オフ</message>
 	<message key="common.on">オン</message>
 	<message key="common.options">オプション</message>
@@ -261,10 +260,8 @@
 	<message key="search.operator.and">and</message>
 	<message key="search.operator.not">not</message>
 	<message key="search.operator.or">or</message>
-	<message key="search.reviseSearch">絞込検索</message>
 	<message key="search.searchAllCategories">検索語（全フィールド対象）</message>
 	<message key="search.searchCategories">フィールド検索</message>
-	<message key="search.searchResults">検索結果</message>
 	<message key="search.subject">キーワード</message>
 	<message key="search.titleIndex">タイトルインデックスをブラウズ</message>
 	<message key="search.title">タイトル</message>

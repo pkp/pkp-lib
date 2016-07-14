@@ -79,7 +79,6 @@
 	<message key="grid.action.collapseAll">zatvori sve</message>
 	<message key="grid.action.wizard">Čarobnjak podešavanja</message>
 	<message key="grid.action.moveItem">Premesti stavku</message>
-	<message key="grid.action.downloadFile">Preuzmi fajl</message>
 	<message key="grid.action.downloadAll">Preuzmi sve fajlove kao arhivu</message>
 	<message key="grid.action.readReview">Pročitaj recenziju</message>
 	<message key="grid.action.email">Pošalji imejl</message>

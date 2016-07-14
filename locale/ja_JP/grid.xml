@@ -23,8 +23,6 @@
 	<message key="grid.action.remove">削除</message>
 	<message key="grid.action.edit">編集</message>
 	<message key="grid.action.approve">承認</message>
-	<message key="grid.action.approveForReview">査読段階に送る</message>
-	<message key="grid.action.approveForPub">公開の承認</message>
 	<message key="grid.action.decline">謝絶</message>
 	<message key="grid.action.moreInformation">詳細</message>
 	<message key="grid.action.restoreDefaults">デフォルトに戻す</message>
@@ -38,9 +36,6 @@
 	<message key="grid.sponsor.title">スポンサー</message>
 
 	<!-- Masthead Grid -->
-	<message key="grid.masthead.title">発行人</message>
-	<message key="grid.masthead.column.groups">グループ</message>
-
 	<!-- Contributor Grid -->
 	<message key="grid.contributor.title">貢献者</message>
 	<message key="grid.action.addAuthor">著者の追加</message>
@@ -49,24 +44,6 @@
 	<message key="grid.reviewForm.title">査読フォーム</message>
 
 	<!-- Artwork Files Grid -->
-	<message key="grid.artworkFile.title">芸術作品(許諾あり)</message>
-	<message key="grid.artworkFile.file">ファイル</message>
-	<message key="grid.artworkFile.form.title">芸術作品(許諾あり)を追加</message>
-	<message key="grid.artworkFile.form.metadata">芸術作品のメタデータ</message>
-	<message key="grid.artworkFile.caption">キャプション</message>
-	<message key="grid.artworkFile.credit">クレジット</message>
-	<message key="grid.artworkFile.captionAndCredit">キャプション・クレジット (もしファイルに含まれていない場合)</message>
-	<message key="grid.artworkFile.copyrightOwner">著作権者</message>
-	<message key="grid.artworkFile.copyrightContact">連絡先 (著者・出版社以外の場合)</message>
-	<message key="grid.artworkFile.permissionTerms">許諾条件</message>
-	<message key="grid.artworkFile.permissionForm">許諾フォーム</message>
-	<message key="grid.artworkFile.type">タイプ</message>
-	<message key="grid.artworkFile.type.table">表</message>
-	<message key="grid.artworkFile.type.figure">図</message>
-	<message key="grid.artworkFile.placement">図書の中での配置</message>
-	<message key="grid.artworkFile.placementDetail">表/図. No.</message>
-	<message key="grid.artworkFile.contactAuthor">Contact Author</message>
-
 	<!-- Library Files -->
 	<message key="grid.libraryFiles.column.files">ファイル</message>
 	<message key="grid.libraryFiles.submission.title">Submission Library</message>
@@ -86,9 +63,5 @@
 	<message key="author.users.contributor.principalContact">主な連絡先</message>
 
 	<!-- Review Attachments -->
-	<message key="grid.reviewAttachments.title">査読者ファイル</message>
-	<message key="grid.reviewAttachments.add">査読用のファイルを追加</message>
-
 	<!-- Chapters -->
-	<message key="grid.chapters.title">章</message>
 </locale>

@@ -63,7 +63,6 @@
 	<message key="installer.locale">Localizare</message>
 	<message key="installer.locale.maybeIncomplete">Localizările marcate pot fi incomplete.</message>
 	<message key="installer.localeSettings">Setări pentru localizare</message>
-	<message key="installer.miscSettings">Setări diverse</message>
 	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Un identificator unic pentru identificarea înregistrărilor de metadate indexate de pe acest site folosind <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protocol for Metadata Harvesting.]]></message>
 	<message key="installer.oaiRepositoryId">Identificator pentru depozit OAI</message>
 	<message key="installer.publicFilesDirError">Directorul public pentru încărcarea fișierelor nu există sau nu poate fi inscripționat.</message>

@@ -111,7 +111,6 @@
 	<message key="common.notAvailable">Ej tillgängligt</message>
 	<message key="common.note">Anteckning</message>
 	<message key="common.notes">Anteckningar</message>
-	<message key="common.notify">Meddela</message>
 	<message key="common.off">Av</message>
 	<message key="common.on">På</message>
 	<message key="common.options">Val</message>
@@ -254,10 +253,8 @@
 	<message key="search.operator.and">AND</message>
 	<message key="search.operator.not">NOT</message>
 	<message key="search.operator.or">OR</message>
-	<message key="search.reviseSearch">Gör om sökning</message>
 	<message key="search.searchAllCategories">Sök i alla kategorier för</message>
 	<message key="search.searchCategories">Sök i kategorier</message>
-	<message key="search.searchResults">Sökresultat</message>
 	<message key="search.subject">Nyckelord</message>
 	<message key="search.titleIndex">Bläddra Titelregister</message>
 	<message key="search.title">Titel</message>

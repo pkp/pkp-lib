@@ -50,7 +50,6 @@
 	<message key="user.login.forgotPassword">താങ്കളുടെ പാസ് വേഡ് മറന്നുവോ?</message>
 	<message key="user.login.loginError">അസാധുവായ യൂസര്‍ നാമം അല്ലെങ്കില്‍ പാസ് വേഡ്.ദയവായി വീണ്ടും ശ്രമിക്കൂ.</message>
 	<message key="user.login">ലോഗിന്‍</message>
-	<message key="user.logIn">ലോഗിന്‍</message>
 	<message key="user.login.lostPassword.confirmationSent">സ്ഥിരീകരണം താങ്കളുടെ ഇ-മെയിലിലേക്ക് അയച്ചിട്ടുണ്ട്.പാസ് വേഡ് പുന:ക്രമീകരിക്കുന്നതിനായി ദയവായി ഇ-മെയിലില്‍ നല്‍കിയിരിക്കുന്ന നിര്‍ദ്ദേശങ്ങള്‍ പാലിക്കുക.</message>
 	<message key="user.login.lostPassword.invalidHash">ക്ഷമിക്കണം,താങ്കള്‍ ക്ലിക്ക് ചെയ്ത ലിങ്ക് ഇപ്പോള്‍ പ്രാബല്യത്തിലില്ല.ദയവായി താങ്കളുടെ പാസ് വേഡ് പുന:ക്രമീകരിച്ച് വീണ്ടും ശ്രമിക്കുക.</message>
 	<message key="user.login.lostPassword.invalidUser">ഈ ഇ-മെയില്‍ അഡ്രസ്സില്‍ ഒരു യൂസറും ഇപ്പോള്‍ നിലവിലില്ല.</message>

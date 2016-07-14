@@ -39,7 +39,6 @@
 	<message key="admin.languages.reload">Recargar ficheiros de idiomas</message>
 	<message key="admin.languages.uninstall">Desinstalar ficheiro de idiomas</message>
 	<message key="admin.phpInfo">Información PHP extendida</message>
-	<message key="admin.saveSystemConfig">Gardar configuración</message>
 	<message key="admin.server.apacheVersion">Versión Apache</message>
 	<message key="admin.server.dbDriver">Xestor de bases de dados</message>
 	<message key="admin.server.dbVersion">Versión do xestor de bases de dados</message>

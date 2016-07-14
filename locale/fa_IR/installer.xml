@@ -59,7 +59,6 @@
 	<message key="installer.installParseDBFileError"><![CDATA[بروز خطا هنگام تجزیه فایل نصبی بانک اطلاعاتی <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale">زبان</message>
 	<message key="installer.localeSettings">تنظیمات زبانی</message>
-	<message key="installer.miscSettings">تنظیمات متفرقه</message>
 	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[یک شناسه منحصر به فرد برای تشخیص رکورد های متاداه اندکس شده از این سایت توسط پروتوکل  <a href="http://www.openarchives.org/" target="_blank">پیشگام بایگانی آزاد</a> برای استخراج متا داده.]]></message>
 	<message key="installer.oaiRepositoryId">شناسه مخزن OAI</message>
 	<message key="installer.publicFilesDirError">پوشه public وجود ندارد ویا قابل نوشتن نیست</message>

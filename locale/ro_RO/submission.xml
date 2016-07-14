@@ -346,7 +346,6 @@
 	<message key="submission.currentAgencies">Agențiile existente</message>
 	<message key="submission.indexingInformation">Informații pentru indexare</message>
 	<message key="submission.uploadSuccessful">Fișierul dumneavoastră a fost încărcat.</message>
-	<message key="submission.uploadSuccessfulContinue">Fișierul tău a fost încărcat. Apasă pe continuă pentru a edita metadatele fișierului.</message>
 	<message key="submission.loadMessage">Așteaptă cât timp fișierul este încărcat pe server.</message>
 	<message key="submission.artworkFileDetails">Detaliile pentru aspectul vizual al fișierului</message>
 	<message key="submission.fileDetails">Detaliile fișierului</message>

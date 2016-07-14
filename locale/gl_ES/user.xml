@@ -40,7 +40,6 @@
 	<message key="user.login.forgotPassword"> Esqueciches o teu contrasinal?</message>
 	<message key="user.login.loginError">Nome de usuaria/o ou contrasinal non válido. Téntao outra vez.</message>
 	<message key="user.login">Login</message>
-	<message key="user.logIn">Entrar</message>
 	<message key="user.login.lostPassword.confirmationSent">Envióuseche unha confirmación por correo-e. Sigue as instruccións para cambiar o teu contrasinal.</message>
 	<message key="user.login.lostPassword.invalidHash">Sentímolo, a ligazón caducou ou non é válido. Intenta cambiar o teu contrasinal outra vez.</message>
 	<message key="user.login.lostPassword.invalidUser">Non existe nengún/a usuario/a co enderezo de correo-e especificado.</message>

@@ -39,7 +39,6 @@
 	<message key="admin.languages.reload">റീലോഡ് ലൊക്കേല്‍</message>
 	<message key="admin.languages.uninstall">അണ്‍-ഇന്‍സ്റ്റാള്‍ ലൊക്കേല്‍</message>
 	<message key="admin.phpInfo">എക്സ്റ്റെന്റഡ് പി.എച്ച്.പി വിവരങ്ങള്‍</message>
-	<message key="admin.saveSystemConfig">കോണ്‍ഫിഗറേഷന്‍ രേഖപ്പെടുത്തുക</message>
 	<message key="admin.server.apacheVersion">അപ്പാച്ചെ പതിപ്പ്</message>
 	<message key="admin.server.dbDriver">ഡേറ്റാബേസ് ഡ്രൈവര്‍</message>
 	<message key="admin.server.dbVersion">ഡേറ്റാബേസ് സെര്‍വര്‍ പതിപ്പ്</message>

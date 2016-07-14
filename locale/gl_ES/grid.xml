@@ -32,9 +32,6 @@
 	<message key="grid.sponsor.title">Patrocinadores</message>
 
 	<!-- Masthead Grid -->
-	<message key="grid.masthead.title">Tope</message>
-	<message key="grid.masthead.column.groups">Grupos</message>
-
 	<!-- Contributor Grid -->
 	<message key="grid.contributor.title">Axudante</message>
 
@@ -42,26 +39,7 @@
 	<message key="grid.reviewForm.title">Formularios de revisión</message>
 
 	<!-- Book File Types Grid -->
-	<message key="grid.bookFileType.form.sortable">Permitir que os arquivos deste tipo sexan ordenados por componente (por exemplo, por capítulo)</message>
-
 	<!-- Artwork Files Grid -->
-	<message key="grid.artworkFile.title">Ilustracións / Permisos</message>
-	<message key="grid.artworkFile.file">Ficheiro</message>
-	<message key="grid.artworkFile.form.title">Engadir Ilustracións / Permisos</message>
-	<message key="grid.artworkFile.form.metadata">Metainformación das Ilustracións</message>
-	<message key="grid.artworkFile.caption">Título</message>
-	<message key="grid.artworkFile.credit">Crédito</message>
-	<message key="grid.artworkFile.copyrightOwner">Propietario do Copyright</message>
-	<message key="grid.artworkFile.copyrightContact">Información de contacto (se non hai autor/prensa)</message>
-	<message key="grid.artworkFile.permissionTerms">Termos da Licenza</message>
-	<message key="grid.artworkFile.permissionForm">Formulario da Licenza</message>
-	<message key="grid.artworkFile.type">Tipo</message>
-	<message key="grid.artworkFile.type.table">Táboa</message>
-	<message key="grid.artworkFile.type.figure">Figura</message>
-	<message key="grid.artworkFile.placement">Situación no libro</message>
-	<message key="grid.artworkFile.placementDetail">Número de Táboa/Figura</message>
-	<message key="grid.artworkFile.contactAuthor">Contactar co autor</message>
-
 	<!-- Library Files -->
 	<message key="grid.libraryFiles.column.files">Ficheiros</message>
 	<message key="grid.libraryFiles.submission.title">Envíos á Biblioteca</message>
@@ -77,7 +55,6 @@
 	<!-- Submission Contributors -->
 	<message key="grid.action.remove">Eliminar</message>
 	<message key="grid.action.approve">Aprobar</message>
-	<message key="grid.action.approveForPub">Aprobar para Publicar</message>
 	<message key="grid.action.decline">Recusar</message>
 	<message key="grid.action.moreInformation">Máis información</message>
 	<message key="grid.action.addAuthor">Engadir autor</message>
@@ -85,9 +62,4 @@
 	<message key="author.users.contributor.email">Correo electrónico</message>
 	<message key="author.users.contributor.role">Rol</message>
 	<message key="author.users.contributor.principalContact">Contacto Principal</message>
-	<message key="grid.chapters.title">Capítulos</message>
-	<message key="grid.action.approveForReview">Enviar a etapa de Revisión</message>
-	<message key="grid.artworkFile.captionAndCredit">Lenda e Crédito (se no está incluido no arquivo)</message>
-	<message key="grid.reviewAttachments.title">Ficheiros adxuntos para os Revisores</message>
-	<message key="grid.reviewAttachments.add">Engadir ficheiro adxunto para Revisión</message>
 </locale>

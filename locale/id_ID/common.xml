@@ -30,7 +30,6 @@
 	<message key="announcement.posted">Dikirimkan</message>
 	<message key="announcement.viewLink">Lebih Lanjut...</message>
 	<message key="announcement.view">Lihat Pengumuman</message>
-	<message key="common.actingAsUserGroup.userIsNotInTargetUserGroup">Anda tidak ada di grup pengguna ini.</message>
 	<message key="common.action">Aksi</message>
 	<message key="common.activate">Aktivasi</message>
 	<message key="common.active">Aktif</message>
@@ -135,7 +134,6 @@
 	<message key="common.notAvailable">Tidak Tersedia</message>
 	<message key="common.note">Rekam</message>
 	<message key="common.notes">Rekam</message>
-	<message key="common.notify">Beritahu</message>
 	<message key="common.off">Mati</message>
 	<message key="common.on">Hidup</message>
 	<message key="common.ok">OK</message>
@@ -304,7 +302,6 @@
 	<message key="notification.reminderError">Ada kesalahan saat mengirimkan kata sandi Anda, pastikan Anda memasukkan alamat email dengan benar.</message>
 	<message key="notification.reminderSent">Kata sandi baru Anda telah dikirim ke alamat email yang disediakan.</message>
 	<message key="notification.unsubscribe">Tidak berlangganan</message>
-	<message key="notification.unsubscribeDescription">Masukkan alamat email dan kata sandi Anda untuk tidak berlangganan dari notifikasi email. Jika Anda tidak ingat kata sandi Anda, tinggalkan bidang kata sandi kosong dan yang baru akan dikirimkan melalui email pada alamat email yang diberikan.</message>
 	<message key="notification.unsubscribeError">Ada kesalahan saat proses tidak berlangganan. Pastikan alamat email dan kata sandi Anda benar.</message>
 	<message key="notification.unsubscribeSuccess">Anda telah sukses tidak berlangganan.</message>
 	<message key="search.abstract">Sari</message>
@@ -322,10 +319,8 @@
 	<message key="search.operator.and">dan</message>
 	<message key="search.operator.not">bukan</message>
 	<message key="search.operator.or">atau</message>
-	<message key="search.reviseSearch">Revisi Pencarian</message>
 	<message key="search.searchAllCategories">Cari semua kategori untuk</message>
 	<message key="search.searchCategories">Cari Kategori</message>
-	<message key="search.searchResults">Hasil Pencarian</message>
 	<message key="search.subject">Kata Kunci</message>
 	<message key="search.titleIndex">Menelusuri Indeks Judul</message>
 	<message key="search.title">Judul</message>

@@ -41,7 +41,6 @@
 	<message key="grid.action.collapseAll">Đóng tất cả</message>
 	<message key="grid.action.wizard">Hỗ trợ Thiết lập Tham số</message>
 	<message key="grid.action.moveItem">Chuyển mục</message>
-	<message key="grid.action.downloadFile">Tải file này</message>
 	<message key="grid.action.downloadAll">Tải tất cả file thành một file nén</message>
 	<message key="grid.action.readReview">Đọc lời bình này</message>
 	<message key="grid.action.email">Gửi email</message>

@@ -109,7 +109,6 @@
 	<message key="common.notAvailable">Nije dostupno</message>
 	<message key="common.note">Napomena</message>
 	<message key="common.notes">Napomene</message>
-	<message key="common.notify">Objavi</message>
 	<message key="common.off">Isključeno</message>
 	<message key="common.on">Uključeno</message>
 	<message key="common.options">Opcije</message>
@@ -251,10 +250,8 @@
 	<message key="search.operator.and">i</message>
 	<message key="search.operator.not">ne</message>
 	<message key="search.operator.or">ili</message>
-	<message key="search.reviseSearch">Ponovite pretraživanje</message>
 	<message key="search.searchAllCategories">Pretraži sve kategorije za</message>
 	<message key="search.searchCategories">Kategorije pretraživanja</message>
-	<message key="search.searchResults">Rezultati pretraživanja</message>
 	<message key="search.subject">Ključna riječ/i</message>
 	<message key="search.titleIndex">Kazalo naslova</message>
 	<message key="search.title">Naslov</message>

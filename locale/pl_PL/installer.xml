@@ -60,11 +60,9 @@
 	<message key="installer.locale">Język</message>
 	<message key="installer.locale.maybeIncomplete">Oznaczone tłumaczenia mogą być niekompletne.</message>
 	<message key="installer.localeSettings">Ustawienia języka</message>
-	<message key="installer.miscSettings">Ustawienia pozostałe</message>
 	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Unikatowy identyfikator wykorzystywany przez <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> do pobierania metadanych.]]></message>
 	<message key="installer.oaiRepositoryId">Identyfikator repozytoriów OAI</message>
 	<message key="installer.publicFilesDirError">Główny folder instalacji nie istnieje lub nie jest przeznaczony do zapisu.</message>
 	<message key="installer.releaseNotes">Informacje o wydaniu</message>
 	<message key="installer.securitySettings">Ustawienia zabezpieczeń</message>
-	<message key="installer.skipFilesDir">Nie twórz niezbędnych podfolderów (Przydatne jedynie w przypadku manualnej instalacji)</message>
 </locale>

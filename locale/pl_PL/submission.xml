@@ -279,7 +279,6 @@
 	<message key="submission.viewMetadata">Wyświetl metadane</message>
 	<message key="submission.views">Wyświetleń</message>
 	<message key="submission.uploadSuccessful">Twój plik został przesłany.</message>
-	<message key="submission.uploadSuccessfulContinue">Twój plik został przesłany. Kliknij Kontynuuj aby przejść do edycji metadanych.</message>
 	<message key="submission.loadMessage">Proszę czekać na przesłanie pliku na serwer.</message>
 	<message key="submission.artworkFileDetails">Informacje dotyczące pliku graficznego</message>
 	<message key="submission.fileDetails">Szczegóły</message>

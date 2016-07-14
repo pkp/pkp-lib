@@ -1473,9 +1473,9 @@ class PKPTemplateManager extends Smarty {
 							$matching_files[] = $file;
 						} elseif($file->getChapterId() === $params['value']) {
 							$matching_files[] = $file;
+						} elseif ($params['value'] == 0) {
+							$matching_files[] = $file;
 						}
-					} elseif ($params['value'] == 0) {
-						$matching_files[] = $file;
 					}
 					break;
 

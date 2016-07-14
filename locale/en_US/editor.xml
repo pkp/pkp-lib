@@ -119,4 +119,5 @@
 	<message key="editor.submission.proofreading.confirmRemoveCompletion">Revoke approval for this proof to indicate proofreading is no longer complete and the file is not ready to be published.</message>
 	<message key="editor.publicIdentificationExistsForTheSameType">The public identifier '{$publicIdentifier}' already exists for another object of the same type. Please choose unique identifiers for the objects of the same type within your journal.</message>
 	<message key="editor.publicIdentificationNumericNotAllowed">The public identifier '{$publicIdentifier}' must not be a number.</message>
+	<message key="editor.publicIdentificationPatternNotAllowed">The pattern {$pattern} is not allowed for the public identifier.</message>
 </locale>

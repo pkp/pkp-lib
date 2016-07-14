@@ -152,6 +152,9 @@ class PKPPublicIdentifiersForm extends Form {
 			if (is_numeric($publisherId)) {
 				$this->addError('publisherId', __('editor.publicIdentificationNumericNotAllowed', array('publicIdentifier' => $publisherId)));
 				$this->addErrorField('$publisherId');
+			} elseif (is_a($pubObject, 'SubmissionFile') && preg_match('/^(\d+)-(\d+)$/', $publisherId)) {
+				$this->addError('publisherId', __('editor.publicIdentificationPatternNotAllowed', array('pattern' => '\'/^(\d+)-(\d+)$/\' i.e. \'number-number\'')));
+				$this->addErrorField('$publisherId');
 			} elseif ($contextDao->anyPubIdExists($this->getContextId(), 'publisher-id', $publisherId, $assocType, $pubObjectId, true)) {
 				$this->addError('publisherId', __('editor.publicIdentificationExistsForTheSameType', array('publicIdentifier' => $publisherId)));
 				$this->addErrorField('$publisherId');

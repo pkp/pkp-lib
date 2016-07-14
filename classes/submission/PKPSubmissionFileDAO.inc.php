@@ -72,10 +72,10 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO implements PKPPubIdPlugin
 	 * @param $settingName string
 	 * @param $settingValue mixed
 	 * @param $submissionId int optional
-	 * @param $pressId int optional
+	 * @param $contextId int optional
 	 * @return array The file IDs identified by setting.
 	 */
-	function getFileIdsBySetting($settingName, $settingValue, $submissionId = null, $pressId = null) {
+	function getFileIdsBySetting($settingName, $settingValue, $submissionId = null, $contextId = null) {
 		$params = array($settingName);
 
 		$sql = 'SELECT DISTINCT	f.file_id
@@ -84,7 +84,7 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO implements PKPPubIdPlugin
 				LEFT JOIN published_submissions ps ON f.submission_id = ps.submission_id ';
 		if (is_null($settingValue)) {
 			$sql .= 'LEFT JOIN submission_file_settings fs ON f.file_id = fs.file_id AND fs.setting_name = ?
-				WHERE	(fs.setting_value IS NULL OR fs.setting_value = "")';
+				WHERE	(fs.setting_value IS NULL OR fs.setting_value = \'\')';
 		} else {
 			$params[] = (string) $settingValue;
 			$sql .= 'INNER JOIN submission_file_settings fs ON f.file_id = fs.file_id
@@ -94,8 +94,8 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO implements PKPPubIdPlugin
 			$params[] = (int) $submissionId;
 			$sql .= ' AND f.submission_id = ?';
 		}
-		if ($pressId) {
-			$params[] = (int) $pressId;
+		if ($contextId) {
+			$params[] = (int) $contextId;
 			$sql .= ' AND s.context_id = ?';
 		}
 		$sql .= ' ORDER BY f.file_id';
@@ -119,13 +119,13 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO implements PKPPubIdPlugin
 	 * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
 	 * @param $pubId string
 	 * @param $submissionId int optional
-	 * @param $pressId int optional
+	 * @param $contextId int optional
 	 * @return SubmissionFile|null
 	 */
-	function getByPubId($pubIdType, $pubId, $submissionId = null, $pressId = null) {
+	function getByPubId($pubIdType, $pubId, $submissionId = null, $contextId = null) {
 		$file = null;
 		if (!empty($pubId)) {
-			$fileIds = $this->getFileIdsBySetting('pub-id::'.$pubIdType, $pubId, $submissionId, $pressId);
+			$fileIds = $this->getFileIdsBySetting('pub-id::'.$pubIdType, $pubId, $submissionId, $contextId);
 			if (!empty($fileIds)) {
 				assert(count($fileIds) == 1);
 				$fileId = $fileIds[0];

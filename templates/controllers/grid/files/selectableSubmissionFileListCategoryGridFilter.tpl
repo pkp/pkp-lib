@@ -12,7 +12,7 @@
 	$('#fileListFilterForm').pkpHandler('$.pkp.controllers.form.ToggleFormHandler');
 </script>
 <form class="pkp_form filter" id="fileListFilterForm" action="{url router=$smarty.const.ROUTE_COMPONENT op="fetchGrid"}" method="post">
-	{fbvFormArea}
+	{fbvFormArea id="includeAllStagesArea"}
 		{fbvFormSection list="true"}
 			{fbvElement type="checkbox" id="allStages" checked=$filterSelectionData.allStages label="editor.submission.fileList.includeAllStages"}
 		{/fbvFormSection}

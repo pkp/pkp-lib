@@ -29,15 +29,11 @@ class RegistrationForm extends Form {
 	/** @var boolean whether or not captcha is enabled for this form */
 	var $captchaEnabled;
 
-	/** @var boolean whether or not implicit authentication is used */
-	var $implicitAuth;
-
 	/**
 	 * Constructor.
 	 */
 	function RegistrationForm($site) {
 		parent::Form('frontend/pages/userRegister.tpl');
-		$this->implicitAuth = Config::getVar('security', 'implicit_auth');
 
 		// Validation checks for this form
 		$this->addCheck(new FormValidatorCustom($this, 'username', 'required', 'user.register.form.usernameExists', array(DAORegistry::getDAO('UserDAO'), 'userExistsByUsername'), array(), true));

@@ -79,34 +79,6 @@ class PKPLoginHandler extends Handler {
 	}
 
 	/**
-	 * Handle login when implicitAuth is enabled.
-	 * If the user came in on a non-ssl url - then redirect back to the ssl url
-	 */
-	function implicitAuthLogin($args, $request) {
-		if ($request->getProtocol() != 'https')
-			$request->redirectSSL();
-
-		$wayf_url = Config::getVar('security', 'implicit_auth_wayf_url');
-
-		if ($wayf_url == '')
-			die('Error in implicit authentication. WAYF URL not set in config file.');
-
-		$request->redirectUrl($wayf_url . '?target=' . urlencode($request->url('index', 'login', 'implicitAuthReturn')));
-	}
-
-	/**
-	 * This is the function that Shibboleth redirects to - after the user has authenticated.
-	 */
-	function implicitAuthReturn($args, $request) {
-		if (!Validation::isLoggedIn()) {
-			// Login - set remember to false
-			$user = Validation::login($request->getUserVar('username'), $request->getUserVar('password'), $reason, false);
-		}
-
-		$this->sendHome($request);
-	}
-
-	/**
 	 * After a login has completed, direct the user somewhere.
 	 * (May be extended by subclasses.)
 	 * @param $request PKPRequest

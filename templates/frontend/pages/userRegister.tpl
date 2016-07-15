@@ -125,21 +125,13 @@
 			</fieldset>
 		{/if}
 
-		{if !$implicitAuth}
-			<div class="required_label">
-				{translate key="common.requiredField"}
-			</div>
-		{/if}
-
 		<div class="buttons">
 			<button class="submit" type="submit">
 				{translate key="user.register"}
 			</button>
 
-			{if !$implicitAuth}
-				{url|assign:"rolesProfileUrl" page="user" op="profile" path="roles"}
-				<a href="{url page="login" source=$rolesProfileUrl}" class="login">{translate key="user.login"}</a>
-			{/if}
+			{url|assign:"rolesProfileUrl" page="user" op="profile" path="roles"}
+			<a href="{url page="login" source=$rolesProfileUrl}" class="login">{translate key="user.login"}</a>
 		</div>
 	</form>
 

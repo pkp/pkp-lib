@@ -143,7 +143,6 @@ class UserDetailsForm extends UserForm {
 			$templateMgr->assign('username', $user->getUsername());
 		}
 
-		$templateMgr->assign('implicitAuth', Config::getVar('security', 'implicit_auth'));
 		$templateMgr->assign('availableLocales', $site->getSupportedLocaleNames());
 
 		$countryDao = DAORegistry::getDAO('CountryDAO');

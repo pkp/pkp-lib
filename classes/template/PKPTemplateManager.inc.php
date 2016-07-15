@@ -86,9 +86,6 @@ class PKPTemplateManager extends Smarty {
 		$this->cache_dir = $cachePath . DIRECTORY_SEPARATOR . 't_cache';
 
 		$this->_cacheability = CACHEABILITY_NO_STORE; // Safe default
-
-		// Are we using implicit authentication?
-		$this->assign('implicitAuth', Config::getVar('security', 'implicit_auth'));
 	}
 
 	/**

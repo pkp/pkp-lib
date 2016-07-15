@@ -38,11 +38,10 @@
 			{include file="controllers/notification/inPlaceNotification.tpl" notificationId="userDetailsFormNotification"}
 		</div>
 
-		{if $implicitAuth || $userId}{assign var="disableSendNotifySection" value=true}{/if}
+		{if $userId}{assign var="disableSendNotifySection" value=true}{/if}
 		{include
 			file="common/userDetails.tpl"
 			disableAuthSourceSection=!$authSourceOptions
-			disablePasswordSection=$implicitAuth
 			disableSendNotifySection=$disableSendNotifySection
 		}
 

@@ -22,74 +22,66 @@
 		</p>
 	{/if}
 
-	{if $implicitAuth}
-		<a id="implicitAuthLogin" href="{url page="login" op="implicitAuthLogin"}">Login</a>
-	{else}
+	<form class="pkp_form login" id="login" method="post" action="{$loginUrl}">
 
-		<form class="pkp_form login" id="login" method="post" action="{$loginUrl}">
+		{if $error}
+			<div class="pkp_form_error">
+				{translate key=$error reason=$reason}
+			</div>
+		{/if}
 
-			{if $error}
-				<div class="pkp_form_error">
-					{translate key=$error reason=$reason}
-				</div>
-			{/if}
+		<input type="hidden" name="source" value="{$source|strip_unsafe_html|escape}" />
 
-			<input type="hidden" name="source" value="{$source|strip_unsafe_html|escape}" />
-
-			<fieldset class="fields">
-				<div class="username">
-					<label>
-						<span class="label">
-							{translate key="user.username"}
-							<span class="required">*</span>
-							<span class="pkp_screen_reader">
-								{translate key="common.required"}
-							</span>
+		<fieldset class="fields">
+			<div class="username">
+				<label>
+					<span class="label">
+						{translate key="user.username"}
+						<span class="required">*</span>
+						<span class="pkp_screen_reader">
+							{translate key="common.required"}
 						</span>
-						<input type="text" name="username" id="username" value="{$username|escape}" maxlength="32" required>
-					</label>
-				</div>
-				<div class="password">
-					<label>
-						<span class="label">
-							{translate key="user.password"}
-							<span class="required">*</span>
-							<span class="pkp_screen_reader">
-								{translate key="common.required"}
-							</span>
+					</span>
+					<input type="text" name="username" id="username" value="{$username|escape}" maxlength="32" required>
+				</label>
+			</div>
+			<div class="password">
+				<label>
+					<span class="label">
+						{translate key="user.password"}
+						<span class="required">*</span>
+						<span class="pkp_screen_reader">
+							{translate key="common.required"}
 						</span>
-						<input type="password" name="password" id="password" value="{$password|escape}" password="true" maxlength="32" required="$passwordRequired">
-						<a href="{url page="login" op="lostPassword"}">
-							{translate key="user.login.forgotPassword"}
-						</a>
-					</label>
-				</div>
-				<div class="remember checkbox">
-					<label>
-						<input type="checkbox" name="remember" id="remember" value="1" checked="$remember">
-						<span class="label">
-							{translate key="user.login.rememberUsernameAndPassword"}
-						</span>
-					</label>
-				</div>
-				<div class="buttons">
-					<button class="submit" type="submit">
-						{translate key="user.login"}
-					</button>
+					</span>
+					<input type="password" name="password" id="password" value="{$password|escape}" password="true" maxlength="32" required="$passwordRequired">
+					<a href="{url page="login" op="lostPassword"}">
+						{translate key="user.login.forgotPassword"}
+					</a>
+				</label>
+			</div>
+			<div class="remember checkbox">
+				<label>
+					<input type="checkbox" name="remember" id="remember" value="1" checked="$remember">
+					<span class="label">
+						{translate key="user.login.rememberUsernameAndPassword"}
+					</span>
+				</label>
+			</div>
+			<div class="buttons">
+				<button class="submit" type="submit">
+					{translate key="user.login"}
+				</button>
 
-					{if !$disableUserReg}
-						{url|assign:registerUrl page="user" op="register" source=$source}
-						<a href="{$registerUrl}" class="register">
-							{translate key="user.login.registerNewAccount"}
-						</a>
-					{/if}
-				</div>
-			</fieldset>
-
-
-		</form>
-	{/if}{* !$implicitAuth *}
-
+				{if !$disableUserReg}
+					{url|assign:registerUrl page="user" op="register" source=$source}
+					<a href="{$registerUrl}" class="register">
+						{translate key="user.login.registerNewAccount"}
+					</a>
+				{/if}
+			</div>
+		</fieldset>
+	</form>
 </div><!-- .page -->
 
 {include file="common/frontend/footer.tpl"}

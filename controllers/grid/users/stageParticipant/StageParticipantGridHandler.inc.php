@@ -21,17 +21,19 @@ import('lib.pkp.controllers.grid.users.stageParticipant.StageParticipantGridRow'
 import('lib.pkp.controllers.grid.users.stageParticipant.StageParticipantGridCategoryRow');
 import('classes.log.SubmissionEventLogEntry'); // App-specific.
 
-class PKPStageParticipantGridHandler extends CategoryGridHandler {
+class StageParticipantGridHandler extends CategoryGridHandler {
 	/**
 	 * Constructor
 	 */
-	function PKPStageParticipantGridHandler() {
+	function StageParticipantGridHandler() {
 		parent::CategoryGridHandler();
-		//Assistants get read-only access
+
+		// Assistants get read-only access
 		$this->addRoleAssignment(
 			array(ROLE_ID_ASSISTANT),
 			$peOps = array('fetchGrid', 'fetchCategory', 'fetchRow', 'viewNotify', 'fetchTemplateBody', 'sendNotification')
 		);
+
 		// Managers and Editors additionally get administrative access
 		$this->addRoleAssignment(
 			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR),
@@ -78,7 +80,7 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 	 * grid.
 	 * @return boolean
 	 */
-	function _canAdminister() {
+	protected function _canAdminister() {
 		// If the current role set includes Manager or Editor, grant.
 		return (boolean) array_intersect(
 			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR),
@@ -389,11 +391,11 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 		$userGroup = $userGroupDao->getById($userGroupId);
 		$roleId = $userGroup->getRoleId();
 
-		$subEditorFilterId = $this->_getIdForSubEditorFilter($submission);
+		$sectionId = $submission->getSectionId();
 		$contextId = $submission->getContextId();
 
 		$filterSubEditors = false;
-		if ($roleId == ROLE_ID_SUB_EDITOR && $subEditorFilterId) {
+		if ($roleId == ROLE_ID_SUB_EDITOR && $sectionId) {
 			$subEditorsDao = DAORegistry::getDAO('SubEditorsDAO');
 			// Flag to filter sub editors only.
 			$filterSubEditors = true;
@@ -401,7 +403,7 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 
 		$userList = array();
 		while($user = $users->next()) {
-			if ($filterSubEditors && !$subEditorsDao->editorExists($contextId, $subEditorFilterId, $user->getId())) {
+			if ($filterSubEditors && !$subEditorsDao->editorExists($contextId, $sectionId, $user->getId())) {
 				continue;
 			}
 			$userList[$user->getId()] = $user->getFullName();
@@ -412,10 +414,6 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 		}
 
 		return new JSONMessage(true, $userList);
-	}
-
-	function _getIdForSubEditorFilter($submission) {
-		assert(false); // implemented by sub classes.
 	}
 
 	/**
@@ -464,7 +462,9 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 	 * @param PKPRequest $request
 	 */
 	function _logEventAndCreateNotification($request) {
-		$this->_logEvent($request, SUBMISSION_LOG_MESSAGE_SENT);
+		import('lib.pkp.classes.log.SubmissionLog');
+		SubmissionLog::logEvent($request, $this->getSubmission(), SUBMISSION_LOG_MESSAGE_SENT, 'informationCenter.history.messageSent');
+
 		// Create trivial notification.
 		$currentUser = $request->getUser();
 		$notificationMgr = new NotificationManager();
@@ -501,15 +501,6 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 				)
 			);
 		}
-	}
-
-	/**
-	 * Log an event for this file
-	 * @param $request PKPRequest
-	 * @param $eventType SUBMISSION_LOG_...
-	 */
-	function _logEvent ($request, $eventType) {
-		assert(false); // overridden in subclasses.
 	}
 }
 

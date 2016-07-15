@@ -568,6 +568,9 @@
 	<message key="submission.description">Description</message>
 	<message key="submission.stageNotInitiated">Stage not initiated.</message>
 	<message key="submission.documents">Submission Documents</message>
+	<message key="notification.type.copyeditorRequest">You have been asked to review copyedits for "{$title}".</message>
+	<message key="notification.type.layouteditorRequest">You have been asked to review layouts for "{$title}".</message>
+	<message key="notification.type.indexRequest">You have been asked to create an index for "{$title}".</message>
 	<message key="notification.type.editorDecisionTitle">Latest editor decision.</message>
 	<message key="notification.type.editorDecisionAccept">Submission accepted.</message>
 	<message key="notification.type.editorDecisionExternalReview">External review process started.</message>

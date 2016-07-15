@@ -190,11 +190,14 @@ class PKPStageParticipantNotifyForm extends Form {
 			$email->send($request);
 			// remove the INDEX_ and LAYOUT_ tasks if a user has sent the appropriate _COMPLETE email
 			switch ($template) {
-				case 'LAYOUT_COMPLETE':
-					$this->_removeUploadTaskNotification($submission, NOTIFICATION_TYPE_LAYOUT_ASSIGNMENT, $request);
+				case 'COPYEDIT_REQUEST':
+					$this->_addAssignmentTaskNotification($request, NOTIFICATION_TYPE_COPYEDIT_ASSIGNMENT, $user->getId(), $submission);
 					break;
-				case 'INDEX_COMPLETE':
-					$this->_removeUploadTaskNotification($submission, NOTIFICATION_TYPE_INDEX_ASSIGNMENT, $request);
+				case 'LAYOUT_REQUEST':
+					$this->_addAssignmentTaskNotification($request, NOTIFICATION_TYPE_LAYOUT_ASSIGNMENT, $user->getId(), $submission);
+					break;
+				case 'INDEX_REQUEST':
+					$this->_addAssignmentTaskNotification($request, NOTIFICATION_TYPE_INDEX_ASSIGNMENT, $user->getId(), $submission);
 					break;
 			}
 		}
@@ -236,11 +239,11 @@ class PKPStageParticipantNotifyForm extends Form {
 	/**
 	 * Add upload task notifications.
 	 * @param $request PKPRequest
-	 * @param $type int
-	 * @param $userId int
-	 * @param $submissionId int
+	 * @param $type int NOTIFICATION_TYPE_...
+	 * @param $userId int User ID
+	 * @param $submissionId int Submission ID
 	 */
-	private function _addUploadTaskNotification($request, $type, $userId, $submissionId) {
+	private function _addAssignmentTaskNotification($request, $type, $userId, $submissionId) {
 		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
 		$notificationFactory = $notificationDao->getByAssoc(
 			ASSOC_TYPE_SUBMISSION,
@@ -261,38 +264,6 @@ class PKPStageParticipantNotifyForm extends Form {
 				$submissionId,
 				NOTIFICATION_LEVEL_TASK
 			);
-		}
-	}
-
-	/**
-	 * Clear potential tasks that may have been assigned to certain
-	 * users on certain stages.  Right now, just LAYOUT uploads on the production stage.
-	 * @param Submission $submission
-	 * @param int $task
-	 * @param PKRequest $request
-	 */
-	private function _removeUploadTaskNotification($submission, $task, $request) {
-
-		// if this is a submission by a LAYOUT_EDITOR for a submission in production, check
-		// to see if there is a task notification for that and if so, clear it.
-		$currentStageId = $this->getStageId();
-		$notificationMgr = new NotificationManager();
-
-		if ($currentStageId == WORKFLOW_STAGE_ID_PRODUCTION) {
-
-			$user = $request->getUser();
-			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-			$stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), $this->getStageId(), null, $user->getId());
-
-			while ($stageAssignment = $stageAssignments->next()) {
-				$userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId());
-				if (in_array($userGroup->getRoleId(), array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT))) {
-					$notificationDao = DAORegistry::getDAO('NotificationDAO');
-					$notificationDao->deleteByAssoc(ASSOC_TYPE_SUBMISSION, $submission->getId(), $user->getId(), $task);
-					return;
-				}
-			}
 		}
 	}
 

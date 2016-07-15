@@ -61,7 +61,6 @@
 	<message key="rt.admin.settings.viewMetadata">Metapodaci priloga (prikazuje indeksirane metapodatke koje su unijeli autori ili generirao sustav).</message>
 	<message key="rt.admin.status">Status</message>
 	<message key="rt.admin.validateUrls.complete">Provjera je završena.</message>
-	<message key="rt.admin.validateUrls.description"><![CDATA[Niže na ekranu navedeni su URL-ovi za pretraživanje stranica koji su vjerojatno nevažeći.<br />URL-ove označene kao nevažeće poželjno je ručno provjeriti jer ovaj test nije 100% točan, posebno kod URL-ova koji se pretražuju pomoću POST upita.]]></message>
 	<message key="rt.admin.validateUrls.ok">U redu</message>
 	<message key="rt.admin.validateUrls.urlIsInvalid">{$url} nije važeći.</message>
 	<message key="rt.admin.validateUrls">Provjeri valjanost URL-ova alata za čitanje</message>

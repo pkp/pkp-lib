@@ -59,7 +59,6 @@
 	<message key="installer.installParseDBFileError"><![CDATA[錯誤剖析資料庫安裝檔案<tt>{$file}</tt>.]]></message>
 	<message key="installer.locale">語系</message>
 	<message key="installer.localeSettings">語系設定</message>
-	<message key="installer.miscSettings">其他設定</message>
 	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[一個獨一無二的識別碼，用來識別本站使用<a href="http://www.openarchives.org/" target="_blank">開放典藏計畫(Open Archives Initiative)</a>後設資料蒐集協定所索引的後設資料記錄 ]]></message>
 	<message key="installer.oaiRepositoryId">OAI儲存器識別碼</message>
 	<message key="installer.publicFilesDirError">公用的檔案資料夾並不存在或者不可寫入。</message>

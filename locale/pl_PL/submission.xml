@@ -116,7 +116,7 @@
 	<message key="submission.changeComments">Zmień na</message>
 	<message key="submission.citations">Bibliografia</message>
 	<message key="submission.citations.editor.citationlist.deleteCitationConfirmation">Czy na pewno chcesz usunąć to cytowanie?</message>
-	<message key="submission.citations.editor.citationlist.errorDeletingCitation">An error occurred while trying to delete the citation.  Please report this as a bug.</message>
+	
 	<message key="submission.citations.editor.citationlist.newCitation">Nowe cytowanie</message>
 	<message key="submission.citations.editor.citationlist.title">Edycja cytowania</message>
 	<message key="submission.citations.editor.clickToEdit">Kliknij aby edytować.</message>
@@ -279,7 +279,6 @@
 	<message key="submission.viewMetadata">Wyświetl metadane</message>
 	<message key="submission.views">Wyświetleń</message>
 	<message key="submission.uploadSuccessful">Twój plik został przesłany.</message>
-	<message key="submission.uploadSuccessfulContinue">Twój plik został przesłany. Kliknij Kontynuuj aby przejść do edycji metadanych.</message>
 	<message key="submission.loadMessage">Proszę czekać na przesłanie pliku na serwer.</message>
 	<message key="submission.artworkFileDetails">Informacje dotyczące pliku graficznego</message>
 	<message key="submission.fileDetails">Szczegóły</message>

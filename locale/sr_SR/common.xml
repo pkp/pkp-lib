@@ -316,10 +316,8 @@
 	<message key="search.operator.and">i</message>
 	<message key="search.operator.not">ne</message>
 	<message key="search.operator.or">ili</message>
-	<message key="search.reviseSearch">Promeni pretragu</message>
 	<message key="search.searchAllCategories">Search all categories for</message>
 	<message key="search.searchCategories">Pretraži kategorije za</message>
-	<message key="search.searchResults">Rezultati pretraživanja</message>
 	<message key="search.subject">Ključna reč/i</message>
 	<message key="search.titleIndex">Indeks naslova</message>
 	<message key="search.title">Naslov</message>

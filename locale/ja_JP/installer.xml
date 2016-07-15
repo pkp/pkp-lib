@@ -55,7 +55,6 @@
 	<message key="installer.installFilesDirError">アップロードファイル用に指定されたディレクトリが存在しない、または、書き込みができません。</message>
 	<message key="installer.locale">言語</message>
 	<message key="installer.localeSettings">言語の設定</message>
-	<message key="installer.miscSettings">その他の設定</message>
 	<message key="installer.oaiRepositoryId">OAIリポジトリ識別子</message>
 	<message key="installer.publicFilesDirError">公開ファイルディレクトリが存在しない、または、書き込みができません。</message>
 	<message key="installer.releaseNotes">リリースノート</message>

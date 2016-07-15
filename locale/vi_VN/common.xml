@@ -113,7 +113,6 @@
 	<message key="common.notAvailable">Không có</message>
 	<message key="common.note">Ghi chú</message>
 	<message key="common.notes">Ghi chú</message>
-	<message key="common.notify">Thông báo</message>
 	<message key="common.off">Tắt</message>
 	<message key="common.on">Bật</message>
 	<message key="common.options">Lựa chọn</message>
@@ -260,10 +259,8 @@
 	<message key="search.operator.and">and</message>
 	<message key="search.operator.not">not</message>
 	<message key="search.operator.or">or</message>
-	<message key="search.reviseSearch">Chỉnh lại tìm kiếm</message>
 	<message key="search.searchAllCategories">Tìm tất cả các mục</message>
 	<message key="search.searchCategories">Tìm các mục</message>
-	<message key="search.searchResults">Kết quả tìm kiếm</message>
 	<message key="search.subject">Từ khóa</message>
 	<message key="search.titleIndex">Duyệt Chỉ mục Tiêu đề</message>
 	<message key="search.title">Tiêu đề</message>

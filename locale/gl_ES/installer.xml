@@ -59,9 +59,6 @@
 	<message key="installer.installParseDBFileError"><![CDATA[Erro parcheando o ficheiro de instalación da base de dados<tt>{$file}</tt>.]]></message>
 	<message key="installer.locale">Locale</message>
 	<message key="installer.localeSettings">Configuración de locales</message>
-	<message key="installer.manualInstall">Instalación manual</message>
-	<message key="installer.manualUpgrade">Actualización manual</message>
-	<message key="installer.miscSettings">Configuración adicional</message>
 	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Un identificador único para identificar rexistros de metadatos indexados dende este sitio usando o protocolo da <a href="http://www.openarchives.org/" target="_blank">Iniciativa de Arquivos Abertos</a> para recollida de metadados.]]></message>
 	<message key="installer.oaiRepositoryId">Identificador de repositorio OAI</message>
 	<message key="installer.publicFilesDirError">O directorio de ficheiros públicos non existe ou non ten permisos de escrita.</message>
@@ -69,5 +66,4 @@
 	<message key="installer.securitySettings">Configuración de seguridade</message>
 	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Houbo un erro analisando o ficheiro de planilla de correo <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale.maybeIncomplete">As traducións marcadas poden estar incompletas.</message>
-	<message key="installer.pleaseUpgradeAfterManualInstall">Por favor, exectua a ferramenta de actualización unha vez que teñas instalado a túa base de dados. Executa 'php tools/upgrade.php upgrade' dende o directorio de instalación principal con este propósito.</message>
 </locale>

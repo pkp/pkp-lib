@@ -380,7 +380,6 @@ Pastikan Anda mengatur tipe judul yang valid. Nilai dukungan adalah "disingkat",
 	<message key="submission.viewMetadata">Lihat Metadata</message>
 	<message key="submission.views">Lihat</message>
 	<message key="submission.uploadSuccessful">File Anda telah diupload.</message>
-	<message key="submission.uploadSuccessfulContinue">File Anda telah diupload. Tekan lanjutkan untuk mengedit metadata file.</message>
 	<message key="submission.loadMessage">Tunggu sementara file Anda diupload ke server.</message>
 	<message key="submission.artworkFileDetails">Detail File Karya Seni</message>
 	<message key="submission.fileDetails">Detail File</message>

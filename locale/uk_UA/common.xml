@@ -316,10 +316,8 @@
 	<message key="search.operator.and">AND</message>
 	<message key="search.operator.not">NOT</message>
 	<message key="search.operator.or">OR</message>
-	<message key="search.reviseSearch">Змінити умови пошуку</message>
 	<message key="search.searchAllCategories">Шукати в усіх полях</message>
 	<message key="search.searchCategories">Пошукові поля</message>
-	<message key="search.searchResults">Результати пошуку</message>
 	<message key="search.subject">Ключові слова</message>
 	<message key="search.titleIndex">Перегляд списку назв робіт</message>
 	<message key="search.title">Назва</message>

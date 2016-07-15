@@ -73,7 +73,6 @@
 	<message key="grid.action.deleteAuthor">Видалити автора</message>
 	<message key="grid.action.upgrade">Оновлення</message>
 	<message key="grid.action.wizard">Помічник налаштувань</message>
-	<message key="grid.action.downloadFile">Завантажити цей файл</message>
 	<message key="grid.action.downloadAll">Завантажити всі файли єдиним архівом</message>
 	<message key="grid.action.email">Надіслати лист</message>
 	<message key="grid.action.addReviewer">Додати рецензента</message>

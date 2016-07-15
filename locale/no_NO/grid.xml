@@ -47,7 +47,6 @@
 	<message key="grid.action.addUser">Legg til bruker</message>
 	<message key="grid.action.deleteFile">Slett fil</message>
 	<message key="grid.action.upgrade">Oppdater</message>
-	<message key="grid.action.downloadFile">Last ned denne filen</message>
 	<message key="grid.action.downloadAll">Last ned filene som et arkiv</message>
 	<message key="grid.action.email">Send e-post</message>
 	<message key="grid.action.addFile">Legg til en fil</message>

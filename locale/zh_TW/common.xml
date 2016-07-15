@@ -99,7 +99,6 @@
 	<message key="common.notAvailable">無法提供</message>
 	<message key="common.note">註</message>
 	<message key="common.notes">附註</message>
-	<message key="common.notify">通知</message>
 	<message key="common.off">關</message>
 	<message key="common.on">開</message>
 	<message key="common.options">選項</message>
@@ -236,10 +235,8 @@
 	<message key="search.operator.and">and</message>
 	<message key="search.operator.not">not</message>
 	<message key="search.operator.or">or</message>
-	<message key="search.reviseSearch">校正搜尋</message>
 	<message key="search.searchAllCategories">搜尋所有類別 for</message>
 	<message key="search.searchCategories">搜尋類別</message>
-	<message key="search.searchResults">搜尋結果</message>
 	<message key="search.subject">關鍵字</message>
 	<message key="search.titleIndex">瀏覽標題索引</message>
 	<message key="search.title">標題</message>

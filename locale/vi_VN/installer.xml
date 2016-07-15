@@ -60,7 +60,6 @@
 	<message key="installer.installParseDBFileError"><![CDATA[Có lỗi khi phân tích cú pháp file cài đặt CSDL <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale">Ngôn ngữ</message>
 	<message key="installer.localeSettings">Tham số hỗ trợ ngôn ngữ</message>
-	<message key="installer.miscSettings">Các tham số khác</message>
 	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Một định danh duy nhất được dùng để xác định các biểu ghi siêu dữ liệu (dữ liệu mô tả) được lập chỉ mục từ website này sử dụng Giao thức Gặt hái Siêu dữ liệu <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a>.]]></message>
 	<message key="installer.oaiRepositoryId">Định danh kho lưu trữ OAI</message>
 	<message key="installer.publicFilesDirError">Thư mục file công cộng không tồn tại hoặc không ghi được.</message>

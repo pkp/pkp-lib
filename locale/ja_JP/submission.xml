@@ -195,7 +195,6 @@
 	<message key="submission.citations.editor.details.sendAuthorQuerySuccess">メッセージが送信されました!</message>
 	<message key="submission.indexingInformation">インデクス情報</message>
 	<message key="submission.uploadSuccessful">ファイルがアップロードされました。</message>
-	<message key="submission.uploadSuccessfulContinue">ファイルがアップロードされました。続けてファイルのメタデータを編集してください。</message>
 	<message key="submission.loadMessage">ファイルをサーバにアップロード中です。しばらくお待ちください。</message>
 	<message key="metadata.filters.isbndb.settings.apiKey.displayName">ISBNdb API Key</message>
 	<message key="metadata.filters.isbndb.settings.apiKey.validationMessage">ISBNdb API キーを入力してください。まだキーがない場合は，ISBNdb プロジェクトから無料でキーを取得することができます。</message>

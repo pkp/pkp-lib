@@ -52,7 +52,6 @@
 	<message key="user.login.forgotPassword">Lupa kata sandi Anda?</message>
 	<message key="user.login.loginError">Nama Pengguna atau kata sandi tidak valid. Coba lagi.</message>
 	<message key="user.login">Login</message>
-	<message key="user.logIn">Login</message>
 	<message key="user.login.lostPassword.confirmationSent">Konfirmasi telah dikirim ke alamat email Anda. Ikuti instruksi di email untuk mengatur ulang kata sandi Anda.</message>
 	<message key="user.login.lostPassword.invalidHash">Maaf, tautan yang Anda klik telah berakhir atau tidak valid. Coba mengatur ulang kata sandi lagi.</message>
 	<message key="user.login.lostPassword.invalidUser">Tidak ada pengguna dengan alamat email yang spesifik.</message>

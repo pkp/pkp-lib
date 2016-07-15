@@ -29,7 +29,6 @@
 	<message key="announcement.posted">Opublikowane</message>
 	<message key="announcement.viewLink">Więcej...</message>
 	<message key="announcement.view">Pokaż ogłoszenie</message>
-	<message key="common.actingAsUserGroup.userIsNotInTargetUserGroup">Grupa użytkowników w której się znajdujesz nie posiada uprawnień do wyświetlania tej treści.</message>
 	<message key="common.action">Działanie</message>
 	<message key="common.activate">Aktywuj</message>
 	<message key="common.active">Aktywne</message>
@@ -134,7 +133,6 @@
 	<message key="common.notAvailable">Niedostępny</message>
 	<message key="common.note">Uwaga</message>
 	<message key="common.notes">Uwagi</message>
-	<message key="common.notify">Powiadom</message>
 	<message key="common.off">Wyłączone</message>
 	<message key="common.on">Włączone</message>
 	<message key="common.ok">OK</message>
@@ -303,7 +301,6 @@
 	<message key="notification.reminderError">Wystąpił błąd podczas wysyłania twojego hasła, upewnij się, że poprawnie podałeś swój adres e-mail.</message>
 	<message key="notification.reminderSent">Twoje nowe hasło zostało wysłane na e-mail który podałeś.</message>
 	<message key="notification.unsubscribe">Zrezygnuj z subskrypcji</message>
-	<message key="notification.unsubscribeDescription">Podaj swój adres e-mail oraz hasło aby zrezygnować z subskrypcji. Jeżeli nie pamiętasz swojego hasła, zostaw to pole puste, a nowe zostanie wysłane na twój adres e-mail.</message>
 	<message key="notification.unsubscribeError">Wystąpił błąd podczas wypisywania cię z listy subskrybentów. Upewnij się, że twój adres e-mail oraz hasło są poprawne.</message>
 	<message key="notification.unsubscribeSuccess">Zostałeś wypisany z listy subskrybentów.</message>
 	<message key="search.abstract">Abstrakt</message>
@@ -321,10 +318,8 @@
 	<message key="search.operator.and">oraz</message>
 	<message key="search.operator.not">nie</message>
 	<message key="search.operator.or">lub</message>
-	<message key="search.reviseSearch">Koryguj wyszukiwanie</message>
 	<message key="search.searchAllCategories">Przeszukaj wszystkie kategorie</message>
 	<message key="search.searchCategories">Przeszukaj kategorie</message>
-	<message key="search.searchResults">Wyniki wyszukiwania</message>
 	<message key="search.subject">Słowa kluczowe</message>
 	<message key="search.titleIndex">Przeszukaj indeks tytułów</message>
 	<message key="search.title">Tytuł</message>

@@ -23,8 +23,6 @@
 	<message key="grid.action.remove">حذف</message>
 	<message key="grid.action.edit">ویرایش</message>
 	<message key="grid.action.approve">تایید</message>
-	<message key="grid.action.approveForReview">ارسال برای مرحله کارشناسی</message>
-	<message key="grid.action.approveForPub">تایید برای چاپ</message>
 	<message key="grid.action.decline">رد</message>
 	<message key="grid.action.moreInformation">اطلاعات بیشتر</message>
 	<message key="grid.action.restoreDefaults">برگرداندن پیش فرضها</message>
@@ -38,9 +36,6 @@
 	<message key="grid.sponsor.title">اسپانسر</message>
 
 	<!-- Masthead Grid -->
-	<message key="grid.masthead.title">Masthead</message>
-	<message key="grid.masthead.column.groups">گروه ها</message>
-
 	<!-- Contributor Grid -->
 	<message key="grid.contributor.title">بانیان</message>
 	<message key="grid.action.addAuthor">افزودن نویسنده</message>
@@ -49,20 +44,6 @@
 	<message key="grid.reviewForm.title">فرم های کارشناسی</message>
 
 	<!-- Artwork Files Grid -->
-	<message key="grid.artworkFile.file">فایل</message>
-	<message key="grid.artworkFile.form.metadata">متاداده آرت ورک</message>
-	<message key="grid.artworkFile.credit">اعتبار</message>
-	<message key="grid.artworkFile.copyrightOwner">صاحب کپی رایت</message>
-	<message key="grid.artworkFile.copyrightContact">اطلاعات تماس</message>
-	<message key="grid.artworkFile.permissionTerms">بیانیه مجوز</message>
-	<message key="grid.artworkFile.permissionForm">فرم مجوز</message>
-	<message key="grid.artworkFile.type">نوع</message>
-	<message key="grid.artworkFile.type.table">جدول</message>
-	<message key="grid.artworkFile.type.figure">شکل</message>
-	<message key="grid.artworkFile.placement">مکان در کتاب</message>
-	<message key="grid.artworkFile.placementDetail">شماره جدول یا تصویر</message>
-	<message key="grid.artworkFile.contactAuthor">تماس با نویسنده</message>
-
 	<!-- Library Files -->
 	<message key="grid.libraryFiles.column.files">فایل ها</message>
 	<message key="grid.libraryFiles.submission.title">کتابخانه ساب میشن</message>
@@ -82,9 +63,5 @@
 	<message key="author.users.contributor.principalContact">تماس اولیه</message>
 
 	<!-- Review Attachments -->
-	<message key="grid.reviewAttachments.title">فایل های کارشناسی همراه</message>
-	<message key="grid.reviewAttachments.add">افزودن فایل همراه بهکارشناسی</message>
-
 	<!-- Chapters -->
-	<message key="grid.chapters.title">فصول</message>
 </locale>

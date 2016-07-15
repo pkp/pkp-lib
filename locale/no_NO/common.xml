@@ -260,10 +260,8 @@
 	<message key="search.operator.and">AND</message>
 	<message key="search.operator.not">NOT</message>
 	<message key="search.operator.or">OR</message>
-	<message key="search.reviseSearch">Revider søk</message>
 	<message key="search.searchAllCategories">Søk i alle kategorier</message>
 	<message key="search.searchCategories">Søk i kategorier</message>
-	<message key="search.searchResults">Søkeresultat</message>
 	<message key="search.subject">Emneord</message>
 	<message key="search.titleIndex">Finn fram i tittelregister</message>
 	<message key="search.title">Tittel</message>

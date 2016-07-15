@@ -50,12 +50,8 @@
 	<message key="installer.locale">ലൊക്കേല്‍</message>
 	<message key="installer.locale.maybeIncomplete">അടയാളപ്പെടുത്തിയിരിക്കുന്ന ലൊക്കേലുകള്‍ അപൂര്‍ണ്ണമായിരിക്കാം.</message>
 	<message key="installer.localeSettings">ലൊക്കേല്‍ ക്രമീകരണങ്ങള്‍</message>
-	<message key="installer.manualInstall">മാനുവല്‍ ഇന്‍സ്റ്റാള്‍</message>
-	<message key="installer.miscSettings">ബഹുവിധ ക്രമീകരണങ്ങള്‍</message>
 	<message key="installer.oaiRepositoryId">ഒ.എ.ഐ സങ്കേതത്തിലേക്കുളള തിരിച്ചറിയല്‍</message>
-	<message key="installer.pleaseUpgradeAfterManualInstall">താങ്കളുടെ ഡേറ്റാബേസ് ഇന്‍സ്റ്റാള്‍ ചെയ്തതിനു ശേഷം ദയവായി അപ്ഗ്രേഡ് ടൂള്‍ പ്രവര്‍ത്തിക്കുന്നുണ്ടോയെന്ന് പരിശോധിക്കുക.ഇതിനായി ഇന്‍സ്റ്റളേഷന്‍ ഡയറക്ടറിയില്‍ നിന്നും 'php tools/upgrade.php upgrade ചെയ്യുക.</message>
 	<message key="installer.publicFilesDirError">പൊതു ഫയലുകളുടെ ഡയറക്ടറി നിലവിലില്ല.</message>
 	<message key="installer.releaseNotes">കുറിപ്പുകള്‍ പ്രകാശിപ്പിക്കുക</message>
 	<message key="installer.securitySettings">ഭദ്രത ക്രമീകരണം</message>
-	<message key="installer.manualUpgrade">മാനുവല്‍ അപ്ഗ്രേഡ്</message>
 </locale>

@@ -130,7 +130,6 @@
 	<message key="common.notAvailable">Indisponibil</message>
 	<message key="common.note">Notă</message>
 	<message key="common.notes">Note</message>
-	<message key="common.notify">Înștiințează</message>
 	<message key="common.off">Oprit</message>
 	<message key="common.on">Pornit</message>
 	<message key="common.ok">OK</message>
@@ -310,10 +309,8 @@
 	<message key="search.operator.and">and</message>
 	<message key="search.operator.not">not</message>
 	<message key="search.operator.or">or</message>
-	<message key="search.reviseSearch">Regândește căutarea</message>
 	<message key="search.searchAllCategories">Caută în toate categoriile după</message>
 	<message key="search.searchCategories">Caută în categorii</message>
-	<message key="search.searchResults">Rezultatele de căutare</message>
 	<message key="search.subject">Cuvinte cheie</message>
 	<message key="search.titleIndex">Caută în indexul titlurilor</message>
 	<message key="search.title">Titlu</message>

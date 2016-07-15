@@ -59,7 +59,6 @@
 	<message key="installer.installFilesDirError">Vald mapp för uppladdade filer existerar inte, eller är inte överskrivbar.</message>
 	<message key="installer.locale">Lokalinställningar</message>
 	<message key="installer.localeSettings">Lokala inställningar</message>
-	<message key="installer.miscSettings">Diverse inställningar</message>
 	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[En unik identifikator används för att identifiera metadata-poster som indexerats från den här sidan med hjälp av <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protocol for Metadata Harvesting.]]></message>
 	<message key="installer.oaiRepositoryId">OAI repository identifikator</message>
 	<message key="installer.publicFilesDirError">Mappen för publika filer existerar inte eller är inte överskrivningsbar.</message>

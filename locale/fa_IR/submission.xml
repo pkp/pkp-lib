@@ -410,7 +410,6 @@ Coleman Jr, D. (Ralf) Dr</message>
 	<message key="submission.currentAgencies">نمایندگان جاری</message>
 	<message key="submission.indexingInformation">اطلاعات اندکس</message>
 	<message key="submission.uploadSuccessful">فایل شما بروز آپلود شد</message>
-	<message key="submission.uploadSuccessfulContinue">فایل شما بروز آپلود شد. بر روی ادامه کلیک کنید تا متاداده فایل را ویرایش کنید.</message>
 	<message key="submission.loadMessage">لطفا تا آپلود شدن فایل صبر کنید.</message>
 	<message key="submission.artworkFileDetails">جزئیات فنی فایل</message>
 	<message key="submission.fileDetails">جزئیات فایل</message>

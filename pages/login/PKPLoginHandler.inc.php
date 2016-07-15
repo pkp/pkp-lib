@@ -56,17 +56,13 @@ class PKPLoginHandler extends Handler {
 		$session = $sessionManager->getUserSession();
 
 		$templateMgr = TemplateManager::getManager($request);
-
-		// If the user wasn't expecting a login page, i.e. if they're new to the
-		// site and want to submit a paper, it helps to explain why they need to
-		// register.
-		if($request->getUserVar('loginMessage'))
-			$templateMgr->assign('loginMessage', $request->getUserVar('loginMessage'));
-
-		$templateMgr->assign('username', $session->getSessionVar('username'));
-		$templateMgr->assign('remember', $request->getUserVar('remember'));
-		$templateMgr->assign('source', $request->getUserVar('source'));
-		$templateMgr->assign('showRemember', Config::getVar('general', 'session_lifetime') > 0);
+		$templateMgr->assign(array(
+			'loginMessage' => $request->getUserVar('loginMessage'),
+			'username' => $session->getSessionVar('username'),
+			'remember' => $request->getUserVar('remember'),
+			'source' => $request->getUserVar('source'),
+			'showRemember' => Config::getVar('general', 'session_lifetime') > 0,
+		));
 
 		// For force_login_ssl with base_url[...]: make sure SSL used for login form
 		$loginUrl = $this->_getLoginUrl($request);
@@ -121,14 +117,15 @@ class PKPLoginHandler extends Handler {
 		} else {
 			$sessionManager = SessionManager::getManager();
 			$session = $sessionManager->getUserSession();
-
 			$templateMgr = TemplateManager::getManager($request);
-			$templateMgr->assign('username', $request->getUserVar('username'));
-			$templateMgr->assign('remember', $request->getUserVar('remember'));
-			$templateMgr->assign('source', $request->getUserVar('source'));
-			$templateMgr->assign('showRemember', Config::getVar('general', 'session_lifetime') > 0);
-			$templateMgr->assign('error', $reason===null?'user.login.loginError':($reason===''?'user.login.accountDisabled':'user.login.accountDisabledWithReason'));
-			$templateMgr->assign('reason', $reason);
+			$templateMgr->assign(array(
+				'username' => $request->getUserVar('username'),
+				'remember' => , $request->getUserVar('remember'),
+				'source' => $request->getUserVar('source'),
+				'showRemember' => Config::getVar('general', 'session_lifetime') > 0,
+				'error' => $reason===null?'user.login.loginError':($reason===''?'user.login.accountDisabled':'user.login.accountDisabledWithReason'),
+				'reason' => $reason,
+			));
 			$templateMgr->display('frontend/pages/userLogin.tpl');
 		}
 	}
@@ -175,11 +172,10 @@ class PKPLoginHandler extends Handler {
 			$templateMgr->display('frontend/pages/userLostPassword.tpl');
 
 		} else {
-			$site = $request->getSite();
-
 			// Send email confirming password reset
 			import('lib.pkp.classes.mail.MailTemplate');
 			$mail = new MailTemplate('PASSWORD_RESET_CONFIRM');
+			$site = $request->getSite();
 			$this->_setMailFrom($request, $mail, $site);
 			$mail->assignParams(array(
 				'url' => $request->url(null, 'login', 'resetPassword', $user->getUsername(), array('confirm' => $hash)),
@@ -187,10 +183,13 @@ class PKPLoginHandler extends Handler {
 			));
 			$mail->addRecipient($user->getEmail(), $user->getFullName());
 			$mail->send();
-			$templateMgr->assign('pageTitle',  'user.login.resetPassword');
-			$templateMgr->assign('message', 'user.login.lostPassword.confirmationSent');
-			$templateMgr->assign('backLink', $request->url(null, $request->getRequestedPage()));
-			$templateMgr->assign('backLinkLabel',  'user.login');
+
+			$templateMgr->assign(array(
+				'pageTitle' => 'user.login.resetPassword',
+				'message' => 'user.login.lostPassword.confirmationSent',
+				'backLink' => $request->url(null, $request->getRequestedPage()),
+				'backLinkLabel' => 'user.login',
+			));
 			$templateMgr->display('frontend/pages/message.tpl');
 		}
 	}
@@ -213,9 +212,11 @@ class PKPLoginHandler extends Handler {
 		$templateMgr = TemplateManager::getManager($request);
 
 		if (!Validation::verifyPasswordResetHash($user->getId(), $confirmHash)) {
-			$templateMgr->assign('errorMsg', 'user.login.lostPassword.invalidHash');
-			$templateMgr->assign('backLink', $request->url(null, null, 'lostPassword'));
-			$templateMgr->assign('backLinkLabel',  'user.login.resetPassword');
+			$templateMgr->assign(array(
+				'errorMsg' => 'user.login.lostPassword.invalidHash',
+				'backLink' => $request->url(null, null, 'lostPassword'),
+				'backLinkLabel' => 'user.login.resetPassword',
+			));
 			$templateMgr->display('frontend/pages/error.tpl');
 
 		} else {
@@ -249,10 +250,13 @@ class PKPLoginHandler extends Handler {
 			));
 			$mail->addRecipient($user->getEmail(), $user->getFullName());
 			$mail->send();
-			$templateMgr->assign('pageTitle',  'user.login.resetPassword');
-			$templateMgr->assign('message', 'user.login.lostPassword.passwordSent');
-			$templateMgr->assign('backLink', $request->url(null, $request->getRequestedPage()));
-			$templateMgr->assign('backLinkLabel',  'user.login');
+
+			$templateMgr->assign(array(
+				'pageTitle' => 'user.login.resetPassword',
+				'message' => 'user.login.lostPassword.passwordSent',
+				'backLink' => $request->url(null, $request->getRequestedPage()),
+				'backLinkLabel' => 'user.login',
+			));
 			$templateMgr->display('frontend/pages/message.tpl');
 		}
 	}
@@ -310,10 +314,12 @@ class PKPLoginHandler extends Handler {
 				// We don't have administrative rights
 				// over this user. Display an error.
 				$templateMgr = TemplateManager::getManager($request);
-				$templateMgr->assign('pageTitle', 'manager.people');
-				$templateMgr->assign('errorMsg', 'manager.people.noAdministrativeRights');
-				$templateMgr->assign('backLink', $request->url(null, null, 'people', 'all'));
-				$templateMgr->assign('backLinkLabel', 'manager.people.allUsers');
+				$templateMgr->assign(array(
+					'pageTitle' => 'manager.people',
+					'errorMsg' => 'manager.people.noAdministrativeRights',
+					'backLink' => $request->url(null, null, 'people', 'all'),
+					'backLinkLabel' => 'manager.people.allUsers',
+				));
 				return $templateMgr->display('frontend/pages/error.tpl');
 			}
 

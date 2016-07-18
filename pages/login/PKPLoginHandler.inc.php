@@ -120,7 +120,7 @@ class PKPLoginHandler extends Handler {
 			$templateMgr = TemplateManager::getManager($request);
 			$templateMgr->assign(array(
 				'username' => $request->getUserVar('username'),
-				'remember' => , $request->getUserVar('remember'),
+				'remember' => $request->getUserVar('remember'),
 				'source' => $request->getUserVar('source'),
 				'showRemember' => Config::getVar('general', 'session_lifetime') > 0,
 				'error' => $reason===null?'user.login.loginError':($reason===''?'user.login.accountDisabled':'user.login.accountDisabledWithReason'),

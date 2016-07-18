@@ -476,7 +476,7 @@
 
 	<message key="submission.submit.uploadStep">1. Upload File</message>
 	<message key="submission.submit.uploadSubmissionFile">Upload Submission File</message>
-	<message key="submission.submit.metadataStep">2. Add Details</message>
+	<message key="submission.submit.metadataStep">2. Review Details</message>
 	<message key="submission.submit.finishingUpStep">3. Confirm</message>
 	<message key="submission.submit.fileNameRequired">You must enter a file name for this file</message>
 	<message key="submission.submit.howToSubmit"><![CDATA[Encountering difficulties? Contact <a href="mailto:{$supportEmail}">{$supportName}</a> for assistance ({$supportPhone}).]]></message>

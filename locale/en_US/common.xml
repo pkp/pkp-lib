@@ -532,6 +532,6 @@
 	<message key="navigation.archives">Archives</message>
 	<message key="user.authorization.authorRoleMissing">You do not currently have sufficient privileges to view the submission. Please edit your profile to ensure that you have been granted the appropriate roles under "Register As".</message>
 	<message key="user.authorization.submissionAuthor">The current user is not the author of the requested submission. Please verify that you are logged in with the correct user account.</message>
-	<message key="notification.type.queryActivity">Conversation activity.</message>
-	<message key="notification.type.queryAdded">Conversation added.</message>
+	<message key="notification.type.queryActivity">Discussion activity.</message>
+	<message key="notification.type.queryAdded">Discussion added.</message>
 </locale>

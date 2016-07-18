@@ -41,7 +41,6 @@
 	<message key="common.tasks">Tasks</message>
 	<message key="common.list">List</message>
 	<message key="common.grid">Grid</message>
-	<message key="common.takeMeThere">Take Me There</message>
 	<message key="common.confirmDelete">Are you sure you wish to delete this item? This action cannot be undone.</message>
 	<message key="common.abstract">Abstract</message>
 	<message key="common.accepted">Accepted</message>

@@ -82,7 +82,7 @@
 
 						{if array_intersect(array(ROLE_ID_MANAGER), (array)$userRoles)}
 							<li aria-haspopup="true" aria-expanded="false">
-								<a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="settings" path="index"}">{translate key="navigation.settings"}</a>
+								<a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="settings"}">{translate key="navigation.settings"}</a>
 								<ul>
 									<li><a href="{$contextSettingsUrl}">{translate key="context.context"}</a></li>
 									<li><a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="settings" path="website"}">{translate key="manager.website"}</a></li>

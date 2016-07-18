@@ -40,7 +40,6 @@
 	<message key="common.tasks">Tarefas</message>
 	<message key="common.list">Lista</message>
 	<message key="common.grid">Rede</message>
-	<message key="common.takeMeThere">Me leve lá</message>
 	<message key="common.confirmDelete">Deseja realmente apagar este item? Esta ação não poderá ser desfeita.</message>
 	<message key="common.abstract">Resumo</message>
 	<message key="common.accepted">Aceito</message>

@@ -40,7 +40,6 @@
 	<message key="common.tasks">Aufgaben</message>
 	<message key="common.list">Liste</message>
 	<message key="common.grid">Grid</message>
-	<message key="common.takeMeThere">Bring mich dahin</message>
 	<message key="common.confirmDelete">Sind Sie sicher, dass Sie diesen Eintrag löschen wollen? Der Vorgang kann nicht rückgängig gemacht werden.</message>
 	<message key="common.abstract">Zusammenfassung</message>
 	<message key="common.accepted">Akzeptiert</message>

@@ -39,7 +39,6 @@
 	<message key="common.tasks">Tasques</message>
 	<message key="common.list">Llista</message>
 	<message key="common.grid">Graella</message>
-	<message key="common.takeMeThere">Porta-m'hi</message>
 	<message key="common.confirmDelete">Esteu segur/a que voleu eliminar aquest element? Aquesta acció no es pot desfer.</message>
 	<message key="common.abstract">Resum</message>
 	<message key="common.accepted">Acceptada</message>

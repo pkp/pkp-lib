@@ -162,15 +162,20 @@ class PKPPubIdPluginHelper {
 	 * @param $contextId integer
 	 * @param $form object
 	 * @param $pubObject object
+	 * @param $save boolean Whether the pub id shall be saved here
 	 * 	Submission, Representation, SubmissionFile + OJS Issue
 	 */
-	function assignPubId($contextId, $form, $pubObject) {
+	function assignPubId($contextId, $form, $pubObject, $save = false) {
 		$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $contextId);
 		if (is_array($pubIdPlugins)) {
 			foreach ($pubIdPlugins as $pubIdPlugin) {
 				if ($form->getData($pubIdPlugin->getAssignFormFieldName())) {
 					$pubId = $pubIdPlugin->getPubId($pubObject);
-					$pubObject->setStoredPubId($pubIdPlugin->getPubIdType(), $pubId);
+					if ($save) {
+						$pubIdPlugin->setStoredPubId($pubObject, $pubIdPlugin->getPubObjectType($pubObject), $pubId);
+					} else {
+						$pubObject->setStoredPubId($pubIdPlugin->getPubIdType(), $pubId);
+					}
 				}
 			}
 		}

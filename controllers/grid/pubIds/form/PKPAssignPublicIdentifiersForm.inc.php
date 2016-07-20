@@ -36,25 +36,18 @@ class PKPAssignPublicIdentifiersForm extends Form {
 	var $_confirmationText;
 
 	/**
-	 * @var array Parameters to configure the form template.
-	 */
-	var $_formParams;
-
-	/**
 	 * Constructor.
 	 * @param $template string Form template
 	 * @param $pubObject object
 	 * @param $approval boolean
 	 * @param $confirmationText string
-	 * @param $formParams array
 	 */
-	function PKPAssignPublicIdentifiersForm($template, $pubObject, $approval, $confirmationText, $formParams = null) {
+	function PKPAssignPublicIdentifiersForm($template, $pubObject, $approval, $confirmationText) {
 		parent::Form($template);
 
 		$this->_pubObject = $pubObject;
 		$this->_approval = $approval;
 		$this->_confirmationText = $confirmationText;
-		$this->_formParams = $formParams;
 
 		$request = Application::getRequest();
 		$context = $request->getContext();
@@ -73,7 +66,6 @@ class PKPAssignPublicIdentifiersForm extends Form {
 		$templateMgr->assign('pubObject', $this->getPubObject());
 		$templateMgr->assign('approval', $this->getApproval());
 		$templateMgr->assign('confirmationText', $this->getConfirmationText());
-		$templateMgr->assign('formParams', $this->getFormParams());
 		return parent::fetch($request);
 	}
 
@@ -114,14 +106,6 @@ class PKPAssignPublicIdentifiersForm extends Form {
 	}
 
 	/**
-	 * Get the extra form parameters.
-	 * @return array
-	 */
-	function getFormParams() {
-		return $this->_formParams;
-	}
-
-	/**
 	 * @copydoc Form::readInputData()
 	 */
 	function readInputData() {
@@ -134,7 +118,7 @@ class PKPAssignPublicIdentifiersForm extends Form {
 	 * @param $request PKPRequest
 	 * @param $save boolean
 	 *  true if the pub id shall be saved here
-	 *  false if this form is integrated somwhere else, where the pub object will be updated.
+	 *  false if this form is integrated somewhere else, where the pub object will be updated.
 	 */
 	function execute($request, $save = false) {
 		parent::execute($request);

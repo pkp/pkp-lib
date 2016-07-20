@@ -1211,7 +1211,7 @@ class PKPTemplateManager extends Smarty {
 
 		$matching_files = array();
 
-
+		$genreDao = DAORegistry::getDAO('GenreDAO');
 		foreach ($params['files'] as $file) {
 			switch ($params['by']) {
 
@@ -1221,6 +1221,8 @@ class PKPTemplateManager extends Smarty {
 						if ($params['value'] === 'any' && $file->getChapterId()) {
 							$matching_files[] = $file;
 						} elseif($file->getChapterId() === $params['value']) {
+							$matching_files[] = $file;
+						} elseif ($params['value'] == 0 && !$file->getChapterId()) {
 							$matching_files[] = $file;
 						}
 					} elseif ($params['value'] == 0) {

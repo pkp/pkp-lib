@@ -30,9 +30,7 @@ class PermissionSettingsForm extends ContextSettingsForm {
 					'copyrightYearBasis' => 'string',
 					'copyrightNotice' => 'string',
 					'copyrightNoticeAgree' => 'bool',
-					'includeCopyrightStatement' => 'bool',
 					'licenseURL' => 'string',
-					'includeLicense' => 'bool',
 				)
 			),
 			'controllers/tab/settings/permissions/form/permissionSettingsForm.tpl',

@@ -233,6 +233,7 @@ class PKPTemplateManager extends Smarty {
 		$this->register_modifier('strtotime', array($this, 'smartyStrtotime'));
 		$this->register_modifier('explode', array($this, 'smartyExplode'));
 		$this->register_modifier('assign', array($this, 'smartyAssign'));
+		$this->register_function('csrf', array($this, 'smartyCSRF'));
 		$this->register_function('translate', array($this, 'smartyTranslate'));
 		$this->register_function('null_link_action', array($this, 'smartyNullLinkAction'));
 		$this->register_function('help', array($this, 'smartyHelp'));
@@ -1281,6 +1282,18 @@ class PKPTemplateManager extends Smarty {
 	function smartyLoadUrlInDiv($params, $smarty) {
 		$params['el'] = 'div';
 		return $this->smartyLoadUrlInEl( $params, $smarty );
+	}
+
+	/**
+	 * Smarty usage: {csrf}
+	 *
+	 * Custom Smarty function for inserting a CSRF token.
+	 * @param $params array associative array
+	 * @param $smarty Smarty
+	 * @return string of HTML
+	 */
+	function smartyCSRF($params, $smarty) {
+		return '<input type="hidden" name="csrfToken" value="' . htmlspecialchars($this->_request->getSession()->getCSRFToken()) . '">';
 	}
 
 	/**

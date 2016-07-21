@@ -38,6 +38,7 @@ import('lib.pkp.classes.form.validation.FormValidatorLength');
 import('lib.pkp.classes.form.validation.FormValidatorListbuilder');
 import('lib.pkp.classes.form.validation.FormValidatorLocale');
 import('lib.pkp.classes.form.validation.FormValidatorLocaleEmail');
+import('lib.pkp.classes.form.validation.FormValidatorCSRF');
 import('lib.pkp.classes.form.validation.FormValidatorPost');
 import('lib.pkp.classes.form.validation.FormValidatorRegExp');
 import('lib.pkp.classes.form.validation.FormValidatorUri');

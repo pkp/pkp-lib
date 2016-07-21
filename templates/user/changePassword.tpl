@@ -19,6 +19,7 @@
 </script>
 
 <form class="pkp_form" id="changePasswordForm" method="post" action="{url op="savePassword"}">
+	{csrf}
 
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="changePasswordFormNotification"}
 

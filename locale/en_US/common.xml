@@ -321,6 +321,7 @@
 	<message key="form.is">is</message>
 	<message key="form.startsWith">starts with</message>
 	<message key="form.postRequired">The form was not submitted properly.</message>
+	<message key="form.csrfInvalid">The form was not submitted properly.</message>
 	<message key="form.fileRequired">A file upload is required.</message>
 	<message key="form.required">(* Required)</message>
 	<message key="form.resubmit">Resubmit</message>

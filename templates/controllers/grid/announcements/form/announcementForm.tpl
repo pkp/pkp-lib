@@ -54,7 +54,7 @@
 				{fbvElement type="text" id="dateExpire" value=$dateExpire|date_format:"%y-%m-%d" label="manager.announcements.form.dateExpireInstructions" class="datepicker"}
 			{/fbvFormSection}
 		{/fbvFormArea}
+		<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 		{fbvFormButtons id="announcementFormSubmit" submitText="common.save"}
 	{/if}
 </form>
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>

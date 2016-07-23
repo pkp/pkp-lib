@@ -341,7 +341,7 @@ class ReviewFormGridHandler extends GridHandler {
 		$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
 		$reviewForm = $reviewFormDao->getById($reviewFormId, Application::getContextAssocType(), $context->getId());
 
-		if (isset($reviewForm)) {
+		if ($request->checkCRSF() && isset($reviewForm)) {
 			$reviewForm->setActive(0);
 			$reviewForm->setSequence(REALLY_BIG_NUMBER);
 			$newReviewFormId = $reviewFormDao->insertObject($reviewForm);
@@ -384,7 +384,7 @@ class ReviewFormGridHandler extends GridHandler {
 		$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
 		$reviewForm = $reviewFormDao->getById($reviewFormId, Application::getContextAssocType(), $context->getId());
 
-		if (isset($reviewForm) && !$reviewForm->getActive()) {
+		if ($request->checkCSRF() && isset($reviewForm) && !$reviewForm->getActive()) {
 			$reviewForm->setActive(1);
 			$reviewFormDao->updateObject($reviewForm);
 
@@ -418,7 +418,7 @@ class ReviewFormGridHandler extends GridHandler {
 		$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
 		$reviewForm = $reviewFormDao->getById($reviewFormId, Application::getContextAssocType(), $context->getId());
 
-		if (isset($reviewForm) && $reviewForm->getActive()) {
+		if ($request->checkCSRF() && isset($reviewForm) && $reviewForm->getActive()) {
 			$reviewForm->setActive(0);
 			$reviewFormDao->updateObject($reviewForm);
 
@@ -453,7 +453,7 @@ class ReviewFormGridHandler extends GridHandler {
 		$completeCounts = $reviewFormDao->getUseCounts(Application::getContextAssocType(), $context->getId(), true);
 		$incompleteCounts = $reviewFormDao->getUseCounts(Application::getContextAssocType(), $context->getId(), false);
 
-		if (isset($reviewForm) && $completeCounts[$reviewFormId] == 0 && $incompleteCounts[$reviewFormId] == 0) {
+		if ($request->checkCSRF() && isset($reviewForm) && $completeCounts[$reviewFormId] == 0 && $incompleteCounts[$reviewFormId] == 0) {
 			$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
 			$reviewAssignments = $reviewAssignmentDao->getByReviewFormId($reviewFormId);
 

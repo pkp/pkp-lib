@@ -160,7 +160,7 @@ class InformationCenterHandler extends Handler {
 		$noteId = (int) $request->getUserVar('noteId');
 		$noteDao = DAORegistry::getDAO('NoteDAO');
 		$note = $noteDao->getById($noteId);
-		if (!$note || $note->getAssocType() != $this->_getAssocType() || $note->getAssocId() != $this->_getAssocId()) fatalError('Invalid note!');
+		if (!$request->checkCSRF() || !$note || $note->getAssocType() != $this->_getAssocType() || $note->getAssocId() != $this->_getAssocId()) fatalError('Invalid note!');
 		$noteDao->deleteById($noteId);
 
 		$user = $request->getUser();

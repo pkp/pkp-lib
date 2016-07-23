@@ -200,16 +200,22 @@ class AnnouncementTypeGridHandler extends GridHandler {
 	 */
 	function deleteAnnouncementType($args, $request) {
 		$announcementTypeId = (int) $request->getUserVar('announcementTypeId');
+		$context = $request->getContext();
 
 		$announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO');
-		$announcementTypeDao->deleteById($announcementTypeId);
+		$announcementType = $announcementTypeDao->getById($announcementTypeId, $context->getAssocType(), $context->getId());
+		if ($announcementType && $request->checkCSRF()) {
+			$announcementTypeDao->deleteObject($announcementType);
 
-		// Create notification.
-		$notificationManager = new NotificationManager();
-		$user = $request->getUser();
-		$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.removedAnnouncementType')));
+			// Create notification.
+			$notificationManager = new NotificationManager();
+			$user = $request->getUser();
+			$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.removedAnnouncementType')));
 
-		return DAO::getDataChangedEvent($announcementTypeId);
+			return DAO::getDataChangedEvent($announcementTypeId);
+		}
+
+		return new JSONMessage(false);
 	}
 }
 

@@ -334,8 +334,8 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 
 		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
 		$stageAssignment = $stageAssignmentDao->getById($assignmentId);
-		if (!$stageAssignment || $stageAssignment->getSubmissionId() != $submission->getId()) {
-			fatalError('Invalid Assignment');
+		if (!$request->checkCSRF() || !$stageAssignment || $stageAssignment->getSubmissionId() != $submission->getId()) {
+			return new JSONMessage(false);
 		}
 
 		// Delete the assignment

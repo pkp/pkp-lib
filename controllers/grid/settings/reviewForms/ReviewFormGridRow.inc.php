@@ -68,6 +68,7 @@ class ReviewFormGridRow extends GridRow {
 					new LinkAction(
 						'copy',
 						new RemoteActionConfirmationModal(
+							$request->getSession(),
 							__('manager.reviewForms.confirmCopy'),
 							null,
 							$router->url($request, null, null, 'copyReviewForm', null, array('rowId' => $rowId))
@@ -99,6 +100,7 @@ class ReviewFormGridRow extends GridRow {
 					new LinkAction(
 						'delete',
 						new RemoteActionConfirmationModal(
+							$request->getSession(),
 							__('manager.reviewForms.confirmDelete'),
 							null,
 							$router->url($request, null, null, 'deleteReviewForm', null, array('rowId' => $rowId))

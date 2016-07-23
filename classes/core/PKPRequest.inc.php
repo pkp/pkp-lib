@@ -409,6 +409,15 @@ class PKPRequest {
 	}
 
 	/**
+	 * Determine whether a CSRF token is present and correct.
+	 * @return boolean
+	 */
+	function checkCSRF() {
+		$session = $this->getSession();
+		return $this->getUserVar('csrfToken') == $session->getCSRFToken();
+	}
+
+	/**
 	 * Get the remote IP address of the current request.
 	 * @return string
 	 */

@@ -292,6 +292,8 @@ class UserGroupGridHandler extends GridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function removeUserGroup($args, $request) {
+		if (!$request->checkCSRF()) return new JSONMessage(false);
+
 		$user = $request->getUser();
 		$userGroup = $this->_userGroup;
 		$contextId = $this->_getContextId();

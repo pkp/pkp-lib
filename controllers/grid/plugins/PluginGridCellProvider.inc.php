@@ -77,6 +77,7 @@ class PluginGridCellProvider extends GridCellProvider {
 						return array(new LinkAction(
 							'disable',
 							new RemoteActionConfirmationModal(
+								$request->getSession(),
 								__('grid.plugin.disable'),
 								__('common.disable'),
 								$request->url(null, null, 'disable', null, $requestArgs)

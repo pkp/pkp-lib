@@ -385,6 +385,7 @@ class PKPReviewerGridHandler extends GridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function unconsiderReview($args, $request) {
+		if (!$request->checkCSRF()) return new JSONMessage(false);
 
 		// This resets the state of the review to 'unread', but does not delete note history.
 		$submission = $this->getSubmission();
@@ -393,7 +394,7 @@ class PKPReviewerGridHandler extends GridHandler {
 		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
 
 		$reviewAssignment->setUnconsidered(REVIEW_ASSIGNMENT_UNCONSIDERED);
-		$result = $reviewAssignmentDao->updateObject($reviewAssignment);
+		$reviewAssignmentDao->updateObject($reviewAssignment);
 		$this->_updateReviewRoundStatus($reviewAssignment);
 
 		// log the unconsider.
@@ -418,12 +419,7 @@ class PKPReviewerGridHandler extends GridHandler {
 			)
 		);
 
-		// Render the result.
-		if ($result) {
-			return DAO::getDataChangedEvent($reviewAssignment->getId());
-		} else {
-			return new JSONMessage(false, __('editor.review.errorUnconsideringReview'));
-		}
+		return DAO::getDataChangedEvent($reviewAssignment->getId());
 	}
 
 	/**

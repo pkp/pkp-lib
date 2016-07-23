@@ -159,6 +159,8 @@ class SubmissionChecklistGridHandler extends SetupGridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function deleteItem($args, $request) {
+		if (!$request->checkCSRF()) return new JSONMessage(false);
+
 		$rowId = $request->getUserVar('rowId');
 
 		$router = $request->getRouter();

@@ -57,6 +57,7 @@ class ReviewFormElementGridRow extends GridRow {
 				new LinkAction(
 					'delete',
 					new RemoteActionConfirmationModal(
+						$request->getSession(),
 						__('manager.reviewFormElements.confirmDelete'),
 						null,
 						$router->url($request, null, null, 'deleteReviewFormElement', null, array('rowId' => $rowId, 'reviewFormId' => $element->getReviewFormId()))

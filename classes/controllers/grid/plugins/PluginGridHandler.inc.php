@@ -258,7 +258,7 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 	 */
 	function disable($args, $request) {
 		$plugin = $this->getAuthorizedContextObject(ASSOC_TYPE_PLUGIN); /* @var $plugin Plugin */
-		if ($plugin->getCanDisable()) {
+		if ($request->checkCSRF() && $plugin->getCanDisable()) {
 			$plugin->setEnabled(false);
 			$user = $request->getUser();
 			$notificationManager = new NotificationManager();
@@ -337,6 +337,8 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function deletePlugin($args, $request) {
+		if (!$request->checkCSRF()) return new JSONMessage(false);
+
 		$plugin = $this->getAuthorizedContextObject(ASSOC_TYPE_PLUGIN);
 		$category = $plugin->getCategory();
 		$productName = basename($plugin->getPluginPath());

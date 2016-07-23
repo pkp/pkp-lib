@@ -72,6 +72,7 @@ abstract class PKPPluginGridRow extends GridRow {
 				$this->addAction(new LinkAction(
 					'delete',
 					new RemoteActionConfirmationModal(
+						$request->getSession(),
 						__('manager.plugins.deleteConfirm'),
 						__('common.delete'),
 						$router->url($request, null, null, 'deletePlugin', null, $actionArgs), 'modal_delete'),

@@ -69,6 +69,7 @@ class ReviewFormGridCellProvider extends GridCellProvider {
 				if ($element->getActive()) return array(new LinkAction(
 					'deactivateReviewForm',
 					new RemoteActionConfirmationModal(
+						$request->getSession(),
 						__('manager.reviewForms.confirmDeactivate'),
 						null,
 						$router->url(
@@ -84,6 +85,7 @@ class ReviewFormGridCellProvider extends GridCellProvider {
 				else return array(new LinkAction(
 					'activateReviewForm',
 					new RemoteActionConfirmationModal(
+						$request->getSession(),
 						__('manager.reviewForms.confirmActivate'),
 						null,
 						$router->url(

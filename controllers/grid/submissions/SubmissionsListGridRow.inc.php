@@ -47,16 +47,22 @@ class SubmissionsListGridRow extends GridRow {
 			if ($submission->getSubmissionProgress() != 0 || $this->_isManager) {
 				$router = $request->getRouter();
 				import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
-				$confirmationModal = new RemoteActionConfirmationModal(
-						__('common.confirmDelete'), __('common.delete'),
-						$router->url(
-							$request, null, null,
-							'deleteSubmission', null, array('submissionId' => $rowId)
+				$this->addAction(
+					new LinkAction(
+						'delete',
+						new RemoteActionConfirmationModal(
+							$request->getSession(),
+							__('common.confirmDelete'), __('common.delete'),
+							$router->url(
+								$request, null, null,
+								'deleteSubmission', null, array('submissionId' => $rowId)
+							),
+							'modal_delete'
 						),
-						'modal_delete'
-					);
-
-				$this->addAction(new LinkAction('delete', $confirmationModal, __('grid.action.delete'), 'delete'));
+						__('grid.action.delete'),
+						'delete'
+					)
+				);
 			}
 
 			// 2) Information Centre action

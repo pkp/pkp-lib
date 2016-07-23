@@ -83,7 +83,6 @@
 	<message key="editor.review.userGroupSelect">Inscrever usuário neste grupo de usuários avaliadores</message>
 	<message key="editor.review.unconsiderReviewText">Você gostaria de marcar esta avaliação como não considerada? O histórico de avaliação será preservado.</message>
 	<message key="editor.review.unconsiderReview">Desconsiderar esta avaliação</message>
-	<message key="editor.review.errorUnconsideringReview">Ocorreu um erro ao marcar esta avaliação como desconsiderada. Tente novamente.</message>
 	<message key="editor.review.readConfirmation">Uma vez que a leitura da avaliação esteja completa, pressione "Confirmar" para sinalizar que o processo de avaliação pode prosseguir.</message>
 	<message key="editor.submission.selectCopyedingFiles">Arquivos da edição de texto</message>
 	<message key="editor.submission.selectReviewer">Selecionar avaliador</message>

@@ -297,6 +297,7 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 		import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
 
 		$confirmationModal = new RemoteActionConfirmationModal(
+			$request->getSession(),
 			__('common.confirmDelete'), null,
 			$router->url(
 				$request, null, null, 'deleteFile', null, array(

@@ -245,7 +245,7 @@ class ReviewFormElementsGridHandler extends GridHandler {
 		$context = $request->getContext();
 		$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
 
-		if ($reviewFormDao->unusedReviewFormExists($this->reviewFormId, Application::getContextAssocType(), $context->getId())) {
+		if ($request->checkCSRF() && $reviewFormDao->unusedReviewFormExists($this->reviewFormId, Application::getContextAssocType(), $context->getId())) {
 			$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
 			$reviewFormElementDao->deleteById($reviewFormElementId);
 			return DAO::getDataChangedEvent($reviewFormElementId);

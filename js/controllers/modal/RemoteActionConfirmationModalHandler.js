@@ -39,6 +39,9 @@
 		// Configure the remote action (URL) to be called when
 		// the modal closes.
 		this.remoteAction_ = options.remoteAction;
+
+		// Store the CSRF token for inclusion in the request.
+		this.csrfToken_ = options.csrfToken;
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.modal.RemoteActionConfirmationModalHandler,
@@ -56,6 +59,15 @@
 	 */
 	$.pkp.controllers.modal.RemoteActionConfirmationModalHandler.prototype.
 			remoteAction_ = null;
+
+
+	/**
+	 * A CSRF token to be included in request parameters.
+	 * @private
+	 * @type {?string}
+	 */
+	$.pkp.controllers.modal.RemoteActionConfirmationModalHandler.prototype.
+			csrfToken_ = null;
 
 
 	//
@@ -95,6 +107,7 @@
 		event.preventDefault();
 
 		$.post(this.remoteAction_,
+				{csrfToken: this.csrfToken_},
 				this.callbackWrapper(this.remoteResponse), 'json');
 	};
 

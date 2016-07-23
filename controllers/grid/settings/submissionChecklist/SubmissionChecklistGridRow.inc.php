@@ -59,6 +59,7 @@ class SubmissionChecklistGridRow extends GridRow {
 				new LinkAction(
 					'deleteSubmissionChecklist',
 					new RemoteActionConfirmationModal(
+						$request->getSession(),
 						__('common.confirmDelete'),
 						__('grid.action.delete'),
 						$router->url($request, null, null, 'deleteItem', null, $actionArgs),

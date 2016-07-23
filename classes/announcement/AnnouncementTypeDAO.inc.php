@@ -35,13 +35,20 @@ class AnnouncementTypeDAO extends DAO {
 
 	/**
 	 * Retrieve an announcement type by announcement type ID.
-	 * @param $typeId int
+	 * @param $typeId int Announcement type ID
+	 * @param $assocType int Optional assoc type
+	 * @param $assocId int Optional assoc ID
 	 * @return AnnouncementType
 	 */
-	function getById($typeId) {
+	function getById($typeId, $assocType = null, $assocId = null) {
+		$params = array((int) $typeId);
+		if ($assocType !== null) $params[] = (int) $assocType;
+		if ($assocId !== null) $params[] = (int) $assocId;
 		$result = $this->retrieve(
-			'SELECT * FROM announcement_types WHERE type_id = ?',
-			(int) $typeId
+			'SELECT * FROM announcement_types WHERE type_id = ?' .
+			($assocType === null?' AND assoc_type = ?':'') .
+			($assocId === null?' AND assoc_id = ?':''),
+			$params
 		);
 
 		$returner = null;

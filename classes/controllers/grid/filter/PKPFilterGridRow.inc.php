@@ -68,6 +68,7 @@ class PKPFilterGridRow extends GridRow {
 				new LinkAction(
 					'deleteFilter',
 					new RemoteActionConfirmationModal(
+						$request->getSession(),
 						__('manager.setup.filter.grid.confirmDelete', array('filterName' => $filter->getDisplayName())),
 						__('common.delete'),
 						$router->url($request, null, null, 'deleteFilter', null, $actionArgs),

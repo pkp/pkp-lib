@@ -93,7 +93,6 @@
 	<message key="editor.review.userGroupSelect">Ajouter l'utilisateur à ce groupe d'examinateurs</message>
 	<message key="editor.review.unconsiderReviewText">Vous souhaitez indiquer que cet examen n'a pas été considéré? L'historique des révisions sera conservé.</message>
 	<message key="editor.review.unconsiderReview">Ne pas considérer cet examen.</message>
-	<message key="editor.review.errorUnconsideringReview">Il y a eu une erreur au moment d'indiquer que cet examen devrait être catégorisé "non considéré". Essayez de nouveau.</message>
 	<message key="editor.review.readConfirmation">Après avoir lu cet examen, choisissez "Confirmer" pour indiquer que le processus d'examen peut se poursuivre.</message>
 	<message key="editor.submission.newRoundDescription">Vous êtes sur le point de créer une nouvelle ronde d'examens pour cette soumission. Les fichiers qui n'ont pas été utilisés dans les autres rondes d'examens sont indiqués ci-dessous. Par défaut, les examinateurs de la ronde d'examens précédente ont été sélectionnés pour participer à cette nouvelle ronde.</message>
 	<message key="editor.article.reviewForms">Formulaires d'évaluation</message>

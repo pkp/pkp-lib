@@ -67,6 +67,7 @@ class QueryNotesGridRow extends GridRow {
 					new LinkAction(
 						'deleteNote',
 						new RemoteActionConfirmationModal(
+							$request->getSession(),
 							__('common.confirmDelete'),
 							__('grid.action.delete'),
 							$router->url($request, null, null, 'deleteNote', null, $actionArgs), 'modal_delete'),

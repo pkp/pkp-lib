@@ -73,6 +73,7 @@ class AuthorGridRow extends GridRow {
 					new LinkAction(
 						'deleteAuthor',
 						new RemoteActionConfirmationModal(
+							$request->getSession(),
 							__('common.confirmDelete'),
 							__('common.delete'),
 							$router->url($request, null, null, 'deleteAuthor', null, $actionArgs),

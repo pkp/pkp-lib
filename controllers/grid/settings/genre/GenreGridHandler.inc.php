@@ -80,6 +80,7 @@ class GenreGridHandler extends SetupGridHandler {
 			new LinkAction(
 				'restoreGenres',
 				new RemoteActionConfirmationModal(
+					$request->getSession(),
 					__('grid.action.restoreDefaults.confirm'),
 					null,
 					$router->url($request, null, null, 'restoreGenres', null, $actionArgs), 'modal_delete'),
@@ -221,17 +222,15 @@ class GenreGridHandler extends SetupGridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function deleteGenre($args, $request) {
-		// Identify the Genre to be deleted
-		$genre =& $this->_getGenreFromArgs($request, $args);
-
+		$genreId = isset($args['genreId']) ? (int) $args['genreId'] : null;
+		$context = $request->getContext();
 		$genreDao = DAORegistry::getDAO('GenreDAO');
-		$result = $genreDao->deleteObject($genre);
-
-		if ($result) {
+		$genre = $genreDao->getById($genreId, $context->getId());
+		if ($genre && $request->checkCSRF()) {
+			$genreDao->deleteObject($genre);
 			return DAO::getDataChangedEvent($genre->getId());
-		} else {
-			return new JSONMessage(false, __('manager.setup.errorDeletingItem'));
 		}
+		return new JSONMessage(false, __('manager.setup.errorDeletingItem'));
 	}
 
 	/**
@@ -242,35 +241,13 @@ class GenreGridHandler extends SetupGridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function restoreGenres($args, $request) {
-		$context = $request->getContext();
+		if (!$request->checkCSRF()) return new JSONMessage(false);
 
 		// Restore all the genres in this context form the registry XML file
+		$context = $request->getContext();
 		$genreDao = DAORegistry::getDAO('GenreDAO');
 		$genreDao->installDefaults($context->getId(), $context->getSupportedLocales());
 		return DAO::getDataChangedEvent();
-	}
-
-	//
-	// Private helper function
-	//
-	/**
-	 * This will retrieve a Genre object from the
-	 * grids data source based on the request arguments.
-	 * If no Genre can be found then this will raise
-	 * a fatal error.
-	 * @param $args array
-	 * @return Genre
-	 */
-	function &_getGenreFromArgs($request, $args) {
-		// Identify the Genre Id and retrieve the
-		// corresponding element from the grid's data source.
-		if (!isset($args['genreId'])) {
-			fatalError('Missing Genre Id!');
-		} else {
-			$genre =& $this->getRowDataElement($request, $args['genreId']);
-			if (is_null($genre)) fatalError('Invalid Genre Id!');
-		}
-		return $genre;
 	}
 }
 

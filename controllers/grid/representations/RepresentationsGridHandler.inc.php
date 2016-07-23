@@ -260,6 +260,8 @@ abstract class RepresentationsGridHandler extends CategoryGridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function clearPubId($args, $request) {
+		if (!$request->checkCSRF()) return new JSONMessage(false);
+
 		$submission = $this->getSubmission();
 		$representationDao = Application::getRepresentationDAO();
 		$representation = $representationDao->getById(

@@ -103,6 +103,30 @@
 
 
 	//
+	// Private methods
+	//
+	/**
+	 * Show the loading spinner
+	 *
+	 * @return null
+	 */
+	$.pkp.controllers.wizard.WizardHandler.prototype.showProgressIndicator_ =
+			function() {
+		this.getProgressIndicator().css('opacity', 1);
+	};
+
+	/**
+	 * Hide the loading spinner
+	 *
+	 * @return null
+	 */
+	$.pkp.controllers.wizard.WizardHandler.prototype.hideProgressIndicator_ =
+			function() {
+		this.getProgressIndicator().css('opacity', 0);
+	};
+
+
+	//
 	// Public methods
 	//
 	/**
@@ -267,7 +291,7 @@
 			// Try to submit the form.
 			if ($form.submit()) {
 				this.disableContinueButton();
-				this.getProgressIndicator().show();
+				this.showProgressIndicator_();
 			}
 
 			// Prevent default event handling so that the form
@@ -326,7 +350,7 @@
 					/** @type {string} */ (this.getFinishButtonText()));
 		}
 
-		this.getProgressIndicator().hide();
+		this.hideProgressIndicator_();
 		this.enableContinueButton();
 	};
 

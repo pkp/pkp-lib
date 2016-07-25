@@ -21,6 +21,7 @@
 </script>
 
 <form class="pkp_form" id="noteForm" action="{url op="insertNote" params=$actionArgs noteId=$noteId escape=false}" method="post">
+	{csrf}
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="queryNoteFormNotification"}
 
 	{fbvFormSection title="stageParticipants.notify.message" for="comment" required="true"}

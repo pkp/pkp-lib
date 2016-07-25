@@ -25,6 +25,7 @@
 </script>
 
 <form class="pkp_form" id="uploadForm" action="{url op="saveFile"}" method="post">
+	{csrf}
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="libraryFileUploadNotification"}
 	<input type="hidden" name="temporaryFileId" id="temporaryFileId" value="" />
 	{fbvFormArea id="name"}

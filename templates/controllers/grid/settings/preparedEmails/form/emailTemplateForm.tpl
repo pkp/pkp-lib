@@ -16,6 +16,7 @@
 </script>
 
 <form class="pkp_form" method="post" id="managePreparedEmailForm" action="{url op="updatePreparedEmail"}">
+	{csrf}
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="emailTemplateFormNotification"}
 
 	{if $isNewTemplate}

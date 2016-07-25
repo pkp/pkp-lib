@@ -14,6 +14,7 @@
 	{rdelim});
 </script>
 <form class="pkp_form" id="userDisableForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.user.UserGridHandler" op="disableUser"}">
+	{csrf}
 
 	<input type="hidden" name="userId" value="{$userId|escape}" />
 	<input type="hidden" name="enable" value="{$enable|escape}" />

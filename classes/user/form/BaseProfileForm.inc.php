@@ -31,8 +31,8 @@ abstract class BaseProfileForm extends Form {
 		$this->_user = $user;
 		assert($user);
 
-		// Validation checks for this form
 		$this->addCheck(new FormValidatorPost($this));
+		$this->addCheck(new FormValidatorCSRF($this));
 	}
 
 	/**

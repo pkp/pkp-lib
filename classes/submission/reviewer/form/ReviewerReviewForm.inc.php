@@ -37,6 +37,7 @@ class ReviewerReviewForm extends Form {
 	function ReviewerReviewForm($request, $reviewerSubmission, $reviewAssignment, $step) {
 		parent::Form(sprintf('reviewer/review/step%d.tpl', $step));
 		$this->addCheck(new FormValidatorPost($this));
+		$this->addCheck(new FormValidatorCSRF($this));
 		$this->request = $request;
 		$this->_step = (int) $step;
 		$this->_reviewerSubmission = $reviewerSubmission;

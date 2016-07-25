@@ -53,6 +53,7 @@ class PKPStageParticipantNotifyForm extends Form {
 			$this->addCheck(new FormValidator($this, 'message', 'required', 'stageParticipants.notify.warning'));
 		}
 		$this->addCheck(new FormValidatorPost($this));
+		$this->addCheck(new FormValidatorCSRF($this));
 	}
 
 	/**

@@ -19,6 +19,7 @@
 </script>
 
 <form class="pkp_form" id="contactForm" method="post" action="{url op="saveContact"}">
+	{csrf}
 
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="contactFormNotification"}
 

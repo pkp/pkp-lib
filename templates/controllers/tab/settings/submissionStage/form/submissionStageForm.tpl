@@ -20,6 +20,7 @@
 </script>
 
 <form class="pkp_form" id="submissionStageForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="tab.settings.PublicationSettingsTabHandler" op="saveFormData" tab="submissionStage"}">
+	{csrf}
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="submissionStageFormNotification"}
 
 	{fbvFormArea id="authorGuidelinesArea"}

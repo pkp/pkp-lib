@@ -47,6 +47,7 @@
 </script>
 
 <form class="pkp_form" id="reportGeneratorForm" method="post" action="{url op="saveReportGenerator"}">
+	{csrf}
 	{if $metricTypeOptions}
 		{fbvFormArea id="columnsFormArea" title="defaultMetric.availableMetrics"}
 			{fbvFormSection}

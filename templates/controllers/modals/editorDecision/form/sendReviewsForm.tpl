@@ -21,6 +21,7 @@
 </script>
 
 <form class="pkp_form" id="sendReviews" method="post" action="{url op=$saveFormOperation}" >
+	{csrf}
 	<input type="hidden" name="submissionId" value="{$submissionId|escape}" />
 	<input type="hidden" name="stageId" value="{$stageId|escape}" />
 	<input type="hidden" name="decision" value="{$decision|escape}" />

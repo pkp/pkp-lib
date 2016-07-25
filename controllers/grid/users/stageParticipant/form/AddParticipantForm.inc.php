@@ -35,6 +35,7 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 		// validating in validate method for now.
 		$this->addCheck(new FormValidator($this, 'userId', 'required', 'editor.submission.addStageParticipant.form.userRequired'));
 		$this->addCheck(new FormValidatorPost($this));
+		$this->addCheck(new FormValidatorCSRF($this));
 	}
 
 	//

@@ -30,6 +30,7 @@ class ManageSubmissionFilesForm extends Form {
 		$this->_submissionId = (int)$submissionId;
 
 		$this->addCheck(new FormValidatorPost($this));
+		$this->addCheck(new FormValidatorCSRF($this));
 	}
 
 

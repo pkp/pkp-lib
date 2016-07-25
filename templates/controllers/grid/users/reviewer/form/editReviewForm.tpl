@@ -17,6 +17,7 @@
 </script>
 
 <form class="pkp_form" id="editReviewForm" method="post" action="{url op="updateReview"}">
+	{csrf}
 	<input type="hidden" name="reviewAssignmentId" value="{$reviewAssignmentId|escape}" />
 	<input type="hidden" name="stageId" value="{$stageId|escape}" />
 	<input type="hidden" name="submissionId" value="{$submissionId|escape}" />

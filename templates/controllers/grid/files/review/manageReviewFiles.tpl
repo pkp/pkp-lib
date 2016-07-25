@@ -18,6 +18,7 @@
 		{rdelim});
 	</script>
 	<form class="pkp_form" id="manageReviewFilesForm" action="{url component="grid.files.review.ManageReviewFilesGridHandler" op="updateReviewFiles" submissionId=$submissionId|escape stageId=$stageId|escape reviewRoundId=$reviewRoundId|escape}" method="post">
+		{csrf}
 		<!-- Available submission files -->
 		{url|assign:availableReviewFilesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.review.ManageReviewFilesGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId reviewRoundId=$reviewRoundId escape=false}
 		{load_url_in_div id="availableReviewFilesGrid" url=$availableReviewFilesGridUrl}

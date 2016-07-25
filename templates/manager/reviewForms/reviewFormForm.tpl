@@ -17,6 +17,7 @@
 </script>
 
 <form class="pkp_form" id="reviewFormForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.reviewForms.ReviewFormGridHandler" op="updateReviewForm"}">
+	{csrf}
 
 	{if $reviewFormId}
 		{fbvElement id="reviewFormId" type="hidden" name="reviewFormId" value=$reviewFormId}

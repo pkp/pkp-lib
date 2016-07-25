@@ -26,6 +26,7 @@
 </script>
 
 <form class="pkp_form" id="permissionSettingsForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="tab.settings.DistributionSettingsTabHandler" op="saveFormData" tab="permissions"}">
+	{csrf}
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="permissionSettingsFormNotification"}
 	{include file="controllers/tab/settings/wizardMode.tpl" wizardMode=$wizardMode}
 

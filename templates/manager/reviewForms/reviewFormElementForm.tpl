@@ -31,6 +31,7 @@ function togglePossibleResponses(newValue, multipleResponsesElementTypesString) 
 </script>
 
 <form class="pkp_form" id="reviewFormElementForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.reviewForms.ReviewFormElementsGridHandler" op="updateReviewFormElement" anchor="possibleResponses"}">
+	{csrf}
 	{fbvElement id="reviewFormId" type="hidden" name="reviewFormId" value=$reviewFormId}
 	{fbvElement id="reviewFormElementId" type="hidden" name="reviewFormElementId" value=$reviewFormElementId}
 

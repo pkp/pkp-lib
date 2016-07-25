@@ -16,6 +16,7 @@
 </script>
 
 <form class="pkp_form" id="sendReminderForm" method="post" action="{url op="sendReminder"}" >
+	{csrf}
 	{fbvFormArea id="sendReminder"}
 		<input type="hidden" name="submissionId" value="{$submissionId|escape}" />
 		<input type="hidden" name="stageId" value="{$stageId|escape}" />

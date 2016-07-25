@@ -39,6 +39,7 @@ class LibraryFileForm extends Form {
 				create_function('$type, $form, $libraryFileManager', 'return is_numeric($type) && $libraryFileManager->getNameFromType($type);'), array($this, $this->libraryFileManager)));
 
 		$this->addCheck(new FormValidatorPost($this));
+		$this->addCheck(new FormValidatorCSRF($this));
 	}
 
 	/**

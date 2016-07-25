@@ -18,6 +18,7 @@
 <!-- Current final draft files -->
 <div id="existingFilesContainer">
 	<form class="pkp_form" id="manageFinalDraftFilesForm" action="{url component="grid.files.final.ManageFinalDraftFilesGridHandler" op="updateFinalDraftFiles" submissionId=$submissionId}" method="post">
+		{csrf}
 		{fbvFormArea id="manageFinalDraftFiles"}
 			{fbvFormSection}
 				<input type="hidden" name="submissionId" value="{$submissionId|escape}" />

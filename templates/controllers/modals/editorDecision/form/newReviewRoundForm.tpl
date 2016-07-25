@@ -18,6 +18,7 @@
 
 <p>{translate key="editor.submission.newRoundDescription"}</p>
 <form class="pkp_form" id="newRoundForm" method="post" action="{url op="saveNewReviewRound"}" >
+	{csrf}
 	<input type="hidden" name="submissionId" value="{$submissionId|escape}" />
 	<input type="hidden" name="stageId" value="{$stageId|escape}" />
 	<input type="hidden" name="reviewRoundId" value="{$reviewRoundId|escape}" />

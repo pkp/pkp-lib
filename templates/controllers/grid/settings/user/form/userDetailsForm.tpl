@@ -25,6 +25,7 @@
 {/if}{* !$userId *}
 
 <form class="pkp_form" id="userDetailsForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.user.UserGridHandler" op="updateUser"}">
+	{csrf}
 	<div id="userDetailsFormContainer">
 		<div id="userDetails" class="full left">
 			{if $userId}

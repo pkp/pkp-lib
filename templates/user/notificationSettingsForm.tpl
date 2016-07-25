@@ -29,6 +29,7 @@
 <p>{translate key="notification.settingsDescription"}</p>
 
 <form class="pkp_form" id="notificationSettingsForm" method="post" action="{url op="saveNotificationSettings"}" enctype="multipart/form-data">
+	{csrf}
 
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="notificationSettingsFormNotification"}
 

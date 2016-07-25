@@ -58,6 +58,7 @@ class PKPSubmissionMetadataViewForm extends Form {
 		// Validation checks for this form
 		$this->_metadataFormImplem->addChecks($submission);
 		$this->addCheck(new FormValidatorPost($this));
+		$this->addCheck(new FormValidatorCSRF($this));
 	}
 
 	//

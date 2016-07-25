@@ -18,6 +18,7 @@
 </script>
 
 <form class="pkp_form" id="uploadForm" action="{url op="updateFile" fileId=$libraryFile->getId()}" method="post">
+	{csrf}
 	<input type="hidden" name="submissionId" value="{$submissionId|escape}" />
 	{fbvFormArea id="name"}
 		{fbvFormSection title="common.name" required=true}

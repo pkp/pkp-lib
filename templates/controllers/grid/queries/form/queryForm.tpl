@@ -22,6 +22,7 @@
 </script>
 
 <form class="pkp_form" id="queryForm" method="post" action="{url op="updateQuery" queryId=$queryId params=$actionArgs}">
+	{csrf}
 
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="queryFormNotification"}
 

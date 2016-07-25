@@ -24,7 +24,7 @@
 </script>
 
 <form id="announcementSettingsForm" class="pkp_form" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="tab.settings.WebsiteSettingsTabHandler" op="saveFormData" tab="announcements"}">
-
+	{csrf}
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="announcementSettingsFormNotification"}
 
 	{fbvFormArea id="announcements" title="manager.setup.announcements"}

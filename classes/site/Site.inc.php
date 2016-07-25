@@ -116,13 +116,6 @@ class Site extends DataObject {
 	}
 
 	/**
-	 * Get localized site intro.
-	 */
-	function getLocalizedIntro() {
-		return $this->getLocalizedSetting('intro');
-	}
-
-	/**
 	 * Get redirect
 	 * @return int
 	 */

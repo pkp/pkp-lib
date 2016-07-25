@@ -125,7 +125,7 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 	 */
 	function readInputData() {
 		$this->readUserVars(
-			array('pageHeaderTitleType', 'title', 'intro', 'about', 'redirect', 'contactName',
+			array('pageHeaderTitleType', 'title', 'about', 'redirect', 'contactName',
 				'contactEmail', 'minPasswordLength', 'themePluginPath', 'defaultMetricType',)
 		);
 	}

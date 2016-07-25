@@ -218,7 +218,7 @@ class Session extends DataObject {
 	 */
 	function getCSRFToken() {
 		$csrf = $this->getSessionVar('csrf');
-		if (!is_array($csrf) || time() > $csrf['timestamp'] + (60*60*24)) {
+		if (!is_array($csrf) || time() > $csrf['timestamp'] + (60*60)) { // 1 hour token expiry
 			// Generate random data
 			if (function_exists('openssl_random_pseudo_bytes')) $data = openssl_random_pseudo_bytes(128);
 			elseif (function_exists('random_bytes')) $data = random_bytes(128);

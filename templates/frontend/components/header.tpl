@@ -65,18 +65,18 @@
 				</div>
 
 				{* Primary site navigation *}
-				<nav class="pkp_navigation_primary_row navDropdownMenu" aria-label="{translate|escape key="common.navigation.site"}">
-					<div class="pkp_navigation_primary_wrapper">
+				{if get_class($currentJournal) == 'Journal'}
+					<nav class="pkp_navigation_primary_row navDropdownMenu" aria-label="{translate|escape key="common.navigation.site"}">
+						<div class="pkp_navigation_primary_wrapper">
 
-						{* Primary navigation menu for current application *}
-						{include file="frontend/components/primaryNavMenu.tpl"}
+							{* Primary navigation menu for current application *}
+							{include file="frontend/components/primaryNavMenu.tpl"}
 
-						{* Search form *}
-						{if !$noContextsConfigured}
+							{* Search form *}
 							{include file="frontend/components/searchForm_simple.tpl"}
-						{/if}
-					</div>
-				</nav>
+						</div>
+					</nav>
+				{/if}
 
 				<nav class="pkp_navigation_user_wrapper navDropdownMenu" id="navigationUserWrapper" aria-label="{translate|escape key="common.navigation.user"}">
 					<ul id="navigationUser" class="pkp_navigation_user pkp_nav_list">

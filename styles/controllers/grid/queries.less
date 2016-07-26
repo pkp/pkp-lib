@@ -7,9 +7,10 @@
  *
  * @ingroup pkp_controllers_query
  *
- * @brief Classes for grid structure
+ * @brief Styles for the query view/edit interfaces
  */
 
+// Viewing a query
 .pkp_controllers_query {
 
     > h4 {
@@ -19,6 +20,7 @@
     .participants {
         &:extend(.pkp_unstyled_list);
         margin-bottom: @double;
+        font-size: @font-sml;
     }
 
     .pkp_controllers_grid {
@@ -97,5 +99,12 @@
             }
         }
     }
+}
 
+// Adding/editing a query
+#queryForm {
+
+    .pkp_controllers_grid {
+        margin-bottom: 0;
+    }
 }

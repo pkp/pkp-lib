@@ -495,7 +495,6 @@
 	<message key="grid.action.deleteNotification">Delete Task</message>
 	<message key="grid.action.markNew">Mark New</message>
 	<message key="grid.action.markRead">Mark Read</message>
-	<message key="common.tasks.titleAndTask"><![CDATA[<div class="task"><div class="contextAcronym">{$acronym}</div><div class="submissionTitle">{$title}</div><div class="taskName">{$task}</div></div>]]></message>
 
 	<message key="dashboard.tasks">Tasks</message>
 	<message key="dashboard.myQueue">My Queue</message>

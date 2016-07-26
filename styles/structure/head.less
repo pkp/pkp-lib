@@ -312,8 +312,8 @@
 		position: absolute;
 		top: 0;
 		left: 100%;
-		width: 384px - @double;
-		padding: @base;
+		width: 600px; // Keep wide for ease-of-use until we can make grids responsive
+		padding: @base @base 0; // Account for grid footer padding
 		background: @lift;
 		text-shadow: none;
 		box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
@@ -330,47 +330,6 @@
 				background: transparent;
 				color: @primary-lift;
 			}
-		}
-	}
-
-	// Leave the header for screen readers but don't show it
-	thead {
-		position: absolute;
-		top: 0;
-		left: -9999px;
-	}
-
-	// No top border on the first task
-	.gridRow:first-child {
-		border-top: none;
-	}
-
-	// Vertically center the checkbox
-	// Extra specifity ftw
-	.panel td {
-		vertical-align: middle;
-	}
-
-	// @todo hack on top of a hack. Overrides the padding-left: 32px attached to
-	// .pkp_page_dashboard .pkp_controllers_grid tbody:not(.empty) td:first-child
-	#notificationsGrid .gridRow td:first-child {
-		padding-left: 0;
-	}
-
-	.pkp_controllers_grid {
-		margin-bottom: 0;
-	}
-
-	// Override <ul> styles attached to navigation menu
-	.actions.btm {
-		position: relative;
-		top: auto;
-		left: auto;
-		background: transparent;
-		width: auto;
-
-		.pkp_linkaction_deleteNotifications {
-			color: @offset;
 		}
 	}
 }

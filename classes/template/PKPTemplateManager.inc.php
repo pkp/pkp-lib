@@ -97,6 +97,8 @@ class PKPTemplateManager extends Smarty {
 		$router = $this->_request->getRouter();
 		assert(is_a($router, 'PKPRouter'));
 
+		$currentContext = $this->_request->getContext();
+
 		$this->assign(array(
 			'defaultCharset' => Config::getVar('i18n', 'client_charset'),
 			'basePath' => $this->_request->getBasePath(),
@@ -109,7 +111,7 @@ class PKPTemplateManager extends Smarty {
 			'datetimeFormatShort' => Config::getVar('general', 'datetime_format_short'),
 			'datetimeFormatLong' => Config::getVar('general', 'datetime_format_long'),
 			'timeFormat' => Config::getVar('general', 'time_format'),
-			'currentContext' => $this->_request->getContext(),
+			'currentContext' => $currentContext,
 			'currentLocale' => $locale,
 			'pageTitle' => $application->getNameKey(),
 			'applicationName' => __($application->getNameKey()),
@@ -190,7 +192,6 @@ class PKPTemplateManager extends Smarty {
 
 			// Register meta tags
 			if (Config::getVar('general', 'installed')) {
-				$currentContext = $this->_request->getContext();
 				if (($this->_request->getRequestedPage()=='' || $this->_request->getRequestedPage() == 'index') && $currentContext && $currentContext->getLocalizedSetting('searchDescription')) {
 					$this->addHeader('searchDescription', '<meta name="description" content="' . $currentContext->getLocalizedSetting('searchDescription') . '">');
 				}
@@ -209,6 +210,16 @@ class PKPTemplateManager extends Smarty {
 						$this->addHeader('customHeaders', $customHeaders);
 					}
 				}
+			}
+
+			if ($currentContext && !$currentContext->getEnabled()) {
+				$this->addHeader(
+					'noindex',
+					'<meta name="robots" content="noindex,nofollow">',
+					array(
+						'contexts' => array('frontend','backend'),
+					)
+				);
 			}
 		}
 

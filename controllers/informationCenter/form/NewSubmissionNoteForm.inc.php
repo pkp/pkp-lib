@@ -43,7 +43,7 @@ class NewSubmissionNoteForm extends NewNoteForm {
 	 * @return string
 	 */
 	function getSubmitNoteLocaleKey() {
-		return 'informationCenter.addSubmissionNote';
+		return 'informationCenter.addNote';
 	}
 
 	/**

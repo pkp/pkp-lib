@@ -20,6 +20,6 @@
 		{include file="controllers/informationCenter/note.tpl" noteFileDownloadLink=$downloadLink noteViewStatus=$noteViewStatus}
 	{/iterate}
 	{if $notes->wasEmpty()}
-		<p>{translate key="informationCenter.noNotes"}</p>
+		<p class="no_notes">{translate key="informationCenter.noNotes"}</p>
 	{/if}
 </div>

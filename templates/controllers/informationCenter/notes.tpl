@@ -22,25 +22,24 @@
 
 <div id="informationCenterNotes">
 
-	{include file=$newNoteFormTemplate}
-
 	{if $showEarlierEntries}
-	{**
-	 * The file information center should provide access to notes
-	 * from previous stages. Does not apply to submissions.
-	 *}
+		{**
+		 * The file information center should provide access to notes
+		 * from previous stages. Does not apply to submissions.
+		 *}
 		<div id="notesAccordion">
 			<h3><a href="#">{translate key="informationCenter.currentNotes"}</a></h3>
 	{/if}
+
 	{* Leave an empty div to be filled with notes *}
-	<div id="notesList">
-	</div>
+	<div id="notesList"></div>
 
 	{if $showEarlierEntries}
 			<h3><a href="#" id="showPastNotesLink">{translate key="informationCenter.pastNotes"}</a></h3>
 			{* Leave an empty div to be filled in with past notes *}
-			<div id="pastNotesList">
-			</div>
+			<div id="pastNotesList"></div>
 		</div>
 	{/if}
+
+	{include file=$newNoteFormTemplate}
 </div>

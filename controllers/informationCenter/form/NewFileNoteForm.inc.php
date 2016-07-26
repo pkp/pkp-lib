@@ -43,7 +43,7 @@ class NewFileNoteForm extends NewNoteForm {
 	 * @return string
 	 */
 	function getSubmitNoteLocaleKey() {
-		return 'informationCenter.addFileNote';
+		return 'informationCenter.addNote';
 	}
 
 	/**

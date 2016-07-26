@@ -7,10 +7,10 @@
  *
  * Site-Wide Navigation Bar
  *}
-{if $currentJournal || $currentPress}
+{if $currentContext}
 	{url|assign:"homeUrl" page="index" router=$smarty.const.ROUTE_PAGE}
 {elseif $multipleContexts}
-	{url|assign:"homeUrl" journal="index" router=$smarty.const.ROUTE_PAGE}
+	{url|assign:"homeUrl" context="index" router=$smarty.const.ROUTE_PAGE}
 {/if}
 
 <script type="text/javascript">

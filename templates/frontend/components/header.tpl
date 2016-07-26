@@ -37,7 +37,7 @@
 					{else}
 						<div class="pkp_site_name">
 					{/if}
-						{if $currentJournal && $multipleContexts}
+						{if $currentContext && $multipleContexts}
 							{url|assign:"homeUrl" journal="index" router=$smarty.const.ROUTE_PAGE}
 						{else}
 							{url|assign:"homeUrl" page="index" router=$smarty.const.ROUTE_PAGE}
@@ -65,7 +65,7 @@
 				</div>
 
 				{* Primary site navigation *}
-				{if get_class($currentJournal) == 'Journal'}
+				{if $currentContext}
 					<nav class="pkp_navigation_primary_row navDropdownMenu" aria-label="{translate|escape key="common.navigation.site"}">
 						<div class="pkp_navigation_primary_wrapper">
 

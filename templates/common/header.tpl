@@ -34,7 +34,7 @@
 
 				{* Logo or site title *}
 				<div class="pkp_site_name">
-					{if $currentJournal && $multipleContexts}
+					{if $currentContext && $multipleContexts}
 						{url|assign:"homeUrl" journal="index" router=$smarty.const.ROUTE_PAGE}
 					{else}
 						{url|assign:"homeUrl" page="index" router=$smarty.const.ROUTE_PAGE}

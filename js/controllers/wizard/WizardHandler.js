@@ -108,6 +108,7 @@
 	/**
 	 * Show the loading spinner
 	 *
+	 * @private
 	 * @return null
 	 */
 	$.pkp.controllers.wizard.WizardHandler.prototype.showProgressIndicator_ =

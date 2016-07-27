@@ -394,21 +394,8 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 		$sectionId = $submission->getSectionId();
 		$contextId = $submission->getContextId();
 
-		$filterSubEditors = false;
-		if ($roleId == ROLE_ID_SUB_EDITOR && $sectionId) {
-			$subEditorsDao = DAORegistry::getDAO('SubEditorsDAO');
-			// Flag to filter sub editors only.
-			$filterSubEditors = true;
-		}
-
 		$userList = array();
-		while($user = $users->next()) {
-			if ($filterSubEditors && !$subEditorsDao->editorExists($contextId, $sectionId, $user->getId())) {
-				continue;
-			}
-			$userList[$user->getId()] = $user->getFullName();
-		}
-
+		while($user = $users->next()) $userList[$user->getId()] = $user->getFullName();
 		if (count($userList) == 0) {
 			$userList[0] = __('common.noMatches');
 		}

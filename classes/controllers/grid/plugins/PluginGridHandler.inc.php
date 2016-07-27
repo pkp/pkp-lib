@@ -318,7 +318,9 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 	 */
 	function saveUploadPlugin($args, $request) {
 		$function = $request->getUserVar('function');
-		$uploadPluginForm = new UploadPluginForm($function);
+		$plugin = $request->getUserVar('plugin');
+		$category = $request->getUserVar('category');
+		$uploadPluginForm = new UploadPluginForm($function, $plugin, $category);
 		$uploadPluginForm->readInputData();
 
 		if($uploadPluginForm->validate()) {
@@ -382,7 +384,9 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 	 */
 	function _showUploadPluginForm($function, $request) {
 		import('lib.pkp.controllers.grid.plugins.form.UploadPluginForm');
-		$uploadPluginForm = new UploadPluginForm($function);
+		$plugin = $request->getUserVar('plugin');
+		$category = $request->getUserVar('category');
+		$uploadPluginForm = new UploadPluginForm($function, $plugin, $category);
 		$uploadPluginForm->initData();
 
 		return new JSONMessage(true, $uploadPluginForm->fetch($request));

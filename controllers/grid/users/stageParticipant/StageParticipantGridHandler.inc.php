@@ -362,7 +362,7 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 
 		// Log removal.
 		$userDao = DAORegistry::getDAO('UserDAO');
-		$assignedUser = $userDao->getById($userId);
+		$assignedUser = $userDao->getById($stageAssignment->getUserId());
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId());
 		import('lib.pkp.classes.log.SubmissionLog');

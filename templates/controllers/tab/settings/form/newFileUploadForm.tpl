@@ -32,6 +32,7 @@
 </script>
 
 <form id="uploadForm" class="pkp_form" action="{url op="saveFile" fileSettingName=$fileSettingName fileType=$fileType}" method="post">
+	{csrf}
 	<input type="hidden" name="temporaryFileId" id="temporaryFileId" value="" />
 	{fbvFormArea id="file"}
 		{fbvFormSection title="common.file"}

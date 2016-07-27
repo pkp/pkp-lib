@@ -28,29 +28,25 @@ class UnconsiderReviewLinkAction extends LinkAction {
 	 * @param $submission Submission The reviewed submission.
 	 */
 	function UnconsiderReviewLinkAction($request, $reviewAssignment, $submission) {
-		// Instantiate the information center modal.
 		$router = $request->getRouter();
-
-		$actionArgs = array(
-			'submissionId' => $reviewAssignment->getSubmissionId(),
-			'reviewAssignmentId' => $reviewAssignment->getId(),
-			'stageId' => $reviewAssignment->getStageId()
-		);
-
 		import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
-		$modal = new RemoteActionConfirmationModal(
-			__('editor.review.unconsiderReviewText'), __('editor.review.unconsiderReview'),
-			$router->url(
-				$request, null,
-				'grid.users.reviewer.ReviewerGridHandler', 'unconsiderReview',
-				null, $actionArgs
-			),
-			'modal_information'
-		);
-
-		// Configure the link action.
 		parent::LinkAction(
-			'unconsiderReview', $modal,
+			'unconsiderReview',
+			new RemoteActionConfirmationModal(
+				$request->getSession(),
+				__('editor.review.unconsiderReviewText'), __('editor.review.unconsiderReview'),
+				$router->url(
+					$request, null,
+					'grid.users.reviewer.ReviewerGridHandler', 'unconsiderReview',
+					null,
+					array(
+						'submissionId' => $reviewAssignment->getSubmissionId(),
+						'reviewAssignmentId' => $reviewAssignment->getId(),
+						'stageId' => $reviewAssignment->getStageId()
+					)
+				),
+				'modal_information'
+			),
 			__('editor.review.revertDecision'),
 			'unconsider'
 		);

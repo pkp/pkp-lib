@@ -16,6 +16,7 @@
 </script>
 
 <form class="pkp_form" id="announcementForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="grid.announcements.ManageAnnouncementGridHandler" op="updateAnnouncement"}">
+	{csrf}
 	{if $readOnly}
 		{* Read only announcement *}
 

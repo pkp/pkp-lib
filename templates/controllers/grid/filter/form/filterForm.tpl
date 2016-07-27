@@ -25,6 +25,7 @@
 </script>
 
 <form class="pkp_form" id="editFilterForm{$uid|escape}" method="post" action="{url op="updateFilter"}" >
+	{csrf}
 	{if $noMoreTemplates}
 		<p>{translate key='manager.setup.filter.noMoreTemplates'}</p>
 	{else}

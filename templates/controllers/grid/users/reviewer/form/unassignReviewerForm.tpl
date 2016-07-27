@@ -17,6 +17,7 @@
 </script>
 
 <form class="pkp_form" id="unassignReviewerForm" method="post" action="{url op="updateUnassignReviewer"}" >
+	{csrf}
 	<input type="hidden" name="reviewAssignmentId" value="{$reviewAssignmentId|escape}" />
 	<input type="hidden" name="reviewRoundId" value="{$reviewRoundId|escape}" />
 	<input type="hidden" name="reviewerId" value="{$reviewerId|escape}" />

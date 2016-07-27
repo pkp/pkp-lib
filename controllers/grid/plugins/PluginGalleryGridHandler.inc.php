@@ -210,6 +210,7 @@ class PluginGalleryGridHandler extends GridHandler {
 		if (Validation::isSiteAdmin() && $installOp) $templateMgr->assign('installAction', new LinkAction(
 			'installPlugin',
 			new RemoteActionConfirmationModal(
+				$request->getSession(),
 				__($installConfirmKey),
 				__($installActionKey),
 				$router->url($request, null, null, $installOp, null, array('rowId' => $request->getUserVar('rowId'))),
@@ -232,6 +233,8 @@ class PluginGalleryGridHandler extends GridHandler {
 	 * Install or upgrade a plugin
 	 */
 	function installPlugin($args, $request, $isUpgrade = false) {
+		if (!$request->checkCSRF()) return new JSONMessage(false);
+
 		$plugin = $this->_getSpecifiedPlugin($request);
 		$notificationMgr = new NotificationManager();
 		$user = $request->getUser();

@@ -20,6 +20,7 @@
 </script>
 
 <form class="pkp_form" id="emailTemplatesForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="tab.settings.PublicationSettingsTabHandler" op="saveFormData" tab="emailTemplates"}">
+	{csrf}
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="emailTemplatesFormNotification"}
 
 	{fbvFormSection label="manager.setup.emailSignature" for="emailSignature" description="manager.setup.emailSignatureDescription"}

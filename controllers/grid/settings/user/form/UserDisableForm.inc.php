@@ -33,6 +33,7 @@ class UserDisableForm extends Form {
 		$this->_enable = (bool) $enable;
 
 		$this->addCheck(new FormValidatorPost($this));
+		$this->addCheck(new FormValidatorCSRF($this));
 	}
 
 	/**

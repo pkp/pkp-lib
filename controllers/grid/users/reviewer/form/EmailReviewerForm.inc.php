@@ -32,6 +32,7 @@ class EmailReviewerForm extends Form {
 		$this->addCheck(new FormValidator($this, 'subject', 'required', 'email.subjectRequired'));
 		$this->addCheck(new FormValidator($this, 'message', 'required', 'email.bodyRequired'));
 		$this->addCheck(new FormValidatorPost($this));
+		$this->addCheck(new FormValidatorCSRF($this));
 	}
 
 	/**

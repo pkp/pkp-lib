@@ -52,6 +52,7 @@ class LanguageGridRow extends GridRow {
 						new LinkAction(
 							'uninstall',
 							new RemoteActionConfirmationModal(
+								$request->getSession(),
 								__('admin.languages.confirmUninstall'),
 								__('grid.action.remove'),
 								$router->url($request, null, null, 'uninstallLocale', null, $actionArgs)
@@ -64,6 +65,7 @@ class LanguageGridRow extends GridRow {
 					new LinkAction(
 						'reload',
 						new RemoteActionConfirmationModal(
+							$request->getSession(),
 							__('manager.language.confirmDefaultSettingsOverwrite'),
 							__('manager.language.reloadLocalizedDefaultSettings'),
 							$router->url($request, null, null, 'reloadLocale', null, $actionArgs)

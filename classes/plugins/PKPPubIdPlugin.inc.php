@@ -89,10 +89,10 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin {
 					$form->execute();
 					$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS);
 					return new JSONMessage(true);
-				} else {
-					return new JSONMessage(true, $form->fetch($request));
 				}
+				return new JSONMessage(true, $form->fetch($request));
 			case 'clearPubIds':
+				if (!$request->checkCSRF()) return new JSONMessage(false);
 				$contextDao = Application::getContextDAO();
 				$contextDao->deleteAllPubIds($context->getId(), $this->getPubIdType());
 				$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS);

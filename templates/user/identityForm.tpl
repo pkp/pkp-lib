@@ -19,6 +19,7 @@
 </script>
 
 <form class="pkp_form" id="identityForm" method="post" action="{url op="saveIdentity"}" enctype="multipart/form-data">
+	{csrf}
 
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="identityFormNotification"}
 

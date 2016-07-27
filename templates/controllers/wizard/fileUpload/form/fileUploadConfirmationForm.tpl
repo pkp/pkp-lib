@@ -28,6 +28,7 @@
 <form class="pkp_form pkp_controllers_grid_files" id="uploadForm"
 		action="{url op="confirmRevision" submissionId=$submissionId stageId=$stageId fileStage=$fileStage uploadedFileId=$uploadedFile->getFileId()}"
 		method="post">
+	{csrf}
 	{fbvFormArea id="file"}
 		<div id="possibleRevision" class="pkp_controllers_grid_files_possibleRevision" style="display:none;">
 			<div id="revisionWarningText">

@@ -268,35 +268,34 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 		$locale = $request->getUserVar('rowId');
 		$gridData = $this->getGridDataElements($request);
 
-		if (array_key_exists($locale, $gridData)) {
+		if ($request->checkCSRF() && array_key_exists($locale, $gridData)) {
 			$localeData = $gridData[$locale];
-			if (!$localeData['primary']) {
-				$installedLocales = $site->getInstalledLocales();
+			if ($localeData['primary']) return new JSONMessage(false);
 
-				if (in_array($locale, $installedLocales)) {
-					$installedLocales = array_diff($installedLocales, array($locale));
-					$site->setInstalledLocales($installedLocales);
-					$supportedLocales = $site->getSupportedLocales();
-					$supportedLocales = array_diff($supportedLocales, array($locale));
-					$site->setSupportedLocales($supportedLocales);
-					$siteDao = DAORegistry::getDAO('SiteDAO');
-					$siteDao->updateObject($site);
+			$installedLocales = $site->getInstalledLocales();
+			if (in_array($locale, $installedLocales)) {
+				$installedLocales = array_diff($installedLocales, array($locale));
+				$site->setInstalledLocales($installedLocales);
+				$supportedLocales = $site->getSupportedLocales();
+				$supportedLocales = array_diff($supportedLocales, array($locale));
+				$site->setSupportedLocales($supportedLocales);
+				$siteDao = DAORegistry::getDAO('SiteDAO');
+				$siteDao->updateObject($site);
 
-					$this->_updateContextLocaleSettings($request);
-					AppLocale::uninstallLocale($locale);
+				$this->_updateContextLocaleSettings($request);
+				AppLocale::uninstallLocale($locale);
 
-					$notificationManager = new NotificationManager();
-					$user = $request->getUser();
-					$notificationManager->createTrivialNotification(
-						$user->getId(), NOTIFICATION_TYPE_SUCCESS,
-						array('contents' => __('notification.localeUninstalled', array('locale' => $localeData['name'])))
-					);
-				}
+				$notificationManager = new NotificationManager();
+				$user = $request->getUser();
+				$notificationManager->createTrivialNotification(
+					$user->getId(), NOTIFICATION_TYPE_SUCCESS,
+					array('contents' => __('notification.localeUninstalled', array('locale' => $localeData['name'])))
+				);
 			}
-
+			return DAO::getDataChangedEvent($locale);
 		}
 
-		return DAO::getDataChangedEvent($locale);
+		return new JSONMessage(false);
 	}
 
 	/**
@@ -330,30 +329,31 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function disableLocale($args, $request) {
-		$rowId = $request->getUserVar('rowId');
+		$locale = $request->getUserVar('rowId');
 		$gridData = $this->getGridDataElements($request);
 		$notificationManager = new NotificationManager();
 		$user = $request->getUser();
 
-		if (array_key_exists($rowId, $gridData)) {
+		if ($request->checkCSRF() && array_key_exists($locale, $gridData)) {
 			// Don't disable primary locales.
-			if ($gridData[$rowId]['primary']) {
+			if ($gridData[$locale]['primary']) {
 				$notificationManager->createTrivialNotification(
 					$user->getId(), NOTIFICATION_TYPE_ERROR,
 					array('contents' => __('admin.languages.cantDisable'))
 				);
-			} else {
-				$locale = $rowId;
-				$this->_updateLocaleSupportState($request, $rowId, false);
-
-				$notificationManager->createTrivialNotification(
-					$user->getId(), NOTIFICATION_TYPE_SUCCESS,
-					array('contents' => __('notification.localeDisabled'))
-				);
+				return new JSONMessage(false);
 			}
+
+			$this->_updateLocaleSupportState($request, $locale, false);
+
+			$notificationManager->createTrivialNotification(
+				$user->getId(), NOTIFICATION_TYPE_SUCCESS,
+				array('contents' => __('notification.localeDisabled'))
+			);
+			return DAO::getDataChangedEvent($locale);
 		}
 
-		return DAO::getDataChangedEvent($rowId);
+		return new JSONMessage(false);
 	}
 
 	/**
@@ -367,7 +367,7 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 		$locale = $request->getUserVar('rowId');
 
 		$gridData = $this->getGridDataElements($request);
-		if (array_key_exists($locale, $gridData)) {
+		if ($request->checkCSRF() && array_key_exists($locale, $gridData)) {
 			AppLocale::reloadLocale($locale);
 			$notificationManager = new NotificationManager();
 			$user = $request->getUser();
@@ -375,9 +375,10 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 				$user->getId(), NOTIFICATION_TYPE_SUCCESS,
 				array('contents' => __('notification.localeReloaded', array('locale' => $gridData[$locale]['name'])))
 			);
+			return DAO::getDataChangedEvent($locale);
 		}
 
-		return DAO::getDataChangedEvent($locale);
+		return new JSONMessage(false);
 	}
 
 

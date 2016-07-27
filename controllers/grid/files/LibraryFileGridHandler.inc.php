@@ -270,7 +270,7 @@ class LibraryFileGridHandler extends CategoryGridHandler {
 		$router = $request->getRouter();
 		$context = $router->getContext($request);
 
-		if ($fileId) {
+		if ($request->checkCSRF() && $fileId) {
 			$libraryFileManager = new LibraryFileManager($context->getId());
 			$libraryFileManager->deleteFile($fileId);
 

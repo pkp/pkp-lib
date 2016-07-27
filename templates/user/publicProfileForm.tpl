@@ -38,6 +38,7 @@
 </script>
 
 <form class="pkp_form" id="publicProfileForm" method="post" action="{url op="savePublicProfile"}" enctype="multipart/form-data">
+	{csrf}
 
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="publicProfileNotification"}
 

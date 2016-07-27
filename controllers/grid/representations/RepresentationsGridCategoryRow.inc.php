@@ -84,6 +84,7 @@ class RepresentationsGridCategoryRow extends GridCategoryRow {
 				new LinkAction(
 					'deleteFormat',
 					new RemoteActionConfirmationModal(
+						$request->getSession(),
 						__('common.confirmDelete'),
 						__('common.delete'),
 						$router->url($request, null, null, 'deleteFormat', null, $actionArgs),

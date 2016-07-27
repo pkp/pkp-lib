@@ -52,6 +52,8 @@ abstract class PKPManageFileApiHandler extends Handler {
 	 * @return JSONMessage JSON object
 	 */
 	function deleteFile($args, $request) {
+		if (!$request->checkCSRF()) return JSONMessage(false);
+
 		$submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$stageId = $request->getUserVar('stageId');
@@ -74,53 +76,50 @@ abstract class PKPManageFileApiHandler extends Handler {
 		if (!$stageAssignments->wasEmpty()) {
 			$submissionFileDao->deleteReviewRoundAssignment($submission->getId(), $stageId, $submissionFile->getFileId(), $submissionFile->getRevision());
 		}
-		$success = (boolean)$submissionFileDao->deleteRevisionById($submissionFile->getFileId(), $submissionFile->getRevision(), $submissionFile->getFileStage(), $submission->getId());
+
+		if (!$submissionFileDao->deleteRevisionById($submissionFile->getFileId(), $submissionFile->getRevision(), $submissionFile->getFileStage(), $submission->getId())) return new JSONMessage(false);
 
 		$notificationMgr = new NotificationManager();
-		if ($success) {
-			if ($submissionFile->getFileStage() == SUBMISSION_FILE_REVIEW_REVISION) {
-				// Get a list of author user IDs
-				$authorUserIds = array();
-				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-				$submitterAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), ROLE_ID_AUTHOR);
-				while ($assignment = $submitterAssignments->next()) {
-					$authorUserIds[] = $assignment->getUserId();
-				}
-
-				// Update the notifications
-				$notificationMgr->updateNotification(
-					$request,
-					array(NOTIFICATION_TYPE_PENDING_INTERNAL_REVISIONS, NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS),
-					$authorUserIds,
-					ASSOC_TYPE_SUBMISSION,
-					$submission->getId()
-				);
-
-				$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-				$lastReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
-				$notificationMgr->updateNotification(
-					$request,
-					array(NOTIFICATION_TYPE_ALL_REVISIONS_IN),
-					null,
-					ASSOC_TYPE_REVIEW_ROUND,
-					$lastReviewRound->getId()
-				);
+		if ($submissionFile->getFileStage() == SUBMISSION_FILE_REVIEW_REVISION) {
+			// Get a list of author user IDs
+			$authorUserIds = array();
+			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+			$submitterAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), ROLE_ID_AUTHOR);
+			while ($assignment = $submitterAssignments->next()) {
+				$authorUserIds[] = $assignment->getUserId();
 			}
 
-			$this->removeFileIndex($submission, $submissionFile);
-			$fileManager = $this->getFileManager($submission->getContextId(), $submission->getId());
-			$fileManager->deleteFile($submissionFile->getFileId(), $submissionFile->getRevision());
+			// Update the notifications
+			$notificationMgr->updateNotification(
+				$request,
+				array(NOTIFICATION_TYPE_PENDING_INTERNAL_REVISIONS, NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS),
+				$authorUserIds,
+				ASSOC_TYPE_SUBMISSION,
+				$submission->getId()
+			);
 
-			$this->setupTemplate($request);
-			$user = $request->getUser();
-			if (!$request->getUserVar('suppressNotification')) NotificationManager::createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.removedFile')));
-
-			$this->logDeletionEvent($request, $submission, $submissionFile, $user);
-
-			return DAO::getDataChangedEvent();
-		} else {
-			return new JSONMessage(false);
+			$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+			$lastReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
+			$notificationMgr->updateNotification(
+				$request,
+				array(NOTIFICATION_TYPE_ALL_REVISIONS_IN),
+				null,
+				ASSOC_TYPE_REVIEW_ROUND,
+				$lastReviewRound->getId()
+			);
 		}
+
+		$this->removeFileIndex($submission, $submissionFile);
+		$fileManager = $this->getFileManager($submission->getContextId(), $submission->getId());
+		$fileManager->deleteFile($submissionFile->getFileId(), $submissionFile->getRevision());
+
+		$this->setupTemplate($request);
+		$user = $request->getUser();
+		if (!$request->getUserVar('suppressNotification')) NotificationManager::createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.removedFile')));
+
+		$this->logDeletionEvent($request, $submission, $submissionFile, $user);
+
+		return DAO::getDataChangedEvent();
 	}
 
 	/**

@@ -312,7 +312,7 @@ class QueriesGridHandler extends GridHandler {
 	 */
 	function deleteQuery($args, $request) {
 		$query = $this->getQuery();
-		if (!$query || !$this->getAccessHelper()->getCanDelete($query->getId())) return new JSONMessage(false);
+		if (!$request->checkCSRF() || !$query || !$this->getAccessHelper()->getCanDelete($query->getId())) return new JSONMessage(false);
 
 		$queryDao = DAORegistry::getDAO('QueryDAO');
 		$queryDao->deleteObject($query);

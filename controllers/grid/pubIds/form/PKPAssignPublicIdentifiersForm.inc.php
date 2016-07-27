@@ -54,6 +54,7 @@ class PKPAssignPublicIdentifiersForm extends Form {
 		$this->_contextId = $context->getId();
 
 		$this->addCheck(new FormValidatorPost($this));
+		$this->addCheck(new FormValidatorCSRF($this));
 	}
 
 	/**

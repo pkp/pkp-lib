@@ -19,6 +19,7 @@
 </script>
 
 <form id="archivingForm" class="pkp_form" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="tab.settings.WebsiteSettingsTabHandler" op="saveFormData" tab="archiving"}">
+	{csrf}
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="archivingFormNotification"}
 
 	{fbvFormArea title="manager.setup.enableArchive" id="lockssArea"}

@@ -324,6 +324,7 @@ class PKPAppearanceForm extends ContextSettingsForm {
 		return new LinkAction(
 			'deleteFile-' . $settingName,
 			new RemoteActionConfirmationModal(
+				$request->getSession();
 				__('common.confirmDelete'), null,
 				$router->url(
 					$request, null, null, 'deleteFile', null, array(

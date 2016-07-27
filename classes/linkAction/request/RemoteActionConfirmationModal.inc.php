@@ -19,8 +19,12 @@ class RemoteActionConfirmationModal extends ConfirmationModal {
 	/** @var string A URL to be called when the confirmation button is clicked. */
 	var $_remoteAction;
 
+	/** @var string A CSRF token. */
+	var $_csrfToken;
+
 	/**
 	 * Constructor
+	 * @param $session Session The user's session object.
 	 * @param $dialogText string The localized text to appear
 	 *  in the dialog modal.
 	 * @param $title string (optional) The localized modal title.
@@ -35,10 +39,11 @@ class RemoteActionConfirmationModal extends ConfirmationModal {
 	 * @param $canClose boolean (optional) Whether the modal will
 	 *  have a close button.
 	 */
-	function RemoteActionConfirmationModal($dialogText, $title = null, $remoteAction = null, $titleIcon = null, $okButton = null, $cancelButton = null, $canClose = true) {
+	function RemoteActionConfirmationModal($session, $dialogText, $title = null, $remoteAction = null, $titleIcon = null, $okButton = null, $cancelButton = null, $canClose = true) {
 		parent::ConfirmationModal($dialogText, $title, $titleIcon, $okButton, $cancelButton, $canClose);
 
 		$this->_remoteAction = $remoteAction;
+		$this->_csrfToken = $session->getCSRFToken();
 	}
 
 
@@ -53,6 +58,15 @@ class RemoteActionConfirmationModal extends ConfirmationModal {
 		return $this->_remoteAction;
 	}
 
+	/**
+	 * Get the CSRF token.
+	 * @return string
+	 */
+	function getCSRFToken() {
+		return $this->_csrfToken;
+	}
+
+
 	//
 	// Overridden methods from LinkActionRequest
 	//
@@ -60,11 +74,14 @@ class RemoteActionConfirmationModal extends ConfirmationModal {
 	 * @see LinkActionRequest::getLocalizedOptions()
 	 */
 	function getLocalizedOptions() {
-		$parentLocalizedOptions = parent::getLocalizedOptions();
-		// override the modalHandler option.
-		$parentLocalizedOptions['modalHandler'] = '$.pkp.controllers.modal.RemoteActionConfirmationModalHandler';
-		$parentLocalizedOptions['remoteAction'] = $this->getRemoteAction();
-		return $parentLocalizedOptions;
+		return array_merge(
+			parent::getLocalizedOptions(),
+			array(
+				'modalHandler' => '$.pkp.controllers.modal.RemoteActionConfirmationModalHandler',
+				'remoteAction' => $this->getRemoteAction(),
+				'csrfToken' => $this->getCSRFToken(),
+			)
+		);
 	}
 }
 

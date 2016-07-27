@@ -31,6 +31,7 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 		$this->addCheck(new FormValidatorLocaleEmail($this, 'contactEmail', 'required', 'admin.settings.form.contactEmailRequired'));
 		$this->addCheck(new FormValidatorCustom($this, 'minPasswordLength', 'required', 'admin.settings.form.minPasswordLengthRequired', create_function('$l', sprintf('return $l >= %d;', SITE_MIN_PASSWORD_LENGTH))));
 		$this->addCheck(new FormValidatorPost($this));
+		$this->addCheck(new FormValidatorCSRF($this));
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON);
 	}
@@ -297,6 +298,7 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 		import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
 
 		$confirmationModal = new RemoteActionConfirmationModal(
+			$request->getSession(),
 			__('common.confirmDelete'), null,
 			$router->url(
 				$request, null, null, 'deleteFile', null, array(

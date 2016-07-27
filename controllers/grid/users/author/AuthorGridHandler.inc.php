@@ -251,16 +251,6 @@ class AuthorGridHandler extends GridHandler {
 	}
 
 	/**
-	 * Fetches the application-specific submission id from the request object.
-	 * Should be overridden by subclasses.
-	 * @param PKPRequest $request
-	 * @return int
-	 */
-	function getRequestedSubmissionId($request) {
-		return $request->getUserVar('submissionId');
-	}
-
-	/**
 	 * @copydoc GridHandler::loadData()
 	 */
 	protected function loadData($request, $filter = null) {
@@ -291,7 +281,7 @@ class AuthorGridHandler extends GridHandler {
 	 */
 	function editAuthor($args, $request) {
 		// Identify the author to be updated
-		$authorId = $request->getUserVar('authorId');
+		$authorId = (int) $request->getUserVar('authorId');
 		$submission = $this->getSubmission();
 
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
@@ -313,7 +303,7 @@ class AuthorGridHandler extends GridHandler {
 	 */
 	function updateAuthor($args, $request) {
 		// Identify the author to be updated
-		$authorId = $request->getUserVar('authorId');
+		$authorId = (int) $request->getUserVar('authorId');
 		$submission = $this->getSubmission();
 
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
@@ -368,13 +358,12 @@ class AuthorGridHandler extends GridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function deleteAuthor($args, $request) {
-		// Identify the submission Id
-		$submissionId = $this->getRequestedSubmissionId($request);
-		// Identify the author to be deleted
-		$authorId = $request->getUserVar('authorId');
+		if (!$request->checkCSRF()) return new JSONMessage(false);
 
+		$submission = $this->getSubmission();
+		$authorId = (int) $request->getUserVar('authorId');
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
-		$authorDao->deleteById($authorId, $submissionId);
+		$authorDao->deleteById($authorId, $submission->getId());
 		return DAO::getDataChangedEvent($authorId);
 	}
 
@@ -386,7 +375,7 @@ class AuthorGridHandler extends GridHandler {
 	 */
 	function addUser($args, $request) {
 		// Identify the author Id.
-		$authorId = $request->getUserVar('authorId');
+		$authorId = (int) $request->getUserVar('authorId');
 
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
 		$userDao = DAORegistry::getDAO('UserDAO');

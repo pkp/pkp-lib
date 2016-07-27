@@ -34,6 +34,7 @@ class ContextSettingsForm extends Form {
 	 */
 	function ContextSettingsForm($settings, $template, $wizardMode) {
 		$this->addCheck(new FormValidatorPost($this));
+		$this->addCheck(new FormValidatorCSRF($this));
 		$this->setSettings($settings);
 		$this->setWizardMode($wizardMode);
 		parent::Form($template);

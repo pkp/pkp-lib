@@ -211,6 +211,36 @@ class Session extends DataObject {
 	function &getUser() {
 		return $this->user;
 	}
+
+	/**
+	 * Get a usable CSRF token (generating if necessary).
+	 * @return string
+	 */
+	function getCSRFToken() {
+		$csrf = $this->getSessionVar('csrf');
+		if (!is_array($csrf) || time() > $csrf['timestamp'] + (60*60)) { // 1 hour token expiry
+			// Generate random data
+			if (function_exists('openssl_random_pseudo_bytes')) $data = openssl_random_pseudo_bytes(128);
+			elseif (function_exists('random_bytes')) $data = random_bytes(128);
+			else $data = sha1(mt_rand());
+
+			// Hash the data
+			$token = null;
+			$salt = Config::getVar('security', 'salt');
+			foreach (array('sha256', 'sha1', 'md5') as $algo) {
+				if (in_array($algo, $algos)) {
+					$token = hash_hmac($algo, $data, $salt) . ':' . $expiry;
+				}
+			}
+			if (!$token) $token = md5($data . $salt);
+
+			$csrf = $this->setSessionVar('csrf', array(
+				'timestamp' => time(),
+				'token' => $token,
+			));
+		}
+		return $csrf['token'];
+	}
 }
 
 ?>

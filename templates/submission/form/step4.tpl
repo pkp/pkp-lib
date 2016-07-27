@@ -15,6 +15,7 @@
 </script>
 
 <form class="pkp_form" id="submitStep4Form" method="post" action="{url op="saveStep" path=$submitStep}">
+	{csrf}
 	<input type="hidden" name="submissionId" value="{$submissionId|escape}" />
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="submitStep4FormNotification"}
 

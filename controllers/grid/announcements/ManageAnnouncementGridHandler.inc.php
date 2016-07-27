@@ -122,13 +122,8 @@ class ManageAnnouncementGridHandler extends AnnouncementGridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function editAnnouncement($args, $request) {
-		$announcementId = (int)$request->getUserVar('announcementId');
-		$context = $request->getContext();
-		$contextId = $context->getId();
-
-		$announcementForm = new AnnouncementForm($contextId, $announcementId);
+		$announcementForm = new AnnouncementForm($context->getId(), (int) $request->getUserVar('announcementId'));
 		$announcementForm->initData($args, $request);
-
 		return new JSONMessage(true, $announcementForm->fetch($request));
 	}
 
@@ -139,14 +134,11 @@ class ManageAnnouncementGridHandler extends AnnouncementGridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function updateAnnouncement($args, $request) {
-
-		// Identify the announcement Id.
 		$announcementId = (int) $request->getUserVar('announcementId');
 		$context = $request->getContext();
-		$contextId = $context->getId();
 
 		// Form handling.
-		$announcementForm = new AnnouncementForm($contextId, $announcementId);
+		$announcementForm = new AnnouncementForm($context->getId(), $announcementId);
 		$announcementForm->readInputData();
 
 		if ($announcementForm->validate()) {
@@ -167,9 +159,8 @@ class ManageAnnouncementGridHandler extends AnnouncementGridHandler {
 
 			// Prepare the grid row data.
 			return DAO::getDataChangedEvent($announcementId);
-		} else {
-			return new JSONMessage(false);
 		}
+		return new JSONMessage(false);
 	}
 
 	/**
@@ -179,17 +170,23 @@ class ManageAnnouncementGridHandler extends AnnouncementGridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function deleteAnnouncement($args, $request) {
+		$context = $request->getContext();
 		$announcementId = (int) $request->getUserVar('announcementId');
 
 		$announcementDao = DAORegistry::getDAO('AnnouncementDAO');
-		$announcementDao->deleteById($announcementId);
+		$announcement = $announcementDao->getById($announcementId, $context->getAssocType(), $context->getId());
+		if ($announcement && $request->checkCSRF()) {
+			$announcementDao->deleteObject($announcement);
 
-		// Create notification.
-		$notificationManager = new NotificationManager();
-		$user = $request->getUser();
-		$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.removedAnnouncement')));
+			// Create notification.
+			$notificationManager = new NotificationManager();
+			$user = $request->getUser();
+			$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.removedAnnouncement')));
 
-		return DAO::getDataChangedEvent($announcementId);
+			return DAO::getDataChangedEvent($announcementId);
+		}
+
+		return new JSONMessage(false);
 	}
 }
 

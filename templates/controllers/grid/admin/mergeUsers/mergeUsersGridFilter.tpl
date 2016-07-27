@@ -16,6 +16,7 @@
 	);
 </script>
 <form class="pkp_form" id="mergeUserSearchForm" action="{url router=$smarty.const.ROUTE_PAGE page="admin" op="mergeUsers"}" method="post">
+	{csrf}
 	<input type="hidden" name="oldUserId" value="{$filterData.oldUserId}" />
 	{fbvFormArea id="searchDetails"}
 		{fbvFormSection for="search"}

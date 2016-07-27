@@ -44,6 +44,7 @@ class ReviewerForm extends Form {
 		$this->addCheck(new FormValidator($this, 'reviewDueDate', 'required', 'editor.review.errorAddingReviewer'));
 
 		$this->addCheck(new FormValidatorPost($this));
+		$this->addCheck(new FormValidatorCSRF($this));
 
 		import('lib.pkp.classes.mail.SubmissionMailTemplate');
 	}

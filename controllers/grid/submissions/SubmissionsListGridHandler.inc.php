@@ -164,15 +164,14 @@ class SubmissionsListGridHandler extends GridHandler {
 		);
 
 		// If the submission is incomplete, or this is a manager, allow it to be deleted
-		if ($submission && ($this->_isManager || $submission->getSubmissionProgress() != 0)) {
+		if ($request->checkCSRF() && $submission && ($this->_isManager || $submission->getSubmissionProgress() != 0)) {
 			$submissionDao->deleteById($submission->getId());
 
 			$user = $request->getUser();
 			NotificationManager::createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.removedSubmission')));
 			return DAO::getDataChangedEvent($submission->getId());
-		} else {
-			return new JSONMessage(false);
 		}
+		return new JSONMessage(false);
 	}
 
 

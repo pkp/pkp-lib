@@ -58,6 +58,7 @@ class StageParticipantGridRow extends GridRow {
 				new LinkAction(
 					'delete',
 					new RemoteActionConfirmationModal(
+						$request->getSession(),
 						__('editor.submission.removeStageParticipant.description'),
 						__('editor.submission.removeStageParticipant'),
 						$router->url($request, null, null, 'deleteParticipant', null, $this->getRequestArgs()),

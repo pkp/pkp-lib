@@ -216,7 +216,7 @@ class QueryNotesGridHandler extends GridHandler {
 		$note = $noteDao->getById($request->getUserVar('noteId'));
 		$user = $request->getUser();
 
-		if (!$note || $note->getAssocType() != ASSOC_TYPE_QUERY || $note->getAssocId() != $query->getId()) {
+		if (!$request->checkCSRF() || !$note || $note->getAssocType() != ASSOC_TYPE_QUERY || $note->getAssocId() != $query->getId()) {
 			// The note didn't exist or has the wrong assoc info.
 			return new JSONMessage(false);
 		}

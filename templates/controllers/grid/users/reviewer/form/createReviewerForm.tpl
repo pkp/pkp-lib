@@ -23,6 +23,7 @@
 </script>
 
 <form class="pkp_form" id="createReviewerForm" method="post" action="{url op="createReviewer"}" >
+	{csrf}
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="createReviewerFormNotification"}
 
 	<div class="action_links">

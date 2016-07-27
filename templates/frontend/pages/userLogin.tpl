@@ -23,6 +23,7 @@
 	{/if}
 
 	<form class="pkp_form login" id="login" method="post" action="{$loginUrl}">
+		{csrf}
 
 		{if $error}
 			<div class="pkp_form_error">

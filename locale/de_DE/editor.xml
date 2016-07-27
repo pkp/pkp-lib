@@ -63,7 +63,6 @@
 	<message key="editor.review.userGroupSelect">Diese/n Benutzer/in in diese Gutachter/innengruppe eintragen</message>
 	<message key="editor.review.unconsiderReviewText">Möchten Sie dieses Gutachten als unberücksichtigt markieren? Die Begutachtungshistorie wird erhalten bleiben.</message>
 	<message key="editor.review.unconsiderReview">Dieses Gutachten nicht berücksichtigen</message>
-	<message key="editor.review.errorUnconsideringReview">Es gab einen Fehler beim Markieren dieses Gutachtens als unberücksichtigt. Bitte versuchen Sie es erneut.</message>
 	<message key="editor.review.readConfirmation">Nachdem dieses Gutachten gelesen worden ist, drücken Sie bitte "Bestätigen", um anzuzeigen, dass der Begutachtungsprozess weitergehen kann.</message>
 	<message key="editor.submission.selectCopyedingFiles">Dateien für das Lektorat</message>
 	<message key="editor.submission.selectReviewer">Gutachter/in auswählen</message>

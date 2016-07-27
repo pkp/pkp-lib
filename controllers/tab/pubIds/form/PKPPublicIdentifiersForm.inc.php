@@ -55,6 +55,7 @@ class PKPPublicIdentifiersForm extends Form {
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_EDITOR);
 
 		$this->addCheck(new FormValidatorPost($this));
+		$this->addCheck(new FormValidatorCSRF($this));
 
 		// action links for pub id reset requests
 		$pubIdPluginHelper = new PKPPubIdPluginHelper();

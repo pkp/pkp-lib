@@ -20,9 +20,10 @@
 </script>
 
 <form class="pkp_form" id="submissionStageForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="tab.settings.PublicationSettingsTabHandler" op="saveFormData" tab="submissionStage"}">
+	{csrf}
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="submissionStageFormNotification"}
 
-	{fbvFormArea}
+	{fbvFormArea id="authorGuidelinesArea"}
 		{fbvFormSection label="manager.setup.authorGuidelines" description="manager.setup.authorGuidelines.description"}
 			{fbvElement type="textarea" multilingual=true name="authorGuidelines" id="authorGuidelines" value=$authorGuidelines rich=true}
 		{/fbvFormSection}

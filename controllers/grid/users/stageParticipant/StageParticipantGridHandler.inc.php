@@ -21,17 +21,19 @@ import('lib.pkp.controllers.grid.users.stageParticipant.StageParticipantGridRow'
 import('lib.pkp.controllers.grid.users.stageParticipant.StageParticipantGridCategoryRow');
 import('classes.log.SubmissionEventLogEntry'); // App-specific.
 
-class PKPStageParticipantGridHandler extends CategoryGridHandler {
+class StageParticipantGridHandler extends CategoryGridHandler {
 	/**
 	 * Constructor
 	 */
-	function PKPStageParticipantGridHandler() {
+	function StageParticipantGridHandler() {
 		parent::CategoryGridHandler();
-		//Assistants get read-only access
+
+		// Assistants get read-only access
 		$this->addRoleAssignment(
 			array(ROLE_ID_ASSISTANT),
 			$peOps = array('fetchGrid', 'fetchCategory', 'fetchRow', 'viewNotify', 'fetchTemplateBody', 'sendNotification')
 		);
+
 		// Managers and Editors additionally get administrative access
 		$this->addRoleAssignment(
 			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR),
@@ -78,7 +80,7 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 	 * grid.
 	 * @return boolean
 	 */
-	function _canAdminister() {
+	protected function _canAdminister() {
 		// If the current role set includes Manager or Editor, grant.
 		return (boolean) array_intersect(
 			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR),
@@ -332,8 +334,8 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 
 		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
 		$stageAssignment = $stageAssignmentDao->getById($assignmentId);
-		if (!$stageAssignment || $stageAssignment->getSubmissionId() != $submission->getId()) {
-			fatalError('Invalid Assignment');
+		if (!$request->checkCSRF() || !$stageAssignment || $stageAssignment->getSubmissionId() != $submission->getId()) {
+			return new JSONMessage(false);
 		}
 
 		// Delete the assignment
@@ -360,7 +362,7 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 
 		// Log removal.
 		$userDao = DAORegistry::getDAO('UserDAO');
-		$assignedUser = $userDao->getById($userId);
+		$assignedUser = $userDao->getById($stageAssignment->getUserId());
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId());
 		import('lib.pkp.classes.log.SubmissionLog');
@@ -389,33 +391,16 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 		$userGroup = $userGroupDao->getById($userGroupId);
 		$roleId = $userGroup->getRoleId();
 
-		$subEditorFilterId = $this->_getIdForSubEditorFilter($submission);
+		$sectionId = $submission->getSectionId();
 		$contextId = $submission->getContextId();
 
-		$filterSubEditors = false;
-		if ($roleId == ROLE_ID_SUB_EDITOR && $subEditorFilterId) {
-			$subEditorsDao = DAORegistry::getDAO('SubEditorsDAO');
-			// Flag to filter sub editors only.
-			$filterSubEditors = true;
-		}
-
 		$userList = array();
-		while($user = $users->next()) {
-			if ($filterSubEditors && !$subEditorsDao->editorExists($contextId, $subEditorFilterId, $user->getId())) {
-				continue;
-			}
-			$userList[$user->getId()] = $user->getFullName();
-		}
-
+		while($user = $users->next()) $userList[$user->getId()] = $user->getFullName();
 		if (count($userList) == 0) {
 			$userList[0] = __('common.noMatches');
 		}
 
 		return new JSONMessage(true, $userList);
-	}
-
-	function _getIdForSubEditorFilter($submission) {
-		assert(false); // implemented by sub classes.
 	}
 
 	/**
@@ -464,7 +449,9 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 	 * @param PKPRequest $request
 	 */
 	function _logEventAndCreateNotification($request) {
-		$this->_logEvent($request, SUBMISSION_LOG_MESSAGE_SENT);
+		import('lib.pkp.classes.log.SubmissionLog');
+		SubmissionLog::logEvent($request, $this->getSubmission(), SUBMISSION_LOG_MESSAGE_SENT, 'informationCenter.history.messageSent');
+
 		// Create trivial notification.
 		$currentUser = $request->getUser();
 		$notificationMgr = new NotificationManager();
@@ -501,15 +488,6 @@ class PKPStageParticipantGridHandler extends CategoryGridHandler {
 				)
 			);
 		}
-	}
-
-	/**
-	 * Log an event for this file
-	 * @param $request PKPRequest
-	 * @param $eventType SUBMISSION_LOG_...
-	 */
-	function _logEvent ($request, $eventType) {
-		assert(false); // overridden in subclasses.
 	}
 }
 

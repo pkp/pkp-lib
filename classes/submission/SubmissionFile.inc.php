@@ -242,6 +242,17 @@ class SubmissionFile extends PKPFile {
 	}
 
 	/**
+	 * Return the "best" file ID -- If a public ID is set,
+	 * use it; otherwise use the internal ID and revision.
+	 * @return string
+	 */
+	function getBestId() {
+		$publicFileId = $this->getStoredPubId('publisher-id');
+		if (!empty($publicFileId)) return $publicFileId;
+		return $this->getFileIdAndRevision();
+	}
+
+	/**
 	 * Get the combined key of the file
 	 * consisting of the file id and the revision.
 	 * @return string

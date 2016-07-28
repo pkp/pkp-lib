@@ -514,8 +514,6 @@
 	<message key="manager.setup.reviewerCompetingInterestsRequired.description">Reviewer Competing Interest statement</message>
 	<message key="manager.setup.competingInterests.required">Request a Competing Interest statement during the peer review.</message>
 
-	<message key="manager.setup.includeCopyrightStatement">Display the copyright statement with content (advisable for asserting an author-held copyright).</message>
-	<message key="manager.setup.includeLicense">Display the license with published work.</message>
 	<message key="manager.setup.licenseURLDescription">URL to a webpage describing the license, if available.</message>
 
 	<message key="manager.setup.metadata.submission">Submission Form</message>

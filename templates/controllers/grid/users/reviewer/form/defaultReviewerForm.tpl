@@ -20,6 +20,7 @@
 </script>
 
 <form class="pkp_form" id="defaultReviewerForm" method="post" action="{url op="updateReviewer"}" >
+	{csrf}
 
 	{include file="controllers/grid/users/reviewer/form/reviewerFormFooter.tpl"}
 

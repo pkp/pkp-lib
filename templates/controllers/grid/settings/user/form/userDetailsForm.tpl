@@ -25,6 +25,7 @@
 {/if}{* !$userId *}
 
 <form class="pkp_form" id="userDetailsForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.user.UserGridHandler" op="updateUser"}">
+	{csrf}
 	<div id="userDetailsFormContainer">
 		<div id="userDetails" class="full left">
 			{if $userId}
@@ -38,11 +39,10 @@
 			{include file="controllers/notification/inPlaceNotification.tpl" notificationId="userDetailsFormNotification"}
 		</div>
 
-		{if $implicitAuth || $userId}{assign var="disableSendNotifySection" value=true}{/if}
+		{if $userId}{assign var="disableSendNotifySection" value=true}{/if}
 		{include
 			file="common/userDetails.tpl"
 			disableAuthSourceSection=!$authSourceOptions
-			disablePasswordSection=$implicitAuth
 			disableSendNotifySection=$disableSendNotifySection
 		}
 

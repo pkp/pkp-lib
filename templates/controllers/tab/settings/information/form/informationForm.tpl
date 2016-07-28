@@ -22,6 +22,7 @@
 </script>
 
 <form id="informationForm" class="pkp_form" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="tab.settings.WebsiteSettingsTabHandler" op="saveFormData" tab="information"}">
+	{csrf}
 
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="informationFormNotification"}
 

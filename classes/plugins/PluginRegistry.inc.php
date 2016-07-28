@@ -74,7 +74,7 @@ class PluginRegistry {
 	 * @param $category String category name
 	 * @param $name String plugin name
 	 */
-	static function &getPlugin ($category, $name) {
+	static function &getPlugin($category, $name) {
 		$plugins =& PluginRegistry::getPlugins();
 		$plugin = @$plugins[$category][$name];
 		return $plugin;

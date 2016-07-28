@@ -71,6 +71,7 @@ class PreparedEmailsGridCellProvider extends DataObjectGridCellProvider {
 						return array(new LinkAction(
 							'disableEmail',
 							new RemoteActionConfirmationModal(
+								$request->getSession(),
 								__('manager.emails.disable.message'), null,
 								$router->url($request, null, 'grid.settings.preparedEmails.PreparedEmailsGridHandler',
 									'disableEmail', null, array('emailKey' => $element->getEmailKey()))
@@ -82,6 +83,7 @@ class PreparedEmailsGridCellProvider extends DataObjectGridCellProvider {
 						return array(new LinkAction(
 							'enableEmail',
 							new RemoteActionConfirmationModal(
+								$request->getSession(),
 								__('manager.emails.enable.message'), null,
 								$router->url($request, null, 'grid.settings.preparedEmails.PreparedEmailsGridHandler',
 									'enableEmail', null, array('emailKey' => $element->getEmailKey()))

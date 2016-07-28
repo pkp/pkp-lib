@@ -7,10 +7,10 @@
  *
  * Site-Wide Navigation Bar
  *}
-{if $currentJournal || $currentPress}
+{if $currentContext}
 	{url|assign:"homeUrl" page="index" router=$smarty.const.ROUTE_PAGE}
 {elseif $multipleContexts}
-	{url|assign:"homeUrl" journal="index" router=$smarty.const.ROUTE_PAGE}
+	{url|assign:"homeUrl" context="index" router=$smarty.const.ROUTE_PAGE}
 {/if}
 
 <script type="text/javascript">
@@ -23,7 +23,7 @@
 
 <ul id="navigationContextMenu" class="pkp_nav_context pkp_nav_list" role="navigation" aria-label="{translate|escape key="common.navigation.siteContext"}">
 
-	<li {if $multipleContexts}class="has_submenu submenu_opens_below"{/if}>
+	<li {if $multipleContexts}class="submenuOpensBelow"{/if} aria-haspopup="true" aria-expanded="false">
 		<span class="pkp_screen_reader">
 			{translate key="context.current"}
 		</span>
@@ -65,7 +65,7 @@
 </script>
 <ul id="navigationUser" class="pkp_nav_user pkp_nav_list" role="navigation" aria-label="{translate|escape key="common.navigation.user"}">
 	{if $supportedLocales|@count}
-		<li class="has_submenu languages">
+		<li class="languages" aria-haspopup="true" aria-expanded="false">
 			<a href="#">
 				<span class="fa fa-globe"></span>
 				{$supportedLocales.$currentLocale}
@@ -92,7 +92,7 @@
 		</li>
 	{/if}
 	{if $isUserLoggedIn}
-		<li class="has_submenu user">
+		<li class="user" aria-haspopup="true" aria-expanded="false">
 			<a href="{url router=$smarty.const.ROUTE_PAGE page="user" op="profile"}">
 				<span class="fa fa-user"></span>
 				{$loggedInUsername|escape}

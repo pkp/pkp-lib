@@ -31,7 +31,7 @@ class ReviewFormElementResponseItemListbuilderHandler extends SetupListbuilderHa
 	// Overridden template methods
 	//
 	/**
-	 * @see SetupListbuilderHandler::initialize()
+	 * @copydoc SetupListbuilderHandler::initialize()
 	 */
 	function initialize($request) {
 		parent::initialize($request);
@@ -52,7 +52,7 @@ class ReviewFormElementResponseItemListbuilderHandler extends SetupListbuilderHa
 	}
 
 	/**
-	 * @see GridHandler::loadData()
+	 * @copydoc GridHandler::loadData()
 	 */
 	protected function loadData($request) {
 		$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
@@ -88,6 +88,15 @@ class ReviewFormElementResponseItemListbuilderHandler extends SetupListbuilderHa
 
 		// If we're generating an empty row to edit
 		return array(array('content' => array()));
+	}
+
+	/**
+	 * @copydoc ListbuilderHandler::fetch()
+	 */
+	function fetch($args, $request) {
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign('availableOptions', true);
+		return $this->fetchGrid($args, $request);
 	}
 }
 

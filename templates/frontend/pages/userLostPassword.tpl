@@ -16,6 +16,7 @@
 	<p>{translate key="user.login.resetPasswordInstructions"}</p>
 
 	<form class="pkp_form lost_password" id="lostPasswordForm" action="{url page="login" op="requestResetPassword"}" method="post">
+		{csrf}
 		{if $error}
 			<div class="pkp_form_error">
 				{translate key=$error}
@@ -53,4 +54,4 @@
 
 </div><!-- .page -->
 
-{include file="common/frontend/footer.tpl"}
+{include file="frontend/components/footer.tpl"}

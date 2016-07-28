@@ -82,6 +82,7 @@ class QueriesGridRow extends GridRow {
 					new LinkAction(
 						'deleteQuery',
 						new RemoteActionConfirmationModal(
+							$request->getSession(),
 							__('common.confirmDelete'),
 							__('grid.action.delete'),
 							$router->url($request, null, null, 'deleteQuery', null, $actionArgs), 'modal_delete'),

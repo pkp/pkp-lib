@@ -8,10 +8,8 @@
  * Display the statistics & reporting page.
  *
  *}
-{include file="common/header.tpl" pageTitle="manager.statistics"}
-
 <div class="pkp_page_content pkp_page_statistics">
-	{help file="tools.md" section="statistics"}
+	{help file="tools.md" section="statistics" class="pkp_help_tab"}
 
 	{if $showMetricTypeSelector || $appSettings}
 		{include file="management/tools/form/statisticsSettingsForm.tpl"}
@@ -28,4 +26,3 @@
 
 	<p><a class="pkp_button" href="{url op="tools" path="reportGenerator"}">{translate key="manager.statistics.reports.generateReport"}</a></p>
 </div>
-{include file="common/footer.tpl"}

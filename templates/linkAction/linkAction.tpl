@@ -12,6 +12,7 @@
  *  contextId: The name of the context in which the link
  *   action is being placed. This is required to disambiguate
  *   actions with the same id on one page.
+ *  anyhtml: True iff arbitrary HTML is permitted in the link action title (i.e. escaping handled elsewhere)
  *}
 
 {* Generate the link action's button. *}
@@ -22,7 +23,7 @@
 {/if}
 
 {assign var=buttonId value=$staticId|concat:"-"|uniqid}
-{include file="linkAction/linkActionButton.tpl" action=$action buttonId=$buttonId}
+{include file="linkAction/linkActionButton.tpl" action=$action buttonId=$buttonId anyhtml=$anyhtml}
 
 <script>
 	{* Attach the action handler to the button. *}

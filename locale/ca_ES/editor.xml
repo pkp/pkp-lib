@@ -70,7 +70,6 @@
 	<message key="editor.review.userGroupSelect">Atorgueu un rol a l'usuari/ària amb aquest grup d'usuaris/àries revisors/ores</message>
 	<message key="editor.review.unconsiderReviewText">Esteu segur/a que voleu marcar aquesta revisió com a rebutjada?  Aquest historial de revisió es conservarà.</message>
 	<message key="editor.review.unconsiderReview">Rebutjar aquesta revisió</message>
-	<message key="editor.review.errorUnconsideringReview">Hi ha hagut un error en marcar aquesta revisió com a rebutjada.  Torneu-ho a intentar.</message>
 	<message key="editor.review.readConfirmation">Un cop us hagueu llegit aquesta revisió, premeu «Confirma» per indicar que aquesta revisió pot continuar.</message>
 	<message key="editor.submission.selectCopyedingFiles">Fitxers de correcció</message>
 	<message key="editor.submission.selectReviewer">Selecciona un revisor/a</message>

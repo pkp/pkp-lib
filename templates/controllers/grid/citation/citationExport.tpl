@@ -63,6 +63,7 @@
 				// -->
 			</script>
 			<form class="pkp_form" id="exportCitationForm" method="post" action="">
+				{csrf}
 				<br />
 				<p>
 					<p>{translate key="submission.citations.editor.export.filterSelectionDescription"}</p>

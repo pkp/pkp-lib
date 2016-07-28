@@ -41,7 +41,6 @@
 	<message key="common.tasks">Tasks</message>
 	<message key="common.list">List</message>
 	<message key="common.grid">Grid</message>
-	<message key="common.takeMeThere">Take Me There</message>
 	<message key="common.confirmDelete">Are you sure you wish to delete this item? This action cannot be undone.</message>
 	<message key="common.abstract">Abstract</message>
 	<message key="common.accepted">Accepted</message>
@@ -322,6 +321,7 @@
 	<message key="form.is">is</message>
 	<message key="form.startsWith">starts with</message>
 	<message key="form.postRequired">The form was not submitted properly.</message>
+	<message key="form.csrfInvalid">The form was not submitted properly.</message>
 	<message key="form.fileRequired">A file upload is required.</message>
 	<message key="form.required">(* Required)</message>
 	<message key="form.resubmit">Resubmit</message>
@@ -495,7 +495,7 @@
 	<message key="grid.action.deleteNotification">Delete Task</message>
 	<message key="grid.action.markNew">Mark New</message>
 	<message key="grid.action.markRead">Mark Read</message>
-	<message key="common.tasks.titleAndTask">{$acronym}: "{$title}": {$task}</message>
+	<message key="common.tasks.titleAndTask"><![CDATA[<div class="task"><div class="contextAcronym">{$acronym}</div><div class="submissionTitle">{$title}</div><div class="taskName">{$task}</div></div>]]></message>
 
 	<message key="dashboard.tasks">Tasks</message>
 	<message key="dashboard.myQueue">My Queue</message>
@@ -533,6 +533,6 @@
 	<message key="navigation.archives">Archives</message>
 	<message key="user.authorization.authorRoleMissing">You do not currently have sufficient privileges to view the submission. Please edit your profile to ensure that you have been granted the appropriate roles under "Register As".</message>
 	<message key="user.authorization.submissionAuthor">The current user is not the author of the requested submission. Please verify that you are logged in with the correct user account.</message>
-	<message key="notification.type.queryActivity">Conversation activity.</message>
-	<message key="notification.type.queryAdded">Conversation added.</message>
+	<message key="notification.type.queryActivity">Discussion activity.</message>
+	<message key="notification.type.queryAdded">Discussion added.</message>
 </locale>

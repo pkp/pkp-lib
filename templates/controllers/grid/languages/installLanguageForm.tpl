@@ -16,6 +16,7 @@
 </script>
 
 <form class="pkp_form" id="installLanguageForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="grid.admin.languages.AdminLanguageGridHandler" op="saveInstallLocale"}">
+	{csrf}
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="installLanguageFormNotification"}
 
 	{fbvFormArea id="availableLocalesFormArea" title="admin.languages.availableLocales"}

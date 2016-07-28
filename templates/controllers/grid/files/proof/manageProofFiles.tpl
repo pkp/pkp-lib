@@ -20,6 +20,7 @@
 
 <div id="existingFilesContainer">
 	<form class="pkp_form" id="manageProofFilesForm" action="{url component="grid.files.proof.ManageProofFilesGridHandler" op="updateProofFiles" submissionId=$submissionId}" method="post">
+		{csrf}
 		{fbvFormArea id="manageProofFiles"}
 			{fbvFormSection}
 				<input type="hidden" name="submissionId" value="{$submissionId|escape}" />

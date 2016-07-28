@@ -7,10 +7,7 @@
  *
  * Dashboard index.
  *}
-{strip}
-{assign var="pageTitle" value="navigation.submissions"}
-{include file="common/header.tpl"}
-{/strip}
+{include file="common/header.tpl" pageTitle="navigation.submissions"}
 
 <script type="text/javascript">
 	// Attach the JS file tab handler.

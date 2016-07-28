@@ -33,6 +33,7 @@ class UsageStatsSettingsForm extends Form {
 		$this->addCheck(new FormValidatorCustom($this, 'dataPrivacyOption', FORM_VALIDATOR_OPTIONAL_VALUE, 'plugins.generic.usageStats.settings.dataPrivacyOption.excludesCity', array(&$this, '_dependentFormFieldIsSet'), array(&$this, 'selectedOptionalColumns', STATISTICS_DIMENSION_CITY), true));
 		$this->addCheck(new FormValidatorCustom($this, 'saltFilepath', FORM_VALIDATOR_OPTIONAL_VALUE, 'plugins.generic.usageStats.settings.dataPrivacyOption.saltFilepath.invalid', array(&$plugin, 'validateSaltpath')));
 		$this->addCheck(new FormValidatorPost($this));
+		$this->addCheck(new FormValidatorCSRF($this));
 	}
 
 	/**

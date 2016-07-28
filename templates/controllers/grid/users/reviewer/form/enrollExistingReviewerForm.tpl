@@ -21,6 +21,7 @@
 </script>
 
 <form class="pkp_form" id="enrollExistingReviewerForm" method="post" action="{url op="enrollReviewer"}" >
+	{csrf}
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="enrollExistingReviewerFormNotification"}
 
 	<div class="action_links">

@@ -24,6 +24,7 @@ class NewNoteForm extends Form {
 		parent::Form('controllers/informationCenter/notes.tpl');
 
 		$this->addCheck(new FormValidatorPost($this));
+		$this->addCheck(new FormValidatorCSRF($this));
 	}
 
 	/**

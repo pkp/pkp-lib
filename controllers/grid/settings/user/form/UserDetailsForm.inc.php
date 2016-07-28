@@ -59,6 +59,7 @@ class UserDetailsForm extends UserForm {
 		$this->addCheck(new FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailExists', array(DAORegistry::getDAO('UserDAO'), 'userExistsByEmail'), array($this->userId, true), true));
 		$this->addCheck(new FormValidatorORCID($this, 'orcid', 'optional', 'user.orcid.orcidInvalid'));
 		$this->addCheck(new FormValidatorPost($this));
+		$this->addCheck(new FormValidatorCSRF($this));
 	}
 
 	/**
@@ -143,7 +144,6 @@ class UserDetailsForm extends UserForm {
 			$templateMgr->assign('username', $user->getUsername());
 		}
 
-		$templateMgr->assign('implicitAuth', Config::getVar('security', 'implicit_auth'));
 		$templateMgr->assign('availableLocales', $site->getSupportedLocaleNames());
 
 		$countryDao = DAORegistry::getDAO('CountryDAO');

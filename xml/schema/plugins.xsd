@@ -25,7 +25,6 @@
 					<enumeration value="blocks" />
 					<enumeration value="gateways" />
 					<enumeration value="generic" />
-					<enumeration value="implicitAuth" />
 					<enumeration value="importexport" />
 					<enumeration value="oaiMetadataFormats" />
 					<enumeration value="paymethod" />

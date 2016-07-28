@@ -9,7 +9,7 @@
  *}
 
 {* Help Link *}
-{help file="settings.md" section="users-roles" class="pkp_help_tab"}
+{help file="users-and-roles.md" section="roles" class="pkp_help_tab"}
 
 <div id="userGroupsContainer">
 	{url|assign:rolesUrl router=$smarty.const.ROUTE_COMPONENT component="grid.settings.roles.UserGroupGridHandler" op="fetchGrid" escape=false}

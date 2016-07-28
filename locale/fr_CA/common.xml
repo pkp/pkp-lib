@@ -378,7 +378,6 @@
 	<message key="common.tasks">Tâches</message>
 	<message key="common.list">Liste</message>
 	<message key="common.grid">Grille</message>
-	<message key="common.takeMeThere">Amenez-moi à cet endroit</message>
 	<message key="common.confirmDelete">Êtes-vous sûr de vouloir supprimer cet item? Cette opération est irréversible.</message>
 	<message key="common.abstract">Résumé</message>
 	<message key="common.acknowledged">Reçu</message>

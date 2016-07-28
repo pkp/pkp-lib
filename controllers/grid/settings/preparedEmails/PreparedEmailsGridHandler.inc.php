@@ -69,6 +69,7 @@ class PreparedEmailsGridHandler extends GridHandler {
 			new LinkAction(
 				'resetAll',
 				new RemoteActionConfirmationModal(
+					$request->getSession(),
 					__('manager.emails.resetAll.message'), null,
 					$router->url($request, null,
 						'grid.settings.preparedEmails.PreparedEmailsGridHandler', 'resetAllEmails')
@@ -197,7 +198,7 @@ class PreparedEmailsGridHandler extends GridHandler {
 		$context = $request->getContext();
 
 		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
-		if ($emailTemplateDao->templateExistsByKey($emailKey, $context->getId())) {
+		if ($request->checkCSRF() && $emailTemplateDao->templateExistsByKey($emailKey, $context->getId())) {
 			$emailTemplateDao->deleteEmailTemplateByKey($emailKey, $context->getId());
 			return DAO::getDataChangedEvent($emailKey);
 		}
@@ -210,6 +211,8 @@ class PreparedEmailsGridHandler extends GridHandler {
 	 * @param $request Request
 	 */
 	function resetAllEmails($args, $request) {
+		if (!$request->checkCSRF()) return new JSONMessage(false);
+
 		$context = $request->getContext();
 		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
 		$emailTemplateDao->deleteEmailTemplatesByContext($context->getId());
@@ -231,7 +234,7 @@ class PreparedEmailsGridHandler extends GridHandler {
 		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
 		$emailTemplate = $emailTemplateDao->getBaseEmailTemplate($emailKey, $context->getId());
 
-		if (isset($emailTemplate)) {
+		if ($request->checkCSRF() && isset($emailTemplate)) {
 			if ($emailTemplate->getCanDisable()) {
 				$emailTemplate->setEnabled(0);
 
@@ -268,7 +271,7 @@ class PreparedEmailsGridHandler extends GridHandler {
 		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
 		$emailTemplate = $emailTemplateDao->getBaseEmailTemplate($emailKey, $context->getId());
 
-		if (isset($emailTemplate)) {
+		if ($request->checkCSRF() && isset($emailTemplate)) {
 			if ($emailTemplate->getCanDisable()) {
 				$emailTemplate->setEnabled(1);
 
@@ -295,7 +298,7 @@ class PreparedEmailsGridHandler extends GridHandler {
 		$context = $request->getContext();
 
 		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
-		if ($emailTemplateDao->customTemplateExistsByKey($emailKey, $context->getId())) {
+		if ($request->checkCSRF() && $emailTemplateDao->customTemplateExistsByKey($emailKey, $context->getId())) {
 			$emailTemplateDao->deleteEmailTemplateByKey($emailKey, $context->getId());
 			return DAO::getDataChangedEvent($emailKey);
 		}

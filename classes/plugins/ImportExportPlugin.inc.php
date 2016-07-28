@@ -86,6 +86,37 @@ abstract class ImportExportPlugin extends Plugin {
 		$dispatcher = $this->_request->getDispatcher();
 		return $dispatcher->url($this->_request, ROUTE_PAGE, null, 'management', 'importexport', array_merge(array('plugin', $this->getName(), isset($params['path'])?$params['path']:array())));
 	}
+
+	/**
+	 * Check if this is a relative path to the xml document
+	 * that describes public identifiers to be imported.
+	 * @param $url string path to the xml file
+	 */
+	function isRelativePath($url) {
+		// FIXME This is not very comprehensive, but will work for now.
+		if ($this->isAllowedMethod($url)) return false;
+		if ($url[0] == '/') return false;
+		return true;
+	}
+
+	/**
+	 * Determine whether the specified URL describes an allowed protocol.
+	 * @param $url string
+	 * @return boolean
+	 */
+	function isAllowedMethod($url) {
+		$allowedPrefixes = array(
+			'http://',
+			'ftp://',
+			'https://',
+			'ftps://'
+		);
+		foreach ($allowedPrefixes as $prefix) {
+			if (substr($url, 0, strlen($prefix)) === $prefix) return true;
+		}
+		return false;
+	}
+
 }
 
 ?>

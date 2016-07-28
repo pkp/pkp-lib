@@ -15,6 +15,7 @@
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="user.register"}
 
 	<form class="pkp_form register" id="register" method="post" action="{url op="registerUser"}">
+		{csrf}
 
 		{if $source}
 			<input type="hidden" name="source" value="{$source|escape}" />
@@ -125,24 +126,16 @@
 			</fieldset>
 		{/if}
 
-		{if !$implicitAuth}
-			<div class="required_label">
-				{translate key="common.requiredField"}
-			</div>
-		{/if}
-
 		<div class="buttons">
 			<button class="submit" type="submit">
 				{translate key="user.register"}
 			</button>
 
-			{if !$implicitAuth}
-				{url|assign:"rolesProfileUrl" page="user" op="profile" path="roles"}
-				<a href="{url page="login" source=$rolesProfileUrl}" class="login">{translate key="user.login"}</a>
-			{/if}
+			{url|assign:"rolesProfileUrl" page="user" op="profile" path="roles"}
+			<a href="{url page="login" source=$rolesProfileUrl}" class="login">{translate key="user.login"}</a>
 		</div>
 	</form>
 
 </div><!-- .page -->
 
-{include file="common/frontend/footer.tpl"}
+{include file="frontend/components/footer.tpl"}

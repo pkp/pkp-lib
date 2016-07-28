@@ -64,7 +64,7 @@
 	<message key="admin.server.phpVersion">PHP version</message>
 	<message key="admin.server.platform">OS platform</message>
 	<message key="admin.settings">Settings</message>
-	<message key="admin.settings.aboutDescription">About the Site description</message>
+	<message key="admin.settings.aboutDescription">About the Site</message>
 	<message key="admin.settings.contactEmail">Email of principal contact</message>
 	<message key="admin.settings.contactName">Name of principal contact</message>
 	<message key="admin.settings.form.contactEmailRequired">The email address of the principal contact is required.</message>
@@ -79,14 +79,14 @@
 	<message key="admin.settings.homeHeaderImage.altText">Site Logo</message>
 	<message key="admin.settings.homeHeaderImageInvalid">Invalid site logo image format. Accepted formats are .gif, .jpg, or .png.</message>
 	<message key="admin.settings.introduction">Introduction</message>
-	<message key="admin.settings.minPasswordLength">Minimum password length</message>
+	<message key="admin.settings.minPasswordLength">Minimum password length (characters)</message>
 	<message key="admin.settings.oaiRegistration">Register Site for Indexing (Metadata Harvesting)</message>
-	<message key="admin.settings.passwordCharacters">characters</message>
 	<message key="admin.settings.siteLanguage">Site language</message>
 	<message key="admin.settings.siteStyleSheetInvalid">Invalid site style sheet format. Accepted format is .css.</message>
 	<message key="admin.settings.siteStyleSheet">Site style sheet</message>
-	<message key="admin.settings.siteTheme">Site theme</message>
-	<message key="admin.settings.siteTitle">Site title</message>
+	<message key="admin.settings.siteLogo">Site Logo</message>
+	<message key="admin.settings.siteTitle">Site Name</message>
+	<message key="admin.settings.siteTheme">Site Theme</message>
 	<message key="admin.siteAdmin">Site Administration</message>
 	<message key="admin.siteManagement">Site Management</message>
 	<message key="admin.siteSettings">Site Settings</message>

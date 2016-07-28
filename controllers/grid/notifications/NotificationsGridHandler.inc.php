@@ -48,7 +48,7 @@ class NotificationsGridHandler extends GridHandler {
 				null,
 				null,
 				$cellProvider,
-				array('html' => true,
+				array('anyhtml' => true,
 						'alignment' => COLUMN_ALIGNMENT_LEFT)
 			)
 		);

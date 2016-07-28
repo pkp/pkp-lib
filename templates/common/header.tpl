@@ -34,7 +34,7 @@
 
 				{* Logo or site title *}
 				<div class="pkp_site_name">
-					{if $currentJournal && $multipleContexts}
+					{if $currentContext && $multipleContexts}
 						{url|assign:"homeUrl" journal="index" router=$smarty.const.ROUTE_PAGE}
 					{else}
 						{url|assign:"homeUrl" page="index" router=$smarty.const.ROUTE_PAGE}
@@ -81,8 +81,8 @@
 						{$appSpecificMenuItems}
 
 						{if array_intersect(array(ROLE_ID_MANAGER), (array)$userRoles)}
-							<li class="has_submenu">
-								<a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="settings" path="index"}">{translate key="navigation.settings"}</a>
+							<li aria-haspopup="true" aria-expanded="false">
+								<a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="settings"}">{translate key="navigation.settings"}</a>
 								<ul>
 									<li><a href="{$contextSettingsUrl}">{translate key="context.context"}</a></li>
 									<li><a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="settings" path="website"}">{translate key="manager.website"}</a></li>
@@ -93,11 +93,11 @@
 							<li>
 								<li><a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="settings" path="access"}">{translate key="navigation.access"}</a></li>
 							</li>
-							<li class="has_submenu">
+							<li aria-haspopup="true" aria-expanded="false">
 								<a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="tools" path="index"}">{translate key="navigation.tools"}</a>
 								<ul>
-									<li><a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="importexport"}">{translate key="navigation.tools.importExport"}</a></li>
-									<li><a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="statistics"}">{translate key="navigation.tools.statistics"}</a></li>
+									<li><a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="tools" anchor="importexport"}">{translate key="navigation.tools.importExport"}</a></li>
+									<li><a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="tools" anchor="statistics"}">{translate key="navigation.tools.statistics"}</a></li>
 								</ul>
 							</li>
 						{/if}

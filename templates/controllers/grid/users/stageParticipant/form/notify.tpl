@@ -20,6 +20,7 @@
 </script>
 <div id="informationCenterNotifyTab">
 	<form class="pkp_form" id="notifyForm" action="{url op="sendNotification" stageId=$stageId submissionId=$submissionId escape=false}" method="post">
+		{csrf}
 		{include file="controllers/notification/inPlaceNotification.tpl" notificationId="notifyFormNotification"}
 		{fbvFormArea id="notifyFormArea"}
 			{* Since the listbuilder only reports changes, we need to pass along the initial list *}

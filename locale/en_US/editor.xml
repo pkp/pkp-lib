@@ -77,7 +77,6 @@
 	<message key="editor.review.userGroupSelect">Enroll the user with this reviewer user group</message>
 	<message key="editor.review.unconsiderReviewText">Do you wish to mark this review as unconsidered?  The review history will be preserved.</message>
 	<message key="editor.review.unconsiderReview">Unconsider this Review</message>
-	<message key="editor.review.errorUnconsideringReview">There was an error marking this review as unconsidered.  Please try again.</message>
 	<message key="editor.review.readConfirmation">Once this review has been read, press "Confirm" to indicate that the review process may proceed. If the reviewer has submitted their review elsewhere, you may upload the file below and then press "Confirm" to proceed.</message>
 	<message key="editor.submission.selectCopyedingFiles">Copyediting Files</message>
 	<message key="editor.submission.selectReviewer">Select Reviewer</message>
@@ -117,4 +116,7 @@
 	<message key="editor.submission.proofreading.revokeProofApproval">Revoke Proof Approval</message>
 	<message key="editor.submission.proofreading.confirmCompletion">Approve this proof to indicate proofreading is complete and the file is ready to be published.</message>
 	<message key="editor.submission.proofreading.confirmRemoveCompletion">Revoke approval for this proof to indicate proofreading is no longer complete and the file is not ready to be published.</message>
+	<message key="editor.publicIdentificationExistsForTheSameType">The public identifier '{$publicIdentifier}' already exists for another object of the same type. Please choose unique identifiers for the objects of the same type within your journal.</message>
+	<message key="editor.publicIdentificationNumericNotAllowed">The public identifier '{$publicIdentifier}' must not be a number.</message>
+	<message key="editor.publicIdentificationPatternNotAllowed">The pattern {$pattern} is not allowed for the public identifier.</message>
 </locale>

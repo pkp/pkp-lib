@@ -26,6 +26,7 @@
 {/if}
 
 <form class="pkp_form" id="loginChangePassword" method="post" action="{url page="login" op="savePassword"}">
+	{csrf}
 	{include file="common/formErrors.tpl"}
 
 	<p><span class="instruct">{translate key="user.login.changePasswordInstructions"}</span></p>

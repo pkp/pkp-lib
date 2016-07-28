@@ -14,6 +14,7 @@
 	{rdelim});
 </script>
 <form class="pkp_form" id="sendEmailForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.user.UserGridHandler" op="sendEmail"}" >
+	{csrf}
 
 	<input type="hidden" name="userId" value="{$userId|escape}" />
 

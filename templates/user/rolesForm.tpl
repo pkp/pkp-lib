@@ -19,6 +19,7 @@
 </script>
 
 <form class="pkp_form" id="rolesForm" method="post" action="{url op="saveRoles"}" enctype="multipart/form-data">
+	{csrf}
 
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="rolesFormNotification"}
 

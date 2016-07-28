@@ -14,6 +14,7 @@
 	{rdelim});
 </script>
 <form class="pkp_form" id="emailReviewerForm" method="post" action="{url op="sendEmail" params=$requestArgs}" >
+	{csrf}
 	<input type="hidden" name="reviewAssignmentId" value="{$reviewAssignmentId|escape}" />
 	{fbvFormSection title="email.subject" for="subject" required="true" size=$fbvStyles.size.MEDIUM inline=true}
 		{fbvElement type="text" id="subject" value=$subject}

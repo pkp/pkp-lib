@@ -50,6 +50,7 @@ class FilterForm extends Form {
 
 		// Validation check common to all requests.
 		$this->addCheck(new FormValidatorPost($this));
+		$this->addCheck(new FormValidatorCSRF($this));
 
 		// Validation check for template selection.
 		if (!is_null($filter) && !is_numeric($filter->getId())) {

@@ -26,6 +26,7 @@
 </script>
 
 <form class="pkp_form" id="permissionSettingsForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="tab.settings.DistributionSettingsTabHandler" op="saveFormData" tab="permissions"}">
+	{csrf}
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="permissionSettingsFormNotification"}
 	{include file="controllers/tab/settings/wizardMode.tpl" wizardMode=$wizardMode}
 
@@ -36,8 +37,6 @@
 
 		{fbvFormSection list=true}
 			{fbvElement type="checkbox" id="copyrightNoticeAgree" value="1" checked=$copyrightNoticeAgree label="manager.setup.authorCopyrightNoticeAgree"}
-			{fbvElement type="checkbox" id="includeCopyrightStatement" value="1" checked=$includeCopyrightStatement label="manager.setup.includeCopyrightStatement"}
-			{fbvElement type="checkbox" id="includeLicense" value="1" checked=$includeLicense label="manager.setup.includeLicense"}
 		{/fbvFormSection}
 
 

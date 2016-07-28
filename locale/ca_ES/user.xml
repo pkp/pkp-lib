@@ -48,7 +48,6 @@
 	<message key="user.login.accountDisabled">El vostre compte s'ha inhabilitat. Per obtenir més informació, poseu-vos en contacte amb l'administrador/a.</message>
 	<message key="user.login.accountNotValidated">La vostra adreça electrònica no s'ha validat. Comproveu el correu electrònic i seguiu les instruccions. Si no heu rebut cap missatge de correu electrònic, poseu-vos en contacte amb l'administrador/a del lloc web per obtenir ajuda.</message>
 	<message key="user.login.activate">Activa el compte</message>
-	<message key="user.login.activated">Gràcies per activar el compte. Ara ja podeu iniciar la sessió amb les dades que heu indicat en crear el compte.</message>
 	<message key="user.login.changePasswordInstructions"><![CDATA[Heu de triar una nova contrasenya abans d'iniciar sessió.<br /><br />Introduïu el vostre nom d'usuari i les vostres contrasenyes nova i antiga a continuació per canviar la contrasenya del vostre compte.]]></message>
 	<message key="user.login.forgotPassword">Heu oblidat la contrasenya?</message>
 	<message key="user.login.loginError">El nom d'usuari/ària o la contrasenya són no vàlids. Torneu-ho a intentar.</message>

@@ -36,6 +36,7 @@ class ContextSiteSettingsForm extends Form {
 		$this->addCheck(new FormValidatorAlphaNum($this, 'path', 'required', 'admin.contexts.form.pathAlphaNumeric'));
 		$this->addCheck(new FormValidatorCustom($this, 'path', 'required', 'admin.contexts.form.pathExists', create_function('$path,$form,$contextDao', 'return !$contextDao->existsByPath($path) || ($form->getData(\'oldPath\') != null && $form->getData(\'oldPath\') == $path);'), array(&$this, Application::getContextDAO())));
 		$this->addCheck(new FormValidatorPost($this));
+		$this->addCheck(new FormValidatorCSRF($this));
 	}
 
 	/**

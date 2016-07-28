@@ -18,6 +18,7 @@
 </script>
 
 <form class="pkp_form" id="reviewStep2Form" method="post" action="{url page="reviewer" op="saveStep" path=$submission->getId() step="2" escape=false}">
+{csrf}
 {include file="common/formErrors.tpl"}
 
 {fbvFormArea id="reviewStep2"}

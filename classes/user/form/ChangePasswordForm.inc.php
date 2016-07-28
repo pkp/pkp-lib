@@ -41,6 +41,7 @@ class ChangePasswordForm extends Form {
 		$this->addCheck(new FormValidatorCustom($this, 'password', 'required', 'user.profile.form.passwordSameAsOld', create_function('$password,$form', 'return $password != $form->getData(\'oldPassword\');'), array($this)));
 
 		$this->addCheck(new FormValidatorPost($this));
+		$this->addCheck(new FormValidatorCSRF($this));
 	}
 
 	/**

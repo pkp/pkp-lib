@@ -20,6 +20,7 @@
 </script>
 
 <form class="pkp_form" id="submitStep3Form" method="post" action="{url op="saveStep" path=$submitStep}">
+	{csrf}
 	<input type="hidden" name="submissionId" value="{$submissionId|escape}" />
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="submitStep3FormNotification"}
 
@@ -35,7 +36,7 @@
 
 	{$additionalFormFields}
 
-	{include file="core:submission/submissionMetadataFormFields.tpl"}
+	{include file="submission/submissionMetadataFormFields.tpl"}
 
 	{fbvFormButtons id="step3Buttons" submitText="common.saveAndContinue"}
 </form>

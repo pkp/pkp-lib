@@ -18,6 +18,7 @@
 <!-- Current copyedited files -->
 <div id="existingFilesContainer">
 	<form class="pkp_form" id="manageCopyeditFilesForm" action="{url component="grid.files.copyedit.ManageCopyeditFilesGridHandler" op="updateCopyeditFiles" submissionId=$submissionId stageId=$smarty.const.WORKFLOW_STAGE_ID_EDITING}" method="post">
+		{csrf}
 		{fbvFormArea id="manageCopyeditFiles"}
 			{fbvFormSection}
 				{url|assign:manageCopyeditFilesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.copyedit.ManageCopyeditFilesGridHandler" op="fetchGrid" submissionId=$submissionId escape=false}

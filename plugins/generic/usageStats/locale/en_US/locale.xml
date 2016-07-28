@@ -62,6 +62,7 @@
 	<message key="plugins.reports.usageStats.metricType">OMP/COUNTER</message>
 	<message key="plugins.reports.usageStats.metricType.full">Open Monograph Press statistics (COUNTER ready)</message>
 	<message key="plugins.generic.usageStats.statsSum">Sum all file downloads</message>
-	<message key="plugins.generic.usageStats.noStats">No usage statistics data.</message>
+	<message key="plugins.generic.usageStats.noStats">Download data is not yet available.</message>
 	<message key="plugins.generic.usageStats.monthInitials">Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</message>
+	<message key="plugins.generic.usageStats.downloads">Downloads</message>
 </locale>

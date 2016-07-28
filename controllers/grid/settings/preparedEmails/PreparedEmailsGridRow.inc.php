@@ -50,6 +50,7 @@ class PreparedEmailsGridRow extends GridRow {
 					new LinkAction(
 						'deleteEmail',
 						new RemoteActionConfirmationModal(
+							$request->getSession(),
 							__('manager.emails.confirmDelete'), __('common.delete'),
 							$router->url($request, null, 'grid.settings.preparedEmails.PreparedEmailsGridHandler',
 								'deleteCustomEmail', null, array('emailKey' => $rowId)), 'modal_delete'
@@ -66,6 +67,7 @@ class PreparedEmailsGridRow extends GridRow {
 					new LinkAction(
 						'resetEmail',
 						new RemoteActionConfirmationModal(
+							$request->getSession(),
 							__('manager.emails.reset.message'), null,
 							$router->url($request, null, 'grid.settings.preparedEmails.PreparedEmailsGridHandler',
 								'resetEmail', null, array('emailKey' => $rowId)), 'modal_delete'

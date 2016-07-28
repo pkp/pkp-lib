@@ -36,6 +36,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 		$context = $contextDao->getById($notification->getContextId());
 
 		switch ($notification->getType()) {
+			case NOTIFICATION_TYPE_COPYEDIT_ASSIGNMENT:
 			case NOTIFICATION_TYPE_LAYOUT_ASSIGNMENT:
 			case NOTIFICATION_TYPE_INDEX_ASSIGNMENT:
 				assert($notification->getAssocType() == ASSOC_TYPE_SUBMISSION && is_numeric($notification->getAssocId()));
@@ -115,6 +116,10 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 				$reviewAssignment = $reviewAssignmentDao->getById($notification->getAssocId());
 				$submission = $submissionDao->getById($reviewAssignment->getSubmissionId()); /* @var $submission Submission */
 				return __('notification.type.reviewerComment', array('title' => $submission->getLocalizedTitle()));
+			case NOTIFICATION_TYPE_COPYEDIT_ASSIGNMENT:
+				assert($notification->getAssocType() == ASSOC_TYPE_SUBMISSION && is_numeric($notification->getAssocId()));
+				$submission = $submissionDao->getById($notification->getAssocId());
+				return __('notification.type.copyeditorRequest', array('title' => $submission->getLocalizedTitle()));
 			case NOTIFICATION_TYPE_LAYOUT_ASSIGNMENT:
 				assert($notification->getAssocType() == ASSOC_TYPE_SUBMISSION && is_numeric($notification->getAssocId()));
 				$submission = $submissionDao->getById($notification->getAssocId());
@@ -129,9 +134,14 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 				assert($notification->getAssocType() == ASSOC_TYPE_REVIEW_ROUND && is_numeric($notification->getAssocId()));
 				$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
 				$reviewRound = $reviewRoundDao->getById($notification->getAssocId());
+				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
 
 				AppLocale::requireComponents(LOCALE_COMPONENT_APP_EDITOR); // load review round status keys.
-				return __($reviewRound->getStatusKey());
+				$user = $request->getUser();
+				$stageAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($reviewRound->getSubmissionId(), ROLE_ID_AUTHOR, null, $user->getId());
+				$isAuthor = $stageAssignments->getCount()>0;
+				$stageAssignments->close();
+				return __($reviewRound->getStatusKey($isAuthor));
 			default:
 				$delegateResult = $this->getByDelegate(
 					$notification->getType(),

@@ -27,12 +27,19 @@ class AnnouncementDAO extends DAO {
 	/**
 	 * Retrieve an announcement by announcement ID.
 	 * @param $announcementId int
+	 * @param $assocType int Optional assoc type
+	 * @param $assocId int Optional assoc ID
 	 * @return Announcement
 	 */
-	function getById($announcementId) {
+	function getById($announcementId, $assocType = null, $assocId = null) {
+		$params = array((int) $announcementId);
+		if ($assocType !== null) $params[] = (int) $assocType;
+		if ($assocId !== null) $params[] = (int) $assocId;
 		$result = $this->retrieve(
-			'SELECT * FROM announcements WHERE announcement_id = ?',
-			(int) $announcementId
+			'SELECT	* FROM announcements WHERE announcement_id = ?' .
+			($assocType !== null?' AND assoc_type = ?':'') .
+			($assocId !== null?' AND assoc_id = ?':''),
+			$params
 		);
 
 		$returner = null;

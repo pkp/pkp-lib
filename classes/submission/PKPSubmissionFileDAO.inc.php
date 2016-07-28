@@ -67,6 +67,90 @@ abstract class PKPSubmissionFileDAO extends PKPFileDAO implements PKPPubIdPlugin
 		return $this->_checkAndReturnRevision($revisions);
 	}
 
+	/**
+	 * Find file IDs by querying file settings.
+	 * @param $settingName string
+	 * @param $settingValue mixed
+	 * @param $submissionId int optional
+	 * @param $contextId int optional
+	 * @return array The file IDs identified by setting.
+	 */
+	function getFileIdsBySetting($settingName, $settingValue, $submissionId = null, $contextId = null) {
+		$params = array($settingName);
+
+		$sql = 'SELECT DISTINCT	f.file_id
+			FROM	submission_files f
+				INNER JOIN submissions s ON s.submission_id = f.submission_id
+				LEFT JOIN published_submissions ps ON f.submission_id = ps.submission_id ';
+		if (is_null($settingValue)) {
+			$sql .= 'LEFT JOIN submission_file_settings fs ON f.file_id = fs.file_id AND fs.setting_name = ?
+				WHERE	(fs.setting_value IS NULL OR fs.setting_value = \'\')';
+		} else {
+			$params[] = (string) $settingValue;
+			$sql .= 'INNER JOIN submission_file_settings fs ON f.file_id = fs.file_id
+				WHERE	fs.setting_name = ? AND fs.setting_value = ?';
+		}
+		if ($submissionId) {
+			$params[] = (int) $submissionId;
+			$sql .= ' AND f.submission_id = ?';
+		}
+		if ($contextId) {
+			$params[] = (int) $contextId;
+			$sql .= ' AND s.context_id = ?';
+		}
+		$sql .= ' ORDER BY f.file_id';
+		$result = $this->retrieve($sql, $params);
+
+		$fileIds = array();
+		while (!$result->EOF) {
+			$row = $result->getRowAssoc(false);
+			$fileIds[] = $row['file_id'];
+			$result->MoveNext();
+		}
+
+		$result->Close();
+		return $fileIds;
+	}
+
+	/**
+	 * Retrieve file by public file ID
+	 * @param $pubIdType string One of the NLM pub-id-type values or
+	 * 'other::something' if not part of the official NLM list
+	 * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
+	 * @param $pubId string
+	 * @param $submissionId int optional
+	 * @param $contextId int optional
+	 * @return SubmissionFile|null
+	 */
+	function getByPubId($pubIdType, $pubId, $submissionId = null, $contextId = null) {
+		$file = null;
+		if (!empty($pubId)) {
+			$fileIds = $this->getFileIdsBySetting('pub-id::'.$pubIdType, $pubId, $submissionId, $contextId);
+			if (!empty($fileIds)) {
+				assert(count($fileIds) == 1);
+				$fileId = $fileIds[0];
+				$file = $this->getLatestRevision($fileId, SUBMISSION_FILE_PROOF, $submissionId);
+			}
+		}
+		return $file;
+	}
+
+	/**
+	 * Retrieve file by public ID or, failing that,
+	 * internal file ID and revision; public ID takes precedence.
+	 * @param $fileId string Either public ID or fileId-revision
+	 * @param $submissionId int
+	 * @return SubmissionFile|null
+	 */
+	function getByBestId($fileId, $submissionId) {
+		$file = null;
+		if ($fileId != '') $file = $this->getByPubId('publisher-id', $fileId, $submissionId);
+		if (!isset($file)) {
+			list($fileId, $revision) = array_map(create_function('$a', 'return (int) $a;'), preg_split('/-/', $fileId));
+			$file = $this->getRevision($fileId, $revision, SUBMISSION_FILE_PROOF, $submissionId);
+		}
+		return $file;
+	}
 
 	/**
 	 * Retrieve the latest revision of a file.

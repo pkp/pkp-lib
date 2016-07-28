@@ -12,6 +12,7 @@
 {* Form handler attachment implemented in application-specific versions of this template. *}
 
 <form class="pkp_form" id="readReviewForm" method="post" action="{url op="reviewRead"}">
+	{csrf}
 	<input type="hidden" name="reviewAssignmentId" value="{$reviewAssignment->getId()|escape}" />
 	<input type="hidden" name="submissionId" value="{$reviewAssignment->getSubmissionId()|escape}" />
 	<input type="hidden" name="stageId" value="{$reviewAssignment->getStageId()|escape}" />

@@ -25,21 +25,19 @@ class DeleteFileLinkAction extends FileLinkAction {
 	 *  be deleted.
 	 */
 	function DeleteFileLinkAction($request, $submissionFile, $stageId, $localeKey = 'grid.action.delete') {
-		// Instantiate the confirmation modal.
 		$router = $request->getRouter();
 		import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
-		$confirmationModal = new RemoteActionConfirmationModal(
-			__('common.confirmDelete'), __('common.delete'),
-			$router->url(
-				$request, null, 'api.file.ManageFileApiHandler',
-				'deleteFile', null, $this->getActionArgs($submissionFile, $stageId)
-			),
-			'modal_delete'
-		);
-
-		// Configure the file link action.
 		parent::FileLinkAction(
-			'deleteFile', $confirmationModal,
+			'deleteFile',
+			new RemoteActionConfirmationModal(
+				$request->getSession(),
+				__('common.confirmDelete'), __('common.delete'),
+				$router->url(
+					$request, null, 'api.file.ManageFileApiHandler',
+					'deleteFile', null, $this->getActionArgs($submissionFile, $stageId)
+				),
+				'modal_delete'
+			),
 			__($localeKey), 'delete'
 		);
 	}

@@ -39,12 +39,14 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin {
 				HookRegistry::register(strtolower_codesafe(get_class($dao)).'::getAdditionalFieldNames', array($this, 'getAdditionalFieldNames'));
 				if (strtolower_codesafe(get_class($dao)) == 'submissionfiledao') {
 					// if it is a file, consider all file delegates
-					HookRegistry::register('submissionfiledaodelegate::getAdditionalFieldNames', array($this, 'getAdditionalFieldNames'));
-					HookRegistry::register('supplementaryfiledaodelegate::getAdditionalFieldNames', array($this, 'getAdditionalFieldNames'));
-					HookRegistry::register('submissionartworkfiledaodelegate::getAdditionalFieldNames', array($this, 'getAdditionalFieldNames'));
+					$fileDAOdelegates = $this->getFileDAODelegates();
+					foreach ($fileDAOdelegates as $fileDAOdelegate) {
+						HookRegistry::register(strtolower_codesafe($fileDAOdelegate).'::getAdditionalFieldNames', array($this, 'getAdditionalFieldNames'));
+					}
 				}
 			}
 		}
+		$this->addLocaleData();
 		return true;
 	}
 
@@ -87,10 +89,10 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin {
 					$form->execute();
 					$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS);
 					return new JSONMessage(true);
-				} else {
-					return new JSONMessage(true, $form->fetch($request));
 				}
+				return new JSONMessage(true, $form->fetch($request));
 			case 'clearPubIds':
+				if (!$request->checkCSRF()) return new JSONMessage(false);
 				$contextDao = Application::getContextDAO();
 				$contextDao->deleteAllPubIds($context->getId(), $this->getPubIdType());
 				$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS);
@@ -109,7 +111,7 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin {
 	/**
 	 * Get the public identifier.
 	 * @param $pubObject object
-	 * 	OJS Issue, Article, Representation or SubmissionFile
+	 * 	Submission, Representation, SubmissionFile + OJS Issue
 	 * @return string
 	 */
 	abstract function getPubId($pubObject);
@@ -157,6 +159,13 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin {
 	 * @return string
 	 */
 	abstract function getPubIdMetadataFile();
+
+	/**
+	 * Add JavaScript files to be loaded in the metadata file.
+	 * @param $request PKPRequest
+	 * @param $templateMgr PKPTemplateManager
+	 */
+	function addJavaScript($request, $templateMgr) { }
 
 	/**
 	 * Get the file (path + filename)
@@ -221,7 +230,9 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin {
 	 * Get the possible publication object types.
 	 * @return array
 	 */
-	abstract function getPubObjectTypes();
+	function getPubObjectTypes()  {
+		return array('Submission', 'Representation', 'SubmissionFile');
+	}
 
 	/**
 	 * Get all publication objects of the given type.
@@ -229,7 +240,35 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin {
 	 * @param $contextId integer
 	 * @return array
 	 */
-	abstract function getPubObjects($pubObjectType, $contextId);
+	function getPubObjects($pubObjectType, $contextId) {
+		$objectsToCheck = null;
+		switch($pubObjectType) {
+			case 'Submission':
+				$submissionDao = Application::getSubmissionDAO();
+				$submissions = $submissionDao->getByContextId($contextId);
+				$objectsToCheck = $submissions->toArray();
+				break;
+
+			case 'Representation':
+				$representationDao = Application::getRepresentationDAO();
+				$representations = $representationDao->getByContextId($contextId);
+				$objectsToCheck = $representations->toArray();
+				break;
+
+			case 'SubmissionFile':
+				$representationDao = Application::getRepresentationDAO();
+				$representations = $representationDao->getByContextId($contextId);
+				$objectsToCheck = array();
+				$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
+				import('lib.pkp.classes.submission.SubmissionFile'); // SUBMISSION_FILE_... constants
+				while ($representation = $representations->next()) {
+					$objectsToCheck = array_merge($objectsToCheck, $submissionFileDao->getAllRevisionsByAssocId(ASSOC_TYPE_REPRESENTATION, $representation->getId(), SUBMISSION_FILE_PROOF));
+				}
+				unset($representations);
+				break;
+		}
+		return $objectsToCheck;
+	}
 
 	/**
 	 * Is this object type enabled in plugin settings
@@ -286,12 +325,26 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin {
 	 * the corresponding DAOs.
 	 * @return array
 	 */
-	abstract function getDAOs();
+	function getDAOs() {
+		return  array(
+			'Submission' => Application::getSubmissionDAO(),
+			'Representation' => Application::getRepresentationDAO(),
+			'SubmissionFile' => DAORegistry::getDAO('SubmissionFileDAO'),
+		);
+	}
+
+	/**
+	 * Get the possible submission file DAO delegates.
+	 * @return array
+	 */
+	function getFileDAODelegates()  {
+		return array('SubmissionFileDAODelegate', 'SupplementaryFileDAODelegate', 'SubmissionArtworkFileDAODelegate');
+	}
 
 	/**
 	 * Can a pub id be assigned to the object.
 	 * @param $pubObject object
-	 * 	OJS Issue, Article, Representation or SubmissionFile
+	 * 	Submission, Representation, SubmissionFile + OJS Issue
 	 * @return boolean
 	 * 	false, if the pub id contains an unresolved pattern i.e. '%' or
 	 * 	if the custom suffix is empty i.e. the pub id null.

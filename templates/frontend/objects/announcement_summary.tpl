@@ -34,9 +34,4 @@
 			</span>
 		</a>
 	</div>
-	{if $announcement->getDateExpire() != ''}
-		<span class="expire">
-			{$announcement->getDateExpire()}
-		</span>
-	{/if}
 </article><!-- .obj_announcement_summary -->

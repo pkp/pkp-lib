@@ -16,6 +16,7 @@
 </script>
 
 <form class="pkp_form" id="genreForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.genre.GenreGridHandler" op="updateGenre"}">
+{csrf}
 {include file="controllers/notification/inPlaceNotification.tpl" notificationId="genreFormNotification"}
 
 {fbvFormArea id="genreInfo"}

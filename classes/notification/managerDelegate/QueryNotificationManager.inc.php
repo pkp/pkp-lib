@@ -44,11 +44,28 @@ class QueryNotificationManager extends NotificationManagerDelegate {
 	 * @copydoc NotificationManagerDelegate::getNotificationMessage()
 	 */
 	public function getNotificationMessage($request, $notification) {
+		assert($notification->getAssocType() == ASSOC_TYPE_QUERY);
+		$queryDao = DAORegistry::getDAO('QueryDAO');
+		$query = $queryDao->getById($notification->getAssocId());
+
 		switch($notification->getType()) {
 			case NOTIFICATION_TYPE_NEW_QUERY:
-				return __('submission.query.new');
+				$headNote = $query->getHeadNote();
+				assert($headNote);
+				$user = $headNote->getUser();
+				return __('submission.query.new', array(
+					'creatorName' => $user->getFullName(),
+					'noteTitle' => $headNote->getTitle(),
+				));
 			case NOTIFICATION_TYPE_QUERY_ACTIVITY:
-				return __('submission.query.activity');
+				$notes = $query->getReplies(null, NOTE_ORDER_ID, SORT_DIRECTION_DESC);
+				$latestNote = $notes->next();
+				$user = $latestNote->getUser();
+				$notes->close();
+				return __('submission.query.activity', array(
+					'responderName' => $user->getFullName(),
+					'noteContents' => PKPString::html2text($latestNote->getContents()),
+				));
 			default: assert(false);
 		}
 	}

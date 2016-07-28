@@ -40,6 +40,7 @@ class PreparedEmailForm extends Form {
 		$this->addCheck(new FormValidatorArray($this, 'body', 'required', 'manager.emails.form.bodyRequired'));
 		$this->addCheck(new FormValidatorRegExp($this, 'emailKey', 'required', 'manager.emails.form.emailKeyRequired', '/^[a-zA-Z_-]+$/'));
 		$this->addCheck(new FormValidatorPost($this));
+		$this->addCheck(new FormValidatorCSRF($this));
 	}
 
 	/**

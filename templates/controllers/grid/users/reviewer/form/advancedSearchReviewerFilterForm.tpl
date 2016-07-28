@@ -21,6 +21,7 @@
 </script>
 
 <form class="pkp_form filter" id="reviewerFilterForm" action="{url router=$smarty.const.ROUTE_COMPONENT component="grid.users.reviewerSelect.ReviewerSelectGridHandler" op="fetchGrid"}" method="post" class="pkp_controllers_reviewerSelector">
+	{csrf}
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="advancedSearchReviewerFilterFormNotification"}
 	{fbvFormArea id="reviewerSearchForm"}
 		<input type="hidden" id="submissionId" name="submissionId" value="{$submissionId|escape}" />

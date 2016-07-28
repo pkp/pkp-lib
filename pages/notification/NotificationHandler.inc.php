@@ -168,6 +168,7 @@ class NotificationHandler extends Handler {
 	 * @param $request Request
 	 */
 	function saveSubscribeMailList($args, $request) {
+		if (!$request->checkCSRF()) fatalError(__('form.csrfInvalid'));
 		$this->validate();
 		$this->setupTemplate($request, true);
 

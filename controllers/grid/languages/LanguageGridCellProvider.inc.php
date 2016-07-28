@@ -82,8 +82,12 @@ class LanguageGridCellProvider extends GridCellProvider {
 				$enabled = $element['supported'];
 				if ($enabled) {
 					$action = 'disable-' . $row->getId();
-					$actionRequest = new RemoteActionConfirmationModal(__('admin.languages.confirmDisable'),
-						__('common.disable'), $router->url($request, null, null, 'disableLocale', null, $actionArgs));
+					$actionRequest = new RemoteActionConfirmationModal(
+						$request->getSession(),
+						__('admin.languages.confirmDisable'),
+						__('common.disable'),
+						$router->url($request, null, null, 'disableLocale', null, $actionArgs)
+					);
 				} else {
 					$action = 'enable-' . $row->getId();
 					$actionRequest = new AjaxAction($router->url($request, null, null, 'enableLocale', null, $actionArgs));

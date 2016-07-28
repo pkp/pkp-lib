@@ -51,7 +51,6 @@
 	<message key="user.login.accountDisabled">Ihr Konto wurde deaktiviert. Für nähere Informationen setzen Sie sich bitte mit der/dem Website-Administrator/in in Verbindung.</message>
 	<message key="user.login.accountNotValidated">Ihre E-Mail-Adresse konnte nicht verifiziert werden. Rufen Sie bitte Ihre E-Mails ab und befolgen Sie die Anweisungen, die Ihnen übermittelt wurden. Sollten Sie keine E-Mail erhalten haben, müssen Sie eventuell die/den Website-Administrator/in kontaktieren.</message>
 	<message key="user.login.activate">Aktiviere Konto</message>
-	<message key="user.login.activated">Danke, dass Sie Ihr Konto aktiviert haben. Sie können sich nun unter Verwendung der von Ihnen bei der Erstellung Ihres Kontos gemachten Angaben einloggen.</message>
 	<message key="user.login.changePasswordInstructions"><![CDATA[Damit Sie sich auf dieser Seite einloggen können, müssen Sie ein neues Passwort auswählen.<br /><br />Sie ändern das Passwort für Ihr Konto, indem Sie unten Ihren Benutzer/innennamen und das aktuelle sowie das neue Passwort eintragen.]]></message>
 	<message key="user.login.forgotPassword">Passwort vergessen?</message>
 	<message key="user.login.loginError">Benutzer/innen-Name oder Passwort ungültig. Versuchen Sie es erneut.</message>

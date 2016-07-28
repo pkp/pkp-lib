@@ -59,6 +59,7 @@ class GenreGridRow extends GridRow {
 				new LinkAction(
 					'deleteGenre',
 					new RemoteActionConfirmationModal(
+						$request->getSession(),
 						__('common.confirmDelete'),
 						__('grid.action.delete'),
 						$router->url($request, null, null, 'deleteGenre', null, $actionArgs), 'modal_delete'),

@@ -257,7 +257,7 @@ class ReviewRoundDAO extends DAO {
 	 * based on the review round assignments state.
 	 * @param $reviewRound ReviewRound
 	 * @param $reviewAssignments array Review round review assignments.
-	 * @param $status int
+	 * @param $status int? REVIEW_ROUND_STATUS_... New status (or null to determine based on review assignments)
 	 */
 	function updateStatus($reviewRound, $reviewAssignments = array(), $status = null) {
 		assert(is_a($reviewRound, 'ReviewRound'));

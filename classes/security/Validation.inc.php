@@ -26,56 +26,42 @@ class Validation {
 	 * @return User the User associated with the login credentials, or false if the credentials are invalid
 	 */
 	static function login($username, $password, &$reason, $remember = false) {
-		$implicitAuth = Config::getVar('security', 'implicit_auth');
-
 		$reason = null;
-		if ($implicitAuth) { // Implicit auth
-			if (!Validation::isLoggedIn()) {
-				PluginRegistry::loadCategory('implicitAuth');
+		$userDao = DAORegistry::getDAO('UserDAO');
+		$user = $userDao->getByUsername($username, true);
+		if (!isset($user)) {
+			// User does not exist
+			return false;
+		}
 
-				// Call the implicitAuth hook. It will set $user.
-				HookRegistry::call('ImplicitAuthPlugin::implicitAuth', array(&$user));
-				$valid = true;
-			} else {
-				$valid = false;
-			}
-		} else { // Regular Auth
-			$userDao = DAORegistry::getDAO('UserDAO');
-			$user = $userDao->getByUsername($username, true);
-			if (!isset($user)) {
-				// User does not exist
-				return false;
-			}
+		if ($user->getAuthId()) {
+			$authDao = DAORegistry::getDAO('AuthSourceDAO');
+			$auth = $authDao->getPlugin($user->getAuthId());
+		} else {
+			$auth = null;
+		}
 
-			if ($user->getAuthId()) {
-				$authDao = DAORegistry::getDAO('AuthSourceDAO');
-				$auth = $authDao->getPlugin($user->getAuthId());
-			} else {
-				$auth = null;
-			}
-
-			if ($auth) {
-				// Validate against remote authentication source
-				$valid = $auth->authenticate($username, $password);
-				if ($valid) {
-					$oldEmail = $user->getEmail();
-					$auth->doGetUserInfo($user);
-					if ($user->getEmail() != $oldEmail) {
-						// FIXME requires email addresses to be unique; if changed email already exists, ignore
-						if ($userDao->userExistsByEmail($user->getEmail())) {
-							$user->setEmail($oldEmail);
-						}
+		if ($auth) {
+			// Validate against remote authentication source
+			$valid = $auth->authenticate($username, $password);
+			if ($valid) {
+				$oldEmail = $user->getEmail();
+				$auth->doGetUserInfo($user);
+				if ($user->getEmail() != $oldEmail) {
+					// FIXME requires email addresses to be unique; if changed email already exists, ignore
+					if ($userDao->userExistsByEmail($user->getEmail())) {
+						$user->setEmail($oldEmail);
 					}
 				}
-			} else {
-				// Validate against user database
-				$rehash = null;
-				$valid = Validation::verifyPassword($username, $password, $user->getPassword(), $rehash);
+			}
+		} else {
+			// Validate against user database
+			$rehash = null;
+			$valid = Validation::verifyPassword($username, $password, $user->getPassword(), $rehash);
 
-				if ($valid && !empty($rehash)) {
-					// update to new hashing algorithm
-					$user->setPassword($rehash);
-				}
+			if ($valid && !empty($rehash)) {
+				// update to new hashing algorithm
+				$user->setPassword($rehash);
 			}
 		}
 

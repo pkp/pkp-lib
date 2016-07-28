@@ -148,6 +148,7 @@
 </script>
 
 <form class="pkp_form" id="uploadForm" action="#" method="post">
+	{csrf}
 	{fbvFormArea id="file"}
 		{if $assocType && $assocId}
 			<input type="hidden" name="assocType" value="{$assocType|escape}" />

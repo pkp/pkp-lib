@@ -14,8 +14,7 @@
 
 	/** @type {Object} */
 	$.pkp.plugins.generic.usageStats =
-			$.pkp.plugins.generic.usageStats ||
-			{ usageStats: { } };
+			$.pkp.plugins.generic.usageStats || {};
 
 	/**
 	 * @constructor
@@ -27,9 +26,9 @@
 	 */
 	$.pkp.plugins.generic.usageStats.UsageStatsGraphHandler =
 			function($graph, options) {
-		
+
 		this.parent($graph, options);
-		this.data_ = options.data; 
+		this.data_ = options.data;
 		this.labels_ = options.labels;
 		this.datasetMaxCount_ = options.datasetMaxCount;
 		this.chartType_ = options.chartType;
@@ -51,7 +50,7 @@
 			$.pkp.plugins.generic.usageStats.UsageStatsGraphHandler,
 			$.pkp.classes.Handler);
 
-	
+
 	//
 	// Private properties.
 	//
@@ -63,7 +62,7 @@
 	$.pkp.plugins.generic.usageStats.UsageStatsGraphHandler.
 			prototype.data_ = {};
 
-	
+
 	/**
 	 * The x-axis labels.
 	 * @private
@@ -90,7 +89,7 @@
 	$.pkp.plugins.generic.usageStats.UsageStatsGraphHandler.
 			prototype.chartType_ = '';
 
-	
+
 	/**
 	 * The chart object.
 	 * @private
@@ -111,7 +110,7 @@
 	 */
 	$.pkp.plugins.generic.usageStats.UsageStatsGraphHandler.
 			prototype.loadGraph_ = function() {
-		
+
 		var datasets = [], data, chartData, $canvas,
 			aggregationLevel = this.getAggregationLevel_();
 
@@ -126,12 +125,12 @@
 
 		data = this.data_[aggregationLevel];
 		datasets = this.setupDatasets_(data);
-		
+
 		chartData = {
 			labels: this.labels_,
 			datasets: datasets
 		}
-		
+
 		if (this.chart_) {
 			// Make sure we destroy any possible loaded chart.
 			this.chart_.destroy();
@@ -156,7 +155,7 @@
 	 */
 	$.pkp.plugins.generic.usageStats.UsageStatsGraphHandler.
 			prototype.getAggregationLevel_ = function() {
-		
+
 		if ($('#statsSum', this.getHtmlElement()).is(':checked')) {
 			return 'byMonth';
 		} else {
@@ -172,13 +171,13 @@
 	 * @private
 	 *
 	 * @param {Object} data Datasets data definition.
-	 * @return {Object} Datasets properly setup with filtered data. 
+	 * @return {Object} Datasets properly setup with filtered data.
 	 */
 	$.pkp.plugins.generic.usageStats.UsageStatsGraphHandler.
 			prototype.setupDatasets_ = function (data) {
 
-		var year = $("#statsYear :selected", this.getHtmlElement()).text(), 
-			datasetId, filteredData, datasetData, month, datasets = []; 
+		var year = $("#statsYear :selected", this.getHtmlElement()).text(),
+			datasetId, filteredData, datasetData, month, datasets = [];
 
 		for (datasetId in data) {
 			filteredData = [];
@@ -187,7 +186,7 @@
 				// Make sure we get only the current year data.
 				filteredData.push(datasetData[year][month]);
 			};
-			
+
 			datasets.push(
 				{
 					label: data[datasetId]['label'],

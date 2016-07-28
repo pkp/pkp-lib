@@ -113,6 +113,7 @@ class UserGridRow extends GridRow {
 				new LinkAction(
 					'remove',
 					new RemoteActionConfirmationModal(
+						$request->getSession(),
 						__('manager.people.confirmRemove'),
 						__('common.remove'),
 						$router->url($request, null, null, 'removeUser', null, $actionArgs),
@@ -158,6 +159,7 @@ class UserGridRow extends GridRow {
 						new LinkAction(
 							'mergeUser',
 							new RemoteActionConfirmationModal(
+								$request->getSession(),
 								__('grid.user.mergeUsers.confirm', array('oldUsername' => $oldUser->getUsername(), 'newUsername' => $element->getUsername())),
 								null,
 								$router->url($request, null, null, 'mergeUsers', null, $actionArgs),

@@ -62,34 +62,34 @@ class AuthorDashboardReviewRoundTabHandler extends AuthorDashboardHandler {
 		$this->setupTemplate($request);
 		$templateMgr = TemplateManager::getManager($request);
 
+		$reviewRound = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND);
+		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
 		if ($stageId !== WORKFLOW_STAGE_ID_INTERNAL_REVIEW && $stageId !== WORKFLOW_STAGE_ID_EXTERNAL_REVIEW) {
 			fatalError('Invalid Stage Id');
 		}
-		$templateMgr->assign('stageId', $stageId);
 
-		$reviewRound = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND);
-		$templateMgr->assign('reviewRoundId', $reviewRound->getId());
-		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-		$templateMgr->assign('submission', $submission);
+		$templateMgr->assign(array(
+			'stageId' => $stageId,
+			'reviewRoundId' => $reviewRound->getId(),
+			'submission' => $submission,
+			'reviewRoundNotificationRequestOptions' => array(
+				NOTIFICATION_LEVEL_NORMAL => array(
+					NOTIFICATION_TYPE_REVIEW_ROUND_STATUS => array(ASSOC_TYPE_REVIEW_ROUND, $reviewRound->getId())),
+				NOTIFICATION_LEVEL_TRIVIAL => array()
+			),
+		));
 
-		// Review round request notification options.
-		$notificationRequestOptions = array(
-			NOTIFICATION_LEVEL_NORMAL => array(
-				NOTIFICATION_TYPE_REVIEW_ROUND_STATUS => array(ASSOC_TYPE_REVIEW_ROUND, $reviewRound->getId())),
-			NOTIFICATION_LEVEL_TRIVIAL => array()
-		);
-		$templateMgr->assign('reviewRoundNotificationRequestOptions', $notificationRequestOptions);
 
 		// Editor has taken an action and sent an email; Display the email
 		import('classes.workflow.EditorDecisionActionsManager');
 		if(EditorDecisionActionsManager::getEditorTakenActionInReviewRound($reviewRound)) {
 			$submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
 			$user = $request->getUser();
-			$submissionEmailFactory = $submissionEmailLogDao->getByEventType($submission->getId(), SUBMISSION_EMAIL_EDITOR_NOTIFY_AUTHOR, $user->getId());
-
-			$templateMgr->assign('submissionEmails', $submissionEmailFactory);
-			$templateMgr->assign('showReviewAttachments', true);
+			$templateMgr->assign(array(
+				'submissionEmails' => $submissionEmailLogDao->getByEventType($submission->getId(), SUBMISSION_EMAIL_EDITOR_NOTIFY_AUTHOR, $user->getId()),
+				'showReviewAttachments' => true,
+			));
 		}
 
 		return $templateMgr->fetchJson('authorDashboard/reviewRoundInfo.tpl');

@@ -39,6 +39,7 @@ class SubmissionSubmitForm extends Form {
 	function SubmissionSubmitForm($context, $submission, $step) {
 		parent::Form(sprintf('submission/form/step%d.tpl', $step));
 		$this->addCheck(new FormValidatorPost($this));
+		$this->addCheck(new FormValidatorCSRF($this));
 		$this->step = (int) $step;
 		$this->submission = $submission;
 		$this->submissionId = $submission ? $submission->getId() : null;

@@ -16,6 +16,7 @@
 	);
 </script>
 <form class="pkp_form filter" id="userSearchForm" action="{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.user.UserGridHandler" op="fetchGrid"}" method="post">
+	{csrf}
 	{fbvFormArea id="userSearchFormArea"}
 		{fbvFormSection title="common.search" for="search"}
 			{fbvElement type="text" name="search" id="search" value=$filterSelectionData.search size=$fbvStyles.size.LARGE inline="true"}

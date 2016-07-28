@@ -41,10 +41,7 @@
 {if $languagesEnabled || $subjectEnabled || $keywordsEnabled || $agenciesEnabled || $referencesEnabled}
 	{fbvFormArea id="tagitFields" title="submission.submit.metadataForm"}
 		{if $languagesEnabled}
-			{fbvFormSection description="submission.submit.metadataForm.tip" title="common.languages"}
-				{url|assign:languagesSourceUrl router=$smarty.const.ROUTE_PAGE page="submission" op="fetchChoices" codeList="74"}
-				{fbvElement type="keyword" id="languages" subLabelTranslate=true multilingual=true current=$languages source=$languagesSourceUrl disabled=$readOnly}
-			{/fbvFormSection}
+			{$languagesField}
 		{/if}
 		{if $subjectEnabled}
 			{fbvFormSection label="common.subjects"}

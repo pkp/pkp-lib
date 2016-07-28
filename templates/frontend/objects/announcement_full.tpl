@@ -25,9 +25,4 @@
 			{$announcement->getLocalizedDescriptionShort()|strip_unsafe_html}
 		{/if}
 	</div>
-	{if $announcement->getDateExpire() != ''}
-		<span class="expire">
-			{$announcement->getDateExpire()}
-		</span>
-	{/if}
 </article><!-- .obj_announcement_full -->

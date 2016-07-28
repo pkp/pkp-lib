@@ -231,7 +231,7 @@
 		// Nested so that the padding overrides input field defaults
 		.localizable {
 			background-repeat: no-repeat;
-			background-image: url({$baseUrl}/lib/pkp/templates/images/structure/icon_globe.png);
+			background-image: url(@{baseUrl}/lib/pkp/templates/images/structure/icon_globe.png);
 			background-position: top @half right @half;
 		}
 	}
@@ -294,6 +294,12 @@
 			&:extend(.pkp_button_link_offset all);
 		}
 	}
+}
+
+a[id^="publicIdentifiersForm-clearPubId-button"],
+a[id^="publicIdentifiersForm-clearObjectsPubIds-button"] {
+	&:extend(.pkp_button all);
+	&:extend(.pkp_button_offset all);
 }
 
 // Required fields notice
@@ -361,9 +367,7 @@
 }
 
 // Link action links that should have a warning color
-.pkp_linkaction_deleteFile-homepageImage,
-.pkp_linkaction_deleteFile-journalThumbnail,
-.pkp_linkaction_deleteFile-styleSheet {
+[class*=pkp_linkaction_deleteFile] {
 	color: @no;
 }
 

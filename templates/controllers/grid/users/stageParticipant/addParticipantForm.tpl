@@ -25,6 +25,7 @@
 </script>
 
 <form class="pkp_form" id="addParticipantForm" action="{url op="saveParticipant"}" method="post">
+	{csrf}
 	<div class="pkp_helpers_clear"></div>
 
 	{fbvFormArea id="addParticipant"}

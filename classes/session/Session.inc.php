@@ -227,6 +227,7 @@ class Session extends DataObject {
 			// Hash the data
 			$token = null;
 			$salt = Config::getVar('security', 'salt');
+			$algos = hash_algos();
 			foreach (array('sha256', 'sha1', 'md5') as $algo) {
 				if (in_array($algo, $algos)) {
 					$token = hash_hmac($algo, $data, $salt) . ':' . $expiry;

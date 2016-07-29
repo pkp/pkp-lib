@@ -407,16 +407,14 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin {
 	/**
 	 * Set and store a public identifier.
 	 * @param $pubObject object
-	 * @param $pubObjectType string As returned from self::getPubObjectType()
 	 * @param $pubId string
 	 * @return string
 	 *
 	 * This function is currently only used in the pubId import/export plugin.
 	 * After the migration of that plugin, check if this function is still needed.
 	 */
-	function setStoredPubId(&$pubObject, $pubObjectType, $pubId) {
-		$daos = $this->getDAOs();
-		$dao = $daos[$pubObjectType];
+	function setStoredPubId(&$pubObject, $pubId) {
+		$dao = $pubObject->getDAO();
 		$dao->changePubId($pubObject->getId(), $this->getPubIdType(), $pubId);
 		$pubObject->setStoredPubId($this->getPubIdType(), $pubId);
 	}

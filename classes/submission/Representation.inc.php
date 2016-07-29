@@ -147,6 +147,13 @@ class Representation extends DataObject {
 		$submission = $submissionDao->getById($this->getSubmissionId());
 		return $submission->getContextId();
 	}
+
+	/**
+	 * @copydoc DataObject::getDAO()
+	 */
+	function getDAO() {
+		return Application::getRepresentationDAO();
+	}
 }
 
 ?>

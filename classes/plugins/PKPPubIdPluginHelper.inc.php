@@ -172,7 +172,7 @@ class PKPPubIdPluginHelper {
 				if ($form->getData($pubIdPlugin->getAssignFormFieldName())) {
 					$pubId = $pubIdPlugin->getPubId($pubObject);
 					if ($save) {
-						$pubIdPlugin->setStoredPubId($pubObject, $pubIdPlugin->getPubObjectType($pubObject), $pubId);
+						$pubIdPlugin->setStoredPubId($pubObject, $pubId);
 					} else {
 						$pubObject->setStoredPubId($pubIdPlugin->getPubIdType(), $pubId);
 					}
@@ -195,11 +195,9 @@ class PKPPubIdPluginHelper {
 				if (get_class($pubIdPlugin) == $pubIdPlugInClassName) {
 					// clear the pubId:
 					// delete the pubId from the DB
-					$pubObjectType = $pubIdPlugin->getPubObjectType($pubObject);
-					$daos = $pubIdPlugin->getDAOs();
-					$dao = $daos[$pubObjectType];
+					$dao = $pubObject->getDAO();
 					$pubObjectId = $pubObject->getId();
-					if ($pubObjectType == 'SubmissionFile') {
+					if (is_a($pubObject, 'SubmissionFile')) {
 						$pubObjectId = $pubObject->getFileId();
 					}
 					$dao->deletePubId($pubObjectId, $pubIdPlugin->getPubIdType());

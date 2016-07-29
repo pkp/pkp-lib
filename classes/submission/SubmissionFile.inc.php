@@ -627,6 +627,13 @@ class SubmissionFile extends PKPFile {
 		import('lib.pkp.controllers.wizard.fileUpload.form.SubmissionFilesMetadataForm');
 		return new SubmissionFilesMetadataForm($this, $stageId, $reviewRound);
 	}
+
+	/**
+	 * @copydoc DataObject::getDAO()
+	 */
+	function getDAO() {
+		return DAORegistry::getDAO('SubmissionFileDAO');
+	}
 }
 
 ?>

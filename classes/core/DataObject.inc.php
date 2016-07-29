@@ -446,5 +446,13 @@ class DataObject {
 		}
 		return $metadataDescription;
 	}
+
+	/**
+	 * Get DAO class name for this object.
+	 * @return DAO
+	 */
+	function getDAO() {
+		assert(false);
+	}
 }
 ?>

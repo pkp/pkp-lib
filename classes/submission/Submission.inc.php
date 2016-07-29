@@ -1157,6 +1157,12 @@ abstract class Submission extends DataObject {
 		return preg_match('/creativecommons\.org/i', $this->getLicenseURL());
 	}
 
+	/**
+	 * @copydoc DataObject::getDAO()
+	 */
+	function getDAO() {
+		return Application::getSubmissionDAO();
+	}
 
 	//
 	// Abstract methods.

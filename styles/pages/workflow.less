@@ -122,11 +122,17 @@
 }
 
 .pubids_export_actions {
+	padding-left: @double;
+	padding-right: @double;
 
-	.pkp_linkaction_deposit {
-		&:extend(.pkp_button_primary all);
-		&:extend(.pkp_button all);
-		width: 100%;
+	.pubids_export_action {
+		padding-right: @base;
+		display: inline-block;
+
+		.deposit {
+			&:extend(.pkp_button_primary all);
+			&:extend(.pkp_button all);
+		}
 	}
 }
 

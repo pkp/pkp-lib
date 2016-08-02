@@ -34,12 +34,29 @@ class NotificationsGridCellProvider extends GridCellProvider {
 	function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
 		assert($column->getId() == 'task');
 
+		$templateMgr = TemplateManager::getManager($request);
+
 		$notification = $row->getData();
 		$contextDao = Application::getContextDAO();
 		$context = $contextDao->getById($notification->getContextId());
 
 		$notificationMgr = new NotificationManager();
 		$router = $request->getRouter();
+
+		$templateMgr->assign(array(
+			'notificationMgr'         => $notificationMgr,
+			'notification'            => $notification,
+			'context'                 => $context,
+			'notificationObjectTitle' => $this->_getTitle($notification),
+			'message'                 => PKPString::stripUnsafeHtml($notificationMgr->getNotificationMessage($request, $notification)),
+		));
+
+		// See if we're working in a multi-context environment
+		$user = $request->getUser();
+		$contextDao = Application::getContextDAO();
+		$contexts = $contextDao->getAvailable($user?$user->getId():null)->toArray();
+		$templateMgr->assign('isMultiContext', count($contexts) > 1);
+
 		return array(new LinkAction(
 			'details',
 			new AjaxAction($router->url(
@@ -47,11 +64,7 @@ class NotificationsGridCellProvider extends GridCellProvider {
 				null,
 				array('redirect' => 1, 'selectedElements' => array($notification->getId()))
 			)),
-			($notification->getDateRead()?'':'<strong>') . __('common.tasks.titleAndTask', array(
-				'acronym' => htmlspecialchars($context->getLocalizedAcronym()),
-				'title' => htmlspecialchars($this->_getTitle($notification)),
-				'task' => PKPString::stripUnsafeHtml($notificationMgr->getNotificationMessage($request, $notification))
-			)) . ($notification->getDateRead()?'':'</strong>')
+			$templateMgr->fetch('controllers/grid/tasks/task.tpl')
 		));
 	}
 

@@ -639,8 +639,8 @@
 	<message key="submission.query.closed">Closed</message>
 	<message key="submission.query.addNote">Add Message</message>
 	<message key="grid.action.openNoteForm">Add a new reply to the discussion</message>
-	<message key="submission.query.activity">{$responderName} responded to a discussion: {$noteContents}</message>
-	<message key="submission.query.new">{$creatorName} started a new discussion: {$noteTitle}</message>
+	<message key="submission.query.activity">{$responderName} replied to {$noteTitle}: {$noteContents}</message>
+	<message key="submission.query.new">{$creatorName} started a discussion: {$noteTitle}: {$noteContents}</message>
 	<message key="submission.query.activity.contents">There is new activity in the discussion titled "{$queryTitle}" regarding the submission "{$submissionTitle}".</message>
 	<message key="submission.query.new.contents">You have been added to a discussion titled "{$queryTitle}" regarding the submission "{$submissionTitle}".</message>
 </locale>

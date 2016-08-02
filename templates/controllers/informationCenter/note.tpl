@@ -22,37 +22,31 @@
 	{rdelim});
 </script>
 
-<div id="note-{$noteId}" class="noteWrapper pkp_helpers_dotted_underline">
-	<table width="100%">
-		<tr valign="top">
-			<td colspan="2"{if $noteViewStatus==$smarty.const.RECORD_VIEW_RESULT_INSERTED} class="newNote"{/if}>
-				{assign var="noteUser" value=$note->getUser()}
-				{$noteUser->getFullName()|escape}<br />
-				<span class="pkp_controllers_informationCenter_itemLastEvent">{$note->getDateCreated()|date_format:$datetimeFormatShort}</span>
-			</td>
-			<td class="pkp_helpers_align_right">
-				{* Check that notes are deletable (i.e. not attached to files from previous stages) and the current user has permission to delete. *}
+<div id="note-{$noteId}" class="note{if $noteViewStatus==$smarty.const.RECORD_VIEW_RESULT_INSERTED} new{/if}">
+	<div class="details">
+		<span class="user">
+			{assign var=noteUser value=$note->getUser()}
+			{$noteUser->getFullName()|escape}
+		</span>
+		<span class="date">
+			{$note->getDateCreated()|date_format:$datetimeFormatShort}
+		</span>
+		{if ($notesDeletable && array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR), $userRoles)) || $noteFileDownloadLink}
+			<div class="actions">
+				{if $noteFileDownloadLink}
+					{include file="linkAction/linkAction.tpl" action=$noteFileDownloadLink contextId=$note->getId()}
+				{/if}
 				{if $notesDeletable && array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR), $userRoles)}
 					<form class="pkp_form" id="{$formId}" action="{url op="deleteNote" noteId=$noteId params=$linkParams}">
 						{assign var=deleteNoteButtonId value="deleteNote-$noteId"}
 						{include file="linkAction/buttonConfirmationLinkAction.tpl" titleIcon="modal_delete" buttonSelector="#$deleteNoteButtonId" dialogText="informationCenter.deleteConfirm"}
-						<input type="submit" id="{$deleteNoteButtonId}" class="xIcon" value="{translate key='common.delete'}" />
+						<button type="submit" id="{$deleteNoteButtonId}" class="pkp_button pkp_button_offset">{translate key='common.delete'}</button>
 					</form>
 				{/if}
-			</td>
-		</tr>
-		<tr valign="top">
-			<td colspan="3">
-				{include file="controllers/revealMore.tpl" content=$note->getContents()|strip_unsafe_html}
-				{if $noteFileDownloadLink}
-					<br />
-					<span class="noteFile">
-						<span class="pkp_helpers_align_left"><strong>{translate key="submission.attachedFile"}:</strong></span>
-						{include file="linkAction/linkAction.tpl" action=$noteFileDownloadLink contextId=$note->getId()}
-					</span>
-				{/if}
-			</td>
-		</tr>
-	</table>
+			</div>
+		{/if}
+	</div>
+	<div class="message">
+		{include file="controllers/revealMore.tpl" content=$note->getContents()|strip_unsafe_html}
+	</div>
 </div>
-

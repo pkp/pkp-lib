@@ -351,9 +351,7 @@
 	<!-- Information Center -->
 	<message key="informationCenter.informationCenter">Information Center</message>
 	<message key="informationCenter.editorialHistory">Editorial History</message>
-	<message key="informationCenter.composeNote">Compose Note</message>
-	<message key="informationCenter.addFileNote">Add to File</message>
-	<message key="informationCenter.addSubmissionNote">Add to Submission</message>
+	<message key="informationCenter.addNote">Add Note</message>
 	<message key="informationCenter.noNotes">There are no notes to display.</message>
 	<message key="informationCenter.currentNotes">Current Revision Notes</message>
 	<message key="informationCenter.pastNotes">Earlier Revision Notes</message>

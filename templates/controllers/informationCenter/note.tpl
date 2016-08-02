@@ -26,7 +26,7 @@
 	<div class="details">
 		<span class="user">
 			{assign var=noteUser value=$note->getUser()}
-			{$noteUser->getFullName()}
+			{$noteUser->getFullName()|escape}
 		</span>
 		<span class="date">
 			{$note->getDateCreated()|date_format:$datetimeFormatShort}

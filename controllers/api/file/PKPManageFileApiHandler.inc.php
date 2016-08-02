@@ -52,7 +52,7 @@ abstract class PKPManageFileApiHandler extends Handler {
 	 * @return JSONMessage JSON object
 	 */
 	function deleteFile($args, $request) {
-		if (!$request->checkCSRF()) return JSONMessage(false);
+		if (!$request->checkCSRF()) return new JSONMessage(false);
 
 		$submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);

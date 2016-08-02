@@ -23,11 +23,11 @@
 	<div class="details">
 		{if $isMultiContext}
 			<span class="acronym">
-				{$context->getLocalizedAcronym()|htmlspecialchars}
+				{$context->getLocalizedAcronym()|escape}
 			</span>
 		{/if}
 		<span class="submission">
-			{$notificationObjectTitle|htmlspecialchars}
+			{$notificationObjectTitle|escape}
 		</span>
 	</div>
 </div>

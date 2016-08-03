@@ -67,22 +67,7 @@ class UnassignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 		$user = $request->getUser();
 		$userId = $user->getId();
 
-		// Get all submissions for all contexts that user is
-		// enrolled in as manager or series editor.
-		$roleDao = DAORegistry::getDAO('RoleDAO');
-		$contextDao = Application::getContextDAO();
-		$contexts = $contextDao->getAll();
-		$accessibleContexts = array();
-
-		while ($context = $contexts->next()) {
-			$isManager = $roleDao->userHasRole($context->getId(), $userId, ROLE_ID_MANAGER);
-			$isSubEditor = $roleDao->userHasRole($context->getId(), $userId, ROLE_ID_SUB_EDITOR);
-
-			if (!$isManager && !$isSubEditor) {
-				continue;
-			}
-			$accessibleContexts[] = $context->getId();
-		}
+		$context = $request->getContext();
 
 		list($search, $column, $stageId) = $this->getFilterValues($filter);
 		$title = $author = null;
@@ -94,7 +79,7 @@ class UnassignedSubmissionsListGridHandler extends SubmissionsListGridHandler {
 
 		$rangeInfo = $this->getGridRangeInfo($request, $this->getId());
 		return $submissionDao->getBySubEditorId(
-			$accessibleContexts,
+			$context->getId(),
 			null,
 			false, // do not include STATUS_DECLINED submissions
 			false,  // include only unpublished submissions

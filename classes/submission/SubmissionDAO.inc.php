@@ -462,7 +462,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 
 	/**
 	 * Get all unassigned submissions for a context or all contexts
-	 * @param $contextId mixed optional the ID of the context to query, or an array containing possible context ids.
+	 * @param $contextId int optional the ID of the context to query.
 	 * @param $subEditorId int optional the ID of the sub editor
 	 *  whose section will be included in the results (excluding others).
 	 * @param $includeDeclined boolean optional include submissions which have STATUS_DECLINED
@@ -473,13 +473,12 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	 * @param $rangeInfo DBRangeInfo
 	 * @return DAOResultFactory containing matching Submissions
 	 */
-	function getBySubEditorId($contextId = null, $subEditorId = null, $includeDeclined = true, $includePublished = true, $title = null, $author = null, $stageId = null, $rangeInfo = null) {
+	function getBySubEditorId($contextId, $subEditorId = null, $includeDeclined = true, $includePublished = true, $title = null, $author = null, $stageId = null, $rangeInfo = null) {
 		$params = $this->getFetchParameters();
 		if ($subEditorId) $params[] = (int) $subEditorId;
+		$params[] = (int) $contextId;
 		$params[] = (int) ROLE_ID_MANAGER;
 		$params[] = (int) ROLE_ID_SUB_EDITOR;
-		if ($contextId && is_int($contextId))
-			$params[] = (int) $contextId;
 
 		if ($title) {
 			$params[] = 'title';
@@ -499,11 +498,11 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 				' . $this->getFetchJoins() . '
 				' . ($subEditorId?' ' . $this->getSubEditorJoin():'') . '
 			WHERE	s.date_submitted IS NOT NULL AND
+				s.context_id = ? AND
 				(SELECT COUNT(sa.stage_assignment_id) FROM stage_assignments sa LEFT JOIN user_groups g ON sa.user_group_id = g.user_group_id WHERE
 					sa.submission_id = s.submission_id AND (g.role_id = ? OR g.role_id = ?)) = 0'
 			. (!$includeDeclined?' AND s.status <> ' . STATUS_DECLINED : '' )
 			. (!$includePublished?' AND ' . $this->getCompletionConditions(false):'')
-			. ($contextId && !is_array($contextId)?' AND s.context_id = ?':'')
 			. ($contextId && is_array($contextId)?' AND s.context_id IN  (' . join(',', array_map(array($this,'_arrayWalkIntCast'), $contextId)) . ')':'')
 			. ($title?' AND (ss.setting_name = ? AND ss.setting_value LIKE ?)':'')
 			. ($author?' AND (au.first_name LIKE ? OR au.middle_name LIKE ? OR au.last_name LIKE ?)':'')

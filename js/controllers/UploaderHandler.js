@@ -51,6 +51,9 @@
 		if (typeof options.resize) {
 			uploaderOptions.resize = options.resize;
 		}
+		if (typeof options.browse_button) {
+			uploaderOptions.browse_button = options.browse_button;
+		}
 		uploaderOptions = $.extend(
 				{},
 				this.self('DEFAULT_PROPERTIES_'),

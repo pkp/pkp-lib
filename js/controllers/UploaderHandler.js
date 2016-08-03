@@ -54,6 +54,9 @@
 		if (typeof options.browse_button) {
 			uploaderOptions.browse_button = options.browse_button;
 		}
+		if (typeof options.multipart_params) {
+			uploaderOptions.multipart_params = options.multipart_params;
+		}
 		uploaderOptions = $.extend(
 				{},
 				this.self('DEFAULT_PROPERTIES_'),

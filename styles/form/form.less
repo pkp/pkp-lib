@@ -337,7 +337,16 @@ a[id^="publicIdentifiersForm-clearObjectsPubIds-button"] {
 			margin-bottom: @base;
 			color: @text-light;
 			color: @text-light-rgba;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
 		}
+	}
+
+	input {
+		color: @text;
+		color: @text-rgba;
 	}
 }
 
@@ -362,6 +371,7 @@ a[id^="publicIdentifiersForm-clearObjectsPubIds-button"] {
 
 		.data {
 			float: left;
+			padding-right: @double;
 		}
 	}
 }

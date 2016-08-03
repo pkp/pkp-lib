@@ -87,6 +87,8 @@
 					e.preventDefault();
 					$(this).siblings('.moxie-shim').find('input').click();
 				});
+
+		this.pluploader.refresh();
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.UploaderHandler, $.pkp.classes.Handler);

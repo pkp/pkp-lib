@@ -72,7 +72,6 @@ class EditorAction {
 			$editDecisionDao->updateEditorDecision($submission->getId(), $editorDecision, $stageId, $reviewRound);
 
 			// Stamp the submission modified
-			$submission->setStatus(STATUS_QUEUED);
 			$submission->stampStatusModified();
 			$submissionDao = Application::getSubmissionDAO();
 			$submissionDao->updateObject($submission);

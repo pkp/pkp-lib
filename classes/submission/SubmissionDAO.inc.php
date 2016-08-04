@@ -79,6 +79,8 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 				'pub-id::publisher-id', // FIXME: Move this to a PID plug-in.
 				'copyrightYear',
 				'licenseURL',
+				'coverImage',
+				'coverImageAltText',
 			)
 		);
 	}

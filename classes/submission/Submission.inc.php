@@ -764,55 +764,35 @@ abstract class Submission extends DataObject {
 	}
 
 	/**
-	 * Get the localized cover filename
-	 * @return string
-	 */
-	function getLocalizedCoverImage() {
-		return $this->getLocalizedData('coverImage');
-	}
-
-	/**
 	 * get cover page server-side file name
-	 * @param $locale string
 	 * @return string
 	 */
-	function getCoverImage($locale) {
-		return $this->getData('coverImage', $locale);
+	function getCoverImage() {
+		return $this->getData('coverImage');
 	}
 
 	/**
 	 * set cover page server-side file name
 	 * @param $coverImage string
-	 * @param $locale string
 	 */
-	function setCoverImage($coverImage, $locale) {
-		$this->setData('coverImage', $coverImage, $locale);
-	}
-
-	/**
-	 * Get the localized cover alternate text
-	 * @return string
-	 */
-	function getLocalizedCoverImageAltText() {
-		return $this->getLocalizedData('coverImageAltText');
+	function setCoverImage($coverImage) {
+		$this->setData('coverImage', $coverImage);
 	}
 
 	/**
 	 * get cover page alternate text
-	 * @param $locale string
 	 * @return string
 	 */
-	function getCoverImageAltText($locale) {
-		return $this->getData('coverImageAltText', $locale);
+	function getCoverImageAltText() {
+		return $this->getData('coverImageAltText');
 	}
 
 	/**
 	 * set cover page alternate text
 	 * @param $coverImageAltText string
-	 * @param $locale string
 	 */
-	function setCoverImageAltText($coverImageAltText, $locale) {
-		$this->setData('coverImageAltText', $coverImageAltText, $locale);
+	function setCoverImageAltText($coverImageAltText) {
+		$this->setData('coverImageAltText', $coverImageAltText);
 	}
 
 	/**

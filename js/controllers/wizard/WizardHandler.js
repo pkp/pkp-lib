@@ -109,17 +109,17 @@
 	 * Show the loading spinner
 	 *
 	 * @private
-	 * @return null
 	 */
 	$.pkp.controllers.wizard.WizardHandler.prototype.showProgressIndicator_ =
 			function() {
 		this.getProgressIndicator().css('opacity', 1);
 	};
 
+
 	/**
 	 * Hide the loading spinner
 	 *
-	 * @return null
+	 * @private
 	 */
 	$.pkp.controllers.wizard.WizardHandler.prototype.hideProgressIndicator_ =
 			function() {

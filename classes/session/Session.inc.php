@@ -230,7 +230,7 @@ class Session extends DataObject {
 			$algos = hash_algos();
 			foreach (array('sha256', 'sha1', 'md5') as $algo) {
 				if (in_array($algo, $algos)) {
-					$token = hash_hmac($algo, $data, $salt) . ':' . $expiry;
+					$token = hash_hmac($algo, $data, $salt);
 				}
 			}
 			if (!$token) $token = md5($data . $salt);

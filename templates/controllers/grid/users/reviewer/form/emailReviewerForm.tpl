@@ -16,18 +16,19 @@
 <form class="pkp_form" id="emailReviewerForm" method="post" action="{url op="sendEmail" params=$requestArgs}" >
 	{csrf}
 	<input type="hidden" name="reviewAssignmentId" value="{$reviewAssignmentId|escape}" />
-	{fbvFormSection title="email.subject" for="subject" required="true" size=$fbvStyles.size.MEDIUM inline=true}
-		{fbvElement type="text" id="subject" value=$subject}
+
+	{fbvFormSection title="email.to" size=$fbvStyles.size.MEDIUM}
+		{fbvElement type="text" id="user" value=$userFullName disabled="true"}
 	{/fbvFormSection}
 
-	{fbvFormSection title="email.to" size=$fbvStyles.size.MEDIUM inline=true}
-		{fbvElement type="text" id="user" value=$userFullName disabled="true"}
+	{fbvFormSection title="email.subject" for="subject" required="true"}
+		{fbvElement type="text" id="subject" value=$subject}
 	{/fbvFormSection}
 
 	{fbvFormSection title="email.body" for="message" required="true"}
 		{fbvElement type="textarea" id="message" value=$message rich=true}
 	{/fbvFormSection}
 
+	<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 	{fbvFormButtons submitText="common.sendEmail"}
 </form>
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>

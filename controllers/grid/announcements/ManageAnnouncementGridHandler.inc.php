@@ -122,6 +122,7 @@ class ManageAnnouncementGridHandler extends AnnouncementGridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function editAnnouncement($args, $request) {
+		$context = $request->getContext();
 		$announcementForm = new AnnouncementForm($context->getId(), (int) $request->getUserVar('announcementId'));
 		$announcementForm->initData($args, $request);
 		return new JSONMessage(true, $announcementForm->fetch($request));

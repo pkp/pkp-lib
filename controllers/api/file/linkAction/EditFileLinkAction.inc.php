@@ -39,7 +39,7 @@ class EditFileLinkAction extends FileLinkAction {
 
 		// Configure the file link action.
 		parent::FileLinkAction(
-			'editFile', $modal, __('grid.action.editMetadata'), 'edit'
+			'editFile', $modal, __('common.edit'), 'edit'
 		);
 	}
 }

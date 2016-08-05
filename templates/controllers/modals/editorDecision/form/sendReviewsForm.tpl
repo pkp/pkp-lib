@@ -41,7 +41,7 @@
 	{/fbvFormSection}
 
 	{* Button to add reviews to the email automatically *}
-	{if $stageId == $smarty.const.WORKFLOW_STAGE_ID_INTERNAL_REVIEW || $stageId == $smarty.const.WORKFLOW_STAGE_ID_EXTERNAL_REVIEW}
+	{if $reviewsAvailable}
 		{fbvFormSection}
 			<a id="importPeerReviews" href="#" class="pkp_button">
 				<span class="fa fa-plus" aria-hidden="true"></span>

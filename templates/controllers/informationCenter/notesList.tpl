@@ -8,7 +8,7 @@
  * Display submission file note list in information center.
  *}
 
-<div id="{$notesListId}">
+<div id="{$notesListId}" class="pkp_notes_list">
 	{iterate from=notes item=note}
 		{assign var=noteId value=$note->getId()}
 		{if $noteFilesDownloadLink && isset($noteFilesDownloadLink[$noteId])}

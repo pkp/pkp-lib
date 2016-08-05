@@ -34,9 +34,11 @@
 
 		this.parent($form, options);
 
-		this.peerReviewUrl_ = options.peerReviewUrl;
-		$('#importPeerReviews', $form).click(
-				this.callbackWrapper(this.importPeerReviews));
+		if (options.peerReviewUrl !== null) {
+			this.peerReviewUrl_ = options.peerReviewUrl;
+			$('#importPeerReviews', $form).click(
+					this.callbackWrapper(this.importPeerReviews));
+		}
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.modals.editorDecision.form.EditorDecisionFormHandler,

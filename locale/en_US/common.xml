@@ -436,6 +436,7 @@
 	<message key="notification.addedNote">Note posted.</message>
 	<message key="notification.removedNote">Note deleted.</message>
 	<message key="notification.removedFile">Removed file.</message>
+	<message key="notification.removedSubmission">Removed submission.</message>
 	<message key="notification.notification">Notification</message>
 	<message key="notification.notifications">Notifications</message>
 	<message key="notification.notificationsNew">({$numNew} new)</message>

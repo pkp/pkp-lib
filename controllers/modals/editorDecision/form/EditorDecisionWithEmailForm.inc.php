@@ -114,31 +114,46 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 	}
 
 	/**
-	 * @copydoc Form::fetch()
+	 * @see Form::fetch()
 	 */
 	function fetch($request) {
-		// No all decision forms need a review round.
-		// Try to get a review round.
-		$reviewRound = $this->getReviewRound();
 
-		// If we have a review round, then we are in a review stage.
-		if (is_a($reviewRound, 'ReviewRound')) {
-			// URL to retrieve peer reviews:
-			$router = $request->getRouter();
+		$templateMgr = TemplateManager::getManager($request);
+
+		// On the review stage, determine if any reviews are available for import
+		$stageId = $this->getStageId();
+		if ($stageId == WORKFLOW_STAGE_ID_INTERNAL_REVIEW || $stageId == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW) {
+			$reviewsAvailable = false;
 			$submission = $this->getSubmission();
-			$stageId = $reviewRound->getStageId();
-			$this->setData(
-				'peerReviewUrl',
-				$router->url(
-					$request, null, null,
-					'importPeerReviews', null,
-					array(
-						'submissionId' => $submission->getId(),
-						'stageId' => $stageId,
-						'reviewRoundId' => $reviewRound->getId()
+			$reviewRound = $this->getReviewRound();
+			$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+			$reviewAssignments = $reviewAssignmentDao->getBySubmissionId($submission->getId(), $reviewRound->getId());
+			foreach ($reviewAssignments as $reviewAssignment) {
+				if ($reviewAssignment->getDateCompleted() != null && !$reviewAssignment->getCancelled()) {
+					$reviewsAvailable = true;
+					break;
+				}
+			}
+
+			$templateMgr->assign('reviewsAvailable', $reviewsAvailable);
+
+			// Retrieve a URL to fetch the reviews
+			if ($reviewsAvailable) {
+				$router = $request->getRouter();
+				$this->setData(
+					'peerReviewUrl',
+					$router->url(
+						$request, null, null,
+						'importPeerReviews', null,
+						array(
+							'submissionId' => $submission->getId(),
+							'stageId' => $stageId,
+							'reviewRoundId' => $reviewRound->getId()
+						)
 					)
-				)
-			);
+				);
+
+			}
 		}
 
 		// When this form is being used in review stages, we need a different

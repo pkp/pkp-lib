@@ -48,5 +48,4 @@
 		{fbvElement type="hidden" id="showButtons" value=$showButtons}
 		{fbvFormButtons submitText="common.save"}
 	{/if}
-	<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 </form>

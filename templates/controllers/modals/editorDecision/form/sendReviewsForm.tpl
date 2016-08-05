@@ -35,17 +35,22 @@
 		{fbvElement type="text" id="authorName" name="authorName" value=$authorName disabled=true}
 	{/fbvFormSection}
 
-
-	{if $stageId == $smarty.const.WORKFLOW_STAGE_ID_INTERNAL_REVIEW || $stageId == $smarty.const.WORKFLOW_STAGE_ID_EXTERNAL_REVIEW}
-		<span style="float:right;line-height: 24px;"><a id="importPeerReviews" href="#" class="sprite import">{translate key="submission.comments.addReviews"}</a></span>
-	{/if}
-
-	<!-- Message to reviewer textarea -->
-	{fbvFormSection title="editor.review.personalMessageToAuthor" for="personalMessage" size=$fbvStyles.size.LARGE}
+	{* Message to reviewer textarea *}
+	{fbvFormSection title="editor.review.personalMessageToAuthor" for="personalMessage"}
 		{fbvElement type="textarea" name="personalMessage" id="personalMessage" value=$personalMessage rich=true variables=$allowedVariables}
 	{/fbvFormSection}
 
-	<!-- option to skip sending this email -->
+	{* Button to add reviews to the email automatically *}
+	{if $stageId == $smarty.const.WORKFLOW_STAGE_ID_INTERNAL_REVIEW || $stageId == $smarty.const.WORKFLOW_STAGE_ID_EXTERNAL_REVIEW}
+		{fbvFormSection}
+			<a id="importPeerReviews" href="#" class="pkp_button">
+				<span class="fa fa-plus" aria-hidden="true"></span>
+				{translate key="submission.comments.addReviews"}
+			</a>
+		{/fbvFormSection}
+	{/if}
+
+	{* option to skip sending this email *}
 	{fbvFormSection for="skipEmail" size=$fbvStyles.size.MEDIUM list=true}
 		{fbvElement type="checkbox" id="skipEmail" name="skipEmail" label="editor.submissionReview.skipEmail"}
 	{/fbvFormSection}
@@ -60,5 +65,3 @@
 
 	{fbvFormButtons submitText="editor.submissionReview.recordDecision"}
 </form>
-
-

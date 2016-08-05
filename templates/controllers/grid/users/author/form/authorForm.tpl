@@ -63,6 +63,6 @@
 		<input type="hidden" name="rowId" value="{$rowId|escape}" />
 	{/if}
 
-	{fbvFormButtons id="step2Buttons" submitText="common.save"}
 	<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
+	{fbvFormButtons id="step2Buttons" submitText="common.save"}
 </form>

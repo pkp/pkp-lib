@@ -502,7 +502,7 @@
 	<message key="submission.upload.uploadFiles">Upload Files</message>
 	<message key="submission.upload.response.description">After reviewing the assigned file, record any comments on the file below, and/or upload an annotated copy of the file (or another file).</message>
 	<message key="submission.upload.productionReady">Upload a Production Ready File</message>
-	<message key="submission.upload.proof">Upload a Proof</message>
+	<message key="submission.upload.proof">Upload a File Ready for Publication</message>
 	<message key="submission.upload.noAvailableReviewFiles">There are no files for you to revise at this time.</message>
 
 	<!-- Review Round Status Keys -->

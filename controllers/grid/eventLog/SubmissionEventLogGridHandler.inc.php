@@ -166,14 +166,14 @@ class SubmissionEventLogGridHandler extends GridHandler {
 
 		$entries = array_merge($eventLogEntries->toArray(), $emailLogEntries->toArray());
 
-		// Sort the merged data by date
+		// Sort the merged data by date, most recent first
 		usort($entries, function($a, $b) {
 			$aDate = is_a($a, 'EventLogEntry') ? $a->getDateLogged() : $a->getDateSent();
 			$bDate = is_a($b, 'EventLogEntry') ? $b->getDateLogged() : $b->getDateSent();
 
 			if ($aDate == $bDate) return 0;
 
-			return $aDate > $bDate ? 1 : -1;
+			return $aDate < $bDate ? 1 : -1;
 		});
 
 		return $entries;

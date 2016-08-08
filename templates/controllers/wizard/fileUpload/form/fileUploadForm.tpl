@@ -193,9 +193,6 @@
 			{include file="controllers/fileUploadContainer.tpl" id="plupload"}
 		{/fbvFormSection}
 
-		{translate|assign:"maxFileUploadStatus" key="common.fileUpload.maxFileSizeStatus" fileSize=$maxFileUploadSize supportName=$currentContext->getSetting('supportName') supportEmail=$currentContext->getSetting('supportEmail')}
-		{fbvFormSection description=$maxFileUploadStatus translate=false}{/fbvFormSection}
-
 		{if $ensuringLink}
 			<div id="{$ensuringLink->getId()}" class="pkp_linkActions">
 				{include file="linkAction/linkAction.tpl" action=$ensuringLink contextId="uploadForm"}
@@ -203,5 +200,4 @@
 		{/if}
 	{/fbvFormArea}
 </form>
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 {/if}

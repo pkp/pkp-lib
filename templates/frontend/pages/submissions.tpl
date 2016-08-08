@@ -16,23 +16,17 @@
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="about.submissions"}
 
 	{* Login/register prompt *}
-	{capture assign="login"}
-		<a href="{url page="login"}">{translate key="about.onlineSubmissions.login"}</a>
-	{/capture}
-	{capture assign="register"}
-		<a href="{url page="user" op="register"}">{translate key="about.onlineSubmissions.register"}</a>
-	{/capture}
-	<p>
-		{translate key="about.onlineSubmissions.registrationRequired" login=$login register=$register}
-	</p>
-
-	{if $currentContext->getLocalizedSetting('authorGuidelines')}
-		<div class="author_guidelines">
-			<h2>
-				{translate key="about.authorGuidelines"}
-				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="journal" anchor="guidelines" sectionTitleKey="about.authorGuidelines"}
-			</h2>
-			{$currentContext->getLocalizedSetting('authorGuidelines')|nl2br}
+	{if $isUserLoggedIn}
+		{capture assign="newSubmission"}<a href="{url page="submission" op="wizard"}">{translate key="about.onlineSubmissions.newSubmission"}</a>{/capture}
+		{capture assign="viewSubmissions"}<a href="{url page="submissions"}">{translate key="about.onlineSubmissions.viewSubmissions"}</a>{/capture}
+		<div class="cmp_notification">
+			{translate key="about.onlineSubmissions.submissionActions" newSubmission=$newSubmission viewSubmissions=$viewSubmissions}
+		</div>
+	{else}
+		{capture assign="login"}<a href="{url page="login"}">{translate key="about.onlineSubmissions.login"}</a>{/capture}
+		{capture assign="register"}<a href="{url page="user" op="register"}">{translate key="about.onlineSubmissions.register"}</a>{/capture}
+		<div class="cmp_notification">
+			{translate key="about.onlineSubmissions.registrationRequired" login=$login register=$register}
 		</div>
 	{/if}
 
@@ -51,6 +45,16 @@
 				{/foreach}
 			</ul>
 		</div>
+	{/if}
+
+	{if $currentContext->getLocalizedSetting('authorGuidelines')}
+	<div class="author_guidelines">
+		<h2>
+			{translate key="about.authorGuidelines"}
+			{include file="frontend/components/editLink.tpl" page="management" op="settings" path="journal" anchor="guidelines" sectionTitleKey="about.authorGuidelines"}
+		</h2>
+		{$currentContext->getLocalizedSetting('authorGuidelines')|nl2br}
+	</div>
 	{/if}
 
 	{if $currentContext->getLocalizedSetting('copyrightNotice')}

@@ -10,10 +10,14 @@
  *}
 {include file="frontend/components/header.tpl"}
 
-<div class="page page_error">
+<div class="page page_message">
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey=$pageTitle}
 	<div class="description">
-		{translate key=$message}
+		{if $messageTranslated}
+			{$messageTranslated}
+		{else}
+			{translate key=$message}
+		{/if}
 	</div>
 	{if $backLink}
 		<div class="cmp_back_link">

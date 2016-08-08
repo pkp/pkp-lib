@@ -343,13 +343,6 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 
 		// FIXME: perhaps we can just insert the notification on page load
 		// instead of having it there all the time?
-		$stages = Application::getApplicationStages();
-		foreach ($stages as $workingStageId) {
-			// remove user's assignment from this user group from all the stages
-			// (no need to check if user group is assigned, since nothing will be deleted if there isn't)
-			$stageAssignmentDao->deleteByAll($submission->getId(), $workingStageId, $stageAssignment->getUserGroupId(), $stageAssignment->getUserId());
-		}
-
 		$notificationMgr = new NotificationManager();
 		import('classes.workflow.EditorDecisionActionsManager');
 		$notificationMgr->updateNotification(

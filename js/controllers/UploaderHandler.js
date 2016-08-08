@@ -80,6 +80,13 @@
 		this.pluploader.bind('QueueChanged',
 				this.callbackWrapper(this.refreshUploader));
 
+		// Pass clicks from the visual button to plupload's file input
+		var pluploaderId = this.pluploader.id;
+		this.getHtmlElement().find('#' + uploaderOptions.browse_button)
+				.click(function(e) {
+					e.preventDefault();
+					$(this).siblings('.moxie-shim').find('input').click();
+				});
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.UploaderHandler, $.pkp.classes.Handler);

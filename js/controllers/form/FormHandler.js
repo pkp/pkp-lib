@@ -607,6 +607,10 @@
 		var originalEvent, ele, form;
 
 		originalEvent = event.originalEvent;
+		if (typeof originalEvent == 'undefined') {
+			return;
+		}
+
 		ele = originalEvent.target;
 
 		form = this.getHtmlElement();

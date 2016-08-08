@@ -144,22 +144,6 @@ class SubmissionArtworkFile extends SubmissionFile {
 	}
 
 	/**
-	 * Get the submission chapter id.
-	 * @return int
-	 */
-	function getChapterId() {
-		return $this->getData('chapterId');
-	}
-
-	/**
-	 * Set the submission chapter id.
-	 * @param $chapterId int
-	 */
-	function setChapterId($chapterId) {
-		$this->setData('chapterId', $chapterId);
-	}
-
-	/**
 	 * Get the width of the image in pixels.
 	 * @return integer
 	 */

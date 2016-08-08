@@ -305,6 +305,7 @@ class SubmissionFileDAODelegate extends DAO {
 	function getAdditionalFieldNames() {
 		$additionalFields = parent::getAdditionalFieldNames();
 		$additionalFields[] = 'pub-id::publisher-id';
+		$additionalFields[] = 'chapterId';
 		return $additionalFields;
 	}
 

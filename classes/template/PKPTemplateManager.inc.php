@@ -1462,7 +1462,7 @@ class PKPTemplateManager extends Smarty {
 		// The approved list of `by` attributes
 		// chapter Any files assigned to a chapter ID. A value of `any` will return files assigned to any chapter. A value of 0 will return files not assigned to chapter
 		// publicationFormat Any files in a given publicationFormat ID
-		// component Any files of a component type by class name: MonographFile|SubmissionArtworkFile|SupplementaryFile
+		// component Any files of a component type by class name: SubmissionFile|SubmissionArtworkFile|SupplementaryFile
 		// fileExtension Any files with a file extension in all caps: PDF
 		// genre Any files with a genre ID (file genres are configurable but typically refer to Manuscript, Bibliography, etc)
 		if (!in_array($params['by'], array('chapter','publicationFormat','component','fileExtension','genre'))) {

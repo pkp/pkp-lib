@@ -20,7 +20,7 @@
  * access behaviour depending on the type of the accessed file.
  *
  * The state classes are named after the data object plus the "DAODelegate"
- * extension, e.g. ArtworkFileDAODelegate. An internal factory method will
+ * extension, e.g. SubmissionArtworkFileDAODelegate. An internal factory method will
  * provide the correct implementation to the DAO.
  *
  * This design allows clients to access all types of files without having

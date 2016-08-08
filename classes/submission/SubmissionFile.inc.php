@@ -426,6 +426,22 @@ class SubmissionFile extends PKPFile {
 	}
 
 	/**
+	 * Get the submission chapter id.
+	 * @return int
+	 */
+	function getChapterId() {
+		return $this->getData('chapterId');
+	}
+
+	/**
+	 * Set the submission chapter id.
+	 * @param $chapterId int
+	 */
+	function setChapterId($chapterId) {
+		$this->setData('chapterId', $chapterId);
+	}
+
+	/**
 	 * Return a context-aware file path.
 	 */
 	function getFilePath() {
@@ -472,6 +488,7 @@ class SubmissionFile extends PKPFile {
 	function copyEditableMetadataFrom($submissionFile) {
 		assert(is_a($submissionFile, 'SubmissionFile'));
 		$this->setName($submissionFile->getName(null), null);
+		$this->setChapterId($submissionFile->getChapterId());
 	}
 
 	/**

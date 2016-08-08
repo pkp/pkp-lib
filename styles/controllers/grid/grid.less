@@ -270,8 +270,7 @@
 	}
 
 	// Labels within a grid cell which appear before a link action in the cell
-	// @todo This is designed for file IDs. If used elsewhere, we'll need to check
-	//  how this styling impacts on other uses
+	// This is designed for submission and file IDs.
 	[id^="component-grid-submissions"] .first_column .label,
 	[id^="component-grid-pubids"] .first_column + .pkp_helpers_text_left .label,
 	.gridCellContainer .label.before_actions {
@@ -281,6 +280,106 @@
 		border: @bg-border-light;
 		border-radius: @radius;
 		font-size: @font-tiny; // extra small
+	}
+
+	// Additional handling of file ID labels to display file type icons
+	.gridCellContainer > .label .file_extension {
+		position: relative;
+		display: block;
+		margin: 0 -0.5em;
+		padding: 0 0.5em 0 @double;
+		line-height: @line-sml;
+
+		&:before {
+			&:extend(.fa);
+			content: @fa-var-file-o;
+			display: block;
+			position: absolute;
+			left: 0;
+			width: @line-sml;
+			height: @line-sml;
+			border-right: @bg-border-light;
+			line-height: @line-sml;
+			text-align: center;
+			color: @text-light;
+		}
+
+		&.doc:before,
+		&.docm:before,
+		&.docx:before,
+		&.dot:before,
+		&.dotm:before,
+		&.dotx:before {
+			content: @fa-var-file-word-o;
+		}
+
+		&.rtf:before,
+		&.txt:before,
+		&.odt:before {
+			content: @fa-var-file-text-o;
+		}
+
+		&.gif:before,
+		&.jpg:before,
+		&.jpeg:before,
+		&.png:before {
+			content: @fa-var-file-image-o;
+		}
+
+		&.xml:before,
+		&.htm:before,
+		&.html:before,
+		&.shtml:before {
+			content: @fa-var-file-code-o;
+		}
+
+		&.pdf:before {
+			content: @fa-var-file-pdf-o;
+		}
+
+		&.avi:before,
+		&.mov:before,
+		&.mkv:before {
+			content: @fa-var-file-video-o;
+		}
+
+		&.odp:before,
+		&.pot:before,
+		&.potm:before,
+		&.potx:before,
+		&.ppa:before,
+		&.ppam:before,
+		&.pps:before,
+		&.ppsm:before,
+		&.ppsmx:before,
+		&.ppt:before,
+		&.pptm:before,
+		&.pptx:before {
+			content: @fa-var-file-powerpoint-o;
+		}
+
+		&.mp3:before,
+		&.mp4:before,
+		&.ogg:before,
+		&.wma:before {
+			content: @fa-var-file-audio-o;
+		}
+
+		&.csv:before,
+		&.xls:before,
+		&.ods:before,
+		&.xlsb:before,
+		&.xlsm:before,
+		&.xlsx:before,
+		&.xlt:before,
+		&.xltm:before,
+		&.xltx:before {
+			content: @fa-var-file-excel-o;
+		}
+
+		&.zip:before {
+			content: @fa-var-file-archive-o;
+		}
 	}
 
 	// Infinite scroll

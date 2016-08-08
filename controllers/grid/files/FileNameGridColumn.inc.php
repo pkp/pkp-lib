@@ -41,7 +41,7 @@ class FileNameGridColumn extends GridColumn {
 		$cellProvider = new ColumnBasedGridCellProvider();
 
 		parent::GridColumn('name', 'common.name', null, null, $cellProvider,
-			array('width' => 70, 'alignment' => COLUMN_ALIGNMENT_LEFT));
+			array('width' => 70, 'alignment' => COLUMN_ALIGNMENT_LEFT, 'anyhtml' => true));
 	}
 
 
@@ -58,7 +58,9 @@ class FileNameGridColumn extends GridColumn {
 		$submissionFileData = $row->getData();
 		$submissionFile = $submissionFileData['submissionFile'];
 		assert(is_a($submissionFile, 'SubmissionFile'));
-		return array('label' => $submissionFile->getFileId() . '-' . $submissionFile->getRevision());
+		$id = $submissionFile->getFileId() . '-' . $submissionFile->getRevision();
+		$fileExtension = strtolower($submissionFile->getExtension());
+		return array('label' => '<span class="file_extension ' . $fileExtension . '">' . $id . '</span>');
 	}
 
 
@@ -80,11 +82,6 @@ class FileNameGridColumn extends GridColumn {
 		import('lib.pkp.controllers.api.file.linkAction.DownloadFileLinkAction');
 		$cellActions[] = new DownloadFileLinkAction($request, $submissionFile, $this->_getStageId());
 
-		if ($this->_getIncludeNotes()) {
-			import('lib.pkp.controllers.informationCenter.linkAction.FileNotesLinkAction');
-			$user = $request->getUser();
-			$cellActions[] = new FileNotesLinkAction($request, $submissionFile, $user, $this->_getStageId(), $this->_removeHistoryTab);
-		}
 		return $cellActions;
 	}
 

@@ -517,4 +517,6 @@
 	<message key="manager.setup.licenseURLDescription">URL to a webpage describing the license, if available.</message>
 
 	<message key="manager.setup.metadata.submission">Submission Form</message>
+	<!--  common importexport keys -->
+	<message key="plugins.importexport.common.validationErrors">Validation errors:</message>
 </locale>

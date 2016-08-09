@@ -21,7 +21,7 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 	 * @param $filterGroup FilterGroup
 	 */
 	function SubmissionFileNativeXmlFilter($filterGroup) {
-		$this->setDisplayName('Native XML submissionFile export');
+		$this->setDisplayName('Native XML submission file export');
 		parent::NativeExportFilter($filterGroup);
 	}
 

@@ -21,7 +21,7 @@ class UserGroupNativeXmlFilter extends NativeExportFilter {
 	 * @param $filterGroup FilterGroup
 	 */
 	function UserGroupNativeXmlFilter($filterGroup) {
-		$this->setDisplayName('Native XML User Group export');
+		$this->setDisplayName('Native XML user group export');
 		parent::NativeExportFilter($filterGroup);
 	}
 

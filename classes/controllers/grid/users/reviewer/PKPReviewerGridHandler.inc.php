@@ -491,13 +491,12 @@ class PKPReviewerGridHandler extends GridHandler {
 	 */
 	function readReview($args, $request) {
 		$templateMgr = TemplateManager::getManager($request);
-
-		// Assign submission to template.
-		$templateMgr->assign('submission', $this->getSubmission());
-
-		// Retrieve review assignment.
 		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
-		$templateMgr->assign('reviewAssignment', $reviewAssignment);
+		$templateMgr->assign(array(
+			'submission' => $this->getSubmission(),
+			'reviewAssignment' => $reviewAssignment,
+			'reviewerRecommendationOptions' =>ReviewAssignment::getReviewerRecommendationOptions(),
+		));
 
 		if ($reviewAssignment->getReviewFormId()) {
 			// Retrieve review form
@@ -516,19 +515,14 @@ class PKPReviewerGridHandler extends GridHandler {
 				'disabled' => true,
 			));
 		} else {
-			// Retrieve reviewer comment.
+			// Retrieve reviewer comments.
 			$submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO');
-
-			$submissionComments = $submissionCommentDao->getReviewerCommentsByReviewerId($reviewAssignment->getReviewerId(), $reviewAssignment->getSubmissionId(), $reviewAssignment->getId(), true);
-			$submissionComment = $submissionComments->next();
-			$templateMgr->assign('comment', $submissionComment?$submissionComment->getComments():'');
-
-			$submissionCommentsPrivate = $submissionCommentDao->getReviewerCommentsByReviewerId($reviewAssignment->getReviewerId(), $reviewAssignment->getSubmissionId(), $reviewAssignment->getId(), false);
-			$submissionCommentPrivate = $submissionCommentsPrivate->next();
-			$templateMgr->assign('commentPrivate', $submissionCommentPrivate?$submissionCommentPrivate->getComments():'');
+			$templateMgr->assign(array(
+				'comments' => $submissionCommentDao->getReviewerCommentsByReviewerId($reviewAssignment->getSubmissionId(), null, $reviewAssignment->getId(), true),
+				'commentsPrivate' => $submissionCommentDao->getReviewerCommentsByReviewerId($reviewAssignment->getSubmissionId(), null, $reviewAssignment->getId(), false),
+			));
 		}
 
-		$templateMgr->assign('reviewerRecommendationOptions', ReviewAssignment::getReviewerRecommendationOptions());
 
 		// Render the response.
 		return $templateMgr->fetchJson('controllers/grid/users/reviewer/readReview.tpl');

@@ -42,11 +42,11 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 		// Retrieve most recent reviewer comments, one private, one public.
 		$submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO');
 
-		$submissionComments = $submissionCommentDao->getReviewerCommentsByReviewerId($reviewAssignment->getReviewerId(), $reviewAssignment->getSubmissionId(), $reviewAssignment->getId(), true);
+		$submissionComments = $submissionCommentDao->getReviewerCommentsByReviewerId($reviewAssignment->getSubmissionId(), $reviewAssignment->getReviewerId(), $reviewAssignment->getId(), true);
 		$submissionComment = $submissionComments->next();
 		$this->setData('comment', $submissionComment?$submissionComment->getComments():'');
 
-		$submissionCommentsPrivate = $submissionCommentDao->getReviewerCommentsByReviewerId($reviewAssignment->getReviewerId(), $reviewAssignment->getSubmissionId(), $reviewAssignment->getId(), false);
+		$submissionCommentsPrivate = $submissionCommentDao->getReviewerCommentsByReviewerId($reviewAssignment->getSubmissionId(), $reviewAssignment->getReviewerId(), $reviewAssignment->getId(), false);
 		$submissionCommentPrivate = $submissionCommentsPrivate->next();
 		$this->setData('commentPrivate', $submissionCommentPrivate?$submissionCommentPrivate->getComments():'');
 	}

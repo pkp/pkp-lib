@@ -63,21 +63,22 @@ class SubmissionCommentDAO extends DAO {
 
 	/**
 	 * Retrieve SubmissionComments made my reviewers on a submission
-	 * @param $reviewerId int The user id of the reviewer.
 	 * @param $submissionId int The submission Id that was reviewered/commented on.
+	 * @param $reviewerId int The user id of the reviewer.
 	 * @param $reviewId int (optional) The review assignment ID the comment pertains to.
 	 * @param $viewable boolean True for only viewable comments; false for non-viewable; null for both
 	 * @return DAOResultFactory
 	 */
-	function getReviewerCommentsByReviewerId($reviewerId, $submissionId, $reviewId = null, $viewable = null) {
-		$params = array((int) $reviewerId, (int) $submissionId);
+	function getReviewerCommentsByReviewerId($submissionId, $reviewerId = null, $reviewId = null, $viewable = null) {
+		$params = array((int) $submissionId);
+		if ($reviewerId) $params[] = (int) $reviewerId;
 		if ($reviewId) $params[] = (int) $reviewId;
 		return new DAOResultFactory(
 			$this->retrieve(
 				'SELECT	a.*
 				FROM	submission_comments a
-				WHERE	author_id = ?
-					AND submission_id = ?
+				WHERE	submission_id = ?
+					' . ($reviewerId?' AND author_id = ?':'') . '
 					' . ($reviewId?' AND assoc_id = ?':'') . '
 					' . ($viewable === true?' AND viewable = 1':'') . '
 					' . ($viewable === false?' AND viewable = 0':'') . '

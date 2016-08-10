@@ -10,7 +10,9 @@
  *}
 {if $coverageEnabled || $typeEnabled || $sourceEnabled || $rightsEnabled ||
 		$languagesEnabled || $subjectEnabled || $keywordsEnabled || $agenciesEnabled || $referencesEnabled}
-	<p class="description">{translate key="submission.metadataDescription"}</p>
+	{fbvFormSection title="submission.metadata"}
+		<p class="description">{translate key="submission.metadataDescription"}</p>
+	{/fbvFormSection}
 {/if}
 {if $coverageEnabled || $typeEnabled || $sourceEnabled || $rightsEnabled}
 	{fbvFormArea id="additionalDublinCore"}
@@ -20,19 +22,18 @@
 			{/fbvFormSection}
 		{/if}
 		{if $typeEnabled}
-			{fbvFormSection for="type" title="common.type" description="submission.type.tip"}
-				{fbvElement type="text" multilingual=true name="type" id="type" value=$type maxlength="255" readonly=$readOnly}
+			{fbvFormSection for="type" title="common.type"}
+				{fbvElement type="text" label="submission.type.tip" multilingual=true name="type" id="type" value=$type maxlength="255" readonly=$readOnly}
 			{/fbvFormSection}
 		{/if}
 		{if $sourceEnabled}
-			{fbvFormSection label="submission.source" for="source" description="submission.source.tip"}
-				{fbvElement type="text" multilingual=true name="source" id="source" value=$source maxlength="255" readonly=$readOnly}
+			{fbvFormSection label="submission.source" for="source"}
+				{fbvElement type="text" label="submission.source.tip" multilingual=true name="source" id="source" value=$source maxlength="255" readonly=$readOnly}
 			{/fbvFormSection}
 		{/if}
-
 		{if $rightsEnabled}
-			{fbvFormSection label="submission.rights" for="rights" description="submission.rights.tip"}
-				{fbvElement type="text" multilingual=true name="rights" id="rights" value=$rights maxlength="255" readonly=$readOnly}
+			{fbvFormSection label="submission.rights" for="rights"}
+				{fbvElement type="text" label="submission.rights.tip" multilingual=true name="rights" id="rights" value=$rights maxlength="255" readonly=$readOnly}
 			{/fbvFormSection}
 		{/if}
 	{/fbvFormArea}
@@ -45,27 +46,27 @@
 		{/if}
 		{if $subjectEnabled}
 			{fbvFormSection label="common.subjects"}
-				{fbvElement type="keyword" id="subjects" subLabelTranslate=true multilingual=true current=$subjects disabled=$readOnly}
+				{fbvElement type="keyword" id="subjects" multilingual=true current=$subjects disabled=$readOnly}
 			{/fbvFormSection}
 		{/if}
 		{if $disciplineEnabled}
 			{fbvFormSection label="search.discipline"}
-				{fbvElement type="keyword" id="disciplines" subLabelTranslate=true multilingual=true current=$disciplines disabled=$readOnly}
+				{fbvElement type="keyword" id="disciplines" multilingual=true current=$disciplines disabled=$readOnly}
 			{/fbvFormSection}
 		{/if}
 		{if $keywordsEnabled}
 			{fbvFormSection label="common.keywords"}
-				{fbvElement type="keyword" id="keyword" subLabelTranslate=true multilingual=true current=$keywords disabled=$readOnly}
+				{fbvElement type="keyword" id="keyword" multilingual=true current=$keywords disabled=$readOnly}
 			{/fbvFormSection}
 		{/if}
 		{if $agenciesEnabled}
 			{fbvFormSection label="submission.supportingAgencies"}
-				{fbvElement type="keyword" id="agencies" multilingual=true subLabelTranslate=true current=$agencies disabled=$readOnly}
+				{fbvElement type="keyword" id="agencies" multilingual=true current=$agencies disabled=$readOnly}
 			{/fbvFormSection}
 		{/if}
 		{if $referencesEnabled}
 			{fbvFormSection label="submission.citations"}
-				{fbvElement type="textarea" id="citations" subLabelTranslate=true value=$citations disabled=$readOnly}
+				{fbvElement type="textarea" id="citations" value=$citations disabled=$readOnly}
 			{/fbvFormSection}
 		{/if}
 	{/fbvFormArea}

@@ -18,20 +18,8 @@
 	<input type="hidden" name="submissionId" value="{$submissionId|escape}" />
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="submitStep2FormNotification"}
 
-	<!-- Submission upload grid -->
-
 	{url|assign:submissionFilesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.files.submission.SubmissionWizardFilesGridHandler" op="fetchGrid" submissionId=$submissionId escape=false}
 	{load_url_in_div id="submissionFilesGridDiv" url=$submissionFilesGridUrl}
-
-	{if $currentContext->getSetting('supportPhone')}
-		{assign var="howToKeyName" value="submission.submit.howToSubmit"}
-	{else}
-		{assign var="howToKeyName" value="submission.submit.howToSubmitNoPhone"}
-	{/if}
-
-	<p>{translate key=$howToKeyName supportName=$currentContext->getSetting('supportName') supportEmail=$currentContext->getSetting('supportEmail') supportPhone=$currentContext->getSetting('supportPhone')}</p>
-
-	<div class="separator"></div>
 
 	{fbvFormButtons id="step2Buttons" submitText="common.saveAndContinue"}
 </form>

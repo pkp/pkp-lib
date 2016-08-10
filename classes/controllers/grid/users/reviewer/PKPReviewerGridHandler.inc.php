@@ -509,11 +509,12 @@ class PKPReviewerGridHandler extends GridHandler {
 			$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
 			$reviewformid = $reviewAssignment->getReviewFormId();
 			$reviewForm = $reviewFormDao->getById($reviewAssignment->getReviewFormId(), Application::getContextAssocType(), $context->getId());
-
-			$templateMgr->assign('reviewForm', $reviewForm);
-			$templateMgr->assign('reviewFormElements', $reviewFormElements);
-			$templateMgr->assign('reviewFormResponses', $reviewFormResponses);
-			$templateMgr->assign('disabled', true);
+			$templateMgr->assign(array(
+				'reviewForm' => $reviewForm,
+				'reviewFormElements' => $reviewFormElements,
+				'reviewFormResponses' => $reviewFormResponses,
+				'disabled' => true,
+			));
 		} else {
 			// Retrieve reviewer comment.
 			$submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO');

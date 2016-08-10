@@ -66,7 +66,7 @@
 	/**
 	 * The file preview DOM element. A jQuery object when available
 	 * @private
-	 * @type {boolean}
+	 * @type {boolean|jQueryObject}
 	 */
 	$.pkp.controllers.form.FileUploadFormHandler.prototype.
 			$preview_ = false;
@@ -153,10 +153,9 @@
 
 	/**
 	 * Fires when the file has been removed
-	 * @param
 	 */
 	$.pkp.controllers.form.FileUploadFormHandler.prototype.
-			fileDeleted = function(a,b,c,d) {
+			fileDeleted = function() {
 
 		if (this.$preview_) {
 			this.$preview_.hide();

@@ -35,8 +35,10 @@
 				' to a div!'].join(''));
 		}
 
+		var uploaderOptions, pluploaderId;
+
 		// Set up options to pass to plupload
-		var uploaderOptions = {
+		uploaderOptions = {
 			url: options.uploadUrl,
 			// Flash settings
 			flash_swf_url: options.baseUrl +
@@ -87,7 +89,7 @@
 				this.callbackWrapper(this.refreshUploader));
 
 		// Pass clicks from the visual button to plupload's file input
-		var pluploaderId = this.pluploader.id;
+		pluploaderId = this.pluploader.id;
 		this.getHtmlElement().find('#' + uploaderOptions.browse_button)
 				.click(function(e) {
 					e.preventDefault();

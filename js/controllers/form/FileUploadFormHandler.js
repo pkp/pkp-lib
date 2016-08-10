@@ -151,6 +151,7 @@
 		}
 	};
 
+
 	/**
 	 * Fires when the file has been removed
 	 */

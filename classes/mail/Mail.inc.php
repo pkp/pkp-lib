@@ -336,7 +336,22 @@ class Mail extends DataObject {
 	 */
 	function setReplyTo($email, $name = '') {
 		if ($email === null) $this->setData('replyTo', null);
-		return $this->setData('replyTo', array('name' => $name, 'email' => $email));
+		return $this->setData('replyTo', array(array('name' => $name, 'email' => $email)));
+	}
+
+	/**
+	 * Add a reply-to for the message.
+	 * @param $email string
+	 * @param $name string optional
+	 */
+	function addReplyTo($email, $name = '') {
+		if ($email === null) return false;
+		$replyTo = $this->getReplyTo();
+		if (!is_array($replyTo)) {
+			$replyTo = array();
+		}
+		$replyTo[] = array('name' => $name, 'email' => $email);
+		return $this->setData('replyTo', $replyTo);
 	}
 
 	/**
@@ -352,12 +367,7 @@ class Mail extends DataObject {
 	 * @return string
 	 */
 	function getReplyToString($send = false) {
-		$replyTo = $this->getReplyTo();
-		if (!is_array($replyTo) || !array_key_exists('email', $replyTo) || $replyTo['email'] == null) {
-			return null;
-		} else {
-			return (Mail::encodeDisplayName($replyTo['name'], $send) . ' <'.$replyTo['email'].'>');
-		}
+		return $this->getAddressArrayString($this->getReplyTo(), true, $send);
 	}
 
 	/**
@@ -496,7 +506,15 @@ class Mail extends DataObject {
 		}
 
 		if (Config::getVar('email', 'force_default_envelope_sender') && Config::getVar('email', 'default_envelope_sender')) {
+			// if forcing the envelope sender for DMARC, move the from to a reply-to
 			$this->addHeader('Return-Path', Config::getVar('email', 'default_envelope_sender'));
+			if ($from) {
+				$originalFrom = $this->getFrom();
+				$this->addReplyTo($originalFrom['email'], $originalFrom['name']);
+				$from = null;
+				$this->setFrom(null);
+			}
+			$this->addHeader('From', Config::getVar('email', 'default_envelope_sender'));
 		}
 
 		$this->addHeader('X-Mailer', 'Public Knowledge Project Suite v2');

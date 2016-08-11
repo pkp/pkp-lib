@@ -98,11 +98,23 @@ class RegistrationHandler extends UserHandler {
 		if ($source = $request->getUserVar('source')) {
 			return $request->redirectUrlJson($source);
 		} else {
-			$this->setupTemplate($request);
-			$templateMgr = TemplateManager::getManager($request);
-			$templateMgr->assign('pageTitle', 'user.login.registrationComplete');
-			return $templateMgr->fetch('frontend/pages/userRegisterComplete.tpl');
+			$request->redirect(null, 'user', 'registrationComplete');
 		}
+	}
+
+	/**
+	 * A landing page once users complete registration
+	 * @param $args array
+	 * @param $request PKPRequest
+	 */
+	function registrationComplete($args, $request) {
+		if (!Validation::isLoggedIn()) {
+			$request->redirect(null, 'login');
+		}
+		$this->setupTemplate($request);
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign('pageTitle', 'user.login.registrationComplete');
+		return $templateMgr->fetch('frontend/pages/userRegisterComplete.tpl');
 	}
 
 	/**

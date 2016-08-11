@@ -15,6 +15,9 @@
  *  button
  * @uses $stringChangeFile string (optional) Translation key for the change
  *  file button
+ * @uses $browseButton string (optional) Element id for the browse button. When
+ *  a custom id is used, FileUploadFormHandler must pass this id in the
+ * `uploaderOptions`.
  *}
 {if !$stringDragFile}
 	{assign var=stringDragFile value="common.upload.dragFile"}
@@ -25,6 +28,10 @@
 {if !$stringChangeFile}
 	{assign var=stringChangeFile value="common.upload.changeFile"}
 {/if}
+{if !$browseButton}
+	{assign var=browseButton value="pkpUploaderButton"}
+{/if}
+
 
 <div id="{$id}" class="pkp_controller_fileUpload loading">
 	<div class="pkp_uploader_loading">
@@ -63,7 +70,7 @@
 		<div class="pkpUploaderError"></div>
 
 		{* Button to add/change file *}
-		<button id="pkpUploaderButton" class="pkp_uploader_button pkp_button">
+		<button id="{$browseButton|escape}" class="pkp_uploader_button pkp_button">
 			<span class="pkp_uploader_button_add">
 				{translate key=$stringAddFile}
 			</span>

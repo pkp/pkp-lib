@@ -1490,7 +1490,7 @@ class PKPTemplateManager extends Smarty {
 
 				case 'chapter':
 					$genre = $genreDao->getById($file->getGenreId());
-					if (!$genre->getDependent()) {
+					if (!$genre->getDependent() && method_exists($file, 'getChapterId')) {
 						if ($params['value'] === 'any' && $file->getChapterId()) {
 							$matching_files[] = $file;
 						} elseif($file->getChapterId() === $params['value']) {

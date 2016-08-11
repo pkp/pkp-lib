@@ -303,7 +303,7 @@
 			<KEY />
 			<AUTOINCREMENT />
 		</field>
-		<field name="session_id" type="C2" size="40">
+		<field name="session_id" type="C2" size="128">
 			<NOTNULL/>
 		</field>
 		<field name="value" type="C2" size="20">

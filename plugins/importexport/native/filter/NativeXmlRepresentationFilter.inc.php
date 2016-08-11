@@ -55,6 +55,7 @@ class NativeXmlRepresentationFilter extends NativeImportFilter {
 		// Handle metadata in subelements.  Look for the 'name' and 'seq' elements.
 		// All other elements are handled by subclasses.
 		for ($n = $node->firstChild; $n !== null; $n=$n->nextSibling) if (is_a($n, 'DOMElement')) switch($n->tagName) {
+			case 'id': $this->parseIdentifier($n, $representation); break;
 			case 'name': $representation->setName($n->textContent, $n->getAttribute('locale')); break;
 			case 'seq': $representation->setSequence($n->textContent); break;
 			case 'remote': $representation->setRemoteURL($n->getAttribute('src')); break;
@@ -62,6 +63,33 @@ class NativeXmlRepresentationFilter extends NativeImportFilter {
 		}
 
 		return $representation; // database insert is handled by sub class.
+	}
+
+	/**
+	 * Parse an identifier node and set up the representation object accordingly
+	 * @param $element DOMElement
+	 * @param $representation Representation
+	 */
+	function parseIdentifier($element, $representation) {
+		$deployment = $this->getDeployment();
+		$advice = $element->getAttribute('advice');
+		switch ($element->getAttribute('type')) {
+			case 'internal':
+				// "update" advice not supported yet.
+				assert(!$advice || $advice == 'ignore');
+				break;
+			case 'public':
+				if ($advice == 'update') {
+					$representation->setStoredPubId('publisher-id', $element->textContent);
+				}
+				break;
+			default:
+				if ($advice == 'update') {
+					// Load pub id plugins
+					$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $deployment->getContext()->getId());
+					$representation->setStoredPubId($element->getAttribute('type'), $element->textContent);
+				}
+		}
 	}
 }
 

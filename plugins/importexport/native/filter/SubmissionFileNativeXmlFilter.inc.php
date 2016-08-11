@@ -109,6 +109,7 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 		$uploaderUser = $userDao->getById($submissionFile->getUploaderUserId());
 		assert($uploaderUser);
 		$revisionNode->setAttribute('uploader', $uploaderUser->getUsername());
+		$this->addIdentifiers($doc, $revisionNode, $submissionFile);
 		$this->createLocalizedNodes($doc, $revisionNode, 'name', $submissionFile->getName(null));
 
 		$submissionFileNode->appendChild($revisionNode);
@@ -119,6 +120,51 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 		$revisionNode->appendChild($embedNode);
 
 		return $submissionFileNode;
+	}
+
+	/**
+	 * Create and add identifier nodes to a submission node.
+	 * @param $doc DOMDocument
+	 * @param $revisionNode DOMElement
+	 * @param $submissionFile SubmissionFile
+	 */
+	function addIdentifiers($doc, $revisionNode, $submissionFile) {
+		$deployment = $this->getDeployment();
+
+		// Ommiting the internal ID here because it is in the submission_file attribute
+
+		// Add public ID
+		if ($pubId = $submissionFile->getStoredPubId('publisher-id')) {
+			$revisionNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'id', $pubId));
+			$node->setAttribute('type', 'public');
+			$node->setAttribute('advice', 'update');
+		}
+
+		// Add pub IDs by plugin
+		$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $deployment->getContext()->getId());
+		foreach ((array) $pubIdPlugins as $pubIdPlugin) {
+			$this->addPubIdentifier($doc, $revisionNode, $submissionFile, $pubIdPlugin);
+		}
+	}
+
+	/**
+	 * Add a single pub ID element for a given plugin to the document.
+	 * @param $doc DOMDocument
+	 * @param $revisionNode DOMElement
+	 * @param $submissionFile SubmissionFile
+	 * @param $pubIdPlugin PubIdPlugin
+	 * @return DOMElement|null
+	 */
+	function addPubIdentifier($doc, $revisionNode, $submissionFile, $pubIdPlugin) {
+		$pubId = $submissionFile->getStoredPubId($pubIdPlugin->getPubIdType());
+		if ($pubId) {
+			$deployment = $this->getDeployment();
+			$revisionNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'id', $pubId));
+			$node->setAttribute('type', $pubIdPlugin->getPubIdType());
+			$node->setAttribute('advice', 'update');
+			return $node;
+		}
+		return null;
 	}
 
 	/**

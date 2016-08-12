@@ -86,7 +86,11 @@ class FileApiHandler extends Handler {
 		assert($submissionFile); // Should have been validated already
 		$context = $request->getContext();
 		$fileManager = $this->_getFileManager($context->getId(), $submissionFile->getSubmissionId());
-		$fileManager->downloadFile($submissionFile->getFileId(), $submissionFile->getRevision(), false, $submissionFile->getClientFileName());
+		if (!$fileManager->downloadFile($submissionFile->getFileId(), $submissionFile->getRevision(), false, $submissionFile->getClientFileName())) {
+			error_log('FileApiHandler: File ' . $submissionFile->getFilePath() . ' does not exist or is not readable!');
+			header('HTTP/1.0 500 Internal Server Error');
+			fatalError('500 Internal Server Error');
+		}
 	}
 
 	/**

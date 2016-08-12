@@ -27,7 +27,9 @@
 	 * @extends $.pkp.controllers.form.AjaxFormHandler
 	 *
 	 * @param {jQueryObject} $form the wrapped HTML form element.
-	 * @param {Object} options form options.
+	 * @param {{
+	 *  peerReviewUrl: string?
+	 *  }} options form options
 	 */
 	$.pkp.controllers.modals.editorDecision.form.EditorDecisionFormHandler =
 			function($form, options) {

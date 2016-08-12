@@ -73,6 +73,7 @@ class RepresentationNativeXmlFilter extends NativeExportFilter {
 		// Create the representation node
 		$representationNode = $doc->createElementNS($deployment->getNamespace(), $deployment->getRepresentationNodeName());
 
+		$this->addIdentifiers($doc, $representationNode, $representation);
 		// Add metadata
 		$this->createLocalizedNodes($doc, $representationNode, 'name', $representation->getName(null));
 		$sequenceNode = $doc->createElementNS($deployment->getNamespace(), 'seq');
@@ -97,6 +98,53 @@ class RepresentationNativeXmlFilter extends NativeExportFilter {
 		return $representationNode;
 	}
 
+	/**
+	 * Create and add identifier nodes to a representation node.
+	 * @param $doc DOMDocument
+	 * @param $representationNode DOMElement
+	 * @param $representation Representation
+	 */
+	function addIdentifiers($doc, $representationNode, $representation) {
+		$deployment = $this->getDeployment();
+
+		// Add internal ID
+		$representationNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'id', $representation->getId()));
+		$node->setAttribute('type', 'internal');
+		$node->setAttribute('advice', 'ignore');
+
+		// Add public ID
+		if ($pubId = $representation->getStoredPubId('publisher-id')) {
+			$representationNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'id', $pubId));
+			$node->setAttribute('type', 'public');
+			$node->setAttribute('advice', 'update');
+		}
+
+		// Add pub IDs by plugin
+		$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $deployment->getContext()->getId());
+		foreach ((array) $pubIdPlugins as $pubIdPlugin) {
+			$this->addPubIdentifier($doc, $representationNode, $representation, $pubIdPlugin);
+		}
+	}
+
+	/**
+	 * Add a single pub ID element for a given plugin to the representation.
+	 * @param $doc DOMDocument
+	 * @param $representationNode DOMElement
+	 * @param $representation Representation
+	 * @param $pubIdPlugin PubIdPlugin
+	 * @return DOMElement|null
+	 */
+	function addPubIdentifier($doc, $representationNode, $representation, $pubIdPlugin) {
+		$pubId = $representation->getStoredPubId($pubIdPlugin->getPubIdType());
+		if ($pubId) {
+			$deployment = $this->getDeployment();
+			$representationNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'id', $pubId));
+			$node->setAttribute('type', $pubIdPlugin->getPubIdType());
+			$node->setAttribute('advice', 'update');
+			return $node;
+		}
+		return null;
+	}
 
 	//
 	// Abstract methods to be implemented by subclasses

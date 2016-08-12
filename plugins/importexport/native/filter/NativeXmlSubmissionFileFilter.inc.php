@@ -192,6 +192,9 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 	 */
 	function handleRevisionChildElement($node, $submission, $submissionFile) {
 		switch ($node->tagName) {
+			case 'id':
+				$this->parseIdentifier($node, $submissionFile);
+				break;
 			case 'name':
 				$submissionFile->setName($node->textContent, $node->getAttribute('locale'));
 				break;
@@ -210,6 +213,33 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 				file_put_contents($temporaryFilename, base64_decode($node->textContent));
 				return $temporaryFilename;
 				break;
+		}
+	}
+
+	/**
+	 * Parse an identifier node and set up the representation object accordingly
+	 * @param $element DOMElement
+	 * @param $submissionFile SubmissionFile
+	 */
+	function parseIdentifier($element, $submissionFile) {
+		$deployment = $this->getDeployment();
+		$advice = $element->getAttribute('advice');
+		switch ($element->getAttribute('type')) {
+			case 'internal':
+				// "update" advice not supported yet.
+				assert(!$advice || $advice == 'ignore');
+				break;
+			case 'public':
+				if ($advice == 'update') {
+					$submissionFile->setStoredPubId('publisher-id', $element->textContent);
+				}
+				break;
+			default:
+				if ($advice == 'update') {
+					// Load pub id plugins
+					$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $deployment->getContext()->getId());
+					$submissionFile->setStoredPubId($element->getAttribute('type'), $element->textContent);
+				}
 		}
 	}
 

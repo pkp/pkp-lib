@@ -88,6 +88,7 @@
 			<element name="revision" minOccurs="1" maxOccurs="unbounded" >
 				<complexType>
 					<sequence>
+						<element ref="pkp:id" minOccurs="0" maxOccurs="unbounded" />
 						<element name="name" type="pkp:localizedNode" minOccurs="1" maxOccurs="unbounded" />
 						<group ref="pkp:fileContents" />
 					</sequence>
@@ -197,6 +198,7 @@
 
 	<complexType name="representation">
 		<sequence>
+			<element ref="pkp:id" minOccurs="0" maxOccurs="unbounded" />
 			<element name="name" type="pkp:localizedNode" minOccurs="1" maxOccurs="unbounded" />
 			<element name="seq" type="int" minOccurs="1" maxOccurs="1" />
 			<choice>

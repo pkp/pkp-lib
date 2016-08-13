@@ -68,8 +68,8 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 			'additionalAuthors' => array(),
 		), $data);
 
-		// Find the "start a submission" button
-		$this->waitForElementPresent($selector='//button[starts-with(., \'New Submission\')]');
+		// Find the "Make a New Submission" link
+		$this->waitForElementPresent($selector='//a[contains(text(), \'Make a New Submission\')]');
 		$this->click($selector);
 
 		// Check the default checklist items.

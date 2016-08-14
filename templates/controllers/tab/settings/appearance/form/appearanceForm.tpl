@@ -119,6 +119,20 @@
 	{/fbvFormArea}
 	{* end Layout *}
 
+	{* Thumbnails *}
+	{fbvFormArea id="thumbnailsSizeSettings" title="manager.setup.coverThumbnails" class="border"}
+		{fbvFormSection description="manager.setup.coverThumbnailsDescription"}
+			{fbvElement type="text" id="coverThumbnailsMaxWidth" value=$coverThumbnailsMaxWidth size=$fbvStyles.size.SMALL label="manager.setup.coverThumbnailsMaxWidth" required="true"}
+		{/fbvFormSection}
+		{fbvFormSection}
+			{fbvElement type="text" id="coverThumbnailsMaxHeight" value=$coverThumbnailsMaxHeight size=$fbvStyles.size.SMALL label="manager.setup.coverThumbnailsMaxHeight" required="true"}
+		{/fbvFormSection}
+		{fbvFormSection list="true"}
+			{fbvElement type="checkbox" label="manager.setup.coverThumbnailsResize" id="coverThumbnailsResize" checked=$coverThumbnailsResize}
+		{/fbvFormSection}
+	{/fbvFormArea}
+	{* end Thumbnails *}
+
 	{* Lists *}
 	{fbvFormArea id="advancedAppearanceSettings" title="manager.setup.lists" class="border"}
 		{fbvFormSection description="manager.setup.listsDescription"}

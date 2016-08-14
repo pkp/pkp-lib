@@ -14,8 +14,6 @@
 {include file="common/header.tpl"}
 {/strip}
 
-<br />
-
 <script type="text/javascript">
 	// Attach the JS file tab handler.
 	$(function() {ldelim}

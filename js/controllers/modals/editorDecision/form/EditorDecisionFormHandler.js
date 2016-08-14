@@ -27,16 +27,20 @@
 	 * @extends $.pkp.controllers.form.AjaxFormHandler
 	 *
 	 * @param {jQueryObject} $form the wrapped HTML form element.
-	 * @param {Object} options form options.
+	 * @param {{
+	 *  peerReviewUrl: string?
+	 *  }} options form options
 	 */
 	$.pkp.controllers.modals.editorDecision.form.EditorDecisionFormHandler =
 			function($form, options) {
 
 		this.parent($form, options);
 
-		this.peerReviewUrl_ = options.peerReviewUrl;
-		$('#importPeerReviews', $form).click(
-				this.callbackWrapper(this.importPeerReviews));
+		if (options.peerReviewUrl !== null) {
+			this.peerReviewUrl_ = options.peerReviewUrl;
+			$('#importPeerReviews', $form).click(
+					this.callbackWrapper(this.importPeerReviews));
+		}
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.modals.editorDecision.form.EditorDecisionFormHandler,

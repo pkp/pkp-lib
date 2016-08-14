@@ -34,8 +34,8 @@ class SubmissionEventLogGridHandler extends GridHandler {
 	function SubmissionEventLogGridHandler() {
 		parent::GridHandler();
 		$this->addRoleAssignment(
-			array(ROLE_ID_MANAGER, ROLE_ID_AUTHOR, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT),
-			array('fetchGrid', 'fetchRow')
+			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR),
+			array('fetchGrid', 'fetchRow', 'viewEmail')
 		);
 	}
 
@@ -157,9 +157,56 @@ class SubmissionEventLogGridHandler extends GridHandler {
 	 */
 	function loadData($request, $filter = null) {
 		$submissionEventLogDao = DAORegistry::getDAO('SubmissionEventLogDAO');
+		$submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
+
 		$submission = $this->getSubmission();
+
 		$eventLogEntries = $submissionEventLogDao->getBySubmissionId($submission->getId());
-		return $eventLogEntries->toArray();
+		$emailLogEntries = $submissionEmailLogDao->getBySubmissionId($submission->getId());
+
+		$entries = array_merge($eventLogEntries->toArray(), $emailLogEntries->toArray());
+
+		// Sort the merged data by date
+		usort($entries, function($a, $b) {
+			$aDate = is_a($a, 'EventLogEntry') ? $a->getDateLogged() : $a->getDateSent();
+			$bDate = is_a($b, 'EventLogEntry') ? $b->getDateLogged() : $b->getDateSent();
+
+			if ($aDate == $bDate) return 0;
+
+			return $aDate > $bDate ? 1 : -1;
+		});
+
+		return $entries;
+	}
+
+	/**
+	 * Get the contents of the email
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return string Serialized JSON object
+	 */
+	function viewEmail($args, $request) {
+		$submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
+		$emailLogEntry = $submissionEmailLogDao->getById((int) $args['emailLogEntryId']);
+		$json = new JSONMessage(true, $this->_formatEmail($emailLogEntry));
+		return $json->getString();
+	}
+
+	/**
+	 * Format the contents of the email
+	 * @param $emailLogEntry EmailLogEntry
+	 * @return string Formatted email
+	 */
+	function _formatEmail($emailLogEntry) {
+		assert(is_a($emailLogEntry, 'EmailLogEntry'));
+
+		$text = array();
+		$text[] = __('email.from') . ': ' . $emailLogEntry->getFrom();
+		$text[] =  __('email.to') . ': ' . $emailLogEntry->getRecipients();
+		$text[] =  __('email.subject') . ': ' . $emailLogEntry->getSubject();
+		$text[] = $emailLogEntry->getBody();
+
+		return nl2br(htmlentities(implode(PHP_EOL . PHP_EOL, $text)));
 	}
 }
 

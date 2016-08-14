@@ -421,7 +421,7 @@ abstract class PKPOAIDAO extends DAO {
 		$result = $this->retrieve(
 			$this->getRecordSelectStatement() . ' FROM mutex m ' .
 			$this->getRecordJoinClause(null, $setIds, $set) . ' ' .
-			$this->getAccessibleRecordWhereClause() .
+			$this->getAccessibleRecordWhereClause($setIds) .
 			$this->getDateRangeWhereClause($from, $until),
 			$params
 		);

@@ -103,7 +103,7 @@ class Identity extends DataObject {
 	function getInitials() {
 		$initials = $this->getData('initials');
 		if (!$initials) {
-			$initials = substr($this->getFirstName(), 0, 1) . substr($this->getLastName(), 0, 1);
+			$initials = PKPString::substr($this->getFirstName(), 0, 1) . PKPString::substr($this->getLastName(), 0, 1);
 		}
 		return $initials;
 	}

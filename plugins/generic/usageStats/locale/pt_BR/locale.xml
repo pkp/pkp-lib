@@ -52,4 +52,13 @@
 	<message key="plugins.generic.usageStats.optout.shortDesc"><![CDATA[Nós registramos estatísticas de uso de forma anônima. Por favor, leia as <a href="{$privacyInfo}"> informações de privacidade </a> para mais detalhes.]]></message>
 	<message key="plugins.reports.usageStats.metricType">OMP/COUNTER</message>
 	<message key="plugins.reports.usageStats.metricType.full">Estatíticas do Open Monograph Press (compatível com COUNTER)</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions">Opções para exibição de estatísticas</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.display">Mostrar gráfico de estatísticas da submissão para o leitor</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.chartType">Escolha o tipo de gráfico para exibir as estatísticas de download</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.chartType.bar">Barra</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.chartType.line">Linha</message>
+	<message key="plugins.generic.usageStats.settings.statsDisplayOptions.datasetMaxCount">Definir o número máximo de dados para apresentar ao mesmo tempo para um ponto do eixo x-específica. Um valor mais alto pode gerar gráficos difíceis de entender . Algo entre 3 e 5 é adequado.</message>
+	<message key="plugins.generic.usageStats.statsSum">Somar todos os downloads de arquivos</message>
+	<message key="plugins.generic.usageStats.noStats">Não há dados estatísticos.</message>
+	<message key="plugins.generic.usageStats.monthInitials">Jan Fev Mar Abr Mai Jun Jul Ago Set Out Nov Dez</message>
 </locale>

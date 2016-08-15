@@ -47,4 +47,6 @@
 	<!-- Plain text reference list output -->
 	<message key="plugins.metadata.nlm30.refList.displayName">Geração de lista de referência em texto puro</message>
 	<message key="plugins.metadata.nlm30.refList.description">Gera uma lista de referências formatadas em texto puro de submissões OJS/OCS/OMP</message>
+	<message key="plugins.metadata.nlm30.nlm30XmlOutput.description">Converter uma submissão em NLM 3.0.</message>
+	<message key="plugins.metadata.nlm30.nlm23XmlOutput.description">Converter uma submissão em NLM 2.3.</message>
 </locale>

@@ -40,6 +40,7 @@
 	<message key="common.tasks">Tarefas</message>
 	<message key="common.list">Lista</message>
 	<message key="common.grid">Rede</message>
+	<message key="common.takeMeThere">Me leve lá</message>
 	<message key="common.confirmDelete">Deseja realmente apagar este item? Esta ação não poderá ser desfeita.</message>
 	<message key="common.abstract">Resumo</message>
 	<message key="common.accepted">Aceito</message>
@@ -52,7 +53,7 @@
 	<message key="common.name">Nome</message>
 	<message key="common.all">Toda(o)s</message>
 	<message key="common.alphaList">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</message>
-	<message key="common.titleSmallWords">da um o e um ou nem mas é se então senão quando na de por ligado desligado para em fora sobre ao dentro com</message>
+	<message key="common.titleSmallWords">da um o e um ou nem mas é se então senão quando na de por sobre para em fora sobre ao dentro com</message>
 	<message key="common.alreadyAssigned">Já designado</message>
 	<message key="common.altText">Texto alternativo</message>
 	<message key="common.altTextInstructions">Informe um texto alternativo para a imagem, assegurando acessibilidade a usuários com navegadores de texto ou equipamentos de auxílio a necessidades especiais.</message>
@@ -535,4 +536,9 @@
 	<message key="user.authorization.invalidRepresentation">Representação inválida.</message>
 	<message key="notification.type.queryActivity">Atividade da discussão.</message>
 	<message key="notification.type.queryAdded">Conversa adicionada.</message>
+	<message key="common.allDownloads">Todos os downloads</message>
+	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.reminded.date">Lembrado: {$dateReminded}</message>
+	<message key="common.component">Componente</message>
+	<message key="search.SearchFor">Buscar por</message>
 </locale>

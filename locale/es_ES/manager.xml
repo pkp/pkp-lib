@@ -519,4 +519,5 @@
 	<message key="manager.reviewForms.list.description">Los formularios de revisión por pares creados aquí se presentarán a los revisores para completarlos en vez del formulario por defecto, que consiste en dos cajas de texto abierto, la primera para "autor y editor" y la segunda para el "editor". Los formularios de revisión se pueden asignar a una sección editorial específica y los editores tendrán la opción de elegir qué formulario utilizarán para cada una. En todos los casos los editores tendrán la opción de incluir las revisiones en la correspondencia con el autor.</message>
 	<message key="manager.reviewForms.noneChosen">Formulario de revisión libre</message>
 	<message key="manager.reviewerSearch.form.previousReviewRounds">Revisores de este envío en las rondas previas</message>
+	<message key="manager.statistics.reports.optionalColumns.description">Los ítems en cursiva y señalados con un asterisco (*) son datos opcionales para el actual método de cálculo de estadísticas en el sistema (tipo métrico). Puede tener estos datos o no, según su configuración del plugin de estadísticas.</message>
 </locale>

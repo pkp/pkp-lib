@@ -184,9 +184,9 @@
 	<message key="common.other">Andere</message>
 	<message key="common.overdue">Verspätet</message>
 	<message key="common.pageHeaderLogo.altText">Logo in der Kopfzeile</message>
-	<message key="common.plugin">Plug-In</message>
-	<message key="common.pluginEnabled">Das Plug-In "{$pluginName}" ist aktiviert worden.</message>
-	<message key="common.pluginDisabled">Das Plug-In "{$pluginName}" ist deaktiviert worden.</message>
+	<message key="common.plugin">Plugin</message>
+	<message key="common.pluginEnabled">Das Plugin "{$pluginName}" ist aktiviert worden.</message>
+	<message key="common.pluginDisabled">Das Plugin "{$pluginName}" ist deaktiviert worden.</message>
 	<message key="common.prefix">Präfix</message>
 	<message key="common.prefixAndTitle.tip">Wenn der Buchtitel mit "Ein(e)" oder "Die" (oder etwas ähnlichem in Bezug auf alphabetische Sortierung) beginnt, geben Sie dieses Wort bei Präfix ein.</message>
 	<message key="common.subtitle.tip">Der optionale Untertitel erscheint nach dem Doppelpunkt (:), nach dem Titel.</message>
@@ -247,7 +247,7 @@
 	<message key="common.year">Jahr</message>
 	<message key="common.yes">Ja</message>
 	<message key="common.loading">Laden …</message>
-	<message key="common.plugins">Plug-Ins</message>
+	<message key="common.plugins">Plugins</message>
 	<message key="common.metric">Metrik</message>
 	<message key="common.count">Anzahl</message>
 	<message key="debug.databaseQueries">Anzahl der Datenbankanfragen</message>

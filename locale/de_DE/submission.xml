@@ -23,7 +23,7 @@
 	<message key="submission.submit.whatNext.create">Eine neue Einreichung erstellen</message>
 	<message key="submission.submit.whatNext.return">Zum Dashboard zurückkehren</message>
 	<message key="submission.submit.extendedMetadata">Erweiterte Metadaten</message>
-	<!-- FIXME: move to meta-data plug-ins -->
+	<!-- FIXME: move to meta-data plugins -->
 	<!-- messages used by meta-data filters -->
 	<message key="metadata.filters.crossref.settings.email.displayName">Bei CrossRef registrierte E-Mail-Adresse</message>
 	<message key="metadata.filters.crossref.settings.email.validationMessage">Bitte geben Sie eine gültige bei CrossRef registrierte E-Mail-Adresse ein. Sie können Ihre E-Mail-Adresse kostenlos auf der CrossRef-Webseite registrieren.</message>
@@ -623,13 +623,9 @@
 	<message key="submission.identifiers">Identifier</message>
 	<message key="submission.publisherId">Öffentliche URL</message>
 	<message key="grid.action.createReviewFormElement">Ein neues Begutachtungsformular-Element anlegen</message>
-	<message key=""><![CDATA[]]></message>
 	<message key="submission.submit.submissionChecklist">Einreichungs-Anforderungen</message>
 	<message key="submission.submit.submissionChecklistDescription">Sie müssen Sie die Anforderungen lesen und bestätigen, bevor Sie fortfahren können.</message>
 	<message key="submission.authorBiographies">Autor/innen-Biografien</message>
 	<message key="submission.changeFile">Datei ändern</message>
-	<message key=""><![CDATA[]]></message>
-	<message key=""><![CDATA[]]></message>
-	<message key=""><![CDATA[]]></message>
 	<message key="submission.attachPermissions">Die folgenden Rechte für die Einreichung festlegen:</message>
 </locale>

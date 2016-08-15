@@ -225,7 +225,7 @@
 
 	<!-- Plugins -->
 	<message key="grid.plugin.allCategories">Alle Kategorien</message>
-	<message key="grid.plugin.disable">Sind Sie sicher, dass Sie dieses Plug-In deaktivieren wollen?</message>
+	<message key="grid.plugin.disable">Sind Sie sicher, dass Sie dieses Plugin deaktivieren wollen?</message>
 
 	<!-- signoffs -->
 	<message key="grid.action.fileUnconsider">Korrekturen gemacht. Sie müssen diese Aufgabe nicht länger berücksichtigen.</message>

@@ -775,4 +775,10 @@
 	<message key="submission.query.new">Hay una pregunta nueva pendiente de respuesta.</message>
 	<message key="submission.query.activity.contents">Hay actividad nueva en la conversación titulada "{$queryTitle}" que hace referencia al envío "{$submissionTitle}".</message>
 	<message key="submission.query.new.contents">Ha sido añadido a la conversación titulada "{$queryTitle}" que hace referencia al envío "{$submissionTitle}".</message>
+	<message key="submission.submit.submissionChecklist">Requisitos de envío</message>
+	<message key="submission.submit.submissionChecklistDescription">Antes de continuar debe leer y confirmar que ha completado los requisitos siguientes.</message>
+	<message key="submission.authorBiographies">Biografía del autor</message>
+	<message key="submission.changeFile">Cambia el archivo</message>
+	<message key="submission.identifiers">Identificadores</message>
+	<message key="submission.publisherId">Identificador público de la URL</message>
 </locale>

@@ -16,8 +16,6 @@
 	<message key="author.submit.userGroupRequired">Seu usuário não está associado a um papel que permite novos envios, tal como o de Autor. Verifique sua conta, pode ser que você mesmo possa se atribuir esse papel editando seu perfil.</message>
 	<message key="author.submit.submissionCitations">Forneça uma lista formatada de citações incluídas nesta submissão.</message>
 	<message key="submission.confirm.message">Seu envio está no sistema e pronto para ser finalizado. Você pode voltar e ajustar as informações fornecidas antes de continuar. Quando pronto, clique em "Finalizar Submissão".</message>
-
-
 	<message key="submission.submit.submissionComplete">Submissão completa</message>
 	<message key="submission.submit.submissionCompleteThanks">Obrigado pelo seu interesse em publicar com {$contextName}.</message>
 	<message key="submission.submit.copyrightNoticeAgree">Concordo em cumprir os termos da declaração de direitos autorais.</message>
@@ -138,7 +136,6 @@
 	<message key="common.queue.long.myAssigned">Minhas Submissões Designadas</message>
 	<message key="common.queue.long.submissionsArchived">Submissões Arquivadas</message>
 	<message key="submission.authors">Autores</message>
-
 	<message key="submission.shortAuthor">{$author} et al.</message>
 	<message key="submission.mySubmissions">Submissões de Minha Autoria</message>
 	<message key="submission.addFile">Enviar Arquivo</message>
@@ -151,17 +148,7 @@
 	<message key="submission.attachedFile">Arquivo anexado</message>
 	<message key="submission.backToSubmissionEditing">Retornar à edição da submissão</message>
 	<message key="submission.changeComments">Mudar para</message>
-
 	<message key="submission.citations">Referências</message>
-	<message key="submission.citations.editor.citationlist.title">Editar citações</message>
-	<message key="submission.citations.editor.details.rawCitation">Citação original</message>
-	<message key="submission.citations.editor.details.rawCitationRequired">O texto da citação é obrigatório.</message>
-	<message key="submission.citations.editor.citationlist.errorDeletingCitation">Ocorreu um erro ao tentar excluir a citação. Reporte este erro com uma falha do sistema.</message>
-	<message key="submission.citations.editor.loadMessage">Aguarde enquanto o editor de citações é carregado.</message>
-	<message key="submission.citations.editor.details.explainImprovementOptions">Caso não tenha conseguido resultados satisfatórios, tente melhorar a citação de outras formas. Pode ser útil alterar manualmente campos importantes (como o título ou autor) e tentar os serviços de citação novamente. Caso isso não ajude, ainda pode pesquisar no Google Acadêmico ou solicitar ao autor mais detalhes.</message>
-	<message key="submission.citations.filter.noResultFromFilterError">Várias operações de procura e análise não retornaram nenhum resultado. Tente editar manualmente o texto da citação e pesquisar novamente nos serviços externos para melhorar os resultados. Caso não perceba melhora, a citação pode não existir em nenhuma das bases conectadas.</message>
-	<message key="submission.citations.filter.unsupportedPublicationType">Tipo de publicação não suportado ou faltando. Edite a citação manualmente e digite o tipo de publicação (tipos permitidos são 'book', 'journal', 'thesis' e 'conf-proc').</message>
-	<message key="submission.citations.editor.export.exportDescription"><![CDATA[<a id="markForExport" href="">Clique aqui</a> para selecionar todo o texto gerado. Copie o conteúdo desta caixa de diálogo e cole no seu documento.]]></message>
 	<message key="submission.comments.addComment">Incluir comentário</message>
 	<message key="submission.comments.comments">Comentários</message>
 	<message key="submission.comments.confirmDelete">Deseja realmente excluir o comentário?</message>
@@ -175,7 +162,6 @@
 	<message key="submission.comments.sendDecisionToReviewers">Enviar decisão editorial aos avaliadores</message>
 	<message key="submission.comments.subject">Assunto</message>
 	<message key="submission.complete">Concluída</message>
-	<message key="submission.contributors">Lista de Contribuidores</message>
 	<message key="submission.done">Findo em</message>
 	<message key="submission.dueDate">Prazo para conclusão</message>
 	<message key="submission.due">Prazo</message>
@@ -345,16 +331,7 @@
 	<message key="submission.citations.editor.pleaseSelect">Escolha...</message>
 	<message key="submission.citations.editor.unprocessedCitationsButton">Atualizar lista de citações</message>
 	<message key="submission.citations.editor.unprocessedCitationsButtonTitle">Clique para atualizar a lista de citações.</message>
-
-	<message key="submission.page.citations">#{$id} Citações</message>
-	<message key="submission.currentAgencies">Apoio e financiamento atual</message>
-	<message key="submission.indexingInformation">Informação para indexação</message>
-
-
-	<message key="submission.uploadSuccessful">Seu arquivo foi enviado.</message>
-	<message key="submission.loadMessage">Aguarde enquanto o arquivo é enviado ao servidor.</message>
 	<message key="submission.artworkFileDetails">Detalhes do arquivo de arte</message>
-	<message key="submission.fileDetails">Detalhes do arquivo</message>
 	<message key="submission.nameRequired">O título do item é obrigatório.</message>
 	<message key="submission.date.mmdd">MM-DD</message>
 	<message key="submission.date.yyyymmdd">YYYY-MM-DD</message>
@@ -428,11 +405,6 @@
 	<message key="notification.type.editorAssignmentProduction">Um editor de produção deve ser designado antes de iniciar o processo de produção. Inclua um editor de produção usando o link de Participantes acima.</message>
 	<message key="notification.type.editorAssignmentEditing">Um editor de produção deve ser designado antes de iniciar o processo editorial. Inclua um editor de produção usando o link de Participantes acima.</message>
 	<message key="submission.submission">Submissão</message>
-	<message key="submission.submissionTitle">Título da Submissão:</message>
-	<message key="submission.upload.query">Enviar um Arquivo de Discussão</message>
-	<message key="submission.queryNoteFiles">Arquivos de Disucssão</message>
-	<message key="submission.event.subjectPrefix">Um email foi enviado:</message>
-	<message key="submission.event.viewEmail">Ver Email</message>
 	<message key="submission.copyediting">Edição de Texto</message>
 	<message key="submission.coverage">Informações de Cobertura</message>
 	<message key="submission.event.submissionSubmitted">Submissão inicial concluída.</message>
@@ -557,17 +529,12 @@
 	<message key="submission.review.uploadRevisionToRound">Enviar Arquivo Avaliado</message>
 	<message key="submission.document">Documento</message>
 	<message key="submission.art">Obra</message>
-	<message key="submission.supplementary">Conteúdo Suplementar</message>
-	<message key="submission.supplementary.creator">Criador (ou proprietário) do arquivo</message>
-	<message key="submission.supplementary.subject">Assunto</message>
-	<message key="submission.supplementary.publisher">Editora</message>
-	<message key="submission.supplementary.sponsor">Agência de financiamento ou contribuidores</message>
-
-	<!--  peer review -->
 	<message key="submission.reviewForm">Formulário de avaliação</message>
 	<message key="submission.reviewFormResponse">Resposta do formulário de avaliação</message>
 	<message key="grid.action.createReviewFormElement">Criar novo campo no formulário de avaliação</message>
 	<message key="grid.action.editMetadata">Editar metadados</message>
+
+	<!--  peer review -->
 	
 	<!-- Permissions -->
 	<message key="submission.permissions">Permissões</message>
@@ -604,9 +571,45 @@
 	<message key="submission.query.lastReply">Última resposta</message>
 	<message key="submission.query.closed">Fechado</message>
 	<message key="submission.query.addNote">Adicionar mensagem</message>
+
 	<message key="grid.action.openNoteForm">Adiciona resposta aos comentários</message>
 	<message key="submission.query.activity">Há nova atividade numa conversa.</message>
 	<message key="submission.query.new">Há uma demanda a responder.</message>
 	<message key="submission.query.activity.contents">Não há atividades em "{$queryTitle}" sobre a submissão "{$submissionTitle}".</message>
 	<message key="submission.query.new.contents">Você foi adicionado a uma conversa chamada "{$queryTitle}" sobre a submissão  "{$submissionTitle}".</message>
+	<message key="submission.supplementary">Conteúdo Suplementar</message>
+	<message key="submission.supplementary.creator">Criador (ou proprietário) do arquivo</message>
+	<message key="submission.supplementary.subject">Assunto</message>
+	<message key="submission.supplementary.publisher">Editora</message>
+	<message key="submission.supplementary.sponsor">Agência de financiamento ou contribuidores</message>
+
+	<message key="submission.submissionTitle">Título da Submissão:</message>
+	<message key="submission.upload.query">Enviar um Arquivo de Discussão</message>
+	<message key="submission.queryNoteFiles">Arquivos de Disucssão</message>
+	<message key="submission.event.subjectPrefix">Um email foi enviado:</message>
+	<message key="submission.event.viewEmail">Ver Email</message>
+
+	<message key="submission.citations.editor.citationlist.title">Editar citações</message>
+	<message key="submission.citations.editor.details.rawCitation">Citação original</message>
+	<message key="submission.citations.editor.details.rawCitationRequired">O texto da citação é obrigatório.</message>
+	<message key="submission.citations.editor.citationlist.errorDeletingCitation">Ocorreu um erro ao tentar excluir a citação. Reporte este erro com uma falha do sistema.</message>
+	<message key="submission.citations.editor.loadMessage">Aguarde enquanto o editor de citações é carregado.</message>
+	<message key="submission.citations.editor.details.explainImprovementOptions">Caso não tenha conseguido resultados satisfatórios, tente melhorar a citação de outras formas. Pode ser útil alterar manualmente campos importantes (como o título ou autor) e tentar os serviços de citação novamente. Caso isso não ajude, ainda pode pesquisar no Google Acadêmico ou solicitar ao autor mais detalhes.</message>
+	<message key="submission.citations.filter.noResultFromFilterError">Várias operações de procura e análise não retornaram nenhum resultado. Tente editar manualmente o texto da citação e pesquisar novamente nos serviços externos para melhorar os resultados. Caso não perceba melhora, a citação pode não existir em nenhuma das bases conectadas.</message>
+	<message key="submission.citations.filter.unsupportedPublicationType">Tipo de publicação não suportado ou faltando. Edite a citação manualmente e digite o tipo de publicação (tipos permitidos são 'book', 'journal', 'thesis' e 'conf-proc').</message>
+	<message key="submission.citations.editor.export.exportDescription"><![CDATA[<a id="markForExport" href="">Clique aqui</a> para selecionar todo o texto gerado. Copie o conteúdo desta caixa de diálogo e cole no seu documento.]]></message>
+	<message key="submission.page.citations">#{$id} Citações</message>
+	<message key="submission.currentAgencies">Apoio e financiamento atual</message>
+	<message key="submission.indexingInformation">Informação para indexação</message>
+	<message key="submission.uploadSuccessful">Seu arquivo foi enviado.</message>
+	<message key="submission.loadMessage">Aguarde enquanto o arquivo é enviado ao servidor.</message>
+	<message key="submission.fileDetails">Detalhes do arquivo</message>
+
+	<message key="submission.contributors">Lista de Contribuidores</message>
+	<message key="submission.submit.submissionChecklist">Requisitos para Envio de Manuscrito</message>
+	<message key="submission.submit.submissionChecklistDescription">Você deve ler e reconhecer que você completou os requisitos abaixo antes de prosseguir.</message>
+	<message key="submission.authorBiographies">Biografia do Autor</message>
+	<message key="submission.changeFile">Mudar Arquivo</message>
+	<message key="submission.identifiers">Identificadores</message>
+	<message key="submission.publisherId">URL de Identificação Pública</message>
 </locale>

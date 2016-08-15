@@ -51,6 +51,7 @@
 	<message key="user.login.accountDisabled">Ihr Konto wurde deaktiviert. Für nähere Informationen setzen Sie sich bitte mit der/dem Website-Administrator/in in Verbindung.</message>
 	<message key="user.login.accountNotValidated">Ihre E-Mail-Adresse konnte nicht verifiziert werden. Rufen Sie bitte Ihre E-Mails ab und befolgen Sie die Anweisungen, die Ihnen übermittelt wurden. Sollten Sie keine E-Mail erhalten haben, müssen Sie eventuell die/den Website-Administrator/in kontaktieren.</message>
 	<message key="user.login.activate">Aktiviere Konto</message>
+	<message key="user.login.activated">Danke, dass Sie Ihr Konto aktiviert haben. Sie können sich nun unter Verwendung der von Ihnen bei der Erstellung Ihres Kontos gemachten Angaben einloggen.</message>
 	<message key="user.login.changePasswordInstructions"><![CDATA[Damit Sie sich auf dieser Seite einloggen können, müssen Sie ein neues Passwort auswählen.<br /><br />Sie ändern das Passwort für Ihr Konto, indem Sie unten Ihren Benutzer/innennamen und das aktuelle sowie das neue Passwort eintragen.]]></message>
 	<message key="user.login.forgotPassword">Passwort vergessen?</message>
 	<message key="user.login.loginError">Benutzer/innen-Name oder Passwort ungültig. Versuchen Sie es erneut.</message>
@@ -109,7 +110,6 @@ Tragen Sie zur Wiederherstellung des Passwortes unten Ihre E-Mail-Adresse ein. E
 	<message key="user.register.form.usernameAlphaNumeric">Der Benutzer/innen-Name darf nur Buchstaben und Zahlen, Unterstriche und Bindestriche enthalten und muss mit einem Buchstaben oder einer Zahl beginnen und enden.</message>
 	<message key="user.register.form.userGroupRequired">Mindestens eine Rolle muss ausgewählt werden.</message>
 	<message key="user.register.form.usernameExists">Der ausgewählte Benutzer/innen-Name wird bereits von einer anderen Benutzerin/einem anderen Benutzer verwendet.</message>
-	<message key="user.register.passwordLengthRestriction">Das Passwort muss mindestens {$length} Zeichen enthalten.</message>
 	<message key="user.register.registerAs">Sich bei {$contextName} registrieren als...</message>
 	<message key="user.register">Registrieren</message>
 	<message key="user.register.usernameRestriction">Der Benutzer/innen-Name darf nur Kleinbuchstaben, Zahlen, Bindestriche und Unterstriche enthalten.</message>
@@ -142,10 +142,10 @@ Tragen Sie zur Wiederherstellung des Passwortes unten Ihre E-Mail-Adresse ein. E
 	<message key="user.userHome">Persönliche Startseite</message>
 	<message key="user.username">Benutzer/innen-Name</message>
 	<message key="user.workingLanguages">Arbeitssprachen</message>
-	<message key="user.register.completeForm">Sie können sich für diese Site registrieren, indem Sie das folgende Formular ausfüllen.</message>
 	<message key="user.orcid">ORCID iD</message>
 	<message key="user.orcid.orcidInvalid">Der angegebenen ORCID iD ist ungültig. Bitte geben Sie den kompletten URI an (z.B. "http://orcid.org/0000-0002-1825-0097").</message>
 	<message key="user.profile.identity">Identität</message>
 	<message key="user.profile.contact">Kontakt</message>
 	<message key="user.profile.public">Öffentlich</message>
+	<message key="user.register.form.passwordLengthRestriction">Das Passwort muss mindestens {$length} Zeichen enthalten.</message>
 </locale>

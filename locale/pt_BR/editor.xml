@@ -83,6 +83,7 @@
 	<message key="editor.review.userGroupSelect">Inscrever usuário neste grupo de usuários avaliadores</message>
 	<message key="editor.review.unconsiderReviewText">Você gostaria de marcar esta avaliação como não considerada? O histórico de avaliação será preservado.</message>
 	<message key="editor.review.unconsiderReview">Desconsiderar esta avaliação</message>
+	<message key="editor.review.errorUnconsideringReview">Ocorreu um erro ao marcar esta avaliação como desconsiderada. Tente novamente.</message>
 	<message key="editor.review.readConfirmation">Uma vez que a leitura da avaliação esteja completa, pressione "Confirmar" para sinalizar que o processo de avaliação pode prosseguir.</message>
 	<message key="editor.submission.selectCopyedingFiles">Arquivos da edição de texto</message>
 	<message key="editor.submission.selectReviewer">Selecionar avaliador</message>
@@ -106,5 +107,16 @@
 	<message key="submission.queries.messageRequired">Uma mensagem para a discussão é requerida.</message>
 	<message key="submission.queries.attachedFiles">Arquivos anexados</message>
 	<message key="editor.submission.query.manageQueryNoteFilesDescription">Arquivos da lista baixo podem ser anexados para inclusão nesta discussão.</message>
-	<message key="editor.submission.selectedReviewer">Avaliador selecionado</message>
+	<message key="editor.submission.selectedReviewer">Avaliador Selecionado</message>
+	<message key="editor.submission.copyedit.manageCopyeditFilesDescription">Qualquer um dos arquivos que tenham sido carregados em qualquer etapa da submissão podem ser adicionados à listagem de Arquivos da Edição de Texto marcado-se a caixa de seleção Incluir abaixo e clicando-se em Busca: todos os arquivos disponíveis serão listados e podem ser selecionados para inclusão. Arquivos adicionais ainda não carregados para uma etapa podem ser adicionados à listagem clicando-se no link Enviar Arquivo.</message>
+	<message key="editor.review.reviewDetails">Detalhes da avaliação</message>
+	<message key="editor.review.noReviewFilesUploaded">Sem arquivos enviados</message>
+	<message key="editor.review.noReviewFilesUploaded.details">Você não enviou nenhum arquivo da avaliação.</message>
+	<message key="editor.review.emailReviewer">Email ao avaliador</message>
+	<message key="editor.submission.proofreading.approveProof">Aprovar Versão</message>
+	<message key="editor.submission.proofreading.revokeProofApproval">Revogar Aprovação</message>
+	<message key="editor.submission.proofreading.confirmCompletion">Aprove essa versão para indicar que a leitura de prova está completa e o arquivo pode ser publicado.</message>
+	<message key="editor.submission.proofreading.confirmRemoveCompletion">Revogar a aprovação desta versão para indicar que a leitura de prova não está mais completa e que o arquivo não está pronto para ser publicado.</message>
+	<message key="editor.publicIdentificationExistsForTheSameType">O identificador público '{$publicIdentifier}' já existe para outro objeto do mesmo tipo. Por favor, escolha identificadores únicos para os objetos do mesmo tipo dentro de sua revista.</message>
+	<message key="editor.publicIdentificationNumericNotAllowed">O identificador público '{$publicIdentifier}' não pode ser um número.</message>
 </locale>

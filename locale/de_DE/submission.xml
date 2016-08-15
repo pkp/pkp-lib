@@ -619,4 +619,17 @@
 	<message key="submission.query.new">Es gibt eine neue Anfrage zu beantworten.</message>
 	<message key="submission.query.activity.contents">Es gibt eine neue Aktivität in der Diskussion "{$queryTitle}" in Bezug auf das Manuskript "{$submissionTitle}".</message>
 	<message key="submission.query.new.contents">Sie sind zu einer Diskussion unter dem Titel "{$queryTitle}" in Bezug auf das Manuskript "{$submissionTitle}" hinzugefügt worden.</message>
+	<message key="submission.citations.filter.webserviceError">Der Webdienst für {$filterName} hat einen Fehler zurückgeliefert beim Aufruf dieser URL: {$webserviceUrl}. Es kann sein, dass der Webdienst vorübergehend nicht verfügbar ist. Sie können immer noch mit den sonstigen Diensten weiterarbeiten und Ihre Ergebnisse speichern. Sie können es auch später noch einmal versuchen. Wenn der Fehler andauert, bitten Sie die/den Verwalter/in, den Dienst zu deaktivieren und einen Bug Report einzureichen.</message>
+	<message key="submission.identifiers">Identifier</message>
+	<message key="submission.publisherId">Öffentliche URL</message>
+	<message key="grid.action.createReviewFormElement">Ein neues Begutachtungsformular-Element anlegen</message>
+	<message key=""><![CDATA[]]></message>
+	<message key="submission.submit.submissionChecklist">Einreichungs-Anforderungen</message>
+	<message key="submission.submit.submissionChecklistDescription">Sie müssen Sie die Anforderungen lesen und bestätigen, bevor Sie fortfahren können.</message>
+	<message key="submission.authorBiographies">Autor/innen-Biografien</message>
+	<message key="submission.changeFile">Datei ändern</message>
+	<message key=""><![CDATA[]]></message>
+	<message key=""><![CDATA[]]></message>
+	<message key=""><![CDATA[]]></message>
+	<message key="submission.attachPermissions">Die folgenden Rechte für die Einreichung festlegen:</message>
 </locale>

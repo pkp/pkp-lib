@@ -47,4 +47,6 @@
 	<!-- Plain text reference list output -->
 	<message key="plugins.metadata.nlm30.refList.displayName">Erzeugung einer Klartext-Literaturliste</message>
 	<message key="plugins.metadata.nlm30.refList.description">Erzeuge eine formatierte Klartext-Literaturliste aus den Verweisen einer Einreichung in OJS/OCS/OMP</message>
+	<message key="plugins.metadata.nlm30.nlm30XmlOutput.description">Einen Beitrag nach NLM 3.0 konvertieren.</message>
+	<message key="plugins.metadata.nlm30.nlm23XmlOutput.description">Einen Beitrag nach NLM 2.3 konvertieren.</message>
 </locale>

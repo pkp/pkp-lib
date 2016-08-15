@@ -40,6 +40,7 @@
 	<message key="common.tasks">Aufgaben</message>
 	<message key="common.list">Liste</message>
 	<message key="common.grid">Grid</message>
+	<message key="common.takeMeThere">Bring mich dahin</message>
 	<message key="common.confirmDelete">Sind Sie sicher, dass Sie diesen Eintrag löschen wollen? Der Vorgang kann nicht rückgängig gemacht werden.</message>
 	<message key="common.abstract">Zusammenfassung</message>
 	<message key="common.accepted">Akzeptiert</message>
@@ -215,7 +216,6 @@
 	<message key="common.selectNone">Auswahl aufheben</message>
 	<message key="common.select">Auswählen</message>
 	<message key="common.sendEmail">E-Mail senden</message>
-	<message key="common.signoff">Abschließen</message>
 	<message key="common.size">Größe</message>
 	<message key="common.source">Quelle</message>
 	<message key="common.status">Status</message>
@@ -228,7 +228,6 @@
 	<message key="common.top">Zum Seitenanfang</message>
 	<message key="common.true">Wahr</message>
 	<message key="common.type">Typ</message>
-	<message key="common.element">Element</message>
 	<message key="common.uninitiated">Nicht begonnen</message>
 	<message key="common.unread">Ungelesen</message>
 	<message key="common.untitled">Ohne Titel</message>
@@ -305,16 +304,7 @@
 	<message key="form.send">Senden</message>
 	<message key="form.submit">Abschicken</message>
 	<message key="form.invalidImage">Es wurde ein ungültiges Bild hochgeladen. Akzeptierte Formate sind .png, .gif und .jpg.</message>
-	<message key="help.contents">Inhalt</message>
 	<message key="help.help">Hilfe</message>
-	<message key="help.helpIndex">Hilfe-Verzeichnis</message>
-	<message key="help.matchesFound">{$matches} Resultate</message>
-	<message key="help.noMatchingTopics">Es wurden keine entsprechende Hilfethemen gefunden.</message>
-	<message key="help.relatedTopics">Verwandte Beiträge</message>
-	<message key="help.searchFor">Hilfethemen suchen zu </message>
-	<message key="help.searchResultsFor">Suchergebnisse für</message>
-	<message key="help.searchResults">Suchergebnisse</message>
-	<message key="help.search">Suchhilfe</message>
 	<message key="help.toc">Inhaltsverzeichnis</message>
 	<message key="help.upALevel">Nächsthöhere Ebene</message>
 	<message key="icon.checked.alt">Auswählen</message>
@@ -355,7 +345,6 @@
 	<message key="stageParticipants.notify.warning">Bitte stellen Sie sicher, dass Sie das Nachrichtenfeld ausgefüllt und mindestens eine/n Empfänger/in ausgewählt haben.</message>
 	<message key="locale.primary">Primäre Regionaleinstellung</message>
 	<message key="locale.supported">Unterstützte Regionaleinstellungen</message>
-	<message key="navigation.management">Verwaltung</message>
 	<message key="navigation.access"><![CDATA[Benutzer/innen &amp; Rollen]]></message>
 	<message key="navigation.about">Über uns</message>
 	<message key="navigation.admin">Leitung</message>
@@ -457,8 +446,6 @@
 	<message key="search.operator.and">UND</message>
 	<message key="search.operator.not">NICHT</message>
 	<message key="search.operator.or">ODER</message>
-	<message key="search.searchAllCategories">Suchen nach</message>
-	<message key="search.searchCategories">Suchkategorien</message>
 	<message key="search.searchResults">Ergebnis der Suche</message>
 	<message key="search.subject">Schlagworte</message>
 	<message key="search.titleIndex">Titelverzeichnis durchsuchen</message>
@@ -466,7 +453,6 @@
 	<message key="search.typeMethodApproach">Forschungsansatz, -methode und -verfahren</message>
 
 	<!-- Common -->
-	<message key="grid.action.toggleHelp">Anzeige der internen Hilfe umschalten</message>
 	<message key="grid.action.downloadFile">Diese Datei herunterladen</message>
 
 	<message key="context.path">Zugangspfad</message>
@@ -531,7 +517,6 @@
 	<message key="navigation.breadcrumbLabel">Sie sind hier:</message>
 	<message key="navigation.breadcrumbSeparator">/</message>
 	<message key="navigation.items.shownTotal">{$shown} von {$total} Treffern</message>
-	<message key="navigation.switchJournals">Zeitschrift wechseln</message>
 	<message key="navigation.viewFrontend">Website ansehen</message>
 	<message key="notification.addedQuery">Diskussion hinzugefügt</message>
 	<message key="search.searchAgain">Erneut suchen</message>
@@ -546,4 +531,8 @@
 	<message key="user.authorization.invalidRepresentation">Ungültige Repräsentation</message>
 	<message key="notification.type.queryActivity">Gesprächsaktivität.</message>
 	<message key="notification.type.queryAdded">Gespräch ergänzt.</message>
+	<message key="common.allDownloads">Alle Downloads</message>
+	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.component">Komponente</message>
+	<message key="search.SearchFor">Suchen nach</message>
 </locale>

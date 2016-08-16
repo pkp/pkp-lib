@@ -424,8 +424,8 @@
 	<message key="submission.createRemote">Crear remoto</message>
 	<message key="submission.viewMetadata">Ver metadatos</message>
 	<message key="submission.views">Consultas</message>
-	
-	<!-- Author Submission --> 
+
+	<!-- Author Submission -->
 	<message key="author.submit.submissionCitations">Proporcionar una lista de referencias formateada para trabajos citados en esta propuesta. Por favor, separa referencias individuales con una línea en blanco.</message>
 	<message key="submission.citations.editor.citationlist.title">Editar citas</message>
 	<message key="submission.citations.editor.details.rawCitation">Texto original de la cita</message>
@@ -631,7 +631,6 @@
 	<message key="submission.upload.uploadFiles">Subir archivos</message>
 	<message key="submission.upload.response.description">Tras revisar el archivo asignado, registre los comentarios en el archivo de abajo o suba una copia del archivo (u otro archivo) con comentarios.</message>
 	<message key="submission.upload.productionReady">Subir un archivo listo para producción</message>
-	<message key="submission.upload.proof">Subir una prueba</message>
 	<message key="submission.upload.noAvailableReviewFiles">No tiene archivos para revisar en este momento.</message>
 
 	<!-- Review Round Status Keys -->
@@ -647,7 +646,7 @@
 
 	<!-- Participants -->
 	<message key="editor.submission.stageParticipants">Participantes</message>
-	
+
 	<!-- Stage Participants grid -->
 	<message key="editor.submission.noneAssigned">Ninguno asignado</message>
 	<message key="editor.submission.participant">Participante</message>

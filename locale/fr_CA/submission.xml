@@ -26,7 +26,7 @@
 	<message key="submission.attachedFile">Fichier joint</message>
 	<message key="submission.backToSubmissionEditing">Retour à la révision de la soumission</message>
 	<message key="submission.changeComments">Modifier pour</message>
-	<message key="submission.citations">Références</message>	
+	<message key="submission.citations">Références</message>
 	<message key="submission.comments.addComment">Ajouter un commentaire</message>
 	<message key="submission.comments.comments">Commentaires</message>
 	<message key="submission.comments.confirmDelete">Êtes-vous certain de vouloir supprimer ce commentaire?</message>
@@ -175,8 +175,8 @@
 	<message key="submission.upload.signoff">Télécharger une réponse</message>
 	<message key="submission.viewMetadata">Voir les métadonnées</message>
 	<message key="submission.views">Vues</message>
-	
-	<!-- Author Submission --> 
+
+	<!-- Author Submission -->
 	<message key="author.submit.submissionCitations">Fournir une liste structurée de références pour les travaux cités dans cette soumission.</message>
 	<message key="metadata.property.displayName.fpage">Première page</message>
 	<message key="metadata.property.displayName.lpage">Dernière page</message>
@@ -547,7 +547,6 @@
 	<message key="submission.upload.uploadFiles">Télécharger les fichiers</message>
 	<message key="submission.upload.response.description">Après avoir examiné le fichier assigné, saisissez vos commentaires sur le fichier ci-dessous, et/ou téléchargez une copie annotée du fichier (ou un autre fichier).</message>
 	<message key="submission.upload.productionReady">Télécharger un fichier prêt pour la production</message>
-	<message key="submission.upload.proof">Télécharger une épreuve</message>
 	<message key="submission.upload.noAvailableReviewFiles">Vous n'avez aucun fichier à examiner pour le moment.</message>
 	<message key="editor.submission.roundStatus.revisionsRequested">Les révisions ont été demandées.</message>
 	<message key="editor.submission.roundStatus.resubmitted">La soumission a été présentée de nouveau pour un autre examen.</message>

@@ -12,6 +12,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>
 		{$pageTitleTranslated|strip_tags}
+		{* Add the journal name to the end of page titles *}
+		{if $requestedPage|escape|default:"index" != 'index' && currentContext && $currentContext->getLocalizedName()}
+			| {$currentContext->getLocalizedName()}
+		{/if}
 	</title>
 
 	{load_header context="frontend" headers=$headers}

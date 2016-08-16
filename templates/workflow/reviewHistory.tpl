@@ -31,7 +31,7 @@
 		{if $reviewAssignment->getDateConfirmed() != ''}
 			<div>
 				<strong>{$reviewAssignment->getDateConfirmed()|date_format:$datetimeFormatShort}</strong>
-				{translate key="common.reminder"}
+				{translate key="common.confirm"}
 			</div>
 		{/if}
 		{if $reviewAssignment->getDateCompleted() != ''}

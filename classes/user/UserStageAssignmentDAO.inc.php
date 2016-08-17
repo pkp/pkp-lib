@@ -73,7 +73,7 @@ class UserStageAssignmentDAO extends UserDAO {
 	 * @param $stageId int
 	 * @param $userGroupId int
 	 * @param $name string|null Partial string match with user name
-	 * @param $rangeInfo object The desired range of results to return
+	 * @param $rangeInfo|null object The desired range of results to return
 	 * @return object DAOResultFactory
 	 */
 	function filterUsersNotAssignedToStageInUserGroup($submissionId, $stageId, $userGroupId, $name = null, $rangeInfo = null) {

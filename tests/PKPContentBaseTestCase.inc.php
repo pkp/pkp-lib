@@ -260,13 +260,16 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->waitForElementPresent('css=[id^=component-grid-users-stageparticipant-stageparticipantgrid-requestAccount-button-]');
 		$this->click('css=[id^=component-grid-users-stageparticipant-stageparticipantgrid-requestAccount-button-]');
 		$this->waitJQuery();
-		$this->select('id=userGroupId', 'label=' . $this->escapeJS($role));
+		$this->waitForElementPresent('css=[id^=component-grid-users-userselect-userselectgrid-search-button-]');
+		$this->click('css=[id^=component-grid-users-userselect-userselectgrid-search-button-]');
+		$this->waitJQuery();
+		$this->select('name=filterUserGroupId', 'label=' . $this->escapeJS($role));
 		$this->waitJQuery();
 		// Search by last name
 		$names = explode(' ', $name);
 		$this->waitForElementPresent($selector='//input[@id[starts-with(., \'namegrid-users-userselect-userselectgrid-\')]]');
 		$this->type($selector, $names[1]);
-		$this->click('//button[@id=\'submitFilter\']');
+		$this->click('//form[@id=\'searchUserFilter-grid-users-userselect-userselectgrid\']//button[@id[starts-with(., \'submitFormButton-\')]]');
 		$this->waitJQuery();
 		// Assume there is only one user with this last name and user group
 		$this->waitForElementPresent($selector='//input[@name=\'userId\']');

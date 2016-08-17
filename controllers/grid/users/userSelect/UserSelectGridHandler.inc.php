@@ -17,8 +17,8 @@ import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.controllers.grid.users.userSelect.UserSelectGridCellProvider');
 
 class UserSelectGridHandler extends GridHandler {
-	/** @var int User group ID **/
-	var $_userGroupId;
+	/** @var array (user group ID => user group name) **/
+	var $_userGroupOptions;
 
 	/**
 	 * Constructor
@@ -60,8 +60,18 @@ class UserSelectGridHandler extends GridHandler {
 			LOCALE_COMPONENT_PKP_EDITOR,
 			LOCALE_COMPONENT_APP_EDITOR
 		);
-		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-		$this->_userGroupId = (int) $request->getUserVar('userGroupId');
+
+		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroups = $userGroupDao->getUserGroupsByStage(
+			$request->getContext()->getId(),
+			$stageId,
+			false, true // Exclude reviewers
+		);
+		$this->_userGroupOptions = array();
+		while ($userGroup = $userGroups->next()) {
+			$this->_userGroupOptions[$userGroup->getId()] = $userGroup->getLocalizedName();
+		}
 
 		$this->setTitle('editor.submission.findAndSelectUser');
 
@@ -108,12 +118,12 @@ class UserSelectGridHandler extends GridHandler {
 	 * @copydoc GridHandler::loadData()
 	 */
 	protected function loadData($request, $filter) {
-		list($name) = $this->getFilterValues($filter);
+		list($filterUserGroupId, $name) = $this->getFilterValues($filter);
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
 		$rangeInfo = $this->getGridRangeInfo($request, $this->getId());
 		$userStageAssignmentDao = DAORegistry::getDAO('UserStageAssignmentDAO'); /* @var $userStageAssignmentDao UserStageAssignmentDAO */
-		return $userStageAssignmentDao->filterUsersNotAssignedToStageInUserGroup($submission->getId(), $stageId, $this->_userGroupId, $name, $rangeInfo);
+		return $userStageAssignmentDao->filterUsersNotAssignedToStageInUserGroup($submission->getId(), $stageId, $filterUserGroupId, $name, $rangeInfo);
 	}
 
 	/**
@@ -122,13 +132,15 @@ class UserSelectGridHandler extends GridHandler {
 	function renderFilter($request, $filterData = array()) {
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+
 		$allFilterData = array_merge(
 			$filterData,
 			array(
+				'userGroupOptions' => $this->_userGroupOptions,
+				'selectedUserGroupId' => reset(array_keys($this->_userGroupOptions)),
 				'gridId' => $this->getId(),
 				'submissionId' => $submission->getId(),
 				'stageId' => $stageId,
-				'userGroupId' => $this->_userGroupId,
 			));
 		return parent::renderFilter($request, $allFilterData);
 	}
@@ -138,8 +150,10 @@ class UserSelectGridHandler extends GridHandler {
 	 */
 	function getFilterSelectionData($request) {
 		$name = (string) $request->getUserVar('name');
+		$filterUserGroupId = (int) $request->getUserVar('filterUserGroupId');
 		return array(
 			'name' => $name,
+			'filterUserGroupId' => $filterUserGroupId,
 		);
 	}
 
@@ -159,16 +173,7 @@ class UserSelectGridHandler extends GridHandler {
 		return array(
 			'submissionId' => $submission->getId(),
 			'stageId' => $stageId,
-			'userGroupId' => $this->_userGroupId,
 		);
-	}
-
-	/**
-	 * Determine whether a filter form should be collapsible.
-	 * @return boolean
-	 */
-	protected function isFilterFormCollapsible() {
-		return false;
 	}
 
 	/**
@@ -176,7 +181,7 @@ class UserSelectGridHandler extends GridHandler {
 	 * @return int
 	 */
 	protected function getItemsNumber() {
-		return 5;
+		return 20;
 	}
 
 	/**
@@ -185,12 +190,17 @@ class UserSelectGridHandler extends GridHandler {
 	 * @return array
 	 */
 	protected function getFilterValues($filter) {
+		if (isset($filter['filterUserGroupId']) && $filter['filterUserGroupId']) {
+			$filterUserGroupId = $filter['filterUserGroupId'];
+		} else {
+			$filterUserGroupId = reset(array_keys($this->_userGroupOptions));
+		}
 		if (isset($filter['name']) && $filter['name']) {
 			$name = $filter['name'];
 		} else {
 			$name = null;
 		}
-		return array($name);
+		return array($filterUserGroupId, $name);
 	}
 
 }

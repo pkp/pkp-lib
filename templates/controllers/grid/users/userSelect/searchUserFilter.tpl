@@ -11,7 +11,7 @@
 {assign var="formId" value="searchUserFilter-"|concat:$filterData.gridId}
 <script type="text/javascript">
 	// Attach the form handler to the form.
-	$('#{$formId}').pkpHandler('$.pkp.controllers.form.ClientFormHandler',
+	$('#{$formId}').pkpHandler('$.pkp.controllers.grid.users.stageParticipant.form.AddParticipantFormHandler',
 		{ldelim}
 			trackFormChanges: false
 		{rdelim}
@@ -22,12 +22,11 @@
 	{fbvFormArea id="userSearchFormArea"|concat:$filterData.gridId}
 		<input type="hidden" name="submissionId" value="{$filterData.submissionId|escape}" />
 		<input type="hidden" name="stageId" value="{$filterData.stageId|escape}" />
-		<input type="hidden" name="userGroupid" value="{$filterData.userGroupId|escape}" />
-		{fbvFormSection title="manager.userSearch.searchByName"}
-			{fbvElement type="text" name="name" id="name"|concat:$filterData.gridId value=$filterSelectionData.name}
+		{fbvFormSection}
+			{fbvElement type="select" name="filterUserGroupId" id="filterUserGroupId"|concat:$filterData.gridId from=$filterData.userGroupOptions selected=$filterSelectionData.filterUserGroupId size=$fbvStyles.size.SMALL translate=false inline="true"}
+			{fbvElement type="text" name="name" id="name"|concat:$filterData.gridId value=$filterSelectionData.name label="manager.userSearch.searchByName" size=$fbvStyles.size.MEDIUM inline="true"}
 		{/fbvFormSection}
-		{fbvFormSection class="pkp_helpers_text_right"}
-			{fbvElement type="submit" id="submitFilter" label="common.search"}
-		{/fbvFormSection}
+		{* Buttons generate their own section *}
+		{fbvFormButtons hideCancel=true submitText="common.search"}
 	{/fbvFormArea}
 </form>

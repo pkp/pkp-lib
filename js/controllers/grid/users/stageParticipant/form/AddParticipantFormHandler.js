@@ -34,8 +34,8 @@
 
 		this.parent($form, options);
 
-		// store the URL for fetching users not assigned to a particular user group.
-		this.fetchUserListUrl_ = options.fetchUserListUrl;
+		// store the URL for fetching not assigned users from a particular user group.
+		this.userSelectGridHandlerUrl_ = options.userSelectGridHandlerUrl;
 
 		$('#userGroupId', $form).change(
 				this.callbackWrapper(this.updateUserList));
@@ -60,19 +60,19 @@
 	 * @type {string?}
 	 */
 	$.pkp.controllers.grid.users.stageParticipant.form.AddParticipantFormHandler.
-			prototype.fetchUserListUrl_ = null;
+			prototype.userSelectGridHandlerUrl_ = null;
 
 
 	//
 	// Public methods
 	//
 	/**
-	 * Method to add the userGroupId to autocomplete URL for finding users
+	 * Method to add the userGroupId to URL for finding users
 	 */
 	$.pkp.controllers.grid.users.stageParticipant.form.AddParticipantFormHandler.
 			prototype.updateUserList = function() {
 
-		var oldUrl = this.fetchUserListUrl_,
+		var oldUrl = this.userSelectGridHandlerUrl_,
 				$form = this.getHtmlElement(),
 				$userGroupSelector = $form.find('#userGroupId'),
 				// Match with &amp;userGroupId or without and append userGroupId
@@ -85,7 +85,7 @@
 
 
 	/**
-	 * A callback to update the user list selector on the interface.
+	 * A callback to update the user list div on the interface.
 	 *
 	 * @private
 	 *
@@ -97,18 +97,10 @@
 
 		var jsonData = this.handleJson(data),
 				$element = this.getHtmlElement(),
-				$select = $element.find('#userId'),
-				optionId, $option;
+				$userSelectGridContainer = $element.find('#userSelectGridContainer');
 
-		// clear any previous items.
-		$select.find('option[value!=""]').remove();
+		$userSelectGridContainer.html(jsonData.content);
 
-		for (optionId in jsonData.content) {
-			$option = $('<option/>');
-			$option.attr('value', optionId);
-			$option.text(jsonData.content[optionId]);
-			$select.append($option);
-		}
 	};
 
 

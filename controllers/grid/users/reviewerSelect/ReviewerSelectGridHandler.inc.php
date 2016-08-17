@@ -65,7 +65,6 @@ class ReviewerSelectGridHandler extends GridHandler {
 			LOCALE_COMPONENT_PKP_EDITOR,
 			LOCALE_COMPONENT_APP_EDITOR
 		);
-		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 
 		$this->setTitle('editor.submission.findAndSelectReviewer');
 
@@ -273,7 +272,7 @@ class ReviewerSelectGridHandler extends GridHandler {
 	 * @return int
 	 */
 	protected function getItemsNumber() {
-		return 1;
+		return 20;
 	}
 }
 

@@ -243,7 +243,7 @@ class PKPUserDAO extends DAO {
 	 * @param $submissionId int This parameter is in conjunction with the next two parameters i.e. reviewRoundId and reviewRound
 	 * @param $reviewRoundId int Exclude users assigned to this round of the given submission
 	 * @param $reviewRound int Filter users assigned to previous rounds of the given submission
-	 * @param $rangeInfo object The desired range of results to return
+	 * @param $rangeInfo|null object The desired range of results to return
 	 * @return DAOResultFactory Iterator for matching users
 	 */
 	function getFilteredReviewers($contextId, $stageId, $name = null, $doneMin = null, $doneMax = null, $avgMin = null, $avgMax = null, $lastMin = null, $lastMax = null, $activeMin = null, $activeMax = null, $interests = array(), $submissionId = null, $reviewRoundId = null, $reviewRound = null, $rangeInfo = null) {

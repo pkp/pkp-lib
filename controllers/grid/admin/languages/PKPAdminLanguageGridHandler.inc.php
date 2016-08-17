@@ -341,15 +341,13 @@ class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 					$user->getId(), NOTIFICATION_TYPE_ERROR,
 					array('contents' => __('admin.languages.cantDisable'))
 				);
-				return new JSONMessage(false);
+			} else {
+				$this->_updateLocaleSupportState($request, $locale, false);
+				$notificationManager->createTrivialNotification(
+					$user->getId(), NOTIFICATION_TYPE_SUCCESS,
+					array('contents' => __('notification.localeDisabled'))
+				);
 			}
-
-			$this->_updateLocaleSupportState($request, $locale, false);
-
-			$notificationManager->createTrivialNotification(
-				$user->getId(), NOTIFICATION_TYPE_SUCCESS,
-				array('contents' => __('notification.localeDisabled'))
-			);
 			return DAO::getDataChangedEvent($locale);
 		}
 

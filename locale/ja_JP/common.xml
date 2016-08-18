@@ -269,16 +269,16 @@
 	<message key="search.title">タイトル</message>
 	<message key="search.typeMethodApproach">種別（方法/アプローチ）</message>
 	<message key="common.ccLicense"><![CDATA[<br /><br />
-		<a target="_blank" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
+		<a target="_blank" rel="license" href="https://creativecommons.org/licenses/by/3.0/">
 			<img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by/3.0/80x15.png"/>
 		</a>
 		<br/>
-		この資料のライセンスは <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_blank">Creative Commons Attribution 3.0 License</a> です。]]></message>
+		この資料のライセンスは <a rel="license" href="https://creativecommons.org/licenses/by/3.0/" target="_blank">Creative Commons Attribution 3.0 License</a> です。]]></message>
 	<message key="common.ccLicense.rt"><![CDATA[<div class="rtBlock">
 		<br />
-		<a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by/3.0/80x15.png" /></a>
+		<a rel="license" href="https://creativecommons.org/licenses/by/3.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by/3.0/80x15.png" /></a>
 		<br />
-		この資料のライセンスは <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_blank">Creative Commons Attribution 3.0 License</a> です。
+		この資料のライセンスは <a rel="license" href="https://creativecommons.org/licenses/by/3.0/" target="_blank">Creative Commons Attribution 3.0 License</a> です。
 	</div>]]></message>
 	<message key="common.re">Re:</message>
 	<message key="common.manage">管理</message>

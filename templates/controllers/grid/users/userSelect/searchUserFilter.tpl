@@ -24,7 +24,7 @@
 		<input type="hidden" name="stageId" value="{$filterData.stageId|escape}" />
 		{fbvFormSection}
 			{fbvElement type="select" name="filterUserGroupId" id="filterUserGroupId"|concat:$filterData.gridId from=$filterData.userGroupOptions selected=$filterSelectionData.filterUserGroupId size=$fbvStyles.size.SMALL translate=false inline="true"}
-			{fbvElement type="text" name="name" id="name"|concat:$filterData.gridId value=$filterSelectionData.name label="manager.userSearch.searchByName" size=$fbvStyles.size.MEDIUM inline="true"}
+			{fbvElement type="text" name="name" id="name"|concat:$filterData.gridId value=$filterSelectionData.name label="manager.userSearch.searchByName" size=$fbvStyles.size.LARGE inline="true"}
 		{/fbvFormSection}
 		{* Buttons generate their own section *}
 		{fbvFormButtons hideCancel=true submitText="common.search"}

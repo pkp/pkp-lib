@@ -260,9 +260,6 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->waitForElementPresent('css=[id^=component-grid-users-stageparticipant-stageparticipantgrid-requestAccount-button-]');
 		$this->click('css=[id^=component-grid-users-stageparticipant-stageparticipantgrid-requestAccount-button-]');
 		$this->waitJQuery();
-		$this->waitForElementPresent('css=[id^=component-grid-users-userselect-userselectgrid-search-button-]');
-		$this->click('css=[id^=component-grid-users-userselect-userselectgrid-search-button-]');
-		$this->waitJQuery();
 		$this->select('name=filterUserGroupId', 'label=' . $this->escapeJS($role));
 		$this->waitJQuery();
 		// Search by last name

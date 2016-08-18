@@ -177,6 +177,14 @@ class UserSelectGridHandler extends GridHandler {
 	}
 
 	/**
+	 * Determine whether a filter form should be collapsible.
+	 * @return boolean
+	 */
+	protected function isFilterFormCollapsible() {
+		return false;
+	}
+
+	/**
 	 * Define how many items this grid will start loading.
 	 * @return int
 	 */

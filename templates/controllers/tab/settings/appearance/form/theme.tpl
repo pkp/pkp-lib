@@ -8,6 +8,35 @@
  * @brief Form fields for selecting the frontend theme
  *
  *}
-{fbvFormSection label="manager.setup.layout.theme" for="themePluginPath" description="manager.setup.layout.themeDescription"}
-	{fbvElement type="select" id="themePluginPath" from=$themePluginOptions selected=$themePluginPath translate=false}
-{/fbvFormSection}
+<script type="text/javascript">
+	$(function() {ldelim}
+		// Attach the form handler.
+		$('#selectTheme').pkpHandler('$.pkp.controllers.form.ThemeOptionsHandler');
+	{rdelim});
+</script>
+
+{fbvFormArea id="selectTheme"}
+	{fbvFormSection label="manager.setup.layout.theme" for="themePluginPath" description="manager.setup.layout.themeDescription"}
+		{fbvElement type="select" id="themePluginPath" from=$enabledThemes selected=$themePluginPath translate=false}
+	{/fbvFormSection}
+
+	{if count($activeThemeOptions)}
+		{fbvFormArea id="activeThemeOptions"}
+			{foreach from=$activeThemeOptions key=themeOptionName item=themeOption}
+
+				{if $themeOption.type == 'text'}
+					{fbvFormSection label=$themeOption.label}
+						{fbvElement type="text" id="themeOption_"|concat:$themeOptionName value=$themeOption.value|escape label=$themeOption.description}
+					{/fbvFormSection}
+
+				{elseif $themeOption.type == 'radio'}
+					{fbvFormSection label=$themeOption.label list=true}
+						{foreach from=$themeOption.options key=themeOptionItemName item=themeOptionItem}
+							{fbvElement type="radio" id="themeOption_"|concat:$themeOptionName|concat:$themeOptionItemName name="themeOption_"|concat:$themeOptionName value=$themeOptionItemName checked=$themeOption.value|compare:$themeOptionItemName label=$themeOptionItem}
+						{/foreach}
+					{/fbvFormSection}
+				{/if}
+			{/foreach}
+		{/fbvFormArea}
+	{/if}
+{/fbvFormArea}

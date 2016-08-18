@@ -35,11 +35,28 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	public $scripts = array();
 
 	/**
+	 * Theme-specific options
+	 *
+	 * @param $options array;
+	 */
+	public $options = array();
+
+	/**
 	 * Parent theme (optional)
 	 *
 	 * @param $parent ThemePlugin
 	 */
 	public $parent;
+
+	/**
+	 * Stored reference to option values
+	 *
+	 * A null value indicates that no lookup has occured. If no options are set,
+	 * the lookup will assign an empty array.
+	 *
+	 * @param $optionValues null|array;
+	 */
+	private $_optionValues = null;
 
 	/**
 	 * Constructor
@@ -66,6 +83,10 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 		$this->_registerTemplates();
 		$this->_registerStyles();
 		$this->_registerScripts();
+
+		// Save any theme options displayed on the appearance form
+		HookRegistry::register('appearanceform::execute', array($this, 'saveOptionsForm'));
+		HookRegistry::register('appearanceform::readuservars', array($this, 'readOptionsFormUserVars'));
 
 		return true;
 	}
@@ -117,6 +138,8 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	 *      default: `frontend`
 	 *   'priority': Controls order in which styles are printed
 	 *   'addLess': Additional LESS files to process before compiling. Array
+	 *   'addLessVariables': A string containing additional LESS variables to
+	 *      parse before compiling. Example: "@bg:#000;"
 	 *   `inline` bool Whether the $style value should be output directly as
 	 *      style data.
 	 */
@@ -272,6 +295,150 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 		}
 
 		return $this->parent->getScript($name);
+	}
+
+	/**
+	 * Add a theme option
+	 *
+	 * Theme options are added programmatically to the Settings > Website >
+	 * Appearance form when this theme is activated. Common options are
+	 * color and typography selectors.
+	 *
+	 * @param $name string Unique name for this setting
+	 * @param $type string A pre-registered type of setting. Supported values:
+	 *   text|color|select. Default: `text`
+	 * @param $args array Optional parameters defining this setting. Some setting
+	 *   types may accept or require additional arguments.
+	 *  `label` string Locale key for a label for this field.
+	 *  `description` string Locale key for a description for this field.
+	 *  `default` mixed A default value. Default: ''
+	 */
+	public function addOption($name, $type, $args = array()) {
+
+		if (!empty($this->options[$name])) {
+			return;
+		}
+
+		$this->options[$name] = array_merge(
+			array('type' => $type),
+			$args
+		);
+	}
+
+	/**
+	 * Get the value of an option or default if the option is not set
+	 *
+	 * @param $name The name of the option value to retrieve
+	 * @return mixed The value of the option. Will return a default if set in
+	 *  the option config.
+	 */
+	public function getOption($name) {
+
+		// Retrieve option values if they haven't been loaded yet
+		if (is_null($this->_optionValues)) {
+			$pluginSettingsDAO = DAORegistry::getDAO('PluginSettingsDAO');
+			$context = Request::getContext();
+			$contextId = $context ? $context->getId() : 0;
+			$this->_optionValues = $pluginSettingsDAO->getPluginSettings($contextId, $this->getName());
+		}
+
+		if (isset($this->_optionValues[$name])) {
+			return $this->_optionValues[$name];
+		}
+
+		// Return a default if no value is set
+		$option = $this->_getOptionConfig($name);
+		return $option && isset($option['default']) ? $option['default'] : null;
+	}
+
+	/**
+	 * Get an option's configuration settings
+	 *
+	 * @param $name The name of the option config to retrieve
+	 * @return false|array The config array for this option. Or false if no
+	 *  config is found.
+	 */
+	private function _getOptionConfig($name) {
+		return isset($this->_options[$name]) ? $this->_options[$name] : false;
+	}
+
+	/**
+	 * Sanitize and save a theme option
+	 *
+	 * @param $name string A unique id for the option to save
+	 * @param $value mixed The new value to save
+	 */
+	public function saveOption($name, $value) {
+
+		$option = !empty($this->options[$name]) ? $this->options[$name] : null;
+
+		if (is_null($option)) {
+			return false;
+		}
+
+		$type = '';
+		switch ($option['type']) {
+			case 'text' :
+            case 'select' :
+				$type = 'text';
+				break;
+		}
+
+		$context = Request::getContext();
+
+		$this->updatesetting($context->getId(), $name, $value, $type);
+
+		// Clear the template cache so that new settings can take effect
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->clearTemplateCache();
+		$templateMgr->clearCssCache();
+	}
+
+	/**
+	 * Save options in any form
+	 *
+	 * This helper function allows you to save theme options attached to any
+	 * form by hooking into the form's execute function.
+	 *
+	 * @see Form::execute()
+	 * @param $hookName string
+	 * @param $args array Arguments passed via the hook
+	 *  `form` Form The form object from which option values can be retrieved.
+	 *  `request` Request
+	 */
+	public function saveOptionsForm($hookName, $args) {
+
+		$form = $args[0];
+
+		foreach ($this->options as $optionName => $optionArgs) {
+			$value = $form->getData('themeOption_' . $optionName);
+			if ($value === null) {
+				continue;
+			}
+			$this->saveOption($optionName, $value);
+		}
+	}
+
+	/**
+	 * Retrieve user-entered values for options from any form
+	 *
+	 * This helper function allows you to hook into any form to add theme option
+	 * values to the form's user input data.
+	 *
+	 * @see Form::readUserVar()
+	 * @param $hookName string
+	 * @param $args array Arguments passed via the hook
+	 *  `form` Form The form object from which option values can be retrieved.
+	 *  `vars` Array Key/value store of the user vars read by the form
+	 */
+	public function readOptionsFormUserVars($hookName, $args) {
+
+		$form = $args[0];
+
+		foreach ($this->options as $optionName => $optionArgs) {
+			$fullOptionName = 'themeOption_' . $optionName;
+			$form->setData($fullOptionName, Request::getUserVar($fullOptionName));
+		}
 	}
 
 	/**

@@ -39,6 +39,8 @@ define('STYLE_SEQUENCE_LAST', 20);
 define('CDN_JQUERY_VERSION', '1.11.0');
 define('CDN_JQUERY_UI_VERSION', '1.11.0');
 
+define('CSS_FILENAME_SUFFIX', 'css');
+
 import('lib.pkp.classes.template.PKPTemplateResource');
 
 class PKPTemplateManager extends Smarty {
@@ -371,6 +373,11 @@ class PKPTemplateManager extends Smarty {
 			foreach ($args['addLess'] as $addless) {
 				$less->parseFile($addless);
 			}
+		}
+
+		// Add extra LESS variables before compiling
+		if (isset($args['addLessVariables'])) {
+			$less->parse($args['addLessVariables']);
 		}
 
 		// Set the @baseUrl variable
@@ -766,6 +773,21 @@ class PKPTemplateManager extends Smarty {
 	}
 
 	/**
+	 * Clear all compiled CSS files
+	 */
+	public function clearCssCache() {
+		$cacheDirectory = CacheManager::getFileCachePath();
+		$files = scandir($cacheDirectory);
+		foreach ($files as $file) {
+			$filePath = $cacheDirectory . DIRECTORY_SEPARATOR . $file;
+			$extension = pathinfo($filePath, PATHINFO_EXTENSION);
+			if ($extension === CSS_FILENAME_SUFFIX) {
+				unlink($filePath);
+			}
+		}
+	}
+
+	/**
 	 * Return an instance of the template manager.
 	 * @param $request PKPRequest
 	 * @return TemplateManager the template manager object
@@ -781,7 +803,10 @@ class PKPTemplateManager extends Smarty {
 
 		if ($instance === null) {
 			$instance = new TemplateManager($request);
-			PluginRegistry::loadCategory('themes', true);
+			$themes = PluginRegistry::getPlugins('themes');
+			if (is_null($themes)) {
+				$themes = PluginRegistry::loadCategory('themes');
+			}
 			$instance->initialize();
 		}
 

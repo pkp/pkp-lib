@@ -76,11 +76,11 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 		$templateMgr->assign('availableMetricTypes', $application->getMetricTypes(true));
 
 		$themePlugins = PluginRegistry::loadCategory('themes');
-		$themePluginOptions = array();
+		$enabledThemes = array();
 		foreach ($themePlugins as $themePlugin) {
-			$themePluginOptions[basename($themePlugin->getPluginPath())] = $themePlugin->getDisplayName();
+			$enabledThemes[basename($themePlugin->getPluginPath())] = $themePlugin->getDisplayName();
 		}
-		$templateMgr->assign('themePluginOptions', $themePluginOptions);
+		$templateMgr->assign('enabledThemes', $enabledThemes);
 
 		return parent::fetch($request);
 	}

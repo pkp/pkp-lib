@@ -260,9 +260,17 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->waitForElementPresent('css=[id^=component-grid-users-stageparticipant-stageparticipantgrid-requestAccount-button-]');
 		$this->click('css=[id^=component-grid-users-stageparticipant-stageparticipantgrid-requestAccount-button-]');
 		$this->waitJQuery();
-		$this->select('id=userGroupId', 'label=' . $this->escapeJS($role));
-		$this->waitForElementPresent('//select[@name=\'userId\']//option[text()=\'' . $this->escapeJS($name) . '\']');
-		$this->select('id=userId', 'label=' . $this->escapeJS($name));
+		$this->select('name=filterUserGroupId', 'label=' . $this->escapeJS($role));
+		$this->waitJQuery();
+		// Search by last name
+		$names = explode(' ', $name);
+		$this->waitForElementPresent($selector='//input[@id[starts-with(., \'namegrid-users-userselect-userselectgrid-\')]]');
+		$this->type($selector, $names[1]);
+		$this->click('//form[@id=\'searchUserFilter-grid-users-userselect-userselectgrid\']//button[@id[starts-with(., \'submitFormButton-\')]]');
+		$this->waitJQuery();
+		// Assume there is only one user with this last name and user group
+		$this->waitForElementPresent($selector='//input[@name=\'userId\']');
+		$this->click($selector);
 		$this->click('//button[text()=\'OK\']');
 		$this->waitForText('css=div.ui-pnotify-text', 'User added as a stage participant.');
 		$this->waitJQuery();

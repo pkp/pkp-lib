@@ -11,7 +11,8 @@
  * @class AddParticipantFormHandler
  * @ingroup js_controllers_grid_users_stageParticipant_form
  *
- * @brief Handle the "add participant" form.
+ * @brief Handle the search user filter and
+ * add the value to the hidden userGroupId field.
  */
 (function($) {
 
@@ -24,7 +25,7 @@
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.controllers.grid.users.stageParticipant.form.StageParticipantNotifyHandler
+	 * @extends $.pkp.controllers.form.ClientFormHandler
 	 *
 	 * @param {jQueryObject} $form the wrapped HTML form element.
 	 * @param {Object} options form options.
@@ -34,81 +35,33 @@
 
 		this.parent($form, options);
 
-		// store the URL for fetching users not assigned to a particular user group.
-		this.fetchUserListUrl_ = options.fetchUserListUrl;
+		$('select[name^=\'filterUserGroupId\']', $form).change(
+				this.callbackWrapper(this.addUserGroupId));
 
-		$('#userGroupId', $form).change(
-				this.callbackWrapper(this.updateUserList));
-
-		// initially populate the selector.
-		this.updateUserList();
+		// initially populate the input field.
+		this.addUserGroupId();
 
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.grid.users.stageParticipant.form.
 					AddParticipantFormHandler,
-			$.pkp.controllers.grid.users.stageParticipant.form.
-					StageParticipantNotifyHandler);
-
-
-	//
-	// Private properties
-	//
-	/**
-	 * The URL to be called to fetch a list of users for a given user group.
-	 * @private
-	 * @type {string?}
-	 */
-	$.pkp.controllers.grid.users.stageParticipant.form.AddParticipantFormHandler.
-			prototype.fetchUserListUrl_ = null;
+			$.pkp.controllers.form.ClientFormHandler);
 
 
 	//
 	// Public methods
 	//
 	/**
-	 * Method to add the userGroupId to autocomplete URL for finding users
+	 * Method to add the value to the hidden userGroupId field
 	 */
 	$.pkp.controllers.grid.users.stageParticipant.form.AddParticipantFormHandler.
-			prototype.updateUserList = function() {
+			prototype.addUserGroupId = function() {
 
-		var oldUrl = this.fetchUserListUrl_,
-				$form = this.getHtmlElement(),
-				$userGroupSelector = $form.find('#userGroupId'),
-				// Match with &amp;userGroupId or without and append userGroupId
-				newUrl = oldUrl.replace(
-						/(&userGroupId=\d+)?$/, '&userGroupId=' + $userGroupSelector.val());
+		var $form = this.getHtmlElement(),
+				$filterUserGroupId = $form.find('select[name^=\'filterUserGroupId\']'),
+				filterUserGroupIdVal = /** @type {string} */ $filterUserGroupId.val();
 
-		$.get(newUrl, null, this.callbackWrapper(
-				this.updateUserListHandler_), 'json');
-	};
-
-
-	/**
-	 * A callback to update the user list selector on the interface.
-	 *
-	 * @private
-	 *
-	 * @param {Object} ajaxContext The AJAX request context.
-	 * @param {Object} data A parsed JSON response object.
-	 */
-	$.pkp.controllers.grid.users.stageParticipant.form.AddParticipantFormHandler.
-			prototype.updateUserListHandler_ = function(ajaxContext, data) {
-
-		var jsonData = this.handleJson(data),
-				$element = this.getHtmlElement(),
-				$select = $element.find('#userId'),
-				optionId, $option;
-
-		// clear any previous items.
-		$select.find('option[value!=""]').remove();
-
-		for (optionId in jsonData.content) {
-			$option = $('<option/>');
-			$option.attr('value', optionId);
-			$option.text(jsonData.content[optionId]);
-			$select.append($option);
-		}
+		$('input[name=\'userGroupId\']').val(filterUserGroupIdVal);
 	};
 
 

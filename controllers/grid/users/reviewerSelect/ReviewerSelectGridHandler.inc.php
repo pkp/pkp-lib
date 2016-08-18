@@ -29,7 +29,7 @@ class ReviewerSelectGridHandler extends GridHandler {
 
 		$this->addRoleAssignment(
 			array(ROLE_ID_SUB_EDITOR, ROLE_ID_MANAGER, ROLE_ID_ASSISTANT),
-			array('fetchGrid')
+			array('fetchGrid', 'fetchRows')
 		);
 	}
 
@@ -65,7 +65,6 @@ class ReviewerSelectGridHandler extends GridHandler {
 			LOCALE_COMPONENT_PKP_EDITOR,
 			LOCALE_COMPONENT_APP_EDITOR
 		);
-		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 
 		$this->setTitle('editor.submission.findAndSelectReviewer');
 
@@ -146,6 +145,15 @@ class ReviewerSelectGridHandler extends GridHandler {
 	// Overridden methods from GridHandler
 	//
 	/**
+	 * @copydoc GridHandler::initFeatures()
+	 */
+	function initFeatures($request, $args) {
+		import('lib.pkp.classes.controllers.grid.feature.InfiniteScrollingFeature');
+		import('lib.pkp.classes.controllers.grid.feature.CollapsibleGridFeature');
+		return array(new InfiniteScrollingFeature('infiniteScrolling', $this->getItemsNumber()), new CollapsibleGridFeature());
+	}
+
+	/**
 	 * @copydoc GridHandler::renderFilter()
 	 */
 	function renderFilter($request) {
@@ -177,6 +185,7 @@ class ReviewerSelectGridHandler extends GridHandler {
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$reviewRound = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND);
+		$rangeInfo = $this->getGridRangeInfo($request, $this->getId());
 
 		$previousReviewRounds = $filter['previousReviewRounds'];
 		$round = $previousReviewRounds ? $reviewRound->getRound() : null;
@@ -184,7 +193,7 @@ class ReviewerSelectGridHandler extends GridHandler {
 			$submission->getContextId(), $reviewRound->getStageId(), $name,
 			$doneMin, $doneMax, $avgMin, $avgMax, $lastMin, $lastMax,
 			$activeMin, $activeMax, $interests,
-			$submission->getId(), $reviewRound->getId(), $round
+			$submission->getId(), $reviewRound->getId(), $round, $rangeInfo
 		);
 	}
 
@@ -237,11 +246,33 @@ class ReviewerSelectGridHandler extends GridHandler {
 	}
 
 	/**
+	 * @copydoc GridHandler::getRequestArgs()
+	 */
+	function getRequestArgs() {
+		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+		$reviewRound = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND);
+		return array(
+				'submissionId' => $submission->getId(),
+				'stageId' => $stageId,
+				'reviewRoundId' => $reviewRound->getId(),
+		);
+	}
+
+	/**
 	 * Determine whether a filter form should be collapsible.
 	 * @return boolean
 	 */
 	protected function isFilterFormCollapsible() {
 		return false;
+	}
+
+	/**
+	 * Define how many items this grid will start loading.
+	 * @return int
+	 */
+	protected function getItemsNumber() {
+		return 20;
 	}
 }
 

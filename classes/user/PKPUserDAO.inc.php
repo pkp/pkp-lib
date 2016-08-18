@@ -243,9 +243,10 @@ class PKPUserDAO extends DAO {
 	 * @param $submissionId int This parameter is in conjunction with the next two parameters i.e. reviewRoundId and reviewRound
 	 * @param $reviewRoundId int Exclude users assigned to this round of the given submission
 	 * @param $reviewRound int Filter users assigned to previous rounds of the given submission
+	 * @param $rangeInfo|null object The desired range of results to return
 	 * @return DAOResultFactory Iterator for matching users
 	 */
-	function getFilteredReviewers($contextId, $stageId, $name = null, $doneMin = null, $doneMax = null, $avgMin = null, $avgMax = null, $lastMin = null, $lastMax = null, $activeMin = null, $activeMax = null, $interests = array(), $submissionId = null, $reviewRoundId = null, $reviewRound = null) {
+	function getFilteredReviewers($contextId, $stageId, $name = null, $doneMin = null, $doneMax = null, $avgMin = null, $avgMax = null, $lastMin = null, $lastMax = null, $activeMin = null, $activeMax = null, $interests = array(), $submissionId = null, $reviewRoundId = null, $reviewRound = null, $rangeInfo = null) {
 		// Timestamp math appears not to work in seconds in MySQL. Issue #1167.
 		switch (Config::getVar('database', 'driver')) {
 			case 'mysql':
@@ -255,7 +256,7 @@ class PKPUserDAO extends DAO {
 			default:
 				$dateDiffClause = 'DATE_PART(\'day\', rac.date_completed - rac.date_notified)';
 		}
-		$result = $this->retrieve(
+		$result = $this->retrieveRange(
 			'SELECT	u.*,
 				COUNT(DISTINCT rac.review_id) AS complete_count,
 				AVG(' . $dateDiffClause . ') AS average_time,
@@ -308,7 +309,8 @@ class PKPUserDAO extends DAO {
 				$avgMax !== null?array((int) $avgMax):array(),
 				$activeMin !== null?array((int) $activeMin):array(),
 				$activeMax !== null?array((int) $activeMax):array()
-			)
+			),
+			$rangeInfo
 		);
 		return new DAOResultFactory($result, $this, '_returnUserFromRowWithReviewerStats');
 	}

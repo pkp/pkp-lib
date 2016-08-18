@@ -67,6 +67,33 @@ class UserStageAssignmentDAO extends UserDAO {
 		return $this->update('DELETE FROM stage_assignments WHERE stage_assignment_id = ?', (int) $assignmentId);
 	}
 
+	/**
+	 * Retrieve a set of users of a user group not assigned to a given submission stage and matching the specified settings.
+	 * @param $submissionId int
+	 * @param $stageId int
+	 * @param $userGroupId int
+	 * @param $name string|null Partial string match with user name
+	 * @param $rangeInfo|null object The desired range of results to return
+	 * @return object DAOResultFactory
+	 */
+	function filterUsersNotAssignedToStageInUserGroup($submissionId, $stageId, $userGroupId, $name = null, $rangeInfo = null) {
+		$params = array((int) $submissionId, (int) $stageId, (int) $userGroupId);
+		if ($name !== null) {
+			$params = array_merge($params, array('%'.(string) $name.'%', '%'.(string) $name.'%', '%'.(string) $name.'%', '%'.(string) $name.'%', '%'.(string) $name.'%'));
+		}
+		$result = $this->retrieveRange(
+				'SELECT	u.*
+			FROM	users u
+				LEFT JOIN user_user_groups uug ON (u.user_id = uug.user_id)
+				LEFT JOIN stage_assignments s ON (s.user_id = uug.user_id AND s.user_group_id = uug.user_group_id AND s.submission_id = ?)
+				JOIN user_group_stage ugs ON (uug.user_group_id = ugs.user_group_id AND ugs.stage_id = ?)
+			WHERE	uug.user_group_id = ? AND
+				s.user_group_id IS NULL'
+				. ($name !== null ? ' AND (u.first_name LIKE ? OR u.middle_name LIKE ? OR u.last_name LIKE ? OR u.username LIKE ? OR u.email LIKE ?)' : ''),
+				$params,
+				$rangeInfo);
+		return new DAOResultFactory($result, $this, '_returnUserFromRowWithData');
+	}
 
 	//
 	// Private helper method

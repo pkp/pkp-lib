@@ -218,26 +218,6 @@ class PKPAppearanceForm extends ContextSettingsForm {
 		// Save block plugins context positions.
 		import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
 		ListbuilderHandler::unpack($request, $request->getUserVar('blocks'));
-
-		// Activate the selected theme plugin
-		$context = $request->getContext();
-		$selectedThemePluginPath = $this->getData('themePluginPath');
-		$selectedThemePlugin = null;
-		foreach ($themePlugins as $themePlugin) {
-			if (basename($themePlugin->getPluginPath()) != $selectedThemePluginPath) {
-				if ($themePlugin->getEnabled()) {
-					$themePlugin->setEnabled(false);
-				}
-			} else {
-				$selectedThemePlugin = $themePlugin;
-			}
-		}
-		if ($selectedThemePlugin) {
-			// Activate the selected theme to trigger a CSS recompile.
-			$selectedThemePlugin->setEnabled(true);
-		} else {
-			assert(false); // Couldn't identify the selected theme plugin
-		}
 	}
 
 	/**

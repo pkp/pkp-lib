@@ -561,6 +561,13 @@ a[id^="publicIdentifiersForm-clearObjectsPubIds-button"] {
 		&:extend(.pkp_modal_panel > .footer all);
 		margin: @base -@base -@base;
 	}
+
+	// Override grid filter form buttons which appear in modals
+	.pkp_form.filter .form_buttons {
+		margin: 0;
+		padding: 0;
+		background: none;
+	}
 }
 
 .pkp_form {

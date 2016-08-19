@@ -224,9 +224,6 @@ class SubmissionFilesUploadForm extends SubmissionFilesUploadBaseForm {
 		}
 		$this->setData('defaultUserGroupId', $defaultUserGroupId);
 
-		// Include a status message for this installation's max file upload size.
-		$this->setData('maxFileUploadSize', get_cfg_var('upload_max_filesize'));
-
 		return parent::fetch($request);
 	}
 

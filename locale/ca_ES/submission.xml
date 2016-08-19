@@ -496,7 +496,6 @@
 	<message key="submission.upload.signoff">Carrega una resposta</message>
 	<message key="submission.upload.response.description">Després de revisar el fitxer assignat, deseu tots els comentaris al fitxer següent i/o carregueu una còpia anotada del fitxer (o d'un altre fitxer).</message>
 	<message key="submission.upload.productionReady">Carrega un fitxer de producció llest</message>
-	<message key="submission.upload.proof">Carrega una prova</message>
 	<message key="submission.upload.noAvailableReviewFiles">No hi ha fitxers pendents de revisar en aquest moment.</message>
 
 	<!-- Review Round Status Keys -->
@@ -512,7 +511,7 @@
 
 	<!-- Participants -->
 	<message key="editor.submission.stageParticipants">Participants</message>
-	
+
 	<!-- Stage Participants grid -->
 	<message key="editor.submission.noneAssigned">No n'hi ha cap d'assignat.</message>
 	<message key="editor.submission.participant">Participant</message>

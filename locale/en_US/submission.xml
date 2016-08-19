@@ -332,12 +332,11 @@
 	<message key="submission.layout.confirmDeleteSupplementaryFile">Are you sure you want to permanently delete this supplementary file?</message>
 	<message key="submission.layout.deleteGalleyStylesheet">Delete this style sheet.</message>
 	<message key="submission.layout.editGalley">Edit a Layout Galley</message>
-	<message key="submission.layout.galleyFileData">Galley File Information</message>
 	<message key="submission.layout.galleyFormat">Galley Format</message>
 	<message key="submission.layout.galleyHTMLData">HTML Galley Files</message>
 	<message key="submission.layout.galleyImages">Images</message>
-	<message key="submission.layout.galleyLabelInstructions">The galley label is used to identify the item's file format (e.g. HTML, PDF, etc.).</message>
-	<message key="submission.layout.galleyLabel">Label</message>
+	<message key="submission.layout.galleyLabel">Galley Label</message>
+	<message key="submission.layout.galleyLabelInstructions">Typically used to identify the file format (e.g. PDF, HTML, etc.).</message>
 	<message key="submission.layout.galleyLabelRequired">A galley label is required.</message>
 	<message key="submission.layout.galleyLanguageRequired">A galley language is required.</message>
 	<message key="submission.layout.galleyLocaleRequired">A galley locale is required.</message>
@@ -503,7 +502,7 @@
 	<message key="submission.upload.uploadFiles">Upload Files</message>
 	<message key="submission.upload.response.description">After reviewing the assigned file, record any comments on the file below, and/or upload an annotated copy of the file (or another file).</message>
 	<message key="submission.upload.productionReady">Upload a Production Ready File</message>
-	<message key="submission.upload.proof">Upload a Proof</message>
+	<message key="submission.upload.proof">Upload a File Ready for Publication</message>
 	<message key="submission.upload.noAvailableReviewFiles">There are no files for you to revise at this time.</message>
 
 	<!-- Review Round Status Keys -->

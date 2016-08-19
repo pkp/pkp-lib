@@ -144,7 +144,7 @@
 	<message key="submission.attachedFile">Angehängte Datei</message>
 	<message key="submission.backToSubmissionEditing">Zurück zur Beitragsbearbeitung</message>
 	<message key="submission.changeComments">Ändern in</message>
-	<message key="submission.citations">Literaturhinweise</message>	
+	<message key="submission.citations">Literaturhinweise</message>
 	<message key="submission.citations.editor.citationlist.approved">Bestätigt</message>
 	<message key="submission.citations.editor.citationlist.deleteCitationConfirmation">Sind Sie sicher, dass Sie diese Zitation löschen möchten?</message>
 	<message key="submission.citations.editor.citationlist.errorDeletingCitation">Ein Fehler ist bei dem Versuch, die Zitation zu löschen, aufgetreten. Bitte melden Sie dies als einen Bug.</message>
@@ -464,7 +464,7 @@
 	<message key="submission.upload.selectMandatoryFileToRevise">Bitte wählen Sie die Datei aus, die Sie überarbeiten/ersetzen wollen.</message>
 	<message key="submission.upload.selectOptionalFileToRevise">Wenn Sie eine überarbeitete Fassung einer existierenden Datei hochladen, geben Sie bitte an, welche Datei.</message>
 	<message key="submission.upload.uploadNewFile">Datei auswählen (um Historie intakt zu lassen)</message>
-	<message key="submission.upload.userGroup">Diese Datei hochladen in meiner 
+	<message key="submission.upload.userGroup">Diese Datei hochladen in meiner
 	Rolle als ...</message>
 	<message key="submission.upload.userGroupDescription">Wenn Sie einen Sammelband einreichen, sollten Sie alle Kapitel individuell in Ihrer Rolle als Sammelbandherausgeber/in hochladen.</message>
 	<message key="submission.upload.uploadLibraryFile">Eine Bibliotheksdatei hochladen</message>
@@ -477,7 +477,6 @@
 	<message key="submission.upload.uploadFiles">Dateien hochladen</message>
 	<message key="submission.upload.response.description">Nach der Durchsicht der zugeordneten Datei geben Sie bitte alle Kommentare zu der Datei unten ein und/oder laden Sie eine kommentierte Version der Datei (oder eine andere Datei) hoch.</message>
 	<message key="submission.upload.productionReady">Eine druckreife Datei hochladen</message>
-	<message key="submission.upload.proof">Korrekturfahne hochladen</message>
 	<message key="submission.upload.noAvailableReviewFiles">Momentan liegen keine Dateien für Sie zur Überarbeitung vor.</message>
 
 	<!-- Review Round Status Keys -->
@@ -493,7 +492,7 @@
 
 	<!-- Participants -->
 	<message key="editor.submission.stageParticipants">Beteiligte</message>
-	
+
 	<!-- Stage Participants grid -->
 	<message key="editor.submission.noneAssigned">Nicht zugewiesen</message>
 	<message key="editor.submission.participant">Beteiligte/r</message>

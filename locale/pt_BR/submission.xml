@@ -294,7 +294,6 @@
 	<message key="submission.uploadFileTo">Transferir documento</message>
 	<message key="submission.viewMetadata">Ver metadados</message>
 	<message key="submission.views">Acessos</message>
-	
 
 	<message key="submission.citations.editor.citationlist.deleteCitationConfirmation">Deseja realmente excluir esta citação?</message>
 	<message key="submission.citations.editor.citationlist.newCitation">Nova citação</message>
@@ -425,7 +424,7 @@
 	<message key="submission.submit.finishSubmission">Finalizar Submissão</message>
 	<message key="submission.submit.selectFile">Selecionar Arquivo</message>
 	<message key="submission.submit.fileInformation">Informações do Arquivo</message>
-	<message key="submission.submit.fileAdded">Arquivo Adicionado</message>	
+	<message key="submission.submit.fileAdded">Arquivo Adicionado</message>
 	<message key="submission.submit.includeInBrowse">Incluir este autor em listas de navegação?</message>
 	<message key="submission.submit.newFile">Enviar um Novo Arquivo</message>
 	<message key="submission.submit.metadataForm">Refinamentos Adicionais</message>
@@ -440,12 +439,12 @@
 	<message key="submission.submit.selectPrincipalContact">Contato principal para correspondência editorial.</message>
 	<message key="submission.submit.contributorRole">Papel do colaborador</message>
 	<message key="submission.submit.addAuthor">Adicionar Colaborador</message>
-	
+
 		<!-- Workflow keys -->
 	<message key="workflow.review.internalReview">Avaliação interna</message>
 	<message key="workflow.stage.any">Qualquer etapa</message>
 	<message key="workflow.stage">Etapa</message>
-	
+
 	<message key="submission.status.editorial">Em Edição de Texto</message>
 	<message key="submission.status.production">Em Leiutra de Prova</message>
 	<message key="submission.status.review">Em Avaliação</message>
@@ -477,7 +476,6 @@
 	<message key="submission.upload.uploadFiles">Enviar Arquivos</message>
 	<message key="submission.upload.response.description">Depois de analisar o arquivo designado, grave seus comentários no arquivo abaixo, e/ou envie uma cópia anotada do arquivo (ou outro arquivo).</message>
 	<message key="submission.upload.productionReady">Enviar uma Versão Final</message>
-	<message key="submission.upload.proof">Enviar uma Prova</message>
 	<message key="submission.upload.noAvailableReviewFiles">Não existem arquivos a serem revisados por você.</message>
 	<message key="editor.submission.roundStatus.revisionsRequested">Revisões foram solicitadas.</message>
 	<message key="editor.submission.roundStatus.resubmitted">A submissão foi enviada para avaliação.</message>
@@ -534,8 +532,6 @@
 	<message key="grid.action.createReviewFormElement">Criar novo campo no formulário de avaliação</message>
 	<message key="grid.action.editMetadata">Editar metadados</message>
 
-	<!--  peer review -->
-	
 	<!-- Permissions -->
 	<message key="submission.permissions">Permissões</message>
 	<message key="submission.attachPermissions">Anexar as seguintes permissões à submissão:</message>

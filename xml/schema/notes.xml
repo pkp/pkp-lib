@@ -35,9 +35,7 @@
 			<NOTNULL/>
 		</field>
 		<field name="date_modified" type="T" />
-		<field name="title" type="C2" size="255">
-			<!-- This field is no longer used since OJS 3.0a / OMP 1.2 -->
-		</field>
+		<field name="title" type="C2" size="255" />
 		<field name="contents" type="X"/>
 		<index name="notes_assoc">
 			<col>assoc_type</col>

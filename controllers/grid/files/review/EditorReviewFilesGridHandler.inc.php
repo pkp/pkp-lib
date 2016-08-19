@@ -23,7 +23,7 @@ class EditorReviewFilesGridHandler extends FileListGridHandler {
 	function EditorReviewFilesGridHandler() {
 		import('lib.pkp.controllers.grid.files.review.ReviewGridDataProvider');
 		parent::FileListGridHandler(
-			new ReviewGridDataProvider(SUBMISSION_FILE_REVIEW_FILE, true),
+			new ReviewGridDataProvider(SUBMISSION_FILE_REVIEW_FILE),
 			null,
 			FILE_GRID_MANAGE|FILE_GRID_VIEW_NOTES|FILE_GRID_DELETE
 		);

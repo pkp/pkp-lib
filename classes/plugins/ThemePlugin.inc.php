@@ -575,6 +575,32 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 		$path = empty($path) ? '' : DIRECTORY_SEPARATOR . $path;
 		return Core::getBaseDir() . DIRECTORY_SEPARATOR . $this->getPluginPath() . $path;
 	}
+
+	/**
+	 * Check if the passed color is dark
+	 *
+	 * This is a utility function to determine the darkness of a hex color. This
+	 * is designed to be used in theme color options, so that text can be
+	 * adjusted to ensure it's readable on light or dark backgrounds. You can
+	 * specify the brightness threshold by passing in a $limit value. Higher
+	 * values are brighter.
+	 *
+	 * Based on: http://stackoverflow.com/a/8468448/1723499
+	 *
+	 * @since 0.1
+	 */
+	function isColorDark( $color, $limit = 130 ) {
+		$color = str_replace( '#', '', $color );
+		$r = hexdec( substr( $color, 0, 2 ) );
+		$g = hexdec( substr( $color, 2, 2 ) );
+		$b = hexdec( substr( $color, 4, 2 ) );
+		$contrast = sqrt(
+			$r * $r * .241 +
+			$g * $g * .691 +
+			$b * $b * .068
+		);
+		return $contrast < $limit;
+	}
 }
 
 ?>

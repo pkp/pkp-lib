@@ -35,6 +35,11 @@
 							{fbvElement type="radio" id="themeOption_"|concat:$themeOptionName|concat:$themeOptionItemName name="themeOption_"|concat:$themeOptionName value=$themeOptionItemName checked=$themeOption.value|compare:$themeOptionItemName label=$themeOptionItem}
 						{/foreach}
 					{/fbvFormSection}
+
+				{elseif $themeOption.type == 'color'}
+					{fbvFormSection label=$themeOption.label}
+						{fbvElement type="color" id="themeOption_"|concat:$themeOptionName value=$themeOption.value|escape default=$themeOption.default label=$themeOption.description}
+					{/fbvFormSection}
 				{/if}
 			{/foreach}
 		{/fbvFormArea}

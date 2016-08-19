@@ -192,6 +192,22 @@ class PKPTemplateManager extends Smarty {
 				);
 			}
 
+			// Register color picker assets on the appearance page
+			$this->addJavaScript(
+				'spectrum',
+				Request::getBaseUrl() . '/lib/pkp/js/lib/jquery/plugins/spectrum/spectrum.js',
+				array(
+					'contexts' => array('backend-management-settings'),
+				)
+			);
+			$this->addStyleSheet(
+				'spectrum',
+				Request::getBaseUrl() . '/lib/pkp/js/lib/jquery/plugins/spectrum/spectrum.css',
+				array(
+					'contexts' => array('backend-management-settings'),
+				)
+			);
+
 			// Register meta tags
 			if (Config::getVar('general', 'installed')) {
 				if (($this->_request->getRequestedPage()=='' || $this->_request->getRequestedPage() == 'index') && $currentContext && $currentContext->getLocalizedSetting('searchDescription')) {

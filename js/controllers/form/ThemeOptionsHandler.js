@@ -20,8 +20,8 @@
 	 * @param {jQueryObject} $container the wrapped HTML form element.
 	 * @param {Object} options form options.
 	 */
-	$.pkp.controllers.form.ThemeOptionsHandler =
-			function($container, options) {
+	$.pkp.controllers.form.ThemeOptionsHandler = function($container, options) {
+		this.parent($container, options);
 		var $activeThemeOptions;
 
 		$activeThemeOptions = $container.find('#activeThemeOptions');
@@ -29,11 +29,22 @@
 			$container.find('#themePluginPath').change(function(e) {
 				$activeThemeOptions.empty();
 			});
+			$activeThemeOptions.find('input[type="color"]').each(function() {
+				var $colorInput = $(this);
+				$colorInput.spectrum({
+					preferredFormat: 'hex',
+					showInitial: true,
+					showButtons: false,
+					change: function(color)  {
+						$colorInput.val(color.toHexString());
+					},
+				});
+			});
 		}
 	};
 	$.pkp.classes.Helper.inherits(
-			$.pkp.controllers.tab.settings.form.ThemeOptionsHandler,
-			$.pkp.controllers.Handler);
+			$.pkp.controllers.form.ThemeOptionsHandler,
+			$.pkp.classes.Handler);
 
 
 /** @param {jQuery} $ jQuery closure. */

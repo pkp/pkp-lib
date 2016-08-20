@@ -14,6 +14,7 @@
 
 <locale name="sv_SE" full_name = "Swedish">
 	<message key="user.affiliation">Tillhörighet</message>
+	<message key="user.affiliation.description">(Din institution, e.g. "Karlstads universitet")</message>
 	<message key="user.affiliations">Tillhörigheter</message>
 	<message key="user.biography">Biografiska upplysningar</message>
 	<message key="user.biography.description">(t.ex. institution och titel)</message>
@@ -23,11 +24,12 @@
 	<message key="user.dateRegistered">Datum för registrering</message>
 	<message key="user.editMyProfile">Redigera Min profil</message>
 	<message key="user.email">E-post</message>
+	<message key="user.fax">Fax</message>
 	<message key="user.feminine">F</message>
 	<message key="user.firstName">Förnamn</message>
 	<message key="user.gender">Kön</message>
 	<message key="user.initialsExample">Lars Erik Johansson = LEJ</message>
-	<message key="user.initials">Inintialer</message>
+	<message key="user.initials">Initialer</message>
 	<message key="user.interests">Intressanta granskningsområden</message>
 	<message key="user.lastName">Efternamn</message>
 	<message key="user.login.accountDisabledWithReason">Ditt konto har avaktiverats av följande orsak: {$reason}</message>
@@ -89,7 +91,7 @@
 	<message key="user.role.siteAdmin">Huvudadministratör</message>
 	<message key="user.role.siteAdmins">Huvudadministratörer</message>
 	<message key="user.roles">Roller</message>
-	<message key="user.salutation">Hälsning</message>
+	<message key="user.salutation">Titel vid tilltal</message>
 	<message key="user.sendPassword">Bekräftelse</message>
 	<message key="user.sendPassword.description">Skicka mig bekräftelsemail med användarnamn och lösenord</message>
 	<message key="user.signature">Signatur</message>

@@ -16,6 +16,7 @@
 	<message key="about.aboutSite">Om sidan</message>
 	<message key="about.contact">Kontakt</message>
 	<message key="about.contact.email">E-post</message>
+	<message key="about.contact.fax">Fax</message>
 	<message key="about.contact.phone">Telefon</message>
 	<message key="about.contact.principalContact">Huvudkontakt</message>
 	<message key="about.contact.supportContact">Teknisk kontaktperson</message>
@@ -44,13 +45,13 @@
 	<message key="common.altText">Alternativ text</message>
 	<message key="common.altTextInstructions">Vänligen tillhandahåll alternativ text för denna bild för att försäkra tillgänglighet för användare med enbart webbläsare för text. </message>
 	<message key="common.and">och</message>
-	<message key="common.applyAction">Utför handling</message>
+	<message key="common.applyAction">Verkställ handling</message>
 	<message key="common.assign">Tilldela</message>
 	<message key="common.assigned">Tilldelat</message>
 	<message key="common.back">Tillbaka</message>
 	<message key="common.between">mellan</message>
 	<message key="common.cancel">Avbryt</message>
-	<message key="common.cancelled">Inställd</message>
+	<message key="common.cancelled">Avbruten</message>
 	<message key="common.captchaField.badCaptcha">Bokstäverna som du har skrivit överensstämmer inte med bokstäverna i bilden. Vänligen kontrollera det du har skrivit och försök igen.</message>
 	<message key="common.captchaField.description">Skriv bokstäverna du ser i bilden ovan.</message>
 	<message key="common.captchaField">Validering</message>
@@ -59,7 +60,7 @@
 	<message key="common.close">Stäng</message>
 	<message key="common.closeWindow">Stäng fönstret</message>
 	<message key="common.complete">Avsluta</message>
-	<message key="common.completed">Aslutad</message>
+	<message key="common.completed">Avslutad</message>
 	<message key="common.continue">Fortsätt</message>
 	<message key="common.country">Land</message>
 	<message key="common.create">Skapa</message>
@@ -98,7 +99,7 @@
 	<message key="common.keywords">Nyckelord</message>
 	<message key="common.language">Språk</message>
 	<message key="common.languages">Språk</message>
-	<message key="common.mailingAddress">E-postadress</message>
+	<message key="common.mailingAddress">Adress</message>
 	<message key="common.minute">Minut(er)</message>
 	<message key="common.modify">Ändra</message>
 	<message key="common.month">Månad</message>
@@ -127,7 +128,7 @@
 	<message key="common.replaced">Ersatt</message>
 	<message key="common.replaceFile">Ersätt fil</message>
 	<message key="common.requiredField">* Markerar obligatoriskt fält</message>
-	<message key="common.required">Tvingande</message>
+	<message key="common.required">Obligatoriskt</message>
 	<message key="common.saveAndContinue">Spara och fortsätt</message>
 	<message key="common.saveAndEmail">Spara och skicka</message>
 	<message key="common.save">Spara</message>
@@ -158,7 +159,7 @@
 	<message key="common.year">År</message>
 	<message key="common.yes">Ja</message>
 	<message key="debug.databaseQueries">Antal förfrågningar till databasen</message>
-	<message key="debug.executionTime">Sidan genererad i</message>
+	<message key="debug.executionTime">Sidan genererad på</message>
 	<message key="debug.notes.localeListLoad">Hämta lokalinställningslista "{$localeList}" från XML</message>
 	<message key="debug.notes.localeLoad">Uppladdad fil "{$localeFile}" från XML</message>
 	<message key="debug.notes.missingLocaleKey">Saknar lokalinställningslista "{$key}".</message>

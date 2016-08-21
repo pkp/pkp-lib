@@ -475,8 +475,6 @@
 	<message key="manager.reviewFormElements.included">In Nachricht an Autor/in aufgenommen</message>
 	<message key="manager.setup.reviewerCompetingInterestsRequired.description">Erklärung von Gutachter/in zu möglicherweise bestehenden Interessenkonflikten</message>
 	<message key="manager.setup.competingInterests.required">Während der Begutachtung die Angabe einer Erklärung zu möglicherweise bestehenden Interessenkonflikten verlangen.</message>
-	<message key="manager.setup.includeCopyrightStatement">Den Copyright-Vermerk zusammen mit den Inhalten anzeigen (ratsam, um durch Autor/innen gehaltenes Copyright geltend zu machen).</message>
-	<message key="manager.setup.includeLicense">Die Lizenz zusammen mit dem veröffentlichten Werk anzeigen.</message>
 	<message key="manager.setup.licenseURLDescription">URL zum Lizenztext, sofern verfügbar.</message>
 	<message key="manager.setup.metadata.submission">Einreichungs-Formular</message>
 	<message key="manager.setup.principalContact">Hauptkontakt</message>
@@ -518,4 +516,7 @@
 	<message key="manager.plugins.noCompatibleVersion.short">Nicht verfügbar</message>
 	<message key="manager.setup.peerReview.description">Beschreiben Sie die Begutachtungsrichtlinien und die Abläufe für Leser/innen und Autor/innen. Diese Beschreibung enthält üblicherweise die Anzahl der Gutachter/innen, die typischerweise eine Einreichung begutachten, die Kriterien, anhand derer Gutachter/innen urteilen sollen, die erwartete Begutachtungsdauer und die Grundsätze der Gutachter/innenauswahl.</message>
 	<message key="manager.setup.principalContactDescription">Geben Sie Kontaktinformationen, üblicherweise für eine Hauptredaktion, Redaktionsleitung oder Redaktionsbüro, an, die auf Ihrer öffentlich zugänglichen Webseite angezeigt werden können.</message>
+	<message key="plugins.importexport.common.validationErrors">Validierungsfehler:</message>
+	<message key=""><![CDATA[]]></message>
+	<message key="manager.userSearch.searchByName">Nutzer/in per Name suchen</message>
 </locale>

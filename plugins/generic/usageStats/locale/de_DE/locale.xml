@@ -61,4 +61,5 @@
 	<message key="plugins.generic.usageStats.statsSum">Summe aller Downloads</message>
 	<message key="plugins.generic.usageStats.noStats">Keine Nutzungsdaten vorhanden.</message>
 	<message key="plugins.generic.usageStats.monthInitials">Jan Feb Mär Apr Mai Jun Jul Aug Sep Okt Nov Dez</message>
+	<message key="plugins.generic.usageStats.downloads">Downloads</message>
 </locale>

@@ -76,13 +76,11 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 			return true;
 		}
 
-		// Fire an initialization method which themes should use to add
-		// styles, scripts and fonts
-		$this->init();
-
-		$this->_registerTemplates();
-		$this->_registerStyles();
-		$this->_registerScripts();
+		// Themes must initialize their functionality after all theme plugins
+		// have been loaded in order to make use of parent/child theme
+		// relationships
+		HookRegistry::register('PluginRegistry::categoryLoaded::themes', array($this, 'init'));
+		HookRegistry::register('PluginRegistry::categoryLoaded::themes', array($this, 'initAfter'));
 
 		// Save any theme options displayed on the appearance form
 		HookRegistry::register('appearanceform::execute', array($this, 'saveOptionsForm'));
@@ -96,9 +94,22 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	 * or register hooks. This method is only fired for the currently active
 	 * theme.
 	 *
+	 * @param $themes array List of all loaded themes
 	 * @return null
 	 */
-	public abstract function init();
+	public abstract function init($themes);
+
+	/**
+	 * Perform actions after the theme has been initialized
+	 *
+	 * Registers templates, styles and scripts that have been added by the
+	 * theme or any parent themes
+	 */
+	public function initAfter() {
+		$this->_registerTemplates();
+		$this->_registerStyles();
+		$this->_registerScripts();
+	}
 
 	/**
 	 * Determine whether or not this plugin is currently active
@@ -218,7 +229,8 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 
 		// If no parent theme, no style was found
 		if (!isset($this->parent)) {
-			return;
+			$style = null;
+			return $style;
 		}
 
 		return $this->parent->getStyle($name);
@@ -448,7 +460,6 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	 * @return null
 	 */
 	public function setParent($parent) {
-
 		$parent = PluginRegistry::getPlugin('themes', $parent);
 
 		if (!is_a($parent, 'ThemePlugin')) {

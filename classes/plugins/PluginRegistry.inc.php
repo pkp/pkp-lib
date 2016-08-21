@@ -139,6 +139,11 @@ class PluginRegistry {
 
 		// Return the list of successfully-registered plugins.
 		$plugins =& PluginRegistry::getPlugins($category);
+
+		// Fire a hook after all plugins of a category have been loaded, so they
+		// are able to interact if required
+		HookRegistry::call('PluginRegistry::categoryLoaded::' . $category, array(&$plugins));
+
 		return $plugins;
 	}
 

@@ -7,14 +7,20 @@
  *
  * Display the workflow tab structure.
  *}
-{assign var=primaryAuthor value=$submission->getPrimaryAuthor()}
-{if !$primaryAuthor}
-	{assign var=authors value=$submission->getAuthors()}
-	{assign var=primaryAuthor value=$authors[0]}
-{/if}
-{assign var=submissionTitleSafe value=$submission->getLocalizedTitle()|strip_unsafe_html}
-{assign var="pageTitleTranslated" value=$primaryAuthor->getLastName()|concat:", ":$submissionTitleSafe}
-{include file="common/header.tpl" suppressPageTitle=true}
+{strip}
+	{assign var=primaryAuthor value=$submission->getPrimaryAuthor()}
+	{if !$primaryAuthor}
+		{assign var=authors value=$submission->getAuthors()}
+		{assign var=primaryAuthor value=$authors[0]}
+	{/if}
+	{assign var=submissionTitleSafe value=$submission->getLocalizedTitle()|strip_unsafe_html}
+	{if $primaryAuthor}
+		{assign var="pageTitleTranslated" value=$primaryAuthor->getLastName()|concat:", ":$submissionTitleSafe}
+	{else}
+		{assign var="pageTitleTranslated" value=$submissionTitleSafe}
+	{/if}
+	{include file="common/header.tpl" suppressPageTitle=true}
+{/strip}
 
 <script type="text/javascript">
 	// Initialize JS handler.

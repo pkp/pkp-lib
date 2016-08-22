@@ -375,16 +375,29 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	/**
 	 * Get an option's configuration settings
 	 *
+	 * This retrives option settings for any option attached to this theme or
+	 * any parent theme.
+	 *
 	 * @param $name The name of the option config to retrieve
 	 * @return false|array The config array for this option. Or false if no
 	 *  config is found.
 	 */
 	public function getOptionConfig($name) {
-		return isset($this->options[$name]) ? $this->options[$name] : false;
+
+		if (isset($this->options[$name])) {
+			return $this->options[$name];
+		}
+
+		return $this->parent ? $this->parent->getOptionConfig($name) : false;
 	}
 
 	/**
-	 * Get all options' configuration settings
+	 * Get all options' configuration settings.
+	 *
+	 * This retrieves a single array containing options settings for this
+	 * theme and any parent themes.
+	 *
+	 * @return array
 	 */
 	public function getOptionsConfig() {
 
@@ -399,6 +412,30 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	}
 
 	/**
+	 * Get all option values
+	 *
+	 * This retrieves a single array containing option values for this theme
+	 * and any parent themes.
+	 *
+	 * @return array
+	 */
+	public function getOptionsValues() {
+
+		$pluginSettingsDAO = DAORegistry::getDAO('PluginSettingsDAO');
+
+		$values = $pluginSettingsDAO->getPluginSettings(Request::getContext()->getId(), $this->getName());
+
+		if (!$this->parent) {
+			return $values;
+		}
+
+		return array_merge(
+			$this->parent->getOptionsValues(),
+			$values
+		);
+	}
+
+	/**
 	 * Sanitize and save a theme option
 	 *
 	 * @param $name string A unique id for the option to save
@@ -409,13 +446,14 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 		$option = !empty($this->options[$name]) ? $this->options[$name] : null;
 
 		if (is_null($option)) {
-			return false;
+			return $this->parent ? $this->parent->saveOption($name, $value) : false;
 		}
 
 		$type = '';
 		switch ($option['type']) {
 			case 'text' :
             case 'select' :
+			case 'color' :
 				$type = 'text';
 				break;
 		}
@@ -425,7 +463,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 		$this->updatesetting($context->getId(), $name, $value, $type);
 
 		// Clear the template cache so that new settings can take effect
-		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr = TemplateManager::getManager($this->getRequest());
 		$templateMgr->clearTemplateCache();
 		$templateMgr->clearCssCache();
 	}
@@ -446,7 +484,9 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 
 		$form = $args[0];
 
-		foreach ($this->options as $optionName => $optionArgs) {
+		$options = $this->getOptionsConfig();
+
+		foreach ($options as $optionName => $optionArgs) {
 			$value = $form->getData('themeOption_' . $optionName);
 			if ($value === null) {
 				continue;
@@ -471,7 +511,9 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 
 		$form = $args[0];
 
-		foreach ($this->options as $optionName => $optionArgs) {
+		$options = $this->getOptionsConfig();
+
+		foreach ($options as $optionName => $optionArgs) {
 			$fullOptionName = 'themeOption_' . $optionName;
 			$form->setData($fullOptionName, Request::getUserVar($fullOptionName));
 		}

@@ -107,10 +107,9 @@ class PKPAppearanceForm extends ContextSettingsForm {
 			$enabledThemes[basename($themePlugin->getPluginPath())] = $themePlugin->getDisplayName();
 			if ($themePlugin->isActive()) {
 				$activeThemeOptions = $themePlugin->getOptionsConfig();
-				$pluginSettingsDAO = DAORegistry::getDAO('PluginSettingsDAO');
-				$activeThemeOptionValues = $pluginSettingsDAO->getPluginSettings(Request::getContext()->getId(), $themePlugin->getName());
+				$activeThemeOptionsValues = $themePlugin->getOptionsValues();
 				foreach ($activeThemeOptions as $name => $option) {
-					$activeThemeOptions[$name]['value'] = isset($activeThemeOptionValues[$name]) ? $activeThemeOptionValues[$name] : '';
+					$activeThemeOptions[$name]['value'] = isset($activeThemeOptionsValues[$name]) ? $activeThemeOptionsValues[$name] : '';
 				}
 			}
 		}

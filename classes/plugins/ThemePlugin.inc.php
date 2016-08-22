@@ -79,7 +79,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 		// Themes must initialize their functionality after all theme plugins
 		// have been loaded in order to make use of parent/child theme
 		// relationships
-		HookRegistry::register('PluginRegistry::categoryLoaded::themes', array($this, 'init'));
+		HookRegistry::register('PluginRegistry::categoryLoaded::themes', array($this, 'themeRegistered'));
 		HookRegistry::register('PluginRegistry::categoryLoaded::themes', array($this, 'initAfter'));
 
 		// Save any theme options displayed on the appearance form
@@ -90,14 +90,23 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	}
 
 	/**
-	 * The primary method themes should use to add styles, scripts and fonts,
-	 * or register hooks. This method is only fired for the currently active
-	 * theme.
+	 * Fire the init() method when a theme is registered
 	 *
 	 * @param $themes array List of all loaded themes
 	 * @return null
 	 */
-	public abstract function init($themes);
+	public function themeRegistered($themes) {
+		$this->init();
+	}
+
+	/**
+	 * The primary method themes should use to add styles, scripts and fonts,
+	 * or register hooks. This method is only fired for the currently active
+	 * theme.
+	 *
+	 * @return null
+	 */
+	public abstract function init();
 
 	/**
 	 * Perform actions after the theme has been initialized
@@ -359,7 +368,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 		}
 
 		// Return a default if no value is set
-		$option = $this->_getOptionConfig($name);
+		$option = $this->getOptionConfig($name);
 		return $option && isset($option['default']) ? $option['default'] : null;
 	}
 
@@ -370,8 +379,23 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	 * @return false|array The config array for this option. Or false if no
 	 *  config is found.
 	 */
-	private function _getOptionConfig($name) {
-		return isset($this->_options[$name]) ? $this->_options[$name] : false;
+	public function getOptionConfig($name) {
+		return isset($this->options[$name]) ? $this->options[$name] : false;
+	}
+
+	/**
+	 * Get all options' configuration settings
+	 */
+	public function getOptionsConfig() {
+
+		if (!$this->parent) {
+			return $this->options;
+		}
+
+		return array_merge(
+			$this->parent->getOptionsConfig(),
+			$this->options
+		);
 	}
 
 	/**

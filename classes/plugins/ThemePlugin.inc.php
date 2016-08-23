@@ -82,9 +82,12 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 		HookRegistry::register('PluginRegistry::categoryLoaded::themes', array($this, 'themeRegistered'));
 		HookRegistry::register('PluginRegistry::categoryLoaded::themes', array($this, 'initAfter'));
 
-		// Save any theme options displayed on the appearance form
+		// Save any theme options displayed on the appearance and site settings
+		// forms
 		HookRegistry::register('appearanceform::execute', array($this, 'saveOptionsForm'));
 		HookRegistry::register('appearanceform::readuservars', array($this, 'readOptionsFormUserVars'));
+		HookRegistry::register('sitesetupform::execute', array($this, 'saveOptionsForm'));
+		HookRegistry::register('sitesetupform::readuservars', array($this, 'readOptionsFormUserVars'));
 
 		return true;
 	}
@@ -440,8 +443,10 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	 *
 	 * @param $name string A unique id for the option to save
 	 * @param $value mixed The new value to save
+	 * @param $contextId int Optional context id. Defaults to the current
+	 *  context
 	 */
-	public function saveOption($name, $value) {
+	public function saveOption($name, $value, $contextId = null) {
 
 		$option = !empty($this->options[$name]) ? $this->options[$name] : null;
 
@@ -458,9 +463,12 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 				break;
 		}
 
-		$context = Request::getContext();
+		if (is_null($contextId)) {
+			$context = Request::getContext();
+			$contextId = $context->getId();
+		}
 
-		$this->updatesetting($context->getId(), $name, $value, $type);
+		$this->updatesetting($contextId, $name, $value, $type);
 
 		// Clear the template cache so that new settings can take effect
 		$templateMgr = TemplateManager::getManager($this->getRequest());
@@ -486,12 +494,22 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 
 		$options = $this->getOptionsConfig();
 
+		// Ensure theme options from the site-wide settings form are applied
+		// to the site-wide context
+		if ($hookName == 'sitesetupform::execute') {
+			$contextId = 0;
+		}
+
 		foreach ($options as $optionName => $optionArgs) {
 			$value = $form->getData('themeOption_' . $optionName);
 			if ($value === null) {
 				continue;
 			}
-			$this->saveOption($optionName, $value);
+			if (isset($contextId)) {
+				$this->saveOption($optionName, $value, $contextId);
+			} else {
+				$this->saveOption($optionName, $value);
+			}
 		}
 	}
 

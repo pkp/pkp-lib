@@ -100,7 +100,10 @@ class PKPAppearanceForm extends ContextSettingsForm {
 		$templateMgr->assign('uploadImageLinkActions', $uploadImageLinkActions);
 		$templateMgr->assign('uploadCssLinkAction', $uploadCssLinkAction);
 
-		$themePlugins = PluginRegistry::loadCategory('themes');
+		$themePlugins = PluginRegistry::getPlugins('themes');
+		if (is_null($themePlugins)) {
+			$themePlugins = PluginRegistry::loadCategory('themes');
+		}
 		$enabledThemes = array();
 		$activeThemeOptions = array();
 		foreach ($themePlugins as $themePlugin) {

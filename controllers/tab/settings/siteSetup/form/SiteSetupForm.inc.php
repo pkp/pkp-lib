@@ -33,6 +33,11 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 		$this->addCheck(new FormValidatorPost($this));
 		$this->addCheck(new FormValidatorCSRF($this));
 
+		$themes = PluginRegistry::getPlugins('themes');
+		if (is_null($themes)) {
+			PluginRegistry::loadCategory('themes');
+		}
+
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON);
 	}
 
@@ -75,12 +80,24 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 		$application = Application::getApplication();
 		$templateMgr->assign('availableMetricTypes', $application->getMetricTypes(true));
 
-		$themePlugins = PluginRegistry::loadCategory('themes');
+		$themePlugins = PluginRegistry::getPlugins('themes');
+		if (is_null($themePlugins)) {
+			$themePlugins = PluginRegistry::loadCategory('themes');
+		}
 		$enabledThemes = array();
+		$activeThemeOptions = array();
 		foreach ($themePlugins as $themePlugin) {
 			$enabledThemes[basename($themePlugin->getPluginPath())] = $themePlugin->getDisplayName();
+			if ($themePlugin->isActive()) {
+				$activeThemeOptions = $themePlugin->getOptionsConfig();
+				$activeThemeOptionsValues = $themePlugin->getOptionsValues();
+				foreach ($activeThemeOptions as $name => $option) {
+					$activeThemeOptions[$name]['value'] = isset($activeThemeOptionsValues[$name]) ? $activeThemeOptionsValues[$name] : '';
+				}
+			}
 		}
 		$templateMgr->assign('enabledThemes', $enabledThemes);
+		$templateMgr->assign('activeThemeOptions', $activeThemeOptions);
 
 		return parent::fetch($request);
 	}
@@ -135,6 +152,7 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 	 * Save site settings.
 	 */
 	function execute() {
+		parent::execute();
 		$siteDao = DAORegistry::getDAO('SiteDAO');
 		$site = $siteDao->getSite();
 

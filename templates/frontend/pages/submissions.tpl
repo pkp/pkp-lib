@@ -54,7 +54,7 @@
 	{/if}
 
 	{if $currentContext->getLocalizedSetting('copyrightNotice')}
-		<div class="author_guidelines">
+		<div class="copyright_notice">
 			<h2>
 				{translate key="about.copyrightNotice"}
 				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="journal" anchor="guidelines" sectionTitleKey="about.copyrightNotice"}

@@ -15,7 +15,7 @@
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.controllers.form.ThemeOptionsHandler
+	 * @extends $.pkp.classes.Handler
 	 *
 	 * @param {jQueryObject} $container the wrapped HTML form element.
 	 * @param {Object} options form options.
@@ -36,8 +36,8 @@
 					showInitial: true,
 					showButtons: false,
 					change: function(color)  {
-						$colorInput.val(color.toHexString());
-					},
+						$colorInput.val(/** @type {{toHexString: function}} */color.toHexString());
+					}
 				});
 			});
 		}

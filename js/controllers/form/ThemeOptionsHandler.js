@@ -37,8 +37,9 @@
 					showButtons: false,
 					change: function(color)  {
 						$colorInput.val(
-							/** @type {{toHexString: function}} */
-							color.toHexString());
+								/** @type {{toHexString: function}} */
+								color.toHexString()
+						);
 					}
 				});
 			});

@@ -36,7 +36,9 @@
 					showInitial: true,
 					showButtons: false,
 					change: function(color)  {
-						$colorInput.val(/** @type {{toHexString: function}} */color.toHexString());
+						$colorInput.val(
+							/** @type {{toHexString: function}} */
+							color.toHexString());
 					}
 				});
 			});

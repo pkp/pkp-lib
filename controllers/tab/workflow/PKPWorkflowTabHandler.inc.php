@@ -121,6 +121,14 @@ abstract class PKPWorkflowTabHandler extends Handler {
 				// Render the view.
 				return $templateMgr->fetchJson('controllers/tab/workflow/review.tpl');
 			case WORKFLOW_STAGE_ID_EDITING:
+				// Assign banner notifications to the template.
+				$notificationRequestOptions = array(
+					NOTIFICATION_LEVEL_NORMAL => array(
+						NOTIFICATION_TYPE_ASSIGN_COPYEDITOR => array(ASSOC_TYPE_SUBMISSION, $submission->getId()),
+						NOTIFICATION_TYPE_AWAITING_COPYEDITS => array(ASSOC_TYPE_SUBMISSION, $submission->getId())),
+					NOTIFICATION_LEVEL_TRIVIAL => array()
+				);
+				$templateMgr->assign('editingNotificationRequestOptions', $notificationRequestOptions);
 				return $templateMgr->fetchJson('controllers/tab/workflow/editorial.tpl');
 			case WORKFLOW_STAGE_ID_PRODUCTION:
 				$templateMgr = TemplateManager::getManager($request);

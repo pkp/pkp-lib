@@ -320,6 +320,22 @@ class QueriesGridHandler extends GridHandler {
 		$notificationDao = DAORegistry::getDAO('NotificationDAO');
 		$notificationDao->deleteByAssoc(ASSOC_TYPE_QUERY, $query->getId());
 
+		// Update submission notifications
+		$notificationsToUpdate = array(
+			WORKFLOW_STAGE_ID_EDITING => array(NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,	NOTIFICATION_TYPE_AWAITING_COPYEDITS),
+			WORKFLOW_STAGE_ID_PRODUCTION => array(NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER, NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS),
+		);
+		if (array_key_exists($this->getStageId(), $notificationsToUpdate)) {
+			$notificationMgr = new NotificationManager();
+			$notificationMgr->updateNotification(
+				$request,
+				$notificationsToUpdate[$this->getStageId()],
+				null,
+				ASSOC_TYPE_SUBMISSION,
+				$this->getAssocId()
+			);
+		}
+
 		return DAO::getDataChangedEvent($query->getId());
 	}
 
@@ -468,6 +484,23 @@ class QueriesGridHandler extends GridHandler {
 
 		if ($queryForm->validate()) {
 			$queryForm->execute($request);
+
+			// Update submission notifications
+			$notificationsToUpdate = array(
+				WORKFLOW_STAGE_ID_EDITING => array(NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,	NOTIFICATION_TYPE_AWAITING_COPYEDITS),
+				WORKFLOW_STAGE_ID_PRODUCTION => array(NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER, NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS),
+			);
+			if (array_key_exists($this->getStageId(), $notificationsToUpdate)) {
+				$notificationMgr = new NotificationManager();
+				$notificationMgr->updateNotification(
+					$request,
+					$notificationsToUpdate[$this->getStageId()],
+					null,
+					ASSOC_TYPE_SUBMISSION,
+					$this->getAssocId()
+				);
+			}
+
 			return DAO::getDataChangedEvent($query->getId());
 		}
 		return new JSONMessage(

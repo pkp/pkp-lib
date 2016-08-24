@@ -484,6 +484,7 @@
 	<message key="notification.type.allRevisionsIn">Eine überarbeitete Datei ist hochgeladen worden und muss von Ihnen in Phase {$stage} akzeptiert werden.</message>
 	<message key="notification.type.pendingRevisions">Sie sollen Überarbeitungen in Phase {$stage} akzeptieren.</message>
 	<message key="notification.type.pendingRevisions.title">Überarbeitungen zu Phase {$stage} hinzugefügt.</message>
+	<message key="notification.type.roundStatusTitle">Durchgang {$round} Status</message>
 	<message key="notification.signedFile">Datei akzeptiert.</message>
 	<message key="user.authorization.submissionFile">Der/die aktuelle Nutzer/in ist nicht berechtigt, auf die angegebene eingereichte Datei zuzugreifen.</message>
 	<message key="user.authorization.invalidSubmission">Ungültige Einreichung.</message>

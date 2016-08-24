@@ -193,9 +193,31 @@ class PKPStageParticipantNotifyForm extends Form {
 			switch ($template) {
 				case 'COPYEDIT_REQUEST':
 					$this->_addAssignmentTaskNotification($request, NOTIFICATION_TYPE_COPYEDIT_ASSIGNMENT, $user->getId(), $submission->getId());
+					$notificationMgr = new NotificationManager();
+					$notificationMgr->updateNotification(
+						$request,
+						array(
+							NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,
+							NOTIFICATION_TYPE_AWAITING_COPYEDITS,
+						),
+						null,
+						ASSOC_TYPE_SUBMISSION,
+						$submission->getId()
+					);
 					break;
 				case 'LAYOUT_REQUEST':
 					$this->_addAssignmentTaskNotification($request, NOTIFICATION_TYPE_LAYOUT_ASSIGNMENT, $user->getId(), $submission->getId());
+					$notificationMgr = new NotificationManager();
+					$notificationMgr->updateNotification(
+						$request,
+						array(
+							NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER,
+							NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS,
+						),
+						null,
+						ASSOC_TYPE_SUBMISSION,
+						$submission->getId()
+					);
 					break;
 				case 'INDEX_REQUEST':
 					$this->_addAssignmentTaskNotification($request, NOTIFICATION_TYPE_INDEX_ASSIGNMENT, $user->getId(), $submission->getId());

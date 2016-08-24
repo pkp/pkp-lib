@@ -471,6 +471,7 @@
 	<message key="notification.type.allRevisionsIn">Se ha subido un archivo revisado a fin de considerarse para su publicación en {$stage}.</message>
 	<message key="notification.type.pendingRevisions">Tiene revisiones que requieren su atención en {$stage}.</message>
 	<message key="notification.type.pendingRevisions.title">Revisiones enviadas a {$stage}.</message>
+	<message key="notification.type.roundStatusTitle">Estado de ronda {$round}</message>
 	<message key="notification.signedFile">Archivo examinado.</message>
 	<message key="user.authorization.submissionFile">El usuario/a actual no tiene autorización para acceder al archivo de envío especificado.</message>
 	<message key="user.authorization.invalidSubmission">Envío no válido.</message>

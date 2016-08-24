@@ -489,6 +489,7 @@
 	<message key="notification.type.allRevisionsIn">S'ha carregat un fitxer per a la vostra acceptació editorial a {$stage}.</message>
 	<message key="notification.type.pendingRevisions">Teniu revisions pendents d'acceptar a {$stage}.</message>
 	<message key="notification.type.pendingRevisions.title">Les revisions s'han enviat a {$stage}.</message>
+	<message key="notification.type.roundStatusTitle">Ronda {$round} Estat</message>
 	<message key="notification.signedFile">S'ha acceptat el fitxer.</message>
 	<message key="user.authorization.submissionFile">L'usuari/ària actual no està autoritzat per accedir al fitxer de tramesa especificat.</message>
 	<message key="user.authorization.invalidSubmission">La tramesa no és vàlida.</message>

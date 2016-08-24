@@ -533,4 +533,7 @@
 	<message key="user.authorization.submissionAuthor">The current user is not the author of the requested submission. Please verify that you are logged in with the correct user account.</message>
 	<message key="notification.type.queryActivity">Discussion activity.</message>
 	<message key="notification.type.queryAdded">Discussion added.</message>
+	<message key="notification.type.assignCopyeditors">Assign a copyeditor using the Add link in the Participants list.</message>
+	<message key="notification.type.awaitingCopyedits">Awaiting Copyedits.</message>
+	<message key="notification.type.roundStatusTitle">Round {$round} Status</message>
 </locale>

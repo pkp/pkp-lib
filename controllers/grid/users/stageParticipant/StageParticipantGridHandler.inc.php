@@ -353,6 +353,21 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 			$submission->getId()
 		);
 
+		// Update submission notifications
+		$submissionNotificationsToUpdate = array(
+			WORKFLOW_STAGE_ID_EDITING => array(NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,	NOTIFICATION_TYPE_AWAITING_COPYEDITS),
+			WORKFLOW_STAGE_ID_PRODUCTION => array(NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER, NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS),
+		);
+		if (array_key_exists($stageId , $submissionNotificationsToUpdate)) {
+			$notificationMgr->updateNotification(
+				$request,
+				$submissionNotificationsToUpdate[$stageId],
+				null,
+				ASSOC_TYPE_SUBMISSION,
+				$submission->getId()
+			);
+		}
+
 		// Log removal.
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$assignedUser = $userDao->getById($stageAssignment->getUserId());

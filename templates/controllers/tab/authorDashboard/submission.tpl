@@ -13,5 +13,5 @@
 <div id="documentsContent">
 	<!-- Display queries grid -->
 	{url|assign:queriesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.queries.QueriesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$smarty.const.WORKFLOW_STAGE_ID_SUBMISSION escape=false}
-	{load_url_in_div id="queriesGridDiv" url=$queriesGridUrl}
+	{load_url_in_div id="queriesGrid" url=$queriesGridUrl}
 </div>

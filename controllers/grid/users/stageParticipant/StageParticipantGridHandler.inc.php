@@ -354,19 +354,18 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 		);
 
 		// Update submission notifications
-		$submissionNotificationsToUpdate = array(
-			WORKFLOW_STAGE_ID_EDITING => array(NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,	NOTIFICATION_TYPE_AWAITING_COPYEDITS),
-			WORKFLOW_STAGE_ID_PRODUCTION => array(NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER, NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS),
+		$notificationMgr->updateNotification(
+			$request,
+			array(
+				NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,
+				NOTIFICATION_TYPE_AWAITING_COPYEDITS,
+				NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER,
+				NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS,
+			),
+			null,
+			ASSOC_TYPE_SUBMISSION,
+			$submission->getId()
 		);
-		if (array_key_exists($stageId , $submissionNotificationsToUpdate)) {
-			$notificationMgr->updateNotification(
-				$request,
-				$submissionNotificationsToUpdate[$stageId],
-				null,
-				ASSOC_TYPE_SUBMISSION,
-				$submission->getId()
-			);
-		}
 
 		// Log removal.
 		$userDao = DAORegistry::getDAO('UserDAO');
@@ -445,6 +444,22 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 			// Return a JSON string indicating success
 			// (will clear the form on return)
 			$this->_logEventAndCreateNotification($request);
+
+			// Update submission notifications
+			$notificationMgr = new NotificationManager();
+			$notificationMgr->updateNotification(
+				$request,
+				array(
+					NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,
+					NOTIFICATION_TYPE_AWAITING_COPYEDITS,
+					NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER,
+					NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS,
+				),
+				null,
+				ASSOC_TYPE_SUBMISSION,
+				$this->getSubmission()->getId()
+			);
+
 			return new JSONMessage(true);
 		} else {
 			// Return a JSON string indicating failure

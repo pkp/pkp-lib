@@ -444,35 +444,32 @@ class PKPReviewerGridHandler extends GridHandler {
 			$reviewAssignmentDao->updateObject($reviewAssignment);
 		}
 
-		$updateReviewNotifications = false;
 		if (!$reviewAssignment->getDateCompleted()) {
 			// Editor completes the review.
 			$reviewAssignment->setDateConfirmed(Core::getCurrentDate());
 			$reviewAssignment->setDateCompleted(Core::getCurrentDate());
-			$updateReviewNotifications = true;
 		}
 
 		$this->_updateReviewRoundStatus($reviewAssignment);
 
-		if ($updateReviewNotifications) {
-			// Remove the reviewer task.
-			$notificationDao = DAORegistry::getDAO('NotificationDAO');
-			$notificationDao->deleteByAssoc(
-				ASSOC_TYPE_REVIEW_ASSIGNMENT,
-				$reviewAssignment->getId(),
-				$reviewAssignment->getReviewerId(),
-				NOTIFICATION_TYPE_REVIEW_ASSIGNMENT
-			);
-			$notificationMgr = new NotificationManager();
-			$reviewRound = $this->getReviewRound();
-			$notificationMgr->updateNotification(
-				$request,
-				array(NOTIFICATION_TYPE_ALL_REVIEWS_IN),
-				null,
-				ASSOC_TYPE_REVIEW_ROUND,
-				$reviewRound->getId()
-			);
-		}
+		// Remove the reviewer task.
+		$notificationDao = DAORegistry::getDAO('NotificationDAO');
+		$notificationDao->deleteByAssoc(
+			ASSOC_TYPE_REVIEW_ASSIGNMENT,
+			$reviewAssignment->getId(),
+			$reviewAssignment->getReviewerId(),
+			NOTIFICATION_TYPE_REVIEW_ASSIGNMENT
+		);
+		$notificationMgr = new NotificationManager();
+		$reviewRound = $this->getReviewRound();
+		$notificationMgr->updateNotification(
+			$request,
+			array(NOTIFICATION_TYPE_ALL_REVIEWS_IN),
+			null,
+			ASSOC_TYPE_REVIEW_ROUND,
+			$reviewRound->getId()
+		);
+
 		return DAO::getDataChangedEvent($reviewAssignment->getId());
 	}
 

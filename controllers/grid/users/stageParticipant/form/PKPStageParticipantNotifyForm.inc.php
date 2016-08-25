@@ -201,6 +201,33 @@ class PKPStageParticipantNotifyForm extends Form {
 					$this->_addAssignmentTaskNotification($request, NOTIFICATION_TYPE_INDEX_ASSIGNMENT, $user->getId(), $submission->getId());
 					break;
 			}
+
+			// Create a query
+			$queryDao = DAORegistry::getDAO('QueryDAO');
+			$query = $queryDao->newDataObject();
+			$query->setAssocType(ASSOC_TYPE_SUBMISSION);
+			$query->setAssocId($submission->getId());
+			$query->setStageId($this->_stageId);
+			$query->setSequence(REALLY_BIG_NUMBER);
+			$queryDao->insertObject($query);
+			$queryDao->resequence(ASSOC_TYPE_SUBMISSION, $submission->getId());
+
+			// Add the current user and message recipient as participants.
+			$queryDao->insertParticipant($query->getId(), $user->getId());
+			if ($user->getId() != $request->getUser()->getId()) {
+				$queryDao->insertParticipant($query->getId(), $request->getUser()->getId());
+			}
+
+			// Create a head note
+			$noteDao = DAORegistry::getDAO('NoteDAO');
+			$headNote = $noteDao->newDataObject();
+			$headNote->setUserId($request->getUser()->getId());
+			$headNote->setAssocType(ASSOC_TYPE_QUERY);
+			$headNote->setAssocId($query->getId());
+			$headNote->setDateCreated(Core::getCurrentDate());
+			$headNote->setTitle($email->getSubject());
+			$headNote->setContents($email->getBody());
+			$noteDao->insertObject($headNote);
 		}
 	}
 

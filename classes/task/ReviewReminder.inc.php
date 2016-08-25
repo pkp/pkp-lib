@@ -137,6 +137,7 @@ class ReviewReminder extends ScheduledTask {
 		$contextDao = Application::getContextDAO();
 
 		$incompleteAssignments = $reviewAssignmentDao->getIncompleteReviewAssignments();
+		$inviteReminderDays = $submitReminderDays = null;
 		foreach ($incompleteAssignments as $reviewAssignment) {
 			// Avoid review assignments that a reminder exists for.
 			if ($reviewAssignment->getDateReminded() !== null) continue;

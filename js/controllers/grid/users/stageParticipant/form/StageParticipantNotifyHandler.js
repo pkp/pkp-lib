@@ -109,5 +109,29 @@
 		return processedJsonData.status;
 	};
 
+
+	/**
+	 * Internal callback called after form validation to handle the
+	 * response to a form submission.
+	 *
+	 * You can override this handler if you want to do custom handling
+	 * of a form response.
+	 *
+	 * @param {HTMLElement} formElement The wrapped HTML form.
+	 * @param {Object} jsonData The data returned from the server.
+	 * @return {boolean} The response status.
+	 */
+	$.pkp.controllers.grid.users.stageParticipant.form.
+			StageParticipantNotifyHandler.prototype.handleResponse =
+			function(formElement, jsonData) {
+
+		// Reload the query grid to show the newly created query.
+		$.pkp.classes.Handler.getHandler($('#queriesGrid .pkp_controllers_grid'))
+				.trigger('dataChanged');
+
+		return /** @type {boolean} */ (this.parent(
+				'handleResponse', formElement, jsonData));
+	};
+
 /** @param {jQuery} $ jQuery closure. */
 }(jQuery));

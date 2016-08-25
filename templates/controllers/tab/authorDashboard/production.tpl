@@ -12,7 +12,7 @@
 
 	<!-- Display queries grid -->
 	{url|assign:queriesGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.queries.QueriesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$smarty.const.WORKFLOW_STAGE_ID_PRODUCTION escape=false}
-	{load_url_in_div id="queriesGridDiv" url=$queriesGridUrl}
+	{load_url_in_div id="queriesGrid" url=$queriesGridUrl}
 {else}
 	{translate key="submission.stageNotInitiated"}
 {/if}

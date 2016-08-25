@@ -426,7 +426,9 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 
 		$pluginSettingsDAO = DAORegistry::getDAO('PluginSettingsDAO');
 
-		$values = $pluginSettingsDAO->getPluginSettings(Request::getContext()->getId(), $this->getName());
+		$context = Request::getContext();
+		$contextId = empty($context) ? 0 : $context->getId();
+		$values = $pluginSettingsDAO->getPluginSettings($contextId, $this->getName());
 
 		if (!$this->parent) {
 			return $values;

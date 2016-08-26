@@ -454,6 +454,7 @@
 	<message key="notification.unsubscribeError">There was an error unsubscribing you.  Please ensure that you are using the correct URL as included in your notification email.</message>
 	<message key="notification.unsubscribeSuccess">You were successfully unsubscribed.</message>
 	<message key="notification.savedSubmissionMetadata">Submission metadata saved.</message>
+	<message key="search.author">By Author</message>
 	<message key="search.abstract">Abstract</message>
 	<message key="search.activeFilters">Advanced filters</message>
 	<message key="search.advancedSearchMore">More search options</message>
@@ -466,8 +467,8 @@
 	<message key="search.cli.rebuildIndex.result">{$numIndexed} articles indexed</message>
 	<message key="search.coverage">Coverage</message>
 	<message key="search.date">Publication Date</message>
-	<message key="search.dateFrom">From</message>
-	<message key="search.dateTo">Until</message>
+	<message key="search.dateFrom">Published After</message>
+	<message key="search.dateTo">Published Before</message>
 	<message key="search.deleteFilter">Delete</message>
 	<message key="search.discipline">Discipline(s)</message>
 	<message key="search.fullText">Full Text</message>

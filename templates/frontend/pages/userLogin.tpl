@@ -22,7 +22,7 @@
 		</p>
 	{/if}
 
-	<form class="pkp_form login" id="login" method="post" action="{$loginUrl}">
+	<form class="cmp_form cmp_form login" id="login" method="post" action="{$loginUrl}">
 		{csrf}
 
 		{if $error}

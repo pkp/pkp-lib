@@ -14,7 +14,7 @@
 <div class="page page_register">
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="user.register"}
 
-	<form class="pkp_form register" id="register" method="post" action="{url op="registerUser"}">
+	<form class="cmp_form register" id="register" method="post" action="{url op="registerUser"}">
 		{csrf}
 
 		{if $source}

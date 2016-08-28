@@ -352,6 +352,33 @@ class PKPFileUploadWizardHandler extends Handler {
 				$reviewRound = $this->getReviewRound();
 				$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
 				$submissionFileDao->assignRevisionToReviewRound($submissionFile->getFileId(), $submissionFile->getRevision(), $reviewRound);
+
+				if ($submissionFile->getFileStage() == SUBMISSION_FILE_REVIEW_REVISION) {
+					// Get a list of author user IDs
+					$authorUserIds = array();
+					$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+					$submitterAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($reviewRound->getSubmissionId(), ROLE_ID_AUTHOR);
+					while ($assignment = $submitterAssignments->next()) {
+						$authorUserIds[] = $assignment->getUserId();
+					}
+
+					// Update the notifications
+					$notificationMgr = new NotificationManager();
+					$notificationMgr->updateNotification(
+						PKPApplication::getRequest(),
+						array(NOTIFICATION_TYPE_PENDING_INTERNAL_REVISIONS, NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS),
+						$authorUserIds,
+						ASSOC_TYPE_SUBMISSION,
+						$reviewRound->getSubmissionId()
+					);
+					$notificationMgr->updateNotification(
+						PKPApplication::getRequest(),
+						array(NOTIFICATION_TYPE_ALL_REVISIONS_IN),
+						null,
+						ASSOC_TYPE_REVIEW_ROUND,
+						$reviewRound->getId()
+					);
+				}
 				break;
 		}
 	}

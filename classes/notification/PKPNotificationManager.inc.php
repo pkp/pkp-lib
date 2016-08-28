@@ -191,7 +191,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 					__FUNCTION__,
 					array($request, $notification)
 				);
-				
+
 				if ($delegateResult) $content = $delegateResult;
 				return $content;
 		}
@@ -206,6 +206,10 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 		assert(isset($type));
 
 		switch ($type) {
+			case NOTIFICATION_TYPE_REVIEW_ROUND_STATUS:
+				$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+				$reviewRound = $reviewRoundDao->getById($notification->getAssocId());
+				return __('notification.type.roundStatusTitle', array('round' => $reviewRound->getRound()));
 			case NOTIFICATION_TYPE_FORM_ERROR:
 				return __('form.errorsOccurred');
 			default:
@@ -216,7 +220,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 					__FUNCTION__,
 					array($notification)
 				);
-				
+
 				if ($delegateResult) $title = $delegateResult;
 				return $title;
 		}
@@ -235,6 +239,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 			case NOTIFICATION_TYPE_FORBIDDEN: return NOTIFICATION_STYLE_CLASS_FORBIDDEN;
 			case NOTIFICATION_TYPE_HELP: return NOTIFICATION_STYLE_CLASS_HELP;
 			case NOTIFICATION_TYPE_FORM_ERROR: return NOTIFICATION_STYLE_CLASS_FORM_ERROR;
+			case NOTIFICATION_TYPE_REVIEW_ROUND_STATUS:	return NOTIFICATION_STYLE_CLASS_INFORMATION;
 			default:
 				$delegateResult = $this->getByDelegate(
 					$notification->getType(),
@@ -294,8 +299,9 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 					array($notificationType, $assocType, $assocId)
 				);
 				if (!is_null($delegateResult)) $isVisible = $delegateResult;
-				return $isVisible;
+				break;
 		}
+		return $isVisible;
 	}
 
 	/**
@@ -364,6 +370,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 				assert($assocType == ASSOC_TYPE_SUBMISSION && is_numeric($assocId));
 				import('lib.pkp.classes.notification.managerDelegate.EditorDecisionNotificationManager');
 				return new EditorDecisionNotificationManager($notificationType);
+			case NOTIFICATION_TYPE_PENDING_INTERNAL_REVISIONS:
 			case NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS:
 				assert($assocType == ASSOC_TYPE_SUBMISSION && is_numeric($assocId));
 				import('lib.pkp.classes.notification.managerDelegate.PendingRevisionsNotificationManager');
@@ -376,6 +383,13 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 				assert($assocType == ASSOC_TYPE_REVIEW_ROUND && is_numeric($assocId));
 				import('lib.pkp.classes.notification.managerDelegate.review.AllReviewsInNotificationManager');
 				return new AllReviewsInNotificationManager($notificationType);
+			case NOTIFICATION_TYPE_ASSIGN_COPYEDITOR:
+			case NOTIFICATION_TYPE_AWAITING_COPYEDITS:
+			case NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER:
+			case NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS:
+				assert($assocType == ASSOC_TYPE_SUBMISSION && is_numeric($assocId));
+				import('lib.pkp.classes.notification.managerDelegate.EditingProductionStatusNotificationManager');
+				return new EditingProductionStatusNotificationManager($notificationType);
 		}
 		return null; // No delegate required, let calling context handle null.
 	}

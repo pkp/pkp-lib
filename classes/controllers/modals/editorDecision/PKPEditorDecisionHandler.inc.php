@@ -396,8 +396,7 @@ class PKPEditorDecisionHandler extends Handler {
 			// Update editor decision and pending revisions notifications.
 			$notificationMgr = new NotificationManager();
 			$editorDecisionNotificationType = $this->_getNotificationTypeByEditorDecision($decision);
-			$notificationTypes = $this->_getReviewNotificationTypes();
-			$notificationTypes[] = $editorDecisionNotificationType;
+			$notificationTypes = array_merge(array($editorDecisionNotificationType), $this->_getReviewNotificationTypes());
 			$notificationMgr->updateNotification(
 				$request,
 				$notificationTypes,
@@ -406,22 +405,36 @@ class PKPEditorDecisionHandler extends Handler {
 				$submission->getId()
 			);
 
+			// Update review round notifications
 			$reviewRound = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND);
 			if ($reviewRound) {
 				$notificationMgr->updateNotification(
 					$request,
-					array(NOTIFICATION_TYPE_ALL_REVIEWS_IN),
+					array(NOTIFICATION_TYPE_ALL_REVIEWS_IN, NOTIFICATION_TYPE_ALL_REVISIONS_IN),
 					null,
 					ASSOC_TYPE_REVIEW_ROUND,
 					$reviewRound->getId()
 				);
+			}
 
+			// Update submission notifications
+			$submissionNotificationsToUpdate = array(
+				SUBMISSION_EDITOR_DECISION_ACCEPT => array(NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,	NOTIFICATION_TYPE_AWAITING_COPYEDITS),
+				SUBMISSION_EDITOR_DECISION_SEND_TO_PRODUCTION => array(
+					NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,
+					NOTIFICATION_TYPE_AWAITING_COPYEDITS,
+					NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER,
+					NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS,
+				),
+			);
+			$notificationMgr = new NotificationManager();
+			if (array_key_exists($decision, $submissionNotificationsToUpdate)) {
 				$notificationMgr->updateNotification(
 					$request,
-					array(NOTIFICATION_TYPE_ALL_REVISIONS_IN),
+					$submissionNotificationsToUpdate[$decision],
 					null,
-					ASSOC_TYPE_REVIEW_ROUND,
-					$reviewRound->getId()
+					ASSOC_TYPE_SUBMISSION,
+					$submission->getId()
 				);
 			}
 

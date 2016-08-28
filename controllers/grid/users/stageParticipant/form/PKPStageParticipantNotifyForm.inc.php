@@ -228,6 +228,21 @@ class PKPStageParticipantNotifyForm extends Form {
 			$headNote->setTitle($email->getSubject());
 			$headNote->setContents($email->getBody());
 			$noteDao->insertObject($headNote);
+
+			$notificationMgr = new NotificationManager();
+			$notificationMgr->updateNotification(
+				$request,
+				array(
+					NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,
+					NOTIFICATION_TYPE_AWAITING_COPYEDITS,
+					NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER,
+					NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS,
+				),
+				null,
+				ASSOC_TYPE_SUBMISSION,
+				$submission->getId()
+			);
+
 		}
 	}
 

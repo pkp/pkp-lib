@@ -97,6 +97,7 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate {
 		$userId = current($userIds);
 		$submissionId = $assocId;
 		$stageData = $this->_getStageDataByType();
+		if ($stageData == null) return;
 		$expectedStageId = $stageData['id'];
 
 		$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO');
@@ -108,17 +109,27 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate {
 				// Some user already uploaded a revision. Flag to delete any existing notification.
 				$removeNotifications = true;
 			} else {
-				// Create or update a pending revision task notification.
 				$context = $request->getContext();
 				$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
-				$notificationDao->build(
-					$context->getId(),
-					NOTIFICATION_LEVEL_TASK,
-					$this->getNotificationType(),
+				$notificationFactory = $notificationDao->getByAssoc(
 					ASSOC_TYPE_SUBMISSION,
 					$submissionId,
-					$userId
+					$userId,
+					NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS,
+					$context->getId()
 				);
+				if ($notificationFactory->wasEmpty()) {
+					// Create or update a pending revision task notification.
+					$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
+					$notificationDao->build(
+						$context->getId(),
+						NOTIFICATION_LEVEL_TASK,
+						$this->getNotificationType(),
+						ASSOC_TYPE_SUBMISSION,
+						$submissionId,
+						$userId
+					);
+				}
 			}
 		} else {
 			// No pending revision decision or other later decision overriden it.
@@ -130,6 +141,7 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate {
 			$context = $request->getContext();
 			$notificationDao = DAORegistry::getDAO('NotificationDAO');
 			$notificationDao->deleteByAssoc(ASSOC_TYPE_SUBMISSION, $submissionId, $userId, $this->getNotificationType(), $context->getId());
+			$notificationDao->deleteByAssoc(ASSOC_TYPE_SUBMISSION, $submissionId, $userId, NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS, $context->getId());
 		}
 	}
 
@@ -147,7 +159,7 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate {
 
 		switch ($this->getNotificationType()) {
 			case NOTIFICATION_TYPE_PENDING_INTERNAL_REVISIONS:
-				return $stagesData[WORKFLOW_STAGE_ID_INTERNAL_REVIEW];
+				return array_key_exists(WORKFLOW_STAGE_ID_INTERNAL_REVIEW, $stagesData) ? $stagesData[WORKFLOW_STAGE_ID_INTERNAL_REVIEW] : null;
 			case NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS:
 				return $stagesData[WORKFLOW_STAGE_ID_EXTERNAL_REVIEW];
 			default:

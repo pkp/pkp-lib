@@ -448,17 +448,27 @@ class PKPReviewerGridHandler extends GridHandler {
 			// Editor completes the review.
 			$reviewAssignment->setDateConfirmed(Core::getCurrentDate());
 			$reviewAssignment->setDateCompleted(Core::getCurrentDate());
-			// Remove the reviewer task.
-			$notificationDao = DAORegistry::getDAO('NotificationDAO');
-			$notificationDao->deleteByAssoc(
-				ASSOC_TYPE_REVIEW_ASSIGNMENT,
-				$reviewAssignment->getId(),
-				$reviewAssignment->getReviewerId(),
-				NOTIFICATION_TYPE_REVIEW_ASSIGNMENT
-			);
 		}
 
 		$this->_updateReviewRoundStatus($reviewAssignment);
+
+		// Remove the reviewer task.
+		$notificationDao = DAORegistry::getDAO('NotificationDAO');
+		$notificationDao->deleteByAssoc(
+			ASSOC_TYPE_REVIEW_ASSIGNMENT,
+			$reviewAssignment->getId(),
+			$reviewAssignment->getReviewerId(),
+			NOTIFICATION_TYPE_REVIEW_ASSIGNMENT
+		);
+		$notificationMgr = new NotificationManager();
+		$reviewRound = $this->getReviewRound();
+		$notificationMgr->updateNotification(
+			$request,
+			array(NOTIFICATION_TYPE_ALL_REVIEWS_IN),
+			null,
+			ASSOC_TYPE_REVIEW_ROUND,
+			$reviewRound->getId()
+		);
 
 		return DAO::getDataChangedEvent($reviewAssignment->getId());
 	}

@@ -80,33 +80,44 @@ abstract class PKPManageFileApiHandler extends Handler {
 		if (!$submissionFileDao->deleteRevisionById($submissionFile->getFileId(), $submissionFile->getRevision(), $submissionFile->getFileStage(), $submission->getId())) return new JSONMessage(false);
 
 		$notificationMgr = new NotificationManager();
-		if ($submissionFile->getFileStage() == SUBMISSION_FILE_REVIEW_REVISION) {
-			// Get a list of author user IDs
-			$authorUserIds = array();
-			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-			$submitterAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), ROLE_ID_AUTHOR);
-			while ($assignment = $submitterAssignments->next()) {
-				$authorUserIds[] = $assignment->getUserId();
-			}
+		switch ($submissionFile->getFileStage()) {
+			case SUBMISSION_FILE_REVIEW_REVISION:
+				// Get a list of author user IDs
+				$authorUserIds = array();
+				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+				$submitterAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), ROLE_ID_AUTHOR);
+				while ($assignment = $submitterAssignments->next()) {
+					$authorUserIds[] = $assignment->getUserId();
+				}
 
-			// Update the notifications
-			$notificationMgr->updateNotification(
-				$request,
-				array(NOTIFICATION_TYPE_PENDING_INTERNAL_REVISIONS, NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS),
-				$authorUserIds,
-				ASSOC_TYPE_SUBMISSION,
-				$submission->getId()
-			);
+				// Update the notifications
+				$notificationMgr->updateNotification(
+					$request,
+					array(NOTIFICATION_TYPE_PENDING_INTERNAL_REVISIONS, NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS),
+					$authorUserIds,
+					ASSOC_TYPE_SUBMISSION,
+					$submission->getId()
+				);
 
-			$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-			$lastReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
-			$notificationMgr->updateNotification(
-				$request,
-				array(NOTIFICATION_TYPE_ALL_REVISIONS_IN),
-				null,
-				ASSOC_TYPE_REVIEW_ROUND,
-				$lastReviewRound->getId()
-			);
+				$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+				$lastReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
+				$notificationMgr->updateNotification(
+					$request,
+					array(NOTIFICATION_TYPE_ALL_REVISIONS_IN),
+					null,
+					ASSOC_TYPE_REVIEW_ROUND,
+					$lastReviewRound->getId()
+				);
+				break;
+			case SUBMISSION_FILE_COPYEDIT:
+				$notificationMgr->updateNotification(
+					$request,
+					array(NOTIFICATION_TYPE_ASSIGN_COPYEDITOR, NOTIFICATION_TYPE_AWAITING_COPYEDITS),
+					null,
+					ASSOC_TYPE_SUBMISSION,
+					$submission->getId()
+				);
+				break;
 		}
 
 		$this->removeFileIndex($submission, $submissionFile);

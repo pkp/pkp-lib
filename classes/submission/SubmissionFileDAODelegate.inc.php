@@ -89,8 +89,19 @@ class SubmissionFileDAODelegate extends DAO {
 			$submissionFile->setFileId($this->_getInsertId('submission_files', 'file_id'));
 		}
 
+		$reviewStage = $submissionFile->getFileStage() == SUBMISSION_FILE_REVIEW_FILE ||
+			$submissionFile->getFileStage() == SUBMISSION_FILE_REVIEW_ATTACHMENT ||
+			$submissionFile->getFileStage() == SUBMISSION_FILE_REVIEW_REVISION;
 		if (!$submissionFile->getName(AppLocale::getPrimaryLocale())) {
-			$submissionFile->setName($submissionFile->_generateName(), AppLocale::getPrimaryLocale());
+			if ($reviewStage) {
+				$submissionFile->setName($submissionFile->_generateName(true), AppLocale::getPrimaryLocale());
+			} else {
+				$submissionFile->setName($submissionFile->_generateName(), AppLocale::getPrimaryLocale());
+			}
+		} else {
+			if ($reviewStage &&	$submissionFile->getName(AppLocale::getPrimaryLocale()) == $submissionFile->_generateName()) {
+				$submissionFile->setName($submissionFile->_generateName(true), AppLocale::getPrimaryLocale());
+			}
 		}
 
 		$this->updateLocaleFields($submissionFile);

@@ -144,7 +144,7 @@
 	<message key="submission.attachedFile">Angehängte Datei</message>
 	<message key="submission.backToSubmissionEditing">Zurück zur Beitragsbearbeitung</message>
 	<message key="submission.changeComments">Ändern in</message>
-	<message key="submission.citations">Literaturhinweise</message>
+	<message key="submission.citations">Literaturhinweise</message>	
 	<message key="submission.citations.editor.citationlist.approved">Bestätigt</message>
 	<message key="submission.citations.editor.citationlist.deleteCitationConfirmation">Sind Sie sicher, dass Sie diese Zitation löschen möchten?</message>
 	<message key="submission.citations.editor.citationlist.errorDeletingCitation">Ein Fehler ist bei dem Versuch, die Zitation zu löschen, aufgetreten. Bitte melden Sie dies als einen Bug.</message>
@@ -464,7 +464,7 @@
 	<message key="submission.upload.selectMandatoryFileToRevise">Bitte wählen Sie die Datei aus, die Sie überarbeiten/ersetzen wollen.</message>
 	<message key="submission.upload.selectOptionalFileToRevise">Wenn Sie eine überarbeitete Fassung einer existierenden Datei hochladen, geben Sie bitte an, welche Datei.</message>
 	<message key="submission.upload.uploadNewFile">Datei auswählen (um Historie intakt zu lassen)</message>
-	<message key="submission.upload.userGroup">Diese Datei hochladen in meiner
+	<message key="submission.upload.userGroup">Diese Datei hochladen in meiner 
 	Rolle als ...</message>
 	<message key="submission.upload.userGroupDescription">Wenn Sie einen Sammelband einreichen, sollten Sie alle Kapitel individuell in Ihrer Rolle als Sammelbandherausgeber/in hochladen.</message>
 	<message key="submission.upload.uploadLibraryFile">Eine Bibliotheksdatei hochladen</message>
@@ -477,6 +477,7 @@
 	<message key="submission.upload.uploadFiles">Dateien hochladen</message>
 	<message key="submission.upload.response.description">Nach der Durchsicht der zugeordneten Datei geben Sie bitte alle Kommentare zu der Datei unten ein und/oder laden Sie eine kommentierte Version der Datei (oder eine andere Datei) hoch.</message>
 	<message key="submission.upload.productionReady">Eine druckreife Datei hochladen</message>
+	<message key="submission.upload.proof">Korrekturfahne hochladen</message>
 	<message key="submission.upload.noAvailableReviewFiles">Momentan liegen keine Dateien für Sie zur Überarbeitung vor.</message>
 
 	<!-- Review Round Status Keys -->
@@ -492,7 +493,7 @@
 
 	<!-- Participants -->
 	<message key="editor.submission.stageParticipants">Beteiligte</message>
-
+	
 	<!-- Stage Participants grid -->
 	<message key="editor.submission.noneAssigned">Nicht zugewiesen</message>
 	<message key="editor.submission.participant">Beteiligte/r</message>
@@ -614,8 +615,8 @@
 	<message key="submission.query.closed">Geschlossen</message>
 	<message key="submission.query.addNote">Nachricht hinzufügen</message>
 	<message key="grid.action.openNoteForm">Eine neue Antwort zur Diskussion hinzufügen</message>
-	<message key="submission.query.activity">Es gibt eine neue Aktivität in einer Diskussion.</message>
-	<message key="submission.query.new">Es gibt eine neue Anfrage zu beantworten.</message>
+	<message key="submission.query.activity">{$responderName} hat auf {$noteTitle}: {$noteContents} geantwortet</message>
+	<message key="submission.query.new">{$creatorName} hat eine neue Diskussion begonnen: {$noteTitle}: {$noteContents}</message>
 	<message key="submission.query.activity.contents">Es gibt eine neue Aktivität in der Diskussion "{$queryTitle}" in Bezug auf das Manuskript "{$submissionTitle}".</message>
 	<message key="submission.query.new.contents">Sie sind zu einer Diskussion unter dem Titel "{$queryTitle}" in Bezug auf das Manuskript "{$submissionTitle}" hinzugefügt worden.</message>
 	<message key="submission.citations.filter.webserviceError">Der Webdienst für {$filterName} hat einen Fehler zurückgeliefert beim Aufruf dieser URL: {$webserviceUrl}. Es kann sein, dass der Webdienst vorübergehend nicht verfügbar ist. Sie können immer noch mit den sonstigen Diensten weiterarbeiten und Ihre Ergebnisse speichern. Sie können es auch später noch einmal versuchen. Wenn der Fehler andauert, bitten Sie die/den Verwalter/in, den Dienst zu deaktivieren und einen Bug Report einzureichen.</message>
@@ -627,4 +628,10 @@
 	<message key="submission.authorBiographies">Autor/innen-Biografien</message>
 	<message key="submission.changeFile">Datei ändern</message>
 	<message key="submission.attachPermissions">Die folgenden Rechte für die Einreichung festlegen:</message>
+	<message key="author.submission.roundStatus.reviewsReady">Neue Gutachten sind eingegangen und werden durch den/die Redakteur/in geprüft.</message>
+	<message key="submission.event.participantAdded">{$name} wurde dieser Einreichung als {$userGroupName} hinzugefügt.</message>
+	<message key="notification.type.copyeditorRequest">Sie sind gebeten worden, das Lektorat von "{$title}" zu überprüfen.</message>
+	<message key="notification.type.layouteditorRequest">Sie sind gebeten worden, Layouts für "{$title}" zu überprüfen.</message>
+	<message key="notification.type.indexRequest">Sie sind gebeten worden, einen Index für "{$title}" anzulegen.</message>
+	<message key=""><![CDATA[]]></message>
 </locale>

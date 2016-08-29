@@ -57,8 +57,9 @@
 	<message key="plugins.generic.usageStats.optout.title">Nutzungsstatistik-Informationen</message>
 	<message key="plugins.generic.usageStats.optout.shortDesc"><![CDATA[Wir führen eine anonymisierte Nutzungsstatistik. Bitte lesen Sie die <a href="{$privacyInfo}">Datenschutz-Informationen</a>, um mehr zu erfahren.]]></message>
 	<message key="plugins.reports.usageStats.metricType">COUNTER</message>
-	<message key="plugins.reports.usageStats.metricType.full">Nutungsstatistik (COUNTER-fähig)</message>
+	<message key="plugins.reports.usageStats.metricType.full">Nutzungsstatistik (COUNTER-fähig)</message>
 	<message key="plugins.generic.usageStats.statsSum">Summe aller Downloads</message>
 	<message key="plugins.generic.usageStats.noStats">Keine Nutzungsdaten vorhanden.</message>
 	<message key="plugins.generic.usageStats.monthInitials">Jan Feb Mär Apr Mai Jun Jul Aug Sep Okt Nov Dez</message>
+	<message key="plugins.generic.usageStats.downloads">Downloads</message>
 </locale>

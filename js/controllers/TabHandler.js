@@ -291,15 +291,15 @@
 		var $element = this.getHtmlElement(),
 				numTabs = $element.children('ul').children('li').length + 1,
 				$anchorElement = $('<a/>')
-					.text(jsonContent.title)
-					.attr('href', jsonContent.url),
+						.text(jsonContent.title)
+						.attr('href', jsonContent.url),
 				$closeSpanElement = $('<a/>')
-					.addClass('close')
-					.text($.pkp.locale.common_close)
-					.attr('href', '#'),
+						.addClass('close')
+						.text($.pkp.locale.common_close)
+						.attr('href', '#'),
 				$liElement = $('<li/>')
-					.append($anchorElement)
-					.append($closeSpanElement);
+						.append($anchorElement)
+						.append($closeSpanElement);
 
 		// Get the "close" button working
 		$closeSpanElement.click(function() {

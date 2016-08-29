@@ -179,7 +179,7 @@
 
 		// Add aria role and label
 		$modal.attr('role', 'dialog')
-			.attr('aria-label', this.options.title);
+				.attr('aria-label', this.options.title);
 
 		return $modal;
 	};

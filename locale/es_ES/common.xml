@@ -409,6 +409,7 @@
 	<message key="notification.unsubscribeSuccess">Ha sido correctamente des-suscrito.</message>
 	<message key="notification.savedSubmissionMetadata">Metadatos de envíos guardados.</message>
 	<message key="search.abstract">Resumen</message>
+	<message key="search.author">Autores/as</message>
 	<message key="search.advancedFilters">Filtros avanzados</message>
 	<message key="search.advancedSearchMore">Opciones de búsqueda adicionales (haga clic para mostrar)</message>
 	<message key="search.advancedSearchLess">Opciones de búsqueda adicionales (haga clic para esconder)</message>

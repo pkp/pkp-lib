@@ -246,6 +246,7 @@
 	<message key="navigation.userHome">Brugerstartside</message>
 	<message key="navigation.user">Bruger</message>
 	<message key="search.abstract">Resumé</message>
+	<message key="search.author">Forfattere</message>
 	<message key="search.coverage">Dækning</message>
 	<message key="search.date">Dato</message>
 	<message key="search.dateFrom">Fra</message>

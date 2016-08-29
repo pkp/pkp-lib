@@ -233,6 +233,7 @@
 	<message key="navigation.userHome">Usuario</message>
 	<message key="navigation.user">Usuario</message>
 	<message key="search.abstract">Resumen</message>
+	<message key="search.author">Autoras/es</message>
 	<message key="search.coverage">Cobertura</message>
 	<message key="search.date">Fecha</message>
 	<message key="search.dateFrom">Desde</message>

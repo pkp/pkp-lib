@@ -303,6 +303,7 @@
 	<message key="notification.unsubscribeError">Došlo je do greške prilikom Vaše odjave. Molimo Vas da proverite da li su imejl adresa i lozinka ispravne.</message>
 	<message key="notification.unsubscribeSuccess">Uspešno ste odjavljeni.</message>
 	<message key="search.abstract">Apstrakt</message>
+	<message key="search.author">Autori</message>
 	<message key="search.coverage">Pokrivenost</message>
 	<message key="search.date">Datum</message>
 	<message key="search.dateFrom">Od</message>

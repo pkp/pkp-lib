@@ -251,6 +251,7 @@
 	<message key="navigation.userHome">Accueil de l'utilisateur</message>
 	<message key="navigation.user">Utilisateur</message>
 	<message key="search.abstract">Résumé</message>
+	<message key="search.author">Auteurs</message>
 	<message key="search.coverage">Couverture</message>
 	<message key="search.date">Date</message>
 	<message key="search.dateFrom">De</message>

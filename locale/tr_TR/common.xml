@@ -304,6 +304,7 @@
 	<message key="notification.unsubscribeError">Aboneliğiniz sonlandırılırken bir hata oluştu. Lütfen e-posta adresinizin ve parolanızın doğru olduğundan emin olunuz.</message>
 	<message key="notification.unsubscribeSuccess">Aboneliğiniz başarılı bir şekilde sonlandırıldı.</message>
 	<message key="search.abstract">Öz</message>
+	<message key="search.author">Yazarlar</message>
 	<message key="search.coverage">Kapsam</message>
 	<message key="search.date">Tarih</message>
 	<message key="search.dateFrom">den</message>

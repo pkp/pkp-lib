@@ -165,7 +165,7 @@
 				windowBottom = windowScrollTop + $(window).height(),
 				// Consider modals and its own scroll functionality.
 				$parentModalContentWrapper = $notificationElement
-					.parents('.ui-dialog-content'),
+						.parents('.ui-dialog-content'),
 				modalContentTop, modalContentBottom;
 
 		if ($parentModalContentWrapper.length > 0) {

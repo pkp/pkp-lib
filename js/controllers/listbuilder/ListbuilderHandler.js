@@ -325,7 +325,7 @@
 		var $callingContext = $(callingContext),
 				$targetRow = $callingContext.closest('.gridRow'),
 				$deletions = $callingContext.closest('.pkp_controllers_listbuilder')
-					.find('.deletions'),
+						.find('.deletions'),
 				rowId = $targetRow.find('input[name="rowId"]').val();
 
 		// Append the row ID to the deletions list.

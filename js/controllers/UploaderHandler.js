@@ -226,7 +226,7 @@
 	$.pkp.controllers.UploaderHandler.prototype.
 			updateStatus = function(status) {
 		this.getHtmlElement().removeClass('loading waiting uploading error complete')
-			.addClass(status);
+				.addClass(status);
 	};
 
 

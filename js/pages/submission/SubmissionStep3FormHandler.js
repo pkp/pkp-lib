@@ -75,7 +75,7 @@ jQuery.pkp.pages.submission = jQuery.pkp.pages.submission || { };
 
 		if ($eventTarget.id == this.authorsGridContainer_) {
 			$('#' + this.chaptersGridContainer_).find('.pkp_controllers_grid')
-			.trigger('dataChanged');
+					.trigger('dataChanged');
 		}
 	};
 

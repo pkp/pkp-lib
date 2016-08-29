@@ -99,6 +99,13 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	 * @return null
 	 */
 	public function themeRegistered($themes) {
+
+		// Don't fully initialize the theme until OJS is installed, so that
+		// there are no requests to the database before it exists
+		if (defined('SESSION_DISABLE_INIT')) {
+			return;
+		}
+
 		$this->init();
 	}
 

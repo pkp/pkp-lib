@@ -465,7 +465,7 @@
 	<message key="notification.removedNote">Note supprimée.</message>
 	<message key="notification.removedFile">Fichier supprimé.</message>
 	<message key="notification.sentNotification">Avis envoyé.</message>
-	<message key="search.activeFilters">Filtres avancés</message>
+	<message key="search.advancedFilters">Filtres avancés</message>
 	<message key="search.advancedSearchLess">Options de recherche supplémentaires (cliquer pour cacher)</message>
 	<message key="search.cli.rebuildIndex.clearingIndex">Elimination de l'index</message>
 	<message key="search.cli.rebuildIndex.done">Terminé</message>

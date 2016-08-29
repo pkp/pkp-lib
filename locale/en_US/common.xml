@@ -456,7 +456,7 @@
 	<message key="notification.savedSubmissionMetadata">Submission metadata saved.</message>
 	<message key="search.author">By Author</message>
 	<message key="search.abstract">Abstract</message>
-	<message key="search.activeFilters">Advanced filters</message>
+	<message key="search.advancedFilters">Advanced filters</message>
 	<message key="search.advancedSearchMore">More search options</message>
 	<message key="search.advancedSearchLess">Hide more search options</message>
 	<message key="search.allFields">All</message>

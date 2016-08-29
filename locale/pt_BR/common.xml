@@ -450,7 +450,7 @@
 	<message key="notification.unsubscribeSuccess">Cancelamento de assinatura de notificações realizado com sucesso.</message>
 	<message key="notification.savedSubmissionMetadata">Metadados da submissão salvos.</message>
 	<message key="search.abstract">Resumo</message>
-	<message key="search.activeFilters">Filtros avançados</message>
+	<message key="search.advancedFilters">Filtros avançados</message>
 	<message key="search.advancedSearchMore">Opções adicionais de pesquisa (clique para exibir)</message>
 	<message key="search.advancedSearchLess">Opções adicionais de pesquisa (clique para ocultar)</message>
 	<message key="search.allFields">Todos</message>

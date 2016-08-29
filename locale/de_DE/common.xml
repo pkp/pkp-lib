@@ -420,7 +420,7 @@
 	<message key="notification.unsubscribeSuccess">Sie wurden erfolgreich ausgetragen.</message>
 	<message key="notification.savedSubmissionMetadata">Metadaten gespeichert.</message>
 	<message key="search.abstract">Abstract</message>
-	<message key="search.activeFilters">Erweiterte Filter</message>
+	<message key="search.advancedFilters">Erweiterte Filter</message>
 	<message key="search.advancedSearchMore">Zusätzliche Suchoptionen (klicken zum Einblenden)</message>
 	<message key="search.advancedSearchLess">Zusätzliche Suchoptionen (klicken zum Verbergen)</message>
 	<message key="search.allFields">Alle</message>

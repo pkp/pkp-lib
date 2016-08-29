@@ -238,7 +238,6 @@
 	<message key="navigation.userHome">Korisnička</message>
 	<message key="navigation.user">Korisnik</message>
 	<message key="search.abstract">Sažetak</message>
-	<message key="search.allFields">Sve</message>
 	<message key="search.coverage">Opseg</message>
 	<message key="search.date">Datum</message>
 	<message key="search.dateFrom">Od</message>

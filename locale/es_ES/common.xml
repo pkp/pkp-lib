@@ -412,7 +412,6 @@
 	<message key="search.advancedFilters">Filtros avanzados</message>
 	<message key="search.advancedSearchMore">Opciones de búsqueda adicionales (haga clic para mostrar)</message>
 	<message key="search.advancedSearchLess">Opciones de búsqueda adicionales (haga clic para esconder)</message>
-	<message key="search.allFields">Todos</message>
 	<message key="search.cli.rebuildIndex.clearingIndex">Restablecer índice</message>
 	<message key="search.cli.rebuildIndex.done">hecho</message>
 	<message key="search.cli.rebuildIndex.error">error</message>

@@ -31,7 +31,7 @@
 	<message key="announcement.moreAnnouncements">Outras notícias...</message>
 	<message key="announcement.noneExist">Nenhuma notícia publicada.</message>
 	<message key="announcement.posted">Publicado</message>
-	<message key="announcement.postedOn">Postado em {$postDate}</message>	
+	<message key="announcement.postedOn">Postado em {$postDate}</message>
 	<message key="announcement.view">Ler notícia</message>
 	<message key="common.navigation.sidebar">Barra lateral</message>
 	<message key="common.navigation.site">Navegação no Site</message>
@@ -199,7 +199,7 @@
 	<message key="common.prefixAndTitle.tip">Se o título do livro começar com "Um" ou "O" (ou algo similar na ordem alfabética) coloque a palavra no prefixo.</message>
 	<message key="common.subtitle.tip">O subtítulo da submissão aparecerá depois de dois pontos (:), seguindo o título principal.</message>
 	<message key="common.preview">Visualizar</message>
-	<message key="common.publisher">Editora</message>	
+	<message key="common.publisher">Editora</message>
 	<message key="common.quality">Qualidade</message>
 	<message key="common.queue.long.active">Ativos</message>
 	<message key="common.range">{$min}-{$max}</message>
@@ -453,7 +453,6 @@
 	<message key="search.advancedFilters">Filtros avançados</message>
 	<message key="search.advancedSearchMore">Opções adicionais de pesquisa (clique para exibir)</message>
 	<message key="search.advancedSearchLess">Opções adicionais de pesquisa (clique para ocultar)</message>
-	<message key="search.allFields">Todos</message>
 	<message key="search.searchAgain">Buscar novamente</message>
 	<message key="search.cli.rebuildIndex.clearingIndex">Índice de tiragem</message>
 	<message key="search.cli.rebuildIndex.done">feito</message>

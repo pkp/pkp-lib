@@ -248,7 +248,6 @@
 	<message key="navigation.userHome">Área Persoal</message>
 	<message key="navigation.user">Usuario/a</message>
 	<message key="search.abstract">Resumo</message>
-	<message key="search.allFields">Todos</message>
 	<message key="search.coverage">Cobertura</message>
 	<message key="search.date">Data</message>
 	<message key="search.dateFrom">Dende</message>

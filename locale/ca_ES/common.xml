@@ -429,7 +429,6 @@
 	<message key="search.advancedFilters">Filtres avançats</message>
 	<message key="search.advancedSearchMore">Opcions de cerca addicionals (feu clic per mostrar-les)</message>
 	<message key="search.advancedSearchLess">Opcions de cerca addicionals (feu clic per amagar-les)</message>
-	<message key="search.allFields">A tots els camps</message>
 	<message key="search.cli.rebuildIndex.clearingIndex">Neteja de l'índex</message>
 	<message key="search.cli.rebuildIndex.done">fet</message>
 	<message key="search.cli.rebuildIndex.error">error</message>

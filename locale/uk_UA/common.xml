@@ -303,7 +303,6 @@
 	<message key="notification.unsubscribeError">Під час відмови від передплати сталася помилка.  Будь ласка, перевірте коректність введеної Вами адреси email та пароля.</message>
 	<message key="notification.unsubscribeSuccess">Ваша передплата була успішно скасована.</message>
 	<message key="search.abstract">Анотація</message>
-	<message key="search.allFields">Всі поля</message>
 	<message key="search.coverage">Тематичне покриття</message>
 	<message key="search.date">Дата</message>
 	<message key="search.dateFrom">З</message>

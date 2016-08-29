@@ -459,7 +459,6 @@
 	<message key="search.advancedFilters">Advanced filters</message>
 	<message key="search.advancedSearchMore">More search options</message>
 	<message key="search.advancedSearchLess">Hide more search options</message>
-	<message key="search.allFields">All</message>
 	<message key="search.searchAgain">Search again</message>
 	<message key="search.cli.rebuildIndex.clearingIndex">Clearing index</message>
 	<message key="search.cli.rebuildIndex.done">done</message>

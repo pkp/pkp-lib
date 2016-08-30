@@ -31,7 +31,6 @@
 			});
 			$activeThemeOptions.find('input[type="color"]').each(function() {
 				var $colourInput = $(this);
-				console.log($colourInput);
 				$colourInput.spectrum({
 					preferredFormat: 'hex',
 					showInitial: true,

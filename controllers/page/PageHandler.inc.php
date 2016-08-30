@@ -119,7 +119,7 @@ class PageHandler extends Handler {
 
 						// Process styles registered with the current theme
 						$styles = '';
-						$themes = PluginRegistry::loadCategory('themes');
+						$themes = PluginRegistry::loadCategory('themes', true);
 						foreach($themes as $theme) {
 							if ($theme->isActive()) {
 								$style = $theme->getStyle($name);

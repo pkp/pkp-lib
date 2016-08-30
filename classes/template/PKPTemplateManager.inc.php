@@ -815,7 +815,7 @@ class PKPTemplateManager extends Smarty {
 			$instance = new TemplateManager($request);
 			$themes = PluginRegistry::getPlugins('themes');
 			if (is_null($themes)) {
-				$themes = PluginRegistry::loadCategory('themes');
+				$themes = PluginRegistry::loadCategory('themes', true);
 			}
 			$instance->initialize();
 		}

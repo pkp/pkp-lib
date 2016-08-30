@@ -41,7 +41,7 @@ class PKPAppearanceForm extends ContextSettingsForm {
 
 		$themes = PluginRegistry::getPlugins('themes');
 		if (is_null($themes)) {
-			PluginRegistry::loadCategory('themes');
+			PluginRegistry::loadCategory('themes', true);
 		}
 
 		parent::ContextSettingsForm($settings, 'controllers/tab/settings/appearance/form/appearanceForm.tpl', $wizardMode);
@@ -102,7 +102,7 @@ class PKPAppearanceForm extends ContextSettingsForm {
 
 		$themePlugins = PluginRegistry::getPlugins('themes');
 		if (is_null($themePlugins)) {
-			$themePlugins = PluginRegistry::loadCategory('themes');
+			$themePlugins = PluginRegistry::loadCategory('themes', true);
 		}
 		$enabledThemes = array();
 		$activeThemeOptions = array();

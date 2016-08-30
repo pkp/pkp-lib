@@ -35,7 +35,7 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 
 		$themes = PluginRegistry::getPlugins('themes');
 		if (is_null($themes)) {
-			PluginRegistry::loadCategory('themes');
+			PluginRegistry::loadCategory('themes', true);
 		}
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON);
@@ -82,7 +82,7 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 
 		$themePlugins = PluginRegistry::getPlugins('themes');
 		if (is_null($themePlugins)) {
-			$themePlugins = PluginRegistry::loadCategory('themes');
+			$themePlugins = PluginRegistry::loadCategory('themes', true);
 		}
 		$enabledThemes = array();
 		$activeThemeOptions = array();

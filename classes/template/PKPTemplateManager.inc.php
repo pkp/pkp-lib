@@ -197,14 +197,14 @@ class PKPTemplateManager extends Smarty {
 				'spectrum',
 				$this->_request->getBaseUrl() . '/lib/pkp/js/lib/jquery/plugins/spectrum/spectrum.js',
 				array(
-					'contexts' => array('backend-management-settings'),
+					'contexts' => array('backend-management-settings', 'backend-admin-settings'),
 				)
 			);
 			$this->addStyleSheet(
 				'spectrum',
 				$this->_request->getBaseUrl() . '/lib/pkp/js/lib/jquery/plugins/spectrum/spectrum.css',
 				array(
-					'contexts' => array('backend-management-settings'),
+					'contexts' => array('backend-management-settings', 'backend-admin-settings'),
 				)
 			);
 
@@ -794,7 +794,7 @@ class PKPTemplateManager extends Smarty {
 	public function clearCssCache() {
 		$cacheDirectory = CacheManager::getFileCachePath();
 		$files = scandir($cacheDirectory);
-		array_map('unlink', glob(CacheManager::getFileCachePath . DIRECTORY_SEPARATOR . '*.' . CSS_FILENAME_SUFFIX));
+		array_map('unlink', glob(CacheManager::getFileCachePath() . DIRECTORY_SEPARATOR . '*.' . CSS_FILENAME_SUFFIX));
 	}
 
 	/**

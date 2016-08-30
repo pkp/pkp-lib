@@ -461,7 +461,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 		$option = !empty($this->options[$name]) ? $this->options[$name] : null;
 
 		if (is_null($option)) {
-			return $this->parent ? $this->parent->saveOption($name, $value) : false;
+			return $this->parent ? $this->parent->saveOption($name, $value, $contextId) : false;
 		}
 
 		$type = '';

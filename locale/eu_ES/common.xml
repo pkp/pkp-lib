@@ -90,6 +90,8 @@
 	<message key="common.fileName">Fitxategi-izena</message>
 	<message key="common.fileSize">Fitxategi-tamaina</message>
 	<message key="common.fileType">Fitxategi mota</message>
+	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
 	<message key="common.height">Altuera</message>
 	<message key="common.homePageHeaderLogo.altText">Hasierako orriaren goiburuko logoa</message>
 	<message key="common.hour">Ordua</message>

@@ -90,6 +90,8 @@
 	<message key="common.fileName">Bestandsnaam</message>
 	<message key="common.fileSize">Bestandsgrootte</message>
 	<message key="common.fileType">Bestandstype</message>
+	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
 	<message key="common.height">Hoogte</message>
 	<message key="common.homePageHeaderLogo.altText">Home-pagina logo</message>
 	<message key="common.hour">Uur</message>

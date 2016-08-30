@@ -91,6 +91,8 @@
 	<message key="common.fileName">Όνομα αρχείου</message>
 	<message key="common.fileSize">Μέγεθος αρχείου</message>
 	<message key="common.fileType">Τύπος αρχείου</message>
+	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
 	<message key="common.height">Ύψος</message>
 	<message key="common.homePageHeaderLogo.altText">Logo Επικεφαλίδας Αρχικής Σελίδας</message>
 	<message key="common.hour">Ώρα</message>

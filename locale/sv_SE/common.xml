@@ -89,6 +89,8 @@
 	<message key="common.fileName">Filnamn</message>
 	<message key="common.fileSize">Filstorlek</message>
 	<message key="common.fileType">Filtyp</message>
+	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
 	<message key="common.height">Höjd</message>
 	<message key="common.hour">Timme</message>
 	<message key="common.id">ID</message>

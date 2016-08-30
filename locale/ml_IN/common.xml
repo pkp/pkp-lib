@@ -107,6 +107,8 @@
 	<message key="common.fileName">രേഖാസമാഹാരത്തിന്റെ പേര്</message>
 	<message key="common.fileSize">രേഖാസമാഹാരത്തിന്റെ വലിപ്പം</message>
 	<message key="common.fileType">രേഖാസമാഹാരത്തിന്റെ ഇനം</message>
+	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
 	<message key="common.height">പൊക്കം</message>
 	<message key="common.homePageHeaderLogo.altText">പ്രധാനതാള്‍ ഹെഡെര്‍ ലോഗോ</message>
 	<message key="common.hour">മണിക്കൂര്‍</message>

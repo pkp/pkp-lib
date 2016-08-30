@@ -570,7 +570,7 @@ class SubmissionFile extends PKPFile {
 
 	/**
 	 * Generate a user-facing name for the file
-	 * @param $anonymous boolen Whether the user name should be excluded
+	 * @param $anonymous boolean Whether the user name should be excluded
 	 * @return string
 	 */
 	function _generateName($anonymous = false) {

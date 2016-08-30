@@ -77,6 +77,8 @@
 	<message key="common.fileName">檔名</message>
 	<message key="common.fileSize">檔案大小</message>
 	<message key="common.fileType">檔案類別</message>
+	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
 	<message key="common.height">高度</message>
 	<message key="common.hour">時</message>
 	<message key="common.id">識別碼</message>

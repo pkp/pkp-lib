@@ -106,6 +106,8 @@
 	<message key="common.fileName">Ime fajla</message>
 	<message key="common.fileSize">Veličina fajla</message>
 	<message key="common.fileType">Tip fajla</message>
+	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
 	<message key="common.height">Visina</message>
 	<message key="common.homePageHeaderLogo.altText">Logo zaglavlja naslovne strane</message>
 	<message key="common.hour">Sat</message>

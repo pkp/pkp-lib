@@ -30,15 +30,16 @@
 				$activeThemeOptions.empty();
 			});
 			$activeThemeOptions.find('input[type="color"]').each(function() {
-				var $colorInput = $(this);
-				$colorInput.spectrum({
+				var $colourInput = $(this);
+				console.log($colourInput);
+				$colourInput.spectrum({
 					preferredFormat: 'hex',
 					showInitial: true,
 					showButtons: false,
-					change: function(color)  {
-						$colorInput.val(
+					change: function(colour)  {
+						$colourInput.val(
 								/** @type {{toHexString: function()}} */
-								color.toHexString()
+								colour.toHexString()
 						);
 					}
 				});

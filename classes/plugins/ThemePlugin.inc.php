@@ -333,11 +333,11 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	 *
 	 * Theme options are added programmatically to the Settings > Website >
 	 * Appearance form when this theme is activated. Common options are
-	 * color and typography selectors.
+	 * colour and typography selectors.
 	 *
 	 * @param $name string Unique name for this setting
 	 * @param $type string A pre-registered type of setting. Supported values:
-	 *   text|color|select. Default: `text`
+	 *   text|colour|select. Default: `text`
 	 * @param $args array Optional parameters defining this setting. Some setting
 	 *   types may accept or require additional arguments.
 	 *  `label` string Locale key for a label for this field.
@@ -467,7 +467,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 		switch ($option['type']) {
 			case 'text' :
 			case 'select' :
-			case 'color' :
+			case 'colour' :
 				$type = 'text';
 				break;
 		}
@@ -681,10 +681,10 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	}
 
 	/**
-	 * Check if the passed color is dark
+	 * Check if the passed colour is dark
 	 *
-	 * This is a utility function to determine the darkness of a hex color. This
-	 * is designed to be used in theme color options, so that text can be
+	 * This is a utility function to determine the darkness of a hex colour. This
+	 * is designed to be used in theme colour options, so that text can be
 	 * adjusted to ensure it's readable on light or dark backgrounds. You can
 	 * specify the brightness threshold by passing in a $limit value. Higher
 	 * values are brighter.
@@ -693,11 +693,11 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	 *
 	 * @since 0.1
 	 */
-	function isColorDark( $color, $limit = 130 ) {
-		$color = str_replace( '#', '', $color );
-		$r = hexdec( substr( $color, 0, 2 ) );
-		$g = hexdec( substr( $color, 2, 2 ) );
-		$b = hexdec( substr( $color, 4, 2 ) );
+	function isColourDark( $colour, $limit = 130 ) {
+		$colour = str_replace( '#', '', $colour );
+		$r = hexdec( substr( $colour, 0, 2 ) );
+		$g = hexdec( substr( $colour, 2, 2 ) );
+		$b = hexdec( substr( $colour, 4, 2 ) );
 		$contrast = sqrt(
 			$r * $r * .241 +
 			$g * $g * .691 +

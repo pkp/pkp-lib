@@ -36,9 +36,9 @@
 						{/foreach}
 					{/fbvFormSection}
 
-				{elseif $themeOption.type == 'color'}
+				{elseif $themeOption.type == 'colour'}
 					{fbvFormSection label=$themeOption.label}
-						{fbvElement type="color" id="themeOption_"|concat:$themeOptionName value=$themeOption.value|escape default=$themeOption.default label=$themeOption.description}
+						{fbvElement type="colour" id="themeOption_"|concat:$themeOptionName value=$themeOption.value|escape default=$themeOption.default label=$themeOption.description}
 					{/fbvFormSection}
 				{/if}
 			{/foreach}

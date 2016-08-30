@@ -1,5 +1,5 @@
 {**
- * templates/form/color.tpl
+ * templates/form/colour.tpl
  *
  * Copyright (c) 2014-2016 Simon Fraser University Library
  * Copyright (c) 2000-2016 John Willinsky

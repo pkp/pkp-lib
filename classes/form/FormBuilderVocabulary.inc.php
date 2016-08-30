@@ -291,8 +291,8 @@ class FormBuilderVocabulary {
 			case 'textarea':
 				$content = $this->_smartyFBVTextArea($params, $smarty);
 				break;
-			case 'color':
-				$content = $this->_smartyFBVColor($params, $smarty);
+			case 'colour':
+				$content = $this->_smartyFBVColour($params, $smarty);
 				break;
 			default: assert(false);
 		}
@@ -505,18 +505,18 @@ class FormBuilderVocabulary {
 	}
 
 	/**
-	 * Form color input.
+	 * Form colour input.
 	 * parameters: disabled (optional), name (optional - assigned value of 'id' by default)
 	 * @param $params array
 	 * @param $smarty object
 	 */
-	function _smartyFBVColor($params, &$smarty) {
+	function _smartyFBVColour($params, &$smarty) {
 		$params['name'] = isset($params['name']) ? $params['name'] : $params['id'];
 		$params['subLabelTranslate'] = isset($params['subLabelTranslate']) ? (boolean) $params['subLabelTranslate'] : true;
 		$params['uniqId'] = uniqid();
 		$smarty->assign('FBV_isPassword', isset($params['password']) ? true : false);
 
-		$colorParams = '';
+		$colourParams = '';
 		$smarty->clear_assign(array('FBV_disabled', 'FBV_readonly', 'FBV_multilingual', 'FBV_name', 'FBV_value', 'FBV_label_content', 'FBV_uniqId', 'FBV_default'));
 		foreach ($params as $key => $value) {
 			switch ($key) {
@@ -534,14 +534,14 @@ class FormBuilderVocabulary {
 				case 'default':
 					$smarty->assign('FBV_' . $key, $value); break;
 					break;
-				case 'required': if ($value != 'true') $colorParams .= 'required="' + htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING) +'"'; break;
-				default: $colorParams .= htmlspecialchars($key, ENT_QUOTES, LOCALE_ENCODING) . '="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING). '" ';
+				case 'required': if ($value != 'true') $colourParams .= 'required="' + htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING) +'"'; break;
+				default: $colourParams .= htmlspecialchars($key, ENT_QUOTES, LOCALE_ENCODING) . '="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING). '" ';
 			}
 		}
 
-		$smarty->assign('FBV_textInputParams', $colorParams);
+		$smarty->assign('FBV_textInputParams', $colourParams);
 
-		return $smarty->fetch('form/color.tpl');
+		return $smarty->fetch('form/colour.tpl');
 	}
 
 	/**

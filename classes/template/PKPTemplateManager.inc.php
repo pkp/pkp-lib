@@ -192,7 +192,7 @@ class PKPTemplateManager extends Smarty {
 				);
 			}
 
-			// Register color picker assets on the appearance page
+			// Register colour picker assets on the appearance page
 			$this->addJavaScript(
 				'spectrum',
 				Request::getBaseUrl() . '/lib/pkp/js/lib/jquery/plugins/spectrum/spectrum.js',

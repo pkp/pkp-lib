@@ -539,6 +539,7 @@
 	<message key="notification.type.queryAdded">Conversa adicionada.</message>
 	<message key="common.allDownloads">Todos os downloads</message>
 	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
 	<message key="common.reminded.date">Lembrado: {$dateReminded}</message>
 	<message key="common.component">Componente</message>
 	<message key="search.SearchFor">Buscar por</message>

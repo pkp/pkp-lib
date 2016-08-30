@@ -90,6 +90,8 @@
 	<message key="common.fileName">Nome do documento</message>
 	<message key="common.fileSize">Tamanho do documento</message>
 	<message key="common.fileType">Tipo do Documento</message>
+	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
 	<message key="common.height">Altura</message>
 	<message key="common.homePageHeaderLogo.altText">Logótipo do cabeçalho da página inicial</message>
 	<message key="common.hour">Hora</message>

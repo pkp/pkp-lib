@@ -530,6 +530,7 @@
 	<message key="notification.type.queryAdded">Gespräch ergänzt.</message>
 	<message key="common.allDownloads">Alle Downloads</message>
 	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
 	<message key="common.component">Komponente</message>
 	<message key="search.SearchFor">Suchen nach</message>
 	<message key="form.csrfInvalid">Das Formular wurde nicht ordnungsgemäß übermittelt.</message>

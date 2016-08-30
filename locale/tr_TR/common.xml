@@ -107,6 +107,8 @@
 	<message key="common.fileName">Dosya Adı</message>
 	<message key="common.fileSize">Dosya Boyutu</message>
 	<message key="common.fileType">Dosya Türü</message>
+	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
 	<message key="common.height">Boyut</message>
 	<message key="common.homePageHeaderLogo.altText">Ana Sayfa Başlık Logosu</message>
 	<message key="common.hour">Saat</message>

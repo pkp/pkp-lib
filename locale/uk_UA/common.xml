@@ -106,6 +106,8 @@
 	<message key="common.fileName">Ім'я файлу</message>
 	<message key="common.fileSize">Розмір файлу</message>
 	<message key="common.fileType">Тип файлу</message>
+	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
 	<message key="common.height">Висота</message>
 	<message key="common.homePageHeaderLogo.altText">Логотип заголовку домашньої сторінки</message>
 	<message key="common.hour">Година</message>

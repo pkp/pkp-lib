@@ -570,9 +570,10 @@ class SubmissionFile extends PKPFile {
 
 	/**
 	 * Generate a user-facing name for the file
+	 * @param $anonymous boolean Whether the user name should be excluded
 	 * @return string
 	 */
-	function _generateName() {
+	function _generateName($anonymous = false) {
 		$genreDao = DAORegistry::getDAO('GenreDAO');
 		$genre = $genreDao->getById($this->getGenreId());
 		$userGroupDAO = DAORegistry::getDAO('UserGroupDAO');
@@ -580,7 +581,8 @@ class SubmissionFile extends PKPFile {
 		$userDAO = DAORegistry::getDAO('UserDAO');
 		$user = $userDAO->getById($this->getUploaderUserId());
 
-		return __('common.file.namingPattern',
+		$localeKey = $anonymous ? 'common.file.anonymousNamingPattern' : 'common.file.namingPattern';
+		return __($localeKey,
 			array(
 				'genre'            => $genre?$genre->getLocalizedName():'',
 				'docType'          => $this->getDocumentType(),

@@ -90,6 +90,8 @@
 	<message key="common.fileName">Tên file</message>
 	<message key="common.fileSize">Kích thước file</message>
 	<message key="common.fileType">Loại file</message>
+	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
 	<message key="common.height">Cao</message>
 	<message key="common.homePageHeaderLogo.altText">Lô-gô trên măng-séc trang</message>
 	<message key="common.hour">Giờ</message>

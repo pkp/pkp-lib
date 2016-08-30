@@ -90,6 +90,8 @@
 	<message key="common.fileName">Filnavn</message>
 	<message key="common.fileSize">Filstørrelse</message>
 	<message key="common.fileType">Filtype</message>
+	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
 	<message key="common.height">Høyde</message>
 	<message key="common.homePageHeaderLogo.altText">Tidsskriftets hjemmeside: topplogo</message>
 	<message key="common.hour">Klokkeslett</message>

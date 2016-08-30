@@ -110,6 +110,8 @@
 	<message key="common.fileName">Nama File</message>
 	<message key="common.fileSize">Ukuran File</message>
 	<message key="common.fileType">Tipe File</message>
+	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
 	<message key="common.height">Tinggi</message>
 	<message key="common.homePageHeaderLogo.altText">Logo Header Beranda</message>
 	<message key="common.hour">Jam</message>

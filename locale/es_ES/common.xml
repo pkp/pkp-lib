@@ -528,6 +528,7 @@
 	<message key="common.navigation.siteContext">Navegación contextual del sitio</message>
 	<message key="common.allDownloads">Todas las descargas</message>
 	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
 	<message key="common.reminded.date">Recordado: {$dateReminded}</message>
 	<message key="common.component">Componente</message>
 	<message key="navigation.dashboard">Panel de control</message>

@@ -93,6 +93,8 @@
 	<message key="common.fileName">Nom de fichier</message>
 	<message key="common.fileSize">Taille de fichier</message>
 	<message key="common.fileType">Type de fichier</message>
+	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
 	<message key="common.height">Hauteur</message>
 	<message key="common.homePageHeaderLogo.altText">Logo de l'en-tête de la page d'accueil</message>
 	<message key="common.hour">Heure</message>

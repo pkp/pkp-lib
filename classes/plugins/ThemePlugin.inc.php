@@ -16,7 +16,7 @@
 import('lib.pkp.classes.plugins.LazyLoadPlugin');
 
 define('LESS_FILENAME_SUFFIX', '.less');
-define('THEME_OPTION_PREFIX', 'themeOption_')
+define('THEME_OPTION_PREFIX', 'themeOption_');
 
 abstract class ThemePlugin extends LazyLoadPlugin {
 	/**

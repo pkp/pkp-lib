@@ -116,8 +116,10 @@ class PKPAppearanceForm extends ContextSettingsForm {
 				}
 			}
 		}
-		$templateMgr->assign('enabledThemes', $enabledThemes);
-		$templateMgr->assign('activeThemeOptions', $activeThemeOptions);
+		$templateMgr->assign(array(
+			'enabledThemes' => $enabledThemes,
+			'activeThemeOptions' => $activeThemeOptions,
+		));
 
 		$params = array(
 			'imagesViews' => $imagesViews,

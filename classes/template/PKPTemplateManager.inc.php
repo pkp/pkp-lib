@@ -794,13 +794,7 @@ class PKPTemplateManager extends Smarty {
 	public function clearCssCache() {
 		$cacheDirectory = CacheManager::getFileCachePath();
 		$files = scandir($cacheDirectory);
-		foreach ($files as $file) {
-			$filePath = $cacheDirectory . DIRECTORY_SEPARATOR . $file;
-			$extension = pathinfo($filePath, PATHINFO_EXTENSION);
-			if ($extension === CSS_FILENAME_SUFFIX) {
-				unlink($filePath);
-			}
-		}
+		array_map('unlink', glob(CacheManager::getFileCachePath . DIRECTORY_SEPARATOR . '*.' . CSS_FILENAME_SUFFIX));
 	}
 
 	/**

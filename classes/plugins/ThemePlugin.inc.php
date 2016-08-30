@@ -22,7 +22,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	 * Collection of styles
 	 *
 	 * @see self::_registerStyles
-	 * @param $styles array
+	 * @var $styles array
 	 */
 	public $styles = array();
 
@@ -30,21 +30,21 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	 * Collection of scripts
 	 *
 	 * @see self::_registerScripts
-	 * @param $scripts array
+	 * @var $scripts array
 	 */
 	public $scripts = array();
 
 	/**
 	 * Theme-specific options
 	 *
-	 * @param $options array;
+	 * @var $options array;
 	 */
 	public $options = array();
 
 	/**
 	 * Parent theme (optional)
 	 *
-	 * @param $parent ThemePlugin
+	 * @var $parent ThemePlugin
 	 */
 	public $parent;
 
@@ -54,7 +54,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	 * A null value indicates that no lookup has occured. If no options are set,
 	 * the lookup will assign an empty array.
 	 *
-	 * @param $optionValues null|array;
+	 * @var $optionValues null|array;
 	 */
 	private $_optionValues = null;
 

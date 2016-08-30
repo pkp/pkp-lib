@@ -466,7 +466,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 		$type = '';
 		switch ($option['type']) {
 			case 'text' :
-            case 'select' :
+			case 'select' :
 			case 'color' :
 				$type = 'text';
 				break;

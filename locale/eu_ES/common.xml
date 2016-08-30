@@ -247,7 +247,7 @@
 	<message key="navigation.userHome">Erabiltzaile-hasiera</message>
 	<message key="navigation.user">Erabiltzailea</message>
 	<message key="search.abstract">Laburpena</message>
-	<message key="search.allFields">Denak</message>
+	<message key="search.author">Egileak</message>
 	<message key="search.coverage">Estaldura</message>
 	<message key="search.date">Data</message>
 	<message key="search.dateFrom">Noiztik</message>

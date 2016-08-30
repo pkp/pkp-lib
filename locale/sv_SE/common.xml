@@ -241,7 +241,7 @@
 	<message key="navigation.userHome">Min sida</message>
 	<message key="navigation.user">Användare</message>
 	<message key="search.abstract">Sammanfattning</message>
-	<message key="search.allFields">Alla</message>
+	<message key="search.author">Författare</message>
 	<message key="search.coverage">Täckning</message>
 	<message key="search.date">Datum</message>
 	<message key="search.dateFrom">Från</message>

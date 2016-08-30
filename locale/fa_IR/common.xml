@@ -247,7 +247,7 @@
 	<message key="navigation.userHome">آغازه کاربر</message>
 	<message key="navigation.user">کاربر</message>
 	<message key="search.abstract">چکیده</message>
-	<message key="search.allFields">تمام</message>
+	<message key="search.author">نویسندگان</message>
 	<message key="search.coverage">پوشش</message>
 	<message key="search.date">تاریخ</message>
 	<message key="search.dateFrom">از</message>

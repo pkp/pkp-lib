@@ -247,7 +247,7 @@
 	<message key="navigation.userHome">Gebruiker</message>
 	<message key="navigation.user">Gebruiker</message>
 	<message key="search.abstract">Samenvatting</message>
-	<message key="search.allFields">Alle</message>
+	<message key="search.author">Auteurs</message>
 	<message key="search.coverage">Dekking</message>
 	<message key="search.date">Datum</message>
 	<message key="search.dateFrom">Van</message>

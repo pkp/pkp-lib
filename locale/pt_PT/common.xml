@@ -247,7 +247,7 @@
 	<message key="navigation.userHome">Página do utilizador</message>
 	<message key="navigation.user">Utilizador</message>
 	<message key="search.abstract">Resumo</message>
-	<message key="search.allFields">Todos</message>
+	<message key="search.author">Autor</message>
 	<message key="search.coverage">Cobertura</message>
 	<message key="search.date">Data</message>
 	<message key="search.dateFrom">De</message>

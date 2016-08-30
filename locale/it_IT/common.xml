@@ -246,7 +246,7 @@
 	<message key="navigation.userHome">Cruscotto</message>
 	<message key="navigation.user">Cruscotto</message>
 	<message key="search.abstract">Abstract</message>
-	<message key="search.allFields">Tutti i campi</message>
+	<message key="search.author">Autori</message>
 	<message key="search.coverage">Copertura</message>
 	<message key="search.date">Data</message>
 	<message key="search.dateFrom">Da</message>

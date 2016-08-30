@@ -477,7 +477,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 			$contextId = $context->getId();
 		}
 
-		$this->updatesetting($contextId, $name, $value, $type);
+		$this->updateSetting($contextId, $name, $value, $type);
 
 		// Clear the template cache so that new settings can take effect
 		$templateMgr = TemplateManager::getManager($this->getRequest());

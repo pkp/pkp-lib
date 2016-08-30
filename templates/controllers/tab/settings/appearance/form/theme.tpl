@@ -26,19 +26,19 @@
 
 				{if $themeOption.type == 'text'}
 					{fbvFormSection label=$themeOption.label}
-						{fbvElement type="text" id="themeOption_"|concat:$themeOptionName value=$themeOption.value|escape label=$themeOption.description}
+						{fbvElement type="text" id=$smarty.const.THEME_OPTION_PREFIX|concat:$themeOptionName value=$themeOption.value|escape label=$themeOption.description}
 					{/fbvFormSection}
 
 				{elseif $themeOption.type == 'radio'}
 					{fbvFormSection label=$themeOption.label list=true}
 						{foreach from=$themeOption.options key=themeOptionItemName item=themeOptionItem}
-							{fbvElement type="radio" id="themeOption_"|concat:$themeOptionName|concat:$themeOptionItemName name="themeOption_"|concat:$themeOptionName value=$themeOptionItemName checked=$themeOption.value|compare:$themeOptionItemName label=$themeOptionItem}
+							{fbvElement type="radio" id=$smarty.const.THEME_OPTION_PREFIX|concat:$themeOptionName|concat:$themeOptionItemName name=$smarty.const.THEME_OPTION_PREFIX|concat:$themeOptionName value=$themeOptionItemName checked=$themeOption.value|compare:$themeOptionItemName label=$themeOptionItem}
 						{/foreach}
 					{/fbvFormSection}
 
 				{elseif $themeOption.type == 'colour'}
 					{fbvFormSection label=$themeOption.label}
-						{fbvElement type="colour" id="themeOption_"|concat:$themeOptionName value=$themeOption.value|escape default=$themeOption.default label=$themeOption.description}
+						{fbvElement type="colour" id=$smarty.const.THEME_OPTION_PREFIX|concat:$themeOptionName value=$themeOption.value|escape default=$themeOption.default label=$themeOption.description}
 					{/fbvFormSection}
 				{/if}
 			{/foreach}

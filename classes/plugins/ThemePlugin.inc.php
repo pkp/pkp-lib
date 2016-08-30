@@ -16,6 +16,7 @@
 import('lib.pkp.classes.plugins.LazyLoadPlugin');
 
 define('LESS_FILENAME_SUFFIX', '.less');
+define('THEME_OPTION_PREFIX', 'themeOption_')
 
 abstract class ThemePlugin extends LazyLoadPlugin {
 	/**
@@ -510,7 +511,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 		}
 
 		foreach ($options as $optionName => $optionArgs) {
-			$value = $form->getData('themeOption_' . $optionName);
+			$value = $form->getData(THEME_OPTION_PREFIX . $optionName);
 			if ($value === null) {
 				continue;
 			}
@@ -541,7 +542,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 		$options = $this->getOptionsConfig();
 
 		foreach ($options as $optionName => $optionArgs) {
-			$fullOptionName = 'themeOption_' . $optionName;
+			$fullOptionName = THEME_OPTION_PREFIX . $optionName;
 			$form->setData($fullOptionName, Request::getUserVar($fullOptionName));
 		}
 	}

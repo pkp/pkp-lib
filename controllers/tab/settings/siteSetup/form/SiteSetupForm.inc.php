@@ -169,22 +169,6 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 		// Activate the selected theme plugin
 		$selectedThemePluginPath = $this->getData('themePluginPath');
 		$site->updateSetting('themePluginPath', $selectedThemePluginPath);
-		$themePlugins = PluginRegistry::loadCategory('themes');
-		$selectedThemePlugin = null;
-		foreach ($themePlugins as $themePlugin) {
-			if (basename($themePlugin->getPluginPath()) != $selectedThemePluginPath) {
-				// Flag other themes for deactivation to ensure
-				// they won't be included in a CSS recompile.
-				$themePlugin->setEnabled(false);
-			} else {
-				$selectedThemePlugin = $themePlugin;
-			}
-		}
-		if ($selectedThemePlugin) {
-			$themePlugin->setEnabled(true);
-		} else {
-			assert(false); // Couldn't identify the selected theme plugin
-		}
 
 		$siteDao->updateObject($site);
 		return true;

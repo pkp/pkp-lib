@@ -93,8 +93,10 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 				}
 			}
 		}
-		$templateMgr->assign('enabledThemes', $enabledThemes);
-		$templateMgr->assign('activeThemeOptions', $activeThemeOptions);
+		$templateMgr->assign(array(
+			'enabledThemes' => $enabledThemes,
+			'activeThemeOptions' => $activeThemeOptions,
+		));
 
 		return parent::fetch($request);
 	}

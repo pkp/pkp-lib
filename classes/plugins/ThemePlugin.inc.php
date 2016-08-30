@@ -429,7 +429,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	 *
 	 * @return array
 	 */
-	public function getOptionsValues() {
+	public function getOptionValues() {
 
 		$pluginSettingsDAO = DAORegistry::getDAO('PluginSettingsDAO');
 
@@ -442,7 +442,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 		}
 
 		return array_merge(
-			$this->parent->getOptionsValues(),
+			$this->parent->getOptionValues(),
 			$values
 		);
 	}

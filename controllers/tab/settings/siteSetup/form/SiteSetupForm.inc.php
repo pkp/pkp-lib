@@ -90,7 +90,7 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 			$enabledThemes[basename($themePlugin->getPluginPath())] = $themePlugin->getDisplayName();
 			if ($themePlugin->isActive()) {
 				$activeThemeOptions = $themePlugin->getOptionsConfig();
-				$activeThemeOptionsValues = $themePlugin->getOptionsValues();
+				$activeThemeOptionsValues = $themePlugin->getOptionValues();
 				foreach ($activeThemeOptions as $name => $option) {
 					$activeThemeOptions[$name]['value'] = isset($activeThemeOptionsValues[$name]) ? $activeThemeOptionsValues[$name] : '';
 				}

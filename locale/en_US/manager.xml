@@ -282,7 +282,7 @@
 	<message key="manager.setup.layout.theme">Theme</message>
 	<message key="manager.setup.layout.themeDescription">New themes may be installed from the Plugins tab at the top of this page.</message>
 	<message key="manager.setup.layout.blockManagement">Sidebar management</message>
-	<message key="manager.setup.layout.leftSidebar">Left Sidebar</message>
+	<message key="manager.setup.layout.leftSidebar">Sidebar</message>
 	<message key="manager.setup.layout.unselected">Unselected</message>
 	<message key="manager.setup.loggingAndAuditing">Logging and Auditing</message>
 	<message key="manager.setup.logo">Logo</message>

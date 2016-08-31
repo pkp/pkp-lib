@@ -216,7 +216,15 @@ class PKPAppearanceForm extends ContextSettingsForm {
 	 * @copydoc ContextSettingsForm::execute()
 	 */
 	function execute($request) {
-		$themePlugins = PluginRegistry::getPlugins('themes');
+
+		// Clear the template cache if theme has changed
+		$context = $request->getContext();
+		if ($this->getData('themePluginPath') != $context->getSetting('themePluginPath')) {
+			$templateMgr = TemplateManager::getManager($request);
+			$templateMgr->clearTemplateCache();
+			$templateMgr->clearCssCache();
+		}
+
 		parent::execute($request);
 
 		// Save block plugins context positions.

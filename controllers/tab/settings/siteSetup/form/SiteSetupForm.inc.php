@@ -150,8 +150,8 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 	/**
 	 * Save site settings.
 	 */
-	function execute() {
-		parent::execute();
+	function execute($request) {
+		parent::execute($request);
 		$siteDao = DAORegistry::getDAO('SiteDAO');
 		$site = $siteDao->getSite();
 

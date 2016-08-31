@@ -12,6 +12,11 @@
 
 #notificationsGrid {
 
+	table {
+		// Prevents table from overflowing parent div
+		table-layout: fixed;
+	}
+
 	a {
 		font-weight: @normal;
 	}
@@ -36,7 +41,8 @@
 	}
 
 	.gridRow td:nth-child(2) {
-		padding-left: 0;
+		padding-left: 24px;
+		padding-right: 0;
 	}
 
 	.pkp_controllers_grid {

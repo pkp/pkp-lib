@@ -427,7 +427,9 @@ class PKPTemplateManager extends Smarty {
 	 */
 	public function getCachedLessFilePath($name) {
 		$cacheDirectory = CacheManager::getFileCachePath();
-		return $cacheDirectory . DIRECTORY_SEPARATOR . $name . '.css';
+		$context = $this->_request->getContext();
+		$contextId = is_a($context, 'Context') ? $context->getId() : 0;
+		return $cacheDirectory . DIRECTORY_SEPARATOR . $contextId . '-' . $name . '.css';
 	}
 
 	/**

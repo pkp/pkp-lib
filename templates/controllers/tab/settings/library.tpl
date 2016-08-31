@@ -15,7 +15,7 @@
 {if $isModal}
     {assign var=helpClass value="pkp_help_modal"}
 {/if}
-{help file="settings.md" section="workflow-press-library" class=$helpClass}
+{help file="settings.md" section="workflow-library" class=$helpClass}
 
 {url|assign:libraryGridUrl router=$smarty.const.ROUTE_COMPONENT component="grid.settings.library.LibraryFileAdminGridHandler" op="fetchGrid" canEdit=$canEdit escape=false}
 {load_url_in_div id="libraryGridDiv" url=$libraryGridUrl}

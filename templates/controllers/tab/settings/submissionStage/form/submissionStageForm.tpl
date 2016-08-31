@@ -10,7 +10,7 @@
  *}
 
 {* Help Link *}
-{help file="settings.md" section="workflow" class="pkp_help_tab"}
+{help file="settings.md" section="workflow-submission" class="pkp_help_tab"}
 
 <script type="text/javascript">
 	$(function() {ldelim}

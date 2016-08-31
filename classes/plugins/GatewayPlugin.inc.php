@@ -29,6 +29,38 @@ abstract class GatewayPlugin extends Plugin {
 	 * @param $request object
 	 */
 	abstract function fetch($args, $request);
+
+	/**
+	 * Determine whether the plugin can be enabled.
+	 * @return boolean
+	 */
+	function getCanEnable() {
+		return true;
+	}
+
+	/**
+	 * Determine whether the plugin can be disabled.
+	 * @return boolean
+	 */
+	function getCanDisable() {
+		return true;
+	}
+
+	/**
+	 * Determine whether or not this plugin is currently enabled.
+	 * @return boolean
+	 */
+	function getEnabled() {
+		return $this->getContextSpecificSetting($this->getSettingMainContext(), 'enabled');
+	}
+
+	/**
+	 * Set whether or not this plugin is currently enabled.
+	 * @param $enabled boolean
+	 */
+	function setEnabled($enabled) {
+		$this->updateContextSpecificSetting($this->getSettingMainContext(), 'enabled', $enabled, 'bool');
+	}
 }
 
 ?>

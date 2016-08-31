@@ -46,8 +46,8 @@ class AnnouncementTypeDAO extends DAO {
 		if ($assocId !== null) $params[] = (int) $assocId;
 		$result = $this->retrieve(
 			'SELECT * FROM announcement_types WHERE type_id = ?' .
-			($assocType === null?' AND assoc_type = ?':'') .
-			($assocId === null?' AND assoc_id = ?':''),
+			($assocType !== null?' AND assoc_type = ?':'') .
+			($assocId !== null?' AND assoc_id = ?':''),
 			$params
 		);
 

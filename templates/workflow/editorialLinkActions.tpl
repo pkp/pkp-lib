@@ -8,7 +8,7 @@
  * Show editorial link actions.
  *}
 {if !empty($editorActions)}
-	{if array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR), $userRoles)}
+	{if array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR), (array)$userRoles)}
 		<ul class="pkp_workflow_decisions">
 			{foreach from=$editorActions item=action}
 				<li>

@@ -17,7 +17,7 @@
 		{$submission->getAuthorString()}
 	</div>
 	<ul class="pkp_submission_actions">
-		{if array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR), $userRoles)}
+		{if array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR), (array)$userRoles)}
 			<li>{include file="linkAction/linkAction.tpl" action=$submissionEntryAction}</li>
 		{/if}
 		<li>{include file="linkAction/linkAction.tpl" action=$submissionInformationCenterAction}</li>

@@ -89,7 +89,7 @@
 									</span>
 								</a>
 								<ul>
-									{if array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR), $userRoles)}
+									{if array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR), (array)$userRoles)}
 										<li>
 											<a href="{url router=$smarty.const.ROUTE_PAGE page="submissions"}">
 												{translate key="navigation.dashboard"}
@@ -104,7 +104,7 @@
 											{translate key="common.viewProfile"}
 										</a>
 									</li>
-									{if array_intersect(array(ROLE_ID_SITE_ADMIN), $userRoles)}
+									{if array_intersect(array(ROLE_ID_SITE_ADMIN), (array)$userRoles)}
 									<li>
 										<a href="{if $multipleContexts}{url router=$smarty.const.ROUTE_PAGE context="index" page="admin" op="index"}{else}{url router=$smarty.const.ROUTE_PAGE page="admin" op="index"}{/if}">
 											{translate key="navigation.admin"}

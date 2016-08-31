@@ -48,8 +48,10 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 	/**
 	 * Create a submission with the supplied data.
 	 * @param $data array Associative array of submission information
+	 * @param $location string Whether or not the submission wll be created
+	 *   from the frontend or backend
 	 */
-	protected function createSubmission($data) {
+	protected function createSubmission($data, $location = 'frontend') {
 		// Check that the required parameters are provided
 		foreach (array(
 			'title',
@@ -68,8 +70,12 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 			'additionalAuthors' => array(),
 		), $data);
 
-		// Find the "start a submission" button
-		$this->waitForElementPresent($selector='//button[starts-with(., \'New Submission\')]');
+		// Find the "Make a New Submission" link
+		if ($location == 'frontend') {
+			$this->waitForElementPresent($selector='//a[contains(text(), \'Make a New Submission\')]');
+		} else {
+			$this->waitForElementPresent($selector='//button[starts-with(., \'New Submission\')]');
+		}
 		$this->click($selector);
 
 		// Check the default checklist items.

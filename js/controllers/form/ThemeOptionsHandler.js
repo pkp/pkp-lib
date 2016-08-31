@@ -22,7 +22,7 @@
 	 */
 	$.pkp.controllers.form.ThemeOptionsHandler = function($container, options) {
 		this.parent($container, options);
-		var $activeThemeOptions;
+		var $activeThemeOptions, hexColour;
 
 		$activeThemeOptions = $container.find('#activeThemeOptions');
 		if ($activeThemeOptions.length) {
@@ -36,10 +36,9 @@
 					showInitial: true,
 					showButtons: false,
 					change: function(colour)  {
-						$colourInput.val(
-								/** @type {{toHexString: function()}} */
-								colour.toHexString()
-						);
+						/** @type {{toHexString: function()}} */
+						hexColour = colour.toHexString();
+						$colourInput.val(hexColour);
 					}
 				});
 			});

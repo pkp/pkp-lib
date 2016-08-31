@@ -132,7 +132,7 @@ class PKPTemplateManager extends Smarty {
 				$jqueryUI = '//ajax.googleapis.com/ajax/libs/jqueryui/' . CDN_JQUERY_UI_VERSION . '/jquery-ui' . $min . '.js';
 			} else {
 				$jquery = $this->_request->getBaseUrl() . '/lib/pkp/lib/components/jquery/jquery' . $min . '.js';
-				$jqueryUI = $this->_request->getBaseUrl() . '/lib/pkp/lib/components/jqueryui/jquery-ui' . $min . '.js';
+				$jqueryUI = $this->_request->getBaseUrl() . '/lib/pkp/lib/components/jquery-ui/jquery-ui' . $min . '.js';
 			}
 			$this->addJavaScript(
 				'jquery',

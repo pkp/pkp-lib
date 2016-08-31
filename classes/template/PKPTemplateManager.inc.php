@@ -208,6 +208,17 @@ class PKPTemplateManager extends Smarty {
 				)
 			);
 
+			// Register recaptcha on relevant pages
+			if (Config::getVar('captcha', 'recaptcha') && Config::getVar('captcha', 'captcha_on_register')) {
+				$this->addJavaScript(
+					'recaptcha',
+					'https://www.google.com/recaptcha/api.js',
+					array(
+						'contexts' => array('frontend-user-register', 'frontend-user-registerUser'),
+					)
+				);
+			}
+
 			// Register meta tags
 			if (Config::getVar('general', 'installed')) {
 				if (($this->_request->getRequestedPage()=='' || $this->_request->getRequestedPage() == 'index') && $currentContext && $currentContext->getLocalizedSetting('searchDescription')) {

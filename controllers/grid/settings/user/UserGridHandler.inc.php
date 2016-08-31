@@ -519,7 +519,7 @@ class UserGridHandler extends GridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function mergeUsers($args, $request) {
-		if (!$request->checkCRSF()) return new JSONMessage(false);
+		if (!$request->checkCSRF()) return new JSONMessage(false);
 
 		// if there is a $newUserId, this is the second time through, so merge the users.
 		$newUserId =  (int) $request->getUserVar('newUserId');

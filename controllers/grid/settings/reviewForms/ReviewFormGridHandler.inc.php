@@ -341,7 +341,7 @@ class ReviewFormGridHandler extends GridHandler {
 		$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
 		$reviewForm = $reviewFormDao->getById($reviewFormId, Application::getContextAssocType(), $context->getId());
 
-		if ($request->checkCRSF() && isset($reviewForm)) {
+		if ($request->checkCSRF() && isset($reviewForm)) {
 			$reviewForm->setActive(0);
 			$reviewForm->setSequence(REALLY_BIG_NUMBER);
 			$newReviewFormId = $reviewFormDao->insertObject($reviewForm);

@@ -90,8 +90,13 @@
 									<li><a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="settings" path="distribution"}">{translate key="manager.distribution"}</a></li>
 								</ul>
 							</li>
-							<li>
-								<li><a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="settings" path="access"}">{translate key="navigation.access"}</a></li>
+							<li aria-haspopup="true" aria-expanded="false">
+								<a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="settings" path="access"}">{translate key="navigation.access"}</a>
+								<ul>
+									<li><a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="settings" path="access" anchor="users"}">{translate key="manager.users"}</a></li>
+									<li><a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="settings" path="access" anchor="roles"}">{translate key="manager.roles"}</a></li>
+									<li><a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="settings" path="access" anchor="siteAccessOptions"}">{translate key="manager.siteAccessOptions.siteAccessOptions"}</a></li>
+								</ul>
 							</li>
 							<li aria-haspopup="true" aria-expanded="false">
 								<a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="tools" path="index"}">{translate key="navigation.tools"}</a>

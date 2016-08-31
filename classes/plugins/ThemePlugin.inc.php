@@ -16,13 +16,14 @@
 import('lib.pkp.classes.plugins.LazyLoadPlugin');
 
 define('LESS_FILENAME_SUFFIX', '.less');
+define('THEME_OPTION_PREFIX', 'themeOption_');
 
 abstract class ThemePlugin extends LazyLoadPlugin {
 	/**
 	 * Collection of styles
 	 *
 	 * @see self::_registerStyles
-	 * @param $styles array
+	 * @var $styles array
 	 */
 	public $styles = array();
 
@@ -30,16 +31,33 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	 * Collection of scripts
 	 *
 	 * @see self::_registerScripts
-	 * @param $scripts array
+	 * @var $scripts array
 	 */
 	public $scripts = array();
 
 	/**
+	 * Theme-specific options
+	 *
+	 * @var $options array;
+	 */
+	public $options = array();
+
+	/**
 	 * Parent theme (optional)
 	 *
-	 * @param $parent ThemePlugin
+	 * @var $parent ThemePlugin
 	 */
 	public $parent;
+
+	/**
+	 * Stored reference to option values
+	 *
+	 * A null value indicates that no lookup has occured. If no options are set,
+	 * the lookup will assign an empty array.
+	 *
+	 * @var $optionValues null|array;
+	 */
+	private $_optionValues = null;
 
 	/**
 	 * Constructor
@@ -59,15 +77,37 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 			return true;
 		}
 
-		// Fire an initialization method which themes should use to add
-		// styles, scripts and fonts
-		$this->init();
+		// Themes must initialize their functionality after all theme plugins
+		// have been loaded in order to make use of parent/child theme
+		// relationships
+		HookRegistry::register('PluginRegistry::categoryLoaded::themes', array($this, 'themeRegistered'));
+		HookRegistry::register('PluginRegistry::categoryLoaded::themes', array($this, 'initAfter'));
 
-		$this->_registerTemplates();
-		$this->_registerStyles();
-		$this->_registerScripts();
+		// Save any theme options displayed on the appearance and site settings
+		// forms
+		HookRegistry::register('appearanceform::execute', array($this, 'saveOptionsForm'));
+		HookRegistry::register('appearanceform::readuservars', array($this, 'readOptionsFormUserVars'));
+		HookRegistry::register('sitesetupform::execute', array($this, 'saveOptionsForm'));
+		HookRegistry::register('sitesetupform::readuservars', array($this, 'readOptionsFormUserVars'));
 
 		return true;
+	}
+
+	/**
+	 * Fire the init() method when a theme is registered
+	 *
+	 * @param $themes array List of all loaded themes
+	 * @return null
+	 */
+	public function themeRegistered($themes) {
+
+		// Don't fully initialize the theme until OJS is installed, so that
+		// there are no requests to the database before it exists
+		if (defined('SESSION_DISABLE_INIT')) {
+			return;
+		}
+
+		$this->init();
 	}
 
 	/**
@@ -78,6 +118,18 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	 * @return null
 	 */
 	public abstract function init();
+
+	/**
+	 * Perform actions after the theme has been initialized
+	 *
+	 * Registers templates, styles and scripts that have been added by the
+	 * theme or any parent themes
+	 */
+	public function initAfter() {
+		$this->_registerTemplates();
+		$this->_registerStyles();
+		$this->_registerScripts();
+	}
 
 	/**
 	 * Determine whether or not this plugin is currently active
@@ -117,6 +169,8 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	 *      default: `frontend`
 	 *   'priority': Controls order in which styles are printed
 	 *   'addLess': Additional LESS files to process before compiling. Array
+	 *   'addLessVariables': A string containing additional LESS variables to
+	 *      parse before compiling. Example: "@bg:#000;"
 	 *   `inline` bool Whether the $style value should be output directly as
 	 *      style data.
 	 */
@@ -195,7 +249,8 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 
 		// If no parent theme, no style was found
 		if (!isset($this->parent)) {
-			return;
+			$style = null;
+			return $style;
 		}
 
 		return $this->parent->getStyle($name);
@@ -275,13 +330,230 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	}
 
 	/**
+	 * Add a theme option
+	 *
+	 * Theme options are added programmatically to the Settings > Website >
+	 * Appearance form when this theme is activated. Common options are
+	 * colour and typography selectors.
+	 *
+	 * @param $name string Unique name for this setting
+	 * @param $type string A pre-registered type of setting. Supported values:
+	 *   text|colour|select. Default: `text`
+	 * @param $args array Optional parameters defining this setting. Some setting
+	 *   types may accept or require additional arguments.
+	 *  `label` string Locale key for a label for this field.
+	 *  `description` string Locale key for a description for this field.
+	 *  `default` mixed A default value. Default: ''
+	 */
+	public function addOption($name, $type, $args = array()) {
+
+		if (!empty($this->options[$name])) {
+			return;
+		}
+
+		$this->options[$name] = array_merge(
+			array('type' => $type),
+			$args
+		);
+	}
+
+	/**
+	 * Get the value of an option or default if the option is not set
+	 *
+	 * @param $name The name of the option value to retrieve
+	 * @return mixed The value of the option. Will return a default if set in
+	 *  the option config.
+	 */
+	public function getOption($name) {
+
+		// Retrieve option values if they haven't been loaded yet
+		if (is_null($this->_optionValues)) {
+			$pluginSettingsDAO = DAORegistry::getDAO('PluginSettingsDAO');
+			$context = Request::getContext();
+			$contextId = $context ? $context->getId() : 0;
+			$this->_optionValues = $pluginSettingsDAO->getPluginSettings($contextId, $this->getName());
+		}
+
+		if (isset($this->_optionValues[$name])) {
+			return $this->_optionValues[$name];
+		}
+
+		// Return a default if no value is set
+		$option = $this->getOptionConfig($name);
+		return $option && isset($option['default']) ? $option['default'] : null;
+	}
+
+	/**
+	 * Get an option's configuration settings
+	 *
+	 * This retrives option settings for any option attached to this theme or
+	 * any parent theme.
+	 *
+	 * @param $name The name of the option config to retrieve
+	 * @return false|array The config array for this option. Or false if no
+	 *  config is found.
+	 */
+	public function getOptionConfig($name) {
+
+		if (isset($this->options[$name])) {
+			return $this->options[$name];
+		}
+
+		return $this->parent ? $this->parent->getOptionConfig($name) : false;
+	}
+
+	/**
+	 * Get all options' configuration settings.
+	 *
+	 * This retrieves a single array containing options settings for this
+	 * theme and any parent themes.
+	 *
+	 * @return array
+	 */
+	public function getOptionsConfig() {
+
+		if (!$this->parent) {
+			return $this->options;
+		}
+
+		return array_merge(
+			$this->parent->getOptionsConfig(),
+			$this->options
+		);
+	}
+
+	/**
+	 * Get all option values
+	 *
+	 * This retrieves a single array containing option values for this theme
+	 * and any parent themes.
+	 *
+	 * @return array
+	 */
+	public function getOptionValues() {
+
+		$pluginSettingsDAO = DAORegistry::getDAO('PluginSettingsDAO');
+
+		$context = Request::getContext();
+		$contextId = empty($context) ? 0 : $context->getId();
+		$values = $pluginSettingsDAO->getPluginSettings($contextId, $this->getName());
+
+		if (!$this->parent) {
+			return $values;
+		}
+
+		return array_merge(
+			$this->parent->getOptionValues(),
+			$values
+		);
+	}
+
+	/**
+	 * Sanitize and save a theme option
+	 *
+	 * @param $name string A unique id for the option to save
+	 * @param $value mixed The new value to save
+	 * @param $contextId int Optional context id. Defaults to the current
+	 *  context
+	 */
+	public function saveOption($name, $value, $contextId = null) {
+
+		$option = !empty($this->options[$name]) ? $this->options[$name] : null;
+
+		if (is_null($option)) {
+			return $this->parent ? $this->parent->saveOption($name, $value, $contextId) : false;
+		}
+
+		$type = '';
+		switch ($option['type']) {
+			case 'text' :
+			case 'select' :
+			case 'colour' :
+				$type = 'text';
+				break;
+		}
+
+		if (is_null($contextId)) {
+			$context = Request::getContext();
+			$contextId = $context->getId();
+		}
+
+		$this->updateSetting($contextId, $name, $value, $type);
+
+		// Clear the template cache so that new settings can take effect
+		$templateMgr = TemplateManager::getManager($this->getRequest());
+		$templateMgr->clearTemplateCache();
+		$templateMgr->clearCssCache();
+	}
+
+	/**
+	 * Save options in any form
+	 *
+	 * This helper function allows you to save theme options attached to any
+	 * form by hooking into the form's execute function.
+	 *
+	 * @see Form::execute()
+	 * @param $hookName string
+	 * @param $args array Arguments passed via the hook
+	 *  `form` Form The form object from which option values can be retrieved.
+	 *  `request` Request
+	 */
+	public function saveOptionsForm($hookName, $args) {
+
+		$form = $args[0];
+
+		$options = $this->getOptionsConfig();
+
+		// Ensure theme options from the site-wide settings form are applied
+		// to the site-wide context
+		if ($hookName == 'sitesetupform::execute') {
+			$contextId = 0;
+		}
+
+		foreach ($options as $optionName => $optionArgs) {
+			$value = $form->getData(THEME_OPTION_PREFIX . $optionName);
+			if ($value === null) {
+				continue;
+			}
+			if (isset($contextId)) {
+				$this->saveOption($optionName, $value, $contextId);
+			} else {
+				$this->saveOption($optionName, $value);
+			}
+		}
+	}
+
+	/**
+	 * Retrieve user-entered values for options from any form
+	 *
+	 * This helper function allows you to hook into any form to add theme option
+	 * values to the form's user input data.
+	 *
+	 * @see Form::readUserVar()
+	 * @param $hookName string
+	 * @param $args array Arguments passed via the hook
+	 *  `form` Form The form object from which option values can be retrieved.
+	 *  `vars` Array Key/value store of the user vars read by the form
+	 */
+	public function readOptionsFormUserVars($hookName, $args) {
+
+		$form = $args[0];
+
+		$options = $this->getOptionsConfig();
+
+		foreach ($options as $optionName => $optionArgs) {
+			$fullOptionName = THEME_OPTION_PREFIX . $optionName;
+			$form->setData($fullOptionName, Request::getUserVar($fullOptionName));
+		}
+	}
+
+	/**
 	 * Set a parent theme for this theme
 	 *
 	 * @param $parent string Key in the plugin registry for the parent theme
 	 * @return null
 	 */
 	public function setParent($parent) {
-
 		$parent = PluginRegistry::getPlugin('themes', $parent);
 
 		if (!is_a($parent, 'ThemePlugin')) {
@@ -407,6 +679,32 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	public function _getBaseDir($path = '') {
 		$path = empty($path) ? '' : DIRECTORY_SEPARATOR . $path;
 		return Core::getBaseDir() . DIRECTORY_SEPARATOR . $this->getPluginPath() . $path;
+	}
+
+	/**
+	 * Check if the passed colour is dark
+	 *
+	 * This is a utility function to determine the darkness of a hex colour. This
+	 * is designed to be used in theme colour options, so that text can be
+	 * adjusted to ensure it's readable on light or dark backgrounds. You can
+	 * specify the brightness threshold by passing in a $limit value. Higher
+	 * values are brighter.
+	 *
+	 * Based on: http://stackoverflow.com/a/8468448/1723499
+	 *
+	 * @since 0.1
+	 */
+	function isColourDark( $colour, $limit = 130 ) {
+		$colour = str_replace( '#', '', $colour );
+		$r = hexdec( substr( $colour, 0, 2 ) );
+		$g = hexdec( substr( $colour, 2, 2 ) );
+		$b = hexdec( substr( $colour, 4, 2 ) );
+		$contrast = sqrt(
+			$r * $r * .241 +
+			$g * $g * .691 +
+			$b * $b * .068
+		);
+		return $contrast < $limit;
 	}
 }
 

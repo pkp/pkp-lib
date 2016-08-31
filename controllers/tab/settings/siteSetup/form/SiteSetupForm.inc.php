@@ -33,6 +33,11 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 		$this->addCheck(new FormValidatorPost($this));
 		$this->addCheck(new FormValidatorCSRF($this));
 
+		$themes = PluginRegistry::getPlugins('themes');
+		if (is_null($themes)) {
+			PluginRegistry::loadCategory('themes', true);
+		}
+
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON);
 	}
 
@@ -75,12 +80,23 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 		$application = Application::getApplication();
 		$templateMgr->assign('availableMetricTypes', $application->getMetricTypes(true));
 
-		$themePlugins = PluginRegistry::loadCategory('themes');
-		$themePluginOptions = array();
+		$themePlugins = PluginRegistry::getPlugins('themes');
+		$enabledThemes = array();
+		$activeThemeOptions = array();
 		foreach ($themePlugins as $themePlugin) {
-			$themePluginOptions[basename($themePlugin->getPluginPath())] = $themePlugin->getDisplayName();
+			$enabledThemes[basename($themePlugin->getPluginPath())] = $themePlugin->getDisplayName();
+			if ($themePlugin->isActive()) {
+				$activeThemeOptions = $themePlugin->getOptionsConfig();
+				$activeThemeOptionsValues = $themePlugin->getOptionValues();
+				foreach ($activeThemeOptions as $name => $option) {
+					$activeThemeOptions[$name]['value'] = isset($activeThemeOptionsValues[$name]) ? $activeThemeOptionsValues[$name] : '';
+				}
+			}
 		}
-		$templateMgr->assign('themePluginOptions', $themePluginOptions);
+		$templateMgr->assign(array(
+			'enabledThemes' => $enabledThemes,
+			'activeThemeOptions' => $activeThemeOptions,
+		));
 
 		return parent::fetch($request);
 	}
@@ -134,7 +150,8 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 	/**
 	 * Save site settings.
 	 */
-	function execute() {
+	function execute($request) {
+		parent::execute($request);
 		$siteDao = DAORegistry::getDAO('SiteDAO');
 		$site = $siteDao->getSite();
 
@@ -151,22 +168,6 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 		// Activate the selected theme plugin
 		$selectedThemePluginPath = $this->getData('themePluginPath');
 		$site->updateSetting('themePluginPath', $selectedThemePluginPath);
-		$themePlugins = PluginRegistry::loadCategory('themes');
-		$selectedThemePlugin = null;
-		foreach ($themePlugins as $themePlugin) {
-			if (basename($themePlugin->getPluginPath()) != $selectedThemePluginPath) {
-				// Flag other themes for deactivation to ensure
-				// they won't be included in a CSS recompile.
-				$themePlugin->setEnabled(false);
-			} else {
-				$selectedThemePlugin = $themePlugin;
-			}
-		}
-		if ($selectedThemePlugin) {
-			$themePlugin->setEnabled(true);
-		} else {
-			assert(false); // Couldn't identify the selected theme plugin
-		}
 
 		$siteDao->updateObject($site);
 		return true;

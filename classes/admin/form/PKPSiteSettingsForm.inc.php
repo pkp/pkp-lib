@@ -79,7 +79,7 @@ class PKPSiteSettingsForm extends Form {
 			'contactEmail' => $site->getSetting('contactEmail'), // Localized
 			'minPasswordLength' => $site->getMinPasswordLength(),
 			'pageHeaderTitleType' => $site->getSetting('pageHeaderTitleType'), // Localized
-			'siteTheme' => $site->getSetting('siteTheme')
+			'themePluginPath' => $site->getSetting('themePluginPath')
 		);
 
 		foreach ($data as $key => $value) {
@@ -96,26 +96,32 @@ class PKPSiteSettingsForm extends Form {
 	 */
 	function readInputData() {
 		$this->readUserVars(
-			array('pageHeaderTitleType', 'title', 'intro', 'about', 'redirect', 'contactName', 'contactEmail', 'minPasswordLength', 'pageHeaderTitleImageAltText', 'showThumbnail', 'showTitle', 'showDescription', 'siteTheme')
+			array('pageHeaderTitleType', 'title', 'intro', 'about', 'redirect', 'contactName', 'contactEmail', 'minPasswordLength', 'pageHeaderTitleImageAltText', 'showThumbnail', 'showTitle', 'showDescription', 'themePluginPath')
 		);
 	}
 
 	/**
 	 * Save site settings.
 	 */
-	function execute() {
+	function execute($request) {
+		parent::execute();
 		$siteDao = DAORegistry::getDAO('SiteDAO');
 		$site = $siteDao->getSite();
 
 		$site->setRedirect($this->getData('redirect'));
 		$site->setMinPasswordLength($this->getData('minPasswordLength'));
 
+		// Clear the template cache if theme has changed
+		if ($this->getData('themePluginPath') != $site->getSetting('themePluginPath')) {
+			$templateMgr = TemplateManager::getManager($request);
+			$templateMgr->clearTemplateCache();
+			$templateMgr->clearCssCache();
+		}
+
 		$siteSettingsDao = $this->siteSettingsDao;
 		foreach ($this->getLocaleFieldNames() as $setting) {
 			$siteSettingsDao->updateSetting($setting, $this->getData($setting), null, true);
 		}
-
-		$site->updateSetting('siteTheme', $this->getData('siteTheme'), 'string', false);
 
 		$setting = $site->getSetting('pageHeaderTitleImage');
 		if (!empty($setting)) {

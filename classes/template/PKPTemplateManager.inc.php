@@ -39,6 +39,8 @@ define('STYLE_SEQUENCE_LAST', 20);
 define('CDN_JQUERY_VERSION', '1.11.0');
 define('CDN_JQUERY_UI_VERSION', '1.11.0');
 
+define('CSS_FILENAME_SUFFIX', 'css');
+
 import('lib.pkp.classes.template.PKPTemplateResource');
 
 class PKPTemplateManager extends Smarty {
@@ -189,6 +191,22 @@ class PKPTemplateManager extends Smarty {
 					)
 				);
 			}
+
+			// Register colour picker assets on the appearance page
+			$this->addJavaScript(
+				'spectrum',
+				$this->_request->getBaseUrl() . '/lib/pkp/js/lib/jquery/plugins/spectrum/spectrum.js',
+				array(
+					'contexts' => array('backend-management-settings', 'backend-admin-settings'),
+				)
+			);
+			$this->addStyleSheet(
+				'spectrum',
+				$this->_request->getBaseUrl() . '/lib/pkp/js/lib/jquery/plugins/spectrum/spectrum.css',
+				array(
+					'contexts' => array('backend-management-settings', 'backend-admin-settings'),
+				)
+			);
 
 			// Register meta tags
 			if (Config::getVar('general', 'installed')) {
@@ -373,6 +391,11 @@ class PKPTemplateManager extends Smarty {
 			}
 		}
 
+		// Add extra LESS variables before compiling
+		if (isset($args['addLessVariables'])) {
+			$less->parse($args['addLessVariables']);
+		}
+
 		// Set the @baseUrl variable
 		$baseUrl = !empty($args['baseUrl']) ? $args['baseUrl'] : $request->getBaseUrl(true);
 		$less->parse("@baseUrl: '$baseUrl';");
@@ -404,7 +427,9 @@ class PKPTemplateManager extends Smarty {
 	 */
 	public function getCachedLessFilePath($name) {
 		$cacheDirectory = CacheManager::getFileCachePath();
-		return $cacheDirectory . DIRECTORY_SEPARATOR . $name . '.css';
+		$context = $this->_request->getContext();
+		$contextId = is_a($context, 'Context') ? $context->getId() : 0;
+		return $cacheDirectory . DIRECTORY_SEPARATOR . $contextId . '-' . $name . '.css';
 	}
 
 	/**
@@ -766,6 +791,15 @@ class PKPTemplateManager extends Smarty {
 	}
 
 	/**
+	 * Clear all compiled CSS files
+	 */
+	public function clearCssCache() {
+		$cacheDirectory = CacheManager::getFileCachePath();
+		$files = scandir($cacheDirectory);
+		array_map('unlink', glob(CacheManager::getFileCachePath() . DIRECTORY_SEPARATOR . '*.' . CSS_FILENAME_SUFFIX));
+	}
+
+	/**
 	 * Return an instance of the template manager.
 	 * @param $request PKPRequest
 	 * @return TemplateManager the template manager object
@@ -781,7 +815,10 @@ class PKPTemplateManager extends Smarty {
 
 		if ($instance === null) {
 			$instance = new TemplateManager($request);
-			PluginRegistry::loadCategory('themes', true);
+			$themes = PluginRegistry::getPlugins('themes');
+			if (is_null($themes)) {
+				$themes = PluginRegistry::loadCategory('themes', true);
+			}
 			$instance->initialize();
 		}
 

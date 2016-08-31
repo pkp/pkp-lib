@@ -309,6 +309,8 @@
 	<message key="submission.history.submissionEventLog">Event Log</message>
 	<message key="submission.history.submissionNotes">Submission Notes</message>
 	<message key="submission.history.viewLog">View Log</message>
+	<message key="submission.howToCite">How to Cite</message>
+	<message key="submission.howToCite.citationFormats">Citation Formats</message>
 	<message key="submission.indexing">Indexing</message>
 	<message key="submission.initiated">Initiated</message>
 

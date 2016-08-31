@@ -119,7 +119,7 @@ class PageHandler extends Handler {
 
 						// Process styles registered with the current theme
 						$styles = '';
-						$themes = PluginRegistry::loadCategory('themes');
+						$themes = PluginRegistry::loadCategory('themes', true);
 						foreach($themes as $theme) {
 							if ($theme->isActive()) {
 								$style = $theme->getStyle($name);
@@ -130,8 +130,9 @@ class PageHandler extends Handler {
 										$name,
 										$style['style'],
 										array(
-											'baseUrl' => isset($style['baseUrl']) ? $style['baseUrl'] : null,
-											'addLess' => isset($style['addLess']) ? $style['addLess'] : null,
+											'baseUrl'          => isset($style['baseUrl']) ? $style['baseUrl'] : null,
+											'addLess'          => isset($style['addLess']) ? $style['addLess'] : null,
+											'addLessVariables' => isset($style['addLessVariables']) ? $style['addLessVariables'] : null,
 										)
 									);
 								}

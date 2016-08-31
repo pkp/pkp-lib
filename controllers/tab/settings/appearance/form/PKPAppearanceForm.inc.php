@@ -39,6 +39,11 @@ class PKPAppearanceForm extends ContextSettingsForm {
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON);
 
+		$themes = PluginRegistry::getPlugins('themes');
+		if (is_null($themes)) {
+			PluginRegistry::loadCategory('themes', true);
+		}
+
 		parent::ContextSettingsForm($settings, 'controllers/tab/settings/appearance/form/appearanceForm.tpl', $wizardMode);
 	}
 
@@ -95,12 +100,26 @@ class PKPAppearanceForm extends ContextSettingsForm {
 		$templateMgr->assign('uploadImageLinkActions', $uploadImageLinkActions);
 		$templateMgr->assign('uploadCssLinkAction', $uploadCssLinkAction);
 
-		$themePlugins = PluginRegistry::loadCategory('themes');
-		$themePluginOptions = array();
-		foreach ($themePlugins as $themePlugin) {
-			$themePluginOptions[basename($themePlugin->getPluginPath())] = $themePlugin->getDisplayName();
+		$themePlugins = PluginRegistry::getPlugins('themes');
+		if (is_null($themePlugins)) {
+			$themePlugins = PluginRegistry::loadCategory('themes', true);
 		}
-		$templateMgr->assign('themePluginOptions', $themePluginOptions);
+		$enabledThemes = array();
+		$activeThemeOptions = array();
+		foreach ($themePlugins as $themePlugin) {
+			$enabledThemes[basename($themePlugin->getPluginPath())] = $themePlugin->getDisplayName();
+			if ($themePlugin->isActive()) {
+				$activeThemeOptions = $themePlugin->getOptionsConfig();
+				$activeThemeOptionsValues = $themePlugin->getOptionValues();
+				foreach ($activeThemeOptions as $name => $option) {
+					$activeThemeOptions[$name]['value'] = isset($activeThemeOptionsValues[$name]) ? $activeThemeOptionsValues[$name] : '';
+				}
+			}
+		}
+		$templateMgr->assign(array(
+			'enabledThemes' => $enabledThemes,
+			'activeThemeOptions' => $activeThemeOptions,
+		));
 
 		$params = array(
 			'imagesViews' => $imagesViews,
@@ -197,32 +216,20 @@ class PKPAppearanceForm extends ContextSettingsForm {
 	 * @copydoc ContextSettingsForm::execute()
 	 */
 	function execute($request) {
+
+		// Clear the template cache if theme has changed
+		$context = $request->getContext();
+		if ($this->getData('themePluginPath') != $context->getSetting('themePluginPath')) {
+			$templateMgr = TemplateManager::getManager($request);
+			$templateMgr->clearTemplateCache();
+			$templateMgr->clearCssCache();
+		}
+
 		parent::execute($request);
 
 		// Save block plugins context positions.
 		import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
 		ListbuilderHandler::unpack($request, $request->getUserVar('blocks'));
-
-		// Activate the selected theme plugin
-		$context = $request->getContext();
-		$themePlugins = PluginRegistry::loadCategory('themes');
-		$selectedThemePluginPath = $this->getData('themePluginPath');
-		$selectedThemePlugin = null;
-		foreach ($themePlugins as $themePlugin) {
-			if (basename($themePlugin->getPluginPath()) != $selectedThemePluginPath) {
-				if ($themePlugin->getEnabled()) {
-					$themePlugin->setEnabled(false);
-				}
-			} else {
-				$selectedThemePlugin = $themePlugin;
-			}
-		}
-		if ($selectedThemePlugin) {
-			// Activate the selected theme to trigger a CSS recompile.
-			$selectedThemePlugin->setEnabled(true);
-		} else {
-			assert(false); // Couldn't identify the selected theme plugin
-		}
 	}
 
 	/**

@@ -121,6 +121,7 @@ class ContextSettingsForm extends Form {
 	 * @param $request PKPRequest
 	 */
 	function execute($request) {
+		parent::execute($request);
 		$context = $request->getContext();
 		$settingsDao = $context->getSettingsDao();
 		$settings = $this->getSettings();

@@ -6,7 +6,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @brief Display the page to view a journal's or press's description, contact
- *  details, politics and more.
+ *  details, policies and more.
  *
  * @uses $currentContext Journal|Press The current journal or press
  *}

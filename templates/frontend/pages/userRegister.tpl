@@ -126,6 +126,17 @@
 			</fieldset>
 		{/if}
 
+		{* recaptcha spam blocker *}
+		{if $reCaptchaHtml}
+			<fieldset class="recaptcha_wrapper">
+				<div class="fields">
+					<div class="recaptcha">
+						{$reCaptchaHtml}
+					</div>
+				</div>
+			</fieldset>
+		{/if}
+
 		<div class="buttons">
 			<button class="submit" type="submit">
 				{translate key="user.register"}

@@ -53,7 +53,7 @@ class RegistrationForm extends Form {
 
 		$this->captchaEnabled = Config::getVar('captcha', 'captcha_on_register') && Config::getVar('captcha', 'recaptcha');
 		if ($this->captchaEnabled) {
-			$this->addCheck(new FormValidatorReCaptcha($this, 'recaptcha_challenge_field', 'recaptcha_response_field', Request::getRemoteAddr(), 'common.captchaField.badCaptcha'));
+			$this->addCheck(new FormValidatorReCaptcha($this, Request::getRemoteAddr(), 'common.captcha.error.invalid-input-response'));
 		}
 
 		$authDao = DAORegistry::getDAO('AuthSourceDAO');
@@ -75,10 +75,8 @@ class RegistrationForm extends Form {
 		$context = $request->getContext();
 
 		if ($this->captchaEnabled) {
-			import('lib.pkp.lib.recaptcha.recaptchalib');
 			$publicKey = Config::getVar('captcha', 'recaptcha_public_key');
-			$useSSL = Config::getVar('security', 'force_ssl')?true:false;
-			$reCaptchaHtml = recaptcha_get_html($publicKey, null, $useSSL);
+			$reCaptchaHtml = '<div class="g-recaptcha" data-sitekey="' . $publicKey . '"></div>';
 			$templateMgr->assign(array(
 				'reCaptchaHtml' => $reCaptchaHtml,
 				'captchaEnabled' => true,
@@ -166,8 +164,7 @@ class RegistrationForm extends Form {
 
 		if ($this->captchaEnabled) {
 			$this->readUserVars(array(
-				'recaptcha_challenge_field',
-				'recaptcha_response_field',
+				'g-recaptcha-response',
 			));
 		}
 

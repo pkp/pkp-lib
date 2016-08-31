@@ -15,7 +15,7 @@
 		{translate key="user.login.registrationComplete.instructions"}
 	</p>
 	<ul class="registration_complete_actions">
-		{if array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER))}
+		{if array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER), (array)$userRoles)}
 			<li class="view_submissions">
 				<a href="{url page="submissions"}">
 					{translate key="user.login.registrationComplete.manageSubmissions"}

@@ -19,21 +19,13 @@ import('classes.notification.Notification');
 
 class NotificationMailingListForm extends Form {
 
-	/** @var boolean Whether or not Captcha support is enabled */
-	var $captchaEnabled;
-
 	/**
 	 * Constructor.
 	 */
 	function NotificationMailingListForm() {
 		parent::Form('notification/maillist.tpl');
 
-		$this->captchaEnabled = Config::getVar('captcha', 'captcha_on_mailinglist') && Config::getVar('captcha', 'recaptcha');
-
 		// Validation checks for this form
-		if ($this->captchaEnabled) {
-			$this->addCheck(new FormValidatorReCaptcha($this, 'recaptcha_challenge_field', 'recaptcha_response_field', Request::getRemoteAddr(), 'common.captchaField.badCaptcha'));
-		}
 		$this->addCheck(new FormValidatorPost($this));
 		$this->addCheck(new FormValidatorCSRF($this));
 		$this->addCheck(new FormValidatorEmail($this, 'email', 'required', 'notification.mailList.emailInvalid'));
@@ -44,12 +36,7 @@ class NotificationMailingListForm extends Form {
 	 */
 	function readInputData() {
 		$userVars = array('email');
-		
-		if ($this->captchaEnabled) {
-			$userVars[] = 'recaptcha_challenge_field';
-			$userVars[] = 'recaptcha_response_field';
-		}
-		
+
 		$this->readUserVars($userVars);
 	}
 
@@ -60,15 +47,6 @@ class NotificationMailingListForm extends Form {
 	function display($request) {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('new', true);
-		
-		if ($this->captchaEnabled) {
-			import('lib.pkp.lib.recaptcha.recaptchalib');
-			$publicKey = Config::getVar('captcha', 'recaptcha_public_key');
-			$useSSL = Config::getVar('security', 'force_ssl')?true:false;
-			$reCaptchaHtml = recaptcha_get_html($publicKey, null, $useSSL);
-			$templateMgr->assign('reCaptchaHtml', $reCaptchaHtml);
-			$templateMgr->assign('captchaEnabled', true);
-		}
 
 		return parent::display();
 	}

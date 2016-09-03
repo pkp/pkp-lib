@@ -94,8 +94,8 @@ class PKPRouter {
 	 * set the application
 	 * @param $application PKPApplication
 	 */
-	function setApplication(&$application) {
-		$this->_application =& $application;
+	function setApplication($application) {
+		$this->_application = $application;
 
 		// Retrieve context depth and list
 		$this->_contextDepth = $application->getContextDepth();

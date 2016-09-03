@@ -42,8 +42,8 @@ class Dispatcher {
 	 * Set the application
 	 * @param $application PKPApplication
 	 */
-	function setApplication(&$application) {
-		$this->_application =& $application;
+	function setApplication($application) {
+		$this->_application = $application;
 	}
 
 	/**

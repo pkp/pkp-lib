@@ -104,7 +104,7 @@
 			<NOTNULL/>
 		</field>
 		<field name="review_round_id" type="I8">
-			<NOTNULL/>
+			<!-- NOTNULL/ --><!-- For upgrades -->
 		</field>
 		<field name="stage_id" type="I8" />
 		<field name="round" type="I1">
@@ -151,7 +151,7 @@
 		<field name="author_id" type="I8">
 			<NOTNULL/>
 		</field>
-		<field name="comment_title" type="C2" size="90">
+		<field name="comment_title" type="C2" size="255">
 			<NOTNULL/>
 		</field>
 		<field name="comments" type="X"/>

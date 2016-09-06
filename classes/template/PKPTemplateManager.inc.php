@@ -197,14 +197,14 @@ class PKPTemplateManager extends Smarty {
 				'spectrum',
 				$this->_request->getBaseUrl() . '/lib/pkp/js/lib/jquery/plugins/spectrum/spectrum.js',
 				array(
-					'contexts' => array('backend-management-settings', 'backend-admin-settings'),
+					'contexts' => array('backend-management-settings', 'backend-admin-settings', 'backend-admin-contexts'),
 				)
 			);
 			$this->addStyleSheet(
 				'spectrum',
 				$this->_request->getBaseUrl() . '/lib/pkp/js/lib/jquery/plugins/spectrum/spectrum.css',
 				array(
-					'contexts' => array('backend-management-settings', 'backend-admin-settings'),
+					'contexts' => array('backend-management-settings', 'backend-admin-settings', 'backend-admin-contexts'),
 				)
 			);
 

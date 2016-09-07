@@ -85,7 +85,7 @@ class UserGroupDAO extends DAO {
 
 		$userGroup->setId($this->getInsertId());
 		$this->updateLocaleFields($userGroup);
-		return $this->getInsertId();
+		return $userGroup->getId();
 	}
 
 	/**

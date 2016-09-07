@@ -102,13 +102,19 @@ class NotificationsGridHandler extends GridHandler {
 	/**
 	 * @see GridHandler::setUrls()
 	 */
-	function setUrls($request) {
+	function setUrls($request, $extraUrls = array()) {
 		$router = $request->getRouter();
-		parent::setUrls($request, array(
-			'markNewUrl' => $router->url($request, null, null, 'markNew', null, $this->getRequestArgs()),
-			'markReadUrl' => $router->url($request, null, null, 'markRead', null, $this->getRequestArgs()),
-			'deleteUrl' => $router->url($request, null, null, 'deleteNotifications', null, $this->getRequestArgs()),
-		));
+		parent::setUrls(
+			$request,
+			array_merge(
+				$extraUrls,
+				array(
+					'markNewUrl' => $router->url($request, null, null, 'markNew', null, $this->getRequestArgs()),
+					'markReadUrl' => $router->url($request, null, null, 'markRead', null, $this->getRequestArgs()),
+					'deleteUrl' => $router->url($request, null, null, 'deleteNotifications', null, $this->getRequestArgs()),
+				)
+			)
+		);
 	}
 
 	/**
@@ -123,7 +129,7 @@ class NotificationsGridHandler extends GridHandler {
 	/**
 	 * @copydoc GridHandler::initFeatures()
 	 */
-	function initFeatures($request, $args) {
+	function initFeatures($request, &$args) {
 		import('lib.pkp.classes.controllers.grid.feature.selectableItems.SelectableItemsFeature');
 		import('lib.pkp.classes.controllers.grid.feature.PagingFeature');
 		return array(new SelectableItemsFeature(), new PagingFeature());

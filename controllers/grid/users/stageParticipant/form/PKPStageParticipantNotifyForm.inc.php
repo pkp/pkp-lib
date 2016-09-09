@@ -115,7 +115,7 @@ class PKPStageParticipantNotifyForm extends Form {
 
 		$this->setData('userIds', array($request->getUserVar('userId')));
 		$userData = $this->getData('users');
-		ListbuilderHandler::unpack($request, $userData);
+		ListbuilderHandler::unpack($request, $userData, array($this, 'deleteEntry'), array($this, 'insertEntry'), array($this, 'updateEntry'));
 	}
 
 	/**

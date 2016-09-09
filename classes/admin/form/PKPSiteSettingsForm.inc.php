@@ -124,9 +124,9 @@ class PKPSiteSettingsForm extends Form {
 			$site->updateSetting('pageHeaderTitleImage', $setting, 'object', true);
 		}
 
-		$site->updateSetting('showThumbnail', $this->getData('showThumbnail'), bool);
-		$site->updateSetting('showTitle', $this->getData('showTitle'), bool);
-		$site->updateSetting('showDescription', $this->getData('showDescription'), bool);
+		$site->updateSetting('showThumbnail', $this->getData('showThumbnail'), 'bool');
+		$site->updateSetting('showTitle', $this->getData('showTitle'), 'bool');
+		$site->updateSetting('showDescription', $this->getData('showDescription'), 'bool');
 
 		$siteDao->updateObject($site);
 		return true;

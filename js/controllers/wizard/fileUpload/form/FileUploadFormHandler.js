@@ -52,10 +52,10 @@
 
 		// Enable/disable the uploader and genre selection based on selection
 		this.$revisedFileSelector_ = $form.find('#revisedFileId')
-			.change(this.callbackWrapper(this.revisedFileChange));
+				.change(this.callbackWrapper(this.revisedFileChange));
 		if (this.hasGenreSelector_) {
 			this.$genreSelector = $form.find('#genreId')
-				.change(this.callbackWrapper(this.genreChange));
+					.change(this.callbackWrapper(this.genreChange));
 		}
 
 		this.setUploaderVisibility_();
@@ -352,7 +352,7 @@
 		this.$uploader_.removeClass('pkp_screen_reader');
 		// Reset the button position
 		$.pkp.classes.Handler.getHandler(this.$uploader_)
-			.pluploader.refresh();
+				.pluploader.refresh();
 	};
 
 

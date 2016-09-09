@@ -104,7 +104,7 @@
 		// (Not using "has" due to potential escaping issues; see
 		// http://stackoverflow.com/questions/739695/jquery-selector-value-escaping
 		$grids = $('.pkp_controllers_grid', this.getHtmlElement())
-					.filter(function() {
+				.filter(function() {
 					var matches = 0;
 					$(this).find('a').each(function() {
 						if ($(this).attr('href') == linkUrl) {

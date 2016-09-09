@@ -546,7 +546,7 @@
 		if (options.cancelButtonText) {
 			// Add cancel button.
 			$cancelButton = $('<a id="cancelButton" href="#"></a>')
-				.text(options.cancelButtonText);
+					.text(options.cancelButtonText);
 			$wizardButtons.append($cancelButton);
 
 			// Attach the cancel request handler.

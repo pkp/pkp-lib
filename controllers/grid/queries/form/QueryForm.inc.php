@@ -226,7 +226,7 @@ class QueryForm extends Form {
 		$noteDao->updateObject($headNote);
 
 		import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
-		ListbuilderHandler::unpack($request, $this->getData('users'));
+		ListbuilderHandler::unpack($request, $this->getData('users'), array($this, 'deleteEntry'), array($this, 'insertEntry'), array($this, 'updateEntry'));
 
 		$queryDao->updateObject($query);
 

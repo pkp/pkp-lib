@@ -47,7 +47,7 @@ class UserForm extends Form {
 	 * @copydoc Form::execute()
 	 */
 	function execute($request) {
-		ListbuilderHandler::unpack($request, $this->getData('roles'));
+		ListbuilderHandler::unpack($request, $this->getData('roles'), array($this, 'deleteEntry'), array($this, 'insertEntry'), array($this, 'updateEntry'));
 	}
 
 	/**

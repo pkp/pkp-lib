@@ -63,21 +63,19 @@ class ReviewFormGridRow extends GridRow {
 			}
 
 			// if review form is not editable, add 'copy' grid row action
-			if(!$canEdit) {
-				$this->addAction(
-					new LinkAction(
-						'copy',
-						new RemoteActionConfirmationModal(
-							$request->getSession(),
-							__('manager.reviewForms.confirmCopy'),
-							null,
-							$router->url($request, null, null, 'copyReviewForm', null, array('rowId' => $rowId))
-							),
-						__('grid.action.copy'),
-						'copy'
-						)
-				);
-			}
+			$this->addAction(
+				new LinkAction(
+					'copy',
+					new RemoteActionConfirmationModal(
+						$request->getSession(),
+						__('manager.reviewForms.confirmCopy'),
+						null,
+						$router->url($request, null, null, 'copyReviewForm', null, array('rowId' => $rowId))
+						),
+					__('grid.action.copy'),
+					'copy'
+					)
+			);
 
 			// add 'preview' grid row action
 			$this->addAction(

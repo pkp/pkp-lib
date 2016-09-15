@@ -151,7 +151,7 @@
 		<field name="author_id" type="I8">
 			<NOTNULL/>
 		</field>
-		<field name="comment_title" type="C2" size="255">
+		<field name="comment_title" type="C2" size="X">
 			<NOTNULL/>
 		</field>
 		<field name="comments" type="X"/>

@@ -44,7 +44,7 @@
 		<field name="metric_type" type="C2" size="255">
 			<NOTNULL />
 		</field>
-		<field name="metric" type="I2">
+		<field name="metric" type="I4">
 			<NOTNULL />
 		</field>
 

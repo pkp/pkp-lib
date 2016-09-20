@@ -90,7 +90,6 @@ class NativeImportFilter extends NativeImportExportFilter {
 	 * @return array Array("locale_KEY", "Localized Text")
 	 */
 	function parseLocalizedContent($element) {
-		assert($element->hasAttribute('locale'));
 		return array($element->getAttribute('locale'), $element->textContent);
 	}
 }

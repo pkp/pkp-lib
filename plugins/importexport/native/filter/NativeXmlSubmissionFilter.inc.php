@@ -72,7 +72,9 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 		$submission = $submissionDao->newDataObject();
 		$submission->setContextId($context->getId());
 		$submission->setStatus(STATUS_QUEUED);
-		$submission->setLocale($node->getAttribute('locale'));
+		$submissionLocale = $node->getAttribute('locale');
+		if (empty($submissionLocale)) $submissionLocale = $context->getPrimaryLocale();
+		$submission->setLocale($submissionLocale);
 		$submission->setSubmissionProgress(0);
 		$workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO');
 		$submission->setStageId(WorkflowStageDAO::getIdFromPath($node->getAttribute('stage')));
@@ -132,6 +134,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 			// If applicable, call a setter for localized content
 			$setterFunction = $setterMappings[$n->tagName];
 			list($locale, $value) = $this->parseLocalizedContent($n);
+			if (empty($locale)) $locale = $submission->getLocale();
 			$submission->$setterFunction($value, $locale);
 		} else switch ($n->tagName) {
 			// Otherwise, delegate to specific parsing code

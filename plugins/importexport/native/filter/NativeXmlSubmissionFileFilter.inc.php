@@ -191,12 +191,16 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 	 * @return string Filename for new file
 	 */
 	function handleRevisionChildElement($node, $submission, $submissionFile) {
+		$deployment = $this->getDeployment();
+		$context = $deployment->getContext();
 		switch ($node->tagName) {
 			case 'id':
 				$this->parseIdentifier($node, $submissionFile);
 				break;
 			case 'name':
-				$submissionFile->setName($node->textContent, $node->getAttribute('locale'));
+				$locale = $node->getAttribute('locale');
+				if (empty($locale)) $locale = $context->getPrimaryLocale();
+				$submissionFile->setName($node->textContent, $locale);
 				break;
 			case 'href':
 				$submissionFile->setFileType($node->getAttribute('mime_type'));

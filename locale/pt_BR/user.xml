@@ -75,7 +75,6 @@
 	<message key="user.register.completeForm">Preencha o formulário para se cadastrar no sistema.</message>
 	<message key="user.register.form.emailExists">O endereço de e-mail digitado já está cadastrado.</message>
 	<message key="user.register.form.passwordsDoNotMatch">As senhas não combinam.</message>
-	<message key="user.register.form.usernameAlphaNumeric">O login deve conter apenas letras minúsculas (a-z), números(0-9), sublinhados(_) e hífens(-), e deve começar por um caractere alfanumérico (a-z, 0-9).</message>
 	<message key="user.register.form.usernameExists">O login digitado já está cadastrado.</message>
 	<message key="user.register.passwordLengthRestriction">A senha deve ter no mínimo {$length} caracteres.</message>
 	<message key="user.register.registerAs">Cadastrar em {$contextName} como...</message>

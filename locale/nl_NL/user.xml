@@ -77,7 +77,6 @@
 	<message key="user.register.completeForm">Vul dit formulier in om u te registreren bij dit tijdschrift.</message>
 	<message key="user.register.form.emailExists">Het gekozen e-mailadres is al in gebruik bij een andere gebruiker.</message>
 	<message key="user.register.form.passwordsDoNotMatch">De wachtwoorden komen niet overeen.</message>
-	<message key="user.register.form.usernameAlphaNumeric">De gebruikersnaam mag alleen alfanumerieke tekens, liggende en koppelstreepjes bevatten en moet beginnen en eindigen met een alfanumeriek teken.</message>
 	<message key="user.register.form.usernameExists">De gekozen gebruikersnaam is al in gebruik bij een andere gebruiker.</message>
 	<message key="user.register.passwordLengthRestriction">Het wachtwoord moet minimaal {$length} tekens zijn.</message>
 	<message key="user.register.registerAs">Registreer als</message>

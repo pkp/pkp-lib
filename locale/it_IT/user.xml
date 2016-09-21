@@ -76,7 +76,6 @@
 	<message key="user.register.completeForm">Riempi questo modulo per registrarti alla rivista.</message>
 	<message key="user.register.form.emailExists">L'indirizzo email selezionato è  già in uso da un altro utente.</message>
 	<message key="user.register.form.passwordsDoNotMatch">Le password non combaciano.</message>
-	<message key="user.register.form.usernameAlphaNumeric"><![CDATA[La username può contenere solo caratteri alfanumerici, underscores, e trattini, e deve cominciare e finire con un carattere alfanumerico. Non pu&ograve; contenere spazi.]]></message>
 	<message key="user.register.form.usernameExists">La username selezionata è già in uso da un altro utente.</message>
 	<message key="user.register.passwordLengthRestriction">La password deve essere almeno {$length} caratteri.</message>
 	<message key="user.register.registerAs">Registrati come</message>

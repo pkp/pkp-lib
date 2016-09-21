@@ -78,7 +78,6 @@
 	<message key="user.register.completeForm">Заполните эту форму, чтобы получить доступ к этому журналу.</message>
 	<message key="user.register.form.emailExists">Выбранный мейл используется другим членом сайта.</message>
 	<message key="user.register.form.passwordsDoNotMatch">Пароли не совпадают</message>
-	<message key="user.register.form.usernameAlphaNumeric">Имя пользователя может содержать буквы, цифры, дефис, но должно начинаться и заканчиваться буквой.</message>
 	<message key="user.register.form.usernameExists">Выбранное имя пользователя уже зарегистрировано другим членом сайта.</message>
 	<message key="user.register.passwordLengthRestriction">Пароль должен содержать не менее {$length} знаков.</message>
 	<message key="user.register.registerAs">Зарегистрироваться как</message>

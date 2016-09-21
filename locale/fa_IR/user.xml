@@ -76,7 +76,6 @@
 	<message key="user.register.completeForm">این فرم را پر کنید تا برای این مجله ثبت نام کنید</message>
 	<message key="user.register.form.emailExists">آدرس ایمیل انتخاب شده قبلا با آن ثبت نام شده است. (ممکن است قبلا ثبت نام کرده باشید!)</message>
 	<message key="user.register.form.passwordsDoNotMatch">رمز عبور با تکرار آن یکسان نیست</message>
-	<message key="user.register.form.usernameAlphaNumeric">نام کاربری فقط میتواند شامل حروف ، اعداد ، خط فاصله زیرین و خط فاصله باشد و میبایست با یک حرف یا عدد شروع و به یک حرف یا عدد ختم شود.</message>
 	<message key="user.register.form.usernameExists">نام کاربری انتخاب شده در حال حاضر متعلق به دیگری میباشد.</message>
 	<message key="user.register.passwordLengthRestriction">رمز عبور باید حداقل دارای  {$length} حرف باشد.</message>
 	<message key="user.register.registerAs">ثبت نام به عنوان</message>

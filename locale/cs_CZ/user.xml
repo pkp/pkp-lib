@@ -83,7 +83,6 @@
 	<message key="user.profile.repeatNewPassword">Nové heslo znovu</message>
 	<message key="user.register.form.emailExists">Zvolenou emailovou adresu již používá jiný uživatel.</message>
 	<message key="user.register.form.passwordsDoNotMatch">Hesla nejsou totožná.</message>
-	<message key="user.register.form.usernameAlphaNumeric">Uživatelské jméno může obsahovat pouze alfanumerické znaky, podtržítka a pomlčky a musí začínat a končit alfanumerickým znakem.</message>
 	<message key="user.register.form.usernameExists">Zvolené uživatelské jméno již používá jiný uživatel.</message>
 	<message key="user.register.passwordLengthRestriction">Heslo musí mít nejméně {$length} znaků.</message>
 	<message key="user.register.registerAs">Zaregistrovat jako</message>

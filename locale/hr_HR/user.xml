@@ -74,7 +74,6 @@
 	<message key="user.register.completeForm">Ispunite ovaj formular kako biste se registrirali na ovaj časopis.</message>
 	<message key="user.register.form.emailExists">Odabrana adresa e-pošte već postoji.</message>
 	<message key="user.register.form.passwordsDoNotMatch">Lozinke se ne podudaraju.</message>
-	<message key="user.register.form.usernameAlphaNumeric">Korisničko ime može samo sadržavati slovnobrojčane znakove, podvlačenja i crtice, te mora početi i završiti sa slovnobrojčanim znakom.</message>
 	<message key="user.register.form.usernameExists">Odabrano korisničko ime već postoji.</message>
 	<message key="user.register.passwordLengthRestriction">Lozinka mora imati najmanje {$length} znakova.</message>
 	<message key="user.register.registerAs">Registrirajte se kao</message>

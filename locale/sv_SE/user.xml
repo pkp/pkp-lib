@@ -76,7 +76,6 @@
 	<message key="user.register.completeForm">Fyll i formuläret för att registrera dig hos den här tidskriften.</message>
 	<message key="user.register.form.emailExists">Vald E-postadress används redan.</message>
 	<message key="user.register.form.passwordsDoNotMatch">Lösenorden matchar inte.</message>
-	<message key="user.register.form.usernameAlphaNumeric">Användarnamnet får endast innehålla alfanumeriska tecken, understreck (_), bindestreck (-), och måste inledas samt avslutas med ett alfanumeriskt tecken.</message>
 	<message key="user.register.form.usernameExists">Det valda användarnamnet används redan av en annan användare.</message>
 	<message key="user.register.passwordLengthRestriction">Lösenordet måste minst innehålla {$length} tecken.</message>
 	<message key="user.register.registerAs">Registrera som</message>

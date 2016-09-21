@@ -107,7 +107,6 @@ Tragen Sie zur Wiederherstellung des Passwortes unten Ihre E-Mail-Adresse ein. E
 	<message key="user.register.form.emailExists">Die ausgewählte E-Mail-Adresse wird bereits von einer anderen Benutzerin/einem anderen Benutzer verwendet.</message>
 	<message key="user.register.form.passwordsDoNotMatch">Die Passwörter stimmen nicht überein.</message>
 	<message key="user.register.form.emailsDoNotMatch">Die E-Mail-Adressen stimmen nicht überein.</message>
-	<message key="user.register.form.usernameAlphaNumeric">Der Benutzer/innen-Name darf nur Buchstaben und Zahlen, Unterstriche und Bindestriche enthalten und muss mit einem Buchstaben oder einer Zahl beginnen und enden.</message>
 	<message key="user.register.form.userGroupRequired">Mindestens eine Rolle muss ausgewählt werden.</message>
 	<message key="user.register.form.usernameExists">Der ausgewählte Benutzer/innen-Name wird bereits von einer anderen Benutzerin/einem anderen Benutzer verwendet.</message>
 	<message key="user.register.registerAs">Sich bei {$contextName} registrieren als...</message>

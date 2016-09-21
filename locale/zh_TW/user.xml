@@ -68,7 +68,6 @@
 	<message key="user.register.completeForm">填寫這份表單以註冊這份期刊。</message>
 	<message key="user.register.form.emailExists">所選擇的電子郵件地址已被其他使用者使用了。</message>
 	<message key="user.register.form.passwordsDoNotMatch">密碼不符</message>
-	<message key="user.register.form.usernameAlphaNumeric">使用者名稱只可以含有數字和英文字母、底線(_)與連字號(-)，而且一定要以數字或英文字母作為開頭和結尾。</message>
 	<message key="user.register.form.usernameExists">所選擇的使用者名稱已被其他使用者使用了。</message>
 	<message key="user.register.passwordLengthRestriction">密碼至少要有{$length}個字元。</message>
 	<message key="user.register.registerAs">註冊為</message>

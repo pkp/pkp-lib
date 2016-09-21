@@ -76,7 +76,6 @@
 	<message key="user.register.completeForm">Điền vào mẫu khai dưới đây để đăng ký với tạp chí này.</message>
 	<message key="user.register.form.emailExists">Địa chỉ email quý vị chọn đã có người khác sử dụng.</message>
 	<message key="user.register.form.passwordsDoNotMatch">Mật khẩu không khớp.</message>
-	<message key="user.register.form.usernameAlphaNumeric">Bí danh chỉ có thể chứa các ký tự chữ cái và chữ số, dấu - hoặc _ và phải bắt đầu bằng chữ cái hoặc chữ số.</message>
 	<message key="user.register.form.usernameExists">Bí danh mà quý vị chọn đã có người khác sử dụng.</message>
 	<message key="user.register.passwordLengthRestriction">Mật khẩu phải có ít nhất {$length} ký tự.</message>
 	<message key="user.register.registerAs">Kiểu đăng ký</message>

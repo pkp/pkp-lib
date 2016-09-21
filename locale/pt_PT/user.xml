@@ -77,7 +77,6 @@
 	<message key="user.register.completeForm">Preencha o formulário para se registar no sistema.</message>
 	<message key="user.register.form.emailExists">O endereço de e-mail inserido já se encontra registado.</message>
 	<message key="user.register.form.passwordsDoNotMatch">As senhas inseridas não são iguais.</message>
-	<message key="user.register.form.usernameAlphaNumeric">O nome de utilizador deve conter apenas letras minúsculas (a-z), números(0-9), sublinhados(_) e hífens(-), e deve começar por um caractere alfanumérico (a-z, 0-9).</message>
 	<message key="user.register.form.usernameExists">O nome de utilizador inserido já se encontra registado.</message>
 	<message key="user.register.passwordLengthRestriction">A senha deve ter no mínimo {$length} caracteres.</message>
 	<message key="user.register.registerAs">Registar-se como</message>

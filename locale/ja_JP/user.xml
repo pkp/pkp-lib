@@ -76,7 +76,6 @@
 	<message key="user.register.completeForm">この雑誌に登録する場合は、以下の記入欄に入力してください。</message>
 	<message key="user.register.form.emailExists">指定されたメールアドレスは既に別のユーザに使用されています。</message>
 	<message key="user.register.form.passwordsDoNotMatch">パスワードが一致しません。</message>
-	<message key="user.register.form.usernameAlphaNumeric">ユーザ名に使用できる文字は、英数字とアンダーバー "_"、ハイフン "-" だけです。また、最初と最後の文字は英数字でなければなりません。</message>
 	<message key="user.register.form.usernameExists">指定されたユーザ名は既に使用されています。</message>
 	<message key="user.register.passwordLengthRestriction">パスワードは少なくとも{$length} 文字以上必要です。</message>
 	<message key="user.register.registerAs">登録ユーザの役割</message>

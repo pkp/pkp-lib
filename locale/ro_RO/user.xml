@@ -78,7 +78,6 @@
 	<message key="user.profile.repeatNewPassword">Repetă parola nouă</message>
 	<message key="user.register.form.emailExists">Adresa de email selectată este deja folosită de către alt utilizator.</message>
 	<message key="user.register.form.passwordsDoNotMatch">Parolele nu se potrivesc.</message>
-	<message key="user.register.form.usernameAlphaNumeric">Numele utilizatorului poate să conţină doar caractere alfanumerice, linii jos sau linii simple, dar trebuie să înceapă şi să se sfârşească cu un caracter alfanumeric.</message>
 	<message key="user.register.form.usernameExists">Numele utilizatorului este deja folosit de către altcineva.</message>
 	<message key="user.register.passwordLengthRestriction">Parola trebuie să fie cel puţin de {$length} caractere.</message>
 	<message key="user.register.registerAs">Înregistrează-te ca</message>

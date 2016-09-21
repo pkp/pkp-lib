@@ -77,7 +77,6 @@
 	<message key="user.register.completeForm">Compléter ce formulaire pour vous inscrire à cette revue.</message>
 	<message key="user.register.form.emailExists">L'adresse de courriel sélectionnée est déjà utilisée par un autre utilisateur.</message>
 	<message key="user.register.form.passwordsDoNotMatch">Les mots de passe ne correspondent pas.</message>
-	<message key="user.register.form.usernameAlphaNumeric">Le nom d'utilisateur peut contenir uniquement des caractères alphanumériques, traits de soulignement, et traits d'union, et doit commencer et se terminer par un caractère alphanumérique.</message>
 	<message key="user.register.form.usernameExists">Le nom d'utilisateur sélectionné est déjà utilisé par un autre utilisateur.</message>
 	<message key="user.register.passwordLengthRestriction">Le mot de passe doit avoir au moins {$length} caractères.</message>
 	<message key="user.register.registerAs">S'inscrire en tant que</message>

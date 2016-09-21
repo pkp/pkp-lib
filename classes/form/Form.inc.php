@@ -24,7 +24,7 @@ import('lib.pkp.classes.form.FormError');
 import('lib.pkp.classes.form.FormBuilderVocabulary');
 
 // Import all form validators for convenient use in sub-classes
-import('lib.pkp.classes.form.validation.FormValidatorAlphaNum');
+import('lib.pkp.classes.form.validation.FormValidatorUsername');
 import('lib.pkp.classes.form.validation.FormValidatorArray');
 import('lib.pkp.classes.form.validation.FormValidatorArrayCustom');
 import('lib.pkp.classes.form.validation.FormValidatorBoolean');

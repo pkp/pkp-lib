@@ -41,7 +41,7 @@ class UserDetailsForm extends UserForm {
 		if ($userId == null) {
 			$this->addCheck(new FormValidator($this, 'username', 'required', 'user.profile.form.usernameRequired'));
 			$this->addCheck(new FormValidatorCustom($this, 'username', 'required', 'user.register.form.usernameExists', array(DAORegistry::getDAO('UserDAO'), 'userExistsByUsername'), array($this->userId, true), true));
-			$this->addCheck(new FormValidatorAlphaNum($this, 'username', 'required', 'user.register.form.usernameAlphaNumeric'));
+			$this->addCheck(new FormValidatorUsername($this, 'username', 'required', 'user.register.form.usernameAlphaNumeric'));
 
 			if (!Config::getVar('security', 'implicit_auth')) {
 				$this->addCheck(new FormValidator($this, 'password', 'required', 'user.profile.form.passwordRequired'));
@@ -202,11 +202,6 @@ class UserDetailsForm extends UserForm {
 
 		if ($this->getData('userLocales') == null || !is_array($this->getData('userLocales'))) {
 			$this->setData('userLocales', array());
-		}
-
-		if ($this->getData('username') != null) {
-			// Usernames must be lowercase
-			$this->setData('username', strtolower($this->getData('username')));
 		}
 	}
 

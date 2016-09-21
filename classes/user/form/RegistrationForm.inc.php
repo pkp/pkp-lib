@@ -39,7 +39,7 @@ class RegistrationForm extends Form {
 		$this->addCheck(new FormValidatorCustom($this, 'username', 'required', 'user.register.form.usernameExists', array(DAORegistry::getDAO('UserDAO'), 'userExistsByUsername'), array(), true));
 		$this->addCheck(new FormValidator($this, 'username', 'required', 'user.profile.form.usernameRequired'));
 		$this->addCheck(new FormValidator($this, 'password', 'required', 'user.profile.form.passwordRequired'));
-		$this->addCheck(new FormValidatorAlphaNum($this, 'username', 'required', 'user.register.form.usernameAlphaNumeric'));
+		$this->addCheck(new FormValidatorUsername($this, 'username', 'required', 'user.register.form.usernameAlphaNumeric'));
 		$this->addCheck(new FormValidatorLength($this, 'password', 'required', 'user.register.form.passwordLengthRestriction', '>=', $site->getMinPasswordLength()));
 		$this->addCheck(new FormValidatorCustom($this, 'password', 'required', 'user.register.form.passwordsDoNotMatch', create_function('$password,$form', 'return $password == $form->getData(\'password2\');'), array(&$this)));
 
@@ -166,11 +166,6 @@ class RegistrationForm extends Form {
 			$this->readUserVars(array(
 				'g-recaptcha-response',
 			));
-		}
-
-		if ($this->getData('username') != null) {
-			// Usernames must be lowercase
-			$this->setData('username', strtolower($this->getData('username')));
 		}
 
 		// Collect the specified user group IDs into a single piece of data

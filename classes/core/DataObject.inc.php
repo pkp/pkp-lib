@@ -130,7 +130,8 @@ class DataObject {
 					if (empty($this->_data[$key])) unset($this->_data[$key]);
 				}
 			} else {
-				$this->_data[$key][$locale] = $value;
+				if (is_array($this->_data[$key])
+					$this->_data[$key][$locale] = $value;
 			}
 		}
 	}

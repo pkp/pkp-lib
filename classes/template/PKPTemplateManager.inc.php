@@ -606,16 +606,11 @@ class PKPTemplateManager extends Smarty {
 		}
 
 		// Otherwise retrieve and register all script files
-		$minifiedScriptsTemplate = $this->fetch('common/minifiedScripts.tpl');
-		preg_match_all('/<script src=\"' . preg_quote($baseUrl, '/') . '([^"]*)\"><\/script>/', $minifiedScriptsTemplate, $scripts);
-		if (empty($scripts[1])) {
-			return;
-		}
-
-		$scripts = $scripts[1];
-
-		foreach ($scripts as $key => $script) {
-			$this->addJavaScript( 'pkpLib' . $key, $baseUrl . $script, $args );
+		$minifiedScripts = array_filter(array_map('trim', file('registry/minifiedScripts.txt')), function($s) {
+			return strlen($s) && $s[0] != '#'; // Exclude empty and commented (#) lines
+		});
+		foreach ($minifiedScripts as $key => $script) {
+			$this->addJavaScript( 'pkpLib' . $key, "$baseUrl/$script", $args);
 		}
 	}
 

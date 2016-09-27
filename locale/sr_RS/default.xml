@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * locale/sr_RS/locale.xml
+  *
+  * Copyright (c) 2014-2016 Simon Fraser University Library
+  * Copyright (c) 2003-2016 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the sr_RS (Crpski) locale.
+  * Igor Lekić(igor.lekic@ff.uns.ac.rs)
+  -->
+
+<locale name="sr_RS" full_name = "Srpski">
+	<message key="default.groups.name.siteAdmin">Administrator sajta</message>
+	<message key="default.groups.plural.siteAdmin">Administratori sajta</message>
+	<message key="default.groups.name.productionEditor">Urednik produkcije</message>
+	<message key="default.groups.plural.productionEditor">Urednici produkcije</message>
+	<message key="default.groups.abbrev.productionEditor">ProdE</message>
+	<message key="default.groups.name.copyeditor">Lektor</message>
+	<message key="default.groups.plural.copyeditor">Lektori</message>
+	<message key="default.groups.abbrev.copyeditor">CE</message>
+	<message key="default.groups.name.proofreader">Korektor</message>
+	<message key="default.groups.plural.proofreader">Korektori</message>
+	<message key="default.groups.abbrev.proofreader">PR</message>
+	<message key="default.groups.name.designer">Dizajner</message>
+	<message key="default.groups.plural.designer">Dizajneri</message>
+	<message key="default.groups.abbrev.designer">Design</message>
+	<message key="default.groups.name.internalReviewer">Institucionalni recenzent</message>
+	<message key="default.groups.plural.internalReviewer">Institucionalni recenzenti</message>
+	<message key="default.groups.abbrev.internalReviewer">IR</message>
+	<message key="default.groups.name.marketing">Koordinator marketinga i prodaje</message>
+	<message key="default.groups.plural.marketing">Koordinatori marketinga i prodaje</message>
+	<message key="default.groups.abbrev.marketing">MS</message>
+	<message key="default.groups.name.funding">Koordinator finansiranja</message>
+	<message key="default.groups.plural.funding">Koordinatori finansiranja</message>
+	<message key="default.groups.abbrev.funding">FC</message>
+	<message key="default.groups.name.indexer">Koordinator indeksiranja</message>
+	<message key="default.groups.plural.indexer">Koordinatori indeksiranja</message>
+	<message key="default.groups.abbrev.indexer">IND</message>
+	<message key="default.groups.name.layoutEditor">Urednik izgleda</message>
+	<message key="default.groups.plural.layoutEditor">Urednici izgleda</message>
+	<message key="default.groups.abbrev.layoutEditor">LE</message>
+	<message key="default.groups.name.author">Autor</message>
+	<message key="default.groups.plural.author">Autori</message>
+	<message key="default.groups.abbrev.author">AU</message>
+	<message key="default.groups.name.translator">Prevodilac</message>
+	<message key="default.groups.plural.translator">Prevodioci</message>
+	<message key="default.groups.abbrev.translator">Trans</message>
+	<message key="default.groups.name.reader">Čitaoc</message>
+	<message key="default.groups.plural.reader">Čitaoci</message>
+	<message key="default.groups.abbrev.reader">Read</message>
+	<message key="default.genres.other">Drugi</message>
+	<message key="default.genres.multimedia">Multimedija</message>
+	<message key="default.genres.image">Slika</message>
+	<message key="default.genres.styleSheet">HTML Stylesheet</message>
+</locale>

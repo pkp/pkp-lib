@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
+
+<!--
+  * plugins/citationLookup/isbndb/locale/sr_RS/locale.xml
+  *
+  * Copyright (c) 2014-2016 Simon Fraser University Library
+  * Copyright (c) 2003-2016 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the sr_RS (Crpski) locale.
+  * Igor Lekić(igor.lekic@ff.uns.ac.rs)
+  -->
+
+<locale name="sr_RS" full_name = "Srpski">
+	<!-- plug-in -->
+	<message key="plugins.citationLookup.isbndb.displayName">ISBNdb Database Connector</message>
+	<message key="plugins.citationLookup.isbndb.description">Povezuje se na ISBNdb bibliografsku bazu podataka.</message>
+
+	<!-- ISBN lookup and extraction services -->
+	<message key="plugins.citationLookup.isbndbExtraction.displayName">ISBN extraction service</message>
+	<message key="plugins.citationLookup.isbndbExtraction.description">Pronalazi ISBN za dati NLM 3.0 opisani objekat citiranja.</message>
+	<message key="plugins.citationLookup.isbndbLookup.displayName">ISBN lookup service</message>
+	<message key="plugins.citationLookup.isbndbLookup.description">Potražite ceo NLM 3.0 opis objekta citiranja preko ISBN-a.</message>
+</locale>

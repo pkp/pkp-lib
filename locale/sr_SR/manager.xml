@@ -442,7 +442,7 @@
 	<message key="manager.reviewFormElements.noneCreated">Нема направљених образаца.</message>
 	<message key="manager.reviewFormElements.possibleResponse">Селекција</message>
 	<message key="manager.reviewFormElements.question">Елемент</message>
-	<message key="manager.reviewFormElements.radiobuttons">Radio buttons (можете одабрати само један)</message>
+	<message key="manager.reviewFormElements.radiobuttons">Radio buttons (можете одабрати само један одговор)</message>
 	<message key="manager.reviewFormElements.required">Рецензенти су обавезни да унесу информацију</message>
 	<message key="manager.reviewFormElements.included">Укључено у поруци аутору</message>
 	<message key="manager.reviewFormElements.smalltextfield">Single word text box</message>

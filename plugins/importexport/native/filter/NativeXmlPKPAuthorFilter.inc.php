@@ -92,11 +92,19 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter {
 			case 'firstname': $author->setFirstName($n->textContent); break;
 			case 'middlename': $author->setMiddleName($n->textContent); break;
 			case 'lastname': $author->setLastName($n->textContent); break;
-			case 'affiliation': $author->setAffiliation($n->textContent, $n->getAttribute('locale')); break;
+			case 'affiliation':
+				$locale = $n->getAttribute('locale');
+				if (empty($locale)) $locale = $submission->getLocale();
+				$author->setAffiliation($n->textContent, $locale);
+				break;
 			case 'country': $author->setCountry($n->textContent); break;
 			case 'email': $author->setEmail($n->textContent); break;
 			case 'url': $author->setUrl($n->textContent); break;
-			case 'biography': $author->setBiography($n->textContent, $n->getAttribute('locale')); break;
+			case 'biography':
+				$locale = $n->getAttribute('locale');
+				if (empty($locale)) $locale = $submission->getLocale();
+				$author->setBiography($n->textContent, $locale);
+				break;
 		}
 
 		$authorDao->insertObject($author);

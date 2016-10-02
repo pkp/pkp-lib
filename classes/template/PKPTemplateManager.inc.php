@@ -736,7 +736,12 @@ class PKPTemplateManager extends Smarty {
 	 * @return string
 	 */
 	function getCompileId($resourceName) {
-		return sha1($resourceName);
+		$resourceId = $resourceName;
+		$context = $this->_request->getContext();
+		if (is_a($context, 'Context')) {
+			$resourceId .= $context->getId();
+		}
+		return sha1($resourceId);
 	}
 
 	/**

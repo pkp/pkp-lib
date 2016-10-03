@@ -60,85 +60,18 @@ class APIRouter extends PKPRouter {
 		// Ensure slim library is available
 		require_once('lib/pkp/lib/vendor/autoload.php');
 
-		$app = new \Slim\App;
-		
 		$pathInfoParts = explode('/', trim($_SERVER['PATH_INFO'], '/'));
-		error_log(print_r($pathInfoParts,true));
 		
 		$version = $pathInfoParts[2];
 		$entity = $pathInfoParts[3];
 		$className = ucfirst($entity) . 'Handler';
-		$sourceFile = sprintf('api/%s/%s.php', $version, "{$className}");
+		$sourceFile = sprintf('api/%s/%s/api.php', $version, $entity);
 		
-		if (file_exists($sourceFile)) require $sourceFile;
+		if (!file_exists($sourceFile)) {
+			return false;
+		}
 		
-		
-// 		$pattern = '/{contextPath}/api/v{id:[0-9]+}/{params:.*}';
-		
-// 		$app->group($pattern, function() use ($app, $pattern) {
-			
-// 			$this->map(['GET', 'DELETE', 'PATCH', 'PUT'], '', function ($request, $response, $args) use ($app, $pattern) {
-				
-// 				$version = $request->getAttribute('id');
-// 				$params = explode('/', $request->getAttribute('params'));
-				
-// 				$entity = $params[0];
-// 				$className = ucfirst($entity) . 'Handler';
-// 				$sourceFile = sprintf('api/%s.php', "{$className}");
-				
-// 				if (file_exists($sourceFile)) require $sourceFile;
-				
-// 				$instance = new $className($app, $pattern);
-				
-// 				$response->getBody()->write("File Handler in action");
-// 				return $response;
-// 			});
-			
-// 		});
-		
-		
-// 		$app->group('/{contextPath}/api/v{id:[0-9]+}/{params:.*}', function() use ($app) {
-			
-// 			$version = $request->getAttribute('id');
-// 			$params = explode('/', $request->getAttribute('params'));
-			
-// 			$entity = $params[0];
-// 			$className = ucfirst($entity) . 'Handler';
-// 			$sourceFile = sprintf('api/%s.php', "{$className}");
-			
-// 			if (file_exists($sourceFile)) require $sourceFile;
-			
-// 			$app->any("/{contextPath}/api/v{id:[0-9]+}/{$entity}", "\{$className}");
-			
-// 			$this->map(['GET', 'DELETE', 'PATCH', 'PUT'], '', function ($request, $response, $args) use ($app) {
-				
-// 				$version = $request->getAttribute('id');
-// 				$params = explode('/', $request->getAttribute('params'));
-				
-// 				$entity = $params[0];
-// 				$className = ucfirst($entity) . 'Handler';
-// 				$sourceFile = sprintf('api/%s.php', "{$className}");
-				
-// 				if (file_exists($sourceFile)) require $sourceFile;
-				
-// 				$app->any("/{contextPath}/api/v{id:[0-9]+}/{$entity}", "\{$className}");
-				
-// 				$instance = new $className($app);
-				
-// 				return $instance->handle($request, $response, $args);
-// 			});
-// 		});
-		
-		
-		$app->group('/api/v{id:[0-9]+}/{params:.*}', function() {
-			$this->map(['GET', 'DELETE', 'PATCH', 'PUT'], '', function ($request, $response, $args) {
-				$version = $request->getAttribute('id');
-				$params = explode('/', $request->getAttribute('params'));
-				$response->getBody()->write(print_r(['context' => 'Site-wide API', 'version' => $version, 'params' => $params],true)); 
-				return $response;
-			});
-		});
-		
+		$app = require $sourceFile;
 		$app->run();
 	}
 

@@ -62,16 +62,20 @@ class APIRouter extends PKPRouter {
 
 		$pathInfoParts = explode('/', trim($_SERVER['PATH_INFO'], '/'));
 		
-		$version = $pathInfoParts[2];
-		$entity = $pathInfoParts[3];
-		$className = ucfirst($entity) . 'Handler';
-		$sourceFile = sprintf('api/%s/%s/api.php', $version, $entity);
+		$version = isset($pathInfoParts[2]) ? $pathInfoParts[2] : '';
+		$entity = isset($pathInfoParts[3]) ? $pathInfoParts[3] : '';
+		
+		$version = Core::cleanFileVar($version);
+		$entity = Core::cleanFileVar($entity);
+		
+		$sourceFile = sprintf('api/%s/%s/index.php', $version, $entity);
 		
 		if (!file_exists($sourceFile)) {
-			return false;
+			$dispatcher = $this->getDispatcher();
+			$dispatcher->handle404();
 		}
 		
-		$app = require $sourceFile;
+		$app = require ('./'.$sourceFile);
 		$app->run();
 	}
 

@@ -37,11 +37,6 @@ class APIRouter extends PKPRouter {
 		if (!isset($_SERVER['PATH_INFO'])) return false;
 		$pathInfoParts = explode('/', trim($_SERVER['PATH_INFO'], '/'));
 
-		if (count($pathInfoParts)>=1 && $pathInfoParts[0] == 'api') {
-			// Site-wide API requests: [index.php]/api/...
-			return true;
-		}
-
 		if (count($pathInfoParts)>=2 && $pathInfoParts[1] == 'api') {
 			// Context-specific API requests: [index.php]/{contextPath}/api
 			return true;

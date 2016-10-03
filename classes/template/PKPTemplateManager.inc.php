@@ -739,7 +739,10 @@ class PKPTemplateManager extends Smarty {
 		$resourceId = $resourceName;
 		$context = $this->_request->getContext();
 		if (is_a($context, 'Context')) {
-			$resourceId .= $context->getId();
+			$resourceId .= $context->getSetting('themePluginPath');
+		} else {
+			$site = $this->_request->getSite();
+			$resourceId .= $site->getSetting('themePluginPath');
 		}
 		return sha1($resourceId);
 	}

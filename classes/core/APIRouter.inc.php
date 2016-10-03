@@ -19,6 +19,7 @@
 
 import('lib.pkp.classes.core.PKPRouter');
 import('classes.core.Request');
+import('classes.handler.Handler');
 
 class APIRouter extends PKPRouter {
 	/**

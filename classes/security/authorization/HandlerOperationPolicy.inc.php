@@ -75,6 +75,7 @@ class HandlerOperationPolicy extends AuthorizationPolicy {
 		// Only permit if the requested operation has been whitelisted.
 		$router = $this->_request->getRouter();
 		$requestedOperation = $router->getRequestedOp($this->_request);
+
 		assert(!empty($requestedOperation));
 		return in_array($requestedOperation, $this->_operations);
 	}

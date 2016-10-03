@@ -18,6 +18,7 @@
  */
 
 import('lib.pkp.classes.core.PKPRouter');
+import('lib.pkp.classes.handler.IAPIHandler');
 import('classes.core.Request');
 import('classes.handler.Handler');
 

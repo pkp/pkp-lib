@@ -47,7 +47,7 @@ class QueryUsersListbuilderHandler extends UsersListbuilderHandler {
 	}
 
 	/**
-	 * Get the d query.
+	 * Get the authorized query.
 	 * @return Representation
 	 */
 	function getRepresentation() {

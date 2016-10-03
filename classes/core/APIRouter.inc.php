@@ -18,7 +18,6 @@
  */
 
 import('lib.pkp.classes.core.PKPRouter');
-import('lib.pkp.classes.handler.IAPIHandler');
 import('classes.core.Request');
 import('classes.handler.Handler');
 
@@ -61,14 +60,11 @@ class APIRouter extends PKPRouter {
 
 	/**
 	 * Get the entity being requested
-	 * @return array
+	 * @return string
 	 */
 	function getEntity() {
 		$pathInfoParts = explode('/', trim($_SERVER['PATH_INFO'], '/'));
-		return array(
-			Core::cleanFileVar(isset($pathInfoParts[3]) ? $pathInfoParts[3] : ''),
-			Core::cleanFileVar(isset($pathInfoParts[4]) ? $pathInfoParts[4] : '')
-		);
+		return Core::cleanFileVar(isset($pathInfoParts[3]) ? $pathInfoParts[3] : '');
 	}
 
 	//
@@ -129,6 +125,21 @@ class APIRouter extends PKPRouter {
 				return $callable[1];
 		}
 		return '';
+	}
+
+	/**
+	 * Get the arguments requested in the URL.
+	 * @param $request PKPRequest the request to be routed
+	 * @return array
+	 */
+	function getRequestedArgs($request) {
+		return $this->_getRequestedUrlParts(array('Core', 'getArgs'), $request);
+	}
+
+	function getRequestedOp($request) {
+		return 'submissionMetadata';
+		// FIXME FIXME FIXME
+		// FIXME FIXME FIXME
 	}
 
 	/**

@@ -152,4 +152,8 @@
 	<message key="user.profile.identity">Identity</message>
 	<message key="user.profile.contact">Contact</message>
 	<message key="user.profile.public">Public</message>
+	<message key="user.apiKey">API Key</message>
+	<message key="user.apiKeyEnabled">Enable external applications with the API key to access this account</message>
+	<message key="user.apiKey.generate">Generate new API key</message>
+	<message key="user.apiKey.generateWarning">Generating a new API key will invalidate any existing key for this user.</message>
 </locale>

@@ -38,29 +38,39 @@ class UserRolesRequiredPolicy extends AuthorizationPolicy {
 	 */
 	function effect() {
 		$request = $this->_request;
-		$user = $request->getUser();
-
-		if (!is_a($user, 'User')) {
-			return AUTHORIZATION_DENY;
-		}
-
-		// Get all user roles.
-		$roleDao = DAORegistry::getDAO('RoleDAO');
-		$userRoles = $roleDao->getByUserIdGroupedByContext($user->getId());
-
-		// Prepare an array with the context ids of the request.
-		$application = PKPApplication::getApplication();
-		$contextDepth = $application->getContextDepth();
 		$router = $request->getRouter();
-		$roleContext = array();
-		for ($contextLevel = 1; $contextLevel <= $contextDepth; $contextLevel++) {
-			$context = $router->getContext($request, $contextLevel);
-			$roleContext[] = $context?$context->getId():CONTEXT_ID_NONE;
+		if (is_a($router, 'APIRouter')) {
+			error_log('FIXME FIXME FIXME');
+			// FIXME FIXME FIXME
+			// FIXME FIXME FIXME
+			// FIXME FIXME FIXME
+
+			$contextRoles = array(ROLE_ID_MANAGER);
+			$this->addAuthorizedContextObject(ASSOC_TYPE_USER_ROLES, $contextRoles);
+		} else {
+			$user = $request->getUser();
+
+			if (!is_a($user, 'User')) {
+				return AUTHORIZATION_DENY;
+			}
+
+			// Get all user roles.
+			$roleDao = DAORegistry::getDAO('RoleDAO');
+			$userRoles = $roleDao->getByUserIdGroupedByContext($user->getId());
+
+			// Prepare an array with the context ids of the request.
+			$application = PKPApplication::getApplication();
+			$contextDepth = $application->getContextDepth();
+			$router = $request->getRouter();
+			$roleContext = array();
+			for ($contextLevel = 1; $contextLevel <= $contextDepth; $contextLevel++) {
+				$context = $router->getContext($request, $contextLevel);
+				$roleContext[] = $context?$context->getId():CONTEXT_ID_NONE;
+			}
+
+			$contextRoles = $this->_getContextRoles($roleContext, $contextDepth, $userRoles);
+			$this->addAuthorizedContextObject(ASSOC_TYPE_USER_ROLES, $contextRoles);
 		}
-
-		$contextRoles = $this->_getContextRoles($roleContext, $contextDepth, $userRoles);
-
-		$this->addAuthorizedContextObject(ASSOC_TYPE_USER_ROLES, $contextRoles);
 		return AUTHORIZATION_PERMIT;
 	}
 

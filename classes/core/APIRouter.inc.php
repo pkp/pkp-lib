@@ -18,11 +18,13 @@
  */
 
 import('lib.pkp.classes.core.PKPRouter');
-import('lib.pkp.classes.handler.IAPIHandler');
 import('classes.core.Request');
 import('classes.handler.Handler');
 
 class APIRouter extends PKPRouter {
+	/** @var APIHandler */
+	var $_handler;
+
 	/**
 	 * Constructor
 	 */
@@ -47,6 +49,24 @@ class APIRouter extends PKPRouter {
 		return false;
 	}
 
+	/**
+	 * Get the API version
+	 * @return string
+	 */
+	function getVersion() {
+		$pathInfoParts = explode('/', trim($_SERVER['PATH_INFO'], '/'));
+		return Core::cleanFileVar(isset($pathInfoParts[2]) ? $pathInfoParts[2] : '');
+	}
+
+	/**
+	 * Get the entity being requested
+	 * @return string
+	 */
+	function getEntity() {
+		$pathInfoParts = explode('/', trim($_SERVER['PATH_INFO'], '/'));
+		return Core::cleanFileVar(isset($pathInfoParts[3]) ? $pathInfoParts[3] : '');
+	}
+
 	//
 	// Implement template methods from PKPRouter
 	//
@@ -57,23 +77,40 @@ class APIRouter extends PKPRouter {
 		// Ensure slim library is available
 		require_once('lib/pkp/lib/vendor/autoload.php');
 
-		$pathInfoParts = explode('/', trim($_SERVER['PATH_INFO'], '/'));
-		
-		$version = isset($pathInfoParts[2]) ? $pathInfoParts[2] : '';
-		$entity = isset($pathInfoParts[3]) ? $pathInfoParts[3] : '';
-		
-		$version = Core::cleanFileVar($version);
-		$entity = Core::cleanFileVar($entity);
-		
-		$sourceFile = sprintf('api/%s/%s/index.php', $version, $entity);
-		
+		$sourceFile = sprintf('api/%s/%s/index.php', $this->getVersion(), $this->getEntity());
+
 		if (!file_exists($sourceFile)) {
 			$dispatcher = $this->getDispatcher();
 			$dispatcher->handle404();
 		}
-		
-		$app = require ('./'.$sourceFile);
-		$app->run();
+
+		if (!defined('SESSION_DISABLE_INIT')) {
+			// Initialize session
+			SessionManager::getManager();
+		}
+
+		$this->_handler = require ('./'.$sourceFile);
+
+		$args = $this->getRequestedArgs($request);
+		if ($this->_handler->authorize($request, $args, $this->_handler->getRoleAssignments())) {
+			$this->_handler->validate($request, $args);
+			$this->_handler->initialize($request, $args);
+			$this->_handler->getApp()->run();
+		} else {
+			$authorizationMessage = $this->_handler->getLastAuthorizationMessage();
+			if ($authorizationMessage == '') $authorizationMessage = 'user.authorization.accessDenied';
+			$result = $this->handleAuthorizationFailure($request, $authorizationMessage);
+			if (is_string($result)) echo $result;
+			elseif (is_a($result, 'JSONMessage')) echo $result->getString();
+		}
+	}
+
+	/**
+	 * Get the API handler.
+	 * @return APIHandler
+	 */
+	function getHandler() {
+		return $this->_handler;
 	}
 
 	/**
@@ -88,11 +125,54 @@ class APIRouter extends PKPRouter {
 	}
 
 	/**
+	 * Get the arguments requested in the URL.
+	 * @param $request PKPRequest the request to be routed
+	 * @return array
+	 */
+	function getRequestedArgs($request) {
+		return $this->_getRequestedUrlParts(array('Core', 'getArgs'), $request);
+	}
+
+	function getRequestedOp($request) {
+		return 'submissionMetadata';
+		// FIXME FIXME FIXME
+		// FIXME FIXME FIXME
+	}
+
+	/**
 	 * @copydoc PKPRouter::handleAuthorizationFailure()
 	 */
 	function handleAuthorizationFailure($request, $authorizationMessage) {
-		http_response_code(401);
-		exit();
+		$dispatcher = $this->getDispatcher();
+		$dispatcher->handle404();
+	}
+
+	//
+	// Private helper methods.
+	//
+	/**
+	 * Retrieve part of the current requested
+	 * url using the passed callback method.
+	 * @param $callback array Core method to retrieve
+	 * page, operation or arguments from url.
+	 * @param $request PKPRequest
+	 * @return array|string|null
+	 */
+	private function _getRequestedUrlParts($callback, &$request) {
+		$url = null;
+		assert(is_a($request->getRouter(), 'APIRouter'));
+		$isPathInfoEnabled = $request->isPathInfoEnabled();
+
+		if ($isPathInfoEnabled) {
+			if (isset($_SERVER['PATH_INFO'])) {
+				$url = $_SERVER['PATH_INFO'];
+			}
+		} else {
+			$url = $request->getCompleteUrl();
+		}
+
+		$userVars = $request->getUserVars();
+		return call_user_func_array($callback, array($url, $isPathInfoEnabled, $userVars));
 	}
 }
 

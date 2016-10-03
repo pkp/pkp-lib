@@ -255,7 +255,7 @@ class PKPHandler {
 		if (!defined('SESSION_DISABLE_INIT')) {
 			// Add user roles in authorized context.
 			$user = $request->getUser();
-			if (is_a($user, 'User')) {
+			if (is_a($user, 'User') || is_a($request->getRouter(), 'APIRouter')) {
 				import('lib.pkp.classes.security.authorization.UserRolesRequiredPolicy');
 				$this->addPolicy(new UserRolesRequiredPolicy($request), true);
 			}
@@ -351,6 +351,8 @@ class PKPHandler {
 			// becomes "grid-citation-citationgrid"
 			$componentId = str_replace('.', '-', PKPString::strtolower(PKPString::substr($componentId, 0, -7)));
 			$this->setId($componentId);
+		} elseif (is_a($router, 'APIRouter')) {
+			$this->setId($router->getEntity());
 		} else {
 			assert(is_a($router, 'PKPPageRouter'));
 			$this->setId($router->getRequestedPage($request));

@@ -80,7 +80,6 @@ class APIRouter extends PKPRouter {
 		// Ensure slim library is available
 		require_once('lib/pkp/lib/vendor/autoload.php');
 
-<<<<<<< HEAD
 		$sourceFile = sprintf('api/%s/%s/index.php', $this->getVersion(), $this->getEntity());
 
 		if (!file_exists($sourceFile)) {

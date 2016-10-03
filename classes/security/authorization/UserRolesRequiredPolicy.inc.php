@@ -44,6 +44,7 @@ class UserRolesRequiredPolicy extends AuthorizationPolicy {
 		if (!is_a($user, 'User')) {
 			return AUTHORIZATION_DENY;
 		}
+
 		// Get all user roles.
 		$roleDao = DAORegistry::getDAO('RoleDAO');
 		$userRoles = $roleDao->getByUserIdGroupedByContext($user->getId());

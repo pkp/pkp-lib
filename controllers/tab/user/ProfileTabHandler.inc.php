@@ -207,6 +207,41 @@ class ProfileTabHandler extends Handler {
 	}
 
 	/**
+	 * Display form to edit user's API key settings.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return JSONMessage JSON-formatted response
+	 */
+	function apiProfile($args, $request) {
+		$this->setupTemplate($request);
+		import('lib.pkp.classes.user.form.APIProfileForm');
+		$apiProfileForm = new APIProfileForm($request->getUser());
+		$apiProfileForm->initData($request);
+		return new JSONMessage(true, $apiProfileForm->fetch($request));
+	}
+
+	/**
+	 * Validate and save changes to user's API key settings.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return JSONMessage JSON-formatted response
+	 */
+	function saveAPIProfile($args, $request) {
+		$this->setupTemplate($request);
+
+		import('lib.pkp.classes.user.form.APIProfileForm');
+		$apiProfileForm = new APIProfileForm($request->getUser());
+		$apiProfileForm->readInputData();
+		if ($apiProfileForm->validate()) {
+			$apiProfileForm->execute($request);
+			$notificationMgr = new NotificationManager();
+			$notificationMgr->createTrivialNotification($request->getUser()->getId());
+			return new JSONMessage(true);
+		}
+		return new JSONMessage(true, $apiProfileForm->fetch($request));
+	}
+
+	/**
 	 * Display form to change user's password.
 	 * @param $args array
 	 * @param $request PKPRequest

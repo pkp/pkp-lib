@@ -20,14 +20,16 @@ use \Slim\App;
 class APIHandler extends PKPHandler {
 	protected $_app;
 	protected $_request;
+	protected $_endpoints = array();
 
 	/**
 	 * Constructor
 	 */
 	function APIHandler() {
+		parent::PKPHandler();
 		$this->_app = new \Slim\App;
 		$this->_request = Application::getRequest();
-		parent::PKPHandler();
+		$this->setupEndpoints();
 	}
 
 	/**
@@ -46,6 +48,35 @@ class APIHandler extends PKPHandler {
 	public function getEntityId($parameterName) {
 		assert(false);
 		return null;
+	}
+
+	/**
+	 * setup endpoints
+	 */
+	public function setupEndpoints() {
+		$app = $this->getApp();
+		$endpoints = $this->getEndpoints();
+		foreach ($endpoints as $method => $definitions) {
+			foreach ($definitions as $parameters) {
+				$method = strtolower($method);
+				$pattern = $parameters['pattern'];
+				$handler = $parameters['handler'];
+				$roles = isset($parameters['roles']) ? $parameters['roles'] : null;
+				$app->$method($pattern, $handler);
+				if (!is_null($roles) && is_array($roles)) {
+					$this->addRoleAssignment($roles, $handler[1]);
+				}
+			}
+		}
+	}
+
+	/**
+	 * Returns the list of endpoints
+	 *
+	 * @return array
+	 */
+	public function getEndpoints() {
+		return $this->_endpoints;
 	}
 }
 

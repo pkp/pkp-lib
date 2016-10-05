@@ -279,7 +279,9 @@ class Mods34SchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 		}
 
 		// Submission language
-		$submissionLanguage = AppLocale::get3LetterFrom2LetterIsoLanguage($submission->getLanguage());
+		$language = $submission->getLanguage();
+		if ($language) $submissionLanguage = AppLocale::get3LetterFrom2LetterIsoLanguage($submission->getLanguage());
+		else $submissionLanguage = null;
 		if (!$submissionLanguage) {
 			// Assume the cataloging language by default.
 			$submissionLanguage = $catalogingLanguage;

@@ -134,9 +134,18 @@ class APIRouter extends PKPRouter {
 	}
 
 	function getRequestedOp($request) {
-		return 'submissionMetadata';
-		// FIXME FIXME FIXME
-		// FIXME FIXME FIXME
+		$handler = $this->getHandler();
+		$container = $handler->getApp()->getContainer();
+		$router = $container->get('router');
+		$request = $container->get('request');
+		$routeInfo = $router->dispatch($request);
+		if (isset($routeInfo[1])) {
+			$route = $router->lookupRoute($routeInfo[1]);
+			$callable = $route->getCallable();
+			if (is_array($callable) && count($callable) == 2)
+				return $callable[1];
+		}
+		return '';
 	}
 
 	/**

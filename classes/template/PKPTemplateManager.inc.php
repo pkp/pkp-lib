@@ -736,15 +736,15 @@ class PKPTemplateManager extends Smarty {
 	 * @return string
 	 */
 	function getCompileId($resourceName) {
-		$resourceId = $resourceName;
-		$context = $this->_request->getContext();
-		if (is_a($context, 'Context')) {
-			$resourceId .= $context->getSetting('themePluginPath');
-		} else {
-			$site = $this->_request->getSite();
-			$resourceId .= $site->getSetting('themePluginPath');
+
+		if ( Config::getVar('general', 'installed' ) ) {
+			$context = $this->_request->getContext();
+			if (is_a($context, 'Context')) {
+				$resourceName .= $context->getSetting('themePluginPath');
+			}
 		}
-		return sha1($resourceId);
+
+		return sha1($resourceName);
 	}
 
 	/**

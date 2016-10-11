@@ -53,6 +53,8 @@ class UploadPluginForm extends Form {
 	function fetch($request) {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('function', $this->_function);
+		$templateMgr->assign('category', $request->getUserVar('category'));
+		$templateMgr->assign('plugin', $request->getUserVar('plugin'));
 
 		return parent::fetch($request);
 	}
@@ -83,9 +85,10 @@ class UploadPluginForm extends Form {
 						__('manager.plugins.installSuccessful', array('versionNumber' => $pluginVersion->getVersionString(false))))
 				);
 			} else if ($this->_function == PLUGIN_ACTION_UPGRADE) {
+				$plugin = PluginRegistry::getPlugin($request->getUserVar('category'), $request->getUserVar('plugin'));
 				$pluginVersion = $pluginHelper->upgradePlugin(
 					$request->getUserVar('category'),
-					$request->getUserVar('plugin'),
+					basename($plugin->getPluginPath()),
 					$pluginDir,
 					$errorMsg
 				);

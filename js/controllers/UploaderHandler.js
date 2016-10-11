@@ -80,6 +80,26 @@
 		this.pluploader.bind('QueueChanged',
 				this.callbackWrapper(this.refreshUploader));
 
+		// Ensure clicks on the visual button don't attempt to submit the form
+		var $browseButton = $('#' + uploaderOptions.browse_button, this.getHtmlElement());
+		$browseButton.click(function(e) {
+			return false;
+		});
+
+		this.pluploader.refresh();
+
+		// Fake a focus effect on the visual button when plupload's hidden
+		// button is focused
+		var self = this;
+		setTimeout( function() {
+			self.getHtmlElement().find('.moxie-shim input')
+			.focus(function(e) {
+				$browseButton.addClass('in_focus');
+			})
+			.blur(function(e) {
+				$browseButton.removeClass('in_focus');
+			});
+		}, 100);
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.UploaderHandler, $.pkp.classes.Handler);

@@ -70,7 +70,7 @@
 		<div class="pkpUploaderError"></div>
 
 		{* Button to add/change file *}
-		<button id="{$browseButton|escape}" class="pkp_uploader_button pkp_button">
+		<button id="{$browseButton|escape}" class="pkp_uploader_button pkp_button" tabindex="-1">
 			<span class="pkp_uploader_button_add">
 				{translate key=$stringAddFile}
 			</span>

@@ -15,13 +15,6 @@
 
 	<p>{translate key="user.login.resetPasswordInstructions"}</p>
 
-	<script>
-		$(function() {ldelim}
-			// Attach the form handler.
-			$('#lostPasswordForm').pkpHandler('$.pkp.controllers.form.FormHandler');
-		{rdelim});
-	</script>
-
 	<form class="pkp_form lost_password" id="lostPasswordForm" action="{url page="login" op="requestResetPassword"}" method="post">
 		{if $error}
 			<div class="pkp_form_error">
@@ -29,29 +22,33 @@
 			</div>
 		{/if}
 
-		<ul class="fields">
-			<li class="email">
+		<fieldset class="fields">
+			<div class="email">
 				<label>
 					<span class="label">
 						{translate key="user.login.registeredEmail"}
+						<span class="required">*</span>
+						<span class="pkp_screen_reader">
+							{translate key="common.required"}
+						</span>
 					</span>
 					<input type="text" name="email" id="email" value="{$email|escape}" maxlength="32" required>
 				</label>
-			</li>
-		</ul>
+			</div>
+			<div class="buttons">
+				<button class="submit" type="submit">
+					{translate key="user.login.resetPassword"}
+				</button>
 
-		<div class="buttons">
-			<button class="submit" type="submit">
-				{translate key="user.login.resetPassword"}
-			</button>
+				{if !$disableUserReg}
+					{url|assign:registerUrl page="user" op="register" source=$source}
+					<a href="{$registerUrl}" class="register">
+						{translate key="user.login.registerNewAccount"}
+					</a>
+				{/if}
+			</div>
+		</fieldset>
 
-			{if !$hideRegisterLink}
-				{url|assign:registerUrl page="user" op="register" source=$source}
-				<a href="{$registerUrl}" class="register">
-					{translate key="user.login.registerNewAccount"}
-				</a>
-			{/if}
-		</div>
 	</form>
 
 </div><!-- .page -->

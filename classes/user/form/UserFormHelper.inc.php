@@ -35,6 +35,7 @@ class UserFormHelper {
 			'showOtherContexts' => !$request->getContext() || count($contexts)>1,
 		));
 
+
 		// Expose potential self-registration user groups to template
 		$authorUserGroups = $reviewerUserGroups = $readerUserGroups = array();
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');

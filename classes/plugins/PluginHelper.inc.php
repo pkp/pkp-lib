@@ -113,7 +113,9 @@ class PluginHelper {
 
 			// Copy the plug-in from the temporary folder to the
 			// target folder.
-			$this->_cutAndPasteTemporaryFile($path, $pluginDest, $pluginLibDest, $errorMsg, $fileManager);
+			if (!$this->_cutAndPasteTemporaryFile($path, $pluginDest, $pluginLibDest, $errorMsg, $fileManager)) {
+				return null;
+			}
 
 			// Upgrade the database with the new plug-in.
 			$installFile = $pluginDest . '/' . PLUGIN_INSTALL_FILE;
@@ -232,7 +234,9 @@ class PluginHelper {
 
 			// Copy the plug-in from the temporary folder to the
 			// target folder.
-			$this->_cutAndPasteTemporaryFile($path, $pluginDest, $pluginLibDest, $errorMsg, $fileManager);
+			if (!$this->_cutAndPasteTemporaryFile($path, $pluginDest, $pluginLibDest, $errorMsg, $fileManager)) {
+				return null;
+			}
 
 			$upgradeFile = $pluginDest . '/' . PLUGIN_UPGRADE_FILE;
 			if($fileManager->fileExists($upgradeFile)) {
@@ -251,14 +255,15 @@ class PluginHelper {
 			return $pluginVersion;
 		}
 	}
-	
+
 	/**
 	 * Cut and paste plugin from temporary files to it's actual place.
-	 * @param $path Path of temporary files
-	 * @param $pluginDest Path of application-specific part (mandatory)
-	 * @param $pluginLibDest path of library part (if any)
-	 * @param $errorMsg Error message
-	 * @param $fileManager Manager to manage files. Will be created if not specified.
+	 * @param $path string Path of temporary files
+	 * @param $pluginDest string Path of application-specific part (mandatory)
+	 * @param $pluginLibDest string path of library part (if any)
+	 * @param $errorMsg &string Error message
+	 * @param $fileManager FileManager Manager to manage files. Will be created if not specified.
+	 * @return boolean Was it successful
 	 */
 	function _cutAndPasteTemporaryFile($path, $pluginDest, $pluginLibDest, &$errorMsg, $fileManager = null) {
 		if (!isset($fileManager)) {
@@ -269,24 +274,25 @@ class PluginHelper {
 		if (is_dir($libPath)) {
 			if (!$this->_cutAndPasteDir($fileManager, $libPath, $pluginLibDest)) {
 				$errorMsg = __('manager.plugins.copyError');
-				return;
+				return false;
 			}
 		}
 
 		// Continue with the application-specific part (mandatory)
 		if (!$this->_cutAndPasteDir($fileManager, $path, $pluginDest)) {
 			$errorMsg = __('manager.plugins.copyError');
-			return;
+			return false;
 		}
+		return true;
 	}
 
 	/**
 	 * Cuts and pastes source to target.
-	 * @param $manager The file manager to use
-	 * @param $src The source directory
-	 * @param $trg The target directory
-	 * @return Was it successful
-	 */ 
+	 * @param $manager FileManager The file manager to use
+	 * @param $src string The source directory
+	 * @param $trg string The target directory
+	 * @return boolean Was it successful
+	 */
 	function _cutAndPasteDir($manager, $src, $trg) {
 		$copySuccess = $manager->copyDir($src, $trg);
 		$manager->rmtree(dirname($src));

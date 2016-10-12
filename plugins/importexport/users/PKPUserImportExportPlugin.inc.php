@@ -19,8 +19,8 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin {
 	/**
 	 * Constructor
 	 */
-	function __construct() {
-		parent::__construct();
+	function PKPUserImportExportPlugin() {
+		parent::ImportExportPlugin();
 	}
 
 	/**
@@ -140,24 +140,26 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin {
 					$request->getContext(),
 					$request->getUser()
 				);
-				import('lib.pkp.classes.file.FileManager');
-				$fileManager = new FileManager();
-				$exportFileName = $this->getExportFileName($this->getExportPath(), 'users', $context, '.xml');
-				$fileManager->writeFile($exportFileName, $exportXml);
-				$fileManager->downloadFile($exportFileName);
-				$fileManager->deleteFile($exportFileName);
+				$exportFileName = $this->getExportFileName('users', $context);
+				file_put_contents($exportFileName, $exportXml);
+				header('Content-Type: application/xml');
+				header('Cache-Control: private');
+				header('Content-Disposition: attachment; filename="' . basename($exportFileName) . '"');
+				readfile($exportFileName);
+				$this->cleanTmpfile($exportFileName);
 				break;
 			case 'exportAllUsers':
 				$exportXml = $this->exportAllUsers(
 					$request->getContext(),
 					$request->getUser()
 				);
-				import('lib.pkp.classes.file.TemporaryFileManager');
-				$fileManager = new TemporaryFileManager();
-				$exportFileName = $this->getExportFileName($this->getExportPath(), 'users', $context, '.xml');
-				$fileManager->writeFile($exportFileName, $exportXml);
-				$fileManager->downloadFile($exportFileName);
-				$fileManager->deleteFile($exportFileName);
+				$exportFileName = $this->getExportFileName('users', $context);
+				file_put_contents($exportFileName, $exportXml);
+				header('Content-Type: application/xml');
+				header('Cache-Control: private');
+				header('Content-Disposition: attachment; filename="' . basename($exportFileName) . '"');
+				readfile($exportFileName);
+				$this->cleanTmpfile($exportFileName);
 				break;
 			default:
 				$dispatcher = $request->getDispatcher();

@@ -22,8 +22,8 @@ abstract class ImportExportPlugin extends Plugin {
 	/**
 	 * Constructor
 	 */
-	function __construct() {
-		parent::__construct();
+	function ImportExportPlugin() {
+		parent::Plugin();
 	}
 
 	/**
@@ -127,22 +127,45 @@ abstract class ImportExportPlugin extends Plugin {
 
 	/**
 	 * Return the plugin export directory.
-	 * @return string The export directory path.
+	 *
+	 * This will create the directory if it doesn't exist yet.
+	 *
+	 * @return string|array The export directory name or an array with
+	 *  errors if something went wrong.
 	 */
 	function getExportPath() {
-		return Config::getVar('files', 'files_dir') . '/temp/';
+		$exportPath = Config::getVar('files', 'files_dir') . '/' . $this->getPluginSettingsPrefix();
+		if (!file_exists($exportPath)) {
+			$fileManager = new FileManager();
+			$fileManager->mkdir($exportPath);
+		}
+		if (!is_writable($exportPath)) {
+			$errors = array(
+					array('plugins.importexport.common.export.error.outputFileNotWritable', $exportPath)
+			);
+			return $errors;
+		}
+		return realpath($exportPath) . '/';
 	}
 
 	/**
 	 * Return the whole export file name.
-	 * @param $basePath string Base path for temporary file storage
 	 * @param $objectsFileNamePart string Part different for each object type.
 	 * @param $context Context
-	 * @param $extension string
 	 * @return string
 	 */
-	function getExportFileName($basePath, $objectsFileNamePart, $context, $extension = '.xml') {
-		return $basePath . $this->getPluginSettingsPrefix() . '-' . date('Ymd-His') .'-' . $objectsFileNamePart .'-' . $context->getId() . $extension;
+	function getExportFileName($objectsFileNamePart, $context) {
+		return $this->getExportPath() . date('Ymd-His') .'-' . $objectsFileNamePart .'-' . $context->getId() . '.xml';
+	}
+
+	/**
+	 * Remove the given temporary file.
+	 * @param $tempfile string
+	 */
+	function cleanTmpfile($tempfile) {
+		if (file_exists($tempfile)) {
+			unlink($tempfile);
+		}
 	}
 
 }

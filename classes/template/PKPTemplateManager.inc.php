@@ -187,7 +187,7 @@ class PKPTemplateManager extends Smarty {
 					'pkpLibLocale',
 					$this->_request->getBaseUrl() . '/' . $localeStyleSheet,
 					array(
-						'contexts' => 'backend',
+						'contexts' => array('frontend', 'backend'),
 					)
 				);
 			}

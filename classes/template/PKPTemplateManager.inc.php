@@ -131,7 +131,7 @@ class PKPTemplateManager extends Smarty {
 		}
 
 		// If there's a locale-specific stylesheet, add it.
-		if (($localeStyleSheet = AppLocale::getLocaleStyleSheet($locale)) != null) $this->addStyleSheet($this->_request->getBaseUrl() . '/' . $localeStyleSheet, 'backend');
+		if (($localeStyleSheet = AppLocale::getLocaleStyleSheet($locale)) != null) $this->addStyleSheet($this->_request->getBaseUrl() . '/' . $localeStyleSheet, array('frontend', 'backend'));
 
 		// Register custom functions
 		$this->register_modifier('translate', array('AppLocale', 'translate'));

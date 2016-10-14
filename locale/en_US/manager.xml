@@ -182,7 +182,7 @@
 	<message key="manager.roles">Roles</message>
 	<message key="manager.statistics"><![CDATA[Stats &amp; Reports]]></message>
 	<message key="manager.statistics.defaultMetricDescription">
-		Your {$contextObjectName} is configured to record more than one usage metric. Usage statistics will be displayed in severeral contexts.
+		Your {$contextObjectName} is configured to record more than one usage metric. Usage statistics will be displayed in several contexts.
 		There are cases where a single usage statistic must be used, e.g. to display an ordered list of most-used submissions or to rank
 		search results. Please select one of the configured metrics as a default.
 	</message>

@@ -23,15 +23,18 @@ class UploadPluginForm extends Form {
 
 	/** @var String PLUGIN_ACTION_... */
 	var $_function;
+	var $_plugin;
+	var $_category;
 
 
 	/**
 	 * Constructor.
 	 * @param $function string PLUGIN_ACTION_...
 	 */
-	function UploadPluginForm($function) {
+	function UploadPluginForm($function, $plugin, $category) {
 		parent::Form('controllers/grid/plugins/form/uploadPluginForm.tpl');
-
+		$this->_plugin = $plugin;
+		$this->_category = $category;
 		$this->_function = $function;
 
 		$this->addCheck(new FormValidator($this, 'temporaryFileId', 'required', 'manager.plugins.uploadFailed'));
@@ -53,7 +56,8 @@ class UploadPluginForm extends Form {
 	function fetch($request) {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('function', $this->_function);
-
+		$templateMgr->assign('plugin', $this->_plugin);
+		$templateMgr->assign('category', $this->_category);
 		return parent::fetch($request);
 	}
 

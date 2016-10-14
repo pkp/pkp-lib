@@ -52,9 +52,11 @@ class UploadPluginForm extends Form {
 	 */
 	function fetch($request) {
 		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('function', $this->_function);
-		$templateMgr->assign('category', $request->getUserVar('category'));
-		$templateMgr->assign('plugin', $request->getUserVar('plugin'));
+		$templateMgr->assign(array(
+			'function' => $this->_function,
+			'category' => $request->getUserVar('category'),
+			'plugin' => $request->getUserVar('plugin'),
+		));
 
 		return parent::fetch($request);
 	}

@@ -227,7 +227,7 @@ class PluginHelper {
 
 			// Check whether deleting has worked.
 			if(is_dir($pluginDest) || is_dir($pluginLibDest)) {
-				$errorMsg = __('message', 'manager.plugins.deleteError');
+				$errorMsg = __('manager.plugins.deleteError', array('pluginName' => $pluginVersion->getProduct()));
 				$fileManager->rmtree(dirname($path));
 				return null;
 			}
@@ -261,7 +261,7 @@ class PluginHelper {
 	 * @param $path string Path of temporary files
 	 * @param $pluginDest string Path of application-specific part (mandatory)
 	 * @param $pluginLibDest string path of library part (if any)
-	 * @param $errorMsg &string Error message
+	 * @param $errorMsg string Error message
 	 * @param $fileManager FileManager Manager to manage files. Will be created if not specified.
 	 * @return boolean Was it successful
 	 */

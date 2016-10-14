@@ -731,6 +731,14 @@ class PKPTemplateManager extends Smarty {
 	 * @return string
 	 */
 	function getCompileId($resourceName) {
+
+		if ( Config::getVar('general', 'installed' ) ) {
+			$context = $this->_request->getContext();
+			if (is_a($context, 'Context')) {
+				$resourceName .= $context->getSetting('themePluginPath');
+			}
+		}
+
 		return sha1($resourceName);
 	}
 

@@ -214,7 +214,7 @@
 	<message key="manager.statistics.reports.cities.label">One or more city names, comma separated (e.g. City Name 1,City Name 2)</message>
 	<message key="manager.statistics.reports.form.columnsRequired">You have to select at least one column to generate the report.</message>
 	<message key="manager.statistics.reports.reportUrl">Report URL</message>
-	<message key="manager.statistics.reports.reportUrl.label">The following url can be used to generate the report with this current form settings. Just copy it, paste into your browser and enter. You can use your favorites to store your custom report url generator.</message>
+	<message key="manager.statistics.reports.reportUrl.label">The following url can be used to generate the report with the current form settings. Just copy it and open it in your browser. You can also store it as your custom report url generator in your bookmarks.</message>
 	<message key="manager.statistics.reports.filters.byContext">By context</message>
 	<message key="manager.statistics.reports.filters.byObject">By object type and/or object id</message>
 	<message key="manager.statistics.reports.filters.byTime">Select report range</message>

@@ -202,7 +202,7 @@
 	<message key="manager.statistics.reports.cities.label">Ein oder mehrere Städtenamen, jeweils mit Komma getrennt (z.B. Stadt 1,Stadt 2)</message>
 	<message key="manager.statistics.reports.form.columnsRequired">Sie müssen mindestens eine Spalte auswählen, um den Bericht zu erzeugen.</message>
 	<message key="manager.statistics.reports.reportUrl">Bericht-URL</message>
-	<message key="manager.statistics.reports.reportUrl.label">Die folgende URL kann benutzt werden, um den Bericht mit diesen aktuellen Einstellungen zu erzeugen. Kopieren Sie ihn einfach und geben Sie ihn in Ihren Browser ein. Sie können die URL zur Berichterzeugung in Ihren Bookmarks speichern.</message>
+	<message key="manager.statistics.reports.reportUrl.label">Die folgende URL kann benutzt werden, um den Bericht mit den aktuellen Einstellungen zu erzeugen. Kopieren Sie ihn einfach und geben Sie ihn in Ihren Browser ein. Sie können die URL zur Berichterzeugung in Ihren Bookmarks speichern.</message>
 	<message key="manager.statistics.reports.filters.byContext">Nach Kontext</message>
 	<message key="manager.statistics.reports.filters.byObject">Nach Objekttyp oder Objekt-ID</message>
 	<message key="manager.statistics.reports.filters.byTime">Wähle Berichtszeitraum</message>

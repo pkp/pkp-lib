@@ -347,7 +347,7 @@ class PKPString {
 	 * @param $pattern string Regular expression
 	 * @param $subject string String to apply regular expression to
 	 * @param $matches array Reference to receive matches
-	 * @return int|boolean Returns 1 if the pattern matches given subject, 0 if it does not, or FALSE if an error occurred. 
+	 * @return int|boolean Returns 1 if the pattern matches given subject, 0 if it does not, or FALSE if an error occurred.
 	 */
 	static function regexp_match_get($pattern, $subject, &$matches) {
 		// NOTE: This function was created since PHP < 5.x does not support optional reference parameters
@@ -360,7 +360,7 @@ class PKPString {
 	 * @param $pattern string Regular expression
 	 * @param $subject string String to apply regular expression to
 	 * @param $matches array Reference to receive matches
-	 * @return int|boolean Returns number of full matches of given subject, or FALSE if an error occurred. 
+	 * @return int|boolean Returns number of full matches of given subject, or FALSE if an error occurred.
 	 */
 	static function regexp_match_all($pattern, $subject, &$matches) {
 		if (PCRE_UTF8 && !self::utf8_compliant($subject)) $subject = self::utf8_bad_strip($subject);
@@ -1005,6 +1005,73 @@ class PKPString {
 				.strtoupper(dechex(hexdec(ord(substr($charid,16,1))) % 4 + 8)).substr($charid,17, 3).$hyphen
 				.substr($charid,20,12);
 		return $uuid;
+	}
+
+	/**
+	 * Matches each symbol of PHP date format string
+	 * to jQuery Datepicker widget date format.
+	 * @param $phpFormat string
+	 * @return string
+	 */
+	function dateformatPHP2JQueryDatepicker($phpFormat) {
+		$SYMBOLS = array(
+			// Day
+			'd' => 'dd',
+			'D' => 'D',
+			'j' => 'd',
+			'l' => 'DD',
+			'N' => '',
+			'S' => '',
+			'w' => '',
+			'z' => 'o',
+			// Week
+			'W' => '',
+			// Month
+			'F' => 'MM',
+			'm' => 'mm',
+			'M' => 'M',
+			'n' => 'm',
+			't' => '',
+			// Year
+			'L' => '',
+			'o' => '',
+			'Y' => 'yy',
+			'y' => 'y',
+			// Time
+			'a' => '',
+			'A' => '',
+			'B' => '',
+			'g' => '',
+			'G' => '',
+			'h' => '',
+			'H' => '',
+			'i' => '',
+			's' => '',
+			'u' => '',
+			// Other
+			'%' => ''
+		);
+
+		$datepickerFormat = "";
+		$escaping = false;
+
+		for ($i = 0; $i < strlen($phpFormat); $i++) {
+			$char = $phpFormat[$i];
+			if($char === '\\') {
+				$i++;
+				if($escaping) $datepickerFormat .= $phpFormat[$i];
+				else $datepickerFormat .= '\'' . $phpFormat[$i];
+				$escaping = true;
+			} else {
+				if($escaping) { $datepickerFormat .= "'"; $escaping = false; }
+				if(isset($SYMBOLS[$char])) 
+					$datepickerFormat .= $SYMBOLS[$char];
+				else
+					$datepickerFormat .= $char;
+			}
+		}
+
+		return $datepickerFormat;
 	}
 }
 

@@ -131,6 +131,7 @@
 	<message key="common.discipline">Discipline</message>
 	<message key="common.done">Done</message>
 	<message key="common.download">Download</message>
+	<message key="common.downloadPdf">Download PDF</message>
 	<message key="common.edit">Edit</message>
 	<message key="common.enable">Enable</message>
 	<message key="common.enabled">Enabled</message>

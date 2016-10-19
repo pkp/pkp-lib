@@ -256,6 +256,7 @@ class PKPTemplateManager extends Smarty {
 		$this->register_modifier('translate', array('AppLocale', 'translate'));
 		$this->register_modifier('strip_unsafe_html', array('PKPString', 'stripUnsafeHtml'));
 		$this->register_modifier('String_substr', array('PKPString', 'substr'));
+		$this->register_modifier('dateformatPHP2JQueryDatepicker', array('PKPString', 'dateformatPHP2JQueryDatepicker'));
 		$this->register_modifier('to_array', array($this, 'smartyToArray'));
 		$this->register_modifier('compare', array($this, 'smartyCompare'));
 		$this->register_modifier('concat', array($this, 'smartyConcat'));

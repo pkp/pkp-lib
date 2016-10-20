@@ -117,6 +117,34 @@ abstract class ImportExportPlugin extends Plugin {
 		return false;
 	}
 
+	/**
+	 * Get the plugin ID used as plugin settings prefix.
+	 * @return string
+	 */
+	function getPluginSettingsPrefix() {
+		return '';
+	}
+
+	/**
+	 * Return the plugin export directory.
+	 * @return string The export directory path.
+	 */
+	function getExportPath() {
+		return Config::getVar('files', 'files_dir') . '/temp/';
+	}
+
+	/**
+	 * Return the whole export file name.
+	 * @param $basePath string Base path for temporary file storage
+	 * @param $objectsFileNamePart string Part different for each object type.
+	 * @param $context Context
+	 * @param $extension string
+	 * @return string
+	 */
+	function getExportFileName($basePath, $objectsFileNamePart, $context, $extension = '.xml') {
+		return $basePath . $this->getPluginSettingsPrefix() . '-' . date('Ymd-His') .'-' . $objectsFileNamePart .'-' . $context->getId() . $extension;
+	}
+
 }
 
 ?>

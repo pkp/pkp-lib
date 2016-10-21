@@ -193,7 +193,7 @@ class ADODB2_postgres extends ADODB_DataDict {
 	   if ($has_alter_column) {
 	      $tabname = $this->TableName($tabname);
 	      $sql = array();
-	      list($lines,$pkey) = $this->_GenFields($flds);
+	      list($lines,$pkey) = $this->_GenFields($flds, false, false);
 		  $set_null = false;
 	      $alter = 'ALTER TABLE ' . $tabname . $this->alterCol . ' ';
 	      foreach($lines as $v) {

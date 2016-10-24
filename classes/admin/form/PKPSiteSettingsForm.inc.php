@@ -136,6 +136,7 @@ class PKPSiteSettingsForm extends Form {
 		$site->updateSetting('showDescription', $this->getData('showDescription'), 'bool');
 
 		$siteDao->updateObject($site);
+
 		return true;
 	}
 

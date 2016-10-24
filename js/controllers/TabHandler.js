@@ -70,6 +70,14 @@
 			disabled: options.disabled,
 			active: options.selected
 		});
+
+		// Load tabs when focused. This ensures that links which use anchor
+		// elements (eg - #backIssues) will load the tab even if the current
+		// page is already visible.
+		// See: https://github.com/pkp/pkp-lib/issues/1787
+		$tabs.children('.ui-tabs-nav').find('li > a').focus(function(e) {
+			$(this).click();
+		});
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.TabHandler, $.pkp.classes.Handler);

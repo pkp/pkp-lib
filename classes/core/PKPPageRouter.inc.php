@@ -178,11 +178,13 @@ class PKPPageRouter extends PKPRouter {
 
 		// Redirect requests from logged-out users to a context which is not
 		// publicly enabled
-		$user = $request->getUser();
-		$currentContext = $request->getContext();
-		if ($currentContext && !$currentContext->getEnabled() && !is_a($user, 'User')) {
-			$op = ROUTER_DEFAULT_OP;
-			$page = ROUTER_DEFAULT_PAGE;
+		if (!defined('SESSION_DISABLE_INIT')) {
+			$user = $request->getUser();
+			$currentContext = $request->getContext();
+			if ($currentContext && !$currentContext->getEnabled() && !is_a($user, 'User')) {
+				$op = ROUTER_DEFAULT_OP;
+				$page = ROUTER_DEFAULT_PAGE;
+			}
 		}
 
 		// Determine the page index file. This file contains the

@@ -109,8 +109,8 @@ class ScheduledTaskTool extends CommandLineTool {
 		if (!is_object($task =& instantiate($className, null, null, 'execute', $args))) {
 			fatalError('Cannot instantiate task class.');
 		}
-		$task->execute();
 		$this->taskDao->updateLastRunTime($className);
+		$task->execute();
 	}
 }
 

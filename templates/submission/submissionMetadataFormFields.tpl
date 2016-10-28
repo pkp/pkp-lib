@@ -58,7 +58,7 @@
 		{/if}
 		{if $keywordsEnabled}
 			{fbvFormSection label="common.keywords"}
-				{fbvElement type="keyword" id="keyword" subLabelTranslate=true multilingual=true current=$keywords disabled=$readOnly}
+				{fbvElement type="keyword" id="keywords" subLabelTranslate=true multilingual=true current=$keywords disabled=$readOnly}
 			{/fbvFormSection}
 		{/if}
 		{if $agenciesEnabled}

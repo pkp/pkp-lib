@@ -712,7 +712,9 @@ class FormBuilderVocabulary {
 	function _smartyFBVKeywordInput($params, &$smarty) {
 		$params['uniqId'] = uniqid();
 
-		$smarty->clear_assign(array('FBV_id', 'FBV_label', 'FBV_availableKeywords', 'FBV_currentKeywords', 'FBV_multilingual', 'FBV_sourceUrl', 'FBV_uniqId', 'FBV_disabled'));
+		$smarty->clear_assign(array('FBV_id', 'FBV_label', 'FBV_currentKeywords', 'FBV_multilingual', 'FBV_sourceUrl', 'FBV_uniqId', 'FBV_disabled'));
+		$emptyFormLocaleMap = array_fill_keys(array_keys($smarty->get_template_vars('formLocales')), array());
+		$smarty->assign('FBV_availableKeywords', $emptyFormLocaleMap);
 		foreach ($params as $key => $value) {
 			switch ($key) {
 				case 'type': break;
@@ -723,7 +725,13 @@ class FormBuilderVocabulary {
 					$smarty->assign('FBV_' . $key, $value);
 					break;
 				case 'label': $smarty->assign('FBV_label_content', $this->_smartyFBVSubLabel($params, $smarty)); break;
-				case 'available': $smarty->assign('FBV_availableKeywords', $value); break;
+				case 'available': $smarty->assign(
+					'FBV_availableKeywords',
+					$thing = array_merge(
+						$emptyFormLocaleMap,
+						$value
+					)
+				); break;
 				case 'current': $smarty->assign('FBV_currentKeywords', $value); break;
 				case 'source': $smarty->assign('FBV_sourceUrl', $value); break;
 			}

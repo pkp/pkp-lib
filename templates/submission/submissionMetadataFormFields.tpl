@@ -56,7 +56,7 @@
 		{/if}
 		{if $keywordsEnabled}
 			{fbvFormSection label="common.keywords"}
-				{fbvElement type="keyword" id="keyword" multilingual=true current=$keywords disabled=$readOnly}
+				{fbvElement type="keyword" id="keywords" multilingual=true current=$keywords disabled=$readOnly}
 			{/fbvFormSection}
 		{/if}
 		{if $agenciesEnabled}

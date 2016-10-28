@@ -413,22 +413,25 @@ class PKPString {
 	 */
 	static function mime_content_type($filename, $suggestedExtension = '') {
 		$result = null;
+
 		if (function_exists('finfo_open')) {
 			$fi =& Registry::get('fileInfo', true, null);
 			if ($fi === null) {
 				$fi = finfo_open(FILEINFO_MIME, Config::getVar('finfo', 'mime_database_path'));
 			}
 			if ($fi !== false) {
-				return strtok(finfo_file($fi, $filename), ' ;');
+				$result = strtok(finfo_file($fi, $filename), ' ;');
 			}
 		}
 
-		// Fall back on an external "file" tool
-		$f = escapeshellarg($filename);
-		$result = trim(`file --brief --mime $f`);
-		// Make sure we just return the mime type.
-		if (($i = strpos($result, ';')) !== false) {
-			$result = trim(substr($result, 0, $i));
+		if (!$result) {
+			// Fall back on an external "file" tool
+			$f = escapeshellarg($filename);
+			$result = trim(`file --brief --mime $f`);
+			// Make sure we just return the mime type.
+			if (($i = strpos($result, ';')) !== false) {
+				$result = trim(substr($result, 0, $i));
+			}
 		}
 
 		// Check ambiguous mimetypes against extension

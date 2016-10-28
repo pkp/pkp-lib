@@ -424,6 +424,15 @@ class PKPString {
 			}
 		}
 
+		if (!$result && function_exists('mime_content_type')) {
+			$result = mime_content_type($filename);
+			// mime_content_type appears to return a charset
+			// (erroneously?) in recent versions of PHP5
+			if (($i = strpos($result, ';')) !== false) {
+				$result = trim(substr($result, 0, $i));
+			}
+		}
+
 		if (!$result) {
 			// Fall back on an external "file" tool
 			$f = escapeshellarg($filename);

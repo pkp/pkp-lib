@@ -651,9 +651,9 @@
 	 */
 	$.pkp.controllers.form.FormHandler.prototype.showSpinner_ =
 			function() {
-				this.getHtmlElement()
-						.find('.formButtons .pkp_spinner').addClass('is_visible');
-			};
+		this.getHtmlElement()
+				.find('.formButtons .pkp_spinner').addClass('is_visible');
+	};
 
 
 /** @param {jQuery} $ jQuery closure. */

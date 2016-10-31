@@ -1014,7 +1014,7 @@ class PKPString {
 	 * @return string
 	 */
 	function dateformatPHP2JQueryDatepicker($phpFormat) {
-		$SYMBOLS = array(
+		$symbols = array(
 			// Day
 			'd' => 'dd',
 			'D' => 'D',
@@ -1059,15 +1059,17 @@ class PKPString {
 			$char = $phpFormat[$i];
 			if($char === '\\') {
 				$i++;
-				if($escaping) $datepickerFormat .= $phpFormat[$i];
-				else $datepickerFormat .= '\'' . $phpFormat[$i];
+				$datepickerFormat .= $escaping ? $phpFormat[$i] : '\'' . $phpFormat[$i];
+
 				$escaping = true;
 			} else {
-				if($escaping) { $datepickerFormat .= "'"; $escaping = false; }
-				if(isset($SYMBOLS[$char])) 
-					$datepickerFormat .= $SYMBOLS[$char];
-				else
-					$datepickerFormat .= $char;
+				if($escaping) {
+					$datepickerFormat .= "'";
+					$escaping = false;
+				}
+
+				$datepickerFormat .= isset($symbols[$char]) ? $symbols[$char] : $char;
+				
 			}
 		}
 

@@ -115,7 +115,7 @@ class UsageStatsOptoutBlockPlugin extends BlockPlugin {
 
 		// Place the block on the right by default.
 		if (!in_array($blockContext, $this->getSupportedContexts())) {
-			$blockContext = BLOCK_CONTEXT_LEFT_SIDEBAR;
+			$blockContext = BLOCK_CONTEXT_SIDEBAR;
 		}
 
 		return $blockContext;

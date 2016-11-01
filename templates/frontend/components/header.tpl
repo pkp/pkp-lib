@@ -139,7 +139,7 @@
 
 		{* Wrapper for page content and sidebars *}
 		{if $isFullWidth}
-			{assign var=hasLeftSidebar value=0}
+			{assign var=hasSidebar value=0}
 		{/if}
-		<div class="pkp_structure_content{if $hasLeftSidebar} has_left_sidebar{/if}">
+		<div class="pkp_structure_content{if $hasSidebar} has_sidebar{/if}">
 			<div class="pkp_structure_main" role="main">

@@ -78,9 +78,9 @@ class BlockPluginsListbuilderHandler extends MultipleListsListbuilderHandler {
 		$plugins = PluginRegistry::loadCategory('blocks');
 		foreach ($plugins as $key => $junk) {
 			if (!$plugins[$key]->getEnabled() || $plugins[$key]->getBlockContext() == '') {
-				if (count(array_intersect($plugins[$key]->getSupportedContexts(), array(BLOCK_CONTEXT_LEFT_SIDEBAR))) > 0) $disabledBlockPlugins[$key] = $plugins[$key];
+				if (count(array_intersect($plugins[$key]->getSupportedContexts(), array(BLOCK_CONTEXT_SIDEBAR))) > 0) $disabledBlockPlugins[$key] = $plugins[$key];
 			} else switch ($plugins[$key]->getBlockContext()) {
-				case BLOCK_CONTEXT_LEFT_SIDEBAR:
+				case BLOCK_CONTEXT_SIDEBAR:
 					$leftBlockPlugins[$key] = $plugins[$key];
 					break;
 			}

@@ -343,9 +343,9 @@ class PKPTemplateManager extends Smarty {
 
 		// Load enabled block plugins and setup active sidebar variables
 		PluginRegistry::loadCategory('blocks', true);
-		$leftSidebarHooks = HookRegistry::getHooks('Templates::Common::LeftSidebar');
+		$sidebarHooks = HookRegistry::getHooks('Templates::Common::Sidebar');
 		$this->assign(array(
-			'hasLeftSidebar' => !empty($leftSidebarHooks),
+			'hasSidebar' => !empty($sidebarHooks),
 		));
 	}
 

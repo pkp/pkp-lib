@@ -279,7 +279,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->click($selector);
 		$this->click('//button[text()=\'OK\']');
 		$this->waitForText('css=div.ui-pnotify-text', 'User added as a stage participant.');
-		$this->waitJQuery();
+		$this->waitForElementNotPresent('css=div.pkp_modal_panel');
 	}
 
 	/**

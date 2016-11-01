@@ -146,8 +146,6 @@
 	<message key="manager.setup.homeHeaderImageInvalid">Neplatný formát obrázku loga pro záhlaví domácí stránky. Podporované formáty jsou .gif, .jpg, nebo .png.</message>
 	<message key="manager.setup.homepageImageInvalid">Neplatný formát obrázku pro domácí stránku. Podporované formáty jsou .gif, .jpg, nebo .png.</message>
 	<message key="manager.setup.homeTitleImageInvalid">Neplatný formát obrázku názvu pro záhlaví domácí stránky. Podporované formáty jsou .gif, .jpg, nebo .png.</message>
-	<message key="manager.setup.layout.leftSidebar">Levý postranní panel</message>
-	<message key="manager.setup.layout.rightSidebar">Pravý postranní panel</message>
 	<message key="manager.setup.layout.unselected">Nevybráno</message>
 	<message key="manager.setup.loggingAndAuditing">Zaznamenávání údajů a kontrola</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Neplatný formát obrázku loga pro záhlaví stránky. Podporované formáty jsou .gif, .jpg, nebo .png.</message>

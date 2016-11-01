@@ -155,7 +155,7 @@
 	<message key="manager.setup.filter.grid.filterDisplayName">കണക്ടര്‍</message>
 	<message key="manager.setup.filter.grid.filterSettings">രജിസ്ട്രേഷന്‍ വിവരങ്ങളും കണക്ടര്‍ ക്രമീകരണങ്ങളും</message>
 	<message key="manager.setup.filter.grid.filterTemplateRequired">ദയവായി ഡ്രോപ്പ്-ഡൗണില്‍ നിന്നും ഒരു പരിവര്‍ത്തനം തിരഞ്ഞെടുക്കുക.</message>
-	<message key="manager.setup.filter.grid.confirmDelete">ഈ ഫില്‍റ്റര്‍ {$filterName}താങ്കള്‍ക്ക് ശരിക്കും മായ്ച്ചു കളയണമോ?</message>	
+	<message key="manager.setup.filter.grid.confirmDelete">ഈ ഫില്‍റ്റര്‍ {$filterName}താങ്കള്‍ക്ക് ശരിക്കും മായ്ച്ചു കളയണമോ?</message>
 	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">താങ്കള്‍ ഡേറ്റാബേസ് ചേര്‍ക്കണമെന്ന് ആഗ്രഹിക്കുന്നു.സ്ഥിരീകരിക്കുന്നതിനായി 'OK' ക്ലിക്ക് ചെയ്യുക.</message>
 	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">ദയവായി ഒരു ലുക്ക്-അപ്പ് ഡേറ്റാബേസ് തിരഞ്ഞെടുക്കുക.</message>
 	<message key="manager.setup.filter.lookup.grid.loadMessage">സൈറ്റേഷന്‍ ഡേറ്റാബേസ് കോണ്‍ഫിഗറേഷന്‍ ഗ്രിഡ് ലോഡ് ആയിത്തീരുന്നതുവരെ ദയവായി കാത്തിരിക്കുക...</message>
@@ -166,8 +166,6 @@
 	<message key="manager.setup.filter.parser.grid.loadMessage">സൈറ്റേഷന്‍ പാഴ്സര്‍ കോണ്‍ഫിഗറേഷന്‍ ഗ്രിഡ് ലോഡ് ആയിത്തീരുന്നതുവരെ ദയവായി കാത്തിരിക്കുക. .</message>
 	<message key="manager.setup.filter.parser.grid.title">സൈറ്റേഷന്‍ എക്സ്ട്രാക്ഷന്‍ സര്‍വീസുകള്‍</message>
 	<message key="manager.setup.filter.pleaseSelect">ദയവായി തിരഞ്ഞെടുക്കൂ...</message>
-	<message key="manager.setup.layout.leftSidebar">ഇടത്തെ സൈഡ് ബാര്‍</message>
-	<message key="manager.setup.layout.rightSidebar">വലത്തെ സൈഡ് ബാര്‍</message>
 	<message key="manager.setup.layout.unselected">തിരഞ്ഞെടുക്കാത്തത്</message>
 	<message key="manager.setup.loggingAndAuditing">ലോഗിങ്ങും ഓഡിറ്റിങ്ങും</message>
 	<message key="manager.setup.selectOne">ഒന്ന് തിരഞ്ഞെടുക്കുക</message>

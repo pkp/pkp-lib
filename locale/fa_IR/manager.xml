@@ -143,7 +143,6 @@
 	<message key="manager.setup.homepageImageInvalid">فرمات تصویر صفحه خانگی نامناسب است.  فرمات های قابل قبول عبارت است از .gif, .jpg, or .png.</message>
 	<message key="manager.setup.homeTitleImageInvalid">فرمات تصویر عنوان هدر صفحه خانکی نامناسب است. فرمات های قابل قبول عبارت است از gif, .jpg, or .png.</message>
 	<message key="manager.setup.layout.leftSidebar">نوار حاشیه چپ</message>
-	<message key="manager.setup.layout.rightSidebar">نوار حاشیه راست</message>
 	<message key="manager.setup.layout.unselected">انتخاب نشده</message>
 	<message key="manager.setup.loggingAndAuditing">ورود و ممیزی</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">فرمات تصویر لوگوی هدر صفحات نامناسب است.  فرمات های قابل قبول عبارت است از .gif, .jpg, or .png.</message>
@@ -191,7 +190,7 @@
 برای ویرایش یا حذف یک اتصال موجود بر روی شکلک چرخ دنده کلیک کنید.
 </p>
 <p>
-برای اینکه روند چک ارجاع به موقع کار خود را تمام کند تنظیم 
+برای اینکه روند چک ارجاع به موقع کار خود را تمام کند تنظیم
 <tt>citation_checking_max_processes</tt>
 در فایل تنظیمات باید به طرز مناسبی مقدار دهی شود. لطفا به راهنمائی های
 <tt>config.inc.php</tt>
@@ -215,12 +214,12 @@
 <a href="http://isbndb.com/api/v1/docs/keys" target="_blank">online documentation</a>
 مراجعه کنید</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>
-این فیلتر به بانک ارجاع CrossRef به کمک 
+این فیلتر به بانک ارجاع CrossRef به کمک
 <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">OpenURL Query Interface</a>
 وصل می شود.
 </p>
 <p>
-برای استفاده از این فیلتر شما می توانید از حساب سیستم CrossRef خود استفاده کنید و یا ایمیلی را در CrossRef در آدرس 
+برای استفاده از این فیلتر شما می توانید از حساب سیستم CrossRef خود استفاده کنید و یا ایمیلی را در CrossRef در آدرس
 <a href="http://www.crossref.org/requestaccount/" target="_blank">اینجا</a>.</p>
 ثبت نام کنید
 </p>]]></message>
@@ -230,19 +229,19 @@
 وصل می شود.
 </p>
 <p>
-ایمیل ثبت نام الزامی نیست ولی ممکن است در صورت برخورد به اشکال در اتصال لازم شود. لطفا به قسمت 
+ایمیل ثبت نام الزامی نیست ولی ممکن است در صورت برخورد به اشکال در اتصال لازم شود. لطفا به قسمت
 <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">
 راهنمای استفاده و ملزومات
 </a>
 در مستندات Entrez مراجعه کنید.
 </p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.worldCat"><![CDATA[این فیلتر به سرویس OCLC وصل می شود
-<a href="http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp" target="_blank">xISBN</a> 
-و 
+<a href="http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp" target="_blank">xISBN</a>
+و
 <a href="http://www.worldcat.org/" target="_blank">Worldcat</a>
 </p>
 <p>
-اگر شما یک 
+اگر شما یک
 <a href="http://oclc.org/developer/develop/web-services.html" target="_blank">
 کلید API
 </a>
@@ -257,43 +256,43 @@ Worldcat
 را برای افزودن انتخاب کرده اید. لطفا بر روی OKکلیک کنید.</message>
 	<message key="manager.setup.filter.parser.grid.descriptionTemplate">لطفا یک مفسر ارجاع را انتخاب کنید.</message>
 	<message key="manager.setup.filter.parser.grid.description.freeCite"><![CDATA[<p>
-این فیلتر استخراج به سرویس وب 
+این فیلتر استخراج به سرویس وب
 <a href="http://freecite.library.brown.edu/" target="_blank">FreeCite</a>
 وصل می شود
 .</p>]]></message>
 	<message key="manager.setup.filter.parser.grid.description.paraCite"><![CDATA[<p>
 این فیلتر استخراج از ماژولهای پرل
 <a href="http://paracite.eprints.org/developers/" target="_blank">ParaTools</a>
-برای تامین قابلیت تفسیر ارجاعات 
+برای تامین قابلیت تفسیر ارجاعات
 <a href="http://paracite.eprints.org" target="_blank">ParaCite</a>
-استفاده می کند. بدین منظور باید پرل نصب باشد. همچنین ماژول های CPAN 
+استفاده می کند. بدین منظور باید پرل نصب باشد. همچنین ماژول های CPAN
 <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/" target="_blank">Biblio::Citation::Parser</a>
 و
 <a href="http://search.cpan.org/~sburke/Text-Unidecode-0.04/" target="_blank">Text::Unidecode</a>
 نیز لازم هستند. همچنین لازم است دستور
 <tt>perl</tt>
-در فایل تنظیمات را تنظیم کنید. این دستور را می توان در دستورات اکسترنال 
+در فایل تنظیمات را تنظیم کنید. این دستور را می توان در دستورات اکسترنال
 <tt>config.inc.php</tt>
 بیابید.
 </p>
 <p>
 همچنین می توانید انتخاب کنید که از کدام ماژول مفسر
 ParaTools
-استفاده شود. گزینه های در دسترس عبارتند از 
+استفاده شود. گزینه های در دسترس عبارتند از
 standard, <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Jiao.pm" target="_blank">Jiao</a>, and <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Citebase.pm" target="_blank">Citebase</a> parser modules.</p>]]></message>
 	<message key="manager.setup.filter.parser.grid.description.parsCit"><![CDATA[<p>
-این فیلتر استخراج به سوریس وب 
+این فیلتر استخراج به سوریس وب
 <a href="http://aye.comp.nus.edu.sg/parsCit/" target="_blank">ParsCit</a>
 وصل می شود.
 </p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.regEx">فیلتر 
-RegEx 
+	<message key="manager.setup.filter.parser.grid.description.regEx">فیلتر
+RegEx
 از یک سری عبارات منظم برای تفسیر ارجاعات استفاده می کند.</message>
 	<message key="manager.setup.filter.parser.grid.loadMessage">لطفا تا زمان بارگیری جدول تنظیمات مفسر ارجاعی صبر کنید...</message>
 	<message key="manager.setup.filter.parser.grid.title">سرویس های استخراج ارجاعات</message>
 	<message key="manager.setup.filter.pleaseSelect">لطفا انتخاب کنید ...</message>
-	<message key="manager.setup.metaCitationsDescription">برای فعال سازی ارجاع و ویرایش مرجع کزینه زیر را انتخاب کنید. بدین ترتیب نویسندگان می توانند ارجاعات خام به ساب میشن اضافه کنند. ادیتورها نیز به مددیار مارک آپ ارجاع نیز دسترسی پیدا میکنند که می تواند ارجاعات خام را با استفاده از بانهای اکسترنال مانند 
-WorldCat, ISBNdb, PubMed 
+	<message key="manager.setup.metaCitationsDescription">برای فعال سازی ارجاع و ویرایش مرجع کزینه زیر را انتخاب کنید. بدین ترتیب نویسندگان می توانند ارجاعات خام به ساب میشن اضافه کنند. ادیتورها نیز به مددیار مارک آپ ارجاع نیز دسترسی پیدا میکنند که می تواند ارجاعات خام را با استفاده از بانهای اکسترنال مانند
+WorldCat, ISBNdb, PubMed
 از نظر صحت چک کند. سپس ارجاعات تایید شده را می توان به گالی نهائی انتقال داد.</message>
 	<message key="plugins.categories.oaiMetadataFormats">پلاگین فرمات فراداده او ای آی</message>
 	<message key="plugins.categories.oaiMetadataFormats.description">این پلاگین های فرمات، فراداه را در ارتباطات او ای آی بیان میکنند.</message>

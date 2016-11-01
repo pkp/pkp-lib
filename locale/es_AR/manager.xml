@@ -139,9 +139,6 @@
 	<message key="manager.setup.homeHeaderImageInvalid">Formato de imagen no válido para el logo de la cabecera de página de inicio. Los formatos permitidos son .gif, .jpg, or .png.</message>
 	<message key="manager.setup.homepageImageInvalid">Formato de la imagen la página principal no válido.Los formatos permitidos son .gif, .jpg, or .png.</message>
 	<message key="manager.setup.homeTitleImageInvalid">Formato de imagen no válido para la cabecera de página. Los formatos permitidos son .gif, .jpg, or .png.</message>
-	<message key="manager.setup.layout.leftSidebar">Columna Izquierda</message>
-	<message key="manager.setup.layout.rightSidebar">Columna Derecha</message>
-	<message key="manager.setup.layout.unselected">Deseleccionado</message>
 	<message key="manager.setup.loggingAndAuditing">Control de accesos (logs)</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Formato de imagen no válido para el logo de la cabecera de página. Los formatos permitidos son .gif, .jpg, or .png.</message>
 	<message key="manager.setup.selectOne">Seleccione uno</message>

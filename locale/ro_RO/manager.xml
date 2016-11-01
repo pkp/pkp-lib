@@ -9,7 +9,7 @@
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the ro_RO (Limba Română) locale.
-  * Provided by Constantinescu Nicolaie. 
+  * Provided by Constantinescu Nicolaie.
   *
   -->
 
@@ -144,8 +144,6 @@
 	<message key="manager.setup.homeHeaderImageInvalid">Format de imagine necorespunzător pentru imaginea logo pentru colontitlul (header) paginii principale. Formatele acceptate sunt .gif, .jpg, sau .png.</message>
 	<message key="manager.setup.homepageImageInvalid">Format de imagine necorespunzător pentru pagina principală sau încărcarea a eșuat. Formatele acceptate sunt .gif, .jpg, sau .png.</message>
 	<message key="manager.setup.homeTitleImageInvalid">Format de imagine necorespunzător pentru imaginea la titlul paginii principale sau încărcarea a eșuat. Formatele acceptate sunt .gif, .jpg, sau .png.</message>
-	<message key="manager.setup.layout.leftSidebar">Bară conținut stânga</message>
-	<message key="manager.setup.layout.rightSidebar">Bară conținut dreapta</message>
 	<message key="manager.setup.layout.unselected">Unselected</message>
 	<message key="manager.setup.loggingAndAuditing">Înregistrări şi auditare</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Format de imagine necorespunzător pentru imaginea logo din colontitlu (header). Formatele acceptate sunt .gif, .jpg, sau .png.</message>
@@ -180,7 +178,7 @@
 	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>Pentru a găsi și verifica referințele din baza de date specifică, ar trebui ca mai întâi să fie adaptate la formate de metadate inteligibile pentru computer: titlul, editorul, data publicării, etc. trebuie să fie extrase din textul original al referinței pus la dispoziție de către autor. Conectorii cu serviciile web externe pot fi de folos în acest proces. Unul dintre acești conectori poate fi adăugat prin clic pe butonul „adaugă element” de mai jos. Unul dinter acești conectori trebuie să fie configurat; vei fi semnalat dacă se va pune problema.<p>
 <p>Poți edita sau șterge un conector existent prin clic pe pictograma cu roți dințate alăturată.</p>]]></message>
 	<message key="manager.setup.citationFilterLookup">Verificarea referințelor bibliografice</message>
-	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>Trebuie să activezi și să configurezi conexiunile către baze de date cu referințe bibliografice externe. Acestestea te vor ajuta să găsești erorile de citare a autorilor sau vei putea adăuga informație suplimentară (de ex. DOI-uri sau ID-uri de la  PubMed) necesară pentru publicarea sau depozitarea electronică.</p> 
+	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>Trebuie să activezi și să configurezi conexiunile către baze de date cu referințe bibliografice externe. Acestestea te vor ajuta să găsești erorile de citare a autorilor sau vei putea adăuga informație suplimentară (de ex. DOI-uri sau ID-uri de la  PubMed) necesară pentru publicarea sau depozitarea electronică.</p>
 		<p>Îți oferim conectori pentru câteva baze de date externe în care poți face căutări bibliografice. Unele dintre aceste baze de date necesită informații de înregistrare sau configurare. Pentru mai multe detalii necesare înregistrării, mergeți pe paginile proprii ale acestor site-uri. Poți adăuga una sau câteva baze de date dând clic mai jos pe „adaugă element”.</p>
 		<p>Poți edita sau șterge o conectare la o bază de date externă dând clic pe pictograma cu roți dințate alăturată.</p>
 		<p><strong>Notă:</strong> Pentru a verifica referința într-un timp rezonabil, directiva <tt>citation_checking_max_processes</tt> din fișierul de configurare, trebuie setată la o valoare rezonabilă. Vezi secțiunea „setări generale” din fișierul <tt>config.inc.php</tt> pentru mai multe informații.</p>]]></message>
@@ -196,7 +194,7 @@
 	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Selectează o bază de date.</message>
 	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>Acest filtru se conectează la <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a> - baza de date pentru cărți și ISBN.</p>
 	<p>Este necesară o cheie ISBNdb API. Pentru informații privind cum să generezi o cheie, vezi <a href="http://isbndb.com/api/v1/docs/keys" target="_blank">documentația online</a>.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Acest filtru asigură conectarea la baza de date cu citări bibliografice CrossRef folosind <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">interfața pentru interogare OpenURL</a>.</p> 
+	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Acest filtru asigură conectarea la baza de date cu citări bibliografice CrossRef folosind <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">interfața pentru interogare OpenURL</a>.</p>
 	<p>Pentru a utiliza acest filtru, poți utiliza contul personal pentru sau te poți înregistra cu o adresă de email validă <a href="http://www.crossref.org/requestaccount/" target="_blank">aici</a>.</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>Acest filtru asigură conectarea la motorul bazei de date al PubMed: <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">Entrez</a>.</p>
 	<p>Nu este necesar neapărat un email de înregistrare, dar se poate dovedi util atunci când ai probleme de conectare. Vezi secțiunea <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">instrucțiunilor de utilizare și a cerințelor specifice</a> existente în documentația Entrez pentru mai multe informații.</p>]]></message>

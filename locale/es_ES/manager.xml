@@ -179,7 +179,7 @@
 		Hay casos en los que solo se debe usar una única estadística de uso, p.ej. para mostrar una lista ordenada de los envíos más usados o para clasificar
 		los resultados de búsqueda. Seleccione una de las medidas configuradas como predeterminadas.
 	</message>
-	<message key="manager.statistics.city">Ciudad</message>	
+	<message key="manager.statistics.city">Ciudad</message>
 	<message key="manager.statistics.region">Región</message>
 	<message key="manager.statistics.reports">Generador de informes</message>
 	<message key="manager.statistics.reports.description">El sistema genera informes que clasifican los detalles asociados con el uso del sitio web y de los envíos durante un período de tiempo determinado. Los informes se generan en formato CSV, que requiere una aplicación de hoja de cálculo para visualizarlos.</message>
@@ -272,7 +272,6 @@
 	<message key="manager.setup.layout.theme">Tema</message>
 	<message key="manager.setup.layout.themeDescription">Elija un tema del conjunto de temas de complementos.</message>
 	<message key="manager.setup.layout.blockManagement">Gestión de la barra lateral</message>
-	<message key="manager.setup.layout.leftSidebar">Barra Izquierda</message>
 	<message key="manager.setup.layout.unselected">Sin seleccionar</message>
 	<message key="manager.setup.loggingAndAuditing">Registro y Auditoría</message>
 	<message key="manager.setup.metaCitationsDescription">Active la siguiente casilla para activar la edición de citas y referencias. Esto permitirá a los autores incluir citas puras con envíos. Los editores/as también tendrán acceso al asistente de marcado de citas que puede comprobar citas originales en bases de datos externas con más exactitud, como por ejemplo WorldCat, ISBNdb, PubMed, entre otras. Las citas aprobadas pueden exportarse a los archivos finales de galerada.</message>

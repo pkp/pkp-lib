@@ -283,7 +283,6 @@
 	<message key="manager.setup.layout.theme">النمط</message>
 	<message key="manager.setup.layout.themeDescription">يمكن تنصيب الأنماط الجديدة عبر باب الإضافة المتوضع في أعلى هذه الصفحة.</message>
 	<message key="manager.setup.layout.blockManagement">إدارة شريط التمرير الجانبي</message>
-	<message key="manager.setup.layout.leftSidebar">شريط التمرير الأيسر</message>
 	<message key="manager.setup.layout.unselected">غير محددة</message>
 	<message key="manager.setup.loggingAndAuditing">تسجيل الوقائع والمراجعة</message>
 	<message key="manager.setup.logo">الصورة المصغرة</message>

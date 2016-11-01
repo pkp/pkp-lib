@@ -143,8 +143,6 @@
 	<message key="manager.setup.homeHeaderImageInvalid">无效的首页头部图片格式或者上传失败，有效的格式有 .gif, .jpg, or .png.</message>
 	<message key="manager.setup.homepageImageInvalid">无效的首页图片格式或者上传失败，有效的格式有 .gif, .jpg, or .png.</message>
 	<message key="manager.setup.homeTitleImageInvalid">无效的首页头部标题图片格式或者上传失败，有效的格式有 .gif, .jpg, or .png.</message>
-	<message key="manager.setup.layout.leftSidebar">左侧边栏</message>
-	<message key="manager.setup.layout.rightSidebar">右侧边栏</message>
 	<message key="manager.setup.layout.unselected">没有选择的</message>
 	<message key="manager.setup.loggingAndAuditing">日志记录与审计</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">无效的页面头部Logo图片格式或者上传失败，有效的格式有 .gif, .jpg, or .png.</message>

@@ -64,7 +64,7 @@
 	<message key="manager.publication.editorialStage">Editorial</message>
 	<message key="manager.publication.productionStage">Producció</message>
 	<message key="manager.publication.emails">Correus electrònics</message>
-	<message key="manager.publication.libraryDescription"><![CDATA[Aquests fitxers s'han preparat per utilitzar-los com a plantilles i guies i formen part dels <span class="pkp_help_title">Documents enviats</span>.]]></message> 
+	<message key="manager.publication.libraryDescription"><![CDATA[Aquests fitxers s'han preparat per utilitzar-los com a plantilles i guies i formen part dels <span class="pkp_help_title">Documents enviats</span>.]]></message>
 	<message key="manager.emails.confirmDelete">Esteu segur/a que voleu suprimir aquesta plantilla de missatge de correu electrònic?</message>
 	<message key="manager.emails.confirmReset">Esteu segur/a que voleu reiniciar aquesta plantilla de missatge de correu electrònic als seus valors predeterminats?</message>
 	<message key="manager.emails.addEmail">Afegeix una plantilla de missatge de correu electrònic</message>
@@ -183,7 +183,7 @@
 		Hi ha casos en què heu d'utilitzar una sola estadística d'ús, p. ex., per mostrar una llista ordenada de les tramses més utilitzades o per classificar
 		els resultats de la cerca. Seleccioneu una de les analítiques configurades com a analítica per defecte.
 	</message>
-	<message key="manager.statistics.city">Ciutat</message>	
+	<message key="manager.statistics.city">Ciutat</message>
 	<message key="manager.statistics.region">Província</message>
 	<message key="manager.statistics.reports">Generador d’informes</message>
 	<message key="manager.statistics.reports.description">El sistema genera informes que fan un seguiment dels detalls relacionats amb l'ús del lloc i de les comunicacions durant un període determinat de temps. Els informes es generen en format CSV. Aquest format es pot visualitzar amb una aplicació de full de càlcul.</message>
@@ -279,8 +279,6 @@
 	<message key="manager.setup.layout.theme">Tema</message>
 	<message key="manager.setup.layout.themeDescription">Trieu un tema d'entre els mòduls de tema disponibles.</message>
 	<message key="manager.setup.layout.blockManagement">Administració de la barra lateral</message>
-	<message key="manager.setup.layout.leftSidebar">Barra lateral esquerra</message>
-	<message key="manager.setup.layout.rightSidebar">Barra lateral dreta</message>
 	<message key="manager.setup.layout.unselected">No seleccionada</message>
 	<message key="manager.setup.loggingAndAuditing">Registre i control</message>
 	<message key="manager.setup.metaCitationsDescription">Activeu la casella de selecció següent per activar l'edició de citacions i referències.  D'aquesta manera els autors/ores podran incloure a les seves trameses citacions sense processar. Els editors/ores també tindran accés a l'assistent de marcatge de citacions, que comprova les citacions sense processar amb bases de dades externes com WorldCat, ISBNdb, PubMed, etc. per aconseguir més precisió. Les citacions aprovades es poden exportar als fitxers de galerades finals.</message>

@@ -58,7 +58,7 @@ class BlockPluginsListbuilderHandler extends MultipleListsListbuilderHandler {
 		$nameColumn = new ListbuilderGridColumn($this, 'name', 'common.name');
 
 		// Add lists.
-		$this->addList(new ListbuilderList('leftContext', 'manager.setup.layout.leftSidebar'));
+		$this->addList(new ListbuilderList('leftContext', 'manager.setup.layout.sidebar'));
 		$this->addList(new ListbuilderList('unselected', 'manager.setup.layout.unselected'));
 
 		import('lib.pkp.controllers.listbuilder.settings.BlockPluginsListbuilderGridCellProvider');

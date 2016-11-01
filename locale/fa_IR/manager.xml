@@ -142,7 +142,6 @@
 	<message key="manager.setup.homeHeaderImageInvalid">فرمات تصویر لوگوی هدر صفحه خانگی نامناسب است. فرمات های مناسب عبارت است از .gif, .jpg, or .png.</message>
 	<message key="manager.setup.homepageImageInvalid">فرمات تصویر صفحه خانگی نامناسب است.  فرمات های قابل قبول عبارت است از .gif, .jpg, or .png.</message>
 	<message key="manager.setup.homeTitleImageInvalid">فرمات تصویر عنوان هدر صفحه خانکی نامناسب است. فرمات های قابل قبول عبارت است از gif, .jpg, or .png.</message>
-	<message key="manager.setup.layout.leftSidebar">نوار حاشیه چپ</message>
 	<message key="manager.setup.layout.unselected">انتخاب نشده</message>
 	<message key="manager.setup.loggingAndAuditing">ورود و ممیزی</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">فرمات تصویر لوگوی هدر صفحات نامناسب است.  فرمات های قابل قبول عبارت است از .gif, .jpg, or .png.</message>

@@ -27,7 +27,7 @@
 
 	{fbvFormArea id="reviewFormForm"}
 		{fbvFormSection title="manager.reviewForms.title" required=true for="title"}
-			{fbvElement type="text" id="title" value=$title multilingual=true}
+			{fbvElement type="text" id="title" value=$title multilingual=true required=true}
 		{/fbvFormSection}
 		{fbvFormSection title="manager.reviewForms.description" for="description"}
 			{fbvElement type="textarea" id="description" value=$description multilingual=true rich=true}

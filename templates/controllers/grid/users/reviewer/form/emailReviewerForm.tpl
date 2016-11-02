@@ -22,11 +22,11 @@
 	{/fbvFormSection}
 
 	{fbvFormSection title="email.subject" for="subject" required="true"}
-		{fbvElement type="text" id="subject" value=$subject}
+		{fbvElement type="text" id="subject" value=$subject required="true"}
 	{/fbvFormSection}
 
 	{fbvFormSection title="email.body" for="message" required="true"}
-		{fbvElement type="textarea" id="message" value=$message rich=true}
+		{fbvElement type="textarea" id="message" value=$message rich=true required="true"}
 	{/fbvFormSection}
 
 	<p><span class="formRequired">{translate key="common.requiredField"}</span></p>

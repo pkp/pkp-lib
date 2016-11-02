@@ -30,13 +30,13 @@
 	{fbvFormArea id="userGroupDetails"}
 		<h3>{translate key="settings.roles.roleDetails"}</h3>
 		{fbvFormSection title="settings.roles.from" for="roleId" required="true"}
-			{fbvElement type="select" name="roleId" from=$roleOptions id="roleId" selected=$roleId disabled=$disableRoleSelect}
+			{fbvElement type="select" name="roleId" from=$roleOptions id="roleId" selected=$roleId disabled=$disableRoleSelect required="true"}
 		{/fbvFormSection}
 		{fbvFormSection title="settings.roles.roleName" for="name" required="true"}
-			{fbvElement type="text" multilingual="true" name="name" value=$name id="name"}
+			{fbvElement type="text" multilingual="true" name="name" value=$name id="name" required="true"}
 		{/fbvFormSection}
 		{fbvFormSection title="settings.roles.roleAbbrev" for="abbrev" required="true"}
-			{fbvElement type="text" multilingual="true" name="abbrev" value=$abbrev id="abbrev"}
+			{fbvElement type="text" multilingual="true" name="abbrev" value=$abbrev id="abbrev" required="true"}
 		{/fbvFormSection}
 	{/fbvFormArea}
 	<div id="userGroupStageContainer" class="full left">

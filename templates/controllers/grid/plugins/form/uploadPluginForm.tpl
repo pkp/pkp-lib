@@ -25,7 +25,7 @@
 <form class="pkp_form" id="uploadPluginForm" action="{url router=$smarty.const.ROUTE_COMPONENT op="saveUploadPlugin" function=$function category=$category plugin=$plugin}" method="post">
 	{csrf}
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="uploadPluginNotification"}
-	
+
 	{fbvFormArea id="file"}
 		{if $function == 'install'}
 			<p>{translate key="manager.plugins.uploadDescription"}</p>
@@ -38,7 +38,7 @@
 			{include file="controllers/fileUploadContainer.tpl" id="plupload"}
 		{/fbvFormSection}
 	{/fbvFormArea}
-	
+
 	{fbvFormButtons id="mastheadFormSubmit" submitText="common.save"}
 </form>
 <p><span class="formRequired">{translate key="common.requiredField"}</span></p>

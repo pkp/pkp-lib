@@ -24,7 +24,7 @@
 
 {fbvFormArea id="checklist"}
 	{fbvFormSection title="grid.submissionChecklist.column.checklistItem" required="true" for="checklistItem"}
-		{fbvElement type="textarea" multilingual="true" name="checklistItem" id="checklistItem" value=$checklistItem}
+		{fbvElement type="textarea" multilingual="true" name="checklistItem" id="checklistItem" value=$checklistItem required="true"}
 	{/fbvFormSection}
 {/fbvFormArea}
 {if $gridId != null}

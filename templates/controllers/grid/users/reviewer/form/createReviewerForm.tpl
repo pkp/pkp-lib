@@ -35,7 +35,7 @@
 	<h3>{translate key="editor.review.createReviewer"}</h3>
 
 	{if count($userGroups)>1}
-		{fbvFormSection title="user.group"}
+		{fbvFormSection title="user.group" required="true"}
 			{fbvElement type="select" name="userGroupId" id="userGroupId" from=$userGroups translate=false label="editor.review.userGroupSelect" required="true"}
 		{/fbvFormSection}
 	{elseif count($userGroups)==1}

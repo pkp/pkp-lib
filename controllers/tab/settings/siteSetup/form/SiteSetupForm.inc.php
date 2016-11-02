@@ -143,7 +143,7 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 	function readInputData() {
 		$this->readUserVars(
 			array('pageHeaderTitleType', 'title', 'about', 'redirect', 'contactName',
-				'contactEmail', 'minPasswordLength', 'themePluginPath', 'defaultMetricType',)
+				'contactEmail', 'minPasswordLength', 'themePluginPath', 'defaultMetricType','pageFooter',)
 		);
 	}
 
@@ -170,6 +170,11 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 		$site->updateSetting('themePluginPath', $selectedThemePluginPath);
 
 		$siteDao->updateObject($site);
+
+		// Save block plugins context positions.
+		import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
+		ListbuilderHandler::unpack($request, $request->getUserVar('blocks'), array($this, 'deleteEntry'), array($this, 'insertEntry'), array($this, 'updateEntry'));
+
 		return true;
 	}
 
@@ -252,6 +257,46 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 		} else {
 			return false;
 		}
+	}
+
+	/**
+	 * Overriden method from ListbuilderHandler.
+	 * @param $request Request
+	 * @param $rowId mixed
+	 * @param $newRowId array
+	 */
+	function updateEntry($request, $rowId, $newRowId) {
+		$plugins =& PluginRegistry::loadCategory('blocks');
+		$plugin =& $plugins[$rowId]; // Ref hack
+		switch ($newRowId['listId']) {
+			case 'unselected':
+				$plugin->setEnabled(false);
+				break;
+			case 'leftContext':
+				$plugin->setEnabled(true);
+				$plugin->setBlockContext(BLOCK_CONTEXT_LEFT_SIDEBAR);
+				$plugin->setSeq((int) $newRowId['sequence']);
+				break;
+			case 'rightContext':
+				// Deprecated
+				break;
+			default:
+				assert(false);
+		}
+	}
+
+	/**
+	 * Avoid warnings when Listbuilder::unpack tries to call this method.
+	 */
+	function deleteEntry() {
+		return false;
+	}
+
+	/**
+	 * Avoid warnings when Listbuilder::unpack tries to call this method.
+	 */
+	function insertEntry() {
+		return false;
 	}
 
 

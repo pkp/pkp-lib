@@ -22,7 +22,7 @@ class BlockPluginsListbuilderHandler extends MultipleListsListbuilderHandler {
 	function BlockPluginsListbuilderHandler() {
 		parent::MultipleListsListbuilderHandler();
 		$this->addRoleAssignment(
-			ROLE_ID_MANAGER,
+			array(ROLE_ID_MANAGER, ROLE_ID_SITE_ADMIN),
 			array('fetch')
 		);
 	}
@@ -31,8 +31,15 @@ class BlockPluginsListbuilderHandler extends MultipleListsListbuilderHandler {
 	 * @copydoc GridHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
-		import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
-		$this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+		$router = $request->getRouter();
+		if (is_object($router->getContext($request))) {
+			import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
+			$this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+		} else {
+			import('lib.pkp.classes.security.authorization.PKPSiteAccessPolicy');
+			$this->addPolicy(new PKPSiteAccessPolicy($request, array(), $roleAssignments));
+		}
+
 		return parent::authorize($request, $args, $roleAssignments);
 	}
 

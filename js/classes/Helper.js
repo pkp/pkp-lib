@@ -44,7 +44,8 @@
 	/** @type {Object} */
 	$.pkp.plugins.pubIds = $.pkp.plugins.pubIds || {};
 
-
+	/** @type {Object} */
+	$.pkp.plugins.importexport = $.pkp.plugins.importexport || {};
 
 	/**
 	 * Helper singleton

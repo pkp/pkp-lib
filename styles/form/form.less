@@ -218,21 +218,18 @@
 		display: block;
 
 		// Localization globe icon within TinyMce
-		div.mceLocalizationIcon {
+		&:after {
+			&:extend(.fa);
+			content: @fa-var-globe;
 			position: absolute;
-			top: @half;
-			right: @half;
+			top: @half - 2;
+			right: @base;
 			z-index: 2;
-			width: 16px;
-			height: 16px;
-			background-position: initial;
-		}
-
-		// Nested so that the padding overrides input field defaults
-		.localizable {
-			background-repeat: no-repeat;
-			background-image: url(@{baseUrl}/lib/pkp/templates/images/structure/icon_globe.png);
-			background-position: top @half right @half;
+			width: 20px;
+			height: 20px;
+			font-size: 20px;
+			text-align: center;
+			color: @text-light;
 		}
 	}
 
@@ -241,11 +238,18 @@
 		padding: @half;
 		background-color: @bg;
 
-		// Compensate for extra padding on parent element
-		div.mceLocalizationIcon {
-			top: @base;
-			right: @base;
+		&:after {
+			top: @base - 2;
+			color: @text;
 		}
+	}
+
+	.localizationIncomplete:after {
+		color: @warn;
+	}
+
+	.localizationComplete:after {
+		color: @yes;
 	}
 
 	.localization_popover {

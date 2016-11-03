@@ -208,6 +208,7 @@ class ReviewerForm extends Form {
 				'signatureFullName' => $user->getFullname(),
 				'passwordResetUrl' => $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'login', 'lostPassword'),
 				'messageToReviewer' => __('reviewer.step1.requestBoilerplate'),
+				'abstractTermIfEnabled' => ($submission->getLocalizedAbstract() == '' ? '' : __('common.abstract')), // Deprecated; for OJS 2.x templates
 			));
 			$template->replaceParams();
 		}

@@ -87,7 +87,6 @@
 		// Use a timeout to give the other element a chance to acquire the focus.
 		setTimeout(this.callbackWrapper(function() {
 			if (!this.hasElementInFocus_()) {
-				console.log('blur');
 				this.hidePopover_();
 			}
 		}), 0);

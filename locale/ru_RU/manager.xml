@@ -142,8 +142,6 @@
 	<message key="manager.setup.homeHeaderImageInvalid">Неверный формат логотипа в заголовке домашней страницы. Поддерживаются форматы .gif, .jpg, или .png.</message>
 	<message key="manager.setup.homepageImageInvalid">Неверный формат изображения на домашней странице. Поддерживаются форматы .gif, .jpg, или .png.</message>
 	<message key="manager.setup.homeTitleImageInvalid">Неверный формат изображения в заголовке домашней страницы. Поддерживаются форматы .gif, .jpg, или .png.</message>
-	<message key="manager.setup.layout.leftSidebar">Левая Сторона</message>
-	<message key="manager.setup.layout.rightSidebar">Правая Сторона</message>
 	<message key="manager.setup.layout.unselected">Не выбрано</message>
 	<message key="manager.setup.loggingAndAuditing">Дневник событий</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Неверный формат логотипа в заголовке страницы. Поддерживаются форматы .gif, .jpg, или .png.</message>

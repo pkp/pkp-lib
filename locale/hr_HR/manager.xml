@@ -135,9 +135,6 @@
 	<message key="manager.setup.homeHeaderImageInvalid">Neispravan format slike logotipa zaglavlja naslovne stranice. Prihvaćeni formati su .gif, .jpg, ili .png.</message>
 	<message key="manager.setup.homepageImageInvalid">Neispravan format slike naslovne stranice. Prihvaćeni formati su .gif, .jpg, ili .png.</message>
 	<message key="manager.setup.homeTitleImageInvalid">Neispravan format slike zaglavlja naslovne stranice. Prihvaćeni formati su .gif, .jpg, ili .png.</message>
-	<message key="manager.setup.layout.leftSidebar">Lijevi stupac</message>
-	<message key="manager.setup.layout.rightSidebar">Desni stupac</message>
-	<message key="manager.setup.layout.unselected">Neodabrano</message>
 	<message key="manager.setup.loggingAndAuditing">Bilježenje uređivačkog postupka</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Neispravan format slike logotipa zaglavlja. Prihvaćeni formati su .gif, .jpg, ili .png.</message>
 	<message key="manager.setup.selectOne">Izaberite</message>

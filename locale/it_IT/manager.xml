@@ -141,8 +141,6 @@
 	<message key="manager.setup.homeHeaderImageInvalid">Formato dell'immagine del logo per la testata dell'home page non valido. I formati accettati sono .gif, .jpg, o .png.</message>
 	<message key="manager.setup.homepageImageInvalid">Formato dell'immagine per l'home page non valido. I formati accettati sono .gif, .jpg, o .png.</message>
 	<message key="manager.setup.homeTitleImageInvalid">Formato dell'immagine-titolo per la testata dell'home page non valido. I formati accettati sono .gif, .jpg, o .png.</message>
-	<message key="manager.setup.layout.leftSidebar">Menu laterale sinistro</message>
-	<message key="manager.setup.layout.rightSidebar">Menu laterale destro</message>
 	<message key="manager.setup.layout.unselected">Non selezionato</message>
 	<message key="manager.setup.loggingAndAuditing">Registrazione e certificazione</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Formato dell'immagine del logo per la testata non valido. I formati accettati sono .gif, .jpg, o .png.</message>

@@ -272,13 +272,10 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 			case 'unselected':
 				$plugin->setEnabled(false);
 				break;
-			case 'leftContext':
+			case 'sidebarContext':
 				$plugin->setEnabled(true);
-				$plugin->setBlockContext(BLOCK_CONTEXT_LEFT_SIDEBAR);
+				$plugin->setBlockContext(BLOCK_CONTEXT_SIDEBAR);
 				$plugin->setSeq((int) $newRowId['sequence']);
-				break;
-			case 'rightContext':
-				// Deprecated
 				break;
 			default:
 				assert(false);

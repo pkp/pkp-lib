@@ -142,8 +142,6 @@
 	<message key="manager.setup.homeHeaderImageInvalid">ホームページヘッダのロゴ画像フォーマットが不正です。利用できるフォーマットは、.gif、.jpg、.pngの3つです。</message>
 	<message key="manager.setup.homepageImageInvalid">ホームページヘッダの画像フォーマットが不正です。利用できるフォーマットは、.gif、.jpg、.pngの3つです。</message>
 	<message key="manager.setup.homeTitleImageInvalid">ホームページヘッダの誌名画像フォーマットが不正です。利用できるフォーマットは、.gif、.jpg、.pngの3つです。</message>
-	<message key="manager.setup.layout.leftSidebar">左側のサイドバー</message>
-	<message key="manager.setup.layout.rightSidebar">右側のサイドバー</message>
 	<message key="manager.setup.layout.unselected">未選択のコンポーネント</message>
 	<message key="manager.setup.loggingAndAuditing">ログ出力と監査</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">ページヘッダのロゴ画像フォーマットが不正です。利用できるフォーマットは、.gif、.jpg、.pngの3つです。</message>
@@ -189,7 +187,7 @@
 	<message key="manager.setup.filter.parser.grid.descriptionConfirm">{$filterDisplayName} パーサーを追加します。確認して"OK"をクリックしてください。</message>
 	<message key="manager.setup.filter.parser.grid.descriptionTemplate">引用パーサーを選択してください。</message>
 	<message key="manager.setup.citationOutputStyleDescription">投稿する雑誌で使用されている引用スタイルを選択してください。引用マークアップ支援では，エラーが簡単に発見できるように，著者の引用バージョンと作成したXMLから生成された引用バージョンを比較することができます。</message>
-	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>このフィルタでは CrossRefの <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">OpenURL Query Interface</a>を使用してCrossRef の引用データベースに接続します。</p> 
+	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>このフィルタでは CrossRefの <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">OpenURL Query Interface</a>を使用してCrossRef の引用データベースに接続します。</p>
 	<p>このフィルタを使用するためには，CrossRef system account を使用するか，あるいは<a href="http://www.crossref.org/requestaccount/" target="_blank">ここから</a> CrossRefに適切なメールアドレスを登録します。</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>このフィルタでは PubMedの横断検索エンジン <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">Entrez</a> にアクセスします。</p>
 	<p>メールアドレスの登録は強制ではりませんが，コネクションに問題が発生する場合は必要になります。詳細については Entrez ドキュメンテーションの <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">Usage Guidelines and Requirements</a> セクションを参照してください。</p>]]></message>

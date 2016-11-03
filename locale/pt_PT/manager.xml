@@ -142,8 +142,6 @@
 	<message key="manager.setup.homeHeaderImageInvalid">Formato de imagem inválido. Formatos aceitáveis são .gif, .jpg ou .png.</message>
 	<message key="manager.setup.homepageImageInvalid">Formato de imagem inválido. Formatos aceitáveis são .gif, .jpg ou .png.</message>
 	<message key="manager.setup.homeTitleImageInvalid">Formato de imagem inválido. Formatos aceitáveis são .gif, .jpg ou .png.</message>
-	<message key="manager.setup.layout.leftSidebar">Barra Esquerda</message>
-	<message key="manager.setup.layout.rightSidebar">Barra Direita</message>
 	<message key="manager.setup.layout.unselected">Não marcados</message>
 	<message key="manager.setup.loggingAndAuditing">Controle e Auditoria</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Formato de imagem inválido. Formatos aceitáveis são .gif, .jpg ou .png.</message>
@@ -181,7 +179,7 @@
 	<message key="manager.setup.citationFilterParser">Extração de citações</message>
 	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>Para encontrar e verificar citações em bases de dados especializadas, é necessário extraí-las em metadados em formato de máquina para leitura: título, editora, data de publicação, entre outros, devem ser todos extraídos do texto original da citação informada pelo autor. Conexões com serviços <i>Web</i> externos podem auxiliar no processo. Uma ou mais conexões podem ser incluídas, clicando no botão "Incluir item" a seguir. Algumas conexões podem exigir configuração; um aviso o notificará, caso seja necessário.</p>]]></message>
 	<message key="manager.setup.citationFilterLookup">Verificação de citações</message>
-	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>É necessário também habilitar e configurar as conexões a bases de dados de citacões externas. Isto facilita a detecção de erros na citação ou informações adicionais informadas pelo autor (como DOI o IDs do PubMed), exigidos para publicação ou depósito eletrônico.</p> 
+	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>É necessário também habilitar e configurar as conexões a bases de dados de citacões externas. Isto facilita a detecção de erros na citação ou informações adicionais informadas pelo autor (como DOI o IDs do PubMed), exigidos para publicação ou depósito eletrônico.</p>
 <p>O sistema oferece conectores a várias bases de dados nas quais pesquisar citações. Algumas exigem cadastro ou informações de configuração. Acesse o site das bases de dados para mais informações sobre os requisitos e processos de cadastro. Podem ser incluídas várias bases clicando no botão "Incluir item" a seguir.</p>
 <p>Edite ou exclua conexões existentes clicando no ícone de engrenagem ao lado da base.</p>
 <p><strong>Aviso:</strong> Para que o processo de verificação de citações seja concluído em tempo razoável, a variável <tt>citation_checking_max_processes</tt> no arquivo de configuração deve possuir um valor alto o suficiente. Veja a seção General Settings do arquivo <tt>config.inc.php</tt> para mais informações.</p>]]></message>
@@ -196,7 +194,7 @@
 	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Escolha uma base de dados para verificação.</message>
 	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>Este filtro se conecta à base de livros e códigos ISBN <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a>.</p>
 <p>Uma chave de API ISBNdb é obrigatória. Para informações sobre como gerar a chave, acesse a<a href="http://isbndb.com/api/v1/docs/keys" target="_blank">documentação online</a>.</p>]]></message>
-	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Este filtro se conecta à base CrossRef de citações usando sua <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">Interface de Query OpenURL</a>.</p> 
+	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Este filtro se conecta à base CrossRef de citações usando sua <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">Interface de Query OpenURL</a>.</p>
 <p>Para usar este filtro, deve-se usar sua conta CrossRef, ou cadastrar um e-mail válido <a href="http://www.crossref.org/requestaccount/" target="_blank">aqui</a>.</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>Este filtro se conecta ao mecanismo de busca na base cruzada do PubMed's <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">Entrez</a>.</p>
 <p>Um e-mail para cadastro não estritamente obrigatório, mas pode ser necessário caso tenha problemas de conexão. Veja como funciona o sistema na documentação do Entrez acessando <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">Guia de Uso e Requisitos</a>.</p>]]></message>

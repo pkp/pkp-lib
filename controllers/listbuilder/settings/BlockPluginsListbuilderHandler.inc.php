@@ -58,7 +58,7 @@ class BlockPluginsListbuilderHandler extends MultipleListsListbuilderHandler {
 		$nameColumn = new ListbuilderGridColumn($this, 'name', 'common.name');
 
 		// Add lists.
-		$this->addList(new ListbuilderList('leftContext', 'manager.setup.layout.leftSidebar'));
+		$this->addList(new ListbuilderList('sidebarContext', 'manager.setup.layout.sidebar'));
 		$this->addList(new ListbuilderList('unselected', 'manager.setup.layout.unselected'));
 
 		import('lib.pkp.controllers.listbuilder.settings.BlockPluginsListbuilderGridCellProvider');
@@ -78,16 +78,16 @@ class BlockPluginsListbuilderHandler extends MultipleListsListbuilderHandler {
 		$plugins = PluginRegistry::loadCategory('blocks');
 		foreach ($plugins as $key => $junk) {
 			if (!$plugins[$key]->getEnabled() || $plugins[$key]->getBlockContext() == '') {
-				if (count(array_intersect($plugins[$key]->getSupportedContexts(), array(BLOCK_CONTEXT_LEFT_SIDEBAR))) > 0) $disabledBlockPlugins[$key] = $plugins[$key];
+				if (count(array_intersect($plugins[$key]->getSupportedContexts(), array(BLOCK_CONTEXT_SIDEBAR))) > 0) $disabledBlockPlugins[$key] = $plugins[$key];
 			} else switch ($plugins[$key]->getBlockContext()) {
-				case BLOCK_CONTEXT_LEFT_SIDEBAR:
+				case BLOCK_CONTEXT_SIDEBAR:
 					$leftBlockPlugins[$key] = $plugins[$key];
 					break;
 			}
 		}
 
 		$lists = $this->getLists();
-		$lists['leftContext']->setData($leftBlockPlugins);
+		$lists['sidebarContext']->setData($leftBlockPlugins);
 		$lists['unselected']->setData($disabledBlockPlugins);
 	}
 }

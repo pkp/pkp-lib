@@ -770,38 +770,6 @@ abstract class Submission extends DataObject {
 	}
 
 	/**
-	 * get cover page server-side file name
-	 * @return string
-	 */
-	function getCoverImage() {
-		return $this->getData('coverImage');
-	}
-
-	/**
-	 * set cover page server-side file name
-	 * @param $coverImage string
-	 */
-	function setCoverImage($coverImage) {
-		$this->setData('coverImage', $coverImage);
-	}
-
-	/**
-	 * get cover page alternate text
-	 * @return string
-	 */
-	function getCoverImageAltText() {
-		return $this->getData('coverImageAltText');
-	}
-
-	/**
-	 * set cover page alternate text
-	 * @param $coverImageAltText string
-	 */
-	function setCoverImageAltText($coverImageAltText) {
-		$this->setData('coverImageAltText', $coverImageAltText);
-	}
-
-	/**
 	 * Get submission date.
 	 * @return date
 	 */

@@ -21,7 +21,7 @@ class DBConnectionTest extends DatabaseTestCase {
 	const CONFIG_PGSQL = 'pgsql';
 
 	/**
-	 * @covers DBConnection::DBConnection
+	 * @covers DBConnection::__construct
 	 * @covers DBConnection::initDefaultDBConnection
 	 * @covers DBConnection::initConn
 	 */
@@ -47,7 +47,7 @@ class DBConnectionTest extends DatabaseTestCase {
 	}
 
 	/**
-	 * @covers DBConnection::DBConnection
+	 * @covers DBConnection::__construct
 	 * @covers DBConnection::initDefaultDBConnection
 	 * @covers DBConnection::initConn
 	 * @covers AdodbPostgres7Compat::AdodbPostgres7Compat
@@ -63,7 +63,7 @@ class DBConnectionTest extends DatabaseTestCase {
 	}
 
 	/**
-	 * @covers DBConnection::DBConnection
+	 * @covers DBConnection::__construct
 	 * @covers DBConnection::initCustomDBConnection
 	 * @covers DBConnection::initConn
 	 */

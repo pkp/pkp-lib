@@ -16,8 +16,7 @@
 
 import('lib.pkp.classes.controllers.grid.feature.GridFeature');
 
-class OrderItemsFeature extends GridFeature{
-
+class OrderItemsFeature extends GridFeature {
 	/** @var boolean */
 	var $_overrideRowTemplate;
 
@@ -34,7 +33,7 @@ class OrderItemsFeature extends GridFeature{
 	 * when user tries to move a non orderable grid item.
 	 */
 	function __construct($overrideRowTemplate, $nonOrderableItemMessage = null) {
-		parent::GridFeature('orderItems');
+		parent::__construct('orderItems');
 
 		$this->setOverrideRowTemplate($overrideRowTemplate);
 		$this->setNonOrderableItemMessage($nonOrderableItemMessage);

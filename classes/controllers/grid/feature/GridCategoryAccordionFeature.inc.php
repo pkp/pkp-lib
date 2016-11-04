@@ -17,13 +17,13 @@
 import('lib.pkp.classes.controllers.grid.feature.GridFeature');
 import('lib.pkp.classes.linkAction.request.NullAction');
 
-class GridCategoryAccordionFeature extends GridFeature{
+class GridCategoryAccordionFeature extends GridFeature {
 
 	/**
 	 * Constructor.
 	 */
 	function __construct() {
-		parent::GridFeature('categoryAccordion');
+		parent::__construct('categoryAccordion');
 	}
 
 	/**

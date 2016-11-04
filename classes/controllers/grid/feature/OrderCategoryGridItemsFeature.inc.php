@@ -20,7 +20,7 @@ define_exposed('ORDER_CATEGORY_GRID_CATEGORIES_ONLY', 0x01);
 define_exposed('ORDER_CATEGORY_GRID_CATEGORIES_ROWS_ONLY', 0x02);
 define_exposed('ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS', 0x03);
 
-class OrderCategoryGridItemsFeature extends OrderItemsFeature{
+class OrderCategoryGridItemsFeature extends OrderItemsFeature {
 
 	/**
 	 * Constructor.
@@ -32,7 +32,7 @@ class OrderCategoryGridItemsFeature extends OrderItemsFeature{
 	 * false and make sure to use a template file that adds row actions.
 	 */
 	function __construct($typeOption = ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS, $overrideRowTemplate = true) {
-		parent::OrderItemsFeature($overrideRowTemplate);
+		parent::__construct($overrideRowTemplate);
 
 		$this->addOptions(array('type' => $typeOption));
 	}

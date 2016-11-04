@@ -23,8 +23,8 @@ class BaseEmailTemplate extends DataObject {
 	/**
 	 * Constructor.
 	 */
-	function BaseEmailTemplate() {
-		parent::DataObject();
+	function __construct() {
+		parent::__construct();
 	}
 
 	//
@@ -180,7 +180,7 @@ class LocaleEmailTemplate extends BaseEmailTemplate {
 	/**
 	 * Constructor.
 	 */
-	function LocaleEmailTemplate() {
+	function __construct() {
 		parent::__construct();
 		$this->localeData = array();
 	}
